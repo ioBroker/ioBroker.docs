@@ -6,13 +6,17 @@ export const useStyles = makeStyles()(theme => ({
         margin: '0 auto',
         padding: '0 40px',
     },
-    section: {
+    communitySection: {
         padding: '194px 0 100px 0',
+        [theme.breakpoints.down('md')]: {
+            padding: '50px 0',
+        },
     },
     communityText: {
         fontFamily: 'inherit',
         whiteSpace: 'pre-wrap',
         fontSize: '18px',
+        textIndent: '4em',
         fontWeight: 400,
         lineHeight: '150%',
         letterSpacing: '0.02em',
@@ -67,6 +71,7 @@ export const useStyles = makeStyles()(theme => ({
         gap: theme.spacing(4),
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
+            marginTop: '100px',
             alignItems: 'center',
         },
     },
@@ -119,6 +124,9 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: '400',
         letterSpacing: '-0.03em',
         margin: `${theme.spacing(2)} 0 0 0`,
+        [theme.breakpoints.down('sm')]: {
+                fontSize: '57px',
+            },
     },
     statLabel: {
         fontFamily: 'Audiowide, sans-serif',
@@ -147,7 +155,7 @@ export const useStyles = makeStyles()(theme => ({
             content: '""',
             position: 'absolute',
             top: '50%',
-            left: '70%',
+            left: '50%',
             transform: 'translate(-50%, -50%)',
             width: '600px',
             height: '200px',

@@ -20,11 +20,11 @@ export const HistorySection: React.FC = () => {
                         BEGEISTERUNG FÜR SMART-HOME
                     </Typography>
                     <Typography component="p" className={classes.historyText}>
-                        Was 2013 als Wunsch nach Automatisierung für das eigene Zuhause begann, entwickelte sich zu einer flexiblen und leistungsstarken Plattform mit einer großen Community.
+                        /* Was 2013 als Wunsch nach Automatisierung für das eigene Zuhause begann, entwickelte sich zu einer flexiblen und leistungsstarken Plattform mit einer großen Community. */
                     </Typography>
                     <StyledButton
                     sx={{
-                                height: { sm: '80px',  md: '60px' },
+                                height: { sm: '60px',  md: '60px' },
                                 width: { sm: 'auto', md: '533px' },
                                 maxWidth: '533px',
                                 borderRadius: '10px!important'

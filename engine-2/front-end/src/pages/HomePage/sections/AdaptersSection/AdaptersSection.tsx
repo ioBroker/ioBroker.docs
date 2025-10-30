@@ -67,16 +67,16 @@ export const AdaptersSection: React.FC = () => {
     let iconCounter = 0;
 
     return (
-        <Box component="section" className={classes.section}>
+        <Box component="section" className={classes.adaptersSection}>
             <Box className={classes.container}>
                 <Box className={classes.adaptersContent}>
-                    <Box className={classes.adaptersText}>
+                    <Box className={classes.adaptersTextSection}>
                         <Box>
                             <SectionTitle>ADAPTER</SectionTitle>
-                            <Typography paragraph sx={{ mt: 2 }}>
-                                sind die Schnittstellen zu verschiedenen Geräten, Diensten und Technologien. Ein Adapter fungiert dabei wie
+                            <Typography paragraph sx={{ mt: 2}} className={classes.adaptersText}>
+                                /* sind die Schnittstellen zu verschiedenen Geräten, Diensten und Technologien. Ein Adapter fungiert dabei wie
                                 ein "Übersetzer", der Daten von einem spezifischen Gerät oder Protokoll in ein standardisiertes Format bringt, das ioBroker
-                                versteht. Gleichzeitig ermöglicht er, dass Befehle von ioBroker an die Geräte oder Dienste weitergegeben werden können.
+                                versteht. Gleichzeitig ermöglicht er, dass Befehle von ioBroker an die Geräte oder Dienste weitergegeben werden können. */
                             </Typography>
                         </Box>
                         <Box className={classes.buttonWrapper}>

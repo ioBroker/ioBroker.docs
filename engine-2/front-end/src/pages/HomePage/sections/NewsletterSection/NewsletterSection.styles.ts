@@ -9,10 +9,13 @@ export const useStyles = makeStyles()(theme => ({
             padding: '0 20px',
         },
     },
-    section: {
+    newsletterSection: {
         padding: '180px 0 164px 0',
         position: 'relative',
         zIndex: 2,
+         [theme.breakpoints.down('md')]: {
+            padding: '150px 0',     
+        },
     },
     newsletterContent: {
         display: 'flex',
@@ -30,10 +33,12 @@ export const useStyles = makeStyles()(theme => ({
             margin: 'auto',
             alignItems: 'center'
         },
+        [theme.breakpoints.down('md')]: {
+            textAlign: 'center'
+        },
         [theme.breakpoints.down('sm')]: {
             width: 'auto',
             margin: 'auto',
-            alignItems: 'center'
         },
     },
     newsletterTitle: {

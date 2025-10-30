@@ -21,7 +21,7 @@ export const CommunitySection: React.FC = () => {
     const { classes } = useStyles();
 
     return (
-        <Box component="section" className={classes.section}>
+        <Box component="section" className={classes.communitySection}>
             <Box className={classes.container}>
                 <Box sx={{ width: '100%', maxWidth: '1311px', textAlign: { xs: 'center', md: 'left' } }}>
                     <SectionTitle>COMMUNITY</SectionTitle>

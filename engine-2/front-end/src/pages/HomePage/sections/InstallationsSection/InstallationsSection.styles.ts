@@ -16,7 +16,7 @@ export const useStyles = makeStyles()(theme => ({
             padding: '0 20px',
         },
     },
-    section: {
+    installationSection: {
         marginTop: '150px',
         padding: '12px 0 306px 0',
         background: `url(/codeBackground.png) no-repeat center center`,
@@ -37,6 +37,14 @@ export const useStyles = makeStyles()(theme => ({
             pointerEvents: 'none',
             zIndex: -2,
             filter: 'brightness(1.2)',
+            [theme.breakpoints.down('md')]: {
+                left: '-200px',
+                bottom: 'calc(-120% )',
+            },
+            [theme.breakpoints.down('sm')]: {
+                 width: '1200px',
+                 height: '1200px',
+            },
         },
         '&::before': {
             content: '""',
@@ -48,6 +56,18 @@ export const useStyles = makeStyles()(theme => ({
             background: 'linear-gradient(to right, #080B1C 0%, #080B1C 2%, transparent 25%, transparent 100%)',
             pointerEvents: 'none',
             zIndex: 2,
+            [theme.breakpoints.down('md')]: {
+                left: '-200px',
+                bottom: 'calc(-120%)',
+            },
+            [theme.breakpoints.down('sm')]: {
+                 width: '1200px',
+                 height: '1200px',
+            },
+        },
+        [theme.breakpoints.down('md')]: {
+            marginTop: '50px',
+            padding: '12px 0 150px 0',
         },
     },
     installationsNumber: {
@@ -58,7 +78,7 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '-0.03em',
         textAlign: 'left',
         marginBottom: theme.spacing(4),
-         [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('md')]: {
             textAlign: 'center',
         },
     },

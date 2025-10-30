@@ -1,7 +1,7 @@
 import { makeStyles } from '../../../../theme';
 
 export const useStyles = makeStyles()(theme => ({
-    section: {
+    platformSection: {
         position: 'relative',
         marginTop: '165px',
         height: '100%',
@@ -63,6 +63,7 @@ export const useStyles = makeStyles()(theme => ({
         },
         [theme.breakpoints.down('sm')]: {
             fontSize: '36px',
+             textAlign: 'center',
             marginBottom: theme.spacing(4),
         },
     },
@@ -87,7 +88,8 @@ export const useStyles = makeStyles()(theme => ({
     },
     platformSubtitle: {
         marginBottom: theme.spacing(3),
-        fontSize: '1rem',
+        textIndent: '2em',
+        fontSize: '18px',
         lineHeight: 1.6,
         color: 'rgba(255, 255, 255, 0.8)',
         [theme.breakpoints.down('sm')]: {

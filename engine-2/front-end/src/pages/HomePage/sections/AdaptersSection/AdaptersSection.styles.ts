@@ -14,7 +14,7 @@ export const useStyles = makeStyles()(theme => ({
             padding: '0 20px',
         },
     },
-    section: {
+    adaptersSection: {
         position: 'relative',
         marginTop: '37px',
         padding: '80px 0',
@@ -44,10 +44,11 @@ export const useStyles = makeStyles()(theme => ({
             gap: theme.spacing(5),
         },
     },
-    adaptersText: {
+    adaptersTextSection: {
         flex: '1 1 45%',
         display: 'flex',
         height: 550,
+        fontSize: '18px',
         maxWidth: 533,
         flexDirection: 'column',
         justifyContent: 'space-between',
@@ -56,6 +57,11 @@ export const useStyles = makeStyles()(theme => ({
             alignItems: 'center',
         },
     },
+    adaptersText: {
+        fontSize: '18px',
+        textIndent: '2em',
+    },
+
     buttonWrapper: {
         position: 'relative',
         display: 'inline-block',

@@ -13,7 +13,7 @@ export const AboutSection: React.FC = () => {
     ];
 
     return (
-        <Box component="section" className={classes.section}>
+        <Box component="section" className={classes.aboutSection}>
             <Box className={classes.container}>
                 <Box sx={{ width: '100%', maxWidth: '1311px', textAlign: { xs: 'center', md: 'left' }, mb: 4 }}>
                     <SectionTitle>ÜBER IOBROKER</SectionTitle>
@@ -37,8 +37,8 @@ export const AboutSection: React.FC = () => {
                         iconSx={{
                             alignSelf: 'flex-end',
                             mb: 1,
-                            height: '40px',
-                            width: '40px'
+                            height: { xs: '30px', sm: '40px', md: '40px' },
+                            width: { xs: '30px', sm: '40px', md: '40px' }
                         }}
                     >
                         <Box sx={{ textAlign: 'left', flex: 1 }}>

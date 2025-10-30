@@ -27,6 +27,9 @@ export const useStyles = makeStyles()(theme => ({
         padding: '156px 0 100px 0',
         position: 'relative',
         zIndex: 3,
+        [theme.breakpoints.down('md')]: {
+            padding: '100px 0 100px 0'
+        },
     },
     historySection: {
         textAlign: 'center',
@@ -73,10 +76,10 @@ export const useStyles = makeStyles()(theme => ({
         width: 'fit-content',
         letterSpacing: '-0.05em',
         [theme.breakpoints.down('lg')]: {
-            fontSize: '250px',
-        },
-        [theme.breakpoints.down('lg')]: {
             fontSize: '200px',
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '180px',
         },
     },
     historyPlus: {
@@ -88,6 +91,9 @@ export const useStyles = makeStyles()(theme => ({
     historyWrapper: {
         paddingTop: '40px',
         textAlign: 'left',
+        [theme.breakpoints.down('md')]: {
+                textAlign: 'center'
+            },
     },
     historyTitle: {
         fontFamily: 'Audiowide, sans-serif',
@@ -96,7 +102,7 @@ export const useStyles = makeStyles()(theme => ({
         lineHeight: 1.5,
         letterSpacing: '-0.03em',
         [theme.breakpoints.down('sm')]: {
-            fontSize: '84px',
+            fontSize: '80px',
         },
     },
     historySubTitle: {
@@ -111,11 +117,12 @@ export const useStyles = makeStyles()(theme => ({
             width: 'auto',
         },
         [theme.breakpoints.down('sm')]: {
-            fontSize: '36px',
+            fontSize: '32px',
         },
     },
     historyText: {
         fontSize: '24px',
+        textIndent: '2em',
         fontWeight: '300',
         lineHeight: '140%',
         letterSpacing: '-0.01em',
@@ -124,6 +131,9 @@ export const useStyles = makeStyles()(theme => ({
         width: '557px',
         [theme.breakpoints.down('lg')]: {
             width: 'auto',
+        },
+         [theme.breakpoints.down('md')]: {
+            marginBottom: '100px',
         },
         [theme.breakpoints.down('sm')]: {
             fontSize: '18px',
