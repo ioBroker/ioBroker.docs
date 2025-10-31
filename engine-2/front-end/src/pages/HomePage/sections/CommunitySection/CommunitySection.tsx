@@ -23,8 +23,8 @@ export const CommunitySection: React.FC = () => {
     return (
         <Box component="section" className={classes.communitySection}>
             <Box className={classes.container}>
-                <Box sx={{ width: '100%', maxWidth: '1311px', textAlign: { xs: 'center', md: 'left' } }}>
-                    <SectionTitle>COMMUNITY</SectionTitle>
+                <Box sx={{ width: '100%', maxWidth: '1311px', textAlign: { xs: 'left', md: 'left' } }}>
+                    <SectionTitle sx={{ marginBottom: { xs: '10px !important', md: '24px !important' } }}>COMMUNITY</SectionTitle>
                 </Box>
                 <Box className={classes.communityTextWrapper}>
                     <Typography component="pre" className={classes.communityText}>

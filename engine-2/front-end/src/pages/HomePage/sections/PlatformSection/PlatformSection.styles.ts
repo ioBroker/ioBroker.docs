@@ -11,7 +11,7 @@ export const useStyles = makeStyles()(theme => ({
         overflow: 'hidden',
         paddingBottom: '60px',
         [theme.breakpoints.down('md')]: {
-            marginTop: '100px',
+            marginTop: '60px',
         },
         [theme.breakpoints.down('sm')]: {
             paddingBottom: '40px',
@@ -49,26 +49,42 @@ export const useStyles = makeStyles()(theme => ({
             padding: '0 20px',
         },
     },
+    platformTitleWrapper: {
+        [theme.breakpoints.down('sm')]: {
+            textAlign: 'left',
+            marginBottom: theme.spacing(4),
+        },
+    },
     platformTitle: {
         fontFamily: 'Audiowide, sans-serif',
         fontSize: '86px',
         lineHeight: '110%',
         fontWeight: '400',
         letterSpacing: '-3%',
-        marginBottom: theme.spacing(8),
         color: theme.palette.text.primary,
+        [theme.breakpoints.down('md')]: {
+            fontSize: '56px',
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '36px',
+        },
+    },
+    platformTitleBlue: {
+        fontFamily: 'Audiowide, sans-serif',
+        fontSize: '86px',
+        lineHeight: '110%',
+        fontWeight: '400',
+        letterSpacing: '-3%',
+        color: theme.palette.text.secondary,
+        marginBottom: theme.spacing(8),
         [theme.breakpoints.down('md')]: {
             fontSize: '56px',
             marginBottom: theme.spacing(6),
         },
         [theme.breakpoints.down('sm')]: {
-            fontSize: '36px',
-             textAlign: 'center',
+            fontSize: '25px',
             marginBottom: theme.spacing(4),
         },
-    },
-    platformTitleBlue: {
-        color: theme.palette.text.secondary,
     },
     descriptionWrapper: {
         display: 'flex',

@@ -8,11 +8,14 @@ export const useStyles = makeStyles()(theme => ({
         flexDirection: 'column',
         alignItems: 'center',
         padding: '0 40px',
+        [theme.breakpoints.down('sm')]: {
+            padding: '0 16px',
+        },
     },
     aboutSection: {
         padding: '170px 0',
         [theme.breakpoints.down('md')]: {
-            padding: '100px 0',
+            padding: '20px 0',
         },
     },
     itemTitle: {
@@ -27,7 +30,8 @@ export const useStyles = makeStyles()(theme => ({
             fontSize: '24px',
         },
         [theme.breakpoints.down('sm')]: {
-            fontSize: '20px',
+            fontSize: '16px',
+            marginBottom: '10px',
         },
     },
     itemDescription: {
@@ -38,6 +42,9 @@ export const useStyles = makeStyles()(theme => ({
         lineHeight: '150%',
         [theme.breakpoints.down('md')]: {
             fontSize: '18px',
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '16px',
         },
     },
     buttonWrapper: {

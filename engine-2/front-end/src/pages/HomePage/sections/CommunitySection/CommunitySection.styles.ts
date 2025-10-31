@@ -5,11 +5,14 @@ export const useStyles = makeStyles()(theme => ({
         maxWidth: 1393,
         margin: '0 auto',
         padding: '0 40px',
+         [theme.breakpoints.down('md')]: {
+            padding: '0 27px 0 24px',
+        },
     },
     communitySection: {
         padding: '194px 0 100px 0',
         [theme.breakpoints.down('md')]: {
-            padding: '50px 0',
+            padding: '40px 0',
         },
     },
     communityText: {
@@ -25,6 +28,9 @@ export const useStyles = makeStyles()(theme => ({
         maxWidth: 945,
         margin: '0 0',
         zIndex: 1,
+         [theme.breakpoints.down('sm')]: {
+            fontSize: '16px',
+        },
     },
 
     communityTextWrapper: {
@@ -71,8 +77,9 @@ export const useStyles = makeStyles()(theme => ({
         gap: theme.spacing(4),
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
-            marginTop: '100px',
+            marginTop: '60px',
             alignItems: 'center',
+            gap: '32px',
         },
     },
 
@@ -82,12 +89,16 @@ export const useStyles = makeStyles()(theme => ({
         minHeight: 398,
         display: 'flex',
         justifyContent: 'space-between',
+         [theme.breakpoints.down('sm')]: {
+             maxWidth: 352,
+             minHeight: 259,
+        },
     },
 
     statCardContentWrapper: {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'flex-start'
+        alignItems: 'flex-start',
     },
 
 
@@ -111,12 +122,19 @@ export const useStyles = makeStyles()(theme => ({
         flexDirection: 'column',
         justifyContent: 'space-between',
         textAlign: 'center',
+         [theme.breakpoints.down('sm')]: {
+               width: '292px',
+               height: '259px'
+        },
     },
 
     statTitle: {
         color: theme.palette.primary.main,
         fontSize: '40px',
-        letterSpacing: '-0.03em'
+        letterSpacing: '-0.03em',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '30px'
+        },
     },
     statNumber: {
         fontFamily: 'Audiowide, sans-serif',
@@ -125,14 +143,19 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '-0.03em',
         margin: `${theme.spacing(2)} 0 0 0`,
         [theme.breakpoints.down('sm')]: {
-                fontSize: '57px',
-            },
+                fontSize: '48px',
+                margin: 0,
+                lineHeight: '1'
+        },
     },
     statLabel: {
         fontFamily: 'Audiowide, sans-serif',
         fontSize: '20px',
         fontWeight: '400',
         letterSpacing: '-0.03em',
+         [theme.breakpoints.down('sm')]: {
+                fontSize: '12px',
+        },
     },
     joinButton: {
         background: 'none',
@@ -168,7 +191,8 @@ export const useStyles = makeStyles()(theme => ({
             color: theme.palette.primary.contrastText,
         },
         [theme.breakpoints.down('sm')]: {
-            width: '240px',
+            width: '304px',
+            height: '42px'
         },
     },
 }));

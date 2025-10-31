@@ -8,12 +8,14 @@ export const PlatformSection: React.FC = () => {
     return (
         <Box component="section" className={classes.platformSection}>
             <Box className={classes.container}>
-                <Typography variant="h1" className={classes.platformTitle}>
-                    Eine Plattform, <br />
-                    <span className={classes.platformTitleBlue}>
+                <Box className={classes.platformTitleWrapper}>
+                    <Typography variant="h1" className={classes.platformTitle}>
+                        Eine Plattform,
+                    </Typography>
+                    <Typography variant="h1" className={classes.platformTitleBlue}>
                         unendliche Möglichkeiten
-                    </span>
-                </Typography>
+                    </Typography>
+                </Box>
                 <Box className={classes.descriptionWrapper}>
                     <Box className={classes.descriptionContainer}>
                         <Typography className={classes.platformSubtitle}>
@@ -27,11 +29,12 @@ export const PlatformSection: React.FC = () => {
                         </Typography>
                         <StyledButton
                             sx={{
-                                marginTop: { xs: '40px', sm: '80px', md: '130px' },
-                                height: { xs: '50px', sm: '60px', md: '65px' },
-                                width: '100%',
+                                marginTop: { xs: '20px', sm: '20px', md: '130px' },
+                                height: { xs: '50px', sm: '51px', md: '65px' },
+                                width: { xs: '368px', sm: '368px', md: '100%' },
                                 maxWidth: '867px',
                                 padding: '10px 24px',
+                                fontSize: '16px'
                             }}
                         >
                             MEHR

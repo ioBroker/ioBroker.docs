@@ -14,6 +14,9 @@ export const useStyles = makeStyles()(theme => ({
         '&:hover': {
             backgroundColor: 'rgba(29, 144, 202, 0.1)',
         },
+        [theme.breakpoints.down('sm')]: {
+            borderRadius: '8px',
+        },
     },
     buttonText: {
         fontSize: '24px',
@@ -25,7 +28,7 @@ export const useStyles = makeStyles()(theme => ({
             fontSize: '22px',
         },
          [theme.breakpoints.down('sm')]: {
-            fontSize: '20px',
+            fontSize: '16px',
         },
     },
     

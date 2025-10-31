@@ -15,8 +15,8 @@ export const AboutSection: React.FC = () => {
     return (
         <Box component="section" className={classes.aboutSection}>
             <Box className={classes.container}>
-                <Box sx={{ width: '100%', maxWidth: '1311px', textAlign: { xs: 'center', md: 'left' }, mb: 4 }}>
-                    <SectionTitle>ÜBER IOBROKER</SectionTitle>
+                <Box sx={{ width: '100%', maxWidth: '1311px', textAlign: { xs: 'left', md: 'left' }, mb: { xs: 0, md: 4 } }}>
+                    <SectionTitle sx={{ marginBottom: { xs: '32px !important', md: '24px !important' } }}>ÜBER IOBROKER</SectionTitle>
                 </Box>
                 {items.map(item => (
                     <StyledButton
@@ -25,7 +25,7 @@ export const AboutSection: React.FC = () => {
                             width: '100%',
                             minHeight: { xs: 'auto', md: '214px' },
                             padding: { xs: '20px', sm: '30px', md: '40px' },
-                            marginBottom: '32px',
+                            marginBottom: { xs: '16px', md: '32px' },
                             display: 'flex',
                             justifyContent: 'space-between',
                             alignItems: 'flex-end',
@@ -50,7 +50,7 @@ export const AboutSection: React.FC = () => {
                 <Box className={classes.buttonWrapper}>
                     <StyledButton
                         sx={{
-                            marginTop: { xs: '20px', sm: '30px', md: '4px' },
+                            marginTop: { xs: '0px', md: '4px' },
                             height: { xs: '50px', sm: '60px', md: '80px' },
                             width: '100%',
                             padding: '10px 24px',

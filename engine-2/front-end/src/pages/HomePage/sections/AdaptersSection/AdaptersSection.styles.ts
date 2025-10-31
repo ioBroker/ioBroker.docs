@@ -7,7 +7,7 @@ export const useStyles = makeStyles()(theme => ({
         maxWidth: 1400,
         margin: '0 auto',
         paddingLeft: '64px',
-         [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('md')]: {
             padding: '0 40px',
         },
         [theme.breakpoints.down('sm')]: {
@@ -27,7 +27,7 @@ export const useStyles = makeStyles()(theme => ({
             padding: '0 0 60px 0',
         },
         [theme.breakpoints.down('sm')]: {
-            marginTop: '60px',
+            marginTop: '0',
             padding: '40px 0',
         },
 
@@ -36,11 +36,16 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         gap: theme.spacing(20),
         alignItems: 'stretch',
-        // alignItems: 'flex-start',
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
             alignItems: 'center',
             textAlign: 'center',
+            gap: theme.spacing(5),
+        },
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column',
+            alignItems: 'start',
+            textAlign: 'left',
             gap: theme.spacing(5),
         },
     },
@@ -54,12 +59,15 @@ export const useStyles = makeStyles()(theme => ({
         justifyContent: 'space-between',
         [theme.breakpoints.down('md')]: {
             height: 'auto',
-            alignItems: 'center',
+            alignItems: 'left',
         },
     },
     adaptersText: {
         fontSize: '18px',
         textIndent: '2em',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '16px',
+        },
     },
 
     buttonWrapper: {
@@ -78,7 +86,7 @@ export const useStyles = makeStyles()(theme => ({
             zIndex: 0,
         },
         [theme.breakpoints.down('md')]: {
-            marginTop: '50px'
+            marginTop: '48px'
         },
     },
     adaptersGrid: {
@@ -114,6 +122,7 @@ export const useStyles = makeStyles()(theme => ({
         },
         [theme.breakpoints.down('sm')]: {
             gap: theme.spacing(0.5),
+            margin: '0 auto',
         },
     },
     adapterColumn: {
@@ -127,19 +136,19 @@ export const useStyles = makeStyles()(theme => ({
             gap: theme.spacing(0.75),
             marginBottom: '28px',
         },
-        [theme.breakpoints.down('sm')]: {
-            gap: theme.spacing(0.5),
-            marginBottom: '20px',
-        },
+        // [theme.breakpoints.down('sm')]: {
+        //     gap: theme.spacing(0.5),
+        //     marginBottom: '20px',
+        // },
     },
     offsetColumn: {
         transform: `translateY(38px)`,
         [theme.breakpoints.down('md')]: {
             transform: 'translateY(28px)',
         },
-        [theme.breakpoints.down('sm')]: {
-            transform: 'translateY(20px)',
-        },
+        // [theme.breakpoints.down('sm')]: {
+        //     transform: 'translateY(20px)',
+        // },
     },
     adapterIcon: {
         backgroundColor: theme.palette.secondary.main,
@@ -151,15 +160,15 @@ export const useStyles = makeStyles()(theme => ({
         justifyContent: 'center',
         flexShrink: 0,
         [theme.breakpoints.down('md')]: {
-            width: 64,
-            height: 64,
+            width: 70,
+            height: 70,
             borderRadius: '12px',
         },
-        [theme.breakpoints.down('sm')]: {
-            width: 50,
-            height: 50,
-            borderRadius: '10px',
-        },
+        // [theme.breakpoints.down('sm')]: {
+        //     width: 50,
+        //     height: 50,
+        //     borderRadius: '10px',
+        // },
     },
     iconImage: {
         maxWidth: '70%',
