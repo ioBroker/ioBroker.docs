@@ -24,7 +24,7 @@ export const HeroSection: React.FC = () => {
                             <Box className={classes.platformTextComment}>// Open-Source-Plattform </Box> für Smart-Home-Automatisierung
                         </Typography>
                         <Button className={classes.installButton}>
-                            INSTALLIEREN
+                            Installieren
                         </Button>
                     </Box>
 
@@ -33,8 +33,8 @@ export const HeroSection: React.FC = () => {
                             <img src={ValuesGroup} alt="Values" className={classes.valuesImage} />
                         </Box> */}
                         <Box className={classes.supportIcons}>
-                            <Box className={classes.supportIconPayPal}><img alt="PayPal Icon" src={PayPalIcon} /></Box>
-                            <Box className={classes.supportIconAmazon}><img alt="Amazon Icon" src={AmazonIcon} /></Box>
+                            <Box className={classes.supportIconPayPal}><img alt="PayPal Icon" src={PayPalIcon} className={classes.paypalIconImage}/></Box>
+                            <Box className={classes.supportIconAmazon}><img alt="Amazon Icon" src={AmazonIcon} className={classes.amazonIconImage} /></Box>
                         </Box>
                         <Typography className={classes.supportText}>
                             Unsere Software ist kostenlos. <br /> Unterstütze uns!

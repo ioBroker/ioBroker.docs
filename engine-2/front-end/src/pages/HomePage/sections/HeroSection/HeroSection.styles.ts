@@ -79,12 +79,12 @@ export const useStyles = makeStyles()(theme => ({
         marginBottom: '251px',
         marginTop: '36px',
         [theme.breakpoints.down('md')]: {
-            marginBottom: '100px',
+            marginBottom: '33px',
             marginTop: theme.spacing(2),
             maxWidth: '400px',
         },
         [theme.breakpoints.down('sm')]: {
-            maxWidth: '300px',
+            maxWidth: '325px',
         },
     },
     heroPlatformText: {
@@ -93,8 +93,10 @@ export const useStyles = makeStyles()(theme => ({
         color: 'rgba(255, 255, 255, 0.9)',
         lineHeight: '130%',
         [theme.breakpoints.down('md')]: {
-            fontSize: '20px',
-            // marginBottom: theme.spacing(4),
+            fontSize: '18px',
+            textAlign: 'left',
+            width: '325px',
+            marginBottom: '396px',
         },
     },
     installButton: {
@@ -109,19 +111,27 @@ export const useStyles = makeStyles()(theme => ({
         marginBottom: '73px',
         fontSize: '24px',
         borderRadius: theme.shape.borderRadius,
+        textTransform: 'uppercase',
         '&:hover': {
             backgroundColor: theme.palette.primary.light,
         },
+        // [theme.breakpoints.down('md')]: {
+        //     width: '100%',
+        //     maxWidth: '400px',
+        //     padding: '14px 32px',
+        //     marginBottom: theme.spacing(4),
+        // },
         [theme.breakpoints.down('md')]: {
-            width: '100%',
-            maxWidth: '400px',
-            padding: '14px 32px',
-            marginBottom: theme.spacing(4),
-        },
-        [theme.breakpoints.down('sm')]: {
-            maxWidth: '100%',
-            fontSize: '20px',
-            height: '48px',
+            width: '368px',
+            height: '65px',
+            borderRadius: '16px',
+            backgroundColor: 'transparent !important',
+            borderWidth: '2px',
+            borderStyle: 'solid',
+            borderColor: theme.palette.primary.main,
+            fontFamily: 'Saira',
+            textTransform: 'capitalize',
+            marginBottom: '56px',
         },
     },
     heroRight: {
@@ -130,9 +140,10 @@ export const useStyles = makeStyles()(theme => ({
         flexDirection: 'column',
         alignItems: 'flex-start',
         [theme.breakpoints.down('md')]: {
-            textAlign: 'center',
-            alignItems: 'center',
-            marginTop: theme.spacing(3),
+            flexDirection: 'row-reverse',
+            alignItems: 'start',
+            height: '48px',
+            gap: '16px'
         },
     },
     supportIconsWrapper: {
@@ -167,7 +178,8 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '-3%',
         fontWeight: '400',
         [theme.breakpoints.down('md')]: {
-            textAlign: 'center',
+            textAlign: 'left',
+             width: '224px',
         },
     },
     supportIcons: {
@@ -177,6 +189,7 @@ export const useStyles = makeStyles()(theme => ({
         marginBottom: '24px',
         [theme.breakpoints.down('md')]: {
             justifyContent: 'center',
+            gap: '16px'
         },
     },
     supportIconAmazon: {
@@ -193,7 +206,12 @@ export const useStyles = makeStyles()(theme => ({
         transition: 'background-color 0.2s',
         '&:hover': {
             backgroundColor: 'rgba(29, 144, 202, 0.1)',
-        }
+        },
+        [theme.breakpoints.down('md')]: {
+            width: '56px',
+            height: '46px',
+            paddingBottom: '20px',
+        },
     },
     supportIconPayPal: {
         border: `1px solid ${theme.palette.primary.main}`,
@@ -208,12 +226,32 @@ export const useStyles = makeStyles()(theme => ({
         transition: 'background-color 0.2s',
         '&:hover': {
             backgroundColor: 'rgba(29, 144, 202, 0.1)',
-        }
+        },
+         [theme.breakpoints.down('md')]: {
+            width: '56px',
+            height: '46px',
+        },
     },
     platformTextComment: {
         paddingLeft: '114px',
         [theme.breakpoints.down('md')]: {
             paddingLeft: '0',
+        },
+    },
+    paypalIconImage: {
+        width: '100%',
+        height: 'auto',
+        [theme.breakpoints.down('md')]: {
+            width: '24px',
+            height: '30px'
+        },
+    },
+    amazonIconImage: {
+        width: '100%',
+        height: 'auto',
+        [theme.breakpoints.down('md')]: {
+             width: '36px',
+            height: '37px'
         },
     },
 }));
