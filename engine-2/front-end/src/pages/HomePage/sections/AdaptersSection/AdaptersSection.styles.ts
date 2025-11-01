@@ -19,9 +19,6 @@ export const useStyles = makeStyles()(theme => ({
         marginTop: '37px',
         padding: '80px 0',
         height: '100%',
-        background: `url(/codeBackground.png) no-repeat center center`,
-        backgroundPosition: 'top',
-        backgroundSize: 'cover',
         [theme.breakpoints.down('md')]: {
             marginTop: '100px',
             padding: '0 0 60px 0',
@@ -40,13 +37,10 @@ export const useStyles = makeStyles()(theme => ({
             flexDirection: 'column',
             alignItems: 'center',
             textAlign: 'center',
-            gap: theme.spacing(5),
+            gap: theme.spacing(8),
         },
         [theme.breakpoints.down('sm')]: {
-            flexDirection: 'column',
-            alignItems: 'start',
             textAlign: 'left',
-            gap: theme.spacing(5),
         },
     },
     adaptersTextSection: {
@@ -59,18 +53,22 @@ export const useStyles = makeStyles()(theme => ({
         justifyContent: 'space-between',
         [theme.breakpoints.down('md')]: {
             height: 'auto',
-            alignItems: 'left',
+            order: 1,
+            justifyContent: 'flex-start',
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: '100%',
         },
     },
     adaptersText: {
         fontSize: '18px',
         textIndent: '2em',
         [theme.breakpoints.down('sm')]: {
-            fontSize: '16px',
+            fontSize: '20px',
         },
     },
 
-    buttonWrapper: {
+    buttonWrapperDesktop: {
         position: 'relative',
         display: 'inline-block',
         '&::before': {
@@ -86,17 +84,36 @@ export const useStyles = makeStyles()(theme => ({
             zIndex: 0,
         },
         [theme.breakpoints.down('md')]: {
-            marginTop: '48px'
+            display: 'none',
         },
+    },
+    buttonWrapperMobile: {
+        position: 'relative',
+        display: 'none',
+        [theme.breakpoints.down('md')]: {
+            display: 'flex',
+            justifyContent: 'center',
+            order: 3,
+            minHeight: '100px',
+            alignItems: 'center',
+        },
+    },
+    buttonGlow: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '600px',
+        height: '200px',
+        background: 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(0, 88, 148, 0.3) 40%, rgba(0, 88, 148, 0) 70%)',
+        pointerEvents: 'none',
+        zIndex: 0,
     },
     adaptersGrid: {
         flex: '1 1 55%',
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'flex-end',
-        justifyContent: 'center',
-        gap: theme.spacing(1),
         position: 'relative',
+        display: 'flex',
+        justifyContent: 'center',
         '&::before': {
             content: '""',
             position: 'absolute',
@@ -105,7 +122,7 @@ export const useStyles = makeStyles()(theme => ({
             transform: 'translate(-50%, -50%)',
             width: '1200px',
             height: '1200px',
-            background: 'radial-gradient(circle, rgba(0, 88, 148, 0.7) 0%, rgba(255, 255, 255, 0) 55%)',
+            background: 'radial-gradient(circle, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
             zIndex: 0,
             [theme.breakpoints.down('md')]: {
@@ -118,11 +135,30 @@ export const useStyles = makeStyles()(theme => ({
             },
         },
         [theme.breakpoints.down('md')]: {
+            order: 2,
+        },
+    },
+    desktopGrid: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        justifyContent: 'center',
+        gap: theme.spacing(1),
+        [theme.breakpoints.down('md')]: {
             gap: theme.spacing(0.75),
         },
         [theme.breakpoints.down('sm')]: {
+            display: 'none',
+        },
+    },
+    mobileGrid: {
+        display: 'none',
+        [theme.breakpoints.down('sm')]: {
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'flex-end',
+            justifyContent: 'center',
             gap: theme.spacing(0.5),
-            margin: '0 auto',
         },
     },
     adapterColumn: {
@@ -136,19 +172,19 @@ export const useStyles = makeStyles()(theme => ({
             gap: theme.spacing(0.75),
             marginBottom: '28px',
         },
-        // [theme.breakpoints.down('sm')]: {
-        //     gap: theme.spacing(0.5),
-        //     marginBottom: '20px',
-        // },
+        [theme.breakpoints.down('sm')]: {
+            gap: theme.spacing(0.5),
+            marginBottom: '20px',
+        },
     },
     offsetColumn: {
         transform: `translateY(38px)`,
         [theme.breakpoints.down('md')]: {
             transform: 'translateY(28px)',
         },
-        // [theme.breakpoints.down('sm')]: {
-        //     transform: 'translateY(20px)',
-        // },
+        [theme.breakpoints.down('sm')]: {
+            transform: 'translateY(20px)',
+        },
     },
     adapterIcon: {
         backgroundColor: theme.palette.secondary.main,
@@ -164,23 +200,19 @@ export const useStyles = makeStyles()(theme => ({
             height: 70,
             borderRadius: '12px',
         },
-        // [theme.breakpoints.down('sm')]: {
-        //     width: 50,
-        //     height: 50,
-        //     borderRadius: '10px',
-        // },
+        [theme.breakpoints.down('sm')]: {
+            width: 64,
+            height: 64,
+            borderRadius: '18px',
+        },
     },
     iconImage: {
         maxWidth: '70%',
         maxHeight: '70%',
         objectFit: 'contain',
-        [theme.breakpoints.down('md')]: {
-            maxWidth: '65%',
-            maxHeight: '65%',
-        },
         [theme.breakpoints.down('sm')]: {
-            maxWidth: '60%',
-            maxHeight: '60%',
+            maxWidth: '75%',
+            maxHeight: '75%',
         },
     },
 }));

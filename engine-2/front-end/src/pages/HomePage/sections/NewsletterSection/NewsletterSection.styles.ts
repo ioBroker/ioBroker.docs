@@ -10,11 +10,11 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     newsletterSection: {
-        padding: '180px 0 164px 0',
+        padding: '245px 0 246px 0',
         position: 'relative',
         zIndex: 2,
-         [theme.breakpoints.down('md')]: {
-            padding: '150px 0',     
+        [theme.breakpoints.down('md')]: {
+            padding: '108px 0',
         },
     },
     newsletterContent: {
@@ -23,18 +23,20 @@ export const useStyles = makeStyles()(theme => ({
         alignItems: 'end',
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
-            alignItems: 'center'
+            alignItems: 'center',
+            gap: '51px',
         },
     },
     newslettertext: {
         width: '460px',
         marginRight: '153px',
+        height: 'fit-content',
         [theme.breakpoints.down('lg')]: {
             margin: 'auto',
             alignItems: 'center'
         },
         [theme.breakpoints.down('md')]: {
-            textAlign: 'center'
+            textAlign: 'left'
         },
         [theme.breakpoints.down('sm')]: {
             width: 'auto',
@@ -49,7 +51,8 @@ export const useStyles = makeStyles()(theme => ({
         marginTop: '30px',
         lineHeight: '130%',
         [theme.breakpoints.down('sm')]: {
-            fontSize: '26px',
+            fontSize: '18px',
+            marginTop: 0
         },
         // [theme.breakpoints.down('md')]: {
         //     textAlign: 'center'
@@ -62,6 +65,11 @@ export const useStyles = makeStyles()(theme => ({
         marginBottom: theme.spacing(2),
         paddingBottom: "10px",
         lineHeight: '130%',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '16px',
+            marginBottom: 0,
+            paddingBottom: 0,
+        },
     },
     newsletterInputContainer: {
         border: 'none',
@@ -88,7 +96,7 @@ export const useStyles = makeStyles()(theme => ({
         },
         [theme.breakpoints.down('sm')]: {
             width: 10,
-            height: 50,
+            height: 46,
         },
     },
     bracesRight: {
@@ -103,7 +111,7 @@ export const useStyles = makeStyles()(theme => ({
         },
         [theme.breakpoints.down('sm')]: {
             width: 10,
-            height: 50,
+            height: 46,
         },
     },
     newsletterInput: {

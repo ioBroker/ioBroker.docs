@@ -10,10 +10,15 @@ export const HistorySection: React.FC = () => {
             <Box className={classes.container}>
                 <Box className={classes.historyNumberWrapper}>
                     <Box component="span" className={classes.historyNumber}>10</Box>
-                    <Box component="span" className={classes.historyPlus}>+</Box>
+                    <Box className={classes.plusJahreWrapper}>
+                        <Box component="span" className={classes.historyPlus}>+</Box>
+                        <Typography className={cx(classes.historyTitle, classes.historyTitleMobile)}>
+                            Jahre
+                        </Typography>
+                    </Box>
                 </Box>
                 <Box className={classes.historyWrapper}>
-                    <Typography className={classes.historyTitle}>
+                    <Typography className={cx(classes.historyTitle, classes.historyTitleDesktop)}>
                         Jahre
                     </Typography>
                     <Typography className={classes.historySubTitle}>
@@ -23,12 +28,11 @@ export const HistorySection: React.FC = () => {
                         /* Was 2013 als Wunsch nach Automatisierung für das eigene Zuhause begann, entwickelte sich zu einer flexiblen und leistungsstarken Plattform mit einer großen Community. */
                     </Typography>
                     <StyledButton
-                    sx={{
-                                height: { sm: '60px',  md: '60px' },
-                                width: { sm: 'auto', md: '533px' },
-                                maxWidth: '533px',
-                                borderRadius: '10px!important'
-                            }}
+                        sx={{
+                            height: { sm: '60px', md: '60px' },
+                            width: { sm: 'auto', md: '533px' },
+                            maxWidth: '533px',
+                        }}
                     >IOBROKER GESCHICHTE</StyledButton>
                 </Box>
             </Box>

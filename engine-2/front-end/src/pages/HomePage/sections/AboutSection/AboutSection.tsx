@@ -23,12 +23,13 @@ export const AboutSection: React.FC = () => {
                         key={item.title}
                         sx={{
                             width: '100%',
-                            minHeight: { xs: 'auto', md: '214px' },
-                            padding: { xs: '20px', sm: '30px', md: '40px' },
+                            minHeight: { xs: 'auto', md: '140px' },
+                            padding: { xs: '20px', sm: '24px', md: '24px 39px' },
                             marginBottom: { xs: '16px', md: '32px' },
                             display: 'flex',
                             justifyContent: 'space-between',
                             alignItems: 'flex-end',
+                            borderRadius: { xs: '16px', sm: '16px', md: '24px' },
                         }}
                         textSx={{
                             width: '100%',
@@ -55,7 +56,8 @@ export const AboutSection: React.FC = () => {
                             width: '100%',
                             padding: '10px 24px',
                             position: 'relative',
-                            zIndex: 1
+                            zIndex: 1,
+                            borderRadius: { xs: '8px', sm: '8px', md: '16px' },
                         }}
                     >
                         MEHR

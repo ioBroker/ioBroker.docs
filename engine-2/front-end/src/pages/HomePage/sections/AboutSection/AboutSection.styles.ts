@@ -15,12 +15,12 @@ export const useStyles = makeStyles()(theme => ({
     aboutSection: {
         padding: '170px 0',
         [theme.breakpoints.down('md')]: {
-            padding: '20px 0',
+            padding: '60px 0',
         },
     },
     itemTitle: {
         color: theme.palette.text.primary,
-        fontSize: '32px',
+        fontSize: '24px',
         fontWeight: '400',
         fontFamily: 'Audiowide, sans-serif',
         letterSpacing: '-2%',
@@ -36,7 +36,7 @@ export const useStyles = makeStyles()(theme => ({
     },
     itemDescription: {
         color: theme.palette.text.primary,
-        fontSize: '24px',
+        fontSize: '18px',
         fontWeight: '200',
         letterSpacing: '-3%',
         lineHeight: '150%',
@@ -52,17 +52,17 @@ export const useStyles = makeStyles()(theme => ({
         display: 'block',
         zindex: '0',
         width: '100%',
-        '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '50%',
-            left: '90%',
-            transform: 'translate(-50%, -50%)',
-            width: '900px',
-            height: '300px',
-            background: 'radial-gradient(ellipse, rgba(12, 36, 137, 0.3) 0%, rgba(255, 255, 255, 0) 70%)',
-            pointerEvents: 'none',
-            zIndex: 0,
-        },
+        // '&::before': {
+        //     content: '""',
+        //     position: 'absolute',
+        //     top: '50%',
+        //     left: '90%',
+        //     transform: 'translate(-50%, -50%)',
+        //     width: '900px',
+        //     height: '300px',
+        //     background: 'radial-gradient(ellipse, rgba(12, 36, 137, 0.3) 0%, rgba(255, 255, 255, 0) 70%)',
+        //     pointerEvents: 'none',
+        //     zIndex: 0,
+        // },
     },
 }));

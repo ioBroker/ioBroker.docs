@@ -13,15 +13,15 @@ export const InstallationsSection: React.FC = () => {
         <>
             <Box component="section" className={classes.installationSection} ref={sectionRef}>
                 <Box className={classes.container}>
-                    <Box sx={{ width: '100%', maxWidth: '1400px', textAlign: { xs: 'center', md: 'left' } }}>
+                    <Box sx={{ width: '100%', maxWidth: '1400px', textAlign: { xs: 'left', md: 'left' } }}>
                         <SectionTitle>INSTALLATIONEN</SectionTitle>
                     </Box>
                     <Typography className={classes.installationsNumber}>73 898</Typography>
                     <Box sx={{ textAlign: { xs:'center', sm: 'center', md: 'right' } }}>
                         <StyledButton
                             sx={{
-                                height: { sm: '60px', md: '60px' },
-                                width: { sm: 'auto', md: '535px' },
+                                height: {xs: '44px', sm: '44px', md: '60px' },
+                                width: { xs: '368px', sm: '368px', md: '535px' },
                                 maxWidth: '535px',
                                 borderRadius: '10px!important'
                             }}

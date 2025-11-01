@@ -71,8 +71,8 @@ function Link(props: {
 export const Footer = ({ scrollTop }: FooterProps) => {
     const { classes } = useFooterStyles();
     const [, setShowCookies] = useState(false);
-    const isSmallScreen = useMediaQuery('(max-width:380px)');
-    const bracesSize = isSmallScreen ? { height: 120, width: 130 } : { height: 120, width: 150 };
+    const isSmallScreen = useMediaQuery('(max-width:401px)');
+    const bracesSize = isSmallScreen ? { height: 120, width: 130 } : { height: 171, width: 195 };
 
     return (
         <Box className={classes.root}>

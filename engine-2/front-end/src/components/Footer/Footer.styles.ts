@@ -40,7 +40,7 @@ export const useFooterStyles = makeStyles()((theme) => ({
     },
     logo: {
         width: '100%',
-        maxWidth: 400,
+        maxWidth: 393,
     },
     sectionsWrapper: {
         gap: '60px',
@@ -53,6 +53,7 @@ export const useFooterStyles = makeStyles()((theme) => ({
     sectionsRow: {
         gap: '40px',
         display: 'flex',
+        fontSize: '18px',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -92,7 +93,7 @@ export const useFooterStyles = makeStyles()((theme) => ({
         gap: 12,
     },
     supportText: {
-        textAlign: 'left',
+        textAlign: 'center',
     },
     donateButtons: {
         display: 'flex',

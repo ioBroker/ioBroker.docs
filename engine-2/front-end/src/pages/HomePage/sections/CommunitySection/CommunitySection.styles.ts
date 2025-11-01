@@ -5,12 +5,12 @@ export const useStyles = makeStyles()(theme => ({
         maxWidth: 1393,
         margin: '0 auto',
         padding: '0 40px',
-         [theme.breakpoints.down('md')]: {
-            padding: '0 27px 0 24px',
+        [theme.breakpoints.down('md')]: {
+            padding: '0 16px 0 16px',
         },
     },
     communitySection: {
-        padding: '194px 0 100px 0',
+        padding: '20px 0 100px 0',
         [theme.breakpoints.down('md')]: {
             padding: '40px 0',
         },
@@ -18,7 +18,7 @@ export const useStyles = makeStyles()(theme => ({
     communityText: {
         fontFamily: 'inherit',
         whiteSpace: 'pre-wrap',
-        fontSize: '18px',
+        fontSize: '20px',
         textIndent: '4em',
         fontWeight: 400,
         lineHeight: '150%',
@@ -28,9 +28,6 @@ export const useStyles = makeStyles()(theme => ({
         maxWidth: 945,
         margin: '0 0',
         zIndex: 1,
-         [theme.breakpoints.down('sm')]: {
-            fontSize: '16px',
-        },
     },
 
     communityTextWrapper: {
@@ -43,7 +40,7 @@ export const useStyles = makeStyles()(theme => ({
             transform: 'translate(-50%, -50%)',
             width: '600px',
             height: '700px',
-            background: 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 70%)',
+            background: 'radial-gradient(ellipse, rgba(0, 88, 148, 0.4) 0%, rgba(255, 255, 255, 0) 70%)',
             pointerEvents: 'none',
             zIndex: -1,
             [theme.breakpoints.down('md')]: {
@@ -54,16 +51,16 @@ export const useStyles = makeStyles()(theme => ({
             [theme.breakpoints.down('sm')]: {
                 width: '400px',
                 height: '400px',
-                left: '50%',
+                top: '135%',
+                left: '80%',
             },
         },
-
     },
 
     secondaryText: {
         textAlign: 'left',
         maxWidth: 945,
-        fontSize: '18px',
+        fontSize: '20px',
         letterSpacing: '0.02em',
         fontWeight: 400,
         margin: `${theme.spacing(2)} 0`,
@@ -73,7 +70,7 @@ export const useStyles = makeStyles()(theme => ({
     statsContainer: {
         display: 'flex',
         justifyContent: 'space-between',
-        marginTop: '183px',
+        marginTop: '120px',
         gap: theme.spacing(4),
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
@@ -81,17 +78,30 @@ export const useStyles = makeStyles()(theme => ({
             alignItems: 'center',
             gap: '32px',
         },
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'start',
+            gap: '16px',
+        },
     },
 
     statCard: {
         flex: 1,
-        maxWidth: 350,
-        minHeight: 398,
+        maxWidth: 400,
+        minHeight: 400,
         display: 'flex',
         justifyContent: 'space-between',
-         [theme.breakpoints.down('sm')]: {
-             maxWidth: 352,
-             minHeight: 259,
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: 352,
+            minHeight: 259,
+        },
+        [theme.breakpoints.down('sm')]: {
+            flex: '1 1 150px',
+            width: '174px',
+            maxWidth: '174px',
+            // minWidth: '174px',
+            minHeight: 171,
         },
     },
 
@@ -99,6 +109,10 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
+        padding: '0 10px',
+        [theme.breakpoints.down('sm')]: {
+            padding: '0 5px',
+        },
     },
 
 
@@ -107,12 +121,18 @@ export const useStyles = makeStyles()(theme => ({
         borderBottom: `1px solid ${theme.palette.primary.main}`,
         borderLeft: `1px solid ${theme.palette.primary.main}`,
         width: 30,
+        [theme.breakpoints.down('sm')]: {
+            width: 9,
+        },
     },
     bracesRight: {
         borderTop: `1px solid ${theme.palette.primary.main}`,
         borderBottom: `1px solid ${theme.palette.primary.main}`,
         borderRight: `1px solid ${theme.palette.primary.main}`,
         width: 30,
+        [theme.breakpoints.down('sm')]: {
+            width: 9,
+        },
     },
 
     bracesContent: {
@@ -122,10 +142,13 @@ export const useStyles = makeStyles()(theme => ({
         flexDirection: 'column',
         justifyContent: 'space-between',
         textAlign: 'center',
-         [theme.breakpoints.down('sm')]: {
-               width: '292px',
-               height: '259px'
-        },
+        [theme.breakpoints.down('sm')]: {
+            padding: '16px 0',
+        }
+        //  [theme.breakpoints.down('sm')]: {
+        //        width: '292px',
+        //        height: '259px'
+        // },
     },
 
     statTitle: {
@@ -133,7 +156,8 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '40px',
         letterSpacing: '-0.03em',
         [theme.breakpoints.down('sm')]: {
-            fontSize: '30px'
+            fontSize: '20px',
+            textTransform: 'uppercase',
         },
     },
     statNumber: {
@@ -143,9 +167,9 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '-0.03em',
         margin: `${theme.spacing(2)} 0 0 0`,
         [theme.breakpoints.down('sm')]: {
-                fontSize: '48px',
-                margin: 0,
-                lineHeight: '1'
+            fontSize: '28px',
+            height: '40px',
+            margin: '3px 0 0 0',
         },
     },
     statLabel: {
@@ -153,20 +177,21 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '20px',
         fontWeight: '400',
         letterSpacing: '-0.03em',
-         [theme.breakpoints.down('sm')]: {
-                fontSize: '12px',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '12px',
+            fontWeight: '200',
         },
     },
     joinButton: {
-        background: 'none',
         height: '60px',
-        width: '292px',
-        border: `1px solid ${theme.palette.primary.main}`,
-        borderRadius: '8px',
-        color: theme.palette.text.primary,
-        fontFamily: 'Audiowide, sans-serif',
-        fontSize: '16px',
+        width: '319px',
+        border: 'none',
+        backgroundColor: theme.palette.secondary.main,
+        color: theme.palette.primary.contrastText,
         fontWeight: '400',
+        fontFamily: 'Audiowide, sans-serif',
+        borderRadius: '12px',
+        fontSize: '16px',
         letterSpacing: '-0.03em',
         cursor: 'pointer',
         padding: '10px 40px',
@@ -174,25 +199,31 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
         display: 'block',
         zindex: '0',
-        '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '600px',
-            height: '200px',
-            background: 'radial-gradient(ellipse, rgba(12, 36, 137, 0.3) 0%, rgba(255, 255, 255, 0) 70%)',
-            pointerEvents: 'none',
-            zIndex: 0,
-        },
+        // '&::before': {
+        //     content: '""',
+        //     position: 'absolute',
+        //     top: '50%',
+        //     left: '50%',
+        //     transform: 'translate(-50%, -50%)',
+        //     width: '600px',
+        //     height: '200px',
+        //     background: 'radial-gradient(ellipse, rgba(12, 36, 137, 0.3) 0%, rgba(255, 255, 255, 0) 70%)',
+        //     pointerEvents: 'none',
+        //     zIndex: 0,
+        // },
         '&:hover': {
             backgroundColor: theme.palette.primary.main,
             color: theme.palette.primary.contrastText,
         },
         [theme.breakpoints.down('sm')]: {
-            width: '304px',
-            height: '42px'
+            width: '100%',
+            maxWidth: '140px',
+            backgroundColor: 'transparent',
+            border: `1px solid ${theme.palette.secondary.main}`,
+            height: '32px',
+            fontSize: '10px',
+            padding: '5px 10px',
+            borderRadius: '6px',
         },
     },
 }));

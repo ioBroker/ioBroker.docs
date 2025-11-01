@@ -75,28 +75,30 @@ export const useStyles = makeStyles()(theme => ({
     },
     heroLogo: {
         width: '100%',
-        maxWidth: '643px',
-        marginBottom: '251px',
+        maxWidth: '470px',
+        marginBottom: '334px',
         marginTop: '36px',
         [theme.breakpoints.down('md')]: {
-            marginBottom: '33px',
+            marginBottom: '72px',
             marginTop: theme.spacing(2),
             maxWidth: '400px',
         },
         [theme.breakpoints.down('sm')]: {
-            maxWidth: '325px',
+            maxWidth: '354px',
         },
     },
     heroPlatformText: {
         fontSize: '24px',
-        marginBottom: theme.spacing(9),
+        marginBottom: '63px',
         color: 'rgba(255, 255, 255, 0.9)',
+        textAlign: 'right',
         lineHeight: '130%',
         [theme.breakpoints.down('md')]: {
             fontSize: '18px',
             textAlign: 'left',
             width: '325px',
             marginBottom: '396px',
+            textIndent: '4em'
         },
     },
     installButton: {
@@ -105,11 +107,11 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: '400',
         fontFamily: 'Audiowide, sans-serif',
         letterSpacing: '-3%',
-        width: '452px',
-        height: '54px',
+        width: '469px',
+        height: '60px',
         padding: '14px 138px',
-        marginBottom: '73px',
-        fontSize: '24px',
+        // marginBottom: '73px',
+        fontSize: '19px',
         borderRadius: theme.shape.borderRadius,
         textTransform: 'uppercase',
         '&:hover': {
@@ -123,14 +125,8 @@ export const useStyles = makeStyles()(theme => ({
         // },
         [theme.breakpoints.down('md')]: {
             width: '368px',
-            height: '65px',
-            borderRadius: '16px',
-            backgroundColor: 'transparent !important',
-            borderWidth: '2px',
-            borderStyle: 'solid',
-            borderColor: theme.palette.primary.main,
-            fontFamily: 'Saira',
-            textTransform: 'capitalize',
+            height: '60px',
+            borderRadius: '8px',
             marginBottom: '56px',
         },
     },
@@ -140,7 +136,7 @@ export const useStyles = makeStyles()(theme => ({
         flexDirection: 'column',
         alignItems: 'flex-start',
         [theme.breakpoints.down('md')]: {
-            flexDirection: 'row-reverse',
+            flexDirection: 'row',
             alignItems: 'start',
             height: '48px',
             gap: '16px'
@@ -177,6 +173,7 @@ export const useStyles = makeStyles()(theme => ({
         lineHeight: '24px',
         letterSpacing: '-3%',
         fontWeight: '400',
+        marginBottom: '10px',
         [theme.breakpoints.down('md')]: {
             textAlign: 'left',
              width: '224px',
@@ -184,9 +181,8 @@ export const useStyles = makeStyles()(theme => ({
     },
     supportIcons: {
         display: 'flex',
-        gap: '24px',
+        gap: '25px',
         justifyContent: 'flex-end',
-        marginBottom: '24px',
         [theme.breakpoints.down('md')]: {
             justifyContent: 'center',
             gap: '16px'
@@ -196,12 +192,12 @@ export const useStyles = makeStyles()(theme => ({
         border: `1px solid ${theme.palette.primary.main}`,
         borderRadius: theme.shape.borderRadius,
         padding: theme.spacing(1.5),
-        width: '112px',
-        height: '55px',
+        width: '95px',
+        height: '40px',
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
-        paddingBottom: '30px',
+        paddingBottom: '25px',
         justifyContent: 'center',
         transition: 'background-color 0.2s',
         '&:hover': {
@@ -217,8 +213,8 @@ export const useStyles = makeStyles()(theme => ({
         border: `1px solid ${theme.palette.primary.main}`,
         borderRadius: theme.shape.borderRadius,
         padding: theme.spacing(1.5),
-        width: '108px',
-        height: '55px',
+        width: '90px',
+        height: '40px',
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
@@ -239,16 +235,16 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     paypalIconImage: {
-        width: '100%',
-        height: 'auto',
+        width: '20px',
+        height: '26px',
         [theme.breakpoints.down('md')]: {
             width: '24px',
             height: '30px'
         },
     },
     amazonIconImage: {
-        width: '100%',
-        height: 'auto',
+        width: '50px',
+        height: '40px',
         [theme.breakpoints.down('md')]: {
              width: '36px',
             height: '37px'

@@ -1,5 +1,5 @@
 import { makeStyles } from '../../../../theme';
-import BacklightImage from '../../../../assets/img/Backlight.png';
+import BacklightImage from '../../../../assets/img/Backlight2.png';
 
 export const useStyles = makeStyles()(theme => ({
     container: {
@@ -12,12 +12,15 @@ export const useStyles = makeStyles()(theme => ({
             marginLeft: 'calc((100vw - 1440px) / 2 + 40px)',
             marginRight: 'auto',
         },
+        [theme.breakpoints.down('md')]: {
+            textAlign: 'left'
+        },
         [theme.breakpoints.down('sm')]: {
-            padding: '0 20px',
+            padding: '0 16px',
         },
     },
     installationSection: {
-        marginTop: '150px',
+        marginTop: '110px',
         padding: '12px 0 306px 0',
         background: `url(/codeBackground.png) no-repeat center center`,
         backgroundPosition: 'top',
@@ -26,7 +29,7 @@ export const useStyles = makeStyles()(theme => ({
         '&::after': {
             content: '""',
             position: 'absolute',
-            bottom: 'calc(-100% + 200px)',
+            bottom: 'calc(-70% + 200px)',
             left: '0',
             width: '2400px',
             height: '1400px',
@@ -42,18 +45,18 @@ export const useStyles = makeStyles()(theme => ({
                 bottom: 'calc(-120% )',
             },
             [theme.breakpoints.down('sm')]: {
-                width: '1200px',
+                width: '1500px',
                 height: '1200px',
             },
         },
         '&::before': {
             content: '""',
             position: 'absolute',
-            bottom: 'calc(-70% + 200px)',
+            bottom: 'calc(-50% + 200px)',
             left: '0',
             width: '2400px',
             height: '1400px',
-            background: 'linear-gradient(to right, #080B1C 0%, #080B1C 2%, transparent 25%, transparent 100%)',
+            background: 'linear-gradient(to right, #080B1C 0%, #080B1C 2%, transparent 18%, transparent 100%)',
             pointerEvents: 'none',
             zIndex: 2,
             [theme.breakpoints.down('md')]: {
@@ -61,25 +64,33 @@ export const useStyles = makeStyles()(theme => ({
                 bottom: 'calc(-120%)',
             },
             [theme.breakpoints.down('sm')]: {
-                width: '1200px',
+                width: '1500px',
                 height: '1200px',
             },
         },
         [theme.breakpoints.down('md')]: {
             marginTop: '50px',
-            padding: '12px 0 150px 0',
+            padding: '12px 0 108px 0',
         },
     },
     installationsNumber: {
         fontFamily: 'Audiowide, sans-serif',
         paddingLeft: '53px',
+        marginTop: '155px',
         fontSize: 'clamp(65px, 10vw + 1rem, 160px)',
         fontWeight: '400',
         letterSpacing: '-0.03em',
         textAlign: 'left',
-        marginBottom: theme.spacing(4),
+        marginBottom: '80px',
         [theme.breakpoints.down('md')]: {
             textAlign: 'center',
+            marginTop: '40px',
+            fontSize: '86px',
+            marginBottom: '40px',
+            paddingLeft: '0',
+        },
+        [theme.breakpoints.down('sm')]: {
+            textAlign: 'left',
         },
     },
 }));

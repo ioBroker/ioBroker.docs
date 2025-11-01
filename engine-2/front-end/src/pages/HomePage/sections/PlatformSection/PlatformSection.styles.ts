@@ -3,9 +3,11 @@ import { makeStyles } from '../../../../theme';
 export const useStyles = makeStyles()(theme => ({
     platformSection: {
         position: 'relative',
-        marginTop: '165px',
+        // marginTop: '70px',
+        paddingTop: '70px',
         height: '100%',
         background: `url(/codeBackground.png) no-repeat center center`,
+        backgroundPosition: 'top',
         backgroundColor: theme.palette.background.default,
         backgroundSize: 'cover',
         overflow: 'hidden',
@@ -21,11 +23,11 @@ export const useStyles = makeStyles()(theme => ({
             content: '""',
             position: 'absolute',
             top: '50%',
-            left: '25%',
+            left: '5%',
             transform: 'translate(-50%, -50%)',
-            width: '1000px',
-            height: '1000px',
-            background: 'radial-gradient(circle, rgba(0, 88, 148, 0.7) 0%, rgba(255, 255, 255, 0) 55%)',
+            width: '1200px',
+            height: '1200px',
+            background: 'radial-gradient(circle, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
             [theme.breakpoints.down('md')]: {
                 width: '600px',
@@ -64,9 +66,10 @@ export const useStyles = makeStyles()(theme => ({
         color: theme.palette.text.primary,
         [theme.breakpoints.down('md')]: {
             fontSize: '56px',
+            textTransform: 'uppercase',
         },
         [theme.breakpoints.down('sm')]: {
-            fontSize: '36px',
+            fontSize: '28px',
         },
     },
     platformTitleBlue: {
@@ -79,11 +82,13 @@ export const useStyles = makeStyles()(theme => ({
         marginBottom: theme.spacing(8),
         [theme.breakpoints.down('md')]: {
             fontSize: '56px',
+            textTransform: 'uppercase',
+            lineHeight: '1.3',
             marginBottom: theme.spacing(6),
         },
         [theme.breakpoints.down('sm')]: {
-            fontSize: '25px',
             marginBottom: theme.spacing(4),
+             fontSize: '28px',
         },
     },
     descriptionWrapper: {
@@ -95,11 +100,15 @@ export const useStyles = makeStyles()(theme => ({
     },
     descriptionContainer: {
         maxWidth: '867px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
         [theme.breakpoints.down('md')]: {
             maxWidth: '75%',
         },
         [theme.breakpoints.down('sm')]: {
             maxWidth: '100%',
+            alignItems: 'center',
         },
     },
     platformSubtitle: {
@@ -109,7 +118,7 @@ export const useStyles = makeStyles()(theme => ({
         lineHeight: 1.6,
         color: 'rgba(255, 255, 255, 0.8)',
         [theme.breakpoints.down('sm')]: {
-            fontSize: '0.9rem',
+            fontSize: '20px',
             marginBottom: theme.spacing(2),
         },
     },

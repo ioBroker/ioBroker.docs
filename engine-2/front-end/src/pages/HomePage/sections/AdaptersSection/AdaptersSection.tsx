@@ -63,26 +63,60 @@ export const AdaptersSection: React.FC = () => {
         { src: icon22, width: 60, height: 60, alt: 'Adapter 22' },
     ];
 
-    const columns = [4, 5, 4, 5, 4];
-    let iconCounter = 0;
+    const columnsDesktop = [4, 5, 4, 5, 4];
+    const columnsMobile = [5, 5, 5, 5, 5];
+
+    const renderGrid = (columns: number[], isMobile: boolean = false) => {
+        let iconCounter = 0;
+        const totalIcons = columns.reduce((sum, num) => sum + num, 0);
+        const iconsToRender = [...adapterIcons];
+
+        while (iconsToRender.length < totalIcons) {
+            iconsToRender.push({ src: '', width: 0, height: 0 });
+        }
+
+        return columns.map((numIconsInColumn, colIndex) => {
+            const columnIcons = iconsToRender.slice(iconCounter, iconCounter + numIconsInColumn);
+            iconCounter += numIconsInColumn;
+
+            const shouldOffset = isMobile ? colIndex % 2 === 0 : numIconsInColumn === 5;
+
+            return (
+                <Box
+                    key={colIndex}
+                    className={`${classes.adapterColumn} ${shouldOffset ? classes.offsetColumn : ''}`}
+                >
+                    {columnIcons.map((icon, itemIndex) => (
+                        <Box key={itemIndex} className={classes.adapterIcon}>
+                            {icon.src ? (
+                                <img
+                                    src={icon.src}
+                                    alt={icon.alt || `Adapter ${iconCounter - columnIcons.length + itemIndex + 1}`}
+                                    className={classes.iconImage}
+                                />
+                            ) : null}
+                        </Box>
+                    ))}
+                </Box>
+            );
+        });
+    };
 
     return (
         <Box component="section" className={classes.adaptersSection}>
             <Box className={classes.container}>
                 <Box className={classes.adaptersContent}>
                     <Box className={classes.adaptersTextSection}>
-                        <Box>
-                            <SectionTitle>ADAPTER</SectionTitle>
-                            <Typography paragraph sx={{ mt: 2}} className={classes.adaptersText}>
-                                /* sind die Schnittstellen zu verschiedenen Geräten, Diensten und Technologien. Ein Adapter fungiert dabei wie
-                                ein "Übersetzer", der Daten von einem spezifischen Gerät oder Protokoll in ein standardisiertes Format bringt, das ioBroker
-                                versteht. Gleichzeitig ermöglicht er, dass Befehle von ioBroker an die Geräte oder Dienste weitergegeben werden können. */
-                            </Typography>
-                        </Box>
-                        <Box className={classes.buttonWrapper}>
+                        <SectionTitle>ADAPTER</SectionTitle>
+                        <Typography paragraph sx={{ mt: 2 }} className={classes.adaptersText}>
+                            /* sind die Schnittstellen zu verschiedenen Geräten, Diensten und Technologien. Ein Adapter fungiert dabei wie
+                            ein "Übersetzer", der Daten von einem spezifischen Gerät oder Protokoll in ein standardisiertes Format bringt, das ioBroker
+                            versteht. Gleichzeitig ermöglicht er, dass Befehle von ioBroker an die Geräte oder Dienste weitergegeben werden können. */
+                        </Typography>
+                        <Box className={classes.buttonWrapperDesktop}>
                             <StyledButton sx={{
-                                height:  { md: '60px', sm: '47px', xs: '47px' } ,
-                                width: { md: '100%', sm: '500px', xs: '368px' } ,
+                                height: '60px',
+                                width: '100%',
                                 maxWidth: '867px',
                                 padding: '10px 24px',
                                 borderRadius: '10px',
@@ -92,32 +126,24 @@ export const AdaptersSection: React.FC = () => {
                         </Box>
                     </Box>
                     <Box className={classes.adaptersGrid}>
-                        {columns.map((numIconsInColumn, colIndex) => {
-                            const columnIcons = adapterIcons.slice(iconCounter, iconCounter + numIconsInColumn);
-                            iconCounter += numIconsInColumn;
-
-                            return (
-                                <Box
-                                    key={colIndex}
-                                    className={`${classes.adapterColumn} ${numIconsInColumn === 5 ? classes.offsetColumn : ''
-                                        }`}
-                                >
-                                    {columnIcons.map((icon, itemIndex) => (
-                                        <Box key={itemIndex} className={classes.adapterIcon}>
-                                            {icon ? (
-                                                <img
-                                                    src={icon.src}
-                                                    alt={icon.alt || `Adapter ${iconCounter - columnIcons.length + itemIndex + 1}`}
-                                                    className={classes.iconImage}
-                                                />
-                                            ) : (
-                                                <Box sx={{ width: 32, height: 32, opacity: 0.5 }}>Icon</Box>
-                                            )}
-                                        </Box>
-                                    ))}
-                                </Box>
-                            );
-                        })}
+                        <Box className={classes.desktopGrid}>
+                            {renderGrid(columnsDesktop, false)}
+                        </Box>
+                        <Box className={classes.mobileGrid}>
+                            {renderGrid(columnsMobile, true)}
+                        </Box>
+                    </Box>
+                    <Box className={classes.buttonWrapperMobile}>
+                        <Box className={classes.buttonGlow} />
+                        <StyledButton sx={{
+                            height: { sm: '44px', xs: '44px' },
+                            width: { sm: '500px', xs: '368px' },
+                            maxWidth: '867px',
+                            padding: '10px 24px',
+                            borderRadius: '10px',
+                            position: 'relative',
+                            zIndex: 1,
+                        }}>640+ ADAPTER</StyledButton>
                     </Box>
                 </Box>
             </Box>

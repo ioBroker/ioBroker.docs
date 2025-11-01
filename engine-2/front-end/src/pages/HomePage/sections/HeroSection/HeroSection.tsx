@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../../assets/img/ioBrokerTitle.svg';
+import logo from '../../../../assets/img/ioBroker-Title2.svg';
 import { Box, Typography, Button } from '@mui/material';
 import { useStyles } from './HeroSection.styles';
 import AmazonIcon from "../../../../assets/img/amazonBlue.svg";
@@ -32,20 +32,20 @@ export const HeroSection: React.FC = () => {
                         {/* <Box className={classes.valuesImageWrapper}>
                             <img src={ValuesGroup} alt="Values" className={classes.valuesImage} />
                         </Box> */}
-                        <Box className={classes.supportIcons}>
-                            <Box className={classes.supportIconPayPal}><img alt="PayPal Icon" src={PayPalIcon} className={classes.paypalIconImage}/></Box>
-                            <Box className={classes.supportIconAmazon}><img alt="Amazon Icon" src={AmazonIcon} className={classes.amazonIconImage} /></Box>
-                        </Box>
                         <Typography className={classes.supportText}>
                             Unsere Software ist kostenlos. <br /> Unterstütze uns!
                         </Typography>
+                         <Box className={classes.supportIcons}>
+                            <Box className={classes.supportIconPayPal}><img alt="PayPal Icon" src={PayPalIcon} className={classes.paypalIconImage}/></Box>
+                            <Box className={classes.supportIconAmazon}><img alt="Amazon Icon" src={AmazonIcon} className={classes.amazonIconImage} /></Box>
+                        </Box>
                     </Box>
                 </Box>
             </Box>
             <Divider
                 position={scrollPosition}
                 parentWidth={window.innerWidth}
-                sx={{ marginBottom: '26px', marginTop: '58px' }}
+                sx={{ marginBottom: '26px', marginTop: '61px' }}
             />
         </Box>
     );

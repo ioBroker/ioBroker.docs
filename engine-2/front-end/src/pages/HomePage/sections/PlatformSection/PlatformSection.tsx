@@ -29,9 +29,9 @@ export const PlatformSection: React.FC = () => {
                         </Typography>
                         <StyledButton
                             sx={{
-                                marginTop: { xs: '20px', sm: '20px', md: '130px' },
-                                height: { xs: '50px', sm: '51px', md: '65px' },
-                                width: { xs: '368px', sm: '368px', md: '100%' },
+                                marginTop: { xs: '20px', sm: '20px', md: '72px' },
+                                height: { xs: '44px', sm: '44px', md: '60px' },
+                                width: { xs: '368px', sm: '368px', md: '533px' },
                                 maxWidth: '867px',
                                 padding: '10px 24px',
                                 fontSize: '16px'

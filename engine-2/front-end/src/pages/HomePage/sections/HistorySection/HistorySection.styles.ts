@@ -3,14 +3,14 @@ import { makeStyles } from '../../../../theme';
 export const useStyles = makeStyles()(theme => ({
     container: {
         maxWidth: 1067,
-        margin: '0 auto 0 246px',
+        margin: '0 auto 0 187px',
         display: 'flex',
-        gap: '22px',
+        gap: '51px',
         padding: '0 40px',
         position: 'relative',
         zIndex: 2,
-         '@media (min-width: 1440px)': {
-            marginRight: 'calc((100vw - 1440px) / 2 + 115px)',
+        '@media (max-width: 1440px)': {
+            marginRight: 'calc((100vw - 1440px) / 2 + 198px)',
             marginLeft: 'auto',
         },
         [theme.breakpoints.down('sm')]: {
@@ -18,6 +18,8 @@ export const useStyles = makeStyles()(theme => ({
         },
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
+            alignItems: 'center',
+            gap: '24px',
         },
         [theme.breakpoints.down('lg')]: {
             margin: '0 auto',
@@ -29,6 +31,9 @@ export const useStyles = makeStyles()(theme => ({
         zIndex: 3,
         [theme.breakpoints.down('md')]: {
             padding: '100px 0 100px 0'
+        },
+        [theme.breakpoints.down('md')]: {
+            padding: '100px 0 50px 0'
         },
     },
     historySection: {
@@ -42,11 +47,11 @@ export const useStyles = makeStyles()(theme => ({
             position: 'absolute',
             zIndex: 1,
             top: '70%',
-            left: '22%',
+            left: '12%',
             transform: 'translate(-50%, -50%)',
-            width: '900px',
-            height: '900px',
-            background: 'radial-gradient(circle, rgba(0, 88, 148, 0.7) 0%, rgba(255, 255, 255, 0) 55%)',
+            width: '1200px',
+            height: '1200px',
+            background: 'radial-gradient(circle, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
             [theme.breakpoints.down('md')]: {
                 width: '600px',
@@ -55,45 +60,68 @@ export const useStyles = makeStyles()(theme => ({
             },
             [theme.breakpoints.down('sm')]: {
                 left: '50%',
-                top: '45%',
+                top: '25%',
+                width: '400px',
+                height: '400px',
             },
         },
     },
     historyNumberWrapper: {
         display: 'flex',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         justifyContent: 'center',
         fontFamily: 'Audiowide, sans-serif',
         fontWeight: '400',
         letterSpacing: '-0.03em',
         marginBottom: theme.spacing(2),
         lineHeight: 1,
+        [theme.breakpoints.up('md')]: {
+            marginBottom: theme.spacing(2),
+            alignItems: 'flex-start',
+        }
+    },
+
+    plusJahreWrapper: {
+        [theme.breakpoints.down('md')]: {
+            display: 'flex',
+            height: '205px',
+            flexDirection: 'column',
+            alignItems: 'start',
+            justifyContent: 'space-between',
+            marginLeft: theme.spacing(1.5),
+        }
     },
     historyNumber: {
         lineHeight: 1,
         fontSize: '331px',
-        display: 'inline-block',
         width: 'fit-content',
         letterSpacing: '-0.05em',
-        [theme.breakpoints.down('lg')]: {
-            fontSize: '200px',
+        display: 'inline-block',
+        [theme.breakpoints.up('md')]: {
+            alignSelf: 'flex-start',
         },
-        [theme.breakpoints.down('sm')]: {
-            fontSize: '180px',
+        [theme.breakpoints.down('md')]: {
+            fontSize: '200px',
+            lineHeight: 0.8,
+            alignSelf: 'flex-end',
         },
     },
     historyPlus: {
         fontSize: '60px',
         lineHeight: 1,
         display: 'block',
-        marginTop: '0.55em'
+        marginTop: '0.55em',
+        [theme.breakpoints.down('sm')]: {
+            alignSelf: 'flex-start',
+            marginTop: '0.1em',
+        },
     },
     historyWrapper: {
-        paddingTop: '40px',
+        paddingTop: '30px',
         textAlign: 'left',
         [theme.breakpoints.down('md')]: {
-                textAlign: 'center'
-            },
+            textAlign: 'center'
+        },
     },
     historyTitle: {
         fontFamily: 'Audiowide, sans-serif',
@@ -101,8 +129,24 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: '400',
         lineHeight: 1.5,
         letterSpacing: '-0.03em',
-        [theme.breakpoints.down('sm')]: {
+    },
+    historyTitleDesktop: {
+        [theme.breakpoints.down('md')]: {
+            display: 'none',
+        },
+    },
+    historyTitleMobile: {
+        display: 'none',
+        [theme.breakpoints.down('md')]: {
+            display: 'block',
             fontSize: '80px',
+            marginBottom: '6px',
+            marginLeft: theme.spacing(2),
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '28px',
+            marginLeft: theme.spacing(1),
+            lineHeight: 1,
         },
     },
     historySubTitle: {
@@ -126,13 +170,13 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: '300',
         lineHeight: '140%',
         letterSpacing: '-0.01em',
-        marginTop: '96px',
-        marginBottom: '152px',
+        marginTop: '140px',
+        marginBottom: '48px',
         width: '557px',
         [theme.breakpoints.down('lg')]: {
             width: 'auto',
         },
-         [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('md')]: {
             marginBottom: '100px',
         },
         [theme.breakpoints.down('sm')]: {

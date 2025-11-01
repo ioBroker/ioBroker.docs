@@ -3,7 +3,7 @@ import { makeStyles } from '../../../../theme';
 export const useStyles = makeStyles()(theme => ({
     styledButton: {
         border: `1px solid ${theme.palette.primary.main}`,
-        borderRadius: '16px',
+        borderRadius: '12px',
         padding: '12px 24px',
         display: 'inline-flex',
         alignItems: 'center',
