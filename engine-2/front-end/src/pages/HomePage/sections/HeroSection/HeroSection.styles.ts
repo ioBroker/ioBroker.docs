@@ -125,9 +125,10 @@ export const useStyles = makeStyles()(theme => ({
         // },
         [theme.breakpoints.down('md')]: {
             width: '368px',
-            height: '60px',
+            height: '48px',
             borderRadius: '8px',
             marginBottom: '56px',
+            fontSize: '18px',
         },
     },
     heroRight: {

@@ -19,7 +19,7 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
             alignItems: 'center',
-            gap: '24px',
+            gap: '22px',
         },
         [theme.breakpoints.down('lg')]: {
             margin: '0 auto',
@@ -59,8 +59,8 @@ export const useStyles = makeStyles()(theme => ({
                 left: '30%',
             },
             [theme.breakpoints.down('sm')]: {
-                left: '50%',
-                top: '25%',
+                left: '90%',
+                top: '110%',
                 width: '400px',
                 height: '400px',
             },
@@ -73,7 +73,7 @@ export const useStyles = makeStyles()(theme => ({
         fontFamily: 'Audiowide, sans-serif',
         fontWeight: '400',
         letterSpacing: '-0.03em',
-        marginBottom: theme.spacing(2),
+        marginBottom: 0,
         lineHeight: 1,
         [theme.breakpoints.up('md')]: {
             marginBottom: theme.spacing(2),
@@ -120,7 +120,8 @@ export const useStyles = makeStyles()(theme => ({
         paddingTop: '30px',
         textAlign: 'left',
         [theme.breakpoints.down('md')]: {
-            textAlign: 'center'
+            textAlign: 'left',
+            paddingTop: '0',
         },
     },
     historyTitle: {
@@ -162,6 +163,8 @@ export const useStyles = makeStyles()(theme => ({
         },
         [theme.breakpoints.down('sm')]: {
             fontSize: '32px',
+            marginLeft: '4px',
+            maxWidth: '352px'
         },
     },
     historyText: {
@@ -172,15 +175,16 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '-0.01em',
         marginTop: '140px',
         marginBottom: '48px',
-        width: '557px',
+        width: '550px',
         [theme.breakpoints.down('lg')]: {
             width: 'auto',
         },
         [theme.breakpoints.down('md')]: {
-            marginBottom: '100px',
-        },
-        [theme.breakpoints.down('sm')]: {
-            fontSize: '18px',
-        },
+            marginBottom: '24px',
+            marginTop: '64px',
+            fontSize: '20px',
+            textAlign: 'left',
+            letterSpacing: '-0.02em'
+        }
     }
 }));

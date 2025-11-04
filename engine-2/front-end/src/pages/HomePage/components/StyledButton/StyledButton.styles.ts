@@ -25,9 +25,6 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '-3%',
         color: theme.palette.text.secondary,
          [theme.breakpoints.down('md')]: {
-            fontSize: '22px',
-        },
-         [theme.breakpoints.down('sm')]: {
             fontSize: '16px',
         },
     },

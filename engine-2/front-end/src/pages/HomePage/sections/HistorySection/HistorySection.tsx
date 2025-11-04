@@ -27,13 +27,15 @@ export const HistorySection: React.FC = () => {
                     <Typography component="p" className={classes.historyText}>
                         /* Was 2013 als Wunsch nach Automatisierung für das eigene Zuhause begann, entwickelte sich zu einer flexiblen und leistungsstarken Plattform mit einer großen Community. */
                     </Typography>
-                    <StyledButton
-                        sx={{
-                            height: { sm: '60px', md: '60px' },
-                            width: { sm: 'auto', md: '533px' },
-                            maxWidth: '533px',
-                        }}
-                    >IOBROKER GESCHICHTE</StyledButton>
+                    <Box sx={{ textAlign: { xs:'center', sm: 'center', md: 'left' } }}>
+                        <StyledButton
+                            sx={{
+                                height: {xs: '44px', sm: '44px', md: '60px' },
+                                width: { xs: '368px', sm: '368px', md: '533px' },
+                                maxWidth: '533px',
+                            }}
+                        >IOBROKER GESCHICHTE</StyledButton>
+                    </Box>
                 </Box>
             </Box>
         </Box>

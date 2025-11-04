@@ -34,7 +34,11 @@ export const useStyles = makeStyles()(theme => ({
                 height: '600px',
             },
             [theme.breakpoints.down('sm')]: {
+                 background: 'radial-gradient(ellipse, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)',
                 left: '50%',
+                 top: '95%',
+                 width: '400px',
+                 height: '150px',
             },
         },
     },
