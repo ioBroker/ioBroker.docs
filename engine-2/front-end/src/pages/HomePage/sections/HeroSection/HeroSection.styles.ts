@@ -135,7 +135,7 @@ export const useStyles = makeStyles()(theme => ({
         textAlign: 'left',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'flex-start',
+        alignItems: 'flex-end',
         [theme.breakpoints.down('md')]: {
             flexDirection: 'row',
             alignItems: 'start',
@@ -151,13 +151,14 @@ export const useStyles = makeStyles()(theme => ({
             alignItems: 'flex-start',
         },
     },
-    valuesImageWrapper: {
-        marginBottom: '40px',
+    housesImageWrapper: {
+        marginBottom: '184px',
+        marginRight: 32,
         [theme.breakpoints.down('md')]: {
             marginBottom: '24px',
         },
     },
-    valuesImage: {
+    housesImage: {
         width: '485px',
         height: 'auto',
         [theme.breakpoints.down('lg')]: {
@@ -169,7 +170,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     supportText: {
-        fontSize: '16px',
+        fontSize: '15px',
         textAlign: 'left',
         lineHeight: '24px',
         letterSpacing: '-3%',

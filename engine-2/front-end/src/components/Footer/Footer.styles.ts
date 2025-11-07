@@ -16,7 +16,7 @@ export const useFooterStyles = makeStyles()((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         [theme.breakpoints.down('sm')]: {
-            margin: '60px 30px 30px',
+            margin: '60px 23px 23px',
             width: 'calc(100% - 60px)',
             gap: '50px',
         },
@@ -51,7 +51,7 @@ export const useFooterStyles = makeStyles()((theme) => ({
         },
     },
     sectionsRow: {
-        gap: '40px',
+        gap: '93px',
         display: 'flex',
         fontSize: '18px',
         flexDirection: 'row',
@@ -59,8 +59,8 @@ export const useFooterStyles = makeStyles()((theme) => ({
         justifyContent: 'space-between',
         [theme.breakpoints.down('sm')]: {
             flexWrap: 'wrap',
-            gap: '20px',
-             justifyContent: 'center',
+            gap: '16px',
+            justifyContent: 'center',
         },
     },
     braces: {
@@ -74,6 +74,9 @@ export const useFooterStyles = makeStyles()((theme) => ({
         borderLeft: `1px solid ${theme.palette.primary.main}`,
         borderRadius: '2px 0 0 2px',
         width: 10,
+        [theme.breakpoints.down('sm')]: {
+            width: 25,
+        },
     },
     bracesRight: {
         borderTop: `1px solid ${theme.palette.primary.main}`,
@@ -81,6 +84,9 @@ export const useFooterStyles = makeStyles()((theme) => ({
         borderRight: `1px solid ${theme.palette.primary.main}`,
         borderRadius: '0 2px 2px 0',
         width: 10,
+        [theme.breakpoints.down('sm')]: {
+            width: 25,
+        },
     },
     bracesContent: {
         padding: theme.spacing(1),
@@ -94,6 +100,16 @@ export const useFooterStyles = makeStyles()((theme) => ({
     },
     supportText: {
         textAlign: 'center',
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        },
+    },
+    supportTextMobile: {
+        display: 'none',
+        [theme.breakpoints.down('sm')]: {
+            display: 'inline-block',
+            fontSize: '12px'
+        },
     },
     donateButtons: {
         display: 'flex',
@@ -131,11 +147,22 @@ export const useFooterStyles = makeStyles()((theme) => ({
     socialRow: {
         display: 'flex',
         flexDirection: 'row',
-        gap: 16,
         alignItems: 'center',
+        gap: 103,
+        [theme.breakpoints.down('md')]: {
+             gap: 16,
+        },
+        [theme.breakpoints.down('sm')]: {
+            alignItems: 'start',
+        },
     },
     followUsText: {
         flexGrow: 1,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '12px',
+            flexGrow: 0,
+            flexShrink: 0,
+        },
     },
     socialIconsWrapper: {
         display: 'flex',
@@ -143,6 +170,13 @@ export const useFooterStyles = makeStyles()((theme) => ({
         gap: 16,
         alignItems: 'center',
         flexWrap: 'wrap',
+        marginLeft: 16,
+        [theme.breakpoints.down('sm')]: {
+            rowGap: 32,
+            columnGap: 60,
+            flex: 1,
+            marginLeft: 0,
+        },
     },
     legalLinksMobile: {
         display: 'none',
@@ -175,5 +209,36 @@ export const useFooterStyles = makeStyles()((theme) => ({
     scrollTop: {
         color: theme.palette.primary.main,
         cursor: 'pointer',
+    },
+    hideOnSmall: {
+        [theme.breakpoints.down('sm')]: {
+            display: 'none',
+        },
+    },
+    socialBracesLeft: {
+        borderTop: `1px solid ${theme.palette.primary.main}`,
+        borderBottom: `1px solid ${theme.palette.primary.main}`,
+        borderLeft: `1px solid ${theme.palette.primary.main}`,
+        borderRadius: '2px 0 0 2px',
+        width: 10,
+        [theme.breakpoints.down('sm')]: {
+            display: 'none',
+        },
+    },
+    socialBracesRight: {
+        borderTop: `1px solid ${theme.palette.primary.main}`,
+        borderBottom: `1px solid ${theme.palette.primary.main}`,
+        borderRight: `1px solid ${theme.palette.primary.main}`,
+        borderRadius: '0 2px 2px 0',
+        width: 10,
+        [theme.breakpoints.down('sm')]: {
+            display: 'none',
+        },
+    },
+    socialBracesContent: {
+        padding: theme.spacing(1),
+        [theme.breakpoints.down('sm')]: {
+            padding: 0,
+        },
     },
 }));

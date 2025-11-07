@@ -9,7 +9,7 @@ export const useStyles = makeStyles()(theme => ({
         padding: '0 40px',
         position: 'relative',
         zIndex: 2,
-        '@media (max-width: 1440px)': {
+        '@media (min-width: 1440px)': {
             marginRight: 'calc((100vw - 1440px) / 2 + 198px)',
             marginLeft: 'auto',
         },
@@ -42,6 +42,12 @@ export const useStyles = makeStyles()(theme => ({
         background: `url(/codeBackground.png) no-repeat center center`,
         backgroundPosition: 'top',
         backgroundSize: 'cover',
+        maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+        [theme.breakpoints.down('md')]: {
+            maskImage: 'none',
+            WebkitMaskImage: 'none',
+        },
         '&::before': {
             content: '""',
             position: 'absolute',

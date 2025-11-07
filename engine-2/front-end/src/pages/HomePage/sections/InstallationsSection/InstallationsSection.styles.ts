@@ -5,7 +5,7 @@ export const useStyles = makeStyles()(theme => ({
     container: {
         maxWidth: 1260,
         margin: '0 auto',
-        padding: '0 40px 0 24px',
+        padding: '0 80px 0 24px',
         position: 'relative',
         zIndex: 2,
         '@media (min-width: 1440px)': {
@@ -20,8 +20,9 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     installationSection: {
-        marginTop: '110px',
-        padding: '12px 0 306px 0',
+        marginTop: '0px',
+        marginBottom: '131px',
+        padding: '122px 0 175px 0',
         background: `url(/codeBackground.png) no-repeat center center`,
         backgroundPosition: 'top',
         backgroundSize: 'cover',
@@ -72,7 +73,7 @@ export const useStyles = makeStyles()(theme => ({
         },
         [theme.breakpoints.down('md')]: {
             marginTop: '50px',
-            padding: '12px 0 108px 0',
+            padding: '12px 0 0 0',
         },
     },
     installationsNumber: {
