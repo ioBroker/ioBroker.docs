@@ -44,6 +44,13 @@ export const useStyles = makeStyles()(theme => ({
         zIndex: 0,
         maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
         WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
+        [theme.breakpoints.down('md')]: {
+            backgroundSize: '210%',
+            backgroundPosition: 'center',
+            top: '50%',
+            maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 60%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 60%, transparent 100%)',
+        },
     },
     heroContentWrapper: {
         width: '100%',
@@ -95,9 +102,9 @@ export const useStyles = makeStyles()(theme => ({
         lineHeight: '130%',
         [theme.breakpoints.down('md')]: {
             fontSize: '18px',
-            textAlign: 'left',
-            width: '325px',
-            marginBottom: '396px',
+            textAlign: 'right',
+            width: '290px',
+            marginBottom: '66px',
             textIndent: '4em'
         },
     },
@@ -156,8 +163,10 @@ export const useStyles = makeStyles()(theme => ({
         marginRight: 32,
         [theme.breakpoints.down('md')]: {
             marginBottom: '24px',
+            display: 'none'
         },
     },
+
     housesImage: {
         width: '485px',
         height: 'auto',
@@ -165,8 +174,23 @@ export const useStyles = makeStyles()(theme => ({
             width: '400px',
         },
         [theme.breakpoints.down('md')]: {
-            width: '100%',
-            maxWidth: '400px',
+            display: 'none'
+        },
+    },
+
+    smallHousesImageWrapper: {
+        display: 'none',
+        [theme.breakpoints.down('md')]: {
+            display: 'block',
+            marginBottom: '15px',
+            marginLeft: '30px'
+        },
+
+    },
+    smallHousesImage: {
+        display: 'none',
+        [theme.breakpoints.down('md')]: {
+            display: 'block',
         },
     },
     supportText: {
@@ -178,7 +202,7 @@ export const useStyles = makeStyles()(theme => ({
         marginBottom: '10px',
         [theme.breakpoints.down('md')]: {
             textAlign: 'left',
-             width: '224px',
+            width: '224px',
         },
     },
     supportIcons: {
@@ -225,7 +249,7 @@ export const useStyles = makeStyles()(theme => ({
         '&:hover': {
             backgroundColor: 'rgba(29, 144, 202, 0.1)',
         },
-         [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('md')]: {
             width: '56px',
             height: '46px',
         },
@@ -248,7 +272,7 @@ export const useStyles = makeStyles()(theme => ({
         width: '50px',
         height: '40px',
         [theme.breakpoints.down('md')]: {
-             width: '36px',
+            width: '36px',
             height: '37px'
         },
     },

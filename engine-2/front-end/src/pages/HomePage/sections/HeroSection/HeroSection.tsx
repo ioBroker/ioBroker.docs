@@ -5,6 +5,7 @@ import { useStyles } from './HeroSection.styles';
 import AmazonIcon from "../../../../assets/img/amazonBlue.svg";
 import PayPalIcon from "../../../../assets/img/paypalBlue.svg";
 import HousesGroup from "../../../../assets/img/Houses.png";
+import SmallHousesGroup from "../../../../assets/img/Houses-small.png";
 import Divider from '../../../../components/Divider/Divider';
 import { useScrollProgress } from '../../../../hooks/useScrollProgress';
 
@@ -20,6 +21,9 @@ export const HeroSection: React.FC = () => {
                 <Box className={`${classes.container} ${classes.heroContent}`}>
                     <Box className={classes.heroLeft}>
                         <img src={logo} alt="ioBroker Logo" className={classes.heroLogo} />
+                         <Box className={classes.smallHousesImageWrapper}>
+                            <img src={SmallHousesGroup} alt="Houses" className={classes.smallHousesImage} />
+                        </Box>
                         <Typography className={classes.heroPlatformText}>
                             <Box className={classes.platformTextComment}>// Open-Source-Plattform </Box> für Smart-Home-Automatisierung
                         </Typography>
