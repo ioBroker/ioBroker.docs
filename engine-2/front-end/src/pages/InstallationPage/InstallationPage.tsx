@@ -6,11 +6,10 @@ import {
 } from '@mui/material';
 import { useStyles } from './InstallationPage.styles';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
-
-import LaptopIcon from '@mui/icons-material/Laptop';
-import WidgetsOutlinedIcon from '@mui/icons-material/WidgetsOutlined';
-import MemoryIcon from '@mui/icons-material/Memory';
-import WindowIcon from '@mui/icons-material/Window';
+import LinuxLogo from '../../assets/img/LinuxLogo.png';
+import DockerLogo from '../../assets/img/Docker.png';
+import RaspberryLogo from '../../assets/img/Raspberry.png';
+import WindowsLogo from '../../assets/img/Windows_logo.png';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 const InstallationPage = () => {
@@ -18,11 +17,8 @@ const InstallationPage = () => {
 
     return (
         <Box className={classes.pageContainer}>
-            {/* <Typography variant="h1" align="center" className={classes.title}>
-                // IOBROKER INSTALLATION
-            </Typography> */}
-             <Box sx={{ width: '100%', maxWidth: '1311px', textAlign: { xs: 'left', md: 'left' }, mb: { xs: 0, md: 4 } }}>
-                    <SectionTitle sx={{ marginBottom: { xs: '32px !important', md: '24px !important' } }}>IOBROKER INSTALLATION</SectionTitle>
+             <Box className={classes.title}>
+                    <SectionTitle sx={{ marginBottom: { xs: '8px !important', md: '8px !important' } }}>IOBROKER INSTALLATION</SectionTitle>
             </Box>
             <Typography variant="body1" className={classes.subtitle}>
                 ioBroker lässt sich auf allen Systemen installieren, die Node.js unterstützen und genügend RAM haben.
@@ -36,9 +32,13 @@ const InstallationPage = () => {
                             <Typography variant="h4" className={classes.cardTitle}>
                                 Linux
                             </Typography>
-                            <LaptopIcon className={classes.cardIcon} />
+                             <img
+                                    src={LinuxLogo}
+                                    alt='linuxLogo'
+                                    className={classes.cardIcon}
+                                />
                         </Box>
-                        <Typography variant="body1" sx={{ mb: 2 }}>
+                        <Typography variant="body1" className={classes.linuxSubHeader}>
                             Die einfachste Möglichkeit, ioBroker auf einem Linux-System zu installieren, ist mit folgendem Befehl:
                         </Typography>
                         <Box className={classes.commandBox}>
@@ -69,7 +69,11 @@ const InstallationPage = () => {
                                 <Typography variant="h5" className={classes.cardTitle}>
                                     DOCKER
                                 </Typography>
-                                <WidgetsOutlinedIcon className={classes.cardIcon} />
+                                <img
+                                    src={DockerLogo}
+                                    alt='dockerLogo'
+                                    className={classes.cardIcon}
+                                />
                             </Box>
                             <Typography variant="body2" className={classes.detailsText}>
                                 <strong>Plattform:</strong> Docker <strong>Details:</strong> Flexibles Docker-Image
@@ -87,7 +91,11 @@ const InstallationPage = () => {
                                 <Typography variant="h5" className={classes.cardTitle}>
                                     RASPBERRY PI S
                                 </Typography>
-                                <MemoryIcon className={classes.cardIcon} />
+                               <img
+                                    src={RaspberryLogo}
+                                    alt='raspberryLogo'
+                                    className={classes.cardIcon}
+                                />
                             </Box>
                             <Typography variant="body2" className={classes.detailsText}>
                                 <strong>Plattform:</strong> Raspberry OS <strong>Details:</strong> Vorgefertigtes Raspberry OS Image <strong>Standart Passwort:</strong> 2024-smart!
@@ -105,7 +113,11 @@ const InstallationPage = () => {
                                 <Typography variant="h5" className={classes.cardTitle}>
                                     WINDOWS
                                 </Typography>
-                                <WindowIcon className={classes.cardIcon} />
+                                <img
+                                    src={WindowsLogo}
+                                    alt='windowsLogo'
+                                    className={classes.cardIcon}
+                                />
                             </Box>
                             <Typography variant="body2" className={classes.detailsText}>
                                 <strong>Plattform:</strong> Windows 32 / 64 Bit <strong>Details:</strong> Einfache Installation mit dem Windows-Installer

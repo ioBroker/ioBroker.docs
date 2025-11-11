@@ -7,16 +7,16 @@ export const useStyles = makeStyles()((theme) => ({
         margin: '0 auto'
     },
     title: {
-        marginBottom: theme.spacing(1),
-        color: theme.palette.primary.main,
+        width: '100%',
+        maxWidth: '1311px',
+        textAlign:  'left' ,
     },
     subtitle: {
-        marginBottom: theme.spacing(6),
-        color: theme.palette.text.secondary,
-        textAlign: 'center',
-        maxWidth: '800px',
-        marginLeft: 'auto',
-        marginRight: 'auto',
+        marginBottom: 44,
+        fontSize: '18px',
+        color: theme.palette.text.primary,
+        textAlign: 'left',
+        maxWidth: '684px',
     },
     card: {
         display: 'flex',
@@ -24,7 +24,7 @@ export const useStyles = makeStyles()((theme) => ({
         height: '537px',
         width: '644px',
         borderRadius: 24,
-        padding: theme.spacing(3),
+        padding: 40,
         backgroundColor: 'transparent !important',
         backgroundImage: 'none',
         border: `1px solid ${theme.palette.primary.main}`,
@@ -35,7 +35,7 @@ export const useStyles = makeStyles()((theme) => ({
         flexDirection: 'column',
         height: '537px',
         width: '1312px',
-        padding: theme.spacing(3),
+        padding: 40,
         backgroundColor: 'transparent',
         backgroundImage: 'none',
         border: `1px solid ${theme.palette.primary.main}`,
@@ -45,12 +45,19 @@ export const useStyles = makeStyles()((theme) => ({
     cardHeader: {
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: theme.spacing(2),
+        alignItems: 'start',
+    },
+    linuxSubHeader: {
+        fontSize: 18,
+        fontWeight: 400,
+        marginBottom: 57,
+        maxWidth: 763,
+        marginTop: '-30px'
     },
     cardTitle: {
         fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
-        fontWeight: 600,
+        fontWeight: 400,
+        fontSize: '32px',
         textTransform: 'uppercase',
     },
     cardIcon: {
