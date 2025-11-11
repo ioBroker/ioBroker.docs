@@ -2,7 +2,9 @@ import { makeStyles } from '../../theme';
 
 export const useStyles = makeStyles()((theme) => ({
     pageContainer: {
-        padding: '32px 64px',
+        width: '1312px',
+        padding: '78px 0px 32px 0px',
+        margin: '0 auto'
     },
     title: {
         marginBottom: theme.spacing(1),

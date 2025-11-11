@@ -1,4 +1,4 @@
-import { makeStyles } from '../../../../theme';
+import { makeStyles } from '../../theme';
 
 export const useStyles = makeStyles()(theme => ({
     sectionTitle: {

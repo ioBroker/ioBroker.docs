@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './AboutSection.styles';
-import { SectionTitle } from '../../components/SectionTitle';
-import { StyledButton } from '../../components/StyledButton';
+import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
+import { StyledButton } from '../../../../components/StyledButton/StyledButton';
 
 export const AboutSection: React.FC = () => {
     const { classes } = useStyles();

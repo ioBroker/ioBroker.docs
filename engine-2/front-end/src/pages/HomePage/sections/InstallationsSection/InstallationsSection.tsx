@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './InstallationsSection.styles';
-import { SectionTitle } from '../../components/SectionTitle';
-import { StyledButton } from '../../components/StyledButton';
+import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
+import { StyledButton } from '../../../../components/StyledButton/StyledButton';
 import Divider from '../../../../components/Divider/Divider';
 import { useScrollProgress } from '../../../../hooks/useScrollProgress';
 

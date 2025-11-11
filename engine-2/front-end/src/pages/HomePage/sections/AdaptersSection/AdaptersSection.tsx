@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './AdaptersSection.styles';
-import { SectionTitle } from '../../components/SectionTitle';
-import { StyledButton } from '../../components/StyledButton';
+import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
+import { StyledButton } from '../../../../components/StyledButton/StyledButton';
 
 import icon1 from '../../../../assets/img/Alexa.svg';
 import icon2 from '../../../../assets/img/Pillips_hue.svg';

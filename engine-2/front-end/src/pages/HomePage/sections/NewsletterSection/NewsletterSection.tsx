@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './NewsletterSection.styles';
-import { SectionTitle } from '../../components/SectionTitle';
+import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
 import ArrowIconSvg from '../../../../assets/img/ArrowDownRight.svg';
 
 const ArrowIcon: React.FC = () => (

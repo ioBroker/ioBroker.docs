@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import type { BoxProps } from '@mui/material';
 import { useStyles } from './StyledButton.styles';
-import ArrowIconSvg from '../../../../assets/img/arrowIcon.svg';
+import ArrowIconSvg from '../../assets/img/arrowIcon.svg';
 
 interface ArrowIconProps {
     sx?: BoxProps['sx'];

@@ -1,1 +1,0 @@
-export { StyledButton } from './StyledButton';

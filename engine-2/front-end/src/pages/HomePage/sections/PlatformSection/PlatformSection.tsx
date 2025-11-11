@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './PlatformSection.styles';
-import { StyledButton } from '../../components/StyledButton';
+import { StyledButton } from '../../../../components/StyledButton/StyledButton';
 
 export const PlatformSection: React.FC = () => {
     const { classes } = useStyles();

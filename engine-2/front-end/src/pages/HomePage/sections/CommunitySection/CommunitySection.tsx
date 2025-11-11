@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './CommunitySection.styles';
-import { SectionTitle } from '../../components/SectionTitle';
+import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
 
 const communityData = [
     { title: 'Forum', count: '30941' },
