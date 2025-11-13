@@ -33,7 +33,7 @@ export const useStyles = makeStyles()((theme) => ({
     linuxCard: {
         display: 'flex',
         flexDirection: 'column',
-        height: '537px',
+        height: '654px',
         width: '1312px',
         padding: 40,
         backgroundColor: 'transparent',
@@ -65,15 +65,20 @@ export const useStyles = makeStyles()((theme) => ({
         color: theme.palette.primary.light,
     },
     commandBox: {
-        backgroundColor: theme.palette.secondary.dark,
-        padding: theme.spacing(1.5, 2),
+        backgroundColor: theme.palette.secondary.main,
+        padding: '8px 8px 27px 22px',
+        width: 790,
+        height: 77,
+        fontSize: 24,
         borderRadius: theme.shape.borderRadius,
-        fontFamily: 'monospace',
         color: theme.palette.common.white,
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         wordBreak: 'break-all',
+    },
+    commandBoxText: {
+        marginTop: 8
     },
     copyButton: {
         cursor: 'pointer',
@@ -81,11 +86,32 @@ export const useStyles = makeStyles()((theme) => ({
         marginLeft: theme.spacing(2),
     },
     hintText: {
-        fontSize: '0.9rem',
-        color: theme.palette.text.disabled,
-        marginTop: theme.spacing(1),
+        fontSize: '16px',
+        color: theme.palette.text.primary,
+        marginTop: 32,
         display: 'flex',
         alignItems: 'center',
+        letterSpacing: 0
+    },
+    imageTextHeader: {
+        fontFamily: "Saira",
+        fontWeight: 600,
+        fontSize: 24,
+        letterSpacing: '-0.03em'
+    },
+    imageText: {
+        fontFamily: "Saira",
+        fontWeight: 400,
+        color: theme.palette.text.primary,
+        fontSize: 18,
+        letterSpacing: '-0.03em',
+        width: 455,
+        // marginBottom: 75
+    },
+    imageInfoBox: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        marginTop: 67
     },
     detailsText: {
         color: theme.palette.text.primary,
@@ -103,17 +129,35 @@ export const useStyles = makeStyles()((theme) => ({
         paddingTop: theme.spacing(2),
     },
     buttonPrimary: {
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.secondary.main,
+        color: theme.palette.text.primary,
         fontWeight: 600,
+        height: 60,
         '&:hover': {
             backgroundColor: theme.palette.primary.dark,
         },
     },
     buttonSecondary: {
         borderColor: theme.palette.primary.dark,
-        color: theme.palette.primary.main,
+        color: theme.palette.text.primary,
         fontWeight: 600,
+        border: `1px solid ${theme.palette.primary.dark} !important`,
+        fontSize: '28px',
+        width: 128,
+        height: 60,
+        '&:hover': {
+            borderColor: theme.palette.primary.main,
+            backgroundColor: `${theme.palette.primary.main}22`,
+        },
+    },
+     buttonSecondaryLinux: {
+        borderColor: theme.palette.primary.dark,
+        color: theme.palette.text.primary,
+        fontWeight: 600,
+        border: `1px solid ${theme.palette.primary.dark} !important`,
+        fontSize: '28px',
+        width: 128,
+        height: 80,
         '&:hover': {
             borderColor: theme.palette.primary.main,
             backgroundColor: `${theme.palette.primary.main}22`,

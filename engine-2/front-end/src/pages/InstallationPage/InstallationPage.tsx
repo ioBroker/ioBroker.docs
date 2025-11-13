@@ -10,7 +10,9 @@ import LinuxLogo from '../../assets/img/LinuxLogo.png';
 import DockerLogo from '../../assets/img/Docker.png';
 import RaspberryLogo from '../../assets/img/Raspberry.png';
 import WindowsLogo from '../../assets/img/Windows_logo.png';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import CopyIcon from '../../assets/img/Copy.png'
+import AlertIcon from '../../assets/img/Alert.png'
+
 
 const InstallationPage = () => {
     const { classes } = useStyles();
@@ -36,27 +38,45 @@ const InstallationPage = () => {
                                     src={LinuxLogo}
                                     alt='linuxLogo'
                                     className={classes.cardIcon}
+                                    width={116}
+                                    height={116}
                                 />
                         </Box>
                         <Typography variant="body1" className={classes.linuxSubHeader}>
                             Die einfachste Möglichkeit, ioBroker auf einem Linux-System zu installieren, ist mit folgendem Befehl:
                         </Typography>
                         <Box className={classes.commandBox}>
-                            <span>curl -sLf https://iobroker.net/install.sh | bash -</span>
-                            <ContentCopyIcon className={classes.copyButton} titleAccess="Copy" />
+                            <span className={classes.commandBoxText} >curl -sLf https://iobroker.net/install.sh | bash -</span>
+                            <img
+                                    src={CopyIcon}
+                                    alt='copyIcon'
+                                    className={classes.copyButton}
+                                    width={32}
+                                    height={32}
+                                />
                         </Box>
                         <Typography className={classes.hintText}>
-                            <span style={{ marginRight: '8px' }}>▲</span> Hinweis: Die Installation kann je nach System einige Minuten dauern.
+                            <span style={{ marginRight: '8px', marginTop: '6px'}}>
+                                 <img
+                                    src={AlertIcon}
+                                    alt='alertIcon'
+                                    className={classes.copyButton}
+                                    width={18}
+                                    height={18}
+                                />
+                                </span> Hinweis: Die Installation kann je nach System einige Minuten dauern.
                         </Typography>
                     </Box>
-                    <Box mt={4}>
-                        <Typography variant="h6" sx={{ mb: 1 }}>
+                    <Box  className={classes.imageInfoBox}>
+                        <Box>
+                        <Typography variant="h6" sx={{ mb: 1 }} className={classes.imageTextHeader} >
                             Wann benötige ich ein Image?
                         </Typography>
-                        <Typography variant="body2" color="text.disabled" sx={{ mb: 2 }}>
+                        <Typography variant="body2" sx={{ mb: 2 }} className={classes.imageText}>
                             Ein vorkonfiguriertes Image ist nur erforderlich, wenn das Installationsskript nicht funktioniert oder keine Internetverbindung verfügbar ist.
                         </Typography>
-                        <Button variant="outlined" className={classes.buttonSecondary}>
+                        </Box>
+                        <Button variant="outlined" className={classes.buttonSecondaryLinux}>
                             INFO
                         </Button>
                     </Box>
