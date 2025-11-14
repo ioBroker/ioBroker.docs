@@ -23,6 +23,8 @@ All devices which can be controlled via EWPE Smart app should be supported, incl
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+### 2.0.6 (2025-11-07)
+ - Added request timeout property.
 ### 2.0.4 (2025-10-16)
  - Migration to Trusted Publishing
 ### 2.0.3 (2025-10-10)
@@ -36,8 +38,6 @@ All devices which can be controlled via EWPE Smart app should be supported, incl
  - Adjusted admin layout
 ### 1.1.0 (2024-08-13)
  - Added the AES-GCM encryption which is needed for some devices with newer firmware versions (e.g. gree model 32776, v1.23)
-### 1.0.7 (2024-07-03)
- - Host Google icons locally. Updated dependencies.
 
 ## License
 MIT License

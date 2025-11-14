@@ -41,9 +41,72 @@ The following functions are implemented:
 - Playlist forward (triggered by setting 'control.forward' to true)
 - Playlist backward (triggered by setting 'control.backward' to true)
 
+Library browsing for LocalMusic is added. A dynamic menu list is available in 'info.list'. This object should be set as the 'Object ID' for a json-table to visualize the current menu. The object 'control.command' is used to pass the next command to the player. It is updated by defining it as the 'Selected ID' of that table. The table header itself is updated by using 'info.listheader' via object binding for the first headers' name. For better visualization only the first header should be shown and its width should be set to 100%.
+
+All contents is drilled down up to the album level (with the exception of the Songs menu, in which songs are directly listed). When an album is selected its content is immediately played, replacing the contents of the current playlist or added to the current playlist. This behaviour is dependent on the value of info.playliststate. If the value is true the playlist is replaced, in the other case the new content is added. This object can be changed by control.playlist (Button with Toggle mode). Each time this button is pressed, the value of info.playliststate is inverted.
+
+The contents of the current playlist is available in the object info.playlist (JSON) and can be visualized this way. It is also available as an html- table in info.playlisthtml and can be directly visualized in a html widget. The format of the resulting table can be modified using CSS
+
+```javascript
+.playlist table {
+    background-color: #514d4d;
+    width: 100%;
+    border-collapse: collapse;
+    display: block;
+    overflow-y: auto;
+    max-height: 100%;
+}
+.playlist img {
+    margin: 10px;
+    height: 50px;
+    width:  50px;
+}
+
+.playlist .title {
+    color: #ffffff;
+    font-size: 18px;
+    padding-top: 10px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.playlist .artist {
+    color: #888888;
+    padding-bottom: 10px;
+}
+
+.playlist .current {
+    color: #2f9bde;
+    font-size: 18px;
+    padding-top: 10px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.playlist div {
+    height: 800px;
+}
+```
+
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Uwe Nagel) Add info.playlisthtml
+- (Uwe Nagel) Add info.playliststate
+- (Uwe Nagel) Function setPlaylistToggle added
+- (Uwe Nagel) Add control.playlist
+- (Uwe Nagel) Function readPlaylist added
+- (Uwe Nagel) Add info.playlist
+- (Uwe Nagel) Library browsing added
+
 ### 1.2.1 (2025-10-18)
 
+- (Uwe Nagel) Add info.list and control.command
 - (Uwe Nagel) Changes according to ioBroker Check
 - (Uwe Nagel) Bump @types/node from 24.5.2 to 24.6.1
 - (Uwe Nagel) Bump chai from 6.0.1 to 6.2.0

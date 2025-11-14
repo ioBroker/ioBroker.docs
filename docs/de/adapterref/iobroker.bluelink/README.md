@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: CeLukc1MVtrhlLjnULMVWSBmuYhlfDAN1spvxONLZVY=
+hash: D+N+qLPKppmOp3lE3sL0lIjj/sUaUTSKSVSq6yBgEzQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -14,26 +14,28 @@ hash: CeLukc1MVtrhlLjnULMVWSBmuYhlfDAN1spvxONLZVY=
 ![NPM](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
-![Testen und Freigeben](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Bluelink-Adapter für ioBroker
 Adapter zur Steuerung von Hyundai- oder Kia-Fahrzeugen (bis 2023)
 
 [Diskussion](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 
-[Login-Informationen](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
+[Anmeldeinformationen](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
+
+[Token generieren](https://github.com/Newan/ioBroker.bluelink/tree/master/py) oder [Workaround mit Token](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo/2249?_=1761189451343)
 
 [Wiki](https://github.com/Newan/ioBroker.bluelink/wiki)
 
-### [Problemumgehung mit Token](https://github.com/Newan/ioBroker.bluelink/tree/master/py)
-
-### [Problemumgehung mit Token](https://github.com/Newan/ioBroker.bluelink/tree/master/py)
 ------------------------------------------------------------------------------------
 
 ## Spende
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 3.1.24 (2025-11-07)
+* (arteck) fix vehicles > 2 in account
+
 ### 3.1.23 (2025-10-16)
 * (arteck) new bluelinky
 
@@ -237,5 +239,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
+
 
 SOFTWARE.

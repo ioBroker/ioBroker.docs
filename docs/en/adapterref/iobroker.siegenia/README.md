@@ -41,8 +41,7 @@ Timers and other more complex data are shown by the adapter, but can be changed 
 
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.2.1 (2025-11-14)
 * (@Apollon77) Add support for enOcean Converter Module, VT Upgrade, DRIVE CL, and AEROPLUS
 
 ### 1.1.1 (2021-07-06)

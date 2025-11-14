@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vivitek.svg)](https://www.npmjs.com/package/iobroker.vivitek)
 ![Number of Installations (latest)](http://iobroker.live/badges/vivitek-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/vivitek-stable.svg)
-[![Dependency Status](https://img.shields.io/david/Bannsaenger/iobroker.vivitek.svg)](https://david-dm.org/Bannsaenger/iobroker.vivitek)
 [![Known Vulnerabilities](https://snyk.io/test/github/Bannsaenger/ioBroker.vivitek/badge.svg)](https://snyk.io/test/github/Bannsaenger/ioBroker.vivitek)
 
 [![NPM](https://nodei.co/npm/iobroker.vivitek.png?downloads=true)](https://nodei.co/npm/iobroker.vivitek/)
@@ -31,6 +30,10 @@ As i know for now, the protocol covers a whole family of projectos.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.3 (2025-10-24)
+* (Bannsaenger) updated dependencies and issues from repository checker
+* (Bannsaenger) migrate to NPM Trusted Publishing
+
 ### 0.1.2 (2025-09-06)
 * (Bannsaenger) updated dependencies and issues from repository checker
 
@@ -45,9 +48,6 @@ As i know for now, the protocol covers a whole family of projectos.
 
 ### 0.0.2
 * (Bannsaenger) prepared for checkin to iobroker.latest
-
-### 0.0.1
-* (Bannsaenger) initial release
 
 ## License
 MIT License

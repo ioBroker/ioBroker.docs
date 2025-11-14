@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterjsonconfig.md
 title: Конфигурация ioBroker JSON: руководство для начинающих
-hash: rPEUKF4jyFpTnaXJk7Mrw7RPLnUpvyBt+FvPY6e2ag0=
+hash: kKg40oC5RGL3q1x4nI7qTNIqlhwAp7kKd1FtjRBdkT8=
 ---
 # Конфигурация JSON ioBroker: руководство для начинающих
 В этом руководстве объясняется, как задать параметры конфигурации адаптера ioBroker с помощью JSON. Такой подход обеспечивает более удобный и гибкий способ управления настройками адаптера в интерфейсе администратора ioBroker.
@@ -238,7 +238,7 @@ admin/i18n/en.json
 Кроме того, пользователь может указать путь к файлам `i18n`, `i18n`: `customI18n` и указать файлы в админке:
 
 ```json5
-  i18n: "customI18n",
+  "i18n": "customI18n",
 ```
 
 ```text
@@ -416,9 +416,9 @@ admin/customI18n/en.json
 | `showAllValues` | показать элемент, даже если для него не найдено ни одной метки (по нескольким), default=`true` |
 
 #### Пример для `select options`
-```json
+```json5
 [
-  {"label": {"en": "option 1"}, "value": 1}, ...
+  {"label": {"en": "option 1"}, "value": 1}, //...
 ]
 ```
 
@@ -636,7 +636,7 @@ ID объекта: показать его с именем, цветом и зн
 | `вариант` | `содержался`, `очерчивался`, '' |
 
 ### `staticText`
-статический текст как описание
+статический текст, как описание
 
 | Недвижимость | Описание |
 |----------|---------------------|
@@ -1025,7 +1025,7 @@ adapter.on("message", (obj) => {
 | `texts` | массив абзацев с текстами, которые будут показаны каждый как отдельный абзац |
 | `title` | Заголовок диалогового окна лицензии |
 | `agreeText` | Текст согласованной кнопки |
-| `checkBox` | Если определено, будет отображаться флажок с указанным именем. Если флажок установлен, будет включена кнопка «Согласовано». |
+| `checkBox` | Если определено, будет отображаться флажок с указанным именем. Если отмечено, будет включена кнопка «Согласовано». |
 | `checkBox` | Если определено, будет отображаться флажок с указанным именем. Если отмечено, будет включена кнопка «Согласовано». |
 
 ### `checkDocker`
@@ -1128,31 +1128,34 @@ adapter.on("message", (obj) => {
 
 Вот пример того, как отобразить диспетчер устройств на вкладке:
 
-```json
-"_deviceManager": {
-  "type": "panel",
-  "label": "Device manager",
-  "items": {
-    "_dm": {
-      "type": "deviceManager",
-      "sm": 12,
-      "style": {
-        "width": "100%",
-        "height": "100%",
-        "overflow": "hidden"
-      }
+```json5
+{
+    //...
+    "_deviceManager": {
+        "type": "panel",
+        "label": "Device manager",
+        "items": {
+            "_dm": {
+                "type": "deviceManager",
+                "sm": 12,
+                "style": {
+                    "width": "100%",
+                    "height": "100%",
+                    "overflow": "hidden"
+                }
+            }
+        },
+        "style": {
+            "width": "100%",
+            "height": "100%",
+            "overflow": "hidden"
+        },
+        "innerStyle": {
+            "width": "100%",
+            "height": "100%",
+            "overflow": "hidden"
+        }
     }
-  },
-  "style": {
-    "width": "100%",
-    "height": "100%",
-    "overflow": "hidden"
-  },
-  "innerStyle": {
-    "width": "100%",
-    "height": "100%",
-    "overflow": "hidden"
-  }
 }
 ```
 
@@ -1200,7 +1203,7 @@ adapter.on("message", (obj) => {
 
 ### Дополнительные возможности
 | вариант | описание |
-|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `type` | Если у элемента нет атрибута `type`, предполагается, что его тип по умолчанию — «панель». Тип элемента. Доступные в настоящее время параметры см. в разделе [Общие элементы управления:](#common-control-elements) |
 | `label` | Строка или объект типа {en: 'Name', ru: 'Имя'} |
 | `hidden` | Функция JS, которая может использовать `native.attribute` для вычислений |
@@ -1237,7 +1240,7 @@ adapter.on("message", (obj) => {
 - `allowSaveWithError` - Разрешить сохранение конфигурации, даже если экземпляр находится в автономном режиме
 
 #### `confirm`
-- `condition` - функция JS: true показать диалоговое окно подтверждения
+- `condition` - функция JS: true показать диалог подтверждения
 - `text` - текст диалогового окна подтверждения
 - `title` - заголовок диалога подтверждения
 - `ok` - Текст для кнопки ОК
@@ -1298,7 +1301,7 @@ adapter.on("message", (obj) => {
     schema={schema}
     customInstancesEditor={CustomInstancesEditor}
     data={common.native}
-    onError={(error, attribute) => error can be true/false or text. Attribute is optional}
+    onError={(error, attribute) => {/* error can be true/false or text. Attribute is optional */}}
     onChanged={(newData, isChanged) => console.log('Changed ' + isChanged)}
 />
 ```
@@ -1404,7 +1407,7 @@ const isValid = func(
     theme={this.props.theme}
     name="accessAllowedConfigs"
     onChange={(newData, isChanged) => {}}
-    onError={error => error can be true/false or text}
+    onError={error => /* error can be true/false or text */ {}}
 />
 ```
 
@@ -1493,3 +1496,51 @@ onMessage = (obj: ioBroker.Message): void => {
 
 ## Для сопровождающего
 Чтобы обновить расположение схемы JsonConfig, создайте запрос на извлечение к этому файлу: https://github.com/ioBroker/ioBroker.admin/blob/master/packages/jsonConfig/schemas/jsonConfig.json
+
+## Для разработчика
+Схема используется здесь: https://github.com/SchemaStore/schemastore/blob/6da29cd9d7cc240fb4980625f0de6cf7bd8dfd06/src/api/json/catalog.json#L3214
+
+<!-- Заполнитель для следующей версии (в начале строки):
+
+### **РАБОТА В ХОДЕ** -->
+
+## Changelog
+### 8.0.6 (2025-11-10)
+- (@GermanBluefox) Added width to many table elements
+
+### 8.0.5 (2025-10-25)
+- (@GermanBluefox) Do not translate certificates names
+- (@GermanBluefox) Update packages
+
+### 8.0.3 (2025-10-23)
+- (@GermanBluefox) Do not translate certificates names
+
+### 8.0.2 (2025-10-23)
+- (@GermanBluefox) Renamed gui-components to adapter-react-v5
+
+### 8.0.1 (2025-10-23)
+- (@GermanBluefox) initial commit
+
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2019-2025 @GermanBluefox <dogafox@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

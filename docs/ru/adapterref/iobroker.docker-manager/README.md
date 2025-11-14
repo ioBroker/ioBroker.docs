@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.docker-manager/README.md
 title: Адаптер менеджера Docker ioBroker
-hash: e8mI5CeLmFSozh/5vqtfUDR3jl8rVjakBC7nLylVF78=
+hash: AVRvjIKjjeynfbQqaUN+aR3yujAFB5bKoI7uKsR9uuM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.docker-manager/admin/docker-manager.svg)
 
@@ -86,6 +86,7 @@ netstat -tuln | grep 2375
 - BackItUp должен поддерживать `/opt/iobroker/docker-volumes`
 - Подумайте о том, что js-controller удалит докеры, которые больше не используются, но имеют метку
 - Установщик Docker: `iob docker <remove>`
+- Индикатор прогресса: добавление/извлечение изображения, создание контейнера
 
 <!-- Заполнитель для следующей версии (в начале строки):
 

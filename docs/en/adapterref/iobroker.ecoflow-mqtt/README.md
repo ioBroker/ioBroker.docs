@@ -342,6 +342,8 @@ Wave is not available, could be implemented, if data is available.
 
 [Glacier](./doc/devices/glacier.md)
 
+[Glacier Classic 55L](./doc/devices/glacier55.md)
+
 ### Alternator
 
 [Alternator](./doc/devices/alternator.md)
@@ -367,8 +369,10 @@ it creates [PROTOBUF unknown] messages in th log, they contain the raw hex teleg
 
 ### 1.4.8 (npm)
 
+- (foxthefox) new device Glacier Classic 55L support
 - (foxthefox) poweroceanplus set hrPwr/fromPv/romBat/fromGrid values to 0 for non transmitted datapoints in HeatingRodEnergyStreamShow
 - (foxthefox) poweroceanplus pcsActPwr max 20kW, pcsXPhase_amp max 60A
+- (foxthefox) corrections in BMSHeartBeatReport for river3/river3plus
 - (foxthefox) dev dependencies cleanup
 
 ### 1.4.7 (npm)

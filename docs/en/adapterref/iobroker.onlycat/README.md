@@ -41,6 +41,11 @@ OnlyCat® is a registered trademarks of [VirtualV Trading Ltd.](https://www.only
 
 ## Changelog
 
+### 0.5.2 (2025-10-22)
+
+* (Sickboy78) dependency updates
+* (Sickboy78) migration to npm trusted publishing
+
 ### 0.5.1 (2025-09-08)
 
 * (Sickboy78) fix error on firmware channel missing

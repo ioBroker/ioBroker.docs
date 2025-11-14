@@ -195,6 +195,9 @@ Auszug:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.0.1 (2025-10-22)
+* (bluefox) Renamed role of `STICKY_UNREACH` to `indicator.unreach.sticky` for the better typing detection
+
 ### 3.0.0 (2025-10-21)
 * (bluefox) Updated packages and used `@iobroker/eslint-config`
 * (bluefox) Renamed some roles for the better typing detection
@@ -209,9 +212,6 @@ Auszug:
 
 ### 1.17.0 (2024-03-18)
 * (klein0r) Fixed encrypted configuration
-
-### 1.16.1 (2024-03-05)
-* (bluefox) Improved the configuration layout
 
 ### Older entries
 [here](OLD_CHANGELOG.md)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate — адаптер для визуализации данных JSON и других данных в Vis/Vis2
-hash: zTK7roAooVi0nFZ7a9E423aplRW1uZfPZZV1uMu0exI=
+hash: BwqvNjiyiApZb5qyTlme+D5LK+b+Cc5DNrCWuXYG8DQ=
 ---
 # JSONTemplate — адаптер для визуализации данных JSON и других данных в Vis/Vis2
 ![Логотип](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -41,7 +41,7 @@ iobroker upload jsontemplate
 ## Vis и виджеты
 Следующие виджеты действительно существуют
 
-- [`JSON Template`](#json-template) - вы можете определить собственный шаблон
+- [`Шаблон JSON`](#json-template) - вы можете определить собственный шаблон
 
 для отображения любых JSON-данных в vis.
 
@@ -63,7 +63,7 @@ JSON-данные передаются в шаблон с префиксом dat
 
 #### Расширенный вариант использования
 В приведенных выше примерах рассматривался только чистый вывод.
-Теперь шаблон можно дополнить HTML-тегами для создания нужного макета. Вот пример:
+Шаблон теперь можно дополнить HTML-тегами для создания нужного макета. Вот пример:
 
 ```html
 <h3>Output</h3>
@@ -273,12 +273,32 @@ local_trigger
 | 23-28 | Глобальная ссылка функции `clicktodo()` |
 | 30-37 | `getButton()` функция для создания кнопки с текущим статусом |
 | 38-44 | `clicktodo()` функция для изменения статуса с помощью нажатия кнопки |
-| 45-48 | Функция `getTodo()` для извлечения данных через адаптер SQL |
+| 45-48 | `getTodo()` функция для извлечения данных через адаптер SQL |
 | 49-52 | Функция `setAction()` для обновления записи в базе данных |
 | 53-58 | Функция `sendToAsync()` для использования `async/await` с `vis.conn.sendTo()` |
 | 53-58 | Функция `sendToAsync()` для использования `async/await` с `vis.conn.sendTo()` |
 
 ## Система шаблонов
+## Важное примечание для системы шаблонов в vis
+В vis все обозначения объектов в следующем виде распознаются и заменяются как привязки.
+
+Поэтому открывающие и закрывающие скобки всех обозначений объектов должны располагаться на отдельных строках:
+
+Неверно:
+
+```json
+{ "a": 1, "b": 2 }
+```
+
+Правильный
+
+```json
+{
+    "a": 1,
+    "b": 2
+}
+```
+
 ## Теги
 Система шаблонов работает с определёнными тегами.
 Используемые теги означают следующее:
@@ -464,6 +484,24 @@ local_trigger
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- Improve documentation for the object notation in a template
+
+### 4.1.3 (2025-11-03)
+
+- fix race condition if more than one widget use the same datapoint
+- switch to trusted publishing
+
+### 4.1.2 (2025-09-13)
+
+- new try of publish
+
+### 4.1.0 (2025-09-12)
+
+- rename widgetset of the vis2 widget
+
 ### 4.0.2 (2025-08-28)
 
 - remove v4.0.0 from io-package

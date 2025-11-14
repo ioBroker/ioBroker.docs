@@ -23,6 +23,21 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.18.4 (2025-11-08)
+* (BenAhrdt) Change unique id for lorawan internal standard states
+* (BenAhrdt) Change sequence of dicovery and check downlinks at startup
+
+### 1.18.3 (2025-11-06)
+* (BenAhrdt) Add possibility to switch the LoraWAN communication off (origin)
+
+### 1.18.2 (2025-11-04)
+* (BenAhrdt) Change Topicformat from device_state to device/state
+
+### 1.18.1 (2025-11-03)
+* (BenAhrdt) Add Bridge Type Smarthome
+* (BenAhrdt) Bugfix subscribed Topics
+* (BenAhrdt) Bugfix on case of objectid starts with '.'
+
 ### 1.18.0 (2025-10-19)
 * (BenAhrdt) New NPM Auorisation
 

@@ -26,6 +26,8 @@ To control your device change the \*Convert values.
 
 `wmswebcontrol.0.Markise.setting2Convert`
 
+Hint: The password which is set in adapter settings shall not have special characters.
+
 ## Changelog
 ### 0.1.4 (2025-01-27)
 

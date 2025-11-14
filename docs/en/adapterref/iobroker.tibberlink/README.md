@@ -165,6 +165,18 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+- (HombachC) optimize sentry
+- (HombachC) update axios
+- (HombachC) update FlexChart template
+- (HombachC) update dependencies
+
+### 6.0.2 (2025-10-24)
+
+- (HombachC) update NPM deployment
+- (HombachC) update dependencies
+
 ### 6.0.1 (2025-10-09)
 
 - (HombachC) fix error in cleaning tomorrow data
@@ -195,13 +207,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) fix jsonconfig schema definition (#762)
 - (HombachC) optimize cron jobs
 - (HombachC) update axios
-
-### 5.0.2 (2025-08-29)
-
-- (HombachC) min admin 7.6.17 as recommended (#754)
-- (HombachC) update adapter-core
-- (HombachC) bump typescript
-- (HombachC) bump dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

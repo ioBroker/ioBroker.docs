@@ -60,6 +60,16 @@ Questions? Check the [FAQ](faq.md) section first!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 10.4.2-alpha.1 (2025-11-12)
+* (@mcm1957) Changes to mqtt connect handling hav ebeen applied. This should fix err 'Unable to get MQTT.Prefix'[#931].
+* (@mcm1957) Dependencies have been updated
+
+### 10.4.1 (2025-11-03)
+* (@mcm1957) Shelly pro 3em400 has been added as dedicated device to improve detectio (shellypro3em400) [#1269].
+* (@mcm1957) Missing energy states have been added to Shelly Dimmer Gen 3 (shellydimmerg3) [#1274].
+* (@klein0r) Added distance support to ble sensors
+* (@mcm1957) Dependencies have been updated
+
 ### 10.4.0 (2025-10-13)
 
 * (@mcm1957) Slat control added to Shelly ProDualCoverPM, Shelly Pro2PM, Shelly Shutter, Shelly Plus 2PM, Shelly 2PM Gen 3 and Shelly 2PM Gen 4.
@@ -85,19 +95,6 @@ Questions? Check the [FAQ](faq.md) section first!
 * (@klein0r) Shelly Shutter Gen 3 (shellyshutter) has been added.
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required now.
 * (@mcm1957) Dependencies have been updated
-
-### 10.1.0 (2025-06-30)
-
-* (@klein0r) Allow infinite event listeners
-* (@klein0r) Added transformed voltage for voltmeter
-* (@klein0r) Improved logging of mqtt authentication failures
-* (@klein0r) Acknowledge new encryption keys for bthome encryption
-
-### 10.0.0 (2025-05-30)
-
-* (@mcm1957) ATTENTION: Adapter requires BLE Script v1.0 now. See [documentation](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/master/docs/en/ble-devices.md).
-* (@klein0r) Moved BTHome decoding to adapter (save memory on devices)
-* (@klein0r) Allow encrypted payloads of BTHome devices (set encryption key in state)
 
 ## License
 

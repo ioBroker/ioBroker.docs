@@ -82,6 +82,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
+- (hombach) optimize cependabot config (#209)
+- (hombach) update axios
+
+### 2.0.4 (2025-10-22)
+
+- (hombach) upgrade NPM deployment system
 - (hombach) bump dependencies
 
 ### 2.0.3 (2025-09-27)
@@ -107,7 +113,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (hombach) BREAKING: Dropped support for Node.js 18 (#135)
 - (hombach) BREAKING: Dropped support for js-controller 5 (#135)
-- (hombach) bump dependencies
 
 ### 1.5.0 (2025-04-14)
 
@@ -125,7 +130,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (hombach) add stop HVAC command (#121)
 - (hombach) add start/stop charging command (#121)
-- (hombach) bump dependencies
 
 ### 1.2.2 (2025-03-11)
 
@@ -144,7 +148,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (hombach) added @alcalzone/release-script (#97)
 - (hombach) bump @iobroker/adapter-dev to 1.4.0 (#104)
-- (hombach) bump dependencies
 - (hombach) fix error in config (#106)
 
 ### 1.1.1 (2025-02-01)
@@ -194,7 +197,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (hombach) intruduce 'iobroker/eslint-config' (#67)
 - (hombach) add axios timeout
 - (hombach) optimized code stability
-- (hombach) fix typo
 - (hombach) remove message handler
 
 ### 0.4.0 (2024-11-10)
@@ -238,12 +240,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (hombach) fix typo in error text
 - (hombach) optimize responsive design
-- (hombach) bump dependencies
 
 ### 0.1.2 (2024-10-28)
 
 - (hombach) introduce to ioBroker latest repo
-- (hombach) bump dependencies
 
 ### 0.1.1 (2024-10-26)
 

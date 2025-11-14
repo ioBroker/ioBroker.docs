@@ -32,6 +32,9 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.7.3 (2025-10-26)
+* (misanorot) update npm progress
+
 ### 1.7.2 (2025-10-12)
 * (misanorot) update packages
 
@@ -43,9 +46,6 @@
 
 ### 1.5.4 (2025-01-08)
 * (misanorot) protect password
-
-### 1.5.3 (2024-12-19)
-* (misanorot) fixed issue #245 ESlint
 
 ### License
 

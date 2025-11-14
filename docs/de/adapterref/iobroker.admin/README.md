@@ -23,7 +23,7 @@ Dieser Adapter wird direkt bei der Installation von ioBroker angelegt eine manue
 
 ## Konfiguration
 
-![adapter_admin_konfiguration](img/admin_konfiguration.png)
+![adapter_admin_konfiguration](img/admin_img_002.jpg)
 
 #### IP
 
@@ -52,7 +52,7 @@ Soll eine Authentifizierung erfolgen ist hier ein Haken zu setzen.
 
 Die Hauptseite des Administrators besteht aus mehreren Reitern. In der Grundinstallation werden die Reiter wie in der Abbildung angezeigt. Über das Bleistift-Icon rechts oben (1) können nach der Installation zusätzlicher Adapter weitere Reiter hinzugefügt werden. Dort können auch Reiter deaktiviert werden um eine besser Übersicht zu erhalten.
 
-![iobroker_adapter_admin_001a](img/admin_ioBroker_Adapter_Admin_001a.jpg)
+![iobroker_adapter_admin_](img/admin_img_001.jpg)
 
 Ausführliche Informationen sind in den Seiten hinterlegt, die über die Überschriften verlinkt sind.
 
@@ -115,40 +115,78 @@ Reiter befindet sich bei dem entsprechenden Adapter.
 In dem sich hier öffnenden Menü werden Einstellungen wie Sprache, Zeit- und Datumsformat sowie 
 weitere systemweite Einstellungen getätigt. 
 
-![Admin Systemeinstellungen](img/admin_Systemeinstellungen.jpg) 
+![Admin Systemeinstellungen](img/admin_img_006.jpg) 
 
 Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werden. 
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+<!--
+	### **WORK IN PROGRESS**
+-->
 ### **WORK IN PROGRESS**
-* (foxriver76) fixed problem with default value of underscore attributes in Json Config
-* (foxriver76) prevent strict schema validation being logged to syslog
-* (foxriver76) fixed problems with ObjectCustomEditor
-* (klein0r) fixed markdown links (if default branch main)
+- (@GermanBluefox) Small optimizations
+- (@GermanBluefox) Allowed to upload objects via text
 
-### 6.12.9 (2023-12-12)
-* (foxriver76) prevented the strict schema validation being logged to syslog
-* (bluefox) corrected the displaying of news with the new lines
+### 7.7.19 (2025-10-26)
+- (@GermanBluefox) Updated schema location for JsonConfig
 
-### 6.12.8 (2023-12-06)
-* (bluefox) corrected ACL for files
-* (bluefox) allowed changing color of the menu item
-* (bluefox) corrected the user/group icon selector
+### 7.7.18 (2025-10-25)
+- (@GermanBluefox) Improvement of categories: drag&drop, visibility
+- (@copilot) Added missing filterFunc property to jsonConfig objectId schema to match documentation and implementation
+- (@copilot, @SimonFischer04) Added extended reverse proxy example section with screenshots, limitations (admin root requirement), and adapter compatibility notes
+- (@copilot, @SimonFischer04) Fixed instances page reverse proxy link mapping so adapter localLinks are rewritten to the configured proxy paths (prefix matching + web port replacement, with duplicate link collapse)
+- (@copilot, @SimonFischer04) Fixed intro page reverse proxy link remapping so links are correctly rewritten immediately and after navigating away and back (load reverseProxy config before instance scan and use prefix startsWith matching)
+- (@GermanBluefox) Fixed multi-selection in the select ID dialog
 
-### 6.12.7 (2023-12-03)
-* (foxriver76) add property `onLoaded` to `sendTo` json config
-* (foxriver76) fixed easy admin height
+### 7.7.3 (2025-09-25)
+- Many GUI changes: See previous changelog below for details
 
-### 6.12.6 (2023-12-01)
-* (foxriver76) fixed JSON config file component if no initial value exists
-* (bluefox) added the creation of a state or of a device possibility to the context menu
+### 7.7.2 (2025-09-24)
+- (@copilot) Fixed JSONCONFIG table validator bug where validation errors persisted after deleting table rows
+- (@GermanBluefox) Made small fix for JsonConfig component `state`
+- (@copilot) Fixed repository refresh issue: repositories are now automatically refreshed when switching repository source (stable/latest) without requiring manual "Check for updates"
+- (@copilot) Added CSV file editing support in file browser - CSV files can now be edited directly in the file manager
+- (@copilot) Implemented sortable columns for instances table (name, status, memory, ID, host, loglevel)
+- (@copilot) Fixed adapter license icon linking to use commercial license URL instead of GitHub license
+- (@copilot) Fixed license icon spacing in list view to maintain consistent layout
+- (@GermanBluefox) Allows entering minus values with JsonConfig number component
+- (@copilot) Fixed textIP checkbox inconsistency between Objects and States tabs for the same host configuration
+- (@GermanBluefox) Added icon to `www` folder for windows
+- (@copilot) Confirmed and documented Copilot issue handling guidelines: PRs use neutral language (no "fixes" keywords), issues closed manually by maintainers, and "fixed" labels added when appropriate
+- (@copilot) Enhanced Copilot instructions to make issue management policy more prominent - no auto-closing issues, manual validation required
+- (@copilot) Enhanced repository timestamp display to show both generated and read timestamps - shows when repository data was generated and when it was last read by admin backend
+- (@copilot) Fixed jsonConfig port validation to properly account for bind addresses, allowing the same port on different IP addresses
+- (@copilot) Added error indicators to JSON Config tabs and accordions to improve the visibility of validation errors
+- (@copilot) Added export/import functionality for accordion sections in JsonConfig allowing users to save accordion data as JSON files and import them back with replace or add options
+- (@copilot) Fixed time difference warning that incorrectly appeared when the browser tab was inactive for a while
+- (@copilot) For GitHub-installed adapters, show version + commit hash instead of just version
+- (@copilot) Fixed table export error when table items contain null values
+- (@copilot) Object Browser: Added formatted duration display for values with role "value.duration" - shows time durations in HH:mm:ss format instead of raw seconds
+- (@copilot) Enhanced GitHub Actions to skip tests when only README.md is changed, speeding up CI for Copilot PRs (tested with mixed file changes)
+- (@GermanBluefox) Added the docker checker in JSON config
+- (@copilot) Fixed js-controller update notifications to use "The js-controller" instead of "Adapter js-controller"
+- (@copilot) Fixed JSONConfig sendTo jsonData attribute parser problem where backslashes (\) in text inputs caused JSON parsing errors
+- (@copilot) Fixed step type behavior in chart display - "Schritte" now shows value until next point (step after) instead of step before
+- (@copilot) Added all three-step type options (stepStart, stepMiddle, stepEnd) to chart display with clearer descriptions
+- (@copilot) Fixed React error #62 in the Files tab caused by malformed CSS calc() function
+- (@copilot) Added loading indicator to JSONConfig autocompleteSendTo component during sendTo operations
+- (@copilot) Mark adapters removed from repository with "not maintained" text instead of empty version field
+- (@copilot) Enhanced responsive design: modals and popups now use full screen on xs and sm breakpoints
+- (@copilot) Added logout dropdown menu to user icon for improved user experience
+- (@copilot) Updated OAuth2 documentation in DEVELOPER.md to include both cloud-based and direct callback approaches with clear guidance on when to use each method
+- (@copilot) Only show adapters with satisfied dependencies in update all dialog
+- (@copilot) Added new `readOnly` attribute for jsonEditor in jsonConfig - allows opening the editor to view JSON content without allowing modifications
+- (@GermanBluefox) Reading of same instances was optimized in GUI
+- (@GermanBluefox) Do not show the http page if admin is secured
+- (@GermanBluefox) Show loading progress for custom tabs
+- (@GermanBluefox) Fixing change of the language in the admin
 
-### 6.12.5 (2023-11-23)
-* (foxriver76) fixed json config ConfigFileSelector
-* (klein0r) fixed title bar layout with username and icon
+### 7.7.1 (2025-06-20)
+- (@GermanBluefox) Fixing clearing of the filter on the object tab
 
 ## License
+
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025 bluefox <dogafox@gmail.com>

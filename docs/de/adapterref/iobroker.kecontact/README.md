@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: LJPtBKpFe5pEkfv+/Ay6IJBfOV2UtFDQ+QOnBnu6fJw=
+hash: MGiYMwJoul92QwJbU2ve3VGjaw4SuxeBxGvNS9gxt8c=
 ---
 ![Logo](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -16,93 +16,91 @@ hash: LJPtBKpFe5pEkfv+/Ay6IJBfOV2UtFDQ+QOnBnu6fJw=
 # IoBroker.kecontact
 [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/kecontact/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Tests:** ![Testen und Freigeben](https://github.com/Sneak-L8/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/Sneak-L8/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
 # IoBroker-Adapter für KEBA KeContact P20 oder P30 und BMW i Wallbox
-Steuern Sie Ihre Ladestation über das UDP-Protokoll und nutzen Sie die automatische Regelung, um beispielsweise Ihr Fahrzeug über Photovoltaik-Überschuss und Batteriespeicher zu laden.
+Steuern Sie Ihre Ladestation über das UDP-Protokoll und nutzen Sie die automatische Regelung, z. B. um Ihr Fahrzeug mit Photovoltaik-Überschuss und Batteriespeicher zu laden.
 
 ## Installieren
 Installieren Sie diesen Adapter über ioBroker Admin:
 
-1. Öffnen Sie den Instanzkonfigurationsdialog
-2. Geben Sie die IP-Adresse Ihrer KEBA KeContact Wallbox ein
-3. Eingabe der Zustände von Energiezählern für PV-Automatik oder Leistungsbegrenzung und gewünschte Daten für Batteriespeicher
-4. Speichern Sie die Konfiguration
-5. Starten Sie den Adapter
+1. Öffnen Sie den Dialog zur Instanzkonfiguration.
+2. Geben Sie die IP-Adresse Ihrer KEBA KeContact Wallbox ein.
+3. Geben Sie die Zustände der Energiezähler für PV-Automatik oder Leistungsbegrenzung sowie die gewünschten Daten für den Batteriespeicher ein.
+4. Konfiguration speichern
+5. Schalten Sie den Adapter ein.
 
 ## Konfiguration
 ### KeContact IP-Adresse
-Dies ist die IP-Adresse Ihrer KEBA KeContact oder BMW i Wallbox. Die Kombination mit Keba KeContact S10 (Phasenschaltgerät) wird unterstützt.
+Dies ist die IP-Adresse Ihrer KEBA KeContact oder BMW i Wallbox. Die Kombination mit Keba KeContact S10 (Phasenumschalter) wird unterstützt.
 
 ### Firmware-Prüfung
 Wird nicht mehr unterstützt, da die Website von Keba geändert wurde.
 
 ### Passiver Modus
-Aktivieren Sie diese Option, wenn Sie Ihre Wallbox selbst steuern möchten und der Adapter keine Automatikfunktionen ausführen soll. In diesem Fall werden alle nachfolgenden Optionen zur PV-Automatik und Leistungsbegrenzung ignoriert.
+Aktivieren Sie diese Option, wenn Sie Ihre Wallbox selbst steuern möchten und keine automatischen Funktionen des Adapters wünschen. In diesem Fall werden alle nachfolgenden Optionen bezüglich PV-Automatik und Leistungsbegrenzung ignoriert.
 
-### Nachfolgende Wallbox
-Aktivieren Sie diese Option, wenn es sich um eine weitere Wallbox in Ihrer Umgebung handelt. Aktuell kann nur eine Wallbox aktiv verwaltet werden. Alle anderen (separaten Instanzen) müssen diese Option aktivieren, da nur eine Instanz Broadcast-Nachrichten empfangen kann. Diese Wallbox/Instanz läuft im passiven Modus.
+### Nachfolgende Wanddose
+Aktivieren Sie diese Option, wenn es sich um eine weitere Wallbox in Ihrer Umgebung handelt. Aktuell kann nur eine Wallbox aktiv verwaltet werden. Alle anderen (separaten Instanzen) müssen diese Option aktivieren, da nur eine Instanz Broadcast-Nachrichten empfangen kann. Diese Wallbox/Instanz wird im passiven Modus betrieben.
 
-### Ladesitzungen laden
-Sie können diese Option aktivieren, um regelmäßig die letzten Ladevorgänge (30) von Ihrer Wallbox herunterzuladen.
-ACHTUNG für Benutzer ab Version v1.1.1 und darunter: Sie müssen diese Option aktivieren, um weiterhin Ladevorgänge zu erhalten!
+### Ladevorgänge
+Sie können diese Option aktivieren, um die letzten 30 Ladevorgänge regelmäßig von Ihrer Wallbox herunterzuladen.
+HINWEIS für Nutzer von Version v1.1.1 und älter: Sie müssen diese Option aktivieren, um weiterhin Ladevorgänge zu erhalten!
 
 ### Aktualisierungsintervall
-Dies ist das Intervall in Sekunden, wie oft die Wallbox nach neuen Ladewerten abgefragt werden soll.
+Dies ist das Intervall in Sekunden, in dem die Wallbox nach neuen Ladewerten abgefragt werden soll.
 
-Der Standardwert beträgt 10 Minuten, was ein gutes Gleichgewicht zwischen der Belastung von KeConnect und der Aktualität der Informationen im ioBroker darstellt.
+Der Standardwert beträgt 10 Minuten. Dies stellt ein gutes Gleichgewicht zwischen der Auslastung von KeConnect und der Aktualität der Informationen in ioBroker dar.
 
 ### PV-Automatik
-Um Ihr Fahrzeug entsprechend einem Überschuss (z.B. durch Photovoltaik) zu laden, können Sie zusätzlich Zustände definieren, die Überschuss und Netzbezug des Netzstroms darstellen. Diese Werte werden zur Berechnung der zum Laden verfügbaren Stromstärke verwendet. Mit weiteren Werten können Sie definieren
+Um Ihr Fahrzeug entsprechend einem Überschuss (z. B. durch Photovoltaik) zu laden, können Sie Zustände definieren, die den Überschuss und den Netzverbrauch darstellen. Diese Werte werden zur Berechnung der zum Laden verfügbaren Stromstärke verwendet. Mithilfe zusätzlicher Werte können Sie definieren
 
 * ein Zustand zum Umschalten der Ladephasen 1p/3p oder über den X2-Anschluss des Keba Kecontact (mit Keba KeContact S10 oder einem anderen Schütz)
-* einen Status für die aktuelle Leistung des Batteriespeichers, sodass die Photovoltaik-Automatik diese zusätzlich zum Laden Ihres Fahrzeugs nutzt
-* eine Option zur Leistungsbegrenzung des Batteriespeichers, um den Ladevorgang nur mit minimaler Leistung fortzusetzen
-* Schalten Sie die X1-Option um, wenn Sie den X1-Eingang der Ladestation verwenden möchten, um zu steuern, ob mit voller Leistung oder automatisch per Photovoltaik geladen werden soll
-* eine andere Mindeststromstärke als die standardmäßigen 6 A (wird z. B. nur für Renault Zoe benötigt)
-* ein Wert der Netzverbrauchsleistung, der zum Starten des Ladevorgangs verwendet werden kann (d. h. der Ladevorgang beginnt auch, wenn nicht genügend Überschuss vorhanden ist – empfohlen werden 0 W für 1-Phasen-Laden, 500 W bis 2000 W für 3-Phasen-Laden)
-* eine Erhöhung der Stromstärke (empfohlen 500 mA)
-* ein Wert des Netzverbrauchs, der vorübergehend verwendet werden kann, um den Ladevorgang aufrechtzuerhalten (d. h. der Ladevorgang wird später beendet, auch wenn nicht mehr genügend Überschuss vorhanden ist – der anfängliche Netzverbrauch wird hinzugefügt – empfohlene 500 W)
-* Mindestdauer des Ladevorgangs (auch wenn der Überschuss nicht mehr ausreicht, dauert ein Ladevorgang mindestens diese Zeit – empfohlene 300 Sekunden)
-* Zeit, den Ladevorgang fortzusetzen, wenn der Überschuss nicht mehr ausreicht (um die Zeit an bewölkten Tagen zu überbrücken)
-* Zeit, Ihr Fahrzeug immer aufzuladen, sobald das Fahrzeug angeschlossen ist und eine Autorisierung erforderlich ist (um einen Fehler zu verhindern, der dazu führt, dass ohne sofortiges Aufladen kein weiteres Aufladen möglich ist)
+* ein Zustand für die aktuelle Leistung des Batteriespeichers, sodass die Photovoltaik-Automatik ihn zusätzlich zum Laden Ihres Fahrzeugs nutzt.
+* eine Option zur Begrenzung der Speicherkapazität des Akkus, sodass dieser nur mit minimaler Leistung geladen werden kann
+* Aktivieren Sie die Option X1, wenn Sie den X1-Eingang der Ladestation verwenden möchten, um zu steuern, ob mit voller Leistung oder per Photovoltaik-Automatik geladen werden soll.
+* eine andere Mindeststromstärke als die standardmäßigen 6 A (nur erforderlich z. B. für Renault Zoe)
+* ein Wert der Netzentnahmeleistung, der zum Starten des Ladevorgangs verwendet werden kann (das bedeutet, dass der Ladevorgang auch dann startet, wenn nicht genügend Überschuss vorhanden ist - empfohlen werden 0 W für 1-phasiges Laden, 500 W bis 2000 W für 3-phasiges Laden)
+* eine Erhöhung der Stromstärke (empfohlen: 500 mA)
+* ein Wert für den Netzverbrauch, der vorübergehend zur Aufrechterhaltung des Ladevorgangs verwendet werden kann (das bedeutet, dass der Ladevorgang später auch dann gestoppt wird, wenn nicht mehr genügend Überschuss vorhanden ist - der anfängliche Netzverbrauch wird addiert - empfohlene 500 W)
+* Mindestdauer des Ladevorgangs (auch wenn der Überschuss nicht mehr ausreicht, dauert ein Ladevorgang mindestens diese Zeit - empfohlene Dauer: 300 Sekunden)
+* Zeit, die für die Fortsetzung der Ladesitzung benötigt wird, wenn der Überschuss nicht mehr ausreicht (um die Zeit an bewölkten Tagen zu überbrücken)
+* Laden Sie Ihr Fahrzeug immer sofort auf, sobald es angeschlossen ist und eine Autorisierung erforderlich ist (um einen Fehler zu vermeiden, der dazu führt, dass ohne sofortiges Laden kein weiteres Laden möglich ist).
 
-### 1p/3p-Aufladung
-Wenn Sie über einen Installationsschütz zum (Trennen) der Phasen 2 und 3 Ihrer Ladestation verfügen und dieser Schalter durch einen Zustand ausgelöst werden kann, kann dieser Adapter den Ladevorgang mit einer Phase starten und auf 3-Phasen-Laden umschalten, wenn Ihr Überschuss dafür ausreicht.
-In diesem Fall geben Sie bitte den Zustand Ihres Installationsschützes ein und geben an, ob es sich um einen Schließer (NO) oder Öffner (NC) handelt.
-Es besteht auch die Möglichkeit, das Laden dauerhaft auf 1-Phasen- oder 3-Phasen-Laden einzustellen.
+### 1p/3p-Laden
+Wenn Sie einen Installationsschütz zum Trennen der Phasen 2 und 3 Ihrer Ladestation besitzen und dieser Schalter zustandsabhängig angesteuert werden kann, kann dieser Adapter den Ladevorgang mit einer Phase starten und auf drei Phasen umschalten, sobald Ihre Ladekapazität ausreicht.
+Geben Sie in diesem Fall bitte den Zustand Ihres Installationsschützes an und ob es sich um einen Öffner (NO) oder Schließer (NC) handelt. Alternativ können Sie den Ladevorgang auch dauerhaft auf 1- oder 3-phasig einstellen.
 
 ### Batteriespeicher
-Wenn Sie einen Batteriespeicher besitzen, füllen Sie bitte hier die Optionen aus. Durch die Angabe von Zuständen für Überschuss und Netzverbrauch Ihres Batteriespeichers kann dieser Adapter steuern, ob der Batteriespeicher zum Laden Ihres Fahrzeugs verwendet werden soll oder nicht, abhängig von der in den Optionen bevorzugten Strategie.
+Wenn Sie einen Batteriespeicher besitzen, füllen Sie bitte die Optionen hier aus. Durch die Angabe der Zustände für Überschuss- und Netzstromverbrauch Ihres Batteriespeichers kann dieser Adapter steuern, ob der Batteriespeicher zum Laden Ihres Fahrzeugs verwendet werden soll oder nicht, abhängig von der in den Optionen festgelegten Strategie.
 
-### Leistungsbegrenzung nach §14a EnWG
-Gemäß §14a EnWG besteht die Möglichkeit, die Ladestation auf max. 6A fix oder dynamisch auf den Netzverbrauch von 3x6A (4.140 Watt) zu begrenzen.
+### Deutsche §14a EnWG Leistungsbegrenzung
+Aufgrund der deutschen EnWG §14a besteht die Möglichkeit, die Ladestation auf maximal 6A fest oder dynamisch auf den Netzverbrauch von 3x6A (4.140 Watt) zu begrenzen.
 
 ### Leistungsbegrenzung
-Sie können auch die maximale Leistung Ihrer Wallbox begrenzen, um den Hauptstrom zu begrenzen. Beispielsweise müssen Sie beim Betrieb von Nachtspeicherheizungen möglicherweise eine maximale Leistungsbegrenzung einhalten.
-Wenn Sie einen Wert eingeben, wird Ihre Wallbox kontinuierlich begrenzt, um Ihr Leistungslimit nicht zu überschreiten.
-Bis zu drei Zustände von Energiezählern können für die Begrenzung angegeben werden. Alle Werte werden zur Berechnung des aktuellen Verbrauchs addiert.
-Über ein zusätzliches Kontrollkästchen können Sie angeben, ob die Wallbox-Leistung einbezogen wird (in diesem Fall wird die Wallbox-Leistung von den Zustandswerten abgezogen).
+Sie können die maximale Leistung Ihrer Wallbox begrenzen, um den Stromverbrauch des Netzspeichers zu reduzieren. Dies ist beispielsweise beim Betrieb von Nachtspeicherheizungen wichtig.
+Wenn Sie einen Wert eingeben, wird Ihre Wallbox kontinuierlich begrenzt, um die festgelegte Leistungsgrenze nicht zu überschreiten. Sie können bis zu drei Zustände von Energiezählern für die Begrenzung festlegen. Alle Werte werden addiert, um den aktuellen Verbrauch zu berechnen. Über ein zusätzliches Kontrollkästchen legen Sie fest, ob die Leistung der Wallbox berücksichtigt werden soll (in diesem Fall wird die Leistung der Wallbox von den Zustandswerten abgezogen).
 
-Eine weitere Option bietet Ihnen die Möglichkeit, nicht die Leistung, sondern die Stromstärke zu begrenzen. Mit dieser Option wird die Stromstärke der Ladestation reduziert, um die maximale Stromstärke jeder Phase nicht zu überschreiten.
-Dazu müssen Sie die Stromstärken jeder Phase Ihres Energiezählers angeben. Bitte stellen Sie sicher, dass die Phasen der Ladestation und des Energiezählers die gleiche Nummerierung haben.
+Eine weitere Option ermöglicht es Ihnen, nicht die Leistung, sondern die Stromstärke zu begrenzen. Mit dieser Option wird die Stromstärke der Ladestation reduziert, um einen maximalen Wert pro Phase nicht zu überschreiten.
+Daher müssen Sie die Stromstärkewerte jeder Phase Ihres Energiezählers angeben. Bitte stellen Sie sicher, dass die Phasen der Ladestation und des Energiezählers die gleiche Nummerierung haben.
 
 ### Dynamische Optionen
-Zusätzlich gibt es einige Zustände, um das Verhalten der Photovoltaik automatisch im laufenden Betrieb zu beeinflussen, z.B. durch ein eigenes Skript, das diese Werte entsprechend Ihren Anforderungen aktualisiert)
+Darüber hinaus gibt es einige Zustände, die das Verhalten von Photovoltaikanlagen automatisch und dynamisch beeinflussen, z. B. durch ein eigenes Skript, das diese Werte entsprechend Ihren Bedürfnissen aktualisiert.
 
-* kecontact.n.automatic.photovoltaics - aktiviert die Photovoltaik automatisch (true) oder lädt das Fahrzeug mit maximaler Leistung, wenn auf false gesetzt
-* kecontact.n.automatic.calcPhases - definiert die aktuelle Anzahl der Phasen, die für die Ladeberechnung verwendet werden sollen. Dies wird für die Keba Deutschland Edition benötigt und kann für die erste Ladesitzung für alle Ladestationen verwendet werden
-* kecontact.n.automatic.1p3pSwitch - legt fest ob - unabhängig vom Überschuss - immer mit 1p oder immer mit 3p geladen werden soll
-* kecontact.n.automatic.addPower – definiert die zulässige Wattzahl des Netzverbrauchs zum Laden Ihres Fahrzeugs (wie in den Optionen)
-* kecontact.n.automatic.pauseWallbox - stoppt jeden Ladevorgang sofort, solange a auf true gesetzt ist
-* kecontact.n.automatic.limitCurrent – begrenzt Ihre Ladung auf die angegebene Stromstärke in mA (0 = keine Begrenzung)
-* kecontact.n.automatic.batteryStorageStrategy – Strategie, ob und wie Ihr Batteriespeicher zum Laden Ihres Fahrzeugs genutzt werden soll
-* kecontact.n.automatic.batterySoCForCharging – Begrenzen Sie die Nutzung des Batteriespeichers für das Fahrzeug, indem Sie einen SoC angeben, unter dem das Laden verboten ist
-* kecontact.n.automatic.stateVehicleSoC – Statusname zum Abrufen des aktuellen SoC des Fahrzeugs
-* kecontact.n.automatic.targetSoC – PV-Automatik deaktivieren (mit maximaler Leistung laden), bis das Fahrzeug diesen SoC erreicht
-* kecontact.n.automatic.resetTargetSoC - auf true setzen, wenn Ziel-SoC nach Erreichen gelöscht werden soll
+* kecontact.n.automatic.photovoltaics - Aktiviert die automatische Photovoltaik-Funktion (true) oder lädt das Fahrzeug mit maximaler Leistung, wenn auf false gesetzt.
+* kecontact.n.automatic.calcPhases – definiert die aktuelle Anzahl der Phasen für die Ladeberechnung. Dies ist für die Keba Deutschland Edition erforderlich und kann für die erste Ladesitzung an allen Ladestationen verwendet werden.
+* kecontact.n.automatic.1p3pSwitch - legt fest, ob – unabhängig vom Überschuss – die Ladung immer mit 1p oder immer mit 3p erfolgen soll.
+* kecontact.n.automatic.addPower - definiert die zulässige Wattzahl für den Netzstromverbrauch zum Laden Ihres Fahrzeugs (entspricht den Optionen)
+* kecontact.n.automatic.pauseWallbox - stoppt jeden Ladevorgang sofort, solange der Wert auf true gesetzt ist.
+* kecontact.n.automatic.limitCurrent - begrenzt den Ladestrom auf die angegebene Stromstärke in mA (0 = keine Begrenzung)
+* kecontact.n.automatic.batteryStorageStrategy - Strategie, ob und wie Ihr Batteriespeicher zum Laden Ihres Fahrzeugs genutzt werden sollte
+* kecontact.n.automatic.batterySoCForCharging - Begrenzt die Nutzung der Batteriekapazität des Fahrzeugs durch Angabe eines Ladezustands (SoC), unterhalb dessen das Laden verboten ist.
+* kecontact.n.automatic.stateVehicleSoC - Zustandsname zur Ermittlung des aktuellen SoC des Fahrzeugs (erforderlich für targetsoc und maxSoc)
+* kecontact.n.automatic.targetSoC - Automatisches Laden mit maximaler Leistung deaktivieren, bis das Fahrzeug diesen Ladezustand erreicht
+* kecontact.n.automatic.resetTargetSoC - auf „true“ setzen, wenn der Ziel-SoC nach Erreichen eines bestimmten Wertes gelöscht werden soll.
+* kecontact.n.automatic.maxSoC – ein maximaler Ladezustand (SoC); das Fahrzeug wird nicht geladen, wenn dieser SoC erreicht ist.
 
-Beispiel: Um Ihr Fahrzeug unabhängig vom Überschuss mit einer konstanten Stromstärke von 6 A zu laden, setzen Sie „Photovoltaik“ auf „Falsch“ und „LimitCurrent“ auf 6000.
+Beispiel: Um Ihr Fahrzeug unabhängig vom Überschuss mit einer konstanten Stromstärke von 6A zu laden, stellen Sie Photovoltaik auf „false“ und Strombegrenzung auf 6000 ein.
 
 ## Rechtliches
 Dieses Projekt steht in keiner direkten oder indirekten Verbindung zur Firma KEBA AG.
@@ -116,6 +114,7 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
 -->
 ### **WORK IN PROGRESS**
 * (Sneak-L8) new options to charge vehicle up to a specified SoC
+* (Sneak-L8) new option to stop charging at a certain SoC
 * (Sneak-L8) raise adapter-dev version from 1.4 to 1.5
 * (Sneak-L8) drop dependencies to chai, sinon and mocha
 

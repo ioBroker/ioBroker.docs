@@ -27,6 +27,28 @@ BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-insta
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.14.4 (2025-11-13)
+* (arteck) fix silent telegram notification
+* (arteck) fix offline list
+
+### 2.14.3 (2025-11-13)
+* (arteck) corr offline devices
+
+### 2.14.2 (2025-11-13)
+* (arteck) corr finder
+
+### 2.14.1 (2025-11-13)
+* (arteck) corr cronparser
+
+### 2.14.0 (2025-11-13)
+* (arteck) Dependencies have been fixed
+* (arteck) ping adapter have been fixed
+* (arteck) optimisations for adapter without info.connection state 
+* (arteck) clean code
+* (arteck) silent notification for telegram
+* (arteck) add matter devices
+* (arteck) corr lupusec battery state
+
 ### 2.13.1 (2025-09-06)
 * (arteck) Dependencies have been fixed
 

@@ -3,16 +3,16 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wmswebcontrol/README.md
 title: ioBroker.wmswebcontrol
-hash: d04NrK7qOhRB2qqx/L5Fu7d2belNZ3dYtURMJXulckQ=
+hash: 0XGWfUVPmus32BIIY+Km+opjwlEUef8l6E2v1S1O8do=
 ---
 ![标识](../../../en/adapterref/iobroker.wmswebcontrol/admin/wmswebcontrol.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.wmswebcontrol.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.wmswebcontrol.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.wmswebcontrol.svg)
 ![安装数量（最新）](https://iobroker.live/badges/wmswebcontrol-installed.svg)
-![安装数量（稳定）](https://iobroker.live/badges/wmswebcontrol-stable.svg)
+![安装数量（稳定版）](https://iobroker.live/badges/wmswebcontrol-stable.svg)
 ![依赖状态](https://img.shields.io/david/TA2k/iobroker.wmswebcontrol.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.wmswebcontrol.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.wmswebcontrol.png?downloads=true)
 
 # IoBroker.wmswebcontrol
 **测试：** ![测试与发布](https://github.com/TA2k/ioBroker.wmswebcontrol/workflows/Test%20and%20Release/badge.svg)
@@ -29,9 +29,18 @@ Warema WMS Webcontrol 适配器
 
 `wmswebcontrol.0.Markise.setting2Convert`
 
-## Changelog
+提示：适配器设置中设置的密码不能包含特殊字符。
 
-### 0.1.0
+## Changelog
+### 0.1.4 (2025-01-27)
+
+- ignore certificate errors
+
+### 0.1.3 (2024-10-26)
+
+- fix login
+
+### 0.1.2
 
 - Bugfixes
 
@@ -43,7 +52,7 @@ Warema WMS Webcontrol 适配器
 
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

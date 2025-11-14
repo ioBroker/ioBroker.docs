@@ -49,6 +49,37 @@ You will need a local user created in your UniFi OS Console to log in with. Ubiq
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.2 (2025-11-14)
+
+- (Scrounger) delete device event added
+- (Scrounger) event messages improved #43
+
+### 1.2.1 (2025-11-10)
+
+- (Scrounger) 6 GHz interpreter bug fix #37
+- (Scrounger) isOnline state icon bug fix
+- (Scrounger) bug fixes
+
+### 1.2.0 (2025-11-04)
+
+- (Scrounger) option to set offline debounce time for single client added
+- (Scrounger) dependencies updated
+
+### 1.1.9 (2025-11-03)
+
+- (Scrounger) client and devices IPv6 states added
+- (Scrounger) start realtime api listener after adapter initialization finished
+- (Scrounger) isOnline fallback method bug fix
+- (Scrounger) states lastChange and timestamp bug fix
+- (Scrounger) websocket ping pong bug fix
+- (Scrounger) vpn client isOnline bug fix
+- (Scrounger) dispatcher bug fix
+
+### 1.1.8 (2025-10-26)
+
+- (Scrounger) stp info's added #35
+- (Scrounger) dependencies updated
+
 ### 1.1.7 (2025-10-19)
 
 - (Scrounger) event 'UpgradeScheduled' added to ignore list

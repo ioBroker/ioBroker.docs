@@ -235,6 +235,10 @@ Anweisungen zur Einrichtung sind in der Adapterkonfiguration zu finden.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.1.1 (2025-10-25)
+
+* (crycode-de) Updated Sentry DSN
+
 ### 3.1.0 (2025-10-21)
 
 * (crycode-de) Node.js >= 20, js-controller >= 6.0.11, Admin >= 7.6.17 required
@@ -255,10 +259,6 @@ Anweisungen zur Einrichtung sind in der Adapterkonfiguration zu finden.
 ### 2.0.5 (2023-10-29)
 
 * (crycode-de) Fixed cosmetic issue in config UI
-
-### 2.0.4 (2023-08-20)
-
-* (crycode-de) Fix js-controller 5 compatibility
 
 ## License
 

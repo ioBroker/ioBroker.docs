@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: s0KkPOkIdm+ZL3Z7qz3BmdJg5fbyuO0+OQR9sMRvEXE=
+hash: B0rBGSntv+Ju2U5qKM7ggjfK+HoJx55myfnP3C/Ghc4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -28,7 +28,7 @@ Flexcharts v0.6.0 основан на этой новой версии и пре
 * новые типы диаграмм
 * возможность передачи неограниченного количества событийно-управляемых функций
 
-**Примечание:** Вы можете сохранить **тему ECharts v5 по умолчанию**, просто добавив параметр http `&themev5`, например, `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1&themev5`
+**Примечание:** Вы можете использовать **темы ECharts v5** (стандартную и тёмную), просто добавив http-параметр `&themev5`, например, `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1&themev5`. Apache предлагает светлую тему v5, но нет тёмной — я уже сообщал о проблеме. На данный момент я сам создал тёмную тему v5 на основе тёмной темы Apache для версии 5.6.0. Если вы заметили разницу между темами v5, пожалуйста, сообщите о проблеме для flexcharts.
 
 # Основная концепция
 Для просмотра диаграмм в ioBroker доступно несколько адаптеров. Насколько мне известно, все они используют пользовательский интерфейс для настройки содержимого и параметров диаграмм. Как правило, не все функции используемой графической подсистемы можно использовать таким образом. Например, с помощью eChart-Adapter невозможно просматривать полнофункциональные диаграммы с накоплением.
@@ -282,6 +282,9 @@ Flexcharts версии 0.6.0 и более поздних версий подд
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.1 (2025-11-01)
+* (MyHomeMyData) Added support for dark mode theme of ECharts version 5.6.0 (when using paramter themev5). Based on Apache ECharts 6.
+
 ### 0.6.0 (2025-10-19)
 * (MyHomeMyData) Updated Apache ECharts to version 6.0.0 using brand new default theme - please take a look to Readme! Ref. issue #125
 * (MyHomeMyData) Added option to dynamically switch dark mode by listening to the system's setting. Based on Apache ECharts 6.

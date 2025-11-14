@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: CeLukc1MVtrhlLjnULMVWSBmuYhlfDAN1spvxONLZVY=
+hash: D+N+qLPKppmOp3lE3sL0lIjj/sUaUTSKSVSq6yBgEzQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -23,17 +23,19 @@ hash: CeLukc1MVtrhlLjnULMVWSBmuYhlfDAN1spvxONLZVY=
 
 [Информация для входа](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
 
+[Генерация токенов](https://github.com/Newan/ioBroker.bluelink/tree/master/py) или [обходной путь с токеном]](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo/2249?_=1761189451343)
+
 [Вики](https://github.com/Newan/ioBroker.bluelink/wiki)
 
-### [обходной путь с токеном](https://github.com/Newan/ioBroker.bluelink/tree/master/py)
-
-### [обходной путь с помощью токена](https://github.com/Newan/ioBroker.bluelink/tree/master/py)
 ------------------------------------------------------------------------------------
 
 ## Пожертвование
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 3.1.24 (2025-11-07)
+* (arteck) fix vehicles > 2 in account
+
 ### 3.1.23 (2025-10-16)
 * (arteck) new bluelinky
 
@@ -237,5 +239,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
+
 
 SOFTWARE.

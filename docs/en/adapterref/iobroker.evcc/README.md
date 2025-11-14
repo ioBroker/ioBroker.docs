@@ -21,8 +21,8 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.2.4 (2025-10-30)
+* (arteck) add batteryGridChargeLimit
 * (arteck) add smartcostlimit control
 
 ### 0.2.3 (2025-07-16)

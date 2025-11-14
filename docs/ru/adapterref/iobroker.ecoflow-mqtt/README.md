@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: ZZVI8XoypnXhTS3yL4ulyeNm2NPX0KMD6tAnWpk7JcI=
+hash: NwDukWQHH0t3VtjrH7iNBqPgN/tjiCfJJ/NC+J9a4AY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -227,7 +227,7 @@ hash: ZZVI8XoypnXhTS3yL4ulyeNm2NPX0KMD6tAnWpk7JcI=
 - уровень -> регулируемая точка данных с числовым значением, иногда также выборки, имеющие числовое представление
 - переключатель -> регулируемая точка данных логическое значение
 - диагностика -> булевские или многосостоянные точки данных, преобразованные в текст
-- строка -> точка данных только как текст
+- строка -> точка данных только в виде текста
 - массив -> точка данных с массивом
 - преобразование значения в текст может использовать непроверенный текст (отзывы приветствуются), это обозначается знаком «?» в конце текста
 
@@ -312,6 +312,8 @@ Wave недоступен, может быть реализован при на�
 ### Холодильник-ледник
 [Ледник](./doc/devices/glacier.md)
 
+[Glacier Classic 55L](./doc/devices/glacier55.md)
+
 ### Генератор
 [Генератор](./doc/devices/alternator.md)
 
@@ -330,14 +332,38 @@ Wave недоступен, может быть реализован при на�
 
 ## Changelog
 
-### 1.4.5 (WIP)
+### 1.4.9 (WIP)
 
 - (foxthefox) new datapoints Delta2max
 
+### 1.4.8 (npm)
+
+- (foxthefox) new device Glacier Classic 55L support
+- (foxthefox) poweroceanplus set hrPwr/fromPv/romBat/fromGrid values to 0 for non transmitted datapoints in HeatingRodEnergyStreamShow
+- (foxthefox) poweroceanplus pcsActPwr max 20kW, pcsXPhase_amp max 60A
+- (foxthefox) corrections in BMSHeartBeatReport for river3/river3plus
+- (foxthefox) dev dependencies cleanup
+
+### 1.4.7 (npm)
+
+- (foxthefox) poweroceanplus, set mpptPwr/sysGridPwr/bpPwr values to 0, when the entity is not sent within the telegram
+- (foxthefox) poweroceanplus, bpTargetSoc max new set to 101%, pcsBpPower max=10kW, pcsXPhase_actPwr min=-5kW
+
+### 1.4.6 (npm)
+
+- (foxthefox) powerocean implementation of ParallelEnergyStreamDetail which is the update to ParallelEnergyStreamReport
+- (foxthefox) powerocean implementation of EnergyStreamDetail which is the update to EnergyStreamReport
+
+### 1.4.5 (npm)
+
+- (foxthefox) change from object to array for messages (for telegrams with multiple messages of same type i.e. powerocean)
+- (foxthefox) change of cmdId/CmdFunc structure
+
 ### 1.4.4 (npm)
 
-- (foxthefox) new datapoints for PowerOcean and HeatingRod
-- (foxthefox) change from object to array for messages (for telegrams with multiple messages of same type i.e. powerocean)
+- (foxthefox) new datapoints for PowerOcean (HeatingRod, ParallelEnergy)
+- (foxthefox) improvements tp powerocean plus
+- (foxthefox) corrections for powerocean
 - (foxthefox) testing JSON->buffer
 
 ### 1.4.3 (npm)

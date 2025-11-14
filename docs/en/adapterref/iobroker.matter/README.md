@@ -98,6 +98,10 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Replaced I18n package
+* (@GermanBluefox) Highlight the devices in GUI when hovering over the device in the device list
+
 ### 0.5.6 (2025-10-21)
 * (@Apollon77) Type detector update, should detect single states in non-device structures better
 

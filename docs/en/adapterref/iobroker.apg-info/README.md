@@ -23,8 +23,13 @@ With the standard-configuration the adapter runs at 00:00, 13:00 and 15.00 o'clo
 * Node.js 20 or higher
 * ioBroker host (js-controller) 5.0 or higher
 
+## Quarter-hourly market prices
+These market prices are collected by Exaa and as backup by Entsoe. Therefore is recommended to *request an Entsoe token* if quarter-hourly prices are configured.
+
 ## Swiss market
 For the swiss market a token from entsoe.eu is needed. Please add your token to the adapter configuration in the tab "ENTSOE TOKEN".
+
+## How to get an Entsoe token
 Register at the page https://transparency.entsoe.eu/ and send afterwards and email to transparency@entsoe.eu asking for RESTFUL API access for the email address you registered. <br>
 For more details check https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
 
@@ -34,6 +39,16 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.24 (2025-11-05)
+* (HGlab01) Provider Entsoe is used as backup for quarter-hourly market prices. Request a token to be on the safe side
+* (HGlab01) Bump axios to 1.13.1
+* (HGlab01) Bump iobroker-jsonexplorer to 0.2.2
+
+### 0.1.23 (2025-10-29)
+* (HGlab01) extend to two market data providers for quarter-hourly market prices
+* (HGlab01) add turn on/off quarter-hourly and hourly market prices
+* (HGlab01) refactorings
+
 ### 0.1.22 (2025-10-21)
 * (HGlab01) Implement retry mechanism for API calls
 * (HGlab01) add turn on/off for peak hours and market prices
@@ -45,13 +60,6 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
 ### 0.1.20 (2025-10-06)
 * (HGlab01) prepeare iobroker-jsonexplorer readiness for v0.2.0
 * (HGlab01) Bump axios to 1.12.2
-
-### 0.1.19 (2025-06-23)
-* (HGlab01) use encrypted token in config
-
-### 0.1.18 (2025-06-16)
-* (HGlab01) Log finetuning
-* (HGlab01) Bump axios to 1.10.0
 
 ## License
 MIT License

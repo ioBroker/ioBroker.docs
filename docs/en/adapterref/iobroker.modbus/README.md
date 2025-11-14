@@ -315,6 +315,9 @@ There are some programs in folder `test` to test the TCP communication:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 7.0.6 (2025-10-29)
+* (bluefox) Updated packages
+
 ### 7.0.5 (2025-10-13)
 * (bluefox) Prohibited installation from github
 

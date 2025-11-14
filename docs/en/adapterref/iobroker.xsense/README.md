@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: 9yeByLzIopqdXZH3dkoq+j0+ZfZg4oxryaMsE8aIfBU=
+hash: EAKZ0Anx09hS8DeJxkB9P5e65e6vvxJxCHMdCWooShE=
 ---
 ![logo](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -37,6 +37,7 @@ It is designed to receive data from XSense smoke detectors, CO detectors, and ot
 The adapter communicates with the XSense cloud server and provides an easy way to integrate XSense devices into existing ioBroker setups.
 An XSense Bridge SBS50 is required.
 
+## The [Original Python Code](https://github.com/theosnel/python-xsense) is from [theosnel](https://github.com/theosnel) .. big THX for
 ---
 
 ## ❗ WARNING
@@ -83,7 +84,7 @@ It must be an official and publicly released Python version.
 1. **Install Python**
    - Download: [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/)
    - During installation, **enable “Add Python to PATH”**
-- Then verify:
+Then verify:
 
 ```powershell
 python --version
@@ -120,6 +121,10 @@ If the file does not exist, you did not wait long enough for the adapter to star
 ------------------------------------------------------------------------------
 
 ## Changelog
+### 0.2.1 (2025-10-30)
+* (arteck) fix link to readme
+* (arteck) fix load bridge as first
+
 ### 0.2.0 (2025-10-21)
 * (arteck) !!!!!!!!!!!!!!!!!!!!!!!   new tree structure, delete all old devices
 * (arteck) fix for more bridges

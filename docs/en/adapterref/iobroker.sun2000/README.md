@@ -33,6 +33,18 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.3.4 (2025-11-01)
+* dependency and configuration updates
+* new state `collected.dailyExternalYield` Riemann sum of `collected.externalPower`
+
+### 2.3.3 (2025-10-31)
+* Improved verification of the adapter configuration
+* new state `inverter.x.derived.dailyActiveEnergy` Inverter daily active energy, which is determined via the Riemann sum of `inverter.x.activePower`
+* state `collected.dailyInputYield` was redisigned based on inverter.[0..n-1].derived.dailyActiveEnergy
+
+### 2.3.2 (2025-10-24)
+* allows again `control.battery.chargeFromGridFunction` when using the Emma
+
 ### 2.3.1 (2025-10-21)
 * fix: handle potential null values in set method of RegisterMap
 
@@ -43,7 +55,7 @@ Work in progress
 * inverter control: add same state for startup and shutdown an inverter [#199](https://github.com/bolliy/ioBroker.sun2000/issues/199)
 * fix: Device status name has been corrected [#202](https://github.com/bolliy/ioBroker.sun2000/pull/202)
 * add undocumented device status `Shutdown: End of the ESS discharge process` 
-* emma control: new state ` emma.control.battery.ESSControlMode`. You can now configure EMMA with TOU-mode (Time of Use) to charge the battery from grid. [#200](https://github.com/bolliy/ioBroker.sun2000/discussions/200)
+* emma control: new state `emma.control.battery.ESSControlMode`. You can now configure EMMA with TOU-mode (Time of Use) to charge the battery from grid. [#200](https://github.com/bolliy/ioBroker.sun2000/discussions/200)
 * if an Emma is installed, some control states of the inverter are deactivated (read only). Mainly for the grid settings.
 * deprecated control states have been removed.
 * a workaround for issue [#582](https://github.com/yaacov/node-modbus-serial/issues/582) of node-modbus-serial has been implemented.

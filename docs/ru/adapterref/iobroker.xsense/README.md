@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: 9yeByLzIopqdXZH3dkoq+j0+ZfZg4oxryaMsE8aIfBU=
+hash: EAKZ0Anx09hS8DeJxkB9P5e65e6vvxJxCHMdCWooShE=
 ---
 ![логотип](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -37,6 +37,7 @@ hash: 9yeByLzIopqdXZH3dkoq+j0+ZfZg4oxryaMsE8aIfBU=
 Адаптер взаимодействует с облачным сервером XSense и обеспечивает простую интеграцию устройств XSense в существующие системы ioBroker.
 Требуется мост XSense SBS50.
 
+## [Исходный код Python](https://github.com/theosnel/python-xsense) взят из [theosnel](https://github.com/theosnel) .. большое спасибо за
 ---
 
 ## ❗ ВНИМАНИЕ
@@ -120,6 +121,10 @@ pip --version
 ------------------------------------------------------------------------------
 
 ## Changelog
+### 0.2.1 (2025-10-30)
+* (arteck) fix link to readme
+* (arteck) fix load bridge as first
+
 ### 0.2.0 (2025-10-21)
 * (arteck) !!!!!!!!!!!!!!!!!!!!!!!   new tree structure, delete all old devices
 * (arteck) fix for more bridges

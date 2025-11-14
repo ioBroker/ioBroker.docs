@@ -317,6 +317,27 @@ as `local_?` data points are processed internally within VIS (see `vis` document
 
 ## Templatesystem
 
+## Important note for the template system in vis
+
+In vis, all object notations in the following form are recognized and replaced as bindings.
+
+Therefore, the opening and closing brackets of all object notations must be placed on separate lines:
+
+Incorrect:
+
+```json
+{ "a": 1, "b": 2 }
+```
+
+Correct
+
+```json
+{
+    "a": 1,
+    "b": 2
+}
+```
+
 ## Tags
 
 The template system works with certain tags.
@@ -507,6 +528,16 @@ Loop over the attributes of an object
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- Improve documentation for the object notation in a template
+
+### 4.1.3 (2025-11-03)
+
+- fix race condition if more than one widget use the same datapoint
+- switch to trusted publishing
+
 ### 4.1.2 (2025-09-13)
 
 - new try of publish

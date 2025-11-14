@@ -85,6 +85,7 @@ function setOnDblClickCustomShop( myvalue) {
 
 ### **WORK IN PROGRESS**
 
+- CHORE: Update dependencies
 - FIX: Error reported by sentry
 
 ### 1.1.2 (2025-09-20)

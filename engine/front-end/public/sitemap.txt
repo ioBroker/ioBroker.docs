@@ -821,6 +821,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.chromecast/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.cloud/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.cloudflare/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.cloudless-homeconnect/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.cmicoe/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.comfoair/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.comfoairq/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.consumption/README.md
@@ -969,6 +970,8 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.hue/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hue-sync-box/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.huum-sauna/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hydrawise/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.hydrop/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.hyperion-connector/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hyperion_ng/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.i2c/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ical/README.md
@@ -1008,6 +1011,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/usage.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.jeelink/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.judoisoft/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.kecontact/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.kisshome-defender/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.klf200/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.knmi-weather/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.knx/README.md
@@ -1258,6 +1262,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.sofarcloud/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.solaredge/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.solarlog/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.solarmanpv/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.solarprognose/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.solarviewdatareader/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.solarwetter/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.solax/README.md
@@ -1543,6 +1548,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.chromecast/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.cloud/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.cloudflare/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.cloudless-homeconnect/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.cmicoe/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.comfoair/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.comfoairq/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.consumption/README.md
@@ -1691,6 +1697,8 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.hue/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hue-sync-box/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.huum-sauna/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hydrawise/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.hydrop/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.hyperion-connector/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hyperion_ng/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.i2c/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ical/README.md
@@ -1730,6 +1738,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.javascript/usage.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.jeelink/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.judoisoft/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.kecontact/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.kisshome-defender/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.klf200/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.knmi-weather/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.knx/README.md
@@ -1980,6 +1989,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.sofarcloud/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.solaredge/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.solarlog/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.solarmanpv/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.solarprognose/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.solarviewdatareader/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.solarwetter/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.solax/README.md
@@ -2265,6 +2275,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.chromecast/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.cloud/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.cloudflare/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.cloudless-homeconnect/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.cmicoe/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.comfoair/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.comfoairq/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.consumption/README.md
@@ -2413,6 +2424,8 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hue/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hue-sync-box/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.huum-sauna/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hydrawise/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hydrop/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hyperion-connector/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hyperion_ng/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.i2c/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ical/README.md
@@ -2452,6 +2465,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.javascript/usage.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.jeelink/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.judoisoft/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.kecontact/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.kisshome-defender/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.klf200/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.knmi-weather/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.knx/README.md
@@ -2702,6 +2716,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sofarcloud/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.solaredge/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.solarlog/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.solarmanpv/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.solarprognose/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.solarviewdatareader/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.solarwetter/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.solax/README.md
@@ -2987,6 +3002,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.chromecast/README.m
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cloud/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cloudflare/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cloudless-homeconnect/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cmicoe/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.comfoair/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.comfoairq/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.consumption/README.md
@@ -3135,6 +3151,8 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hue/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hue-sync-box/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.huum-sauna/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hydrawise/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hydrop/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hyperion-connector/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hyperion_ng/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.i2c/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ical/README.md
@@ -3174,6 +3192,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.javascript/usage.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.jeelink/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.judoisoft/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.kecontact/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.kisshome-defender/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.klf200/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.knmi-weather/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.knx/README.md
@@ -3424,6 +3443,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sofarcloud/README.m
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.solaredge/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.solarlog/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.solarmanpv/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.solarprognose/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.solarviewdatareader/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.solarwetter/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.solax/README.md

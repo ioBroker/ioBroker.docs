@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: qnZIuAh7ANALCQR3L5FGXqyrKZbBZUa1noZ1hufGKxE=
+hash: /jy4O1qaZHoOv/kGR7OZoKXOSS2F1t7QxxflAn4JrX0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -29,14 +29,30 @@ hash: qnZIuAh7ANALCQR3L5FGXqyrKZbBZUa1noZ1hufGKxE=
 * Node.js 20 или выше
 * ioBroker host (js-controller) 5.0 или выше
 
+## Рыночные цены за четверть часа
+Эти рыночные цены собираются Exaa и, в качестве резерва, Entsoe. Поэтому рекомендуется *запросить токен Entsoe*, если настроены цены ежеквартально.
+
 ## Швейцарский рынок
-Для швейцарского рынка требуется токен от entsoe.eu. Добавьте свой токен в конфигурацию адаптера на вкладке «ENTSOE TOKEN». Зарегистрируйтесь на странице https://transparency.entsoe.eu/ и отправьте электронное письмо на адрес transparent@entsoe.eu с запросом на доступ к RESTFUL API для зарегистрированного вами адреса электронной почты.<br> Более подробную информацию можно найти по ссылке: https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
+Для швейцарского рынка требуется токен от entsoe.eu. Добавьте свой токен в конфигурацию адаптера на вкладке «ENTSOE TOKEN».
+
+## Как получить токен Entsoe
+Зарегистрируйтесь на странице https://transparency.entsoe.eu/, а затем отправьте электронное письмо на адрес transparent@entsoe.eu с просьбой предоставить вам доступ к RESTFUL API для зарегистрированного вами адреса электронной почты.<br> Более подробную информацию можно найти по ссылке: https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.24 (2025-11-05)
+* (HGlab01) Provider Entsoe is used as backup for quarter-hourly market prices. Request a token to be on the safe side
+* (HGlab01) Bump axios to 1.13.1
+* (HGlab01) Bump iobroker-jsonexplorer to 0.2.2
+
+### 0.1.23 (2025-10-29)
+* (HGlab01) extend to two market data providers for quarter-hourly market prices
+* (HGlab01) add turn on/off quarter-hourly and hourly market prices
+* (HGlab01) refactorings
+
 ### 0.1.22 (2025-10-21)
 * (HGlab01) Implement retry mechanism for API calls
 * (HGlab01) add turn on/off for peak hours and market prices
@@ -48,13 +64,6 @@ hash: qnZIuAh7ANALCQR3L5FGXqyrKZbBZUa1noZ1hufGKxE=
 ### 0.1.20 (2025-10-06)
 * (HGlab01) prepeare iobroker-jsonexplorer readiness for v0.2.0
 * (HGlab01) Bump axios to 1.12.2
-
-### 0.1.19 (2025-06-23)
-* (HGlab01) use encrypted token in config
-
-### 0.1.18 (2025-06-16)
-* (HGlab01) Log finetuning
-* (HGlab01) Bump axios to 1.10.0
 
 ## License
 MIT License

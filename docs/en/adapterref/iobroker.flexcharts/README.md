@@ -22,7 +22,7 @@ Flexcharts v0.6.0 is based on this new release and offers new features:
 * new chart types
 * possibility to pass over an unlimited number of event driven functions
 
-**Remark:** You may keep to **ECharts v5 default theme** by simply adding the http parameter `&themev5`, e.g. `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1&themev5`
+**Remark:** You may keep to **ECharts v5 themes** (default and dark) by simply adding the http parameter `&themev5`, e.g. `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1&themev5`. Apache offers a v5 light theme, but no v5 dark theme - I've already reported an issue. For now, I've created a v5 dark theme myself based on Apache's dark theme for v5.6.0. If you notice a difference between the v5 themes, please report an issue for flexcharts.
 
 # Basic concept
 There are several adapters available to view charts within ioBroker. As far as I know, all of them are using a UI to configure content and options of the charts. Typically not all features of the used graphical sub system could be used in this way. E.g. it's not possible to view fully featured stacked charts with eChart-Adapter.
@@ -275,6 +275,9 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.1 (2025-11-01)
+* (MyHomeMyData) Added support for dark mode theme of ECharts version 5.6.0 (when using paramter themev5). Based on Apache ECharts 6.
+
 ### 0.6.0 (2025-10-19)
 * (MyHomeMyData) Updated Apache ECharts to version 6.0.0 using brand new default theme - please take a look to Readme! Ref. issue #125
 * (MyHomeMyData) Added option to dynamically switch dark mode by listening to the system's setting. Based on Apache ECharts 6.

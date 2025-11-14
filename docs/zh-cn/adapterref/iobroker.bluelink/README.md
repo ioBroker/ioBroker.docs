@@ -3,37 +3,39 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: CeLukc1MVtrhlLjnULMVWSBmuYhlfDAN1spvxONLZVY=
+hash: D+N+qLPKppmOp3lE3sL0lIjj/sUaUTSKSVSq6yBgEzQ=
 ---
 ![标识](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.bluelink.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.bluelink.svg)
 ![安装数量（最新）](https://iobroker.live/badges/bluelink-installed.svg)
-![安装数量（稳定）](https://iobroker.live/badges/bluelink-stable.svg)
-![新公共管理](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
+![安装数量（稳定版）](https://iobroker.live/badges/bluelink-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
-![测试和发布](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试与发布](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## IoBroker 的 bluelink 适配器
-用于控制现代或起亚汽车的适配器（直到 2023 年）
+用于控制现代或起亚汽车的适配器（有效期至2023年）
 
 [讨论](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 
 [登录信息](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
 
+[Token 生成](https://github.com/Newan/ioBroker.bluelink/tree/master/py) 或 [使用 Token 的变通方法](https://github.com/Newan/ioBroker.bluelink/tree/master/py)](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo/2249?_=1761189451343)
+
 [维基百科](https://github.com/Newan/ioBroker.bluelink/wiki)
 
-### [使用 Token 的解决方法](https://github.com/Newan/ioBroker.bluelink/tree/master/py)
-
-### [使用 Token 的解决方法](https://github.com/Newan/ioBroker.bluelink/tree/master/py)
 ------------------------------------------------------------------------------------
 
-## 捐赠
-[![]（https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+捐赠
+[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 3.1.24 (2025-11-07)
+* (arteck) fix vehicles > 2 in account
+
 ### 3.1.23 (2025-10-16)
 * (arteck) new bluelinky
 
@@ -237,5 +239,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
+
 
 SOFTWARE.

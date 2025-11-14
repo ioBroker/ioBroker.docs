@@ -84,6 +84,17 @@ The data is as follows Provided:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (ticaki) Customisable update interval for Daily (expert)
+- (ticaki) BREAKING: remove forHomoran states
+
+### 0.6.7 (2025-10-26)
+- (ticaki) Corrected some roles for Lovelance
+- (ticaki) Added conditionUI
+- (ticaki) Air pressure and humidity are now integers
+- (ticaki) Added air pressure to daily data
+- (ticaki) Improved error logging
+
 ### 0.6.6 (2025-10-11)
 - (ticaki) Added apparent temperature datapoints for current, hourly, and daily weather data
 

@@ -31,7 +31,7 @@ chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 5.0.0 (2025-10-30)
 
 * (@klein0r) Added option to use manually uploaded ical files
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
@@ -56,10 +56,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 NodeJS >= 18.x and js-controller >= 5 is required
 
 * (klein0r) Skipping invalid ical events (e.g. not recurring yearly)
-
-### 2.4.1 (2023-10-30)
-
-* (klein0r) Added warnings if birthday event is not recurring
 
 ## License
 

@@ -52,6 +52,12 @@ This adapter would not have been possible without the great work of @inbux (http
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.9 (2025-10-23)
+- (arteck) skip download chrome if installed
+
+### 1.2.8 (2025-10-23)
+- (arteck) Dependencies have been updated
+
 ### 1.2.7 (2025-07-11)
 - (arteck) fix adapter stop after wrong request
 
@@ -61,13 +67,6 @@ This adapter would not have been possible without the great work of @inbux (http
 ### 1.2.5 (2025-06-19)
 - (arteck) add browser timeout
 - (arteck) add temp folder definition
-
-### 1.2.4 (2025-06-04)
-- (mcm1957) fix language default.
-- (mcm1957) dependencies have been updated
-
-### 1.2.3 (2025-03-29)
-- (arteck) Text is now deleted if no text is available
 
 ## License
 

@@ -24,11 +24,34 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.4 (2025-11-13)
+
+- add option to run auto discovery once on startup, in interval or completly disable it
+
+### 0.4.3 (2025-11-11)
+
+- fix responsive design in the settings
+- revert forbidden characters checking
+- update dependencies
+
+### 0.4.2 (2025-11-08)
+
+- update dependencies
+- fix device name / model identifier in the objects
+
+### 0.4.1 (2025-11-07)
+
+- fix logging
+- fix connection state
+
+### 0.4.0 (2025-11-02)
+
+- Updated translations for datapoint descriptions in all supported languages
+- Refreshed and modernized the admin UI: clearer sections, manual IP address list, Windows hint, and option to disable auto-discovery
+- Possibility to manually add devices via IP-Address and Option to disable auto discovery
+- Save auto discovered devices in info datapoint and show in admin UI
+
 ### 0.3.1 (2025-10-19)
-
-- updated release script run configuration
-
-### 0.3.0 (2025-10-19)
 
 - Refactored: Moved all device logic to a dedicated GoveeService class, modularized utilities
 - Improved test coverage

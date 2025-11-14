@@ -36,6 +36,8 @@ It is possible to configure at which time and on which weekdays the trigger shou
 - [Create trigger](#trigger)
 - [create astro trigger](#astro-trigger)
 - [Create one time trigger](#one-time-trigger)
+- [Astro Icons](#astro-icons)
+- [Overview Widgets](#html-overview-widgets)
 - [HTML settings](#html-for-vis-and-vis-2)
 - [HTML Funktion for VIS-2 only](#function-for-vis-2-only)
 - [CSS](#css)
@@ -70,6 +72,7 @@ It is possible to configure at which time and on which weekdays the trigger shou
 - `schedule-switcher.0.history` History from schedules switching
 - `schedule-switcher.0.nextEvents` Next switching operations as JSON Table
 - `schedule-switcher.0.sendto` With VIS-2, changes are passed to the adapter via this object
+- `schedule-switcher.0.widgetOverview` Overview of all widgets to find errors
 
 ![101_remote.png](img/view_states.png)
 
@@ -182,7 +185,12 @@ It is possible to configure at which time and on which weekdays the trigger shou
                     {
                         "oid-conditionStateId1": "0_userdata.0.test"
                     }
-                ]
+                ],
+                "valueType": "number", // Value Type
+                "offValue": "100", // Value for On - Missing if not set
+                "onValue": "0", // Value for Off - Missing if not set
+                "newOff": "Hoch", // Replaces the word ON - Missing if not set
+                "newOn": "Runter" // Replaces the word OFF - Missing if not set
             },
             "w000006": {
                 // Which VIS version
@@ -201,7 +209,8 @@ It is possible to configure at which time and on which weekdays the trigger shou
                     }
                 ],
                 "conditionCount": 1, // Counter Conditions
-                "condition": [] // States of Conditions
+                "condition": [], // States of Conditions
+                "valueType": "boolean" // Value Type
             }
         }
     }
@@ -295,13 +304,13 @@ sendTo("schedule-switcher.0", "change-active", { // Leave schedule active withou
   {
     "setObjectId": "0_userdata.0.test4",
     "objectId": 0,
-    "value": true,
-    "old_value": false,
-    "setValue": false,
+    "actualValue": true,
+    "oldValue": false,
+    "checkValue": false,
     "object": "0_userdata.0.test4",
     "trigger": "TimeTrigger",
     "astroTime": "unknown",
-    "shift": 0,
+    "shiftInMinutes": 0,
     "date": 0,
     "hour": 20,
     "minute": 48,
@@ -316,17 +325,19 @@ sendTo("schedule-switcher.0", "change-active", { // Leave schedule active withou
         0
       ]
     ],
-    "time": 1729622880040
+    "timestamp": 1761384780017,
+    "dateTime": "2025-10-25T09:33:00.017Z",
+    "dateTimeWithTimezone": "2025-10-25T11:33:00.017Z"
   },
   {
     "setObjectId": "0_userdata.0.test4",
     "objectId": 0,
-    "value": true,
-    "old_value": false,
-    "setValue": false,
+    "actualValue": true,
+    "oldValue": false,
+    "checkValue": false,
     "object": "0_userdata.0.test4",
     "astroTime": "unknown",
-    "shift": 0,
+    "shiftInMinutes": 0,
     "date": 0,
     "hour": 20,
     "minute": 47,
@@ -341,7 +352,9 @@ sendTo("schedule-switcher.0", "change-active", { // Leave schedule active withou
         0
       ]
     ],
-    "time": 1729622820071
+    "timestamp": 1761383520527,
+    "dateTime": "2025-10-25T09:12:00.527Z",
+    "dateTimeWithTimezone": "2025-10-25T11:12:00.527Z"
   }
 ]
 ```
@@ -492,6 +505,27 @@ sendTo("schedule-switcher.0", "change-active", { // Leave schedule active withou
 
 ![create_widget_select_astro_done.png](img/create_widget_select_astro_done.png)
 
+### Astro Icons
+
+[Summary](#summary)
+
+| Icon                                                                              | Description   |
+| --------------------------------------------------------------------------------- | ------------- |
+| ![sunrise.svg](../../widgets/schedule-switcher/img/astro/sunrise.svg)             | sunrise       |
+| ![solarNoon.svg](../../widgets/schedule-switcher/img/astro/solarNoon.svg)         | solarNoon     |
+| ![sunset.svg](../../widgets/schedule-switcher/img/astro/sunset.svg)               | sunset        |
+| ![sunriseEnd.svg](../../widgets/schedule-switcher/img/astro/sunriseEnd.svg)       | sunriseEnd    |
+| ![goldenHourEnd.svg](../../widgets/schedule-switcher/img/astro/goldenHourEnd.svg) | goldenHourEnd |
+| ![goldenHour.svg](../../widgets/schedule-switcher/img/astro/goldenHour.svg)       | goldenHour    |
+| ![sunsetStart.svg](../../widgets/schedule-switcher/img/astro/sunsetStart.svg)     | sunsetStart   |
+| ![dusk.svg](../../widgets/schedule-switcher/img/astro/dusk.svg)                   | dusk          |
+| ![nauticalDusk.svg](../../widgets/schedule-switcher/img/astro/nauticalDusk.svg)   | nauticalDusk  |
+| ![night.svg](../../widgets/schedule-switcher/img/astro/night.svg)                 | night         |
+| ![nadir.svg](../../widgets/schedule-switcher/img/astro/nadir.svg)                 | nadir         |
+| ![nightEnd.svg](../../widgets/schedule-switcher/img/astro/nightEnd.svg)           | nightEnd      |
+| ![nauticalDawn.svg](../../widgets/schedule-switcher/img/astro/nauticalDawn.svg)   | nauticalDawn  |
+| ![dawn.svg](../../widgets/schedule-switcher/img/astro/dawn.svg)                   | dawn          |
+
 ### One Time Trigger
 
 [Summary](#summary)
@@ -524,6 +558,12 @@ sendTo("schedule-switcher.0", "change-active", { // Leave schedule active withou
 - Done
 
 ![create_widget_select_onetime_date_done.png](img/create_widget_select_onetime_date_done.png)
+
+### HTML Overview Widgets
+
+[Summary](#summary)
+
+![overview.png](img/overview.png)
 
 ### HTML for VIS and VIS-2
 
@@ -821,6 +861,7 @@ app-on-off-schedules-widget {
 - (Lucky-ESA) Fixed warn log (Cannot read dir...)
 - (Lucky-ESA) Added state comparison enabled/disabled
 - (Lucky-ESA) Fixed small some bugs
+- (Lucky-ESA) History JSON changed
 
 ### 0.0.12 (2025-08-27)
 

@@ -55,9 +55,10 @@ How to find SN and Check code for registration is described here: https://github
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
 
 ## Changelog
-### **WORK IN PROGRESS**
 
-- (Gaspode) Update dependencies
+### 4.0.0 (2025-11-01)
+
+- (Gaspode) Update dependencies, Node.js version 20 or later is now required
 
 ### 3.0.1 (2024-12-22)
 
@@ -208,7 +209,7 @@ How to find SN and Check code for registration is described here: https://github
 
 MIT License
 
-Copyright (c) 2024 Gaspode <gaspode69@online.de> (**NO SUPPORT VIA EMAIL**)
+Copyright (c) 2025 Gaspode <gaspode69@online.de> (**NO SUPPORT VIA EMAIL**)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

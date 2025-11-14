@@ -26,6 +26,9 @@ You can find more and detailed information about the device here: [Refoss](https
 | Refoss Smart Energy Monitor, EM06 | >= v2.3.8 |
 
 ## Changelog
+### 1.3.0 (2025-11-12)
+
+- (zhoulinyue) EM06P、EM16P devices support merged channels
 ### 1.2.4 (2025-09-22)
 
 - (zhoulinyue) Fix issues of npm test
@@ -53,7 +56,7 @@ You can find more and detailed information about the device here: [Refoss](https
 
 ### 1.1.2 (2025-08-08)
 
-- (zhoulinyue) Fix the problem that the value of factor, mConsume, mConsumeRe is 0 but returns 0
+- (zhoulinyue) Fix the problem that the value of factor, mConsume, mConsumeX is 0 but returns 0
 
 ### 1.1.1 (2025-08-07)
 

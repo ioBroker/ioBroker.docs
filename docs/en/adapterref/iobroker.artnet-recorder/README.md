@@ -29,6 +29,10 @@ The interval or the stepping to send the data ist set by the configuartion.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.5 (2025-10-24)
+* (Bannsaenger) updated dependencies and issues from repository checker
+* (Bannsaenger) migrate to NPM Trusted Publishing
+
 ### 0.1.4 (2025-09-06)
 * (Bannsaenger) updated dependencies and issues from repository checker
 
@@ -40,11 +44,6 @@ The interval or the stepping to send the data ist set by the configuartion.
 
 ### 0.1.1 (2025-01-21)
 * (Bannsaenger) removed script build on deploy
-
-### 0.1.0 (2025-01-21)
-* (Bannsaenger) updated dependencies, scripts, eslint 9
-* (Bannsaenger) tested with node v22.13.0
-* (Bannsaenger) jsonConfig tested for responsive design
 
 ## License
 MIT License

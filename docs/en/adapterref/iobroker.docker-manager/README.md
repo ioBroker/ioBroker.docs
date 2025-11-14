@@ -84,6 +84,7 @@ The adapter could use the Docker API to communicate with the Docker daemon on ot
 - BackItUp should support `/opt/iobroker/docker-volumes`
 - Think about js-controller will remove dockers which are not used anymore but has label
 - Docker installer: `iob docker <remove>`
+- Progress indicator: add/pull image, create container
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
