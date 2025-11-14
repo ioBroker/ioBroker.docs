@@ -3,13 +3,25 @@ import { makeStyles } from '../../theme';
 export const useStyles = makeStyles()((theme) => ({
     pageContainer: {
         width: '1312px',
-        padding: '78px 0px 32px 0px',
-        margin: '0 auto'
+        padding: '78px 0px 157px 0px',
+        margin: '0 auto',
+         '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: '230%',
+            left: '90%',
+            transform: 'translate(-50%, -50%)',
+            width: '900px',
+            height: '900px',
+            background: 'radial-gradient(circle, rgba(0, 88, 148, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            pointerEvents: 'none',
+            zIndex: 0,
+         }
     },
     title: {
         width: '100%',
         maxWidth: '1311px',
-        textAlign:  'left' ,
+        textAlign: 'left',
     },
     subtitle: {
         marginBottom: 44,
@@ -21,6 +33,7 @@ export const useStyles = makeStyles()((theme) => ({
     card: {
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'space-between',
         height: '537px',
         width: '644px',
         borderRadius: 24,
@@ -105,33 +118,54 @@ export const useStyles = makeStyles()((theme) => ({
         color: theme.palette.text.primary,
         fontSize: 18,
         letterSpacing: '-0.03em',
-        width: 455,
+        width: 435,
         // marginBottom: 75
     },
     imageInfoBox: {
         display: 'flex',
         justifyContent: 'space-between',
-        marginTop: 67
+        marginTop: 67,
+        alignItems: 'start'
     },
     detailsText: {
         color: theme.palette.text.primary,
-        marginBottom: theme.spacing(2),
-        lineHeight: 1.6,
-        '& strong': {
-            color: theme.palette.text.primary,
-            fontWeight: 600,
+        marginBottom: theme.spacing(1),
+        display: 'grid',
+        gridTemplateColumns: 'auto 1fr',
+        columnGap: 43,
+        rowGap: 10,
+        alignItems: 'baseline',
+        fontSize: '18px !important',
+        fontWeight: 400,
+        letterSpacing: '0em',
+        '& .MuiTypography-root': {
+            fontSize: '18px !important',
         },
+    },
+    detailsLabel: {
+        fontWeight: 400,
+        color: theme.palette.text.primary,
+    },
+    cardContent: {
+        display: 'flex',
+        flexDirection: 'column',
+        flex: 1,
+        justifyContent: 'space-between',
     },
     cardActions: {
         display: 'flex',
-        gap: theme.spacing(2),
-        marginTop: 'auto',
-        paddingTop: theme.spacing(2),
+        gap: 36,
+        marginTop: 43,
     },
     buttonPrimary: {
         backgroundColor: theme.palette.secondary.main,
         color: theme.palette.text.primary,
-        fontWeight: 600,
+        borderRadius: 10,
+        fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
+        fontWeight: 400,
+        letterSpacing: '-0.03em',
+        fontSize: '24px',
+        width: 400,
         height: 60,
         '&:hover': {
             backgroundColor: theme.palette.primary.dark,
@@ -140,9 +174,12 @@ export const useStyles = makeStyles()((theme) => ({
     buttonSecondary: {
         borderColor: theme.palette.primary.dark,
         color: theme.palette.text.primary,
-        fontWeight: 600,
-        border: `1px solid ${theme.palette.primary.dark} !important`,
-        fontSize: '28px',
+        fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
+        fontWeight: 400,
+        letterSpacing: '-0.03em',
+        border: `1px solid ${theme.palette.secondary.main} !important`,
+        borderRadius: 10,
+        fontSize: '24px',
         width: 128,
         height: 60,
         '&:hover': {
@@ -150,11 +187,14 @@ export const useStyles = makeStyles()((theme) => ({
             backgroundColor: `${theme.palette.primary.main}22`,
         },
     },
-     buttonSecondaryLinux: {
-        borderColor: theme.palette.primary.dark,
+    buttonSecondaryLinux: {
+        marginTop: 90,
         color: theme.palette.text.primary,
-        fontWeight: 600,
-        border: `1px solid ${theme.palette.primary.dark} !important`,
+        fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
+        fontWeight: 400,
+        letterSpacing: '-0.03em',
+        border: `1px solid ${theme.palette.secondary.main} !important`,
+        borderRadius: 16,
         fontSize: '28px',
         width: 128,
         height: 80,
