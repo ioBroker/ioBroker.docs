@@ -19,7 +19,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     itemTitle: {
-        color: theme.palette.text.primary,
+        color: theme.palette.primary.contrastText,
         fontSize: '24px',
         fontWeight: '400',
         fontFamily: 'Audiowide, sans-serif',
@@ -35,7 +35,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     itemDescription: {
-        color: theme.palette.text.primary,
+        color: theme.palette.primary.contrastText,
         fontSize: '18px',
         fontWeight: '200',
         letterSpacing: '-3%',

@@ -11,8 +11,9 @@ export const useStyles = makeStyles()(theme => ({
         cursor: 'pointer',
         minWidth: 250,
         transition: 'background-color 0.3s',
+        backgroundColor: theme.palette.mode === 'light' ? '#005894' : 'transparent',
         '&:hover': {
-            backgroundColor: 'rgba(29, 144, 202, 0.1)',
+            backgroundColor: theme.palette.mode === 'light' ? '#004a7a' : 'rgba(29, 144, 202, 0.1)',
         },
         [theme.breakpoints.down('sm')]: {
             borderRadius: '8px',
@@ -23,7 +24,7 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: '400',
         fontFamily: 'Audiowide, sans-serif',
         letterSpacing: '-3%',
-        color: theme.palette.text.secondary,
+        color: theme.palette.mode === 'light' ? '#FFFFFF' : theme.palette.text.secondary,
          [theme.breakpoints.down('md')]: {
             fontSize: '16px',
         },

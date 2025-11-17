@@ -5,7 +5,7 @@ export const useStyles = makeStyles()((theme) => ({
         width: '1312px',
         padding: '78px 0px 157px 0px',
         margin: '0 auto',
-         '&::before': {
+        '&::before': {
             content: '""',
             position: 'absolute',
             top: '230%',
@@ -13,10 +13,12 @@ export const useStyles = makeStyles()((theme) => ({
             transform: 'translate(-50%, -50%)',
             width: '900px',
             height: '900px',
-            background: 'radial-gradient(circle, rgba(0, 88, 148, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            background: theme.palette.mode === 'dark'
+                ? 'radial-gradient(circle, rgba(0, 88, 148, 0.8) 0%, rgba(255, 255, 255, 0) 55%)'
+                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
             zIndex: 0,
-         }
+        }
     },
     title: {
         width: '100%',
@@ -159,7 +161,7 @@ export const useStyles = makeStyles()((theme) => ({
     },
     buttonPrimary: {
         backgroundColor: theme.palette.secondary.main,
-        color: theme.palette.text.primary,
+        color: theme.palette.primary.contrastText,
         borderRadius: 10,
         fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
         fontWeight: 400,

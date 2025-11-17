@@ -40,7 +40,9 @@ export const useStyles = makeStyles()(theme => ({
             transform: 'translate(-50%, -50%)',
             width: '600px',
             height: '700px',
-            background: 'radial-gradient(ellipse, rgba(0, 88, 148, 0.4) 0%, rgba(255, 255, 255, 0) 70%)',
+            background: theme.palette.mode === 'dark'
+                ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.4) 0%, rgba(255, 255, 255, 0) 70%)'
+                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
             zIndex: -1,
             [theme.breakpoints.down('md')]: {
@@ -199,18 +201,23 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
         display: 'block',
         zindex: '0',
-        // '&::before': {
-        //     content: '""',
-        //     position: 'absolute',
-        //     top: '50%',
-        //     left: '50%',
-        //     transform: 'translate(-50%, -50%)',
-        //     width: '600px',
-        //     height: '200px',
-        //     background: 'radial-gradient(ellipse, rgba(12, 36, 137, 0.3) 0%, rgba(255, 255, 255, 0) 70%)',
-        //     pointerEvents: 'none',
-        //     zIndex: 0,
-        // },
+        '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '150px',
+            height: '150px',
+            background: 'none',
+            pointerEvents: 'none',
+            zIndex: 0,
+            [theme.breakpoints.down('sm')]: {
+                background: theme.palette.mode === 'light'
+                    ? 'radial-gradient(circle, rgba(0, 88, 148, 0.2) 0%, rgba(255, 255, 255, 0) 70%)'
+                    : 'none',
+            },
+        },
         '&:hover': {
             backgroundColor: theme.palette.primary.main,
             color: theme.palette.primary.contrastText,
@@ -220,6 +227,7 @@ export const useStyles = makeStyles()(theme => ({
             maxWidth: '140px',
             backgroundColor: 'transparent',
             border: `1px solid ${theme.palette.secondary.main}`,
+            color: theme.palette.text.primary,
             height: '32px',
             fontSize: '10px',
             padding: '5px 10px',

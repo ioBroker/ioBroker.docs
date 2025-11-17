@@ -1,26 +1,32 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 import type { BoxProps } from '@mui/material';
 import { useStyles } from './StyledButton.styles';
 import ArrowIconSvg from '../../assets/img/arrowIcon.svg';
+import WhiteArrowIconSvg from '../../assets/img/whiteArrowIcon.svg';
 
 interface ArrowIconProps {
     sx?: BoxProps['sx'];
 }
 
-const ArrowIcon: React.FC<ArrowIconProps> = ({ sx }) => (
-    <Box
-        component="img"
-        src={ArrowIconSvg}
-        alt="arrow"
-        sx={{
-            marginLeft: '10px',
-            width: { xs: '24px', sm: '30px' },
-            height: { xs: '24px', sm: '30px' },
-            ...sx
-        }}
-    />
-);
+const ArrowIcon: React.FC<ArrowIconProps> = ({ sx }) => {
+    const theme = useTheme();
+    const arrowSrc = theme.palette.mode === 'light' ? WhiteArrowIconSvg : ArrowIconSvg;
+
+    return (
+        <Box
+            component="img"
+            src={arrowSrc}
+            alt="arrow"
+            sx={{
+                marginLeft: '10px',
+                width: { xs: '24px', sm: '30px' },
+                height: { xs: '24px', sm: '30px' },
+                ...sx
+            }}
+        />
+    );
+};
 
 interface StyledButtonProps extends Omit<BoxProps, 'onClick'> {
     children: React.ReactNode;

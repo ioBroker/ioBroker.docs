@@ -123,6 +123,10 @@ export const useStyles = makeStyles()(theme => ({
         padding: theme.spacing(2),
         outline: 'none',
         textAlign: 'center',
+        '&::placeholder': {
+            color: theme.palette.text.primary,
+            opacity: 0.6,
+        },
         [theme.breakpoints.down('md')]: {
             fontSize: '20px',
             padding: theme.spacing(1.5),

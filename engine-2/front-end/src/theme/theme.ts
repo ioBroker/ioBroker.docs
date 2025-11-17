@@ -90,7 +90,7 @@ export const lightTheme = createTheme({
     },
     text: {
       primary: secondary,
-      secondary: 'rgba(0, 88, 148, 0.7)',
+      secondary: '#1D90CA',
       disabled: 'rgba(0, 88, 148, 0.5)',
     },
     divider: secondary,

@@ -18,7 +18,7 @@ export const useStyles = makeStyles()(theme => ({
     heroSection: {
         minHeight: 'calc(100vh - 64px)',
         width: '100%',
-        backgroundColor: theme.palette.background.default,
+        backgroundColor: '#080B1C',
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
@@ -109,8 +109,8 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     installButton: {
-        backgroundColor: theme.palette.secondary.main,
-        color: theme.palette.primary.contrastText,
+        backgroundColor: '#005894',
+        color: '#fff',
         fontWeight: '400',
         fontFamily: 'Audiowide, sans-serif',
         letterSpacing: '-3%',
@@ -122,7 +122,7 @@ export const useStyles = makeStyles()(theme => ({
         borderRadius: theme.shape.borderRadius,
         textTransform: 'uppercase',
         '&:hover': {
-            backgroundColor: theme.palette.primary.light,
+            backgroundColor: '#7ec3f3',
         },
         // [theme.breakpoints.down('md')]: {
         //     width: '100%',
@@ -200,6 +200,7 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '-3%',
         fontWeight: '400',
         marginBottom: '10px',
+        color: '#FFFFFF',
         [theme.breakpoints.down('md')]: {
             textAlign: 'left',
             width: '224px',
@@ -215,7 +216,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     supportIconAmazon: {
-        border: `1px solid ${theme.palette.primary.main}`,
+        border: '1px solid #1D90CA',
         borderRadius: theme.shape.borderRadius,
         padding: theme.spacing(1.5),
         width: '95px',
@@ -236,7 +237,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     supportIconPayPal: {
-        border: `1px solid ${theme.palette.primary.main}`,
+        border: '1px solid #1D90CA',
         borderRadius: theme.shape.borderRadius,
         padding: theme.spacing(1.5),
         width: '90px',

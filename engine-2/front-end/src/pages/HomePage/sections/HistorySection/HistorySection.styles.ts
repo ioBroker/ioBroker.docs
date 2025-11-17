@@ -57,7 +57,9 @@ export const useStyles = makeStyles()(theme => ({
             transform: 'translate(-50%, -50%)',
             width: '1200px',
             height: '1200px',
-            background: 'radial-gradient(circle, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)',
+            background: theme.palette.mode === 'dark'
+                ? 'radial-gradient(circle, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)'
+                : 'none',
             pointerEvents: 'none',
             [theme.breakpoints.down('md')]: {
                 width: '600px',

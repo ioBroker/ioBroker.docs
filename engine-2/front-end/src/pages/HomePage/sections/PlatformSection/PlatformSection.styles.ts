@@ -27,14 +27,18 @@ export const useStyles = makeStyles()(theme => ({
             transform: 'translate(-50%, -50%)',
             width: '1200px',
             height: '1200px',
-            background: 'radial-gradient(circle, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)',
-            pointerEvents: 'none',
+             background: theme.palette.mode === 'dark'
+                ? 'radial-gradient(circle, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)'
+                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
             [theme.breakpoints.down('md')]: {
                 width: '600px',
                 height: '600px',
             },
             [theme.breakpoints.down('sm')]: {
-                 background: 'radial-gradient(ellipse, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)',
+                // background: 'radial-gradient(ellipse, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)',
+                 background: theme.palette.mode === 'dark'
+                ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)'
+                : 'none',
                 left: '50%',
                  top: '95%',
                  width: '400px',
@@ -120,7 +124,6 @@ export const useStyles = makeStyles()(theme => ({
         textIndent: '2em',
         fontSize: '18px',
         lineHeight: 1.6,
-        color: 'rgba(255, 255, 255, 0.8)',
         [theme.breakpoints.down('sm')]: {
             fontSize: '20px',
             marginBottom: theme.spacing(2),

@@ -34,7 +34,9 @@ export const useStyles = makeStyles()(theme => ({
             left: '0',
             width: '2400px',
             height: '1400px',
-            backgroundImage: `url(${BacklightImage})`,
+            backgroundImage: theme.palette.mode === 'dark'
+                ? `url(${BacklightImage})`
+                : 'none',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'left center',
             backgroundSize: 'contain',
@@ -46,7 +48,7 @@ export const useStyles = makeStyles()(theme => ({
                 bottom: 'calc(-120% )',
             },
             [theme.breakpoints.down('sm')]: {
-                 display: 'none'
+                display: 'none'
                 // width: '1500px',
                 // height: '1200px',
             },
@@ -58,7 +60,9 @@ export const useStyles = makeStyles()(theme => ({
             left: '0',
             width: '2400px',
             height: '1400px',
-            background: 'linear-gradient(to right, #080B1C 0%, #080B1C 2%, transparent 18%, transparent 100%)',
+            background: theme.palette.mode === 'dark'
+                ? 'linear-gradient(to right, #080B1C 0%, #080B1C 2%, transparent 18%, transparent 100%)'
+                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
             zIndex: 2,
             [theme.breakpoints.down('md')]: {
