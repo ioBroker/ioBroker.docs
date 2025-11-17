@@ -27,15 +27,23 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children, defaultMode = 'dark' }: ThemeProviderProps) => {
-    const [mode, setMode] = useState<ThemeMode>(defaultMode);
+    const [mode, setMode] = useState<ThemeMode>(() => {
+        const savedTheme = window.localStorage.getItem('theme') as ThemeMode;
+        return savedTheme || defaultMode;
+    });
 
     const theme = useMemo(() => (mode === 'dark' ? darkTheme : lightTheme), [mode]);
 
     const toggleTheme = () => {
-        setMode((prevMode) => (prevMode === 'dark' ? 'light' : 'dark'));
+        setMode((prevMode) => {
+            const newMode = prevMode === 'dark' ? 'light' : 'dark';
+            window.localStorage.setItem('theme', newMode);
+            return newMode;
+        });
     };
 
     const setTheme = (newMode: ThemeMode) => {
+        window.localStorage.setItem('theme', newMode);
         setMode(newMode);
     };
 

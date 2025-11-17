@@ -18,6 +18,7 @@ import PersonIcon from '../icons/PersonIcon';
 import SearchIcon from '../icons/SearchIcon';
 import LogoutIcon from '../icons/LogoutIcon';
 import { useHeaderStyles } from './Header.styles';
+import MenuModal from '../Menu/Menu';
 
 
 export interface HeaderProps {
@@ -48,6 +49,7 @@ export const Header = ({
   const [search, setSearch] = useState('');
   const [language, setLanguage] = useState('en');
   const [showProfileMenu, setShowProfileMenu] = useState<HTMLElement | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const renderProfileMenu = () => {
     if (!showProfileMenu) {
@@ -82,6 +84,14 @@ export const Header = ({
 
   return (
     <Box className={classes.root}>
+      {menuOpen && (
+        <MenuModal
+          onClose={() => setMenuOpen(false)}
+          selected={selected as any}
+          noSearch={noSearch}
+          onLanguageUpdate={onLanguageUpdate}
+        />
+      )}
       {renderProfileMenu()}
 
       <img
@@ -208,7 +218,10 @@ export const Header = ({
           </IconButton>
         )}
 
-        <IconButton className={classes.iconButton}>
+        <IconButton
+          className={classes.iconButton}
+          onClick={() => setMenuOpen(true)}
+        >
           <MenuIcon />
         </IconButton>
       </Box>
