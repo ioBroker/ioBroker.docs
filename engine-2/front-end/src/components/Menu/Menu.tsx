@@ -17,8 +17,8 @@ import InstagramIcon from '../icons/InstagramIcon';
 // import type { ExtendedRoutes } from '../../App';
 //import type { MenuPoints } from '../../types';
 
-export type MenuItems = 'adapters' | 'docs' | 'blog' | 'licenses' | 'profile' | 'installation';
-export type MenuItemsSmall = 'forum' | 'statistics' | 'imprint' | 'policy';
+export type MenuItems = 'Adapters' | 'Docs' | 'Blog' | 'Licenses' | 'Profile' | 'Installation';
+export type MenuItemsSmall = 'Forum' | 'Statistik' | 'Impressum' | 'Datenschutz';
 
 function Link(props: {
     name: MenuItems | MenuItemsSmall;
@@ -33,11 +33,13 @@ function Link(props: {
     return (
         <Box
             component="a"
-            sx={{
-                color: props.selected === props.name ? 'var(--textSelected)' : 'var(--textColor)',
+            sx={(theme) => ({
+                color: props.selected === props.name ? '#1D90CA' : theme.palette.text.primary,
                 cursor: props.selected === props.name ? 'default' : 'pointer',
                 '&:hover': {
-                    color: props.selected !== props.name ? 'var(--textColorHover)' : undefined,
+                    color: props.selected !== props.name
+                        ? (theme.palette.mode === 'dark' ? '#7ec3f3' : '#006bbc')
+                        : undefined,
                 },
                 fontSize: props.big ? 28 : 20,
                 '@media (max-width: 800px)': {
@@ -46,7 +48,7 @@ function Link(props: {
                 '@media (min-width: 800px)': {
                     display: props.noDesktop ? 'none' : undefined,
                 },
-            }}
+            })}
             // onClick={e => {
             //     if (props.name && props.navigateTo) {
             //         e.preventDefault();
@@ -62,6 +64,7 @@ function Link(props: {
             }}
         >
             {/* {I18n.t(`menu-${props.name}`)} */}
+            {props.name}
         </Box>
     );
 }
@@ -76,13 +79,13 @@ function OwnButton(props: {
         <Box
             component="a"
             href={props.href || `/${props.name}`}
-            sx={{
-                color: 'var(--textColor)',
+            sx={(theme) => ({
+                color: theme.palette.text.primary,
                 '&:hover': {
                     textDecoration: 'none',
-                    color: 'var(--textColorHover)',
+                    color: theme.palette.mode === 'dark' ? '#7ec3f3' : '#006bbc',
                 },
-            }}
+            })}
             style={{
                 textDecoration: 'none',
                 display: 'block',
@@ -96,6 +99,7 @@ function OwnButton(props: {
             {props.name ? (
                 <div style={{ marginTop: props.textOffset || undefined }}>
                     {/* {I18n.t(`menu-${props.name}`)} */}
+                    {props.name}
                 </div>
             ) : null}
         </Box>
@@ -191,27 +195,25 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                 open={searchDialogOpen}
                 onClose={() => setSearchDialogOpen(false)}
             /> */}
-            <div
-                style={{
-                    fontFamily: 'var(--fontFamilyTitle)',
-                    backgroundColor: 'var(--backgroundColorOpacity)',
-                    borderRadius: 20,
-                    border: '1px solid var(--primary)',
-                }}
+            <Box
+                sx={(theme) => ({
+                    fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
+                    backgroundColor: theme.palette.mode === 'dark' ? '#080B1CE0' : '#FFFFFFE0',
+                    borderRadius: '20px',
+                    border: '1px solid #1D90CA',
+                })}
             >
                 <Box
-                    style={{
+                    sx={(theme) => ({
                         display: 'flex',
                         flexDirection: 'column',
-                        color: 'var(--textColor)',
-                    }}
-                    sx={{
-                        padding: '40px 50px 40px 60px',
+                        color: theme.palette.text.primary,
+                         padding: '40px 50px 40px 60px',
                         gap: '120px',
                         '@media (max-width: 800px)': {
                             padding: '20px 30px 20px 30px',
                         },
-                    }}
+                    })}
                 >
                     <div
                         style={{
@@ -244,32 +246,32 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                 />
                             </a>
                             <Link
-                                name="blog"
+                                name="Blog"
                                 selected={props.selected}
                                 url="https://www.iobroker.net/blog"
                                 onClose={props.onClose}
                             />
                             <Link
-                                name="forum"
+                                name="Forum"
                                 selected={props.selected}
                                 url="https://forum.iobroker.net/"
                                 onClose={props.onClose}
                             />
                             <Link
-                                name="statistics"
+                                name="Statistik"
                                 selected={props.selected}
                                 url="https://www.iobroker.net/statistics"
                                 onClose={props.onClose}
                             />
                             <Link
-                                name="imprint"
+                                name="Impressum"
                                 selected={props.selected}
                                 // navigateTo={context.navigateTo}
                                 onClose={props.onClose}
                                 location={props.location}
                             />
                             <Link
-                                name="policy"
+                                name="Datenschutz"
                                 selected={props.selected}
                                 // navigateTo={context.navigateTo}
                                 onClose={props.onClose}
@@ -289,7 +291,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                             <Box
                                 style={{
                                     marginBottom: 20,
-                                    color: 'var(--primary, #FFF)',
+                                    color: '#1D90CA',
                                 }}
                                 sx={{
                                     fontSize: 64,
@@ -299,30 +301,31 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                 }}
                             >
                                 {/* {I18n.t('menu-menu')} */}
+                                {"Menu"}
                             </Box>
                             <Link
-                                name="docs"
+                                name="Docs"
                                 selected={props.selected}
                                 big
                                 url="https://www.iobroker.net/docs"
                                 onClose={props.onClose}
                             />
                             <Link
-                                name="adapters"
+                                name="Adapters"
                                 selected={props.selected}
                                 big
                                 url="https://www.iobroker.net/adapters"
                                 onClose={props.onClose}
                             />
                             <Link
-                                name="licenses"
+                                name="Licenses"
                                 selected={props.selected}
                                 big
                                 url="https://www.iobroker.net/licenses"
                                 onClose={props.onClose}
                             />
                             <Link
-                                name="installation"
+                                name="Installation"
                                 selected={props.selected}
                                 big
                                 url="https://www.iobroker.net/installation"
@@ -330,21 +333,21 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                             />
                             <Link
                                 noDesktop
-                                name="blog"
+                                name="Blog"
                                 selected={props.selected}
                                 url="https://www.iobroker.net/blog"
                                 onClose={props.onClose}
                             />
                             <Link
                                 noDesktop
-                                name="forum"
+                                name="Forum"
                                 selected={props.selected}
                                 url="https://forum.iobroker.net/"
                                 onClose={props.onClose}
                             />
                             <Link
                                 noDesktop
-                                name="statistics"
+                                name="Statistik"
                                 selected={props.selected}
                                 url="https://www.iobroker.net/statistics"
                                 onClose={props.onClose}
@@ -361,12 +364,12 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                 style={{
                                     cursor: 'pointer',
                                 }}
-                                sx={{
+                                sx={(theme) => ({
                                     width: 40,
                                     height: 40,
                                     marginTop: '24px',
                                     marginBottom: '46px',
-                                    color: 'var(--textColor)',
+                                    color: theme.palette.text.primary,
                                     '@media (max-width: 800px)': {
                                         width: 28,
                                         height: 28,
@@ -374,9 +377,9 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                         marginBottom: '24px',
                                     },
                                     '&:hover': {
-                                        color: 'var(--textColorHover)',
+                                        color: theme.palette.mode === 'dark' ? '#7ec3f3' : '#006bbc',
                                     },
-                                }}
+                                })}
                                 onClick={() => props.onClose()}
                             >
                                 <svg
@@ -410,33 +413,32 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                             {!props.noSearch ? (
                                 <TextField
                                     variant="standard"
-                                    style={{ color: 'var(--textColor)' }}
-                                    // placeholder={I18n.t('menu-search')}
+                                    placeholder='Suchen'
                                     inputRef={inputRef}
-                                    sx={{
+                                    sx={(theme) => ({
                                         '& .MuiInputAdornment-root': {
-                                            color: 'var(--textColor)',
+                                            color: theme.palette.text.primary,
                                         },
                                         '& .MuiInputBase-root': {
-                                            color: 'var(--textColor)',
-                                            fontFamily: 'var(--fontFamilyTitle)',
+                                            color: theme.palette.text.primary,
+                                            fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
                                             '&:hover::before': {
-                                                borderBottom: '1px solid var(--textColor)',
+                                                borderBottom: `1px solid ${theme.palette.text.primary}`,
                                             },
                                             '&::before': {
-                                                borderBottom: '1px solid var(--textColor)',
+                                                borderBottom: `1px solid ${theme.palette.text.primary}`,
                                             },
                                             height: 32,
                                         },
                                         '& .MuiButtonBase-root': {
-                                            color: 'var(--textColor)',
+                                            color: theme.palette.text.primary,
                                         },
                                         '& .MuiInputBase-input': {
                                             padding: 0,
                                         },
                                         width: '100%',
                                         maxWidth: 345,
-                                    }}
+                                    })}
                                     slotProps={{
                                         input: {
                                             startAdornment: (
@@ -508,7 +510,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                         </Box>
                     </Box>
                 </Box>
-            </div>
+            </Box>
         </Dialog>
     );
 }

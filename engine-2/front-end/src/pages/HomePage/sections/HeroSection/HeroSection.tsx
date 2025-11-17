@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../../../../assets/img/ioBroker-Title2.svg';
 import { Box, Typography, Button } from '@mui/material';
 import { useStyles } from './HeroSection.styles';
@@ -7,12 +7,14 @@ import PayPalIcon from "../../../../assets/img/paypalBlue.svg";
 import HousesGroup from "../../../../assets/img/Houses.png";
 import SmallHousesGroup from "../../../../assets/img/Houses-small.png";
 import Divider from '../../../../components/Divider/Divider';
+import { SupportModal } from '../../../../components/SupportModal/SupportModal';
 import { useScrollProgress } from '../../../../hooks/useScrollProgress';
 
 
 export const HeroSection: React.FC = () => {
     const { classes } = useStyles();
     const { scrollPosition, sectionRef } = useScrollProgress();
+    const [supportModalOpen, setSupportModalOpen] = useState(false);
 
     return (
         <Box component="section" className={classes.heroSection} ref={sectionRef}>
@@ -21,7 +23,7 @@ export const HeroSection: React.FC = () => {
                 <Box className={`${classes.container} ${classes.heroContent}`}>
                     <Box className={classes.heroLeft}>
                         <img src={logo} alt="ioBroker Logo" className={classes.heroLogo} />
-                         <Box className={classes.smallHousesImageWrapper}>
+                        <Box className={classes.smallHousesImageWrapper}>
                             <img src={SmallHousesGroup} alt="Houses" className={classes.smallHousesImage} />
                         </Box>
                         <Typography className={classes.heroPlatformText}>
@@ -39,9 +41,19 @@ export const HeroSection: React.FC = () => {
                         <Typography className={classes.supportText}>
                             Unsere Software ist kostenlos. <br /> Unterstütze uns!
                         </Typography>
-                         <Box className={classes.supportIcons}>
-                            <Box className={classes.supportIconPayPal}><img alt="PayPal Icon" src={PayPalIcon} className={classes.paypalIconImage}/></Box>
-                            <Box className={classes.supportIconAmazon}><img alt="Amazon Icon" src={AmazonIcon} className={classes.amazonIconImage} /></Box>
+                        <Box className={classes.supportIcons}>
+                            <Box
+                                className={classes.supportIconPayPal}
+                                onClick={() => setSupportModalOpen(true)}
+                            >
+                                <img alt="PayPal Icon" src={PayPalIcon} className={classes.paypalIconImage} />
+                            </Box>
+                            <Box
+                                className={classes.supportIconAmazon}
+                                onClick={() => setSupportModalOpen(true)}
+                            >
+                                <img alt="Amazon Icon" src={AmazonIcon} className={classes.amazonIconImage} />
+                            </Box>
                         </Box>
                     </Box>
                 </Box>
@@ -50,6 +62,11 @@ export const HeroSection: React.FC = () => {
                 position={scrollPosition}
                 parentWidth={window.innerWidth}
                 sx={{ marginBottom: '26px', marginTop: '61px' }}
+            />
+
+            <SupportModal
+                open={supportModalOpen}
+                onClose={() => setSupportModalOpen(false)}
             />
         </Box>
     );
