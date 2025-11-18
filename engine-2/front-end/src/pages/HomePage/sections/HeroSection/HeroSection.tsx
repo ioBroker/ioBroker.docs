@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../../../../assets/img/ioBroker-Title2.svg';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useStyles } from './HeroSection.styles';
 import AmazonIcon from "../../../../assets/img/amazonBlue.svg";
 import PayPalIcon from "../../../../assets/img/paypalBlue.svg";
@@ -9,6 +9,7 @@ import SmallHousesGroup from "../../../../assets/img/Houses-small.png";
 import Divider from '../../../../components/Divider/Divider';
 import { SupportModal } from '../../../../components/SupportModal/SupportModal';
 import { useScrollProgress } from '../../../../hooks/useScrollProgress';
+import { CustomButton } from '../../../../components/Button/Button';
 
 
 export const HeroSection: React.FC = () => {
@@ -29,9 +30,9 @@ export const HeroSection: React.FC = () => {
                         <Typography className={classes.heroPlatformText}>
                             <Box className={classes.platformTextComment}>// Open-Source-Plattform </Box> für Smart-Home-Automatisierung
                         </Typography>
-                        <Button className={classes.installButton}>
+                        <CustomButton variant="primary" className={classes.installButton}>
                             Installieren
-                        </Button>
+                        </CustomButton>
                     </Box>
 
                     <Box className={classes.heroRight}>

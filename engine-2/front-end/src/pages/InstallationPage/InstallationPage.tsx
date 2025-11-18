@@ -6,6 +6,7 @@ import {
 } from '@mui/material';
 import { useStyles } from './InstallationPage.styles';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
+import { CustomButton } from '../../components/Button/Button';
 import LinuxLogo from '../../assets/img/LinuxLogo.png';
 import DockerLogo from '../../assets/img/Docker.png';
 import RaspberryLogo from '../../assets/img/Raspberry.png';
@@ -104,7 +105,7 @@ const InstallationPage = () => {
                             </Box>
                         </Box>
                         <Box className={classes.cardActions}>
-                            <Button fullWidth variant="contained" className={classes.buttonPrimary}>DOWNLOAD</Button>
+                            <CustomButton variant="primary" className={classes.buttonPrimary}>DOWNLOAD</CustomButton>
                             <Button fullWidth variant="outlined" className={classes.buttonSecondary}>INFO</Button>
                         </Box>
                     </Paper>
@@ -131,7 +132,7 @@ const InstallationPage = () => {
                             </Box>
                         </Box>
                         <Box className={classes.cardActions}>
-                            <Button fullWidth variant="contained" className={classes.buttonPrimary}>DOWNLOAD</Button>
+                            <CustomButton variant="primary" className={classes.buttonPrimary}>DOWNLOAD</CustomButton>
                             <Button fullWidth variant="outlined" className={classes.buttonSecondary}>INFO</Button>
                         </Box>
                     </Paper>
@@ -156,7 +157,7 @@ const InstallationPage = () => {
                             </Box>
                         </Box>
                         <Box className={classes.cardActions}>
-                            <Button fullWidth variant="contained" className={classes.buttonPrimary}>DOWNLOAD</Button>
+                            <CustomButton variant="primary" className={classes.buttonPrimary}>DOWNLOAD</CustomButton>
                             <Button fullWidth variant="outlined" className={classes.buttonSecondary}>INFO</Button>
                         </Box>
                     </Paper>

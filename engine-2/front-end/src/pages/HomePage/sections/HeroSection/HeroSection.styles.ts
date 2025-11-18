@@ -109,33 +109,8 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     installButton: {
-        backgroundColor: '#005894',
-        color: '#fff',
-        fontWeight: '400',
-        fontFamily: 'Audiowide, sans-serif',
-        letterSpacing: '-3%',
-        width: '469px',
-        height: '60px',
-        padding: '14px 138px',
-        // marginBottom: '73px',
-        fontSize: '19px',
-        borderRadius: theme.shape.borderRadius,
-        textTransform: 'uppercase',
-        '&:hover': {
-            backgroundColor: '#7ec3f3',
-        },
-        // [theme.breakpoints.down('md')]: {
-        //     width: '100%',
-        //     maxWidth: '400px',
-        //     padding: '14px 32px',
-        //     marginBottom: theme.spacing(4),
-        // },
         [theme.breakpoints.down('md')]: {
-            width: '368px',
-            height: '48px',
-            borderRadius: '8px',
             marginBottom: '56px',
-            fontSize: '18px',
         },
     },
     heroRight: {

@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './CommunitySection.styles';
 import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
+import { CustomButton } from '../../../../components/Button/Button';
 
 const communityData = [
     { title: 'Forum', count: '30941' },
@@ -49,7 +50,7 @@ export const CommunitySection: React.FC = () => {
                                     </Typography>
                                     <Typography className={classes.statLabel}>Nutzer</Typography>
                                 </Box>
-                                <button className={classes.joinButton}>BEITRETEN</button>
+                                <CustomButton variant="secondary" className={classes.joinButton}>BEITRETEN</CustomButton>
                             </Box>
                             <div className={classes.bracesRight} />
                         </Box>

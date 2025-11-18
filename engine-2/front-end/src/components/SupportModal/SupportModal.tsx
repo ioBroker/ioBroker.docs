@@ -1,6 +1,7 @@
 import React from 'react';
-import { Dialog, Box, Typography, Button } from '@mui/material';
+import { Dialog, Box, Typography } from '@mui/material';
 import { useStyles } from './SupportModal.styles';
+import { CustomButton } from '../../components/Button/Button';
 import PayPalIcon from '../../assets/img/paypalBlue.svg';
 import AmazonIcon from '../../assets/img/amazonBlue.svg';
 
@@ -56,13 +57,14 @@ export const SupportModal: React.FC<SupportModalProps> = ({ open, onClose }) => 
                             Ob ein kleiner Betrag oder ein großer Boost - jede Spende fließt direkt in die Weiterentwicklung von ioBroker.
                         </Typography>
                         
-                        <Button 
+                        <CustomButton 
                             className={classes.button}
                             href="https://www.paypal.com/donate"
                             target="_blank"
+                            variant="primary"
                         >
                             JETZT SPENDEN
-                        </Button>
+                        </CustomButton>
                     </Box>
 
                     <Box className={classes.option}>
@@ -74,13 +76,14 @@ export const SupportModal: React.FC<SupportModalProps> = ({ open, onClose }) => 
                             Bestellst du sowieso bei Amazon? Dann nutze unseren Link! Ein kleiner Prozentsatz deines Einkaufs geht an ioBroker - du zahlst keinen Cent mehr!
                         </Typography>
                         
-                        <Button 
+                        <CustomButton 
                             className={classes.button}
                             href="https://www.amazon.de"
                             target="_blank"
+                            variant="primary"
                         >
                             BEI AMAZON EINKAUFEN
-                        </Button>
+                        </CustomButton>
                     </Box>
                 </Box>
 
