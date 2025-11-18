@@ -1,9 +1,11 @@
 import React from 'react';
-import { Dialog, Box, Typography } from '@mui/material';
+import { Dialog, Box, Typography, useTheme } from '@mui/material';
 import { useStyles } from './SupportModal.styles';
 import { CustomButton } from '../../components/Button/Button';
-import PayPalIcon from '../../assets/img/paypalBlue.svg';
-import AmazonIcon from '../../assets/img/amazonBlue.svg';
+import PayPalWhiteIcon from '../../assets/img/PayPal-visa-mastercardW.svg';
+import AmazonWhiteIcon from '../../assets/img/amazonWhite.svg';
+import PayPalBlueIcon from '../../assets/img/PayPal-visa-mastercardB.svg';
+import AmazonBlueIcon from '../../assets/img/amazonBlue.svg';
 
 interface SupportModalProps {
     open: boolean;
@@ -12,6 +14,9 @@ interface SupportModalProps {
 
 export const SupportModal: React.FC<SupportModalProps> = ({ open, onClose }) => {
     const { classes } = useStyles();
+    const theme = useTheme();
+    const PayPalIcon = theme.palette.mode === 'light' ? PayPalBlueIcon : PayPalWhiteIcon;
+    const AmazonIcon = theme.palette.mode === 'light' ? AmazonBlueIcon : AmazonWhiteIcon;
 
     return (
         <Dialog
@@ -49,11 +54,11 @@ export const SupportModal: React.FC<SupportModalProps> = ({ open, onClose }) => 
 
                 <Box className={classes.optionsContainer}>
                     <Box className={classes.option}>
-                        <Box className={classes.iconContainer}>
+                        <Box className={classes.paypalIconContainer}>
                             <img src={PayPalIcon} alt="PayPal" className={classes.paypalIcon} />
                         </Box>
                         
-                        <Typography className={classes.optionText}>
+                        <Typography className={classes.paypalOptionText}>
                             Ob ein kleiner Betrag oder ein großer Boost - jede Spende fließt direkt in die Weiterentwicklung von ioBroker.
                         </Typography>
                         
@@ -68,11 +73,11 @@ export const SupportModal: React.FC<SupportModalProps> = ({ open, onClose }) => 
                     </Box>
 
                     <Box className={classes.option}>
-                        <Box className={classes.iconContainer}>
+                        <Box className={classes.amazonIconContainer}>
                             <img src={AmazonIcon} alt="Amazon" className={classes.amazonIcon} />
                         </Box>
                         
-                        <Typography className={classes.optionText}>
+                        <Typography className={classes.amazonOptionText}>
                             Bestellst du sowieso bei Amazon? Dann nutze unseren Link! Ein kleiner Prozentsatz deines Einkaufs geht an ioBroker - du zahlst keinen Cent mehr!
                         </Typography>
                         

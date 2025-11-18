@@ -75,7 +75,7 @@ export const useStyles = makeStyles()((theme) => ({
     description: {
         fontWeight: 400,
         textAlign: 'center',
-        marginBottom: '60px',
+        marginBottom: '45px',
         maxWidth: '748px',
         lineHeight: '1.7',
         color: 'inherit',
@@ -102,39 +102,67 @@ export const useStyles = makeStyles()((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        justifyContent: 'end'
     },
-    iconContainer: {
+    paypalIconContainer: {
         marginBottom: '32px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '120px',
+        height: '130px',
+        [theme.breakpoints.down('sm')]: {
+            height: '80px',
+            marginBottom: '20px',
+        },
+    },
+    amazonIconContainer: {
+        marginBottom: '35px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '163px',
         [theme.breakpoints.down('sm')]: {
             height: '80px',
             marginBottom: '20px',
         },
     },
     paypalIcon: {
-        height: '80px',
-        width: 'auto',
+        height: 'auto',
+        width: '258px',
         [theme.breakpoints.down('sm')]: {
             height: '60px',
         },
     },
     amazonIcon: {
-        height: '100px',
-        width: 'auto',
+        height: 'auto',
+        width: '163px',
         [theme.breakpoints.down('sm')]: {
             height: '70px',
         },
     },
-    optionText: {
+    amazonOptionText: {
         fontSize: '16px',
         fontWeight: 400,
+        width: 419,
         textAlign: 'center',
-        marginBottom: '32px',
         lineHeight: '1.5',
-        minHeight: '100px',
+        minHeight: '90px',
+        color: 'inherit',
+        [theme.breakpoints.down('md')]: {
+            minHeight: 'auto',
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '14px',
+            marginBottom: '20px',
+        },
+    },
+    paypalOptionText: {
+        fontSize: '16px',
+        fontWeight: 400,
+        width: 335,
+        textAlign: 'center',
+        lineHeight: '1.5',
+        minHeight: '90px',
         color: 'inherit',
         [theme.breakpoints.down('md')]: {
             minHeight: 'auto',
@@ -164,6 +192,7 @@ export const useStyles = makeStyles()((theme) => ({
         fontSize: '16px',
         fontWeight: 400,
         textAlign: 'center',
+        marginTop: 55,
         color: 'inherit',
         [theme.breakpoints.down('sm')]: {
             fontSize: '12px',
