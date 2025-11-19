@@ -1,10 +1,25 @@
 import { makeStyles } from '../../theme';
 
 export const useStyles = makeStyles()((theme) => ({
+    pageWrapper: {
+        width: '100%',
+        overflow: 'hidden',
+        position: 'relative',
+    },
     pageContainer: {
         width: '1312px',
         padding: '78px 0px 157px 0px',
         margin: '0 auto',
+        position: 'relative',
+        [theme.breakpoints.down(1360)]: {
+            width: '100%',
+            maxWidth: '1312px',
+            padding: '78px 24px 157px 24px',
+            boxSizing: 'border-box',
+        },
+        [theme.breakpoints.down('sm')]: {
+            padding: '78px 0px 157px 0px',
+        },
         '&::before': {
             content: '""',
             position: 'absolute',
@@ -32,6 +47,26 @@ export const useStyles = makeStyles()((theme) => ({
         textAlign: 'left',
         maxWidth: '684px',
     },
+    cardContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '40px',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        [theme.breakpoints.up(1360)]: {
+            alignItems: 'flex-start',
+        },
+    },
+    cardsWrapper: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        rowGap: '40px',
+        columnGap: theme.spacing(3),
+        justifyContent: 'center',
+        [theme.breakpoints.up(1360)]: {
+            justifyContent: 'flex-start',
+        },
+    },
     card: {
         display: 'flex',
         flexDirection: 'column',
@@ -44,6 +79,18 @@ export const useStyles = makeStyles()((theme) => ({
         backgroundImage: 'none',
         border: `1px solid ${theme.palette.primary.main}`,
         transition: 'border-color 0.3s',
+        [theme.breakpoints.down(1360)]: {
+            width: '100%',
+            maxWidth: '644px',
+            height: 'auto',
+            boxSizing: 'border-box',
+        },
+        [theme.breakpoints.down('md')]: {
+            width: '382px',
+            height: '338px',
+            boxSizing: 'border-box',
+            padding: '20px 16px',
+        },
     },
     linuxCard: {
         display: 'flex',
@@ -56,6 +103,18 @@ export const useStyles = makeStyles()((theme) => ({
         border: `1px solid ${theme.palette.primary.main}`,
         borderRadius: 24,
         transition: 'border-color 0.3s',
+        [theme.breakpoints.down(1360)]: {
+            width: '100%',
+            minHeight: '654px',
+            height: 'auto',
+            boxSizing: 'border-box',
+        },
+        [theme.breakpoints.down('md')]: {
+            width: '382px',
+            height: '600px',
+            padding: '20px 16px',
+            boxSizing: 'border-box',
+        },
     },
     cardHeader: {
         display: 'flex',
@@ -67,17 +126,36 @@ export const useStyles = makeStyles()((theme) => ({
         fontWeight: 400,
         marginBottom: 57,
         maxWidth: 763,
-        marginTop: '-30px'
+        marginTop: '-30px',
+         [theme.breakpoints.down('md')]: {
+            fontSize: 16,
+            marginTop: 60
+        }
     },
     cardTitle: {
         fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
         fontWeight: 400,
         fontSize: '32px',
         textTransform: 'uppercase',
+        [theme.breakpoints.down('md')]: {
+            fontSize: 20
+        }
     },
     cardIcon: {
         fontSize: '32px',
         color: theme.palette.primary.light,
+        [theme.breakpoints.down('md')]: {
+            width: 'auto',
+            height: 48,
+        },
+    },
+    linuxIcon: {
+        width: 116,
+        height: 116,
+        [theme.breakpoints.down('md')]: {
+            width: 48,
+            height: 48,
+        },
     },
     commandBox: {
         backgroundColor: theme.palette.secondary.main,
@@ -91,6 +169,19 @@ export const useStyles = makeStyles()((theme) => ({
         justifyContent: 'space-between',
         alignItems: 'center',
         wordBreak: 'break-all',
+        [theme.breakpoints.down(1360)]: {
+            width: '100%',
+            maxWidth: 790,
+            minHeight: 77,
+            height: 'auto',
+            boxSizing: 'border-box',
+        },
+        [theme.breakpoints.down('md')]: {
+            width: 351,
+            height: 40,
+            fontSize: 12,
+            minHeight: 40
+        },
     },
     commandBoxText: {
         marginTop: 8
@@ -121,13 +212,19 @@ export const useStyles = makeStyles()((theme) => ({
         fontSize: 18,
         letterSpacing: '-0.03em',
         width: 435,
-        // marginBottom: 75
+         [theme.breakpoints.down('md')]: {
+           fontSize: 16,
+           width: 351
+        },
     },
     imageInfoBox: {
         display: 'flex',
         justifyContent: 'space-between',
         marginTop: 67,
-        alignItems: 'start'
+        alignItems: 'start',
+        [theme.breakpoints.down('md')]: {
+           flexDirection: 'column'
+        },
     },
     detailsText: {
         color: theme.palette.text.primary,
@@ -199,6 +296,12 @@ export const useStyles = makeStyles()((theme) => ({
         '&:hover': {
             borderColor: theme.palette.primary.main,
             backgroundColor: `${theme.palette.primary.main}22`,
+        },
+        [theme.breakpoints.down('md')]: {
+          marginTop: 0,
+            width: 350,
+           height: 44,
+           borderRadius: 8,
         },
     },
 }));
