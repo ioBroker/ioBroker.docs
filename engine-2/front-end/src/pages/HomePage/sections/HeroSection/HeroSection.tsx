@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, type RefObject } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../../../assets/img/ioBroker-Title2.svg';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './HeroSection.styles';
@@ -6,15 +7,16 @@ import AmazonIcon from "../../../../assets/img/amazonBlue.svg";
 import PayPalIcon from "../../../../assets/img/paypalBlue.svg";
 import HousesGroup from "../../../../assets/img/Houses.png";
 import SmallHousesGroup from "../../../../assets/img/Houses-small.png";
-import Divider from '../../../../components/Divider/Divider';
 import { SupportModal } from '../../../../components/SupportModal/SupportModal';
-import { useScrollProgress } from '../../../../hooks/useScrollProgress';
 import { CustomButton } from '../../../../components/Button/Button';
 
+interface HeroSectionProps {
+    sectionRef?: RefObject<HTMLElement | null>;
+}
 
-export const HeroSection: React.FC = () => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
     const { classes } = useStyles();
-    const { scrollPosition, sectionRef } = useScrollProgress();
+    const navigate = useNavigate();
     const [supportModalOpen, setSupportModalOpen] = useState(false);
 
     return (
@@ -30,7 +32,9 @@ export const HeroSection: React.FC = () => {
                         <Typography className={classes.heroPlatformText}>
                             <Box className={classes.platformTextComment}>// Open-Source-Plattform </Box> für Smart-Home-Automatisierung
                         </Typography>
-                        <CustomButton variant="primary" className={classes.installButton}>
+                        <CustomButton variant="primary"
+                        onClick={() => navigate('/installation')} 
+                        className={classes.installButton}>
                             Installieren
                         </CustomButton>
                     </Box>
@@ -59,11 +63,6 @@ export const HeroSection: React.FC = () => {
                     </Box>
                 </Box>
             </Box>
-            <Divider
-                position={scrollPosition}
-                parentWidth={window.innerWidth}
-                sx={{ marginBottom: '26px', marginTop: '61px' }}
-            />
 
             <SupportModal
                 open={supportModalOpen}

@@ -49,6 +49,14 @@ export const useStyles = makeStyles()((theme) => ({
             right: '20px',
         },
     },
+    closeIcon: {
+        width: '24px',
+        height: '24px',
+        [theme.breakpoints.down('sm')]: {
+            width: '18px',
+            height: '18px',
+        },
+    },
     title: {
         fontFamily: 'Audiowide, sans-serif',
         fontSize: '32px',
@@ -63,7 +71,9 @@ export const useStyles = makeStyles()((theme) => ({
             fontSize: '24px',
         },
         [theme.breakpoints.down('sm')]: {
-            fontSize: '24px',
+            fontSize: '22px',
+            marginBottom: '20px',
+            paddingRight: '40px',
         },
     },
     subtitle: {
@@ -195,6 +205,7 @@ export const useStyles = makeStyles()((theme) => ({
         },
         [theme.breakpoints.down('sm')]: {
             fontSize: '14px',
+            width: 335,
             marginBottom: '20px',
         },
     },
@@ -245,6 +256,7 @@ export const useStyles = makeStyles()((theme) => ({
         zIndex: 2,
         [theme.breakpoints.down('sm')]: {
             fontSize: '14px !important',
+             width: '300px !important',
             padding: '12px 24px !important',
         },
     },

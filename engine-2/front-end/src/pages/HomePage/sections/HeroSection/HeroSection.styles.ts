@@ -16,7 +16,6 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     heroSection: {
-        minHeight: 'calc(100vh - 64px)',
         width: '100%',
         backgroundColor: '#080B1C',
         position: 'relative',
@@ -26,8 +25,9 @@ export const useStyles = makeStyles()(theme => ({
         justifyContent: 'flex-start',
         overflowX: 'hidden',
         overflowY: 'visible',
+        paddingBottom: '105px',
         [theme.breakpoints.down('md')]: {
-            minHeight: 'auto',
+            paddingBottom: '56px',
         },
     },
     heroBackgroundImage: {

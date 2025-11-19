@@ -4,7 +4,7 @@ export const useStyles = makeStyles()(theme => ({
     platformSection: {
         position: 'relative',
         // marginTop: '70px',
-        paddingTop: '70px',
+        paddingTop: '163px',
         height: '100%',
         background: `url(/codeBackground.png) no-repeat center center`,
         backgroundPosition: 'top',
@@ -13,6 +13,7 @@ export const useStyles = makeStyles()(theme => ({
         overflow: 'hidden',
         paddingBottom: '60px',
         [theme.breakpoints.down('md')]: {
+            paddingTop: '40px',
             marginTop: '60px',
         },
         [theme.breakpoints.down('sm')]: {
