@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: NwDukWQHH0t3VtjrH7iNBqPgN/tjiCfJJ/NC+J9a4AY=
+hash: AF+RI5eEFD5nF67c1zE0cBxPzygqQnbWGlpn/U2DwyE=
 ---
 ![标识](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -22,7 +22,7 @@ hash: NwDukWQHH0t3VtjrH7iNBqPgN/tjiCfJJ/NC+J9a4AY=
 ＃＃ 警告
 此适配器使用非官方方式与设备通信。
 
-错误的通信或错误的设置可能会影响设备的功能，并可能导致设备被排除在服务之外。
+错误的通信或错误的设置值可能会影响设备的功能，并可能导致设备被排除在服务之外。
 
 该适配器基于以下人员的工作成果：
 
@@ -76,7 +76,7 @@ mqqt Broker 设置是默认的，通常不需要修改。
 <details><summary><i>电站参数化</i></summary><p>
 
 - 添加新行
-- 设置 Powerstation 的设备 ID，具体显示方式请参见应用程序，该字符串因设备类型而异。
+- 设置 Powerstation 的设备 ID，如应用程序中所示，字符串因设备类型而异。
 给它起个名字
 - 选择设备类型
 - 如果连接了额外的电池组，请检查其连接的端口号。
@@ -224,7 +224,7 @@ HA侧的修饰：
 [HA的一些提示](./doc/en/IOB_HA/navi.md)
 
 ### 功能注释
-由于信息更新和命令传输不同步，有时会出现竞争条件。因此，可以观察到，当发出命令后，开关会在最终锁定状态之前来回切换。
+由于信息更新和命令传输不同步，有时会出现竞争条件。因此，可以观察到，当发出命令后，开关会在最终稳定下来之前来回切换。
 
 ## 已实现的设备和结构以及数据点
 对设备数据的一些解释
@@ -242,14 +242,6 @@ HA侧的修饰：
 
 [River Pro](./doc/devices/riverpro.md)
 
-[Delta Mini](./doc/devices/deltamini.md)
-
-[三角洲](./doc/devices/delta.md)
-
-[最大差值](./doc/devices/deltamax.md)
-
-[Delta Pro](./doc/devices/deltapro.md)
-
 [River 2 Max](./doc/devices/river2max.md)
 
 [River 2 Pro](./doc/devices/river2pro.md)
@@ -258,11 +250,23 @@ HA侧的修饰：
 
 [River 3 Plus](./doc/devices/river3plus.md)
 
-[Delta 2](./doc/devices/delta2.md)
+[Delta Mini](./doc/devices/deltamini.md)
+
+[三角洲](./doc/devices/delta.md)
+
+[最大差值](./doc/devices/deltamax.md)
+
+[德尔塔2号](./doc/devices/delta2.md)
 
 [Delta 2 Max](./doc/devices/delta2max.md)
 
+[Delta 3](./doc/devices/delta3.md)
+
 [Delta 3 Plus](./doc/devices/delta3plus.md)
+
+[Delta 3 Max Plus](./doc/devices/delta3maxplus.md)
+
+[Delta Pro](./doc/devices/deltapro.md)
 
 [Delta Pro 3](./doc/devices/deltapro3.md)
 
@@ -290,6 +294,8 @@ HA侧的修饰：
 
 ### Powerstream & Stream
 [动力流](./doc/devices/pstream600.md)
+
+[交流电](./doc/devices/stream_ac.md)
 
 [Stream AC PRO](./doc/devices/stream_ac_pro.md)
 
@@ -347,6 +353,9 @@ Wave功能目前不可用，但如果有数据的话可以实现。
 ### 1.4.8 (npm)
 
 - (foxthefox) new device Glacier Classic 55L support
+- (foxthefox) new device Delta 3 Max Plus support
+- (foxthefox) new device Stream AC support
+- (foxthefox) enhancements on wave3
 - (foxthefox) poweroceanplus set hrPwr/fromPv/romBat/fromGrid values to 0 for non transmitted datapoints in HeatingRodEnergyStreamShow
 - (foxthefox) poweroceanplus pcsActPwr max 20kW, pcsXPhase_amp max 60A
 - (foxthefox) corrections in BMSHeartBeatReport for river3/river3plus

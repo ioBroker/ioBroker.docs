@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
-hash: BwqvNjiyiApZb5qyTlme+D5LK+b+Cc5DNrCWuXYG8DQ=
+hash: 8D1piNLdCgFWCprb+78gzu5KYO6Dp/PO5cgqE2pijDk=
 ---
 # JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
 ![Logo](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -57,7 +57,38 @@ Mit diesem Widget lassen sich beliebige Datenpunkte mit JSON-Daten wie gewünsch
 
 Einzelheiten zum Vorlagensystem finden Sie im Kapitel „Vorlagen basierend auf Beispielen“.
 
-Die JSON-Daten werden zusammen mit den Präfixdaten an die Vorlage übergeben. Zusätzlich steht die aktuelle Widget-ID als Variable zur Verfügung, sodass sie in einzelnen CSS-Anweisungen angegeben werden kann.
+Verfügbare Datenobjekte in der Vorlage:
+
+| Objekt/Variable | Beschreibung |
+| --------------- | ------------------------------------------------------------------------ |
+| widgetID | widgetID des Widgets. |
+| data | JSON-Objekt, auf das der Datenpunkt in json_oid verweist. |
+| dp | Array der Datenpunktdaten, auf die die zusätzlichen Datenpunkte verweisen |
+| Widget | Interne Widget-Daten. Objekt mit allen verfügbaren Widget-Einstellungen |
+| Stil | Interne Stildaten. Objekt mit allen verfügbaren Widget-Stilinformationen |
+
+Die zusätzlichen Datenpunkte können über A) den Namen des Datenpunkts aufgerufen werden.
+
+```javascript
+<%- dp["0_userdata.0.test"] %>
+<%- dp["0_userdata.0.abc"] %>
+```
+
+B) Indexnummer des Datenpunkts (die Nummerierung beginnt immer mit 0)
+
+```javascript
+<%- dp[Object.keys(dp)[0]] %>
+<%- dp[Object.keys(dp)[1]] %>
+```
+
+Beispielausgabe von Daten, Widgets und Stilen in der Vorlage
+
+```ejs
+<%- JSON
+    .stringify(style, null, 4)
+    .replace(/\n/g, '<br>')
+    .replace(/ /g, '&nbsp;'); %>
+```
 
 #### Erweiterter Anwendungsfall
 In den obigen Beispielen wurde nur die reine Ausgabe betrachtet.
@@ -484,10 +515,14 @@ Da Vite Hot Reload unterstützt, ist es manchmal nützlich, Vis2 mit F5 neu zu l
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 4.2.0 (2025-11-14)
 
 - Improve documentation for the object notation in a template
+- fix some translations
+- align attribute name to vis1
+- add widget data to the available template objects in vis2
+- add style and widget object to the available template objects in vis1
+- improve documentation
 
 ### 4.1.3 (2025-11-03)
 

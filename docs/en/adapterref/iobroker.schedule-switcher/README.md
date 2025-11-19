@@ -33,6 +33,7 @@ It is possible to configure at which time and on which weekdays the trigger shou
 - [Create condition](#create-condition)
 - [Change text](#change-text)
 - [Use css](#use-css-description-see-css)
+- [Use CSS icons and path](#size-and-own-icons)
 - [Create trigger](#trigger)
 - [create astro trigger](#astro-trigger)
 - [Create one time trigger](#one-time-trigger)
@@ -452,6 +453,55 @@ sendTo("schedule-switcher.0", "change-active", { // Leave schedule active withou
   ![widget_condition_1.png](img/widget_condition_1.png)</br>
   ![widget_condition_2.png](img/widget_condition_2.png)
 
+### Size and own icons
+
+[Summary](#summary)
+
+![create_widget_css_4.png](img/create_widget_css_4.png)
+
+To specify the path to your custom icons, you don't need to enable `CSS enable`. For existing widgets, you'll need to change the file extension once; otherwise, the attribute won't be created. The same applies to the width/height settings.
+Icons can be uploaded or copied to a separate directory.
+Example path via `Files`:
+
+- http://192.168.2.18:8081/files/0_userdata.0/
+- /opt/iobroker/iobroker-data/files/0_userdata.0/
+
+Or a separate directory.
+
+- /home/iobroker/<meinOrdner>/
+
+The widgets must be named as follows. ALL icons must be placed in the directory:
+
+| Icon                                                                                        | Dateiname             |
+| ------------------------------------------------------------------------------------------- | --------------------- |
+| ![sunrise.svg](../../widgets/schedule-switcher/img/astro/sunrise.svg)                       | sunrise               |
+| ![solarNoon.svg](../../widgets/schedule-switcher/img/astro/solarNoon.svg)                   | solarNoon             |
+| ![sunset.svg](../../widgets/schedule-switcher/img/astro/sunset.svg)                         | sunset                |
+| ![sunriseEnd.svg](../../widgets/schedule-switcher/img/astro/sunriseEnd.svg)                 | sunriseEnd            |
+| ![goldenHourEnd.svg](../../widgets/schedule-switcher/img/astro/goldenHourEnd.svg)           | goldenHourEnd         |
+| ![goldenHour.svg](../../widgets/schedule-switcher/img/astro/goldenHour.svg)                 | goldenHour            |
+| ![sunsetStart.svg](../../widgets/schedule-switcher/img/astro/sunsetStart.svg)               | sunsetStart           |
+| ![dusk.svg](../../widgets/schedule-switcher/img/astro/dusk.svg)                             | dusk                  |
+| ![nauticalDusk.svg](../../widgets/schedule-switcher/img/astro/nauticalDusk.svg)             | nauticalDusk          |
+| ![night.svg](../../widgets/schedule-switcher/img/astro/night.svg)                           | night                 |
+| ![nadir.svg](../../widgets/schedule-switcher/img/astro/nadir.svg)                           | nadir                 |
+| ![nightEnd.svg](../../widgets/schedule-switcher/img/astro/nightEnd.svg)                     | nightEnd              |
+| ![nauticalDawn.svg](../../widgets/schedule-switcher/img/astro/nauticalDawn.svg)             | nauticalDawn          |
+| ![dawn.svg](../../widgets/schedule-switcher/img/astro/dawn.svg)                             | dawn                  |
+| ![add.svg](../../widgets/schedule-switcher/img/add.svg)                                     | add                   |
+| ![cancel.svg](../../widgets/schedule-switcher/img/cancel.svg)                               | cancel                |
+| ![edit.svg](../../widgets/schedule-switcher/img/edit.svg)                                   | edit                  |
+| ![delete.svg](../../widgets/schedule-switcher/img/delete.svg)                               | delete                |
+| ![onetime.svg](../../widgets/schedule-switcher/img/onetime.svg)                             | onetime               |
+| ![remove_circle_outline.svg](../../widgets/schedule-switcher/img/remove_circle_outline.svg) | remove_circle_outline |
+| ![save.svg](../../widgets/schedule-switcher/img/save.svg)                                   | save                  |
+| ![time.svg](../../widgets/schedule-switcher/img/time.svg)                                   | time                  |
+| ![valueCheck.svg](../../widgets/schedule-switcher/img/valueCheck.svg)                       | valueCheck            |
+| ![valueNoCheck.svg](../../widgets/schedule-switcher/img/valueNoCheck.svg)                   | valueNoCheck          |
+| ![unknown.svg](../../widgets/schedule-switcher/img/unknown.svg)                             | unknown               |
+
+![view_upload.png](img/view_upload.png)
+
 ### Trigger
 
 [Summary](#summary)
@@ -846,6 +896,21 @@ app-on-off-schedules-widget {
     --ts-widget-astro-shift-font-size: 1em;
     /* Font size of condition */
     --ts-widget-condition-font-size: 1em;
+
+    /* Icons width and height in px */
+
+    /* Astro icons */
+    --ts-widget-astro-icon-width, 42px;
+    --ts-widget-astro-icon-height, 42px;
+    /* Display icons (rename and add icon) */
+    --ts-widget-display-icon-width, 28px;
+    --ts-widget-display-icon-height, 28px;
+    /* Trigger view icons */
+    --ts-widget-trigger-view-icon-width, 28px;
+    --ts-widget-trigger-view-icon-height, 28px;
+    /* Trigger edit icons */
+    --ts-widget-trigger-edit-icon-width, 28px;
+    --ts-widget-trigger-edit-icon-height, 28px;
 }
 ```
 
@@ -862,6 +927,7 @@ app-on-off-schedules-widget {
 - (Lucky-ESA) Added state comparison enabled/disabled
 - (Lucky-ESA) Fixed small some bugs
 - (Lucky-ESA) History JSON changed
+- (Lucky-ESA) Using your own icons
 
 ### 0.0.12 (2025-08-27)
 

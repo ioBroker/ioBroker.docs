@@ -24,6 +24,11 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.5 (2025-11-16)
+
+- fix scan mode inconsistency
+  enhance log output behavior
+
 ### 0.4.4 (2025-11-13)
 
 - add option to run auto discovery once on startup, in interval or completly disable it

@@ -136,6 +136,14 @@ As the libraries are shared, any device supported in zigbee2mqtt.io will in time
 Other topics related to this adapter are also documented in the associated [wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki).
 
 ## Changelog
+### **WORK IN PROGRESS**
+* Fix: dynamic model assignment when exposes is function (PTVO, BuschJaeger)
+* Fix: Roles
+* Refactor: Legacy code moved
+* Refactor: Expose creation changed.
+* Refactor: Exposes no longer use states from legacy code
+* Feature: Offer state rebuild function in Settings
+
 ### 3.2.5 (2025-10-31)
 * (asgothian) changed setState for lasterror
 

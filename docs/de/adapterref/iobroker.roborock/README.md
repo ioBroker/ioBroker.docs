@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: 8vyKsaXLQdRuIN6K67E9BKiMUHXH+FLd6tqx4zv4f6Q=
+hash: smDDifSzvPSYJWZbe0WA72nSvggJClZlcq2cipjy158=
 ---
 ![Logo](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -14,45 +14,46 @@ hash: 8vyKsaXLQdRuIN6K67E9BKiMUHXH+FLd6tqx4zv4f6Q=
 ![NPM](https://nodei.co/npm/iobroker.roborock.png?downloads=true)
 
 # IoBroker.roborock
-**Tests:** ![Testen und Freigeben](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
 
 **Übersetzung:** [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/roborock/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Roborock-Adapter für ioBroker
-Mit diesem Adapter können Sie einen Roborock-Staubsauger steuern, Zustände und Reinigungsverläufe abrufen sowie die Karte anzeigen, der in der Roborock-App eingerichtet ist.
+Mit diesem Adapter können Sie einen in der Roborock-App eingerichteten Roborock-Staubsauger steuern, seinen Status abrufen, die Reinigungshistorie einsehen und seine Karte anzeigen.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-### Dieser Adapter funktioniert nicht unter MacOS
-## Die unterstützten Roboter sind:
+### Dieser Adapter funktioniert nicht unter macOS.
+## Folgende Roboter werden unterstützt:
 - Roborock S4
 - Roborock S4 Max
 - Roborock S5 Max
 - Roborock S6
-Roborock S6 Pure
-Roborock S6 MaxV
+- Roborock S6 Pure
+- Roborock S6 MaxV
 - Roborock S7
-Roborock S7 MaxV (Ultra)
+- Roborock S7 MaxV (Ultra)
 - Roborock Q7
 - Roborock Q7 Max
-Roborock S7 Pro Ultra
+- Roborock S7 Pro Ultra
 - Roborock S7 Max Ultra
 - Roborock S8
-Roborock S8 Pro Ultra
+- Roborock S8 Pro Ultra
 - Roborock Q Revo
 - Roborock Q8 Max
-Roborock Q5 Pro
-Roborock Q Revo Pro
+- Roborock Q5 Pro
+- Roborock Q Revo Pro
 - Roborock Qrevo S
-Roborock Qrevo-Kurve
+- Roborock Qrevo Curve
+- Roborock Saros 10R
 
 ## Zonenreinigung
-Diese Funktion funktioniert nur, wenn die Kartenerstellung in den Adapteroptionen aktiviert ist!
+Diese Funktion ist nur verfügbar, wenn die Kartenerstellung in den Adapteroptionen aktiviert ist!
 
-### Kartenerstellung funktioniert auf Raspberry Pi nicht
-- Es läuft ein Webserver. Der Standardport ist 6824
-- Öffnen Sie http://iobroker:6824/map.html in Ihrem Browser (ändern Sie http://iobroker in Ihren ioBroker-Hostnamen oder Ihre IP!!!)
-Zeichnen Sie Ihr zu reinigendes Quadrat. Roborock unterstützt bis zu 4 Reinigungszonen gleichzeitig.
+### Die Kartenerstellung funktioniert nicht auf dem Raspberry Pi
+Es läuft ein Webserver. Der Standardport ist 6824.
+- Öffnen Sie http://iobroker:6824/map.html in Ihrem Browser (ersetzen Sie http://iobroker durch Ihren ioBroker-Hostnamen oder Ihre IP-Adresse!!!).
+Zeichnen Sie das Quadrat, das Sie reinigen möchten. Roborock unterstützt bis zu 4 Reinigungszonen gleichzeitig.
 
  ![](https://github.com/copystring/ioBroker.roborock/blob/main/images/Rockrock_zone_cleaning.gif)
 
@@ -61,6 +62,22 @@ Zeichnen Sie Ihr zu reinigendes Quadrat. Roborock unterstützt bis zu 4 Reinigun
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (copystring) Update dependencies
+* (copystring) Update translations
+* (copystring) Bugfixes for map creator, clientID, network objects and local device discovery
+* (copystring) Get clean history when robot state changes to charging
+* (copystring) Q5 Pro does not support any water box modes. Removed them.
+* (copystring) Add basic read only support for Wet Dry Vacuums
+* (copystring) Add basic support for Saros 10R
+
+### 0.6.19 (2025-02-08)
+* (copystring) Rewrite of mqtt connection logic
+* (copystring) Add missing features to Qrevo Slim
+* (copystring) Start websocket & web server onReady
+* (copystring) Update LICENSE
+* (copystring) Update README.md
+
 ### 0.6.18 (2024-12-11)
  * (copystring) Add cleaned_area to S8
  * (copystring) Bugfixes for Qrevo Curve
@@ -385,7 +402,7 @@ Zeichnen Sie Ihr zu reinigendes Quadrat. Roborock unterstützt bis zu 4 Reinigun
 ## License
 MIT License
 
-Copyright (c) 2024 copystring <copystring@gmail.com>
+Copyright (c) 2025 copystring <copystring@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

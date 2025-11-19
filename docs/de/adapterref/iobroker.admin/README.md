@@ -124,7 +124,7 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 7.7.20 (2025-11-15)
 - (@GermanBluefox) Small optimizations
 - (@GermanBluefox) Allowed to upload objects via text
 
@@ -181,9 +181,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 - (@GermanBluefox) Do not show the http page if admin is secured
 - (@GermanBluefox) Show loading progress for custom tabs
 - (@GermanBluefox) Fixing change of the language in the admin
-
-### 7.7.1 (2025-06-20)
-- (@GermanBluefox) Fixing clearing of the filter on the object tab
 
 ## License
 

@@ -80,9 +80,10 @@ ttd:
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 5.0.0 (2025-11-16)
 
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+* (@klein0r) Updated dependencies
 
 ### 4.0.1 (2025-07-04)
 
@@ -105,14 +106,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 
 * (@klein0r) Validate user inputs in instance configuration
 * (@Sickboy78) Added Awido as Webservice
-
-### 3.3.0 (2024-04-28)
-
-NodeJS >= 18.x and js-controller >= 5 is required
-
-* (klein0r) Improved error reporting / log messages
-* (klein0r) Fixed translations
-* (klein0r) Added Abfall+ as Webservice
 
 ## License
 

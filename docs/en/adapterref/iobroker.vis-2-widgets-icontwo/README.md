@@ -33,6 +33,18 @@
 <!--
     ### **WORK IN PROGRESS**
 -->
+### 1.20.0 (2025-11-17)
+- new icons (lights)
+
+### 1.19.2 (2025-11-17)
+- new icons (alexa)
+
+### 1.19.1 (2025-11-16)
+- bug fix
+
+### 1.19.0 (2025-11-16)
+- new icons (alexa)
+
 ### 1.18.0 (2025-10-27)
 - new icons (rooms)
 

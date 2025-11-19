@@ -727,6 +727,10 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (simatec) Update Dependabot
+* (simatec) dependencies updated
+
 ### 3.3.10 (2025-10-17)
 * (simatec) Fix npm publish
 * (simatec) dependencies updated

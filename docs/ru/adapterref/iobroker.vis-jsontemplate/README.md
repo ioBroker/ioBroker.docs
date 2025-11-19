@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate — адаптер для визуализации данных JSON и других данных в Vis/Vis2
-hash: BwqvNjiyiApZb5qyTlme+D5LK+b+Cc5DNrCWuXYG8DQ=
+hash: 8D1piNLdCgFWCprb+78gzu5KYO6Dp/PO5cgqE2pijDk=
 ---
 # JSONTemplate — адаптер для визуализации данных JSON и других данных в Vis/Vis2
 ![Логотип](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -59,11 +59,42 @@ JSONTemplate теперь поддерживает асинхронные выз
 
 Подробную информацию о системе шаблонов см. в главе «Шаблон на основе примеров».
 
-JSON-данные передаются в шаблон с префиксом data. Кроме того, текущий идентификатор виджета также доступен в виде переменной, которую можно указать в отдельных CSS-инструкциях.
+Доступные объекты данных в шаблоне:
+
+| объект/переменная | описание |
+| --------------- | ------------------------------------------------------------------------ |
+| widgetID | widgetID виджета. |
+| данные | Объект JSON, на который ссылается точка данных в json_oid. |
+| dp | Массив данных точек данных, на которые ссылаются дополнительные точки данных |
+| виджет | внутренние данные виджета. объект со всеми доступными настройками виджета |
+| стиль | внутренние данные стиля. объект со всей доступной информацией о стиле виджета |
+
+Доступ к дополнительным точкам данных можно получить, введя A) имя точки данных.
+
+```javascript
+<%- dp["0_userdata.0.test"] %>
+<%- dp["0_userdata.0.abc"] %>
+```
+
+B) Индексный номер точки данных (номер всегда начинается с 0)
+
+```javascript
+<%- dp[Object.keys(dp)[0]] %>
+<%- dp[Object.keys(dp)[1]] %>
+```
+
+Пример вывода данных, виджета и стиля в шаблоне
+
+```ejs
+<%- JSON
+    .stringify(style, null, 4)
+    .replace(/\n/g, '<br>')
+    .replace(/ /g, '&nbsp;'); %>
+```
 
 #### Расширенный вариант использования
 В приведенных выше примерах рассматривался только чистый вывод.
-Шаблон теперь можно дополнить HTML-тегами для создания нужного макета. Вот пример:
+Теперь шаблон можно дополнить HTML-тегами для создания нужного макета. Вот пример:
 
 ```html
 <h3>Output</h3>
@@ -484,10 +515,14 @@ local_trigger
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 4.2.0 (2025-11-14)
 
 - Improve documentation for the object notation in a template
+- fix some translations
+- align attribute name to vis1
+- add widget data to the available template objects in vis2
+- add style and widget object to the available template objects in vis1
+- improve documentation
 
 ### 4.1.3 (2025-11-03)
 

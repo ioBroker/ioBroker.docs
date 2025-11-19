@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.esphome/README.md
 title: ioBroker.esphome
-hash: 18Pj+G0GU9fUbpZnTRp3sGUGh2dcAqJspn5lQ0ZgoY0=
+hash: /o7CXk8dOKe5XtHXCkPUvdn9eNbmGkhJZBI+32OMr9E=
 ---
 ![версия НПМ](http://img.shields.io/npm/v/iobroker.esphome.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.esphome.svg)
@@ -36,7 +36,7 @@ hash: 18Pj+G0GU9fUbpZnTRp3sGUGh2dcAqJspn5lQ0ZgoY0=
 - 📱 [Управление устройствами](#device-management)
 - 🔧 [Примеры конфигурации](#example-config)
 
-Этот адаптер использует [esphome-native-api](https://github.com/Nafaya/esphome-native-api#readme) со всеми заслугами @Nafaya для взаимодействия с [ESPHome API](https://esphome.io/components/api.html?highlight=api)!
+Этот адаптер использует [esphome-native-api](https://github.com/twocolors/esphome-native-api#readme) со всеми заслугами @twocolors для взаимодействия с [ESPHome API](https://esphome.io/components/api.html?highlight=api)!
 
 ## Часто задаваемые вопросы (FAQ)
 ### В чем разница между адаптером ioBroker ESPHome и панелью управления ESPHome?
@@ -120,7 +120,7 @@ hash: 18Pj+G0GU9fUbpZnTRp3sGUGh2dcAqJspn5lQ0ZgoY0=
 
 - Использовать существующую установку ESPHome (Docker, автономную и т. д.)
 - Введите IP:порт внешней панели в настройках адаптера.
-- Пример: `192.168.1.100:6052` для контейнера Docker
+- Пример: `192.168.1.100:6052` для Docker-контейнера
 
 **Вариант 3: Без интеграции с панелью управления**
 
@@ -191,7 +191,7 @@ api:
 
 - ДОБАВИТЬ/ИЗМЕНИТЬ УСТРОЙСТВА
 - Отправит IP-адрес и учетные данные на серверную часть и попытается установить соединение.
-- Если предоставлен ключ шифрования, API-пароль игнорируется. Убедитесь, что конфигурация YAML правильная!
+- Если предоставлен ключ шифрования, API-пароль игнорируется, пожалуйста, обеспечьте правильную конфигурацию YAML!
 
 - Удалить устройство
 - Отправит сообщение на серверную часть с просьбой удалить это устройство.
@@ -258,6 +258,11 @@ API: пароль: «MyPassword»
     ### __WORK IN PROGRESS__
     * (DutchmanNL) 
 -->
+### __WORK IN PROGRESS__
+* (@SimonFischer04) fix readme link to lib
+* (@SimonFischer04) fix connection status #311
+* (@SimonFischer04) remove unneeded node-fetch dependency
+
 ### 0.6.3 (2025-09-16)
 * (@DutchmanNL) Fixed an admin error related to `jsonConfig` validation. #287
 * (@DutchmanNL) Various general fixes and dependency updates to improve stability.

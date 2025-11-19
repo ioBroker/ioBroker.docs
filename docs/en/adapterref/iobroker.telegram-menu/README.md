@@ -37,6 +37,7 @@ You can create different groups with separate menus, and then assign users to th
 -->
 ### **WORK IN PROGRESS**
 
+- FIX: #436 Message text is empty error
 - CHORE: Update dependencies
   
 ### 3.2.0 (2025-10-20)

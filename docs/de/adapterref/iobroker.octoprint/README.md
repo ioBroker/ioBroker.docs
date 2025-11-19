@@ -69,9 +69,13 @@ Bitte nutzt den Datenpunkt `system.adapter.octoprint.0.alive` um die Instanz zu 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) Updated dependencies
+
 ### 6.0.1 (2025-08-25)
 
-* (klein0r) Updated dependencies
+* (@klein0r) Updated dependencies
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
 
 ### 6.0.0 (2025-01-07)

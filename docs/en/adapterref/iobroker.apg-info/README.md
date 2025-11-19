@@ -39,6 +39,15 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.27 (2025-11-19)
+* (HGlab01) disable data provider Epex (not a stable option)
+
+### 0.1.26 (2025-11-15)
+* (HGlab01) optimize handling for source Entsoe
+* (HGlab01) optimize handling when data provider runs in timeout
+* (HGlab01) market price details can be switched on/off
+* (HGlab01) enhanced logs when it comes to retries
+
 ### 0.1.24 (2025-11-05)
 * (HGlab01) Provider Entsoe is used as backup for quarter-hourly market prices. Request a token to be on the safe side
 * (HGlab01) Bump axios to 1.13.1
@@ -52,14 +61,6 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
 ### 0.1.22 (2025-10-21)
 * (HGlab01) Implement retry mechanism for API calls
 * (HGlab01) add turn on/off for peak hours and market prices
-
-### 0.1.21 (2025-10-13)
-* (HGlab01) Support quater-hourly tarifs
-* (HGlab01) Bump iobroker-jsonexplorer to 0.2.1
-
-### 0.1.20 (2025-10-06)
-* (HGlab01) prepeare iobroker-jsonexplorer readiness for v0.2.0
-* (HGlab01) Bump axios to 1.12.2
 
 ## License
 MIT License

@@ -8,7 +8,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.schedule-switcher/README.md
 title: ioBroker.schedule-switcher
-hash: PuFQ5q03Tcnv42B1oLKunAro7aiJYm9HTGzMgW4nlUU=
+hash: 51RzRI06dx1bVpvRrVaCRG5OgGvzm8/F4Br5EolWWTI=
 ---
 ![логотип](../../../de/admin/schedule-switcher.png)
 
@@ -37,6 +37,7 @@ hash: PuFQ5q03Tcnv42B1oLKunAro7aiJYm9HTGzMgW4nlUU=
 - [Добавить условия](#add-condition)
 - [Заменить текст](#replace-text)
 - [Настройки CSS](#css-apply-description-see-css)
+- [Иконки и пути CSS](#icon-sizes-and-custom-icons)
 - [Создать триггер](#trigger)
 - [Создать астротриггер](#astro-trigger)
 - [Создать одноразовый триггер](#one-time-trigger)
@@ -430,9 +431,59 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 ### Применить CSS [См. CSS для описания.](#css)
 [Краткое содержание](#zusammenfassung)
 
-- Используйте CSS для настройки стиля</br>
+- Используйте `enable CSS` для настройки стиля</br>
 
 ![create_widget_css.png](img/create_widget_css.png)</br> ![create_widget_css_1.png](img/create_widget_css_1.png)</br> ![create_widget_css_2.png](img/create_widget_css_2.png)</br> ![create_widget_css_3.png](img/create_widget_css_3.png)</br> ![widget_switched.png](img/widget_switched.png)</br> ![widget_manual.png](img/widget_manual.png)</br> ![widget_astro_icon.png](img/widget_astro_icon.png)</br> ![widget_condition_1.png](img/widget_condition_1.png)</br> ![widget_condition_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/widget_condition_2.png)
+
+### Размеры иконок и пользовательские иконки
+[Краткое содержание](#zusammenfassung)
+
+![create_widget_css_4.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_css_4.png)
+
+Для пути к вашим пользовательским значкам не нужно активировать `CSS aktivieren`. Если у вас уже есть виджеты, необходимо один раз изменить расширение файла; в противном случае атрибут не будет создан. То же самое относится к настройкам ширины/высоты.
+
+Значки можно загрузить или скопировать в отдельный каталог.
+
+Пример пути с использованием `Dateien`:
+
+- http://192.168.2.18:8081/files/0_userdata.0/
+- /opt/iobroker/iobroker-data/files/0_userdata.0/
+
+Или отдельный каталог.
+
+- /home/iobroker/<моя_папка>/
+
+Виджеты должны быть названы следующим образом. ВСЕ иконки должны быть размещены в каталоге:
+
+| Значок | Имя файла |
+| ------------------------------------------------------------------------------------------- | --------------------- |
+| ![восход солнца.svg](../../../de/widgets/schedule-switcher/img/astro/sunrise.svg) | восход солнца |
+| ![закат.svg](../../../de/widgets/schedule-switcher/img/astro/sunset.svg) | закат |
+| ![восход солнцаEnd.svg](../../../de/widgets/schedule-switcher/img/astro/sunriseEnd.svg) | восход солнцаКонец |
+| ![goldenHourEnd.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHourEnd.svg) | goldenHourEnd |
+| ![goldenHour.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHour.svg) | goldenHour |
+| ![sunsetStart.svg](../../../de/widgets/schedule-switcher/img/astro/sunsetStart.svg) | sunsetStart |
+| ![сумерки.svg](../../../de/widgets/schedule-switcher/img/astro/dusk.svg) | сумерки |
+| ![nauticalDusk.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDusk.svg) | nauticalDusk |
+| ![ночь.svg](../../../de/widgets/schedule-switcher/img/astro/night.svg) | ночь |
+| ![надир.svg](../../../de/widgets/schedule-switcher/img/astro/nadir.svg) | надир |
+| ![nightEnd.svg](../../../de/widgets/schedule-switcher/img/astro/nightEnd.svg) | nightEnd |
+| ![nauticalDawn.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDawn.svg) | nauticalDawn |
+| ![рассвет.svg](../../../de/widgets/schedule-switcher/img/astro/dawn.svg) | рассвет |
+| ![добавить.svg](../../../de/widgets/schedule-switcher/img/add.svg) | добавить |
+| ![отменить.svg](../../../de/widgets/schedule-switcher/img/cancel.svg) | отменить |
+| ![редактировать.svg](../../../de/widgets/schedule-switcher/img/edit.svg) | редактировать |
+| ![удалить.svg](../../../de/widgets/schedule-switcher/img/delete.svg) | удалить |
+| ![одноразовый.svg](../../../de/widgets/schedule-switcher/img/onetime.svg) | один раз |
+| ![remove_circle_outline.svg](../../../de/widgets/schedule-switcher/img/remove_circle_outline.svg) | remove_circle_outline |
+| ![сохранить.svg](../../../de/widgets/schedule-switcher/img/save.svg) | сохранить |
+| ![время.svg](../../../de/widgets/schedule-switcher/img/time.svg) | время |
+| ![valueCheck.svg](../../../de/widgets/schedule-switcher/img/valueCheck.svg) | valueCheck |
+| ![valueNoCheck.svg](../../../de/widgets/schedule-switcher/img/valueNoCheck.svg) | значениеNoCheck |
+| ![неизвестный.svg](../../../de/widgets/schedule-switcher/img/unknown.svg) | неизвестно |
+| ![неизвестный.svg](../../../de/widgets/schedule-switcher/img/неизвестный.svg) | неизвестный |
+
+![view_upload.png](../../../de/adapterref/iobroker.schedule-switcher/img/view_upload.png)
 
 ### Курок
 [Краткое содержание](#zusammenfassung)
@@ -583,7 +634,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - `html.font_color_text_enabled` Цвет текста активированного объекта — по умолчанию желтый
 - `html.font_color_weekdays_disabled` Цвет текста отключенных дней недели — по умолчанию красный
 - `html.font_color_weekdays_enabled` Цвет текста включенных дней недели — по умолчанию желтый
-- `html.header_border` поле заголовка в пикселях - по умолчанию 2
+- поле заголовка `html.header_border` в пикселях - по умолчанию 2
 - `html.header_font_family` Семейство шрифтов заголовков - По умолчанию Helvetica
 - `html.header_font_size` Размер шрифта заголовка - По умолчанию 15
 - `html.header_linear_color_1` Фоновое изображение заголовка: линейный градиент 1 - По умолчанию #BDBDBD
@@ -818,6 +869,21 @@ app-on-off-schedules-widget {
     --ts-widget-astro-shift-font-size: 1em;
     /* Font size of condition */
     --ts-widget-condition-font-size: 1em;
+
+    /* Icons width and height in px */
+
+    /* Astro icons */
+    --ts-widget-astro-icon-width, 42px;
+    --ts-widget-astro-icon-height, 42px;
+    /* Display icons (rename and add icon) */
+    --ts-widget-display-icon-width, 28px;
+    --ts-widget-display-icon-height, 28px;
+    /* Trigger view icons */
+    --ts-widget-trigger-view-icon-width, 28px;
+    --ts-widget-trigger-view-icon-height, 28px;
+    /* Trigger edit icons */
+    --ts-widget-trigger-edit-icon-width, 28px;
+    --ts-widget-trigger-edit-icon-height, 28px;
 }
 ```
 
@@ -834,6 +900,7 @@ app-on-off-schedules-widget {
 - (Lucky-ESA) Added state comparison enabled/disabled
 - (Lucky-ESA) Fixed small some bugs
 - (Lucky-ESA) History JSON changed
+- (Lucky-ESA) Using your own icons
 
 ### 0.0.12 (2025-08-27)
 

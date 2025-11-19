@@ -69,7 +69,7 @@ If you're not currently a Tibber user, I would greatly appreciate it if you coul
     - "Best hours block LTF": "Best hours block" within a Limited Time Frame (LTF).
     - "Best percentage LTF": "Best percentage" within a Limited Time Frame (LTF).
     - "Smart Battery Buffer": Utilize the "EfficiencyLoss" parameter to specify the efficiency loss of the battery system. The "EfficiencyLoss" parameter can range from 0 to 1, where 0 represents no efficiency loss and 1 represents complete efficiency loss. For example, a value of 0.25 indicates a 25% efficiency loss for a charge/discharge cycle.  
-      Use the "AmountHours" parameter to input the desired number of hours for battery charging. The calculator will activate battery charging ("value YES") and deactivate battery feed ("value 2 NO") during the specified "AmountHours" cheapest hours. Conversely, it will deactivate battery charging ("value NO") and activate battery feed ("value 2 YES") during hours with the highest cost, provided the cost is higher than the highest total price among the cheap hours. In the remaining normal hours where energy buffering by the battery is not economically viable, both outputs will be switched off.
+      Use the "AmountHours" parameter to input the desired number of hours for battery charging (rounded to quarter hours). The calculator will activate battery charging ("value YES") and deactivate battery feed ("value 2 NO") during the specified "AmountHours" cheapest timeslots. Conversely, it will deactivate battery charging ("value NO") and activate battery feed ("value 2 YES") during timeslots with the highest cost, provided the cost is higher than the highest total price among the cheap timeslots. In the remaining normal priced timeslots where energy buffering by the battery is not economically viable, both outputs will be switched off.
 - LTF channels: These operate similarly to standard channels but are active only within a time frame defined by the 'StartTime' and 'StopTime' state objects. After 'StopTime,' the channel automatically deactivates. 'StartTime' and 'StopTime' can span two calendar days, as Tibber does not provide data beyond a 48-hour window. Both states require a date-time string in ISO-8601 format with a timezone offset, e.g., '2024-12-24T18:00:00.000+01:00'." Additionally, the LTF channels feature a new state parameter called 'RepeatDays,' which defaults to 0. When 'RepeatDays' is set to a positive integer, the channel will repeat its cycle by incrementing both 'StartTime' and 'StopTime' by the specified number of days after 'StopTime' is reached. For example, set 'RepeatDays' to 1 for daily repetition.
 
 ## Graph Output Configuration
@@ -167,10 +167,14 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
+- (HombachC) clean code for 15min time slots
+
+### 6.0.3 (2025-11-16)
+
 - (HombachC) optimize sentry
-- (HombachC) update axios
+- (HombachC) optimize dependabot config (#805)
+- (HombachC) update axios and cron
 - (HombachC) update FlexChart template
-- (HombachC) update dependencies
 
 ### 6.0.2 (2025-10-24)
 
@@ -201,12 +205,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) prepared price updates to 15 minutes resolution (#384)
 - (HombachC) update tibber-api to 5.4.2
 - (HombachC) update chai system
-
-### 5.0.3 (2025-09-17)
-
-- (HombachC) fix jsonconfig schema definition (#762)
-- (HombachC) optimize cron jobs
-- (HombachC) update axios
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

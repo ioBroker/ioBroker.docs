@@ -1118,6 +1118,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.noolitef/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.notification-manager/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.notificationforandroidtv/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.nsclient/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.nspanel-lovelace-ui/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.nuki/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.nuki-extended/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.nut/README.md
@@ -1845,6 +1846,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.noolitef/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.notification-manager/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.notificationforandroidtv/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.nsclient/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.nspanel-lovelace-ui/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.nuki/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.nuki-extended/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.nut/README.md
@@ -2572,6 +2574,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.noolitef/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.notification-manager/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.notificationforandroidtv/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nsclient/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nspanel-lovelace-ui/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nuki/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nuki-extended/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nut/README.md
@@ -3299,6 +3302,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.noolitef/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.notification-manager/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.notificationforandroidtv/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nsclient/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nspanel-lovelace-ui/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nuki/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nuki-extended/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nut/README.md

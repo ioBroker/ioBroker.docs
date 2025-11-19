@@ -8,7 +8,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.schedule-switcher/README.md
 title: ioBroker.schedule-switcher
-hash: PuFQ5q03Tcnv42B1oLKunAro7aiJYm9HTGzMgW4nlUU=
+hash: 51RzRI06dx1bVpvRrVaCRG5OgGvzm8/F4Br5EolWWTI=
 ---
 ![标识](../../../de/admin/schedule-switcher.png)
 
@@ -37,6 +37,7 @@ hash: PuFQ5q03Tcnv42B1oLKunAro7aiJYm9HTGzMgW4nlUU=
 - [添加条件](#add-condition)
 - [替换文本](#replace-text)
 - [CSS 设置](#css-apply-description-see-css)
+- [CSS 图标和路径](#icon-sizes-and-custom-icons)
 - [创建触发器](#trigger)
 - [创建星象触发器](#astro-trigger)
 - [创建一次性触发器](#one-time-trigger)
@@ -423,16 +424,66 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 ### 替换文本
 [概括](#zusammenfassung)
 
-- 更改文本开启/关闭和所有功能开启/关闭
+- 更改文本显示/隐藏以及所有内容开启/关闭
 
 ![create_widget_rename_1.png](img/create_widget_rename_1.png) ![create_widget_rename_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_rename_2.png)
 
 ### 应用 CSS [请参阅 CSS 以了解详情](#css)
 [概括](#zusammenfassung)
 
-- 使用 CSS 自定义样式</br>
+- 使用 `enable CSS` 自定义样式</br>
 
 ![create_widget_css.png](img/create_widget_css.png)</br> ![create_widget_css_1.png](img/create_widget_css_1.png)</br> ![create_widget_css_2.png](img/create_widget_css_2.png)</br> ![create_widget_css_3.png](img/create_widget_css_3.png)</br> ![widget_switched.png](img/widget_switched.png)</br> ![widget_manual.png](img/widget_manual.png)</br> ![widget_astro_icon.png](img/widget_astro_icon.png)</br> ![widget_condition_1.png](img/widget_condition_1.png)</br> ![widget_condition_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/widget_condition_2.png)
+
+### 图标大小和自定义图标
+[概括](#zusammenfassung)
+
+![create_widget_css_4.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_css_4.png)
+
+对于自定义图标的路径，您无需激活 `CSS aktivieren`。如果您已有小部件，则需要更改一次文件扩展名；否则，该属性将不会创建。宽度/高度设置也适用此规则。
+
+图标可以上传或复制到单独的目录。
+
+使用 `Dateien` 的示例路径：
+
+- http://192.168.2.18:8081/files/0_userdata.0/
+- /opt/iobroker/iobroker-data/files/0_userdata.0/
+
+或者放在单独的目录下。
+
+- /home/iobroker/<我的文件夹>/
+
+小部件必须按以下方式命名。所有图标必须放置在以下目录中：
+
+| 图标 | 文件名 |
+| ------------------------------------------------------------------------------------------- | --------------------- |
+| ![日出.svg](../../../de/widgets/schedule-switcher/img/astro/sunrise.svg) | 日出 |
+| ![日落.svg](../../../de/widgets/schedule-switcher/img/astro/sunset.svg) | 日落 |
+| ![sunriseEnd.svg](../../../de/widgets/schedule-switcher/img/astro/sunriseEnd.svg) | 日出结束 |
+| ![goldenHourEnd.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHourEnd.svg) | goldenHourEnd |
+| ![goldenHour.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHour.svg) | 黄金时刻 |
+| ![sunsetStart.svg](../../../de/widgets/schedule-switcher/img/astro/sunsetStart.svg) | 日落开始 |
+| ![黄昏.svg](../../../de/widgets/schedule-switcher/img/astro/dusk.svg) | 黄昏 |
+| ![nauticalDusk.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDusk.svg) | 航海黄昏 |
+| ![night.svg](../../../de/widgets/schedule-switcher/img/astro/night.svg) | 夜晚 |
+| ![nadir.svg](../../../de/widgets/schedule-switcher/img/astro/nadir.svg) | 最低点 |
+| ![nightEnd.svg](../../../de/widgets/schedule-switcher/img/astro/nightEnd.svg) | 夜晚结束 |
+| ![nauticalDawn.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDawn.svg) | nauticalDawn |
+| ![黎明.svg](../../../de/widgets/schedule-switcher/img/astro/dawn.svg) | 黎明 |
+| ![添加.svg](../../../de/widgets/schedule-switcher/img/add.svg) | 添加 |
+| ![取消.svg](../../../de/widgets/schedule-switcher/img/cancel.svg) | 取消 |
+| ![编辑.svg](../../../de/widgets/schedule-switcher/img/edit.svg) | 编辑 |
+| ![删除.svg](../../../de/widgets/schedule-switcher/img/delete.svg) | 删除 |
+| ![一次性.svg](../../../de/widgets/schedule-switcher/img/onetime.svg) | 一次 |
+| ![remove_circle_outline.svg](../../../de/widgets/schedule-switcher/img/remove_circle_outline.svg) | 移除圆圈轮廓 |
+| ![保存.svg](../../../de/widgets/schedule-switcher/img/save.svg) | 保存 |
+| ![time.svg](../../../de/widgets/schedule-switcher/img/time.svg) | 时间 |
+| ![valueCheck.svg](../../../de/widgets/schedule-switcher/img/valueCheck.svg) | 值检查 |
+| ![valueNoCheck.svg](../../../de/widgets/schedule-switcher/img/valueNoCheck.svg) | valueNoCheck |
+| ![unknown.svg](../../../de/widgets/schedule-switcher/img/unknown.svg) | 未知 |
+| ![unknown.svg](../../../de/widgets/schedule-switcher/img/unknown.svg) | 未知 |
+
+![view_upload.png](../../../de/adapterref/iobroker.schedule-switcher/img/view_upload.png)
 
 ＃＃＃ 扳机
 [概括](#zusammenfassung)
@@ -559,7 +610,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - `html.column_align_08` 第 8 列标题文本对齐方式 - 默认居中
 - `html.column_align_09` 列标题文本对齐方式（第 9 列） - 默认居中
 - `html.column_align_10` 标题文本对齐方式，第 10 列 - 默认居中
-- `html.column_text_01` 标题文本列 1 - 标准日程
+- `html.column_text_01` 标题文本列 1 - 标准时间表
 - `html.column_text_02` 标题文本列 2 - 标准设备
 - `html.column_text_03` 标题文本列 3 - 标准开关
 - `html.column_text_04` 标题文本列 4 - 标准 Mon
@@ -598,7 +649,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - `html.column_align_row_06` 第 6 列的行文本对齐方式 - 默认为左对齐
 - `html.column_align_row_07` 第 7 列的行对齐方式 - 默认为左对齐
 - `html.column_align_row_08` 第 8 列的文本对齐方式 - 默认为左对齐
-- `html.column_align_row_09` 第 9 列的行对齐方式 - 默认为左对齐
+- `html.column_align_row_09` 第 9 列的行文本对齐方式 - 默认为左对齐
 - `html.column_align_row_10` 第 10 列的行对齐方式 - 默认为左对齐
 - `html.headline_color` 标题字体颜色（日程安排、设备等）- 默认值 #ffffff
 - `html.headline_font_size` 标题字体大小（像素） - 默认值：16
@@ -818,6 +869,21 @@ app-on-off-schedules-widget {
     --ts-widget-astro-shift-font-size: 1em;
     /* Font size of condition */
     --ts-widget-condition-font-size: 1em;
+
+    /* Icons width and height in px */
+
+    /* Astro icons */
+    --ts-widget-astro-icon-width, 42px;
+    --ts-widget-astro-icon-height, 42px;
+    /* Display icons (rename and add icon) */
+    --ts-widget-display-icon-width, 28px;
+    --ts-widget-display-icon-height, 28px;
+    /* Trigger view icons */
+    --ts-widget-trigger-view-icon-width, 28px;
+    --ts-widget-trigger-view-icon-height, 28px;
+    /* Trigger edit icons */
+    --ts-widget-trigger-edit-icon-width, 28px;
+    --ts-widget-trigger-edit-icon-height, 28px;
 }
 ```
 
@@ -834,6 +900,7 @@ app-on-off-schedules-widget {
 - (Lucky-ESA) Added state comparison enabled/disabled
 - (Lucky-ESA) Fixed small some bugs
 - (Lucky-ESA) History JSON changed
+- (Lucky-ESA) Using your own icons
 
 ### 0.0.12 (2025-08-27)
 

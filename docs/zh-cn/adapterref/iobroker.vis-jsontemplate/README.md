@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate - 用于在 Vis/Vis2 中可视化 JSON 数据和其他数据的适配器
-hash: BwqvNjiyiApZb5qyTlme+D5LK+b+Cc5DNrCWuXYG8DQ=
+hash: 8D1piNLdCgFWCprb+78gzu5KYO6Dp/PO5cgqE2pijDk=
 ---
 # JSONTemplate - 用于在 Vis/Vis2 中可视化 JSON 数据和其他数据的适配器
 ![标识](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -64,7 +64,38 @@ JSONTemplate 现在支持使用 await 进行异步调用。
 
 有关模板系统的详细信息，请参阅“基于示例的模板”章节。
 
-JSON 数据会以前缀形式传递给模板。此外，当前的 widgetID 也作为一个变量提供，以便在各个 CSS 指令中指定。
+模板中可用的数据对象：
+
+| 对象/变量 | 描述 |
+| --------------- | ------------------------------------------------------------------------ |
+| widgetID | 该小部件的 widgetID。 |
+| 数据 | json_oid 中数据点引用的 JSON 对象。 |
+| dp | 数据点数组，由附加数据点引用 |
+| 小部件 | 内部小部件数据。包含所有可用小部件设置的对象 |
+| 样式 | 内部样式数据。包含所有可用控件样式信息的对象 |
+
+可以通过以下方式访问其他数据点：A）数据点名称
+
+```javascript
+<%- dp["0_userdata.0.test"] %>
+<%- dp["0_userdata.0.abc"] %>
+```
+
+B) 数据点的索引号（编号始终从 0 开始）
+
+```javascript
+<%- dp[Object.keys(dp)[0]] %>
+<%- dp[Object.keys(dp)[1]] %>
+```
+
+模板中数据、小部件和样式的示例输出
+
+```ejs
+<%- JSON
+    .stringify(style, null, 4)
+    .replace(/\n/g, '<br>')
+    .replace(/ /g, '&nbsp;'); %>
+```
 
 #### 高级用例
 以上示例仅涵盖了纯文本输出。
@@ -416,7 +447,7 @@ local_trigger
 
 方括号表示法也适用于不符合命名规则的属性。
 
-**点记法：**
+**点表示法：**
 
 **模板：**
 
@@ -483,7 +514,7 @@ local_trigger
 
 我们只需要一个正在运行的 vis2 适配器实例。
 
-- 使用 npm run start 启动 vis 2
+使用 npm run start 启动 vis 2
 - 回到此适配器的 VS Code 实例中
 - 使用 --noStart 选项启动开发服务器
 - 启动 vscode 启动配置“vis-2 编辑器”
@@ -503,10 +534,14 @@ local_trigger
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 4.2.0 (2025-11-14)
 
 - Improve documentation for the object notation in a template
+- fix some translations
+- align attribute name to vis1
+- add widget data to the available template objects in vis2
+- add style and widget object to the available template objects in vis1
+- improve documentation
 
 ### 4.1.3 (2025-11-03)
 

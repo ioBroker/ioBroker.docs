@@ -27,6 +27,13 @@ BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-insta
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.14.6 (2025-11-16)
+* (arteck) fix all count devices
+
+### 2.14.5 (2025-11-16)
+* (arteck) add homee battery devices (only)
+* (arteck) fix battery list
+
 ### 2.14.4 (2025-11-13)
 * (arteck) fix silent telegram notification
 * (arteck) fix offline list
@@ -469,7 +476,10 @@ BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-insta
 
 MIT License
 
+
 Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+
+
 Copyright (c) 2025 Christian Behrends <mail@christian-behrends.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

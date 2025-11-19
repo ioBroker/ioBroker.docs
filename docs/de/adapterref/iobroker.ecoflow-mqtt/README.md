@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: NwDukWQHH0t3VtjrH7iNBqPgN/tjiCfJJ/NC+J9a4AY=
+hash: AF+RI5eEFD5nF67c1zE0cBxPzygqQnbWGlpn/U2DwyE=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -121,7 +121,7 @@ Die Einstellungen des MQQT-Brokers sind Standard und müssen normalerweise nicht
 - Stellen Sie die Geräte-ID des Stromversorgungs-Kits wie in der App angezeigt ein, etwa so: "M10...".
 - gib ihm einen Namen
 - Stellen Sie den Typ auf „Power Kit BP2000“ oder „Power Kit BP5000“ ein.
-- Falls eine zweite oder dritte Batterie angeschlossen ist, prüfen Sie diese als Slave1 oder Slave2.
+- Falls eine zweite oder dritte Batterie angeschlossen ist, prüfen Sie diese als Slave 1 oder Slave 2.
 
 </p></details>
 
@@ -236,14 +236,6 @@ Die Wert-zu-Text-Konvertierung verwendet möglicherweise einen nicht validierten
 
 [River Pro](./doc/devices/riverpro.md)
 
-[Delta Mini](./doc/devices/deltamini.md)
-
-[Delta](./doc/devices/delta.md)
-
-[Delta Max](./doc/devices/deltamax.md)
-
-[Delta Pro](./doc/devices/deltapro.md)
-
 [Fluss 2 Max](./doc/devices/river2max.md)
 
 [River 2 Pro](./doc/devices/river2pro.md)
@@ -252,11 +244,23 @@ Die Wert-zu-Text-Konvertierung verwendet möglicherweise einen nicht validierten
 
 [River 3 Plus](./doc/devices/river3plus.md)
 
+[Delta Mini](./doc/devices/deltamini.md)
+
+[Delta](./doc/devices/delta.md)
+
+[Delta Max](./doc/devices/deltamax.md)
+
 [Delta 2](./doc/devices/delta2.md)
 
 [Delta 2 Max](./doc/devices/delta2max.md)
 
+[Delta 3](./doc/devices/delta3.md)
+
 [Delta 3 Plus](./doc/devices/delta3plus.md)
+
+[Delta 3 Max Plus](./doc/devices/delta3maxplus.md)
+
+[Delta Pro](./doc/devices/deltapro.md)
 
 [Delta Pro 3](./doc/devices/deltapro3.md)
 
@@ -285,11 +289,13 @@ Ein Dual-Fuel-Generator ist derzeit nicht verfügbar, könnte aber implementiert
 ### Powerstream & Stream
 [Powerstream](./doc/devices/pstream600.md)
 
+[Stream AC](./doc/devices/stream_ac.md)
+
 [Stream AC PRO](./doc/devices/stream_ac_pro.md)
 
 [Stream Ultra](./doc/devices/stream_ultra.md)
 
-[Stromumkehrer](./doc/devices/stream_inverter.md)
+[Stromumrichter](./doc/devices/stream_inverter.md)
 
 Die 800-W-Version ist ebenfalls implementiert; der einzige Unterschied besteht in der maximalen Leistung von 800 W.
 Versorgungspriorität: 0/falsch = priorisierte Netzversorgung; 1/wahr = priorisierte Batterieversorgung (Laden).
@@ -338,6 +344,9 @@ Diese Open-Source-Software steht in keiner Verbindung zu Ecoflow und wird von di
 ### 1.4.8 (npm)
 
 - (foxthefox) new device Glacier Classic 55L support
+- (foxthefox) new device Delta 3 Max Plus support
+- (foxthefox) new device Stream AC support
+- (foxthefox) enhancements on wave3
 - (foxthefox) poweroceanplus set hrPwr/fromPv/romBat/fromGrid values to 0 for non transmitted datapoints in HeatingRodEnergyStreamShow
 - (foxthefox) poweroceanplus pcsActPwr max 20kW, pcsXPhase_amp max 60A
 - (foxthefox) corrections in BMSHeartBeatReport for river3/river3plus

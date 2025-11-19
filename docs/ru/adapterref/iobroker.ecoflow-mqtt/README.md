@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: NwDukWQHH0t3VtjrH7iNBqPgN/tjiCfJJ/NC+J9a4AY=
+hash: AF+RI5eEFD5nF67c1zE0cBxPzygqQnbWGlpn/U2DwyE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -227,7 +227,7 @@ hash: NwDukWQHH0t3VtjrH7iNBqPgN/tjiCfJJ/NC+J9a4AY=
 - уровень -> регулируемая точка данных с числовым значением, иногда также выборки, имеющие числовое представление
 - переключатель -> регулируемая точка данных логическое значение
 - диагностика -> булевские или многосостоянные точки данных, преобразованные в текст
-- строка -> точка данных только в виде текста
+- строка -> точка данных только как текст
 - массив -> точка данных с массивом
 - преобразование значения в текст может использовать непроверенный текст (отзывы приветствуются), это обозначается знаком «?» в конце текста
 
@@ -235,14 +235,6 @@ hash: NwDukWQHH0t3VtjrH7iNBqPgN/tjiCfJJ/NC+J9a4AY=
 [Ривер Макс](./doc/devices/rivermax.md)
 
 [Ривер Про](./doc/devices/riverpro.md)
-
-[Дельта Мини](./doc/devices/deltamini.md)
-
-[Дельта](./doc/devices/delta.md)
-
-[Дельта Макс](./doc/devices/deltamax.md)
-
-[Дельта Про](./doc/devices/deltapro.md)
 
 [Ривер 2 Макс](./doc/devices/river2max.md)
 
@@ -252,11 +244,23 @@ hash: NwDukWQHH0t3VtjrH7iNBqPgN/tjiCfJJ/NC+J9a4AY=
 
 [Река 3 Плюс](./doc/devices/river3plus.md)
 
+[Дельта Мини](./doc/devices/deltamini.md)
+
+[Дельта](./doc/devices/delta.md)
+
+[Дельта Макс](./doc/devices/deltamax.md)
+
 [Дельта 2](./doc/devices/delta2.md)
 
 [Дельта 2 Макс](./doc/devices/delta2max.md)
 
+[Дельта 3](./doc/devices/delta3.md)
+
 [Дельта 3 Плюс](./doc/devices/delta3plus.md)
+
+[Дельта 3 Макс Плюс](./doc/devices/delta3maxplus.md)
+
+[Дельта Про](./doc/devices/deltapro.md)
 
 [Дельта Про 3](./doc/devices/deltapro3.md)
 
@@ -284,6 +288,8 @@ hash: NwDukWQHH0t3VtjrH7iNBqPgN/tjiCfJJ/NC+J9a4AY=
 
 ### Powerstream и поток
 [Powerstream](./doc/devices/pstream600.md)
+
+[Поток переменного тока](./doc/devices/stream_ac.md)
 
 [Стрим AC PRO](./doc/devices/stream_ac_pro.md)
 
@@ -339,6 +345,9 @@ Wave недоступен, может быть реализован при на�
 ### 1.4.8 (npm)
 
 - (foxthefox) new device Glacier Classic 55L support
+- (foxthefox) new device Delta 3 Max Plus support
+- (foxthefox) new device Stream AC support
+- (foxthefox) enhancements on wave3
 - (foxthefox) poweroceanplus set hrPwr/fromPv/romBat/fromGrid values to 0 for non transmitted datapoints in HeatingRodEnergyStreamShow
 - (foxthefox) poweroceanplus pcsActPwr max 20kW, pcsXPhase_amp max 60A
 - (foxthefox) corrections in BMSHeartBeatReport for river3/river3plus
