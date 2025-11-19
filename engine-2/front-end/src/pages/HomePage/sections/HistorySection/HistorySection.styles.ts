@@ -28,7 +28,8 @@ export const useStyles = makeStyles()(theme => ({
     section: {
         padding: '156px 0 100px 0',
         position: 'relative',
-        zIndex: 3,
+        overflow: 'visible',
+        zIndex: 1,
         [theme.breakpoints.down('md')]: {
             padding: '100px 0 100px 0'
         },
@@ -42,36 +43,12 @@ export const useStyles = makeStyles()(theme => ({
         background: `url(/codeBackground.png) no-repeat center center`,
         backgroundPosition: 'top',
         backgroundSize: 'cover',
+        overflow: 'visible',
         maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
         WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
         [theme.breakpoints.down('md')]: {
             maskImage: 'none',
             WebkitMaskImage: 'none',
-        },
-        '&::before': {
-            content: '""',
-            position: 'absolute',
-            zIndex: 1,
-            top: '70%',
-            left: '12%',
-            transform: 'translate(-50%, -50%)',
-            width: '1200px',
-            height: '1200px',
-            background: theme.palette.mode === 'dark'
-                ? 'radial-gradient(circle, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)'
-                : 'none',
-            pointerEvents: 'none',
-            [theme.breakpoints.down('md')]: {
-                width: '600px',
-                height: '600px',
-                left: '30%',
-            },
-            [theme.breakpoints.down('sm')]: {
-                left: '90%',
-                top: '110%',
-                width: '400px',
-                height: '400px',
-            },
         },
     },
     historyNumberWrapper: {

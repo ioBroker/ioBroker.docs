@@ -11,6 +11,7 @@ export const InstallationsSection: React.FC = () => {
     const { scrollPosition, sectionRef } = useScrollProgress();
     return (
         <>
+            <Box className={classes.sectionWrapper}>
             <Box component="section" className={classes.installationSection} ref={sectionRef}>
                 <Box className={classes.container}>
                     <Box sx={{ width: '100%', maxWidth: '1400px', textAlign: { xs: 'left', md: 'left' } }}>
@@ -29,6 +30,7 @@ export const InstallationsSection: React.FC = () => {
                     </Box>
                 </Box>
 
+            </Box>
             </Box>
             <Divider
                 position={scrollPosition}

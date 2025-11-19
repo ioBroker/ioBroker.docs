@@ -18,6 +18,9 @@ export const useStyles = makeStyles()(theme => ({
         padding: '14px 138px',
         fontSize: '19px',
         borderRadius: theme.shape.borderRadius,
+        '&:focus': {
+            backgroundColor: '#005894 !important',
+        },
         '&:hover': {
             backgroundColor: '#7ec3f3 !important',
         },

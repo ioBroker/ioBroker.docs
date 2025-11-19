@@ -32,8 +32,8 @@ export const useStyles = makeStyles()((theme) => ({
     },
     closeButton: {
         position: 'absolute',
-        top: '32px',
-        right: '32px',
+        top: '55px',
+        right: '45px',
         width: '40px',
         height: '40px',
         cursor: 'pointer',
@@ -55,7 +55,10 @@ export const useStyles = makeStyles()((theme) => ({
         fontWeight: 400,
         letterSpacing: '-0.03em',
         textAlign: 'center',
+        lineHeight: '1',
         color: 'inherit',
+        position: 'relative',
+        zIndex: 2,
         [theme.breakpoints.down('md')]: {
             fontSize: '24px',
         },
@@ -67,7 +70,9 @@ export const useStyles = makeStyles()((theme) => ({
         fontWeight: 400,
         textAlign: 'center',
         color: 'inherit',
-         lineHeight: '1.7',
+        lineHeight: '1.7',
+        position: 'relative',
+        zIndex: 2,
         [theme.breakpoints.down('sm')]: {
             fontSize: '16px',
         },
@@ -75,10 +80,26 @@ export const useStyles = makeStyles()((theme) => ({
     description: {
         fontWeight: 400,
         textAlign: 'center',
-        marginBottom: '45px',
+        marginBottom: '60px',
         maxWidth: '748px',
         lineHeight: '1.7',
         color: 'inherit',
+        position: 'relative',
+        zIndex: 1,
+        '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: '40%',
+            left: '45%',
+            transform: 'translate(-50%, -50%)',
+            width: '900px',
+            height: '300px',
+            background: theme.palette.mode === 'dark'
+                ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 70%)'
+                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            pointerEvents: 'none',
+            zIndex: -1,
+        },
         [theme.breakpoints.down('md')]: {
             marginBottom: '40px',
         },
@@ -89,7 +110,7 @@ export const useStyles = makeStyles()((theme) => ({
     },
     optionsContainer: {
         display: 'flex',
-        gap: '60px',
+        gap: '86px',
         width: '100%',
         marginBottom: '40px',
         [theme.breakpoints.down('md')]: {
@@ -102,7 +123,8 @@ export const useStyles = makeStyles()((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'end'
+        justifyContent: 'end',
+        position: 'relative',
     },
     paypalIconContainer: {
         marginBottom: '32px',
@@ -110,6 +132,8 @@ export const useStyles = makeStyles()((theme) => ({
         justifyContent: 'center',
         alignItems: 'center',
         height: '130px',
+        position: 'relative',
+        zIndex: 2,
         [theme.breakpoints.down('sm')]: {
             height: '80px',
             marginBottom: '20px',
@@ -121,6 +145,8 @@ export const useStyles = makeStyles()((theme) => ({
         justifyContent: 'center',
         alignItems: 'center',
         height: '163px',
+        position: 'relative',
+        zIndex: 2,
         [theme.breakpoints.down('sm')]: {
             height: '80px',
             marginBottom: '20px',
@@ -148,6 +174,22 @@ export const useStyles = makeStyles()((theme) => ({
         lineHeight: '1.5',
         minHeight: '90px',
         color: 'inherit',
+        position: 'relative',
+        zIndex: 1,
+        '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: '65%',
+            left: '45%',
+            transform: 'translate(-50%, -50%)',
+            width: '500px',
+            height: '300px',
+            background: theme.palette.mode === 'dark'
+                ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 70%)'
+                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            pointerEvents: 'none',
+            zIndex: -1,
+        },
         [theme.breakpoints.down('md')]: {
             minHeight: 'auto',
         },
@@ -164,6 +206,22 @@ export const useStyles = makeStyles()((theme) => ({
         lineHeight: '1.5',
         minHeight: '90px',
         color: 'inherit',
+        position: 'relative',
+        zIndex: 1,
+        '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: '65%',
+            left: '45%',
+            transform: 'translate(-50%, -50%)',
+            width: '500px',
+            height: '300px',
+            background: theme.palette.mode === 'dark'
+                ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 70%)'
+                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            pointerEvents: 'none',
+            zIndex: -1,
+        },
         [theme.breakpoints.down('md')]: {
             minHeight: 'auto',
         },
@@ -183,6 +241,8 @@ export const useStyles = makeStyles()((theme) => ({
         width: '320px !important',
         height: '48px',
         textAlign: 'center',
+        position: 'relative',
+        zIndex: 2,
         [theme.breakpoints.down('sm')]: {
             fontSize: '14px !important',
             padding: '12px 24px !important',
