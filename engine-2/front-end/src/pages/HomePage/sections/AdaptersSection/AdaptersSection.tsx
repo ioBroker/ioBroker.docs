@@ -3,6 +3,7 @@ import { Box, Typography } from '@mui/material';
 import { useStyles } from './AdaptersSection.styles';
 import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
 import { StyledButton } from '../../../../components/StyledButton/StyledButton';
+import { useAdapters } from '../../../../api/hooks/useAdapters';
 
 import icon1 from '../../../../assets/img/Alexa.svg';
 import icon2 from '../../../../assets/img/Pillips_hue.svg';
@@ -37,6 +38,15 @@ interface AdapterIcon {
 
 export const AdaptersSection: React.FC = () => {
     const { classes } = useStyles();
+    const { data: adapters } = useAdapters();
+
+    const totalAdapters = React.useMemo(() => {
+        if (!adapters?.pages) return 680;
+        return Object.values(adapters.pages).reduce((sum, category) => {
+            return sum + (category?.pages ? Object.keys(category.pages).length : 0);
+        }, 0);
+    }, [adapters]);
+
 
     const adapterIcons: AdapterIcon[] = [
         { src: icon1, width: 48, height: 48, alt: 'Alexa' },
@@ -122,7 +132,7 @@ export const AdaptersSection: React.FC = () => {
                                 borderRadius: '10px',
                                 position: 'relative',
                                 zIndex: 1,
-                            }}>640+ ADAPTER</StyledButton>
+                            }}>{totalAdapters}+ ADAPTER</StyledButton>
                         </Box>
                     </Box>
                     <Box className={classes.adaptersGrid}>
@@ -143,7 +153,7 @@ export const AdaptersSection: React.FC = () => {
                             borderRadius: '10px',
                             position: 'relative',
                             zIndex: 1,
-                        }}>640+ ADAPTER</StyledButton>
+                        }}>{totalAdapters}+ ADAPTER</StyledButton>
                     </Box>
                 </Box>
             </Box>

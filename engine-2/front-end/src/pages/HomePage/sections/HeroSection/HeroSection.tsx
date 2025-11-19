@@ -33,8 +33,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
                             <Box className={classes.platformTextComment}>// Open-Source-Plattform </Box> für Smart-Home-Automatisierung
                         </Typography>
                         <CustomButton variant="primary"
-                        onClick={() => navigate('/installation')} 
-                        className={classes.installButton}>
+                            onClick={() => navigate('/installation')}
+                            className={classes.installButton}>
                             Installieren
                         </CustomButton>
                     </Box>

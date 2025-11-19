@@ -3,12 +3,7 @@ import { Box, Typography } from '@mui/material';
 import { useStyles } from './CommunitySection.styles';
 import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
 import { CustomButton } from '../../../../components/Button/Button';
-
-const communityData = [
-    { title: 'Forum', count: '30941' },
-    { title: 'Facebook', count: '20543' },
-    { title: 'Discord', count: '2000' },
-];
+import { useForumStats } from '../../../../api/hooks/useForumStats';
 
 const mainText = `/* Die Community war von Anfang an ein zentraler Bestandteil der Entwicklung von ioBroker. Obwohl das Projekt ursprünglich sprachneutral konzipiert war, hat es sich im Laufe der Zeit ergeben, dass die deutschsprachige Community am aktivsten geworden ist - vermutlich, weil ioBroker seinen Ursprung in Deutschland hat.
 
@@ -20,6 +15,13 @@ const secondaryText = 'Werde Teil der Community und gestalte die Zukunft von ioB
 
 export const CommunitySection: React.FC = () => {
     const { classes } = useStyles();
+    const { data: forumStats } = useForumStats();
+
+    const communityData = [
+        { title: 'Forum', count: forumStats?.users },
+        { title: 'Facebook', count: '20543' },
+        { title: 'Discord', count: '2000' },
+    ];
 
     return (
         <Box component="section" className={classes.communitySection}>
