@@ -17,13 +17,16 @@ export const useStyles = makeStyles()((theme) => ({
             padding: '78px 24px 157px 24px',
             boxSizing: 'border-box',
         },
+        [theme.breakpoints.down('md')]: {
+            justifyContent: 'center',
+        },
         [theme.breakpoints.down('sm')]: {
-            padding: '78px 0px 157px 0px',
+            padding: '60px 0px 110px 0px',
         },
         '&::before': {
             content: '""',
             position: 'absolute',
-            top: '230%',
+            top: '85%',
             left: '90%',
             transform: 'translate(-50%, -50%)',
             width: '900px',
@@ -32,13 +35,30 @@ export const useStyles = makeStyles()((theme) => ({
                 ? 'radial-gradient(circle, rgba(0, 88, 148, 0.8) 0%, rgba(255, 255, 255, 0) 55%)'
                 : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
-            zIndex: 0,
+            zIndex: -1,
+            [theme.breakpoints.down('md')]: {
+                 top: '98%',
+                 left: '50%',
+                 width: '800px',
+                 height: '200px', 
+                   background: theme.palette.mode === 'dark'
+                ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.2) 0%, rgba(255, 255, 255, 0) 55%)'
+                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+        },
         }
     },
     title: {
         width: '100%',
         maxWidth: '1311px',
         textAlign: 'left',
+         [theme.breakpoints.down('md')]: {
+              textAlign: 'center',
+        },
+        [theme.breakpoints.down('sm')]: {
+             width: 364,
+             margin: '0 auto',
+             textAlign: 'left',
+        },
     },
     subtitle: {
         marginBottom: 44,
@@ -46,6 +66,13 @@ export const useStyles = makeStyles()((theme) => ({
         color: theme.palette.text.primary,
         textAlign: 'left',
         maxWidth: '684px',
+        [theme.breakpoints.down('md')]: {
+            fontSize: 16,
+            fontWeight: 300,
+            width: 364,
+            margin: '0 auto',
+            marginBottom: 40,
+        },
     },
     cardContainer: {
         display: 'flex',
@@ -87,9 +114,10 @@ export const useStyles = makeStyles()((theme) => ({
         },
         [theme.breakpoints.down('md')]: {
             width: '382px',
-            height: '338px',
+            height: 'auto',
             boxSizing: 'border-box',
             padding: '20px 16px',
+            borderRadius: 10,
         },
     },
     linuxCard: {
@@ -105,7 +133,7 @@ export const useStyles = makeStyles()((theme) => ({
         transition: 'border-color 0.3s',
         [theme.breakpoints.down(1360)]: {
             width: '100%',
-            minHeight: '654px',
+            minHeight: '600px',
             height: 'auto',
             boxSizing: 'border-box',
         },
@@ -114,6 +142,7 @@ export const useStyles = makeStyles()((theme) => ({
             height: '600px',
             padding: '20px 16px',
             boxSizing: 'border-box',
+            borderRadius: 10,
         },
     },
     cardHeader: {
@@ -127,9 +156,11 @@ export const useStyles = makeStyles()((theme) => ({
         marginBottom: 57,
         maxWidth: 763,
         marginTop: '-30px',
-         [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('md')]: {
             fontSize: 16,
-            marginTop: 60
+            marginTop: 60,
+            marginBottom: 20,
+            fontWeight: 300,
         }
     },
     cardTitle: {
@@ -180,16 +211,26 @@ export const useStyles = makeStyles()((theme) => ({
             width: 351,
             height: 40,
             fontSize: 12,
-            minHeight: 40
+            minHeight: 40,
+            padding: '12px 11px',
         },
     },
     commandBoxText: {
-        marginTop: 8
+        marginTop: 8,
+        [theme.breakpoints.down('md')]: {
+            marginTop: 0,
+        },
     },
     copyButton: {
         cursor: 'pointer',
         color: theme.palette.primary.light,
         marginLeft: theme.spacing(2),
+        width: 32,
+        height: 32,
+        [theme.breakpoints.down('md')]: {
+            width: 24,
+            height: 24,
+        },
     },
     hintText: {
         fontSize: '16px',
@@ -197,13 +238,23 @@ export const useStyles = makeStyles()((theme) => ({
         marginTop: 32,
         display: 'flex',
         alignItems: 'center',
-        letterSpacing: 0
+        opacity: '0.5',
+        letterSpacing: 0,
+        [theme.breakpoints.down('md')]: {
+            marginTop: 20,
+            fontSize: '12px',
+            width: 351,
+            alignItems: 'start',
+        },
     },
     imageTextHeader: {
         fontFamily: "Saira",
         fontWeight: 600,
         fontSize: 24,
-        letterSpacing: '-0.03em'
+        letterSpacing: '-0.03em',
+        [theme.breakpoints.down('md')]: {
+            fontWeight: 500
+        },
     },
     imageText: {
         fontFamily: "Saira",
@@ -212,9 +263,26 @@ export const useStyles = makeStyles()((theme) => ({
         fontSize: 18,
         letterSpacing: '-0.03em',
         width: 435,
-         [theme.breakpoints.down('md')]: {
-           fontSize: 16,
-           width: 351
+        [theme.breakpoints.down('md')]: {
+            fontSize: 16,
+            fontWeight: 300,
+            width: 351,
+        },
+    },
+    alertIcon: {
+        height: 18,
+        width: 18,
+        [theme.breakpoints.down('md')]: {
+            height: 12,
+            width: 12,
+        },
+    },
+    alertIconWrapper: {
+        marginRight: '8px',
+        marginTop: '6px',
+        [theme.breakpoints.down('md')]: {
+            marginRight: '2px',
+            marginTop: '2px',
         },
     },
     imageInfoBox: {
@@ -223,7 +291,9 @@ export const useStyles = makeStyles()((theme) => ({
         marginTop: 67,
         alignItems: 'start',
         [theme.breakpoints.down('md')]: {
-           flexDirection: 'column'
+            flexDirection: 'column',
+            marginTop: 40,
+            height: 237
         },
     },
     detailsText: {
@@ -240,21 +310,43 @@ export const useStyles = makeStyles()((theme) => ({
         '& .MuiTypography-root': {
             fontSize: '18px !important',
         },
+        [theme.breakpoints.down('md')]: {
+            fontSize: '12px !important',
+            '& .MuiTypography-root': {
+                fontSize: '12px !important',
+            },
+            '& .MuiTypography-root:nth-of-type(even)': {
+                textAlign: 'right',
+            },
+            marginBottom: 0,
+            columnGap: 120,
+        },
     },
     detailsLabel: {
         fontWeight: 400,
         color: theme.palette.text.primary,
+        [theme.breakpoints.down('md')]: {
+            opacity: '0.5'
+        },
     },
     cardContent: {
         display: 'flex',
         flexDirection: 'column',
         flex: 1,
         justifyContent: 'space-between',
+        [theme.breakpoints.down('md')]: {
+            gap: 60
+        },
     },
     cardActions: {
         display: 'flex',
         gap: 36,
         marginTop: 43,
+        [theme.breakpoints.down('md')]: {
+            flexDirection: 'column-reverse',
+            marginTop: 40,
+            gap: 20,
+        },
     },
     buttonPrimary: {
         borderRadius: '10px !important',
@@ -265,6 +357,12 @@ export const useStyles = makeStyles()((theme) => ({
         width: '400px !important',
         height: '60px !important',
         padding: '0 !important',
+        [theme.breakpoints.down('md')]: {
+            width: '348px !important',
+            height: '44px !important',
+            borderRadius: '8px !important',
+            fontSize: '16px !important',
+        },
     },
     buttonSecondary: {
         borderColor: theme.palette.primary.dark,
@@ -280,6 +378,12 @@ export const useStyles = makeStyles()((theme) => ({
         '&:hover': {
             borderColor: theme.palette.primary.main,
             backgroundColor: `${theme.palette.primary.main}22`,
+        },
+        [theme.breakpoints.down('md')]: {
+            width: 348,
+            height: 44,
+            borderRadius: 8,
+            fontSize: '16px',
         },
     },
     buttonSecondaryLinux: {
@@ -298,10 +402,11 @@ export const useStyles = makeStyles()((theme) => ({
             backgroundColor: `${theme.palette.primary.main}22`,
         },
         [theme.breakpoints.down('md')]: {
-          marginTop: 0,
+            marginTop: 0,
             width: 350,
-           height: 44,
-           borderRadius: 8,
+            height: 44,
+            borderRadius: 8,
+            fontSize: '16px',
         },
     },
 }));

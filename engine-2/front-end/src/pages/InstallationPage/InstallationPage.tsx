@@ -22,12 +22,11 @@ const InstallationPage = () => {
         <Box className={classes.pageWrapper}>
             <Box className={classes.pageContainer}>
                 <Box className={classes.title}>
-                    <SectionTitle sx={{ marginBottom: { xs: '8px !important', md: '8px !important' } }}>IOBROKER INSTALLATION</SectionTitle>
+                    <SectionTitle sx={{ marginBottom: { xs: '8px !important', md: '8px !important' }, fontSize: { xs: '20px !important', sm: '48px !important' } }}>IOBROKER INSTALLATION</SectionTitle>
                 </Box>
                 <Typography variant="body1" className={classes.subtitle}>
                     ioBroker lässt sich auf allen Systemen installieren, die Node.js unterstützen und genügend RAM haben.
                 </Typography>
-
                 <Box className={classes.cardContainer}>
 
                     <Paper className={classes.linuxCard}>
@@ -51,17 +50,14 @@ const InstallationPage = () => {
                                     src={CopyIcon}
                                     alt='copyIcon'
                                     className={classes.copyButton}
-                                    width={32}
-                                    height={32}
                                 />
                             </Box>
                             <Typography className={classes.hintText}>
-                                <span style={{ marginRight: '8px', marginTop: '6px' }}>
+                                <span className={classes.alertIconWrapper}>
                                     <img
                                         src={AlertIcon}
                                         alt='alertIcon'
-                                        width={18}
-                                        height={18}
+                                        className={classes.alertIcon}
                                     />
                                 </span> Hinweis: Die Installation kann je nach System einige Minuten dauern.
                             </Typography>
@@ -72,7 +68,7 @@ const InstallationPage = () => {
                                     Wann benötige ich ein Image?
                                 </Typography>
                                 <Typography variant="body2" sx={{ mb: 2 }} className={classes.imageText}>
-                                    Ein vorkonfiguriertes Image ist nur erforderlich, wenn das Installationsskript nicht funktioniert oder keine Internetverbindung verfügbar ist.
+                                    Ein vorkonfiguriertes Image ist nur erforderlich, wenn das Installationsskript nicht funktioniert oder keine Internetverbindung verfügbar ist. In den meisten Fällen reicht der oben genannte Befehl aus.
                                 </Typography>
                             </Box>
                             <Button
