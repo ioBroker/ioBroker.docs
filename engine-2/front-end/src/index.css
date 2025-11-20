@@ -77,3 +77,19 @@ a {
   text-decoration: inherit;
   color: inherit;
 }
+
+@media (max-width: 800px) {
+
+  html,
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
