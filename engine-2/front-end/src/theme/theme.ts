@@ -3,6 +3,30 @@ import { createTheme } from '@mui/material/styles';
 const secondary = '#005894';
 const primary = '#1D90CA';
 
+// типы темы MUI для кастомных полей
+declare module '@mui/material/styles' {
+  interface Theme {
+    custom: {
+      textColorHover: string;
+      textSelected: string;
+      backgroundColorOpacity: string;
+      backgroundImage: string;
+      visibleBorder: string;
+      opacitySpotLight: number;
+    };
+  }
+  interface ThemeOptions {
+    custom?: {
+      textColorHover?: string;
+      textSelected?: string;
+      backgroundColorOpacity?: string;
+      backgroundImage?: string;
+      visibleBorder?: string;
+      opacitySpotLight?: number;
+    };
+  }
+}
+
 // Темная тема
 export const darkTheme = createTheme({
   palette: {
@@ -37,6 +61,7 @@ export const darkTheme = createTheme({
       'Arial',
       'sans-serif',
     ].join(','),
+    fontWeightLight: 200,
     h1: {
       fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
       fontSize: '2.5rem',
@@ -61,10 +86,24 @@ export const darkTheme = createTheme({
     h6: {
       fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
     },
+    body1: {
+      fontWeight: 200,
+    },
+    body2: {
+      fontWeight: 200,
+    },
   },
   spacing: 8,
   shape: {
     borderRadius: 8,
+  },
+  custom: {
+    textColorHover: '#7ec3f3',
+    textSelected: primary,
+    backgroundColorOpacity: '#080B1CE0',
+    backgroundImage: 'url(/www/background.webp)',
+    visibleBorder: 'none',
+    opacitySpotLight: 1,
   },
 });
 
@@ -130,6 +169,14 @@ export const lightTheme = createTheme({
   spacing: 8,
   shape: {
     borderRadius: 8,
+  },
+  custom: {
+    textColorHover: '#006bbc',
+    textSelected: primary,
+    backgroundColorOpacity: '#FFFFFFE0',
+    backgroundImage: 'url(/www/background.webp)',
+    visibleBorder: `1px solid ${secondary}`,
+    opacitySpotLight: 0.3,
   },
 });
 
