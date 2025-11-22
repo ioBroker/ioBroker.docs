@@ -27,7 +27,6 @@ export const useStyles = makeStyles()(theme => ({
             marginTop: '0',
             padding: '40px 0',
         },
-
     },
     adaptersContent: {
         display: 'flex',
@@ -79,9 +78,10 @@ export const useStyles = makeStyles()(theme => ({
             transform: 'translate(-50%, -50%)',
             width: '600px',
             height: '300px',
-            background: theme.palette.mode === 'dark'
-                ? 'radial-gradient(ellipse, rgba(12, 36, 137, 0.3) 0%, rgba(255, 255, 255, 0) 70%)'
-                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse, rgba(12, 36, 137, 0.3) 0%, rgba(255, 255, 255, 0) 70%)'
+                    : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
             zIndex: 0,
         },
@@ -107,7 +107,8 @@ export const useStyles = makeStyles()(theme => ({
         transform: 'translate(-50%, -50%)',
         width: '600px',
         height: '200px',
-        background: theme.palette.mode === 'dark'
+        background:
+            theme.palette.mode === 'dark'
                 ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(0, 88, 148, 0.3) 40%, rgba(0, 88, 148, 0) 70%)'
                 : 'none',
         pointerEvents: 'none',
@@ -126,9 +127,10 @@ export const useStyles = makeStyles()(theme => ({
             transform: 'translate(-50%, -50%)',
             width: '1200px',
             height: '1200px',
-            background: theme.palette.mode === 'dark'
-                ? 'radial-gradient(circle, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 55%)'
-                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(circle, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 55%)'
+                    : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
             zIndex: 0,
             [theme.breakpoints.down('md')]: {

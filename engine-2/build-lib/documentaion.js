@@ -38,7 +38,7 @@ async function translateTitle(title, inFolder) {
 
     consts.LANGUAGES.forEach(lang => {
         if (!words[lang]) {
-            words[lang] = (words.en || words.de);
+            words[lang] = words.en || words.de;
             if (words[lang][2] !== '!') {
                 words[lang] = `${lang}!${words[lang]}`;
             }
@@ -66,86 +66,96 @@ async function processContent(filePath) {
     const lines = fs.readFileSync(filePath).toString().replace(/\r/g, '').split('\n');
     const content = { pages: {} };
     const levels = [content, null, null, null];
-    return new Promise(resolve => Promise.all(
-        lines.map(async line => {
-            const pos = line.indexOf('*');
-            if (pos !== -1) {
-                const level = pos / 2;
-                const words = await translateTitle(line.substring(pos + 1));
-                // Capitalize first letter of title
-                words.ru = words.ru[0].toUpperCase() + words.ru.substring(1);
+    return new Promise(resolve =>
+        Promise.all(
+            lines.map(async line => {
+                const pos = line.indexOf('*');
+                if (pos !== -1) {
+                    const level = pos / 2;
+                    const words = await translateTitle(line.substring(pos + 1));
+                    // Capitalize first letter of title
+                    words.ru = words.ru[0].toUpperCase() + words.ru.substring(1);
 
-                const link = words.link;
-                if (link) {
-                    // ignore links if en/"link" does not exist
-                    if (!fs.existsSync(path.join(consts.SRC_DOC_DIR, 'en', link))) {
-                        console.error(`DOCUMENT ${link} does not exist, but listed in content.md!`);
-                        return;
-                    }
-                    const header = utils.extractHeader(fs.readFileSync(path.join(consts.SRC_DOC_DIR, 'en', link)).toString('utf8'));
-                    if (header.header && header.header.template) {
-                        console.error(`DOCUMENT ${link} is just template, do not include it into content.`);
-                        return;
-                    }
-
-                    // check if this file exists in en
-                    delete words.link;
-                }
-                const obj = {
-                    title: words
-                };
-                if (link) {
-                    obj.content = link;
-                }
-                levels[level].pages = levels[level].pages || {};
-                levels[level].pages[words.en] = obj;
-                levels[level + 1] = obj;
-
-                // special case for FAQ
-                if (words.en === 'FAQ') {
-                    obj.pages = obj.pages || {};
-                    const files = fs.readdirSync(path.join(consts.SRC_DOC_DIR, 'de', 'faq'))
-                        .filter(name => name.match(/^_\d/))
-                        .sort();
-
-                    return Promise.all(files.map(async file => {
-                        if (fs.existsSync(path.join(consts.SRC_DOC_DIR, 'de', 'faq', file, 'README.md'))) {
-                            const words = await translateTitle(`[${file}](faq/${file.replace(/\.md$/, '')})`, consts.FRONT_END_DIR);
-                            const link = words.link;
-                            if (link) {
-                                delete words.link;
-                            }
-                            const _obj = {
-                                title: words
-                            };
-                            if (link) {
-                                _obj.content = link;
-                            }
-                            obj.pages[words.en] = _obj;
-                        } else {
-                            console.error(`DOCUMENT ${file} does not exist, but listed in content.md!`);
+                    const link = words.link;
+                    if (link) {
+                        // ignore links if en/"link" does not exist
+                        if (!fs.existsSync(path.join(consts.SRC_DOC_DIR, 'en', link))) {
+                            console.error(`DOCUMENT ${link} does not exist, but listed in content.md!`);
+                            return;
                         }
-                        return file;
-                    }));
+                        const header = utils.extractHeader(
+                            fs.readFileSync(path.join(consts.SRC_DOC_DIR, 'en', link)).toString('utf8'),
+                        );
+                        if (header.header && header.header.template) {
+                            console.error(`DOCUMENT ${link} is just template, do not include it into content.`);
+                            return;
+                        }
+
+                        // check if this file exists in en
+                        delete words.link;
+                    }
+                    const obj = {
+                        title: words,
+                    };
+                    if (link) {
+                        obj.content = link;
+                    }
+                    levels[level].pages = levels[level].pages || {};
+                    levels[level].pages[words.en] = obj;
+                    levels[level + 1] = obj;
+
+                    // special case for FAQ
+                    if (words.en === 'FAQ') {
+                        obj.pages = obj.pages || {};
+                        const files = fs
+                            .readdirSync(path.join(consts.SRC_DOC_DIR, 'de', 'faq'))
+                            .filter(name => name.match(/^_\d/))
+                            .sort();
+
+                        return Promise.all(
+                            files.map(async file => {
+                                if (fs.existsSync(path.join(consts.SRC_DOC_DIR, 'de', 'faq', file, 'README.md'))) {
+                                    const words = await translateTitle(
+                                        `[${file}](faq/${file.replace(/\.md$/, '')})`,
+                                        consts.FRONT_END_DIR,
+                                    );
+                                    const link = words.link;
+                                    if (link) {
+                                        delete words.link;
+                                    }
+                                    const _obj = {
+                                        title: words,
+                                    };
+                                    if (link) {
+                                        _obj.content = link;
+                                    }
+                                    obj.pages[words.en] = _obj;
+                                } else {
+                                    console.error(`DOCUMENT ${file} does not exist, but listed in content.md!`);
+                                }
+                                return file;
+                            }),
+                        );
+                    }
                 }
-            }
-            return line;
-        }))
-            .then(result => {
-                const name = filePath.replace(/\\/g, '/').split('/').pop().replace(/\.md$/, '.json');
-                fs.writeFileSync(consts.FRONT_END_DIR + name, JSON.stringify(content, null, 2));
-                resolve(content);
-            }));
+                return line;
+            }),
+        ).then(result => {
+            const name = filePath.replace(/\\/g, '/').split('/').pop().replace(/\.md$/, '.json');
+            fs.writeFileSync(consts.FRONT_END_DIR + name, JSON.stringify(content, null, 2));
+            resolve(content);
+        }),
+    );
 }
 
 // read file and copy it in the front-end directory
 async function processFile(fileName, lang, root) {
-    root     = root.replace(/\\/g, '/');
+    root = root.replace(/\\/g, '/');
     fileName = fileName.replace(/\\/g, '/');
 
     let data = fs.readFileSync(fileName);
     if (fileName.match(/\.md$/)) {
-        let {header, body} = utils.extractHeader(data.toString());
+        let { header, body } = utils.extractHeader(data.toString());
 
         header.editLink = `${consts.GITHUB_EDIT_ROOT}docs/${fileName.replace(root, '')}`;
 
@@ -217,7 +227,10 @@ function replaceImages(text, sourceFile, targetFile) {
                     const pos = link.indexOf(' ');
                     let title = '';
                     if (pos !== -1) {
-                        title = link.substring(pos + 1).trim().replace(/^"|"$/g, '');
+                        title = link
+                            .substring(pos + 1)
+                            .trim()
+                            .replace(/^"|"$/g, '');
                         link = link.substring(0, pos);
                     }
                     if (!link.match(/^https?:/)) {
@@ -266,14 +279,18 @@ async function translateFile(sourceFileName, fromLang, toLang, root) {
         }
 
         // Check src hash and compare it with stored one
-        if (resultTarget.header.hash === localHash && (resultTarget.header.template || false) === (header.template || false)) {
+        if (
+            resultTarget.header.hash === localHash &&
+            (resultTarget.header.template || false) === (header.template || false)
+        ) {
             return Promise.resolve();
         }
     }
 
     // console.log(`Translate ${fromLang} => ${toLang}: "${sourceFileName}"`);
 
-    return translation.translateMD(fromLang, body, toLang, actualText, true, sourceFileName)
+    return translation
+        .translateMD(fromLang, body, toLang, actualText, true, sourceFileName)
         .then(result => {
             actualText = result.result;
             actualText = replaceImages(actualText, sourceFileName, targetFileName);
@@ -288,19 +305,27 @@ async function translateFile(sourceFileName, fromLang, toLang, root) {
 
             return new Promise(resolve => {
                 // translate badges
-                Promise.all(Object.keys(badges).map(name =>
-                    translation.translateText(fromLang, name, toLang)))
-                    .then(results => {
+                Promise.all(Object.keys(badges).map(name => translation.translateText(fromLang, name, toLang))).then(
+                    results => {
                         const nBadges = {};
-                        Object.keys(badges).map((name, i) => nBadges[results[i]] = badges[name]);
+                        Object.keys(badges).map((name, i) => (nBadges[results[i]] = badges[name]));
 
                         actualText = utils.addBadgesToBody(actualText, nBadges);
 
                         // add badges
-                        utils.writeSafe(targetFileName, utils.addHeader(utils.addChangelogAndLicense(actualText, data.changelog, data.license), header));
-                        console.log(`WARNING: File ${sourceFileName.replace(root, '/')} was translated from ${fromLang} to ${toLang} automatically`);
+                        utils.writeSafe(
+                            targetFileName,
+                            utils.addHeader(
+                                utils.addChangelogAndLicense(actualText, data.changelog, data.license),
+                                header,
+                            ),
+                        );
+                        console.log(
+                            `WARNING: File ${sourceFileName.replace(root, '/')} was translated from ${fromLang} to ${toLang} automatically`,
+                        );
                         resolve(true);
-                    });
+                    },
+                );
             });
         });
 }
@@ -324,20 +349,19 @@ function sync2Languages(fromLang, toLang, testDir, cb, files) {
 
     const file = files.shift();
     console.log(`Sync ${fromLang} => ${toLang} - ${file}`);
-    translateFile(file, fromLang, toLang)
-        .then(translated => {
-            if (translated) {
-                const parts = file.replace(/\\/g, '/').split('/');
-                parts.pop();
+    translateFile(file, fromLang, toLang).then(translated => {
+        if (translated) {
+            const parts = file.replace(/\\/g, '/').split('/');
+            parts.pop();
 
-                // Copy media files
-                const fls = utils.getAllFiles(parts.join('/'), false).sort();
-                fls.filter(f => !f.match(/\.md$/) && !f.match(/affiliate\.json$/))
-                    .forEach(file =>
-                        utils.writeSafe(file.replace(`/${fromLang}/`, `/${toLang}/`), fs.readFileSync(file)));
-            }
-            setImmediate(() => sync2Languages(fromLang, toLang, testDir, cb, files));
-        });
+            // Copy media files
+            const fls = utils.getAllFiles(parts.join('/'), false).sort();
+            fls.filter(f => !f.match(/\.md$/) && !f.match(/affiliate\.json$/)).forEach(file =>
+                utils.writeSafe(file.replace(`/${fromLang}/`, `/${toLang}/`), fs.readFileSync(file)),
+            );
+        }
+        setImmediate(() => sync2Languages(fromLang, toLang, testDir, cb, files));
+    });
 }
 
 function processTasks(tasks, testDir, cb) {
@@ -351,7 +375,8 @@ function processTasks(tasks, testDir, cb) {
     } else {
         const task = tasks.shift();
         sync2Languages(task.fromLang, task.toLang, testDir, () =>
-            setTimeout(() => processTasks(tasks, testDir, cb), 0));
+            setTimeout(() => processTasks(tasks, testDir, cb), 0),
+        );
     }
 }
 
@@ -362,9 +387,7 @@ function syncDocs(testDir, cb) {
         testDir = '';
     }
     consts.LANGUAGES.map(lang => {
-        consts.LANGUAGES
-            .filter(lang2 => lang2 !== lang)
-            .map(lang2 => tasks.push({ fromLang: lang, toLang: lang2 }));
+        consts.LANGUAGES.filter(lang2 => lang2 !== lang).map(lang2 => tasks.push({ fromLang: lang, toLang: lang2 }));
     });
     processTasks(tasks, testDir, cb);
 }
@@ -373,22 +396,26 @@ function syncDocs(testDir, cb) {
 async function processFiles(root, lang, originalRoot) {
     root = root.replace(/\\/g, '/');
     if (!lang) {
-        return Promise.all(consts.LANGUAGES.map(lang =>
-            processFiles(path.join(root, lang).replace(/\\/g, '/'), lang, root)));
+        return Promise.all(
+            consts.LANGUAGES.map(lang => processFiles(path.join(root, lang).replace(/\\/g, '/'), lang, root)),
+        );
     } else {
-        const promises = fs.readdirSync(root).filter(name => !name.startsWith('_') && name !== 'adapterref').map(name => {
-            const fileName = path.join(root, name).replace(/\\/g, '/');
-            const stat = fs.statSync(fileName);
-            if (stat.isDirectory()) {
-                if (IGNORE.indexOf(fileName.replace(root, '')) === -1) {
-                    return processFiles(fileName, lang, originalRoot);
+        const promises = fs
+            .readdirSync(root)
+            .filter(name => !name.startsWith('_') && name !== 'adapterref')
+            .map(name => {
+                const fileName = path.join(root, name).replace(/\\/g, '/');
+                const stat = fs.statSync(fileName);
+                if (stat.isDirectory()) {
+                    if (IGNORE.indexOf(fileName.replace(root, '')) === -1) {
+                        return processFiles(fileName, lang, originalRoot);
+                    } else {
+                        return Promise.resolve();
+                    }
                 } else {
-                    return Promise.resolve();
+                    return processFile(fileName, lang, originalRoot);
                 }
-            } else {
-                return processFile(fileName, lang, originalRoot);
-            }
-        });
+            });
         return Promise.all(promises);
     }
 }
@@ -405,10 +432,9 @@ if (!module.parent) {
         console.log(JSON.stringify(content));
     });*/
 
-    translateFile('C:/pWork/ioBroker.docs/docs/de/adapterref/iobroker.harmony/README.md', 'de', 'ru')
-        .then(() => {
-            console.log('done');
-        })
+    translateFile('C:/pWork/ioBroker.docs/docs/de/adapterref/iobroker.harmony/README.md', 'de', 'ru').then(() => {
+        console.log('done');
+    });
     //console.log(replaceImages(fs.readFileSync('C:/pWork/ioBroker.docs/docs/ru/adapterref/iobroker.fritzbox/README.md').toString(), 'C:/pWork/ioBroker.docs/docs/de/adapterref/iobroker.fritzbox/README.md', 'C:/pWork/ioBroker.docs/docs/ru/adapterref/iobroker.fritzbox/README.md'));
     //sync2Languages('de', 'en', () => console.log('done1'), ['C:/pWork/ioBroker.docs/docs/de/README.md'])
     //syncDocs(() => console.log('DONE'));
@@ -417,6 +443,6 @@ if (!module.parent) {
     module.exports = {
         processContent,
         processFiles,
-        syncDocs
+        syncDocs,
     };
 }

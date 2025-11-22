@@ -1,0 +1,299 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[ ioBroker Blog ]]></title>
+        <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
+        <link>https://www.iobroker.net/#de/blog</link>
+        <lastBuildDate>Wed, 24 Sep 2025 06:00:00 GMT</lastBuildDate>
+        <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[ioBroker Monatsrückblick – September 2025]]></title>
+            <description><![CDATA[
+                <p>Der Sommer geht zu Ende und auch in der ioBroker-Welt war in den letzten Monaten einiges los. \nZahlreiche neue Adapter wurden veröffentlicht, einige davon haben es bereits ins stable-Repository geschafft, \neinige weitere sind im latest-Repository verfügbar und warten auf euren Testeinsatz.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2025_09_24</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2025_09_24</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 24 Sep 2025 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker beim Smart Living Forum 2025 in Solingen]]></title>
+            <description><![CDATA[
+                <p>Am 14. Juni 2025 fand in Solingen die zweite Ausgabe des Smart Living Forums statt.\nUnd wie bereits im Vorfeld angekündigt, war ioBroker auch in diesem Jahr wieder aktiv mit dabei.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2025_06_17</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2025_06_17</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 17 Jun 2025 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[💻 ioBroker Monatsrückblick – April 2025]]></title>
+            <description><![CDATA[
+                <p>Herzlich willkommen zum aktuellen Monatsrückblick! Auch im April 2025 hat sich in der ioBroker-Welt wieder einiges getan. \nNeue Adapter sind erschienen, bestehende wurden verbessert und die Basis unseres Systems – der js-controller – hat ein Update erhalten. \nWerfen wir einen detaillierten Blick auf alle Neuerungen.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2025_04_26</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2025_04_26</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 26 Apr 2025 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Die nächste Stufe des Smart Homes - ioBroker unterstützt jetzt Matter!]]></title>
+            <description><![CDATA[
+                <p>Seit Anfang 2025 hebt ioBroker das Smart Home auf ein neues Level: \nDer neue Matter-Adapter ist da! Nach über zwei Jahren intensiver Entwicklungsarbeit ist ioBroker nun bereit \nfür den zukunftsweisenden Smart-Home-Standard **Matter** – ein Quantensprung für alle, die Geräte herstellerübergreifend und vor allem lokal vernetzen möchten.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2025_04_04</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2025_04_04</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Fri, 04 Apr 2025 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker Neuigkeiten – Frühjahr 2025 🌼]]></title>
+            <description><![CDATA[
+                <p>Willkommen zum ioBroker-Update für das Frühjahr 2025! In den letzten Wochen hat sich wieder einiges in der ioBroker-Welt getan.\nNeue Adapter erweitern die Plattform um spannende Integrationen,\nbestehende Komponenten wurden mit hilfreichen Funktionen verbessert – und auch die Community bleibt weiterhin aktiv und kreativ.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2025_03_29</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2025_03_29</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 29 Mar 2025 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Jahresrückblick 2024 ❄]]></title>
+            <description><![CDATA[
+                <p>Liebe ioBroker-Community, das Jahr neigt sich dem Ende zu und wir möchten die Gelegenheit nutzen, euch allen von Herzen zu danken.\nEure Ideen, eure Kreativität und eure Begeisterung für ioBroker sind das, was dieses Projekt seit über 10 Jahren auszeichnet und weiterbringt.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2024_12_22</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_12_22</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 22 Dec 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker Monatsupdate - Dezember 2024 🎄]]></title>
+            <description><![CDATA[
+                <p>Herzlich willkommen zu unserer letzten Ausgabe des Jahres 2024!\nWir bedanken uns bei allen Entwicklern, Testern und Nutzern, die das Projekt in diesem Jahr weitergebracht haben. </p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2024_12_21</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_12_21</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 21 Dec 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Rückblick auf das Community-Treffen zum 10-jährigen ioBroker Jubiläum]]></title>
+            <description><![CDATA[
+                <p>Am 09. November 2024 war es endlich soweit: Das erste große ioBroker Community-Treffen fand in der "Gläsernen Werkstatt" in Solingen statt. Einige Monate intensiver Planung und Organisation haben sich ausgezahlt – das Event war ein voller Erfolg.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2024_11_23</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_11_23</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 23 Nov 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker News – August & September 2024]]></title>
+            <description><![CDATA[
+                <p>Der Sommer ist vorbei, und es geht mit frischem Schwung in den Herbst. Obwohl es in den letzten Monaten traditionell etwas ruhiger war, \nda viele der Dev's im wohlverdienten Urlaub waren, gab es dennoch einige Updates und neue Adapter, die wir euch vorstellen möchten.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2024_10_01</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_10_01</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 01 Oct 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[RoundUp Juni 2024. Neuer Monat, neue ioBroker-Features!]]></title>
+            <description><![CDATA[
+                <p>In diesem Blogbeitrag werfen wir einen Blick auf die Neuerungen, Updates und News rund um ioBroker im Juni 2024: js-controller 6.0 in beta, neue Widgets, Änderungen in admin 7.0, neue Adapter (waterkotte-easycon, hiob, notificationforandroidtv, gree-hvac), neue App, neue YouTube -Videos.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2024_06_30</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_06_30</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 30 Jun 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker JavaScript-Adapter - Verbesserungen April-Mai 2024]]></title>
+            <description><![CDATA[
+                <p>Diese Zusammenfassung enthält die wichtigsten Änderungen des JavaScript-Adapters ab Version 8.0.0.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2024_06_04</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_06_04</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 04 Jun 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Update Mai 2024 - News und Entwicklungen bei ioBroker]]></title>
+            <description><![CDATA[
+                <p>Hallo, ioBroker-Community!</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2024_06_02</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_06_02</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 02 Jun 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Ein Roundup Teil 2 - von Dezember 2023 bis Februar 2024]]></title>
+            <description><![CDATA[
+                <p>*Eine Übersicht über die Neuentwicklungen in ioBroker*. \nIn diesem zweiten Teil unseres Blogs werden weitere Adapter und Funktionen vorgestellt, die in diesem Zeitraum veröffentlicht wurden.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2024_05_12</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_05_12</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 12 May 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Ein Roundup Teil 1 - von Oktober 2023 bis November 2023]]></title>
+            <description><![CDATA[
+                <p>*Ein „Besser spät als nie“-Überblick über News, neue Adapter und Funktionen in ioBroker*.\nIn der sich ständig weiterentwickelnden Welt der Hausautomatisierung bleibt ioBroker mit einer Reihe von Updates und Ergänzungen von Oktober 2023 bis Februar 2024 präsent.\nLasst uns einen genaueren Blick auf einige der Fortschritte werfen, die in diesem Zeitraum eingeführt wurden, auch wenn dieser Blogbeitrag etwas spät kommt.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2024_04_23</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_04_23</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 23 Apr 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Zusammenfassung der neuen Adapter und Funktionen zwischen Februar und April 2024]]></title>
+            <description><![CDATA[
+                <p>Dieser Blogbeitrag bietet einen Überblick über neue Adapter und Funktionen, die zwischen Februar und April 2024 in ioBroker eingeführt wurden. Er zielt darauf ab, grundlegende Informationen für Benutzer aller technischen Hintergründe bereitzustellen.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2024_04_21</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_04_21</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 21 Apr 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Neuigkeiten von ioBroker (August-September 2023)]]></title>
+            <description><![CDATA[
+                <p>In diesem Blog-Beitrag werfen wir einen Blick auf einige der neuen Adapter und neuen Funktionen, die im August und September 2023 für ioBroker veröffentlicht wurden.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2023_09_16</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2023_09_16</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 16 Sep 2023 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Dev Meeting Februar 2023]]></title>
+            <description><![CDATA[
+                <p>## JS-Controller 4.0.24 und Node.js 18: Ein Update lohnt sich</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2023_02_15</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2023_02_15</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 15 Feb 2023 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Dev Meeting Februar 2022]]></title>
+            <description><![CDATA[
+                <p>Happy TwosDay (22.2.22) liebe Community, auch im vergangenen Monat ist wieder viel bei ioBroker passiert. Nach längerer Entwicklungszeit ist der neue js-controller 4.0 (Release-name "Isabelle") im Beta/Latest Repository verfügbar. Neben einigen Optimierungen und Verbesserungen stand der Haupt-Fokus dieser Version auf Performance-Verbesserungen.\nDarüber hinaus gibt es weitere Neuigkeiten aus dem Developer-Meeting und darüber hinaus, welche wir hier für Euch zusammengefasst haben.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2022_02_16</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2022_02_16</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 16 Feb 2022 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Dev Meeting Januar]]></title>
+            <description><![CDATA[
+                <p>Das neue Jahr hat gerade begonnen und unser erstes Meeting des Jahres fand bereits statt. Wir vom ioBroker Team wünschen alle ein frohes Neues und dass 2022 ein tolles Jahr für die Hausautomatisierung wird.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2022_01_19</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2022_01_19</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 19 Jan 2022 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Dev Meeting Dezember]]></title>
+            <description><![CDATA[
+                <p>Liebe ioBroker Nutzer:innen, auf vielfachen Wunsch haben wir beschlossen die Ergebnisse unseres Entwickler-Meetings hier im Blog publik zu machen. Künftig werden wir jedem Monat mindestens einen neuen Eintrag erstellen.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2021_12_15</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2021_12_15</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 15 Dec 2021 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Weihnachtsangebot]]></title>
+            <description><![CDATA[
+                <p>Auf vielfachen Wunsch gibt es ab dem 08.12.2020 ca. 12:00 Uhr Mittags bis zum 10.01.2021 ca. 23 Uhr wieder ein Weihnachtsangebot für Assistenten- und Cloud/Fernzugriffs-Lizenzen.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2020_12_06</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2020_12_06</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 06 Dec 2020 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[iob-Server]]></title>
+            <description><![CDATA[
+                <p>Hallo ioBroker-Community,</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2020_05_12</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2020_05_12</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 12 May 2020 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[js-controller 2.0]]></title>
+            <description><![CDATA[
+                <p>Hallo ioBroker-Community,</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2019_10_14</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2019_10_14</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Mon, 14 Oct 2019 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Windows-Installer]]></title>
+            <description><![CDATA[
+                <p>Heute haben wir Informationen zu ioBroker auf Windows-Rechnern und ein Update zur TeamSpeak-Community. \nWeiterhin geben wir Euch einen Überblick über neue Visualisierungs-Adapter. Seid gespannt.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2019_06_12</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2019_06_12</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 12 Jun 2019 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Neue ioBroker-Webseite]]></title>
+            <description><![CDATA[
+                <p>Heute haben wir Neuigkeiten zur ioBroker-Webseite, dem neuen **js-controller** 1.5.12 und zu Verbesserungen im Admin- und Info-Adapter.\nAuch ein paar neue Adapter dürfen natürlich nicht fehlen.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2019_06_11</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2019_06_11</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 11 Jun 2019 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker Newsletter Februar 2019]]></title>
+            <description><![CDATA[
+                <p>Heute gibt es wieder einige ioBroker-News:\nDie Forum-Umstellung ist erfolgt und das neue Forum ist online. Der neue js-controller 1.5.7 ist jetzt für erweitere Tests im Latest Repository verfügbar und auch der Installations-Fixer wurde veröffentlicht um bestehende Installationen auf den gleichen Stand wie neue zu bringen. Wichtige Informationen zum Tankerkönig-Adapter und einigen neuen Adaptern haben wir natürlich auch.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2019_02_27</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2019_02_27</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 27 Feb 2019 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[js-controller 1.5.7 im Latest Repository verfügbar]]></title>
+            <description><![CDATA[
+                <p>Nach einiger Verzögerung und vielen intensiven Tests mit großer Unterstützung aus der Community und hier im Forum freuen wir uns die nächste Version des js-controllers zu offiziellen weiteren Tests für alle interessierten User freizugeben.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2019_02_25</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2019_02_25</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Mon, 25 Feb 2019 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker Installation "Fixer" Beta verfügbar]]></title>
+            <description><![CDATA[
+                <p>Ende 2018 und vor allem im Januar 2019 hat @AlCalzone den ioBroker Installer komplett überarbeitet und damit gehören in den inzwischen aktuellen Version von Anfang Februar 2019 auch alle Rechteprobleme der Vergangenheit. ioBroker läuft damit nicht mehr als "root" sondern unter einem eigenen User der alles darf was er für die aktuellen ioBroker Adapter können muss.\nFür alle neuen Installation ist also alles bestens.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2019_02_22</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2019_02_22</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Fri, 22 Feb 2019 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Cloud-Adapter-Version]]></title>
+            <description><![CDATA[
+                <p>Es wurde die neue Cloud-Adapter-Version vorbereitet.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2018_03_17</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2018_03_17</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 17 Mar 2018 06:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

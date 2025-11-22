@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { HeroSection } from './sections/HeroSection/HeroSection';
 import Divider from '../../components/Divider/Divider';

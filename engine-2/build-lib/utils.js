@@ -13,7 +13,7 @@ const BADGES = [
     'codacy.com',
     'iobroker.live',
     'greenkeeper.io',
-    'nodei.co'
+    'nodei.co',
 ];
 
 function getFileHash(text) {
@@ -25,17 +25,17 @@ function queuePromises(promises, cb) {
         cb && cb();
     } else {
         const task = promises.shift();
-        task
-            .catch(error => console.error('Cannot process task: ' + error))
-            .then(() =>
-                setTimeout(() =>
-                    queuePromises(promises, cb), 100))
+        task.catch(error => console.error('Cannot process task: ' + error)).then(() =>
+            setTimeout(() => queuePromises(promises, cb), 100),
+        );
     }
 }
 
 function extractHeader(text) {
     const attrs = {};
-    if (text === undefined || text === null) return ;
+    if (text === undefined || text === null) {
+        return;
+    }
     if (text.substring(0, 3) === '---') {
         const pos = text.substring(3).indexOf('\n---');
         if (pos !== -1) {
@@ -71,11 +71,11 @@ function extractHeader(text) {
 function trim(text, char) {
     char = char || ' ';
     // remove leading \n
-    while(text && text[0] === char) {
+    while (text && text[0] === char) {
         text = text.substring(1);
     }
     // remove trailing \n
-    while(text && text[text.length - 1] ===char) {
+    while (text && text[text.length - 1] === char) {
         text = text.substring(0, text.length - 1);
     }
     return text;
@@ -109,7 +109,7 @@ function addHeader(text, header) {
 
 function createDir(dir) {
     try {
-        !fs.existsSync(dir) && fs.mkdirSync(dir, {recursive: true});
+        !fs.existsSync(dir) && fs.mkdirSync(dir, { recursive: true });
     } catch (e) {
         console.error(`Try to create a directory: ${dir}`);
         console.error(`Try to create a directory: ${e.toString()}`);
@@ -199,22 +199,36 @@ function extractLicenseAndChangelog(text) {
             newLines.push(line);
         }
     });
-    while (newLines.length && !newLines[0].trim()) newLines.shift();
-    while (newLines.length && !newLines[newLines.length - 1].trim()) newLines.pop();
+    while (newLines.length && !newLines[0].trim()) {
+        newLines.shift();
+    }
+    while (newLines.length && !newLines[newLines.length - 1].trim()) {
+        newLines.pop();
+    }
 
-    while (changelog.length && !changelog[0].trim()) changelog.shift();
-    while (changelog.length && !changelog[changelog.length - 1].trim()) changelog.pop();
+    while (changelog.length && !changelog[0].trim()) {
+        changelog.shift();
+    }
+    while (changelog.length && !changelog[changelog.length - 1].trim()) {
+        changelog.pop();
+    }
 
-    while (license.length && !license[0].trim()) license.shift();
-    while (license.length && !license[license.length - 1].trim()) license.pop();
+    while (license.length && !license[0].trim()) {
+        license.shift();
+    }
+    while (license.length && !license[license.length - 1].trim()) {
+        license.pop();
+    }
 
-    return {body: newLines.join('\n'), license: license.join('\n'), changelog: changelog.join('\n')};
+    return { body: newLines.join('\n'), license: license.join('\n'), changelog: changelog.join('\n') };
 }
 
 function addChangelogAndLicense(body, changelog, license) {
-    return body.trim().replace(/\n+$/, '') +
+    return (
+        body.trim().replace(/\n+$/, '') +
         (changelog ? '\n\n' + changelog.trim().replace(/\n+$/, '') : '') +
-        (license ? '\n\n' + license.trim().replace(/\n+$/, '') : '');
+        (license ? '\n\n' + license.trim().replace(/\n+$/, '') : '')
+    );
 }
 
 function getAllFiles(root, onlyMd, _result) {
@@ -242,8 +256,7 @@ function extractBadges(body) {
             if (m && m.length === 3) {
                 let alt = m[1];
                 let link = m[2];
-                if (link.toLowerCase().match(/^https?:\/\//) &&
-                    BADGES.find(badge => link.includes(badge))) {
+                if (link.toLowerCase().match(/^https?:\/\//) && BADGES.find(badge => link.includes(badge))) {
                     badges[alt] = link;
                     body = body.replace(image, '--delete--');
                 }
@@ -260,11 +273,11 @@ function extractBadges(body) {
     }
     body = lines.join('\n').trim();
 
-    return {body, badges};
+    return { body, badges };
 }
 
 function addBadgesToBody(body, badges) {
-    if (!badges  || !Object.keys(badges).length) {
+    if (!badges || !Object.keys(badges).length) {
         return body;
     }
     const lines = body.split('\n');
@@ -276,8 +289,7 @@ function addBadgesToBody(body, badges) {
 
     lines.splice(i, 0, '');
 
-    Object.keys(badges).map((badge, j) =>
-        lines.splice(i + j + 1, 0, `![${badge}](${badges[badge]})`));
+    Object.keys(badges).map((badge, j) => lines.splice(i + j + 1, 0, `![${badge}](${badges[badge]})`));
 
     if (lines[i + 1 + Object.keys(badges).length]) {
         lines.splice(i + 1 + Object.keys(badges).length, 0, '');
@@ -339,7 +351,7 @@ function replaceImages(body, prefix, noBadges) {
         });
     }
 
-    return {body, doDownload, badges};
+    return { body, doDownload, badges };
 }
 
 // de/adapterref/iobroker.ping/../../../en/adapterref/iobroker.ping/admin/ping.png
@@ -374,5 +386,5 @@ module.exports = {
     addBadgesToBody,
     replaceImages,
     normalizePath,
-    trim
+    trim,
 };

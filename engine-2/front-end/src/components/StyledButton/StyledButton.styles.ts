@@ -25,9 +25,8 @@ export const useStyles = makeStyles()(theme => ({
         fontFamily: 'Audiowide, sans-serif',
         letterSpacing: '-3%',
         color: theme.palette.mode === 'light' ? '#FFFFFF' : theme.palette.text.secondary,
-         [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('md')]: {
             fontSize: '16px',
         },
     },
-    
 }));

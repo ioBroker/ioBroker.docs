@@ -1,6 +1,6 @@
 import { makeStyles } from '../../theme';
 
-export const useStyles = makeStyles()((theme) => ({
+export const useStyles = makeStyles()(theme => ({
     pageWrapper: {
         width: '100%',
         overflow: 'hidden',
@@ -31,33 +31,35 @@ export const useStyles = makeStyles()((theme) => ({
             transform: 'translate(-50%, -50%)',
             width: '900px',
             height: '900px',
-            background: theme.palette.mode === 'dark'
-                ? 'radial-gradient(circle, rgba(0, 88, 148, 0.8) 0%, rgba(255, 255, 255, 0) 55%)'
-                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(circle, rgba(0, 88, 148, 0.8) 0%, rgba(255, 255, 255, 0) 55%)'
+                    : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
             zIndex: -1,
             [theme.breakpoints.down('md')]: {
-                 top: '98%',
-                 left: '50%',
-                 width: '800px',
-                 height: '200px', 
-                   background: theme.palette.mode === 'dark'
-                ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.2) 0%, rgba(255, 255, 255, 0) 55%)'
-                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+                top: '98%',
+                left: '50%',
+                width: '800px',
+                height: '200px',
+                background:
+                    theme.palette.mode === 'dark'
+                        ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.2) 0%, rgba(255, 255, 255, 0) 55%)'
+                        : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            },
         },
-        }
     },
     title: {
         width: '100%',
         maxWidth: '1311px',
         textAlign: 'left',
-         [theme.breakpoints.down('md')]: {
-              textAlign: 'center',
+        [theme.breakpoints.down('md')]: {
+            textAlign: 'center',
         },
         [theme.breakpoints.down('sm')]: {
-             width: 364,
-             margin: '0 auto',
-             textAlign: 'left',
+            width: 364,
+            margin: '0 auto',
+            textAlign: 'left',
         },
     },
     subtitle: {
@@ -161,7 +163,7 @@ export const useStyles = makeStyles()((theme) => ({
             marginTop: 60,
             marginBottom: 20,
             fontWeight: 300,
-        }
+        },
     },
     cardTitle: {
         fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
@@ -169,8 +171,8 @@ export const useStyles = makeStyles()((theme) => ({
         fontSize: '32px',
         textTransform: 'uppercase',
         [theme.breakpoints.down('md')]: {
-            fontSize: 20
-        }
+            fontSize: 20,
+        },
     },
     cardIcon: {
         fontSize: '32px',
@@ -248,16 +250,16 @@ export const useStyles = makeStyles()((theme) => ({
         },
     },
     imageTextHeader: {
-        fontFamily: "Saira",
+        fontFamily: 'Saira',
         fontWeight: 600,
         fontSize: 24,
         letterSpacing: '-0.03em',
         [theme.breakpoints.down('md')]: {
-            fontWeight: 500
+            fontWeight: 500,
         },
     },
     imageText: {
-        fontFamily: "Saira",
+        fontFamily: 'Saira',
         fontWeight: 400,
         color: theme.palette.text.primary,
         fontSize: 18,
@@ -293,7 +295,7 @@ export const useStyles = makeStyles()((theme) => ({
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
             marginTop: 40,
-            height: 237
+            height: 237,
         },
     },
     detailsText: {
@@ -326,7 +328,7 @@ export const useStyles = makeStyles()((theme) => ({
         fontWeight: 400,
         color: theme.palette.text.primary,
         [theme.breakpoints.down('md')]: {
-            opacity: '0.5'
+            opacity: '0.5',
         },
     },
     cardContent: {
@@ -335,7 +337,7 @@ export const useStyles = makeStyles()((theme) => ({
         flex: 1,
         justifyContent: 'space-between',
         [theme.breakpoints.down('md')]: {
-            gap: 60
+            gap: 60,
         },
     },
     cardActions: {

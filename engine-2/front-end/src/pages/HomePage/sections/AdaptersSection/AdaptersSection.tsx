@@ -28,7 +28,6 @@ import icon20 from '../../../../assets/img/image_428.svg';
 import icon21 from '../../../../assets/img/image_429.svg';
 import icon22 from '../../../../assets/img/image_430.svg';
 
-
 interface AdapterIcon {
     src: string;
     width: number;
@@ -46,7 +45,6 @@ export const AdaptersSection: React.FC = () => {
             return sum + (category?.pages ? Object.keys(category.pages).length : 0);
         }, 0);
     }, [adapters]);
-
 
     const adapterIcons: AdapterIcon[] = [
         { src: icon1, width: 48, height: 48, alt: 'Alexa' },
@@ -97,7 +95,10 @@ export const AdaptersSection: React.FC = () => {
                     className={`${classes.adapterColumn} ${shouldOffset ? classes.offsetColumn : ''}`}
                 >
                     {columnIcons.map((icon, itemIndex) => (
-                        <Box key={itemIndex} className={classes.adapterIcon}>
+                        <Box
+                            key={itemIndex}
+                            className={classes.adapterIcon}
+                        >
                             {icon.src ? (
                                 <img
                                     src={icon.src}
@@ -113,47 +114,59 @@ export const AdaptersSection: React.FC = () => {
     };
 
     return (
-        <Box component="section" className={classes.adaptersSection}>
+        <Box
+            component="section"
+            className={classes.adaptersSection}
+        >
             <Box className={classes.container}>
                 <Box className={classes.adaptersContent}>
                     <Box className={classes.adaptersTextSection}>
                         <SectionTitle>ADAPTER</SectionTitle>
-                        <Typography paragraph sx={{ mt: 2 }} className={classes.adaptersText}>
-                            /* sind die Schnittstellen zu verschiedenen Geräten, Diensten und Technologien. Ein Adapter fungiert dabei wie
-                            ein "Übersetzer", der Daten von einem spezifischen Gerät oder Protokoll in ein standardisiertes Format bringt, das ioBroker
-                            versteht. Gleichzeitig ermöglicht er, dass Befehle von ioBroker an die Geräte oder Dienste weitergegeben werden können. */
+                        <Typography
+                            paragraph
+                            sx={{ mt: 2 }}
+                            className={classes.adaptersText}
+                        >
+                            /* sind die Schnittstellen zu verschiedenen Geräten, Diensten und Technologien. Ein Adapter
+                            fungiert dabei wie ein "Übersetzer", der Daten von einem spezifischen Gerät oder Protokoll
+                            in ein standardisiertes Format bringt, das ioBroker versteht. Gleichzeitig ermöglicht er,
+                            dass Befehle von ioBroker an die Geräte oder Dienste weitergegeben werden können. */
                         </Typography>
                         <Box className={classes.buttonWrapperDesktop}>
-                            <StyledButton sx={{
-                                height: '60px',
-                                width: '100%',
+                            <StyledButton
+                                sx={{
+                                    height: '60px',
+                                    width: '100%',
+                                    maxWidth: '867px',
+                                    padding: '10px 24px',
+                                    borderRadius: '10px',
+                                    position: 'relative',
+                                    zIndex: 1,
+                                }}
+                            >
+                                {totalAdapters}+ ADAPTER
+                            </StyledButton>
+                        </Box>
+                    </Box>
+                    <Box className={classes.adaptersGrid}>
+                        <Box className={classes.desktopGrid}>{renderGrid(columnsDesktop, false)}</Box>
+                        <Box className={classes.mobileGrid}>{renderGrid(columnsMobile, true)}</Box>
+                    </Box>
+                    <Box className={classes.buttonWrapperMobile}>
+                        <Box className={classes.buttonGlow} />
+                        <StyledButton
+                            sx={{
+                                height: { sm: '44px', xs: '44px' },
+                                width: { sm: '500px', xs: '368px' },
                                 maxWidth: '867px',
                                 padding: '10px 24px',
                                 borderRadius: '10px',
                                 position: 'relative',
                                 zIndex: 1,
-                            }}>{totalAdapters}+ ADAPTER</StyledButton>
-                        </Box>
-                    </Box>
-                    <Box className={classes.adaptersGrid}>
-                        <Box className={classes.desktopGrid}>
-                            {renderGrid(columnsDesktop, false)}
-                        </Box>
-                        <Box className={classes.mobileGrid}>
-                            {renderGrid(columnsMobile, true)}
-                        </Box>
-                    </Box>
-                    <Box className={classes.buttonWrapperMobile}>
-                        <Box className={classes.buttonGlow} />
-                        <StyledButton sx={{
-                            height: { sm: '44px', xs: '44px' },
-                            width: { sm: '500px', xs: '368px' },
-                            maxWidth: '867px',
-                            padding: '10px 24px',
-                            borderRadius: '10px',
-                            position: 'relative',
-                            zIndex: 1,
-                        }}>{totalAdapters}+ ADAPTER</StyledButton>
+                            }}
+                        >
+                            {totalAdapters}+ ADAPTER
+                        </StyledButton>
                     </Box>
                 </Box>
             </Box>

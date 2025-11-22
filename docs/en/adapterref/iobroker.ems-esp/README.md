@@ -46,7 +46,7 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 
 ### **WORK IN PROGRESS**
 * dependabot updates 
-
+* update error message for ems-esp gateway 
 
 ### 6.0.2 (2025-11-01)
 * increase axios timeout for km200 reads

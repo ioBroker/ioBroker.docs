@@ -23,6 +23,12 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.18.6 (2025-11-21)
+* (BenAhrdt) set role color to entity_category config
+
+### 1.18.5 (2025-11-21)
+* (BenAhrdt) add mixed to type text for color values
+
 ### 1.18.4 (2025-11-08)
 * (BenAhrdt) Change unique id for lorawan internal standard states
 * (BenAhrdt) Change sequence of dicovery and check downlinks at startup

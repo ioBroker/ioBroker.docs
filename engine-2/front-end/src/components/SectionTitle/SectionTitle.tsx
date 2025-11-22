@@ -10,5 +10,13 @@ interface SectionTitleProps {
 
 export const SectionTitle: React.FC<SectionTitleProps> = ({ children, sx }) => {
     const { classes } = useStyles();
-    return <Typography variant="h4" className={classes.sectionTitle} sx={sx}>// {children}</Typography>;
+    return (
+        <Typography
+            variant="h4"
+            className={classes.sectionTitle}
+            sx={sx}
+        >
+            // {children}
+        </Typography>
+    );
 };

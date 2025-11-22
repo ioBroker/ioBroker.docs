@@ -1,6 +1,5 @@
 import { makeStyles } from '../../../../theme';
 
-
 export const useStyles = makeStyles()(theme => ({
     container: {
         width: '100%',
@@ -105,7 +104,7 @@ export const useStyles = makeStyles()(theme => ({
             textAlign: 'right',
             width: '290px',
             marginBottom: '66px',
-            textIndent: '4em'
+            textIndent: '4em',
         },
     },
     installButton: {
@@ -122,7 +121,7 @@ export const useStyles = makeStyles()(theme => ({
             flexDirection: 'row',
             alignItems: 'start',
             height: '48px',
-            gap: '16px'
+            gap: '16px',
         },
     },
     supportIconsWrapper: {
@@ -138,7 +137,7 @@ export const useStyles = makeStyles()(theme => ({
         marginRight: 32,
         [theme.breakpoints.down('md')]: {
             marginBottom: '24px',
-            display: 'none'
+            display: 'none',
         },
     },
 
@@ -149,7 +148,7 @@ export const useStyles = makeStyles()(theme => ({
             width: '400px',
         },
         [theme.breakpoints.down('md')]: {
-            display: 'none'
+            display: 'none',
         },
     },
 
@@ -158,9 +157,8 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('md')]: {
             display: 'block',
             marginBottom: '15px',
-            marginLeft: '30px'
+            marginLeft: '30px',
         },
-
     },
     smallHousesImage: {
         display: 'none',
@@ -187,7 +185,7 @@ export const useStyles = makeStyles()(theme => ({
         justifyContent: 'flex-end',
         [theme.breakpoints.down('md')]: {
             justifyContent: 'center',
-            gap: '16px'
+            gap: '16px',
         },
     },
     supportIconAmazon: {
@@ -241,7 +239,7 @@ export const useStyles = makeStyles()(theme => ({
         height: '26px',
         [theme.breakpoints.down('md')]: {
             width: '24px',
-            height: '30px'
+            height: '30px',
         },
     },
     amazonIconImage: {
@@ -249,7 +247,7 @@ export const useStyles = makeStyles()(theme => ({
         height: '40px',
         [theme.breakpoints.down('md')]: {
             width: '36px',
-            height: '37px'
+            height: '37px',
         },
     },
 }));

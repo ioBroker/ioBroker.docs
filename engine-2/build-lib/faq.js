@@ -25,7 +25,10 @@ function replaceImages(body, fileFolder, mediaFolder) {
                     }
                     const newFileName = `${path.basename(fileFolder)}_${link.replace(/\\/g, '_').replace(/\//g, '_').replace(/\.\._/g, '')}`;
                     if (fs.existsSync(path.join(fileFolder, link))) {
-                        fs.writeFileSync(path.join(mediaFolder, newFileName), fs.readFileSync(path.join(fileFolder, link)));
+                        fs.writeFileSync(
+                            path.join(mediaFolder, newFileName),
+                            fs.readFileSync(path.join(fileFolder, link)),
+                        );
                     }
                     body = body.replace(image, `![${alt}](${lang}/faq/media/${newFileName})`);
                 }
@@ -56,7 +59,10 @@ function replaceImages(body, fileFolder, mediaFolder) {
                     }
                     const newFileName = `${path.basename(fileFolder)}_${link.replace(/\\/g, '_').replace(/\//g, '_').replace(/\.\._/g, '')}`;
                     if (fs.existsSync(path.join(fileFolder, link))) {
-                        fs.writeFileSync(path.join(mediaFolder, newFileName), fs.readFileSync(path.join(fileFolder, link)));
+                        fs.writeFileSync(
+                            path.join(mediaFolder, newFileName),
+                            fs.readFileSync(path.join(fileFolder, link)),
+                        );
                     }
                     const newImage = image.replace(link, `${lang}/faq/media/${newFileName}`);
                     body = body.replace(image, newImage);
@@ -69,7 +75,8 @@ function replaceImages(body, fileFolder, mediaFolder) {
 }
 
 function processFolder(folder, lang) {
-    const files = fs.readdirSync(folder)
+    const files = fs
+        .readdirSync(folder)
         .filter(name => !name.startsWith('_') && name !== 'README.md' && name.endsWith('.md'))
         .sort();
 
@@ -101,8 +108,9 @@ function processFolder(folder, lang) {
 function processFiles(root, lang) {
     root = root.replace(/\\/g, '/');
     if (!lang) {
-        return Promise.all(consts.LANGUAGES.map(lang =>
-            processFiles(path.join(root, lang, 'faq').replace(/\\/g, '/'), lang, root)));
+        return Promise.all(
+            consts.LANGUAGES.map(lang => processFiles(path.join(root, lang, 'faq').replace(/\\/g, '/'), lang, root)),
+        );
     } else {
         fs.readdirSync(root).map(name => {
             const folderName = path.join(root, name).replace(/\\/g, '/');
@@ -111,7 +119,10 @@ function processFiles(root, lang) {
                 if (IGNORE.indexOf(folderName.replace(root, '')) === -1) {
                     processFolder(folderName, lang);
                 } else {
-                    fs.writeFileSync(`${path.join(consts.FRONT_END_DIR, lang, 'faq', name)}.md`, fs.readFileSync(folderName));
+                    fs.writeFileSync(
+                        `${path.join(consts.FRONT_END_DIR, lang, 'faq', name)}.md`,
+                        fs.readFileSync(folderName),
+                    );
                 }
             }
         });

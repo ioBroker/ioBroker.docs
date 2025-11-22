@@ -31,10 +31,10 @@ export const useStyles = makeStyles()(theme => ({
         overflow: 'visible',
         zIndex: 1,
         [theme.breakpoints.down('md')]: {
-            padding: '100px 0 100px 0'
+            padding: '100px 0 100px 0',
         },
         [theme.breakpoints.down('md')]: {
-            padding: '100px 0 50px 0'
+            padding: '100px 0 50px 0',
         },
     },
     historySection: {
@@ -63,7 +63,7 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.up('md')]: {
             marginBottom: theme.spacing(2),
             alignItems: 'flex-start',
-        }
+        },
     },
 
     plusJahreWrapper: {
@@ -74,7 +74,7 @@ export const useStyles = makeStyles()(theme => ({
             alignItems: 'start',
             justifyContent: 'space-between',
             marginLeft: theme.spacing(1.5),
-        }
+        },
     },
     historyNumber: {
         lineHeight: 1,
@@ -149,7 +149,7 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('sm')]: {
             fontSize: '32px',
             marginLeft: '4px',
-            maxWidth: '352px'
+            maxWidth: '352px',
         },
     },
     historyText: {
@@ -169,7 +169,7 @@ export const useStyles = makeStyles()(theme => ({
             marginTop: '64px',
             fontSize: '20px',
             textAlign: 'left',
-            letterSpacing: '-0.02em'
-        }
-    }
+            letterSpacing: '-0.02em',
+        },
+    },
 }));

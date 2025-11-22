@@ -1,6 +1,6 @@
 import { makeStyles } from '../../theme';
 
-export const useFooterStyles = makeStyles()((theme) => ({
+export const useFooterStyles = makeStyles()(theme => ({
     root: {
         width: '100%',
         backgroundColor: theme.palette.background.default,
@@ -101,14 +101,14 @@ export const useFooterStyles = makeStyles()((theme) => ({
     supportText: {
         textAlign: 'center',
         [theme.breakpoints.down('sm')]: {
-            display: 'none'
+            display: 'none',
         },
     },
     supportTextMobile: {
         display: 'none',
         [theme.breakpoints.down('sm')]: {
             display: 'inline-block',
-            fontSize: '12px'
+            fontSize: '12px',
         },
     },
     donateButtons: {
@@ -150,7 +150,7 @@ export const useFooterStyles = makeStyles()((theme) => ({
         alignItems: 'center',
         gap: 103,
         [theme.breakpoints.down('md')]: {
-             gap: 16,
+            gap: 16,
         },
         [theme.breakpoints.down('sm')]: {
             alignItems: 'start',

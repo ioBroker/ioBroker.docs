@@ -1,0 +1,299 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[ ioBroker Blog ]]></title>
+        <description><![CDATA[有关ioBroker的新闻，公告和想法]]></description>
+        <link>https://www.iobroker.net/#zh-cn/blog</link>
+        <lastBuildDate>Wed, 24 Sep 2025 06:00:00 GMT</lastBuildDate>
+        <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[ioBroker 月度回顾 – 2025 年 9 月]]></title>
+            <description><![CDATA[
+                <p>夏天即将结束，过去几个月，ioBroker 世界发生了很多事情。\n许多新的适配器已经发布，其中一些已经进入稳定存储库，还有几个已在最新的存储库中可用，等待您进行测试。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2025_09_24</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2025_09_24</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 24 Sep 2025 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker 亮相索林根 2025 智能生活论坛]]></title>
+            <description><![CDATA[
+                <p>第二届智能生活论坛于 2025 年 6 月 14 日在索林根举行。\n正如之前宣布的那样，ioBroker 今年再次积极参与其中。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2025_06_17</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2025_06_17</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 17 Jun 2025 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[💻 ioBroker 月度回顾 – 2025 年 4 月]]></title>
+            <description><![CDATA[
+                <p>欢迎阅读本期月度回顾！ 2025年4月，ioBroker世界又发生了很多事。\n新的适配器已经发布，现有的适配器已经得到改进，并且我们系统的基础 - js-controller - 已经更新。\n让我们详细了解一下所有新功能。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2025_04_26</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2025_04_26</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 26 Apr 2025 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[智能家居的更高级别 - ioBroker 现在支持 Matter！]]></title>
+            <description><![CDATA[
+                <p>自 2025 年初以来，ioBroker 一直致力于将智能家居提升到一个新的水平：全新 Matter 适配器来了！经过两年多的密集开发工作，ioBroker 现已为面向未来的智能家居标准 **Matter** 做好了准备——这对于所有想要跨制造商、尤其是在本地联网设备的人来说都是一个巨大的飞跃。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2025_04_04</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2025_04_04</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Fri, 04 Apr 2025 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker 新闻 – 2025 年春季 🌼]]></title>
+            <description><![CDATA[
+                <p>欢迎来到 ioBroker 2025 年春季更新！过去几周，ioBroker 领域发生了很多事情。\n新的适配器通过令人兴奋的集成扩展了平台，现有组件已通过有用的功能得到改进 - 并且社区仍然活跃且富有创造力。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2025_03_29</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2025_03_29</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 29 Mar 2025 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[2024年年度回顾]]></title>
+            <description><![CDATA[
+                <p>亲爱的ioBroker社区，今年即将结束，我们想借此机会衷心感谢大家。\n十多年来，您的想法、创造力和对 ioBroker 的热情使该项目脱颖而出并不断发展。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2024_12_22</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_12_22</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 22 Dec 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker 每月更新 - 2024 年 12 月 🎄]]></title>
+            <description><![CDATA[
+                <p>欢迎来到 2024 年最后一期！我们要感谢今年推动该项目前进的所有开发人员、测试人员和用户。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2024_12_21</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_12_21</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 21 Dec 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker十周年社区会议回顾]]></title>
+            <description><![CDATA[
+                <p>2024 年 11 月 9 日，时机终于到来：第一次大型 ioBroker 社区会议在索林根的“Gläserne Workshop”举行。几个月的精心策划和组织得到了回报——活动取得了圆满成功。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2024_11_23</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_11_23</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 23 Nov 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker 新闻 – 2024 年 8 月和 9 月]]></title>
+            <description><![CDATA[
+                <p>夏天过去了，秋天带着新鲜的活力进入秋天。尽管过去几个月事情比较安静，因为许多开发人员正在享受应得的假期，但我们仍然想向您介绍一些更新和新适配器。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2024_10_01</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_10_01</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 01 Oct 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[TR: RoundUp Juni 2024. Neuer Monat, neue ioBroker-Features!]]></title>
+            <description><![CDATA[
+                <p>TR: #  RoundUp Juni 2024. Neuer Monat, neue ioBroker-Features!\nTR: In diesem Blogbeitrag werfen wir einen Blick auf die Neuerungen, Updates und News rund um ioBroker im Juni 2024: js-controller 6.0 in beta, neue Widgets, Änderungen in admin 7.0, neue Adapter (waterkotte-easycon, hiob, notificationforandroidtv, gree-hvac), neue App, neue YouTube -Videos.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2024_06_30</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_06_30</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 30 Jun 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[TR: ioBroker JavaScript-Adapter - Verbesserungen April-Mai 2024]]></title>
+            <description><![CDATA[
+                <p>TR: # ioBroker JavaScript-Adapter: Verbesserungen April-Mai 2024\nTR: Diese Zusammenfassung enthält die wichtigsten Änderungen des JavaScript-Adapters ab Version 8.0.0.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2024_06_04</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_06_04</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 04 Jun 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[TR: May 2024 Update - Latest News and Developments in ioBroker]]></title>
+            <description><![CDATA[
+                <p>TR: # May 2024 Update: Latest News and Developments in ioBroker\nTR: Hello, ioBroker community!</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2024_06_02</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_06_02</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 02 Jun 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[TR: A Roundup Part 2 - from December 2023 to February 2024]]></title>
+            <description><![CDATA[
+                <p>TR: # A Roundup Part 2: from December 2023 to February 2024\nTR: *An overview of new adapters, and features in ioBroker*.\nExploring Further: This blog highlights additional adapters and features released during this period.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2024_05_12</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_05_12</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 12 May 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[TR: A Roundup Part 1 - from October 2023 to November 2023]]></title>
+            <description><![CDATA[
+                <p>TR: # A Roundup Part 1: from October 2023 to November 2023\nTR: *A "better late than never" review of the ioBroker news, adapters, and features*.\nIn the ever-evolving world of home automation, ioBroker remains present with a series of updates and additions from October 2023 to February 2024.\nLet's take a closer look at some of the advances introduced during this time, although this blog post is a little late.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2024_04_23</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_04_23</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 23 Apr 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[2024 年 2 月至 4 月新适配器和功能汇总]]></title>
+            <description><![CDATA[
+                <p>这篇博文全面概述了 2024 年 2 月至 4 月期间 ioBroker 中引入的新适配器和功能，旨在为所有技术背景的用户提供基本信息。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2024_04_21</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_04_21</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 21 Apr 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[来自 ioBroker 的新闻（2023 年 8 月至 9 月）]]></title>
+            <description><![CDATA[
+                <p>在这篇博文中，我们将了解 2023 年 8 月和 9 月为 ioBroker 发布的一些新适配器和新功能。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2023_09_16</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2023_09_16</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 16 Sep 2023 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[2023 年 2 月开发会议]]></title>
+            <description><![CDATA[
+                <p>## JS Controller 4.0.24 和 Node.js 18：更新是值得的</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2023_02_15</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2023_02_15</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 15 Feb 2023 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[二月开发会议]]></title>
+            <description><![CDATA[
+                <p>亲爱的社区，双日快乐（2/22/22），上个月 ioBroker 又发生了很多事情。经过长时间的开发，新的 js-controller 4.0（发布名称“Isabelle”）在 Beta/Latest Repository 中可用。除了一些优化和改进之外，这个版本的主要重点是性能改进。\n此外，还有来自开发者会议及以后的进一步消息，我们在这里为您总结了这些消息。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2022_02_16</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2022_02_16</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 16 Feb 2022 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[开发者社区会议 1 月]]></title>
+            <description><![CDATA[
+                <p>新的一年刚刚开始，我们今年的第一次会议已经召开。 ioBroker 团队祝大家新年快乐，2022 年将是家庭自动化的丰收年。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2022_01_19</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2022_01_19</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 19 Jan 2022 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[开发者社区会议 12 月]]></title>
+            <description><![CDATA[
+                <p>尊敬的 ioBroker 用户，应广大用户的要求，我们决定在博客上发布我们开发者会议的结果。将来，我们将每月至少创建一个新条目。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2021_12_15</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2021_12_15</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 15 Dec 2021 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[圣诞优惠]]></title>
+            <description><![CDATA[
+                <p>为响应大众的要求，从2020年12月8日中午12:00到2021年1月10日晚上11点左右，将再提供一个圣诞节，用于助理和云/远程访问许可证。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2020_12_06</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2020_12_06</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 06 Dec 2020 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[IOB服务器]]></title>
+            <description><![CDATA[
+                <p>您好ioBroker社区，</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2020_05_12</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2020_05_12</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 12 May 2020 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[js-controller 2.0]]></title>
+            <description><![CDATA[
+                <p>您好ioBroker社区，</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2019_10_14</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2019_10_14</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Mon, 14 Oct 2019 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Windows安装程序]]></title>
+            <description><![CDATA[
+                <p>今天我们在Windows机器上有关于ioBroker的信息，以及TeamSpeak社区的更新。\n此外，我们还概述了新的可视化适配器。好奇。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2019_06_12</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2019_06_12</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 12 Jun 2019 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[新的ioBroker网站]]></title>
+            <description><![CDATA[
+                <p>今天我们有关于ioBroker网站的新闻，新的** js-controller ** 1.5.12以及管理和信息适配器的改进。\n也不应该缺少一些新的适配器。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2019_06_11</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2019_06_11</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 11 Jun 2019 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker时事通讯2019年2月]]></title>
+            <description><![CDATA[
+                <p>今天还有一些ioBroker新闻：论坛转换已经发生，新论坛在线。新的js-controller 1.5.7现在可用于最新存储库中的高级测试，并且已发布安装程序修复程序以将现有安装与新安装相同。当然，我们也有关于Tanker King适配器和一些新适配器的重要信息。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2019_02_27</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2019_02_27</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 27 Feb 2019 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[最新存储库中提供了js-controller 1.5.7]]></title>
+            <description><![CDATA[
+                <p>经过一些延迟和许多密集测试以及社区和论坛的大力支持，我们很高兴发布下一版本的js-controller，供所有感兴趣的用户进行官方进一步测试。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2019_02_25</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2019_02_25</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Mon, 25 Feb 2019 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker安装“Fixer”测试版可用]]></title>
+            <description><![CDATA[
+                <p>在2018年底，尤其是2019年1月，@ AlCalzone彻底改造了ioBroker安装程序，这意味着在2019年2月初的最新版本中，所有权利问题都已成为过去。 ioBroker不再以“root”身份运行，而是以其自己的用户身份运行，他们可以为当前的ioBroker适配器做任何他需要的事情。\n所有新装置都可以。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2019_02_22</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2019_02_22</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Fri, 22 Feb 2019 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[云适配器版本]]></title>
+            <description><![CDATA[
+                <p>已经准备了新的云适配器版本。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2018_03_17</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2018_03_17</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 17 Mar 2018 06:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

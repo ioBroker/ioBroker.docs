@@ -1,28 +1,56 @@
 {
-  "name": "docs-backend",
-  "version": "1.0.0",
-  "private": true,
-  "optionalDependencies": {
-    "x509": "^0.3.4"
-  },
-  "dependencies": {
-    "body-parser": "^1.20.3",
-    "express": "^4.21.2",
-    "express-brute": "^1.0.1",
-    "minisearch": "^7.1.1",
-    "cors": "^2.8.5"
-  },
-  "devDependencies": {
-    "@google-cloud/translate": "^8.5.0",
-    "@iobroker/build-tools": "^2.0.14",
-    "@iobroker/eslint-config": "^1.0.0",
-    "gulp": "^4.0.2",
-    "axios": "^1.7.9"
-  },
-  "scripts": {
-    "start": "node main",
-    "build-all": "gulp",
-    "update-packages": "npx -y npm-check-updates --upgrade && cd front-end && npx -y npm-check-updates --upgrade && cd ..",
-    "npm": "npm i && cd front-end && npm i -f && cd .."
-  }
+    "name": "docs-backend",
+    "version": "1.0.0",
+    "private": true,
+    "optionalDependencies": {
+        "x509": "^0.3.4"
+    },
+    "dependencies": {
+        "body-parser": "^2.2.0",
+        "cors": "^2.8.5",
+        "express": "^4.21.2",
+        "express-brute": "^1.0.1",
+        "minisearch": "^7.2.0"
+    },
+    "main": "build/main.js",
+    "devDependencies": {
+        "@google-cloud/translate": "^8.5.0",
+        "@iobroker/build-tools": "^2.0.15",
+        "@iobroker/eslint-config": "^2.2.0",
+        "@types/body-parser": "^1.19.6",
+        "@types/cors": "^2.8.19",
+        "@types/express": "^4.17.25",
+        "@types/express-brute": "^1.0.6",
+        "axios": "^1.13.2",
+        "typescript": "^5.9.3"
+    },
+    "scripts": {
+        "start": "node main",
+        "build-all": "gulp",
+        "update-packages": "npx -y npm-check-updates --upgrade && cd front-end && npx -y npm-check-updates --upgrade && cd ..",
+        "npm": "npm i && cd front-end && npm i -f && cd ..",
+        "i18n=>flat": "node tasks --i18n=>flat",
+        "flat=>i18n": "node tasks --flat=>i18n",
+        "flat=>words.js": "node tasks --flat=>words.js",
+        "words.js=>flat": "node tasks --words.js=>flat",
+        "translate": "node tasks --translate",
+        "downloadAndSyncOne": "node tasks --downloadAndSyncOne",
+        "syncDocsTest": "node tasks --syncDocsTest",
+        "downloadAdapterTest": "node tasks --downloadAdapterTest",
+        "remove": "node tasks --remove",
+        "0.clean": "node tasks --0.clean",
+        "1.blog": "node tasks --1.blog",
+        "2.downloadAdapters": "node tasks --2.downloadAdapters",
+        "3.downloadJsonConfig": "node tasks --3.downloadJsonConfig",
+        "4.downloadVisCordova": "node tasks --4.downloadVisCordova",
+        "5.syncDocs": "node tasks --5.syncDocs",
+        "6.faq": "node tasks --6.faq",
+        "7.documentation": "node tasks --7.documentation",
+        "8.copyFiles": "node tasks --8.copyFiles",
+        "9.createSitemap": "node tasks --9.createSitemap",
+        "10.build": "node tasks --10.build",
+        "buildOnly": "node tasks --buildOnly",
+        "buildDocs": "node tasks",
+        "buildBackend": "tsc -p tsconfig.build.json"
+    }
 }

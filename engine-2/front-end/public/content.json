@@ -1,0 +1,796 @@
+{
+  "pages": {
+    "Welcome": {
+      "title": {
+        "en": "Welcome",
+        "de": "ioBroker Dokumentation",
+        "ru": "Документация ioBroker",
+        "zh-cn": "欢迎"
+      },
+      "content": "README.md"
+    },
+    "Fundamentals": {
+      "title": {
+        "en": "Fundamentals",
+        "de": "Grundlagen",
+        "ru": "Основы",
+        "zh-cn": "基础概念"
+      },
+      "pages": {
+        "Introduction": {
+          "title": {
+            "en": "Introduction",
+            "de": "ioBroker Grundlagen",
+            "ru": "Основы ioBroker",
+            "zh-cn": "ioBroker 基础知识"
+          },
+          "content": "basics/README.md"
+        },
+        "Architecture": {
+          "title": {
+            "en": "Architecture",
+            "de": "Architektur",
+            "ru": "Архитектура",
+            "zh-cn": "建筑学"
+          },
+          "content": "basics/architecture.md"
+        },
+        "Adapter & Instanzen": {
+          "title": {
+            "en": "Adapter & Instanzen",
+            "de": "Controller und Adapter",
+            "ru": "Контроллеры и адаптеры: строительные блоки от ioBroker",
+            "zh-cn": "控制器和适配器：ioBroker 的构建块"
+          },
+          "content": "basics/adapter.md"
+        },
+        "Repositories": {
+          "title": {
+            "en": "Repositories",
+            "de": "Was ist ein Repository?",
+            "ru": "Что такое репозиторий?",
+            "zh-cn": "什么是存储库？"
+          },
+          "content": "basics/repositories.md"
+        },
+        "States or Datapoints": {
+          "title": {
+            "en": "States or Datapoints",
+            "de": "States und Datenpunkte",
+            "ru": "Состояния и точки данных",
+            "zh-cn": "状态和数据点"
+          },
+          "content": "basics/states.md"
+        },
+        "Alias": {
+          "title": {
+            "en": "Alias",
+            "de": "Alias",
+            "ru": "No title",
+            "zh-cn": "no title"
+          },
+          "content": "basics/alias.md"
+        },
+        "Enums": {
+          "title": {
+            "en": "Enums",
+            "de": "Kategorien/Aufzählungen",
+            "ru": "Категории/списки",
+            "zh-cn": "类别/列表"
+          },
+          "content": "basics/enums.md"
+        },
+        "Roles": {
+          "title": {
+            "en": "Roles",
+            "de": "Rollen von Datenpunkten",
+            "ru": "Скользящие точки данных",
+            "zh-cn": "滚动数据点"
+          },
+          "content": "basics/roles.md"
+        },
+        "Glossary": {
+          "title": {
+            "en": "Glossary",
+            "de": "Begriffserklärungen",
+            "ru": "Пояснения к терминам",
+            "zh-cn": "术语解释"
+          },
+          "content": "basics/glossary.md"
+        }
+      }
+    },
+    "Installation": {
+      "title": {
+        "en": "Installation",
+        "de": "Installation",
+        "ru": "Установка",
+        "zh-cn": "安装系统"
+      },
+      "pages": {
+        "Requirements": {
+          "title": {
+            "en": "Requirements",
+            "de": "Anforderungen",
+            "ru": "Требования",
+            "zh-cn": "要求"
+          },
+          "content": "install/requirements.md"
+        },
+        "Virtualization platforms": {
+          "title": {
+            "en": "Virtualization platforms",
+            "de": "Virtualisierungsplattformen",
+            "ru": "Платформы виртуализации",
+            "zh-cn": "虚拟机安装"
+          },
+          "pages": {
+            "Proxmox": {
+              "title": {
+                "en": "Proxmox",
+                "de": "Proxmox",
+                "ru": "Проксмокс",
+                "zh-cn": "普罗克斯莫克斯"
+              },
+              "content": "install/proxmox.md"
+            },
+            "Docker": {
+              "title": {
+                "en": "Docker",
+                "de": "Docker",
+                "ru": "Установка",
+                "zh-cn": "泊坞窗"
+              },
+              "content": "install/docker.md"
+            }
+          }
+        },
+        "Manual installation": {
+          "title": {
+            "en": "Manual installation",
+            "de": "Manuelle Installation",
+            "ru": "Ручная установка",
+            "zh-cn": "手动安装"
+          },
+          "pages": {
+            "Node.js": {
+              "title": {
+                "en": "Node.js",
+                "de": "Node.js und npm",
+                "ru": "Node.js и npm",
+                "zh-cn": "Node.js 和 npm"
+              },
+              "content": "install/nodejs.md"
+            },
+            "Linux": {
+              "title": {
+                "en": "Linux",
+                "de": "Linux",
+                "ru": "Линукс",
+                "zh-cn": "Linux"
+              },
+              "content": "install/linux.md"
+            },
+            "Windows": {
+              "title": {
+                "en": "Windows",
+                "de": "Windows",
+                "ru": "Окна",
+                "zh-cn": "视窗"
+              },
+              "content": "install/windows.md"
+            },
+            "Adapter": {
+              "title": {
+                "en": "Adapter",
+                "de": "Adapter updaten",
+                "ru": "Обновить адаптер",
+                "zh-cn": "更新适配器"
+              },
+              "content": "install/updateadapter.md"
+            },
+            "Node.js & npm": {
+              "title": {
+                "en": "Node.js & npm",
+                "de": "Update NodeJS",
+                "ru": "Обновить NodeJS",
+                "zh-cn": "更新 NodeJS"
+              },
+              "content": "install/updatenode.md"
+            }
+          }
+        }
+      }
+    },
+    "Admin interface": {
+      "title": {
+        "en": "Admin interface",
+        "de": "Admin-Oberfläche",
+        "ru": "Интерфейс админки",
+        "zh-cn": "管理员界面"
+      },
+      "content": "admin/README.md",
+      "pages": {
+        "System settings": {
+          "title": {
+            "en": "System settings",
+            "de": "Systemeinstellungen",
+            "ru": "Системные настройки",
+            "zh-cn": "系统设置"
+          },
+          "content": "admin/settings.md"
+        },
+        "Admin-Overview": {
+          "title": {
+            "en": "Admin-Overview",
+            "de": "Übersicht",
+            "ru": "Обзор",
+            "zh-cn": "概述"
+          },
+          "content": "admin/overview.md"
+        },
+        "Adapter": {
+          "title": {
+            "en": "Adapter",
+            "de": "Adapter",
+            "ru": "Адаптер",
+            "zh-cn": "适配器"
+          },
+          "content": "admin/adapter.md"
+        },
+        "Instances": {
+          "title": {
+            "en": "Instances",
+            "de": "Instanzen",
+            "ru": "Экземпляры",
+            "zh-cn": "实例"
+          },
+          "content": "admin/instances.md"
+        },
+        "Objects": {
+          "title": {
+            "en": "Objects",
+            "de": "Objekte",
+            "ru": "Объекты",
+            "zh-cn": "对象"
+          },
+          "content": "admin/objects.md"
+        },
+        "Enumerations": {
+          "title": {
+            "en": "Enumerations",
+            "de": "Aufzählungen",
+            "ru": "Перечисления",
+            "zh-cn": "枚举"
+          },
+          "content": "admin/enums.md"
+        },
+        "Log": {
+          "title": {
+            "en": "Log",
+            "de": "Log",
+            "ru": "Бревно",
+            "zh-cn": "日志"
+          },
+          "content": "admin/log.md"
+        },
+        "User": {
+          "title": {
+            "en": "User",
+            "de": "Benutzer",
+            "ru": "Пользователь",
+            "zh-cn": "用户"
+          },
+          "content": "admin/users.md"
+        },
+        "Hosts": {
+          "title": {
+            "en": "Hosts",
+            "de": "Hosts",
+            "ru": "Хозяева",
+            "zh-cn": "主机"
+          },
+          "content": "admin/hosts.md"
+        },
+        "Manage adapters": {
+          "title": {
+            "en": "Manage adapters",
+            "de": "Adapter verwalten",
+            "ru": "Управление адаптерами",
+            "zh-cn": "管理适配器"
+          },
+          "content": "tutorial/adapter.md"
+        }
+      }
+    },
+    "Visualisations": {
+      "title": {
+        "en": "Visualisations",
+        "de": "Visualisierungen",
+        "ru": "Визуализация",
+        "zh-cn": "可视化页面"
+      },
+      "pages": {
+        "Vis": {
+          "title": {
+            "en": "Vis",
+            "de": "VIS",
+            "ru": "ВИС",
+            "zh-cn": "视觉系统"
+          },
+          "content": "viz/vis.md",
+          "pages": {
+            "Widgets": {
+              "title": {
+                "en": "Widgets",
+                "de": "Widgets",
+                "ru": "Виджеты",
+                "zh-cn": "小部件"
+              },
+              "pages": {
+                "Allgemeine Einstellungen": {
+                  "title": {
+                    "en": "Allgemeine Einstellungen",
+                    "de": "Widgets",
+                    "ru": "Виджеты",
+                    "zh-cn": "小部件"
+                  },
+                  "content": "viz/widgets.md"
+                },
+                "Widget sets": {
+                  "title": {
+                    "en": "Widget sets",
+                    "de": "Widgetsätze",
+                    "ru": "Наборы виджетов",
+                    "zh-cn": "小工具集"
+                  },
+                  "pages": {
+                    "Basic": {
+                      "title": {
+                        "en": "Basic",
+                        "de": "Basic",
+                        "ru": "Базовый",
+                        "zh-cn": "基本的"
+                      },
+                      "content": "viz/basic.md"
+                    },
+                    "Fancyswitch": {
+                      "title": {
+                        "en": "Fancyswitch",
+                        "de": "Fancyswitch",
+                        "ru": "Необычный переключатель",
+                        "zh-cn": "花式开关"
+                      },
+                      "content": "viz/fancyswitch.md"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "App": {
+          "title": {
+            "en": "App",
+            "de": "vis App",
+            "ru": "Vis App",
+            "zh-cn": "对应用程序"
+          },
+          "content": "viz/app.md"
+        },
+        "Blockly": {
+          "title": {
+            "en": "Blockly",
+            "de": "Blockly",
+            "ru": "Блочный",
+            "zh-cn": "块状"
+          },
+          "content": "logic/blockly.md"
+        },
+        "JavaScript": {
+          "title": {
+            "en": "JavaScript",
+            "de": "JavaScript",
+            "ru": "JavaScript",
+            "zh-cn": "JavaScript"
+          },
+          "content": "logic/javascript.md"
+        }
+      }
+    },
+    "Cloud-Services & Apps": {
+      "title": {
+        "en": "Cloud-Services & Apps",
+        "de": "Cloud-Services & Apps",
+        "ru": "Облачные сервисы & Apps",
+        "zh-cn": "云服务"
+      },
+      "pages": {
+        "IoT": {
+          "title": {
+            "en": "IoT",
+            "de": "IoT Cloud (Integration mit ioBroker und Alexa/Google Home)",
+            "ru": "IoT Cloud (интеграция с ioBroker и Alexa/Google Home)",
+            "zh-cn": "物联网云（与 ioBroker 和 Alexa/Google Home 集成）"
+          },
+          "content": "cloud/iot.md"
+        },
+        "Editors": {
+          "title": {
+            "en": "Editors",
+            "de": "Admin und Editieren",
+            "ru": "Администратор и редакторы",
+            "zh-cn": "管理员和编辑"
+          },
+          "content": "cloud/editor.md"
+        },
+        "Alexa Custom-Skill": {
+          "title": {
+            "en": "Alexa Custom-Skill",
+            "de": "Alexa Custom-Skill",
+            "ru": "Пользовательский навык Alexa",
+            "zh-cn": "Alexa 自定义技能"
+          },
+          "content": "cloud/alexacustom.md"
+        },
+        "App": {
+          "title": {
+            "en": "App",
+            "de": "App (Android und iOS)",
+            "ru": "Приложение (Android и iOS)",
+            "zh-cn": "应用程序（Android 和 iOS）"
+          },
+          "content": "cloud/app.md"
+        }
+      }
+    },
+    "Advanced configuration": {
+      "title": {
+        "en": "Advanced configuration",
+        "de": "Erweiterte Konfiguration",
+        "ru": "Экспертные настройки",
+        "zh-cn": "高级配置"
+      },
+      "pages": {
+        "CLI": {
+          "title": {
+            "en": "CLI",
+            "de": "Konsolenbefehle",
+            "ru": "Консольные команды",
+            "zh-cn": "控制台命令"
+          },
+          "content": "config/cli.md"
+        },
+        "Multi-Host": {
+          "title": {
+            "en": "Multi-Host",
+            "de": "Multihost",
+            "ru": "Мультихост",
+            "zh-cn": "高级配置 - 多主机"
+          },
+          "content": "config/multihost.md"
+        },
+        "Data storage with Redis": {
+          "title": {
+            "en": "Data storage with Redis",
+            "de": "Die Redis-Datenbank für IoBroker",
+            "ru": "Redis",
+            "zh-cn": "ioBroker 的 Redis 数据库"
+          },
+          "content": "config/redis.md"
+        }
+      }
+    },
+    "Troubleshooting": {
+      "title": {
+        "en": "Troubleshooting",
+        "de": "Fehlerbehebung",
+        "ru": "Поиск и решение проблем",
+        "zh-cn": "故障排除手册"
+      },
+      "pages": {
+        "Introduction": {
+          "title": {
+            "en": "Introduction",
+            "de": "Einleitung",
+            "ru": "Введение",
+            "zh-cn": "介绍"
+          },
+          "content": "trouble/README.md"
+        },
+        "Runs no more": {
+          "title": {
+            "en": "Runs no more",
+            "de": "ioBroker läuft nicht mehr",
+            "ru": "IoBroker больше не работает",
+            "zh-cn": "ioBroker 不再运行"
+          },
+          "content": "trouble/RunsNoMore.md"
+        },
+        "Errors in adapter": {
+          "title": {
+            "en": "Errors in adapter",
+            "de": "Adapterfehler",
+            "ru": "Ошибка адаптера",
+            "zh-cn": "适配器错误"
+          },
+          "content": "trouble/adapter.md"
+        },
+        "Performance": {
+          "title": {
+            "en": "Performance",
+            "de": "Performancemonitoring",
+            "ru": "Мониторинг производительности",
+            "zh-cn": "性能监控"
+          },
+          "content": "trouble/monitoring.md"
+        },
+        "Installation Fixer": {
+          "title": {
+            "en": "Installation Fixer",
+            "de": "ioBroker Installation Fixer",
+            "ru": "Средство исправления установки ioBroker",
+            "zh-cn": "ioBroker 安装修复程序"
+          },
+          "content": "trouble/install_fixer.md"
+        }
+      }
+    },
+    "FAQ": {
+      "title": {
+        "en": "FAQ",
+        "de": "FAQ",
+        "ru": "ЧаВо",
+        "zh-cn": "FAQ"
+      },
+      "pages": {
+        "General questions": {
+          "title": {
+            "en": "General questions",
+            "de": "Generelle Fragen",
+            "ru": "Общие вопросы",
+            "zh-cn": "no title"
+          },
+          "content": "faq/_010_general.md"
+        },
+        "Installation": {
+          "title": {
+            "en": "Installation",
+            "de": "Installation",
+            "ru": "Монтаж",
+            "zh-cn": "no title"
+          },
+          "content": "faq/_020_installation.md"
+        },
+        "Usage": {
+          "title": {
+            "en": "Usage",
+            "de": "Benutzung",
+            "ru": "Применение",
+            "zh-cn": "no title"
+          },
+          "content": "faq/_020_usage.md"
+        },
+        "Contribution": {
+          "title": {
+            "en": "Contribution",
+            "de": "Contribution (Beitrag)",
+            "ru": "Вклад",
+            "zh-cn": "no title"
+          },
+          "content": "faq/_040_contibution.md"
+        },
+        "Answers for advanced users": {
+          "title": {
+            "en": "Answers for advanced users",
+            "de": "Fortgeschrittener",
+            "ru": "Передовой",
+            "zh-cn": "如何在调试中切换驱动程序？"
+          },
+          "content": "faq/_050_advanced.md"
+        },
+        "Cloud": {
+          "title": {
+            "en": "Cloud",
+            "de": "Cloud",
+            "ru": "Облако",
+            "zh-cn": "no title"
+          },
+          "content": "faq/_050_cloud.md"
+        }
+      }
+    },
+    "Support": {
+      "title": {
+        "en": "Support",
+        "de": "Unterstützung",
+        "ru": "Поддержка",
+        "zh-cn": "加入社区"
+      },
+      "pages": {
+        "Documentation": {
+          "title": {
+            "en": "Documentation",
+            "de": "Dokumentation",
+            "ru": "Документация",
+            "zh-cn": "相关文档"
+          },
+          "pages": {
+            "Style Guide Documentation": {
+              "title": {
+                "en": "Style Guide Documentation",
+                "de": "Styleguide Dokumentation",
+                "ru": "Документация руководства по стилю",
+                "zh-cn": "风格指南文档"
+              },
+              "content": "community/styleguidedoc.md"
+            },
+            "Markdown Syntax": {
+              "title": {
+                "en": "Markdown Syntax",
+                "de": "Markdown",
+                "ru": "Уценка",
+                "zh-cn": "降价"
+              },
+              "content": "community/docmarkdown.md"
+            }
+          }
+        }
+      }
+    },
+    "Adapter development": {
+      "title": {
+        "en": "Adapter development",
+        "de": "Adapterentwicklung",
+        "ru": "Разработка драйвера",
+        "zh-cn": "适配器开发"
+      },
+      "pages": {
+        "Introduction": {
+          "title": {
+            "en": "Introduction",
+            "de": "Eigener Adapter",
+            "ru": "Собственный адаптер",
+            "zh-cn": "自带适配器"
+          },
+          "content": "dev/adapterdev.md"
+        },
+        "IDEs": {
+          "title": {
+            "en": "IDEs",
+            "de": "Entwicklungsumgebung",
+            "ru": "Среда разработки",
+            "zh-cn": "集成开发环境"
+          },
+          "pages": {
+            "WebStorm": {
+              "title": {
+                "en": "WebStorm",
+                "de": "WebStorm",
+                "ru": "Веб-Шторм",
+                "zh-cn": "网络风暴"
+              },
+              "content": "dev/webstorm.md"
+            },
+            "VS Code": {
+              "title": {
+                "en": "VS Code",
+                "de": "VS Code",
+                "ru": "Код ВС",
+                "zh-cn": "VS code"
+              },
+              "content": "dev/vscode.md"
+            }
+          }
+        },
+        "Adapter reference": {
+          "title": {
+            "en": "Adapter reference",
+            "de": "Adapterreferenz",
+            "ru": "Справочник адаптера",
+            "zh-cn": "适配器参考"
+          },
+          "content": "dev/adapterref.md"
+        },
+        "JSON config": {
+          "title": {
+            "en": "JSON config",
+            "de": "ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger",
+            "ru": "Конфигурация ioBroker JSON: руководство для начинающих",
+            "zh-cn": "ioBroker JSON 配置：新手指南"
+          },
+          "content": "dev/adapterjsonconfig.md"
+        },
+        "Object schema": {
+          "title": {
+            "en": "Object schema",
+            "de": "Kernkonzept",
+            "ru": "Основная концепция",
+            "zh-cn": "核心概念"
+          },
+          "content": "dev/objectsschema.md"
+        },
+        "State roles": {
+          "title": {
+            "en": "State roles",
+            "de": "Zustandsrollen",
+            "ru": "Роли состояний",
+            "zh-cn": "国家角色"
+          },
+          "content": "dev/stateroles.md"
+        },
+        "Aliases": {
+          "title": {
+            "en": "Aliases",
+            "de": "Alias",
+            "ru": "Псевдонимы",
+            "zh-cn": "别名"
+          },
+          "content": "dev/aliases.md"
+        },
+        "Template": {
+          "title": {
+            "en": "Template",
+            "de": "Adaptervorlage",
+            "ru": "Шаблон адаптера",
+            "zh-cn": "适配器模板"
+          },
+          "content": "dev/adaptertemplate.md"
+        },
+        "Adapter doc template": {
+          "title": {
+            "en": "Adapter doc template",
+            "de": "Dokumentation-Template",
+            "ru": "Шаблон документации",
+            "zh-cn": "文档模板"
+          },
+          "content": "dev/adapterdoctemplate.md"
+        },
+        "Style Guide Adapter-Doc": {
+          "title": {
+            "en": "Style Guide Adapter-Doc",
+            "de": "Dokumentation-Styleguide",
+            "ru": "Руководство по стилю документации",
+            "zh-cn": "文档风格指南"
+          },
+          "content": "dev/adapterdocstyleguide.md"
+        },
+        "Debugging": {
+          "title": {
+            "en": "Debugging",
+            "de": "Debugging",
+            "ru": "Отладка",
+            "zh-cn": "调试"
+          },
+          "content": "dev/adapterdebug.md"
+        },
+        "Publish": {
+          "title": {
+            "en": "Publish",
+            "de": "Veröffentlichen",
+            "ru": "Публиковать",
+            "zh-cn": "发布"
+          },
+          "content": "dev/adapterpublish.md"
+        },
+        "Add new device": {
+          "title": {
+            "en": "Add new device",
+            "de": "Gerät zu Sprachassistenten hinzufügen",
+            "ru": "Как добавить устройство в Alexa или Google Home",
+            "zh-cn": "如何将设备添加到 Alexa 或 Google Home"
+          },
+          "content": "dev/adddevice.md"
+        }
+      }
+    },
+    "System integrators": {
+      "title": {
+        "en": "System integrators",
+        "de": "System-Integratoren",
+        "ru": "Системные интеграторы",
+        "zh-cn": "系统集成"
+      }
+    }
+  }
+}

@@ -33,10 +33,10 @@ export const useStyles = makeStyles()(theme => ({
         height: 'fit-content',
         [theme.breakpoints.down('lg')]: {
             margin: 'auto',
-            alignItems: 'center'
+            alignItems: 'center',
         },
         [theme.breakpoints.down('md')]: {
-            textAlign: 'left'
+            textAlign: 'left',
         },
         [theme.breakpoints.down('sm')]: {
             width: 'auto',
@@ -52,7 +52,7 @@ export const useStyles = makeStyles()(theme => ({
         lineHeight: '130%',
         [theme.breakpoints.down('sm')]: {
             fontSize: '18px',
-            marginTop: 0
+            marginTop: 0,
         },
         // [theme.breakpoints.down('md')]: {
         //     textAlign: 'center'
@@ -63,7 +63,7 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '18px',
         letterSpacing: '0',
         marginBottom: theme.spacing(2),
-        paddingBottom: "10px",
+        paddingBottom: '10px',
         lineHeight: '130%',
         [theme.breakpoints.down('sm')]: {
             fontSize: '16px',

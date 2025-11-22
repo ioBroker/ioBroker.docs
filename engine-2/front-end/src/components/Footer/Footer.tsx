@@ -51,7 +51,10 @@ function Braces(props: {
     contentClassName?: string;
 }): React.JSX.Element {
     return (
-        <Box className={props.classes.braces} style={props.style}>
+        <Box
+            className={props.classes.braces}
+            style={props.style}
+        >
             <div className={props.leftClassName || props.classes.bracesLeft} />
             <div className={props.contentClassName || props.classes.bracesContent}>{props.children}</div>
             <div className={props.rightClassName || props.classes.bracesRight} />
@@ -59,13 +62,13 @@ function Braces(props: {
     );
 }
 
-function Link(props: {
-    name: string;
-    url?: string;
-    classes: any;
-}): React.JSX.Element {
+function Link(props: { name: string; url?: string; classes: any }): React.JSX.Element {
     return (
-        <Box component="a" className={props.classes.link} href={props.url || `/${props.name}`}>
+        <Box
+            component="a"
+            className={props.classes.link}
+            href={props.url || `/${props.name}`}
+        >
             {props.name}
         </Box>
     );
@@ -82,13 +85,20 @@ export const Footer = ({ scrollTop }: FooterProps) => {
             <Box className={classes.container}>
                 <Box className={classes.mainContent}>
                     <Box className={classes.logoBox}>
-                        <img src={logo} className={classes.logo} alt="logo" />
+                        <img
+                            src={logo}
+                            className={classes.logo}
+                            alt="logo"
+                        />
                     </Box>
 
                     <Box className={classes.sectionsWrapper}>
                         <Box className={classes.sectionsRow}>
                             {/* Support Us */}
-                            <Braces classes={classes} style={bracesSize}>
+                            <Braces
+                                classes={classes}
+                                style={bracesSize}
+                            >
                                 <div className={classes.supportColumn}>
                                     <div className={classes.supportText}>
                                         <div>Unterstütze</div>
@@ -114,31 +124,75 @@ export const Footer = ({ scrollTop }: FooterProps) => {
                                 </div>
                             </Braces>
 
-                            <Braces classes={classes} style={bracesSize}>
+                            <Braces
+                                classes={classes}
+                                style={bracesSize}
+                            >
                                 <div className={classes.linksColumn}>
-                                    <Link classes={classes} name="Adapter" url="https://www.iobroker.net/adapters" />
-                                    <Link classes={classes} name="Lizenzen" url="https://www.iobroker.net/licenses" />
-                                    <Link classes={classes} name="Installation" url="https://www.iobroker.net/installation" />
+                                    <Link
+                                        classes={classes}
+                                        name="Adapter"
+                                        url="https://www.iobroker.net/adapters"
+                                    />
+                                    <Link
+                                        classes={classes}
+                                        name="Lizenzen"
+                                        url="https://www.iobroker.net/licenses"
+                                    />
+                                    <Link
+                                        classes={classes}
+                                        name="Installation"
+                                        url="https://www.iobroker.net/installation"
+                                    />
                                 </div>
                             </Braces>
 
-                            <Braces classes={classes} style={bracesSize}>
+                            <Braces
+                                classes={classes}
+                                style={bracesSize}
+                            >
                                 <div className={classes.linksColumn}>
-                                    <Link classes={classes} name="Blog" url="https://www.iobroker.net/blog" />
-                                    <Link classes={classes} name="Doku" url="https://www.iobroker.net/docs" />
-                                    <Link classes={classes} name="Statistik" url="https://www.iobroker.net/statistics" />
+                                    <Link
+                                        classes={classes}
+                                        name="Blog"
+                                        url="https://www.iobroker.net/blog"
+                                    />
+                                    <Link
+                                        classes={classes}
+                                        name="Doku"
+                                        url="https://www.iobroker.net/docs"
+                                    />
+                                    <Link
+                                        classes={classes}
+                                        name="Statistik"
+                                        url="https://www.iobroker.net/statistics"
+                                    />
                                 </div>
                             </Braces>
 
                             {/* Mobile only*/}
                             <Box className={classes.legalLinksMobile}>
-                                <Braces classes={classes} style={bracesSize}>
+                                <Braces
+                                    classes={classes}
+                                    style={bracesSize}
+                                >
                                     <div className={classes.linksColumn}>
-                                        <Box className={classes.link} onClick={() => setShowCookies(true)}>
+                                        <Box
+                                            className={classes.link}
+                                            onClick={() => setShowCookies(true)}
+                                        >
                                             Cookies
                                         </Box>
-                                        <Link classes={classes} name="Impressum" url="/imprint" />
-                                        <Link classes={classes} name="Datenschutz" url="/policy" />
+                                        <Link
+                                            classes={classes}
+                                            name="Impressum"
+                                            url="/imprint"
+                                        />
+                                        <Link
+                                            classes={classes}
+                                            name="Datenschutz"
+                                            url="/policy"
+                                        />
                                     </div>
                                 </Braces>
                             </Box>
@@ -155,9 +209,17 @@ export const Footer = ({ scrollTop }: FooterProps) => {
                                 <div className={classes.followUsText}>Folge uns:</div>
                                 <div className={classes.socialIconsWrapper}>
                                     <Box className={classes.hideOnSmall}>
-                                        <OwnButton classes={classes} href="https://forum.iobroker.net" icon={<ForumIcon />} />
+                                        <OwnButton
+                                            classes={classes}
+                                            href="https://forum.iobroker.net"
+                                            icon={<ForumIcon />}
+                                        />
                                     </Box>
-                                    <OwnButton classes={classes} href="https://github.com/ioBroker" icon={<GitHubIcon />} />
+                                    <OwnButton
+                                        classes={classes}
+                                        href="https://github.com/ioBroker"
+                                        icon={<GitHubIcon />}
+                                    />
                                     <OwnButton
                                         classes={classes}
                                         name="community"
@@ -177,7 +239,11 @@ export const Footer = ({ scrollTop }: FooterProps) => {
                                         textOffset={-8}
                                         icon={<FacebookIcon />}
                                     />
-                                    <OwnButton classes={classes} href="https://discord.gg/HwUCwsH" icon={<DiscordIcon />} />
+                                    <OwnButton
+                                        classes={classes}
+                                        href="https://discord.gg/HwUCwsH"
+                                        icon={<DiscordIcon />}
+                                    />
                                     <OwnButton
                                         classes={classes}
                                         href="https://www.instagram.com/iobroker.gmbh/"
@@ -190,15 +256,28 @@ export const Footer = ({ scrollTop }: FooterProps) => {
                 </Box>
 
                 <Box className={classes.copyright}>
-                    <div className={classes.copyrightText}>Copyright © 2014-{new Date().getFullYear()} by ioBroker GmbH and ioBroker Community</div>
+                    <div className={classes.copyrightText}>
+                        Copyright © 2014-{new Date().getFullYear()} by ioBroker GmbH and ioBroker Community
+                    </div>
                     <div className={classes.flexGrow} />
-                    <Box className={`${classes.link} ${classes.legalLinksDesktop}`} onClick={() => setShowCookies(true)}>
+                    <Box
+                        className={`${classes.link} ${classes.legalLinksDesktop}`}
+                        onClick={() => setShowCookies(true)}
+                    >
                         Cookies
                     </Box>
-                    <Box component="a" className={`${classes.link} ${classes.legalLinksDesktop}`} href="/imprint">
+                    <Box
+                        component="a"
+                        className={`${classes.link} ${classes.legalLinksDesktop}`}
+                        href="/imprint"
+                    >
                         Impressum
                     </Box>
-                    <Box component="a" className={`${classes.link} ${classes.legalLinksDesktop}`} href="/policy">
+                    <Box
+                        component="a"
+                        className={`${classes.link} ${classes.legalLinksDesktop}`}
+                        href="/policy"
+                    >
                         Datenschutz
                     </Box>
                     <div

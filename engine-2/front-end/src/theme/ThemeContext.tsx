@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useMemo, ReactNode } from 'react';
+import { createContext, useContext, useState, useMemo, type ReactNode } from 'react';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { darkTheme, lightTheme } from './theme';
@@ -35,7 +35,7 @@ export const ThemeProvider = ({ children, defaultMode = 'dark' }: ThemeProviderP
     const theme = useMemo(() => (mode === 'dark' ? darkTheme : lightTheme), [mode]);
 
     const toggleTheme = () => {
-        setMode((prevMode) => {
+        setMode(prevMode => {
             const newMode = prevMode === 'dark' ? 'light' : 'dark';
             window.localStorage.setItem('theme', newMode);
             return newMode;
@@ -53,7 +53,7 @@ export const ThemeProvider = ({ children, defaultMode = 'dark' }: ThemeProviderP
             toggleTheme,
             setTheme,
         }),
-        [mode]
+        [mode],
     );
 
     return (

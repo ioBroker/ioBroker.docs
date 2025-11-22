@@ -7,16 +7,40 @@ import { StyledButton } from '../../../../components/StyledButton/StyledButton';
 export const AboutSection: React.FC = () => {
     const { classes } = useStyles();
     const items = [
-        { title: 'ENORME FLEXIBILITÄT', description: 'Von einfachen „Wenn-dies-dann-das"-Szenarien bis hin zu komplexen Automatisierungen - ioBroker bietet grenzenlose Möglichkeiten mit Blockly und JavaScript.' },
-        { title: 'OPEN-SOURCE', description: 'Als Open-Source-Projekt ist ioBroker nicht nur kostenlos zugänglich, sondern wird auch ständig von einer aktiven Community weiterentwickelt.' },
-        { title: 'VISUALISIERUNG', description: 'Zahlreiche Optionen zur individuellen und intuitiven Gestaltung der Visualisierung, wie Vis-2, ioControl, Lovelace, HabPanel etc.' }
+        {
+            title: 'ENORME FLEXIBILITÄT',
+            description:
+                'Von einfachen „Wenn-dies-dann-das"-Szenarien bis hin zu komplexen Automatisierungen - ioBroker bietet grenzenlose Möglichkeiten mit Blockly und JavaScript.',
+        },
+        {
+            title: 'OPEN-SOURCE',
+            description:
+                'Als Open-Source-Projekt ist ioBroker nicht nur kostenlos zugänglich, sondern wird auch ständig von einer aktiven Community weiterentwickelt.',
+        },
+        {
+            title: 'VISUALISIERUNG',
+            description:
+                'Zahlreiche Optionen zur individuellen und intuitiven Gestaltung der Visualisierung, wie Vis-2, ioControl, Lovelace, HabPanel etc.',
+        },
     ];
 
     return (
-        <Box component="section" className={classes.aboutSection}>
+        <Box
+            component="section"
+            className={classes.aboutSection}
+        >
             <Box className={classes.container}>
-                <Box sx={{ width: '100%', maxWidth: '1311px', textAlign: { xs: 'left', md: 'left' }, mb: { xs: 0, md: 4 } }}>
-                    <SectionTitle sx={{ marginBottom: { xs: '32px !important', md: '24px !important' } }}>ÜBER IOBROKER</SectionTitle>
+                <Box
+                    sx={{
+                        width: '100%',
+                        maxWidth: '1311px',
+                        textAlign: { xs: 'left', md: 'left' },
+                        mb: { xs: 0, md: 4 },
+                    }}
+                >
+                    <SectionTitle sx={{ marginBottom: { xs: '32px !important', md: '24px !important' } }}>
+                        ÜBER IOBROKER
+                    </SectionTitle>
                 </Box>
                 {items.map(item => (
                     <StyledButton
@@ -33,13 +57,13 @@ export const AboutSection: React.FC = () => {
                         }}
                         textSx={{
                             width: '100%',
-                            maxWidth: '1010px'
+                            maxWidth: '1010px',
                         }}
                         iconSx={{
                             alignSelf: 'flex-end',
                             mb: 1,
                             height: { xs: '30px', sm: '40px', md: '40px' },
-                            width: { xs: '30px', sm: '40px', md: '40px' }
+                            width: { xs: '30px', sm: '40px', md: '40px' },
                         }}
                     >
                         <Box sx={{ textAlign: 'left', flex: 1 }}>

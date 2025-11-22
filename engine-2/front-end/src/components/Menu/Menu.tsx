@@ -116,7 +116,7 @@ interface MenuProps {
 
 export default function Menu(props: MenuProps): React.JSX.Element {
     const [search, setSearch] = useState('');
-    const [searchDialogOpen, setSearchDialogOpen] = useState(false);
+    const [_searchDialogOpen, setSearchDialogOpen] = useState(false);
     // const [language, setLanguage] = useState<Language>(I18n.getLanguage());
     const inputRef = useRef<HTMLInputElement | null>(null);
     // const context = React.useContext(MainContext);
