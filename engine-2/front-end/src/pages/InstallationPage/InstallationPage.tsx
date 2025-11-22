@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Box, Button, Paper, Typography } from '@mui/material';
 import { useStyles } from './InstallationPage.styles';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
@@ -11,6 +12,7 @@ import AlertIcon from '../../assets/img/Alert.png';
 
 const InstallationPage = () => {
     const { classes } = useStyles();
+    const [visible, setVisible] = useState(false);
 
     return (
         <Box className={classes.pageWrapper}>
@@ -63,7 +65,27 @@ const InstallationPage = () => {
                                     src={CopyIcon}
                                     alt="copyIcon"
                                     className={classes.copyButton}
+                                    onClick={async (): Promise<void> => {
+                                        // Copy to clipboard ' curl -sLf https://iobroker.net/install.sh | bash -'
+                                        try {
+                                            await navigator.clipboard.writeText(
+                                                'curl -sLf https://iobroker.net/install.sh | bash -',
+                                            );
+                                            setVisible(true);
+                                            setTimeout((): void => {
+                                                setVisible(false);
+                                            }, 4000);
+                                        } catch (e) {
+                                            console.error('Cannot copy to clipboard', e);
+                                        }
+                                    }}
                                 />
+                                <Box
+                                    className={classes.copyConfirmation}
+                                    style={{ opacity: visible ? 1 : 0 }}
+                                >
+                                    Copied!
+                                </Box>
                             </Box>
                             <Typography className={classes.hintText}>
                                 <span className={classes.alertIconWrapper}>

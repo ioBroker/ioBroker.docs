@@ -192,7 +192,8 @@ export const useStyles = makeStyles()(theme => ({
     },
     commandBox: {
         backgroundColor: theme.palette.secondary.main,
-        padding: '8px 8px 27px 22px',
+        padding: '6px 22px 8px 22px',
+        position: 'relative',
         width: 790,
         height: 77,
         fontSize: 24,
@@ -217,6 +218,16 @@ export const useStyles = makeStyles()(theme => ({
             padding: '12px 11px',
         },
     },
+    copyConfirmation: {
+        position: 'absolute',
+        top: 18,
+        right: -90,
+        transition: 'opacity 0.3s',
+        background: theme.palette.common.white,
+        color: theme.palette.primary.main,
+        borderRadius: theme.shape.borderRadius,
+        padding: '5px 10px',
+    },
     commandBoxText: {
         marginTop: 8,
         [theme.breakpoints.down('md')]: {
@@ -233,6 +244,12 @@ export const useStyles = makeStyles()(theme => ({
             width: 24,
             height: 24,
         },
+        '&:hover': {
+            opacity: 0.7,
+        },
+        '&:active': {
+            transform: 'scale(0.9)',
+        }
     },
     hintText: {
         fontSize: '16px',
