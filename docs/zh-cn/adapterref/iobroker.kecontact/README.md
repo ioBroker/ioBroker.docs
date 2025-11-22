@@ -2,112 +2,120 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kecontact/README.md
-title: ioBroker.kecontact
-hash: LJPtBKpFe5pEkfv+/Ay6IJBfOV2UtFDQ+QOnBnu6fJw=
+title: ioBroker.ke联系方式
+hash: MGiYMwJoul92QwJbU2ve3VGjaw4SuxeBxGvNS9gxt8c=
 ---
 ![标识](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.kecontact.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.kecontact.svg)
 ![安装数量](https://iobroker.live/badges/kecontact-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/kecontact-stable.svg)
-![新公共管理](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)
+![稳定仓库中的当前版本](https://iobroker.live/badges/kecontact-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)
 
-# IoBroker.kecontact
+# IoBroker.ke联系方式
 [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/kecontact/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**测试：**![测试和发布](https://github.com/Sneak-L8/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
+**测试：** ![测试与发布](https://github.com/Sneak-L8/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker 适配器适用于 KEBA KeContact P20 或 P30 和 BMW i 壁挂式充电盒
-使用其 UDP 协议控制您的充电站并使用自动调节，例如通过光伏盈余和电池存储为您的车辆充电。
+# 适用于 KEBA KeContact P20 或 P30 以及 BMW i 壁挂式充电桩的 ioBroker 适配器
+使用 UDP 协议控制您的充电站，并使用自动调节功能，例如通过光伏余能和电池储能为您的车辆充电。
 
 ＃＃ 安装
-通过 ioBroker Admin 安装此适配器：
+通过 ioBroker 管理后台安装此适配器：
 
 1. 打开实例配置对话框
-2. 输入您的 KEBA KeContact 墙盒的 IP 地址
-3. 输入光伏自动装置或功率限制的能量计状态以及电池存储所需的数据
-4.保存配置
-5.启动适配器
+2. 输入您的 KEBA KeContact 壁挂盒的 IP 地址
+3. 输入光伏自动控制系统或功率限制的电能表状态以及电池储能所需的数据
+4. 保存配置
+5. 启动适配器
 
 ＃＃ 配置
-### KeContact IP地址
-这是您的 KEBA KeContact 或 BMW i 壁挂式充电盒的 IP 地址。支持与 Keba KeContact S10（相位切换装置）配合使用。
+### KeContact IP 地址
+这是您的 KEBA KeContact 或 BMW i 壁挂式充电桩的 IP 地址。支持与 Keba KeContact S10（相位切换装置）配合使用。
 
 ### 固件检查
-由于 Keba 网站已更改，因此不再支持。
+Keba 网站改版后，已不再提供支持。
 
 ### 被动模式
-如果您想自行控制壁挂式充电盒，并且不希望此适配器执行某些自动操作，请激活此选项。在这种情况下，所有关于光伏自动操作和功率限制的后续选项都将被忽略。
+如果您希望自行控制壁挂式光伏发电系统，并且不希望此适配器执行任何自动操作，请启用此选项。启用后，所有后续关于光伏自动控制和功率限制的选项都将被忽略。
 
 ### 后续墙盒
-如果这是您环境中的后续墙盒，请激活此选项。目前，只能主动管理一个墙盒。所有其他墙盒（独立实例）都必须选中此选项，因为只有一个实例可以接收广播消息。此墙盒/实例将以被动模式运行。
+如果这是您环境中的后续墙盒，请启用此选项。目前，只能主动管理一个墙盒。所有其他墙盒（独立实例）都必须选中此选项，因为只能有一个实例接收广播消息。此墙盒/实例将以被动模式运行。
 
-### 加载充电会话
-您可以勾选此选项，定期从您的充电盒下载最新的 30 个充电会话。
-v1.1.1 及以下版本的用户请注意：您必须勾选此选项才能继续接收充电会话！
+### 负载充电会话
+您可以勾选此选项，定期从您的充电桩下载最新的充电记录（30 条）。
+
+注意：版本 v1.1.1 及以下的用户必须勾选此选项才能继续接收充电记录！
 
 ### 刷新间隔
-这是以秒为单位的时间间隔，表示壁挂盒应多久查询一次新的充电值。
+这是查询充电桩获取新充电值的间隔时间（以秒为单位）。
 
-默认值为 10 分钟，这在 KeConnect 的负载和 ioBroker 中的最新信息之间取得了良好的平衡。
+默认值为 10 分钟，这在 KeConnect 的负载和 ioBroker 中保持最新信息之间取得了良好的平衡。
 
 ### 光伏自动化
-为了根据剩余电量（例如通过光伏）为您的车辆充电，您还可以定义代表剩余电量和电网主电源消耗的状态。这些值用于计算可用于充电的电流值。您还可以通过其他值定义
+为了根据剩余电量（例如通过光伏发电）为车辆充电，您还可以定义代表剩余电量和电网用电量的状态。这些值用于计算可用于充电的电流。您还可以通过附加值来定义
 
-* 切换充电阶段 1p/3p 或使用 Keba Kecontact 的 X2 端口（使用 Keba KeContact S10 或任何其他接触器）的状态
-* 电池存储当前电量的状态，因此光伏自动化系统将额外使用它来为您的车辆充电
-* 可选择限制电池存储功率，仅以最低功率进行充电
-* 如果您想使用充电站的 X1 输入来控制是否使用全功率充电或光伏自动充电，请切换 X1 选项
-* 与默认的 6 A 不同的最小安培数（仅适用于例如雷诺 Zoe）
-* 可用于启动充电的电网消耗功率值（这意味着即使没有足够的剩余功率，充电也会开始 - 建议 1 相充电为 0 W，3 相充电为 500 W 至 2000 W）
+* 用于切换充电相 1p/3p 或使用 Keba Kecontact 的 X2 端口（配合 Keba KeContact S10 或任何其他接触器）的状态
+* 电池储能系统的当前功率状态，因此光伏自动系统将额外利用这些功率为您的车辆充电。
+* 可以选择限制电池存储功率，使其仅以最小功率维持充电。
+* 如果您想使用充电站的 X1 输入来控制充电方式（全功率充电或光伏自动充电），请切换 X1 选项。
+* 最低电流与默认的 6 安培不同（例如，仅适用于雷诺 Zoe 等车型）
+* 可用于启动充电的电网消耗功率值（这意味着即使没有足够的剩余功率，充电也会开始——建议单相充电为 0 瓦，三相充电为 500 瓦至 2000 瓦）
 * 电流增量（建议 500 mA）
-* 可以暂时用于维持充电会话的电网消耗值（这意味着即使不再有足够的剩余电量，充电也会稍后停止 - 将添加启动电网消耗 - 建议 500 W）
-* 充电时间最短（即使剩余电量不再充足，一次充电也至少会持续这一次 - 建议 300 秒）
-* 每次剩余时间不再充足时继续充电（弥补阴天的时间）
-* 车辆插上电源并需要授权时，务必立即为车辆充电（以防止出现不立即充电就无法进一步充电的情况）
+* 用于暂时维持充电过程的电网消耗值（这意味着即使剩余电量不足，充电也会稍后停止——初始电网消耗量将被加上——建议 500 瓦）
+* 最短充电持续时间（即使剩余电量不足，充电过程也至少会持续此时间 - 建议 300 秒）
+* 当剩余电量不足以满足需求时，需继续充电（以弥补阴天充电时间不足的情况）。
+* 车辆插入电源后，应立即开始充电，并等待授权（以防止出现未立即充电而无法继续充电的错误）。
 
 ### 1p/3p 充电
-如果您安装了一个用于连接（断开）充电桩 2 相和 3 相的接触器，并且该开关可以通过某种状态触发，则此适配器可以先以单相充电，并在剩余电量充足的情况下切换到三相充电。
-在这种情况下，请输入您的接触器的状态，以及它是常开 (NO) 还是常闭 (NC)。
-您还可以选择将充电永久设置为 1p 或 3p。
+如果您有一个安装接触器用于断开或断开充电站的 2 相和 3 相，并且该开关可由状态触发，则此适配器能够以单相充电开始，并在剩余电量充足时切换到三相充电。
+
+在这种情况下，请输入您的安装接触器的状态，并说明它是常开 (NO) 还是常闭 (NC)。
+
+此外，还可以选择将充电模式设置为永久单相或三相。
 
 ### 电池存储
-如果您拥有电池储能系统，请在此处填写选项。通过指定电池储能系统的剩余电量和电网消耗状态，此适配器可以控制是否使用电池储能系统为您的车辆充电，具体取决于选项中预设的策略。
+如果您拥有储能电池，请在此处填写选项。通过指定储能电池的盈余状态和电网消耗状态，此适配器可以根据选项中预设的策略，控制是否使用储能电池为您的车辆充电。
 
-### 德国§14a EnWG 权力限制
-根据德国 §14a EnWG，可以选择将充电站限制为最大 6A 固定电流或动态限制为 3x6A（4.140 瓦）的电网消耗
+德国能源条例第14a条 电力限制
+根据德国能源条例第14a条，可以选择将充电站的电流限制为最大固定6A，或者根据电网消耗量动态调整为3x6A（4.140瓦）。
 
 ### 功率限制
-您还可以限制壁挂式充电盒的最大功率，以限制主电源功率。例如，运行夜间储热式加热器时，您可能需要遵守最大功率限制。
-如果您输入一个值，您的壁挂式充电盒将持续受到限制，以确保不超过功率限制。
-最多可以指定三种电能表状态进行限制。所有值都将相加，用于计算电流消耗。
-一个额外的复选框用于指定是否包含壁挂式充电盒功率（在这种情况下，壁挂式充电盒功率将从状态值中减去）。
+您还可以限制壁挂式电表箱的最大功率，从而限制主电源的功率。例如，使用夜间蓄热式电暖器时，您可能需要遵守最大功率限制。
 
-另一个选项允许您不限制功率，而是限制电流强度。使用此选项，充电站的电流强度将降低，直至不超过每相的最大电流强度。
-因此，您需要指定电表每相的电流强度状态。请确保充电站和电表的相位编号相同。
+如果您输入一个值，壁挂式电表箱的功率将持续受到限制，不会超过您设定的功率限制。
+
+最多可以指定三个电表状态进行功率限制。所有数值将相加以计算当前功耗。
+
+还有一个额外的复选框用于指定是否包含壁挂式电表箱的功率（如果包含，则会从电表状态值中减去壁挂式电表箱的功率）。
+
+另一种选择是限制电流而非功率。启用此选项后，充电站的电流将被降低，以确保每相电流不超过最大电流限制。
+
+因此，您需要指定电表每相的电流状态。请确保充电站和电表的相序编号一致。
 
 ### 动态选项
-此外，还有一些状态可以自动影响光伏电池的行为，例如通过您自己的脚本根据您的需要更新这些值）
+此外，还有一些状态可以影响光伏系统的行为，例如，通过您自己的脚本根据您的需要更新这些值。
 
-* kecontact.n.automatic.photovoltaics - 自动激活光伏 (true) 或设置为 false 时将以最大功率为车辆充电
-* kecontact.n.automatic.calcPhases - 定义当前用于充电计算的相数。这是 Keba 德国版本所必需的，可用于所有充电站的初始充电会话。
-* kecontact.n.automatic.1p3pSwitch - 定义是否 - 无论是否有剩余 - 都应始终使用 1p 或始终使用 3p 进行充电
-* kecontact.n.automatic.addPower - 定义允许为您的车辆充电的电网消耗瓦数（与选项相同）
-* kecontact.n.automatic.pauseWallbox - 只要设置为 true，就会立即停止每个充电会话
-* kecontact.n.automatic.limitCurrent - 将充电限制在指定的电流强度（以 mA 为单位）（0 = 无限制）
-* kecontact.n.automatic.batteryStorageStrategy - 是否以及如何使用电池存储为您的车辆充电的策略
-* kecontact.n.automatic.batterySoCForCharging - 通过指定 SoC 来限制车辆电池存储的使用，低于该 SoC 则禁止充电
-* kecontact.n.automatic.stateVehicleSoC - 获取车辆当前SoC的状态名称
-* kecontact.n.automatic.targetSoC - 禁用 PV 自动（以最大功率充电），除非车辆达到此 SoC
-* kecontact.n.automatic.resetTargetSoC - 设置为 true，如果达到目标 SoC 后应该清除
+* kecontact.n.automatic.photovoltaics - 启用自动光伏系统（true），或设置为 false 时以最大功率为车辆充电
+* kecontact.n.automatic.calcPhases - 定义当前用于充电计算的相位数。此参数是 Keba 德国版所必需的，可用于所有充电站的初始充电会话。
+* kecontact.n.automatic.1p3pSwitch - 定义无论是否有剩余电量，充电时应始终使用 1 便士还是始终使用 3 便士。
+* kecontact.n.automatic.addPower - 定义允许用于给车辆充电的电网消耗功率（瓦特数）（与选项中的设置相同）
+* kecontact.n.automatic.pauseWallbox - 只要设置为 true，就会立即停止所有充电会话
+* kecontact.n.automatic.limitCurrent - 将充电电流限制在指定的毫安 (mA) 范围内（0 = 无限制）
+* kecontact.n.automatic.batteryStorageStrategy - 电池存储策略，用于决定是否以及如何使用电池存储为车辆充电。
+* kecontact.n.automatic.batterySoCForCharging - 通过指定一个 SoC 值来限制车辆电池存储空间的使用，低于该 SoC 值则禁止充电。
+* kecontact.n.automatic.stateVehicleSoC - 用于获取车辆当前SoC的状态名称（targetsoc和maxSoc需要用到）
+* kecontact.n.automatic.targetSoC - 除非车辆达到此 SoC，否则禁用光伏自动充电（以最大功率充电）。
+* kecontact.n.automatic.resetTargetSoC - 如果目标 SoC 在达到设定值后需要清除，则设置为 true
+* kecontact.n.automatic.maxSoC - 最大 SoC 值，如果达到此 SoC 值，车辆将不会充电。
 
-示例：要以恒定的 6A 电流为您的车辆充电（无论是否有剩余），请将光伏设置为 false，并将限制电流设置为 6000。
+示例：要以 6A 的恒定电流为您的车辆充电，无论是否有剩余电流，请将光伏发电设置为 false，并将电流限制为 6000。
 
 ＃＃ 合法的
-该项目与 KEBA AG 公司无直接或间接关联。
+本项目与 KEBA AG 公司没有任何直接或间接的关联。
 
-KeConnect 是 KEBA AG 的注册商标。
+KeConnect是KEBA AG的注册商标。
 
 ## Changelog
 <!--
@@ -116,6 +124,7 @@ KeConnect 是 KEBA AG 的注册商标。
 -->
 ### **WORK IN PROGRESS**
 * (Sneak-L8) new options to charge vehicle up to a specified SoC
+* (Sneak-L8) new option to stop charging at a certain SoC
 * (Sneak-L8) raise adapter-dev version from 1.4 to 1.5
 * (Sneak-L8) drop dependencies to chai, sinon and mocha
 

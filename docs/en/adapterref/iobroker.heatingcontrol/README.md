@@ -284,6 +284,15 @@ When the adapter crashes or an other Code error happens, this error message that
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.12.19 (2025-11-02)
+* (René) csv-logging added (optionally), will be used in later enhancements
+
+### 2.12.18 (2025-10-26)
+* (René) bug fix sentry
+
+### 2.12.17 (2025-10-26)
+* (René) changes requested by adapter checker
+
 ### 2.12.16 (2025-10-04)
 * (René) dependencies updated
 * (René) bug fix see issue #682: HmIP-eTRV-2 not autodetected

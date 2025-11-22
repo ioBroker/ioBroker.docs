@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.batrium-bms/README.md
 title: ioBroker.batrium-bms
-hash: ybmyiKEHBkbOECMU+l95wbCMjlTkebmpzD/P2E9XIXQ=
+hash: QpY2cEvyVWvd5vaLOq+X8bgRIVHAkmwkF1R7DnQpbrc=
 ---
 ![Logo](../../../en/adapterref/iobroker.batrium-bms/admin/batrium-bms.png)
 
@@ -19,19 +19,30 @@ hash: ybmyiKEHBkbOECMU+l95wbCMjlTkebmpzD/P2E9XIXQ=
 -->
 
 ## Batrium-BMS-Adapter für ioBroker
-Ein ioBroker-Adapter zum Verfolgen der über UDP veröffentlichten Metriken Ihres Batrium BMS.
+Ein ioBroker-Adapter zur Verfolgung von Metriken Ihres Batrium BMS, die über UDP veröffentlicht werden.
 
-!!! Dieser Adapter wird von Batrium nicht offiziell unterstützt!!!
+!!! Dieser Adapter wird von Batrium nicht offiziell unterstützt !!!
 
 Dieser Adapter basiert auf der offiziellen Batrium WatchMonUdpListener-Implementierung unter: https://github.com/Batrium/WatchMonUdpListener
 
-Die Nachrichtenunterstützung ist noch begrenzt und wird in weiteren Versionen erweitert.
+Die Nachrichtenunterstützung ist derzeit noch eingeschränkt und wird in späteren Versionen erweitert.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.7.0 (2025-11-15)
+* Drop of Node18 and adding of Node24 support
+* Various Package Updates
+* Migration of eslint from 8 to 9
+
+### 0.6.0 (2025-03-27)
+* Drop Support for Node v16
+* Various Package Upgrades
+* Increased min js-controller version to 5.0.19
+* Increased min Admin version to 7.4.10
+
 ### 0.5.0 (2023-09-10)
 * Various Package Upgrades (inc. Update to ioBroker Adapter lib v3)
 * Adding of Tests for Node Version 20.x
@@ -65,7 +76,7 @@ Die Nachrichtenunterstützung ist noch begrenzt und wird in weiteren Versionen e
 ## License
 MIT License
 
-Copyright (c) 2023 Bembelstemmer <kontakt[at]it-amm[dot]de>
+Copyright (c) 2025 Bembelstemmer <kontakt[at]it-amm[dot]de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

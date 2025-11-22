@@ -62,8 +62,9 @@ None
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (Andreas Ruttkamp) repro checker isuues resolved
+### 1.2.25 (2025-10-16)
+* (Andreas Ruttkamp) repro checker issues resolved
+* (Andreas Ruttkamp) npm trusted publishing integrated
 
 ### 1.2.24 (2025-09-01)
 * (Andreas Ruttkamp) dev dependencies updated

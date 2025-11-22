@@ -999,3 +999,6 @@ The SofarCloud server stores data from Sofar inverters.
 Ping adapter can probe the TCP ports.
 
 https://github.com/ioBroker/ioBroker.ping
+
+## admin (21.10.2025) – new feature
+Drag and drop of devices between categories

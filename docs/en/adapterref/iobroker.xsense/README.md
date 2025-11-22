@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: 55bZGVCl8p5II4kj8dE1jRNeDjumMqcwtFLshb/cjD8=
+hash: EAKZ0Anx09hS8DeJxkB9P5e65e6vvxJxCHMdCWooShE=
 ---
 ![logo](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -37,6 +37,7 @@ It is designed to receive data from XSense smoke detectors, CO detectors, and ot
 The adapter communicates with the XSense cloud server and provides an easy way to integrate XSense devices into existing ioBroker setups.
 An XSense Bridge SBS50 is required.
 
+## The [Original Python Code](https://github.com/theosnel/python-xsense) is from [theosnel](https://github.com/theosnel) .. big THX for
 ---
 
 ## ❗ WARNING
@@ -83,7 +84,7 @@ It must be an official and publicly released Python version.
 1. **Install Python**
    - Download: [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/)
    - During installation, **enable “Add Python to PATH”**
-- Then verify:
+Then verify:
 
 ```powershell
 python --version
@@ -115,11 +116,25 @@ If the file does not exist, you did not wait long enough for the adapter to star
 
 <img width="1029" height="438" alt="graphic" src="https://github.com/user-attachments/assets/86e4fd1c-1d4e-4234-a2ad-48b8dd9f418e" />
 
-<img width="1668" height="832" alt="graphic" src="https://github.com/user-attachments/assets/9c6b78dd-aca0-45d4-acbc-bd1511e6ee4b" />
+<img width="2028" height="577" alt="graphic" src="https://github.com/user-attachments/assets/65cc5c71-4cd3-4502-b4bd-a4c7241d7708" />
 
 ------------------------------------------------------------------------------
 
 ## Changelog
+### 0.2.1 (2025-10-30)
+* (arteck) fix link to readme
+* (arteck) fix load bridge as first
+
+### 0.2.0 (2025-10-21)
+* (arteck) !!!!!!!!!!!!!!!!!!!!!!!   new tree structure, delete all old devices
+* (arteck) fix for more bridges
+
+### 0.1.3 (2025-10-20)
+* (arteck) fix for more devices than 15
+
+### 0.1.2 (2025-10-06)
+* (arteck) fix error message
+
 ### 0.1.1 (2025-10-04)
 * (arteck) fix
 

@@ -59,6 +59,32 @@ On a HUB 1200 / HUB 2000 / ACE 1500 combination you have to use '**setDeviceAuto
 This adapter will now use the Cloud Authorization Code for authentication on the official mqtt servers, which you can generate in the Zendure app!
 
 ## Changelog
+### 3.0.8 (2025-10-22)
+
+- Fix missing smartMode state for SF 800 Pro
+
+### 3.0.7 (2025-10-20)
+
+- Fix creation of SF 800 Pro device
+
+### 3.0.5 (2025-10-20)
+
+- Add some more log information on device creation
+
+### 3.0.4 (2025-10-09)
+
+- Fix inputLimit issue
+- Fix Wifi status not updating when packData changes
+
+### 3.0.3 (2025-10-07)
+
+- Optimize setting of wifiMode in local mode
+- Optimize Debug option
+
+### 3.0.2 (2025-10-06)
+
+- Ignore 'wifiState' for last update value
+
 ### 3.0.1 (2025-10-02)
 
 - Update 'lastUpdate' when a battery value changes

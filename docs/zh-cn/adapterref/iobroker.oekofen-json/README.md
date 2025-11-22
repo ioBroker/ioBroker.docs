@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.oekofen-json/README.md
 title: ioBroker.oekofen-json
-hash: DhMxRMvL6WhO/HOntnwCO2LI4UaMihgYKmRnjeQjpFE=
+hash: qdFWDJPQY42LrI0UN4dsoIp5T/bhUlZo0IZyJ2RAL+8=
 ---
 ![标识](../../../en/adapterref/iobroker.oekofen-json/admin/oekofen-json.png)
 
@@ -12,53 +12,60 @@ hash: DhMxRMvL6WhO/HOntnwCO2LI4UaMihgYKmRnjeQjpFE=
 ![安装数量](https://iobroker.live/badges/oekofen-json-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/oekofen-json-stable.svg)
 ![依赖状态](https://img.shields.io/david/chaozmc/iobroker.oekofen-json.svg)
-![NPM](https://nodei.co/npm/iobroker.oekofen-json.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.oekofen-json.png?downloads=true)
 
 # IoBroker.oekofen-json
-**测试：** ![测试和发布](https://github.com/chaozmc/ioBroker.oekofen-json/workflows/Test%20and%20Release/badge.svg)
+**测试：**![测试和发布](https://github.com/chaozmc/ioBroker.oekofen-json/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的 oekofen-json 适配器
+## Oekofen-json ioBroker 适配器
 ＃＃＃ 描述
-该适配器将带有新触摸界面（也称为 [Pelletronic 触控](https://www.oekofen.com/en-gb/pelletronic-touch/)）的 OekoFEN 加热器连接到 ioBroker。由于 OekoFEN 逐步实现了 JSON 接口并且没有公开可用的文档，它应该至少适用于版本 3.10d 和更新版本。
-由于存在许多加热器、太阳能模块、层存储、斯特林引擎等的组合，此适配器尝试从接口读取所有可用数据点并在启动时动态创建对象。
+此适配器将带有全新触摸接口（也称为[Pelletronic Touch](https://www.oekofen.com/en-gb/pelletronic-touch/)）的 OekoFEN 加热器连接到 ioBroker。由于 OekoFEN 逐步实现了 JSON 接口，且目前尚无公开文档，因此它至少应该适用于 3.10d 及更高版本。
+由于市面上存在多种加热器、太阳能组件、层式储能器、斯特林发动机等的组合，此适配器会尝试从接口读取所有可用数据点，并在启动时动态创建对象。
 
-只读数据点是这样创建的，例如在它们的名称中以 L_ 开头。还根据接口提供的信息（因子属性）转换适配器的数字缩放比例。例如，加热器以 XXX 格式和系数 0.1 处理温度，这将由适配器在读取操作时转换为 XX.X，在写入操作时转换回 XXX。
+只读数据点的创建方式如下，例如名称中以 L_ 为前缀的数据点。此外，适配器还会根据接口提供的信息（因子属性）转换数字的缩放比例。例如，加热器处理的温度格式为 XXX，因子为 0.1，适配器会在读取操作时将其转换为 XX.X，并在写入操作时将其转换回 XXX。
 
 ＃＃＃ 安装
 安装后，只需输入
 
-* 知识产权，
-* TCP端口，
+* IP，
+* TCP 端口，
 *“所谓的”密码
 * 和间隔
 
-适配器尝试拉取更新的位置。
+适配器尝试提取更新。
 
-适配器保持连接状态，即使没有真正的永久连接。如果设备发送错误或适配器无法联系 OekoFEN 控制器，它会将连接状态设置为假。例如，如果控制器上有太多请求，则可能会发生这种情况，然后控制器会使用 HTTP 401 进行响应。在正常情况下，不应达到控制器的速率限制（两次请求之间为 2.5 秒）。
+即使没有真正的永久连接，适配器也会保持连接状态。如果设备发送错误或适配器无法连接到 OekoFEN 控制器，则会将连接状态设置为 false。例如，如果控制器上的请求过多，控制器会以 HTTP 401 响应，就可能发生这种情况。正常情况下，控制器的速率限制不应达到（请求间隔 2.5 秒）。
+
+## 致谢
+如果没有 Markus Feiler (chaozmc) <https://github.com/chaozmc> 的出色工作，这个适配器是不可能实现的，他创建了该适配器的先前版本。
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS** 
+	### **WORK IN PROGRESS**
 -->
+### 2.0.0-alpha.9 (2025-10-13)
+* (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
+* (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
+* (mcm1957) Dependencies have been updated
 
-### 1.0.1 (2023-01-21)
-* (chaozmc) Fixed extensive object creation when using a wrong password (fixes Issue #18)
-* (chaozmc) Added counter to stop adapter after 10 unsuccessful requests
-* (chaozmc) Added check if there would be more than 50 top-level-objects to be created
+### 1.0.5 (2023-09-23)
+* (chaozmc) set min node version to 18.x (merge pull request #23)
 
-### 1.0.0 (2023-01-15)
-* (chaozmc) Push version to v1.0.0 as the code seems to be considerable as first stable release
+### 1.0.4 (2023-09-22)
+* (chaozmc) Removed Node 16.x from Test-and-release (fix Issue #19)
+* (chaozmc) updated dependencies
+* (chaozmc) updated protobufjs and google-gax
+* (chaozmc) updated word-wrap
 
-### 0.3.0 (2023-01-15)
-* (chaozmc) Changed Adapter Type to more suitable climate-control instead of communication
-* (chaozmc) Altered query URL for inital scan to use single ?-symbol instead of double
+### 1.0.3 (2023-05-09)
+* (chaozmc) Bump version
 
-### 0.2.5 (2022-11-18) 
-* (chaozmc) Removed unnecessary const
-
-### 0.2.4 (2022-10-31) 
-* (chaozmc) changed loop behaviour to use a for...of loop instead of forEach to avoid parallel creation of too many objects at startup
+### 1.0.2 (2023-05-09)
+* (chaozmc) Added missing translations
+* (chaozmc) Updated Copyright Year
+* (chaozmc) Added .releaseconfig.json for release-script
+* (chaozmc) changed github workflow config
 
 ### **0.0.3**
 * (chaozmc) code cleanup, trigger for update & rescan
@@ -72,7 +79,8 @@ hash: DhMxRMvL6WhO/HOntnwCO2LI4UaMihgYKmRnjeQjpFE=
 ## License
 MIT License
 
-Copyright (c) 2022 chaozmc <chaozmc@is-jo.org>
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023 chaozmc <chaozmc@is-jo.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

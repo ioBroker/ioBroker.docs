@@ -3,25 +3,26 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.energiefluss-erweitert/README.md
 title: ioBroker.energiefluss-erweitert
-hash: 3NcBZoArnjzTu+oLkisM5RSCg9wuaFBASe5YIYFh0yw=
+hash: ftm8cROJXmK2Pe1Mr9xp0knGeK2di0tA3oRQ7hr1ca8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.energiefluss-erweitert/admin/energiefluss-erweitert.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.energiefluss-erweitert?style=flat-square)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.energiefluss-erweitert.svg)
 ![Количество установок](https://iobroker.live/badges/energiefluss-erweitert-installed.svg)
-![GitHub](https://img.shields.io/github/license/SKB-CGN/iobroker.energiefluss-erweitert?style=flat-square)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
-![Активность коммита GitHub](https://img.shields.io/github/commit-activity/m/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
-![Проблемы с GitHub](https://img.shields.io/github/issues/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
+![Стабильный](http://iobroker.live/badges/energiefluss-erweitert-stable.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.energiefluss-erweitert.svg)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.energiefluss-erweitert.svg)
+![GitHub](https://img.shields.io/github/license/SKB-CGN/iobroker.energiefluss-erweitert.svg)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.energiefluss-erweitert?logo=github)
+![Активность коммитов GitHub](https://img.shields.io/github/commit-activity/m/SKB-CGN/iobroker.energiefluss-erweitert?logo=github)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.energiefluss-erweitert?logo=github)
+![Проблемы с GitHub](https://img.shields.io/github/issues/SKB-CGN/iobroker.energiefluss-erweitert?logo=github)
 ![НПМ](https://nodei.co/npm/iobroker.energiefluss-erweitert.png?downloads=true)
 
 # IoBroker.energiefluss-erweitert
-![Тест и выпуск](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/workflows/Test%20and%20Release/badge.svg)
+![Тестирование и выпуск](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер energiefluss-erweitert для ioBroker
-Вы добавляете, что он обеспечивает анимированный поток энергии для всех элементов. Это может быть: фотоэлектричество, аккумулятор, потребление дома, подача в сеть (потребление в сеть), зарядка автомобиля и т. д.
+Этот адаптер обеспечивает динамическую и анимированную визуализацию потоков энергии для всех подключенных элементов вашего умного дома. Он поддерживает такие источники, как фотоэлектрические системы, системы хранения (аккумуляторы), потребление энергии домохозяйствами, импорт/экспорт из сети, зарядку электромобилей и другие энергопотребляющие или генерирующие устройства. Каждый поток представлен четкими двунаправленными линиями, анимированными точками и значениями в режиме реального времени, что позволяет легко отслеживать и анализировать распределение энергии. Вы можете настраивать значки, цвета и макет, а также использовать формулы для расчета производных значений, что обеспечивает гибкую и полностью интерактивную панель управления энергопотреблением.
 
 ## Документация
 * :book: [Тема форума](https://forum.iobroker.net/topic/64734/test-adapter-energiefluss-erweitert-v0-0-x-github-latest)
@@ -35,6 +36,37 @@ hash: 3NcBZoArnjzTu+oLkisM5RSCg9wuaFBASe5YIYFh0yw=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Adapter was appearing on welcome screen overview (should only be used for pro) (#429)
+- FIX: Menubar has loading animation, when opening the workspace the first time while tour is displayed
+- FIX: When using **Animation dependency** 'Dots' or 'Duration' the animation was to heavy - regulated to smoother blend
+- FIX: **Animation dependency** 'Dots' once power is on the line, minimal one dot is displayed. The threshold can be used, to manage the appearance of the first dot. 
+
+### 0.8.1 (2025-10-21)
+- FIX: Dialog for line animation overrides was not opening
+- Added: VIS and VIS-2 widget added. Just drag the widget to VIS and set the adapter instance
+
+### 0.8.0 (2025-10-21)
+- FIX: Editing a datasource was not accepting the new choosen state (#374)
+- FIX: When using **Animation dependency** 'Dots' or 'Duration' the animation could "jump" during recalculation (now the 'jump' is smoothly animated)
+- FIX: 'Manual value change' of click actions now better detect the value type of the destination source
+- FIX: Line was not hidden when 2 directions *and* display dependency are enabled
+- Added: A new property 'Distance between the dot blocks' inside 'animation'-tab is available. This setting can be used, to define the distance between dot-blocks
+- Added: Some more error handling for overrides. Now they are checked, if they have the correct format and/or syntax
+- Added: 2 new override properties are available: "addClass" and "removeClass" which allow the user, to add or remove own defined CSS classes
+- Added: The workspace will be centered itself to the current selected element
+- Added: Better support for touch-devices including different modes for moving the workspace and editing elements
+- Added: Few language and design corrections, code optimization
+- Added: Right Clicking or long press on liveview opens a context menu, to easily switch between instances or display the configuration
+
+### 0.7.8 (2025-06-18)
+- Added: Convert a text element to a datasource element
+- Added: Now supports Web-Adapter with socket.io adapter configured (#333)
+
+### 0.7.7 (2025-06-12)
+- FIX: Issues found by ioBroker-Adapter-Checker (348)
+- Added: When adding a new datasource, the associated name of this datasource is set as recommended alias
+
 ### 0.7.6 (2025-06-05)
 - FIX: Removed instances from welcome screen, as this is confusing, if not using iobroker.pro
 

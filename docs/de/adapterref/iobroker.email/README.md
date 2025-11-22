@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.email/README.md
 title: ioBroker-E-Mail
-hash: 1nWsbCPsKJ2MiNpR/LrE3yONC8jDi4xNoRO2r8O4p8E=
+hash: OCwy25hQr/7+CA/MUkCbY1CqRk1SW2ZZroC6I4SG/yA=
 ---
 ![Logo](../../../en/adapterref/iobroker.email/admin/email.png)
 
@@ -20,7 +20,24 @@ Der Adapter verwendet [Knotenmailer](https://github.com/nodemailer/nodemailer), 
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-Um Gmail nutzen zu können, müssen Sie möglicherweise „Weniger sichere Apps zulassen“ in Ihrem Gmail-Konto konfigurieren, es sei denn, Sie verwenden 2FA. In diesem Fall müssten Sie ein anwendungsspezifisches Passwort erstellen. Möglicherweise müssen Sie Ihr Konto auch mit „Zugriff auf Ihr Google-Konto zulassen“ entsperren, um SMTP nutzen zu können.
+## E-Mail-Anbieterspezifische Hinweise
+### Google Mail
+**Wichtig:** Wenn Sie die Zwei-Faktor-Authentifizierung (2FA) für Ihr Gmail-Konto aktiviert haben, **müssen** Sie anstelle Ihres regulären Gmail-Passworts ein App-Passwort verwenden. Dies war von nodemailer für Gmail mit 2FA schon immer erforderlich.
+
+So richten Sie Gmail mit 2FA ein:
+
+1. Aktivieren Sie die Bestätigung in zwei Schritten in Ihren Google-Kontoeinstellungen
+2. Generieren Sie ein App-Passwort speziell für den ioBroker-E-Mail-Adapter
+3. Verwenden Sie Ihre Gmail-Adresse als Benutzernamen und das generierte App-Passwort als Passwort in der Adapterkonfiguration
+
+Für Konten ohne 2FA müssen Sie möglicherweise in Ihren Gmail-Kontoeinstellungen die Option „Weniger sichere Apps zulassen“ konfigurieren. Möglicherweise müssen Sie Ihr Konto auch mit „Zugriff auf Ihr Google-Konto zulassen“ entsperren, um SMTP verwenden zu können.
+
+### Mail.ee
+Verwenden Sie für den E-Mail-Dienst mail.ee **nicht** Ihre normalen Webmail-Anmeldedaten. Stattdessen:
+
+- **Benutzername**: Verwenden Sie Ihre vollständige E-Mail-Adresse (z. B. „Benutzername@mail.ee“)
+- **Passwort**: Verwenden Sie das spezielle IMAP/SMTP-Passwort (nicht Ihr Webmail-Passwort)
+- So finden Sie Ihr IMAP/SMTP-Passwort: Melden Sie sich bei Ihrem mail.ee-Webmail-Konto an und besuchen Sie [https://posti.mail.ee/prefs?group=enable_pop3](https://posti.mail.ee/prefs?group=enable_pop3)
 
 ## Verwendung
 Um eine E-Mail von ScriptEngine zu senden, schreiben Sie einfach:
@@ -74,14 +91,14 @@ Um E-Mails von einem anderen Adapter zu senden, verwenden Sie die Funktion `adap
 - DynectEmail
 - FastMail
 - GandiMail
-Google Mail
+- Google Mail
 - GoDaddy
 - GodaddyAsia
 - GodaddyEurope
 - hot.ee
 - Hotmail
 iCloud
-- mit
+- ich
 - mail.ee
 - Mail.ru
 - Mailgun
@@ -113,6 +130,15 @@ Weitere Dienste finden Sie in der Dokumentation von **Nodemailer**: `§§LLLLL_0
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.5-alpha.0 (2025-10-06)
+* (@copilot) Fixed SMTP relay anonymous access by ignoring user and password when empty
+* (@copilot) Fixed Office365 OAuth email sending from scripts by ensuring fresh tokens are used
+* (mcm1957) Dependencies have been updated
+
+### 2.0.4 (2025-04-15)
+* (@mcm1957) `From email address is not equal to the configured email address for authentication.` changed to debug level.
+* (mcm1957) Dependencies have been updated
+
 ### 2.0.3 (2025-03-24)
 * (@GermanBluefox) Added t-online.de to the list of supported services
 
@@ -128,17 +154,6 @@ Weitere Dienste finden Sie in der Dokumentation von **Nodemailer**: `§§LLLLL_0
 * (mcm1957) Dependencies have been updated
 * (@GermanBluefox) Migrated to TypeScript
 * (@GermanBluefox) Added "Ignore SSL errors" option
-
-### 1.4.0 (2024-11-17)
-* (simatec) Responsive Design added
-* (Jey-Cee) Admin-UI has been migrated to jsonConfig
-
-### 1.3.1 (2024-06-09)
-* (klein0r) Updated Blockly definitions
-
-### 1.3.0 (2024-04-29)
-* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-* (mcm1957) Dependencies have been updated
 
 ## License
 

@@ -72,7 +72,7 @@ This adapter supports a subscribing on data changes via long polling.
 Example for browser could be found here: [demoNodeClient.js](examples/demoBrowserClient.html)  
 
 ## Web extension
-This adapter can run as a web extension. In this case, the path is available under `http://ipaddress:8082/rest`
+This adapter can run as a web extension. In this case, the path is available under `http://ipaddress:8082/rest-api/`
 
 ## Notice
 - `POST` is always for creating a resource (does not matter if it was duplicated)
@@ -184,6 +184,9 @@ You cannot send POST request to commands via GUI.
 
 
 ## Changelog
+### 3.1.1 (2025-10-09)
+* (@GermanBluefox) corrected web extension path
+
 ### 3.1.0 (2025-10-05)
 * (@copilot, @SimonFischer04) Fix running as web extension, own implementation of unmaintained swagger-node-runner-fork, 
 * (@SimonFischer04) remove 18 and add node 24 to tests

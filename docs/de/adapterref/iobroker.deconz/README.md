@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.deconz/README.md
-title: ohne Titel
-hash: 6/x2DbZCDtTO0us9rIBbOJBGbXgLhQHXkzqo5rs4qa8=
+title: kein Titel
+hash: ewaf6MGJi/Q4NpS6i2CfUKF7i0e2iga4/x8MTXH/zlw=
 ---
 ![Logo](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
@@ -11,31 +11,33 @@ hash: 6/x2DbZCDtTO0us9rIBbOJBGbXgLhQHXkzqo5rs4qa8=
 ![NPM-Version](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.deconz.svg)
 
-ioBroker deConz dresden-elektronik Adapter
+ioBroker deCONZ dresden-elektronik Adapter
 
 ==============
 
 ## Beachten
-Kein Support für Betaversionen von deConz
+Kein Support für Beta-Versionen von deCONZ
 
-Erforderliche JS-Controller-Version >5.x.x, Erforderliches Node.js >= 18.x.x
+Erforderliche js-controller-Version >5.x.x, erforderliche node.js-Version >= 18.x.x
 
 ## Englisch
-Verbindet sich mit der von dresden-elektronik entwickelten deConz REST-API-Software. Diese Software soll eine universelle ZigBee-Gateway-Lösung sein und verwendet Hardware von dresden-elektronik, den ConBee(X)-USB-Stick und RaspBee(X), ein Modul für den Raspberry Pi.
+Verbindet sich mit der von dresden-elektronik entwickelten deCONZ REST-API-Software. Diese Software zielt darauf ab, eine universelle ZigBee-Gateway-Lösung zu sein und nutzt Hardware von dresden-elektronik: den ConBee(X) USB-Stick und das RaspBee(X), ein Modul für den Raspberry Pi.
 
-Sie müssen zuerst eine Verknüpfung zu deConz herstellen.
+Sie müssen zuerst eine Verbindung zu deCONZ herstellen.
 
-1. a) IP-Adresse für deConz eingeben<br>
+1. a) Geben Sie die IP-Adresse für deCONZ ein.<br>
 
-b) Geben Sie den Standard-Bridge-Port ein: 80 und den Standard-Websocket: 443<br> [zB Phoscon App - Hilfe - API Informationen - Kein Filter - Suche nach Port/WebSocketport]
+b) Geben Sie den Standard-Bridge-Port 80 und den Standard-Websocket 443 ein.<br> [z. B. Phoscon App - Hilfe - API-Informationen - Kein Filter - Suche nach Port/WebSocketPort]
 
-2. Nachdem IP-Adresse und Port eingegeben und gespeichert wurden, klicken Sie auf die Schaltfläche „API-Schlüssel erstellen“. Jetzt können Sie die Anmeldeinformationen für deConz eingeben oder zur Phoscon-App gehen und ioBroker als Drittanbieter-App registrieren.
+2. Nachdem Sie IP-Adresse und Port eingegeben und gespeichert haben, klicken Sie auf „API-Schlüssel erstellen“. Nun können Sie die Zugangsdaten für deCONZ eingeben oder in der Phoscon-App ioBroker als Drittanbieter-App registrieren.
 
-## Um einige Fehler nach einem Update (deConz/Adapter) zu vermeiden, stoppen Sie den Adapter und löschen Sie diese Einträge in der Objektstruktur. Beim Starten wird die Objektstruktur neu erstellt.
-![Deconz-Adapter](https://github.com/mattreim/ioBroker.deconz/assets/80219712/fb56647e-a0a8-4535-9e18-2b7651b32824)
+Um Fehler nach einem Update (deCONZ/Adapter) zu vermeiden, stoppen Sie den Adapter und löschen Sie die entsprechenden Einträge in der Objektstruktur. Beim nächsten Start wird die Objektstruktur neu erstellt.
+* Gruppen
+* Lichter
+* Sensoren
 
-#### Senden Sie mehrere Befehle gleichzeitig
-Zu diesem Zweck gibt es ein Objekt namens „Aktion“.
+#### Mehrere Befehle gleichzeitig senden
+Zu diesem Zweck gibt es ein Objekt namens "action".
 
 Beispiele:
 
@@ -44,11 +46,18 @@ Beispiele:
 `"on": true, "transitiontime": 5, "hue": 360`
 
 ## Links
-[deCONZ REST-API Plugin](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) [Dokumentation des deCONZ REST-API Plugin](https://dresden-elektronik.github.io/deconz-rest-doc/) [Gateways (Hardware)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+[deCONZ REST-API-Plugin](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) [Dokumentation des deCONZ REST-API-Plugins](https://dresden-elektronik.github.io/deconz-rest-doc/) [Gateways (Hardware)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
 ## [Sponsoren](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.7.0 (2024-11-22)
+* (mattreim) Hide virtual sensors function
+* (mattreim) Hide switch groups function
+* (mattreim) Update dependencies
+* (mattreim) Updated/added some translations
+* (mattreim) Some bug fixes and more
 
 ### 1.6.4 (2024-10-06)
 * (mattreim) Add "protectedNative" and "encryptedNative"

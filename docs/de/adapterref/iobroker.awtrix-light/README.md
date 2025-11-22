@@ -211,7 +211,7 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.0.0 (2025-10-21)
 
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
 
@@ -237,10 +237,6 @@ Updated recommended firmware version to 0.98
 Updated recommended firmware version to 0.97
 
 * (@klein0r) Updated dependencies
-
-### 1.4.1 (2024-11-20)
-
-NodeJS >= 20.x and js-controller >= 6 is required
 
 ## License
 

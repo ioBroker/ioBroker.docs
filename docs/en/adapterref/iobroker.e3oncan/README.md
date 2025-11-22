@@ -116,6 +116,10 @@ CAN-address=98: data points with odd IDs
 ## Limitation of collecting data
 * At present, the communication protocol is known only for Vitocal (listener on CAN id 0x693 on internal CAN), Vitocharge VX3 and Vitoair (both listener on CAN id 0x451 on external and internal CAN).
 
+## Limitation of scan range for data points
+* Numerical range for scan of data points is limited to min. and max. value of common data point list, e.g. 256 to 3338 @ version 0.10.14
+* You may scan for data points beyond this scope for a specific device by using "ReadByDid" command: Edit `e3oncan.0.<DEVICE>.cmnd.udsReadByDid` and add your list of desired data points, e.g. `[3350,3351,3352,3353]`. If a requested data point is available the value will show up in the object tree. It's also possible to use such data points within read schedules of device configuration. If a requested data point is **not** available an error message ("Negative response") will appear in iobroker's log.
+
 ## What is different to open3e project?
 * Obviously, the main differece is the direct integration to ioBroker. Configuration can be done via dialogs, data get's directly listed in object trees.
 * In addition to open3e real time collecting of data via listening is supported.
@@ -138,8 +142,14 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.10.14 (2025-11-03)
+* (MyHomeMyData) Added elements to enums.js based of PR no. 182 of open3e
+* (MyHomeMyData) Simplified configuration of dids scan limits in source code
+* (MyHomeMyData) Extended scan up to did 3338
+* (MyHomeMyData) Added hint regarding scan range in Readme
 * (MyHomeMyData) Fixes for issue #169 (repository checker)
+* (MyHomeMyData) Bugfix: Manual change of device specific dids was not evaluated for collect workers
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20251102
 
 ### 0.10.13 (2025-09-30)
 * (MyHomeMyData) Fix for issue #162

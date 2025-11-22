@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: PwIbSOzUPW8pkyUCQv2/mxkokzc0W478GO0c/zChves=
+hash: cVQnLVGqcTff8Bs8BLIs01o8uHPI9pHvD9nMGWcH5zQ=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -31,7 +31,7 @@ https://github.com/foxthefox/ioBroker.ecoflow-mqtt
 
 <img src="https://raw.githubusercontent.com/foxthefox/ioBroker.ecoflow-mqtt/main/admin/ecoflow-mqtt.png" width="100" height="100" />
 
-ioBroker-Adapter für die Verbindung mit dem Ecoflow MQTT-Server (Emulation der App-Kommunikation), bietet auch ein Home Assistant Gateway über die Erkennungsfunktion.
+ioBroker-Adapter für die Verbindung mit dem Ecoflow MQTT-Server (emuliert die App-Kommunikation), bietet auch ein Home Assistant Gateway über die Erkennungsfunktion.
 
 ## Fregatte (20.08.2023) - neuer Adapter
 https://github.com/Bettman66/ioBroker.frigate
@@ -221,7 +221,7 @@ https://github.com/PLCHome/ioBroker.pylontech
 
 <img src="https://raw.githubusercontent.com/PLCHome/ioBroker.pylontech/master/admin/logo.png" width="100" height="100" />
 
-Fragen Sie die Zellspannungen und den Status von Pylontech-Batterien über die Konsole ab.
+Fragen Sie die Zellspannungen und den Status von pylontech-Batterien über die Konsole ab.
 
 ## Signifylights (26.10.2023) - neuer Adapter
 https://github.com/disaster123/ioBroker.signifylights
@@ -302,7 +302,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Aufzeichnen von Art-Net-Daten in einer Datei zur späteren Wiedergabe
 
-## Energiefluss (25.01.2024) – neuer Adapter
+##energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -611,7 +611,7 @@ Zustände könnten direkt aus der JSON-Konfiguration gesteuert werden, um die Be
 ## Admin (01.09.2024) - neue Funktion
 ![Kontextmenü](../../en/history/media/2024_09_10_admin_context_menu.png)
 
-Einige Benutzer sind möglicherweise bereits mit dem Kontextmenü im ioBroker Admin Object Browser vertraut. Wir möchten jedoch alle daran erinnern, dass ein einfacher Linksklick schnellen Zugriff auf das Kontextmenü bietet und es Ihnen ermöglicht, verschiedene Operationen an Objekten durchzuführen, z. B. einen Alias für diese zu erstellen.
+Einige Benutzer sind möglicherweise bereits mit dem Kontextmenü im ioBroker Admin Object Browser vertraut. Wir möchten jedoch alle daran erinnern, dass ein einfacher Linksklick einen schnellen Zugriff auf das Kontextmenü bietet und es Ihnen ermöglicht, verschiedene Operationen an Objekten durchzuführen, z. B. einen Alias für diese zu erstellen.
 
 ## Gotify-ws (4.9.2024) – neuer Adapter im stabilen
 https://github.com/simatec/ioBroker.gotify-ws
@@ -876,7 +876,7 @@ Integrieren Sie Anker Solix 2. Dieses Projekt stammt von https://github.com/tomq
 ## Geräte (20.4.2025) - neue Funktion
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.devices/master/admin/devices.png" width="100" height="100" />
 
-Der Adapter `devices` wurde auf Version 1.2.0 aktualisiert. Er wurde komplett mit TypeScript- und Vite-Technologien neu geschrieben. Die neue Version ist schneller und stabiler.
+Der `devices`-Adapter wurde auf Version 1.2.0 aktualisiert. Er wurde komplett mit TypeScript- und Vite-Technologien neu geschrieben. Die neue Version ist schneller und stabiler.
 
 ## Mhi-wfrac (30.4.2025) – neuer Adapter
 https://github.com/hacki11/ioBroker.mhi-wfrac
@@ -1014,3 +1014,6 @@ Der SofarCloud-Server speichert Daten von Sofar-Wechselrichtern.
 Der Ping-Adapter kann die TCP-Ports prüfen.
 
 https://github.com/ioBroker/ioBroker.ping
+
+## Admin (21.10.2025) – neue Funktion
+Ziehen und Ablegen von Geräten zwischen Kategorien

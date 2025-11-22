@@ -3,32 +3,102 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: VuoMuH0MEntk60T782Hm/p5n+SeZGJ79Jpi8hSQqNb8=
+hash: D+N+qLPKppmOp3lE3sL0lIjj/sUaUTSKSVSq6yBgEzQ=
 ---
 ![标识](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.bluelink.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.bluelink.svg)
 ![安装数量（最新）](https://iobroker.live/badges/bluelink-installed.svg)
-![安装数量（稳定）](https://iobroker.live/badges/bluelink-stable.svg)
-![新公共管理](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
+![安装数量（稳定版）](https://iobroker.live/badges/bluelink-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
-![测试和发布](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试与发布](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## IoBroker 的 bluelink 适配器
-用于控制现代或起亚汽车的适配器（直到 2023 年）
+用于控制现代或起亚汽车的适配器（有效期至2023年）
 
 [讨论](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 
 [登录信息](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
 
+[Token 生成](https://github.com/Newan/ioBroker.bluelink/tree/master/py) 或 [使用 Token 的变通方法](https://github.com/Newan/ioBroker.bluelink/tree/master/py)](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo/2249?_=1761189451343)
+
 [维基百科](https://github.com/Newan/ioBroker.bluelink/wiki)
 
-## 捐赠
-[![]（https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+------------------------------------------------------------------------------------
+
+捐赠
+[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 3.1.24 (2025-11-07)
+* (arteck) fix vehicles > 2 in account
+
+### 3.1.23 (2025-10-16)
+* (arteck) new bluelinky
+
+### 3.1.22 (2025-10-16)
+* (arteck) add token process for HYUNDAI only. change PSW to TOKEN
+
+### 3.1.21 (2025-10-06)
+* (arteck) add token process for KIA only. change PSW to TOKEN
+* (arteck) this is a quick adn dirty solution for now
+
+### 3.1.20 (2025-08-14)
+* (arteck) fix Geo coordinates
+* (arteck) fix Kia Gas
+* (arteck) Warning !!!!  new Structure for some Vehicles (vehicleStatusRaw only). Check you Objects tree.
+
+### 3.1.19 (2025-08-09)
+* (arteck) dependency update
+
+### 3.1.18 (2025-08-08)
+* (arteck) fix login Kia/Hyundai
+
+### 3.1.17 (2025-07-20)
+* (arteck) fix bat-12V
+
+### 3.1.16 (2025-07-03)
+* (arteck) fix ratio from car
+
+### 3.1.15 (2025-06-27)
+* (arteck) fix GeoCoord from car
+
+### 3.1.14 (2025-06-26)
+* (arteck) fix SoH value
+
+### 3.1.13 (2025-06-26)
+* (arteck) fix location if timestamp in ccs2 is greater than vehicle timestamp
+
+### 3.1.12 (2025-06-26)
+* (arteck) fix vehicallocation in ccs2
+
+### 3.1.11 (2025-06-26)
+* (arteck) fix Version number
+
+### 3.1.10 (2025-06-25)
+* (arteck) fix BatteryManagement
+
+### 3.1.9 (2025-06-24)
+* (arteck) fix translate
+
+### 3.1.8 (2025-06-12)
+* (arteck) fix location Tucson
+
+### 3.1.7 (2025-06-10)
+* (arteck) fix translate for PHEV Range
+
+### 3.1.6 (2025-06-09)
+* (arteck) add DE language
+
+### 3.1.5 (2025-06-09)
+* (arteck) calculate evModeRange for PHEV
+
+### 3.1.4 (2025-06-09)
+* (arteck) fix enModeRange for PHEV
+
 ### 3.1.3 (2025-05-05)
 * (arteck) fix bug with day and time tag for EV 
 * (arteck) dependency update
@@ -169,4 +239,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
+
+
 SOFTWARE.

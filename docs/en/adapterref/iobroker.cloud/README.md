@@ -75,6 +75,9 @@ You can deactivate HTTPS and authentication on this web instance, but better is 
 -->
 
 ## Changelog
+### 5.1.2 (2025-11-01)
+* (bluefox) Fixing cloud connection error
+
 ### 5.1.0 (2025-08-19)
 * (bluefox) updated socket classes
 * (bluefox) minimum required node.js version is 18

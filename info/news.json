@@ -1044,5 +1044,45 @@
     "conditions": {
       "mihome-lamp": "installed"
     }
+  },
+  {
+    "title":{
+      "de": "Neuer KISSHOME-Defender-Adapter",
+      "en": "New KISSHOME Defender adapter",
+      "ru": "Новый адаптер KISSHOME Defender",
+      "pt": "Novo adaptador KISSHOME Defender",
+      "nl": "Nieuwe KISSHOME Defender-adapter",
+      "fr": "Nouveau adaptateur KISSHOME Defender",
+      "it": "Nuovo adattatore KISSHOME Defender",
+      "es": "Nuevo adaptador KISSHOME Defender",
+      "pl": "Nowy adapter KISSHOME Defender",
+      "uk": "Новий адаптер KISSHOME Defender",
+      "zh-cn": "新的 KISSHOME Defender 适配器"
+    },
+    "content": {
+      "de": "\uD83D\uDE80 Neuer KISSHOME-Defender-Adapter: IT-Sicherheit für Dein Smart Home\n\n\uD83D\uDD0D Überwacht Datenverkehr Deiner Geräte mit KI und zeigt auffälliges Verhalten.\n\n\uD83C\uDF81 Teilnahme an Forschungsstudie = Chance auf 50 € Gutschein + 2 Monate ioBroker.Pro\n\n\uD83D\uDC49 Weitere Infos & Anmeldung: https://kisshome-defender.if-is.net/#/",
+      "en": "\uD83D\uDE80 New KISSHOME Defender adapter: IT security for your smart home\n\n\uD83D\uDD0D Monitors data traffic of your devices with AI and detects unusual behavior.\n\n\uD83C\uDF81 Participation in research study = chance to win a €50 voucher + 2 months of ioBroker.Pro\n\n\uD83D\uDC49 More info & registration: https://kisshome-defender.if-is.net/#/",
+      "ru": "\uD83D\uDE80 Новый адаптер KISSHOME Defender: IT-безопасность для вашего умного дома\n\n\uD83D\uDD0D Мониторит сетевой трафик ваших устройств с помощью ИИ и обнаруживает необычное поведение.\n\n\uD83C\uDF81 Участие в исследовательском проекте = шанс выиграть ваучер на 50 € + 2 месяца ioBroker.Pro\n\n\uD83D\uDC49 Подробнее и регистрация: https://kisshome-defender.if-is.net/#/",
+      "pt": "\uD83D\uDE80 Novo adaptador KISSHOME Defender: segurança de TI para sua casa inteligente\n\n\uD83D\uDD0D Monitora o tráfego de dados dos seus dispositivos com IA e detecta comportamentos incomuns.\n\n\uD83C\uDF81 Participação em estudo de pesquisa = chance de ganhar um voucher de €50 + 2 meses de ioBroker.Pro\n\n\uD83D\uDC49 Mais informações e inscrição: https://kisshome-defender.if-is.net/#/",
+      "nl": "\uD83D\uDE80 Nieuwe KISSHOME Defender-adapter: IT-beveiliging voor je slimme huis\n\n\uD83D\uDD0D Houdt het dataverkeer van je apparaten in de gaten met AI en detecteert ongewoon gedrag.\n\n\uD83C\uDF81 Deelname aan onderzoek = kans om een voucher van €50 + 2 maanden ioBroker.Pro te winnen\n\n\uD83D\uDC49 Meer info& registratie: https://kisshome-defender.if-is.net/#/",
+      "fr": "\uD83D\uDE80 Nouvel adaptateur KISSHOME Defender : sécurité informatique pour votre maison intelligente\n\n\uD83D\uDD0D Surveille le trafic de données de vos appareils avec l'IA et détecte les comportements inhabituels.\n\n\uD83C\uDF81 Participation à une étude de recherche = chance de gagner un bon de 50 € + 2 mois d'ioBroker.Pro\n\n\uD83D\uDC49 Plus d'infos et inscription : https://kisshome-defender.if-is.net/#/",
+      "it": "\uD83D\uDE80 Nuovo adattatore KISSHOME Defender: sicurezza IT per la tua casa intelligente\n\n\uD83D\uDD0D Monitora il traffico dati dei tuoi dispositivi con l'IA e rileva comportamenti insoliti.\n\n\uD83C\uDF81 Partecipazione a uno studio di ricerca = possibilità di vincere un voucher da 50 € + 2 mesi di ioBroker.Pro\n\n\uD83D\uDC49 Maggiori info e registrazione: https://kisshome-defender.if-is.net/#/",
+      "es": "\uD83D\uDE80 Nuevo adaptador KISSHOME Defender: seguridad informática para tu hogar inteligente\n\n\uD83D\uDD0D Monitorea el tráfico de datos de tus dispositivos con IA y detecta comportamientos inusuales.\n\n\uD83C\uDF81 Participación en estudio de investigación = oportunidad de ganar un vale de 50 € + 2 meses de ioBroker.Pro\n\n\uD83D\uDC49 Más información e inscripción: https://kisshome-defender.if-is.net/#/",
+      "pl": "\uD83D\uDE80 Nowy adapter KISSHOME Defender: bezpieczeństwo IT dla Twojego inteligentnego domu\n\n\uD83D\uDD0D Monitoruje ruch danych Twoich urządzeń za pomocą AI i wykrywa nietypowe zachowania.\n\n\uD83C\uDF81 Udział w badaniu naukowym = szansa na wygranie vouchera o wartości 50 € + 2 miesiące ioBroker.Pro\n\n\uD83D\uDC49 Więcej informacji i rejestracja: https://kisshome-defender.if-is.net/#/",
+      "uk": "\uD83D\uDE80 Новий адаптер KISSHOME Defender: ІТ-безпека для вашого розумного будинку\n\n\uD83D\uDD0D Моніторить трафік даних ваших пристроїв за допомогою ШІ та виявляє незвичайну поведінку.\n\n\uD83C\uDF81 Участь у дослідницькому проєкті = шанс виграти ваучер на 50 євро + 2 місяці ioBroker.Pro\n\n\uD83D\uDC49 Детальніше та реєстрація: https://kisshome-defender.if-is.net/#/",
+      "zh-cn": "\uD83D\uDE80 新的 KISSHOME Defender 适配器：为您的智能家居提供 IT 安全保障\n\n\uD83D\uDD0D 使用 AI 监控您的设备数据流量并检测异常行为。\n\n\uD83C\uDF81 参与研究调查 = 有机会赢取 50 欧元代金券 + 2 个月 ioBroker.Pro 订阅\n\n\uD83D\uDC49 更多信息及注册：https://kisshome-defender.if-is.net/#/"
+    },
+    "id": "kisshome-defender-new",
+    "class": "info",
+    "fa-icon": "exclamation-circle",
+    "created": "2025-11-14T10:00:00.000Z",
+    "date-end": "2025-11-16T23:59:59.000Z",
+    "conditions": {
+      "tr-064": "installed",
+      "fb-checkpresence": "installed",
+      "fritzbox": "installed",
+      "fritzdect": "installed",
+      "or": "true"
+    }
   }
 ]

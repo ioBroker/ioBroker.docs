@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.skiinfo/README.md
 title: ioBroker.skiinfo
-hash: diLFZTVpYoRZ/ljJwh5kj1PptGiP84IIK94aVIF/iJg=
+hash: 6aSEES/WuLqmEA2uTN3WjAWcEd+NfAfpLl8mUuQ0fYw=
 ---
 # IoBroker.skiinfo
 ![Логотип](../../../en/adapterref/iobroker.skiinfo/admin/skiinfo.png)
@@ -40,8 +40,9 @@ weitere Informationen
 Виджет позволяет просматривать все доступные страны, регионы и территории, а также добавлять избранные.
 
 Вы можете переключать сортировку для каждого столбца (по умолчанию, по убыванию или по возрастанию) с помощью заголовка таблицы.
-Для поиска используйте значок поиска в столбце области.
-Для переключения режима избранного используйте значок звёздочки.
+Вы можете осуществлять поиск, используя значок поиска в столбце области.
+Вы можете переключаться в режим избранного с помощью значка звёздочки.
+Все записи можно свернуть в избранное для более быстрого поиска.
 
 Выберите точку данных конфигурации в качестве точки данных.
 
@@ -172,10 +173,10 @@ console.log(response);
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.0.0 (2025-10-08)
 
 - test remove node 18,extend to node 24
+- add filter button in browser to reduce all entries to favorites.
 
 ### 0.5.0 (2025-04-16)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.matter/README.md
 title: ioBroker Matter Adapter
-hash: /lBrnZY2SJyXKDLGYvnNr2wVfvqeIKu6j+u0Y3vXC0s=
+hash: O/e9Y+fasfqmfi0k7QYqZuVBlJB5PqEtsyfi3tTP9W0=
 ---
 ![Logo](../../../en/adapterref/iobroker.matter/admin/matter.svg)
 
@@ -71,13 +71,48 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 * (1+) Batteriespeicher -> ???
 * (1+) Wärmepumpe -> ???
 
+## Entwicklung
+### Abhängigkeiten aktualisieren
+Verwenden Sie beim Aktualisieren von Projektabhängigkeiten (sowohl im Stammverzeichnis `package.json` als auch `src-admin/package.json`) immer den folgenden Befehl:
+
+```bash
+npm run npm
+```
+
+Dieser Befehl aktualisiert Abhängigkeiten sowohl im Hauptprojekt als auch im Admin-Frontend und stellt sicher, dass `package-lock.json`-Dateien ordnungsgemäß synchronisiert werden.
+
+### Tests ausführen
+Alle Tests werden in TypeScript geschrieben und direkt ohne Kompilierung ausgeführt:
+
+```bash
+npm test
+```
+
+Tests befinden sich im Verzeichnis `test/` und verwenden ts-node für die direkte TypeScript-Ausführung.
+
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 0.5.6 (2025-10-21)
+* (@Apollon77) Type detector update, should detect single states in non-device structures better
+
+### 0.5.5 (2025-10-16)
+* (@Apollon77) Optimizes Battery drain information
+* (@Apollon77) Correctly shows "in progress changes" in UI when adjusting devices to ovoid overlapping actions
+* (@Apollon77) Fix HSV to RGB calculation for some cases
+* (@Apollon77) Updated matter.js to 0.15.6
+* (@Apollon77) Optimizes shutdown process to ensure everything is properly closed
+
+### 0.5.4 (2025-10-07)
+* (@Apollon77) Updated matter.js to 0.15.5
+
+### 0.5.3 (2025-09-20)
+* (@Apollon77) Updated matter.js to 0.15.4
+
 ### 0.5.2 (2025-08-03)
-* (@Apollon77) Updated matter.js to 0.15.2 with many performance- and other improvements
+* (@Apollon77) Updated matter.js to 0.15.3 with many performance- and other improvements
 * (@GermanBluefox) Corrected the checking of the licenses if they were stacked
 * (Apollon77) Use attributes from cache instead of requesting them from the device
 * (Apollon77) Ignoring invalid min/max for color temperature from objects

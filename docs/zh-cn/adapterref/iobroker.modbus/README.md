@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.modbus/README.md
 title: iobroker.modbus
-hash: bV12UaHIWeE2s72XClON8yl9YIq+LHFAoh5+qejs8ic=
+hash: rY6TVD9Cqql762gZE6QnbgrmfGtX9OYNEFsFGg2smB4=
 ---
 ![标识](../../../en/adapterref/iobroker.modbus/admin/modbus.png)
 
@@ -96,7 +96,7 @@ Modbus 设备 ID。如果使用 TCP/Modbus 桥接器，则此项很重要。
 某些系统要求先进行“写入请求”才能在“读取请求”中传递数据。
 您可以通过将“最大读取请求长度”设置为 1 来强制此模式。
 
-**注意：**某些 USB Modbus 解决方案（例如基于 socat）可能无法与 serialport npm 模块协同工作。
+**注意：**某些 USB Modbus 解决方案（例如基于 `socat`）可能无法与 `serialport` npm 模块协同工作。
 
 有一个软件[**Modbus RTU <-> Modbus RTU over TCP**](http://mbus.sourceforge.net/index.html)网关，可以使用串行 RTU over TCP 协议。
 
@@ -211,7 +211,7 @@ ioBroker 房间分配。
 
 以下描述复制自[这里](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/)
 
-点对点 Modbus 协议是 RTU 通信的热门选择，原因很简单，就是它的基本便利性。该协议本身控制着 Modbus 网络上每个设备的交互、设备如何建立已知地址、每个设备如何识别其消息以及如何从数据中提取基本信息。本质上，该协议是整个 Modbus 网络的基础。
+点对点 Modbus 协议是 RTU 通信的热门选择，其主要原因在于其便捷性。该协议本身控制着 Modbus 网络上每个设备的交互、设备如何建立已知地址、每个设备如何识别其消息以及如何从数据中提取基本信息。本质上，该协议是整个 Modbus 网络的基础。
 
 然而，这种便利并非没有复杂性，Modbus RTU 消息协议也不例外。
 该协议本身是基于 16 位寄存器长度的设备设计的。
@@ -254,7 +254,7 @@ Big-Endian 是网络协议最常用的格式 - 事实上，它非常常见，因
 
 一般来说，设备微处理器的系列决定了其字节序。通常，大端字节序（先存储高位字节，后存储低位字节）通常出现在采用摩托罗拉处理器设计的 CPU 中。小端字节序（先存储低位字节，后存储高位字节）通常出现在采用英特尔架构的 CPU 中。至于哪种字节序被认为是“倒序”，则取决于个人观点。
 
-但是，如果字节顺序和字节序不是可配置选项，则必须确定如何解释字节。这可以通过向从属设备请求一个已知的浮点值来完成。如果返回一个不可能的值，例如带有两位数指数的数字或类似的数字，则很可能需要修改字节顺序。
+但是，如果字节顺序和字节序不是可配置选项，则必须确定如何解释该字节。这可以通过向从属设备请求一个已知的浮点值来完成。如果返回一个不可能的值，例如带有两位数指数的数字或类似的数字，则很可能需要修改字节顺序。
 
 ### 实用帮助
 FieldServer Modbus RTU 驱动程序提供了多种函数移动，用于处理 32 位整数和 32 位浮点值。更重要的是，这些函数移动考虑了所有不同形式的字节排序。下表显示了将两个相邻的 16 位寄存器复制到 32 位整数值的 FieldServer 函数移动。
@@ -295,7 +295,7 @@ FieldServer Modbus RTU 驱动程序提供了多种函数移动，用于处理 32
 
 请注意，不同的字节和字序需要使用合适的 FieldServer 函数 move。选择合适的函数 move 后，数据就可以双向转换。
 
-互联网上有很多十六进制到浮点数的转换器和计算器，但实际上很少有允许操作字节和字序的。
+互联网上有很多十六进制转浮点数的转换器和计算器，但实际上很少有允许操作字节和字序的。
 其中一个这样的实用程序位于 www.61131.com/download.htm，您可以在那里下载该实用程序的 Linux 和 Windows 版本。
 安装后，该实用程序将作为可执行文件运行，并带有一个对话框界面。
 该实用程序将十进制浮点值 123456.00 的显示方式如下：
@@ -307,27 +307,37 @@ FieldServer Modbus RTU 驱动程序提供了多种函数移动，用于处理 32
 ## 寄存器的导出/导入
 通过导出/导入功能，您可以将所有注册数据（仅一种类型）转换为 TSV（制表符分隔值）文件，然后再转换回来，以便轻松地将数据从一个设备复制到另一个设备或在 Excel 中编辑注册。
 
-您可以与[modbus 模板](https://github.com/ioBroker/modbus-templates) 中的其他用户共享您的模式，或者您可以在那里找到一些注册模式。
+您可以与[modbus模板，](https://github.com/ioBroker/modbus-templates) 中的其他用户共享您的模式，或者您可以在那里找到一些注册模式。
 
 ＃＃ 测试
 文件夹`test`中有一些程序用于测试 TCP 通信：
 
 - Ananas32/64 是一个从属模拟器（仅保持寄存器和输入，没有线圈和数字输入）
 - RMMS 是主模拟器
-- mod_RSsim.exe 是一个从属模拟器。您可能需要 [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) 才能启动它（因为 SideBySide 错误）。
-
-## 待办事项
-- [ ] 解析 https://github.com/ioBroker/modbus-templates 上的文件并允许直接从适配器导入它们
+- mod_RSsim.exe 是一个从属模拟器。您可能需要 [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) 才能启动它（因为 Side-By-Side 错误）。
 
 <!--
 
 ### **工作正在进行** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 7.0.5 (2025-10-13)
+* (bluefox) Prohibited installation from github
+
+### 7.0.4 (2025-10-08)
+* (bluefox) Added migration procedure from 6 to 7
+* (bluefox) Corrected serial communication
+
+### 7.0.1 (2025-10-07)
+* (bluefox) Redesign of the configuration tabs
+* (bluefox) Added option to remove leading underscores in the object names
+
+### 7.0.0 (2025-10-06)
 * (copilot) Improved Modbus error handling and fault tolerance - continue polling working devices even when others fail
 * (copilot) Fixes memory leak
 * (copilot) Added option to disable connection error logging to avoid log spam when devices are unavailable
+* (bluefox) Show values directly in configuration
+* (bluefox) Implemented TLS connection (master)
 
 ### 6.4.0 (2024-11-22)
 * (bluefox) Moved GUI compilation to vite
@@ -444,7 +454,7 @@ FieldServer Modbus RTU 驱动程序提供了多种函数移动，用于处理 32
 * (bluefox) fixed the configuration dialog for "input registers" in slave mode
 
 ### 3.3.0 (2021-04-16)
-* (Apollon77) Allow usage of write-only (no poll) states
+* (Apollon77) Allowed usage of write-only (no poll) states
 * (Apollon77/TmShaz) F Write multiple registers
 * (prog42) create states of type string with default value of type string
 
@@ -522,7 +532,7 @@ FieldServer Modbus RTU 驱动程序提供了多种函数移动，用于处理 32
 * (bluefox) Refactoring
 
 ### 3.0.0 (2019-05-15)
-* (Apollon77) Support for nodejs 12 added, nodejs 4 is no longer supported!
+* (Apollon77) Support for Node.js 12 added, Node.js 4 is no longer supported!
 
 ### 2.0.9 (2018-10-11)
 * (Bjoern3003) Write registers was corrected
@@ -643,7 +653,7 @@ FieldServer Modbus RTU 驱动程序提供了多种函数移动，用于处理 32
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2024 Bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2025 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

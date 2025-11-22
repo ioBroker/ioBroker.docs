@@ -20,13 +20,27 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 [Login Infos](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
 
+[Token generieren](https://github.com/Newan/ioBroker.bluelink/tree/master/py) oder [workaround with Token](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo/2249?_=1761189451343)
+
 [Wiki](https://github.com/Newan/ioBroker.bluelink/wiki)
+
+------------------------------------------------------------------------------------
+
 
 
 ## Changelog
+### 3.1.24 (2025-11-07)
+* (arteck) fix vehicles > 2 in account
 
-### **WORK IN PROGRESS**
-* (arteck) add token process
+### 3.1.23 (2025-10-16)
+* (arteck) new bluelinky
+
+### 3.1.22 (2025-10-16)
+* (arteck) add token process for HYUNDAI only. change PSW to TOKEN
+
+### 3.1.21 (2025-10-06)
+* (arteck) add token process for KIA only. change PSW to TOKEN
+* (arteck) this is a quick adn dirty solution for now
 
 ### 3.1.20 (2025-08-14)
 * (arteck) fix Geo coordinates
@@ -225,4 +239,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
+
+
 SOFTWARE.

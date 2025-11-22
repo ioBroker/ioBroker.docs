@@ -3,7 +3,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.frontier_silicon.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.frontier_silicon.svg
 BADGE-Number of Installations (latest): http://iobroker.live/badges/frontier_silicon-installed.svg
 BADGE-Number of Installations (stable): http://iobroker.live/badges/frontier_silicon-stable.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.frontier_silicon.png?downloads=true
+BADGE-NPM: https://nodei.co/npm/iobroker.frontier_silicon.svg?data=d,s
 ---
 # FSAPI Beispiele
 
@@ -39,6 +39,11 @@ Andere FSAPI Dokumentation
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.1-alpha.0 (2025-10-20)
+
+- (pdbjjens) Fix: Add GitHub as npm Trusted Publisher
+- (pdbjjens) Change: Update dependencies
+
 ### 0.5.0 (2025-08-28) - 2025H2 maintenance release
 
 - (pdbjjens) Change: node>=20, js-controller>=7.0.7 and admin>=7.6.17 required
@@ -67,12 +72,6 @@ Andere FSAPI Dokumentation
 ### 0.2.0 (2024-01-28)
 
 - (pdbjjens) Change: Increase minor version number
-
-### 0.1.2 (2024-01-26) - 2024 maintenance release
-
-- (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=5 required
-- (pdbjjens) New: Optionally display PIN code and limit to 4 digits in config GUI
-- (pdbjjens) Updated dependencies
 
 ## License
 

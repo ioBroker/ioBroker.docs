@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.email/README.md
-title: ioBroker электронная почта
-hash: 1nWsbCPsKJ2MiNpR/LrE3yONC8jDi4xNoRO2r8O4p8E=
+title: электронная почта ioBroker
+hash: OCwy25hQr/7+CA/MUkCbY1CqRk1SW2ZZroC6I4SG/yA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.email/admin/email.png)
 
@@ -12,18 +12,35 @@ hash: 1nWsbCPsKJ2MiNpR/LrE3yONC8jDi4xNoRO2r8O4p8E=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.email.svg)
 
 # IoBroker электронная почта
-![Тест и выпуск](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Отправка писем из ioBroker. С помощью этого адаптера вы не можете проверять письма, только отправлять их.
+Отправляйте письма из ioBroker. С помощью этого адаптера вы не сможете проверять письма, только отправлять их.
 
 Адаптер использует [nodemailer](https://github.com/nodemailer/nodemailer) для обеспечения функциональности.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Подробнее об отключении отчётов об ошибках см. в разделе [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчёты Sentry используются, начиная с версии js-controller 3.0.
 
-Для использования Gmail вам может потребоваться настроить «Разрешить менее безопасные приложения» в вашей учетной записи Gmail, если вы не используете 2FA, в этом случае вам придется создать пароль для конкретного приложения. Вам также может потребоваться разблокировать свою учетную запись с помощью «Разрешить доступ к вашей учетной записи Google» для использования SMTP.
+## Примечания, касающиеся конкретного поставщика услуг электронной почты
+### Gmail
+**Важно:** Если в вашем аккаунте Gmail включена двухфакторная аутентификация (2FA), вам **необходимо** использовать пароль приложения вместо обычного пароля Gmail. Nodemailer всегда требовал этого для Gmail с двухфакторной аутентификацией.
+
+Чтобы настроить Gmail с 2FA:
+
+1. Включите двухэтапную аутентификацию в настройках вашего аккаунта Google.
+2. Создайте пароль приложения специально для адаптера электронной почты ioBroker.
+3. Используйте свой адрес Gmail в качестве имени пользователя и сгенерированный пароль приложения в качестве пароля в настройках адаптера.
+
+Для учётных записей без двухфакторной аутентификации (2FA) вам может потребоваться включить функцию «Разрешить менее безопасные приложения» в настройках учётной записи Gmail. Также для использования SMTP может потребоваться разблокировать учётную запись, разрешив доступ к вашей учётной записи Google.
+
+### Mail.ee
+Для электронной почты mail.ee **не** используйте ваши обычные данные для входа в веб-почту. Вместо этого:
+
+- **Имя пользователя**: используйте полный адрес электронной почты (например, `username@mail.ee`)
+- **Пароль**: используйте специальный пароль IMAP/SMTP (не пароль вашей веб-почты)
+- Чтобы узнать пароль IMAP/SMTP: войдите в свою учетную запись веб-почты mail.ee и перейдите на страницу [https://posti.mail.ee/prefs?group=enable_pop3](https://posti.mail.ee/prefs?group=enable_pop3)
 
 ## Использование
-Чтобы отправить электронное письмо из ScriptEngine, просто напишите:
+Чтобы отправить письмо из ScriptEngine, просто напишите:
 
 ```js
 // send email to all instances of email adapter
@@ -68,12 +85,12 @@ sendTo('email', {
 Чтобы отправить электронное письмо с другого адаптера, используйте функцию `adapter.sendTo`.
 
 ## Поддерживаемые услуги
-- 1und1 / ионос
+- 1und1 / ionos
 - АОЛ
 - DebugMail.io
 - DynectEmail
 - Быстрая почта
-- ГандиМейл
+- GandiMail
 - Gmail
 - Годэдди
 - GodaddyAsia
@@ -84,21 +101,21 @@ sendTo('email', {
 - ит
 - mail.ee
 - Mail.ru
-- Почтовый пистолет
+- Mailgun
 - Мэйлджет
 - Мандрил
 - Навер
-- Офис365
+- Office365
 - OpenMailBox
 - Почтовый штемпель
-- КК
+- QQ
 - QQex
 - SendCloud
 - SendGrid
 - СЭС
-- ЮВС-США-ВОСТОК-1
+- SES-US-EAST-1
 - SES-US-WEST-2
-- ЕЭП-ЕС-ЗАПАД-1
+- ЮЭС-ЕС-ЗАПАД-1
 - t-online.de
 - Спаркпост
 - Яху
@@ -113,6 +130,15 @@ sendTo('email', {
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.5-alpha.0 (2025-10-06)
+* (@copilot) Fixed SMTP relay anonymous access by ignoring user and password when empty
+* (@copilot) Fixed Office365 OAuth email sending from scripts by ensuring fresh tokens are used
+* (mcm1957) Dependencies have been updated
+
+### 2.0.4 (2025-04-15)
+* (@mcm1957) `From email address is not equal to the configured email address for authentication.` changed to debug level.
+* (mcm1957) Dependencies have been updated
+
 ### 2.0.3 (2025-03-24)
 * (@GermanBluefox) Added t-online.de to the list of supported services
 
@@ -128,17 +154,6 @@ sendTo('email', {
 * (mcm1957) Dependencies have been updated
 * (@GermanBluefox) Migrated to TypeScript
 * (@GermanBluefox) Added "Ignore SSL errors" option
-
-### 1.4.0 (2024-11-17)
-* (simatec) Responsive Design added
-* (Jey-Cee) Admin-UI has been migrated to jsonConfig
-
-### 1.3.1 (2024-06-09)
-* (klein0r) Updated Blockly definitions
-
-### 1.3.0 (2024-04-29)
-* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-* (mcm1957) Dependencies have been updated
 
 ## License
 

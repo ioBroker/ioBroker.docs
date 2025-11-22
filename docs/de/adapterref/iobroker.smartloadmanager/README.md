@@ -198,6 +198,10 @@ Für jeden Verbraucher wird ein eigener Channel mit folgenden States erzeugt:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.0 (2025-11-07)
+
+- (quorle) Added a checkbox for activating consumers from the settings to the object tree
+
 ### 0.0.8 (2025-10-03)
 
 - (quorle) Fix for binary consumers that do not turn off
@@ -221,11 +225,6 @@ Für jeden Verbraucher wird ein eigener Channel mit folgenden States erzeugt:
 - (quorle) Code changed
 
 ### 0.0.3 (2025-09-03)
-
-- (quorle) Adjustments package.json
-- (quorle) Code changed
-
-### 0.0.2 (2025-09-03)
 
 - (quorle) Adjustments package.json
 - (quorle) Code changed

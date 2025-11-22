@@ -3,27 +3,27 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.seq/README.md
 title: ioBroker.seq
-hash: OKXZUVLJ36izUiwt4Xt60u0A8w2G8jTdKLFYp7Wt6W8=
+hash: 4lYcnQYfG6avpQQzmubo56sJld4ntQ7Z6tPM3BcNKrQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.seq/admin/seq.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
-![Anzahl Installationen (stabil)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
 ![NPM](https://nodei.co/npm/iobroker.seq.png?downloads=true)
 
 # IoBroker.seq
-[![Abhängigkeiten Status](https://status.david-dm.org/gh/arteck/iobroker.seq.svg)](https://david-dm.org/arteck/iobroker.seq) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Abhängigkeitsstatus](https://status.david-dm.org/gh/arteck/iobroker.seq.svg)](https://david-dm.org/arteck/iobroker.seq) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Seq-Adapter für ioBroker
-Mit diesem Adapter können Sie Ihr ioBroker-Protokoll in das System von [Seq](https://datalust.co/seq) übertragen.
-Es besteht auch die Möglichkeit, einen Filter auf die Protokollebenen und auch auf die Adapter anzuwenden.
+Mit diesem Adapter können Sie Ihr ioBroker-Protokoll in das System von [Sequenz](https://datalust.co/seq) übertragen.
+Es ist auch möglich, einen Filter auf die Protokollebenen und auch auf die Adapter anzuwenden.
 
-## Aufbau
+## Konfiguration
 1. Erstellen Sie eine neue Instanz des Adapters
-2. Geben Sie die URL/IP und den Port der [Seq](https://datalust.co/seq)-Instanz ein
-3. Geben Sie an, welche Protokollereignisse Sie an [Seq](https://datalust.co/seq) übertragen möchten.
+2. Füllen Sie die URL/IP und den Port der [Seq](https://datalust.co/seq)-Instanz aus
+3. Geben Sie an, welche Protokollereignisse Sie an [Seq](https://datalust.co/seq) senden möchten.
 4. Speichern Sie die Einstellungen
 
 ## Changelog
@@ -34,11 +34,17 @@ Es besteht auch die Möglichkeit, einen Filter auf die Protokollebenen und auch 
     npm run release patch -- --all 0.9.8 -> 0.9.9
     npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+  ### **WORK IN PROGRESS**
 -->
+### 0.4.2 (2025-10-20)
+* (arteck) fixes
 
-### __WORK IN PROGRESS__
-- (arteck) transfer to arteck
+### 0.4.1 (2025-10-20)
+* (arteck) pin seq-logging
+
+### 0.4.0 (2025-10-20)
+* (arteck) Dependencies have been updated
+* (arteck) transfer to arteck
 
 ### 0.3.0 (2023-07-25)
 - (o0shojo0o) added adminTab
@@ -130,7 +136,7 @@ Es besteht auch die Möglichkeit, einen Filter auf die Protokollebenen und auch 
 
 MIT License
 
-Copyright (c) 2024 Arthur Rupp <arteck@outlook.com>,
+Copyright (c) 2025 Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

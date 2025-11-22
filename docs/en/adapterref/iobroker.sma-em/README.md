@@ -3,7 +3,7 @@ BADGE-Number of Installations: http://iobroker.live/badges/sma-em-installed.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sma-em.svg
 BADGE-Stable version: http://iobroker.live/badges/sma-em-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sma-em.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.sma-em.png?downloads=true
+BADGE-NPM: https://nodei.co/npm/iobroker.sma-em.svg?data=d,s
 ---
 # SMA Energy Meter Adapter documentation
 
@@ -58,6 +58,12 @@ From this, the object names are put together, e.g.
 - ...
 
 ## Changelog
+### 1.3.1-alpha.0 (2025-10-21)
+
+- (pdbjjens) Fix: Add GitHub as npm Trusted Publisher
+- (pdbjjens) Change: Update dependencies
+- (pdbjjens) Change: Update npm badge
+
 ### 1.3.0 (2025-08-28) - 2025H2 maintenance release
 
 - (pdbjjens) Change: node>=20, js-controller>=7.0.7 and admin>=7.6.17 required
@@ -79,17 +85,6 @@ From this, the object names are put together, e.g.
 ### 1.0.1 (2024-01-26) - 2024 maintenance release
 
 - (pdbjjens) Updated dependencies
-
-### 1.0.0 (2023-08-19)
-
-- (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=6 required
-- (pdbjjens) Change: Configurable Energy Meters per adapter instance
-- (pdbjjens) Change: Selectable own network device IP to listen for multicast messages
-- (pdbjjens) Change: Objects "last_message" and "TimeTick" were removed
-- (pdbjjens) New: Support ioBroker discovery
-- (pdbjjens) New: Detect SMA-EM 1.0 (SUSy 270)
-- (arteck) New: Detect new SHM 2.0 with SUSy 501
-- (ticaki) Fix: Catch interface errors
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: cGsREiIjFudCdgPjrbHcFaIkH3grXBVxpuy/k8Uh4gM=
+hash: ly78//DTy60i1/39twovzSQq4xN3Sq0/9E0dP0KP8xY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -123,6 +123,10 @@ CAN-address=98: точки данных с нечетными идентифик
 ## Ограничение сбора данных
 * В настоящее время протокол связи известен только для Vitocal (прослушиватель CAN id 0x693 на внутреннем CAN), Vitocharge VX3 и Vitoair (оба прослушивателя CAN id 0x451 на внешнем и внутреннем CAN).
 
+## Ограничение диапазона сканирования для точек данных
+* Числовой диапазон для сканирования точек данных ограничен мин. и макс. значением общего списка точек данных, например, от 256 до 3338 в версии 0.10.14
+* Вы можете сканировать точки данных, выходящие за пределы этого диапазона, для конкретного устройства с помощью команды «ReadByDid»: отредактируйте `e3oncan.0.<DEVICE>.cmnd.udsReadByDid` и добавьте список нужных точек данных, например, `[3350,3351,3352,3353]`. Если запрошенная точка данных доступна, её значение отобразится в дереве объектов. Такие точки данных также можно использовать в расписаниях чтения конфигурации устройства. Если запрошенная точка данных **недоступна**, в журнале iobroker появится сообщение об ошибке («Отрицательный ответ»).
+
 ## Чем отличается от проекта open3e?
 * Очевидно, главное отличие — прямая интеграция с ioBroker. Настройка осуществляется через диалоги, данные выводятся непосредственно в деревьях объектов.
 * В дополнение к open3e поддерживается сбор данных в реальном времени посредством прослушивания.
@@ -137,15 +141,21 @@ CAN-address=98: точки данных с нечетными идентифик
 * Если вы используете UDSonCAN, важно не использовать те же устройства, что и Open3e. В противном случае у вас будут спорадические ошибки связи.
 
 ## Пожертвовать
-<a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.e3oncan/main/admin/bluePayPal.svg" height="40"></a> Если вам понравился этот проект — или вы просто проявили щедрость, — угостите меня пивом. За здоровье! :beers:
+<a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.e3oncan/main/admin/bluePayPal.svg" height="40"></a> Если вам понравился этот проект — или вы просто чувствуете щедрость, — угостите меня пивом. За здоровье! :beers:
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.10.14 (2025-11-03)
+* (MyHomeMyData) Added elements to enums.js based of PR no. 182 of open3e
+* (MyHomeMyData) Simplified configuration of dids scan limits in source code
+* (MyHomeMyData) Extended scan up to did 3338
+* (MyHomeMyData) Added hint regarding scan range in Readme
 * (MyHomeMyData) Fixes for issue #169 (repository checker)
+* (MyHomeMyData) Bugfix: Manual change of device specific dids was not evaluated for collect workers
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20251102
 
 ### 0.10.13 (2025-09-30)
 * (MyHomeMyData) Fix for issue #162

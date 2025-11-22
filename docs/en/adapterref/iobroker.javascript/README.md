@@ -18,6 +18,9 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added possibility to encrypt scripts with password (only for vendors)
+
 ### 9.0.11 (2025-07-29)
 * (@GermanBluefox) Corrected the rule editor if the condition is empty
 * (@GermanBluefox) Corrected types for TypeScript

@@ -3,18 +3,18 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: VuoMuH0MEntk60T782Hm/p5n+SeZGJ79Jpi8hSQqNb8=
+hash: D+N+qLPKppmOp3lE3sL0lIjj/sUaUTSKSVSq6yBgEzQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
 ![версия НПМ](https://img.shields.io/npm/v/iobroker.bluelink.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bluelink.svg)
 ![Количество установок (последнее)](https://iobroker.live/badges/bluelink-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/bluelink-stable.svg)
+![Количество установок (стабильное)](https://iobroker.live/badges/bluelink-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
-![Тест и выпуск](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестирование и выпуск](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Адаптер bluelink для ioBroker
 Адаптер для управления автомобилем Hyundai или Kia (до 2023 года)
@@ -23,12 +23,82 @@ hash: VuoMuH0MEntk60T782Hm/p5n+SeZGJ79Jpi8hSQqNb8=
 
 [Информация для входа](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
 
+[Генерация токенов](https://github.com/Newan/ioBroker.bluelink/tree/master/py) или [обходной путь с токеном]](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo/2249?_=1761189451343)
+
 [Вики](https://github.com/Newan/ioBroker.bluelink/wiki)
+
+------------------------------------------------------------------------------------
 
 ## Пожертвование
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 3.1.24 (2025-11-07)
+* (arteck) fix vehicles > 2 in account
+
+### 3.1.23 (2025-10-16)
+* (arteck) new bluelinky
+
+### 3.1.22 (2025-10-16)
+* (arteck) add token process for HYUNDAI only. change PSW to TOKEN
+
+### 3.1.21 (2025-10-06)
+* (arteck) add token process for KIA only. change PSW to TOKEN
+* (arteck) this is a quick adn dirty solution for now
+
+### 3.1.20 (2025-08-14)
+* (arteck) fix Geo coordinates
+* (arteck) fix Kia Gas
+* (arteck) Warning !!!!  new Structure for some Vehicles (vehicleStatusRaw only). Check you Objects tree.
+
+### 3.1.19 (2025-08-09)
+* (arteck) dependency update
+
+### 3.1.18 (2025-08-08)
+* (arteck) fix login Kia/Hyundai
+
+### 3.1.17 (2025-07-20)
+* (arteck) fix bat-12V
+
+### 3.1.16 (2025-07-03)
+* (arteck) fix ratio from car
+
+### 3.1.15 (2025-06-27)
+* (arteck) fix GeoCoord from car
+
+### 3.1.14 (2025-06-26)
+* (arteck) fix SoH value
+
+### 3.1.13 (2025-06-26)
+* (arteck) fix location if timestamp in ccs2 is greater than vehicle timestamp
+
+### 3.1.12 (2025-06-26)
+* (arteck) fix vehicallocation in ccs2
+
+### 3.1.11 (2025-06-26)
+* (arteck) fix Version number
+
+### 3.1.10 (2025-06-25)
+* (arteck) fix BatteryManagement
+
+### 3.1.9 (2025-06-24)
+* (arteck) fix translate
+
+### 3.1.8 (2025-06-12)
+* (arteck) fix location Tucson
+
+### 3.1.7 (2025-06-10)
+* (arteck) fix translate for PHEV Range
+
+### 3.1.6 (2025-06-09)
+* (arteck) add DE language
+
+### 3.1.5 (2025-06-09)
+* (arteck) calculate evModeRange for PHEV
+
+### 3.1.4 (2025-06-09)
+* (arteck) fix enModeRange for PHEV
+
 ### 3.1.3 (2025-05-05)
 * (arteck) fix bug with day and time tag for EV 
 * (arteck) dependency update
@@ -169,4 +239,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
+
+
 SOFTWARE.

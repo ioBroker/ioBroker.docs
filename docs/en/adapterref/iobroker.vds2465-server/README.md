@@ -43,6 +43,9 @@ Von diesem Adapter wird auch das "Service Request" unterstützt, welches in eini
 
 
 ## Changelog
+### 1.0.3
+* (Hirsch-DE) Fix npm publish
+* (Hirsch-DE) dependencies updated
 ### 1.0.2
 * (Hirsch-DE) Packages updated
 ### 1.0.1

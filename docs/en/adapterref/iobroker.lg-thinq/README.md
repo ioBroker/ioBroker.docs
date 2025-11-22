@@ -759,6 +759,11 @@ lg-thinq.0.xxx.area must be filled!
     ![weather.png](img/weather.png)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Attribute max of object limitMax and limitMin changed (device 401)
+
 ### 1.1.3 (2025-10-03)
 
 - (Lucky-ESA) Added translate for device 201

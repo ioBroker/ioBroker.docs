@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: ZZVI8XoypnXhTS3yL4ulyeNm2NPX0KMD6tAnWpk7JcI=
+hash: AF+RI5eEFD5nF67c1zE0cBxPzygqQnbWGlpn/U2DwyE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -236,14 +236,6 @@ hash: ZZVI8XoypnXhTS3yL4ulyeNm2NPX0KMD6tAnWpk7JcI=
 
 [Ривер Про](./doc/devices/riverpro.md)
 
-[Дельта Мини](./doc/devices/deltamini.md)
-
-[Дельта](./doc/devices/delta.md)
-
-[Дельта Макс](./doc/devices/deltamax.md)
-
-[Дельта Про](./doc/devices/deltapro.md)
-
 [Ривер 2 Макс](./doc/devices/river2max.md)
 
 [Ривер 2 Про](./doc/devices/river2pro.md)
@@ -252,11 +244,23 @@ hash: ZZVI8XoypnXhTS3yL4ulyeNm2NPX0KMD6tAnWpk7JcI=
 
 [Река 3 Плюс](./doc/devices/river3plus.md)
 
+[Дельта Мини](./doc/devices/deltamini.md)
+
+[Дельта](./doc/devices/delta.md)
+
+[Дельта Макс](./doc/devices/deltamax.md)
+
 [Дельта 2](./doc/devices/delta2.md)
 
 [Дельта 2 Макс](./doc/devices/delta2max.md)
 
+[Дельта 3](./doc/devices/delta3.md)
+
 [Дельта 3 Плюс](./doc/devices/delta3plus.md)
+
+[Дельта 3 Макс Плюс](./doc/devices/delta3maxplus.md)
+
+[Дельта Про](./doc/devices/deltapro.md)
 
 [Дельта Про 3](./doc/devices/deltapro3.md)
 
@@ -285,6 +289,8 @@ hash: ZZVI8XoypnXhTS3yL4ulyeNm2NPX0KMD6tAnWpk7JcI=
 ### Powerstream и поток
 [Powerstream](./doc/devices/pstream600.md)
 
+[Поток переменного тока](./doc/devices/stream_ac.md)
+
 [Стрим AC PRO](./doc/devices/stream_ac_pro.md)
 
 [Стрим Ультра](./doc/devices/stream_ultra.md)
@@ -312,6 +318,8 @@ Wave недоступен, может быть реализован при на�
 ### Холодильник-ледник
 [Ледник](./doc/devices/glacier.md)
 
+[Glacier Classic 55L](./doc/devices/glacier55.md)
+
 ### Генератор
 [Генератор](./doc/devices/alternator.md)
 
@@ -330,14 +338,41 @@ Wave недоступен, может быть реализован при на�
 
 ## Changelog
 
-### 1.4.5 (WIP)
+### 1.4.9 (WIP)
 
 - (foxthefox) new datapoints Delta2max
 
+### 1.4.8 (npm)
+
+- (foxthefox) new device Glacier Classic 55L support
+- (foxthefox) new device Delta 3 Max Plus support
+- (foxthefox) new device Stream AC support
+- (foxthefox) enhancements on wave3
+- (foxthefox) poweroceanplus set hrPwr/fromPv/romBat/fromGrid values to 0 for non transmitted datapoints in HeatingRodEnergyStreamShow
+- (foxthefox) poweroceanplus pcsActPwr max 20kW, pcsXPhase_amp max 60A
+- (foxthefox) corrections in BMSHeartBeatReport for river3/river3plus
+- (foxthefox) dev dependencies cleanup
+
+### 1.4.7 (npm)
+
+- (foxthefox) poweroceanplus, set mpptPwr/sysGridPwr/bpPwr values to 0, when the entity is not sent within the telegram
+- (foxthefox) poweroceanplus, bpTargetSoc max new set to 101%, pcsBpPower max=10kW, pcsXPhase_actPwr min=-5kW
+
+### 1.4.6 (npm)
+
+- (foxthefox) powerocean implementation of ParallelEnergyStreamDetail which is the update to ParallelEnergyStreamReport
+- (foxthefox) powerocean implementation of EnergyStreamDetail which is the update to EnergyStreamReport
+
+### 1.4.5 (npm)
+
+- (foxthefox) change from object to array for messages (for telegrams with multiple messages of same type i.e. powerocean)
+- (foxthefox) change of cmdId/CmdFunc structure
+
 ### 1.4.4 (npm)
 
-- (foxthefox) new datapoints for PowerOcean and HeatingRod
-- (foxthefox) change from object to array for messages (for telegrams with multiple messages of same type i.e. powerocean)
+- (foxthefox) new datapoints for PowerOcean (HeatingRod, ParallelEnergy)
+- (foxthefox) improvements tp powerocean plus
+- (foxthefox) corrections for powerocean
 - (foxthefox) testing JSON->buffer
 
 ### 1.4.3 (npm)

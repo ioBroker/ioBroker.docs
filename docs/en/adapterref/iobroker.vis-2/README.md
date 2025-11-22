@@ -292,20 +292,21 @@ npm run start
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.13.8 (2025-11-15)
+* (@GermanBluefox) Updated packages
+
+### 2.13.7 (2025-11-09)
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Corrected the basic image refreshing
+
+### 2.13.6 (2025-10-10)
+* (@GermanBluefox) Prevent error by the icons selection dialog
+
 ### 2.13.5 (2025-09-16)
 * (@GermanBluefox) Corrected loading of icon sets
 
 ### 2.13.4 (2025-09-05)
 * (@GermanBluefox) Added the basic methods for metro widgets again
-
-### 2.13.3 (2025-08-27)
-* (@GermanBluefox) Corrected loading of icon sets
-
-### 2.13.2 (2025-08-26)
-* (@GermanBluefox) Added support for older Android versions
-
-### 2.13.1 (2025-08-25)
-* (@GermanBluefox) Fixed loading of widgets on the cloud
 
 ## License
  Copyright (c) 2021-2025 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
