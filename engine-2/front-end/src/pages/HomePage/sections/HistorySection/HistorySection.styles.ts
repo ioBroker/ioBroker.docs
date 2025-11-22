@@ -2,17 +2,16 @@ import { makeStyles } from '../../../../theme';
 
 export const useStyles = makeStyles()(theme => ({
     container: {
-        maxWidth: 1067,
-        margin: '0 auto 0 187px',
+        maxWidth: 1393,
+        margin: '0 auto',
+        padding: '0 40px',
+        [theme.breakpoints.down('md')]: {
+            padding: '0 16px 0 16px',
+        },
         display: 'flex',
         gap: '51px',
-        padding: '0 40px',
         position: 'relative',
         zIndex: 2,
-        '@media (min-width: 1440px)': {
-            marginRight: 'calc((100vw - 1440px) / 2 + 198px)',
-            marginLeft: 'auto',
-        },
         [theme.breakpoints.down('sm')]: {
             padding: '0 20px',
         },
@@ -40,7 +39,7 @@ export const useStyles = makeStyles()(theme => ({
     historySection: {
         textAlign: 'center',
         position: 'relative',
-        background: `url(/codeBackground.png) no-repeat center center`,
+        background: `url(/image-code.png) no-repeat center center`,
         backgroundPosition: 'top',
         backgroundSize: 'cover',
         overflow: 'visible',
@@ -56,9 +55,10 @@ export const useStyles = makeStyles()(theme => ({
         alignItems: 'center',
         justifyContent: 'center',
         fontFamily: 'Audiowide, sans-serif',
-        fontWeight: '400',
+        fontWeight: 400,
         letterSpacing: '-0.03em',
         marginBottom: 0,
+        color: '#1d90cA',
         lineHeight: 1,
         [theme.breakpoints.up('md')]: {
             marginBottom: theme.spacing(2),
@@ -78,7 +78,7 @@ export const useStyles = makeStyles()(theme => ({
     },
     historyNumber: {
         lineHeight: 1,
-        fontSize: '331px',
+        fontSize: 200,
         width: 'fit-content',
         letterSpacing: '-0.05em',
         display: 'inline-block',
@@ -110,6 +110,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     historyTitle: {
+        color: '#1d90cA',
         fontFamily: 'Audiowide, sans-serif',
         fontSize: '96px',
         fontWeight: '400',

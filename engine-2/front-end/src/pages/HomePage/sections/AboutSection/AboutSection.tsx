@@ -61,9 +61,9 @@ export const AboutSection: React.FC = () => {
                         }}
                         iconSx={{
                             alignSelf: 'flex-end',
-                            mb: 1,
-                            height: { xs: '30px', sm: '40px', md: '40px' },
-                            width: { xs: '30px', sm: '40px', md: '40px' },
+                            mb: 0.1,
+                            height: { xs: '20px', sm: '30px', md: '30px' },
+                            width: { xs: '20px', sm: '30px', md: '30px' },
                         }}
                     >
                         <Box sx={{ textAlign: 'left', flex: 1 }}>
@@ -78,10 +78,16 @@ export const AboutSection: React.FC = () => {
                             marginTop: { xs: '0px', md: '4px' },
                             height: { xs: '50px', sm: '60px', md: '80px' },
                             width: '100%',
-                            padding: '10px 24px',
+                            padding: { xs: '10px 20px', sm: '12px 24px', md: '20px 39px' },
                             position: 'relative',
                             zIndex: 1,
                             borderRadius: { xs: '8px', sm: '8px', md: '16px' },
+                        }}
+                        iconSx={{
+                            alignSelf: 'flex-end',
+                            mb: '5px',
+                            height: { xs: '20px', sm: '30px', md: '30px' },
+                            width: { xs: '20px', sm: '30px', md: '30px' },
                         }}
                     >
                         MEHR

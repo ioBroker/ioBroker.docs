@@ -123,7 +123,7 @@ export const AdaptersSection: React.FC = () => {
                     <Box className={classes.adaptersTextSection}>
                         <SectionTitle>ADAPTER</SectionTitle>
                         <Typography
-                            paragraph
+                            component="p"
                             sx={{ mt: 2 }}
                             className={classes.adaptersText}
                         >
@@ -157,7 +157,7 @@ export const AdaptersSection: React.FC = () => {
                         <StyledButton
                             sx={{
                                 height: { sm: '44px', xs: '44px' },
-                                width: { sm: '500px', xs: '368px' },
+                                width: { sm: '500px', xs: '100%' },
                                 maxWidth: '867px',
                                 padding: '10px 24px',
                                 borderRadius: '10px',

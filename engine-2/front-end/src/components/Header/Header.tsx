@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     Select,
@@ -45,6 +45,20 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: Heade
     const [showProfileMenu, setShowProfileMenu] = useState<HTMLElement | null>(null);
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            console.log(window.scrollY);
+            setScrolled(window.scrollY > 850);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll(); // initialer Status
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const renderProfileMenu = () => {
         if (!showProfileMenu) {
             return null;
@@ -79,7 +93,13 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: Heade
     };
 
     return (
-        <Box className={classes.root}>
+        <Box
+            className={classes.root}
+            sx={{
+                boxShadow: scrolled ? '0 2px 8px rgba(0,0,0,0.3)' : 'none',
+                transition: 'box-shadow 0.2s ease-in-out',
+            }}
+        >
             {menuOpen && (
                 <MenuModal
                     onClose={() => setMenuOpen(false)}

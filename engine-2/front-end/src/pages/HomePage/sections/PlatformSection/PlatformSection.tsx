@@ -11,22 +11,22 @@ export const PlatformSection: React.FC = () => {
             className={classes.platformSection}
         >
             <Box className={classes.container}>
-                <Box className={classes.platformTitleWrapper}>
-                    <Typography
-                        variant="h1"
-                        className={classes.platformTitle}
-                    >
-                        Eine Plattform,
-                    </Typography>
-                    <Typography
-                        variant="h1"
-                        className={classes.platformTitleBlue}
-                    >
-                        unendliche Möglichkeiten
-                    </Typography>
-                </Box>
                 <Box className={classes.descriptionWrapper}>
                     <Box className={classes.descriptionContainer}>
+                        <Box className={classes.platformTitleWrapper}>
+                            <Typography
+                                variant="h1"
+                                className={classes.platformTitle}
+                            >
+                                Eine Plattform,
+                            </Typography>
+                            <Typography
+                                variant="h1"
+                                className={classes.platformTitleBlue}
+                            >
+                                unendliche Möglichkeiten
+                            </Typography>
+                        </Box>
                         <Typography className={classes.platformSubtitle}>
                             /* ioBroker ist viel mehr als nur eine Software - es ist eine leistungsstarke und flexible
                             Open-Source-Plattform für Smart Home und IoT-Integration.
@@ -48,10 +48,11 @@ export const PlatformSection: React.FC = () => {
                             sx={{
                                 marginTop: { xs: '20px', sm: '20px', md: '72px' },
                                 height: { xs: '44px', sm: '44px', md: '60px' },
-                                width: { xs: '368px', sm: '368px', md: '533px' },
+                                width: { xs: 'calc(100% - 0px)', sm: '368px', md: '533px' },
                                 maxWidth: '867px',
                                 padding: '10px 24px',
                                 fontSize: '16px',
+                                alignSelf: 'end',
                             }}
                         >
                             MEHR

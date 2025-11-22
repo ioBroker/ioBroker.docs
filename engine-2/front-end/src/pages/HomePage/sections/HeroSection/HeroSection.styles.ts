@@ -41,6 +41,7 @@ export const useStyles = makeStyles()(theme => ({
         backgroundPosition: 'top',
         backgroundRepeat: 'no-repeat',
         zIndex: 0,
+        opacity: 0.3,
 
         [theme.breakpoints.down('md')]: {
             backgroundSize: '210%',
@@ -57,7 +58,7 @@ export const useStyles = makeStyles()(theme => ({
         height: '55%',
         zIndex: 1,
         backgroundImage:
-            'linear-gradient(187deg, rgba(3, 11, 29, 0) 0%, rgb(3, 11, 29) 80%, rgb(3, 11, 29) 200%)',
+            'linear-gradient(187deg, #080B1C 15%, #080B1C00 15%, #080B1C 80%, #080B1C 100%)',
         [theme.breakpoints.down('md')]: {
             backgroundSize: '210%',
             backgroundPosition: 'center',
@@ -103,7 +104,7 @@ export const useStyles = makeStyles()(theme => ({
             maxWidth: '400px',
         },
         [theme.breakpoints.down('sm')]: {
-            maxWidth: '354px',
+            maxWidth: '80%',
         },
     },
     heroPlatformText: {
@@ -117,12 +118,15 @@ export const useStyles = makeStyles()(theme => ({
             textAlign: 'right',
             width: '290px',
             marginBottom: '66px',
-            textIndent: '4em',
+            textIndent: '2em',
         },
     },
     installButton: {
         [theme.breakpoints.down('md')]: {
             marginBottom: '56px',
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '12px',
         },
     },
     heroRight: {
@@ -180,21 +184,22 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     supportText: {
-        fontSize: '15px',
+        fontSize: '16px',
         textAlign: 'left',
         lineHeight: '24px',
         letterSpacing: '-3%',
-        fontWeight: '400',
+        fontWeight: '200',
         marginBottom: '10px',
         color: '#FFFFFF',
         [theme.breakpoints.down('md')]: {
             textAlign: 'left',
-            width: '224px',
+            // width: '224px',
+            fontSize: '12px',
         },
     },
     supportIcons: {
         display: 'flex',
-        gap: '25px',
+        gap: '30px',
         justifyContent: 'flex-end',
         [theme.breakpoints.down('md')]: {
             justifyContent: 'center',

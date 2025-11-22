@@ -110,7 +110,7 @@ export const useStyles = makeStyles()(theme => ({
         transition: 'border-color 0.3s',
         [theme.breakpoints.down(1360)]: {
             width: '100%',
-            maxWidth: '644px',
+            // maxWidth: '644px',
             height: 'auto',
             boxSizing: 'border-box',
         },
@@ -342,6 +342,7 @@ export const useStyles = makeStyles()(theme => ({
     },
     cardActions: {
         display: 'flex',
+        justifyContent: 'space-between',
         gap: 36,
         marginTop: 43,
         [theme.breakpoints.down('md')]: {
@@ -355,7 +356,7 @@ export const useStyles = makeStyles()(theme => ({
         fontFamily: 'Audiowide, Roboto, Arial, sans-serif !important',
         fontWeight: '400 !important',
         letterSpacing: '-0.03em !important',
-        fontSize: '24px !important',
+        fontSize: '16px !important',
         width: '400px !important',
         height: '60px !important',
         padding: '0 !important',
@@ -374,7 +375,7 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '-0.03em',
         border: `1px solid ${theme.palette.secondary.main} !important`,
         borderRadius: 10,
-        fontSize: '24px',
+        fontSize: '16px',
         width: 128,
         height: 60,
         '&:hover': {
@@ -396,7 +397,7 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '-0.03em',
         border: `1px solid ${theme.palette.secondary.main} !important`,
         borderRadius: 16,
-        fontSize: '28px',
+        fontSize: '16px',
         width: 128,
         height: 80,
         '&:hover': {

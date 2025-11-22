@@ -25,8 +25,8 @@ export const useStyles = makeStyles()(theme => ({
             backgroundColor: '#7ec3f3 !important',
         },
         [theme.breakpoints.down('md')]: {
-            width: '368px',
-            height: '48px',
+            width: 'calc(100% - 60px)',
+                height: '48px',
             borderRadius: '8px',
             fontSize: '18px',
             padding: '14px 0',

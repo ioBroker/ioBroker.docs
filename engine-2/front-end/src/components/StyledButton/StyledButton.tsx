@@ -20,8 +20,8 @@ const ArrowIcon: React.FC<ArrowIconProps> = ({ sx }) => {
             alt="arrow"
             sx={{
                 marginLeft: '10px',
-                width: { xs: '24px', sm: '30px' },
-                height: { xs: '24px', sm: '30px' },
+                width: { xs: '20px', sm: '24px' },
+                height: { xs: '20px', sm: '24px' },
                 ...sx,
             }}
         />

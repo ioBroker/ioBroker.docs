@@ -45,9 +45,10 @@ export const useStyles = makeStyles()(theme => ({
     adaptersTextSection: {
         flex: '1 1 45%',
         display: 'flex',
+        textAlign: 'left',
         height: 550,
         fontSize: '18px',
-        maxWidth: 533,
+        // maxWidth: 533,
         flexDirection: 'column',
         justifyContent: 'space-between',
         [theme.breakpoints.down('md')]: {
@@ -92,6 +93,7 @@ export const useStyles = makeStyles()(theme => ({
     buttonWrapperMobile: {
         position: 'relative',
         display: 'none',
+        width: '100%',
         [theme.breakpoints.down('md')]: {
             display: 'flex',
             justifyContent: 'center',

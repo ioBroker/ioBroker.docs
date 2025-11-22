@@ -4,7 +4,7 @@ export const useStyles = makeStyles()(theme => ({
     styledButton: {
         border: `1px solid ${theme.palette.primary.main}`,
         borderRadius: '12px',
-        padding: '12px 24px',
+        padding: '12px 20px',
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'space-between',

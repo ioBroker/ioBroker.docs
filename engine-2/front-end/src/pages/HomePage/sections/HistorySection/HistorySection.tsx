@@ -16,7 +16,7 @@ export const HistorySection: React.FC = () => {
                         component="span"
                         className={classes.historyNumber}
                     >
-                        10
+                        11
                     </Box>
                     <Box className={classes.plusJahreWrapper}>
                         <Box
