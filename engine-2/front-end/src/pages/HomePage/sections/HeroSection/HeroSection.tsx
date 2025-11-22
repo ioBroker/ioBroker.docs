@@ -26,6 +26,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
             ref={sectionRef}
         >
             <Box className={classes.heroBackgroundImage} />
+            <Box className={classes.heroBackgroundImageOverlay} />
             <Box className={classes.heroContentWrapper}>
                 <Box className={`${classes.container} ${classes.heroContent}`}>
                     <Box className={classes.heroLeft}>

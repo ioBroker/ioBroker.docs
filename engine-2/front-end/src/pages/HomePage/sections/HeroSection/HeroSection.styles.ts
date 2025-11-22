@@ -41,14 +41,27 @@ export const useStyles = makeStyles()(theme => ({
         backgroundPosition: 'top',
         backgroundRepeat: 'no-repeat',
         zIndex: 0,
-        maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
-        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
+
         [theme.breakpoints.down('md')]: {
             backgroundSize: '210%',
             backgroundPosition: 'center',
             top: '50%',
-            maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 60%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 60%, transparent 100%)',
+        },
+    },
+    heroBackgroundImageOverlay: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '100%',
+        height: '55%',
+        zIndex: 1,
+        backgroundImage:
+            'linear-gradient(187deg, rgba(3, 11, 29, 0) 0%, rgb(3, 11, 29) 80%, rgb(3, 11, 29) 200%)',
+        [theme.breakpoints.down('md')]: {
+            backgroundSize: '210%',
+            backgroundPosition: 'center',
+            top: '50%',
         },
     },
     heroContentWrapper: {
