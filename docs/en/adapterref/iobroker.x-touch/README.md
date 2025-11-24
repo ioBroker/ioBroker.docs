@@ -28,6 +28,13 @@ There a two acepted commands:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Bannsaenger) updated dependencies and issues from repository checker
+
+### 0.8.3 (2025-10-24)
+* (Bannsaenger) updated dependencies and issues from repository checker
+* (Bannsaenger) migrate to NPM Trusted Publishing
+
 ### 0.8.2 (2025-09-05)
 * (Bannsaenger) updated dependencies and issues from repository checker
 
@@ -41,14 +48,6 @@ There a two acepted commands:
 
 ### 0.7.1 (2025-02-25)
 * (Bannsaenger) updated admin dependency
-
-### 0.7.0 (2025-02-17)
-* (Bannsaenger) fixed some minor typos
-* (Bannsaenger) updated to node 18.x - 22.x
-* (Bannsaenger) updated dependencies, node 22 compatibility, workflow
-* (Bannsaenger) added possibility to lock the desk
-* (Bannsaenger) resend data on group membership change
-* (Bannsaenger) removed createBanks from config dialog (too dangerous, delete by hand if neccessary)
 
 ## License
 MIT License

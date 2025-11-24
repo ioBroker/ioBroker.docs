@@ -182,6 +182,11 @@ from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
 
+### 3.4.1 (2025-10-22)
+
+* (Sickboy78) dependency updates
+* (Sickboy78) migration to npm trusted publishing
+
 ### 3.4.0 (2025-08-11)
 
 * (Sickboy78) removed deprecated util.promisify

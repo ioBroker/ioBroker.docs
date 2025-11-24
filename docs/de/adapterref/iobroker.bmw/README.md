@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: vpXwnVJpS3wnAiyu8fy5VMVFWvIYqhlWurGRfuTYfaM=
+hash: WhGG3fHzhSI6UF+yl66mxbxq7oNmCRrArnm4WdKMQzo=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bmw.svg)
@@ -30,6 +30,9 @@ Dieser Adapter integriert BMW-Fahrzeuge in ioBroker mithilfe der neuen BMW CarDa
 
 ## Datenaktualisierung während des Ladevorgangs
 Während des Ladevorgangs kann es vorkommen, dass der Batteriestand nicht per Stream aktualisiert wird, da sich das Fahrzeug im Standby-Modus befindet. Beim Einschalten des Fahrzeugs werden die Daten aktualisiert. Sie können ein Update über die API `bmw.0.vin.remote.fetchViaAPI` auslösen.
+
+## Datenpunktbeschreibung
+Eine detaillierte Datenpunktbeschreibung finden Sie hier [telematic.json](telematic.json)
 
 ## Einrichtungsanweisungen
 ### 1. Einrichtung des BMW ConnectedDrive Portals
@@ -185,6 +188,15 @@ Wenn Sie in `VIN.api.*` nicht die erwarteten Daten sehen:
 Dieser Adapter ist erhältlich unter: [https://github.com/TA2k/ioBroker.bmw](https://github.com/TA2k/ioBroker.bmw)
 
 ## Changelog
+### 4.3.1 (2025-10-11)
+
+- fix gps coordinate parsing
+
+### 4.3.0 (2025-10-09)
+
+- improve logs
+- add autocast
+- add descriptions
 
 ### 4.2.0 (2025-10-04)
 

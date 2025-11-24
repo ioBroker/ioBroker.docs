@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/objectsschema.md
 title: Основная концепция
-hash: ZrGxXyZrIiTT1Ijp70v86qN2uIcQ5fe+bwvxMACMwzA=
+hash: oOWjcIwxoEZMeT171Acl2qKPo6M5YiunUkx1Z6o+dk8=
 ---
 # Основная концепция
-В ioBroker есть два принципиально разных типа данных: так называемые **состояния** (`states`) и **объекты**.
+В ioBroker есть два принципиально разных типа данных: так называемые **состояния**(`states`) и **объекты**.
 
-Объекты представляют собой редко изменяющиеся и большие данные, такие как метаданные устройств вашей системы, конфигурации и дополнительные файлы. Каждый объект должен иметь атрибут «тип». Ниже приведена дополнительная информация о доступных типах объектов и обязательных атрибутах, необходимых объекту определённого типа. Такие функции, как setObject, getObject и т. д., предоставляются модулем адаптера.
+Объекты представляют собой редко изменяющиеся и большие данные, такие как метаданные системных устройств, конфигурации и дополнительные файлы. Каждый объект должен иметь атрибут «тип». Ниже приведена дополнительная информация о доступных типах объектов и обязательных атрибутах, необходимых объекту определённого типа. Такие функции, как setObject, getObject и т. д., предоставляются модулем адаптера.
 
 Состояния представляют собой часто меняющиеся данные в вашей системе, например, горит ли лампа, зафиксировал ли датчик движения какое-либо движение, измеряется ли температура в гостиной или нажата ли кнопка пульта дистанционного управления. В отличие от объектов, состояния могут использоваться для запуска действий и создавать историю событий. Для работы с состояниями в модуле адаптера предусмотрено несколько функций, таких как `setState`, `getState` и так далее.
 
@@ -263,7 +263,7 @@ hash: ZrGxXyZrIiTT1Ijp70v86qN2uIcQ5fe+bwvxMACMwzA=
 
 * `alarm` - какая-то тревога
 
-* `phone` - fritz box, speedport и т. д.
+* `phone` - fritz!box, speedport и т. д.
 
 * `кнопка` - как настенный выключатель или пульт дистанционного управления телевизором, где каждая кнопка представляет собой состояние, например .воспроизведение, .стоп, .пауза
 * `remote` - пульты дистанционного управления телевизором или другими пультами, состояние которых представляет собой строку с нажатыми значениями, например, «PLAY», «STOP», «PAUSE»
@@ -281,7 +281,7 @@ hash: ZrGxXyZrIiTT1Ijp70v86qN2uIcQ5fe+bwvxMACMwzA=
 «М» — обязательно
 
 ##### Дополнительные состояния для каждого канала/устройства
-```javascript
+```json5
 // state-working (optional)
 {
    "_id": "adapter.instance.channelName.stateName-working", // e.g. "hm-rpc.0.JEQ0205612:1.WORKING"
@@ -294,12 +294,14 @@ hash: ZrGxXyZrIiTT1Ijp70v86qN2uIcQ5fe+bwvxMACMwzA=
        "write": false,                  // mandatory, default false
        "min":   false,                  // optional,  default false
        "max":   true,                   // optional,  default true
-       "role":  "indicator.working"     // mandatory
+       "role":  "indicator.working",     // mandatory
        "desc":  ""                      // optional,  default undefined
    }
 }
-,
-// state-direction (optional). The state can have following states: "up"/"down"/""
+```
+
+```json5
+// state-direction (optional). The state can have the following states: "up"/"down"/""
 {
    "_id": "adapter.instance.channelName.stateName-direction", // e.g. "hm-rpc.0.JEQ0205612:1.DIRECTION"
    "type": "state",
@@ -309,11 +311,13 @@ hash: ZrGxXyZrIiTT1Ijp70v86qN2uIcQ5fe+bwvxMACMwzA=
        "type":  "string",               // optional,  default "string"
        "read":  true,                   // mandatory, default true
        "write": false,                  // mandatory, default false
-       "role":  "direction"             // mandatory
+       "role":  "direction",            // mandatory
        "desc":  ""                      // optional,  default undefined
    }
 }
-,
+```
+
+```json5
 // state-maintenance (optional).
 {
    "_id": "adapter.instance.channelName.stateName-maintenance", //e.g. "hm-rpc.0.JEQ0205612:1.MAINTENANCE"
@@ -326,11 +330,13 @@ hash: ZrGxXyZrIiTT1Ijp70v86qN2uIcQ5fe+bwvxMACMwzA=
        "write": false,                  // mandatory, default false
        "min":   false,                  // optional,  default false
        "max":   true,                   // optional,  default true
-       "role":  "indicator.maintenance" // mandatory
+       "role":  "indicator.maintenance", // mandatory
        "desc":  "Problem description"   // optional,  default undefined
    }
 }
-,
+```
+
+```json5
 // state-maintenance-unreach (optional).
 {
    "_id": "adapter.instance.channelName.stateName-maintenance-unreach", //e.g. "hm-rpc.0.JEQ0205612:0.UNREACH"
@@ -343,7 +349,7 @@ hash: ZrGxXyZrIiTT1Ijp70v86qN2uIcQ5fe+bwvxMACMwzA=
        "write": false,                  // mandatory, default false
        "min":   false,                  // optional,  default false
        "max":   true,                   // optional,  default true
-       "role":  "indicator.maintenance.unreach" // mandatory
+       "role":  "indicator.maintenance.unreach", // mandatory
        "desc":  "Device unreachable"    // optional,  default 'Device unreachable'
    }
 }
@@ -351,7 +357,7 @@ hash: ZrGxXyZrIiTT1Ijp70v86qN2uIcQ5fe+bwvxMACMwzA=
 
 ##### `light.switch` - Описание атрибутов
 | **Имя** | **Общая.роль** | **M** | **W** | **Общий.тип** | **Описание** |
-| ------------- |:--------------------------|:-----:|:-----:|-----------------|-------------------------------------|
+|-------------|:--------------------------|:-----:|:-----:|-----------------|-------------------------------------|
 | состояние | переключатель | X | X | логическое значение | |
 | описание | текст.описание | | | | |
 | mmm | indicator.maintenance.mmm | | | | mmm = lowbat или unreach или что-то в этом роде |
@@ -487,7 +493,7 @@ ID: `system.adapter.<adapter.name>`
 * `common.adminTab.link` — ссылка для iframe во вкладке. Можно использовать замену параметров следующим образом: `http://%ip%:%port%`. IP-адрес будет заменён на IP-адрес хоста. `port` будет извлечён из `native.port`.
 * `common.adminTab.name` - имя вкладки в админке
 * `common.adminTab.singleton` — [true/false], если у адаптера есть вкладка для администратора. Будет отображаться только одна вкладка для всех экземпляров.
-* `common.adminUI.config` — тип пользовательского интерфейса конфигурации [none/json/materialize/html]. Если не определено, адаптер будет отображаться как html. (`jsonConfig.json` или `jsonConfig.json5` для `json`, `index_m.html` для `materialize`, `index.html` для `html` должны находиться в папке `admin`)
+* `common.adminUI.config` — тип пользовательского интерфейса конфигурации [none/json/materialize/html]. Если не определено, адаптер будет отображаться как HTML. (`jsonConfig.json` или `jsonConfig.json5` от `json`, `index_m.html` от `materialize`, `index.html` от `html` должны находиться в папке `admin`)
 * `common.adminUI.custom` — [none/json] тип пользовательского интерфейса конфигурации. Если не определено, пользовательский интерфейс отображаться не будет. Можно использовать только `jsonCustom.json` или `jsonCustom.json5` в папке `admin`.
 * `common.adminUI.tab` - [none/html] тип пользовательского интерфейса TAB. `tab.html` или `tab_m.html` расширяются в папке `admin`, если определены как `html`.
 * `common.allowInit` - [true/false] разрешает запуск «запланированного» адаптера «вне расписания» при изменении настроек или запуске адаптера. Или разрешает запуск запланированного адаптера один раз после изменения конфигурации, а затем по расписанию.
@@ -524,7 +530,7 @@ ID: `system.adapter.<adapter.name>`
 * `common.main` - **Устарело** Используйте main в package.json.
 * `common.materializeTab` - если адаптер поддерживает > admin3 для вкладки (стиль materialize)
 * `common.materialize` - если адаптер поддерживает > admin3 (стиль materialize)
-* `common.messagebox` — true, если поддерживается окно сообщений. Таким образом, адаптер может принимать сообщения sendTo (используемые для электронной почты, pushover-сообщений и т.д.).
+* `common.messagebox` — true, если поддерживается окно сообщения. Таким образом, адаптер может принимать сообщения sendTo (используемые для электронной почты, pushover-сообщений и т.д.).
 * `common.messages` — Условные сообщения при обновлении. Подробности см. в разделе [Условные сообщения](#conditional-messages).
 * `common.mode` - **обязательно** возможные значения см. ниже
 * `common.name` - **обязательное** имя адаптера без «ioBroker».
@@ -549,7 +555,8 @@ ID: `system.adapter.<adapter.name>`
 * `common.serviceStates` - [true/false или path], если адаптер может предоставлять дополнительные состояния. Если да, будет вызван путь `adapter/lib/states.js`, который передаёт следующие параметры: function (objects, states, instance, config, callback). Функция должна возвращать массив точек со значениями вида `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}`
 * `common.singletonHost` - адаптер может быть установлен только один раз на одном хосте
 * `common.singleton` - адаптер может быть установлен только один раз во всей системе
-* `common.statusStates` — структура для отображения статуса в админке в виде `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}`. Вместо `onlineId` можно использовать `offlineId`. Если идентификатор очень короткий (менее двух точек), он будет рассматриваться как относительный к текущему объекту.
+* `common.smartName` - Относится к адаптеру IoT для хранения настроек Alexa и компании.
+* `common.statusStates` — структура для отображения статуса в админке в виде `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}`. Вместо `onlineId` можно использовать `offlineId`. Если идентификатор очень короткий (менее двух точек), он будет считаться относительным к текущему объекту.
 * `common.stopBeforeUpdate` - [true/false], если адаптер должен быть остановлен перед обновлением
 * `common.stopTimeout` - тайм-аут в мс до выключения адаптера. По умолчанию 500 мс.
 * `common.stoppedWhenWebExtension` - если экземпляр имеет режим `daemon`, но работает как веб-расширение (`native.webInstance !== ''`), контроллер не запустит этот экземпляр, если `common.stoppedWhenWebExtension` равно true.
@@ -561,7 +568,7 @@ ID: `system.adapter.<adapter.name>`
 * `common.titleLang` - **обязательное** более длинное имя адаптера на всех поддерживаемых языках, например `{en: 'Adapter', de: 'adapter', ru: 'Драйвер'}`
 * `common.title` - (устарело) более длинное имя адаптера для отображения в админке
 * `common.type` — Тип адаптера. См. [Типы](adapterpublish.md)
-* `common.unchanged` — (система) пожалуйста, не используйте этот флаг. Это флаг, информирующий систему о том, что диалоговое окно конфигурации должно быть показано в панели администратора.
+* `common.unchanged` — (система) не используйте этот флаг. Он информирует систему о необходимости отображения диалогового окна настройки в панели администратора.
 * `common.unsafePerm` - [true/false], если пакет должен быть установлен с параметром `npm --unsafe-perm`
 * `common.version` - **обязательная** доступная версия
 * `common.visWidgets` — описывает `виджеты React vis2`. Например: `{"i18n": "component", "vis2NAMEWidgets": { "name": "vis2NAMEWidgets", "url": "vis-2-widgets-NAME/customWidgets.js", "components": [ "NAMEwidgetName"]} }`
@@ -578,6 +585,8 @@ ID: `system.adapter.<adapter.name>`
 * `protectedNative` - массив атрибутов конфигурации, которые будут доступны только собственному адаптеру, например, `["password"]`
 * `encryptedNative` — массив атрибутов конфигурации, которые будут автоматически шифроваться при сохранении через страницу конфигурации администратора и автоматически расшифровываться во время работы адаптера, например, `["password", "token"]`
 * `native` - предопределенные атрибуты, которые доступны в `index_m.html` и во время выполнения через `adapter.config.<attribute>`, например, `{"port": 1234, "password": "secret"}`
+
+#### Условные сообщения (`common.messages`)
 
 #### Условные сообщения (`common.messages`)
 Вы можете определить **условные сообщения**, которые будут отображаться пользователю при обновлении адаптера.
@@ -631,7 +640,7 @@ ID: `system.adapter.<adapter.name>`
 
 ##### Ссылка на правило
 | Пример правила | Значение |
-| ---------------------- | --------------------------------------------------------- |
+|------------------------|-----------------------------------------------------------|
 | `oldVersion<=1.0.44` | Текущая установленная версия ≤ 1.0.44 |
 | `newVersion>=1.0.45` | Устанавливаемая версия ≥ 1.0.45 |
 | `newVersion==2.0.0` | Устанавливаемая версия — ровно 2.0.0 |
@@ -657,45 +666,51 @@ ID: `system.adapter.<adapter.name>`
 ##### Примеры
 ###### Пример 1: Показывать сообщение только при обновлении с версии ≤1.0.44 до ≥1.0.45
 ```json
-"messages": {
-  "condition": {
-    "operand": "and",
-    "rules": [
-      "oldVersion<=1.0.44",
-      "newVersion>=1.0.45"
-    ]
-  },
-  "title": { "en": "Important update" },
-  "text": { "en": "Please read before continuing." },
-  "level": "warn"
+{
+    "messages": {
+        "condition": {
+            "operand": "and",
+            "rules": [
+                "oldVersion<=1.0.44",
+                "newVersion>=1.0.45"
+            ]
+        },
+        "title": { "en": "Important update" },
+        "text": { "en": "Please read before continuing." },
+        "level": "warn"
+    }
 }
 ```
 
 ###### Пример 2: Показывать сообщение, если адаптер установлен впервые
 ```json
-"messages": {
-  "condition": {
-    "operand": "or",
-    "rules": ["not-installed"]
-  },
-  "title": { "en": "Welcome!" },
-  "text": { "en": "Thanks for installing this adapter." },
-  "level": "info"
+{
+    "messages": {
+        "condition": {
+            "operand": "or",
+            "rules": ["not-installed"]
+        },
+        "title": { "en": "Welcome!" },
+        "text": { "en": "Thanks for installing this adapter." },
+        "level": "info"
+    }
 }
 ```
 
 ###### Пример 3: Показать сообщение, если требуется другой адаптер
 ```json
-"messages": {
-  "condition": {
-    "operand": "and",
-    "rules": ["vis-2>=1.0.0"]
-  },
-  "title": { "en": "Dependency notice" },
-  "text": { "en": "This adapter requires vis-2 version 1.0.0 or higher." },
-  "link": "https://example.com/setup-guide",
-  "linkText": { "en": "Setup guide" },
-  "level": "error"
+{
+    "messages": {
+        "condition": {
+            "operand": "and",
+            "rules": ["vis-2>=1.0.0"]
+        },
+        "title": { "en": "Dependency notice" },
+        "text": { "en": "This adapter requires vis-2 version 1.0.0 or higher." },
+        "link": "https://example.com/setup-guide",
+        "linkText": { "en": "Setup guide" },
+        "level": "error"
+    }
 }
 ```
 

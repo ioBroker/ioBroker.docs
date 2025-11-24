@@ -1,7 +1,7 @@
 # Core Concept
-There are two fundamentally different data-types in ioBroker. So-called **states**(`states`) and **objects**.
+There are two fundamentally different data types in ioBroker: so-called **states**(`states`) and **objects**.
 
-Objects represent rarely changing and larger data, like meta-data of your systems devices, configurations and additional
+Objects represent rarely changing and larger data, like meta-data of your system devices, configurations, and additional
 files. Every Object has to have an attribute "type". See below for more information about what object types are available and which
 mandatory attributes an object of a specific type needs. Functions like setObject, getObject, ... are provided to you by
 the adapter module.
@@ -260,7 +260,7 @@ possible values:
 *
 * `alarm`             - some alarm
 
-* `phone`             - fritz box, speedport and so on
+* `phone`             - fritz!box, speedport and so on
 
 * `button`            - like wall switch or TV remote, where every button is a state like .play, .stop, .pause
 * `remote`            - TV or other remotes with state is string with pressed values, e.g. "PLAY", "STOP", "PAUSE"
@@ -278,7 +278,7 @@ possible values:
 "M" - Mandatory
 
 ##### Optional states for every channel/device
-```javascript
+```json5
 // state-working (optional)
 {
    "_id": "adapter.instance.channelName.stateName-working", // e.g. "hm-rpc.0.JEQ0205612:1.WORKING"
@@ -291,12 +291,13 @@ possible values:
        "write": false,                  // mandatory, default false
        "min":   false,                  // optional,  default false
        "max":   true,                   // optional,  default true
-       "role":  "indicator.working"     // mandatory
+       "role":  "indicator.working",     // mandatory
        "desc":  ""                      // optional,  default undefined
    }
 }
-,
-// state-direction (optional). The state can have following states: "up"/"down"/""
+```
+```json5
+// state-direction (optional). The state can have the following states: "up"/"down"/""
 {
    "_id": "adapter.instance.channelName.stateName-direction", // e.g. "hm-rpc.0.JEQ0205612:1.DIRECTION"
    "type": "state",
@@ -306,11 +307,12 @@ possible values:
        "type":  "string",               // optional,  default "string"
        "read":  true,                   // mandatory, default true
        "write": false,                  // mandatory, default false
-       "role":  "direction"             // mandatory
+       "role":  "direction",            // mandatory
        "desc":  ""                      // optional,  default undefined
    }
 }
-,
+```
+```json5
 // state-maintenance (optional).
 {
    "_id": "adapter.instance.channelName.stateName-maintenance", //e.g. "hm-rpc.0.JEQ0205612:1.MAINTENANCE"
@@ -323,11 +325,12 @@ possible values:
        "write": false,                  // mandatory, default false
        "min":   false,                  // optional,  default false
        "max":   true,                   // optional,  default true
-       "role":  "indicator.maintenance" // mandatory
+       "role":  "indicator.maintenance", // mandatory
        "desc":  "Problem description"   // optional,  default undefined
    }
 }
-,
+```
+```json5
 // state-maintenance-unreach (optional).
 {
    "_id": "adapter.instance.channelName.stateName-maintenance-unreach", //e.g. "hm-rpc.0.JEQ0205612:0.UNREACH"
@@ -340,18 +343,18 @@ possible values:
        "write": false,                  // mandatory, default false
        "min":   false,                  // optional,  default false
        "max":   true,                   // optional,  default true
-       "role":  "indicator.maintenance.unreach" // mandatory
+       "role":  "indicator.maintenance.unreach", // mandatory
        "desc":  "Device unreachable"    // optional,  default 'Device unreachable'
    }
 }
 ```
 
 ##### `light.switch` - Attributes description
-| **Name**      | **common.role**           | **M** | **W** | **common.type** | **Description**                     |
-| ------------- |:--------------------------|:-----:|:-----:|-----------------|-------------------------------------|
-| state         | switch                    |   X   |   X   | boolean         |                                     |
-| description   | text.description          |       |       |                 |                                     |
-| mmm           | indicator.maintenance.mmm |       |       |                 | mmm = lowbat or unreach or whatever |
+| **Name**    | **common.role**           | **M** | **W** | **common.type** | **Description**                     |
+|-------------|:--------------------------|:-----:|:-----:|-----------------|-------------------------------------|
+| state       | switch                    |   X   |   X   | boolean         |                                     |
+| description | text.description          |       |       |                 |                                     |
+| mmm         | indicator.maintenance.mmm |       |       |                 | mmm = lowbat or unreach or whatever |
 
 ```
 // SWITCH CHANNEL
@@ -455,7 +458,7 @@ possible values:
 
 ##### `phone` - Attributes description
 | **Name**         | **common.role**          | **M** | **W** | **common.type** | **Description** |
-| ---------------- |:-------------------------|:-----:|:-----:|-----------------|-----------------|
+|------------------|:-------------------------|:-----:|:-----:|-----------------|-----------------|
 | `ringing_number` | `text.phone_number`      |       |       | `string`        |                 |
 | `ringing`        | `indicator`              |       |       | `boolean`       |                 |
 
@@ -485,7 +488,7 @@ ID: `system.adapter.<adapter.name>`
 * `common.adminTab.link`      - link for iframe in the TAB. You can use parameter replacement like this: `http://%ip%:%port%`. IP will be replaced with host IP. A `port` will be extracted from `native.port`.
 * `common.adminTab.name`      - name of TAB in admin
 * `common.adminTab.singleton` - [true/false] if adapter has a TAB for the admin. Only one TAB for all instances will be shown.
-* `common.adminUI.config`     - [none/json/materialize/html] type of configuration UI. If not defined, the adapter will be shown as html. (`jsonConfig.json` or `jsonConfig.json5` by `json`, `index_m.html` by `materialize`, `index.html` by `html` are expected in `admin` folder)
+* `common.adminUI.config`     - [none/json/materialize/html] type of configuration UI. If not defined, the adapter will be shown as HTML. (`jsonConfig.json` or `jsonConfig.json5` by `json`, `index_m.html` by `materialize`, `index.html` by `html` are expected in `admin` folder)
 * `common.adminUI.custom`     - [none/json] type of custom configuration UI. If not defined, no custom UI will be shown. It is only possible to use `jsonCustom.json` or `jsonCustom.json5` in `admin` folder.
 * `common.adminUI.tab`        - [none/html] type of TAB UI. `tab.html` or `tab_m.html` are extended in folder `admin` if defined to `html`.
 * `common.allowInit`          - [true/false] allow for "scheduled" adapter to be called "not in the time schedule", if settings changed or adapter started. Or allow scheduled adapter start once after configuration changed and then by schedule.
@@ -536,7 +539,7 @@ ID: `system.adapter.<adapter.name>`
 * `common.osDependencies.darwin` - array of OSX packages that required for this adapter
 * `common.osDependencies.linux` - array of debian/centos packages, that required for this adapter (of course only OS with apt, apt-get, yum as package managers)
 * `common.osDependencies.win32` - not used, because win32 has no package manager
-* `common.os`                 - string or array of the supported operation systems, e.g. `["linux", "darwin"]`
+* `common.os`                 - string or array of the supported operating systems, e.g. `["linux", "darwin"]`
 * `common.platform`           - **mandatory** possible values: Javascript/Node.js, more coming
 * `common.preserveSettings`   - string (or array) with names of attributes in common of instance, which will not be deleted. E.g. "history", so by `setState("system.adapter.mqtt.0", {..})` the field `common.history` will not be deleted even if new object does not have this field. To delete the attribute it must be explicitly done with `common: {history: null}`.
 * `common.pugins.sentry`      - structure with the configuration data for the `sentry` plugin
@@ -547,7 +550,8 @@ ID: `system.adapter.<adapter.name>`
 * `common.serviceStates`      - [true/false or path] if adapter can deliver additional states. If yes, the path `adapter/lib/states.js` will be called, and it gives following parameters function (objects, states, instance, config, callback). The function must deliver the array of points with values like `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}`
 * `common.singletonHost`      - adapter can be installed only once on one host
 * `common.singleton`          - adapter can be installed only once in a whole system
-* `common.statusStates`       - Structure for status indication in admin in form `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}`. Instead of `onlineId` the `offlineId` could be used. If ID is very short (less than 2 dots in it), so the ID will be treated as relative to current object.
+* `common.smartName`          - Related to IoT adapter to store settings for alexa & co.
+* `common.statusStates`       - Structure for status indication in admin in form `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}`. Instead of `onlineId` the `offlineId` could be used. If ID is very short (less than 2 dots in it), so the ID will be treated as relative to the current object.
 * `common.stopBeforeUpdate`   - [true/false] if adapter must be stopped before update
 * `common.stopTimeout`        - timeout in ms to wait, till the adapter shut down. Default 500ms.
 * `common.stoppedWhenWebExtension` - If instance has mode `daemon` but it runs as a web extension (`native.webInstance !== ''`), controller will not start this instance if `common.stoppedWhenWebExtension` is true.
@@ -559,7 +563,7 @@ ID: `system.adapter.<adapter.name>`
 * `common.titleLang`          - **mandatory** longer name of adapter in all supported languages like `{en: 'Adapter', de: 'adapter', ru: 'Драйвер'}`
 * `common.title`              - (deprecated) longer name of adapter to show in admin
 * `common.type`               - Adapter type. See [Types](adapterpublish.md)
-* `common.unchanged`          - (system) please do not use this flag. It is a flag to inform the system, that configuration dialog must be shown in the admin.
+* `common.unchanged`          - (system) please do not use this flag. It is a flag to inform the system that configuration dialog must be shown in the admin.
 * `common.unsafePerm`         - [true/false] if the package must be installed with `npm --unsafe-perm` parameter
 * `common.version`            - **mandatory** available version
 * `common.visWidgets`         - Describes `vis2 react widgets`. Like `{"i18n": "component", "vis2NAMEWidgets": { "name": "vis2NAMEWidgets", "url": "vis-2-widgets-NAME/customWidgets.js", "components": [ "NAMEwidgetName"]} }`
@@ -577,6 +581,7 @@ ID: `system.adapter.<adapter.name>`
 * `encryptedNative`           - array of config attributes which will be automatically encrypted when stored via Admin configuration page and automatically decrypted at adapter runtime, e.g. `["password", "token"]`
 * `native`                    - predefined attributes which are accessible in `index_m.html` and at runtime via `adapter.config.<attribute>`, e.g. `{"port": 1234, "password": "secret"}`
 
+<a id="conditional-messages"></a>
 #### Conditional Messages (`common.messages`)
 
 You can define **conditional messages** that are shown to the user when updating an adapter.
@@ -632,7 +637,7 @@ Rules are strings inside the `rules` array. Examples:
 ##### Rule Reference
 
 | Rule example           | Meaning                                                   |
-| ---------------------- | --------------------------------------------------------- |
+|------------------------|-----------------------------------------------------------|
 | `oldVersion<=1.0.44`   | The currently installed version is ≤ 1.0.44               |
 | `oldVersion>=1.2.0`    | The currently installed version is ≥ 1.2.0                |
 | `newVersion>=1.0.45`   | The version being installed is ≥ 1.0.45                   |
@@ -662,47 +667,53 @@ Rules are strings inside the `rules` array. Examples:
 ###### Example 1: Show message only when upgrading from version ≤1.0.44 to ≥1.0.45
 
 ```json
-"messages": {
-  "condition": {
-    "operand": "and",
-    "rules": [
-      "oldVersion<=1.0.44",
-      "newVersion>=1.0.45"
-    ]
-  },
-  "title": { "en": "Important update" },
-  "text": { "en": "Please read before continuing." },
-  "level": "warn"
+{
+    "messages": {
+        "condition": {
+            "operand": "and",
+            "rules": [
+                "oldVersion<=1.0.44",
+                "newVersion>=1.0.45"
+            ]
+        },
+        "title": { "en": "Important update" },
+        "text": { "en": "Please read before continuing." },
+        "level": "warn"
+    }
 }
 ```
 
 ###### Example 2: Show message if adapter is newly installed
 
 ```json
-"messages": {
-  "condition": {
-    "operand": "or",
-    "rules": ["not-installed"]
-  },
-  "title": { "en": "Welcome!" },
-  "text": { "en": "Thanks for installing this adapter." },
-  "level": "info"
+{
+    "messages": {
+        "condition": {
+            "operand": "or",
+            "rules": ["not-installed"]
+        },
+        "title": { "en": "Welcome!" },
+        "text": { "en": "Thanks for installing this adapter." },
+        "level": "info"
+    }
 }
 ```
 
 ###### Example 3: Show message if another adapter is required
 
 ```json
-"messages": {
-  "condition": {
-    "operand": "and",
-    "rules": ["vis-2>=1.0.0"]
-  },
-  "title": { "en": "Dependency notice" },
-  "text": { "en": "This adapter requires vis-2 version 1.0.0 or higher." },
-  "link": "https://example.com/setup-guide",
-  "linkText": { "en": "Setup guide" },
-  "level": "error"
+{
+    "messages": {
+        "condition": {
+            "operand": "and",
+            "rules": ["vis-2>=1.0.0"]
+        },
+        "title": { "en": "Dependency notice" },
+        "text": { "en": "This adapter requires vis-2 version 1.0.0 or higher." },
+        "link": "https://example.com/setup-guide",
+        "linkText": { "en": "Setup guide" },
+        "level": "error"
+    }
 }
 ```
 

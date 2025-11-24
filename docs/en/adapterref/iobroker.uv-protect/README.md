@@ -34,8 +34,12 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### **WORK IN PROGRESS**
+### __WORK IN PROGRESS__
 * (simatec) dependencies updated
+
+### 0.6.9 (2025-11-02)
+* (simatec) dependencies updated
+* (simatec) Fix npm publish
 
 ### 0.6.8 (2025-08-31)
 * (simatec) dependencies updated

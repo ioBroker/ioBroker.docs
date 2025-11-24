@@ -13,9 +13,10 @@ export const useStyles = makeStyles()(theme => ({
             transform: 'translate(-50%, -50%)',
             width: '1200px',
             height: '1200px',
-            background: theme.palette.mode === 'dark'
-                ? 'radial-gradient(circle, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)'
-                : 'none',
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(circle, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)'
+                    : 'none',
             pointerEvents: 'none',
             [theme.breakpoints.down('md')]: {
                 width: '600px',
@@ -41,7 +42,7 @@ export const useStyles = makeStyles()(theme => ({
             marginRight: 'auto',
         },
         [theme.breakpoints.down('md')]: {
-            textAlign: 'left'
+            textAlign: 'left',
         },
         [theme.breakpoints.down('sm')]: {
             padding: '0 16px',
@@ -63,9 +64,7 @@ export const useStyles = makeStyles()(theme => ({
             left: '0',
             width: '2400px',
             height: '1400px',
-            backgroundImage: theme.palette.mode === 'dark'
-                ? `url(${BacklightImage})`
-                : 'none',
+            backgroundImage: theme.palette.mode === 'dark' ? `url(${BacklightImage})` : 'none',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'left center',
             backgroundSize: 'contain',
@@ -77,7 +76,7 @@ export const useStyles = makeStyles()(theme => ({
                 bottom: 'calc(-120% )',
             },
             [theme.breakpoints.down('sm')]: {
-                display: 'none'
+                display: 'none',
                 // width: '1500px',
                 // height: '1200px',
             },
@@ -89,12 +88,13 @@ export const useStyles = makeStyles()(theme => ({
             left: 0,
             right: 0,
             bottom: 0,
-            background: theme.palette.mode === 'dark'
-                ? `
+            background:
+                theme.palette.mode === 'dark'
+                    ? `
                     linear-gradient(to bottom, #080B1C 0%, #080B1C 3%, transparent 15%, transparent 92%, #080B1C 100%),
                     linear-gradient(to right, #080B1C 0%, transparent 5%, transparent 95%, #080B1C 100%)
                 `
-                : `
+                    : `
                     linear-gradient(to bottom, #ffffff 0%, #ffffff 3%, transparent 15%, transparent 92%, #ffffff 100%),
                     linear-gradient(to right, #ffffff 0%, transparent 5%, transparent 95%, #ffffff 100%)
                 `,

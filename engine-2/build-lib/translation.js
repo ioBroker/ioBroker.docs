@@ -9,7 +9,7 @@ process.env.GOOGLE_APPLICATION_CREDENTIALS = `${__dirname}/../google-keys.json`;
 
 const key = fs.existsSync(`${__dirname}/../../api-key.json`) ? require('../../api-key.json').key : '';
 // Instantiates a client
-const translate = key ? new Translate({ key }) : new Translate({ projectId  });
+const translate = key ? new Translate({ key }) : new Translate({ projectId });
 
 /**
  * Choose the right translation API
@@ -40,19 +40,18 @@ async function translateYandex(text, targetLang, yandex) {
     }
     try {
         const url = `https://translate.yandex.net/api/v1.5/tr.json/translate?key=${yandex}&text=${encodeURIComponent(text)}&lang=en-${targetLang}`;
-        return axios(url, {validateStatus: status => status === 200})
-            .then(result => {
-                try {
-                    const json = result.data;
-                    if (json && json.text && json.text[0]) {
-                        return json.text[0];
-                    } else {
-                        throw new Error(`Invalid answer: ${json}`);
-                    }
-                } catch (e) {
-                    throw new Error(`Cannot parse answer: ${json}`);
+        return axios(url, { validateStatus: status => status === 200 }).then(result => {
+            try {
+                const json = result.data;
+                if (json && json.text && json.text[0]) {
+                    return json.text[0];
+                } else {
+                    throw new Error(`Invalid answer: ${json}`);
                 }
-            });
+            } catch (e) {
+                throw new Error(`Cannot parse answer: ${json}`);
+            }
+        });
     } catch (e) {
         throw new Error(`Could not translate to '${targetLang}': ${e}`);
     }
@@ -72,11 +71,14 @@ function translateGoogleSync(text, targetLang, sourceLang, cb) {
         // we may not send more than 100.000 chars per minute, so we must calculate it: https://cloud.google.com/translate/quotas
         if (countGoogle.start && countGoogle.count + text.length >= 99999) {
             // Wait max one minute and reset stats
-            setTimeout(() => {
-                countGoogle.start = Date.now();
-                countGoogle.count = 0;
-                translateGoogleSync(text, targetLang, sourceLang, cb);
-            }, Math.min(0, countGoogle.start + 60000 - Date.now()))
+            setTimeout(
+                () => {
+                    countGoogle.start = Date.now();
+                    countGoogle.count = 0;
+                    translateGoogleSync(text, targetLang, sourceLang, cb);
+                },
+                Math.min(0, countGoogle.start + 60000 - Date.now()),
+            );
         }
         countGoogle.start = countGoogle.start || Date.now();
         countGoogle.count += text.length;
@@ -118,10 +120,14 @@ function partsTake(text, addIds) {
 
     let parts = [];
     // remove leading empty lines
-    while(lines.length && !lines[0].trim()) lines.shift();
+    while (lines.length && !lines[0].trim()) {
+        lines.shift();
+    }
 
     // remove trailing empty lines
-    while(lines.length && !lines[lines.length - 1].trim()) lines.pop();
+    while (lines.length && !lines[lines.length - 1].trim()) {
+        lines.pop();
+    }
 
     let current = '';
     lines.forEach(line => {
@@ -140,30 +146,27 @@ function partsTake(text, addIds) {
         // detect [SomeLink]:(at the end of the document)
         if (lineTrimmed.match(/^\[[^\]]+]:/)) {
             // link
-            parts.push({type: 'decoration', lines: [lineTrimmed]});
+            parts.push({ type: 'decoration', lines: [lineTrimmed] });
             current = '';
-        } else
-        if (!lineTrimmed || lineTrimmed.startsWith('=====')) {
-            parts.push({type: 'decoration', lines: [lineTrimmed]});
+        } else if (!lineTrimmed || lineTrimmed.startsWith('=====')) {
+            parts.push({ type: 'decoration', lines: [lineTrimmed] });
             current = '';
-        } else
-        // detect
-        //    - blabla
-        //    - seconds blabla
-        // or
-        //    * blabla
-        //    * seconds blabla
-        // or
-        //    1. blabla
-        //    2. seconds blabla
-        if (lineTrimmed.match(/^-\s/) || lineTrimmed.match(/^\*\s/) || lineTrimmed.match(/^\d+\.\s/)) {
-            parts.push({type: 'list', lines: []});
+        } else if (lineTrimmed.match(/^-\s/) || lineTrimmed.match(/^\*\s/) || lineTrimmed.match(/^\d+\.\s/)) {
+            // detect
+            //    - blabla
+            //    - seconds blabla
+            // or
+            //    * blabla
+            //    * seconds blabla
+            // or
+            //    1. blabla
+            //    2. seconds blabla
+            parts.push({ type: 'list', lines: [] });
             last++;
             parts[last].lines.push(line);
             current = '';
-        } else
-        if (lineTrimmed.startsWith('```')) {
-            parts.push({type: 'code', lines: []});
+        } else if (lineTrimmed.startsWith('```')) {
+            parts.push({ type: 'code', lines: [] });
             last++;
 
             parts[last].lines.push(line);
@@ -174,26 +177,22 @@ function partsTake(text, addIds) {
                 current = '';
             }
             line = '';
-        } else
-        if (lineTrimmed.startsWith('|') && lineTrimmed.endsWith('|')) {
-            parts.push({type: 'table', lines: [line]});
-        } else
-        if (lineTrimmed.startsWith('<!-- ID: ')) {
+        } else if (lineTrimmed.startsWith('|') && lineTrimmed.endsWith('|')) {
+            parts.push({ type: 'table', lines: [line] });
+        } else if (lineTrimmed.startsWith('<!-- ID: ')) {
             if (parts[last]) {
                 parts[last].id = parseInt(line.substring('<!-- ID: '.length, line.length - 4));
             } else {
                 console.warn(`ID ${line.substring('<!-- ID: '.length, line.length - 4)} skipped`);
             }
             current = '';
-        } else
-        if (current === 'source') {
+        } else if (current === 'source') {
             if (lineTrimmed.endsWith(' -->')) {
                 current = '';
                 line = lineTrimmed.substring(0, line.length - 4);
             }
             parts[last].source.push(line);
-        } else
-        if (lineTrimmed.startsWith('<!-- SOURCE: ')) {
+        } else if (lineTrimmed.startsWith('<!-- SOURCE: ')) {
             if (!parts[last]) {
                 console.error('Source without text!!!');
             }
@@ -217,14 +216,13 @@ function partsTake(text, addIds) {
             } else {
                 parts[last].doNotTranslate = true;
             }
-        } else
-        // If chapter
-        if (lineTrimmed.startsWith('#')) {
-            parts.push({type: 'header', lines: [line]});
+        } else if (lineTrimmed.startsWith('#')) {
+            // If chapter
+            parts.push({ type: 'header', lines: [line] });
         } else if (line) {
             if (!current) {
                 current = 'p';
-                parts.push({type: current, lines: []});
+                parts.push({ type: current, lines: [] });
                 last++;
             }
             parts[last].lines.push(line);
@@ -253,12 +251,15 @@ function partsTake(text, addIds) {
                         parts[last].images.push({
                             text: mm[1].trim(),
                             link: mm[2].substring(0, pos),
-                            title: mm[2].substring(pos + 1).trim().replace(/^"|"$/g, '')
+                            title: mm[2]
+                                .substring(pos + 1)
+                                .trim()
+                                .replace(/^"|"$/g, ''),
                         });
                     } else {
                         parts[last].images.push({
                             text: mm[1].trim(),
-                            link: mm[2]
+                            link: mm[2],
                         });
                     }
 
@@ -273,7 +274,7 @@ function partsTake(text, addIds) {
         if (m) {
             if (!current) {
                 current = 'p';
-                parts.push({type: current, lines: []});
+                parts.push({ type: current, lines: [] });
                 last++;
             }
 
@@ -297,7 +298,7 @@ function partsTake(text, addIds) {
         if (m) {
             if (!current) {
                 current = 'p';
-                parts.push({type: current, lines: []});
+                parts.push({ type: current, lines: [] });
                 last++;
             }
 
@@ -305,7 +306,7 @@ function partsTake(text, addIds) {
                 let mm = item.match(/^```([^`]+)```$/);
                 if (mm) {
                     parts[last].codes = parts[last].codes || [];
-                    parts[last].codes.push({code: mm[1], single: false});
+                    parts[last].codes.push({ code: mm[1], single: false });
                     // do not CAOT, because it can be replaced with cyrillic one
                     line = line.replace(item, `§§JJJJJ_${parts[last].codes.length - 1}§§`);
                     changed = true;
@@ -317,7 +318,7 @@ function partsTake(text, addIds) {
         if (m) {
             if (!current) {
                 current = 'p';
-                parts.push({type: current, lines: []});
+                parts.push({ type: current, lines: [] });
                 last++;
             }
 
@@ -325,7 +326,7 @@ function partsTake(text, addIds) {
                 let mm = item.match(/^`([^`]+)`$/);
                 if (mm) {
                     parts[last].codes = parts[last].codes || [];
-                    parts[last].codes.push({code: mm[1], single: true});
+                    parts[last].codes.push({ code: mm[1], single: true });
                     line = line.replace(item, `§§SSSSS_${parts[last].codes.length - 1}§§`);
                     changed = true;
                 }
@@ -341,7 +342,7 @@ function partsTake(text, addIds) {
     if (addIds) {
         parts.forEach(part => {
             if (!part.id) {
-                part.id = Math.round((Math.random() * 1000000));
+                part.id = Math.round(Math.random() * 1000000);
             }
         });
     }
@@ -352,7 +353,6 @@ function partsTake(text, addIds) {
 function partsSave(parts, saveNoSource) {
     const lines = [];
     parts.forEach((part, i) => {
-
         if (part.type === 'code') {
             // Remove by all lines the tabs
             if (part.lines[0][0] === ' ') {
@@ -366,7 +366,6 @@ function partsSave(parts, saveNoSource) {
                     part.lines[i] = part.lines[i].substring(pos);
                 });
             }
-
         }
 
         let text = (part.text || part.lines.join('\n')).trimRight();
@@ -456,23 +455,21 @@ function translateLinks(fromLang, part, toLang, cb) {
         let item = part.links && part.links.find(item => item.text && !item.translated);
         item = item || (part.images && part.images.find(item => item.text && !item.translated));
         if (item) {
-            translateText(fromLang, item.text, toLang)
-                .then(text => {
-                    item.original = item.text;
-                    item.text = text;
-                    item.translated = true;
+            translateText(fromLang, item.text, toLang).then(text => {
+                item.original = item.text;
+                item.text = text;
+                item.translated = true;
+                setTimeout(() => translateLinks(fromLang, part, toLang, cb), 0);
+            });
+        } else {
+            item = part.images && part.images.find(item => item.title && !item.translatedTitle);
+            if (item) {
+                translateText(fromLang, item.title, toLang).then(title => {
+                    item.originalTitle = item.title;
+                    item.title = title;
+                    item.translatedTitle = true;
                     setTimeout(() => translateLinks(fromLang, part, toLang, cb), 0);
                 });
-        } else {
-            item = (part.images && part.images.find(item => item.title && !item.translatedTitle));
-            if (item) {
-                translateText(fromLang, item.title, toLang)
-                    .then(title => {
-                        item.originalTitle = item.title;
-                        item.title = title;
-                        item.translatedTitle = true;
-                        setTimeout(() => translateLinks(fromLang, part, toLang, cb), 0);
-                    });
             } else {
                 cb();
             }
@@ -508,8 +505,13 @@ function partsTranslate(fromLang, partsSource, toLang, partsTarget, cb) {
             continue;
         }
         // If text is not empty and differs => re-translate
-        if (partsSource[i].lines.join().replace(/[\n\s]/).trim() &&
-            partsTarget[i].source.join('').trim() !== partsSource[i].lines.join('').trim()) {
+        if (
+            partsSource[i].lines
+                .join()
+                .replace(/[\n\s]/)
+                .trim() &&
+            partsTarget[i].source.join('').trim() !== partsSource[i].lines.join('').trim()
+        ) {
             untranslated = i;
             break;
         } else if (!partsTarget[i].original) {
@@ -538,7 +540,8 @@ function partsTranslate(fromLang, partsSource, toLang, partsTarget, cb) {
                     partsSource[untranslated].translated = true;
                     setTimeout(() => partsTranslate(fromLang, partsSource, toLang, partsTarget, cb), 0);
                 });
-            }).catch(e => {
+            })
+            .catch(e => {
                 console.error(`Cannot translate: ${e}`);
                 partsSource[untranslated].translated = true;
                 partsTarget[untranslated].text = partsTarget[untranslated].original;
@@ -574,7 +577,8 @@ function translateMD(fromLang, text, toLang, translatedText, saveNoSource, fileN
         console.log(`____________TRANSLATE ${fromLang} => ${toLang}_______________: ${fileName}`);
 
         partsTranslate(fromLang, partsSource, toLang, partsTarget, parts =>
-            resolve({result: partsSave(parts, saveNoSource), source: partsSave(partsSource)}));
+            resolve({ result: partsSave(parts, saveNoSource), source: partsSave(partsSource) }),
+        );
     });
 }
 
@@ -586,13 +590,11 @@ function translateText(fromLang, text, toLang) {
     // detect LINKS, IMAGES and CODES and if the line has only that, do not translate it
     if (text.trim().match(/^[^\w]*§§[ILJ]+_\d+§§[^\w]*$/)) {
         return Promise.resolve(text);
-    } else
-    // detect table header and do not translate it
-    if (text.trim().match(/^[-|:]$/)) {
+    } else if (text.trim().match(/^[-|:]$/)) {
+        // detect table header and do not translate it
         return Promise.resolve(text);
-    } else
-    // it must be some words and not only special chars
-    if (!text.trim().match(/\w/)) {
+    } else if (!text.trim().match(/\w/)) {
+        // it must be some words and not only special chars
         return Promise.resolve(text);
     }
 
@@ -615,124 +617,123 @@ function translateText(fromLang, text, toLang) {
 
     console.log(`${fromLang}=>${toLang}: ${text}`);
 
-    return _translateText(text, toLang, false, fromLang)
-        .then(text => {
-            // restore formatting of *, **, *** and __
-            // | ** точка данных ** | ** Описание ** |  => | **точка данных** | **Описание** |
+    return _translateText(text, toLang, false, fromLang).then(text => {
+        // restore formatting of *, **, *** and __
+        // | ** точка данных ** | ** Описание ** |  => | **точка данных** | **Описание** |
 
-            if (text.startsWith('!&gt;') || text.startsWith('?&gt;')) {
-                text = text.replace('&gt;', '>');
-            }
-            text = text.replace('° C', '°C');
-            text = text.replace('° F', '°F');
-            text = text.replace('& lt;', '&lt;');
-            text = text.replace('& Lt;', '&lt;');
-            text = text.replace('& lt ;', '&lt;');
-            text = text.replace('& Lt ;', '&lt;');
-            text = text.replace('& gt;', '&gt;');
-            text = text.replace('& Gt;', '&gt;');
-            text = text.replace('& gt ;', '&gt;');
-            text = text.replace('& Gt ;', '&gt;');
-            text = text.replace('& amp;', '&amp;');
-            text = text.replace('% s', ' %s ');
-            text = text.replace(/HTTP:\s\/\//i, 'http://');
-            text = text.replace(/HTTPS:\s\/\//i, 'https://');
-            text = text.replace(/IoBroker/g, 'ioBroker');
+        if (text.startsWith('!&gt;') || text.startsWith('?&gt;')) {
+            text = text.replace('&gt;', '>');
+        }
+        text = text.replace('° C', '°C');
+        text = text.replace('° F', '°F');
+        text = text.replace('& lt;', '&lt;');
+        text = text.replace('& Lt;', '&lt;');
+        text = text.replace('& lt ;', '&lt;');
+        text = text.replace('& Lt ;', '&lt;');
+        text = text.replace('& gt;', '&gt;');
+        text = text.replace('& Gt;', '&gt;');
+        text = text.replace('& gt ;', '&gt;');
+        text = text.replace('& Gt ;', '&gt;');
+        text = text.replace('& amp;', '&amp;');
+        text = text.replace('% s', ' %s ');
+        text = text.replace(/HTTP:\s\/\//i, 'http://');
+        text = text.replace(/HTTPS:\s\/\//i, 'https://');
+        text = text.replace(/IoBroker/g, 'ioBroker');
 
-            const m = text.match(/https?:\/\/[-.\w\d]+:\s\d+/);
-            if (m) {
-                m.forEach(m => {
-                    text = text.replace(m.replace(/\s/g, ''));
-                });
-            }
+        const m = text.match(/https?:\/\/[-.\w\d]+:\s\d+/);
+        if (m) {
+            m.forEach(m => {
+                text = text.replace(m.replace(/\s/g, ''));
+            });
+        }
 
-            // start with ***
-            if (text.indexOf(' *** ') !== -1) {
-                let parts = (text + ' ').split(' ***');
-                if (parts.length > 1) {
-                    if (parts.length % 2 === 0) {
-                        console.error('Cannot restore formatting!: ' + text);
-                    } else {
-                        text = '';
-                        parts.forEach((part, i) => {
-                            if (i % 2 === 0){
-                                text += part;
-                            } else {
-                                text += ` ***${part.trim()}*** `;
-                            }
-                        });
-                        text = text.replace(/\s\s/g, ' ');
-                    }
+        // start with ***
+        if (text.indexOf(' *** ') !== -1) {
+            let parts = (text + ' ').split(' ***');
+            if (parts.length > 1) {
+                if (parts.length % 2 === 0) {
+                    console.error('Cannot restore formatting!: ' + text);
+                } else {
+                    text = '';
+                    parts.forEach((part, i) => {
+                        if (i % 2 === 0) {
+                            text += part;
+                        } else {
+                            text += ` ***${part.trim()}*** `;
+                        }
+                    });
+                    text = text.replace(/\s\s/g, ' ');
                 }
             }
-            if (text.indexOf(' **_ ') !== -1) {
-                let parts = (text + ' ').split(/ \*\*_| _\*\*/);
-                if (parts.length > 1) {
-                    if (parts.length % 2 === 0) {
-                        console.error(`Cannot restore formatting!: ${text}`);
-                    } else {
-                        text = '';
-                        parts.forEach((part, i) => {
-                            if (i % 2 === 0){
-                                text += part;
-                            } else {
-                                text += ` **_${part.trim()}_** `;
-                            }
-                        });
-                        text = text.replace(/\s\s/g, ' ');
-                    }
+        }
+        if (text.indexOf(' **_ ') !== -1) {
+            let parts = (text + ' ').split(/ \*\*_| _\*\*/);
+            if (parts.length > 1) {
+                if (parts.length % 2 === 0) {
+                    console.error(`Cannot restore formatting!: ${text}`);
+                } else {
+                    text = '';
+                    parts.forEach((part, i) => {
+                        if (i % 2 === 0) {
+                            text += part;
+                        } else {
+                            text += ` **_${part.trim()}_** `;
+                        }
+                    });
+                    text = text.replace(/\s\s/g, ' ');
                 }
             }
+        }
 
-            if (text.indexOf(' ** ') !== -1) {
-                // then with **
-                let parts = (text + ' ').split(/ \*\*[^*]/);
-                if (parts.length > 1) {
-                    if (parts.length % 2 === 0) {
-                        console.error(`Cannot restore formatting!: ${text}`);
-                    } else {
-                        text = '';
-                        parts.forEach((part, i) => {
-                            if (i % 2 === 0) {
-                                text += part;
-                            } else {
-                                text += ` **${part.trim()}** `;
-                            }
-                        });
-                    }
-                }
-                text = text.replace(/\s\s/g, ' ');
-            }
-
-            // Fix in one line * text * => *text*
-            if (text.trimLeft().startsWith('* ') && text.trimRight().endsWith(' *')) {
-                text = text.replace(/\*\s/, '*');
-                text = text.trimRight().replace(/\s\*$/, '*');
-            }
-
-            // then with *
-            const pos = text.indexOf(' * ') !== -1;
-            if (pos !== -1 && pos) {
-                let parts = (text + ' ').split(/ \*[^*]/);
-                if (parts.length > 1) {
-                    if (parts.length % 2 === 0) {
-                        console.error(`Cannot restore formatting!: ${text}`);
-                    } else {
-                        text = '';
-                        parts.forEach((part, i) => {
-                            if (i % 2 === 0) {
-                                text += part;
-                            } else {
-                                text += ` *${part.trim()}* `;
-                            }
-                        });
-                        text = text.replace(/\s\s/g, ' ');
-                    }
+        if (text.indexOf(' ** ') !== -1) {
+            // then with **
+            let parts = (text + ' ').split(/ \*\*[^*]/);
+            if (parts.length > 1) {
+                if (parts.length % 2 === 0) {
+                    console.error(`Cannot restore formatting!: ${text}`);
+                } else {
+                    text = '';
+                    parts.forEach((part, i) => {
+                        if (i % 2 === 0) {
+                            text += part;
+                        } else {
+                            text += ` **${part.trim()}** `;
+                        }
+                    });
                 }
             }
+            text = text.replace(/\s\s/g, ' ');
+        }
 
-            // then with __
-            /*parts = text.split(' __');
+        // Fix in one line * text * => *text*
+        if (text.trimLeft().startsWith('* ') && text.trimRight().endsWith(' *')) {
+            text = text.replace(/\*\s/, '*');
+            text = text.trimRight().replace(/\s\*$/, '*');
+        }
+
+        // then with *
+        const pos = text.indexOf(' * ') !== -1;
+        if (pos !== -1 && pos) {
+            let parts = (text + ' ').split(/ \*[^*]/);
+            if (parts.length > 1) {
+                if (parts.length % 2 === 0) {
+                    console.error(`Cannot restore formatting!: ${text}`);
+                } else {
+                    text = '';
+                    parts.forEach((part, i) => {
+                        if (i % 2 === 0) {
+                            text += part;
+                        } else {
+                            text += ` *${part.trim()}* `;
+                        }
+                    });
+                    text = text.replace(/\s\s/g, ' ');
+                }
+            }
+        }
+
+        // then with __
+        /*parts = text.split(' __');
             if (parts.length > 1) {
                 if (parts.length % 2 === 0) {
                     console.error('Cannot restore formatting!: ' + text);
@@ -747,14 +748,14 @@ function translateText(fromLang, text, toLang) {
                     });
                 }
             }*/
-            text = text.replace(/& EMSP;/ig, '&emsp;');
-            text = text.replace(/& amp;/ig, '&amp;');
+        text = text.replace(/& EMSP;/gi, '&emsp;');
+        text = text.replace(/& amp;/gi, '&amp;');
 
-            return text;
-        });
+        return text;
+    });
 }
 
 module.exports = {
     translateMD,
-    translateText
+    translateText,
 };

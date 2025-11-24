@@ -15,14 +15,14 @@ export const usePageScrollProgress = (): UsePageScrollProgressReturn => {
 
             const scrollHeight = totalPageHeight - viewWindowHeight;
             const scrolledPercent = scrollHeight > 0 ? Math.round((scrollTop / scrollHeight) * 100) : 0;
-            
+
             setScrollPosition(Math.min(100, Math.max(0, scrolledPercent)));
         };
 
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleScroll);
-        handleScroll(); 
-        
+        handleScroll();
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleScroll);

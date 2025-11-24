@@ -1,16 +1,16 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wmswebcontrol/README.md
 title: ioBroker.wmswebcontrol
-hash: d04NrK7qOhRB2qqx/L5Fu7d2belNZ3dYtURMJXulckQ=
+hash: 0XGWfUVPmus32BIIY+Km+opjwlEUef8l6E2v1S1O8do=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wmswebcontrol/admin/wmswebcontrol.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.wmswebcontrol.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.wmswebcontrol.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.wmswebcontrol.svg)
-![Количество установок (последних)](https://iobroker.live/badges/wmswebcontrol-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/wmswebcontrol-stable.svg)
+![Количество установок (последнее)](https://iobroker.live/badges/wmswebcontrol-installed.svg)
+![Количество установок (стабильное)](https://iobroker.live/badges/wmswebcontrol-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.wmswebcontrol.svg)
 ![НПМ](https://nodei.co/npm/iobroker.wmswebcontrol.png?downloads=true)
 
@@ -21,7 +21,7 @@ hash: d04NrK7qOhRB2qqx/L5Fu7d2belNZ3dYtURMJXulckQ=
 Адаптер для Warema WMS Webcontrol
 
 ## Использование
-Чтобы управлять устройством, измените значения \*Convert.
+Для управления устройством измените значения \*Convert.
 
 `wmswebcontrol.0.Markise+XXXX.setting0Convert`
 
@@ -29,9 +29,18 @@ hash: d04NrK7qOhRB2qqx/L5Fu7d2belNZ3dYtURMJXulckQ=
 
 `wmswebcontrol.0.Markise.setting2Convert`
 
-## Changelog
+Совет: пароль, заданный в настройках адаптера, не должен содержать спецсимволов.
 
-### 0.1.0
+## Changelog
+### 0.1.4 (2025-01-27)
+
+- ignore certificate errors
+
+### 0.1.3 (2024-10-26)
+
+- fix login
+
+### 0.1.2
 
 - Bugfixes
 
@@ -43,7 +52,7 @@ hash: d04NrK7qOhRB2qqx/L5Fu7d2belNZ3dYtURMJXulckQ=
 
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

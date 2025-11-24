@@ -3,25 +3,26 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.energiefluss-erweitert/README.md
 title: ioBroker.energiefluss-erweitert
-hash: 3NcBZoArnjzTu+oLkisM5RSCg9wuaFBASe5YIYFh0yw=
+hash: ftm8cROJXmK2Pe1Mr9xp0knGeK2di0tA3oRQ7hr1ca8=
 ---
 ![标识](../../../en/adapterref/iobroker.energiefluss-erweitert/admin/energiefluss-erweitert.png)
 
-![NPM 版本](https://img.shields.io/npm/v/iobroker.energiefluss-erweitert?style=flat-square)
-![下载](https://img.shields.io/npm/dm/iobroker.energiefluss-erweitert.svg)
 ![安装数量](https://iobroker.live/badges/energiefluss-erweitert-installed.svg)
-![GitHub](https://img.shields.io/github/license/SKB-CGN/iobroker.energiefluss-erweitert?style=flat-square)
-![GitHub 仓库大小](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
-![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
-![GitHub 上次提交](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
-![GitHub 问题](https://img.shields.io/github/issues/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
-![新公共管理](https://nodei.co/npm/iobroker.energiefluss-erweitert.png?downloads=true)
+![稳定的](http://iobroker.live/badges/energiefluss-erweitert-stable.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.energiefluss-erweitert.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.energiefluss-erweitert.svg)
+![GitHub](https://img.shields.io/github/license/SKB-CGN/iobroker.energiefluss-erweitert.svg)
+![GitHub 仓库大小](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.energiefluss-erweitert?logo=github)
+![GitHub提交活动](https://img.shields.io/github/commit-activity/m/SKB-CGN/iobroker.energiefluss-erweitert?logo=github)
+![GitHub 最新提交](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.energiefluss-erweitert?logo=github)
+![GitHub 问题](https://img.shields.io/github/issues/SKB-CGN/iobroker.energiefluss-erweitert?logo=github)
+![NPM](https://nodei.co/npm/iobroker.energiefluss-erweitert.png?downloads=true)
 
 # IoBroker.energiefluss-erweitert
-![测试和发布](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/workflows/Test%20and%20Release/badge.svg)
+![测试与发布](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 energiefluss-erweitert 适配器
-它为所有添加的元素提供动态的能量流。这些元素可以是：光伏、电池、房屋用电、电网供电（电网消耗）、汽车充电等等。
+这款适配器可为智能家居中所有连接设备提供动态的能源流可视化效果。它支持光伏发电、储能系统（电池）、家庭用电、电网输入/输出、电动汽车充电以及其他耗能或发电设备等能源来源。每条能源流都以清晰的双向线条、动画点和实时数值呈现，方便您轻松监控和分析能源分配。您可以自定义图标、颜色和布局，甚至可以使用公式计算衍生值，从而获得灵活且完全交互式的能源管理仪表盘。
 
 ## 文档
 * :book: [论坛帖子](https://forum.iobroker.net/topic/64734/test-adapter-energiefluss-erweitert-v0-0-x-github-latest)
@@ -35,6 +36,37 @@ hash: 3NcBZoArnjzTu+oLkisM5RSCg9wuaFBASe5YIYFh0yw=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Adapter was appearing on welcome screen overview (should only be used for pro) (#429)
+- FIX: Menubar has loading animation, when opening the workspace the first time while tour is displayed
+- FIX: When using **Animation dependency** 'Dots' or 'Duration' the animation was to heavy - regulated to smoother blend
+- FIX: **Animation dependency** 'Dots' once power is on the line, minimal one dot is displayed. The threshold can be used, to manage the appearance of the first dot. 
+
+### 0.8.1 (2025-10-21)
+- FIX: Dialog for line animation overrides was not opening
+- Added: VIS and VIS-2 widget added. Just drag the widget to VIS and set the adapter instance
+
+### 0.8.0 (2025-10-21)
+- FIX: Editing a datasource was not accepting the new choosen state (#374)
+- FIX: When using **Animation dependency** 'Dots' or 'Duration' the animation could "jump" during recalculation (now the 'jump' is smoothly animated)
+- FIX: 'Manual value change' of click actions now better detect the value type of the destination source
+- FIX: Line was not hidden when 2 directions *and* display dependency are enabled
+- Added: A new property 'Distance between the dot blocks' inside 'animation'-tab is available. This setting can be used, to define the distance between dot-blocks
+- Added: Some more error handling for overrides. Now they are checked, if they have the correct format and/or syntax
+- Added: 2 new override properties are available: "addClass" and "removeClass" which allow the user, to add or remove own defined CSS classes
+- Added: The workspace will be centered itself to the current selected element
+- Added: Better support for touch-devices including different modes for moving the workspace and editing elements
+- Added: Few language and design corrections, code optimization
+- Added: Right Clicking or long press on liveview opens a context menu, to easily switch between instances or display the configuration
+
+### 0.7.8 (2025-06-18)
+- Added: Convert a text element to a datasource element
+- Added: Now supports Web-Adapter with socket.io adapter configured (#333)
+
+### 0.7.7 (2025-06-12)
+- FIX: Issues found by ioBroker-Adapter-Checker (348)
+- Added: When adding a new datasource, the associated name of this datasource is set as recommended alias
+
 ### 0.7.6 (2025-06-05)
 - FIX: Removed instances from welcome screen, as this is confusing, if not using iobroker.pro
 

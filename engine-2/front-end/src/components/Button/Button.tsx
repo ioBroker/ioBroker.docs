@@ -20,11 +20,7 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
 }) => {
     const { classes, cx } = useStyles();
 
-    const buttonClass = cx(
-        classes.button,
-        variant === 'primary' ? classes.primary : classes.secondary,
-        className
-    );
+    const buttonClass = cx(classes.button, variant === 'primary' ? classes.primary : classes.secondary, className);
 
     if (href) {
         return (

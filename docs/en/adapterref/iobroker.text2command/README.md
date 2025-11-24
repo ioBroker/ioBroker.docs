@@ -17,9 +17,9 @@ To execute command, write state **`text2command.<INSTANCE>.text`** with sentence
 
 If you define **Answer to ID**, the answer will be written in this ID too. This is required for e.g. to realise the voice acknowledges.
 
-You can send a message via `sendTo` from javascript. The answer will come in the message back:
+You can send a message via `sendTo` from `javascript`. The answer will come in the message back:
 
-```
+```js
 sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
     console.log('Response is: ' + response);
 });
@@ -79,34 +79,34 @@ Following functions will be interpreted as
 - roles - `switch.open`
 - roles - `switch.lock`
 
-Following rooms are supported:
+The following rooms are supported:
 
-| key word in phrase    | Possible enum.rooms in english  | in german                | in russian       |
-|-----------------------|---------------------------------|--------------------------|------------------|
-| everywhere            | everywhere                      | -                        | -                |
-| living                | livingroom                      | wohnzimmer               | зал              |
-| bedroom               | bedroom/sleepingroom            | schlafzimmer             | спальня          |
-| bath                  | bathroom/bath                   | badezimmer/bad           | ванная           |
-| working/office        | office                          | arbeitszimmer            | кабинет          |
-| kids/child/nursery    | nursery                         | kinderzimmer             | детская          |
-| guets wc/guest closet | guestwc                         | gästewc                  | гостевой туалет  |
-| wc/closet             | wc                              | wc                       | туалет           |   
-| floor/enter           | floor                           | diele/gang/flur          | коридор/прихожая |
-| kitchen               | kitchen                         | küche/kueche             | кухня            |
-| balcony/terrace/patio | terrace                         | balkon/terrasse          | терраса/балкон  |
-| dinning               | dinningroom                     | esszimmer                | столовая         |
-| garage                | garage                          | garage                   | гараж            |
-| stair                 | stairs                          | trepe/treppenhaus        | лестница         |
-| garden                | garden                          | garten                   | сад              |
-| court/yard            | court                           | hof                      | двор             |
-| guest room            | guestroom                       | gästezimmer              | гостевая         |
-| attic                 | attic                           | speicher                 | кладовка         |
-| roof                  | roof                            | dachstuhl                | крыша            |
-| terminal              | terminal                        | anschlussraum            | сени             |
-| wash room             | washroom                        | waschraum                | прачечная        |
-| heat room             | heatroom                        | heatingroom/heizungsraum | котельная        |
-| hovel                 | hovel                           | schuppen/scheune         | сарай            |
-| summer house          | summerhouse                     | gartenhaus               | теплица          |
+| key word in phrase    | Possible enum.rooms in english  | in german                | in russian        |
+|-----------------------|---------------------------------|--------------------------|-------------------|
+| everywhere            | everywhere                      | -                        | -                 |
+| living                | livingroom                      | wohnzimmer               | зал               |
+| bedroom               | bedroom/sleepingroom            | schlafzimmer             | спальня           |
+| bath                  | bathroom/bath                   | badezimmer/bad           | ванная            |
+| working/office        | office                          | arbeitszimmer            | кабинет           |
+| kids/child/nursery    | nursery                         | kinderzimmer             | детская           |
+| guets wc/guest closet | guestwc                         | gästewc                  | гостевой туалет   |
+| wc/closet             | wc                              | wc                       | туалет            |   
+| floor/enter           | floor                           | diele/gang/flur          | коридор/прихожая  |
+| kitchen               | kitchen                         | küche/kueche             | кухня             |
+| balcony/terrace/patio | terrace                         | balkon/terrasse          | терраса/балкон    |
+| dinning               | dinningroom                     | esszimmer                | столовая          |
+| garage                | garage                          | garage                   | гараж             |
+| stair                 | stairs                          | trepe/treppenhaus        | лестница          |
+| garden                | garden                          | garten                   | сад               |
+| court/yard            | court                           | hof                      | двор              |
+| guest room            | guestroom                       | gästezimmer              | гостевая          |
+| attic                 | attic                           | speicher                 | кладовка          |
+| roof                  | roof                            | dachstuhl                | крыша             |
+| terminal              | terminal                        | anschlussraum            | сени              |
+| wash room             | washroom                        | waschraum                | прачечная         |
+| heat room             | heatroom                        | heatingroom/heizungsraum | котельная         |
+| hovel                 | hovel                           | schuppen/scheune         | сарай             |
+| summer house          | summerhouse                     | gartenhaus               | теплица           |
 
 You can use patterns in acknowledgements:
 
@@ -121,7 +121,7 @@ The following commands are supported:
 Answer: 14:56 (current time)
 
 ### What is your name?
-Answer is customizable. Default: `My name is Alpha`
+The answer is customizable. Default: `My name is Alpha`
 
 ### What is the outside temperature?
 User must specify the state ID, where to read outside temperature.
@@ -165,13 +165,13 @@ User must specify state ID of a device, which must be controlled and value, whic
 
 You should create rule for every position (e.g., for `on` and for `off`).
 
-Answer is customizable. Default: `Switched on`
+The answer is customizable. Default: `Switched on`
 
 E.g.:
 - `Deactivate alarm`, Object ID: `hm-rpc.0.alarm`, Value: `false`, Answer: `Alarm is deactivated/Deactivated`. In this case, the answer will be randomized between *Alarm is deactivated* and *Deactivated*.
 - `Activate alarm`, Object ID: `hm-rpc.0.alarm`, Value: `true`, Answer: `Alarm is activated/Activated/Done` . In this case, the answer will be randomized between *Alarm is activated*, *Activated* and *Done*.
 
-*Deactivate* must be first in the list, because it is longer.
+*Deactivate* must be first in the list because it is longer.
 
 You can use float values in the control commands. If some numeric value is in the text, it will be used as a control value and the predefined value will be ignored.
 
@@ -211,18 +211,18 @@ You can generate answer with bindings {objectId} in acknowledgement. Used for al
 E.g.:
 
 - `windows opened`, Acknowledge: `Actual {javascript.0.countOpenedWindows} windows opened`
-- `temperature sleeping room`, Acknowledge: `Actual temperature in sleeping room is {t: hm-rpc.0.sleepingRoomSensor.TEMPERATURE; Math.round(t)}/{hm-rpc.0.sleepingRoomSensor.TEMPERATURE; round(1)} degree`. In this case the answer will be randomized between *Actual temperature in sleeping room is <VALUE>* and *<VALUE>*.
+- `temperature sleeping room`, Acknowledge: `Actual temperature in sleeping room is {t: hm-rpc.0.sleepingRoomSensor.TEMPERATURE; Math.round(t)}/{hm-rpc.0.sleepingRoomSensor.TEMPERATURE; round(1)} degree`. In this case, the answer will be randomized between *Actual temperature in sleeping room is <VALUE>* and *<VALUE>*.
 
 You can read more about bindings here: (Bindings of objects)[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
 
 Additionally, you can get time until now by `{hm-rpc.0.light.STATE.lc;dateinterval}` (2 minutes and 12 seconds) or `{hm-rpc.0.light.STATE.lc;dateinterval(true)}` (2 minutes and 12 seconds **ago**) 
 
-## External rules with javascript
-There is a possibility to use javascript engine to process commands in `text2command`.
+## External rules with `javascript`
+There is a possibility to use `javascript` engine to process commands in `text2command`.
 To do that, you must specify some state in "Processor state ID" (Advanced settings) and to listen to this state in some JS or Blockly script.
 You can create some state manually in admin or in script. Processing script can look like this one:
 
-```
+```js
 createState("textProcessor", '', function () {
     // text2command writes the value with ack=false. Change "any" is important too, to process repeated commands.
     on({id: "javascript.0.textProcessor", ack: false, change: 'any'}, function (obj) {
@@ -247,7 +247,7 @@ createState("textProcessor", '', function () {
 
 Set in settings of `text2command` **Processor state ID** as *`javascript.0.textProcessor`* to let this example work.
 
-The first, the command will be processed with your javascript, and if javascript answers with '' or not answer in predefined time (1 second by default) the command will be processed by rules.
+The first, the command will be processed with your `javascript`, and if `javascript` answers with '' or not answer in predefined time (1 second by default) the command will be processed by rules.
 
 ### Option: Write to response by every command
 If activated so by every command (no matter if the request came via state or sendTo) the `text2command.X.response` will be written with the answer. 
@@ -261,6 +261,10 @@ If activated so by every command (no matter if the request came via state or sen
 -->
 
 ## Changelog
+### 4.0.0 (2025-11-03)
+* (bluefox) GUI was updated to vite
+* (bluefox) Minimal nodejs version is 20.x
+
 ### 3.0.3 (2023-12-18)
 * (bluefox) Corrected GUI
 
@@ -286,7 +290,7 @@ If activated so by every command (no matter if the request came via state or sen
 * (bluefox) Corrected GUI
 
 ### 2.1.4 (2022-02-16)
-* (bluefox) Some errors will be caught at start
+* (bluefox) Some errors will be caught at the start
 
 ### 2.1.2 (2022-02-13)
 * (bluefox) Updated GUI.
@@ -423,7 +427,7 @@ If activated so by every command (no matter if the request came via state or sen
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

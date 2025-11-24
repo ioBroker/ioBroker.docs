@@ -56,6 +56,7 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 | tado.[x].[yyyyyy].Rooms.[z].manualControlTermination.controlType | Set time table mode |
 | tado.[x].[yyyyyy].Rooms.[z].manualControlTermination.remainingTimeInSeconds | Duration time for timer mode |
 | tado.[x].[yyyyyy].Rooms.[z].resumeScheduleRoom | Back to automatic mode for this room |
+| tado.[x].[yyyyyy].Rooms.[z].devices.[VAaaaaaaaaaa].temperatureOffset | Change offset of device |
 | tado.[x].[yyyyyy].Rooms.resumeScheduleHome | Back to automatic mode for all rooms |
 | tado.[x].[yyyyyy].Rooms.allOff | Switch all rooms off |
 | tado.[x].[yyyyyy].Rooms.boost | Switch all rooms to boost mode |
@@ -72,7 +73,26 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.8.0-alpha.2 (2025-09-28)
+### 0.8.3 (2025-11-13)
+* (HGlab01) add capability to set OffSet [TadoX]
+* (HGlab01) Implement deboucing also for TadoX
+* (HGlab01) fix nextScheduleChange is missing the required property "common.type" [TadoX]
+
+### 0.8.2 (2025-11-07)
+* (HGlab01) add retry mechanism when it comes to timeouts
+* (HGlab01) add attribute 'isRoomLinkRestricted'
+* (HGlab01) finally fix definition missing for 'awayMode' with value 'null' [TadoX]
+* (HGlab01) finally fix definition missing for 'holidayMode' with value 'null' [TadoX]
+* (HGlab01) bump iobroker-jsonExplorer to 0.2.2
+* (HGlab01) bump axios to 1.13.2
+
+### 0.8.1 (2025-11-04)
+* (HGlab01) code refactorings
+* (HGlab01) fix issue 'definition missing for holidayMode' [TadoX]
+* (HGlab01) fix issue 'cannot read properties of undefined (reading 'match')'
+* (HGlab01) fix issue openWindow data not up to date #1086
+
+### 0.8.0 (2025-10-07)
 * (HGlab01) new configuration capabilities to manage API usage quota (#1047, #1048)
 * (HGlab01) Implement API debouncing
 * (HGlab01) Refactorings Tado API calls
@@ -85,16 +105,6 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 
 ### 0.7.10 (2025-04-25)
 * (HGlab01) further token refresh optimizations
-
-### 0.7.9 (2025-04-17)
-* (HGlab01) fix issue 'refreshToken() failed'
-
-### 0.7.8 (2025-04-10)
-* (HGlab01) fix issue 'definition missing for balanceControl' [TadoX]
-
-### 0.7.7 (2025-04-08)
-* (HGlab01) optimize sentry usage
-* (HGlab01) improve retry-mechanism when it comes to erros
 
 ## License
 MIT License
@@ -117,4 +127,5 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
 SOFTWARE.

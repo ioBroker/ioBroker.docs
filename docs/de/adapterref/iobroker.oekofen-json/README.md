@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.oekofen-json/README.md
 title: ioBroker.oekofen-json
-hash: DhMxRMvL6WhO/HOntnwCO2LI4UaMihgYKmRnjeQjpFE=
+hash: qdFWDJPQY42LrI0UN4dsoIp5T/bhUlZo0IZyJ2RAL+8=
 ---
 ![Logo](../../../en/adapterref/iobroker.oekofen-json/admin/oekofen-json.png)
 
@@ -15,50 +15,57 @@ hash: DhMxRMvL6WhO/HOntnwCO2LI4UaMihgYKmRnjeQjpFE=
 ![NPM](https://nodei.co/npm/iobroker.oekofen-json.png?downloads=true)
 
 # IoBroker.oekofen-json
-**Tests:** ![Testen und freigeben](https://github.com/chaozmc/ioBroker.oekofen-json/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/chaozmc/ioBroker.oekofen-json/workflows/Test%20and%20Release/badge.svg)
 
 ## Oekofen-json-Adapter für ioBroker
 ### Beschreibung
-Dieser Adapter verbindet eine OekoFEN Heizung mit der neuen Touch-Oberfläche (auch [Pelletronic-Touch](https://www.oekofen.com/en-gb/pelletronic-touch/) genannt) mit ioBroker. Da OekoFEN die JSON-Schnittstelle Schritt für Schritt und ohne öffentlich verfügbare Dokumentation implementiert hat, sollte sie mindestens mit Version 3.10d und neuer funktionieren.
-Da es viele Kombinationen von Heizungen, Solarmodulen, Schichtspeichern, Sterlingmotoren usw. gibt, versucht dieser Adapter, alle verfügbaren Datenpunkte aus der Schnittstelle zu lesen und erstellt die Objekte beim Start on the fly.
+Dieser Adapter verbindet eine ÖkoFEN-Heizung mit der neuen Touch-Oberfläche (auch [Pelletronic Touch](https://www.oekofen.com/en-gb/pelletronic-touch/) genannt) mit ioBroker. Da ÖkoFEN die JSON-Schnittstelle schrittweise und ohne öffentlich verfügbare Dokumentation implementiert hat, sollte sie mindestens ab Version 3.10d funktionieren.
+Da es viele Kombinationen aus Heizungen, Solarmodulen, Layer-Speichern, Sterling Engines usw. gibt, versucht dieser Adapter, alle verfügbaren Datenpunkte aus der Schnittstelle zu lesen und erstellt die Objekte beim Start.
 
-Schreibgeschützte Datenpunkte werden so erstellt, dass diese mit dem Präfix L_ in ihrem Namen beginnen. Außerdem rechnet der Adapter die Skalierung der Zahl entsprechend den von der Schnittstelle bereitgestellten Informationen (factor-Attribut) um. Handelt es sich bei der Heizung zum Beispiel um Temperaturen im Format XXX und Faktor 0,1, wird dies vom Adapter bei Leseoperationen in XX.X und bei Schreiboperationen wieder in XXX umgewandelt.
+Schreibgeschützte Datenpunkte werden so erstellt, dass sie mit dem Präfix L_ im Namen beginnen. Der Adapter konvertiert außerdem die Skalierung der Zahlen entsprechend den von der Schnittstelle bereitgestellten Informationen (Faktorattribut). Beispielsweise verarbeitet der Heizer Temperaturen im Format XXX und mit dem Faktor 0,1. Diese werden vom Adapter bei Lesevorgängen in XX.X und bei Schreibvorgängen wieder in XXX konvertiert.
 
 ### Installation
-Nach der Installation muss es nur noch eingegeben werden
+Nach der Installation müssen Sie nur noch
 
-* die IP,
+* die IP-Adresse,
 * TCP-Port,
-* das "sogenannte" Passwort
+* das „sogenannte“ Passwort
 * und das Intervall
 
-an dem der Adapter versucht, die Updates abzurufen.
+bei dem der Adapter versucht, die Updates abzurufen.
 
-Der Adapter behält den verbundenen Zustand bei, auch wenn keine echte dauerhafte Verbindung besteht. Wenn das Gerät einen Fehler sendet oder der Adapter den OekoFEN Controller nicht kontaktieren kann, setzt er den Connected State auf false. Dies könnte zum Beispiel passieren, wenn zu viele Anfragen an den Controller gehen, der dann mit HTTP 401 antwortet. Unter normalen Bedingungen sollte das Ratenlimit des Controllers nicht erreicht werden (2,5 Sekunden zwischen Anfragen).
+Der Adapter behält den Status „Verbunden“ bei, auch wenn keine dauerhafte Verbindung besteht. Meldet das Gerät einen Fehler oder kann der Adapter den ÖkoFEN-Controller nicht erreichen, setzt er den Status „Verbunden“ auf „Falsch“. Dies kann beispielsweise passieren, wenn zu viele Anfragen an den Controller gehen und dieser dann mit HTTP 401 antwortet. Unter normalen Bedingungen sollte die Rate-Limit des Controllers (2,5 Sekunden zwischen den Anfragen) nicht erreicht werden.
+
+## Credits
+Dieser Adapter wäre ohne die großartige Arbeit von Markus Feiler (chaozmc) <https://github.com/chaozmc>, der frühere Versionen dieses Adapters erstellt hat, nicht möglich gewesen.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS** 
+	### **WORK IN PROGRESS**
 -->
+### 2.0.0-alpha.9 (2025-10-13)
+* (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
+* (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
+* (mcm1957) Dependencies have been updated
 
-### 1.0.1 (2023-01-21)
-* (chaozmc) Fixed extensive object creation when using a wrong password (fixes Issue #18)
-* (chaozmc) Added counter to stop adapter after 10 unsuccessful requests
-* (chaozmc) Added check if there would be more than 50 top-level-objects to be created
+### 1.0.5 (2023-09-23)
+* (chaozmc) set min node version to 18.x (merge pull request #23)
 
-### 1.0.0 (2023-01-15)
-* (chaozmc) Push version to v1.0.0 as the code seems to be considerable as first stable release
+### 1.0.4 (2023-09-22)
+* (chaozmc) Removed Node 16.x from Test-and-release (fix Issue #19)
+* (chaozmc) updated dependencies
+* (chaozmc) updated protobufjs and google-gax
+* (chaozmc) updated word-wrap
 
-### 0.3.0 (2023-01-15)
-* (chaozmc) Changed Adapter Type to more suitable climate-control instead of communication
-* (chaozmc) Altered query URL for inital scan to use single ?-symbol instead of double
+### 1.0.3 (2023-05-09)
+* (chaozmc) Bump version
 
-### 0.2.5 (2022-11-18) 
-* (chaozmc) Removed unnecessary const
-
-### 0.2.4 (2022-10-31) 
-* (chaozmc) changed loop behaviour to use a for...of loop instead of forEach to avoid parallel creation of too many objects at startup
+### 1.0.2 (2023-05-09)
+* (chaozmc) Added missing translations
+* (chaozmc) Updated Copyright Year
+* (chaozmc) Added .releaseconfig.json for release-script
+* (chaozmc) changed github workflow config
 
 ### **0.0.3**
 * (chaozmc) code cleanup, trigger for update & rescan
@@ -72,7 +79,8 @@ Der Adapter behält den verbundenen Zustand bei, auch wenn keine echte dauerhaft
 ## License
 MIT License
 
-Copyright (c) 2022 chaozmc <chaozmc@is-jo.org>
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023 chaozmc <chaozmc@is-jo.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

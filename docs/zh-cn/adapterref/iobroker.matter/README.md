@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.matter/README.md
 title: ioBroker Matter 适配器
-hash: /lBrnZY2SJyXKDLGYvnNr2wVfvqeIKu6j+u0Y3vXC0s=
+hash: O/e9Y+fasfqmfi0k7QYqZuVBlJB5PqEtsyfi3tTP9W0=
 ---
 ![标识](../../../en/adapterref/iobroker.matter/admin/matter.svg)
 
@@ -26,7 +26,7 @@ hash: /lBrnZY2SJyXKDLGYvnNr2wVfvqeIKu6j+u0Y3vXC0s=
 
 * 基于物质的设备可以直接链接到ioBroker，从而读取/控制
 * 提供多个 ioBroker 设备作为 Matter Bridge：Matter Bridge 可以包含多个设备，是将 ioBroker 设备集成到 Matter 兼容生态系统的最简单方法。
-* ioBroker 根据 ioBroker 设备/ioBroker 状态提供单独的虚拟 Matter 设备，这些设备可以学习到与 Matter 兼容的生态系统（目前仅适用于 Amazon Alexa 的桥接器）
+* ioBroker 根据 ioBroker 设备/ioBroker 状态提供单独的虚拟 Matter 设备，这些设备可以教授给与 Matter 兼容的生态系统（目前仅适用于 Amazon Alexa 的桥接器）
 
 ## 待办事项
 * 部分文本为英文
@@ -35,21 +35,21 @@ hash: /lBrnZY2SJyXKDLGYvnNr2wVfvqeIKu6j+u0Y3vXC0s=
 * ioBroker 设备类型
 * (6) 吸尘器
 *（5+）音量，音量组
-*（5+/8）空调
-*（7）火警
+* (5+/8) 空调
+*（7）火灾报警
 *（5）媒体播放器
-* 警告-如何？
-* 门 - 又称盲人，因为物质没有其他设备类型？
-* windowTilt - 如上所述，它是一种由两个接触传感器组成的装置...一个用于打开关闭，一个用于倾斜
+* 警告 - 怎么办？
+* 门 - 又称百叶窗，因为物质没有其他设备类型？
+* windowTilt - 如上所述，它是由两个接触传感器组成的设备......一个用于打开关闭，一个用于倾斜
 * levelSlider - 理想情况下作为非照明调光插座？
 * 物质设备类型
 * (8) 风扇 -> 空调？
-*（7）空气质量传感器 -> ???
+* (7) 空气质量传感器 -> ???
 * (7) 空气净化器 -> ???
 * (5) 泵 -> ???
-*（6）压力传感器 -> ??? DEF
-* (6) 机器人吸尘器 -> 吸尘器
-*（4）流量传感器 -> ??? DEF
+* (6) 压力传感器 -> ??? DEF
+* (6) 机器人吸尘器 -> vacuumCleaner
+* (4) 流量传感器 -> ??? DEF
 * (5+) 房间空调 -> airCondition
 * (5+) 洗碗机-> ???
 * (4+) 基本视频播放器 -> mediaPlayer
@@ -61,7 +61,7 @@ hash: /lBrnZY2SJyXKDLGYvnNr2wVfvqeIKu6j+u0Y3vXC0s=
 * (2) 水阀 -> ???
 * (2) 洗衣烘干机 -> ???
 * (2) 烤箱 -> ???
-* (2) 炉灶面 -> ???
+* (2) 炉灶 -> ???
 * (2) 烹饪表面 -> ???
 * (2) 抽油烟机 -> ???
 * (2) 微波炉 -> ???
@@ -71,13 +71,48 @@ hash: /lBrnZY2SJyXKDLGYvnNr2wVfvqeIKu6j+u0Y3vXC0s=
 * (1+) 电池存储 -> ???
 * (1+) 热泵 -> ???
 
+＃＃ 发展
+### 更新依赖项
+更新项目依赖项时（在根目录`package.json` 和`src-admin/package.json` 中），请始终使用以下命令：
+
+```bash
+npm run npm
+```
+
+此命令更新主项目和管理前端中的依赖项，确保`package-lock.json` 文件正确同步。
+
+### 运行测试
+所有测试均使用 TypeScript 编写，无需编译即可直接执行：
+
+```bash
+npm test
+```
+
+测试位于`test/`目录中，并使用 ts-node 直接执行 TypeScript。
+
 <!-- 下一个版本的占位符（在行首）：
 
 ### **工作正在进行** -->
 
 ## Changelog
+### 0.5.6 (2025-10-21)
+* (@Apollon77) Type detector update, should detect single states in non-device structures better
+
+### 0.5.5 (2025-10-16)
+* (@Apollon77) Optimizes Battery drain information
+* (@Apollon77) Correctly shows "in progress changes" in UI when adjusting devices to ovoid overlapping actions
+* (@Apollon77) Fix HSV to RGB calculation for some cases
+* (@Apollon77) Updated matter.js to 0.15.6
+* (@Apollon77) Optimizes shutdown process to ensure everything is properly closed
+
+### 0.5.4 (2025-10-07)
+* (@Apollon77) Updated matter.js to 0.15.5
+
+### 0.5.3 (2025-09-20)
+* (@Apollon77) Updated matter.js to 0.15.4
+
 ### 0.5.2 (2025-08-03)
-* (@Apollon77) Updated matter.js to 0.15.2 with many performance- and other improvements
+* (@Apollon77) Updated matter.js to 0.15.3 with many performance- and other improvements
 * (@GermanBluefox) Corrected the checking of the licenses if they were stacked
 * (Apollon77) Use attributes from cache instead of requesting them from the device
 * (Apollon77) Ignoring invalid min/max for color temperature from objects

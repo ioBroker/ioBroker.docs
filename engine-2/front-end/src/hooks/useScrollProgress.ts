@@ -18,7 +18,6 @@ export const useScrollProgress = (): UseScrollProgressReturn => {
             const sectionHeight = rect.height;
             const viewportHeight = window.innerHeight;
 
-           
             if (sectionTop >= viewportHeight) {
                 setScrollPosition(0);
                 return;
@@ -28,7 +27,6 @@ export const useScrollProgress = (): UseScrollProgressReturn => {
                 setScrollPosition(100);
                 return;
             }
-
 
             const scrollableDistance = sectionHeight;
             const scrolled = Math.max(0, -sectionTop);
@@ -40,7 +38,7 @@ export const useScrollProgress = (): UseScrollProgressReturn => {
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleScroll);
         handleScroll();
-        
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleScroll);

@@ -144,8 +144,17 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.0.2 (2025-11-03)
+* (withstu) fix tests
+
+### 3.0.1 (2025-11-03)
+* (withstu) update vscode settings
+* (withstu) shift from commonjs to esm
+* (withstu) update packages
+
+### 3.0.0 (2025-10-28)
 * (withstu) improve group state updates
+* (withstu) upgrade several packages
 
 ### 2.2.4 (2024-10-31)
 * (withstu) improve tidal connect workaround
@@ -357,7 +366,7 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 ## License
 MIT License
 
-Copyright (c) 2024 withstu <withstu@gmx.de>
+Copyright (c) 2025 withstu <withstu@gmx.de>
 
 derived from https://forum.iobroker.net/topic/10420/vorlage-denon-heos-script by Uwe Uhula
 TTS derived from https://github.com/ioBroker/ioBroker.sonos

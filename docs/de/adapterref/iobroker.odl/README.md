@@ -47,6 +47,15 @@ Beispiel für die Messstelle _Berlin-Karlshorst_:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (crycode-de) Updated dependencies
+
+### 5.1.1 (2025-10-25)
+
+* (crycode-de) Updated Sentry DSN
+* (crycode-de) Updated dependencies
+
 ### 5.1.0 (2025-10-04)
 
 * (crycode-de) js-controller >= 6.0.11, Admin >= 7.6.17 required

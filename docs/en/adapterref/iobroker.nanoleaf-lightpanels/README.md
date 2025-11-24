@@ -59,8 +59,10 @@ You can use the nanoleaf vis demo project found in the /vis subfolder on github.
 
 ## Changelog
 
-### 1.5.1 (2025-09-30)
-* (daniel_2k) update dependencies and fixed ioBroker Check / Service Bot findings
+### 1.6.0 (2025-10-23)
+* (daniel_2k) changed: Node.js 20 required
+* (daniel_2k) changed: update dependencies and fixed ioBroker Check / Service Bot findings
+* (daniel_2k) changed: brightness_duration role to level.interval for correct detection in Matter and iot adapter
 
 ### 1.5.0 (2024-04-21)
 * (daniel_2k) new: added Skylight device

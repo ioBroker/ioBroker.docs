@@ -473,6 +473,10 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 5.0.3 (2025-10-10)
+* (Garfonso) make sure only existing themes are selectable in control.theme states.
+* (Garfonso) bring back support for frontend_es5.
+
 ### 5.0.2 (2025-10-02)
 * (Garfonso) some light entities did not restore their proper state on switch on. Fixed.
 * (Garfonso) process folders-Objects for auto entities, too. (pirate-weather support)
@@ -499,9 +503,6 @@ After that checkout modified version in `./build` folder. Then.
 
 ### 4.1.15 (2025-03-10)
 * (Garfonso) repaired image loading, again.
-
-### 4.1.14 (2025-03-10)
-* (Garfonso) repaired image loading. Fixes #577
 
 ## License
 

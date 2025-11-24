@@ -19,15 +19,13 @@ function isObject(it) {
  * @returns {it is any[]}
  */
 function isArray(it) {
-    if (Array.isArray != null)
+    if (Array.isArray != null) {
         return Array.isArray(it);
+    }
     return Object.prototype.toString.call(it) === '[object Array]';
 }
-
-
 
 module.exports = {
     isArray,
     isObject,
-    translateText
 };

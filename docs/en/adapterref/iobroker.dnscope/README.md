@@ -59,6 +59,10 @@ If you have several domains that are to be updated, you need one instance per do
 ### **WORK IN PROGRESS**
 * (simatec) dependencies updated
 
+### 0.2.6 (2025-10-25)
+* (simatec) dependencies updated
+* (simatec) Fix npm publish
+
 ### 0.2.5 (2025-08-31)
 * (simatec) Dependencies updated
 

@@ -14,15 +14,15 @@
 
 [English manual](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
 
-Вы можете найти официальную документацию KODI по API JSON-RCP [тут](http://kodi.wiki/view/JSON-RPC_API) и полный список доступных команд (для протокола версии 6) [тут](http://kodi.wiki/view/JSON-RPC_API/v6).
+You can find the official KODI documentation for the JSON-RPC API [here](http://kodi.wiki/view/JSON-RPC_API) and the full list of available commands (for protocol version 6) [here](http://kodi.wiki/view/JSON-RPC_API/v6).
 
-## Конфигурация KODI
-Включение удаленного управления и веб-сервера.
+## KODI Configuration
+Enable remote control and web server.
 ![Remote control enable.](admin/remote.png)
 
-JSON-RPC API использует **по умолчанию порт 9090**, для того чтобы его изменить необходимо внести изменения в файл [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml)
+The JSON-RPC API uses **port 9090 by default**. To change it, you need to make changes to the [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml) file.
 
-_Примечание: Файл advancedsettings.xml не существует по умолчанию. Вы должны сначала создать его!_
+_Note: The advancedsettings.xml file does not exist by default. You must create it first!_
 ```xml
 <jsonrpc>
     <compactoutput>true</compactoutput>
@@ -30,93 +30,93 @@ _Примечание: Файл advancedsettings.xml не существует �
 </jsonrpc>
 ```
 
-## Конфигурация драйвера
-В настройках адаптера указывается IP адрес и порт для JSON-RPC API (по умолчанию 9090), и логин/пароль для доступа на веб-сервер Kodi.
+## Adapter Configuration
+In the adapter settings, specify the IP address and port for the JSON-RPC API (default 9090), and the login/password for accessing the Kodi web server.
 
-## Использование
+## Usage
 ### ShowNotif:
-Один важный момент, если используется заголовок сообщения, то он должен всегда находится перед самим текстом сообщения (Внимание;Протечка воды), расположение остальных параметров не критично.
+One important point: if a message title is used, it must always be placed before the message text itself (Warning;Water leak). The position of other parameters is not critical.
 
 **Image:**
-Уровень сообщения
+Message level
   * 'info' - 0 (default),
   * 'warning' - 1,
   * 'error' - 2.
 
 **displaytime:**
-Время отображения сообщения в миллисекундах, минимум 1500 макс 30000 мс.
+Message display time in milliseconds, minimum 1500, maximum 30000 ms.
 
-**Пример:**
- * 1;Внимание;Протечка воды;15000
- * Внимание;Протечка воды;2;10000
- * Внимание;Протечка воды
- * Протечка воды
+**Example:**
+ * 1;Warning;Water leak;15000
+ * Warning;Water leak;2;10000
+ * Warning;Water leak
+ * Water leak
 
-Так же сообщения можно отправлять из драйвера javascript:
+You can also send messages from a JavaScript adapter:
 ```js
 sendTo("kodi.0", {
-    message:  'Возможно протечка воды ', //Текст сообщения
-    title:    'ВНИМАНИЕ!!!', //Заголовок сообщения
-    image: 'https://raw.githubusercontent.com/instalator/ioBroker.kodi/master/admin/kodi.png', //Ссылка на иконку
-    delay: 7000 //Время отображения сообщения миллисекундах (минимум 1500 макс 30000 мс)
+    message:  'Possible water leak', // Message text
+    title:    'WARNING!!!', // Message title
+    image: 'https://raw.githubusercontent.com/instalator/ioBroker.kodi/master/admin/kodi.png', // Icon URL
+    delay: 7000 // Message display time in milliseconds (minimum 1500, maximum 30000 ms)
 });
 ```
 ### SwitchPVR:
-Переключение PVR IPTV каналов по названию канала в плейлисте.
-**Пример:**
-  ТВ канал - Discovery Science найдет как по полному наименованию так и по discover,
+Switching PVR IPTV channels by channel name in the playlist.
+**Example:**
+  TV channel - Discovery Science can be found by full name or by "discover".
 
 ### Youtube:
-Для открытия видео с сайта youtube достаточно записать код видео в данный статус. Начиная с версии 0.1.5 и выше можно вставлять прямую ссылку на видео, а также код или полную ссылку на плейлист.
-Например: Для открытия этого [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA), необходимо установить в статус - Bvmxr24D4TA
+To open a video from YouTube, simply write the video code to this state. Starting from version 0.1.5 and above, you can insert a direct link to the video, as well as the code or full link to a playlist.
+For example: To open this [video](https://www.youtube.com/watch?v=Bvmxr24D4TA), you need to set the state to - Bvmxr24D4TA
 
 ### Open:
-Сюда записывается ссылка на медиконтент в сети интернет либо путь до локального медиа файла.
-После записи значения начнется воспроизведение на проигрывателе KODI.
+Write the link to media content on the internet or the path to a local media file here.
+After writing the value, playback will start on the KODI player.
 
 ### Position:
-Текущая позиция в плейлисте, так же в этот статус можно записать необходимую позицую и KODI тут же перейдет к воспроизведению этой позиции.
+Current position in the playlist. You can also write the desired position to this state and KODI will immediately switch to playing this position.
 
 ### Seek:
-Текущее значение позиции воспроизведения в процентах от 0 до 100.
+Current playback position value as a percentage from 0 to 100.
 
 ### Repeat:
-Повтор воспроизведения, принимает следующие значения:
-* off - повтор воспроизведения отключен
-* on - повтор воспроизведения текущего трека
-* all - повтор всего плейлиста
+Repeat playback, accepts the following values:
+* off - repeat playback disabled
+* on - repeat current track
+* all - repeat entire playlist
 
 ### Shuffle:
-Перемешивание списка треков в плейлисте для случайного воспроизведения.
-Принимает значения true и false
+Shuffle the list of tracks in the playlist for random playback.
+Accepts values `true` and `false`
 
 ### Play:
-Старт воспроизведения (true, false)
+Start playback (true, false)
 
 ### Speed:
-Скорость воспроизведения. Фиксированные значения (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32), а также 'increment' и 'decrement'
+Playback speed. Fixed values (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32), as well as 'increment' and 'decrement'
 
 ### Directory:
-Сюда записывается путь до папки или диска, в ответ в этот статус записывается список каталогов указанной папки или диска.
+Write the path to a folder or disk here. In response, a list of directories of the specified folder or disk will be written to this state.
 
 ### ActivateWindow:
-Активизирует в проигрывателе окно. Поддерживает следующий список:
+Activates a window in the player. Supports the following list:
 ```
-"home", "programs", "pictures", "filemanager", "files", "settings", "music", "video", "videos", "tv", "pvr", "pvrguideinfo", "pvrrecordinginfo", "pvrtimersetting", "pvrgroupmanager", "pvrchannelmanager", "pvrchannelmanager", "pvrguidesearch", "pvrchannelscan", "pvrupdateprogress", "pvrosdchannels", "pvrosdguide", "pvrosddirector", "pvrosdcutter", "pvrosdteletext", "systeminfo", "testpattern", "screencalibration", "guicalibration", "picturessettings", "programssettings", "weathersettings", "musicsettings", "systemsettings", "videossettings", "networksettings", "servicesettings", "appearancesettings", "pvrsettings", "tvsettings", "scripts", "videofiles", "videolibrary", "videoplaylist", "loginscreen", "profiles", "skinsettings", "addonbrowser", "yesnodialog", "progressdialog", "virtualkeyboard", "volumebar", "submenu", "favourites", "contextmenu", "infodialog", "numericinput", "gamepadinput", "shutdownmenu", "mutebug", "playercontrols", "seekbar", "musicosd", "addonsettings", "visualisationsettings", "visualisationpresetlist", "osdvideosettings", "osdaudiosettings", "videobookmarks", "filebrowser", "networksetup", "mediasource", "profilesettings", "locksettings", "contentsettings", "songinformation", "smartplaylisteditor", "smartplaylistrule", "busydialog", "pictureinfo", "accesspoints", "fullscreeninfo", "karaokeselector", "karaokelargeselector", "sliderdialog", "addoninformation", "musicplaylist", "musicfiles", "musiclibrary", "musicplaylisteditor", "teletext", "selectdialog", "musicinformation", "okdialog", "movieinformation", "textviewer", "fullscreenvideo", "fullscreenlivetv", "visualisation", "slideshow", "filestackingdialog", "karaoke", "weather", "screensaver", "videoosd", "videomenu", "videotimeseek", "musicoverlay", "videooverlay", "startwindow", "startup", "peripherals", "peripheralsettings", "extendedprogressdialog", "mediafilter".
+"home", "programs", "pictures", "filemanager", "files", "settings", "music", "video", "videos", "tv", "pvr", "pvrguideinfo", "pvrrecordinginfo", "pvrtimersetting", "pvrgroupmanager", "pvrchannelmanager", "pvrguidesearch", "pvrchannelscan", "pvrupdateprogress", "pvrosdchannels", "pvrosdguide", "pvrosddirector", "pvrosdcutter", "pvrosdteletext", "systeminfo", "testpattern", "screencalibration", "guicalibration", "picturessettings", "programssettings", "weathersettings", "musicsettings", "systemsettings", "videossettings", "networksettings", "servicesettings", "appearancesettings", "pvrsettings", "tvsettings", "scripts", "videofiles", "videolibrary", "videoplaylist", "loginscreen", "profiles", "skinsettings", "addonbrowser", "yesnodialog", "progressdialog", "virtualkeyboard", "volumebar", "submenu", "favourites", "contextmenu", "infodialog", "numericinput", "gamepadinput", "shutdownmenu", "mutebug", "playercontrols", "seekbar", "musicosd", "addonsettings", "visualisationsettings", "visualisationpresetlist", "osdvideosettings", "osdaudiosettings", "videobookmarks", "filebrowser", "networksetup", "mediasource", "profilesettings", "locksettings", "contentsettings", "songinformation", "smartplaylisteditor", "smartplaylistrule", "busydialog", "pictureinfo", "accesspoints", "fullscreeninfo", "karaokeselector", "karaokelargeselector", "sliderdialog", "addoninformation", "musicplaylist", "musicfiles", "musiclibrary", "musicplaylisteditor", "teletext", "selectdialog", "musicinformation", "okdialog", "movieinformation", "textviewer", "fullscreenvideo", "fullscreenlivetv", "visualisation", "slideshow", "filestackingdialog", "karaoke", "weather", "screensaver", "videoosd", "videomenu", "videotimeseek", "musicoverlay", "videooverlay", "startwindow", "startup", "peripherals", "peripheralsettings", "extendedprogressdialog", "mediafilter".
 ```
 
 ### ExecuteAction:
-Можно выполнить одно из следующих действий:
+You can execute one of the following actions:
 ```
 "left", "right", "up", "down", "pageup", "pagedown", "select", "highlight", "parentdir", "parentfolder", "back", "previousmenu", "info", "pause", "stop", "skipnext", "skipprevious", "fullscreen", "aspectratio", "stepforward", "stepback", "bigstepforward", "bigstepback", "osd", "showsubtitles", "nextsubtitle", "codecinfo", "nextpicture", "previouspicture", "zoomout", "zoomin", "playlist", "queue", "zoomnormal", "zoomlevel1", "zoomlevel2", "zoomlevel3", "zoomlevel4", "zoomlevel5", "zoomlevel6", "zoomlevel7", "zoomlevel8", "zoomlevel9", "nextcalibration", "resetcalibration", "analogmove", "rotate", "rotateccw", "close", "subtitledelayminus", "subtitledelay", "subtitledelayplus", "audiodelayminus", "audiodelay", "audiodelayplus", "subtitleshiftup", "subtitleshiftdown", "subtitlealign", "audionextlanguage", "verticalshiftup", "verticalshiftdown", "nextresolution", "audiotoggledigital", "number0", "number1", "number2", "number3", "number4", "number5", "number6", "number7", "number8", "number9", "osdleft", "osdright", "osdup", "osddown", "osdselect", "osdvalueplus", "osdvalueminus", "smallstepback", "fastforward", "rewind", "play", "playpause", "delete", "copy", "move", "mplayerosd", "hidesubmenu", "screenshot", "rename", "togglewatched", "scanitem", "reloadkeymaps", "volumeup", "volumedown", "mute", "backspace", "scrollup", "scrolldown", "analogfastforward", "analogrewind", "moveitemup", "moveitemdown", "contextmenu", "shift", "symbols", "cursorleft", "cursorright", "showtime", "analogseekforward", "analogseekback", "showpreset", "presetlist", "nextpreset", "previouspreset", "lockpreset", "randompreset", "increasevisrating", "decreasevisrating", "showvideomenu", "enter", "increaserating", "decreaserating", "togglefullscreen", "nextscene", "previousscene", "nextletter", "prevletter", "jumpsms2", "jumpsms3", "jumpsms4", "jumpsms5", "jumpsms6", "jumpsms7", "jumpsms8", "jumpsms9", "filter", "filterclear", "filtersms2", "filtersms3", "filtersms4", "filtersms5", "filtersms6", "filtersms7", "filtersms8", "filtersms9", "firstpage", "lastpage", "guiprofile", "red", "green", "yellow", "blue", "increasepar", "decreasepar", "volampup", "volampdown", "channelup", "channeldown", "previouschannelgroup", "nextchannelgroup", "leftclick", "rightclick", "middleclick", "doubleclick", "wheelup", "wheeldown", "mousedrag", "mousemove", "noop".
 
 ```
 ### System:
- - EjectOpticalDrive - Извлекает или закрывает дисковод оптических дисков (если имеется)
- - Hibernate - включение спящего режима
- - Reboot -  перезагрузка системы
- - Shutdown - выключает систему
- - Suspend - приостанавливает Kodi
+ - EjectOpticalDrive - Ejects or closes the optical drive (if available)
+ - Hibernate - Enables hibernation mode
+ - Reboot - Reboots the system
+ - Shutdown - Shuts down the system
+ - Suspend - Suspends Kodi
 
 ## Changelog
 <!--

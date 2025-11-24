@@ -29,7 +29,21 @@ The counter state will increase up from its saved value, when the shelly energy 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.5.4 (2025-11-10)
+* (BenAhrdt) set raw common.writable = false
+
+### 2.5.3 (2025-11-10)
+* (BenAhrdt) adding raw value for every counted value
+
+### 2.5.2 (2025-11-06)
+* (BenAhrdt) logging fallback optional as warning
+
+### 2.5.1 (2025-11-05)
+* (BenAhrdt) New Calculation in case of fallback to zero and go back to some value.
+             Remember the last Value for counting the difference
+
+### 2.5.0 (2025-10-19)
+* (BenAhrdt) update Authentication NPM
 * (BenAhrdt) update lint to 2.1.0
 * (BenAhrdt) update testing removeing defDependencies
 * (BenAhrdt) update dependencie core

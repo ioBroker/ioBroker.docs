@@ -35,12 +35,20 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- FIX: #436 Message text is empty error
+- CHORE: Update dependencies
+  
+### 3.2.0 (2025-10-20)
+
+- FEAT: #421 Events with selectable comparison parameter
+- FIX: #422 Event with submenu
+- FIX: #407 Events are not handled
+
 ### 3.1.4 (2025-10-03)
 
 - CHORE: Update dependencies
-
-### 3.1.3 (2025-10-03)
-
 - FIX: #403 No text with timestamp in navigation
 
 ### 3.1.2 (2025-09-20)
@@ -53,7 +61,7 @@ CHORE: #401 Update config
 
 ### 3.1.0 (2025-09-12)
 
-- FEAT: Send picture without delay 
+- FEAT: Send picture without delay
 - FIX: #385 Grafana token
 - CHORE: #384 Set recommended versions
 
@@ -101,7 +109,7 @@ CHORE: #401 Update config
 ### 2.4.3 (2025-06-05)
 
 - FIX: #332 Copy dropdown
-- FIX: SetDynamicValue 
+- FIX: SetDynamicValue
 - FIX: Change value in getStatus
 
 ### 2.4.2 (2025-05-26)
@@ -114,7 +122,7 @@ CHORE: #401 Update config
 
 ### 2.4.0 (2025-05-24)
 
-- FEAT: Extension for get by function 
+- FEAT: Extension for get by function
 - FIX: Errors reported by sentry
 
 ### 2.3.1 (2025-05-20)

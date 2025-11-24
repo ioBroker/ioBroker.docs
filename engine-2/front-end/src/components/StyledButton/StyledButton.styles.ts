@@ -4,7 +4,7 @@ export const useStyles = makeStyles()(theme => ({
     styledButton: {
         border: `1px solid ${theme.palette.primary.main}`,
         borderRadius: '12px',
-        padding: '12px 24px',
+        padding: '12px 20px',
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -25,9 +25,8 @@ export const useStyles = makeStyles()(theme => ({
         fontFamily: 'Audiowide, sans-serif',
         letterSpacing: '-3%',
         color: theme.palette.mode === 'light' ? '#FFFFFF' : theme.palette.text.secondary,
-         [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('md')]: {
             fontSize: '16px',
         },
     },
-    
 }));

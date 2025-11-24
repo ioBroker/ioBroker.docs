@@ -43,6 +43,17 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* dependabot updates 
+* update error message for ems-esp gateway 
+
+### 6.0.2 (2025-11-01)
+* increase axios timeout for km200 reads
+* dependabot updates
+* updating pdf docu in respect to energy statistics for ems-esp gateways
+* Migrate to NPM Trusted Publishing
+
 ### 6.0.1 (2025-10-03)
 * dependabot updates 
 * eslint 9 migration
@@ -53,16 +64,6 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 * ems-esp: NEW encrypt ems token - token needs to be re-entered
 * minimum node version 20 required
 * dependabot updates
-
-### 5.1.2 (2024-12-31)
-* ems-esp: fix enum errors for setting "Value" 
-* dependabot updates
-
-### 5.1.1 (2024-12-26)
-* correct statistics on adapter start-up
-
-### 5.1.0 (2024-12-25)
-* error correction on enabling statistics
 
 ## License
 MIT License

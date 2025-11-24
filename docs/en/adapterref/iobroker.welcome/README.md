@@ -28,6 +28,9 @@ In this case, by opening of http://IP it will be immediately redirected to a spe
 -->
 
 ## Changelog
+### 1.1.1 (2025-11-15)
+-   (@GermanBluefox) Migrated admin component to TypeScript and vite
+
 ### 1.1.0 (2025-02-26)
 
 -   (@GermanBluefox) Adapter was migrated to TypeScript and vite

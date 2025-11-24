@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluesound/README.md
 title: ioBroker.bluesound
-hash: waoLcBOsb5gz0sO/1PPmjKFdIZ1WjwR/sSEfaDwQ7ww=
+hash: wdnWmypqfTuQ0Dybw+iO/0Sf3yfRRLn+1zlqmprRy3s=
 ---
 ![Logo](../../../en/adapterref/iobroker.bluesound/admin/bluesound.png)
 
@@ -16,39 +16,115 @@ hash: waoLcBOsb5gz0sO/1PPmjKFdIZ1WjwR/sSEfaDwQ7ww=
 # IoBroker.bluesound
 [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bluesound/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Tests:** ![Testen und Freigeben](https://github.com/Uwe1958/ioBroker.bluesound/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/Uwe1958/ioBroker.bluesound/workflows/Test%20and%20Release/badge.svg)
 
 ## Bluesound-Adapter für ioBroker
 Adapter zur Steuerung von Bluesound-Geräten
 
-## Enthaltene Funktionen
-Der Adapter verwendet API-Aufrufe im Format: http://--playerIP--:11000/xxx
+## Eingeschlossene Funktionen
+Der Adapter verwendet API-Aufrufe im folgenden Format: http://--playerIP--:11000/xxx
 
-Beim Start werden die Voreinstellungen vom Player gelesen und dem Kanal „Voreinstellungen“ hinzugefügt.
+Beim Start werden die Voreinstellungen vom Player ausgelesen und dem Kanal „Voreinstellungen“ hinzugefügt.
 Player-Modell und -Name werden im Kanal „Info“ gespeichert.
-Während der Wiedergabe werden die Titel im Kanal „Info“ eingestellt.
+Während der Wiedergabe werden die Titel im Kanal „Info“ festgelegt.
 
-Der Playerstatus wird im durch „config.pollingtime“ eingestellten Intervall abgefragt und das Ergebnis sowohl in „control.state“ als auch in „info.\*“ gespeichert.
+Der Spielerstatus wird im durch 'config.pollingtime' festgelegten Intervall abgefragt und das Ergebnis wird sowohl in 'control.state' als auch in 'info.\*' gespeichert.
 
-PollingTime-Werte bis 120 Sekunden sind sinnvoll. Bei Werten über 300 Sekunden kann der Adapter nicht gestartet werden. Der Standardwert ist 30 Sekunden.
+PollingTime-Werte bis zu 120 Sekunden sind sinnvoll. Der Adapter kann nicht mit Werten über 300 Sekunden gestartet werden. Der Standardwert beträgt 30 Sekunden.
 
-Ein Timeout-Parameter wird durch den optionalen Parameter „config.TimeOut“ als Timeout für den API-Aufruf festgelegt. Der Standardwert beträgt 2 Sekunden.
+Der Timeout-Parameter wird über den optionalen Parameter 'config.TimeOut' als Timeout für den API-Aufruf festgelegt. Der Standardwert beträgt 2 Sekunden.
 
 Folgende Funktionen sind implementiert:
 
-- Player Stop (ausgelöst durch Setzen von „control.stop“ auf „true“)
-- Player Start (ausgelöst durch Setzen von „control.start“ auf „true“)
-- Player-Pause (ausgelöst durch Setzen von „control.pause“ auf „true“)
-- Presetxxx abspielen (ausgelöst durch Setzen von „.presets.preset(x).start“ auf „true“)
-- Lautstärke ändern (ausgelöst durch Ändern von „control.volume“)
-- Zufallswiedergabe der Playlist (ausgelöst durch Setzen von „control.shuffle“ auf „true“, Umschaltmodus)
-- Playlist weiterleiten (ausgelöst durch Setzen von „control.forward“ auf „true“)
-- Playlist rückwärts (ausgelöst durch Setzen von „control.backward“ auf „true“)
+- Spielerstopp (ausgelöst durch Setzen von 'control.stop' auf true)
+- Spielerstart (ausgelöst durch Setzen von 'control.start' auf true)
+- Spielerpause (ausgelöst durch Setzen von 'control.pause' auf true)
+- Spielt Presetxxx ab (wird ausgelöst durch Setzen von '.presets.preset(x).start' auf true)
+- Lautstärke ändern (ausgelöst durch Ändern von 'control.volume')
+- Zufallswiedergabe (ausgelöst durch Setzen von 'control.shuffle' auf true, Umschaltmodus)
+- Wiedergabelisten-Vorwärtssprung (ausgelöst durch Setzen von 'control.forward' auf true)
+- Wiedergabeliste rückwärts abspielen (ausgelöst durch Setzen von 'control.backward' auf true)
+
+Die Bibliothekssuche für LocalMusic wurde hinzugefügt. Eine dynamische Menüliste ist in „info.list“ verfügbar. Dieses Objekt sollte als „Objekt-ID“ für eine JSON-Tabelle festgelegt werden, um das aktuelle Menü anzuzeigen. Das Objekt „control.command“ wird verwendet, um den nächsten Befehl an den Player zu übergeben. Es wird aktualisiert, indem es als „Ausgewählte ID“ dieser Tabelle definiert wird. Die Tabellenüberschrift selbst wird mithilfe von „info.listheader“ über Objektbindung für den Namen der ersten Überschrift aktualisiert. Für eine bessere Darstellung sollte nur die erste Überschrift angezeigt und ihre Breite auf 100 % gesetzt werden.
+
+Alle Inhalte werden bis auf Albumebene angezeigt (mit Ausnahme des Menüs „Songs“, in dem die Songs direkt aufgelistet werden). Wird ein Album ausgewählt, wird dessen Inhalt sofort abgespielt und ersetzt entweder den Inhalt der aktuellen Playlist oder wird ihr hinzugefügt. Dieses Verhalten hängt vom Wert von `info.playliststate` ab. Ist der Wert `true`, wird die Playlist ersetzt, andernfalls werden die neuen Inhalte hinzugefügt. Dieser Wert kann über `control.playlist` (Schaltfläche mit Umschaltfunktion) geändert werden. Bei jedem Drücken dieser Schaltfläche wird der Wert von `info.playliststate` invertiert.
+
+Der Inhalt der aktuellen Playlist ist im Objekt `info.playlist` (JSON) verfügbar und kann so visualisiert werden. Er ist außerdem als HTML-Tabelle in `info.playlisthtml` enthalten und kann direkt in einem HTML-Widget angezeigt werden. Das Format der resultierenden Tabelle lässt sich per CSS anpassen.
+
+```javascript
+.playlist table {
+    background-color: #514d4d;
+    width: 100%;
+    border-collapse: collapse;
+    display: block;
+    overflow-y: auto;
+    max-height: 100%;
+}
+.playlist img {
+    margin: 10px;
+    height: 50px;
+    width:  50px;
+}
+
+.playlist .title {
+    color: #ffffff;
+    font-size: 18px;
+    padding-top: 10px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.playlist .artist {
+    color: #888888;
+    padding-bottom: 10px;
+}
+
+.playlist .current {
+    color: #2f9bde;
+    font-size: 18px;
+    padding-top: 10px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.playlist div {
+    height: 800px;
+}
+```
 
 ## Changelog
 
 ### **WORK IN PROGRESS**
 
+- (Uwe Nagel) Add info.playlisthtml
+- (Uwe Nagel) Add info.playliststate
+- (Uwe Nagel) Function setPlaylistToggle added
+- (Uwe Nagel) Add control.playlist
+- (Uwe Nagel) Function readPlaylist added
+- (Uwe Nagel) Add info.playlist
+- (Uwe Nagel) Library browsing added
+
+### 1.2.1 (2025-10-18)
+
+- (Uwe Nagel) Add info.list and control.command
+- (Uwe Nagel) Changes according to ioBroker Check
+- (Uwe Nagel) Bump @types/node from 24.5.2 to 24.6.1
+- (Uwe Nagel) Bump chai from 6.0.1 to 6.2.0
+- (Uwe Nagel) Bump typescript from 5.9.2 to 5.9.3
+- (Uwe Nagel) Bump mocha from 11.7.2 to 11.7.3
+- (Uwe Nagel) Correct error in main.js, update package-lock.json
+- (Uwe Nagel) Update io-package.json and package.json
+- (Uwe Nagel) Update .vscode/jsonConfig.json and .gitignore
+- (Uwe Nagel) Resolve dependency errors
+- (Uwe Nagel) Bump mocha from 11.1.0 to 11.7.1
+- (Uwe Nagel) Bump globals from 16.2.0 to 16.3.0
+- (Uwe Nagel) Bump @types/node from 24.0.8 to 24.1.0
+- (Uwe Nagel) Bump typescript from 5.7.3 to 5.9.2
+- (Uwe Nagel) Bump chai from 5.2.0 to 5.2.1
 - (Uwe Nagel) Further code cleaning (apiclient, getStateAsync)
 - (Uwe Nagel) @types/xml2js added
 - (Uwe Nagel) Move to eslint 9 and fix subsequent issues

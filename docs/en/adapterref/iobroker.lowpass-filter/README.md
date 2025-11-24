@@ -19,7 +19,8 @@ e.g. you can filter power values to cut power peeks.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.6.0 (2025-10-19)
+* (BenAhrdt) update Authentication NPM
 * (BenAhrdt) update defDependencie eslint
 * (BenAhrdt) update dependencie core
 * (BenAhrdt) update dependencie to node >= 20

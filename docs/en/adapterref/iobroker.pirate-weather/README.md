@@ -26,6 +26,13 @@ Icons: from icebear (free to use)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.8.0 (2025-11-19)
+- (ticaki) added day_night
+- (ticaki) added haze icon fixes #18
+
+### 0.7.1 (2025-10-16)
+- (ticaki) Improved error logging
+
 ### 0.7.0 (2025-09-30)
 - (ticaki) Added comprehensive astronomy data to daily forecast: twilight times, day/night length, solar noon, moonrise/moonset, and lunar transit
 - (ticaki) Added human-readable time formats (HH:MM:SS) for duration fields

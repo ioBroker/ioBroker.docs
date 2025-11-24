@@ -1,6 +1,6 @@
 import { makeStyles } from '../../theme';
 
-export const useStyles = makeStyles()((theme) => ({
+export const useStyles = makeStyles()(theme => ({
     pageWrapper: {
         width: '100%',
         overflow: 'hidden',
@@ -31,33 +31,35 @@ export const useStyles = makeStyles()((theme) => ({
             transform: 'translate(-50%, -50%)',
             width: '900px',
             height: '900px',
-            background: theme.palette.mode === 'dark'
-                ? 'radial-gradient(circle, rgba(0, 88, 148, 0.8) 0%, rgba(255, 255, 255, 0) 55%)'
-                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(circle, rgba(0, 88, 148, 0.8) 0%, rgba(255, 255, 255, 0) 55%)'
+                    : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
             zIndex: -1,
             [theme.breakpoints.down('md')]: {
-                 top: '98%',
-                 left: '50%',
-                 width: '800px',
-                 height: '200px', 
-                   background: theme.palette.mode === 'dark'
-                ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.2) 0%, rgba(255, 255, 255, 0) 55%)'
-                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+                top: '98%',
+                left: '50%',
+                width: '800px',
+                height: '200px',
+                background:
+                    theme.palette.mode === 'dark'
+                        ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.2) 0%, rgba(255, 255, 255, 0) 55%)'
+                        : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            },
         },
-        }
     },
     title: {
         width: '100%',
         maxWidth: '1311px',
         textAlign: 'left',
-         [theme.breakpoints.down('md')]: {
-              textAlign: 'center',
+        [theme.breakpoints.down('md')]: {
+            textAlign: 'center',
         },
         [theme.breakpoints.down('sm')]: {
-             width: 364,
-             margin: '0 auto',
-             textAlign: 'left',
+            width: 364,
+            margin: '0 auto',
+            textAlign: 'left',
         },
     },
     subtitle: {
@@ -108,7 +110,7 @@ export const useStyles = makeStyles()((theme) => ({
         transition: 'border-color 0.3s',
         [theme.breakpoints.down(1360)]: {
             width: '100%',
-            maxWidth: '644px',
+            // maxWidth: '644px',
             height: 'auto',
             boxSizing: 'border-box',
         },
@@ -161,7 +163,7 @@ export const useStyles = makeStyles()((theme) => ({
             marginTop: 60,
             marginBottom: 20,
             fontWeight: 300,
-        }
+        },
     },
     cardTitle: {
         fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
@@ -169,8 +171,8 @@ export const useStyles = makeStyles()((theme) => ({
         fontSize: '32px',
         textTransform: 'uppercase',
         [theme.breakpoints.down('md')]: {
-            fontSize: 20
-        }
+            fontSize: 20,
+        },
     },
     cardIcon: {
         fontSize: '32px',
@@ -190,7 +192,8 @@ export const useStyles = makeStyles()((theme) => ({
     },
     commandBox: {
         backgroundColor: theme.palette.secondary.main,
-        padding: '8px 8px 27px 22px',
+        padding: '6px 22px 8px 22px',
+        position: 'relative',
         width: 790,
         height: 77,
         fontSize: 24,
@@ -215,6 +218,16 @@ export const useStyles = makeStyles()((theme) => ({
             padding: '12px 11px',
         },
     },
+    copyConfirmation: {
+        position: 'absolute',
+        top: 18,
+        right: -90,
+        transition: 'opacity 0.3s',
+        background: theme.palette.common.white,
+        color: theme.palette.primary.main,
+        borderRadius: theme.shape.borderRadius,
+        padding: '5px 10px',
+    },
     commandBoxText: {
         marginTop: 8,
         [theme.breakpoints.down('md')]: {
@@ -231,6 +244,12 @@ export const useStyles = makeStyles()((theme) => ({
             width: 24,
             height: 24,
         },
+        '&:hover': {
+            opacity: 0.7,
+        },
+        '&:active': {
+            transform: 'scale(0.9)',
+        }
     },
     hintText: {
         fontSize: '16px',
@@ -248,16 +267,16 @@ export const useStyles = makeStyles()((theme) => ({
         },
     },
     imageTextHeader: {
-        fontFamily: "Saira",
+        fontFamily: 'Saira',
         fontWeight: 600,
         fontSize: 24,
         letterSpacing: '-0.03em',
         [theme.breakpoints.down('md')]: {
-            fontWeight: 500
+            fontWeight: 500,
         },
     },
     imageText: {
-        fontFamily: "Saira",
+        fontFamily: 'Saira',
         fontWeight: 400,
         color: theme.palette.text.primary,
         fontSize: 18,
@@ -293,7 +312,7 @@ export const useStyles = makeStyles()((theme) => ({
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
             marginTop: 40,
-            height: 237
+            height: 237,
         },
     },
     detailsText: {
@@ -326,7 +345,7 @@ export const useStyles = makeStyles()((theme) => ({
         fontWeight: 400,
         color: theme.palette.text.primary,
         [theme.breakpoints.down('md')]: {
-            opacity: '0.5'
+            opacity: '0.5',
         },
     },
     cardContent: {
@@ -335,11 +354,12 @@ export const useStyles = makeStyles()((theme) => ({
         flex: 1,
         justifyContent: 'space-between',
         [theme.breakpoints.down('md')]: {
-            gap: 60
+            gap: 60,
         },
     },
     cardActions: {
         display: 'flex',
+        justifyContent: 'space-between',
         gap: 36,
         marginTop: 43,
         [theme.breakpoints.down('md')]: {
@@ -353,7 +373,7 @@ export const useStyles = makeStyles()((theme) => ({
         fontFamily: 'Audiowide, Roboto, Arial, sans-serif !important',
         fontWeight: '400 !important',
         letterSpacing: '-0.03em !important',
-        fontSize: '24px !important',
+        fontSize: '16px !important',
         width: '400px !important',
         height: '60px !important',
         padding: '0 !important',
@@ -372,7 +392,7 @@ export const useStyles = makeStyles()((theme) => ({
         letterSpacing: '-0.03em',
         border: `1px solid ${theme.palette.secondary.main} !important`,
         borderRadius: 10,
-        fontSize: '24px',
+        fontSize: '16px',
         width: 128,
         height: 60,
         '&:hover': {
@@ -394,7 +414,7 @@ export const useStyles = makeStyles()((theme) => ({
         letterSpacing: '-0.03em',
         border: `1px solid ${theme.palette.secondary.main} !important`,
         borderRadius: 16,
-        fontSize: '28px',
+        fontSize: '16px',
         width: 128,
         height: 80,
         '&:hover': {

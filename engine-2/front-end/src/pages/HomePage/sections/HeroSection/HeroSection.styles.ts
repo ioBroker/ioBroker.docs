@@ -1,6 +1,5 @@
 import { makeStyles } from '../../../../theme';
 
-
 export const useStyles = makeStyles()(theme => ({
     container: {
         width: '100%',
@@ -42,14 +41,28 @@ export const useStyles = makeStyles()(theme => ({
         backgroundPosition: 'top',
         backgroundRepeat: 'no-repeat',
         zIndex: 0,
-        maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
-        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
+        opacity: 0.3,
+
         [theme.breakpoints.down('md')]: {
             backgroundSize: '210%',
             backgroundPosition: 'center',
             top: '50%',
-            maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 60%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 60%, transparent 100%)',
+        },
+    },
+    heroBackgroundImageOverlay: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '100%',
+        height: '55%',
+        zIndex: 1,
+        backgroundImage:
+            'linear-gradient(187deg, #080B1C 15%, #080B1C00 15%, #080B1C 80%, #080B1C 100%)',
+        [theme.breakpoints.down('md')]: {
+            backgroundSize: '210%',
+            backgroundPosition: 'center',
+            top: '50%',
         },
     },
     heroContentWrapper: {
@@ -91,7 +104,7 @@ export const useStyles = makeStyles()(theme => ({
             maxWidth: '400px',
         },
         [theme.breakpoints.down('sm')]: {
-            maxWidth: '354px',
+            maxWidth: '80%',
         },
     },
     heroPlatformText: {
@@ -105,12 +118,15 @@ export const useStyles = makeStyles()(theme => ({
             textAlign: 'right',
             width: '290px',
             marginBottom: '66px',
-            textIndent: '4em'
+            textIndent: '2em',
         },
     },
     installButton: {
         [theme.breakpoints.down('md')]: {
             marginBottom: '56px',
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '12px',
         },
     },
     heroRight: {
@@ -122,7 +138,7 @@ export const useStyles = makeStyles()(theme => ({
             flexDirection: 'row',
             alignItems: 'start',
             height: '48px',
-            gap: '16px'
+            gap: '16px',
         },
     },
     supportIconsWrapper: {
@@ -138,7 +154,7 @@ export const useStyles = makeStyles()(theme => ({
         marginRight: 32,
         [theme.breakpoints.down('md')]: {
             marginBottom: '24px',
-            display: 'none'
+            display: 'none',
         },
     },
 
@@ -149,7 +165,7 @@ export const useStyles = makeStyles()(theme => ({
             width: '400px',
         },
         [theme.breakpoints.down('md')]: {
-            display: 'none'
+            display: 'none',
         },
     },
 
@@ -158,9 +174,8 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('md')]: {
             display: 'block',
             marginBottom: '15px',
-            marginLeft: '30px'
+            marginLeft: '30px',
         },
-
     },
     smallHousesImage: {
         display: 'none',
@@ -169,25 +184,26 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     supportText: {
-        fontSize: '15px',
+        fontSize: '16px',
         textAlign: 'left',
         lineHeight: '24px',
         letterSpacing: '-3%',
-        fontWeight: '400',
+        fontWeight: '200',
         marginBottom: '10px',
         color: '#FFFFFF',
         [theme.breakpoints.down('md')]: {
             textAlign: 'left',
-            width: '224px',
+            // width: '224px',
+            fontSize: '12px',
         },
     },
     supportIcons: {
         display: 'flex',
-        gap: '25px',
+        gap: '30px',
         justifyContent: 'flex-end',
         [theme.breakpoints.down('md')]: {
             justifyContent: 'center',
-            gap: '16px'
+            gap: '16px',
         },
     },
     supportIconAmazon: {
@@ -241,7 +257,7 @@ export const useStyles = makeStyles()(theme => ({
         height: '26px',
         [theme.breakpoints.down('md')]: {
             width: '24px',
-            height: '30px'
+            height: '30px',
         },
     },
     amazonIconImage: {
@@ -249,7 +265,7 @@ export const useStyles = makeStyles()(theme => ({
         height: '40px',
         [theme.breakpoints.down('md')]: {
             width: '36px',
-            height: '37px'
+            height: '37px',
         },
     },
 }));

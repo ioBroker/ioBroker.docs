@@ -67,7 +67,13 @@ Features are limited by the [official API features](https://lametric-documentati
 -->
 ### **WORK IN PROGRESS**
 
+* (@klein0r) Updated dependencies
+
+### 5.0.0 (2025-10-22)
+
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+* (@klein0r) package and index state of apps have been removed
+* (@klein0r) Fixed app structure
 
 ### 4.2.0 (2025-08-15)
 
@@ -87,13 +93,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 ### 3.4.1 (2024-10-29)
 
 * (@klein0r) Limit frame duration to 10 seconds (limited by LaMetric)
-
-### 3.4.0 (2024-09-06)
-
-* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.2)
-* (@klein0r) Added support for notification manager
-* (@klein0r) Added validator for icon inputs
-* (@klein0r) Fixed some missing translations
 
 ## License
 

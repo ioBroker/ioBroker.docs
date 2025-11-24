@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.plenticore-g3/README.md
 title: ioBroker.plenticore-g3
-hash: e+eYDNls+d1LJL15tRreGMhv4+kqvruep0tqXxK8GXs=
+hash: B0UYuVEGJli+1hMjS9GTkZerCB7REb/xhVWqz2I5zaQ=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.plenticore-g3.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.plenticore-g3.svg)
@@ -17,7 +17,7 @@ hash: e+eYDNls+d1LJL15tRreGMhv4+kqvruep0tqXxK8GXs=
 **Tests:** ![Testen und Freigeben](https://github.com/fernetmenta/ioBroker.plenticore-g3/workflows/Test%20and%20Release/badge.svg)
 
 ## Plenticore-g3-Adapter für ioBroker
-Adapter zur Kommunikation mit einem KOSTAL Plenticore plus über die REST-API. Diese API ist deutlich leistungsfähiger als Modbus. Sie ermöglicht den Zugriff auf ca. 200 schreibgeschützte Datenpunkte (Prozessdaten) und ca. 250 schreibbare Einstellungen. Die API ist unter folgender URL dokumentiert:
+Adapter zur Kommunikation mit einem KOSTAL Plenticore (verschiedene Modelle, siehe Abschnitt unten) über die REST-API. Diese API ist deutlich leistungsfähiger als Modbus. Sie ermöglicht den Zugriff auf ca. 200 schreibgeschützte Datenpunkte, sogenannte „Prozessdaten“, und ca. 250 schreibbare Einstellungen. Die API ist unter folgender URL dokumentiert:
 
 http://\<plenticore host>/api/v1
 
@@ -34,7 +34,46 @@ Native Objekte bestehen aus einer Modul-ID und einer Daten-ID, zum Beispiel „s
 
 Doppelpunkte in der Daten-ID werden durch einen Unterstrich ersetzt:<br> „Statistik:Ertrag:Tag“ wird zu „Statistik_Ertrag_Tag“
 
+## Unterstützte / getestete Plenticore-Modelle
+Obwohl der Name des Adapters vermuten lässt (nur G3-Modelle werden unterstützt), werden auch andere Modelle unterstützt. Die API scheint identisch zu sein, lediglich die verfügbaren Datenpunkte können unterschiedlich sein. Nachfolgend finden Sie eine Liste der Modelle, die von Benutzern erfolgreich getestet wurden.
+
+Plenticore G3
+- Plenticore plus 10 (G1) - FW Version 01.30.12092
+- Plenticore BI 10/26 (G2) - FW Version 02.15.19562
+
 ## Changelog
+### 0.4.1 (2025-10-17)
+- move to npm trusted publishing
+
+### 0.4.0 (2025-10-07)
+- improve init process: do preinit, if inverter is not in state FeedIn; trigger init as soon as inverter goes to FeedIn
+
+### 0.3.0 (2025-10-06)
+- update documentation with soction of tested models
+- enhance port selection related to http/https for base settings
+- do not poll data points related to battery, if no battery is present
+- update dependencies
+
+### 0.2.1 (2025-08-29)
+- update dependencies
+
+### 0.2.0 (2025-07-22)
+- check Inverter_State for FeedIn before init
+- suspend error logging on too many errors
+- add timeout to API calls
+- update translations
+
+### 0.1.4 (2025-06-17)
+- fix logging for preset and optional data
+
+### 0.1.3 (2025-06-15)
+- add some logging for debugging
+- fix log warnings
+
+### 0.1.2 (2025-06-01)
+- add node 24 to tests
+- chores
+
 ### 0.1.1 (2025-04-07)
 
 - fix object hierarchy

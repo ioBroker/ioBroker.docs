@@ -2,10 +2,10 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-jsontemplate/README.md
-title: JSONTemplate - Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
-hash: zTK7roAooVi0nFZ7a9E423aplRW1uZfPZZV1uMu0exI=
+title: JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
+hash: 8D1piNLdCgFWCprb+78gzu5KYO6Dp/PO5cgqE2pijDk=
 ---
-# JSONTemplate - Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
+# JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
 ![Logo](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.vis-jsontemplate.svg)
@@ -14,56 +14,85 @@ hash: zTK7roAooVi0nFZ7a9E423aplRW1uZfPZZV1uMu0exI=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/vis-jsontemplate-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-jsontemplate.png?downloads=true)
 
-**Tests:** ![Testen und Freigeben](https://github.com/oweitman/ioBroker.vis-jsontemplate/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/oweitman/ioBroker.vis-jsontemplate/workflows/Test%20and%20Release/badge.svg)
 
 ## Übersicht
 Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2.
 Sie können die Datenausgabe mithilfe eines Vorlagensystems anpassen.
-In den Vorlagen können Sie HTML, CSS und Javascript einbinden.
+In den Vorlagen können Sie HTML, CSS und JavaScript einbinden.
 
-Das Widget „jsontemplate“ war bisher in den Adaptern „rssfeed“ (für vis1) und „vis-2-widgets-ovarious“ verfügbar. Die Widgets werden in Kürze aus diesen Adaptern entfernt.
+Das jsontemplate-Widget war zuvor in den Adaptern rssfeed (für vis1) und vis-2-widgets-ovarious verfügbar. Die Widgets werden in Kürze aus diesen Adaptern entfernt.
 
 ## Installation
 Installieren Sie den Adapter wie gewohnt aus dem stabilen Repository.
-Wenn Sie neue Funktionen oder Fehlerbehebungen testen möchten, können Sie den Adapter auch aus dem Beta-Repository installieren. Weitere Informationen zu Funktionen und Neuigkeiten finden Sie im Test- und Support-Thread für diesen Adapter im iobroker-Forum.
+Wenn Sie neue Funktionen oder Fehlerbehebungen testen möchten, können Sie den Adapter auch aus dem Beta-Repository installieren. Informationen zu Funktionen und Neuigkeiten finden Sie im Thread „Test und Support“ für diesen Adapter im iobroker-Forum.
 
-Nach der Installation sollte der Adapter dann im Adapterbereich im iobroker angezeigt werden. Manchmal kommt es vor, dass die Änderungen nicht sichtbar sind, insbesondere bei Web-Änderungen (Widgets / Konfigurationsdialog), dann muss ggf. folgender Befehl in der Kommandozeile ausgeführt werden:
+Nach der Installation sollte der Adapter im Adapterbereich des iobroker angezeigt werden. Manchmal sind die Änderungen nicht sichtbar, insbesondere bei webbasierten Änderungen (Widgets/Konfigurationsdialog). In diesem Fall muss möglicherweise folgender Befehl in der Kommandozeile ausgeführt werden:
 
 ```bash
 iobroker upload jsontemplate
 ```
 
-Im rechten Bereich in der Zeile des Adapters kann über den Plus-Button eine Instanz hinzugefügt werden
+Im rechten Bereich der Adapterzeile kann mithilfe der Plus-Schaltfläche eine Instanz hinzugefügt werden.
 
 ## Konfiguration
-Dieser Adapter verfügt über keinen Konfigurationsdialog im Adminbereich.
+Dieser Adapter verfügt über keinen Konfigurationsdialog im Administrationsbereich.
 
 ## Vis und Widgets
-Folgende Widgets gibt es tatsächlich
+Folgende Widgets existieren tatsächlich
 
-- [`JSON-Vorlage`](#json-template) – Sie können eine benutzerdefinierte Vorlage definieren
+- [`JSON-Vorlage`](#json-template) - Sie können eine benutzerdefinierte Vorlage definieren
 
 um beliebige JSON-Daten in vis anzuzeigen.
 
 ### JSON-Vorlage
-Mit diesem Widget können beliebige Datenpunkte mit JSON-Daten nach Wunsch angezeigt werden.
-Die Anzeige erfolgt über ein Vorlagenformat, das als Kombination aus HTML-Code, JavaScript, CSS und speziellen Tags zur Steuerung der JSON-Attribute betrachtet werden kann.
-JSONTemplate unterstützt jetzt asynchrone Aufrufe mit „await“.
+Mit diesem Widget lassen sich beliebige Datenpunkte mit JSON-Daten wie gewünscht darstellen. Die Darstellung erfolgt mithilfe eines Template-Formats, das sich als Kombination aus HTML-Code, JavaScript, CSS und speziellen Tags zur Steuerung der JSON-Attribute verstehen lässt. JSONTemplate unterstützt nun asynchrone Aufrufe mit `await`.
 
-| Einstellung | Beschreibung |
+| Schauplatz | Beschreibung |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| json_template | Mit dem Template kann das Aussehen der JSON-Daten bestimmt werden. Alle gültigen HTML-Tags (auch CSS-Attribute in Style-Tags) können im Template verwendet werden. Zusätzlich gibt es spezielle Tags, innerhalb derer die JSON-Daten angezeigt und JavaScript-Anweisungen ausgeführt werden können. |
+| json_template | Mit der Vorlage kann das Erscheinungsbild der JSON-Daten bestimmt werden. Alle gültigen HTML-Tags (einschließlich CSS-Attribute in Style-Tags) können in der Vorlage verwendet werden. Es gibt auch spezielle Tags, innerhalb derer die JSON-Daten angezeigt werden und JavaScript-Anweisungen ausgeführt werden können. |
 | json_oid | Auswahl des Datenpunkts mit den entsprechenden JSON-Daten. |
 | json_dpCount | Anzahl der Datenpunkte, die in der Vorlage verfügbar gemacht werden sollen. |
-| json_dp | Datenpunkt-ID soll bereitgestellt werden. |
+| json_dp | Die Datenpunkt-ID soll bereitgestellt werden. |
 
-Details zum Vorlagensystem finden Sie im Kapitel Vorlage anhand von Beispielen
+Einzelheiten zum Vorlagensystem finden Sie im Kapitel „Vorlagen basierend auf Beispielen“.
 
-Die JSON-Daten werden mit dem Präfix data an das Template übergeben. Zusätzlich steht die aktuelle WidgetID auch als Variable zur Verfügung, sodass diese in einzelnen CSS-Anweisungen angegeben werden kann.
+Verfügbare Datenobjekte in der Vorlage:
+
+| Objekt/Variable | Beschreibung |
+| --------------- | ------------------------------------------------------------------------ |
+| widgetID | widgetID des Widgets. |
+| data | JSON-Objekt, auf das der Datenpunkt in json_oid verweist. |
+| dp | Array der Datenpunktdaten, auf die die zusätzlichen Datenpunkte verweisen |
+| Widget | Interne Widget-Daten. Objekt mit allen verfügbaren Widget-Einstellungen |
+| Stil | Interne Stildaten. Objekt mit allen verfügbaren Widget-Stilinformationen |
+
+Die zusätzlichen Datenpunkte können über A) den Namen des Datenpunkts aufgerufen werden.
+
+```javascript
+<%- dp["0_userdata.0.test"] %>
+<%- dp["0_userdata.0.abc"] %>
+```
+
+B) Indexnummer des Datenpunkts (die Nummerierung beginnt immer mit 0)
+
+```javascript
+<%- dp[Object.keys(dp)[0]] %>
+<%- dp[Object.keys(dp)[1]] %>
+```
+
+Beispielausgabe von Daten, Widgets und Stilen in der Vorlage
+
+```ejs
+<%- JSON
+    .stringify(style, null, 4)
+    .replace(/\n/g, '<br>')
+    .replace(/ /g, '&nbsp;'); %>
+```
 
 #### Erweiterter Anwendungsfall
-In den obigen Beispielen wurde nur die reine Ausgabe behandelt.
-Die Vorlage kann nun auch mit HTML-Tags angereichert werden, um ein spezifisches Layout zu erreichen. Hier ein Beispiel:
+In den obigen Beispielen wurde nur die reine Ausgabe betrachtet.
+Die Vorlage kann nun auch mit HTML-Tags angereichert werden, um ein bestimmtes Layout zu erzielen. Hier ist ein Beispiel:
 
 ```html
 <h3>Output</h3>
@@ -95,15 +124,15 @@ Die Vorlage kann nun auch mit HTML-Tags angereichert werden, um ein spezifisches
 #### Anwendungsfall für asynchrone Aufrufe
 **Block 1:**
 
-Rufen Sie die Funktion sendToAsync mit „await“ auf. Dieses Beispiel ruft eine Testfunktion im Admin-Adapter auf.
+Die Funktion `sendToAsync` wird mit `await` aufgerufen. Dieses Beispiel ruft eine Testfunktion im Admin-Adapter auf.
 
 **Block 2:**
 
-Stringifizieren Sie das Ergebnis und geben Sie es in HTML aus
+Das Ergebnis in einen String umwandeln und als HTML ausgeben.
 
 **Block 3:**
 
-Definition der sendToAsync-Funktion
+Definition der Funktion sendToAsync
 
 ```ejs
 <% req = await sendToAsync("admin.0","selectSendTo",{test:"test"}); %>
@@ -130,17 +159,17 @@ Definition der sendToAsync-Funktion
 
 #### Anwendungsfall für eine datenbankgestützte Aufgabenliste
 ##### **Einführung**
-Dieser Anwendungsfall beschreibt die Visualisierung und interaktive Bearbeitung einer To-Do-Liste aus einer MySQL-Datenbank in `ioBroker`.
-Der Fokus liegt auf der Implementierung einer einfachen Statusänderung per Knopfdruck. Dieses Konzept dient als **Proof of Concept (PoC)** und kann in zukünftige Dokumentationen aufgenommen werden.
+Dieser Anwendungsfall beschreibt, wie eine Aufgabenliste aus einer MySQL-Datenbank in `ioBroker` visualisiert und interaktiv bearbeitet werden kann. Der Fokus liegt auf der Implementierung einer einfachen Statusänderung per Knopfdruck. Dieses Konzept dient als **Proof of Concept (PoC)** und kann in zukünftige Dokumentationen aufgenommen werden.
 
 ---
 
 ##### **Datenbankstruktur (MySQL)**
 Zunächst wird eine MySQL-Datenbank mit dem Namen `test` erstellt.
+
 Sie enthält eine Tabelle `test` mit den folgenden Feldern:
 
 - `id`: Eindeutige ID für jeden Eintrag
-- `todo`: Titel des To-Do-Eintrags
+- `todo`: Titel des Aufgabeneintrags
 - `action`: Status des Eintrags (0 = in Bearbeitung, 1 = abgeschlossen)
 
 ###### **SQL-Code zur Tabellenerstellung**
@@ -179,15 +208,15 @@ COMMIT;
 
 ##### **Integration in ioBroker**
 ###### **SQL-Adapter**
-Für die Interaktion mit der Datenbank ist der Adapter `ioBroker.sql` erforderlich.
-Er ist entsprechend konfiguriert, um eine Verbindung zur MySQL-Datenbank `test` herzustellen.
-Beachten Sie, dass `ioBroker` automatisch eigene Strukturen in der Datenbank erstellt, um Verlaufsdatenpunkte zu speichern.
+Für die Interaktion mit der Datenbank wird der Adapter `ioBroker.sql` benötigt.
+Dieser ist entsprechend konfiguriert, um eine Verbindung zur MySQL-Datenbank `test` herzustellen.
+Beachten Sie, dass `ioBroker` automatisch eigene Strukturen in der Datenbank erstellt, um Verlaufsdaten zu speichern.
 
 ###### **JSONTemplate-Widget**
 Zur Visualisierung verwenden wir das Widget `JSONTemplate`.
 
 ##### **Integration in VIS**
-Wir platzieren das Widget `JSONTemplate` und füllen folgende Felder aus:
+Wir platzieren das Widget `JSONTemplate` und füllen die folgenden Felder aus:
 
 ###### **Vorlagencode**
 <details><summary>Details</summary><pre><code>
@@ -254,8 +283,8 @@ Wir platzieren das Widget `JSONTemplate` und füllen folgende Felder aus:
 
 </details>
 
-###### **Datenpunkt zum Aktualisieren von Inhalten**
-Um sicherzustellen, dass Aktualisierungen nach einer Statusänderung berücksichtigt werden, fügen wir den folgenden lokalen Datenpunkt hinzu:
+###### **Datenpunkt für die Aktualisierung von Inhalten**
+Um sicherzustellen, dass Aktualisierungen nach einer Statusänderung wirksam werden, fügen wir den folgenden lokalen Datenpunkt hinzu:
 
 ```text
 local_trigger
@@ -267,34 +296,54 @@ Dieser Datenpunkt **muss nicht explizit erstellt werden**, da `local_?`-Datenpun
 ###### **Vorlagenstruktur**
 | Zeile | Inhalt |
 | ----- | ---------------------------------------------------------------------- |
-| 1-5 | CSS-Stile für das Erscheinungsbild von Schaltflächen |
+| 1-5 | CSS-Stile für das Aussehen von Schaltflächen |
 | 6-11 | Tabellenkopf mit Spalten ID, Todo, Aktion |
-| 12-16 | Daten aus der MySQL-Datenbank abrufen mit `getTodo()` |
+| 12-16 | Daten aus der MySQL-Datenbank mit `getTodo()` abrufen |
 | 23-28 | Globale Referenz der Funktion `clicktodo()` |
 | 30-37 | `getButton()` Funktion zum Erstellen einer Schaltfläche mit dem aktuellen Status |
-| 38-44 | `clicktodo()` Funktion zum Ändern des Status per Button-Klick |
+| 38-44 | `clicktodo()` Funktion zum Ändern des Status per Knopfdruck |
 | 45-48 | `getTodo()` Funktion zum Abrufen von Daten über den SQL-Adapter |
 | 49-52 | `setAction()` Funktion zum Aktualisieren des Datenbankeintrags |
-| 53-58 | `sendToAsync()`-Funktion zur Verwendung von `async/await` mit `vis.conn.sendTo()` |
-| 53-58 | Funktion „sendToAsync()“ zur Verwendung von „async/await“ mit „vis.conn.sendTo()“ |
+| 53-58 | `sendToAsync()` Funktion zur Verwendung von `async/await` mit `vis.conn.sendTo()` |
+| 53-58 | Die Funktion `sendToAsync()` zur Verwendung von `async/await` mit `vis.conn.sendTo()` |
 
-## Vorlagensystem
-## Schlagwörter
-Das Vorlagensystem arbeitet mit bestimmten Tags.
+## Templatesystem
+## Wichtiger Hinweis zum Templatesystem in vis
+In vis werden alle Objektnotationen der folgenden Form als Bindungen erkannt und ersetzt.
+
+Daher müssen die öffnenden und schließenden Klammern aller Objektbezeichnungen in getrennten Zeilen stehen:
+
+Falsch:
+
+```json
+{ "a": 1, "b": 2 }
+```
+
+Richtig
+
+```json
+{
+    "a": 1,
+    "b": 2
+}
+```
+
+## Tags
+Das Templatesystem arbeitet mit bestimmten Tags.
 Die verwendeten Tags haben folgende Bedeutung:
 
 | `tag` | Beschreibung |
 | ----- | ------------------------------------------------------------------- |
-| <%= | Der Inhalt des enthaltenen Ausdrucks/der enthaltenen Variable wird maskiert. |
-| <%- | Der Inhalt des enthaltenen Ausdrucks/der enthaltenen Variable ist nicht maskiert. |
-| <% | Keine Ausgabe, wird für eingeschlossene Javascript-Anweisungen verwendet |
-| %> | ist im Allgemeinen ein schließender Tag, um einen der vorherigen zu vervollständigen |
+| <%= | Der Inhalt des enthaltenen Ausdrucks / der Variablen wird maskiert. |
+| <%- | Der Inhalt des enthaltenen Ausdrucks / der Variablen ist nicht maskiert. |
+| <% | Keine Ausgabe, wird für eingeschlossene JavaScript-Anweisungen verwendet |
+| %> | ist im Allgemeinen ein schließendes Tag, um eines der vorhergehenden zu vervollständigen |
 
-Alles, was außerhalb dieser Tags steht, wird unverändert angezeigt oder, falls es HTML ist, als HTML interpretiert.
-In der Vorlage stehen Ihnen zwei vordefinierte Variablen zur Verfügung.
+Alles außerhalb dieser Tags wird unverändert angezeigt, bzw. HTML wird als HTML interpretiert.
+Innerhalb der Vorlage stehen Ihnen zwei vordefinierte Variablen zur Verfügung.
 
 ### Beispielobjekt
-Für alle folgenden Beispiele wird das folgende JSON verwendet.
+Für alle nachfolgenden Beispiele wird das folgende JSON verwendet.
 
 ```json
 {
@@ -323,8 +372,9 @@ Attribute könnten wie folgt ausgegeben werden
     123 onetwothree
 ```
 
-Auf Arrays kann über einen Index zugegriffen werden. Der Index beginnt immer mit 0. Es gibt jedoch auch Fake-Arrays, bei denen der Index nicht mit 0 beginnt oder sogar aus Text besteht. Hier gelten die Regeln für Objekte.
-Im obigen Beispiel wäre dies
+Auf Arrays kann über einen Index zugegriffen werden. Der Index beginnt immer mit 0. Es gibt jedoch auch sogenannte „Dummy-Arrays“, bei denen der Index nicht mit 0 beginnt oder sogar aus Text besteht. Hier gelten die Regeln für Objekte.
+
+Im obigen Beispiel wäre das so:
 
 **Vorlage:**
 
@@ -339,7 +389,7 @@ Im obigen Beispiel wäre dies
     one two
 ```
 
-Wenn Sie versuchen, ein Array direkt ohne Index auszugeben, gibt die Vorlage alle Elemente durch Kommas getrennt aus
+Wenn Sie versuchen, ein Array direkt ohne Index auszugeben, gibt die Vorlage alle Elemente durch Kommas getrennt aus.
 
 **Vorlage:**
 
@@ -354,7 +404,7 @@ Wenn Sie versuchen, ein Array direkt ohne Index auszugeben, gibt die Vorlage all
 ```
 
 Arrays können auch aus einer Sammlung von Objekten bestehen.
-Das Beispiel hier enthält nur ein einfaches Array.
+Das hier gezeigte Beispiel enthält nur ein einfaches Array.
 Ein Beispiel für Arrays mit Objekten folgt später.
 
 **Vorlage:**
@@ -372,11 +422,12 @@ Ein Beispiel für Arrays mit Objekten folgt später.
 ```
 
 **Objekte** können einzelne Attribute, Arrays oder wiederum Objekte enthalten.
+
 Das bedeutet, dass JSON-Daten beliebig tief verschachtelt werden können.
 
-Attribute eines Objekts können mithilfe der Punktnotation oder der Klammernotation angesprochen werden.
-Die Punktnotation funktioniert nur, wenn das Attribut bestimmten Namenskonventionen entspricht (das erste Zeichen muss ein Buchstabe sein, die restlichen Zahlen oder Buchstaben oder ein Unterstrich).
-Die Klammernotation funktioniert auch für Attribute, die nicht der Namenskonvention entsprechen.
+Attribute eines Objekts können mit der Punktnotation oder der Klammernotation angesprochen werden.
+Die Punktnotation funktioniert nur, wenn das Attribut bestimmten Namenskonventionen entspricht (erster Buchstabe, gefolgt von Zahlen, Buchstaben oder Unterstrichen).
+Die Klammernotation funktioniert auch für Attribute, die dieser Namenskonvention nicht entsprechen.
 
 **Punktnotation:**
 
@@ -386,7 +437,7 @@ Die Klammernotation funktioniert auch für Attribute, die nicht der Namenskonven
 <%- data.oneobject.attribute1 %>
 ```
 
-**Klammernotation:**
+**Notation in Klammern:**
 
 **Vorlage:**
 
@@ -400,7 +451,7 @@ Die Klammernotation funktioniert auch für Attribute, die nicht der Namenskonven
     1
 ```
 
-Schleife über die Attribute eines Objekts
+Iteriere über die Attribute eines Objekts
 
 **Vorlage:**
 
@@ -417,45 +468,45 @@ Schleife über die Attribute eines Objekts
     data.oneobject.attribute2 = 2
 ```
 
-## Entwicklung und Debugging
-### Vis1 Widgets
-- Installieren Sie den Dev-Server
-- Starten Sie den Dev-Server mit der Option --noStart
-- Beim ersten Start zusätzlich Adapter Web und Vis1 installieren
-- Starten Sie die vscode-Startkonfiguration „vis-1 editor“
-- wenn Widgets nicht verfügbar sind, laden Sie den Adapter im Expertenmodus auf der Adapterseite hoch
-- jetzt können Sie Haltepunkte in vscode in der Datei jsontemplate.js setzen
-- Wenn Sie etwas in der js-Datei ändern, muss die Quelle kompiliert werden, um
+## Entwicklung und Fehlersuche
+### Vis1-Widgets
+- Installiere den Entwicklungsserver
+- Starten Sie den Entwicklungsserver mit der Option --noStart
+- Installieren Sie beim ersten Start die zusätzlichen Adapter web und vis1.
+- Starten Sie VS Code mit der Startkonfiguration "vis-1 editor"
+- Falls keine Widgets verfügbar sind, laden Sie den Adapter im Expertenmodus auf der Adapterseite hoch.
+- Jetzt können Sie in VS Code Haltepunkte in der Datei jsontemplate.js setzen.
+- Wenn Sie etwas in der JS-Datei ändern, muss der Quellcode kompiliert werden zu
 
 den Ordner „dist“ mit dem Befehl „npm run build-vis1widgets“.
 
-- Der Dev-Server lädt die geänderten Dateien auf iobroker hoch, aber für vis1 müssen Sie
+- Der Entwicklungsserver lädt die geänderten Dateien zu iobroker hoch, aber für vis1 haben Sie
 
-um den Befehl iob visdebug auszuführen und die Widgets neu zu laden
+den Befehl iob visdebug ausführen, um die Widgets neu zu laden
 
-- Um zusätzliche Einträge in en.json zu übersetzen, verwenden Sie den Befehl translate-widgets-vis1
+- Um weitere Einträge in en.json zu übersetzen, verwenden Sie den Befehl translate-widgets-vis1.
 
 ### Vis2-Widgets
-- Installieren Sie den Dev-Server
-- Öffnen Sie ein neues VSCode-Fenster (2. Instanz)
-- Vis2-Repository klonen
-- Folgen Sie den Anweisungen in der Readme-Datei des Vis2-Repositorys
+- Installiere den Entwicklungsserver
+- Öffnen Sie ein neues VS Code-Fenster (2. Instanz)
+- vis2-Repository klonen
+- Befolgen Sie die Anweisungen in der Readme-Datei des Vis2-Repositorys.
 
-Im Kapitel Entwicklung und Debugging. Sie müssen das Repository nicht forken.
-Wir benötigen lediglich eine laufende Instanz des Vis2-Adapters.
+Im Kapitel „Entwicklung und Debugging“ ist es nicht nötig, das Repository zu forken.
+Wir benötigen lediglich eine laufende Instanz des vis2-Adapters.
 
 - Starten Sie Vis 2 mit npm run start
-- zurück in die VSCode-Instanz dieses Adapters
-- Starten Sie den Dev-Server mit der Option --noStart
-- Starten Sie die VSCode-Startkonfiguration „Vis-2-Editor“.
-- jetzt können Sie Haltepunkte in vscode in der Datei jsontemplate.js setzen
-- wenn Sie etwas ändern, müssen Sie nichts weiter tun,
+- zurück in der VS Code-Instanz dieses Adapters
+- Starten Sie den Entwicklungsserver mit der Option --noStart
+- Starten Sie VS Code mit der Startkonfiguration "vis-2 editor"
+- Jetzt können Sie in VS Code Haltepunkte in der Datei jsontemplate.js setzen.
+- Wenn du etwas änderst, musst du nichts anderes tun.
 
-weil vite Hot Reload unterstützt. Manchmal ist es sinnvoll, vis2 mit F5 neu zu laden
+Da Vite Hot Reload unterstützt, ist es manchmal nützlich, Vis2 mit F5 neu zu laden.
 
-- Um zusätzliche Einträge in en.json zu übersetzen, verwenden Sie den Befehl translate-widgets-vis2
+- Um weitere Einträge in en.json zu übersetzen, verwenden Sie den Befehl translate-widgets-vis2.
 
-## Aufgaben
+## Todo
 - tbd
 
 ## Changelog
@@ -464,6 +515,28 @@ weil vite Hot Reload unterstützt. Manchmal ist es sinnvoll, vis2 mit F5 neu zu 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.2.0 (2025-11-14)
+
+- Improve documentation for the object notation in a template
+- fix some translations
+- align attribute name to vis1
+- add widget data to the available template objects in vis2
+- add style and widget object to the available template objects in vis1
+- improve documentation
+
+### 4.1.3 (2025-11-03)
+
+- fix race condition if more than one widget use the same datapoint
+- switch to trusted publishing
+
+### 4.1.2 (2025-09-13)
+
+- new try of publish
+
+### 4.1.0 (2025-09-12)
+
+- rename widgetset of the vis2 widget
+
 ### 4.0.2 (2025-08-28)
 
 - remove v4.0.0 from io-package

@@ -46,6 +46,7 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('sm')]: {
             fontSize: '16px',
         },
+        opacity: 0.7,
     },
     buttonWrapper: {
         position: 'relative',

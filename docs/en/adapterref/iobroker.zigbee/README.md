@@ -127,8 +127,8 @@ In both cases, restarting the adapter is sufficient – ​​the adapter's corr
 | ![](../de/img/reconfigure.png) | (re)configure the device. <br> This button allows to trigger a device configuration, which is used to tell the device what data to report automatically to the coordinator. The configuration items are defined in the *converter* for this device. Note that the device needs to be active for a configuration attempt to be successful. If the device is not active, the attempt will time out, and the device will be placed in a queue of devices to be configured the next time the device i sends a message.  |
 | ![](../de/img/debug.png) | Debug device <br> Enables / disables the generation of extended debug messages for this device. The color of the icon indicates the current status: (Black/White: no debug messages, Green: debug messages - can be deactivated with this button. Orange: debug messages via filter under zigbee.x.info.debugmessages. |
 | ![](../de/img/on_off.png) | On/Off <br> This button can be used to activate/deactivate a device. No communication takes place with deactivated devices. |
-| ![](../de/img/edit_image.png) | Assign image/name <br> This button allows you to specify a custom image and/or name for the device based on the device or device type. Settings made in this way are retained even if the device is deleted. |
-| ![](../de/img/edit_grp.png) | Edit name/groups <br> This button can be used to change the name of a device and - if applicable - the assignment of the device to one or more groups. |
+| ![](../de/img/edit_image.png) | Assign image/name <br> This button allows you to Assign a name, an icon or options for a specific device. Note that this assignment is **solely** on device level. model-level assingment is done via the settings. Settings made in this way are retained even if the device is deleted. |
+| ![](../de/img/edit_grp.png) | Edit name/groups <br> This button can be used change the devices associationw ith one or more groups. This button is only available on devices which can be assigned to groups. Note: Remotes are not added to the groups - they need to be bound to the group using the 'binding' tab. |
 | ![](../de/img/delete.png) | Delete device <br> Starts the deletion process for this device. |
 ## Additional information
 The Zigbee-Adapter shares the same libraries (zigbee-herdsman, zigbee-herdsman-converters) asn the [Zigbee2mqtt](https://www.zigbee2mqtt.io/) Project ([Github Link](https://github.com/Koenkk/zigbee2mqtt)). It is possible to use zigbee2mqtt.io directly with ioBroker using MQTT or its own [Adapter](https://github.com/arteck/ioBroker.zigbee2mqtt).<br>
@@ -136,6 +136,56 @@ As the libraries are shared, any device supported in zigbee2mqtt.io will in time
 Other topics related to this adapter are also documented in the associated [wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki).
 
 ## Changelog
+### **WORK IN PROGRESS**
+* Fix: dynamic model assignment when exposes is function (PTVO, BuschJaeger)
+* Fix: Roles
+* Refactor: Legacy code moved
+* Refactor: Expose creation changed.
+* Refactor: Exposes no longer use states from legacy code
+* Feature: Offer state rebuild function in Settings
+
+### 3.2.5 (2025-10-31)
+* (asgothian) changed setState for lasterror
+
+### 3.2.4 (2025-10-31)
+* (asgothian) added missing state
+
+### 3.2.3 (2025-10-31)
+* (asgothian) Improvements on debug UI
+* (asgothian) Option 'resend_states' to publish state values to device on reconnect
+* (asgothian) Improved group card
+* (asgothian) Improved group info
+* (asgothian) Modified coordinator card (2 sides)
+* (asgothian) retry on error 25
+* (asgothian) clear stashed error messages
+* (asgothian) ZHC 25.50.0 or newer
+
+### 3.2.2 (2025-10-27)
+* (asgothian) Bugfix on delete object.
+* (asgothian) improved device query.
+* (asgothain) fixed delete device with local overrides.
+*
+
+### 3.2.1 (2025-10-26)
+* (asgothian) fix bug #2640
+*
+
+### 3.2.0 (2025-10-26)
+* (asgothian) remove local overrides tab from config
+* (asgothian) establish local data tab in config to edit global and device level settings and options
+* (asgothian) remove the local overrides tab
+* (asgothian) remove the ability to set model level overrides from device tab.
+* (asgothian) fix errors for 'polling' devices with changed poll times.
+* (asgothian) warning icon for devices which are not completely interviewed.
+* (asgothian) improved router detection for opening the network
+* (asgothian) bugfix: open network on router
+* (asgothian) ZHC 25.x latest, ZH 6.1.3,
+* (asgothian) restore from in-adapter backup
+
+### 3.1.6 (2025-10-21)
+* (asgothian) Bugfixes
+*
+
 ### 3.1.5 (2025-10-04)
 * (asgothian) Bugfixes
 * (asgothian) ZHC25.36.0

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: ZZVI8XoypnXhTS3yL4ulyeNm2NPX0KMD6tAnWpk7JcI=
+hash: AF+RI5eEFD5nF67c1zE0cBxPzygqQnbWGlpn/U2DwyE=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -14,234 +14,227 @@ hash: ZZVI8XoypnXhTS3yL4ulyeNm2NPX0KMD6tAnWpk7JcI=
 ![NPM](https://nodei.co/npm/iobroker.ecoflow-mqtt.png?downloads=true)
 
 # IoBroker.ecoflow-mqtt
-**Tests:** ![Testen und Freigeben](https://github.com/foxthefox/ioBroker.ecoflow-mqtt/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/foxthefox/ioBroker.ecoflow-mqtt/workflows/Test%20and%20Release/badge.svg)
 
 ## Ecoflow-mqtt-Adapter für ioBroker
-verbindet sich mit Produkten von Ecoflow ([https://www.ecoflow.com])
+Verbindet sich mit Produkten von Ecoflow ([https://www.ecoflow.com])
 
 ## WARNUNG
-Dieser Adapter nutzt eine inoffizielle Kommunikation mit den Geräten.
-Fehlerhafte Kommunikation oder die Einstellung falscher Werte können die Funktionalität des Geräts beeinträchtigen und zum Ausschluss vom Dienst führen.
+Dieser Adapter nutzt eine inoffizielle Kommunikationsschnittstelle zu den Geräten. Fehlerhafte Kommunikation oder falsche Werte können die Funktionalität des Geräts beeinträchtigen und zum Ausschluss vom Dienst führen.
 
 Der Adapter basiert auf der Arbeit von:
 
-- meine eigene Bewertung und Recherche
+- meine eigene Bewertung und Forschung
 - https://github.com/tolwi/hassio-ecoflow-cloud
 - https://haus-automatisierung.com/hardware/2023/02/13/ecoflow-river-2-usv-batteriespeicher.html
 - https://forum.iobroker.net/topic/66743/ecoflow-connector-script-zur-dynamischen-leistungsanpassung
-- https://konkludenz.de/ecoflow-wave2-smart-home-fähig-machen-mit-node-red-und-mqtt
+- https://konkludenz.de/en/making-ecoflow-wave2-smart-home-capable-with-node-red-and-mqtt
 
 ## Installation
-Der Adapter befindet sich in einem stabilen Repository und kann daher durch Suchen installiert werden.
-Wenn Updates verfügbar sind, sollten Sie diese installieren.
+Der Adapter befindet sich im stabilen Repository und kann daher durch Suchen installiert werden.
+Sollten Updates verfügbar sein, sollten Sie diese installieren.
 
-Wenn eine sehr neue Version verfügbar ist, kann eine benutzerdefinierte Installation über npm/github erforderlich sein.
-In diesem Fall muss der Expertenmodus aktiviert sein, um Zugriff auf das „Octacat“-Symbol zu erhalten.
-![einige weitere Details](../../../en/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md)
+Falls eine sehr neue Version verfügbar ist, kann eine benutzerdefinierte Installation über npm/GitHub erforderlich sein.
+In diesem Fall muss der Expertenmodus aktiviert werden, um auf das „octacat“-Symbol zugreifen zu können.
+
+![weitere Details](../../../en/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md)
 
 ## EF-Anmeldeinformationen
-Auf der Admin-Seite (erste Registerkarte) müssen die MQQT-Anmeldeinformationen für den MQQT-Broker eingegeben werden.
+Auf der Admin-Seite (erster Tab) müssen die MQQT-Zugangsdaten für den MQQT-Broker eingegeben werden.
 
-- Benutzername – so etwas wie „app-….“
-- Benutzer-ID – eine 19-stellige Nummer
-- UserPassword - ein alphanumerisches
-- ClientID – eine Zeichenfolge, die mit „ANDROID\_…“ beginnt.
+- Benutzername - etwa "app-...".
+- Benutzer-ID - eine 19-stellige Nummer
+- Benutzerpasswort - eine alphanumerische Zeichenfolge
+- ClientID - eine Zeichenkette, die mit "ANDROID\_...." beginnt.
 
 Es gibt 3 Möglichkeiten:
 
 1. per Skript https://github.com/mmiller7/ecoflow-withoutflow/blob/main/cloud-mqtt/ecoflow_get_mqtt_login.sh
 2. über die Website https://energychain.github.io/site_ecoflow_mqtt_credentials/
-3. durch den eigenen Algorithmus des Adapters (durch Drücken der Taste), hierfür sind der Benutzername und das Passwort von ecoflow erforderlich.
+3. durch den eigenen Algorithmus des Adapters (Drücken des Knopfes), hierfür sind der Ecoflow-Benutzername und das Passwort erforderlich.
 
-Die MQQT-Broker-Einstellungen sind Standardeinstellungen und müssen normalerweise nicht geändert werden.
+Die Einstellungen des MQQT-Brokers sind Standard und müssen normalerweise nicht geändert werden.
 
-!!! In Fällen, in denen der MQTT-Server die Verbindung ablehnt, kann es hilfreich sein, mit Option Nr. 2 die Ausgabe dieser Website zu überprüfen. In einigen Fällen wird eine andere MQTT-Broker-Adresse zurückgegeben !!!
+!!! Falls der MQTT-Server die Verbindung ablehnt, kann es hilfreich sein, mit Option 2 die Ausgabe der Webseite zu überprüfen. In manchen Fällen wird eine andere MQTT-Broker-Adresse zurückgegeben !!!
 
-## Geräteeinrichtung und -konfiguration
-Verwenden Sie die Registerkarte „Gerätekonfiguration“, um Ihre Geräte hinzuzufügen.
+## Geräteeinrichtung und Konfiguration
+Über die Registerkarte „Gerätekonfiguration“ können Sie Ihre Geräte hinzufügen.
 
-<details><summary><i>Parametrierung des Powerstreams bzw. STREAMs</i></summary><p>
+<details><summary><i>Parametrisierung des Powerstreams oder STREAMs</i></summary><p>
 
 - eine neue Zeile hinzufügen
-- Legen Sie die Geräte-ID von (Power)Stream wie in der App angezeigt fest, etwa „HW51..../BK....“
+- Stellen Sie die Geräte-ID von (Power)Stream wie in der App angezeigt ein, etwa so: "HW51..../BK...."
 - gib ihm einen Namen
-- Wählen Sie die Version
+- Wählen Sie die Version aus
 
 </p></details>
 
-<details><summary><i>Parametrierung der Powerstation</i></summary><p>
+<details><summary><i>Parametrisierung des Kraftwerks</i></summary><p>
 
 - eine neue Zeile hinzufügen
-- Legen Sie die Geräte-ID der Powerstation wie in der App angezeigt fest. Die Zeichenfolge variiert je nach Gerätetyp.
+- Legen Sie die Geräte-ID der Powerstation wie in der App angezeigt fest; die Zeichenfolge variiert je nach Gerätetyp.
 - gib ihm einen Namen
-- Wählen Sie den Gerätetyp
-- Wenn ein zusätzlicher Akkupack angeschlossen ist, überprüfen Sie die Portnummer, an der er angeschlossen ist
+- Wählen Sie den Gerätetyp aus
+- Falls ein zusätzlicher Akku angeschlossen ist, überprüfen Sie die Portnummer, an der er angeschlossen ist.
 
 </p></details>
 
-<details><summary><i>Parametrierung des Smart Plug</i></summary><p>
+<details><summary><i>Parametrisierung des intelligenten Steckers</i></summary><p>
 
 - eine neue Zeile hinzufügen
-- Stellen Sie die Geräte-ID des Smart Plug wie in der App angezeigt ein, etwa „HW52....“
+- Stellen Sie die Geräte-ID des Smart Plugs wie in der App angezeigt ein, etwa so: "HW52...".
 - gib ihm einen Namen
-- den Typ auf "Stecker" einstellen
+- Stellen Sie den Typ auf "Stecker" ein
 
 </p></details>
 
-<details><summary><i>Parametrierung des Smartmeters</i></summary><p>
+<details><summary><i>Parametrisierung des Smartmeters</i></summary><p>
 
 - eine neue Zeile hinzufügen
-- Stellen Sie die Geräte-ID des Smartmeters (Shelly oder EF) wie in der App angezeigt ein. Bei Shelly beachten Sie bitte, dass sich die ID von der des Shelly-Geräts selbst unterscheidet.
+- Stellen Sie die Geräte-ID des Smartmeters (Shelly oder EF) wie in der App angezeigt ein. Beachten Sie bei Shelly, dass die ID sich von der ID des Shelly-Geräts selbst unterscheidet.
 - gib ihm einen Namen
-- Stellen Sie den Typ auf „Shelly3EM“ oder „EF Smartmeter“ ein
+- Stellen Sie den Typ auf "Shelly3EM" oder "EF smartmeter" ein.
 
 </p></details>
 
-<details><summary><i>Parametrierung des Generators</i></summary><p>
+<details><summary><i>Parametrisierung des Generators</i></summary><p>
 
 - eine neue Zeile hinzufügen
-- Legen Sie die Geräte-ID des Generators wie in der App angezeigt fest, etwa „DGEB....“
+- Legen Sie die Geräte-ID des Generators so fest, wie sie in der App angezeigt wird, etwa so: "DGEB...".
 - gib ihm einen Namen
-- den Typ auf „Generator“ einstellen
+- den Typ auf "Generator" setzen
 
 </p></details>
 
-<details><summary><i>Parametrierung des Smart Home Panels</i></summary><p>
+<details><summary><i>Parametrisierung des Smart-Home-Panels</i></summary><p>
 
 - eine neue Zeile hinzufügen
-- Legen Sie die Geräte-ID des Generators wie in der App angezeigt fest, etwa „SP10....“
+- Stellen Sie die Geräte-ID des Generators so ein, wie sie in der App angezeigt wird, etwa so: "SP10...".
 - gib ihm einen Namen
-- Stellen Sie den Typ auf „SHP“ oder „SHP2“ ein
+- Stellen Sie den Typ auf "SHP" oder "SHP2" ein.
 
 </p></details>
 
-<details><summary><i>Parametrierung des Power Kits und Hubs</i></summary><p>
+<details><summary><i>Parametrisierung des Stromversorgungs-Kits und der Nabe</i></summary><p>
 
 - eine neue Zeile hinzufügen
-- Stellen Sie die Geräte-ID des Power Kits wie in der App angezeigt ein, etwa „M10....“
+- Stellen Sie die Geräte-ID des Stromversorgungs-Kits wie in der App angezeigt ein, etwa so: "M10...".
 - gib ihm einen Namen
-- Stellen Sie den Typ auf „Power Kit BP2000“ oder „Power Kit BP5000“ ein
-- wenn eine zweite oder dritte Batterie angeschlossen ist, dann überprüfen Sie diese als Slave1 oder Slave2
+- Stellen Sie den Typ auf „Power Kit BP2000“ oder „Power Kit BP5000“ ein.
+- Falls eine zweite oder dritte Batterie angeschlossen ist, prüfen Sie diese als Slave 1 oder Slave 2.
 
 </p></details>
 
 <details><summary><i>Parametrisierung der Power Ocean DC-Anpassung</i></summary><p>
 
 - eine neue Zeile hinzufügen
-- Legen Sie die Geräte-ID des Generators wie in der App angezeigt fest, etwa „HJ31....“
+- Stellen Sie die Geräte-ID des Generators wie in der App angezeigt ein, etwa so: "HJ31...".
 - gib ihm einen Namen
-- Stellen Sie den Typ auf „Power Ocean“ ein
-- wenn eine zweite oder dritte Batterie angeschlossen ist, dann überprüfen Sie diese als Slave1 oder Slave2
+- Stellen Sie den Typ auf "Power Ocean" ein.
+- Falls eine zweite oder dritte Batterie angeschlossen ist, prüfen Sie diese als Slave1 oder Slave2.
 
 </p></details>
 
 <details><summary><i>Parametrisierung der Welle</i></summary><p>
 
 - eine neue Zeile hinzufügen
-- Stellen Sie die Geräte-ID des Smart Plug wie in der App angezeigt ein, etwa „KT21ZCH …“
+- Stellen Sie die Geräte-ID des Smart Plugs wie in der App angezeigt ein, etwa so: "KT21ZCH..."
 - gib ihm einen Namen
-- Stellen Sie den Typ auf "Wave2" ein
+- Stellen Sie den Typ auf "Wave2" ein.
 
 </p></details>
 
 <details><summary><i>Parametrisierung des Gletschers</i></summary><p>
 
 - eine neue Zeile hinzufügen
-- Stellen Sie die Geräte-ID des Smart Plug wie in der App angezeigt ein, etwa „BX11ZCB …“
+- Stellen Sie die Geräte-ID des Smart Plugs wie in der App angezeigt ein, etwa so: "BX11ZCB..."
 - gib ihm einen Namen
-- Stellen Sie den Typ auf „Gletscher“ ein
+- den Typ auf "Gletscher" einstellen
 
 </p></details>
 
-<details><summary><i>Parametrierung des Generators</i></summary><p>
+<details><summary><i>Parametrisierung des Generators</i></summary><p>
 
 - eine neue Zeile hinzufügen
-- Stellen Sie die Geräte-ID des Smart Plug wie in der App angezeigt ein, etwa „F371ZE …“
+- Stellen Sie die Geräte-ID des Smart Plugs wie in der App angezeigt ein, etwa so: "F371ZE..."
 - gib ihm einen Namen
-- den Typ auf „Lichtmaschine 800W“ einstellen
+- Stellen Sie den Typ auf "Lichtmaschine 800W" ein.
 
 </p></details>
 
-Verwenden Sie die Registerkarte „Homeassistant“ zum Einrichten der MQTT-Verbindung zu HA
+Verwenden Sie den Tab „Home Assistant“, um die MQTT-Verbindung zu Home Assistant einzurichten.
 
-<details><summary><i>Parametrisierung des Homeassistant-Connectors</i></summary><p>
+<details><summary><i>Parametrisierung des Home Assistant Connectors</i></summary><p>
 
-- Aktivieren Sie den Dienst
-- Legen Sie die Benutzereinstellungen des MQTT-Brokers von HA fest
-- Setzen Sie die Verbindungsparameter des MQTT-Brokers von HA
-- Wählen Sie bei Bedarf Debug-Einstellungen aus
+- den Dienst aktivieren
+- die Benutzereinstellungen des MQTT-Brokers von HA festlegen
+- die Verbindungsparameter des MQTT-Brokers von HA festlegen
+- Wählen Sie bei Bedarf die Debug-Einstellungen aus.
 
 Modifikation auf der HA-Seite:
 
-- Der Adapter verwendet die Erkennungsfunktion in HA, es ist keine Konfiguration von Datenpunkten in HA erforderlich.
+- Der Adapter nutzt die Erkennungsfunktion in HA, eine Konfiguration von Datenpunkten in HA ist nicht erforderlich.
 - MQTT-Add-on ...
 
 </p></details>
 
-## Aktualisieren des Adapters
-Normalerweise reicht es aus, die nächste Version über die alte zu installieren. In manchen Fällen (z. B. 1.0.0) kann es erforderlich sein, den gesamten Objektbaum zu löschen.
-Wenn datenpunktbezogene Werte geändert werden, z. B. das Minimum oder Maximum des Bereichs, müssen Sie Folgendes tun:
+## Aktualisierung des Adapters
+Normalerweise genügt es, die nächste Version über die alte zu installieren. In manchen Fällen (z. B. bei Version 1.0.0) muss möglicherweise der gesamte Objektbaum gelöscht werden.
+Wenn sich datenpunktbezogene Werte ändern, wie z. B. Minimal- oder Maximalwerte des Bereichs, müssen Sie Folgendes tun:
 
-- Stoppen Sie den Adapter
-- die betroffenen Datenpunkte gelöscht
-- Starten Sie den Adapter
+- Schalten Sie den Adapter aus
+- die betreffenden Datenpunkte wurden gelöscht
+- Schalten Sie den Adapter ein
 
-Danach werden die neuen Bereiche übernommen.
+Anschließend werden die neuen Bereiche übernommen.
 
 ## IoBroker-Adapterfunktionen
-- die definierten Geräte werden per MQTT mit dem Adapter verbunden
-- Der Adapter filtert die eingehenden Nachrichten der Geräte. Nur geänderte Werte werden intern gespeichert
-- Wenn die App die Anpassung unter bestimmten Bedingungen verhindert, wird diese, sofern bekannt, repliziert (z. B. wird das Einschalten des Wechselrichters bei Unterschreiten der Mindestbatterieladung verhindert, Sie können eine Warnung im Protokoll sehen)
-- nicht alles ist bekannt, daher können Informationen zur Statusinterpretation unsicher sein, dies wird meist mit einem abschließenden „?“ gekennzeichnet.
+- die definierten Geräte sind über MQTT mit dem Adapter verbunden
+Der Adapter filtert die eingehenden Nachrichten der Geräte. Nur geänderte Werte werden intern gespeichert.
+- Wenn die App die Anpassung unter einer bestimmten Bedingung verhindert, wird dies, sobald es bekannt ist, repliziert (z. B. wenn das Einschalten des Wechselrichters bei Unterschreitung des Mindestladestands der Batterie verhindert wird, kann eine Warnung im Protokoll angezeigt werden).
+Da nicht alles bekannt ist, kann die Interpretation der Informationen unsicher sein; dies wird meist durch ein nachfolgendes „?“ gekennzeichnet.
 
-### Anmerkungen zur Aktualisierung der Datenpunkteinstellungen (Min., Max., Einheit, ....)
+### Anmerkungen zur Aktualisierung der Datenpunktkonfiguration (min, max, Einheit, ....)
 Wenn die Einstellungen eines Datenpunkts in der neuen Version des Adapters geändert werden (z. B. Name, Einheit, Maximalwert), wird die Änderung erst wirksam, wenn Sie:
 
-- Stoppen Sie die Adapterinstanz
-- Löschen des jeweiligen Datenpunkts oder der gesamten Objektstruktur der Adapterinstanz
+- die Adapterinstanz stoppen
+- Löschen Sie den entsprechenden Datenpunkt oder die gesamte Objektstruktur der Adapterinstanz.
 - Starten Sie die Adapterinstanz
 
-Beim Start werden die Datenpunkte erstellt, jedoch nicht verändert, sofern sie vorhanden sind.
+Beim Startvorgang werden die Datenpunkte erstellt, aber nicht verändert, sobald sie vorhanden sind.
 
 ### Anmerkungen zu Warnungen/Fehlern
-Einige Vorkommnisse im Adapter werden als Warnung oder Fehler markiert, um im Protokoll angezeigt zu werden, wenn sich der Loglevel im Infomodus befindet. Dies ist nicht unbedingt ein Fehler oder ein Hinweis auf einen nicht funktionierenden Adapter, sondern eher ein Zeichen für ein unerwartetes Verhalten. Die Ursache liegt möglicherweise nicht im Adapter selbst, aber die Aufmerksamkeit ist darauf gerichtet.
+Bestimmte Ereignisse im Adapter werden als Warnung oder Fehler gekennzeichnet, um im Protokoll (Protokollierungsstufe: Info) angezeigt zu werden.
+Dies bedeutet nicht zwangsläufig einen Fehler oder dass der Adapter nicht funktioniert; es ist eher ein Hinweis auf ein unerwartetes Verhalten. Die Ursache liegt möglicherweise nicht im Adapter selbst, aber es wird darauf hingewiesen.
 
 ## HA-Anschluss/Gateway
-- Die MQTT-Erkennungsfunktion in HA ermöglicht eine elegante Art des Informationsaustauschs
-- Die MQTT-Erkennungsfunktion kann möglicherweise nicht aktiviert werden, wenn der MQTT-Broker bereits in HA ausgeführt wird. Sie muss während der Neukonfiguration des MQTT-Dienstes aktiviert werden
-- Bei jedem Start des iobroker-Adapters werden alle Discovery-Objekte an HA übertragen (auch wenn sie in HA verbleiben sollten)
-- Der iobroker-Adapter filtert die eingehenden Nachrichten der Geräte. Nur geänderte Werte werden intern gespeichert und an HA übertragen.
-- Wenn ein Wert nicht durch die Aktualisierung der Gerätedaten festgelegt wird, wird er in HA als unbekannt angezeigt
-- Ist das Gerät erreichbar, wird die Verfügbarkeit in der Gerätekonnektivität angezeigt, diese wird an die „Untergeräte“ vererbt (Nichtverfügbarkeit wird analog verarbeitet)
+Die MQTT-Erkennungsfunktion in HA ermöglicht einen eleganten Informationsaustausch.
+- Die MQTT-Erkennungsfunktion ist möglicherweise nicht aktiviert, wenn der MQTT-Broker bereits in HA ausgeführt wird. Sie muss bei der Neukonfiguration des MQTT-Dienstes aktiviert werden.
+- Bei jedem Start des iobroker-Adapters werden alle Discovery-Objekte an HA übertragen (auch wenn sie in HA verbleiben sollten).
+Der iobroker-Adapter filtert die eingehenden Nachrichten der Geräte. Nur geänderte Werte werden intern gespeichert und an HA übertragen.
+- Wenn ein Wert nicht durch eine Gerätedatenaktualisierung festgelegt wird, wird er in HA als unbekannt angezeigt.
+- Wenn das Gerät erreichbar ist, wird die Verfügbarkeit in der Geräteverbindung angezeigt; dies wird an die "Untergeräte" vererbt (Nichtverfügbarkeit wird auf die gleiche Weise verarbeitet).
 
-[einige Hinweise für HA](./doc/en/IOB_HA/navi.md)
+[einige_Hinweise_für HA](./doc/en/IOB_HA/navi.md)
 
 ### Anmerkungen zur Funktionalität
-- Aufgrund der Asynchronität von Informationsaktualisierungen und Befehlsübertragungen können manchmal Race Conditions sichtbar werden. So kann beispielsweise ein Wechsel durch einen Befehl beobachtet werden, dessen Hin- und Herschalten, bevor er stehen bleibt.
+Aufgrund der Asynchronität von Informationsaktualisierungen und Befehlsübertragung können mitunter Race Conditions auftreten. So kann beispielsweise beobachtet werden, wie ein Schalter betätigt wird und anschließend mehrmals hin und her schaltet, bevor er in der eingestellten Position verbleibt.
 
-## Implementierte Geräte und Struktur mit Datenpunkten
-einige Erläuterungen zu den Gerätedaten
+## Implementierte Geräte & Struktur mit Datenpunkten
+eine Erklärung zu den Gerätedaten
 
 - Zahl -> Datenpunkt mit numerischem Wert
-- Ebene -> einstellbarer Datenpunkt mit numerischem Wert, manchmal auch Auswahlen mit numerischer Darstellung
-- Schalter -> einstellbarer Datenpunkt Boolean
-- Diagnose -> Boolescher oder Multi-State-Datenpunkt in Text übertragen
-- Zeichenfolge -> Datenpunkt nur als Text
+- Ebene -> anpassbarer Datenpunkt mit numerischem Wert, manchmal auch Auswahlen mit numerischer Darstellung
+- Schalter -> einstellbarer Datenpunkt (Boolescher Wert)
+- Diagnose -> boolescher oder mehrwertiger Datenpunkt in Text umgewandelt
+- Zeichenkette -> Datenpunkt nur als Text
 - Array -> Datenpunkt mit Array
-- Bei der Konvertierung von Werten in Text wird möglicherweise ein nicht validierter Text verwendet (Feedback ist willkommen). Dies wird durch ein „?“ am Ende des Textes angezeigt.
+Die Wert-zu-Text-Konvertierung verwendet möglicherweise einen nicht validierten Text (Feedback ist willkommen); dies wird durch ein "?" am Ende des Textes gekennzeichnet.
 
 ### Kraftwerk
-[Fluss Max](./doc/devices/rivermax.md)
+[River Max](./doc/devices/rivermax.md)
 
 [River Pro](./doc/devices/riverpro.md)
-
-[Delta Mini](./doc/devices/deltamini.md)
-
-[Delta](./doc/devices/delta.md)
-
-[Delta Max](./doc/devices/deltamax.md)
-
-[Delta Pro](./doc/devices/deltapro.md)
 
 [Fluss 2 Max](./doc/devices/river2max.md)
 
@@ -251,23 +244,35 @@ einige Erläuterungen zu den Gerätedaten
 
 [River 3 Plus](./doc/devices/river3plus.md)
 
+[Delta Mini](./doc/devices/deltamini.md)
+
+[Delta](./doc/devices/delta.md)
+
+[Delta Max](./doc/devices/deltamax.md)
+
 [Delta 2](./doc/devices/delta2.md)
 
 [Delta 2 Max](./doc/devices/delta2max.md)
 
+[Delta 3](./doc/devices/delta3.md)
+
 [Delta 3 Plus](./doc/devices/delta3plus.md)
+
+[Delta 3 Max Plus](./doc/devices/delta3maxplus.md)
+
+[Delta Pro](./doc/devices/deltapro.md)
 
 [Delta Pro 3](./doc/devices/deltapro3.md)
 
 [Delta Pro Ultra](./doc/devices/deltaproultra.md)
 
 ### Smart-Home-Panel
-[Smart Home-Panel](./doc/devices/panel.md)
+[Smart-Home-Panel](./doc/devices/panel.md)
 
 [Smart Home Panel 2](./doc/devices/panel2.md)
 
-### Stromversorgungskit und Hub
-[Leistungskit](./doc/devices/powerkit.md)
+### Stromversorgungssatz & Nabe
+[Power Kit](./doc/devices/powerkit.md)
 
 ### Power Ocean
 [Power Ocean DC](./doc/devices/powerocean.md)
@@ -279,64 +284,94 @@ einige Erläuterungen zu den Gerätedaten
 ### Generator
 [Generator](./doc/devices/generator.md)
 
-Dual-Fuel-Generator ist nicht verfügbar, könnte aber implementiert werden, wenn Daten verfügbar sind.
+Ein Dual-Fuel-Generator ist derzeit nicht verfügbar, könnte aber implementiert werden, sofern entsprechende Daten vorliegen.
 
-### Powerstream und Stream
+### Powerstream & Stream
 [Powerstream](./doc/devices/pstream600.md)
+
+[Stream AC](./doc/devices/stream_ac.md)
 
 [Stream AC PRO](./doc/devices/stream_ac_pro.md)
 
 [Stream Ultra](./doc/devices/stream_ultra.md)
 
-[Stream-Wechselrichter](./doc/devices/stream_inverter.md)
+[Stromumrichter](./doc/devices/stream_inverter.md)
 
-Die 800-W-Version ist ebenfalls implementiert und unterscheidet sich lediglich durch die maximale Leistung von 800 W.
-Versorgungspriorität -> 0/false = priorisierte Netzversorgung; -> 1/true = priorisierte Batterieversorgung (Laden)
+Die 800-W-Version ist ebenfalls implementiert; der einzige Unterschied besteht in der maximalen Leistung von 800 W.
+Versorgungspriorität: 0/falsch = priorisierte Netzversorgung; 1/wahr = priorisierte Batterieversorgung (Laden).
 
-### Intelligente Stecker
-[Intelligenter Stecker](./doc/devices/plug.md)
+### Intelligente Steckdosen
+[Intelligente Steckdose](./doc/devices/plug.md)
 
 ### Smartmeter-Geräte
 [Shelly3EM](./doc/devices/shelly3em.md)
 
 [Smartmeter](./doc/devices/smartmeter.md)
 
-### Wave-Klimaanlage
+### Wave Klimaanlage
 [Welle 2](./doc/devices/wave2.md)
 
 [Welle 3](./doc/devices/wave3.md)
 
-Wave ist nicht verfügbar, könnte implementiert werden, wenn Daten verfügbar sind.
+Wave ist derzeit nicht verfügbar, könnte aber implementiert werden, falls Daten verfügbar sind.
 
 ### Gletscherkühlschrank
 [Gletscher](./doc/devices/glacier.md)
+
+[Glacier Classic 55L](./doc/devices/glacier55.md)
 
 ### Lichtmaschine
 [Generator](./doc/devices/alternator.md)
 
 ### Nicht unterstützte Geräte
-Dieser Abschnitt wird zu Debugging-Zwecken erstellt. Wählen Sie das Gerät (Delta Pro3, Delta3, Delta3 Plus) aus und geben Sie die Seriennummer in die hinzugefügte Zeile ein. Es wird erwartet, dass das unbekannte Gerät Protobuf verwendet. Es erstellt [PROTOBUF unbekannt]-Meldungen im Protokoll, die das rohe Hex-Telegramm enthalten
+Dieser Abschnitt dient Debugging-Zwecken. Bitte wählen Sie das Gerät (Delta Pro3, Delta3, Delta3 Plus) aus und tragen Sie die Seriennummer in die hinzugefügte Zeile ein. Es wird davon ausgegangen, dass das unbekannte Gerät Protobuf verwendet. Es erzeugt [PROTOBUF unknown]-Meldungen im Log, die das rohe Hex-Telegramm enthalten.
 
 ## Aufgaben
-- vergessene Randbedingungen für Befehle prüfen (Befehl unterdrücken, oder zusätzlichen Wert)
-- Überprüfen Sie den Pieptonbefehl, wenn eine Rückwärtsfahrt erforderlich ist
-- SlaveBattery DM, OutWatts-Multiplikation mit 10
+- Vergessene Randbedingungen für Befehle prüfen (Befehl unterdrücken oder zusätzlichen Wert)
+- Überprüfen Sie den Piepton-Befehl, falls die Umkehrung erforderlich ist
+- SlaveBattery DM, outWatts Multiplikation mit 10
 - mehr getCmds für SHP-Werte
 
 ## Haftungsausschluss
-Diese Open-Source-Software steht in keiner Verbindung zu Ecoflow und wird von diesem auch nicht unterstützt.
-Die Nutzung der Software erfolgt auf eigene Gefahr und nach eigenem Ermessen. Ich übernehme keine Haftung für mögliche Schäden oder Probleme, die durch die Nutzung der Software entstehen können. Bitte beachten Sie, dass für die Nutzung dieser Open-Source-Software keine direkte Unterstützung oder Garantien durch Ecoflow gewährt werden.
+Diese Open-Source-Software steht in keiner Verbindung zu Ecoflow und wird von diesem Unternehmen auch nicht unterstützt. Die Nutzung der Software erfolgt auf eigene Gefahr und nach eigenem Ermessen. Ich übernehme keine Haftung für etwaige Schäden oder Probleme, die durch die Nutzung der Software entstehen können. Bitte beachten Sie, dass für die Nutzung dieser Open-Source-Software kein direkter Support oder Garantieleistungen von Ecoflow gewährt werden.
 
 ## Changelog
 
-### 1.4.5 (WIP)
+### 1.4.9 (WIP)
 
 - (foxthefox) new datapoints Delta2max
 
+### 1.4.8 (npm)
+
+- (foxthefox) new device Glacier Classic 55L support
+- (foxthefox) new device Delta 3 Max Plus support
+- (foxthefox) new device Stream AC support
+- (foxthefox) enhancements on wave3
+- (foxthefox) poweroceanplus set hrPwr/fromPv/romBat/fromGrid values to 0 for non transmitted datapoints in HeatingRodEnergyStreamShow
+- (foxthefox) poweroceanplus pcsActPwr max 20kW, pcsXPhase_amp max 60A
+- (foxthefox) corrections in BMSHeartBeatReport for river3/river3plus
+- (foxthefox) dev dependencies cleanup
+
+### 1.4.7 (npm)
+
+- (foxthefox) poweroceanplus, set mpptPwr/sysGridPwr/bpPwr values to 0, when the entity is not sent within the telegram
+- (foxthefox) poweroceanplus, bpTargetSoc max new set to 101%, pcsBpPower max=10kW, pcsXPhase_actPwr min=-5kW
+
+### 1.4.6 (npm)
+
+- (foxthefox) powerocean implementation of ParallelEnergyStreamDetail which is the update to ParallelEnergyStreamReport
+- (foxthefox) powerocean implementation of EnergyStreamDetail which is the update to EnergyStreamReport
+
+### 1.4.5 (npm)
+
+- (foxthefox) change from object to array for messages (for telegrams with multiple messages of same type i.e. powerocean)
+- (foxthefox) change of cmdId/CmdFunc structure
+
 ### 1.4.4 (npm)
 
-- (foxthefox) new datapoints for PowerOcean and HeatingRod
-- (foxthefox) change from object to array for messages (for telegrams with multiple messages of same type i.e. powerocean)
+- (foxthefox) new datapoints for PowerOcean (HeatingRod, ParallelEnergy)
+- (foxthefox) improvements tp powerocean plus
+- (foxthefox) corrections for powerocean
 - (foxthefox) testing JSON->buffer
 
 ### 1.4.3 (npm)

@@ -19,8 +19,8 @@ export const useStyles = makeStyles()(theme => ({
         fontFamily: 'inherit',
         whiteSpace: 'pre-wrap',
         fontSize: '20px',
-        textIndent: '4em',
-        fontWeight: 400,
+        textIndent: '2em',
+        fontWeight: 200,
         lineHeight: '150%',
         letterSpacing: '0.02em',
         paddingTop: '14px',
@@ -40,9 +40,10 @@ export const useStyles = makeStyles()(theme => ({
             transform: 'translate(-50%, -50%)',
             width: '600px',
             height: '700px',
-            background: theme.palette.mode === 'dark'
-                ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.4) 0%, rgba(255, 255, 255, 0) 70%)'
-                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.4) 0%, rgba(255, 255, 255, 0) 70%)'
+                    : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
             zIndex: -1,
             [theme.breakpoints.down('md')]: {
@@ -117,7 +118,6 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
 
-
     bracesLeft: {
         borderTop: `1px solid ${theme.palette.primary.main}`,
         borderBottom: `1px solid ${theme.palette.primary.main}`,
@@ -146,7 +146,7 @@ export const useStyles = makeStyles()(theme => ({
         textAlign: 'center',
         [theme.breakpoints.down('sm')]: {
             padding: '16px 0',
-        }
+        },
         //  [theme.breakpoints.down('sm')]: {
         //        width: '292px',
         //        height: '259px'
@@ -201,9 +201,10 @@ export const useStyles = makeStyles()(theme => ({
             pointerEvents: 'none',
             zIndex: 0,
             [theme.breakpoints.down('sm')]: {
-                background: theme.palette.mode === 'light'
-                    ? 'radial-gradient(circle, rgba(0, 88, 148, 0.2) 0%, rgba(255, 255, 255, 0) 70%)'
-                    : 'none',
+                background:
+                    theme.palette.mode === 'light'
+                        ? 'radial-gradient(circle, rgba(0, 88, 148, 0.2) 0%, rgba(255, 255, 255, 0) 70%)'
+                        : 'none',
             },
         },
     },

@@ -14,14 +14,7 @@ export default [
         },
     },
     {
-        ignores: [
-            'node_modules/**/*',
-            'test/**/*',
-            'build/**/*',
-            'tmp/**/*',
-            '.**/*',
-            'eslint.config.mjs',
-        ],
+        ignores: ['node_modules/**/*', 'test/**/*', 'build/**/*', 'tmp/**/*', '.**/*', 'eslint.config.mjs'],
     },
     {
         // disable temporary the rule 'jsdoc/require-param' and enable 'jsdoc/require-jsdoc'

@@ -146,6 +146,15 @@ Iconpage: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.10.0 (2025-11-13)
+- (ticaki) update deps
+- (ticaki) fix a problem with "remove" key
+- (ticaki) support added for nspanel-lovelace-ui (>= v0.8.0)
+
+### 0.9.0 (2025-10-28)
+- (ticaki) Data retrieval function changed from axios to fetch 
+- (ticaki) Retrieval timeout changed from 15 seconds to 5 minutes (DWD server needs a 'little' more time)
+
 ### 0.8.0 (2025-10-02)
 - (ticaki) Add configurable email recipients with correct processing of comma-separated addresses
 - (ticaki) Update dependencies

@@ -8,7 +8,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vbus-gw.svg)](https://www.npmjs.com/package/iobroker.vbus-gw)
 **Tests:** ![Test and Release](https://github.com/pdbjjens/ioBroker.vbus-gw/workflows/Test%20and%20Release/badge.svg)
 
-[![NPM](https://nodei.co/npm/iobroker.vbus-gw.png?downloads=true)](https://nodei.co/npm/iobroker.vbus-gw/)
+[![NPM](https://nodei.co/npm/iobroker.vbus-gw.svg?data=d,s)](https://www.npmjs.com/package/iobroker.vbus-gw)
 
 ## vbus-gw adapter for ioBroker
 
@@ -63,6 +63,15 @@ If you only want to connect to a single serial port it is recommended to configu
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.2-alpha.0 (2025-10-20)
+
+- (pdbjjens) Fix: Removed NPM_TOKEN secret from repository
+
+### 0.3.1-alpha.0 (2025-10-20)
+
+- (pdbjjens) Fix: Add GitHub as npm Trusted Publisher
+- (pdbjjens) Change: Update dependencies
+
 ### 0.3.0 (2025-08-29) - 2025H1 maintenance release
 
 - (pdbjjens) Change: node>=20, js-controller>=7.0.7 and admin>=7.6.17 required
@@ -79,16 +88,6 @@ If you only want to connect to a single serial port it is recommended to configu
 - (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
 - (pdbjjens) New: Updated dependencies
 - (pdbjjens) New: Ensure that vbus-gw is started before myvbus or resol
-
-### 0.0.7 (2024-02-24)
-
-- (pdbjjens) Fix: VBus write fixed
-- (pdbjjens) Fix: Password logging removed
-
-### 0.0.6 (2024-01-23)
-
-- (pdbjjens) New: Use resol-vbus v0.29.0
-- (pdbjjens) New: Logging of denied connection events
 
 ## License
 

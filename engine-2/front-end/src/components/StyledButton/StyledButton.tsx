@@ -20,9 +20,9 @@ const ArrowIcon: React.FC<ArrowIconProps> = ({ sx }) => {
             alt="arrow"
             sx={{
                 marginLeft: '10px',
-                width: { xs: '24px', sm: '30px' },
-                height: { xs: '24px', sm: '30px' },
-                ...sx
+                width: { xs: '20px', sm: '24px' },
+                height: { xs: '20px', sm: '24px' },
+                ...sx,
             }}
         />
     );
@@ -35,7 +35,15 @@ interface StyledButtonProps extends Omit<BoxProps, 'onClick'> {
     iconSx?: BoxProps['sx'];
 }
 
-export const StyledButton: React.FC<StyledButtonProps> = ({ children, onClick, sx, style, textSx, iconSx, ...props }) => {
+export const StyledButton: React.FC<StyledButtonProps> = ({
+    children,
+    onClick,
+    sx,
+    style,
+    textSx,
+    iconSx,
+    ...props
+}) => {
     const { classes } = useStyles();
     return (
         <Box
@@ -45,7 +53,12 @@ export const StyledButton: React.FC<StyledButtonProps> = ({ children, onClick, s
             style={style}
             {...props}
         >
-            <Typography className={classes.buttonText} sx={textSx}>{children}</Typography>
+            <Typography
+                className={classes.buttonText}
+                sx={textSx}
+            >
+                {children}
+            </Typography>
             <ArrowIcon sx={iconSx} />
         </Box>
     );

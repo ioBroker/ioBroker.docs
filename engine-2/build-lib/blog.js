@@ -20,7 +20,7 @@ function build(lang, content) {
                 const name = item.replace(/\.md/i, '');
                 const d = name.match(/^(\d\d\d\d)_(\d\d)_(\d\d)(_\d)?/);
                 let text = fs.readFileSync(path.join(consts.SRC_BLOG_DIR + lang, item)).toString('utf-8');
-                let {body, header} = utils.extractHeader(text);
+                let { body, header } = utils.extractHeader(text);
                 body = body.replace(/\r/g, '');
                 header.title = header.title || utils.getTitle(body) || '';
                 header.editLink = `${consts.GITHUB_EDIT_ROOT}blog/${lang}/${item}`;
@@ -44,7 +44,7 @@ function build(lang, content) {
                 }
 
                 // remove leading empty lines
-                while(lines.length && !lines[0]) {
+                while (lines.length && !lines[0]) {
                     lines.shift();
                 }
 
@@ -54,7 +54,7 @@ function build(lang, content) {
                         lines.shift();
 
                         // remove leading empty lines
-                        while(lines.length && !lines[0]) {
+                        while (lines.length && !lines[0]) {
                             lines.shift();
                         }
                     }
@@ -63,7 +63,7 @@ function build(lang, content) {
                 // take the first paragraph as description
                 const desc = [];
                 let i = 0;
-                while(lines[i]) {
+                while (lines[i]) {
                     if (lines[i].startsWith('<!-- SOURCE: ') || lines[i].startsWith('<!-- ID: ')) {
                         break;
                     }
@@ -79,11 +79,14 @@ function build(lang, content) {
                         logo: header.logo || '',
                         type: header.type || 'news',
                         originalName: item,
-                        desc: {}
+                        desc: {},
                     };
                     content.pages[name].title[lang] = header.title || date;
                     content.pages[name].desc[lang] = desc.join('\\n');
-                    utils.writeSafe(`${consts.FRONT_END_DIR + lang}/blog/${name}.md`, utils.addHeader(lines.join('\n'), header));
+                    utils.writeSafe(
+                        `${consts.FRONT_END_DIR + lang}/blog/${name}.md`,
+                        utils.addHeader(lines.join('\n'), header),
+                    );
                 } else {
                     console.error(`Invalid name format: ${name}. Expected YEAR_MM_DD.md or YEAR_MM_DD_N.md`);
                 }
@@ -151,7 +154,8 @@ function sync2Languages(fromLang, toLang, content, cb) {
             translatedBody = body;
         }
 
-        translation.translateMD(fromLang, originalBody, toLang, translatedBody, true)
+        translation
+            .translateMD(fromLang, originalBody, toLang, translatedBody, true)
             .then(result => {
                 body = utils.trim(result.result, '\n');
                 originalBody = utils.trim(result.source, '\n');
@@ -175,12 +179,12 @@ function sync2Languages(fromLang, toLang, content, cb) {
                 const lines = body.trim().split('\n');
 
                 // remove leading empty lines
-                while(lines.length && !lines[0]) lines.shift();
+                while (lines.length && !lines[0]) lines.shift();
 
                 // take the first paragraph as description
                 const desc = [];
                 let i = 0;
-                while(lines[i]) {
+                while (lines[i]) {
                     if (lines[i].startsWith('<!-- SOURCE: ')) {
                         break;
                     }
@@ -205,42 +209,41 @@ function processTasks(tasks, content, cb) {
     } else {
         const task = tasks.shift();
         sync2Languages(task.fromLang, task.toLang, content, () =>
-            setTimeout(() => processTasks(tasks, content, cb), 0));
+            setTimeout(() => processTasks(tasks, content, cb), 0),
+        );
     }
 }
 
 function buildAll() {
-    const content = {pages: {}};
+    const content = { pages: {} };
     return new Promise(resolve => {
-        Promise.all(consts.LANGUAGES.map(lang => build(lang, content)))
-            .then(contents => {
-                console.log(JSON.stringify(contents[0]));
+        Promise.all(consts.LANGUAGES.map(lang => build(lang, content))).then(contents => {
+            console.log(JSON.stringify(contents[0]));
 
-                // sync all directories
-                const tasks = [];
-                consts.LANGUAGES.map(lang => {
-                    consts.LANGUAGES
-                        .filter(lang2 => lang2 !== lang)
-                        .map(lang2 => tasks.push({fromLang: lang, toLang: lang2}));
-                });
-                processTasks(tasks, content, () => {
-                    // sort files
-                    const names = Object.keys(content.pages);
-                    names.sort((a, b) => {
-                        if (b > a) return 1;
-                        if (b < a) return -1;
-                        return 0;
-                    });
-                    const old = content.pages;
-                    content.pages = {};
-                    names.forEach(name => content.pages[name] = old[name]);
-
-                    fs.writeFileSync(`${consts.FRONT_END_DIR}blog.json`, JSON.stringify(contents[0], null, 2));
-
-                    buildRSS()
-                        .then(() => resolve(content));
-                });
+            // sync all directories
+            const tasks = [];
+            consts.LANGUAGES.map(lang => {
+                consts.LANGUAGES.filter(lang2 => lang2 !== lang).map(lang2 =>
+                    tasks.push({ fromLang: lang, toLang: lang2 }),
+                );
             });
+            processTasks(tasks, content, () => {
+                // sort files
+                const names = Object.keys(content.pages);
+                names.sort((a, b) => {
+                    if (b > a) return 1;
+                    if (b < a) return -1;
+                    return 0;
+                });
+                const old = content.pages;
+                content.pages = {};
+                names.forEach(name => (content.pages[name] = old[name]));
+
+                fs.writeFileSync(`${consts.FRONT_END_DIR}blog.json`, JSON.stringify(contents[0], null, 2));
+
+                buildRSS().then(() => resolve(content));
+            });
+        });
     });
 }
 
@@ -258,7 +261,8 @@ function buildRSS() {
                 const dateObj = new Date(`${date.replace(/_/g, '-')}T06:00:00.000Z`);
 
                 if (!rss) {
-                    rss = '<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">\n';
+                    rss =
+                        '<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">\n';
                     rss += `    <channel>\n`;
                     rss += `        <title><![CDATA[ ioBroker Blog ]]></title>\n`;
                     rss += `        <description><![CDATA[${consts.BLOG_TITLE[lang]}]]></description>\n`;
@@ -267,17 +271,17 @@ function buildRSS() {
                     rss += `        <ttl>1440</ttl>\n`;
                 }
 
-
                 rss += `        <item>\n`;
                 rss += `            <title><![CDATA[${item.title[lang]}]]></title>\n`;
                 rss += `            <description><![CDATA[\n`;
                 rss += `                <p>${item.desc[lang].replace(/\n/g, '<br />').replace(/>/g, '=&gt;').replace(/<>/g, '=&lt;')}</p>\n`;
                 rss += `            ]]></description>\n`;
                 rss += `            <link>https://www.iobroker.net/#${lang}/blog/` + date + `</link>\n`;
-                rss += `            <guid isPermaLink="true">https://www.iobroker.net/#${lang}/blog/` + date + `</guid>\n`;
+                rss +=
+                    `            <guid isPermaLink="true">https://www.iobroker.net/#${lang}/blog/` + date + `</guid>\n`;
                 rss += `            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>\n`;
                 rss += `            <pubDate>${dateObj.toUTCString()}</pubDate>\n`;
-                rss += `        </item>\n`
+                rss += `        </item>\n`;
             });
             rss += `    </channel>\n`;
             rss += `</rss>\n`;

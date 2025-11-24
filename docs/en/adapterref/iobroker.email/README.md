@@ -15,8 +15,24 @@ The adapter uses [nodemailer](https://github.com/nodemailer/nodemailer) to provi
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-To use Gmail, you may need to configure "Allow Less Secure Apps" in your Gmail account unless you are using 2FA, in which
-case you would have to create an application-specific password. You also may need to unlock your account with "Allow access to your Google account" to use SMTP.
+## Email Provider Specific Notes
+
+### Gmail
+**Important:** If you have Two-Factor Authentication (2FA) enabled on your Gmail account, you **must** use an App Password instead of your regular Gmail password. This has always been required by nodemailer for Gmail with 2FA.
+
+To set up Gmail with 2FA:
+1. Enable 2-Step Verification in your Google Account settings
+2. Generate an App Password specifically for ioBroker email adapter
+3. Use your Gmail address as username and the generated App Password as password in the adapter configuration
+
+For accounts without 2FA, you may need to configure "Allow Less Secure Apps" in your Gmail account settings. You also may need to unlock your account with "Allow access to your Google account" to use SMTP.
+
+### mail.ee
+For mail.ee email service, **do not** use your normal webmail login credentials. Instead:
+
+- **Username**: Use your complete email address (e.g., `username@mail.ee`)
+- **Password**: Use the special IMAP/SMTP password (not your webmail password)
+  - To find your IMAP/SMTP password: Log into your mail.ee webmail account and visit [https://posti.mail.ee/prefs?group=enable_pop3](https://posti.mail.ee/prefs?group=enable_pop3)
 
 ## Usage
 
@@ -111,9 +127,10 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (@copilot) Enhanced GitHub Copilot instructions with tool calling efficiency guidelines
+### 2.0.5-alpha.0 (2025-10-06)
 * (@copilot) Fixed SMTP relay anonymous access by ignoring user and password when empty
+* (@copilot) Fixed Office365 OAuth email sending from scripts by ensuring fresh tokens are used
+* (mcm1957) Dependencies have been updated
 
 ### 2.0.4 (2025-04-15)
 * (@mcm1957) `From email address is not equal to the configured email address for authentication.` changed to debug level.
@@ -134,10 +151,6 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 * (mcm1957) Dependencies have been updated
 * (@GermanBluefox) Migrated to TypeScript
 * (@GermanBluefox) Added "Ignore SSL errors" option
-
-### 1.4.0 (2024-11-17)
-* (simatec) Responsive Design added
-* (Jey-Cee) Admin-UI has been migrated to jsonConfig
 
 ## License
 

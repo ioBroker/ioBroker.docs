@@ -6,7 +6,7 @@ export const useStyles = makeStyles()(theme => ({
         width: '100%',
         position: 'relative',
         overflow: 'visible',
-        marginBottom: '8px'
+        marginBottom: '8px',
     },
     logo: {
         position: 'absolute',

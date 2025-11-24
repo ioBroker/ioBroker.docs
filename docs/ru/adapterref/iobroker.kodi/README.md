@@ -1,13 +1,13 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kodi/README.md
-title: Kodi для ioBroker (JSON-RPC API)
-hash: 6tz1xec3ctMhLSz0uWt7cA4TZKg4YmF4WsQ53Me+5n4=
+title: Kodi для ioBroker (API JSON-RPC)
+hash: ZUy0c9iz7AxVkXOTVvExriEdabj/qUiYSFRR7DnLiS0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kodi/admin/kodi.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.kodi.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.kodi.svg)
 ![Количество установок](http://iobroker.live/badges/kodi-installed.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.kodi.svg)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
@@ -16,17 +16,17 @@ hash: 6tz1xec3ctMhLSz0uWt7cA4TZKg4YmF4WsQ53Me+5n4=
 # Kodi для ioBroker (JSON-RPC API)
 [![Тесты](https://github.com/instalator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.kodi/actions/)
 
-[Руководство на английском языке](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
+[руководство на английском языке](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
 
-Вы можете найти официальную документацию KODI по API JSON-RCP [тут](http://kodi.wiki/view/JSON-RPC_API) и полный список доступных команд (для протокола версии 6) [тут](http://kodi.wiki/view/JSON-RPC_API/v6).
+Официальную документацию KODI для API JSON-RPC можно найти здесь: [здесь](http://kodi.wiki/view/JSON-RPC_API) и полный список доступных команд (для протокола версии 6) [здесь](http://kodi.wiki/view/JSON-RPC_API/v6).
 
 ## Конфигурация KODI
-Включение удаленного управления и веб-сервера.
-![Включение дистанционного управления.](../../../en/adapterref/iobroker.kodi/admin/remote.png)
+Включить удалённое управление и веб-сервер.
+![Включить дистанционное управление.](../../../en/adapterref/iobroker.kodi/admin/remote.png)
 
-JSON-RPC API использует **по умолчанию порт 9090**, для того чтобы его изменить необходимо внести изменения в файл [Advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml)
+API JSON-RPC по умолчанию использует **порт 9090**. Чтобы изменить его, необходимо внести изменения в файл [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml).
 
-_Примечание: Файл AdvancedSettings.xml не существует по умолчанию. Вы должны сначала создать его!_
+_Примечание: файл advancedsettings.xml по умолчанию отсутствует. Его необходимо сначала создать!_
 
 ```xml
 <jsonrpc>
@@ -35,86 +35,86 @@ _Примечание: Файл AdvancedSettings.xml не существует �
 </jsonrpc>
 ```
 
-## Конфигурация драйвера
-В адаптере используется IP-адрес и порт для JSON-RPC API (по умолчанию 9090), а также логин/пароль для доступа к веб-серверу Kodi.
+## Конфигурация адаптера
+В настройках адаптера укажите IP-адрес и порт для API JSON-RPC (по умолчанию 9090), а также логин/пароль для доступа к веб-серверу Kodi.
 
 ## Использование
-### Показатьуведомление:
-Один важный момент, если используется заголовок сообщения, то он должен всегда находится перед самим текстом сообщения (Внимание;Протечка воды), расположение остальных параметров не критично.
+### ShowNotif:
+Важно: если используется заголовок сообщения, он всегда должен располагаться перед текстом сообщения (Предупреждение; Утечка воды). Расположение остальных параметров не имеет значения.
 
 **Изображение:** Уровень сообщения
 
-  * 'информация' - 0 (по умолчанию),
-  * 'предупреждение' - 1,
-  * 'ошибка' - 2.
+* 'info' - 0 (по умолчанию),
+* «предупреждение» - 1,
+* 'ошибка' - 2.
 
-**displaytime:** Время отображения сообщений в миллисекундах, минимум 1500 макс 30000 мс.
+**displaytime:** Время отображения сообщения в миллисекундах, минимум 1500, максимум 30000 мс.
 
 **Пример:**
 
- * 1;Внимание;Протечка воды;15000
- * Внимание;Протечка воды;2;10000
- * Внимание;Протечка воды
- * Протечка воды
+* 1;Предупреждение;Утечка воды;15000
+* Предупреждение;Утечка воды;2;10000
+* Внимание: утечка воды
+* Утечка воды
 
-Такие же сообщения можно отправить из драйвера javascript:
+Вы также можете отправлять сообщения из адаптера JavaScript:
 
 ```js
 sendTo("kodi.0", {
-    message:  'Возможно протечка воды ', //Текст сообщения
-    title:    'ВНИМАНИЕ!!!', //Заголовок сообщения
-    image: 'https://raw.githubusercontent.com/instalator/ioBroker.kodi/master/admin/kodi.png', //Ссылка на иконку
-    delay: 7000 //Время отображения сообщения миллисекундах (минимум 1500 макс 30000 мс)
+    message:  'Possible water leak', // Message text
+    title:    'WARNING!!!', // Message title
+    image: 'https://raw.githubusercontent.com/instalator/ioBroker.kodi/master/admin/kodi.png', // Icon URL
+    delay: 7000 // Message display time in milliseconds (minimum 1500, maximum 30000 ms)
 });
 ```
 
-### ПереключательПВР:
+### SwitchPVR:
 Переключение каналов PVR IPTV по названию канала в плейлисте.
-**Пример:** ТВ канал - Discovery Science найдет как по полному названию так и по открытию,
+**Пример:** Телеканал Discovery Science можно найти по полному названию или по запросу «discover».
 
-### YouTube:
-Для открытия видео с сайта YouTube достаточно записать код видео в данном статусе. Начиная с версии 0.1.5 и выше можно указать прямую ссылку на видео, а также код или полную ссылку на плейлист.
-Например: Для открытия этого [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA), необходимо установить в статус - Bvmxr24D4TA
+### Ютуб:
+Чтобы открыть видео с YouTube, просто пропишите код видео в этом состоянии. Начиная с версии 0.1.5 и выше, вы можете вставить прямую ссылку на видео, а также код или полную ссылку на плейлист.
+Например: чтобы открыть этот [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA), вам нужно установить состояние на -Bvmxr24D4TA
 
 ### Открыть:
-Здесь следует указать ссылку на медиаконтент в сети Интернет или путь к локальному медиафайлу.
-После записи значений завершите поиск проигрывателя KODI.
+Введите здесь ссылку на медиаконтент в интернете или путь к локальному медиафайлу.
+После записи значения воспроизведение начнётся в плеере KODI.
 
 ### Позиция:
-Текущая позиция в плейлисте, так же в этом статусе может быть записана необходимая поза, и KODI тут же перейдет к воспроизведению этой позиции.
+Текущая позиция в плейлисте. Вы также можете указать желаемую позицию в этом состоянии, и KODI немедленно переключится на воспроизведение этой позиции.
 
 ### Искать:
-Текущее значение позиции определяется в процентах от 0 до 100.
+Текущее значение позиции воспроизведения в процентах от 0 до 100.
 
 ### Повторить:
 Повтор воспроизведения, принимает следующие значения:
 
-* выкл. – повторение разговора отключено
-* on - повторение текущего трека
-* все - повтор всего плейлиста
+* выкл. - повторное воспроизведение отключено
+* вкл. - повтор текущего трека
+* все - повторить весь плейлист
 
 ### Перемешать:
-Перемешивание списка треков в плейлисте для случайного прослушивания.
-Принимает значения истинное и ложное
+Перемешать список треков в плейлисте для случайного воспроизведения.
+Принимает значения `true` и `false`
 
 ### Играть:
-Старт вывода (истина, ложь)
+Начать воспроизведение (истина, ложь)
 
 ### Скорость:
-Скорость изменения. Фиксированные значения (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32), а также «приращение» и «уменьшение».
+Скорость воспроизведения. Фиксированные значения (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32), а также «увеличение» и «уменьшение».
 
 ### Каталог:
-Сюда записывается путь до папки или диска, в ответ в этот статус записывается список каталогов указанной папки или диска.
+Введите здесь путь к папке или диску. В ответ в это состояние будет записан список каталогов указанной папки или диска.
 
-### АктивироватьОкно:
-Активизирует в проигрывателе окно. Поддерживает следующий список:
+### Активировать окно:
+Активирует окно в плеере. Поддерживает следующий список:
 
 ```
-"home", "programs", "pictures", "filemanager", "files", "settings", "music", "video", "videos", "tv", "pvr", "pvrguideinfo", "pvrrecordinginfo", "pvrtimersetting", "pvrgroupmanager", "pvrchannelmanager", "pvrchannelmanager", "pvrguidesearch", "pvrchannelscan", "pvrupdateprogress", "pvrosdchannels", "pvrosdguide", "pvrosddirector", "pvrosdcutter", "pvrosdteletext", "systeminfo", "testpattern", "screencalibration", "guicalibration", "picturessettings", "programssettings", "weathersettings", "musicsettings", "systemsettings", "videossettings", "networksettings", "servicesettings", "appearancesettings", "pvrsettings", "tvsettings", "scripts", "videofiles", "videolibrary", "videoplaylist", "loginscreen", "profiles", "skinsettings", "addonbrowser", "yesnodialog", "progressdialog", "virtualkeyboard", "volumebar", "submenu", "favourites", "contextmenu", "infodialog", "numericinput", "gamepadinput", "shutdownmenu", "mutebug", "playercontrols", "seekbar", "musicosd", "addonsettings", "visualisationsettings", "visualisationpresetlist", "osdvideosettings", "osdaudiosettings", "videobookmarks", "filebrowser", "networksetup", "mediasource", "profilesettings", "locksettings", "contentsettings", "songinformation", "smartplaylisteditor", "smartplaylistrule", "busydialog", "pictureinfo", "accesspoints", "fullscreeninfo", "karaokeselector", "karaokelargeselector", "sliderdialog", "addoninformation", "musicplaylist", "musicfiles", "musiclibrary", "musicplaylisteditor", "teletext", "selectdialog", "musicinformation", "okdialog", "movieinformation", "textviewer", "fullscreenvideo", "fullscreenlivetv", "visualisation", "slideshow", "filestackingdialog", "karaoke", "weather", "screensaver", "videoosd", "videomenu", "videotimeseek", "musicoverlay", "videooverlay", "startwindow", "startup", "peripherals", "peripheralsettings", "extendedprogressdialog", "mediafilter".
+"home", "programs", "pictures", "filemanager", "files", "settings", "music", "video", "videos", "tv", "pvr", "pvrguideinfo", "pvrrecordinginfo", "pvrtimersetting", "pvrgroupmanager", "pvrchannelmanager", "pvrguidesearch", "pvrchannelscan", "pvrupdateprogress", "pvrosdchannels", "pvrosdguide", "pvrosddirector", "pvrosdcutter", "pvrosdteletext", "systeminfo", "testpattern", "screencalibration", "guicalibration", "picturessettings", "programssettings", "weathersettings", "musicsettings", "systemsettings", "videossettings", "networksettings", "servicesettings", "appearancesettings", "pvrsettings", "tvsettings", "scripts", "videofiles", "videolibrary", "videoplaylist", "loginscreen", "profiles", "skinsettings", "addonbrowser", "yesnodialog", "progressdialog", "virtualkeyboard", "volumebar", "submenu", "favourites", "contextmenu", "infodialog", "numericinput", "gamepadinput", "shutdownmenu", "mutebug", "playercontrols", "seekbar", "musicosd", "addonsettings", "visualisationsettings", "visualisationpresetlist", "osdvideosettings", "osdaudiosettings", "videobookmarks", "filebrowser", "networksetup", "mediasource", "profilesettings", "locksettings", "contentsettings", "songinformation", "smartplaylisteditor", "smartplaylistrule", "busydialog", "pictureinfo", "accesspoints", "fullscreeninfo", "karaokeselector", "karaokelargeselector", "sliderdialog", "addoninformation", "musicplaylist", "musicfiles", "musiclibrary", "musicplaylisteditor", "teletext", "selectdialog", "musicinformation", "okdialog", "movieinformation", "textviewer", "fullscreenvideo", "fullscreenlivetv", "visualisation", "slideshow", "filestackingdialog", "karaoke", "weather", "screensaver", "videoosd", "videomenu", "videotimeseek", "musicoverlay", "videooverlay", "startwindow", "startup", "peripherals", "peripheralsettings", "extendedprogressdialog", "mediafilter".
 ```
 
-###ВыполнитьДействие:
-Можно выполнить одно из следующих действий:
+### ВыполнитьДействие:
+Вы можете выполнить одно из следующих действий:
 
 ```
 "left", "right", "up", "down", "pageup", "pagedown", "select", "highlight", "parentdir", "parentfolder", "back", "previousmenu", "info", "pause", "stop", "skipnext", "skipprevious", "fullscreen", "aspectratio", "stepforward", "stepback", "bigstepforward", "bigstepback", "osd", "showsubtitles", "nextsubtitle", "codecinfo", "nextpicture", "previouspicture", "zoomout", "zoomin", "playlist", "queue", "zoomnormal", "zoomlevel1", "zoomlevel2", "zoomlevel3", "zoomlevel4", "zoomlevel5", "zoomlevel6", "zoomlevel7", "zoomlevel8", "zoomlevel9", "nextcalibration", "resetcalibration", "analogmove", "rotate", "rotateccw", "close", "subtitledelayminus", "subtitledelay", "subtitledelayplus", "audiodelayminus", "audiodelay", "audiodelayplus", "subtitleshiftup", "subtitleshiftdown", "subtitlealign", "audionextlanguage", "verticalshiftup", "verticalshiftdown", "nextresolution", "audiotoggledigital", "number0", "number1", "number2", "number3", "number4", "number5", "number6", "number7", "number8", "number9", "osdleft", "osdright", "osdup", "osddown", "osdselect", "osdvalueplus", "osdvalueminus", "smallstepback", "fastforward", "rewind", "play", "playpause", "delete", "copy", "move", "mplayerosd", "hidesubmenu", "screenshot", "rename", "togglewatched", "scanitem", "reloadkeymaps", "volumeup", "volumedown", "mute", "backspace", "scrollup", "scrolldown", "analogfastforward", "analogrewind", "moveitemup", "moveitemdown", "contextmenu", "shift", "symbols", "cursorleft", "cursorright", "showtime", "analogseekforward", "analogseekback", "showpreset", "presetlist", "nextpreset", "previouspreset", "lockpreset", "randompreset", "increasevisrating", "decreasevisrating", "showvideomenu", "enter", "increaserating", "decreaserating", "togglefullscreen", "nextscene", "previousscene", "nextletter", "prevletter", "jumpsms2", "jumpsms3", "jumpsms4", "jumpsms5", "jumpsms6", "jumpsms7", "jumpsms8", "jumpsms9", "filter", "filterclear", "filtersms2", "filtersms3", "filtersms4", "filtersms5", "filtersms6", "filtersms7", "filtersms8", "filtersms9", "firstpage", "lastpage", "guiprofile", "red", "green", "yellow", "blue", "increasepar", "decreasepar", "volampup", "volampdown", "channelup", "channeldown", "previouschannelgroup", "nextchannelgroup", "leftclick", "rightclick", "middleclick", "doubleclick", "wheelup", "wheeldown", "mousedrag", "mousemove", "noop".
@@ -122,11 +122,11 @@ sendTo("kodi.0", {
 ```
 
 ### Система:
- - EjectOpticalDrive - Извлекает или закрывает дисковод оптических дисков (если имеется)
- - Hibernate – включение другого режима
- - Reboot - перезагрузка системы
- - Выключение - выключение системы
- - Приостановить - приостанавливает Kodi
+- EjectOpticalDrive — извлекает или закрывает оптический привод (если он доступен)
+- Гибернация - включает режим гибернации.
+- Перезагрузка - Перезагрузка системы.
+- Завершение работы - Выключает систему.
+- Приостановить - Приостанавливает работу Kodi
 
 ## Changelog
 <!--

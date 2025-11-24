@@ -36,9 +36,15 @@ const AppContent = () => {
     return (
         <Box className={classes.root}>
             <Box className={classes.header}>
-                <Header selected="" noSearch={false} />
+                <Header
+                    selected=""
+                    noSearch={false}
+                />
             </Box>
-            <Box component="main" className={classes.main}>
+            <Box
+                component="main"
+                className={classes.main}
+            >
                 {routes}
             </Box>
             <Divider

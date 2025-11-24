@@ -24,35 +24,58 @@ export const CommunitySection: React.FC = () => {
     ];
 
     return (
-        <Box component="section" className={classes.communitySection}>
+        <Box
+            component="section"
+            className={classes.communitySection}
+        >
             <Box className={classes.container}>
                 <Box sx={{ width: '100%', maxWidth: '1311px', textAlign: { xs: 'left', md: 'left' } }}>
-                    <SectionTitle sx={{ marginBottom: { xs: '10px !important', md: '24px !important' } }}>COMMUNITY</SectionTitle>
+                    <SectionTitle sx={{ marginBottom: { xs: '10px !important', md: '24px !important' } }}>
+                        COMMUNITY
+                    </SectionTitle>
                 </Box>
                 <Box className={classes.communityTextWrapper}>
-                    <Typography component="pre" className={classes.communityText}>
+                    <Typography
+                        component="pre"
+                        className={classes.communityText}
+                    >
                         {mainText}
                     </Typography>
-                    <Typography className={classes.secondaryText}>
-                        {secondaryText}
-                    </Typography>
+                    <Typography className={classes.secondaryText}>{secondaryText}</Typography>
                 </Box>
                 <Box className={classes.statsContainer}>
                     {communityData.map(item => (
-                        <Box key={item.title} className={classes.statCard}>
+                        <Box
+                            key={item.title}
+                            className={classes.statCard}
+                        >
                             <div className={classes.bracesLeft} />
                             <Box className={classes.bracesContent}>
                                 <Box className={classes.statCardContentWrapper}>
-                                    <Typography variant="h5" className={classes.statTitle}>
+                                    <Typography
+                                        variant="h5"
+                                        className={classes.statTitle}
+                                    >
                                         {item.title}
                                     </Typography>
                                     <Typography className={classes.statNumber}>
                                         {item.count}
-                                        <Box component="span" sx={{ fontSize: '32px', verticalAlign: 'middle' }}> +</Box>
+                                        <Box
+                                            component="span"
+                                            sx={{ fontSize: '32px', verticalAlign: 'middle' }}
+                                        >
+                                            {' '}
+                                            +
+                                        </Box>
                                     </Typography>
                                     <Typography className={classes.statLabel}>Nutzer</Typography>
                                 </Box>
-                                <CustomButton variant="secondary" className={classes.joinButton}>BEITRETEN</CustomButton>
+                                <CustomButton
+                                    variant="secondary"
+                                    className={classes.joinButton}
+                                >
+                                    BEITRETEN
+                                </CustomButton>
                             </Box>
                             <div className={classes.bracesRight} />
                         </Box>

@@ -2,26 +2,35 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-keyboard/README.md
-title: kein Titel
-hash: FjtOv7gTAgKc7pxzEBCHFai3kCY5alTUqJ0applrIgw=
+title: ioBroker.vis-Tastatur
+hash: sysOeYVnGqPZ271F7j9DZSeoZJxIfbYc/HVKCyVhR7A=
 ---
-![Logo](../../../en/adapterref/iobroker.vis-keyboard/admin/keyboard.png) ioBroker.vis-keyboard =============
+![Logo](../../../en/adapterref/iobroker.vis-keyboard/admin/keyboard.png)
 
-![Bildschirmfoto](../../../en/adapterref/iobroker.vis-keyboard/img/widgets.png)
+![Anzahl der Installationen](http://iobroker.live/badges/vis-keyboard-stable.svg)
 
-![Bildschirmfoto](../../../en/adapterref/iobroker.vis-keyboard/img/numpad.png)
+# IoBroker.vis-Tastatur
+![Screenshot](../../../en/adapterref/iobroker.vis-keyboard/img/widgets.png)
 
-Sehr gutes Jquery-Plugin von Jeremy Satterfield. (Original von Jeremy Satterfield, aktualisiert und von Rob Garrison gepflegt)
+![Screenshot](../../../en/adapterref/iobroker.vis-keyboard/img/numpad.png)
 
-github - http://github.com/Mottie/Keyboard
+Ich habe ein sehr gutes jQuery-Plugin von Jeremy Satterfield verwendet. (Original von Jeremy Satterfield, aktualisiert und gepflegt von Rob Garrison)
 
-##Verwendungszweck
-Sie können dieses Widget anzeigen und alle Widgets mit Eingabefeldern haben eine virtuelle Tastatur. Sie müssen in jeder Ansicht ein Widget platzieren.
+github – http://github.com/Mottie/Keyboard
 
-Zusätzlich können Sie zur Widget-Klasse ```keyboard-num``` hinzufügen, um die Verwendung der numerischen Tastatur zu erzwingen, oder ```keyboard-all```, um die Volltext-Tastatur zu erzwingen.
+## Verwendung
+Sie können dieses Widget in der Ansicht platzieren, und alle Widgets mit Eingabefeldern erhalten eine virtuelle Tastatur. Das Widget muss in jeder Ansicht platziert werden.
+
+Zusätzlich können Sie der Widget-Klasse `keyboard-num` hinzufügen, um die Verwendung der numerischen Tastatur zu erzwingen, oder `keyboard-all`, um die Verwendung der Volltexttastatur zu erzwingen.
+
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+
+### **IN BEARBEITUNG** -->
 
 ## Changelog
-![Number of Installations](http://iobroker.live/badges/vis-keyboard-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-keyboard-stable.svg) 
+### 0.0.3 (2025-10-30)
+- (bluefox) updated packages
+
 ### 0.0.2 (2015-10-28)
 - (bluefox) update plugin
 
@@ -29,5 +38,5 @@ Zusätzlich können Sie zur Widget-Klasse ```keyboard-num``` hinzufügen, um die
 - (smiling_Jack) initial checkin
 
 ## License
- Copyright (c) 2015-2016 smiling_Jack
+ Copyright (c) 2015-2025 smiling_Jack
  MIT

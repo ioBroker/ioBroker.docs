@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: LJPtBKpFe5pEkfv+/Ay6IJBfOV2UtFDQ+QOnBnu6fJw=
+hash: MGiYMwJoul92QwJbU2ve3VGjaw4SuxeBxGvNS9gxt8c=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -98,9 +98,10 @@ hash: LJPtBKpFe5pEkfv+/Ay6IJBfOV2UtFDQ+QOnBnu6fJw=
 * kecontact.n.automatic.limitCurrent — ограничивает зарядку заданной силой тока в мА (0 = без ограничений)
 * kecontact.n.automatic.batteryStorageStrategy — стратегия, определяющая, следует ли использовать аккумулятор для зарядки вашего автомобиля и как это сделать
 * kecontact.n.automatic.batterySoCForCharging — ограничение использования заряда аккумулятора транспортного средства путем указания уровня заряда, ниже которого зарядка запрещена
-* kecontact.n.automatic.stateVehicleSoC - имя состояния для получения текущего SoC транспортного средства
+* kecontact.n.automatic.stateVehicleSoC — имя состояния для получения текущего SoC транспортного средства (необходимо для targetoc и maxSoc)
 * kecontact.n.automatic.targetSoC — отключить автоматическую зарядку PV (максимальную мощность), пока транспортное средство не достигнет этого уровня SoC
 * kecontact.n.automatic.resetTargetSoC — установите значение true, если целевой SoC должен быть очищен после достижения
+* kecontact.n.automatic.maxSoC — максимальный уровень заряда батареи, при достижении которого зарядка производиться не будет
 
 Пример: Чтобы заряжать автомобиль постоянной силой тока 6 А независимо от излишков, установите для параметра «фотоэлектрические системы» значение «ложь», а для параметра «limitCurrent» — значение «6000».
 
@@ -116,6 +117,7 @@ KeConnect является зарегистрированной торговой
 -->
 ### **WORK IN PROGRESS**
 * (Sneak-L8) new options to charge vehicle up to a specified SoC
+* (Sneak-L8) new option to stop charging at a certain SoC
 * (Sneak-L8) raise adapter-dev version from 1.4 to 1.5
 * (Sneak-L8) drop dependencies to chai, sinon and mocha
 

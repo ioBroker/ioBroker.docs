@@ -32,9 +32,12 @@ Es kann konfiguriert werden, zu welcher Uhrzeit und an welchen Wochentagen der T
 - [Bedingungen hinzufügen](#bedingung-hinzufügen)
 - [Text ersetzen](#text-ersetzen)
 - [CSS Einstellungen](#css-anwenden-beschreibung-siehe-css)
+- [CSS Icons und Pfad](#icongrößen-und-eigene-icons)
 - [Trigger anlegen](#trigger)
 - [Astrotrigger anlegen](#astro-trigger)
 - [Einmaltrigger anlegen](#one-time-trigger)
+- [Astro Icons](#astro-icons)
+- [Übersicht Widgets](#html-übersicht-der-widgets)
 - [HTML Einstellung](#html-für-vis-und-vis-2)
 - [HTML Funktion NUR VIS-2](#function-nur-für-vis-2)
 - [CSS](#css)
@@ -69,6 +72,7 @@ Es kann konfiguriert werden, zu welcher Uhrzeit und an welchen Wochentagen der T
 - `schedule-switcher.0.history` Histerie der Schaltungen
 - `schedule-switcher.0.nextEvents` Nächste Schaltvorgänge als JSON Table
 - `schedule-switcher.0.sendto` Bei VIS-2 werden Änderungen über dieses Objekt an den Adapter übergeben
+- `schedule-switcher.0.widgetOverview` Übersicht aller Widgets um Fehler zu finden
 
 ![101_remote.png](img/view_states.png)
 
@@ -87,7 +91,8 @@ Es kann konfiguriert werden, zu welcher Uhrzeit und an welchen Wochentagen der T
         "active": true, // enabled true oder false
         "hour": 16, // Stunde
         "minute": 22, // Minute
-        "day": 9, // Tag
+        "day": 6, // Tag
+        "valueCheck": false, // States vergleichen
         "dateISO": "2024-11-09T15:22:00.000Z", // Zeit ohne Zeitzone
         "timestamp": 1731165720000, // Timestamp ohne Zeitzone
         "objectId": 1 // ObejektId schedule-switcher.0.onoff.<objectid>.data
@@ -128,6 +133,7 @@ Es kann konfiguriert werden, zu welcher Uhrzeit und an welchen Wochentagen der T
             "astroTime": "sunrise",
             "shiftInMinutes": 0,
             "weekdays": [1, 2, 3, 4, 5, 6],
+            "valueCheck": false,
             "id": "0",
             "action": {
                 "type": "ConditionAction",
@@ -179,7 +185,12 @@ Es kann konfiguriert werden, zu welcher Uhrzeit und an welchen Wochentagen der T
                     {
                         "oid-conditionStateId1": "0_userdata.0.test"
                     }
-                ]
+                ],
+                "valueType": "number", // Wertetyp
+                "offValue": "100", // Wert für An - Fehlt wenn nicht gesetzt
+                "onValue": "0", // Wert für Aus - Fehlt wenn nicht gesetzt
+                "newOff": "Hoch", // Ersetzt AN - Fehlt wenn nicht gesetzt
+                "newOn": "Runter" // Ersetzt AUS - Fehlt wenn nicht gesetzt
             },
             "w000006": {
                 // Widget ID
@@ -198,7 +209,8 @@ Es kann konfiguriert werden, zu welcher Uhrzeit und an welchen Wochentagen der T
                     }
                 ],
                 "conditionCount": 1, // Counter Bedingung
-                "condition": [] // Zustände Bedingungen
+                "condition": [], // Zustände Bedingungen
+                "valueType": "boolean" // Wertetyp
             }
         }
     }
@@ -223,6 +235,7 @@ sendTo("schedule-switcher.0", "update-trigger", { // Aktion für den neuen Ausl�
         "hour":12,
         "minute":32,
         "weekdays":[1,2,3,4,5],
+        "valueCheck": false,
         "id":"0", // ID abgleichen
         "action":{
             "type":"OnOffStateAction",
@@ -244,6 +257,7 @@ sendTo("schedule-switcher.0", "update-trigger", { // Aktion für den neuen Ausl�
         "astroTime":"sunrise", // sunrise, sunset or solarNoon
         "shiftInMinutes":0,
         "weekdays":[1,2,3,4,5],
+        "valueCheck": false,
         "id":"0", // ID abgleichen
         "action":{
             "type":"OnOffStateAction",
@@ -262,7 +276,7 @@ sendTo("schedule-switcher.0", "enable-schedule", { // Auslöser aktivieren
 
 sendTo("schedule-switcher.0", "add-one-time-trigger", { // Einmalauslöser anlegen
     "dataId":"schedule-switcher.0.onoff.6.data",
-    "trigger":"{\"type\":\"OneTimeTrigger\",\"date\":\"2024-10-17T06:14:22.660Z\",\"timedate\":false,\"action\":{\"type\":\"OnOffStateAction\",\"name\":\"On\"}}"
+    "trigger":"{\"type\":\"OneTimeTrigger\",\"date\":\"2024-10-17T06:14:22.660Z\",\"valueCheck\": false,\"timedate\":false,\"action\":{\"type\":\"OnOffStateAction\",\"name\":\"On\"}}"
 });
 
 sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID löschen
@@ -290,11 +304,13 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
   {
     "setObjectId": "0_userdata.0.test4",
     "objectId": 0,
-    "value": "true",
+    "actualValue": true,
+    "oldValue": false,
+    "checkValue": false,
     "object": "0_userdata.0.test4",
     "trigger": "TimeTrigger",
     "astroTime": "unknown",
-    "shift": 0,
+    "shiftInMinutes": 0,
     "date": 0,
     "hour": 20,
     "minute": 48,
@@ -309,15 +325,19 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
         0
       ]
     ],
-    "time": 1729622880040
+    "timestamp": 1761384780017,
+    "dateTime": "2025-10-25T09:33:00.017Z",
+    "dateTimeWithTimezone": "2025-10-25T11:33:00.017Z"
   },
   {
     "setObjectId": "0_userdata.0.test4",
     "objectId": 0,
-    "value": "true",
+    "actualValue": true,
+    "oldValue": false,
+    "checkValue": false,
     "object": "0_userdata.0.test4",
     "astroTime": "unknown",
-    "shift": 0,
+    "shiftInMinutes": 0,
     "date": 0,
     "hour": 20,
     "minute": 47,
@@ -332,7 +352,9 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
         0
       ]
     ],
-    "time": 1729622820071
+    "timestamp": 1761383520527,
+    "dateTime": "2025-10-25T09:12:00.527Z",
+    "dateTimeWithTimezone": "2025-10-25T11:12:00.527Z"
   }
 ]
 ```
@@ -419,7 +441,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 [Zusammenfassung](#zusammenfassung)
 
-- Verwende CSS aktivieren um den Style anzupassen</br>
+- Verwende `CSS aktivieren` um den Style anzupassen</br>
   ![create_widget_css.png](img/create_widget_css.png)</br>
   ![create_widget_css_1.png](img/create_widget_css_1.png)</br>
   ![create_widget_css_2.png](img/create_widget_css_2.png)</br>
@@ -429,6 +451,55 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
   ![widget_astro_icon.png](img/widget_astro_icon.png)</br>
   ![widget_condition_1.png](img/widget_condition_1.png)</br>
   ![widget_condition_2.png](img/widget_condition_2.png)
+
+### Icongrößen und eigene Icons
+
+[Zusammenfassung](#zusammenfassung)
+
+![create_widget_css_4.png](img/create_widget_css_4.png)
+
+Für den Pfad zu den eigenen Icons muss `CSS aktivieren` nicht aktiviert werden. Bei vorhandenen Widgets muss die Dateiendung einmalig gewechselt werden sonst wird das Attribut nicht angelegt. Das gleiche gilt auch für die Breite/Höhe Einstellungen.
+Die Icons können über Upload hochgeladen werden oder in ein eigenes Verzeichnis kopieren.
+Beispiel Pfad über `Dateien`:
+
+- http://192.168.2.18:8081/files/0_userdata.0/
+- /opt/iobroker/iobroker-data/files/0_userdata.0/
+
+Oder ein eigenes Verzeichnis.
+
+- /home/iobroker/<meinOrdner>/
+
+Die Widgets müssen wie folgt bennant werden. Es müssen ALLE Icons in das Verzeichnis angelegt werden:
+
+| Icon                                                                                        | Dateiname             |
+| ------------------------------------------------------------------------------------------- | --------------------- |
+| ![sunrise.svg](../../widgets/schedule-switcher/img/astro/sunrise.svg)                       | sunrise               |
+| ![solarNoon.svg](../../widgets/schedule-switcher/img/astro/solarNoon.svg)                   | solarNoon             |
+| ![sunset.svg](../../widgets/schedule-switcher/img/astro/sunset.svg)                         | sunset                |
+| ![sunriseEnd.svg](../../widgets/schedule-switcher/img/astro/sunriseEnd.svg)                 | sunriseEnd            |
+| ![goldenHourEnd.svg](../../widgets/schedule-switcher/img/astro/goldenHourEnd.svg)           | goldenHourEnd         |
+| ![goldenHour.svg](../../widgets/schedule-switcher/img/astro/goldenHour.svg)                 | goldenHour            |
+| ![sunsetStart.svg](../../widgets/schedule-switcher/img/astro/sunsetStart.svg)               | sunsetStart           |
+| ![dusk.svg](../../widgets/schedule-switcher/img/astro/dusk.svg)                             | dusk                  |
+| ![nauticalDusk.svg](../../widgets/schedule-switcher/img/astro/nauticalDusk.svg)             | nauticalDusk          |
+| ![night.svg](../../widgets/schedule-switcher/img/astro/night.svg)                           | night                 |
+| ![nadir.svg](../../widgets/schedule-switcher/img/astro/nadir.svg)                           | nadir                 |
+| ![nightEnd.svg](../../widgets/schedule-switcher/img/astro/nightEnd.svg)                     | nightEnd              |
+| ![nauticalDawn.svg](../../widgets/schedule-switcher/img/astro/nauticalDawn.svg)             | nauticalDawn          |
+| ![dawn.svg](../../widgets/schedule-switcher/img/astro/dawn.svg)                             | dawn                  |
+| ![add.svg](../../widgets/schedule-switcher/img/add.svg)                                     | add                   |
+| ![cancel.svg](../../widgets/schedule-switcher/img/cancel.svg)                               | cancel                |
+| ![edit.svg](../../widgets/schedule-switcher/img/edit.svg)                                   | edit                  |
+| ![delete.svg](../../widgets/schedule-switcher/img/delete.svg)                               | delete                |
+| ![onetime.svg](../../widgets/schedule-switcher/img/onetime.svg)                             | onetime               |
+| ![remove_circle_outline.svg](../../widgets/schedule-switcher/img/remove_circle_outline.svg) | remove_circle_outline |
+| ![save.svg](../../widgets/schedule-switcher/img/save.svg)                                   | save                  |
+| ![time.svg](../../widgets/schedule-switcher/img/time.svg)                                   | time                  |
+| ![valueCheck.svg](../../widgets/schedule-switcher/img/valueCheck.svg)                       | valueCheck            |
+| ![valueNoCheck.svg](../../widgets/schedule-switcher/img/valueNoCheck.svg)                   | valueNoCheck          |
+| ![unknown.svg](../../widgets/schedule-switcher/img/unknown.svg)                             | unknown               |
+
+![view_upload.png](img/view_upload.png)
 
 ### Trigger
 
@@ -440,6 +511,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 - Schaltzustand auswählen
 - Eine Bedingung auswählen (optional)
+- Wert nur setzen wenn er ungleich ist
 - Zeit eintragen (hh:mm)
 
 ```:warning:
@@ -467,6 +539,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 - Schaltzustand auswählen
 - Eine Bedingung auswählen (optional)
+- Wert nur setzen wenn er ungleich ist
 - Astrozeit auswählen (Sonnenaufgang, Sonnenuntergang oder Mittag)
 
 ![create_widget_select_astro_add_1.png](img/create_widget_select_astro_add_1.png)
@@ -481,12 +554,34 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 ![create_widget_select_astro_done.png](img/create_widget_select_astro_done.png)
 
+### Astro Icons
+
+[Zusammenfassung](#zusammenfassung)
+
+| Icon                                                                              | Description   |
+| --------------------------------------------------------------------------------- | ------------- |
+| ![sunrise.svg](../../widgets/schedule-switcher/img/astro/sunrise.svg)             | sunrise       |
+| ![solarNoon.svg](../../widgets/schedule-switcher/img/astro/solarNoon.svg)         | solarNoon     |
+| ![sunset.svg](../../widgets/schedule-switcher/img/astro/sunset.svg)               | sunset        |
+| ![sunriseEnd.svg](../../widgets/schedule-switcher/img/astro/sunriseEnd.svg)       | sunriseEnd    |
+| ![goldenHourEnd.svg](../../widgets/schedule-switcher/img/astro/goldenHourEnd.svg) | goldenHourEnd |
+| ![goldenHour.svg](../../widgets/schedule-switcher/img/astro/goldenHour.svg)       | goldenHour    |
+| ![sunsetStart.svg](../../widgets/schedule-switcher/img/astro/sunsetStart.svg)     | sunsetStart   |
+| ![dusk.svg](../../widgets/schedule-switcher/img/astro/dusk.svg)                   | dusk          |
+| ![nauticalDusk.svg](../../widgets/schedule-switcher/img/astro/nauticalDusk.svg)   | nauticalDusk  |
+| ![night.svg](../../widgets/schedule-switcher/img/astro/night.svg)                 | night         |
+| ![nadir.svg](../../widgets/schedule-switcher/img/astro/nadir.svg)                 | nadir         |
+| ![nightEnd.svg](../../widgets/schedule-switcher/img/astro/nightEnd.svg)           | nightEnd      |
+| ![nauticalDawn.svg](../../widgets/schedule-switcher/img/astro/nauticalDawn.svg)   | nauticalDawn  |
+| ![dawn.svg](../../widgets/schedule-switcher/img/astro/dawn.svg)                   | dawn          |
+
 ### One Time Trigger
 
 [Zusammenfassung](#zusammenfassung)
 
 - Schaltzustand auswählen
 - Eine Bedingung auswählen (optional)
+- Wert nur setzen wenn er ungleich ist
 - Zeit eintragen (hh:mm:ss)
 - Oben rechts speichern anklicken
 
@@ -498,6 +593,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 - Schaltzustand auswählen
 - Eine Bedingung auswählen (optional)
+- Wert nur setzen wenn er ungleich ist
 - Zeit eintragen/auswählen (dd.mm.yyyy hh:mm:ss)
 - Oben rechts speichern anklicken
 
@@ -511,6 +607,12 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - Fertig
 
 ![create_widget_select_onetime_date_done.png](img/create_widget_select_onetime_date_done.png)
+
+### HTML Übersicht der Widgets
+
+[Summary](#summary)
+
+![overview.png](img/overview.png)
 
 ### HTML für VIS und VIS-2
 
@@ -580,6 +682,8 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - `html.headline_weight` Kopf Schriftstärke - Standard normal
 - `html.html_code` HTML Code für VIS, VIS-2, Jarvis, IQontrol usw.
 - `html.icon_false` Icon Schaltzustand aus - Standard ⚪
+- `html.icon_state_check_no` Statusvergleich deaktiviert 🔴
+- `html.icon_state_check_yes` Zustandsvergleich aktiviert 🟢
 - `html.icon_switch_symbol` Icon Schalter um die Zeitschaltuhr zu aktivieren/deaktivieren - Standard ⏱
 - `html.icon_true` Icon Schaltzustand an - Standard 🟡
 - `html.jarvis` Kompatibel für Jarvis - Standard false
@@ -609,8 +713,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - Wochentag anklicken um diesen zu aktivieren/deaktivieren
 - Zeile Triggername wird unter Wochentage der nächste Event on/off angezeigt
 
-![vis_view_1.png](img/vis_view_1.png)</br>
-![vis_view_2.png](img/vis_view_2.png)
+![vis_view_1.png](img/vis_view_1.png)
 
 ### Function NUR für VIS-2!!!
 
@@ -646,6 +749,17 @@ function changeweekdays(stateId, command, dataid, id, changeid, type) {
 		}
     };
 	vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+function changeValueCheck(stateId, command, dataid, id, value) {
+    var data = {
+		"command": command,
+		"message": {
+            "changeval": value,
+            "triggerid": id,
+            "dataid": dataid
+		}
+    };
+    vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
 }
 function updateTrigger(stateId) {
 	vis.conn.setState(stateId + '.html.update', { val: true, ack: false });
@@ -781,6 +895,21 @@ app-on-off-schedules-widget {
     --ts-widget-astro-shift-font-size: 1em;
     /* Font size of condition */
     --ts-widget-condition-font-size: 1em;
+
+    /* Icons width and height in px */
+
+    /* Astro icons */
+    --ts-widget-astro-icon-width, 42px;
+    --ts-widget-astro-icon-height, 42px;
+    /* Display icons (rename and add icon) */
+    --ts-widget-display-icon-width, 28px;
+    --ts-widget-display-icon-height, 28px;
+    /* Trigger view icons */
+    --ts-widget-trigger-view-icon-width, 28px;
+    --ts-widget-trigger-view-icon-height, 28px;
+    /* Trigger edit icons */
+    --ts-widget-trigger-edit-icon-width, 28px;
+    --ts-widget-trigger-edit-icon-height, 28px;
 }
 ```
 
@@ -794,6 +923,10 @@ app-on-off-schedules-widget {
 ### **WORK IN PROGRESS**
 
 - (Lucky-ESA) Fixed warn log (Cannot read dir...)
+- (Lucky-ESA) Added state comparison enabled/disabled
+- (Lucky-ESA) Fixed small some bugs
+- (Lucky-ESA) History JSON changed
+- (Lucky-ESA) Using your own icons
 
 ### 0.0.12 (2025-08-27)
 

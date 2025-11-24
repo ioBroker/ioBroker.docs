@@ -1,6 +1,6 @@
 import { makeStyles } from '../../theme';
 
-export const useStyles = makeStyles()((theme) => ({
+export const useStyles = makeStyles()(theme => ({
     dialogPaper: {
         backgroundColor: theme.palette.background.default,
         backgroundImage: 'none',
@@ -104,9 +104,10 @@ export const useStyles = makeStyles()((theme) => ({
             transform: 'translate(-50%, -50%)',
             width: '900px',
             height: '300px',
-            background: theme.palette.mode === 'dark'
-                ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 70%)'
-                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 70%)'
+                    : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
             zIndex: -1,
         },
@@ -194,9 +195,10 @@ export const useStyles = makeStyles()((theme) => ({
             transform: 'translate(-50%, -50%)',
             width: '500px',
             height: '300px',
-            background: theme.palette.mode === 'dark'
-                ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 70%)'
-                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 70%)'
+                    : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
             zIndex: -1,
         },
@@ -227,9 +229,10 @@ export const useStyles = makeStyles()((theme) => ({
             transform: 'translate(-50%, -50%)',
             width: '500px',
             height: '300px',
-            background: theme.palette.mode === 'dark'
-                ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 70%)'
-                : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 70%)'
+                    : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
             pointerEvents: 'none',
             zIndex: -1,
         },
@@ -256,7 +259,7 @@ export const useStyles = makeStyles()((theme) => ({
         zIndex: 2,
         [theme.breakpoints.down('sm')]: {
             fontSize: '14px !important',
-             width: '300px !important',
+            width: '300px !important',
             padding: '12px 24px !important',
         },
     },

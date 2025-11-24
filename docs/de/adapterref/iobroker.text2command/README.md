@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.text2command/README.md
 title: ioBroker.text2command
-hash: KdgJJMB/L5sM7ERy03ey1OqgDxxzrtCv7SeZqoEp3eI=
+hash: l9vN/k83Zfh9akKokc1tcMMOrclUQ+qlFqKE//sCtFY=
 ---
 ![Logo](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
@@ -15,35 +15,35 @@ hash: KdgJJMB/L5sM7ERy03ey1OqgDxxzrtCv7SeZqoEp3eI=
 
 # IoBroker.text2command
 ## Beschreibung
-Dieser Adapter kann normale Sätze wie `Switch light in kitchen on` in einen bestimmten Befehl umwandeln und setzt den Status `adapter.0.device.kitchenLight` auf `true`.
+Dieser Adapter kann normale Sätze wie `Switch light in kitchen on` in spezifische Befehle umwandeln und den Zustand `adapter.0.device.kitchenLight` auf `true` setzen.
 
-Es macht keinen Sinn, diesen Adapter eigenständig zu aktivieren. Es sollte mit anderen Adaptern wie Telegram oder der Android-App **`iobroker.vis`** verwendet werden.
+Dieser Adapter ist nicht zur alleinigen Aktivierung geeignet. Er sollte zusammen mit anderen Adaptern wie Telegram oder der Android-App **`iobroker.vis`** verwendet werden.
 
 ## Verwendung
-Um den Befehl auszuführen, schreiben Sie den Status **`text2command.<INSTANCE>.text`** mit dem Satz. Die Antwort erhalten Sie immer in `text2command.<INSTANCE>.response`.
+Um den Befehl auszuführen, schreiben Sie den Zustand **`text2command.<INSTANCE>.text`** mit dem Satz. Sie erhalten immer die Antwort in `text2command.<INSTANCE>.response`.
 
-Wenn Sie **Antwort auf ID** definieren, wird die Antwort auch in diese ID geschrieben. Dies ist z.B. erforderlich für um zu erkennen, dass die Stimme es bestätigt.
+Wenn Sie **Antwort an ID** definieren, wird die Antwort ebenfalls in diese ID geschrieben. Dies ist beispielsweise erforderlich, um die Sprachbestätigung zu realisieren.
 
-Sie können eine Nachricht über `sendTo` aus Javascript senden. Die Antwort kommt in der Nachricht zurück:
+Sie können eine Nachricht über `sendTo` von `javascript` senden. Die Antwort erhalten Sie in der Rücknachricht:
 
-```
+```js
 sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
     console.log('Response is: ' + response);
 });
 ```
 
-Es können reguläre Ausdrücke verwendet werden, wie zum Beispiel: `/^light\son|^lamp\son/`. Bei regulären Ausdrücken wird die Groß-/Kleinschreibung immer ignoriert.
+Es können reguläre Ausdrücke verwendet werden, zum Beispiel: `/^light\son|^lamp\son/`. Reguläre Ausdrücke unterscheiden nicht zwischen Groß- und Kleinschreibung.
 
-Um „Ein-/Ausschalten nach Funktion“ zu nutzen, sollten Sie auf Funktionen achten.
+Um die Option „Ein-/Ausschalten nach Funktion“ nutzen zu können, müssen Sie sich um die Funktionen kümmern.
 
 Schlüsselwörter funktionieren wie folgt:
 
 - Leerzeichen trennen Schlüsselwörter
-- Alle Schlüsselwörter müssen in einem Satz vorhanden sein, um eine Regel auszulösen: z. B. Schlüsselwort: „Licht an“ wird bei „Licht einschalten“, „Licht überall anmachen“ ausgelöst und nicht bei „Einschalten“, „Licht machen“. .
-- Ein Schlüsselwort kann viele Formen haben. Variationen des Schlüsselworts müssen durch „/“ geteilt werden. Beispielsweise lösen die Schlüsselwörter „switch/make/do light on/true“ aus: „do light true“, „make please light on“.
-- Wenn das Schlüsselwort in vielen Fällen vorkommen kann (Nom, Gen, Akkusativ, Plural, ...), müssen sie alle als Variationen aufgeführt werden, wie zum Beispiel: „Licht/Lichter einschalten“.
+- Alle Schlüsselwörter müssen in einem Satz vorhanden sein, damit eine Regel ausgelöst wird: z.B. löst das Schlüsselwort `light on` die Regel bei `switch light on` und `make light on everywhere` aus, nicht aber bei `switch on` und `make light`.
+Ein Schlüsselwort kann mehrere Formen haben. Varianten eines Schlüsselworts müssen durch „/“ getrennt werden. Zum Beispiel: Die Schlüsselwörter `switch/make/do light on/true` lösen Folgendes aus: `do light true`, `make please light on`.
+- Wenn ein Schlüsselwort in mehreren Fällen vorkommen kann (Nominativ, Genitiv, Akkusativ, Plural usw.), müssen alle diese Fälle als Varianten aufgeführt werden, z. B.: `Licht/Lichter einschalten`.
 
-Folgende Funktionen werden interpretiert als:
+Die folgenden Funktionen werden interpretiert als
 
 `enum.functions`:
 
@@ -64,7 +64,7 @@ Folgende Funktionen werden interpretiert als:
 
 **`enum.functions.curtain`** (Vorhänge | Bilder)
 
-- Rollen - `level.curtain`
+- roles - `level.curtain`
 - Rollen - `switch.curtain`
 
 **`enum.functions.heating`** (Heizung | Отопление/Подогрев)
@@ -83,13 +83,13 @@ Folgende Funktionen werden interpretiert als:
 
 **`enum.functions.lock`** (Schloß / Schloss | Schloss)
 
-- Rollen - `switch.open`
-- Rollen - `switch.lock`
+- roles - `switch.open`
+- roles - `switch.lock`
 
 Folgende Räume werden unterstützt:
 
-| Schlüsselwort in Phrase | Mögliche enum.rooms in Englisch | auf deutsch | auf Russisch |
-|-----------------------|---------------------------------|--------------------------|------------------|
+| Schlüsselwort in der Phrase | Mögliche Aufzählungsräume auf Englisch | auf Deutsch | auf Russisch |
+|-----------------------|---------------------------------|--------------------------|-------------------|
 | überall | überall | - | - |
 | leben | Wohnzimmer | Wohnzimmer | зал |
 | Schlafzimmer | Schlafzimmer/Schlafzimmer | Schlafzimmer | spanisch |
@@ -102,27 +102,27 @@ Folgende Räume werden unterstützt:
 | Küche | Küche | küche/kueche | Küche |
 | Balkon/Terrasse/Terrasse | Terrasse | Balkon/Terrasse | TERRASA/BALKON |
 | Essen | Esszimmer | esszimmer | столовая |
-| Garage | Garage | Garage | гараж |
+| Garage | Garage | Garage | GARAGE |
 | Treppe | Treppen | Trepe/Treppenhaus | лестница |
 | Garten | Garten | Garten | сад |
 | Hof/Hof | Gericht | hof | двор |
 | Gästezimmer | Gästezimmer | gästezimmer | гостевая |
 | Dachboden | Dachboden | speicher | кладовка |
-| Dach | Dach | dachstuhl | крыша |
+| Dach | Dachstuhl | Dachstuhl | Dachstuhl |
 | Terminal | Terminal | anschlussraum | сени |
 | Waschraum | Waschraum | waschraum | прачечная |
 | Wärmeraum | Heizraum | Heizungsraum/Heizungsraum | котельная |
 | Hütte | Hütte | schuppen/scheune | сарай |
 | Sommerhaus | Sommerhaus | Gartenhaus | теплица |
 
-Sie können Muster in Bestätigungen verwenden:
+Sie können in Danksagungen Muster verwenden:
 
-- „%s“: Wert
-- „%u“: Einheit
+- `%s`: Wert
+- `%u`: Einheit
 - `%n`: Name (geplant!)
-- „{objectId}“: Der Status dieser Objekt-ID wird hier platziert. Tatsächlich werden es dieselben Bindungen sein, die von [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects) unterstützt werden, mit Ausnahme spezieller Bindungen.
+- `{objectId}`: Der Status dieser Objekt-ID wird hier gespeichert. Tatsächlich werden dieselben Bindungen unterstützt wie von [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects), mit Ausnahme spezieller Bindungen.
 
-Die folgenden Befehle werden unterstützt:
+Folgende Befehle werden unterstützt:
 
 ### Wie spät ist es?
 Antwort: 14:56 (aktuelle Zeit)
@@ -131,41 +131,41 @@ Antwort: 14:56 (aktuelle Zeit)
 Die Antwort ist anpassbar. Standard: `My name is Alpha`
 
 ### Wie hoch ist die Außentemperatur?
-Der Benutzer muss die Status-ID angeben, in der die Außentemperatur abgelesen werden soll.
-Die Antwort ist anpassbar. Standard: `Outside temperature is %s %u` **`%s`** wird durch die Temperatur ersetzt, auf eine ganze Zahl gerundet. **`%u`** wird durch Einheiten dieses Zustands oder durch Systemtemperatureinheiten ersetzt.
+Der Benutzer muss die Bundesstaats-ID angeben, aus der die Außentemperatur abgelesen werden soll.
+Die Antwort ist anpassbar. Standard: `Outside temperature is %s %u` **`%s`** wird durch die auf eine ganze Zahl gerundete Temperatur ersetzt. **`%u`** wird durch die Einheiten dieses Bundesstaates oder die Systemtemperatureinheiten ersetzt.
 
 ### Wie hoch ist die Innentemperatur?
-Der Benutzer muss die Status-ID angeben, in der die Innentemperatur abgelesen werden soll.
-Die Antwort ist anpassbar. Standard: `Inside temperature is %s %u` **`%s`** wird durch die Temperatur ersetzt, auf eine ganze Zahl gerundet. **`%u`** wird durch Einheiten dieses Zustands oder durch Systemtemperatureinheiten ersetzt.
+Der Benutzer muss die Bundesstaats-ID angeben, in der die Innentemperatur ausgelesen werden soll.
+Die Antwort ist anpassbar. Standard: `Inside temperature is %s %u` **`%s`** wird durch die auf eine ganze Zahl gerundete Temperatur ersetzt. **`%u`** wird durch die Einheiten dieses Bundesstaates oder die Systemtemperatureinheiten ersetzt.
 
-### Ein-/Ausschalten nach Funktion
-Dieser Befehl liest Informationen aus Enumerationen. Es verwendet `enum.functions`, um den Gerätetyp zu finden (z. B. Licht, Alarm, Musik) und `enum.rooms`, um den Raumnamen zu erkennen.
+### Ein-/Ausschalten per Funktion
+Dieser Befehl liest Informationen aus Enumerationen. Er verwendet `enum.functions`, um den Gerätetyp (z. B. Licht, Alarm, Musik) zu ermitteln, und `enum.rooms`, um den Raumnamen zu erkennen.
 
 Beispiel auf Deutsch: ![Aufzählungen](../../../en/adapterref/iobroker.text2command/img/enums.png)
 
-Schlüsselwörter zum Einschalten sind: *einschalten*, z.B. `switch rear light in bath on`
+Schlüsselwörter zum Einschalten sind: *einschalten*, z. B. `switch rear light in bath on`
 
-Schlüsselwörter zum Abschalten sind: *abschalten*, z.B. `switch light in living room off`
+Schlüsselwörter zum Ausschalten sind: *ausschalten*, z. B. `switch light in living room off`
 
 Die Antwort wird auf Wunsch automatisch generiert: `Switch off %function% in %room%`, wobei `%function%` und `%room%` durch den gefundenen Gerätetyp und Standort ersetzt werden.
 
-Der Befehl akzeptiert auch den numerischen Wert. Es hat Vorrang, z.B. Im Befehl `switch light off in living room on 15%` wird das Licht auf 15 % gesetzt und nicht im *Aus*-Zustand.
+Der Befehl akzeptiert auch numerische Werte. Diese haben Priorität; beispielsweise wird beim Befehl `switch light off in living room on 15%` die Lampe auf 15 % eingestellt und nicht ausgeschaltet.
 
-Sie können den Standardraum in [] definieren. Z.B. `switch the light on[sleepingroom]`
+Sie können einen Standardraum in [] definieren. Z. B. `switch the light on[sleepingroom]`
 
 ### Jalousien öffnen/schließen
-Dieser Befehl liest Informationen aus Aufzählungen. Es verwendet **`enum.functions.blind`**, um den Typ von Jalousien oder Rollläden zu finden, und **`enum.rooms`**, um den Raumnamen zu erkennen.
+Dieser Befehl liest Informationen aus Aufzählungen. Er verwendet **`enum.functions.blind`**, um den Typ (Jalousien oder Rollläden) zu ermitteln, und **`enum.rooms`**, um den Raumnamen zu erkennen.
 
-Schlüsselwörter zum Hochfahren von Jalousien sind: *Jalousien hoch*, z.B. `set blinds up in sleeping room`
+Schlüsselwörter zum Hochfahren der Jalousien sind: *Jalousien hoch*, z. B. `set blinds up in sleeping room`
 
-Schlüsselwörter zum Herunterfahren von Jalousien sind: *Jalousien herunter*, z.B. `move blinds down in office`
+Schlüsselwörter zum Herunterfahren der Jalousien sind: *Jalousien herunter*, z. B. `move blinds down in office`
 
-Sie können die genaue Position der Jalousie in Prozent angeben, z.B. `move blinds to 40 percent in office`
+Sie können die genaue Position der Blende in Prozent angeben, z. B. `move blinds to 40 percent in office`
 
 Die Antwort wird auf Wunsch automatisch generiert: ` in %room%`, wobei %room% durch den gefundenen Gerätetyp und Standort ersetzt wird.
 
 ### Etwas ein-/ausschalten
-Der Benutzer muss die Status-ID eines Geräts angeben, das gesteuert werden muss, und einen Wert, der geschrieben werden muss.
+Der Benutzer muss die Status-ID eines zu steuernden Geräts und den zu schreibenden Wert angeben.
 
 Sie sollten für jede Position eine Regel erstellen (z. B. für `on` und für `off`).
 
@@ -173,35 +173,35 @@ Die Antwort ist anpassbar. Standard: `Switched on`
 
 Z.B.:
 
-- „Alarm deaktivieren“, Objekt-ID: „hm-rpc.0.alarm“, Wert: „false“, Antwort: „Alarm ist deaktiviert/Deaktiviert“. In diesem Fall wird die Antwort zufällig zwischen *Alarm ist deaktiviert* und *Deaktiviert* ausgewählt.
-- „Alarm aktivieren“, Objekt-ID: „hm-rpc.0.alarm“, Wert: „true“, Antwort: „Alarm ist aktiviert/Aktiviert/Fertig“. In diesem Fall wird die Antwort zufällig zwischen *Alarm ist aktiviert*, *Aktiviert* und *Fertig* ausgewählt.
+- `Alarm deaktivieren`, Objekt-ID: `hm-rpc.0.alarm`, Wert: `false`, Antwort: `Alarm ist deaktiviert/Deaktiviert`. In diesem Fall wird die Antwort zufällig zwischen *Alarm ist deaktiviert* und *Deaktiviert* ausgewählt.
+- `Alarm aktivieren`, Objekt-ID: `hm-rpc.0.alarm`, Wert: `true`, Antwort: `Alarm ist aktiviert/Aktiviert/Fertig`. In diesem Fall wird die Antwort zufällig zwischen *Alarm ist aktiviert*, *Aktiviert* und *Fertig* gewählt.
 
 *Deaktivieren* muss an erster Stelle in der Liste stehen, da es länger ist.
 
-Sie können in den Steuerbefehlen Float-Werte verwenden. Wenn im Text ein numerischer Wert enthalten ist, wird dieser als Kontrollwert verwendet und der vordefinierte Wert wird ignoriert.
+Sie können Gleitkommazahlen in den Steuerbefehlen verwenden. Wenn ein numerischer Wert im Text enthalten ist, wird dieser als Steuerwert verwendet und der vordefinierte Wert ignoriert.
 
-Z.B. zur Regel:
+Beispiel für Regel:
 
-- „Lichtstärke einstellen“, Objekt-ID: „hm-rpc.0.light.STATE“, Wert: „10“, Antwort: „Stufe auf %s% gesetzt“.
+- `Set light level`, Objekt-ID: `hm-rpc.0.light.STATE`, Wert: `10`, Antwort: `Level set to %s%`.
 
-Wenn der Befehl wie `Set light level to 50%` ist, wird in `hm-rpc.0.light.STATE` 50 geschrieben und die Antwort lautet `Level set to 50%`.
+Wenn der Befehl beispielsweise `Set light level to 50%` lautet, dann wird in `hm-rpc.0.light.STATE` die Zahl 50 geschrieben und die Antwort lautet `Level set to 50%`.
 
-Wenn der Befehl wie `Set light level` ist, wird in `hm-rpc.0.light.STATE` 10 geschrieben und die Antwort lautet `Level set to 10%`.
+Wenn der Befehl beispielsweise `Set light level` lautet, dann wird in `hm-rpc.0.light.STATE` die Zahl 10 geschrieben und die Antwort lautet `Level set to 10%`.
 
-### Nach etwas fragen
-Der Benutzer muss die Status-ID eines Geräts angeben, dessen Wert gelesen wird.
-Diese Vorlage antwortet mit Informationen aus einem Bundesstaat.
+### Fragen Sie nach etwas
+Der Benutzer muss die Status-ID eines Geräts angeben, deren Wert ausgelesen wird.
+Diese Vorlage liefert Informationen aus einem bestimmten Bundesstaat.
 
 Z.B.:
 
-- „Fenster geöffnet“, Objekt-ID: „javascript.0.countOpenedWindows“, Bestätigung: „Aktuell %s Fenster geöffnet“.
-- „Temperatur Schlafraum“, Objekt-ID: „hm-rpc.0.sleepingRoomSensor.TEMPERATURE“, Bestätigung: „Die tatsächliche Temperatur im Schlafraum beträgt %s %u/%s %u“. In diesem Fall wird die Antwort randomisiert zwischen *Die tatsächliche Temperatur im Schlafraum beträgt %s %u* und *%s %u*.
+- `Fenster geöffnet`, Objekt-ID: `javascript.0.countOpenedWindows`, Bestätigung: `Tatsächlich %s Fenster geöffnet`
+- `Temperatur Schlafraum`, Objekt-ID: `hm-rpc.0.sleepingRoomSensor.TEMPERATURE`, Bestätigung: `Die tatsächliche Temperatur im Schlafraum beträgt %s %u/%s %u`. In diesem Fall wird die Antwort zufällig zwischen *Die tatsächliche Temperatur im Schlafraum beträgt %s %u* und *%s %u* ausgewählt.
 
-### Text an Staat senden
-Sie können Text in den Status schreiben. Der Benutzer muss die Status-ID angeben, um Text hineinschreiben zu können.
+### SMS an den Staat senden
+Sie können Text in das Feld „Status“ eingeben. Der Benutzer muss die Status-ID angeben, um Text hineinzuschreiben.
 
-Z.B. Regel: `email [to] wife`, Objekt-ID: `javascript.0.emailToWife`, Bestätigung: `Email sent` Text: `Send email to my wife: I will be late`. Der Adapter sucht nach dem letzten Wort aus Schlüsselwörtern (in diesem Fall `wife`), extrahiert Text aus dem nächsten Wort (in diesem Fall `I will be late`) und schreibt diesen Text in `javascript.0.emailToWife`.
-Wort `to` ist nicht erforderlich, um die Regel auszulösen, wird aber aus einem Text entfernt.
+Beispiel: Regel: `email [to] wife`, Objekt-ID: `javascript.0.emailToWife`, Bestätigung: `Email sent`, Text: `Send email to my wife: I will be late`. Der Adapter sucht das letzte Wort der Schlüsselwörter (in diesem Fall `wife`), extrahiert den Text aus dem nächsten Wort (in diesem Fall `I will be late`) und schreibt diesen Text in `javascript.0.emailToWife`.
+Das Wort `to` ist für die Auslösung der Regel nicht erforderlich, wird aber aus dem Text entfernt.
 
 ### Du bist gut (Nur zum Spaß)
 Die Antwort ist anpassbar. Standard: `Thank you` oder `You are welcome`
@@ -210,23 +210,24 @@ Die Antwort ist anpassbar. Standard: `Thank you` oder `You are welcome`
 Die Antwort ist anpassbar. Standard: `No problem` oder `You are welcome`
 
 ### Antwort erstellen
-Sie können eine Antwort mit Bindungen {objectId} als Bestätigung generieren. Wird für Alexa verwendet.
+Sie können eine Antwort mit Bindungen {objectId} in der Bestätigung generieren. Wird für Alexa verwendet.
 
 Z.B.:
 
-- „Fenster geöffnet“, Bestätigung: „Tatsächlich {javascript.0.countOpenedWindows} Fenster geöffnet“.
-- „Temperatur Schlafraum“, Bestätigung: „Die tatsächliche Temperatur im Schlafraum beträgt {t: hm-rpc.0.sleepingRoomSensor.TEMPERATURE; Math.round(t)}/{hm-rpc.0.sleepingRoomSensor.TEMPERATURE; Round(1)} Grad`. In diesem Fall wird die Antwort zufällig zwischen *Die tatsächliche Temperatur im Schlafraum beträgt <WERT>* und *<WERT>* ausgewählt.
+- `windows opened`, Acknowledge: `Tatsächlich {javascript.0.countOpenedWindows} windows opened`
+- `Temperatur im Schlafzimmer`, Bestätigung: `Die tatsächliche Temperatur im Schlafzimmer beträgt {t: hm-rpc.0.sleepingRoomSensor.TEMPERATURE; Math.round(t)}/{hm-rpc.0.sleepingRoomSensor.TEMPERATURE; round(1)} Grad`. In diesem Fall wird die Antwort zufällig zwischen *Die tatsächliche Temperatur im Schlafzimmer beträgt <WERT>* und *<WERT>* ausgewählt.
 
-Mehr über Bindungen können Sie hier lesen: (Bindungen von Objekten)[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
+Mehr über Bindungen erfahren Sie hier: (Bindungen von Objekten)[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
 
-Zusätzlich können Sie die bisherige Zeit nach `{hm-rpc.0.light.STATE.lc;dateinterval}` (2 Minuten und 12 Sekunden) oder `{hm-rpc.0.light.STATE.lc;dateinterval(true)}` (2 Minuten und 12 Sekunden **vor**) abrufen.
+Zusätzlich können Sie die bisherige Zeit mit `{hm-rpc.0.light.STATE.lc;dateinterval}` (2 Minuten und 12 Sekunden) oder `{hm-rpc.0.light.STATE.lc;dateinterval(true)}` (vor 2 Minuten und 12 Sekunden) abrufen.
 
-## Externe Regeln mit Javascript
-Es besteht die Möglichkeit, die Javascript-Engine zur Verarbeitung von Befehlen in `text2command` zu verwenden.
-Dazu müssen Sie einen Status in „Prozessorstatus-ID“ (Erweiterte Einstellungen) angeben und diesen Status in einem JS- oder Blockly-Skript abhören.
-Sie können einen Status manuell im Admin oder im Skript erstellen. Das Verarbeitungsskript kann wie folgt aussehen:
+## Externe Regeln mit `javascript`
+Es besteht die Möglichkeit, die `javascript`-Engine zur Verarbeitung von Befehlen in `text2command` zu verwenden.
 
-```
+Dazu müssen Sie in den „Verarbeitungsstatus-IDs“ (Erweiterte Einstellungen) einen Zustand festlegen und diesen Zustand in einem JavaScript- oder Blockly-Skript überwachen.
+Sie können einen Zustand manuell im Adminbereich oder in einem Skript erstellen. Das Verarbeitungsskript könnte beispielsweise so aussehen:
+
+```js
 createState("textProcessor", '', function () {
     // text2command writes the value with ack=false. Change "any" is important too, to process repeated commands.
     on({id: "javascript.0.textProcessor", ack: false, change: 'any'}, function (obj) {
@@ -249,21 +250,25 @@ createState("textProcessor", '', function () {
 });
 ```
 
-Legen Sie in den Einstellungen von `text2command` **Prozessorstatus-ID** als *`javascript.0.textProcessor`* fest, damit dieses Beispiel funktioniert.
+Um dieses Beispiel auszuführen, muss in den Einstellungen für `text2command` **Prozessorstatus-ID** der Wert *`javascript.0.textProcessor`* festgelegt werden.
 
-Erstens wird der Befehl mit Ihrem Javascript verarbeitet. Wenn Javascript mit „“ antwortet oder nicht innerhalb einer vordefinierten Zeit (standardmäßig 1 Sekunde) antwortet, wird der Befehl nach Regeln verarbeitet.
+Zunächst wird der Befehl mit Ihrem `javascript` verarbeitet. Wenn `javascript` mit '' antwortet oder nicht innerhalb der vordefinierten Zeit (standardmäßig 1 Sekunde) antwortet, wird der Befehl nach Regeln verarbeitet.
 
 ### Option: Bei jedem Befehl in die Antwort schreiben
-Wenn dies aktiviert ist, wird bei jedem Befehl (egal ob die Anfrage über state oder sendTo kam) der `text2command.X.response` mit der Antwort geschrieben.
+Wenn dies durch jeden Befehl aktiviert wird (unabhängig davon, ob die Anfrage über state oder sendTo erfolgte), wird `text2command.X.response` mit der Antwort geschrieben.
 
-# Machen
+# Aufgaben
 - auf Russisch, männliche und weibliche Antworten.
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **ARBEIT IN ARBEIT** -->
+### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 4.0.0 (2025-11-03)
+* (bluefox) GUI was updated to vite
+* (bluefox) Minimal nodejs version is 20.x
+
 ### 3.0.3 (2023-12-18)
 * (bluefox) Corrected GUI
 
@@ -289,7 +294,7 @@ Wenn dies aktiviert ist, wird bei jedem Befehl (egal ob die Anfrage über state 
 * (bluefox) Corrected GUI
 
 ### 2.1.4 (2022-02-16)
-* (bluefox) Some errors will be caught at start
+* (bluefox) Some errors will be caught at the start
 
 ### 2.1.2 (2022-02-13)
 * (bluefox) Updated GUI.
@@ -426,7 +431,7 @@ Wenn dies aktiviert ist, wird bei jedem Befehl (egal ob die Anfrage über state 
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -33,7 +33,9 @@ Discussion:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
 ### 3.0.1 (2025-08-13)
+
 - (Black-Thunder) Setting a state value is now more tolerant of strings.
 - (Black-Thunder) Fixed a bug that caused subsequent commands to fail after a failed state change.
 

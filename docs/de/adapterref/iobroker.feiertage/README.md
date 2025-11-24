@@ -33,6 +33,9 @@ Es können natürlich weitere Instanzen des Adapters mit abweichenden Feiertagsa
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (copilot) **CI/CD**: Updated GitHub Copilot instructions template from version 0.4.0 to 0.4.2
+
 ### 1.2.1 (2025-01-04)
 * (Diginix) 2.1. has been incorrectly considered to be an holiday. This has been fixed. [#289, #132]
 * (mcm1957) Dependencies have been updated

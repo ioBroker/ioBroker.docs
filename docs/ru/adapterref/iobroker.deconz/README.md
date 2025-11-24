@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.deconz/README.md
-title: нет названия
-hash: 6/x2DbZCDtTO0us9rIBbOJBGbXgLhQHXkzqo5rs4qa8=
+title: без названия
+hash: ewaf6MGJi/Q4NpS6i2CfUKF7i0e2iga4/x8MTXH/zlw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
@@ -11,30 +11,32 @@ hash: 6/x2DbZCDtTO0us9rIBbOJBGbXgLhQHXkzqo5rs4qa8=
 ![версия НПМ](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.deconz.svg)
 
-Адаптер ioBroker deConz Dresden-elektronik
+Адаптер ioBroker deCONZ Dresden-elektronik
 
 ==============
 
 ## Уведомление
-Нет поддержки бета-версий deConz
+Нет поддержки бета-версий deCONZ
 
 Требуемая версия js-controller >5.x.x, Требуемый node.js >= 18.x.x
 
 ## Английский
-Подключается к программному обеспечению deConz REST-API, разработанному dresden-elektronik. Это программное обеспечение нацелено на универсальное решение ZigBee Gateway, использующее оборудование от dresden-elektronik USB-накопитель ConBee(X) и модуль RaspBee(X) для Raspberry Pi.
+Подключается к программному обеспечению deCONZ REST-API, разработанному компанией dresden-elektronik. Это программное обеспечение призвано стать универсальным шлюзом ZigBee, использующим оборудование от dresden-elektronik: USB-накопитель ConBee(X) и модуль RaspBee(X) для Raspberry Pi.
 
-Сначала вам необходимо сделать ссылку на deConz.
+Сначала необходимо сделать ссылку на deCONZ.
 
-1. а) Введите IP-адрес для deConz<br>
+1. а) Введите IP-адрес для deCONZ<br>
 
-б) Введите стандартный порт моста: 80 и стандартный Websocket: 443<br> [например, приложение Phoscon - Справка - Информация об API - Без фильтра - поиск по port/websocketport]
+б) Введите стандартный порт моста: 80 и стандартный порт Websocket: 443.<br> [например, приложение Phoscon - Справка - Информация об API - Без фильтра - поиск по порту/websocketport]
 
-2. После ввода и сохранения IP-адреса и порта нажмите кнопку «Создать ключ API». Теперь вы можете ввести учетные данные для deConz или перейти в приложение Phoscon и зарегистрировать ioBroker как стороннее приложение.
+2. После ввода и сохранения IP-адреса и порта нажмите кнопку «Создать ключ API». Теперь вы можете ввести учётные данные для deCONZ или перейти в приложение Phoscon и зарегистрировать ioBroker как стороннее приложение.
 
-## Чтобы избежать некоторых ошибок после обновления (deConz/adapter), остановите адаптер и удалите эти записи в структуре объекта. При запуске структура объекта пересоздается.
-![Адаптер Deconz](https://github.com/mattreim/ioBroker.deconz/assets/80219712/fb56647e-a0a8-4535-9e18-2b7651b32824)
+## Чтобы избежать ошибок после обновления (deCONZ/adapter), остановите адаптер и удалите эти записи в структуре объектов. При запуске структура объектов создаётся заново.
+* Группы
+* Огни
+* Датчики
 
-#### Отправка более одной команды одновременно
+#### Отправка нескольких команд одновременно
 Для этой цели существует объект, называемый «действие».
 
 Примеры:
@@ -44,11 +46,18 @@ hash: 6/x2DbZCDtTO0us9rIBbOJBGbXgLhQHXkzqo5rs4qa8=
 `"on": true, "transitiontime": 5, "hue": 360`
 
 ## Ссылки
-[Плагин deCONZ REST-API](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) [Документация по плагину deCONZ REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/) [Шлюзы (Аппаратные)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+[Плагин deCONZ REST-API](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) [Документация по плагину deCONZ REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/) [Шлюзы (аппаратные)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
 ## [Спонсоры](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.7.0 (2024-11-22)
+* (mattreim) Hide virtual sensors function
+* (mattreim) Hide switch groups function
+* (mattreim) Update dependencies
+* (mattreim) Updated/added some translations
+* (mattreim) Some bug fixes and more
 
 ### 1.6.4 (2024-10-06)
 * (mattreim) Add "protectedNative" and "encryptedNative"

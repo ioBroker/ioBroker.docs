@@ -2,6 +2,6 @@
   "private": true,
   "name": "iobroker.docs",
   "dependencies": {
-    "@iobroker/eslint-config": "^1.0.0"
+    "@iobroker/eslint-config": "^2.2.0"
   }
 }

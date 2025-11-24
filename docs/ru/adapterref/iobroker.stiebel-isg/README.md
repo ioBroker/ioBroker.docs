@@ -1,78 +1,99 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.stiebel-isg/README.md
 title: ioBroker.stiebel-isg
-hash: iyF0ZWK88/WwUlksouiJrRJoAU/ZMAs2UqiVj+jo/Co=
+hash: o6fcnDGzNQPpOQyJmW93WYzMfxvxdNMuqZO6ihbMZ1g=
 ---
 ![Логотип](../../../en/adapterref/iobroker.stiebel-isg/admin/stiebel-isg.png)
 
-![Версия NPM](https://img.shields.io/npm/v/iobroker.stiebel-isg.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.stiebel-isg.svg)
+![Версия (стабильная)](https://iobroker.live/badges/stiebel-isg-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.stiebel-isg.svg)
 ![Количество установок (последнее)](https://iobroker.live/badges/stiebel-isg-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/stiebel-isg-stable.svg)
-![Статус зависимости](https://img.shields.io/david/unltdnetworx/iobroker.stiebel-isg.svg)
-![НПМ](https://nodei.co/npm/iobroker.stiebel-isg.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.stiebel-isg.svg?data=d,s)
 
 # IoBroker.stiebel-isg
-** Тесты: ** ![Тестирование и выпуск](https://github.com/unltdnetworx/ioBroker.stiebel-isg/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер stiebel-isg для ioBroker
-Этот адаптер предназначен для считывания значений со шлюзов интернет-сервисов stiebel-eltron / tecalor (ISG) и управления устройством.
+## Адаптер ioBroker для интернет-шлюзов STIEBEL ELTRON/Tecalor (ISG)
+Этот адаптер считывает значения с веб-страниц шлюзов интернет-услуг STIEBEL ELTRON/Tecalor (ISG) и может отправлять команды для управления устройством.
 
-ИСПОЛЬЗУЙТЕ НА СВОЙ РИСК!!! АБСОЛЮТНО ОТСУТСТВИЕ ГАРАНТИЙ НА УБЫТКИ И Т.П. !!!
+**ПРИМЕЧАНИЕ:** Этот адаптер протестирован только с устаревшими устройствами ISG (ISG Plus и ISG Web). Будет ли он работать с текущим устройством ISG Connect, пока неясно.
 
-Помощь или подсказки приветствуются.
+**ПРИМЕЧАНИЕ:** Этот адаптер перенесён в iobroker-community-adapters для обслуживания. В дальнейшем будут выпускаться только важные исправления ошибок и обновления зависимостей. Тем не менее, запросы на исправление ошибок или улучшения функций всегда приветствуются.
 
-## Пожертвовать
-Каффи тратишь / подай кофе <https://paypal.me/unltdnetworx>
+**Благодарности:** Создание этого адаптера было бы невозможно без выдающейся работы Майкла Шустера (unltdnetworx) <https://github.com/unltdnetworx>, создавшего предыдущие версии этого адаптера.
 
-## Шаги
-1. Установите адпатер
+## Примечания к выпуску
+**Внимание:** Версия 2.0.x включает в себя некоторые критические изменения:
 
-2. Возьмите значения из вашего stiebel-isg. [X] -объекта.
+* требуется node.js >= 20, js-controller >= 6.0.11 и admin >= 7.6.17
 
-## Требования
-* шлюз интернет-услуг stiebel-eltron / tecalor (ISG)
+Обновите свой ioBroker как минимум до этого уровня программного обеспечения, если вы хотите использовать этот адаптер.
+
+* Шифрование паролей в интерфейсе конфигурации
+
+Если вы обновите этот адаптер с предыдущей версии вместо новой установки, он может не запуститься, даже если ваш пароль в конфигурации верный и не менялся. Чтобы исправить это, просто введите тот же самый предыдущий пароль ещё раз в интерфейсе конфигурации, сохраните его и закройте интерфейс конфигурации, чтобы перезапустить адаптер. Это, конечно, необходимо сделать только один раз после первого запуска после обновления.
+
+* Изменился тип и/или название некоторых объектов на вкладке «Объекты».
+
+Если вы обновляете этот адаптер с предыдущей версии вместо новой установки, вы можете обнаружить предупреждения в журнале ioBroker, а также ошибки в обновлении значений и/или имён объектов. Чтобы предотвратить это, проще всего остановить адаптер на вкладке «Экземпляры» ioBroker, полностью удалить дерево объектов на вкладке «Объекты» и перезапустить адаптер. Конечно, это необходимо делать только один раз после обновления и не требуется при чистой установке.
+
+## Установка
+1. Вам необходим полностью настроенный и работающий шлюз STIEBEL ELTRON или Tecalor Internet Service Gateway (ISG Web или ISG Plus) в той же сети, что и ваш сервер ioBroker.
+2. Установите адаптер на свой сервер ioBroker и создайте экземпляр.
+
+## Конфигурация
+1. Настройте экземпляр, введя IP-адрес или доменное имя ISG, а также, если настроено в ISG, имя пользователя и пароль.
+2. Остальные настройки и список веб-страниц ISG на вкладке URL-адресов можно оставить по умолчанию.
+3. Вы можете повысить производительность и снизить нагрузку на ISG, удалив из вкладки URL-адресов все пути, которых нет в вашем веб-интерфейсе ISG или которые вам не нужны. Вы можете легко определить URL-адреса, открыв веб-страницу ISG SERVICEWELT и последовательно открывая различные вкладки навигации. URL-адрес соответствующей страницы отображается в вашем браузере, например, http://IP-адрес-вашего-ISG/?s=1,0 — это путь к INFO/ANLAGE.
+
+## Юридические уведомления
+STIEBEL ELTRON, TECALOR, ISG и соответствующие логотипы являются товарными знаками или зарегистрированными товарными знаками STIEBEL ELTRON GmbH & Co KG [https://www.stiebel-eltron.com](https://www.stiebel-eltron.com)
+
+Все остальные товарные знаки являются собственностью их соответствующих владельцев.
+
+Авторы никоим образом не поддерживаются и не связаны с компанией STIEBEL ELTRON GmbH & Co KG или любыми связанными с ней дочерними компаниями, логотипами или товарными знаками.
 
 ## Changelog
 
-### 1.7.0
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 2.0.1 (2025-11-12)
 
-* new adapter structure, bugfixes for new js-controller
+* (pdbjjens) **Fixed**: ioBroker warnings are avoided by clamping any values exceeding min/max to the min value before setting. (fixes #53 & #65)
 
-### 1.6.0
+### 2.0.0 (2025-10-27)
 
-* new values for isg-version 12 implemented
+* (mcm1957) Change: Adapter has been migrated to iobroker-community-adapters organisation
+* (mcm1957) Change: Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
+* (mcm1957) Fix: Dependencies have been updated
+* (pdbjjens) Change: remove .npmignore
+* (pdbjjens) Change: migrate adapter configuration to jsonConfig
+* (pdbjjens) Change: migrate from deprecated "request" http client to native fetch API
+* (pdbjjens) Fix: min/max handling
 
-### 1.6.1
+### 1.7.7
 
-* isg-sites to read values from, can now be select by the user
+* security- and compatibility update
 
-### 1.5.3
+### 1.7.6
 
-* bugfix for latest_value added in statistics for database
+* fix error with controller v5
 
-### 1.5.2
+### 1.7.5
 
-* latest_value added in statistics for database
-
-### 1.5.1
-
-* new adapter testing and security update
-
-### 1.5.0
-
-* support for cooling values and startpage graphs
-
-### 1.4.11
-
-* support for further heatingtyp WPL25A
+* security enhancements
 
 ## License
+
 MIT License
 
-Copyright (c) 2018-2021 Michael Schuster <development@unltd-networx.de>
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2018-2023 Michael Schuster <development@unltd-networx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

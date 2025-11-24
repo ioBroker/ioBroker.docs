@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: 1FE1vzrNGINQ6iiDnOBkccJ3iCl6Y5Iy0cfnXMDm5hA=
+hash: 7yLbgbElOKGLdbPXvmA+mjat20QDtzBYxvZoOhg61A4=
 ---
 # IoBroker.tado
 
@@ -65,6 +65,7 @@ Tado введёт ограничение на количество вызово�
 | tado.[x].[yyyyyy].Rooms.[z].manualControlTermination.controlType | Установить режим расписания |
 | tado.[x].[yyyyyy].Rooms.[z].manualControlTermination.remainingTimeInSeconds | Продолжительность времени для режима таймера |
 | tado.[x].[yyyyyy].Rooms.[z].resumeScheduleRoom | Вернуться в автоматический режим для этой комнаты |
+| tado.[x].[yyyyyy].Rooms.[z].devices.[VAaaaaaaaaaa].temperatureOffset | Изменить смещение устройства |
 | tado.[x].[yyyyyy].Rooms.resumeScheduleHome | Вернуться к автоматическому режиму для всех комнат |
 | tado.[x].[yyyyyy].Rooms.allOff | Выключить все комнаты |
 | tado.[x].[yyyyyy].Rooms.boost | Перевести все комнаты в режим усиления |
@@ -81,25 +82,38 @@ Tado введёт ограничение на количество вызово�
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.8.0-alpha.0 (2025-09-22)
+### 0.8.3 (2025-11-13)
+* (HGlab01) add capability to set OffSet [TadoX]
+* (HGlab01) Implement deboucing also for TadoX
+* (HGlab01) fix nextScheduleChange is missing the required property "common.type" [TadoX]
+
+### 0.8.2 (2025-11-07)
+* (HGlab01) add retry mechanism when it comes to timeouts
+* (HGlab01) add attribute 'isRoomLinkRestricted'
+* (HGlab01) finally fix definition missing for 'awayMode' with value 'null' [TadoX]
+* (HGlab01) finally fix definition missing for 'holidayMode' with value 'null' [TadoX]
+* (HGlab01) bump iobroker-jsonExplorer to 0.2.2
+* (HGlab01) bump axios to 1.13.2
+
+### 0.8.1 (2025-11-04)
+* (HGlab01) code refactorings
+* (HGlab01) fix issue 'definition missing for holidayMode' [TadoX]
+* (HGlab01) fix issue 'cannot read properties of undefined (reading 'match')'
+* (HGlab01) fix issue openWindow data not up to date #1086
+
+### 0.8.0 (2025-10-07)
+* (HGlab01) new configuration capabilities to manage API usage quota (#1047, #1048)
+* (HGlab01) Implement API debouncing
+* (HGlab01) Refactorings Tado API calls
 * (HGlab01) fix issue 'definition missing for awayMode' [TadoX]
 * (HGlab01) fix issue 'definition missing for preheating' [TadoX]
 * (HGlab01) Additional guidance/log when it comes to RefreshToken issue
-* (HGlab01) new configuration capabilities to manage API usage quota (#1047, #1048)
+* (HGlab01) fix Object of state "tado.0.xxxxx.Rooms.y.openWindow" is missing the required property "common.type" (#1059)
 * (HGlab01) Bump axios to 1.12.2
+* (HGlab01) Bump iobroker-jsonexplorer to 0.2.0
 
 ### 0.7.10 (2025-04-25)
 * (HGlab01) further token refresh optimizations
-
-### 0.7.9 (2025-04-17)
-* (HGlab01) fix issue 'refreshToken() failed'
-
-### 0.7.8 (2025-04-10)
-* (HGlab01) fix issue 'definition missing for balanceControl' [TadoX]
-
-### 0.7.7 (2025-04-08)
-* (HGlab01) optimize sentry usage
-* (HGlab01) improve retry-mechanism when it comes to erros
 
 ## License
 MIT License
@@ -122,4 +136,5 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
 SOFTWARE.

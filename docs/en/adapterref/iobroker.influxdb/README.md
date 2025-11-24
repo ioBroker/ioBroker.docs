@@ -91,6 +91,7 @@ CREATE USER "user" WITH PASSWORD '<userpassword>'
 CREATE DATABASE "iobroker"
 GRANT ALL ON "iobroker" TO "user"
 ```
+
 Enable authentication by editing /etc/influxdb/influxdb.conf:
 ```
  [http]  
@@ -104,6 +105,12 @@ Enable authentication by editing /etc/influxdb/influxdb.conf:
  https-certificate = "/etc/ssl/influxdb.pem"  
 ```
 - Restart service: ``` service influxdb restart ```
+
+## Self-hosted docker image for InfluxDB
+This version of the adapter could start a self-hosted docker image of InfluxDB 2.x.
+It is not opened for the network and only accessible from localhost. Of course, the docker environment must be installed and running on the host.
+
+The `iobroker` user must have access to the docker CLI. To fix the rights start `iob fix`.
 
 ## Installation of Grafana (Charting Tool)
 There is an additional charting tool for InfluxDB - Grafana.
@@ -375,10 +382,9 @@ sendTo('influxdb.0', 'update', [
 If you want to flush the buffers for one or all data points to the Database, you can use the build in system function `flushBuffer`:
 
 ```javascript
-sendTo('influxdb.0', 'flushBuffer', {id: 'mbus.0.counter.xxx'
-, result => console.log('deleted, error: ' + result.error));
+sendTo('influxdb.0', 'flushBuffer', {id: 'mbus.0.counter.xxx'}, result => console.log('deleted, error: ' + result.error));
 ```
-if no id is provided all buffers will be flushed.
+if no id is provided, all buffers will be flushed.
 
 ## History Logging Management via Javascript
 The adapter supports enabling and disabling of history logging via JavaScript and also retrieving the list of enabled data points with their settings.
@@ -451,6 +457,11 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Completely refactored the code to TypeScript and ES6
+* (bluefox) Added possibility to start docker containers directly from the adapter
+* (mcm1957) Adapter requires admin >= 7.7.2 now
+
 ### 4.0.3 (2024-05-16)
 * (bluefox) Some packages were updated
 
@@ -707,7 +718,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2024 bluefox, apollon77
+Copyright (c) 2015-2025 bluefox, apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
