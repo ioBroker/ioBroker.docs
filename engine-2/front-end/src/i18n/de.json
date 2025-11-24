@@ -1,0 +1,23 @@
+{
+  "languages.en": "EN",
+  "languages.de": "DE",
+  "languages.ru": "RU",
+
+  "Search": "Suche",
+  "Profile": "Profil",
+  "Logout": "Abmelden",
+
+  "Adapters": "Adapter",
+  "Docs": "Doku",
+  "Blog": "Blog",
+  "Licenses": "Lizenzen",
+
+  "Support us": "Unterstütze uns",
+  "Support us (mobile)": "Unterstütze uns:",
+  "Cookies": "Cookies",
+  "Imprint": "Impressum",
+  "Privacy": "Datenschutz",
+  "Installation": "Installation",
+  "Statistics": "Statistik",
+  "Follow us:": "Folge uns:"
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, useMediaQuery } from '@mui/material';
 import ForumIcon from '../icons/ForumIcon';
 import GitHubIcon from '../icons/GitHubIcon';
@@ -10,6 +10,7 @@ import AmazonIcon from '../icons/AmazonIcon';
 import ArrowIcon from '../icons/ArrowIcon';
 import logo from '../../assets/img/logo_net.svg';
 import { useFooterStyles } from './Footer.styles';
+import { I18n } from '../../utils/i18n';
 
 export interface FooterProps {
     scrollTop?: () => void;
@@ -34,7 +35,13 @@ function OwnButton(props: {
         >
             {props.icon}
             {props.name ? (
-                <div style={{ marginTop: props.textOffset || undefined }}>{props.name}</div>
+                <div style={{ marginTop: props.textOffset || undefined }}>
+                    {(() => {
+                        const key = `menu-${props.name}`;
+                        const res = I18n.t(key);
+                        return res === key ? I18n.t(props.name as string) : res;
+                    })()}
+                </div>
             ) : !props.noText ? (
                 <div style={{ marginTop: props.textOffset || undefined, height: 16 }} />
             ) : null}
@@ -64,9 +71,27 @@ function Link(props: {
     url?: string;
     classes: any;
 }): React.JSX.Element {
+    const mapToGeneric: Record<string, string> = {
+        adapters: 'Adapters',
+        licenses: 'Licenses',
+        installation: 'Installation',
+        blog: 'Blog',
+        docs: 'Docs',
+        statistics: 'Statistics',
+        imprint: 'Imprint',
+        policy: 'Privacy',
+    };
     return (
         <Box component="a" className={props.classes.link} href={props.url || `/${props.name}`}>
-            {props.name}
+            {(() => {
+                const menuKey = `menu-${props.name}`;
+                const menuRes = I18n.t(menuKey);
+                if (menuRes !== menuKey) {
+                    return menuRes;
+                }
+                const genericKey = mapToGeneric[props.name] || (props.name.charAt(0).toUpperCase() + props.name.slice(1));
+                return I18n.t(genericKey);
+            })()}
         </Box>
     );
 }
@@ -74,11 +99,13 @@ function Link(props: {
 export const Footer = ({ scrollTop }: FooterProps) => {
     const { classes } = useFooterStyles();
     const [, setShowCookies] = useState(false);
+    const [lng, setLng] = useState(I18n.getLanguage());
+    useEffect(() => I18n.subscribe(setLng), []);
     const isSmallScreen = useMediaQuery('(max-width:500px)');
     const bracesSize = isSmallScreen ? { height: 166, width: 157 } : { height: 171, width: 195 };
 
     return (
-        <Box className={classes.root}>
+        <Box className={classes.root} data-lang={lng}>
             <Box className={classes.container}>
                 <Box className={classes.mainContent}>
                     <Box className={classes.logoBox}>
@@ -87,15 +114,13 @@ export const Footer = ({ scrollTop }: FooterProps) => {
 
                     <Box className={classes.sectionsWrapper}>
                         <Box className={classes.sectionsRow}>
-                            {/* Support Us */}
                             <Braces classes={classes} style={bracesSize}>
                                 <div className={classes.supportColumn}>
                                     <div className={classes.supportText}>
-                                        <div>Unterstütze</div>
-                                        <div>uns:</div>
+                                        <div>{I18n.t('Support us')}</div>
                                     </div>
                                     <div className={classes.supportTextMobile}>
-                                        <div> Unterstütze uns: </div>
+                                        <div>{I18n.t('Support us (mobile)')}</div>
                                     </div>
                                     <div className={classes.donateButtons}>
                                         <OwnButton
@@ -116,17 +141,17 @@ export const Footer = ({ scrollTop }: FooterProps) => {
 
                             <Braces classes={classes} style={bracesSize}>
                                 <div className={classes.linksColumn}>
-                                    <Link classes={classes} name="Adapter" url="https://www.iobroker.net/adapters" />
-                                    <Link classes={classes} name="Lizenzen" url="https://www.iobroker.net/licenses" />
-                                    <Link classes={classes} name="Installation" url="https://www.iobroker.net/installation" />
+                                    <Link classes={classes} name="adapters" url="https://www.iobroker.net/adapters" />
+                                    <Link classes={classes} name="licenses" url="https://www.iobroker.net/licenses" />
+                                    <Link classes={classes} name="installation" url="https://www.iobroker.net/installation" />
                                 </div>
                             </Braces>
 
                             <Braces classes={classes} style={bracesSize}>
                                 <div className={classes.linksColumn}>
-                                    <Link classes={classes} name="Blog" url="https://www.iobroker.net/blog" />
-                                    <Link classes={classes} name="Doku" url="https://www.iobroker.net/docs" />
-                                    <Link classes={classes} name="Statistik" url="https://www.iobroker.net/statistics" />
+                                    <Link classes={classes} name="blog" url="https://www.iobroker.net/blog" />
+                                    <Link classes={classes} name="docs" url="https://www.iobroker.net/docs" />
+                                    <Link classes={classes} name="statistics" url="https://www.iobroker.net/statistics" />
                                 </div>
                             </Braces>
 
@@ -135,10 +160,10 @@ export const Footer = ({ scrollTop }: FooterProps) => {
                                 <Braces classes={classes} style={bracesSize}>
                                     <div className={classes.linksColumn}>
                                         <Box className={classes.link} onClick={() => setShowCookies(true)}>
-                                            Cookies
+                                            {I18n.t('Cookies')}
                                         </Box>
-                                        <Link classes={classes} name="Impressum" url="/imprint" />
-                                        <Link classes={classes} name="Datenschutz" url="/policy" />
+                                        <Link classes={classes} name="imprint" url="/imprint" />
+                                        <Link classes={classes} name="policy" url="/policy" />
                                     </div>
                                 </Braces>
                             </Box>
@@ -152,7 +177,7 @@ export const Footer = ({ scrollTop }: FooterProps) => {
                             contentClassName={classes.socialBracesContent}
                         >
                             <Box className={classes.socialRow}>
-                                <div className={classes.followUsText}>Folge uns:</div>
+                                <div className={classes.followUsText}>{I18n.t('Follow us:')}</div>
                                 <div className={classes.socialIconsWrapper}>
                                     <Box className={classes.hideOnSmall}>
                                         <OwnButton classes={classes} href="https://forum.iobroker.net" icon={<ForumIcon />} />
@@ -190,16 +215,16 @@ export const Footer = ({ scrollTop }: FooterProps) => {
                 </Box>
 
                 <Box className={classes.copyright}>
-                    <div className={classes.copyrightText}>Copyright © 2014-{new Date().getFullYear()} by ioBroker GmbH and ioBroker Community</div>
+                    <div className={classes.copyrightText}>Copyright 2014-{new Date().getFullYear()} by ioBroker GmbH and ioBroker Community</div>
                     <div className={classes.flexGrow} />
                     <Box className={`${classes.link} ${classes.legalLinksDesktop}`} onClick={() => setShowCookies(true)}>
-                        Cookies
+                        {I18n.t('Cookies')}
                     </Box>
                     <Box component="a" className={`${classes.link} ${classes.legalLinksDesktop}`} href="/imprint">
-                        Impressum
+                        {I18n.t('Imprint')}
                     </Box>
                     <Box component="a" className={`${classes.link} ${classes.legalLinksDesktop}`} href="/policy">
-                        Datenschutz
+                        {I18n.t('Privacy')}
                     </Box>
                     <div
                         className={classes.scrollTop}

@@ -13,6 +13,7 @@ import GitHubIcon from '../icons/GitHubIcon';
 import FacebookIcon from '../icons/FacebookIcon';
 import DiscordIcon from '../icons/DiscordIcon';
 import InstagramIcon from '../icons/InstagramIcon';
+import { useTranslation } from 'react-i18next';
 // import MainContext from '../../MainContext';
 // import type { ExtendedRoutes } from '../../App';
 //import type { MenuPoints } from '../../types';
@@ -30,6 +31,13 @@ function Link(props: {
     // navigateTo?: ((path: ExtendedRoutes | MenuPoints | '', query?: string) => void) | null;
     onClose?: () => void;
 }): React.JSX.Element {
+    const { t } = useTranslation();
+    const nameToKey: Record<string, string> = {
+        Adapters: 'nav.adapters',
+        Docs: 'nav.docs',
+        Blog: 'nav.blog',
+        Licenses: 'nav.licenses',
+    };
     return (
         <Box
             component="a"
@@ -63,8 +71,7 @@ function Link(props: {
                 textTransform: props.big || props.noDesktop ? 'uppercase' : undefined,
             }}
         >
-            {/* {I18n.t(`menu-${props.name}`)} */}
-            {props.name}
+            {t(nameToKey[props.name] || (props.name as string))}
         </Box>
     );
 }
@@ -75,6 +82,7 @@ function OwnButton(props: {
     icon: React.JSX.Element;
     textOffset?: number;
 }): React.JSX.Element {
+    const { t } = useTranslation();
     return (
         <Box
             component="a"
@@ -98,8 +106,7 @@ function OwnButton(props: {
             {props.icon}
             {props.name ? (
                 <div style={{ marginTop: props.textOffset || undefined }}>
-                    {/* {I18n.t(`menu-${props.name}`)} */}
-                    {props.name}
+                    {t(props.name)}
                 </div>
             ) : null}
         </Box>
@@ -116,10 +123,10 @@ interface MenuProps {
 
 export default function Menu(props: MenuProps): React.JSX.Element {
     const [search, setSearch] = useState('');
-    const [searchDialogOpen, setSearchDialogOpen] = useState(false);
     // const [language, setLanguage] = useState<Language>(I18n.getLanguage());
     const inputRef = useRef<HTMLInputElement | null>(null);
     // const context = React.useContext(MainContext);
+    const { t, i18n } = useTranslation();
 
     const languages = (
         <>
@@ -128,13 +135,9 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                     cursor: 'pointer',
                     // color: language === 'en' ? 'var(--primary, #FFF)' : undefined,
                 }}
-            // onClick={() => {
-            //     I18n.setLanguage('en');
-            //     setLanguage('en');
-            //     props.onLanguageUpdate?.();
-            // }}
+                onClick={() => i18n.changeLanguage('en')}
             >
-                En
+                {t('languages.en')}
             </div>{' '}
             /{' '}
             <div
@@ -142,13 +145,9 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                     cursor: 'pointer',
                     // color: language === 'de' ? 'var(--primary, #FFF)' : undefined,
                 }}
-                onClick={() => {
-                    // I18n.setLanguage('de');
-                    // setLanguage('de');
-                    props.onLanguageUpdate?.();
-                }}
+                onClick={() => i18n.changeLanguage('de')}
             >
-                De
+                {t('languages.de')}
             </div>{' '}
             /{' '}
             <div
@@ -156,13 +155,9 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                     cursor: 'pointer',
                     // color: language === 'ru' ? 'var(--primary, #FFF)' : undefined,
                 }}
-                onClick={() => {
-                    //I18n.setLanguage('ru');
-                    //setLanguage('ru');
-                    props.onLanguageUpdate?.();
-                }}
+                onClick={() => i18n.changeLanguage('ru')}
             >
-                Py
+                {t('languages.ru')}
             </div>
         </>
     );
@@ -301,7 +296,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                 }}
                             >
                                 {/* {I18n.t('menu-menu')} */}
-                                {"Menu"}
+                                {t('menu.title')}
                             </Box>
                             <Link
                                 name="Docs"
@@ -462,11 +457,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                         },
                                     }}
                                     value={search}
-                                    onKeyDown={e => {
-                                        if (e.key === 'Enter' && search) {
-                                            setSearchDialogOpen(true);
-                                        }
-                                    }}
+                                    
                                     onChange={e => setSearch(e.target.value)}
                                 />
                             ) : null}

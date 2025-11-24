@@ -19,6 +19,7 @@ import SearchIcon from '../icons/SearchIcon';
 import LogoutIcon from '../icons/LogoutIcon';
 import { useHeaderStyles } from './Header.styles';
 import MenuModal from '../Menu/Menu';
+import { I18n } from '../../utils/i18n';
 
 
 export interface HeaderProps {
@@ -41,13 +42,17 @@ export const Header = ({
   onLanguageUpdate,
   loggedIn,
 }: HeaderProps) => {
+  const tt = (menuKey: string, fallbackKey: string): string => {
+    const v = I18n.t(menuKey);
+    return v === menuKey ? I18n.t(fallbackKey) : v;
+  };
   const { classes } = useHeaderStyles();
   const navigate = useNavigate();
   const searchRef = useRef<HTMLInputElement | null>(null);
 
   const [searchOpened, setSearchOpened] = useState(false);
   const [search, setSearch] = useState('');
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState(I18n.getLanguage());
   const [showProfileMenu, setShowProfileMenu] = useState<HTMLElement | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -70,13 +75,13 @@ export const Header = ({
           <ListItemIcon sx={{ color: 'inherit' }}>
             <PersonIcon />
           </ListItemIcon>
-          <ListItemText>Profile</ListItemText>
+          <ListItemText>{tt('menu-profile', 'Profile')}</ListItemText>
         </MenuItem>
         <MenuItem onClick={() => console.log('logout')}>
           <ListItemIcon sx={{ color: 'inherit' }}>
             <LogoutIcon />
           </ListItemIcon>
-          <ListItemText>Logout</ListItemText>
+          <ListItemText>{tt('menu-logout', 'Logout')}</ListItemText>
         </MenuItem>
       </Menu>
     );
@@ -119,7 +124,7 @@ export const Header = ({
           </IconButton>
           <Input
             inputRef={searchRef}
-            placeholder="Search"
+            placeholder={tt('menu-search', 'Search')}
             className={`${classes.searchInput} ${searchOpened ? 'visible' : ''}`}
             endAdornment={
               search ? (
@@ -154,18 +159,20 @@ export const Header = ({
           value={language}
           IconComponent={NoIcon}
           onChange={e => {
-            setLanguage(e.target.value);
+            const lng = e.target.value as string;
+            setLanguage(lng as any);
+            I18n.setLanguage(lng as any);
             onLanguageUpdate?.();
           }}
         >
-          <MenuItem value="en" className={classes.menuItem}>
-            DE
-          </MenuItem>
           <MenuItem value="de" className={classes.menuItem}>
-            EN
+            {I18n.t('languages.de')}
+          </MenuItem>
+          <MenuItem value="en" className={classes.menuItem}>
+            {I18n.t('languages.en')}
           </MenuItem>
           <MenuItem value="ru" className={classes.menuItem}>
-            РУ
+            {I18n.t('languages.ru')}
           </MenuItem>
         </Select>
       )}
@@ -178,28 +185,28 @@ export const Header = ({
           href="https://www.iobroker.net/adapters"
           className={`${classes.link} ${selected === 'adapters' ? classes.linkSelected : ''}`}
         >
-          Adapter
+          {tt('menu-adapters', 'Adapters')}
         </Box>
         <Box
           component="a"
           href="https://www.iobroker.net/docs"
           className={`${classes.link} ${selected === 'docs' ? classes.linkSelected : ''}`}
         >
-          Docu
+          {tt('menu-docs', 'Docs')}
         </Box>
         <Box
           component="a"
           href="https://www.iobroker.net/blog"
           className={`${classes.link} ${selected === 'blog' ? classes.linkSelected : ''}`}
         >
-          Blog
+          {tt('menu-blog', 'Blog')}
         </Box>
         <Box
           component="a"
           href="https://www.iobroker.net/licenses"
           className={`${classes.link} ${selected === 'licenses' ? classes.linkSelected : ''}`}
         >
-          Lizenzen
+          {tt('menu-licenses', 'Licenses')}
         </Box>
 
         {loggedIn ? (
