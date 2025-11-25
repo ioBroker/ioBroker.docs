@@ -21,7 +21,7 @@ export const useStyles = makeStyles()(theme => ({
             justifyContent: 'center',
         },
         [theme.breakpoints.down('sm')]: {
-            padding: '60px 0px 110px 0px',
+            padding: '60px 10px 110px 10px',
         },
         '&::before': {
             content: '""',
@@ -68,7 +68,10 @@ export const useStyles = makeStyles()(theme => ({
         color: theme.palette.text.primary,
         textAlign: 'left',
         maxWidth: '684px',
-        [theme.breakpoints.down('md')]: {
+         [theme.breakpoints.down('md')]: {
+            textAlign: 'center',
+        },
+        [theme.breakpoints.down(430)]: {
             fontSize: 16,
             fontWeight: 300,
             width: 364,
@@ -114,11 +117,12 @@ export const useStyles = makeStyles()(theme => ({
             height: 'auto',
             boxSizing: 'border-box',
         },
-        [theme.breakpoints.down('md')]: {
-            width: '382px',
-            height: 'auto',
-            boxSizing: 'border-box',
+         [theme.breakpoints.down('md')]: {
+            width: '100%',
             padding: '20px 16px',
+        },
+        [theme.breakpoints.down(832)]: {
+            minWidth: '382px',
             borderRadius: 10,
         },
     },
@@ -139,8 +143,8 @@ export const useStyles = makeStyles()(theme => ({
             height: 'auto',
             boxSizing: 'border-box',
         },
-        [theme.breakpoints.down('md')]: {
-            width: '382px',
+        [theme.breakpoints.down(832)]: {
+            minWidth: '382px',
             height: '600px',
             padding: '20px 16px',
             boxSizing: 'border-box',
@@ -210,8 +214,8 @@ export const useStyles = makeStyles()(theme => ({
             height: 'auto',
             boxSizing: 'border-box',
         },
-        [theme.breakpoints.down('md')]: {
-            width: 351,
+        [theme.breakpoints.down(832)]: {
+            minWidth: 351,
             height: 40,
             fontSize: 12,
             minHeight: 40,
@@ -259,7 +263,7 @@ export const useStyles = makeStyles()(theme => ({
         alignItems: 'center',
         opacity: '0.5',
         letterSpacing: 0,
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down(832)]: {
             marginTop: 20,
             fontSize: '12px',
             width: 351,
@@ -273,6 +277,7 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '-0.03em',
         [theme.breakpoints.down('md')]: {
             fontWeight: 500,
+            textAlign: 'center',
         },
     },
     imageText: {
@@ -282,10 +287,15 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: 18,
         letterSpacing: '-0.03em',
         width: 435,
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down(832)]: {
+            width: '100%',
             fontSize: 16,
             fontWeight: 300,
-            width: 351,
+            minWidth: 351,
+            textAlign: 'center',
+        },
+         [theme.breakpoints.down(450)]: {
+            textAlign: 'start',
         },
     },
     alertIcon: {
@@ -309,8 +319,9 @@ export const useStyles = makeStyles()(theme => ({
         justifyContent: 'space-between',
         marginTop: 67,
         alignItems: 'start',
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down(832)]: {
             flexDirection: 'column',
+            alignItems: 'center',
             marginTop: 40,
             height: 237,
         },
@@ -329,7 +340,7 @@ export const useStyles = makeStyles()(theme => ({
         '& .MuiTypography-root': {
             fontSize: '18px !important',
         },
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down(832)]: {
             fontSize: '12px !important',
             '& .MuiTypography-root': {
                 fontSize: '12px !important',
@@ -362,8 +373,9 @@ export const useStyles = makeStyles()(theme => ({
         justifyContent: 'space-between',
         gap: 36,
         marginTop: 43,
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down(832)]: {
             flexDirection: 'column-reverse',
+            alignItems: 'center',
             marginTop: 40,
             gap: 20,
         },
@@ -377,8 +389,9 @@ export const useStyles = makeStyles()(theme => ({
         width: '400px !important',
         height: '60px !important',
         padding: '0 !important',
-        [theme.breakpoints.down('md')]: {
-            width: '348px !important',
+        [theme.breakpoints.down(832)]: {
+            width: '100% !important',
+            minWidth: '348px !important',
             height: '44px !important',
             borderRadius: '8px !important',
             fontSize: '16px !important',
@@ -399,8 +412,9 @@ export const useStyles = makeStyles()(theme => ({
             borderColor: theme.palette.primary.main,
             backgroundColor: `${theme.palette.primary.main}22`,
         },
-        [theme.breakpoints.down('md')]: {
-            width: 348,
+        [theme.breakpoints.down(832)]: {
+            width: '100% !important',
+            minWidth: 348,
             height: 44,
             borderRadius: 8,
             fontSize: '16px',
@@ -421,9 +435,10 @@ export const useStyles = makeStyles()(theme => ({
             borderColor: theme.palette.primary.main,
             backgroundColor: `${theme.palette.primary.main}22`,
         },
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down(832)]: {
+            width: '100%',
             marginTop: 0,
-            width: 350,
+            minWidth: 350,
             height: 44,
             borderRadius: 8,
             fontSize: '16px',
