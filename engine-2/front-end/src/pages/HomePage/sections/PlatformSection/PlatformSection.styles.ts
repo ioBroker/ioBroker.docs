@@ -123,9 +123,18 @@ export const useStyles = makeStyles()(theme => ({
             alignItems: 'center',
         },
     },
-    platformSubtitle: {
+    platformHeadSubtitle: {
         marginBottom: theme.spacing(3),
         textIndent: '2em',
+        fontSize: '18px',
+        lineHeight: 1.6,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '20px',
+            marginBottom: theme.spacing(2),
+        },
+    },
+    platformSubtitle: {
+        marginBottom: theme.spacing(3),
         fontSize: '18px',
         lineHeight: 1.6,
         [theme.breakpoints.down('sm')]: {

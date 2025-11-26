@@ -5,10 +5,12 @@ import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
 import { StyledButton } from '../../../../components/StyledButton/StyledButton';
 import Divider from '../../../../components/Divider/Divider';
 import { useScrollProgress } from '../../../../hooks/useScrollProgress';
+import { useTranslation } from 'react-i18next';
 
 export const InstallationsSection: React.FC = () => {
     const { classes } = useStyles();
     const { scrollPosition, sectionRef } = useScrollProgress();
+    const { t } = useTranslation();
     return (
         <>
             <Box className={classes.sectionWrapper}>
@@ -19,7 +21,7 @@ export const InstallationsSection: React.FC = () => {
                 >
                     <Box className={classes.container}>
                         <Box sx={{ width: '100%', maxWidth: '1400px', textAlign: { xs: 'left', md: 'left' } }}>
-                            <SectionTitle>INSTALLATIONEN</SectionTitle>
+                            <SectionTitle>{t('home.installations.title')}</SectionTitle>
                         </Box>
                         <Typography className={classes.installationsNumber}>73 898</Typography>
                         <Box sx={{ textAlign: { xs: 'center', sm: 'center', md: 'right' } }}>
@@ -31,7 +33,7 @@ export const InstallationsSection: React.FC = () => {
                                     borderRadius: '10px!important',
                                 }}
                             >
-                                ALLE STATISTIKEN
+                                {t('home.installations.allStats')}
                             </StyledButton>
                         </Box>
                     </Box>

@@ -9,6 +9,7 @@ import HousesGroup from '../../../../assets/img/Houses.png';
 import SmallHousesGroup from '../../../../assets/img/Houses-small.png';
 import { SupportModal } from '../../../../components/SupportModal/SupportModal';
 import { CustomButton } from '../../../../components/Button/Button';
+import { useTranslation } from 'react-i18next';
 
 interface HeroSectionProps {
     sectionRef?: RefObject<HTMLElement | null>;
@@ -18,6 +19,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
     const { classes } = useStyles();
     const navigate = useNavigate();
     const [supportModalOpen, setSupportModalOpen] = useState(false);
+    const { t } = useTranslation();
 
     return (
         <Box
@@ -43,15 +45,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
                             />
                         </Box>
                         <Typography className={classes.heroPlatformText}>
-                            <Box className={classes.platformTextComment}>// Open-Source-Plattform </Box> für
-                            Smart-Home-Automatisierung
+                            <Box className={classes.platformTextComment}>// {t('home.hero.platform')} </Box> 
+                            {t('home.hero.platformSubtitle')}
                         </Typography>
                         <CustomButton
                             variant="primary"
                             onClick={() => navigate('/installation')}
                             className={classes.installButton}
                         >
-                            Installieren
+                            {t('home.hero.install')}
                         </CustomButton>
                     </Box>
 
@@ -64,7 +66,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
                             />
                         </Box>
                         <Typography className={classes.supportText}>
-                            Unsere Software ist kostenlos. <br /> Unterstütze uns!
+                            {t('home.hero.free')} <br />
+                             {t('home.hero.support')}
                         </Typography>
                         <Box className={classes.supportIcons}>
                             <Box

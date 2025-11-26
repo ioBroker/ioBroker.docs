@@ -6,6 +6,7 @@ import PayPalWhiteIcon from '../../assets/img/PayPal-visa-mastercardW.svg';
 import AmazonWhiteIcon from '../../assets/img/amazonWhite.svg';
 import PayPalBlueIcon from '../../assets/img/PayPal-visa-mastercardB.svg';
 import AmazonBlueIcon from '../../assets/img/amazonBlue.svg';
+import { I18n } from '../../utils/i18n';
 
 interface SupportModalProps {
     open: boolean;
@@ -46,13 +47,12 @@ export const SupportModal: React.FC<SupportModalProps> = ({ open, onClose }) => 
                     </svg>
                 </Box>
 
-                <Typography className={classes.title}>UNTERSTÜTZE UNS!</Typography>
+                <Typography className={classes.title}>{I18n.t('support.title')}</Typography>
 
-                <Typography className={classes.subtitle}>ioBroker ist kostenlos - und soll es auch bleiben!</Typography>
+                <Typography className={classes.subtitle}>{I18n.t('support.subtitle')}</Typography>
 
                 <Typography className={classes.description}>
-                    Doch Serverkosten, Weiterentwicklung und Verwaltung brauchen Power (und manchmal auch Kaffee). Wenn
-                    du unser Projekt magst, freuen wir uns über deine Unterstützung!
+                    {I18n.t('support.description')}
                 </Typography>
 
                 <Box className={classes.optionsContainer}>
@@ -65,10 +65,7 @@ export const SupportModal: React.FC<SupportModalProps> = ({ open, onClose }) => 
                             />
                         </Box>
 
-                        <Typography className={classes.paypalOptionText}>
-                            Ob ein kleiner Betrag oder ein großer Boost - jede Spende fließt direkt in die
-                            Weiterentwicklung von ioBroker.
-                        </Typography>
+                        <Typography className={classes.paypalOptionText}>{I18n.t('support.paypal.text')}</Typography>
 
                         <CustomButton
                             className={classes.button}
@@ -76,7 +73,7 @@ export const SupportModal: React.FC<SupportModalProps> = ({ open, onClose }) => 
                             target="_blank"
                             variant="primary"
                         >
-                            JETZT SPENDEN
+                            {I18n.t('support.paypal.button')}
                         </CustomButton>
                     </Box>
 
@@ -89,10 +86,7 @@ export const SupportModal: React.FC<SupportModalProps> = ({ open, onClose }) => 
                             />
                         </Box>
 
-                        <Typography className={classes.amazonOptionText}>
-                            Bestellst du sowieso bei Amazon? Dann nutze unseren Link! Ein kleiner Prozentsatz deines
-                            Einkaufs geht an ioBroker - du zahlst keinen Cent mehr!
-                        </Typography>
+                        <Typography className={classes.amazonOptionText}>{I18n.t('support.amazon.text')}</Typography>
 
                         <CustomButton
                             className={classes.button}
@@ -100,14 +94,12 @@ export const SupportModal: React.FC<SupportModalProps> = ({ open, onClose }) => 
                             target="_blank"
                             variant="primary"
                         >
-                            BEI AMAZON EINKAUFEN
+                            {I18n.t('support.amazon.button')}
                         </CustomButton>
                     </Box>
                 </Box>
 
-                <Typography className={classes.footer}>
-                    PS: Deine Spende wird nicht für Luxus-Smart-Home-Geräte verprasst - versprochen!
-                </Typography>
+                <Typography className={classes.footer}>{I18n.t('support.footer')}</Typography>
             </Box>
         </Dialog>
     );

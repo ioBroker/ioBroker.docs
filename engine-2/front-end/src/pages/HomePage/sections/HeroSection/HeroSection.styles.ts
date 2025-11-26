@@ -190,6 +190,7 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '-3%',
         fontWeight: '200',
         marginBottom: '10px',
+        width: '221px',
         color: '#FFFFFF',
         [theme.breakpoints.down('md')]: {
             textAlign: 'left',

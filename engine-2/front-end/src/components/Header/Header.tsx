@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Select,
@@ -20,6 +20,8 @@ import LogoutIcon from '../icons/LogoutIcon';
 import { useHeaderStyles } from './Header.styles';
 import MenuModal from '../Menu/Menu';
 import { I18n } from '../../utils/i18n';
+import i18next from 'i18next';
+
 
 
 export interface HeaderProps {
@@ -55,6 +57,16 @@ export const Header = ({
   const [language, setLanguage] = useState(I18n.getLanguage());
   const [showProfileMenu, setShowProfileMenu] = useState<HTMLElement | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const unsub = I18n.subscribe(lng => setLanguage(lng));
+    const handler = (lng: string) => setLanguage(lng as any);
+    i18next.on('languageChanged', handler);
+    return () => {
+      unsub();
+      i18next.off('languageChanged', handler);
+    };
+  }, []);
 
   const renderProfileMenu = () => {
     if (!showProfileMenu) {
@@ -162,6 +174,7 @@ export const Header = ({
             const lng = e.target.value as string;
             setLanguage(lng as any);
             I18n.setLanguage(lng as any);
+            i18next.changeLanguage(lng);
             onLanguageUpdate?.();
           }}
         >

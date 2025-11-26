@@ -2,9 +2,11 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './PlatformSection.styles';
 import { StyledButton } from '../../../../components/StyledButton/StyledButton';
+import { useTranslation } from 'react-i18next';
 
 export const PlatformSection: React.FC = () => {
     const { classes } = useStyles();
+    const { t } = useTranslation();
     return (
         <Box
             component="section"
@@ -18,31 +20,23 @@ export const PlatformSection: React.FC = () => {
                                 variant="h1"
                                 className={classes.platformTitle}
                             >
-                                Eine Plattform,
+                                {t('home.platform.title1')}
                             </Typography>
                             <Typography
                                 variant="h1"
                                 className={classes.platformTitleBlue}
                             >
-                                unendliche Möglichkeiten
+                                {t('home.platform.title2')}
                             </Typography>
                         </Box>
-                        <Typography className={classes.platformSubtitle}>
-                            /* ioBroker ist viel mehr als nur eine Software - es ist eine leistungsstarke und flexible
-                            Open-Source-Plattform für Smart Home und IoT-Integration.
+                        <Typography className={classes.platformHeadSubtitle}>
+                            {t('home.platform.head')}
                         </Typography>
                         <Typography className={classes.platformSubtitle}>
-                            Mit ioBroker kannst du Geräte unterschiedlichster Hersteller und Protokolle wie Zigbee, KNX,
-                            MQTT, Homematic, Modbus und viele mehr miteinander verbinden und zentral steuern. So
-                            entsteht ein herstellerunabhängiges Smart Home, das sich ganz nach deinen Wünschen anpassen
-                            und erweitern lässt.
+                            {t('home.platform.sub1')}
                         </Typography>
                         <Typography className={classes.platformSubtitle}>
-                            ioBroker ist für alle gedacht - von Einsteigern, die mit wenigen Klicks einfache
-                            Automatisierungen erstellen, bis hin zu Technikbegeisterten, die komplexe Szenarien mit
-                            JavaScript, Blockly oder Node-RED umsetzen möchten. Dabei läuft die gesamte Steuerung über
-                            eine intuitive grafische Oberfläche, ohne dass komplizierte Konfigurationsdateien bearbeitet
-                            werden müssen. */
+                            {t('home.platform.sub2')}
                         </Typography>
                         <StyledButton
                             sx={{
@@ -55,7 +49,7 @@ export const PlatformSection: React.FC = () => {
                                 alignSelf: 'end',
                             }}
                         >
-                            MEHR
+                            {t('home.platform.more')}
                         </StyledButton>
                     </Box>
                 </Box>

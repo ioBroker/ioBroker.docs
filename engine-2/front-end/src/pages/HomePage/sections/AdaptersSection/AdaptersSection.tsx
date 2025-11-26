@@ -4,6 +4,7 @@ import { useStyles } from './AdaptersSection.styles';
 import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
 import { StyledButton } from '../../../../components/StyledButton/StyledButton';
 import { useAdapters } from '../../../../api/hooks/useAdapters';
+import { useTranslation } from 'react-i18next';
 
 import icon1 from '../../../../assets/img/Alexa.svg';
 import icon2 from '../../../../assets/img/Pillips_hue.svg';
@@ -38,6 +39,7 @@ interface AdapterIcon {
 export const AdaptersSection: React.FC = () => {
     const { classes } = useStyles();
     const { data: adapters } = useAdapters();
+    const { t } = useTranslation();
 
     const totalAdapters = React.useMemo(() => {
         if (!adapters?.pages) return 680;
@@ -121,16 +123,13 @@ export const AdaptersSection: React.FC = () => {
             <Box className={classes.container}>
                 <Box className={classes.adaptersContent}>
                     <Box className={classes.adaptersTextSection}>
-                        <SectionTitle>ADAPTER</SectionTitle>
+                        <SectionTitle>{t('home.adapters.title')}</SectionTitle>
                         <Typography
                             component="p"
                             sx={{ mt: 2 }}
                             className={classes.adaptersText}
                         >
-                            /* sind die Schnittstellen zu verschiedenen Geräten, Diensten und Technologien. Ein Adapter
-                            fungiert dabei wie ein "Übersetzer", der Daten von einem spezifischen Gerät oder Protokoll
-                            in ein standardisiertes Format bringt, das ioBroker versteht. Gleichzeitig ermöglicht er,
-                            dass Befehle von ioBroker an die Geräte oder Dienste weitergegeben werden können. */
+                             /* {t('home.adapters.text')} */
                         </Typography>
                         <Box className={classes.buttonWrapperDesktop}>
                             <StyledButton
@@ -144,7 +143,7 @@ export const AdaptersSection: React.FC = () => {
                                     zIndex: 1,
                                 }}
                             >
-                                {totalAdapters}+ ADAPTER
+                                {totalAdapters}+ {t('home.adapters.word')}
                             </StyledButton>
                         </Box>
                     </Box>
@@ -165,7 +164,7 @@ export const AdaptersSection: React.FC = () => {
                                 zIndex: 1,
                             }}
                         >
-                            {totalAdapters}+ ADAPTER
+                            {totalAdapters}+ {t('home.adapters.word')}
                         </StyledButton>
                     </Box>
                 </Box>

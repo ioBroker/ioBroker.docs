@@ -3,6 +3,7 @@ import { Box, Typography } from '@mui/material';
 import { useStyles } from './NewsletterSection.styles';
 import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
 import ArrowIconSvg from '../../../../assets/img/ArrowDownRight.svg';
+import { useTranslation } from 'react-i18next';
 
 const ArrowIcon: React.FC = () => (
     <Box
@@ -19,6 +20,7 @@ const ArrowIcon: React.FC = () => (
 
 export const NewsletterSection: React.FC = () => {
     const { classes } = useStyles();
+    const { t } = useTranslation();
     return (
         <Box
             component="section"
@@ -26,14 +28,13 @@ export const NewsletterSection: React.FC = () => {
         >
             <Box className={classes.container}>
                 <Box sx={{ width: '100%', maxWidth: '1400px', textAlign: { xs: 'left', md: 'left' } }}>
-                    <SectionTitle>NEWSLETTER</SectionTitle>
+                    <SectionTitle>{t('home.newsletter.title')}</SectionTitle>
                 </Box>
                 <Box className={classes.newsletterContent}>
                     <Box className={classes.newslettertext}>
-                        <Typography className={classes.newsletterTitle}>Keine Werbung, nur News!</Typography>
+                        <Typography className={classes.newsletterTitle}>{t('home.newsletter.headline')}</Typography>
                         <Typography className={classes.newsletterSubTitle}>
-                            Unser Newsletter informiert dich ausschließlich über neue Blogbeiträge und besondere
-                            Aktionen wie Weihnachtsrabatte - garantiert ohne Spam!
+                            {t('home.newsletter.sub')}
                         </Typography>
                     </Box>
                     <Box sx={{ display: 'flex', gap: { lg: '55px', md: '30px', sm: '20px', xs: '20px' } }}>
@@ -42,7 +43,7 @@ export const NewsletterSection: React.FC = () => {
                             <Box className={classes.newsletterInputContainer}>
                                 <input
                                     className={classes.newsletterInput}
-                                    placeholder="deineemail@email.com"
+                                    placeholder={t('home.newsletter.placeholder')}
                                 />
                             </Box>
                             <div className={classes.bracesRight} />

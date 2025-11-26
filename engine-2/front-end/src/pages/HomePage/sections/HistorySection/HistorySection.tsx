@@ -2,9 +2,11 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './HistorySection.styles';
 import { StyledButton } from '../../../../components/StyledButton/StyledButton';
+import { useTranslation } from 'react-i18next';
 
 export const HistorySection: React.FC = () => {
     const { classes, cx } = useStyles();
+    const { t } = useTranslation();
     return (
         <Box
             component="section"
@@ -25,18 +27,17 @@ export const HistorySection: React.FC = () => {
                         >
                             +
                         </Box>
-                        <Typography className={cx(classes.historyTitle, classes.historyTitleMobile)}>Jahre</Typography>
+                        <Typography className={cx(classes.historyTitle, classes.historyTitleMobile)}>{t('home.history.years')}</Typography>
                     </Box>
                 </Box>
                 <Box className={classes.historyWrapper}>
-                    <Typography className={cx(classes.historyTitle, classes.historyTitleDesktop)}>Jahre</Typography>
-                    <Typography className={classes.historySubTitle}>BEGEISTERUNG FÜR SMART-HOME</Typography>
+                    <Typography className={cx(classes.historyTitle, classes.historyTitleDesktop)}>{t('home.history.years')}</Typography>
+                    <Typography className={classes.historySubTitle}>{t('home.history.slogan')}</Typography>
                     <Typography
                         component="p"
                         className={classes.historyText}
                     >
-                        /* Was 2013 als Wunsch nach Automatisierung für das eigene Zuhause begann, entwickelte sich zu
-                        einer flexiblen und leistungsstarken Plattform mit einer großen Community. */
+                       /* {t('home.history.text')} */
                     </Typography>
                     <Box sx={{ textAlign: { xs: 'center', sm: 'center', md: 'left' } }}>
                         <StyledButton
@@ -46,7 +47,7 @@ export const HistorySection: React.FC = () => {
                                 maxWidth: '533px',
                             }}
                         >
-                            IOBROKER GESCHICHTE
+                            {t('home.history.button')}
                         </StyledButton>
                     </Box>
                 </Box>

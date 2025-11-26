@@ -9,10 +9,12 @@ import RaspberryLogo from '../../assets/img/Raspberry.png';
 import WindowsLogo from '../../assets/img/Windows_logo.png';
 import CopyIcon from '../../assets/img/Copy.png';
 import AlertIcon from '../../assets/img/Alert.png';
+import { useTranslation } from 'react-i18next';
 
 const InstallationPage = () => {
     const { classes } = useStyles();
     const [visible, setVisible] = useState(false);
+    const { t } = useTranslation();
 
     return (
         <Box className={classes.pageWrapper}>
@@ -24,15 +26,14 @@ const InstallationPage = () => {
                             fontSize: { xs: '20px !important', sm: '48px !important' },
                         }}
                     >
-                        IOBROKER INSTALLATION
+                        {t('installation.title')}
                     </SectionTitle>
                 </Box>
                 <Typography
                     variant="body1"
                     className={classes.subtitle}
                 >
-                    ioBroker lässt sich auf allen Systemen installieren, die Node.js unterstützen und genügend RAM
-                    haben.
+                    {t('installation.subtitle')}
                 </Typography>
                 <Box className={classes.cardContainer}>
                     <Paper className={classes.linuxCard}>
@@ -54,8 +55,7 @@ const InstallationPage = () => {
                                 variant="body1"
                                 className={classes.linuxSubHeader}
                             >
-                                Die einfachste Möglichkeit, ioBroker auf einem Linux-System zu installieren, ist mit
-                                folgendem Befehl:
+                                {t('installation.linux.simplest')}
                             </Typography>
                             <Box className={classes.commandBox}>
                                 <span className={classes.commandBoxText}>
@@ -84,7 +84,7 @@ const InstallationPage = () => {
                                     className={classes.copyConfirmation}
                                     style={{ opacity: visible ? 1 : 0 }}
                                 >
-                                    Copied!
+                                    {t('installation.linux.copied')}
                                 </Box>
                             </Box>
                             <Typography className={classes.hintText}>
@@ -95,7 +95,7 @@ const InstallationPage = () => {
                                         className={classes.alertIcon}
                                     />
                                 </span>{' '}
-                                Hinweis: Die Installation kann je nach System einige Minuten dauern.
+                                {t('installation.linux.hint')}
                             </Typography>
                         </Box>
                         <Box className={classes.imageInfoBox}>
@@ -105,19 +105,17 @@ const InstallationPage = () => {
                                     sx={{ mb: 1 }}
                                     className={classes.imageTextHeader}
                                 >
-                                    Wann benötige ich ein Image?
+                                    {t('installation.linux.imageTitle')}
                                 </Typography>
                                 <Typography
                                     variant="body2"
                                     sx={{ mb: 2 }}
                                     className={classes.imageText}
                                 >
-                                    Ein vorkonfiguriertes Image ist nur erforderlich, wenn das Installationsskript nicht
-                                    funktioniert oder keine Internetverbindung verfügbar ist. In den meisten Fällen
-                                    reicht der oben genannte Befehl aus.
+                                    {t('installation.linux.imageText')}
                                 </Typography>
                             </Box>
-                            <Button className={classes.buttonSecondaryLinux}>INFO</Button>
+                            <Button className={classes.buttonSecondaryLinux}>{t('installation.linux.info')}</Button>
                         </Box>
                     </Paper>
                     <Box className={classes.cardsWrapper}>
@@ -128,7 +126,7 @@ const InstallationPage = () => {
                                         variant="h5"
                                         className={classes.cardTitle}
                                     >
-                                        DOCKER
+                                        {t('installation.docker.title')}
                                     </Typography>
                                     <img
                                         src={DockerLogo}
@@ -142,26 +140,26 @@ const InstallationPage = () => {
                                         component="span"
                                         className={classes.detailsLabel}
                                     >
-                                        Platform:
+                                        {t('installation.docker.platform')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                     >
-                                        Docker
+                                        {t('installation.docker.platformValue')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                         className={classes.detailsLabel}
                                     >
-                                        Details:
+                                        {t('installation.docker.details')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                     >
-                                        Flexibles Docker-Image
+                                        {t('installation.docker.detailsValue')}
                                     </Typography>
                                 </Box>
                             </Box>
@@ -170,14 +168,14 @@ const InstallationPage = () => {
                                     variant="primary"
                                     className={classes.buttonPrimary}
                                 >
-                                    DOWNLOAD
+                                    {t('installation.docker.download')}
                                 </CustomButton>
                                 <Button
                                     fullWidth
                                     variant="outlined"
                                     className={classes.buttonSecondary}
                                 >
-                                    INFO
+                                    {t('installation.docker.info')}
                                 </Button>
                             </Box>
                         </Paper>
@@ -189,7 +187,7 @@ const InstallationPage = () => {
                                         variant="h5"
                                         className={classes.cardTitle}
                                     >
-                                        RASPBERRY PI S
+                                        {t('installation.raspberry.title')}
                                     </Typography>
                                     <img
                                         src={RaspberryLogo}
@@ -203,39 +201,39 @@ const InstallationPage = () => {
                                         component="span"
                                         className={classes.detailsLabel}
                                     >
-                                        Platform:
+                                        {t('installation.raspberry.platform')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                     >
-                                        Raspberry OS
-                                    </Typography>
-                                    <Typography
-                                        variant="body2"
-                                        component="span"
-                                        className={classes.detailsLabel}
-                                    >
-                                        Details:
-                                    </Typography>
-                                    <Typography
-                                        variant="body2"
-                                        component="span"
-                                    >
-                                        Vorgefertigtes Raspberry OS Image
+                                        {t('installation.raspberry.platformValue')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                         className={classes.detailsLabel}
                                     >
-                                        Standart Passwort:
+                                        {t('installation.raspberry.details')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                     >
-                                        2024=smart!
+                                        {t('installation.raspberry.detailsValue')}
+                                    </Typography>
+                                    <Typography
+                                        variant="body2"
+                                        component="span"
+                                        className={classes.detailsLabel}
+                                    >
+                                        {t('installation.raspberry.password')}
+                                    </Typography>
+                                    <Typography
+                                        variant="body2"
+                                        component="span"
+                                    >
+                                        {t('installation.raspberry.passwordValue')}
                                     </Typography>
                                 </Box>
                             </Box>
@@ -244,14 +242,14 @@ const InstallationPage = () => {
                                     variant="primary"
                                     className={classes.buttonPrimary}
                                 >
-                                    DOWNLOAD
+                                    {t('installation.raspberry.download')}
                                 </CustomButton>
                                 <Button
                                     fullWidth
                                     variant="outlined"
                                     className={classes.buttonSecondary}
                                 >
-                                    INFO
+                                    {t('installation.raspberry.info')}
                                 </Button>
                             </Box>
                         </Paper>
@@ -263,7 +261,7 @@ const InstallationPage = () => {
                                         variant="h5"
                                         className={classes.cardTitle}
                                     >
-                                        WINDOWS
+                                        {t('installation.windows.title')}
                                     </Typography>
                                     <img
                                         src={WindowsLogo}
@@ -277,26 +275,26 @@ const InstallationPage = () => {
                                         component="span"
                                         className={classes.detailsLabel}
                                     >
-                                        Platform:
+                                        {t('installation.windows.platform')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                     >
-                                        Windows 32 / 64 Bit
+                                        {t('installation.windows.platformValue')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                         className={classes.detailsLabel}
                                     >
-                                        Details:
+                                        {t('installation.windows.details')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                     >
-                                        Einfache Installation mit dem Windows-Installer
+                                        {t('installation.windows.detailsValue')}
                                     </Typography>
                                 </Box>
                             </Box>
@@ -305,14 +303,14 @@ const InstallationPage = () => {
                                     variant="primary"
                                     className={classes.buttonPrimary}
                                 >
-                                    DOWNLOAD
+                                    {t('installation.windows.download')}
                                 </CustomButton>
                                 <Button
                                     fullWidth
                                     variant="outlined"
                                     className={classes.buttonSecondary}
                                 >
-                                    INFO
+                                    {t('installation.windows.info')}
                                 </Button>
                             </Box>
                         </Paper>

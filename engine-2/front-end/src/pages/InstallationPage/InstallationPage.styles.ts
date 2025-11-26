@@ -73,6 +73,7 @@ export const useStyles = makeStyles()(theme => ({
         },
         [theme.breakpoints.down(430)]: {
             fontSize: 16,
+            textAlign: 'left',
             fontWeight: 300,
             width: 364,
             margin: '0 auto',
