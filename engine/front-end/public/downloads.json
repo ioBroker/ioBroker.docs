@@ -17,12 +17,12 @@
     "info": "https://docs.buanet.de/iobroker-docker-image/"
   },
   {
-    "file": "https://iobroker.live/images/ioBroker-image-RPi_5_2024_11_01.zip",
+    "file": "https://iobroker.live/images/ioBroker-image-RPi_5_2025_11_26.zip",
     "platform": "Raspberry OS",
     "date": "",
     "device": "Raspberry Pi 5",
     "details": "Raspberry OS Image. Password: 2024=smart!",
     "picture": "Pi5.png",
-    "info": "https://github.com/GermanBluefox/kisshome-raspi-image"
+    "info": "https://github.com/ioBroker/raspi-image"
   }
 ]

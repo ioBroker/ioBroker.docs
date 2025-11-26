@@ -3,35 +3,37 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: ooJmhSMkua3PN8tCtVIMiQ3wVQeMeCr+Ua3v+9cSD38=
+hash: tFlaY65ZX18eupAReGMkTzDiyvjrJHH0hL/q/eX6gtE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
 ![версия НПМ](https://img.shields.io/npm/v/iobroker.ems-esp.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ems-esp.svg)
 ![Количество установок (последнее)](https://iobroker.live/badges/ems-esp-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/ems-esp-stable.svg)
+![Количество установок (стабильное)](https://iobroker.live/badges/ems-esp-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.ems-esp.png?downloads=true)
 
 # IoBroker.ems-esp
-**Тесты:** ![Тест и выпуск](https://github.com/tp1de/ioBroker.ems-esp/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/tp1de/ioBroker.ems-esp/workflows/Test%20and%20Release/badge.svg)
 
 ## Системы отопления Bosch / Buderus с интерфейсом km200 / IP-inside и/или ems-esp
-Адаптер поддерживает интерфейс с системами отопления от Bosch Group с использованием шины EMS или EMS+.
+Адаптер поддерживает интерфейс с системами отопления Bosch Group по шине EMS или EMS+.
 (Bosch / Buderus / Junkers / Netfit и т. д.).
 
-## Адаптер может взаимодействовать с системой отопления с помощью вызовов API. Поддерживаемые шлюзы:
+## Адаптер может взаимодействовать с системой отопления посредством вызовов API. Поддерживаемые шлюзы:
 * km200, km200 hrv, km100, km50, HMC300 или IP-inside (от Bosch Group)
 
 * шлюз ems-esp (https://github.com/emsesp/EMS-ESP32) с чипом ESP32.
 
-Адаптер протестирован для шлюза ems-esp с последней стабильной версией прошивки. Последние версии прошивки dev могут работать нестабильно с адаптером ioBroker. Используйте на свой страх и риск.
+Адаптер протестирован для шлюза ems-esp с последней стабильной версией прошивки. Последние версии прошивки для разработчиков могут работать нестабильно с адаптером ioBroker. Используйте его на свой страх и риск.
 
-* Новые облачные шлюзы Bosch-Group (MX300 / EasyControl ...) не поддерживаются, поскольку они не поддерживают LAN API!
+ОБРАТИТЕ ВНИМАНИЕ НА РЕГУЛЯРНЫЕ ИЗМЕНЕНИЯ ПРОШИВКИ EMS_ESP - АДАПТЕР ioBROKER МОЖЕТ НЕ РАБОТАТЬ С НЕЙ !!!
 
-Адаптер ioBroker ems-esp может считывать и записывать данные на оба шлюза для управления всеми компонентами отопления.
-Его можно использовать как для исходных шлюзов Bosch-Group, так и для ems-esp или для обоих параллельно.
-Все измененные состояния из собственных скриптов или браузера объектов должны устанавливать acknowledged = false !!!
+* Новые облачные шлюзы Bosch-Group (MX300 / EasyControl ...) не поддерживаются, так как они не поддерживают LAN API!
+
+Адаптер ioBroker ems-esp может считывать и записывать данные на оба шлюза для управления всеми компонентами системы отопления.
+Его можно использовать как с оригинальными шлюзами Bosch Group, так и с ems-esp, или с обоими параллельно.
+Все изменённые состояния из собственных скриптов или обозревателя объектов должны быть установлены в значение acknowledged = false!!!
 
 Немецкая документация: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
 
@@ -46,25 +48,27 @@ hash: ooJmhSMkua3PN8tCtVIMiQ3wVQeMeCr+Ua3v+9cSD38=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
+* dependabot updates 
+* update error message for ems-esp gateway 
+
+### 6.0.2 (2025-11-01)
+* increase axios timeout for km200 reads
 * dependabot updates
+* updating pdf docu in respect to energy statistics for ems-esp gateways
+* Migrate to NPM Trusted Publishing
 
-### 5.1.2 (2024-12-31)
-* ems-esp: fix enum errors for setting "Value" 
+### 6.0.1 (2025-10-03)
+* dependabot updates 
+* eslint 9 migration
+* test and release with node 24.x
+* repository checker updates
+
+### 6.0.0 (2025-05-08)
+* ems-esp: NEW encrypt ems token - token needs to be re-entered
+* minimum node version 20 required
 * dependabot updates
-
-### 5.1.1 (2024-12-26)
-* correct statistics on adapter start-up
-
-### 5.1.0 (2024-12-25)
-* error correction on enabling statistics
-
-### 5.0.6 (2024-12-03)
-* dependabot updates
-* ems-esp: send switchprog updates 3 times (test)
-
-### 5.0.5 (2024-11-22)
-* Add native entries to io-package
 
 ## License
 MIT License

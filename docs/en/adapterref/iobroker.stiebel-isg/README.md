@@ -28,11 +28,12 @@ This adapter reads values from STIEBEL ELTRON/Tecalor Internet Service Gateways 
 * node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 is required  
 Upgrade your ioBroker to at least this software level, if you want to use this adapter
 
-* Password encryption in config UI
-If you update this adapter from a previous version instead of a new installation, the adapter may not start, even if your password in your config is correct and has not been changed. To fix this, simply enter the same previous password once more in the config UI and store and close the config UI to restart the adapter. This of course is only neccessary once after the first start after the update.
+* Password and username encryption in config UI  
+If you update this adapter from a previous version instead of a new installation, the adapter may not start, even if your password and username in your config is correct and has not been changed. To fix this, simply enter the same previous password and username once more in the config UI and store and close the config UI to restart the adapter. This of course is only neccessary once after the first start after the update.
 
-* The type and/or name of some objects in the object tab has changed
-If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log or object values and/or names are not updated correctly. To prevent this from happening, the most simple solution is to stop the adapter in the instances tab of ioBroker, completely delete the object tree in the objects tab and then restart the adapter. This of course is only neccessary once after the update and is not required if you do a clean new installation.
+* The type and/or name of some objects in the object tab has changed  
+If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log or object values and/or names are not updated correctly. To prevent this from happening, the most simple solution is to stop the adapter in the instances tab of ioBroker, completely delete the object tree in the objects tab and then restart the adapter. However, this is only neccessary once after the update and is not required if you do a clean new installation.  
+**CAUTION:** Deleting the object tree will erase any user-defined settings e.g. links to other adapters like history or statistics. You will have to recreate them manually, so make sure to remember the details of the settings.  
 
 ## Installation
 
@@ -43,7 +44,7 @@ If you update this adapter from a previous version instead of a new installation
 
 1. Configure the instance by entering the IP-address or domain name of the ISG and if configured in the ISG, the user name and password.  
 2. The other settings and the the list of the web pages of the ISG on tab URLs may be left at their default values.
-3. You can improve performance and reduce the load on the ISG if you remove any paths from the URLs tab which do not exist in you ISG Web GUI or which you are not interested in. You can easily identify the URLs by opening the ISG SERVICEWELT Web page and open the various navigation tabs one by one. The URL of the respective page is shown in your browser e.g http://IP-of-your-ISG/?s=1,0 is the value path to INFO/ANLAGE.
+3. You can improve performance and reduce the load on the ISG if you remove any paths from the URLs tab which do not exist in you ISG Web GUI or which you are not interested in. You can easily identify the URLs by opening the ISG SERVICEWELT Web page and open the various navigation tabs one by one. The URL of the respective page is shown in your browser e.g <http://IP-of-your-ISG/?s=1,0> is the value path to INFO/ANLAGE.
 
 ## Changelog
 
@@ -51,6 +52,10 @@ If you update this adapter from a previous version instead of a new installation
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.2 (2025-11-23)
+
+* (pdbjjens) **Fixed**: Adapter hangup on wrong credentials. (fixes #127)
+
 ### 2.0.1 (2025-11-12)
 
 * (pdbjjens) **Fixed**: ioBroker warnings are avoided by clamping any values exceeding min/max to the min value before setting. (fixes #53 & #65)
@@ -72,10 +77,6 @@ If you update this adapter from a previous version instead of a new installation
 ### 1.7.6
 
 * fix error with controller v5
-
-### 1.7.5
-
-* security enhancements
 
 ## Legal Notices
 

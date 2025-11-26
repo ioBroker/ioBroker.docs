@@ -209,6 +209,16 @@ If you're not seeing expected data in `VIN.api.*`:
 This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://github.com/TA2k/ioBroker.bmw)
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+
+- optimize dependabot config (#209)
+
 ### 4.3.1 (2025-10-11)
 
 - fix gps coordinate parsing

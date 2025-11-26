@@ -80,6 +80,10 @@ ttd:
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.1 (2025-11-26)
+
+* (@klein0r) Increased timeout of api calls
+
 ### 5.0.0 (2025-11-16)
 
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
@@ -101,11 +105,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 ### 3.4.1 (2024-11-24)
 
 * (@Sickboy78) Awido: Increased number of fetched pickups per type (1 month)
-
-### 3.4.0 (2024-11-07)
-
-* (@klein0r) Validate user inputs in instance configuration
-* (@Sickboy78) Added Awido as Webservice
 
 ## License
 

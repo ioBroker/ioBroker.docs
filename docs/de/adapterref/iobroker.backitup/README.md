@@ -727,7 +727,7 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 ---
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.3.11 (2025-11-23)
 * (simatec) Update Dependabot
 * (simatec) dependencies updated
 

@@ -41,6 +41,16 @@ Without a schedule, the adapter will not fetch or transmit any data automaticall
 
 ## Changelog
 
+### 0.3.1
+
+- Cleaned up dev dependencies and updated the admin adapter to version 7.6.17.
+
+### 0.3.0
+
+- Updated all adapter dependencies to current stable versions.
+- Updated the API endpoint for submitting meter readings to the new v2 API.
+- General maintenance and compatibility improvements.
+
 ### 0.2.8
 
 - Improved API reliability, added request timeout, and addressed review feedback.
@@ -98,5 +108,5 @@ Without a schedule, the adapter will not fetch or transmit any data automaticall
 
 MIT – see [LICENSE](LICENSE).
 
-Copyright (c) 2017-2025 Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2025 Bluefox <dogafox@gmail.com>  
 Copyright (c) 2015-2025 energy-tracker support@best-ios-apps.de
