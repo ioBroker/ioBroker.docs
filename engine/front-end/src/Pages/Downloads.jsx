@@ -250,10 +250,6 @@ class Downloads extends Router {
     }
 
     renderImage(image) {
-        // if (this.state.filter && this.state.filter !== 'all' && this.state.filter !== image.device) {
-        //     return null;
-        // }
-
         return <Card
             key={image.file}
             style={{
@@ -291,8 +287,28 @@ class Downloads extends Router {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary" onClick={() => Utils.openLink(image.file.startsWith('http') ? image.file : `https://iobroker.live/images/${image.file}`)}>{I18n.t('Download')}</Button>
-                {image.info && <Button size="small" color="primary" onClick={() => this.onLink(image.info)}>{I18n.t('Info')}</Button>}
+                <Button
+                    href={image.file.startsWith('http') ? image.file : `https://iobroker.live/images/${image.file}`}
+                    size="small"
+                    color="primary"
+                    onClick={e => {
+                        e.preventDefault();
+                        Utils.openLink(image.file.startsWith('http') ? image.file : `https://iobroker.live/images/${image.file}`);
+                    }}
+                >
+                    {I18n.t('Download')}
+                </Button>
+                {image.info && <Button
+                    href={image.info.match(/^https?:/i) ? image.info : null}
+                    size="small"
+                    color="primary"
+                    onClick={e => {
+                        e.preventDefault();
+                        this.onLink(image.info)
+                    }}
+                >
+                    {I18n.t('Info')}
+                </Button>}
             </CardActions>
         </Card>;
     }
