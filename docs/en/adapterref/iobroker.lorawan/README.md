@@ -23,6 +23,63 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.18.23 (2025-11-26)
+* (BenAhrdt) Notify Adapter Version to Bridge with connection
+
+### 1.18.22 (2025-11-26)
+* (BenAhrdt) Bugfix message to brige with discovered device
+
+### 1.18.21 (2025-11-26)
+* (BenAhrdt) Bugfix reading value for light in puslish
+
+### 1.18.20 (2025-11-26)
+* (BenAhrdt) Dont write discovery multiple in internal object (in case of reconnect bridge)
+
+### 1.18.19 (2025-11-26)
+* (BenAhrdt) possibility to publish one id in spezial and normal entity
+
+### 1.18.18 (2025-11-25)
+* (BenAhrdt) Bugfix limit sitch topic to state_topic
+
+### 1.18.17 (2025-11-25)
+* (BenAhrdt) Bugfix limit switch closed
+
+### 1.18.16 (2025-11-25)
+* (BenAhrdt) change cover states into lower case
+
+### 1.18.15 (2025-11-25)
+* (BenAhrdt) add '#' to normalized String
+
+### 1.18.14 (2025-11-25)
+* (BenAhrdt) add Cover to special devices
+
+### 1.18.13 (2025-11-23)
+* (BenAhrdt) Bugfix: wrong subscribtion of fx ids
+
+### 1.18.12 (2025-11-23)
+* (BenAhrdt) Bugfix fx in case of number
+
+### 1.18.11 (2025-11-23)
+* (BenAhrdt) Bugfix fx for published ids
+
+### 1.18.10 (2025-11-23)
+* (BenAhrdt) Effects for Lights in common.states
+
+### 1.18.9 (2025-11-23)
+* (BenAhrdt) Automactic Scale of light brightness in case of common.max in state
+
+### 1.18.8 (2025-11-23)
+* (BenAhrdt) Bugfix: no notification in case of no bridge is used
+
+### 1.18.7 (2025-11-22)
+* (BenAhrdt) Add light to possible special devices
+
+### 1.18.6 (2025-11-21)
+* (BenAhrdt) set role color to entity_category config
+
+### 1.18.5 (2025-11-21)
+* (BenAhrdt) add mixed to type text for color values
+
 ### 1.18.4 (2025-11-08)
 * (BenAhrdt) Change unique id for lorawan internal standard states
 * (BenAhrdt) Change sequence of dicovery and check downlinks at startup

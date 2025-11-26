@@ -17,7 +17,6 @@
 Adapter for Mitsubishi aircondition with airconwithme wlan adapter
 
 ## Information 
-Installation is done with the Github Cat Symbol / custom. Enter the url of this page (without README.md) and select 'install'. 
 
 In the adapter settings the IP of your airconditions WLAN adapter should be entered. Username + Password for the Intesis adapter are by default "admin" + "admin".
 
@@ -58,7 +57,7 @@ Most datapoints are readonly, you can set the following:
 ## License
 MIT License
 
-Copyright (c) 2022 weggetor <info@bitboxx.net>
+Copyright (c) 2025 Torsten Weggen <info@bitboxx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

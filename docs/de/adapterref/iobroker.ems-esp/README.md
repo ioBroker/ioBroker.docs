@@ -3,35 +3,37 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: ooJmhSMkua3PN8tCtVIMiQ3wVQeMeCr+Ua3v+9cSD38=
+hash: tFlaY65ZX18eupAReGMkTzDiyvjrJHH0hL/q/eX6gtE=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.ems-esp.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ems-esp.svg)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/ems-esp-installed.svg)
-![Anzahl Installationen (stabil)](https://iobroker.live/badges/ems-esp-stable.svg)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/ems-esp-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.ems-esp.png?downloads=true)
 
 # IoBroker.ems-esp
-**Tests:** ![Testen und Freigeben](https://github.com/tp1de/ioBroker.ems-esp/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/tp1de/ioBroker.ems-esp/workflows/Test%20and%20Release/badge.svg)
 
 ## Bosch / Buderus Heizsysteme mit km200 / IP-inside und/oder ems-esp Schnittstelle
-Der Adapter unterstützt eine Schnittstelle zu den Heizsystemen der Bosch-Gruppe über EMS- oder EMS+-Bus.
-(Bosch / Buderus / Junkers / Netfit usw.).
+Der Adapter unterstützt eine Schnittstelle zu Heizsystemen der Bosch-Gruppe über den EMS- oder EMS+-Bus.
 
-## Der Adapter kann über API-Aufrufe mit dem Heizsystem kommunizieren. Unterstützte Gateways sind:
+(Bosch / Buderus / Junkers / Netfit etc.)
+
+Der Adapter kann über API-Aufrufe mit dem Heizsystem kommunizieren. Unterstützte Gateways sind:
 * km200, km200 hrv, km100, km50, HMC300 oder IP-inside (von der Bosch-Gruppe)
 
-* ems-esp-Gateway (https://github.com/emsesp/EMS-ESP32) mit dem ESP32-Chip.
+* ems-esp gateway (https://github.com/emsesp/EMS-ESP32) mit dem ESP32-Chip.
 
-Der Adapter wurde für das ems-esp-Gateway mit der neuesten stabilen Firmware-Version getestet. Die neuesten Entwicklerversionen der Firmware funktionieren möglicherweise nicht stabil mit dem ioBroker-Adapter. Die Verwendung erfolgt auf eigenes Risiko.
+Der Adapter wurde mit dem EMS-ESP-Gateway und der neuesten stabilen Firmware-Version getestet. Neuere Entwicklerversionen der Firmware funktionieren möglicherweise nicht stabil mit dem ioBroker-Adapter. Die Verwendung erfolgt auf eigene Gefahr.
 
-* Neue Cloud-Gateways der Bosch-Gruppe (MX300 / EasyControl ...) werden nicht unterstützt, da sie keine LAN-API unterstützen!
+BITTE BEACHTEN SIE DIE REGELMÄSSIGEN ÄNDERUNGEN DER EMS_ESP-FIRMWARE – DER ioBroker-Adapter FUNKTIONIERT MÖGLICHERWEISE NICHT MIT DIESER FIRMWARE!
 
-Der ioBroker ems-esp Adapter kann Daten von beiden Gateways lesen und schreiben, um alle Heizkomponenten zu steuern.
-Er kann entweder für die originalen Bosch-Group Gateways oder das ems-esp oder beide parallel verwendet werden.
-Alle geänderten Zustände aus eigenen Skripten oder dem Objektbrowser müssen acknowledged = false gesetzt werden!!!
+* Die neuen Cloud-Gateways der Bosch-Gruppe (MX300 / EasyControl ...) werden nicht unterstützt, da sie keine LAN-API unterstützen!
+
+Der ioBroker ems-esp-Adapter kann Daten von beiden Gateways lesen und schreiben, um alle Heizungskomponenten zu steuern.
+Er kann entweder für die originalen Bosch-Group-Gateways, für das ems-esp-Gateway oder parallel für beide verwendet werden. Alle Zustandsänderungen, die durch eigene Skripte oder den Objektbrowser vorgenommen werden, müssen mit `acknowledged = false` bestätigt werden.
 
 Deutsche Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
 
@@ -46,25 +48,27 @@ Deutsches ioBroker-Forum: https://forum.iobroker.net/topic/45862/neuer-adapter-e
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
+* dependabot updates 
+* update error message for ems-esp gateway 
+
+### 6.0.2 (2025-11-01)
+* increase axios timeout for km200 reads
 * dependabot updates
+* updating pdf docu in respect to energy statistics for ems-esp gateways
+* Migrate to NPM Trusted Publishing
 
-### 5.1.2 (2024-12-31)
-* ems-esp: fix enum errors for setting "Value" 
+### 6.0.1 (2025-10-03)
+* dependabot updates 
+* eslint 9 migration
+* test and release with node 24.x
+* repository checker updates
+
+### 6.0.0 (2025-05-08)
+* ems-esp: NEW encrypt ems token - token needs to be re-entered
+* minimum node version 20 required
 * dependabot updates
-
-### 5.1.1 (2024-12-26)
-* correct statistics on adapter start-up
-
-### 5.1.0 (2024-12-25)
-* error correction on enabling statistics
-
-### 5.0.6 (2024-12-03)
-* dependabot updates
-* ems-esp: send switchprog updates 3 times (test)
-
-### 5.0.5 (2024-11-22)
-* Add native entries to io-package
 
 ## License
 MIT License

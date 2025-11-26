@@ -1193,7 +1193,6 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.radiohead/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.rainbird/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.rct/README.md
-https://www.iobroker.net/#de/adapters/adapterref/iobroker.refoss/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.remeha-home/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.renacidc/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.renault/README.md
@@ -1921,7 +1920,6 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.radiohead/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.rainbird/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.rct/README.md
-https://www.iobroker.net/#en/adapters/adapterref/iobroker.refoss/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.remeha-home/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.renacidc/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.renault/README.md
@@ -2649,7 +2647,6 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.radiohead/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.rainbird/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.rct/README.md
-https://www.iobroker.net/#ru/adapters/adapterref/iobroker.refoss/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.remeha-home/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.renacidc/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.renault/README.md
@@ -3377,7 +3374,6 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.radiohead/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rainbird/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rct/README.md
-https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.refoss/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.remeha-home/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.renacidc/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.renault/README.md

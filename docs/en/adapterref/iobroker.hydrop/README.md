@@ -61,7 +61,7 @@ If you want to check whether the hydropmeter is compatible with your type of wat
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
+### 0.1.4 (2025-11-23)
 * (simatec) Fix dependabot
 * (simatec) Update dependencies
 

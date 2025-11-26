@@ -49,6 +49,20 @@ You will need a local user created in your UniFi OS Console to log in with. Ubiq
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (Scrounger) event messages improved #46
+- (Scrounger) bug fixes
+
+### 1.3.0 (2025-11-24)
+
+- (Scrounger) event messages improved #46
+- (Scrounger) option to change tx power mode of access point channels
+- (Scrounger) dependencies updated
+- (Scrounger) code optimized
+- (Scrounger) logging optimized
+
 ### 1.2.2 (2025-11-14)
 
 - (Scrounger) delete device event added

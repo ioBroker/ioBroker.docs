@@ -24,6 +24,8 @@ The adapter supports an interface towards the heating systems from Bosch Group u
   The adapter is tested for the ems-esp gateway with latest stable firmware version
   Latest dev versions of firmware might not work stable with the ioBroker adapter. Use is on own risk.
 
+  PLEASE BE AWARE OF REGULAR CHANGES OF EMS_ESP FIRMWARE - THE ioBROKER ADAPTER MIGHT NOT WORK WITH !!!
+
 * New Bosch-Group Cloud-Gateways (MX300 / EasyControl ...) are not supported since they do not support LAN API !
 
 The ioBroker ems-esp adapter can read and write data to both gateways to control all heating components. 
@@ -46,7 +48,7 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 
 ### **WORK IN PROGRESS**
 * dependabot updates 
-
+* update error message for ems-esp gateway 
 
 ### 6.0.2 (2025-11-01)
 * increase axios timeout for km200 reads

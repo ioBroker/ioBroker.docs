@@ -23,7 +23,9 @@ Integrate your Oxxify fans into your Smart Home. All the provided ioBroker data 
 
 - Oxxify smart 50 (tested from my side)
 - Any other Oxxify device with WiFi
-- Blauberg Vents (should be, not yet tested)
+- Blauberg Vents and others with same protocol (the following ones are working)
+    - Blauberg D180 S21
+    - Vento Expert A50-1 S10 W V.2
 
 ### Object tree desciption
 
@@ -65,6 +67,12 @@ This channel contains system data about the hardware and firmware as well as run
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- Some dependency work
+- Avoid warning messages, if the received protocol does not contain values to update the ioBroker states (Issue #91)
+
 ### 0.0.8 (2025-10-16)
 
 - Some dependency work
