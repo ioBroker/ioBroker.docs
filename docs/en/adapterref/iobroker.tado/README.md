@@ -73,6 +73,10 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (HGlab01) checkExpire for termination-attributes
+* (HGlab01) add attributes 'smartReminders' & 'smartRemindersInAppEnabled'
+
 ### 0.8.3 (2025-11-13)
 * (HGlab01) add capability to set OffSet [TadoX]
 * (HGlab01) Implement deboucing also for TadoX

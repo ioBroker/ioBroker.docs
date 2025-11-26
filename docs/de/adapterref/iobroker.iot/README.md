@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iot/README.md
 title: ioBroker IoT-Adapter
-hash: qfPH9qXDGZeD2CgwBIQeivMVC/gqeWVRr7Ko5za6ogw=
+hash: +aPSI0iVQZl7YdFJyNdLMiFCwpUrmzlVgjlE2yGbWCM=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/iot-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.iot.svg)
@@ -386,7 +386,6 @@ setState('iot.0.app.message', JSON.stringify({
 
 ## Todo
 - Intelligente Namen müssen als Gruppen eine höhere Priorität haben.
-- Geräte sollten nach intelligentem Namen gruppiert werden.
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
@@ -397,6 +396,8 @@ setState('iot.0.app.message', JSON.stringify({
 - (@GermanBluefox) Showed last controller ID in `smart.lastObjectID`
 - (@GermanBluefox) Showed subscription valid period in `info.validTill` and GUI
 - (@Copilot) Implemented increasing reconnect intervall
+- (@GermanBluefox) Added automatically conversion of type TV (alexaV3) to button (alexaV3)
+- (@GermanBluefox) Optimized the update of devices in GUI
 
 ### 5.0.7 (2025-11-03)
 - (@GermanBluefox) Added possibility to group devices by type in GUI

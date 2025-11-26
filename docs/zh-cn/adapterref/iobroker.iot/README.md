@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iot/README.md
 title: ioBroker 物联网适配器
-hash: qfPH9qXDGZeD2CgwBIQeivMVC/gqeWVRr7Ko5za6ogw=
+hash: +aPSI0iVQZl7YdFJyNdLMiFCwpUrmzlVgjlE2yGbWCM=
 ---
 ![安装数量](http://iobroker.live/badges/iot-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.iot.svg)
@@ -396,7 +396,6 @@ setState('iot.0.app.message', JSON.stringify({
 
 ## 待办事项
 - 智能名称必须比组名称具有更高的优先级
-- 设备应按智能名称分组
 
 <!-- 下一版本的占位符（位于行首）：
 
@@ -407,6 +406,8 @@ setState('iot.0.app.message', JSON.stringify({
 - (@GermanBluefox) Showed last controller ID in `smart.lastObjectID`
 - (@GermanBluefox) Showed subscription valid period in `info.validTill` and GUI
 - (@Copilot) Implemented increasing reconnect intervall
+- (@GermanBluefox) Added automatically conversion of type TV (alexaV3) to button (alexaV3)
+- (@GermanBluefox) Optimized the update of devices in GUI
 
 ### 5.0.7 (2025-11-03)
 - (@GermanBluefox) Added possibility to group devices by type in GUI

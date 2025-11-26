@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
 title: Адаптер IoT ioBroker
-hash: qfPH9qXDGZeD2CgwBIQeivMVC/gqeWVRr7Ko5za6ogw=
+hash: +aPSI0iVQZl7YdFJyNdLMiFCwpUrmzlVgjlE2yGbWCM=
 ---
 ![Количество установок](http://iobroker.live/badges/iot-stable.svg)
 ![версия НПМ](http://img.shields.io/npm/v/iobroker.iot.svg)
@@ -177,7 +177,7 @@ Alexa, lock the "lock name"
 
 **Переименование:**
 
-- **Группы с одним состоянием**: можно переименовать (использует smartName состояния)
+- **Группы с одним состоянием**: можно переименовать (используется smartName состояния)
 - **Группы с несколькими состояниями**: необходимо переименовать, изменив имена перечислений.
 
 ### Создание пользовательских групп
@@ -205,7 +205,7 @@ Alexa v3 поддерживает режим переключения.
 [инструкции](doc/ifttt.md)
 
 ## Google Home
-Если вы видите в журнале следующее сообщение об ошибке: `[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually`.
+Если в журнале вы видите следующее сообщение об ошибке: `[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually`.
 Вам необходимо сгенерировать URL-ключ заново:
 
 ![URL-адрес](../../../en/adapterref/iobroker.iot/img/url_key.png)
@@ -384,7 +384,6 @@ setState('iot.0.app.message', JSON.stringify({
 
 ## Задача
 - Умные имена должны иметь более высокий приоритет, чем группы
-- Устройства должны быть сгруппированы по интеллектуальному имени.
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
@@ -395,6 +394,8 @@ setState('iot.0.app.message', JSON.stringify({
 - (@GermanBluefox) Showed last controller ID in `smart.lastObjectID`
 - (@GermanBluefox) Showed subscription valid period in `info.validTill` and GUI
 - (@Copilot) Implemented increasing reconnect intervall
+- (@GermanBluefox) Added automatically conversion of type TV (alexaV3) to button (alexaV3)
+- (@GermanBluefox) Optimized the update of devices in GUI
 
 ### 5.0.7 (2025-11-03)
 - (@GermanBluefox) Added possibility to group devices by type in GUI

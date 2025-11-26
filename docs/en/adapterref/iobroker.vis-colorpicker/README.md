@@ -14,6 +14,9 @@ Color selector widgets for `ioBroker.vis`
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.1.0 (2025-11-25)
+* (oweitman) loaded an additional javascript file for the widget jscolorcie to fix
+
 ### 2.0.3 (2023-03-17)
 * (bluefox) Made it work with vis-2.0
 
@@ -50,7 +53,7 @@ Color selector widgets for `ioBroker.vis`
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2013-2023 Bluefox https://github.com/GermanBluefox,
+Copyright (c) 2013-2025 Bluefox https://github.com/GermanBluefox,
               2013-2014 hobbyquaker https://github.com/hobbyquaker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

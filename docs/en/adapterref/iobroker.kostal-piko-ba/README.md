@@ -60,11 +60,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 6.0.4 (2025-11-25)
 
 - (HombachC) optimize dependabot config (#856)
 - (HombachC) update axios
-- (HombachC) update dependencies
+- (HombachC) update dependencies, fix vulnerability
 
 ### 6.0.3 (2025-10-19)
 
@@ -89,11 +89,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (HombachC) BREAKING: Dropped support for Node.js 18 (#797)
 - (HombachC) BREAKING: Dropped support for js-controller 5 (#797)
-- (HombachC) bump dependencies
-
-### 5.1.2 (2025-03-22)
-
-- (HombachC) fix vulnerability in axios (#786)
 - (HombachC) bump dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
