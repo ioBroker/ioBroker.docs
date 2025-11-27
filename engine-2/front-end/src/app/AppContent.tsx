@@ -4,6 +4,7 @@ import { useRoutes } from './providers/router';
 import { Header, Footer } from '../components';
 import Divider from '../components/Divider/Divider';
 import { usePageScrollProgress } from '../hooks/usePageScrollProgress';
+import { useReducer } from 'react';
 
 const useStyles = makeStyles()(() => ({
     root: {
@@ -32,6 +33,7 @@ const AppContent = () => {
     const { classes } = useStyles();
     const routes = useRoutes();
     const { scrollPosition } = usePageScrollProgress();
+    const [, forceUpdate] = useReducer((x: number) => x + 1, 0);
 
     return (
         <Box className={classes.root}>
@@ -39,6 +41,7 @@ const AppContent = () => {
                 <Header
                     selected=""
                     noSearch={false}
+                    onLanguageUpdate={() => forceUpdate()}
                 />
             </Box>
             <Box

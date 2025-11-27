@@ -1,49 +1,204 @@
 {
-  "languages.en": "EN",
-  "languages.de": "DE",
-  "languages.ru": "RU",
-
-  "Search": "Suche",
-  "Profile": "Profil",
-  "Logout": "Abmelden",
-
-  "Adapters": "Adapter",
-  "Docs": "Doku",
-  "Blog": "Blog",
-  "Licenses": "Lizenzen",
-
-  "Support us": "Unterstütze uns",
-  "Support us (mobile)": "Unterstütze uns:",
-  "Cookies": "Cookies",
-  "Imprint": "Impressum",
-  "Privacy": "Datenschutz",
-  "Installation": "Installation",
-  "Statistics": "Statistik",
-  "Follow us:": "Folge uns:",
-  "menu-menu": "Menü",
-  "menu-adapters": "Adapter",
-  "menu-profile": "Profil",
-  "menu-docs": "Doku",
-  "menu-blog": "Blog",
-  "menu-licenses": "Lizenzen",
-  "menu-installation": "Installation",
-  "menu-forum": "Forum",
-  "menu-statistics": "Statistik",
-  "menu-imprint": "Impressum",
-  "menu-policy": "Datenschutz",
-  "menu-community": "Community",
-  "menu-group": "Gruppe",
-  "menu-search": "Suche",
-  "menu-support-us": "Unterstütze uns:",
-  "menu-follow-us": "Folge uns:",
-  "menu-copyright": "Copyright © 2014-%s von ioBroker GmbH und ioBroker Community",
-  "menu-logout": "Abmelden",
-  "support.title": "UNTERSTÜTZE UNS!",
-  "support.subtitle": "ioBroker ist kostenlos – und soll es auch bleiben!",
-  "support.description": "Doch Serverkosten, Weiterentwicklung und Verwaltung brauchen Power (und manchmal auch Kaffee). Wenn du unser Projekt magst, freuen wir uns über deine Unterstützung!",
-  "support.paypal.text": "Ob ein kleiner Betrag oder ein großer Boost – jede Spende fließt direkt in die Weiterentwicklung von ioBroker.",
-  "support.paypal.button": "JETZT SPENDEN",
-  "support.amazon.text": "Bestellst du sowieso bei Amazon? Dann nutze unseren Link! Ein kleiner Prozentsatz deines Einkaufs geht an ioBroker – du zahlst keinen Cent mehr!",
-  "support.amazon.button": "BEI AMAZON EINKAUFEN",
-  "support.footer": "PS: Deine Spende wird nicht für Luxus‑Smart‑Home‑Geräte verprasst – versprochen!"
+    "Adapters": "Adapter",
+    "Blog": "Blog",
+    "Cookies": "Cookies",
+    "Docs": "Doku",
+    "Follow us:": "Folge uns:",
+    "HomePage": {
+        "title": "Startseite"
+    },
+    "Imprint": "Impressum",
+    "Installation": "Installation",
+    "InstallationPage": {
+        "title": "Installationsseite"
+    },
+    "Licenses": "Lizenzen",
+    "Logout": "Abmelden",
+    "Privacy": "Datenschutz",
+    "Profile": "Profil",
+    "Search": "Suche",
+    "Statistics": "Statistik",
+    "Support us": "Unterstütze uns",
+    "Support us (mobile)": "Unterstütze uns:",
+    "header": {
+        "logout": "Abmelden",
+        "profile": "Profil",
+        "search": "Suche"
+    },
+    "home": {
+        "about": {
+            "items": {
+                "0": {
+                    "title": "ENORME FLEXIBILITÄT"
+                },
+                "1": {
+                    "title": "OPEN-SOURCE"
+                },
+                "2": {
+                    "title": "VISUALISIERUNG"
+                },
+                "3": {
+                    "title": "ALLES ÜBER GUI"
+                },
+                "4": {
+                    "title": "DEUTSCHE COMMUNITY"
+                },
+                "5": {
+                    "title": "OFFENE ARCHITEKTUR"
+                },
+                "6": {
+                    "title": "MODULARITÄT"
+                },
+                "7": {
+                    "title": "BENUTZER-MANAGEMENT"
+                },
+                "8": {
+                    "title": "REDIS ALS OPTIONALE DATENBANK"
+                },
+                "9": {
+                    "title": "JAVA SCRIPT UND NODE. JS"
+                },
+                "10": {
+                    "title": "SKALIERBARKEIT"
+                },
+                "11": {
+                    "title": "JS-CONTROLLER "
+                },
+                "12": {
+                    "title": "SICHERHEIT"
+                },
+                "13": {
+                    "title": "MULTI-HOST"
+                }
+            },
+            "more": "MEHR",
+            "title": "ÜBER IOBROKER"
+        },
+        "adapters": {
+            "text": "Adapter sind die Schnittstellen zu verschiedenen Geräten, Diensten und Technologien. Ein Adapter fungiert dabei wie ein 'Übersetzer', der Daten von einem spezifischen Gerät oder Protokoll in ein standardisiertes Format bringt, das ioBroker versteht. Gleichzeitig ermöglicht er, dass Befehle von ioBroker an die Geräte oder Dienste weitergegeben werden können.",
+            "title": "ADAPTER",
+            "word": "ADAPTER"
+        },
+        "community": {
+            "discord": "Discord",
+            "facebook": "Facebook",
+            "forum": "Forum",
+            "join": "BEITRETEN",
+            "mainText": "Die Community war von Anfang an ein zentraler Bestandteil der Entwicklung von ioBroker. Obwohl das Projekt ursprünglich sprachneutral konzipiert war, hat es sich im Laufe der Zeit ergeben, dass die deutschsprachige Community am aktivsten geworden ist - vermutlich, weil ioBroker seinen Ursprung in Deutschland. Heute ist das ioBroker-Forum die erste Anlaufstelle für Fragen, Problemlösungen und den Austausch mit anderen Nutzern. Hier findest du eine Vielzahl an Tutorials, Skripten und Best Practices, die dir helfen, das Beste aus ioBroker herauszuholen. Neben dem Forum gibt es auch eine sehr aktive Community auf Facebook und Discord, wo täglich diskutiert, geholfen und neue Ideen geteilt werden. Egal ob Einsteiger oder Profi - hier findest du immer Unterstützung und kannst selbst dein Wissen einbringen, um anderen zu helfen.",
+            "secondary": "Werde Teil der Community und gestalte die Zukunft von ioBroker mit!",
+            "title": "COMMUNITY",
+            "users": "Nutzer"
+        },
+        "hero": {
+            "free": "Unsere Software ist kostenlos.",
+            "install": "Installieren",
+            "platform": "Open-Source-Plattform",
+            "platformSubtitle": "für Smart-Home-Automatisierung",
+            "support": "Unterstütze uns!"
+        },
+        "history": {
+            "button": "IOBROKER GESCHICHTE",
+            "slogan_for": "BEGEISTERUNG",
+            "slogan_smart": "FÜR SMART-HOME",
+            "text": "Was 2013 als Wunsch nach Automatisierung für das eigene Zuhause begann, entwickelte sich zu einer flexiblen und leistungsstarken Plattform mit einer großen Community.",
+            "years": "Jahre"
+        },
+        "installations": {
+            "allStats": "ALLE STATISTIKEN",
+            "title": "INSTALLATIONEN"
+        },
+        "newsletter": {
+            "headline": "Keine Werbung, nur News!",
+            "placeholder": "deineemail@email.com",
+            "sub": "Unser Newsletter informiert dich ausschließlich über neue Blogbeiträge und besondere Aktionen – garantiert ohne Spam!",
+            "title": "NEWSLETTER"
+        },
+        "platform": {
+            "head": "ioBroker ist viel mehr als nur eine Software - es ist eine leistungsstarke und flexible Open-Source-Plattform für Smart Home und IoT-Integration.",
+            "more": "MEHR",
+            "sub1": "Mit ioBroker kannst du Geräte unterschiedlichster Hersteller und Protokolle wie Zigbee, KNX, MQTT, Homematic, Modbus und viele mehr miteinander verbinden und zentral steuern. So entsteht ein herstellerunabhängiges Smart Home, das sich ganz nach deinen Wünschen anpassen und erweitern lässt.",
+            "sub2": "ioBroker ist für alle gedacht - von Einsteigern, die mit wenigen Klicks einfache Automatisierungen erstellen, bis hin zu Technikbegeisterten, die komplexe Szenarien mit JavaScript, Blockly oder Node-RED umsetzen möchten. Dabei läuft die gesamte Steuerung über eine intuitive grafische Oberfläche, ohne dass komplizierte Konfigurationsdateien bearbeitet werden müssen.",
+            "title1": "Eine Plattform,",
+            "title2": "unendliche Möglichkeiten"
+        }
+    },
+    "installation": {
+        "docker": {
+            "details": "Details:",
+            "detailsValue": "Flexibles Docker-Image",
+            "download": "DOWNLOAD",
+            "info": "INFO",
+            "platform": "Plattform:",
+            "platformValue": "Docker",
+            "title": "DOCKER"
+        },
+        "linux": {
+            "copied": "Kopiert!",
+            "hint": "Hinweis: Die Installation kann je nach System einige Minuten dauern.",
+            "imageText": "Ein vorkonfiguriertes Image ist nur erforderlich, wenn das Installationsskript nicht funktioniert oder keine Internetverbindung verfügbar ist. In den meisten Fällen reicht der oben genannte Befehl aus.",
+            "imageTitle": "Wann benötige ich ein Image?",
+            "info": "INFO",
+            "simplest": "Die einfachste Möglichkeit, ioBroker auf einem Linux-System zu installieren, ist mit folgendem Befehl:"
+        },
+        "raspberry": {
+            "details": "Details:",
+            "detailsValue": "Vorgefertigtes Raspberry OS Image",
+            "download": "DOWNLOAD",
+            "info": "INFO",
+            "password": "Standard-Passwort:",
+            "passwordValue": "2024=smart!",
+            "platform": "Plattform:",
+            "platformValue": "Raspberry OS",
+            "title": "RASPBERRY PI OS"
+        },
+        "subtitle": "ioBroker lässt sich auf allen Systemen installieren, die Node.js unterstützen und genügend RAM haben.",
+        "title": "IOBROKER INSTALLATION",
+        "windows": {
+            "details": "Details:",
+            "detailsValue": "Einfache Installation mit dem Windows-Installer",
+            "download": "DOWNLOAD",
+            "info": "INFO",
+            "platform": "Plattform:",
+            "platformValue": "Windows 32 / 64 Bit",
+            "title": "WINDOWS"
+        }
+    },
+    "languages.de": "DE",
+    "languages.en": "EN",
+    "languages.ru": "RU",
+    "menu": {
+        "title": "Menü"
+    },
+    "menu-adapters": "Adapter",
+    "menu-blog": "Blog",
+    "menu-community": "Community",
+    "menu-copyright": "Copyright © 2014-%s von ioBroker GmbH und ioBroker Community",
+    "menu-docs": "Doku",
+    "menu-follow-us": "Folge uns:",
+    "menu-forum": "Forum",
+    "menu-group": "Gruppe",
+    "menu-imprint": "Impressum",
+    "menu-installation": "Installation",
+    "menu-licenses": "Lizenzen",
+    "menu-logout": "Abmelden",
+    "menu-menu": "Menü",
+    "menu-policy": "Datenschutz",
+    "menu-profile": "Profil",
+    "menu-search": "Suche",
+    "menu-statistics": "Statistik",
+    "menu-support-us": "Unterstütze uns:",
+    "nav": {
+        "adapters": "Adapter",
+        "blog": "Blog",
+        "docs": "Dokumentation",
+        "licenses": "Lizenzen"
+    },
+    "support.amazon.button": "BEI AMAZON EINKAUFEN",
+    "support.amazon.text": "Bestellst du sowieso bei Amazon? Dann nutze unseren Link! Ein kleiner Prozentsatz deines Einkaufs geht an ioBroker – du zahlst keinen Cent mehr!",
+    "support.description": "Doch Serverkosten, Weiterentwicklung und Verwaltung brauchen Power (und manchmal auch Kaffee). Wenn du unser Projekt magst, freuen wir uns über deine Unterstützung!",
+    "support.footer": "PS: Deine Spende wird nicht für Luxus‑Smart‑Home‑Geräte verprasst – versprochen!",
+    "support.paypal.button": "JETZT SPENDEN",
+    "support.paypal.text": "Ob ein kleiner Betrag oder ein großer Boost – jede Spende fließt direkt in die Weiterentwicklung von ioBroker.",
+    "support.subtitle": "ioBroker ist kostenlos – und soll es auch bleiben!",
+    "support.title": "UNTERSTÜTZE UNS!"
 }

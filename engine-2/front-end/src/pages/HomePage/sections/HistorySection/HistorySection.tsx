@@ -2,11 +2,10 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './HistorySection.styles';
 import { StyledButton } from '../../../../components/StyledButton/StyledButton';
-import { useTranslation } from 'react-i18next';
+import { I18n } from '../../../../utils/i18n';
 
 export const HistorySection: React.FC = () => {
     const { classes, cx } = useStyles();
-    const { t } = useTranslation();
     return (
         <Box
             component="section"
@@ -27,17 +26,17 @@ export const HistorySection: React.FC = () => {
                         >
                             +
                         </Box>
-                        <Typography className={cx(classes.historyTitle, classes.historyTitleMobile)}>{t('home.history.years')}</Typography>
+                        <Typography className={cx(classes.historyTitle, classes.historyTitleMobile)}>{I18n.t('home.history.years')}</Typography>
                     </Box>
                 </Box>
                 <Box className={classes.historyWrapper}>
-                    <Typography className={cx(classes.historyTitle, classes.historyTitleDesktop)}>{t('home.history.years')}</Typography>
-                    <Typography className={classes.historySubTitle}>{t('home.history.slogan_for')}<br/>{t('home.history.slogan_smart')}</Typography>
+                    <Typography className={cx(classes.historyTitle, classes.historyTitleDesktop)}>{I18n.t('home.history.years')}</Typography>
+                    <Typography className={classes.historySubTitle}>{I18n.t('home.history.slogan_for')}<br/>{I18n.t('home.history.slogan_smart')}</Typography>
                     <Typography
                         component="p"
                         className={classes.historyText}
                     >
-                       /* {t('home.history.text')} */
+                       /* {I18n.t('home.history.text')} */
                     </Typography>
                     <Box sx={{ textAlign: { xs: 'center', sm: 'center', md: 'left' } }}>
                         <StyledButton
@@ -47,7 +46,7 @@ export const HistorySection: React.FC = () => {
                                 maxWidth: '533px',
                             }}
                         >
-                            {t('home.history.button')}
+                            {I18n.t('home.history.button')}
                         </StyledButton>
                     </Box>
                 </Box>

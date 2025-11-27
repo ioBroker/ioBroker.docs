@@ -3,7 +3,7 @@ import { Box, Typography, Collapse } from '@mui/material';
 import { useStyles } from './AboutSection.styles';
 import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
 import { StyledButton } from '../../../../components/StyledButton/StyledButton';
-import { useTranslation } from 'react-i18next';
+import { I18n } from '../../../../utils/i18n';
 
 interface ItemData {
     title: string;
@@ -92,7 +92,6 @@ const ALL_ITEMS: ItemData[] = [
 
 export const AboutSection: React.FC = () => {
     const { classes } = useStyles();
-    const { t } = useTranslation();
 
     const [visibleCount, setVisibleCount] = useState(3);
 
@@ -121,7 +120,7 @@ export const AboutSection: React.FC = () => {
                     }}
                 >
                     <SectionTitle sx={{ marginBottom: { xs: '32px !important', md: '24px !important' } }}>
-                        {t('home.about.title')}
+                        {I18n.t('home.about.title')}
                     </SectionTitle>
                 </Box>
                 {ALL_ITEMS.slice(0, visibleCount).map((item, index) => {
@@ -157,7 +156,7 @@ export const AboutSection: React.FC = () => {
                         >
                             <Box sx={{ textAlign: 'left', flex: 1 }}>
                                 <Typography className={classes.itemTitle}>
-                                    {t(`home.about.items.${index}.title`, { defaultValue: item.title })}
+                                    {I18n.t(`home.about.items.${index}.title`, { defaultValue: item.title })}
                                 </Typography>
                                 <Typography className={classes.itemDescription}>
                                     {item.description}
@@ -197,7 +196,7 @@ export const AboutSection: React.FC = () => {
                                 width: { xs: '20px', sm: '30px', md: '30px' },
                             }}
                         >
-                            {t('home.about.more')}
+                            {I18n.t('home.about.more')}
                         </StyledButton>
                     </Box>
                 )}

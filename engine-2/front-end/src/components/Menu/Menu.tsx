@@ -12,10 +12,6 @@ import GitHubIcon from '../icons/GitHubIcon';
 import FacebookIcon from '../icons/FacebookIcon';
 import DiscordIcon from '../icons/DiscordIcon';
 import InstagramIcon from '../icons/InstagramIcon';
-import { useTranslation } from 'react-i18next';
-// import MainContext from '../../MainContext';
-// import type { ExtendedRoutes } from '../../App';
-//import type { MenuPoints } from '../../types';
 
 export type MenuItems = 'Adapters' | 'Docs' | 'Blog' | 'Licenses' | 'Profile' | 'Installation';
 export type MenuItemsSmall = 'Forum' | 'Statistik' | 'Impressum' | 'Datenschutz';
@@ -30,14 +26,6 @@ function Link(props: {
     // navigateTo?: ((path: ExtendedRoutes | MenuPoints | '', query?: string) => void) | null;
     onClose?: () => void;
 }): React.JSX.Element {
-    const { t } = useTranslation();
-    const tt = (key: string, fallback?: string): string => {
-        const v = I18n.t(key);
-        if (v !== key) return v;
-        const r = t(key);
-        if (r !== key) return r as string;
-        return fallback ?? key;
-    };
     const nameToKey: Record<string, string> = {
         Adapters: 'menu-adapters',
         Docs: 'menu-docs',
@@ -53,13 +41,16 @@ function Link(props: {
     return (
         <Box
             component="a"
-            sx={(theme) => ({
+            sx={theme => ({
                 color: props.selected === props.name ? '#1D90CA' : theme.palette.text.primary,
                 cursor: props.selected === props.name ? 'default' : 'pointer',
                 '&:hover': {
-                    color: props.selected !== props.name
-                        ? (theme.palette.mode === 'dark' ? '#7ec3f3' : '#006bbc')
-                        : undefined,
+                    color:
+                        props.selected !== props.name
+                            ? theme.palette.mode === 'dark'
+                                ? '#7ec3f3'
+                                : '#006bbc'
+                            : undefined,
                 },
                 fontSize: props.big ? 28 : 20,
                 '@media (max-width: 800px)': {
@@ -83,7 +74,7 @@ function Link(props: {
                 textTransform: props.big || props.noDesktop ? 'uppercase' : undefined,
             }}
         >
-            {tt(nameToKey[props.name] || (props.name as string), props.name as string)}
+            {I18n.t(nameToKey[props.name] || (props.name as string))}
         </Box>
     );
 }
@@ -94,19 +85,11 @@ function OwnButton(props: {
     icon: React.JSX.Element;
     textOffset?: number;
 }): React.JSX.Element {
-    const { t } = useTranslation();
-    const tt = (key: string, fallback?: string): string => {
-        const v = I18n.t(key);
-        if (v !== key) return v;
-        const r = t(key);
-        if (r !== key) return r as string;
-        return fallback ?? key;
-    };
     return (
         <Box
             component="a"
             href={props.href || `/${props.name}`}
-            sx={(theme) => ({
+            sx={theme => ({
                 color: theme.palette.text.primary,
                 '&:hover': {
                     textDecoration: 'none',
@@ -125,7 +108,7 @@ function OwnButton(props: {
             {props.icon}
             {props.name ? (
                 <div style={{ marginTop: props.textOffset || undefined }}>
-                    {tt(`menu-${props.name.toLowerCase()}`, props.name)}
+                    {I18n.t(`menu-${props.name.toLowerCase()}`)}
                 </div>
             ) : null}
         </Box>
@@ -145,62 +128,53 @@ export default function Menu(props: MenuProps): React.JSX.Element {
     const [searchDialogOpen, setSearchDialogOpen] = useState(false);
     const [language, setLanguage] = useState<Language>(I18n.getLanguage());
     const inputRef = useRef<HTMLInputElement | null>(null);
-    // const context = React.useContext(MainContext);
-    const { t, i18n } = useTranslation();
     const theme = useTheme();
     useEffect(() => {
-        const unsubscribe = I18n.subscribe((lng: Language) => setLanguage(lng));
-        const handler = (lng: string) => setLanguage(lng as Language);
-        i18n.on('languageChanged', handler);
+        const unsub = I18n.subscribe(lng => setLanguage(lng));
         return () => {
-            unsubscribe();
-            i18n.off('languageChanged', handler);
+            unsub();
         };
-    }, [i18n]);
-    const tt = (key: string, fallback?: string): string => {
-        const v = I18n.t(key);
-        if (v !== key) return v;
-        const r = t(key);
-        if (r !== key) return r as string;
-        return fallback ?? key;
-    };
+    }, []);
 
     const languages = (
         <>
             <div
                 style={{
                     cursor: 'pointer',
-                    color: language === 'en'
-                        ?  theme.palette.primary.main
-                        : undefined,
+                    color: language === 'en' ? theme.palette.primary.main : undefined,
                 }}
-                onClick={() => { i18n.changeLanguage('en'); I18n.setLanguage('en'); }}
+                onClick={() => {
+                    I18n.setLanguage('en');
+                    props.onLanguageUpdate?.();
+                }}
             >
-                {tt('languages.en', 'EN')}
+                EN
             </div>{' '}
             /{' '}
             <div
                 style={{
                     cursor: 'pointer',
-                    color: language === 'de'
-                        ?  theme.palette.primary.main
-                        : undefined,
+                    color: language === 'de' ? theme.palette.primary.main : undefined,
                 }}
-                onClick={() => { i18n.changeLanguage('de'); I18n.setLanguage('de'); }}
+                onClick={() => {
+                    I18n.setLanguage('de');
+                    props.onLanguageUpdate?.();
+                }}
             >
-                {tt('languages.de', 'DE')}
+                DE
             </div>{' '}
             /{' '}
             <div
                 style={{
                     cursor: 'pointer',
-                    color: language === 'ru'
-                        ? theme.palette.primary.main
-                        : undefined,
+                    color: language === 'ru' ? theme.palette.primary.main : undefined,
                 }}
-                onClick={() => { i18n.changeLanguage('ru'); I18n.setLanguage('ru'); }}
+                onClick={() => {
+                    I18n.setLanguage('ru');
+                    props.onLanguageUpdate?.();
+                }}
             >
-                {tt('languages.ru', 'RU')}
+                RU
             </div>
         </>
     );
@@ -234,7 +208,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                 onClose={() => setSearchDialogOpen(false)}
             />
             <Box
-                sx={(theme) => ({
+                sx={theme => ({
                     fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
                     backgroundColor: theme.palette.mode === 'dark' ? '#080B1CE0' : '#FFFFFFE0',
                     borderRadius: '20px',
@@ -242,11 +216,11 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                 })}
             >
                 <Box
-                    sx={(theme) => ({
+                    sx={theme => ({
                         display: 'flex',
                         flexDirection: 'column',
                         color: theme.palette.text.primary,
-                         padding: '40px 50px 40px 60px',
+                        padding: '40px 50px 40px 60px',
                         gap: '120px',
                         '@media (max-width: 800px)': {
                             padding: '20px 30px 20px 30px',
@@ -338,7 +312,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                     },
                                 }}
                             >
-                                {tt('menu-menu', 'Menu')}
+                                {I18n.t('menu-menu')}
                             </Box>
                             <Link
                                 name="Docs"
@@ -401,7 +375,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                 style={{
                                     cursor: 'pointer',
                                 }}
-                                sx={(theme) => ({
+                                sx={theme => ({
                                     width: 40,
                                     height: 40,
                                     marginTop: '24px',
@@ -450,9 +424,9 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                             {!props.noSearch ? (
                                 <TextField
                                     variant="standard"
-                                    placeholder={tt('menu-search', 'Search')}
+                                    placeholder={I18n.t('menu-search')}
                                     inputRef={inputRef}
-                                    sx={(theme) => ({
+                                    sx={theme => ({
                                         '& .MuiInputAdornment-root': {
                                             color: theme.palette.text.primary,
                                         },
@@ -499,7 +473,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                         },
                                     }}
                                     value={search}
-                                     onKeyDown={e => {
+                                    onKeyDown={e => {
                                         if (e.key === 'Enter' && search) {
                                             setSearchDialogOpen(true);
                                         }
