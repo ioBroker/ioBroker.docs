@@ -81,7 +81,8 @@ In addition to the forum, there is also a very active community on Facebook and 
         },
         history: {
           years: "Years",
-          slogan: "PASSION FOR SMART HOME",
+          slogan_for: "PASSION",
+          slogan_smart: "FOR SMART HOME",
           text: "What began in 2013 as a wish to automate a home has grown into a powerful, flexible platform with a great community.",
           button: "IOBROKER HISTORY",
         },
@@ -223,7 +224,8 @@ Neben dem Forum gibt es auch eine sehr aktive Community auf Facebook und Discord
         },
         history: {
           years: "Jahre",
-          slogan: "BEGEISTERUNG FÜR SMART-HOME",
+          slogan_for: "BEGEISTERUNG",
+          slogan_smart: "FÜR SMART-HOME",
           text: "Was 2013 als Wunsch nach Automatisierung für das eigene Zuhause begann, entwickelte sich zu einer flexiblen und leistungsstarken Plattform mit einer großen Community.",
           button: "IOBROKER GESCHICHTE",
         },

@@ -22,8 +22,6 @@ import MenuModal from '../Menu/Menu';
 import { I18n } from '../../utils/i18n';
 import i18next from 'i18next';
 
-
-
 export interface HeaderProps {
   selected: string;
   noSearch?: boolean;
@@ -232,6 +230,7 @@ export const Header = ({
         ) : (
           <IconButton
             className={classes.iconButton}
+            style={{ padding: 10, marginLeft: -10 }}
             onClick={() => navigate('/profile')}
           >
             <PersonIcon />
@@ -240,6 +239,7 @@ export const Header = ({
 
         <IconButton
           className={classes.iconButton}
+          style={{ marginLeft: -10 }}
           onClick={() => setMenuOpen(true)}
         >
           <MenuIcon />

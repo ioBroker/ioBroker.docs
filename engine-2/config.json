@@ -1,6 +1,6 @@
 {
     "secure": false,
-    "port": 5000,
+    "port": 5001,
     "host": "0.0.0.0",
     "secret": "123",
     "public": "front-end/build/",

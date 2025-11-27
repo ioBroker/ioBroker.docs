@@ -154,6 +154,7 @@ export const useStyles = makeStyles()(theme => ({
         alignItems: 'flex-end',
         justifyContent: 'center',
         gap: theme.spacing(1),
+        marginRight: '40px',
         [theme.breakpoints.down('md')]: {
             gap: theme.spacing(0.75),
         },
@@ -205,7 +206,7 @@ export const useStyles = makeStyles()(theme => ({
         alignItems: 'center',
         justifyContent: 'center',
         flexShrink: 0,
-        [theme.breakpoints.down('md')]: {
+        '@media (max-width: 1080px)': {
             width: 70,
             height: 70,
             borderRadius: '12px',

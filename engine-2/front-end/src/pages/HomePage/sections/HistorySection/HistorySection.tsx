@@ -32,7 +32,7 @@ export const HistorySection: React.FC = () => {
                 </Box>
                 <Box className={classes.historyWrapper}>
                     <Typography className={cx(classes.historyTitle, classes.historyTitleDesktop)}>{t('home.history.years')}</Typography>
-                    <Typography className={classes.historySubTitle}>{t('home.history.slogan')}</Typography>
+                    <Typography className={classes.historySubTitle}>{t('home.history.slogan_for')}<br/>{t('home.history.slogan_smart')}</Typography>
                     <Typography
                         component="p"
                         className={classes.historyText}

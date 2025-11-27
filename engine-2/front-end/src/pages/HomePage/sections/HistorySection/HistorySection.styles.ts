@@ -143,9 +143,13 @@ export const useStyles = makeStyles()(theme => ({
         lineHeight: 1.3,
         letterSpacing: '-0.03em',
         width: '510px',
+        whiteSpace: 'nowrap',
         marginBottom: theme.spacing(3),
         [theme.breakpoints.down('lg')]: {
             width: 'auto',
+        },
+        [theme.breakpoints.down('md')]: {
+            fontSize: 36,
         },
         [theme.breakpoints.down('sm')]: {
             fontSize: '32px',
