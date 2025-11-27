@@ -18,6 +18,7 @@ import PersonIcon from '../icons/PersonIcon';
 import SearchIcon from '../icons/SearchIcon';
 import LogoutIcon from '../icons/LogoutIcon';
 import { useHeaderStyles } from './Header.styles';
+import SearchDialog from '../SearchDialog/SearchDialog';
 import MenuModal from '../Menu/Menu';
 import { I18n } from '../../utils/i18n';
 import i18next from 'i18next';
@@ -56,6 +57,7 @@ export const Header = ({
   const [search, setSearch] = useState('');
   const [language, setLanguage] = useState(I18n.getLanguage());
   const [showProfileMenu, setShowProfileMenu] = useState<HTMLElement | null>(null);
+  const [searchDialogOpen, setSearchDialogOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -110,7 +112,11 @@ export const Header = ({
         />
       )}
       {renderProfileMenu()}
-
+      <SearchDialog
+        search={search}
+        open={searchDialogOpen}
+        onClose={() => setSearchDialogOpen(false)}
+      />
       <img
         src={logo}
         className={classes.logo}
@@ -156,7 +162,7 @@ export const Header = ({
             value={search}
             onKeyUp={e => {
               if (e.key === 'Enter' && search) {
-                console.log('Search:', search);
+                setSearchDialogOpen(true);
               }
             }}
             onChange={e => setSearch(e.target.value)}
@@ -227,14 +233,14 @@ export const Header = ({
             className={`${classes.iconButton} ${selected === 'profile' ? classes.linkSelected : ''}`}
             onClick={e => setShowProfileMenu(e.currentTarget as HTMLElement)}
           >
-            <PersonIcon />
+            <PersonIcon style={{ marginTop: 0 }}/>
           </IconButton>
         ) : (
           <IconButton
             className={classes.iconButton}
             onClick={() => navigate('/profile')}
           >
-            <PersonIcon />
+            <PersonIcon style={{ marginTop: 0 }} />
           </IconButton>
         )}
 
