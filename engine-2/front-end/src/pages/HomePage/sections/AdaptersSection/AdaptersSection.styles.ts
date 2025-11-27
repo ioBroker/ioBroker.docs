@@ -63,6 +63,7 @@ export const useStyles = makeStyles()(theme => ({
     adaptersText: {
         fontSize: '18px',
         textIndent: '2em',
+        flexGrow: 1,
         [theme.breakpoints.down('sm')]: {
             fontSize: '20px',
         },
@@ -211,7 +212,7 @@ export const useStyles = makeStyles()(theme => ({
             height: 70,
             borderRadius: '12px',
         },
-        [theme.breakpoints.down('sm')]: {
+        '@media (max-width: 980px)': {
             width: 64,
             height: 64,
             borderRadius: '18px',

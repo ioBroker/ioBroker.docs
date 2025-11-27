@@ -71,6 +71,9 @@ export const AdaptersSection: React.FC = () => {
         { src: icon20, width: 48, height: 48, alt: 'Adapter 20' },
         { src: icon21, width: 48, height: 48, alt: 'Adapter 21' },
         { src: icon22, width: 60, height: 60, alt: 'Adapter 22' },
+        { src: icon22, width: 60, height: 60, alt: 'Adapter 23' },
+        { src: icon22, width: 60, height: 60, alt: 'Adapter 24' },
+        { src: icon22, width: 60, height: 60, alt: 'Adapter 25' },
     ];
 
     const columnsDesktop = [4, 5, 4, 5, 4];
