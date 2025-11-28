@@ -68,6 +68,10 @@ to make them visible in the Vis. So you have a better overview if you have sever
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- CHORE: Update dependecies
+
 ### 2.1.2 (2025-08-13)
 
 - FIX: Errors reported by Sentry

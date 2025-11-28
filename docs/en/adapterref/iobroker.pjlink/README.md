@@ -78,18 +78,14 @@ The power switch will automatically return to **false**.
 Only one lamp ist predefined in the database. If the lamp query returns more than one lamp,
 the other lamps will be added dynamically.
 
-#### ping feature
-If the projector is not reachable for a longer period the adapter can switch to
-icmp ping to check the reachability, e.g after 3 failed connects. If one ping is answered the adapter tries to reconnect again,
-cf. [https://github.com/Bannsaenger/ioBroker.pjlink/issues/59](https://github.com/Bannsaenger/ioBroker.pjlink/issues/59)
-
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (Bannsaenger) updated dependencies
+### 0.1.2 (2025-10-27)
+* (Bannsaenger) updated dependencies and issues from repository checker
+* (Bannsaenger) migrate to NPM Trusted Publishing
 * (Bannsaenger) added tcp-ping feature
 
 ### 0.1.1 (2023-01-24)
@@ -108,9 +104,6 @@ cf. [https://github.com/Bannsaenger/ioBroker.pjlink/issues/59](https://github.co
 ### 0.0.2 (2022-10-19)
 * (Bannsaenger) changed some info logs to debug. Fixed one power state issue.
 * (Bannsaenger) redesign of timer and error handling
-
-### 0.0.1 (2022-10-13)
-* (Bannsaenger) initial release
 
 ## License
 MIT License

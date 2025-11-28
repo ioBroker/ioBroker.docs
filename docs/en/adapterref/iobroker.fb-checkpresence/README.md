@@ -232,6 +232,15 @@ Here you will find information about the history of the current day.
 ## Changelog
 ### **WORK IN PROGRESS**
 * (afuerhoff) dependencies updated
+* (afuerhoff) dependabot.yml fixed [#358](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/358)
+
+### 1.4.2 (2025-10-30)
+* (afuerhoff) dependencies updated
+* (afuerhoff) package.json issues fixed [#350](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/350)
+* (afuerhoff) npm security changes
+* (afuerhoff) filter time extended to 300s
+* (afuerhoff) guest wlan bug fixed [#353](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/353)
+* (afuerhoff) deprecated functions changed
 
 ### 1.4.1 (2025-09-19)
 * (afuerhoff) dependencies updated
@@ -253,10 +262,6 @@ Here you will find information about the history of the current day.
 * (afuerhoff) dependencies updated
 * (afuerhoff) eslint setup changed
 * (afuerhoff) ipv6 ip-address and prefix added
-
-### 1.2.8 (2024-11-20)
-* (afuerhoff) bugfix configuration
-* (afuerhoff) dependencies updated
 
 ## License
 MIT License

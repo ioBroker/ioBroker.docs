@@ -3,41 +3,52 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.airconwithme/README.md
 title: ioBroker.airconwithme
-hash: pGmr6pF126CYBfu02lFkOyZ8d7CgjA2FadJvlyIb1k4=
+hash: 8At/uj5Yzl9hmpuibkprJWHGXlAOxZ39o+m/yrb3x+M=
 ---
 ![Logo](../../../en/adapterref/iobroker.airconwithme/admin/airconwithme.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.airconwithme.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.airconwithme.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/airconwithme-installed.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/airconwithme-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/airconwithme-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/weggetor/iobroker.airconwithme.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/weggetor/ioBroker.airconwithme/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.airconwithme.png?downloads=true)
 
 # IoBroker.airconwithme
-**Tests:** ![Testen und freigeben](https://github.com/weggetor/ioBroker.airconwithme/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/weggetor/ioBroker.airconwithme/workflows/Test%20and%20Release/badge.svg)
 
-## Klimaadapter für ioBroker
-Adapter für Mitsubishi Klimaanlage mit Airconwithme Wlan Adapter
+## Airconwithme Adapter für ioBroker
+Adapter für Mitsubishi-Klimaanlagen mit WLAN-Adapter airconwithme
 
 ## Information
-Die Installation erfolgt mit dem Github Cat Symbol / custom. Geben Sie die URL dieser Seite (ohne README.md) ein und wählen Sie 'Installieren'.
-
-In den Adaptereinstellungen sollte die IP Ihres Klima-WLAN-Adapters eingetragen werden. Benutzername + Passwort für den Intesis-Adapter sind standardmäßig "admin" + "admin".
+In den Adaptereinstellungen muss die IP-Adresse Ihres WLAN-Adapters der Klimaanlage eingegeben werden. Benutzername und Passwort für den Intesis-Adapter lauten standardmäßig „admin“ + „admin“.
 
 Die meisten Datenpunkte sind schreibgeschützt, Sie können Folgendes einstellen:
 
 | Datenpunkt | Werte |
 |----------|----------|
-| auf | 0: Aus; 1: Ein |
-| Benutzermodus | 0: Automatisch; 1: Hitze; 2: Trocken; 3: Lüfter; 4: Cool |
-| Lüftergeschwindigkeit | 1: Geschwindigkeit 1; 2: Geschwindigkeit 2; 3: Geschwindigkeit 3; 4: Geschwindigkeit 4 |
-| Position | 1: Position 1; 2: Position 2; 3: Position 3; 4: Position 4; 10: Schaukel |
-| userSetpoint | Temperatur (°C) |
+| ein | 0: Aus; 1: Ein |
+| Benutzermodus | 0: Auto; 1: Heizen; 2: Trocknen; 3: Lüfter; 4: Kühlen |
+| Lüftergeschwindigkeit | 1: Stufe 1; 2: Stufe 2; 3: Stufe 3; 4: Stufe 4 |
+| Position | 1: Position 1; 2: Position 2; 3: Position 3; 4: Position 4; 10: Schwung |
+| Benutzer-Sollwert | Temperatur (°C) |
 | remoteDisable | 0: Aktivieren; 1: Deaktivieren |
 
 ## Changelog
+### 1.0.0 (2025-11-15)
+* (weggetor) **MAJOR RELEASE**: Complete adapter modernization
+* (weggetor) **BREAKING**: Migrated to TypeScript with modern ES2020+ features
+* (weggetor) **SECURITY**: Updated all dependencies, eliminated vulnerabilities (0 vulnerabilities!)
+* (weggetor) **ENHANCEMENT**: Complete code refactoring with proper error handling and logging
+* (weggetor) **ENHANCEMENT**: Improved session management with smart caching and reconnection logic
+* (weggetor) **ENHANCEMENT**: Modern GitHub Actions CI/CD pipeline with automated testing
+* (weggetor) **ENHANCEMENT**: Enhanced type safety with comprehensive TypeScript interfaces
+* (weggetor) **ENHANCEMENT**: Modular code structure for better maintainability
+
+### 0.0.4
+* (weggetor) Bugfix sending username + password to Intesis API (formerly send admin/admin hardcoded)
+
 ### 0.0.3
 * (weggetor) Renamed some variables to avoid possible interference with other adapters, removed not used adminTab
 
@@ -50,7 +61,7 @@ Die meisten Datenpunkte sind schreibgeschützt, Sie können Folgendes einstellen
 ## License
 MIT License
 
-Copyright (c) 2021 weggetor <info@bitboxx.net>
+Copyright (c) 2025 Torsten Weggen <info@bitboxx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

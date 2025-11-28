@@ -1,6 +1,6 @@
 ![Logo](admin/deconz.png)
 
-ioBroker deConz dresden-elektronik Adapter
+ioBroker deCONZ dresden-elektronik Adapter
 ==============
 
 ![Number of Installations](http://iobroker.live/badges/deconz-installed.svg) ![Number of Installations](http://iobroker.live/badges/deconz-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.deconz.svg)](https://www.npmjs.com/package/iobroker.deconz)  [![Downloads](https://img.shields.io/npm/dm/iobroker.deconz.svg)](https://www.npmjs.com/package/iobroker.deconz) [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/deconz/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
@@ -9,23 +9,25 @@ ioBroker deConz dresden-elektronik Adapter
 [![NPM version](https://nodei.co/npm/iobroker.deconz.png?downloads=true)](https://nodei.co/npm/iobroker.deconz/)
 
 ## Notice
-No Support for Beta Versions of deConz
+No Support for Beta Versions of deCONZ
 
 Required js-controller version >5.x.x, Required node.js >= 18.x.x
 
 ## English
 
-Connects to deConz REST-API software developed by dresden-elektronik. This software aims to be a universal ZigBee Gateway solution, using hardware from dresden-elektronik the ConBee(X) USB stick and RaspBee(X) a modul for the Raspberry Pi.
+Connects to deCONZ REST-API software developed by dresden-elektronik. This software aims to be a universal ZigBee Gateway solution, using hardware from dresden-elektronik the ConBee(X) USB stick and RaspBee(X) a modul for the Raspberry Pi.
 
 
-You must first link to deConz.
-1. a) Enter IP address for deConz <br>
+You must first link to deCONZ.
+1. a) Enter IP address for deCONZ <br>
    b) Enter standard Bridge Port: 80 and standard Websocket: 443 <br>
    [e.g. Phoscon App - Help - API information - No filter - search for port/websocketport]
-2. After IP address and port is entered and saved hit "Create API Key" Button. Now you can enter the credentials for deConz or go to Phoscon APP and register ioBroker as third party APP.
+2. After IP address and port is entered and saved hit "Create API Key" Button. Now you can enter the credentials for deCONZ or go to Phoscon App and register ioBroker as third party APP.
 
-## To avoid some errors after an update (deConz/adapter), stop the adapter and delete these entries in the object structure. When you start, the object structure is recreated.
-![Deconz-Adapter](https://github.com/mattreim/ioBroker.deconz/assets/80219712/fb56647e-a0a8-4535-9e18-2b7651b32824)
+## To avoid some errors after an update (deCONZ/adapter), stop the adapter and delete these entries in the object structure. When you start, the object structure is recreated.
+* Groups
+* Lights
+* Sensors
 
 #### Send more than one command at the same time
 For this purpose there is a object called "action".
@@ -47,11 +49,11 @@ Examples:
 ## Changelog
 
 ### 1.7.0 (2024-11-22)
-(mattreim) Hide virtual sensors function
-(mattreim) Hide switch groups function
-(mattreim) Update dependencies
-(mattreim) Updated/added some translations
-(mattreim) Some bug fixes and more
+* (mattreim) Hide virtual sensors function
+* (mattreim) Hide switch groups function
+* (mattreim) Update dependencies
+* (mattreim) Updated/added some translations
+* (mattreim) Some bug fixes and more
 
 ### 1.6.4 (2024-10-06)
 * (mattreim) Add "protectedNative" and "encryptedNative"

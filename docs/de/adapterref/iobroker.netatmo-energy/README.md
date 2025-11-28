@@ -163,6 +163,30 @@ Widget für VIS, um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "S
 
 [Older changes](CHANGELOG_OLD.md)
 <!-- ### **WORK IN PROGRESS** -->
+### 3.0.0 (2025-11-09)
+
+* (ioKlausi) Added additional tests
+
+### 2.8.8 (2025-11-01)
+
+* (ioKlausi) Trusted publishing for npm packages
+
+### 2.8.6 (2025-11-01)
+
+* (ioKlausi) Trusted publishing for npm packages
+
+### 2.8.5 (2025-11-01)
+
+* (ioKlausi) Update dependencies
+
+### 2.8.4 (2025-11-01)
+
+* (ioKlausi) Update dependencies
+
+### 2.8.3 (2025-09-08)
+
+* (ioKlausi) Update dependencies
+
 ### 2.8.2 (2025-05-31)
 
 * (ioKlausi) Update dependencies

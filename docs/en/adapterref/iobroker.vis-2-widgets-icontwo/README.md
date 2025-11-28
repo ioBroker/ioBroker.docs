@@ -33,6 +33,45 @@
 <!--
     ### **WORK IN PROGRESS**
 -->
+### 1.20.0 (2025-11-17)
+- new icons (lights)
+
+### 1.19.2 (2025-11-17)
+- new icons (alexa)
+
+### 1.19.1 (2025-11-16)
+- bug fix
+
+### 1.19.0 (2025-11-16)
+- new icons (alexa)
+
+### 1.18.0 (2025-10-27)
+- new icons (rooms)
+
+### 1.17.0 (2025-10-26)
+- new icons (thermal-heater & weather)
+
+### 1.16.0 (2025-10-18)
+- new icons (tablets)
+
+### 1.15.0 (2025-10-18)
+- new icons (computer-usv & network-fritzbox)
+
+### 1.14.0 (2025-10-12)
+- new icons (weather)
+
+### 1.13.0 (2025-10-12)
+- new icons (diagram & network-NAS)
+
+### 1.12.0 (2025-10-12)
+- new icons (diagram)
+
+### 1.11.0 (2025-10-12)
+- new icons (weather-station)
+
+### 1.10.0 (2025-10-12)
+- new icons (weather-station & people-sleep & lights-tree & thermostat)
+
 ### 1.9.0 (2025-10-05)
 - new icons (autodarts)
 

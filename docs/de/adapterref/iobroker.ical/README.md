@@ -206,6 +206,12 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.18.1 (2025-10-24)
+* (jens-maus) update node-ical to latest 0.22.1 fixing UTC tz issues.
+
+### 1.18.0 (2025-10-19)
+* (jens-maus) update node-ical to latest 0.22.0 which reduces dependency load.
+
 ### 1.17.0 (2025-09-15)
 * (jens-maus) fixed adapter warnings and responsive design suggestions.
 * (jens-maus) updated dependencies.
@@ -219,16 +225,6 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 * (jens-maus) fix issue with handling rrule timezones incorrect with the latest node-ical (#708).
 * (jens-maus) update node-ical to latest 0.20.1
 * (jens-maus) save cached files to os tmpdir instead.
-
-### 1.16.0 (2024-10-29)
-* (cvoelkel76) added checkbox to allow exactly matching of a calendar event.
-* (jens-maus) update node-ical to latest 0.20.0
-* (klein0r) Breaking change: Removed trigger state (subscribe is deprecated in js-controller 6.x)
-* (simatec) Responsive design added
-
-### 1.15.0 (2024-04-30)
-* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-* (mcm1957) Dependencies have been updated
 
 ## License
 

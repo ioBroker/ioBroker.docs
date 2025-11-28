@@ -236,6 +236,15 @@ Instructions how to set up the client are includes in the adapter configuration.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.1.1 (2025-10-25)
+
+* (crycode-de) Updated Sentry DSN
+
+### 3.1.0 (2025-10-21)
+
+* (crycode-de) Node.js >= 20, js-controller >= 6.0.11, Admin >= 7.6.17 required
+* (crycode-de) Updated dependencies
+
 ### 3.0.1 (2024-11-16)
 
 * (crycode-de) Added missing sizes to jsonConfig
@@ -252,17 +261,9 @@ Instructions how to set up the client are includes in the adapter configuration.
 
 * (crycode-de) Fixed cosmetic issue in config UI
 
-### 2.0.4 (2023-08-20)
-
-* (crycode-de) Fix js-controller 5 compatibility
-
-### 2.0.3 (2023-08-20)
-
-* (crycode-de) Dependency updates
-
 ## License
 
-Copyright (c) 2019-2024 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2025 Peter Müller <peter@crycode.de>
 
 ### MIT License
 

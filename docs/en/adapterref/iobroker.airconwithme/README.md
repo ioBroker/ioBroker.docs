@@ -17,7 +17,6 @@
 Adapter for Mitsubishi aircondition with airconwithme wlan adapter
 
 ## Information 
-Installation is done with the Github Cat Symbol / custom. Enter the url of this page (without README.md) and select 'install'. 
 
 In the adapter settings the IP of your airconditions WLAN adapter should be entered. Username + Password for the Intesis adapter are by default "admin" + "admin".
 
@@ -33,6 +32,16 @@ Most datapoints are readonly, you can set the following:
 | remoteDisable | 0: Enable; 1: Disable |
 
 ## Changelog
+### 1.0.0 (2025-11-15)
+* (weggetor) **MAJOR RELEASE**: Complete adapter modernization
+* (weggetor) **BREAKING**: Migrated to TypeScript with modern ES2020+ features
+* (weggetor) **SECURITY**: Updated all dependencies, eliminated vulnerabilities (0 vulnerabilities!)
+* (weggetor) **ENHANCEMENT**: Complete code refactoring with proper error handling and logging
+* (weggetor) **ENHANCEMENT**: Improved session management with smart caching and reconnection logic
+* (weggetor) **ENHANCEMENT**: Modern GitHub Actions CI/CD pipeline with automated testing
+* (weggetor) **ENHANCEMENT**: Enhanced type safety with comprehensive TypeScript interfaces
+* (weggetor) **ENHANCEMENT**: Modular code structure for better maintainability
+
 ### 0.0.4
 * (weggetor) Bugfix sending username + password to Intesis API (formerly send admin/admin hardcoded)
 
@@ -48,7 +57,7 @@ Most datapoints are readonly, you can set the following:
 ## License
 MIT License
 
-Copyright (c) 2022 weggetor <info@bitboxx.net>
+Copyright (c) 2025 Torsten Weggen <info@bitboxx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

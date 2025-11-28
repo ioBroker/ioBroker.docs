@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.skiinfo/README.md
 title: ioBroker.skiinfo
-hash: diLFZTVpYoRZ/ljJwh5kj1PptGiP84IIK94aVIF/iJg=
+hash: 6aSEES/WuLqmEA2uTN3WjAWcEd+NfAfpLl8mUuQ0fYw=
 ---
 # IoBroker.skiinfo
 ![Logo](../../../en/adapterref/iobroker.skiinfo/admin/skiinfo.png)
@@ -42,6 +42,7 @@ Mit dem Widget können Sie alle verfügbaren Länder, Regionen und Gebiete durch
 Sie können die Sortierung für jede Spalte (Standard, absteigend oder aufsteigend) über die Tabellenüberschrift umschalten.
 Sie können über das Suchsymbol in der Bereichsspalte suchen.
 Sie können den Favoritenmodus über das Sternsymbol umschalten.
+Alle Einträge können auf Favoriten reduziert werden, um Favoriten schneller zu finden.
 
 Wählen Sie als Datenpunkt den Konfigurationsdatenpunkt aus.
 
@@ -164,7 +165,7 @@ console.log(response);
 ```
 
 ## Aufgaben
-- muss noch definiert werden
+- noch zu definieren
 
 ## Changelog
 
@@ -172,10 +173,10 @@ console.log(response);
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.0.0 (2025-10-08)
 
 - test remove node 18,extend to node 24
+- add filter button in browser to reduce all entries to favorites.
 
 ### 0.5.0 (2025-04-16)
 

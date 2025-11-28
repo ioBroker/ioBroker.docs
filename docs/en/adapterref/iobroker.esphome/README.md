@@ -30,7 +30,7 @@ Native integration of ESPHome managed device (Including Dashboard) by its native
 - 📱 [Device Management](#device-management)
 - 🔧 [Configuration Examples](#example-config)
 
-This adapter uses the [esphome-native-api](https://github.com/Nafaya/esphome-native-api#readme) with all credits to @Nafaya to interact with [ESPHome API](https://esphome.io/components/api.html?highlight=api)!
+This adapter uses the [esphome-native-api](https://github.com/twocolors/esphome-native-api#readme) with all credits to @twocolors to interact with [ESPHome API](https://esphome.io/components/api.html?highlight=api)!
 
 ## Frequently Asked Questions (FAQ)
 
@@ -284,6 +284,11 @@ If you like my work, please consider a personal donation
     ### __WORK IN PROGRESS__
     * (DutchmanNL) 
 -->
+### __WORK IN PROGRESS__
+* (@SimonFischer04) fix readme link to lib
+* (@SimonFischer04) fix connection status #311
+* (@SimonFischer04) remove unneeded node-fetch dependency
+
 ### 0.6.3 (2025-09-16)
 * (@DutchmanNL) Fixed an admin error related to `jsonConfig` validation. #287
 * (@DutchmanNL) Various general fixes and dependency updates to improve stability.

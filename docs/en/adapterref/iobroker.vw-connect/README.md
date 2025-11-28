@@ -41,6 +41,14 @@ You can set climatisaton temperature in
 ```
 
 ## Changelog
+### 0.7.15 (2025-11-26)
+- fix vw refresh token
+
+### 0.7.14 (2025-11-25)
+- fix vw id login
+
+### 0.7.13 (2025-11-09)
+- fix for skoda login
 
 ### 0.7.12 (2025-05-05)
 

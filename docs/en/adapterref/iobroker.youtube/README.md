@@ -80,6 +80,7 @@ on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
 ### **WORK IN PROGRESS**
 
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+* (@klein0r) Updated dependencies
 
 ### 6.0.0 (2025-03-16)
 

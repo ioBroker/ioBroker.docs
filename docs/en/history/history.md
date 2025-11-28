@@ -1033,6 +1033,9 @@ https://github.com/Scrounger/ioBroker.openmediavault
 
 This adapter allows to read informations from your OpenMediaVault using the rpc interface.
 
+## admin (21.10.2025) – new feature
+Drag and drop of devices between categories
+
 ## xsense (22.10.2025) – new adapter at stable repository
 https://github.com/arteck/ioBroker.xsense
 

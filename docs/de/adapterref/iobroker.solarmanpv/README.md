@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solarmanpv/README.md
 title: ioBroker.solarmanpv
-hash: VhS3pTYYrpO3rIsPG7f3yUT7appDZmkozDHtisOm57U=
+hash: MVx2YA8/8Z7GmDgVctbBhh6XT1v1DNHQrMTnApG3rqE=
 ---
 ![Logo](../../../en/adapterref/iobroker.solarmanpv/admin/solarmanpv.png)
 
@@ -15,41 +15,52 @@ hash: VhS3pTYYrpO3rIsPG7f3yUT7appDZmkozDHtisOm57U=
 ![NPM](https://nodei.co/npm/iobroker.solarmanpv.png?downloads=true)
 
 # IoBroker.solarmanpv
-**Tests:** ![Testen und Freigeben](https://github.com/raschy/ioBroker.solarmanpv/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/raschy/ioBroker.solarmanpv/workflows/Test%20and%20Release/badge.svg)
 
 ## Solarmanpv-Adapter für ioBroker
-Datenauslesung Balkonkraftwerk
+Daten vom Balkonkraftwerk ablesen
 
 ### Erste Schritte
-Dieser Adapter dient zur Anzeige der Daten eines Balkonkraftwerks, welches von einem Wechselrichter „Bosswerk MI600“ bereitgestellt wird, im ioBroker. Dieser Wechselrichter ist mit anderen Wechselrichtern der Deye-Familie kompatibel.
+Dieser Adapter dient zur Anzeige der Daten einer Balkonstromanlage, die von einem Wechselrichter vom Typ „Bosswerk MI600“ in ioBroker bereitgestellt wird. Dieser Wechselrichter ist mit anderen Wechselrichtern der Deye-Familie kompatibel.
 
 Ich gehe davon aus, dass die Anlage bisher von der App „Solarman“ überwacht wird.
 Dieser Adapter bezieht die Daten aus dieser Cloud.
 
-Zuerst müssen Sie den Solarman-Support unter <service@solarmanpv.com> um die benötigten Anmeldeinformationen (App-ID und App-Geheimnis) bitten.
+Zuerst müssen Sie den Solarman-Support unter service@solarmanpv.com kontaktieren, um die benötigten Zugangsdaten (App-ID und App-Geheimnis) anzufordern.
+Es kann sein, dass Sie nach Ihrer Plattform, Ihrer Rolle (Einzelperson, Wartungsdienstleister, Hersteller oder Händler) und Ihrer E-Mail-Adresse für die API gefragt werden. In meinem Fall kam dann noch die Frage: „Warum beantragen Sie die API?“ Ich beantwortete diese Frage höflich und erhielt die benötigten Daten am nächsten Tag.
 
-Es kann noch eine Anfrage geben: „Welche Plattform verwenden Sie? Welche Rolle spielen Sie? Sind Sie Einzelperson, O&M-Anbieter, Hersteller oder Händler? Können Sie mir Ihre E-Mail-Adresse für die API geben?“ In meinem Fall folgte eine weitere Anfrage: „Warum beantragen Sie die API?“ Auch diese Frage beantwortete ich höflich und erhielt die benötigten Daten am nächsten Tag.
+Auf der Admin-Seite müssen die vier Felder der Beschreibung entsprechen.
 
-Auf der Administrationsseite müssen die vier Felder der Beschreibung entsprechen.
-Dieser Adapter ist als zeitgesteuerter Adapter angelegt.
-Da die Daten in der Cloud nur etwa alle 6 Minuten aktualisiert werden, ist ein häufigerer Start des Adapters nicht sinnvoll.
+Dieser Adapter ist als „geplanter“ Adapter erstellt.
 
-Seit der Version 0.3.0 wird im Gegensatz zu den Vorgängerversionen eine Blacklist ermöglicht. Das bedeutet, dass „alle“ von der API gelieferten Werte eingelesen werden und der Benutzer über die Blacklist die nicht benötigten Werte herausfiltern kann. Die entsprechenden Datenpunkte können gelöscht werden, wodurch die Anzahl der Objekte übersichtlicher wird.
+Da die Daten in der Cloud nur etwa alle sechs Minuten aktualisiert werden, ist ein häufigerer Start des Adapters nicht erforderlich.
 
-Seit dem 16.04.2023 ist Solarman auf eine neue Plattform umgestiegen – Version 0.4.0.
-Weitere Anpassungen der API, soweit vorhanden, wurden nicht vorgenommen.
+Seit Version 0.3.0 ist im Gegensatz zu den Vorgängerversionen eine Blacklist möglich. Das bedeutet, dass alle von der API gelieferten Werte eingelesen werden und der Benutzer die nicht benötigten Werte mithilfe der Blacklist herausfiltern kann. Die entsprechenden Datenpunkte können gelöscht werden, wodurch die Anzahl der Objekte übersichtlicher wird.
 
-In den Versionen 0.5.2 bis 0.6.x wurden lediglich Entwickleranpassungen vorgenommen.
+Seit dem 16.04.2023 nutzt Solarman eine neue Plattform – Version 0.4.0.
+Weitere Anpassungen der API wurden, soweit vorhanden, nicht vorgenommen.
 
-In der Version 0.7.0 wurde das Node-JS auf die empfohlene Version 20.x angehoben und der JS-Controller >6 zur Voraussetzung gemacht. E-Mail und App-Secret sind verschlüsselt. Daher müssen beide Werte nach einem Update erneut eingetragen werden!
+In den Versionen 0.5.2 bis 0.6.x wurden ausschließlich Entwickleranpassungen vorgenommen.
 
-In der Version 0.7.1 wurden lediglich kleinere Anpassungen an der Instanzansicht vorgenommen.
+In Version 0.7.0 wurde node-js auf die empfohlene Version 20.x aktualisiert und js-controller >6 zur Voraussetzung gemacht. E-Mail-Adresse und App-Geheimnis werden verschlüsselt. Daher müssen beide Werte nach einem Update erneut eingegeben werden!
+
+In Version 0.7.1 wurden nur geringfügige Anpassungen an der Instanzansicht vorgenommen.
+
+Potenziell sensible Daten wie „activeToken“ sollten verschlüsselt werden, dies funktioniert jedoch nicht zuverlässig. Daher wurde diese Funktion in Version 0.7.3 wieder entfernt.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.3 (2025-11-04)
+* (raschy) Bump axios from 1.12.2 to 1.13.1
+* (raschy) Token encryption revoked
+* (raschy) Dependencies updated according to Dependabot on November 24
+
+### 0.7.2 (2025-10-01)
+* (raschy) Bump axios from 1.11.0 to 1.12.2
+
 ### 0.7.1 (2025-04-25)
 * (raschy) jsonConfig customized
 

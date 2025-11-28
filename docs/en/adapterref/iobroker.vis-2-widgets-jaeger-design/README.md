@@ -69,6 +69,10 @@ For detailed instructions and more information, it is recommended to watch the l
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.4.9 (2025-10-16)
+* (bluefox) Corrected the icon selection dialog
+* (bluefox) Corrected actions selection
+
 ### 1.4.7 (2025-07-01)
 * (bluefox) Corrected the editing of scenes
 * (bluefox) Added the right padding for the time

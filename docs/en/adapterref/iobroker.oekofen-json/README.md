@@ -35,11 +35,20 @@ at which the adapter tries to pull the updates.
 
 The adapter maintains the connected state, even there's no real permanent connection. If the device sends an error or the adapter isn't able to contact the OekoFEN controller it set's the connected state to false. For example this could happen if there are too many requests on the controller, which answers with HTTP 401 then. Under normal conditions the rate limit of the controller shouldn't be hit (2,5 seconds between requests). 
 
+## Credits
+
+This adapter would not have been possible without the great work of Markus Feiler (chaozmc) <https://github.com/chaozmc>, who created previous releases of this adapter.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	**WORK IN PROGRESS**
+	### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2025-11-26)
+* (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
+* (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.0.5 (2023-09-23)
 * (chaozmc) set min node version to 18.x (merge pull request #23)
 
@@ -58,11 +67,6 @@ The adapter maintains the connected state, even there's no real permanent connec
 * (chaozmc) Added .releaseconfig.json for release-script
 * (chaozmc) changed github workflow config
 
-### 1.0.1 (2023-01-21)
-* (chaozmc) Fixed extensive object creation when using a wrong password (fixes Issue #18)
-* (chaozmc) Added counter to stop adapter after 10 unsuccessful requests
-* (chaozmc) Added check if there would be more than 50 top-level-objects to be created
-
 ### **0.0.3**
 * (chaozmc) code cleanup, trigger for update & rescan
 
@@ -75,6 +79,7 @@ The adapter maintains the connected state, even there's no real permanent connec
 ## License
 MIT License
 
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 chaozmc <chaozmc@is-jo.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

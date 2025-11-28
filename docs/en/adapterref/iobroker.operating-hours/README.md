@@ -19,7 +19,8 @@ To reset the counted operating hours just write one numeric state to 0.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.4.0 (2025-10-19)
+* (BenAhrdt) update Authentication NPM
 * (BenAhrdt) update dependencie for eslint
 * (BenAhrdt) update dependencie core
 * (BenAhrdt) update dependencie to node >= 20

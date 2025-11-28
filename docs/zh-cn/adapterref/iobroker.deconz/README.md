@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.deconz/README.md
 title: 无标题
-hash: 6/x2DbZCDtTO0us9rIBbOJBGbXgLhQHXkzqo5rs4qa8=
+hash: ewaf6MGJi/Q4NpS6i2CfUKF7i0e2iga4/x8MTXH/zlw=
 ---
 ![标识](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
@@ -11,44 +11,53 @@ hash: 6/x2DbZCDtTO0us9rIBbOJBGbXgLhQHXkzqo5rs4qa8=
 ![NPM 版本](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 ![下载](https://img.shields.io/npm/dm/iobroker.deconz.svg)
 
-ioBroker deConz 德累斯顿电子适配器
+ioBroker deCONZ 德累斯顿电子适配器
 
 ==============
 
 ＃＃ 注意
-不支持 deConz 测试版
+不支持 deCONZ 的 Beta 版本
 
-所需 js-controller 版本 >5.x.x, 所需 node.js >= 18.x.x
+需要 js-controller 版本 >5.x.x，需要 node.js 版本 >= 18.x.x
 
 ＃＃ 英语
-连接到 dresden-elektronik 开发的 deConz REST-API 软件。该软件旨在成为通用的 ZigBee 网关解决方案，使用 dresden-elektronik 的硬件 ConBee(X) USB 棒和 RaspBee(X) Raspberry Pi 模块。
+连接到由dresden-elektronik开发的deCONZ REST-API软件。该软件旨在成为通用的ZigBee网关解决方案，使用dresden-elektronik的ConBee(X) USB适配器和RaspBee(X) Raspberry Pi模块。
 
-您必须首先链接到 deConz。
+您必须先连接到 deCONZ。
 
-1. a) 输入 deConz 的 IP 地址<br>
+1. a) 输入 deCONZ 的 IP 地址<br>
 
-b）输入标准桥接端口：80 和标准 Websocket：443<br> [例如 Phoscon App - 帮助 - API 信息 - 无过滤器 - 搜索端口/websocketport]
+b) 输入标准桥接端口：80 和标准 WebSocket：443<br> [例如 Phoscon App - 帮助 - API 信息 - 无筛选条件 - 搜索端口/websocketport]
 
-2. 输入并保存 IP 地址和端口后，点击“创建 API 密钥”按钮。现在您可以输入 deConz 的凭证或转到 Phoscon APP 并将 ioBroker 注册为第三方 APP。
+2. 输入并保存 IP 地址和端口后，点击“创建 API 密钥”按钮。现在您可以输入 deCONZ 的凭据，或者前往 Phoscon 应用并将 ioBroker 注册为第三方应用。
 
-## 为避免更新 (deConz/adapter) 后出现某些错误，请停止适配器并删除对象结构中的这些条目。启动时，将重新创建对象结构。
-![Deconz 适配器](https://github.com/mattreim/ioBroker.deconz/assets/80219712/fb56647e-a0a8-4535-9e18-2b7651b32824)
+## 为避免更新（deCONZ/适配器）后出现某些错误，请停止适配器并删除对象结构中的这些条目。启动时，对象结构将重新创建。
+* 小组
+* 灯
+* 传感器
 
 #### 同时发送多个命令
-为了这个目的，有一个名为“动作”的对象。
+为此，我们创建了一个名为“动作”的对象。
 
-例子：
+例如：
 
 `"on": true, "xy": [0.6586,0.3138]`
 
 `"on": true, "transitiontime": 5, "hue": 360`
 
-链接
+## 链接
 [deCONZ REST-API 插件](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) [deCONZ REST-API 插件文档](https://dresden-elektronik.github.io/deconz-rest-doc/) [网关（硬件）](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
 ## [赞助商](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.7.0 (2024-11-22)
+* (mattreim) Hide virtual sensors function
+* (mattreim) Hide switch groups function
+* (mattreim) Update dependencies
+* (mattreim) Updated/added some translations
+* (mattreim) Some bug fixes and more
 
 ### 1.6.4 (2024-10-06)
 * (mattreim) Add "protectedNative" and "encryptedNative"

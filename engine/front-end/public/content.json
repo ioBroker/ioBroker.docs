@@ -411,7 +411,7 @@
             "en": "IoT",
             "de": "IoT Cloud (Integration mit ioBroker und Alexa/Google Home)",
             "ru": "IoT Cloud (интеграция с ioBroker и Alexa/Google Home)",
-            "zh-cn": "物联网云（与 ioBroker 和 Alexa/Google Home 集成）"
+            "zh-cn": "物联网云（与ioBroker和Alexa/Google Home集成）"
           },
           "content": "cloud/iot.md"
         },
@@ -697,7 +697,7 @@
             "en": "JSON config",
             "de": "ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger",
             "ru": "Конфигурация ioBroker JSON: руководство для начинающих",
-            "zh-cn": "ioBroker JSON 配置：初学者指南"
+            "zh-cn": "ioBroker JSON 配置：新手指南"
           },
           "content": "dev/adapterjsonconfig.md"
         },

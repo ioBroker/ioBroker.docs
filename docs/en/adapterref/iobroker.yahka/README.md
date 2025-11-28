@@ -187,6 +187,12 @@ This repo includes one submodule, so before building you need to also close/init
 -->
 ## Changelog
 
+### 1.1.6 (2025-11-11)
+* (mcm1957) Standard test environment has been added.
+* (tarikweiss) Re-Added ability to have 2-column layout in yahka admin.
+* (tarikweiss) Dropped support for Node v18.x
+* (tarikweiss) Upgraded hap-nodejs to version 2.0.2
+
 ### 1.1.5 (2025-07-09)
 * (tarikweiss) Updated version of hap-nodejs library to be compatible with Node 22.
 

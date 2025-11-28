@@ -51,6 +51,18 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (HombachC) update axios
+- (HombachC) optimize dependabot config (#718)
+- (HombachC) update dependencies
+
+### 0.14.4 (2025-10-19)
+
+- (HombachC) update NPM deploy system
+- (HombachC) bump dependencies
+
 ### 0.14.3 (2025-09-27)
 
 - (HombachC) bump typescript (#684)
@@ -73,11 +85,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (HombachC) BREAKING: Dropped support for Node.js 18 (#674)
 - (HombachC) BREAKING: Dropped support for js-controller 5 (#674)
-- (HombachC) bump dependencies
-
-### 0.13.2 (2025-03-22)
-
-- (HombachC) fix axios vulnerability
 - (HombachC) bump dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)

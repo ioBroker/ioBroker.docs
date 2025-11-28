@@ -104,9 +104,10 @@ Additionally there are some states to influence behaviour of photovoltaics autom
 * kecontact.n.automatic.limitCurrent - limits your charging to specified amperage in mA (0 = no limitation)
 * kecontact.n.automatic.batteryStorageStrategy - strategy whether and how your battery storage should be using for charging your vehicle
 * kecontact.n.automatic.batterySoCForCharging - limit usage of battery torage for vehicle by specifying a SoC below which charging is prohibited
-* kecontact.n.automatic.stateVehicleSoC - state name to obtain current SoC of vehicle
+* kecontact.n.automatic.stateVehicleSoC - state name to obtain current SoC of vehicle (needed for targetsoc and maxSoc)
 * kecontact.n.automatic.targetSoC - disable PV automatic (charge with max power) unless vehicle reaches this SoC
 * kecontact.n.automatic.resetTargetSoC - set to true, if taget SoC should be cleared after reached
+* kecontact.n.automatic.maxSoC - a maximum SoC, vehicle won't be charged if this SoC is reached
 
 Sample:
 To charge your vehicle with a constant amperage of 6A regardless of surplus, set photovoltaics to false and limitCurrent to 6000.
@@ -119,6 +120,7 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 -->
 ### **WORK IN PROGRESS**
 * (Sneak-L8) new options to charge vehicle up to a specified SoC
+* (Sneak-L8) new option to stop charging at a certain SoC
 * (Sneak-L8) raise adapter-dev version from 1.4 to 1.5
 * (Sneak-L8) drop dependencies to chai, sinon and mocha
 

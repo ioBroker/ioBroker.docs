@@ -1,16 +1,16 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.batrium-bms/README.md
 title: ioBroker.batrium-bms
-hash: ybmyiKEHBkbOECMU+l95wbCMjlTkebmpzD/P2E9XIXQ=
+hash: QpY2cEvyVWvd5vaLOq+X8bgRIVHAkmwkF1R7DnQpbrc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.batrium-bms/admin/batrium-bms.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.batrium-bms.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.batrium-bms.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.batrium-bms.svg)
 ![Количество установок](https://iobroker.live/badges/batrium-bms-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/batrium-bms-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/batrium-bms-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.batrium-bms.png?downloads=true)
 
 # IoBroker.batrium-bms
@@ -18,20 +18,31 @@ hash: ybmyiKEHBkbOECMU+l95wbCMjlTkebmpzD/P2E9XIXQ=
 <!--
 -->
 
-##адаптер batrium-bms для ioBroker
-Адаптер ioBroker для отслеживания показателей вашей BMS Batrium, публикуемых через UDP.
+## Адаптер batrium-bms для ioBroker
+Адаптер ioBroker для отслеживания показателей вашего Batrium BMS, публикуемых через UDP.
 
-!!! Этот адаптер официально не поддерживается Батриумом!!!
+!!! Этот адаптер официально не поддерживается Batrium !!!
 
-Этот адаптер основан на официальной реализации Batrium WatchMonUdpListener: https://github.com/Batrium/WatchMonUdpListener.
+Этот адаптер основан на официальной реализации Batrium WatchMonUdpListener: https://github.com/Batrium/WatchMonUdpListener
 
-Поддержка сообщений по-прежнему ограничена и будет расширена в следующих версиях.
+Поддержка сообщений пока ограничена и будет расширена в следующих версиях.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.7.0 (2025-11-15)
+* Drop of Node18 and adding of Node24 support
+* Various Package Updates
+* Migration of eslint from 8 to 9
+
+### 0.6.0 (2025-03-27)
+* Drop Support for Node v16
+* Various Package Upgrades
+* Increased min js-controller version to 5.0.19
+* Increased min Admin version to 7.4.10
+
 ### 0.5.0 (2023-09-10)
 * Various Package Upgrades (inc. Update to ioBroker Adapter lib v3)
 * Adding of Tests for Node Version 20.x
@@ -65,7 +76,7 @@ hash: ybmyiKEHBkbOECMU+l95wbCMjlTkebmpzD/P2E9XIXQ=
 ## License
 MIT License
 
-Copyright (c) 2023 Bembelstemmer <kontakt[at]it-amm[dot]de>
+Copyright (c) 2025 Bembelstemmer <kontakt[at]it-amm[dot]de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

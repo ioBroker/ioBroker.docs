@@ -59,6 +59,7 @@ Warte einige Sekunden, bis die Daten das erste Mal vom Sensor abgeholt werden.
 ### **WORK IN PROGRESS**
 
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+* (@klein0r) Updated dependencies
 
 ### 5.0.0 (2025-07-02)
 

@@ -39,6 +39,7 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 ### **WORK IN PROGRESS**
 
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+* (@klein0r) Updated dependencies
 
 ### 0.6.1 (2025-05-02)
 

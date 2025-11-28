@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.modbus/README.md
 title: iobroker.modbus
-hash: bV12UaHIWeE2s72XClON8yl9YIq+LHFAoh5+qejs8ic=
+hash: rY6TVD9Cqql762gZE6QnbgrmfGtX9OYNEFsFGg2smB4=
 ---
 ![Logo](../../../en/adapterref/iobroker.modbus/admin/modbus.png)
 
@@ -96,7 +96,7 @@ Maximale Länge des Befehls READ_MULTIPLE_REGISTERS als Anzahl der zu lesenden R
 Manche Systeme benötigen zunächst eine Schreibanforderung, um die Daten bei einer Leseanforderung zu übermitteln.
 Sie können diesen Modus erzwingen, indem Sie die maximale Länge der Leseanforderung auf 1 setzen.
 
-**Hinweis:** Einige USB-Modbus-Lösungen (z. B. basierend auf Socat) können Probleme bei der Arbeit mit dem Serialport-NPM-Modul haben.
+**Hinweis:** Einige USB-Modbus-Lösungen (z. B. basierend auf `socat`) können Probleme bei der Arbeit mit dem `serialport` npm-Modul haben.
 
 Es gibt ein Software-Gateway [**Modbus RTU <-> Modbus RTU über TCP**](http://mbus.sourceforge.net/index.html), um die Verwendung der seriellen RTU über das TCP-Protokoll zu ermöglichen.
 
@@ -182,7 +182,7 @@ Diese Variable kann später in beliebigen Formeln für andere Parameter verwende
 - `uint16be` - `Vorzeichenlose 16 Bit (Big Endian): AABB => AABB`
 - `uint16le` – `Unsigned 16 bit (Little Endian): AABB => BBAA`
 - `int16be` - `Vorzeichenbehaftete 16-Bit (Big Endian): AABB => AABB`
-- `int16le` – `Signed 16 bit (Little Endian): AABB => BBAA`
+- `int16le` – `Signiertes 16-Bit (Little Endian): AABB => BBAA`
 - `uint32be` - `Vorzeichenlose 32 Bit (Big Endian): AABBCCDD => AABBCCDD`
 - `uint32le` - `Vorzeichenlose 32 Bit (Little Endian): AABBCCDD => DDCCBBAA`
 - `uint32sw` - `Vorzeichenlose 32 Bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
@@ -211,7 +211,7 @@ Diese Variable kann später in beliebigen Formeln für andere Parameter verwende
 
 Die folgende Beschreibung wurde aus [Hier](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/) kopiert
 
-Das Punkt-zu-Punkt-Modbus-Protokoll ist eine beliebte Wahl für die RTU-Kommunikation, schon allein wegen seiner einfachen Handhabung. Das Protokoll selbst steuert die Interaktionen der einzelnen Geräte in einem Modbus-Netzwerk, wie jedes Gerät eine bekannte Adresse erhält, wie jedes Gerät seine Nachrichten erkennt und wie grundlegende Informationen aus den Daten extrahiert werden. Im Wesentlichen bildet das Protokoll die Grundlage des gesamten Modbus-Netzwerks.
+Das Punkt-zu-Punkt-Modbus-Protokoll ist eine beliebte Wahl für die RTU-Kommunikation, allein schon wegen seiner einfachen Handhabung. Das Protokoll selbst steuert die Interaktionen der einzelnen Geräte in einem Modbus-Netzwerk, wie das Gerät eine bekannte Adresse aufbaut, wie jedes Gerät seine Nachrichten erkennt und wie grundlegende Informationen aus den Daten extrahiert werden. Im Wesentlichen bildet das Protokoll die Grundlage des gesamten Modbus-Netzwerks.
 
 Dieser Komfort ist jedoch nicht ohne Komplikationen möglich, und das Modbus RTU-Nachrichtenprotokoll bildet da keine Ausnahme.
 Das Protokoll selbst wurde für Geräte mit einer 16-Bit-Registerlänge entwickelt.
@@ -307,27 +307,37 @@ Anschließend können Bytes und/oder Wörter ausgetauscht werden, um zu analysie
 ## Export / Import von Registern
 Mit der Export-/Importfunktion können Sie alle Registerdaten (nur eines Typs) in eine TSV-Datei (Tabulator-getrennte Werte) und zurück konvertieren, um Daten einfach von einem Gerät auf ein anderes zu kopieren oder Register in Excel zu bearbeiten.
 
-Sie können Ihre Schemata mit anderen Benutzern in [Modbus-Vorlagen](https://github.com/ioBroker/modbus-templates) teilen oder dort einige Registerschemata finden.
+Sie können Ihre Schemata mit anderen Benutzern in [Modbus-Vorlagen,](https://github.com/ioBroker/modbus-templates) teilen oder dort einige Registerschemata finden.
 
 ## Prüfen
 Im Ordner `test` befinden sich einige Programme zum Testen der TCP-Kommunikation:
 
 - Ananas32/64 ist ein Slave-Simulator (nur Halteregister und Eingänge, keine Spulen und digitale Eingänge)
 - RMMS ist Mastersimulator
-- mod_RSsim.exe ist ein Slave-Simulator. Möglicherweise benötigen Sie [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582), um ihn zu starten (aufgrund eines SideBySide-Fehlers).
-
-## Aufgaben
-- [ ] Analysieren Sie Dateien auf https://github.com/ioBroker/modbus-templates und ermöglichen Sie den direkten Import vom Adapter
+- mod_RSsim.exe ist ein Slave-Simulator. Möglicherweise benötigen Sie [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582), um ihn zu starten (aufgrund eines Side-By-Side-Fehlers).
 
 <!--
 
 ### **IN ARBEIT** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 7.0.5 (2025-10-13)
+* (bluefox) Prohibited installation from github
+
+### 7.0.4 (2025-10-08)
+* (bluefox) Added migration procedure from 6 to 7
+* (bluefox) Corrected serial communication
+
+### 7.0.1 (2025-10-07)
+* (bluefox) Redesign of the configuration tabs
+* (bluefox) Added option to remove leading underscores in the object names
+
+### 7.0.0 (2025-10-06)
 * (copilot) Improved Modbus error handling and fault tolerance - continue polling working devices even when others fail
 * (copilot) Fixes memory leak
 * (copilot) Added option to disable connection error logging to avoid log spam when devices are unavailable
+* (bluefox) Show values directly in configuration
+* (bluefox) Implemented TLS connection (master)
 
 ### 6.4.0 (2024-11-22)
 * (bluefox) Moved GUI compilation to vite
@@ -444,7 +454,7 @@ Im Ordner `test` befinden sich einige Programme zum Testen der TCP-Kommunikation
 * (bluefox) fixed the configuration dialog for "input registers" in slave mode
 
 ### 3.3.0 (2021-04-16)
-* (Apollon77) Allow usage of write-only (no poll) states
+* (Apollon77) Allowed usage of write-only (no poll) states
 * (Apollon77/TmShaz) F Write multiple registers
 * (prog42) create states of type string with default value of type string
 
@@ -522,7 +532,7 @@ Im Ordner `test` befinden sich einige Programme zum Testen der TCP-Kommunikation
 * (bluefox) Refactoring
 
 ### 3.0.0 (2019-05-15)
-* (Apollon77) Support for nodejs 12 added, nodejs 4 is no longer supported!
+* (Apollon77) Support for Node.js 12 added, Node.js 4 is no longer supported!
 
 ### 2.0.9 (2018-10-11)
 * (Bjoern3003) Write registers was corrected
@@ -643,7 +653,7 @@ Im Ordner `test` befinden sich einige Programme zum Testen der TCP-Kommunikation
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2024 Bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2025 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -54,17 +54,22 @@ rawData html page has additional infos (eg. counters and balancing)
 If MQTT and HTML options are enabled, basic info is updated from MQTT stream whereas battery parameters and counters from the rawPage. balancing is not put in the general datastructure.
 
 ## Changelog
-
 <!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
 -->
+
+### 0.4.3 (2025-11-20)
+- update release workflow and npm trusted publishing
+- dev Depencies
+
+### 0.4.2 (2025-10-06)
+- Dependencies
 
 ### 0.4.1 (2025-09-28)
 - fix: negative loads when using non-pv chargers
 
 ### 0.4.0 (2025-09-25)
-
 Review add to latest:
 - Breaking: Object Tree (cells.min > cells.min.voltage, cells.max.ID > cells.maxID)
 - added multilanguage support
@@ -72,21 +77,16 @@ Review add to latest:
 - cleaning: devDependencies, object tree, eslint 9
 - debug logs changed to iobroker standard
 
-
 ### 0.3.0 (2025-09-15)
-
 - Support for USART Data Log Optin added
 
 ### 0.2.0 (2025-09-13)
-
 - New object tree structure for info/parameters, flags and balancing
 
 ### 0.1.2 (2025-09-12)
-
 - Added Serial Port
 
 ### 0.0.1 (2025-09-02)
-
 - Initial Release
 
 ## License

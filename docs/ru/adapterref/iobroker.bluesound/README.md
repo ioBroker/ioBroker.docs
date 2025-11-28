@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bluesound/README.md
 title: ioBroker.bluesound
-hash: waoLcBOsb5gz0sO/1PPmjKFdIZ1WjwR/sSEfaDwQ7ww=
+hash: wdnWmypqfTuQ0Dybw+iO/0Sf3yfRRLn+1zlqmprRy3s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bluesound/admin/bluesound.png)
 
@@ -45,10 +45,86 @@ hash: waoLcBOsb5gz0sO/1PPmjKFdIZ1WjwR/sSEfaDwQ7ww=
 - Пересылка плейлиста (активируется установкой 'control.forward' в значение true)
 - Воспроизведение плейлиста в обратном направлении (запускается установкой 'control.backward' в значение true)
 
+Добавлен просмотр библиотеки для LocalMusic. Динамический список меню доступен в файле info.list. Этот объект следует задать как «Идентификатор объекта» для json-таблицы для визуализации текущего меню. Объект control.command используется для передачи следующей команды плееру. Он обновляется путём определения его как «Идентификатора выбранного» для этой таблицы. Заголовок таблицы обновляется с помощью объекта info.listheader через привязку объекта к имени первого заголовка. Для лучшей визуализации следует отображать только первый заголовок, а его ширину следует установить равной 100%.
+
+Всё содержимое раскрывается до уровня альбома (за исключением меню «Песни», в котором песни отображаются напрямую). При выборе альбома его содержимое немедленно воспроизводится, заменяя содержимое текущего плейлиста или добавляя его в текущий плейлист. Это поведение зависит от значения info.playliststate. Если значение равно true, плейлист заменяется, в противном случае добавляется новое содержимое. Этот объект можно изменить с помощью control.playlist (режим «Кнопка с переключением»). При каждом нажатии этой кнопки значение info.playliststate инвертируется.
+
+Содержимое текущего плейлиста доступно в объекте info.playlist (JSON) и может быть визуализировано таким образом. Оно также доступно в виде HTML-таблицы в info.playlisthtml и может быть визуализировано непосредственно в HTML-виджете. Формат полученной таблицы можно изменить с помощью CSS.
+
+```javascript
+.playlist table {
+    background-color: #514d4d;
+    width: 100%;
+    border-collapse: collapse;
+    display: block;
+    overflow-y: auto;
+    max-height: 100%;
+}
+.playlist img {
+    margin: 10px;
+    height: 50px;
+    width:  50px;
+}
+
+.playlist .title {
+    color: #ffffff;
+    font-size: 18px;
+    padding-top: 10px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.playlist .artist {
+    color: #888888;
+    padding-bottom: 10px;
+}
+
+.playlist .current {
+    color: #2f9bde;
+    font-size: 18px;
+    padding-top: 10px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.playlist div {
+    height: 800px;
+}
+```
+
 ## Changelog
 
 ### **WORK IN PROGRESS**
 
+- (Uwe Nagel) Add info.playlisthtml
+- (Uwe Nagel) Add info.playliststate
+- (Uwe Nagel) Function setPlaylistToggle added
+- (Uwe Nagel) Add control.playlist
+- (Uwe Nagel) Function readPlaylist added
+- (Uwe Nagel) Add info.playlist
+- (Uwe Nagel) Library browsing added
+
+### 1.2.1 (2025-10-18)
+
+- (Uwe Nagel) Add info.list and control.command
+- (Uwe Nagel) Changes according to ioBroker Check
+- (Uwe Nagel) Bump @types/node from 24.5.2 to 24.6.1
+- (Uwe Nagel) Bump chai from 6.0.1 to 6.2.0
+- (Uwe Nagel) Bump typescript from 5.9.2 to 5.9.3
+- (Uwe Nagel) Bump mocha from 11.7.2 to 11.7.3
+- (Uwe Nagel) Correct error in main.js, update package-lock.json
+- (Uwe Nagel) Update io-package.json and package.json
+- (Uwe Nagel) Update .vscode/jsonConfig.json and .gitignore
+- (Uwe Nagel) Resolve dependency errors
+- (Uwe Nagel) Bump mocha from 11.1.0 to 11.7.1
+- (Uwe Nagel) Bump globals from 16.2.0 to 16.3.0
+- (Uwe Nagel) Bump @types/node from 24.0.8 to 24.1.0
+- (Uwe Nagel) Bump typescript from 5.7.3 to 5.9.2
+- (Uwe Nagel) Bump chai from 5.2.0 to 5.2.1
 - (Uwe Nagel) Further code cleaning (apiclient, getStateAsync)
 - (Uwe Nagel) @types/xml2js added
 - (Uwe Nagel) Move to eslint 9 and fix subsequent issues

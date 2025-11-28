@@ -97,6 +97,10 @@ doorbell recorded video.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (copilot) **CI/CD**: Updated ioBroker Copilot Instructions template from v0.4.0 to v0.4.2
+
 ### 6.4.0 (2025-06-27)
 
 * (theimo1221) #820 Support Node-JS 22

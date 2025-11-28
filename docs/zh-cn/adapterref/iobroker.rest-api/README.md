@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rest-api/README.md
 title: REST-API 适配器
-hash: BVfjhb1Gx9apADa3SuQvZnxWh9WASBG6M7ZIn4QunPY=
+hash: xn86ZLFPgffbxoD8CgqI2CSXHvCth7G1XqTBbf7NWy8=
 ---
 ![标识](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -84,12 +84,12 @@ node.js 中的示例请参见此处[demoNodeClient.js](examples/demoNodeClient.j
 浏览器示例可在此处找到：[demoNodeClient.js](examples/demoBrowserClient.html)
 
 ## Web 扩展
-此适配器可以作为 Web 扩展程序运行。在这种情况下，路径位于 `http://ipaddress:8082/rest` 下
+此适配器可以作为 Web 扩展程序运行。在这种情况下，路径位于 `http://ipaddress:8082/rest-api/` 下
 
 ＃＃ 注意
 - `POST` 始终用于创建资源（无论是否重复）
 - `PUT` 用于检查资源是否存在则更新，否则创建新资源
-- `PATCH` 总是用于更新资源
+- `PATCH` 始终用于更新资源
 
 ## 命令
 此外，您可以通过特殊接口执行许多套接字命令：
@@ -115,12 +115,12 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 }'
 ```
 
-您不能通过 GUI 向命令发送 POST 请求。
+您无法通过 GUI 向命令发送 POST 请求。
 
 <!-- 开始 -->
 
 ### 州
-- `getStates(pattern)` - 获取模式的状态列表（例如，system.adapter.admin.0.*）。GUI 可能无法通过可视化答案解决问题。
+- `getStates(pattern)` - 获取模式的状态列表（例如 system.adapter.admin.0.*）。GUI 可能无法通过可视化答案解决问题。
 - `getForeignStates(pattern)` - 与 getStates 相同
 - `getState(id)` - 通过 ID 获取状态值
 - `setState(id, state)` - 使用 JSON 对象设置状态值（例如 `{"val": 1, "ack": true}`）
@@ -136,7 +136,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 
 ### 文件
 - `readFile(adapter, fileName)` - 读取文件，例如 adapter=vis.0, fileName=main/vis-views.json。此外，您还可以设置查询中的选项 binary=true，以文件形式而非 JSON 形式获取答案。
-- `readFile64(adapter, fileName)` - 将文件读取为 base64 字符串，例如 adapter=vis.0, fileName=main/vis-views.json。此外，您还可以在查询中设置 binary=true 选项，以文件形式而非 JSON 形式获取答案。
+- `readFile64(adapter, fileName)` - 将文件读取为 base64 字符串，例如 adapter=vis.0, fileName=main/vis-views.json。此外，您还可以设置查询中的选项 binary=true，以文件形式而非 JSON 形式获取答案。
 - `writeFile64(adapter, fileName, data64, options)` - 写入文件，例如 adapter=vis.0, fileName=main/vis-test.json, data64=eyJhIjogMX0=
 - `unlink(adapter, name)` - 删除文件或文件夹
 - `deleteFile(adapter, name)` - 删除文件
@@ -156,12 +156,12 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getRatings(update)` - 读取适配器评级（与管理员相同）
 - `getCurrentInstance()` - 读取适配器命名空间（始终为 rest-api.0）
 - `decrypt(encryptedText)` - 使用系统机密解密字符串
-- `encrypt(plainText)` - 使用系统机密加密字符串
-- `getAdapters(adapterName)` - 获取“适配器”类型的对象。你可以自定义适配器名称。
+- `encrypt(plainText)` - 使用系统密钥加密字符串
+- `getAdapters(adapterName)` - 获取“适配器”类型的对象。你可以自定义 adapterName
 - `updateLicenses(login, password)` - 从 ioBroker.net 门户读取许可证
 - `getCompactInstances()` - 读取包含简短信息的实例列表
-- `getCompactAdapters()` - 读取已安装适配器的列表及其简短信息
-- `getCompactInstalled(host)` - 读取已安装适配器的简短信息
+- `getCompactAdapters()` - 读取已安装适配器的列表及简短信息
+- `getCompactInstalled(host)` - 读取有关已安装适配器的简短信息
 - `getCompactSystemConfig()` - 读取简短的系统配置
 -`getCompactSystemRepositories()`
 - `getCompactRepository(host)` - 读取短存储库
@@ -187,8 +187,8 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getUserPermissions()` - 读取具有用户权限的对象
 - `getVersion()` - 读取适配器名称和版本
 - `getAdapterName()` - 读取适配器名称（始终为 rest-api）
--`客户端订阅（目标实例、消息类型、数据）`
-- `getAdapterInstances(adapterName)` - 获取“实例”类型的对象。你可以自定义适配器名称
+-`客户端订阅（目标实例，消息类型，数据）`
+- `getAdapterInstances(adapterName)` - 获取“实例”类型的对象。你可以自定义 adapterName
 
 <!-- 结束 -->
 
@@ -197,6 +197,15 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 ### **工作正在进行** -->
 
 ## Changelog
+### 3.1.1 (2025-10-09)
+* (@GermanBluefox) corrected web extension path
+
+### 3.1.0 (2025-10-05)
+* (@copilot, @SimonFischer04) Fix running as web extension, own implementation of unmaintained swagger-node-runner-fork, 
+* (@SimonFischer04) remove 18 and add node 24 to tests
+* (@SimonFischer04) multiple null error fixes and wrong swagger schema #151
+* (@GermanBluefox) updated packages
+
 ### 3.0.1 (2025-05-21)
 * (@GermanBluefox) Corrected the web extension
 

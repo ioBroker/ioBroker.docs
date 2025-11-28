@@ -1,13 +1,13 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.oekofen-json/README.md
 title: ioBroker.oekofen-json
-hash: DhMxRMvL6WhO/HOntnwCO2LI4UaMihgYKmRnjeQjpFE=
+hash: qdFWDJPQY42LrI0UN4dsoIp5T/bhUlZo0IZyJ2RAL+8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.oekofen-json/admin/oekofen-json.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.oekofen-json.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.oekofen-json.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.oekofen-json.svg)
 ![Количество установок](https://iobroker.live/badges/oekofen-json-installed.svg)
 ![Текущая версия в стабильном репозитории](https://iobroker.live/badges/oekofen-json-stable.svg)
@@ -15,50 +15,57 @@ hash: DhMxRMvL6WhO/HOntnwCO2LI4UaMihgYKmRnjeQjpFE=
 ![НПМ](https://nodei.co/npm/iobroker.oekofen-json.png?downloads=true)
 
 # IoBroker.oekofen-json
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/chaozmc/ioBroker.oekofen-json/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/chaozmc/ioBroker.oekofen-json/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер oekofen-json для ioBroker
 ### Описание
-Этот адаптер подключает обогреватель OekoFEN с новым сенсорным интерфейсом (также называемым [Пеллетроник Тач](https://www.oekofen.com/en-gb/pelletronic-touch/)) к ioBroker. Поскольку OekoFEN реализовал интерфейс JSON шаг за шагом и без общедоступной документации, он должен работать как минимум с версией 3.10d и новее.
-Поскольку существует множество комбинаций нагревателей, солнечных модулей, слоёвых хранилищ, полноценных двигателей и т. д., этот адаптер пытается прочитать все доступные точки данных из интерфейса и создает объекты на лету при запуске.
+Этот адаптер подключает обогреватель OekoFEN с новым сенсорным интерфейсом (также называемым [Пеллетроник Сенсорный](https://www.oekofen.com/en-gb/pelletronic-touch/)) к ioBroker. Поскольку OekoFEN реализовал JSON-интерфейс поэтапно и без общедоступной документации, он должен работать как минимум с версии 3.10d и новее.
+Поскольку существует множество комбинаций обогревателей, солнечных модулей, многослойных хранилищ, двигателей Sterling и т. д., этот адаптер пытается прочитать все доступные точки данных из интерфейса и создаёт объекты «на лету» при запуске.
 
-Точки данных только для чтения создаются таким образом, что они начинаются с префикса L_ в их имени. Также адаптер преобразует масштаб числа в соответствии с информацией, предоставляемой интерфейсом (атрибут фактора). Например, нагреватель имеет дело с температурами в формате XXX и коэффициентом 0,1, которые будут преобразованы адаптером в XX.X при операциях чтения и обратно в XXX при операциях записи.
+Точки данных, доступные только для чтения, создаются как таковые, поскольку их имена начинаются с префикса L_. Адаптер также преобразует масштаб числа в соответствии с информацией, предоставленной интерфейсом (атрибут factor). Например, нагреватель обрабатывает температуру в формате XXX с коэффициентом 0,1, и адаптер преобразует её в XX.X при чтении и обратно в XXX при записи.
 
-### Монтаж
-После установки достаточно ввести
+### Установка
+После установки нужно просто ввести
 
-* ИП,
+* IP,
 * TCP-порт,
-* "так называемый" пароль
+* так называемый пароль
 * и интервал
 
 при котором адаптер пытается получить обновления.
 
-Адаптер сохраняет подключенное состояние даже при отсутствии реального постоянного подключения. Если устройство отправляет сообщение об ошибке или адаптер не может связаться с контроллером OekoFEN, для состояния подключения устанавливается значение false. Например, это может произойти, если на контроллер поступает слишком много запросов, который отвечает HTTP 401. В нормальных условиях ограничение скорости контроллера не должно достигаться (2,5 секунды между запросами).
+Адаптер сохраняет состояние подключения, даже если нет постоянного соединения. Если устройство отправляет ошибку или адаптер не может связаться с контроллером OekoFEN, он устанавливает состояние подключения в значение «ложь». Например, это может произойти, если контроллеру поступает слишком много запросов, и он отвечает кодом HTTP 401. В обычных условиях ограничение скорости контроллера не должно быть достигнуто (2,5 секунды между запросами).
+
+## Кредиты
+Создание этого адаптера было бы невозможно без выдающейся работы Маркуса Файлера (chaozmc) <https://github.com/chaozmc>, создавшего предыдущие версии этого адаптера.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS** 
+	### **WORK IN PROGRESS**
 -->
+### 2.0.0-alpha.9 (2025-10-13)
+* (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
+* (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
+* (mcm1957) Dependencies have been updated
 
-### 1.0.1 (2023-01-21)
-* (chaozmc) Fixed extensive object creation when using a wrong password (fixes Issue #18)
-* (chaozmc) Added counter to stop adapter after 10 unsuccessful requests
-* (chaozmc) Added check if there would be more than 50 top-level-objects to be created
+### 1.0.5 (2023-09-23)
+* (chaozmc) set min node version to 18.x (merge pull request #23)
 
-### 1.0.0 (2023-01-15)
-* (chaozmc) Push version to v1.0.0 as the code seems to be considerable as first stable release
+### 1.0.4 (2023-09-22)
+* (chaozmc) Removed Node 16.x from Test-and-release (fix Issue #19)
+* (chaozmc) updated dependencies
+* (chaozmc) updated protobufjs and google-gax
+* (chaozmc) updated word-wrap
 
-### 0.3.0 (2023-01-15)
-* (chaozmc) Changed Adapter Type to more suitable climate-control instead of communication
-* (chaozmc) Altered query URL for inital scan to use single ?-symbol instead of double
+### 1.0.3 (2023-05-09)
+* (chaozmc) Bump version
 
-### 0.2.5 (2022-11-18) 
-* (chaozmc) Removed unnecessary const
-
-### 0.2.4 (2022-10-31) 
-* (chaozmc) changed loop behaviour to use a for...of loop instead of forEach to avoid parallel creation of too many objects at startup
+### 1.0.2 (2023-05-09)
+* (chaozmc) Added missing translations
+* (chaozmc) Updated Copyright Year
+* (chaozmc) Added .releaseconfig.json for release-script
+* (chaozmc) changed github workflow config
 
 ### **0.0.3**
 * (chaozmc) code cleanup, trigger for update & rescan
@@ -72,7 +79,8 @@ hash: DhMxRMvL6WhO/HOntnwCO2LI4UaMihgYKmRnjeQjpFE=
 ## License
 MIT License
 
-Copyright (c) 2022 chaozmc <chaozmc@is-jo.org>
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023 chaozmc <chaozmc@is-jo.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

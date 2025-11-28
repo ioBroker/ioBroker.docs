@@ -52,6 +52,11 @@ The following devices are currently supported:
     ### **WORK IN PROGRESS**
 -->
 
+### 2.2.4 (2025-02-16)
+
+* (Kai van Nuis) Improve logging and fixed minor issues
+
+
 ### 2.2.3 (2025-02-13)
 
 * (Kai van Nuis) Support for airsensor, alpha, neither tested with real Hardware nor an API-Simulation

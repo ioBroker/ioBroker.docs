@@ -813,8 +813,16 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 2.0.8 (2025-11-23)
+* (simatec) Update dependabot
+
+### 2.0.7 (2025-11-02)
+* (simatec) Fix npm publish
 * (simatec) dependencies updated
+
+### 2.0.6 (2025-10-12)
+* (simatec) dependencies updated
+* (simatec) adminTab Fix
 
 ### 2.0.5 (2025-09-03)
 * (simatec) dependencies updated

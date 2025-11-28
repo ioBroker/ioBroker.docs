@@ -75,6 +75,15 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.3 (2025-11-09)
+* Change link to license
+
+### 1.2.2 (2025-11-09)
+* Fix ip and mac check while add manual new device
+
+### 1.2.1 (2025-11-09)
+* Refactor port scan
+
 ### 1.2.0 (2025-06-11)
 * Added network interface information for localhost to device manager
 

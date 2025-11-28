@@ -181,6 +181,10 @@ Format ["10",0,1]
 
 ## Changelog
 
+### 0.2.0
+
+- (lubepi) Fix login
+
 ### 0.0.5
 
 - (TA2k) Bugfixes

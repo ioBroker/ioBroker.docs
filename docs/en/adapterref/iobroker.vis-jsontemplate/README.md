@@ -68,9 +68,39 @@ JSONTemplate now supports async calls with await.
 
 For details on the template system, see chapter Template based on examples
 
-The JSON data is passed to the template with the prefix data. In addition,
-the current widgetID is also available as a variable so that it can be
-specified in individual CSS instructions.
+Available data objects in the template:
+
+| object/variable | description                                                              |
+| --------------- | ------------------------------------------------------------------------ |
+| widgetID        | widgetID of the widget.                                                  |
+| data            | JSON object referenced by the datapoint in json_oid.                     |
+| dp              | Array of the datapoint data, referenced by the additional datapoints     |
+| widget          | internal widget data. object with all available widget settings          |
+| style           | internal style data. object with all available widget style informations |
+
+The additional datapoints can be accessed by
+A) the name of the datapoint
+
+```javascript
+<%- dp["0_userdata.0.test"] %>
+<%- dp["0_userdata.0.abc"] %>
+```
+
+B) Indexnumber of the datapoint (the number always start with 0)
+
+```javascript
+<%- dp[Object.keys(dp)[0]] %>
+<%- dp[Object.keys(dp)[1]] %>
+```
+
+Example output of data, widget and style in the template
+
+```ejs
+<%- JSON
+    .stringify(style, null, 4)
+    .replace(/\n/g, '<br>')
+    .replace(/ /g, '&nbsp;'); %>
+```
 
 #### Advanced use case
 
@@ -317,6 +347,27 @@ as `local_?` data points are processed internally within VIS (see `vis` document
 
 ## Templatesystem
 
+## Important note for the template system in vis
+
+In vis, all object notations in the following form are recognized and replaced as bindings.
+
+Therefore, the opening and closing brackets of all object notations must be placed on separate lines:
+
+Incorrect:
+
+```json
+{ "a": 1, "b": 2 }
+```
+
+Correct
+
+```json
+{
+    "a": 1,
+    "b": 2
+}
+```
+
 ## Tags
 
 The template system works with certain tags.
@@ -507,6 +558,20 @@ Loop over the attributes of an object
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.2.0 (2025-11-14)
+
+- Improve documentation for the object notation in a template
+- fix some translations
+- align attribute name to vis1
+- add widget data to the available template objects in vis2
+- add style and widget object to the available template objects in vis1
+- improve documentation
+
+### 4.1.3 (2025-11-03)
+
+- fix race condition if more than one widget use the same datapoint
+- switch to trusted publishing
+
 ### 4.1.2 (2025-09-13)
 
 - new try of publish

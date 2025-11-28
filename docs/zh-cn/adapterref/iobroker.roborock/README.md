@@ -3,56 +3,57 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: 8vyKsaXLQdRuIN6K67E9BKiMUHXH+FLd6tqx4zv4f6Q=
+hash: smDDifSzvPSYJWZbe0WA72nSvggJClZlcq2cipjy158=
 ---
 ![标识](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.roborock.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.roborock.svg)
 ![安装数量](https://iobroker.live/badges/roborock-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/roborock-stable.svg)
-![新平台](https://nodei.co/npm/iobroker.roborock.png?downloads=true)
+![稳定仓库中的当前版本](https://iobroker.live/badges/roborock-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.roborock.png?downloads=true)
 
 # IoBroker.roborock
-**测试：**![测试与发布](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
+**测试：** ![测试与发布](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
 
-**翻译：**[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/roborock/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+**翻译：** [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/roborock/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Roborock ioBroker 适配器
-该适配器允许您控制、获取状态、清洁历史记录并查看在 Roborock 应用程序中设置的 Roborock 吸尘器的地图。
+通过此适配器，您可以控制、获取状态、清洁历史记录并查看已在 Roborock 应用程序中设置的 Roborock 吸尘器的地图。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
-### 此适配器无法在 MacOS 上运行
-## 支持的机器人有：
--石头扫地机器人 S4
--Roborock S4 Max
-Roborock S5 Max
--石头扫地机器人 S6
-Roborock S6 Pure
--Roborock S6 MaxV
--Roborock S7
+### 此适配器无法在 macOS 上使用
+支持的机器人有：
+- Roborock S4
+- Roborock S4 Max
+- Roborock S5 Max
+- Roborock S6
+- Roborock S6 Pure
+- Roborock S6 MaxV
+- Roborock S7
 - Roborock S7 MaxV（Ultra）
--Roborock Q7
--Roborock Q7 Max
-Roborock S7 Pro Ultra
--Roborock S7 Max Ultra
--石头扫地机器人 S8
-Roborock S8 Pro Ultra
-Roborock Q Revo
--Roborock Q8 Max
-Roborock Q5 Pro
-Roborock Q Revo Pro
--Roborock Qrevo S
-Roborock Qrevo Curve
+- Roborock Q7
+- Roborock Q7 Max
+- Roborock S7 Pro Ultra
+- Roborock S7 Max Ultra
+- Roborock S8
+- Roborock S8 Pro Ultra
+- Roborock Q Revo
+- Roborock Q8 Max
+- Roborock Q5 Pro
+- Roborock Q Revo Pro
+- Roborock Qrevo S
+- Roborock Qrevo Curve
+- Roborock Saros 10R
 
-## 区域清洁
-此功能仅在适配器选项中启用地图创建时才有效！
+区域清洁
+此功能仅在适配器选项中启用地图创建时有效！
 
-### 地图创建在树莓派上不起作用
-- 有一个网络服务器正在运行。默认端口为 6824
-- 在浏览器中打开 http://iobroker:6824/map.html（将 http://iobroker 更改为您的 ioBroker 主机名或 ip！！！）
-- 绘制要清洁的方块。Roborock 一次最多支持 4 个清洁区域。
+### 树莓派上无法创建地图
+- 有一个网络服务器正在运行。默认端口是 6824
+- 在浏览器中打开 http://iobroker:6824/map.html（请将 http://iobroker 替换为您的 ioBroker 主机名或 IP 地址！）
+- 画出您的清洁区域。Roborock 最多可同时支持 4 个清洁区域。
 
  ![](https://github.com/copystring/ioBroker.roborock/blob/main/images/Rockrock_zone_cleaning.gif)
 
@@ -61,6 +62,22 @@ Roborock Qrevo Curve
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (copystring) Update dependencies
+* (copystring) Update translations
+* (copystring) Bugfixes for map creator, clientID, network objects and local device discovery
+* (copystring) Get clean history when robot state changes to charging
+* (copystring) Q5 Pro does not support any water box modes. Removed them.
+* (copystring) Add basic read only support for Wet Dry Vacuums
+* (copystring) Add basic support for Saros 10R
+
+### 0.6.19 (2025-02-08)
+* (copystring) Rewrite of mqtt connection logic
+* (copystring) Add missing features to Qrevo Slim
+* (copystring) Start websocket & web server onReady
+* (copystring) Update LICENSE
+* (copystring) Update README.md
+
 ### 0.6.18 (2024-12-11)
  * (copystring) Add cleaned_area to S8
  * (copystring) Bugfixes for Qrevo Curve
@@ -385,7 +402,7 @@ Roborock Qrevo Curve
 ## License
 MIT License
 
-Copyright (c) 2024 copystring <copystring@gmail.com>
+Copyright (c) 2025 copystring <copystring@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

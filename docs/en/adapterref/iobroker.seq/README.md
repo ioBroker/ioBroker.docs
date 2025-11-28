@@ -31,11 +31,17 @@ It is also possible to apply a filter to the log levels and also to the adapters
     npm run release patch -- --all 0.9.8 -> 0.9.9
     npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+  ### **WORK IN PROGRESS**
 -->
+### 0.4.2 (2025-10-20)
+* (arteck) fixes
 
-### __WORK IN PROGRESS__
-- (arteck) transfer to arteck
+### 0.4.1 (2025-10-20)
+* (arteck) pin seq-logging
+
+### 0.4.0 (2025-10-20)
+* (arteck) Dependencies have been updated
+* (arteck) transfer to arteck
 
 ### 0.3.0 (2023-07-25)
 - (o0shojo0o) added adminTab
@@ -127,7 +133,7 @@ It is also possible to apply a filter to the log levels and also to the adapters
 
 MIT License
 
-Copyright (c) 2024 Arthur Rupp <arteck@outlook.com>,
+Copyright (c) 2025 Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

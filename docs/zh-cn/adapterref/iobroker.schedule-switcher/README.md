@@ -8,7 +8,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.schedule-switcher/README.md
 title: ioBroker.schedule-switcher
-hash: +n1x0qg+PUkywh7QEydPHD55aDRuat/5puCOO3ZszXI=
+hash: 51RzRI06dx1bVpvRrVaCRG5OgGvzm8/F4Br5EolWWTI=
 ---
 ![标识](../../../de/admin/schedule-switcher.png)
 
@@ -16,62 +16,69 @@ hash: +n1x0qg+PUkywh7QEydPHD55aDRuat/5puCOO3ZszXI=
 [返回自述文件](/README.md)
 
 ＃ 介绍
-该适配器允许用户使用时间表或 100/0 打开/关闭设备。
-可以通过 Vis 或 Vis 2 小部件完全配置时间表。
-计划会更改一个或多个 ioBroker 状态，并由一个或多个触发器组成，用于定义何时以及如何更改状态。
-您可以配置触发器触发的时间和星期几。还可以创建天文触发器或倒计时。
+此适配器允许用户通过定时任务来控制设备的开关。
+
+定时任务可以通过 Vis 或 Vis 2 小部件进行全面配置。
+
+一个定时任务可以切换一个或多个 ioBroker 状态，并包含一个或多个触发器，用于定义状态何时以及如何改变。
+
+您可以配置触发器触发的时间和星期几。此外，还可以创建星象触发器和倒计时。
 
 ＃ 概括
 - [实例设置](#instance-setting-schedule-switcher)
-- [对象](#states)
-- [JSON 格式的触发事件示例](#example-triggerevents-json)
+- [对象](#状态)
+- [示例触发事件 JSON 格式](#example-triggerevents-json)
 - [JSON 格式的触发器示例](#example-trigger-json)
-- [sendTo 触发器示例（仅限专家）](#example-trigger-with-sendto-create-or-edit-experts)
-- [JSON 格式的小部件示例](#example-widgets-json)
+- [仅针对专家的示例 sendTo 触发器](#example-trigger-with-sendto-create-or-edit-experts)
+- [示例小部件的 JSON 格式](#example-widgets-json)
 - [JSON 格式的历史记录示例](#example-history-json)
 - [创建小部件](#create-widget)
-- [更改名称](#change-name)
-- [添加条件](#condition-add)
+- [更改名称](#name-change)
+- [添加条件](#add-condition)
 - [替换文本](#replace-text)
 - [CSS 设置](#css-apply-description-see-css)
+- [CSS 图标和路径](#icon-sizes-and-custom-icons)
 - [创建触发器](#trigger)
-- [创建 astrotrigger](#astro-trigger)
+- [创建星象触发器](#astro-trigger)
 - [创建一次性触发器](#one-time-trigger)
+- [天文图标](#astro-icons)
+- [小部件概述](#html-overview-of-widgets)
 - [HTML 设置](#html-for-vis-and-vis-2)
-- [仅限 HTML 函数 VIS-2](#function-only-for-vis-2)
+- [HTML 函数仅限 VIS-2](#function-only-for-vis-2)
 - [CSS](#css)
 
-### 实例设置计划切换器
+### 实例设置调度切换器
 [概括](#zusammenfassung)
 
-- `+ 号`: 添加新时间表
-- `Schematic Data Id`: 创建的对象
-- `Name`: 小部件的名称
+- `+ 号`：添加新日程
+- `原理图数据 ID`：已创建的对象
+- `名称`：小部件的名称
 - `触发器数量`：触发器数量
-- `活动`: 活动
-- `删除`: 删除日程表
+- `Active`：活跃
+- `删除`：删除日程安排
 - `两次切换操作之间的延迟（毫秒）`：防止同时设置状态
-- `历史记录切换为 JSON（最大 100/0 为关闭）` 最大。存储历史记录
-- `为 VIS 和 VIS-2 创建 HTML（VIS-2 参见说明）` 激活 HTML 概述
+- `切换历史记录（JSON 格式，最大值 100，0 表示关闭）` 历史记录最大存储量
+- 为 VIS 和 VIS-2 创建 HTML（VIS-2 参见说明）激活 HTML 概述
 
-![实例设置.png](img/instance_settings.png)![实例设置1.png](../../../de/adapterref/iobroker.schedule-switcher/img/instance_settings_1.png)
+![instance_settings.png](img/instance_settings.png)</br> ![instance_settings_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/instance_settings_1.png)
 
-### 州
+### 各州
 [概括](#zusammenfassung)
 
-- 开关
-- `schedule-switcher.0.onoff.6.data` 所有触发器都为 JSON
-- `schedule-switcher.0.onoff.6.enabled` 激活或未激活
-- `schedule-switcher.0.onoff.6.views` 为对象创建的小部件在哪里
+- 开/关
+- `schedule-switcher.0.onoff.6.data` 所有触发器均为 JSON 格式
+- `schedule-switcher.0.onoff.6.enabled` 已启用或未启用
+- `schedule-switcher.0.onoff.6.views` 这些对象的组件是在哪里创建的？
 - 地位
 - `schedule-switcher.0.counterTrigger` 触发器数量（活动和非活动）
-- `schedule-switcher.0.history` 切换历史记录
-- `schedule-switcher.0.nextEvents` 下一个切换事件作为 JSON 表
-- `schedule-switcher.0.sendto` 在 VIS-2 中，更改通过此对象传递给适配器
+- `schedule-switcher.0.history` 电路历史记录
+- `schedule-switcher.0.nextEvents` 下一个切换操作以 JSON 表的形式呈现
+- `schedule-switcher.0.sendto` 在 VIS-2 中，更改通过此对象传递给适配器。
+- `schedule-switcher.0.widgetOverview` 所有组件概览，用于查找错误
 
 ![101_remote.png](../../../de/adapterref/iobroker.schedule-switcher/img/view_states.png)
 
-# 触发事件 JSON 示例
+# 示例触发事件 JSON
 [概括](#zusammenfassung)
 
 ```json
@@ -85,7 +92,8 @@ hash: +n1x0qg+PUkywh7QEydPHD55aDRuat/5puCOO3ZszXI=
         "active": true, // enabled true oder false
         "hour": 16, // Stunde
         "minute": 22, // Minute
-        "day": 9, // Tag
+        "day": 6, // Tag
+        "valueCheck": false, // States vergleichen
         "dateISO": "2024-11-09T15:22:00.000Z", // Zeit ohne Zeitzone
         "timestamp": 1731165720000, // Timestamp ohne Zeitzone
         "objectId": 1 // ObejektId schedule-switcher.0.onoff.<objectid>.data
@@ -93,7 +101,7 @@ hash: +n1x0qg+PUkywh7QEydPHD55aDRuat/5puCOO3ZszXI=
 ]
 ```
 
-# 触发器 JSON 示例
+# 示例 JSON 触发器
 [概括](#zusammenfassung)
 
 ```json
@@ -125,6 +133,7 @@ hash: +n1x0qg+PUkywh7QEydPHD55aDRuat/5puCOO3ZszXI=
             "astroTime": "sunrise",
             "shiftInMinutes": 0,
             "weekdays": [1, 2, 3, 4, 5, 6],
+            "valueCheck": false,
             "id": "0",
             "action": {
                 "type": "ConditionAction",
@@ -175,7 +184,12 @@ hash: +n1x0qg+PUkywh7QEydPHD55aDRuat/5puCOO3ZszXI=
                     {
                         "oid-conditionStateId1": "0_userdata.0.test"
                     }
-                ]
+                ],
+                "valueType": "number", // Wertetyp
+                "offValue": "100", // Wert für An - Fehlt wenn nicht gesetzt
+                "onValue": "0", // Wert für Aus - Fehlt wenn nicht gesetzt
+                "newOff": "Hoch", // Ersetzt AN - Fehlt wenn nicht gesetzt
+                "newOn": "Runter" // Ersetzt AUS - Fehlt wenn nicht gesetzt
             },
             "w000006": {
                 // Widget ID
@@ -194,14 +208,15 @@ hash: +n1x0qg+PUkywh7QEydPHD55aDRuat/5puCOO3ZszXI=
                     }
                 ],
                 "conditionCount": 1, // Counter Bedingung
-                "condition": [] // Zustände Bedingungen
+                "condition": [], // Zustände Bedingungen
+                "valueType": "boolean" // Wertetyp
             }
         }
     }
 }
 ```
 
-# 使用 sendTo 创建或编辑示例触发器（专家）
+# 示例：创建或编辑带有 sendTo 的触发器（专家）
 [概括](#zusammenfassung)
 
 ```JSON
@@ -218,6 +233,7 @@ sendTo("schedule-switcher.0", "update-trigger", { // Aktion für den neuen Ausl�
         "hour":12,
         "minute":32,
         "weekdays":[1,2,3,4,5],
+        "valueCheck": false,
         "id":"0", // ID abgleichen
         "action":{
             "type":"OnOffStateAction",
@@ -239,6 +255,7 @@ sendTo("schedule-switcher.0", "update-trigger", { // Aktion für den neuen Ausl�
         "astroTime":"sunrise", // sunrise, sunset or solarNoon
         "shiftInMinutes":0,
         "weekdays":[1,2,3,4,5],
+        "valueCheck": false,
         "id":"0", // ID abgleichen
         "action":{
             "type":"OnOffStateAction",
@@ -257,7 +274,7 @@ sendTo("schedule-switcher.0", "enable-schedule", { // Auslöser aktivieren
 
 sendTo("schedule-switcher.0", "add-one-time-trigger", { // Einmalauslöser anlegen
     "dataId":"schedule-switcher.0.onoff.6.data",
-    "trigger":"{\"type\":\"OneTimeTrigger\",\"date\":\"2024-10-17T06:14:22.660Z\",\"timedate\":false,\"action\":{\"type\":\"OnOffStateAction\",\"name\":\"On\"}}"
+    "trigger":"{\"type\":\"OneTimeTrigger\",\"date\":\"2024-10-17T06:14:22.660Z\",\"valueCheck\": false,\"timedate\":false,\"action\":{\"type\":\"OnOffStateAction\",\"name\":\"On\"}}"
 });
 
 sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID löschen
@@ -276,7 +293,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 });
 ```
 
-# 历史记录 JSON 示例
+# 示例历史记录 JSON
 [概括](#zusammenfassung)
 
 ```JSON
@@ -284,11 +301,13 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
   {
     "setObjectId": "0_userdata.0.test4",
     "objectId": 0,
-    "value": "true",
+    "actualValue": true,
+    "oldValue": false,
+    "checkValue": false,
     "object": "0_userdata.0.test4",
     "trigger": "TimeTrigger",
     "astroTime": "unknown",
-    "shift": 0,
+    "shiftInMinutes": 0,
     "date": 0,
     "hour": 20,
     "minute": 48,
@@ -303,15 +322,19 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
         0
       ]
     ],
-    "time": 1729622880040
+    "timestamp": 1761384780017,
+    "dateTime": "2025-10-25T09:33:00.017Z",
+    "dateTimeWithTimezone": "2025-10-25T11:33:00.017Z"
   },
   {
     "setObjectId": "0_userdata.0.test4",
     "objectId": 0,
-    "value": "true",
+    "actualValue": true,
+    "oldValue": false,
+    "checkValue": false,
     "object": "0_userdata.0.test4",
     "astroTime": "unknown",
-    "shift": 0,
+    "shiftInMinutes": 0,
     "date": 0,
     "hour": 20,
     "minute": 47,
@@ -326,7 +349,9 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
         0
       ]
     ],
-    "time": 1729622820071
+    "timestamp": 1761383520527,
+    "dateTime": "2025-10-25T09:12:00.527Z",
+    "dateTimeWithTimezone": "2025-10-25T11:12:00.527Z"
   }
 ]
 ```
@@ -366,232 +391,313 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 - 将小部件插入视图
 
-![创建小部件.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget.png)
+![create_widget.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget.png)
 
-- 选择原理图数据的ID
-- 选择计划激活ID
-- 选择切换状态的ID（最多10个）
+- 选择原理图数据的 ID
+- 选择计划激活 ID
+- 选择切换状态的 ID（最多 10 个）
 
-![创建小部件状态 ID.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_stateid.png)
+![create_widget_stateid.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_stateid.png)
 
-- 指定值的类型以及要设置的值
+- 定义值类型和要设置的值
 
-![创建小部件状态 ID1.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_stateid_1.png)
+![create_widget_stateid_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_stateid_1.png)
 
-- 现在创建电路图
+现在绘制电路图
 
-![创建小部件选择.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select.png)
+![create_widget_select.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select.png)
 
 ### 更改名称
 [概括](#zusammenfassung)
 
-- 更改名称 - 也将在对象中采用
+- 更改名称 - 此操作也将应用于对象。
 
-![创建小部件名称.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_name.png)
+![create_widget_name.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_name.png)
 
 ### 添加条件
 [概括](#zusammenfassung)
 
-- 建立条件。
+- 设定条件。
 
-![创建小部件选择条件.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_condition.png)
+![create_widget_select_condition.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_condition.png)
 
 ### 替换文本
 [概括](#zusammenfassung)
 
-- 更改文本的打开/关闭以及全部打开/全部关闭
+- 更改文本显示/隐藏以及所有内容开启/关闭
 
-![创建小部件重命名1.png](img/create_widget_rename_1.png)![创建小部件重命名2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_rename_2.png)
+![create_widget_rename_1.png](img/create_widget_rename_1.png) ![create_widget_rename_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_rename_2.png)
 
-### 应用 CSS [描述见css](#css)
+### 应用 CSS [请参阅 CSS 以了解详情](#css)
 [概括](#zusammenfassung)
 
-- 使用 CSS 自定义样式</br>
+- 使用 `enable CSS` 自定义样式</br>
 
-![创建小部件的 CSS.png](img/create_widget_css.png)</br> ![创建小部件的 CSS](img/create_widget_css_1.png)</br> ![创建小部件 CSS2.png](img/create_widget_css_2.png)</br> ![创建小部件的 CSS3.png](img/create_widget_css_3.png)</br> ![小部件切换.png](img/widget_switched.png)</br> ![小部件手册.png](img/widget_manual.png)</br> ![小部件_astro_图标.png](img/widget_astro_icon.png)</br> ![小部件条件1.png](img/widget_condition_1.png)</br> ![小部件条件2.png](../../../de/adapterref/iobroker.schedule-switcher/img/widget_condition_2.png)
+![create_widget_css.png](img/create_widget_css.png)</br> ![create_widget_css_1.png](img/create_widget_css_1.png)</br> ![create_widget_css_2.png](img/create_widget_css_2.png)</br> ![create_widget_css_3.png](img/create_widget_css_3.png)</br> ![widget_switched.png](img/widget_switched.png)</br> ![widget_manual.png](img/widget_manual.png)</br> ![widget_astro_icon.png](img/widget_astro_icon.png)</br> ![widget_condition_1.png](img/widget_condition_1.png)</br> ![widget_condition_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/widget_condition_2.png)
+
+### 图标大小和自定义图标
+[概括](#zusammenfassung)
+
+![create_widget_css_4.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_css_4.png)
+
+对于自定义图标的路径，您无需激活 `CSS aktivieren`。如果您已有小部件，则需要更改一次文件扩展名；否则，该属性将不会创建。宽度/高度设置也适用此规则。
+
+图标可以上传或复制到单独的目录。
+
+使用 `Dateien` 的示例路径：
+
+- http://192.168.2.18:8081/files/0_userdata.0/
+- /opt/iobroker/iobroker-data/files/0_userdata.0/
+
+或者放在单独的目录下。
+
+- /home/iobroker/<我的文件夹>/
+
+小部件必须按以下方式命名。所有图标必须放置在以下目录中：
+
+| 图标 | 文件名 |
+| ------------------------------------------------------------------------------------------- | --------------------- |
+| ![日出.svg](../../../de/widgets/schedule-switcher/img/astro/sunrise.svg) | 日出 |
+| ![日落.svg](../../../de/widgets/schedule-switcher/img/astro/sunset.svg) | 日落 |
+| ![sunriseEnd.svg](../../../de/widgets/schedule-switcher/img/astro/sunriseEnd.svg) | 日出结束 |
+| ![goldenHourEnd.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHourEnd.svg) | goldenHourEnd |
+| ![goldenHour.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHour.svg) | 黄金时刻 |
+| ![sunsetStart.svg](../../../de/widgets/schedule-switcher/img/astro/sunsetStart.svg) | 日落开始 |
+| ![黄昏.svg](../../../de/widgets/schedule-switcher/img/astro/dusk.svg) | 黄昏 |
+| ![nauticalDusk.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDusk.svg) | 航海黄昏 |
+| ![night.svg](../../../de/widgets/schedule-switcher/img/astro/night.svg) | 夜晚 |
+| ![nadir.svg](../../../de/widgets/schedule-switcher/img/astro/nadir.svg) | 最低点 |
+| ![nightEnd.svg](../../../de/widgets/schedule-switcher/img/astro/nightEnd.svg) | 夜晚结束 |
+| ![nauticalDawn.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDawn.svg) | nauticalDawn |
+| ![黎明.svg](../../../de/widgets/schedule-switcher/img/astro/dawn.svg) | 黎明 |
+| ![添加.svg](../../../de/widgets/schedule-switcher/img/add.svg) | 添加 |
+| ![取消.svg](../../../de/widgets/schedule-switcher/img/cancel.svg) | 取消 |
+| ![编辑.svg](../../../de/widgets/schedule-switcher/img/edit.svg) | 编辑 |
+| ![删除.svg](../../../de/widgets/schedule-switcher/img/delete.svg) | 删除 |
+| ![一次性.svg](../../../de/widgets/schedule-switcher/img/onetime.svg) | 一次 |
+| ![remove_circle_outline.svg](../../../de/widgets/schedule-switcher/img/remove_circle_outline.svg) | 移除圆圈轮廓 |
+| ![保存.svg](../../../de/widgets/schedule-switcher/img/save.svg) | 保存 |
+| ![time.svg](../../../de/widgets/schedule-switcher/img/time.svg) | 时间 |
+| ![valueCheck.svg](../../../de/widgets/schedule-switcher/img/valueCheck.svg) | 值检查 |
+| ![valueNoCheck.svg](../../../de/widgets/schedule-switcher/img/valueNoCheck.svg) | valueNoCheck |
+| ![unknown.svg](../../../de/widgets/schedule-switcher/img/unknown.svg) | 未知 |
+| ![unknown.svg](../../../de/widgets/schedule-switcher/img/unknown.svg) | 未知 |
+
+![view_upload.png](../../../de/adapterref/iobroker.schedule-switcher/img/view_upload.png)
 
 ＃＃＃ 扳机
 [概括](#zusammenfassung)
 
-- 点击笔输入时间或点击垃圾桶删除触发器
+- 点击铅笔图标输入时间，或点击垃圾桶图标删除触发器。
 
-![创建小部件选择时间.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time.png)
+![create_widget_select_time.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time.png)
 
 - 选择切换状态
 - 选择条件（可选）
-- 输入时间（时:分）
+- 仅当值不等于某个值时才设置该值。
+- 请输入时间（时:分）
 
 ```:warning:
  ⚠ Zeigt in Firefox kein Uhrzeit-Feld an!
 ```
 
-![创建小部件选择时间添加1.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_add_1.png)
+![create_widget_select_time_add_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_add_1.png)
 
-- 选择工作日
-- 点击右上角的保存
+- 选择星期几
+点击右上角的“保存”按钮
 
-![创建小部件选择时间添加2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_add_2.png)
+![create_widget_select_time_add_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_add_2.png)
 
 - 完全的
 
-![创建小部件选择时间完成.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_done.png)
+![create_widget_select_time_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_done.png)
 
-### 天文触发器
+### 星体触发器
 [概括](#zusammenfassung)
 
-- 点击笔选择天文时间或点击垃圾桶删除触发器
+- 点击铅笔图标选择天文时间，或点击垃圾桶图标删除触发器。
 
-![创建小部件选择 Astro.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro.png)
+![create_widget_select_astro.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro.png)
 
 - 选择切换状态
 - 选择条件（可选）
-- 选择天文时间（日出、日落或中午）
+- 仅当值不等于某个值时才设置该值。
+- 选择天文时间（日出、日落或正午）
 
-![创建小部件选择 Astro 添加 1.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro_add_1.png)
+![create_widget_select_astro_add_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro_add_1.png)
 
-- 输入偏移量（分钟）（可选）
-- 选择工作日
-- 点击右上角的保存
+- 输入偏移量（以分钟为单位）（可选）
+- 选择星期几
+点击右上角的“保存”按钮
 
-![创建小部件选择 Astro 添加 2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro_add_2.png)
+![create_widget_select_astro_add_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro_add_2.png)
 
 - 完全的
 
-![创建小部件选择 Astro 完成.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro_done.png)
+![create_widget_select_astro_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro_done.png)
+
+### 星象图标
+[概括](#zusammenfassung)
+
+| 图标 | 描述 |
+| --------------------------------------------------------------------------------- | ------------- |
+| ![日出.svg](../../../de/widgets/schedule-switcher/img/astro/sunrise.svg) | 日出 |
+| ![日落.svg](../../../de/widgets/schedule-switcher/img/astro/sunset.svg) | 日落 |
+| ![sunriseEnd.svg](../../../de/widgets/schedule-switcher/img/astro/sunriseEnd.svg) | 日出结束 |
+| ![goldenHourEnd.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHourEnd.svg) | goldenHourEnd |
+| ![goldenHour.svg](../../../de/widgets/schedule-switcher/img/astro/goldenHour.svg) | 黄金时刻 |
+| ![sunsetStart.svg](../../../de/widgets/schedule-switcher/img/astro/sunsetStart.svg) | 日落开始 |
+| ![黄昏.svg](../../../de/widgets/schedule-switcher/img/astro/dusk.svg) | 黄昏 |
+| ![nauticalDusk.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDusk.svg) | 航海黄昏 |
+| ![night.svg](../../../de/widgets/schedule-switcher/img/astro/night.svg) | 夜晚 |
+| ![nadir.svg](../../../de/widgets/schedule-switcher/img/astro/nadir.svg) | 最低点 |
+| ![nightEnd.svg](../../../de/widgets/schedule-switcher/img/astro/nightEnd.svg) | 夜晚结束 |
+| ![nauticalDawn.svg](../../../de/widgets/schedule-switcher/img/astro/nauticalDawn.svg) | nauticalDawn |
+| ![黎明.svg](../../../de/widgets/schedule-switcher/img/astro/dawn.svg) | 黎明 |
+| ![dawn.svg](../../../de/widgets/schedule-switcher/img/astro/dawn.svg) | 黎明 |
 
 ### 一次性触发器
 [概括](#zusammenfassung)
 
 - 选择切换状态
 - 选择条件（可选）
-- 输入时间（时：分：秒）
-- 点击右上角的保存
+- 仅当值不等于某个值时才设置该值。
+- 请输入时间（时:分:秒）
+点击右上角的“保存”按钮
 
-![创建小部件选择一次.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime.png)
+![create_widget_select_onetime.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime.png)
 
 - 完全的
 
-![创建小部件选择一次完成.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_done.png)
+![create_widget_select_onetime_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_done.png)
 
 - 选择切换状态
 - 选择条件（可选）
+- 仅当值不等于某个值时才设置该值。
 - 输入/选择时间（日.月.年 时:分:秒）
-- 点击右上角的保存
+点击右上角的“保存”按钮
 
 ```:warning:
  ⚠ Zeigt in Firefox kein Uhrzeit-Feld an!
 ```
 
-![创建小部件选择一次性日期.png](img/create_widget_select_onetime_date.png)![创建小部件选择一次性日期日历.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_date_calendar.png)
+![create_widget_select_onetime_date.png](img/create_widget_select_onetime_date.png)</br> ![create_widget_select_onetime_date_calendar.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_date_calendar.png)
 
 - 完全的
 
-![创建小部件选择一次日期完成.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_date_done.png)
+![create_widget_select_onetime_date_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_date_done.png)
+
+### HTML 小部件概述
+[概括](#summary)
+
+![概览.png](../../../de/adapterref/iobroker.schedule-switcher/img/overview.png)
 
 ### VIS 和 VIS-2 的 HTML
 [概括](#zusammenfassung)
 
-- `html.background_color_body` 主体的背景颜色。对于完全 VIS 和仅适用于 VIS-2 的小部件 - 标准 #000000
-- `html.background_color_even` 背景颜色触发偶数 - 默认 #1E1E1E
-- `html.background_color_odd` 背景颜色触发奇数 - 默认 #18171C
-- `html.background_color_trigger` 触发器对象的背景颜色 - 默认 #000000
-- `html.background_color_weekdays_hover` 鼠标悬停在工作日上时的背景颜色 - 点击启用/禁用 - 默认蓝色
-- `html.column_align_01` 标题文本对齐方式第 1 列 - 标准居中
-- `html.column_align_02` 标题文本对齐方式第 2 列 - 标准居中
-- `html.column_align_03` 标题文本对齐方式第 3 列 - 标准居中
-- `html.column_align_04` 标题文本对齐方式第 4 列 - 标准居中
-- `html.column_align_05` 标题文本对齐方式第 5 列 - 标准居中
-- `html.column_align_06` 标题文本对齐方式第 6 列 - 标准居中
-- `html.column_align_07` 标题文本对齐方式第 7 列 - 标准居中
-- `html.column_align_08` 标题文本对齐方式第 8 列 - 标准居中
-- `html.column_align_09` 标题文本对齐方式第 9 列 - 标准居中
-- `html.column_align_10` 标题文本对齐方式第 10 列 - 标准居中
-- `html.column_text_01` 标题文本第 1 列 - 标准时间表
-- `html.column_text_02` 标题文本第 2 列 - 标准设备
-- `html.column_text_03` 标题文本第 3 列 - 标准开关
-- `html.column_text_04` 标题文本第 4 列 - 标准模式
-- `html.column_text_05` 标题文本第 5 列 - 标准 Tu
-- `html.column_text_06` 标题文本第 6 列 - 标准我们
-- `html.column_text_07` 标题文本第 7 列 - 标准
-- `html.column_text_08` 标题文本第 8 列 - 标准 Fr
-- `html.column_text_09` 标题文本第 9 列 - 标准 Sa
-- `html.column_text_10` 标题文本第 10 列 - 标准 Su
-- `html.column_width_01` 第 1 列的宽度 - 默认自动
-- `html.column_width_02` 第 2 列的宽度 - 默认自动
-- `html.column_width_03` 第 3 列的宽度 - 默认自动
-- `html.column_width_04` 第 4 列的宽度 - 默认自动
-- `html.column_width_05` 第 5 列的宽度 - 默认为自动
-- `html.column_width_06` 第 6 列的宽度 - 默认自动
-- `html.column_width_07` 第 7 列的宽度 - 默认为自动
-- `html.column_width_08` 列宽 8 - 默认自动
-- `html.column_width_09` 第 9 列的宽度 - 默认为自动
-- `html.column_width_70` 列宽 10 - 默认自动
-- `html.font_color_text_disabled` 禁用对象的文本颜色 - 默认红色
-- `html.font_color_text_enabled` 激活对象的文本颜色 - 默认黄色
-- `html.font_color_weekdays_disabled` 禁用工作日的文本颜色 - 默认红色
-- `html.font_color_weekdays_enabled` 启用工作日的文本颜色 - 默认黄色
-- `html.header_border` 头部边距（像素）- 默认 2
-- `html.header_font_family` 标题字体系列 - 标准 Helvetica
-- `html.header_font_size` 标题字体大小 - 默认 15
-- `html.header_linear_color_1` 标题背景图像：线性渐变 1 - 默认 #BDBDBD
-- `html.header_linear_color_2` 标题背景图像：线性渐变 2 - 默认 #BDBDBD
-- `html.header_tag_border_color` 标题 HTML 标签`<td> ` 边框颜色 - 默认#424242
-- `html.header_width` 头标签`<table> ` 尺寸标准车
-- `html.column_align_row_01` 第 1 列的行文本对齐方式 - 默认左对齐
-- `html.column_align_row_02` 第 2 列的行文本对齐方式 - 默认左对齐
-- `html.column_align_row_03` 第 3 列的文本对齐方式 - 默认左对齐
-- `html.column_align_row_04` 第 4 列的文本对齐方式 - 默认左对齐
-- `html.column_align_row_05` 第 5 列的行文本对齐方式 - 默认左对齐
-- `html.column_align_row_06` 第 6 列的行文本对齐方式 - 默认左对齐
-- `html.column_align_row_07` 第 7 列的文本对齐方式 - 默认左对齐
-- `html.column_align_row_08` 第 8 列的文本对齐方式 - 默认左对齐
-- `html.column_align_row_09` 第 9 列的文本对齐方式 - 默认左对齐
-- `html.column_align_row_10` 第 10 列的文本对齐方式 - 默认左对齐
-- `html.headline_color` 标题字体颜色（时间表、设备......） - 默认#ffffff
-- `html.headline_font_size` 标题字体大小（像素）- 默认 16
-- `html.headline_height` 标题行高度（像素）- 默认 35
-- `html.headline_underlined` 页眉底部边距（以像素为单位）- 默认 3
-- `html.headline_underlined_color` 标题底部边框颜色 - 默认 #ffffff
-- `html.headline_weight` 标题字体粗细 - 默认正常
+- `html.background_color_body` body 元素的背景颜色。对于 VIS 版本，此颜色应用于整个 body 元素；对于 VIS-2 版本，此颜色仅适用于该元素本身 - 默认值为 #000000
+- `html.background_color_even` 偶数背景颜色触发器 - 默认值 #1E1E1E
+- `html.background_color_odd` 背景颜色触发奇数 - 默认值 #18171C
+- `html.background_color_trigger` 背景颜色触发对象 - 默认值 #000000
+- `html.background_color_weekdays_hover` 鼠标悬停在工作日上时的背景颜色 - 点击激活/关闭 - 默认蓝色
+- `html.column_align_01` 列标题文本对齐方式（第 1 列） - 默认居中
+- `html.column_align_02` 列标题文本对齐方式（第 2 列） - 默认居中
+- `html.column_align_03` 列标题文本对齐方式（第 3 列） - 默认居中
+- `html.column_align_04` 第 4 列标题文本对齐方式 - 默认居中
+- `html.column_align_05` 第 5 列标题文本对齐方式 - 默认居中
+- `html.column_align_06` 列标题文本对齐方式（第 6 列） - 默认居中
+- `html.column_align_07` 第 7 列标题文本对齐方式 - 默认居中
+- `html.column_align_08` 第 8 列标题文本对齐方式 - 默认居中
+- `html.column_align_09` 列标题文本对齐方式（第 9 列） - 默认居中
+- `html.column_align_10` 标题文本对齐方式，第 10 列 - 默认居中
+- `html.column_text_01` 标题文本列 1 - 标准时间表
+- `html.column_text_02` 标题文本列 2 - 标准设备
+- `html.column_text_03` 标题文本列 3 - 标准开关
+- `html.column_text_04` 标题文本列 4 - 标准 Mon
+- `html.column_text_05` 标题文本列 5 - 标准 Tu
+- `html.column_text_06` 标题文本列 6 - 标准 我们
+- `html.column_text_07` 标题文本列 7 - 标准 Th
+- `html.column_text_08` 标题文本列 8 - 标准星期五
+- `html.column_text_09` 标题文本列 9 - 标准 Sa
+- `html.column_text_10` 标题文本列 10 - 标准 Su
+- `html.column_width_01` 列宽 1 - 默认值 自动
+- `html.column_width_02` 列宽 2 - 默认值：自动
+- `html.column_width_03` 列宽 3 - 默认值：自动
+- `html.column_width_04` 列宽 4 - 默认值：自动
+- `html.column_width_05` 列宽 5 - 默认值：自动
+- `html.column_width_06` 列宽 6 - 默认值：自动
+- `html.column_width_07` 列宽 7 - 默认值：自动
+- `html.column_width_08` 列宽 8 - 默认值：自动
+- `html.column_width_09` 列宽 9 - 默认值：自动
+- `html.column_width_70` 列宽 10 - 默认值 自动
+- `html.font_color_text_disabled` 禁用对象的文本颜色 - 默认为红色
+- `html.font_color_text_enabled` 激活对象的文本颜色 - 默认为黄色
+- `html.font_color_weekdays_disabled` 禁用工作日的文本颜色 - 默认为红色
+- `html.font_color_weekdays_enabled` 启用工作日的文本颜色 - 默认为黄色
+- `html.header_border` 头部边距（像素）- 默认值 2
+- `html.header_font_family` 标题字体系列 - 默认 Helvetica
+- `html.header_font_size` 头部字体大小 - 默认值 15
+- `html.header_linear_color_1` 头部背景图像：线性渐变 1 - 默认值 #BDBDBD
+- `html.header_linear_color_2` 头部背景图像：线性渐变 2 - 默认值 #BDBDBD
+- `html.header_tag_border_color` 头部 HTML 标签`<td>边框颜色 - 默认值 #424242
+- `html.header_width` head 标签`<table>标准汽车尺寸
+- `html.column_align_row_01` 第 1 列的行文本对齐方式 - 默认为左对齐
+- `html.column_align_row_02` 第 2 列的行文本对齐方式 - 默认为左对齐
+- `html.column_align_row_03` 第 3 列的行对齐方式 - 默认为左对齐
+- `html.column_align_row_04` 第 4 列的行文本对齐方式 - 默认为左对齐
+- `html.column_align_row_05` 第 5 列的行对齐方式 - 默认为左对齐
+- `html.column_align_row_06` 第 6 列的行文本对齐方式 - 默认为左对齐
+- `html.column_align_row_07` 第 7 列的行对齐方式 - 默认为左对齐
+- `html.column_align_row_08` 第 8 列的文本对齐方式 - 默认为左对齐
+- `html.column_align_row_09` 第 9 列的行文本对齐方式 - 默认为左对齐
+- `html.column_align_row_10` 第 10 列的行对齐方式 - 默认为左对齐
+- `html.headline_color` 标题字体颜色（日程安排、设备等）- 默认值 #ffffff
+- `html.headline_font_size` 标题字体大小（像素） - 默认值：16
+- `html.headline_height` 标题行高度（像素） - 默认值 35
+- `html.headline_underlined` 头部底部边距（像素）- 默认值 3
+- `html.headline_underlined_color` 头部底部边框颜色 - 默认值 #ffffff
+- `html.headline_weight` 标题字体粗细 - 标准正常
 - `html.html_code` VIS、VIS-2、Jarvis、IQontrol 等的 HTML 代码。
-- `html.icon_false` 图标切换状态关闭 - 标准 ⚪
-- `html.icon_switch_symbol` 图标开关用于启用/禁用计时器 - 默认 ⏱
-- `html.icon_true` 图标切换状态开启 - 标准 🟡
-- `html.jarvis` 与 Jarvis 兼容 - 默认为 false
--`html.p_tag_text_algin` HTML`<p> ` 文本对齐方式（上次更新和页脚） - 默认居中
-- `html.table_tag_border_color` 标签的边框颜色 `<table> ` - 默认 #424242
-- `html.table_tag_cell` 边框与 TAG 的偏移量<table>` 以像素为单位 - 默认 6
-- `html.table_tag_text_align` 标签的文本对齐方式 `<table> ` - 标准中心
-- `html.table_tag_width` 标签的大小 `<table> ` - 标准自动
-- `html.td_tag_border_bottom` 标签底部的边框`<td> ` 以像素为单位 - 默认 1
-- `html.td_tag_border_color` 标签下方的边框颜色`<td> ` - 默认 #424242
-- `html.td_tag_border_right` 标签右侧的边框`<td> ` 以像素为单位 - 默认 1
-- `html.td_tag_cell` 标签文本周围的空间`<td> ` 以像素为单位（填充） - 默认 6
-- `html.top_font_family` 页眉和页脚的字体系列 - 标准 Helvetica
-- `html.top_font_size` 页眉和页脚的字体大小（以像素为单位）- 默认 20
-- `html.top_font_weight` 页眉和页脚的字体粗细 - 默认正常”
-- `html.top_text` 标题的自定义文本 - 默认文本
-- `html.top_text_color` 页眉和页脚的字体颜色 - 默认#ffffff
+- `html.icon_false` 图标开关状态关闭 - 默认值 ⚪
+- `html.icon_state_check_no` 状态比较已禁用 🔴
+- 已启用 `html.icon_state_check_yes` 状态比较 🟢
+- `html.icon_switch_symbol` 图标开关，用于激活/停用计时器 - 默认值 ⏱
+- `html.icon_true` 图标切换状态开启 - 默认 🟡
+- `html.jarvis` 与 Jarvis 兼容 - 默认值：false
+- `html.p_tag_text_algin` HTML `<p>文本对齐方式（最后更新时间和页脚）- 默认居中
+- `html.table_tag_border_color` 标签的边框颜色<table>- 标准 #424242
+- `html.table_tag_cell` 边界距离标签 `<table>以像素为单位 - 标准 6
+- `html.table_tag_text_align` 标签的文本对齐方式<table>- 标准中心
+- `html.table_tag_width` 标签的大小<table>- 标准自动
+- `html.td_tag_border_bottom` 标签的底部边缘<td>以像素为单位 - 标准 1
+- `html.td_tag_border_color` 标签的底部边框颜色<td>- 标准 #424242
+- `html.td_tag_border_right` 标签右侧的边框<td>以像素为单位 - 标准 1
+- `html.td_tag_cell` 标签文本周围的空格<td>以像素为单位（内边距）- 默认值为 6
+- `html.top_font_family` 字体系列用于页眉和页脚 - 标准 Helvetica
+- `html.top_font_size` 头部和尾部的字体大小（以像素为单位） - 默认值：20
+- `html.top_font_weight` 头部和尾部的字体粗细 - 默认值：正常”
+- `html.top_text` 自定义页眉文本 - 默认文本
+- `html.top_text_color` 头部和尾部的字体颜色 - 默认值 #ffffff
 - `html.update` 开始手动更新
 
 ![vis_object_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_object_1.png)
 
-- 创建一个 HTML 小部件，并在 HTML 下输入对象 `{schedule-switcher.0.html.html_code}`
-- 点击文本“上次更新”执行手动更新
-- 点击图标即可激活/停用小部件
-- 要删除触发器，您必须先选中该框，然后按“删除”按钮
-- 更改时间/天文，然后按“保存”按钮应用更改
-- 点击星期几即可激活/停用它
-- 在触发器名称行中，下一个事件的开启/关闭显示在工作日下
+- 创建一个 HTML 小部件，并在 HTML 下输入对象 `{schedule-switcher.0.html.html_code}`。
+- 点击“上次更新时间”文本进行手动更新。
+- 点击图标即可激活/停用小部件。
+- 要删除触发器，必须先选中一个复选框，然后按“删除”按钮。
+- 更改时间/天文时间，然后按“保存”按钮应用更改。
+- 点击星期几即可激活/停用。
+- 触发器名称行显示下一个事件在工作日的开启/关闭状态。
 
-![vis_view_1.png](img/vis_view_1.png)![vis_view_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_view_2.png)
+![vis_view_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_view_1.png)
 
-### 仅适用于 VIS-2 的功能!!!
+### 此功能仅适用于 VIS-2！！！
 [概括](#zusammenfassung)
 
-不幸的是，只有 VIS-2 才必须手动插入下面列出的功能（见图片）
+只有 VIS-2 才需要手动插入下列功能（见图）。
 
-![vis2_对象.png](img/vis2_object.png)![vis2脚本](../../../de/adapterref/iobroker.schedule-switcher/img/vis2_script.png)
+![vis2_object.png](img/vis2_object.png)</br> ![vis2_script.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis2_script.png)
 
 ```java
 function deleteTrigger(stateId, command, id, dataid, count) {
@@ -618,6 +724,17 @@ function changeweekdays(stateId, command, dataid, id, changeid, type) {
 		}
     };
 	vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+function changeValueCheck(stateId, command, dataid, id, value) {
+    var data = {
+		"command": command,
+		"message": {
+            "changeval": value,
+            "triggerid": id,
+            "dataid": dataid
+		}
+    };
+    vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
 }
 function updateTrigger(stateId) {
 	vis.conn.setState(stateId + '.html.update', { val: true, ack: false });
@@ -752,6 +869,21 @@ app-on-off-schedules-widget {
     --ts-widget-astro-shift-font-size: 1em;
     /* Font size of condition */
     --ts-widget-condition-font-size: 1em;
+
+    /* Icons width and height in px */
+
+    /* Astro icons */
+    --ts-widget-astro-icon-width, 42px;
+    --ts-widget-astro-icon-height, 42px;
+    /* Display icons (rename and add icon) */
+    --ts-widget-display-icon-width, 28px;
+    --ts-widget-display-icon-height, 28px;
+    /* Trigger view icons */
+    --ts-widget-trigger-view-icon-width, 28px;
+    --ts-widget-trigger-view-icon-height, 28px;
+    /* Trigger edit icons */
+    --ts-widget-trigger-edit-icon-width, 28px;
+    --ts-widget-trigger-edit-icon-height, 28px;
 }
 ```
 
@@ -764,7 +896,20 @@ app-on-off-schedules-widget {
 
 ### **WORK IN PROGRESS**
 
-- (Lucky-ESA) Admin 7.4.10 required
+- (Lucky-ESA) Fixed warn log (Cannot read dir...)
+- (Lucky-ESA) Added state comparison enabled/disabled
+- (Lucky-ESA) Fixed small some bugs
+- (Lucky-ESA) History JSON changed
+- (Lucky-ESA) Using your own icons
+
+### 0.0.12 (2025-08-27)
+
+- (Lucky-ESA) Astro time in widget fixed
+
+### 0.0.11 (2025-08-16)
+
+- (Lucky-ESA) Admin 7.6.17 required
+- (Lucky-ESA) Node 20 required
 
 ### 0.0.10 (2025-02-11)
 
@@ -784,17 +929,6 @@ app-on-off-schedules-widget {
 
 - (Lucky-ESA) Migration to ESLint9
 - (Lucky-ESA) Bugfixes
-
-### 0.0.7 (2024-11-26)
-
-- (Lucky_ESA) HTML overview added
-
-### 0.0.6 (2024-11-16)
-
-- (Lucky_ESA) Put value of state correctly
-- (Lucky_ESA) Added next triggers as JSON
-- (Lucky_ESA) Added counter trigger
-- (Lucky_ESA) Updating astro time fixed
 
 ## License
 

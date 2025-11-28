@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.plenticore-g3/README.md
 title: ioBroker.plenticore-g3
-hash: e+eYDNls+d1LJL15tRreGMhv4+kqvruep0tqXxK8GXs=
+hash: B0UYuVEGJli+1hMjS9GTkZerCB7REb/xhVWqz2I5zaQ=
 ---
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.plenticore-g3.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.plenticore-g3.svg)
@@ -17,13 +17,13 @@ hash: e+eYDNls+d1LJL15tRreGMhv4+kqvruep0tqXxK8GXs=
 **测试：**![测试和发布](https://github.com/fernetmenta/ioBroker.plenticore-g3/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 plenticore-g3 适配器
-此适配器可通过 REST API 与 KOSTAL Plenticore plus 进行通信。此 API 比 Modbus 强大得多。它允许访问大约 200 个称为“过程数据”的只读数据点和大约 250 个可写设置。此 API 的文档位于以下 URL：
+此适配器可通过 REST API 与 KOSTAL Plenticore（多种型号，请参阅下文）进行通信。此 API 比 Modbus 强大得多。它允许访问大约 200 个称为“过程数据”的只读数据点和大约 250 个可写设置。此 API 的文档位于以下 URL：
 
 http://\<plenticore 主机>/api/v1
 
 <p align="center"> <img src="images/rest1.png" width="50%"> <img src="images/rest2.png" width="50%"> </p>
 
-此适配器使用 REST API 的“流程数据”和“设置”。由于用户不需要所有可用数据，因此该适配器仅预设了少量流程数据和设置，但用户可以从所有可用流程数据和设置的列表中选择其他数据点。
+此适配器使用 REST API 的“流程数据”和“设置”。由于用户不需要所有可用数据，因此该适配器仅预设了极少量的流程数据和设置，但用户可以从所有可用流程数据和设置的列表中选择其他数据点。
 
 <p align="center"> <img src="images/processdata.png" width="50%"> </p>
 
@@ -34,7 +34,46 @@ http://\<plenticore 主机>/api/v1
 
 数据 ID 中的冒号被下划线替换：<br> “Statistic:Yield:Day”将变为“Statistic_Yield_Day”
 
+## 支持/测试过的 Plenticore 模型
+尽管适配器名称可能暗示仅支持 G3 型号，但实际上也支持其他型号。API 似乎相同，只是可用的数据点可能有所不同。以下是用户成功测试的型号列表。
+
+-Plenticore G3
+- Plenticore plus 10 (G1) - 固件版本 01.30.12092
+- Plenticore BI 10/26 (G2) - 固件版本 02.15.19562
+
 ## Changelog
+### 0.4.1 (2025-10-17)
+- move to npm trusted publishing
+
+### 0.4.0 (2025-10-07)
+- improve init process: do preinit, if inverter is not in state FeedIn; trigger init as soon as inverter goes to FeedIn
+
+### 0.3.0 (2025-10-06)
+- update documentation with soction of tested models
+- enhance port selection related to http/https for base settings
+- do not poll data points related to battery, if no battery is present
+- update dependencies
+
+### 0.2.1 (2025-08-29)
+- update dependencies
+
+### 0.2.0 (2025-07-22)
+- check Inverter_State for FeedIn before init
+- suspend error logging on too many errors
+- add timeout to API calls
+- update translations
+
+### 0.1.4 (2025-06-17)
+- fix logging for preset and optional data
+
+### 0.1.3 (2025-06-15)
+- add some logging for debugging
+- fix log warnings
+
+### 0.1.2 (2025-06-01)
+- add node 24 to tests
+- chores
+
 ### 0.1.1 (2025-04-07)
 
 - fix object hierarchy

@@ -727,6 +727,17 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 ---
 
 ## Changelog
+### 3.3.11 (2025-11-23)
+* (simatec) Update Dependabot
+* (simatec) dependencies updated
+
+### 3.3.10 (2025-10-17)
+* (simatec) Fix npm publish
+* (simatec) dependencies updated
+
+### 3.3.9 (2025-10-07)
+* (simatec) ESPHome Backup redesigned
+
 ### 3.3.8 (2025-10-05)
 * (simatec) dependencies updated
 * (simatec) Fix ESPHome Backup

@@ -15,7 +15,7 @@
 
 ## plenticore-g3 adapter for ioBroker
 
-Adapter to communicate with a KOSTAL Plenticore plus via REST API. This API ist much more powerful than modbus. It gives access to approximately 200 read-only data points referred to as 'processdata' and about 250 writable settings. This API is documented on this URL: 
+Adapter to communicate with a KOSTAL Plenticore (various models, see section below) via REST API. This API ist much more powerful than modbus. It gives access to approximately 200 read-only data points referred to as 'processdata' and about 250 writable settings. This API is documented on this URL: 
 
 http://\<plenticore host>/api/v1
 
@@ -40,7 +40,39 @@ Native objects are comprised of a module ID and a data ID, for example 'scb:stat
 Colons in the data ID are replaced by an underscore:
 <br> 'Statistic:Yield:Day' will become 'Statistic_Yield_Day'
 
+## Supported / tested Plenticore models
+
+Despite what the name of the adapter may suggest (that only G3 models are supported), other models are supported too. The API seems to be equal, only the available datapoints may differ. Below is a list of models that were successfully tested by users.
+- Plenticore G3
+- Plenticore plus 10 (G1) - FW Version 01.30.12092
+- Plenticore BI 10/26 (G2) - FW Version 02.15.19562
+
 ## Changelog
+### **WORK IN PROGRESS**
+- fix skipping optionals that have become preselected
+
+### 0.5.1 (2025-11-20)
+- bump some packages
+- split react bundle
+- fix unhandled exception when polling inverter state
+- fix missing description of preselected values (former optionals)
+
+### 0.5.0 (2025-10-29)
+- make API-Call timeout configurable
+- update translations
+
+### 0.4.1 (2025-10-17)
+- move to npm trusted publishing
+
+### 0.4.0 (2025-10-07)
+- improve init process: do preinit, if inverter is not in state FeedIn; trigger init as soon as inverter goes to FeedIn
+
+### 0.3.0 (2025-10-06)
+- update documentation with soction of tested models
+- enhance port selection related to http/https for base settings
+- do not poll data points related to battery, if no battery is present
+- update dependencies
+
 ### 0.2.1 (2025-08-29)
 - update dependencies
 

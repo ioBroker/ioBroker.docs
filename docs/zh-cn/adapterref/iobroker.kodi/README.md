@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kodi/README.md
-title: Kodi 适用于 ioBroker（JSON-RPC API）
-hash: 6tz1xec3ctMhLSz0uWt7cA4TZKg4YmF4WsQ53Me+5n4=
+title: Kodi for ioBroker（JSON-RPC API）
+hash: ZUy0c9iz7AxVkXOTVvExriEdabj/qUiYSFRR7DnLiS0=
 ---
 ![标识](../../../en/adapterref/iobroker.kodi/admin/kodi.png)
 
@@ -11,22 +11,23 @@ hash: 6tz1xec3ctMhLSz0uWt7cA4TZKg4YmF4WsQ53Me+5n4=
 ![安装数量](http://iobroker.live/badges/kodi-installed.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.kodi.svg)
 ![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
-![新平台](https://nodei.co/npm/iobroker.kodi.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.kodi.png?downloads=true)
 
-# 用于 ioBroker 的 Kodi（JSON-RPC API）
-[![测试]（https://github.com/instalator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg）](https://github.com/instalator/ioBroker.kodi/actions/)
+# Kodi for ioBroker（JSON-RPC API）
+[![测试](https://github.com/instalator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.kodi/actions/)
 
 [英文手册](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
 
-您可能已经通过 API JSON-RCP [这个](http://kodi.wiki/view/JSON-RPC_API) 以及类似的 kodi 库曼德（共 6 个版本）[这个](http://kodi.wiki/view/JSON-RPC_API/v6) 获得了 KODI 的可用文档。
+您可以找到有关 JSON-RPC API 的官方 KODI 文档 [这里](http://kodi.wiki/view/JSON-RPC_API)以及所有可用命令的完整列表（适用于协议版本6）[这里]](http://kodi.wiki/view/JSON-RPC_API/v6)。
 
-## KODI 顾问
-Включение удаленного управления и веб-сервера.
-![远程控制启用。](../../../en/adapterref/iobroker.kodi/admin/remote.png)
+## KODI 配置
+启用远程控制和Web服务器。
 
-JSON-RPC API 提供**支持 9090**，以便我们可以在 [高级设置.xml](http://kodi.wiki/view/AdvancedSettings.xml) 中提供新功能。
+![启用远程控制。](../../../en/adapterref/iobroker.kodi/admin/remote.png)
 
-_注意：您未将 advancedsettings.xml 设置为 DefaultSettings.xml。您想停下来吗？_
+JSON-RPC API 默认使用 **端口 9090**。要更改端口，需要修改 [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml) 文件。
+
+注意：默认情况下，advancedsettings.xml 文件不存在。您必须先创建它！
 
 ```xml
 <jsonrpc>
@@ -35,86 +36,90 @@ _注意：您未将 advancedsettings.xml 设置为 DefaultSettings.xml。您想�
 </jsonrpc>
 ```
 
-## Конфигурация драйвера
-在您的帐户中，您可以设置 IP 地址并使用 JSON-RPC API（仅限 9090）登录/登录 Kodi 服务器上的服务器。
+## 适配器配置
+在适配器设置中，指定 JSON-RPC API 的 IP 地址和端口（默认 9090），以及访问 Kodi Web 服务器的登录名/密码。
 
-## Использование
+＃＃ 用法
 ### 显示通知：
-Один важный момент, если используется заголовок сообщения, то он должен всегда находится перед самим текстом сообщения (Внимание;Протечка воды), расположение остальных параметров не критично.
+重要提示：如果使用消息标题，则必须将其置于消息正文之前（例如：警告；漏水）。其他参数的位置并不关键。
 
-**图片：** Уровень сообщения
+**图像：** 信息级别
 
-* ‘info’ - 0（默认），
-* ‘警告’ - 1，
-* ‘错误’-2。
+* 'info' - 0（默认值），
+* '警告' - 1，
+* '错误' - 2.
 
-**displaytime:** 所有在军事基地的活动，最低 1500 米到 30000 米。
+**displaytime:** 消息显示时间，以毫秒为单位，最小值为 1500，最大值为 30000 毫秒。
 
-**Пример:**
+**例子：**
 
-* 1;Vнимание;Протечка воды;15000
-* 访客数量;2;10000
- * Внимание;Протечка воды
- * Протечка воды
+* 1；警告；漏水；15000
+* 警告；漏水；2；10000
+* 警告；漏水
+* 漏水
 
-若要共享此信息，请运行 javascript 脚本：
+您还可以通过 JavaScript 适配器发送消息：
 
 ```js
 sendTo("kodi.0", {
-    message:  'Возможно протечка воды ', //Текст сообщения
-    title:    'ВНИМАНИЕ!!!', //Заголовок сообщения
-    image: 'https://raw.githubusercontent.com/instalator/ioBroker.kodi/master/admin/kodi.png', //Ссылка на иконку
-    delay: 7000 //Время отображения сообщения миллисекундах (минимум 1500 макс 30000 мс)
+    message:  'Possible water leak', // Message text
+    title:    'WARNING!!!', // Message title
+    image: 'https://raw.githubusercontent.com/instalator/ioBroker.kodi/master/admin/kodi.png', // Icon URL
+    delay: 7000 // Message display time in milliseconds (minimum 1500, maximum 30000 ms)
 });
 ```
 
 ### SwitchPVR：
-浏览 PVR IPTV 频道，了解最新频道。
-**示例：**本网站 - Discovery Science 致力于提供科学研究和发现，
+在播放列表中按频道名称切换PVR IPTV频道。
+
+**示例：** 可以通过频道全称或“discover”找到Discovery Science频道。
 
 ＃＃＃ YouTube：
-要查看 YouTube 网站上的视频，请访问我们的主页并输入视频代码。更新于 0.1.5 版本，并且您可能已经尝试过视频、代码或简体中文版本。
-标题：本站不提供视频播放服务，请先阅读后评论 - Bvmxr24D4TA
+要打开 YouTube 视频，只需将视频代码写入此状态即可。从 0.1.5 版本开始，您可以插入视频的直接链接，以及播放列表的代码或完整链接。
+
+例如：要打开此 [视频](https://www.youtube.com/watch?v=Bvmxr24D4TA)，您需要将状态设置为 - Bvmxr24D4TA
 
 ＃＃＃ 打开：
-谨致问候，敬请关注我们网站，我们将竭诚为您服务。
-请参阅 KODI 合作伙伴论坛以获取更多信息。
+在此处输入网络媒体内容的链接或本地媒体文件的路径。
+
+输入内容后，KODI 播放器将开始播放。
 
 ＃＃＃ 位置：
-您需要在个人资料中描述您的个人资料，并且 KODI 必须提供您个人资料才能观看该个人资料。
+当前播放位置。您也可以将目标位置写入此状态，KODI 将立即切换到该位置播放。
 
 ＃＃＃ 寻找：
-您将在 0 至 100 的评分范围内获得最高的评分。
+当前播放位置值，以 0 到 100 之间的百分比表示。
 
 ＃＃＃ 重复：
-Повтор воспроизведения, принимает следующие значения:
+重复播放，接受以下值：
 
-* off - 取消 已注销
-* on - 过去 500 年中各国技术状况
-* 全部 - 超过 1000 个评分
+* 关闭 - 禁用重复播放
+* 开启 - 重复播放当前曲目
+* 全部 - 重复播放整个播放列表
 
-### 随机播放：
-简要回顾一下 trekov 在 slv 中的应用。
-示例 true 和 false
+### 随机排序：
+随机播放播放列表中的曲目。
+
+接受的值 `true` 和 `false`
 
 ＃＃＃ 玩：
-状态异常（true，false）
+开始播放（真，假）
 
 ＃＃＃ 速度：
-回顾过去。整数倍数 (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32)，以及 'increment' 和 'decrement'
+播放速度。固定值（-32、-16、-8、-4、-2、-1、0、1、2、4、8、16、32），以及“递增”和“递减”选项。
 
-＃＃＃ 目录：
-Сюда записывается путь до папки или диска, в ответ в этот статус записывается список каталогов указанной папки или диска.
+### 目录：
+在此处输入文件夹或磁盘的路径。系统会将指定文件夹或磁盘的目录列表写入此状态。
 
 ### 激活窗口：
-Активизирует в проигрывателе окно. Поддерживает следующий список:
+在播放器中激活一个窗口。支持以下列表：
 
 ```
-"home", "programs", "pictures", "filemanager", "files", "settings", "music", "video", "videos", "tv", "pvr", "pvrguideinfo", "pvrrecordinginfo", "pvrtimersetting", "pvrgroupmanager", "pvrchannelmanager", "pvrchannelmanager", "pvrguidesearch", "pvrchannelscan", "pvrupdateprogress", "pvrosdchannels", "pvrosdguide", "pvrosddirector", "pvrosdcutter", "pvrosdteletext", "systeminfo", "testpattern", "screencalibration", "guicalibration", "picturessettings", "programssettings", "weathersettings", "musicsettings", "systemsettings", "videossettings", "networksettings", "servicesettings", "appearancesettings", "pvrsettings", "tvsettings", "scripts", "videofiles", "videolibrary", "videoplaylist", "loginscreen", "profiles", "skinsettings", "addonbrowser", "yesnodialog", "progressdialog", "virtualkeyboard", "volumebar", "submenu", "favourites", "contextmenu", "infodialog", "numericinput", "gamepadinput", "shutdownmenu", "mutebug", "playercontrols", "seekbar", "musicosd", "addonsettings", "visualisationsettings", "visualisationpresetlist", "osdvideosettings", "osdaudiosettings", "videobookmarks", "filebrowser", "networksetup", "mediasource", "profilesettings", "locksettings", "contentsettings", "songinformation", "smartplaylisteditor", "smartplaylistrule", "busydialog", "pictureinfo", "accesspoints", "fullscreeninfo", "karaokeselector", "karaokelargeselector", "sliderdialog", "addoninformation", "musicplaylist", "musicfiles", "musiclibrary", "musicplaylisteditor", "teletext", "selectdialog", "musicinformation", "okdialog", "movieinformation", "textviewer", "fullscreenvideo", "fullscreenlivetv", "visualisation", "slideshow", "filestackingdialog", "karaoke", "weather", "screensaver", "videoosd", "videomenu", "videotimeseek", "musicoverlay", "videooverlay", "startwindow", "startup", "peripherals", "peripheralsettings", "extendedprogressdialog", "mediafilter".
+"home", "programs", "pictures", "filemanager", "files", "settings", "music", "video", "videos", "tv", "pvr", "pvrguideinfo", "pvrrecordinginfo", "pvrtimersetting", "pvrgroupmanager", "pvrchannelmanager", "pvrguidesearch", "pvrchannelscan", "pvrupdateprogress", "pvrosdchannels", "pvrosdguide", "pvrosddirector", "pvrosdcutter", "pvrosdteletext", "systeminfo", "testpattern", "screencalibration", "guicalibration", "picturessettings", "programssettings", "weathersettings", "musicsettings", "systemsettings", "videossettings", "networksettings", "servicesettings", "appearancesettings", "pvrsettings", "tvsettings", "scripts", "videofiles", "videolibrary", "videoplaylist", "loginscreen", "profiles", "skinsettings", "addonbrowser", "yesnodialog", "progressdialog", "virtualkeyboard", "volumebar", "submenu", "favourites", "contextmenu", "infodialog", "numericinput", "gamepadinput", "shutdownmenu", "mutebug", "playercontrols", "seekbar", "musicosd", "addonsettings", "visualisationsettings", "visualisationpresetlist", "osdvideosettings", "osdaudiosettings", "videobookmarks", "filebrowser", "networksetup", "mediasource", "profilesettings", "locksettings", "contentsettings", "songinformation", "smartplaylisteditor", "smartplaylistrule", "busydialog", "pictureinfo", "accesspoints", "fullscreeninfo", "karaokeselector", "karaokelargeselector", "sliderdialog", "addoninformation", "musicplaylist", "musicfiles", "musiclibrary", "musicplaylisteditor", "teletext", "selectdialog", "musicinformation", "okdialog", "movieinformation", "textviewer", "fullscreenvideo", "fullscreenlivetv", "visualisation", "slideshow", "filestackingdialog", "karaoke", "weather", "screensaver", "videoosd", "videomenu", "videotimeseek", "musicoverlay", "videooverlay", "startwindow", "startup", "peripherals", "peripheralsettings", "extendedprogressdialog", "mediafilter".
 ```
 
 ### 执行操作：
-Можно выполнить одно из следующих действий:
+您可以执行以下操作之一：
 
 ```
 "left", "right", "up", "down", "pageup", "pagedown", "select", "highlight", "parentdir", "parentfolder", "back", "previousmenu", "info", "pause", "stop", "skipnext", "skipprevious", "fullscreen", "aspectratio", "stepforward", "stepback", "bigstepforward", "bigstepback", "osd", "showsubtitles", "nextsubtitle", "codecinfo", "nextpicture", "previouspicture", "zoomout", "zoomin", "playlist", "queue", "zoomnormal", "zoomlevel1", "zoomlevel2", "zoomlevel3", "zoomlevel4", "zoomlevel5", "zoomlevel6", "zoomlevel7", "zoomlevel8", "zoomlevel9", "nextcalibration", "resetcalibration", "analogmove", "rotate", "rotateccw", "close", "subtitledelayminus", "subtitledelay", "subtitledelayplus", "audiodelayminus", "audiodelay", "audiodelayplus", "subtitleshiftup", "subtitleshiftdown", "subtitlealign", "audionextlanguage", "verticalshiftup", "verticalshiftdown", "nextresolution", "audiotoggledigital", "number0", "number1", "number2", "number3", "number4", "number5", "number6", "number7", "number8", "number9", "osdleft", "osdright", "osdup", "osddown", "osdselect", "osdvalueplus", "osdvalueminus", "smallstepback", "fastforward", "rewind", "play", "playpause", "delete", "copy", "move", "mplayerosd", "hidesubmenu", "screenshot", "rename", "togglewatched", "scanitem", "reloadkeymaps", "volumeup", "volumedown", "mute", "backspace", "scrollup", "scrolldown", "analogfastforward", "analogrewind", "moveitemup", "moveitemdown", "contextmenu", "shift", "symbols", "cursorleft", "cursorright", "showtime", "analogseekforward", "analogseekback", "showpreset", "presetlist", "nextpreset", "previouspreset", "lockpreset", "randompreset", "increasevisrating", "decreasevisrating", "showvideomenu", "enter", "increaserating", "decreaserating", "togglefullscreen", "nextscene", "previousscene", "nextletter", "prevletter", "jumpsms2", "jumpsms3", "jumpsms4", "jumpsms5", "jumpsms6", "jumpsms7", "jumpsms8", "jumpsms9", "filter", "filterclear", "filtersms2", "filtersms3", "filtersms4", "filtersms5", "filtersms6", "filtersms7", "filtersms8", "filtersms9", "firstpage", "lastpage", "guiprofile", "red", "green", "yellow", "blue", "increasepar", "decreasepar", "volampup", "volampdown", "channelup", "channeldown", "previouschannelgroup", "nextchannelgroup", "leftclick", "rightclick", "middleclick", "doubleclick", "wheelup", "wheeldown", "mousedrag", "mousemove", "noop".
@@ -122,11 +127,11 @@ sendTo("kodi.0", {
 ```
 
 ＃＃＃ 系统：
-- EjectOpticalDrive - 弹出或删除光驱中的光盘（或附件）
-- Hibernate - 最高级语法
-- 重启 - 优化系统
-- 关机 - 已启动系统
-- 暂停 - Kodi 应用程序
+- 弹出光驱 - 弹出或关闭光驱（如有配备）
+- 休眠 - 启用休眠模式
+- 重启 - 重启系统
+- 关闭 - 关闭系统
+- 暂停 - 暂停 Kodi
 
 ## Changelog
 <!--
