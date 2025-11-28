@@ -1045,4 +1045,20 @@ This ioBroker adapter allows the integration of XSense devices into the ioBroker
 It is designed to receive data from XSense smoke detectors, CO detectors, and other compatible devices, making them available in ioBroker for automation and monitoring.
 The adapter communicates with the XSense cloud server and provides an easy way to integrate XSense devices into existing ioBroker setups.
 
+## sbms (28.11..2025) – new adapter at stable repository
+https://github.com/buffoletti/ioBroker.sbms
+
+<img src="https://raw.githubusercontent.com/buffoletti/ioBroker.sbms/main/admin/sbms.png" width="100" height="100" />
+
+Simple adapter to make data from Electrodacus SBMS available as states from MQTT, the rawData html page or the serial port.
+
+## bmw (28.11..2025) – new adapter at stable repository
+https://github.com/TA2k/ioBroker.bmw
+
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.bmw/master/admin/bmw.png" width="100" height="100" />
+
+This adapter integrates BMW vehicles into ioBroker using the new BMW CarData API with OAuth2 authentication and real-time MQTT streaming. It provides comprehensive vehicle data monitoring for all BMW models linked to your BMW account.
+
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
+
