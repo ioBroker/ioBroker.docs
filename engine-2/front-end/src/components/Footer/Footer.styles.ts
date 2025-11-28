@@ -127,6 +127,8 @@ export const useFooterStyles = makeStyles()(theme => ({
     link: {
         color: theme.palette.text.primary,
         textDecoration: 'none',
+        // wordBreak: 'break-word',
+        // whiteSpace: 'normal',
         cursor: 'pointer',
         '&:hover': {
             color: theme.palette.primary.light,

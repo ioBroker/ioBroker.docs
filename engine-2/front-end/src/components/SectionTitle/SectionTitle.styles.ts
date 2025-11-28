@@ -7,7 +7,9 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '0.03em',
         fontWeight: '400',
         marginBottom: theme.spacing(4),
-        whiteSpace: 'nowrap',
+        whiteSpace: 'normal',
+        wordBreak: 'keep-all',
+        overflowWrap: 'normal',
         fontSize: '48px',
         [theme.breakpoints.down('md')]: {
             fontSize: '36px',

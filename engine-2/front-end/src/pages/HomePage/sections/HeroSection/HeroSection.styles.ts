@@ -196,9 +196,11 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '-3%',
         fontWeight: 200,
         marginBottom: '10px',
-        width: 216,
+        width: 222,
         color: '#FFFFFF',
-        whiteSpace: 'nowrap',
+        whiteSpace: 'normal',
+        wordBreak: 'keep-all',
+        overflowWrap: 'normal',
         [theme.breakpoints.down('md')]: {
             textAlign: 'left',
             // width: '224px',
