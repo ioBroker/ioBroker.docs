@@ -114,12 +114,14 @@ export const useHeaderStyles = makeStyles()(theme => ({
         cursor: 'default',
     },
     iconButton: {
-        padding: theme.spacing(1),
+        padding: theme.spacing(0.5),
         color: theme.palette.text.primary,
         '&:hover': {
             backgroundColor: 'rgba(255, 255, 255, 0.08)',
             color: theme.palette.text.secondary,
         },
+        width: 44,
+        height: 44,
     },
     profileMenu: {
         '& .MuiPaper-root': {

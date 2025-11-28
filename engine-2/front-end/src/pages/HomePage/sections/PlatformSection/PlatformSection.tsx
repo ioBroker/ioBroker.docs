@@ -2,11 +2,10 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './PlatformSection.styles';
 import { StyledButton } from '../../../../components/StyledButton/StyledButton';
-import { useTranslation } from 'react-i18next';
+import { I18n } from '../../../../utils/i18n';
 
 export const PlatformSection: React.FC = () => {
     const { classes } = useStyles();
-    const { t } = useTranslation();
     return (
         <Box
             component="section"
@@ -20,23 +19,23 @@ export const PlatformSection: React.FC = () => {
                                 variant="h1"
                                 className={classes.platformTitle}
                             >
-                                {t('home.platform.title1')}
+                                {I18n.t('home.platform.title1')}
                             </Typography>
                             <Typography
                                 variant="h1"
                                 className={classes.platformTitleBlue}
                             >
-                                {t('home.platform.title2')}
+                                {I18n.t('home.platform.title2')}
                             </Typography>
                         </Box>
                         <Typography className={classes.platformHeadSubtitle}>
-                            {t('home.platform.head')}
+                            {I18n.t('home.platform.head')}
                         </Typography>
                         <Typography className={classes.platformSubtitle}>
-                            {t('home.platform.sub1')}
+                            {I18n.t('home.platform.sub1')}
                         </Typography>
                         <Typography className={classes.platformSubtitle}>
-                            {t('home.platform.sub2')}
+                            {I18n.t('home.platform.sub2')}
                         </Typography>
                         <StyledButton
                             sx={{
@@ -49,7 +48,7 @@ export const PlatformSection: React.FC = () => {
                                 alignSelf: 'end',
                             }}
                         >
-                            {t('home.platform.more')}
+                            {I18n.t('home.platform.more')}
                         </StyledButton>
                     </Box>
                 </Box>

@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material';
 import { useStyles } from './NewsletterSection.styles';
 import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
 import ArrowIconSvg from '../../../../assets/img/ArrowDownRight.svg';
-import { useTranslation } from 'react-i18next';
+import { I18n } from '../../../../utils/i18n';
 
 const ArrowIcon: React.FC = () => (
     <Box
@@ -20,7 +20,6 @@ const ArrowIcon: React.FC = () => (
 
 export const NewsletterSection: React.FC = () => {
     const { classes } = useStyles();
-    const { t } = useTranslation();
     return (
         <Box
             component="section"
@@ -28,13 +27,13 @@ export const NewsletterSection: React.FC = () => {
         >
             <Box className={classes.container}>
                 <Box sx={{ width: '100%', maxWidth: '1400px', textAlign: { xs: 'left', md: 'left' } }}>
-                    <SectionTitle>{t('home.newsletter.title')}</SectionTitle>
+                    <SectionTitle>{I18n.t('home.newsletter.title')}</SectionTitle>
                 </Box>
                 <Box className={classes.newsletterContent}>
                     <Box className={classes.newslettertext}>
-                        <Typography className={classes.newsletterTitle}>{t('home.newsletter.headline')}</Typography>
+                        <Typography className={classes.newsletterTitle}>{I18n.t('home.newsletter.headline')}</Typography>
                         <Typography className={classes.newsletterSubTitle}>
-                            {t('home.newsletter.sub')}
+                            {I18n.t('home.newsletter.sub')}
                         </Typography>
                     </Box>
                     <Box sx={{ display: 'flex', gap: { lg: '55px', md: '30px', sm: '20px', xs: '20px' } }}>
@@ -43,7 +42,7 @@ export const NewsletterSection: React.FC = () => {
                             <Box className={classes.newsletterInputContainer}>
                                 <input
                                     className={classes.newsletterInput}
-                                    placeholder={t('home.newsletter.placeholder')}
+                                    placeholder={I18n.t('home.newsletter.placeholder')}
                                 />
                             </Box>
                             <div className={classes.bracesRight} />

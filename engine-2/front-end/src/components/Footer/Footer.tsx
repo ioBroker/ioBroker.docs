@@ -126,13 +126,13 @@ export const Footer = ({ scrollTop }: FooterProps) => {
                                         <OwnButton
                                             noText
                                             classes={classes}
-                                            href="https://www.paypal.com/donate"
+                                            href="https://www.paypal.com/donate?token=J1zM6AXCz_P6OnZLIK971kfv4cD7mWjxhTGmD1R9sQGYbVEF0EftIrcY2eqo7VbEAT9ekhVU_UxGBxgf"
                                             icon={<PayPalIcon />}
                                         />
                                         <OwnButton
                                             noText
                                             classes={classes}
-                                            href="https://www.amazon.de"
+                                            href="https://www.amazon.de/s?k=homematic&tag=httpwwwiobron-21"
                                             icon={<AmazonIcon />}
                                         />
                                     </div>

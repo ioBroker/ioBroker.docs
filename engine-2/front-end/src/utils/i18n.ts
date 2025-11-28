@@ -5,10 +5,33 @@ import ru from '../i18n/ru.json';
 export type Language = 'en' | 'de' | 'ru';
 
 const languages: Record<Language, Record<string, string>> = {
-    de,
-    en,
-    ru,
+    de: flatWords(de),
+    en: flatWords(en),
+    ru: flatWords(ru),
 };
+
+function flatWords(
+    words: Record<
+        string,
+        string | Record<string, string | Record<string, string | Record<string, string | Record<string, string>>>>
+    >,
+): Record<string, string> {
+    const result: Record<string, string> = {};
+    // make from nested object a flat object with keys like "a.b.c"
+    function traverse(prefix: string, obj: any): void {
+        Object.keys(obj).forEach(key => {
+            const value = obj[key];
+            const newKey = prefix ? `${prefix}.${key}` : key;
+            if (typeof value === 'string') {
+                result[newKey] = value;
+            } else {
+                traverse(newKey, value);
+            }
+        });
+    }
+    traverse('', words);
+    return result;
+}
 
 let lang: Language;
 // Detect the language

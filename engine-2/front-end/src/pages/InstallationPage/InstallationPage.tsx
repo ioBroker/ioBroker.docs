@@ -9,12 +9,11 @@ import RaspberryLogo from '../../assets/img/Raspberry.png';
 import WindowsLogo from '../../assets/img/Windows_logo.png';
 import CopyIcon from '../../assets/img/Copy.png';
 import AlertIcon from '../../assets/img/Alert.png';
-import { useTranslation } from 'react-i18next';
+import { I18n } from '../../utils/i18n';
 
 const InstallationPage = () => {
     const { classes } = useStyles();
     const [visible, setVisible] = useState(false);
-    const { t } = useTranslation();
 
     return (
         <Box className={classes.pageWrapper}>
@@ -23,17 +22,19 @@ const InstallationPage = () => {
                     <SectionTitle
                         sx={{
                             marginBottom: { xs: '8px !important', md: '8px !important' },
-                            fontSize: { xs: '20px !important', sm: '48px !important' },
+                            fontSize: { xs: '20px !important', sm: '48px !important', '@media (max-width:400px)': {
+    fontSize: '18px !important',
+  } },
                         }}
                     >
-                        {t('installation.title')}
+                        {I18n.t('installation.title')}
                     </SectionTitle>
                 </Box>
                 <Typography
                     variant="body1"
                     className={classes.subtitle}
                 >
-                    {t('installation.subtitle')}
+                    {I18n.t('installation.subtitle')}
                 </Typography>
                 <Box className={classes.cardContainer}>
                     <Paper className={classes.linuxCard}>
@@ -55,7 +56,7 @@ const InstallationPage = () => {
                                 variant="body1"
                                 className={classes.linuxSubHeader}
                             >
-                                {t('installation.linux.simplest')}
+                                {I18n.t('installation.linux.simplest')}
                             </Typography>
                             <Box className={classes.commandBox}>
                                 <span className={classes.commandBoxText}>
@@ -84,7 +85,7 @@ const InstallationPage = () => {
                                     className={classes.copyConfirmation}
                                     style={{ opacity: visible ? 1 : 0 }}
                                 >
-                                    {t('installation.linux.copied')}
+                                    {I18n.t('installation.linux.copied')}
                                 </Box>
                             </Box>
                             <Typography className={classes.hintText}>
@@ -95,7 +96,7 @@ const InstallationPage = () => {
                                         className={classes.alertIcon}
                                     />
                                 </span>{' '}
-                                {t('installation.linux.hint')}
+                                {I18n.t('installation.linux.hint')}
                             </Typography>
                         </Box>
                         <Box className={classes.imageInfoBox}>
@@ -105,17 +106,19 @@ const InstallationPage = () => {
                                     sx={{ mb: 1 }}
                                     className={classes.imageTextHeader}
                                 >
-                                    {t('installation.linux.imageTitle')}
+                                    {I18n.t('installation.linux.imageTitle')}
                                 </Typography>
                                 <Typography
                                     variant="body2"
                                     sx={{ mb: 2 }}
                                     className={classes.imageText}
                                 >
-                                    {t('installation.linux.imageText')}
+                                    {I18n.t('installation.linux.imageText')}
                                 </Typography>
                             </Box>
-                            <Button className={classes.buttonSecondaryLinux}>{t('installation.linux.info')}</Button>
+                            <Button className={classes.buttonSecondaryLinux}>
+                                {I18n.t('installation.linux.info')}
+                            </Button>
                         </Box>
                     </Paper>
                     <Box className={classes.cardsWrapper}>
@@ -126,7 +129,7 @@ const InstallationPage = () => {
                                         variant="h5"
                                         className={classes.cardTitle}
                                     >
-                                        {t('installation.docker.title')}
+                                        {I18n.t('installation.docker.title')}
                                     </Typography>
                                     <img
                                         src={DockerLogo}
@@ -140,26 +143,26 @@ const InstallationPage = () => {
                                         component="span"
                                         className={classes.detailsLabel}
                                     >
-                                        {t('installation.docker.platform')}
+                                        {I18n.t('installation.docker.platform')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                     >
-                                        {t('installation.docker.platformValue')}
+                                        {I18n.t('installation.docker.platformValue')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                         className={classes.detailsLabel}
                                     >
-                                        {t('installation.docker.details')}
+                                        {I18n.t('installation.docker.details')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                     >
-                                        {t('installation.docker.detailsValue')}
+                                        {I18n.t('installation.docker.detailsValue')}
                                     </Typography>
                                 </Box>
                             </Box>
@@ -168,14 +171,14 @@ const InstallationPage = () => {
                                     variant="primary"
                                     className={classes.buttonPrimary}
                                 >
-                                    {t('installation.docker.download')}
+                                    {I18n.t('installation.docker.download')}
                                 </CustomButton>
                                 <Button
                                     fullWidth
                                     variant="outlined"
                                     className={classes.buttonSecondary}
                                 >
-                                    {t('installation.docker.info')}
+                                    {I18n.t('installation.docker.info')}
                                 </Button>
                             </Box>
                         </Paper>
@@ -187,7 +190,7 @@ const InstallationPage = () => {
                                         variant="h5"
                                         className={classes.cardTitle}
                                     >
-                                        {t('installation.raspberry.title')}
+                                        {I18n.t('installation.raspberry.title')}
                                     </Typography>
                                     <img
                                         src={RaspberryLogo}
@@ -201,39 +204,39 @@ const InstallationPage = () => {
                                         component="span"
                                         className={classes.detailsLabel}
                                     >
-                                        {t('installation.raspberry.platform')}
+                                        {I18n.t('installation.raspberry.platform')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                     >
-                                        {t('installation.raspberry.platformValue')}
-                                    </Typography>
-                                    <Typography
-                                        variant="body2"
-                                        component="span"
-                                        className={classes.detailsLabel}
-                                    >
-                                        {t('installation.raspberry.details')}
-                                    </Typography>
-                                    <Typography
-                                        variant="body2"
-                                        component="span"
-                                    >
-                                        {t('installation.raspberry.detailsValue')}
+                                        {I18n.t('installation.raspberry.platformValue')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                         className={classes.detailsLabel}
                                     >
-                                        {t('installation.raspberry.password')}
+                                        {I18n.t('installation.raspberry.details')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                     >
-                                        {t('installation.raspberry.passwordValue')}
+                                        {I18n.t('installation.raspberry.detailsValue')}
+                                    </Typography>
+                                    <Typography
+                                        variant="body2"
+                                        component="span"
+                                        className={classes.detailsLabel}
+                                    >
+                                        {I18n.t('installation.raspberry.password')}
+                                    </Typography>
+                                    <Typography
+                                        variant="body2"
+                                        component="span"
+                                    >
+                                        {I18n.t('installation.raspberry.passwordValue')}
                                     </Typography>
                                 </Box>
                             </Box>
@@ -242,14 +245,14 @@ const InstallationPage = () => {
                                     variant="primary"
                                     className={classes.buttonPrimary}
                                 >
-                                    {t('installation.raspberry.download')}
+                                    {I18n.t('installation.raspberry.download')}
                                 </CustomButton>
                                 <Button
                                     fullWidth
                                     variant="outlined"
                                     className={classes.buttonSecondary}
                                 >
-                                    {t('installation.raspberry.info')}
+                                    {I18n.t('installation.raspberry.info')}
                                 </Button>
                             </Box>
                         </Paper>
@@ -261,7 +264,7 @@ const InstallationPage = () => {
                                         variant="h5"
                                         className={classes.cardTitle}
                                     >
-                                        {t('installation.windows.title')}
+                                        {I18n.t('installation.windows.title')}
                                     </Typography>
                                     <img
                                         src={WindowsLogo}
@@ -275,26 +278,26 @@ const InstallationPage = () => {
                                         component="span"
                                         className={classes.detailsLabel}
                                     >
-                                        {t('installation.windows.platform')}
+                                        {I18n.t('installation.windows.platform')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                     >
-                                        {t('installation.windows.platformValue')}
+                                        {I18n.t('installation.windows.platformValue')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                         className={classes.detailsLabel}
                                     >
-                                        {t('installation.windows.details')}
+                                        {I18n.t('installation.windows.details')}
                                     </Typography>
                                     <Typography
                                         variant="body2"
                                         component="span"
                                     >
-                                        {t('installation.windows.detailsValue')}
+                                        {I18n.t('installation.windows.detailsValue')}
                                     </Typography>
                                 </Box>
                             </Box>
@@ -303,14 +306,14 @@ const InstallationPage = () => {
                                     variant="primary"
                                     className={classes.buttonPrimary}
                                 >
-                                    {t('installation.windows.download')}
+                                    {I18n.t('installation.windows.download')}
                                 </CustomButton>
                                 <Button
                                     fullWidth
                                     variant="outlined"
                                     className={classes.buttonSecondary}
                                 >
-                                    {t('installation.windows.info')}
+                                    {I18n.t('installation.windows.info')}
                                 </Button>
                             </Box>
                         </Paper>

@@ -9,7 +9,7 @@ import HousesGroup from '../../../../assets/img/Houses.png';
 import SmallHousesGroup from '../../../../assets/img/Houses-small.png';
 import { SupportModal } from '../../../../components/SupportModal/SupportModal';
 import { CustomButton } from '../../../../components/Button/Button';
-import { useTranslation } from 'react-i18next';
+import { I18n } from '../../../../utils/i18n';
 
 interface HeroSectionProps {
     sectionRef?: RefObject<HTMLElement | null>;
@@ -19,7 +19,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
     const { classes } = useStyles();
     const navigate = useNavigate();
     const [supportModalOpen, setSupportModalOpen] = useState(false);
-    const { t } = useTranslation();
 
     return (
         <Box
@@ -45,15 +44,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
                             />
                         </Box>
                         <Typography className={classes.heroPlatformText}>
-                            <Box className={classes.platformTextComment}>// {t('home.hero.platform')} </Box> 
-                            {t('home.hero.platformSubtitle')}
+                            <Box className={classes.platformTextComment}>// {I18n.t('home.hero.platform')} </Box>
+                            {I18n.t('home.hero.platformSubtitle')}
                         </Typography>
                         <CustomButton
                             variant="primary"
                             onClick={() => navigate('/installation')}
                             className={classes.installButton}
                         >
-                            {t('home.hero.install')}
+                            {I18n.t('home.hero.install')}
                         </CustomButton>
                     </Box>
 
@@ -66,8 +65,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
                             />
                         </Box>
                         <Typography className={classes.supportText}>
-                            {t('home.hero.free')} <br />
-                             {t('home.hero.support')}
+                            {I18n.t('home.hero.free')} <br />
+                             {I18n.t('home.hero.support')}
                         </Typography>
                         <Box className={classes.supportIcons}>
                             <Box

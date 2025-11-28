@@ -61,6 +61,10 @@ export const useStyles = makeStyles()(theme => ({
             margin: '0 auto',
             textAlign: 'left',
         },
+        [theme.breakpoints.down(400)]: {
+            width: '100%',
+            textAlign: 'left',
+        },
     },
     subtitle: {
         marginBottom: 44,
@@ -123,7 +127,7 @@ export const useStyles = makeStyles()(theme => ({
             padding: '20px 16px',
         },
         [theme.breakpoints.down(832)]: {
-            minWidth: '382px',
+            //minWidth: '382px',
             borderRadius: 10,
         },
     },
@@ -145,7 +149,7 @@ export const useStyles = makeStyles()(theme => ({
             boxSizing: 'border-box',
         },
         [theme.breakpoints.down(832)]: {
-            minWidth: '382px',
+            //minWidth: '382px',
             height: '600px',
             padding: '20px 16px',
             boxSizing: 'border-box',
@@ -216,7 +220,7 @@ export const useStyles = makeStyles()(theme => ({
             boxSizing: 'border-box',
         },
         [theme.breakpoints.down(832)]: {
-            minWidth: 351,
+            //minWidth: 351,
             height: 40,
             fontSize: 12,
             minHeight: 40,
@@ -270,6 +274,9 @@ export const useStyles = makeStyles()(theme => ({
             width: 351,
             alignItems: 'start',
         },
+        [theme.breakpoints.down(400)]: {
+            width: '100%',
+        },
     },
     imageTextHeader: {
         fontFamily: 'Saira',
@@ -292,7 +299,7 @@ export const useStyles = makeStyles()(theme => ({
             width: '100%',
             fontSize: 16,
             fontWeight: 300,
-            minWidth: 351,
+            //minWidth: 351,
             textAlign: 'center',
         },
          [theme.breakpoints.down(450)]: {
@@ -392,7 +399,7 @@ export const useStyles = makeStyles()(theme => ({
         padding: '0 !important',
         [theme.breakpoints.down(832)]: {
             width: '100% !important',
-            minWidth: '348px !important',
+            //minWidth: '348px !important',
             height: '44px !important',
             borderRadius: '8px !important',
             fontSize: '16px !important',
@@ -415,7 +422,7 @@ export const useStyles = makeStyles()(theme => ({
         },
         [theme.breakpoints.down(832)]: {
             width: '100% !important',
-            minWidth: 348,
+            //minWidth: 348,
             height: 44,
             borderRadius: 8,
             fontSize: '16px',
@@ -439,7 +446,7 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down(832)]: {
             width: '100%',
             marginTop: 0,
-            minWidth: 350,
+            //minWidth: 350,
             height: 44,
             borderRadius: 8,
             fontSize: '16px',

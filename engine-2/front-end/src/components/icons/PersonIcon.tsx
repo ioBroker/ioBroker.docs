@@ -3,7 +3,7 @@ import React from 'react';
 export default function PersonIcon(props: { style?: React.CSSProperties }): React.JSX.Element {
     return (
         <svg
-            style={{ width: 24, height: 24, marginTop: 8, ...props.style }}
+            style={{ width: '100%', height: '100%', ...props.style }}
             viewBox="0 0 20 22"
         >
             <path
