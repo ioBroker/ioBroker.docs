@@ -42,7 +42,9 @@ export const HistorySection: React.FC = () => {
                         <StyledButton
                             sx={{
                                 height: { xs: '44px', sm: '44px', md: '60px' },
-                                width: { xs: '368px', sm: '368px', md: '533px' },
+                                width: { xs: '368px', sm: '368px', md: '533px', '@media (max-width:400px)': {
+                                    width: '340px !important',
+                                } },
                                 maxWidth: '533px',
                             }}
                         >

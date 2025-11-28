@@ -72,9 +72,13 @@ export const useStyles = makeStyles()(theme => ({
     },
     statsContainer: {
         display: 'flex',
+        flexWrap: 'wrap',
         justifyContent: 'space-between',
         marginTop: '120px',
         gap: theme.spacing(4),
+         [theme.breakpoints.down(1281)]: {
+             justifyContent: 'left',
+        },
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
             marginTop: '60px',
@@ -85,6 +89,16 @@ export const useStyles = makeStyles()(theme => ({
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'start',
+            gap: '16px',
+        },
+          [theme.breakpoints.down(543)]: {
+             width: '400px'
+        },
+         [theme.breakpoints.down(390)]: {
+             width: '100%',
+            flexDirection: 'column',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
             gap: '16px',
         },
     },

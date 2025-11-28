@@ -140,6 +140,9 @@ export const useStyles = makeStyles()(theme => ({
             height: '48px',
             gap: '16px',
         },
+        [theme.breakpoints.down(400)]: {
+             gap: '70px',
+        },
     },
     supportIconsWrapper: {
         display: 'flex',
@@ -163,6 +166,9 @@ export const useStyles = makeStyles()(theme => ({
         height: 'auto',
         [theme.breakpoints.down('lg')]: {
             width: '400px',
+        },
+          [theme.breakpoints.down(980)]: {
+             width: '320px',
         },
         [theme.breakpoints.down('md')]: {
             display: 'none',
@@ -197,6 +203,9 @@ export const useStyles = makeStyles()(theme => ({
             textAlign: 'left',
             // width: '224px',
             fontSize: 12,
+        },
+        [theme.breakpoints.down(400)]: {
+            width: '100%',
         },
     },
     supportIcons: {

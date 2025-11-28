@@ -36,7 +36,8 @@ export const NewsletterSection: React.FC = () => {
                             {I18n.t('home.newsletter.sub')}
                         </Typography>
                     </Box>
-                    <Box sx={{ display: 'flex', gap: { lg: '55px', md: '30px', sm: '20px', xs: '20px' } }}>
+                    <Box sx={{ display: 'flex', gap: { lg: '55px', md: '30px', sm: '20px', xs: '20px', '@media (max-width:400px)': {
+                                    gap: '10px !important',} } }}>
                         <Box sx={{ display: 'flex' }}>
                             <div className={classes.bracesLeft} />
                             <Box className={classes.newsletterInputContainer}>

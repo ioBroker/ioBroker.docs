@@ -32,6 +32,9 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         gap: theme.spacing(20),
         alignItems: 'stretch',
+        [theme.breakpoints.down(980)]: {
+            gap: theme.spacing(10),
+        },
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
             alignItems: 'center',
@@ -212,7 +215,7 @@ export const useStyles = makeStyles()(theme => ({
             height: 70,
             borderRadius: '12px',
         },
-        '@media (max-width: 980px)': {
+        '@media (max-width: 1000px)': {
             width: 64,
             height: 64,
             borderRadius: '18px',

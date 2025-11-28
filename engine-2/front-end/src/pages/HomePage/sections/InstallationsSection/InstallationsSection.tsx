@@ -27,7 +27,9 @@ export const InstallationsSection: React.FC = () => {
                             <StyledButton
                                 sx={{
                                     height: { xs: '44px', sm: '44px', md: '60px' },
-                                    width: { xs: '368px', sm: '368px', md: '535px' },
+                                    width: { xs: '368px', sm: '368px', md: '535px', '@media (max-width:400px)': {
+                                    width: '300px !important',
+                                } },
                                     maxWidth: '535px',
                                     borderRadius: '10px!important',
                                 }}

@@ -156,6 +156,9 @@ export const useStyles = makeStyles()(theme => ({
             marginLeft: '4px',
             maxWidth: '352px',
         },
+         [theme.breakpoints.down(400)]: {
+            fontSize: '32px',
+        },
     },
     historyText: {
         fontSize: '24px',

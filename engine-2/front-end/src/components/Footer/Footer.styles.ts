@@ -57,7 +57,7 @@ export const useFooterStyles = makeStyles()(theme => ({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down('md')]: {
             flexWrap: 'wrap',
             gap: '16px',
             justifyContent: 'center',
@@ -106,7 +106,7 @@ export const useFooterStyles = makeStyles()(theme => ({
     },
     supportTextMobile: {
         display: 'none',
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down(736)]: {
             display: 'inline-block',
             fontSize: '12px',
         },
@@ -180,12 +180,12 @@ export const useFooterStyles = makeStyles()(theme => ({
     },
     legalLinksMobile: {
         display: 'none',
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down(736)]: {
             display: 'flex',
         },
     },
     legalLinksDesktop: {
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down(736)]: {
             display: 'none',
         },
     },

@@ -119,7 +119,10 @@ export const AboutSection: React.FC = () => {
                         mb: { xs: 0, md: 4 },
                     }}
                 >
-                    <SectionTitle sx={{ marginBottom: { xs: '32px !important', md: '24px !important' } }}>
+                    <SectionTitle sx={{
+                        marginBottom: { xs: '32px !important', md: '24px !important' },
+                        fontSize: { '@media (max-width:400px)': { fontSize: '26px !important' } }
+                    }}>
                         {I18n.t('home.about.title')}
                     </SectionTitle>
                 </Box>

@@ -11,6 +11,7 @@ import ArrowIcon from '../icons/ArrowIcon';
 import logo from '../../assets/img/logo_net.svg';
 import { useFooterStyles } from './Footer.styles';
 import { I18n } from '../../utils/i18n';
+//import CookiesHint from '../CookiesHint/CookiesHint';
 
 export interface FooterProps {
     scrollTop?: () => void;
@@ -120,7 +121,7 @@ export const Footer = ({ scrollTop }: FooterProps) => {
                                         <div>{I18n.t('Support us')}</div>
                                     </div>
                                     <div className={classes.supportTextMobile}>
-                                        <div>{I18n.t('Support us (mobile)')}</div>
+                                        <div>{I18n.t('Support us')}</div>
                                     </div>
                                     <div className={classes.donateButtons}>
                                         <OwnButton
@@ -237,6 +238,7 @@ export const Footer = ({ scrollTop }: FooterProps) => {
                     </div>
                 </Box>
             </Box>
+             {/* <CookiesHint force={showCookies} onClose={() => setShowCookies(false)} /> */}
         </Box>
     );
 };
