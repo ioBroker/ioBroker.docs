@@ -161,7 +161,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     historyText: {
-        fontSize: '24px',
+        fontSize: '18px',
         textIndent: '2em',
         fontWeight: '300',
         lineHeight: '140%',
@@ -175,7 +175,7 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('md')]: {
             marginBottom: '24px',
             marginTop: '64px',
-            fontSize: '20px',
+            fontSize: '18px',
             textAlign: 'left',
             letterSpacing: '-0.02em',
         },

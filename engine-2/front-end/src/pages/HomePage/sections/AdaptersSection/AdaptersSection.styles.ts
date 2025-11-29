@@ -68,7 +68,7 @@ export const useStyles = makeStyles()(theme => ({
         textIndent: '2em',
         flexGrow: 1,
         [theme.breakpoints.down('sm')]: {
-            fontSize: '20px',
+            fontSize: '18divpx',
         },
     },
 

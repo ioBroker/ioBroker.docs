@@ -20,7 +20,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     buttonText: {
-        fontSize: '24px',
+        fontSize: '18px',
         fontWeight: '400',
         fontFamily: 'Audiowide, sans-serif',
         letterSpacing: '-3%',

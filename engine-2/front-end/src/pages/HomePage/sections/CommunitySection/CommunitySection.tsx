@@ -40,9 +40,9 @@ export const CommunitySection: React.FC = () => {
                         component="pre"
                         className={classes.communityText}
                     >
-                        {I18n.t('home.community.mainText')}
+                        /* {I18n.t('home.community.mainText')}
                     </Typography>
-                    <Typography className={classes.secondaryText}>{I18n.t('home.community.secondary')}</Typography>
+                    <Typography className={classes.secondaryText}>{I18n.t('home.community.secondary')} */</Typography>
                 </Box>
                 <Box className={classes.statsContainer}>
                     {communityData.map(item => (

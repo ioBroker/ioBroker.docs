@@ -18,7 +18,7 @@ export const useStyles = makeStyles()(theme => ({
     communityText: {
         fontFamily: 'inherit',
         whiteSpace: 'pre-wrap',
-        fontSize: '20px',
+        fontSize: '18px',
         textIndent: '2em',
         fontWeight: 200,
         lineHeight: '150%',
@@ -75,7 +75,7 @@ export const useStyles = makeStyles()(theme => ({
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         marginTop: '120px',
-        gap: theme.spacing(4),
+        gap: theme.spacing(6),
          [theme.breakpoints.down(1281)]: {
              justifyContent: 'left',
         },
@@ -83,7 +83,7 @@ export const useStyles = makeStyles()(theme => ({
             flexDirection: 'column',
             marginTop: '60px',
             alignItems: 'center',
-            gap: '32px',
+            gap: theme.spacing(6),
         },
         [theme.breakpoints.down('sm')]: {
             flexDirection: 'row',

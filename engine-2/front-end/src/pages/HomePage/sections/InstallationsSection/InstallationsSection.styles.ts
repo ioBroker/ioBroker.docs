@@ -49,8 +49,8 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     installationSection: {
-        marginTop: '122px',
-        marginBottom: '131px',
+        marginTop: '100px',
+        marginBottom: '0px',
         padding: '0px 0 175px 0',
         background: `url(/codeBackground.png) no-repeat center center`,
         backgroundPosition: 'top',

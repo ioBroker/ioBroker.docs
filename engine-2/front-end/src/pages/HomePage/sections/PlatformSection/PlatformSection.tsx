@@ -29,13 +29,13 @@ export const PlatformSection: React.FC = () => {
                             </Typography>
                         </Box>
                         <Typography className={classes.platformHeadSubtitle}>
-                            {I18n.t('home.platform.head')}
+                            /* {I18n.t('home.platform.head')}
                         </Typography>
                         <Typography className={classes.platformSubtitle}>
                             {I18n.t('home.platform.sub1')}
                         </Typography>
                         <Typography className={classes.platformSubtitle}>
-                            {I18n.t('home.platform.sub2')}
+                            {I18n.t('home.platform.sub2')} */
                         </Typography>
                         <StyledButton
                             sx={{

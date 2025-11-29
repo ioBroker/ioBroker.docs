@@ -4,12 +4,12 @@ export const useStyles = makeStyles()(theme => ({
     platformSection: {
         position: 'relative',
         // marginTop: '70px',
-        paddingTop: '163px',
+        paddingTop: '140px',
         height: '100%',
         background: `url(/image-code.png) no-repeat center center`,
         backgroundPosition: 'top',
         backgroundColor: theme.palette.background.default,
-        backgroundSize: 'cover',
+        backgroundSize: 'contain',
         overflow: 'hidden',
         paddingBottom: '60px',
         [theme.breakpoints.down('md')]: {
@@ -23,7 +23,7 @@ export const useStyles = makeStyles()(theme => ({
         '&::before': {
             content: '""',
             position: 'absolute',
-            top: '50%',
+            top: '40%',
             left: '5%',
             transform: 'translate(-50%, -50%)',
             width: '1200px',
@@ -67,6 +67,7 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('sm')]: {
             textAlign: 'left',
             marginBottom: theme.spacing(4),
+            width: '100%'
         },
     },
     platformTitle: {
@@ -129,7 +130,7 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '18px',
         lineHeight: 1.6,
         [theme.breakpoints.down('sm')]: {
-            fontSize: '20px',
+            fontSize: '18px',
             marginBottom: theme.spacing(2),
         },
     },
@@ -138,7 +139,7 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '18px',
         lineHeight: 1.6,
         [theme.breakpoints.down('sm')]: {
-            fontSize: '20px',
+            fontSize: '18px',
             marginBottom: theme.spacing(2),
         },
     },

@@ -84,7 +84,7 @@
             "facebook": "Facebook",
             "forum": "Forum",
             "join": "JOIN",
-            "mainText": "/* The community has been a central part of ioBroker’s development from the very beginning. Although the project was originally designed to be language-neutral, over time it turned out that the German-speaking community became the most active—probably because ioBroker originated in Germany. Today, the ioBroker forum is the first place to go for questions, problem-solving, and exchanging ideas with other users. There you’ll find a wide range of tutorials, scripts, and best practices to help you get the most out of ioBroker. In addition to the forum, there is also a very active community on Facebook and Discord, where people discuss, help each other, and share new ideas every day. Whether you’re a beginner or an expert, you’ll always find support—and you can contribute your own knowledge to help others. */",
+            "mainText": "The community has been a central part of ioBroker’s development from the very beginning. Although the project was originally designed to be language-neutral, over time it turned out that the German-speaking community became the most active—probably because ioBroker originated in Germany. Today, the ioBroker forum is the first place to go for questions, problem-solving, and exchanging ideas with other users. There you’ll find a wide range of tutorials, scripts, and best practices to help you get the most out of ioBroker. In addition to the forum, there is also a very active community on Facebook and Discord, where people discuss, help each other, and share new ideas every day. Whether you’re a beginner or an expert, you’ll always find support—and you can contribute your own knowledge to help others.",
             "secondary": "Join the community and shape the future of ioBroker!",
             "title": "COMMUNITY",
             "users": "Users"
@@ -114,10 +114,10 @@
             "title": "NEWSLETTER"
         },
         "platform": {
-            "head": "/* ioBroker is much more than just software – it’s a powerful and flexible open‑source platform for smart home and IoT integration.",
+            "head": "ioBroker is much more than just software – it’s a powerful and flexible open‑source platform for smart home and IoT integration.",
             "more": "MORE",
             "sub1": "With ioBroker you can connect devices from different manufacturers and protocols such as Zigbee, KNX, MQTT, Homematic, Modbus and many more and control them centrally. This creates a vendor‑independent smart home that can be adapted and expanded to your needs.",
-            "sub2": "ioBroker is for everyone – from beginners who create simple automations with a few clicks to enthusiasts building complex scenarios with JavaScript, Blockly or Node‑RED. The entire control runs through an intuitive graphical interface, without having to edit complicated configuration files. */",
+            "sub2": "ioBroker is for everyone – from beginners who create simple automations with a few clicks to enthusiasts building complex scenarios with JavaScript, Blockly or Node‑RED. The entire control runs through an intuitive graphical interface, without having to edit complicated configuration files.",
             "title1": "One platform,",
             "title2": "endless possibilities"
         }
