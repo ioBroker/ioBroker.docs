@@ -90,9 +90,10 @@ export const useStyles = makeStyles()(theme => ({
             flexWrap: 'wrap',
             justifyContent: 'start',
             gap: '16px',
+            width: '100%'
         },
           [theme.breakpoints.down(543)]: {
-             width: '400px'
+             width: '100%'
         },
          [theme.breakpoints.down(390)]: {
              width: '100%',
@@ -138,7 +139,7 @@ export const useStyles = makeStyles()(theme => ({
         borderLeft: `1px solid ${theme.palette.primary.main}`,
         width: 30,
         [theme.breakpoints.down('sm')]: {
-            width: 9,
+            width: 16,
         },
     },
     bracesRight: {
@@ -147,7 +148,7 @@ export const useStyles = makeStyles()(theme => ({
         borderRight: `1px solid ${theme.palette.primary.main}`,
         width: 30,
         [theme.breakpoints.down('sm')]: {
-            width: 9,
+            width: 16,
         },
     },
 
@@ -172,7 +173,7 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '40px',
         letterSpacing: '-0.03em',
         [theme.breakpoints.down('sm')]: {
-            fontSize: '20px',
+            fontSize: '16px',
             textTransform: 'uppercase',
         },
     },
@@ -203,6 +204,10 @@ export const useStyles = makeStyles()(theme => ({
         display: 'block',
         position: 'relative',
         zIndex: 0,
+        height: 50,
+        [theme.breakpoints.down('sm')]: {
+            height: 36,
+        },
         '&::before': {
             content: '""',
             position: 'absolute',
