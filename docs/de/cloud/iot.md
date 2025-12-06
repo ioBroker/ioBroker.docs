@@ -51,12 +51,12 @@ Meistens sind es einfache Dinge wie falsche Login-Daten (Achtung: Auch Groß- un
 Die Fehlermeldungen im Log wurden verbessert und sollten nun besser aussagen, was das Problem ist.
 
 4. Nach der ersten Verbindung wird automatisch Alexa Account mit dem gleichen Passwort wie bei ioBroker.pro erstellt. 
-Die iobroker.iot Instanz muss "grün" sein. 
+Die ioBroker.iot Instanz muss "grün" sein. 
 
 5. Es kann passieren, dass die Passwörter, die `#` Symbol beinhalten, noch nicht gehen. 
 Das Problem wird untersucht, deswegen, bitte kein `#` im Passwort benutzen.
 
-5. Dann den neuen "ioBroker.iot" [Skill](https://www.amazon.de/ioBroker-ioBroker-iot/dp/B07L66BFF9) installieren und auf "Aktivieren" klicken. 
+5. Dann den neuen "ioBroker.assistant" [Skill](https://www.amazon.de/ioBroker-ioBroker-iot/dp/B07L66BFF9) installieren und auf "Aktivieren" klicken. 
 Dann sollte die Login-Maske des IoT-Service erscheinen.
 Hier die E-Mail-Adresse und das Passwort des Pro-Cloud-Accounts verwenden.
 

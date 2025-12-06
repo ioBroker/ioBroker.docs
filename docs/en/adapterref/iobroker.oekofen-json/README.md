@@ -44,7 +44,7 @@ This adapter would not have been possible without the great work of Markus Feile
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 2.0.0-alpha.9 (2025-10-13)
+### 2.0.0 (2025-11-26)
 * (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
 * (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
 * (mcm1957) Dependencies have been updated

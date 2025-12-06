@@ -993,12 +993,72 @@ https://github.com/ltspicer/ioBroker.sofarcloud
 This adapter reads the data from the SofarCloud server and stores it in the data point sofarcloud.
 The SofarCloud server stores data from Sofar inverters.
 
-<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
-
 ## ping (05.10.2025) - new feature
 Ping adapter can probe the TCP ports.
 
 https://github.com/ioBroker/ioBroker.ping
 
+## vis-jsontemplate (15.10.2025) – new adapter at stable repository
+https://github.com/oweitman/ioBroker.vis-jsontemplate
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-jsontemplate/main/admin/vis-jsontemplate.png" width="100" height="100" />
+
+Adapter to visualize JSON data and other data in Vis/Vis2. You can customize the output of the data with a template system. In the templates you can include HTML, CSS and Javascript.
+
+## freeair (18.10.2025) – new adapter at stable repository
+https://github.com/Scrounger/ioBroker.freeair
+
+<img src="https://raw.githubusercontent.com/Scrounger/ioBroker.freeair/main/admin/freeair.png" width="100" height="100" />
+
+locale connection to your BluMartin FreeAir 100 ventilation system
+
+## unifi-network (18.10.2025) – new adapter at stable repository
+https://github.com/Scrounger/ioBroker.unifi-network
+
+<img src="https://raw.githubusercontent.com/Scrounger/ioBroker.unifi-network/main/admin/unifi-network.png" width="100" height="100" />
+
+Unifi Network uses the websocket interface to receive real-time information from the unifi-network application
+
+## weatherflow-tempest-api (21.10.2025) – new adapter at stable repository
+https://github.com/Scrounger/ioBroker.weatherflow-tempest-api
+
+<img src="https://raw.githubusercontent.com/Scrounger/ioBroker.weatherflow-tempest-api/main/admin/weatherflow-tempest-api.png" width="100" height="100" />
+
+Get data for your Tempest Weather Station from the WeatherFlow Tempest API
+
+## openmediavault (21.10.2025) – new adapter at stable repository
+https://github.com/Scrounger/ioBroker.openmediavault
+
+<img src="https://raw.githubusercontent.com/Scrounger/ioBroker.openmediavault/main/admin/openmediavault.png" width="100" height="100" />
+
+This adapter allows to read informations from your OpenMediaVault using the rpc interface.
+
 ## admin (21.10.2025) – new feature
 Drag and drop of devices between categories
+
+## xsense (22.10.2025) – new adapter at stable repository
+https://github.com/arteck/ioBroker.xsense
+
+<img src="https://raw.githubusercontent.com/arteck/ioBroker.xsense/main/admin/xsense.png" width="100" height="100" />
+
+This ioBroker adapter allows the integration of XSense devices into the ioBroker smart home system.
+It is designed to receive data from XSense smoke detectors, CO detectors, and other compatible devices, making them available in ioBroker for automation and monitoring.
+The adapter communicates with the XSense cloud server and provides an easy way to integrate XSense devices into existing ioBroker setups.
+
+## sbms (28.11..2025) – new adapter at stable repository
+https://github.com/buffoletti/ioBroker.sbms
+
+<img src="https://raw.githubusercontent.com/buffoletti/ioBroker.sbms/main/admin/sbms.png" width="100" height="100" />
+
+Simple adapter to make data from Electrodacus SBMS available as states from MQTT, the rawData html page or the serial port.
+
+## bmw (28.11..2025) – new adapter at stable repository
+https://github.com/TA2k/ioBroker.bmw
+
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.bmw/master/admin/bmw.png" width="100" height="100" />
+
+This adapter integrates BMW vehicles into ioBroker using the new BMW CarData API with OAuth2 authentication and real-time MQTT streaming. It provides comprehensive vehicle data monitoring for all BMW models linked to your BMW account.
+
+
+<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
+
