@@ -223,14 +223,71 @@ Die ioBroker GmbH stellt für das Community-Projekt die Infrastruktur (z.B. den 
 Die ioBroker Free Cloud ist ebenfalls ein kostenfreier Dienst, der der Community durch die ioBroker GmbH zur Verfügung gestellt wird. Die Pro-Cloud und der iot-Service sind kommerzielle Angebote der ioBroker GmbH, wobei die Kosten gerade einmal die Betriebskosten decken.
 
 
-## Remotezugriff auf deine ioBroker Installation über die ioBroker Cloud 
-Über einen optionalen cloudbasierten Zugriff ist für den Anwender oder auch
-für Systemintegratoren die Remote-Verwaltung auf ein lokal installiertes ioBroker
--System 24/7 möglich. Die Zugriffsteuerung kann mittels Benutzer und Gruppen vom
-Anwender frei konfiguriert werden.
-In der folgenden Grafik werden die ioBroker Cloud Service Produkte im Überblick dargestellt.
 
-![](media/iobroker-cloud-services-overview.png)  
+# ioBroker Cloud Services – Kurzüberblick
+
+Über einen optionalen cloudbasierten Zugriff ist für Anwender und Systemintegratoren die Remote‑Verwaltung eines lokal installierten ioBroker‑Systems 24/7 möglich.
+
+**Legende:**  
+✅ = verfügbar, 🟡 = limitiert, ❌ = nicht verfügbar, `.net` = iobroker.net, `.pro`= iobroker.pro
+
+---
+
+## Sprachsteuerung mit Alexa
+
+**1. Smart Home Skill (ioBroker.assistant)**  
+Geräte per Sprachbefehl steuern – z.B. „Alexa, Licht an“.
+
+**2. Custom Skill (Custom ioBroker)**  
+Eigene Befehle nutzen – z.B.„Alexa, frage ioBroker nach Temperatur“.
+
+- `.net:` ❌
+- `.pro` ohne Lizenz: 🟡 50 Befehle/Tag
+- Mit Assistent- oder Fernzugriff-Lizenz: ✅ 3000 Befehle/Tag oder 35000 Befehle/Monat
+  
+**Hinweis:**
+> Ein „Befehl“ ist nicht nur ein Sprachkommando, auch Statusabfragen zählen dazu.  
+> Öffnest du z.B. die Alexa-App mit 100 Geräten, sendet Amazon sofort 100+ sogenannte „StatusReport“-Befehle.  
+> Auch im geöffneten Zustand fragt die App alle paar Sekunden den Status erneut ab.  
+> Dieses Verhalten kommt von Amazon (ab Alexa Smart Home API V3) und lässt sich nicht durch ioBroker beeinflussen.  
+> Dadurch kann das tägliche Limit selbst ohne Sprachkommandos schnell erreicht werden.
+---
+
+## Fernzugriff (Remote Access)
+
+**1. VIS anzeigen (Dashboards)**  
+Zugriff auf deine Visualisierungen.
+
+- `.net:` ✅
+- `.pro` ohne Lizenz oder Assistent: ❌
+- Mit Fernzugriff-Lizenz: ✅
+
+**2. VIS bearbeiten (Editor)**
+- Nur mit Fernzugriff-Lizenz (`.pro`): ✅
+
+**Admin-Fernzugriff**
+- Nur mit **Fernzugriff-Lizenz (`.pro`)**: ✅
+
+---
+
+## Dienste & Webhooks
+
+**IFTTT / HTTP POST / HTTP GET/PUT**  
+ioBroker mit externen Diensten verbinden (z. B. Automationen, Webhooks).
+
+- `.net`:** ❌
+- `.pro` ohne Lizenz: 🟡 20 Befehle/Tag
+- Mit Assistent- oder Fernzugriff-Lizenz: ✅ unbegrenzt
+
+---
+
+## Lizenzen im Vergleich
+
+- **Free Cloud (`.net`):** Nur VIS anzeigen
+- **`.pro` ohne Lizenz:** Skills + Dienste limitiert (50 / 20 Befehle pro Tag)
+- **Assistent-Lizenz (`.pro`).:** Skills & Dienste 3000 Befehle/Tag oder 35000 Befehle/Monat
+- **Fernzugriff-Lizenz (`.pro`):** Alles inklusive (VIS, VIS‑Editor, Admin, Skills, Dienste)
+
 
 
 ## Community
