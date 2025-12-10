@@ -253,7 +253,7 @@ Dieses Verhalten kommt von Amazon (ab Alexa Smart Home API V3) und lässt sich n
 Dadurch kann das tägliche Limit selbst ohne Sprachkommandos schnell erreicht werden.
 
 
-### Fernzugriff (Remote Access)
+### Fernzugriff (Remote Access) incl. Smart Assistenten Lizenz
 
 **1. VIS anzeigen (Dashboards)**  
 Zugriff auf deine Visualisierungen.
