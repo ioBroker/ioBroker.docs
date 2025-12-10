@@ -23,31 +23,9 @@ This adapter uses the service Sentry.io to automatically report exceptions and c
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 
-
-### Deutsche Beschreibung:
-
-Schoolfree ist ein Adapter für iobroker Installationen.
-Mit dem Adapter lassen sich die Schulferien auswerten und in Datenpunkte übergeben.
-Die Datenpunkte können somit für weitere Funktionen wie Heizungssteuerungen, Rolladen- und Anwesenheitssteuerungen ausgewertet und verarbeitet werden.
-
-Der aktuelle Bezug von Terminen für die Schulferien erfolgt über die API von https://www.mehr-schulferien.de
-
-Aktuell werden die Schulferien und freien Tage für Deutschland unterstützt.
-
-Folgende Datenpunkte stehen mit Schoolfree für die weitere Verarbeitung zur Verfügung:
-
-* info.current.end: Datum für das Ende der aktuellen Ferien
-* info.current.name: Bezeichnung der aktuellen Schulferien
-* info.current.start: Startdatum der aktuellen Ferien
-* info.next.end: Datum für das Ende der nächsten Ferien
-* info.next.name: Bezeichnung der nächsten Schulferien
-* info.next.start: Startdatum der nächsten Ferien
-* info.today: Switch für den aktuellen Status heute (true/false)
-* info.tomorrow: Switch für den aktuellen Status morgen (true/false)
-
 *************************************************************************************************************************************
 
-### English description:
+### description:
 
 Schoolfree is an adapter for iobroker installations.
 With the adapter, the school holidays can be evaluated and transferred to data points.
@@ -79,6 +57,9 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!--### __WORK IN PROGRESS__-->
+### __WORK IN PROGRESS__
+* (simatec) Readme updated
+
 ### 1.1.13 (2025-11-18)
 * (simatec) dependencies updated
 * (simatec) update npm publish

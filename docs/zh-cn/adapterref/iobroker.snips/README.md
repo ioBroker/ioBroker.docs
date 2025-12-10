@@ -2,54 +2,59 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.snips/README.md
-title: ioBroker.snips ![标志](admin/snips.png)
-hash: JpIjjtnNgvaIHPCyi4HJt1SJk61t2dSjkHx2qZsNGRA=
+title: ioBroker.snips ![Logo](admin/snips.png)
+hash: awSDj41MSNmQuy/oUJITft7hpbr9yEJVX7r6Y0l78G8=
 ---
 # IoBroker.snips ![标识](../../../en/adapterref/iobroker.snips/admin/snips.png)
 
 ![安装数量](http://iobroker.live/badges/snips-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.snips.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.snips.svg)
-![新产品管理](https://nodei.co/npm/iobroker.snips.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.snips.png?downloads=true)
 
 [![构建状态](https://app.travis-ci.com/unltdnetworx/ioBroker.snips.svg?branch=master)](https://travis-ci.org/unltdnetworx/ioBroker.snips)
 
-注意：适配器不再开发或维护，因为 Sonos 购买了 Snips，并且免费平台已于 2020 年 2 月 1 日停产。适配器和安装的 snips 设备仍然可以工作。
+> [!警告] > 由于 Sonos 收购了 Snips，并且免费平台已于 2020 年 2 月 1 日停止运营，因此该适配器不再进行开发或维护。该适配器和已安装的 Snips 设备仍可正常工作。
 
-需要 node.js 6.0 或更高版本和 Admin v3！
+需要 node.js 6.0 或更高版本以及 Admin v3！
 
 该适配器通过 MQTT 与 Snips 硬件通信。执行命令需要 text2command 适配器。
 
 Snips 网址：<https://makers.snips.ai/>
 
-## 安装截图
-对于 Debian Stretch (x86), Raspbian / Armbian Stretch (RPI3, Odroid) 下的 Snips，请安装以下软件包：
+安装截图
+对于 Debian Stretch (x86)、Raspbian / Armbian Stretch (RPI3, Odroid) 下的 Snips，请安装以下软件包：
 
 lsb-release apt-transport-https ca-certificates systemd systemd-sysv libttspico-utils alsa-utils dirmngr mosquitto snips-asr snips-audio-server snips-dialogue snips-hotword snips-nlu snips-tts snips-injection
 
-根据您的硬件和 Linux 发行版，您可能已经安装了软件包。
+根据您的硬件和 Linux 发行版，您可能已经安装了某些软件包。
 
-Raspian / Armbian 的安装说明和配置：<https://snips.gitbook.io/documentation/installing-snips/on-a-raspberry-pi>
+Raspbian/Armbian 的安装说明和配置：<https://snips.gitbook.io/documentation/installing-snips/on-a-raspberry-pi>
 
-Debian 安装说明和配置： sudo nano /etc/apt/sources.list 每行附加“non-free”，否则无法安装包“libttspico-utils”。
+Debian 系统安装说明及配置：sudo nano /etc/apt/sources.list 在每行末尾添加“non-free”，否则将无法安装“libttspico-utils”软件包。
+
 <https://snips.gitbook.io/documentation/advanced-configuration/advanced-solutions>
 
-登录到 <https://console.snips.ai> 并添加一个新向导。
-在复选标记“仅显示具有操作的应用程序”上方添加一个应用程序，然后搜索 iobroker ![ioBroker 剪下应用程序徽标](https://console.snips.ai/images/bundles/bundle-home.svg) 并选择。
-完成后，按 Deploy Assistant 下载 ZIP 文件。
-zip 文件在 snips 机器上的“/usr/share/snips”下解压，然后重启。
+登录 <https://console.snips.ai> 并添加一个新的向导。
 
-在我们继续这里之前，Snips 应该可以工作：
+添加应用时，勾选“仅显示带有操作的应用”，搜索 iobroker ![ioBroker snips-app 标志](https://console.snips.ai/images/bundles/bundle-home.svg) 并选择它。
+
+完成后，点击“部署助手”下载 ZIP 文件。
+
+ZIP 文件会在 Snips 服务器的“/usr/share/snips”目录下解压，然后重启服务器。
+
+在我们继续之前，Snips 应该可以正常工作：
 
 ### 配置 Snips 适配器
-Url：Snips-MQTT-Servers 的地址 Port：Snips-MQTT-Servers 的端口 Instanz：Text2Command-Instanz（例如 0） 过滤器：例如了解 ClientID：ID（例如 0）
+URL：Snips-MQTT 服务器的地址；端口：Snips-MQTT 服务器的端口；实例：Text2Command 实例（例如 0）；过滤器：例如用于理解；客户端 ID：ID（例如 0）。
 
 ### 配置 Text2Command 适配器
-在 ID snips.X.devices.all.send.say.text 中的 Answer 下插入 Text2Command 适配器的配置。
+在 Text2Command 适配器的配置中，在 ID snips.X.devices.all.send.say.text 的 Answer 下插入。
 
-### 注入（学习新单词）
-未知单词可以在 snips.0.send.inject.room 或 device 下学习。
-注意：注入服务必须安装在设备/服务器上 sudo apt-get install -y snips-injection
+### 注射（学习新词）
+未知单词可通过 snips.0.send.inject.room 或设备学习。
+
+注意：必须在设备/服务器上安装 inject 服务。sudo apt-get install -y snips-injection
 
 ## Changelog
 

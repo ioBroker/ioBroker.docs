@@ -40,6 +40,15 @@ Switches
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.12 (2025-12-06)
+- Fixed content position caused by previous version
+
+### 0.3.11 (2025-12-04)
+- Added padding options for dialog titlebar (#102, #153)
+- Added "close after x seconds" option for dialog (#102)
+- Added option to hide dialog titlebar (#102)
+- Added image resize and position options (#101)
+
 ### 0.3.10 (2025-11-20)
 - Updated dependencies
 

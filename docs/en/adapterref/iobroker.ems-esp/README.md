@@ -40,32 +40,37 @@ English documentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/e
 German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
 
 
+* New version for ems-esp module: All entity types are now read without being selected by checkboxes:
+  temperature- and analogsensor, custom and scheduler entities 
+
+* The adapterversion >= 7.0.0 supports only ems-esp firmware versions >= 7.2.0  
+  
+
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 7.0.0 (2025-12-09)
+* ems-esp: rework of coding --> this adapter version only supports firmware >= 3.7.2 !!!
+* ems-esp: All entity types are now read without being selected by checkboxes
 
-### **WORK IN PROGRESS**
+### 6.0.5 (2025-12-04)
+* ems-esp: reduce read timeout error messages
+
+### 6.0.4 (2025-12-03)
+* ems-esp: return to version 6.0.2 for error handling
+
+### 6.0.3 (2025-12-01)
 * dependabot updates 
-* update error message for ems-esp gateway 
+* update error message for ems-esp gateway
 
 ### 6.0.2 (2025-11-01)
 * increase axios timeout for km200 reads
 * dependabot updates
 * updating pdf docu in respect to energy statistics for ems-esp gateways
 * Migrate to NPM Trusted Publishing
-
-### 6.0.1 (2025-10-03)
-* dependabot updates 
-* eslint 9 migration
-* test and release with node 24.x
-* repository checker updates
-
-### 6.0.0 (2025-05-08)
-* ems-esp: NEW encrypt ems token - token needs to be re-entered
-* minimum node version 20 required
-* dependabot updates
 
 ## License
 MIT License

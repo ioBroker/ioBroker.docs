@@ -89,6 +89,9 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Layout fix in edit object dialog
+
 ### 7.7.20 (2025-11-15)
 - (@GermanBluefox) Small optimizations
 - (@GermanBluefox) Allowed to upload objects via text

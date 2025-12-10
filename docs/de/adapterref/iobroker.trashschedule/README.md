@@ -80,6 +80,10 @@ ttd:
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.1.0 (2025-12-09)
+
+* (@klein0r) Added Wolfenbüttel to providers
+
 ### 5.0.1 (2025-11-26)
 
 * (@klein0r) Increased timeout of api calls
@@ -101,10 +105,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 * (@klein0r) Fixed deletion of api cache files
 * (@klein0r) Added additional JSON state for each type
 * (@klein0r) Improved logging
-
-### 3.4.1 (2024-11-24)
-
-* (@Sickboy78) Awido: Increased number of fetched pickups per type (1 month)
 
 ## License
 

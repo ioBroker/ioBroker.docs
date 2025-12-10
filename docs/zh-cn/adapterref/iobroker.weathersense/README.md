@@ -3,36 +3,44 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.weathersense/README.md
 title: ioBroker.weathersense
-hash: Mtg3sLsXQOEGWXyDos8Iz3B4waRMJE1e6brAlGW++HM=
+hash: R9W0fq0+0n0bk9WmcAT2HZ4T+O732ZgL0df6q6YXULQ=
 ---
 ![标识](../../../en/adapterref/iobroker.weathersense/admin/weathersense.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.weathersense.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.weathersense.svg)
 ![安装数量](https://iobroker.live/badges/weathersense-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/weathersense-stable.svg)
-![新公共管理](https://nodei.co/npm/iobroker.weathersense.png?downloads=true)
+![稳定仓库中的当前版本](https://iobroker.live/badges/weathersense-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.weathersense.png?downloads=true)
 
 # IoBroker.weathersense
-**测试：**![测试和发布](https://github.com/ltspicer/ioBroker.weathersense/workflows/Test%20and%20Release/badge.svg)
+**测试：** ![测试与发布](https://github.com/ltspicer/ioBroker.weathersense/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 WeatherSense 适配器
-WeatherSense 是一款气象站云服务。此适配器从 WeatherSense 服务器读取数据。
+WeatherSense 是一个气象站云平台。此适配器从 WeatherSense 服务器读取数据。
 
 请参阅：https://play.google.com/store/apps/details?id=com.emax.weahter&hl=de_CH
 
-一些 WiFi 气象站使用 WeatherSense Cloud。
+部分 WiFi 气象站使用 WeatherSense 云服务。
 
-例如，Ideoon (Pearl) 的这个 WiFi 气象站：
+例如，Ideoon（Pearl）的这款WiFi气象站：
 
 ![截屏](https://github.com/ltspicer/WeatherSense/blob/main/wetterstation.png)
 
+![截屏](https://github.com/ltspicer/WeatherSense/blob/main/casativo_ideoon_weatherstation.png)
+
 ＃＃ 使用：
-只需输入您的 WeatherSense 帐户登录信息（电子邮件和密码）。
+只需输入您的 WeatherSense 账户登录信息（邮箱和密码）。
+
 气象站数据存储在 WeatherSense 数据点中。
+
 数据也可以通过 MQTT 发送。
 
 ## Changelog
+### 3.0.3 (2025-09-14)
+
+- eslint-config & testing version updated
+
 ### 3.0.2 (2025-08-29)
 
 - Passwords protected, clean convert string > number

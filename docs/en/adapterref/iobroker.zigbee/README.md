@@ -137,12 +137,20 @@ Other topics related to this adapter are also documented in the associated [wiki
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* Update documentation
+*
+
+### 3.3.0 (2025-12-08)
 * Fix: dynamic model assignment when exposes is function (PTVO, BuschJaeger)
 * Fix: Roles
 * Refactor: Legacy code moved
 * Refactor: Expose creation changed.
 * Refactor: Exposes no longer use states from legacy code
 * Feature: Offer state rebuild function in Settings
+* (mh2134): Additional filters for device display
+* Fix: Orphaned group states detected, marked and deletable
+* Update: ZH 7.x
+* Update: ZHC 25.84.0
 
 ### 3.2.5 (2025-10-31)
 * (asgothian) changed setState for lasterror

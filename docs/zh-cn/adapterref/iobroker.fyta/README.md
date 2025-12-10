@@ -3,29 +3,38 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fyta/README.md
 title: ioBroker.fyta
-hash: bq+rf5I9Fnbivtr2XfW43a87NdAZqNd3qhX9vFJRj4k=
+hash: YabwSSWcwDpZ+C8PZxUg+SdqoP++KCYKVDv/sTyQXoU=
 ---
 ![标识](../../../en/adapterref/iobroker.fyta/admin/fyta.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.fyta.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.fyta.svg)
 ![安装数量](https://iobroker.live/badges/fyta-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/fyta-stable.svg)
-![新平台](https://nodei.co/npm/iobroker.fyta.png?downloads=true)
+![稳定仓库中的当前版本](https://iobroker.live/badges/fyta-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.fyta.png?downloads=true)
 
 # IoBroker.fyta
 <!--
 
-**测试：**![测试与发布](https://github.com/muffin142/ioBroker.fyta/workflows/Test%20and%20Release/badge.svg) -->
+**测试：** ![测试与发布](https://github.com/muffin142/ioBroker.fyta/workflows/Test%20and%20Release/badge.svg) -->
 
 ## IoBroker 的 FYTA 适配器
-可以购买用于将 ioBroker 连接到 [FYTA 工厂传感器](https://fyta.de/) 传感器的非官方适配器以及 [FYTA店铺](https://fyta.de/collections/all/products/10-beams-1-hub)
+用于连接 ioBroker 到 [FYTA 植物传感器](https://fyta.de/) 传感器的非官方适配器可在 [FYTA商店](https://fyta.de/collections/all) 购买
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.1 (2025-12-08)
+-	Error messages corrected and specified
+
+### 0.2.0 (2025-04-28)
+-   Added retrieval of raw values
+-	Added use of internal notifications
+
+### 0.1.5 (2025-03-23)
+-   fix token handling when downloading plant images
 
 ### 0.1.4 (2025-02-23)
 -   minor changes due to publishing in ioBroker.repository:latest

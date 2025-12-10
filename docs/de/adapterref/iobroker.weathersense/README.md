@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.weathersense/README.md
 title: ioBroker.weathersense
-hash: Mtg3sLsXQOEGWXyDos8Iz3B4waRMJE1e6brAlGW++HM=
+hash: R9W0fq0+0n0bk9WmcAT2HZ4T+O732ZgL0df6q6YXULQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.weathersense/admin/weathersense.png)
 
@@ -14,25 +14,31 @@ hash: Mtg3sLsXQOEGWXyDos8Iz3B4waRMJE1e6brAlGW++HM=
 ![NPM](https://nodei.co/npm/iobroker.weathersense.png?downloads=true)
 
 # IoBroker.weathersense
-**Tests:** ![Testen und Freigeben](https://github.com/ltspicer/ioBroker.weathersense/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/ltspicer/ioBroker.weathersense/workflows/Test%20and%20Release/badge.svg)
 
 ## WeatherSense-Adapter für ioBroker
-WeatherSense ist eine Cloud für Wetterstationen. Dieser Adapter liest Daten vom WeatherSense-Server.
+WeatherSense ist eine Cloud-Plattform für Wetterstationen. Dieser Adapter liest Daten vom WeatherSense-Server.
 
 Siehe: https://play.google.com/store/apps/details?id=com.emax.weahter&hl=de_CH
 
-Einige WLAN-Wetterstationen verwenden die WeatherSense Cloud.
+Einige WLAN-Wetterstationen nutzen die WeatherSense Cloud.
 
-Zum Beispiel diese WLAN-Wetterstation von Ideoon (Pearl):
+Zum Beispiel diese WLAN-Wetterstationen von Ideoon (Pearl):
 
 ![Screenshot](https://github.com/ltspicer/WeatherSense/blob/main/wetterstation.png)
 
+![Screenshot](https://github.com/ltspicer/WeatherSense/blob/main/casativo_ideoon_weatherstation.png)
+
 ## Verwenden:
-Geben Sie einfach Ihre WeatherSense-Konto-Anmeldedaten (E-Mail und Passwort) ein.
-Die Daten der Wetterstation werden im WeatherSense-Datenpunkt gespeichert.
-Die Daten können auch per MQTT gesendet werden.
+Geben Sie einfach Ihre Anmeldedaten für Ihr WeatherSense-Konto ein (E-Mail-Adresse und Passwort).
+Die Wetterstationsdaten werden im WeatherSense-Datenpunkt gespeichert.
+Die Daten können auch per MQTT übertragen werden.
 
 ## Changelog
+### 3.0.3 (2025-09-14)
+
+- eslint-config & testing version updated
+
 ### 3.0.2 (2025-08-29)
 
 - Passwords protected, clean convert string > number

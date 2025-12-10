@@ -157,6 +157,9 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.9.1 (2025-11-29)
+- (ticaki) Fixed: Under certain circumstances, the adapter crashes when a pop-up is called.
+
 ### 0.9.0 (2025-11-21)
 - (armilar) HMI: long press added (v5.1.1)
 - (ticaki) Replace double-click with long press 

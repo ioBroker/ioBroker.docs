@@ -124,6 +124,9 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Layout fix in edit object dialog
+
 ### 7.7.20 (2025-11-15)
 - (@GermanBluefox) Small optimizations
 - (@GermanBluefox) Allowed to upload objects via text

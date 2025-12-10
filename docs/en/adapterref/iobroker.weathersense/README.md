@@ -19,9 +19,11 @@ See: https://play.google.com/store/apps/details?id=com.emax.weahter&hl=de_CH
 
 Some WiFi weather stations use the WeatherSense Cloud.
 
-For example, this WiFi weather station from Ideoon (Pearl):
+For example, this WiFi weather stations from Ideoon (Pearl):
 
 ![Screenshot](https://github.com/ltspicer/WeatherSense/blob/main/wetterstation.png)
+
+![Screenshot](https://github.com/ltspicer/WeatherSense/blob/main/casativo_ideoon_weatherstation.png)
 
 ## Use:
 

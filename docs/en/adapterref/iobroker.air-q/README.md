@@ -27,13 +27,18 @@ This ioBroker Adapter is used in connection with our [air-Q device](https://www.
 
 ## Getting started <a id="start" />
 
-You should be able to find the adapter through the admin interface.
+### Install the adapter and add an instance
+
+In your admin interface, navigate to `Adapters` in the side bar and search for `air-q` in `Filter by name`. Select `+` (`Add instance`) in the `⋮` (`Info`) menu of the adapter.
+
+This will automatically open the instance settings.
 
 Otherwise you're welcome to use the ioBroker command line interface through the console. Simply direct to your ioBroker root folder and add the adapter via
 ```
 iobroker add air-q
 ```
-This installs the adapter (if it isn't installed already) and starts an instance. 
+This installs the adapter (if it isn't installed already) and adds an instance. You still have to configure this instance, as described below.
+
 In case you only want to install the adapter without creating an instance yet, use the following command:
 
 ```
@@ -42,16 +47,31 @@ iobroker install air-q
 
 For more information visit the ioBroker CLI documentation under https://github.com/ioBroker/ioBroker/wiki/Console-commands. 
 
+## Configuration
+
+### Required
+
 To configure your instance you simply select whether you want to connect it through the IP or the short-ID of your device.
 
-![Screenshot 2024-02-13 103001](https://github.com/CorantGmbH/ioBroker.air-q/assets/107550719/ec878783-af56-490d-af66-43c53c27df20)
+<img width="1263" height="953" alt="2025-12-10T17:57:57,025532652+01:00" src="https://github.com/user-attachments/assets/93ff4c76-bdf5-4336-bb5a-1a0aa844ec0d" />
 
-Please make sure you enter the correct IP/ID and password. 
-Then you can also choose how the data should be retrieved. You can clip negative values if you don't need them, with the exception of temperature, of course. You can set up how often the data should be polled by typing in the number in seconds. And lastly you can choose between realtime data or average data. 
+Please make sure you enter the correct IP/ID and password.
 
-![Screenshot 2024-02-13 104813](https://github.com/CorantGmbH/ioBroker.air-q/assets/107550719/429c57ab-933f-4930-a02b-30da7b5df180)
+### Optional
+
+- **Respect device night mode**. Default: `on`. When your air-Q device has night mode enabled with WiFi disabled during the night hours, the adapter can automatically skip polling attempts during those hours. This eliminates unnecessary connection errors in your logs. ⚠️ If you change your device's night mode settings (start/end times, enable/disable), you have two options:
+    1. (Recommended): Restart the adapter to immediately load the new configuration
+    2. (Automatic): Wait up to 1 hour for the adapter to automatically refresh the configuration (only works outside of night mode hours)
+
+- **Clip negative values**. Default: `off`. For baseline calibration purposes, certain sensor values may briefly become negative. You can safely clip such values to 0.
+
+- **Poll data every x seconds**. Default: `10`. You can configure how often the data should be polled by entering the number in seconds.
+
+- **Retrieve data type**. Default: `Average data`. In its default configuration, air-Q averages the stream of sensor values. This adapter allows to switch between polling the averaged and the raw data from the device. To poll noisy sensor readings from the device, select `Realtime data` from the drop-down menu.
 
 Now you should be all set up and good to go!
+
+## Sensors are objects
 
 The data will be retrieved and shown in the objects-tab according to your configuration, when the device is found. Of course, depending on the device you own, there might be more sensors shown. 
 
@@ -60,6 +80,9 @@ The data will be retrieved and shown in the objects-tab according to your config
 ***For now we have all sensors for the air-Q Pro included. Optional sensors will be included in a future patch.***
 
 ## Changelog <a id="change" />
+
+### 1.0.6
+* The adapter can automatically respect your air-Q device's night mode configuration
 
 ### 1.0.5
 * Fixed sensors dropping custom configuration after a restart

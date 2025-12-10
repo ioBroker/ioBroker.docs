@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: EAKZ0Anx09hS8DeJxkB9P5e65e6vvxJxCHMdCWooShE=
+hash: Kgmh9LqbTIR0bii57g5PWB0JCHdgOH8K7VzBh5mPd7o=
 ---
 ![标识](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -44,9 +44,7 @@ hash: EAKZ0Anx09hS8DeJxkB9P5e65e6vvxJxCHMdCWooShE=
 ---
 
 ## ❗ 警告
-轮询间隔过频繁（默认值：5 分钟）会缩短设备电池寿命，因为设备总是被手动唤醒。
-
-该适配器并非用于报警功能，其主要用于监控设备电池状态。
+该适配器**并非**设计用于报警功能——它主要用于监测设备电池状态。
 
 ---
 
@@ -118,6 +116,12 @@ pip --version
 
 如果该文件不存在，则说明您等待适配器启动的时间不够长。
 
+安装后出现错误信息
+
+[XSense] 找不到软件包“@mongodb-js/zstd”
+
+请检查您的 Node 版本。zstd 与 Node 24 存在兼容性问题。
+
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 
@@ -128,6 +132,9 @@ pip --version
 ------------------------------------------------------------------------------
 
 ## Changelog
+### 0.2.2 (2025-12-03)
+* (arteck) add XS0D-MR
+
 ### 0.2.1 (2025-10-30)
 * (arteck) fix link to readme
 * (arteck) fix load bridge as first

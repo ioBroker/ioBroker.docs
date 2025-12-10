@@ -68,13 +68,19 @@ to make them visible in the Vis. So you have a better overview if you have sever
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.2.0 (2025-12-10)
 
-- CHORE: Update dependecies
+- FIX: #246 Error in time reset
+- FIX: Wrong objects created
+- FEAT: Add initial timer state
+
+### 2.1.3 (2025-11-28)
+
+- CHORE: Update dependencies
 
 ### 2.1.2 (2025-08-13)
 
-- FIX: Errors reported by Sentry
+- FIX: Errors reported by sentry
 - FIX: Add alarm clock to ignored words
 
 ### 2.1.1 (2025-04-28)

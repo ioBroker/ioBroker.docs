@@ -1,88 +1,76 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pi-hole/README.md
-title: ioBroker.pi-hole! [Логотип] (admin / pi-hole.png)
-hash: FCNx3Suc9+EPF5ZDlsOuLVsxxLQISMOlUX5P/GY2zTA=
+title: ioBroker.pi-hole ![Logo](admin/pi-hole.png)
+hash: zCjt4T3wLEz5S5KXUAHye39RlUmcbDMKsxvc6X1H+v0=
 ---
-# IoBroker.pi-hole ![логотип](../../../en/adapterref/iobroker.pi-hole/admin/pi-hole.png)
+# IoBroker.pi-hole ![Логотип](../../../en/adapterref/iobroker.pi-hole/admin/pi-hole.png)
 
 ![Количество установок](http://iobroker.live/badges/pi-hole-stable.svg)
 ![Статус сборки](https://api.travis-ci.org/unltdnetworx/ioBroker.pi-hole.svg?branch=master)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.pi-hole.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.pi-hole.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.pi-hole.svg)
-![NPM](https://nodei.co/npm/iobroker.pi-hole.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.pi-hole.png?downloads=true)
 
 =================
 
-Этот адаптер предназначен для чтения значений из работающей точки и управления устройством (запуск / остановка).
+Этот адаптер предназначен для считывания значений с работающего Pi-Hole и управления устройством (запуск/остановка).
 
-ИСПОЛЬЗУЙТЕ НА СВОЙ РИСК!!! АБСОЛЮТНО НЕТ ГАРАНТИИ НА УЩЕРБ, ETC. !!!
+>[!ПРЕДУПРЕЖДЕНИЕ] >Этот адаптер работает только с версиями Pi-Hole < 6.0.0. Для версий Pi-Hole 6 и новее используйте адаптер [ioBroker.pi-hole2](https://github.com/oweitman/ioBroker.pi-hole2).
 
-Помощь или советы приветствуются.
+> >Техническое обслуживание этого адаптера будет ограничено, так как поддержка Pi-Hole 5 и более ранних версий прекращена.
 
 ## Шаги
-1. Установите adpater
+1. Установите адаптер.
 
-2. Заполните поля адаптера-админа. IP-адрес устройства pi-hole, API-токен, который можно получить из веб-интерфейса администратора устройства pi-hole (Настройки / API / Получить токен), и обязательный интервал для обновления значений пи-дыра (обновить статистику в iobroker))
+2. Заполните поля администратора адаптера. Укажите IP-адрес устройства Pi-hole, API-токен, который можно получить в веб-интерфейсе администратора устройства Pi-hole (Настройки/API/Получить токен), и обязательный интервал обновления значений Pi-hole (статистика обновления в iobroker).
 
-3. Некоторые из объектов являются json-таблицами, которые вы можете использовать внутри vis.
+3. Некоторые из объектов представляют собой JSON-таблицы, которые можно использовать внутри vis.
 
-4. Активируйте фильтр, нажав кнопку «активировать пи-дыру», деактивируйте фильтр, изменив значение «деактивировать пи-дыру» (0 - навсегда, число - количество секунд).
+4. Активируйте фильтр, нажав кнопку «activate pi-hole», деактивируйте фильтр, изменив значение параметра «dactivate pi-hole» (0 — навсегда, число — количество секунд).
 
 ## Требования
-* работает пи-дырка
+* работающее устройство Pi-Hole
 
+## Благодарности
+Создание этого адаптера было бы невозможно без замечательной работы Михаэля Шустера <development@unltd-networx.de>, который разработал предыдущие версии этого адаптера.
+
+<!-- Заполнитель для следующей версии (в начале строки):
+
+### **РАБОТА В ПРОЦЕССЕ** -->
 ## Пожертвовать
-Kaffee тратят / подают кофе <https://paypal.me/unltdnetworx>
+Kaffee потратить/подать кофе <https://paypal.me/unltdnetworx>
 
 ## Changelog
+### 2.0.0 (2025-12-04)
 
-### 1.2.2
+* (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
+* (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
+* (mcm1957) Dependencies have been updated
 
-* (unltdnetworx) bugfix for objecttypes
+### 1.3.6
 
-### 1.2.1
+* (unltdnetworx) support for controller v5
 
-* (unltdnetworx) bugfix for update notification
+### 1.3.4
 
-### 1.2.0
+* (unltdnetworx) disabled "getQueryTypes" for creating lots of spam entries
 
-* (unltdnetworx) datapoint for available update
+### 1.3.2
 
-### 1.1.0
+* (unltdnetworx) ready for Admin 5 and NodeJS 16
 
-* (unltdnetworx) support for ssl-connection
+### 1.3.1
 
-### 1.0.1
-
-* (unltdnetworx) bugfixes
-
-### 1.0.0
-
-* (unltdnetworx) rise of version-number - stable version
-
-### 0.2.1
-
-* (unltdnetworx) small bugfix for storage
-
-### 0.2.0
-
-* (unltdnetworx) cleanup and bugfix for restart and storage
-
-### 0.1.0
-
-* (unltdnetworx) fully working release for LTE_API
-
-### 0.0.1
-
-* (unltdnetworx) initial release
+* (unltdnetworx) new adapter testing and security update
 
 ## License
 
 MIT License
 
-Copyright (c) 2020 Michael Schuster
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023 Michael Schuster
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

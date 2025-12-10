@@ -41,6 +41,10 @@ to the time set by timer.
 
 After the countdown gets the signal stop, the countdown remains at 0.
 
+##### Stop behaviour rerun
+
+When the timer expires, it will automatically restart.
+
 #### Timeseries
 
 In the configuration dialog Tab "Timeseries" you can create a
@@ -54,6 +58,42 @@ This shows that with some combinations the page goes into an endless loop.
 The demo page <http://jakubroztocil.github.io/rrule/> can also be used for experiments.
 Additional to add a timerule, you can add a timerule to exclude time events,
 to add single time events and also to exclude single time events.
+
+In addition to the functionality of rrule, dynamically calculated times
+for the various sun and moon phases can now also be calculated.
+This calculation only occurs if the time interval is at
+least daily (not hourly or minutely).
+
+##### Sun based time events
+
+- astronomicalDawn
+- amateurDawn
+- nauticalDawn
+- blueHourDawnStart
+- civilDawn
+- blueHourDawnEnd
+- goldenHourDawnStart
+- sunriseStart
+- sunriseEnd
+- goldenHourDawnEnd
+- solarNoon
+- goldenHourDuskStart
+- sunsetStart
+- sunsetEnd
+- goldenHourDuskEnd
+- blueHourDuskStart
+- civilDusk
+- blueHourDuskEnd
+- nauticalDusk
+- amateurDusk
+- astronomicalDusk
+- nadir
+
+##### Moon based time events
+
+- moonrise
+- moonhigh
+- moonset
 
 ### Usage
 
@@ -85,6 +125,7 @@ After configuration of a new countdown the adapter creates the following datapoi
 | --------- | ---------------------------------------------------------------------- |
 | action    | actual state of thie countdown. possible values are stop,run,pause,end |
 | cmd       | datapoint for commands. possible commands are described below          |
+| config    | enthält zusätzliche konfiguration für den countdowntimer.              |
 | start     | datapoint for the start time in milliseconds                           |
 | end       | datapoint for the end time in milliseconds                             |
 | timer     | datapoint for the total time set in milliseconds                       |
@@ -100,26 +141,27 @@ After configuration of a new countdown the adapter creates the following datapoi
 
 ##### Available commands for the cmd datapoint
 
-| command         | example                 | description                                                                                   |
-| --------------- | ----------------------- | --------------------------------------------------------------------------------------------- |
-| `+value`        | `+1:10`                 | adds time to the countdown setting. the setting will be taken into account at the next start  |
-| `+!value`       | ``+!1:10`               | like + operator and extend the running timer                                                  |
-| `-value`        | `-1:2:3`                | subtracts time from the countdown. the setting will be taken into account at the next start   |
-| `-!value`       | `-!1:2:3`               | like - operator and reduce the running timer                                                  |
-| `=value`        | `=5:00`                 | set the countdowntimer to this time.                                                          |
-| `=!value`       | `=!5:00`                | like = operator and set running timer to the given time                                       |
-| `#ISO-Date`     | `#2025-01-01T10:00:00`  | set the countdowntimer to a target time. The Time must be formatted as ISO-Datestring         |
-| `#!ISO-Date`    | `#!2025-01-01T10:00:00` | like # operator and setting running timer to the given target time                            |
-| `$Time`         | `$20:15`                | set the countdowntimer to a target time. If Time is before current time. the next day is set. |
-| `$!Time`        | `$!20:15`               | like $ operator and setting running timer to the given target time                            |
-| `start`         | `start`                 | starts the countdown                                                                          |
-| `stop`          | `stop`                  | stops the countdown. the countdown time is reset to the setting                               |
-| `pause`         | `pause`                 | pauses the countdown                                                                          |
-| `end`           | `end`                   | stops the countdown. the countdown is set to 0                                                |
-| `reset`         | `reset`                 | reset the timer to the configuration state                                                    |
-| `setstop2timer` | `setstop2timer`         | set stop behaviour configuration to timer                                                     |
-| `setstop2zero`  | `setstop2zero`          | set stop behaviour configuration to zeros                                                     |
-| `save`          | `save`                  | save the configuration defined in datapoints to the iobroker configuration, iobroker restarts the adapter after saving automatically                    |
+| command         | example                 | description                                                                                                                          |
+| --------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `+value`        | `+1:10`                 | adds time to the countdown setting. the setting will be taken into account at the next start                                         |
+| `+!value`       | ``+!1:10`               | like + operator and extend the running timer                                                                                         |
+| `-value`        | `-1:2:3`                | subtracts time from the countdown. the setting will be taken into account at the next start                                          |
+| `-!value`       | `-!1:2:3`               | like - operator and reduce the running timer                                                                                         |
+| `=value`        | `=5:00`                 | set the countdowntimer to this time.                                                                                                 |
+| `=!value`       | `=!5:00`                | like = operator and set running timer to the given time                                                                              |
+| `#ISO-Date`     | `#2025-01-01T10:00:00`  | set the countdowntimer to a target time. The Time must be formatted as ISO-Datestring                                                |
+| `#!ISO-Date`    | `#!2025-01-01T10:00:00` | like # operator and setting running timer to the given target time                                                                   |
+| `$Time`         | `$20:15`                | set the countdowntimer to a target time. If Time is before current time. the next day is set.                                        |
+| `$!Time`        | `$!20:15`               | like $ operator and setting running timer to the given target time                                                                   |
+| `start`         | `start`                 | starts the countdown                                                                                                                 |
+| `stop`          | `stop`                  | stops the countdown. the countdown time is reset to the setting                                                                      |
+| `pause`         | `pause`                 | pauses the countdown                                                                                                                 |
+| `end`           | `end`                   | stops the countdown. the countdown is set to 0                                                                                       |
+| `reset`         | `reset`                 | reset the timer to the configuration state                                                                                           |
+| `setstop2timer` | `setstop2timer`         | set stop behaviour configuration to timer                                                                                            |
+| `setstop2zero`  | `setstop2zero`          | set stop behaviour configuration to zero                                                                                             |
+| `setstop2rerun` | `setstop2rerun`         | set stop behaviour configuration to rerun                                                                                            |
+| `save`          | `save`                  | save the configuration defined in datapoints to the iobroker configuration, iobroker restarts the adapter after saving automatically |
 
 ##### Format of the value for setting the countdown timer
 
@@ -144,12 +186,18 @@ If you want you can set irregular time notations. the time is summed up seperatl
 | 48:0:0    | set/adds/subtracts 48 hours to the timer    |
 | 48:75:120 | set/adds/subtracts the timer                |
 
-##### Format of the template to format the countdown output in the widget
+##### Format of the Datetime to format the output in the widget
 
 The following placeholders are available:
 
 | placeholder | description                                                     |
 | ----------- | --------------------------------------------------------------- |
+| YYYY        | years in 4 digits                                               |
+| YY          | years in 2 digits                                               |
+| w           | months without leading zeros, (not together with the months)    |
+| ww          | months with leading zeros, (not together with the months)       |
+| M           | months without leading zeros, (not together with the weeks)     |
+| MM          | months with leading zeros, (not together with the weeks)        |
 | d           | days without leading zeros                                      |
 | dd          | days with leading zeros                                         |
 | H           | hours without leading zeros                                     |
@@ -159,6 +207,13 @@ The following placeholders are available:
 | s           | seconds without leading zeros                                   |
 | ss          | seconds with leading zeros                                      |
 | \           | Escape character if you want to use a placeholder in the output |
+
+When multiple parts are taken, there must be no gaps between them.
+
+Example:
+
+Valid: year, month, day | hour, minute, second
+Irvalid: year, minute, second
 
 **Examples:**
 
@@ -178,22 +233,26 @@ From Version 1.2.0 on the widgets should be compatible with vis1 and vis2.
 
 #### Widget Countdown plain
 
-A countdown widget for a plain textual output
+![Widget Countdown plain](admin/mytime-plain.png)
 
-##### Widget Properties
+A countdown widget for a plain textual output.
+The output can be configured in detail.
 
-###### oid
+##### Widget Attributes
 
-The timer datapoint of a countdown datapoint.
-
-###### Format
-
-Formats the timer output. default is mm:ss. for details see Chapter format template
+| Attribute      | Description                                                                                                                                  |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Object ID`    | Datapoint of the countdown timer. any datapoint can be used                                                                                  |
+| `Format`       | Format of the output, Please see chapter [Datetime Format](#format-of-the-template-to-format-the-countdown-output-in-the-widget) for details |
+| `HTML-Prepend` | This text or html is prepended to the output of the widget                                                                                   |
+| `HTML-Append`  | This text or html is appended to the output of the widget                                                                                    |
 
 ##### Example widget code
 
 The widgets are preconfigured for a countdown named test.
 There a 2 seperate versions for vis1 and vis2
+
+![Example](admin/mytime-example1.png)
 
 **VIS1:**
 
@@ -209,78 +268,111 @@ There a 2 seperate versions for vis1 and vis2
 <pre><code>[{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"pause","value":"pause"},"style":{"bindings":[],"left":"423.0000305175781px","top":"402.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000001"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"start","value":"start"},"style":{"bindings":[],"left":"361.0000305175781px","top":"402.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000002"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"stop","value":"stop"},"style":{"bindings":[],"left":"485.0000305175781px","top":"402.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000003"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"+10","value":"+10"},"style":{"bindings":[],"left":"423.0000305175781px","top":"349.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000004"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"=100","value":"=100"},"style":{"bindings":[],"left":"361.0000305175781px","top":"349.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000005"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"-10","value":"-10"},"style":{"bindings":[],"left":"485.0000305175781px","top":"349.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000006"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"+!10","value":"+!10"},"style":{"bindings":[],"left":"423.0000305175781px","top":"320.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000007"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"=!100","value":"=!100"},"style":{"bindings":[],"left":"361.0000305175781px","top":"320.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000008"},{"tpl":"tplIconState","data":{"bindings":[],"oid":"mytime.0.Countdowns.test.cmd","type":"value","g_common":true,"step":1,"minmax":1,"repeat_delay":800,"repeat_interval":300,"min":0,"max":100,"variant":"contained","g_style":true,"text":"-!10","value":"-!10"},"style":{"bindings":[],"left":"485.0000305175781px","top":"320.00001525878906px","width":"59px","height":"26px"},"widgetSet":"jqui","_id":"i000009"},{"tpl":"tplMyTimeCountdownPlain","data":{"bindings":[],"countdown_format":"dd\\d HH\\h mm\\m ss\\s","g_common":true,"g_css_border":true,"countdown_oid":"mytime.0.Countdowns.test.timer","g_css_font_text":true},"style":{"bindings":[],"left":"361.0000305175781px","top":"375.00001525878906px","width":"182px","height":"24px","border-width":"0","border-style":"solid","border-color":"rgba(237,235,243,1)","text-align":"center"},"widgetSet":"mytime","_id":"i000010"}]</code></pre>
 </details>
 
-**The actual action state (cdstop,cdrun,cdpause,cdend) of the countdown is available as CSS-Class selector:**
+**The actual action state (cdstop,cdrun,cdpause,cdend)
+of the countdown is available as CSS-Class selector:**
 
 ```css
 #w00000 .timer.cdend {
-  color: red;
+    color: red;
 }
 #w00000 .timer.cdrun {
-  color: green;
+    color: green;
 }
 ```
 
 #### Widget Reverse Countdown plain
 
+![Widget Reverse Countdown](admin/mytime-reverse.png)
+
 A widget that shows the elapsed time from a given point in time
 
 ##### Widget Properties of Reverse Countdown plain
 
-| Datapoint    | Description                                                                                                                                                                                                                                                                              |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| datetime     | A DateTime-String of the start time. The expression must be interpretable by the javascript function new Date(expression). See also <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse> Example: 2022-01-10 23:12 or 2022-01-104T23:12:00.000Z |
-| Format       | Formats the timer output. default is mm:ss. for details see Chapter format template                                                                                                                                                                                                      |
-| HTML-Prepend | This text or html is prepended to the output of the widget                                                                                                                                                                                                                               |
-| HTML-Append  | This text or html is appended to the output of the widget                                                                                                                                                                                                                                |
+| Datapoint      | Description                                                                                                                                                                                                                                                                              |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ISO datetime` | A DateTime-String of the start time. The expression must be interpretable by the javascript function new Date(expression). See also <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse> Example: 2022-01-10 23:12 or 2022-01-104T23:12:00.000Z |
+| `Format`       | Formats the timer output. default is mm:ss. Please see chapter [Datetime Format](#format-of-the-template-to-format-the-countdown-output-in-the-widget) for details                                                                                                                       |
+| `HTML-Prepend` | This text or html is prepended to the output of the widget                                                                                                                                                                                                                               |
+| `HTML-Append`  | This text or html is appended to the output of the widget                                                                                                                                                                                                                                |
 
 #### Widget Countdown Circle
+
+![Widget Countdown Circle](admin/mytime-circle.png)
 
 A countdown widget in a ring/circle design.
 
 ##### Widget Properties of Countdown Circle
 
-| Datapoint  | Description                                                                                                                                   |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| oid        | The timer datapoint of a countdown datapoint.                                                                                                 |
-| notimetext | Disables the time text over the polar clock                                                                                                   |
-| Format     | Formats the timer output. default is mm:ss. for details see Chapter format template. ReversevSetting for growing or shrinking the ring/circle |
-| Width      | The width of the ring or circle.                                                                                                              |
-| Ring gap   | Gap in pixel between the rings                                                                                                                |
-| Caps       | Setting for the ends of the ring/circle: round or straight                                                                                    |
-| background | Backgroundcolor of the ring/circle                                                                                                            |
-| foreground | Foregroundcolor of the ring/circle                                                                                                            |
-| showsec    | Show the ring of seconds                                                                                                                      |
-| showmin    | Show the ring of minutes                                                                                                                      |
-| showhrs    | Show the ring of minutes                                                                                                                      |
-| showday    | Show the ring of days                                                                                                                         |
+| Attribute                | Description                                                                                                                                                                                                           |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Object ID`              | The timer datapoint of a countdown datapoint.                                                                                                                                                                         |
+| `notimetext`             | Disables the time text over the polar clock                                                                                                                                                                           |
+| `Format`                 | Formats the timer output. default is mm:ss. for details see Chapter [Datetime Format](#format-of-the-template-to-format-the-countdown-output-in-the-widget). ReversevSetting for growing or shrinking the ring/circle |
+| `reverse`                | The width of the ring or circle.                                                                                                                                                                                      |
+| `Width`                  | The width of the ring or circle.                                                                                                                                                                                      |
+| `Ring gap`               | Gap in pixel between the rings                                                                                                                                                                                        |
+| `Ring Caps`              | Setting for the ends of the ring/circle: round or straight                                                                                                                                                            |
+| `background`             | Backgroundcolor of the ring/circle                                                                                                                                                                                    |
+| `foreground`             | Foregroundcolor of the ring/circle                                                                                                                                                                                    |
+| `countdown_color_second` | Foregroundcolor of the second ring/circle                                                                                                                                                                             |
+| `countdown_color_hour`   | Foregroundcolor of the hour ring/circle                                                                                                                                                                               |
+| `countdown_color_day`    | Foregroundcolor of the day ring/circle                                                                                                                                                                                |
+| `countdown_color_week`   | Foregroundcolor of the week ring/circle                                                                                                                                                                               |
+| `countdown_color_month`  | Foregroundcolor of the month ring/circle                                                                                                                                                                              |
+| `countdown_color_year`   | Foregroundcolor of the second ring/circle                                                                                                                                                                             |
+| `showsec`                | Show the ring of seconds                                                                                                                                                                                              |
+| `showmin`                | Show the ring of minutes                                                                                                                                                                                              |
+| `showhrs`                | Show the ring of minutes                                                                                                                                                                                              |
+| `showday`                | Show the ring of days                                                                                                                                                                                                 |
+| `showmonth`              | Show the ring of months (not together with the weeks)                                                                                                                                                                 |
+| `showweek`               | Show the ring of weeks (not together with the months)                                                                                                                                                                 |
+| `showyear`               | Show the ring of years                                                                                                                                                                                                |
 
-**The actual action state (cdstop,cdrun,cdpause,cdend) of the countdown is available as CSS-Class selector:**
+When multiple parts are selected, there must be no gaps between them.
+
+Example:
+
+Valid: year, month, day | hour, minute, second
+Irvalid: year, minute, second
+
+**The actual action state (cdstop,cdrun,cdpause,cdend)
+of the countdown is available as CSS-Class selector:**
 
 ```css
 #w00000 .timer.cdend {
-  color: red;
+    color: red;
 }
 #w00000 .timer.cdrun {
-  color: green;
+    color: green;
 }
 ```
 
 #### Widget Countdown FlipClock
 
-A countdown widget in a airport flip board style
+![Widget Countdown FlipClock](admin/mytime-flip.png)
+
+A countdown widget in a airport flip board style.
+Only 100 day - 1 second is supported.
 
 ##### Widget Properties of Countdown FlipClock
 
-| Datapoint                  | Description                                                     |
-| -------------------------- | --------------------------------------------------------------- |
-| oid                        | The timer datapoint of a countdown datapoint.                   |
-| countdown_showsec          | Shows the seconds-part. there must be no gap between two units. |
-| countdown_showmin          | Shows the minute-part. there must be no gap between two units.  |
-| countdown_showhrs          | Shows the hours-part. there must be no gap between two units.   |
-| countdown_showday          | Shows the day-part. there must be no gap between two units.     |
-| countdown_color            | Color of the countdowntimer                                     |
-| countdown_background_color | Backgroundcolor of the countdowntimer                           |
-| countdown_dot_color        | Color of the dots of the countdowntimer                         |
+| Attribute             | Description                                   |
+| --------------------- | --------------------------------------------- |
+| `Object ID`           | The timer datapoint of a countdown datapoint. |
+| `showsec`             | Shows the seconds-part.                       |
+| `showmin`             | Shows the minute-part.                        |
+| `showhrs`             | Shows the hours-part.                         |
+| `showday`             | Shows the day-part.                           |
+| `color`               | Color of the countdowntimer                   |
+| `background_color`    | Backgroundcolor of the countdowntimer         |
+| `countdown_dot_color` | Color of the dots of the countdowntimer       |
+
+When multiple parts are selected, there must be no gaps between them.
+
+Example:
+
+Valid: year, month, day | hour, minute, second
+Irvalid: year, minute, second
 
 **Tips:**
 
@@ -288,34 +380,47 @@ If you want to adjust the size of the countdown flipclock,
 under css settings in vis you can enter for half size:
 Group CSS-Common / transform "scale(0.5)"
 
-**The actual action state (cdstop,cdrun,cdpause,cdend) of the countdown is available as CSS-Class selector:**
+**The actual action state (cdstop,cdrun,cdpause,cdend)
+of the countdown is available as CSS-Class selector:**
 
 ```css
 #w00000 .timer.cdend {
-  color: red;
+    color: red;
 }
 #w00000 .timer.cdrun {
-  color: green;
+    color: green;
 }
 ```
 
 #### Widget Countdown NixieClock
 
+![Widget Countdown NixieClock](admin/mytime-nixie.png)
+
 A countdown widget in a Nixie-Tube/LED style
 
 ##### Widget Properties of Countdown NixieClock
 
-| Datapoint                  | Description                                                     |
-| -------------------------- | --------------------------------------------------------------- |
-| oid                        | The timer datapoint of a countdown datapoint.                   |
-| countdown_showsec          | Shows the seconds-part. there must be no gap between two units. |
-| countdown_showmin          | Shows the minute-part. there must be no gap between two units.  |
-| countdown_showhrs          | Shows the hours-part. there must be no gap between two units.   |
-| countdown_showday          | Shows the day-part. there must be no gap between two units.     |
-| countdown_color_active     | Color of the countdowntimer                                     |
-| countdown_color_inactive   | Color of the inactiv digits                                     |
-| countdown_opacity_inactive | Opacity of the color of the inactive digits                     |
-| countdown_glowcolor        | Color of the glow around thie Nixie-digits                      |
+| Attribute                  | Description                                          |
+| -------------------------- | ---------------------------------------------------- |
+| Object ID                  | The timer datapoint of a countdown datapoint.        |
+| countdown_showsec          | Shows the seconds-part.                              |
+| countdown_showmin          | Shows the minute-part.                               |
+| countdown_showhrs          | Shows the hours-part.                                |
+| countdown_showday          | Shows the day-part.                                  |
+| countdown_showmonth        | Shows the monthy-part. (not together with the weeks) |
+| countdown_showweek         | Shows the week-part. (not together with the months)  |
+| countdown_showyear         | Shows the year-part.                                 |
+| countdown_color_active     | Color of the countdowntimer                          |
+| countdown_color_inactive   | Color of the inactiv digits                          |
+| countdown_opacity_inactive | Opacity of the color of the inactive digits          |
+| countdown_glowcolor        | Color of the glow around thie Nixie-digits           |
+
+When multiple parts are selected, there must be no gaps between them.
+
+Example:
+
+Valid: year, month, day | hour, minute, second
+Irvalid: year, minute, second
 
 ##### Tips
 
@@ -329,7 +434,7 @@ A CSS class must be created for the negative margin.
 
 ```css
 #w00000 .cdclock {
-margin-top: -5px;
+    margin-top: -5px;
 }
 ```
 
@@ -346,41 +451,42 @@ corresponding settings cannot be configured in the widget settings:
 
 ```css
 #w00000 {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 ```
 
 #### Widget Wordclock
 
+![Widget Wordclock](admin/mytime-wordclock.png)
+
 A widget to show a wordclock with many options
 
 ##### Widget Properties of Wordclock
 
-| Datapoint         | Description                                              |
-| ----------------- | -------------------------------------------------------- |
-| language          | Some different languages for the wordclock are available |
-| letterActivated   | Color for the highlighted words                          |
-| letterDeactivated | Color for the normal letters                             |
-| wordclockMargin   | Margin between the wordclock and the LEDs                |
-| withMinutes       | Show the Minute-LEDs in the Corner of the wordclock      |
-| minuteSize        | Size in Pixels of the Minute LEDs                        |
-| minuteColor       | color of the Minute LED                                  |
-| withSeconds       | Show the Seconds-LEDs of the wordclock                   |
-| secondSize        | Size in Pixels of the Seconds LEDs                       |
-| secondColor       | color of the Seconds LED                                 |
-| timezone          | The time of the selected timezone is displayed           |
+| Datapoint           | Description                                              |
+| ------------------- | -------------------------------------------------------- |
+| `language`          | Some different languages for the wordclock are available |
+| `letterActivated`   | Color for the highlighted words                          |
+| `letterDeactivated` | Color for the normal letters                             |
+| `wordclockMargin`   | Margin between the wordclock and the LEDs                |
+| `withMinutes`       | Show the Minute-LEDs in the Corner of the wordclock      |
+| `minuteSize`        | Size in Pixels of the Minute LEDs                        |
+| `minuteColor`       | color of the Minute LED                                  |
+| `withSeconds`       | Show the Seconds-LEDs of the wordclock                   |
+| `secondSize`        | Size in Pixels of the Seconds LEDs                       |
+| `secondColor`       | color of the Seconds LED                                 |
+| `timezone`          | The time of the selected timezone is displayed           |
 
-
-
-**The actual action state (cdstop,cdrun,cdpause,cdend) of the countdown is available as CSS-Class selector:**
+**The actual action state (cdstop,cdrun,cdpause,cdend)
+of the countdown is available as CSS-Class selector:**
 
 ```css
 #w00000 .timer.cdend {
-  color: red;
+    color: red;
 }
 #w00000 .timer.cdrun {
-  color: green;
+    color: green;
 }
 ```
 
@@ -408,9 +514,34 @@ A widget to show a wordclock with many options
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.3.0 (2025-12-03)
+
+- remove autocomplete function in the browser
+- improve documentation
+- add html prepend and append to the countdown plain widget
+- Revision of the algorithms for parameter takeover and verification.
+- Revision of the calculation of dynamic time differences
+
+### 2.2.1 (2025-12-01)
+
+- add missing files
+
+### 2.2.0 (2025-12-01)
+
+- add calculation of astro dates to timeseries
+- rework of the timeseries caluclation in the backend
+- this version includes extended debug information (map-files).
+  For this reason, the adapter is approximately 13MB in size instead of 2MB.
+
+### 2.1.0 (2025-11-27)
+
+- switch from crao to vite build system
+- New option for countdown timer: rerun - when the timer expires,
+  it will automatically restart.
+
 ### 2.0.1 (2025-09-08)
 
-- major release: make nixie clock responsive. the users have to adjust the 
+- major release: make nixie clock responsive. the users have to adjust the
   font-size of the widget to get the old size.
   if you want the old size try it with 100px font-size.
 

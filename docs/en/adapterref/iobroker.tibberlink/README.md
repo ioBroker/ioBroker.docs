@@ -168,6 +168,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### **WORK IN PROGRESS**
 
 - (HombachC) clean code for 15min time slots
+- (HombachC) update cron
 
 ### 6.0.3 (2025-11-16)
 

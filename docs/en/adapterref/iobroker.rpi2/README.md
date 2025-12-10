@@ -1,38 +1,49 @@
-![Logo](admin/rpi2.png)
-ioBroker RPI-Monitor Adapter
-==============
+# ioBroker.rpi2
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.rpi2.svg)](https://www.npmjs.com/package/iobroker.rpi2)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.rpi2.svg)](https://www.npmjs.com/package/iobroker.rpi2)
-![Number of Installations](https://iobroker.live/badges/rpi2-installed.svg)
-![Current version in stable repository](https://iobroker.live/badges/rpi2-stable.svg)
+[![NPM version](https://img.shields.io/npm/v/iobroker.rpi2?style=flat-square)](https://www.npmjs.com/package/iobroker.rpi2)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.rpi2?label=npm%20downloads&style=flat-square)](https://www.npmjs.com/package/iobroker.rpi2)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.rpi2?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.rpi2?label=npm%20dependencies&style=flat-square)
 
-[![NPM](https://nodei.co/npm/iobroker.rpi2.png?downloads=true)](https://nodei.co/npm/iobroker.rpi2/)
+![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.rpi2?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.rpi2/test-and-release.yml?branch=master&logo=github&style=flat-square)
 
-**Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.rpi2/workflows/Test%20and%20Release/badge.svg)
+## Versions
+
+![Beta](https://img.shields.io/npm/v/iobroker.rpi2.svg?color=red&label=beta)
+![Stable](http://iobroker.live/badges/rpi2-stable.svg)
+![Installed](http://iobroker.live/badges/rpi2-installed.svg)
+
+RPI-Monitor Adapter for ioBroker
+
 RPI-Monitor implementation for integration into ioBroker. It is the same implementation as for iobroker.rpi, but with GPIOs.
 
 ## Important Information
-Works only with node >= 18
 
-**ioBroker needs special permissions to control GPIOs.** On most Linux distributions this can be achieved by adding the ioBroker user to the `gpio` group (recommended) or running ioBroker under `root` (less secure).
+**ioBroker needs special permissions to control GPIOs.** On most Linux distributions this can be achieved by adding the ioBroker user to the `gpio` group.
 
-For gpio to work, you need to install libgpiod, **before** installing the adapter, like this: `sudo apt-get install -y libgpiod-dev`
+For gpio to work, you need to install `libgpiod` in version `2.x`, **before** installing the adapter (see below)!
 
 ## Installation
+
 After installation you have to configure all required modules via administration page.
 
 After start of iobroker.rpi, all selected modules generates
 an object tree in ioBroker within rpi.<instance>.<modulename>
-e.g. rpi.0.cpu
+e.g. `rpi.0.cpu`
 
 Be sure, that python and build-essential are installed:
 
+```bash
+sudo apt update
+sudo apt install -y build-essential python
+sudo apt install -y libgpiod-dev
 ```
-sudo apt-get update
-sudo apt-get install -y build-essential python
-sudo apt-get install -y libgpiod-dev
-```
+
 (the last one is only necessary, if you want to work with GPIOs)
 
 Following Objects are available after selection:
@@ -152,6 +163,17 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 3.0.2 (2025-12-01)
+* (@klein0r) Check for required libgpiod-dev package version
+
+### 3.0.1 (2025-11-28)
+* (@klein0r) Updated logo, workflows and documentation
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+
+### 3.0.0 (2025-11-28)
+* (@klein0r) NodeJS 20.x (or newer) is required
+* (@klein0r) Updated opengpio to v2 (works on Debian trixie)
+
 ### 2.4.0 (2025-03-06)
 * (Garfonso) read the current state of GPIO outputs during adapter startup.
 * (Garfonso) re-read GPIO input, if set by the user (with ack=false).
@@ -162,15 +184,6 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 ### 2.3.2 (2025-02-06)
 * (asgothian) added support for NVMe temperature (needs additional configuration, see README)
 * (Garfonso) fixed inital values for outputs.
-
-### 2.3.1 (2025-01-06)
-* (Garfonso) fixed: GPIO library failed to load after recent dependency update.
-
-### 2.3.0 (2024-12-23)
-* (Garfonso) correct interpretation of start value setting. Output with initial value 0/1 will set GPIO accordingly during startup. Output without an initial state will not set GPIO at all.
-
-### 2.2.2 (2024-11-02)
-* (simatec) responsive design for settings page added
 
 ## License
 MIT License

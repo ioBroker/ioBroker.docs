@@ -45,6 +45,8 @@ Library browsing for LocalMusic is added. A dynamic menu list is available in 'i
 
 All contents is drilled down up to the album level (with the exception of the Songs menu, in which songs are directly listed). When an album is selected its content is immediately played, replacing the contents of the current playlist or added to the current playlist. This behaviour is dependent on the value of info.playliststate. If the value is true the playlist is replaced, in the other case the new content is added. This object can be changed by control.playlist (Button with Toggle mode). Each time this button is pressed, the value of info.playliststate is inverted.
 
+Library search is added. If a search string is entered in 'control.search' (via an input filed in the browser) the result of the search is shown in 'info.list' and can be further drilled down like in library browsing.
+
 The contents of the current playlist is available in the object info.playlist (JSON) and can be visualized this way. It is also available as an html- table in info.playlisthtml and can be directly visualized in a html widget. The format of the resulting table can be modified using CSS
 
 ```javascript
@@ -93,9 +95,10 @@ The contents of the current playlist is available in the object info.playlist (J
 ```
 
 ## Changelog
+### 1.3.0 (2025-12-03)
 
-### **WORK IN PROGRESS**
-
+- (Uwe Nagel) Library search added
+- (Uwe Nagel) Add control.search
 - (Uwe Nagel) Add info.playlisthtml
 - (Uwe Nagel) Add info.playliststate
 - (Uwe Nagel) Function setPlaylistToggle added

@@ -100,8 +100,12 @@ Click for widget source.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.5.6 (2025-12-08)
+- (aruttkamp) dev dependencies aktualisiert
+- (mcm1957) adapter reuires node.js 20 now
+- (aruttkamp) dev dependencies aktualisiert
 - (aruttkamp) correct issues detected by repsoitory checker [#421]
+- (aruttkamp) changes redirect URI and docu
 
 ### 1.5.3 (2025-04-15)
 - (aruttkamp) redirect URI changed [#429]
@@ -109,25 +113,10 @@ Click for widget source.
 ### 1.5.2 (2024-12-16)
 - (aruttkamp) ESLint 9 implemented
 
-### 1.5.1 (2024-12-16)
-- (aruttkamp) Testing Node 22.x implemented
-
-### 1.5.0 (2024-04-18)
-- (N1tR0) A problem has been fixed which cause 'too many requests' errors [#241, #245, #311]. The recommended update interval for playlist information is now 60 minutes.
-- (N1tR0) A DNS cache has been added [#341].
-- (N1tR0) Potentially fix 'Current played track is not highlighted' [#283]
-- (N1tR0) Some state types have been fixed
-- (mcm1957) Dependencies have been updated
-
-### 1.4.0 (2024-04-02)
-* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
-* (N1tR0) A problem has been fixed that did not correctly update the progress of playing media [#339]
-* (mcm1957) Dependencies have been updated0
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019-2023 twonky4 <twonky4@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

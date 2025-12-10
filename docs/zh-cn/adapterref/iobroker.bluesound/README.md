@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bluesound/README.md
 title: ioBroker.bluesound
-hash: wdnWmypqfTuQ0Dybw+iO/0Sf3yfRRLn+1zlqmprRy3s=
+hash: hknS78Hr/PfV0WDeZ2I8DZ08YPF5FaSXOSbu+hcDn/U=
 ---
 ![标识](../../../en/adapterref/iobroker.bluesound/admin/bluesound.png)
 
@@ -50,6 +50,8 @@ PollingTime 值最大可达 120 秒。适配器不能使用大于 300 秒的值�
 LocalMusic 新增了库浏览功能。动态菜单列表位于“info.list”中。应将此对象设置为 JSON 表格的“对象 ID”，以便可视化当前菜单。对象“control.command”用于向播放器传递下一个命令。它通过定义为该表格的“选中 ID”进行更新。表格标题本身通过对象绑定“info.listheader”来更新，该绑定用于获取第一个标题的名称。为了获得更好的可视化效果，应仅显示第一个标题，并将其宽度设置为 100%。
 
 所有内容都会向下展开至专辑级别（“歌曲”菜单除外，其中直接列出歌曲）。选择专辑后，其内容会立即播放，并替换当前播放列表的内容或将其添加到当前播放列表中。此行为取决于 `info.playliststate` 的值。如果该值为 true，则替换播放列表；否则，添加新内容。可以通过 `control.playlist`（切换模式按钮）更改此对象。每次按下此按钮，`info.playliststate` 的值都会反转。
+
+新增图书馆检索功能。如果在“control.search”（通过浏览器中的输入框）中输入搜索字符串，搜索结果将显示在“info.list”中，并且可以像在图书馆浏览中一样进一步筛选。
 
 当前播放列表的内容存储在对象 info.playlist（JSON 格式）中，可以直接通过这种方式查看。它也以 HTML 表格的形式存储在 info.playlisthtml 中，可以直接在 HTML 小部件中查看。可以使用 CSS 修改生成的表格格式。
 
@@ -99,9 +101,10 @@ LocalMusic 新增了库浏览功能。动态菜单列表位于“info.list”中
 ```
 
 ## Changelog
+### 1.3.0 (2025-12-03)
 
-### **WORK IN PROGRESS**
-
+- (Uwe Nagel) Library search added
+- (Uwe Nagel) Add control.search
 - (Uwe Nagel) Add info.playlisthtml
 - (Uwe Nagel) Add info.playliststate
 - (Uwe Nagel) Function setPlaylistToggle added

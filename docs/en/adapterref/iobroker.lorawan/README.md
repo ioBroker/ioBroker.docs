@@ -23,6 +23,81 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.18.47 (2025-12-09)
+* (BenAhrdt) CustomSend becomes possibility for different order of parameters.
+             payloadInHex, port, confirmed, priority, push (push is written as string 'push')
+
+### 1.18.46 (2025-12-06)
+* (BenAhrdt) CustomSend has been extended to include the option of direct push.
+
+### 1.18.45 (2025-12-04)
+* (BenAhrdt) improve showing Adapter state (yellw / green)
+
+### 1.18.44 (2025-12-02)
+* (BenAhrdt) add mixed to possible value types in config
+
+### 1.18.43 (2025-12-02)
+* (BenAhrdt) specific filter at objectId selection in config
+
+### 1.18.42 (2025-12-01)
+* (BenAhrdt) change gate to garage_door in binary_sensor
+
+### 1.18.41 (2025-12-01)
+* (BenAhrdt) change sending the payload in case of light
+
+### 1.18.40 (2025-12-01)
+* (BenAhrdt) change hash
+
+### 1.18.39 (2025-11-30)
+* (BenAhrdt) build more roles for contactsensors, in case of role. (window, door, gate ...)
+
+### 1.18.38 (2025-11-30)
+* (BenAhrdt) add device class to cover in config
+
+### 1.18.37 (2025-11-30)
+* (BenAhrdt) add tilt to cover config
+
+### 1.18.36 (2025-11-29)
+* (BenAhrdt) fist possibillity to change unlatch on lock entity
+* (BenAhrdt) Add version to discovery
+* (BenAhrdt) Add via device to discovery
+
+### 1.18.35 (2025-11-28)
+* (BenAhrdt) internal code improovment for better reading
+
+### 1.18.34 (2025-11-28)
+* (BenAhrdt) translation changed
+
+### 1.18.33 (2025-11-28)
+* (BenAhrdt) change state in Lock entity
+
+### 1.18.32 (2025-11-28)
+* (BenAhrdt) Changes in cover and add Lock
+
+### 1.18.31 (2025-11-27)
+* (BenAhrdt) Bugfix state at light effekts in case of 0
+
+### 1.18.30 (2025-11-27)
+* (BenAhrdt) setting dataExchange to 2 entitie (FromIob & ToIob)
+
+### 1.18.29 (2025-11-27)
+* (BenAhrdt) set ack = true, before push dataExchange
+
+### 1.18.28 (2025-11-27)
+* (BenAhrdt) assign comment 'from bridge' to state, if the value is set by bridge
+
+### 1.18.27 (2025-11-27)
+* (BenAhrdt) wright incomming dataexchange with ack = true
+
+### 1.18.26 (2025-11-27)
+* (BenAhrdt) remove more logging for testing
+
+### 1.18.25 (2025-11-27)
+* (BenAhrdt) remove logging for testing
+
+### 1.18.24 (2025-11-27)
+* (BenAhrdt) add dataExchange between Adapter and Bridge-Partner (Complex JSON possible)
+
 ### 1.18.23 (2025-11-26)
 * (BenAhrdt) Notify Adapter Version to Bridge with connection
 

@@ -6,8 +6,8 @@
 
 [![NPM](https://nodei.co/npm/iobroker.snips.png?downloads=true)](https://nodei.co/npm/iobroker.snips/)
 
-ATTENTION:
-The adapter is no longer being developed or maintained because Sonos bought Snips and the free platform was be discontinued on 02/01/2020. The adapter and installed snips devices will still work.
+> [!WARNING]
+> The adapter is no longer being developed or maintained because Sonos bought Snips and the free platform was discontinued on 02/01/2020. The adapter and installed snips devices will still work.
 
 Requires node.js 6.0 or higher and Admin v3!
 

@@ -34,6 +34,9 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.6.11 (2025-11-29)
+* (simatec) Fix Timeout
+
 ### 0.6.10 (2025-11-23)
 * (simatec) dependencies updated
 

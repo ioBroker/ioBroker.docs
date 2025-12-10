@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: B1gdWMXf+l3s2pS2Z1okjTjjkWbRSvvYG9qoNSo6/cw=
+hash: AM05yAYFztEvfByM3ZOPWhBgcWlhVyoazz4t/FNMrI8=
 ---
 ![Logo](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -14,48 +14,84 @@ hash: B1gdWMXf+l3s2pS2Z1okjTjjkWbRSvvYG9qoNSo6/cw=
 ![NPM](https://nodei.co/npm/iobroker.mytime.png?downloads=true)
 
 # IoBroker.mytime
-**Tests:** ![Testen und Freigeben](https://github.com/oweitman/ioBroker.mytime/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/oweitman/ioBroker.mytime/workflows/Test%20and%20Release/badge.svg)
 
 ## WICHTIG
-Es gilt ausschließlich die englische Dokumentation, da bei der automatischen Übersetzung auch Bereiche übersetzt werden, die nicht übersetzt werden sollen.
+Nur die englische Dokumentation ist gültig, da die automatische Übersetzung Bereiche mitübersetzt, die nicht übersetzt werden sollten.
 
 ## Mytime-Adapter für ioBroker
-Dieser Adapter verarbeitet Zeitdaten (z. B. Countdowns).
-Die Countdown-Funktionalität stellt Datenpunkte bereit, mit denen Sie einen Countdown verwalten können (z. B. in einem Skript). Der Adapter enthält außerdem verschiedene Widgets zur Visualisierung dieser Countdowns. Zeitreihen ermöglichen die Erstellung komplexer Zeitreihen, bei denen die Datenpunkte ausgelöst werden.
+Dieser Adapter verarbeitet Zeitabläufe (z. B. Countdowns).
+Die Countdown-Funktionalität stellt Datenpunkte bereit, mit denen Sie einen Countdown steuern können (z. B. in einem Skript). Der Adapter enthält außerdem verschiedene Widgets zur Visualisierung dieser Countdowns. Mithilfe von Zeitreihen lassen sich komplexe Zeitreihen erstellen, bei denen die Datenpunkte ausgelöst werden.
 
 ### Konfiguration
 #### Countdown
-Im Konfigurationsdialogfeld „Countdown“ können Sie einen neuen Countdown (z. B. „Test“) erstellen, den Timer auf 10 Sekunden einstellen und die folgenden Widgets importieren.
-Datenpunkte sind für einen Countdown namens „Test“ vorkonfiguriert.
+Im Konfigurationsdialog können Sie auf der Registerkarte „Countdown“ einen neuen Countdown erstellen, z. B. „Test“, die Timerdauer auf 10 Sekunden einstellen und die folgenden Widgets importieren. Datenpunkte sind für einen Countdown namens „Test“ vorkonfiguriert.
 
-##### Stoppverhaltens-Timer
-Nachdem der Countdown das Stoppsignal erhalten hat, wird er auf die vom Timer eingestellte Zeit zurückgesetzt.
+##### Stopp-Verhaltenstimer
+Sobald der Countdown das Stoppsignal erhält, wird er auf die vom Timer eingestellte Zeit zurückgesetzt.
 
 ##### Stoppverhalten Null
-Nachdem der Countdown das Stoppsignal erhält, bleibt der Countdown bei 0 stehen.
+Nachdem der Countdown das Stoppsignal erhalten hat, bleibt der Countdown bei 0 stehen.
+
+##### Verhalten erneut ausführen stoppen
+Wenn der Timer abgelaufen ist, startet er automatisch neu.
 
 #### Zeitreihen
-Im Konfigurationsdialogfeld „Zeitreihen“ können Sie eine neue Zeitreihe mit einer oder mehreren Zeitregeln erstellen. Für jede Zeitregel können Sie verschiedene Parameter definieren. Jede Zeitreihe erstellt einen separaten Datenpunkt, der bei den berechneten Zeitereignissen ausgelöst wird.
-Die Zeitereignisse werden in Echtzeit berechnet. Die verwendete Regelbibliothek ist jedoch noch nicht in allen Parameterkombinationen perfekt.
-Dies zeigt, dass die Seite bei einigen Kombinationen in eine Endlosschleife gerät.
-Die Demoseite <http://jakubroztocil.github.io/rrule/> kann auch für Experimente verwendet werden.
-Zusätzlich zum Hinzufügen einer Zeitregel können Sie eine Zeitregel zum Ausschließen von Zeitereignissen, zum Hinzufügen einzelner Zeitereignisse und auch zum Ausschließen einzelner Zeitereignisse hinzufügen.
+Im Konfigurationsdialog unter dem Reiter „Zeitreihen“ können Sie eine neue Zeitreihe mit einer oder mehreren Zeitregeln erstellen. Für jede Zeitregel lassen sich verschiedene Parameter definieren. Jede Zeitreihe erzeugt einen separaten Datenpunkt, der bei den berechneten Zeitereignissen ausgelöst wird.
+
+Die Zeitereignisse werden in Echtzeit berechnet. Die verwendete rrule-Bibliothek ist jedoch noch nicht für alle Parameterkombinationen optimal.
+
+Dies führt dazu, dass die Seite bei einigen Kombinationen in einer Endlosschleife hängt.
+Die Demoseite <http://jakubroztocil.github.io/rrule/> kann ebenfalls für Experimente verwendet werden.
+Neben dem Hinzufügen einer Zeitregel können Sie auch Zeitregeln zum Ausschließen, Hinzufügen und Ausschließen einzelner Zeitereignisse hinzufügen.
+
+Zusätzlich zur Funktionalität von rrule können nun auch dynamisch berechnete Zeiten für die verschiedenen Sonnen- und Mondphasen ermittelt werden.
+Diese Berechnung erfolgt nur, wenn das Zeitintervall mindestens einen Tag beträgt (nicht stündlich oder minütlich).
+
+##### Sonnenbasierte Zeitereignisse
+- astronomicalDawn
+- amateurDawn
+- nauticalDawn
+- blueHourDawnStart
+- civilDawn
+- blueHourDawnEnd
+- goldenHourDawnStart
+- Sonnenaufgang
+- Sonnenaufgang Ende
+- goldenHourDawnEnd
+- solarNoon
+- goldene Stunde Dämmerungsstart
+- SonnenuntergangStart
+- Sonnenuntergang
+- goldene Stunde Dämmerung Ende
+- blueHourDuskStart
+- civilDusk
+- blueHourDuskEnd
+- nauticalDusk
+- amateurDusk
+- astronomicalDusk
+- Nadir
+
+##### Mondzeitliche Ereignisse
+- Mondaufgang
+- moonhigh
+- Monduntergang
 
 ### Verwendung
 #### Verwendung von Zeitreihen
 ##### Verfügbare Datenpunkte einer Zeitreihe
-Nach der Konfiguration einer neuen Zeitreihe erstellt der Adapter die folgenden Datenpunkte:
+Nach der Konfiguration einer neuen Zeitreihe erzeugt der Adapter die folgenden Datenpunkte:
 
 | Datenpunkt | Beschreibung |
 | --------- | ------------------------------------------------------------ |
-| Aktion | aktueller Status dieser Zeitreihe. Mögliche Werte sind Stop, Run |
-| cmd | momentan keine Funktion |
+| Aktion | Aktueller Zustand der Zeitreihe. Mögliche Werte sind Stopp, Ausführung |
+| cmd | derzeit keine Funktion |
 
 ##### Verfügbare Aktionszustände
 | Aktion | Beschreibung |
 | ------ | --------------------------------------------------------------------------------------------- |
-| Stopp | Im Moment ist kein Zeitereignis aktiv |
-| Ausführen | Ein Zeitereignis wurde ausgelöst. Nach der konfigurierten Dauer wechselt der Datenpunkt zu Stopp |
+| Stopp | Derzeit ist kein Zeitereignis aktiv |
+| Ausführung | Ein Zeitereignis wurde ausgelöst. Nach Ablauf der konfigurierten Dauer ändert sich der Datenpunkt zu Stopp. |
 
 #### Verwendung des Countdowns
 ##### Verfügbare Datenpunkte eines Countdowns
@@ -63,8 +99,9 @@ Nach der Konfiguration eines neuen Countdowns erstellt der Adapter die folgenden
 
 | Datenpunkt | Beschreibung |
 | --------- | ---------------------------------------------------------------------- |
-| Aktion | aktueller Stand des Countdowns. Mögliche Werte sind Stopp, Ausführen, Pause, Ende |
-| cmd | Datenpunkt für Befehle. Mögliche Befehle werden unten beschrieben |
+| Aktion | Aktueller Status des Countdowns. Mögliche Werte sind: Stopp, Start, Pause, Ende |
+| cmd | Datenpunkt für Befehle. Mögliche Befehle werden unten beschrieben. |
+| config | Enthält zusätzliche Konfiguration für den Countdowntimer.              |
 | Start | Datenpunkt für die Startzeit in Millisekunden |
 | Ende | Datenpunkt für die Endzeit in Millisekunden |
 | Timer | Datenpunkt für die eingestellte Gesamtzeit in Millisekunden |
@@ -72,65 +109,82 @@ Nach der Konfiguration eines neuen Countdowns erstellt der Adapter die folgenden
 ##### Verfügbare Aktionszustände eines Countdowns
 | Aktion | Beschreibung |
 | ------ | ----------------------------------------------------------------------------------------------------- |
-| Stopp | Der Countdown wird gestoppt, Start- und Endzeit werden auf 0 gesetzt |
-| laufen | der Countdown läuft. Erreicht der Countdown die Endzeit, wechselt die Aktion zum Ende |
-| Pause | Countdown ist im Pausenmodus. Die Endzeit wurde auf die Zeit der Pause eingestellt |
-| Ende | Der Countdown ist beendet. Diesen Zustand können Sie als Auslöser für weitere Aktionen (Sound, Popups usw.) verwenden. |
+| Stopp | Der Countdown ist gestoppt, Start- und Endzeit sind auf 0 gesetzt. |
+| Start | Der Countdown läuft. Wenn der Countdown die Endzeit erreicht, wechselt die Aktion zu „Ende“. |
+| Pause | Der Countdown befindet sich im Pausenmodus. Die Endzeit wurde auf den Zeitpunkt der Pause eingestellt. |
+| Ende | Der Countdown ist beendet. Diesen Zustand können Sie als Auslöser für weitere Aktionen (Ton, Popups usw.) verwenden. |
 
 ##### Verfügbare Befehle für den cmd-Datenpunkt
 | Befehl | Beispiel | Beschreibung |
-| --------------- | ----------------------- | --------------------------------------------------------------------------------------------- |
-| `+value` | `+1:10` | fügt Zeit zur Countdown-Einstellung hinzu. Die Einstellung wird beim nächsten Start berücksichtigt |
-| `-value` | `-1:2:3` | subtrahiert Zeit vom Countdown. Die Einstellung wird beim nächsten Start berücksichtigt |
-| `-!value` | `-!1:2:3` | like - Operator und reduziere den laufenden Timer |
-| `=value` | `=5:00` | setze den Countdown-Timer auf diese Zeit. |
-| `=!value` | `=!5:00` | like = Operator und setze laufenden Timer auf die angegebene Zeit |
-| `#ISO-Date` | `#2025-01-01T10:00:00` | setze den Countdowntimer auf eine Zielzeit. Die Zeit muss als ISO-Datumsstring formatiert sein |
-| `#!ISO-Date` | `#!2025-01-01T10:00:00` | wie #-Operator und Setzen des laufenden Timers auf die angegebene Zielzeit |
-| `$Time` | `$20:15` | setze den Countdowntimer auf eine Zielzeit. Wenn die Zeit vor der aktuellen Zeit liegt, wird der nächste Tag eingestellt. |
-| `$!Time` | `$!20:15` | wie $-Operator und setzt laufenden Timer auf die angegebene Zielzeit |
+| --------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `+value` | `+1:10` | Fügt der Countdown-Einstellung Zeit hinzu. Die Einstellung wird beim nächsten Start berücksichtigt. |
+| `-value` | `-1:2:3` | Zieht Zeit vom Countdown ab. Die Einstellung wird beim nächsten Start berücksichtigt. |
+| `-!value` | `-!1:2:3` | wie - Operator und reduziert die Laufzeit |
+| `=value` | `=5:00` | Stelle den Countdowntimer auf diese Zeit ein. |
+| `=!value` | `=!5:00` | Gleichheitsoperator verwenden und Laufzeittimer auf die angegebene Zeit einstellen |
+| `#ISO-Date` | `#2025-01-01T10:00:00` | Den Countdowntimer auf eine Zielzeit einstellen. Die Zeitangabe muss im ISO-Datumsformat vorliegen. |
+| `#!ISO-Date` | `#!2025-01-01T10:00:00` | wie der #-Operator und das Einstellen des laufenden Timers auf die angegebene Zielzeit |
+| `$Time` | `$20:15` | Stelle den Countdown-Timer auf eine Zielzeit ein. Wenn die Zeit vor der aktuellen Zeit liegt, wird der nächste Tag eingestellt. |
+| `$!Time` | `$!20:15` | wie der $-Operator und das Einstellen des laufenden Timers auf die angegebene Zielzeit |
 | `start` | `start` | startet den Countdown |
-| `stop` | `stop` | stoppt den Countdown. Die Countdownzeit wird auf die Einstellung zurückgesetzt |
+| `stop` | `stop` | stoppt den Countdown. Die Countdown-Zeit wird auf die Einstellung zurückgesetzt. |
 | `pause` | `pause` | pausiert den Countdown |
-| `end` | `end` | stoppt den Countdown. Der Countdown wird auf 0 gesetzt |
+| `end` | `end` | stoppt den Countdown. Der Countdown wird auf 0 gesetzt. |
 | `reset` | `reset` | Timer auf Konfigurationszustand zurücksetzen |
-| `setstop2timer` | `setstop2timer` | Stoppverhalten-Konfiguration auf Timer setzen |
-| `setstop2zero` | `setstop2zero` | Konfiguration des Stoppverhaltens auf Nullen setzen |
-| `save` | `save` | speichere die in den Datenpunkten definierte Konfiguration in der iobroker-Konfiguration, iobroker startet den Adapter nach dem Speichern automatisch neu |
-| `save` | `save` | speichert die in datapoints definierte Konfiguration in der iobroker-Konfiguration, iobroker startet den Adapter nach dem Speichern automatisch neu |
+| `setstop2timer` | `setstop2timer` | Stoppverhaltenskonfiguration auf Timer setzen |
+| `setstop2zero` | `setstop2zero` | Stoppverhaltenskonfiguration auf Null setzen |
+| `setstop2rerun` | `setstop2rerun` | Stoppverhaltenskonfiguration auf erneuten Lauf setzen |
+| `save` | `save` | Speichert die in den Datenpunkten definierte Konfiguration in der iobroker-Konfiguration. iobroker startet den Adapter nach dem Speichern automatisch neu. |
+| `save` | `save` | Speichert die in den Datenpunkten definierte Konfiguration in der iobroker-Konfiguration. iobroker startet den Adapter nach dem Speichern automatisch neu. |
 
-##### Format des Wertes zum Einstellen des Countdown-Timers
+##### Format des Werts zum Einstellen des Countdown-Timers
 Sie können den Countdown auf eine unbegrenzte Zeit einstellen.
-Die Notation des Wertes lautet [Tage:[Stunden:[Minuten:[Sekunden]]]]. Tage, Stunden und Minuten sind optional.
-Wenn Sie den Timer auf einen Tag einstellen möchten, müssen Sie auch Stunden, Minuten und Sekunden angeben. Die normalen Wertebereiche (z. B. Stunden 0–24) müssen nicht eingehalten werden.
+
+Die Wertangabe erfolgt im Format [Tage:[Stunden:[Minuten:[Sekunden]]]. Tage, Stunden und Minuten sind optional.
+
+Wenn Sie den Timer auf einen Tag einstellen möchten, müssen Sie auch Stunden, Minuten und Sekunden angeben. Die üblichen Wertebereiche (z. B. 0–24 Stunden) sind dabei nicht relevant.
+
 Sie können auch 48 Stunden einstellen.
-Sie können auch unregelmäßige Zeitnotationen einstellen. Die Zeit wird separat summiert.
+
+Sie können optional auch ungewöhnliche Zeitangaben verwenden. Die Zeit wird separat summiert.
 
 **Beispiele:**
 
-| Einstellung | Beschreibung |
+| Schauplatz | Beschreibung |
 | --------- | ------------------------------------------- |
-| 1:0:0:0 | Setzt/addiert/subtrahiert 1 Tag zum Timer |
-| 2:0:0 | Setzt/addiert/subtrahiert 2 Stunden zum Timer |
-| 3:0 | Setzt/addiert/subtrahiert 3 Minuten zum Timer |
-| 120 | setzt/addiert/subtrahiert 120 Sekunden zum Timer |
-| 48:0:0 | setzt/addiert/subtrahiert 48 Stunden zum Timer |
-| 48:75:120 | setzt/addiert/subtrahiert den Timer |
+| 1:0:0:0 | 1 Tag zum Timer hinzufügen/hinzufügen/abziehen |
+| 2:0:0 | 2 Stunden zum Timer hinzufügen/hinzufügen/abziehen |
+| 3:0 | 3 Minuten zum Timer hinzufügen/abziehen |
+| 120 | Stellt/Addiert/Subtrahiert 120 Sekunden zum Timer |
+| 48:0:0 | 48 Stunden zum Timer hinzufügen/hinzufügen/abziehen |
+| 48:75:120 | Timer einstellen/addieren/subtrahieren |
 
-##### Format der Vorlage zum Formatieren der Countdown-Ausgabe im Widget
+##### Format des Datums/der Uhrzeit zur Formatierung der Ausgabe im Widget
 Folgende Platzhalter stehen zur Verfügung:
 
 | Platzhalter | Beschreibung |
 | ----------- | --------------------------------------------------------------- |
+| JJJJ | Jahre in 4 Ziffern |
+| JJ | Jahre in 2 Ziffern |
+| w | Monate ohne führende Nullen, (nicht zusammen mit den Monaten) |
+| ww | Monate mit führenden Nullen, (nicht zusammen mit den Monaten) |
+| M | Monate ohne führende Nullen, (nicht zusammen mit den Wochen) |
+| MM | Monate mit führenden Nullen, (nicht zusammen mit den Wochen) |
 | d | Tage ohne führende Nullen |
-| tt | Tage mit führenden Nullen |
+| dd | Tage mit führenden Nullen |
 | H | Stunden ohne führende Nullen |
 | HH | Stunden mit führenden Nullen |
 | m | Minuten ohne führende Nullen |
 | mm | Minuten mit führenden Nullen |
 | s | Sekunden ohne führende Nullen |
 | ss | Sekunden mit führenden Nullen |
-| \ | Escapezeichen, wenn Sie in der Ausgabe einen Platzhalter verwenden möchten |
+| \ | Escape-Zeichen, wenn Sie einen Platzhalter in der Ausgabe verwenden möchten |
+
+Wenn mehrere Teile genommen werden, dürfen keine Lücken zwischen ihnen entstehen.
+
+Beispiel:
+
+Gültig: Jahr, Monat, Tag | Stunde, Minute, Sekunde | Ungültig: Jahr, Minute, Sekunde
 
 **Beispiele:**
 
@@ -139,27 +193,33 @@ Alle folgenden Beispiele mit Countdown-Timer 1:2:3:4
 | Vorlage | Beispiel | Ergebnis |
 | ------------------ | --------------- | ------------------------------------------------ |
 | d\d Hh m\m s\s | 1d 2h 3m 4s | mit Escape-Zeichen und ohne führende Nullen |
-| tt\t HHh mm\m ss\s | 01d 02h 03m 04s | mit Escape-Zeichen und mit führenden Nullen |
+| dd\d HHh mm\m ss\s | 01d 02h 03m 04s | mit Escape-Zeichen und führenden Nullen |
 | ss\s | 93784s | nur Sekunden |
-| tt\t HH\h | 01d 02h | nur Tage und Stunden |
+| dd\d HH\h | 01d 02h | nur Tage und Stunden |
 | HH\h mm\m | 26h 03m | nur Stunden und Minuten |
 
 ### Widgets
 Ab Version 1.2.0 sollten die Widgets mit vis1 und vis2 kompatibel sein.
 
-#### Widget Countdown einfach
-Ein Countdown-Widget für eine reine Textausgabe
+#### Widget Countdown (einfach)
+![Widget-Countdown (einfach)](../../../en/adapterref/iobroker.mytime/admin/mytime-plain.png)
 
-##### Widget-Eigenschaften
-###### Oid
-Der Timer-Datenpunkt eines Countdown-Datenpunkts.
+Ein Countdown-Widget für eine einfache Textausgabe.
+Die Ausgabe kann detailliert konfiguriert werden.
 
-###### Format
-Formatiert die Timer-Ausgabe. Standard ist mm:ss. Details siehe Kapitel Formatvorlage
+##### Widget-Attribute
+| Attribut | Beschreibung |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Object ID` | Datenpunkt des Countdown-Timers. Es kann jeder beliebige Datenpunkt verwendet werden. |
+| `HTML-Prepend` | Dieser Text oder HTML-Code wird der Ausgabe des Widgets vorangestellt |
+| `HTML-Append` | Dieser Text oder HTML-Code wird an die Ausgabe des Widgets angehängt |
+| `HTML-Anhängen` | Dieser Text oder HTML-Code wird an die Ausgabe des Widgets angehängt. |
 
 ##### Beispiel-Widget-Code
 Die Widgets sind für einen Countdown namens „Test“ vorkonfiguriert.
-Es gibt zwei separate Versionen für Vis1 und Vis2.
+Es gibt zwei separate Versionen für vis1 und vis2.
+
+![Beispiel](../../../en/adapterref/iobroker.mytime/admin/mytime-example1.png)
 
 **VIS1:**
 
@@ -169,172 +229,214 @@ Es gibt zwei separate Versionen für Vis1 und Vis2.
 
 <details><summary>Details</summary><pre> <code>[{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;pause&quot;,&quot;value&quot;:&quot;pause&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;423.0000305175781px&quot;,&quot;top&quot;:&quot;402.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000001&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;start&quot;,&quot;value&quot;:&quot;start&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;361.0000305175781px&quot;,&quot;top&quot;:&quot;402.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000002&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;stop&quot;,&quot;value&quot;:&quot;stop&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;485.0000305175781px&quot;,&quot;top&quot;:&quot;402.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000003&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;+10&quot;,&quot;value&quot;:&quot;+10&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;423.0000305175781px&quot;,&quot;top&quot;:&quot;349.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000004&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;=100&quot;,&quot;value&quot;:&quot;=100&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;361.0000305175781px&quot;,&quot;top&quot;:&quot;349.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000005&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;-10&quot;,&quot;value&quot;:&quot;-10&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;485.0000305175781px&quot;,&quot;top&quot;:&quot;349.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000006&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;+!10&quot;,&quot;value&quot;:&quot;+!10&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;423.0000305175781px&quot;,&quot;top&quot;:&quot;320.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000007&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;=!100&quot;,&quot;value&quot;:&quot;=!100&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;361.0000305175781px&quot;,&quot;top&quot;:&quot;320.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000008&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;-!10&quot;,&quot;value&quot;:&quot;-!10&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;485.0000305175781px&quot;,&quot;top&quot;:&quot;320.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000009&quot;},{&quot;tpl&quot;:&quot;tplMyTimeCountdownPlain&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;countdown_format&quot;:&quot;dd\\d HH\\h mm\\m ss\\s&quot;,&quot;g_common&quot;:true,&quot;g_css_border&quot;:true,&quot;countdown_oid&quot;:&quot;mytime.0.Countdowns.test.timer&quot;,&quot;g_css_font_text&quot;:true},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;361.0000305175781px&quot;,&quot;top&quot;:&quot;375.00001525878906px&quot;,&quot;width&quot;:&quot;182px&quot;,&quot;height&quot;:&quot;24px&quot;,&quot;border-width&quot;:&quot;0&quot;,&quot;border-style&quot;:&quot;solid&quot;,&quot;border-color&quot;:&quot;rgba(237,235,243,1)&quot;,&quot;text-align&quot;:&quot;center&quot;},&quot;widgetSet&quot;:&quot;mytime&quot;,&quot;_id&quot;:&quot;i000010&quot;}]</code></pre></details>
 
-**Der aktuelle Aktionsstatus (cdstop, cdrun, cdpause, cdend) des Countdowns ist als CSS-Klassenselektor verfügbar:**
+**Der tatsächliche Aktionsstatus (cdstop,cdrun,cdpause,cdend) des Countdowns ist als CSS-Klassenselektor verfügbar:**
 
 ```css
 #w00000 .timer.cdend {
-  color: red;
+    color: red;
 }
 #w00000 .timer.cdrun {
-  color: green;
+    color: green;
 }
 ```
 
-#### Widget Reverse Countdown einfach
-Ein Widget, das die verstrichene Zeit ab einem bestimmten Zeitpunkt anzeigt
+#### Widget Rückwärts-Countdown (einfach)
+![Widget Rückwärts-Countdown](../../../en/adapterref/iobroker.mytime/admin/mytime-reverse.png)
 
-##### Widget-Eigenschaften von Reverse Countdown plain
+Ein Widget, das die seit einem bestimmten Zeitpunkt verstrichene Zeit anzeigt.
+
+##### Widget-Eigenschaften von Reverse Countdown (einfach)
 | Datenpunkt | Beschreibung |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| datetime | Ein DateTime-String der Startzeit. Der Ausdruck muss von der JavaScript-Funktion new Date(expression) interpretiert werden können. Siehe auch <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse> Beispiel: 2022-01-10 23:12 oder 2022-01-104T23:12:00.000Z |
-| Format | Formatiert die Timer-Ausgabe. Standard ist mm:ss. Details siehe Kapitel Formatvorlage |
-| HTML-Prepend | Dieser Text oder HTML wird der Ausgabe des Widgets vorangestellt |
-| HTML-Anhang | Dieser Text oder HTML wird an die Ausgabe des Widgets angehängt |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ISO datetime` | Ein DateTime-String mit der Startzeit. Der Ausdruck muss von der JavaScript-Funktion new Date(Ausdruck) interpretiert werden können. Siehe auch <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse> Beispiel: 2022-01-10 23:12 oder 2022-01-104T23:12:00.000Z |
+| `HTML-Prepend` | Dieser Text oder HTML-Code wird der Ausgabe des Widgets vorangestellt |
+| `HTML-Append` | Dieser Text oder HTML-Code wird an die Ausgabe des Widgets angehängt |
+| `HTML-Anhängen` | Dieser Text oder HTML-Code wird an die Ausgabe des Widgets angehängt. |
 
 #### Widget Countdown-Kreis
-Ein Countdown-Widget im Ring-/Kreisdesign.
+![Widget-Countdown-Kreis](../../../en/adapterref/iobroker.mytime/admin/mytime-circle.png)
+
+Ein Countdown-Widget in Ring-/Kreisform.
 
 ##### Widget-Eigenschaften des Countdown-Kreises
-| Datenpunkt | Beschreibung |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| oid | Der Timer-Datenpunkt eines Countdown-Datenpunkts. |
-| notimetext | Deaktiviert den Zeittext über der Polaruhr |
-| Format | Formatiert die Timer-Ausgabe. Standard ist mm:ss. Details siehe Kapitel Formatvorlage. ReversevEinstellung zum Vergrößern oder Verkleinern des Rings/Kreises |
-| Breite | Die Breite des Rings oder Kreises. |
-| Ringlücke | Lücke in Pixeln zwischen den Ringen |
-| Kappen | Fassung für die Ring-/Kreisenden: rund oder gerade |
-| Hintergrund | Hintergrundfarbe des Rings/Kreises |
-| Vordergrund | Vordergrundfarbe des Rings/Kreises |
-| showsec | Sekundenklingel anzeigen |
-| showmin | Minutenklingel anzeigen |
-| showhrs | Minutenring anzeigen |
-| Showtag | Den Ring der Tage zeigen |
+| Attribut | Beschreibung |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Object ID` | Der Timer-Datenpunkt eines Countdown-Datenpunkts. |
+| `Format` | Formatiert die Timer-Ausgabe. Standardwert ist mm:ss. Details finden Sie in Kapitel [Datums-/Zeitformat](#format-of-the-template-to-format-the-countdown-output-in-the-widget). Umkehrbare Einstellung zum Vergrößern oder Verkleinern des Rings/Kreises |
+| `reverse` | Die Breite des Rings oder Kreises. |
+| `Width` | Die Breite des Rings oder Kreises. |
+| `Ring gap` | Pixelabstand zwischen den Ringen |
+| `Ring Caps` | Einstellung für die Enden des Rings/Kreises: rund oder gerade |
+| `background` | Hintergrundfarbe des Rings/Kreises |
+| `foreground` | Vordergrundfarbe des Rings/Kreises |
+| `countdown_color_second` | Vordergrundfarbe des zweiten Rings/Kreises |
+| `countdown_color_hour` | Vordergrundfarbe des Stundenrings/-kreises |
+| `countdown_color_day` | Vordergrundfarbe des Tagesrings/Kreises |
+| `countdown_color_week` | Vordergrundfarbe des Wochenrings/Kreises |
+| `countdown_color_month` | Vordergrundfarbe des Monatsrings/Kreises |
+| `countdown_color_year` | Vordergrundfarbe des zweiten Rings/Kreises |
+| `showsec` | Sekundenring anzeigen |
+| `showmin` | Minutenring anzeigen |
+| `showhrs` | Minutenring anzeigen |
+| `showday` | Zeige den Ring der Tage an |
+| `showmonth` | Monatering anzeigen (nicht zusammen mit den Wochen) |
+| `showweek` | Zeige den Wochenring an (nicht zusammen mit den Monaten) |
+| `showyear` | Zeige den Jahresring an |
+| `showyear` | Jahresring anzeigen |
 
-**Der aktuelle Aktionsstatus (cdstop, cdrun, cdpause, cdend) des Countdowns ist als CSS-Klassenselektor verfügbar:**
+Wenn mehrere Teile ausgewählt werden, dürfen keine Lücken zwischen ihnen vorhanden sein.
+
+Beispiel:
+
+Gültig: Jahr, Monat, Tag | Stunde, Minute, Sekunde | Ungültig: Jahr, Minute, Sekunde
+
+**Der tatsächliche Aktionsstatus (cdstop,cdrun,cdpause,cdend) des Countdowns ist als CSS-Klassenselektor verfügbar:**
 
 ```css
 #w00000 .timer.cdend {
-  color: red;
+    color: red;
 }
 #w00000 .timer.cdrun {
-  color: green;
+    color: green;
 }
 ```
 
 #### Widget Countdown FlipClock
-Ein Countdown-Widget im Flughafen-Flipboard-Stil
+![Widget Countdown FlipClock](../../../en/adapterref/iobroker.mytime/admin/mytime-flip.png)
 
-##### Widget-Eigenschaften von Countdown FlipClock
-| Datenpunkt | Beschreibung |
-| -------------------------- | --------------------------------------------------------------- |
-| oid | Der Timer-Datenpunkt eines Countdown-Datenpunkts. |
-| countdown_showsec | Zeigt den Sekundenteil an. Zwischen zwei Einheiten darf keine Lücke sein. |
-| countdown_showmin | Zeigt den Minutenteil an. Zwischen zwei Einheiten darf keine Lücke sein. |
-| countdown_showhrs | Zeigt den Stundenteil an. Zwischen zwei Einheiten darf keine Lücke sein. |
-| countdown_showday | Zeigt den Tagesabschnitt an. Zwischen zwei Einheiten darf keine Lücke sein. |
-| countdown_color | Farbe des Countdowntimers |
-| countdown_background_color | Hintergrundfarbe des Countdowntimers |
-| countdown_dot_color | Farbe der Punkte des Countdowntimers |
+Ein Countdown-Widget im Stil einer Flughafen-Anzeigetafel.
+Unterstützt werden nur Zeiträume von 100 Tagen bis 1 Sekunde.
+
+##### Widget-Eigenschaften der Countdown-FlipClock
+| Attribut | Beschreibung |
+| --------------------- | --------------------------------------------- |
+| `Object ID` | Der Timer-Datenpunkt eines Countdown-Datenpunkts. |
+| `showmin` | Zeigt den Minutenteil an. |
+| `showhrs` | Zeigt den Stundenteil an. |
+| `showday` | Zeigt die Tageszeit an. |
+| `color` | Farbe des Countdowntimers |
+| `background_color` | Hintergrundfarbe des Countdowntimers |
+| `countdown_dot_color` | Farbe der Punkte des Countdowntimers |
+| `countdown_dot_color` | Farbe der Punkte des Countdowntimers |
+
+Wenn mehrere Teile ausgewählt werden, dürfen keine Lücken zwischen ihnen vorhanden sein.
+
+Beispiel:
+
+Gültig: Jahr, Monat, Tag | Stunde, Minute, Sekunde | Ungültig: Jahr, Minute, Sekunde
 
 **Tipps:**
 
-Wenn Sie die Größe der Countdown-Flipclock anpassen möchten, können Sie unter CSS-Einstellungen in Vis für die halbe Größe Folgendes eingeben: Group CSS-Common / transform "scale(0.5)"
+Wenn Sie die Größe der Countdown-Flipclock anpassen möchten, können Sie unter den CSS-Einstellungen in vis für die halbe Größe Folgendes eingeben: Gruppe CSS-Common / transform "scale(0.5)"
 
-**Der aktuelle Aktionsstatus (cdstop, cdrun, cdpause, cdend) des Countdowns ist als CSS-Klassenselektor verfügbar:**
+**Der tatsächliche Aktionsstatus (cdstop,cdrun,cdpause,cdend) des Countdowns ist als CSS-Klassenselektor verfügbar:**
 
 ```css
 #w00000 .timer.cdend {
-  color: red;
+    color: red;
 }
 #w00000 .timer.cdrun {
-  color: green;
+    color: green;
 }
 ```
 
 #### Widget Countdown NixieClock
-Ein Countdown-Widget im Nixie-Röhren/LED-Stil
+![Widget-Countdown NixieClock](../../../en/adapterref/iobroker.mytime/admin/mytime-nixie.png)
+
+Ein Countdown-Widget im Nixie-Röhren-/LED-Stil
 
 ##### Widget-Eigenschaften von Countdown NixieClock
-| Datenpunkt | Beschreibung |
-| -------------------------- | --------------------------------------------------------------- |
-| oid | Der Timer-Datenpunkt eines Countdown-Datenpunkts. |
-| countdown_showsec | Zeigt den Sekundenteil an. Zwischen zwei Einheiten darf keine Lücke sein. |
-| countdown_showmin | Zeigt den Minutenteil an. Zwischen zwei Einheiten darf keine Lücke sein. |
-| countdown_showhrs | Zeigt den Stundenteil an. Zwischen zwei Einheiten darf keine Lücke sein. |
-| countdown_showday | Zeigt den Tagesabschnitt an. Zwischen zwei Einheiten darf keine Lücke sein. |
+| Attribut | Beschreibung |
+| -------------------------- | ---------------------------------------------------- |
+| Objekt-ID | Der Timer-Datenpunkt eines Countdown-Datenpunkts. |
+| countdown_showsec | Zeigt den Sekundenanteil an. |
+| countdown_showmin | Zeigt den Minutenanteil an. |
+| countdown_showhrs | Zeigt den Stundenteil an. |
+| countdown_showday | Zeigt den Tagesabschnitt an. |
+| countdown_showmonth | Zeigt den Monatsteil an. (nicht zusammen mit den Wochen) |
+| countdown_showweek | Zeigt die Wochenübersicht an (nicht zusammen mit den Monaten). |
+| countdown_showyear | Zeigt den Jahresteil an. |
 | countdown_color_active | Farbe des Countdowntimers |
 | countdown_color_inactive | Farbe der inaktiven Ziffern |
 | countdown_opacity_inactive | Deckkraft der Farbe der inaktiven Ziffern |
-| countdown_glowcolor | Farbe des Leuchtens um die Nixie-Ziffern |
+| countdown_glowcolor | Farbe des Leuchtens um diese Nixie-Ziffern |
+
+Wenn mehrere Teile ausgewählt werden, dürfen keine Lücken zwischen ihnen vorhanden sein.
+
+Beispiel:
+
+Gültig: Jahr, Monat, Tag | Stunde, Minute, Sekunde | Ungültig: Jahr, Minute, Sekunde
 
 ##### Tipps
-###### Obere/untere Ränder
-Die verwendete Lato-Schriftart ist leicht nach unten geneigt, wodurch ungleichmäßige obere und untere Ränder entstehen. Dies kann über die Höhe und einen negativen oberen Rand angepasst werden.
-Das Widget verwendet eine Höhe von 1em. Die Höhe kann direkt in den Widget-Eigenschaften eingestellt werden.
+###### Obere/Untere Ränder
+Die verwendete Schriftart Lato ist leicht nach unten geneigt, wodurch ungleichmäßige obere und untere Ränder entstehen. Dies lässt sich über die Höhe und einen negativen oberen Rand korrigieren.
+Das Widget hat eine Höhe von 1em. Die Höhe kann direkt in den Widget-Eigenschaften festgelegt werden.
 
 Für den negativen Rand muss eine CSS-Klasse erstellt werden.
 
 ```css
 #w00000 .cdclock {
-margin-top: -5px;
+    margin-top: -5px;
 }
 ```
 
 ###### Widget-Größe vor Version 2
-Wenn Sie die Größe der Countdown-Nixieuhr anpassen möchten, können Sie unter CSS-Einstellungen in Vis für die halbe Größe Folgendes eingeben: Group CSS-Common / transform "scale(0.5)"
+Wenn Sie die Größe des Countdown-Nixieclocks anpassen möchten, können Sie unter den CSS-Einstellungen in vis für die halbe Größe Folgendes eingeben: Gruppe CSS-Common / transform "scale(0.5)"
 
 ###### Zentrieren der Nixie-Uhr
-Um die Uhr zu zentrieren, wird eine zusätzliche CSS-Klasse benötigt, da die entsprechenden Einstellungen nicht in den Widget-Einstellungen konfiguriert werden können:
+Um die Uhr zu zentrieren, ist eine zusätzliche CSS-Klasse erforderlich, da die entsprechenden Einstellungen nicht in den Widget-Einstellungen konfiguriert werden können:
 
 ```css
 #w00000 {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 ```
 
-#### Widget Wordclock
-Ein Widget zum Anzeigen einer Wordclock mit vielen Optionen
+#### Widget Wortuhr
+![Widget-Wortuhr](../../../en/adapterref/iobroker.mytime/admin/mytime-wordclock.png)
 
-##### Widget-Eigenschaften von Wordclock
+Ein Widget zur Anzeige einer Wortuhr mit vielen Optionen
+
+##### Widget-Eigenschaften der Wortuhr
 | Datenpunkt | Beschreibung |
-| ----------------- | -------------------------------------------------------- |
-| Sprache | Für die Wordclock sind verschiedene Sprachen verfügbar |
-| letterActivated | Farbe für die hervorgehobenen Wörter |
-| letterDeactivated | Farbe für die normalen Buchstaben |
-| wordclockMargin | Abstand zwischen der Wordclock und den LEDs |
-| mitMinuten | Zeigt die Minuten-LEDs in der Ecke der Wordclock an |
-| minuteSize | Größe der Minute-LEDs in Pixeln |
-| minuteColor | Farbe der Minuten-LED |
-| withSeconds | Zeigt die Sekunden-LEDs der Wordclock an |
-| secondSize | Größe der Sekunden-LEDs in Pixeln |
-| secondColor | Farbe der Sekunden-LED |
-| Zeitzone | Die Zeit der ausgewählten Zeitzone wird angezeigt |
+| ------------------- | -------------------------------------------------------- |
+| `language` | Für die Wortuhr stehen verschiedene Sprachen zur Verfügung |
+| `letterDeactivated` | Farbe für die normalen Buchstaben |
+| `wordclockMargin` | Abstand zwischen dem Worttaktgeber und den LEDs |
+| `withMinutes` | Minuten-LEDs in der Ecke der Wortuhr anzeigen |
+| `minuteSize` | Größe der Minuten-LEDs in Pixeln |
+| `minuteColor` | Farbe der Minuten-LED |
+| `withSeconds` | Sekunden-LEDs der Wortuhr anzeigen |
+| `secondSize` | Größe der Sekunden-LEDs in Pixeln |
+| `secondColor` | Farbe der Sekunden-LED |
+| `timezone` | Die Zeit der ausgewählten Zeitzone wird angezeigt |
+| `Zeitzone` | Die Zeit der ausgewählten Zeitzone wird angezeigt |
 
-**Der aktuelle Aktionsstatus (cdstop, cdrun, cdpause, cdend) des Countdowns ist als CSS-Klassenselektor verfügbar:**
+**Der tatsächliche Aktionsstatus (cdstop,cdrun,cdpause,cdend) des Countdowns ist als CSS-Klassenselektor verfügbar:**
 
 ```css
 #w00000 .timer.cdend {
-  color: red;
+    color: red;
 }
 #w00000 .timer.cdrun {
-  color: green;
+    color: green;
 }
 ```
 
-## Aufgaben
+## Todo
 - 7-Segment-Anzeige
-- rollende Zahlen
+- rollierende Zahlen
 - anpassbare Schriftarten
-- ts: Zeitregeln für den Ausschluss (Zeitbereich, einzelne Daten)
-- ~~Zeitzone für Wordclock hinzufügen~~
-- ~~Wordclock-Timer~~
-- ~~Zeitplaner: Planen Sie einzelne Termine/Uhrzeiten und wiederkehrende Ereignisse wie Outlook~~
+- ts: Zeitregeln für den Ausschluss (Zeitraum, einzelne Daten)
+- ~~Zeitzone für die Wortuhr hinzufügen~~
+- ~~Wortuhr-Timer~~
+- ~~Zeitplaner: Planen Sie einzelne Termine und wiederkehrende Ereignisse wie in Outlook~~
 - ~~Nixie-Stil~~
-- ~~Flipboard-Anzeige (Flughafen-Anzeige)~~
-- ~~Neuer Befehl, um nur die Zielzeit ohne Datum festzulegen~~
-- ~~Countdown-Kreis-Widget mit Option zum Deaktivieren des Countdown-Textes
-- ~~Gruppentrennzeichen '.' im Namen~~
+- ~~Klapptafel (Flughafenanzeige)~~
+- ~~neuer Befehl zum Festlegen der Zielzeit ohne Datum~~
+- Countdown-Kreis-Widget mit Option zum Deaktivieren des Countdown-Textes
+- ~~Gruppierungstrennzeichen '.' im Namen~~
 - ~~Polaruhr~~
 - ~~Kreis umkehren~~
 - ~~Kreis mit runden Kappen~~
@@ -345,9 +447,34 @@ Ein Widget zum Anzeigen einer Wordclock mit vielen Optionen
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.3.0 (2025-12-03)
+
+- remove autocomplete function in the browser
+- improve documentation
+- add html prepend and append to the countdown plain widget
+- Revision of the algorithms for parameter takeover and verification.
+- Revision of the calculation of dynamic time differences
+
+### 2.2.1 (2025-12-01)
+
+- add missing files
+
+### 2.2.0 (2025-12-01)
+
+- add calculation of astro dates to timeseries
+- rework of the timeseries caluclation in the backend
+- this version includes extended debug information (map-files).
+  For this reason, the adapter is approximately 13MB in size instead of 2MB.
+
+### 2.1.0 (2025-11-27)
+
+- switch from crao to vite build system
+- New option for countdown timer: rerun - when the timer expires,
+  it will automatically restart.
+
 ### 2.0.1 (2025-09-08)
 
-- major release: make nixie clock responsive. the users have to adjust the 
+- major release: make nixie clock responsive. the users have to adjust the
   font-size of the widget to get the old size.
   if you want the old size try it with 100px font-size.
 

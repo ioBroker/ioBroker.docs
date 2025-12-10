@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: EAKZ0Anx09hS8DeJxkB9P5e65e6vvxJxCHMdCWooShE=
+hash: Kgmh9LqbTIR0bii57g5PWB0JCHdgOH8K7VzBh5mPd7o=
 ---
 ![logo](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -41,7 +41,6 @@ An XSense Bridge SBS50 is required.
 ---
 
 ## ❗ WARNING
-A too frequent polling interval (default: 5 min) will shorten the device battery life, as the devices are **always** explicitly woken up.
 The adapter is **not** intended for alarm purposes — it is primarily for monitoring the device battery status.
 
 ---
@@ -84,7 +83,7 @@ It must be an official and publicly released Python version.
 1. **Install Python**
    - Download: [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/)
    - During installation, **enable “Add Python to PATH”**
-Then verify:
+- Then verify:
 
 ```powershell
 python --version
@@ -111,6 +110,12 @@ If it still doesn’t work, check the file /home/iobroker/.cache/autopy/venv/xse
 It lists the Python versions relevant to the environment — adjust if necessary.
 If the file does not exist, you did not wait long enough for the adapter to start.
 
+Error message after installation
+
+[XSense] Cannot find package '@mongodb-js/zstd'
+
+check your node version. zstd has a problem with Node 24
+
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 
@@ -121,6 +126,9 @@ If the file does not exist, you did not wait long enough for the adapter to star
 ------------------------------------------------------------------------------
 
 ## Changelog
+### 0.2.2 (2025-12-03)
+* (arteck) add XS0D-MR
+
 ### 0.2.1 (2025-10-30)
 * (arteck) fix link to readme
 * (arteck) fix load bridge as first

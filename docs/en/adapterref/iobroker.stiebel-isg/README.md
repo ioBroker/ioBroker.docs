@@ -52,6 +52,10 @@ If you update this adapter from a previous version instead of a new installation
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (pdbjjens) **Fixed**: Cleanup some eslint issues
+
 ### 2.0.2 (2025-11-23)
 
 * (pdbjjens) **Fixed**: Adapter hangup on wrong credentials. (fixes #127)

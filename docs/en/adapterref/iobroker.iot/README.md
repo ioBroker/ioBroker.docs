@@ -416,12 +416,13 @@ setState('iot.0.app.message', JSON.stringify({
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 5.0.8 (2025-11-28)
 - (@GermanBluefox) Showed last controller ID in `smart.lastObjectID`
 - (@GermanBluefox) Showed subscription valid period in `info.validTill` and GUI
 - (@Copilot) Implemented increasing reconnect intervall
 - (@GermanBluefox) Added automatically conversion of type TV (alexaV3) to button (alexaV3)
 - (@GermanBluefox) Optimized the update of devices in GUI
+- (@GermanBluefox) Implemented slider with custom min/max values
 
 ### 5.0.7 (2025-11-03)
 - (@GermanBluefox) Added possibility to group devices by type in GUI
@@ -441,11 +442,6 @@ setState('iot.0.app.message', JSON.stringify({
 - (@GermanBluefox) It is possible to edit a type
 - (@GermanBluefox) Correcting creation of complex groups
 - (@GermanBluefox) Same as 4.2.11
-
-### 4.2.9 (2025-10-28)
-- (@GermanBluefox) Do not control "white" by RGBW devices
-- (@GermanBluefox) Corrected GUI error
-- (@GermanBluefox) Avoid double entries in auto-detection
 
 ## License
 

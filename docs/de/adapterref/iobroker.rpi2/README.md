@@ -2,59 +2,66 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rpi2/README.md
-title: kein Titel
-hash: cWeo+oq08XAAh++hWgPAHjLTCo8IlnCkgOpYAAeWOEM=
+title: ioBroker.rpi2
+hash: fbU6FaS3bzboHSlRMuHMlIk6qVYzKCwSWuDiRMuGnhg=
 ---
-![Logo](../../../en/adapterref/iobroker.rpi2/admin/rpi2.png) ioBroker RPI-Monitor-Adapter
+# IoBroker.rpi2
 
-![NPM-Version](https://img.shields.io/npm/v/iobroker.rpi2.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.rpi2.svg)
-![Anzahl der Installationen](https://iobroker.live/badges/rpi2-installed.svg)
-![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/rpi2-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.rpi2.png?downloads=true)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.rpi2?style=flat-square)
+![Downloads](https://img.shields.io/npm/dm/iobroker.rpi2?label=npm%20downloads&style=flat-square)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.rpi2?style=flat-square)
+![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.rpi2?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.rpi2?style=flat-square)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
+![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
+![GitHub-Workflow-Status](https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.rpi2/test-and-release.yml?branch=master&logo=github&style=flat-square)
+![Beta](https://img.shields.io/npm/v/iobroker.rpi2.svg?color=red&label=beta)
+![Stabil](http://iobroker.live/badges/rpi2-stable.svg)
+![Installiert](http://iobroker.live/badges/rpi2-installed.svg)
 
-==============
+## Versionen
+RPI-Monitor-Adapter für ioBroker
 
-**Tests:** ![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.rpi2/workflows/Test%20and%20Release/badge.svg) RPI-Monitor-Implementierung zur Integration in ioBroker. Es handelt sich um die gleiche Implementierung wie für iobroker.rpi, jedoch mit GPIOs.
+RPI-Monitor-Implementierung zur Integration in ioBroker. Es handelt sich um die gleiche Implementierung wie für iobroker.rpi, jedoch mit GPIOs.
 
 ## Wichtige Informationen
-Funktioniert nur mit Knoten >= 18
+**ioBroker benötigt spezielle Berechtigungen zur Steuerung von GPIOs.** Auf den meisten Linux-Distributionen kann dies erreicht werden, indem der Benutzer ioBroker der Gruppe `gpio` hinzugefügt wird.
 
-**ioBroker benötigt spezielle Berechtigungen zur Steuerung von GPIOs.** Bei den meisten Linux-Distributionen kann dies erreicht werden, indem der ioBroker-Benutzer zur Gruppe `gpio` hinzugefügt wird (empfohlen) oder ioBroker unter `root` ausgeführt wird (weniger sicher).
-
-Damit GPIO funktioniert, müssen Sie libgpiod **vor** der Installation des Adapters installieren, und zwar wie folgt: `sudo apt-get install -y libgpiod-dev`
+Damit GPIO funktioniert, müssen Sie `libgpiod` in Version `2.x` installieren, **bevor** Sie den Adapter installieren (siehe unten)!
 
 ## Installation
-Nach der Installation müssen Sie alle erforderlichen Module über die Administrationsseite konfigurieren.
+Nach der Installation müssen Sie alle benötigten Module über die Administrationsseite konfigurieren.
 
-Nach dem Start von iobroker.rpi generieren alle ausgewählten Module einen Objektbaum in ioBroker innerhalb von rpi.<Instanz>.<Modulname>, z. B. rpi.0.cpu
+Nach dem Start von iobroker.rpi erzeugen alle ausgewählten Module einen Objektbaum in ioBroker innerhalb von rpi.<Instanz>.<Modulname>, z. B. `rpi.0.cpu`
 
-Stellen Sie sicher, dass Python und Build-Essential installiert sind:
+Stellen Sie sicher, dass Python und build-essential installiert sind:
 
+```bash
+sudo apt update
+sudo apt install -y build-essential python
+sudo apt install -y libgpiod-dev
 ```
-sudo apt-get update
-sudo apt-get install -y build-essential python
-sudo apt-get install -y libgpiod-dev
-```
 
-(letzteres ist nur notwendig, wenn Sie mit GPIOs arbeiten möchten)
+(Die letzte Option ist nur erforderlich, wenn Sie mit GPIOs arbeiten möchten.)
 
-Folgende Objekte stehen nach der Auswahl zur Verfügung:
+Nach der Auswahl stehen folgende Objekte zur Verfügung:
 
 #### **CPU**
 - CPU-Frequenz
-- laden1
-- laden5
-- Belastung15
+- load1
+- load5
+- load15
 
-#### **Raspberry (vcgencmd ist erforderlich)**
+#### **Raspberry (vcgencmd wird benötigt)**
 - CPU-Spannung
 - mem_arm
-mem_gpu
+- mem_gpu
 
 #### **Erinnerung**
-- verfügbarer Speicher
-- speicherfrei
+- Speicher_verfügbar
+- memory_free
 - Gesamtspeicher
 
 #### **Netzwerk (eth0)**
@@ -74,12 +81,12 @@ mem_gpu
 #### **Temperatur**
 - soc_temp
 
-#### **Betriebszeit**
+#### **Verfügbarkeit**
 - Betriebszeit
 
 #### **WLAN**
-- WLAN empfangen
-- WLAN_senden
+- wifi_received
+- wifi_send
 
 ## Konfiguration
 Auf der Konfigurationsseite können Sie folgende Module auswählen:
@@ -87,28 +94,29 @@ Auf der Konfigurationsseite können Sie folgende Module auswählen:
 - CPU
 - Himbeere
 - Erinnerung
-Netzwerk
-SD-Karte
+- Netzwerk
+- SD-Karte
 - Tauschen
 - Temperatur
-- Betriebszeit
-WLAN
+- Verfügbarkeit
+- WLAN
 
 ### NVME-Temperatur
-Seit Adapterversion 2.3.2 können Sie die NVMe-Temperatur ablesen. Dazu müssen Sie das Paket `nvme-cli` auf Ihrem System installieren.
-Sie können dies mit dem folgenden Befehl tun: `sudo apt-get install nvme-cli`. Sie müssen den Befehl außerdem zur ioBroker-Sudoers-Datei `/etc/sudoers.d/iobroker` hinzufügen. Öffnen Sie diese mit einem Editor, zum Beispiel nano: `sudo nano /etc/sudoers.d/iobroker`, und fügen Sie am Ende die folgende Zeile hinzu: `nvme smart-log /dev/nvme0`.
+Ab Adapterversion 2.3.2 können Sie die NVMe-Temperatur auslesen. Dazu müssen Sie das Paket `nvme-cli` auf Ihrem System installieren.
+Dies gelingt mit folgendem Befehl: `sudo apt-get install nvme-cli`. Anschließend müssen Sie den Befehl zur ioBroker-sudoers-Datei `/etc/sudoers.d/iobroker` hinzufügen. Öffnen Sie diese mit einem Editor, beispielsweise nano: `sudo nano /etc/sudoers.d/iobroker`, und fügen Sie die folgende Zeile am Ende hinzu: `nvme smart-log /dev/nvme0`.
 
 ## GPIOs
-Sie können auch GPIOs lesen und steuern.
-Sie müssen lediglich in den Einstellungen die GPIO-Optionen konfigurieren (zusätzliche Registerkarte).
+Sie können auch GPIOs auslesen und steuern.
+Dazu müssen Sie lediglich die GPIO-Optionen in den Einstellungen (Registerkarte „Zusätzliche Informationen“) konfigurieren.
 
 ![GPIOs](../../../en/adapterref/iobroker.rpi2/img/pi3_gpio.png)
 
-Nachdem einige Ports aktiviert wurden, werden im Objektbaum folgende Zustände angezeigt:
+Nachdem einige Ports aktiviert wurden, erscheinen im Objektbaum die folgenden Zustände:
 
 - rpi.0.gpio.PORT.state
 
-Die Nummerierung der Ports erfolgt in BCM (BroadComm Pins on Chip). Die Nummerierung erhalten Sie mit ```gpio readall```.
+Die Portnummerierung erfolgt über BCM (BroadComm Pins on Chip). Die Enumeration erhalten Sie mit ```gpio readall```.
+
 Beispiel: PI2:
 
 ```
@@ -140,10 +148,10 @@ Beispiel: PI2:
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
 ```
 
-## DHTxx/AM23xx-Sensoren
-Sie können von den Temperatur-/Feuchtigkeitssensoren DHT11, DHT22 und AM2302 lesen.
+## DHTxx/AM23xx Sensoren
+Sie können Daten von den Temperatur-/Feuchtigkeitssensoren DHT11, DHT22 und AM2302 auslesen.
 
-Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Paketseite [Knoten-DHT-Sensor](https://www.npmjs.com/package/node-dht-sensor) beschrieben. Mehrere Sensoren können wie beschrieben an *mehrere* Pins angeschlossen werden (dies ist *kein* Bussystem).
+Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Seite des [Knoten-DHT-Sensor](https://www.npmjs.com/package/node-dht-sensor)-Pakets beschrieben. Mehrere Sensoren können an *mehrere* Pins angeschlossen werden (es handelt sich *nicht* um ein Bussystem), wie bereits erläutert.
 
 ## Changelog
 
@@ -151,6 +159,17 @@ Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Paketseite
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 3.0.2 (2025-12-01)
+* (@klein0r) Check for required libgpiod-dev package version
+
+### 3.0.1 (2025-11-28)
+* (@klein0r) Updated logo, workflows and documentation
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+
+### 3.0.0 (2025-11-28)
+* (@klein0r) NodeJS 20.x (or newer) is required
+* (@klein0r) Updated opengpio to v2 (works on Debian trixie)
+
 ### 2.4.0 (2025-03-06)
 * (Garfonso) read the current state of GPIO outputs during adapter startup.
 * (Garfonso) re-read GPIO input, if set by the user (with ack=false).
@@ -161,15 +180,6 @@ Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Paketseite
 ### 2.3.2 (2025-02-06)
 * (asgothian) added support for NVMe temperature (needs additional configuration, see README)
 * (Garfonso) fixed inital values for outputs.
-
-### 2.3.1 (2025-01-06)
-* (Garfonso) fixed: GPIO library failed to load after recent dependency update.
-
-### 2.3.0 (2024-12-23)
-* (Garfonso) correct interpretation of start value setting. Output with initial value 0/1 will set GPIO accordingly during startup. Output without an initial state will not set GPIO at all.
-
-### 2.2.2 (2024-11-02)
-* (simatec) responsive design for settings page added
 
 ## License
 MIT License

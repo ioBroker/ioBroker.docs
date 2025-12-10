@@ -10,6 +10,8 @@ To use this adapter, you need a hardware that can read NMEA-2000 bus and convert
 - [Actisense NGT-1 (USB)](https://actisense.com/products/ngt-1-nmea-2000-to-pc-interface/)
 - [Actisense NGX1-USB (USB)](https://actisense.com/products/nmea-2000-gateway-ngx-1/)
 - or [Raspberry PI with PiCAN-M](https://www.skpang.co.uk/collections/hats/products/copy-of-pican-m-with-can-bus-micro-c-and-rs422-connector-no-smps)
+- [Yacht Devices YDWG-02/03](https://www.yachtd.com/products/wifi_gateway.html)
+- [Yacht Devices YDEN-02/03](https://www.yachtd.com/products/ethernet_gateway.html)
 
 PiCAN-M could work with Raspberry 4 and [5](https://copperhilltech.com/blog/testing-pican-can-bus-hats-with-the-raspberry-pi-5/).
 
@@ -55,6 +57,13 @@ sudo apt-get install can-utils
 ## Actisense NGT-1
 Actisense NGT-1 is visible on Windows or Linux without any additional drivers. It is visible as a serial port 'COMn' (Windows) or ttyN(on linux).
 
+## YDEN, YDWG
+Enable server N2 with TCP protocol and bidirectional mode.
+
+![YDWG](img/yacht-devices.png)
+
+UDP could work too, but the gateway sends the data into the network continuously, so the bus could be overloaded.
+
 ## Todo
 - Encode code
 - AIS
@@ -88,6 +97,9 @@ The development of Simrad/navico/B&G is not completed yet.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.4.0 (2025-11-30)
+* (bluefox) Added support of YDEN-02/03 and YDWG-02/03 gateways
+
 ### 0.3.0 (2025-08-16)
 * (bluefox) Widgets were rewritten on TypeScript
 * (bluefox) Corrected errors in the widgets and in the calculations

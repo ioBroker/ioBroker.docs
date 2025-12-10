@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.schoolfree/README.md
 title: ioBroker.schoolfree
-hash: BsSCPgTXnrYtW2QvtzPh2J6HOYP11s13WGmANTpaqbk=
+hash: S/xH1aaRxryOQeISBMFmoqEE1bY14AKbIcSqq5mJ0v4=
 ---
 ![Logo](../../../en/adapterref/iobroker.schoolfree/admin/schoolfree.png)
 
@@ -16,66 +16,105 @@ hash: BsSCPgTXnrYtW2QvtzPh2J6HOYP11s13WGmANTpaqbk=
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.schoolfree
-![Testen und freigeben](https://github.com/simatec/ioBroker.schoolfree/workflows/Test%20and%20Release/badge.svg)
+![Test und Freigabe](https://github.com/simatec/ioBroker.schoolfree/workflows/Test%20and%20Release/badge.svg)
 
-Dieser Adapter verwendet den Dienst Sentry.io, um Ausnahmen und Codefehler sowie neue Geräteschemas automatisch an mich als Entwickler zu melden. Näheres siehe unten!
+Dieser Adapter nutzt den Dienst Sentry.io, um mir als Entwickler automatisch Ausnahmen, Codefehler und neue Geräteschemata zu melden. Weitere Details finden Sie unten!
 
-## Schulfreier Adapter für ioBroker
-**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
+## Schoolfree Adapter für ioBroker
+**Wenn es Ihnen gefällt, erwägen Sie bitte eine Spende:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
-### Deutsche Beschreibung:
-Schoolfree ist ein Adapter für iobroker Installationen.
-Mit dem Adapter lassen sich die Schulferien auswerten und in Datenpunkte übergeben.
-Die Datenpunkte können somit für weitere Funktionen wie Heizungssteuerungen, Rolladen- und Anwesenheitssteuerungen ausgewertet und verarbeitet werden.
-
-Der aktuelle Bezug von Terminen für die Schulferien erfolgt über die API von https://www.mehr-schulferien.de
-
-Aktuell werden die Schulferien und freien Tage für Deutschland unterstützt.
-
-Folgende Datenpunkte stehen mit Schoolfree für die weitere Verarbeitung zur Verfügung:
-
-* info.current.end: Datum für das Ende der aktuellen Ferien
-* info.aktueller.name: Bezeichnung der aktuellen Schulferien
-* info.aktueller.start: Startdatum der aktuellen Ferien
-* info.next.end: Datum für das Ende der nächsten Ferien
-* info.next.name: Bezeichnung der nächsten Schulferien
-* info.nächster.start: Startdatum der nächsten Ferien
-* info.today: Switch für den aktuellen Status heute (true/false)
-* info.tomorrow: Schalter für den aktuellen Status morgen (true/false)
-
 *************************************************************************************************************************************
 
-### Englische Beschreibung:
+### Beschreibung:
 Schoolfree ist ein Adapter für iobroker-Installationen.
-Mit dem Adapter können die Schulferien ausgewertet und in Datenpunkte übertragen werden.
-Die Datenpunkte können somit für weitere Funktionen wie Heizungssteuerungen, Rollladen- und Anwesenheitssteuerungen ausgewertet und verarbeitet werden.
+Mit diesem Adapter lassen sich die Schulferien auswerten und in Datenpunkte übertragen.
+Diese Datenpunkte können anschließend für weitere Funktionen wie Heizungs-, Rollladen- und Anwesenheitssteuerung ausgewertet und verarbeitet werden.
 
 Das aktuelle Abonnement für die Schulferien erfolgt über die API von https://www.mehr-schulferien.de
 
-Aktuell werden die Schulferien und freien Tage für Deutschland unterstützt.
+Aktuell werden die Schulferien und freien Tage in Deutschland unterstützt.
 
-Zur Weiterverarbeitung mit Schoolfree stehen folgende Datenpunkte zur Verfügung:
+Folgende Datenpunkte stehen für die Weiterverarbeitung mit Schoolfree zur Verfügung:
 
-* info.current.end: Datum für das Ende der aktuellen Ferien
+* info.current.end: Datum des Endes der aktuellen Feiertage
 * info.current.name: Name der aktuellen Schulferien
-* info.current.start: Startdatum des aktuellen Urlaubs
-* info.next.end: Datum für das Ende der nächsten Ferien
+* info.current.start: Startdatum des aktuellen Feiertags
+* info.next.end: Datum für das Ende der nächsten Feiertage
 * info.next.name: Name der nächsten Schulferien
-* info.next.start: Startdatum des nächsten Urlaubs
-* info.today: Schalter für den aktuellen Stand heute (true/false)
-* info.tomorrow: Schalter für den aktuellen Status morgen (true / false)
+* info.next.start: Startdatum des nächsten Feiertags
+* info.today: Schalter für den heutigen Status (wahr / falsch)
+* info.tomorrow: Schalter für den aktuellen Status morgen (wahr / falsch)
 
-### Was ist Sentry.io und was wird an die Server dieser Firma gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler in ihren Anwendungen zu verschaffen. Und genau das ist in diesem Adapter umgesetzt.
+### Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
+Sentry.io ist ein Dienst, der Entwicklern einen Überblick über Fehler in ihren Anwendungen bietet. Genau dies wird in diesem Adapter implementiert.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH die Erlaubnis erteilt haben, Diagnosedaten zu erfassen, wird auch Ihre Installations-ID (eine eindeutige ID **ohne** weitere Informationen zu Ihrer Person wie E-Mail-Adresse, Name usw.) übermittelt. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abstürzen.
 
 *************************************************************************************************************************************
 
 ## Changelog
 <!--### __WORK IN PROGRESS__-->
+### __WORK IN PROGRESS__
+* (simatec) Readme updated
+
+### 1.1.13 (2025-11-18)
+* (simatec) dependencies updated
+* (simatec) update npm publish
+
+### 1.1.12 (2025-08-31)
+* (simatec) small fix
+* (simatec) dependencies updated
+
+### 1.1.11 (2025-08-15)
+* (simatec) dependencies updated
+
+### 1.1.10 (2025-06-29)
+* (simatec) dependencies updated
+* (simatec) Ready for NodeJS 24.x
+
+### 1.1.9 (2025-03-14)
+* (simatec) Fix warning
+* (simatec) Dependencies updated
+
+### 1.1.8 (2025-02-22)
+* (simatec) eslint-config fix
+* (simatec) Dependencies updated
+* (simatec) small Fix
+
+### 1.1.7 (2024-12-31)
+* (simatec) eslint-config fix
+* (simatec) Dependencies updated
+* (simatec) Fix States
+* (simatec) Update License
+
+### 1.1.6 (2024-11-25)
+* (simatec) Dependencies updated
+* (simatec) Issue Action added
+* (simatec) eslint-config added
+
+### 1.1.5 (2024-09-21)
+* (simatec) Dependencies updated
+* (simatec) small fix
+* (simatec) Responsive Design added
+
+### 1.1.4 (2024-02-06)
+* (simatec) Dependencies updated
+* (simatec) Design Fix
+* (simatec) Gulp deleted
+* (simatec) adapter-dev added
+* (simatec) Translation updated
+
+### 1.1.3 (2023-11-02)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+
+### 1.1.2 (2023-09-04)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+* (simatec) Translation updated
+
 ### 1.1.1 (2023-03-18)
 * (simatec) Dependencies updated
 * (simatec) test and release updated
@@ -166,7 +205,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ## License
 MIT License
 
-Copyright (c) 2019 - 2023 simatec
+Copyright (c) 2019 - 2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

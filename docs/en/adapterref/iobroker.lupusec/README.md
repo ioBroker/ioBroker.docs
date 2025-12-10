@@ -154,6 +154,7 @@ sudo chmod u+s `which ping`
 - (Stübi) Checks actual_humidity value if it less 0% or greater 100%
 - (Stübi) fixing issues detected by repository checker (Issue #126)
 - (Stübi) node.js 24 will be supported (Issue #128)
+- (Stübi) add IKEA poser supply
 
 ### 2.0.8 (2025-04-19)
 

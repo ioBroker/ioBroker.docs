@@ -34,6 +34,10 @@ Discussion:
 	### __WORK IN PROGRESS__
 -->
 
+### 3.0.2 (2025-12-07)
+
+- (Black-Thunder) Dependencies were updated
+
 ### 3.0.1 (2025-08-13)
 
 - (Black-Thunder) Setting a state value is now more tolerant of strings.

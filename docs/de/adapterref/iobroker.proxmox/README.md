@@ -123,6 +123,12 @@ zum Beispiel
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.4.2 (2025-12-07)
+* (arteck) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
+* (Scrounger) some improvements
+* (arteck) Dependencies have been updated
+* (arteck) migrate to eslint 9
+
 ### 2.4.0 (2025-01-27)
 * (mcm1957) BREAKING: you must enter your configuration data again at the config page.
 
@@ -141,9 +147,6 @@ zum Beispiel
 ### 2.2.3 (2024-02-01)
 * (arteck) add icon status available for lxc and vm
 * (arteck) settings adjustment
-
-### 2.2.2 (2023-11-06)
-* (arteck) storage message corr
 
 ## License
 
@@ -168,4 +171,5 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+
 THE SOFTWARE.

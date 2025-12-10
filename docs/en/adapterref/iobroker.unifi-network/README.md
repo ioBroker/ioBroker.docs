@@ -49,9 +49,10 @@ You will need a local user created in your UniFi OS Console to log in with. Ubiq
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.3.1 (2025-12-01)
 
-### **WORK IN PROGRESS**
-
+- (Scrounger) null bug fix #48
+- (Scrounger) dependencies updated
 - (Scrounger) event messages improved #46
 - (Scrounger) bug fixes
 

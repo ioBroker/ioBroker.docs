@@ -813,6 +813,9 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 2.0.9 (2025-11-29)
+* (un9483) Fix Frost Alarm
+
 ### 2.0.8 (2025-11-23)
 * (simatec) Update dependabot
 

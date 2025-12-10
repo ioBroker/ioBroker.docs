@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.openmediavault/README.md
 title: ioBroker.openmediavault
-hash: xhSo6USpGfe5FHKiTrS2XiLdufGk96W/0LtS64P0ddU=
+hash: pms8zano3DR5vTltb8NPc+e2JUtk6fX6IcmGNHGK1IY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.openmediavault/admin/openmediavault.png)
 
@@ -16,12 +16,16 @@ hash: xhSo6USpGfe5FHKiTrS2XiLdufGk96W/0LtS64P0ddU=
 # IoBroker.openmediavault
 **Тесты:** ![Тестирование и выпуск](https://github.com/Scrounger/ioBroker.openmediavault/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер openmediavault для ioBroker
-Этот адаптер позволяет считывать информацию из вашего OpenMediaVault, используя интерфейс rpc.
+## Адаптер OpenMediaVault для ioBroker
+Этот адаптер позволяет считывать информацию из вашего OpenMediaVault с помощью интерфейса RPC.
 
 ## Конфигурация
-Вам понадобится URL-адрес вашего сервера OpenMediavault и пароль вашей учётной записи администратора.
-**Примечание**: использование учётной записи администратора необходимо, поскольку интерфейс RPC доступен только администратору.
+Вам потребуется URL-адрес вашего сервера OpenMediavault и пароль от вашей учетной записи администратора.<br> **Примечание**: использование учетной записи администратора необходимо, поскольку интерфейс RPC доступен только для администраторов.
+
+## Известные проблемы
+Адаптер предотвращает переход жестких дисков в режим ожидания во время циклического опроса и выводит их из режима ожидания по запросу.<br> Причина в том, что это заложено в самой архитектуре RPC API.<br> [Подробнее см.](https://github.com/openmediavault/openmediavault/issues/2063)
+
+Чтобы этого избежать, данные также можно обновлять с помощью задания cron.<br> Например, вы можете запланировать запрос к адаптеру на время, когда жесткие диски и так не находятся в режиме ожидания, например, во время резервного копирования.
 
 ## Changelog
 
@@ -29,6 +33,36 @@ hash: xhSo6USpGfe5FHKiTrS2XiLdufGk96W/0LtS64P0ddU=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.4.2 (2025-12-04)
+
+- (Scrounger) connection timeout bug fix
+
+### 1.4.1 (2025-12-02)
+
+- (Scrounger) session expired bug fix
+
+### 1.4.0 (2025-12-01)
+
+- (Scrounger) option to update data with cron job added
+- (Scrounger) connection timeout configurable
+- (Scrounger) dependencies updated
+- (Scrounger) disk and s.m.a.r.t using label as channel name if avaiable
+
+### 1.3.0 (2025-11-24)
+
+- (Scrounger) s.m.a.r.t. error indicator added
+- (Scrounger) filesystem status, isOnline, hasErrors indicators added
+
+### 1.2.0 (2025-11-23)
+
+- (Scrounger) using disk uuid as channel id for disk and s.m.a.r.t -> Breaking Change !!!
+- (Scrounger) bug fixes
+
+### 1.1.0 (2025-11-21)
+
+- (Scrounger) additonal s.m.a.r.t. attributes added
+- (Scrounger) dependencies updated
+
 ### 1.0.4 (2025-10-19)
 
 - (Scrounger) auto translation bug fix

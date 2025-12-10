@@ -52,7 +52,6 @@ You can use ioBroker with this adapter as central station. For example. you can 
 3. Configure your burglar system to send SIA messages
 
     ![sia_lupusec1](admin/sia_lupusec1.png)
-
     - Lupusec XT1+/XT2/XT2+/XT3/XT4 (SIA-DCS):
 
         Einstellungen -> Contact ID : ip:/subcriber@ip-address-iobroker:port/SIA
@@ -129,7 +128,6 @@ You can use ioBroker with this adapter as central station. For example. you can 
 
     If you have problems processing SIA messages or you found a bug, please create an issue.
     The issue should have following information:
-
     1. Manufacturer and type of alarm system
     2. The SIA message as a file. You can create a file if you activate it in the instance configuration.
     3. If you use encryption (AES), then I need the key to decrypt the message for testing.

@@ -43,8 +43,18 @@ This adapter connects ioBroker to Unraid servers via the GraphQL API to monitor 
 #### Creating the Token:
 
 1. Click on **"Add API Key"**
-2. **Important**: Select **"Admin"** as the access level (Roles: ADMIN)
-    - Currently only Admin tokens work properly (see [this forum post](https://forums.unraid.net/topic/193661-api-access-always-403-forbidden/))
+2. Configure the permissions:
+    - **Base Role**: Select **"Viewer"** (provides read access to system info, metrics, disks, etc.)
+    - **Additional Permissions** (required for control features):
+        - **Docker Manager**: Allows starting/stopping Docker containers
+        - **VM Manager**: Allows starting/stopping/pausing virtual machines
+
+    **Quick Setup Alternative**: Copy this template string and paste it into **API Keys → "Create from template"**:
+
+    ```
+    ?name=ioBroker+unraid+adapter+key&scopes=role%3Aviewer%2Cdocker%2Bvms%3Acreate_any%2Bdelete_any%2Bread_any%2Bupdate_any%2Carray%2Bdashboard%2Bdisk%2Binfo%2Blogs%2Bnetwork%3Aread_any
+    ```
+
 3. Give the token a descriptive name (e.g., "ioBroker")
 4. Copy the generated token (API Key) - you'll need it for the adapter configuration
 
@@ -79,7 +89,7 @@ The adapter creates a structured tree of objects for the monitored data:
 - Unraid server (version 7.0.0+ recommended)
     - For versions before 7.2: Install "Unraid Connect Plugin" from Community Applications
     - For version 7.2+: API support is built-in
-- Admin-level API token generated in Unraid web UI
+- API token with Viewer role (plus Docker/VM Manager for control features)
 - Network access from ioBroker to Unraid server
 
 ## Changelog
@@ -88,6 +98,17 @@ The adapter creates a structured tree of objects for the monitored data:
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.7.1 (2025-11-30)
+
+- (ingel81) Minor pipeline issues fixed
+
+### 0.7.0 (2025-11-30)
+
+- (ingel81) Migrated admin UI to @iobroker/adapter-react-v5 (React 18, MUI v6)
+- (ingel81) Extended Unraid GraphQL schema (CPU package power and temperatures)
+- (ingel81) Refined API token documentation with Viewer role permissions
+- (ingel81) Updated dependencies (release-script 5.x, adapter-react-v5 8.x)
+
 ### 0.6.2 (2025-10-19)
 
 - (ingel81) dependencies updated
