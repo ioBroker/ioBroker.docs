@@ -251,7 +251,7 @@ Ein „Befehl“ ist nicht nur ein Sprachkommando, auch Statusabfragen zählen d
 Auch im geöffneten Zustand fragt die App alle paar Sekunden den Status erneut ab.
 Dieses Verhalten kommt von Amazon (ab Alexa Smart Home API V3) und lässt sich nicht durch ioBroker beeinflussen.
 Dadurch kann das tägliche Limit selbst ohne Sprachkommandos schnell erreicht werden.
----
+
 
 ### Fernzugriff (Remote Access)
 
