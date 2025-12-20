@@ -1031,7 +1031,7 @@ https://github.com/Scrounger/ioBroker.openmediavault
 
 <img src="https://raw.githubusercontent.com/Scrounger/ioBroker.openmediavault/main/admin/openmediavault.png" width="100" height="100" />
 
-This adapter allows to read informations from your OpenMediaVault using the rpc interface.
+This adapter allows to read information from your OpenMediaVault using the rpc interface.
 
 ## admin (21.10.2025) – new feature
 Drag and drop of devices between categories
@@ -1045,14 +1045,14 @@ This ioBroker adapter allows the integration of XSense devices into the ioBroker
 It is designed to receive data from XSense smoke detectors, CO detectors, and other compatible devices, making them available in ioBroker for automation and monitoring.
 The adapter communicates with the XSense cloud server and provides an easy way to integrate XSense devices into existing ioBroker setups.
 
-## sbms (28.11..2025) – new adapter at stable repository
+## sbms (28.11.2025) – new adapter at stable repository
 https://github.com/buffoletti/ioBroker.sbms
 
 <img src="https://raw.githubusercontent.com/buffoletti/ioBroker.sbms/main/admin/sbms.png" width="100" height="100" />
 
-Simple adapter to make data from Electrodacus SBMS available as states from MQTT, the rawData html page or the serial port.
+Simple adapter to make data from Electrodacus SBMS available as states from MQTT, the rawData HTML page or the serial port.
 
-## bmw (28.11..2025) – new adapter at stable repository
+## bmw (28.11.2025) – new adapter at stable repository
 https://github.com/TA2k/ioBroker.bmw
 
 <img src="https://raw.githubusercontent.com/TA2k/ioBroker.bmw/master/admin/bmw.png" width="100" height="100" />
