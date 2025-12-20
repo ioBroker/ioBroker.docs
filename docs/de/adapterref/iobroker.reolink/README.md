@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: bCECbY+7o5yZYlBaXtv4wK0ptJJLg07amF9aEUMVku8=
+hash: 50y3ZeJ3MS1dkRKIpyBd3FY/d1+0pNHJpsSoWBp/fKA=
 ---
-![Logo](../../../en/adapterref/iobroker.reolink/admin/reolink_logo.png)
+![Logo](../../../en/adapterref/iobroker.reolink/admin/reolink.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.reolink.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.reolink.svg)
@@ -15,20 +15,20 @@ hash: bCECbY+7o5yZYlBaXtv4wK0ptJJLg07amF9aEUMVku8=
 ![NPM](https://nodei.co/npm/iobroker.reolink.png?downloads=true)
 
 # IoBroker.reolink
-**Tests:** ![Testen und Freigeben](https://github.com/aendue/ioBroker.reolink/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/aendue/ioBroker.reolink/workflows/Test%20and%20Release/badge.svg)
 
 ## Reolink-Adapter für ioBroker
 Adapter für die ioBroker-Plattform zum Abrufen von [Reolink-Kamera](https://reolink.com/)-Informationen.
 
 Generell unterstützen alle neueren Reolink-Kameras API-Befehle. Sie unterscheiden sich lediglich in den unterstützten Befehlen.
 
-Eine Erinnerung zum Passwort. Versuchen Sie es mit oder ohne URI-Kodierung, wenn Sie nur ein Sonderzeichen haben. Verwenden Sie besser kein Sonderzeichen und einfach ein längeres Passwort für die gleiche Sicherheit. Überprüfen Sie unter http://cam.ip.add.ress/api.cgi?cmd=GetDevInfo&channel=0&user=username&password=yoursecurity, ob Ihre Anmeldeinformationen funktionieren.
+Noch ein Hinweis zum Passwort: Testen Sie es mit und ohne URI-Kodierung, wenn Ihr Passwort nur ein Sonderzeichen enthält. Verwenden Sie für dieselbe Sicherheit besser kein Sonderzeichen und stattdessen ein längeres Passwort. Überprüfen Sie unter http://cam.ip.add.ress/api.cgi?cmd=GetDevInfo&channel=0&user=username&password=yoursecurity, ob Ihre Zugangsdaten funktionieren.
 
-Wenn Sie einen bestimmten API-Befehl einbinden möchten, lassen Sie es mich einfach wissen.
+Falls Sie einen bestimmten API-Befehl einbeziehen möchten, lassen Sie es mich einfach wissen.
 
 ## Implementierte Funktionen
 ### SATZ
-PTZ-Steuerung / PTZ-Schutz
+- PTZ-Steuerung / PTZ-Wächter
 - Push-Benachrichtigung
 - Autofokus einstellen
 
@@ -39,52 +39,52 @@ Werte: 0,1
 Werte: Auto, Aus
 
 - LED-Licht einstellen
-- E-Mail-Benachrichtigung einstellen
+- E-Mail-Benachrichtigung einrichten
 
 Werte: 0, 1
 
-- Audioalarm abspielen
-Zoom-Fokus
+- Audio-Alarm abspielen
+- Zoomfokus
 
-Funktionen können durch Ändern des Status von reolink.<Instanze>.settings ausgelöst werden.
+Funktionen können durch Ändern der Zustände von reolink.<Instanze>.settings ausgelöst werden.
 
  ### ERHALTEN
-Geräteinformationen
+- Geräteinformationen
 - PTZ-Informationen
 - Laufwerksinformationen
 - Netzwerkinformationen
-Bewegungserkennung
-Autofokus
-Schnappschuss
-IR-Licht
-LED-Licht
+- Bewegungserkennung
+- Autofokus
+- Momentaufnahme
+- Infrarotlicht
+- LED-Licht
 - E-Mail-Benachrichtigung
 
 ### Push-Benachrichtigungseinstellungen
-Push-Benachrichtigungen an ein Telefon werden nur bereitgestellt, wenn die folgenden Bedingungen erfüllt sind:
+Push-Benachrichtigungen auf ein Telefon werden nur dann bereitgestellt, wenn folgende Bedingungen erfüllt sind:
 
-- Der Schalter für Push-Benachrichtigungen im Adapter ist EIN.
-- Bei NVRs sind sowohl der globale als auch der Kanalschalter eingeschaltet.
-- Die Push-Benachrichtigung in der Reolink-App dieses Telefons ist EIN.
+- Der Schalter für Push-Benachrichtigungen im Adapter ist eingeschaltet.
+- Bei NVRs sind sowohl der globale Schalter als auch der Kanalschalter eingeschaltet.
+- Die Push-Benachrichtigung in der Reolink-App dieses Telefons ist aktiviert.
 
-Die Push-Benachrichtigungen in der Reolink-App sind unabhängig von den Adaptereinstellungen. Sie sind auch unabhängig von den Einstellungen anderer mit derselben Kamera verbundener Smartphones. Reolink ermöglicht Ihnen so, Push-Benachrichtigungen unabhängig pro Smartphone zu deaktivieren. Das bedeutet, dass die Deaktivierung von Push-Benachrichtigungen bei iobroker den Umschaltknopf in der App nicht berührt.
+Die Push-Benachrichtigungen in der Reolink-App funktionieren unabhängig von den Adaptereinstellungen. Sie sind auch unabhängig von den Einstellungen anderer mit derselben Kamera verbundener Smartphones. Reolink ermöglicht Ihnen so, Push-Benachrichtigungen für jedes Smartphone einzeln zu deaktivieren. Das bedeutet, dass die Deaktivierung von Push-Benachrichtigungen über iobroker die entsprechende Option in der App nicht beeinflusst.
 
-### Beispielverwendung von „Bild abrufen“:
-```
+### Beispielhafte Verwendung von get image:
+```js
 sendTo("reolink.0",{action: "snap"}, function(result){
     sendTo("matrix-org.0",{file:result});
 });
 ```
 
-// Inhalt von **Ergebnis** ist JSON:
+// Der Inhalt von **result** ist JSON:
 
-```
-{type:"image/png",base64:"iVBORw....askldfj"}
+```json
+{ "type": "image/png","base64": "iVBORw....askldfj" }
 ```
 
-für Telegram funktioniert das
+Für Telegram funktioniert dies.
 
-```
+```js
 sendTo("reolink.0",{action: "snap"}, function(result){
     const buffer =Buffer.from(result.base64, "base64");
     sendTo('telegram.0', {
@@ -96,23 +96,34 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 ```
 
 ## Bekannte funktionierende Kameras (Firmware aus dem Jahr 2023)
-RLC 420 5MP
-- E1 Außenbereich
-E1 Zoom
-RLC 522
-RLC 810A
-RLC 823A
-Duo 3 PoE
+- RLC-420-5MP
+- E1 Outdoor
+- E1 Zoom
+- RLC-522
+- RLC-810A
+- RLC-823A
+- Duo 3 PoE
 
 ## Bekannte *NICHT* funktionierende Kameras
-E1 Pro
-- Argus 4 (möglicherweise funktionieren nicht alle Argus)
+- E1 Pro
+- Argus 4 (möglicherweise funktionieren alle Argus-Geräte nicht)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2025-12-20)
+* (agross) AiCfg config
+* (oelison) bump some libs #202
+* (bluefox) migration to ts
+* (bot) revoking classic token #204
+* (oelison) state changes from info log to debug #206
+
+### 1.2.3 (2025-06-30)
+* (oelison) settings email notification #170
+* (oelison) testing node.js 24 #172
+
 ### 1.2.2 (2025-05-01)
 * (oelison) update readme #141 #155
 * (oelison) supress errors with axios timeout #154

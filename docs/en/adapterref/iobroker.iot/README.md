@@ -387,7 +387,7 @@ setState('iot.0.app.priority', 'normal'); // optional. Priority: 'high' or 'norm
 setState('iot.0.app.title', 'ioBroker'); // optional. Default "ioBroker"
 setState('iot.0.app.message', 'Message text'); // important, that ack=false (default)
 
-// or just one state (this also allows to use payload -> `actions`, `devices` and `link` property)
+// or just one state (this also allows to use payload -> `actions`, `devices` and `openUrl` property)
 // only message is mandatory. All other are optional
 // Note that, if you are using `actions`or `devices`, the app needs to handle the notification in the background before showing it
 // in some scenarios, e.g. low power or spamming to many notifications the OS may decide to not show the notification at all
@@ -416,6 +416,9 @@ setState('iot.0.app.message', JSON.stringify({
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Added copy of credentials from cloud instance
+
 ### 5.0.11 (2025-12-16)
 - (@GermanBluefox) Added percentual control
 - (@GermanBluefox) Correcting creation for complex groups

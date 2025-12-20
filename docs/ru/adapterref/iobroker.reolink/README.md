@@ -3,50 +3,50 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: bCECbY+7o5yZYlBaXtv4wK0ptJJLg07amF9aEUMVku8=
+hash: 50y3ZeJ3MS1dkRKIpyBd3FY/d1+0pNHJpsSoWBp/fKA=
 ---
-![Логотип](../../../en/adapterref/iobroker.reolink/admin/reolink_logo.png)
+![Логотип](../../../en/adapterref/iobroker.reolink/admin/reolink.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.reolink.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.reolink.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.reolink.svg)
 ![Количество установок](https://iobroker.live/badges/reolink-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/reolink-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/reolink-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/aendue/iobroker.reolink.svg)
 ![НПМ](https://nodei.co/npm/iobroker.reolink.png?downloads=true)
 
 # IoBroker.reolink
-**Тесты:** ![Тест и выпуск](https://github.com/aendue/ioBroker.reolink/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/aendue/ioBroker.reolink/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер reolink для ioBroker
-Адаптер для платформы ioBroker для получения информации [Переподключение камеры](https://reolink.com/).
+Адаптер для платформы ioBroker для получения информации [Камера Reolink](https://reolink.com/).
 
-В целом все новые камеры Reolink поддерживают команды API. Они просто отличаются поддерживаемыми командами.
+В целом, все новые камеры Reolink поддерживают команды API. Разница лишь в наборе поддерживаемых команд.
 
-Одно напоминание о пароле. Попробуйте использовать или не использовать кодировку URI, если у вас есть только один специальный символ. Лучше не использовать специальный символ и просто использовать более длинный пароль для той же безопасности. Проверьте с помощью http://cam.ip.add.ress/api.cgi?cmd=GetDevInfo&channel=0&user=username&password=yoursecurity, работают ли ваши учетные данные.
+Напоминание о пароле. Попробуйте использовать кодировку URI или нет, если у вас всего один специальный символ. Лучше вообще не использовать специальные символы и просто придумать более длинный пароль для обеспечения той же безопасности. Проверьте, работают ли ваши учетные данные, используя http://cam.ip.add.ress/api.cgi?cmd=GetDevInfo&channel=0&user=username&password=yoursecurity.
 
-Если вы хотите включить какую-либо конкретную команду API... просто дайте мне знать.
+Если вам необходимо включить какую-либо конкретную команду API... просто дайте мне знать.
 
 ## Реализованные функции
 ### НАБОР
-- Управление PTZ / Охрана PTZ
-- Push-уведомление
+- Управление PTZ / Защита PTZ
+- Push-уведомления
 - Установить автофокус
 
 значения: 0,1
 
-- Установить ИК-подсветку
+- Включить ИК-подсветку
 
-значения: Авто, Выкл.
+Значения: Авто, Выкл.
 
-- Установить светодиодную подсветку
-- Установить почтовое уведомление
+- Включить светодиодную подсветку
+- Настроить уведомления по электронной почте
 
 значения: 0, 1
 
-- Воспроизвести звуковой сигнал будильника
+- Воспроизвести звуковой сигнал тревоги
 - Увеличение фокуса
 
-Функции можно запускать, изменяя состояния reolink.<Instanze>.settings.
+Функции можно активировать, изменяя состояние reolink.<Instanze>.settings.
 
  ### ПОЛУЧАТЬ
 - Информация об устройстве
@@ -57,34 +57,34 @@ hash: bCECbY+7o5yZYlBaXtv4wK0ptJJLg07amF9aEUMVku8=
 - Автофокус
 - Снимок
 - ИК-свет
-- Светодиодный свет
+- Светодиодная подсветка
 - Уведомление по почте
 
 ### Настройки push-уведомлений
 Push-уведомления на телефон будут отправляться только при соблюдении следующих условий:
 
-- Переключатель Push-уведомлений в адаптере находится в положении ВКЛ.
-- Для сетевых видеорегистраторов глобальный и канальный переключатели находятся в положении «ВКЛ».
-- Push-уведомления в приложении Reolink на этом телефоне включены.
+— Переключатель push-уведомлений в адаптере включен.
+- Для сетевых видеорегистраторов (NVR) включены как глобальный переключатель, так и переключатель каналов.
+— В приложении Reolink на этом телефоне включены push-уведомления.
 
-Push-уведомление в приложении Reolink не зависит от настроек адаптера. Оно также не зависит от настроек на других телефонах, подключенных к той же камере. Reolink делает это, чтобы у вас был независимый способ отключения push-уведомлений для каждого телефона. Это означает, что отключение push в iobroker вообще не затрагивает кнопку переключения в приложении.
+Функция push-уведомлений в приложении Reolink не зависит от настроек адаптера. Она также не зависит от настроек других телефонов, подключенных к той же камере. Reolink делает это для того, чтобы у вас был независимый способ отключения push-уведомлений для каждого телефона. Это означает, что отключение push-уведомлений в iobroker никак не влияет на кнопку переключения в приложении.
 
-### Пример использования get image:
-```
+### Пример использования функции получения изображения:
+```js
 sendTo("reolink.0",{action: "snap"}, function(result){
     sendTo("matrix-org.0",{file:result});
 });
 ```
 
-// содержимое **результата** — JSON:
+// Содержимое из **результата** представляет собой JSON:
 
-```
-{type:"image/png",base64:"iVBORw....askldfj"}
+```json
+{ "type": "image/png","base64": "iVBORw....askldfj" }
 ```
 
-для телеграма это работает
+Для Telegram это работает.
 
-```
+```js
 sendTo("reolink.0",{action: "snap"}, function(result){
     const buffer =Buffer.from(result.base64, "base64");
     sendTo('telegram.0', {
@@ -95,24 +95,35 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 });
 ```
 
-## Известные рабочие камеры (прошивки не старше 2023 года)
-- РЛК-420-5МП
-- E1 Наружный
+## Известные рабочие камеры (прошивка выпущена до 2023 года)
+- RLC-420-5MP
+- E1 Outdoor
 - E1 Zoom
-- РЛК-522
-- РЛК-810А
-- РЛК-823А
-- Дуо 3 PoE
+- RLC-522
+- RLC-810A
+- RLC-823A
+- Дуэт 3 PoE
 
-## Известные *НЕ* рабочие камеры
-- E1 Про
-- Argus 4 (возможно не все Argus работают)
+## Известные *НЕ* работающие камеры
+- E1 Pro
+- Argus 4 (возможно, не все Argus работают)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2025-12-20)
+* (agross) AiCfg config
+* (oelison) bump some libs #202
+* (bluefox) migration to ts
+* (bot) revoking classic token #204
+* (oelison) state changes from info log to debug #206
+
+### 1.2.3 (2025-06-30)
+* (oelison) settings email notification #170
+* (oelison) testing node.js 24 #172
+
 ### 1.2.2 (2025-05-01)
 * (oelison) update readme #141 #155
 * (oelison) supress errors with axios timeout #154

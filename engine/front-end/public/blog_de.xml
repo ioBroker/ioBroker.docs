@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.net/#de/blog</link>
-        <lastBuildDate>Wed, 24 Sep 2025 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 21 Dec 2025 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[ioBroker Monatsrückblick – Dezember 2025]]></title>
+            <description><![CDATA[
+                <p>Das Jahr neigt sich dem Ende zu, aber im ioBroker-Ökosystem wurde auch in den letzten Monaten \nwieder fleißig entwickelt, integriert und optimiert. \nIn diesem Monatsrückblick stellen wir euch zahlreiche neue Adapter vor.\nVon `BMW` und `Unraid` bis hin zu `GPS-Tracking` und `OpenMediaVault`. \nAußerdem läuft derzeit die **Weihnachtsaktion 2025**.\nPerfekt, um Lizenzen günstiger zu bekommen.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2025_12_21</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2025_12_21</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 21 Dec 2025 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[ioBroker Monatsrückblick – September 2025]]></title>
             <description><![CDATA[

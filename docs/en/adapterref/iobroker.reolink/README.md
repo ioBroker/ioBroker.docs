@@ -1,4 +1,4 @@
-![Logo](admin/reolink_logo.png)
+![Logo](admin/reolink.png)
 # ioBroker.reolink
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.reolink.svg)](https://www.npmjs.com/package/iobroker.reolink)
@@ -15,11 +15,11 @@
 
 Adapter for ioBroker Plattform to get [Reolink camera](https://reolink.com/) information.
 
-In general all newer Reolink cameras support API commands. They just differ in their supported commands.
+In general, all newer Reolink cameras support API commands. They just differ in their supported commands.
 
 One reminder to the password. Try with or without URI encoding, when you have only one special char. Better use no special char and simply a longer password for the same security. Check with http://cam.ip.add.ress/api.cgi?cmd=GetDevInfo&channel=0&user=username&password=yoursecurity if your credentials are working.
 
-If you wish to have any specific API command included...just let me now.
+If you wish to have any specific API command included...just let me know.
 
 ## Implemented functions
 
@@ -62,17 +62,18 @@ The Push-notification in the Reolink app is independent of the adapter setting. 
 
 ### Example Usage of get image:
 
-```
+```js
 sendTo("reolink.0",{action: "snap"}, function(result){
     sendTo("matrix-org.0",{file:result});
 });
 ```
 // content from **result** is JSON :
+```json
+{ "type": "image/png","base64": "iVBORw....askldfj" }
 ```
-{type:"image/png",base64:"iVBORw....askldfj"}
-```
+
 for telegram this is working
-```
+```js
 sendTo("reolink.0",{action: "snap"}, function(result){
     const buffer =Buffer.from(result.base64, "base64");
     sendTo('telegram.0', {
@@ -103,9 +104,12 @@ sendTo("reolink.0",{action: "snap"}, function(result){
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.3.0 (2025-12-20)
 * (agross) AiCfg config
-* (oelison) bump some libs
+* (oelison) bump some libs #202
+* (bluefox) migration to ts
+* (bot) revoking classic token #204
+* (oelison) state changes from info log to debug #206
 
 ### 1.2.3 (2025-06-30)
 * (oelison) settings email notification #170

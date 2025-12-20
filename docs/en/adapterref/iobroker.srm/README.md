@@ -1,4 +1,4 @@
-![Logo](admin/synology.png)
+![Logo](admin/srm.png)
 
 # ioBroker Synology Router Manager Adapter
 

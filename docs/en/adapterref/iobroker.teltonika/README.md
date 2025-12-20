@@ -1,4 +1,5 @@
-![Logo](admin/teltonika.png)
+<img src="admin/teltonika.svg" height="100px"/>
+
 # ioBroker Teltonika
 
 ![Number of Installations](http://iobroker.live/badges/teltonika-installed.svg)

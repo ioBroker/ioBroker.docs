@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.teltonika/README.md
 title: ioBroker Teltonika
-hash: WNmiokj5Zo5awTiishj342u5m25x9l9t0jqwOclWWxs=
+hash: ITce4FuOuoOrXOpu1ruJf0Z3Zn+Reze1PrwtFoPz3gE=
 ---
-![Logo](../../../en/adapterref/iobroker.teltonika/admin/teltonika.png)
-
 ![Anzahl der Installationen](http://iobroker.live/badges/teltonika-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.teltonika.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.teltonika.svg)
+
+<img src="admin/teltonika.svg" height="100px"/>
 
 # IoBroker Teltonika
 ![Test und Freigabe](https://github.com/ioBroker/ioBroker.teltonika/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/teltonika/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)

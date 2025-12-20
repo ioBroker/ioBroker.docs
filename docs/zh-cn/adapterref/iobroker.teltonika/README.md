@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.teltonika/README.md
 title: ioBroker Teltonika
-hash: WNmiokj5Zo5awTiishj342u5m25x9l9t0jqwOclWWxs=
+hash: ITce4FuOuoOrXOpu1ruJf0Z3Zn+Reze1PrwtFoPz3gE=
 ---
-![标识](../../../en/adapterref/iobroker.teltonika/admin/teltonika.png)
-
 ![安装数量](http://iobroker.live/badges/teltonika-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.teltonika.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.teltonika.svg)
+
+<img src="admin/teltonika.svg" height="100px"/>
 
 # IoBroker Teltonika
 ![测试与发布](https://github.com/ioBroker/ioBroker.teltonika/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/teltonika/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
@@ -28,7 +28,7 @@ hash: WNmiokj5Zo5awTiishj342u5m25x9l9t0jqwOclWWxs=
 - 广域网 IP 地址
 - 正常运行时间
 - 姓名
-- 数字输入 1 ('RUT9')
+- 数字输入 1（'RUT9'）
 - 数字输入 2 ('RUT9')
 - 模拟输入（'RUT9'、'TRB2'、'TRB141'）
 - 引脚 2 状态 ('TRB2')

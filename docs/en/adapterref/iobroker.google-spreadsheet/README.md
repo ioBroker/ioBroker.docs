@@ -133,7 +133,7 @@ Make sure the Service Account has adequate permissions to write to the spreadshe
 
 ## License
 
-   Copyright (c) 2024 Thomas Pohl
+   Copyright (c) 2024-2025 Thomas Pohl
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
