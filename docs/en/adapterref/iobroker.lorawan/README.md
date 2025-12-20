@@ -23,6 +23,18 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.18.51 (2025-12-20)
+* (BenAhrdt) add "Temperatur" to autmatic assign
+
+### 1.18.50 (2025-12-16)
+* (BenAhrdt) filter in Debug mode (dev tool)
+
+### 1.18.49 (2025-12-16)
+* (BenAhrdt) Read and send always all light attributes
+
+### 1.18.48 (2025-12-16)
+* (BenAhrdt) Set the selection to usedNames (application and device)
+
 ### 1.18.47 (2025-12-09)
 * (BenAhrdt) CustomSend becomes possibility for different order of parameters.
              payloadInHex, port, confirmed, priority, push (push is written as string 'push')

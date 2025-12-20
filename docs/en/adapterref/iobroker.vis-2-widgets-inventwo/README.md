@@ -14,25 +14,39 @@ Adds switches, buttons, sliders and more as widgets for ioBroker VIS 2.0.
 ## Content
 Various widgets for switching, navigating and more.
 
-![Vorschau Universal- & Multi-Widget](img/preview_universal_widget.png)
+### Widget - Universal
+![Preview Universal- & Multi-Widget](img/preview_universal_widget.png)
 
-Various content types
+#### Various content types
 
-![Vorschau Colorpicker](img/preview_content_types.png)
+![Preview Colorpicker](img/preview_content_types.png)
 
 Color picker
 
-![Vorschau Colorpicker](img/preview_colorpicker.png)
+![Preview Colorpicker](img/preview_colorpicker.png)
 
-Slider
+### Widget - Slider
 
-![Vorschau Colorpicker](img/preview_sliders.png)
+![Preview Slider](img/preview_sliders.png)
 
-Switches
+### Widget - Switches
 
-![Vorschau Colorpicker](img/preview_switches.png)
+![Preview Switches](img/preview_switches.png)
 
-#### More will follow...
+### Widget - Checkbox
+
+![Preview Checkbox](img/preview_checkbox.png)
+
+### Widget—Table
+
+![Preview Table](img/preview_table.png)
+
+### Design
+All widgets come with extensive design options to customize the look and feel to your needs.
+
+![Preview Customization](img/preview_css_customization.png)
+
+### More will follow...
 
 
 ## Changelog
@@ -40,6 +54,15 @@ Switches
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.1 (2025-12-18)
+- Added image type to column for table widget (#97)
+- Added custom datetime format support for table widget (#97)
+- Fix issue in slider widget when steps is active but value is empty
+- Changed module federation version to match vis 2.0 stable
+
+### 0.4.0 (2025-12-13)
+- Switched to TypeScript
+
 ### 0.3.12 (2025-12-06)
 - Fixed content position caused by previous version
 

@@ -213,9 +213,13 @@ Enable debug logging in adapter settings to see detailed information about:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.1.2 (2025-12-10)
 - (jbeenenga) fix invalid state roles according to ioBroker documentation
-- (jbeenenga) fix repository checker issues
+- (jbeenenga) fix repository checker issues (#237)
+  - Corrected schema URL in .vscode/settings.json
+  - Added jsonConfig schema validation
+  - Updated release-script packages to latest versions
+- (jbeenenga) fix jsonConfig validation errors - replaced title with label in table items
 
 ### 2.1.1 (2025-09-02)
  - (jbeenenga) correct outsite temperature path setting

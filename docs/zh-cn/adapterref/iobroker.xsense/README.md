@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: Kgmh9LqbTIR0bii57g5PWB0JCHdgOH8K7VzBh5mPd7o=
+hash: ceT3UrkNGF1iTp+oW/Ry7epFUY7GzkAdasLqxCjpwP4=
 ---
 ![标识](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -121,6 +121,8 @@ pip --version
 [XSense] 找不到软件包“@mongodb-js/zstd”
 
 请检查您的 Node 版本。zstd 与 Node 24 存在兼容性问题。
+
+或者，如果您在 Proxmox 上运行虚拟机，请检查您的 CPU 设置。 <img width="676" height="140" alt="形象的" src="https://github.com/user-attachments/assets/68658aab-5336-4493-9a51-f833c3238a5a" />
 
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------

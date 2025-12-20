@@ -36,6 +36,11 @@ Um einen API-Key zu erstellen, gehe zu [console.developers.google.com](https://c
 ## Statistiken aller Kanäle in InfluxDB speichern
 
 ```javascript
+// v0.2
+
+const targetDb = 'influxdb.0';
+const currentInstance = `javascript.${instance}`;
+
 on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
     try {
         const youtubeJson = obj.state.val;
@@ -45,23 +50,23 @@ on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
         for (const channel of channels) {
             const alias = channel.customUrl.substr(1); // remove leading @
 
-            await this.sendToAsync('influxdb.0', 'storeState', {
+            await this.sendToAsync(targetDb, 'storeState', {
                 id: `youtube.0.channels.${alias}.subscribers`,
                 state: {
                     ts,
                     val: channel.subscriberCount,
                     ack: true,
-                    from: `system.adapter.javascript.0.${scriptName}`,
+                    from: `system.adapter.${currentInstance}.${scriptName}`,
                 }
             });
 
-            await this.sendToAsync('influxdb.0', 'storeState', {
+            await this.sendToAsync(targetDb, 'storeState', {
                 id: `youtube.0.channels.${alias}.views`,
                 state: {
                     ts,
                     val: channel.viewCount,
                     ack: true,
-                    from: `system.adapter.javascript.0.${scriptName}`,
+                    from: `system.adapter.${currentInstance}.${scriptName}`,
                 }
             });
         }
@@ -77,8 +82,9 @@ on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 6.1.0 (2025-12-11)
 
+* (@klein0r) Update channel icons every week
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
 * (@klein0r) Updated dependencies
 
@@ -100,12 +106,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 NodeJS >= 18.x and js-controller >= 5 is required
 
 * (klein0r) Better way to get channel id by alias
-
-### 4.4.0 (2023-10-25)
-
-NodeJS 16.x is required
-
-* (klein0r) Added icons to admin tabs
 
 ## License
 

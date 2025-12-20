@@ -187,6 +187,10 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.5.2 (2025-12-14)
+
+- (Lucky-ESA) Rate limit of 50 requests per minute intercepted at adapter startup
+- (Lucky-ESA) Added custom request
 
 ### 1.5.1 (2025-09-20)
 
@@ -211,10 +215,6 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
 ### 1.4.2 (2024-10-25)
 
 - (TA2k) fix for devices with object values
-
-### 1.4.1 (2024-07-02)
-
-- (foxriver76) fixed invalid min/max values
 
 ## License
 

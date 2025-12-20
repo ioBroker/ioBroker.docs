@@ -214,9 +214,9 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.3.2 (2025-12-15)
 
-### **WORK IN PROGRESS**
-
+- update telemetry ids for container creation
 - optimize dependabot config (#209)
 
 ### 4.3.1 (2025-10-11)

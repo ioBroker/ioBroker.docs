@@ -26,8 +26,9 @@ You can find more and detailed information about the device here: [Refoss](https
 | Refoss Smart Energy Monitor, EM06 | >= v2.3.8 |
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.3.5 (2025-12-16)
 
+- (zhoulinyue) Improve test and lease.yml
 ### 1.3.4 (2025-12-10)
 
 - (zhoulinyue) Resolve the issue of request timeout after network interruption

@@ -12,14 +12,14 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: Kgmh9LqbTIR0bii57g5PWB0JCHdgOH8K7VzBh5mPd7o=
+hash: ceT3UrkNGF1iTp+oW/Ry7epFUY7GzkAdasLqxCjpwP4=
 ---
 ![логотип](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
 ![НПМ](https://nodei.co/npm/iobroker.xsense.png?downloads=true)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.xsense.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.xsense.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.xsense.svg)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/arteck/ioBroker.xsense)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/arteck/ioBroker.xsense)
 ![Проблемы на GitHub](https://img.shields.io/github/issues/arteck/ioBroker.xsense)
 ![Лицензия](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Количество установок](http://iobroker.live/badges/xsense-installed.svg)
@@ -115,6 +115,8 @@ pip --version
 [XSense] Не удалось найти пакет '@mongodb-js/zstd'
 
 Проверьте версию Node.js. У zstd возникла проблема с Node.js 24.
+
+или, если у вас установлена виртуальная машина на Proxmox, проверьте настройки процессора. <img width="676" height="140" alt="графический" src="https://github.com/user-attachments/assets/68658aab-5336-4493-9a51-f833c3238a5a" />
 
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------

@@ -284,18 +284,16 @@ E.g., Text `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a ===
 
 ## Custom cards
 ### Upload of custom cards
-To upload the custom card, write the following:
+To upload the custom card either use the `Files` tab in Admin, drag & drop in the instance settings or write the following in command line where iobroker is installed:
 
 ```iobroker file write PATH_TO_FILE\bignumber-card.js /lovelace.0/cards/```
 
 After restart of lovelace adapter it will include all files from the `cards` directory automatically.
 
-The following custom cards could be tested successfully:
-- `bignumber-card`: https://github.com/custom-cards/bignumber-card/blob/master/bignumber-card.js
-- `simple-thermostat`: https://github.com/nervetattoo/simple-thermostat/releases (take the latest release)
-- `thermostat`: https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card (both files .js and .lib.js are required)
+If the card needs additional resources (css or js files), you will have to recreate the folder structure in the `cards` directory and place those files there.
+The adapter will detect URLs starting with `/hacsfiles/` and reroute them to the `cards` directory. So if you see `404` errors for URLs including `/hacsfiles/`, then try to adjust the folder structure in the `cards` directory accordingly.
 
-I found this link https://github.com/jimz011/homeassistant as an interesting resource for custom cards.
+So, for example, if a custom card needs the following file `/hacsfiles/folder1/folder2/file3.json` you need to place it at `/lovelace.0/cards/folder1/folder2/file3.json`.
 
 Often the custom cards are stored on GitHub as sources and must be compiled before use.
 You should check the `Releases` menu on GitHub and try to find compiled files there.
@@ -473,6 +471,11 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 5.0.4 (2025-12-17)
+* (Garfonso) added missing roles to instance objects
+* (Garfonso) manual entities should not vanish anymore because of automatic entities
+* (Garfonso) add support for cover images from static urls
+
 ### 5.0.3 (2025-10-10)
 * (Garfonso) make sure only existing themes are selectable in control.theme states.
 * (Garfonso) bring back support for frontend_es5.
@@ -500,9 +503,6 @@ After that checkout modified version in `./build` folder. Then.
 * (Garfonso) Prevent crash with some edge cases with light entities
 * (Garfonso) experimental dashboard support.
 * (Garfonso) Allow to show sidebar via object in instances. VERY experimental. A lot of stuff does not yet work. But allows to configure dashboards and also browser mod.
-
-### 4.1.15 (2025-03-10)
-* (Garfonso) repaired image loading, again.
 
 ## License
 

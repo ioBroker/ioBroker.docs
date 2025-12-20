@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: +4BEYBju93eii2cAjZxbr+S6XLLuzNLxSM8pDCE4O68=
+hash: QfKSqlGftbJyv0MlEm0qUNwcfEF1jai3/FY+3jQYAzI=
 ---
 ![Logo](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
@@ -14,19 +14,19 @@ hash: +4BEYBju93eii2cAjZxbr+S6XLLuzNLxSM8pDCE4O68=
 ![NPM](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)
 
 # IoBroker.tinymqttbroker
-![Testen und Freigeben](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg) [![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
+![Test und Freigabe](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg) [![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
 
 ## Tinymqttbroker-Adapter für ioBroker
-Dies ist ein sehr kleiner MQTT-Broker, der keine Objekte/Zustände in iobroker verwaltet, sondern eine zentrale MQTT-Broker-Instanz bietet, um Themen als MQTT-Client zu veröffentlichen und zu abonnieren. Sehr hilfreich, um mehreren Geräten die Kommunikation mit einem Broker zu ermöglichen und sie mit einem MQTT-Client-JavaScript auf iobroker interagieren zu lassen.
+Dies ist ein sehr kleiner MQTT-Broker, der keine Objekte/Zustände in iobroker verwaltet, sondern eine zentrale MQTT-Broker-Instanz zum Veröffentlichen und Abonnieren von Themen als MQTT-Client bereitstellt. Er ist sehr hilfreich, um mehreren Geräten die Kommunikation mit einem Broker und die Interaktion über iobroker mit einem MQTT-Client-JavaScript zu ermöglichen.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Erfordert
 * Node.js 20 oder höher
 * ioBroker-Host (js-Controller) 5.0 oder höher
 
 ## Wie man es benutzt
-Ein MQTT-Client könnte so aussehen
+Ein MQTT-Client könnte wie folgt aussehen:
 
 ```
 const mqtt = require('mqtt');
@@ -64,20 +64,20 @@ client.on('message', (topic: string, payload) => {
 })
 ```
 
-Zum Veröffentlichen von Nachrichten verwende ich einen ioBroker-Status, der auf Änderungen wartet und diese an den Broker weiterleitet.
-Der Status erwartet ein JSON mit „Thema“ und „Nachricht“.
+Zum Veröffentlichen von Nachrichten wird ein dedizierter ioBroker-Status verwendet, der Änderungen überwacht und diese an den MQTT-Broker weiterleitet.
+Der Status erwartet eine JSON-Nutzlast, die Thema und Nachricht enthält.
 
 ```
 on({ id: stateMqttIn, change: 'any' }, function (obj) {
-    let input: any = obj.state.val;
-    let topic: string = input.topic;
-    let message: string = String(input.message);
+    const input: any = obj.state.val;
+    const topic: string = input?.topic ?? null;
+    const message: string = String(input?.message) ?? null;
     if (topic && message) client.publish(topic, message);
-    else log(`MQTT publish not possible with topic '${topic}' and message '${message}'`,'warn');
+    else log(`MQTT publish not possible for topic '${topic}' and message '${message}'`, 'warn');
 });
 ```
 
-WICHTIG! Wenn Sie Ihren eigenen MQTT-Client in einem ioBroker-Javascript erstellen, vergessen Sie nicht, den Client im Skript mit
+WICHTIG! Wenn Sie Ihren eigenen MQTT-Client in einem ioBroker-JavaScript-Skript implementieren, stellen Sie sicher, dass Sie den Client am Ende des Skripts ordnungsgemäß schließen, indem Sie Folgendes aufrufen:
 
 ```
 onStop(function (callback) {
@@ -96,6 +96,13 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (HGlab01) Update libs
+* (HGlab01) (c) 2026
+
+### 0.1.4 (2025-04-22)
+* (HGlab01) Improve port scan
+
 ### 0.1.3 (2024-10-19)
 * (HGlab01) Improve port scan for available ports
 * (HGlab01) Improve UI config
@@ -130,7 +137,7 @@ onStop(function (callback) {
 ## License
 MIT License
 
-Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2026 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

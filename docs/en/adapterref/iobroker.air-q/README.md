@@ -81,6 +81,11 @@ The data will be retrieved and shown in the objects-tab according to your config
 
 ## Changelog <a id="change" />
 
+### 1.0.7
+* Missing (e.g. warming up) sensors are skipped gracefully
+* Fixed incorrect translations
+* Refactor redundant methods
+
 ### 1.0.6
 * The adapter can automatically respect your air-Q device's night mode configuration
 

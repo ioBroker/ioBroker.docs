@@ -57,6 +57,13 @@ If checked, the adapter also sends an output once it changes.
 
 
 ## Changelog
+### 1.2.4 (2025-12-13)
+* bump @types/node to 25.0.1
+* bump @tsconfig/node20 to 20.0.8
+* bump glob
+* bump actions/checkout to 6
+* more dependency updates
+
 ### 1.2.3 (2025-10-25)
 * migrate to npm trusted publishing
 

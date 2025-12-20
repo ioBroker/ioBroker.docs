@@ -3,30 +3,30 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: +4BEYBju93eii2cAjZxbr+S6XLLuzNLxSM8pDCE4O68=
+hash: QfKSqlGftbJyv0MlEm0qUNwcfEF1jai3/FY+3jQYAzI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/tinymqttbroker-stable.svg)
-![версия НПМ](https://img.shields.io/npm/v/iobroker.tinymqttbroker.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/tinymqttbroker-stable.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.tinymqttbroker.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tinymqttbroker.svg)
 ![Количество установок](https://iobroker.live/badges/tinymqttbroker-installed.svg)
 ![НПМ](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)
 
 # IoBroker.tinymqttbroker
-![Тест и выпуск](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg) [![Статус FOSSA](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
+![Тестирование и выпуск](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg) [![Статус FOSSA](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
 
 ## Адаптер tinymqttbroker для ioBroker
-Это очень маленький брокер MQTT, который не управляет никакими объектами/состояниями в iobroker, но предлагает центральный экземпляр брокера MQTT для публикации тем подписки в качестве клиента MQTT. Очень полезно, чтобы позволить нескольким устройствам общаться с одним брокером и взаимодействовать на iobroker с клиентом MQTT javascript.
+Это очень маленький MQTT-брокер, который не управляет никакими объектами/состояниями в iobroker, а предоставляет центральный экземпляр MQTT-брокера для публикации и подписки на темы в качестве MQTT-клиента. Очень удобно, когда несколько устройств могут взаимодействовать с одним брокером и использовать MQTT-клиент JavaScript в iobroker.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Требует
 * Node.js 20 или выше
-* ioBroker хост (js-контроллер) 5.0 или выше
+* ioBroker host (js-controller) 5.0 или выше
 
-## Как это использовать
-Клиент MQTT может выглядеть так
+## Как им пользоваться
+MQTT-клиент может выглядеть следующим образом.
 
 ```
 const mqtt = require('mqtt');
@@ -64,20 +64,20 @@ client.on('message', (topic: string, payload) => {
 })
 ```
 
-Для публикации сообщения я использую одно состояние ioBroker, которое отслеживает любые изменения и отправляет их брокеру.
-Состояние ожидает JSON с «темой» и «сообщением».
+Для публикации сообщений используется специальное состояние ioBroker, которое отслеживает любые изменения и пересылает их брокеру MQTT.
+Состояние ожидает полезную нагрузку в формате JSON, содержащую тему и сообщение.
 
 ```
 on({ id: stateMqttIn, change: 'any' }, function (obj) {
-    let input: any = obj.state.val;
-    let topic: string = input.topic;
-    let message: string = String(input.message);
+    const input: any = obj.state.val;
+    const topic: string = input?.topic ?? null;
+    const message: string = String(input?.message) ?? null;
     if (topic && message) client.publish(topic, message);
-    else log(`MQTT publish not possible with topic '${topic}' and message '${message}'`,'warn');
+    else log(`MQTT publish not possible for topic '${topic}' and message '${message}'`, 'warn');
 });
 ```
 
-ВАЖНО! Если вы создаете свой собственный клиент MQTT в ioBroker javascript, не забудьте закрыть клиент в scipt с помощью
+ВАЖНО! Если вы реализуете собственный MQTT-клиент внутри JavaScript-скрипта ioBroker, убедитесь, что в конце скрипта клиент корректно закрывается с помощью вызова:
 
 ```
 onStop(function (callback) {
@@ -96,6 +96,13 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (HGlab01) Update libs
+* (HGlab01) (c) 2026
+
+### 0.1.4 (2025-04-22)
+* (HGlab01) Improve port scan
+
 ### 0.1.3 (2024-10-19)
 * (HGlab01) Improve port scan for available ports
 * (HGlab01) Improve UI config
@@ -130,7 +137,7 @@ onStop(function (callback) {
 ## License
 MIT License
 
-Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2026 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

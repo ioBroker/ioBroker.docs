@@ -12,7 +12,7 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.shelly.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/shelly-stable.svg
 BADGE-Installed: http://iobroker.live/badges/shelly-installed.svg
-chapters: {"pages":{"en/adapterref/iobroker.shelly/README.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/README.md"},"en/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/protocol-coap.md"},"en/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/protocol-mqtt.md"},"en/adapterref/iobroker.shelly/restricted-login.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/restricted-login.md"},"en/adapterref/iobroker.shelly/state-changes.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/state-changes.md"},"en/adapterref/iobroker.shelly/faq.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/faq.md"},"en/adapterref/iobroker.shelly/debug.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/debug.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.shelly/README.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/README.md"},"en/adapterref/iobroker.shelly/ble-devices.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/ble-devices.md"},"en/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/protocol-coap.md"},"en/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/protocol-mqtt.md"},"en/adapterref/iobroker.shelly/restricted-login.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/restricted-login.md"},"en/adapterref/iobroker.shelly/state-changes.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/state-changes.md"},"en/adapterref/iobroker.shelly/faq.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/faq.md"},"en/adapterref/iobroker.shelly/debug.md":{"title":{"en":"ioBroker.shelly"},"content":"en/adapterref/iobroker.shelly/debug.md"}}}
 ---
 ![Logo](../../admin/shelly.png)
 
@@ -60,14 +60,20 @@ Questions? Check the [FAQ](faq.md) section first!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 10.5.0-alpha.2 (2025-11-30)
-* (@mcm1957) Addon support has been **removed** from Shelly Dimmer Gen 3 (shellydimmerg3) as it is not supported by shelly with theis device.
+### **WORK IN PROGRESS**
+* (@mcm1957) Monophase profile support has been added to shellypro3em, shellypro3em63 and shellypro3em400. [#1016]
+* (@mcm1957) ResetCounters functionality has been added to components EMData and EM1Data. This effect shellypro3em* but also other shellyem* devices gen2 and later.
+* (@mcm1957) Changes to shellypro3em could affect shellyemg3 and shellyproem50.
+* (@HGlab01) Several fixes for Shelly Ecowitt WS90 have been implemented. [#1293]
+
+### 10.5.0 (2025-12-13)
+* (@mcm1957) Changes to mqtt connect handling have been applied. This should fix error 'Unable to get MQTT.Prefix'[#931].
+* (@mcm1957) Addon support has been **removed** from Shelly Dimmer Gen 3 (shellydimmerg3) as it is not supported by shelly for this device.
 * (@mcm1957) Missing fields at light component have been added. This will effect several devices but should add additional states below light(n) only.
 * (@klein0r) Added speed, dewpoint, uv_index, pressure, direction and precipitation for weather station WS 90
-* (@mcm1957) Changes to mqtt connect handling have been applied. This should fix err 'Unable to get MQTT.Prefix'[#931].
 * (@mcm1957) Mqtt qos mode 2 has been removed from configuration as shelly does not support qos mode 2.
 * (@mcm1957) Shelly Plug PM Gen 3 (shellyplugpmg3) has been added.
-* (@mcm1957) Shelly Dimmer Gen 4 (shellydimmerg4) has been added.
+* (@mcm1957) Shelly Dimmer Gen 4 (shellydimmerg4) has been added. Some restrictions still exist. 
 * (@mcm1957) Dependencies have been updated
 
 ### 10.4.1 (2025-11-03)
@@ -90,17 +96,6 @@ Questions? Check the [FAQ](faq.md) section first!
 * (@klein0r) Rssi for ble has been added to script.
 * (@mcm1957) Shelly Flood Gen 4 (shellyfloodg4) has been added.
 * (@mcm1957) Shelly Power Strip Gen 4 (shellypstripg4) has been added with partial support.
-
-### 10.2.0 (2025-09-09)
-
-* (@mcm1957) Role definitions for anergy states has been corrected [#1195].
-* (@mcm1957) Shelly Dali Dimmer Gen 3 (shellyddimmerg3) has been added.
-* (@mcm1957) Shelly1L Gen 3 (shelly1lg3) has been added.
-* (@mcm1957) Shelly2L Gen 3 (shelly2lg3) has been added.
-* (@mcm1957) Shelly2PM Gen 4 (shelly2pmg4) has been added.
-* (@klein0r) Shelly Shutter Gen 3 (shellyshutter) has been added.
-* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required now.
-* (@mcm1957) Dependencies have been updated
 
 ## License
 

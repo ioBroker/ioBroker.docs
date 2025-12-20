@@ -3,26 +3,26 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: 9eNN5XG2Hc1qnapPKKoFNt8cDNC4UlPz7A/DJ7N8NBQ=
+hash: iOLJBj8VhAtGULmPmWfEajoHu7deNPqQv2WNJT4La+w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
 ![Количество установок](http://iobroker.live/badges/lovelace-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.lovelace.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.lovelace.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.lovelace.svg)
 
 # IoBroker.lovelace
-![Тестирование и выпуск](https://github.com/ioBroker/iobroker.lovelace/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/lovelace/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестирование и выпуск](https://github.com/ioBroker/iobroker.lovelace/workflows/Test%20and%20Release/badge.svg) [![[Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/lovelace/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Адаптер lovelace для ioBroker
-С помощью этого адаптера вы можете создать визуализацию для ioBroker с помощью Home Assistant Lovelace UI.
+## Адаптер Lovelace для ioBroker
+С помощью этого адаптера вы можете создавать визуализации для ioBroker с использованием пользовательского интерфейса Home Assistant Lovelace.
 
-[Deutsche Dokumentation](docs/de/README.md)
+[Немецкая документация](docs/de/README.md)
 
-## Объекты экземпляров
-В экземплярах папок содержатся объекты, которые можно использовать для управления пользовательским интерфейсом. Для каждого браузера будет создана новая подпапка со случайным идентификатором. Этот идентификатор хранится в веб-хранилище клиентского браузера. При удалении веб-хранилища будет создан новый экземпляр. Если вы используете Fully Kiosk Browser, убедитесь, что функция `Delete webstorage on reload` **отключена**.
+## Экземпляры объектов
+В папках экземпляров находятся объекты, которые можно использовать для управления пользовательским интерфейсом. Для каждого браузера будет создана новая подпапка со случайным идентификатором. Этот идентификатор хранится в веб-хранилище клиентского браузера. Если вы удалите веб-хранилище, будет создан новый экземпляр. Если вы используете Fully Kiosk Browser, убедитесь, что функция `Delete webstorage on reload` **отключена**.
 
-Эта функция использует модуль browser_mod, который устанавливается и обновляется адаптером. Не добавляйте собственную версию модуля browser_mod в качестве пользовательской карты.
+Эта функциональность использует browser_mod, который устанавливается и обновляется адаптером. Не добавляйте свою собственную версию browser_mod в качестве пользовательской карточки.
 
 ## Конфигурация
 Существует два способа настройки сущностей:
@@ -31,11 +31,11 @@ hash: 9eNN5XG2Hc1qnapPKKoFNt8cDNC4UlPz7A/DJ7N8NBQ=
 - руководство
 
 ### Авто
-В автоматическом режиме будет применен аналогичный процесс, как для `google home` или `material adapter`.
+В автоматическом режиме будет применяться аналогичный процесс, как для `google home` или `material adapter`.
 
-***Будут обнаружены только те объекты и каналы, для которых определены категории `function`и `room`***
+***Будут обнаружены только объекты и каналы, для которых определены категории `function` и `room`***
 
-Вы можете определить понятные имена, и они будут использоваться в сущностях.
+Вы можете задать понятные имена, которые будут использоваться в сущностях.
 
 ### Руководство
 Объекты можно определить вручную в дереве объектов, например, `sql` или `history`. Необходимо указать тип сущности и, при необходимости, имя объекта.
@@ -43,7 +43,7 @@ hash: 9eNN5XG2Hc1qnapPKKoFNt8cDNC4UlPz7A/DJ7N8NBQ=
 
 ## Панели
 ### Панель сигнализации
-ioBroker пока не поддерживает такое устройство, но его можно симулировать. Если вы создадите такой скрипт:
+ioBroker пока не поддерживает такое устройство, но его можно смоделировать. Если вы создадите подобный скрипт:
 
 ```js
 createState(
@@ -78,12 +78,12 @@ createState(
 );
 ```
 
-или просто используйте для этого `lovelace.X.control.alarm (entity_id = alarm_control_panel.defaultAlarm)`.
+или же вы можете просто использовать для этого `lovelace.X.control.alarm (entity_id = alarm_control_panel.defaultAlarm)`.
 
 ### Ввод числа
-Это можно сделать вручную, если в настраиваемом диалоговом окне выбран тип сущности input_number.
-Для этого типа требуются значения `min` и `max` в `common`, а также можно добавить необязательные значения `step`.
-Чтобы увидеть стрелки вверх и вниз, установите в настраиваемом параметре `mode` значение «number»:
+Это можно сделать вручную, если в пользовательском диалоговом окне выбран тип сущности input_number.
+Для этого типа требуются значения `min` и `max` в `common`, а также можно добавить необязательное значение `step`.
+Если вы хотите видеть стрелки вверх и вниз, вам следует установить в пользовательском диалоговом окне `mode` значение 'number':
 
 ```json5
 common: {
@@ -98,9 +98,9 @@ common: {
 }
 ```
 
-### Выберите вход
-Это можно сделать вручную, если в настраиваемом диалоговом окне выбран тип сущности `input_select`.
-Список вариантов выбора должен быть представлен в стандартном объекте `common.states`:
+### Выберите поле ввода
+Это можно сделать вручную, если в пользовательском диалоговом окне выбран тип сущности `input_select`.
+Список параметров для выбора должен быть предоставлен в стандартном объекте `common.states`:
 
 ```json
 "common": {
@@ -119,10 +119,10 @@ common: {
     }
 ```
 
-Другими словами, в IoB также должен быть выборочный вход.
+Иными словами, в IoB также должен быть предусмотрен выбор ввода.
 
-### Таймер
-Таймер можно смоделировать с помощью следующего скрипта:
+Таймер
+Имитацию работы таймера можно выполнить с помощью следующего скрипта:
 
 ```js
 createState(
@@ -206,16 +206,16 @@ createState(
 ```
 
 ### Погода
-Протестировано с `yr` и `daswetter`. Для доступности в конфигурации одного или нескольких из следующих объектов должны быть установлены `Function=Weather` и `Room=Any`:
+Протестировано с `yr` и `daswetter`. Для доступности в конфигурации одному или нескольким из следующих объектов необходимо установить `Function=Weather` и `Room=Any`:
 
 - `daswetter.0.NextDays.Location_1`
 - `yr.0.forecast`
 
 Протестировано с драйвером `AccuWeather` версии 1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
-Пользовательская карта Lovelace создана для поддержки прогноза погоды AccuWeather - https://github.com/algar42/IoB.lovelace.accuweather-card
+Пользовательская карточка Lovelace, созданная для поддержки прогноза погоды AccuWeather - https://github.com/algar42/IoB.lovelace.accuweather-card
 
 ### Список покупок
-Список покупок записывает значения в форме:
+Список покупок записывает значения в форму:
 
 ```json
 [
@@ -226,10 +226,10 @@ createState(
 
 в состояние `lovelace.X.control.shopping_list`.
 
-Вы также можете добавлять собственные списки дел или покупок, создавая вручную сущности с типом `todo`.
+Вы также можете добавлять собственные списки дел или покупок, создавая вручную сущности типа `todo`.
 
 ### Карта
-Объекты должны выглядеть так:
+Объекты должны выглядеть вот так:
 
 ```js
 createState('location', '39.5681295;2.6432632', false, {
@@ -263,8 +263,9 @@ createState('location.latitude', 39.5681295, false, {
 });
 ```
 
-### Изображение сущности
-Вы можете использовать статическую картинку или любое состояние, которое предоставляет URL в качестве состояния.
+### Изображение объекта
+Для этого можно использовать статическое изображение или любой другой объект состояния, который предоставляет URL-адрес.
+
 Например:
 
 ```json
@@ -282,35 +283,32 @@ createState('location.latitude', 39.5681295, false, {
 }
 ```
 
-или просто вручную задайте тип сущности `camera` и пропишите в нем URL.
+или просто вручную установите тип сущности на `camera` и впишите в него URL-адрес.
 
-### Уценка
-Вы можете использовать привязки в Markdown, как в [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects).
+### Markdown
+В Markdown можно использовать привязки, например, так: [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects).
 
-Например, текст `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` создаст текст `Admin adapter is alive` на панели разметки.
+Например, текст `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` в панели Markdown будет выглядеть как текст `Admin adapter is alive`.
 
 ## Пользовательские карты
-### Загрузка пользовательских карт
-Чтобы загрузить пользовательскую карту, напишите следующее:
+### Загрузка пользовательских карточек
+Для загрузки пользовательской карты используйте вкладку `Files` в разделе «Администрирование», перетащите её в настройки экземпляра или введите следующее в командной строке в месте установки iobroker:
 
 ```iobroker file write PATH_TO_FILE\bignumber-card.js /lovelace.0/cards/```
 
 После перезапуска адаптера Lovelace он автоматически включит все файлы из каталога `cards`.
 
-Следующие пользовательские карты могут быть успешно протестированы:
+Если для карточки требуются дополнительные ресурсы (файлы CSS или JS), вам придётся пересоздать структуру папок в каталоге `cards` и поместить эти файлы туда.
+Адаптер будет обнаруживать URL-адреса, начинающиеся с `/hacsfiles/`, и перенаправлять их в каталог `cards`. Поэтому, если вы видите ошибки `404` для URL-адресов, включающих `/hacsfiles/`, попробуйте соответствующим образом скорректировать структуру папок в каталоге `cards`.
 
-- `bignumber-card`: https://github.com/custom-cards/bignumber-card/blob/master/bignumber-card.js
-- `simple-thermostat`: https://github.com/nervetattoo/simple-thermostat/releases (возьмем последний релиз)
-- `thermostat`: https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card (требуются оба файла .js и .lib.js)
+Например, если для пользовательской карты требуется следующий файл `/hacsfiles/folder1/folder2/file3.json`, его необходимо разместить в `/lovelace.0/cards/folder1/folder2/file3.json`.
 
-Я нашел эту ссылку https://github.com/jimz011/homeassistant как интересный ресурс для создания пользовательских карточек.
-
-Часто пользовательские карты хранятся на GitHub в виде исходных кодов и должны быть скомпилированы перед использованием.
+Часто пользовательские карточки хранятся на GitHub в виде исходных файлов и должны быть скомпилированы перед использованием.
 Вам следует проверить меню `Releases` на GitHub и попытаться найти там скомпилированные файлы.
-Например, этот: [https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases) (ищите файл `mini-graph-card-bundle.js`)
+Например, вот этот: [https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases) (ищите файл `mini-graph-card-bundle.js`)
 
 ## Собственные изображения
-Пользовательские изображения (например, для фона) можно загрузить через тот же диалог настройки, что и пользовательские карточки. И использовать их следующим образом:
+Пользовательские изображения (например, для фона) можно загружать через тот же диалог конфигурации, что и пользовательские карточки. И использовать это можно следующим образом:
 
 `background: center / cover no-repeat url("/cards/background.jpg") fixed`
 
@@ -318,11 +316,12 @@ createState('location.latitude', 39.5681295, false, {
 
 `background: center / cover no-repeat url("/local/custom_ui/background.jpg") fixed`
 
-в файле конфигурации Lovelace. Подробнее о фоновой информации в Lovelace [здесь](https://www.home-assistant.io/lovelace/views/#background).
+в конфигурационном файле Lovelace. Подробнее о фоновых процессах см. в разделе Lovelace [здесь](https://www.home-assistant.io/lovelace/views/#background).
 
 ## Темы
-Темы можно задать в диалоговом окне конфигурации ioBroker.
-Вставьте примерно следующее:
+Темы оформления можно задать в диалоговом окне конфигурации ioBroker.
+
+Вставьте что-то вроде:
 
 ```yaml
 midnight:
@@ -395,10 +394,10 @@ midnight:
 взято из [здесь](https://community.home-assistant.io/t/midnight-theme/28598/2).
 
 ## Иконки
-Используйте значки в формате `mdi:NAME`, например, `mdi:play-network`. Названия можно взять здесь: https://materialdesignicons.com/
+Используйте иконки в форме `mdi:NAME`, например, `mdi:play-network`. Названия можно взять отсюда: https://materialdesignicons.com/
 
 ## Уведомления
-Вы можете добавить уведомления с помощью функциональности `sendTo` или записав состояние в `lovelace.X.notifications.add`:
+Вы можете добавлять уведомления с помощью функционала `sendTo` или путем записи состояния в `lovelace.X.notifications.add`:
 
 ```js
 sendTo('lovelace.0', 'send', {message: 'Message text', title: 'Title'}); // full version
@@ -413,8 +412,8 @@ setState('lovelace.0.notifications.add', 'Message text'); // short version
 ```
 
 ## Голосовое управление
-Все команды из веб-интерфейса будут записаны в состояние lovelace.X.conversation с `ack=false`.
-Вы можете написать скрипт, который будет реагировать на запрос и отвечать:
+Все команды из веб-интерфейса будут записываться в состояние lovelace.X.conversation с `ack=false`.
+Вы можете написать скрипт, который будет реагировать на запросы и отвечать на них:
 
 ```js
 on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
@@ -428,54 +427,54 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 ```
 
 ## Поиск неисправностей
-Если вы испортили код YAML и видите пустую страницу, но при этом верхнее меню всё ещё открыто, вы можете включить режим редактирования (если он ещё не включён) в меню, а затем снова открыть меню, чтобы получить доступ к «Редактору RAW Yaml», в котором вы увидите полный код YAML и сможете его отредактировать.
-Если это не поможет, вы можете открыть объект `lovelace.*.configuration` в редакторе raw-editor в ioBroker и посмотреть его.
+Если вы допустили ошибку в YAML-коде и видите пустую страницу, но при этом верхнее меню всё ещё отображается, вы можете включить режим редактирования (если он ещё не включен) из меню, а затем снова открыть меню, чтобы получить доступ к «Редактору RAW Yaml», в котором вы увидите полный YAML-код и сможете его исправить.
+Если это не поможет, вы можете открыть объект `lovelace.*.configuration` в raw-editor в ioBroker и посмотреть там.
 Вы также можете восстановить этот объект из резервной копии. Он содержит полную конфигурацию вашей визуализации.
 
-## Оригинальные источники для lovelace
-Использованные источники здесь https://github.com/GermanBluefox/home-assistant-polymer .
+## Оригинальные источники для Лавлейс
+Исходный код использован здесь: https://github.com/GermanBluefox/home-assistant-polymer.
 
-## Задача
-Безопасность должна быть взята от текущего пользователя, а не от default_user.
+## Todo
+Безопасность должна обеспечиваться текущим пользователем, а не пользователем по умолчанию (default_user).
 
 ## Разработка
 ### Версия
-Использованная версия home-assistant-frontend@20250306.0 Версия Browser Mod: 2.3.3
+Используемая версия home-assistant-frontend@20250306.0. Версия Browser Mod: 2.3.3
 
-### Как построить новую версию Lovelace
-Прежде всего, фактический https://github.com/home-assistant/frontend (ветка dev) должен быть **вручную** объединен с https://github.com/GermanBluefox/home-assistant-polymer.git (ветка ***iob***!).
+### Как собрать новую версию Lovelace
+Прежде всего, необходимо **вручную** объединить репозиторий https://github.com/home-assistant/frontend (ветка разработки) с репозиторием https://github.com/GermanBluefox/home-assistant-polymer.git (ветка ***iob***!).
 
 Все изменения для ioBroker отмечены комментарием `// IoB`.
 На данный момент (20250401.0) были изменены следующие файлы:
 
 - `build-scripts/gulp/app.js` - Добавить новую задачу gulp develop-iob
 - `build-scripts/gulp/rspack.js` - Добавить новую задачу gulp rspack-dev-app
-- `src/data/icons.ts` - пока оставить старые иконки.
-- `src/data/weather.ts` - добавлена поддержка отображения значка погоды из URL.
-- `src/dialogs/more-info/const.ts` - удалить состояние и историю погоды
-- `src/dialogs/more-info/ha-more-info-dialog.ts` - удалить кнопку и вкладку настроек сущности
-- `src/dialogs/more-info/ha-more-info-history.ts` - удалить ссылку `показать больше` из истории
-- `src/dialogs/more-info/ha-more-info-logbook.ts` - удалить ссылку `показать больше` в журнале
-- `src/dialogs/more-info/controls/more-info-weather.ts` - добавлена поддержка отображения значка погоды из URL.
+- `src/data/icons.ts` - пока сохранить старые иконки.
+- `src/data/weather.ts` - добавлена поддержка отображения значка погоды по URL-адресу.
+- `src/dialogs/more-info/const.ts` - удалить состояние погоды и историю
+- `src/dialogs/more-info/ha-more-info-dialog.ts` - удалить кнопку и вкладку настроек сущности.
+- `src/dialogs/more-info/ha-more-info-history.ts` - удалить ссылку `show more` в истории
+- `src/dialogs/more-info/ha-more-info-logbook.ts` - удалить ссылку `show more` в логбуке
+- `src/dialogs/more-info/controls/more-info-weather.ts` - добавлена поддержка отображения значка погоды по URL-адресу.
 - `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - отключить настройку голосовых помощников
 - `src/entrypoints/core.ts` - добавить опцию без аутентификации
-- `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - добавлена поддержка отображения значка погоды из URL.
-- `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - добавлена поддержка отображения значка погоды из URL с аутентификацией.
-- `src/panels/lovelace/hui-root.ts` - добавлена кнопка уведомления, отключена ссылка на управление панелями мониторинга
-- `src/util/documentation-url.ts` - для ссылки на справку iobroker вместо домашнего помощника.
-- `.husky/pre-commit` - удалить хуки коммитов git.
+- `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - добавлена поддержка отображения значка погоды по URL-адресу.
+- `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - добавлена поддержка отображения значка погоды по URL-адресу с авторизацией.
+- `src/panels/lovelace/hui-root.ts` - добавлена кнопка уведомлений, отключена ссылка управления панелями мониторинга.
+- `src/util/documentation-url.ts` - ссылка на справку iobroker вместо Home Assistant.
+- `.husky/pre-commit` - удалить хуки для коммитов Git.
 
-После этого проверьте изменённую версию в папке `./build`. Затем.
+После этого загрузите модифицированную версию в папку `./build`. Затем.
 
-1. перейдите в каталог ./build.
-2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` это форк https://github.com/home-assistant/frontend.git, но некоторые вещи изменены (см. список файлов ранее).
+1. Перейдите в каталог ./build.
+2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` — это форк https://github.com/home-assistant/frontend.git, но некоторые вещи в нём изменены (см. список файлов выше).
 3. `cd home-assistant-polymer`
 4. `git checkout master`
-5. `установка пряжи`
-6. `gulp build-app` для релизной версии или `gulp develop-iob` для отладочной. Чтобы собрать веб-версию после изменений, можно вызвать `webpack-dev-app` для более быстрой сборки, но вам в любом случае потребуется вызвать `build-app` после того, как версия будет готова к использованию.
-7. Запустите скрипт `hass_frontend/static_cards/newFrontend.sh` в репозитории адаптера, чтобы обновить фронтенд (предполагается, что два репозитория находятся рядом друг с другом в одной папке; если это не так, пожалуйста, исправьте скрипт, желательно с какой-либо обработкой параметров, и сделайте PR, спасибо :smile: )
+5. `yarn install`
+6. `gulp build-app` для релизной версии или `gulp develop-iob` для отладочной. Для сборки веб-версии после внесения изменений можно вызвать `webpack-dev-app` для более быстрой сборки, но в любом случае необходимо вызвать `build-app` после того, как версия будет готова к использованию.
+7. Запустите скрипт `hass_frontend/static_cards/newFrontend.sh` в репозитории адаптера, чтобы обновить фронтенд (предполагается, что два репозитория находятся рядом друг с другом в одной папке; если это не так, пожалуйста, доработайте скрипт, желательно с обработкой параметров, и создайте запрос на слияние, спасибо :smile: )
 8. Запустите задачу `gulp rename`.
-9. Обновите версию в `README.md`
+9. Обновите версию в файле `README.md`.
 
 ## Changelog
 
@@ -483,6 +482,20 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 5.0.4 (2025-12-17)
+* (Garfonso) added missing roles to instance objects
+* (Garfonso) manual entities should not vanish anymore because of automatic entities
+* (Garfonso) add support for cover images from static urls
+
+### 5.0.3 (2025-10-10)
+* (Garfonso) make sure only existing themes are selectable in control.theme states.
+* (Garfonso) bring back support for frontend_es5.
+
+### 5.0.2 (2025-10-02)
+* (Garfonso) some light entities did not restore their proper state on switch on. Fixed.
+* (Garfonso) process folders-Objects for auto entities, too. (pirate-weather support)
+* (Garfonso) prepare support for effects in light entities (will need new type-detector version).
+
 ### 5.0.1 (2025-09-09)
 * (Garfonso) settings from entity registry are now loaded on startup
 * (Garfonso) logbook: prevent entries from the future
@@ -501,15 +514,6 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 * (Garfonso) Prevent crash with some edge cases with light entities
 * (Garfonso) experimental dashboard support.
 * (Garfonso) Allow to show sidebar via object in instances. VERY experimental. A lot of stuff does not yet work. But allows to configure dashboards and also browser mod.
-
-### 4.1.15 (2025-03-10)
-* (Garfonso) repaired image loading, again.
-
-### 4.1.14 (2025-03-10)
-* (Garfonso) repaired image loading. Fixes #577
-
-### 4.1.13 (2025-03-06)
-* (Garfonso) reworked image sending. Now weather icons work for normal users, too. Also, weather images are transferred from our server, so no access to admin is needed anymore.
 
 ## License
 

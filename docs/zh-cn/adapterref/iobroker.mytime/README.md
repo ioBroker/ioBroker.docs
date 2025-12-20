@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: AM05yAYFztEvfByM3ZOPWhBgcWlhVyoazz4t/FNMrI8=
+hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
 ---
 ![标识](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -30,7 +30,7 @@ hash: AM05yAYFztEvfByM3ZOPWhBgcWlhVyoazz4t/FNMrI8=
 
 数据点已预先配置为名为“测试”的倒计时。
 
-##### 停止行为定时器
+##### 停止行为计时器
 倒计时收到停止信号后，倒计时将重置为定时器设定的时间。
 
 ##### 停止零行为
@@ -42,7 +42,7 @@ hash: AM05yAYFztEvfByM3ZOPWhBgcWlhVyoazz4t/FNMrI8=
 #### 时间序列
 在配置对话框的“时间序列”选项卡中，您可以创建包含一个或多个时间规则的新时间序列。您可以为每个时间规则定义不同的参数。每个时间序列都会创建一个单独的数据点，该数据点会在计算出的时间事件发生时触发。
 
-时间事件是实时计算的。但是，所使用的 rrule 库尚未在所有参数组合下都完美运行。
+时间事件是实时计算的。但是，所使用的 rrule 库并非在所有参数组合下都完美无缺。
 
 这表明，在某些组合下，页面会陷入无限循环。
 
@@ -62,7 +62,7 @@ hash: AM05yAYFztEvfByM3ZOPWhBgcWlhVyoazz4t/FNMrI8=
 - civilDawn
 - blueHourDawnEnd
 - goldenHourDawnStart
-- 日出开始
+- 日出
 - 日出结束
 - goldenHourDawnEnd
 - 正午
@@ -91,7 +91,7 @@ hash: AM05yAYFztEvfByM3ZOPWhBgcWlhVyoazz4t/FNMrI8=
 | 数据点 | 描述 |
 | --------- | ------------------------------------------------------------ |
 | 操作 | 此时间序列的实际状态。可能的值包括停止、运行 |
-| 命令 | 目前无功能 |
+| cmd | 目前无功能 |
 
 ##### 可用操作状态
 | 动作 | 描述 |
@@ -107,7 +107,7 @@ hash: AM05yAYFztEvfByM3ZOPWhBgcWlhVyoazz4t/FNMrI8=
 | --------- | ---------------------------------------------------------------------- |
 | 操作 | 倒计时的实际状态。可选值为停止、运行、暂停、结束 |
 | cmd | 命令数据点。可能的命令如下所述 |
-|配置|倒计时器的配置。              |
+|配置 |倒计时器的配置。              |
 | 开始 | 起始时间（毫秒）数据点 |
 | 结束 | 结束时间（毫秒）的数据点 |
 | 计时器 | 以毫秒为单位的总时间数据点 |
@@ -159,7 +159,7 @@ hash: AM05yAYFztEvfByM3ZOPWhBgcWlhVyoazz4t/FNMrI8=
 | 设置 | 描述 |
 | --------- | ------------------------------------------- |
 | 1:0:0:0 | 计时器加/减 1 天 |
-| 2:0:0 | 计时器加/减 2 小时 |
+| 2:0:0 | 设置/增加/减少计时器 2 小时 |
 | 3:0 | 计时器加/减 3 分钟 |
 | 120 | 向计时器添加/减少 120 秒 |
 | 48:0:0 | 设置/增加/减少计时器 48 小时 |
@@ -279,7 +279,7 @@ vis1 和 vis2 各有两个不同的版本。
 | `foreground` | 圆环/圆圈的前景色 |
 | `countdown_color_second` | 第二个环/圆的前景色 |
 | `countdown_color_hour` | 小时环/圆圈的前景色 |
-| `countdown_color_day` | 日环/圆的前景色 |
+| `countdown_color_day` | 日环/圆圈的前景色 |
 | `countdown_color_week` | 本周前景色环/圆圈 |
 | `countdown_color_month` | 月份环/圆圈的前景色 |
 | `countdown_color_year` | 第二个环/圆的前景色 |
@@ -315,6 +315,8 @@ vis1 和 vis2 各有两个不同的版本。
 机场翻页式倒计时小部件。
 
 仅支持 100 天 - 1 秒的显示格式。
+
+此处不进行单位换算。
 
 ##### 倒计时翻页时钟的小部件属性
 | 属性 | 描述 |
@@ -363,7 +365,7 @@ vis1 和 vis2 各有两个不同的版本。
 | countdown_showhrs | 显示小时数。 |
 | countdown_showday | 显示播出时段。 |
 | countdown_showmonth | 显示月份部分。（不与周数一起显示） |
-| countdown_showweek | 显示星期几。（不与月份一起显示） |
+| countdown_showweek | 显示周数。（不与月份一起显示） |
 | countdown_showyear | 显示年份部分。 |
 | countdown_color_active | 倒计时器的颜色 |
 | countdown_color_inactive | 不活跃数字的颜色 |
@@ -443,7 +445,7 @@ vis1 和 vis2 各有两个不同的版本。
 - ~~字钟计时器~~
 - ~~定时任务规划器：像 Outlook 一样规划单个日期/时间和重复性事件~~
 - ~~Nixie风格~~
-- ~~翻板显示屏（机场显示屏）~~
+- ~~翻页式显示屏（机场显示屏）~~
 - ~~新增命令，仅设置目标时间，不设置日期~~
 - 带有禁用倒计时文本选项的倒计时圆圈小部件
 - ~~名称中的组分隔符为“.”~~

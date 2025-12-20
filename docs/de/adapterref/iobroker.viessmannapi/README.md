@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.viessmannapi/README.md
 title: ioBroker.viessmannapi
-hash: HbCYgmAvUUETxIbIjTMs1B12oTpwPN1dDa/cl1VTQUM=
+hash: zptcuQ7sMuUqvHx/NtvvZP4E76sqijSaN96j8puIyCo=
 ---
 ![Logo](../../../en/adapterref/iobroker.viessmannapi/admin/viessmannapi.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.viessmannapi.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.viessmannapi.svg)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/viessmannapi-installed.svg)
-![Anzahl Installationen (stabil)](https://iobroker.live/badges/viessmannapi-stable.svg)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/viessmannapi-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.viessmannapi.svg)
 ![NPM](https://nodei.co/npm/iobroker.viessmannapi.png?downloads=true)
 
@@ -81,7 +81,7 @@ Heizprogramm:			viessmannapi.0.xxx.0.features.heating.circuits.1.operating.progr
 Temperatur Heizprogramm normal:	viessmannapi.0.xxx.0.features.heating.circuits.1.operating.programs.normal.properties.temperature.value
 Temperatur Heizprogramm reduz.:	viessmannapi.0.xxx.0.features.heating.circuits.1.operating.programs.reduced.properties.temperature.value
 Warmwasser Soll Temperatur:	viessmannapi.0.xxx.0.features.heating.dhw.temperature.properties.value.value
-Warmwasser Ist Temperatur:	viessmannapi.0.xxx.0.features.heating.dhw.sensors.temperature.hotWaterStorage.properties.value.value
+Warmwasser Ist Temperatur:	viessmannapi.0.xxx.0.features.heating.dhw.sensors.temperature.dhwCylinder.properties.value.value
 Temperatur Außensensor:		viessmannapi.0.xxx.0.features.heating.sensors.temperature.outside.properties.value.value
 Statistik Kompressor Starts:	viessmannapi.0.xxx.0.features.heating.compressors.0.statistics.properties.starts.value
 Statistik Kompressor Stunden:	viessmannapi.0.xxx.0.features.heating.compressors.0.statistics.properties.hours.value
@@ -106,6 +106,20 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 ```
 
 ## Changelog
+### 2.4.4 (2025-12-16)
+- fix for depreacted endpoint
+
+### 2.4.3 (2025-08-10)
+
+- fix for new role preventing data update
+
+### 2.4.2 (2025-07-11)
+
+- change api host name
+
+### 2.4.1 (2025-03-31)
+
+- Update to new viessmann api
 
 ### 2.3.2
 
@@ -115,7 +129,7 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 
 MIT License
 
-Copyright (c) 2023 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

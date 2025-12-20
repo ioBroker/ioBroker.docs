@@ -39,7 +39,7 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 0.1.28 (2025-12-11)
 * (HGlab01) add Energy-Charts as third data provider
 
 ### 0.1.27 (2025-11-19)
@@ -60,10 +60,6 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
 * (HGlab01) extend to two market data providers for quarter-hourly market prices
 * (HGlab01) add turn on/off quarter-hourly and hourly market prices
 * (HGlab01) refactorings
-
-### 0.1.22 (2025-10-21)
-* (HGlab01) Implement retry mechanism for API calls
-* (HGlab01) add turn on/off for peak hours and market prices
 
 ## License
 MIT License
@@ -99,4 +95,3 @@ Three data providers are used for this adapter
 
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_large)
-

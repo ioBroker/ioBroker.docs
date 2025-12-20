@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: Kgmh9LqbTIR0bii57g5PWB0JCHdgOH8K7VzBh5mPd7o=
+hash: ceT3UrkNGF1iTp+oW/Ry7epFUY7GzkAdasLqxCjpwP4=
 ---
 ![logo](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -115,6 +115,8 @@ Error message after installation
 [XSense] Cannot find package '@mongodb-js/zstd'
 
 check your node version. zstd has a problem with Node 24
+
+or if you have a VM on proxmox check your CPU settings <img width="676" height="140" alt="graphic" src="https://github.com/user-attachments/assets/68658aab-5336-4493-9a51-f833c3238a5a" />
 
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------

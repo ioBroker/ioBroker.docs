@@ -31,7 +31,7 @@ The adapter is also designed to support a sophisticated notification routing sys
 
 MIT License
 
-Copyright (c) 2022-2024 Julian Pawlowski <metres_topaz.0v@icloud.com>
+Copyright (c) 2022-2025 Julian Pawlowski <metres_topaz.0v@icloud.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

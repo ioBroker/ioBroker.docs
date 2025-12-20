@@ -416,10 +416,14 @@ setState('iot.0.app.message', JSON.stringify({
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.0.11 (2025-12-16)
+- (@GermanBluefox) Added percentual control
+- (@GermanBluefox) Correcting creation for complex groups
+
 ### 5.0.8 (2025-11-28)
 - (@GermanBluefox) Showed last controller ID in `smart.lastObjectID`
 - (@GermanBluefox) Showed subscription valid period in `info.validTill` and GUI
-- (@Copilot) Implemented increasing reconnect intervall
+- (@Copilot) Implemented increasing reconnect interval
 - (@GermanBluefox) Added automatically conversion of type TV (alexaV3) to button (alexaV3)
 - (@GermanBluefox) Optimized the update of devices in GUI
 - (@GermanBluefox) Implemented slider with custom min/max values
@@ -436,12 +440,6 @@ setState('iot.0.app.message', JSON.stringify({
 
 ### 5.0.5 (2025-10-31)
 - (@GermanBluefox) Changed behavior of HUE lamps
-
-### 5.0.2 (2025-10-30)
-- (@GermanBluefox) Added mireds<->kelvin conversion for color temperature
-- (@GermanBluefox) It is possible to edit a type
-- (@GermanBluefox) Correcting creation of complex groups
-- (@GermanBluefox) Same as 4.2.11
 
 ## License
 

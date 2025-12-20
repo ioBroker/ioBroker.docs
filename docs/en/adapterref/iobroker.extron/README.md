@@ -53,6 +53,9 @@ If you are a non commercial organisation or use it for private use you can get a
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Bannsaenger) updated dependencies and issues from repository checker
+
 ### 0.3.0 (2025-10-28)
 * (Bannsaenger) updated dependencies and issues from repository checker
 * (Bannsaenger) migrate to NPM Trusted Publishing

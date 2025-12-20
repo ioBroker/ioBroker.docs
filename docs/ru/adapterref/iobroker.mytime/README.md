@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: AM05yAYFztEvfByM3ZOPWhBgcWlhVyoazz4t/FNMrI8=
+hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.mytime.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.mytime.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mytime.svg)
 ![Количество установок](https://iobroker.live/badges/mytime-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/mytime-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/mytime-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.mytime.png?downloads=true)
 
 # IoBroker.mytime
@@ -31,7 +31,7 @@ hash: AM05yAYFztEvfByM3ZOPWhBgcWlhVyoazz4t/FNMrI8=
 ##### Таймер остановки поведения
 После того, как таймер подаст сигнал на остановку, отсчет времени сбросится до значения, установленного таймером.
 
-##### Прекратите поведение, равное нулю
+##### Прекратите поведение «ноль»
 После того, как обратный отсчет получит сигнал об остановке, он останется на отметке 0.
 
 ##### Остановить повторный запуск
@@ -197,7 +197,7 @@ hash: AM05yAYFztEvfByM3ZOPWhBgcWlhVyoazz4t/FNMrI8=
 Начиная с версии 1.2.0, виджеты должны быть совместимы с vis1 и vis2.
 
 #### Виджет «Обратный отсчет»
-![Виджет обратного отсчета простой](../../../en/adapterref/iobroker.mytime/admin/mytime-plain.png)
+![Виджет обратного отсчета (простой)](../../../en/adapterref/iobroker.mytime/admin/mytime-plain.png)
 
 Виджет обратного отсчета для вывода в текстовом формате.
 Вывод можно детально настроить.
@@ -301,6 +301,7 @@ hash: AM05yAYFztEvfByM3ZOPWhBgcWlhVyoazz4t/FNMrI8=
 
 Виджет обратного отсчета в стиле табло аэропорта.
 Поддерживается только 100 дней - 1 секунда.
+Индивидуальный перевод в выбранные единицы измерения здесь не выполняется.
 
 ##### Свойства виджета Countdown FlipClock
 | Атрибут | Описание |

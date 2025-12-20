@@ -60,6 +60,10 @@ UL3, IL3 = mains voltage, mains power phase 3
 TKK= Temperature inverter
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (afuerhoff) dependencies updated
+* (afuerhoff) dependabot.yml fixed [#246](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/246)
+
 ### 1.2.4 (2025-10-24)
 * (afuerhoff) dependencies updated
 * (afuerhoff) npm security changes

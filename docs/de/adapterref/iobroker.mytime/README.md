@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: AM05yAYFztEvfByM3ZOPWhBgcWlhVyoazz4t/FNMrI8=
+hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
 ---
 ![Logo](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -146,7 +146,7 @@ Wenn Sie den Timer auf einen Tag einstellen möchten, müssen Sie auch Stunden, 
 
 Sie können auch 48 Stunden einstellen.
 
-Sie können optional auch ungewöhnliche Zeitangaben verwenden. Die Zeit wird separat summiert.
+Sie können optional auch andere Zeitformate verwenden. Die Zeit wird separat summiert.
 
 **Beispiele:**
 
@@ -279,7 +279,7 @@ Ein Countdown-Widget in Ring-/Kreisform.
 | `showmin` | Minutenring anzeigen |
 | `showhrs` | Minutenring anzeigen |
 | `showday` | Zeige den Ring der Tage an |
-| `showmonth` | Monatering anzeigen (nicht zusammen mit den Wochen) |
+| `showmonth` | Zeige den Monatsring an (nicht zusammen mit den Wochen) |
 | `showweek` | Zeige den Wochenring an (nicht zusammen mit den Monaten) |
 | `showyear` | Zeige den Jahresring an |
 | `showyear` | Jahresring anzeigen |
@@ -306,6 +306,7 @@ Gültig: Jahr, Monat, Tag | Stunde, Minute, Sekunde | Ungültig: Jahr, Minute, S
 
 Ein Countdown-Widget im Stil einer Flughafen-Anzeigetafel.
 Unterstützt werden nur Zeiträume von 100 Tagen bis 1 Sekunde.
+Eine individuelle Umrechnung in die ausgewählten Einheiten erfolgt nicht.
 
 ##### Widget-Eigenschaften der Countdown-FlipClock
 | Attribut | Beschreibung |

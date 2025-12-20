@@ -120,6 +120,10 @@ Error Message after install
 
 check your Node version. zstd has a problem wit Node 24
 
+or if you have a VM on proxmox check your CPU settings
+<img width="676" height="140" alt="grafik" src="https://github.com/user-attachments/assets/68658aab-5336-4493-9a51-f833c3238a5a" />
+
+
 
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------

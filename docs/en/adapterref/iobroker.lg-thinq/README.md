@@ -759,10 +759,20 @@ lg-thinq.0.xxx.area must be filled!
     ![weather.png](img/weather.png)
 
 ## Changelog
+### 1.1.6 (2025-12-17)
 
-### **WORK IN PROGRESS**
+- (Lucky-ESA) Fixed: Address Root-CA certificate has changed
+
+### 1.1.5 (2025-12-15)
+
+- (Lucky-ESA) Fixed adapter crash (thinq1 only)
+- (Lucky-ESA) Fixed: Address Root-CA certificate has changed
+
+### 1.1.4 (2025-12-14)
 
 - (Lucky-ESA) Attribute max of object limitMax and limitMin changed (device 401)
+- (Lucky-ESA) Fixed deviceType error
+- (Lucky-ESA) JSONbig loglevel changed
 
 ### 1.1.3 (2025-10-03)
 
@@ -774,23 +784,6 @@ lg-thinq.0.xxx.area must be filled!
 ### 1.1.2 (2025-08-18)
 
 - (Lucky-ESA) Delete expires check
-
-### 1.1.1 (2025-08-16)
-
-- (Lucky-ESA) Dependencies updated
-- (Lucky-ESA) Node 20.x required
-- (Lucky-ESA) Admin 7.6.17 required
-
-### 1.1.0 (2025-04-08)
-
-- (Lucky-ESA) max target changed from 30 to 40 degrees
-- (Lucky-ESA) Dependencies updated
-- (Lucky-ESA) Admin 7.4.10 required
-
-### 1.0.7 (2024-12-08)
-
-- (Lucky-ESA) Fixed: Connection status does not turn green
-- (Lucky-ESA) Changed: Checkbox to dropdown for login procedure
 
 ## License
 

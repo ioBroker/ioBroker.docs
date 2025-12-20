@@ -4,7 +4,7 @@ lastChanged: 29.02.2024
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/README.md
-hash: U/Gk4m0TIN7V/4xTXTAdVtjhNv9aoOlSPO0g3VfVt1g=
+hash: YacMJSwpUAVlw+2ihhsKRldFzT+dEtp9171oxL6j4Ig=
 ---
 ## Make your life easier: Smart Home
 Wouldn't it be practical to read temperatures, consumption values, or switching states of devices from various manufacturers in one central location? Wouldn't it be necessary to remember to switch devices on or off when certain conditions or states are reached?
@@ -209,7 +209,7 @@ Optional cloud-based access allows users and system integrators to remotely mana
 ### Smart Assistants (voice control with Alexa, Google Assistant, etc.)
 **1. Smart Home Skill (ioBroker.assistant)** Control devices via voice command – e.g. “Alexa, turn on the lights”.
 
-**2. Custom Skill (Custom ioBroker)** Use your own commands – e.g. “Alexa, ask ioBroker about the temperature”.
+**2. Custom Skill (Custom ioBroker)** Use your own commands – e.g. “Alexa, ask ioBroker for temperature”.
 
 - `.net:` ❌
 - `.pro` without a license: 🟡 50 commands/day
@@ -225,9 +225,7 @@ This behavior is from Amazon (starting with Alexa Smart Home API V3) and cannot 
 
 As a result, the daily limit can be reached quickly, even without voice commands.
 
----
-
-### Remote Access
+### Remote Access incl. Smart Assistant License
 **1. View VIS (Dashboards)** Access your visualizations.
 
 - `.net:` ✅

@@ -17,7 +17,7 @@ chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de"
 <!--
 	### **WORK IN PROGRESS**
 -->
-### 9.0.13 (2025-12-05)
+### 9.0.17 (2025-12-14)
 * (@GermanBluefox) Added possibility to encrypt scripts with password (only for vendors)
 
 ### 9.0.11 (2025-07-29)

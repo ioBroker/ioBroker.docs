@@ -353,6 +353,7 @@ of the countdown is available as CSS-Class selector:**
 
 A countdown widget in a airport flip board style.
 Only 100 day - 1 second is supported.
+Individual conversion to selected units is not performed here.
 
 ##### Widget Properties of Countdown FlipClock
 

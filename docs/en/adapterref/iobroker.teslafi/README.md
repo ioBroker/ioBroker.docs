@@ -82,7 +82,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
-- (hombach) optimize cependabot config (#209)
+- (hombach) optimize dependabot config (#209)
 - (hombach) update axios
 
 ### 2.0.4 (2025-10-22)

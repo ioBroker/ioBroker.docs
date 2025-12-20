@@ -1,16 +1,16 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.viessmannapi/README.md
 title: ioBroker.viessmannapi
-hash: HbCYgmAvUUETxIbIjTMs1B12oTpwPN1dDa/cl1VTQUM=
+hash: zptcuQ7sMuUqvHx/NtvvZP4E76sqijSaN96j8puIyCo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.viessmannapi/admin/viessmannapi.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.viessmannapi.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.viessmannapi.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.viessmannapi.svg)
-![Количество установок (последних)](https://iobroker.live/badges/viessmannapi-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/viessmannapi-stable.svg)
+![Количество установок (последние)](https://iobroker.live/badges/viessmannapi-installed.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/viessmannapi-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.viessmannapi.svg)
 ![НПМ](https://nodei.co/npm/iobroker.viessmannapi.png?downloads=true)
 
@@ -22,7 +22,7 @@ hash: HbCYgmAvUUETxIbIjTMs1B12oTpwPN1dDa/cl1VTQUM=
 
 **Пользуйтесь ClientID от Viessmann API**
 
-https://app.developer.viessmann.com содержит собственный идентификатор клиента с дополнительными опциями:
+https://app.developer.viessmann.com содержит идентификатор клиента с дополнительными опциями:
 
 Имя: iobroker
 
@@ -52,13 +52,13 @@ Vitotronic 200, тип WO1A, WO1B, WO1C
 
 **Regelungen für Festbrennstoffkessel**
 
-Vitoligno 200-S с Ecotronic (ab Softwarestand 2.03) Vitoligno 250-S с Ecotronic (ab Softwarestand 2.00) Vitoligno 300-C с Ecotronic (ab Softwarestand 2.12) Vitoligno 300-P с Vitotronic 200 FO1 Vitoligno 300-S с Ecotronic (ab Softwarestand) 2.04)
+Vitoligno 200-S с Ecotronic (ab Softwarestand 2.03) Vitoligno 250-S с Ecotronic (ab Softwarestand 2.00) Vitoligno 300-C с Ecotronic (ab Softwarestand 2.12) Vitoligno 300-P с Vitotronic 200 FO1 Vitoligno 300-S с Ecotronic (ab Softwarestand 2.04)
 
 **Список всех дат: https://documentation.viessmann.com/static/iot/data-points**
 
 **Frage zu fehlende Datenpunkte bitte direkt an Viessmann https://www.viessmann-community.com/t5/The-Viessmann-API/bd-p/dev-viessmann-api**
 
-Бейспиеле:
+Примеры:
 
 ```
 Vorlauftemperatur:
@@ -81,7 +81,7 @@ Heizprogramm:			viessmannapi.0.xxx.0.features.heating.circuits.1.operating.progr
 Temperatur Heizprogramm normal:	viessmannapi.0.xxx.0.features.heating.circuits.1.operating.programs.normal.properties.temperature.value
 Temperatur Heizprogramm reduz.:	viessmannapi.0.xxx.0.features.heating.circuits.1.operating.programs.reduced.properties.temperature.value
 Warmwasser Soll Temperatur:	viessmannapi.0.xxx.0.features.heating.dhw.temperature.properties.value.value
-Warmwasser Ist Temperatur:	viessmannapi.0.xxx.0.features.heating.dhw.sensors.temperature.hotWaterStorage.properties.value.value
+Warmwasser Ist Temperatur:	viessmannapi.0.xxx.0.features.heating.dhw.sensors.temperature.dhwCylinder.properties.value.value
 Temperatur Außensensor:		viessmannapi.0.xxx.0.features.heating.sensors.temperature.outside.properties.value.value
 Statistik Kompressor Starts:	viessmannapi.0.xxx.0.features.heating.compressors.0.statistics.properties.starts.value
 Statistik Kompressor Stunden:	viessmannapi.0.xxx.0.features.heating.compressors.0.statistics.properties.hours.value
@@ -106,6 +106,20 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 ```
 
 ## Changelog
+### 2.4.4 (2025-12-16)
+- fix for depreacted endpoint
+
+### 2.4.3 (2025-08-10)
+
+- fix for new role preventing data update
+
+### 2.4.2 (2025-07-11)
+
+- change api host name
+
+### 2.4.1 (2025-03-31)
+
+- Update to new viessmann api
 
 ### 2.3.2
 
@@ -115,7 +129,7 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 
 MIT License
 
-Copyright (c) 2023 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: smDDifSzvPSYJWZbe0WA72nSvggJClZlcq2cipjy158=
+hash: dIA1NxNJXvqX4+THUOjsWRaVdzj+RJwVWoamUnsvxTI=
 ---
 ![Logo](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -24,6 +24,15 @@ Mit diesem Adapter können Sie einen in der Roborock-App eingerichteten Roborock
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ### Dieser Adapter funktioniert nicht unter macOS.
+## Zwei-Faktor-Authentifizierung (2FA)
+Wenn Sie die Zwei-Faktor-Authentifizierung aktiviert haben oder der Adapter zur Eingabe eines Codes auffordert (Fehlercode 2031):
+
+1. Überprüfen Sie Ihre Protokolle. Dort sollte eine Meldung erscheinen, in der Sie nach dem Code gefragt werden.
+2. Wechseln Sie in ioBroker zum Tab **Objekte**.
+3. Ermitteln Sie den Zustand `roborock.0.loginCode` (bei Annahme von Instanz 0).
+4. Geben Sie den 6-stelligen Code, den Sie per E-Mail erhalten haben, in die Spalte **Wert** ein (ohne Anführungszeichen).
+5. Der Adapter sollte dies erkennen und den Anmeldevorgang fortsetzen.
+
 ## Folgende Roboter werden unterstützt:
 - Roborock S4
 - Roborock S4 Max

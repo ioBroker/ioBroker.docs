@@ -687,6 +687,13 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
+### 3.3.13 (2025-12-14)
+* (simatec) Fix Error Log for CCU Backup
+
+### 3.3.12 (2025-12-14)
+* (simatec) Fix Error Log for CCU Backup
+* (simatec) dependencies updated
+
 ### 3.3.11 (2025-11-23)
 * (simatec) Update Dependabot
 * (simatec) dependencies updated

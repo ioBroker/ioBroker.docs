@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: O+UfdgISkRr8gHDKj4AJqdCRYdHznItfHA1IoYCB/Qg=
+hash: S40mN+It5nc4lrkyIOnjcY3JTs9xMCyrFz4W6F/5IKg=
 ---
 # Was ist neu
 ## Hinweise für Autoren
@@ -45,7 +45,7 @@ https://github.com/foxriver76/ioBroker.notification-manager
 
 <img src="https://raw.githubusercontent.com/foxriver76/ioBroker.notification-manager/master/admin/notification-manager.png" width="100" height="100" />
 
-Verwalten Sie ioBroker-Benachrichtigungen, z. B. durch Senden als Nachrichten
+Verwalten Sie ioBroker-Benachrichtigungen, z. B. durch Versenden als Nachrichten.
 
 ## Procon-ip (2023-08-24)
 https://github.com/ylabonte/ioBroker.procon-ip
@@ -169,7 +169,7 @@ Dies ist ein komplettes Visualisierungssystem für ioBroker.
 * WYSIWYG-Editor für die Benutzeroberfläche, aber Sie können auch zur Quelltextansicht oder geteilten Ansicht wechseln.
 * Mehrfenster-Benutzeroberfläche in der Bearbeitungsansicht, wie in Visual Studio
 * Bindungen pro Drag & Drop von ioBroker-Objekten auf UI-Elemente oder Eigenschaften
-* komplexe Bindungen mit JavaScript-Einbindung und Konvertern
+* komplexe Bindungen mit eingebettetem JavaScript und Konvertern
 * eine einfache Skriptsprache, die über die Benutzeroberfläche erstellt werden kann.
 
 ## Heizungssteuerung (4.10.2023) - neuer Adapter
@@ -301,7 +301,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Art-Net-Daten in einer Datei speichern, um sie später wiederzugeben
 
-##energiefluss (25.01.2024) – neuer Adapter
+## Energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -396,7 +396,7 @@ https://github.com/ioBroker/ioBroker.nmea
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.nmea/main/admin/nmea.png" width="100" height="100" />
 
-Dieser Adapter ermöglicht den Anschluss von ioBroker an den NMEA-2000-Yachtbus. Sie können Geschwindigkeit über Grund (SOG), Kurs über Grund (COG), GPS-Position, Tiefe, Wind, Temperatur und viele weitere Daten vom NMEA-2000-Bus auslesen.
+Dieser Adapter ermöglicht die Verbindung von ioBroker mit dem NMEA-2000-Yachtbus. Sie können Geschwindigkeit über Grund (SOG), Kurs über Grund (COG), GPS-Position, Tiefe, Wind, Temperatur und viele weitere Daten vom NMEA-2000-Bus auslesen.
 
 Und sogar den Raymarine-Autopiloten steuern.
 
@@ -739,7 +739,7 @@ https://github.com/weberk/ioBroker.ta-blnet
 
 <img src="https://raw.githubusercontent.com/weberk/ioBroker.ta-blnet/main/admin/ta-blnet.png" width="100" height="100" />
 
-Ein ioBroker-Adapter von Technische Alternative zum Auslesen von Daten von einem oder bis zu acht Klimareglern über BL-NET. Alternativ kann eine unbegrenzte Anzahl von Klimareglern an CMI angeschlossen werden.
+Ein ioBroker-Adapter von Technische Alternative zum Auslesen von Daten von einem oder bis zu acht Klimareglern mittels BL-NET. Alternativ kann eine unbegrenzte Anzahl von Klimareglern an CMI angeschlossen werden.
 
 ## Teslafi (11.1.2025) – neuer Adapter
 https://github.com/hombach/ioBroker.teslafi
@@ -812,7 +812,7 @@ https://github.com/DpunktS/ioBroker.seplos-v3-sniffer
 
 <img src="https://raw.githubusercontent.com/DpunktS/ioBroker.seplos-v3-sniffer/main/admin/seplos-v3-sniffer.jpg" width="100" height="100" />
 
-Dieser Adapter wurde entwickelt, um das Seplos V3 BMS in einer Multipack-Konfiguration auszulesen. In der V3-Generation fungiert das erste BMS als Modbus-Master, alle weiteren als Slaves. In dieser Konfiguration ist der Zugriff auf das BMS über Modbus von einem dritten Gerät aus nicht mehr möglich, da in einem RS-485-Modbus-System nicht zwei Master-Geräte gleichzeitig existieren können. Der Adapter erkennt die Kommunikation zwischen den Geräten passiv, sodass die Kommunikation der einzelnen BMS nicht beeinträchtigt wird. Die Kommunikation kann entweder über eine lokale Schnittstelle (z. B. /dec/ttyS0) oder über Ser2Net (tcp://ip:2001) erfolgen.
+Dieser Adapter wurde entwickelt, um das Seplos V3 BMS in einer Multipack-Konfiguration auszulesen. In der V3-Generation fungiert das erste BMS als Modbus-Master, alle weiteren BMS als Slaves. In dieser Konfiguration ist der Zugriff auf das BMS über Modbus von einem dritten Gerät aus nicht mehr möglich, da in einem RS-485-Modbus-System nicht zwei Master-Geräte gleichzeitig existieren können. Der Adapter erkennt die Kommunikation zwischen den Geräten passiv, sodass die Kommunikation der einzelnen BMS nicht beeinträchtigt wird. Die Kommunikation kann entweder über eine lokale Schnittstelle (z. B. /dec/ttyS0) oder über Ser2Net (tcp://ip:2001) erfolgen.
 
 ## Lcn (12.3.2025) – neue Funktion
 https://github.com/ioBroker/ioBroker.lcn
@@ -1059,12 +1059,12 @@ https://github.com/arteck/ioBroker.xsense
 Dieser ioBroker-Adapter ermöglicht die Integration von XSense-Geräten in das ioBroker Smart-Home-System.
 Er empfängt Daten von XSense-Rauchmeldern, CO-Meldern und anderen kompatiblen Geräten und stellt diese in ioBroker für Automatisierung und Überwachung zur Verfügung. Der Adapter kommuniziert mit dem XSense-Cloud-Server und bietet eine einfache Möglichkeit, XSense-Geräte in bestehende ioBroker-Installationen zu integrieren.
 
-## Sbms (28.11..2025) – Neuer Adapter im stabilen Repository
+## Sbms (28.11.2025) – Neuer Adapter im stabilen Repository
 https://github.com/buffoletti/ioBroker.sbms
 
 <img src="https://raw.githubusercontent.com/buffoletti/ioBroker.sbms/main/admin/sbms.png" width="100" height="100" />
 
-Einfacher Adapter, um Daten von Electrodacus SBMS als Zustände über MQTT, die rawData-HTML-Seite oder die serielle Schnittstelle verfügbar zu machen.
+Einfacher Adapter, um Daten von Electrodacus SBMS als Zustände über MQTT, die rawData HTML-Seite oder die serielle Schnittstelle verfügbar zu machen.
 
 ## BMW (28.11.2025) – Neuer Adapter im stabilen Repository
 https://github.com/TA2k/ioBroker.bmw
