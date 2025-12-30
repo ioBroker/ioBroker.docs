@@ -37,6 +37,11 @@ Reset power USB in mikrotik
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.2.1 (2024-07-25)
 * (mcm1957) Default value for commands.add_firewall has been corrected [#138]
 * (mcm1957) Some issues reported by adapter-checker have been fixed

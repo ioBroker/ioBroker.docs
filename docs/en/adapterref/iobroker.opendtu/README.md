@@ -43,6 +43,11 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 3.1.0 (2024-12-02)
 - (mattreim) Variable polling interval has been removed and polling intervals hev been increased.
 - (mattreim) Description has been translated into supported languages.
@@ -77,6 +82,8 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 ## License
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024 Dennis Rathjen <dennis.rathjen@outlook.de>
 

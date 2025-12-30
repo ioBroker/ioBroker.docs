@@ -2,55 +2,120 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.elero-usb-transmitter/README.md
-title: ioBroker.elero-usb-发射器
-hash: TMXUiZdhXhEbVGe/VhbTs/SHmHhG1hvkmaFZ/F0CMVE=
+title: ioBroker.elero-usb-transmitter
+hash: B4BFyXjQg2PIiZv5FCRU1GoOannx8Mw96nu2B4cAgdU=
 ---
-# IoBroker.elero-usb-发射器
+# IoBroker.elero-usb-transmitter
 ![标识](../../../en/adapterref/iobroker.elero-usb-transmitter/admin/elero-usb-transmitter.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.elero-usb-transmitter.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.elero-usb-transmitter.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.elero-usb-transmitter.svg)
 ![安装数量（最新）](http://iobroker.live/badges/elero-usb-transmitter-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/elero-usb-transmitter-stable.svg)
+![安装数量（稳定版）](http://iobroker.live/badges/elero-usb-transmitter-stable.svg)
 ![已知漏洞](https://snyk.io/test/github/marc2016/ioBroker.elero-usb-transmitter/badge.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.elero-usb-transmitter.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.elero-usb-transmitter.png?downloads=true)
 
-## IoBroker 的 elero-usb-发射器适配器
-使用 Elero USB 发射器棒控制 Elero 设备的适配器。
-您需要 USB 发射器棒，并且必须将现有的卷帘电机连接到棒上。适配器自动检测活动通道并添加设备。在设置中，您可以设置设备名称和更新间隔
+## 适用于 ioBroker 的 elero-usb-transmitter 适配器
+用于通过 Elero USB 发射器控制 Elero 设备的适配器。
 
-＃＃ **工作正在进行中**
-### 0.5.2
-- 添加了标题和描述缺少的翻译
+您需要一个 USB 发射器，并将现有的卷帘门电机连接到发射器上。适配器会自动检测活动通道并添加设备。您可以在设置中设置设备名称和更新间隔。
 
-### 0.5.1
-- 添加翻译
+＃＃ 配置
+1. **USB 设备路径**：USB 发射器的路径（例如，`/dev/ttyUSB0` 或 `COM3`）。
+2. **刷新间隔**：刷新设备状态所需的时间（分钟）。
+3. **设备配置**：您可以在适配器设置中将通道号映射到自定义名称。
 
-### 0.5.0
-- 添加了翻译
-- 在 onStateChanged 处理程序中使用 ack=true 忽略状态更改
-- 消息处理程序已删除
-- 节点调度程序包已删除
+＃＃ 用法
+适配器会为U盘上检测到的每个活动通道创建一个设备。每个设备包含以下状态：
 
-### 0.4.0
-- 添加了连接信息的频道。
+| 状态 | 角色 | 描述 |
+| :--- | :--- | :--- |
+| `channel` | 文本 | 设备的通道号。 |
+| `open` | 开关 | 主控开关。设置为 `true` 为打开（向上），设置为 `false` 为关闭（向下）。 |
+| `controlCommand` | 状态 | 直接发送特定命令。 |
+| `controlCommand` | 状态 | 直接发送特定命令。 |
 
-### 0.3.0
-- 仅使用打开状态来控制设备。
+### 控制命令
+您可以将以下值写入 `controlCommand` 状态：
 
-### 0.1.0
-- 删除传输时间并清理代码。
+* `16`: 停止
+* `32`: UP
+* `36`：下行
+* `64`: STEP_UP
+* `68`: 降阶
 
-### 0.0.3"
-- 添加了日志消息。
+## 示例
+### Javascript / Blockly
+打开快门（通道 1）：
 
-### 0.0.2
-- bug修复
+```javascript
+setState('elero-usb-transmitter.0.channel_1.open', true); // Moves UP
+```
 
-### 0.0.1
-- 初始发行
+停止移动的快门：
+
+```javascript
+setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP command
+```
 
 ## Changelog
+### 1.0.2 (2025-12-24)
+
+- Replaced deprecated createState/createDevice methods with setObjectNotExistsAsync
+
+### 1.0.1 (2025-12-24)
+
+- Dependencies updated
+
+### 1.0.0 (2025-12-23)
+
+- Refactor main.ts (split into smaller modules)
+- Cleanup unused code (src/lib/tools.ts)
+- Admin UI migrated to jsonConfig
+- Dependencies updated
+- ESLint migrated to v9
+- Tests validation improved
+- Bug fix: Async iteration in device refresh
+- TypeScript configuration updated
+
+### 0.5.2
+
+- Missing translation for title and description added
+
+### 0.5.1
+
+- Translation added
+
+### 0.5.0
+
+- Translations added
+- Ignore state changes with ack=true in onStateChanged handler
+- messages handler removed
+- node-scheduler package removed
+
+### 0.4.0
+
+- Added channel for connection info.
+
+### 0.3.0
+
+- Use only open state to controle devices.
+
+### 0.1.0
+
+- Transmission time removed and code clean up.
+
+### 0.0.3"
+
+- Log messages added.
+
+### 0.0.2
+
+- bug fixes
+
+### 0.0.1
+
+- initial release
 
 ## License
 

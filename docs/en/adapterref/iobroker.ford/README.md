@@ -17,6 +17,11 @@
 Adapter for FordPass
 
 ## Changelog
+
+### 1.1.4 (2025-12-27)
+
+- fix login flow
+
 ### 1.0.5 (2024-07-09)
 
 - Add location update option to reduce update requests

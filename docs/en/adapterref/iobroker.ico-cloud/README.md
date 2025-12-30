@@ -76,6 +76,8 @@ Icon and name of ICO and Ondilo are property of Ondilo.
 ## License
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2025 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

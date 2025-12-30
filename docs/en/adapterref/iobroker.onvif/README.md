@@ -297,6 +297,11 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.1.4 (2024-05-27)
 
 - update onvif lib to support newer TAPO cameras
@@ -343,6 +348,8 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
 
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023-2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

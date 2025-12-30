@@ -111,7 +111,7 @@ Fill the IP and have fun :)
 
 MIT License
 
-Copyright (c) 2024 Dennis Rathjen <dennis.rathjen@outlook.de>
+Copyright (c) 2024-2025 Dennis Rathjen <dennis.rathjen@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

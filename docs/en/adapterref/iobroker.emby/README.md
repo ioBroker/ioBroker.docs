@@ -95,6 +95,11 @@ Please follow the Steps to ensure the Adapter will work correctly and you can se
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.2.0 (2024-04-14)
 
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now

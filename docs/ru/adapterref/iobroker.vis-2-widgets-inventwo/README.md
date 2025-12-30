@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 title: Виджеты inventwo для ioBroker.vis 2.0
-hash: PkkfNVgSEL18JPWccxP07zvlffld1qX4NeKaIYBVV20=
+hash: L5GOlF3CpIQT0UXgekBSTl3L9l/dnzd46X7nOh3DR00=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-inventwo/admin/vis-2-widgets-inventwo.png)
 
@@ -24,6 +24,8 @@ hash: PkkfNVgSEL18JPWccxP07zvlffld1qX4NeKaIYBVV20=
 
 #### Различные типы контента
 ![Предварительный просмотр выбора цвета](../../../en/adapterref/iobroker.vis-2-widgets-inventwo/img/preview_content_types.png)
+
+![Предварительный просмотр аналоговых часов](../../../en/adapterref/iobroker.vis-2-widgets-inventwo/img/preview_content_type_clock_analog.png)
 
 Выбор цвета
 
@@ -53,6 +55,17 @@ hash: PkkfNVgSEL18JPWccxP07zvlffld1qX4NeKaIYBVV20=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.1 (2025-12-24)
+- Added missing translations for the previous version
+
+### 0.5.0 (2025-12-24)
+- Added radial slider widget (#17)
+- Added analog clock content type to universal widget (#100)
+- Changed german translation for "custom"
+
+### 0.4.2 (2025-12-22)
+- Vite downgrade
+
 ### 0.4.1 (2025-12-18)
 - Added image type to column for table widget (#97)
 - Added custom datetime format support for table widget (#97)

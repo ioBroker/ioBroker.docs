@@ -74,6 +74,11 @@ sudo apt-get install -y snips-injection
 
 ## Changelog
 
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.5.1
 
 * (unltdnetworx) new adapter testing and security update
@@ -210,6 +215,8 @@ sudo apt-get install -y snips-injection
 
 The MIT License (MIT)
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020 Michael Schuster <development@unltd-networx.de> & Walter Zengel <w.zengel@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

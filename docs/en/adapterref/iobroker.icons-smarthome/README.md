@@ -30,10 +30,17 @@ Thanks to Roman Malashkov for creating the icons
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.0.0 (2023-08-30)
 * (jogibear9988) initial release
 
 ## License
 CC0-1.0
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 jogibear9988 <jochen.kuehner@gmx.de>

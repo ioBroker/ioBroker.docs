@@ -60,7 +60,10 @@ Questions? Check the [FAQ](faq.md) section first!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 10.5.2 (2025-12-28)
+* (@mcm1957) Monophase profile support has been fixed for shellypro3em and shellypro3em400.
+
+### 10.5.1 (2025-12-27)
 * (@mcm1957) Monophase profile support has been added to shellypro3em, shellypro3em63 and shellypro3em400. [#1016]
 * (@mcm1957) ResetCounters functionality has been added to components EMData and EM1Data. This effect shellypro3em* but also other shellyem* devices gen2 and later.
 * (@mcm1957) Changes to shellypro3em could affect shellyemg3 and shellyproem50.
@@ -91,16 +94,12 @@ Questions? Check the [FAQ](faq.md) section first!
 * (@mcm1957) Shelly LinkedGo Smart Thermost (st1820) has been added as prototype for diagnostic purposes only.
 * (@mcm1957) Dependencies have been updated
 
-### 10.3.0 (2025-10-06)
-
-* (@klein0r) Rssi for ble has been added to script.
-* (@mcm1957) Shelly Flood Gen 4 (shellyfloodg4) has been added.
-* (@mcm1957) Shelly Power Strip Gen 4 (shellypstripg4) has been added with partial support.
-
 ## License
 
 The MIT License (MIT)
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2025 Thorsten Stueben <thorsten@stueben.de>,
                         Apollon77 <iobroker@fischer-ka.de> and
                         Matthias Kleine <info@haus-automatisierung.com>

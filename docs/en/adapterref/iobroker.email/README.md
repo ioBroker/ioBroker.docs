@@ -127,6 +127,11 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 2.0.5-alpha.0 (2025-10-06)
 * (@copilot) Fixed SMTP relay anonymous access by ignoring user and password when empty
 * (@copilot) Fixed Office365 OAuth email sending from scripts by ensuring fresh tokens are used
@@ -156,6 +161,8 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 
 The MIT License (MIT)
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2014-2025 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

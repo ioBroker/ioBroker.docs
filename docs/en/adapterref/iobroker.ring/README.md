@@ -98,6 +98,8 @@ doorbell recorded video.
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
 
 * (copilot) **CI/CD**: Updated ioBroker Copilot Instructions template from v0.4.0 to v0.4.2
 
@@ -543,6 +545,8 @@ doorbell recorded video.
 
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2025 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

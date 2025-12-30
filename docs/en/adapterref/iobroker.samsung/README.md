@@ -43,6 +43,11 @@ if something does not work, look  in the log.
 <!--
 	Placeholder for the next version (at the beginning of the line):
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 0.6.1 (2024-09-28)
 * (marian-t-web-de) Sending a key to TV logged an error [#210]
 * (marian-t-web-de) Error connecting to Samsung HJ Series TV has been fixed [#202] [#138]
@@ -66,7 +71,8 @@ if something does not work, look  in the log.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2015-2017 soef <soef@gmx.net>, 2018-2022 ioBroker Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

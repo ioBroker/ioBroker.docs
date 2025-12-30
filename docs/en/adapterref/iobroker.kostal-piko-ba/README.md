@@ -60,6 +60,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+- (HombachC) Fix schema links (#868)
+- (HombachC) update dependencies
+
 ### 6.0.4 (2025-11-25)
 
 - (HombachC) optimize dependabot config (#856)

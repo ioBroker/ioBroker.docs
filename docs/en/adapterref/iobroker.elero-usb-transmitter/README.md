@@ -13,11 +13,70 @@
 ## elero-usb-transmitter adapter for ioBroker
 
 Adapter to control Elero devices with the Elero USB Transmitter Stick.
-You need the usb transmitter stick and have to connect the existing roller shutter motors to the stick. The adapter automatically detects the active channels and adds the devices. In the settings you can set the names for the devices and the interval for the update
+You need the usb transmitter stick and have to connect the existing roller shutter motors to the stick. The adapter automatically detects the active channels and adds the devices. In the settings you can set the names for the devices and the interval for the update.
+
+## Configuration
+
+1.  **USB Stick Device Path**: Path to your USB transmitter stick (e.g., `/dev/ttyUSB0` or `COM3`).
+2.  **Refresh Interval**: Time in minutes to refresh the device status.
+3.  **Device Configs**: You can map channel numbers to custom names in the adapter settings.
+
+## Usage
+
+The adapter creates a device for each active channel found on the stick. Each device contains the following states:
+
+| State | Role | Description |
+| :--- | :--- | :--- |
+| `channel` | text | The channel number of the device. |
+| `info` | text | Current status information returned by the stick. |
+| `open` | switch | Main control. Set to `true` to OPEN (UP), `false` to CLOSE (DOWN). |
+| `controlCommand` | state | Send specific commands directly. |
+
+### Control Commands
+
+You can write the following values to the `controlCommand` state:
+
+*   `16`: STOP
+*   `32`: UP
+*   `36`: DOWN
+*   `64`: STEP_UP
+*   `68`: STEP_DOWN
+
+## Examples
+
+### Javascript / Blockly
+
+To open a shutter (Channel 1):
+
+```javascript
+setState('elero-usb-transmitter.0.channel_1.open', true); // Moves UP
+```
+
+To stop a moving shutter:
+
+```javascript
+setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP command
+```
 
 ## Changelog
+### 1.0.2 (2025-12-24)
 
-## **WORK IN PROGRESS**
+- Replaced deprecated createState/createDevice methods with setObjectNotExistsAsync
+
+### 1.0.1 (2025-12-24)
+
+- Dependencies updated
+
+### 1.0.0 (2025-12-23)
+
+- Refactor main.ts (split into smaller modules)
+- Cleanup unused code (src/lib/tools.ts)
+- Admin UI migrated to jsonConfig
+- Dependencies updated
+- ESLint migrated to v9
+- Tests validation improved
+- Bug fix: Async iteration in device refresh
+- TypeScript configuration updated
 
 ### 0.5.2
 

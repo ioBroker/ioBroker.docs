@@ -1,4 +1,5 @@
 ![Logo](admin/sainlogic.png)
+
 # ioBroker.sainlogic
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.sainlogic.svg)](https://www.npmjs.com/package/iobroker.sainlogic)
@@ -19,8 +20,9 @@ Read data from a sainlogic based weather station
 Basically any device working with the sainlogic hardware, the firmware usually reports as 'EasyWeather Vx.x.x)'.
 
 Known working devices:
+
 1. ELV WS980Wifi
-1. Eurochron EFWS2900  (Listener mode only)
+1. Eurochron EFWS2900 (Listener mode only)
 1. Froggit WH400SE
 1. Froggit DP1500 (Ecowitt protocol only)
 1. Sainlogic WS3500 (Listener mode only)
@@ -35,39 +37,47 @@ The adapter supports two modes to show data of your weather station.
 In Listener mode the adapter does support additional sensor if delivered from your weather station. Currently supported are temperature and humidity. If you have another additional sensor please raise a github issue and post your data string as this helps me to extend the functionality.
 
 ### Listener mode:
+
 With latest firmware releases the weather station supports sending data to a custom server. The adapter will act as such a server. The setup needs two steps:
 
 #### Configure Weather station
+
 Use the 'WS View'app on your mobile device to configure the weatherstation. Configure the following settings for customized server settings:
+
 - Server: IP/Hostname of your IOBroker server
 - Path: anything, just remember it for the adapter configuration
-*Note:* on some stations it has been proven success to add a question mark at the end of the path. Some others work without it. Best is to try both.
+  _Note:_ on some stations it has been proven success to add a question mark at the end of the path. Some others work without it. Best is to try both.
 - Port: any number between 1024 and 65000 (default is 45000), needs to be unique and free on your IOBroker system
 - Station ID: not used
-*Note:* some station still require any value to be set
+  _Note:_ some station still require any value to be set
 - Station Key: not used
-*Note:* some station still require any value to be set
+  _Note:_ some station still require any value to be set
 - Protocol Type: WeatherUnderground
 - Upload Interval: anyting supported by your weather station
 
 #### Configure the Listener
+
 In the instance configuration choose the tab 'Listener' and set the following:
+
 - Active: true
 - IP: choose the IP of your IOBroker which the weatherstation will be able to connect to (default is 0.0.0.0 to allow all IPs), this is mainly relevant if you have multiple networks, otherwise the default will do
 - Port: Enter the same port as in the WS View app
 - Path: Enter the same path as in the WS View app
 - Forward URL: If you want to forward the received data to another consumer you can specify an additional adress. E.g. you may receive data in WU format and still want to forward this to WeatherUnderground.
 
-*Note*: The forwarding URL needs to end with a trailing question mark (?). Example: https://weatherstation.wunderground.com/weatherstation/updateweatherstation.php?
+_Note_: The forwarding URL needs to end with a trailing question mark (?). Example: https://weatherstation.wunderground.com/weatherstation/updateweatherstation.php?
 
 Save.
 The listener will start and wait on incoming connections. Based on your interval you should see in the log a message ' Listener received update: ...' with the data.
 
 ### Scheduler mode:
+
 If your weather station supports pulling for data you can configure the scheduler to do so. The protocol used is based on [WS980 documentation](https://github.com/RrPt/WS980).
 
 #### Configure the scheduler
+
 In the instance configuration choose the tab 'Scheduler' and set the following:
+
 - Active: true
 - IP: choose the IP of your weather station, you should make sure that the IP is fixed and does not change
 - Port: Enter the port to connect to (default is 45000)
@@ -77,11 +87,9 @@ Save.
 
 The schheduler will start and connect to the weather station after the first interval time. You should see message in the log like 'Scheduler pulling for new data'. If you set the log mode to debug you will also see the data strings received.
 
-
-
 ## Station specific infos
 
-### Froggit DP1500 
+### Froggit DP1500
 
 It seems this station does not send any data when WeatherUnderground is selected as protocol. It works correctly with Ecowitt.
 
@@ -93,61 +101,28 @@ Station does not answer to scheduler commands, so only listener mode is supporte
 
 Station does not answer to scheduler commands, so only listener mode is supported.
 
-
 ## Changelog
 
-Latest version
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.1.1 (2025-12-29)
 
-### **WORK IN PROGRESS**
+Changed max values for distance sensore (#262)
 
-#### 1.0.14 Updates for Repository checker
+### 1.1.0 (2025-12-24)
 
-#### 1.0.13 Updates for repositrory checker
+Added deploy job for release script
+Changed to Admin UI to jsonConfig
 
-#### 1.0.0 Support for WFC01 - Smart Water Timer
+### 1.0.17 (2025-12-23)
 
-#### 0.11.6 Adapater checker related updates
+Updates for releasescript changelog logic
 
-#### 0.11.5 ECOWITT forwarding fixed
+### 1.0.16
 
-#### 0.11.4 Fix yearlyrain max value and mapping for CO2 sensors
-
-#### 0.10.5 Bugfix for state initialization, removed log messages for forwarding
-
-#### 0.10.4 Bugfix for lightning count, new battery states for additional sensors
-
-#### 0.10.3 Bugfixes
-
-#### 0.10.2 Bugfixes
-
-#### 0.10.0 Added new sensors for Lightning, Piezo elements, DP250 and minor fixes
-
-#### 0.8.2 Updated UVRaw to maxvalue 4000
-
-#### 0.8.1 Bugfix for timestamp and listener
-
-#### 0.8.0 Added time stamps for daily min and max values
-
-#### 0.7.3 Dependency updates and Travis testing updates
-
-#### 0.7.2 Dependency updates for security vulnerabilities 
-
-#### 0.7.1 Fix Soilbatt mapping
-
-#### 0.7.0 Support for Soil Moisture devices like attached to DP1500
-
-#### 0.6.6 Adressed github issue #53 - warning on non existing object
-
-#### 0.6.5 Removed unneeded events
-
-#### 0.6.4 For WH2650: Adding model name and weather station communication frequency datapoint
-
-#### 0.6.3 Fixed outdoor humidity
-
-#### 0.6.2 Added additional sensor support
-
-
-For detailed change log or previous versions check io-package.json
+Typo in io-package.json
 
 ## Credits
 
@@ -155,8 +130,8 @@ Credits go to:
 lemuba, StrathCole, Glasfaser, Latzi: for relentless testing of my bugs :)
 Lisa for her [code to translate wind degrees in a heading](https://www.programmieraufgaben.ch/aufgabe/windrichtung-bestimmen/ibbn2e7d)
 
-
 ## License
+
 MIT License
 
 Copyright (c) 2025 Fogg <foggch@gmail.com>

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.daswetter/README.md
 title: ioBroker.DasWetter.
-hash: DYcvTEtuN7DdGtev2cQo55gxW1WLYUgMzzGtAMFX8Tc=
+hash: stE6gX4ZLBIDpUfcSkZuqNpxHO6qAAB7R1hJHUWWH6s=
 ---
 ![Logo](../../../en/adapterref/iobroker.daswetter/admin/daswettercom.png)
 
@@ -12,62 +12,60 @@ hash: DYcvTEtuN7DdGtev2cQo55gxW1WLYUgMzzGtAMFX8Tc=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.daswetter.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/rg-engineering/ioBroker.daswetter/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
-![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.daswetter?style=flat-square)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.daswetter?style=flat-square)
 ![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.daswetter?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.daswetter?style=flat-square)
 ![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
-![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
 
 # IoBroker.DasWetter.
-![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
+![GitHub Actions](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
+**Wenn es Ihnen gefällt, erwägen Sie bitte eine Spende:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 Dieser Adapter liest Wettervorhersagedaten von DasWetter.com.
 
-**ACHTUNG: Momentan sind Neuanmeldungen bei DasWetter offenbar nicht möglich. Bitte keine Tickets hier im Adapter eröffnen, da wir auf den Datenanbieter keinen Einfluss haben. Sobald uns neue Informationen vorliegen, werden wir diese hier veröffentlichen.**
+## Update-Hinweis v4
+Dieser Adapter v4 verwendet die neue API (2026). Die Datenstruktur unterscheidet sich nun von älteren Versionen. Alte Instanzen müssen gelöscht und eine neue Adapterinstanz erstellt werden.
 
-Sie benötigen einen Account bei DasWetter.com. Registrieren Sie sich unter https://www.daswetter.com/api/#/login. Der Account ist unter bestimmten Voraussetzungen kostenlos.
+Jeder Benutzer muss die neue API auf der DasWetter-Website aktivieren. Ein API-Schlüssel wird bereitgestellt, der in den Adaptereinstellungen verwendet werden muss.
 
-In Ihrem Konto finden Sie drei URLs für vier verschiedene Datenmodelle:
+Mit der neuen API können sich auch neue Benutzer auf der Website von [DasWetter](https://dashboard.meteored.com/de/login) registrieren.
 
-* Prognose für die nächsten 7 Tage und allgemeine Informationen zum Tag: Höchst- und Tiefstwerte, Wind (Symbol und Beschreibung), Tagessymbol und Wetterbedingungen
-* detaillierte Informationen für 5 Tage und alle 3 Stunden: Die allgemeinen täglichen Informationen sind die folgenden: Höchstwerte, Tiefstwerte, Wind, Böen, Niederschlag, relative Luftfeuchtigkeit,
+## Allgemeine Funktionalität
+Der Benutzer muss die API auf dem Server von [DasWetter](https://dashboard.meteored.com/de/login) zunächst aktivieren.
 
-Luftdruck auf Meereshöhe, Schneegrenze, Sonnenauf- und -untergang, Monddaten, Ortszeit
+Mit API-Schlüssel, Postleitzahl und Stadtnamen in der Adapterkonfiguration kann der Adapter anschließend Wettervorhersagedaten vom Server abrufen.
+Nach dem Start des Adapters erfolgt zunächst eine Standortprüfung. Anhand der Postleitzahl wird versucht, die nächstgelegene Wetterstation zu ermitteln. Typischerweise antwortet der Server mit Standorten aus verschiedenen Ländern aufgrund ähnlicher Postleitzahlen. Der Adapter versucht dann, die richtige Wetterstation anhand des Stadtnamens zu finden.
+Wenn die nächstgelegene Station gefunden wurde, wird ein Standort-Hash intern gespeichert, der später zum Anfordern von Wettervorhersagedaten verwendet wird.
+Derzeit stehen nur zwei Pfade zur Verfügung.
 
-* Vorschau mit Detaildaten jede Stunde (nur die ersten 2 Tage, danach alle 3 Stunden)
-* Vorhersage für 5 Tage und alle 3 Stunden (im JSON-Format)
+* Tagesvorhersage
 
-Alle vier Modelle sind implementiert und mindestens eines sollte verwendet werden.
-In den Einstellungen muss eine URL wie http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx verwendet werden. Kopieren Sie einfach die vollständige URL aus Ihrem Konto.
+Die Tagesvorhersage liefert allgemeine Wettervorhersagedaten für die nächsten 5 Tage.
+
+* stündliche Vorhersage
+
+Die stündliche Vorhersage bietet eine detailliertere Prognose für die 24 Stunden des heutigen Tages.
+
+Wir versuchen, die Anzahl der Serveranfragen auf ein Minimum zu reduzieren. Jeder Nutzer sollte die Anzahl der Anfragen ebenfalls auf ein Minimum beschränken. Meteored stellt uns den Basistarif kostenlos zur Verfügung.
+
+### Einschränkungen des kostenlosen Tarifs
+![Einschränkungen des kostenlosen Tarifs](../../../en/adapterref/iobroker.daswetter/docs/free_plan.png "Einschränkungen des kostenlosen Tarifs")
+
+### Alternativen
+Soll die Vorhersage lediglich visualisiert werden, ist [Widget](https://www.daswetter.com/users/de/widget) ebenfalls eine gute Alternative.
+Ein [Widget für Vis-2](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating?tab=readme-ov-file#meteored-weather-widget) ist bereits verfügbar.
 
 ## Hinweise
-### Symbole in vis verwendet
-* Greifen Sie auf Symbole wie `http://ip:8082/adapter/daswetter/icons/tiempo-weather/galeria1/1.png` zu.
-* In Galerie6 sind die Originalsymbole im SVG-Format. Die Vis-App könnte Probleme haben, sie anzuzeigen. Daher sind konvertierte PNG-Dateien verfügbar. Verwenden Sie einfach die Option „PNG verwenden“.
-* in galerie5 sind die Originalsymbole im SVG- und PNG-Format. Daneben sind auch Farb- und Weißversionen verfügbar
-
-### "aktuell" in NextHours_Day1:
-* DasWetter.com liefert keine realen aktuellen Wetterwerte
-* aber manchmal ist es hilfreich, die Vorhersage der aktuellen Stunde zur Verfügung zu haben
-* deshalb haben wir „aktuell“ hinzugefügt, was lediglich eine Kopie der zugehörigen Stundenwerte der Prognose ist
-* Bitte stellen Sie sicher, dass Sie den Adapter mindestens einmal pro Stunde anrufen, um sicherzustellen, dass "current" gut aktualisiert wird
-* siehe auch GitHub-Funktionsanforderung [issue24](https://github.com/rg-engineering/ioBroker.daswetter/issues/24)
-
-### Pfad 4
-* DasWetter.com übermittelt derzeit von den eigenen Angaben abweichende Daten.
-
-Jetzt haben wir eine „Auto-Reparatur“ implementiert, die die Struktur in die dokumentierte Form ändert.
-
 ## Bekannte Probleme
-* Bitte erstellen Sie Probleme bei [github](https://github.com/rg-engineering/ioBroker.daswetter/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
+Bitte erstellen Sie Issues auf [github](https://github.com/rg-engineering/ioBroker.daswetter/issues), falls Sie Fehler finden oder neue Funktionen wünschen.
 
 ## Changelog
 
@@ -75,13 +73,49 @@ Jetzt haben wir eine „Auto-Reparatur“ implementiert, die die Struktur in die
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.1.0 (2025-12-28)
+* (René) see issue #457: forecast download for daily and hourly can now be disabled to reduce number of DP's
+* (René) see issue #456: combination of postcode and free text search for location API added, if location not found by postcode a free text search is executed
+* (René) see issue #458: unit for pressure changed to millibar / hPa
+* (René) see issue #459: bug fix to be able to edit custom path for moon symbols
+* (René) if API provides night specific symbol description, it will be shown now
+* (René) datapoint descriptions changed
+
+### 4.0.0 (2025-12-27)
+**Breaking Changes**
+instances of older versions **must be deleted** and a new instance must be created
+* (René, copilot) rework with typescript
+* (René, copilot) support of new api from DasWetter.com
+* (René) adapter type changed from "scheduled" to "deamon"
+
+### 3.2.8 (2025-11-02)
+* (René) see issue #444: avoid crash if no data received, show response status in debug log
+
+### 3.2.7 (2025-11-02)
+* (René) enable / disable each path separately in admin
+
+### 3.2.6 (2025-10-22)
+* (René) #417: bug fix: allow 14 minutes between two data requests to avoid unnecessary warnings
+
+### 3.2.5 (2025-10-21)
+* (René) #442: bug fix for state of wind direction
+* (René) #417: info, if data query is too often (max. 4 times per hour)
+* (René) update dependencies + changes based on adapter checker
+
+### 3.2.4 (2025-10-04)
+* (René) new testing
+* (René) update dependencies + changes based on adapter checker
+
+### 3.2.3 (2025-02-26)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
 ### 3.2.2 (2024-12-15)
 * (René) translations
-*
+* (René) see issue #408: hint regarding user registration limitation added
 
 ### 3.2.1 (2024-12-06)
 * (René) see issue #411: jsonConfig fixed
-* (René) see issue #408: hint regarding user registration limitation added
 
 ### 3.2.0 (2024-12-04)
 * (René) see issue #406: test with nodejs@22
@@ -235,7 +269,7 @@ needs also 2.x of vis-weather-widget
 
 MIT License
 
-Copyright (c) 2017-2024 René G. <info@rg-engineering.eu>
+Copyright (c) 2017-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

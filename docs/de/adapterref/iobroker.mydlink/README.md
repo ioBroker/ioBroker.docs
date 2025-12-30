@@ -73,6 +73,11 @@ Gerät, die er braucht.
 	Placeholder for next versions (this needs to be indented):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.3.6 (2024-05-24)
 * fixed: crash with empty pin.
 
@@ -232,6 +237,8 @@ Gerät, die er braucht.
 ## License
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024-2025 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

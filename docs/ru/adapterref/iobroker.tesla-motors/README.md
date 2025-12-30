@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tesla-motors/README.md
 title: ioBroker.tesla-motors
-hash: Fvr1aTw0IyZbJ+fLgciBIKNx+41ASXE7fi8j6dPSNfk=
+hash: Pm6pIEKSi3uq6I+V/kzJU78bv12NP+NOVPE/M1q61rY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tesla-motors/admin/tesla-motors.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.tesla-motors.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.tesla-motors.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tesla-motors.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/tesla-motors-installed.svg)
-![Количество установок (стабильное)](https://iobroker.live/badges/tesla-motors-stable.svg)
+![Количество установок (последние)](https://iobroker.live/badges/tesla-motors-installed.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/tesla-motors-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.tesla-motors.svg)
 ![НПМ](https://nodei.co/npm/iobroker.tesla-motors.png?downloads=true)
 
@@ -18,34 +18,45 @@ hash: Fvr1aTw0IyZbJ+fLgciBIKNx+41ASXE7fi8j6dPSNfk=
 **Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.tesla-motors/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер Tesla для ioBroker
-Все модели Tesla и Powerwall из приложения Tesla отображаются и обновляются.
+В приложении Tesla отображаются и обновляются все модели Tesla и устройства Powerwall.
 
-**Удаленные команды для Tesla и Powerwall доступны по адресу** tesla-motors.0.id.remote
+**Дистанционные команды для Tesla и Powerwall доступны по адресу:** tesla-motors.0.id.remote
 
-**Процесс входа:**
+**Процесс входа в систему:**
 
-- Нажмите ссылку «Аутентификация» в параметрах экземпляра.
-- Введите свои учетные данные и, при необходимости, пройдите Captcha/reCaptcha и MFA.
-- На странице «Страница не найдена» скопируйте полный URL-адрес из браузера и вставьте его в параметры экземпляра, затем нажмите «Сохранить и закрыть».
-- Исходные данные могут появиться только после первого проезда
+— Нажмите на ссылку «Аутентификация» в параметрах экземпляра.
+— Введите свои учетные данные для входа и, при необходимости, пройдите проверку Captcha/reCaptcha и MFA.
+— На странице «Страница не найдена» скопируйте полный URL-адрес из браузера и вставьте его в параметры экземпляра, затем нажмите «Сохранить и закрыть».
+— Исходные данные могут появиться только после первого заезда.
 
 **Описание поля**
 
-- передний водительский DF
+- передняя панель водителя df
 - водитель сзади
-- передний пассажирский
-- пассажир сзади
-- фут передний багажник
-- задний багажник
+- передняя пассажирская сторона
+- задний пассажирский
+- передний багажник (футы)
+- задний багажник справа
 
-[Объяснение кодов опций](https://tesla-api.timdorr.com/vehicle/optioncodes)
+[Пояснение к кодам опций](https://tesla-api.timdorr.com/vehicle/optioncodes)
 
 ## Вопросы и обсуждения:
 https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
+<!-- Заполнитель для следующей версии (в начале строки):
+
+### **РАБОТА В ПРОЦЕССЕ** -->
+
 ## Changelog
 
-<!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 1.5.0 (2025-12-28)
+- (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 6.17.14 now.
+- (TA2k) powerwall backup history has been fixed
+- (TA2k) Dependencies have been updated.
+
 ### 1.4.5 (2024-04-19)
 
 - cleaned up token folder to reduce state objects
@@ -99,7 +110,9 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 MIT License
 
-Copyright (c) 2021-2029 iobroker-community
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2021-2025 iobroker-community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,56 +1,120 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.elero-usb-transmitter/README.md
-title: ioBroker.elero-usb-передатчик
-hash: TMXUiZdhXhEbVGe/VhbTs/SHmHhG1hvkmaFZ/F0CMVE=
+title: ioBroker.elero-usb-transmitter
+hash: B4BFyXjQg2PIiZv5FCRU1GoOannx8Mw96nu2B4cAgdU=
 ---
-# IoBroker.elero-usb-передатчик
+# IoBroker.elero-usb-transmitter
 ![Логотип](../../../en/adapterref/iobroker.elero-usb-transmitter/admin/elero-usb-transmitter.png)
 
-![версия NPM](http://img.shields.io/npm/v/iobroker.elero-usb-transmitter.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.elero-usb-transmitter.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.elero-usb-transmitter.svg)
 ![Количество установок (последние)](http://iobroker.live/badges/elero-usb-transmitter-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/elero-usb-transmitter-stable.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/elero-usb-transmitter-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/marc2016/ioBroker.elero-usb-transmitter/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.elero-usb-transmitter.png?downloads=true)
 
 ## Адаптер elero-usb-transmitter для ioBroker
-Адаптер для управления устройствами Elero с USB-передатчиком Elero.
-Вам понадобится USB-передатчик, и вы должны подключить к нему существующие двигатели рольставен. Адаптер автоматически определяет активные каналы и добавляет устройства. В настройках можно задать названия устройств и интервал обновления
+Адаптер для управления устройствами Elero с помощью USB-передатчика Elero.
+Вам потребуется USB-передатчик, и необходимо подключить к нему существующие двигатели рольставней. Адаптер автоматически определяет активные каналы и добавляет устройства. В настройках можно задать имена устройств и интервал обновления.
 
-## **РАБОТА В ПРОЦЕССЕ**
-### 0.5.2
-- Добавлен недостающий перевод для названия и описания.
+## Конфигурация
+1. **Путь к USB-накопителю**: Путь к вашему USB-передатчику (например, `/dev/ttyUSB0` или `COM3`).
+2. **Интервал обновления**: Время в минутах, необходимое для обновления состояния устройства.
+3. **Настройки устройства**: В настройках адаптера можно сопоставить номера каналов с пользовательскими именами.
 
-### 0.5.1
-- Добавлен перевод
+## Использование
+Адаптер создает устройство для каждого активного канала, обнаруженного на устройстве. Каждое устройство содержит следующие состояния:
 
-### 0.5.0
-- Добавлены переводы
-- Игнорировать изменения состояния с ack=true в обработчике onStateChanged
-- удален обработчик сообщений
-- удален пакет node-scheduler
+| Штат | Роль | Описание |
+| :--- | :--- | :--- |
+| `channel` | текст | Номер канала устройства. |
+| `open` | переключатель | Главный элемент управления. Установите `true` для ОТКРЫТИЯ (ВВЕРХ), `false` для ЗАКРЫТИЯ (ВНИЗ). |
+| `controlCommand` | состояние | Отправлять конкретные команды напрямую. |
+| `controlCommand` | state | Отправлять конкретные команды напрямую. |
 
-### 0.4.0
-- Добавлен канал для информации о подключении.
+### Команды управления
+В состояние `controlCommand` можно записать следующие значения:
 
-### 0.3.0
-- Используйте только открытое состояние для управления устройствами.
+* `16`: СТОП
+* `32`: ВВЕРХ
+* `36`: ВНИЗ
+* `64`: STEP_UP
+* `68`: STEP_DOWN
 
-### 0.1.0
-- Время передачи удалено и код очищен.
+## Примеры
+### Javascript / Blockly
+Чтобы открыть ставни (Канал 1):
 
-### 0,0,3 дюйма
-- Добавлены сообщения журнала.
+```javascript
+setState('elero-usb-transmitter.0.channel_1.open', true); // Moves UP
+```
 
-### 0.0.2
-- исправление ошибок
+Чтобы остановить движущийся затвор:
 
-### 0.0.1
-- Начальная версия
+```javascript
+setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP command
+```
 
 ## Changelog
+### 1.0.2 (2025-12-24)
+
+- Replaced deprecated createState/createDevice methods with setObjectNotExistsAsync
+
+### 1.0.1 (2025-12-24)
+
+- Dependencies updated
+
+### 1.0.0 (2025-12-23)
+
+- Refactor main.ts (split into smaller modules)
+- Cleanup unused code (src/lib/tools.ts)
+- Admin UI migrated to jsonConfig
+- Dependencies updated
+- ESLint migrated to v9
+- Tests validation improved
+- Bug fix: Async iteration in device refresh
+- TypeScript configuration updated
+
+### 0.5.2
+
+- Missing translation for title and description added
+
+### 0.5.1
+
+- Translation added
+
+### 0.5.0
+
+- Translations added
+- Ignore state changes with ack=true in onStateChanged handler
+- messages handler removed
+- node-scheduler package removed
+
+### 0.4.0
+
+- Added channel for connection info.
+
+### 0.3.0
+
+- Use only open state to controle devices.
+
+### 0.1.0
+
+- Transmission time removed and code clean up.
+
+### 0.0.3"
+
+- Log messages added.
+
+### 0.0.2
+
+- bug fixes
+
+### 0.0.1
+
+- initial release
 
 ## License
 

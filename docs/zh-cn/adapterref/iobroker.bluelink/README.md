@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: D+N+qLPKppmOp3lE3sL0lIjj/sUaUTSKSVSq6yBgEzQ=
+hash: AQ/3a7xDK2/rrtNmPB2gNDgGO4EowKXQ5mSoKfV2lKQ=
 ---
 ![标识](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -29,10 +29,13 @@ hash: D+N+qLPKppmOp3lE3sL0lIjj/sUaUTSKSVSq6yBgEzQ=
 
 ------------------------------------------------------------------------------------
 
-捐赠
-[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+## 捐赠 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 3.1.25 (2025-12-28)
+* (arteck) Dependencies have been updated
+* (arteck) adds documentation on the token generation process for HYUNDAI and KIA
+
 ### 3.1.24 (2025-11-07)
 * (arteck) fix vehicles > 2 in account
 

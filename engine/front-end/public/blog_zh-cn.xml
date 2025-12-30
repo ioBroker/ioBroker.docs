@@ -3,12 +3,22 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[有关ioBroker的新闻，公告和想法]]></description>
         <link>https://www.iobroker.net/#zh-cn/blog</link>
-        <lastBuildDate>Sun, 21 Dec 2025 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 29 Dec 2025 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[2025年回顾]]></title>
+            <description><![CDATA[
+                <p>尊敬的ioBroker社区成员：</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2025_12_29</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2025_12_29</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Mon, 29 Dec 2025 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[ioBroker 月度回顾 – 2025 年 12 月]]></title>
             <description><![CDATA[
-                <p># IoBroker 月度回顾 – 2025 年 12 月 🎄\n一年即将结束，但 ioBroker 生态系统在过去几个月里一直在积极进行开发、集成和优化。</p>
+                <p>一年即将结束，但 ioBroker 生态系统在过去几个月里一直在积极进行开发、集成和优化。</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2025_12_21</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2025_12_21</guid>

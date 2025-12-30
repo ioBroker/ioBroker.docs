@@ -68,8 +68,14 @@ If you're not currently a Tibber user, I would greatly appreciate it if you coul
     - "Best single hours LTF": "Best single hours" within a Limited Time Frame (LTF).
     - "Best hours block LTF": "Best hours block" within a Limited Time Frame (LTF).
     - "Best percentage LTF": "Best percentage" within a Limited Time Frame (LTF).
-    - "Smart Battery Buffer": Utilize the "EfficiencyLoss" parameter to specify the efficiency loss of the battery system. The "EfficiencyLoss" parameter can range from 0 to 1, where 0 represents no efficiency loss and 1 represents complete efficiency loss. For example, a value of 0.25 indicates a 25% efficiency loss for a charge/discharge cycle.  
-      Use the "AmountHours" parameter to input the desired number of hours for battery charging (rounded to quarter hours). The calculator will activate battery charging ("value YES") and deactivate battery feed ("value 2 NO") during the specified "AmountHours" cheapest timeslots. Conversely, it will deactivate battery charging ("value NO") and activate battery feed ("value 2 YES") during timeslots with the highest cost, provided the cost is higher than the highest total price among the cheap timeslots. In the remaining normal priced timeslots where energy buffering by the battery is not economically viable, both outputs will be switched off.
+    - "Smart Battery Buffer":
+        - The "EfficiencyLoss" parameter defines the efficiency loss of the battery system. Its value ranges from 0 to 1, where 0 means no efficiency loss and 1 represents complete energy loss. For example, a value of 0.25 indicates a 25% efficiency loss per charge/discharge cycle.
+        - The "AmountHours" parameter specifies the maximum number of hours the system may use for battery charging, rounded to quarter hours. Important: this is an upper limit, not a guaranteed number of hours. The actual number of charging timeslots is determined dynamically based on energy prices and the efficiency loss. Only timeslots where charging is economically worthwhile (i.e., price is sufficiently below the most expensive slot, considering EfficiencyLoss) will be selected.
+        - The calculator works as follows:
+            - Cheap timeslots: Battery charging is enabled (value YES) and feed into the home energy system is disabled (value 2 NO). These are the slots with the lowest prices that pass the efficiency filter, up to AmountHours.
+            - Expensive timeslots: Battery charging is disabled (value NO) and feed into the home energy system is enabled (value 2 YES). These slots have the highest prices, above the dynamically calculated threshold based on the cheapest timeslot prices and efficiency loss.
+            - Normal timeslots: Where charging is not economically viable, both outputs are disabled.
+        - This approach ensures that the battery is only used when it is economically beneficial, rather than strictly adhering to a fixed number of hours.
 - LTF channels: These operate similarly to standard channels but are active only within a time frame defined by the 'StartTime' and 'StopTime' state objects. After 'StopTime,' the channel automatically deactivates. 'StartTime' and 'StopTime' can span two calendar days, as Tibber does not provide data beyond a 48-hour window. Both states require a date-time string in ISO-8601 format with a timezone offset, e.g., '2024-12-24T18:00:00.000+01:00'." Additionally, the LTF channels feature a new state parameter called 'RepeatDays,' which defaults to 0. When 'RepeatDays' is set to a positive integer, the channel will repeat its cycle by incrementing both 'StartTime' and 'StopTime' by the specified number of days after 'StopTime' is reached. For example, set 'RepeatDays' to 1 for daily repetition.
 
 ## Graph Output Configuration
@@ -167,8 +173,14 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
+- (HombachC) BREAKING: change flexcharts x-axis type
+- (HombachC) introduce FlexChart output for SBB channels second output
+- (HombachC) introduce second name for FlexChart output of SBB channels
+- (HombachC) introduce color for FlexChart output of calculator results
 - (HombachC) clean code for 15min time slots
+- (HombachC) fix schema links (#822)
 - (HombachC) update cron
+- (HombachC) update dependencies
 
 ### 6.0.3 (2025-11-16)
 

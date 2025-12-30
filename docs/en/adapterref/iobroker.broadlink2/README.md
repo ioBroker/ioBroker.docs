@@ -116,6 +116,8 @@ The adapter understands also 'sendTo' commands.
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
 * (mattreim) Several issues reported by adapter checker have been fixed
 
 ### 2.3.0 (2024-05-21)
@@ -152,7 +154,8 @@ with ioBroker admin, npm install iobroker.broadlink2 or from <https://github.com
 
 The MIT License (MIT)
 
-Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2014-2020, frankjoke <frankjoke@hotmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

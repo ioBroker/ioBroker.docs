@@ -17,8 +17,7 @@
 Adapter for Viessmannapi
 
 **Man benötigt eine ClientID von der Viessmann API**
-
-https://app.developer.viessmann.com besuchen und eine Client ID mit diesen Optionen erstellen:
+https://app.developer.viessmann-climatesolutions.com/ besuchen und eine Client ID mit diesen Optionen erstellen:
 
 Name: iobroker
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: NzdSoFAr8e/3DyZF2cTRxaRpX5UqZMhEYaW5foZ+lNE=
+hash: v6FxPWFAENHd0IH3Y9/brIEtva1r3Zc6X3khIMaTbtI=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -61,7 +61,7 @@ Jeder Kanal gibt einen oder zwei externe Zustände aus, die im Einstellungsmenü
 - Wenn kein externer Ausgabezustand ausgewählt ist, wird ein interner Zustand innerhalb des Bereichs des Kanals erstellt.
 - Die Werte, die in den Ausgabestatus geschrieben werden sollen, können in "value YES" und "value NO" definiert werden, z. B. "true" für boolesche Zustände oder eine Zahl oder ein Text, der geschrieben werden soll.
 - Ausgaben:
-- „Beste Kosten“: Nutzt den Zustand „TriggerPrice“ als Eingabe und erzeugt stündlich eine „JA“-Ausgabe, wenn die aktuellen Tibber-Energiekosten unter dem Triggerpreis liegen.
+- „Beste Kosten“: Nutzt den Zustand „TriggerPrice“ als Eingabe und erzeugt stündlich eine Ausgabe „JA“, wenn die aktuellen Tibber-Energiekosten unter dem Triggerpreis liegen.
 - "Beste Einzelstunden": Erzeugt eine "JA"-Ausgabe während der günstigsten Stunden, wobei die Anzahl im Zustand "AmountHours" definiert ist.
 - "Bester Stundenblock": Gibt "JA" aus, wenn der kostengünstigste Stundenblock mit der im Zustand "AmountHours" angegebenen Stundenzahl aktiv ist.
 
@@ -72,10 +72,14 @@ Zusätzlich wird der durchschnittliche Gesamtkostenwert des ermittelten Blocks i
 - "Beste Einzelstunden LTF": "Beste Einzelstunden" innerhalb eines begrenzten Zeitraums (LTF).
 - "Best Hours Block LTF": "Best Hours Block" innerhalb eines begrenzten Zeitraums (LTF).
 - "Bester Prozentsatz LTF": "Bester Prozentsatz" innerhalb eines begrenzten Zeitraums (LTF).
-- „Intelligenter Batteriepuffer“: Verwenden Sie den Parameter „Effizienzverlust“, um den Effizienzverlust des Batteriesystems anzugeben. Der Parameter „Effizienzverlust“ kann Werte zwischen 0 und 1 annehmen, wobei 0 für keinen Effizienzverlust und 1 für einen vollständigen Effizienzverlust steht. Beispielsweise bedeutet ein Wert von 0,25 einen Effizienzverlust von 25 % pro Lade-/Entladezyklus.
-
-Geben Sie mit dem Parameter „AnzahlStunden“ die gewünschte Anzahl an Stunden für den Akkuladevorgang ein (auf Viertelstunden gerundet). Der Rechner aktiviert den Akkuladevorgang („Wert JA“) und deaktiviert die Akkuversorgung („Wert 2 NEIN“) während der angegebenen günstigsten Zeitfenster. Umgekehrt deaktiviert er den Akkuladevorgang („Wert NEIN“) und aktiviert die Akkuversorgung („Wert 2 JA“) während der teuersten Zeitfenster, sofern die Kosten höher sind als der höchste Gesamtpreis der günstigen Zeitfenster. In den übrigen, normalpreisigen Zeitfenstern, in denen die Energiespeicherung durch den Akku wirtschaftlich nicht rentabel ist, werden beide Ausgänge abgeschaltet.
-
+- "Intelligenter Batteriepuffer":
+Der Parameter „Effizienzverlust“ definiert den Effizienzverlust des Batteriesystems. Sein Wert liegt zwischen 0 und 1, wobei 0 keinen Effizienzverlust und 1 einen vollständigen Energieverlust bedeutet. Beispielsweise bedeutet ein Wert von 0,25 einen Effizienzverlust von 25 % pro Lade-/Entladezyklus.
+Der Parameter „AmountHours“ gibt die maximale Anzahl an Stunden an, die das System zum Laden des Akkus verwenden darf (auf Viertelstunden gerundet). Wichtig: Dies ist eine Obergrenze, keine garantierte Stundenzahl. Die tatsächliche Anzahl der Ladezeitfenster wird dynamisch anhand der Energiepreise und des Wirkungsgradverlusts ermittelt. Es werden nur Zeitfenster ausgewählt, in denen das Laden wirtschaftlich sinnvoll ist (d. h. der Preis deutlich unter dem des teuersten Zeitfensters liegt, unter Berücksichtigung des Wirkungsgradverlusts).
+Der Rechner funktioniert wie folgt:
+- Günstige Zeitfenster: Akkuladung ist aktiviert (Wert JA), Einspeisung in das Hausenergiesystem ist deaktiviert (Wert 2 NEIN). Dies sind die günstigsten Zeitfenster, die den Effizienzfilter bestehen, bis zu einer bestimmten Anzahl von Stunden.
+- Teure Zeitfenster: Das Laden der Batterie ist deaktiviert (Wert NEIN), die Einspeisung in das Hausenergiesystem ist aktiviert (Wert 2 JA). Diese Zeitfenster haben die höchsten Preise, die über dem dynamisch berechneten Schwellenwert liegen, der auf den Preisen der günstigsten Zeitfenster und dem Effizienzverlust basiert.
+- Normale Zeitfenster: Wenn das Laden wirtschaftlich nicht rentabel ist, werden beide Ausgänge deaktiviert.
+- Dieser Ansatz gewährleistet, dass die Batterie nur dann genutzt wird, wenn es wirtschaftlich sinnvoll ist, anstatt sich strikt an eine festgelegte Stundenzahl zu halten.
 LTF-Kanäle: Diese funktionieren ähnlich wie Standardkanäle, sind aber nur innerhalb eines durch die Statusobjekte „StartTime“ und „StopTime“ definierten Zeitraums aktiv. Nach Ablauf von „StopTime“ wird der Kanal automatisch deaktiviert. „StartTime“ und „StopTime“ können sich über zwei Kalendertage erstrecken, da Tibber keine Daten über ein 48-Stunden-Fenster hinaus bereitstellt. Beide Status erfordern eine Datums-/Zeitangabe im ISO-8601-Format mit Zeitzonenverschiebung, z. B. „2024-12-24T18:00:00.000+01:00“. Zusätzlich verfügen die LTF-Kanäle über einen neuen Statusparameter namens „RepeatDays“, der standardmäßig auf 0 gesetzt ist. Wenn „RepeatDays“ auf eine positive ganze Zahl gesetzt wird, wiederholt der Kanal seinen Zyklus, indem er sowohl „StartTime“ als auch „StopTime“ um die angegebene Anzahl von Tagen nach Erreichen von „StopTime“ erhöht. Setzen Sie beispielsweise „RepeatDays“ auf 1 für eine tägliche Wiederholung.
 
 ## Konfiguration der Grafikausgabe
@@ -165,7 +169,14 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 
 ### **WORK IN PROGRESS**
 
+- (HombachC) BREAKING: change flexcharts x-axis type
+- (HombachC) introduce FlexChart output for SBB channels second output
+- (HombachC) introduce second name for FlexChart output of SBB channels
+- (HombachC) introduce color for FlexChart output of calculator results
 - (HombachC) clean code for 15min time slots
+- (HombachC) fix schema links (#822)
+- (HombachC) update cron
+- (HombachC) update dependencies
 
 ### 6.0.3 (2025-11-16)
 

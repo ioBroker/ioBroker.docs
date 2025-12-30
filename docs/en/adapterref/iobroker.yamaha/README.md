@@ -43,6 +43,11 @@ You have to enable "network standby" function in the configuration of your recei
 
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 0.5.4 (2024-06-14)
 * (foxriver76) updated packages
 

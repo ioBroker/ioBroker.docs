@@ -47,6 +47,10 @@ The adapter generally does not delete any objects so that data is not lost if my
 The adapter also has no influence on which parameters are sent by myUplink.
 
 ## Changelog
+### 0.8.6 (2025-12-26)
+
+- Dependencies have been updated #134
+
 ### 0.8.5 (2025-09-09)
 
 - Dependencies have been updated #124

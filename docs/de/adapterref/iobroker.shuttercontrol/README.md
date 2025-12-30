@@ -813,6 +813,12 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 2.0.11 (2025-12-21)
+* (simatec) Update dependabot
+
+### 2.0.10 (2025-12-21)
+* (simatec) Fix JSON Tab
+
 ### 2.0.9 (2025-11-29)
 * (un9483) Fix Frost Alarm
 

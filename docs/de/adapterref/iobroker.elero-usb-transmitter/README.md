@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.elero-usb-transmitter/README.md
 title: ioBroker.elero-usb-transmitter
-hash: TMXUiZdhXhEbVGe/VhbTs/SHmHhG1hvkmaFZ/F0CMVE=
+hash: B4BFyXjQg2PIiZv5FCRU1GoOannx8Mw96nu2B4cAgdU=
 ---
 # IoBroker.elero-usb-transmitter
 ![Logo](../../../en/adapterref/iobroker.elero-usb-transmitter/admin/elero-usb-transmitter.png)
@@ -11,46 +11,110 @@ hash: TMXUiZdhXhEbVGe/VhbTs/SHmHhG1hvkmaFZ/F0CMVE=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.elero-usb-transmitter.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.elero-usb-transmitter.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/elero-usb-transmitter-installed.svg)
-![Anzahl Installationen (stabil)](http://iobroker.live/badges/elero-usb-transmitter-stable.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/elero-usb-transmitter-stable.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/marc2016/ioBroker.elero-usb-transmitter/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.elero-usb-transmitter.png?downloads=true)
 
-## Elero-USB-Transmitter-Adapter für ioBroker
+## Elero-usb-Transmitter-Adapter für ioBroker
 Adapter zur Steuerung von Elero-Geräten mit dem Elero USB-Transmitter-Stick.
-Sie benötigen den USB-Sender-Stick und müssen die vorhandenen Rollladenmotoren an den Stick anschließen. Der Adapter erkennt automatisch die aktiven Kanäle und fügt die Geräte hinzu. In den Einstellungen können Sie die Namen für die Geräte und das Intervall für das Update festlegen
+Sie benötigen den USB-Transmitter-Stick und müssen die vorhandenen Rollladenmotoren daran anschließen. Der Adapter erkennt automatisch die aktiven Kanäle und fügt die Geräte hinzu. In den Einstellungen können Sie die Gerätenamen und das Aktualisierungsintervall festlegen.
 
-## **IN ARBEIT**
-### 0.5.2
-- Fehlende Übersetzung für Titel und Beschreibung hinzugefügt
+## Konfiguration
+1. **USB-Stick-Gerätepfad**: Pfad zu Ihrem USB-Senderstick (z. B. `/dev/ttyUSB0` oder `COM3`).
+2. **Aktualisierungsintervall**: Zeit in Minuten, um den Gerätestatus zu aktualisieren.
+3. **Gerätekonfigurationen**: Sie können in den Adaptereinstellungen Kanalnummern benutzerdefinierten Namen zuordnen.
 
-### 0.5.1
-- Übersetzung hinzugefügt
+## Verwendung
+Der Adapter erstellt für jeden aktiven Kanal des Sticks ein Gerät. Jedes Gerät enthält die folgenden Zustände:
 
-### 0.5.0
-- Übersetzungen hinzugefügt
-– Statusänderungen mit ack=true im onStateChanged-Handler ignorieren
-- Nachrichtenhandler entfernt
-- Node-Scheduler-Paket entfernt
+| Bundesland | Rolle | Beschreibung |
+| :--- | :--- | :--- |
+| `channel` | text | Die Kanalnummer des Geräts. |
+| `open` | Schalter | Hauptsteuerung. Auf `true` stellen zum Öffnen (oben), auf `false` zum Schließen (unten). |
+| `controlCommand` | Status | Bestimmte Befehle direkt senden. |
+| `controlCommand` | Status | Bestimmte Befehle direkt senden. |
 
-### 0.4.0
-- Kanal für Verbindungsinformationen hinzugefügt.
+### Steuerbefehle
+Sie können die folgenden Werte in den Zustand `controlCommand` schreiben:
 
-### 0.3.0
-- Verwenden Sie zur Steuerung von Geräten nur den offenen Zustand.
+* `16`: STOP
+* `32`: UP
+* `36`: UNTEN
+* `64`: STEP_UP
+* `68`: STEP_DOWN
 
-### 0.1.0
-- Übertragungszeit entfernt und Code bereinigt.
+## Beispiele
+### Javascript / Blockly
+Zum Öffnen eines Rollladens (Kanal 1):
 
-### 0,0,3"
-- Protokollmeldungen hinzugefügt.
+```javascript
+setState('elero-usb-transmitter.0.channel_1.open', true); // Moves UP
+```
 
-### 0.0.2
-- Fehlerbehebung
+Um einen sich bewegenden Verschluss anzuhalten:
 
-### 0.0.1
-- Erstveröffentlichung
+```javascript
+setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP command
+```
 
 ## Changelog
+### 1.0.2 (2025-12-24)
+
+- Replaced deprecated createState/createDevice methods with setObjectNotExistsAsync
+
+### 1.0.1 (2025-12-24)
+
+- Dependencies updated
+
+### 1.0.0 (2025-12-23)
+
+- Refactor main.ts (split into smaller modules)
+- Cleanup unused code (src/lib/tools.ts)
+- Admin UI migrated to jsonConfig
+- Dependencies updated
+- ESLint migrated to v9
+- Tests validation improved
+- Bug fix: Async iteration in device refresh
+- TypeScript configuration updated
+
+### 0.5.2
+
+- Missing translation for title and description added
+
+### 0.5.1
+
+- Translation added
+
+### 0.5.0
+
+- Translations added
+- Ignore state changes with ack=true in onStateChanged handler
+- messages handler removed
+- node-scheduler package removed
+
+### 0.4.0
+
+- Added channel for connection info.
+
+### 0.3.0
+
+- Use only open state to controle devices.
+
+### 0.1.0
+
+- Transmission time removed and code clean up.
+
+### 0.0.3"
+
+- Log messages added.
+
+### 0.0.2
+
+- bug fixes
+
+### 0.0.1
+
+- initial release
 
 ## License
 

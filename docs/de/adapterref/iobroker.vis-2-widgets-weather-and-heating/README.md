@@ -2,73 +2,73 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-weather-and-heating/README.md
-title: ioBroker.vis-2-widgets-wetter-und-heizung
-hash: Gu+zeoDKQ3bLXGhjMaP9S/jnBFBqTXboaPR5uLV/coc=
+title: ioBroker.vis-2-Widgets-Wetter-und-Heizung
+hash: VNvf8OtgHobFrjXHLbSaSXTqF/urU+OljDccmioCQTI=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/vis-2-widgets-weather-and-heating-stable.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-weather-and-heating.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-2-widgets-weather-and-heating.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-weather-and-heating.png?downloads=true)
-![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.vis-2-widgets-weather-and-heating?style=flat-square)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.vis-2-widgets-weather-and-heating?style=flat-square)
 ![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.vis-2-widgets-weather-and-heating?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating?style=flat-square)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating?logo=github&style=flat-square)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating?logo=github&style=flat-square)
-![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating?logo=github&style=flat-square)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating?logo=github&style=flat-square)
 
 <img src="admin/vis-2-widgets-weather-and-heating.png" alt="Logo" width="200"/>
 
-# IoBroker.vis-2-widgets-Wetter-und-Heizung
-![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.vis-2-Widgets-Wetter-und-Heizung
+![GitHub Actions](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/workflows/Test%20and%20Release/badge.svg)
 
-**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
+**Wenn es Ihnen gefällt, erwägen Sie bitte eine Spende:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-Dieses Vis-2-Widget zeigt Wettervorhersagedaten von DasWetter.com oder weatherunderground.
-Sie benötigen den DasWetter-Adapter oder weatherunderground-Adapter auf Ihrem System.
-
 ## Wetter
+Dieses Vis-2-Widget zeigt Wettervorhersagedaten von DasWetter.com oder weatherunderground an.
+Sie benötigen den DasWetter-Adapter oder den weatherunderground-Adapter auf Ihrem System.
+
 ### Wetter
 ![widget_weather.png](../../../en/adapterref/iobroker.vis-2-widgets-weather-and-heating/doc/widget_weather.png)
 
-* OIDs werden automatisch basierend auf allgemeinen Einstellungen festgelegt
-* Beschriftungen der X-Achse können gemäß [Momentjs-Dokumentation](http://momentjs.com/docs/#/displaying/format/) konfiguriert werden.
+* OIDs werden automatisch anhand allgemeiner Einstellungen festgelegt.
+Die Beschriftung der x-Achse kann gemäß der [momentjs-Dokumentation](http://momentjs.com/docs/#/displaying/format/) konfiguriert werden.
 
 ### Wettertag
 ![widget_weather_day.png](../../../en/adapterref/iobroker.vis-2-widgets-weather-and-heating/doc/widget_weather_day.png)
 
-* OIDs werden automatisch basierend auf allgemeinen Einstellungen festgelegt
-* Symbolsätze sind veränderbar
+* OIDs werden automatisch anhand allgemeiner Einstellungen festgelegt.
+* Symbolsets sind veränderbar
 
-### Meteorwetter-Widget
-Weitere Informationen finden Sie unter [METEORED](https://www.daswetter.com/users/widget).
+### Meteored Wetter-Widget
+Weitere Informationen finden Sie in [Meteoriert](https://www.daswetter.com/users/widget).
 
-Sie müssen Ihr Widget auf METEORED erstellen und die ID dafür abrufen. Diese ID muss hier in den Widget-Einstellungen festgelegt werden.
-Vergessen Sie nicht, Ihre Domain in den METEORED-Einstellungen auf die Whitelist zu setzen. In meinem Fall musste ich `https://192.168.xxx.xxx:8082` auf die Whitelist setzen, damit das Widget funktioniert.
+Sie müssen Ihr Widget auf METEORED erstellen und die Widget-ID abrufen. Diese ID muss hier in den Widget-Einstellungen festgelegt werden.
+Vergessen Sie nicht, Ihre Domain in den METEORED-Einstellungen auf die Whitelist zu setzen. In meinem Fall musste ich `https://192.168.xxx.xxx:8082` auf die Whitelist setzen, damit das Widget funktionierte.
 
 ![vis-widget-METEORED.png](../../../en/adapterref/iobroker.vis-2-widgets-weather-and-heating/doc/vis-widget-Meteored.png)
 
-## Allgemeines Diagramm
+## Allgemeine Übersicht
 ![widget_general_chart.png](../../../en/adapterref/iobroker.vis-2-widgets-weather-and-heating/doc/widget_general_chart.png)
 
 ### Eingabedaten für allgemeines Diagramm
-* „OID-Datenreihe“ sollte auf einen Datenpunkt wie „sbfspot.0.xxxxxxxx.history.years“ verweisen.
-* Der Datenpunkt sollte Schlüssel-/Wertpaare enthalten wie
+* "OID data serie" sollte auf einen Datenpunkt wie `sbfspot.0.xxxxxxxx.history.years` verweisen.
+* Der Datenpunkt sollte Schlüssel-Wert-Paare enthalten, wie zum Beispiel
 
-[{"Jahr":"2008","Wert":7000},{"Jahr":"2009","Wert":2309000},{"Jahr":"2010","Wert":4445000},{"Jahr":"2011","Wert":7019000},{"Jahr":"2012","Wert":9371000},{"Jahr":"2013","Wert":11393000},{"Jahr":"2014","Wert":13666000},{"Jahr":"2015","Wert":16034000},{"Jahr":"2016","Wert":17826790}]
+[{"year":"2008","value":7000},{"year":"2009","value":2309000},{"year":"2010","value":4445000},{"year":"2011","value":7019000},{"year":"2012","value":9371000},{"year":"2013","value":11393000},{"year":"2014","value":13666000},{"year":"2015","value":16034000},{"year":"2016","value":17826790}]
 
-* Es ist möglich, Werteunterschiede automatisch zu berechnen und anzuzeigen. Aktivieren Sie dazu in den Einstellungen einfach „Differenzberechnung“.
+* Es ist möglich, Wertdifferenzen automatisch zu berechnen und anzuzeigen. Aktivieren Sie dazu einfach die Option „Differenzberechnung“ in den Einstellungen.
 
-* Es unterstützt die Adapter `sbfspot` und `ebus`: Wählen Sie einfach die Instanz aus und die grundlegenden Anpassungen werden automatisch vorgenommen
+* Es unterstützt die Adapter `sbfspot` und `ebus`: Wählen Sie einfach die Instanz aus, und die grundlegenden Anpassungen werden automatisch vorgenommen.
 
-## Heizung (Widgets für HeatingControl-Adapter)
-Basierend auf dem [Pittini's](https://github.com/Pittini/iobroker-heatingcontrol-vis)-Projekt für altes VIS sind jetzt ähnliche Widgets für VIS-2 verfügbar.
+## Heizung (Widgets für den HeatingControl-Adapter)
+Basierend auf dem Projekt [Pittinis](https://github.com/Pittini/iobroker-heatingcontrol-vis) für das alte VIS sind jetzt ähnliche Widgets für VIS-2 verfügbar.
 
-### Zimmerübersicht
-![vis-widget-Heizungsraumübersicht.png](../../../en/adapterref/iobroker.vis-2-widgets-weather-and-heating/doc/vis-widget-HeatingRoomsOverview.png)
+### Raumübersicht
+![vis-widget-HeatingRoomsOverview.png](../../../en/adapterref/iobroker.vis-2-widgets-weather-and-heating/doc/vis-widget-HeatingRoomsOverview.png)
 
 ### Heizzeitplan
 ![vis-widget-heatingtimeschedule.png](../../../en/adapterref/iobroker.vis-2-widgets-weather-and-heating/doc/vis-widget-heatingtimeschedule.png)
@@ -77,9 +77,9 @@ Basierend auf dem [Pittini's](https://github.com/Pittini/iobroker-heatingcontrol
 ![vis-widget-HeatingGeneralParams.png](../../../en/adapterref/iobroker.vis-2-widgets-weather-and-heating/doc/vis-widget-HeatingGeneralParams.png)
 
 ### Zimmer
-![vis-widget-Heizraum.png](../../../en/adapterref/iobroker.vis-2-widgets-weather-and-heating/doc/vis-widget-HeatingRoom.png)
+![vis-widget-HeatingRoom.png](../../../en/adapterref/iobroker.vis-2-widgets-weather-and-heating/doc/vis-widget-HeatingRoom.png)
 
-### Raumprofil-Parameter
+### Raumprofilparameter
 ![vis-widget-HeatingRoomProfileParams.png](../../../en/adapterref/iobroker.vis-2-widgets-weather-and-heating/doc/vis-widget-HeatingRoomProfileParams.png)
 
 ### Fensterstatusübersicht
@@ -87,9 +87,43 @@ Basierend auf dem [Pittini's](https://github.com/Pittini/iobroker-heatingcontrol
 
 <!--
 
-### **IN ARBEIT** -->
+### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 1.2.0 (2025-12-30)
+* (René) update to support DasWetter@4.x
+known issue: Icons are not updated yet.
+* (René, copilot) fixes based on Lint recommendation
+
+### 1.1.5 (2025-10-26)
+* (René) dependencies updated and bug fix based on adapter checker and linter
+
+### 1.1.3 (2025-09-06)
+* (René) dependencies updated and bug fix based on adapter checker
+
+### 1.1.2 (2025-08-17)
+* (René) SourceAnalytics widget: min / max calculation optimisation
+
+### 1.1.1 (2025-08-15)
+* (René) SourceAnalytics widget: bug fix min / max calculation
+
+### 1.1.0 (2025-08-13)
+* (René) new widget SourceAnalytics two weeks bar chart added 
+* (René) overworked with TypeScript and vite -> code review desired
+
+### 0.10.4 (2025-04-08)
+* (René) Meteored widget: reload once per hour as an option
+
+### 0.10.3 (2025-04-06)
+* (René) Heating Room widget: some translations
+* (René) Meteored widget: make reload of widget possible
+
+### 0.10.2 (2025-04-04)
+* (René) Heating Room widget: support of more then one thermostat. ATTENTIOM: Please check your configuration!
+
+### 0.10.1 (2025-03-30)
+* (René) Heating Room widget: smaller optimizations
+
 ### 0.10.0 (2025-03-02)
 * (René) widget from Meteored (DasWetter.com) added, no further adapter needed, but only display of data from Meteored possible
 * (René) changes requested by adapter checker

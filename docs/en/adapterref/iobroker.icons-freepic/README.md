@@ -25,12 +25,19 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.0.0 (2023-08-30)
 * (jogibear9988) initial release
 
 ## License
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 jogibear9988 <jochen.kuehner@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

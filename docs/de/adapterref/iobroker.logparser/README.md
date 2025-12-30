@@ -144,6 +144,11 @@ Wie zu sehen wird damit also "Quelle" (wäre hier normalerweise `javascript.0`) 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 2.4.0 (2025-06-09)
 - (arteck) Adapter requires admin 7 now.
 - (arteck) Today/yesterday problem has been fixed (check new settings)

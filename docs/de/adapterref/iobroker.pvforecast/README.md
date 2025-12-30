@@ -107,6 +107,8 @@ NodeJS >= 18.x and js-controller >= 5 is required
 
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2021-2025 Patrick-Walther
                         Matthias Kleine <info@haus-automatisierung.com>
 

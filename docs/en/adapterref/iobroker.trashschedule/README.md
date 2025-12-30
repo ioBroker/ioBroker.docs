@@ -66,6 +66,10 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.2.0 (2025-12-22)
+
+* (@klein0r) Responsive config layout
+
 ### 5.1.0 (2025-12-09)
 
 * (@klein0r) Added Wolfenbüttel to providers
@@ -83,14 +87,6 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 
 * (@klein0r) Improved logging of ical source
 * (@klein0r) Updated dependencies
-
-### 4.0.0 (2025-01-05)
-
-NodeJS >= 20.x and js-controller >= 6 is required
-
-* (@klein0r) Fixed deletion of api cache files
-* (@klein0r) Added additional JSON state for each type
-* (@klein0r) Improved logging
 
 ## License
 

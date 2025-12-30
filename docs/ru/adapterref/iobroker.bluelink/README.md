@@ -3,36 +3,39 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: D+N+qLPKppmOp3lE3sL0lIjj/sUaUTSKSVSq6yBgEzQ=
+hash: AQ/3a7xDK2/rrtNmPB2gNDgGO4EowKXQ5mSoKfV2lKQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.bluelink.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.bluelink.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bluelink.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/bluelink-installed.svg)
-![Количество установок (стабильное)](https://iobroker.live/badges/bluelink-stable.svg)
+![Количество установок (последние)](https://iobroker.live/badges/bluelink-installed.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/bluelink-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
-![Тестирование и выпуск](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестирование и выпуск](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![[Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Адаптер bluelink для ioBroker
-Адаптер для управления автомобилем Hyundai или Kia (до 2023 года)
+## Адаптер Bluelink для ioBroker
+Адаптер для управления автомобилями Hyundai или Kia (до 2023 года выпуска).
 
 [Обсуждение](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 
 [Информация для входа](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
 
-[Генерация токенов](https://github.com/Newan/ioBroker.bluelink/tree/master/py) или [обходной путь с токеном]](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo/2249?_=1761189451343)
+[Token generieren](https://github.com/Newan/ioBroker.bluelink/tree/master/py) oder [workaround with Token](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo/2249?_=1761189451343)
 
 [Вики](https://github.com/Newan/ioBroker.bluelink/wiki)
 
 ------------------------------------------------------------------------------------
 
-## Пожертвование
-[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+## Пожертвование [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 3.1.25 (2025-12-28)
+* (arteck) Dependencies have been updated
+* (arteck) adds documentation on the token generation process for HYUNDAI and KIA
+
 ### 3.1.24 (2025-11-07)
 * (arteck) fix vehicles > 2 in account
 

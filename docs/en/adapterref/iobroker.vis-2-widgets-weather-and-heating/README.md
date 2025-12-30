@@ -27,10 +27,10 @@
                                                                           
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC) 
 
+## weather
+
 This vis-2-widget shows weather forecast data from DasWetter.com or weatherunderground.
 You need DasWetter-Adapter or weatherunderground-Adapter running on your system.
-
-## weather
 
 ### weather
 ![widget_weather.png](./doc/widget_weather.png)
@@ -102,6 +102,11 @@ Based on [Pittini's](https://github.com/Pittini/iobroker-heatingcontrol-vis) pro
 
 
 ## Changelog
+### 1.2.0 (2025-12-30)
+* (René) update to support DasWetter@4.x
+known issue: Icons are not updated yet.
+* (René, copilot) fixes based on Lint recommendation
+
 ### 1.1.5 (2025-10-26)
 * (René) dependencies updated and bug fix based on adapter checker and linter
 

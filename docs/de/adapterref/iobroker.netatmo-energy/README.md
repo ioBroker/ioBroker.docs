@@ -163,6 +163,14 @@ Widget für VIS, um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "S
 
 [Older changes](CHANGELOG_OLD.md)
 <!-- ### **WORK IN PROGRESS** -->
+### 3.0.2 (2025-12-26)
+
+* (ioKlausi) Update dependencies
+
+### 3.0.1 (2025-12-23)
+
+* (ioKlausi) Update dependencies
+
 ### 3.0.0 (2025-11-09)
 
 * (ioKlausi) Added additional tests

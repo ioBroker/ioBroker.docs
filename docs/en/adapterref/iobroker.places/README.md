@@ -115,6 +115,10 @@ The implementation is partly based on dschaedls [ioBroker.geofency](https://gith
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.3.0 (2025-05-13)
 * (TicoM1) Defaultvalue for state `personsAtHome` has been corrected.
 * (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >=7.4.10 now.
@@ -194,7 +198,8 @@ The implementation is partly based on dschaedls [ioBroker.geofency](https://gith
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2025 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2022 BasGo <basgo@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

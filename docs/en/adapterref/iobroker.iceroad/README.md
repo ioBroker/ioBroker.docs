@@ -39,8 +39,10 @@ If the adapter displays the status "Ice" or "Maybe ice", it is possible to be no
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
--   (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
--   (mcm1957) Dependencies have been updated
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Adapter requires node.js 18 now
+- (mcm1957) Dependencies have been updated
 
 ### 1.2.1 (2023-05-26)
 
@@ -94,6 +96,8 @@ If the adapter displays the status "Ice" or "Maybe ice", it is possible to be no
 
 The MIT License (MIT)
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Patrick Walther walther-patrick@gmx.net
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

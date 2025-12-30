@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.viessmannapi/README.md
 title: ioBroker.viessmannapi
-hash: zptcuQ7sMuUqvHx/NtvvZP4E76sqijSaN96j8puIyCo=
+hash: mWZ+ervvhLKkYw+RBH1wKXf7xwtFLMXZWxjxD0BqHvM=
 ---
 ![Logo](../../../en/adapterref/iobroker.viessmannapi/admin/viessmannapi.png)
 
@@ -20,9 +20,7 @@ hash: zptcuQ7sMuUqvHx/NtvvZP4E76sqijSaN96j8puIyCo=
 ## Viessmannapi-Adapter für ioBroker
 Adapter für Viessmannapi
 
-**Man benötigt eine ClientID von der Viessmann API**
-
-https://app.developer.viessmann.com besuchen und eine Client ID mit diesen Optionen erstellen:
+**Man benötigt eine ClientID von der Viessmann API** https://app.developer.viessmann-climatesolutions.com/ besuchen und eine Client ID mit diesen Optionen erstellen:
 
 Name: iobroker
 

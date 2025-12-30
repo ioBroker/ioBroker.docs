@@ -37,6 +37,10 @@ Bell in icon designed by Freepik from www.flaticon.com
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 4.0.1 (2025-06-24)
 * (mcm1957) Invalid dependency has been removed.
 * (mcm1957) Dependencies have been updated.
@@ -62,7 +66,8 @@ Bell in icon designed by Freepik from www.flaticon.com
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2025, iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019-2024 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

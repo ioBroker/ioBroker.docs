@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 title: inventwo Widgets für ioBroker.vis 2.0
-hash: PkkfNVgSEL18JPWccxP07zvlffld1qX4NeKaIYBVV20=
+hash: L5GOlF3CpIQT0UXgekBSTl3L9l/dnzd46X7nOh3DR00=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-inventwo/admin/vis-2-widgets-inventwo.png)
 
@@ -24,6 +24,8 @@ Diverse Widgets zum Umschalten, Navigieren und mehr.
 
 #### Verschiedene Inhaltstypen
 ![Vorschau Farbauswahl](../../../en/adapterref/iobroker.vis-2-widgets-inventwo/img/preview_content_types.png)
+
+![Vorschau AnalogClock](../../../en/adapterref/iobroker.vis-2-widgets-inventwo/img/preview_content_type_clock_analog.png)
 
 Farbauswahl
 
@@ -53,6 +55,17 @@ Alle Widgets bieten umfangreiche Designoptionen, um das Erscheinungsbild an Ihre
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.1 (2025-12-24)
+- Added missing translations for the previous version
+
+### 0.5.0 (2025-12-24)
+- Added radial slider widget (#17)
+- Added analog clock content type to universal widget (#100)
+- Changed german translation for "custom"
+
+### 0.4.2 (2025-12-22)
+- Vite downgrade
+
 ### 0.4.1 (2025-12-18)
 - Added image type to column for table widget (#97)
 - Added custom datetime format support for table widget (#97)

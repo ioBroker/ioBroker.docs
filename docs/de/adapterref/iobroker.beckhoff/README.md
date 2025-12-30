@@ -91,6 +91,8 @@ Die \*.tpy Datei aus dem SPS Projekt muss hochgeladen werden. -> Immer wenn am S
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
 * (copilot) Setup and update GitHub Copilot instructions with ioBroker-specific development patterns and Beckhoff adapter context
 
 ### 1.6.0 (2024-04-02)

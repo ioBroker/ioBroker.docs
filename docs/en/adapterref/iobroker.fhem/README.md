@@ -52,6 +52,11 @@ Actually only following attributes are supported:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (@copilot) Adapter requires js-controller 6.0.11 now
+- (@copilot) Adapter requires admin 7.6.17 now
+
 ### 3.0.0 (2024-07-22)
 NodeJS >= 18.x and js-controller >= 5 is required
 
@@ -173,7 +178,7 @@ NodeJS >= 18.x and js-controller >= 5 is required
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

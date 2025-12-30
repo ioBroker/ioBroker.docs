@@ -55,6 +55,11 @@ The following configuration is required:
 
 ## Changelog
 
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.0.0
 * (Robin Rainton) Stable release.
 
@@ -71,6 +76,8 @@ The following configuration is required:
 ## License
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020 Robin Rainton <robin@rainton.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

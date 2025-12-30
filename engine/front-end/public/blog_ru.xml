@@ -3,12 +3,22 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Новости, объявления и идеи о ioBroker]]></description>
         <link>https://www.iobroker.net/#ru/blog</link>
-        <lastBuildDate>Sun, 21 Dec 2025 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 29 Dec 2025 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Итоги 2025 года]]></title>
+            <description><![CDATA[
+                <p>Уважаемое сообщество ioBroker!</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#ru/blog/2025_12_29</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2025_12_29</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Mon, 29 Dec 2025 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Ежемесячный обзор ioBroker – декабрь 2025 г.]]></title>
             <description><![CDATA[
-                <p># Ежемесячный обзор ioBroker – декабрь 2025 г. 🎄\nГод подходит к концу, но экосистема ioBroker последние несколько месяцев активно развивалась, интегрировалась и оптимизировалась.</p>
+                <p>Год подходит к концу, но экосистема ioBroker последние несколько месяцев активно развивалась, интегрировалась и оптимизировалась.</p>
             ]]></description>
             <link>https://www.iobroker.net/#ru/blog/2025_12_21</link>
             <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2025_12_21</guid>

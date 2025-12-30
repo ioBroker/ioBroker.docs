@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: D+N+qLPKppmOp3lE3sL0lIjj/sUaUTSKSVSq6yBgEzQ=
+hash: AQ/3a7xDK2/rrtNmPB2gNDgGO4EowKXQ5mSoKfV2lKQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -29,10 +29,13 @@ Adapter zur Steuerung von Hyundai- oder Kia-Fahrzeugen (bis 2023)
 
 ------------------------------------------------------------------------------------
 
-## Spende
-[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+## Spende [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 3.1.25 (2025-12-28)
+* (arteck) Dependencies have been updated
+* (arteck) adds documentation on the token generation process for HYUNDAI and KIA
+
 ### 3.1.24 (2025-11-07)
 * (arteck) fix vehicles > 2 in account
 

@@ -120,6 +120,8 @@ Event with Person: frigate.0.events.after.label = person
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
 
 - (mcm1957) Adapter requires admin 6.17.14 as minimum now.
 
@@ -169,6 +171,8 @@ Event with Person: frigate.0.events.after.label = person
 
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024-2025 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

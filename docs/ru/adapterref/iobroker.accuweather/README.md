@@ -3,55 +3,57 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.accuweather/README.md
 title: ioBroker.accuweather
-hash: TadMzyLupLTq8YRjYAiMbsBteDVD8BaYJr2j8x5OzSo=
+hash: IRKdck+uQEUJxc3rjsNIY2poh1rRsFHut6gmWBhd/Ow=
 ---
 ![Логотип](../../../en/adapterref/iobroker.accuweather/admin/accuweather.png)
 
 ![Количество установок](http://iobroker.live/badges/accuweather-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.accuweather.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.accuweather.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.accuweather.svg)
 ![НПМ](https://nodei.co/npm/iobroker.accuweather.png?downloads=true)
 
 # IoBroker.accuweather
-## Адаптер accuweather для ioBroker
+## Адаптер AccuWeather для ioBroker
 Прогноз погоды с использованием API AccuWeather.
 
-Адаптер получает
+Адаптер принимает
 
-- Текущие условия (обновляется каждый час), (24 запроса)
-- Ежедневный прогноз на 5 дней (обновление ежедневно примерно в 7:00 и 20:00), (2 запроса)
-- и 12-часовой прогноз (обновляется каждые шесть часов в 12:00, 6:00, 12:00 и 18:00). (4 запроса)
+- Текущая ситуация (обновляется каждый час), (24 запроса)
+- Ежедневный прогноз погоды на 5 дней (обновление ежедневно примерно в 7:00 и 20:00), (2 запроса)
+- и прогноз погоды на 12 часов (обновляется каждые шесть часов в 00:00, 06:00, 12:00 и 18:00). (4 запроса)
 
-По умолчанию адаптер обновляет только устаревшие данные при перезапуске.
-Разрешено 50 запросов в день, каждый перезапуск потребует 3 запросов для обновления всех данных.
+По умолчанию адаптер обновляет устаревшие данные только при перезапуске.
+Допускается 50 запросов в день, для обновления всех данных при каждом перезапуске потребуется 3 запроса.
 
 ## Начиная
 ### Получить ключ API
-Чтобы получить API Key, зарегистрируйтесь на https://developer.accuweather.com/ и создайте приложение в меню `My Apps`.
-После создания приложения у вас будет сгенерирован API-ключ.
-Для бесплатного использования можно сделать 50 запросов к API в день.
-Было отмечено, что для работы API предпочтительны следующие настройки (пожалуйста, выберите свою страну!): ![настройки](../../../en/adapterref/iobroker.accuweather/admin/image.png)
+Чтобы получить ключ API, зарегистрируйтесь на https://developer.accuweather.com/ и создайте приложение в меню `My Apps`.
+После создания приложения вам будет сгенерирован ключ API.
+Для бесплатного использования можно отправлять 50 запросов к API в день.
+Отмечено, что для работы API предпочтительны следующие настройки (пожалуйста, выберите свою страну!): ![настройки](../../../en/adapterref/iobroker.accuweather/admin/image.png)
 
 ### Получить ключ местоположения
-Чтобы получить ключ местоположения, перейдите на https://www.accuweather.com/ и введите название вашего города или попробуйте ввести свои координаты (широту, долготу), как они у вас есть, например, в настройках ioBroker.
-Ваш ключ местоположения будет представлять собой число в конце URL-адреса прогноза.
+Чтобы получить ключ местоположения, перейдите на сайт https://www.accuweather.com/ и введите название своего города или попробуйте ввести свои координаты (широта, долгота) так, как они у вас есть, например, в настройках ioBroker.
+Ваш ключ местоположения — это число в конце URL-адреса прогноза.
 
-### Использование в визуализации Lovelace (начиная с версии 1.1.0)
-Канал сводки содержит текущий и ежедневный прогноз с ролями/типами состояний, поддерживаемыми типом-детектором.
-Новая функция может использоваться для отображения прогноза погоды в пользовательском интерфейсе Lovelace.
-Для лучшего просмотра создана пользовательская карта Lovelace - см. https://github.com/algar42/IoB.lovelace.accuweather-card
+### Используется в визуализации Lovelace (начиная с версии 1.1.0)
+В сводном канале отображается текущий и посуточный прогноз погоды с указанием ролей/типов состояний, поддерживаемых детектором типов.
+Новая функция позволяет отображать прогноз погоды в пользовательском интерфейсе Lovelace.
+Для лучшего отображения создается пользовательская карточка Lovelace — см. https://github.com/algar42/IoB.lovelace.accuweather-card
+
+<!-- Заполнитель для следующей версии (в начале строки):
+
+### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
 
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
 ### **WORK IN PROGRESS**
-* (ticaki) Missing Http error handling added
-* (ticaki) For error codes from the 400 series, do not attempt any unscheduled reconnections. 
+- (copilot) Adapter requires admin 7.6.17 now
 
-### 2.1.0-alpha.0 (2025-01-19)
+### 2.1.1 (2025-09-02)
+* (mcm1957) Dependencies have been updated
+
+### 2.1.0 (2025-01-22)
 * (ticaki) Change: min. js-controller to 6.0.11
 * (ticaki) Change: Outdated data is updated at startup.
 * (ticaki) New: Photo link added in current weather
@@ -59,6 +61,7 @@ hash: TadMzyLupLTq8YRjYAiMbsBteDVD8BaYJr2j8x5OzSo=
 * (ticaki) New: In the event of a data retrieval error, an attempt is made again after 10 minute
 * (ticaki) Remove admin option (restart blocking)
 * (ticaki) Rewritten in Typescript
+* (ticaki) For error codes from the 400 series, do not attempt any unscheduled reconnections.
 
 ### 2.0.1 (2025-01-18)
 * (ticaki) BREAKING: Requires Nodejs 20 or higher

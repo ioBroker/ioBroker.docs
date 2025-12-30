@@ -23,6 +23,22 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.18.56 (2025-12-30)
+* (BenAhrdt) remoove namespace twice remooved
+* (BenAhrdt) serialize getConfigStates
+
+### 1.18.55 (2025-12-29)
+* (BenAhrdt) bugfix folderinclusion
+
+### 1.18.54 (2025-12-29)
+* (BenAhrdt) add '.' to folders in config selection
+
+### 1.18.53 (2025-12-29)
+* (BenAhrdt) add possibility to add folders to
+
+### 1.18.52 (2025-12-29)
+* (BenAhrdt) add possibility to set Devicesuffix in LoraWAN States
+
 ### 1.18.51 (2025-12-20)
 * (BenAhrdt) add "Temperatur" to autmatic assign
 

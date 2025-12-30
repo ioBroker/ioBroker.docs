@@ -94,6 +94,11 @@ onFile('doorbird.0', 'TakeSnapshot_1.jpg', true, (id, fileName, size, fileData, 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 3.0.0 (2025-03-03)
 
 NodeJS >= 20.x and js-controller >= 6 is required

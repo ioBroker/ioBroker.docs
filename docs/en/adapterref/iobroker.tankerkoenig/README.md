@@ -123,6 +123,9 @@ The value of the datapoint `combined` deliveres a css class. These classes are `
 <!--
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@klein0r) Adapter requires node.js 20 and js-controller >= 6 now
+
 ### 3.4.0 (2024-04-28)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
@@ -148,7 +151,7 @@ The value of the datapoint `combined` deliveres a css class. These classes are `
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2016-2023 xXBJXx <issi.dev.iobroker@gmail.com> pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

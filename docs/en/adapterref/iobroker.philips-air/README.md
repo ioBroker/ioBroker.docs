@@ -29,6 +29,10 @@ It can happen, that some devices have not all variables, and they will stay unfi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.2.0 (2025-02-10)
 * (mcm1957) Adapter requires node.js >= 20, js-controller >= 6 and admin >= 6 now.
 * (mcm1957) Adapter migrated to eslint 9 / @iobroker/eslint-config
@@ -66,7 +70,8 @@ It can happen, that some devices have not all variables, and they will stay unfi
 ## License
 MIT License
 
-Copyright (c) 2023-2025 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

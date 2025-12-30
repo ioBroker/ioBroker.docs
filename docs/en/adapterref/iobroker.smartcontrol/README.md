@@ -79,6 +79,11 @@ We welcome contributions and collaboration from the community to continue enhanc
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 2.0.1 (2023-09-07)
 * (oelison) warn log for not existing objects removed (fixed)
 * (inkade) updated readme
@@ -358,6 +363,7 @@ Change Log for 0.2.0:
 ## License
 MIT License
 
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Christian Oelschlegel <iobrokermatrix@sciphy.de>
 Copyright (c) 2020 Mic-M <iob.micm@gmail.com>
 

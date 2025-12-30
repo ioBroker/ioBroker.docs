@@ -21,6 +21,8 @@ Various widgets for switching, navigating and more.
 
 ![Preview Colorpicker](img/preview_content_types.png)
 
+![Preview AnalogClock](img/preview_content_type_clock_analog.png)
+
 Color picker
 
 ![Preview Colorpicker](img/preview_colorpicker.png)
@@ -54,6 +56,17 @@ All widgets come with extensive design options to customize the look and feel to
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.1 (2025-12-24)
+- Added missing translations for the previous version
+
+### 0.5.0 (2025-12-24)
+- Added radial slider widget (#17)
+- Added analog clock content type to universal widget (#100)
+- Changed german translation for "custom"
+
+### 0.4.2 (2025-12-22)
+- Vite downgrade
+
 ### 0.4.1 (2025-12-18)
 - Added image type to column for table widget (#97)
 - Added custom datetime format support for table widget (#97)

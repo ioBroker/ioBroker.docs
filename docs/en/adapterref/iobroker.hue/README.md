@@ -74,6 +74,11 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### __WORK IN PROGRESS__
 
 ### 3.16.2 (2025-04-12)
@@ -535,5 +540,7 @@ __ATTENTION: Remove all objects once, ids have changed__
 
 Apache 2.0
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017-2025 Bluefox <dogafox@gmail.com>  
 Copyright (c) 2014-2016 hobbyquaker

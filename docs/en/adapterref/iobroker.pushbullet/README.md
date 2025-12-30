@@ -42,6 +42,11 @@ sendTo("pushbullet", {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 2.1.0 (2024-04-25)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
@@ -90,7 +95,7 @@ sendTo("pushbullet", {
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2015-2023 Jens1809
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

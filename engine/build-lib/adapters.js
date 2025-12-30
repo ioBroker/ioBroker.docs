@@ -279,10 +279,12 @@ function getReadme(lang, dirName, repo, adapter) {
                         if (links.length) {
                             const readmeParsed = utils.extractHeader(readmeDoc);
                             if (!results[0].body) {
+                                resolve(results);
                                 return;
                             }
                             if (!readmeParsed) {
-                                debugger;
+                                resolve(results);
+                                return;
                             }
 
                             // insert the changelog, logo, licenses, badges info from readme into the first file

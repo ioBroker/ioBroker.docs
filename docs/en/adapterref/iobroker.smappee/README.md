@@ -74,6 +74,11 @@ Smappee allows you to remotly control smart plugs / smart switches. Either smapp
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 0.3.0 (2024-04-26)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
@@ -143,7 +148,7 @@ Smappee allows you to remotly control smart plugs / smart switches. Either smapp
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2023 forelleblau marceladam@gmx.ch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

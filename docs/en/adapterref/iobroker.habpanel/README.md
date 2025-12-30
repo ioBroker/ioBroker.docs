@@ -49,9 +49,12 @@ This adapter cannot be installed directly from GitHub. Only from npm.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
--   (mcm1957) Adapter requires nodeJS >=18 and js-controller >= 5 now.
--   (mcm1957) Dependencies have been updated.
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Adapter requires nodeJS >=18 now.
+- (mcm1957) Dependencies have been updated.
 
 ### 0.5.0 (2022-02-16)
 * (jogibear9988) added on support for new websockets

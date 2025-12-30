@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.viessmannapi/README.md
 title: ioBroker.viessmannapi
-hash: zptcuQ7sMuUqvHx/NtvvZP4E76sqijSaN96j8puIyCo=
+hash: mWZ+ervvhLKkYw+RBH1wKXf7xwtFLMXZWxjxD0BqHvM=
 ---
 ![标识](../../../en/adapterref/iobroker.viessmannapi/admin/viessmannapi.png)
 
@@ -20,9 +20,7 @@ hash: zptcuQ7sMuUqvHx/NtvvZP4E76sqijSaN96j8puIyCo=
 ## IoBroker 的 viessmannapi 适配器
 Viessmannapi 适配器
 
-**使用 Viessmann API 的 ClientID**
-
-https://app.developer.viessmann.com 并提供以下选项的客户端 ID：
+**Man benötigt eine ClientID von der Viessmann API** https://app.developer.viessmann-climatesolutions.com/ besuchen 和 eine Client ID mitdiesen Optionen erstellen:
 
 名称：iobroker
 
@@ -32,7 +30,7 @@ URI：http://localhost:4200/
 
 Einstellungen kopieren 中的客户端 ID
 
-**Außentemperatur findet sich z.B.层级： viessmannapi.0.XXXXX.0.features.heating.sensors.Temperature.outside.properties.value.value**
+**Außentemperatur findet sich z.B.层次： viessmannapi.0.XXXXX.0.features.heating.sensors.Temperature.outside.properties.value.value**
 
 **远程 Befehle sind möglich unter viessmannapi.0.XXXXX.0.features.heating.dhw.Temperature.main.commands.setTargetTemperature.setValue**
 
