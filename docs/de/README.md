@@ -172,10 +172,6 @@ Der Lovelace Editor (WYSIWYG Prinzip - What you see is what you get Prinzip) erm
 
 ![](media/iobroker-visualisation-lovelace.png)  
 
-
-
-
-
 ## Wer steckt hinter ioBroker?
 ioBroker ist ein Open-Source-Projekt, welches von der ioBroker Community entwickelt wird und von [Bluefox](https://github.com/GermanBluefox) als Projektbesitzer administriert wird.
 
@@ -201,18 +197,29 @@ Das ioBroker Core Entwicklerteam setzt sich zusammen aus:
 
 Eine Liste der [ioBroker Developer](https://forum.iobroker.net/groups/developer) findet ihr im ioBroker Forum.
 
-### Lizenzen und Kosten
-Sehr viele ioBroker Projekte stehen mitsamt dem Quellcode auf [GitHub](https://github.com/ioBroker) zur Verfügung.
-In den allermeisten Fällen steht der Quellcode unter der MIT-Lizenz.
-Manchmal werden allerdings auch Lizenzen wie GPL, CC BY-NC oder andere genutzt, welche zu berücksichtigen sind, jedoch für End-Nutzer an sich keinen großen Unterschied darstellen!
-Der Entwickler eines Adapters legt für den jeweiligen Adapter die Lizenz selbst fest.
+## ioBroker.net und ioBroker.pro - Plattformen im Vergleich
 
-In sehr seltenen Fällen (<5 Adapter aktuell) wird eine (teils kostenpflichtige) Lizenz benötigt, um einen Adapter zu nutzen.
-Für den "VIS" Adapter stellt beispielsweise die ioBroker GmbH eine kostenfreie Lizenz für die private Nutzung zur Verfügung - für eine kommerzielle Nutzung ist allerdings eine kostenpflichtige Lizenz nötig.
-Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über diese Seite [iobrokerPreise](https://iobroker.net/www/pricing).
-Die Kosten für eine kommerzielle Nutzung dieser Adapter ist dort ebenfalls aufgeführt.
+ioBroker stellt zwei eigenständige Plattformen (Server) bereit, die jeweils unterschiedliche Funktionen abdecken:
 
-### Wie finanziert sich ioBroker?
+### 1. ioBroker.net
+- **Verwaltung von Adapterlizenzen** *(z.B. vis-2, KNX, JägerDesign-Widgets)*
+- **Kostenfreier Fernzugriff** über den **Cloud-Adapter** mit eingeschränkter Funktionalität: *nur Anzeige von Visualisierungen im Browser, ohne Bearbeitungsoption, eingeschränkte Transferdatenmenge.*
+
+
+### 2. ioBroker.pro
+- **Nutzung von Smart-Assistenten** *(z.B. Amazon Alexa, Google Assistant)* über den **IoT-Adapter**
+- **Erweiterter Fernzugriff** über den **Cloud-Adapter** mit voller Funktionalität:  *Anzeige im Browser und in der App und Bearbeitung von Visualisierungen incl. Admin und vis-Editor.*
+- Möglichkeit, Daten über **HTTPS mittels GET- oder POST-Request** an die eigene ioBroker-Instanz zu senden.
+
+#### Technische Hinweise
+
+- Für den **Fernzugriff** (z.B. Anzeige und Bearbeitung von vis oder Zugriff auf den Admin) ist der **Cloud-Adapter** erforderlich.  
+  Dieser wird sowohl auf ioBroker.net als auch auf ioBroker.pro verwendet, mit unterschiedlichem Funktionsumfang abhängig von Plattform und Lizenz.
+
+- Für die **Sprachsteuerung** (z.B. Amazon Alexa oder Google Assistant) wird der **IoT-Adapter** benötigt. Nur mit aktivem iot-Adapter können **ioBroker.assistant Skill** oder **Custom-Skill** genutzt werden.
+
+
+## Wie finanziert sich ioBroker?
 Alle zentralen Komponenten und nahezu alle weiteren Adapter sind kostenfrei erhältlich und der Quellcode der allermeisten Adapter steht auf GitHub offen zur Verfügung.
 
 Da ein Open-Source-Projekt keine Einnahmen erzielen kann, um z.B. Server zu kaufen, bedarf es für diese Dinge eine offizielle Gesellschaftsform, die ioBroker GmbH.
@@ -222,29 +229,72 @@ Die ioBroker GmbH stellt für das Community-Projekt die Infrastruktur (z.B. den 
 
 Die ioBroker Free Cloud ist ebenfalls ein kostenfreier Dienst, der der Community durch die ioBroker GmbH zur Verfügung gestellt wird. Die Pro-Cloud und der iot-Service sind kommerzielle Angebote der ioBroker GmbH, wobei die Kosten gerade einmal die Betriebskosten decken.
 
+### Lizenzen und Kosten
+Sehr viele ioBroker Projekte stehen mitsamt dem Quellcode auf [GitHub](https://github.com/ioBroker) zur Verfügung.
+In den allermeisten Fällen steht der Quellcode unter der MIT-Lizenz.
+Manchmal werden allerdings auch Lizenzen wie GPL, CC BY-NC oder andere genutzt, welche zu berücksichtigen sind, jedoch für End-Nutzer an sich keinen großen Unterschied darstellen!
+Der Entwickler eines Adapters legt für den jeweiligen Adapter die Lizenz selbst fest.
+
+In sehr seltenen Fällen (3 Adapter aktuell) wird eine Lizenz benötigt, um einen Adapter zu nutzen.
+Für den "VIS" Adapter stellt beispielsweise die ioBroker GmbH eine kostenfreie Lizenz für die private Nutzung zur Verfügung - für eine kommerzielle Nutzung ist allerdings eine kostenpflichtige Lizenz nötig.
+Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über diese Seite [iobrokerPreise](https://iobroker.net/www/pricing).
+Die Kosten für eine kommerzielle Nutzung dieser Adapter ist dort ebenfalls aufgeführt.
+
+### **Unterstütze unser Projekt!**
+
+Die Weiterentwicklung und Pflege von ioBroker wird zum Großteil durch freiwillige Arbeit getragen. Wenn dir ioBroker gefällt und du unsere Arbeit unterstützen möchtest, freuen wir uns über jede Hilfe:
+- Mit dem Kauf einer Lizenz unterstützt du direkt die Entwicklung und Infrastruktur.
+- Falls du keine Lizenz benötigst, freuen wir uns auch über eine freiwillige Spende: 
+[Jetzt spenden via PayPal](https://www.paypal.com/donate?campaign_id=MJBDJ9TGBQ7GN)
+
+Vielen Dank für deinen Beitrag!
+
+## Lizenzarten im ioBroker-System
+
+### **Adapterlizenzen**
+Adapterlizenzen sind erforderlich, um bestimmte Adapter im ioBroker-System zu nutzen.  
+Diese werden über [ioBroker.net](https://iobroker.net) verwaltet und gelten für lokal installierte Adapter, z.B.:
+- ***vis-2***
+- ***KNX***
+- ***JägerDesign Widgets***
+
+Die Lizenz ist dabei an die Hardware-ID (UUID) des jeweiligen Systems gebunden.
+
+Die Adapterlizenzen können [hier](https://iobroker.net/www/pricing#commercial) erworben werden.
+
+### **Zugangslizenzen**
+Zugangslizenzen ermöglichen die Nutzung von Cloud-Diensten und sind in in folgenden Varianten erhältlich:
+- ***Assistenten-Lizenz*** 
+- ***Fernzugriff-Lizenz***
+
+Die Zugangslizenzen können [hier](https://iobroker.pro/www/pricing#remote) erworben werden.
+
+## Cloud-Dienste und Zugangslizenzen
+
+Hier findest du einen Überblick über unsere beiden Zugangslizenzen, mit denen verschiedene ioBroker-Clouddienste genutzt werden können. Beide Lizenzen sind in einer kostenlosen Basisversion sowie einer erweiterten Pro-Version verfügbar.
+### Assistenten-Lizenz
+
+Diese Lizenz aktiviert die Nutzung von:
+- **Sprachsteuerung** *(Amazon Alexa, Google Home, Yandex Alisa)*
+    - Für Alexa stehen zwei Skills zur Verfügung: [**ioBroker.assistant Skill**](https://www.amazon.de/ioBroker-ioBroker-assistant/dp/B0FJHBXDZ4) für Standardanfragen und [**Custom Skill**](https://www.amazon.de/ioBroker-Custom/dp/B01MQL6Z1N/ref=sr_1_1?crid=3KLEQ1GP46V62&dib=eyJ2IjoiMSJ9.wqt8MYhRSXRT2m9EHzleUA.VuDgmVobhAe8tZTyk9j0Fbxjj5y2eV0ZanVgMWC3HA4&dib_tag=se&keywords=iobroker+custom+skill&qid=1767736259&s=digital-skills&sprefix=iobroker+custon+skill%2Caps%2C149&sr=1-1) für individuelle Abfragen und Sprachbefehle
+- **Dienste** *(Geoposition (z.B. standortabhängige Automationen), Tasker-Integration, URL-Services (HTTP GET/POST))*
+- **Matter** *(Anbindung von matterfähigen Geräten über die ioBroker-Matter-Bridge)*
+
+Die Assistenten-Lizenz ist in zwei Varianten verfügbar:
+
+##### Kostenlose Version:
+- Bis zu 50 Sprachbefehle oder Dienstaufrufe pro Tag
+- Matter: Integration von bis zu 5 ioBroker-Geräten über Bridge
+- Registrierung auf [ioBroker.pro](https://iobroker.pro) erforderlich
+- 7 Tage Testzeitraum mit vollem Funktionsumfang bei erstmaliger Registrierung
+
+##### Pro-Version:
+- 3000 Befehle oder Dienstaufrufe pro Tag
+- 35.000 Befehle oder Dienstaufrufe pro Monat
+- Matter: Unbegrenzte Anzahl ioBroker-Geräte integrierbar
+- Registrierung auf [ioBroker.pro](https://iobroker.pro) erforderlich
 
 
-## ioBroker Cloud Services – Kurzüberblick
-
-Über einen optionalen cloudbasierten Zugriff ist für Anwender und Systemintegratoren die Remote‑Verwaltung eines lokal installierten ioBroker‑Systems 24/7 möglich.
-
-**Legende:**  
-✅ = verfügbar, 🟡 = limitiert, ❌ = nicht verfügbar, `.net` = iobroker.net, `.pro`= iobroker.pro
-
----
-
-### Smart Assistenten (Sprachsteuerung mit Alexa, Google ect.)
-
-**1. Smart Home Skill (ioBroker.assistant)**  
-Geräte per Sprachbefehl steuern – z.B. „Alexa, Licht an“.
-
-**2. Custom Skill (Custom ioBroker)**  
-Eigene Befehle nutzen – z.B.„Alexa, frage ioBroker nach Temperatur“.
-
-- `.net:` ❌
-- `.pro` ohne Lizenz: 🟡 50 Befehle/Tag
-- Mit Assistent- oder Fernzugriff-Lizenz: ✅ 3000 Befehle/Tag oder 35000 Befehle/Monat
-  
 **Hinweis:**
 Ein „Befehl“ ist nicht nur ein Sprachkommando, auch Statusabfragen zählen dazu.  
 Öffnest du z.B. die Alexa-App mit 100 Geräten, sendet Amazon sofort 100+ sogenannte „StatusReport“-Befehle.
@@ -252,42 +302,24 @@ Auch im geöffneten Zustand fragt die App alle paar Sekunden den Status erneut a
 Dieses Verhalten kommt von Amazon (ab Alexa Smart Home API V3) und lässt sich nicht durch ioBroker beeinflussen.
 Dadurch kann das tägliche Limit selbst ohne Sprachkommandos schnell erreicht werden.
 
+### Fernzugriff-Lizenz
 
-### Fernzugriff (Remote Access) incl. Smart Assistenten Lizenz
+Die Fernzugriff-Lizenz ermöglicht den Zugriff auf Visualisierungen und Konfigurationen der ioBroker-Installation aus der Ferne. Auch diese Lizenz ist in einer kostenlosen Basisversion und als Pro-Version verfügbar.
 
-**1. VIS anzeigen (Dashboards)**  
-Zugriff auf deine Visualisierungen.
+##### Kostenlose Version:
+- Zugriff auf vis-2 (nur Anzeige, keine Bearbeitung)
+- Nur über Browser erreichbar (keine App-Unterstützung)
+- Registrierung auf [ioBroker.net](https://iobroker.net) erforderlich
 
-- `.net:` ✅
-- `.pro` ohne Lizenz oder Assistent: ❌
-- Mit Fernzugriff-Lizenz: ✅
 
-**2. VIS bearbeiten (Editor)**
-- Nur mit Fernzugriff-Lizenz (`.pro`): ✅
-
-**3. Admin-Fernzugriff**
-- Nur mit Fernzugriff-Lizenz (`.pro`): ✅
-
----
-
-### Dienste & Webhooks
-
-**IFTTT / HTTP POST / HTTP GET/PUT**  
-ioBroker mit externen Diensten verbinden (z. B. Automationen, Webhooks).
-
-- `.net`: ❌
-- `.pro` ohne Lizenz: 🟡 20 Befehle/Tag
-- Mit Assistent- oder Fernzugriff-Lizenz: ✅ unbegrenzt
-
----
-
-### Lizenzen im Vergleich
-
-- **Free Cloud (`.net`):** Nur VIS anzeigen
-- **ohne Lizenz `.pro` :** Skills + Dienste limitiert (50 / 20 Befehle pro Tag)
-- **Assistent-Lizenz (`.pro`).:** Skills & Dienste 3000 Befehle/Tag oder 35000 Befehle/Monat
-- **Fernzugriff-Lizenz (`.pro`):** Alles inklusive (VIS, VIS‑Editor, Admin, Skills, Dienste)
-
+##### Pro-Version inkl. Assistenten-Lizenz:
+- Vollständiger Fernzugriff auf ioBroker:
+    - Zugriff auf Admin, JavaScript, Lovelace, e-chart u.v.m.
+    - Bearbeitung von vis-2 im Editor möglich
+    - Zugriff über Browser und App
+- Inklusive Assistenten-Lizenz
+    - Enthält alle Funktionen der Sprachsteuerung und Dienste
+- Registrierung auf [ioBroker.pro](https://iobroker.pro) erforderlich
 
 
 ## Community
