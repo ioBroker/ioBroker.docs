@@ -64,7 +64,7 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
 ## License
 MIT License
 
-Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2023-2026 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -92,6 +92,7 @@ Three data providers are used for this adapter
 * Exaa (https://www.exaa.at/)
 * Entso-e (https://www.entsoe.eu/data/transparency-platform/)
 * Energy Charts (https://api.energy-charts.info/) licensed under the CC BY 4.0 license
+
 
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_large)

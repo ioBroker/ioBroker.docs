@@ -687,6 +687,10 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (simatec) License updated
+* (simatec) dependencies updated
+
 ### 3.3.13 (2025-12-14)
 * (simatec) Fix Error Log for CCU Backup
 
@@ -1963,7 +1967,7 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2025 simatec
+Copyright (c) 2018-2026 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

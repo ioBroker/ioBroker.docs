@@ -52,9 +52,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 0.14.5 (2026-01-01)
 
 - (HombachC) update axios
+- (HombachC) year 2026 changes
 - (HombachC) optimize dependabot config (#718)
 - (HombachC) update dependencies
 
@@ -81,12 +82,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) add tests for node 24 (#655)
 - (HombachC) bump dependencies
 
-### 0.14.0 (2025-05-04)
-
-- (HombachC) BREAKING: Dropped support for Node.js 18 (#674)
-- (HombachC) BREAKING: Dropped support for js-controller 5 (#674)
-- (HombachC) bump dependencies
-
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
 ## Tested with
@@ -97,7 +92,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 MIT License
 
-Copyright (c) 2021-2025 Christian Hombach
+Copyright (c) 2021-2026 Christian Hombach
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -115,4 +110,5 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
 SOFTWARE.

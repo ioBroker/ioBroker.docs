@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.elero-usb-transmitter/README.md
 title: ioBroker.elero-usb-transmitter
-hash: B4BFyXjQg2PIiZv5FCRU1GoOannx8Mw96nu2B4cAgdU=
+hash: nf5snk6oEC95XZM7T0xavw7ntsOBYC+aaH5kk8xqxT4=
 ---
 # IoBroker.elero-usb-transmitter
 ![Логотип](../../../en/adapterref/iobroker.elero-usb-transmitter/admin/elero-usb-transmitter.png)
@@ -39,9 +39,40 @@ hash: B4BFyXjQg2PIiZv5FCRU1GoOannx8Mw96nu2B4cAgdU=
 
 * `16`: СТОП
 * `32`: ВВЕРХ
-* `36`: ВНИЗ
-* `64`: STEP_UP
-* `68`: STEP_DOWN
+* `36`: Вентиляция/Наклон
+* `64`: ВНИЗ
+* `68`: Промежуточная позиция
+
+### Простые команды
+* `74`: EASY_CHECK
+* `75`: EASY_CONFIRM
+* `76`: EASY_SEND
+* `77`: EASY_ACK
+* `78`: EASY_INFO
+
+### Значения статуса
+Состояние `info` отображает текущее состояние устройства. К распространённым значениям относятся:
+
+| Стоимость | Описание |
+| :--- | :--- |
+| `INFO_UNKNOWN` | Неизвестный статус (-1). |
+| `INFO_TOP_POSITION_STOP` | Остановился в верхней позиции (1). |
+| `INFO_BOTTOM_POSITION_STOP` | Остановился в нижнем положении (2). |
+| `INFO_INTERMEDIATE_POSITION_STOP` | Остановка в промежуточном положении (3). |
+| `INFO_TILT_VENTILATION_POS_STOP` | Остановлено в положении наклона/вентиляции (4). |
+| `INFO_BLOCKING` | Обнаружена блокировка (5). |
+| `INFO_OVERHEATED` | Подвесной двигатель (6). |
+| `INFO_TIMEOUT` | Тайм-аут (7). |
+| `INFO_START_TO_MOVE_UP` | Начинает подниматься (8). |
+| `INFO_START_TO_MOVE_DOWN` | Начинает спускаться вниз (9). |
+| `INFO_MOVING_UP` | Поднимаемся вверх (10). |
+| `INFO_MOVING_DOWN` | Двигаемся вниз (11). |
+| `INFO_STOPPED_IN_UNDEFINED_POSITION` | Остановка в неопределенной позиции (13). |
+| `INFO_TOP_POS_STOP_WICH_TILT_POS` | Остановка верхнего положения с положением наклона (14). |
+| `INFO_BOTTOM_POS_STOP_WICH_INT_POS` | Нижний упор с промежуточным положением (15). |
+| `INFO_SWITCHING_DEVICE_SWITCHED_OFF` | Выключение устройства (16). |
+| `INFO_SWITCHING_DEVICE_SWITCHED_ON` | Включение устройства (17). |
+| `INFO_SWITCHING_DEVICE_SWITCHED_ON` | Включение устройства (17). |
 
 ## Примеры
 ### Javascript / Blockly
@@ -58,6 +89,22 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 ```
 
 ## Changelog
+### 1.0.5 (2025-12-31)
+
+-   Fixed reliability issue with fast polling (burst mode)
+
+### 1.0.4 (2025-12-30)
+
+-   Adjusted release configuration
+-   Implemented fast polling after command execution
+
+### 1.0.3 (2025-12-30)
+
+- Release script configuration improved (added missing plugins)
+- Bug fix: Status update handling (async + validation)
+- Improvement: Connection retry logic implemented
+- Improvement: All tests converted to TypeScript
+
 ### 1.0.2 (2025-12-24)
 
 - Replaced deprecated createState/createDevice methods with setObjectNotExistsAsync
@@ -120,7 +167,7 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 
 MIT License
 
-Copyright (c) 2022 marc <marc@lammers.dev>
+Copyright (c) 2025-2026 marc <marc@lammers.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

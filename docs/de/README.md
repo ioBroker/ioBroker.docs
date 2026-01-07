@@ -1,6 +1,6 @@
 ---
 title:       "ioBroker Dokumentation"
-lastChanged: "29.02.2024"
+lastChanged: "07.01.2025"
 ---
 ## Mach dein Leben einfacher: Smart Home
 
@@ -9,7 +9,6 @@ Müsste man nicht daran denken, Geräte bei Erreichen bestimmter Bedingungen ode
 
 Diese Bequemlichkeit kann ein Smart Home bieten - ein intelligentes Haus.
 Und es bietet auf Wunsch noch mehr: Automatisierung und die Möglichkeit, auf all diese Dinge auch aus der Ferne zuzugreifen.
-
 
 ### Die Lösung: ioBroker - Automate your life
 
@@ -42,7 +41,6 @@ Die aktive **ioBroker-Entwickler-Community** unterstützt neue Entwickler dabei 
 **Tipp:**
  [Übersicht verfügbaren Adapter](https://www.iobroker.net/#de/adapters/adapters.md) 
 
-
 ### ioBroker verbindet unterschiedlichste Smarthome-Systeme
 
 ![](media/iobroker-simple-overview.png)  
@@ -54,6 +52,7 @@ verwalteten Kalendern oder herstellerspezifischen Smart-Home-Systemen, die im LA
 Auf diese Weise kann die ioBroker-Software Statusinformationen abrufen oder Steuerungsaktionen ausführen.
 
 ### Anwendungsbeispiel Anwesenheitssimulation
+
 In diesem Anwendungsbeispiel wird exemplarisch aufgezeigt, wie die beiden voneinander unabhängigen Smarthome-Systeme Philipps Hue und Homematic IP mittels ioBroker zusammengeführt werden, um eine Anwesenheitssimulation zu realisieren.
 
 Durch die Anbindung der beiden Smarthome-Systeme an die ioBroker Software, ist ioBroker in der Lage die Zustände der Hue Lampen (ein/aus) sowie die Rollläden (hoch/runter) zu verändern. Die Erkennung der Urlaubszeit erfolgt durch die Anbindung des Kalenders in ioBroker.
@@ -84,24 +83,24 @@ Mutihost-System verbunden werden. Dabei ist sogar die Mischung von
 Betriebssystemplattformen und die Kopplung von Einplatinencomputern mit
 großen Multicore-Servern möglich.
 
-
 ### Individuelle Programmierung von Abläufen
-Mit den Logik Adaptern bietet ioBroker die Möglichkeit individuelle Abläufe und Skripte zu erstellen. 
+
+Mit den Logikadaptern bietet ioBroker die Möglichkeit individuelle Abläufe und Skripte zu erstellen. 
 In einem Skript kann z.B. ein Wert von einem Adapter überwacht werden (Urlaub ist im Kalender am heutigen Tag eingetragen) und eine Aktion ausgelöst werden (Schalte um 18 Uhr alle Hue Lichter ein).
 
 In ioBroker können diese individuellen Abläufe durch Drag-and-Drop von Bausteinen (grafische Programmierung) in "Rules" oder "Blockly" realisiert werden oder in klassischer Form mit "Javascript" oder "Typescript" in Form von geschriebenem Quellcode implementiert werden. 
 
 Weitere Erklärungen zu den Logikbausteinen sowie eine weitere Vorstellung von weiteren Logikbausteinen wie Node-Red oder der Szenen-Adapter werden in dieser Doku im Abschnitt "Logik und Automatisierung" erläutert.
 
-
 ## Visualisierung
+
 Mehrere Visualisierungsadapter bieten dem Anwender die Möglichkeit Steuerungsoptionen, sowie Zustandsinformationen, grafisch zu realisieren.
 Diese individuellen Visualisierungen können dann auf einem Tablet, Smartphone oder Computer dargestellt und bedient werden.
 
-Nachfolgend werden einige Visualisierungsadapter und deren Haupteigenschaften kurz vorgestellt. 
-
+Nachfolgend werden einige Visualisierungsadapter und deren Haupteigenschaften kurz vorgestellt.
 
 ### VIS
+
 [Adapterseite vis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md)
 
 ioBroker stellt mit dem Adapter VIS (Visualisierung) ein mächtiges Tool zur Erstellung von individuellen 
@@ -115,7 +114,7 @@ einfachen Verwendung helfen dem Anwender dabei beim Zusammenstellen der UI. Doch
 Informationen ist möglich. Auch die Steuerung von Geräten ist über die 
 Visualisierungsoberfläche schnell umgesetzt. Die Bedienung der Oberfläche kann 
 dabei auf die unterschiedlichsten Endgeräte abgestimmt werden - vom Smartphone 
-über das Wandtablet mit Touchfunktion bis hin zum PC - alles kann 
+über das Wandtablett mit Touch-Funktion bis hin zum PC - alles kann 
 durch einfaches Drag-and-Drop realisiert werden. 
 
 ![](media/iobroker-visualisation-vis.png)
@@ -125,6 +124,7 @@ durch einfaches Drag-and-Drop realisiert werden.
 ![](media/iobroker-visualisation-vis-wetter.png)
 
 ### Material UI
+
 React und Material UI interface.
 
 [Adapterseite Material](https://www.iobroker.net/#de/adapters/adapterref/iobroker.material/README.md)
@@ -132,6 +132,7 @@ React und Material UI interface.
 ![](media/iobroker-visualisation-material.png)  
 
 ### Jarvis
+
 [Adapterseite Jarvis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md)
 
 Jarvis ist eine Material Design Visualisierung, die auf Material UI basiert. Jarvis gibt eine Struktur und Module vor, die zur Visualisierung genutzt werden, aber sehr flexibel konfiguriert werden können.
@@ -173,6 +174,7 @@ Der Lovelace Editor (WYSIWYG Prinzip - What you see is what you get Prinzip) erm
 ![](media/iobroker-visualisation-lovelace.png)  
 
 ## Wer steckt hinter ioBroker?
+
 ioBroker ist ein Open-Source-Projekt, welches von der ioBroker Community entwickelt wird und von [Bluefox](https://github.com/GermanBluefox) als Projektbesitzer administriert wird.
 
 Viele Entwickler und viele weitere Helfer entwickeln in ihrer Freizeit ehrenamtlich an den zentralen ioBroker System-Komponenten, den vielen Adaptern, dem Social-Media-Support, der Dokumentation und vielem mehr.  
@@ -202,13 +204,14 @@ Eine Liste der [ioBroker Developer](https://forum.iobroker.net/groups/developer)
 ioBroker stellt zwei eigenständige Plattformen (Server) bereit, die jeweils unterschiedliche Funktionen abdecken:
 
 ### 1. ioBroker.net
+
 - **Verwaltung von Adapterlizenzen** *(z.B. vis-2, KNX, JägerDesign-Widgets)*
 - **Kostenfreier Fernzugriff** über den **Cloud-Adapter** mit eingeschränkter Funktionalität: *nur Anzeige von Visualisierungen im Browser, ohne Bearbeitungsoption, eingeschränkte Transferdatenmenge.*
 
-
 ### 2. ioBroker.pro
+ 
 - **Nutzung von Smart-Assistenten** *(z.B. Amazon Alexa, Google Assistant)* über den **IoT-Adapter**
-- **Erweiterter Fernzugriff** über den **Cloud-Adapter** mit voller Funktionalität:  *Anzeige im Browser und in der App und Bearbeitung von Visualisierungen incl. Admin und vis-Editor.*
+- **Erweiterter Fernzugriff** über den **Cloud-Adapter** mit voller Funktionalität: *Anzeige im Browser und in der App und Bearbeitung von Visualisierungen incl. Admin und vis-Editor.*
 - Möglichkeit, Daten über **HTTPS mittels GET- oder POST-Request** an die eigene ioBroker-Instanz zu senden.
 
 #### Technische Hinweise
@@ -218,8 +221,8 @@ ioBroker stellt zwei eigenständige Plattformen (Server) bereit, die jeweils unt
 
 - Für die **Sprachsteuerung** (z.B. Amazon Alexa oder Google Assistant) wird der **IoT-Adapter** benötigt. Nur mit aktivem iot-Adapter können **ioBroker.assistant Skill** oder **Custom-Skill** genutzt werden.
 
-
 ## Wie finanziert sich ioBroker?
+
 Alle zentralen Komponenten und nahezu alle weiteren Adapter sind kostenfrei erhältlich und der Quellcode der allermeisten Adapter steht auf GitHub offen zur Verfügung.
 
 Da ein Open-Source-Projekt keine Einnahmen erzielen kann, um z.B. Server zu kaufen, bedarf es für diese Dinge eine offizielle Gesellschaftsform, die ioBroker GmbH.
@@ -230,6 +233,7 @@ Die ioBroker GmbH stellt für das Community-Projekt die Infrastruktur (z.B. den 
 Die ioBroker Free Cloud ist ebenfalls ein kostenfreier Dienst, der der Community durch die ioBroker GmbH zur Verfügung gestellt wird. Die Pro-Cloud und der iot-Service sind kommerzielle Angebote der ioBroker GmbH, wobei die Kosten gerade einmal die Betriebskosten decken.
 
 ### Lizenzen und Kosten
+
 Sehr viele ioBroker Projekte stehen mitsamt dem Quellcode auf [GitHub](https://github.com/ioBroker) zur Verfügung.
 In den allermeisten Fällen steht der Quellcode unter der MIT-Lizenz.
 Manchmal werden allerdings auch Lizenzen wie GPL, CC BY-NC oder andere genutzt, welche zu berücksichtigen sind, jedoch für End-Nutzer an sich keinen großen Unterschied darstellen!
@@ -252,6 +256,7 @@ Vielen Dank für deinen Beitrag!
 ## Lizenzarten im ioBroker-System
 
 ### **Adapterlizenzen**
+
 Adapterlizenzen sind erforderlich, um bestimmte Adapter im ioBroker-System zu nutzen.  
 Diese werden über [ioBroker.net](https://iobroker.net) verwaltet und gelten für lokal installierte Adapter, z.B.:
 - ***vis-2***
@@ -263,7 +268,7 @@ Die Lizenz ist dabei an die Hardware-ID (UUID) des jeweiligen Systems gebunden.
 Die Adapterlizenzen können [hier](https://iobroker.net/www/pricing#commercial) erworben werden.
 
 ### **Zugangslizenzen**
-Zugangslizenzen ermöglichen die Nutzung von Cloud-Diensten und sind in in folgenden Varianten erhältlich:
+Zugangslizenzen ermöglichen die Nutzung von Cloud-Diensten und sind in folgenden Varianten erhältlich:
 - ***Assistenten-Lizenz*** 
 - ***Fernzugriff-Lizenz***
 
@@ -276,9 +281,9 @@ Hier findest du einen Überblick über unsere beiden Zugangslizenzen, mit denen 
 
 Diese Lizenz aktiviert die Nutzung von:
 - **Sprachsteuerung** *(Amazon Alexa, Google Home, Yandex Alisa)*
-    - Für Alexa stehen zwei Skills zur Verfügung: [**ioBroker.assistant Skill**](https://www.amazon.de/ioBroker-ioBroker-assistant/dp/B0FJHBXDZ4) für Standardanfragen und [**Custom Skill**](https://www.amazon.de/ioBroker-Custom/dp/B01MQL6Z1N/ref=sr_1_1?crid=3KLEQ1GP46V62&dib=eyJ2IjoiMSJ9.wqt8MYhRSXRT2m9EHzleUA.VuDgmVobhAe8tZTyk9j0Fbxjj5y2eV0ZanVgMWC3HA4&dib_tag=se&keywords=iobroker+custom+skill&qid=1767736259&s=digital-skills&sprefix=iobroker+custon+skill%2Caps%2C149&sr=1-1) für individuelle Abfragen und Sprachbefehle
+    - Für Alexa stehen zwei Skills zur Verfügung: [**ioBroker.assistant Skill**](https://www.amazon.de/ioBroker-ioBroker-assistant/dp/B0FJHBXDZ4) für Standardanfragen und [**Custom Skill**](https://www.amazon.de/ioBroker-Custom/dp/B01MQL6Z1N) für individuelle Abfragen und Sprachbefehle
 - **Dienste** *(Geoposition (z.B. standortabhängige Automationen), Tasker-Integration, URL-Services (HTTP GET/POST))*
-- **Matter** *(Anbindung von matterfähigen Geräten über die ioBroker-Matter-Bridge)*
+- **Matter** *(Anbindung von matter-fähigen Geräten über die ioBroker-Matter-Bridge)*
 
 Die Assistenten-Lizenz ist in zwei Varianten verfügbar:
 
@@ -293,7 +298,6 @@ Die Assistenten-Lizenz ist in zwei Varianten verfügbar:
 - 35.000 Befehle oder Dienstaufrufe pro Monat
 - Matter: Unbegrenzte Anzahl ioBroker-Geräte integrierbar
 - Registrierung auf [ioBroker.pro](https://iobroker.pro) erforderlich
-
 
 **Hinweis:**
 Ein „Befehl“ ist nicht nur ein Sprachkommando, auch Statusabfragen zählen dazu.  
@@ -311,7 +315,6 @@ Die Fernzugriff-Lizenz ermöglicht den Zugriff auf Visualisierungen und Konfigur
 - Nur über Browser erreichbar (keine App-Unterstützung)
 - Registrierung auf [ioBroker.net](https://iobroker.net) erforderlich
 
-
 ##### Pro-Version inkl. Assistenten-Lizenz:
 - Vollständiger Fernzugriff auf ioBroker:
     - Zugriff auf Admin, JavaScript, Lovelace, e-chart u.v.m.
@@ -320,7 +323,6 @@ Die Fernzugriff-Lizenz ermöglicht den Zugriff auf Visualisierungen und Konfigur
 - Inklusive Assistenten-Lizenz
     - Enthält alle Funktionen der Sprachsteuerung und Dienste
 - Registrierung auf [ioBroker.pro](https://iobroker.pro) erforderlich
-
 
 ## Community
 Seit 2014 hat sich ioBroker aufgrund seiner vielen Vorzüge eine breite 
@@ -331,12 +333,11 @@ Erfahrungen und Anregungen miteinander aus. Auf dem ioBroker [Discord](https://d
 Linksammlung der offiziellen ioBroker Communities:
 - ioBroker Forum: [Forum](https://forum.iobroker.net)
 - Discord ioBroker Server: [Discord](https://discord.gg/sGWE65zF)
-- Facebookgruppe "IoBroker SmartHome und IoT": [FacebookIoBrokerSmartHomeIoT](https://www.facebook.com/groups/440499112958264)
-- Facebookgruppe "ioBroker and smart home international": [FacebookIoBrokerSmartHomeIoTInternational](https://www.facebook.com/groups/iobrokerinternational)
+- Facebook-Gruppe "IoBroker SmartHome und IoT": [FacebookIoBrokerSmartHomeIoT](https://www.facebook.com/groups/440499112958264)
+- Facebook-Gruppe "ioBroker and smart home international": [FacebookIoBrokerSmartHomeIoTInternational](https://www.facebook.com/groups/iobrokerinternational)
 
 ## ioBroker Statistiken
 Auf [ioBrokerStatistics](https://www.iobroker.net/#de/statistics) findet ihr eine Übersichtsseite mit ein paar interessanten ioBroker Statistiken. 
-
 
 [Grundlagen]: https://www.iobroker.net/#de/documentation/basics/README.md
 [Adaptern]: https://www.iobroker.net/#de/adapters/adapters.md

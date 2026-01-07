@@ -533,6 +533,6 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2025 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018-2026 foxthefox <foxthefox@wysiwis.net>
 
 Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

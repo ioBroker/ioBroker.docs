@@ -80,10 +80,13 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+
+### 2.0.5 (2026-01-01)
 
 - (hombach) optimize dependabot config (#209)
+- (hombach) year 2026 changes
 - (hombach) update axios
+- (hombach) update dependencies
 
 ### 2.0.4 (2025-10-22)
 
@@ -261,7 +264,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 MIT License
 
-Copyright (c) 2024-2025 C.Hombach <TeslaFi@homba.ch>
+Copyright (c) 2024-2026 C.Hombach <TeslaFi@homba.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

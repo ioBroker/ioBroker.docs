@@ -94,7 +94,7 @@ The authors are in no way endorsed by or affiliated with STIEBEL ELTRON GmbH & C
 
 MIT License
 
-Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2023 Michael Schuster <development@unltd-networx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

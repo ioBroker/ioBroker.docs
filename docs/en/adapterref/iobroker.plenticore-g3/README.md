@@ -48,8 +48,10 @@ Despite what the name of the adapter may suggest (that only G3 models are suppor
 - Plenticore BI 10/26 (G2) - FW Version 02.15.19562
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.5.2 (2026-01-04)
 - fix skipping optionals that have become preselected
+- fix not showing settings for battery when present
+- update dependencies
 
 ### 0.5.1 (2025-11-20)
 - bump some packages
@@ -153,7 +155,7 @@ Initial release
 ## License
 MIT License
 
-Copyright (c) 2025 fernetmenta <fernetmenta@online.de>
+Copyright (c) 2025-2026 fernetmenta <fernetmenta@online.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

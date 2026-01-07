@@ -16,7 +16,54 @@
 
 Adapter for FordPass
 
+## Usage
+
+### OAuth 2.0 Login
+
+The adapter uses OAuth 2.0 authentication. Follow these steps to authenticate:
+
+1. Start the adapter - it will display an authentication URL in the log
+2. **IMPORTANT: Open Developer Tools (F12) BEFORE clicking the login URL**
+3. Go to the Network tab in Developer Tools
+4. Copy the OAuth URL from the log and paste it into your browser
+5. Log in with your Ford account credentials
+6. After login, the browser will show "Cannot open page" - this is expected
+7. In the Network tab, find the failed request with the red URL starting with `fordapp://userauthorized/?code=`
+8. Copy the complete URL from the Network tab
+9. Paste it into the "v2 Code URL" field in the adapter settings
+10. Save and restart the adapter
+
+### Remote Controls
+
+The adapter creates remote control buttons for each vehicle under `{VIN}.remote.*`:
+
+- **engine/start**: Start or stop the engine (true = start, false = stop)
+- **doors/lock**: Lock or unlock doors (true = lock, false = unlock)
+- **status**: Request a fresh status update from the vehicle (sends statusRefresh command)
+- **refresh**: Refresh the cached data without sending a command to the vehicle
+
+### Configuration Options
+
+- **Update interval**: Time in minutes between automatic data updates (default: 5 minutes)
+- **Location Update**: Enable/disable location updates. Disabling this allows for shorter update intervals and reduces battery drain
+- **Force Update**: Enable automatic statusRefresh command at each interval (WARNING: May drain 12V battery. Only enable if your vehicle supports this command)
+- **Skip 12V Check**: Disable the 12V battery check when using Force Update
+
+### Battery Protection
+
+The adapter queries cached vehicle data in regular intervals by default. To request fresh data from the vehicle, either:
+
+- Enable the "Force Update" option (only if your vehicle supports it)
+- Use the `{VIN}.remote.status` button manually
+
+**Note:** Some vehicles may not support the `statusRefresh` command and will return a 404 error - this is normal. In this case, disable "Force Update" and use the `refresh` button instead.
+
 ## Changelog
+
+### 1.1.5 (2025-12-29)
+
+- update API headers to match latest FordPass app
+- fix checkbox display in adapter configuration UI
 
 ### 1.1.4 (2025-12-27)
 

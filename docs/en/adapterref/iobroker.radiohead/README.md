@@ -364,6 +364,6 @@ If necessary, the counters of the messages can be reset to 0 by writing to the o
 
 GNU General Public License Version 2
 
-Copyright (c) 2019-2025 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2026 Peter Müller <peter@crycode.de>
 
 See [LICENSE](./LICENSE) for details.

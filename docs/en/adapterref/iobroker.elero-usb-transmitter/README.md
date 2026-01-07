@@ -38,9 +38,43 @@ You can write the following values to the `controlCommand` state:
 
 *   `16`: STOP
 *   `32`: UP
-*   `36`: DOWN
-*   `64`: STEP_UP
-*   `68`: STEP_DOWN
+*   `36`: Ventilation/Tilt
+*   `64`: DOWN
+*   `68`: Intermediate Position
+
+### Easy Commands
+
+*   `74`: EASY_CHECK
+*   `75`: EASY_CONFIRM
+*   `76`: EASY_SEND
+*   `77`: EASY_ACK
+*   `78`: EASY_INFO
+
+### Status Values
+
+The `info` state displays the current status of the device. Common values include:
+
+| Value | Description |
+| :--- | :--- |
+| `INFO_UNKNOWN` | Unknown status (-1). |
+| `INFO_NO_INFORMATION` | No information available (0). |
+| `INFO_TOP_POSITION_STOP` | Stopped at top position (1). |
+| `INFO_BOTTOM_POSITION_STOP` | Stopped at bottom position (2). |
+| `INFO_INTERMEDIATE_POSITION_STOP` | Stopped at intermediate position (3). |
+| `INFO_TILT_VENTILATION_POS_STOP` | Stopped at tilt/ventilation position (4). |
+| `INFO_BLOCKING` | Blocking detected (5). |
+| `INFO_OVERHEATED` | Motor overheaded (6). |
+| `INFO_TIMEOUT` | Timeout (7). |
+| `INFO_START_TO_MOVE_UP` | Starting to move up (8). |
+| `INFO_START_TO_MOVE_DOWN` | Starting to move down (9). |
+| `INFO_MOVING_UP` | Moving up (10). |
+| `INFO_MOVING_DOWN` | Moving down (11). |
+| `INFO_STOPPED_IN_UNDEFINED_POSITION` | Stopped in undefined position (13). |
+| `INFO_TOP_POS_STOP_WICH_TILT_POS` | Top position stop with tilt position (14). |
+| `INFO_BOTTOM_POS_STOP_WICH_INT_POS` | Bottom position stop with intermediate position (15). |
+| `INFO_SWITCHING_DEVICE_SWITCHED_OFF` | Switching device off (16). |
+| `INFO_SWITCHING_DEVICE_SWITCHED_ON` | Switching device on (17). |
+
 
 ## Examples
 
@@ -59,6 +93,22 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 ```
 
 ## Changelog
+### 1.0.5 (2025-12-31)
+
+-   Fixed reliability issue with fast polling (burst mode)
+
+### 1.0.4 (2025-12-30)
+
+-   Adjusted release configuration
+-   Implemented fast polling after command execution
+
+### 1.0.3 (2025-12-30)
+
+- Release script configuration improved (added missing plugins)
+- Bug fix: Status update handling (async + validation)
+- Improvement: Connection retry logic implemented
+- Improvement: All tests converted to TypeScript
+
 ### 1.0.2 (2025-12-24)
 
 - Replaced deprecated createState/createDevice methods with setObjectNotExistsAsync
@@ -121,7 +171,7 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 
 MIT License
 
-Copyright (c) 2022 marc <marc@lammers.dev>
+Copyright (c) 2025-2026 marc <marc@lammers.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

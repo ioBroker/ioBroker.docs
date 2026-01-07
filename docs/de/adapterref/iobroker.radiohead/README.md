@@ -361,6 +361,6 @@ Die Zähler der Nachrichten können bei Bedarf durch ein Schreiben in das Objekt
 
 GNU General Public License Version 2
 
-Copyright (c) 2019-2025 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2026 Peter Müller <peter@crycode.de>
 
 See [LICENSE](./LICENSE) for details.

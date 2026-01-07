@@ -99,8 +99,11 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 
 ## Changelog
 ### **WORK IN PROGRESS**
-* (@GermanBluefox) Replaced I18n package
+* (@Apollon77) Updated to Matter 1.4 2 (matter.js to 0.16.0)
+* (@Apollon77) Also covert values for unit "mired" for Color temperatures
+* (@Apollon77) Increases default color temperature range to 1.000 to 20.000 K
 * (@GermanBluefox) Highlight the devices in GUI when hovering over the device in the device list
+* (@GermanBluefox) Replaced I18n package
 
 ### 0.5.6 (2025-10-21)
 * (@Apollon77) Type detector update, should detect single states in non-device structures better
@@ -110,7 +113,7 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 * (@Apollon77) Correctly shows "in progress changes" in UI when adjusting devices to ovoid overlapping actions
 * (@Apollon77) Fix HSV to RGB calculation for some cases
 * (@Apollon77) Updated matter.js to 0.15.6
-* (@Apollon77) Optimizes shutdown process to ensure everything is properly closed
+* (@Apollon77) Optimizes the shutdown process to ensure everything is properly closed
 
 ### 0.5.4 (2025-10-07)
 * (@Apollon77) Updated matter.js to 0.15.5
@@ -399,4 +402,4 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 ## License
 Apache-2.0
 
-Copyright (c) 2023-2025 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2023-2026 Denis Haev <dogafox@gmail.com>

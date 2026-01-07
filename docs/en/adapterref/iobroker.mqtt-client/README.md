@@ -119,7 +119,7 @@ default: state-ID converted to a mqtt topic.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2016-2023 Pmant
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

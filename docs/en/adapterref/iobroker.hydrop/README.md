@@ -61,6 +61,9 @@ If you want to check whether the hydropmeter is compatible with your type of wat
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+* (simatec) Fix License
+
 ### 0.1.4 (2025-11-23)
 * (simatec) Fix dependabot
 * (simatec) Update dependencies
@@ -101,7 +104,7 @@ If you want to check whether the hydropmeter is compatible with your type of wat
 ## License
 MIT License
 
-Copyright (c) 2025 simatec
+Copyright (c) 2025 - 2026 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

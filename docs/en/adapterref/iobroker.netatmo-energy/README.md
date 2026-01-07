@@ -288,7 +288,7 @@ Widget for VIS to show a complete valve. You have only to define the "SetTemp" -
 
 MIT License
 
-Copyright (c) 2021-2025 ioKlausi <nii@gmx.at>
+Copyright (c) 2021-2026 ioKlausi <nii@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

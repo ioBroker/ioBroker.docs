@@ -65,7 +65,7 @@ NodeJS >= 18.x and js-controller >= 5 is required
 
 The MIT License (MIT)
 
-Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025-2026 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

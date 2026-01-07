@@ -249,7 +249,7 @@ The adapter allows you to control a dishwasher or other devices that consume sta
 ## License
 MIT License
 
-Copyright (c) 2022-2025 René G. <info@rg-engineering.eu>
+Copyright (c) 2022-2026 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

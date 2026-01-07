@@ -19,19 +19,24 @@
 
 ## google-spreadsheet adapter for ioBroker
 
-This adapter can be used to automatically interact with google spreadsheets.
+This adapter can be used to automatically interact with google sheets.
+
+## API
+
+* [sendTo API documentation](docs/sendTo-API.md)
 
 ## Features
 
-* [Append data to spreadsheet](features/append.md)
-* [Delete rows from a spreadsheet](features/delete-rows.md)
-* [Create sheets](features/create-sheet.md)
-* [Delete sheet](features/delete-sheet.md)
-* [Delete sheets](features/delete-sheets.md)
-* [Duplicate sheets](features/duplicate-sheet.md)
-* [Read cell](features/read-cell.md)
-* [Write cell](features/write-cell.md)
-* [Write cells](features/write-cells.md)
+* [Append data to spreadsheet](docs/features/append.md)
+* [Delete rows from a spreadsheet](docs/features/delete-rows.md)
+* [Create sheets](docs/features/create-sheet.md)
+* [Delete sheet](docs/features/delete-sheet.md)
+* [Delete sheets](docs/features/delete-sheets.md)
+* [Duplicate sheets](docs/features/duplicate-sheet.md)
+* [Read cell](docs/features/read-cell.md)
+* [Write cell](docs/features/write-cell.md)
+* [Write cells](docs/features/write-cells.md)
+
 
 ## Usage
 
@@ -42,7 +47,7 @@ This adapter can be used to automatically interact with google spreadsheets.
 
 2. Create or select an existing project that you wish to use with the API.
 
-3. Enable the Google Spreadsheet API for your project.
+3. Enable the Google Sheets API for your project.
 
 #### Create a Service Account
 
@@ -80,7 +85,7 @@ Add the following information to the configuration of your adapter instance in i
 - **Service Account** - The email address of the service account you created.
 - **Private Key** - Open the downloaded JSON file, and locate the private key within the file. Copy only the part starting with "-----BEGIN PRIVATE KEY-----."
 
-![Settings](img/settings.png)
+![Settings](docs/img/settings.png)
 
 #### Find the Spreadsheet ID in the URL
 
@@ -98,14 +103,14 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 
 Use the available blocks to automatically interact with your spreadsheet.
 
-![Blockly](img/blockly-append.png)
+![Blockly](docs/img/blockly-append.png)
 
 ## Troubleshooting
 
-### Error while sending data to Google Spreadsheet:Error: error:0909006C:PEM routines:get_name:no start line
+### Error while sending data to Google Sheets:Error: error:0909006C:PEM routines:get_name:no start line
 When copying the private key into the configuration, make sure there are no \n. If there are \n in the key, please replace the with normal line breaks
 
-### Error while sending data to Google Spreadsheet:Error: The caller does not have permission
+### Error while sending data to Google Sheets:Error: The caller does not have permission
 Make sure the Service Account has adequate permissions to write to the spreadsheet. Refer to the "Grant Access to the Spreadsheet" section above.
 
 
@@ -114,6 +119,12 @@ Make sure the Service Account has adequate permissions to write to the spreadshe
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2026-01-06)
+* (Thomas Pohl) Support for multiple spreadsheets with aliases
+* (Thomas Pohl) Automatic migration of old configs
+* (Thomas Pohl) Improved tests, error handling, and logging
+* (Thomas Pohl) Better async handling in Blockly blocks
+
 ### 0.6.0 (2025-12-26)
 - (Thomas Pohl) Added deleteSheets functionality (delete multiple sheets in one call)
 - (Thomas Pohl) Added blockly block for deleteSheets
@@ -131,21 +142,9 @@ Make sure the Service Account has adequate permissions to write to the spreadshe
 ### 0.3.1
 * (Thomas Pohl) Fixed reading cells and added error handling
 
-### 0.3.0
-* (Thomas Pohl) Added writing of single cells
-* (Thomas Pohl) Added reading of single cells
-* (Thomas Pohl) Documentation for all features
-
-### 0.2.0
-* (Thomas Pohl) Parsing of private keys is now more robust
-
-### 0.1.0
-* (Thomas Pohl) Preparation for first stable release
-* (Thomas Pohl) Improve logging + Code cleanup
-
 ## License
 
-   Copyright (c) 2024-2025 Thomas Pohl
+   Copyright (c) 2024-2026 Thomas Pohl
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

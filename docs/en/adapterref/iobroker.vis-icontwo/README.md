@@ -671,4 +671,4 @@ SOFTWARE.
 
 Icons from Icons8 https://icons8.com/ 
 
-Copyright (c) 2025 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
+Copyright (c) 2025-2026 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)

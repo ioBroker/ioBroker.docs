@@ -965,7 +965,6 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.history/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hm-rega/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hm-rpc/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hmip/README.md
-https://www.iobroker.net/#de/adapters/adapterref/iobroker.hombot/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.homeconnect/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.homee/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.homekit-controller/README.md
@@ -1696,7 +1695,6 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.history/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hm-rega/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hm-rpc/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hmip/README.md
-https://www.iobroker.net/#en/adapters/adapterref/iobroker.hombot/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.homeconnect/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.homee/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.homekit-controller/README.md
@@ -2427,7 +2425,6 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.history/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hm-rega/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hm-rpc/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hmip/README.md
-https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hombot/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.homeconnect/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.homee/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.homekit-controller/README.md
@@ -3158,7 +3155,6 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.history/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hm-rega/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hm-rpc/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hmip/README.md
-https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hombot/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.homeconnect/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.homee/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.homekit-controller/README.md

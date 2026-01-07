@@ -98,6 +98,10 @@ The adapter creates a structured tree of objects for the monitored data:
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.7.2 (2026-01-04)
+
+- (ingel81) Updated dependencies and admin UI (React 19)
+
 ### 0.7.1 (2025-11-30)
 
 - (ingel81) Minor pipeline issues fixed
@@ -172,7 +176,7 @@ The adapter creates a structured tree of objects for the monitored data:
 
 MIT License
 
-Copyright (c) 2025 ingel81 <ingel81@sgeht.net>
+Copyright (c) 2025-2026 ingel81 <ingel81@sgeht.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

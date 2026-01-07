@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
+hash: kuu9R/AfRD+dfWd72s0EXSwCSWyjpN6efn/fGJMHi44=
 ---
 ![Logo](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -264,6 +264,7 @@ Ein Countdown-Widget in Ring-/Kreisform.
 | `Object ID` | Der Timer-Datenpunkt eines Countdown-Datenpunkts. |
 | `Format` | Formatiert die Timer-Ausgabe. Standardwert ist mm:ss. Details finden Sie in Kapitel [Datums-/Zeitformat](#format-of-the-template-to-format-the-countdown-output-in-the-widget). Umkehrbare Einstellung zum Vergrößern oder Verkleinern des Rings/Kreises |
 | `reverse` | Die Breite des Rings oder Kreises. |
+| `partring` | Der größte ausgewählte Ring wird proportional und nicht vollständig angezeigt. |
 | `Width` | Die Breite des Rings oder Kreises. |
 | `Ring gap` | Pixelabstand zwischen den Ringen |
 | `Ring Caps` | Einstellung für die Enden des Rings/Kreises: rund oder gerade |
@@ -355,7 +356,7 @@ Ein Countdown-Widget im Nixie-Röhren-/LED-Stil
 | countdown_showhrs | Zeigt den Stundenteil an. |
 | countdown_showday | Zeigt den Tagesabschnitt an. |
 | countdown_showmonth | Zeigt den Monatsteil an. (nicht zusammen mit den Wochen) |
-| countdown_showweek | Zeigt die Wochenübersicht an (nicht zusammen mit den Monaten). |
+| countdown_showweek | Zeigt die Wochenübersicht an. (nicht zusammen mit den Monaten) |
 | countdown_showyear | Zeigt den Jahresteil an. |
 | countdown_color_active | Farbe des Countdowntimers |
 | countdown_color_inactive | Farbe der inaktiven Ziffern |
@@ -448,6 +449,16 @@ Ein Widget zur Anzeige einer Wortuhr mit vielen Optionen
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.3.2 (2026-01-04)
+
+- fix some translations
+
+### 2.3.1 (2026-01-03)
+
+- circle widget: fix reverse selection
+- circle widget: fixed full/partial display of the largest ring.
+  Option added to select behavior.
+
 ### 2.3.0 (2025-12-03)
 
 - remove autocomplete function in the browser
@@ -701,7 +712,7 @@ Ein Widget zur Anzeige einer Wortuhr mit vielen Optionen
 
 MIT License
 
-Copyright (c) 2025 oweitman <oweitman@gmx.de>
+Copyright (c) 2020-2026 oweitman <oweitman@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

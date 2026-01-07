@@ -197,4 +197,4 @@ By writing JSON data to the `raw.send` state you are able to send CAN messages c
 
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
-Copyright (c) 2020-2025 Peter Müller <peter@crycode.de> (<https://crycode.de/>)
+Copyright (c) 2020-2026 Peter Müller <peter@crycode.de> (<https://crycode.de/>)

@@ -1,10 +1,10 @@
 ---
 title: ioBroker documentation
-lastChanged: 29.02.2024
+lastChanged: 07.01.2025
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/README.md
-hash: YacMJSwpUAVlw+2ihhsKRldFzT+dEtp9171oxL6j4Ig=
+hash: DawDwQlD4Un1US+cE9znKYbEPy3RUpA4gflhLKjvY2s=
 ---
 ## Make your life easier: Smart Home
 Wouldn't it be practical to read temperatures, consumption values, or switching states of devices from various manufacturers in one central location? Wouldn't it be necessary to remember to switch devices on or off when certain conditions or states are reached?
@@ -99,7 +99,7 @@ The following is a brief introduction to some visualization adapters and their m
 
 With its VIS (Visualization) adapter, ioBroker provides a powerful tool for creating custom visualizations. Current sensor readings, as well as historical trends, can be displayed graphically. Live images from surveillance cameras, alarm system implementation, heating and air conditioning systems – almost anything imaginable can be implemented.
 
-Using VIS gives users maximum design freedom during implementation. Pre-built building blocks for easy use help users assemble the UI. But it's not just about displaying information. Controlling devices is also quickly implemented via the visualization interface. The interface can be adapted to a wide variety of devices – from smartphones and wall-mounted tablets with touch functionality to PCs – everything can be implemented using simple drag-and-drop.
+Using VIS gives users maximum design freedom during implementation. Pre-built building blocks for easy use help users assemble the UI. But it's not just about displaying information. Controlling devices is also quickly implemented via the visualization interface. The interface can be adapted to a wide variety of devices – from smartphones and wall-mounted touchscreen tablets to PCs – everything can be implemented using simple drag-and-drop.
 
 ![](../de/media/iobroker-visualisation-vis.png)
 
@@ -173,22 +173,26 @@ The ioBroker Core development team consists of:
 
 A list of [ioBroker Developer](https://forum.iobroker.net/groups/developer) can be found in the ioBroker forum.
 
-### Licenses and Costs
-Many ioBroker projects, including their source code, are available at [GitHub](https://github.com/ioBroker).
+## IoBroker.net and ioBroker.pro - Platforms Compared
+ioBroker provides two independent platforms (servers), each covering different functions:
 
-In the vast majority of cases, the source code is licensed under the MIT license.
+### 1. ioBroker.net
+- **Management of adapter licenses** *(e.g. vis-2, KNX, JägerDesign widgets)*
+- **Free remote access** via the **cloud adapter** with limited functionality: *only display of visualizations in the browser, no editing option, limited data transfer volume.*
 
-However, licenses such as GPL, CC BY-NC, or others are sometimes used, which should be taken into account, but generally make little difference to end users. The developer of an adapter determines the license for that specific adapter.
+### 2. ioBroker.pro
+- **Use of smart assistants** (e.g., Amazon Alexa, Google Assistant) via the **IoT adapter**
+- **Enhanced remote access** via the **cloud adapter** with full functionality: *Viewing in browser and app and editing of visualizations including admin and vis editor.*
+- Ability to send data to your own ioBroker instance via **HTTPS using GET or POST requests**.
 
-In very rare cases (fewer than 5 adapters currently available), a license (sometimes a paid one) is required to use an adapter.
+#### Technical Notes
+- The **Cloud adapter** is required for **remote access** (e.g., viewing and editing vis or accessing the admin).
 
-For example, ioBroker GmbH provides a free license for private use of the "VIS" adapter; however, a paid license is required for commercial use.
+This is used on both ioBroker.net and ioBroker.pro, with different functionalities depending on the platform and license.
 
-An overview and order of licenses for these adapters can be found on this page: [iobrokerPrices](https://iobroker.net/www/pricing).
+- The **IoT adapter** is required for **voice control** (e.g., Amazon Alexa or Google Assistant). The **ioBroker.assistant Skill** or **Custom Skill** can only be used with an active IoT adapter.
 
-The costs for commercial use of these adapters are also listed there.
-
-### How is ioBroker financed?
+## How is ioBroker financed?
 All central components and almost all other adapters are available free of charge, and the source code of the vast majority of adapters is openly available on GitHub.
 
 Since an open-source project cannot generate revenue to, for example, purchase servers, a formal legal structure is required for these purposes: ioBroker GmbH.
@@ -199,21 +203,77 @@ ioBroker GmbH provides the infrastructure (e.g., the forum server) free of charg
 
 The ioBroker Free Cloud is also a free service provided to the community by ioBroker GmbH. The Pro Cloud and the IoT service are commercial offerings from ioBroker GmbH, with costs that barely cover operating expenses.
 
-## IoBroker Cloud Services – Quick Overview
-Optional cloud-based access allows users and system integrators to remotely manage a locally installed ioBroker system 24/7.
+### Licenses and Costs
+Many ioBroker projects, including their source code, are available at [GitHub](https://github.com/ioBroker).
 
-**Legend:** ✅ = available, 🟡 = limited, ❌ = not available, `.net` = iobroker.net, `.pro` = iobroker.pro
+In the vast majority of cases, the source code is licensed under the MIT license.
 
----
+However, licenses such as GPL, CC BY-NC, or others are sometimes used, which should be taken into account, but generally make little difference to end users. The developer of an adapter determines the license for that specific adapter.
 
-### Smart Assistants (voice control with Alexa, Google Assistant, etc.)
-**1. Smart Home Skill (ioBroker.assistant)** Control devices via voice command – e.g. “Alexa, turn on the lights”.
+In very rare cases (currently 3 adapters), a license is required to use an adapter.
 
-**2. Custom Skill (Custom ioBroker)** Use your own commands – e.g. “Alexa, ask ioBroker for temperature”.
+For example, ioBroker GmbH provides a free license for private use of the "VIS" adapter; however, a paid license is required for commercial use.
 
-- `.net:` ❌
-- `.pro` without a license: 🟡 50 commands/day
-- With assistant or remote access license: ✅ 3000 commands/day or 35000 commands/month
+An overview and order of licenses for these adapters can be found on this page: [iobrokerPrices](https://iobroker.net/www/pricing).
+
+The costs for commercial use of these adapters are also listed there.
+
+### **Support our project!**
+The further development and maintenance of ioBroker is largely carried out by volunteers. If you like ioBroker and would like to support our work, we appreciate any help:
+
+- By purchasing a license, you directly support development and infrastructure.
+- If you don't need a license, we would also appreciate a voluntary donation:
+
+[Donate now via PayPal](https://www.paypal.com/donate?campaign_id=MJBDJ9TGBQ7GN)
+
+Thank you for your contribution!
+
+## License types in the ioBroker system
+### **Adapter Licenses**
+Adapter licenses are required to use certain adapters in the ioBroker system.
+
+These are managed via [ioBroker.net](https://iobroker.net) and apply to locally installed adapters, e.g.:
+
+- ***vis-2***
+- ***KNX***
+- ***JägerDesign Widgets***
+
+The license is tied to the hardware ID (UUID) of the respective system.
+
+The adapter licenses can be purchased at [here](https://iobroker.net/www/pricing#commercial).
+
+### **Access Licenses**
+Access licenses enable the use of cloud services and are available in the following versions:
+
+- ***Assistant License***
+- ***Remote Access License***
+
+Access licenses can be acquired [here](https://iobroker.pro/www/pricing#remote).
+
+## Cloud services and access licenses
+Here you'll find an overview of our two access licenses, which allow you to use various ioBroker cloud services. Both licenses are available in a free basic version and an enhanced Pro version.
+
+### Assistant License
+This license enables the use of:
+
+- **Voice control** (Amazon Alexa, Google Home, Yandex Alexa)
+- Two skills are available for Alexa: [**ioBroker.assistant Skill**](https://www.amazon.de/ioBroker-ioBroker-assistant/dp/B0FJHBXDZ4) for standard queries and [**Custom Skill**](https://www.amazon.de/ioBroker-Custom/dp/B01MQL6Z1N) for individual queries and voice commands.
+- **Services** *(Geoposition (e.g. location-based automations), Tasker integration, URL services (HTTP GET/POST))*
+- **Matter** *(Connection of Matter-enabled devices via the ioBroker Matter Bridge)*
+
+The assistant license is available in two versions:
+
+Free version:
+- Up to 50 voice commands or service calls per day
+- Matter: Integration of up to 5 ioBroker devices via Bridge
+- Registration on [ioBroker.pro](https://iobroker.pro) is required.
+- 7-day trial period with full functionality upon first-time registration
+
+##### Pro version:
+- 3000 commands or service calls per day
+- 35,000 commands or service calls per month
+- Matter: Unlimited number of ioBroker devices can be integrated
+- Registration on [ioBroker.pro](https://iobroker.pro) is required.
 
 **Note:** A "command" isn't just a voice command; status queries also count.
 
@@ -225,37 +285,22 @@ This behavior is from Amazon (starting with Alexa Smart Home API V3) and cannot 
 
 As a result, the daily limit can be reached quickly, even without voice commands.
 
-### Remote Access incl. Smart Assistant License
-**1. View VIS (Dashboards)** Access your visualizations.
+### Remote Access License
+The remote access license allows remote access to visualizations and configurations of the ioBroker installation. This license is also available in a free basic version and a Pro version.
 
-- `.net:` ✅
-- `.pro` without a license or assistant: ❌
-- With remote access license: ✅
+Free version:
+- Access to vis-2 (viewing only, no editing)
+- Accessible only via browser (no app support)
+- Registration on [ioBroker.net](https://iobroker.net) is required.
 
-**2. Edit VIS (Editor)**
-
-- Only with remote access license (`.pro`): ✅
-
-**3. Admin Remote Access**
-
-- Only with remote access license (`.pro`): ✅
-
----
-
-### Services & Webhooks
-**IFTTT / HTTP POST / HTTP GET/PUT** Connect ioBroker to external services (e.g. automations, webhooks).
-
-- `.net`: ❌
-- `.pro` without a license: 🟡 20 commands/day
-- With assistant or remote access license: ✅ unlimited
-
----
-
-### Licenses in comparison
-- **Free Cloud (`.net`):** Show only VIS
-- **Without a `.pro` license:** Skills + services are limited (50 / 20 commands per day)
-- **Assistant License (`.pro`):** Skills & Services: 3000 commands/day or 35000 commands/month
-- **Remote Access License (`.pro`):** Everything included (VIS, VIS Editor, Admin, Skills, Services)
+##### Pro version including assistant license:
+- Full remote access to ioBroker:
+- Access to Admin, JavaScript, Lovelace, e-chart and much more.
+- Editing of vis-2 in the editor is possible
+- Access via browser and app
+- Includes assistant license
+- Includes all voice control functions and services
+- Registration on [ioBroker.pro](https://iobroker.pro) is required.
 
 ## Community
 Since 2014, ioBroker has secured broad support from thousands of users and developers due to its many advantages. Users and developers meet in the dedicated [forum](https://forum.iobroker.net) forum to exchange experiences and suggestions. On the ioBroker [Discord](https://discord.gg/sGWE65zF) server, experiences can be shared via live chat, and live debug sessions can be conducted at short notice to get to the bottom of current problems.
