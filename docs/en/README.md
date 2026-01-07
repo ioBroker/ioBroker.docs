@@ -4,7 +4,7 @@ lastChanged: 07.01.2025
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/README.md
-hash: DawDwQlD4Un1US+cE9znKYbEPy3RUpA4gflhLKjvY2s=
+hash: PVoXm2uVavU2iIxBGqoYpQ5mbX+b28AzpmcIRKc8nZg=
 ---
 ## Make your life easier: Smart Home
 Wouldn't it be practical to read temperatures, consumption values, or switching states of devices from various manufacturers in one central location? Wouldn't it be necessary to remember to switch devices on or off when certain conditions or states are reached?
@@ -218,7 +218,7 @@ An overview and order of licenses for these adapters can be found on this page: 
 
 The costs for commercial use of these adapters are also listed there.
 
-### **Support our project!**
+### Support our project!
 The further development and maintenance of ioBroker is largely carried out by volunteers. If you like ioBroker and would like to support our work, we appreciate any help:
 
 - By purchasing a license, you directly support development and infrastructure.
@@ -229,7 +229,7 @@ The further development and maintenance of ioBroker is largely carried out by vo
 Thank you for your contribution!
 
 ## License types in the ioBroker system
-### **Adapter Licenses**
+### Adapter licenses
 Adapter licenses are required to use certain adapters in the ioBroker system.
 
 These are managed via [ioBroker.net](https://iobroker.net) and apply to locally installed adapters, e.g.:
@@ -242,7 +242,7 @@ The license is tied to the hardware ID (UUID) of the respective system.
 
 The adapter licenses can be purchased at [here](https://iobroker.net/www/pricing#commercial).
 
-### **Access Licenses**
+### Access licenses
 Access licenses enable the use of cloud services and are available in the following versions:
 
 - ***Assistant License***
@@ -263,13 +263,13 @@ This license enables the use of:
 
 The assistant license is available in two versions:
 
-Free version:
+#### Free version:
 - Up to 50 voice commands or service calls per day
 - Matter: Integration of up to 5 ioBroker devices via Bridge
 - Registration on [ioBroker.pro](https://iobroker.pro) is required.
 - 7-day trial period with full functionality upon first-time registration
 
-##### Pro version:
+#### Pro version:
 - 3000 commands or service calls per day
 - 35,000 commands or service calls per month
 - Matter: Unlimited number of ioBroker devices can be integrated
@@ -288,12 +288,12 @@ As a result, the daily limit can be reached quickly, even without voice commands
 ### Remote Access License
 The remote access license allows remote access to visualizations and configurations of the ioBroker installation. This license is also available in a free basic version and a Pro version.
 
-Free version:
+#### Free version:
 - Access to vis-2 (viewing only, no editing)
 - Accessible only via browser (no app support)
 - Registration on [ioBroker.net](https://iobroker.net) is required.
 
-##### Pro version including assistant license:
+#### Pro version incl. assistant license:
 - Full remote access to ioBroker:
 - Access to Admin, JavaScript, Lovelace, e-chart and much more.
 - Editing of vis-2 in the editor is possible

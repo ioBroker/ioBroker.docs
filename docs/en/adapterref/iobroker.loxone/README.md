@@ -726,6 +726,10 @@ Native value from ioBroker &gt; Objects
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.0.1 (2026-01-07)
+
+- (UncleSamSwiss) Remove all special Sentry handling
+
 ### 4.0.0 (2025-12-11)
 
 - (raintonr) Set correct min/max target on IRCv2 when in override (#528)
@@ -862,7 +866,7 @@ Native value from ioBroker &gt; Objects
 
 ## License
 
-Copyright 2025 UncleSamSwiss
+Copyright 2026 UncleSamSwiss
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

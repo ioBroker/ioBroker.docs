@@ -171,15 +171,18 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 6.1.0 (2026-01-03)
 
 - (HombachC) BREAKING: change flexcharts x-axis type
 - (HombachC) introduce FlexChart output for SBB channels second output
 - (HombachC) introduce second name for FlexChart output of SBB channels
 - (HombachC) introduce color for FlexChart output of calculator results
+- (HombachC) introduce more statistics for yesterdays prices
 - (HombachC) clean code for 15min time slots
 - (HombachC) fix schema links (#822)
+- (HombachC) fix CurrentPrice after midnight (#812)
 - (HombachC) update cron
+- (HombachC) year 2026 changes
 - (HombachC) update dependencies
 
 ### 6.0.3 (2025-11-16)
@@ -213,16 +216,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) update typescript to 5.9.3 (#777)
 - (HombachC) add names to price states folders
 
-### 5.0.4 (2025-09-27)
-
-- (HombachC) prepared price updates to 15 minutes resolution (#384)
-- (HombachC) update tibber-api to 5.4.2
-- (HombachC) update chai system
-
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
 ## License
 
 GNU General Public License v3.0 only
 
-Copyright (c) 2023-2025 C.Hombach <TibberLink@homba.ch>
+Copyright (c) 2023-2026 C.Hombach <TibberLink@homba.ch>

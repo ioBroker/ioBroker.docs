@@ -52,7 +52,8 @@ You will need a local user created in your UniFi OS Console to log in with. Ubiq
 
 ### **WORK IN PROGRESS**
 
-- (Scrounger) option to set debug level for client connection events added
+- (Scrounger) read controller version added #59
+- (Scrounger) option to set debug level for client connection events added #61
 - (Scrounger) property version for devices added
 - (Scrounger) satisfaction object create condition removed to prevent create and deletion of object
 - (Scrounger) event messages for dream machines compatibility < v10.x added

@@ -19,6 +19,14 @@ Automatically updates the registered domain name at Cloudflare with your public 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.9 (2025-12-31)
+* Fixed #33
+* Fixed #34
+
+### 1.2.8 (2025-12-31)
+* Fixed #27
+* Fixed #28
+
 ### 1.2.7 (2025-05-29)
 * Fixed #23
 * Fixed #24
@@ -113,7 +121,7 @@ Automatically updates the registered domain name at Cloudflare with your public 
 ## License
 MIT License
 
-Copyright (c) 2025 Marco15453 <support@marco15453.dev>
+Copyright (c) 2025-2026 Marco15453 <support@marco15453.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

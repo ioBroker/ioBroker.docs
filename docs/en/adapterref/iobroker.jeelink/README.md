@@ -178,5 +178,5 @@ to be done in admin
 
 The MIT License (MIT)
 
-Copyright (c) 2016 - 2025 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2016-2026 foxthefox <foxthefox@wysiwis.net>
 Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

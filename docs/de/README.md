@@ -244,7 +244,7 @@ Für den "VIS" Adapter stellt beispielsweise die ioBroker GmbH eine kostenfreie 
 Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über diese Seite [iobrokerPreise](https://iobroker.net/www/pricing).
 Die Kosten für eine kommerzielle Nutzung dieser Adapter ist dort ebenfalls aufgeführt.
 
-### **Unterstütze unser Projekt!**
+### Unterstütze unser Projekt!
 
 Die Weiterentwicklung und Pflege von ioBroker wird zum Großteil durch freiwillige Arbeit getragen. Wenn dir ioBroker gefällt und du unsere Arbeit unterstützen möchtest, freuen wir uns über jede Hilfe:
 - Mit dem Kauf einer Lizenz unterstützt du direkt die Entwicklung und Infrastruktur.
@@ -255,7 +255,7 @@ Vielen Dank für deinen Beitrag!
 
 ## Lizenzarten im ioBroker-System
 
-### **Adapterlizenzen**
+### Adapterlizenzen
 
 Adapterlizenzen sind erforderlich, um bestimmte Adapter im ioBroker-System zu nutzen.  
 Diese werden über [ioBroker.net](https://iobroker.net) verwaltet und gelten für lokal installierte Adapter, z.B.:
@@ -267,7 +267,7 @@ Die Lizenz ist dabei an die Hardware-ID (UUID) des jeweiligen Systems gebunden.
 
 Die Adapterlizenzen können [hier](https://iobroker.net/www/pricing#commercial) erworben werden.
 
-### **Zugangslizenzen**
+### Zugangslizenzen
 Zugangslizenzen ermöglichen die Nutzung von Cloud-Diensten und sind in folgenden Varianten erhältlich:
 - ***Assistenten-Lizenz*** 
 - ***Fernzugriff-Lizenz***
@@ -287,13 +287,13 @@ Diese Lizenz aktiviert die Nutzung von:
 
 Die Assistenten-Lizenz ist in zwei Varianten verfügbar:
 
-##### Kostenlose Version:
+#### Kostenlose Version:
 - Bis zu 50 Sprachbefehle oder Dienstaufrufe pro Tag
 - Matter: Integration von bis zu 5 ioBroker-Geräten über Bridge
 - Registrierung auf [ioBroker.pro](https://iobroker.pro) erforderlich
 - 7 Tage Testzeitraum mit vollem Funktionsumfang bei erstmaliger Registrierung
 
-##### Pro-Version:
+#### Pro-Version:
 - 3000 Befehle oder Dienstaufrufe pro Tag
 - 35.000 Befehle oder Dienstaufrufe pro Monat
 - Matter: Unbegrenzte Anzahl ioBroker-Geräte integrierbar
@@ -310,12 +310,12 @@ Dadurch kann das tägliche Limit selbst ohne Sprachkommandos schnell erreicht we
 
 Die Fernzugriff-Lizenz ermöglicht den Zugriff auf Visualisierungen und Konfigurationen der ioBroker-Installation aus der Ferne. Auch diese Lizenz ist in einer kostenlosen Basisversion und als Pro-Version verfügbar.
 
-##### Kostenlose Version:
+#### Kostenlose Version:
 - Zugriff auf vis-2 (nur Anzeige, keine Bearbeitung)
 - Nur über Browser erreichbar (keine App-Unterstützung)
 - Registrierung auf [ioBroker.net](https://iobroker.net) erforderlich
 
-##### Pro-Version inkl. Assistenten-Lizenz:
+#### Pro-Version inkl. Assistenten-Lizenz:
 - Vollständiger Fernzugriff auf ioBroker:
     - Zugriff auf Admin, JavaScript, Lovelace, e-chart u.v.m.
     - Bearbeitung von vis-2 im Editor möglich
