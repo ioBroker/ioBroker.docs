@@ -30,7 +30,7 @@ export const NewsletterSection: React.FC = () => {
                     <SectionTitle>{I18n.t('home.newsletter.title')}</SectionTitle>
                 </Box>
                 <Box className={classes.newsletterContent}>
-                    <Box className={classes.newslettertext}>
+                    <Box className={classes.newsletterText}>
                         <Typography className={classes.newsletterTitle}>{I18n.t('home.newsletter.headline')}</Typography>
                         <Typography className={classes.newsletterSubTitle}>
                             {I18n.t('home.newsletter.sub')}

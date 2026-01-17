@@ -49,11 +49,12 @@ export const useStyles = makeStyles()(theme => ({
         flex: '1 1 45%',
         display: 'flex',
         textAlign: 'left',
-        height: 550,
+        height: 450,
         fontSize: '18px',
         // maxWidth: 533,
         flexDirection: 'column',
         justifyContent: 'space-between',
+
         [theme.breakpoints.down('md')]: {
             height: 'auto',
             order: 1,

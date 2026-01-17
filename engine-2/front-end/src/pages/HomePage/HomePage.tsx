@@ -7,7 +7,7 @@ import { AdaptersSection } from './sections/AdaptersSection/AdaptersSection';
 import { AboutSection } from './sections/AboutSection/AboutSection';
 import { CommunitySection } from './sections/CommunitySection/CommunitySection';
 import { HistorySection } from './sections/HistorySection/HistorySection';
-import { InstallationsSection } from './sections/InstallationsSection/InstallationsSection';
+// import { InstallationsSection } from './sections/InstallationsSection/InstallationsSection';
 import { NewsletterSection } from './sections/NewsletterSection/NewsletterSection';
 
 export const HomePage: React.FC = () => {
@@ -26,7 +26,7 @@ export const HomePage: React.FC = () => {
             <AboutSection />
             <CommunitySection />
             <HistorySection />
-            <InstallationsSection />
+            {/*<InstallationsSection />*/}
             <NewsletterSection />
         </>
     );

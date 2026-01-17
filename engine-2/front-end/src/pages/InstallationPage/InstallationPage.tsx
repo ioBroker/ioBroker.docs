@@ -23,7 +23,9 @@ const InstallationPage = () => {
                         sx={{
                             marginBottom: { xs: '8px !important', md: '8px !important' },
                             fontSize: {
-                                xs: '20px !important', sm: '48px !important', '@media (max-width:400px)': {
+                                xs: '20px !important',
+                                sm: '36px !important',
+                                '@media (max-width:400px)': {
                                     fontSize: '18px !important',
                                 }
                             },

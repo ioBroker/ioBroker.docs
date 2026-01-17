@@ -411,7 +411,7 @@
             "en": "IoT",
             "de": "IoT Cloud (Integration mit ioBroker und Alexa/Google Home)",
             "ru": "IoT Cloud (интеграция с ioBroker и Alexa/Google Home)",
-            "zh-cn": "物联网云（与 ioBroker 和 Alexa/Google Home 集成）"
+            "zh-cn": "物联网云（与ioBroker和Alexa/Google Home集成）"
           },
           "content": "cloud/iot.md"
         },

@@ -27,7 +27,7 @@ export const useStyles = makeStyles()(theme => ({
             gap: '51px',
         },
     },
-    newslettertext: {
+    newsletterText: {
         width: '460px',
         marginRight: '153px',
         height: 'fit-content',
@@ -62,8 +62,8 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: '400',
         fontSize: '18px',
         letterSpacing: '0',
-        marginBottom: theme.spacing(2),
-        paddingBottom: '10px',
+        // marginBottom: theme.spacing(2),
+        // paddingBottom: '10px',
         lineHeight: '130%',
         [theme.breakpoints.down('sm')]: {
             fontSize: '16px',

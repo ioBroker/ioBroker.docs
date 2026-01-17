@@ -243,7 +243,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                             }}
                             style={{ flexDirection: 'column', gap: 12 }}
                         >
-                            <a href="https://www.iobroker.net/">
+                            <a href="/#/">
                                 <img
                                     src={logo}
                                     style={{
@@ -260,7 +260,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                             <Link
                                 name="Blog"
                                 selected={props.selected}
-                                url="https://www.iobroker.net/blog"
+                                url="https://www.iobroker.net/#/blog"
                                 onClose={props.onClose}
                             />
                             <Link
@@ -272,7 +272,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                             <Link
                                 name="Statistik"
                                 selected={props.selected}
-                                url="https://www.iobroker.net/statistics"
+                                url="https://www.iobroker.net/#/statistics"
                                 onClose={props.onClose}
                             />
                             <Link
@@ -318,35 +318,35 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                 name="Docs"
                                 selected={props.selected}
                                 big
-                                url="https://www.iobroker.net/docs"
+                                url="/#/docs"
                                 onClose={props.onClose}
                             />
                             <Link
                                 name="Adapters"
                                 selected={props.selected}
                                 big
-                                url="https://www.iobroker.net/adapters"
+                                url="/#/adapters"
                                 onClose={props.onClose}
                             />
                             <Link
                                 name="Licenses"
                                 selected={props.selected}
                                 big
-                                url="https://www.iobroker.net/licenses"
+                                url="/#/licenses"
                                 onClose={props.onClose}
                             />
                             <Link
                                 name="Installation"
                                 selected={props.selected}
                                 big
-                                url="https://www.iobroker.net/installation"
+                                url="/#/installation"
                                 onClose={props.onClose}
                             />
                             <Link
                                 noDesktop
                                 name="Blog"
                                 selected={props.selected}
-                                url="https://www.iobroker.net/blog"
+                                url="/#/blog"
                                 onClose={props.onClose}
                             />
                             <Link
@@ -360,7 +360,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                 noDesktop
                                 name="Statistik"
                                 selected={props.selected}
-                                url="https://www.iobroker.net/statistics"
+                                url="/#/statistics"
                                 onClose={props.onClose}
                             />
                             <Box
