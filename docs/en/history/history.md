@@ -1066,6 +1066,13 @@ https://github.com/ticaki/ioBroker.nspanel-lovelace-ui
 
 The NSPanel Lovelace UI is an alternative user interface for the Sonoff NSPanel, specifically designed for integration with iobroker. It typically relies on Tasmota (firmware) and MQTT (messaging protocol) to provide custom controls and displays directly on the NSPanel's small touchscreen.
 
+## steam (20.1.2026) – new adapter at stable repository
+https://github.com/bloop16/ioBroker.steam
+
+<img src="https://raw.githubusercontent.com/bloop16/ioBroker.steam/main/admin/steam.png" width="100" height="100" />
+
+This adapter allows you to integrate information from the Steam API into your ioBroker system.
+
 
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
