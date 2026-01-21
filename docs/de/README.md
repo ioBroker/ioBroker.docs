@@ -1,6 +1,6 @@
 ---
 title:       "ioBroker Dokumentation"
-lastChanged: "07.01.2025"
+lastChanged: "07.01.2026"
 ---
 ## Mach dein Leben einfacher: Smart Home
 
