@@ -40,6 +40,10 @@ who created pre V3.x.x releases of this adapter.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**0
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 3.0.0 (2025-06-05)
 * (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation.
 * (mcm1957) Adapter requires node.js 20, js-controller 6.0.11 and admin 7.4.10 now.
@@ -68,7 +72,8 @@ who created pre V3.x.x releases of this adapter.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2025, iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019-2024 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

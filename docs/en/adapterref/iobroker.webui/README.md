@@ -133,6 +133,17 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 1.39.0 (2025-12-06)
+- npm upgrades for firefox fixes
+
+### 1.38.7 (2025-11-29)
+- upgrade designer once more
+
 ### 1.38.6 (2025-11-24)
 - fix package.lock
 
@@ -1147,4 +1158,6 @@ runtime.html?screenName=screen2
 ## License
 The MIT License (MIT)
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2025 jogibear9988 <jochen.kuehner@gmx.de>

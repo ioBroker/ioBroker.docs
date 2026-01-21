@@ -52,6 +52,10 @@ If you update this adapter from a previous version instead of a new installation
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (pdbjjens) **Fixed**: Cleanup some eslint issues
+
 ### 2.0.2 (2025-11-23)
 
 * (pdbjjens) **Fixed**: Adapter hangup on wrong credentials. (fixes #127)
@@ -90,7 +94,7 @@ The authors are in no way endorsed by or affiliated with STIEBEL ELTRON GmbH & C
 
 MIT License
 
-Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2023 Michael Schuster <development@unltd-networx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

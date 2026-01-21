@@ -22,6 +22,11 @@ See also the [MPD Protocol Documentation](http://www.musicpd.org/doc/protocol/).
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 2.2.0 (2024-09-14)
 - (skmedia1) Seek functionality for online streams has been fixed.
 - (mcm1957) Materialize UI has been removed. [#166]

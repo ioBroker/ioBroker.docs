@@ -44,6 +44,8 @@ All generated communication objects are initially configured readable and writea
   * update stable: https://github.com/ioBroker/ioBroker.repositories#add-a-new-adapter-to-the-stable-repository
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
 
 - (@klein0r) Adapter requires node.js >= 20 and js-controller >= 6 now
 
@@ -338,6 +340,8 @@ Copyright Contributors to the ioBroker.openknx project
 
     				   Version 3, 29 June 2007
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.

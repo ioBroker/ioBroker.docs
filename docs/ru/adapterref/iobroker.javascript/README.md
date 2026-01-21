@@ -16,7 +16,7 @@ chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru"
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 9.0.17 (2025-12-14)
 * (@GermanBluefox) Added possibility to encrypt scripts with password (only for vendors)
 
 ### 9.0.11 (2025-07-29)
@@ -37,15 +37,10 @@ chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru"
 * (@GermanBluefox) Speed-up loading of GUI
 * (@GermanBluefox) Migrating old blocks to new format
 
-### 9.0.4 (2025-06-16)
-* (@GermanBluefox) Corrected script editor for Polish language
-* (@GermanBluefox) Corrected import of Blockly blocks
-* (@GermanBluefox) Corrected editing of Blockly
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2025 bluefox <dogafox@gmail.com>,
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>,
 
 Copyright (c) 2014      hobbyquaker
 

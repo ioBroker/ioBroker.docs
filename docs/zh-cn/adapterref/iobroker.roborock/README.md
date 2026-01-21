@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: smDDifSzvPSYJWZbe0WA72nSvggJClZlcq2cipjy158=
+hash: dIA1NxNJXvqX4+THUOjsWRaVdzj+RJwVWoamUnsvxTI=
 ---
 ![标识](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -24,6 +24,15 @@ hash: smDDifSzvPSYJWZbe0WA72nSvggJClZlcq2cipjy158=
 **此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
 ### 此适配器无法在 macOS 上使用
+## 双因素身份验证 (2FA)
+如果您已启用双因素身份验证 (2FA) 或适配器提示输入验证码（错误代码 2031）：
+
+1. 查看日志。您应该会看到一条要求输入代码的消息。
+2. 转到 ioBroker 中的**对象**选项卡。
+3. 查找状态“roborock.0.loginCode”（假设实例为 0）。
+4. 将您通过电子邮件收到的 6 位代码输入到 **值** 列中（不带引号）。
+5. 适配器应该能够识别到它并继续登录。
+
 支持的机器人有：
 - Roborock S4
 - Roborock S4 Max

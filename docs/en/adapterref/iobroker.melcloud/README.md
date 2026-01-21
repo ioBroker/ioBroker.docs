@@ -34,6 +34,10 @@ Discussion:
 	### __WORK IN PROGRESS__
 -->
 
+### 3.0.2 (2025-12-07)
+
+- (Black-Thunder) Dependencies were updated
+
 ### 3.0.1 (2025-08-13)
 
 - (Black-Thunder) Setting a state value is now more tolerant of strings.
@@ -298,7 +302,7 @@ Discussion:
 
 MIT License
 
-Copyright (c) 2025 Black-Thunder <glwars@aol.de>
+Copyright (c) 2025-2026 Black-Thunder <glwars@aol.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

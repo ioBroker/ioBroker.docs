@@ -2,86 +2,75 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pi-hole/README.md
-title: ioBroker.pi-hole！[徽标]（admin / pi-hole.png）
-hash: FCNx3Suc9+EPF5ZDlsOuLVsxxLQISMOlUX5P/GY2zTA=
+title: ioBroker.pi-hole ![Logo](admin/pi-hole.png)
+hash: zCjt4T3wLEz5S5KXUAHye39RlUmcbDMKsxvc6X1H+v0=
 ---
+# IoBroker.pi-hole ![标识](../../../en/adapterref/iobroker.pi-hole/admin/pi-hole.png)
+
 ![安装数量](http://iobroker.live/badges/pi-hole-stable.svg)
-![建立状态](https://api.travis-ci.org/unltdnetworx/ioBroker.pi-hole.svg?branch=master)
-![NPM版本](https://img.shields.io/npm/v/iobroker.pi-hole.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.pi-hole.svg)
+![构建状态](https://api.travis-ci.org/unltdnetworx/ioBroker.pi-hole.svg?branch=master)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.pi-hole.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.pi-hole.svg)
 ![NPM](https://nodei.co/npm/iobroker.pi-hole.png?downloads=true)
 
-＃ioBroker.pi-hole![商标](../../../en/adapterref/iobroker.pi-hole/admin/pi-hole.png)
 =================
 
-该适配器可从运行中的pi孔读取值并控制设备（启动/停止）。
+该适配器用于读取正在运行的 pi-hole 的值并控制设备（启动/停止）。
 
-自行承担使用风险！！！绝对不为损坏提供保修，等等！！！
+[警告] 此适配器仅适用于 Pi-hole 6.0.0 以下版本。对于 Pi-hole 6 及更高版本，请使用适配器 [ioBroker.pi-hole2](https://github.com/oweitman/ioBroker.pi-hole2)。
 
-欢迎提供帮助或提示。
+由于 Pi-hole 5 及更早版本已停止维护，此适配器将仅获得非常有限的维护。
 
-＃＃ 脚步
-1.安装adpater
+步骤
+1. 安装适配器
 
-2.填写adapter-admin的字段。可以从pi-hole设备的管理Web界面（设置/ API /获取令牌）获得pi-hole设备的ip地址API令牌，并且必须间隔来更新pi-hole设备的值。 pi漏洞（iobroker中的最新统计信息）
+2. 填写 adapter-admin 的字段。包括 Pi-hole 设备的 IP 地址、API 令牌（可从 Pi-hole 设备的管理 Web 界面获取，路径为“设置/API/获取令牌”），以及 Pi-hole 值更新的间隔（在 iobroker 中更新统计信息）。
 
-3.有些对象是json-tables，您可以在vis内部使用。
+3. 其中一些对象是 json 表格，可以在 vis 中使用。
 
-4.单击“激活pi-hole”按钮激活过滤器，通过更改“ dactivate pi-hole”的值禁用过滤器（0表示永久，数表示秒数）
+4. 点击“激活 Pi-hole”按钮激活过滤器，更改“停用 Pi-hole”的值（0 表示永久停用，数字表示停用秒数）停用过滤器。
 
 ＃＃ 要求
-*运行pi孔设备
+* 正在运行 Pi-hole 设备
 
-##捐赠
-卡菲·比迪恩（Kaffee budieren）/提供咖啡<https://paypal.me/unltdnetworx>
+## 鸣谢
+如果没有 Michael Schuster <development@unltd-networx.de> 的出色工作，这个适配器是不可能实现的，他创建了该适配器的先前版本。
+
+<!-- 下一版本的占位符（位于行首）：
+
+### **正在进行中** -->
+捐赠
+Kaffee costieren/喝杯咖啡 <https://paypal.me/unltdnetworx>
 
 ## Changelog
+### 2.0.0 (2025-12-04)
 
-### 1.2.2
+* (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
+* (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
+* (mcm1957) Dependencies have been updated
 
-* (unltdnetworx) bugfix for objecttypes
+### 1.3.6
 
-### 1.2.1
+* (unltdnetworx) support for controller v5
 
-* (unltdnetworx) bugfix for update notification
+### 1.3.4
 
-### 1.2.0
+* (unltdnetworx) disabled "getQueryTypes" for creating lots of spam entries
 
-* (unltdnetworx) datapoint for available update
+### 1.3.2
 
-### 1.1.0
+* (unltdnetworx) ready for Admin 5 and NodeJS 16
 
-* (unltdnetworx) support for ssl-connection
+### 1.3.1
 
-### 1.0.1
-
-* (unltdnetworx) bugfixes
-
-### 1.0.0
-
-* (unltdnetworx) rise of version-number - stable version
-
-### 0.2.1
-
-* (unltdnetworx) small bugfix for storage
-
-### 0.2.0
-
-* (unltdnetworx) cleanup and bugfix for restart and storage
-
-### 0.1.0
-
-* (unltdnetworx) fully working release for LTE_API
-
-### 0.0.1
-
-* (unltdnetworx) initial release
+* (unltdnetworx) new adapter testing and security update
 
 ## License
 
 MIT License
 
-Copyright (c) 2020 Michael Schuster
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023 Michael Schuster
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

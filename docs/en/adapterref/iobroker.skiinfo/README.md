@@ -251,7 +251,7 @@ console.log(response);
 
 MIT License
 
-Copyright (c) 2025 oweitman <oweitman@gmx.de>
+Copyright (c) 2025-2026 oweitman <oweitman@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

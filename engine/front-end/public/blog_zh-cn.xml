@@ -3,12 +3,32 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[有关ioBroker的新闻，公告和想法]]></description>
         <link>https://www.iobroker.net/#zh-cn/blog</link>
-        <lastBuildDate>Wed, 24 Sep 2025 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 29 Dec 2025 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[2025年回顾]]></title>
+            <description><![CDATA[
+                <p>亲爱的 ioBroker 社区成员们，又一个激动人心的年份即将结束，我们想借此机会与大家一起回顾过去，表达感谢，并展望 2026 年。你们的投入、创造力和忠诚使 ioBroker 成为今天这样充满活力和多元化的开源项目，对此，我们深表感激。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2025_12_29</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2025_12_29</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Mon, 29 Dec 2025 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker 月度回顾 – 2025 年 12 月]]></title>
+            <description><![CDATA[
+                <p>一年即将结束，但 ioBroker 生态系统在过去几个月里一直在积极进行开发、集成和优化。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2025_12_21</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2025_12_21</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 21 Dec 2025 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[ioBroker 月度回顾 – 2025 年 9 月]]></title>
             <description><![CDATA[
-                <p>夏天即将结束，过去几个月，ioBroker 世界发生了很多事情。\n许多新的适配器已经发布，其中一些已经进入稳定存储库，还有几个已在最新的存储库中可用，等待您进行测试。</p>
+                <p>夏季即将结束，过去几个月 ioBroker 社区可谓风起云涌。</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2025_09_24</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2025_09_24</guid>

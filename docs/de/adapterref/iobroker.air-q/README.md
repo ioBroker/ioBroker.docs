@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.air-q/README.md
 title: ioBroker.air-q
-hash: mzD/gjdYCbOB5POtFxieQaf/0hWj1xkhBVHe0CoSR1c=
+hash: /mRC28Db6zteKQ26qsHwEGoBQpAsc98CHy0AbKPJ7ns=
 ---
 # IoBroker.air-q
 
@@ -13,33 +13,38 @@ hash: mzD/gjdYCbOB5POtFxieQaf/0hWj1xkhBVHe0CoSR1c=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/air-q-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.air-q.png?downloads=true)
 
-<img src="admin/air-q.png" alt="Airq-Logo" width="200"/>
+<img src="admin/air-q.png" alt="airq-Logo" width="200"/>
 
 **Tests:** ![Test und Freigabe](https://github.com/CorantGmbH/ioBroker.air-q/workflows/Test%20and%20Release/badge.svg)
 
 ## Inhalt
-- [Über über)
+- [Über uns](#about)
 - [Erste Schritte](#start)
 - [Änderungsprotokoll](#change)
-- [Lizenz](#license)
+- [Lizenz](#Lizenz)
 
 ## Um<a id="about"/>
-Dieser ioBroker-Adapter wird in Verbindung mit unseren [air-Q-Gerät](https://www.air-q.com) verwendet. Es fragt die Werte unserer Sensoren ab und zeigt sie für Sie in der ioBroker-Umgebung an.
-</br> </br>
+Dieser ioBroker-Adapter wird in Verbindung mit unserem [air-Q Gerät](https://www.air-q.com) verwendet. Er ruft die Werte unserer Sensoren ab und zeigt sie Ihnen in der ioBroker-Umgebung an.
+
+</br></br>
 
 ![air-Q_frontal + Seitlich_full](https://github.com/CorantGmbH/ioBroker.air-q/assets/107550719/5c38d737-9641-463f-bd07-ac62ce5f1973)
 
 ## Erste Schritte<a id="start" />
-Sie sollten den Adapter über die Admin-Oberfläche finden können.
+### Installieren Sie den Adapter und fügen Sie eine Instanz hinzu.
+Navigieren Sie in Ihrer Admin-Oberfläche in der Seitenleiste zu `Adapters` und suchen Sie in `Filter by name` nach `air-q`. Wählen Sie im Menü `⋮` (`Info`) des Adapters `+` (`Add instance`) aus.
 
-Ansonsten können Sie gerne die ioBroker-Befehlszeilenschnittstelle über die Konsole verwenden. Gehen Sie einfach direkt zu Ihrem ioBroker-Stammordner und fügen Sie den Adapter über hinzu
+Dadurch werden die Instanzeinstellungen automatisch geöffnet.
+
+Alternativ können Sie die ioBroker-Befehlszeilenschnittstelle über die Konsole verwenden. Wechseln Sie einfach in Ihr ioBroker-Stammverzeichnis und fügen Sie den Adapter hinzu.
 
 ```
 iobroker add air-q
 ```
 
-Dadurch wird der Adapter installiert (falls er noch nicht installiert ist) und eine Instanz gestartet.
-Falls Sie nur den Adapter installieren möchten, ohne noch eine Instanz zu erstellen, verwenden Sie den folgenden Befehl:
+Dadurch wird der Adapter installiert (falls er noch nicht installiert ist) und eine Instanz hinzugefügt. Diese Instanz muss anschließend noch konfiguriert werden, wie unten beschrieben.
+
+Falls Sie den Adapter nur installieren möchten, ohne bereits eine Instanz zu erstellen, verwenden Sie folgenden Befehl:
 
 ```
 iobroker install air-q
@@ -47,24 +52,58 @@ iobroker install air-q
 
 Weitere Informationen finden Sie in der ioBroker CLI-Dokumentation unter https://github.com/ioBroker/ioBroker/wiki/Console-commands.
 
-Um Ihre Instanz zu konfigurieren, wählen Sie einfach aus, ob Sie sie über die IP oder die Kurz-ID Ihres Geräts verbinden möchten.
+## Konfiguration
+### Erforderlich
+Um Ihre Instanz zu konfigurieren, wählen Sie einfach aus, ob Sie die Verbindung über die IP-Adresse oder die Kurz-ID Ihres Geräts herstellen möchten.
 
-![Screenshot 13.02.2024 103001](https://github.com/CorantGmbH/ioBroker.air-q/assets/107550719/ec878783-af56-490d-af66-43c53c27df20)
+<img width="1263" height="953" alt="2025-12-10T17:57:57,025532652+01:00" src="https://github.com/user-attachments/assets/93ff4c76-bdf5-4336-bb5a-1a0aa844ec0d" />
 
-Bitte stellen Sie sicher, dass Sie die richtige IP/ID und das richtige Passwort eingeben.
-Anschließend können Sie auch auswählen, wie die Daten abgerufen werden sollen. Sie können negative Werte ausschneiden, wenn Sie sie nicht benötigen, mit Ausnahme der Temperatur natürlich. Sie können festlegen, wie oft die Daten abgefragt werden sollen, indem Sie die Zahl in Sekunden eingeben. Und schließlich können Sie zwischen Echtzeitdaten und Durchschnittsdaten wählen.
+Bitte stellen Sie sicher, dass Sie die korrekte IP-Adresse/Benutzerkennung und das korrekte Passwort eingeben.
 
-![Screenshot 13.02.2024 104813](https://github.com/CorantGmbH/ioBroker.air-q/assets/107550719/429c57ab-933f-4930-a02b-30da7b5df180)
+### Optional
+- **Nachtmodus des Geräts berücksichtigen**. Standard: `ein`. Wenn auf Ihrem air-Q-Gerät der Nachtmodus aktiviert und WLAN nachts deaktiviert ist, kann der Adapter Abfrageversuche während dieser Stunden automatisch überspringen. Dadurch werden unnötige Verbindungsfehler in Ihren Protokollen vermieden. ⚠️ Wenn Sie die Einstellungen für den Nachtmodus Ihres Geräts ändern (Start-/Endzeit, Aktivieren/Deaktivieren), haben Sie zwei Möglichkeiten:
+1. (Empfohlen): Starten Sie den Adapter neu, um die neue Konfiguration sofort zu laden.
+2. (Automatisch): Warten Sie bis zu 1 Stunde, bis der Adapter die Konfiguration automatisch aktualisiert (funktioniert nur außerhalb der Nachtmoduszeiten).
 
-Jetzt sollten Sie alles eingerichtet und loslegen können!
+- **Negative Werte abschneiden**. Standard: `aus`. Zur Kalibrierung der Basislinie können bestimmte Sensorwerte kurzzeitig negativ werden. Sie können diese Werte bedenkenlos auf 0 abschneiden.
 
-Die Daten werden entsprechend Ihrer Konfiguration abgerufen und im Objekte-Tab angezeigt, wenn das Gerät gefunden wird. Abhängig von Ihrem Gerät werden natürlich möglicherweise mehr Sensoren angezeigt.
+- **Daten alle x Sekunden abfragen**. Standardwert: `10`. Sie können die Abfragehäufigkeit in Sekunden festlegen.
 
-![Screenshot 13.02.2024 110655](https://github.com/CorantGmbH/ioBroker.air-q/assets/107550719/5639fdcb-3acf-4223-b1fa-fb69016c9d7b)
+- **Datentyp auswählen**. Standard: „Durchschnittswerte“. In der Standardkonfiguration mittelt air-Q die Sensorwerte. Mit diesem Adapter können Sie zwischen dem Abrufen der gemittelten und der Rohdaten vom Gerät umschalten. Um verrauschte Sensorwerte abzurufen, wählen Sie im Dropdown-Menü „Echtzeitdaten“ aus.
 
-***Im Moment haben wir alle Sensoren für den air-Q Pro im Lieferumfang enthalten. Optionale Sensoren werden in einem zukünftigen Patch enthalten sein.***
+Jetzt sind Sie bestens vorbereitet und können loslegen!
+
+## Sensoren sind Objekte
+Die Daten werden abgerufen und gemäß Ihrer Konfiguration im Objekt-Tab angezeigt, sobald das Gerät gefunden wurde. Je nach Ihrem Gerät können natürlich weitere Sensoren angezeigt werden.
+
+![Screenshot 2024-02-13 110655](https://github.com/CorantGmbH/ioBroker.air-q/assets/107550719/5639fdcb-3acf-4223-b1fa-fb69016c9d7b)
+
+***Aktuell sind alle Sensoren für den air-Q Pro enthalten. Optionale Sensoren werden in einem zukünftigen Patch hinzugefügt.***
 
 ## Changelog
+
+### 1.0.6
+* The adapter can automatically respect your air-Q device's night mode configuration
+
+### 1.0.5
+* Fixed sensors dropping custom configuration after a restart
+* Updated dependencies: version bump for `adapter-core`
+
+### 1.0.4
+
+* Updated dependencies: bumped multiple packages (`chai-as-promised`, `sinon`, `mocha`) to address vulnerabilities
+* Codebase maintenance: updated `io-package.json` and added tests against Node.js 22
+
+### 1.0.3
+
+* Added a checkbox for showing and hiding the password in the instance configuration
+* Edited the error messages to be more helpful
+* Added logging information when the air-Q device is actually connected
+
+### 1.0.2
+
+* Added units for each sensor value
+* Updates within config files
 
 ### 1.0.1
 

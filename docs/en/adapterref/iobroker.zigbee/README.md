@@ -136,13 +136,39 @@ As the libraries are shared, any device supported in zigbee2mqtt.io will in time
 Other topics related to this adapter are also documented in the associated [wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki).
 
 ## Changelog
-### **WORK IN PROGRESS**
+### **WORK IN PROGRESS
+*
+*
+*
+*
+## Changelog
+### 3.3.2 (2026-01-04)
+* Fix sync brightness / state
+* Fix bug in expose
+* Fix rewrite state config
+*
+
+### 3.3.1 (2025-12-31)
+* Update documentation
+* Color Hue/Saturation in Groups
+* Zigbee-Herdsman v8.x.x
+* Sort by model in Admin
+* Object for complex exposes
+* POSSIBLY BREAKING: Complex exposes changed to 'channel / state' structure
+* Bugfixes
+*
+
+### 3.3.0 (2025-12-08)
 * Fix: dynamic model assignment when exposes is function (PTVO, BuschJaeger)
 * Fix: Roles
 * Refactor: Legacy code moved
 * Refactor: Expose creation changed.
 * Refactor: Exposes no longer use states from legacy code
 * Feature: Offer state rebuild function in Settings
+* (mh2134): Additional filters for device display
+* Fix: Orphaned group states detected, marked and deletable
+* Update: ZH 7.x
+* Update: ZHC 25.84.0
 
 ### 3.2.5 (2025-10-31)
 * (asgothian) changed setState for lasterror
@@ -392,7 +418,7 @@ Other topics related to this adapter are also documented in the associated [wiki
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2025 Kirov Ilya <kirovilya@gmail.com>
+Copyright (c) 2018-2026 Kirov Ilya <kirovilya@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

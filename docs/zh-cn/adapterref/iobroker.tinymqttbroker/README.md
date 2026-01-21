@@ -3,30 +3,30 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: +4BEYBju93eii2cAjZxbr+S6XLLuzNLxSM8pDCE4O68=
+hash: QfKSqlGftbJyv0MlEm0qUNwcfEF1jai3/FY+3jQYAzI=
 ---
 ![标识](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
-![稳定存储库中的当前版本](https://iobroker.live/badges/tinymqttbroker-stable.svg)
+![稳定仓库中的当前版本](https://iobroker.live/badges/tinymqttbroker-stable.svg)
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.tinymqttbroker.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.tinymqttbroker.svg)
 ![安装数量](https://iobroker.live/badges/tinymqttbroker-installed.svg)
-![新平台](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)
 
 # IoBroker.tinymqttbroker
-![测试与发布](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg) [![FOSSA 状态]（https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license）](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
+![测试与发布](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg) [![FOSSA 状态](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
 
-## 用于 ioBroker 的 tinymqttbroker 适配器
-这是非常小的 MQTT 代理，它不管理 iobroker 中的任何对象/状态，但提供了一个中央 MQTT 代理实例，以 MQTT 客户端的身份发布订阅主题。非常有助于让多个设备与一个代理对话，并通过 MQTT 客户端 javascript 在 iobroker 上进行交互。
+## IoBroker 的 tinymqttbroker 适配器
+这是一个非常小巧的 MQTT 代理，它不管理 iobroker 中的任何对象/状态，而是提供一个中央 MQTT 代理实例，供 MQTT 客户端发布和订阅主题。它非常便于多个设备与同一个代理通信，并通过 MQTT 客户端 JavaScript 在 iobroker 上进行交互。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！
 
 ## 需要
 * Node.js 20 或更高版本
-* ioBroker 主机 (js-controller) 5.0 或更高版本
+* ioBroker 主机（js-controller）5.0 或更高版本
 
-如何使用
-MQTT 客户端可能看起来像
+## 如何使用它
+MQTT 客户端可能看起来像这样
 
 ```
 const mqtt = require('mqtt');
@@ -64,20 +64,21 @@ client.on('message', (topic: string, payload) => {
 })
 ```
 
-为了发布消息，我使用一个 ioBroker 状态来监听任何更改并将其推送到代理。
-状态需要包含“主题”和“消息”的 JSON。
+发布消息时，使用了一个专用的 ioBroker 状态，该状态监听任何更改并将其转发给 MQTT 代理。
+
+该状态需要一个包含主题和消息的 JSON 有效负载。
 
 ```
 on({ id: stateMqttIn, change: 'any' }, function (obj) {
-    let input: any = obj.state.val;
-    let topic: string = input.topic;
-    let message: string = String(input.message);
+    const input: any = obj.state.val;
+    const topic: string = input?.topic ?? null;
+    const message: string = String(input?.message) ?? null;
     if (topic && message) client.publish(topic, message);
-    else log(`MQTT publish not possible with topic '${topic}' and message '${message}'`,'warn');
+    else log(`MQTT publish not possible for topic '${topic}' and message '${message}'`, 'warn');
 });
 ```
 
-重要提示！如果您在 ioBroker javascript 中创建自己的 MQTT 客户端，请不要忘记使用以下命令在脚本中关闭客户端
+重要提示！如果您在 ioBroker JavaScript 脚本中实现了自己的 MQTT 客户端，请务必在脚本结束时通过调用以下代码正确关闭客户端：
 
 ```
 onStop(function (callback) {
@@ -96,6 +97,13 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (HGlab01) Update libs
+* (HGlab01) (c) 2026
+
+### 0.1.4 (2025-04-22)
+* (HGlab01) Improve port scan
+
 ### 0.1.3 (2024-10-19)
 * (HGlab01) Improve port scan for available ports
 * (HGlab01) Improve UI config
@@ -130,7 +138,7 @@ onStop(function (callback) {
 ## License
 MIT License
 
-Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2026 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

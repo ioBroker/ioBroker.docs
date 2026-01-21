@@ -213,9 +213,13 @@ Enable debug logging in adapter settings to see detailed information about:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.1.2 (2025-12-10)
 - (jbeenenga) fix invalid state roles according to ioBroker documentation
-- (jbeenenga) fix repository checker issues
+- (jbeenenga) fix repository checker issues (#237)
+  - Corrected schema URL in .vscode/settings.json
+  - Added jsonConfig schema validation
+  - Updated release-script packages to latest versions
+- (jbeenenga) fix jsonConfig validation errors - replaced title with label in table items
 
 ### 2.1.1 (2025-09-02)
  - (jbeenenga) correct outsite temperature path setting
@@ -282,7 +286,7 @@ Enable debug logging in adapter settings to see detailed information about:
 
 MIT License
 
-Copyright (c) 2025 jbeenenga [j.beenenga@gmail.com](mailto:j.beenenga@gmail.com)
+Copyright (c) 2025-2026 jbeenenga [j.beenenga@gmail.com](mailto:j.beenenga@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

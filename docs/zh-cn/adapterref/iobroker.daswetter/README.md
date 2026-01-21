@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.daswetter/README.md
 title: ioBroker.DasWetter。
-hash: DYcvTEtuN7DdGtev2cQo55gxW1WLYUgMzzGtAMFX8Tc=
+hash: stE6gX4ZLBIDpUfcSkZuqNpxHO6qAAB7R1hJHUWWH6s=
 ---
 ![标识](../../../en/adapterref/iobroker.daswetter/admin/daswettercom.png)
 
@@ -11,63 +11,65 @@ hash: DYcvTEtuN7DdGtev2cQo55gxW1WLYUgMzzGtAMFX8Tc=
 ![下载](https://img.shields.io/npm/dm/iobroker.daswetter.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.daswetter.svg)
 ![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.daswetter/badge.svg)
-![新平台](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
-![节点](https://img.shields.io/node/v-lts/iobroker.daswetter?style=flat-square)
+![NPM](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
+![节点-lts](https://img.shields.io/node/v-lts/iobroker.daswetter?style=flat-square)
 ![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.daswetter?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.daswetter?style=flat-square)
 ![GitHub 仓库大小](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
-![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
-![GitHub 上次提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![GitHub提交活动](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![GitHub 最新提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
 ![GitHub 问题](https://img.shields.io/github/issues/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
 
-#ioBroker.DasWetter。
-![GitHub 操作](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.DasWetter。
+![GitHub Actions](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
-**如果您喜欢它，请考虑捐赠：**
+如果您喜欢，请考虑捐赠：
 
-[![贝宝]（https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-该适配器从 DasWetter.com 读取天气预报数据。
+该适配器读取来自 DasWetter.com 的天气预报数据。
 
-**注意：目前，DasWetter 上似乎无法进行新注册。请不要在适配器中打开任何票证，因为我们对数据提供商没有影响。一旦我们有新信息，我们将在此处发布。**
+## 更新提示 v4
+此适配器 v4 使用新的 API (2026)。与旧版本适配器相比，数据结构已有所不同。必须删除旧实例并创建新的适配器实例。
 
-您需要一个 DasWetter.com 账户。在 https://www.daswetter.com/api/#/login 注册。在特定条件下，该账户是免费的。
+所有用户都必须在 DasWetter 网站上启用新的 API。网站会提供一个 API 密钥，必须在适配器设置中使用该密钥。
 
-在您的帐户中，您将发现三种 URL，分别对应四种不同的数据模型：
+新 API 也允许新用户在 [DasWetter](https://dashboard.meteored.com/de/login) 网站上注册。
 
-* 未来 7 天的预报和当天的一般信息：最高和最低温度、风（符号和描述）、当天符号和天气状况
-* 5 天和每 3 小时的详细信息：一般每日信息如下：峰值、低温、风、阵风、降水、相对湿度，
+## 一般功能
+用户必须先在 [DasWetter](https://dashboard.meteored.com/de/login) 服务器上启用 API。
 
-海平面气压、雪线、日出和日落、与月亮相关的日期、当地时间
+适配器配置中需要包含 API 密钥、邮政编码和城市名称，之后适配器才能从服务器检索天气预报数据。
 
-* 每小时预览一次详细数据（仅限前 2 天，之后每 3 小时一次）
-* 预测5天和每3小时一次（JSON格式）
+适配器启动后，首先会进行位置检查。我们会尝试使用邮政编码查找最近的气象站。由于邮政编码相似，服务器通常会返回来自不同国家/地区的不同位置。然后，适配器会尝试使用城市名称查找正确的气象站。
 
-已实施所有四种模型，至少应使用一种。
-在设置中必须使用类似 http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx 的 URL。只需从您的帐户复制完整的 URL 即可。
+如果找到了最近的气象站，则会在内部存储一个位置哈希值，该哈希值稍后用于请求天气预报数据。
 
-## 提示
-### Vis 中使用的图标
-* 访问图标如“http://ip:8082/adapter/daswetter/icons/tiempo-weather/galeria1/1.png”。
-* galerie6 中的原始图标为 svg 格式。Vis 应用程序可能无法将其可视化。因此可以使用转换后的 png。只需使用选项“使用 png”
-* galerie5 中的原始图标为 svg 和 png 格式。此外还有彩色和白色版本可供选择
+目前只有两条路径可用。
 
-### NextHours_Day1 中的“当前”：
-* DasWetter.com 不提供真实的当前天气值
-* 但有时了解当前时段的天气预报会很有帮助
-* 因此我们添加了“当前”，它只是相关预测小时值的副本
-* 请确保每小时至少调用适配器一次，以确保“当前”已更新
-* 另请参阅 github 功能请求 [issue24](https://github.com/rg-engineering/ioBroker.daswetter/issues/24)
+* 每日预报
 
-### 路径 4
-* 目前 DasWetter.com 发送的数据与其自己的规范不同。
+每日天气预报提供未来5天的总体天气预报数据
 
-现在我们已经实现了“自动修复”，可以将结构改变为记录的形状。
+* 小时预报
 
-## 已知问题
-* 如果您发现错误或者需要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.daswetter/issues) 创建问题
+逐小时预报提供当天24小时的更详细预报。
+
+我们努力将服务器请求次数降至最低。每个用户也应该尽可能减少请求次数。Meteored 为我们提供了免费的基础套餐……
+
+免费计划的限制
+![免费计划限制](../../../en/adapterref/iobroker.daswetter/docs/free_plan.png "免费计划限制")
+
+### 替代方案
+如果预测结果仅用于可视化，则 [小部件](https://www.daswetter.com/users/de/widget) 也是一个不错的选择。
+
+[Vis-2 小部件](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating?tab=readme-ov-file#meteored-weather-widget) 已可用。
+
+提示
+已知问题
+如果您发现错误或希望添加新功能，请在 [github](https://github.com/rg-engineering/ioBroker.daswetter/issues) 创建 issue。
 
 ## Changelog
 
@@ -75,13 +77,49 @@ hash: DYcvTEtuN7DdGtev2cQo55gxW1WLYUgMzzGtAMFX8Tc=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.1.0 (2025-12-28)
+* (René) see issue #457: forecast download for daily and hourly can now be disabled to reduce number of DP's
+* (René) see issue #456: combination of postcode and free text search for location API added, if location not found by postcode a free text search is executed
+* (René) see issue #458: unit for pressure changed to millibar / hPa
+* (René) see issue #459: bug fix to be able to edit custom path for moon symbols
+* (René) if API provides night specific symbol description, it will be shown now
+* (René) datapoint descriptions changed
+
+### 4.0.0 (2025-12-27)
+**Breaking Changes**
+instances of older versions **must be deleted** and a new instance must be created
+* (René, copilot) rework with typescript
+* (René, copilot) support of new api from DasWetter.com
+* (René) adapter type changed from "scheduled" to "deamon"
+
+### 3.2.8 (2025-11-02)
+* (René) see issue #444: avoid crash if no data received, show response status in debug log
+
+### 3.2.7 (2025-11-02)
+* (René) enable / disable each path separately in admin
+
+### 3.2.6 (2025-10-22)
+* (René) #417: bug fix: allow 14 minutes between two data requests to avoid unnecessary warnings
+
+### 3.2.5 (2025-10-21)
+* (René) #442: bug fix for state of wind direction
+* (René) #417: info, if data query is too often (max. 4 times per hour)
+* (René) update dependencies + changes based on adapter checker
+
+### 3.2.4 (2025-10-04)
+* (René) new testing
+* (René) update dependencies + changes based on adapter checker
+
+### 3.2.3 (2025-02-26)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
 ### 3.2.2 (2024-12-15)
 * (René) translations
-*
+* (René) see issue #408: hint regarding user registration limitation added
 
 ### 3.2.1 (2024-12-06)
 * (René) see issue #411: jsonConfig fixed
-* (René) see issue #408: hint regarding user registration limitation added
 
 ### 3.2.0 (2024-12-04)
 * (René) see issue #406: test with nodejs@22
@@ -235,7 +273,7 @@ needs also 2.x of vis-weather-widget
 
 MIT License
 
-Copyright (c) 2017-2024 René G. <info@rg-engineering.eu>
+Copyright (c) 2017-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

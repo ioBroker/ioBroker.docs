@@ -35,12 +35,16 @@ The summary channel contains a current and by-day forecast with role/types of st
 New feature can be used in order to show weather forecast in Lovelace UI. 
 For better view a custom lovelace card is created - see https://github.com/algar42/IoB.lovelace.accuweather-card
 
-## Changelog
-
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin 7.6.17 now
+
 ### 2.1.1 (2025-09-02)
 * (mcm1957) Dependencies have been updated
 

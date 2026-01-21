@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.squeezeboxrpc/README.md
 title: ioBroker Logitech/Lyrion Squeezebox Adapter über JSON/RPC-Protokoll
-hash: 1FXGg6yCRjI6wLTdl6pM7NZQJUVnpljvXchtFitYDsc=
+hash: O2jezqaszJ9T2f0UI86YdPQf8yiJ7hE+AbUKP3pTifc=
 ---
 ![Logo](../../../en/adapterref/iobroker.squeezeboxrpc/admin/squeezeboxrpc.png)
 
@@ -14,50 +14,54 @@ hash: 1FXGg6yCRjI6wLTdl6pM7NZQJUVnpljvXchtFitYDsc=
 ![NPM](https://nodei.co/npm/iobroker.squeezeboxrpc.png?downloads=true)
 
 # IoBroker Logitech/Lyrion Squeezebox Adapter über JSON/RPC-Protokoll
-**Tests:** ![Testen und Freigeben](https://github.com/oweitman/ioBroker.squeezeboxrpc/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/oweitman/ioBroker.squeezeboxrpc/workflows/Test%20and%20Release/badge.svg)
 
-Dies ist ein alternativer Adapter, der das `JSON/RPC`-Protokoll verwendet, um Daten abzurufen und Befehle an den Logitech Media Server/Lyrion Media Server ([LMS](https://de.wikipedia.org/wiki/Lyrion_Music_Server)) zu senden und so angeschlossene Geräte zu steuern, wie
+Dies ist ein alternativer Adapter, der das `JSON/RPC`-Protokoll verwendet, um Daten zu empfangen und Befehle an den Logitech Media Server/Lyrion Media Server ([LMS](https://de.wikipedia.org/wiki/Lyrion_Music_Server)) zu senden, um angeschlossene Geräte wie z. B. zu steuern.
 
 - native [Squeezebox](https://de.wikipedia.org/wiki/Squeezebox),
-- Raspberry Pi mit zusätzlichem Audiomodul und kleinen Linux-basierten Firmwares
+- Raspberry Pi mit zusätzlichem Audiomodul und kleiner Linux-basierter Firmware
 
 wie [picoreplayer](https://picoreplayer.org/) oder [max2play](https://www.max2play.com).
 
-- WiiM Multiroom Audio ([kann mit einem LMS/Lyrion-Server kommunizieren](https://faq.wiimhome.com/en/support/solutions/articles/72000610226-how-to-stream-music-from-lms-to-your-wiim-device-with-squeezelite))
-- mit Plugins Chromecast, Airplay oder `UPnP/DLNA`-Geräte
+- WiiM Multiroom-Audio ([kann mit einem LMS/Lyrion-Server kommunizieren](https://faq.wiimhome.com/en/support/solutions/articles/72000610226-how-to-stream-music-from-lms-to-your-wiim-device-with-squeezelite))
+- mit Chromecast-, AirPlay- oder UPnP/DLNA-Plugins
 
-Der `LMS`-Server kann sehr große Musiksammlungen auf Festplatten oder `NAS` verwalten/bereitstellen und sich mit verschiedenen Streaming-Anbietern wie `Spotify`, `Deezer`, `Soundcloud`, `shoutcast`, `tunein`, `napster`, `pandora`, `tidal` und mehr verbinden
+Der `LMS`-Server kann sehr große Musiksammlungen auf Festplatten oder `NAS` verwalten/bereitstellen und Verbindungen zu verschiedenen Streaming-Anbietern wie `Spotify`, `Deezer`, `Soundcloud`, `shoutcast`, `tunein`, `napster`, `pandora`, `tidal` und weiteren herstellen.
 
 ## Merkmale
-- die meisten [Daten](#Server), die der `LMS`-Dienst bereitstellt, sind im Adapter verfügbar
-- detaillierte [Informationen](#players) über den Player-Status, Songtitel, Künstler,
+- Die meisten Daten (Daten)(#server), die der `LMS`-Dienst bereitstellt, sind im Adapter verfügbar.
+- detaillierte [Informationen](#Player) über den Spielerstatus, den Songtitel, den Interpreten,
 
-Album, Artwork, Playlist
+Album, Cover, Playlist
 
-- [viele Steuerfunktionen](#provided-states) zum Abspielen, Anhalten, Stoppen, Vorspulen,\
+- [viele Steuerungsfunktionen](#provided-states) zum Abspielen, Pausieren, Stoppen, Vorspulen,\
 
-Zurückspulen, Wiederholen, Zufallswiedergabe, Favoriten abspielen, Zur Zeit springen (absolut und relativ), Zum Playlist-Index springen (absolut und relativ), Ein-/Ausschalten und Voreinstellungstasten
+Zurückspulen, Wiederholen, Zufallswiedergabe, Favoriten abspielen, zu einer bestimmten Zeit springen (absolut und relativ), zu einem bestimmten Wiedergabelistenindex springen (absolut und relativ), Ein-/Ausschalter und Voreinstellungen
 
 - alle [Favoriten](#Favoriten) und alle Unterebenen vom Server
-- viele [Widgets](#widgets) für die iobroker-vis Komponente sind enthalten in\
+- viele [Widgets](#widgets) für die iobroker-vis-Komponente sind enthalten
 
-Erstellen Sie eigene Benutzeroberflächen zur Steuerung (Player auswählen, Favoriten auswählen, Synchronisierungsgruppen verwalten, Schaltflächen für Wiedergabe/Pause, Vorspulen, Zurückspulen, Wiederholungsmodus und Auswahl des Zufallsmodus).
+Eigene Steuerungsschnittstellen erstellen (Player auswählen, Favoriten auswählen, Synchronisierungsgruppen verwalten, Schaltflächen für Wiedergabe/Pause, Vorwärts, Rückwärts, Wiederholungsmodus und Zufallswiedergabemodus auswählen)
 
 ## Installation
 - Installieren Sie das Paket
 - Erstellen Sie eine Instanz
-- Konfigurieren Sie die Instanz mit der IP des Logitech/Lyrion-Medienservers
+- Konfigurieren Sie die Instanz mit der IP-Adresse des Logitech/Lyrion-Medienservers.
 
-und den Port (normalerweise 9000)
+und der Port (normalerweise 9000)
 
-- Starten/Neustarten der Instanz
+- Instanz starten/neu starten
 
 ## Aktualisieren
 - Nach der Installation oder Aktualisierung kann es manchmal notwendig sein\
 
-um den folgenden Befehl auszuführen, wenn Probleme in vis-1 aufgetreten sind
+Führen Sie den folgenden Befehl aus, falls in vis-1 Probleme aufgetreten sind.
 
 `iobroker upload squeezeboxrpc`
+
+## Fehlerbehebung
+### SLIMP3-Spieler
+Es wurde berichtet, dass ältere SLIMP3-Player möglicherweise keine Verbindung zum Server herstellen können, während der Adapter nach neuen Servern sucht. Durch Deaktivieren der Suche unter „Instanzkonfiguration → Leistungseinstellungen → Suche nach anderen LMS-Servern“ sollte die Verbindung des Players wiederhergestellt werden.
 
 ## Bereitgestellte Zustände
 ### Server
@@ -67,46 +71,46 @@ um den folgenden Befehl auszuführen, wenn Probleme in vis-1 aufgetreten sind
 | `PlayerCountOther` | Anzahl bekannter anderer Spieler |
 | `PlayerCountSN` | Anzahl bekannter SN-Spieler |
 | `TotalAlbums` | Anzahl aller bekannten Alben |
-| `TotalArtists` | Anzahl aller bekannten Interpreten |
-| `TotalDuration` | Gesamtspielzeit aller Songs |
+| `TotalArtists` | Anzahl aller bekannten Künstler |
+| `TotalDuration` | Gesamtspielzeit aller Lieder |
 | `TotalGenres` | Anzahl aller bekannten Genres |
 | `TotalSongs` | Anzahl aller bekannten Lieder |
-| `SyncGroups` | Vorhandene Syncgroups |
+| `SyncGroups` | Vorhandene Synchronisierungsgruppen |
 | `Version` | Version von `LMS` |
-| `mac` | MAC-ID des Servers |
+| `mac` | MAC-Adresse des Servers |
 | `uuid` | UUID der `LMS`-Instanz |
 | `uuid` | UUID der `LMS`-Instanz |
 
-zusätzlich ein definierter Button zum Aktualisieren der Favoriten
+zusätzlich eine definierte Schaltfläche zum Aktualisieren der Favoriten
 
 | Schaltfläche | Beschreibung |
 | -------------- | --------------------------------- |
-| `getFavorites` | alle Favoriten vom Server anfordern |
+| `getFavorites` | Alle Favoriten vom Server anfordern |
 
 ### Favoriten
-Für jeden Favoriten sind alle Attribute schreibgeschützt
+Für jeden Favoriten sind alle Attribute schreibgeschützt.
 
 | Bundesland | Beschreibung |
 | ---------- | ------------------------------------------ |
 | `Name` | Name des Favoriten |
 | `id` | ID des Favoriten |
-| `image` | Bild/Symbol für Favoriten, falls verfügbar |
+| `image` | Bild/Symbol für Favorit, falls verfügbar |
 | `isaudio` | isaudio |
-| `type` | Beispieltypen: Link, Text, Audio, Wiedergabeliste |
+| `type` | Beispieltypen: Link, Text, Audio, Playlist |
 | `url` | URL des Titels |
 | `url` | URL des Titels |
 
-Alle Unterebenen (Unterverzeichnisse) der Favoriten sind verfügbar.
+Alle Unterebenen (Unterverzeichnisse) von Favoriten sind verfügbar.
 
 ### Spieler
-für jeden Spieler Der Modus zeigt an, ob Sie den Wert ändern können. Die ausgeführte Aktion wird beim Attribut beschrieben.
+Für jeden Spieler zeigt der Modus an, ob der Wert geändert werden kann. Die durchgeführte Aktion wird im Attribut beschrieben.
 
-| Status | Modus | Beschreibung |
+| Zustand | Modus | Beschreibung |
 | ---------------------- | ---- | -------------------------------------------------------------------------------------------------------------------- |
-| `Alarms` | R/- | Alle registrierten Alarme für diesen Player als JSON |
+| `Alarms` | R/- | Alle registrierten Alarme für diesen Spieler als JSON |
 | `Artist` | R/- | Name des Künstlers |
 | `ArtworkUrl` | R/- | URL zum Kunstwerk |
-| `Bitrate` | R/- | Bitrate des Titels |
+| `Bitrate` | R/- | Bitrate des Tracks |
 | `Connected` | R/- | Verbindungsstatus des Spielers (0/1) |
 | `Duration` | R/- | Dauer des Titels |
 | `Genre` | R/- | Genre des Titels |
@@ -114,40 +118,41 @@ für jeden Spieler Der Modus zeigt an, ob Sie den Wert ändern können. Die ausg
 | `Mode` | R/- | Wiedergabe / Pause / Stopp |
 | `Playername` | R/- | Name des Spielers |
 | `PlayerID` | R/- | Spieler-ID |
-| `Playlist` | R/- | Die aktuelle Playlist als JSON |
-| `PlaylistCurrentIndex` | R/W | Gehe zu einer absoluten Position, indem du den Trackindex angibst, oder gehe relativ, indem du am Anfang ein + oder - eingibst. Beispiel 10,-3,+2 |
-| `PlaylistRepeat` | R/W | Lied(1)/Playlist(2)/Nicht wiederholen(0) wiederholen |
-| `PlaylistShuffle` | R/W | Zufallswiedergabe der Wiedergabeliste (1)/Zufallswiedergabe des Albums (2)/Nicht Zufallswiedergabe (0) |
-| `Power` | R/W | Energiestatus des Players aus(0)/an(1) holen/setzen |
+| `Playlist` | R/- | Die eigentliche Playlist als JSON |
+| `PlaylistCurrentIndex` | R/W | Gehen Sie zu einer absoluten Position, indem Sie den Trackindex angeben, oder zu einer relativen Position mit einem + oder - am Anfang. Beispiel: 10,-3,+2 |
+| `PlaylistRepeat` | R/W | Lied wiederholen(1)/Playlist(2)/Nicht wiederholen(0) |
+| `PlaylistShuffle` | R/W | Playlist zufällig wiedergeben(1)/Album zufällig wiedergeben(2)/Nicht zufällig wiedergeben(0) |
+| `Power` | R/W | Energiestatus des Spielers abrufen/setzen: aus (0)/ein (1) |
 | `RadioName` | R/- | Name des Radiosenders |
-| `Rate` | R/- | Bewertung des Songs |
-| `Remote` | R/- | Wenn Remote-Stream (1) |
+| `Rate` | R/- | Bewertung des Liedes |
+| `Remote` | R/- | Falls Remote-Stream (1) |
 | `SyncMaster` | R/- | ID/MAC von Syncmaster |
-| `SyncSlaves` | R/- | ID/Mac der Spieler in der Syncgroup |
-| `Time` | R/- | verstrichene Liedzeit |
+| `SyncSlaves` | R/- | ID/MAC der Spieler in der Syncgroup |
+| `Time` | R/- | verstrichene Songzeit |
 | `Title` | R/- | Songtitel |
-| `Type` | R/- | Medientyp (zB MP3-Radio) |
+| `Type` | R/- | Medientyp (z. B. MP3 Radio) |
 | `Url` | R/- | URL des Titels/Streams |
 | `Volume` | R/W | Lautstärke des Players abrufen/einstellen (0-100) |
-| `state` | R/W | Wiedergabestatus abrufen/einstellen: Pause(0),Wiedergabe(1),Stopp(2) |
-| `state` | R/W | Wiedergabestatus abrufen/festlegen: Pause(0),Wiedergabe(1),Stopp(2) |
+| `state` | R/W | Wiedergabestatus abrufen/setzen: Pause(0),Wiedergabe(1),Stopp(2) |
+| `state` | R/W | Wiedergabestatus abrufen/setzen: Pause(0), Wiedergabe(1), Stopp(2) |
 
-Die Playlist enthält die folgenden Attribute, sofern sie in `LMS` verfügbar sind.
-Einige Attribute hängen vom Songtyp (Stream/Datei/...) ab. Alle Attribute sind schreibgeschützt.
+Die Wiedergabeliste stellt die folgenden Attribute bereit, sofern diese in `LMS` verfügbar sind.
+
+Einige Attribute hängen vom Musiktyp ab (Stream/Datei/...). Alle Attribute sind schreibgeschützt.
 
 | Attribut | Beschreibung |
 | ------------ | --------------------------------- |
 | `Album` | Name des aktuellen Albums |
 | `ArtworkUrl` | URL zum Kunstwerk |
-| `Bitrate` | Bitrate des Titels |
+| `Bitrate` | Bitrate des Tracks |
 | `Duration` | Dauer des Titels |
 | `RadioName` | Name des Radiosenders |
-| `Rate` | Bewertung des Songs |
+| `Rate` | Bewertung des Liedes |
 | `title` | Songtitel |
-| `Type` | Medientyp (zB MP3-Radio) |
+| `Type` | Medientyp (z. B. MP3-Radio) |
 | `url` | URL des Titels/Streams |
-| `index` | Index des Songs in der Playlist |
-| `id` | ID des Lieds |
+| `index` | Index des Liedes in der Playlist |
+| `id` | ID des Liedes |
 | `id` | ID des Liedes |
 
 zusätzlich definierte Schaltflächen:
@@ -155,23 +160,23 @@ zusätzlich definierte Schaltflächen:
 | Schaltfläche | Beschreibung |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `btnForward` | Nächstes Lied |
-| `btnPreset\_\*` | 1–6 Schaltflächen zum Definieren im Player oder Server |
-| `cmdGeneral` | Ein allgemeines Befehlsfeld zum Senden von Befehlen an den Spieler. Jedes Feld muss in Anführungszeichen gesetzt werden. Parameter müssen durch Kommas getrennt werden. Beispiel: "play","1" |
-| `cmdPlayFavorite` | um einen Favoriten abzuspielen, legen Sie die ID des Favoriten fest |
-| `cmdPlayUrl` | um eine URL abzuspielen, Beispiel "<http://50.7.77.114:8101/>;" |
-| `cmdGoTime` | Springe zu einer absoluten Position durch Angabe einer Sekundenzahl oder springe relativ mit einem + oder - am Anfang der Sekunden. Beispiel 100,-50,+50 |
-| `cmdGoTime` | springe zu einer absoluten Position durch Angabe einer Sekundenzahl oder springe relativ mit einem + oder - am Anfang der Sekunden. Beispiel 100,-50,+50 |
+| `btnPreset\_\*` | 1-6 Schaltflächen zur Belegung im Spieler oder Server |
+| `cmdGeneral` | Ein allgemeines Befehlsfeld zum Senden von Befehlen an den Spieler. Jedes Feld muss in Anführungszeichen eingeschlossen werden. Parameter müssen durch Kommas getrennt werden. Beispiel: "play","1" |
+| `cmdPlayFavorite` | Um einen Favoriten abzuspielen, muss die ID des Favoriten festgelegt werden. |
+| `cmdPlayUrl` | um eine URL abzuspielen´Beispiel "<http://50.7.77.114:8101/>;" |
+| `cmdGoTime` | Springe zu einer absoluten Position, indem du eine Anzahl von Sekunden angibst, oder zu einer relativen Position, indem du ein + oder - am Anfang der Sekunden einfügst. Beispiel: 100,-50,+50 |
+| `cmdGoTime` | Springe zu einer absoluten Position, indem du eine Anzahl von Sekunden angibst, oder zu einer relativen Position mit einem + oder - am Anfang der Sekunden. Beispiel: 100,-50,+50 |
 
-#### Anmerkungen zu Datenpunkten abhängig von der Einstellung TPE2 im LMS
-Je nach Einstellung werden den Datenpunkten unterschiedliche MP3-Tags übergeben.
+#### Anmerkungen zu Datenpunkten in Abhängigkeit von der Einstellung TPE2 im LMS
+Je nach Einstellung werden den Datenpunkten unterschiedliche MP3-Tags zugewiesen.
 Die großgeschriebenen Namen sind die Namen der MP3-Tags.
 
-| TPE2 in LMS einstellen | Künstler | Albumkünstler | Trackkünstler | Band |
+| TPE2 in LMS einstellen | Künstler | Albumkünstler | Titelkünstler | Band |
 | ------------------------------ | ----------- | ----------- | ----------- | ----------- |
-| als Band | KÜNSTLER | leer | TRACKARTIST | ALBUMARTIST |
-| als Interpreten des Albums | ALBUMARTIST | ALBUMARTIST | leer | leer |
+| als Band | KÜNSTLER | leer | TITELKÜNSTLER | ALBUMKÜNSTLER |
+| als die Interpreten des Albums | ALBUMARTIST | ALBUMARTIST | leer | leer |
 
-Zu beachten ist außerdem, dass nach einer Änderung im LMS die gesamte Bibliothek neu durchsucht und indexiert werden muss, sowie ein Song gestoppt und neu gestartet werden muss, bevor das LMS weitere Daten liefert.
+Es ist außerdem zu beachten, dass nach einer Änderung im LMS die gesamte Bibliothek erneut durchsucht und indiziert werden muss und ein Lied angehalten und neu gestartet werden muss, bevor das LMS andere Daten liefert.
 
 ### Weitere API-Dokumentation
 Weitere Informationen finden Sie in der CLI-Dokumentation:
@@ -179,145 +184,145 @@ Weitere Informationen finden Sie in der CLI-Dokumentation:
 <https://github.com/oweitman/LMS-CLI-Documentation/blob/master/LMS-CLI.md>
 
 ## Widgets
-### Player-Schaltflächenleiste
-![Player-Schaltflächenleiste](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/players.png)
+### Spieler-Schaltflächenleiste
+![Spieler-Schaltflächenleiste](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/players.png)
 
-Über dieses Widget können alle Player ausgewählt werden, die in Ihren Logitech/Lyrion Media Server integriert sind. Nach Auswahl einer `squeezerpc.?`-Instanz werden die verfügbaren Player im Widget angezeigt.
+Alle in Ihren Logitech/Lyrion Media Server integrierten Player können über dieses Widget ausgewählt werden. Nach Auswahl einer `squeezerpc.?`-Instanz werden die verfügbaren Player im Widget angezeigt.
 
 #### Attribute
 | Gruppe | Attribut | Beschreibung |
 | ----------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SqueezeboxRPC-Instanz | Gruppe „Allgemein“ | Wählen Sie eine Instanz des SqueezeboxRPC-Adapters aus. Nur diese werden hier als gültig erkannt. |
-| Widget-Format | Gruppe Allgemein | Hier kann der Widget-Typ ausgewählt werden. Der Typ „formatbutton“ verfügt über den vollen Funktionsumfang und funktioniert auch mit dem SyncGroup-Widget. Der Typ „formatselect“ ist eine einfache Auswahlbox. Als Name wird der Spielername oder ein individueller Text verwendet. |
-| Index anzeigen | Gruppe Allgemein | Einzelne Schaltflächen können durch Löschen des Indexes ausgeblendet oder in anderer Reihenfolge angezeigt werden. Dazu wird die jeweilige Indexposition inklusive Komma gelöscht. Indexnummern werden im Bearbeitungsmodus auf der jeweiligen Schaltfläche angezeigt, sofern die Hilfefunktion aktiviert ist. |
-| Zeilenumbruch in CamelCase | Gruppe Allgemein | Wenn der Spielername in CamelCase geschrieben ist, kann hier ein Zeilenumbruch aktiviert werden, damit der Spielername größer auf dem Button erscheint. |
-| Hilfe zum Bearbeitungsmodus | Gruppe „Allgemein“ | Wenn diese Hilfe aktiviert ist, werden Indexnummern auf der jeweiligen Schaltfläche angezeigt und die Einstellung „Transparenz“ in den Schaltflächeneinstellungen hat keine Auswirkung. |
+| Widget-Format | Allgemeine Gruppe | Hier kann der Widget-Typ ausgewählt werden. Der Typ „Formatbutton“ bietet den vollen Funktionsumfang und ist auch mit dem SyncGroup-Widget kompatibel. Der Typ „Formatselect“ ist ein einfaches Auswahlfeld. Als Name wird der Spielername oder ein individueller Text verwendet. |
+| Anzeigeindex | Allgemeine Gruppe | Einzelne Schaltflächen können durch Löschen ihres Index ausgeblendet oder in einer anderen Reihenfolge angezeigt werden. Zum Ausblenden löschen Sie einfach die jeweilige Indexposition einschließlich des Kommas. Indexnummern werden im Bearbeitungsmodus auf der jeweiligen Schaltfläche angezeigt, sofern die Bearbeitungshilfe aktiviert ist. |
+| Zeilenumbruch in CamelCase | Allgemeine Gruppe | Wenn der Spielername in CamelCase geschrieben ist, kann hier ein Zeilenumbruch aktiviert werden, damit der Spielername auf dem Button größer erscheint. |
+| Hilfe zum Bearbeitungsmodus | Gruppe Allgemein | Wenn diese Hilfe aktiviert ist, werden Indexnummern auf der jeweiligen Schaltfläche angezeigt, und die Einstellung „Transparenz“ in den Schaltflächeneinstellungen hat keine Auswirkung. |
 | Bildbreite | Schaltflächeneinstellungen | Bildbreite einer Schaltfläche |
 | Bildhöhe | Schaltflächeneinstellungen | Bildhöhe einer Schaltfläche |
-| Transparenz | Schaltflächeneinstellungen | Wenn die Schaltfläche nicht aktiviert ist, wird sie vor dem Hintergrund verborgen. 0 = Unsichtbar, 1 = Vollständig sichtbar |
+| Transparenz | Schaltflächeneinstellungen | Wenn die Schaltfläche nicht aktiviert ist, hebt sie sich vom Hintergrund ab. 0 = Unsichtbar, 1 = Vollständig sichtbar |
 | Rahmenbreite | Schaltflächeneinstellungen | Rahmenbreite in Pixeln um die Schaltfläche |
 | Rahmendarstellung | Schaltflächeneinstellungen | Art der Rahmendarstellung, z. B. durchgezogen, gestrichelt. |
 | Normale Rahmenfarbe | Schaltflächeneinstellungen | Wenn die Schaltfläche nicht aktiviert ist, wird sie in dieser Farbe angezeigt. |
-| Rahmenfarbe aktiv | Buttoneinstellungen | Wenn der Button aktiviert ist, wird er mit dieser Farbe dargestellt. |
-| Rahmenradius | Schaltflächeneinstellungen | Für abgerundete Rahmenecken kann hier ein Radius in Pixeln eingegeben werden. |
+| Rahmenfarbe aktiv | Schaltflächeneinstellungen | Wenn die Schaltfläche aktiviert ist, wird sie durch diese Farbe angezeigt. |
+| border-radius | Schaltflächeneinstellungen | Hier kann ein Radius in Pixeln für abgerundete Ecken eingegeben werden. |
 | Hintergrundfarbe | Schaltflächeneinstellungen | Hintergrundfarbe für Text |
-| Bild | button[x] | Hier kann ein Bild individuell definiert werden. Das Bild hat Vorrang vor dem Text. |
+| Bild | Schaltfläche[x] | Hier kann ein Bild individuell definiert werden. Das Bild hat Vorrang vor dem Text. |
 | Text | button[x] | Hier kann der Text individuell definiert werden. Das Bild hat Vorrang vor dem Text. |
 
 ### Favoriten-Schaltflächenleiste
-![Favoriten-Schaltflächenleiste](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/favorites.png)
+![Favoriten-Schaltfläche](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/favorites.png)
 
-Mit diesem Widget können Sie alle Favoriten auswählen, die auf Ihrem Logitech/Lyrion Media Server erstellt wurden.
-Nach Auswahl des Player-Widgets werden die verfügbaren Favoriten im Widget angezeigt.
+Mit diesem Widget können Sie alle in Ihrem Logitech/Lyrion Media Server erstellten Favoriten auswählen.
+Nachdem Sie das Player-Widget ausgewählt haben, werden die verfügbaren Favoriten im Widget angezeigt.
 
 | Gruppe | Attribut | Beschreibung |
 | ------------------- | --------------- | ----------------------------------------------------------------------------------------------------- |
-| Player-Widget | Allgemeine Gruppe | Wählen Sie das Player-Widget aus. |
-| Index anzeigen | Gruppe Allgemein | Über den Index können einzelne Schaltflächen ausgeblendet oder in anderer Reihenfolge angezeigt werden. |
+| Player-Widget | Gruppe „Allgemein“ | Wählen Sie das Player-Widget aus. |
+| Anzeigeindex | Allgemeine Gruppe | Einzelne Schaltflächen können mithilfe des Index ausgeblendet oder in einer anderen Reihenfolge angezeigt werden. |
 | Hilfe zum Bearbeitungsmodus | Gruppe „Allgemein“ | Wenn diese Hilfe aktiviert ist, werden auf den jeweiligen Schaltflächen Indexnummern angezeigt. |
 | Bildbreite | Schaltflächeneinstellungen | Bildbreite einer Schaltfläche |
 | Bildhöhe | Schaltflächeneinstellungen | Bildhöhe einer Schaltfläche |
-| Transparenz | Schaltflächeneinstellungen | Wenn die Schaltfläche nicht aktiviert ist, wird sie vor dem Hintergrund verborgen. 0 = Unsichtbar, 1 = Vollständig sichtbar |
+| Transparenz | Schaltflächeneinstellungen | Wenn die Schaltfläche nicht aktiviert ist, hebt sie sich vom Hintergrund ab. 0 = Unsichtbar, 1 = Vollständig sichtbar |
 | Rahmenbreite | Schaltflächeneinstellungen | Rahmenbreite in Pixeln um die Schaltfläche |
 | Rahmendarstellung | Schaltflächeneinstellungen | Art der Rahmendarstellung, z. B. durchgezogen, gestrichelt. |
-| Normale Rahmenfarbe | Schaltflächeneinstellungen | Wenn die Schaltfläche nicht aktiviert ist, wird sie mit dieser Farbe angezeigt. |
-| Rahmenfarbe aktiv | Buttoneinstellungen | Wenn der Button aktiviert ist, wird er mit dieser Farbe angezeigt. |
-| Rahmenradius | Schaltflächeneinstellungen | Für abgerundete Rahmenecken kann hier ein Radius in Pixeln eingegeben werden. |
+| Normale Rahmenfarbe | Schaltflächeneinstellungen | Wenn die Schaltfläche nicht aktiviert ist, wird sie in dieser Farbe angezeigt. |
+| Rahmenfarbe aktiv | Schaltflächeneinstellungen | Wenn die Schaltfläche aktiviert ist, wird sie in dieser Farbe angezeigt. |
+| border-radius | Schaltflächeneinstellungen | Hier kann ein Radius in Pixeln für abgerundete Ecken eingegeben werden. |
 | Hintergrundfarbe | Schaltflächeneinstellungen | Hintergrundfarbe für Text |
-| Bild | button[x] | Hier kann ein Bild individuell definiert werden. Das Bild hat Vorrang vor dem Text. |
+| Bild | Schaltfläche[x] | Hier kann ein Bild individuell definiert werden. Das Bild hat Vorrang vor dem Text. |
 | Text | button[x] | Hier kann der Text individuell definiert werden. Das Bild hat Vorrang vor dem Text. |
 
 ### Wiedergabetaste
 ![Wiedergabetaste](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/play.png)
 
-Der Play-Button startet bzw. stoppt die Musik auf dem ausgewählten Player.\ Zur Vorbereitung müssen Sie den Button mit dem Player-Widget verbinden.\ Der Button verfügt über eine eigene Grafik (SVG),\ alternativ können Sie auch eine eigene Grafik auswählen.
+Die Wiedergabetaste startet oder stoppt die Musikwiedergabe auf dem ausgewählten Player. Zur Vorbereitung müssen Sie die Taste mit dem Player-Widget verbinden. Die Taste verfügt über eine eigene Grafik (SVG); alternativ können Sie auch Ihre eigene Grafik auswählen.
 
 #### Attribute für die Wiedergabetaste
 | Gruppe | Attribut | Beschreibung |
 | ------------- | ------------------ | ------------------------------- |
-| Player-Widget | Allgemeine Gruppe | Auswahl des Player-Widgets. |
-| Bild anhalten | Gruppe allgemein | Bild für Pause |
-| Bild abspielen | Allgemeine Gruppe | Bild zum Abspielen |
-| Haltestellenbild | Allgemeine Gruppe | Bild für Haltestelle |
-| Füllfarbe | SVG-Einstellungsgruppe | Füllfarbe der Schaltfläche |
-| Strichfarbe | SVG-Einstellungsgruppe | Farbe für den Rahmen |
-| Strichbreite | SVG-Einstellungsgruppe | Breite des Rahmens in Pixeln |
+| Player-Widget | Gruppe „Allgemein“ | Auswahl des Player-Widgets. |
+| Pausenbild | Allgemeine Gruppe | Bild zum Anhalten |
+| Abspielbild | Allgemeine Gruppe | Abspielbild |
+| Stoppbild | Allgemeine Gruppe | Stoppbild |
+| Füllfarbe | SVG-Einstellungen | Füllfarbe der Schaltfläche |
+| Strichfarbe | SVG-Einstellungen | Farbe für den Rahmen |
+| Strichstärke | SVG-Einstellungen | Breite des Rahmens in Pixeln |
 
 ### Nach vorne
 ![Nach vorne](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/fwd.png)
 
-Mit dem Vorwärts-Widget können Sie im aktuellen Titel vorwärts springen. Die Schaltfläche kann so konfiguriert werden, dass sie um eine bestimmte Zeitspanne vorwärts springt, wenn der Player diese Funktion unterstützt.
+Mit dem Vorwärts-Widget können Sie im aktuellen Titel vorwärts springen. Die Schaltfläche kann so konfiguriert werden, dass sie um eine bestimmte Zeitspanne vorwärts springt, sofern der Player diese Funktion unterstützt.
 
-#### Attribute für die Schaltfläche „Weiter“
+#### Attribute für die Weiter-Schaltfläche
 | Gruppe | Attribut | Beschreibung |
 | ------------- | ------------- | ---------------------------------------------------------------- |
-| Player-Widget | Allgemeine Gruppe | Auswahl des Player-Widgets. |
-| Schrittweite | Gruppe „Allgemein“ | Gibt die Zeit in Sekunden an, um vorwärts zu springen. |
-| Schaltflächenbeschriftung | Gruppe „Allgemein“ | Anpassbare Beschriftung für die Schaltfläche. |
-| Schaltflächensymbol | Gruppe Allgemein | Auswahl eines Symbols für die Schaltfläche, z. B. zum Vorwärtsspringen. |
+| Player-Widget | Gruppe „Allgemein“ | Auswahl des Player-Widgets. |
+| Schrittweite | Allgemeine Gruppe | Gibt die Zeit in Sekunden an, um die vorwärts gesprungen werden soll. |
+| Schaltflächenbeschriftung | Allgemeine Gruppe | Anpassbare Beschriftung für die Schaltfläche. |
+| Schaltflächensymbol | Gruppe „Allgemein“ | Auswahl eines Symbols für die Schaltfläche, z. B. zum Weiterspringen. |
 
 ### Zurückspulen
 ![Zurückspulen](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/rew.png)
 
-Mit dem Widget „Zurückspulen“ können Sie im aktuellen Titel zurückspringen. Ähnlich wie beim Widget „Vorspulen“ kann ein Zeitraum eingestellt werden.
+Mit dem Zurückspulen-Widget können Sie zum aktuellen Titel zurückspringen. Ähnlich wie beim Vorspulen-Widget kann ein Zeitraum festgelegt werden.
 
-#### Attribute für die Schaltfläche „Zurückspulen“
+#### Attribute für die Zurückspulen-Schaltfläche
 | Gruppe | Attribut | Beschreibung |
 | ------------- | ------------- | ------------------------------------------------------------- |
-| Player-Widget | Allgemeine Gruppe | Auswahl des Player-Widgets. |
-| Schrittweite | Gruppe „Allgemein“ | Gibt die Zeitspanne in Sekunden an, um die zurückgesprungen werden soll. |
-| Schaltflächenbeschriftung | Gruppe „Allgemein“ | Anpassbare Beschriftung für die Schaltfläche. |
-| Schaltflächensymbol | Gruppe Allgemein | Auswahl eines Symbols für die Schaltfläche, z. B. zum Zurückspringen. |
+| Player-Widget | Gruppe „Allgemein“ | Auswahl des Player-Widgets. |
+| Schrittweite | Allgemeine Gruppe | Gibt den Zeitraum in Sekunden an, um den zurückgesprungen werden soll. |
+| Schaltflächenbeschriftung | Allgemeine Gruppe | Anpassbare Beschriftung für die Schaltfläche. |
+| Schaltflächensymbol | Allgemeine Gruppe | Auswahl eines Symbols für die Schaltfläche, z. B. zum Zurückspringen. |
 
 ### Wiederholen
 ![Wiederholen](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/repeat0.svg)
 
-Mit dem Repeat-Widget können Sie die Wiederholungsfunktion für den aktuellen Titel oder die Playlist aktivieren oder deaktivieren, sofern diese Funktion vom Player unterstützt wird.
+Mit dem Repeat-Widget können Sie die Wiederholungsfunktion für den aktuellen Titel oder die aktuelle Wiedergabeliste aktivieren oder deaktivieren, sofern diese Funktion vom Player unterstützt wird.
 
-#### Attribute für die Schaltfläche „Wiederholen“
+#### Attribute für die Schaltfläche "Wiederholen"
 | Gruppe | Attribut | Beschreibung |
 | ------------- | ------------- | ------------------------------------------------------------------------------------------- |
-| Player-Widget | Allgemeine Gruppe | Auswahl des Player-Widgets. |
-| Schaltflächenbeschriftung | Gruppe „Allgemein“ | Anpassbare Beschriftung für die Schaltfläche. |
-| Schaltflächensymbol | Gruppe Allgemein | Auswahl eines Symbols für die Schaltfläche, z. B. für Wiederholen. |
-| Wiederholungsmodus | Gruppe Allgemein | Hier kann der Modus ausgewählt werden, zum Beispiel Einzelwiederholung (Titel) oder Listenwiederholung (Playlist). |
+| Player-Widget | Gruppe „Allgemein“ | Auswahl des Player-Widgets. |
+| Schaltflächenbeschriftung | Allgemeine Gruppe | Anpassbare Beschriftung für die Schaltfläche. |
+| Schaltflächensymbol | Allgemeine Gruppe | Auswahl eines Symbols für die Schaltfläche, z. B. für Wiederholen. |
+| Wiederholungsmodus | Allgemeine Gruppe | Der Modus kann hier ausgewählt werden, z. B. Einzelwiederholung (Titel) oder Listenwiederholung (Playlist). |
 
 ### Mischen
 ![Shuffle](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/shuffle0.svg)
 
-Das Shuffle-Widget aktiviert oder deaktiviert die Zufallswiedergabe für die aktuelle Wiedergabeliste, sofern diese Funktion vom Player unterstützt wird.
+Das Shuffle-Widget aktiviert oder deaktiviert die Zufallswiedergabe für die aktuelle Playlist, sofern diese Funktion vom Player unterstützt wird.
 
 #### Attribute für die Shuffle-Schaltfläche
 | Gruppe | Attribut | Beschreibung |
 | ------------- | ------------- | ------------------------------------------------------- |
-| Player-Widget | Allgemeine Gruppe | Auswahl des Player-Widgets. |
-| Schaltflächenbeschriftung | Gruppe „Allgemein“ | Anpassbare Beschriftung für die Schaltfläche. |
-| Schaltflächensymbol | Gruppe „Allgemein“ | Auswahl eines Symbols für die Schaltfläche, z. B. für Shuffle. |
+| Player-Widget | Gruppe „Allgemein“ | Auswahl des Player-Widgets. |
+| Schaltflächenbeschriftung | Allgemeine Gruppe | Anpassbare Beschriftung für die Schaltfläche. |
+| Schaltflächensymbol | Allgemeine Gruppe | Auswahl eines Symbols für die Schaltfläche, z. B. für Zufallswiedergabe. |
 | Aktivierter Status | Allgemeine Gruppe | Farbe oder Stil der Schaltfläche, wenn die Zufallswiedergabe aktiviert ist. |
 
 ### Lautstärke
 ![Volumen](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/volume.png)
 
-Das Lautstärke-Widget zeigt die aktuelle Lautstärke des Players an und ermöglicht Ihnen, die Lautstärke anzupassen.
+Das Lautstärke-Widget zeigt den aktuellen Lautstärkepegel des Players an und ermöglicht die Anpassung der Lautstärke.
 
 #### Attribute für die Lautstärketaste
 | Gruppe | Attribut | Beschreibung |
 | --------------------------- | ------------- | ----------------------------------------------------------------- |
-| Player-Widget | Allgemeine Gruppe | Auswahl des Player-Widgets. |
-| Lautstärkeschrittweite | Gruppe „Allgemein“ | Gibt die Schrittweite zum Erhöhen oder Verringern der Lautstärke an. |
-| Maximale Lautstärke | Gruppe Allgemein | Legt den Maximalwert für die Lautstärke fest, z. B. 100. |
-| Hauptfarbe des Lautstärkebalkens | Gruppe „Allgemein“ | Farbe für den Bereich des Balkens, der die aktuelle Lautstärke darstellt. |
-| Hintergrundfarbe des Lautstärkebalkens | Gruppe „Allgemein“ | Farbe für den Bereich des Balkens, der nicht vom Volumen abgedeckt wird. |
-| Schaltflächensymbol | Gruppe Allgemein | Auswahl eines Symbols für die Lautstärkeregelung. |
+| Player-Widget | Gruppe „Allgemein“ | Auswahl des Player-Widgets. |
+| Lautstärke-Schrittweite | Allgemeine Gruppe | Legt die Schrittweite zum Erhöhen oder Verringern der Lautstärke fest. |
+| Maximale Lautstärke | Allgemeine Gruppe | Legt den Maximalwert für die Lautstärke fest, z. B. 100. |
+| Hauptfarbe des Lautstärkebalkens | Allgemeine Gruppe | Farbe für den Bereich des Balkens, der die aktuelle Lautstärke darstellt. |
+| Hintergrundfarbe der Lautstärkeanzeige | Gruppe „Allgemein“ | Farbe für den Bereich der Anzeige, der nicht von der Lautstärke abgedeckt wird. |
+| Schaltflächensymbol | Gruppe „Allgemein“ | Auswahl eines Symbols für die Lautstärkeregelung. |
 
 ### SyncGroup-Schaltflächenleiste
 ![SyncGroup-Schaltflächenleiste](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/syncgroups.png)
 
-Dieses Widget kann in Verbindung mit dem Player-Widget verwendet werden, um die Synchronisierung der Player untereinander zu steuern.
+Dieses Widget kann zusammen mit dem Player-Widget verwendet werden, um die Synchronisierung der Player untereinander zu steuern.
 Die meisten Einstellungen für die Anzahl der Schaltflächen, Beschriftungen oder Bilder werden vom Player-Widget übernommen.
 Zur Vorbereitung müssen Sie die Schaltfläche mit dem Player-Widget verbinden.
-Nach Auswahl eines Players im Player-Widget wird die aktuelle Synchronisierung im SyncGroup-Widget angezeigt.
-Der Synchronisierungsstatus wird anhand der verschiedenen einstellbaren Farben angezeigt.
+Nachdem Sie einen Player im Player-Widget ausgewählt haben, wird die aktuelle Synchronisierung im SyncGroup-Widget angezeigt.
+Der Synchronisierungsstatus wird mithilfe verschiedener anpassbarer Farben dargestellt.
 Der im Player-Widget ausgewählte Player kann nicht im SyncGroup-Widget ausgewählt werden.
 Wenn im SyncGroup-Widget ein Player ausgewählt wird, der sich bereits in einer anderen Gruppe befindet, wird er automatisch aus dieser Gruppe entfernt.
 
@@ -325,81 +330,80 @@ Wenn im SyncGroup-Widget ein Player ausgewählt wird, der sich bereits in einer 
 | Gruppe | Attribut | Beschreibung |
 | ----------------------------- | --------------- | ---------------------------------------------------------------------------------------------- |
 | Player-Widget | Allgemeine Gruppe | Auswahl des Player-Widgets. |
-| Rahmenbreite | Schaltflächeneinstellungen | Rahmenbreite/Randbreite in Pixeln um die Schaltfläche herum. |
-| Rahmendarstellung | Schaltflächeneinstellungen | Art der Rahmendarstellung, z.B. durchgezogen, gestrichelt. |
-| Rahmenfarbe - Nicht in Gruppe | Buttoneinstellungen | Der Button bekommt einen Rahmen mit dieser Farbe, wenn der Spieler nicht in einer Gruppe ist. |
-| Rahmenfarbe - In Gruppen | Schaltflächeneinstellungen | Die Schaltfläche erhält einen Rahmen mit dieser Farbe, wenn sich der Spieler mit dem ausgewählten Spieler in einer Gruppe befindet. |
-| Rahmenfarbe - In anderer Gruppe | Buttoneinstellungen | Der Button bekommt einen Rahmen mit dieser Farbe, wenn sich der Spieler in einer anderen Gruppe befindet. |
-| Rahmenradius | Schaltflächeneinstellungen | Für abgerundete Rahmenecken kann hier ein Radius in Pixeln eingegeben werden. |
+| Rahmenbreite | Schaltflächeneinstellungen | Rahmenbreite/Rahmenbreite in Pixeln um die Schaltfläche herum. |
+| Rahmendarstellung | Schaltflächeneinstellungen | Art der Rahmendarstellung, z. B. durchgezogen, gestrichelt. |
+| Rahmenfarbe – Nicht in einer Gruppe | Schaltflächeneinstellungen | Die Schaltfläche erhält einen Rahmen in dieser Farbe, wenn sich der Spieler nicht in einer Gruppe befindet. |
+| Rahmenfarbe - In Gruppe | Schaltflächeneinstellungen | Die Schaltfläche erhält einen Rahmen in dieser Farbe, wenn sich der Spieler in einer Gruppe mit dem ausgewählten Spieler befindet. |
+| Rahmenfarbe – In anderer Gruppe | Schaltflächeneinstellungen | Die Schaltfläche erhält einen Rahmen in dieser Farbe, wenn sich der Spieler in einer anderen Gruppe befindet. |
+| border-radius | Schaltflächeneinstellungen | Hier kann ein Radius in Pixeln für abgerundete Ecken eingegeben werden. |
 | Hintergrundfarbe | Schaltflächeneinstellungen | Hintergrundfarbe für Text. |
 
 ### Spielzeitleiste
 ![Spielzeitleiste](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/playtime.png)
 
-Der Spielzeitbalken zeigt optisch den Fortschritt des aktuell gespielten Songs an, sofern eine Gesamtlaufzeit (Dauer) vom Server bereitgestellt wird. Dies ist bei Online-Streams in der Regel nicht der Fall. Die Breite des Balkens entspricht 100 % der Spieldauer des Songs. Durch Klicken auf einen Punkt im Balken können Sie zur gewünschten Stelle im Song springen. Zur Vorbereitung müssen Sie den Button mit dem Player-Widget verbinden.
+Die Wiedergabezeitleiste zeigt den Fortschritt des aktuell abgespielten Liedes an, sofern der Server die Gesamtspielzeit (Dauer) angibt. Dies ist bei Online-Streams üblicherweise nicht der Fall. Die Breite der Leiste entspricht 100 % der Wiedergabezeit des Liedes. Durch Klicken auf einen Punkt der Leiste können Sie zur gewünschten Stelle im Lied springen. Zur Vorbereitung müssen Sie die Schaltfläche mit dem Player-Widget verbinden.
 
-#### Attribute für die Spielzeitleiste
+#### Attribute für die Wiedergabezeitleiste
 | Gruppe | Attribut | Beschreibung |
 | -------------- | ------------- | --------------------------------------------------------------- |
 | Player-Widget | Allgemeine Gruppe | Auswahl des Player-Widgets. |
-| Hauptfarbe der Leiste | Gruppe „Allgemein“ | Die Hintergrundfarbe der Leiste für noch nicht gespielte Zeiten. |
-| Spielzeitfarbe | Gruppe „Allgemein“ | Die Farbe des Balkens für die Spielzeiten. |
-| Rahmenbreite | Gruppe „Allgemein“ | Rahmenbreite/Randbreite in Pixeln um die Schaltfläche herum. |
-| Rahmendarstellung | Gruppe Allgemein | Art der Rahmendarstellung, zB durchgezogen, gestrichelt. |
-| Rahmenfarbe | Gruppe „Allgemein“ | Farbe des Rahmens um die Leiste. |
-| Randradius | Gruppe Allgemein | Für abgerundete Kantenecken kann hier ein Radius in Pixeln eingegeben werden. |
+| Hauptfarbe der Leiste | Allgemeine Gruppe | Die Hintergrundfarbe der Leiste für noch nicht gespielte Zeiten. |
+| Spielzeitfarbe | Allgemeine Gruppe | Die Farbe des Balkens für die Anzahl der gespielten Spiele. |
+| Rahmenbreite | Gruppe „Allgemein“ | Rahmenbreite/Rahmenbreite in Pixeln um die Schaltfläche herum. |
+| Rahmendarstellung | Allgemeine Gruppe | Art der Rahmendarstellung, z. B. durchgezogen, gestrichelt. |
+| Rahmenfarbe | Allgemeine Gruppe | Farbe des Rahmens um den Balken. |
+| Radius der Ecken | Allgemeine Gruppe | Hier kann ein Radius in Pixeln für abgerundete Ecken eingegeben werden. |
 
-### String/Zeichenfolge
-![Zeichenfolge](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/string.png)
+### Zeichenkette
+![Zeichenkette](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/string.png)
 
-Anzeige playerspezifischer Zeichenfolgen. Zur Vorbereitung müssen Sie den Button mit dem Player-Widget verbinden.
+Anzeige spielerspezifischer Zeichenketten. Zur Vorbereitung muss die Schaltfläche mit dem Spieler-Widget verbunden werden.
 
 #### Attribute für String
 | Gruppe | Attribut | Beschreibung |
 | ---------------- | ------------- | ----------------------------------------------------------------- |
 | Player-Widget | Allgemeine Gruppe | Auswahl des Player-Widgets. |
-| Spielerattribut | Gruppe „Allgemein“ | Auswahlliste aller verfügbaren Attribute eines Spielers. |
-| Testtext | Gruppe Allgemein | Text, der zu Testzwecken im Editor angezeigt werden soll. |
+| Spielerattribute | Allgemeine Gruppe | Auswahlliste aller verfügbaren Attribute eines Spielers. |
+| Testtext | Allgemeine Gruppe | Text, der zu Testzwecken im Editor angezeigt werden soll. |
 
 ### Nummer
 ![Nummer](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/number.png)
 
-Anzeige von Zahlen mit zusätzlichen Formatierungsoptionen. Zur Vorbereitung müssen Sie den Button mit dem Player-Widget verbinden.
+Anzeige von Zahlen mit zusätzlichen Formatierungsoptionen. Zur Vorbereitung müssen Sie die Schaltfläche mit dem Player-Widget verbinden.
 
-#### Attribute für Nummer
+#### Attribute für Zahlen
 | Gruppe | Attribut | Beschreibung |
 | --------------------- | ----------------- | ----------------------------------------------------------------- |
 | Player-Widget | Allgemeine Gruppe | Auswahl des Player-Widgets. |
-| Spielerattribut | Gruppe „Allgemein“ | Auswahlliste aller verfügbaren Attribute eines Spielers. |
-| HTML voranstellen | Gruppe „Allgemein“ | Text oder HTML-Code, der vor die Zahl gesetzt wird. |
-| HTML anhängen | Gruppe „Allgemein“ | Text oder HTML-Code, der an die Nummer angehängt wird. |
-| Testtext | Gruppe Allgemein | Text, der zu Testzwecken im Editor angezeigt werden soll. |
-| Zeichen nach dem Komma | Erweiterte Einstellungen | Anzahl der Dezimalstellen. |
-| Komma als Trennzeichen | Erweiterte Einstellungen | Die Nachkommastellen werden durch ein Komma getrennt. |
+| Spielerattribute | Allgemeine Gruppe | Auswahlliste aller verfügbaren Attribute eines Spielers. |
+| HTML voranstellen | Allgemeine Gruppe | Text oder HTML-Code, der vor der Zahl platziert wird. |
+| HTML anhängen | Allgemeine Gruppe | Text oder HTML-Code, der an die Zahl angehängt wird. |
+| Testtext | Allgemeine Gruppe | Text, der zu Testzwecken im Editor angezeigt werden soll. |
+| Zeichen nach Komma | Erweiterte Einstellungen | Anzahl der Dezimalstellen. |
+| Komma als Trennzeichen | Erweiterte Einstellungen | Ein Komma wird verwendet, um die Dezimalstellen zu trennen. |
 | Tausendertrennzeichen | Erweiterte Einstellungen | Bei großen Zahlen wird alle 3 Stellen ein Trennzeichen eingefügt. |
 
-### Wiedergabeliste
+### Playlist
 ![Wiedergabeliste](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/playlist.png)
 
-Zeigt die Playlist vom Server an. Klickt man auf einen Eintrag, wird die Playlist geladen und der Player gestartet.
-Das Fenster wird nicht automatisch aktualisiert, man muss lediglich auf die Schaltfläche „Aktualisieren“ klicken.
+Die vom Server geladene Playlist wird angezeigt. Wenn Sie auf einen Eintrag klicken, wird die Playlist geladen und der Player gestartet. Das Widget aktualisiert sich nicht automatisch; Sie müssen die Aktualisierungsschaltfläche drücken.
 
-#### Attribute für Playlist
+#### Attribute für die Wiedergabeliste
 | Gruppe | Attribut | Beschreibung |
 | ------------- | ------------- | ------------------------------- |
 | Player-Widget | Allgemeine Gruppe | Auswahl des Player-Widgets. |
 
-Das Widget selbst weist nur sehr wenige Formatierungen auf.
-Für die Selbstformatierung stehen einige vordefinierte CSS-Klassen zur Verfügung:
+Das Widget selbst ist nur sehr einfach formatiert.
+Für die automatische Formatierung stehen einige vordefinierte CSS-Klassen zur Verfügung:
 
 | CSS-Klasse | Beschreibung |
 | ----------- | ----------------------------------------- |
-| plcontainer | Dem ul-Tag zugewiesener Klassenname |
-| plentry | Dem Li-Tag zugewiesener Klassenname |
-| plrefresh | Dem Tag „refresh-li“ zugewiesener Klassenname |
-| pltext | Dem Playlist-Namen zugewiesener Klassenname |
+| plcontainer | Klassenname, der dem ul-Tag zugewiesen ist |
+| plentry | Klassenname, der dem li-Tag zugewiesen wurde |
+| plrefresh | Klassenname, der dem refresh-li-Tag zugewiesen ist |
+| pltext | Klassenname, der dem Wiedergabelistennamen zugewiesen ist |
 
-Als Beispiel kann folgendes CSS für den Reiter vis-css dienen:
+Das folgende CSS für den vis-css-Tab kann als Beispiel dienen:
 
 Dunkelmodus
 
@@ -425,7 +429,7 @@ Dunkelmodus
 }
 ```
 
-Lichtmodus
+Hellmodus
 
 ```css
 .plentry {
@@ -452,43 +456,44 @@ Lichtmodus
 ### Browser
 ![Browser](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/browser.png)
 
-Zeigt Musik, Alben, Interpreten, Radiosender, Apps usw. vom Server an.
+Hier werden Musik, Alben, Künstler, Radiosender, Apps usw. vom Server angezeigt.
+
 Klicken Sie auf ein Element, um tiefer in die Hierarchie zu navigieren. Die verfügbaren Befehle werden mit zusätzlichen Schaltflächen angezeigt.
-Sie gelangen eine Ebene höher, indem Sie auf den oben angezeigten Pfad klicken.
+Sie können eine Ebene nach oben gelangen, indem Sie auf den oben angezeigten Pfad klicken.
 
 #### Attribute für Browser
 | Gruppe | Attribut | Beschreibung |
 | --------------------- | ------------- | ------------------------------------------------------------------- |
 | Player-Widget | Allgemeine Gruppe | Auswahl des Player-Widgets. |
-| debug | Allgemeine Gruppe | Aktivieren Sie zusätzliches Debuggen (Funktionsreferenz) in der Browserkonsole. |
-| debugwithfetchresults | Allgemeine Gruppe | Aktivieren Sie zusätzliches Debuggen (Objektreferenz) in der Browserkonsole. |
+| debug | Allgemeine Gruppe | Zusätzliches Debugging (Funktionsreferenz) in der Browserkonsole aktivieren. |
+| debugwithfetchresults | Allgemeine Gruppe | Zusätzliche Debugging-Informationen (Objektreferenz) in der Browserkonsole aktivieren. |
 
 Das Widget selbst verfügt über eine gewisse Formatierung.
-Für die Selbstformatierung stehen vordefinierte CSS-Klassen zur Verfügung:
+Für die automatische Formatierung stehen einige vordefinierte CSS-Klassen zur Verfügung:
 
 | CSS-Klasse | Beschreibung |
 | ------------------------------------------ | ------------------------------------- |
 | sqbrowser-list-container | Container für das Widget |
-| sqbrowser-parent-directory | Element zum Anzeigen des übergeordneten Verzeichnisses |
+| sqbrowser-parent-directory | Element zur Anzeige des übergeordneten Verzeichnisses |
 | sqbrowser-btn-svg | Klasse für alle SVG-Schaltflächen |
 | sqbrowser-btn-svg-menu | Klasse für SVG-Menüs |
-| sqbrowser-scrollable-area | Klasse für Scroll-Container |
+| sqbrowser-scrollable-area | Klasse für Scrollcontainer |
 | sqbrowser-list-item | Klasse für einzelnes Element |
-| sqbrowser-list-item-content | Klasse für Artikeltitel |
-| sqbrowser-button-group | Klasse für Schaltflächengruppe in einem Listenelement |
+| sqbrowser-list-item-content | Klasse für den Elementtitel |
+| sqbrowser-button-group | Klasse für Schaltflächengruppen in einem Listenelement |
 | sqbrowser-btn-svg sqbrowser-btn-svg-action | Klasse für Aktionsschaltfläche |
 
 **Hinweis zum Alpha-Status dieses Widgets:**
 
-- Die Implementierung von LMS/Lyrion zum Browsen ist die Hölle.
-- Das technische Vorbild für dieses Widget ist das Theme-Plugin „Material“
+- Die Implementierung von LMS/Lyrion für das Browsen ist die Hölle.
+Das technische Modell für dieses Widget ist das „Material“-Theme-Plugin.
 
 im LMS/Lyrion-Server.
 
-- Derzeit sind nicht alle Funktionen implementiert.
-- Es sind noch nicht alle Eingabefeldtypen verfügbar.
-- Möglicherweise wurden nicht alle Artikeltypen implementiert.
-- Optional wurden umfangreiche Debug-Ausgaben zur Analyse hinzugefügt (siehe auch Attribute).
+- Noch sind nicht alle Funktionen implementiert.
+- Noch sind nicht alle Eingabefeldtypen verfügbar.
+- Möglicherweise wurden noch nicht alle Artikeltypen implementiert.
+- Optional wurde eine umfangreiche Debug-Ausgabe zur Analyse hinzugefügt (siehe auch Attribute).
 - Ausgabe der Funktionsreferenz: Alle Funktionsnamen werden ausgegeben in
 
 Bestellung in der Browserkonsole.
@@ -497,18 +502,18 @@ Bestellung in der Browserkonsole.
 
 vom Server ausgegeben.
 
-Sollten Tester auf Fehler/Probleme oder fehlende Implementierungen stoßen, geben Sie bitte eine möglichst detaillierte Beschreibung an:
+Falls Tester auf Fehler/Probleme oder fehlende Implementierungen stoßen, geben Sie bitte eine möglichst detaillierte Beschreibung an:
 
-- Woher kommen die Daten im LMS/Lyrion
+- Woher stammen die Daten im LMS/Lyrion?
 
 (bereits integrierter Dienst/zusätzlich installiertes Plugin)
 
-- Welche Schritte/Klicks wurden ausgeführt, um das Problem zu verursachen
-- Was sind Funktionsreferenzen und Datenreferenzen?
+Welche Schritte/Klicks wurden ausgeführt, um das Problem zu verursachen?
+- Was sind Funktions- und Datenreferenzen?
 
 ## SendTo-Befehle
 ### CmdGeneral
-Mit diesem Befehl können Sie einen beliebigen Befehl an den LMS-Server senden, um eine Antwort zu erhalten.
+Mit diesem Befehl können Sie beliebige Befehle an den LMS-Server senden und eine Antwort erhalten.
 
 Beispiel:
 
@@ -544,31 +549,31 @@ Weitere Optionen und detaillierte Beschreibungen der Parameter finden Sie in der
 
 [CLI-Dokumentation](#further-api-documentation)
 
-## Aufgaben
-- mehr Tests/Reparaturen
-- Abhängigkeiten zu anderen Paketen reduzieren (Squeezenode)
-- mehr Konfigurationsmöglichkeiten zum optionalen Ein- und Ausschalten von Funktionen zur Verbesserung von Speicher und Leistung
+## Todo
+- weitere Tests/Fehlerbehebungen
+- Abhängigkeiten zu anderen Paketen reduzieren (squeezenode)
+- Mehr Konfigurationsmöglichkeiten zum optionalen Ein-/Ausschalten von Funktionen zur Verbesserung von Speicher und Leistung
 - Playlist-Widget hinzufügen
-- Browse-Widget zum Browsen im LMS-Menü hinzufügen
-- Spielergesteuertes Kreisknopf-Widget hinzufügen
+- Füge ein Browser-Widget hinzu, um im `LMS`-Menü zu navigieren
+- Widget für spielergesteuerte Drehknöpfe hinzufügen
 - Die Wiedergabe wird gestoppt, wenn die Favoritentaste erneut gedrückt wird.
 - cmdGeneral für Server.
-- ~~Telnet-Kommunikation hinzufügen, um Push-Ereignisse vom Server zu erhalten\
+- ~~Telnet-Kommunikation hinzufügen, um Push-Ereignisse vom Server zu empfangen an\
 
-Optimieren Sie die Umfrage ~~
+Optimiere die Abstimmung~~
 
-- ~~Implementieren Sie einen Befehlsstatus, um benutzerindividuelle Befehle zu platzieren (über JSON)\
+- ~~Implementierung eines Befehlsstatus zur Speicherung benutzerdefinierter Befehle (via JSON)\
 
 für Server und Spieler~~
 
-- ~~mehr Steuerungsfunktionen implementieren (Playlist-Position zum Abspielen auswählen, vorspulen, vorspulen, \
+- ~~weitere Steuerungsfunktionen implementieren (Wiedergabelistenposition auswählen, vorspulen, zurückspulen,\
 
-zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig abspielen)~~
+(Zu einer bestimmten Stelle im Lied springen, Lied wiederholen, zufälliges Lied)
 
-- ~~Fügen Sie die Wiedergabeliste als JSON-Array zu den Spielerdaten hinzu~~
-- ~~Grafiken (Senderlogo/Playlist-Cover) für Favoriten hinzufügen~~
-- ~~mehr Ebenen (Unterverzeichnisse) von Favoriten implementieren~~
-- ~~Logitech-Medienserver automatisch erkennen~~
+- ~~Füge die Playlist als JSON-Array zu den Spielerdaten hinzu~~
+- ~~Füge Grafiken (Senderlogo/Playlist-Cover) für Favoriten hinzu~~
+- ~~weitere Ebenen (Unterverzeichnisse) von Favoriten implementieren~~
+- ~~automatische Erkennung des Logitech-Medienservers~~
 
 ## Changelog
 
@@ -577,9 +582,10 @@ zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig abspiel
    ### **WORK IN PROGRESS**
 
 -->
+
 ### **WORK IN PROGRESS**
 
-- revert to node 18
+- test remove node 18,extend to node 24
 
 ### 1.6.2 (2025-05-05)
 

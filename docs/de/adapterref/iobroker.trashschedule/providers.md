@@ -85,6 +85,8 @@ chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"
 	- Rosbach Vor Der Höhe
 - Main Kinzig Kreis
 	- Main Kinzig Kreis
+- Landkreis Wolfenbüttel
+	- Landkreis Wolfenbüttel
 
 ## Abfall.io
 

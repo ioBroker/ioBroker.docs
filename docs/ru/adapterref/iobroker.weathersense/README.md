@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weathersense/README.md
 title: ioBroker.weathersense
-hash: Mtg3sLsXQOEGWXyDos8Iz3B4waRMJE1e6brAlGW++HM=
+hash: R9W0fq0+0n0bk9WmcAT2HZ4T+O732ZgL0df6q6YXULQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.weathersense/admin/weathersense.png)
 
@@ -17,22 +17,28 @@ hash: Mtg3sLsXQOEGWXyDos8Iz3B4waRMJE1e6brAlGW++HM=
 **Тесты:** ![Тестирование и выпуск](https://github.com/ltspicer/ioBroker.weathersense/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер WeatherSense для ioBroker
-WeatherSense — это облачное решение для метеостанций. Этот адаптер считывает данные с сервера WeatherSense.
+WeatherSense — это облачная платформа для метеостанций. Этот адаптер считывает данные с сервера WeatherSense.
 
 См.: https://play.google.com/store/apps/details?id=com.emax.weahter&hl=de_CH
 
-Некоторые метеостанции WiFi используют WeatherSense Cloud.
+Некоторые метеостанции, работающие по Wi-Fi, используют облачную платформу WeatherSense.
 
-Например, эта WiFi-метеостанция от Ideoon (Pearl):
+Например, вот эта метеостанция с Wi-Fi от компании Ideoon (Pearl):
 
 ![Скриншот](https://github.com/ltspicer/WeatherSense/blob/main/wetterstation.png)
 
+![Скриншот](https://github.com/ltspicer/WeatherSense/blob/main/casativo_ideoon_weatherstation.png)
+
 ## Использовать:
-Просто введите данные для входа в учётную запись WeatherSense (адрес электронной почты и пароль).
-Данные метеостанции хранятся в точке данных WeatherSense.
-Данные также можно отправлять по протоколу MQTT.
+Просто введите данные для входа в свою учетную запись WeatherSense (адрес электронной почты и пароль).
+Данные метеостанции сохраняются в точке данных WeatherSense.
+Данные также могут передаваться через MQTT.
 
 ## Changelog
+### 3.0.3 (2025-09-14)
+
+- eslint-config & testing version updated
+
 ### 3.0.2 (2025-08-29)
 
 - Passwords protected, clean convert string > number

@@ -813,6 +813,18 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) License updated
+
+### 2.0.11 (2025-12-21)
+* (simatec) Update dependabot
+
+### 2.0.10 (2025-12-21)
+* (simatec) Fix JSON Tab
+
+### 2.0.9 (2025-11-29)
+* (un9483) Fix Frost Alarm
+
 ### 2.0.8 (2025-11-23)
 * (simatec) Update dependabot
 
@@ -1433,7 +1445,7 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 ## License
 MIT License
 
-Copyright (c) 2019 - 2025 simatec
+Copyright (c) 2019 - 2026 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

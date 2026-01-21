@@ -57,6 +57,13 @@ If checked, the adapter also sends an output once it changes.
 
 
 ## Changelog
+### 1.2.4 (2025-12-13)
+* bump @types/node to 25.0.1
+* bump @tsconfig/node20 to 20.0.8
+* bump glob
+* bump actions/checkout to 6
+* more dependency updates
+
 ### 1.2.3 (2025-10-25)
 * migrate to npm trusted publishing
 
@@ -143,7 +150,7 @@ If checked, the adapter also sends an output once it changes.
 ## License
 MIT License
 
-Copyright (c) 2025 FreDeko <freddegenkolb@gmail.com>
+Copyright (c) 2025-2026 FreDeko <freddegenkolb@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

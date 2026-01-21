@@ -35,6 +35,11 @@ Alternatively, you can use *adbLink*
 <!-- 
     ### **WORK IN PROGRESS** 
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 2.1.0 (2024-04-07) 
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated

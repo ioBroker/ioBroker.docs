@@ -123,33 +123,28 @@ zum Beispiel
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 2.4.0 (2025-01-27)
-* (mcm1957) BREAKING: you must enter your configuration data again at the config page.
+### 2.4.8 (2025-12-27)
+* (arteck) add DP webhookNotification as string and as array
 
-### 2.3.1 (2025-01-26)
-* (arteck) new settings structure
-* (arteck) fix storage request
-* (arteck) add new eslint file
-* (arteck) fix node message
-* (arteck) refactor
+### 2.4.7 (2025-12-27)
+* (arteck) fix refresh vm/lxc
 
-### 2.3.0 (2024-04-26)
-* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-* (jens-maus) fix ha and ceph object type
-* (mcm1957) Dependencies have been updated
+### 2.4.6 (2025-12-23)
+* (arteck) fix start request
+* (arteck) fix Cannot send request
 
-### 2.2.3 (2024-02-01)
-* (arteck) add icon status available for lxc and vm
-* (arteck) settings adjustment
+### 2.4.5 (2025-12-23)
+* (arteck) fix nodes response
 
-### 2.2.2 (2023-11-06)
-* (arteck) storage message corr
+### 2.4.4 (2025-12-22)
+* (arteck) fix reconnect if node is offline
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2025 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 MeisterTR <meistertr.smarthome@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -168,4 +163,6 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+
+
 THE SOFTWARE.

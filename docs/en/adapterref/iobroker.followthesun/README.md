@@ -52,7 +52,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 ## License
 MIT License
 
-Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2020-2026 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -74,3 +74,4 @@ SOFTWARE.
 
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun?ref=badge_large)
+

@@ -160,6 +160,14 @@ Widget for VIS to show a complete valve. You have only to define the "SetTemp" -
 
 [Older changes](CHANGELOG_OLD.md)
 <!-- ### **WORK IN PROGRESS** -->
+### 3.0.2 (2025-12-26)
+
+* (ioKlausi) Update dependencies
+
+### 3.0.1 (2025-12-23)
+
+* (ioKlausi) Update dependencies
+
 ### 3.0.0 (2025-11-09)
 
 * (ioKlausi) Added additional tests
@@ -280,7 +288,7 @@ Widget for VIS to show a complete valve. You have only to define the "SetTemp" -
 
 MIT License
 
-Copyright (c) 2021-2025 ioKlausi <nii@gmx.at>
+Copyright (c) 2021-2026 ioKlausi <nii@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

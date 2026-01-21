@@ -55,7 +55,7 @@ If you require additional commands, please post in the forum or here.
 ## License
 MIT License
 
-Copyright (c) 2025 ticaki <github@renopoint.de>
+Copyright (c) 2025-2026 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

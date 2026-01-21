@@ -39,6 +39,9 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.28 (2025-12-11)
+* (HGlab01) add Energy-Charts as third data provider
+
 ### 0.1.27 (2025-11-19)
 * (HGlab01) disable data provider Epex (not a stable option)
 
@@ -58,14 +61,10 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
 * (HGlab01) add turn on/off quarter-hourly and hourly market prices
 * (HGlab01) refactorings
 
-### 0.1.22 (2025-10-21)
-* (HGlab01) Implement retry mechanism for API calls
-* (HGlab01) add turn on/off for peak hours and market prices
-
 ## License
 MIT License
 
-Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2023-2026 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -87,6 +86,13 @@ SOFTWARE.
 
 #### Disclaimer apg-powermonitor
 More about the security of supply & all data, facts and figures regarding the world of electricity and the energy transition can be found at www.apg-powermonitor.at.
+
+#### Disclaimer data providers
+Three data providers are used for this adapter
+* Exaa (https://www.exaa.at/)
+* Entso-e (https://www.entsoe.eu/data/transparency-platform/)
+* Energy Charts (https://api.energy-charts.info/) licensed under the CC BY 4.0 license
+
 
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_large)

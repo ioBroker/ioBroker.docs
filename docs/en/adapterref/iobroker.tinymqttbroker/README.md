@@ -58,18 +58,18 @@ client.on('message', (topic: string, payload) => {
 })
 ```
 
-For publishing message I use one ioBroker state listening for any changes and pushing it to the broker.
-The state expects a JSON with 'topic' and 'message'.
+For publishing messages, a dedicated ioBroker state is used that listens for any changes and forwards them to the MQTT broker.  
+The state expects a JSON payload containing topic and message.
 ```
 on({ id: stateMqttIn, change: 'any' }, function (obj) {
-    let input: any = obj.state.val;
-    let topic: string = input.topic;
-    let message: string = String(input.message);
+    const input: any = obj.state.val;
+    const topic: string = input?.topic ?? null;
+    const message: string = String(input?.message) ?? null;
     if (topic && message) client.publish(topic, message);
-    else log(`MQTT publish not possible with topic '${topic}' and message '${message}'`,'warn');
+    else log(`MQTT publish not possible for topic '${topic}' and message '${message}'`, 'warn');
 });
 ```
-IMPORTANT! If you create your own MQTT client in an ioBroker javascript, do not forget to close the client in the scipt by using
+IMPORTANT! If you implement your own MQTT client within an ioBroker JavaScript script, make sure to properly close the client at the end of the script by calling:
 ```
 onStop(function (callback) {
     log('MQTT Client will be closed...');
@@ -87,6 +87,10 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (HGlab01) Update libs
+* (HGlab01) (c) 2026
+
 ### 0.1.4 (2025-04-22)
 * (HGlab01) Improve port scan
 
@@ -124,7 +128,7 @@ onStop(function (callback) {
 ## License
 MIT License
 
-Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2026 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -145,3 +149,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=large&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_large&issueType=license)
+

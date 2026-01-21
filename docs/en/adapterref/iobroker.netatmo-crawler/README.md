@@ -141,7 +141,8 @@ Many thanks to [backfisch](https://github.com/backfisch88) for the initial idea 
 
 MIT License
 
-Copyright (c) 2025, iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 Bart19 <webmaster@bart19.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

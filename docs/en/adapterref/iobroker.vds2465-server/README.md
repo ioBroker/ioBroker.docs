@@ -43,6 +43,10 @@ Von diesem Adapter wird auch das "Service Request" unterstützt, welches in eini
 
 
 ## Changelog
+### 1.1.0
+* (Hirsch-DE) devDependencies updated
+* (Hirsch-DE) Änderung create in extendObject
+* (Hirsch-DE) ConnectionStatus auf dem Device anzeigen
 ### 1.0.3
 * (Hirsch-DE) Fix npm publish
 * (Hirsch-DE) dependencies updated

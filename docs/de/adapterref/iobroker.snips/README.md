@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.snips/README.md
 title: ioBroker.snips ![Logo](admin/snips.png)
-hash: JpIjjtnNgvaIHPCyi4HJt1SJk61t2dSjkHx2qZsNGRA=
+hash: awSDj41MSNmQuy/oUJITft7hpbr9yEJVX7r6Y0l78G8=
 ---
 # IoBroker.snips ![Logo](../../../en/adapterref/iobroker.snips/admin/snips.png)
 
@@ -14,42 +14,44 @@ hash: JpIjjtnNgvaIHPCyi4HJt1SJk61t2dSjkHx2qZsNGRA=
 
 [![Build-Status](https://app.travis-ci.com/unltdnetworx/ioBroker.snips.svg?branch=master)](https://travis-ci.org/unltdnetworx/ioBroker.snips)
 
-ACHTUNG: Der Adapter wird nicht mehr weiterentwickelt oder gewartet, da Sonos Snips gekauft hat und die kostenlose Plattform zum 01.02.2020 eingestellt wurde. Der Adapter und die installierten Snips-Geräte funktionieren weiterhin.
+[!WARNUNG] Der Adapter wird nicht mehr weiterentwickelt oder gewartet, da Sonos Snips übernommen hat und die kostenlose Plattform am 01.02.2020 eingestellt wurde. Der Adapter und installierte Snips-Geräte funktionieren weiterhin.
 
-Erfordert node.js 6.0 oder höher und Admin v3!
+Erfordert Node.js 6.0 oder höher und Admin v3!
 
-Der Adapter kommuniziert mit Snips-Hardware über MQTT. Der text2command-Adapter wird benötigt, um die Befehle auszuführen.
+Der Adapter kommuniziert über MQTT mit der Snips-Hardware. Der text2command-Adapter ist erforderlich, um die Befehle auszuführen.
 
 Snips-URL: <https://makers.snips.ai/>
 
-## Installationsschnipsel
-Für Snips unter Debian Stretch (x86), Raspbian / Armbian Stretch (RPI3, Odroid) installieren Sie bitte folgende Pakete:
+## Montage-Scheren
+Für Snips unter Debian Stretch (x86), Raspbian / Armbian Stretch (RPI3, Odroid) installieren Sie bitte die folgenden Pakete:
 
-lsb-release apt-transport-https ca-zertifikate systemd systemd-sysv libttspico-utils alsa-utils dirmngr mosquitto snips-asr snips-audio-server snips-dialog snips-hotword snips-nlu snips-tts snips-in
+lsb-release apt-transport-https ca-certificates systemd systemd-sysv libttspico-utils alsa-utils dirmngr mosquitto snips-asr snips-audio-server snips-dialogue snips-hotword snips-nlu snips-tts snips-injection
 
-Abhängig von Ihrer Hardware und Linux-Distribution haben Sie möglicherweise bereits Pakete installiert.
+Je nach Hardware und Linux-Distribution sind möglicherweise bereits Pakete installiert.
 
-Installationsanleitung und Konfiguration für Raspian / Armbian: <https://snips.gitbook.io/documentation/installing-snips/on-a-raspberry-pi>
+Installationsanleitung und Konfiguration für Raspbian / Armbian: <https://snips.gitbook.io/documentation/installing-snips/on-a-raspberry-pi>
 
-Installationsanleitung und Konfiguration für Debian: sudo nano /etc/apt/sources.list Hängen Sie in jeder Zeile "non-free" an, sonst können Sie das Paket "libttspico-utils" nicht installieren.
+Installationsanleitung und Konfiguration für Debian: sudo nano /etc/apt/sources.list. Fügen Sie in jeder Zeile "non-free" hinzu, da Sie sonst das Paket "libttspico-utils" nicht installieren können.
+
 <https://snips.gitbook.io/documentation/advanced-configuration/advanced-solutions>
 
 Melden Sie sich bei <https://console.snips.ai> an und fügen Sie einen neuen Assistenten hinzu.
-Fügen Sie eine App hinzu, über dem Häkchen "nur Apps mit Aktionen anzeigen" und suchen Sie nach iobroker ![ioBroker Snips-App-Logo](https://console.snips.ai/images/bundles/bundle-home.svg) und wählen Sie.
-Wenn Sie fertig sind, drücken Sie auf Bereitstellungsassistent, um die ZIP-Datei herunterzuladen.
-Das Zipfile wird auf dem Snips-Rechner unter "/usr/share/snips" entpackt, dann neu gestartet.
+Fügen Sie eine App hinzu, indem Sie oberhalb des Kontrollkästchens „Nur Apps mit Aktionen anzeigen“ nach „iobroker ![ioBroker snips-app Logo](https://console.snips.ai/images/bundles/bundle-home.svg)“ suchen und diese auswählen.
+Klicken Sie anschließend auf „Assistent bereitstellen“, um die ZIP-Datei herunterzuladen.
+Die ZIP-Datei wird auf dem Snips-Rechner unter „/usr/share/snips“ entpackt. Starten Sie den Rechner anschließend neu.
 
 Snips sollte funktionieren, bevor wir hier fortfahren:
 
 ### Snips-Adapter konfigurieren
-Url : Adresse des Snips-MQTT-Servers Port : Port des Snips-MQTT-Servers Instanz : Text2Command-Instanz (zum Beispiel 0) Filter : zum Beispiel verstehen ClientID : ID (zum Beispiel 0)
+URL: Adresse des Snips-MQTT-Servers Port: Port des Snips-MQTT-Servers Instanz: Text2Command-Instanz (z. B. 0) Filter: z. B. understand ClientID: ID (z. B. 0)
 
 ### Text2Command-Adapter konfigurieren
-Fügen Sie in der Config des Text2Command-Adapters unter Answer in ID snips.X.devices.all.send.say.text ein.
+Fügen Sie in der Konfiguration des Text2Command-Adapters unter Answer in ID snips.X.devices.all.send.say.text ein.
 
 ### Injektion (neue Wörter lernen)
-Unbekannte Wörter können unter snips.0.send.inject.room oder device gelernt werden.
-ACHTUNG: inject service muss auf dem Gerät/Server installiert sein sudo apt-get install -y snips-injection
+Unbekannte Wörter können unter snips.0.send.inject.room oder dem Gerät erlernt werden.
+
+ACHTUNG: Der Dienst „inject“ muss auf dem Gerät/Server installiert sein: sudo apt-get install -y snips-injection
 
 ## Changelog
 

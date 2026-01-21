@@ -20,6 +20,15 @@ This adapter allows you the control, get states, cleaning history and view the m
 
 ### This adapter cannot work on on MacOS
 
+## Two-Factor Authentication (2FA)
+
+If you have enabled 2FA or if the adapter prompts for a code (error code 2031):
+1. Check your logs. You should see a message asking for the code.
+2. Go to the **Objects** tab in ioBroker.
+3. Find the state `roborock.0.loginCode` (assuming instance 0).
+4. Enter the 6-digit code you received via email into the **Value** column (without quotes).
+5. The adapter should pick it up and continue logging in.
+
 ## The supported robots are:
 
 - Roborock S4
@@ -398,7 +407,7 @@ This feature only works when map creation is enabled in the adapter options!
 ## License
 MIT License
 
-Copyright (c) 2025 copystring <copystring@gmail.com>
+Copyright (c) 2025-2026 copystring <copystring@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -416,4 +425,5 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+
+

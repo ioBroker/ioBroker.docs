@@ -78,6 +78,10 @@ For the above examples:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.5.2 (2025-02-28)
 
 -   (Black-Thunder) Incompatibilities with the dependency "joy" have been fixed and "joy" has been updated.

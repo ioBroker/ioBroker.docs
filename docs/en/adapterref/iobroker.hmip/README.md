@@ -69,6 +69,10 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.27.0 (2025-03-24)
 * (mcm1957) Adapter requires admin 7.6.3, js-controller 6.0.11 and node.js 20 now.
 * (@GermanBluefox) GUI was migrated to TypeScript (Admin 7.6)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fyta/README.md
 title: ioBroker.fyta
-hash: bq+rf5I9Fnbivtr2XfW43a87NdAZqNd3qhX9vFJRj4k=
+hash: YabwSSWcwDpZ+C8PZxUg+SdqoP++KCYKVDv/sTyQXoU=
 ---
 ![Logo](../../../en/adapterref/iobroker.fyta/admin/fyta.png)
 
@@ -16,16 +16,25 @@ hash: bq+rf5I9Fnbivtr2XfW43a87NdAZqNd3qhX9vFJRj4k=
 # IoBroker.fyta
 <!--
 
-**Tests:** ![Testen und Freigeben](https://github.com/muffin142/ioBroker.fyta/workflows/Test%20and%20Release/badge.svg) -->
+**Tests:** ![Test und Freigabe](https://github.com/muffin142/ioBroker.fyta/workflows/Test%20and%20Release/badge.svg) -->
 
 ## FYTA-Adapter für ioBroker
-Inoffizieller Adapter zum Anschluss von ioBroker an [FYTA-Anlagensensoren](https://fyta.de/) Sensoren können am [FYTA Shop](https://fyta.de/collections/all/products/10-beams-1-hub) erworben werden
+Ein inoffizieller Adapter zur Verbindung von ioBroker mit [FYTA Pflanzensensoren](https://fyta.de/) Sensoren kann auf der [FYTA Shop](https://fyta.de/collections/all) erworben werden.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.1 (2025-12-08)
+-	Error messages corrected and specified
+
+### 0.2.0 (2025-04-28)
+-   Added retrieval of raw values
+-	Added use of internal notifications
+
+### 0.1.5 (2025-03-23)
+-   fix token handling when downloading plant images
 
 ### 0.1.4 (2025-02-23)
 -   minor changes due to publishing in ioBroker.repository:latest

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: 9eNN5XG2Hc1qnapPKKoFNt8cDNC4UlPz7A/DJ7N8NBQ=
+hash: iOLJBj8VhAtGULmPmWfEajoHu7deNPqQv2WNJT4La+w=
 ---
 ![Logo](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -12,17 +12,17 @@ hash: 9eNN5XG2Hc1qnapPKKoFNt8cDNC4UlPz7A/DJ7N8NBQ=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.lovelace.svg)
 
 # IoBroker.lovelace
-![Testen und Freigeben](https://github.com/ioBroker/iobroker.lovelace/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/lovelace/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/ioBroker/iobroker.lovelace/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/lovelace/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Lovelace-Adapter für ioBroker
-Mit diesem Adapter können Sie eine Visualisierung für ioBroker mit der Home Assistant Lovelace-Benutzeroberfläche erstellen.
+Mit diesem Adapter können Sie Visualisierungen für ioBroker mit der Home Assistant Lovelace-Benutzeroberfläche erstellen.
 
 [Deutsche Dokumentation](docs/de/README.md)
 
 ## Instanzobjekte
-In den Ordnerinstanzen befinden sich Objekte, die zur Steuerung der Benutzeroberfläche verwendet werden können. Für jeden Browser wird ein neuer Unterordner mit einer zufälligen ID erstellt. Diese ID wird im Webspeicher des Client-Browsers gespeichert. Wenn Sie den Webspeicher löschen, wird eine neue Instanz erstellt. Wenn Sie den Fully Kiosk Browser verwenden, stellen Sie sicher, dass die Funktion `Delete webstorage on reload` **deaktiviert** ist.
+In den Ordnerinstanzen befinden sich Objekte, mit denen die Benutzeroberfläche gesteuert werden kann. Für jeden Browser wird ein neuer Unterordner mit einer zufälligen ID erstellt. Diese ID wird im Webspeicher des Client-Browsers gespeichert. Wenn Sie den Webspeicher löschen, wird eine neue Instanz erstellt. Wenn Sie den Fully Kiosk Browser verwenden, stellen Sie sicher, dass die Funktion `Delete webstorage on reload` **deaktiviert** ist.
 
-Diese Funktion verwendet browser_mod, das vom Adapter installiert und aktualisiert wird. Fügen Sie keine eigene Version von browser_mod als benutzerdefinierte Karte hinzu.
+Diese Funktionalität nutzt browser_mod, das vom Adapter installiert und aktualisiert wird. Fügen Sie keine eigene Version von browser_mod als benutzerdefinierte Karte hinzu.
 
 ## Konfiguration
 Es gibt zwei Möglichkeiten, wie die Entitäten konfiguriert werden können:
@@ -31,15 +31,15 @@ Es gibt zwei Möglichkeiten, wie die Entitäten konfiguriert werden können:
 - Handbuch
 
 ### Auto
-Im Auto-Modus wird der gleiche Vorgang wie für `google home` oder `material adapter` angewendet.
+Im Automatikmodus wird ein ähnlicher Prozess wie für `google home` oder `material adapter` angewendet.
 
 ***Es werden nur Objekte und Kanäle erkannt, für die die Kategorien `function` und `room` definiert sind.***
 
-Sie können Anzeigenamen definieren, die in Entitäten verwendet werden.
+Sie können benutzerfreundliche Namen definieren, die dann in Entitäten verwendet werden.
 
 ### Handbuch
-Die Objekte können manuell in einem Objektbaum wie `sql` oder `history` definiert werden. Der Entitätstyp muss angegeben werden, optional der Name des Objekts.
-Mit dieser Methode können nur einfache Entitäten wie input_number, input_text oder input_boolean erstellt werden. Es dürfen nicht mehr als ein Status oder Attribut vorhanden sein.
+Die Objekte können manuell in einer Objektstruktur wie `sql` oder `history` definiert werden. Der Entitätstyp und optional der Objektname müssen angegeben werden.
+Mit dieser Methode lassen sich nur einfache Entitäten wie input_number, input_text oder input_boolean erstellen. Sie dürfen jeweils nur einen Zustand oder ein Attribut besitzen.
 
 ## Paneele
 ### Alarmzentrale
@@ -78,12 +78,12 @@ createState(
 );
 ```
 
-oder Sie verwenden dafür einfach `lovelace.X.control.alarm (entity_id = alarm_control_panel.defaultAlarm)`.
+Oder Sie verwenden einfach `lovelace.X.control.alarm (entity_id = alarm_control_panel.defaultAlarm)` dafür.
 
 ### Zahleneingabe
-Dies kann manuell erfolgen, wenn im benutzerdefinierten Dialogfeld der Entitätstyp „input_number“ ausgewählt ist.
-Dieser Typ erfordert die Werte `min` und `max` in `common`. Optional kann `step` hinzugefügt werden.
-Wenn Sie die Auf- und Abwärtspfeile sehen möchten, sollten Sie im benutzerdefinierten `mode` „Nummer“ festlegen:
+Dies kann manuell erfolgen, wenn im benutzerdefinierten Dialogfeld der Entitätstyp „Zahl“ ausgewählt ist.
+Für diesen Typ sind die Werte `min` und `max` in `common` erforderlich; optional kann `step` hinzugefügt werden.
+Um die Auf- und Abwärtspfeile anzuzeigen, muss in `mode` der Wert „Zahl“ festgelegt werden.
 
 ```json5
 common: {
@@ -98,9 +98,9 @@ common: {
 }
 ```
 
-### Eingang auswählen
+### Eingabe auswählen
 Dies kann manuell erfolgen, wenn der Entitätstyp `input_select` im benutzerdefinierten Dialogfeld ausgewählt ist.
-Die Liste der zur Auswahl stehenden Optionen sollte in einem Standardobjekt `common.states` bereitgestellt werden:
+Die Auswahlliste sollte in einem Standardobjekt `common.states` bereitgestellt werden.
 
 ```json
 "common": {
@@ -119,10 +119,10 @@ Die Liste der zur Auswahl stehenden Optionen sollte in einem Standardobjekt `com
     }
 ```
 
-mit anderen Worten, es sollte auch eine Auswahleingabe in IoB geben.
+Mit anderen Worten, es sollte auch eine Auswahleingabe in IoB geben.
 
-### Zeitgeber
-Der Timer kann durch das folgende Skript simuliert werden:
+### Timer
+Der Timer könnte durch folgendes Skript simuliert werden:
 
 ```js
 createState(
@@ -206,16 +206,16 @@ createState(
 ```
 
 ### Wetter
-Getestet mit `yr` und `daswetter`. Für eines oder mehrere der folgenden Objekte müssen `Function=Weather` und `Room=Any` gesetzt sein, damit sie in der Konfiguration verfügbar sind:
+Getestet mit `yr` und `daswetter`. Mindestens eines der folgenden Objekte muss die Optionen `Function=Weather` und `Room=Any` in der Konfiguration aktiviert haben:
 
 - `daswetter.0.NextDays.Location_1`
 - `yr.0.forecast`
 
-Getestet mit `AccuWeather` Treiber v1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
-Benutzerdefinierte Lovelace-Karte zur Unterstützung der Accuweather-Vorhersage erstellt - https://github.com/algar42/IoB.lovelace.accuweather-card
+Getestet mit dem Treiber `AccuWeather` v1.1.0 (https://github.com/iobroker-community-adapters/ioBroker.accuweather).
+Benutzerdefinierte Lovelace-Karte zur Unterstützung der AccuWeather-Vorhersage: https://github.com/algar42/IoB.lovelace.accuweather-card
 
 ### Einkaufsliste
-Einkaufsliste schreibt die Werte in Form:
+Die Einkaufsliste schreibt die Werte in folgender Form:
 
 ```json
 [
@@ -226,10 +226,10 @@ Einkaufsliste schreibt die Werte in Form:
 
 in den Zustand `lovelace.X.control.shopping_list`.
 
-Sie können auch Ihre eigenen Aufgaben- oder Einkaufslisten hinzufügen, indem Sie manuelle Entitäten mit dem Typ `todo` erstellen.
+Sie können auch Ihre eigenen Aufgaben- oder Einkaufslisten hinzufügen, indem Sie manuelle Entitäten vom Typ `todo` erstellen.
 
 ### Karte
-Die Objekte müssen wie dieses aussehen:
+Die Objekte müssen so aussehen:
 
 ```js
 createState('location', '39.5681295;2.6432632', false, {
@@ -264,7 +264,8 @@ createState('location.latitude', 39.5681295, false, {
 ```
 
 ### Bildentität
-Sie können dafür ein statisches Bild verwenden oder einen beliebigen Status, der eine URL als Status liefert.
+Sie können dafür ein statisches Bild verwenden oder einen beliebigen Zustand, der eine URL als Zustand liefert.
+
 Beispiel:
 
 ```json
@@ -282,35 +283,32 @@ Beispiel:
 }
 ```
 
-oder setzen Sie den Entitätstyp einfach manuell auf `camera` und schreiben Sie die URL hinein.
+oder man setzt den Entitätstyp einfach manuell auf `camera` und schreibt die URL hinein.
 
 ### Markdown
-Sie können Bindungen in Markdown wie in [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects) verwenden.
+In Markdown können Sie Bindungen wie in [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects) verwenden.
 
-Beispielsweise erzeugt der Text `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` den Text `Admin adapter is alive` in einem Markdown-Panel.
+Beispiel: Der Text `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` erzeugt den Text `Admin adapter is alive` in einem Markdown-Panel.
 
 ## Benutzerdefinierte Karten
 ### Hochladen von benutzerdefinierten Karten
-Um die benutzerdefinierte Karte hochzuladen, schreiben Sie Folgendes:
+Um die benutzerdefinierte Karte hochzuladen, verwenden Sie entweder die Registerkarte `Files` im Adminbereich, ziehen Sie sie per Drag & Drop in die Instanzeinstellungen oder geben Sie Folgendes in der Befehlszeile ein, in der iobroker installiert ist:
 
 ```iobroker file write PATH_TO_FILE\bignumber-card.js /lovelace.0/cards/```
 
-Nach dem Neustart des Lovelace-Adapters werden alle Dateien aus dem Verzeichnis `cards` automatisch eingeschlossen.
+Nach einem Neustart des Lovelace-Adapters werden automatisch alle Dateien aus dem Verzeichnis `cards` eingebunden.
 
-Folgende Custom-Karten konnten erfolgreich getestet werden:
+Falls die Karte zusätzliche Ressourcen (CSS- oder JS-Dateien) benötigt, müssen Sie die Ordnerstruktur im Verzeichnis `cards` wiederherstellen und die Dateien dort ablegen.
+Der Adapter erkennt URLs, die mit `/hacsfiles/` beginnen, und leitet sie an das Verzeichnis `cards` weiter. Sollten Sie also `404`-Fehler für URLs mit `/hacsfiles/` erhalten, passen Sie die Ordnerstruktur im Verzeichnis `cards` entsprechend an.
 
-- `bignumber-card`: https://github.com/custom-cards/bignumber-card/blob/master/bignumber-card.js
-- `simple-thermostat`: https://github.com/nervetattoo/simple-thermostat/releases (nehmen Sie die neueste Version)
-- `thermostat`: https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card (beide Dateien .js und .lib.js werden benötigt)
+Wenn beispielsweise eine benutzerdefinierte Karte die folgende Datei `/hacsfiles/folder1/folder2/file3.json` benötigt, müssen Sie diese unter `/lovelace.0/cards/folder1/folder2/file3.json` ablegen.
 
-Ich habe diesen Link https://github.com/jimz011/homeassistant als interessante Ressource für benutzerdefinierte Karten gefunden.
-
-Oftmals werden die benutzerdefinierten Karten als Quellen auf GitHub gespeichert und müssen vor der Verwendung kompiliert werden.
-Sie sollten das Menü `Releases` auf GitHub überprüfen und versuchen, dort kompilierte Dateien zu finden.
-Wie diese: [https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases) (Suchen Sie nach der Datei `mini-graph-card-bundle.js`)
+Die benutzerdefinierten Karten werden oft als Quellcode auf GitHub gespeichert und müssen vor der Verwendung kompiliert werden.
+Schauen Sie im Menü `Releases` auf GitHub nach und suchen Sie dort nach kompilierten Dateien.
+Zum Beispiel: [https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases) (Suchen Sie nach der Datei `mini-graph-card-bundle.js`).
 
 ## Eigene Bilder
-Die benutzerdefinierten Bilder (z. B. für einen Hintergrund) können über denselben Konfigurationsdialog wie die benutzerdefinierten Karten geladen werden. Und so funktioniert es:
+Die benutzerdefinierten Bilder (z. B. für einen Hintergrund) können über denselben Konfigurationsdialog wie die benutzerdefinierten Karten geladen werden. Die Verwendung erfolgt folgendermaßen:
 
 `background: center / cover no-repeat url("/cards/background.jpg") fixed`
 
@@ -321,8 +319,8 @@ oder
 in der Lovelace-Konfigurationsdatei. Lesen Sie mehr über den Hintergrund in Lovelace [Hier](https://www.home-assistant.io/lovelace/views/#background).
 
 ## Themen
-Die Themen können im Konfigurationsdialog von ioBroker definiert werden.
-Fügen Sie etwas wie Folgendes ein:
+Die Designs können im Konfigurationsdialog von ioBroker definiert werden.
+Fügen Sie beispielsweise Folgendes ein:
 
 ```yaml
 midnight:
@@ -395,10 +393,10 @@ midnight:
 entnommen aus [Hier](https://community.home-assistant.io/t/midnight-theme/28598/2).
 
 ## Symbole
-Verwenden Sie Symbole in der Form `mdi:NAME`, z. B. `mdi:play-network`. Die Namen können hier entnommen werden: https://materialdesignicons.com/
+Verwenden Sie Icons im Format `mdi:NAME`, z. B. `mdi:play-network`. Namen finden Sie hier: https://materialdesignicons.com/
 
 ## Benachrichtigungen
-Sie können Benachrichtigungen über die Funktion `sendTo` hinzufügen oder indem Sie den Status in `lovelace.X.notifications.add` schreiben:
+Benachrichtigungen können Sie über die Funktionalität `sendTo` oder durch Schreiben des Status in `lovelace.X.notifications.add` hinzufügen:
 
 ```js
 sendTo('lovelace.0', 'send', {message: 'Message text', title: 'Title'}); // full version
@@ -413,7 +411,8 @@ setState('lovelace.0.notifications.add', 'Message text'); // short version
 ```
 
 ## Sprachsteuerung
-Alle Befehle aus der Weboberfläche werden mit `ack=false` in den Status lovelace.X.conversation geschrieben.
+Alle Befehle der Weboberfläche werden mit `ack=false` in den Status lovelace.X.conversation geschrieben.
+
 Sie können ein Skript schreiben, das auf Anfragen reagiert und antwortet:
 
 ```js
@@ -428,56 +427,53 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 ```
 
 ## Fehlerbehebung
-Wenn Sie den YAML-Code durcheinandergebracht haben und eine leere Seite sehen, das Hauptmenü aber weiterhin angezeigt wird, können Sie den Bearbeitungsmodus (falls nicht bereits aktiviert) über das Menü aktivieren und anschließend das Menü erneut öffnen, um auf den „RAW Yaml Editor“ zuzugreifen. Dort sehen Sie den vollständigen YAML-Code und können ihn bereinigen.
-
-Wenn das nicht hilft, können Sie das Objekt `lovelace.*.configuration` im Raw-Editor in ioBroker öffnen und dort nachsehen.
-
-Sie können dieses Objekt auch aus einer Sicherung wiederherstellen. Es enthält die vollständige Konfiguration Ihrer Visualisierung.
+Falls Sie den YAML-Code beschädigt haben und eine leere Seite sehen, das obere Menü aber noch vorhanden ist, können Sie den Bearbeitungsmodus (falls noch nicht geschehen) über das Menü aktivieren und anschließend das Menü erneut öffnen, um auf den „RAW YAML Editor“ zuzugreifen. Dort sehen Sie den vollständigen YAML-Code und können ihn korrigieren.
+Sollte dies nicht helfen, können Sie das Objekt `lovelace.*.configuration` im Rohdaten-Editor von ioBroker öffnen und es dort überprüfen. Sie können dieses Objekt auch aus einer Sicherung wiederherstellen. Es enthält die vollständige Konfiguration Ihrer Visualisierung.
 
 ## Originalquellen für Lovelace
-Verwendete Quellen finden Sie hier https://github.com/GermanBluefox/home-assistant-polymer .
+Die verwendeten Quellen finden Sie hier: https://github.com/GermanBluefox/home-assistant-polymer.
 
-## Aufgaben
-Die Sicherheit muss vom aktuellen Benutzer übernommen werden und nicht vom Standardbenutzer.
+## Todo
+Die Sicherheit muss vom aktuellen Benutzer und nicht vom Standardbenutzer übernommen werden.
 
 ## Entwicklung
 ### Version
-Verwendete Version von home-assistant-frontend@20250306.0 Version des Browser-Mods: 2.3.3
+Verwendete Version von home-assistant-frontend@20250306.0. Browser-Mod-Version: 2.3.3
 
 ### So erstellen Sie die neue Lovelace-Version
-Zunächst muss das eigentliche https://github.com/home-assistant/frontend (Entwicklungszweig) **manuell** in https://github.com/GermanBluefox/home-assistant-polymer.git (***iob***-Zweig!) integriert werden.
+Zunächst muss der eigentliche Branch https://github.com/home-assistant/frontend (dev branch) **manuell** in den Branch https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** branch!) zusammengeführt werden.
 
 Alle Änderungen für ioBroker sind mit dem Kommentar `// IoB` gekennzeichnet.
-Vorläufig (20250401.0) wurden folgende Dateien geändert:
+Bis zum 01.04.2025 wurden folgende Dateien geändert:
 
 - `build-scripts/gulp/app.js` - Neue Gulp-Aufgabe „develop-iob“ hinzufügen
 - `build-scripts/gulp/rspack.js` - Neue Gulp-Aufgabe rspack-dev-app hinzufügen
-- `src/data/icons.ts` – alte Symbole vorerst behalten.
-- `src/data/weather.ts` – Unterstützung für die Anzeige des Wettersymbols aus der URL hinzufügen.
-- `src/dialogs/more-info/const.ts` – Wetterstatus und -verlauf entfernen
-- `src/dialogs/more-info/ha-more-info-dialog.ts` - Schaltfläche und Registerkarte „Entitätseinstellungen entfernen“
-- `src/dialogs/more-info/ha-more-info-history.ts` – Link „Mehr anzeigen“ im Verlauf entfernen
+- `src/data/icons.ts` - Alte Icons vorerst beibehalten.
+- `src/data/weather.ts` - Unterstützung zum Anzeigen eines Wettersymbols aus einer URL hinzufügen.
+- `src/dialogs/more-info/const.ts` - Wetterstatus und -verlauf entfernen
+- `src/dialogs/more-info/ha-more-info-dialog.ts` - Schaltfläche und Registerkarte für Entitätseinstellungen entfernen
+- `src/dialogs/more-info/ha-more-info-history.ts` - Entfernt den Link „Mehr anzeigen“ in der Historie
 - `src/dialogs/more-info/ha-more-info-logbook.ts` - Link „Mehr anzeigen“ im Logbuch entfernen
-- `src/dialogs/more-info/controls/more-info-weather.ts` – Unterstützung für die Anzeige des Wettersymbols aus der URL hinzufügen.
-- `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` – Konfiguration von Sprachassistenten deaktivieren
-- `src/entrypoints/core.ts` – keine Authentifizierungsoption hinzufügen
-- `src/panels/lovelace/cards/hui-weather-forecast-card.ts` – Unterstützung für die Anzeige des Wettersymbols aus der URL hinzufügen.
-- `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` – Unterstützung für die Anzeige von Wettersymbolen von URLs mit Authentifizierung hinzufügen.
-- `src/panels/lovelace/hui-root.ts` – Benachrichtigungsschaltfläche hinzugefügt, Link zum Verwalten von Dashboards deaktiviert
-- `src/util/documentation-url.ts` – für den Link zur Iobroker-Hilfe anstelle des Home Assistant.
-- `.husky/pre-commit` – Git-Commit-Hooks entfernen.
+- `src/dialogs/more-info/controls/more-info-weather.ts` - Unterstützung zum Anzeigen eines Wettersymbols über eine URL hinzufügen.
+- `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - Konfiguration von Sprachassistenten deaktivieren
+- `src/entrypoints/core.ts` - Option "Keine Authentifizierung" hinzufügen
+- `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - Unterstützung zum Anzeigen eines Wettersymbols aus einer URL hinzufügen.
+- `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - Unterstützung für die Anzeige des Wettersymbols per URL mit Authentifizierung hinzufügen.
+- `src/panels/lovelace/hui-root.ts` - Benachrichtigungsschaltfläche hinzugefügt, Link „Dashboards verwalten“ deaktiviert
+- `src/util/documentation-url.ts` - für einen Link zur iobroker-Hilfe anstelle der Home Assistant-Hilfe.
+- `.husky/pre-commit` - Git-Commit-Hooks entfernen.
 
-Checken Sie anschließend die geänderte Version im Ordner `./build` aus. Dann.
+Anschließend die geänderte Version im Ordner `./build` auschecken. Dann.
 
-1. Gehen Sie zum Verzeichnis ./build.
-2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` ist ein Fork von https://github.com/home-assistant/frontend.git, aber einige Dinge wurden geändert (siehe die Dateiliste weiter oben).
+1. Wechseln Sie in das Verzeichnis ./build.
+2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` Es handelt sich um einen Fork von https://github.com/home-assistant/frontend.git, allerdings wurden einige Dinge geändert (siehe die Dateiliste weiter oben).
 3. `cd home-assistant-polymer`
 4. `git checkout master`
-5. `Garn installieren`
-6. `gulp build-app` für die Veröffentlichung oder `gulp develop-iob` für die Debug-Version. Um das Web nach Änderungen zu erstellen, können Sie `webpack-dev-app` für einen schnelleren Build aufrufen. Sie müssen jedoch trotzdem `build-app` aufrufen, nachdem die Version einsatzbereit ist.
-7. Führen Sie das Skript „hass_frontend/static_cards/newFrontend.sh“ im Adapter-Repo aus, um das Frontend zu aktualisieren (es wird davon ausgegangen, dass sich die beiden Repositories nebeneinander im selben Ordner befinden. Wenn nicht, passen Sie das Skript bitte an, vorzugsweise mit etwas Parameterbehandlung, und erstellen Sie einen PR, danke :smile:)
-8. Führen Sie die Aufgabe „gulp rename“ aus.
-9. Aktualisieren Sie die Version in „README.md“
+5. `yarn install`
+6. Verwenden Sie `gulp build-app` für die Release-Version oder `gulp develop-iob` für die Debugging-Version. Um die Webanwendung nach Änderungen zu erstellen, können Sie `webpack-dev-app` für einen schnelleren Build aufrufen. Sie müssen jedoch in jedem Fall `build-app` ausführen, sobald die Version einsatzbereit ist.
+7. Führe das Skript `hass_frontend/static_cards/newFrontend.sh` im Adapter-Repository aus, um das Frontend zu aktualisieren (es wird davon ausgegangen, dass sich die beiden Repositories im selben Ordner befinden; falls nicht, passe das Skript bitte an, vorzugsweise mit Parameterbehandlung, und erstelle einen Pull Request, danke :smile: ).
+8. Führe den `gulp rename`-Task aus.
+9. Aktualisieren Sie die Versionsangabe in der `README.md`-Datei.
 
 ## Changelog
 
@@ -485,6 +481,20 @@ Checken Sie anschließend die geänderte Version im Ordner `./build` aus. Dann.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 5.0.4 (2025-12-17)
+* (Garfonso) added missing roles to instance objects
+* (Garfonso) manual entities should not vanish anymore because of automatic entities
+* (Garfonso) add support for cover images from static urls
+
+### 5.0.3 (2025-10-10)
+* (Garfonso) make sure only existing themes are selectable in control.theme states.
+* (Garfonso) bring back support for frontend_es5.
+
+### 5.0.2 (2025-10-02)
+* (Garfonso) some light entities did not restore their proper state on switch on. Fixed.
+* (Garfonso) process folders-Objects for auto entities, too. (pirate-weather support)
+* (Garfonso) prepare support for effects in light entities (will need new type-detector version).
+
 ### 5.0.1 (2025-09-09)
 * (Garfonso) settings from entity registry are now loaded on startup
 * (Garfonso) logbook: prevent entries from the future
@@ -503,15 +513,6 @@ Checken Sie anschließend die geänderte Version im Ordner `./build` aus. Dann.
 * (Garfonso) Prevent crash with some edge cases with light entities
 * (Garfonso) experimental dashboard support.
 * (Garfonso) Allow to show sidebar via object in instances. VERY experimental. A lot of stuff does not yet work. But allows to configure dashboards and also browser mod.
-
-### 4.1.15 (2025-03-10)
-* (Garfonso) repaired image loading, again.
-
-### 4.1.14 (2025-03-10)
-* (Garfonso) repaired image loading. Fixes #577
-
-### 4.1.13 (2025-03-06)
-* (Garfonso) reworked image sending. Now weather icons work for normal users, too. Also, weather images are transferred from our server, so no access to admin is needed anymore.
 
 ## License
 

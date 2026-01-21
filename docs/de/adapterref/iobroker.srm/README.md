@@ -3,41 +3,41 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.srm/README.md
 title: ioBroker Synology Router Manager Adapter
-hash: YFS3n/Q8ayDhk8BKLmS4F+wW3GgcS/oBIPlGbrPADXQ=
+hash: M0CLe8zC9gc+ByUUQoyZ21zktYfOPF7LTy/GWB45jKU=
 ---
-![Logo](../../../en/adapterref/iobroker.srm/admin/synology.png)
+![Logo](../../../en/adapterref/iobroker.srm/admin/srm.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/srm.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.srm.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.srm.svg)
 
 # IoBroker Synology Router Manager Adapter
-![Testen und Freigeben](https://github.com/iobroker-community-adapters/iobroker.srm/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/srm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.srm/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/srm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Beschreibung
-Dies ist ein iobroker-Adapter zum Verbinden mit [Synology](https://www.synology.com/)-Routern. Der Adapter verwendet die Synology-API, um die Daten abzurufen. Der Adapter wurde mit der SRM-Version 1.3.1 und dem Routermodell RT6600 getestet, sollte aber auch mit anderen Modellen funktionieren.
+Dies ist ein iobroker-Adapter zur Verbindung mit Routern der Klasse [Synology](https://www.synology.com/). Der Adapter nutzt die Synology-API zum Datenabruf. Er wurde mit der SRM-Version 1.3.1 und dem Routermodell RT6600 getestet, sollte aber auch mit anderen Modellen funktionieren.
 
 ## Verwendung
 ### Installation
-Erstellen Sie eine neue Instanz des Adapters und geben Sie die IP-Adresse Ihres Routers ein. Der Port ist standardmäßig 8001. Geben Sie den Benutzernamen und das Passwort Ihres Routers ein. Stellen Sie sicher, dass der Benutzer keine 2FA verwendet.
+Erstellen Sie eine neue Instanz des Adapters und geben Sie die IP-Adresse Ihres Routers ein. Der Port ist standardmäßig 8001. Geben Sie Benutzername und Passwort Ihres Routers ein. Stellen Sie sicher, dass der Benutzer keine Zwei-Faktor-Authentifizierung (2FA) verwendet.
 
 ### Objekte
-Der Adapter erstellt die folgenden Objekte:
+Der Adapter erzeugt die folgenden Objekte:
 
 #### Router
-* IPV4_IP: IP4-Adresse des Routers
+* IPv4_IP: IPv4-Adresse des Routers
 * IPV4_status: Status der IPV4-Verbindung
-* IPV6_IP: IP6-Adresse des Routers
+* IPV6_IP: IPv6-Adresse des Routers
 * IPV6_status: Status der IPV4-Verbindung
 
 #### Geräte
-JSON-Tabelle für folgende Gerätezustände:
+JSON-Tabelle für die folgenden Gerätezustände:
 
-* all: Alle bekannten Geräte
+* alle: Alle bekannten Geräte
 * Mesh: Alle Mesh-Geräte
 * online: Alle Online-Geräte
-* online_ethernet: Alle über Ethernet verbundenen Online-Geräte
-* Online-WLAN: Alle Online-Geräte sind über WLAN verbunden
+* online_ethernet: Alle Online-Geräte, die über Ethernet verbunden sind
+* Online-WLAN: Alle Online-Geräte sind über WLAN verbunden.
 
 Jede JSON-Tabelle enthält für jedes Gerät die folgenden Objekte:
 
@@ -46,56 +46,56 @@ Jede JSON-Tabelle enthält für jedes Gerät die folgenden Objekte:
 * Hostname: Hostname des Geräts
 * ip6_addr: IP6-Adresse des Geräts
 * ip_addr: IP4-Adresse des Geräts
-* is_banned: Ist das Gerät gesperrt
-* is_beamforming_on: Ist Beamforming aktiviert
-* is_high_qos_on: Ist hohe QOS aktiviert
-* is_low_qos_on: Ist niedrige QOS aktiviert
-* is_manual_device_type: Ist der Gerätetyp manuell eingestellt
-* is_manual_hostname: Ist der Hostname manuell festgelegt
-* is_online: Ist das Gerät online
-* is_qos_on: Ist QOS aktiviert
-* is_wireless: Ist das Gerät über WLAN verbunden
+* is_banned: Ist das Gerät gesperrt?
+* is_beamforming_on: Ist Beamforming aktiviert?
+* is_high_qos_on: Ist hohes QoS aktiviert?
+* is_low_qos_on: Ist niedriges QoS aktiviert?
+* is_manual_device_type: Wurde der Gerätetyp manuell eingestellt?
+* is_manual_hostname: Wurde der Hostname manuell festgelegt?
+* is_online: Ist das Gerät online?
+* is_qos_on: Ist QoS aktiviert?
+* is_wireless: Ist das Gerät über WLAN verbunden?
 * mac: MAC-Adresse des Geräts
 * mesh_node_id: ID des Mesh-Knotens
 * mesh_node_name: Name des Mesh-Knotens
 
-#### Informationen
+#### Info
 * Verbindung: Status der Verbindung zum Router
 
-#### Masche
-Liste der Mesh-Knoten. Jeder Mesh-Knoten hat die folgenden Objekte:
+#### Netz
+Liste der Netzknoten. Jeder Netzknoten enthält die folgenden Objekte:
 
 * Band: Uplink-Band
 * connected_devices: Anzahl der verbundenen Geräte
 * current_tx_rate: Aktuelle Übertragungsrate
 * current_rx_rate: Aktuelle Empfangsrate
-* Name: Name des Mesh-Knotens
-* network_status: Status des Netzwerks
+* Name: Name des Netzknotens
+* Netzwerkstatus: Status des Netzwerks
 * node_id: ID des Mesh-Knotens
 * node_status: Status des Mesh-Knotens
 * parent_node_id: ID des übergeordneten Knotens
 * signal_strength: Signalstärke
 
 #### W-lan
-Liste der WLAN-Netzwerke und -Einstellungen. WLAN-Einstellungen können nur alle 3 Sekunden geändert werden, um widersprüchliche Änderungen zu vermeiden. Jeder Mesh-Knoten hat die folgenden Objekte:
+Liste der WLAN-Netzwerke und -Einstellungen. Die WLAN-Einstellungen können nur alle 3 Sekunden geändert werden, um Konflikte zu vermeiden. Jeder Mesh-Knoten verfügt über die folgenden Objekte:
 
-* enable: WLAN-Netzwerk aktivieren (Lesen/Schreiben)
-* enable_client_isolation: Client-Isolierung aktivieren (Lesen/Schreiben)
-* hide_ssid: Verbergen der WLAN-SSID (lesen/schreiben)
+* aktivieren: WLAN-Netzwerk aktivieren (Lesen/Schreiben)
+* enable_client_isolation: Clientisolation aktivieren (Lesen/Schreiben)
+* hide_ssid: WLAN-SSID ausblenden (Lesen/Schreiben)
 * mac_filter: MAC-Filter aktivieren (lesen)
-* schedule_enable: Zeitplan für Netzwerk aktivieren (lesen/schreiben)
+* schedule_enable: Zeitplan für Netzwerk aktivieren (Lesen/Schreiben)
 
 ## Credits
-Dieser Adapter wäre ohne die großartige Arbeit von @stephan1827 (https://github.com/stephan18277) nicht möglich gewesen, der die Originalversionen dieses Adapters entwickelt hat.
+Dieser Adapter wäre ohne die großartige Arbeit von @stephan1827 (https://github.com/stephan18277), der die ursprünglichen Versionen dieses Adapters entwickelt hat, nicht möglich gewesen.
 
 Dank an
 
-* [Nocilas](https://github.com/nioc), Anbieter des Connectors für die Synology-API.
-* Die unzähligen Iobroker-Adapter, die ich als Vorlage verwendet habe, insbesondere [asuswrt](https://github.com/mcdhrts/ioBroker.asuswrt).
+* [Nocilas](https://github.com/nioc), die den Konnektor für die Synology API bereitstellen.
+* Die unzähligen iobroker-Adapter, die ich als Vorlage verwendet habe, insbesondere [asuswrt](https://github.com/mcdhrts/ioBroker.asuswrt).
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **IN BEARBEITUNG** -->
 
 ## Changelog
 ### 1.0.0 (2024-12-12)
@@ -135,6 +135,7 @@ Dank an
 ## License
 MIT License
 
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024 stephan stricker <stephan.stricker@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

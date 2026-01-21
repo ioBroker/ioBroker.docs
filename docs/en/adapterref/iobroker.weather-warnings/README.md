@@ -347,7 +347,7 @@ Iconpage: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 ## License
 MIT License
 
-Copyright (c) 2024-2025 ticaki <github@renopoint.de>
+Copyright (c) 2024-2026 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

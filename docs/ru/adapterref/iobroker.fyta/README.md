@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fyta/README.md
 title: ioBroker.fyta
-hash: bq+rf5I9Fnbivtr2XfW43a87NdAZqNd3qhX9vFJRj4k=
+hash: YabwSSWcwDpZ+C8PZxUg+SdqoP++KCYKVDv/sTyQXoU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fyta/admin/fyta.png)
 
@@ -16,16 +16,25 @@ hash: bq+rf5I9Fnbivtr2XfW43a87NdAZqNd3qhX9vFJRj4k=
 # IoBroker.fyta
 <!--
 
-**Тесты:** ![Тест и выпуск](https://github.com/muffin142/ioBroker.fyta/workflows/Test%20and%20Release/badge.svg) -->
+**Тесты:** ![Тестирование и выпуск](https://github.com/muffin142/ioBroker.fyta/workflows/Test%20and%20Release/badge.svg) -->
 
 ## Адаптер FYTA для ioBroker
-Неофициальный адаптер для подключения ioBroker к [Датчики растений FYTA](https://fyta.de/) Датчики можно приобрести в [Магазин FYTA](https://fyta.de/collections/all/products/10-beams-1-hub)
+Неофициальный адаптер для подключения ioBroker к [датчики растений FYTA](https://fyta.de/) Датчики можно приобрести в [Магазин FYTA](https://fyta.de/collections/all)
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.1 (2025-12-08)
+-	Error messages corrected and specified
+
+### 0.2.0 (2025-04-28)
+-   Added retrieval of raw values
+-	Added use of internal notifications
+
+### 0.1.5 (2025-03-23)
+-   fix token handling when downloading plant images
 
 ### 0.1.4 (2025-02-23)
 -   minor changes due to publishing in ioBroker.repository:latest

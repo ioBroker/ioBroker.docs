@@ -35,11 +35,21 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.2.3 (2025-12-12)
 
+- FIX: Errors reported by sentry
+
+### 3.2.2 (2025-12-10)
+
+- FIX: Errors reported by sentry
+
+### 3.2.1 (2025-11-27)
+
+- FIX: #459 Message is confirmed, although it should not
+- FIX: #452 Value in return text
 - FIX: #436 Message text is empty error
 - CHORE: Update dependencies
-  
+
 ### 3.2.0 (2025-10-20)
 
 - FEAT: #421 Events with selectable comparison parameter
@@ -572,7 +582,7 @@ CHORE: #401 Update config
 
 MIT License
 
-Copyright (c) 2025 MiRo1310 <michael.roling@gmx.de>
+Copyright (c) 2023-2026 MiRo1310 <michael.roling@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

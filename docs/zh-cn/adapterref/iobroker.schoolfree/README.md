@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.schoolfree/README.md
 title: ioBroker.schoolfree
-hash: BsSCPgTXnrYtW2QvtzPh2J6HOYP11s13WGmANTpaqbk=
+hash: S/xH1aaRxryOQeISBMFmoqEE1bY14AKbIcSqq5mJ0v4=
 ---
 ![标识](../../../en/adapterref/iobroker.schoolfree/admin/schoolfree.png)
 
@@ -16,66 +16,107 @@ hash: BsSCPgTXnrYtW2QvtzPh2J6HOYP11s13WGmANTpaqbk=
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.schoolfree
-![测试和发布](https://github.com/simatec/ioBroker.schoolfree/workflows/Test%20and%20Release/badge.svg)
+![测试与发布](https://github.com/simatec/ioBroker.schoolfree/workflows/Test%20and%20Release/badge.svg)
 
-此适配器使用服务 Sentry.io 自动向我作为开发人员报告异常和代码错误以及新的设备模式。更多详情见下文！
+此适配器使用 Sentry.io 服务自动向我（开发者）报告异常、代码错误和新的设备架构。更多详情请见下文！
 
-## IoBroker 的 schoolfree 适配器
-**如果喜欢，请考虑捐款：**
+## 适用于 ioBroker 的 schoolfree 适配器
+如果您喜欢，请考虑捐赠：
 
-[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
-
-### 德意志研究报告：
-Schoolfree 是用于安装 iobroker 的适配器。
-Mit dem Adapter lassen sich die Schulferien auswerten und in Datenpunkte übergeben。
-Die Datenpunkte können somit für weitere Funktionen wie Heizungssteuerungen、Rolladen- und Anwesenheitssteuerungen ausgewertet und verarbeitet werden。
-
-Der aktuelle Bezug von Terminen für die Schulferien erfolgt über die API von https://www.mehr-schulferien.de
-
-Aktuell werden die Schulferien und freien Tage für Deutschland unterstützt。
-
-Folgende Datenpunkte stehen mit Schoolfree für die weitere Verarbeitung zur Verfügung：
-
-* info.current.end: Datum für das Ende der aktuellen Ferien
-* info.current.name: Bezeichnung der aktuellen Schulferien
-* info.current.start: Startdatum der aktuellen Ferien
-* info.next.end: Datum für das Ende der nächsten Ferien
-* info.next.name：Bezeichnung der nächsten Schulferien
-* info.next.start: Startdatum der nächsten Ferien
-* info.today: Switch für den aktuellen Status heute (true/false)
-* info.tomorrow: Switch für den aktuellen Status morgen (true/false)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 *************************************************************************************************************************************
 
-###英文说明：
-Schoolfree 是 iobroker 安装的适配器。
-使用适配器，可以评估学校假期并将其传输到数据点。
-因此，可以评估和处理数据点以用于其他功能，例如加热控制、快门和存在控制。
+＃＃＃ 描述：
+Schoolfree 是一个用于 iobroker 安装的适配器。
 
-当前学校假期的订阅是通过 https://www.mehr-schulferien.de 的 API
+通过该适配器，可以评估学校假期并将其传输到数据点。
 
-目前，支持德国的学校假期和休息日。
+这些数据点随后可以被评估和处理，用于其他功能，例如供暖控制、百叶窗控制和人员存在控制。
 
-以下数据点可用于 Schoolfree 的进一步处理：
+目前学校假期订阅是通过 https://www.mehr-schulferien.de 的 API 实现的。
 
-* info.current.end: 当前假期结束日期
-* info.current.name: 当前学校假期名称
-* info.current.start: 当前假期的开始日期
-* info.next.end: 下一个假期结束的日期
+目前，德国的学校假期和休假日都得到了支持。
+
+以下数据点可供 Schoolfree 进行进一步处理：
+
+* info.current.end：当前假期的结束日期
+* info.current.name：当前学校假期的名称
+* info.current.start：当前假期的开始日期
+* info.next.end：下一个假期的结束日期
 * info.next.name：下一个学校假期的名称
-* info.next.start: 下一个假期的开始日期
-* info.today: 切换为今天的当前状态(true/false)
-* info.tomorrow: 明天切换当前状态 (true / false)
+* info.next.start：下一个假期的开始日期
+* info.today：显示当前状态的开关（true / false）
+* info.tomorrow：明天是否显示当前状态（true / false）
 
-### 什么是 Sentry.io 以及向该公司服务器报告的内容？
-Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有关错误的概览。正是在这个适配器中实现了这一点。
+### Sentry.io 是什么？它会向该公司的服务器报告哪些信息？
+Sentry.io 是一项面向开发者的服务，用于概览其应用程序中的错误。而这个适配器正是实现了这一功能。
 
-当适配器崩溃或发生其他代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。当您允许 iobroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一的 ID **没有**关于您、电子邮件、姓名等的任何其他信息）也包括在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都有助于我提供基本上不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，此错误信息（也会出现在 ioBroker 日志中）会提交给 Sentry。如果您允许 iobroker GmbH 收集诊断数据，则您的安装 ID（这只是一个唯一的 ID，**不**包含您的任何其他信息，例如电子邮件、姓名等）也会被包含在内。这使得 Sentry 能够对错误进行分组，并显示有多少个独立用户受到此类错误的影响。所有这些都有助于我提供几乎不会崩溃的无错误适配器。
 
 *************************************************************************************************************************************
 
 ## Changelog
 <!--### __WORK IN PROGRESS__-->
+### __WORK IN PROGRESS__
+* (simatec) Readme updated
+
+### 1.1.13 (2025-11-18)
+* (simatec) dependencies updated
+* (simatec) update npm publish
+
+### 1.1.12 (2025-08-31)
+* (simatec) small fix
+* (simatec) dependencies updated
+
+### 1.1.11 (2025-08-15)
+* (simatec) dependencies updated
+
+### 1.1.10 (2025-06-29)
+* (simatec) dependencies updated
+* (simatec) Ready for NodeJS 24.x
+
+### 1.1.9 (2025-03-14)
+* (simatec) Fix warning
+* (simatec) Dependencies updated
+
+### 1.1.8 (2025-02-22)
+* (simatec) eslint-config fix
+* (simatec) Dependencies updated
+* (simatec) small Fix
+
+### 1.1.7 (2024-12-31)
+* (simatec) eslint-config fix
+* (simatec) Dependencies updated
+* (simatec) Fix States
+* (simatec) Update License
+
+### 1.1.6 (2024-11-25)
+* (simatec) Dependencies updated
+* (simatec) Issue Action added
+* (simatec) eslint-config added
+
+### 1.1.5 (2024-09-21)
+* (simatec) Dependencies updated
+* (simatec) small fix
+* (simatec) Responsive Design added
+
+### 1.1.4 (2024-02-06)
+* (simatec) Dependencies updated
+* (simatec) Design Fix
+* (simatec) Gulp deleted
+* (simatec) adapter-dev added
+* (simatec) Translation updated
+
+### 1.1.3 (2023-11-02)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+
+### 1.1.2 (2023-09-04)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+* (simatec) Translation updated
+
 ### 1.1.1 (2023-03-18)
 * (simatec) Dependencies updated
 * (simatec) test and release updated
@@ -166,7 +207,7 @@ Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有�
 ## License
 MIT License
 
-Copyright (c) 2019 - 2023 simatec
+Copyright (c) 2019 - 2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -51,6 +51,11 @@ For example, `red = 0`, blue and green will stay unchanged.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 2.0.3 (2025-01-29)
 * (bluefox) Trying to reconnect after the EHOSTUNREACH error code
 * (mcm1957) Dependencies have been updated

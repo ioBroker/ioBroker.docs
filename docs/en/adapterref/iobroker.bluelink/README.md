@@ -25,10 +25,11 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 [Wiki](https://github.com/Newan/ioBroker.bluelink/wiki)
 
 ------------------------------------------------------------------------------------
-
-
-
 ## Changelog
+### 3.1.25 (2025-12-28)
+* (arteck) Dependencies have been updated
+* (arteck) adds documentation on the token generation process for HYUNDAI and KIA
+
 ### 3.1.24 (2025-11-07)
 * (arteck) fix vehicles > 2 in account
 

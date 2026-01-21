@@ -47,6 +47,10 @@ Der Adapter löscht generell keine Objekt, damit es nicht zu Datenverlust kommt,
 Der Adapter hat auch keinen Einfluss darauf, welche Parameter von myUplink gesendet werden.
 
 ## Changelog
+### 0.8.6 (2025-12-26)
+
+- Dependencies have been updated #134
+
 ### 0.8.5 (2025-09-09)
 
 - Dependencies have been updated #124
@@ -142,7 +146,7 @@ Der Adapter hat auch keinen Einfluss darauf, welche Parameter von myUplink gesen
 
 MIT License
 
-Copyright (c) 2025 Sebastian Häßelbarth <seb@sebmail.de>
+Copyright (c) 2023-2026 Sebastian Häßelbarth <seb@sebmail.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

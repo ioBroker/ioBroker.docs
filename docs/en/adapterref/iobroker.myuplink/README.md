@@ -47,6 +47,10 @@ The adapter generally does not delete any objects so that data is not lost if my
 The adapter also has no influence on which parameters are sent by myUplink.
 
 ## Changelog
+### 0.8.6 (2025-12-26)
+
+- Dependencies have been updated #134
+
 ### 0.8.5 (2025-09-09)
 
 - Dependencies have been updated #124
@@ -142,7 +146,7 @@ The adapter also has no influence on which parameters are sent by myUplink.
 
 MIT License
 
-Copyright (c) 2025 Sebastian Häßelbarth <seb@sebmail.de>
+Copyright (c) 2023-2026 Sebastian Häßelbarth <seb@sebmail.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

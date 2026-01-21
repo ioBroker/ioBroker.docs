@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.unraid/README.md
 title: ioBroker.unraid
-hash: QRfDubzltJqC1U93jHiMmQzHNgPxcBnKKFkCUIucZPU=
+hash: Klz4BrytXGLfoSSr+r2o3NOepVL0kjcr7g4bE06sAZo=
 ---
 ![Logo](../../../en/adapterref/iobroker.unraid/admin/unraid.png)
 
@@ -14,64 +14,74 @@ hash: QRfDubzltJqC1U93jHiMmQzHNgPxcBnKKFkCUIucZPU=
 ![NPM](https://nodei.co/npm/iobroker.unraid.png?downloads=true)
 
 # IoBroker.unraid
-> **⚠️ In Arbeit**: Dieser Adapter befindet sich in der aktiven Entwicklung. Weitere Datenpunkte und Funktionen sind für zukünftige Versionen geplant.
+> **⚠️ In Entwicklung**: Dieser Adapter befindet sich in aktiver Entwicklung. Zusätzliche Datenpunkte und Funktionen sind für zukünftige Versionen geplant.
 
-**Tests:** ![Testen und Freigeben](https://github.com/ingel81/ioBroker.unraid/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/ingel81/ioBroker.unraid/workflows/Test%20and%20Release/badge.svg)
 
 ## Unraid-Adapter für ioBroker
 Dieser Adapter verbindet ioBroker über die GraphQL-API mit Unraid-Servern, um Systemmetriken und -status zu überwachen.
 
 ## Merkmale
-- Überwachung der CPU- und Speichernutzung (einschließlich Statistiken pro Kern)
-- Verfolgen Sie den Serverstatus und die Netzwerkinformationen
+- Überwachung der CPU- und Speicherauslastung (einschließlich Statistiken pro Kern)
+- Serverstatus und Netzwerkinformationen verfolgen
 - Docker-Container überwachen und steuern (Start/Stopp)
-- Anzeigen von Array-Festplatten (Daten, Parität, Cache) mit Integritätsinformationen
+- Array-Festplatten (Daten, Parität, Cache) mit Zustandsinformationen anzeigen
 - Netzwerkfreigaben überwachen (Nutzung, Konfiguration, Dateisystemdetails)
-- Virtuelle Maschinen überwachen und steuern (Starten/Stoppen/Pausieren/Fortsetzen/Neustarten)
+- Virtuelle Maschinen überwachen und steuern (Starten/Stoppen/Anhalten/Fortsetzen/Neustarten)
 - Konfigurierbares Abfrageintervall
 
 ## Konfiguration
 ### Generieren eines API-Tokens in Unraid
 #### Für Unraid-Versionen vor 7.2:
-1. Installieren Sie das **"Unraid Connect Plugin"** aus dem Unraid Community Applications Store
+1. Installieren Sie das **„Unraid Connect Plugin“** aus dem Unraid Community Applications Store.
 2. Navigieren Sie nach der Installation zu: **Einstellungen → Verwaltungszugriff → API-Schlüssel**
 
 #### Für Unraid 7.2 und höher:
-- Die API-Funktionalität ist integriert, gehen Sie direkt zu: **Einstellungen → Verwaltungszugriff → API-Schlüssel**
+Die API-Funktionalität ist integriert. Gehen Sie direkt zu: **Einstellungen → Verwaltungszugriff → API-Schlüssel**
 
-#### Erstellen des Tokens:
+#### Token erstellen:
 1. Klicken Sie auf **"API-Schlüssel hinzufügen"**
-2. **Wichtig**: Wählen Sie **"Admin"** als Zugriffsebene (Rollen: ADMIN)
-- Derzeit funktionieren nur Admin-Token ordnungsgemäß (siehe [diesen Forenbeitrag](https://forums.unraid.net/topic/193661-api-access-always-403-forbidden/))
-3. Geben Sie dem Token einen beschreibenden Namen (z. B. „ioBroker“)
-4. Kopieren Sie den generierten Token (API-Schlüssel) - Sie benötigen ihn für die Adapterkonfiguration
+2. Berechtigungen konfigurieren:
+- **Basisrolle**: Wählen Sie **"Betrachter"** (bietet Lesezugriff auf Systeminformationen, Metriken, Datenträger usw.).
+- **Zusätzliche Berechtigungen** (erforderlich für Steuerungsfunktionen):
+- **Docker Manager**: Ermöglicht das Starten/Stoppen von Docker-Containern
+- **VM-Manager**: Ermöglicht das Starten, Stoppen und Anhalten virtueller Maschinen
 
-![Unraid-API-Token](../../../en/adapterref/iobroker.unraid/docs/de/img/unraid_token01.png)
+**Schnelleinrichtungsalternative**: Kopieren Sie diese Vorlagenzeichenfolge und fügen Sie sie in **API-Schlüssel → "Aus Vorlage erstellen"** ein:
+
+```
+?name=ioBroker+unraid+adapter+key&scopes=role%3Aviewer%2Cdocker%2Bvms%3Acreate_any%2Bdelete_any%2Bread_any%2Bupdate_any%2Carray%2Bdashboard%2Bdisk%2Binfo%2Blogs%2Bnetwork%3Aread_any
+```
+
+3. Geben Sie dem Token einen beschreibenden Namen (z. B. „ioBroker“).
+4. Kopieren Sie das generierte Token (API-Schlüssel) – Sie benötigen es für die Adapterkonfiguration.
+
+![Unraid API-Token](../../../en/adapterref/iobroker.unraid/docs/de/img/unraid_token01.png)
 
 ### Adaptereinstellungen
-1. **Basis-URL**: Geben Sie Ihre Unraid-Serveradresse ein (z. B. „https://192.168.1.10“ oder „https://tower.local“)
-2. **API-Token**: Fügen Sie das Admin-Token ein, das Sie in Unraid generiert haben
+1. **Basis-URL**: Geben Sie Ihre Unraid-Serveradresse ein (z. B. `https://192.168.1.10` oder `https://tower.local`).
+2. **API-Token**: Fügen Sie das Admin-Token ein, das Sie in Unraid generiert haben.
 3. **Abfrageintervall**: Legen Sie fest, wie oft Daten abgerufen werden sollen (Standard: 60 Sekunden, Minimum: 10 Sekunden)
-4. **Selbstsignierte Zertifikate**: Aktivieren Sie diese Option, wenn Ihr Unraid-Server ein selbstsigniertes HTTPS-Zertifikat verwendet
-5. **Datendomänen**: Wählen Sie aus, welche Datenkategorien überwacht werden sollen (Systeminformationen, Serverstatus, Metriken usw.).
+4. **Selbstsignierte Zertifikate**: Aktivieren Sie diese Option, wenn Ihr Unraid-Server ein selbstsigniertes HTTPS-Zertifikat verwendet.
+5. **Datendomänen**: Wählen Sie die zu überwachenden Datenkategorien aus (Systeminformationen, Serverstatus, Metriken usw.).
 
 ### Konfigurationsschnittstelle
 ![Konfiguration](../../../en/adapterref/iobroker.unraid/docs/de/img/ioBroker_config01.png)
 
 ### Erstellte Objekte
-Der Adapter erstellt einen strukturierten Objektbaum für die überwachten Daten:
+Der Adapter erstellt eine strukturierte Objektstruktur für die überwachten Daten:
 
 ![Objekte](../../../en/adapterref/iobroker.unraid/docs/de/img/ioBroker_objects01.png)<br>
 
-![Docker-Container-Steuerelemente](../../../en/adapterref/iobroker.unraid/docs/de/img/ioBroker_objects02.png)<br>
+![Docker-Containersteuerung](../../../en/adapterref/iobroker.unraid/docs/de/img/ioBroker_objects02.png)<br>
 
-![VM-Steuerelemente](../../../en/adapterref/iobroker.unraid/docs/de/img/ioBroker_objects03.png)
+![VM-Steuerung](../../../en/adapterref/iobroker.unraid/docs/de/img/ioBroker_objects03.png)
 
 ## Anforderungen
 - Unraid-Server (Version 7.0.0+ empfohlen)
-- Für Versionen vor 7.2: Installieren Sie "Unraid Connect Plugin" von Community Applications
-- Für Version 7.2+: API-Unterstützung ist integriert
-- API-Token auf Administratorebene, generiert in der Unraid-Web-Benutzeroberfläche
+- Für Versionen vor 7.2: Installieren Sie das „Unraid Connect Plugin“ aus den Community-Anwendungen.
+- Ab Version 7.2: API-Unterstützung ist integriert
+- API-Token mit Viewer-Rolle (plus Docker/VM Manager für Steuerungsfunktionen)
 - Netzwerkzugriff von ioBroker auf den Unraid-Server
 
 ## Changelog
@@ -80,6 +90,17 @@ Der Adapter erstellt einen strukturierten Objektbaum für die überwachten Daten
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.7.1 (2025-11-30)
+
+- (ingel81) Minor pipeline issues fixed
+
+### 0.7.0 (2025-11-30)
+
+- (ingel81) Migrated admin UI to @iobroker/adapter-react-v5 (React 18, MUI v6)
+- (ingel81) Extended Unraid GraphQL schema (CPU package power and temperatures)
+- (ingel81) Refined API token documentation with Viewer role permissions
+- (ingel81) Updated dependencies (release-script 5.x, adapter-react-v5 8.x)
+
 ### 0.6.2 (2025-10-19)
 
 - (ingel81) dependencies updated

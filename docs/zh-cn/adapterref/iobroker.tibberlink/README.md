@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: NzdSoFAr8e/3DyZF2cTRxaRpX5UqZMhEYaW5foZ+lNE=
+hash: v6FxPWFAENHd0IH3Y9/brIEtva1r3Zc6X3khIMaTbtI=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -42,7 +42,7 @@ hash: NzdSoFAr8e/3DyZF2cTRxaRpX5UqZMhEYaW5foZ+lNE=
 - 保存设置并退出配置以重新启动适配器；此步骤允许 Tibber 服务器首次查询您的家庭。
 - 返回配置界面，选择您希望使用 Tibber Pulse 获取实时数据的住宅。您也可以选择住宅并禁用数据馈送（注意：此功能仅在硬件已安装且 Tibber 服务器已验证与 Pulse 的连接后才有效）。
 注意：如果您的 Tibber 帐户中有多处房产处于激活状态，则必须添加所有房产才能消除因可能不需要的房产而导致的错误信息。添加所有房产并禁用相关选项。
-- 例如，如果您只打算使用 Pulse 实时数据，您可以选择停用今天和明天的价格数据检索功能。
+例如，如果您只打算使用 Pulse 实时数据，您可以选择停用今天和明天的价格数据检索功能。
 - 您可以选择启用历史消费数据检索功能。请指定小时、天、周、月和年的数据集数量。您可以根据个人喜好，使用“0”禁用一个或多个时间段的数据。
 注意：务必注意数据集的大小，因为过大的请求可能会导致 Tibber 服务器无响应。我们建议您尝试不同的数据集大小，以确保最佳功能。调整时间间隔和数据集数量有助于在获取有价值的数据和保持服务器响应速度之间找到合适的平衡点。例如，48 小时是一个相当不错的数值。
 - 保存设置。
@@ -72,10 +72,14 @@ hash: NzdSoFAr8e/3DyZF2cTRxaRpX5UqZMhEYaW5foZ+lNE=
 - “LTF 最佳单小时”：在有限时间范围内 (LTF) 的“最佳单小时”。
 - “LTF 最佳时段”：在有限时间范围内 (LTF) 的“最佳时段”。
 - “最佳百分比 LTF”：在有限时间范围内 (LTF) 的“最佳百分比”。
-- “智能电池缓冲”：使用“效率损失”参数指定电池系统的效率损失。“效率损失”参数的取值范围为 0 到 1，其中 0 表示无效率损失，1 表示完全效率损失。例如，值为 0.25 表示充放电循环的效率损失为 25%。
-
-使用“AmountHours”参数输入所需的电池充电小时数（精确到15分钟）。计算器将在指定的“AmountHours”时段内启用电池充电（“值 YES”）并禁用电池供电（“值 2 NO”）。相反，在成本最高的时段，如果该时段的成本高于所有低价时段中的最高总价，则计算器将禁用电池充电（“值 NO”）并启用电池供电（“值 2 YES”）。在其余正常价格时段，由于电池能量缓冲不经济，两个输出都将被关闭。
-
+- “智能电池缓冲器”：
+“效率损失”参数定义了电池系统的效率损失。其取值范围为 0 到 1，其中 0 表示无效率损失，1 表示完全能量损失。例如，值为 0.25 表示每次充放电循环的效率损失为 25%。
+“AmountHours”参数指定系统可用于电池充电的最大小时数，精确到刻度点。重要提示：这是上限值，并非保证的充电小时数。实际的充电时段数会根据能源价格和效率损失动态调整。系统只会选择那些在经济上划算的时段（即，考虑到效率损失，价格远低于最贵时段的价格）。
+- 该计算器的工作原理如下：
+- 低价时段：电池充电功能已启用（值为“是”），但向家庭能源系统供电的功能已禁用（值为“否”）。这些时段价格最低，且符合能效筛选条件，最高时长为 AmountHours。
+- 高价时段：电池充电功能已禁用（值为“否”），但已启用并入家庭能源系统（值为“是”）。这些时段的价格最高，高于根据最低时段价格和效率损失动态计算的阈值。
+- 正常时间段：在充电不经济的情况下，两个输出均被禁用。
+这种方法确保电池只在经济上有利可图时才使用，而不是严格遵守固定的使用小时数。
 - LTF 通道：这些通道的运行方式与标准通道类似，但仅在由“StartTime”和“StopTime”状态对象定义的时间范围内处于活动状态。“StopTime”过后，通道将自动停用。“StartTime”和“StopTime”可以跨越两个日历日，因为 Tibber 不提供超过 48 小时的数据。两种状态均要求提供 ISO-8601 格式的日期时间字符串，并包含时区偏移量，例如“2024-12-24T18:00:00.000+01:00”。此外，LTF 通道新增了一个名为“RepeatDays”的状态参数，其默认值为 0。当“RepeatDays”设置为正整数时，通道将在“StopTime”到达后，将“StartTime”和“StopTime”分别递增指定的天数，从而重复其循环。例如，将“RepeatDays”设置为 1 可实现每日重复。
 
 ## 图形输出配置
@@ -166,7 +170,14 @@ https://github.com/marq24/ha-tibber-pulse-local
 
 ### **WORK IN PROGRESS**
 
+- (HombachC) BREAKING: change flexcharts x-axis type
+- (HombachC) introduce FlexChart output for SBB channels second output
+- (HombachC) introduce second name for FlexChart output of SBB channels
+- (HombachC) introduce color for FlexChart output of calculator results
 - (HombachC) clean code for 15min time slots
+- (HombachC) fix schema links (#822)
+- (HombachC) update cron
+- (HombachC) update dependencies
 
 ### 6.0.3 (2025-11-16)
 

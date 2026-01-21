@@ -114,7 +114,7 @@ For help use issue or if u understand german https://forum.iobroker.net/topic/71
 ## License
 MIT License
 
-Copyright (c) 2024-2025 ticaki <github@renopoint.de>
+Copyright (c) 2024-2026 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

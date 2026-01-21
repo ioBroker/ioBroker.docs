@@ -1,4 +1,4 @@
-![Logo](admin/synology.png)
+![Logo](admin/srm.png)
 
 # ioBroker Synology Router Manager Adapter
 
@@ -98,6 +98,11 @@ Thanks to
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.0.0 (2024-12-12)
 - (mcm1957) Adapter has been moved into iobroker-community-adapters organization
 - (mcm1957) Adapter requires node.js 20 now.

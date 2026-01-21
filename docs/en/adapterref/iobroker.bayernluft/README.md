@@ -69,7 +69,8 @@ Also a big thanks to the company Bayernluft for their great support
 ## License
 MIT License
 
-Copyright (c) 2024-2025, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 Marco15453 <support@marco15453.xyz>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

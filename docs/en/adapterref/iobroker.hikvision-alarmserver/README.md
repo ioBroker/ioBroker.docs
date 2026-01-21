@@ -135,6 +135,8 @@ Make sure to linkage in the events you would like to report to ioBroker includes
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
 
@@ -162,6 +164,8 @@ Make sure to linkage in the events you would like to report to ioBroker includes
 ## License
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022-2024 Robin Rainton <robin@rainton.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -86,10 +86,6 @@ On configuration page you can select following modules:
 ### 1.3.11 (2025-11-18)
 * (simatec) Fix Test & Release
 
-### 1.3.10 (2025-11-18)
-* (simatec) dependencies updated
-* (simatec) npm publish update
-
 ### 1.3.9 (2025-08-31)
 * (simatec) Dependencies updated
 

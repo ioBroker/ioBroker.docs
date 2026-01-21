@@ -205,6 +205,10 @@ Oder ob ein Gerät geöffnet ist
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.5.2 (2025-12-14)
+
+- (Lucky-ESA) Rate limit of 50 requests per minute intercepted at adapter startup
+- (Lucky-ESA) Added custom request
 
 ### 1.5.1 (2025-09-20)
 
@@ -230,15 +234,11 @@ Oder ob ein Gerät geöffnet ist
 
 - (TA2k) fix for devices with object values
 
-### 1.4.1 (2024-07-02)
-
-- (foxriver76) fixed invalid min/max values
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

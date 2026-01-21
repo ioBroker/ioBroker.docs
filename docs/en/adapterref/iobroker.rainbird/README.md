@@ -46,6 +46,11 @@ This adapter would not have been possible without the great work of Marius Burka
 	Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 2.0.2 (2024-12-27)
 * (Feuersturm) @strathcole/iob-lib has been migrated to local repository (#27)
 * (mcm1957) Dependencies have been updated
@@ -74,7 +79,7 @@ This adapter would not have been possible without the great work of Marius Burka
 
 The MIT License (MIT)
 
-Copyright (c) 2024-2025, iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 Marius Burkard m.burkard@pixcept.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

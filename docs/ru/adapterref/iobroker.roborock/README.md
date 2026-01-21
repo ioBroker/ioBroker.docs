@@ -3,57 +3,66 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: smDDifSzvPSYJWZbe0WA72nSvggJClZlcq2cipjy158=
+hash: dIA1NxNJXvqX4+THUOjsWRaVdzj+RJwVWoamUnsvxTI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.roborock.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.roborock.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.roborock.svg)
 ![Количество установок](https://iobroker.live/badges/roborock-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/roborock-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/roborock-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.roborock.png?downloads=true)
 
 # IoBroker.roborock
 **Тесты:** ![Тестирование и выпуск](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
 
-**Перевод:** [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/roborock/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+**Перевод:** [![[Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/roborock/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Адаптер Roborock для ioBroker
-Этот адаптер позволяет вам управлять, получать данные о состоянии, историю уборки и просматривать карту пылесоса Roborock, настроенного в приложении Roborock.
+Этот адаптер позволяет управлять пылесосом Roborock, получать информацию о его состоянии, историю уборки и просматривать карту его местоположения, если он настроен в приложении Roborock.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Подробнее об отключении отчётов об ошибках см. в разделе [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчёты Sentry используются, начиная с версии js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
-### Этот адаптер не может работать на MacOS.
-## Поддерживаемые роботы:
+### Этот адаптер не работает на MacOS
+## Двухфакторная аутентификация (2FA)
+Если у вас включена двухфакторная аутентификация или если адаптер запрашивает код (код ошибки 2031):
+
+1. Проверьте журналы. Вы должны увидеть сообщение с запросом кода.
+2. Перейдите на вкладку **Объекты** в ioBroker.
+3. Найдите состояние `roborock.0.loginCode` (предполагая, что это экземпляр 0).
+4. Введите 6-значный код, полученный по электронной почте, в столбец **Значение** (без кавычек).
+5. Адаптер должен это обнаружить и продолжить вход в систему.
+
+## Поддерживаются следующие роботы:
 - Роборок S4
 - Roborock S4 Max
 - Roborock S5 Max
-- Роборок S6
+- Roborock S6
 - Roborock S6 Pure
 - Roborock S6 MaxV
-- Роборок S7
-- Roborock S7 MaxV (Ультра)
-- Роборок Q7
+- Roborock S7
+- Roborock S7 MaxV (Ultra)
+- Roborock Q7
 - Roborock Q7 Max
 - Roborock S7 Pro Ultra
 - Roborock S7 Max Ultra
-- Роборок S8
+- Roborock S8
 - Roborock S8 Pro Ultra
 - Roborock Q Revo
 - Roborock Q8 Max
 - Roborock Q5 Pro
 - Roborock Q Revo Pro
-- Роборок Крево С
+- Roborock Qrevo S
 - Roborock Qrevo Curve
-- Роборок Сарос 10R
+- Roborock Saros 10R
 
-## Зональная уборка
-Эта функция работает только в том случае, если в настройках адаптера включено создание карты!
+## Зональная очистка
+Эта функция работает только в том случае, если в параметрах адаптера включено создание карт!
 
-### Создание карты не работает на Raspberry Pi
-- Веб-сервер запущен. Порт по умолчанию — 6824.
-- Откройте http://iobroker:6824/map.html в своем браузере (измените http://iobroker на свое имя хоста ioBroker или IP!!!)
-- Нарисуйте свой квадрат для уборки. Roborock поддерживает до 4 зон уборки одновременно.
+### Создание карт не работает на Raspberry Pi
+- Работает веб-сервер. Порт по умолчанию — 6824.
+- Откройте http://iobroker:6824/map.html в своем браузере (замените http://iobroker на имя хоста или IP-адрес ioBroker!!!)
+— Нарисуйте квадрат, предназначенный для уборки. Roborock поддерживает до 4 зон уборки одновременно.
 
  ![](https://github.com/copystring/ioBroker.roborock/blob/main/images/Rockrock_zone_cleaning.gif)
 

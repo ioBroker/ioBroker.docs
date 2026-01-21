@@ -23,6 +23,170 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.19.12 (2026-01-05)
+* (BenAhrdt) bug with git credentials
+
+### 1.19.11 (2026-01-05)
+* (BenAhrdt) add role button to bridge devices
+
+### 1.19.10 (2026-01-05)
+* (BenAhrdt) bugfix reading state
+
+### 1.19.9 (2026-01-05)
+* (BenAhrdt) bugfix deleteing device
+
+### 1.19.8 (2026-01-05)
+* (BenAhrdt) implement Link to device
+
+### 1.19.7 (2026-01-04)
+* (BenAhrdt) improve available logic
+
+### 1.19.6 (2026-01-04)
+* (BenAhrdt) add available bit
+
+### 1.19.5 (2026-01-04)
+* (BenAhrdt) change nameing and handling of device_class (result for roles)
+
+### 1.19.4 (2026-01-04)
+* (BenAhrdt) change buildSafeStateId (domain)
+
+### 1.19.3 (2026-01-04)
+* (BenAhrdt) add version and domain to automation
+
+### 1.19.2 (2026-01-03)
+* (BenAhrdt) bugfix filldownlink
+
+### 1.19.1 (2026-01-03)
+* (BenAhrdt) bugfix device and replace debug logs for silly
+
+### 1.19.0 (2026-01-03)
+* (BenAhrdt) remove Bridgetype Smarthome
+* (BenAhrdt) add firt possibility to generate devices from Bridge to Iob
+
+### 1.18.63 (2026-01-01)
+* (BenAhrdt) return to await calls in checkAll (bridge)
+
+### 1.18.62 (2026-01-01)
+* (BenAhrdt) Promise the foreign functions in Promise.all
+
+### 1.18.61 (2026-01-01)
+* (BenAhrdt) set chunksize to 32
+
+### 1.18.60 (2026-01-01)
+* (BenAhrdt) bugfix errorlogging
+
+### 1.18.59 (2026-01-01)
+* (BenAhrdt) Chuck checkAllStatesForBridgeWork for better performance
+
+### 1.18.58 (2025-12-31)
+* (BenAhrdt) serialize and cache the config messagens
+
+### 1.18.57 (2025-12-31)
+* (BenAhrdt) cache Infos in config for more performance
+
+### 1.18.56 (2025-12-30)
+* (BenAhrdt) remoove namespace twice remooved
+* (BenAhrdt) serialize getConfigStates
+
+### 1.18.55 (2025-12-29)
+* (BenAhrdt) bugfix folderinclusion
+
+### 1.18.54 (2025-12-29)
+* (BenAhrdt) add '.' to folders in config selection
+
+### 1.18.53 (2025-12-29)
+* (BenAhrdt) add possibility to add folders to
+
+### 1.18.52 (2025-12-29)
+* (BenAhrdt) add possibility to set Devicesuffix in LoraWAN States
+
+### 1.18.51 (2025-12-20)
+* (BenAhrdt) add "Temperatur" to autmatic assign
+
+### 1.18.50 (2025-12-16)
+* (BenAhrdt) filter in Debug mode (dev tool)
+
+### 1.18.49 (2025-12-16)
+* (BenAhrdt) Read and send always all light attributes
+
+### 1.18.48 (2025-12-16)
+* (BenAhrdt) Set the selection to usedNames (application and device)
+
+### 1.18.47 (2025-12-09)
+* (BenAhrdt) CustomSend becomes possibility for different order of parameters.
+             payloadInHex, port, confirmed, priority, push (push is written as string 'push')
+
+### 1.18.46 (2025-12-06)
+* (BenAhrdt) CustomSend has been extended to include the option of direct push.
+
+### 1.18.45 (2025-12-04)
+* (BenAhrdt) improve showing Adapter state (yellw / green)
+
+### 1.18.44 (2025-12-02)
+* (BenAhrdt) add mixed to possible value types in config
+
+### 1.18.43 (2025-12-02)
+* (BenAhrdt) specific filter at objectId selection in config
+
+### 1.18.42 (2025-12-01)
+* (BenAhrdt) change gate to garage_door in binary_sensor
+
+### 1.18.41 (2025-12-01)
+* (BenAhrdt) change sending the payload in case of light
+
+### 1.18.40 (2025-12-01)
+* (BenAhrdt) change hash
+
+### 1.18.39 (2025-11-30)
+* (BenAhrdt) build more roles for contactsensors, in case of role. (window, door, gate ...)
+
+### 1.18.38 (2025-11-30)
+* (BenAhrdt) add device class to cover in config
+
+### 1.18.37 (2025-11-30)
+* (BenAhrdt) add tilt to cover config
+
+### 1.18.36 (2025-11-29)
+* (BenAhrdt) fist possibillity to change unlatch on lock entity
+* (BenAhrdt) Add version to discovery
+* (BenAhrdt) Add via device to discovery
+
+### 1.18.35 (2025-11-28)
+* (BenAhrdt) internal code improovment for better reading
+
+### 1.18.34 (2025-11-28)
+* (BenAhrdt) translation changed
+
+### 1.18.33 (2025-11-28)
+* (BenAhrdt) change state in Lock entity
+
+### 1.18.32 (2025-11-28)
+* (BenAhrdt) Changes in cover and add Lock
+
+### 1.18.31 (2025-11-27)
+* (BenAhrdt) Bugfix state at light effekts in case of 0
+
+### 1.18.30 (2025-11-27)
+* (BenAhrdt) setting dataExchange to 2 entitie (FromIob & ToIob)
+
+### 1.18.29 (2025-11-27)
+* (BenAhrdt) set ack = true, before push dataExchange
+
+### 1.18.28 (2025-11-27)
+* (BenAhrdt) assign comment 'from bridge' to state, if the value is set by bridge
+
+### 1.18.27 (2025-11-27)
+* (BenAhrdt) wright incomming dataexchange with ack = true
+
+### 1.18.26 (2025-11-27)
+* (BenAhrdt) remove more logging for testing
+
+### 1.18.25 (2025-11-27)
+* (BenAhrdt) remove logging for testing
+
+### 1.18.24 (2025-11-27)
+* (BenAhrdt) add dataExchange between Adapter and Bridge-Partner (Complex JSON possible)
+
 ### 1.18.23 (2025-11-26)
 * (BenAhrdt) Notify Adapter Version to Bridge with connection
 
@@ -751,8 +915,8 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 ## License
 MIT License
 
-Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>  
-Copyright (c) 2025 Joerg Froehner <LoraWan@hafenmeister.com>
+Copyright (c) 2025-2026 BenAhrdt <bsahrdt@gmail.com>  
+Copyright (c) 2025-2026 Joerg Froehner <LoraWan@hafenmeister.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

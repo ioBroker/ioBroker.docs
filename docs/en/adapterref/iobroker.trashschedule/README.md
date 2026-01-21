@@ -66,6 +66,14 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.2.0 (2025-12-22)
+
+* (@klein0r) Responsive config layout
+
+### 5.1.0 (2025-12-09)
+
+* (@klein0r) Added Wolfenbüttel to providers
+
 ### 5.0.1 (2025-11-26)
 
 * (@klein0r) Increased timeout of api calls
@@ -80,23 +88,11 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 * (@klein0r) Improved logging of ical source
 * (@klein0r) Updated dependencies
 
-### 4.0.0 (2025-01-05)
-
-NodeJS >= 20.x and js-controller >= 6 is required
-
-* (@klein0r) Fixed deletion of api cache files
-* (@klein0r) Added additional JSON state for each type
-* (@klein0r) Improved logging
-
-### 3.4.1 (2024-11-24)
-
-* (@Sickboy78) Awido: Increased number of fetched pickups per type (1 month)
-
 ## License
 
 MIT License
 
-Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025-2026 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

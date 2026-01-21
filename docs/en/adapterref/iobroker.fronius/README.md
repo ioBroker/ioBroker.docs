@@ -104,6 +104,11 @@ The following request are sent to the API. But the availlable datapoints strongl
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 2.1.1 (2024-07-24)
 * (nkleber78) Better handling of empty objects [#374]
 * (mcm1957) Some issues reported by adapter checker have been fixed.
@@ -137,7 +142,8 @@ The following request are sent to the API. But the availlable datapoints strongl
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 ldittmar <iobroker@lmdsoft.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

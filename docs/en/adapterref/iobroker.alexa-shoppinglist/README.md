@@ -82,8 +82,7 @@ function setOnDblClickCustomShop( myvalue) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.1.3 (2025-11-29)
 
 - CHORE: Update dependencies
 - FIX: Error reported by sentry
@@ -148,7 +147,7 @@ function setOnDblClickCustomShop( myvalue) {
 
 MIT License
 
-Copyright (c) 2025 MiRo1310 <michael.roling@gmx.de>
+Copyright (c) 2021-2026 MiRo1310 <michael.roling@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

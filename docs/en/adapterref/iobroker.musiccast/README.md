@@ -382,5 +382,5 @@ The following objects are currently implemented:
 
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2025 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2017-2026 foxthefox <foxthefox@wysiwis.net>
 Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

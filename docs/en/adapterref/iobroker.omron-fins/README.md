@@ -41,7 +41,7 @@ In the type tab, select the variable type as it is stored in the PLC.
 * (Thebam) Änderungen im Abrufen Verbesserung des Intervall
 
 ### 0.0.1 (2021-02-22)
-* (Thebam) Update Abhängigkeiten 
+* (Thebam) Update Abhängigkeiten
 
 ### 0.0.1-7 (2021-02-08)
 * (Thebam) NPM Aktualisiert
@@ -61,7 +61,6 @@ In the type tab, select the variable type as it is stored in the PLC.
 ### 0.0.1-2 (2021-01-01)
 * (Thebam) native objekt ip geändert
 
-
 ### 0.0.1-1 (2021-01-01)
 * (Thebam) add GitHub Action
 
@@ -72,7 +71,7 @@ Erste version zum Abholen und schreiben der variablen
 ## License
 MIT License
 
-Copyright (c) 2023 thebam 
+Copyright (c) 2023-2025 thebam 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

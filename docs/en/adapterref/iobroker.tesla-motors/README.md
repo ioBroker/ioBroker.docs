@@ -29,7 +29,7 @@ tesla-motors.0.id.remote
 **Field Description**
 
 - df driver front
-- dr driver rear  
+- dr driver rear
 - pf passenger front
 - pr passenger rear
 - ft front trunk
@@ -41,9 +41,21 @@ tesla-motors.0.id.remote
 
 https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
 ## Changelog
 
-<!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 1.5.0 (2025-12-28)
+- (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 6.17.14 now.
+- (TA2k) powerwall backup history has been fixed
+- (TA2k) Dependencies have been updated.
+
 ### 1.4.5 (2024-04-19)
 
 - cleaned up token folder to reduce state objects
@@ -97,7 +109,9 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 MIT License
 
-Copyright (c) 2021-2029 iobroker-community
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2021-2025 iobroker-community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

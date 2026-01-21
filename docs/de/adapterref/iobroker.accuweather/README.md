@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.accuweather/README.md
 title: ioBroker.accuweather
-hash: TadMzyLupLTq8YRjYAiMbsBteDVD8BaYJr2j8x5OzSo=
+hash: IRKdck+uQEUJxc3rjsNIY2poh1rRsFHut6gmWBhd/Ow=
 ---
 ![Logo](../../../en/adapterref/iobroker.accuweather/admin/accuweather.png)
 
@@ -14,44 +14,46 @@ hash: TadMzyLupLTq8YRjYAiMbsBteDVD8BaYJr2j8x5OzSo=
 
 # IoBroker.accuweather
 ## AccuWeather-Adapter für ioBroker
-Wettervorhersage mithilfe der AccuWeather API.
+Wettervorhersage mithilfe der AccuWeather-API.
 
-Adapter empfängt
+Der Adapter empfängt
 
 - Aktuelle Bedingungen (stündlich aktualisiert), (24 Anfragen)
-- 5-Tage-Vorhersage (tägliche Aktualisierung um ca. 7 Uhr und 20 Uhr), (2 Anfragen)
-- und 12-Stunden-Vorhersage (alle sechs Stunden um 0:00, 6:00, 12:00 und 18:00 Uhr aktualisiert). (4 Anfragen)
+- 5-Tage-Vorhersage (tägliche Aktualisierung gegen 7 Uhr und 20 Uhr), (2 Anfragen)
+– und 12-Stunden-Vorhersage (wird alle sechs Stunden um 0:00 Uhr, 6:00 Uhr, 12:00 Uhr und 18:00 Uhr aktualisiert). (4 Anfragen)
 
-Standardmäßig aktualisiert der Adapter beim Neustart nur veraltete Daten.
-Es sind 50 Anfragen pro Tag zulässig. Für jeden Neustart wären 3 Anfragen erforderlich, um alle Daten zu aktualisieren.
+Standardmäßig aktualisiert der Adapter veraltete Daten nur beim Neustart.
+Es sind 50 Anfragen pro Tag zulässig; für die Aktualisierung aller Daten sind bei jedem Neustart 3 Anfragen erforderlich.
 
 ## Erste Schritte
 ### API-Schlüssel abrufen
-Um einen API-Schlüssel zu erhalten, registrieren Sie sich unter https://developer.accuweather.com/ und erstellen Sie eine Anwendung im Menü `My Apps`.
-Sobald die Anwendung erstellt ist, wird ein API-Schlüssel generiert.
-Für die kostenlose Nutzung können Sie 50 Anfragen an die API pro Tag stellen.
-Es wurde darauf hingewiesen, dass für die Funktionsfähigkeit der API die folgenden Einstellungen bevorzugt werden (bitte wählen Sie Ihr Land aus!): ![Einstellungen](../../../en/adapterref/iobroker.accuweather/admin/image.png)
+Um einen API-Schlüssel zu erhalten, registrieren Sie sich auf https://developer.accuweather.com/ und erstellen Sie eine Anwendung im Menüpunkt `My Apps`.
+
+Nach der Erstellung der Anwendung wird Ihnen ein API-Schlüssel generiert.
+Sie können täglich 50 API-Anfragen kostenlos stellen.
+Für die optimale Funktion der API werden die folgenden Einstellungen empfohlen (bitte wählen Sie Ihr Land!): ![Einstellungen](../../../en/adapterref/iobroker.accuweather/admin/image.png)
 
 ### Standortschlüssel abrufen
-Um den Standortschlüssel zu erhalten, gehen Sie zu https://www.accuweather.com/ und geben Sie Ihren Städtenamen ein oder versuchen Sie, Ihre Koordinaten (Breitengrad, Längengrad) so einzugeben, wie Sie sie haben, z. B. in den ioBroker-Einstellungen.
-Ihr Standortschlüssel ist die Nummer am Ende der Prognose-URL.
+Um Ihren Standortschlüssel zu erhalten, rufen Sie https://www.accuweather.com/ auf und geben Sie Ihren Stadtnamen ein oder versuchen Sie, Ihre Koordinaten (Breitengrad, Längengrad) einzugeben, so wie Sie sie beispielsweise in den ioBroker-Einstellungen gespeichert haben. Ihr Standortschlüssel ist die Zahl am Ende der Vorhersage-URL.
 
 ### Verwendung in der Lovelace-Visualisierung (ab Version 1.1.0)
-Der Zusammenfassungskanal enthält eine aktuelle und tagesgenaue Vorhersage mit Rolle/Typen von Zuständen, die vom Typdetektor unterstützt werden.
-Die neue Funktion kann verwendet werden, um die Wettervorhersage in der Lovelace-Benutzeroberfläche anzuzeigen.
-Für eine bessere Ansicht wird eine benutzerdefinierte Lovelace-Karte erstellt – siehe https://github.com/algar42/IoB.lovelace.accuweather-card
+Der Übersichtskanal enthält eine aktuelle und eine Tagesvorhersage mit den vom Typdetektor unterstützten Statusrollen/-typen.
+Die neue Funktion ermöglicht die Anzeige der Wettervorhersage in der Lovelace-Benutzeroberfläche.
+Für eine bessere Darstellung wurde eine benutzerdefinierte Lovelace-Karte erstellt – siehe https://github.com/algar42/IoB.lovelace.accuweather-card
+
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+
+### **IN BEARBEITUNG** -->
 
 ## Changelog
 
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
 ### **WORK IN PROGRESS**
-* (ticaki) Missing Http error handling added
-* (ticaki) For error codes from the 400 series, do not attempt any unscheduled reconnections. 
+- (copilot) Adapter requires admin 7.6.17 now
 
-### 2.1.0-alpha.0 (2025-01-19)
+### 2.1.1 (2025-09-02)
+* (mcm1957) Dependencies have been updated
+
+### 2.1.0 (2025-01-22)
 * (ticaki) Change: min. js-controller to 6.0.11
 * (ticaki) Change: Outdated data is updated at startup.
 * (ticaki) New: Photo link added in current weather
@@ -59,6 +61,7 @@ Für eine bessere Ansicht wird eine benutzerdefinierte Lovelace-Karte erstellt �
 * (ticaki) New: In the event of a data retrieval error, an attempt is made again after 10 minute
 * (ticaki) Remove admin option (restart blocking)
 * (ticaki) Rewritten in Typescript
+* (ticaki) For error codes from the 400 series, do not attempt any unscheduled reconnections.
 
 ### 2.0.1 (2025-01-18)
 * (ticaki) BREAKING: Requires Nodejs 20 or higher

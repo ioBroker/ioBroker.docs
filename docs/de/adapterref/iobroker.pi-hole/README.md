@@ -2,87 +2,75 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pi-hole/README.md
-title: ioBroker.pi-hole! [Logo] (admin / pi-hole.png)
-hash: FCNx3Suc9+EPF5ZDlsOuLVsxxLQISMOlUX5P/GY2zTA=
+title: ioBroker.pi-hole ![Logo](admin/pi-hole.png)
+hash: zCjt4T3wLEz5S5KXUAHye39RlUmcbDMKsxvc6X1H+v0=
 ---
 # IoBroker.pi-hole ![Logo](../../../en/adapterref/iobroker.pi-hole/admin/pi-hole.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/pi-hole-stable.svg)
-![Build Status](https://api.travis-ci.org/unltdnetworx/ioBroker.pi-hole.svg?branch=master)
+![Build-Status](https://api.travis-ci.org/unltdnetworx/ioBroker.pi-hole.svg?branch=master)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.pi-hole.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.pi-hole.svg)
 ![NPM](https://nodei.co/npm/iobroker.pi-hole.png?downloads=true)
 
 =================
 
-Dieser Adapter dient zum Lesen von Werten aus einem laufenden Pi-Hole und zur Steuerung des Geräts (Start / Stopp).
+Dieser Adapter dient dazu, Werte von einem laufenden Pi-hole auszulesen und das Gerät zu steuern (Start/Stopp).
 
-BENUTZUNG AUF EIGENE GEFAHR!!! ABSOLUT KEINE GARANTIE FÜR SCHÄDEN, ETC. !!!
+[!WARNUNG] Dieser Adapter funktioniert nur mit Pi-hole-Versionen vor 6.0.0. Bitte verwenden Sie für Pi-hole-Versionen ab 6 den Adapter [ioBroker.pi-hole2](https://github.com/oweitman/ioBroker.pi-hole2).
 
-Hilfe oder Hinweise sind willkommen.
+Dieser Adapter wird nur noch sehr eingeschränkt gewartet, da Pi-hole 5 und ältere Versionen das Ende des Lebenszyklus erreicht haben.
 
 ## Schritte
-1. Installieren Sie den Adpater
+1. Installieren Sie den Adapter
 
-2. Füllen Sie die Felder des Adapter-Administrators aus. Die IP-Adresse des Pi-Hole-Geräts, das API-Token, das Sie über das Admin-Webinterface des Pi-Hole-Geräts (Einstellungen / API / Token abrufen) abrufen können, und das Intervall zur Erneuerung der Werte von Das Pi-Loch (Statistik in iobroker erneuern)
+2. Füllen Sie die Felder des Adapter-Admins aus. Geben Sie die IP-Adresse des Pi-hole-Geräts, das API-Token (erhältlich über die Web-Oberfläche des Pi-hole-Geräts unter Einstellungen/API/Token abrufen) und das obligatorische Intervall für die Aktualisierung der Pi-hole-Werte (Statistiken in iobroker aktualisieren) an.
 
-3. Einige der Objekte sind JSON-Tabellen, die Sie in VIS verwenden können.
+3. Einige der Objekte sind JSON-Tabellen, die Sie innerhalb von vis verwenden können.
 
-4. Aktivieren Sie den Filter, indem Sie auf die Schaltfläche "Pi-Hole aktivieren" klicken. Deaktivieren Sie den Filter, indem Sie den Wert von "Pi-Hole deaktivieren" ändern (0 für permanent, Anzahl für Anzahl Sekunden).
+4. Aktivieren Sie den Filter durch Klicken auf die Schaltfläche „Pi-hole aktivieren“, deaktivieren Sie den Filter, indem Sie den Wert von „Pi-hole deaktivieren“ ändern (0 für dauerhaft, Zahl für die Anzahl der Sekunden).
 
-## Bedarf
-* Running Pi-Hole-Gerät
+## Anforderungen
+* Pi-hole-Gerät läuft
 
+## Credits
+Dieser Adapter wäre ohne die großartige Arbeit von Michael Schuster <development@unltd-networx.de>, der frühere Versionen dieses Adapters erstellt hat, nicht möglich gewesen.
+
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+
+### **IN BEARBEITUNG** -->
 ## Spenden
-Kaffee spendieren / einen Kaffee servieren <https://paypal.me/unltdnetworx>
+Kaffee spendieren/servieren Sie einen Kaffee <https://paypal.me/unltdnetworx>
 
 ## Changelog
+### 2.0.0 (2025-12-04)
 
-### 1.2.2
+* (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
+* (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
+* (mcm1957) Dependencies have been updated
 
-* (unltdnetworx) bugfix for objecttypes
+### 1.3.6
 
-### 1.2.1
+* (unltdnetworx) support for controller v5
 
-* (unltdnetworx) bugfix for update notification
+### 1.3.4
 
-### 1.2.0
+* (unltdnetworx) disabled "getQueryTypes" for creating lots of spam entries
 
-* (unltdnetworx) datapoint for available update
+### 1.3.2
 
-### 1.1.0
+* (unltdnetworx) ready for Admin 5 and NodeJS 16
 
-* (unltdnetworx) support for ssl-connection
+### 1.3.1
 
-### 1.0.1
-
-* (unltdnetworx) bugfixes
-
-### 1.0.0
-
-* (unltdnetworx) rise of version-number - stable version
-
-### 0.2.1
-
-* (unltdnetworx) small bugfix for storage
-
-### 0.2.0
-
-* (unltdnetworx) cleanup and bugfix for restart and storage
-
-### 0.1.0
-
-* (unltdnetworx) fully working release for LTE_API
-
-### 0.0.1
-
-* (unltdnetworx) initial release
+* (unltdnetworx) new adapter testing and security update
 
 ## License
 
 MIT License
 
-Copyright (c) 2020 Michael Schuster
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023 Michael Schuster
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

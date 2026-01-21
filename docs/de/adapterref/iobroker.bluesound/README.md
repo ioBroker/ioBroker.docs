@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluesound/README.md
 title: ioBroker.bluesound
-hash: wdnWmypqfTuQ0Dybw+iO/0Sf3yfRRLn+1zlqmprRy3s=
+hash: hknS78Hr/PfV0WDeZ2I8DZ08YPF5FaSXOSbu+hcDn/U=
 ---
 ![Logo](../../../en/adapterref/iobroker.bluesound/admin/bluesound.png)
 
@@ -48,6 +48,8 @@ Folgende Funktionen sind implementiert:
 Die Bibliothekssuche für LocalMusic wurde hinzugefügt. Eine dynamische Menüliste ist in „info.list“ verfügbar. Dieses Objekt sollte als „Objekt-ID“ für eine JSON-Tabelle festgelegt werden, um das aktuelle Menü anzuzeigen. Das Objekt „control.command“ wird verwendet, um den nächsten Befehl an den Player zu übergeben. Es wird aktualisiert, indem es als „Ausgewählte ID“ dieser Tabelle definiert wird. Die Tabellenüberschrift selbst wird mithilfe von „info.listheader“ über Objektbindung für den Namen der ersten Überschrift aktualisiert. Für eine bessere Darstellung sollte nur die erste Überschrift angezeigt und ihre Breite auf 100 % gesetzt werden.
 
 Alle Inhalte werden bis auf Albumebene angezeigt (mit Ausnahme des Menüs „Songs“, in dem die Songs direkt aufgelistet werden). Wird ein Album ausgewählt, wird dessen Inhalt sofort abgespielt und ersetzt entweder den Inhalt der aktuellen Playlist oder wird ihr hinzugefügt. Dieses Verhalten hängt vom Wert von `info.playliststate` ab. Ist der Wert `true`, wird die Playlist ersetzt, andernfalls werden die neuen Inhalte hinzugefügt. Dieser Wert kann über `control.playlist` (Schaltfläche mit Umschaltfunktion) geändert werden. Bei jedem Drücken dieser Schaltfläche wird der Wert von `info.playliststate` invertiert.
+
+Die Bibliothekssuche wurde hinzugefügt. Wenn in „control.search“ (über ein Eingabefeld im Browser) eine Suchanfrage eingegeben wird, werden die Suchergebnisse in „info.list“ angezeigt und können wie beim Durchsuchen der Bibliothek weiter verfeinert werden.
 
 Der Inhalt der aktuellen Playlist ist im Objekt `info.playlist` (JSON) verfügbar und kann so visualisiert werden. Er ist außerdem als HTML-Tabelle in `info.playlisthtml` enthalten und kann direkt in einem HTML-Widget angezeigt werden. Das Format der resultierenden Tabelle lässt sich per CSS anpassen.
 
@@ -97,9 +99,10 @@ Der Inhalt der aktuellen Playlist ist im Objekt `info.playlist` (JSON) verfügba
 ```
 
 ## Changelog
+### 1.3.0 (2025-12-03)
 
-### **WORK IN PROGRESS**
-
+- (Uwe Nagel) Library search added
+- (Uwe Nagel) Add control.search
 - (Uwe Nagel) Add info.playlisthtml
 - (Uwe Nagel) Add info.playliststate
 - (Uwe Nagel) Function setPlaylistToggle added

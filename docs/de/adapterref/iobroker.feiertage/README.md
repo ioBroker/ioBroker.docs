@@ -34,6 +34,8 @@ Es können natürlich weitere Instanzen des Adapters mit abweichenden Feiertagsa
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
 * (copilot) **CI/CD**: Updated GitHub Copilot instructions template from version 0.4.0 to 0.4.2
 
 ### 1.2.1 (2025-01-04)

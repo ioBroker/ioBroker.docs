@@ -93,7 +93,7 @@ The received data can also be saved as JSON (sofar_realtime.json).
 ## License
 MIT License
 
-Copyright (c) 2025 Daniel Luginbühl <webmaster@ltspiceusers.ch>
+Copyright (c) 2025-2026 Daniel Luginbühl <webmaster@ltspiceusers.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

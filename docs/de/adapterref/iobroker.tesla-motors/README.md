@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tesla-motors/README.md
 title: ioBroker.tesla-motors
-hash: Fvr1aTw0IyZbJ+fLgciBIKNx+41ASXE7fi8j6dPSNfk=
+hash: Pm6pIEKSi3uq6I+V/kzJU78bv12NP+NOVPE/M1q61rY=
 ---
 ![Logo](../../../en/adapterref/iobroker.tesla-motors/admin/tesla-motors.png)
 
@@ -15,37 +15,48 @@ hash: Fvr1aTw0IyZbJ+fLgciBIKNx+41ASXE7fi8j6dPSNfk=
 ![NPM](https://nodei.co/npm/iobroker.tesla-motors.png?downloads=true)
 
 # IoBroker.tesla-motors
-**Tests:** ![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.tesla-motors/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.tesla-motors/workflows/Test%20and%20Release/badge.svg)
 
 ## Tesla-Adapter für ioBroker
 Alle Tesla-Modelle und Powerwalls aus der Tesla-App werden angezeigt und aktualisiert.
 
-**Fernbefehle für Tesla und Powerwall sind verfügbar unter** tesla-motors.0.id.remote
+**Fernsteuerungsbefehle für Tesla und Powerwall sind unter** tesla-motors.0.id.remote verfügbar.
 
 **Anmeldevorgang:**
 
 - Klicken Sie in den Instanzoptionen auf den Authentifizierungslink.
-- Geben Sie Ihre Anmeldedaten ein und führen Sie bei Bedarf Captcha/reCaptcha und MFA durch.
-- Kopieren Sie auf der Seite „Seite nicht gefunden“ die vollständige URL aus dem Browser und fügen Sie sie in die Instanzoptionen ein. Klicken Sie dann auf „Speichern und schließen“.
-- Die ersten Daten werden möglicherweise erst nach der ersten Fahrt angezeigt
+- Geben Sie Ihre Anmeldedaten ein und schließen Sie gegebenenfalls Captcha/reCaptcha und MFA ab.
+- Kopieren Sie auf der Seite „Seite nicht gefunden“ die vollständige URL aus dem Browser, fügen Sie sie in die Instanzoptionen ein und klicken Sie anschließend auf Speichern und Schließen.
+Die ersten Daten werden möglicherweise erst nach der ersten Fahrt angezeigt.
 
 **Feldbeschreibung**
 
-- df Fahrer vorne
-- Fahrertür hinten
-- pf Beifahrer vorne
-- pro Beifahrer hinten
-- ft Kofferraum vorne
-- rechter Kofferraum
+- df-Treiber vorne
+- dr Fahrer hinten
+- pf Beifahrerseite
+- pr Beifahrer hinten
+- ft vorderer Kofferraum
+- rechter hinterer Kofferraum
 
-[Erklärung der Optionscodes](https://tesla-api.timdorr.com/vehicle/optioncodes)
+[Erläuterung der Optionscodes](https://tesla-api.timdorr.com/vehicle/optioncodes)
 
 ## Fragen und Diskussionen:
 https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+
+### **IN BEARBEITUNG** -->
+
 ## Changelog
 
-<!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+### 1.5.0 (2025-12-28)
+- (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 6.17.14 now.
+- (TA2k) powerwall backup history has been fixed
+- (TA2k) Dependencies have been updated.
+
 ### 1.4.5 (2024-04-19)
 
 - cleaned up token folder to reduce state objects
@@ -99,7 +110,9 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 MIT License
 
-Copyright (c) 2021-2029 iobroker-community
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2021-2025 iobroker-community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

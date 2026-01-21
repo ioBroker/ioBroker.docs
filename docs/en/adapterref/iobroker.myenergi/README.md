@@ -29,6 +29,8 @@ To do this, click on “Advanced” and generate key
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
 
 - (mcm1957) Adapter requires nodejs >=18 now.
   
@@ -44,6 +46,8 @@ add zappi unlock
 
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

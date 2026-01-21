@@ -82,6 +82,8 @@ NodeJS 16.x is required
 
 The MIT License (MIT)
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2025 foxthefox <foxthefox@wysiwis.net>,
                         bluefox <dogafox@gmail.com> and
                         Matthias Kleine <info@haus-automatisierung.com>

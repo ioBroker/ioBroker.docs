@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iot/README.md
 title: ioBroker 物联网适配器
-hash: +aPSI0iVQZl7YdFJyNdLMiFCwpUrmzlVgjlE2yGbWCM=
+hash: jqVgNsg6zSRWJpClkvvC5pVcFxSEHky+KfuzAGvskaM=
 ---
 ![安装数量](http://iobroker.live/badges/iot-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.iot.svg)
@@ -270,7 +270,7 @@ sendTo('iot.0', 'getServiceEndpoint', { serviceName: 'custom_myService' }, resul
 `text2command` 必须配置为解析预期短语并返回答案。
 
 ### `Javascript`
-可以直接使用脚本处理问题。如果未选择任何 `text2command` 实例，则默认情况下启用此功能。
+可以直接使用脚本处理问题。如果未选择任何 `text2command` 实例，则默认情况下会启用此功能。
 
 如果定义了 `text2command` 实例，则该实例必须提供答案，而来自 _script_ 的答案将被忽略。
 
@@ -374,7 +374,7 @@ setState('iot.0.app.priority', 'normal'); // optional. Priority: 'high' or 'norm
 setState('iot.0.app.title', 'ioBroker'); // optional. Default "ioBroker"
 setState('iot.0.app.message', 'Message text'); // important, that ack=false (default)
 
-// or just one state (this also allows to use payload -> `actions`, `devices` and `link` property)
+// or just one state (this also allows to use payload -> `actions`, `devices` and `openUrl` property)
 // only message is mandatory. All other are optional
 // Note that, if you are using `actions`or `devices`, the app needs to handle the notification in the background before showing it
 // in some scenarios, e.g. low power or spamming to many notifications the OS may decide to not show the notification at all
@@ -403,11 +403,19 @@ setState('iot.0.app.message', JSON.stringify({
 
 ## Changelog
 ### **WORK IN PROGRESS**
+- (@GermanBluefox) Added copy of credentials from cloud instance
+
+### 5.0.11 (2025-12-16)
+- (@GermanBluefox) Added percentual control
+- (@GermanBluefox) Correcting creation for complex groups
+
+### 5.0.8 (2025-11-28)
 - (@GermanBluefox) Showed last controller ID in `smart.lastObjectID`
 - (@GermanBluefox) Showed subscription valid period in `info.validTill` and GUI
-- (@Copilot) Implemented increasing reconnect intervall
+- (@Copilot) Implemented increasing reconnect interval
 - (@GermanBluefox) Added automatically conversion of type TV (alexaV3) to button (alexaV3)
 - (@GermanBluefox) Optimized the update of devices in GUI
+- (@GermanBluefox) Implemented slider with custom min/max values
 
 ### 5.0.7 (2025-11-03)
 - (@GermanBluefox) Added possibility to group devices by type in GUI
@@ -421,17 +429,6 @@ setState('iot.0.app.message', JSON.stringify({
 
 ### 5.0.5 (2025-10-31)
 - (@GermanBluefox) Changed behavior of HUE lamps
-
-### 5.0.2 (2025-10-30)
-- (@GermanBluefox) Added mireds<->kelvin conversion for color temperature
-- (@GermanBluefox) It is possible to edit a type
-- (@GermanBluefox) Correcting creation of complex groups
-- (@GermanBluefox) Same as 4.2.11
-
-### 4.2.9 (2025-10-28)
-- (@GermanBluefox) Do not control "white" by RGBW devices
-- (@GermanBluefox) Corrected GUI error
-- (@GermanBluefox) Avoid double entries in auto-detection
 
 ## License
 

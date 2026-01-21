@@ -41,7 +41,6 @@ An XSense Bridge SBS50 is required.
 ---
 
 ## ❗ WARNING
-A too frequent polling interval (default: 5 min) will shorten the device battery life, as the devices are **always** explicitly woken up.  
 The adapter is **not** intended for alarm purposes — it is primarily for monitoring the device battery status.
 
 ---
@@ -115,6 +114,17 @@ It lists the Python versions relevant to the environment — adjust if necessary
 If the file does not exist, you did not wait long enough for the adapter to start.
 
 
+Error Message after install
+
+[XSense] Cannot find package '@mongodb-js/zstd'
+
+check your Node version. zstd has a problem wit Node 24
+
+or if you have a VM on proxmox check your CPU settings
+<img width="676" height="140" alt="grafik" src="https://github.com/user-attachments/assets/68658aab-5336-4493-9a51-f833c3238a5a" />
+
+
+
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 
@@ -126,6 +136,9 @@ If the file does not exist, you did not wait long enough for the adapter to star
 ------------------------------------------------------------------------------
 
 ## Changelog
+### 0.2.2 (2025-12-03)
+* (arteck) add XS0D-MR
+
 ### 0.2.1 (2025-10-30)
 * (arteck) fix link to readme
 * (arteck) fix load bridge as first
@@ -205,7 +218,7 @@ If the file does not exist, you did not wait long enough for the adapter to star
 
 MIT License
 
-Copyright (c) 2025 Arthur Rupp <arteck@outlook.com>,
+Copyright (c) 2025-2026 Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -12,9 +12,10 @@
 
 This adapter is a ment to read values from a running pi-hole and control the device (start/stop).
 
-USE AT YOUR OWN RISK!!! ABSOLUTELY NO WARRANTY FOR DAMAGES, ETC.!!!
-
-Help or hints are welcome.
+>[!WARNING]  
+>This adapter works with pi-hole release < 6.0.0 only. Please use adapter [ioBroker.pi-hole2](https://github.com/oweitman/ioBroker.pi-hole2) for pi-hole release 6 and newer.
+>
+>This adapter will only get very limited maintainance as pi-hole 5 and earlier ies EOL.
 
 ## Steps
 
@@ -30,7 +31,21 @@ Help or hints are welcome.
 
 * running pi-hole device
 
+## Credits
+
+This adapter would not have been possible without the great work of Michael Schuster <development@unltd-networx.de>, who created previous releases of this adapter.
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
 ## Changelog
+### 2.0.0 (2025-12-04)
+
+* (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
+* (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
+* (mcm1957) Dependencies have been updated
 
 ### 1.3.6
 
@@ -48,54 +63,6 @@ Help or hints are welcome.
 
 * (unltdnetworx) new adapter testing and security update
 
-### 1.3.0
-
-* (unltdnetworx) info for versions and updates added, updatePiholeAvailable removed
-
-### 1.2.3
-
-* (unltdnetworx) bugfix for numbers with comma
-
-### 1.2.2
-
-* (unltdnetworx) bugfix for objecttypes
-
-### 1.2.1
-
-* (unltdnetworx) bugfix for update notification
-
-### 1.2.0
-
-* (unltdnetworx) datapoint for available update
-
-### 1.1.0
-
-* (unltdnetworx) support for ssl-connection
-
-### 1.0.1
-
-* (unltdnetworx) bugfixes
-
-### 1.0.0
-
-* (unltdnetworx) rise of version-number - stable version
-
-### 0.2.1
-
-* (unltdnetworx) small bugfix for storage
-
-### 0.2.0
-
-* (unltdnetworx) cleanup and bugfix for restart and storage
-
-### 0.1.0
-
-* (unltdnetworx) fully working release for LTE_API
-
-### 0.0.1
-
-* (unltdnetworx) initial release
-
 ## Donate
 
 Kaffee spendieren/serve a coffee
@@ -105,6 +72,7 @@ Kaffee spendieren/serve a coffee
 
 MIT License
 
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Michael Schuster
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

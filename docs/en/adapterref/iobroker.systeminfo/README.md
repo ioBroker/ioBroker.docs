@@ -107,6 +107,10 @@ It handles text, HTML, json and XML data types wizh special query mechanisms.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.3.0 (2025-05-27)
 
 * (lfischer85) Creation and update of states has been fixed. [#214, #139]
@@ -137,7 +141,8 @@ It handles text, HTML, json and XML data types wizh special query mechanisms.
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2025 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017-2019, frankjoke <frankjoke@hotmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

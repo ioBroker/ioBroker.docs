@@ -114,6 +114,11 @@ This adapter would not have been possible without the great work of schmupu (htt
 	Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 2.0.0 (2024-07-24)
 * (mcm1957) This adapter hase been moved to iobroker-community-adapters organization
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now.
@@ -157,7 +162,8 @@ This adapter would not have been possible without the great work of schmupu (htt
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community <iobroker-community-adapters@gmx.de>
+
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020 Thorsten Stueben <thorsten@stueben.de> / <https://github.com/schmupu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

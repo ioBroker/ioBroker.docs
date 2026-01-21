@@ -1,5 +1,41 @@
 {
   "pages": {
+    "2025_12_29": {
+      "date": "2025.12.29",
+      "title": {
+        "de": "Jahresrückblick 2025",
+        "en": "Year in Review 2025",
+        "ru": "Итоги 2025 года",
+        "zh-cn": "2025年回顾"
+      },
+      "logo": "de/blog/images/2025_12_30.png",
+      "type": "news",
+      "originalName": "2025_12_29.md",
+      "desc": {
+        "de": "Liebe ioBroker-Community,\\nwieder neigt sich ein spannendes Jahr dem Ende zu, und wir möchten die Gelegenheit nutzen, \\num gemeinsam zurückzublicken, Danke zu sagen und einen kleinen Ausblick auf 2026 zu geben. Euer Engagement, eure Kreativität und eure Treue machen ioBroker zu dem lebendigen und \\nvielfältigen Open-Source-Projekt, das es heute ist und dafür sind wir euch von Herzen dankbar.",
+        "en": "Dear ioBroker community, another exciting year is drawing to a close, and we would like to take this opportunity to look back together, say thank you, and offer a glimpse into 2026. Your commitment, creativity, and loyalty make ioBroker the vibrant and diverse open-source project it is today, and for that, we are truly grateful.",
+        "ru": "Уважаемое сообщество ioBroker! Еще один захватывающий год подходит к концу, и мы хотели бы воспользоваться этой возможностью, чтобы вместе оглянуться назад, поблагодарить вас и заглянуть в будущее, в 2026 год. Ваша преданность, креативность и лояльность сделали ioBroker тем ярким и многообразным проектом с открытым исходным кодом, каким он является сегодня, и за это мы вам искренне благодарны.",
+        "zh-cn": "亲爱的 ioBroker 社区成员们，又一个激动人心的年份即将结束，我们想借此机会与大家一起回顾过去，表达感谢，并展望 2026 年。你们的投入、创造力和忠诚使 ioBroker 成为今天这样充满活力和多元化的开源项目，对此，我们深表感激。"
+      }
+    },
+    "2025_12_21": {
+      "date": "2025.12.21",
+      "title": {
+        "de": "ioBroker Monatsrückblick – Dezember 2025",
+        "en": "ioBroker Monthly Review – December 2025",
+        "ru": "Ежемесячный обзор ioBroker – декабрь 2025 г.",
+        "zh-cn": "ioBroker 月度回顾 – 2025 年 12 月"
+      },
+      "logo": "de/blog/images/2025_12_21_title.png",
+      "type": "news",
+      "originalName": "2025_12_21.md",
+      "desc": {
+        "de": "Das Jahr neigt sich dem Ende zu, aber im ioBroker-Ökosystem wurde auch in den letzten Monaten \\nwieder fleißig entwickelt, integriert und optimiert. \\nIn diesem Monatsrückblick stellen wir euch zahlreiche neue Adapter vor.\\nVon `BMW` und `Unraid` bis hin zu `GPS-Tracking` und `OpenMediaVault`. \\nAußerdem läuft derzeit die **Weihnachtsaktion 2025**.\\nPerfekt, um Lizenzen günstiger zu bekommen.",
+        "en": "The year is drawing to a close, but the ioBroker ecosystem has been busy developing, integrating, and optimizing over the past few months.",
+        "ru": "Год подходит к концу, но экосистема ioBroker последние несколько месяцев активно развивалась, интегрировалась и оптимизировалась.",
+        "zh-cn": "一年即将结束，但 ioBroker 生态系统在过去几个月里一直在积极进行开发、集成和优化。"
+      }
+    },
     "2025_09_24": {
       "date": "2025.09.24",
       "title": {
@@ -13,9 +49,9 @@
       "originalName": "2025_09_24.md",
       "desc": {
         "de": "Der Sommer geht zu Ende und auch in der ioBroker-Welt war in den letzten Monaten einiges los. \\nZahlreiche neue Adapter wurden veröffentlicht, einige davon haben es bereits ins stable-Repository geschafft, \\neinige weitere sind im latest-Repository verfügbar und warten auf euren Testeinsatz.",
-        "en": "Summer is coming to an end, and there's been a lot going on in the ioBroker world over the past few months.\\nNumerous new adapters have been released, some of which have already made it into the stable repository, and several more are available in the latest repository, waiting for you to test them.",
-        "ru": "Лето подходит к концу, и за последние несколько месяцев в мире ioBroker произошло немало событий.\\nВыпущено множество новых адаптеров, некоторые из которых уже попали в стабильный репозиторий, а ещё несколько доступны в последней версии репозитория и ждут, когда вы их протестируете.",
-        "zh-cn": "夏天即将结束，过去几个月，ioBroker 世界发生了很多事情。\\n许多新的适配器已经发布，其中一些已经进入稳定存储库，还有几个已在最新的存储库中可用，等待您进行测试。"
+        "en": "Summer is coming to an end, and there's been a lot going on in the ioBroker world over the past few months.",
+        "ru": "Лето подходит к концу, и за последние несколько месяцев в мире ioBroker произошло много событий.",
+        "zh-cn": "夏季即将结束，过去几个月 ioBroker 社区可谓风起云涌。"
       }
     },
     "2025_06_17": {

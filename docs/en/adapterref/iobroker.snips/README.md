@@ -6,8 +6,8 @@
 
 [![NPM](https://nodei.co/npm/iobroker.snips.png?downloads=true)](https://nodei.co/npm/iobroker.snips/)
 
-ATTENTION:
-The adapter is no longer being developed or maintained because Sonos bought Snips and the free platform was be discontinued on 02/01/2020. The adapter and installed snips devices will still work.
+> [!WARNING]
+> The adapter is no longer being developed or maintained because Sonos bought Snips and the free platform was discontinued on 02/01/2020. The adapter and installed snips devices will still work.
 
 Requires node.js 6.0 or higher and Admin v3!
 
@@ -73,6 +73,11 @@ ATTENTION: inject service has to be installed on the device/server
 sudo apt-get install -y snips-injection
 
 ## Changelog
+
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
 
 ### 1.5.1
 
@@ -210,6 +215,8 @@ sudo apt-get install -y snips-injection
 
 The MIT License (MIT)
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020 Michael Schuster <development@unltd-networx.de> & Walter Zengel <w.zengel@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

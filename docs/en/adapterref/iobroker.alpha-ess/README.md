@@ -209,7 +209,7 @@ How to find SN and Check code for registration is described here: https://github
 
 MIT License
 
-Copyright (c) 2025 Gaspode <gaspode69@online.de> (**NO SUPPORT VIA EMAIL**)
+Copyright (c) 2025-2026 Gaspode <gaspode69@online.de> (**NO SUPPORT VIA EMAIL**)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
