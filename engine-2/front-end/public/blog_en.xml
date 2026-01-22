@@ -3,12 +3,32 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[News, announcements and ideas about ioBroker]]></description>
         <link>https://www.iobroker.net/#en/blog</link>
-        <lastBuildDate>Wed, 24 Sep 2025 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 29 Dec 2025 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Year in Review 2025]]></title>
+            <description><![CDATA[
+                <p>Dear ioBroker community, another exciting year is drawing to a close, and we would like to take this opportunity to look back together, say thank you, and offer a glimpse into 2026. Your commitment, creativity, and loyalty make ioBroker the vibrant and diverse open-source project it is today, and for that, we are truly grateful.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#en/blog/2025_12_29</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#en/blog/2025_12_29</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Mon, 29 Dec 2025 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ioBroker Monthly Review – December 2025]]></title>
+            <description><![CDATA[
+                <p>The year is drawing to a close, but the ioBroker ecosystem has been busy developing, integrating, and optimizing over the past few months.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#en/blog/2025_12_21</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#en/blog/2025_12_21</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 21 Dec 2025 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[ioBroker Monthly Review – September 2025]]></title>
             <description><![CDATA[
-                <p>Summer is coming to an end, and there's been a lot going on in the ioBroker world over the past few months.\nNumerous new adapters have been released, some of which have already made it into the stable repository, and several more are available in the latest repository, waiting for you to test them.</p>
+                <p>Summer is coming to an end, and there's been a lot going on in the ioBroker world over the past few months.</p>
             ]]></description>
             <link>https://www.iobroker.net/#en/blog/2025_09_24</link>
             <guid isPermaLink="true">https://www.iobroker.net/#en/blog/2025_09_24</guid>
