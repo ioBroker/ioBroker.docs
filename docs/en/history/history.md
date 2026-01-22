@@ -1059,6 +1059,12 @@ https://github.com/TA2k/ioBroker.bmw
 
 This adapter integrates BMW vehicles into ioBroker using the new BMW CarData API with OAuth2 authentication and real-time MQTT streaming. It provides comprehensive vehicle data monitoring for all BMW models linked to your BMW account.
 
+## witmotion (22.01.2026) – new adapter at latest repository
+https://github.com/ioBroker/ioBroker.witmotion
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.witmotion/master/admin/witmotion.png" width="100" height="100" />
+
+This adapter reads accelerometr, magentomer, gyroscope data from WT901blecl 5.0 Bluetooth 5.0 9-Axis IMU Sensor via USB
 
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
