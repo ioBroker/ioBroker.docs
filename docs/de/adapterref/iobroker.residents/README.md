@@ -29,7 +29,7 @@ Der Adapter ist außerdem so konzipiert, dass er _in Zukunft_ ein ausgeklügelte
 
 MIT License
 
-Copyright (c) 2022-2025 Julian Pawlowski <metres_topaz.0v@icloud.com>
+Copyright (c) 2022-2026 Julian Pawlowski <metres_topaz.0v@icloud.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

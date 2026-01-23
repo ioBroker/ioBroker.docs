@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
+hash: kuu9R/AfRD+dfWd72s0EXSwCSWyjpN6efn/fGJMHi44=
 ---
 ![标识](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -30,7 +30,7 @@ hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
 
 数据点已预先配置为名为“测试”的倒计时。
 
-##### 停止行为计时器
+##### 停止行为定时器
 倒计时收到停止信号后，倒计时将重置为定时器设定的时间。
 
 ##### 停止零行为
@@ -42,7 +42,7 @@ hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
 #### 时间序列
 在配置对话框的“时间序列”选项卡中，您可以创建包含一个或多个时间规则的新时间序列。您可以为每个时间规则定义不同的参数。每个时间序列都会创建一个单独的数据点，该数据点会在计算出的时间事件发生时触发。
 
-时间事件是实时计算的。但是，所使用的 rrule 库并非在所有参数组合下都完美无缺。
+时间事件是实时计算的。但是，所使用的 rrule 库尚未在所有参数组合下都完美运行。
 
 这表明，在某些组合下，页面会陷入无限循环。
 
@@ -159,7 +159,7 @@ hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
 | 设置 | 描述 |
 | --------- | ------------------------------------------- |
 | 1:0:0:0 | 计时器加/减 1 天 |
-| 2:0:0 | 设置/增加/减少计时器 2 小时 |
+| 2:0:0 | 计时器加/减 2 小时 |
 | 3:0 | 计时器加/减 3 分钟 |
 | 120 | 向计时器添加/减少 120 秒 |
 | 48:0:0 | 设置/增加/减少计时器 48 小时 |
@@ -272,6 +272,7 @@ vis1 和 vis2 各有两个不同的版本。
 | `Object ID` | 倒计时数据点的计时器数据点。 |
 | `Format` | 设置定时器输出格式。默认值为 mm:ss。详情请参见第 [日期时间格式](#format-of-the-template-to-format-the-countdown-output-in-the-widget) 章。反向设置用于增大或缩小圆环/圆圈 |
 | `reverse` | 圆环或圆的宽度。 |
+| `partring` | 选中的最大圆环将按比例显示，而非全屏显示。 |
 | `Width` | 圆环或圆的宽度。 |
 | `Ring gap` | 环之间的像素间隙 |
 | `Ring Caps` | 圆环/圆的末端设置：圆形或直线 |
@@ -459,6 +460,16 @@ vis1 和 vis2 各有两个不同的版本。
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.3.2 (2026-01-04)
+
+- fix some translations
+
+### 2.3.1 (2026-01-03)
+
+- circle widget: fix reverse selection
+- circle widget: fixed full/partial display of the largest ring.
+  Option added to select behavior.
+
 ### 2.3.0 (2025-12-03)
 
 - remove autocomplete function in the browser
@@ -712,7 +723,7 @@ vis1 和 vis2 各有两个不同的版本。
 
 MIT License
 
-Copyright (c) 2025 oweitman <oweitman@gmx.de>
+Copyright (c) 2020-2026 oweitman <oweitman@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

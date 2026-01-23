@@ -137,7 +137,7 @@ Note: Since the boxes have different interfaces, it may be that not all interfac
 ## License
 MIT License
 
-Copyright (c) 2022-2025 René G. <info@rg-engineering.eu>
+Copyright (c) 2022-2026 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

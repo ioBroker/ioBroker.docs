@@ -211,7 +211,7 @@ The contents of the current playlist is available in the object info.playlist (J
 
 MIT License
 
-Copyright (c) 2025 Uwe Nagel <uwenagel@kabelmail.de>
+Copyright (c) 2025-2026 Uwe Nagel <uwenagel@kabelmail.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

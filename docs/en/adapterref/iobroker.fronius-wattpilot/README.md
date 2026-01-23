@@ -293,7 +293,7 @@ The adapter connects to the Wattpilot's WebSocket interface and converts incomin
 ## License
 MIT License
 
-Copyright (c) 2025 tim2zg <tim2zg@protonmail.com>
+Copyright (c) 2025-2026 tim2zg <tim2zg@protonmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

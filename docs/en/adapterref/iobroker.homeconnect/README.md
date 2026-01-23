@@ -220,7 +220,7 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
 
 The MIT License (MIT)
 
-Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

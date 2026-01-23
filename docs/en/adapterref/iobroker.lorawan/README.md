@@ -23,6 +23,67 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.19.12 (2026-01-05)
+* (BenAhrdt) bug with git credentials
+
+### 1.19.11 (2026-01-05)
+* (BenAhrdt) add role button to bridge devices
+
+### 1.19.10 (2026-01-05)
+* (BenAhrdt) bugfix reading state
+
+### 1.19.9 (2026-01-05)
+* (BenAhrdt) bugfix deleteing device
+
+### 1.19.8 (2026-01-05)
+* (BenAhrdt) implement Link to device
+
+### 1.19.7 (2026-01-04)
+* (BenAhrdt) improve available logic
+
+### 1.19.6 (2026-01-04)
+* (BenAhrdt) add available bit
+
+### 1.19.5 (2026-01-04)
+* (BenAhrdt) change nameing and handling of device_class (result for roles)
+
+### 1.19.4 (2026-01-04)
+* (BenAhrdt) change buildSafeStateId (domain)
+
+### 1.19.3 (2026-01-04)
+* (BenAhrdt) add version and domain to automation
+
+### 1.19.2 (2026-01-03)
+* (BenAhrdt) bugfix filldownlink
+
+### 1.19.1 (2026-01-03)
+* (BenAhrdt) bugfix device and replace debug logs for silly
+
+### 1.19.0 (2026-01-03)
+* (BenAhrdt) remove Bridgetype Smarthome
+* (BenAhrdt) add firt possibility to generate devices from Bridge to Iob
+
+### 1.18.63 (2026-01-01)
+* (BenAhrdt) return to await calls in checkAll (bridge)
+
+### 1.18.62 (2026-01-01)
+* (BenAhrdt) Promise the foreign functions in Promise.all
+
+### 1.18.61 (2026-01-01)
+* (BenAhrdt) set chunksize to 32
+
+### 1.18.60 (2026-01-01)
+* (BenAhrdt) bugfix errorlogging
+
+### 1.18.59 (2026-01-01)
+* (BenAhrdt) Chuck checkAllStatesForBridgeWork for better performance
+
+### 1.18.58 (2025-12-31)
+* (BenAhrdt) serialize and cache the config messagens
+
+### 1.18.57 (2025-12-31)
+* (BenAhrdt) cache Infos in config for more performance
+
 ### 1.18.56 (2025-12-30)
 * (BenAhrdt) remoove namespace twice remooved
 * (BenAhrdt) serialize getConfigStates
@@ -854,8 +915,8 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 ## License
 MIT License
 
-Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>  
-Copyright (c) 2025 Joerg Froehner <LoraWan@hafenmeister.com>
+Copyright (c) 2025-2026 BenAhrdt <bsahrdt@gmail.com>  
+Copyright (c) 2025-2026 Joerg Froehner <LoraWan@hafenmeister.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

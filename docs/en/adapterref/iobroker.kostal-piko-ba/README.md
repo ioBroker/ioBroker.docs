@@ -60,9 +60,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 6.0.5 (2026-01-01)
 
 - (HombachC) Fix schema links (#868)
+- (HombachC) year 2026 changes
 - (HombachC) update dependencies
 
 ### 6.0.4 (2025-11-25)
@@ -90,19 +91,13 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) add test for node.js 24 (#801)
 - (HombachC) bump dependency with security vulnerability
 
-### 6.0.0 (2025-05-04)
-
-- (HombachC) BREAKING: Dropped support for Node.js 18 (#797)
-- (HombachC) BREAKING: Dropped support for js-controller 5 (#797)
-- (HombachC) bump dependencies
-
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2020-2025 C.Hombach <Kostal-Piko-BA@homba.ch>
+Copyright (c) 2020-2026 C.Hombach <Kostal-Piko-BA@homba.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

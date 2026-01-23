@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.google-spreadsheet/README.md
 title: ioBroker.google-spreadsheet
-hash: pAaiT8VT5xOS7LRS+dmUq09dTm8BShfsSGVVqdHbYXA=
+hash: MssUCif+KG4f/HBQvWsc5nwuhJzpp2bvx8Uj7G21D70=
 ---
 ![Logo](../../../en/adapterref/iobroker.google-spreadsheet/admin/google-spreadsheet.png)
 
@@ -22,18 +22,21 @@ hash: pAaiT8VT5xOS7LRS+dmUq09dTm8BShfsSGVVqdHbYXA=
 **Version:** **Tests:** [![Test und Freigabe](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml)
 
 ## Google-Tabellen-Adapter für ioBroker
-Dieser Adapter ermöglicht die automatische Interaktion mit Google Tabellen.
+Dieser Adapter ermöglicht die automatische Interaktion mit Google Sheets.
+
+## API
+* [sendTo-API-Dokumentation](docs/sendTo-API.md)
 
 ## Merkmale
-* [Daten an Tabellenkalkulation anhängen](features/append.md)
-* [Zeilen aus einer Tabellenkalkulation löschen](features/delete-rows.md)
-* [Erstellungsblätter](features/create-sheet.md)
-* [Löschblatt](features/delete-sheet.md)
-* [Blätter löschen](features/delete-sheets.md)
-* [Doppelte Blätter](features/duplicate-sheet.md)
-* [Zelle lesen](features/read-cell.md)
-* [Zelle schreiben](features/write-cell.md)
-* [Zellen schreiben](features/write-cells.md)
+* [Daten an Tabellenkalkulation anhängen](docs/features/append.md)
+* [Zeilen aus einer Tabellenkalkulation löschen](docs/features/delete-rows.md)
+* [Erstellungsblätter](docs/features/create-sheet.md)
+* [Löschblatt](docs/features/delete-sheet.md)
+* [Blätter löschen](docs/features/delete-sheets.md)
+* [Doppelte Tabellenblätter](docs/features/duplicate-sheet.md)
+* [Zelle lesen](docs/features/read-cell.md)
+* [Zelle schreiben](docs/features/write-cell.md)
+* [Zellen schreiben](docs/features/write-cells.md)
 
 ## Verwendung
 ### Aufstellen
@@ -42,7 +45,7 @@ Dieser Adapter ermöglicht die automatische Interaktion mit Google Tabellen.
 
 2. Erstellen Sie ein Projekt oder wählen Sie ein bestehendes Projekt aus, das Sie mit der API verwenden möchten.
 
-3. Aktivieren Sie die Google Spreadsheet API für Ihr Projekt.
+3. Aktivieren Sie die Google Sheets API für Ihr Projekt.
 
 #### Dienstkonto erstellen
 Erstellen Sie für das im vorherigen Schritt ausgewählte Projekt ein neues Dienstkonto in Google Cloud IAM, indem Sie die folgenden Schritte ausführen:
@@ -55,7 +58,7 @@ Erstellen Sie für das im vorherigen Schritt ausgewählte Projekt ein neues Dien
 
 4. Klicken Sie auf „Weiter“, um zum nächsten Schritt zu gelangen.
 
-5. Klicken Sie auf der Registerkarte „Schlüssel“ auf „Schlüssel erstellen“ und wählen Sie als Format „JSON“. Klicken Sie anschließend auf „Weiter“.
+5. Klicken Sie auf der Registerkarte „Schlüssel“ auf „Schlüssel erstellen“ und wählen Sie als Format „JSON“ aus. Klicken Sie anschließend auf „Weiter“.
 
 6. Ihr privater Schlüssel wird generiert und automatisch heruntergeladen. Bewahren Sie diese Datei sicher auf, da Sie sie später benötigen.
 
@@ -77,7 +80,7 @@ Fügen Sie die folgenden Informationen zur Konfiguration Ihrer Adapterinstanz in
 - **Dienstkonto** - Die E-Mail-Adresse des von Ihnen erstellten Dienstkontos.
 - **Privater Schlüssel** - Öffnen Sie die heruntergeladene JSON-Datei und suchen Sie den privaten Schlüssel darin. Kopieren Sie nur den Teil, der mit "-----BEGIN PRIVATE KEY-----" beginnt.
 
-![Einstellungen](../../../en/adapterref/iobroker.google-spreadsheet/img/settings.png)
+![Einstellungen](../../../en/adapterref/iobroker.google-spreadsheet/docs/img/settings.png)
 
 #### Tabellen-ID in der URL finden
 Um die „Tabellenblatt-ID“ in der URL Ihres Google Sheets-Dokuments zu finden, gehen Sie wie folgt vor:
@@ -93,13 +96,13 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 ### Blockly
 Nutzen Sie die verfügbaren Blöcke, um automatisch mit Ihrer Tabellenkalkulation zu interagieren.
 
-![Blockly](../../../en/adapterref/iobroker.google-spreadsheet/img/blockly-append.png)
+![Blockly](../../../en/adapterref/iobroker.google-spreadsheet/docs/img/blockly-append.png)
 
 ## Fehlerbehebung
-### Fehler beim Senden von Daten an Google Tabellen:Fehler: error:0909006C:PEM routines:get_name:no start line
+### Fehler beim Senden von Daten an Google Sheets:Fehler: error:0909006C:PEM routines:get_name:no start line
 Achten Sie beim Kopieren des privaten Schlüssels in die Konfiguration darauf, dass keine Zeilenumbrüche (\n) vorhanden sind. Sollten Zeilenumbrüche im Schlüssel enthalten sein, ersetzen Sie diese bitte durch normale Zeilenumbrüche.
 
-### Fehler beim Senden von Daten an Google Tabellen: Fehler: Der Aufrufer hat keine Berechtigung
+### Fehler beim Senden von Daten an Google Sheets: Fehler: Der Aufrufer hat keine Berechtigung
 Stellen Sie sicher, dass das Dienstkonto über ausreichende Berechtigungen zum Schreiben in die Tabelle verfügt. Beachten Sie dazu den Abschnitt „Zugriff auf die Tabelle gewähren“ weiter oben.
 
 ## Changelog
@@ -107,6 +110,12 @@ Stellen Sie sicher, dass das Dienstkonto über ausreichende Berechtigungen zum S
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2026-01-06)
+* (Thomas Pohl) Support for multiple spreadsheets with aliases
+* (Thomas Pohl) Automatic migration of old configs
+* (Thomas Pohl) Improved tests, error handling, and logging
+* (Thomas Pohl) Better async handling in Blockly blocks
+
 ### 0.6.0 (2025-12-26)
 - (Thomas Pohl) Added deleteSheets functionality (delete multiple sheets in one call)
 - (Thomas Pohl) Added blockly block for deleteSheets
@@ -124,21 +133,9 @@ Stellen Sie sicher, dass das Dienstkonto über ausreichende Berechtigungen zum S
 ### 0.3.1
 * (Thomas Pohl) Fixed reading cells and added error handling
 
-### 0.3.0
-* (Thomas Pohl) Added writing of single cells
-* (Thomas Pohl) Added reading of single cells
-* (Thomas Pohl) Documentation for all features
-
-### 0.2.0
-* (Thomas Pohl) Parsing of private keys is now more robust
-
-### 0.1.0
-* (Thomas Pohl) Preparation for first stable release
-* (Thomas Pohl) Improve logging + Code cleanup
-
 ## License
 
-   Copyright (c) 2024-2025 Thomas Pohl
+   Copyright (c) 2024-2026 Thomas Pohl
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

@@ -582,7 +582,7 @@ CHORE: #401 Update config
 
 MIT License
 
-Copyright (c) 2025 MiRo1310 <michael.roling@gmx.de>
+Copyright (c) 2023-2026 MiRo1310 <michael.roling@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

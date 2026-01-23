@@ -97,6 +97,9 @@ The development of Simrad/navico/B&G is not completed yet.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.4.2 (2026-01-05)
+* (bluefox) Updated packages
+
 ### 0.4.0 (2025-11-30)
 * (bluefox) Added support of YDEN-02/03 and YDWG-02/03 gateways
 
@@ -125,7 +128,7 @@ The development of Simrad/navico/B&G is not completed yet.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2024-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

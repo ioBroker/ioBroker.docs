@@ -40,6 +40,11 @@ The storage of sensitive data in the instance config has been changed.
 You need to re-enter your password in the instance settings if you already used an older version < 0.0.5
 
 ## Changelog
+### 0.1.7 (2026-01-06)
+* Fixed check & bot errors
+* Dependencies updated
+* Removed deprecated async functions
+
 ### 0.1.6 (2025-03-10)
 * Dependencies updated
 
@@ -89,7 +94,7 @@ You need to re-enter your password in the instance settings if you already used 
 ## License
 MIT License
 
-Copyright (c) 2025 DEV2DEV-DE
+Copyright (c) 2025-2026 DEV2DEV-DE
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

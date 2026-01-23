@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.google-spreadsheet/README.md
 title: ioBroker.google-spreadsheet
-hash: pAaiT8VT5xOS7LRS+dmUq09dTm8BShfsSGVVqdHbYXA=
+hash: MssUCif+KG4f/HBQvWsc5nwuhJzpp2bvx8Uj7G21D70=
 ---
 ![Логотип](../../../en/adapterref/iobroker.google-spreadsheet/admin/google-spreadsheet.png)
 
@@ -22,18 +22,21 @@ hash: pAaiT8VT5xOS7LRS+dmUq09dTm8BShfsSGVVqdHbYXA=
 </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml)
 
 ## Адаптер Google Таблиц для ioBroker
-Этот адаптер можно использовать для автоматического взаимодействия с электронными таблицами Google.
+Этот адаптер можно использовать для автоматического взаимодействия с Google Табличками.
+
+## API
+* [Документация API sendTo](docs/sendTo-API.md)
 
 ## Функции
-* [Добавить данные в электронную таблицу](features/append.md)
-* [Удаление строк из электронной таблицы](features/delete-rows.md)
-* [Создать листы](features/create-sheet.md)
-* [Удалить лист](features/delete-sheet.md)
-* [Удалить листы](features/delete-sheets.md)
-* [Дублировать листы](features/duplicate-sheet.md)
-* [Чтение ячейки](features/read-cell.md)
-* [Запись ячейки](features/write-cell.md)
-* [Запись ячеек](features/write-cells.md)
+* [Добавить данные в электронную таблицу](docs/features/append.md)
+* [Удаление строк из электронной таблицы](docs/features/delete-rows.md)
+* [Создание листов](docs/features/create-sheet.md)
+* [Удалить лист](docs/features/delete-sheet.md)
+* [Удаление листов](docs/features/delete-sheets.md)
+* [Дублирование листов](docs/features/duplicate-sheet.md)
+* [Чтение ячейки](docs/features/read-cell.md)
+* [Запись в ячейку](docs/features/write-cell.md)
+* [Запись ячеек](docs/features/write-cells.md)
 
 ## Использование
 ### Настраивать
@@ -42,7 +45,7 @@ hash: pAaiT8VT5xOS7LRS+dmUq09dTm8BShfsSGVVqdHbYXA=
 
 2. Создайте или выберите существующий проект, который вы хотите использовать с API.
 
-3. Включите API Google Таблиц для вашего проекта.
+3. Включите API Google Sheets для вашего проекта.
 
 #### Создание учетной записи службы
 Для проекта, выбранного на предыдущем шаге, создайте новую учетную запись службы в Google Cloud IAM, выполнив следующие действия:
@@ -77,7 +80,7 @@ hash: pAaiT8VT5xOS7LRS+dmUq09dTm8BShfsSGVVqdHbYXA=
 - **Сервисный аккаунт** - Адрес электронной почты созданного вами сервисного аккаунта.
 - **Закрытый ключ** - Откройте загруженный JSON-файл и найдите в нем закрытый ключ. Скопируйте только ту часть, которая начинается с "-----BEGIN PRIVATE KEY-----."
 
-![Настройки](../../../en/adapterref/iobroker.google-spreadsheet/img/settings.png)
+![Настройки](../../../en/adapterref/iobroker.google-spreadsheet/docs/img/settings.png)
 
 #### Найдите идентификатор электронной таблицы в URL-адресе
 Чтобы найти идентификатор электронной таблицы (Spreadsheet ID) в URL-адресе вашего документа Google Sheets, выполните следующие действия:
@@ -93,13 +96,13 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 ### Блокли
 Используйте доступные блоки для автоматического взаимодействия с вашей электронной таблицей.
 
-![Блокли](../../../en/adapterref/iobroker.google-spreadsheet/img/blockly-append.png)
+![Блокли](../../../en/adapterref/iobroker.google-spreadsheet/docs/img/blockly-append.png)
 
 ## Поиск неисправностей
-### Ошибка при отправке данных в электронную таблицу Google:Error: error:0909006C:PEM routines:get_name:no start line
+### Ошибка при отправке данных в Google Таблицы:Error: error:0909006C:PEM routines:get_name:no start line
 При копировании закрытого ключа в конфигурацию убедитесь, что в нем нет символов \n. Если в ключе есть символы \n, замените их обычными переносами строк.
 
-### Ошибка при отправке данных в электронную таблицу Google: Ошибка: У вызывающей стороны нет разрешения
+### Ошибка при отправке данных в Google Таблицы: Ошибка: У вызывающей стороны нет разрешения
 Убедитесь, что у учетной записи службы есть необходимые права на запись в электронную таблицу. См. раздел «Предоставление доступа к электронной таблице» выше.
 
 ## Changelog
@@ -107,6 +110,12 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2026-01-06)
+* (Thomas Pohl) Support for multiple spreadsheets with aliases
+* (Thomas Pohl) Automatic migration of old configs
+* (Thomas Pohl) Improved tests, error handling, and logging
+* (Thomas Pohl) Better async handling in Blockly blocks
+
 ### 0.6.0 (2025-12-26)
 - (Thomas Pohl) Added deleteSheets functionality (delete multiple sheets in one call)
 - (Thomas Pohl) Added blockly block for deleteSheets
@@ -124,21 +133,9 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 ### 0.3.1
 * (Thomas Pohl) Fixed reading cells and added error handling
 
-### 0.3.0
-* (Thomas Pohl) Added writing of single cells
-* (Thomas Pohl) Added reading of single cells
-* (Thomas Pohl) Documentation for all features
-
-### 0.2.0
-* (Thomas Pohl) Parsing of private keys is now more robust
-
-### 0.1.0
-* (Thomas Pohl) Preparation for first stable release
-* (Thomas Pohl) Improve logging + Code cleanup
-
 ## License
 
-   Copyright (c) 2024-2025 Thomas Pohl
+   Copyright (c) 2024-2026 Thomas Pohl
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

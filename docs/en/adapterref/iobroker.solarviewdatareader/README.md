@@ -63,6 +63,7 @@ TKK= Temperature inverter
 ### **WORK IN PROGRESS**
 * (afuerhoff) dependencies updated
 * (afuerhoff) dependabot.yml fixed [#246](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/246)
+* (afuerhoff) license information updated
 
 ### 1.2.4 (2025-10-24)
 * (afuerhoff) dependencies updated
@@ -93,7 +94,7 @@ TKK= Temperature inverter
 ## License
 MIT License
 
-Copyright (c) 2019-2025 Achim Fürhoff <achim.fuerhoff@outlook.de>
+Copyright (c) 2019-2026 Achim Fürhoff <achim.fuerhoff@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.elero-usb-transmitter/README.md
 title: ioBroker.elero-usb-transmitter
-hash: B4BFyXjQg2PIiZv5FCRU1GoOannx8Mw96nu2B4cAgdU=
+hash: nf5snk6oEC95XZM7T0xavw7ntsOBYC+aaH5kk8xqxT4=
 ---
 # IoBroker.elero-usb-transmitter
 ![Logo](../../../en/adapterref/iobroker.elero-usb-transmitter/admin/elero-usb-transmitter.png)
@@ -39,9 +39,40 @@ Sie können die folgenden Werte in den Zustand `controlCommand` schreiben:
 
 * `16`: STOP
 * `32`: UP
-* `36`: UNTEN
-* `64`: STEP_UP
-* `68`: STEP_DOWN
+* `36`: Belüftung/Neigung
+* `64`: UNTEN
+* `68`: Zwischenposition
+
+### Einfache Befehle
+* `74`: EASY_CHECK
+* `75`: EASY_CONFIRM
+* `76`: EASY_SEND
+* `77`: EASY_ACK
+* `78`: EASY_INFO
+
+### Statuswerte
+Der Zustand `info` zeigt den aktuellen Status des Geräts an. Gängige Werte sind:
+
+| Wert | Beschreibung |
+| :--- | :--- |
+| `INFO_UNKNOWN` | Unbekannter Status (-1). |
+| `INFO_TOP_POSITION_STOP` | An der obersten Position (1) angehalten. |
+| `INFO_BOTTOM_POSITION_STOP` | An der unteren Position (2) angehalten. |
+| `INFO_INTERMEDIATE_POSITION_STOP` | An Zwischenposition (3) angehalten. |
+| `INFO_TILT_VENTILATION_POS_STOP` | Angehalten in Kipp-/Beatmungsposition (4). |
+| `INFO_BLOCKING` | Blockierung erkannt (5). |
+| `INFO_OVERHEATED` | Motor obenliegend (6). |
+| `INFO_TIMEOUT` | Zeitüberschreitung (7). |
+| `INFO_START_TO_MOVE_UP` | Beginnt, sich nach oben zu bewegen (8). |
+| `INFO_START_TO_MOVE_DOWN` | Beginn der Abwärtsbewegung (9). |
+| `INFO_MOVING_UP` | Aufwärtsbewegung (10). |
+| `INFO_MOVING_DOWN` | Abwärtsbewegung (11). |
+| `INFO_STOPPED_IN_UNDEFINED_POSITION` | Angehalten an undefinierter Position (13). |
+| `INFO_TOP_POS_STOP_WICH_TILT_POS` | Anschlag in oberer Position mit Neigungsposition (14). |
+| `INFO_BOTTOM_POS_STOP_WICH_INT_POS` | Untere Position mit Zwischenposition (15). |
+| `INFO_SWITCHING_DEVICE_SWITCHED_OFF` | Gerät ausschalten (16). |
+| `INFO_SWITCHING_DEVICE_SWITCHED_ON` | Gerät einschalten (17). |
+| `INFO_SWITCHING_DEVICE_SWITCHED_ON` | Gerät wird eingeschaltet (17). |
 
 ## Beispiele
 ### Javascript / Blockly
@@ -58,6 +89,22 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 ```
 
 ## Changelog
+### 1.0.5 (2025-12-31)
+
+-   Fixed reliability issue with fast polling (burst mode)
+
+### 1.0.4 (2025-12-30)
+
+-   Adjusted release configuration
+-   Implemented fast polling after command execution
+
+### 1.0.3 (2025-12-30)
+
+- Release script configuration improved (added missing plugins)
+- Bug fix: Status update handling (async + validation)
+- Improvement: Connection retry logic implemented
+- Improvement: All tests converted to TypeScript
+
 ### 1.0.2 (2025-12-24)
 
 - Replaced deprecated createState/createDevice methods with setObjectNotExistsAsync
@@ -120,7 +167,7 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 
 MIT License
 
-Copyright (c) 2022 marc <marc@lammers.dev>
+Copyright (c) 2025-2026 marc <marc@lammers.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

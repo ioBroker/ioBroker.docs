@@ -52,6 +52,9 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 7.0.1 (2026-01-05)
+* dependabot updates
+
 ### 7.0.0 (2025-12-09)
 * ems-esp: rework of coding --> this adapter version only supports firmware >= 3.7.2 !!!
 * ems-esp: All entity types are now read without being selected by checkboxes
@@ -66,16 +69,10 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 * dependabot updates 
 * update error message for ems-esp gateway
 
-### 6.0.2 (2025-11-01)
-* increase axios timeout for km200 reads
-* dependabot updates
-* updating pdf docu in respect to energy statistics for ems-esp gateways
-* Migrate to NPM Trusted Publishing
-
 ## License
 MIT License
 
-Copyright (c) 2025 Thomas Petrick (tp1de)
+Copyright (c) 2025-2026 Thomas Petrick (tp1de)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

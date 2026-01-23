@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.google-spreadsheet/README.md
 title: ioBroker.google-spreadsheet
-hash: pAaiT8VT5xOS7LRS+dmUq09dTm8BShfsSGVVqdHbYXA=
+hash: MssUCif+KG4f/HBQvWsc5nwuhJzpp2bvx8Uj7G21D70=
 ---
 ![标识](../../../en/adapterref/iobroker.google-spreadsheet/admin/google-spreadsheet.png)
 
@@ -22,18 +22,21 @@ hash: pAaiT8VT5xOS7LRS+dmUq09dTm8BShfsSGVVqdHbYXA=
 </br> **版本：** </br> </br> **测试：** </br> [![测试和发布](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml)
 
 ## IoBroker 的 google-spreadsheet 适配器
-该适配器可用于自动与谷歌电子表格进行交互。
+此适配器可用于自动与谷歌表格进行交互。
+
+## API
+* [sendTo API 文档](docs/sendTo-API.md)
 
 ＃＃ 特征
-* [向电子表格追加数据](features/append.md)
-* [从电子表格中删除行](features/delete-rows.md)
-* [创建工作表](features/create-sheet.md)
-* [删除工作表](features/delete-sheet.md)
-* [删除工作表](features/delete-sheets.md)
-* [重复工作表](features/duplicate-sheet.md)
-* [读取单元格](features/read-cell.md)
-* [写入单元格](features/write-cell.md)
-* [写入单元格](features/write-cells.md)
+* [向电子表格追加数据](docs/features/append.md)
+* [从电子表格中删除行](docs/features/delete-rows.md)
+* [创建工作表](docs/features/create-sheet.md)
+* [删除工作表](docs/features/delete-sheet.md)
+* [删除工作表](docs/features/delete-sheets.md)
+* [重复工作表](docs/features/duplicate-sheet.md)
+* [读取单元格](docs/features/read-cell.md)
+* [写入单元格](docs/features/write-cell.md)
+* [写入单元格](docs/features/write-cells.md)
 
 ＃＃ 用法
 ＃＃＃ 设置
@@ -42,7 +45,7 @@ hash: pAaiT8VT5xOS7LRS+dmUq09dTm8BShfsSGVVqdHbYXA=
 
 2. 创建或选择要与 API 一起使用的现有项目。
 
-3. 为您的项目启用 Google Spreadsheet API。
+3. 为您的项目启用 Google Sheets API。
 
 #### 创建服务帐户
 对于您在上一步中选择的项目，请按照以下步骤在 Google Cloud IAM 中创建一个新的服务帐号：
@@ -77,7 +80,7 @@ hash: pAaiT8VT5xOS7LRS+dmUq09dTm8BShfsSGVVqdHbYXA=
 - **服务帐户** - 您创建的服务帐户的电子邮件地址。
 - **私钥** - 打开下载的 JSON 文件，找到文件中的私钥。仅复制以“-----BEGIN PRIVATE KEY-----”开头的部分。
 
-![设置](../../../en/adapterref/iobroker.google-spreadsheet/img/settings.png)
+![设置](../../../en/adapterref/iobroker.google-spreadsheet/docs/img/settings.png)
 
 #### 在 URL 中查找电子表格 ID
 要查找 Google 表格文档 URL 中的“电子表格 ID”，请按照以下步骤操作：
@@ -93,13 +96,13 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 ### Blockly
 使用现有模块自动与电子表格进行交互。
 
-![Blockly](../../../en/adapterref/iobroker.google-spreadsheet/img/blockly-append.png)
+![Blockly](../../../en/adapterref/iobroker.google-spreadsheet/docs/img/blockly-append.png)
 
 ## 故障排除
-### 向 Google 表格发送数据时出错：错误：error:0909006C:PEM routines:get_name:no start line
+### 向 Google Sheets 发送数据时出错：错误：error:0909006C:PEM routines:get_name:no start line
 将私钥复制到配置文件时，请确保其中不包含换行符（\n）。如果私钥中包含换行符（\n），请将其替换为普通的换行符。
 
-### 向 Google 表格发送数据时出错：错误：调用者没有权限
+### 向 Google Sheets 发送数据时出错：错误：调用者没有权限
 请确保服务帐户拥有足够的权限来写入电子表格。请参阅上文“授予对电子表格的访问权限”部分。
 
 ## Changelog
@@ -107,6 +110,12 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2026-01-06)
+* (Thomas Pohl) Support for multiple spreadsheets with aliases
+* (Thomas Pohl) Automatic migration of old configs
+* (Thomas Pohl) Improved tests, error handling, and logging
+* (Thomas Pohl) Better async handling in Blockly blocks
+
 ### 0.6.0 (2025-12-26)
 - (Thomas Pohl) Added deleteSheets functionality (delete multiple sheets in one call)
 - (Thomas Pohl) Added blockly block for deleteSheets
@@ -124,21 +133,9 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 ### 0.3.1
 * (Thomas Pohl) Fixed reading cells and added error handling
 
-### 0.3.0
-* (Thomas Pohl) Added writing of single cells
-* (Thomas Pohl) Added reading of single cells
-* (Thomas Pohl) Documentation for all features
-
-### 0.2.0
-* (Thomas Pohl) Parsing of private keys is now more robust
-
-### 0.1.0
-* (Thomas Pohl) Preparation for first stable release
-* (Thomas Pohl) Improve logging + Code cleanup
-
 ## License
 
-   Copyright (c) 2024-2025 Thomas Pohl
+   Copyright (c) 2024-2026 Thomas Pohl
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

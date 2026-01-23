@@ -181,8 +181,8 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
 
 MIT License
 
-Copyright (c) 2024-2025 ticaki <github@renopoint.de>  
-Copyright (c) 2024-2025 tt-tom17 <tgb@kabelmail.de>
+Copyright (c) 2024-2026 ticaki <github@renopoint.de>  
+Copyright (c) 2024-2026 tt-tom17 <tgb@kabelmail.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

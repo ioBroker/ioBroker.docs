@@ -180,7 +180,7 @@ Beispiel für die Messstelle _Berlin-Karlshorst_:
 
 ## License
 
-Copyright (c) 2019-2025 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2026 Peter Müller <peter@crycode.de>
 
 Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data License Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 

@@ -249,7 +249,7 @@ to make them visible in the Vis. So you have a better overview if you have sever
 
 ## License
 
-Copyright (c) 2021-2025 Michael Roling <michael.roling@gmx.de>
+Copyright (c) 2021-2026 Michael Roling <michael.roling@gmx.de>
 
 MIT License
 

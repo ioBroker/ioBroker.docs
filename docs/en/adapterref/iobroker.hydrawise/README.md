@@ -210,7 +210,7 @@ You can see all controller information, schedules and sensors. It is also possib
 
 MIT License
 
-Copyright (c) 2025 SentiQ <yves.nuesser@proton.me>
+Copyright (c) 2025-2026 SentiQ <yves.nuesser@proton.me>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

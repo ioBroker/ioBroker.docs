@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
+hash: kuu9R/AfRD+dfWd72s0EXSwCSWyjpN6efn/fGJMHi44=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -31,7 +31,7 @@ hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
 ##### Таймер остановки поведения
 После того, как таймер подаст сигнал на остановку, отсчет времени сбросится до значения, установленного таймером.
 
-##### Прекратите поведение «ноль»
+##### Прекратите поведение, равное нулю
 После того, как обратный отсчет получит сигнал об остановке, он останется на отметке 0.
 
 ##### Остановить повторный запуск
@@ -47,7 +47,7 @@ hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
 В дополнение к функциональности rrule, теперь можно также динамически рассчитывать время для различных фаз солнца и луны.
 Этот расчет выполняется только в том случае, если временной интервал составляет не менее суток (а не часов или минут).
 
-##### События, связанные со временем, определяемым Солнцем
+##### События, связанные со временем, обусловленным Солнцем
 - Астрономический Рассвет
 - amateurDawn
 - nauticalDawn
@@ -197,7 +197,7 @@ hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
 Начиная с версии 1.2.0, виджеты должны быть совместимы с vis1 и vis2.
 
 #### Виджет «Обратный отсчет»
-![Виджет обратного отсчета (простой)](../../../en/adapterref/iobroker.mytime/admin/mytime-plain.png)
+![Виджет обратного отсчета простой](../../../en/adapterref/iobroker.mytime/admin/mytime-plain.png)
 
 Виджет обратного отсчета для вывода в текстовом формате.
 Вывод можно детально настроить.
@@ -259,6 +259,7 @@ hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
 | `Object ID` | Точка данных таймера обратного отсчета. |
 | `Format` | Форматирует выходные данные таймера. По умолчанию — мм:сс. Подробности см. в главе [Формат даты и времени](#format-of-the-template-to-format-the-countdown-output-in-the-widget). ReversevSetting — параметр для увеличения или уменьшения кольца/круга |
 | `reverse` | Ширина кольца или круга. |
+| `partring` | Выбранное кольцо самого большого размера отображается пропорционально, а не целиком. |
 | `Width` | Ширина кольца или круга. |
 | `Ring gap` | Зазор в пикселях между кольцами |
 | `Ring Caps` | Варианты крепления концов кольца/круга: круглые или прямые |
@@ -443,6 +444,16 @@ hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.3.2 (2026-01-04)
+
+- fix some translations
+
+### 2.3.1 (2026-01-03)
+
+- circle widget: fix reverse selection
+- circle widget: fixed full/partial display of the largest ring.
+  Option added to select behavior.
+
 ### 2.3.0 (2025-12-03)
 
 - remove autocomplete function in the browser
@@ -696,7 +707,7 @@ hash: QUU9pbgKilVdxjr97HE2NFn5M5NdhJtu1J8iSWMsjFE=
 
 MIT License
 
-Copyright (c) 2025 oweitman <oweitman@gmx.de>
+Copyright (c) 2020-2026 oweitman <oweitman@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

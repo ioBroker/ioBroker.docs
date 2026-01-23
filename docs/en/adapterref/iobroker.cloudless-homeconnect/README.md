@@ -302,7 +302,7 @@ General settings for the device can be made here. For example, the light of an o
 
 MIT License
 
-Copyright (c) 2025 eifel-tech <hikaso@gmx.net>
+Copyright (c) 2025-2026 eifel-tech <hikaso@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
