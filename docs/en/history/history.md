@@ -1073,6 +1073,13 @@ https://github.com/bloop16/ioBroker.steam
 
 This adapter allows you to integrate information from the Steam API into your ioBroker system.
 
+## serial-gps (23.1.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.serial-gps
+
+<img src="https://github.com/ioBroker/ioBroker.serial-gps/blob/main/admin/serial-gps.svg" width="100" height="100" />
+
+This adapter reads GPS data from a serial or USB GPS device and makes it available in ioBroker.
+
 
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
