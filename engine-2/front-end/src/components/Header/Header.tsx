@@ -200,14 +200,14 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: Heade
             <Box className={classes.navBox}>
                 <Box
                     component="a"
-                    href="https://www.iobroker.net/adapters"
+                    href="/#/adapters"
                     className={`${classes.link} ${selected === 'adapters' ? classes.linkSelected : ''}`}
                 >
                     {tt('menu-adapters', 'Adapters')}
                 </Box>
                 <Box
                     component="a"
-                    href="https://www.iobroker.net/docs"
+                    href="/#/docs"
                     className={`${classes.link} ${selected === 'docs' ? classes.linkSelected : ''}`}
                 >
                     {tt('menu-docs', 'Docs')}
