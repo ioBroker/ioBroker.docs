@@ -17,7 +17,7 @@ const ALL_ITEMS: ItemData[] = [
         description:
             'Mit ioBroker sind deiner Kreativität keine Grenzen gesetzt. Die Plattform unterstützt eine Vielzahl von Automatisierungsansätzen, von einfachen "Wenn-dies-dann-das"-Szenarien bis hin zu komplexen, mehrstufigen Logiken. Dank der Unterstützung von Blocky, JavaScript, TypeScript und Node.js können sowohl Einsteiger als auch erfahrene Entwickler ihre Smart-Home-Umgebung individuell gestalten und erweitern.',
         details:
-            'Ob zeitgesteuerte Abläufe, Sensorwerte als Auslöser oder die intelligente Verknüpfung mehrerer Geräte: ioBroker bietet maximale Freiheit bei der Umsetzung deiner Automatisierungsideen. Dabei ist das System so offen gestaltet, dass nahezu jede Hardware und jedes Protokoll integriert werden kann – egal ob Zigbee, Z-Wave, MQTT, KNX oder cloudbasierte Dienste wie Alexa, Google Assistant oder HomeKit. Mit ioBroker automatisierst du nicht nur Abläufe, sondern schaffst ein vollständig vernetztes, intelligentes Zuhause . Ganz nach deinen Regeln.'
+            'Ob zeitgesteuerte Abläufe, Sensorwerte als Auslöser oder die intelligente Verknüpfung mehrerer Geräte: ioBroker bietet maximale Freiheit bei der Umsetzung deiner Automatisierungsideen. Dabei ist das System so offen gestaltet, dass nahezu jede Hardware und jedes Protokoll integriert werden kann – egal ob Zigbee, Z-Wave, MQTT, KNX oder cloudbasierte Dienste wie Alexa, Google Assistant oder HomeKit. Mit ioBroker automatisierst du nicht nur Abläufe, sondern schaffst ein vollständig vernetztes, intelligentes Zuhause . Ganz nach deinen Regeln.',
     },
     {
         title: 'OPEN-SOURCE',
@@ -31,63 +31,81 @@ const ALL_ITEMS: ItemData[] = [
         description:
             'Zahlreiche Optionen zur individuellen und intuitiven Gestaltung der Visualisierung, wie Vis-2, ioControl, Lovelace, HabPanel etc.',
         details:
-            'Zahlreiche Optionen zur individuellen und intuitiven Gestaltung der Visualisierung, wie Vis-2, ioControl, Lovelace, HabPanel etc.'
+            'Zahlreiche Optionen zur individuellen und intuitiven Gestaltung der Visualisierung, wie Vis-2, ioControl, Lovelace, HabPanel etc.',
     },
     {
         title: 'ALLES ÜBER GUI',
-        description: 'Vergiss komplizierte Konfigurationsdateien!  Alles bequem über eine grafische Benutzeroberfläche (GUI) konfigurieren, was die Nutzung besonders einfach macht.',
-        details: 'Vergiss komplizierte Konfigurationsdateien!  Alles bequem über eine grafische Benutzeroberfläche (GUI) konfigurieren, was die Nutzung besonders einfach macht.'
+        description:
+            'Vergiss komplizierte Konfigurationsdateien!  Alles bequem über eine grafische Benutzeroberfläche (GUI) konfigurieren, was die Nutzung besonders einfach macht.',
+        details:
+            'Vergiss komplizierte Konfigurationsdateien!  Alles bequem über eine grafische Benutzeroberfläche (GUI) konfigurieren, was die Nutzung besonders einfach macht.',
     },
     {
         title: 'DEUTSCHE COMMUNITY',
-        description: 'Die ioBroker-Community ist stark und aktiv, besonders im deutschsprachigen Raum. Hier findest du schnellen Support und hilfreiche Tipps.',
-        details: 'Die ioBroker-Community ist stark und aktiv, besonders im deutschsprachigen Raum. Hier findest du schnellen Support und hilfreiche Tipps.'
+        description:
+            'Die ioBroker-Community ist stark und aktiv, besonders im deutschsprachigen Raum. Hier findest du schnellen Support und hilfreiche Tipps.',
+        details:
+            'Die ioBroker-Community ist stark und aktiv, besonders im deutschsprachigen Raum. Hier findest du schnellen Support und hilfreiche Tipps.',
     },
     {
         title: 'OFFENE ARCHITEKTUR',
-        description: 'Bietet endlose Möglichkeiten zur Erweiterung. Neue Geräte, Dienste und Funktionen können flexibel integriert werden – unabhängig vom Hersteller.',
-        details: 'Bietet endlose Möglichkeiten zur Erweiterung. Neue Geräte, Dienste und Funktionen können flexibel integriert werden – unabhängig vom Hersteller.'
+        description:
+            'Bietet endlose Möglichkeiten zur Erweiterung. Neue Geräte, Dienste und Funktionen können flexibel integriert werden – unabhängig vom Hersteller.',
+        details:
+            'Bietet endlose Möglichkeiten zur Erweiterung. Neue Geräte, Dienste und Funktionen können flexibel integriert werden – unabhängig vom Hersteller.',
     },
     {
         title: 'MODULARITÄT',
         description: 'hfhhfsshfhdkghkdgfjfgfgjb',
-        details: 'hfhhfsshfhdkghkdgfjfgfgjb'
+        details: 'hfhhfsshfhdkghkdgfjfgfgjb',
     },
     {
         title: 'BENUTZER-MANAGEMENT',
-        description: 'Zugriffsrechte gezielt steuern und unterschiedliche Nutzerrollen definieren. Perfekt für Familien oder geteilte Smart-Home-Systeme.',
-        details: 'Zugriffsrechte gezielt steuern und unterschiedliche Nutzerrollen definieren. Perfekt für Familien oder geteilte Smart-Home-Systeme.'
+        description:
+            'Zugriffsrechte gezielt steuern und unterschiedliche Nutzerrollen definieren. Perfekt für Familien oder geteilte Smart-Home-Systeme.',
+        details:
+            'Zugriffsrechte gezielt steuern und unterschiedliche Nutzerrollen definieren. Perfekt für Familien oder geteilte Smart-Home-Systeme.',
     },
     {
         title: 'REDIS ALS OPTIONALE DATENBANK',
-        description: 'Die Integration von REDIS ermöglicht höchste Performance, beschleunigt Datenzugriffe und macht ioBroker ideal für anspruchsvolle Anwendungen.',
-        details: 'Die Integration von REDIS ermöglicht höchste Performance, beschleunigt Datenzugriffe und macht ioBroker ideal für anspruchsvolle Anwendungen.'
+        description:
+            'Die Integration von REDIS ermöglicht höchste Performance, beschleunigt Datenzugriffe und macht ioBroker ideal für anspruchsvolle Anwendungen.',
+        details:
+            'Die Integration von REDIS ermöglicht höchste Performance, beschleunigt Datenzugriffe und macht ioBroker ideal für anspruchsvolle Anwendungen.',
     },
     {
         title: 'JAVA SCRIPT UND NODE. JS',
-        description: 'Diese Basis ermöglicht schnelle, skalierbare Automatisierungen und individuelle Anpassungen und machen ioBroker flexibel und zukunftssicher.',
-        details: 'Diese Basis ermöglicht schnelle, skalierbare Automatisierungen und individuelle Anpassungen und machen ioBroker flexibel und zukunftssicher.'
+        description:
+            'Diese Basis ermöglicht schnelle, skalierbare Automatisierungen und individuelle Anpassungen und machen ioBroker flexibel und zukunftssicher.',
+        details:
+            'Diese Basis ermöglicht schnelle, skalierbare Automatisierungen und individuelle Anpassungen und machen ioBroker flexibel und zukunftssicher.',
     },
     {
         title: 'SKALIERBARKEIT',
-        description: 'ioBroker wächst mit deinen Anforderungen – vom kleinen Smart-Home-Setup bis hin zu komplexen Multi-Host-Systemen. Neue Geräte und Funktionen lassen sich jederzeit hinzufügen. ',
-        details: 'ioBroker wächst mit deinen Anforderungen – vom kleinen Smart-Home-Setup bis hin zu komplexen Multi-Host-Systemen. Neue Geräte und Funktionen lassen sich jederzeit hinzufügen. '
+        description:
+            'ioBroker wächst mit deinen Anforderungen – vom kleinen Smart-Home-Setup bis hin zu komplexen Multi-Host-Systemen. Neue Geräte und Funktionen lassen sich jederzeit hinzufügen. ',
+        details:
+            'ioBroker wächst mit deinen Anforderungen – vom kleinen Smart-Home-Setup bis hin zu komplexen Multi-Host-Systemen. Neue Geräte und Funktionen lassen sich jederzeit hinzufügen. ',
     },
     {
         title: 'JS-CONTROLLER ',
         description: 'bla vla bla bla bla bjbfj mnskndf njanjsfnds kndskfnks ',
-        details: 'bla vla bla bla bla bjbfj mnskndf njanjsfnds kndskfnks '
+        details: 'bla vla bla bla bla bjbfj mnskndf njanjsfnds kndskfnks ',
     },
     {
         title: 'SICHERHEIT',
-        description: 'Daten bleiben lokal und unter deiner Kontrolle. Der Fernzugriff funktioniert ohne externe Cloud-Dienste, was maximale Privatsphäre garantiert.',
-        details: 'Daten bleiben lokal und unter deiner Kontrolle. Der Fernzugriff funktioniert ohne externe Cloud-Dienste, was maximale Privatsphäre garantiert.'
+        description:
+            'Daten bleiben lokal und unter deiner Kontrolle. Der Fernzugriff funktioniert ohne externe Cloud-Dienste, was maximale Privatsphäre garantiert.',
+        details:
+            'Daten bleiben lokal und unter deiner Kontrolle. Der Fernzugriff funktioniert ohne externe Cloud-Dienste, was maximale Privatsphäre garantiert.',
     },
     {
         title: 'MULTI-HOST',
-        description: 'Die Last kann auf mehrere Server verteilt werden, wodurch das System entlastet und gleichzeitig eine bessere Performance sowie höhere Ausfallsicherheit erreicht wird.',
-        details: 'Die Last kann auf mehrere Server verteilt werden, wodurch das System entlastet und gleichzeitig eine bessere Performance sowie höhere Ausfallsicherheit erreicht wird.'
-    }
+        description:
+            'Die Last kann auf mehrere Server verteilt werden, wodurch das System entlastet und gleichzeitig eine bessere Performance sowie höhere Ausfallsicherheit erreicht wird.',
+        details:
+            'Die Last kann auf mehrere Server verteilt werden, wodurch das System entlastet und gleichzeitig eine bessere Performance sowie höhere Ausfallsicherheit erreicht wird.',
+    },
 ];
 
 export const AboutSection: React.FC = () => {
@@ -98,11 +116,11 @@ export const AboutSection: React.FC = () => {
     const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
     const handleShowMore = () => {
-        setVisibleCount((prev) => prev + ALL_ITEMS.length);
+        setVisibleCount(prev => prev + ALL_ITEMS.length);
     };
 
     const handleExpandClick = (index: number) => {
-        setExpandedIndex((prevIndex) => (prevIndex === index ? null : index));
+        setExpandedIndex(prevIndex => (prevIndex === index ? null : index));
     };
 
     return (
@@ -119,10 +137,12 @@ export const AboutSection: React.FC = () => {
                         mb: { xs: 0, md: 4 },
                     }}
                 >
-                    <SectionTitle sx={{
-                        marginBottom: { xs: '32px !important', md: '24px !important' },
-                        fontSize: { '@media (max-width:400px)': { fontSize: '26px !important' } }
-                    }}>
+                    <SectionTitle
+                        sx={{
+                            marginBottom: { xs: '32px !important', md: '24px !important' },
+                            fontSize: { '@media (max-width:400px)': { fontSize: '26px !important' } },
+                        }}
+                    >
                         {I18n.t('home.about.title')}
                     </SectionTitle>
                 </Box>
@@ -161,15 +181,17 @@ export const AboutSection: React.FC = () => {
                                 <Typography className={classes.itemTitle}>
                                     {I18n.t(`home.about.items.${index}.title`, { defaultValue: item.title })}
                                 </Typography>
-                                <Typography className={classes.itemDescription}>
-                                    {item.description}
-                                </Typography>
-                                <Collapse in={isExpanded} timeout="auto" unmountOnExit>
+                                <Typography className={classes.itemDescription}>{item.description}</Typography>
+                                <Collapse
+                                    in={isExpanded}
+                                    timeout="auto"
+                                    unmountOnExit
+                                >
                                     <Typography
                                         className={classes.itemDescription}
                                         sx={{
                                             whiteSpace: 'pre-line',
-                                            marginTop: 2
+                                            marginTop: 2,
                                         }}
                                     >
                                         {item.details}
@@ -177,7 +199,7 @@ export const AboutSection: React.FC = () => {
                                 </Collapse>
                             </Box>
                         </StyledButton>
-                    )
+                    );
                 })}
                 {visibleCount < ALL_ITEMS.length && (
                     <Box className={classes.buttonWrapper}>

@@ -125,7 +125,7 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('sm')]: {
             textAlign: 'left',
         },
-         [theme.breakpoints.down(400)]: {
+        [theme.breakpoints.down(400)]: {
             fontSize: '82px',
         },
     },

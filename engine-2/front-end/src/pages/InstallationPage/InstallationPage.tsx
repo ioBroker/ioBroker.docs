@@ -27,7 +27,7 @@ const InstallationPage = () => {
                                 sm: '36px !important',
                                 '@media (max-width:400px)': {
                                     fontSize: '18px !important',
-                                }
+                                },
                             },
                         }}
                     >

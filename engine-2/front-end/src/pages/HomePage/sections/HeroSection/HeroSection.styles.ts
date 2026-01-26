@@ -57,8 +57,7 @@ export const useStyles = makeStyles()(theme => ({
         width: '100%',
         height: '55%',
         zIndex: 1,
-        backgroundImage:
-            'linear-gradient(187deg, #080B1C 15%, #080B1C00 15%, #080B1C 80%, #080B1C 100%)',
+        backgroundImage: 'linear-gradient(187deg, #080B1C 15%, #080B1C00 15%, #080B1C 80%, #080B1C 100%)',
         [theme.breakpoints.down('md')]: {
             backgroundSize: '210%',
             backgroundPosition: 'center',
@@ -141,7 +140,7 @@ export const useStyles = makeStyles()(theme => ({
             gap: '16px',
         },
         [theme.breakpoints.down(400)]: {
-             gap: '70px',
+            gap: '70px',
         },
     },
     supportIconsWrapper: {
@@ -167,8 +166,8 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('lg')]: {
             width: '400px',
         },
-          [theme.breakpoints.down(980)]: {
-             width: '320px',
+        [theme.breakpoints.down(980)]: {
+            width: '320px',
         },
         [theme.breakpoints.down('md')]: {
             display: 'none',

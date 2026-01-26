@@ -72,7 +72,7 @@ export const useStyles = makeStyles()(theme => ({
         color: theme.palette.text.primary,
         textAlign: 'left',
         maxWidth: '684px',
-         [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('md')]: {
             textAlign: 'center',
         },
         [theme.breakpoints.down(430)]: {
@@ -122,7 +122,7 @@ export const useStyles = makeStyles()(theme => ({
             height: 'auto',
             boxSizing: 'border-box',
         },
-         [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('md')]: {
             width: '100%',
             padding: '20px 16px',
         },
@@ -258,7 +258,7 @@ export const useStyles = makeStyles()(theme => ({
         },
         '&:active': {
             transform: 'scale(0.9)',
-        }
+        },
     },
     hintText: {
         fontSize: '16px',
@@ -302,7 +302,7 @@ export const useStyles = makeStyles()(theme => ({
             //minWidth: 351,
             textAlign: 'center',
         },
-         [theme.breakpoints.down(450)]: {
+        [theme.breakpoints.down(450)]: {
             textAlign: 'start',
         },
     },

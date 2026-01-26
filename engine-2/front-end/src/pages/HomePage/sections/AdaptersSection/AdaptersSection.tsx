@@ -41,7 +41,9 @@ export const AdaptersSection: React.FC = () => {
     const { data: adapters } = useAdapters();
 
     const totalAdapters = React.useMemo(() => {
-        if (!adapters?.pages) return 680;
+        if (!adapters?.pages) {
+            return 680;
+        }
         return Object.values(adapters.pages).reduce((sum, category) => {
             return sum + (category?.pages ? Object.keys(category.pages).length : 0);
         }, 0);
@@ -131,7 +133,7 @@ export const AdaptersSection: React.FC = () => {
                             sx={{ mt: 2 }}
                             className={classes.adaptersText}
                         >
-                             /* {I18n.t('home.adapters.text')} */
+                            /* {I18n.t('home.adapters.text')} */
                         </Typography>
                         <Box className={classes.buttonWrapperDesktop}>
                             <StyledButton

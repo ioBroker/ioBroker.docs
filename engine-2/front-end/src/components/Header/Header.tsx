@@ -13,7 +13,6 @@ import {
 } from '@mui/material';
 import { Close } from '@mui/icons-material';
 
-
 import logo from '../../assets/img/logo_net_small.svg';
 import MenuIcon from '../icons/MenuIcon';
 import PersonIcon from '../icons/PersonIcon';
@@ -105,11 +104,11 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: Heade
                 />
             )}
             {renderProfileMenu()}
-             <SearchDialog
-        search={search}
-        open={searchDialogOpen}
-        onClose={() => setSearchDialogOpen(false)}
-      />
+            <SearchDialog
+                search={search}
+                open={searchDialogOpen}
+                onClose={() => setSearchDialogOpen(false)}
+            />
 
             <img
                 src={logo}

@@ -31,13 +31,25 @@ export const NewsletterSection: React.FC = () => {
                 </Box>
                 <Box className={classes.newsletterContent}>
                     <Box className={classes.newsletterText}>
-                        <Typography className={classes.newsletterTitle}>{I18n.t('home.newsletter.headline')}</Typography>
-                        <Typography className={classes.newsletterSubTitle}>
-                            {I18n.t('home.newsletter.sub')}
+                        <Typography className={classes.newsletterTitle}>
+                            {I18n.t('home.newsletter.headline')}
                         </Typography>
+                        <Typography className={classes.newsletterSubTitle}>{I18n.t('home.newsletter.sub')}</Typography>
                     </Box>
-                    <Box sx={{ display: 'flex', gap: { lg: '55px', md: '30px', sm: '20px', xs: '20px', '@media (max-width:400px)': {
-                                    gap: '10px !important',} } }}>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            gap: {
+                                lg: '55px',
+                                md: '30px',
+                                sm: '20px',
+                                xs: '20px',
+                                '@media (max-width:400px)': {
+                                    gap: '10px !important',
+                                },
+                            },
+                        }}
+                    >
                         <Box sx={{ display: 'flex' }}>
                             <div className={classes.bracesLeft} />
                             <Box className={classes.newsletterInputContainer}>

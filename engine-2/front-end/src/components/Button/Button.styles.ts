@@ -26,7 +26,7 @@ export const useStyles = makeStyles()(theme => ({
         },
         [theme.breakpoints.down('md')]: {
             width: 'calc(100% - 60px)',
-                height: '48px',
+            height: '48px',
             borderRadius: '8px',
             fontSize: '18px',
             padding: '14px 0',

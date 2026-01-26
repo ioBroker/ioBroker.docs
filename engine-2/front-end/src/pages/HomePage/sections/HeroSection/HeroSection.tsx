@@ -66,7 +66,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
                         </Box>
                         <Typography className={classes.supportText}>
                             {I18n.t('home.hero.free')} <br />
-                             {I18n.t('home.hero.support')}
+                            {I18n.t('home.hero.support')}
                         </Typography>
                         <Box className={classes.supportIcons}>
                             <Box

@@ -6,7 +6,6 @@ import { Box, Button, Switch, useTheme } from '@mui/material';
 import { I18n } from '../../utils/i18n';
 import CookieIcon from '../icons/CookieIcon';
 
-
 const getStyles = (theme: any): Record<string, any> => ({
     title: {
         fontWeight: 'bold',
@@ -145,7 +144,7 @@ export default function CookiesHint(props: { force?: boolean; onClose?: () => vo
                                 '& .MuiSwitch-track': {
                                     borderRadius: '50px',
                                     border: `1px solid ${theme.palette.primary.main}`,
-                                    backgroundColor: theme.palette.primary.main + ' !important',
+                                    backgroundColor: `${theme.palette.primary.main} !important`,
                                     opacity: 1,
                                 },
                                 opacity: 0.7,
@@ -176,7 +175,9 @@ export default function CookiesHint(props: { force?: boolean; onClose?: () => vo
                                 '& .MuiSwitch-track': {
                                     borderRadius: '50px',
                                     border: `1px solid ${theme.palette.primary.main}`,
-                                    backgroundColor: commercial ? theme.palette.primary.main + ' !important' : 'transparent',
+                                    backgroundColor: commercial
+                                        ? `${theme.palette.primary.main} !important`
+                                        : 'transparent',
                                     opacity: 1,
                                 },
                             }}
@@ -206,7 +207,9 @@ export default function CookiesHint(props: { force?: boolean; onClose?: () => vo
                                 '& .MuiSwitch-track': {
                                     borderRadius: '50px',
                                     border: `1px solid ${theme.palette.primary.main}`,
-                                    backgroundColor: statistics ? theme.palette.primary.main + ' !important' : 'transparent',
+                                    backgroundColor: statistics
+                                        ? `${theme.palette.primary.main} !important`
+                                        : 'transparent',
                                     opacity: 1,
                                 },
                             }}

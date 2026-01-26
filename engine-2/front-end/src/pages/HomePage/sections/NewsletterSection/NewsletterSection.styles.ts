@@ -83,7 +83,7 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('sm')]: {
             width: '250px',
         },
-         [theme.breakpoints.down(400)]: {
+        [theme.breakpoints.down(400)]: {
             width: '230px',
         },
     },

@@ -69,7 +69,9 @@ export const CommunitySection: React.FC = () => {
                                             +
                                         </Box>
                                     </Typography>
-                                    <Typography className={classes.statLabel}>{I18n.t('home.community.users')}</Typography>
+                                    <Typography className={classes.statLabel}>
+                                        {I18n.t('home.community.users')}
+                                    </Typography>
                                 </Box>
                                 <CustomButton
                                     variant="secondary"

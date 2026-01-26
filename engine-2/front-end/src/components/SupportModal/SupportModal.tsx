@@ -51,9 +51,7 @@ export const SupportModal: React.FC<SupportModalProps> = ({ open, onClose }) => 
 
                 <Typography className={classes.subtitle}>{I18n.t('support.subtitle')}</Typography>
 
-                <Typography className={classes.description}>
-                    {I18n.t('support.description')}
-                </Typography>
+                <Typography className={classes.description}>{I18n.t('support.description')}</Typography>
 
                 <Box className={classes.optionsContainer}>
                     <Box className={classes.option}>

@@ -11,7 +11,9 @@ export const useScrollProgress = (): UseScrollProgressReturn => {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (!sectionRef.current) return;
+            if (!sectionRef.current) {
+                return;
+            }
 
             const rect = sectionRef.current.getBoundingClientRect();
             const sectionTop = rect.top;

@@ -31,12 +31,8 @@ export const PlatformSection: React.FC = () => {
                         <Typography className={classes.platformHeadSubtitle}>
                             /* {I18n.t('home.platform.head')}
                         </Typography>
-                        <Typography className={classes.platformSubtitle}>
-                            {I18n.t('home.platform.sub1')}
-                        </Typography>
-                        <Typography className={classes.platformSubtitle}>
-                            {I18n.t('home.platform.sub2')} */
-                        </Typography>
+                        <Typography className={classes.platformSubtitle}>{I18n.t('home.platform.sub1')}</Typography>
+                        <Typography className={classes.platformSubtitle}>{I18n.t('home.platform.sub2')} */</Typography>
                         <StyledButton
                             sx={{
                                 marginTop: { xs: '20px', sm: '20px', md: '72px' },

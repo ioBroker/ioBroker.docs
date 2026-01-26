@@ -47,7 +47,7 @@ export default function __(text: string, ...args: any): string {
         if (!t) {
             if (!problems.includes(text)) {
                 problems.push(text);
-                // eslint-disable-next-line no-console
+
                 console.log(`Translate: ${text}`);
             }
             t = text;
@@ -55,7 +55,7 @@ export default function __(text: string, ...args: any): string {
     } else {
         if (!problems.includes(text)) {
             problems.push(text);
-            // eslint-disable-next-line no-console
+
             console.log(`Translate1: ${text}`);
         }
         t = text;
@@ -87,14 +87,13 @@ export function getLang(): Language {
         if (!languages[lang]) {
             lang = 'en';
         }
-        // eslint-disable-next-line no-console
+
         console.log(`Use auto-language: ${lang}`);
     }
     return lang;
 }
 
 export function setLang(newLang: Language): void {
-    // eslint-disable-next-line no-console
     console.log(`Use language: ${newLang}`);
     window.localStorage.setItem('lang', newLang);
     lang = newLang;

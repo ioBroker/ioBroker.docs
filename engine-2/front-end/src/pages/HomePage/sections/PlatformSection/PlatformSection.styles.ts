@@ -67,7 +67,7 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('sm')]: {
             textAlign: 'left',
             marginBottom: theme.spacing(4),
-            width: '100%'
+            width: '100%',
         },
     },
     platformTitle: {

@@ -47,7 +47,7 @@ export const useStyles = makeStyles()(theme => ({
             fontSize: '16px',
         },
         opacity: 0.7,
-        paddingRight: '16px'
+        paddingRight: '16px',
     },
     buttonWrapper: {
         position: 'relative',

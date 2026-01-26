@@ -76,8 +76,8 @@ export const useStyles = makeStyles()(theme => ({
         justifyContent: 'space-between',
         marginTop: '120px',
         gap: theme.spacing(6),
-         [theme.breakpoints.down(1281)]: {
-             justifyContent: 'left',
+        [theme.breakpoints.down(1281)]: {
+            justifyContent: 'left',
         },
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
@@ -90,13 +90,13 @@ export const useStyles = makeStyles()(theme => ({
             flexWrap: 'wrap',
             justifyContent: 'start',
             gap: '16px',
-            width: '100%'
+            width: '100%',
         },
-          [theme.breakpoints.down(543)]: {
-             width: '100%'
+        [theme.breakpoints.down(543)]: {
+            width: '100%',
         },
-         [theme.breakpoints.down(390)]: {
-             width: '100%',
+        [theme.breakpoints.down(390)]: {
+            width: '100%',
             flexDirection: 'column',
             flexWrap: 'wrap',
             justifyContent: 'center',
