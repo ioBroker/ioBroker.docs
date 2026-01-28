@@ -1066,5 +1066,27 @@ https://github.com/ioBroker/ioBroker.witmotion
 
 This adapter reads accelerometr, magentomer, gyroscope data from WT901blecl 5.0 Bluetooth 5.0 9-Axis IMU Sensor via USB
 
+## mitsubishi-local-control (28.01.2026) – new adapter at stable repository
+https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
+
+<img src="https://raw.githubusercontent.com/Black-Thunder/ioBroker.mitsubishi-local-control/main/admin/mitsubishi-local-control.png" width="100" height="100" />
+
+The mitsubishi-local-control adapter integrates Mitsubishi Electric air conditioning systems into ioBroker using a direct local connection.
+
+## autodarts (28.01.2026) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.autodarts
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.autodarts/main/admin/autodarts.svg" width="100" height="100" />
+
+Connects to your local Autodarts Board Manager (via IP and port, e.g. 192.168.x.x:3180) and exposes ioBroker states for home automation:
+
+## zwavews (28.01.2026) – new adapter at stable repository
+https://github.com/arteck/ioBroker.zwavews
+
+<img src="https://raw.githubusercontent.com/arteck/ioBroker.zwavews/main/admin/zwavews.png" width="100" height="100" />
+
+The zwavews adapter connects a zwave-js-ui to ioBroker and creates corresponding data points for devices, values, and statuses. This allows Z-Wave devices to be conveniently used in visualizations, logic, and automations.
+
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
