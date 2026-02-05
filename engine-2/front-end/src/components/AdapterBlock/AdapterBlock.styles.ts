@@ -15,6 +15,12 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: '500',
         fontSize: '20px',
     },
+    topIcons: {
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'space-between',
+        gap: 30,
+    },
     icon: {
         background: '#FFFFFF',
         borderRadius: '8px',
@@ -22,6 +28,11 @@ export const useStyles = makeStyles()(theme => ({
         '& img': {
             width: 60,
         },
+    },
+    statsBlocks: {
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'space-between',
     },
     statsBlock: {},
     statsIcon: {},

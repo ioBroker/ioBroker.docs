@@ -1,5 +1,9 @@
+import { Box } from '@mui/material';
 import { AdapterBlock } from '../../components/AdapterBlock/AdapterBlock';
 import type { AdapterItem } from '../../components/AdapterItem/AdapterItem';
+import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
+import { I18n } from '../../utils/i18n';
+import { useStyles } from './AdaptersPage.styles';
 
 const sampleItem: AdapterItem = {
     title: {
@@ -53,7 +57,24 @@ const sampleItem: AdapterItem = {
 };
 
 const AdaptersPage = (): React.ReactNode => {
-    return <AdapterBlock adapter={sampleItem} />;
+    const { classes } = useStyles();
+    return (
+        <Box>
+            <SectionTitle>{I18n.t('home.adapters.title')}</SectionTitle>
+            <Box>
+                <Box className={classes.menuBlock}>
+                    <Box className={classes.menuButton}></Box>
+                </Box>
+                <Box className={classes.mainBlock}>
+                    <Box className={classes.mainTopBlock}>
+                        <Box className={classes.adaptersSearch}></Box>
+                        <Box className={classes.adaptersButton}></Box>
+                    </Box>
+                    <AdapterBlock adapter={sampleItem} />;
+                </Box>
+            </Box>
+        </Box>
+    );
 };
 
 export default AdaptersPage;
