@@ -4,6 +4,7 @@ import type { AdapterItem } from '../../components/AdapterItem/AdapterItem';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { I18n } from '../../utils/i18n';
 import { useStyles } from './AdaptersPage.styles';
+import { AdapterTable } from '../../components/AdapterTable/AdapterTable';
 
 const sampleItem: AdapterItem = {
     title: {
@@ -71,6 +72,7 @@ const AdaptersPage = (): React.ReactNode => {
                         <Box className={classes.adaptersButton}></Box>
                     </Box>
                     <AdapterBlock adapter={sampleItem} />;
+                    <AdapterTable adapters={[sampleItem]} />
                 </Box>
             </Box>
         </Box>
