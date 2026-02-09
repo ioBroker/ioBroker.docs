@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import type React from 'react';
 
-export const DocsMenu = (): React.ReactNode => {
+export const DocPage = (): React.ReactNode => {
     return <Box></Box>;
 };

@@ -1,10 +1,11 @@
-import { Box } from '@mui/material';
+import { Box, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { AdapterBlock } from '../../components/AdapterBlock/AdapterBlock';
 import type { AdapterItem } from '../../components/AdapterItem/AdapterItem';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { I18n } from '../../utils/i18n';
 import { useStyles } from './AdaptersPage.styles';
 import { AdapterTable } from '../../components/AdapterTable/AdapterTable';
+import { useState } from 'react';
 
 const sampleItem: AdapterItem = {
     title: {
@@ -59,6 +60,10 @@ const sampleItem: AdapterItem = {
 
 const AdaptersPage = (): React.ReactNode => {
     const { classes } = useStyles();
+
+    const [mode, setMode] = useState<'block' | 'table'>('block');
+    const [search, setSearch] = useState('');
+
     return (
         <Box>
             <SectionTitle>{I18n.t('home.adapters.title')}</SectionTitle>
@@ -68,11 +73,28 @@ const AdaptersPage = (): React.ReactNode => {
                 </Box>
                 <Box className={classes.mainBlock}>
                     <Box className={classes.mainTopBlock}>
-                        <Box className={classes.adaptersSearch}></Box>
-                        <Box className={classes.adaptersButton}></Box>
+                        <Box className={classes.adaptersSearch}>
+                            <TextField
+                                value={search}
+                                onChange={e => setSearch(e.target.value)}
+                            />
+                        </Box>
+                        <Box className={classes.adaptersButton}>
+                            <ToggleButtonGroup
+                                exclusive
+                                value={mode}
+                                onChange={(e, value) => setMode(value)}
+                            >
+                                <ToggleButton value="block">Block</ToggleButton>
+                                <ToggleButton value="table">Table</ToggleButton>
+                            </ToggleButtonGroup>
+                        </Box>
                     </Box>
-                    <AdapterBlock adapter={sampleItem} />;
-                    <AdapterTable adapters={[sampleItem]} />
+                    {mode === 'block' ? (
+                        <AdapterBlock adapter={sampleItem} />
+                    ) : (
+                        <AdapterTable adapters={[sampleItem]} />
+                    )}
                 </Box>
             </Box>
         </Box>

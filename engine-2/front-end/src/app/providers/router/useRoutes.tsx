@@ -3,6 +3,8 @@ import { HomePage } from '../../../pages/HomePage';
 import InstallationPage from '../../../pages/InstallationPage/InstallationPage';
 import AdaptersPage from '../../../pages/AdaptersPage/AdaptersPage';
 import DocsPage from '../../../pages/DocsPage/DocsPage';
+import { AdapterPage } from '../../../pages/AdapterPage/AdapterPage';
+import { DocPage } from '../../../pages/DocPage/DocPage';
 
 export const useRoutes = (): React.ReactElement => {
     return (
@@ -20,8 +22,16 @@ export const useRoutes = (): React.ReactElement => {
                 element={<AdaptersPage />}
             />
             <Route
+                path="/adapters/:adapterId"
+                element={<AdapterPage />}
+            />
+            <Route
                 path="/docs"
                 element={<DocsPage />}
+            />
+            <Route
+                path="/docs/:docId"
+                element={<DocPage />}
             />
         </Routes>
     );

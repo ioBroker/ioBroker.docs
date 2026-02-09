@@ -3,12 +3,15 @@ import type { AdapterItem } from '../AdapterItem/AdapterItem';
 import { Box, IconButton } from '@mui/material';
 import { I18n } from '../../utils/i18n';
 import { useStyles } from './AdapterBlock.styles';
+import { Link } from 'react-router-dom';
 
 export const AdapterBlock = (props: { adapter: AdapterItem }): ReactNode => {
     const { classes } = useStyles();
     return (
         <Box className={classes.card}>
-            <Box className={classes.title}>{props.adapter.title[I18n.getLanguage()]}</Box>
+            <Box className={classes.title}>
+                <Link to={`/adapters/${props.adapter.title.en}`}>{props.adapter.title[I18n.getLanguage()]}</Link>
+            </Box>
             <Box className={classes.topIcons}>
                 <Box className={classes.icon}>
                     <img
