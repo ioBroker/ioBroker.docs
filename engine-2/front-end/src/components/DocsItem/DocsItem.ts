@@ -12,18 +12,20 @@ interface Lang {
     'zh-cn'?: string;
 }
 
-export interface DocsItem {
-    title: Lang;
-    content: string;
-}
+export type DocsItem =
+    | {
+          title: Lang;
+          pages: {
+              [k: string]: DocsItem;
+          };
+      }
+    | {
+          title: Lang;
+          content: string;
+      };
 
-export interface Docs {
+export type Docs = {
     pages: {
-        [k: string]: {
-            title: Lang;
-            pages: {
-                [k: string]: DocsItem;
-            };
-        };
+        [k: string]: DocsItem;
     };
-}
+};
