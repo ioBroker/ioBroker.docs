@@ -1,24 +1,34 @@
-import { Box } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Box } from '@mui/material';
 import type React from 'react';
 import type { Docs } from '../DocsItem/DocsItem';
+import { useDocsMenuStyles } from './DocsMenu.styles';
+import { Link } from 'react-router-dom';
 
 export const DocsMenu = (props: { docsData: Docs }): React.ReactNode => {
+    const { classes } = useDocsMenuStyles();
     return (
         <Box>
             {Object.keys(props.docsData.pages).map(key => {
                 const page = props.docsData.pages[key];
                 return (
-                    <Box key={key}>
-                        <Box>{page.title.en}</Box>
+                    <Accordion
+                        key={key}
+                        classes={{ root: classes.mainLevel }}
+                    >
+                        <AccordionSummary>{page.title.en}</AccordionSummary>
                         {page.pages ? (
-                            <Box>
+                            <AccordionDetails className={classes.childrenLevel}>
                                 {Object.keys(page.pages).map(subKey => {
                                     const subPage = page.pages![subKey];
-                                    return <Box key={subKey}>{subPage.title.en}</Box>;
+                                    return (
+                                        <Box key={subKey}>
+                                            <Link to={`/docs/${subPage.content}`}>{subPage.title.en}</Link>
+                                        </Box>
+                                    );
                                 })}
-                            </Box>
+                            </AccordionDetails>
                         ) : null}
-                    </Box>
+                    </Accordion>
                 );
             })}
         </Box>

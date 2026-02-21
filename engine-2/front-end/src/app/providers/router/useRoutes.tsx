@@ -30,8 +30,8 @@ export const useRoutes = (): React.ReactElement => {
                 element={<DocsPage />}
             />
             <Route
-                path="/docs/:docId"
-                element={<DocPage />}
+                path="/docs/*"
+                element={<DocsPage />}
             />
         </Routes>
     );
