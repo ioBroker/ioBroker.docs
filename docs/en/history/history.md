@@ -1066,5 +1066,12 @@ https://github.com/ioBroker/ioBroker.witmotion
 
 This adapter reads accelerometr, magentomer, gyroscope data from WT901blecl 5.0 Bluetooth 5.0 9-Axis IMU Sensor via USB
 
+## hagelschutz-vkf (25.02.2025) – new adapter at stable repository
+https://github.com/UncleSamSwiss/ioBroker.hagelschutz-vkf
+
+<img src="https://raw.githubusercontent.com/UncleSamSwiss/ioBroker.hagelschutz-vkf/main/admin/hagelschutz-vkf.jpg" width="100" height="100" />
+
+Adapter for hagelschutz-einfach-automatisch.ch of the cantonal building insurances.
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
