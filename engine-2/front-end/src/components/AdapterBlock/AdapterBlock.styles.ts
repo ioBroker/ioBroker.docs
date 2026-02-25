@@ -8,12 +8,20 @@ export const useStyles = makeStyles()(theme => ({
         padding: '16px',
         background: '#005894',
         color: 'white',
+        display: 'flex',
+        flexDirection: 'column',
     },
     title: {
         fontFamily: "'Saira'",
         fontStyle: 'normal',
         fontWeight: '500',
         fontSize: '20px',
+        marginBottom: '20px'
+    },
+    titleLink: {
+        display: 'block',
+        lineHeight: '1'
+
     },
     topIcons: {
         display: 'flex',
@@ -36,12 +44,23 @@ export const useStyles = makeStyles()(theme => ({
         width: '100%',
         justifyContent: 'space-between',
     },
-    statsBlock: {},
+    statsBlock: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+    },
     statsIcon: {},
     statsNumber: {},
-    authorBlock: {},
-    authorIcon: {},
-    authorName: {},
+    authorBlock: {
+        display: 'flex',
+        marginTop: '16px'
+    },
+    authorIcon: {
+        marginRight: '4px'
+    },
+    authorName: {
+        fontSize: '12px'
+    },
     description: {
         fontFamily: "'Saira'",
         fontStyle: 'normal',
@@ -50,6 +69,10 @@ export const useStyles = makeStyles()(theme => ({
         opacity: '0.5',
         lineHeight: '110%',
     },
-    bottomIcons: {},
+    bottomIcons: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        marginTop: 'auto',
+    },
     bottomIcon: {},
 }));
