@@ -25,6 +25,8 @@ export const useStyles = makeStyles()(theme => ({
         background: '#FFFFFF',
         borderRadius: '8px',
         padding: '4px',
+        width: '69px',
+        height: '69px',
         '& img': {
             width: 60,
         },
