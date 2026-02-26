@@ -1,11 +1,16 @@
-import { Box, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { Box, TextField, ToggleButton, ToggleButtonGroup, InputAdornment } from '@mui/material';
 import { AdapterBlock } from '../../components/AdapterBlock/AdapterBlock';
 import type { AdapterItem } from '../../components/AdapterItem/AdapterItem';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { I18n } from '../../utils/i18n';
 import { useStyles } from './AdaptersPage.styles';
 import { AdapterTable } from '../../components/AdapterTable/AdapterTable';
+import { AdapterMenu } from '../../components/AdapterMenu/AdapterMenu';
 import { useState } from 'react';
+import GridIcon from '../../assets/img/blueGrid.svg';
+import AdaptersListIcon from '../../assets/img/whiteAdaptersList.svg';
+import MenuListIcon from '../../assets/img/whiteMenuList.svg';
+import SearchIcon from '../../assets/img/whiteSearchIcon.svg'
 
 const sampleItem: AdapterItem = {
     title: {
@@ -63,35 +68,81 @@ const AdaptersPage = (): React.ReactNode => {
 
     const [mode, setMode] = useState<'block' | 'table'>('block');
     const [search, setSearch] = useState('');
+    const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
 
     return (
         <Box>
             <SectionTitle>{I18n.t('home.adapters.title')}</SectionTitle>
-            <Box>
+            <Box className={classes.topBar}>
+                <Box className={classes.menuToggle}>
+                    <ToggleButtonGroup
+                        exclusive
+                        value={menuMode}
+                        onChange={(_, value) => value && setMenuMode(value)}
+                    >
+                        <ToggleButton value="all">
+                            <img
+                                alt="MenuList Icon"
+                                src={MenuListIcon}
+                            />
+                        </ToggleButton>
+                        <ToggleButton value="installed">
+                            <Box sx={{ width: 20 }} />
+                        </ToggleButton>
+                    </ToggleButtonGroup>
+                </Box>
+                <Box className={classes.searchAndMenuButton}>
+                    <Box className={classes.adaptersSearch}>
+                        <TextField
+                            value={search}
+                            onChange={e => setSearch(e.target.value)}
+                            placeholder=""
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start" sx={{ marginLeft: '8px' }}>
+                                    <img
+                                        alt="Search Icon"
+                                        src={SearchIcon}
+                                    />
+                                    </InputAdornment>
+                                ),
+                            }}
+                        />
+                    </Box>
+                    <Box className={classes.adaptersButton}>
+                        <ToggleButtonGroup
+                            exclusive
+                            value={mode}
+                            onChange={(_, value) => value && setMode(value)}
+                        >
+                            <ToggleButton value="block">
+                                <img
+                                    alt="Grid Icon"
+                                    src={GridIcon}
+                                />
+                            </ToggleButton>
+                            <ToggleButton value="table">
+                                <img
+                                    alt="AdaptersList Icon"
+                                    src={AdaptersListIcon}
+                                />
+                            </ToggleButton>
+                        </ToggleButtonGroup>
+                    </Box>
+                </Box>
+            </Box>
+            <Box className={classes.container}>
                 <Box className={classes.menuBlock}>
-                    <Box className={classes.menuButton}></Box>
+                    <AdapterMenu />
                 </Box>
                 <Box className={classes.mainBlock}>
-                    <Box className={classes.mainTopBlock}>
-                        <Box className={classes.adaptersSearch}>
-                            <TextField
-                                value={search}
-                                onChange={e => setSearch(e.target.value)}
-                            />
-                        </Box>
-                        <Box className={classes.adaptersButton}>
-                            <ToggleButtonGroup
-                                exclusive
-                                value={mode}
-                                onChange={(e, value) => setMode(value)}
-                            >
-                                <ToggleButton value="block">Block</ToggleButton>
-                                <ToggleButton value="table">Table</ToggleButton>
-                            </ToggleButtonGroup>
-                        </Box>
-                    </Box>
                     {mode === 'block' ? (
-                        <AdapterBlock adapter={sampleItem} />
+                        <Box className={classes.adaptersGrid}>
+                            <AdapterBlock adapter={sampleItem} />
+                            <AdapterBlock adapter={sampleItem} />
+                            <AdapterBlock adapter={sampleItem} />
+                            <AdapterBlock adapter={sampleItem} />
+                        </Box>
                     ) : (
                         <AdapterTable adapters={[sampleItem]} />
                     )}
