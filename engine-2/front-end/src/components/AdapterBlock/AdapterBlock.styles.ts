@@ -6,10 +6,13 @@ export const useStyles = makeStyles()(theme => ({
         height: '294px',
         borderRadius: '16px',
         padding: '16px',
-        background: '#005894',
+        background: theme.palette.secondary.main,
         color: 'white',
         display: 'flex',
         flexDirection: 'column',
+        [theme.breakpoints.up(1440)]: {
+            width: '251px',
+        },
     },
     title: {
         fontFamily: "'Saira'",

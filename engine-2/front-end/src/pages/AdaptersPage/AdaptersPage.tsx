@@ -100,10 +100,10 @@ const AdaptersPage = (): React.ReactNode => {
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position="start" sx={{ marginLeft: '8px' }}>
-                                    <img
-                                        alt="Search Icon"
-                                        src={SearchIcon}
-                                    />
+                                        <img
+                                            alt="Search Icon"
+                                            src={SearchIcon}
+                                        />
                                     </InputAdornment>
                                 ),
                             }}
@@ -144,7 +144,7 @@ const AdaptersPage = (): React.ReactNode => {
                             <AdapterBlock adapter={sampleItem} />
                         </Box>
                     ) : (
-                        <AdapterTable adapters={[sampleItem]} />
+                        <AdapterTable adapters={[sampleItem, sampleItem, sampleItem, sampleItem]} />
                     )}
                 </Box>
             </Box>

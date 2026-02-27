@@ -10,7 +10,7 @@ export const useStyles = makeStyles()(theme => ({
     menuToggle: {
         flexShrink: 0,
         '& .MuiToggleButtonGroup-root': {
-            border: '2px solid #00A8E1',
+            border: `2px solid ${theme.palette.primary.main}`,
             borderRadius: '8px',
             height: '32px',
             width: '55px',
@@ -20,14 +20,15 @@ export const useStyles = makeStyles()(theme => ({
             borderRadius: '0',
             color: '#fff',
             padding: '0 5px',
+            minWidth: '27px',
             '&:not(:last-of-type)': {
-                borderRight: '2px solid #00A8E1',
+                borderRight: `2px solid ${theme.palette.primary.main}`,
             }
         },
     },
     container: {
         display: 'flex',
-        gap: '33px',
+        gap: '30px',
     },
     menuBlock: {
         flexShrink: 0,
@@ -37,12 +38,32 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         flexDirection: 'column',
         gap: '24px',
+        maxHeight: 'calc(100vh - 120px)', 
+        overflowY: 'scroll', 
+        overflowX: 'hidden',
+        paddingRight: '12px', 
+        marginRight: '8px',
+        '&::-webkit-scrollbar': {
+            width: '8px', 
+        },
+        '&::-webkit-scrollbar-track': {
+            background: 'rgba(255, 255, 255, 0.05)',
+            borderRadius: '8px',
+            border: `1px solid ${theme.palette.primary.main}`,
+        },
+        '&::-webkit-scrollbar-thumb': {
+            background: theme.palette.secondary.main, // Голубой или белый по макету
+            borderRadius: '8px',
+        },
+        '&::-webkit-scrollbar-thumb:hover': {
+            background: theme.palette.secondary.main,
+        },
     },
     searchAndMenuButton: {
         display: 'flex',
         justifyContent: 'space-between',
         flex: 1,
-        marginLeft: 'calc(304px - 55px + 1px)',
+        marginLeft: 'calc(296px - 55px + 1px)',
     },
     adaptersSearch: {
         width: '460px',
@@ -55,14 +76,14 @@ export const useStyles = makeStyles()(theme => ({
             borderRadius: '10px',
             paddingLeft: '12px',
             '& fieldset': {
-                borderColor: '#00A8E1 !important',
+                borderColor: `${theme.palette.primary.main} !important`,
                 borderWidth: '2px !important',
             },
             '&:hover fieldset': {
-                borderColor: '#00A8E1 !important',
+                borderColor: `${theme.palette.primary.main} !important`,
             },
             '&.Mui-focused fieldset': {
-                borderColor: '#00A8E1 !important',
+                borderColor: `${theme.palette.primary.main} !important`,
             },
         },
         '& .MuiInputBase-input': {
@@ -74,7 +95,7 @@ export const useStyles = makeStyles()(theme => ({
     adaptersButton: {
         flexShrink: 0,
         '& .MuiToggleButtonGroup-root': {
-            border: '2px solid #00A8E1',
+            border: `2px solid ${theme.palette.primary.main}`,
             borderRadius: '8px',
             height: '32px',
             width: '76px'
@@ -85,7 +106,7 @@ export const useStyles = makeStyles()(theme => ({
             padding: '8px 12px',
             minWidth: '38px',
             '&:not(:last-of-type)': {
-                borderRight: '2px solid #00A8E1',
+                borderRight: `2px solid ${theme.palette.primary.main}`,
             },
             '&:hover': {
                 background: 'rgba(255, 255, 255, 0.1)',
@@ -96,5 +117,9 @@ export const useStyles = makeStyles()(theme => ({
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fill, 292px)',
         gap: '20px',
+        paddingBottom: '100px', 
+         [theme.breakpoints.up(1440)]: {
+            gridTemplateColumns: 'repeat(auto-fill, 251px)',
+        },
     },
 }));
