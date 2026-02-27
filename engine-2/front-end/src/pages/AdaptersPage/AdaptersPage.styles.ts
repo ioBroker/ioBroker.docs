@@ -1,6 +1,6 @@
 import { makeStyles } from '../../theme';
 
-export const useStyles = makeStyles()(theme => ({
+export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { isMenuCollapsed }) => ({
     topBar: {
         display: 'flex',
         alignItems: 'center',
@@ -38,13 +38,13 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         flexDirection: 'column',
         gap: '24px',
-        maxHeight: 'calc(100vh - 120px)', 
-        overflowY: 'scroll', 
+        maxHeight: 'calc(100vh - 120px)',
+        overflowY: 'scroll',
         overflowX: 'hidden',
-        paddingRight: '12px', 
+        paddingRight: '12px',
         marginRight: '8px',
         '&::-webkit-scrollbar': {
-            width: '8px', 
+            width: '8px',
         },
         '&::-webkit-scrollbar-track': {
             background: 'rgba(255, 255, 255, 0.05)',
@@ -52,7 +52,7 @@ export const useStyles = makeStyles()(theme => ({
             border: `1px solid ${theme.palette.primary.main}`,
         },
         '&::-webkit-scrollbar-thumb': {
-            background: theme.palette.secondary.main, // Голубой или белый по макету
+            background: theme.palette.secondary.main,
             borderRadius: '8px',
         },
         '&::-webkit-scrollbar-thumb:hover': {
@@ -63,7 +63,11 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         justifyContent: 'space-between',
         flex: 1,
-        marginLeft: 'calc(296px - 55px + 1px)',
+        marginLeft: isMenuCollapsed ? 'calc(91px - 55px + 1px)' : 'calc(296px - 55px + 1px)',
+        transition: 'margin-left 0.3s ease',
+         [theme.breakpoints.up (1440)]: {
+           marginLeft: isMenuCollapsed ? 'calc(91px - 55px + 1px)' : 'calc(304px - 55px + 1px)',
+        },
     },
     adaptersSearch: {
         width: '460px',
@@ -115,11 +119,8 @@ export const useStyles = makeStyles()(theme => ({
     },
     adaptersGrid: {
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, 292px)',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(251px, 1fr))',
         gap: '20px',
-        paddingBottom: '100px', 
-         [theme.breakpoints.up(1440)]: {
-            gridTemplateColumns: 'repeat(auto-fill, 251px)',
-        },
+        paddingBottom: '100px',
     },
 }));

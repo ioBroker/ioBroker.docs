@@ -64,8 +64,12 @@ const menuItems = [
     { icon: WetterIcon, label: 'Wetter', count: 642 },
 ];
 
-export const AdapterMenu = (): React.ReactNode => {
-    const { classes } = useStyles();
+interface AdapterMenuProps {
+    isCollapsed?: boolean;
+}
+
+export const AdapterMenu = ({ isCollapsed = false }: AdapterMenuProps): React.ReactNode => {
+    const { classes } = useStyles({ isCollapsed });
 
     return (
         <Box className={classes.menu}>
@@ -77,8 +81,12 @@ export const AdapterMenu = (): React.ReactNode => {
                     <Box className={classes.menuIcon}>
                         <img src={item.icon} alt={item.label} />
                     </Box>
-                    <Box className={`${classes.menuText} ${index === 0 ? classes.firstItemText : ''}`}>{item.label}</Box>
-                    <Box className={`${classes.menuCount} ${index === 0 ? classes.firstItemCount : ''}`}>{item.count}</Box>
+                    {!isCollapsed && (
+                        <>
+                            <Box className={`${classes.menuText} ${index === 0 ? classes.firstItemText : ''}`}>{item.label}</Box>
+                            <Box className={`${classes.menuCount} ${index === 0 ? classes.firstItemCount : ''}`}>{item.count}</Box>
+                        </>
+                    )}
                 </Box>
             ))}
         </Box>

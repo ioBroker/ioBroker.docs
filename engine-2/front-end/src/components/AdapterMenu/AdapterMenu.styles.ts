@@ -1,8 +1,8 @@
 import { makeStyles } from '../../theme';
 
-export const useStyles = makeStyles()(theme => ({
+export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isCollapsed }) => ({
     menu: {
-        width: '264px',
+        width: isCollapsed ? '59px' : '264px',
         position: 'sticky',
         marginLeft: '32px',
         top: '80px',
@@ -10,8 +10,9 @@ export const useStyles = makeStyles()(theme => ({
         overflowY: 'scroll',
         overflowX: 'hidden',
         paddingRight: '12px',
+        transition: 'width 0.3s ease',
         [theme.breakpoints.up(1440)]: {
-            width: '272px',
+            width: isCollapsed ? '59px' : '272px',
             paddingRight: '20px',
         },
         '&::-webkit-scrollbar': {
@@ -25,14 +26,12 @@ export const useStyles = makeStyles()(theme => ({
         '&::-webkit-scrollbar-thumb': {
             background: theme.palette.secondary.main,
             borderRadius: '20px',
-            borderBottom: '100px solid transparent',
             borderLeft: '0px solid transparent',
             borderRight: '0px solid transparent',
             backgroundClip: 'padding-box',
         },
         '&::-webkit-scrollbar-thumb:hover': {
             background: theme.palette.secondary.main,
-            borderBottom: '100px solid transparent',
             borderLeft: '0px solid transparent',
             borderRight: '0px solid transparent',
             backgroundClip: 'padding-box',
@@ -42,13 +41,14 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
-        padding: '10px 0px',
+        padding: isCollapsed ? '12px 8px' : '10px 0px',
         cursor: 'pointer',
         color: 'rgba(255, 255, 255, 0.7)',
         fontSize: '14px',
         fontFamily: "'Saira'",
         transition: 'all 0.2s',
         borderRadius: '4px',
+        justifyContent: isCollapsed ? 'center' : 'flex-start',
         '&:hover': {
             color: '#fff',
             background: 'rgba(255, 255, 255, 0.05)',

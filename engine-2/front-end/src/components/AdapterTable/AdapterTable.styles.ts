@@ -72,11 +72,11 @@ export const useStyles = makeStyles()(theme => ({
         color: 'rgba(255, 255, 255, 0.7)',
     },
     authorCell: {
-        width: '15%',
+        width: '20%',
         fontSize: '14px',
     },
     statsCell: {
-        width: '10%',
+        width: '5%',
         textAlign: 'center',
         fontSize: '14px',
     },

@@ -64,11 +64,12 @@ const sampleItem: AdapterItem = {
 };
 
 const AdaptersPage = (): React.ReactNode => {
-    const { classes } = useStyles();
 
     const [mode, setMode] = useState<'block' | 'table'>('block');
     const [search, setSearch] = useState('');
     const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
+    const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
+    const { classes } = useStyles({ isMenuCollapsed });
 
     return (
         <Box>
@@ -80,13 +81,19 @@ const AdaptersPage = (): React.ReactNode => {
                         value={menuMode}
                         onChange={(_, value) => value && setMenuMode(value)}
                     >
-                        <ToggleButton value="all">
+                        <ToggleButton
+                            value="all"
+                            onClick={() => setIsMenuCollapsed(false)}
+                        >
                             <img
                                 alt="MenuList Icon"
                                 src={MenuListIcon}
                             />
                         </ToggleButton>
-                        <ToggleButton value="installed">
+                        <ToggleButton
+                            value="installed"
+                            onClick={() => setIsMenuCollapsed(true)}
+                        >
                             <Box sx={{ width: 20 }} />
                         </ToggleButton>
                     </ToggleButtonGroup>
@@ -133,11 +140,12 @@ const AdaptersPage = (): React.ReactNode => {
             </Box>
             <Box className={classes.container}>
                 <Box className={classes.menuBlock}>
-                    <AdapterMenu />
+                    <AdapterMenu isCollapsed={isMenuCollapsed} />
                 </Box>
                 <Box className={classes.mainBlock}>
                     {mode === 'block' ? (
                         <Box className={classes.adaptersGrid}>
+                            <AdapterBlock adapter={sampleItem} />
                             <AdapterBlock adapter={sampleItem} />
                             <AdapterBlock adapter={sampleItem} />
                             <AdapterBlock adapter={sampleItem} />
