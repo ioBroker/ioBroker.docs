@@ -10,7 +10,19 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         overflowY: 'scroll',
         overflowX: 'hidden',
         paddingRight: '12px',
-        transition: 'width 0.3s ease',
+        transition: 'all 0.3s ease',
+        [theme.breakpoints.down(661)]: {
+            width: isCollapsed ? '59px' : '272px',
+            backgroundColor: !isCollapsed ? '#080B1C' : 'transparent',
+            padding: !isCollapsed ? '20px' : '0px 12px 0px 0',
+            borderRadius: !isCollapsed ? '10px' : '0px',
+            border: !isCollapsed ? `2px solid ${theme.palette.primary.main}`: 'none',
+            boxShadow: !isCollapsed ? '0 4px 20px rgba(0, 0, 0, 0.5)' : 'none',
+        },
+        [theme.breakpoints.down(878)]: {
+            paddingRight: '20px',
+            width: isCollapsed ? '59px' : '272px',
+        },
         [theme.breakpoints.up(1440)]: {
             width: isCollapsed ? '59px' : '272px',
             paddingRight: '20px',
@@ -59,12 +71,21 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         background: 'rgba(255, 255, 255, 0.1)',
     },
     menuIcon: {
-        width: '16px',
-        height: '16px',
+        width: '24px',
+        height: '24px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: '14px',
+        transition: 'all 0.3s ease',
+        [theme.breakpoints.down(1280)]: {
+            width: isCollapsed ? '32px' : '24px',
+            height: isCollapsed ? '32px' : '24px',
+            '& img': {
+             width: isCollapsed ? '32px' : '24px',
+             height: isCollapsed ? '32px' : '24px',
+        },
+        },
     },
     menuText: {
         flex: 1,

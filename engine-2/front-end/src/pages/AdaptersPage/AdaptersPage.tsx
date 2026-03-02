@@ -1,4 +1,4 @@
-import { Box, TextField, ToggleButton, ToggleButtonGroup, InputAdornment } from '@mui/material';
+import { Box, TextField, ToggleButton, ToggleButtonGroup, InputAdornment, useMediaQuery } from '@mui/material';
 import { AdapterBlock } from '../../components/AdapterBlock/AdapterBlock';
 import type { AdapterItem } from '../../components/AdapterItem/AdapterItem';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
@@ -6,7 +6,7 @@ import { I18n } from '../../utils/i18n';
 import { useStyles } from './AdaptersPage.styles';
 import { AdapterTable } from '../../components/AdapterTable/AdapterTable';
 import { AdapterMenu } from '../../components/AdapterMenu/AdapterMenu';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import GridIcon from '../../assets/img/blueGrid.svg';
 import AdaptersListIcon from '../../assets/img/whiteAdaptersList.svg';
 import MenuListIcon from '../../assets/img/whiteMenuList.svg';
@@ -69,11 +69,37 @@ const AdaptersPage = (): React.ReactNode => {
     const [search, setSearch] = useState('');
     const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
     const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
+    const isMobile = useMediaQuery('(max-width:661px)');
+
     const { classes } = useStyles({ isMenuCollapsed });
+
+    useEffect(() => {
+        if (isMobile) {
+            setIsMenuCollapsed(true);
+        }
+    }, [isMobile]);
+
+    const handleMenuItemClick = () => {
+        if (isMobile) {
+            setIsMenuCollapsed(true)
+        }
+    }
+
+
 
     return (
         <Box>
-            <SectionTitle>{I18n.t('home.adapters.title')}</SectionTitle>
+            <SectionTitle
+                sx={{
+                    marginLeft: '32px',
+                    color: 'white !important',
+                    fontSize: {
+                        '@media (max-width:770px)': { fontSize: '28px !important' },
+                        '@media (max-width:480px)': { fontSize: '20px !important' },
+                    },
+                }}
+            >{I18n.t('home.adapters.title')}
+            </SectionTitle>
             <Box className={classes.topBar}>
                 <Box className={classes.menuToggle}>
                     <ToggleButtonGroup
@@ -140,7 +166,7 @@ const AdaptersPage = (): React.ReactNode => {
             </Box>
             <Box className={classes.container}>
                 <Box className={classes.menuBlock}>
-                    <AdapterMenu isCollapsed={isMenuCollapsed} />
+                    <AdapterMenu isCollapsed={isMenuCollapsed} onMenuItemClick={handleMenuItemClick} />
                 </Box>
                 <Box className={classes.mainBlock}>
                     {mode === 'block' ? (

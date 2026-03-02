@@ -5,7 +5,10 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         display: 'flex',
         alignItems: 'center',
         marginBottom: '24px',
-        margin: "0 32px 30px 32px"
+        margin: "0 32px 30px 32px",
+              [theme.breakpoints.down(481)]: {
+           margin: "0 10px 30px 10px",
+        },
     },
     menuToggle: {
         flexShrink: 0,
@@ -29,9 +32,21 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     container: {
         display: 'flex',
         gap: '30px',
+        [theme.breakpoints.down(661)]: {
+            position: !isMenuCollapsed ? 'relative' : 'static',
+        },
+        [theme.breakpoints.down(770)]: {
+            gap: '20px',
+        },
     },
     menuBlock: {
         flexShrink: 0,
+        [theme.breakpoints.down(661)]: {
+            position: !isMenuCollapsed ? 'absolute' : 'static',
+            zIndex: !isMenuCollapsed ? 1200 : 'auto',
+            left: !isMenuCollapsed ? 0 : 'auto',
+            top: !isMenuCollapsed ? 0 : 'auto',
+        },
     },
     mainBlock: {
         flex: 1,
@@ -65,15 +80,47 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         flex: 1,
         marginLeft: isMenuCollapsed ? 'calc(91px - 55px + 1px)' : 'calc(296px - 55px + 1px)',
         transition: 'margin-left 0.3s ease',
-         [theme.breakpoints.up (1440)]: {
-           marginLeft: isMenuCollapsed ? 'calc(91px - 55px + 1px)' : 'calc(304px - 55px + 1px)',
+        [theme.breakpoints.up(1440)]: {
+            marginLeft: isMenuCollapsed ? 'calc(91px - 55px + 1px)' : 'calc(304px - 55px + 1px)',
+        },
+        [theme.breakpoints.down(770)]: {
+            marginLeft: isMenuCollapsed ? 'calc(80px - 55px + 1px)' : 'calc(289px - 55px + 1px)',
+        },
+        [theme.breakpoints.down(661)]: {
+            marginLeft: isMenuCollapsed ? 'calc(80px - 55px + 1px)' : '20px',
+        },
+         [theme.breakpoints.down(481)]: {
+             justifyContent: 'end',
         },
     },
     adaptersSearch: {
         width: '460px',
-
+        [theme.breakpoints.down(902)]: {
+            width: isMenuCollapsed ? '460px' : '312px',
+        },
+        [theme.breakpoints.down(595)]: {
+            width: isMenuCollapsed ? '311px' : '312px',
+        },
+        [theme.breakpoints.down(451)]: {
+            width: isMenuCollapsed ? '311px' : '281px',
+        },
+         [theme.breakpoints.down(429)]: {
+            width: isMenuCollapsed ? '281px' : '281px',
+        },
         '& .MuiTextField-root': {
             width: '460px',
+            [theme.breakpoints.down(902)]: {
+                width: isMenuCollapsed ? '460px' : '312px',
+            },
+            [theme.breakpoints.down(595)]: {
+                width: isMenuCollapsed ? '311px' : '312px',
+            },
+            [theme.breakpoints.down(451)]: {
+                width: isMenuCollapsed ? '311px' : '281px',
+            },
+            [theme.breakpoints.down(429)]: {
+            width: isMenuCollapsed ? '281px' : '281px',
+        },
         },
         '& .MuiOutlinedInput-root': {
             height: '32px',
@@ -116,11 +163,20 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
                 background: 'rgba(255, 255, 255, 0.1)',
             },
         },
+        [theme.breakpoints.down(769)]: {
+            display: 'none'
+        },
     },
     adaptersGrid: {
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(251px, 1fr))',
         gap: '20px',
-        paddingBottom: '100px',
+        paddingBottom: '120px',
+        [theme.breakpoints.down(661)]: {
+            marginLeft: !isMenuCollapsed ? '32px' : '0',
+        },
+        [theme.breakpoints.down(769)]: {
+            gridTemplateColumns: !isMenuCollapsed ? '1fr' : 'repeat(auto-fit, minmax(251px, 1fr))',
+        },
     },
 }));

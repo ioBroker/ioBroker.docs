@@ -66,10 +66,17 @@ const menuItems = [
 
 interface AdapterMenuProps {
     isCollapsed?: boolean;
+    onMenuItemClick?: () => void;
 }
 
-export const AdapterMenu = ({ isCollapsed = false }: AdapterMenuProps): React.ReactNode => {
+export const AdapterMenu = ({ isCollapsed = false, onMenuItemClick  }: AdapterMenuProps): React.ReactNode => {
     const { classes } = useStyles({ isCollapsed });
+
+    const handleItemClick = () => {
+        if (onMenuItemClick) {
+            onMenuItemClick();
+        }
+    };
 
     return (
         <Box className={classes.menu}>
@@ -77,6 +84,7 @@ export const AdapterMenu = ({ isCollapsed = false }: AdapterMenuProps): React.Re
                 <Box
                     key={index}
                     className={`${classes.menuItem} ${index === 0 ? classes.menuItemActive : ''}`}
+                     onClick={handleItemClick}
                 >
                     <Box className={classes.menuIcon}>
                         <img src={item.icon} alt={item.label} />

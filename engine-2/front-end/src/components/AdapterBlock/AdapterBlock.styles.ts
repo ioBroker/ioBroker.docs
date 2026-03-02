@@ -11,6 +11,9 @@ export const useStyles = makeStyles()(theme => ({
         color: 'white',
         display: 'flex',
         flexDirection: 'column',
+        [theme.breakpoints.down(1280)]: {
+            maxWidth: 'none',
+        },
     },
     title: {
         fontFamily: "'Saira'",
