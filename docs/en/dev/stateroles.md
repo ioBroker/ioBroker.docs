@@ -111,6 +111,7 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.battery`         - battery level
 * `value.valve`           - valve level
 * `value.time`            - getTime() of Date() object
+* `value.timer`           - duration in s (r/o equivalent to level.timer)
 * `value.interval`    (common.unit='sec') - Interval in seconds (can be 0.1 or less)
 * ~~value.date        (common.type=string) - Date in form 2015.01.01 (without time)~~
 * ~~value.datetime    (common.type=string) - Date and time in system format~~
