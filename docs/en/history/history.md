@@ -1111,5 +1111,12 @@ https://github.com/Black-Thunder/ioBroker.smartfriends
 This adapter enables a direct local integration of the SmartFriends Box (e.g. Smart Friends Box by Schellenberg, ABUS, Paulmann, STEINEL, etc.) into ioBroker – without using the official cloud.
 
 
+## meteoswiss (13.2.2026) – new adapter at stable repository
+https://github.com/deMynchi/ioBroker.meteoswiss
+
+<img src="https://raw.githubusercontent.com/deMynchi/ioBroker.meteoswiss/master/admin/meteoswiss.png" width="100" height="100" />
+
+Provides weather information from MeteoSwiss
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
