@@ -1118,5 +1118,12 @@ https://github.com/deMynchi/ioBroker.meteoswiss
 
 Provides weather information from MeteoSwiss
 
+## hagelschutz-vkf (25.02.2025) – new adapter at stable repository
+https://github.com/UncleSamSwiss/ioBroker.hagelschutz-vkf
+
+<img src="https://raw.githubusercontent.com/UncleSamSwiss/ioBroker.hagelschutz-vkf/main/admin/hagelschutz-vkf.jpg" width="100" height="100" />
+
+Adapter for hagelschutz-einfach-automatisch.ch of the cantonal building insurances.
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
