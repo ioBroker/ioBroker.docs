@@ -1059,6 +1059,71 @@ https://github.com/TA2k/ioBroker.bmw
 
 This adapter integrates BMW vehicles into ioBroker using the new BMW CarData API with OAuth2 authentication and real-time MQTT streaming. It provides comprehensive vehicle data monitoring for all BMW models linked to your BMW account.
 
+## nspanel-lovelace-ui (3.1.2026) – new adapter at stable repository
+https://github.com/ticaki/ioBroker.nspanel-lovelace-ui
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.nspanel-lovelace-ui/main/admin/nspanel-lovelace-ui.png" width="100" height="100" />
+
+The NSPanel Lovelace UI is an alternative user interface for the Sonoff NSPanel, specifically designed for integration with iobroker. It typically relies on Tasmota (firmware) and MQTT (messaging protocol) to provide custom controls and displays directly on the NSPanel's small touchscreen.
+
+## steam (20.1.2026) – new adapter at stable repository
+https://github.com/bloop16/ioBroker.steam
+
+<img src="https://raw.githubusercontent.com/bloop16/ioBroker.steam/main/admin/steam.png" width="100" height="100" />
+
+This adapter allows you to integrate information from the Steam API into your ioBroker system.
+
+## serial-gps (23.1.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.serial-gps
+
+<img src="https://github.com/ioBroker/ioBroker.serial-gps/blob/main/admin/serial-gps.svg" width="100" height="100" />
+
+This adapter reads GPS data from a serial or USB GPS device and makes it available in ioBroker.
+
+
+## mitsubishi-local-control (28.01.2026) – new adapter at stable repository
+https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
+
+<img src="https://raw.githubusercontent.com/Black-Thunder/ioBroker.mitsubishi-local-control/main/admin/mitsubishi-local-control.png" width="100" height="100" />
+
+The mitsubishi-local-control adapter integrates Mitsubishi Electric air conditioning systems into ioBroker using a direct local connection.
+
+## autodarts (28.01.2026) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.autodarts
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.autodarts/main/admin/autodarts.svg" width="100" height="100" />
+
+Connects to your local Autodarts Board Manager (via IP and port, e.g. 192.168.x.x:3180) and exposes ioBroker states for home automation:
+
+## zwavews (28.01.2026) – new adapter at stable repository
+https://github.com/arteck/ioBroker.zwavews
+
+<img src="https://raw.githubusercontent.com/arteck/ioBroker.zwavews/main/admin/zwavews.png" width="100" height="100" />
+
+The zwavews adapter connects a zwave-js-ui to ioBroker and creates corresponding data points for devices, values, and statuses. This allows Z-Wave devices to be conveniently used in visualizations, logic, and automations.
+
+
+## smartfriends (10.2.2025) – new adapter at stable repository
+https://github.com/Black-Thunder/ioBroker.smartfriends
+
+<img src="https://raw.githubusercontent.com/Black-Thunder/ioBroker.smartfriends/master/admin/smartfriends.png" width="100" height="100" />
+
+This adapter enables a direct local integration of the SmartFriends Box (e.g. Smart Friends Box by Schellenberg, ABUS, Paulmann, STEINEL, etc.) into ioBroker – without using the official cloud.
+
+
+## meteoswiss (13.2.2026) – new adapter at stable repository
+https://github.com/deMynchi/ioBroker.meteoswiss
+
+<img src="https://raw.githubusercontent.com/deMynchi/ioBroker.meteoswiss/master/admin/meteoswiss.png" width="100" height="100" />
+
+Provides weather information from MeteoSwiss
+
+## hagelschutz-vkf (25.02.2025) – new adapter at stable repository
+https://github.com/UncleSamSwiss/ioBroker.hagelschutz-vkf
+
+<img src="https://raw.githubusercontent.com/UncleSamSwiss/ioBroker.hagelschutz-vkf/main/admin/hagelschutz-vkf.jpg" width="100" height="100" />
+
+Adapter for hagelschutz-einfach-automatisch.ch of the cantonal building insurances.
 
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 

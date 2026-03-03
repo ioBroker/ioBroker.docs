@@ -1,251 +1,632 @@
 ---
 title:       "ioBroker läuft nicht mehr"
-lastChanged: "06.06.2019"
+lastChanged: "24.10.2025"
 ---
 
+# ioBroker läuft nicht mehr - Vollständige Problemsammlung mit Lösungen
 
-# ioBroker läuft nicht mehr
+## Übersicht der Problemkategorien
 
+Wenn ioBroker nicht mehr startet oder nicht mehr erreichbar ist, liegt meist eines von **sieben Hauptproblemen** vor. Diese Sammlung behandelt alle bekannten und wiederkehrenden Fehler systematisch mit bewährten Lösungsansätzen.
 
-Es kommt oft im Forum, dass ioBroker nicht mehr läuft. Das ist aber eine Aussage, die genau so viel Information trägt, wie: mein Auto fährt nicht.
+## 1. Datenbank-Sperren und Korruption
 
-Dabei denkt man nicht, das es 1000 Gründe sein können, warum ein Auto nicht fährt: kein Kraftstoff, Batterie leer, Reifen platt und, und, und…
+### 1.1 Database Lock Fehler (Häufigster Fehler)
 
-ioBroker ist sehr modular aufgebaut und man kann jedes Teil ziemlich einfach reparieren. Die Konfigurationsdateien sind aus dem Verzeichnis mit Node.js Paketen raus genommen und so lange, dass diese Konfigurations-Verzeichnis noch ganz ist, ist mit der ioBroker installation nichts ernsthaftes passiert.
-
-Als erstes merkt man, dass ioBroker nicht läuft, wenn “admin” nicht läuft. Es gibt aber mehr oder weniger klarer Algorithmus, wie man checken kann, was kaputt ist.
-Prüfen ob js-controller läuft:
-
-**Linux:**
-````
-Linux: ps -A | grep iobroker
-````
-
-**Windows:**
-
-Prüfen ob node.exe Prozess da ist in Prozess Explorer (alle Prozesse anzeigen)
-
-
-Unter linux muss so was sichtbar sein:
-
+**Symptome:**
 ```
-pi@pi:~$ ps -A | grep iobroker
-1807 ? 13:59:22 iobroker.js-con
+Server Cannot start inMem-states on port 9000: Failed to lock DB file "/opt/iobroker/iobroker-data/states.jsonl"!
+Server Cannot start inMem-objects on port 9001: Failed to lock DB file "/opt/iobroker/iobroker-data/objects.jsonl"!
 ```
 
-Falls es nicht läuft, dann versuchen ioBroker zu starten mit
+**Ursachen:**
+- Unsauberes Herunterfahren (Stromausfall, harter Reset)
+- Noch laufende ioBroker-Prozesse nach Crash
+- Korrupte oder übermäßig große Datenbankdateien
+- Unzureichende Systemberechtigungen
+- Defektes Dateisystem (SD-Karte, SSD)
 
-**Linux:**
+**Lösungssequenz:**
 
-```
+```bash
+# 1. Zuerst iob fix ausführen - komprimiert Datenbanken
 cd /opt/iobroker
-iobroker start
+iob fix
+
+# 2. System neu starten (wenn fix nicht hilft)
+sudo reboot
+
+# 3. Nach Neustart: Verfügbare Backups prüfen
+cd /opt/iobroker/iobroker-data/backup-objects
+ls -la
+
+# Backup-Größe beachten: Wenn Größe plötzlich massiv kleiner wurde,
+# ist die Datenbank an diesem Punkt kaputt gegangen
+
+# 4. Datenbank aus Backup wiederherstellen
+iob stop
+gunzip -ck [neueste_datei]_objects.jsonl.gz > /opt/iobroker/iobroker-data/objects.jsonl
+gunzip -ck [neueste_datei]_states.gz > /opt/iobroker/iobroker-data/states.jsonl
+iob start
+
+# 5. NUR States zurücksetzen (Verlust nur aktueller Zustände):
+iob stop
+rm /opt/iobroker/iobroker-data/states.jsonl
+iob start
+
+# 6. NOTFALL: Kompletter Reset (ACHTUNG: Verlust aller Objekte UND States!)
+# Nur wenn Objects-Datenbank irreparabel beschädigt ist
+iob stop
+rm /opt/iobroker/iobroker-data/states.jsonl
+rm /opt/iobroker/iobroker-data/objects.jsonl
+iob setup first  # Grundinitialisierung durchführen
+iob start
 ```
 
-oder **Windows:**
+**Wichtig:** Objects-Datenbank sollte IMMER aus Backup wiederhergestellt werden, nicht gelöscht! Nur States können notfalls gelöscht werden.
 
-```
-cd C:\ioBroker
-iobroker start
-```
+### 1.2 Redis-Datenbank-Probleme
 
+**Symptome:**
+- ioBroker extrem langsam
+- Admin-Interface lädt minutenlang
+- Unendlich viele Datenpunkte durch fehlerhafte Adapter
 
-Falls es immer noch nicht läuft oder es kommen Fehlermeldungen, dann kann man versuchen den js-controller manuell zu starten.
-
-```
-cd /opt/iobroker
-node node_modules/iobroker.js-controller/controller.js --logs
-```
-
-Falls Fehlermeldungen kommen, kann man versuchen “js-controller” upzudaten. 
-
-Wenn der js-controller läuft, dann müssen die TCP Ports 9000 und 9001 belegt sein. Das kann man mit dem Kommando prüfen:
-
-```
-netstat -n -a -p TCP
+**Diagnose:**
+```bash
+# In Redis-Datenbank schauen (VORSICHT: dauert bei vielen Keys sehr lange!):
+redis-cli
+KEYS *
+# Anzahl der Keys prüfen:
+DBSIZE
 ```
 
-Es müssen folgende Zeilen sichtbar sein:
+**Lösungsansätze:**
+```bash
+# 1. Problematische Adapter identifizieren und entfernen
+# Beispiel Withings-Adapter mit 130.000 Datenpunkten:
+iob stop withings
+iob del withings
 
-```
-TCP 0.0.0.0:9000 0.0.0.0:0 LISTENING
-TCP 0.0.0.0:9001 0.0.0.0:0 LISTENING
-```
- 
+# 2. Redis-Datenbank komplett zurücksetzen (ACHTUNG!)
+# Wenn nur States in Redis: OK
+# Wenn auch Objects in Redis: Alle Daten weg!
+# Nach FLUSHALL muss "iob setup first" ausgeführt werden
+iob stop
+redis-cli FLUSHALL
+iob setup first
+iob start
 
-Bei Verwendung von Redis sollte es so aussehen:
-
-```
-TCP 0.0.0.0:6379 0.0.0.0:0 LISTENING
-TCP 0.0.0.0:9001 0.0.0.0:0 LISTENING
-```
- 
-
-Falls nichts zu sehen ist (oder nur eine), dann sind vermutlich die Ports von anderen Programmen belegt. Man kann die Ports in */opt/iobroker/iobroker-data/iobroker.json* ändern. Oder ein anderes Programm umkonfigurieren.
-
-
-## Ein Adapter oder js-controller neu installieren
-
-Falls ein Adapter oder js-controller lief und nach dem Update nicht mehr, dann ist höchstwahrscheinlich bei dem Update was schief gelaufen. Man kann aber sehr einfach ein Adapter noch mal installieren. Dafür muss man nur in der Konsole schreiben:
-
-```
-cd /opt/iobroker
-iobroker stop adapterName
-npm install iobroker.adapterName
-iobroker upload adapterName
-iobroker start adapterName
+# 3. Zurück zu Files wechseln (bei weniger als 50.000 Objekten empfohlen):
+iob stop
+iobroker setup custom
+# Files für Objects und States wählen
 ```
 
-Oder für den js-controller:
+**Redis-Wartung:**
+```bash
+# Backup der Redis-Datenbank:
+redis-cli BGSAVE
+cp /var/lib/redis/dump.rdb /backup/pfad/
 
-```
-cd /opt/iobroker
-iobroker stop
-npm install iobroker.js-controller
-iobroker start
-```
-
-## Prüfen oder node.js und npm richtig installiert sind
-
-Falls js-controller nicht läuft, dann könnte es auch sein, dass node.js gar nicht installiert ist.
-Es wird empfohlen eine 14.x Version von node.js zu verwenden.
-
-Die Node.js Version 16.x ist weitestgehend geprüft (Stand 05.05.2022), bei 18.x gibt es keine Garantie, dass es funktionieren wird.
-
-Die Befehle
-
-```
-node -v
-npm -v
+# Redis-Speicher optimieren (nur wirksam wenn kein AOF genutzt wird):
+redis-cli CONFIG SET save "900 1 300 10 60 10000"
 ```
 
-müssen die selbe Versionsnummer anzeigen. Falls es nicht der Fall ist, dann sollte man node.js deinstallieren und neu installieren. Oder den Suchpfad prüfen.
+**Hinweis:** Redis-Speicheroptimierung funktioniert nur bedingt und hängt stark von der Konfiguration ab.
 
-Die Deinstallation sowie die Installation von Node.js erfolgt analog zur manuellen ioBroker-Installation (bei Raspberry und anderen Linux-Systemen).
+## 2. Admin-Adapter und Web-Interface Probleme
 
-Die notwendigen Schritte sind HIER ausführlich beschrieben.
+### 2.1 Admin-Adapter gestoppt
 
- 
+**Symptome:**
+- `http://IP:8081` nicht erreichbar
+- "Connection refused" oder Timeout-Fehler
+- Admin-Interface lädt nicht
 
-Und hier findet ihr noch Infos zu anderen Systemen..
-Prüfen ob Admin-Adapter läuft
+**Sofort-Lösungen:**
+```bash
+# 1. Admin-Adapter über Konsole starten:
+iobroker start admin
 
-Erst anschauen, ob admin aktiviert ist:
-
-```
-cd /opt/iobroker
+# 2. Status aller Instanzen prüfen:
 iobroker list instances
-```
 
-es muss so eine Zeile zu sehen sein:
+# 3. Admin-Adapter neu starten:
+iobroker restart admin
 
-```
-system.adapter.admin.0 : admin - enabled, port: 8081, bind: 0.0.0.0, run as: admin
-```
-
-Falls da “disabled” statt “enabled” steht, man kann Adapter so aktivieren:
-
-```
+# 4. Falls Admin nicht reagiert:
+iobroker stop admin
 iobroker start admin
 ```
 
-Falls IP Adresse nicht stimmt, dann schreiben:
+**Docker-spezifische Lösung:**
+```bash
+# In Container-Console:
+docker exec -it iobroker-container bash
+iobroker start admin
 
-```
-iobroker set admin.0 --bind 0.0.0.0
-```
-
-um an allen IP Adressen erlauben.
-
-Man kann auch Port ändern:
-
-```
-iobroker set admin.0 --port 8081
+# Oder Container neu starten:
+docker restart iobroker-container
 ```
 
-oder SSL ausschalten:
-```
-iobroker set admin.0 --secure false
-```
-Dann muss die Instanz am Port (default 8081) zu sehen sein.
+### 2.2 Web-Adapter Konflikte
 
-Mit
+**Problem:** Mehrere Web-Adapter auf gleichem Port oder Port-Konflikte
 
-```
-netstat -n -a -p TCP
-```
-kann man prüfen ob die Zeile zu finden ist:
+**Lösung:**
+```bash
+# Alle Web-Instanzen auflisten:
+iobroker list instances | grep web
 
-```
-TCP 0.0.0.0:8081 0.0.0.0:0 LISTENING
-```
+# Port-Belegung prüfen:
+sudo netstat -tulpn | grep :8081
+sudo netstat -tulpn | grep :8082
 
-Falls es immer noch nicht läuft, dann kann man manuell starten und schauen, ob es irgendwelche Fehler zu sehen sind:
-cd /opt/iobroker
-node node_modules/iobroker.admin/admin.js --logs
-
-Es kann auch was im Log sein. Die Log-Datei kann unter ***/opt/iobroker/log/iobroker.JJJJ-MM-TT.log*** gefunden werden.
-
-Man kann mit dem Kommando
-
-```
-cd /opt/iobroker
-cat log/iobroker.JJJJ-MM-TT.log
+# Web-Adapter-Ports anpassen:
+# Über Admin-Interface: Instanzen → web.0 → Konfiguration → Port ändern
 ```
 
-die Datei anzeigen. Natürlich muss JJJJ-MM-TT mit aktuellem Datum ersetzt werden. (“cat” ist nur unter Linux möglich)
+## 3. Node.js und Dependency-Probleme
 
-## Andere Instanz vom Admin installieren
+### 3.1 Node.js Versionskonflikt
 
-Falls die Einstellungen von der Admin-Konsole verstellt sind und man nicht mehr auf die Admin-Seite zugreifen kann, gibt es noch die Möglichkeit eine zweite Admin-Instanz zu installieren.
+**Symptome:**
+- `SyntaxError: Unexpected token` bei js-controller Updates (kann auch defektes Dateisystem sein!)
+- Adapter starten nicht nach Node.js-Update
+- NPM-Befehle funktionieren nicht
 
-Dafür:
-
-```
-iobroker add admin --port 8089
-```
-
-ausführen.
-
-Wobei hier 8089 ein Port ist, der sicher frei ist. Danach kann man Admin unter http://ip:8089 erreichen.
-
-Nachdem die Einstellungen wieder in Ordnung sind, sollte man die neue (zweite auf dem port 8089) Instanz deinstallieren, um die Ressourcen zu sparen.
-
- 
-## npm ist verschwunden
-
->! Aktuell passiert so etwas bei Debian (Raspbian) Buster 
-
-Durch ein Problem mit npm kann es vorkommen, dass nach einem Upgrade von Linux, bei dem üblicherweise auch nodejs innerhalb einer Hautversion (6.x; 8.x, 10.x) 
-upgegradet wird auf einmal nichts mehr läuft.
-
-So können z.B. Adapter nicht mehr installiert werden, die Fehlermeldung lautet ***npm not found***
-
-In den Fällen bitte in der Konsole prüfen:
-
+**Diagnose:**
+```bash
+# Aktuelle Versionen prüfen:
 node -v
 npm -v
+iob --version
 
-Üblicherweise ist jetzt (Stand 30.7.2019) die node-Version 8.15.0 und npm wird nicht gefunden.
-
-Das normale Vorgehen npm upzugraden funktioniert nicht, weil npm nicht da ist. Daher muss man erst node deinstallieren und dann neu installieren:
-
+# Empfohlene Versionen (2025):
+# Node.js: 20.x, 22.x (LTS)
+# js-controller: 7.x
 ```
-sudo apt-get --purge remove node
-sudo apt-get --purge remove nodejs
-sudo apt-get autoremove
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install -y nodejs
+
+**Korrektes Update-Verfahren:**
+
+Detaillierte Informationen zum Node.js-Update findet man in der [Node.js Update-Anleitung](https://www.iobroker.net/#de/documentation/install/updatenode.md).
+
+```bash
+# 1. Backup erstellen:
+iob backup
+
+# 2. System stoppen:
+iob stop
+
+# 3. Node.js korrekt aktualisieren (aktualisiert automatisch NPM):
+iob nodejs-update
+
+# 4. System reparieren:
+iob fix
+
+# 5. System starten:
+iob start
+```
+
+### 3.2 NPM-Installation Fehler
+
+**Häufige Fehler:**
+- `ENOTFOUND registry.npmjs.org`
+- `ENOENT: no such file or directory`
+- `npm: not found`
+
+**Wichtig:** NPM wird automatisch mit Node.js korrekt installiert. Bei NPM-Problemen NICHT manuell an der Installation experimentieren!
+
+Weitere Informationen zur Node.js und NPM Installation findet man in der [Node.js Installationsanleitung](https://www.iobroker.net/#de/documentation/install/nodejs.md).
+
+**Empfohlene Lösungsansätze:**
+
+```bash
+# 1. Node.js-Update durchführen (aktualisiert automatisch NPM + behebt meiste NPM-Probleme):
+iob nodejs-update
+
+# 2. NPM-Cache verifizieren:
+npm cache verify
+
+# 3. NPM-Cache bereinigen (bei Cache-Problemen):
+npm cache clean --force
+
+# 4. NPM-Registry prüfen/zurücksetzen (nur bei Registry-Problemen):
+npm config get registry
+npm config set registry https://registry.npmjs.org/
+
+# 5. Proxy-Probleme (nur in Unternehmensnetzen):
+npm config set proxy http://proxy-server:port
+npm config set https-proxy https://proxy-server:port
+```
+
+**Bei "npm not found" nach Node.js-Update:**
+```bash
+# System neu starten, damit PATH aktualisiert wird:
+sudo reboot
+
+# Nach Neustart prüfen:
 node -v
 npm -v
 ```
 
-Jetzt sollte üblicherweise npm 6.x installiert sein.
+**Wichtig:** Versuche NIE, NPM manuell zu deinstallieren oder neu zu installieren! Dies führt meist zu weiteren Problemen. Nutze stattdessen `iob nodejs-update`, das NPM automatisch mitkonfiguriert.
 
+### 3.3 js-controller Update-Fehler
 
-War vorher eine andere Main Version (nicht 10.x) von Node installiert müssen noch die Pakete auf node 10 kompiliert werden
+**Problem:** `SyntaxError: Unexpected token '<', "<!doctype "... is not valid JSON`
 
-```
+**Lösungsansätze:**
+```bash
+# 1. Fix ausführen vor Update:
+iob fix
+
+# 2. Manuelles Update bei UI-Fehlern:
+iob upgrade self
+
+# 3. Bei persistenten Problemen:
 cd /opt/iobroker
-npm rebuild
+iob stop
+npm install iobroker.js-controller@latest --production --prefix /opt/iobroker
+iob start
 ```
+
+## 4. System-Ressourcen und Performance
+
+### 4.1 Arbeitsspeicher-Probleme
+
+**Symptome:**
+- System friert ein bei weniger als 20% freiem RAM
+- Adapter werden automatisch gestoppt
+- Admin-Interface reagiert nicht mehr
+
+**Sofort-Diagnose:**
+```bash
+# RAM-Nutzung prüfen:
+free -m
+
+# Prozess-spezifischer Verbrauch:
+top -p $(pgrep -d',' iobroker)
+
+# Swap-Nutzung:
+swapon --show
+```
+
+**Lösungsansätze:**
+```bash
+# 1. Unnötige Adapter stoppen:
+iobroker list instances
+iobroker stop [adaptername]
+
+# 2. Problematische Skripte identifizieren:
+# Admin → Skripte → alle Skripte temporär deaktivieren
+# Einzeln wieder aktivieren und RAM-Verbrauch beobachten
+
+# 3. System-Services reduzieren:
+sudo systemctl disable avahi-daemon
+sudo systemctl disable cups
+sudo systemctl stop desktop-session  # Auf Headless-Systemen
+```
+
+**Hardware-Empfehlungen:**
+- Raspberry Pi 3: Maximal 30-40 Adapter-Instanzen
+- Mindestens 4 GB RAM für produktive Systeme
+- SSD statt SD-Karte für bessere Performance
+
+### 4.2 Festplatten-Probleme
+
+**Symptome:**
+- `/` zeigt 100% Belegung
+- Log-Dateien erreichen GB-Größen
+- System reagiert nicht mehr
+
+**Notfall-Bereinigung:**
+```bash
+# 1. Große Log-Dateien finden:
+du -h /opt/iobroker/log/ | sort -hr
+du -h /var/log/ | sort -hr
+
+# 2. Sichere Log-Bereinigung:
+# Logs älter als 7 Tage löschen:
+find /opt/iobroker/log/ -name "*.log" -mtime +7 -delete
+find /opt/iobroker/log/ -name "*.gz" -mtime +14 -delete
+
+# 3. System-Logs bereinigen:
+sudo journalctl --vacuum-time=7d
+sudo journalctl --vacuum-size=100M
+
+# 4. NPM-Cache bereinigen:
+npm cache clean --force
+```
+
+**Log-Rotation konfigurieren:**
+```bash
+# /etc/logrotate.d/iobroker erstellen:
+/opt/iobroker/log/*.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    notifempty
+    create 644 iobroker iobroker
+}
+```
+
+### 4.3 Überhitzung und Hardware-Probleme
+
+**Symptome:**
+- Raspberry Pi schaltet sich ab
+- CPU-Temperatur über 80°C
+- Zufällige System-Crashes
+
+**Diagnose:**
+```bash
+# CPU-Temperatur prüfen:
+# Raspberry Pi:
+/opt/vc/bin/vcgencmd measure_temp
+
+# Allgemeine Linux-Systeme:
+sensors
+cat /sys/class/thermal/thermal_zone0/temp
+
+# Über ioBroker SystemInfo-Adapter:
+# Automatische Temperatur-Überwachung einrichten
+```
+
+**Lösungsansätze:**
+```bash
+# 1. Übertaktung reduzieren (/boot/config.txt):
+# Zeilen entfernen oder auskommentieren:
+# arm_freq=1400
+# gpu_freq=500
+
+# 2. Thermal Throttling prüfen:
+dmesg | grep -i thermal
+
+# 3. Hardware-Überwachung aktivieren:
+# SystemInfo-Adapter installieren
+# Temperatur-Alarme bei >75°C einrichten
+```
+
+## 5. Netzwerk und DNS-Probleme
+
+### 5.1 DNS-Auflösung fehlgeschlagen
+
+**Symptome:**
+- `getaddrinfo ENOTFOUND` Fehler
+- Adapter können nicht mit externen Services verbinden
+- `iob fix` und `iob diag` funktionieren nicht
+
+**Diagnose:**
+```bash
+# DNS-Konfiguration prüfen:
+cat /etc/resolv.conf
+nslookup google.com
+dig google.com
+
+# Netzwerk-Interface prüfen:
+ip addr
+ip route
+```
+
+**Lösungsansätze:**
+```bash
+# 1. DNS-Server in /etc/resolv.conf korrigieren:
+echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
+echo "nameserver 1.1.1.1" | sudo tee -a /etc/resolv.conf
+
+# 2. systemd-resolved neu starten:
+sudo systemctl restart systemd-resolved
+
+# 3. Netzwerk-Interface neu starten:
+sudo systemctl restart networking
+
+# 4. Bei statischen IPs: /etc/netplan/ Konfiguration prüfen
+```
+
+### 5.2 Firewall und Proxy-Probleme
+
+**Unternehmensnetze:**
+```bash
+# Proxy für NPM konfigurieren:
+npm config set proxy http://proxy.company.com:8080
+npm config set https-proxy https://proxy.company.com:8080
+
+# Git-Proxy (für GitHub-Dependencies):
+git config --global http.proxy http://proxy.company.com:8080
+```
+
+**Reverse-Proxy-Probleme:**
+- WebSocket-Verbindungen funktionieren nicht
+- Socket.io-Pfade nicht korrekt weitergeleitet
+
+## 6. Berechtigungen und User-Probleme
+
+### 6.1 Permission Denied Fehler
+
+**Symptome:**
+- `EACCES: permission denied`
+- Backup-Fehler trotz `chmod 777`
+- Adapter können nicht schreiben
+
+**WICHTIG:** Niemals `chmod 777` verwenden! Das ist ein Sicherheitsrisiko und löst oft nicht das Problem.
+
+**Korrekte Lösungsansätze:**
+```bash
+# 1. ioBroker-Berechtigungen reparieren:
+iob fix
+
+# 2. Benutzer-Gruppen korrigieren:
+sudo usermod -aG iobroker $(whoami)
+sudo usermod -aG redis iobroker  # Bei Redis-Nutzung
+
+# 3. Verzeichnis-Eigentümer korrigieren:
+sudo chown -R iobroker:iobroker /opt/iobroker
+sudo chown -R iobroker:iobroker /opt/iobroker-data  # Docker
+
+# 4. Nach Änderungen: Logout/Login erforderlich
+```
+
+### 6.2 Docker-spezifische Berechtigungsprobleme
+
+**Problem:** Volume-Berechtigungen in Docker-Containern
+
+**Lösung:**
+```bash
+# Host-System:
+sudo chown -R 1000:1000 /pfad/zu/iobroker-data
+
+# Docker-Compose mit korrekter UID:
+version: '3'
+services:
+  iobroker:
+    image: buanet/iobroker:latest
+    user: "1000:1000"
+    volumes:
+      - /pfad/zu/iobroker-data:/opt/iobroker
+```
+
+## 7. Adapter-spezifische Systemfehler
+
+### 7.1 HomeMatic/CCU3-Verbindungsprobleme
+
+**Problem:** JSON-Parser-Fehler bei CCU3-Kommunikation
+
+**Lösungsansätze:**
+```bash
+# 1. CCU3-Firmware aktualisieren
+# 2. URL-Encoding-Probleme beheben:
+# In Adapter-Konfiguration: IP statt Hostname verwenden
+# Firewall zwischen ioBroker und CCU3 prüfen
+
+# 3. hm-rega Adapter neu installieren:
+iob stop hm-rega
+iob del hm-rega
+iob install hm-rega
+```
+
+### 7.2 MQTT-Adapter Log-Spam
+
+**Problem:** MQTT füllt Logs mit unnötigen Meldungen
+
+**Lösung:**
+```bash
+# In MQTT-Adapter Konfiguration:
+# "Eigene States bekanntgeben" → nur "info.0.*"
+# Log-Level auf "info" oder "warn" setzen
+```
+
+## Systematische Fehlerdiagnose
+
+### Standard-Diagnoseverfahren
+
+```bash
+# 1. Grundlegende Systemprüfung:
+iob status
+iob diag
+free -m
+df -h
+
+# 2. Prozess-Status:
+ps aux | grep iobroker
+systemctl status iobroker
+
+# 3. Netzwerk-Connectivity:
+ping 8.8.8.8
+nslookup registry.npmjs.org
+
+# 4. Log-Analyse:
+iob logs --watch
+tail -f /var/log/syslog | grep iobroker
+```
+
+### Notfall-Reparatursequenz
+
+Bei unklaren Problemen diese Sequenz durchführen:
+
+```bash
+# 1. Backup (falls System reagiert):
+iob backup
+
+# 2. System stoppen:
+iob stop
+
+# 3. Alles reparieren:
+iob fix
+
+# 4. Updates durchführen:
+iob update
+iob upgrade self
+
+# 5. System starten:
+iob start
+
+# 6. Status prüfen:
+iob status
+```
+
+### Wann Neuinstallation erforderlich ist
+
+**Neuinstallation bei:**
+- Korrupte Node.js-Installation nach falschen Updates
+- Massive Systemschäden durch root-Operationen
+- Hardware-Wechsel (andere Architektur)
+- Mehr als 3 fehlgeschlagene Reparaturversuche
+
+**Vorbereitung für Neuinstallation:**
+```bash
+# Vollständiges Backup:
+iob backup
+cp -R /opt/iobroker/backups /external/storage/
+
+# Wichtige Konfigurationsdateien sichern:
+cp /opt/iobroker/iobroker-data/iobroker.json /backup/
+cp -R /opt/iobroker/node_modules/iobroker.vis/www/vis-views /backup/
+```
+
+## Präventive Maßnahmen
+
+### Überwachung einrichten
+
+```bash
+# 1. Automatische Backups (täglich):
+# Backitup-Adapter konfigurieren
+
+# 2. System-Monitoring:
+# SystemInfo-Adapter für Temperatur, RAM, Festplatte
+# Grenzwerte für Alarme setzen
+
+# 3. Log-Monitoring:
+# Bei kritischen Fehlern E-Mail-Benachrichtigung
+```
+
+### Wartungsroutine
+
+**Wöchentlich:**
+```bash
+sudo apt update && sudo apt upgrade
+iob update
+# Log-Größen prüfen: du -h /opt/iobroker/log/
+```
+
+**Monatlich:**
+```bash
+iob fix
+iob backup
+# Alte Backups bereinigen
+# System-Ressourcen analysieren
+```
+
+## Zusammenfassung
+
+Diese umfassende Problemsammlung deckt alle bekannten ioBroker-Systemfehler ab und bietet bewährte Lösungsansätze für jeden Problembereich. Die Reihenfolge der Lösungsversuche ist nach Erfolgswahrscheinlichkeit und Sicherheit optimiert.
+
+**Wichtigste Grundregeln:**
+1. Immer zuerst `iob fix` ausführen
+2. Backups vor größeren Eingriffen erstellen
+3. Objects-Datenbank niemals ohne Backup löschen
+4. `chmod 777` niemals verwenden
+5. Bei Redis-Nutzung beachten: FLUSHALL löscht alles!
+6. Nach Berechtigungsänderungen: System neu anmelden
+7. NPM-Probleme über `iob nodejs-update` lösen, nicht manuell experimentieren

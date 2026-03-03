@@ -1120,5 +1120,40 @@
     "fa-icon": "usb",
     "created": "2025-12-09T11:00:00.000Z",
     "date-end": "2025-01-06T23:00:00.000Z"
+  },
+  {
+    "title":{
+      "en": "Adapter ioBroker.zwave2 has been deprecated",
+      "de": "Der Adapter ioBroker.zwave2 ist veraltet.",
+      "ru": "Функция Adapter ioBroker.zwave2 устарела.",
+      "pt": "O Adapter ioBroker.zwave2 foi descontinuado.",
+      "nl": "Adapter ioBroker.zwave2 is verouderd.",
+      "fr": "L'adaptateur ioBroker.zwave2 est obsolète.",
+      "it": "Adapter ioBroker.zwave2 è stato deprecato",
+      "es": "El adaptador ioBroker.zwave2 ha quedado obsoleto",
+      "pl": "Adapter ioBroker.zwave2 został wycofany",
+      "uk": "Adapter ioBroker.zwave2 застарів",
+      "zh-cn": "Adapter ioBroker.zwave2 已被弃用"
+    },
+    "content": {
+      "en": "The adapter ioBroker.zwave2 been deprecated on request of the maintainer. The adapter has not been maintained for some time and has been archived now. The adapter has been removed from repositories. Using adapter ioBroker.zwavews is recommended by maintainer.",
+      "de": "Der Adapter ioBroker.zwave2 wurde auf Wunsch des Entwicklers als veraltet eingestuft. Er wurde seit einiger Zeit nicht mehr weiterentwickelt und ist nun archiviert. Der Adapter wurde aus den Repositories entfernt. Der Entwickler empfiehlt die Verwendung des Adapters ioBroker.zwavews.",
+      "ru": "Адаптер ioBroker.zwave2 был признан устаревшим по просьбе сопровождающего. Адаптер не поддерживался некоторое время и теперь находится в архиве. Адаптер удален из репозиториев. Сопровождающий рекомендует использовать адаптер ioBroker.zwavews.",
+      "pt": "O adaptador ioBroker.zwave2 foi descontinuado a pedido do mantenedor. O adaptador não recebe manutenção há algum tempo e foi arquivado. Ele foi removido dos repositórios. O mantenedor recomenda o uso do adaptador ioBroker.zwavews.",
+      "nl": "De adapter ioBroker.zwave2 is op verzoek van de beheerder niet langer ondersteund. De adapter werd al enige tijd niet meer onderhouden en is nu gearchiveerd. De adapter is verwijderd uit de repositories. De beheerder raadt aan om adapter ioBroker.zwavews te gebruiken.",
+      "fr": "L'adaptateur ioBroker.zwave2 est obsolète à la demande de son responsable. N'étant plus maintenu depuis un certain temps, il a été archivé et supprimé des dépôts. Le responsable recommande l'utilisation de l'adaptateur ioBroker.zwavews.",
+      "it": "L'adattatore ioBroker.zwave2 è stato deprecato su richiesta del manutentore. L'adattatore non è più in manutenzione da un po' di tempo ed è stato archiviato. L'adattatore è stato rimosso dai repository. Il manutentore consiglia l'utilizzo dell'adattatore ioBroker.zwavews.",
+      "es": "El adaptador ioBroker.zwave2 ha quedado obsoleto a petición del mantenedor. No se ha mantenido durante un tiempo y se ha archivado. Se ha eliminado de los repositorios. El mantenedor recomienda usar el adaptador ioBroker.zwavews.",
+      "pl": "Adapter ioBroker.zwave2 został wycofany na prośbę opiekuna. Adapter nie był wspierany od jakiegoś czasu i został zarchiwizowany. Został usunięty z repozytoriów. Opiekun zaleca korzystanie z adaptera ioBroker.zwavews.",
+      "uk": "Адаптер ioBroker.zwave2 визнано застарілим на запит розробника. Адаптер деякий час не підтримувався і зараз його архівовано. Адаптер видалено з репозиторіїв. Розробник рекомендує використовувати адаптер ioBroker.zwavews.",
+      "zh-cn": "应维护者要求，适配器 ioBroker.zwave2 已被弃用。该适配器已停止维护一段时间，现已归档。该适配器已从代码仓库中移除。维护者建议使用适配器 ioBroker.zwavews。"
+    },
+    "id": "zwave2-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2026-02-20T02:00:00.000Z",
+    "conditions": {
+      "zwave2": "installed"
+    }
   }
 ]
