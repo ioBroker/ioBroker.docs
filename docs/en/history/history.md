@@ -1059,12 +1059,27 @@ https://github.com/TA2k/ioBroker.bmw
 
 This adapter integrates BMW vehicles into ioBroker using the new BMW CarData API with OAuth2 authentication and real-time MQTT streaming. It provides comprehensive vehicle data monitoring for all BMW models linked to your BMW account.
 
-## witmotion (22.01.2026) – new adapter at latest repository
-https://github.com/ioBroker/ioBroker.witmotion
+## nspanel-lovelace-ui (3.1.2026) – new adapter at stable repository
+https://github.com/ticaki/ioBroker.nspanel-lovelace-ui
 
-<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.witmotion/master/admin/witmotion.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.nspanel-lovelace-ui/main/admin/nspanel-lovelace-ui.png" width="100" height="100" />
 
-This adapter reads accelerometr, magentomer, gyroscope data from WT901blecl 5.0 Bluetooth 5.0 9-Axis IMU Sensor via USB
+The NSPanel Lovelace UI is an alternative user interface for the Sonoff NSPanel, specifically designed for integration with iobroker. It typically relies on Tasmota (firmware) and MQTT (messaging protocol) to provide custom controls and displays directly on the NSPanel's small touchscreen.
+
+## steam (20.1.2026) – new adapter at stable repository
+https://github.com/bloop16/ioBroker.steam
+
+<img src="https://raw.githubusercontent.com/bloop16/ioBroker.steam/main/admin/steam.png" width="100" height="100" />
+
+This adapter allows you to integrate information from the Steam API into your ioBroker system.
+
+## serial-gps (23.1.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.serial-gps
+
+<img src="https://github.com/ioBroker/ioBroker.serial-gps/blob/main/admin/serial-gps.svg" width="100" height="100" />
+
+This adapter reads GPS data from a serial or USB GPS device and makes it available in ioBroker.
+
 
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
