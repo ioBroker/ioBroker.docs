@@ -1103,5 +1103,13 @@ https://github.com/arteck/ioBroker.zwavews
 The zwavews adapter connects a zwave-js-ui to ioBroker and creates corresponding data points for devices, values, and statuses. This allows Z-Wave devices to be conveniently used in visualizations, logic, and automations.
 
 
+## smartfriends (10.2.2025) – new adapter at stable repository
+https://github.com/Black-Thunder/ioBroker.smartfriends
+
+<img src="https://raw.githubusercontent.com/Black-Thunder/ioBroker.smartfriends/master/admin/smartfriends.png" width="100" height="100" />
+
+This adapter enables a direct local integration of the SmartFriends Box (e.g. Smart Friends Box by Schellenberg, ABUS, Paulmann, STEINEL, etc.) into ioBroker – without using the official cloud.
+
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
