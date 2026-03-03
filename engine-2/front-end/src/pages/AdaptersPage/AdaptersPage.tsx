@@ -1,4 +1,4 @@
-import { Box, TextField, ToggleButton, ToggleButtonGroup, InputAdornment, useMediaQuery } from '@mui/material';
+import { Box, TextField, Typography, ToggleButton, ToggleButtonGroup, InputAdornment, useMediaQuery } from '@mui/material';
 import { AdapterBlock } from '../../components/AdapterBlock/AdapterBlock';
 import type { AdapterItem } from '../../components/AdapterItem/AdapterItem';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
@@ -69,6 +69,7 @@ const AdaptersPage = (): React.ReactNode => {
     const [search, setSearch] = useState('');
     const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
     const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
+    const [selectedMenuItem, setSelectedMenuItem] = useState('Beliebte');
     const isMobile = useMediaQuery('(max-width:661px)');
 
     const { classes } = useStyles({ isMenuCollapsed });
@@ -79,27 +80,34 @@ const AdaptersPage = (): React.ReactNode => {
         }
     }, [isMobile]);
 
-    const handleMenuItemClick = () => {
+    const handleMenuItemClick = (label: string) => {
+        setSelectedMenuItem(label);
         if (isMobile) {
             setIsMenuCollapsed(true)
         }
     }
 
-
-
     return (
         <Box>
-            <SectionTitle
-                sx={{
-                    marginLeft: '32px',
-                    color: 'white !important',
-                    fontSize: {
-                        '@media (max-width:770px)': { fontSize: '28px !important' },
-                        '@media (max-width:480px)': { fontSize: '20px !important' },
-                    },
-                }}
-            >{I18n.t('home.adapters.title')}
-            </SectionTitle>
+            <Box className={classes.titleContainer}>
+                <SectionTitle
+                    sx={{
+                        marginLeft: '32px',
+                        color: 'white !important',
+                        fontSize: {
+                            '@media (max-width:1279px)': { fontSize: '28px !important' },
+                            '@media (max-width:480px)': { fontSize: '20px !important' },
+                        },
+                    }}
+                >{I18n.t('home.adapters.title')}
+                </SectionTitle>
+                <Typography
+                    variant="h4"
+                    className={classes.breadCrumbs}
+                >
+                    / {selectedMenuItem.toUpperCase()}
+                </Typography>
+            </Box>
             <Box className={classes.topBar}>
                 <Box className={classes.menuToggle}>
                     <ToggleButtonGroup
@@ -148,13 +156,17 @@ const AdaptersPage = (): React.ReactNode => {
                             value={mode}
                             onChange={(_, value) => value && setMode(value)}
                         >
-                            <ToggleButton value="block">
+                            <ToggleButton
+                                value="block"
+                            >
                                 <img
                                     alt="Grid Icon"
                                     src={GridIcon}
                                 />
                             </ToggleButton>
-                            <ToggleButton value="table">
+                            <ToggleButton
+                                value="table"
+                            >
                                 <img
                                     alt="AdaptersList Icon"
                                     src={AdaptersListIcon}
@@ -166,7 +178,11 @@ const AdaptersPage = (): React.ReactNode => {
             </Box>
             <Box className={classes.container}>
                 <Box className={classes.menuBlock}>
-                    <AdapterMenu isCollapsed={isMenuCollapsed} onMenuItemClick={handleMenuItemClick} />
+                    <AdapterMenu
+                        isCollapsed={isMenuCollapsed}
+                        onMenuItemClick={handleMenuItemClick}
+                        selectedItem={selectedMenuItem}
+                    />
                 </Box>
                 <Box className={classes.mainBlock}>
                     {mode === 'block' ? (

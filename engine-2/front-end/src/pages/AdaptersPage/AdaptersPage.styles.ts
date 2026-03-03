@@ -6,8 +6,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         alignItems: 'center',
         marginBottom: '24px',
         margin: "0 32px 30px 32px",
-              [theme.breakpoints.down(481)]: {
-           margin: "0 10px 30px 10px",
+        [theme.breakpoints.down(481)]: {
+            margin: "0 10px 30px 10px",
         },
     },
     menuToggle: {
@@ -22,7 +22,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             border: 'none',
             borderRadius: '0',
             color: '#fff',
-            padding: '0 5px',
+            alignItems: 'flex-start',
+            padding: '8px 5px 0px 5px',
             minWidth: '27px',
             '&:not(:last-of-type)': {
                 borderRight: `2px solid ${theme.palette.primary.main}`,
@@ -37,6 +38,28 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         },
         [theme.breakpoints.down(770)]: {
             gap: '20px',
+        },
+    },
+    titleContainer: {
+        display: 'flex',
+    },
+    breadCrumbs: {
+        color: theme.palette.primary.main,
+        fontSize: '20px',
+        marginTop: '10px',
+        marginLeft: '10px',
+        fontWeight: 400,
+        letterSpacing: '-0.02em',
+         [theme.breakpoints.down(1280)]: {
+            fontSize: '24px',
+             marginTop: '4px',
+        },
+         [theme.breakpoints.down(769)]: {
+            fontSize: '20px',
+            marginTop: '6px',
+        },
+        [theme.breakpoints.down(481)]: {
+            marginTop: '0px',
         },
     },
     menuBlock: {
@@ -89,8 +112,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         [theme.breakpoints.down(661)]: {
             marginLeft: isMenuCollapsed ? 'calc(80px - 55px + 1px)' : '20px',
         },
-         [theme.breakpoints.down(481)]: {
-             justifyContent: 'end',
+        [theme.breakpoints.down(481)]: {
+            justifyContent: 'end',
         },
     },
     adaptersSearch: {
@@ -104,7 +127,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         [theme.breakpoints.down(451)]: {
             width: isMenuCollapsed ? '311px' : '281px',
         },
-         [theme.breakpoints.down(429)]: {
+        [theme.breakpoints.down(429)]: {
             width: isMenuCollapsed ? '281px' : '281px',
         },
         '& .MuiTextField-root': {
@@ -119,8 +142,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
                 width: isMenuCollapsed ? '311px' : '281px',
             },
             [theme.breakpoints.down(429)]: {
-            width: isMenuCollapsed ? '281px' : '281px',
-        },
+                width: isMenuCollapsed ? '281px' : '281px',
+            },
         },
         '& .MuiOutlinedInput-root': {
             height: '32px',
@@ -149,13 +172,14 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             border: `2px solid ${theme.palette.primary.main}`,
             borderRadius: '8px',
             height: '32px',
-            width: '76px'
+            width: '76px',
         },
-        '& .MuiToggleButton-root': {
+        '&& .MuiToggleButton-root': {
             color: 'rgba(255, 255, 255, 0.7)',
             border: 'none',
             padding: '8px 12px',
             minWidth: '38px',
+            lineHeight: 1,
             '&:not(:last-of-type)': {
                 borderRight: `2px solid ${theme.palette.primary.main}`,
             },

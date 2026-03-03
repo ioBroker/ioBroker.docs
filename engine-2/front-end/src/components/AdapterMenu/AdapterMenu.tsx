@@ -66,37 +66,49 @@ const menuItems = [
 
 interface AdapterMenuProps {
     isCollapsed?: boolean;
-    onMenuItemClick?: () => void;
+    onMenuItemClick?: (label: string) => void;
+    selectedItem?: string;
 }
 
-export const AdapterMenu = ({ isCollapsed = false, onMenuItemClick  }: AdapterMenuProps): React.ReactNode => {
+export const AdapterMenu = ({ isCollapsed = false, onMenuItemClick, selectedItem = 'Gesamtanzahl' }: AdapterMenuProps): React.ReactNode => {
     const { classes } = useStyles({ isCollapsed });
 
-    const handleItemClick = () => {
+    const handleItemClick = (label: string) => {
         if (onMenuItemClick) {
-            onMenuItemClick();
+            onMenuItemClick(label);
         }
     };
 
     return (
         <Box className={classes.menu}>
-            {menuItems.map((item, index) => (
-                <Box
-                    key={index}
-                    className={`${classes.menuItem} ${index === 0 ? classes.menuItemActive : ''}`}
-                     onClick={handleItemClick}
-                >
-                    <Box className={classes.menuIcon}>
-                        <img src={item.icon} alt={item.label} />
-                    </Box>
-                    {!isCollapsed && (
-                        <>
-                            <Box className={`${classes.menuText} ${index === 0 ? classes.firstItemText : ''}`}>{item.label}</Box>
-                            <Box className={`${classes.menuCount} ${index === 0 ? classes.firstItemCount : ''}`}>{item.count}</Box>
-                        </>
-                    )}
-                </Box>
-            ))}
+            <Box className={classes.menuInner}>
+                {menuItems.map((item, index) => {
+                    const isFirstItem = index === 0;
+                    const isActive = !isFirstItem && item.label === selectedItem;
+                    
+                    return (
+                        <Box
+                            key={index}
+                            className={`${classes.menuItem} ${isActive ? classes.menuItemActive : ''}`}
+                            onClick={() => handleItemClick(item.label)}
+                        >
+                            <Box className={classes.menuIcon}>
+                                <img src={item.icon} alt={item.label} />
+                            </Box>
+                            {!isCollapsed && (
+                                <>
+                                    <Box className={`${classes.menuText} ${isFirstItem ? classes.firstItemText : ''} ${isActive ? classes.activeText : ''}`}>
+                                        {item.label}
+                                    </Box>
+                                    <Box className={`${classes.menuCount} ${isFirstItem ? classes.firstItemCount : ''} ${isActive ? classes.activeCount : ''}`}>
+                                        {item.count}
+                                    </Box>
+                                </>
+                            )}
+                        </Box>
+                    );
+                })}
+            </Box>
         </Box>
     );
 };

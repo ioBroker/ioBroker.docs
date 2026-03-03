@@ -5,26 +5,43 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         width: isCollapsed ? '59px' : '264px',
         position: 'sticky',
         marginLeft: '32px',
+        maxHeight: 'calc(100vh - 125px)',
         top: '80px',
-        maxHeight: 'calc(100vh - 100px)',
-        overflowY: 'scroll',
-        overflowX: 'hidden',
-        paddingRight: '12px',
         transition: 'all 0.3s ease',
-        [theme.breakpoints.down(661)]: {
+        [theme.breakpoints.down(878)]: {
             width: isCollapsed ? '59px' : '272px',
+        },
+        [theme.breakpoints.down(661)]: {
+            width: isCollapsed ? '59px' : '328px',
             backgroundColor: !isCollapsed ? '#080B1C' : 'transparent',
-            padding: !isCollapsed ? '20px' : '0px 12px 0px 0',
+            padding: !isCollapsed ? '20px' : '0',
+            marginLeft: !isCollapsed ? '24px' : '30px',
             borderRadius: !isCollapsed ? '10px' : '0px',
-            border: !isCollapsed ? `2px solid ${theme.palette.primary.main}`: 'none',
+            border: !isCollapsed ? `2px solid ${theme.palette.primary.main}` : 'none',
             boxShadow: !isCollapsed ? '0 4px 20px rgba(0, 0, 0, 0.5)' : 'none',
         },
-        [theme.breakpoints.down(878)]: {
-            paddingRight: '20px',
-            width: isCollapsed ? '59px' : '272px',
+         [theme.breakpoints.down(401)]: {
+            marginLeft: !isCollapsed ? '10px' : '30px',
         },
         [theme.breakpoints.up(1440)]: {
             width: isCollapsed ? '59px' : '272px',
+        },
+    },
+    menuInner: {
+        maxHeight: 'calc(100vh - 125px)',
+        overflowY: 'scroll',
+        overflowX: 'hidden',
+        paddingRight: '12px',
+        [theme.breakpoints.down(661)]: {
+            maxHeight: !isCollapsed ? 'calc(100vh - 165px)' : 'calc(100vh - 125px)',
+        },
+        [theme.breakpoints.down(481)]: {
+            paddingRight: !isCollapsed ? '20px' : '12px',
+        },
+        [theme.breakpoints.down(878)]: {
+            paddingRight: '20px',
+        },
+        [theme.breakpoints.up(1440)]: {
             paddingRight: '20px',
         },
         '&::-webkit-scrollbar': {
@@ -67,8 +84,11 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         },
     },
     menuItemActive: {
-        color: '#fff',
-        background: 'rgba(255, 255, 255, 0.1)',
+        color: theme.palette.primary.main,
+        background: 'rgba(29, 144, 202, 0.1)',
+        '& img': {
+            filter: 'brightness(0) saturate(100%) invert(56%) sepia(89%) saturate(1000%) hue-rotate(165deg) brightness(95%) contrast(90%)',
+        },
     },
     menuIcon: {
         width: '24px',
@@ -82,9 +102,9 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
             width: isCollapsed ? '32px' : '24px',
             height: isCollapsed ? '32px' : '24px',
             '& img': {
-             width: isCollapsed ? '32px' : '24px',
-             height: isCollapsed ? '32px' : '24px',
-        },
+                width: isCollapsed ? '32px' : '24px',
+                height: isCollapsed ? '32px' : '24px',
+            },
         },
     },
     menuText: {
@@ -96,7 +116,11 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
     },
     firstItemText: {
         fontWeight: 500,
-        opacity: 1
+        opacity: 1,
+    },
+    activeText: {
+        fontWeight: 500,
+        color: theme.palette.primary.main,
     },
     menuCount: {
         fontSize: '10px',
@@ -106,5 +130,8 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         fontSize: '18px',
         opacity: 1,
         fontWeight: 500,
+    },
+    activeCount: {
+        color: theme.palette.primary.main,
     },
 }));
