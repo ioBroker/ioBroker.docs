@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ping/README.md
 title: PING-Adapter
-hash: Ik1WbI1tFqu04+qoinEQuD6k2cb0P2D71rgyUPQwaiU=
+hash: t86QYMQbMZP8PMZ1y8DQEn2mFm2RRM5dNusUJF4NXfE=
 ---
 ![Logo](../../../en/adapterref/iobroker.ping/admin/ping.png)
 
@@ -12,17 +12,17 @@ hash: Ik1WbI1tFqu04+qoinEQuD6k2cb0P2D71rgyUPQwaiU=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ping.svg)
 
 # PING-Adapter
-![Testen und Freigeben](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Pingt konfigurierte IP-Adressen an.
-Pingt angegebene IP-Adressen in einem definierten Intervall an und überwacht die Ergebnisse.
+## Konfigurierte IP-Adressen anpingen.
+Pings an festgelegte IP-Adressen in einem definierten Intervall und Überwachung der Ergebnisse.
 
-Sie können TCP-Ports auch überwachen, indem Sie die Portnummer nach der IP-Adresse mit einem Doppelpunkt angeben (z. B. `192.168.1.1:80` oder `google.com:443`). Dadurch wird überprüft, ob der Port erreichbar ist, anstatt einen ICMP-Ping zu verwenden.
+Sie können TCP-Ports auch überwachen, indem Sie die Portnummer nach der IP-Adresse mit einem Doppelpunkt angeben (z. B. `192.168.1.1:80` oder `google.com:443`). Dadurch wird geprüft, ob der Port erreichbar ist, anstatt einen ICMP-Ping zu verwenden.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## Ping vom Javascript-Adapter
-Sie können jede IP-Adresse vom JavaScript-Adapter mit dem folgenden Befehl anpingen:
+## Ping vom JavaScript-Adapter
+Sie können jede IP-Adresse vom JavaScript-Adapter aus mit folgendem Befehl anpingen:
 
 ```js
 sendTo('ping.0', 'ping', '192.168.1.1', res => {
@@ -39,28 +39,93 @@ sendTo('ping.0', 'ping', '192.168.1.1:80', res => {
 ```
 
 ## Bekannte Probleme
-- Wenn es nicht möglich ist, Ihren Linux-Client anzupingen, überprüfen Sie, ob „iputils-ping“ auf einem Client korrekt installiert ist.
+- Falls es nicht möglich ist, Ihren Linux-Client anzupingen, überprüfen Sie, ob `iputils-ping` korrekt auf einem Client installiert ist.
 
-- Der Befehl „ping“ erfordert unter Linux Root-Berechtigungen.
+- Der Befehl `ping` unter Linux erfordert Root-Berechtigungen.
 
-Sie können dem Adapter die Rechte geben, den Befehl `ping` als Root auszuführen.
+Sie können dem Adapter die Berechtigung erteilen, den Befehl `ping` als Root auszuführen.
 
-Dazu müssen Sie mit dem Befehl `sudo visudo` der Datei `/etc/sudoers` folgende Zeile hinzufügen: `iobroker ALL=(ALL) NOPASSWD: /bin/ping`.
+Hierfür müssen Sie mit dem Befehl `sudo visudo` die folgende Zeile zur Datei `/etc/sudoers` hinzufügen: `iobroker ALL=(ALL) NOPASSWD: /bin/ping`.
 
-Oder Sie können die Ping-Ausführung mit dem Befehl `sudo setcap cap_net_raw+ep /bin/ping` zulassen.
+Alternativ können Sie die Ping-Ausführung mit dem Befehl `sudo setcap cap_net_raw+ep /bin/ping` zulassen.
 
-Sie müssen `setcap` mit `sudo apt-get install libcap2-bin` installieren, bevor `setcup` nicht gefunden wird.
+Sie müssen `setcap` zusammen mit `sudo apt-get install libcap2-bin` installieren, bevor `setcup` gefunden wird.
 
-## TCP-Port-Prüfung
+## Hping3-Unterstützung für Geräte im Ruhemodus (z. B. iPhones)
+Manche Geräte, insbesondere iPhones im Tiefschlafmodus, reagieren nicht auf Standard-ICMP-Pings. Um solche Geräte zuverlässig zu erkennen, kann der Adapter `hping3` verwenden, um einen UDP-Paket-Burst an Port 5353 (mDNS) zu senden, wodurch das Gerät aktiviert wird. Anschließend wird ein regulärer Ping durchgeführt, um die Erreichbarkeit zu bestätigen.
+
+Aktivieren Sie **"hping3 verwenden"** für einzelne Geräte in der Gerätetabelle. Der Adapter läuft wie folgt:
+
+```
+hping3 -2 -c 10 -p 5353 -i u1 -q <IP>
+```
+
+…führt dann sofort einen regulären ICMP-Ping durch. Wenn hping3 nicht installiert ist, greift der Adapter automatisch auf den regulären Ping zurück.
+
+**Installation (nur Linux):** Aktivieren Sie in den Haupteinstellungen die Option **"hping3 installieren, falls nicht verfügbar"**. Der Adapter führt beim Systemstart `sudo apt-get install -y hping3` aus, falls hping3 noch nicht auf dem System vorhanden ist. Alternativ können Sie es manuell installieren.
+
+```bash
+sudo apt-get install hping3
+```
+
+## TCP-Portprüfung
 Ab Version 1.8.0 können Sie auch TCP-Ports überprüfen, indem Sie die Portnummer nach der IP-Adresse mit einem Doppelpunkt angeben (z. B. `192.168.1.1:80`).
 
-Der Adapter prüft, ob der TCP-Port erreichbar ist, anstatt einen ICMP-Ping zu verwenden.
+Der Adapter prüft, ob der TCP-Port erreichbar ist, anstatt ICMP-Ping zu verwenden.
+
+## Wake-on-LAN über JavaScript-Adapter
+Sie können jedes Gerät aufwecken, indem Sie ein Wake-on-LAN-Magic-Packet unter Verwendung seiner MAC-Adresse senden:
+
+```js
+// Send to broadcast (255.255.255.255)
+sendTo('ping.0', 'wakeOnLan', '01:23:45:67:89:AB', res => {
+    console.log('Result: ' + JSON.stringify(res)); // Result: {"result": {"mac": "01:23:45:67:89:AB"}}
+});
+
+// Send to a specific IP (e.g. directed broadcast)
+sendTo('ping.0', 'wakeOnLan', { mac: '01:23:45:67:89:AB', ip: '192.168.1.255' }, res => {
+    console.log('Result: ' + JSON.stringify(res)); // Result: {"result": {"mac": "01:23:45:67:89:AB", "ip": "192.168.1.255"}}
+});
+```
+
+## Schreiben an lebende Staaten
+Jeder Gerätezustand ist beschreibbar und reagiert auf nicht bestätigte Schreibvorgänge:
+
+- **Schreiben Sie `false`** — löst einen sofortigen Ping an dieses Gerät aus, außerhalb des normalen Abfrageintervalls.
+- **Schreibe `true`** — sendet ein [Wake-on-LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) Magic Packet, um das Gerät aufzuwecken.
+
+### Wake-on-LAN
+Damit Wake-on-LAN funktioniert, muss der Adapter die MAC-Adresse des Geräts kennen. Die Auflösung erfolgt in dieser Reihenfolge:
+
+1. **MAC-Adresse beim Netzwerk-Browsing gefunden** – Wenn das Gerät beim Netzwerk-Browsing gefunden wurde, wird seine MAC-Adresse automatisch zwischengespeichert.
+2. **Live-ARP-Lookup** – falls die oben genannte Methode nicht verfügbar ist, versucht der Adapter, die MAC-Adresse zum Zeitpunkt des Schreibvorgangs per ARP aufzulösen.
+
+Kann die MAC-Adresse nicht ermittelt werden, wird eine Warnung protokolliert und das Paket nicht gesendet.
+
+Beispiel aus dem JavaScript-Adapter:
+
+```js
+// Trigger immediate ping
+setState('ping.0.myHost.192_168_1_1', false);
+
+// Send Wake-on-LAN magic packet
+setState('ping.0.myHost.192_168_1_1', true);
+```
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 2.1.0 (2026-03-04)
+- (@GermanBluefox) Implemented wake-on-lan functionality
+- (@GermanBluefox) Implemented pings with hping3 for sleeping devices (e.g. iPhones)
+
+### 2.0.0 (2026-02-26)
+- (@GermanBluefox) Migrated to TypeScript
+- (@GermanBluefox) Updated dependencies
+- (@GermanBluefox) A Minimal Node.js version is now 20
+
 ### 1.8.0 (2025-10-05)
 
 - (@GermanBluefox) Removed admin 4,5 support
@@ -69,7 +134,7 @@ Der Adapter prüft, ob der TCP-Port erreichbar ist, anstatt einen ICMP-Ping zu v
 
 ### 1.7.9 (2024-10-01)
 
-- (@GermanBluefox) Small changes the layout of the dynamic messages
+- (@GermanBluefox) Small changes to the layout of the dynamic messages
 
 ### 1.7.8 (2024-09-28)
 
@@ -83,7 +148,7 @@ Der Adapter prüft, ob der TCP-Port erreichbar ist, anstatt einen ICMP-Ping zu v
 
 ### 1.7.5 (2024-09-18)
 
-- (@GermanBluefox) Corrected small error about range length
+- (@GermanBluefox) Corrected a small error about range length
 
 ### 1.7.4 (2024-09-17)
 
@@ -149,7 +214,7 @@ Der Adapter prüft, ob der TCP-Port erreichbar ist, anstatt einen ICMP-Ping zu v
 
 ### 1.4.6 (2020-04-29)
 
-- (Apollon77) Make sure the adapter does not crash if ping command cannot be executed (Sentry)
+- (Apollon77) Make sure the adapter does not crash if the ping command cannot be executed (Sentry)
 - (Apollon77) Catch error when `ping.probe` could not be started (Sentry IOBROKER-PING-2)
 
 ### 1.4.5 (2020-04-23)
@@ -220,7 +285,7 @@ Der Adapter prüft, ob der TCP-Port erreichbar ist, anstatt einen ICMP-Ping zu v
 
 ### 0.1.0 (2014-11-26)
 
-- (@GermanBluefox) Used ping npm module instead of static one
+- (@GermanBluefox) Used ping npm module instead of a static one
 
 ### 0.0.5 (2014-11-21)
 
@@ -232,7 +297,7 @@ Der Adapter prüft, ob der TCP-Port erreichbar ist, anstatt einen ICMP-Ping zu v
 
 ### 0.0.3 (2014-11-03)
 
-- (@GermanBluefox) fix ping node (do not forget to remove package from git when the npm gets the update)
+- (@GermanBluefox) fix ping node (do not forget to remove the package from git when the npm gets the update)
 
 ### 0.0.1 (2014-11-02)
 
@@ -242,7 +307,7 @@ Der Adapter prüft, ob der TCP-Port erreichbar ist, anstatt einen ICMP-Ping zu v
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2025, @GermanBluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026, @GermanBluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -42,7 +42,7 @@ BWT-Firmware >V2.02xx ( kann durch den BWT Support installiert werden auf Anfrag
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

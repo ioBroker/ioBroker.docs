@@ -60,6 +60,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
+### 6.0.6 (2026-02-28)
+
+- (HombachC) fix vulnerability
+- (HombachC) update dependencies
+
 ### 6.0.5 (2026-01-01)
 
 - (HombachC) Fix schema links (#868)
@@ -84,12 +89,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) update axios (#829)
 - (HombachC) min admin 7.6.17 as recommended (#817)
 - (HombachC) bump dependencies
-
-### 6.0.1 (2025-08-17)
-
-- (HombachC) bump TypeScript to 5.9
-- (HombachC) add test for node.js 24 (#801)
-- (HombachC) bump dependency with security vulnerability
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

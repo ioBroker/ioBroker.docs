@@ -31,6 +31,10 @@ Icon and name of ICO and Ondilo are property of Ondilo.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
 ### 2.0.3 (2025-05-12)
 * (Garfonso) add json state for recommendations
 

@@ -53,6 +53,9 @@ alarmsystem for ioBroker and minuvis
 
 
 ## Changelog
+### 2.0.3 (2026-01-10)
+* (svallant) fix bug in duckdb
+
 ### 2.0.2 (2024-12-03)
 * (svallant) update jsonConfig for responsive design
 

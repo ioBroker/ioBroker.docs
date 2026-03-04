@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rpi2/README.md
 title: ioBroker.rpi2
-hash: fbU6FaS3bzboHSlRMuHMlIk6qVYzKCwSWuDiRMuGnhg=
+hash: 40wy2PWHoaAr24/O2GwDtBu28xu56LuV7yls9JkhbhU=
 ---
 # IoBroker.rpi2
 
@@ -32,7 +32,7 @@ RPI-Monitor-Implementierung zur Integration in ioBroker. Es handelt sich um die 
 Damit GPIO funktioniert, müssen Sie `libgpiod` in Version `2.x` installieren, **bevor** Sie den Adapter installieren (siehe unten)!
 
 ## Installation
-Nach der Installation müssen Sie alle benötigten Module über die Administrationsseite konfigurieren.
+Nach der Installation müssen Sie alle erforderlichen Module über die Administrationsseite konfigurieren.
 
 Nach dem Start von iobroker.rpi erzeugen alle ausgewählten Module einen Objektbaum in ioBroker innerhalb von rpi.<Instanz>.<Modulname>, z. B. `rpi.0.cpu`
 
@@ -103,7 +103,9 @@ Auf der Konfigurationsseite können Sie folgende Module auswählen:
 
 ### NVME-Temperatur
 Ab Adapterversion 2.3.2 können Sie die NVMe-Temperatur auslesen. Dazu müssen Sie das Paket `nvme-cli` auf Ihrem System installieren.
-Dies gelingt mit folgendem Befehl: `sudo apt-get install nvme-cli`. Anschließend müssen Sie den Befehl zur ioBroker-sudoers-Datei `/etc/sudoers.d/iobroker` hinzufügen. Öffnen Sie diese mit einem Editor, beispielsweise nano: `sudo nano /etc/sudoers.d/iobroker`, und fügen Sie die folgende Zeile am Ende hinzu: `nvme smart-log /dev/nvme0`.
+Dies können Sie mit folgendem Befehl tun: `sudo apt-get install nvme-cli`. Sie müssen den Befehl außerdem zur ioBroker-sudoers-Datei `/etc/sudoers.d/iobroker` hinzufügen. Öffnen Sie diese mit einem Editor, z. B. nano: `sudo nano /etc/sudoers.d/iobroker`, und fügen Sie die folgende Zeile am Ende hinzu:
+
+```iobroker ALL=(ALL) NOPASSWD: /usr/sbin/nvme smart-log /dev/nvme0```
 
 ## GPIOs
 Sie können auch GPIOs auslesen und steuern.
@@ -159,6 +161,10 @@ Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Seite des 
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
 ### 3.0.2 (2025-12-01)
 * (@klein0r) Check for required libgpiod-dev package version
 
@@ -184,6 +190,8 @@ Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Seite des 
 ## License
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024-2025 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

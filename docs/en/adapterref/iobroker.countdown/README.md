@@ -40,9 +40,11 @@ who created pre V3.x.x releases of this adapter.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**0
 -->
+### 3.1.0 (2026-02-23)
+- (R3dRuM) Added option to sort countdowns by date in HTML and JSON output
 
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires admin >= 7.6.17 now
+### 3.0.1 (2026-02-23)
+- (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 3.0.0 (2025-06-05)
 * (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation.
@@ -58,16 +60,6 @@ who created pre V3.x.x releases of this adapter.
 * (jack-blackson) Additional check to avoid not allowed signs in countdown name
 * (jack-blackson) Updated dependencies
 * (jack-blackson) Small adjustments in package files
-
-### 2.2.0 (2023-08-25) 
-* (jack-blackson) Added ability to maintain, adjust and delete countdowns in adapter settings
-* (jack-blackson) Bugfix with incorrect spaces as first character in "in words long" and "in words short"
-* (jack-blackson) Bugfix incorrect calculation totalYears
-* (bagsik) added "totalJSON" object in each countdown
-
-### 2.1.0 (2023-07-22) 
-* (jack-blackson) Ability to use the countdown "backwards" - e.g. for calculating age of a baby
-* (jack-blackson) Adjustments for "in words" -> fixed year/years and adjusted which detail level is shown at which point of time
 
 ## License
 The MIT License (MIT)

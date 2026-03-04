@@ -69,12 +69,26 @@ If HTTPs (Security) or authentication is enabled on defined web-instance, it doe
 
 You can deactivate HTTPS and authentication on this web instance, but better is to create a new web instance that is bound to `localhost` and select this instance in cloud-settings.
 
+## Android application
+With new android application the location of variables for brightness and location has been changed.
+
+Now they could be found in `cloud.X.devices.NAME`: 
+- `cloud.X.devices.NAME.brightness`
+- `cloud.X.devices.NAME.currentLocation`.
+- `cloud.X.devices.NAME.batteryLevel`
+- `cloud.X.devices.NAME.batteryState`.
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 6.0.1 (2026-03-04)
+* (bluefox) Added communication with new android application
+* (bluefox) Dropped support node 18
+* (bluefox) Implemented QR Code for ioBroker.visu app
+
 ### 5.1.2 (2025-11-01)
 * (bluefox) Fixing cloud connection error
 
@@ -345,7 +359,7 @@ You can deactivate HTTPS and authentication on this web instance, but better is 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

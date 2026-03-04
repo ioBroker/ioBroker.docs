@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.stiebel-isg/README.md
 title: ioBroker.stiebel-isg
-hash: 67o+aJjEudGiExjykFREHIFa7shtE8bz1qyIpNHHQq8=
+hash: 1UXB2sp9rJx89CJzzkNIL3w3M4+M3w/s+SfqwzORVJE=
 ---
 ![标识](../../../en/adapterref/iobroker.stiebel-isg/admin/stiebel-isg.png)
 
@@ -28,7 +28,7 @@ hash: 67o+aJjEudGiExjykFREHIFa7shtE8bz1qyIpNHHQq8=
 ## 发行说明
 **注意：** 2.0.x 版本包含一些重大变更：
 
-* 需要 node.js 版本 >= 20、js-controller 版本 >= 6.0.11 和 admin 版本 >= 7.6.17。
+* 需要 node.js 版本 >= 20、js-controller 版本 >= 6.0.11 和 admin 版本 >= 7.7.22。
 
 如果要使用此适配器，请将您的 ioBroker 升级到至少此软件版本。
 
@@ -64,6 +64,13 @@ STIEBEL ELTRON、TECALOR、ISG 及相关标识均为 STIEBEL ELTRON GmbH & Co KG
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.3 (2026-03-04) - 2026H1 maintenance release
+
+* (copilot) Adapter requires admin >= 7.7.22 now
+* (pdbjjens) **Fixed**: update release-script (#143)
+* (pdbjjens) **Fixed**: parse missing "info_alone" objects (#140)
+* (pdbjjens) **Fixed**: Cleanup some eslint issues
+
 ### 2.0.2 (2025-11-23)
 
 * (pdbjjens) **Fixed**: Adapter hangup on wrong credentials. (fixes #127)
@@ -86,15 +93,11 @@ STIEBEL ELTRON、TECALOR、ISG 及相关标识均为 STIEBEL ELTRON GmbH & Co KG
 
 * security- and compatibility update
 
-### 1.7.6
-
-* fix error with controller v5
-
 ## License
 
 MIT License
 
-Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2023 Michael Schuster <development@unltd-networx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

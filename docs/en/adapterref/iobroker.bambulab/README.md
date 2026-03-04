@@ -93,11 +93,18 @@ All of this helps me to provide error-free adapters that basically never crash.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.4.2 (2025-09-16)
-* (DutchmanNL) Improve error messages if printer is offline or not reachable. #xxx
+### **WORK IN PROGRESS**
+* (DutchmanNL & Copilot) Update all dependencies to latest versions, consolidating 17 Dependabot PRs
+* (DutchmanNL & Copilot) Synchronize admin translations with jsonConfig.json - add missing translations and remove orphaned keys (#202)
+
+### 0.4.3 (2025-09-16)
+* (DutchmanNL) Improve error messages if printer is offline or not reachable.
+* (DutchmanNL) Added HD2 printer to the selection menu for easier access (#142)
 * (DutchmanNL) Solve several type definition issues. #203, #202, #201, #200, #199, #198
+* (DutchmanNL) Implemented a buffer system to reduce CPU usage and improve performance (#145)
 * (DutchmanNL & Copilot) Fix type conversion errors by replacing deprecated `tonumber` with proper `TOINTEGER`/`TOFLOAT` modifiers. #197
 * (DutchmanNL & Copilot) Add missing state attribute definitions for HD2 printer during printing (height, platform, tool, mapping). Fixes #194
+* (DutchmanNL & Copilot) Fix repository checker issues: update devDependencies to latest versions and correct news entries
 
 ### 0.4.1 (2025-09-13)
 * (DutchmanNL & Copilot) Fix HMS error code translations timeout error handling (#183)
@@ -115,17 +122,10 @@ All of this helps me to provide error-free adapters that basically never crash.
 * (DutchmanNL) Updated missing definitions for full MQTT API incl H2D
 * (DutchmanNL & Copilot) Fix repository checker issues and improve admin UI compatibility
 
-### 0.3.4 (2024-10-28) - Door Indicator Fixes #115
-* (DutchmanNL) Added doorOpen indicator, Fixes [#115](https://github.com/DrozmotiX/ioBroker.bambulab/issues/115)
-
-### 0.3.3 (2024-10-27) - Bugfixes
-* (DutchmanNL) update state definitions, (solves [#77](https://github.com/DrozmotiX/ioBroker.bambulab/issues/77) [#58](https://github.com/DrozmotiX/ioBroker.bambulab/issues/58))
-* (DutchmanNL) update connection handling, show connection error only once (Solves #99 #78 #74)
-
 ## License
 MIT License
 
-Copyright (c) 2025 DutchmanNL <oss@drozmotix.eu>
+Copyright (c) 2025-2026 DutchmanNL <oss@drozmotix.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

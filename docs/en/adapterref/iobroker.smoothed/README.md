@@ -27,6 +27,9 @@ Or ignore values with a high standard deviation.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.5.1 (2026-02-28)
+* (BenAhrdt) update dependecies
+
 ### 1.5.0 (2025-10-19)
 * (BenAhrdt) update Authentication NPM
 * (BenAhrdt) update dependencie EsLint
@@ -113,7 +116,7 @@ Or ignore values with a high standard deviation.
 ## License
 MIT License
 
-Copyright (c) 2025 Ben1983 <bsahrdt@gmail.com>
+Copyright (c) 2025-2026 Ben1983 <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

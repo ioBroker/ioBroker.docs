@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.acme/README.md
 title: ioBroker.acme
-hash: 6PaTYasXWjL2QReVKVOM7tmkighgHD/M/nHbtZ3KGmU=
+hash: 62dal9BD4EriOW7RCEGOTkfVGHbC7SyeXM4oXO6xhVs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.acme/admin/acme.png)
 
@@ -29,17 +29,17 @@ hash: 6PaTYasXWjL2QReVKVOM7tmkighgHD/M/nHbtZ3KGmU=
 
 Адаптеры, которым для защиты связи требуются сертификаты (например, [веб-адаптер](https://www.npmjs.com/package/iobroker.web)), могут загружать и использовать наборы сертификатов.
 
-Хранение и использование осуществляется через интерфейс, содержащийся в [основной контроллер ioBroker](https://www.npmjs.com/package/iobroker.js-controller).
+Хранение и использование осуществляются через интерфейс, содержащийся в [основной контроллер ioBroker](https://www.npmjs.com/package/iobroker.js-controller).
 
 ### Проблемы ACME
-Реализованы два метода проверки подлинности, и как минимум один из них должен быть включен на странице конфигурации.
+Реализованы два метода проверки подлинности, и как минимум один из них должен быть включен на странице настроек.
 
 Обратите внимание, что заказы на сертификаты с подстановочными знаками могут быть проверены только с использованием запроса DNS-01.
 
 #### HTTP-01
 Адаптер запускает собственный сервер проверки подлинности HTTP-01 на настроенном порту и адресе.
 
-Для успешного выполнения HTTP-запроса HTTP-01 порт/адрес сервера запроса **должен** быть общедоступным по порту 80 полного доменного имени (FQDN), указанного в наборе общих/альтернативных имен из открытого интернета.
+Для успешного выполнения HTTP-запроса HTTP-01 порт/адрес сервера запроса **должен** быть общедоступным (порт 80) для полного доменного имени (FQDN), указанного в общем/альтернативном имени коллекции, в открытом интернете.
 
 Настройте брандмауэр, обратный прокси и т.д. соответствующим образом.
 
@@ -64,7 +64,7 @@ hash: 6PaTYasXWjL2QReVKVOM7tmkighgHD/M/nHbtZ3KGmU=
 
 Возможные решения:
 
-1. Если другая служба представляет собой адаптер IoB, использующий стандарты именования портов, ACME остановит его перед попыткой заказа сертификата, будет использовать порт 80 для сервера проверки HTTP-01 и перезапустит любой остановленный адаптер после завершения работы.
+1. Если другая служба представляет собой адаптер IoB, использующий стандарты именования портов, ACME остановит его перед попыткой заказа сертификата, будет использовать порт 80 для сервера проверки HTTP-01 и перезапустит любой остановленный адаптер после завершения.
 
 Очевидно, это приведет к кратковременному отключению другого адаптера, что может быть нежелательно.
 
@@ -97,12 +97,16 @@ hash: 6PaTYasXWjL2QReVKVOM7tmkighgHD/M/nHbtZ3KGmU=
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
+### 2.0.0 (2026-02-12)
 - (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
 - (mcm1957) Dependencies have been updated
+- (@GermanBluefox) Adater was migrated to TypeScript and vite
 
 ### 1.0.6 (2024-12-27)
 
-- (mcm1957) Missing size attributes for jsonCOnfig have been added.
+- (mcm1957) Missing size attributes for jsonConfig have been added.
 - (mcm1957) Dependencies have been updated
 
 ### 1.0.5 (2024-12-08)
@@ -118,11 +122,6 @@ hash: 6PaTYasXWjL2QReVKVOM7tmkighgHD/M/nHbtZ3KGmU=
 - (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 - (mcm1957) Dependencies have been updated
 - (bluefox) Prepared for admin v7
-
-### 0.1.2 (2023-11-15)
-
-- (mcm1957) Issues reported by adapter checker have been fixed.
-- (mcm1957) Release 0.1.1 has been released again due to error during deploy.
 
 ## License
 

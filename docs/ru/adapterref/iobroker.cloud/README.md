@@ -2,90 +2,109 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cloud/README.md
-title: Облачный адаптер ioBroker
-hash: HlxYFaKc41+tZeW6tBgPLNImJ3M6EjDblNj9COJVCzY=
+title: облачный адаптер ioBroker
+hash: NUyBXVnY1PB0CrX1bqJ0SFcpLjA+HPqJgGCHQCR/gvA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
 ![Количество установок](http://iobroker.live/badges/cloud-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.cloud.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.cloud.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.cloud.svg)
 ![НПМ](https://nodei.co/npm/iobroker.cloud.png?downloads=true)
 
-# IoBroker облачный адаптер
-Этот адаптер позволяет подключаться из Интернета через облако ioBroker к локальной установке ioBroker.
+# Облачный адаптер ioBroker
+Этот адаптер позволяет подключаться из интернета через облако ioBroker к локальной установке ioBroker.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
 ## Настройки
 ### КЛЮЧ ПРИЛОЖЕНИЯ
-Чтобы использовать облачный адаптер, вам сначала необходимо получить APP-Key на [https://iobroker.net](https://iobroker.net).
+Для использования облачного адаптера сначала необходимо получить ключ приложения в [https://iobroker.net](https://iobroker.net).
 
 Это ключ приложения, который пользователь может получить на сайте [https://iobroker.net](https://iobroker.net). Пожалуйста, получите ключ там и введите его здесь.
 
-![Вступление](../../../en/adapterref/iobroker.cloud/img/intro.png)
+![Введение](../../../en/adapterref/iobroker.cloud/img/intro.png)
 
 ### Пример
-Все запросы от облачного адаптера будут направлены на определенный экземпляр WEB. Пользователь должен указать здесь экземпляр WEB; он будет показан пользователю, когда он войдет на сайт https://iobroker.net.
+Все запросы от облачного адаптера будут направляться на конкретный веб-экземпляр. Пользователь должен указать здесь веб-экземпляр; он будет показан пользователю при входе на сайт https://iobroker.net.
 
-### Разрешить самоподписанные сертификаты
-Если вы используете стандартное облако iobroker.net, вы можете его деактивировать. Эта опция важна только при использовании собственного облака.
+### Разрешить использование самоподписанных сертификатов
+Если вы используете стандартное облако iobroker.net, вы можете его отключить. Эта опция важна только в том случае, если вы используете собственное облако.
 
 ### Настройки Alexa
-***Alexa больше не поддерживается в адаптере `cloud`. Используйте для этого адаптер ioBroker.iot.***
+***Alexa больше не поддерживается в адаптере `cloud`. Для этого используйте адаптер ioBroker.iot.***
 
-## ИФТТТ
+## IFTTT
 [инструкции](doc/ifttt.md)
 
 ## Услуги
-Есть возможность отправлять сообщения в облачный адаптер.
-Если вы вызываете `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` и значение в качестве полезной нагрузки.
+Существует возможность отправлять сообщения в облачный адаптер.
+Если вы вызовете `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` и значение в качестве полезной нагрузки.
 
 ```bash
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
-Если в настройках поля «Белый список для сервисов» задать имя *custom_test*, а вызов выполнить с именем сервиса «custom_test», то состояние `cloud.0.services.custom_test` будет установлено в `myString`.
+Если в настройках в поле «Белый список для служб» указать имя *custom_test* и вызвать службу с именем «custom_test», то состояние `cloud.0.services.custom_test` будет установлено в `myString`.
 
-Вы можете написать «*» в белом списке, и все сервисы будут разрешены.
+Вы можете добавить символ "*" в белый список, и все сервисы будут разрешены.
 
-Начиная с версии 2.0.5 вы можете использовать запрос GET в форме `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` для помещения `\<data\>` в `cloud.0.services.custom_\<NAME\>`.
+Начиная с версии 2.0.5, вы можете использовать GET-запрос в форме `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>`, чтобы поместить `\<data\>` в `cloud.0.services.custom_\<NAME\>`.
 
-Здесь вы можете найти инструкции по использованию с [таскер](doc/tasker.md).
+Здесь вы найдете инструкции по его использованию с [задачник](doc/tasker.md).
 
-Услуга IFTTT разрешена только в том случае, если установлен ключ IFTTT.
+Использование сервиса IFTTT разрешено только при наличии установленного ключа IFTTT.
 
-Зарезервированные имена: `ifttt`, `text2command`, `simpleApi`, `swagger`. Их необходимо использовать без префикса `"custom_"`.
+Зарезервированные имена: `ifttt`, `text2command`, `simpleApi`, `swagger`. Их следует использовать без префикса `"custom_"`.
 
-### Текст2команда
-Вы можете записать `text2command` в белый список, вы можете отправить POST-запрос к `https://iobroker.net/service/text2command/<user-app-key>`, чтобы записать данные в переменную `text2command.X.text`.
+### Text2command
+Вы можете добавить `text2command` в белый список, а также отправить POST-запрос на `https://iobroker.net/service/text2command/<user-app-key>` для записи данных в переменную `text2command.X.text`.
 
-«X» можно определить в настройках с помощью параметра «Использовать экземпляр text2command».
+Параметр "X" можно задать в настройках с помощью опции "Использовать экземпляр text2command".
 
 ### SimpleApi
-Вы можете использовать следующие команды (только pro):
+Вы можете использовать следующие команды (только в версии Pro):
 
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - для чтения значения состояния => `{"val":103.516,"ack":true,"ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - для чтения значения состояния => `103.641`
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - для установки значения состояния => `{"result":"OK"}`
 
-**Не забудьте добавить `simpleApi` к разрешенным службам в конфигурации.**
+**Не забудьте добавить `simpleApi` в список разрешенных служб в конфигурации.**
 
 ### Ограничения
-Если на определенном веб-экземпляре включен HTTPS (безопасность) или аутентификация, он не работает.
+Если на определенном веб-экземпляре включен HTTPS (безопасность) или аутентификация, это не будет работать.
 
 Вы можете отключить HTTPS и аутентификацию на этом веб-экземпляре, но лучше создать новый веб-экземпляр, привязанный к `localhost`, и выбрать этот экземпляр в настройках облака.
 
+## Приложение для Android
+В новом приложении для Android изменено расположение переменных, отвечающих за яркость и местоположение.
+
+Теперь их можно было найти в `cloud.X.devices.NAME`:
+
+- `cloud.X.devices.NAME.brightness`
+- `cloud.X.devices.NAME.currentLocation`.
+- `cloud.X.devices.NAME.batteryLevel`
+- `cloud.X.devices.NAME.batteryState`.
+
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **РАБОТА В ХОДЕ** -->
+### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 6.0.1 (2026-03-04)
+* (bluefox) Added communication with new android application
+* (bluefox) Dropped support node 18
+* (bluefox) Implemented QR Code for ioBroker.visu app
+
+### 5.1.2 (2025-11-01)
+* (bluefox) Fixing cloud connection error
+
+### 5.1.0 (2025-08-19)
 * (bluefox) updated socket classes
 * (bluefox) minimum required node.js version is 18
 * (bluefox) used `@iobroker/eslint-config`
 * (bluefox) Rewritten with TypeScript
+* (bluefox) Added the possibility to hide vis(2) editor in the cloud
 
 ### 5.0.1 (2024-02-22)
 * (bluefox) updated socket classes and fixed vis-2 error if connected via cloud
@@ -347,7 +366,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

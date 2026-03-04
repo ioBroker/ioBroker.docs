@@ -1,106 +1,111 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.frigate/README.md
 title: ioBroker.frigate
-hash: TIq4HqXLvTWUXSkeAmmvZslfBw3HjbMyXxTo/QbfO9Y=
+hash: 3WrCVv9K/OwVM2kqsLUcAYh8lE3u7uYbapGYnDpFkZ4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.frigate/admin/frigate.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.frigate.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.frigate.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.frigate.svg)
 ![Количество установок](https://iobroker.live/badges/frigate-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/frigate-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/frigate-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.frigate.png?downloads=true)
 
 # IoBroker.frigate
 **Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.frigate/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
-##адаптер фрегата для ioBroker
-Адаптер для инструмента Фрегат [Видео Фрегата](https://frigate.video/)
+## Адаптер фрегата для ioBroker
+Адаптер для инструмента Frigate [Видео с фрегата](https://frigate.video/)
 
 ## Настраивать
-- Введите URL-адрес фрегата, например. локальный хост: 5000 или 192.168.178.2:5000
-- Введите порт MQTT: 1883 из конфига фрегата
+— Введите URL-адрес Frigate, например, `localhost:5000` или `192.168.178.2:5000`
+- Введите порт MQTT: 1883 в конфигурации фрегата.
 - Введите хост или IP-адрес системы iobroker в конфигурации фрегата в разделе
 
-```
+```yaml
 mqtt:
-  host: ioBrokerIP
+    host: ioBrokerIP
+    port: ioBrokerPort
 ```
 
-  После запуска Frigate и Адаптера вы должны увидеть в журнале новый подключенный клиент.
+После запуска Frigate и адаптера в журнале должно отобразиться сообщение о подключении нового клиента.
 
 ## Использование
 ### Статистика
-Общая информация о системе и камерах
+Общая информация о системе и камерах.
 
 ### Пульты
-`frigate.0.remote.pauseNotifications` Уведомление о паузе для всех камер
+`frigate.0.remote.pauseNotifications` - Приостановка уведомления для всех камер.
 
 ### События
-Последнее событие с информацией до и после
+Последнее мероприятие с информацией до и после.
 
-`frigate.0.events.history` История последних X событий
+`frigate.0.events.history` - История последних X событий.
 
-Событие в истории содержит миниатюру события и URL-адрес снимка и клипа.
+В разделе «История событий» отображается миниатюра события, а также URL-адрес снимка и видеоролика.
 
-### Имя_камеры
-Статус и настройки камеры
+### Camera_name
+Состояние и настройки камеры.
 
-Изменение состояния Состояние для изменения настроек камеры
+Изменение состояния позволяет изменить настройки камеры.
 
 [Подробная информация обо всех штатах](https://docs.frigate.video/integrations/mqtt/)
 
-`frigate.0.camera_name.motion`
+* `frigate.0.camera_name.motion` — Определяет, обнаруживает ли камера camera_name в данный момент движение. Ожидаемые значения: ON и OFF. ПРИМЕЧАНИЕ: После первоначального обнаружения движения значение ON будет установлено до тех пор, пока движение не будет обнаружено в течение mqtt_off_delay секунд (по умолчанию 30).
+* `frigate.0.camera_name.person_snapshot` — Публикует кадр в формате JPEG с обнаруженным типом объекта. Если объект больше не обнаруживается, публикуется изображение с наивысшей степенью достоверности или повторно публикуется исходное изображение.
 
-Определяет ли camera_name движение в данный момент. Ожидаемые значения: ON и OFF. ПРИМЕЧАНИЕ. После первоначального обнаружения движения параметр ВКЛ будет установлен до тех пор, пока движение не будет обнаружено в течение mqtt_off_delay секунд (30 по умолчанию).
+Высоту и обрезку снимков можно настроить в конфигурационном файле.
 
-`frigate.0.camera_name.person_snapshot`
-
-Публикует кадр в формате JPEG обнаруженного типа объекта. Когда объект больше не обнаруживается, публикуется изображение с наивысшей достоверностью или повторно публикуется исходное изображение.
-Высоту и обрезку снимков можно настроить в конфиге.
-
-`frigate.0.camera_name.history` История событий камеры
-
-`frigate.0.camera_name.remote.notificationText` пользовательский текст уведомления для камеры `frigate.0.camera_name.remote.notificationMinScore` минимальный балл пользовательского уведомления для камеры `frigate.0.camera_name.remote.pauseNotifications`уведомление о паузе для камеры
-
-`frigate.0.camera_name.remote.ptz`отправить команды ptz https://docs.frigate.video/integrations/mqtt/#frigatecamera_nameptz
+* `frigate.0.camera_name.history` - История событий камеры.
+* `frigate.0.camera_name.remote.notificationText` - пользовательский текст уведомления для камеры.
+* `frigate.0.camera_name.remote.notificationMinScore` — пользовательский минимальный балл для уведомлений, отправляемых камерой.
+* `frigate.0.camera_name.remote.pauseNotifications` - приостановка уведомлений для камеры.
+* `frigate.0.camera_name.remote.ptz` - отправка команд ptz https://docs.frigate.video/integrations/mqtt/#frigatecamera_nameptz
 
 ## Уведомления
-Адаптер может отправлять снимки и клипы событий и обнаружения объектов в такие экземпляры, как Telegram, Pushover и signal-cbm.
+Адаптер может отправлять снимки и фрагменты событий и обнаружения объектов в экземпляры, такие как `telegram`, `pushover` и `signal-cbm`.
 
-Вы можете указать несколько экземпляров или пользователей для отправки снимков или клипов.
+Вы можете указать несколько экземпляров или пользователей для отправки снимков или видеороликов.
 
-Активируйте уведомление в настройках, чтобы получать снимки или клипы.
+В настройках включите уведомления, чтобы получать снимки или видеоролики.
 
-Для события можно ввести минимальный балл перед отправкой. 0 = отключено
+Для участия в мероприятии можно ввести минимальный балл перед отправкой. 0 = Отключено.
 
-Клипы отправляются через 5 секунд (настройки экземпляра) после окончания события.
+Видеоролики отправляются через 5 секунд (в настройках экземпляра) после завершения события.
 
 Вы можете ввести собственный текст уведомления с помощью заполнителя `{{source}} {{type}} erkannt {{status}} {{score}} {{state}}`.
 
-## Интеграция в Vis
-Вы можете интегрировать снимки и клипы в визу:
+## Интеграция в визуализацию
+В визуализацию можно интегрировать снимки экрана и видеоклипы:
 
-Снимок:
+Снимок экрана:
 
-Добавьте `String img src` и используйте в качестве идентификатора объекта: `frigate.0.camera_name.person_snapshot`.
+— Добавьте строку `img src` и используйте её в качестве идентификатора объекта: `frigate.0.camera_name.person_snapshot`
+— Добавьте строку `String img src` и используйте её в качестве идентификатора объекта: `frigate.0.events.history.01.thumbnail`
 
-Добавьте `String img src` и используйте в качестве идентификатора объекта: `frigate.0.events.history.01.thumbnail`.
+Видеоролики:
 
-Клипы:
+- Добавить `HTML` как HTML:
 
-Добавьте элемент `HTML` в формате HTML:
-
-```
+```html
 <video width="100%" height="auto" src="{frigate.0.events.history.01.webclip}" autoplay muted>
 </video>
 ```
 
-Количество человек: frigate.0.camera.person Событие с человеком: frigate.0.events.after.label = person
+Количество человек:
+
+- `frigate.0.camera.person`
+
+Событие с участием человека:
+
+- `frigate.0.events.after.label` = person
+
+## Запуск Docker-контейнера Frigate на другом хосте
+Если вы хотите отправлять клипы и снимки через Telegram и другие подобные сервисы на хост iobroker, экземпляр Frigate и экземпляр Telegram (или другой) должны работать на одном хосте, поскольку Frigate использует дисковое пространство для хранения клипов и снимков.
 
 ## Обсуждение и вопросы
 [https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker](https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker)
@@ -109,31 +114,46 @@ mqtt:
 
 <!--
     Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
+  ### **WORK IN PROGRESS**
 -->
-### 1.1.0 (2024-03-11)
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Code optimizations and refactoring
 
-- fix deleting of notification files
-- add notification settings
+### 2.0.2 (2026-02-16)
+- (@GermanBluefox) Removed gpu_usages
 
-### 1.0.2 (2024-01-29)
+### 2.0.0 (2026-02-16)
+- (@GermanBluefox) Adapter was migrated to TypeScript
+- (@GermanBluefox) Breaking change: All states with value ON/OFF were changed to boolean true/false
+- (@GermanBluefox) Better handling of complex objects and arrays
+- (@GermanBluefox) `path_data` is not parsed anymore
+- (@GermanBluefox) Added еру possibility to start and manage docker with frigate from the adapter
 
-- reduce memory usage for clip notifications
+### 1.4.0 (2026-01-26)
 
-### 1.0.1 (2024-01-28)
+- (mcm1957) Adapter requires node.js 20 as minimum now.
+- (TA2k) Remove path_data objects to prevent too many objects generated by the adapter
 
-- fix frigate v12 camera fetching
-- fix pushover notifications
+### 1.3.3 (2026-01-26)
 
-### 1.0.0 (2024-01-26)
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
 
-- New Version with new state structure. Please check you vis and scripts. The new version doesn't need the mqtt adapter and can send directly notification to telegram.
+- (mcm1957) Adapter requires admin 6.17.14 as minimum now.
+
+### 1.3.2 (2025-05-06)
+
+- (TA2k) remove path_data from v0.16
+- (TA2k) move clip url from mp4 to m3u8
+- (mcm1957) Adapter requires js-controller 5.0.19 as minimum now.
+- (mcm1957) Several issues reported by the adapter checker have been fixed.
 
 ## License
 
 MIT License
 
-Copyright (c) 2024 TA2k <tombox2020@gmail.com>
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2024-2025 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

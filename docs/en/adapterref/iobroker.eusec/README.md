@@ -50,6 +50,10 @@ Adapter 2.0.3 and newer support node.js 22. Prior node.js version require a spec
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
 ### 2.0.3 (2025-10-26)
 - (mcm1957) Remove fix for CVE-2023-46809 for node.js 22 and newer
 
@@ -77,7 +81,7 @@ Adapter 2.0.3 and newer support node.js 22. Prior node.js version require a spec
 
 MIT License
 
-Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2024 bropat <patrick.broetto@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -32,6 +32,35 @@ The weather station data is stored in the weathersense data point.
 The data can also be sent via MQTT.
 
 ## Changelog
+### 4.2.1 (2026-02-03)
+
+- "Error during login" message fixed & timeout increased to 3000ms
+
+### 4.2.0 (2026-01-29)
+
+- Better log info
+
+### 4.1.0 (2026-01-28)
+
+- Better Admin menu
+
+### 4.0.3 (2026-01-24)
+
+- Ignore set of allStatesOk if state is undefined
+
+### 4.0.2 (2026-01-24)
+
+- DP renamed from allStatesOk to AllStatesOk
+
+### 4.0.1 (2026-01-23)
+
+- Removed duplicate call to isSuccess()
+
+### 4.0.0 (2026-01-23)
+
+- "All status OK" flag added
+- MQTT topic changed from WEATHERSENSE to WeatherSense
+
 ### 3.0.3 (2025-09-14)
 
 - eslint-config & testing version updated

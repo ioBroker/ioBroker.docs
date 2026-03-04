@@ -36,6 +36,23 @@ use of the adapter. You find a link at the top.
 
 ## Changelog
 
+### 0.6.2
+
+* (holomekc) update dependency
+
+### 0.6.1
+
+* (holomekc) adapter post install step
+* Dependencies updated
+
+### 0.6.0
+
+* (holomekc) semantic-release
+* (holomekc) release
+* (holomekc) yarn
+* (holomekc) update dependencies and fix missing room bug
+* Dependencies updated
+
 ### 0.5.2
 
 * Dependencies updated
@@ -53,22 +70,6 @@ use of the adapter. You find a link at the top.
 * (holomekc) Fixed undefined object issue
 * Dependencies updated
 
-### 0.4.1
-
-* Dependencies updated
-
-### 0.4.0
-
-* (holomekc) Minor bug fixes
-* (holomekc) Support for backups.
-* (holomekc) If you want to use the backup feature make sure that the systempassword is set in the adapter config.
-  Furthermore, in the Bosch app set the client permissions to „Operate and manage“. „More“ ➤ „Mobile Devices“ ➤ „OSS
-  ioBroker.bshb“
-
-### 0.3.0
-
-* (holomekc) Support for user automations
-
 ### Older entries
 
 [here](CHANGELOG_OLD.md)
@@ -77,7 +78,7 @@ use of the adapter. You find a link at the top.
 
 The MIT License (MIT)
 
-Copyright (c) 2025 Christopher Holomek <holomekc.github@gmail.com>
+Copyright (c) 2025-2026 Christopher Holomek <holomekc.github@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

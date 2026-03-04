@@ -112,7 +112,7 @@ This adapter imports in real time the position and the extended data from [Tracc
 
 MIT License
 
-Copyright (c) 2024  Arthur Rupp <arteck@outlook.com>,
+Copyright (c) 2024-2026  Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -49,7 +49,7 @@ Sensors can be purchased an the [FYTA Shop](https://fyta.de/collections/all)
 ## License
 MIT License
 
-Copyright (c) 2025 muffin142 <muffin142@outlook.com>
+Copyright (c) 2025-2026 muffin142 <muffin142@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

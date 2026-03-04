@@ -42,6 +42,7 @@ An XSense Bridge SBS50 is required.
 
 ## ❗ WARNING
 The adapter is **not** intended for alarm purposes — it is primarily for monitoring the device battery status.
+I accept no liability if the place burns down.
 
 ---
 
@@ -134,8 +135,45 @@ or if you have a VM on proxmox check your CPU settings
 <img width="2028" height="577" alt="grafik" src="https://github.com/user-attachments/assets/65cc5c71-4cd3-4502-b4bd-a4c7241d7708" />
 
 ------------------------------------------------------------------------------
+<!--
+      ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### 0.3.6 (2026-01-26)
+* (arteck) typo
+*
+
+### 0.3.5 (2026-01-26)
+* (arteck) check object isLifeEnd
+
+### 0.3.4 (2026-01-25)
+* (arteck) fix bridge with hex
+
+### 0.3.3 (2026-01-25)
+* (arteck) fix battery state
+
+### 0.3.2 (2026-01-25)
+* (arteck) update settings
+
+### 0.3.1 (2026-01-25)
+* (arteck) update settings
+
+### 0.3.0 (2026-01-25)
+* (arteck) update settings
+
+### 0.2.6 (2026-01-24)
+* (arteck) update settings
+
+### 0.2.5 (2026-01-24)
+* (arteck) Dependencies have been updated
+
+### 0.2.4 (2026-01-24)
+* (arteck) add MQTT communication to Bridge. Xsense app Version > 1.34 is necessary
+
+### 0.2.3 (2026-01-15)
+* (arteck) add new smoke detectors
+
 ### 0.2.2 (2025-12-03)
 * (arteck) add XS0D-MR
 

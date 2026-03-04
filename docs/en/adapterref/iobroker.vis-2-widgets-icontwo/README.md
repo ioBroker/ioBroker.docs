@@ -30,23 +30,22 @@
 
 ## Changelog
 <!--
-	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.22.2 (2026-01-06)
-- Added: CHANGELOG_OLD.md
+### 1.26.2 (2026-02-28)
+- (skvarel) Updated: @alcalzone/release-script dependencies to latest versions
 
-### 1.22.1 (2026-01-03)
-- Fix Copyright Year
+### 1.26.1 (2026-02-15)
+- (skvarel) Fixed: Issue 61 SUGGESTIONS
 
-### 1.22.0 (2025-12-31)
-- new icons added (TV amazon & echo)
+### 1.26.0 (2026-01-25)
+- Added: New icons (rooms)
 
-### 1.21.2 (2025-12-31)
-- bugfix
+### 1.25.0 (2026-01-12)
+- Added: New icons (navigation gear & wrench)
 
-### 1.21.1 (2025-12-31)
-- bugfix
+### 1.24.0 (2026-01-11)
+- Added: New icons (hobby darts)
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

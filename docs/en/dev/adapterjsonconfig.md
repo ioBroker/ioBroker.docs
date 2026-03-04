@@ -25,9 +25,11 @@ This guide explains how to define configuration options for your ioBroker adapte
    - In your adapter's `io-package.json` file, add the following line under the `common` section:
 
    ```json
-   "common": {
-       "adminUI": {
-           "config": "json"
+   {
+       "common": {
+           "adminUI": {
+               "config": "json"
+           }
        }
    }
    ```
@@ -53,7 +55,7 @@ This guide explains how to define configuration options for your ioBroker adapte
 }
 ```
 
-_If the attribute name starts with "\_" it will not be saved in the object._
+_If the attribute name starts with "\_", it will not be saved in the object._
 
 ## Example of a jsonConfig with multiple tabs
 
@@ -141,6 +143,7 @@ You can install it via GitHub icon in admin by entering `iobroker.jsonconfig-dem
 - [**`checkLicense`:**](#checklicense) Very special component to check the license online
 - [**`chips`:**](#chips) User can enter words that are added to an array
 - [**`color`:**](#color) Color picker
+- [**`coordinates`:**](#coordinates) Determines current location and used `system.config` coordinates if not possible in form `latitude,longitude`
 - [**`cron`:**](#cron) Configures cron expressions for scheduling tasks
 - [**`custom`:**](#custom) Integrates custom components for specific functionalities (Admin 6 only)
 - [**`datePicker`:**](#datepicker) Allows users to select a date
@@ -150,6 +153,8 @@ You can install it via GitHub icon in admin by entering `iobroker.jsonconfig-dem
 - [**`fileSelector`:**](#fileselector) Allows users to select files from the system (only Admin6)
 - [**`func`:**](#func) Selects a function from the enum.func list (Admin 6 only)
 - [**`header`:**](#header) Creates a heading with different sizes (h1-h5)
+- [**`iframe`:**](#iframe) Show Iframe with given URL (admin >= 7.7.28)
+- [**`iframeSendTo`:**](#iframe) Show Iframe with URL from backend (admin >= 7.7.28)
 - [**`image`:**](#image) Uploads or displays an image
 - [**`imageSendTo`:**](#imagesendto) Displays an image received from the backend and sends data based on a command
 - [**`instance`:**](#instance) Selects an adapter instance
@@ -166,6 +171,7 @@ You can install it via GitHub icon in admin by entering `iobroker.jsonconfig-dem
 - [**`pattern`:**](#pattern) Read-only field showing a pattern (e.g., URL)
 - [**`port`:**](#port) Special input for ports
 - [**`qrCode`:**](#qrcode) Displays data as a QR code (Admin 7.0.18 or newer)
+- [**`qrCodeSendTo`:**](#qrcodesendto) Displays a QR code with data received from the backend
 - [**`room`:**](#room) Selects a room from the `enum.room` list (Admin 6 only)
 - [**`select`:**](#select) Dropdown menu with predefined options
 - [**`selectSendTo`:**](#selectsendto) Dropdown menu with instance values for sending data
@@ -177,7 +183,6 @@ You can install it via GitHub icon in admin by entering `iobroker.jsonconfig-dem
 - [**`staticInfo`:**](#staticinfo) Shows static information in preformatted form, like "Title: value unit" (admin >= 7.3.3)
 - [**`staticLink`:**](#staticlink) Creates a static link
 - [**`staticText`:**](#statictext) Displays static text (e.g., description)
-- [**`coordinates`:**](#coordinates) Determines current location and used `system.config` coordinates if not possible in form "latitude,longitude"
 - [**`table`:**](#table) Table with rows that can be added, deleted, or reordered
 - [**`tabs`:**](#tabs) Tabs with items
 - [**`text`:**](#text) Single- or multi-line text input field
@@ -185,6 +190,7 @@ You can install it via GitHub icon in admin by entering `iobroker.jsonconfig-dem
 - [**`timePicker`:**](#timepicker) Allows users to select a time
 - [**`user`:**](#user) Selects a user from the `system.user` list
 - [**`uuid`:**](#uuid) Show iobroker UUID
+- [**`yamlEditor`:**](#yamleditor) YAML editor for complex configuration data (admin >= 7.7.30)
 
 By leveraging JSON configuration, you can create a user-friendly and \
 adaptable configuration experience for your ioBroker adapter.
@@ -379,7 +385,7 @@ show checkbox
 show slider (only Admin6)
 
 | Property | Description                   |
-| -------- | ----------------------------- |
+|----------|-------------------------------|
 | `min`    | (default 0)                   |
 | `max`    | (default 100)                 |
 | `step`   | (default `(max - min) / 100`) |
@@ -390,7 +396,7 @@ show slider (only Admin6)
 show data in a QR Code (admin >= 7.0.18)
 
 | Property  | Description                           |
-| --------- | ------------------------------------- |
+|-----------|---------------------------------------|
 | `data`    | the data to be encoded in the QR Code |
 | `size`    | size of the QR code                   |
 | `fgColor` | Foreground color                      |
@@ -472,10 +478,10 @@ or
 
 ### `autocomplete`
 
-| Property   | Description                                                                                                   |
-|------------|---------------------------------------------------------------------------------------------------------------|
-| `options`  | `["value1", "value2", ...]` or `[{"value": "value", "label": "Value1"}, "value2", ...]` (keys must be unique) |
-| `freeSolo` | Set `freeSolo` to `true`, so the textbox can contain any arbitrary value.                                     |
+| Property   | Description                                                                                                                      |
+|------------|----------------------------------------------------------------------------------------------------------------------------------|
+| `options`  | `["value1", "value2", ...]` or `[{"value": "value", "label": "Value1"}, "value2", ...]` (keys and names (values) must be unique) |
+| `freeSolo` | Set `freeSolo` to `true`, so the textbox can contain any arbitrary value.                                                        |
 
 ### `image`
 
@@ -567,7 +573,7 @@ object ID: show it with name, color and icon
 
 `{common: {custom: '_dataSources'}}`
 
-##### show only objects of custom settings for specific adapter (all instances)
+##### show only objects of custom settings for a specific adapter (all instances)
 
 `{common: {custom: 'adapterName.'}}`
 
@@ -643,7 +649,7 @@ Just text: Instance is running, Instance is not running
 
 ### `pattern`
 
-read-only field with pattern like 'https://${data.ip}:${data.port}' (will not be saved in config)
+The read-only field with a pattern like 'https://${data.ip}:${data.port}' (will not be saved in config)
 Text input with the read-only flag, that shows a pattern.
 
 | Property          | Description           |
@@ -653,7 +659,7 @@ Text input with the read-only flag, that shows a pattern.
 
 ### `sendTo`
 
-button that sends request to instance (<https://github.com/iobroker-community-adapters/ioBroker.email/blob/master/admin/index_m.html#L128>)
+Button that sends a request to the current instance (<https://github.com/iobroker-community-adapters/ioBroker.email/blob/master/admin/index_m.html#L128>)
 
 | Property        | Description                                                                                                                                                                                                                                  |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -734,6 +740,8 @@ table with items that could be deleted, added, moved up, moved down
 | `import`              | [optional] - if import button should be shown. Import from csv file.                                                                            |
 | `uniqueColumns`       | [optional] - specify an array of columns, which need to have unique entries                                                                     |
 | `encryptedAttributes` | [optional] - specify an array of columns, which should be encrypted                                                                             |
+| `useCardFor`          | [optional] - Breakpoint that will be rendered as cards: ["xs", "sm", "md", "lg", "xl"]                                                          |
+| `titleAttribute`      | [optional] - Define the name of the attribute of the item which should be shown as a title of the item in cards mode.                           |
 | `compact`             | [optional] - if true, the table will be shown in a compact mode                                                                                 |
 
 ### `accordion`
@@ -751,12 +759,23 @@ accordion with items that could be deleted, added, moved up, moved down (Admin 6
 
 Button to open a JSON(5) editor. JSON5 is supported from admin version 5.7.3
 
-| Property               | Description                                                           |
-|------------------------|-----------------------------------------------------------------------|
-| `validateJson`         | if false, the text will be not validated as JSON                      |
-| `allowEmpty`           | if true, the JSON will be validated only if the value is not empty    |
-| `json5`                | if JSON5 format allowed (From 7.5.3)                                  |
-| `doNotApplyWithError`  | Do not allow to save the value if error in JSON or JSON5 (From 7.5.3) |
+| Property               | Description                                                                             |
+|------------------------|-----------------------------------------------------------------------------------------|
+| `validateJson`         | if false, the text will be not validated as JSON                                        |
+| `allowEmpty`           | if true, the JSON will be validated only if the value is not empty                      |
+| `json5`                | if JSON5 format allowed (From 7.5.3)                                                    |
+| `doNotApplyWithError`  | Do not allow to save the value if error in JSON or JSON5 (From 7.5.3)                   |
+| `readOnly`             | Open the editor in read-only mode - editor can be opened but content cannot be modified |
+
+### `yamlEditor`
+
+Button to open a YAML editor with syntax validation. (From admin version 7.7.30)
+
+| Property               | Description                                                                             |
+|------------------------|-----------------------------------------------------------------------------------------|
+| `validateYaml`         | if false, the text will be not validated as YAML                                        |
+| `allowEmpty`           | if true, the YAML will be validated only if the value is not empty                      |
+| `doNotApplyWithError`  | Do not allow to save the value if error in YAML                                         |
 | `readOnly`             | Open the editor in read-only mode - editor can be opened but content cannot be modified |
 
 ### `language`
@@ -858,7 +877,7 @@ Shows CRON settings. You have 3 options:
 | `simple`  | show simple CRON settings                     |
 
 ### `fileSelector`
-Select a file from one folder as drop down menu. And if you want you can upload a new file to this folder.
+Select a file from one folder as a drop-down menu. And if you want, you can upload a new file to this folder.
 
 only Admin6
 
@@ -894,15 +913,16 @@ only Admin6.
 
 ### `imageSendTo`
 
-shows image that was received from backend as base64 string
+shows the image received from the backend as base64 string
 
-| Property   | Description                                                                                                                                                 |
-|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `width`    | width of QR code in px                                                                                                                                      |
-| `height`   | height of QR code in px                                                                                                                                     |
-| `command`  | sendTo command                                                                                                                                              |
-| `jsonData` | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to backend                                         |
-| `data`     | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to backend if jsonData is not defined. |
+| Property           | Description                                                                                                                                                 |
+|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `width`            | width of QR code in px                                                                                                                                      |
+| `height`           | height of QR code in px                                                                                                                                     |
+| `command`          | sendTo command                                                                                                                                              |
+| `jsonData`         | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to backend                                         |
+| `data`             | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to backend if jsonData is not defined. |
+| `sendFirstByClick` | show image first when clicked. `true` - standard text (Click to show) or specific text                                                                      |
 
 #### Example of code in back-end for `imageSendTo`
 
@@ -915,6 +935,94 @@ adapter.on("message", (obj) => {
       (err, url) =>
         obj.callback && adapter.sendTo(obj.from, obj.command, url, obj.callback)
     );
+  }
+});
+```
+
+### `qrCodeSendTo`
+
+Sends a command to the adapter instance and displays the response string as a QR code.
+The backend must return a plain string (the data to encode).
+
+| Property           | Description                                                                                                                                                 |
+|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `command`          | sendTo command (default: `"send"`)                                                                                                                          |
+| `alsoDependsOn`    | array of attribute names — the QR code is refreshed whenever any of these attributes change                                                                 |
+| `jsonData`         | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to backend                                         |
+| `data`             | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to backend if jsonData is not defined. |
+| `sendFirstByClick` | load QR code only after a click. `true` — standard text ("Click to show") or a custom string/translation object used as the button label                    |
+| `size`             | size of the QR code in px                                                                                                                                   |
+| `fgColor`          | foreground color (default: `"#000000"`)                                                                                                                     |
+| `bgColor`          | background color (default: `"#ffffff"`)                                                                                                                     |
+| `level`            | error correction level: `L`, `M`, `Q`, or `H` (default: `L`)                                                                                                |
+
+#### Example of code in back-end for `qrCodeSendTo`
+
+```js
+adapter.on("message", (obj) => {
+    if (obj.command === "send") {
+        // return the string to be encoded in the QR code
+        obj.callback && adapter.sendTo(obj.from, obj.command, "https://example.com/pair?token=abc123", obj.callback);
+    }
+});
+```
+
+### `iframe`
+
+Shows an iframe with the specified URL. (from Admin 7.7.28)
+
+| Property          | Description                                                                              |
+|-------------------|------------------------------------------------------------------------------------------|
+| `url`             | URL to display in the iframe. If defined, it will be static element                      |
+| `allowFullscreen` | Allow fullscreen mode (default: `false`)                                                 |
+| `sandbox`         | Sandbox attributes for security restrictions (e.g., `"allow-same-origin allow-scripts"`) |
+| `loading`         | Lazy loading: `lazy` or `eager` (default: `lazy`)                                        |
+| `frameBorder`     | Frame border width (default: `0`)                                                        |
+| `reloadOnShow`    | Reload iframe when it becomes visible in the viewport                                    |
+
+#### Example for `iframe`
+
+```json
+{
+  "type": "iframe",
+  "url": "https://example.com",
+  "allowFullscreen": true,
+  "sandbox": "allow-same-origin allow-scripts",
+  "loading": "lazy",
+  "reloadOnShow": false
+}
+```
+
+### `iframeSendTo`
+
+Shows an iframe with a URL received from the backend. (from Admin 7.7.28)
+
+| Property   | Description                                                                                                                                                 |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `command`  | sendTo command                                                                                                                                              |
+| `jsonData` | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to backend                                         |
+| `data`     | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to backend if jsonData is not defined. |
+
+The backend must return a URL as a string.
+
+#### Example for `iframeSendTo`
+
+```json
+{
+  "type": "iframeSendTo",
+  "command": "getUrl",
+  "jsonData": "{\"param\": \"${data.value}\"}",
+  "height": 600
+}
+```
+
+#### Example of code in back-end for `iframeSendTo`
+
+```js
+adapter.on("message", (obj) => {
+  if (obj.command === "getUrl") {
+    const url = "https://example.com?param=" + obj.message.param;
+    adapter.sendTo(obj.from, obj.command, url, obj.callback);
   }
 });
 ```
@@ -1001,9 +1109,9 @@ Shows autocomplete control with the given from the instance values.
 | `alsoDependsOn` | by change of which attributes, the command must be resent                                                                                                       |
 | `maxLength`     | max length of the text in field                                                                                                                                 |
 
-To use this option, your adapter must implement message handler:
+To use this option, your adapter must implement a message handler:
 
-The result of command must be an array in form `["value1", {"value": "value2", "label": "Value2"}, ...]` (keys must be unique)
+The result of command must be an array in form `["value1", {"value": "value2", "label": "Value2"}, ...]` (keys and names (values) must be unique)
 See `selectSendTo` for handler example
 
 ### `textSendTo`
@@ -1026,7 +1134,7 @@ The result of command must be a string or object with the following parameters:
 {
   text: "text to show", // mandatory
   style: { color: "red" }, // optional
-  icon: "search", // optional. It could be base64 or link to image in the same folder as jsonConfig.json file
+  icon: "search", // optional. It could be base64 or link to an image in the same folder as jsonConfig.json file
   // possible predefined names: edit, rename, delete, refresh, add, search, unpair, pair, identify, play, stop, pause, forward, backward, next, previous, lamp, backlight, dimmer, socket, settings, group, user, qrcode, connection, no-connection, visible
   iconStyle: { width: 30 }, // optional
 }
@@ -1075,7 +1183,7 @@ adapter.on("message", (obj) => {
 
 ### `coordinates`
 
-Determines current location and used `system.config` coordinates if not possible in form "latitude,longitude"
+Determines current location and used `system.config` coordinates if not possible in form `latitude,longitude`
 
 | Property        | Description                                                                                                                                                            |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1096,7 +1204,7 @@ Select the interface of the host, where the instance runs
 
 ### `license`
 
-shows the license information if not already accepted. One of attributes `texts` or `licenseUrl` must be defined. When the license is accepted, the defined configuration attribute will be set to `true`.
+It shows the license information if not already accepted. One of attributes `texts` or `licenseUrl` must be defined. When the license is accepted, the defined configuration attribute will be set to `true`.
 
 | Property     | Description                                                                                                |
 |--------------|------------------------------------------------------------------------------------------------------------|
@@ -1131,7 +1239,7 @@ Show iobroker UUID
 
 ### `port`
 
-Special input for ports. It checks automatically if port is used by other instances and shows a warning
+Special input for ports. It checks automatically if the port is used by other instances and shows a warning
 
 | Property | Description                                                                                                                   |
 |----------|-------------------------------------------------------------------------------------------------------------------------------|
@@ -1171,6 +1279,7 @@ Special input for ports. It checks automatically if port is used by other instan
 | `showEnterButton` | Show SET button. The value in this case will be sent only when the button is pressed. You can define the text of the button. Default text is "Set" (Only for "input", "number" or "slider")          |
 | `setOnEnterKey`   | The value in this case will be sent only when the "Enter" button is pressed. It can be combined with `showEnterButton`                                                                               |
 | `options`         | Options for `select` in form `["value1", "value2", ...]` or `[{"value": "value", "label": "Value1", "color": "red"}, "value2", ...]`. If not defiled, the `common.states` in the object must exist.  |
+| `digits`          | Number of decimal places to display for numeric values in `text`/`html` mode (e.g. `2` turns `230.2764537654374` into `230.28`)                                                                      |
 
 ### `staticInfo`
 
@@ -1212,7 +1321,7 @@ Shows closable static text with optional title and icon. (From admin >= 7.6.19)
 
 show device manager. For that, the adapter must support device manager protocol. See iobroker/dm-utils.
 
-Here is an example of how to show device manager in a tab:
+Here is an example of how to show the device manager in a tab:
 
 ```json5
 {
@@ -1253,7 +1362,7 @@ These options are used to define the width of elements on different screen sizes
 
 Valid numbers are 1 to 12.
 
-If you specify a number, for example 6, then the width of the element will be 6/12 (50%) of the screen width or for example 3, then the width of the element will be 3/12 (25%) of the screen width.
+If you specify a number, for example, 6, then the width of the element will be 6/12 (50%) of the screen width or, for example, 3, then the width of the element will be 3/12 (25%) of the screen width.
 Assign numbers to the different layout options specify the width of the element for the different screen sizes.
 
 | option | description                              |
@@ -1364,7 +1473,7 @@ Example:
 In this case input must be text, where shown `__different__`, with the autocomplete option of three possible values.
 Users can select from dropdown 1000, 2000 or 3000 or input their own new value, e.g., 500.
 
-Boolean must support indeterminate if value is [false, true]
+Boolean must support indeterminate if a value is [false, true]
 
 For non changed `__different__` the value different must be returned:
 
@@ -1442,7 +1551,7 @@ If the `alive` status changes, so all fields must be updated, validated, disable
 
 The following variables are available in JS function in adapter settings:
 
-- `data` - native settings for this instance or current line in the table (to access all settings use globalData)
+- `data` - native settings for this instance or current line in the table (to access all settings, use globalData)
 - `_system` - system configuration
 - `_alive` - is instance being alive
 - `_common` - common settings for this instance
@@ -1482,7 +1591,7 @@ const isValid = func(
 
 The following variables are available in JS function in custom settings:
 
-- `data` - current custom settings or current line in the table (to access all settings use globalData)
+- `data` - current custom settings or current line in the table (to access all settings, use globalData)
 - `originalData` - Unchanged data
 - `_system` - system configuration
 - `instanceObj` - adapter instance object
@@ -1523,8 +1632,8 @@ For that you must define in `io-package.json` in `common` part following:
          // all following parameters are optional
          "icon": "AABBCC", // base64 icon. If not provided, the adapter icon will be taken
          "name": "TabName", // String or multi-language object for menu label 
-         "singleton": true, // Tab will not have an instance number and for all instances will exist only one menu item. 
-         "order": 10, // Order in admin tab (0 is disabled, 1 - first after static menu items, 200 is last) 
+         "singleton": true, // Tab will not have an instance number, and for all instances will exist only one menu item. 
+         "order": 10, // Order in the admin tab (0 is disabled, 1 - first after static menu items, 200 is last) 
       },
       // ....
    }
@@ -1589,7 +1698,7 @@ onMessage = (obj: ioBroker.Message): void => {
 Create an issue here: https://github.com/ioBroker/ioBroker.admin/issues
 
 ## For maintainer
-To update the location of JsonConfig schema, create pull request to this file: https://github.com/ioBroker/ioBroker.admin/blob/master/packages/jsonConfig/schemas/jsonConfig.json
+To update the location of JsonConfig schema, create a pull request to this file: https://github.com/ioBroker/ioBroker.admin/blob/master/packages/jsonConfig/schemas/jsonConfig.json
 
 ## For developer
 The schema is used here: https://github.com/SchemaStore/schemastore/blob/6da29cd9d7cc240fb4980625f0de6cf7bd8dfd06/src/api/json/catalog.json#L3214
@@ -1599,6 +1708,35 @@ The schema is used here: https://github.com/SchemaStore/schemastore/blob/6da29cd
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 8.2.3 (2026-03-04)
+- (@GermanBluefox) Increased the QR code padding
+
+### 8.2.2 (2026-03-03)
+- (@GermanBluefox) Added option `sendFirstByClick` to `imageSendTo`
+- (@GermanBluefox) Added new component: `qrCodeSendTo`
+- (@GermanBluefox) Added option `digits` to `state` component
+- (@GermanBluefox) Trying to fix indication of the problems in the table
+
+### 8.1.11 (2026-02-12)
+- (@GermanBluefox) Added the copy-to-clipboard dialog for `sendTo`
+
+### 8.1.9 (2026-02-10)
+- (@GermanBluefox) Hiding the whole line in the table if shown as card and the line is empty
+- (@GermanBluefox) Added the header to the table in the card mode
+
+### 8.1.3 (2026-02-09)
+- (@GermanBluefox) Added component `yamlEditor` for editing YAML files in admin
+
+### 8.1.1 (2026-02-06)
+- (@GermanBluefox) Added `iframe` and `iframeSendTo` components
+
+### 8.0.8 (2026-01-27)
+- (@GermanBluefox) Fixing the `alive` component
+- (@GermanBluefox) Fixing the `datePicker` component
+
+### 8.0.7 (2026-01-27)
+- (@GermanBluefox) Updated adapter-react-v5
+
 ### 8.0.6 (2025-11-10)
 - (@GermanBluefox) Added width to many table elements
 
@@ -1619,7 +1757,7 @@ The schema is used here: https://github.com/SchemaStore/schemastore/blob/6da29cd
 
 The MIT License (MIT)
 
-Copyright (c) 2019-2025 @GermanBluefox <dogafox@gmail.com>
+Copyright (c) 2019-2026 @GermanBluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

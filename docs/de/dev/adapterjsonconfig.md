@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: kKg40oC5RGL3q1x4nI7qTNIqlhwAp7kKd1FtjRBdkT8=
+hash: 7ziegV+BjbzDnaPC4m+5m5RvIOfUu8K2pyUytmxbePE=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -28,9 +28,11 @@ Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Ada
 - Fügen Sie in der `io-package.json`-Datei Ihres Adapters die folgende Zeile unter dem Abschnitt `common` hinzu:
 
 ```json
-"common": {
-    "adminUI": {
-        "config": "json"
+{
+    "common": {
+        "adminUI": {
+            "config": "json"
+        }
     }
 }
 ```
@@ -136,6 +138,7 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`checkLicense`:**](#checklicense) Eine spezielle Komponente zur Online-Lizenzprüfung
 - [**`chips`:**](#chips) Der Benutzer kann Wörter eingeben, die einem Array hinzugefügt werden.
 - [**`color`:**](#color) Farbauswahl
+- [**`coordinates`:**](#coordinates) Bestimmt den aktuellen Standort und verwendet die Koordinaten aus `system.config`, falls diese nicht im Format `latitude,longitude` verfügbar sind.
 - [**`cron`:**](#cron) Konfiguriert Cron-Ausdrücke für die Planung von Aufgaben
 - [**`custom`:**](#custom) Integriert benutzerdefinierte Komponenten für spezifische Funktionalitäten (nur Admin 6)
 - [**`datePicker`:**](#datepicker) Ermöglicht Benutzern die Auswahl eines Datums
@@ -145,6 +148,8 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`fileSelector`:**](#fileselector) Ermöglicht Benutzern die Auswahl von Dateien aus dem System (nur Admin6)
 - [**`func`:**](#func) Wählt eine Funktion aus der enum.func-Liste aus (nur Admin 6)
 - [**`header`:**](#header) Erstellt eine Überschrift mit verschiedenen Größen (h1-h5)
+- [**`iframe`:**](#iframe) Zeigt iFrame mit der angegebenen URL an (admin >= 7.7.28)
+- [**`iframeSendTo`:**](#iframe) Zeigt ein iFrame mit URL aus dem Backend an (Admin >= 7.7.28)
 - [**`image`:**](#image) Lädt ein Bild hoch oder zeigt es an
 - [**`imageSendTo`:**](#imagesendto) Zeigt ein vom Backend empfangenes Bild an und sendet Daten basierend auf einem Befehl
 - [**`instance`:**](#instance) Wählt eine Adapterinstanz aus.
@@ -161,6 +166,7 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`pattern`:**](#pattern) Schreibgeschütztes Feld, das ein Muster (z. B. eine URL) anzeigt
 - [**`port`:**](#port) Spezieller Eingang für Ports
 - [**`qrCode`:**](#qrcode) Zeigt Daten als QR-Code an (Admin 7.0.18 oder neuer)
+- [**`qrCodeSendTo`:**](#qrcodesendto) Zeigt einen QR-Code mit den vom Backend empfangenen Daten an.
 - [**`room`:**](#room) Wählt einen Raum aus der Liste `enum.room` aus (nur Admin 6)
 - [**`select`:**](#select) Dropdown-Menü mit vordefinierten Optionen
 - [**`selectSendTo`:**](#selectsendto) Dropdown-Menü mit Instanzwerten zum Senden von Daten
@@ -172,7 +178,6 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`staticInfo`:**](#staticinfo) Zeigt statische Informationen in vorformatierter Form an, z. B. "Titel: Werteinheit" (admin >= 7.3.3)
 - [**`staticLink`:**](#staticlink) Erstellt einen statischen Link
 - [**`staticText`:**](#statictext) Zeigt statischen Text an (z. B. eine Beschreibung)
-- [**`coordinates`:**](#coordinates) Bestimmt den aktuellen Standort und verwendet die `system.config`-Koordinaten, falls diese nicht im Format "latitude,longitude" verfügbar sind.
 - [**`table`:**](#table) Tabelle mit Zeilen, die hinzugefügt, gelöscht oder neu angeordnet werden können
 - [**`tabs`:**](#tabs) Tabs mit Elementen
 - [**`text`:**](#text) Ein- oder mehrzeiliges Texteingabefeld
@@ -180,6 +185,7 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`timePicker`:**](#timepicker) Ermöglicht Benutzern die Auswahl einer Uhrzeit
 - [**`user`:**](#user) Wählt einen Benutzer aus der Liste `system.user` aus
 - [**`uuid`:**](#uuid) iobroker-UUID anzeigen
+- [**`yamlEditor`:**](#yamleditor) YAML-Editor für komplexe Konfigurationsdaten (admin >= 7.7.30)
 
 Durch die Verwendung von JSON-Konfiguration können Sie eine benutzerfreundliche und anpassungsfähige Konfigurationsumgebung für Ihren ioBroker-Adapter schaffen.
 
@@ -358,7 +364,7 @@ Kontrollkästchen anzeigen
 Schieberegler anzeigen (nur Admin6)
 
 | Objekt | Beschreibung |
-| -------- | ----------------------------- |
+|----------|-------------------------------|
 | `min` | (Standardwert 0) |
 | `step` | (Standard `(max - min) / 100`) |
 | `unit` | Einheit des Schiebereglers |
@@ -368,7 +374,7 @@ Schieberegler anzeigen (nur Admin6)
 Daten in einem QR-Code anzeigen (Admin >= 7.0.18)
 
 | Objekt | Beschreibung |
-| --------- | ------------------------------------- |
+|-----------|---------------------------------------|
 | `data` | die im QR-Code zu kodierenden Daten |
 | `fgColor` | Vordergrundfarbe |
 | `bgColor` | Hintergrundfarbe |
@@ -446,8 +452,8 @@ oder
 
 ### `autocomplete`
 | Objekt | Beschreibung |
-|------------|---------------------------------------------------------------------------------------------------------------|
-| `options` | `["value1", "value2", ...]` oder `[{"value": "value", "label": "Value1"}, "value2", ...]` (Schlüssel müssen eindeutig sein) |
+|------------|----------------------------------------------------------------------------------------------------------------------------------|
+| `options` | `["value1", "value2", ...]` oder `[{"value": "value", "label": "Value1"}, "value2", ...]` (Schlüssel und Namen (Werte) müssen eindeutig sein) |
 | `freeSolo` | Setzen Sie `freeSolo` auf `true`, damit das Textfeld einen beliebigen Wert enthalten kann. |
 
 ### `image`
@@ -495,7 +501,7 @@ Um dies nutzen zu können, müssen Sie zunächst die OAuth2-Daten (Client-ID, Ge
 
 | Objekt | Beschreibung |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `identifier` | OAuth2-Kennung, wie z. B. `spotify`, `google`, `dropbox`, `microsoft` |
+| `identifier` | OAuth2-Kennung, z. B. `spotify`, `google`, `dropbox`, `microsoft` |
 | `scope` | Optionale Bereiche, durch Leerzeichen getrennt, z. B. `user-read-private user-read-email` |
 | `refreshLabel` | Optionale Schaltflächenbeschriftung zum Aktualisieren des Tokens |
 | `refreshLabel` | Optionale Schaltflächenbeschriftung zum Aktualisieren des Tokens |
@@ -596,7 +602,7 @@ Nur Text: Instanz läuft, Instanz läuft nicht
 | `textNotAlive` | Der Standardtext lautet `Instanz %s ist nicht aktiv`, wobei %s durch `ADAPTER.0` ersetzt wird. Die Übersetzung muss in den i18n-Dateien vorhanden sein. |
 
 ### `pattern`
-Schreibgeschütztes Feld mit einem Muster wie 'https://${data.ip}:${data.port}' (wird nicht in der Konfiguration gespeichert). Texteingabefeld mit dem schreibgeschützten Flag, das ein Muster anzeigt.
+Das schreibgeschützte Feld mit einem Muster wie 'https://${data.ip}:${data.port}' (wird nicht in der Konfiguration gespeichert) Texteingabe mit dem schreibgeschützten Flag, das ein Muster anzeigt.
 
 | Objekt | Beschreibung |
 |-------------------|-----------------------|
@@ -604,7 +610,7 @@ Schreibgeschütztes Feld mit einem Muster wie 'https://${data.ip}:${data.port}' 
 | `Muster` | mein Muster |
 
 ### `sendTo`
-Schaltfläche, die eine Anfrage an die Instanz sendet (<https://github.com/iobroker-community-adapters/ioBroker.email/blob/master/admin/index_m.html#L128>)
+Schaltfläche, die eine Anfrage an die aktuelle Instanz sendet (<https://github.com/iobroker-community-adapters/ioBroker.email/blob/master/admin/index_m.html#L128>)
 
 | Objekt | Beschreibung |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -673,12 +679,14 @@ Tabelle mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten ve
 | `objValueName` | (Veraltete Einstellung, nicht verwenden!) - Name des Werts in `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` |
 | `allowAddByFilter` | Hinzufügen erlaubt, auch wenn ein Filter gesetzt ist |
 | `showSecondAddAt` | Anzahl der Zeilen, ab denen die zweite Schaltfläche „Hinzufügen“ am unteren Rand der Tabelle angezeigt wird. Standardwert: 5 |
-| `showFirstAddOnTop` | Erste Plus-Schaltfläche oben in der ersten Spalte und nicht links anzeigen. |
+| `showFirstAddOnTop` | Die erste Plus-Schaltfläche soll oben in der ersten Spalte und nicht links angezeigt werden. |
 | `clone` | [optional] - Gibt an, ob die Schaltfläche „Klonen“ angezeigt werden soll. Ist dies der Fall, wird die Schaltfläche „Klonen“ angezeigt. Falls es sich um einen Attributnamen handelt, muss dieser eindeutig sein. |
 | `export` | [optional] - wenn die Export-Schaltfläche angezeigt werden soll. Als CSV-Datei exportieren. |
 | `import` | [optional] - falls die Import-Schaltfläche angezeigt werden soll. Import aus einer CSV-Datei. |
 | `uniqueColumns` | [optional] - Geben Sie ein Array von Spalten an, die eindeutige Einträge enthalten müssen |
 | `encryptedAttributes` | [optional] - Geben Sie ein Array von Spalten an, die verschlüsselt werden sollen |
+| `useCardFor` | [optional] - Haltepunkt, der als Karten gerendert wird: ["xs", "sm", "md", "lg", "xl"] |
+| `titleAttribute` | [optional] - Definiert den Namen des Attributs des Elements, das im Kartenmodus als Titel des Elements angezeigt werden soll. |
 | `compact` | [optional] - Falls wahr, wird die Tabelle im Kompaktmodus angezeigt |
 | `compact` | [optional] - Wenn true, wird die Tabelle im Kompaktmodus angezeigt |
 
@@ -696,10 +704,20 @@ Akkordeonmenü mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach u
 Schaltfläche zum Öffnen eines JSON(5)-Editors. JSON5 wird ab Admin-Version 5.7.3 unterstützt.
 
 | Objekt | Beschreibung |
-|------------------------|-----------------------------------------------------------------------|
+|------------------------|-----------------------------------------------------------------------------------------|
 | `validateJson` | Wenn false, wird der Text nicht als JSON validiert |
 | `json5` | falls JSON5-Format zulässig ist (ab Version 7.5.3) |
 | `doNotApplyWithError` | Speichern des Werts bei Fehlern in JSON oder JSON5 nicht zulassen (ab Version 7.5.3) |
+| `readOnly` | Editor im Nur-Lese-Modus öffnen – Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
+| `readOnly` | Öffnet den Editor im Nur-Lese-Modus – der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
+
+### `yamlEditor`
+Schaltfläche zum Öffnen eines YAML-Editors mit Syntaxprüfung. (Ab Admin-Version 7.7.30)
+
+| Objekt | Beschreibung |
+|------------------------|-----------------------------------------------------------------------------------------|
+| `validateYaml` | Wenn false, wird der Text nicht als YAML validiert |
+| `doNotApplyWithError` | Speichern des Werts bei Fehlern in YAML nicht zulassen |
 | `readOnly` | Editor im Nur-Lese-Modus öffnen – Editor kann geöffnet, aber Inhalt kann nicht geändert werden |
 | `readOnly` | Öffnet den Editor im Nur-Lese-Modus – der Editor kann geöffnet, aber der Inhalt nicht geändert werden |
 
@@ -793,7 +811,7 @@ Zeigt die CRON-Einstellungen an. Sie haben 3 Optionen:
 | `simple` | einfache CRON-Einstellungen anzeigen |
 
 ### `fileSelector`
-Wählen Sie eine Datei aus einem Ordner über das Dropdown-Menü aus. Sie können bei Bedarf auch eine neue Datei in diesen Ordner hochladen.
+Wählen Sie eine Datei aus einem Ordner über ein Dropdown-Menü aus. Und wenn Sie möchten, können Sie eine neue Datei in diesen Ordner hochladen.
 
 nur Admin6
 
@@ -828,15 +846,16 @@ Nur Admin6.
 | `trim` | Dateinamen kürzen |
 
 ### `imageSendTo`
-zeigt ein Bild, das vom Backend als Base64-String empfangen wurde.
+zeigt das vom Backend empfangene Bild als Base64-Zeichenkette an.
 
 | Objekt | Beschreibung |
-|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `width` | Breite des QR-Codes in Pixeln |
 | `command` | sendTo-Befehl |
 | `jsonData` | Zeichenkette - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
-| `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
+| `sendFirstByClick` | Bild zuerst anzeigen, wenn angeklickt wird. `true` - Standardtext (Zum Anzeigen klicken) oder spezifischer Text |
+| `sendFirstByClick` | Bild zuerst beim Anklicken anzeigen. `true` - Standardtext (Zum Anzeigen klicken) oder spezifischer Text |
 
 #### Beispielcode im Backend für `imageSendTo`
 ```js
@@ -848,6 +867,87 @@ adapter.on("message", (obj) => {
       (err, url) =>
         obj.callback && adapter.sendTo(obj.from, obj.command, url, obj.callback)
     );
+  }
+});
+```
+
+### `qrCodeSendTo`
+Sendet einen Befehl an die Adapterinstanz und zeigt die Antwortzeichenfolge als QR-Code an.
+Das Backend muss eine einfache Zeichenkette (die zu kodierenden Daten) zurückgeben.
+
+| Objekt | Beschreibung |
+|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `command` | sendTo-Befehl (Standard: `"send"`) |
+| `jsonData` | Zeichenkette - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
+| `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
+| `sendFirstByClick` | QR-Code erst nach einem Klick laden. `true` — Standardtext („Zum Anzeigen klicken“) oder ein benutzerdefiniertes Zeichenketten-/Übersetzungsobjekt, das als Schaltflächenbeschriftung verwendet wird |
+| `size` | Größe des QR-Codes in Pixeln |
+| `fgColor` | Vordergrundfarbe (Standard: `"#000000"`) |
+| `bgColor` | Hintergrundfarbe (Standard: `"#ffffff"`) |
+| `level` | Fehlerkorrekturstufe: `L`, `M`, `Q` oder `H` (Standard: `L`) |
+| `level` | Fehlerkorrekturstufe: `L`, `M`, `Q` oder `H` (Standard: `L`) |
+
+#### Beispielcode im Backend für `qrCodeSendTo`
+```js
+adapter.on("message", (obj) => {
+    if (obj.command === "send") {
+        // return the string to be encoded in the QR code
+        obj.callback && adapter.sendTo(obj.from, obj.command, "https://example.com/pair?token=abc123", obj.callback);
+    }
+});
+```
+
+### `iframe`
+Zeigt einen iFrame mit der angegebenen URL an. (aus Admin 7.7.28)
+
+| Objekt | Beschreibung |
+|-------------------|------------------------------------------------------------------------------------------|
+| `url` | URL, die im iFrame angezeigt werden soll. Falls definiert, handelt es sich um ein statisches Element. |
+| `sandbox` | Sandbox-Attribute für Sicherheitsbeschränkungen (z. B. `"allow-same-origin allow-scripts"`) |
+| `loading` | Lazy Loading: `lazy` oder `eager` (Standard: `lazy`) |
+| `frameBorder` | Rahmenbreite (Standard: `0`) |
+| `reloadOnShow` | iFrame neu laden, sobald er im Viewport sichtbar wird |
+| `reloadOnShow` | iFrame neu laden, sobald er im Viewport sichtbar wird |
+
+#### Beispiel für `iframe`
+```json
+{
+  "type": "iframe",
+  "url": "https://example.com",
+  "allowFullscreen": true,
+  "sandbox": "allow-same-origin allow-scripts",
+  "loading": "lazy",
+  "reloadOnShow": false
+}
+```
+
+### `iframeSendTo`
+Zeigt einen iFrame mit einer vom Backend empfangenen URL an. (aus Admin 7.7.28)
+
+| Objekt | Beschreibung |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `command` | sendTo-Befehl |
+| `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
+| `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
+
+Das Backend muss eine URL als Zeichenkette zurückgeben.
+
+#### Beispiel für `iframeSendTo`
+```json
+{
+  "type": "iframeSendTo",
+  "command": "getUrl",
+  "jsonData": "{\"param\": \"${data.value}\"}",
+  "height": 600
+}
+```
+
+#### Beispielcode im Backend für `iframeSendTo`
+```js
+adapter.on("message", (obj) => {
+  if (obj.command === "getUrl") {
+    const url = "https://example.com?param=" + obj.message.param;
+    adapter.sendTo(obj.from, obj.command, url, obj.callback);
   }
 });
 ```
@@ -933,7 +1033,7 @@ Zeigt ein Autovervollständigungssteuerelement mit den angegebenen Instanzwerten
 
 Um diese Option nutzen zu können, muss Ihr Adapter einen Nachrichtenhandler implementieren:
 
-Das Ergebnis des Befehls muss ein Array der Form `["value1", {"value": "value2", "label": "Value2"}, ...]` sein (die Schlüssel müssen eindeutig sein). Siehe `selectSendTo` für ein Handler-Beispiel.
+Das Ergebnis des Befehls muss ein Array der Form `["value1", {"value": "value2", "label": "Value2"}, ...]` sein (Schlüssel und Namen (Werte) müssen eindeutig sein). Siehe `selectSendTo` für ein Handler-Beispiel.
 
 ### `textSendTo`
 Zeigt ein schreibgeschütztes Steuerelement mit den angegebenen Instanzwerten.
@@ -953,7 +1053,7 @@ Um diese Option zu nutzen, muss Ihr Adapter einen Nachrichtenhandler implementie
 {
   text: "text to show", // mandatory
   style: { color: "red" }, // optional
-  icon: "search", // optional. It could be base64 or link to image in the same folder as jsonConfig.json file
+  icon: "search", // optional. It could be base64 or link to an image in the same folder as jsonConfig.json file
   // possible predefined names: edit, rename, delete, refresh, add, search, unpair, pair, identify, play, stop, pause, forward, backward, next, previous, lamp, backlight, dimmer, socket, settings, group, user, qrcode, connection, no-connection, visible
   iconStyle: { width: 30 }, // optional
 }
@@ -1000,7 +1100,7 @@ adapter.on("message", (obj) => {
 ```
 
 ### `coordinates`
-Ermittelt den aktuellen Standort und verwendet die Koordinaten `system.config`, falls diese nicht im Format „Breitengrad,Längengrad“ angegeben werden können.
+Ermittelt den aktuellen Standort und verwendet die Koordinaten `system.config`, falls dies nicht in der Form `latitude,longitude` möglich ist.
 
 | Objekt | Beschreibung |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1019,7 +1119,7 @@ Wählen Sie die Schnittstelle des Hosts aus, auf dem die Instanz ausgeführt wir
 | `ignoreInternal` | Interne Schnittstellen nicht anzeigen (normalerweise auch 127.0.0.1) |
 
 ### `license`
-Zeigt die Lizenzinformationen an, falls diese noch nicht akzeptiert wurden. Eines der Attribute `texts` oder `licenseUrl` muss definiert sein. Nach der Lizenzakzeptanz wird das definierte Konfigurationsattribut auf `true` gesetzt.
+Es werden die Lizenzinformationen angezeigt, sofern diese noch nicht akzeptiert wurden. Eines der Attribute `texts` oder `licenseUrl` muss definiert sein. Nach der Lizenzakzeptanz wird das definierte Konfigurationsattribut auf `true` gesetzt.
 
 | Objekt | Beschreibung |
 |--------------|------------------------------------------------------------------------------------------------------------|
@@ -1051,7 +1151,7 @@ Eine ganz spezielle Komponente zur Online-Lizenzprüfung. Sie benötigt exakt di
 iobroker-UUID anzeigen
 
 ### `port`
-Spezielle Eingabe für Ports. Es prüft automatisch, ob ein Port von anderen Instanzen verwendet wird, und zeigt eine Warnung an.
+Spezielle Eingabe für Ports. Es prüft automatisch, ob der Port von anderen Instanzen verwendet wird, und zeigt eine Warnung an.
 
 | Objekt | Beschreibung |
 |----------|-------------------------------------------------------------------------------------------------------------------------------|
@@ -1089,7 +1189,8 @@ Spezielle Eingabe für Ports. Es prüft automatisch, ob ein Port von anderen Ins
 | `showEnterButton` | Schaltfläche „SET“ anzeigen. Der Wert wird in diesem Fall nur beim Drücken der Schaltfläche gesendet. Sie können den Text der Schaltfläche festlegen. Standardtext ist „Set“ (nur für „input“, „number“ oder „slider“). |
 | `setOnEnterKey` | Der Wert wird in diesem Fall nur gesendet, wenn die "Enter"-Taste gedrückt wird. Er kann mit `showEnterButton` kombiniert werden. |
 | `options` | Optionen für `select` in Form von `["value1", "value2", ...]` oder `[{"value": "value", "label": "Value1", "color": "red"}, "value2", ...]`. Falls nicht verfälscht, muss `common.states` im Objekt vorhanden sein. |
-| `options` | Optionen für `select` in der Form `["value1", "value2", ...]` oder `[{"value": "value", "label": "Value1", "color": "red"}, "value2", ...]`. Falls nicht verfälscht, muss `common.states` im Objekt vorhanden sein. |
+| `digits` | Anzahl der Dezimalstellen, die für numerische Werte im Modus `text`/`html` angezeigt werden sollen (z. B. wird aus `2` `230.2764537654374` `230.28`) |
+| `digits` | Anzahl der Dezimalstellen, die für numerische Werte im `text`/`html`-Modus angezeigt werden sollen (z. B. macht `2` aus `230.2764537654374` `230.28`) |
 
 ### `staticInfo`
 Zeigt statische Informationen in vorformatierter Form an, z. B. „Titel: Werteinheit“ (Admin >= 7.3.3). Dieses Steuerelement wird hauptsächlich in dynamischen Formularen verwendet.
@@ -1101,7 +1202,7 @@ Zeigt statische Informationen in vorformatierter Form an, z. B. „Titel: Wertei
 | `narrow` | (optional) Normalerweise werden Titel und Wert links und rechts in der Zeile angezeigt. Mit diesem Flag erscheint der Wert direkt nach der Beschriftung |
 | `addColon` | (optional) Füge dem Label am Ende einen Doppelpunkt hinzu, falls dieser im Label noch nicht vorhanden ist. |
 | `blinkOnUpdate` | (optional) Der Wert soll bei Aktualisierung blinken (wahr oder Farbe) |
-| `blink` | (optional) Wert sollte kontinuierlich blinken (wahr oder Farbe) |
+| `blink` | (optional) Wert soll kontinuierlich blinken (wahr oder Farbe) |
 | `styleLabel` | (optional) React CSS Styles |
 | `styleValue` | (optional) React CSS Styles |
 | `styleUnit` | (optional) React CSS Styles |
@@ -1127,7 +1228,7 @@ Zeigt einen ausschließbaren statischen Text mit optionalem Titel und Symbol an.
 ### `deviceManager`
 Zeigen Sie den Geräte-Manager an. Dazu muss der Adapter das Geräte-Manager-Protokoll unterstützen. Siehe iobroker/dm-utils.
 
-Hier ist ein Beispiel dafür, wie der Geräte-Manager in einem Tab angezeigt wird:
+Hier ist ein Beispiel, wie der Geräte-Manager in einem Tab angezeigt werden kann:
 
 ```json5
 {
@@ -1271,7 +1372,7 @@ Beispiel:
 In diesem Fall muss die Eingabe als Text erfolgen, wie im Beispiel `__different__` dargestellt. Zur Vervollständigung stehen drei mögliche Werte zur Verfügung.
 Benutzer können aus den Dropdown-Menüs 1000, 2000 oder 3000 auswählen oder einen eigenen Wert eingeben, z. B. 500.
 
-Boolesche Werte müssen den Zustand „unbestimmt“ unterstützen, wenn der Wert [false, true] ist.
+Boolesche Werte müssen den Status „unbestimmt“ unterstützen, wenn ein Wert [false, true] ist.
 
 Für nicht geänderte `__different__` muss der abweichende Wert zurückgegeben werden:
 
@@ -1428,8 +1529,8 @@ Dazu müssen Sie in `io-package.json` im folgenden Teil von `common` definieren:
          // all following parameters are optional
          "icon": "AABBCC", // base64 icon. If not provided, the adapter icon will be taken
          "name": "TabName", // String or multi-language object for menu label
-         "singleton": true, // Tab will not have an instance number and for all instances will exist only one menu item.
-         "order": 10, // Order in admin tab (0 is disabled, 1 - first after static menu items, 200 is last)
+         "singleton": true, // Tab will not have an instance number, and for all instances will exist only one menu item.
+         "order": 10, // Order in the admin tab (0 is disabled, 1 - first after static menu items, 200 is last)
       },
       // ....
    }
@@ -1507,6 +1608,35 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 8.2.3 (2026-03-04)
+- (@GermanBluefox) Increased the QR code padding
+
+### 8.2.2 (2026-03-03)
+- (@GermanBluefox) Added option `sendFirstByClick` to `imageSendTo`
+- (@GermanBluefox) Added new component: `qrCodeSendTo`
+- (@GermanBluefox) Added option `digits` to `state` component
+- (@GermanBluefox) Trying to fix indication of the problems in the table
+
+### 8.1.11 (2026-02-12)
+- (@GermanBluefox) Added the copy-to-clipboard dialog for `sendTo`
+
+### 8.1.9 (2026-02-10)
+- (@GermanBluefox) Hiding the whole line in the table if shown as card and the line is empty
+- (@GermanBluefox) Added the header to the table in the card mode
+
+### 8.1.3 (2026-02-09)
+- (@GermanBluefox) Added component `yamlEditor` for editing YAML files in admin
+
+### 8.1.1 (2026-02-06)
+- (@GermanBluefox) Added `iframe` and `iframeSendTo` components
+
+### 8.0.8 (2026-01-27)
+- (@GermanBluefox) Fixing the `alive` component
+- (@GermanBluefox) Fixing the `datePicker` component
+
+### 8.0.7 (2026-01-27)
+- (@GermanBluefox) Updated adapter-react-v5
+
 ### 8.0.6 (2025-11-10)
 - (@GermanBluefox) Added width to many table elements
 
@@ -1527,7 +1657,7 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 
 The MIT License (MIT)
 
-Copyright (c) 2019-2025 @GermanBluefox <dogafox@gmail.com>
+Copyright (c) 2019-2026 @GermanBluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

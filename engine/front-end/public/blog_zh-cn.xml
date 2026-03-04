@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[有关ioBroker的新闻，公告和想法]]></description>
         <link>https://www.iobroker.net/#zh-cn/blog</link>
-        <lastBuildDate>Mon, 29 Dec 2025 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 04 Mar 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[ioBroker月度回顾 – 2026年1月/2月]]></title>
+            <description><![CDATA[
+                <p>ioBroker 的新年伊始就迎来了重大更新！在 2026 年的前两个月里，我们向 `latest` 仓库添加了众多新的适配器，其中一些已经升级到 `stable` 版本。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2026_03_04</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2026_03_04</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 04 Mar 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[2025年回顾]]></title>
             <description><![CDATA[

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ping/README.md
 title: PING适配器
-hash: Ik1WbI1tFqu04+qoinEQuD6k2cb0P2D71rgyUPQwaiU=
+hash: t86QYMQbMZP8PMZ1y8DQEn2mFm2RRM5dNusUJF4NXfE=
 ---
 ![标识](../../../en/adapterref/iobroker.ping/admin/ping.png)
 
@@ -12,17 +12,17 @@ hash: Ik1WbI1tFqu04+qoinEQuD6k2cb0P2D71rgyUPQwaiU=
 ![下载](https://img.shields.io/npm/dm/iobroker.ping.svg)
 
 # PING 适配器
-![测试和发布](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试与发布](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## 对配置的 IP 地址进行 Ping。
-在定义的时间间隔内对指定的 IP 地址执行 ping 操作并监控结果。
+## Ping 已配置的 IP 地址。
+在设定的时间间隔内 ping 指定的 IP 地址并监控结果。
 
-您还可以通过在 IP 地址后加上冒号指定端口号来监控 TCP 端口（例如，`192.168.1.1:80` 或 `google.com:443`）。这将检查端口是否可访问，而不是使用 ICMP ping。
+您还可以通过在 IP 地址后用冒号指定端口号来监控 TCP 端口（例如，`192.168.1.1:80` 或 `google.com:443`）。这将检查端口是否可达，而不是使用 ICMP ping。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告的信息，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
-## 从 javascript 适配器进行 Ping
-您可以使用命令从 JavaScript 适配器 ping 任何 IP 地址：
+## 通过 JavaScript 适配器进行 Ping
+您可以使用以下命令从 JavaScript 适配器 ping 通任何 IP 地址：
 
 ```js
 sendTo('ping.0', 'ping', '192.168.1.1', res => {
@@ -39,28 +39,93 @@ sendTo('ping.0', 'ping', '192.168.1.1:80', res => {
 ```
 
 ## 已知问题
-- 如果无法 ping 通您的 Linux 客户端，请检查客户端上是否正确安装了“iputils-ping”。
+- 如果无法 ping 通您的 Linux 客户端，请检查客户端上是否正确安装了 `iputils-ping`。
 
 - Linux 下的 `ping` 命令需要 root 权限。
 
-您可以授予适配器以 root 身份执行 `ping` 命令的权限。
+您可以授予适配器以 root 用户身份执行 `ping` 命令的权限。
 
-为此，您需要使用`sudo visudo`命令将以下行添加到`/etc/sudoers`文件：`iobroker ALL=(ALL) NOPASSWD: /bin/ping`。
+为此，您需要使用 `sudo visudo` 命令将以下行添加到 `/etc/sudoers` 文件中：`iobroker ALL=(ALL) NOPASSWD: /bin/ping`。
 
-或者您可以通过`sudo setcap cap_net_raw+ep /bin/ping`命令允许执行 ping。
+或者，您可以使用 `sudo setcap cap_net_raw+ep /bin/ping` 命令允许执行 ping 命令。
 
-如果未找到`setcup`，则必须先安装`setcap` 和`sudo apt-get install libcap2-bin`。
+如果找不到 `setcup`，则必须先安装 `setcap` 和 `sudo apt-get install libcap2-bin`。
 
-## TCP 端口检查
+## Hping3 对睡眠设备（例如 iPhone）的支持
+某些设备，特别是处于深度睡眠模式的 iPhone，不会响应标准的 ICMP ping 请求。为了可靠地检测此类设备，适配器可以使用 `hping3` 向端口 5353 (mDNS) 发送一串 UDP 数据包来唤醒设备，然后再进行常规 ping 请求以确认设备是否可达。
+
+在“设备”表中为各个设备启用“使用 hping3”。适配器运行如下：
+
+```
+hping3 -2 -c 10 -p 5353 -i u1 -q <IP>
+```
+
+然后立即执行常规的 ICMP ping 请求。如果未安装 hping3，适配器会自动回退到常规 ping 请求。
+
+**安装（仅限 Linux）：** 在主设置中启用“如果 hping3 不可用则安装”选项。如果系统中尚未安装 hping3，适配器将在启动时运行 `sudo apt-get install -y hping3`。或者，您可以手动安装 hping3：
+
+```bash
+sudo apt-get install hping3
+```
+
+TCP端口检查
 从 1.8.0 版本开始，您还可以通过在 IP 地址后用冒号指定端口号来检查 TCP 端口（例如，`192.168.1.1:80`）。
 
 适配器将检查 TCP 端口是否可达，而不是使用 ICMP ping。
 
-<!-- 下一个版本的占位符（在行首）：
+## 通过 JavaScript 适配器实现网络唤醒
+您可以使用设备的 MAC 地址发送 Wake-on-LAN 魔术包来唤醒任何设备：
 
-### **工作正在进行** -->
+```js
+// Send to broadcast (255.255.255.255)
+sendTo('ping.0', 'wakeOnLan', '01:23:45:67:89:AB', res => {
+    console.log('Result: ' + JSON.stringify(res)); // Result: {"result": {"mac": "01:23:45:67:89:AB"}}
+});
+
+// Send to a specific IP (e.g. directed broadcast)
+sendTo('ping.0', 'wakeOnLan', { mac: '01:23:45:67:89:AB', ip: '192.168.1.255' }, res => {
+    console.log('Result: ' + JSON.stringify(res)); // Result: {"result": {"mac": "01:23:45:67:89:AB", "ip": "192.168.1.255"}}
+});
+```
+
+## 写给活着的州
+设备的每个状态都是可写的，并且会对未经确认的写入操作做出反应：
+
+- **写入 `false`** — 会在正常轮询间隔之外立即触发对该设备的 ping 操作。
+- **写入 `true`** — 发送一个 [Wake-on-LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) 魔术包来唤醒设备。
+
+### 局域网唤醒
+要使网络唤醒 (Wake-on-LAN) 功能正常工作，适配器需要知道设备的 MAC 地址。解析顺序如下：
+
+1. **通过网络浏览发现 MAC 地址** — 如果在网络浏览过程中发现了该设备，则其 MAC 地址会自动缓存。
+2. **实时 ARP 查找** — 如果上述方法不可用，适配器会在写入时尝试通过 ARP 解析 MAC 地址。
+
+如果无法确定 MAC 地址，则会记录警告信息，并且不会发送数据包。
+
+JavaScript 适配器示例：
+
+```js
+// Trigger immediate ping
+setState('ping.0.myHost.192_168_1_1', false);
+
+// Send Wake-on-LAN magic packet
+setState('ping.0.myHost.192_168_1_1', true);
+```
+
+<!-- 下一版本的占位符（位于行首）：
+
+### **正在进行中** -->
 
 ## Changelog
+### 2.1.0 (2026-03-04)
+- (@GermanBluefox) Implemented wake-on-lan functionality
+- (@GermanBluefox) Implemented pings with hping3 for sleeping devices (e.g. iPhones)
+
+### 2.0.0 (2026-02-26)
+- (@GermanBluefox) Migrated to TypeScript
+- (@GermanBluefox) Updated dependencies
+- (@GermanBluefox) A Minimal Node.js version is now 20
+
 ### 1.8.0 (2025-10-05)
 
 - (@GermanBluefox) Removed admin 4,5 support
@@ -69,7 +134,7 @@ sendTo('ping.0', 'ping', '192.168.1.1:80', res => {
 
 ### 1.7.9 (2024-10-01)
 
-- (@GermanBluefox) Small changes the layout of the dynamic messages
+- (@GermanBluefox) Small changes to the layout of the dynamic messages
 
 ### 1.7.8 (2024-09-28)
 
@@ -83,7 +148,7 @@ sendTo('ping.0', 'ping', '192.168.1.1:80', res => {
 
 ### 1.7.5 (2024-09-18)
 
-- (@GermanBluefox) Corrected small error about range length
+- (@GermanBluefox) Corrected a small error about range length
 
 ### 1.7.4 (2024-09-17)
 
@@ -149,7 +214,7 @@ sendTo('ping.0', 'ping', '192.168.1.1:80', res => {
 
 ### 1.4.6 (2020-04-29)
 
-- (Apollon77) Make sure the adapter does not crash if ping command cannot be executed (Sentry)
+- (Apollon77) Make sure the adapter does not crash if the ping command cannot be executed (Sentry)
 - (Apollon77) Catch error when `ping.probe` could not be started (Sentry IOBROKER-PING-2)
 
 ### 1.4.5 (2020-04-23)
@@ -220,7 +285,7 @@ sendTo('ping.0', 'ping', '192.168.1.1:80', res => {
 
 ### 0.1.0 (2014-11-26)
 
-- (@GermanBluefox) Used ping npm module instead of static one
+- (@GermanBluefox) Used ping npm module instead of a static one
 
 ### 0.0.5 (2014-11-21)
 
@@ -232,7 +297,7 @@ sendTo('ping.0', 'ping', '192.168.1.1:80', res => {
 
 ### 0.0.3 (2014-11-03)
 
-- (@GermanBluefox) fix ping node (do not forget to remove package from git when the npm gets the update)
+- (@GermanBluefox) fix ping node (do not forget to remove the package from git when the npm gets the update)
 
 ### 0.0.1 (2014-11-02)
 
@@ -242,7 +307,7 @@ sendTo('ping.0', 'ping', '192.168.1.1:80', res => {
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2025, @GermanBluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026, @GermanBluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

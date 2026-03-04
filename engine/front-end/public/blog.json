@@ -1,5 +1,23 @@
 {
   "pages": {
+    "2026_03_04": {
+      "date": "2026.03.04",
+      "title": {
+        "de": "ioBroker Monatsrückblick – Januar/Februar 2026",
+        "en": "ioBroker Monthly Review – January/February 2026",
+        "ru": "Ежемесячный обзор ioBroker – январь/февраль 2026 г.",
+        "zh-cn": "ioBroker月度回顾 – 2026年1月/2月"
+      },
+      "logo": "de/blog/images/2026_03_04.jpg",
+      "type": "news",
+      "originalName": "2026_03_04.md",
+      "desc": {
+        "de": "Das neue Jahr ist in ioBroker mit voller Fahrt gestartet!\\nIn den ersten zwei Monaten des Jahres 2026 wurden zahlreiche neue Adapter in das `latest`-Repository aufgenommen,\\nund einige davon haben bereits den Sprung in die `stable`-Version geschafft.\\nAußerdem gibt es eine wichtige Nachricht für Z-Wave-Nutzer: der bisherige `zwave2`-Adapter\\nwurde durch eine modernere Lösung abgelöst.",
+        "en": "The new year has kicked off with a bang in ioBroker! In the first two months of 2026, numerous new adapters were added to the `latest` repository, and some of them have already been upgraded to the `stable` version.",
+        "ru": "Новый год в ioBroker начался с размахом! За первые два месяца 2026 года в репозиторий `latest` было добавлено множество новых адаптеров, а некоторые из них уже обновлены до версии `stable`.",
+        "zh-cn": "ioBroker 的新年伊始就迎来了重大更新！在 2026 年的前两个月里，我们向 `latest` 仓库添加了众多新的适配器，其中一些已经升级到 `stable` 版本。"
+      }
+    },
     "2025_12_29": {
       "date": "2025.12.29",
       "title": {

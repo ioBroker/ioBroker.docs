@@ -21,6 +21,9 @@ e.g. you can use it for power or temperature values.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.5.1 (2026-02-28)
+* (BenAhrdt) update dependecies
+
 ### 2.5.0 (2025-10-19)
 * (BenAhrdt) update Authorisation NPM
 * (BenAhrdt) update testing and eslint
@@ -104,7 +107,7 @@ e.g. you can use it for power or temperature values.
 ## License
 MIT License
 
-Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025-2026 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -109,6 +109,7 @@ It handles text, HTML, json and XML data types wizh special query mechanisms.
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 
 ### 1.3.0 (2025-05-27)

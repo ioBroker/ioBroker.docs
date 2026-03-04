@@ -41,6 +41,10 @@ This adapter would not have been possible without the great work of Michael Schu
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
 ### 2.0.0 (2025-12-04)
 
 * (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
@@ -72,7 +76,7 @@ Kaffee spendieren/serve a coffee
 
 MIT License
 
-Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Michael Schuster
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

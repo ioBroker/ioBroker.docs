@@ -86,8 +86,10 @@ The data points are divided into:
 -->
 
 ### **WORK IN PROGRESS**
+- (mcm1957) Adapetr requires node.js >= 20 now
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated
 
 ### 1.1.0 (2024-04-14)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
@@ -115,7 +117,7 @@ The data points are divided into:
 ## License
 MIT License
 
-Copyright (c) 2024 iobroker-community-adapters <mcm57@gmx.at>
+Copyright (c) 2024-2026 iobroker-community-adapters <mcm57@gmx.at>
 Copyright (c) 2023 xXBJXx <issi.dev.iobroker@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -134,4 +136,5 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
 SOFTWARE.

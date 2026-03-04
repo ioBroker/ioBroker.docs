@@ -94,10 +94,10 @@ onFile('doorbird.0', 'TakeSnapshot_1.jpg', true, (id, fileName, size, fileData, 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 3.1.0 (2026-02-24)
+- (copilot) **CI/CD**: Migrated to ESLint 9 with @iobroker/eslint-config standard configuration
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
 
 ### 3.0.0 (2025-03-03)
 
@@ -119,15 +119,11 @@ NodeJS >= 20.x and js-controller >= 6 is required
 - (mcm1957) Adapter requires node.js >= 18 and Admin >=6 now
 - (mcm1957) Dependencies have been updated
 
-### 1.5.0 (2024-03-01)
-
-- (Schmakus) update dependencies
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2025 iobroker-community-adapters <>
+Copyright (c) 2025-2026 iobroker-community-adapters <>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

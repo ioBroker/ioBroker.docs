@@ -84,10 +84,11 @@ The data is as follows Provided:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.0.0-beta.1 (2025-11-16)
-- (ticaki) fixed: states/timezone/translation
+### 1.0.1 (2026-02-20)
+- (ticaki) sunrise and sunset fixed
 
-### 1.0.0-beta.0 (2025-11-15)
+### 1.0.0 (2026-01-10)
+- (ticaki) fixed: states/timezone/translation
 - (ticaki) Customisable update interval for Daily (expert)
 - (ticaki) BREAKING: remove forHomoran states
 

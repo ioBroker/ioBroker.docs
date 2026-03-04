@@ -67,6 +67,10 @@ You can then configure a notification service of your choice for forwarding.
 ## Changelog
 
 <!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+* (simatec) Fix License
+* (simatec) dependencies updated
+
 ### 0.2.4 (2025-11-23)
 * (simatec) dependencies updated
 * (simatec) Fix npm publish
@@ -149,7 +153,7 @@ You can then configure a notification service of your choice for forwarding.
 
 MIT License
 
-Copyright (c) 2024 - 2025 simatec
+Copyright (c) 2024 - 2026 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -73,9 +73,12 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 0.8.4 (2026-02-24)
 * (HGlab01) checkExpire for termination-attributes
 * (HGlab01) add attributes 'smartReminders' & 'smartRemindersInAppEnabled'
+* (HGlab01) fix #1107 masterswitch turning OFF does not work any longer
+* (HGlab01) fix #1117 Request failed with status code 400 with response "Unsupported content type"
+* (HGlab01) bump axios to 1.13.5
 
 ### 0.8.3 (2025-11-13)
 * (HGlab01) add capability to set OffSet [TadoX]
@@ -107,9 +110,6 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 * (HGlab01) Bump axios to 1.12.2
 * (HGlab01) Bump iobroker-jsonexplorer to 0.2.0
 
-### 0.7.10 (2025-04-25)
-* (HGlab01) further token refresh optimizations
-
 ## License
 MIT License
 
@@ -133,4 +133,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 
 SOFTWARE.
-

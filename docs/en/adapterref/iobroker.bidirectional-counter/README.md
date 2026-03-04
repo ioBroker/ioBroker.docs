@@ -29,6 +29,18 @@ The counter state will increase up from its saved value, when the shelly energy 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.5.8 (2026-02-28)
+* (BenAhrdt) bugfix 2.0 dependencies
+
+### 2.5.7 (2026-02-28)
+* (BenAhrdt) bugfix dependencies
+
+### 2.5.6 (2026-02-28)
+* (BenAhrdt) update dependencies
+
+### 2.5.5 (2026-02-10)
+* (BenAhrdt) implements max difference value
+
 ### 2.5.4 (2025-11-10)
 * (BenAhrdt) set raw common.writable = false
 
@@ -122,7 +134,7 @@ The counter state will increase up from its saved value, when the shelly energy 
 ## License
 MIT License
 
-Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025-2026 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

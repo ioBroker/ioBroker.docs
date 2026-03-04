@@ -115,6 +115,17 @@ You can debug view charts locally with:
   -->
 
 ## Changelog
+### 3.1.0 (2026-03-02)
+- (@GermanBluefox) Trying to rebuild the canvas by the start
+
+### 3.0.2 (2026-02-16)
+- (@GermanBluefox) Calculate values in the legend
+- (@GermanBluefox) Added noLoader option to the widget
+
+### 3.0.1 (2026-02-16)
+- (@GermanBluefox) Updated packages
+- (@GermanBluefox) Removed support for node 18
+
 ### 2.0.10 (2025-09-01)
 
 - (@GermanBluefox) Just improvement of the build system
@@ -429,10 +440,10 @@ You can debug view charts locally with:
 
 ioBroker.echarts is available under the Apache License V2.
 
-Copyright (c) 2019-2025 @GermanBluefox <dogafox@gmail.com>
+Copyright (c) 2019-2026 @GermanBluefox <dogafox@gmail.com>
 
 Apache ECharts
-Copyright (c) 2017-2025 The Apache Software Foundation
+Copyright (c) 2017-2026 The Apache Software Foundation
 
 This product includes software developed at
 The Apache Software Foundation (https://www.apache.org/).

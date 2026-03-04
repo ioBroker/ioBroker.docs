@@ -195,6 +195,10 @@ You have restarted the adapter too often and each time a new session is requeste
     ### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+- add test and coverage
+
 ### 1.1.1 (2025-07-25)
 
 - fix translation

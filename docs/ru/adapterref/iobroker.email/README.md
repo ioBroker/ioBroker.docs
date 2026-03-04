@@ -3,44 +3,46 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.email/README.md
 title: электронная почта ioBroker
-hash: OCwy25hQr/7+CA/MUkCbY1CqRk1SW2ZZroC6I4SG/yA=
+hash: Ov4aLJqCZXW3HxuRV6bwJO5tYF3Tev0m8wEdJq4E7zI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.email/admin/email.png)
 
 ![Количество установок](http://iobroker.live/badges/email-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.email.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.email.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.email.svg)
 
-# IoBroker электронная почта
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker email
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![[Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Отправляйте письма из ioBroker. С помощью этого адаптера вы не сможете проверять письма, только отправлять их.
+Отправляйте электронные письма из ioBroker. С помощью этого адаптера вы не можете проверять электронные письма, только отправлять их.
 
-Адаптер использует [nodemailer](https://github.com/nodemailer/nodemailer) для обеспечения функциональности.
+Для обеспечения функциональности адаптер использует [nodemailer](https://github.com/nodemailer/nodemailer).
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Подробнее об отключении отчётов об ошибках см. в разделе [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчёты Sentry используются, начиная с версии js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
-## Примечания, касающиеся конкретного поставщика услуг электронной почты
+**ВАЖНО:** При переходе с версии 1.x.x на 2.x.x вам может потребоваться повторно ввести свои учетные данные, если возникнут проблемы с подключением.
+
+## Примечания, касающиеся конкретного почтового провайдера
 ### Gmail
-**Важно:** Если в вашем аккаунте Gmail включена двухфакторная аутентификация (2FA), вам **необходимо** использовать пароль приложения вместо обычного пароля Gmail. Nodemailer всегда требовал этого для Gmail с двухфакторной аутентификацией.
+**Важно:** Если в вашей учетной записи Gmail включена двухфакторная аутентификация (2FA), вам **необходимо** использовать пароль приложения вместо обычного пароля Gmail. Для Gmail с 2FA это требование всегда выполнялось программой nodemailer.
 
-Чтобы настроить Gmail с 2FA:
+Чтобы настроить Gmail с двухфакторной аутентификацией:
 
-1. Включите двухэтапную аутентификацию в настройках вашего аккаунта Google.
-2. Создайте пароль приложения специально для адаптера электронной почты ioBroker.
-3. Используйте свой адрес Gmail в качестве имени пользователя и сгенерированный пароль приложения в качестве пароля в настройках адаптера.
+1. Включите двухфакторную аутентификацию в настройках своего аккаунта Google.
+2. Сгенерируйте пароль приложения специально для почтового адаптера ioBroker.
+3. В настройках адаптера используйте свой адрес Gmail в качестве имени пользователя и сгенерированный пароль приложения в качестве пароля.
 
-Для учётных записей без двухфакторной аутентификации (2FA) вам может потребоваться включить функцию «Разрешить менее безопасные приложения» в настройках учётной записи Gmail. Также для использования SMTP может потребоваться разблокировать учётную запись, разрешив доступ к вашей учётной записи Google.
+Для учетных записей без двухфакторной аутентификации может потребоваться настроить параметр «Разрешить менее защищенные приложения» в параметрах вашей учетной записи Gmail. Также может потребоваться разблокировать вашу учетную запись, разрешив доступ к вашей учетной записи Google, чтобы использовать протокол SMTP.
 
 ### Mail.ee
-Для электронной почты mail.ee **не** используйте ваши обычные данные для входа в веб-почту. Вместо этого:
+Для работы с почтовым сервисом mail.ee **не** используйте свои обычные учетные данные для входа в веб-почту. Вместо этого:
 
-- **Имя пользователя**: используйте полный адрес электронной почты (например, `username@mail.ee`)
-- **Пароль**: используйте специальный пароль IMAP/SMTP (не пароль вашей веб-почты)
-- Чтобы узнать пароль IMAP/SMTP: войдите в свою учетную запись веб-почты mail.ee и перейдите на страницу [https://posti.mail.ee/prefs?group=enable_pop3](https://posti.mail.ee/prefs?group=enable_pop3)
+- **Имя пользователя**: Используйте свой полный адрес электронной почты (например, `username@mail.ee`)
+- **Пароль**: Используйте специальный пароль IMAP/SMTP (а не пароль от вашей веб-почты).
+- Чтобы узнать свой пароль IMAP/SMTP: Войдите в свою учетную запись веб-почты mail.ee и перейдите по ссылке [https://posti.mail.ee/prefs?group=enable_pop3](https://posti.mail.ee/prefs?group=enable_pop3)
 
 ## Использование
-Чтобы отправить письмо из ScriptEngine, просто напишите:
+Для отправки электронных писем из ScriptEngine просто напишите:
 
 ```js
 // send email to all instances of email adapter
@@ -82,27 +84,27 @@ sendTo('email', {
 });
 ```
 
-Чтобы отправить электронное письмо с другого адаптера, используйте функцию `adapter.sendTo`.
+Для отправки электронных писем с другого адаптера используйте функцию `adapter.sendTo`.
 
-## Поддерживаемые услуги
+## Поддерживаемые сервисы
 - 1und1 / ionos
-- АОЛ
+- AOL
 - DebugMail.io
 - DynectEmail
-- Быстрая почта
+- FastMail
 - GandiMail
 - Gmail
-- Годэдди
+- Godaddy
 - GodaddyAsia
 - GodaddyEurope
 - hot.ee
-- Хотмейл
+- Hotmail
 - iCloud
 - ит
 - mail.ee
 - Mail.ru
-- Mailgun
-- Мэйлджет
+- Почтовая пушка
+- Mailjet
 - Мандрил
 - Навер
 - Office365
@@ -115,21 +117,28 @@ sendTo('email', {
 - СЭС
 - SES-US-EAST-1
 - SES-US-WEST-2
-- ЮЭС-ЕС-ЗАПАД-1
+- SES-EU-WEST-1
 - t-online.de
 - Спаркпост
-- Яху
+- Yahoo
 - Яндекс
-- Зохо
-- Зависит от пользователя (сервер, порт и безопасность определяются вручную)
+- Zoho
+- Индивидуальные настройки пользователя (сервер, порт и параметры безопасности задаются вручную)
 
-Для других служб см. документацию **Nodemailer**: `§§LLLLL_0§§`
+Для получения информации о других сервисах см. документацию **Nodemailer**: `§§LLLLL_0§§`
 
 ## Changelog
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+- (@copilot) Set up GitHub Copilot instructions with centralized ioBroker template (v0.5.7) and weekly monitoring workflow
+
 ### 2.0.5-alpha.0 (2025-10-06)
 * (@copilot) Fixed SMTP relay anonymous access by ignoring user and password when empty
 * (@copilot) Fixed Office365 OAuth email sending from scripts by ensuring fresh tokens are used
@@ -147,6 +156,7 @@ sendTo('email', {
 * (@GermanBluefox) Fixing pass decoding
 
 ### 2.0.0 (2025-03-11)
+* **IMPORTANT:** You may have to enter your credentials once again if you encounter connection problems. 
 * (@GermanBluefox) Breaking change: Structure of configuration was corrected, and it could be they needed to be reconfigured
 * (@GermanBluefox) Made Outlook work again. Requires now to be authenticated via OAuth2
 * (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now
@@ -159,6 +169,8 @@ sendTo('email', {
 
 The MIT License (MIT)
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2014-2025 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.email/README.md
 title: ioBroker 电子邮件
-hash: OCwy25hQr/7+CA/MUkCbY1CqRk1SW2ZZroC6I4SG/yA=
+hash: Ov4aLJqCZXW3HxuRV6bwJO5tYF3Tev0m8wEdJq4E7zI=
 ---
 ![标识](../../../en/adapterref/iobroker.email/admin/email.png)
 
@@ -12,35 +12,37 @@ hash: OCwy25hQr/7+CA/MUkCbY1CqRk1SW2ZZroC6I4SG/yA=
 ![下载](https://img.shields.io/npm/dm/iobroker.email.svg)
 
 # IoBroker 电子邮件
-![测试和发布](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试与发布](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-从 ioBroker 发送电子邮件。您无法使用此适配器查看电子邮件，只能发送邮件。
+使用 ioBroker 发送电子邮件。此适配器只能发送邮件，不能查看邮件。
 
-适配器使用[节点邮件程序](https://github.com/nodemailer/nodemailer)来提供功能。
+该适配器使用[节点邮件](https://github.com/nodemailer/nodemailer)来提供功能。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
-## 电子邮件提供商具体说明
+**重要提示：**如果您在从 1.x.x 版本迁移到 2.x.x 版本时遇到连接问题，可能需要再次输入您的凭据。
+
+## 电子邮件提供商特定说明
 ### Gmail
-**重要提示**：如果您的 Gmail 帐户启用了双因素身份验证 (2FA)，则**必须**使用应用密码，而不是常规的 Gmail 密码。nodemailer 一直以来都要求启用 2FA 的 Gmail 必须使用应用密码。
+**重要提示：**如果您在 Gmail 帐户上启用了双重验证 (2FA)，则**必须**使用应用密码，而不是您的常规 Gmail 密码。nodemailer 一直以来都要求启用了 2FA 的 Gmail 用户必须这样做。
 
-要使用 2FA 设置 Gmail：
+设置 Gmail 双重验证：
 
 1. 在您的 Google 帐户设置中启用两步验证
-2. 为 ioBroker 电子邮件适配器生成专用应用程序密码
-3. 在适配器配置中使用您的 Gmail 地址作为用户名，并使用生成的 App Password 作为密码
+2. 专门为 ioBroker 电子邮件适配器生成应用密码
+3. 在适配器配置中，使用您的 Gmail 地址作为用户名，使用生成的应用程序密码作为密码。
 
-对于未启用双重身份验证 (2FA) 的账户，您可能需要在 Gmail 账户设置中配置“允许安全性较低的应用”。您还需要通过“允许访问您的 Google 账户”解锁账户才能使用 SMTP。
+对于未启用双重验证的帐户，您可能需要在 Gmail 帐户设置中启用“允许安全性较低的应用”。此外，您可能还需要启用“允许访问您的 Google 帐户”才能使用 SMTP 服务。
 
-###邮件.ee
-对于 mail.ee 电子邮件服务，请勿使用您常用的网页邮件登录凭证。请改为：
+### Mail.ee
+对于 mail.ee 电子邮件服务，**请勿**使用您常用的网页邮箱登录凭据。请改用：
 
-- **用户名**：使用您的完整电子邮件地址（例如，`username@mail.ee`）
-- **密码**：使用特殊的 IMAP/SMTP 密码（不是您的网络邮件密码）
-- 要查找您的 IMAP/SMTP 密码：登录您的 mail.ee 网络邮件帐户并访问 [https://posti.mail.ee/prefs?group=enable_pop3](https://posti.mail.ee/prefs?group=enable_pop3)
+- **用户名**：请使用您的完整电子邮件地址（例如，`username@mail.ee`）
+- **密码**：请使用专用的 IMAP/SMTP 密码（而不是您的网页邮箱密码）。
+- 要查找您的 IMAP/SMTP 密码：登录您的 mail.ee 网络邮箱帐户并访问 [https://posti.mail.ee/prefs?group=enable_pop3](https://posti.mail.ee/prefs?group=enable_pop3)
 
 ＃＃ 用法
-要从 ScriptEngine 发送电子邮件，只需输入：
+要从 ScriptEngine 发送电子邮件，只需编写：
 
 ```js
 // send email to all instances of email adapter
@@ -82,54 +84,61 @@ sendTo('email', {
 });
 ```
 
-要从另一个适配器发送电子邮件，请使用`adapter.sendTo` 函数。
+要从另一个适配器发送电子邮件，请使用 `adapter.sendTo` 函数。
 
 ## 支持的服务
-- 1und1 / ionos
+- 1und1 / 离子
 - 美国在线
 - DebugMail.io
 - Dynect电子邮件
--FastMail
+快速邮件
 - GandiMail
 - Gmail
-- 戈达迪
-- GoDaddy亚洲
--Godaddy欧洲
+- Godaddy
+- GodaddyAsia
+- GodaddyEurope
 - hot.ee
 - Hotmail
 - iCloud
 - ith
 - mail.ee
 - Mail.ru
-- 邮枪
-- Mailjet
-- 山魈
+邮枪
+邮件喷射
+山魈
 - Naver
--Office365
+- Office365
 - OpenMailBox
-- 邮戳
+邮戳
 - QQ
 - QQex
--SendCloud
-- 发送网格
+SendCloud
+SendGrid
 - SES
-- SES-美国-东部-1
-- SES-美国西部-2
-- SES-欧盟-西部-1
+- SES-US-EAST-1
+- SES-US-WEST-2
+- SES-EU-WEST-1
 - t-online.de
 - Sparkpost
-- 雅虎
-- Yandex
-- Zoho
-- 用户特定（手动定义服务器、端口和安全性）
+雅虎
+Yandex
+Zoho
+- 用户特定（服务器、端口和安全设置手动定义）
 
-对于其他服务，请参阅 **Nodemailer** 的文档：`§§LLLLL_0§§`
+其他服务请参阅**Nodemailer**文档：`§§LLLLL_0§§`
 
 ## Changelog
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+- (@copilot) Set up GitHub Copilot instructions with centralized ioBroker template (v0.5.7) and weekly monitoring workflow
+
 ### 2.0.5-alpha.0 (2025-10-06)
 * (@copilot) Fixed SMTP relay anonymous access by ignoring user and password when empty
 * (@copilot) Fixed Office365 OAuth email sending from scripts by ensuring fresh tokens are used
@@ -147,6 +156,7 @@ sendTo('email', {
 * (@GermanBluefox) Fixing pass decoding
 
 ### 2.0.0 (2025-03-11)
+* **IMPORTANT:** You may have to enter your credentials once again if you encounter connection problems. 
 * (@GermanBluefox) Breaking change: Structure of configuration was corrected, and it could be they needed to be reconfigured
 * (@GermanBluefox) Made Outlook work again. Requires now to be authenticated via OAuth2
 * (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now
@@ -159,6 +169,8 @@ sendTo('email', {
 
 The MIT License (MIT)
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2014-2025 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

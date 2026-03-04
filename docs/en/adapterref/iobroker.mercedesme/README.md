@@ -13,11 +13,42 @@
 
 Mercedes me adapter for ioBroker
 
+### Empfehlung: Zweitnutzer erstellen
+
+Es wird empfohlen einen separaten Mercedes me Zweitnutzer fuer ioBroker zu erstellen. Mercedes begrenzt die Anzahl der Verbindungen pro Tag (~100-150). Bei Ueberschreitung wird der Account bis Mitternacht UTC gesperrt (HTTP 429).
+
+Mit einem Zweitnutzer:
+
+- Wird der Hauptnutzer in der Mercedes me App nicht beeintraechtigt
+- Kann der Adapter unabhaengig arbeiten
+- Bleibt die App auf dem Handy voll funktionsfaehig
+
+Den Zweitnutzer in der Mercedes me App als "Nutzer" (nicht Hauptnutzer) zum Fahrzeug einladen.
+
+### Bedienung
+
 Unter commands das commando auf klappen und den button neben start drücken wenn das command available ist.
 
 Remote sind vorgefertige Remote Befehle
 
+
 ## Changelog
+### 0.7.0-beta.0 (2026-03-03)
+- make api only mode default
+
+### 0.6.3 (2026-02-16)
+- add api refresh every 3 min after websocked block
+- add api only update mode
+
+### 0.5.5 (2026-02-09)
+- fix parsing and command sending
+
+### 0.4.2 (2026-02-07)
+- improve event parsing
+
+### 0.4.0 (2026-02-03)
+- fix remote command sending
+
 ### 0.3.9 (2025-11-12)
 - fix login flow
 
