@@ -182,8 +182,17 @@ You cannot send POST request to commands via GUI.
 	### **WORK IN PROGRESS**
 -->
 
-
 ## Changelog
+### 4.0.1 (2026-02-17)
+* (@GermanBluefox) Corrected some minor issues
+
+### 4.0.0 (2026-02-17)
+* (@GermanBluefox) Packages were updated
+* (@GermanBluefox) Drop Node.js 18 support
+
+### 3.1.3 (2026-01-19)
+* (@GermanBluefox) Cought a seldom race condition on the connection close
+
 ### 3.1.1 (2025-10-09)
 * (@GermanBluefox) corrected web extension path
 
@@ -259,4 +268,4 @@ You cannot send POST request to commands via GUI.
 ## License
 Apache 2.0
 
-Copyright (c) 2017-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2026 bluefox <dogafox@gmail.com>

@@ -92,7 +92,7 @@ Von diesem Adapter wird auch das "Service Request" unterstützt, welches in eini
 ## License
 MIT License
 
-Copyright (c) 2025 Hirsch-DE <github731@hirschfeldonline.de>
+Copyright (c) 2022-2026 Hirsch-DE <github731@hirschfeldonline.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

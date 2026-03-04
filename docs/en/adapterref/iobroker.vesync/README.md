@@ -111,6 +111,16 @@ Stop:
 <https://forum.iobroker.net/topic/59466/test-adapter-vesync>
 
 ## Changelog
+
+### 1.0.3 (2026-01-12)
+
+- fix login
+- add new devices
+
+### 0.0.10 (2026-01-11)
+
+- fix login
+
 ### 0.0.9 (2024-12-21)
 
 - fix login
@@ -127,7 +137,7 @@ Stop:
 
 MIT License
 
-Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

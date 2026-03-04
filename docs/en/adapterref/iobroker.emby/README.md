@@ -95,10 +95,11 @@ Please follow the Steps to ensure the Adapter will work correctly and you can se
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.3.0 (2026-03-03)
+- (mcm1957) Adapter requires node.js >= 20 now
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated
 
 ### 1.2.0 (2024-04-14)
 
@@ -117,39 +118,11 @@ Please follow the Steps to ensure the Adapter will work correctly and you can se
 ### 1.0.3
 * Added more info for playing item
 
-### 1.0.0
-* First stable public release
-* Added support for Https and Http
-* Added Url to Posters
-* Added Datapoint for Endtime (hh:mm)
-
-### 0.1.2
-* Added more commands
-
-### 0.1.1
-* Added delay if you watch mor episodes
-
-### 0.1.0
-* Added automatic try reconnect after one minute
-
-### 0.0.4
-* added compact mode
-
-### 0.0.3
-* added new states, connection state and more improvment
-
-### 0.0.2
-* added more states
-* added DisplayMessage
-
-### 0.0.1
-* Initial version
-
 ## License
 
 MIT License
 
-Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2023 thewhobox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

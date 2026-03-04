@@ -35,8 +35,20 @@
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
+### 2.3.1 (2026-02-17)
+- (copilot) Replaced deprecated deleteState(), deleteChannel(), and deleteDevice() methods with delObject()
+- (copilot) Replaced setObjectNotExists with extendObject to automatically update object configurations on adapter upgrades
+- (copilot) Migrated to ESLint 9 and @iobroker/eslint-config
+- (copilot) Fixed undefined variable bugs in schedule handling code
+- (copilot) Fixed async callback bugs with mode and boundary variables
+
+### 2.3.0 (2026-02-16)
+- (mcm1957) Adapter requires node.js >= 20 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated
 
 ### 2.2.0 (2024-04-04)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
@@ -50,42 +62,11 @@
 - (ar7bd) SpotWidth and spotHeight are now allowed to be zero. [#29]
 - (mcm1957) Dependencies have been updated.
 
-### 2.0.1 (2023-09-20)
-- (PeterVoronov) A problem causing crashes if some devices are unreachable has been fixed [#46]
-
-### 2.0.0 (2023-09-18)
-- (mcm1957) Migration to iobroker-community-adapters has been finalized.
-
-### 2.0.0-alpha.1 (2023-09-15)
-- (mcm1957) Adapter requires node 16 or newer now.
-- (mcm1957) The adapter has been moved to iobroker-community-adapters.
-- (mcm1957) This release is a consolidated version containing current github content.
-- (mcm1957) Adapter should be compatible to js-controller 5 now.
-- (mcm1957) Dependencies have been updated.
-
-### 0.5.0
-- (Pmant) add readme
-- (Pmant) change pollInterval to seconds
-- (Pmant) change pollInterval min to 60 seconds
-
-### 0.4.0
-- (Pmant) reduce update calls (/dashboard)
-
-### 0.3.0
-- (Pmant) fix bug where Botvac is not connected to wifi
-
-### 0.2.0
-- (Pmant) update status after command
-- (Pmant) update commands
-
-### 0.1.0
-- (Pmant) inital commit
-
 ## License
 
 MIT License
 
-Copyright (c) 2023-2026 iobroker-community-adapters <mcm57@gmx.at>
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

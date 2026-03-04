@@ -92,6 +92,10 @@ The adapter could use the Docker API to communicate with the Docker daemon on ot
 -->
 
 ## Changelog
+### 0.1.5 (2026-01-09)
+
+- (@GermanBluefox) Updated packages
+
 ### 0.1.3 (2025-10-15)
 
 - (@GermanBluefox) Updated packages
@@ -99,7 +103,7 @@ The adapter could use the Docker API to communicate with the Docker daemon on ot
 ### 0.1.2 (2025-10-09)
 
 - (@GermanBluefox) Added volume browsing
-- (@GermanBluefox) Added text file read from volume
+- (@GermanBluefox) Added a text file read from volume
 
 ### 0.1.1 (2025-09-26)
 
@@ -113,4 +117,4 @@ The adapter could use the Docker API to communicate with the Docker daemon on ot
 
 The MIT License (MIT)
 
-Copyright (c) 2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2025-2026 bluefox <dogafox@gmail.com>

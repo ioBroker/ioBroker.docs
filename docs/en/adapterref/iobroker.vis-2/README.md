@@ -292,6 +292,10 @@ npm run start
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.13.10 (2026-02-13)
+* (@GermanBluefox) Fixing the usage of umlauts in patterns
+* (@GermanBluefox) Fixing commands via control interface when sent as JSON
+
 ### 2.13.8 (2025-11-15)
 * (@GermanBluefox) Updated packages
 
@@ -305,11 +309,8 @@ npm run start
 ### 2.13.5 (2025-09-16)
 * (@GermanBluefox) Corrected loading of icon sets
 
-### 2.13.4 (2025-09-05)
-* (@GermanBluefox) Added the basic methods for metro widgets again
-
 ## License
- Copyright (c) 2021-2025 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
+ Copyright (c) 2021-2026 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
   
  Creative Common Attribution-NonCommercial (CC BY-NC)
 

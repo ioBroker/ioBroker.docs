@@ -80,6 +80,7 @@ For the above examples:
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 
 ### 1.5.2 (2025-02-28)
