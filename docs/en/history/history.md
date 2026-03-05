@@ -1127,3 +1127,12 @@ Adapter for hagelschutz-einfach-automatisch.ch of the cantonal building insuranc
 
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
+## ping (28.02.2026) - new feature
+https://github.com/ioBroker/ioBroker.ping
+
+Ping adapter can use hping3 to detect iPhones and can send wake-on-lan packets to wake up devices in the network.
+
+## parser (28.02.2026) - new feature
+https://github.com/ioBroker/ioBroker.parser
+
+Parser can now parse values of states, ioBroker files and logs. Added export and import of parser rules via CSV files.
