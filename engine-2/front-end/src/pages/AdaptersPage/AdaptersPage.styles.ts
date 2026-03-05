@@ -29,6 +29,11 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
                 borderRight: `2px solid ${theme.palette.primary.main}`,
             }
         },
+        '& img': {
+            filter: theme.palette.mode !== 'dark'
+                ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
+                : 'none',
+        },
     },
     container: {
         display: 'flex',
@@ -42,6 +47,24 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     },
     titleContainer: {
         display: 'flex',
+        '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: '21%',
+            left: '60%',
+            transform: 'translate(-50%, -50%)',
+            width: '1000px',
+            height: '300px',
+            opacity: 0.5,
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.3) 0%, rgba(255, 255, 255, 0) 55%)'
+                    : 'none',
+            [theme.breakpoints.down(1280)]: {
+                display: 'none',
+            },
+
+        },
     },
     breadCrumbs: {
         color: theme.palette.primary.main,
@@ -50,11 +73,11 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         marginLeft: '10px',
         fontWeight: 400,
         letterSpacing: '-0.02em',
-         [theme.breakpoints.down(1280)]: {
+        [theme.breakpoints.down(1280)]: {
             fontSize: '24px',
-             marginTop: '4px',
+            marginTop: '4px',
         },
-         [theme.breakpoints.down(769)]: {
+        [theme.breakpoints.down(769)]: {
             fontSize: '20px',
             marginTop: '6px',
         },
@@ -118,6 +141,11 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     },
     adaptersSearch: {
         width: '460px',
+        '& img': {
+            filter: theme.palette.mode !== 'dark'
+                ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
+                : 'none',
+        },
         [theme.breakpoints.down(902)]: {
             width: isMenuCollapsed ? '460px' : '312px',
         },
@@ -161,7 +189,9 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             },
         },
         '& .MuiInputBase-input': {
-            color: '#fff',
+            color: theme.palette.mode === 'dark'
+                ? 'white'
+                : theme.palette.secondary.main,
             fontSize: '14px',
             padding: '0px',
         },
@@ -184,11 +214,16 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
                 borderRight: `2px solid ${theme.palette.primary.main}`,
             },
             '&:hover': {
-                background: 'rgba(255, 255, 255, 0.1)',
+                background: 'rgba(29, 144, 202, 0.1)',
             },
         },
         [theme.breakpoints.down(769)]: {
             display: 'none'
+        },
+        '& img': {
+            filter: theme.palette.mode !== 'dark'
+                ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
+                : 'none',
         },
     },
     adaptersGrid: {

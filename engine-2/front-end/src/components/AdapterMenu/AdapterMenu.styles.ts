@@ -13,14 +13,16 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         },
         [theme.breakpoints.down(661)]: {
             width: isCollapsed ? '59px' : '328px',
-            backgroundColor: !isCollapsed ? '#080B1C' : 'transparent',
+            backgroundColor: !isCollapsed
+                ? (theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF')
+                : 'transparent',
             padding: !isCollapsed ? '20px' : '0',
             marginLeft: !isCollapsed ? '24px' : '30px',
             borderRadius: !isCollapsed ? '10px' : '0px',
             border: !isCollapsed ? `2px solid ${theme.palette.primary.main}` : 'none',
             boxShadow: !isCollapsed ? '0 4px 20px rgba(0, 0, 0, 0.5)' : 'none',
         },
-         [theme.breakpoints.down(401)]: {
+        [theme.breakpoints.down(401)]: {
             marginLeft: !isCollapsed ? '10px' : '30px',
         },
         [theme.breakpoints.up(1440)]: {
@@ -32,6 +34,32 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         overflowY: 'scroll',
         overflowX: 'hidden',
         paddingRight: '12px',
+        position: 'relative',
+        '&::before': {
+            content: '""',
+            display: 'block',
+            height: '1px',
+            width: '100%',
+        },
+        '&::after': {
+            content: '""',
+            position: 'absolute',
+            bottom: '-200%',
+            left: '40%',
+            transform: 'translateX(-50%)',
+            width: '400px',
+            height: '800px',
+            opacity: 0.5,
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.4) 0%, rgba(255, 255, 255, 0) 55%)'
+                    : 'none',
+            pointerEvents: 'none',
+            zIndex: 0,
+            [theme.breakpoints.down(661)]: {
+                display: 'none',
+            },
+        },
         [theme.breakpoints.down(661)]: {
             maxHeight: !isCollapsed ? 'calc(100vh - 165px)' : 'calc(100vh - 125px)',
         },
@@ -72,22 +100,30 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         gap: '8px',
         padding: isCollapsed ? '12px 8px' : '10px 0px',
         cursor: 'pointer',
-        color: 'rgba(255, 255, 255, 0.7)',
+        color: theme.palette.mode === 'dark'
+            ? 'white'
+            : theme.palette.primary.main,
         fontSize: '14px',
         fontFamily: "'Saira'",
         transition: 'all 0.2s',
         borderRadius: '4px',
         justifyContent: isCollapsed ? 'center' : 'flex-start',
+        position: 'relative',
+        zIndex: 1,
         '&:hover': {
-            color: '#fff',
-            background: 'rgba(255, 255, 255, 0.05)',
+            color: theme.palette.mode === 'dark'
+                ? 'white'
+                : theme.palette.primary.main,
+            background: theme.palette.mode === 'dark'
+                ? 'rgba(255, 255, 255, 0.05)'
+                : 'rgba(29, 144, 202, 0.1)',
         },
     },
     menuItemActive: {
         color: theme.palette.primary.main,
         background: 'rgba(29, 144, 202, 0.1)',
         '& img': {
-            filter: 'brightness(0) saturate(100%) invert(56%) sepia(89%) saturate(1000%) hue-rotate(165deg) brightness(95%) contrast(90%)',
+            filter: 'brightness(0) saturate(100%) invert(47%) sepia(85%) saturate(1437%) hue-rotate(167deg) brightness(88%) contrast(89%)'
         },
     },
     menuIcon: {
@@ -98,19 +134,29 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         justifyContent: 'center',
         fontSize: '14px',
         transition: 'all 0.3s ease',
+        '& img': {
+            filter: theme.palette.mode !== 'dark'
+                ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
+                : 'none',
+        },
         [theme.breakpoints.down(1280)]: {
             width: isCollapsed ? '32px' : '24px',
             height: isCollapsed ? '32px' : '24px',
             '& img': {
                 width: isCollapsed ? '32px' : '24px',
                 height: isCollapsed ? '32px' : '24px',
+                filter: theme.palette.mode !== 'dark'
+                    ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
+                    : 'none',
             },
         },
     },
     menuText: {
         flex: 1,
         fontSize: '18px',
-        color: 'white',
+        color: theme.palette.mode === 'dark'
+            ? 'white'
+            : theme.palette.secondary.main,
         fontFamily: "'Saira', sans-serif",
         fontWeight: 200,
     },
@@ -120,7 +166,7 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
     },
     activeText: {
         fontWeight: 500,
-        color: theme.palette.primary.main,
+        color: theme.palette.primary.main
     },
     menuCount: {
         fontSize: '10px',
@@ -132,6 +178,6 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         fontWeight: 500,
     },
     activeCount: {
-        color: theme.palette.primary.main,
+        color: theme.palette.primary.main
     },
 }));

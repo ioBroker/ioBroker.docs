@@ -11,7 +11,9 @@ export const useStyles = makeStyles()(theme => ({
         '& .MuiTableCell-root': {
             borderBottom: 'none',
             padding: '16px',
-            color: '#fff',
+            color: theme.palette.mode === 'dark'
+                ? 'white'
+                : theme.palette.secondary.main,
             fontFamily: "'Saira'",
         },
     },
@@ -23,16 +25,27 @@ export const useStyles = makeStyles()(theme => ({
             fontFamily: theme.typography.h1.fontFamily,
             fontWeight: 400,
             fontSize: '20px',
-            color: '#fff',
-            paddingBottom: '8px',
+            color: theme.palette.mode === 'dark'
+                ? 'white'
+                : theme.palette.secondary.main,
+            paddingBottom: '16px',
             background: 'transparent',
-            borderBottom: `1px solid rgba(255, 255, 255, 0.1)`,
+            borderBottom: theme.palette.mode === 'dark'
+                ? `1px solid rgba(255, 255, 255, 0.1)`
+                : `1px solid rgba(29, 144, 202, 0.5)`
         },
     },
     tableRow: {
+        fontSize: '14px',
+        fontWeight: 400,
         '& .MuiTableCell-root': {
-            borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-            verticalAlign: 'top'
+            borderBottom: theme.palette.mode === 'dark'
+                ? '1px solid rgba(255, 255, 255, 0.1)'
+                : `1px solid rgba(29, 144, 202, 0.5)`,
+            verticalAlign: 'top',
+            color: theme.palette.mode === 'dark'
+                ? 'white'
+                : theme.palette.secondary.main,
         },
     },
     nameCell: {
@@ -44,7 +57,9 @@ export const useStyles = makeStyles()(theme => ({
         alignItems: 'start',
         gap: '12px',
         textDecoration: 'none',
-        color: '#fff',
+        color: theme.palette.mode === 'dark'
+            ? 'white'
+            : theme.palette.secondary.main,
     },
     adapterIcon: {
         width: '40px',
@@ -61,24 +76,83 @@ export const useStyles = makeStyles()(theme => ({
             height: '40px',
             objectFit: 'contain',
         },
+        [theme.breakpoints.down(1281)]: {
+            width: '32px',
+            height: '32px',
+            '& img': {
+                width: '32px',
+                height: '32px',
+                objectFit: 'contain',
+            },
+        },
     },
     adapterName: {
-        fontSize: '16px',
+        fontSize: '14px',
         fontWeight: 400,
+        letterSpacing: '-0.03em',
+        color: theme.palette.mode === 'dark'
+            ? 'white'
+            : theme.palette.secondary.main,
+        [theme.breakpoints.down(1441)]: {
+            fontSize: '16px',
+            fontWeight: 300,
+        },
+        [theme.breakpoints.down(1280)]: {
+            fontSize: '14px',
+            fontWeight: 300,
+        },
     },
     descriptionCell: {
         width: '35%',
         fontSize: '14px',
-        color: 'rgba(255, 255, 255, 0.7)',
+        fontWeight: 400,
+        letterSpacing: '-0.03em',
+        color: theme.palette.mode === 'dark'
+            ? 'white'
+            : theme.palette.secondary.main,
+        [theme.breakpoints.down(1441)]: {
+            fontSize: '16px',
+            fontWeight: 300,
+        },
+        [theme.breakpoints.down(1280)]: {
+            fontSize: '14px',
+            fontWeight: 300,
+        },
     },
     authorCell: {
         width: '20%',
         fontSize: '14px',
+        fontWeight: 400,
+        letterSpacing: '-0.03em',
+        color: theme.palette.mode === 'dark'
+            ? 'white'
+            : theme.palette.secondary.main,
+        [theme.breakpoints.down(1441)]: {
+            fontSize: '16px',
+            fontWeight: 300,
+        },
+        [theme.breakpoints.down(1280)]: {
+            fontSize: '14px',
+            fontWeight: 300,
+        },
     },
     statsCell: {
         width: '5%',
         textAlign: 'center',
         fontSize: '14px',
+        fontWeight: 400,
+        letterSpacing: '-0.03em',
+        color: theme.palette.mode === 'dark'
+            ? 'white'
+            : theme.palette.secondary.main,
+        [theme.breakpoints.down(1441)]: {
+            fontSize: '16px',
+            fontWeight: 300,
+        },
+        [theme.breakpoints.down(1280)]: {
+            fontSize: '14px',
+            fontWeight: 300,
+        },
     },
     lastCell: {
 
@@ -90,6 +164,9 @@ export const useStyles = makeStyles()(theme => ({
         '& img': {
             width: '20px',
             height: '20px',
+            filter: theme.palette.mode === 'dark'
+                ? 'none'
+                : 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)',
         },
     },
 }));

@@ -1,4 +1,4 @@
-import { Box, TextField, Typography, ToggleButton, ToggleButtonGroup, InputAdornment, useMediaQuery } from '@mui/material';
+import { Box, TextField, Typography, ToggleButton, ToggleButtonGroup, InputAdornment, useMediaQuery, useTheme } from '@mui/material';
 import { AdapterBlock } from '../../components/AdapterBlock/AdapterBlock';
 import type { AdapterItem } from '../../components/AdapterItem/AdapterItem';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
@@ -71,6 +71,7 @@ const AdaptersPage = (): React.ReactNode => {
     const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
     const [selectedMenuItem, setSelectedMenuItem] = useState('Beliebte');
     const isMobile = useMediaQuery('(max-width:661px)');
+    const theme = useTheme();
 
     const { classes } = useStyles({ isMenuCollapsed });
 
@@ -93,7 +94,7 @@ const AdaptersPage = (): React.ReactNode => {
                 <SectionTitle
                     sx={{
                         marginLeft: '32px',
-                        color: 'white !important',
+                        ...(theme.palette.mode === 'dark' && { color: 'white !important' }),
                         fontSize: {
                             '@media (max-width:1279px)': { fontSize: '28px !important' },
                             '@media (max-width:480px)': { fontSize: '20px !important' },
