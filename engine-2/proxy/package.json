@@ -1,0 +1,16 @@
+{
+  "name": "universal-react-proxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "chrome.js",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "express": "^5.2.1",
+    "express-http-proxy": "^2.1.2",
+    "puppeteer": "^24.37.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
