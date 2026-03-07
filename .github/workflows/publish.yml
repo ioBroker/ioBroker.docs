@@ -1,34 +1,66 @@
+# Name des Workflows, wie er in der GitHub Actions Oberfläche erscheint
 name: Publish
 
+# Festlegung, wann dieser Workflow automatisch gestartet wird
 on:
+  # Geplanter Start: Alle 3 Tage um 02:00 Uhr nachts (Cron-Syntax)
   schedule:
-    - cron:  '0 2 */3 * *'
-  # push
+    - cron: '0 2 */3 * *'
+  # Hinweis: Die Zeile '# push' ist auskommentiert. Falls du möchtest, 
+  # dass der Workflow bei jedem Push startet, entferne das '#' davor.
 
 jobs:
+  # Der Job-Name für den Übersetzungsprozess
   translate:
+    # Wir nutzen das aktuellste verfügbare Ubuntu-Image von GitHub
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      # Schritt 1: Das Repository auschecken, damit der Workflow Zugriff auf die Dateien hat.
+      # Aktualisiert von v1 auf v4 für bessere Stabilität und Geschwindigkeit.
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Schritt 2: Node.js Umgebung einrichten.
+      # Hier lag der Fehler: Wir wechseln von Version 10 auf Version 20.
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 10
-      - name: Install
+          node-version: 20
+          # Cache-Option hilft, zukünftige Durchläufe zu beschleunigen
+          cache: 'npm'
+          cache-dependency-path: engine/package-lock.json
+
+      # Schritt 3: Abhängigkeiten im 'engine' Ordner installieren.
+      - name: Install Dependencies
         working-directory: engine
-        run: npm i
-      - name: Gulp default
+        run: npm install
+
+      # Schritt 4: Den Gulp-Prozess starten, der die Übersetzung durchführt.
+      # Hier wird auch das Google-Secret für die Translation-API übergeben.
+      - name: Run Gulp Translation
         working-directory: engine
-        run: gulp
+        run: npx gulp
         env:
-          GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON}}
-      - name: Commit files
+          GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
+
+      # Schritt 5: Die Änderungen (die neuen Übersetzungen) für Git vorbereiten.
+      - name: Commit changes
         run: |
+          # Konfiguration eines virtuellen Nutzers für den Commit
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          # Alle geänderten Dateien zum Commit hinzufügen
           git add .
+          # Status ausgeben (hilfreich für das Debugging in den Logs)
           git status
-          git commit -m "Add changes" -a
+          # Nur committen, wenn es tatsächlich Änderungen gibt, um Fehler zu vermeiden
+          git diff-index --quiet HEAD || git commit -m "Automated translation update" -a
+
+      # Schritt 6: Die neuen Dateien zurück in das GitHub Repository schieben (Push).
+      # Aktualisiert auf eine stabilere Version der Push-Action.
       - name: Push changes
-        uses: ad-m/github-push-action@v0.5.0
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
