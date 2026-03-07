@@ -9,7 +9,7 @@ BADGE-Number of Installations: http://iobroker.live/badges/xsense-installed.svg
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.xsense.svg?color=red&label=beta
 BADGE-Stable: https://iobroker.live/badges/xsense-stable.svg
 ---
-![Logo](admin/xsense.png)
+![XSense Logo](admin/xsense.png)
 # ioBroker.xsense
 =================
 
