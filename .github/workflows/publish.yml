@@ -1,56 +1,65 @@
-# Name des Workflows
+# Name des Workflows für die GitHub-Oberfläche
 name: Publish
 
 on:
-  # Automatischer Start: Alle 3 Tage um 02:00 Uhr
+  # Automatischer Start alle 3 Tage um 02:00 Uhr
   schedule:
     - cron: '0 2 */3 * *'
   
-  # NEU: Erlaubt es dir, den Workflow jederzeit manuell 
-  # über die GitHub-Webseite zu starten.
+  # Ermöglicht den manuellen Start über den "Run workflow" Button
   workflow_dispatch:
 
 jobs:
   translate:
+    # Wir nutzen das neueste Ubuntu-Image
     runs-on: ubuntu-latest
     
     steps:
-      # Repository auschecken (v4 ist aktuell)
+      # Schritt 1: Den Quellcode aus dem Repository laden
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Node.js 20 einrichten (behebt den 'node:path' Fehler)
+      # Schritt 2: Node.js in Version 20 bereitstellen
+      # Ich habe hier die Caching-Optionen entfernt, da die Datei 
+      # 'engine/package-lock.json' in deinem Projekt offenbar fehlt.
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-          cache-dependency-path: engine/package-lock.json
 
-      # Abhängigkeiten installieren
+      # Schritt 3: In den Ordner 'engine' wechseln und Abhängigkeiten installieren
       - name: Install Dependencies
         working-directory: engine
+        # 'npm install' installiert alles, was in der package.json steht
         run: npm install
 
-      # Gulp Prozess für die Übersetzung
+      # Schritt 4: Das Gulp-Skript für die Übersetzung ausführen
       - name: Run Gulp Translation
         working-directory: engine
+        # npx stellt sicher, dass das lokale gulp-Paket genutzt wird
         run: npx gulp
         env:
+          # Hier wird das hinterlegte Google-Geheimnis geladen
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
 
-      # Änderungen committen
+      # Schritt 5: Die vom Skript geänderten Dateien für den Commit vorbereiten
       - name: Commit changes
         run: |
+          # Identität des Bots festlegen
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          
+          # Alle Änderungen (neue Übersetzungen) vormerken
           git add .
-          # Nur committen, wenn sich tatsächlich etwas geändert hat
+          
+          # Nur einen Commit erstellen, falls wirklich Dateien geändert wurden.
+          # Das verhindert Fehlermeldungen, wenn es nichts Neues zu tun gab.
           git diff-index --quiet HEAD || git commit -m "Automated translation update" -a
 
-      # Änderungen zurückschreiben
+      # Schritt 6: Die Änderungen zurück ins Repository übertragen
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Verwendet den aktuellen Branch (master oder main)
           branch: ${{ github.ref }}
