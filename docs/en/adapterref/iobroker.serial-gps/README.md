@@ -39,7 +39,7 @@ Normally, all devices that deliver NMEA data via serial or USB should work. Here
 
 The MIT License (MIT)
 
-Copyright (c) 2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2025-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

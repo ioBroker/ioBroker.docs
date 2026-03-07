@@ -1,25 +1,40 @@
 ---
 title: Node.js и npm
-lastChanged: 28.09.2025
+lastChanged: 13.10.2025
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/nodejs.md
-hash: 5VmhgF6IZVKJAoCC+lc8+082z7AVOORazHpIunSfxIg=
+hash: 38xyrXo/C1YwLwdNL8ZM8DCwvUJijKb+SFiC8oRyvO4=
 ---
-!> С появлением установочного скрипта отдельная установка Node.js и npm в стандартных системах Linux больше не требуется! См. [Установка под Linux](https://www.iobroker.net/#de/documentation/install/linux.md)
+Благодаря скрипту установки iobroker, на рекомендуемых системах Linux больше не требуется отдельная установка Node.js и npm! См. [Установка под Linux](https://www.iobroker.net/#de/documentation/install/linux.md)
 
-ioBroker и адаптеры в основном написаны на языке программирования JavaScript, и поскольку компьютер не может выполнять JavaScript напрямую, для него требуется среда выполнения Node.js.
+ioBroker и его адаптеры написаны преимущественно на языке программирования JavaScript. Поскольку компьютер не может напрямую выполнять JavaScript, необходима среда выполнения, которую предоставляет Node.js.
 
-?> Мы рекомендуем устанавливать ioBroker в дистрибутивах Linux на базе Debian и Ubuntu.
+Рекомендуются дистрибутивы на основе Debian и Ubuntu.
 
-При необходимости Node.js устанавливается здесь с помощью следующих команд:
+В настоящее время ioBroker рекомендует использовать версию Node.js 22 с долгосрочной поддержкой (LTS). Использовать версии с нечетными номерами нельзя.
 
-```curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash -```
+## Стандартное обновление Node.js
+Начиная с версии js-controller 5.5.x, доступна новая консольная команда для обновления Node.js:
 
-```sudo apt-get install -y nodejs```
+```
+iobroker nodejs-update
+```
 
-!> По состоянию на сентябрь 2025 года для ioBroker рекомендуется версия 22 Node.js!
+Эта команда автоматически загружает и устанавливает рекомендуемую версию LTS **Node.js 22**, а также соответствующий npm.
 
-!> Нельзя использовать нечетные версии Node.js.
+Если вы хотите переключиться именно на другую версию (например, Node.js 24), укажите желаемую версию в качестве параметра:
 
-Дополнительную информацию об установке Node.js для различных операционных систем можно найти здесь [Фонд Node.js](https://nodejs.org/en/download/package-manager/).
+```
+iobroker nodejs-update 24
+```
+
+## Альтернативная ручная установка
+Если требуется ручная установка или определенная версия, используйте репозиторий Nodesource:
+
+```
+curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+Для другой версии внесите соответствующие изменения в `setup_22.x` (например, `setup_24.x`).

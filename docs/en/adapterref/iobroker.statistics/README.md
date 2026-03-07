@@ -50,6 +50,10 @@ The structure of the state is: `statistics.0.{save|temp}.{kind of stat}.{origina
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
 ### __WORK IN PROGRESS__
 
 * (@klein0r) Added option to use a weighted average (based on time delta between changes)

@@ -171,6 +171,18 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+- (HombachC) enhance resolution of pulse meter data (#840)
+- (HombachC) fix wrong end block state calculation (#841)
+- (HombachC) setup auto-merge for dependabot (#834)
+- (HombachC) update dependencies
+
+### 6.1.1 (2026-02-05)
+
+- (HombachC) fix LTF shifting for frames greater 24h
+- (HombachC) update dependencies
+
 ### 6.1.0 (2026-01-03)
 
 - (HombachC) BREAKING: change flexcharts x-axis type
@@ -201,20 +213,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (HombachC) fix error in cleaning tomorrow data
 - (HombachC) update release management to 4.x.x
-
-### 6.0.0 (2025-10-06)
-
-- (HombachC) BREAKING: hourly price states (0...23) are now quarterhourly (0...95)
-- (HombachC) BREAKING: adapted calculator time blocks need reentry of "AmountHours" values
-- (HombachC) change price updates to 15 minutes resolution as default
-- (HombachC) change current price updates to use existing today values instead of Tibber calls
-- (HombachC) more timely precision for current price and calculator
-- (HombachC) adapt chart generation
-- (HombachC) fix error in efficiency loss
-- (HombachC) adapt calculator time blocks
-- (HombachC) update tibber-api to 5.5.2
-- (HombachC) update typescript to 5.9.3 (#777)
-- (HombachC) add names to price states folders
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

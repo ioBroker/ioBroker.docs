@@ -73,6 +73,7 @@ If you have erros again and cant login, stop the adapter and delete the session.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### 2.4.1 (2025-10-09)
 
 - (ronny130286) fix 2 data points
@@ -152,7 +153,7 @@ If you have erros again and cant login, stop the adapter and delete the session.
 
 MIT License
 
-Copyright (c) 2025 ronny130286 <ronnymatthei@gmx.de>
+Copyright (c) 2025-2026 ronny130286 <ronnymatthei@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

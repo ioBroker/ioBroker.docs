@@ -32,6 +32,43 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.6.14 (2026-02-28)
+* (BenAhrdt) bugfix dependencies
+
+### 3.6.13 (2026-02-27)
+* (BenAhrdt) update admin dependencies
+
+### 3.6.13 (2026-02-27)
+* (BenAhrdt) update release script dependencies
+* (BenAhrdt) change connection state for virtual (internal) devices
+
+### 3.6.12 (2026-02-11)
+* (BenAhrdt) Change Links to 604 Documentation
+
+### 3.6.11 (2026-02-11)
+* (BenAhrdt) Add 604 to Doku and add connection state in deviceManager according to connection State
+
+### 3.6.10 (2026-02-10)
+* (BenAhrdt) First implementation of Docu-Links
+
+### 3.6.9 (2026-02-09)
+* (BenAhrdt) Bugfix sort
+
+### 3.6.8 (2026-02-09)
+* (BenAhrdt) Sort online and historic Values by alphabet / chronolog
+
+### 3.6.7 (2026-02-09)
+* (BenAhrdt) changes in nameing
+
+### 3.6.6 (2026-02-08)
+* (BenAhrdt) implementonline and historic values to device Manager
+
+### 3.6.5 (2026-02-08)
+* (BenAhrdt) first implememtation of device Manager
+
+### 3.6.4 (2026-02-03)
+* (BenAhrdt) add roles for power and energy
+
 ### 3.6.3 (2025-12-31)
 * (BenAhrdt) Cache Api results in config for 30s for better performance
 
@@ -328,7 +365,7 @@ Implemented are the following times:
 ## License
 MIT License
 
-Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025-2026 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

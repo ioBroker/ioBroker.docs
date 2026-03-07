@@ -202,25 +202,21 @@ Whitelist: If you only want to include events of a specific location, use regula
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.18.1 (2025-10-24)
-* (jens-maus) update node-ical to latest 0.22.1 fixing UTC tz issues.
+### 1.19.6 (2026-02-23)
+* (jens-maus) Update node-ical from 0.25.2 to 0.25.4
+* (copilot) Adapter requires admin >= 7.7.22 now
 
-### 1.18.0 (2025-10-19)
-* (jens-maus) update node-ical to latest 0.22.0 which reduces dependency load.
+### 1.19.5 (2026-02-16)
+* (jens-maus) Update node-ical from 0.24.2 to 0.25.2
 
-### 1.17.0 (2025-09-15)
-* (jens-maus) fixed adapter warnings and responsive design suggestions.
-* (jens-maus) updated dependencies.
-* (jens-maus) update node-ical to latest 0.21.0.
+### 1.19.4 (2026-02-01)
+* (jens-maus) Update node-ical from 0.24.1 to 0.24.2
 
-### 1.16.2 (2025-06-16)
+### 1.19.3 (2026-01-31)
+* (jens-maus) Update node-ical from 0.23.1 to 0.24.1 (fixes #842)
 
-* (@GermanBluefox) Small fix in the configuration dialog
-
-### 1.16.1 (2024-11-01)
-* (jens-maus) fix issue with handling rrule timezones incorrect with the latest node-ical (#708).
-* (jens-maus) update node-ical to latest 0.20.1
-* (jens-maus) save cached files to os tmpdir instead.
+### 1.19.2 (2026-01-12)
+* (jens-maus) fix broken exdate calculation
 
 ## License
 

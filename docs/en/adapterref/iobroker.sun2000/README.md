@@ -33,6 +33,20 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* fix: the order of bit assignment corrected of alarmsJSON
+* new state `inverter.x.emma.activeAlarmSN` and `inverter.x.emma.HistoricalAlarmSN` : emma alarms  [#226](https://github.com/bolliy/ioBroker.sun2000/issues/226)
+* statistics 
+
+### 2.3.7 (2026-02-01)
+* deleted deprecated state `collected.usableSurplusPower`
+
+### 2.3.6 (2026-01-29)
+* dependency and configuration updates
+* new state `inverter.x.derived.alarmsJSON` : json array with intverter alarms (id, name, level) [#226](https://github.com/bolliy/ioBroker.sun2000/issues/226)
+* add ChargeDischargePower for Battery units [#234](https://github.com/bolliy/ioBroker.sun2000/issues/234)
+* add minimum and maximum temperature for battery packs [#236](https://github.com/bolliy/ioBroker.sun2000/issues/236)
+
 ### 2.3.5 (2025-11-17)
 * dependency and configuration updates
 * Battery status check was suspended in inverter control [#220](https://github.com/bolliy/ioBroker.sun2000/issues/220)
@@ -293,7 +307,7 @@ initial release
 ## License
 MIT License
 
-Copyright (c) 2025 bolliy <stephan@mante.info>
+Copyright (c) 2025-2026 bolliy <stephan@mante.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

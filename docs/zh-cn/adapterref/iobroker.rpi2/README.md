@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rpi2/README.md
 title: ioBroker.rpi2
-hash: fbU6FaS3bzboHSlRMuHMlIk6qVYzKCwSWuDiRMuGnhg=
+hash: 40wy2PWHoaAr24/O2GwDtBu28xu56LuV7yls9JkhbhU=
 ---
 # IoBroker.rpi2
 
@@ -26,15 +26,15 @@ hash: fbU6FaS3bzboHSlRMuHMlIk6qVYzKCwSWuDiRMuGnhg=
 
 用于集成到 ioBroker 中的 RPI-Monitor 实现。它与 iobroker.rpi 的实现相同，但使用了 GPIO。
 
-## 重要信息
+重要信息
 **ioBroker 需要特殊权限才能控制 GPIO。** 在大多数 Linux 发行版中，可以通过将 ioBroker 用户添加到 `gpio` 组来实现这一点。
 
-要使 GPIO 工作，您需要在安装适配器之前（见下文），在版本 `2.x` 中安装 `libgpiod`！
+要使 GPIO 工作，您需要在安装适配器之前（见下文）**安装 `libgpiod` 版本 `2.x` ！
 
 ＃＃ 安装
 安装完成后，您需要通过管理页面配置所有必需的模块。
 
-iobroker.rpi 启动后，所有选定的模块会在 ioBroker 中以 rpi.<实例>.<模块名称> 的形式生成一个对象树，例如 `rpi.0.cpu`
+iobroker.rpi 启动后，所有选定的模块会在 ioBroker 中生成一个对象树，路径为 rpi.<实例>.<模块名称>，例如 `rpi.0.cpu`
 
 请确保已安装 python 和 build-essential：
 
@@ -104,7 +104,9 @@ sudo apt install -y libgpiod-dev
 ### NVMe温度
 自适配器版本 2.3.2 起，您可以读取 NVMe 温度。为此，您需要在系统上安装 `nvme-cli` 软件包。
 
-您可以使用以下命令完成此操作：`sudo apt-get install nvme-cli`。您还需要将该命令添加到 ioBroker sudoers 文件 `/etc/sudoers.d/iobroker`。使用编辑器（例如 nano）打开该文件：`sudo nano /etc/sudoers.d/iobroker`，并在文件末尾添加以下行：`nvme smart-log /dev/nvme0`。
+您可以使用以下命令完成此操作：`sudo apt-get install nvme-cli`。您还需要将该命令添加到 ioBroker sudoers 文件 `/etc/sudoers.d/iobroker`。使用编辑器（例如 nano）打开该文件：`sudo nano /etc/sudoers.d/iobroker`，并在文件末尾添加以下行：
+
+```iobroker ALL=(ALL) NOPASSWD: /usr/sbin/nvme smart-log /dev/nvme0```
 
 ## GPIO
 您也可以读取和控制 GPIO。
@@ -161,6 +163,10 @@ sudo apt install -y libgpiod-dev
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
 ### 3.0.2 (2025-12-01)
 * (@klein0r) Check for required libgpiod-dev package version
 
@@ -186,6 +192,8 @@ sudo apt install -y libgpiod-dev
 ## License
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024-2025 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

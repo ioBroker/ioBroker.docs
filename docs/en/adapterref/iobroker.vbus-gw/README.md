@@ -63,6 +63,11 @@ If you only want to connect to a single serial port it is recommended to configu
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.2 (2026-03-04) - 2026H1 maintenance release
+
+- (pdbjjens) **Changed**: node>=20, js-controller>=7.0.7 and admin>=7.7.22 required
+- (pdbjjens) **Fixed**: update release-script (#149)
+
 ### 0.3.2-alpha.0 (2025-10-20)
 
 - (pdbjjens) Fix: Removed NPM_TOKEN secret from repository
@@ -82,12 +87,6 @@ If you only want to connect to a single serial port it is recommended to configu
 - (pdbjjens) Change: Migration to ESLint 9
 - (pdbjjens) New: Accept serial port paths /dev/serial/by-id/usb-xxxxxxxxxxxxxxxxxxx or /dev/serial/by-path/platform-xxxxxxxxxxxxxxxxxxx
 - (pdbjjens) Change: Responsive Design optimizations
-
-### 0.1.0 (2024-08-13) - 2024H2 maintenance release
-
-- (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
-- (pdbjjens) New: Updated dependencies
-- (pdbjjens) New: Ensure that vbus-gw is started before myvbus or resol
 
 ## License
 

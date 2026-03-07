@@ -2,34 +2,47 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.porsche/README.md
-title: ioBroker.保时捷
-hash: R5ESABh9xYKCE/pZLm13vKEmB62fx97pfOyspBoauQ8=
+title: ioBroker.porsche
+hash: FxnW7nhmAhoUTIf6CcWeWC3L/BeyMHd3zn4X2sJwCyY=
 ---
 ![标识](../../../en/adapterref/iobroker.porsche/admin/porsche.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.porsche.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.porsche.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.porsche.svg)
 ![安装数量](https://iobroker.live/badges/porsche-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/porsche-stable.svg)
+![稳定仓库中的当前版本](https://iobroker.live/badges/porsche-stable.svg)
 ![依赖状态](https://img.shields.io/david/TA2k/iobroker.porsche.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.porsche.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.porsche.png?downloads=true)
 
 # IoBroker.porsche
 **测试：** ![测试与发布](https://github.com/TA2k/ioBroker.porsche/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的保时捷适配器
-myPorsche 适配器
+我的保时捷适配器
 
-## 登录ablauf
+## 登录
 Die myPorsche Mail und Passwort eingeben。
 
-## 斯图恩
+### 验证码
+Bei manchen 使用保时捷验证码登录。在迪森秋天：
+
+1. Adapter-Einstellungen im Admin öffnen
+2. Im Bereich “验证码登录” wird das Captcha-Bild angezeigt
+3. Den angezeigten Code im Feld“验证码”eingeben
+4. 单击“提交验证码”
+
+登录后，请输入验证码图片，然后重新加载。
+
+## 施托伊恩
 porsche.0.vin.remote auf true/false setzen steuert den jeweiligen Befehl
 
-## 讨论和讨论
+## 讨论和问题
 <https://forum.iobroker.net/topic/50883/test-adapter-myporsche-v0-0-x>
 
 ## Changelog
+
+### 0.5.1
+- fix login and add remotes
 
 ### 0.2.0
 

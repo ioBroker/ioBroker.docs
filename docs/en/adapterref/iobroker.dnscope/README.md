@@ -56,6 +56,9 @@ If you have several domains that are to be updated, you need one instance per do
 ---
 <!-- ### **WORK IN PROGRESS** -->
 ## Changelog
+### **WORK IN PROGRESS**
+* (simatec) Fix License
+
 ### 0.2.7 (2025-11-23)
 * (simatec) dependencies updated
 
@@ -94,7 +97,7 @@ If you have several domains that are to be updated, you need one instance per do
 ## License
 MIT License
 
-Copyright (c) 2025 simatec
+Copyright (c) 2025 - 2026 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

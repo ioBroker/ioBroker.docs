@@ -54,7 +54,7 @@ A detailed datapoint description you can find here [telematic.json](telematic.js
 
 ![CarData Client Setup](img/cardata-client-setup.png)
 
-# **CRITICAL**: Click one service and wait 30 seconds if you see an error message, then click again. Don't press on "Gerät Authentifizieren/Devict authentication" Enter the client_id in iobroker settings.
+# **CRITICAL**: Click one service and wait 30 seconds if you see an error message, then click again. Don't press on "Gerät Authentifizieren/Devict authentication" Enter the client_id in iobroker settings. If it is not working try all letters as lowercase.
 
 ### 2. CarData Streaming Configuration
 
@@ -214,6 +214,12 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.3.4 (2026-02-28)
+
+- enhance docu and logging
+- (hombach) fix vulnerability
+- (hombach) update dependencies
+
 ### 4.3.3 (2026-01-02)
 
 - (hombach) year 2026 changes

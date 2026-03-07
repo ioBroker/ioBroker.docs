@@ -143,6 +143,15 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.0.0 (2026-03-03)
+* (bluefox) Migrated the new NPM token
+* (bluefox) Migrated to TypeScript
+* (bluefox) Added parsing of states, ioBroker files and logs
+* (bluefox) Fixing position marking in test dialog
+* (bluefox) Added mobile view
+* (bluefox) Minimal Node.js version is now 20
+* (bluefox) Added export import via CSV file
+
 ### 2.3.1 (2025-03-24)
 * (bluefox) Migrated the admin GUI to TypeScript
 
@@ -254,7 +263,7 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -727,9 +727,11 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 ---
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.3.14 (2026-02-18)
 * (simatec) License updated
 * (simatec) dependencies updated
+* (simatec) Fix CCU Backup
+* (simatec) added SSL Skip for mysql Backup
 
 ### 3.3.13 (2025-12-14)
 * (simatec) Fix Error Log for CCU Backup

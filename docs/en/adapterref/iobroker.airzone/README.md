@@ -11,6 +11,23 @@ Control and monitor airzone devices with ioBroker.
 [![Build Status](https://travis-ci.com/SilentPhoenix11/ioBroker.airzone.svg?branch=master)](https://travis-ci.com/github/SilentPhoenix11/ioBroker.airzone)
 
 ## Changelog
+### 3.0.0
+* (SilentPhoenix11) **BREAKING**: Requires Node.js >= 18 and js-controller >= 5.0.0
+* (SilentPhoenix11) Migrated from deprecated `request` to `axios` HTTP client
+* (SilentPhoenix11) Updated to @iobroker/adapter-core 3.x
+* (SilentPhoenix11) Added `info.connection` state for connection status
+* (SilentPhoenix11) Added support for fan speed control (`fanSpeed`, `fanSpeedRaw`)
+* (SilentPhoenix11) Added sleep timer support (`sleepTime`)
+* (SilentPhoenix11) Added double setpoint support (`setpointCool`, `setpointHeat`)
+* (SilentPhoenix11) Added zone mode control (`mode`, `modeRaw`)
+* (SilentPhoenix11) Added zone error tracking (`errors`)
+* (SilentPhoenix11) Zone names are now editable
+* (SilentPhoenix11) Added IAQ sensor support (CO2, PM2.5, PM10, TVOC)
+* (SilentPhoenix11) Added API version and webserver info endpoints
+* (SilentPhoenix11) Fixed HTTP parser issue with Airzone devices (non-standard LF line endings)
+* (SilentPhoenix11) Uses adapter timers instead of global setTimeout
+* (SilentPhoenix11) Migrated to ESLint 9 flat config
+
 ### 2.0.3
 * (SilentPhoenix11) Small fixes
 

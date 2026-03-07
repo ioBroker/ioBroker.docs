@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.esphome/README.md
 title: ioBroker.esphome
-hash: /o7CXk8dOKe5XtHXCkPUvdn9eNbmGkhJZBI+32OMr9E=
+hash: 9IKJHjKeI/jq5MGXwoOR2Z5ON05NUxGKYRoqcQKWzyU=
 ---
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.esphome.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.esphome.svg)
@@ -29,7 +29,7 @@ hash: /o7CXk8dOKe5XtHXCkPUvdn9eNbmGkhJZBI+32OMr9E=
 
 ![标识](../../../en/adapterref/iobroker.esphome/admin/img/dashboard.png)
 
-快速链接：
+**快速链接：**
 
 - 📋 [常见问题解答](#frequently-asked-questions-faq)
 - ⚙️ [先决条件和设置](#prerequisites)
@@ -64,15 +64,17 @@ hash: /o7CXk8dOKe5XtHXCkPUvdn9eNbmGkhJZBI+32OMr9E=
 **ioBroker 管理后台集成仪表盘选项卡：**
 
 1. 输入 ESPHome 控制面板运行所在的 IP 地址和端口。
-2. **内置仪表盘：** 使用 `127.0.0.1:6052`（集成仪表盘的默认地址）
-3. **外部控制面板：** 使用外部 ESPHome 安装（例如，Docker 容器）的 IP 地址和端口号。
+2. **内置仪表盘：** 使用您的 ioBroker 主机的 IP 地址（例如，`192.168.1.10:6052`）
+- **重要提示：** 如果您从其他设备访问 ioBroker，请勿使用 `127.0.0.1:6052`（或 `localhost:6052`）——因为 iframe 会尝试从客户端浏览器访问 127.0.0.1，而不是 ioBroker 服务器。
+- 仅当您仅从运行 ioBroker 的同一台机器访问 ioBroker 管理后台时，才使用 `127.0.0.1:6052`。
+3. **外部控制面板：** 使用外部 ESPHome 安装的 IP:端口（例如，`192.168.1.100:6052`）
 4. **HTTPS 设置：** 有关 HTTPS 环境的详细配置，请参阅下面的 HTTPS 配置部分。
 
 **仪表盘 IP 示例：**
 
-- 内置：`127.0.0.1:6052`
-- 外部 Docker：`192.168.1.100:6052`
-- 外部主机：`esphome.local:6052`
+- 内置（可通过网络访问）：`192.168.1.10:6052`（请替换为您的 ioBroker 主机 IP 地址）
+- 内置（仅限本地）：`127.0.0.1:6052`（仅当管理员在同一台机器上访问时才可用）
+- 外部主机：`esphome.local:6052` 或 `192.168.1.100:6052`
 - HTTPS 代理：`https://192.168.1.50:8082/proxy.0/esphome/`
 
 ![ESPHome 控制面板 IP 配置](../../../en/adapterref/iobroker.esphome/admin/img/ESPhomeDashboardIP.png)
@@ -92,9 +94,48 @@ hash: /o7CXk8dOKe5XtHXCkPUvdn9eNbmGkhJZBI+32OMr9E=
 1. **请确保已在设备的 YAML 配置中启用 ESPHome API**（请参阅“前提条件”部分）。
 2. 在 ioBroker 管理后台中打开适配器的设备选项卡（适配器必须正在运行）。
 3. **手动添加设备：** 输入设备 IP 地址和身份验证凭据
-4. **自动发现：**目前已禁用（参见问题 #175）
+4. **自动发现：** 如果适配器设置中启用了自动发现功能，请使用该功能。
 
 适配器将建立连接并创建设备控制所需的所有 ioBroker 对象。
+
+我在 ESPHome 控制面板中配置了一个设备，但它没有显示在适配器中。
+**重要提示：**适配器和控制面板是完全独立的组件，彼此之间没有自动集成。适配器可以出于方便起见，选择性地为您安装（并启动）控制面板。再次强调，这并不意味着它们之间存在任何集成。
+
+- **控制面板：**用于创建/编辑 YAML 配置、编译固件和刷写设备
+- **适配器：**用于控制设备并将其状态与 ioBroker 同步。
+
+**要使通过仪表板配置的设备与适配器配合使用：**
+
+1. 使用控制面板中的配置刷写设备（确保在 YAML 中启用 ESPHome API）
+2. 在适配器设置（设备选项卡）中手动添加设备。输入 IP 地址/主机名和加密密钥（推荐）或密码（旧版）。
+3. 然后，适配器将通过 ESPHome 的原生 API 连接到设备。
+
+**注意：**未来可能会实现仪表板和适配器之间更紧密的集成（参见问题 #228），但目前它们是独立运行的。
+
+我在适配器中配置了一个设备，但它没有显示在仪表板中。
+**这是预期行为** - 适配器和仪表板不会自动同步设备配置。
+
+- 该**适配器**通过ESPHome的原生API连接到设备，用于控制/监控。
+- **控制面板**用于管理 YAML 配置和固件编译
+
+**如果您想将设备安装在仪表盘上：**
+
+**选项 1：**
+
+1. ESPHome 控制面板可以自动发现同一网络中的设备。
+2. 在控制面板中，已发现的设备将显示“采用”按钮。
+3. 点击“采用”按钮，将其添加到您的仪表板以进行配置管理。
+
+**方案二：**
+
+- 在控制面板中创建一个新设备，并将您现有的 yaml 文件复制到该设备中。
+
+**注意：**如果您只想通过ioBroker控制设备，则无需在控制面板中添加设备。控制面板仅用于创建/修改设备配置。
+
+### 如何安装/更新 Python
+简而言之：你不需要！
+
+该适配器不关心您系统上已安装的 Python 版本。它会自动安装并创建自己的 Python 环境，并确保版本正确。因此，如果您不了解自己在做什么，请不要随意修改系统上的 Python 命令。
 
 ## [文档](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
 
@@ -102,7 +143,7 @@ hash: /o7CXk8dOKe5XtHXCkPUvdn9eNbmGkhJZBI+32OMr9E=
 我们所有的适配器文档都可以在 [DrozmotiX 文档页面](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/) --> 找到。
 
 ## 先决条件
-* NodeJS 版本 >= 18.x
+* NodeJS >= 20.x
 * API 已在 YAML 中激活
 * 管理员标签页（可选）
 * ESPHome 控制面板 IP 地址在实例设置中提供
@@ -212,6 +253,30 @@ api:
 
 ![设备正常](../../../en/adapterref/iobroker.esphome/admin/img/deviceTree.png)
 
+### YAML 文件管理
+该适配器提供了一个便捷的界面，可以直接从管理界面管理 YAML 配置文件。此功能允许您上传、下载和管理存储在 ESPHome 目录中的 YAML 文件，这些文件可供 ESPHome 控制面板使用。
+
+＃＃＃＃ 特征
+- **上传 YAML 文件**：将您的 YAML 配置内容直接粘贴到管理界面，并将其上传到 ESPHome 目录。
+- **查看文件列表**：查看当前存储在 ESPHome 目录中的所有 YAML 文件，包括文件大小和修改日期。
+- **下载文件**：检索任何 YAML 文件的内容以进行编辑或备份
+- **删除文件**：删除不再需要的 YAML 文件
+
+#### 使用方法
+1. **导航至适配器配置中的“YAML 文件”选项卡**
+2. **上传新文件**：
+- 输入文件名（必须以 .yaml 或 .yml 结尾）
+- 粘贴您的 YAML 配置内容
+点击“上传文件”
+3. **刷新文件列表**以查看所有可用的 YAML 文件
+4. **下载或删除文件**：
+- 在“选择文件”字段中输入文件名
+点击“下载文件”查看内容，或点击“删除文件”将其删除。
+
+> [!NOTE] > 文件存储在 ESPHome 目录中：`/opt/iobroker/iobroker-data/esphome.<instance>/` > > 这与 ESPHome 控制面板使用的目录相同，因此通过适配器上传的文件 > 可以立即在控制面板中使用，反之亦然。
+
+> [!TIP] > 此功能在以下情况下特别有用： > - 您想快速编辑配置而无需访问服务器文件系统 > - 您需要备份或共享设备配置 > - 您想管理 YAML 文件而无需运行完整的 ESPHome 控制面板
+
 ### 示例配置
 示例配置，更多示例请参见[DrozmotiX 文档页面](https://DrozmotiX.github.io) 或 [ESPHome 文档](https://DrozmotiX.github.io)](https://esphome.io/index.html)
 
@@ -246,6 +311,36 @@ api: password: 'MyPassword'
 
 名称："通用输出" 输出：'gpio_12' </details>
 
+## 控制 RGBW 灯
+### RGB 与 RGBW — 有什么区别？
+**RGB灯**使用红、绿、蓝三个通道来产生颜色，包括白色，它是通过将这三个通道混合至最大亮度而产生的。**RGBW灯**增加了一个专用的第四个白色通道（`white`），可以提供比RGB混合更纯净、更明亮的白色。
+
+### 轻实体的可用状态
+| 状态 | 描述 |
+|---|---|
+| `colorHEX` | 可写的十六进制颜色字符串，例如 `#ff6600`。在此处写入会更新红色/绿色/蓝色并发送命令。 |
+| `white` | 专用白色通道（0 – 255）。仅存在于支持 RGBW 的灯具上。 |
+| `brightness` | 整体亮度（0 – 255）。 |
+| `config.rgbAutoWhite` | **仅限RGBW** — 当设置为 `true` 时，写入 `#ffffff` 至 `colorHEX` 会自动激活白色通道并将 RGB 值设置为零。写入任何其他颜色都会禁用白色通道并使用 RGB 值。 |
+| `config.rgbAutoWhite` | **仅限 RGBW** — 设置为 `true` 时，向 `colorHEX` 写入 `#ffffff` 会自动激活白色通道并将 RGB 值设置为零。写入任何其他颜色都会禁用白色通道并使用 RGB 模式。 |
+
+### 自动白频道切换 (`rgbAutoWhite`)
+当检测到支持 RGBW 的灯（即，它暴露 `white` 状态）时，适配器会自动为该实体创建一个可写的 `config.rgbAutoWhite` 切换状态。其默认值为 `false`（禁用）。
+
+**启用方式：**
+
+1. 打开 ioBroker **对象** 视图，并导航到您的灯光实体，例如 `esphome.0.MyLight.Light.1.config.rgbAutoWhite`。
+2. 将值设置为“true”。
+
+启用后的行为：
+
+| `colorHEX` 输入 | 结果 |
+| `#ffffff` | `white` → 1（完整），`red` / `green` / `blue` → 0 |
+| 任何其他颜色 | `white` → 0，RGB 通道设置为颜色值 |
+| 其他任何颜色 | `白色` → 0，RGB 通道设置为颜色值 |
+
+**禁用时的行为（默认）：** `white` 通道永远不会自动被触碰；用户独立控制它。
+
 ## Tasmota / ESPEasy 迁移
 从之前的 Sonoff Tasmota 或 ESPEasy 设置迁移非常简单。您只需让 ESPHome 为您创建一个二进制文件，然后将其上传到 Web 界面即可。
 
@@ -264,9 +359,36 @@ api: password: 'MyPassword'
     * (DutchmanNL) 
 -->
 ### __WORK IN PROGRESS__
+* (@copilot) **NEW**: Add `lib/dashboardApi.js` module exposing all ESPHome Dashboard API endpoints (`getDevices`, `getConfig`, `getEncryptionKey`, `compile`, `upload`) for tighter dashboard integration
+* (@copilot) **FIXED**: Invalid jsonConfig warning on adapter install caused by `multiline` property not being allowed on `text` type; changed `uploadContent` to use `textarea` type (fixes #426)
+
+### 0.7.0-beta.4 (2026-02-21)
+* (DutchmanNL) **FIXED**: ESLint errors by code refactoring
+* (@copilot) **FIXED**: Restore missing `configStates` option in admin UI to allow configuring whether configuration states are shown per entity
+* (@copilot) **NEW**: Per-device `rgbAutoWhite` toggle in the light config channel for automatic white-channel routing on RGBW lights (see [Controlling RGBW Lights](#controlling-rgbw-lights))
+
+### 0.7.0-beta.3 (2026-02-20)
+* (@copilot) **NEW**: Added support for `colorBrightness`, `coldWhite`, `warmWhite`, and `colorMode` states for lights using the new ESPHome color mode API
+* (@copilot) **FIXED**: RGB light control (brightness, color, white, colorTemperature) not working with newer ESPHome firmware that uses `supportedColorModesList` instead of deprecated legacy flags (#338)
+
+### 0.7.0-beta.2 (2026-02-20) - add capability for fans & Lock entity
+* (@SimonFischer04) improve README
+* (@SimonFischer04) fix #394, actually fix #340, #356
+* (DutchmanNL) **FIXED**: Fan component not working #205
+* (@copilot) **NEW**: Allow customization of Pillow version used by ESPHome Dashboard, similar to ESPHome version selector
+* (@copilot) **NEW**: Add "Clear Autopy Cache" button in ESPHome Dashboard configuration tab to resolve dashboard loading issues (#209)
+
+### 0.7.0-beta.1 (2026-02-16) - Add support for Lock entity & improve dashboard testing
+* (@copilot) **NEW**: Add support for Lock entity type - Lock devices now properly display state and control options #353
+* (@copilot) **NEW**: YAML file management interface in admin UI for upload/download/delete operations (#369)
+* (@SimonFischer04) improve dashboard testing
+* (@SimonFischer04) improve logging for #201
+* (@SimonFischer04) update pillow
 * (@SimonFischer04) fix readme link to lib
 * (@SimonFischer04) fix connection status #311
 * (@SimonFischer04) remove unneeded node-fetch dependency
+* (@SimonFischer04) automatic migration from versions prior to ESPHomeDashboardUrl introduction (pre v0.6.1)
+* (@copilot) **FIXED**: Invalid jsonConfig schema - removed unsupported `doNotSave` property from table elements
 
 ### 0.6.3 (2025-09-16)
 * (@DutchmanNL) Fixed an admin error related to `jsonConfig` validation. #287
@@ -276,29 +398,10 @@ api: password: 'MyPassword'
 * (@DutchmanNL) Added a comprehensive FAQ section to the README to help users with common questions. #286
 * (@DutchmanNL) Updated the `esphome-native-api` library to V1.3.3, which may resolve connection issues. #201
 
-### 0.6.2 (2025-08-08)
-* (@SimonFischer04) add support for text device type #141, displays #103
-* (@SimonFischer04) fix cover device type #156
-* (@SimonFischer04) workaround: downgrade python for now. fixes #259
-
-### 0.6.1 (2025-05-24)
-* (@SimonFischer04) Update esphome
-* (@ticaki) Optimize admin configuration interface
-* (@DutchmanNL) Optimize backend handling of device discovery
-* (@DutchmanNL) Capability to select ESPHome Dashboard version added, resolves #118
-
-### 0.5.0-beta.8 (2023-11-24)
-* (DutchmanNL) Capability to automatically detect new devices added
-* (DutchmanNL) Ensures a compatible pillow version is used (10.0.1)
-* (SimonFischer04) Add pillow python package by default, resolves #188
-
-### 0.5.0-beta.4 (2023-11-15)
-* (DutchmanNL) Refactor memory caching of device data, resolves #189
-
 ## License
 MIT License
 
-Copyright (c) 2023-2025 DutchmanNL <rdrozda86@gmail.com>
+Copyright (c) 2023-2026 DutchmanNL <rdrozda86@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

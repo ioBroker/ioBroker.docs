@@ -59,6 +59,7 @@ When the adapter crashes or an other Code error happens, this error message that
 <!--### __WORK IN PROGRESS__-->
 ### __WORK IN PROGRESS__
 * (simatec) Readme updated
+* (simatec) Fix License
 
 ### 1.1.13 (2025-11-18)
 * (simatec) dependencies updated
@@ -206,7 +207,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ## License
 MIT License
 
-Copyright (c) 2019 - 2025 simatec
+Copyright (c) 2019 - 2026 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

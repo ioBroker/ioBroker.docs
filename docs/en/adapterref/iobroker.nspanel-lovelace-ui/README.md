@@ -157,6 +157,36 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.13.2 (2026-03-02)
+- (ticaki) Maintain table: proper semver comparison for Tasmota and TFT versions (upgrade vs. downgrade detection)
+- (ticaki) TabPanelinfo: openTasmotaConsole button fixed
+- (ticaki) Some minor fixes (settings model, tab model, field types)
+
+### 0.13.1 (2026-03-01)
+- (ticaki) New Admin tab for quick overview and minor settings
+- (tt-tom17)(ticaki) Panel status system with badge (online/offline/setup/flashing states)
+- (tt-tom17) Panel management improvements (IP selector, delete/edit panels, init button)
+- (tt-tom17) MQTT configuration UI design improvements
+- (tt-tom17)(ticaki) Various fixes (badge flickering, tab focus, jsonConfig, translations, hex colors)
+
+### 0.12.1 (2026-02-20)
+- (ticaki) fixed: brightsky template
+- (ticaki) fixed: malfunction of the update icon in the screensaver
+- (ticaki) fixed: When sending the script, the restart was confirmed with the wrong panel name.
+
+### 0.12.0 (2026-02-19)
+- (ticaki) NSPanel TFT version is displayed correctly depending on the model.
+- (ticaki)(tt-tom17) Option to write Tasmota telemetry data into states.  
+- (tt-tom17) Admin-Tab globalSetting convert to React  
+- (tt-tom17) Admin-Tab Maintain convert to React  
+- (tt-tom17) Add icon selector to trash entries
+
+### 0.10.0 (2026-01-17)
+- (ticaki) Confirmation click for role button
+- (ticaki) Some duplicate unique names were overlooked during script transfer.
+- (tt-tom17) bug fixes for role 'blind'
+- (ticaki) minor bug fixes
+
 ### 0.9.1 (2025-11-29)
 - (ticaki) Fixed: Under certain circumstances, the adapter crashes when a pop-up is called.
 

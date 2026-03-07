@@ -33,6 +33,10 @@ Discussion:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.0.3 (2026-01-21)
+
+- (Black-Thunder) Setting ATW device zone operation modes was fixed
+- (Black-Thunder) Dependencies were updated
 
 ### 3.0.2 (2025-12-07)
 

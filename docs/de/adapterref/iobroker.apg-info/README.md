@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: /jy4O1qaZHoOv/kGR7OZoKXOSS2F1t7QxxflAn4JrX0=
+hash: Q563Dth9hJZtJntiWYmZrKhRrVqsc6Ay5TzTIfrva+4=
 ---
 ![Logo](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -40,37 +40,39 @@ Für den Schweizer Markt wird ein Token von entsoe.eu benötigt. Bitte fügen Si
 ## Wie man ein Entsoe-Token erhält
 Registrieren Sie sich auf der Seite https://transparency.entsoe.eu/ und senden Sie anschließend eine E-Mail an transparency@entsoe.eu, in der Sie um RESTFUL-API-Zugriff für die von Ihnen registrierte E-Mail-Adresse bitten.<br> Weitere Details finden Sie unter https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
 
+## Zeitbasierte Netzkostenberechnung (NEU)
+In Märkten (wie Österreich), die durch zeitlich variable Netzkosten gekennzeichnet sind (z. B. ermäßigte Tarife zur Mittagszeit im Sommer), lassen sich Parameter nun über eine Tabelle konfigurieren. Eine Referenztabelle veranschaulicht das erforderliche Dateneingabeformat. Die Funktion befindet sich in den Adaptereinstellungen auf der Registerkarte „Berechnung“.
+
+**Wichtig:** Die Tabellenansicht funktioniert ab Admin 7.7.23. In älteren Versionen wird das Datumsfeld nicht korrekt angezeigt (https://github.com/ioBroker/ioBroker.admin/issues/3344).
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.1.24 (2025-11-05)
-* (HGlab01) Provider Entsoe is used as backup for quarter-hourly market prices. Request a token to be on the safe side
-* (HGlab01) Bump axios to 1.13.1
-* (HGlab01) Bump iobroker-jsonexplorer to 0.2.2
+### 0.1.30 (2026-02-24)
+* (@HGlab01) finetune timeout management
 
-### 0.1.23 (2025-10-29)
-* (HGlab01) extend to two market data providers for quarter-hourly market prices
-* (HGlab01) add turn on/off quarter-hourly and hourly market prices
-* (HGlab01) refactorings
+### 0.1.29 (2026-02-14)
+* (HGlab01) add time based grid costs calculation (see above)
+* (HGlab01) Bump axios to 1.13.5
 
-### 0.1.22 (2025-10-21)
-* (HGlab01) Implement retry mechanism for API calls
-* (HGlab01) add turn on/off for peak hours and market prices
+### 0.1.28 (2025-12-11)
+* (HGlab01) add Energy-Charts as third data provider
 
-### 0.1.21 (2025-10-13)
-* (HGlab01) Support quater-hourly tarifs
-* (HGlab01) Bump iobroker-jsonexplorer to 0.2.1
+### 0.1.27 (2025-11-19)
+* (HGlab01) disable data provider Epex (not a stable option)
 
-### 0.1.20 (2025-10-06)
-* (HGlab01) prepeare iobroker-jsonexplorer readiness for v0.2.0
-* (HGlab01) Bump axios to 1.12.2
+### 0.1.26 (2025-11-15)
+* (HGlab01) optimize handling for source Entsoe
+* (HGlab01) optimize handling when data provider runs in timeout
+* (HGlab01) market price details can be switched on/off
+* (HGlab01) enhanced logs when it comes to retries
 
 ## License
 MIT License
 
-Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2023-2026 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -92,6 +94,14 @@ SOFTWARE.
 
 #### Disclaimer apg-powermonitor
 More about the security of supply & all data, facts and figures regarding the world of electricity and the energy transition can be found at www.apg-powermonitor.at.
+
+#### Disclaimer data providers
+Three data providers are used for this adapter
+* Exaa (https://www.exaa.at/)
+* Entso-e (https://www.entsoe.eu/data/transparency-platform/)
+* Energy Charts (https://api.energy-charts.info/) licensed under the CC BY 4.0 license
+
+
 
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_large)

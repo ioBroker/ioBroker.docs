@@ -354,7 +354,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ## License
 MIT License
 
-Copyright (c) 2025 MyHomeMyData <juergen.bonfert@gmail.com>
+Copyright (c) 2024-2026 MyHomeMyData <juergen.bonfert@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

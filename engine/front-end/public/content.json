@@ -74,9 +74,9 @@
         "Enums": {
           "title": {
             "en": "Enums",
-            "de": "Kategorien/Aufzählungen",
-            "ru": "Категории/списки",
-            "zh-cn": "类别/列表"
+            "de": "Kategorien/Aufzählungen in ioBroker – Vollständige Übersicht",
+            "ru": "Категории/Списки в ioBroker – полный обзор",
+            "zh-cn": "ioBroker 中的类别/列表 – 完整概述"
           },
           "content": "basics/enums.md"
         },
@@ -193,7 +193,7 @@
               "title": {
                 "en": "Node.js & npm",
                 "de": "Update NodeJS",
-                "ru": "Обновить NodeJS",
+                "ru": "Обновите NodeJS",
                 "zh-cn": "更新 NodeJS"
               },
               "content": "install/updatenode.md"
@@ -502,8 +502,8 @@
           "title": {
             "en": "Runs no more",
             "de": "ioBroker läuft nicht mehr",
-            "ru": "IoBroker больше не работает",
-            "zh-cn": "ioBroker 不再运行"
+            "ru": "IoBroker больше не работает.",
+            "zh-cn": "ioBroker 已停止运行"
           },
           "content": "trouble/RunsNoMore.md"
         },
@@ -696,7 +696,7 @@
           "title": {
             "en": "JSON config",
             "de": "ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger",
-            "ru": "Конфигурация ioBroker JSON: руководство для начинающих",
+            "ru": "Настройка ioBroker в формате JSON: руководство для начинающих",
             "zh-cn": "ioBroker JSON 配置：新手指南"
           },
           "content": "dev/adapterjsonconfig.md"

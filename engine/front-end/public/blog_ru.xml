@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Новости, объявления и идеи о ioBroker]]></description>
         <link>https://www.iobroker.net/#ru/blog</link>
-        <lastBuildDate>Mon, 29 Dec 2025 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 04 Mar 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Ежемесячный обзор ioBroker – январь/февраль 2026 г.]]></title>
+            <description><![CDATA[
+                <p>Новый год в ioBroker начался с размахом! За первые два месяца 2026 года в репозиторий `latest` было добавлено множество новых адаптеров, а некоторые из них уже обновлены до версии `stable`.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#ru/blog/2026_03_04</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2026_03_04</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 04 Mar 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Итоги 2025 года]]></title>
             <description><![CDATA[

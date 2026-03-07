@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: ceT3UrkNGF1iTp+oW/Ry7epFUY7GzkAdasLqxCjpwP4=
+hash: PiZ4XJCJshjXGglMy02J8onIWW6Y8nsFhwDZoBad/jU=
 ---
 ![标识](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -44,7 +44,9 @@ hash: ceT3UrkNGF1iTp+oW/Ry7epFUY7GzkAdasLqxCjpwP4=
 ---
 
 ## ❗ 警告
-该适配器**并非**设计用于报警功能——它主要用于监测设备电池状态。
+此适配器**并非**设计用于报警功能，其主要用于监测设备电池状态。
+
+若发生火灾，本人概不负责。
 
 ---
 
@@ -132,8 +134,45 @@ pip --version
 <img width="2028" height="577" alt="形象的" src="https://github.com/user-attachments/assets/65cc5c71-4cd3-4502-b4bd-a4c7241d7708" />
 
 ------------------------------------------------------------------------------
+<!--
+
+### **正在进行中** -->
 
 ## Changelog
+### 0.3.6 (2026-01-26)
+* (arteck) typo
+*
+
+### 0.3.5 (2026-01-26)
+* (arteck) check object isLifeEnd
+
+### 0.3.4 (2026-01-25)
+* (arteck) fix bridge with hex
+
+### 0.3.3 (2026-01-25)
+* (arteck) fix battery state
+
+### 0.3.2 (2026-01-25)
+* (arteck) update settings
+
+### 0.3.1 (2026-01-25)
+* (arteck) update settings
+
+### 0.3.0 (2026-01-25)
+* (arteck) update settings
+
+### 0.2.6 (2026-01-24)
+* (arteck) update settings
+
+### 0.2.5 (2026-01-24)
+* (arteck) Dependencies have been updated
+
+### 0.2.4 (2026-01-24)
+* (arteck) add MQTT communication to Bridge. Xsense app Version > 1.34 is necessary
+
+### 0.2.3 (2026-01-15)
+* (arteck) add new smoke detectors
+
 ### 0.2.2 (2025-12-03)
 * (arteck) add XS0D-MR
 
@@ -216,7 +255,7 @@ pip --version
 
 MIT License
 
-Copyright (c) 2025 Arthur Rupp <arteck@outlook.com>,
+Copyright (c) 2025-2026 Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

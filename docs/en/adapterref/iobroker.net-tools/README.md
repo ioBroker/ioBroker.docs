@@ -133,7 +133,7 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 ## License
 Attribution-NonCommercial 4.0 (CC BY-NC 4.0)
 
-Copyright (c) 2025 Jey Cee <iobroker@all-smart.net>
+Copyright (c) 2025-2026 Jey Cee <iobroker@all-smart.net>
 
 http://creativecommons.org/licenses/by-nc/4.0/
 

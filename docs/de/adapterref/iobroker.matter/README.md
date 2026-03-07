@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.matter/README.md
 title: ioBroker Matter Adapter
-hash: O/e9Y+fasfqmfi0k7QYqZuVBlJB5PqEtsyfi3tTP9W0=
+hash: gAGo4u9VkNP6GkNvjV/3q+mv3vRzTuzoI+k6CrBXrj0=
 ---
 ![Logo](../../../en/adapterref/iobroker.matter/admin/matter.svg)
 
@@ -12,50 +12,92 @@ hash: O/e9Y+fasfqmfi0k7QYqZuVBlJB5PqEtsyfi3tTP9W0=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.matter.svg)
 
 # IoBroker Matter Adapter
-![Testen und Freigeben](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Einführung
-> [!Wichtig] > Der Adapter kann NICHT über GitHub installiert werden: Er muss über das ioBroker-Repository (stabil oder aktuell) installiert werden.
-> > Eine detaillierte Beschreibung der Konfiguration und Verwendung des ioBroker Matter-Adapters finden Sie in 🇩🇪 [deutsches Wiki](https://github.com/ioBroker/ioBroker.matter/wiki) und 🇬🇧 [englisches Wiki](https://github.com/ioBroker/ioBroker.matter/wiki/Home-%E2%80%90-EN).
-> > Bitte lesen Sie [Wichtige Hinweise](https://github.com/ioBroker/ioBroker.matter/wiki/Einleitung-und-wichtige-Hinweise#wichtige-hinweise-bitte-dringend-beachten), bevor Sie den Adapter verwenden.
+[!Wichtig] Der Adapter kann NICHT über GitHub installiert werden: Er muss über das ioBroker-Repository (stabile oder neueste Version) installiert werden.
+
+Eine detaillierte Beschreibung der Konfiguration und Verwendung des ioBroker Matter-Adapters finden Sie in Abschnitt 0.
+
+Bitte lesen Sie Abschnitt 1, bevor Sie den Adapter verwenden.
 
 ## Beschreibung
-Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzubilden:
+Mit dem ioBroker Matter Adapter lassen sich folgende Anwendungsfälle abbilden:
 
-* Matter-basierte Geräte können direkt mit ioBroker verknüpft und somit eingelesen / gesteuert werden
-* Die Bereitstellung mehrerer ioBroker-Geräte als Matter Bridge: Matter Bridges können mehrere Geräte enthalten und sind der einfachste Weg, ioBroker-Geräte in ein Matter-kompatibles Ökosystem zu integrieren.
-* ioBroker stellt individuelle virtuelle Matter-Geräte auf Basis von ioBroker-Geräten/ioBroker-Zuständen bereit, die einem Matter-kompatiblen Ökosystem beigebracht werden können (derzeit sind nur Bridges für Amazon Alexa möglich)
+* Materiebasierte Geräte können direkt mit ioBroker verbunden und somit eingelesen/gesteuert werden.
+* Die Bereitstellung mehrerer ioBroker-Geräte als Matter Bridge: Matter Bridges können mehrere Geräte enthalten und sind die einfachste Möglichkeit, ioBroker-Geräte in ein Matter-kompatibles Ökosystem zu integrieren.
+* ioBroker stellt individuelle virtuelle Matter-Geräte auf Basis von ioBroker-Geräten / ioBroker-Zuständen bereit, die einem Matter-kompatiblen Ökosystem beigebracht werden können (derzeit sind nur Brücken für Amazon Alexa möglich).
+
+## OTA-Updates (Over-The-Air)
+Der Matter-Adapter unterstützt Firmware-Updates für Geräte, die über den Controller angeschlossen sind, sodass Sie Matter-Geräte direkt über ioBroker aktualisieren können.
+
+### Grundlegende Verwendung
+Wenn ein Update verfügbar ist, erscheint im Controller-Panel neben dem Gerät ein **Update-Symbol**. Updates werden einmal täglich und initial ca. 10–15 Minuten nach dem Einschalten des Adapters geprüft.
+
+**So aktualisieren Sie ein Gerät:**
+
+1. Öffnen Sie das **Controller-Panel** für den Matter-Adapter.
+2. Klicken Sie auf dem Gerät mit dem Aktualisierungssymbol auf die **Aktualisierungsaktion**.
+3. Überprüfen Sie die Aktualisierungsinformationen (falls angezeigt) und klicken Sie auf **Jetzt aktualisieren**.
+
+**Aktualisierungsphasen:**
+
+- **Abfrage** → **Herunterladen** (zeigt % an) → **Anwenden**
+
+Sie können den Vorgang während der Abfrage/des Downloads abbrechen. Sobald die Anwendung beginnt, kann das Update nicht mehr abgebrochen werden. Nach Abschluss startet das Gerät automatisch neu (dies kann einige Minuten dauern).
+
+**Tipp:** Updates können während des Downloads scheinbar hängen bleiben – das ist normal, insbesondere bei Thread-Geräten. Haben Sie Geduld.
+
+### Offizielle Updates
+Der Adapter prüft automatisch, ob in der offiziellen Matter-Zertifizierungsdatenbank [Distributed Compliance Ledger (DCL)](https://webui.dcl.csa-iot.org/) zertifizierte Firmware verfügbar ist. Es ist keine Konfiguration erforderlich.
+
+### Benutzerdefinierte OTA-Updates (Erweitert)
+Zum Testen von Vorabversionen oder Community-Firmware:
+
+**Warnung**: Benutzerdefinierte Updates umgehen die Zertifizierung. Verwenden Sie Firmware nur aus vertrauenswürdigen Quellen.
+
+**Aufstellen:**
+
+1. Gehen Sie zum Tab **Allgemein** → Abschnitt **Benutzerdefinierte OTA-Updates**.
+2. Aktivieren Sie **Benutzerdefinierte/inoffizielle OTA-Updates zulassen**
+3. Optional kann ein benutzerdefinierter Pfad festgelegt werden (Standard: `<Instanzdaten>/custom-ota`)
+4. Der Pfad wird beim nächsten Neustart des Adapters erstellt, falls er noch nicht existiert.
+
+**Dateien hinzufügen:**
+
+- Platzieren Sie die `.ota`-Dateien im Verzeichnis für benutzerdefinierte Updates.
+- Klicken Sie auf **Updates jetzt importieren**, um nach neuen Dateien zu suchen (Dateien werden beim Start des Adapters einmalig automatisch importiert).
+- Der Adapter extrahiert automatisch die Hersteller-/Produkt-IDs aus den Dateiköpfen und validiert die Dateien.
 
 ## Aufgaben
-* Texte sind teilweise auf Englisch
-* Min/Max von Matter in ioBroker-Objekte synchronisieren
-* Objekte bereinigen, wenn Geräte/Zustände entfernt werden
+* Die Texte sind teilweise in englischer Sprache.
+* Synchronisieren Sie Min-/Max-Werte von Matter mit ioBroker-Objekten
+* Objekte beim Entfernen von Geräten/Zuständen bereinigen
 * ioBroker-Gerätetypen
 * (6) Staubsauger
-* (5+) Lautstärke, Lautstärkegruppe
 * (5+/8) Klimaanlage
 * (7) Feueralarm
 * (5) MediaPlayer
-* Warnung - wie?
-* Tor – auch bekannt als Jalousien, weil Materie keinen anderen Gerätetyp hat?
-* Fensterneigung - wie besprochen als zusammengesetztes Gerät mit zwei Kontaktsensoren ... einer zum Öffnen und Schließen und einer zum Neigen
-* LevelSlider – idealerweise als nicht beleuchtete gedimmte Steckdose?
-* Matter-Gerätetypen
+* Warnung – wie?
+* Gate – auch bekannt als Jalousie, weil Materie keinen anderen Gerätetyp hat?
+* windowTilt – wie bereits erwähnt, ein zusammengesetztes Gerät mit zwei Kontaktsensoren … einem zum Öffnen und Schließen und einem zum Neigen
+* levelSlider – idealerweise als gedimmte Steckdose ohne Beleuchtung?
+* Materiegerätetypen
 * (8) Ventilator -> Klimaanlage?
 * (7) Luftqualitätssensor -> ???
 * (7) Luftreiniger -> ???
 * (5) Pumpe -> ???
 * (6) Drucksensor -> ??? DEF
-* (6) Roboterstaubsauger -> Staubsauger
+* (6) Saugroboter -> Staubsauger
 * (4) Durchflusssensor -> ??? DEF
-* (5+) Raumklimaanlage -> airCondition
+* (5+) Raumklimaanlage -> Klimaanlage
 * (5+) Geschirrspüler-> ???
 * (4+) Einfacher Videoplayer -> MediaPlayer
 * (4+) Waschmaschine -> ???
 * (4) Kühlschrank -> ???
-* (4) Temperaturgeregelter Schrank -> ???
+* (4) Temperaturkontrollierter Schrank -> ???
 * (2+) Wasserfrostmelder -> Warnung?
 * (2+) Regensensor -> Warnung?
 * (2) Wasserventil -> ???
@@ -63,9 +105,9 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 * (2) Backofen -> ???
 * (2) Kochfeld -> ???
 * (2) Kochfläche -> ???
-* (2) Dunstabzugshaube -> ???
+* (2) Abzugshaube -> ???
 * (2) Mikrowellenherd -> ???
-* (2) Elektrische Fahrzeugversorgungsgeräte -> ???
+* (2) Ladeausrüstung für Elektrofahrzeuge -> ???
 * (2) Warmwasserbereiter -> ???
 * (1+) Solarenergie -> ???
 * (1+) Batteriespeicher -> ???
@@ -73,28 +115,40 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 
 ## Entwicklung
 ### Abhängigkeiten aktualisieren
-Verwenden Sie beim Aktualisieren von Projektabhängigkeiten (sowohl im Stammverzeichnis `package.json` als auch `src-admin/package.json`) immer den folgenden Befehl:
+Beim Aktualisieren von Projektabhängigkeiten (sowohl im Stammverzeichnis `package.json` als auch `src-admin/package.json`) verwenden Sie immer den folgenden Befehl:
 
 ```bash
 npm run npm
 ```
 
-Dieser Befehl aktualisiert Abhängigkeiten sowohl im Hauptprojekt als auch im Admin-Frontend und stellt sicher, dass `package-lock.json`-Dateien ordnungsgemäß synchronisiert werden.
+Dieser Befehl aktualisiert die Abhängigkeiten sowohl im Hauptprojekt als auch im Admin-Frontend und stellt so sicher, dass die `package-lock.json`-Dateien ordnungsgemäß synchronisiert werden.
 
 ### Tests ausführen
-Alle Tests werden in TypeScript geschrieben und direkt ohne Kompilierung ausgeführt:
+Alle Tests sind in TypeScript geschrieben und werden direkt ohne Kompilierung ausgeführt:
 
 ```bash
 npm test
 ```
 
-Tests befinden sich im Verzeichnis `test/` und verwenden ts-node für die direkte TypeScript-Ausführung.
+Die Tests befinden sich im Verzeichnis `test/` und verwenden ts-node für die direkte TypeScript-Ausführung.
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 1.0.0 (2026-02-25)
+* IMPORTANT: The first start of the controller with this version takes a bit longer to connect all devices because internal data are migrated
+* (@Apollon77) Updated to Matter 1.4.2 (matter.js to 0.16) including many optimizations and fixes
+* (@Apollon77) Also convert values for unit "mired" for Color temperatures
+  * (@Apollon77) Increases default color temperature range to 1.000-20.000 K
+* (@Apollon77) Added support for OTA updates (checked roughly 15 mins after adapter start and then daily)
+* (@Apollon77) Added Thread and Wifi topology overview with data from the devices. See Readme for details.
+* (@Apollon77) Detect duplicate commands/writes and prevent them from being sent out again if the first command is still in progress
+* (@GermanBluefox) Highlight the devices in GUI when hovering over the device in the device list
+* (@tarikweiss) Added support for volume, volumeGroup ioBroker devices to matter
+* (@Tyraenor/Apollon77) Add Off mode for Thermostats for Matter devices
+
 ### 0.5.6 (2025-10-21)
 * (@Apollon77) Type detector update, should detect single states in non-device structures better
 
@@ -103,7 +157,7 @@ Tests befinden sich im Verzeichnis `test/` und verwenden ts-node für die direkt
 * (@Apollon77) Correctly shows "in progress changes" in UI when adjusting devices to ovoid overlapping actions
 * (@Apollon77) Fix HSV to RGB calculation for some cases
 * (@Apollon77) Updated matter.js to 0.15.6
-* (@Apollon77) Optimizes shutdown process to ensure everything is properly closed
+* (@Apollon77) Optimizes the shutdown process to ensure everything is properly closed
 
 ### 0.5.4 (2025-10-07)
 * (@Apollon77) Updated matter.js to 0.15.5
@@ -392,4 +446,4 @@ Tests befinden sich im Verzeichnis `test/` und verwenden ts-node für die direkt
 ## License
 Apache-2.0
 
-Copyright (c) 2023-2025 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2023-2026 Denis Haev <dogafox@gmail.com>, Ingo Fischer <github@fischer-ka.de>

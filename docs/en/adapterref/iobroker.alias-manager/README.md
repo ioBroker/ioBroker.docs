@@ -100,10 +100,12 @@ Here you can:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.1.0 (2026-02-12)
+- (copilot) Adapter requires node.js >= 20 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
+- (copilot) Added Node.js 24.x to testing matrix
+- (mcm1957) Dependencies have been updated.
 
 ### 2.0.0 (2024-10-20)
 - (mcm1957) Adapter has been moved to iobroker-community-adapter organisation.
@@ -121,13 +123,10 @@ Here you can:
 ### 1.2.4 (2021-08-25)
 * (sbormann) Fixed autocreate not working after renaming destination id.
 
-### 1.2.3 (2021-06-05)
-* (sbormann) Fixed autocreate not working after deleting or renaming alias.
-
 ## License
 MIT License
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 Sebastian Bormann <sebastian@bormann.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -52,6 +52,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
+### 0.14.6 (2026-02-27)
+
+- (HombachC) update dependencies
+
 ### 0.14.5 (2026-01-01)
 
 - (HombachC) update axios
@@ -75,11 +79,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) min admin 7.6.17 as recommended
 - (HombachC) bump adapter-core (#676)
 - (HombachC) fix vulnerability
-- (HombachC) bump dependencies
-
-### 0.14.1 (2025-06-08)
-
-- (HombachC) add tests for node 24 (#655)
 - (HombachC) bump dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
@@ -110,5 +109,6 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
 
 SOFTWARE.

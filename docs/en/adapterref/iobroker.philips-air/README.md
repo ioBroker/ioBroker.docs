@@ -31,6 +31,7 @@ It can happen, that some devices have not all variables, and they will stay unfi
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 
 ### 1.2.0 (2025-02-10)

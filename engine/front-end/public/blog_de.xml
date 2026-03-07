@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.net/#de/blog</link>
-        <lastBuildDate>Mon, 29 Dec 2025 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 04 Mar 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[ioBroker Monatsrückblick – Januar/Februar 2026]]></title>
+            <description><![CDATA[
+                <p>Das neue Jahr ist in ioBroker mit voller Fahrt gestartet!\nIn den ersten zwei Monaten des Jahres 2026 wurden zahlreiche neue Adapter in das `latest`-Repository aufgenommen,\nund einige davon haben bereits den Sprung in die `stable`-Version geschafft.\nAußerdem gibt es eine wichtige Nachricht für Z-Wave-Nutzer: der bisherige `zwave2`-Adapter\nwurde durch eine modernere Lösung abgelöst.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2026_03_04</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2026_03_04</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 04 Mar 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Jahresrückblick 2025]]></title>
             <description><![CDATA[

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: 5tn98OjELn7lq9d0K9WQAgr8fnJMj7kVxeNvrcY/ig8=
+hash: vQHzTP8mzOS9nXXWF81cYazOfJVkP7pz+Z+g89oG6vo=
 ---
 ![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -12,83 +12,94 @@ hash: 5tn98OjELn7lq9d0K9WQAgr8fnJMj7kVxeNvrcY/ig8=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.web.svg)
 
 # IoBroker.web
-![Testen und Freigeben](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Webserver auf Basis von Node.js und Express zum Lesen der Dateien aus der ioBroker-Datenbank.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## Web-Sockets optimieren
-Bei einigen Web-Sockets-Clients kommt es zu Leistungsproblemen bei der Kommunikation.
+## WebSockets optimieren
+Bei einigen WebSocket-Clients kann es zu Leistungsproblemen bei der Kommunikation kommen.
+Dieses Problem wird mitunter durch die Verwendung eines Long-Polling-Mechanismus für die Socket.IO-Kommunikation verursacht. Sie können die Option „WebSockets erzwingen“ aktivieren, um die ausschließliche Verwendung von WebSockets zu erzwingen.
 
-Manchmal liegt dieses Problem daran, dass die socket.io-Kommunikation auf einen langen Polling-Mechanismus zurückgreift.
-
-Sie können die Option „Web-Sockets erzwingen“ aktivieren, um die ausschließliche Verwendung von Web-Sockets-Transport zu erzwingen.
-
-## Lassen Sie uns Zertifikate verschlüsseln
-Lesen [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+## Let's Encrypt-Zertifikate
+Lesen Sie [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
 ## Erweiterungen
-Der Webtreiber unterstützt Erweiterungen.
-Die Erweiterung ist ein URL-Handler, der bei einer solchen URL-Anfrage aufgerufen wird.
-Die Erweiterungen ähneln dem normalen Adapter, haben jedoch keinen laufenden Prozess und werden vom Webserver aufgerufen.
+Der Webdriver unterstützt Erweiterungen.
+Die Erweiterung ist ein URL-Handler, der aufgerufen wird, wenn eine entsprechende URL-Anfrage eingeht. Die Erweiterungen ähneln dem normalen Adapter, haben aber keinen eigenen Prozess und werden vom Webserver aufgerufen.
 
-Beispielsweise kann der Benutzer einen speziellen Proxy-Adapter aktivieren und andere Geräte (wie Webcams) auf demselben Webserver erreichen.
-Es ist erforderlich, dass alle Dienste auf einem Webserver verfügbar sind.
+Beispielsweise kann der Benutzer einen speziellen Proxy-Adapter aktivieren und so andere Geräte (wie Webcams) auf demselben Webserver erreichen.
+Es ist erforderlich, dass alle Dienste über einen einzigen Webserver verfügbar sind.
 
-Die Weberweiterung könnte und sollte die Funktion `unload` unterstützen, die `promise` zurückgeben könnte, wenn der Entladevorgang einige Zeit in Anspruch nimmt.
+Die Web-Erweiterung könnte und sollte die Funktion `unload` unterstützen, die `promise` zurückgeben könnte, wenn der Entladevorgang einige Zeit in Anspruch nimmt.
 
-Weitere Informationen zu Web-Erweiterungen finden Sie unter [Hier](WEB-EXTENSIONS-HOWTO.md).
+Mehr über Web-Erweiterungen können Sie unter [Hier](WEB-EXTENSIONS-HOWTO.md) nachlesen.
 
-## Brute-Force-Schutz
-Wenn die Authentifizierung aktiviert ist und der Benutzer innerhalb einer Minute fünfmal ein falsches Passwort eingibt, muss er mindestens eine Minute bis zum nächsten Versuch warten.
-Nach dem 15. falschen Versuch muss der Benutzer eine Stunde warten.
+## Schutz vor Brute-Force-Angriffen
+Wenn die Authentifizierung aktiviert ist und der Benutzer innerhalb einer Minute fünfmal ein falsches Passwort eingibt, muss er mindestens eine Minute warten, bevor er es erneut versuchen kann. Nach dem 15. Fehlversuch muss der Benutzer eine Stunde warten.
 
-## Option „Angemeldet bleiben“
-Wenn diese Option aktiviert ist, bleibt der Benutzer einen Monat lang angemeldet. Andernfalls bleibt der Benutzer für die konfigurierte Anmeldezeitüberschreitung angemeldet.
+## Option "Angemeldet bleiben"
+Wenn diese Option ausgewählt ist, bleibt der Benutzer einen Monat lang angemeldet. Andernfalls bleibt der Benutzer für die konfigurierte Anmeldezeitüberschreitung angemeldet.
 
-## Zugriffsstatuswerte
-Auf die normalen Zustandswerte können Sie über die HTTP-Get-Anfrage zugreifen.
+## Zugriff auf die Werte des Zugriffszustands
+Sie können über eine HTTP-GET-Anfrage auf die Normalzustandswerte zugreifen.
 
 ```
 http://IP:8082/state/system.adapter.web.0.alive =>
 {"val":true,"ack":true,"ts":1606831924559,"q":0,"from":"system.adapter.web.0","lc":1606777539894}
 ```
 
-oder greifen Sie auf Dateien wie diese zu:
+oder auf Dateien wie diese zugreifen:
 
 ```
 http://IP:8082/vis-2.0/javascript.picture.png =>
 [IMAGE]
 ```
 
+Ab Version 8.0.0 können Sie Werte auch per HTTP-POST-Anfrage schreiben:
+
+```
+[POST] http://IP:8082/state/javascript.0.myVariable => true
+```
+
+Oder als JSON-Objekt mit zusätzlichen Parametern:
+
+```
+[POST] http://IP:8082/state/javascript.0.myVariable =>
+{"val": true, "ack": false}
+```
+
+Hinweis: Um diese Funktion nutzen zu können, muss die Option „Status und Socket-Informationen deaktivieren“ in den Webadapter-Einstellungen deaktiviert sein.
+
 ## Option "Basisauthentifizierung"
-Ermöglicht die Anmeldung per Standardauthentifizierung durch Senden von `401` Unauthorized mit einem `WWW-Authenticate`-Header.
-Dies kann für Anwendungen wie *FullyBrowser* verwendet werden. Bei einmaliger Eingabe falscher Anmeldedaten werden Sie zur Anmeldeseite weitergeleitet.
+Ermöglicht die Anmeldung per Basisauthentifizierung durch Senden der Meldung „`401` Nicht autorisiert“ mit einem Header „`WWW-Authenticate`“.
+
+Dies kann für Anwendungen wie *FullyBrowser* verwendet werden. Bei Eingabe falscher Anmeldedaten werden Sie zur Anmeldeseite weitergeleitet.
 
 ## Benutzerliste
-Sie können die Liste der Benutzer definieren, die auf den Webserver zugreifen können. Sie können die Zugriffsrechte für angemeldete Benutzer ändern.
+Sie können die Liste der Benutzer definieren, die auf den Webserver zugreifen dürfen. Sie können die Zugriffsrechte für angemeldete Benutzer ändern.
 
-Wenn der Benutzer nicht in der Liste ist, kann er nicht auf den Webserver zugreifen.
+Wenn der Benutzer nicht in der Liste steht, kann er nicht auf den Webserver zugreifen.
 
-Es ist einfacher, für jedes Objekt und jeden Status die Zugriffsrechte für den jeweiligen Benutzer festzulegen.
+Es ist einfacher, als für jedes Objekt und jeden Zustand die Zugriffsrechte für den jeweiligen Benutzer festzulegen.
 
 ## Erweiterte Optionen
 ### Standardweiterleitung
-Wenn beim Öffnen des Webports im Browser keine APP-Auswahl angezeigt werden soll, sondern eine bestimmte Anwendung, kann hier der Pfad angegeben werden (z.B. `/vis/`), damit dieser Pfad automatisch geöffnet wird.
+Soll beim Öffnen des Webports im Browser keine App-Auswahl, sondern eine bestimmte Anwendung angezeigt werden, kann der Pfad hier angegeben werden (z. B. `/vis/`), sodass dieser Pfad automatisch geöffnet wird.
 
 ## OAuth2-Authentifizierung
 Der Webadapter unterstützt die OAuth2-Authentifizierung.
 
-Um die Tokens zu erhalten, muss der Benutzer die URL aufrufen:
+Um die Token zu erhalten, muss der Benutzer die folgende URL aufrufen:
 
 ```
 http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<password>&client_id=ioBroker&stayloggedin=<false/true>
 ```
 
-`stayloggedin=true` bedeutet, dass das Token im Browser gespeichert und für die nächsten Anfragen verwendet wird und ist optional.
+`stayloggedin=true` bedeutet, dass das Token im Browser gespeichert und für die nächsten Anfragen verwendet wird; die Angabe ist optional.
 
-Die Antwort lautet:
+Die Antwort lautet etwa so:
 
 ```json
 {
@@ -104,9 +115,25 @@ Weitere Informationen finden Sie hier: https://github.com/ioBroker/webserver?tab
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 8.0.0 (2026-02-18)
+* (@GermanBluefox) Updated packages. Minimal Node.js version is now 20.0.0
+* (@GermanBluefox) Removed binary states
+* (@GermanBluefox) Added possibility to write values via `/state/` endpoint with `POST`
+
+### 7.0.9 (2025-03-28)
+* (@GermanBluefox) Corrected the loading of the material adapter
+
+### 7.0.8 (2025-03-18)
+* (@GermanBluefox) Added settings for custom CORS headers
+* (@GermanBluefox) Added the possibility to show admin instances on the web welcome page
+* (@GermanBluefox) Implemented the new index page
+
+### 7.0.7 (2025-03-15)
+* (@GermanBluefox) Trying to catch an error by the web extension
+
 ### 7.0.6 (2025-03-09)
 * (@GermanBluefox) Corrected the login for iobroker.visu app
 * (@GermanBluefox) Corrected load of TypeScript Web extensions
@@ -211,7 +238,7 @@ Weitere Informationen finden Sie hier: https://github.com/ioBroker/webserver?tab
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2025 Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

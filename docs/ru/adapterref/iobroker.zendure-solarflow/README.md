@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: DuZMTwYVqm7rd5887ZeukvOJr6IJs4sHJJGY7LJY/dc=
+hash: xvocCcuZLsdfsukPve8EdU9O4QqVZuU4O7uY5zs2+P8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.zendure-solarflow.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.zendure-solarflow.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.zendure-solarflow.svg)
 ![Количество установок](https://iobroker.live/badges/zendure-solarflow-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/zendure-solarflow-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/zendure-solarflow-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.zendure-solarflow.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)
 
@@ -18,42 +18,129 @@ hash: DuZMTwYVqm7rd5887ZeukvOJr6IJs4sHJJGY7LJY/dc=
 **Тесты:** ![Тестирование и выпуск](https://github.com/nograx/ioBroker.zendure-solarflow/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер Zendure Solarflow для ioBroker
-Этот проект представляет собой адаптер ioBroker для чтения данных из API Zendure Solarflow Cloud.
+Этот проект представляет собой адаптер ioBroker для чтения данных из облачного API Zendure Solarflow.
 
 ## Пожертвовать
-Если вы найдете этот адаптер полезным и захотите поддержать мою работу, не стесняйтесь сделать пожертвование через PayPal. Спасибо! (Это персональная ссылка для пожертвований Nograx, не имеющая никакого отношения к проекту ioBroker!)<br />
+Если этот адаптер окажется для вас полезным и вы захотите поддержать мою работу, пожалуйста, сделайте пожертвование через PayPal. Спасибо! (Это личная ссылка для пожертвований Nograx, не имеющая отношения к проекту ioBroker!)<br />
 
 ## Функции
-- Получайте все телеметрические данные с ваших устройств Solarflow, включая те, которые не отображаются в официальном приложении, например, напряжение батареи.
-- Управляйте Solarflow HUB так же, как в официальном приложении. Большинство настроек доступны.
-- Управляйте ограничением выходного сигнала — вы не ограничены использованием Shelly Pro EM для реализации нулевой подачи. Вы также можете разрабатывать более сложные сценарии с помощью скрипта или блочно в ioBroker.
-- Отключение питания при падении напряжения на одной из батарей (защита батареи). Работает только при установке ограничения выходного напряжения через адаптер.
-- Управляйте несколькими Solarflow одновременно!
-- Получите более точные расчеты!
-- Работает со всеми устройствами Zendure SolarFlow: HUB1200, Hyper2000, HUB2000 и AIO!
+— Получайте все телеметрические данные с ваших устройств Solarflow, включая те, которые не отображаются в официальном приложении, например, напряжение батареи.
+— Управляйте своим Solarflow HUB так же, как и в официальном приложении. Большинство настроек доступны.
+- Контролируйте ограничение выходного сигнала — вы не ограничены использованием Shelly Pro EM для реализации нулевой подачи сигнала. Вы также можете проектировать более сложные сценарии с помощью скриптов или Blockly в ioBroker.
+- Отключение входного сигнала при низком напряжении одной из батарей (защита батареи). Работает только при установке ограничения выходного напряжения через адаптер.
+— Управляйте несколькими устройствами Solarflow одновременно!
+— Получите более точные расчеты!
+- Совместимо со всеми устройствами Zendure SolarFlow: HUB1200, Hyper2000, HUB2000 и AIO!
 
 ## Автономный режим (отключение от Zendure Cloud)
-Новая функция позволяет отключить устройство Zendure от облака. Для этого можно использовать [Solarflow Bluetooth Manager](https://github.com/reinhard-brandstaedter/solarflow-bt-manager) от Райнхарда Брандштеттера или мой собственный инструмент для Windows [Zendure Cloud Disconnector](https://github.com/nograx/zendure-cloud-disconnector). Также можно перенаправлять DNS-запросы с mq.zen-iot.com на ваш MQTT-сервер с помощью маршрутизатора!
+В качестве новой функции вы можете отключить устройство Zendure от облака. Для этого можно использовать [Solarflow Bluetooth Manager от Райнхарда Брандштеттера (https://github.com/reinhard-brandstaedter/solarflow-bt-manager) или мой собственный инструмент для Windows [Zendure Cloud Disconnector].](https://github.com/nograx/zendure-cloud-disconnector). Также можно перенаправлять DNS-запросы с вашего маршрутизатора с "mq.zen-iot.com" на ваш собственный MQTT-сервер!
 
-Оба инструмента подключаются к устройству Zendure через Bluetooth и просто задают внутренний URL-адрес MQTT на новый URL/IP-адрес, который вы должны предоставить. В настоящее время вы вынуждены использовать порт MQTT по умолчанию 1883 на вашем сервере. Вам также придётся отключить аутентификацию на сервере MQTT, поскольку устройство Zendure использует жёстко заданный пароль.
+Оба инструмента подключаются к устройству Zendure через Bluetooth и просто устанавливают внутренний URL-адрес MQTT на новый URL/IP-адрес, который вам необходимо указать. В настоящее время вы вынуждены использовать порт MQTT по умолчанию 1883 на вашем сервере. Вам также необходимо отключить аутентификацию на сервере MQTT, поскольку устройство Zendure использует жестко закодированный пароль.
 
-Если устройство Zendure взаимодействует с вашим MQTT-сервером, вы можете подключить этот адаптер ioBroker к тому же экземпляру MQTT. Необходимо указать модель устройства и ключ устройства (который отображается в приложении Zendure Cloud Disconnector).
+Если устройство Zendure взаимодействует с вашим MQTT-сервером, вы можете подключить этот адаптер ioBroker к тому же экземпляру MQTT. Вам необходимо указать модель устройства и ключ устройства (который отображается в приложении Zendure Cloud Disconnector).
 
 Вы по-прежнему можете обновлять прошивку с помощью официального приложения Zendure через Bluetooth и использовать оба инструмента Bluetooth для повторного подключения устройства к облаку!
 
 ## Важный
-Если вы планируете управлять зарядкой и питанием устройства с помощью скрипта/блока, рекомендую использовать параметр управления **setDeviceAutomationInOutLimit**, так как он управляет устройством без записи данных во флеш-память. Также рекомендуется установить состояние управления **smartMode** в значение true, если у вас HUB 1200/2000 с ACE 1500, так как это также заставит устройство записывать изменения acMode в оперативную память, а не во флеш-память.
+Если вы планируете управлять зарядкой и подачей электроэнергии к вашему устройству с помощью скрипта/blockly, я рекомендую использовать параметр управления '**setDeviceAutomationInOutLimit**', поскольку он управляет устройством без записи во флэш-память устройства. Вы можете использовать отрицательные значения для запуска зарядки от сети.
 
-### Hyper 2000, SF 2400 AC или SF 800 (про)
-На таких устройствах, как Hyper 2000, SF 2400 AC или SF 800 (pro), вы можете использовать отрицательные значения для запуска зарядки от сети. SF 2400 AC или SF 800 (pro) в настоящее время **не протестированы**!
-
-### HUB 1200 / HUB 2000 / ACE 1500 Combo
-В сочетании HUB 1200 / HUB 2000 / ACE 1500 необходимо использовать **setDeviceAutomationInOutLimit** для подачи питания и вручную переключать acMode и **setInputLimit**, если требуется зарядка от сети. В этом случае настоятельно рекомендуется установить **smartMode** в значение true!
+Поскольку у меня есть только устройства Hyper 2000, другие устройства я не тестировал, и их функциональность зависит от отзывов сообщества!
 
 ## Примечания
-Теперь этот адаптер будет использовать облачный код авторизации для аутентификации на официальных серверах MQTT, который вы можете сгенерировать в приложении Zendure!
+Теперь этот адаптер будет использовать код авторизации облака для аутентификации на официальных серверах MQTT, который вы можете сгенерировать в приложении Zendure!
 
 ## Changelog
+### 3.5.3 (2026-03-01)
+
+- Fix setDeviceAutomationInOutLimit on certain HEMS devices like 2400 AC(+)
+
+### 3.5.2 (2026-02-28)
+
+- Add productKey '5fG27j' for Solarflow 2400 AC+
+
+### 3.5.1 (2026-02-19)
+
+- Try to update state only if state exist for this device
+- Improved error handling
+
+### 3.5.0 (2026-02-18)
+
+- Add productKey '2Qe7C9' for Solarflow 2400 Pro
+- Add event handler (log message) for MQTT disconnect
+
+### 3.4.0 (2026-02-16)
+
+- Add productKey '8n77V3' for Solarflow 800 Plus
+- Remove passMode, pass and buzzerSwitch from Hyper 2000
+
+### 3.3.2 (2026-02-02)
+
+- Fix another 'has no existing object' message bug on pvPower3 + 4
+- Fix Battery identification of AB2000X and calculation of 'energyWhMax'
+- Fix Battery identification of AB3000 and calculation of 'energyWhMax'
+
+### 3.3.1 (2026-01-30)
+
+- Fix calculation issue
+
+### 3.3.0 (2026-01-30)
+
+- Fix 'has no existing object' messages on pvPower3 + 4
+- Fix AC input limit of SF 800 Pro
+
+### 3.2.2 (2025-12-21)
+
+- Fix reset of calculation states if PV3+4 (SF 800 Pro)
+
+### 3.2.1 (2025-12-17)
+
+- Fix setDeviceAutomation charging mode
+
+### 3.2.0 (2025-12-17)
+
+- Fix inputLimit on certain devices
+- Fix calculation of PV3 & 4 again (hopefully now 100%)
+- Add some more specific debug messages
+- Remove misleading error message on adapter start
+- Replace restart on checkStatesJob with a debug message (I think Zendure cloud is stable now)
+- Update adapter to adapter-react-v5 (MUI v5)
+- Fix commandbar in settings
+
+### 3.1.1 (2025-12-01)
+
+- Fix Uppercase 'a4ss5p' in helpers.ts
+
+### 3.1.0 (2025-12-01)
+
+- Fix setInputLimit (always use positive value!)
+- Add calculation states for PV3 & PV4 (used by SF 800 Pro)
+
+### 3.0.8 (2025-10-22)
+
+- Fix missing smartMode state for SF 800 Pro
+
+### 3.0.7 (2025-10-20)
+
+- Fix creation of SF 800 Pro device
+
+### 3.0.5 (2025-10-20)
+
+- Add some more log information on device creation
+
+### 3.0.4 (2025-10-09)
+
+- Fix inputLimit issue
+- Fix Wifi status not updating when packData changes
+
+### 3.0.3 (2025-10-07)
+
+- Optimize setting of wifiMode in local mode
+- Optimize Debug option
+
+### 3.0.2 (2025-10-06)
+
+- Ignore 'wifiState' for last update value
+
 ### 3.0.1 (2025-10-02)
 
 - Update 'lastUpdate' when a battery value changes
@@ -112,7 +199,7 @@ hash: DuZMTwYVqm7rd5887ZeukvOJr6IJs4sHJJGY7LJY/dc=
 
 MIT License
 
-Copyright (c) 2025 Peter Frommert
+Copyright (c) 2026 Peter Frommert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

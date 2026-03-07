@@ -259,6 +259,16 @@ Trigger device functions. Here, the Denon AV receiver is turned on or off when t
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
+### 2.0.5 (2026-02-06)
+* (@GermanBluefox) Corrected the type of value
+
+### 2.0.4 (2026-01-29)
+* (@brkai) Trying to fix the activities
+
 ### 2.0.3 (2025-11-04)
 * (@GermanBluefox) Corrected the table in the configuration
 
@@ -269,24 +279,14 @@ Trigger device functions. Here, the Denon AV receiver is turned on or off when t
 * (mcm1957) Dependencies have been updated.
 
 ### 1.5.0 (2024-06-02)
-* (WolfspiritM) Multiple subnets can be entered as comma separated list now. (#147)
+* (WolfspiritM) Multiple subnets can be entered as a comma-separated list now. (#147)
 * (mcm1957) Testing for node.js 22 has been added.
-* (mcm1957) Dependencies have been updated.
-
-### 1.4.0 (2024-04-11)
-* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
-* (mcm1957) Translations have been updated
-* (mcm1957) Dependencies have been updated
-
-### 1.3.0 (2023-11-08)
-* (mcm1957) Adapter requires nodejs 16 now.
-* (mcm1957) Adapter has been moved to iobroker-community-adapters organisation.
 * (mcm1957) Dependencies have been updated.
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2015-2019 Pmant <patrickmo@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -165,7 +165,7 @@ All product and company names or logos are trademarks™ or registered® tradema
 
 MIT License
 
-Copyright (c) 2023-2025 raschy <raschy@gmx.de>
+Copyright (c) 2023-2026 raschy <raschy@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,4 +1,5 @@
 ![Logo](admin/knx.png)
+
 # ioBroker.knx
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.knx.svg)](https://www.npmjs.com/package/iobroker.knx)
@@ -27,17 +28,20 @@
 
 ## Description
 
-en: This adapter allows importing of `knxproj` Files from ETS. It generates the translation between KNX-group addresses and ioBroker and puts the devices into rooms (esp. for MobileUI).
+en: This adapter allows importing of `knxproj` Files from ETS. It generates the translation between KNX-group addresses
+and ioBroker and puts the devices into rooms (esp. for MobileUI).
 
 ru: [Установка и базовая настройка адаптера](docs/ru/README.md)
 
 It connects to standard KNX/LAN Gateways.
 
-**Attention: with changing to KNX-Adapter Version 2.x the licensing has been changed. You can get a new license from [https://iobroker.net](https://iobroker.net/)**
+**Attention: with changing to KNX-Adapter Version 2.x the licensing has been changed. You can get a new license
+from [https://iobroker.net](https://iobroker.net/)**
 
 **You also should update iobroker js-controller AND admin to the latest version.**
 
-Before beginning: Every DPT of com.Objects should be set in your ETS project. Every device should be sorted into your facility structure.
+Before beginning: Every DPT of com.Objects should be set in your ETS project. Every device should be sorted into your
+facility structure.
 
 ## Requirements
 
@@ -56,7 +60,8 @@ You can choose between yearly and permanent license.
 To use this adapter in ioBroker, you need to accept the source code license of the adapter.
 The source code of this adapter is available under the CC-NC-BY license.
 
-Additionally, you need a license to use the adapter. The license editions are available on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
+Additionally, you need a license to use the adapter. The license editions are available
+on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
 
 ## Features
 
@@ -86,7 +91,8 @@ The first step is to apply the license. If you have not installed a license, the
 
 ![knxV2-first-start-mod](docs/pictures/knxV2-first-start-mod.jpg)
 
-If you already have created a new license under [https://iobroker.net](https://iobroker.net/), then you can paste it in (2), OR you can
+If you already have created a new license under [https://iobroker.net](https://iobroker.net/), then you can paste it
+in (2), OR you can
 acquire it directly online by clicking on (1)
 
 ![knxV2-2-1-Install-License-mod](docs/pictures/knxV2-2-1-Install-License-mod.jpg)
@@ -106,65 +112,80 @@ If this was successful, save it.
 That's all. Click on the button to save on the bottom of this page.
 
 ### Configuration Interface
+
 ![knxV2-2-5-Install-License-online-applied-mod](docs/pictures/knxV2-2-5-Install-License-online-applied-mod.jpg)
 
 1. KNX-Gateway IP: IPv4 of KNX-LAN Gateway.
 2. KNX-Gateway port: Default is Port 3671.
-3. physical address: Physical address of iobroker knx instance. **Important: this is not the physical address of the LAN Gateway!** and May not end in 0
-4. KNX packages per second: this limits the package rate. If KNX Lan Gateway reconnects too much or is temporarily not accessible, then reduce this rate.
+3. physical address: Physical address of iobroker knx instance. **Important: this is not the physical address of the LAN
+   Gateway!** and May not end in 0
+4. KNX packages per second: this limits the package rate. If KNX Lan Gateway reconnects too much or is temporarily not
+   accessible, then reduce this rate.
 5. local iobroker IP: select the IP / Interface on which the adapter will be bound
 6. loglevel: normally is level "Info", for debugging increase the level.
-7. only import new Data points: this is enabled by default. In the case of disabling, new GA's will be generated AND existing GA's will be recreated.
-8. button upload file: drag-and-drop is available here or on click the file chooser dialog. Here you can upload your ETS Export in `knxproj` format.
-    After successful import, a dialog shows the number of imported objects. Now press "save & close" and the adapter should start.
-    While starting the adapter reads all group addresses with read-Flag and write-Flag. This might take a while and can produce a high load on your KNX-bus. But the values in your vis are updated after the start.
-    Uploading a password secured file is not yet available.
+7. only import new Data points: this is enabled by default. In the case of disabling, new GA's will be generated AND
+   existing GA's will be recreated.
+8. button upload file: drag-and-drop is available here or on click the file chooser dialog. Here you can upload your ETS
+   Export in `knxproj` format.
+   After successful import, a dialog shows the number of imported objects. Now press "save & close" and the adapter
+   should start.
+   While starting the adapter reads all group addresses with read-Flag and write-Flag. This might take a while and can
+   produce a high load on your KNX-bus. But the values in your vis are updated after the start.
+   Uploading a password secured file is not yet available.
 9. Host-ID: this is a special ID of iobroker host. This ID is necessary for generating and validating the license
 10. GA-Tools: toolbox for fast-changing GA's
 
 ### Objects
+
 Here is under knx.0 the group address tree like in your ETS project. For modifying the properties, use GA-Tool.
 
 ### Usage
+
 If the adapter starts successfully, your data points will be available for everything you like to do.
 
 ### Data point Types (DPT)
-All DPTs according to "System Specifications, Interworking, Datapointtypes" from KNX Association are available. That means there are two types of information you can get:
+
+All DPTs according to "System Specifications, Interworking, Datapointtypes" from KNX Association are available. That
+means there are two types of information you can get:
+
 1) a Value or a String
 2) comma-separated values or an array of values (for the moment I don't know what's the better way to handle)
 
-For example, a DPT5.001 is encoded as unsigned Integer with 8-Bit. This gives a single Value. The DPT3.007 (Control Dimming) is encoded as 1Bit(Boolean)+3Bit(unsigned Int).
+For example, a DPT5.001 is encoded as unsigned Integer with 8-Bit. This gives a single Value. The DPT3.007 (Control
+Dimming) is encoded as 1Bit(Boolean)+3Bit(unsigned Int).
 These results, e.g., in a value like "0,5", where "0" means "decrease" and "5" means number of intervals.
 
 ### How the import works
 
 1. reading of all communicationobjectreferences (COR):
-    combining of groupadressreference ID'd with DPT of corresponding COR (if exists).
+   combining of groupadressreference ID'd with DPT of corresponding COR (if exists).
 2. generation of group address structure (GAS):
-    generating the GAS based on GAR IDs and setting DPT (if not done yet)
+   generating the GAS based on GAR IDs and setting DPT (if not done yet)
 3. finding state an act addresses:
-    in ets-exports are no information about state and act addresses.The adapter parses all GA's of "status" or "state". If there are 2 GA's with a similarity more than 90%,
-    then one address will be actor and the other one the state. There is also a check if the DPT's are similar. That's why it's not easy to find a pair if GA naming is
-    not consistent.
+   in ets-exports are no information about state and act addresses.The adapter parses all GA's of "status" or "state".
+   If there are 2 GA's with a similarity more than 90%,
+   then one address will be actor and the other one the state. There is also a check if the DPT's are similar. That's
+   why it's not easy to find a pair if GA naming is
+   not consistent.
 4. Flag check in the device configuration:
    the flags are handled as follows:
 
-    | KNX   |  KNX  | KNX      | ioBroker | ioBroker |                                                          |
-    |-------|-------|----------|----------|----------|----------------------------------------------------------|
-    | Read  | Write | Transmit | Read     | Write    | Explanation                                              |
-    |   -   | -     | -        | -        | -        | the value will be updated by GroupValueRead              |
-    |   x   | -     | -        | x        | x        | sending any value on this state trigger a GroupValueRead |
-    |   -   | x     | -        | -        | x        | write the value to KNX with GroupValueWrite              |
-    |   -   | -     | x        | x        | -        | the state value will be updated by GroupValueResponse    |
-    |   x   | -     | x        | x        | x        | sending any value on this state trigger a GroupValueRead |
+   | KNX   |  KNX  | KNX      | ioBroker | ioBroker |                                                          |
+       |-------|-------|----------|----------|----------|----------------------------------------------------------|
+   | Read  | Write | Transmit | Read     | Write    | Explanation                                              |
+   |   -   | -     | -        | -        | -        | the value will be updated by GroupValueRead              |
+   |   x   | -     | -        | x        | x        | sending any value on this state trigger a GroupValueRead |
+   |   -   | x     | -        | -        | x        | write the value to KNX with GroupValueWrite              |
+   |   -   | -     | x        | x        | -        | the state value will be updated by GroupValueResponse    |
+   |   x   | -     | x        | x        | x        | sending any value on this state trigger a GroupValueRead |
 
 6. Creation of datapoint peers (DPP):
-    A DPP will be created if GA, GAR and DPT are valid. These are the DPP the adapter is working with.
-    If DPT is missing in a GA, because it couldn't be found, then the DPP will not be created. It can
-    be done with GA-Tool.
+   A DPP will be created if GA, GAR and DPT are valid. These are the DPP the adapter is working with.
+   If DPT is missing in a GA, because it couldn't be found, then the DPP will not be created. It can
+   be done with GA-Tool.
 7. At adapter start:
-    All GA's marked with "Read" Flag are checked at start. This can affect the higher bus traffic. In the end
-    are all states up to date.
+   All GA's marked with "Read" Flag are checked at start. This can affect the higher bus traffic. In the end
+   are all states up to date.
 
 ### Avoidance of problems
 
@@ -173,12 +194,15 @@ These results, e.g., in a value like "0,5", where "0" means "decrease" and "5" m
 * uniform labeling of the GA names (e.B "EG Wohnen Decke Licht schalten" and "EG Wohnen Decke Licht schalten status" )
 * Avoidance of special characters ",./;&%$§[]" (may cause problems with the generation of gas)
 * Check if the KNX/LAN GW is reachable. If it is not, the adapter tries to connect continuously.
-* Correctly select physical address (important when using line couplers). !!! ATTENTION: the physical address entered here is NOT the address of the LAN Gateway and must not end in 0 !!!
+* Correctly select physical address (important when using line couplers). !!! ATTENTION: the physical address entered
+  here is NOT the address of the LAN Gateway and must not end in 0 !!!
 * The port of the LAN interface is usually 3671
-* Due to the possibility of status query, one thing must be noted: It must be ensured that no more than 40 requests per second are generated by the ioBroker, because these can then be physically generated
+* Due to the possibility of status query, one thing must be noted: It must be ensured that no more than 40 requests per
+  second are generated by the ioBroker, because these can then be physically generated
   can no longer be passed on to the gateway by the adapter.
 
 ## GA-Tool
+
 The GA-Tool makes it easy to change properties of GA's.
 
 ![knxV2-3-6-GATools-mod](/docs/pictures/knxV2-3-6-GATools-mod.jpg)
@@ -209,6 +233,7 @@ If there are more GA's to change properties, use multiselect. This feature works
 3. there is no change possible
 
 ### Direct Link non-KNX state to KNX vice-verse
+
 Since Adapter Version 2.0.6 it is possible to link a non KNX ioBroker state directly to a GA. This
 can be used to apply time, date, any states or info to KNX. (a small hint: you can link any of your
 IOT components directly to a GA in KNX (f.e. link a homematic button to a KNX GA or link a KNX button sensor to  
@@ -244,108 +269,154 @@ relation.
 	### **WORK IN PROGRESS**
 -->
 
+## Changelog
+
 ## Versions
+
+### 2.0.38 (01.03.2026)
+
+* added support for ETS 6.4.0
+
+### 2.0.37 (20.02.2026)
+
+* dependency updates
+* bug fix in adapter configuration
+
+### 2.0.35 (05.02.2026)
+
+* dependency updates
+* bug fixing in GA-Tools
+* feature enhancements in GA-Tools
+
 ### 2.0.33 (22.6.2025)
+
 * unstable knx-connection problem solved
 
 ### 2.0.31 (22.05.2025)
+
 * updated the adapter import schema for ETS 6.3.1
 * nodejs >= 22 is required
 
 ### 2.0.30 (22.12.2024)
+
 * fixed GUI errors, starting redesign GA-Tools
 
 ### 2.0.29 (11.12.2024)
+
 * updated the adapter import schema for ETS 6.3.0
-* nodejs >= 20 is required 
+* nodejs >= 20 is required
 
 ### 2.0.28
+
 * Update license related data and fix package version
 
 ### 2.0.27 (02.05.2024)
+
 * updated the adapter import schema for ETS 6.2.2
 * fixed UTF-8 error
 
 ### 2.0.26 (28.03.2024)
+
 * updated the adapter import schema for ETS 6.2.1
 * nodejs >= 18 is required
 
 ### 2.0.25 (03.03.2024)
+
 * updated the adapter import schema for ETS 6.2.0
 * small bug-fixes
 
 ### 2.0.24 (24.11.2023)
+
 * updated the adapter import schema for ETS 6.1.1
 
 ### 2.0.23 (11.10.2023)
+
 * corrected wrong GW Port after adapter upgrade
 * allow self-defined values for min and max
 * some small other fixes
 
 ### 2.0.22 (04.07.2023)
+
 * added import specification, solved problems in GaTools
-    
+
 ### 2.0.21 (17.06.2023)
+
 * fixed license handling
 
 ### 2.0.20 (16.06.2023)
+
 * fixed license handling with js-controller Version > 5
 
 ### 2.0.19 (29.05.2023)
+
 * added ETS V6.1.0 import
 * required node version >= 16.13.1
 
 ### 2.0.18 (08.04.2023)
+
 * fixed send-delay
 * small changes
 
 ### 2.0.17 (14.10.2022)
+
 * added ETSv6.0.6 import
 * major changes in Adapter Config UI
 * fixed change of port settings for LAN-GW
 
 ### 2.0.16 (04.09.2022)
+
 * added ETSv6.0.5 import
 
 ### 2.0.15 (02.06.2022)
+
 * fixed import error with extrem large KNX catalogue files
 * fixed unrecognized connection breaks
 
 ### 2.0.14 (08.04.2022)
+
 * added ETSv6.0.4 (override 6.0.3)
 * small bugfixes
 
 ### 2.0.13 (12.03.2022)
+
 * added ETSv5.7.7 import
 * fixed "unknown value" bug
 * some other small fixes
 
 ### 2.0.12 (25.02.2022)
+
 * fixed handling of undefined DP
 * updated the data point types
 * fix warning with incompatible DPT in future
-* the biggest issue of all: I get shocked because of the war in Ukraine. My thoughts are with the people of Ukraine, I am infinitely sorry for what is happening to them and their country. It is an inhuman shame.
+* the biggest issue of all: I get shocked because of the war in Ukraine. My thoughts are with the people of Ukraine, I
+  am infinitely sorry for what is happening to them and their country. It is an inhuman shame.
 * can't fix it, but I appeal to everyone: Be neighbors and not enemies. Respect the other and do not fight yourselves.
 
 ### 2.0.11
+
 * fixed password handling for projects from upgraded ETS
 
 ### 2.0.10
+
 * import of ETS6.0.2 projects **ETS6.0.1 not possible**
 * bugfixes
 
 ### 2.0.9
+
 * import password protected project files
 * bug fixes
 
 ### 2.0.8
+
 * fixed bug with unackn write
 * fixed bug in linkedState
 
 ### 2.0.7
+
 * fixed bug with unable to write on KNX
 
 ### 2.0.6
+
 * fixed problem on ETSv6 import
 * many small bugfixes
 * implemented GA-Tools directLink feature
@@ -475,7 +546,7 @@ relation.
 ### 1.0.18
 
 * fixed upload issue with ETS5.6.x project files
-* switched values for "boolean" from 1 and 0 to true false 
+* switched values for "boolean" from 1 and 0 to true false
 * fixed recognition of role set for DPT1.x to switch
 * fixed DPT16.xxx writing to KNX-Bus with values < 14Byte
 
@@ -615,7 +686,7 @@ relation.
 
 ### 0.5.0
 
-*  (vegetto) include vis widget
+* (vegetto) include vis widget
 
 #### 0.4.0
 
@@ -628,20 +699,24 @@ relation.
 ## Exceptions and errors
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**  
-For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!  
+For more details and for information how to disable the error reporting
+see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!  
 Sentry reporting is used starting with js-controller 3.0.
 
-The developer is not able to get any further special information about the system/config/user/environment. In case no license is found, the
+The developer is not able to get any further special information about the system/config/user/environment. In case no
+license is found, the
 adapter version and host ID are also reported.
 
 ## Many thanks for support and help
+
 * bluefox
 * foxriver76
 
 ## License
+
 The CC-NC-BY License (CC-NC-BY)
 
-Copyright (c) 2016-2024 K.Ringmann <info@punktnetzwerk.net>
+Copyright (c) 2016-2026 K.Ringmann <info@punktnetzwerk.net>
 
 THE WORK IS PROVIDED UNDER THE TERMS OF THIS CREATIVE
 COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY

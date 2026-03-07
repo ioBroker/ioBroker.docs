@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
-hash: 8D1piNLdCgFWCprb+78gzu5KYO6Dp/PO5cgqE2pijDk=
+hash: 3qI1R14HZeXdNTbXjv2UmguTzNHwrVruYa0GYJZZgCs=
 ---
 # JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
 ![Logo](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -49,11 +49,15 @@ um beliebige JSON-Daten in vis anzuzeigen.
 Mit diesem Widget lassen sich beliebige Datenpunkte mit JSON-Daten wie gewünscht darstellen. Die Darstellung erfolgt mithilfe eines Template-Formats, das sich als Kombination aus HTML-Code, JavaScript, CSS und speziellen Tags zur Steuerung der JSON-Attribute verstehen lässt. JSONTemplate unterstützt nun asynchrone Aufrufe mit `await`.
 
 | Schauplatz | Beschreibung |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| json_template | Mit der Vorlage kann das Erscheinungsbild der JSON-Daten bestimmt werden. Alle gültigen HTML-Tags (einschließlich CSS-Attribute in Style-Tags) können in der Vorlage verwendet werden. Es gibt auch spezielle Tags, innerhalb derer die JSON-Daten angezeigt werden und JavaScript-Anweisungen ausgeführt werden können. |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| json_template | Die Vorlage kann verwendet werden, um das Erscheinungsbild der JSON-Daten festzulegen. Alle gültigen HTML-Tags (einschließlich CSS-Attribute in Style-Tags) können in der Vorlage verwendet werden. Es gibt auch spezielle Tags, innerhalb derer die JSON-Daten angezeigt werden und JavaScript-Anweisungen ausgeführt werden können. |
 | json_oid | Auswahl des Datenpunkts mit den entsprechenden JSON-Daten. |
 | json_dpCount | Anzahl der Datenpunkte, die in der Vorlage verfügbar gemacht werden sollen. |
 | json_dp | Die Datenpunkt-ID soll bereitgestellt werden. |
+| json_scriptCount | Anzahl der zu ladenden JavaScript-URLs |
+| json_script[] | Zu ladende JavaScript-URL. Siehe Beispiel unten. |
+| json_cssCount | Anzahl der zu ladenden CSS-URLs. |
+| json_css[] | Zu ladende CSS-URL. |
 
 Einzelheiten zum Vorlagensystem finden Sie im Kapitel „Vorlagen basierend auf Beispielen“.
 
@@ -156,6 +160,71 @@ Definition der Funktion sendToAsync
 ```text
 [{"label":"Afghanistan","value":"AF"},{"label":"Åland Islands","value":"AX"},{"label":"Albania","value":"AL"}]
 ```
+
+#### Anwendungsfall für das Laden zusätzlicher Skripte
+Zusätzliche Felder ermöglichen das Laden von JavaScript-Bibliotheken (z. B. von CDNs wie jsDelivr oder cdnjs). Das folgende Beispiel veranschaulicht dies am Beispiel der ChartJS-Bibliothek.
+
+**Schritt 1:**
+
+Erstellen Sie einen neuen Datenpunkt vom Typ String oder JSON mit dem Namen `0_userdata.0.chartData` und dem folgenden Inhalt
+
+```json
+[12, 19, 3, 5, 2, 3]
+```
+
+**Schritt 2:**
+
+Geben Sie die folgende URL in das Feld json_script[1] ein:
+
+```text
+https://cdn.jsdelivr.net/npm/chart.js
+```
+
+**Schritt 3:**
+
+Geben Sie den Namen des erstellten Datenpunkts im Feld „JSON-Datenpunkt“ ein.
+Geben Sie die folgende Vorlage im Feld „JSON-Vorlage“ ein.
+
+Bis auf eine Zeile handelt es sich um Standard-HTML + JavaScript.
+
+```html
+data: <%- JSON.stringify(data) %>,
+```
+
+Die vom Datenpunkt gelesenen Daten sind in der JavaScript-Variablen `data` verfügbar und werden innerhalb der Template-Anweisungen <%- ... %> ausgegeben.
+
+Sobald das Template kompiliert und in das HTML-Dokument eingebunden ist, wird es vom Browser ausgeführt, sodass das Diagramm über JavaScript angezeigt wird.
+
+```ejs
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: <%- JSON.stringify(data) %>,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+```
+
+![Beispiel](../../../en/adapterref/iobroker.vis-jsontemplate/img/example_extscripts.png)
 
 #### Anwendungsfall für eine datenbankgestützte Aufgabenliste
 ##### **Einführung**
@@ -515,6 +584,23 @@ Da Vite Hot Reload unterstützt, ist es manchmal nützlich, Vis2 mit F5 neu zu l
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.3.11 (2026-01-25)
+
+- check test release workflow
+
+### 4.3.10 (2026-01-25)
+
+- update test and release script
+
+### 4.3.1 (2026-01-24)
+
+- try again to publish
+
+### 4.3.0 (2026-01-24)
+
+- The ability to load additional JavaScript and CSS files has been added.
+  This is currently only available for vis1 for testing purposes.
+
 ### 4.2.0 (2025-11-14)
 
 - Improve documentation for the object notation in a template
@@ -549,7 +635,7 @@ Da Vite Hot Reload unterstützt, ist es manchmal nützlich, Vis2 mit F5 neu zu l
 
 MIT License
 
-Copyright (c) 2021-2025 oweitman <oweitman@gmx.de>
+Copyright (c) 2021-2026 oweitman <oweitman@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

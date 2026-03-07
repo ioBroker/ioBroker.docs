@@ -20,6 +20,17 @@ Adapter for myPorsche
 
 Die myPorsche Mail und Passwort eingeben.
 
+### Captcha
+
+Bei manchen Logins wird ein Captcha von Porsche angefordert. In diesem Fall:
+
+1. Adapter-Einstellungen im Admin öffnen
+2. Im Bereich "Captcha Login" wird das Captcha-Bild angezeigt
+3. Den angezeigten Code im Feld "Captcha Code" eingeben
+4. Auf "Submit Captcha" klicken
+
+Falls kein Captcha-Bild angezeigt wird aber der Login fehlschlägt, die Seite neu laden.
+
 ## Steuern
 
 porsche.0.vin.remote auf true/false setzen steuert den jeweiligen Befehl
@@ -29,6 +40,9 @@ porsche.0.vin.remote auf true/false setzen steuert den jeweiligen Befehl
 <https://forum.iobroker.net/topic/50883/test-adapter-myporsche-v0-0-x>
 
 ## Changelog
+
+### 0.5.1
+- fix login and add remotes
 
 ### 0.2.0
 

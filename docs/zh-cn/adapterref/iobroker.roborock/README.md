@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: dIA1NxNJXvqX4+THUOjsWRaVdzj+RJwVWoamUnsvxTI=
+hash: DATd5HFmzDJ0tHqkLnFzZaWS1uJyIf7+RoVSQ54kcNI=
 ---
 ![标识](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -24,14 +24,10 @@ hash: dIA1NxNJXvqX4+THUOjsWRaVdzj+RJwVWoamUnsvxTI=
 **此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
 ### 此适配器无法在 macOS 上使用
-## 双因素身份验证 (2FA)
-如果您已启用双因素身份验证 (2FA) 或适配器提示输入验证码（错误代码 2031）：
-
-1. 查看日志。您应该会看到一条要求输入代码的消息。
-2. 转到 ioBroker 中的**对象**选项卡。
-3. 查找状态“roborock.0.loginCode”（假设实例为 0）。
-4. 将您通过电子邮件收到的 6 位代码输入到 **值** 列中（不带引号）。
-5. 适配器应该能够识别到它并继续登录。
+＃＃ 要求
+- Node.js 版本 >= 22.0.0
+- ioBroker.admin >= 7.6.17
+- ioBroker.js-controller >= 6.0.11
 
 支持的机器人有：
 - Roborock S4
@@ -55,6 +51,7 @@ hash: dIA1NxNJXvqX4+THUOjsWRaVdzj+RJwVWoamUnsvxTI=
 - Roborock Qrevo S
 - Roborock Qrevo Curve
 - Roborock Saros 10R
+- 石头扫地机器人 Saros 20 / Saros 20X
 
 区域清洁
 此功能仅在适配器选项中启用地图创建时有效！
@@ -72,13 +69,31 @@ hash: dIA1NxNJXvqX4+THUOjsWRaVdzj+RJwVWoamUnsvxTI=
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (copystring) Update dependencies
-* (copystring) Update translations
-* (copystring) Bugfixes for map creator, clientID, network objects and local device discovery
-* (copystring) Get clean history when robot state changes to charging
-* (copystring) Q5 Pro does not support any water box modes. Removed them.
-* (copystring) Add basic read only support for Wet Dry Vacuums
-* (copystring) Add basic support for Saros 10R
+* (copystring) **Maps:** Obstacle icons and map graphics are loaded automatically at startup so maps display correctly.
+* (copystring) **Breaking Change:** Major refactoring of the entire adapter structure.
+* (copystring) **New Feature:** Implemented 'Strict Startup' - Adapter prevents startup without valid login to avoid bootloops.
+* (copystring) **Improvement:** Enhanced 2FA logging and instructions for easier login troubleshooting.
+* (copystring) **Feature:** Responsive Design for Admin UI (thanks to simatec).
+* (copystring) **New Protocol:** Added support for B01 protocol (AES-128-CBC) used by newer devices (e.g., Qrevo Slim).
+* (copystring) **Map System:** Complete overhaul of map generation using `@napi-rs/canvas`:
+    *   Improved room coloring and dark mode support.
+    *   Fixed coordinate scaling and Y-axis inversion issues.
+* (copystring) **Stability:** Fixed auto-relogin logic for invalid tokens.
+* (copystring) **Stability:** Resolved MQTT race conditions and connection instability.
+* (copystring) **Fix:** S6 MaxV Water Box & Fan Power attributes.
+* (copystring) **Fix:** Suction and mop intensity not showing (#1053).
+* (copystring) **Consumables:** Major refactoring to a data-driven, deterministic system mirroring the official Roborock app's "Maintenance" screen.
+* (copystring) **Translations:** Enhanced `TranslationManager` with case-insensitive lookups and 1:1 matching of native app labels (e.g., "Staubbeutel").
+* (copystring) **Reliability:** Added regression test suite for consumables, translations, and hour conversion logic.
+* (copystring) **Cleanup:** Removed duplicate/virtual percentage states in favor of authentic robot data.
+* (copystring) **Internal:** Modular feature handling and introduction of `lib/features/`.
+* (copystring) **Build:** Persistent caching for faster CI/CD.
+* (copystring) **Cleanup:** Removed daily build workflows.
+* (copystring) **Improved Map Retrieval:** Fixed issue where maps were not received over TCP by ignoring the initial "ok" acknowledgement and waiting for the actual map data via MQTT.
+* (copystring) **Network Probe:** Added Pre-Init Network Probe to detect local IP addresses via Cloud API before initialization, enabling faster local connection establishment (especially for Docker/VLAN setups).
+* (copystring) **UDP Discovery:** Implemented a 1.5s grace period for UDP discovery to better detect shared devices on the local network.
+* (copystring) **Bugfix:** Fixed infinite retry loop for failed Network Probes (Remote Devices).
+* (copystring) **Code Cleanup:** Removed extensive debug logging, buffering logic, and unused code for a cleaner codebase.
 
 ### 0.6.19 (2025-02-08)
 * (copystring) Rewrite of mqtt connection logic
@@ -411,7 +426,7 @@ hash: dIA1NxNJXvqX4+THUOjsWRaVdzj+RJwVWoamUnsvxTI=
 ## License
 MIT License
 
-Copyright (c) 2025 copystring <copystring@gmail.com>
+Copyright (c) 2025-2026 copystring <copystring@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -429,4 +444,3 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

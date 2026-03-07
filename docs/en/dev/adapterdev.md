@@ -767,6 +767,9 @@ If it happens, the status of connection will be shown in the instance's list in 
 - mkdir = function mkdir(adapter, dirname, callback)
 - readFile = function readFile(adapter, filename, options, callback)
 - writeFile = function writeFile(adapter, filename, data, mimeType, callback)
+
+**Note:** For modern file storage using `writeFileAsync`, refer to the [File Storage documentation](filestorage.md) which explains meta objects and backup behavior.
+
 - formatDate = function formatDate(dateObj, isSeconds, _format)
 - sendTo = function sendTo(objName, command, message, callback)
 - sendToHost = function sendToHost(objName, command, message, callback)

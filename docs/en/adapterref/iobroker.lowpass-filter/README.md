@@ -19,6 +19,9 @@ e.g. you can filter power values to cut power peeks.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.6.1 (2026-02-28)
+* (BenAhrdt) update dependencies
+
 ### 2.6.0 (2025-10-19)
 * (BenAhrdt) update Authentication NPM
 * (BenAhrdt) update defDependencie eslint
@@ -99,7 +102,7 @@ e.g. you can filter power values to cut power peeks.
 ## License
 MIT License
 
-Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025-2026 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

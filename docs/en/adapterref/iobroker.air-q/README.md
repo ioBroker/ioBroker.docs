@@ -81,6 +81,9 @@ The data will be retrieved and shown in the objects-tab according to your config
 
 ## Changelog <a id="change" />
 
+### 1.1.0
+* Added support for 19 new sensors: acetaldehyde (C₂H₄O), arsine (AsH₃), bromine (Br₂), methanethiol (CH₄S), chlorine dioxide (ClO₂), carbon disulfide (CS₂), ethylene (C₂H₄), fluorine (F₂), temperature in Farenheit, hydrochloric acid (HCl), hydrogen cyanide (HCN), hydrogen fluoride (HF), hydrogen peroxide (H₂O₂), mold protection, phosphine (PH₃), refrigerant R-32, refrigerant R-454B, refrigerant R-454C, silane (SiH₄)
+
 ### 1.0.7
 * Missing (e.g. warming up) sensors are skipped gracefully
 * Fixed incorrect translations
@@ -135,7 +138,7 @@ The data will be retrieved and shown in the objects-tab according to your config
 
 MIT License
 
-Copyright (c) 2024 Corant GmbH
+Copyright (c) 2024-2026 Corant GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -32,6 +32,7 @@ States are automatically created when fakeRoku receives a key for the first time
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 
@@ -58,7 +59,7 @@ States are automatically created when fakeRoku receives a key for the first time
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2017 Pmant
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

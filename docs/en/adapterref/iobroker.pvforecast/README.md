@@ -70,7 +70,11 @@ If you want to take the json graph and table you can use this [example](./vis.md
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
+### 5.1.0 (2026-02-03)
 
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
 * (@Scrounger) solcast user agent bug fix
@@ -94,13 +98,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 ### 4.0.0 (2024-10-14)
 
 * (@klein0r) Use Solcast rooftop sites api
-
-### 3.0.0 (2024-06-30)
-
-NodeJS >= 18.x and js-controller >= 5 is required
-
-* (klein0r) Load system configuration via parameter
-* (coltc50) Added damping factor for forecast solar
 
 ## License
 

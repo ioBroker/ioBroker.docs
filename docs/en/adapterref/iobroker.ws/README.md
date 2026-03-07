@@ -69,6 +69,10 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 -->
 
 ## Changelog
+### 4.0.0 (2026-02-17)
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Removed support for node.js 18
+
 ### 3.0.19 (2025-03-04)
 * (@GermanBluefox) Removed the frequent debug output
 
@@ -145,4 +149,4 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2025 @GermanBluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026 @GermanBluefox <dogafox@gmail.com>

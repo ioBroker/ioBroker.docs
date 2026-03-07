@@ -49,6 +49,7 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 
 ### 1.5.0 (2025-12-28)

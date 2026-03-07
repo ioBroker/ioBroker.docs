@@ -90,10 +90,16 @@ Upload your \*.tpy File from your PLC Project -> Every Time you change something
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
+### 1.7.0 (2026-02-12)
+- (mcm1957) Adapter requires node.js >= 20 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
-* (copilot) Setup and update GitHub Copilot instructions with ioBroker-specific development patterns and Beckhoff adapter context
+- (copilot) Migrated to ESLint 9 and @iobroker/eslint-config standard configuration
+- (mcm1957) Dependencies have been updated
 
 ### 1.6.0 (2024-04-02)
 
@@ -165,7 +171,7 @@ Upload your \*.tpy File from your PLC Project -> Every Time you change something
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2023 dkleber89 <dkleber89@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

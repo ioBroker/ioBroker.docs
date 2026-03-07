@@ -69,6 +69,12 @@ For detailed instructions and more information, it is recommended to watch the l
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.4.16 (2026-01-17)
+* (bluefox) Added ON/OFF object ID for dimmer
+
+### 1.4.15 (2025-12-16)
+* (bluefox) Corrected case if the floor was not found
+
 ### 1.4.9 (2025-10-16)
 * (bluefox) Corrected the icon selection dialog
 * (bluefox) Corrected actions selection
@@ -272,5 +278,5 @@ For detailed instructions and more information, it is recommended to watch the l
 * (bluefox) initial commit
 
 ## License
-Copyright (c) 2022-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2026 bluefox <dogafox@gmail.com>
 All rights reserved.

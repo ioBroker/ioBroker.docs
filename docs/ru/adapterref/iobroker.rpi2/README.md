@@ -3,18 +3,18 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rpi2/README.md
 title: ioBroker.rpi2
-hash: fbU6FaS3bzboHSlRMuHMlIk6qVYzKCwSWuDiRMuGnhg=
+hash: 40wy2PWHoaAr24/O2GwDtBu28xu56LuV7yls9JkhbhU=
 ---
 # IoBroker.rpi2
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.rpi2?style=flat-square)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.rpi2?style=flat-square)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rpi2?label=npm%20downloads&style=flat-square)
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.rpi2?style=flat-square)
 ![Статус зависимостей Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.rpi2?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.rpi2?style=flat-square)
 ![размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
-![Активность коммитов GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
+![активность коммитов на GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
 ![Проблемы на GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.rpi2?logo=github&style=flat-square)
 ![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.rpi2/test-and-release.yml?branch=master&logo=github&style=flat-square)
 ![Бета](https://img.shields.io/npm/v/iobroker.rpi2.svg?color=red&label=beta)
@@ -102,8 +102,10 @@ sudo apt install -y libgpiod-dev
 - Беспроводная сеть
 
 ### Температура NVME
-Начиная с версии адаптера 2.3.2, вы можете считывать температуру NVMe. Для этого необходимо установить пакет `nvme-cli` в вашей системе.
-Это можно сделать с помощью следующей команды: `sudo apt-get install nvme-cli`. Также вам потребуется добавить команду в файл sudoers ioBroker `/etc/sudoers.d/iobroker`. Откройте его в редакторе, например nano: `sudo nano /etc/sudoers.d/iobroker` и добавьте в конец следующую строку: `nvme smart-log /dev/nvme0`.
+Начиная с версии адаптера 2.3.2, вы можете считывать температуру NVMe. Для этого необходимо установить пакет `nvme-cli` в вашу систему.
+Это можно сделать с помощью следующей команды: `sudo apt-get install nvme-cli`. Также потребуется добавить команду в файл sudoers ioBroker `/etc/sudoers.d/iobroker`. Откройте его в текстовом редакторе, например nano: `sudo nano /etc/sudoers.d/iobroker` и добавьте в конец следующую строку:
+
+```iobroker ALL=(ALL) NOPASSWD: /usr/sbin/nvme smart-log /dev/nvme0```
 
 ## GPIO
 Вы также можете считывать данные с выводов GPIO и управлять ими.
@@ -158,6 +160,10 @@ sudo apt install -y libgpiod-dev
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
 ### 3.0.2 (2025-12-01)
 * (@klein0r) Check for required libgpiod-dev package version
 
@@ -183,6 +189,8 @@ sudo apt install -y libgpiod-dev
 ## License
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024-2025 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

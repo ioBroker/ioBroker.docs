@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：新手指南
-hash: kKg40oC5RGL3q1x4nI7qTNIqlhwAp7kKd1FtjRBdkT8=
+hash: 7ziegV+BjbzDnaPC4m+5m5RvIOfUu8K2pyUytmxbePE=
 ---
 # IoBroker JSON 配置：新手指南
 本指南解释了如何使用 JSON 为 ioBroker 适配器定义配置选项。这种方法提供了一种更友好、更灵活的方式，可以在 ioBroker 管理界面中管理适配器设置。
@@ -28,9 +28,11 @@ hash: kKg40oC5RGL3q1x4nI7qTNIqlhwAp7kKd1FtjRBdkT8=
 - 在适配器的 `io-package.json` 文件中，在 `common` 部分下添加以下行：
 
 ```json
-"common": {
-    "adminUI": {
-        "config": "json"
+{
+    "common": {
+        "adminUI": {
+            "config": "json"
+        }
     }
 }
 ```
@@ -107,7 +109,7 @@ jsonConfig 会自动确保收集到的数据作为适配器的配置数据记录
 更多示例可以在 GitHub 上相应管理目录中的其他适配器中找到。
 
 ## 支持开发工具
-### VS代码
+### VS Code
 要在 VS Code 中启用 jsonConfig 的验证，必须将以下部分添加到文件“.vscode/settings.json”中。
 
 ```json5
@@ -136,6 +138,7 @@ jsonConfig 由多个按层级结构组织的元素组成。每个元素可以是
 - [**`checkLicense`:**](#checklicense) 用于在线检查许可证的特殊组件
 - [**`chips`:**](#chips) 用户可以输入单词，这些单词将被添加到数组中。
 - [**`color`:**](#color) 颜色选择器
+- [**`coordinates`:**](#coordinates) 确定当前位置，如果无法以 `latitude,longitude` 的形式获取坐标，则使用 `system.config` 中的坐标。
 - [**`cron`:**](#cron) 配置用于调度任务的 cron 表达式
 - [**`custom`:**](#custom) 集成自定义组件以实现特定功能（仅限管理员 6）
 - [**`datePicker`:**](#datepicker) 允许用户选择日期
@@ -145,6 +148,8 @@ jsonConfig 由多个按层级结构组织的元素组成。每个元素可以是
 - [**`fileSelector`:**](#fileselector) 允许用户从系统中选择文件（仅限管理员6）
 - [**`func`:**](#func) 从 enum.func 列表中选择一个函数（仅限管理员 6）
 - [**`header`:**](#header) 创建不同大小（h1-h5）的标题
+- [**`iframe`:**](#iframe) 显示指定 URL 的 iframe（管理员版本 >= 7.7.28）
+- [**`iframeSendTo`:**](#iframe) 显示来自后端 URL 的 iframe（管理员版本 >= 7.7.28）
 - [**`image`:**](#image) 上传或显示图像
 - [**`imageSendTo`:**](#imagesendto) 显示从后端接收的图像，并根据命令发送数据
 - [**`instance`:**](#instance) 选择适配器实例
@@ -161,6 +166,7 @@ jsonConfig 由多个按层级结构组织的元素组成。每个元素可以是
 - [**`pattern`:**](#pattern) 只读字段，显示模式（例如，URL）
 - [**`port`:**](#port) 端口的特殊输入
 - [**`qrCode`:**](#qrcode) 将数据显示为二维码（管理员版本 7.0.18 或更高版本）
+- [**`qrCodeSendTo`:**](#qrcodesendto) 显示从后端接收的数据的二维码
 - [**`room`:**](#room) 从 `enum.room` 列表中选择一个房间（仅限管理员 6）
 - [**`select`:**](#select) 带有预定义选项的下拉菜单
 - [**`selectSendTo`:**](#selectsendto) 用于发送数据的包含实例值的下拉菜单
@@ -172,14 +178,14 @@ jsonConfig 由多个按层级结构组织的元素组成。每个元素可以是
 - [**`staticInfo`:**](#staticinfo) 以预格式化形式显示静态信息，例如“标题:值 单位”（admin >= 7.3.3）
 - [**`staticLink`:**](#staticlink) 创建静态链接
 - [**`staticText`:**](#statictext) 显示静态文本（例如，描述）
-- [**`coordinates`:**](#coordinates) 确定当前位置，如果无法以“纬度，经度”的形式获取坐标，则使用 `system.config` 中的坐标。
-- [**`table`:**](#table) 可添加、删除或重新排序的行的表格
+- [**`table`:**](#table) 可添加、删除或重新排序的表格
 - [**`tabs`:**](#tabs) 包含项目的标签页
 - [**`text`:**](#text) 单行或多行文本输入字段
 - [**`textSendTo`:**](#textsendto) 显示实例值中给定的只读控件。
 - [**`timePicker`:**](#timepicker) 允许用户选择时间
 - [**`user`:**](#user) 从 `system.user` 列表中选择一个用户
 - [**`uuid`:**](#uuid) 显示 iobroker UUID
+- [**`yamlEditor`:**](#yamleditor) 用于复杂配置数据的 YAML 编辑器（管理员版本 >= 7.7.30）
 
 通过利用 JSON 配置，您可以为 ioBroker 适配器创建用户友好且可适应的配置体验。
 
@@ -361,7 +367,7 @@ admin/customI18n/en.json
 显示滑块（仅限管理员6）
 
 | 房产 | 描述 |
-| -------- | ----------------------------- |
+|----------|-------------------------------|
 | `min` | （默认值 0） |
 | `step` | （默认值 `(max - min) / 100`） |
 | `unit` | 滑块单位 |
@@ -371,7 +377,7 @@ admin/customI18n/en.json
 在二维码中显示数据（管理员版本 >= 7.0.18）
 
 | 房产 | 描述 |
-| --------- | ------------------------------------- |
+|-----------|---------------------------------------|
 | `data` | 二维码中要编码的数据 |
 | `fgColor` | 前景色 |
 | `bgColor` | 背景颜色 |
@@ -449,8 +455,8 @@ admin/customI18n/en.json
 
 ### `autocomplete`
 | 房产 | 描述 |
-|------------|---------------------------------------------------------------------------------------------------------------|
-| `options` | `["value1", "value2", ...]` 或 `[{"value": "value", "label": "Value1"}, "value2", ...]`（键必须唯一） |
+|------------|----------------------------------------------------------------------------------------------------------------------------------|
+| `options` | `["value1", "value2", ...]` 或 `[{"value": "value", "label": "Value1"}, "value2", ...]`（键和名称（值）必须唯一） |
 | `freeSolo` | 将 `freeSolo` 设置为 `true`，这样文本框就可以包含任意值。 |
 
 ### `image`
@@ -601,7 +607,7 @@ admin/customI18n/en.json
 | `textNotAlive` | 默认文本为 `实例 %s 已失效`，其中 %s 将被替换为 `ADAPTER.0`。翻译必须存在于 i18n 文件中。 |
 
 ### `pattern`
-只读字段，模式类似“https://${data.ip}:${data.port}”（不会保存在配置中）。带有只读标志的文本输入，显示一个模式。
+只读字段，模式类似“https://${data.ip}:${data.port}”（不会保存到配置中）。带有只读标志的文本输入，显示一个模式。
 
 | 房产 | 描述 |
 |-------------------|-----------------------|
@@ -609,7 +615,7 @@ admin/customI18n/en.json
 | `模式` | 我的模式 |
 
 ### `sendTo`
-向实例发送请求的按钮（<https://github.com/iobroker-community-adapters/ioBroker.email/blob/master/admin/index_m.html#L128>）
+向当前实例发送请求的按钮（<https://github.com/iobroker-community-adapters/ioBroker.email/blob/master/admin/index_m.html#L128>）
 
 | 房产 | 描述 |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -684,6 +690,8 @@ admin/customI18n/en.json
 | `import` | [可选] - 如果显示导入按钮。从 CSV 文件导入。 |
 | `uniqueColumns` | [可选] - 指定一个列数组，该数组中的条目必须唯一 |
 | `encryptedAttributes` | [可选] - 指定要加密的列数组 |
+| `useCardFor` | [可选] - 将渲染为卡片的断点：["xs", "sm", "md", "lg", "xl"] |
+| `titleAttribute` | [可选] - 定义要在卡片模式下显示为项目标题的属性名称。 |
 | `compact` | [可选] - 如果为真，表格将以紧凑模式显示 |
 | `compact` | [可选] - 如果为真，表格将以紧凑模式显示 |
 
@@ -701,10 +709,20 @@ admin/customI18n/en.json
 用于打开 JSON(5) 编辑器的按钮。管理员版本 5.7.3 及更高版本支持 JSON5。
 
 | 房产 | 描述 |
-|------------------------|-----------------------------------------------------------------------|
+|------------------------|-----------------------------------------------------------------------------------------|
 | `validateJson` | 如果为 false，则文本将不会进行 JSON 验证 |
 | `json5` | 如果允许 JSON5 格式（自 7.5.3 版本起） |
 | `doNotApplyWithError` | 如果 JSON 或 JSON5 中存在错误，则不允许保存该值（自 7.5.3 版本起） |
+| `readOnly` | 以只读模式打开编辑器 - 编辑器可以打开，但内容无法修改 |
+| `readOnly` | 以只读模式打开编辑器 - 编辑器可以打开，但内容无法修改 |
+
+### `yamlEditor`
+用于打开带有语法验证功能的 YAML 编辑器的按钮。（自管理员版本 7.7.30 起）
+
+| 房产 | 描述 |
+|------------------------|-----------------------------------------------------------------------------------------|
+| `validateYaml` | 如果为 false，则文本将不会验证为 YAML |
+| `doNotApplyWithError` | 如果 YAML 中存在错误，则不允许保存该值 |
 | `readOnly` | 以只读模式打开编辑器 - 编辑器可以打开，但内容无法修改 |
 | `readOnly` | 以只读模式打开编辑器 - 编辑器可以打开，但内容无法修改 |
 
@@ -798,7 +816,7 @@ admin/customI18n/en.json
 | `简单` | 显示简单的 CRON 设置 |
 
 ### `fileSelector`
-从下拉菜单中选择一个文件夹内的文件。您也可以根据需要上传新文件到该文件夹。
+从下拉菜单中选择一个文件夹中的文件。如果需要，您也可以上传新文件到该文件夹。
 
 仅限管理员6
 
@@ -834,15 +852,16 @@ admin/customI18n/en.json
 | `trim` | 修剪文件名 |
 
 ### `imageSendTo`
-显示从后端接收的 base64 字符串图像
+显示从后端接收的图像，格式为 base64 字符串。
 
 | 房产 | 描述 |
-|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `width` | 二维码宽度（像素） |
 | `command` | sendTo 命令 |
 | `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
-| `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
+| `sendFirstByClick` | 点击时首先显示图片。`true` - 标准文本（点击显示）或指定文本 |
+| `sendFirstByClick` | 点击时首先显示图片。`true` - 标准文本（点击显示）或指定文本 |
 
 #### `imageSendTo`后端代码示例
 ```js
@@ -854,6 +873,88 @@ adapter.on("message", (obj) => {
       (err, url) =>
         obj.callback && adapter.sendTo(obj.from, obj.command, url, obj.callback)
     );
+  }
+});
+```
+
+### `qrCodeSendTo`
+向适配器实例发送命令并将响应字符串显示为二维码。
+
+后端必须返回纯文本字符串（待编码的数据）。
+
+| 房产 | 描述 |
+|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `command` | sendTo 命令（默认值：`"send"`） |
+| `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端 |
+| `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
+| `sendFirstByClick` | 仅在点击后加载二维码。`true` — 标准文本（“点击显示”）或用作按钮标签的自定义字符串/翻译对象 |
+| `size` | 二维码尺寸（像素） |
+| `fgColor` | 前景色（默认值：`"#000000"`） |
+| `bgColor` | 背景颜色（默认值：`"#ffffff"`） |
+| `level` | 纠错级别：`L`、`M`、`Q` 或 `H`（默认值：`L`） |
+| `level` | 纠错级别：`L`、`M`、`Q` 或 `H`（默认值：`L`） |
+
+#### `qrCodeSendTo`后端代码示例
+```js
+adapter.on("message", (obj) => {
+    if (obj.command === "send") {
+        // return the string to be encoded in the QR code
+        obj.callback && adapter.sendTo(obj.from, obj.command, "https://example.com/pair?token=abc123", obj.callback);
+    }
+});
+```
+
+### `iframe`
+显示一个包含指定 URL 的 iframe。（来自 Admin 7.7.28）
+
+| 房产 | 描述 |
+|-------------------|------------------------------------------------------------------------------------------|
+| `url` | 要在 iframe 中显示的 URL。如果已定义，则它将是静态元素 |
+| `sandbox` | 安全限制的沙盒属性（例如，`"allow-same-origin allow-scripts"`） |
+| `loading` | 延迟加载：`lazy` 或 `eager`（默认值：`lazy`） |
+| `frameBorder` | 边框宽度（默认值：`0`） |
+| `reloadOnShow` | 当 iframe 在视口中可见时重新加载 |
+| `reloadOnShow` | 当 iframe 在视口中可见时重新加载 |
+
+#### `iframe`示例
+```json
+{
+  "type": "iframe",
+  "url": "https://example.com",
+  "allowFullscreen": true,
+  "sandbox": "allow-same-origin allow-scripts",
+  "loading": "lazy",
+  "reloadOnShow": false
+}
+```
+
+### `iframeSendTo`
+显示一个包含从后端接收的 URL 的 iframe。（来自 Admin 7.7.28）
+
+| 房产 | 描述 |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `command` | sendTo 命令 |
+| `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
+| `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
+
+后端必须返回一个URL字符串。
+
+#### `iframeSendTo`示例
+```json
+{
+  "type": "iframeSendTo",
+  "command": "getUrl",
+  "jsonData": "{\"param\": \"${data.value}\"}",
+  "height": 600
+}
+```
+
+#### `iframeSendTo`后端代码示例
+```js
+adapter.on("message", (obj) => {
+  if (obj.command === "getUrl") {
+    const url = "https://example.com?param=" + obj.message.param;
+    adapter.sendTo(obj.from, obj.command, url, obj.callback);
   }
 });
 ```
@@ -939,7 +1040,7 @@ adapter.on("message", (obj) => {
 
 要使用此选项，您的适配器必须实现消息处理程序：
 
-命令结果必须是一个形如 `["value1", {"value": "value2", "label": "Value2"}, ...]` 的数组（键必须唯一）。有关处理程序示例，请参见 `selectSendTo`。
+命令结果必须是一个符合 `["value1", {"value": "value2", "label": "Value2"}, ...]` 格式的数组（键和名称（值）必须唯一）。有关处理程序示例，请参见 `selectSendTo`。
 
 ### `textSendTo`
 显示只读控件，其值取自实例。
@@ -959,7 +1060,7 @@ adapter.on("message", (obj) => {
 {
   text: "text to show", // mandatory
   style: { color: "red" }, // optional
-  icon: "search", // optional. It could be base64 or link to image in the same folder as jsonConfig.json file
+  icon: "search", // optional. It could be base64 or link to an image in the same folder as jsonConfig.json file
   // possible predefined names: edit, rename, delete, refresh, add, search, unpair, pair, identify, play, stop, pause, forward, backward, next, previous, lamp, backlight, dimmer, socket, settings, group, user, qrcode, connection, no-connection, visible
   iconStyle: { width: 30 }, // optional
 }
@@ -1006,7 +1107,7 @@ adapter.on("message", (obj) => {
 ```
 
 ### `coordinates`
-确定当前位置，如果无法以“纬度，经度”的形式提供坐标，则使用`system.config`坐标。
+确定当前位置，如果无法以 `latitude,longitude` 的形式获取坐标，则使用 `system.config` 坐标。
 
 | 房产 | 描述 |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1025,7 +1126,7 @@ adapter.on("message", (obj) => {
 | `ignoreInternal` | 不显示内部接口（通常也是 127.0.0.1） |
 
 ### `license`
-如果尚未接受许可，则显示许可信息。必须定义属性 `texts` 或 `licenseUrl` 之一。接受许可后，已定义的配置属性将设置为 `true`。
+如果尚未接受许可，则会显示许可信息。必须定义属性 `texts` 或 `licenseUrl` 之一。接受许可后，已定义的配置属性将设置为 `true`。
 
 | 房产 | 描述 |
 |--------------|------------------------------------------------------------------------------------------------------------|
@@ -1096,7 +1197,8 @@ adapter.on("message", (obj) => {
 | `showEnterButton` | 显示“设置”按钮。只有按下按钮时才会发送值。您可以自定义按钮文本。默认文本为“设置”（仅适用于“输入”、“数字”或“滑块”）。 |
 | `setOnEnterKey` | 此值仅在按下“Enter”键时发送。它可以与 `showEnterButton` | 组合使用。 |
 | `options` | `select` 的选项，形式为 `["value1", "value2", ...]` 或 `[{"value": "value", "label": "Value1", "color": "red"}, "value2", ...]`。如果未被污染，则对象中必须存在 `common.states`。 |
-| `options` | `select` 的选项，格式为 `["value1", "value2", ...]` 或 `[{"value": "value", "label": "Value1", "color": "red"}, "value2", ...]`。如果未被污染，则对象中的 `common.states` 必须存在。 |
+| `digits` | `text`/`html` 模式下数值显示的小数位数（例如，`2` 将 `230.2764537654374` 转换为 `230.28`） |
+| `digits` | 在 `text`/`html` 模式下显示数值的小数位数（例如，`2` 将 `230.2764537654374` 转换为 `230.28`） |
 
 ### `staticInfo`
 以预格式化格式显示静态信息，例如“标题:值 单位”（管理员版本 >= 7.3.3）。此控件主要用于动态表单。
@@ -1175,7 +1277,7 @@ adapter.on("message", (obj) => {
 
 如果您指定一个数字，例如 6，则元素的宽度将是屏幕宽度的 6/12（50%）；例如，如果您指定数字 3，则元素的宽度将是屏幕宽度的 3/12（25%）。
 
-为不同的布局选项分配数字，即可针对不同的屏幕尺寸指定元素的宽度。
+为不同的布局选项分配数字，即可指定元素在不同屏幕尺寸下的宽度。
 
 | 选项 | 描述 |
 |--------|------------------------------------------|
@@ -1281,7 +1383,7 @@ adapter.on("message", (obj) => {
 
 用户可以从下拉列表中选择 1000、2000 或 3000，也可以输入自己的新值，例如 500。
 
-布尔值必须支持不确定状态，其值为 [false, true]
+布尔值必须支持不确定状态，即值为 [false, true]
 
 对于未更改的 `__different__`，必须返回不同的值：
 
@@ -1439,8 +1541,8 @@ const isValid = func(
          // all following parameters are optional
          "icon": "AABBCC", // base64 icon. If not provided, the adapter icon will be taken
          "name": "TabName", // String or multi-language object for menu label
-         "singleton": true, // Tab will not have an instance number and for all instances will exist only one menu item.
-         "order": 10, // Order in admin tab (0 is disabled, 1 - first after static menu items, 200 is last)
+         "singleton": true, // Tab will not have an instance number, and for all instances will exist only one menu item.
+         "order": 10, // Order in the admin tab (0 is disabled, 1 - first after static menu items, 200 is last)
       },
       // ....
    }
@@ -1518,6 +1620,35 @@ onMessage = (obj: ioBroker.Message): void => {
 ### **正在进行中** -->
 
 ## Changelog
+### 8.2.3 (2026-03-04)
+- (@GermanBluefox) Increased the QR code padding
+
+### 8.2.2 (2026-03-03)
+- (@GermanBluefox) Added option `sendFirstByClick` to `imageSendTo`
+- (@GermanBluefox) Added new component: `qrCodeSendTo`
+- (@GermanBluefox) Added option `digits` to `state` component
+- (@GermanBluefox) Trying to fix indication of the problems in the table
+
+### 8.1.11 (2026-02-12)
+- (@GermanBluefox) Added the copy-to-clipboard dialog for `sendTo`
+
+### 8.1.9 (2026-02-10)
+- (@GermanBluefox) Hiding the whole line in the table if shown as card and the line is empty
+- (@GermanBluefox) Added the header to the table in the card mode
+
+### 8.1.3 (2026-02-09)
+- (@GermanBluefox) Added component `yamlEditor` for editing YAML files in admin
+
+### 8.1.1 (2026-02-06)
+- (@GermanBluefox) Added `iframe` and `iframeSendTo` components
+
+### 8.0.8 (2026-01-27)
+- (@GermanBluefox) Fixing the `alive` component
+- (@GermanBluefox) Fixing the `datePicker` component
+
+### 8.0.7 (2026-01-27)
+- (@GermanBluefox) Updated adapter-react-v5
+
 ### 8.0.6 (2025-11-10)
 - (@GermanBluefox) Added width to many table elements
 
@@ -1538,7 +1669,7 @@ onMessage = (obj: ioBroker.Message): void => {
 
 The MIT License (MIT)
 
-Copyright (c) 2019-2025 @GermanBluefox <dogafox@gmail.com>
+Copyright (c) 2019-2026 @GermanBluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.porsche/README.md
 title: ioBroker.porsche
-hash: R5ESABh9xYKCE/pZLm13vKEmB62fx97pfOyspBoauQ8=
+hash: FxnW7nhmAhoUTIf6CcWeWC3L/BeyMHd3zn4X2sJwCyY=
 ---
 ![Logo](../../../en/adapterref/iobroker.porsche/admin/porsche.png)
 
@@ -20,8 +20,18 @@ hash: R5ESABh9xYKCE/pZLm13vKEmB62fx97pfOyspBoauQ8=
 ## Porsche-Adapter für ioBroker
 Adapter für myPorsche
 
-## Loginablauf
+## Anmeldeablauf
 Die myPorsche Mail und Passwort eingeben.
+
+### Captcha
+Bei manchen Logins wird ein Captcha von Porsche angefordert. In diesem Herbst:
+
+1. Adapter-Einstellungen im Admin öffnen
+2. Im Bereich „Captcha Login“ wird das Captcha-Bild angezeigt
+3. Den angezeigten Code im Feld „Captcha Code“ eingeben
+4. Auf „Captcha senden“ klicken
+
+Falls kein Captcha-Bild angezeigt wird, wird aber der Login fehlschlägt, die Seite neu geladen.
 
 ## Steuern
 porsche.0.vin.remote auf true/false setzen steuert den jeweiligen Befehl
@@ -30,6 +40,9 @@ porsche.0.vin.remote auf true/false setzen steuert den jeweiligen Befehl
 <https://forum.iobroker.net/topic/50883/test-adapter-myporsche-v0-0-x>
 
 ## Changelog
+
+### 0.5.1
+- fix login and add remotes
 
 ### 0.2.0
 

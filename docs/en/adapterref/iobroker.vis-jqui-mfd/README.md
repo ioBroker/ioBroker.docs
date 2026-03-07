@@ -15,6 +15,9 @@ jqui-mfd widget sets for ioBroker.vis. Widgets are styled as Windows jQuery UI i
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.3 (2026-01-25)
+* (@GermanBluefox) Allowed installation with vis-2 without installing vis-1
+
 ### 1.1.1 (2024-01-16)
 * (bluefox) Make it compatible with ioBroker.vis 2.0
 
@@ -59,5 +62,5 @@ jqui-mfd widget sets for ioBroker.vis. Widgets are styled as Windows jQuery UI i
 * (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2024 hobbyquaker https://github.com/hobbyquaker, bluefox https://github.com/GermanBluefox
+ Copyright (c) 2013-2026 hobbyquaker https://github.com/hobbyquaker, bluefox https://github.com/GermanBluefox
  MIT

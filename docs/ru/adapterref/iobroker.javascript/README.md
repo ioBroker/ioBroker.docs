@@ -16,6 +16,10 @@ chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru"
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 9.0.18 (2026-01-11)
+* (@GermanBluefox) Corrected error message with `lastSync`
+* (@klein0r) Corrected JavaScript filter
+
 ### 9.0.17 (2025-12-14)
 * (@GermanBluefox) Added possibility to encrypt scripts with password (only for vendors)
 
@@ -32,10 +36,6 @@ chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru"
 
 ### 9.0.7 (2025-06-29)
 * (@GermanBluefox) Fixing some blocks in blockly: time, function
-
-### 9.0.6 (2025-06-18)
-* (@GermanBluefox) Speed-up loading of GUI
-* (@GermanBluefox) Migrating old blocks to new format
 
 ## License
 The MIT License (MIT)

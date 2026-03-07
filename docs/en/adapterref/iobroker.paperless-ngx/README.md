@@ -27,6 +27,9 @@ select the refresh cycle and the type of reading data: (without, basic oder deta
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.1 (2026-02-28)
+* (BenAhrdt) update dependencies
+
 ### 0.5.0 (2025-10-19)
 * (BenAhrdt) update Authentication NPM
 * (BenAhrdt) update test to resolve conflicts
@@ -119,7 +122,7 @@ select the refresh cycle and the type of reading data: (without, basic oder deta
 ## License
 MIT License
 
-Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025-2026 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

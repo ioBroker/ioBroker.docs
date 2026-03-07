@@ -505,46 +505,94 @@ Doesn't exist anymore.
 
 ## Changelog
 
-### 1.6.17
-* License update
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 2.4.5 (2026-03-03)
+- fixed typo that made today/hourly today/horly. You can safely delete the horly branch Measurements/Daily/horly
+- Updated delay for token refresh (it can be up to 2 min now).
 
-### 1.6.16
-* Moved Dashboard to ApiV2. This invalidates existing datapoints under /Dashboard/ and introduces "Dashboard/currently" and "Dashboard/today" due to changes in the API.
+### 2.4.4 (2026-03-03)
+- Exponential backoff, if all systems cannot get polled. If at least 1 system can be polled we resume normal action. Now - if all systems fail polling (like 1 if you only have 1) this would be example backoff times for a 5min base interval: 1 Failure -> 0-10 min, 2 Failure -> 0-20 min, 3 Failures -> 0-40 min, 4+ Failures -> 0-40 min. Once polling works again we will resume normal operations.
 
-### 1.6.15
-* Maintenance update (dependencies, ...)
+### 2.4.3 (2026-03-03)
+- API uses its own backoff settings when polling. You can only configure delay between polls. Instead we are using strategy used by: AWS SDK, Google Cloud SDK, Stripe API client, Kubernetes controllers or Distributed message brokers to prevent: retry storms, thundering herd, burst collapse after outage recovery, adapter lockups or permanent dead loops. This leads to: IF (SENEC API down for 2 hours, or Token refresh fails 20 times, or 429 rate limiting kicks in, or Internet drops temporarily) ? (Never dies, never overlaps, never floods API, always recovers)
+- API polling no longer honors retries-setting. It will just keep backing off exponentially if errors persist -> we keep trying until you stop the adapter.
+- Using Token-Refresh strategy. No unnecessary logins anymore.
+- 401 won't throw warning anymore
+- ReAuth shouldn't stop polling anymore
 
-### 1.6.14
-* Bugfix (values were way off)
+### 2.4.2 (2026-03-03)
+- AuthToken in _api is no longer used. You can safely delete it.
+- Decoupled frequencies to lower API load. Every poll: Dashboard and today values; Once per day: Yesterday, Monthly, Yearly values (we reduce load by about 65% compared to polling everything every time)
+- AccessToken logic centralized
+- True Single Flight Token refresh (avoiding duplicate logins, duplicate login storms)
+- Avoiding overlapping Polls
+- exponential backoff on auth failure
+- retry backoff
+- proper lifecycle safety
+- Automatic 401 retry
 
-### 1.6.13 (NoBl)
-* Removed Support for node 16
-* Added more translations
-* Code cleanup
+### 2.4.1 (2026-03-01)
+- Fixing issues with polling from senec api when token expires
+- Old entries in changelog moved to old.
 
-### 1.6.12 (NoBl)
-* Updated license
+### 2.4.0 (2026-02-28)
+- Senec changed login procedure (again). Adapter now also works with 2-stage login where senec asks for username/email first and password second.
+- Dependency updates
 
-### 1.6.11 (NoBl)
-* Moving from Senec App API 3.12.0 to 4.3.3 (thanks to oakdesign@github for providing the new API!)
-* This WILL invalidate all current API datapoints in the Statistik branch. Easiest solution to this: Delete the Statistik branch.
-* Remember to force a rebuild of historic data in adapter settings!
+### 2.3.0 (2026-02-17)
+- Measurements for today and yesterday are also available by the hour
+- Measurements for month and previous month are also available by day
+- Measurements for year are also available by month
+- Unit calculation fixed if we don't know the unit yet per state_attr.js
+- Added definitions for cascadeDevicesCount and mode
+- Dependency update
 
-### 1.6.10 (NoBl)
-* Bugfix for AllTimeHistory (should work again)
+### 2.2.2 (2026-02-06)
+- Migrated to i18n
+- Update handling of "new" states that are just an "extra" to an existing state like state and state.1 or state.42
+- Dependency Updates
 
-### 1.6.9 (NoBl)
-* Added switch in config to enable active control of appliance (you will need activate this, if you want to control the appliance via the adapter)
-* Improved handling of forced loading (please report if we need more appliance-states covered by this)
-* Minor improvements and bugfixes
+### 2.2.1 (2026-02-06)
+- Fixed: History rebuild will only run once now when requested (remember: To force rebuild you need to configure this in settings)
 
+### 2.2.0 (2026-02-05)
+- Polling yearly measurements as year from API - not months (and summing them up)
+- Added back AllTimeHistory with BATTERY_LEVEL_IN_PERCENT averaged and AUTARKY_IN_PERCENT calculated
+- Removed selection to use https or http for lala.cgi. https is enforced now.
+
+### 2.1.3 (2026-02-04)
+- reading all previous years (up to inception of SENEC) added again (to make this happen: activate recalculation of full history via settings)
+- added today / yesterday again
+- optimizations for measurements handling
+- less log noise
+
+### 2.1.2 (2026-02-04)
+- more silencing log messages
+- housekeeping
+
+### 2.1.1 (2026-02-04)
+- fixed datatype for WIZARD.SG_READY_CURR_MODE
+- less logging (moved some info to debug again)
+
+### 2.1.0 (2026-02-04) - the API returns - finally finally hopefully finally
+
+- Complete rewrite of the Senec API functionality. Thanks to @timfxtones for pointing me in the right direction
+- No longer using the web-interface at mein-senec.de - it didn't work properly on the long run ...
+- Still missing some datapoints so far. They will be implemented in the future.
+
+### 2.0.0 (maett81, NoBl)
+* Updated to use new SENEC API via mein-senec.de - Thanks to @maett81
+* Some code and dependency housekeeping
 
 ### [Former Updates](CHANGELOG_old.md)
 
 ## License
 MIT License
 
-Copyright (c) 2025 Norbert Bluemle <github@bluemle.org>
+Copyright (c) 2020-2026 Norbert Bluemle <github@bluemle.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

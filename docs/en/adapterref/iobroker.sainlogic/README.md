@@ -108,9 +108,10 @@ Station does not answer to scheduler commands, so only listener mode is supporte
     ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 1.1.2 (2026-01-19)
 
 npm dependency updates
+fix admin page: scheduler reported interval in minutes instead of seconds
 
 ### 1.1.1 (2025-12-29)
 
@@ -120,14 +121,6 @@ Changed max values for distance sensore (#262)
 
 Added deploy job for release script
 Changed to Admin UI to jsonConfig
-
-### 1.0.17 (2025-12-23)
-
-Updates for releasescript changelog logic
-
-### 1.0.16
-
-Typo in io-package.json
 
 ## Credits
 

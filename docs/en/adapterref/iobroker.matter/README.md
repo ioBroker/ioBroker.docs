@@ -10,7 +10,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.matter.svg)](https://www.npmjs.com/package/iobroker.matter)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
-For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+For more details and for information how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 Sentry reporting is used starting with js-controller 3.0.
 
 ## Introduction
@@ -27,13 +27,53 @@ With the ioBroker Matter Adapter, it is possible to map the following use cases:
 * The provision of multiple ioBroker devices as a Matter Bridge: Matter Bridges can contain multiple devices and are the easiest way to integrate ioBroker devices into a Matter-compatible ecosystem.
 * ioBroker provides individual virtual Matter devices based on ioBroker devices / ioBroker states, which can be taught to a Matter-compatible ecosystem (currently only bridges are possible for Amazon Alexa)
 
+## OTA Updates (Over-The-Air)
+
+The Matter adapter supports firmware updates for devices connected via the Controller, allowing you to update Matter devices directly through ioBroker.
+
+### Basic Usage
+
+When an update is available, an **update icon** appears next to the device in the Controller panel. Updates are checked once a day and initially approx 10-15 minutes after the adapter start.
+
+**To update a device:**
+1. Open the **Controller panel** for the Matter adapter
+2. Click the **update action** on the device with the update icon
+3. Review the update information (if shown) and click **Update now**
+
+**Update phases:**
+- **Querying** → **Downloading** (shows %) → **Applying**
+
+You can cancel during Querying/Downloading. Once Applying starts, the update cannot be cancelled. After completion, the device restarts automatically (may take several minutes).
+
+> **Tip**: Updates can appear stuck during download – this is normal, especially for Thread devices. Be patient.
+
+### Official Updates
+
+The adapter automatically checks for certified firmware from the [Distributed Compliance Ledger (DCL)](https://webui.dcl.csa-iot.org/) - the official Matter certification database. No configuration required.
+
+### Custom OTA Updates (Advanced)
+
+For testing pre-release or community firmware:
+
+> **Warning**: Custom updates bypass certification. Only use firmware from trusted sources.
+
+**Setup:**
+1. Go to **General** tab → **Custom OTA Updates** section
+2. Enable **Allow custom/unofficial OTA updates**
+3. Optionally set a custom path (default: `<instance data>/custom-ota`)
+4. The path will be created on the next restart of the adapter if not already existing
+
+**Adding files:**
+- Place `.ota` files in the custom updates directory
+- Click **Import updates now** to scan for new files (Files are imported on adapter start automatically once)
+- The adapter extracts vendor/product IDs from file headers automatically and validates the files.
+
 ## ToDo
 * Texts are partially in english
 * Sync min/max from Matter into ioBroker objects
 * Cleanup objects when devices/states are removed
 * ioBroker device types
   * (6) vacuumCleaner
-  * (5+) volume, volumeGroup
   * (5+/8) airCondition
   * (7) fireAlarm
   * (5) mediaPlayer
@@ -98,12 +138,17 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
-* (@Apollon77) Updated to Matter 1.4 2 (matter.js to 0.16.0)
-* (@Apollon77) Also covert values for unit "mired" for Color temperatures
-* (@Apollon77) Increases default color temperature range to 1.000 to 20.000 K
+### 1.0.0 (2026-02-25)
+* IMPORTANT: The first start of the controller with this version takes a bit longer to connect all devices because internal data are migrated
+* (@Apollon77) Updated to Matter 1.4.2 (matter.js to 0.16) including many optimizations and fixes
+* (@Apollon77) Also convert values for unit "mired" for Color temperatures
+  * (@Apollon77) Increases default color temperature range to 1.000-20.000 K
+* (@Apollon77) Added support for OTA updates (checked roughly 15 mins after adapter start and then daily)
+* (@Apollon77) Added Thread and Wifi topology overview with data from the devices. See Readme for details.
+* (@Apollon77) Detect duplicate commands/writes and prevent them from being sent out again if the first command is still in progress
 * (@GermanBluefox) Highlight the devices in GUI when hovering over the device in the device list
-* (@GermanBluefox) Replaced I18n package
+* (@tarikweiss) Added support for volume, volumeGroup ioBroker devices to matter
+* (@Tyraenor/Apollon77) Add Off mode for Thermostats for Matter devices
 
 ### 0.5.6 (2025-10-21)
 * (@Apollon77) Type detector update, should detect single states in non-device structures better
@@ -402,4 +447,4 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 ## License
 Apache-2.0
 
-Copyright (c) 2023-2026 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2023-2026 Denis Haev <dogafox@gmail.com>, Ingo Fischer <github@fischer-ka.de>

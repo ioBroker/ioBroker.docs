@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate - 用于在 Vis/Vis2 中可视化 JSON 数据和其他数据的适配器
-hash: 8D1piNLdCgFWCprb+78gzu5KYO6Dp/PO5cgqE2pijDk=
+hash: 3qI1R14HZeXdNTbXjv2UmguTzNHwrVruYa0GYJZZgCs=
 ---
 # JSONTemplate - 用于在 Vis/Vis2 中可视化 JSON 数据和其他数据的适配器
 ![标识](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -56,11 +56,15 @@ iobroker upload jsontemplate
 JSONTemplate 现在支持使用 await 进行异步调用。
 
 | 设置 | 描述 |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | json_template | 此模板可用于确定 JSON 数据的显示方式。模板中可以使用所有有效的 HTML 标签（包括 style 标签中的 CSS 属性）。此外，还有一些特殊标签，用于显示 JSON 数据并执行 JavaScript 指令。 |
 | json_oid | 选择具有对应 JSON 数据的数据点。 |
 | json_dpCount | 模板中可用的数据点数量。 |
 | json_dp | 待提供的数据点 ID。 |
+| json_scriptCount | 要加载的 JavaScript URL 数量 |
+| json_script[] | 要加载的 JavaScript URL。请参见以下示例。 |
+| json_cssCount | 要加载的 CSS URL 数量。 |
+| json_css[] | 要加载的 CSS URL。 |
 
 有关模板系统的详细信息，请参阅“基于示例的模板”章节。
 
@@ -164,6 +168,72 @@ sendToAsync 函数的定义
 ```text
 [{"label":"Afghanistan","value":"AF"},{"label":"Åland Islands","value":"AX"},{"label":"Albania","value":"AL"}]
 ```
+
+#### 加载额外脚本的使用案例
+其他字段允许您加载 JavaScript 库（例如，从 jsDelivr 或 cdnjs 等 CDN）。以下示例演示了如何使用 chartJS 库。
+
+**步骤 1：**
+
+创建一个名为 `0_userdata.0.chartData` 的新数据点，类型为字符串或 JSON，内容如下
+
+```json
+[12, 19, 3, 5, 2, 3]
+```
+
+**步骤 2：**
+
+在 json_script[1] 字段中输入以下网址：
+
+```text
+https://cdn.jsdelivr.net/npm/chart.js
+```
+
+**步骤 3：**
+
+在“JSON 数据点”字段中输入创建的数据点名称。
+
+在“JSON 模板”字段中输入以下模板。
+
+除了其中一行代码外，其余部分均为标准的 HTML + JavaScript 代码。
+
+```html
+data: <%- JSON.stringify(data) %>,
+```
+
+从数据点读取的数据存储在 JavaScript 变量 `data` 中，并输出到模板指令 <%- ... %> 内。
+
+模板编译并包含在 HTML 文档中后，将由浏览器执行，从而通过 JavaScript 显示图表。
+
+```ejs
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: <%- JSON.stringify(data) %>,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+```
+
+![例子](../../../en/adapterref/iobroker.vis-jsontemplate/img/example_extscripts.png)
 
 #### 数据库支持的任务列表的使用案例
 ＃＃＃＃＃ **介绍**
@@ -534,6 +604,23 @@ local_trigger
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.3.11 (2026-01-25)
+
+- check test release workflow
+
+### 4.3.10 (2026-01-25)
+
+- update test and release script
+
+### 4.3.1 (2026-01-24)
+
+- try again to publish
+
+### 4.3.0 (2026-01-24)
+
+- The ability to load additional JavaScript and CSS files has been added.
+  This is currently only available for vis1 for testing purposes.
+
 ### 4.2.0 (2025-11-14)
 
 - Improve documentation for the object notation in a template
@@ -568,7 +655,7 @@ local_trigger
 
 MIT License
 
-Copyright (c) 2021-2025 oweitman <oweitman@gmx.de>
+Copyright (c) 2021-2026 oweitman <oweitman@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

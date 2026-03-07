@@ -39,6 +39,7 @@ Bell in icon designed by Freepik from www.flaticon.com
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 
 ### 4.0.1 (2025-06-24)

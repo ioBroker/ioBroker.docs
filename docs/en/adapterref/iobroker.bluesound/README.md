@@ -95,6 +95,11 @@ The contents of the current playlist is available in the object info.playlist (J
 ```
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Uwe Nagel) [#152](https://github.com/Uwe1958/ioBroker.bluesound/issues/152)
+
 ### 1.3.0 (2025-12-03)
 
 - (Uwe Nagel) Library search added

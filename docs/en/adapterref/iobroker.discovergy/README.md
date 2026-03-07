@@ -38,14 +38,11 @@ If you like my work, please feel free to provide a personal donation
     ### __WORK IN PROGRESS__
 -->
 ### __WORK IN PROGRESS__
-* (DutchmanNL) **ENHANCED**: Updated GitHub Copilot instructions to latest template version 0.4.0 with comprehensive testing framework patterns and enhanced development guidelines. Fixes #287
-* (DutchmanNL) **FIXED**: Repository checker issues - deprecated methods replaced and VSCode configuration improved
-* (DutchmanNL) **ENHANCED**: VSCode IntelliSense support for io-package.json and package.json validation
-* (DutchmanNL) **NEW**: Added comprehensive API testing with demo credentials to ensure adapter reliability
-* (DutchmanNL) **FIXED**: Critical bug where adapter would always show "credentials missing" even with valid credentials - now properly validates user login
-* (DutchmanNL) **ENHANCED**: Demo testing now includes proper password encryption matching ioBroker admin interface behavior
-* (DutchmanNL) **TESTING**: New `npm run test:integration-demo` command validates full API connectivity with working demo credentials (`demo@inexogy.com` / `demo`)
-* (DutchmanNL) **CI/CD**: Automated testing ensures adapter connects properly to Discovergy/Inexogy API and initializes meters successfully
+* (DutchmanNL) **FIXED**: Removed non-existent version 0.6.1 from changelog to comply with ioBroker repository checker requirements (E2004)
+* (DutchmanNL) **ENHANCED**: Cleaned up common.news entries in io-package.json to maintain only published versions
+
+### 0.7.0 (2026-02-15)
+* (DutchmanNL) release fixes and improvements in 0.7.0, resolved #316 #313
 
 ### 0.6.0 (2024-12-04) - API change to Inexogy
 * (DutchmanNL) Bugfix: API change to Inexogy. Fixes #249
@@ -57,13 +54,6 @@ If you like my work, please feel free to provide a personal donation
 ### 0.5.12 (2023-10-29)
 * (DutchmanNL) Ignore meters not providing any data (like removed devices) fixes #84
 
-### 0.5.11 (2023-10-27) - Bugfixes
-* (DutchmanNL) Error handling improved in cases data processing fails
-* (DutchmanNL) Fixes #214 #215 #200 #219 #220 #224 #229 #235 #236 #237 #238 #506 #507
-
-### 0.5.8 (2021-08-17)
-* (DutchmanNL) Minor dependency & configuration updates, stable release candidate
-
 ## Contributors
 * AlCalzone
 * zoernert
@@ -71,7 +61,7 @@ If you like my work, please feel free to provide a personal donation
 ## License
 MIT License
 
-Copyright (c) 2025 DutchmanNL
+Copyright (c) 2025-2026 DutchmanNL
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

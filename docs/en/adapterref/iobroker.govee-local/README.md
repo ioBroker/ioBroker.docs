@@ -24,6 +24,11 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- update dependencies: @alcalzone/release-script (5.1.1), @tsconfig/node20 (20.1.9), @types/node (25.3.0), ESLint (10.0.1), prettier (3.8.1), and rimraf (6.1.3)
+
 ### 0.4.5 (2025-11-16)
 
 - fix scan mode inconsistency

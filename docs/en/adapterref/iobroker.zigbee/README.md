@@ -136,12 +136,25 @@ As the libraries are shared, any device supported in zigbee2mqtt.io will in time
 Other topics related to this adapter are also documented in the associated [wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki).
 
 ## Changelog
-### **WORK IN PROGRESS
+### **WORK IN PROGRESS**
 *
+
+### 3.3.5 (2026-01-30)
+* Bugfix - Error on startup from onEvent
+* fix: send_payload read with array of cluster
 *
+
+### 3.3.4 (2026-01-26)
+* ZHC 25.112.0
+* ZH 8.1.0
+* Fix: Admin does not load com ports
+
+### 3.3.3 (2026-01-11)
+* Fix crash bug
+* getter for composite states V1
+* zhc
 *
-*
-## Changelog
+
 ### 3.3.2 (2026-01-04)
 * Fix sync brightness / state
 * Fix bug in expose

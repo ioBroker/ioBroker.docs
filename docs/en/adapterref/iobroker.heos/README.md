@@ -144,6 +144,12 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.0.4 (2026-02-28)
+* (withstu) update dependencies
+
+### 3.0.3 (2026-02-28)
+* (withstu) update dependencies
+
 ### 3.0.2 (2025-11-03)
 * (withstu) fix tests
 
@@ -366,7 +372,7 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 ## License
 MIT License
 
-Copyright (c) 2025 withstu <withstu@gmx.de>
+Copyright (c) 2025-2026 withstu <withstu@gmx.de>
 
 derived from https://forum.iobroker.net/topic/10420/vorlage-denon-heos-script by Uwe Uhula
 TTS derived from https://github.com/ioBroker/ioBroker.sonos

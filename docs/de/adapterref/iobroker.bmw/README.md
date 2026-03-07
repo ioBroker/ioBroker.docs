@@ -3,19 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: WhGG3fHzhSI6UF+yl66mxbxq7oNmCRrArnm4WdKMQzo=
+hash: gLEy/F6ki+86Hi0tqrYcwXrFVkLRa4fcK3xwGD+WM1c=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bmw.svg)
-![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.bmw?style=flat-square)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.bmw?style=flat-square)
 ![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.bmw?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/TA2k/iobroker.bmw?style=flat-square)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/TA2k/iobroker.bmw?logo=github&style=flat-square)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/TA2k/iobroker.bmw?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/TA2k/iobroker.bmw?logo=github&style=flat-square)
-![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/TA2k/iobroker.bmw?logo=github&style=flat-square)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/TA2k/iobroker.bmw?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/TA2k/iobroker.bmw?logo=github&style=flat-square)
 ![GitHub-Workflow-Status](https://img.shields.io/github/actions/workflow/status/TA2k/iobroker.bmw/test-and-release.yml?branch=master&logo=github&style=flat-square)
-![Bekannte SNYK-Sicherheitslücken](https://snyk.io/test/github/TA2k/ioBroker.bmw/badge.svg)
+![Bekannte Schwachstellen von SNYK](https://snyk.io/test/github/TA2k/ioBroker.bmw/badge.svg)
 ![Beta](https://img.shields.io/npm/v/iobroker.bmw.svg?color=red&label=beta)
 ![Stabil](https://iobroker.live/badges/bmw-stable.svg)
 ![Installiert](https://iobroker.live/badges/bmw-installed.svg)
@@ -25,169 +25,190 @@ hash: WhGG3fHzhSI6UF+yl66mxbxq7oNmCRrArnm4WdKMQzo=
 
 # IoBroker.bmw
 ## Versionen
-# BMW Adapter für ioBroker
-Dieser Adapter integriert BMW-Fahrzeuge in ioBroker mithilfe der neuen BMW CarData API mit OAuth2-Authentifizierung und Echtzeit-MQTT-Streaming. Er bietet eine umfassende Fahrzeugdatenüberwachung für alle mit Ihrem BMW-Konto verknüpften BMW-Modelle.
+# BMW-Adapter für ioBroker
+Dieser Adapter integriert BMW-Fahrzeuge in ioBroker mithilfe der neuen BMW CarData API mit OAuth2-Authentifizierung und Echtzeit-MQTT-Streaming. Er ermöglicht die umfassende Überwachung von Fahrzeugdaten für alle mit Ihrem BMW-Konto verknüpften BMW-Modelle.
 
 ## Datenaktualisierung während des Ladevorgangs
-Während des Ladevorgangs kann es vorkommen, dass der Batteriestand nicht per Stream aktualisiert wird, da sich das Fahrzeug im Standby-Modus befindet. Beim Einschalten des Fahrzeugs werden die Daten aktualisiert. Sie können ein Update über die API `bmw.0.vin.remote.fetchViaAPI` auslösen.
+Während des Ladevorgangs kann es vorkommen, dass der Akkustand nicht per Stream aktualisiert wird, da sich das Fahrzeug im Schlaf-/Standby-Modus befindet. Beim Einschalten des Fahrzeugs werden die Daten aktualisiert. Sie können eine Aktualisierung über die API `bmw.0.vin.remote.fetchViaAPI` auslösen.
 
 ## Datenpunktbeschreibung
-Eine detaillierte Datenpunktbeschreibung finden Sie hier [telematic.json](telematic.json)
+Eine detaillierte Beschreibung des Datenpunkts finden Sie hier [telematic.json](telematic.json)
 
-## Einrichtungsanweisungen
-### 1. Einrichtung des BMW ConnectedDrive Portals
+## Installationsanleitung
+### 1. BMW ConnectedDrive Portal einrichten
 1. Besuchen Sie das BMW ConnectedDrive Portal: **https://www.bmw.de/de-de/mybmw/vehicle-overview**
-2. Navigieren Sie zum Bereich **BMW CarData** (Sie sehen verschiedene Servicekategorien)
+2. Navigieren Sie zum Abschnitt **BMW CarData** (dort sehen Sie verschiedene Servicekategorien).
 
-![BMW Portal Übersicht](../../../en/adapterref/iobroker.bmw/img/bmw-portal-overview.png)
+![BMW Portal – Übersicht](../../../en/adapterref/iobroker.bmw/img/bmw-portal-overview.png)
 
-3. Klicken Sie auf die Schaltfläche **"CarData Client erstellen"**
-4. Kopieren Sie die Client-ID
-5. Warten Sie 30 Sekunden
-6. Klicken Sie auf CarData API
-7. Warten Sie 30 Sekunden
-8. Klicken Sie auf CarData Streaming
+3. Klicken Sie auf die Schaltfläche **"CarData-Client erstellen"** (CarData-Client erstellen).
+4. Kopieren Sie die Client-ID.
+5. Warten Sie 30 Sekunden.
+6. Klicken Sie auf CarData API.
+7. Warten Sie 30 Sekunden.
+8. Klicken Sie auf CarData Streaming.
 
-![CarData Client-Setup](../../../en/adapterref/iobroker.bmw/img/cardata-client-setup.png)
+![CarData-Client-Einrichtung](../../../en/adapterref/iobroker.bmw/img/cardata-client-setup.png)
 
-# **KRITISCH**: Klicken Sie auf einen Dienst und warten Sie 30 Sekunden. Wenn eine Fehlermeldung angezeigt wird, klicken Sie dann erneut. Drücken Sie nicht auf "Gerät Authentifizieren/Devict authentication". Geben Sie die Client-ID in den iobroker-Einstellungen ein.
-### 2. CarData Streaming-Konfiguration
-**SIE MÜSSEN CARDATA STREAMING KONFIGURIEREN UND ALLE 244 DATENPUNKTE AUSWÄHLEN**
+# **WICHTIG**: Klicken Sie auf einen Dienst und warten Sie 30 Sekunden, falls eine Fehlermeldung erscheint. Klicken Sie dann erneut. Klicken Sie nicht auf „Gerät Authentifizieren“. Geben Sie die Client-ID in den iobroker-Einstellungen ein. Falls dies nicht funktioniert, versuchen Sie es mit Kleinbuchstaben.
+### 2. CarData-Streaming-Konfiguration
+**SIE MÜSSEN CARDATA STREAMING KONFIGURIERT UND ALLE 244 DATENPUNKTE AUSWÄHLEN**
 
-Konfigurieren Sie das Streaming, nachdem Sie Ihre Client-ID erstellt haben:
+Nachdem Sie Ihre Client-ID erstellt haben, konfigurieren Sie das Streaming:
 
-1. Suchen Sie im Bereich CarData nach **"CARDATA STREAMING"**
-2. Sie sollten den Konfigurationsstatus als **"bereit"** sehen.
+1. Suchen Sie im Abschnitt CarData nach **"CARDATA STREAMING"**
+2. Der Konfigurationsstatus sollte als **"bereit"** angezeigt werden.
 3. Beachten Sie den Zeitstempel „Letztes Konfigurationsupdate“**
 
-![CarData Streaming-Einrichtung](../../../en/adapterref/iobroker.bmw/img/cardata-streaming-setup.png)
+![CarData-Streaming-Einrichtung](../../../en/adapterref/iobroker.bmw/img/cardata-streaming-setup.png)
 
 4. Klicken Sie auf die Schaltfläche **"Datenauswahl ändern"**
-5. **Wählen Sie ALLE Kategorien aus** (Fahrzeugstatus, Aufladen, Reisedaten usw.)
-6. **Überprüfen Sie manuell ALLE 244 einzelnen Datenpunkte**
-7. Oder geben Sie dies in der Google Developer Console ein und drücken Sie F12 `document.querySelectorAll('label.chakra-checkbox:not([data-checked])').forEach(l => l.click());`
-8. Speichern Sie Ihre Konfiguration, indem Sie bei Bedarf auf **"Stream löschen"** klicken, und konfigurieren Sie sie dann neu
+5. **Alle Kategorien auswählen** (Fahrzeugstatus, Ladevorgang, Fahrtdaten usw.)
+6. **Alle 244 einzelnen Datenpunkte manuell prüfen**
+7. Oder geben Sie Folgendes in der Google Developer Console ein (F12 drücken): `document.querySelectorAll('label.chakra-checkbox:not([data-checked])').forEach(l => l.click());`
+8. Speichern Sie Ihre Konfiguration, indem Sie auf **„Stream löschen“** klicken. Falls nötig, müssen Sie die Konfiguration zurücksetzen und anschließend neu konfigurieren.
 
-**Ohne die Auswahl aller Datenpunkte liefert das MQTT-Streaming keine vollständigen Daten!**
+**Ohne die Auswahl aller Datenpunkte liefert MQTT-Streaming keine vollständigen Daten!**
 
 ### 3. Adapterkonfiguration
-1. Geben Sie Ihre **Client-ID** in den Adaptereinstellungen ein
-2. Geben Sie Ihren **CarData Streaming-Benutzernamen** ein (zu finden im BMW-Portal unter CarData > Streaming-Bereich)
-3. Wählen Sie Ihre Fahrzeug-**Marke** (BMW, Mini, Toyota Supra)
+1. Geben Sie Ihre **Client-ID** in den Adaptereinstellungen ein.
+2. Geben Sie Ihren **CarData Streaming-Benutzernamen** ein (zu finden im BMW Portal unter CarData > Streaming).
+3. Wählen Sie Ihre Fahrzeugmarke (BMW, Mini, Toyota Supra)
 4. **Aktualisierungsintervall** festlegen (mindestens 10 Minuten aufgrund des API-Kontingents)
-5. Konfigurieren Sie bei Bedarf die **VIN-Ignorierliste**
+5. Konfigurieren Sie bei Bedarf die **VIN-Ignorierliste**.
 
 ### 4. Authentifizierungsprozess
-1. Starten Sie den Adapter
-2. Überprüfen Sie die Protokolle auf die OAuth2-Autorisierungs-URL
-3. Besuchen Sie die URL und melden Sie sich mit Ihrem BMW-Konto an
-4. Autorisieren Sie die Anwendung
-5. Der Adapter wird nach der Autorisierung automatisch fortgesetzt
+1. Schalten Sie den Adapter ein.
+2. Überprüfen Sie die Protokolle auf die OAuth2-Autorisierungs-URL.
+3. Besuchen Sie die URL und melden Sie sich mit Ihrem BMW-Konto an.
+4. Den Antrag genehmigen.
+5. Der Adapter fährt nach der Autorisierung automatisch fort.
 
 ## Datenstruktur
-Fahrzeugdaten sind unter `bmw.0.VIN.*` organisiert, wobei `VIN` Ihre Fahrzeugidentifikationsnummer darstellt:
+Die Fahrzeugdaten sind unter `bmw.0.VIN.*` organisiert, wobei `VIN` Ihre Fahrzeugidentifikationsnummer darstellt:
 
 ### Hauptordnerstruktur
-- **`bmw.0.VIN.api.*`** – API-Daten (regelmäßige Updates)
-- Daten werden über die BMW CarData REST API über .remote abgerufen.
-- Verwendet API-Kontingent (50 Aufrufe pro 24 Stunden)
+- **`bmw.0.VIN.api.*`** - API-Daten (regelmäßige Aktualisierungen)
+- Daten abgerufen über die BMW CarData REST API via .remote.
+- Nutzt das API-Kontingent (50 Aufrufe pro 24 Stunden)
 
-- **`bmw.0.VIN.stream.*`** – Stream-Daten (Echtzeit-MQTT)
+- **`bmw.0.VIN.stream.*`** - Streamdaten (Echtzeit-MQTT)
 - Datenempfang über Echtzeit-MQTT-Streaming oder remote.fetchViaAPI
-- Sofortige Updates bei Änderungen der Fahrzeugdaten
-- Enthält alle 244 konfigurierten Datenpunkte
+- Sofortige Aktualisierungen bei Änderungen der Fahrzeugdaten
+- Beinhaltet alle 244 konfigurierten Datenpunkte
 
 ### Verfügbare API-Endpunkte (konfigurierbar)
 Sie können diese Endpunkte in den Adaptereinstellungen aktivieren/deaktivieren (BMW CarData API v1):
 
-- `bmw.0.VIN.api.basicData.*` - Fahrzeuginformationen, Modell, Marke, Serie ✅ **(Standard: Aktiviert)**
-- `bmw.0.VIN.api.chargingHistory.*` – Ladevorgänge und -verlauf ✅ **(Standard: Aktiviert)**
-- `bmw.0.VIN.api.image.*` - Fahrzeugbild für Anzeigezwecke
-- `bmw.0.VIN.api.locationBasedChargingSettings.*` – Standortspezifische Ladepräferenzen und -einstellungen
-- `bmw.0.VIN.api.smartMaintenanceTyreDiagnosis.*` - Intelligentes Wartungssystem für Reifenzustand und -diagnose
+- `bmw.0.VIN.api.basicData.*` - Fahrzeuginformationen, Modell, Marke, Baureihe ✅ **(Standard: Aktiviert)**
+- `bmw.0.VIN.api.chargingHistory.*` - Ladevorgänge und -verlauf ✅ **(Standard: Aktiviert)**
+- `bmw.0.VIN.api.image.*` - Fahrzeugbild zur Anzeige
+- `bmw.0.VIN.api.locationBasedChargingSettings.*` - Standortspezifische Ladeeinstellungen
+- `bmw.0.VIN.api.smartMaintenanceTyreDiagnosis.*` - Intelligentes Reifenwartungssystem: Zustands- und Diagnosefunktion
 
 ### Metadaten
 - `bmw.0.VIN.lastStreamViaAPIUpdate` - Zeitstempel der letzten Datenaktualisierung (API)
-- `bmw.0.VIN.lastStreamUpdate` – Zeitstempel des letzten MQTT-Stream-Updates
+- `bmw.0.VIN.lastStreamUpdate` - Zeitstempel der letzten MQTT-Stream-Aktualisierung
 
 ## Echtzeit-Updates
-Der Adapter empfängt Echtzeit-Updates über MQTT-Streaming, wenn:
+Der Adapter empfängt Echtzeit-Updates per MQTT-Streaming, wenn:
 
-- Das Auto ist nicht im Ruhe-/Standby-Modus
+- Das Auto befindet sich nicht im Schlaf-/Standby-Modus.
 - Fahrzeugstatusänderungen (Türen, Fenster, Lichter)
-- Ladestatus-Updates
+- Aktualisierungen des Ladestatus
 - Standortänderungen während der Fahrt
 - Aktivierung der Klimaanlage
 - Servicebenachrichtigungen
 
-## Remote-Befehle
+## Fernbefehle
 **Verfügbare Fernbedienungen:**
 
-Die BMW CarData API ist schreibgeschützt, daher bietet dieser Adapter keine Fahrzeugsteuerungsfunktion. Für die Fernsteuerung verwenden Sie:
+Die BMW CarData API ist schreibgeschützt, daher bietet dieser Adapter keine Fahrzeugsteuerungsfunktionen. Für Fernsteuerungsfunktionen verwenden Sie bitte:
 
-**Offizielle BMW-Lösungen:**
+**Offizielle BMW Lösungen:**
 
-- **MyBMW Mobile App** – Vollständige Fernbedienungsfunktionalität
-- **BMW ConnectedDrive Portal** – Webbasiertes Fahrzeugmanagement
-- **BMW Alexa Skill** – Sprachsteuerungsintegration mit Amazon Alexa für Befehle wie:
-- „Alexa, sag BMW, mein Auto abzuschließen“
-- „Alexa, sag BMW, dass er die Klimaanlage starten soll“
-- „Alexa, sag BMW, dass meine Lichter blinken sollen.“
+- **MyBMW Mobile App** - Volle Fernbedienungsfunktionalität
+- **BMW ConnectedDrive Portal** - Webbasierte Fahrzeugverwaltung
+- **BMW Alexa Skill** - Sprachsteuerungsintegration mit Amazon Alexa für Befehle wie:
+- "Alexa, bitte BMW, mein Auto zu verriegeln"
+- "Alexa, bitte BMW, die Klimaanlage einzuschalten"
+- "Alexa, bitte BMW, meine Lichter blinken zu lassen"
 
-**In diesem Adapter verfügbare Fernbedienungen:**
+**Fernbedienungen, die in diesem Adapter enthalten sind:**
 
-- `fetchViaAPI` - Holen Sie sich die neuesten Telematikdaten über die Container-API
-- `basicData` - Fahrzeuggrundinformationen aktualisieren (Modell, Marke, Serie)
+- `fetchViaAPI` - Ruft die neuesten Telematikdaten über die Container-API ab.
+- `basicData` - Fahrzeuggrundinformationen (Modell, Marke, Baureihe) aktualisieren
 - `chargingHistory` - Ladevorgänge der letzten 30 Tage abrufen
 - `image` - Aktuelles Fahrzeugbild abrufen
 - `locationBasedChargingSettings` - Standortbasierte Ladeeinstellungen abrufen
 - `smartMaintenanceTyreDiagnosis` - Reifendiagnosedaten abrufen
 
-_Hinweis: Dies sind nur Befehle zum Abrufen von Daten. Die BMW CarData API unterstützt keine Befehle zur Fahrzeugsteuerung._
+_Hinweis: Dies sind ausschließlich Datenabrufbefehle – Fahrzeugsteuerungsbefehle werden von der BMW CarData API nicht unterstützt._
 
 ## Fehlerbehebung
-### Authentifizierungsprobleme (400 Ungültige Anfrage)
-Wenn Authentifizierungsfehler auftreten:
+### Authentifizierungsprobleme (400 Bad Request)
+Falls Authentifizierungsfehler auftreten:
 
-1. Überprüfen Sie, ob die CarData-API für Ihre Client-ID aktiviert ist
-2. Stellen Sie sicher, dass CarData Streaming aktiviert ist
-3. Überprüfen Sie, ob alle 244 Datenpunkte ausgewählt sind
-4. Erwägen Sie die Neugenerierung Ihrer Client-ID
+1. Überprüfen Sie, ob die CarData-API für Ihre Client-ID aktiviert ist.
+2. Stellen Sie sicher, dass CarData Streaming aktiviert ist.
+3. Überprüfen Sie, ob alle 244 Datenpunkte ausgewählt sind.
+4. Erwägen Sie, Ihre Client-ID neu zu generieren.
 
 ### Keine MQTT-Daten
-Wenn Sie keine Echtzeit-Updates erhalten:
+Falls Sie keine Echtzeit-Updates erhalten:
 
-1. Überprüfen Sie, ob CarData Streaming abonniert und aktiv ist
-2. Stellen Sie sicher, dass alle Datendeskriptoren (244 Punkte) ausgewählt sind
-3. Prüfen Sie, ob Ihr Fahrzeug CarData-Streaming unterstützt
-4. Starten Sie den Adapter nach Änderungen der Deskriptorkonfiguration neu
+1. Überprüfen Sie, ob CarData Streaming abonniert und aktiv ist.
+2. Stellen Sie sicher, dass alle Datenbeschreibungen (244 Punkte) ausgewählt sind.
+3. Prüfen Sie, ob Ihr Fahrzeug CarData-Streaming unterstützt.
+4. Starten Sie den Adapter nach Änderungen der Deskriptorkonfiguration neu.
 
 ### API-Kontingent überschritten
 Der Adapter verwaltet das Limit von 50 API-Aufrufen pro 24 Stunden automatisch:
 
-- **Deaktivieren Sie unnötige API-Endpunkte** in den Adaptereinstellungen, um die Kontingentnutzung zu reduzieren
-- Erhöhen Sie das Aktualisierungsintervall, wenn Sie häufig an die Kontingentgrenzen stoßen
+- **Deaktivieren Sie unnötige API-Endpunkte** in den Adaptereinstellungen, um die Kontingentnutzung zu reduzieren.
+- Erhöhen Sie das Aktualisierungsintervall, wenn Sie häufig an Ihre Kontingentgrenzen stoßen.
 - MQTT-Streaming wird nicht auf das API-Kontingent angerechnet und liefert Echtzeitdaten
 - Jeder aktivierte API-Endpunkt verwendet einen Kontingentaufruf pro Aktualisierungsintervall
 
 ### Fehlende Daten im API-Ordner
-Wenn Sie in `VIN.api.*` nicht die erwarteten Daten sehen:
+Falls Sie in `VIN.api.*` nicht die erwarteten Daten sehen:
 
-1. Überprüfen Sie, ob der entsprechende Endpunkt in den Adaptereinstellungen aktiviert ist
-2. Stellen Sie sicher, dass Sie das API-Kontingent nicht überschritten haben (überprüfen Sie die Adapterprotokolle).
-3. Einige Endpunkte sind möglicherweise nicht für alle Fahrzeugtypen verfügbar
-4. Überprüfen Sie die Adapterprotokolle auf bestimmte Endpunktfehler (404, 403 usw.).
+1. Prüfen Sie, ob der entsprechende Endpunkt in den Adaptereinstellungen aktiviert ist.
+2. Überprüfen Sie, ob Sie Ihr API-Kontingent überschritten haben (Adapterprotokolle prüfen).
+3. Einige Endpunkte sind möglicherweise nicht für alle Fahrzeugtypen verfügbar.
+4. Überprüfen Sie die Adapterprotokolle auf spezifische Endpunktfehler (404, 403 usw.).
 
 ### Datenquellen verstehen
-- **`VIN.api.*`** – Wird regelmäßig basierend auf Intervall und aktivierten Endpunkten aktualisiert
-- **`VIN.stream.*`** – Wird in Echtzeit über MQTT aktualisiert, wenn sich Fahrzeugdaten ändern
-- **`VIN.lastUpdate`** – Zeitstempel der letzten Datenaktualisierung (API oder MQTT)
-- **`VIN.lastStreamUpdate`** – Zeitstempel des letzten MQTT-Stream-Updates
+- **`VIN.api.*`** - Wird regelmäßig basierend auf dem Intervall und den aktivierten Endpunkten aktualisiert
+- **`VIN.stream.*`** - Wird in Echtzeit via MQTT aktualisiert, wenn sich Fahrzeugdaten ändern
+- **`VIN.lastUpdate`** - Zeitstempel der letzten Datenaktualisierung (API oder MQTT)
+- **`VIN.lastStreamUpdate`** - Zeitstempel der letzten MQTT-Stream-Aktualisierung
 
 ## Quelle
 Dieser Adapter ist erhältlich unter: [https://github.com/TA2k/ioBroker.bmw](https://github.com/TA2k/ioBroker.bmw)
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 4.3.4 (2026-02-28)
+
+- enhance docu and logging
+- (hombach) fix vulnerability
+- (hombach) update dependencies
+
+### 4.3.3 (2026-01-02)
+
+- (hombach) year 2026 changes
+- (hombach) update dependencies
+
+### 4.3.2 (2025-12-15)
+
+- update telemetry ids for container creation
+- optimize dependabot config (#209)
+
 ### 4.3.1 (2025-10-11)
 
 - fix gps coordinate parsing
@@ -317,7 +338,7 @@ Dieser Adapter ist erhältlich unter: [https://github.com/TA2k/ioBroker.bmw](htt
 
 MIT License
 
-Copyright (c) 2021-2025 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

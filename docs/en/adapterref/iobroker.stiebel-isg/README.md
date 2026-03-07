@@ -25,7 +25,7 @@ This adapter reads values from STIEBEL ELTRON/Tecalor Internet Service Gateways 
 
 **Caution:** Version 2.0.x includes some Breaking Changes:
 
-* node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 is required  
+* node.js >= 20, js-controller >= 6.0.11 and admin >= 7.7.22 is required  
 Upgrade your ioBroker to at least this software level, if you want to use this adapter
 
 * Password and username encryption in config UI  
@@ -52,8 +52,11 @@ If you update this adapter from a previous version instead of a new installation
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.0.3 (2026-03-04) - 2026H1 maintenance release
 
+* (copilot) Adapter requires admin >= 7.7.22 now
+* (pdbjjens) **Fixed**: update release-script (#143)
+* (pdbjjens) **Fixed**: parse missing "info_alone" objects (#140)
 * (pdbjjens) **Fixed**: Cleanup some eslint issues
 
 ### 2.0.2 (2025-11-23)
@@ -77,10 +80,6 @@ If you update this adapter from a previous version instead of a new installation
 ### 1.7.7
 
 * security- and compatibility update
-
-### 1.7.6
-
-* fix error with controller v5
 
 ## Legal Notices
 

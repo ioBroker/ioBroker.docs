@@ -128,8 +128,17 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.14 (2026-02-06)
+* (@GermanBluefox) Correcting the scrolling on the touch devices
+* (@GermanBluefox) Fixing a problem with `ACTUAL` state
+* (@GermanBluefox) Correcting the hover effect under safari
+
+### 1.2.12 (2026-02-04)
+* (@GermanBluefox) Show in color if fx is not empty
+* (@GermanBluefox) Added for all text fields the clear button
+
 ### 1.2.9 (2025-09-08)
-* (@GermanBluefox) Created for new created states of devices the full name and not just last part, like `ACTUAL`
+* (@GermanBluefox) Created for newly created states of devices the full name and not just last part, like `ACTUAL`
 
 ### 1.2.8 (2025-07-21)
 * (@GermanBluefox) Corrected error in GUI
@@ -263,7 +272,7 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 ## License
 MIT License
 
-Copyright (c) 2019-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -70,13 +70,13 @@ To Change the formatting of the dialogs
 
 ```css
 #w00001channeldlg {
-  background-color: red !important;
+    background-color: red !important;
 }
 ```
 
 ```css
 #w00001broadcastdlg {
-  background-color: red !important;
+    background-color: red !important;
 }
 ```
 
@@ -85,7 +85,7 @@ Maybe you have to set a higher number than 300. This depends on settings in othe
 
 ```css
 .ui-dialog.w00001 {
-  z-index: 300 !important;
+    z-index: 300 !important;
 }
 ```
 
@@ -94,26 +94,17 @@ To Change the formatting of the alternating background colors of the broadcasts
 ```css
 #w00001 .scrollcontainer ul.tv-row:nth-child(odd) > li.broadcast:nth-child(odd),
 #w00001 ul.tv-row:nth-child(odd) > li.time:nth-child(odd) {
-  background-color: rgba(128, 128, 128, 0.65);
+    background-color: rgba(128, 128, 128, 0.65);
 }
-#w00001
-  .scrollcontainer
-  ul.tv-row:nth-child(odd)
-  > li.broadcast:nth-child(even),
+#w00001 .scrollcontainer ul.tv-row:nth-child(odd) > li.broadcast:nth-child(even),
 #w00001 ul.tv-row:nth-child(odd) > li.time:nth-child(even) {
-  background-color: rgba(128, 128, 128, 0.55);
+    background-color: rgba(128, 128, 128, 0.55);
 }
-#w00001
-  .scrollcontainer
-  ul.tv-row:nth-child(even)
-  > li.broadcast:nth-child(odd) {
-  background-color: rgba(128, 128, 128, 0.45);
+#w00001 .scrollcontainer ul.tv-row:nth-child(even) > li.broadcast:nth-child(odd) {
+    background-color: rgba(128, 128, 128, 0.45);
 }
-#w00001
-  .scrollcontainer
-  ul.tv-row:nth-child(even)
-  > li.broadcast:nth-child(even) {
-  background-color: rgba(128, 128, 128, 0.35);
+#w00001 .scrollcontainer ul.tv-row:nth-child(even) > li.broadcast:nth-child(even) {
+    background-color: rgba(128, 128, 128, 0.35);
 }
 ```
 
@@ -146,7 +137,7 @@ Minimum configuration is to set the datapoint to the cmd-datapoint.
 | `time`                 |                          | If empty then the actual broadcasts would be shown                                                 |
 | `time`                 | 20:15                    | if time only the broadcast at this time would be shown for 120 minutes, then the next day is shown |
 | `time`                 | 20:15/200                | if time with duration the broadcast at this time would be shown for 200 minutes                    |
-| `time`                 | 2021-02-15T20:15:00.000Z | If valid UTC-Datestring, then the broadcast at this time would be shown. Remember the timezones         |
+| `time`                 | 2021-02-15T20:15:00.000Z | If valid UTC-Datestring, then the broadcast at this time would be shown. Remember the timezones    |
 | `heightRow`            | 35                       | Height for each displayed line                                                                     |
 | `showpictures`         | x                        | Show pictures if available                                                                         |
 | `broadcastfontpercent` | 75                       | Character size in percent for the broadcasts                                                       |
@@ -162,10 +153,10 @@ To Change the formatting of the alternating background colors of the broadcasts
 
 ```css
 #w00001 .tv-control .tv-row:nth-child(odd) {
-  background-color: rgba(128, 128, 128, 0.65);
+    background-color: rgba(128, 128, 128, 0.65);
 }
 #w00001 .tv-control .tv-row:nth-child(even) {
-  background-color: rgba(128, 128, 128, 0.55);
+    background-color: rgba(128, 128, 128, 0.55);
 }
 ```
 
@@ -198,10 +189,10 @@ To Change the formatting of the alternating background colors of the broadcasts
 
 ```css
 #w00001 .tv-search .tv-row:nth-child(odd) {
-  background-color: rgba(128, 128, 128, 0.65);
+    background-color: rgba(128, 128, 128, 0.65);
 }
 #w00001 .tv-search .tv-row:nth-child(even) {
-  background-color: rgba(128, 128, 128, 0.55);
+    background-color: rgba(128, 128, 128, 0.55);
 }
 ```
 
@@ -260,9 +251,9 @@ The complete path starting with http, including the trailing slash, must be ente
 /vis.0/icons/tvlogos/
 ```
 
- is then accessible via
+is then accessible via
 
- ```text
+```text
 http://localhost:8082/vis.0/icons/tvlogos/
 ```
 
@@ -291,9 +282,7 @@ Request base data from the adapter.
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0", "getServerData", "categories", (data) =>
-  console.log(data),
-);
+sendTo('tvprogram.0', 'getServerData', 'categories', data => console.log(data));
 ```
 
 #### `getServerTVProgram`
@@ -311,9 +300,7 @@ a datestring in the following format: `yyyy-mm-dd`
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0", "getServerTVProgram", "2021-02-10", (data) =>
-  console.log(data),
-);
+sendTo('tvprogram.0', 'getServerTVProgram', '2021-02-10', data => console.log(data));
 ```
 
 #### `getServerBroadcast`
@@ -333,12 +320,7 @@ the eventid of the broadcast
 **Example:**
 
 ```javascript
-sendTo(
-  "tvprogram.0",
-  "getServerBroadcast",
-  { viewdate: "2021-02-10", eventid: "10659522" },
-  (data) => console.log(data),
-);
+sendTo('tvprogram.0', 'getServerBroadcast', { viewdate: '2021-02-10', eventid: '10659522' }, data => console.log(data));
 ```
 
 #### `getFavoritesData`
@@ -356,9 +338,7 @@ Request all favorite broadcast from now till end of saved data.
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0", "getFavoritesData", ["heute", "Tagesschau"], (data) =>
-  console.log(data),
-);
+sendTo('tvprogram.0', 'getFavoritesData', ['heute', 'Tagesschau'], data => console.log(data));
 ```
 
 #### `getServerBroadcastNow`
@@ -376,9 +356,7 @@ Array of channelIDs of your favorite channels
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0", "getServerBroadcastNow", [1, 6, 22, 7], (data) =>
-  console.log(data),
-);
+sendTo('tvprogram.0', 'getServerBroadcastNow', [1, 6, 22, 7], data => console.log(data));
 ```
 
 #### `getServerBroadcastDate`
@@ -398,10 +376,10 @@ datetime
 
 ```javascript
 sendTo(
-  "tvprogram.0",
-  "getServerBroadcastDate",
-  { channelfilter: [1, 6, 22, 7], date: "2021-02-10T20:15:00.000Z" },
-  (data) => console.log(data),
+    'tvprogram.0',
+    'getServerBroadcastDate',
+    { channelfilter: [1, 6, 22, 7], date: '2021-02-10T20:15:00.000Z' },
+    data => console.log(data),
 );
 ```
 
@@ -426,17 +404,17 @@ Search for broadcasts in a range of time and optional with categories
 
 ```javascript
 sendTo(
-  "tvprogram.0",
-  "getServerBroadcastFind",
-  {
-    channelfilter: [1, 6, 22, 7],
-    categoryfilter: [],
-    datefrom: "2021-02-10T10:00:00.000Z",
-    datetill: "2021-02-10T23:00:00.000Z",
-    textfilter: "",
-    maxresults: 10,
-  },
-  (data) => console.log(data),
+    'tvprogram.0',
+    'getServerBroadcastFind',
+    {
+        channelfilter: [1, 6, 22, 7],
+        categoryfilter: [],
+        datefrom: '2021-02-10T10:00:00.000Z',
+        datetill: '2021-02-10T23:00:00.000Z',
+        textfilter: '',
+        maxresults: 10,
+    },
+    data => console.log(data),
 );
 ```
 
@@ -455,7 +433,7 @@ empty object
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0", "getServerInfo", "{}", (data) => console.log(data));
+sendTo('tvprogram.0', 'getServerInfo', '{}', data => console.log(data));
 ```
 
 ### Community provides widgets/scripts
@@ -478,99 +456,88 @@ Adapter von 1/2021 von oweitmann https://github.com/oweitman/ioBroker.tvprogram
 */
 
 const logging = true;
-const idKanalWahl = "tvprogram.0.tv1.selectchannel"; // Dateingabe aus VIS
+const idKanalWahl = 'tvprogram.0.tv1.selectchannel'; // Dateingabe aus VIS
 const fbdelay = 1000; // delay zwischen Tastendrücken der IR_Fernbedienung in ms
 const channelList = {
-  // Ausgabe vom Adapter : Kanalnummer im Receiver
-  ard: 1,
-  zdf: 2,
-  rtl: 3,
-  sat1: 4,
-  pro7: 5,
-  vox: 6,
-  kaka: 7,
-  rtl2: 8,
-  superrtl: 9,
-  kika: 10,
-  /* nickelodeon 11 */
-  "3sat": 12,
-  welt: 13,
-  ntv: 14,
-  phoenix: 15,
-  tele5: 16,
-  zdfneo: 17,
-  /* #dabeiTV 18 */
-  /* disneyplus 19 */
-  /* lokalTV 20 */
-  bayern3: 21,
-  hessen3: 25,
-  mdr: 27,
-  nord3: 29,
-  /* "bremen":30, */
-  /* "rbb berlin":31, */
-  /* "sr":36, */
-  sw3: 37, // bw
-  /* "sw3":38, // rp */
-  west3: 39,
-  /* "eurosport1":50, */
-  sport1: 51,
-  /* sky sport news 52 */
-  arte: 55,
-  one: 56,
-  /* anixe 60 */
-  dmax: 64,
-  pro7maxx: 69,
-  nitro: 70,
-  /* sat1 gold 73 */
-  sixx: 75,
-  /* ard alpha 80 */
-  /* DW 85 */
-  /* euronews */
-  /* Kabel Eins Doku 89 */
-  /* N24 Doku 90 */
-  tagesschau24: 91,
-  /* Welt der Wunder 92 */
-  /* zdfinfo 93 */
-  mtv: 99,
+    // Ausgabe vom Adapter : Kanalnummer im Receiver
+    ard: 1,
+    zdf: 2,
+    rtl: 3,
+    sat1: 4,
+    pro7: 5,
+    vox: 6,
+    kaka: 7,
+    rtl2: 8,
+    superrtl: 9,
+    kika: 10,
+    /* nickelodeon 11 */
+    '3sat': 12,
+    welt: 13,
+    ntv: 14,
+    phoenix: 15,
+    tele5: 16,
+    zdfneo: 17,
+    /* #dabeiTV 18 */
+    /* disneyplus 19 */
+    /* lokalTV 20 */
+    bayern3: 21,
+    hessen3: 25,
+    mdr: 27,
+    nord3: 29,
+    /* "bremen":30, */
+    /* "rbb berlin":31, */
+    /* "sr":36, */
+    sw3: 37, // bw
+    /* "sw3":38, // rp */
+    west3: 39,
+    /* "eurosport1":50, */
+    sport1: 51,
+    /* sky sport news 52 */
+    arte: 55,
+    one: 56,
+    /* anixe 60 */
+    dmax: 64,
+    pro7maxx: 69,
+    nitro: 70,
+    /* sat1 gold 73 */
+    sixx: 75,
+    /* ard alpha 80 */
+    /* DW 85 */
+    /* euronews */
+    /* Kabel Eins Doku 89 */
+    /* N24 Doku 90 */
+    tagesschau24: 91,
+    /* Welt der Wunder 92 */
+    /* zdfinfo 93 */
+    mtv: 99,
 };
 
 function selectChannel(chNo) {
-  // Zerlegen mehrstelliger Zahlen
-  let ch_arr = new Array();
-  ch_arr = [];
-  if (logging) log("Kanalnummer gewählt: " + chNo);
-  while (chNo > 0) {
-    // rückwärts
-    if (logging) log("erkannte Ziffer: " + (chNo % 10));
-    ch_arr.push(chNo % 10); // letzte Ziffer hinten dran hängen
-    chNo = chNo / 10;
-    chNo = parseInt(chNo);
-  }
-  // array umdrehen und wieder auslesen und Taste(n) der HARMONY+Fernbedienung drücken
-  ch_arr.reverse();
-  if (logging) log("Senderplatz hat " + ch_arr.length + " Ziffern" + ch_arr);
-  for (let i = 0; i < ch_arr.length; i++) {
-    // passende OID füllen
-    setStateDelayed(
-      "harmony.0.Harmony_Hub.Telekom-DVR.Number" + ch_arr[i],
-      1,
-      fbdelay,
-      function () {
-        if (logging) log(i + 1 + ". Taste: " + ch_arr[i] + " gedrückt");
-      },
-    );
-  }
+    // Zerlegen mehrstelliger Zahlen
+    let ch_arr = new Array();
+    ch_arr = [];
+    if (logging) log('Kanalnummer gewählt: ' + chNo);
+    while (chNo > 0) {
+        // rückwärts
+        if (logging) log('erkannte Ziffer: ' + (chNo % 10));
+        ch_arr.push(chNo % 10); // letzte Ziffer hinten dran hängen
+        chNo = chNo / 10;
+        chNo = parseInt(chNo);
+    }
+    // array umdrehen und wieder auslesen und Taste(n) der HARMONY+Fernbedienung drücken
+    ch_arr.reverse();
+    if (logging) log('Senderplatz hat ' + ch_arr.length + ' Ziffern' + ch_arr);
+    for (let i = 0; i < ch_arr.length; i++) {
+        // passende OID füllen
+        setStateDelayed('harmony.0.Harmony_Hub.Telekom-DVR.Number' + ch_arr[i], 1, fbdelay, function () {
+            if (logging) log(i + 1 + '. Taste: ' + ch_arr[i] + ' gedrückt');
+        });
+    }
 }
 
 on(idKanalWahl, function (obj) {
-  log(
-    "Neues TV Programm: " +
-      obj.state.val +
-      " auf Kanal " +
-      channelList[obj.state.val] +
-      " gewählt",
-  );
-  selectChannel(channelList[obj.state.val]);
+    log('Neues TV Programm: ' + obj.state.val + ' auf Kanal ' + channelList[obj.state.val] + ' gewählt');
+    selectChannel(channelList[obj.state.val]);
 });
 ```
 
@@ -671,39 +638,39 @@ As soon as the script has added the recording to the list, the record data point
 
 ```javascript
 // datapoint where the List should be saved
-var recorderListDP = "0_userdata.0.tvprogram.RecorderList";
+var recorderListDP = '0_userdata.0.tvprogram.RecorderList';
 // datapoint who should be monitored of new data
-var recorderDP = "tvprogram.0.tv1.record";
+var recorderDP = 'tvprogram.0.tv1.record';
 
 on(recorderDP, function (obj) {
-  var recorderList;
-  var index;
-  console.log(obj.state.val);
-  try {
-    var recObj = JSON.parse(obj.state.val);
-  } catch {
-    return;
-  }
-  var s = getState(recorderListDP).val;
-  s = s == "" ? (s = "[]") : s;
-  recorderList = JSON.parse(s) || [];
-  index = recorderList.findIndex(function (el) {
-    return JSON.stringify(el) == JSON.stringify(recObj);
-  });
-  if (index > -1) {
-    recorderList.splice(index, 1);
-  }
-  recorderList.push(recObj);
-  setState(recorderListDP, JSON.stringify(recorderList));
-  setState(recorderDP, "");
+    var recorderList;
+    var index;
+    console.log(obj.state.val);
+    try {
+        var recObj = JSON.parse(obj.state.val);
+    } catch {
+        return;
+    }
+    var s = getState(recorderListDP).val;
+    s = s == '' ? (s = '[]') : s;
+    recorderList = JSON.parse(s) || [];
+    index = recorderList.findIndex(function (el) {
+        return JSON.stringify(el) == JSON.stringify(recObj);
+    });
+    if (index > -1) {
+        recorderList.splice(index, 1);
+    }
+    recorderList.push(recObj);
+    setState(recorderListDP, JSON.stringify(recorderList));
+    setState(recorderDP, '');
 });
 var timer = setInterval(function () {
-  var recorderList;
-  var s = getState(recorderListDP).val;
-  s = s == "" ? (s = "[]") : s;
-  recorderList = JSON.parse(s) || [];
-  recorderList = recorderList.filter((el) => new Date(el.endTime) > new Date());
-  setState(recorderListDP, JSON.stringify(recorderList));
+    var recorderList;
+    var s = getState(recorderListDP).val;
+    s = s == '' ? (s = '[]') : s;
+    recorderList = JSON.parse(s) || [];
+    recorderList = recorderList.filter(el => new Date(el.endTime) > new Date());
+    setState(recorderListDP, JSON.stringify(recorderList));
 }, 1000 * 60);
 ```
 
@@ -736,21 +703,21 @@ The following script determines once a minute whether a favorite program is curr
 
 ```javascript
 // Favorites datapoint of your tv
-var favoritesDP = "tvprogram.0.tv1.favorites";
+var favoritesDP = 'tvprogram.0.tv1.favorites';
 // channelfilter datapoint of your tv
-var channelfilterDP = "tvprogram.0.tv1.channelfilter";
+var channelfilterDP = 'tvprogram.0.tv1.channelfilter';
 // datapoint where the result should be saved
-var favoritesBool = "0_userdata.0.tvprogram.favoriteNow";
+var favoritesBool = '0_userdata.0.tvprogram.favoriteNow';
 
 var timer = setInterval(function () {
-  var favorites = JSON.parse(getState(favoritesDP).val);
-  var channelfilter = JSON.parse(getState(channelfilterDP).val);
-  sendTo("tvprogram.0", "getServerBroadcastNow", channelfilter, (data) => {
-    setState(
-      favoritesBool,
-      data.some((el) => favorites.includes(el.events[0].title)),
-    );
-  });
+    var favorites = JSON.parse(getState(favoritesDP).val);
+    var channelfilter = JSON.parse(getState(channelfilterDP).val);
+    sendTo('tvprogram.0', 'getServerBroadcastNow', channelfilter, data => {
+        setState(
+            favoritesBool,
+            data.some(el => favorites.includes(el.events[0].title)),
+        );
+    });
 }, 1000 * 60);
 ```
 
@@ -828,8 +795,14 @@ widget tvprogram:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.0.3 (2026-02-27)
 
+- update dependencies
+- improve error handling
+
+### 4.0.2 (2026-01-27)
+
+- improve position of dialogs
 - reduce requests to data provider
 - test remove node 18,extend to node 24
 

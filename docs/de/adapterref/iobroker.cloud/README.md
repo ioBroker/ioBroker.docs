@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cloud/README.md
 title: ioBroker Cloud-Adapter
-hash: HlxYFaKc41+tZeW6tBgPLNImJ3M6EjDblNj9COJVCzY=
+hash: NUyBXVnY1PB0CrX1bqJ0SFcpLjA+HPqJgGCHQCR/gvA=
 ---
 ![Logo](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
@@ -15,24 +15,24 @@ hash: HlxYFaKc41+tZeW6tBgPLNImJ3M6EjDblNj9COJVCzY=
 # IoBroker Cloud-Adapter
 Dieser Adapter ermöglicht die Verbindung vom Internet über die ioBroker-Cloud zur lokalen Installation von ioBroker.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Einstellungen
-### APP-SCHLÜSSEL
-Um den Cloud-Adapter zu verwenden, sollten Sie zuerst den APP-Schlüssel auf [https://iobroker.net](https://iobroker.net) erhalten.
+### APP-KEY
+Um den Cloud-Adapter zu verwenden, sollten Sie zuerst den APP-Schlüssel auf [https://iobroker.net](https://iobroker.net) abrufen.
 
-Dies ist der Anwendungsschlüssel, den der Benutzer auf der Website [https://iobroker.net](https://iobroker.net) erhalten kann. Bitte holen Sie sich den Schlüssel dort und geben Sie ihn hier ein.
+Dies ist der Anwendungsschlüssel, den der Benutzer auf der Webseite [https://iobroker.net](https://iobroker.net) erhält. Bitte rufen Sie den Schlüssel dort ab und geben Sie ihn hier ein.
 
 ![Einleitung](../../../en/adapterref/iobroker.cloud/img/intro.png)
 
 ### Instanz
-Alle Anfragen vom Cloud-Adapter werden an eine bestimmte Web-Instanz weitergeleitet. Der Benutzer muss hier die Web-Instanz angeben, die ihm beim Anmelden auf https://iobroker.net angezeigt wird.
+Alle Anfragen vom Cloud-Adapter werden an die jeweilige Webinstanz weitergeleitet. Der Benutzer muss hier die Webinstanz angeben; diese wird ihm beim Einloggen auf https://iobroker.net angezeigt.
 
 ### Selbstsignierte Zertifikate zulassen
-Wenn Sie die Standard-Cloud von iobroker.net verwenden, können Sie diese Option deaktivieren. Diese Option ist nur dann relevant, wenn Sie eine eigene Cloud verwenden.
+Wenn Sie die Standard-Cloud von iobroker.net nutzen, können Sie diese Funktion deaktivieren. Diese Option ist nur relevant, wenn Sie Ihre eigene Cloud verwenden.
 
 ### Alexa-Einstellungen
-***Alexa wird im `cloud`-Adapter nicht mehr unterstützt. Verwenden Sie hierfür den ioBroker.iot-Adapter.***
+***Alexa wird im `cloud`-Adapter nicht mehr unterstützt. Verwenden Sie stattdessen den ioBroker.iot-Adapter.***
 
 ## IFTTT
 [Anweisungen](doc/ifttt.md)
@@ -45,47 +45,66 @@ Wenn Sie `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` aufru
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
-Wenn Sie in den Einstellungen im Feld „Whitelist für Dienste“ den Namen *custom_test* einstellen, und mit „custom_test“ als Dienstnamen aufrufen, wird der Status `cloud.0.services.custom_test` auf `myString` gesetzt.
+Wenn Sie in den Einstellungen im Feld „Whitelist für Dienste“ den Namen *custom_test* festlegen und mit „custom_test“ als Dienstnamen aufrufen, wird der Status `cloud.0.services.custom_test` auf `myString` gesetzt.
 
-Sie können "*" in die Whitelist schreiben und alle Dienste werden zugelassen.
+Sie können ein "*" in die Whitelist eintragen, dann sind alle Dienste zugelassen.
 
-Ab Version 2.0.5 können Sie GET-Anfragen in der Form `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` verwenden, um `\<data\>` in `cloud.0.services.custom_\<NAME\>` einzufügen.
+Ab Version 2.0.5 können Sie eine GET-Anfrage in der Form `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` verwenden, um `\<data\>` in `cloud.0.services.custom_\<NAME\>` einzufügen.
 
-Hier finden Sie eine Anleitung zur Verwendung mit [Tasker](doc/tasker.md).
+Hier finden Sie Anweisungen zur Verwendung mit [Tasker](doc/tasker.md).
 
 Der IFTTT-Dienst ist nur zulässig, wenn ein IFTTT-Schlüssel festgelegt ist.
 
-Reservierte Namen sind `ifttt`, `text2command`, `simpleApi`, `swagger`. Diese müssen ohne das Präfix `"custom_"` verwendet werden.
+Die reservierten Namen sind `ifttt`, `text2command`, `simpleApi`, `swagger`. Diese dürfen nicht mit dem Präfix `"custom_"` verwendet werden.
 
 ### Text2command
-Sie können `text2command` in die Whitelist schreiben und eine POST-Anfrage an `https://iobroker.net/service/text2command/<user-app-key>` senden, um Daten in die Variable `text2command.X.text` zu schreiben.
+Sie können `text2command` in die Whitelist schreiben, Sie können eine POST-Anfrage an `https://iobroker.net/service/text2command/<user-app-key>` senden, um Daten in die Variable `text2command.X.text` zu schreiben.
 
-„X“ kann in den Einstellungen durch die Option „Text2Command-Instanz verwenden“ definiert werden.
+"X" kann in den Einstellungen über die Option "Text2Command-Instanz verwenden" definiert werden.
 
 ### SimpleApi
-Sie können die folgenden Befehle verwenden (nur Pro):
+Folgende Befehle können verwendet werden (nur Pro-Version):
 
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - um den Statuswert zu lesen => `{"val":103.516,"ack":true,"ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - um den Statuswert zu lesen => `103.641`
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - um den Statuswert festzulegen => `{"result":"OK"}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - zum Lesen des Statuswerts => `{"val":103.516,"ack":true,"ts":1604132484682,"q":0,"from":system.adapter.admin.0","lc":1604132469672,"result":OK"}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - zum Auslesen des Statuswerts => `103.641`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - um den Statuswert zu setzen => `{"result":"OK"}`
 
 **Vergessen Sie nicht, `simpleApi` zu den zulässigen Diensten in der Konfiguration hinzuzufügen.**
 
 ### Einschränkungen
-Wenn HTTPs (Sicherheit) oder Authentifizierung auf der definierten Webinstanz aktiviert ist, funktioniert es nicht.
+Wenn HTTPS (Sicherheit) oder Authentifizierung auf der definierten Webinstanz aktiviert ist, funktioniert es nicht.
 
-Sie können HTTPS und die Authentifizierung auf dieser Webinstanz deaktivieren. Besser ist es jedoch, eine neue Webinstanz zu erstellen, die an `localhost` gebunden ist, und diese Instanz in den Cloud-Einstellungen auszuwählen.
+Sie können HTTPS und die Authentifizierung auf dieser Webinstanz deaktivieren, besser ist es jedoch, eine neue Webinstanz zu erstellen, die an `localhost` gebunden ist, und diese Instanz in den Cloud-Einstellungen auszuwählen.
+
+## Android-Anwendung
+Bei der neuen Android-Anwendung wurde der Speicherort der Variablen für Helligkeit und Standort geändert.
+
+Sie könnten nun in `cloud.X.devices.NAME` gefunden werden:
+
+- `cloud.X.devices.NAME.brightness`
+- `cloud.X.devices.NAME.currentLocation`.
+- `cloud.X.devices.NAME.batteryLevel`
+- `cloud.X.devices.NAME.batteryState`.
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **IN BEARBEITUNG** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 6.0.1 (2026-03-04)
+* (bluefox) Added communication with new android application
+* (bluefox) Dropped support node 18
+* (bluefox) Implemented QR Code for ioBroker.visu app
+
+### 5.1.2 (2025-11-01)
+* (bluefox) Fixing cloud connection error
+
+### 5.1.0 (2025-08-19)
 * (bluefox) updated socket classes
 * (bluefox) minimum required node.js version is 18
 * (bluefox) used `@iobroker/eslint-config`
 * (bluefox) Rewritten with TypeScript
+* (bluefox) Added the possibility to hide vis(2) editor in the cloud
 
 ### 5.0.1 (2024-02-22)
 * (bluefox) updated socket classes and fixed vis-2 error if connected via cloud
@@ -347,7 +366,7 @@ Sie können HTTPS und die Authentifizierung auf dieser Webinstanz deaktivieren. 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

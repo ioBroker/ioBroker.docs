@@ -106,4 +106,6 @@ In io-package.json there has to be included a meta.user object in instanceObject
   }	
 ]
 ```
-(09-Dec-2020)
+
+For detailed information about file storage, meta objects, and backup behavior, see the [File Storage documentation](filestorage.md).
+<br>(09-Dec-2020)
