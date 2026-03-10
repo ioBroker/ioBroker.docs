@@ -1,4 +1,4 @@
-import { Box, TextField, Typography, ToggleButton, ToggleButtonGroup, InputAdornment, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Typography, ToggleButton, ToggleButtonGroup, useMediaQuery, useTheme } from '@mui/material';
 import { AdapterBlock } from '../../components/AdapterBlock/AdapterBlock';
 import type { AdapterItem } from '../../components/AdapterItem/AdapterItem';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
@@ -6,11 +6,11 @@ import { I18n } from '../../utils/i18n';
 import { useStyles } from './AdaptersPage.styles';
 import { AdapterTable } from '../../components/AdapterTable/AdapterTable';
 import { AdapterMenu } from '../../components/AdapterMenu/AdapterMenu';
+import { MenuToggle } from '../../components/MenuToggle/MenuToggle';
+import { TopBarSearch } from '../../components/TopBarSearch/TopBarSearch';
 import { useState, useEffect } from 'react';
 import GridIcon from '../../assets/img/blueGrid.svg';
 import AdaptersListIcon from '../../assets/img/whiteAdaptersList.svg';
-import MenuListIcon from '../../assets/img/whiteMenuList.svg';
-import SearchIcon from '../../assets/img/whiteSearchIcon.svg'
 
 const sampleItem: AdapterItem = {
     title: {
@@ -110,47 +110,17 @@ const AdaptersPage = (): React.ReactNode => {
                 </Typography>
             </Box>
             <Box className={classes.topBar}>
-                <Box className={classes.menuToggle}>
-                    <ToggleButtonGroup
-                        exclusive
-                        value={menuMode}
-                        onChange={(_, value) => value && setMenuMode(value)}
-                    >
-                        <ToggleButton
-                            value="all"
-                            onClick={() => setIsMenuCollapsed(false)}
-                        >
-                            <img
-                                alt="MenuList Icon"
-                                src={MenuListIcon}
-                            />
-                        </ToggleButton>
-                        <ToggleButton
-                            value="installed"
-                            onClick={() => setIsMenuCollapsed(true)}
-                        >
-                            <Box sx={{ width: 20 }} />
-                        </ToggleButton>
-                    </ToggleButtonGroup>
-                </Box>
+                <MenuToggle
+                    value={menuMode}
+                    onChange={setMenuMode}
+                    onCollapse={setIsMenuCollapsed}
+                />
                 <Box className={classes.searchAndMenuButton}>
-                    <Box className={classes.adaptersSearch}>
-                        <TextField
-                            value={search}
-                            onChange={e => setSearch(e.target.value)}
-                            placeholder=""
-                            InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position="start" sx={{ marginLeft: '8px' }}>
-                                        <img
-                                            alt="Search Icon"
-                                            src={SearchIcon}
-                                        />
-                                    </InputAdornment>
-                                ),
-                            }}
-                        />
-                    </Box>
+                    <TopBarSearch
+                        value={search}
+                        onChange={setSearch}
+                        isMenuCollapsed={isMenuCollapsed}
+                    />
                     <Box className={classes.adaptersButton}>
                         <ToggleButtonGroup
                             exclusive
