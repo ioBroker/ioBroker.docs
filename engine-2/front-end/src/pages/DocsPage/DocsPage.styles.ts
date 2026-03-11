@@ -1,14 +1,33 @@
 import { makeStyles } from '../../theme';
 
-export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, {isMenuCollapsed}) => ({
+export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { isMenuCollapsed }) => ({
     root: {
         display: 'flex',
         gap: '40px',
-        maxWidth: '1400px',
-        margin: '0 auto',
-        padding: '20px',
+        margin: '0 32px',
+        padding: '20px 0',
+        maxHeight: 'calc(100vh - 120px)',
+        overflowY: 'scroll',
+        overflowX: 'hidden',
+        paddingRight: '12px',
+        marginRight: '8px',
+        '&::-webkit-scrollbar': {
+            width: '8px',
+        },
+        '&::-webkit-scrollbar-track': {
+            background: 'rgba(255, 255, 255, 0.05)',
+            borderRadius: '8px',
+            border: `1px solid ${theme.palette.primary.main}`,
+        },
+        '&::-webkit-scrollbar-thumb': {
+            background: theme.palette.secondary.main,
+            borderRadius: '8px',
+        },
+        '&::-webkit-scrollbar-thumb:hover': {
+            background: theme.palette.secondary.main,
+        },
     },
-     topBar: {
+    topBar: {
         display: 'flex',
         alignItems: 'center',
         marginBottom: '24px',
@@ -17,7 +36,14 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, {isM
             margin: "0 10px 30px 10px",
         },
     },
-     searchContainer: {
+    menuToggleContainer: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '265px',
+        flexShrink: 0,
+    },
+    searchContainer: {
         display: 'flex',
         justifyContent: 'space-between',
         flex: 1,
@@ -45,17 +71,42 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, {isM
         lineHeight: 1.8,
         fontSize: '16px',
     },
-    heading: {
+    head: {
         color: theme.palette.primary.main,
         fontSize: '24px',
         fontFamily: 'Audiowide',
-        fontWeight: 600,
-        marginTop: '40px',
+        fontWeight: 400,
         marginBottom: '20px',
         scrollMarginTop: '100px',
+        letterSpacing: '-0.03em',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        cursor: 'pointer',
+    },
+    heading: {
+        color: theme.palette.primary.main,
+        fontSize: '20px',
+        fontFamily: 'Audiowide',
+        fontWeight: 400,
+        marginBottom: '20px',
+        scrollMarginTop: '100px',
+        letterSpacing: '-0.03em',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        cursor: 'pointer',
+    },
+    linkIcon: {
+        width: '20px',
+        height: '20px',
+        flexShrink: 0,
     },
     paragraph: {
         marginBottom: '16px',
+        fontSize: '18px',
+        fontWeight: 300,
+        letterSpacing: '0.01em'
     },
     list: {
         marginLeft: '24px',

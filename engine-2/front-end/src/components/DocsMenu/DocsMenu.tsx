@@ -1,6 +1,6 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Box, useTheme } from '@mui/material';
 import type React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { Docs } from '../DocsItem/DocsItem';
 import { useDocsMenuStyles } from './DocsMenu.styles';
 import { Link } from 'react-router-dom';
@@ -10,9 +10,26 @@ import blueFolder from '../../assets/img/docsIcons/blueFolder.svg'
 import whiteArrowUp from '../../assets/img/docsIcons/whiteArrowUp.svg'
 import whiteArrowDown from '../../assets/img/docsIcons/whiteArrowDown.svg'
 
-export const DocsMenu = (props: { docsData: Docs }): React.ReactNode => {
+interface DocsMenuProps {
+    docsData: Docs;
+    expandAll?: boolean;
+}
+
+export const DocsMenu = ({ docsData, expandAll }: DocsMenuProps): React.ReactNode => {
     const { classes } = useDocsMenuStyles();
+    const theme = useTheme();
     const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
+
+    useEffect(() => {
+        if (expandAll !== undefined) {
+            if (expandAll) {
+                const allKeys = new Set(Object.keys(docsData.pages));
+                setExpandedSections(allKeys);
+            } else {
+                setExpandedSections(new Set());
+            }
+        }
+    }, [expandAll, docsData.pages]);
 
     const handleSectionToggle = (key: string) => {
         const newExpanded = new Set(expandedSections);
@@ -33,8 +50,8 @@ export const DocsMenu = (props: { docsData: Docs }): React.ReactNode => {
                 Documentation
             </Box>
 
-            {Object.keys(props.docsData.pages).map(key => {
-                const page = props.docsData.pages[key];
+            {Object.keys(docsData.pages).map(key => {
+                const page = docsData.pages[key];
                 const isExpanded = expandedSections.has(key);
 
                 return (
@@ -44,7 +61,10 @@ export const DocsMenu = (props: { docsData: Docs }): React.ReactNode => {
                         onChange={() => handleSectionToggle(key)}
                         classes={{ root: classes.mainLevel }}
                     >
-                        <AccordionSummary>
+                        <AccordionSummary
+                            sx={{
+                                backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
+                            }}>
                             <Box className={classes.sectionTitle}>
                                 <Box className={classes.sectionIcon}>
                                     <img
@@ -62,7 +82,11 @@ export const DocsMenu = (props: { docsData: Docs }): React.ReactNode => {
                             </Box>
                         </AccordionSummary>
                         {page.pages ? (
-                            <AccordionDetails className={classes.childrenLevel}>
+                            <AccordionDetails className={classes.childrenLevel}
+                                sx={{
+                                    backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
+                                }}
+                            >
                                 {Object.keys(page.pages).map(subKey => {
                                     const subPage = page.pages![subKey];
                                     return (

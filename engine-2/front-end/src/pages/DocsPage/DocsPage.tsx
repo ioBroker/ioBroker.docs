@@ -5,52 +5,93 @@ import { DocsMenu } from '../../components/DocsMenu/DocsMenu';
 import { docsData } from './DocsData';
 import { useParams } from 'react-router-dom';
 import { MenuToggle } from '../../components/MenuToggle/MenuToggle';
+import { MenuArrowsToggle } from '../../components/MenuArrowsToggle/MenuArrowsToggle';
 import { MarkdownView } from '../../components/MarkdownView/MarkdownView';
 import { TopBarSearch } from '../../components/TopBarSearch/TopBarSearch';
 import { useStyles } from './DocsPage.styles';
 import { DocsTableOfContents } from '../../components/DocsTableOfContents/DocsTableOfContents';
+import linkImage from '../../assets/img/docsIcons/blueLink.svg';
 import { useState } from 'react';
 
 const DocsPage = (): React.ReactNode => {
-     const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
+    const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
     const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
+    const [expandAllDocs, setExpandAllDocs] = useState<boolean | undefined>(undefined);
     const [search, setSearch] = useState('');
     const params = useParams();
     const { classes } = useStyles({ isMenuCollapsed });
 
     const tableOfContentsItems = [
-        { id: 'what-is-iobroker', title: 'Was ist ioBroker?' },
-        { id: 'architecture', title: 'Architektur' },
-        { id: 'adapters-instances', title: 'Adapter und Instanzen' },
-        { id: 'objects', title: 'Objekte' },
-        { id: 'states', title: 'States' },
-        { id: 'installation', title: 'Installation' },
+        { 
+            id: 'what-is-iobroker', 
+            title: 'Was ist ioBroker?',
+        },
+        { 
+            id: 'architecture', 
+            title: 'Architektur',
+        },
+        { 
+            id: 'adapters-instances', 
+            title: 'Adapter und Instanzen',
+        },
+        { 
+            id: 'objects', 
+            title: 'Objekte',
+            subtitles: [
+                { id: 'object-type', title: 'Objekttyp' },
+                { id: 'object-common', title: 'Allgemeine Attribute' },
+                { id: 'object-native', title: 'Native Attribute' },
+            ],
+        },
+        { 
+            id: 'states', 
+            title: 'States',
+        },
+        { 
+            id: 'installation', 
+            title: 'Installation',
+            subtitles: [
+                { id: 'install-linux', title: 'Linux' },
+                { id: 'install-windows', title: 'Windows' },
+                { id: 'install-macos', title: 'macOS' },
+                { id: 'install-docker', title: 'Docker' },
+            ],
+        },
     ];
 
     return (
         <Box>
             <SectionTitle>{I18n.t('home.docs.title')}</SectionTitle>
             <Box className={classes.topBar}>
-                <MenuToggle
-                    value={menuMode}
-                    onChange={setMenuMode}
-                    onCollapse={setIsMenuCollapsed}
-                />
-                 <Box className={classes.searchContainer}>
-                <TopBarSearch
-                    value={search}
-                    onChange={setSearch}
-                    isMenuCollapsed={isMenuCollapsed}
-                />
+                <Box className={classes.menuToggleContainer}>
+                    <MenuToggle
+                        value={menuMode}
+                        onChange={setMenuMode}
+                        onCollapse={setIsMenuCollapsed}
+                    />
+                    <MenuArrowsToggle
+                        value={menuMode}
+                        onChange={setMenuMode}
+                        onCollapse={setIsMenuCollapsed}
+                        onExpandAll={setExpandAllDocs}
+                    />
+                </Box>
+                <Box className={classes.searchContainer}>
+                    <TopBarSearch
+                        value={search}
+                        onChange={setSearch}
+                        isMenuCollapsed={isMenuCollapsed}
+                    />
                 </Box>
             </Box>
             <Box className={classes.root}>
-                <DocsMenu docsData={docsData} />
+                <DocsMenu docsData={docsData} expandAll={expandAllDocs} />
 
                 <Box className={classes.mainBlock}>
                     <Box className={classes.content}>
-                        <Box id="what-is-iobroker" className={classes.heading}>
+                        <Box id="what-is-iobroker" className={classes.head}>
                             WAS IST IOBROKER? - ALLGEMEINE INFORMATIONEN
+                            <img src={linkImage} alt="link" className={classes.linkIcon} />
                         </Box>
                         <Box className={classes.paragraph}>
                             ioBroker ist eine auf Integration ausgerichtete IoT-Plattform. Somit ist ioBroker das zentrale Element
@@ -64,6 +105,7 @@ const DocsPage = (): React.ReactNode => {
 
                         <Box id="architecture" className={classes.heading}>
                             ARCHITEKTUR DES IOBROKER-SYSTEMS - ALLGEMEINE INFORMATIONEN
+                            <img src={linkImage} alt="link" className={classes.linkIcon} />
                         </Box>
                         <Box className={classes.paragraph}>
                             Der ioBroker-Server verwaltet alle installierten Adapter und speichert die Konfiguration und Werte
@@ -83,6 +125,7 @@ const DocsPage = (): React.ReactNode => {
 
                         <Box id="adapters-instances" className={classes.heading}>
                             ADAPTER UND INSTANZEN (INSTANCES)
+                            <img src={linkImage} alt="link" className={classes.linkIcon} />
                         </Box>
                         <Box className={classes.paragraph}>
                             Ein Adapter ist ein Softwaremodul, das die Verbindung zwischen ioBroker und einem bestimmten Gerät,
@@ -101,6 +144,7 @@ const DocsPage = (): React.ReactNode => {
 
                         <Box id="objects" className={classes.heading}>
                             OBJEKTE
+                            <img src={linkImage} alt="link" className={classes.linkIcon} />
                         </Box>
                         <Box className={classes.paragraph}>
                             Objekte sind strukturierte Beschreibungen von Datenpunkten. Objekte enthalten Metainformationen,
@@ -121,6 +165,7 @@ const DocsPage = (): React.ReactNode => {
 
                         <Box id="states" className={classes.heading}>
                             STATES (ZUSTÄNDE)
+                            <img src={linkImage} alt="link" className={classes.linkIcon} />
                         </Box>
                         <Box className={classes.paragraph}>
                             States sind die tatsächlichen Werte von Datenpunkten. States sind mit Objekten vom Typ "state"
@@ -131,6 +176,7 @@ const DocsPage = (): React.ReactNode => {
 
                         <Box id="installation" className={classes.heading}>
                             INSTALLATION
+                            <img src={linkImage} alt="link" className={classes.linkIcon} />
                         </Box>
                         <Box className={classes.paragraph}>
                             ioBroker kann auf verschiedenen Plattformen installiert werden:
