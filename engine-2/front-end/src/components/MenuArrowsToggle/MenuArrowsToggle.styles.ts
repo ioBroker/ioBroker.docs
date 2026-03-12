@@ -7,7 +7,7 @@ export const useStyles = makeStyles()(theme => ({
             border: `2px solid ${theme.palette.primary.main}`,
             borderRadius: '8px',
             height: '32px',
-            width: '55px',
+            width: '64px',
         },
         '& .MuiToggleButton-root': {
             border: 'none',
@@ -15,9 +15,14 @@ export const useStyles = makeStyles()(theme => ({
             color: '#fff',
             alignItems: 'flex-start',
             padding: '8px 5px 0px 5px',
-            minWidth: '27px',
+            minWidth: '32px',
             '&:not(:last-of-type)': {
                 borderRight: `2px solid ${theme.palette.primary.main}`,
+            },
+            '&.Mui-selected img': {
+                filter: theme.palette.mode !== 'dark'
+                    ? 'brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(1352%) hue-rotate(175deg) brightness(119%) contrast(119%)'
+                    : 'brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(2476%) hue-rotate(169deg) brightness(101%) contrast(101%)',
             }
         },
         '& img': {

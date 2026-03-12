@@ -3,9 +3,9 @@ import { makeStyles } from '../../theme';
 export const useDocsTableOfContentsStyles = makeStyles()(theme => ({
     container: {
         position: 'sticky',
-        top: '100px',
-        width: '250px',
-        padding: '20px',
+        top: '1px',
+        width: '222px',
+        padding: '10px',
         alignSelf: 'flex-start',
         border: `1px solid ${theme.palette.primary.main}`,
         borderRadius: '8px',

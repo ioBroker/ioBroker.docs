@@ -2,10 +2,19 @@ import { makeStyles } from '../../theme';
 
 export const useDocsMenuStyles = makeStyles()(theme => ({
     container: {
+        paddingRight: '12px',
+        backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
+        [theme.breakpoints.down(768)]: {
+            borderRadius: '12px',
+            border: `2px solid ${theme.palette.primary.main}`,
+            padding: '12px 12px 12px',
+        },
+    },
+    menuInner: {
         maxHeight: 'calc(100vh - 125px)',
         overflowY: 'scroll',
         overflowX: 'hidden',
-        paddingRight: '12px',
+        paddingRight: '16px',
         backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
         '&::-webkit-scrollbar': {
             width: '8px',
@@ -28,17 +37,17 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
             borderRight: '0px solid transparent',
             backgroundClip: 'padding-box',
         },
+
     },
     header: {
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
-        padding: '10px 0px',
+        padding: '10px 0px 0px 0px',
         color: theme.palette.primary.main,
         fontSize: '18px',
         fontFamily: "'Saira', sans-serif",
         fontWeight: 500,
-        marginBottom: '8px',
     },
     headerIcon: {
         width: '24px',

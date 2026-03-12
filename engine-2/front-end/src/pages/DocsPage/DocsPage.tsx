@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { I18n } from '../../utils/i18n';
 import { DocsMenu } from '../../components/DocsMenu/DocsMenu';
@@ -17,25 +17,26 @@ const DocsPage = (): React.ReactNode => {
     const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
     const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
     const [expandAllDocs, setExpandAllDocs] = useState<boolean | undefined>(undefined);
+    const isMobile = useMediaQuery('(max-width:1181px)');
     const [search, setSearch] = useState('');
     const params = useParams();
     const { classes } = useStyles({ isMenuCollapsed });
 
     const tableOfContentsItems = [
-        { 
-            id: 'what-is-iobroker', 
+        {
+            id: 'what-is-iobroker',
             title: 'Was ist ioBroker?',
         },
-        { 
-            id: 'architecture', 
+        {
+            id: 'architecture',
             title: 'Architektur',
         },
-        { 
-            id: 'adapters-instances', 
+        {
+            id: 'adapters-instances',
             title: 'Adapter und Instanzen',
         },
-        { 
-            id: 'objects', 
+        {
+            id: 'objects',
             title: 'Objekte',
             subtitles: [
                 { id: 'object-type', title: 'Objekttyp' },
@@ -43,12 +44,12 @@ const DocsPage = (): React.ReactNode => {
                 { id: 'object-native', title: 'Native Attribute' },
             ],
         },
-        { 
-            id: 'states', 
+        {
+            id: 'states',
             title: 'States',
         },
-        { 
-            id: 'installation', 
+        {
+            id: 'installation',
             title: 'Installation',
             subtitles: [
                 { id: 'install-linux', title: 'Linux' },
@@ -61,147 +62,153 @@ const DocsPage = (): React.ReactNode => {
 
     return (
         <Box>
-            <SectionTitle>{I18n.t('home.docs.title')}</SectionTitle>
-            <Box className={classes.topBar}>
-                <Box className={classes.menuToggleContainer}>
-                    <MenuToggle
-                        value={menuMode}
-                        onChange={setMenuMode}
-                        onCollapse={setIsMenuCollapsed}
-                    />
-                    <MenuArrowsToggle
-                        value={menuMode}
-                        onChange={setMenuMode}
-                        onCollapse={setIsMenuCollapsed}
-                        onExpandAll={setExpandAllDocs}
-                    />
+            <SectionTitle
+                sx={{ marginTop: '30px', marginLeft: '31px', letterSpacing: '-0.03em !important' }}
+            >{I18n.t('home.docs.title')}</SectionTitle>
+            <Box className={classes.pageWrapper}>
+                <Box className={classes.topBar}>
+                    <Box className={classes.menuToggleContainer}>
+                        <MenuToggle
+                            value={menuMode}
+                            onChange={setMenuMode}
+                            onCollapse={setIsMenuCollapsed}
+                        />
+                        <MenuArrowsToggle
+                            onExpandAll={setExpandAllDocs}
+                        />
+                    </Box>
+                    <Box className={classes.searchContainer}>
+                        <TopBarSearch
+                            value={search}
+                            onChange={setSearch}
+                        />
+                    </Box>
                 </Box>
-                <Box className={classes.searchContainer}>
-                    <TopBarSearch
-                        value={search}
-                        onChange={setSearch}
-                        isMenuCollapsed={isMenuCollapsed}
-                    />
-                </Box>
-            </Box>
-            <Box className={classes.root}>
-                <DocsMenu docsData={docsData} expandAll={expandAllDocs} />
-
-                <Box className={classes.mainBlock}>
-                    <Box className={classes.content}>
-                        <Box id="what-is-iobroker" className={classes.head}>
-                            WAS IST IOBROKER? - ALLGEMEINE INFORMATIONEN
-                            <img src={linkImage} alt="link" className={classes.linkIcon} />
-                        </Box>
-                        <Box className={classes.paragraph}>
-                            ioBroker ist eine auf Integration ausgerichtete IoT-Plattform. Somit ist ioBroker das zentrale Element
-                            einer Hausautomation, welches verschiedene Systeme zu einem Gesamtsystem vereint. Wie bei jeder
-                            Integrationslösung ist ioBroker modular aufgebaut. Ein Server (genannt Master) und über 400 Adapter
-                            können nach Bedarf installiert werden. Jeder Adapter stellt die Verbindung zu verschiedenen Software-
-                            oder Hardwaresystemen her. Adapter können Informationen aus verschiedenen Quellen beziehen und zur
-                            Nutzung im System bereitstellen. Somit kann ioBroker auf Geräte und Daten verschiedenster Systeme
-                            zugreifen und diese steuern.
-                        </Box>
-
-                        <Box id="architecture" className={classes.heading}>
-                            ARCHITEKTUR DES IOBROKER-SYSTEMS - ALLGEMEINE INFORMATIONEN
-                            <img src={linkImage} alt="link" className={classes.linkIcon} />
-                        </Box>
-                        <Box className={classes.paragraph}>
-                            Der ioBroker-Server verwaltet alle installierten Adapter und speichert die Konfiguration und Werte
-                            aller angebundenen Systeme. Die Daten werden in Form von Objekten gespeichert. Jeder Adapter erstellt
-                            eine vordefinierte Objektstruktur, die alle Informationen enthält, die der Adapter bereitstellen kann.
-                            Somit werden Informationen verschiedener Systeme in einer standardisierten Struktur gespeichert und
-                            können einheitlich abgerufen werden, unabhängig vom Ursprungssystem.
-                        </Box>
-
-                        <Box className={classes.image}>
-                            <img
-                                src="/path/to/architecture-diagram.png"
-                                alt="ioBroker Architektur"
-                                style={{ width: '100%', maxWidth: '600px' }}
-                            />
-                        </Box>
-
-                        <Box id="adapters-instances" className={classes.heading}>
-                            ADAPTER UND INSTANZEN (INSTANCES)
-                            <img src={linkImage} alt="link" className={classes.linkIcon} />
-                        </Box>
-                        <Box className={classes.paragraph}>
-                            Ein Adapter ist ein Softwaremodul, das die Verbindung zwischen ioBroker und einem bestimmten Gerät,
-                            Dienst oder zur Bereitstellung einer bestimmten Funktionalität herstellt. Da ioBroker ein modulares
-                            System ist, können nur die Adapter hinzugefügt werden, die tatsächlich benötigt werden. Adapter werden
-                            aus verschiedenen Quellen installiert. Standardmäßig werden Adapter aus npm (Node Package Manager)
-                            installiert. Adapter können jedoch auch von GitHub oder von der lokalen Festplatte installiert werden
-                            (für Adapter-Entwickler).
-                        </Box>
-                        <Box className={classes.paragraph}>
-                            Jeder Adapter kann in mehreren Instanzen installiert werden. Eine Instanz ist ein laufender Prozess
-                            eines Adapters. Wenn Sie beispielsweise mehrere Geräte desselben Typs haben, können Sie mehrere
-                            Instanzen eines Adapters erstellen. Jede Instanz hat ihre eigene Konfiguration und läuft unabhängig
-                            von anderen Instanzen.
-                        </Box>
-
-                        <Box id="objects" className={classes.heading}>
-                            OBJEKTE
-                            <img src={linkImage} alt="link" className={classes.linkIcon} />
-                        </Box>
-                        <Box className={classes.paragraph}>
-                            Objekte sind strukturierte Beschreibungen von Datenpunkten. Objekte enthalten Metainformationen,
-                            die den Datenpunkt beschreiben und festlegen, wie er verarbeitet werden soll. Objekte haben folgende
-                            Attribute:
-                        </Box>
-                        <Box component="ul" className={classes.list}>
-                            <Box component="li" className={classes.listItem}>
-                                type - Objekttyp (state, channel, device, enum, host, adapter, instance, meta, config, script, user, group)
+                {!isMenuCollapsed && (
+                    <Box className={classes.menuBlockMobile}>
+                        <DocsMenu docsData={docsData} expandAll={expandAllDocs} />
+                    </Box>
+                )}
+                <Box className={classes.root}>
+                    <Box className={classes.menuBlock}>
+                        <DocsMenu docsData={docsData} expandAll={expandAllDocs} />
+                    </Box>
+                    <Box className={classes.mainBlock}>
+                        <Box className={classes.content}>
+                            <Box id="what-is-iobroker" className={classes.head}>
+                                <div>WAS IST IOBROKER? - ALLGEMEINE INFORMATIONEN</div>
+                                <img src={linkImage} alt="link" className={classes.linkIcon} />
                             </Box>
-                            <Box component="li" className={classes.listItem}>
-                                common - allgemeine Objektattribute
+                            <Box className={classes.paragraph}>
+                                ioBroker ist eine auf Integration ausgerichtete IoT-Plattform. Somit ist ioBroker das zentrale Element
+                                einer Hausautomation, welches verschiedene Systeme zu einem Gesamtsystem vereint. Wie bei jeder
+                                Integrationslösung ist ioBroker modular aufgebaut. Ein Server (genannt Master) und über 400 Adapter
+                                können nach Bedarf installiert werden. Jeder Adapter stellt die Verbindung zu verschiedenen Software-
+                                oder Hardwaresystemen her. Adapter können Informationen aus verschiedenen Quellen beziehen und zur
+                                Nutzung im System bereitstellen. Somit kann ioBroker auf Geräte und Daten verschiedenster Systeme
+                                zugreifen und diese steuern.
                             </Box>
-                            <Box component="li" className={classes.listItem}>
-                                native - adapterspezifische Attribute
-                            </Box>
-                        </Box>
 
-                        <Box id="states" className={classes.heading}>
-                            STATES (ZUSTÄNDE)
-                            <img src={linkImage} alt="link" className={classes.linkIcon} />
-                        </Box>
-                        <Box className={classes.paragraph}>
-                            States sind die tatsächlichen Werte von Datenpunkten. States sind mit Objekten vom Typ "state"
-                            verknüpft. Im Gegensatz zu Objekten, die statische Metainformationen enthalten, enthalten States
-                            den tatsächlichen Wert des Datenpunkts, der sich im Laufe der Zeit ändern kann. Jede Änderung eines
-                            States kann bestimmte Aktionen im System auslösen.
-                        </Box>
+                            <Box id="architecture" className={classes.heading}>
+                                <div>ARCHITEKTUR DES IOBROKER-SYSTEMS - ALLGEMEINE INFORMATIONEN</div>
+                                <img src={linkImage} alt="link" className={classes.linkIcon} />
+                            </Box>
+                            <Box className={classes.paragraph}>
+                                Der ioBroker-Server verwaltet alle installierten Adapter und speichert die Konfiguration und Werte
+                                aller angebundenen Systeme. Die Daten werden in Form von Objekten gespeichert. Jeder Adapter erstellt
+                                eine vordefinierte Objektstruktur, die alle Informationen enthält, die der Adapter bereitstellen kann.
+                                Somit werden Informationen verschiedener Systeme in einer standardisierten Struktur gespeichert und
+                                können einheitlich abgerufen werden, unabhängig vom Ursprungssystem.
+                            </Box>
 
-                        <Box id="installation" className={classes.heading}>
-                            INSTALLATION
-                            <img src={linkImage} alt="link" className={classes.linkIcon} />
-                        </Box>
-                        <Box className={classes.paragraph}>
-                            ioBroker kann auf verschiedenen Plattformen installiert werden:
-                        </Box>
-                        <Box component="ul" className={classes.list}>
-                            <Box component="li" className={classes.listItem}>
-                                Linux (empfohlen: Debian oder Ubuntu)
+                            <Box className={classes.image}>
+                                <img
+                                    src="/path/to/architecture-diagram.png"
+                                    alt="ioBroker Architektur"
+                                    style={{ width: '100%', maxWidth: '600px' }}
+                                />
                             </Box>
-                            <Box component="li" className={classes.listItem}>
-                                Windows
+
+                            <Box id="adapters-instances" className={classes.heading}>
+                                <div>ADAPTER UND INSTANZEN (INSTANCES)</div>
+                                <img src={linkImage} alt="link" className={classes.linkIcon} />
                             </Box>
-                            <Box component="li" className={classes.listItem}>
-                                macOS
+                            <Box className={classes.paragraph}>
+                                Ein Adapter ist ein Softwaremodul, das die Verbindung zwischen ioBroker und einem bestimmten Gerät,
+                                Dienst oder zur Bereitstellung einer bestimmten Funktionalität herstellt. Da ioBroker ein modulares
+                                System ist, können nur die Adapter hinzugefügt werden, die tatsächlich benötigt werden. Adapter werden
+                                aus verschiedenen Quellen installiert. Standardmäßig werden Adapter aus npm (Node Package Manager)
+                                installiert. Adapter können jedoch auch von GitHub oder von der lokalen Festplatte installiert werden
+                                (für Adapter-Entwickler).
                             </Box>
-                            <Box component="li" className={classes.listItem}>
-                                Docker
+                            <Box className={classes.paragraph}>
+                                Jeder Adapter kann in mehreren Instanzen installiert werden. Eine Instanz ist ein laufender Prozess
+                                eines Adapters. Wenn Sie beispielsweise mehrere Geräte desselben Typs haben, können Sie mehrere
+                                Instanzen eines Adapters erstellen. Jede Instanz hat ihre eigene Konfiguration und läuft unabhängig
+                                von anderen Instanzen.
+                            </Box>
+
+                            <Box id="objects" className={classes.heading}>
+                                <span>OBJEKTE</span>
+                                <img src={linkImage} alt="link" className={classes.linkIcon} />
+                            </Box>
+                            <Box className={classes.paragraph}>
+                                Objekte sind strukturierte Beschreibungen von Datenpunkten. Objekte enthalten Metainformationen,
+                                die den Datenpunkt beschreiben und festlegen, wie er verarbeitet werden soll. Objekte haben folgende
+                                Attribute:
+                            </Box>
+                            <Box component="ul" className={classes.list}>
+                                <Box component="li" className={classes.listItem}>
+                                    type - Objekttyp (state, channel, device, enum, host, adapter, instance, meta, config, script, user, group)
+                                </Box>
+                                <Box component="li" className={classes.listItem}>
+                                    common - allgemeine Objektattribute
+                                </Box>
+                                <Box component="li" className={classes.listItem}>
+                                    native - adapterspezifische Attribute
+                                </Box>
+                            </Box>
+
+                            <Box id="states" className={classes.heading}>
+                                <span>STATES (ZUSTÄNDE)</span>
+                                <img src={linkImage} alt="link" className={classes.linkIcon} />
+                            </Box>
+                            <Box className={classes.paragraph}>
+                                States sind die tatsächlichen Werte von Datenpunkten. States sind mit Objekten vom Typ "state"
+                                verknüpft. Im Gegensatz zu Objekten, die statische Metainformationen enthalten, enthalten States
+                                den tatsächlichen Wert des Datenpunkts, der sich im Laufe der Zeit ändern kann. Jede Änderung eines
+                                States kann bestimmte Aktionen im System auslösen.
+                            </Box>
+
+                            <Box id="installation" className={classes.heading}>
+                                <span>INSTALLATION</span>
+                                <img src={linkImage} alt="link" className={classes.linkIcon} />
+                            </Box>
+                            <Box className={classes.paragraph}>
+                                ioBroker kann auf verschiedenen Plattformen installiert werden:
+                            </Box>
+                            <Box component="ul" className={classes.list}>
+                                <Box component="li" className={classes.listItem}>
+                                    Linux (empfohlen: Debian oder Ubuntu)
+                                </Box>
+                                <Box component="li" className={classes.listItem}>
+                                    Windows
+                                </Box>
+                                <Box component="li" className={classes.listItem}>
+                                    macOS
+                                </Box>
+                                <Box component="li" className={classes.listItem}>
+                                    Docker
+                                </Box>
                             </Box>
                         </Box>
                     </Box>
+
+                    {!isMobile && <DocsTableOfContents items={tableOfContentsItems} />}
+
+                    {/* {`https://www.iobroker.net/en/${params['*']}`} */}
+                    {/* <MarkdownView url={`/api/iobroker/en/${params['*']}`} /> */}
                 </Box>
-
-                <DocsTableOfContents items={tableOfContentsItems} />
-
-                {/* {`https://www.iobroker.net/en/${params['*']}`} */}
-                {/* <MarkdownView url={`/api/iobroker/en/${params['*']}`} /> */}
             </Box>
         </Box>
     );

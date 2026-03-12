@@ -5,7 +5,7 @@ import { useStyles } from './TopBarSearch.styles';
 interface TopBarSearchProps {
     value: string;
     onChange: (value: string) => void;
-    isMenuCollapsed: boolean;
+    isMenuCollapsed?: boolean | undefined;
 }
 
 export const TopBarSearch = ({ value, onChange, isMenuCollapsed }: TopBarSearchProps): React.ReactNode => {

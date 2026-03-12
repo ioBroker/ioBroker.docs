@@ -1,6 +1,6 @@
 import { makeStyles } from '../../theme';
 
-export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { isMenuCollapsed }) => ({
+export const useStyles = makeStyles<{ isMenuCollapsed: boolean | undefined }>()((theme, { isMenuCollapsed }) => ({
     topBarSearch: {
         width: '460px',
         '& img': {

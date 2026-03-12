@@ -43,63 +43,65 @@ export const DocsMenu = ({ docsData, expandAll }: DocsMenuProps): React.ReactNod
 
     return (
         <Box className={classes.container}>
-            <Box className={classes.header}>
-                <Box className={classes.headerIcon}>
-                    <img src={blueFolder} alt="Documentation" />
+            <Box className={classes.menuInner}>
+                <Box className={classes.header}>
+                    <Box className={classes.headerIcon}>
+                        <img src={blueFolder} alt="Documentation" />
+                    </Box>
+                    Documentation
                 </Box>
-                Documentation
-            </Box>
 
-            {Object.keys(docsData.pages).map(key => {
-                const page = docsData.pages[key];
-                const isExpanded = expandedSections.has(key);
+                {Object.keys(docsData.pages).map(key => {
+                    const page = docsData.pages[key];
+                    const isExpanded = expandedSections.has(key);
 
-                return (
-                    <Accordion
-                        key={key}
-                        expanded={isExpanded}
-                        onChange={() => handleSectionToggle(key)}
-                        classes={{ root: classes.mainLevel }}
-                    >
-                        <AccordionSummary
-                            sx={{
-                                backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
-                            }}>
-                            <Box className={classes.sectionTitle}>
-                                <Box className={classes.sectionIcon}>
-                                    <img
-                                        src={isExpanded ? openedFolder : closedFolder}
-                                        alt={isExpanded ? "Opened folder" : "Closed folder"}
-                                    />
-                                </Box>
-                                {page.title.en}
-                                <Box className={classes.arrowIcon}>
-                                    <img
-                                        src={isExpanded ? whiteArrowUp : whiteArrowDown}
-                                        alt={isExpanded ? "Collapse" : "Expand"}
-                                    />
-                                </Box>
-                            </Box>
-                        </AccordionSummary>
-                        {page.pages ? (
-                            <AccordionDetails className={classes.childrenLevel}
+                    return (
+                        <Accordion
+                            key={key}
+                            expanded={isExpanded}
+                            onChange={() => handleSectionToggle(key)}
+                            classes={{ root: classes.mainLevel }}
+                        >
+                            <AccordionSummary
                                 sx={{
                                     backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
-                                }}
-                            >
-                                {Object.keys(page.pages).map(subKey => {
-                                    const subPage = page.pages![subKey];
-                                    return (
-                                        <Box key={subKey}>
-                                            <Link to={`/docs/${subPage.content}`}>{subPage.title.en}</Link>
-                                        </Box>
-                                    );
-                                })}
-                            </AccordionDetails>
-                        ) : null}
-                    </Accordion>
-                );
-            })}
+                                }}>
+                                <Box className={classes.sectionTitle}>
+                                    <Box className={classes.sectionIcon}>
+                                        <img
+                                            src={isExpanded ? openedFolder : closedFolder}
+                                            alt={isExpanded ? "Opened folder" : "Closed folder"}
+                                        />
+                                    </Box>
+                                    {page.title.en}
+                                    <Box className={classes.arrowIcon}>
+                                        <img
+                                            src={isExpanded ? whiteArrowUp : whiteArrowDown}
+                                            alt={isExpanded ? "Collapse" : "Expand"}
+                                        />
+                                    </Box>
+                                </Box>
+                            </AccordionSummary>
+                            {page.pages ? (
+                                <AccordionDetails className={classes.childrenLevel}
+                                    sx={{
+                                        backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
+                                    }}
+                                >
+                                    {Object.keys(page.pages).map(subKey => {
+                                        const subPage = page.pages![subKey];
+                                        return (
+                                            <Box key={subKey}>
+                                                <Link to={`/docs/${subPage.content}`}>{subPage.title.en}</Link>
+                                            </Box>
+                                        );
+                                    })}
+                                </AccordionDetails>
+                            ) : null}
+                        </Accordion>
+                    );
+                })}
+            </Box>
         </Box>
     );
 };

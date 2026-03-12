@@ -1,11 +1,17 @@
 import { makeStyles } from '../../theme';
 
 export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { isMenuCollapsed }) => ({
+    pageWrapper: {
+        position: 'relative',
+        [theme.breakpoints.down(768)]: {
+            overflow: 'visible',
+        },
+    },
     root: {
         display: 'flex',
         gap: '40px',
         margin: '0 32px',
-        padding: '20px 0',
+        paddingBottom: '20px',
         maxHeight: 'calc(100vh - 120px)',
         overflowY: 'scroll',
         overflowX: 'hidden',
@@ -26,12 +32,15 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         '&::-webkit-scrollbar-thumb:hover': {
             background: theme.palette.secondary.main,
         },
+        [theme.breakpoints.down(768)]: {
+            position: !isMenuCollapsed ? 'relative' : 'static',
+        },
     },
     topBar: {
         display: 'flex',
         alignItems: 'center',
-        marginBottom: '24px',
-        margin: "0 32px 30px 32px",
+        margin: "0 32px 24px 32px",
+        position: 'relative',
         [theme.breakpoints.down(481)]: {
             margin: "0 10px 30px 10px",
         },
@@ -47,16 +56,16 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         display: 'flex',
         justifyContent: 'space-between',
         flex: 1,
-        marginLeft: isMenuCollapsed ? 'calc(91px - 55px + 1px)' : 'calc(296px - 55px + 1px)',
+        marginLeft: 'calc(91px - 18px + 1px)',
         transition: 'margin-left 0.3s ease',
         [theme.breakpoints.up(1440)]: {
-            marginLeft: isMenuCollapsed ? 'calc(91px - 55px + 1px)' : 'calc(304px - 55px + 1px)',
+            marginLeft: 'calc(91px - 18px + 1px)',
         },
         [theme.breakpoints.down(770)]: {
-            marginLeft: isMenuCollapsed ? 'calc(80px - 55px + 1px)' : 'calc(289px - 55px + 1px)',
+            marginLeft: 'calc(80px - 55px + 1px)',
         },
         [theme.breakpoints.down(661)]: {
-            marginLeft: isMenuCollapsed ? 'calc(80px - 55px + 1px)' : '20px',
+            marginLeft: 'calc(80px - 55px + 1px)',
         },
         [theme.breakpoints.down(481)]: {
             justifyContent: 'end',
@@ -79,10 +88,11 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         marginBottom: '20px',
         scrollMarginTop: '100px',
         letterSpacing: '-0.03em',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
+        display: 'inline-flex',
+        alignItems: 'flex-start',
+        gap: '16px',
         cursor: 'pointer',
+        maxWidth: '100%',
     },
     heading: {
         color: theme.palette.primary.main,
@@ -92,14 +102,16 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         marginBottom: '20px',
         scrollMarginTop: '100px',
         letterSpacing: '-0.03em',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
+        display: 'inline-flex',
+        alignItems: 'flex-start',
+        gap: '16px',
         cursor: 'pointer',
+        maxWidth: '100%',
     },
     linkIcon: {
         width: '20px',
         height: '20px',
+        marginTop: '8px',
         flexShrink: 0,
     },
     paragraph: {
@@ -121,7 +133,22 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         margin: '24px 0',
         borderRadius: '8px',
     },
-    menuBlock: {},
+    menuBlock: {
+        flexShrink: 0,
+        [theme.breakpoints.down(768)]: {
+            display: 'none',
+        },
+    },
+    menuBlockMobile: {
+        position: 'absolute',
+        left: '32px',
+        top: '0',
+        zIndex: 1000,
+        flexShrink: 0,
+        [theme.breakpoints.up(769)]: {
+            display: 'none',
+        },
+    },
     menuButton: {},
     mainTopBlock: {},
     adaptersSearch: {},
