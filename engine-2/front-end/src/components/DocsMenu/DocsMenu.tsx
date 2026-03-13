@@ -1,24 +1,29 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, useTheme } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Box, useMediaQuery, useTheme } from '@mui/material';
 import type React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type Dispatch, type SetStateAction } from 'react';
 import type { Docs } from '../DocsItem/DocsItem';
 import { useDocsMenuStyles } from './DocsMenu.styles';
 import { Link } from 'react-router-dom';
-import openedFolder from '../../assets/img/docsIcons/opened_folder.svg'
-import closedFolder from '../../assets/img/docsIcons/closed_folder.svg'
-import blueFolder from '../../assets/img/docsIcons/blueFolder.svg'
-import whiteArrowUp from '../../assets/img/docsIcons/whiteArrowUp.svg'
-import whiteArrowDown from '../../assets/img/docsIcons/whiteArrowDown.svg'
+import openedFolder from '../../assets/img/docsIcons/opened_folder.svg';
+import closedFolder from '../../assets/img/docsIcons/closed_folder.svg';
+import blueFolder from '../../assets/img/docsIcons/blueFolder.svg';
+import whiteArrowUp from '../../assets/img/docsIcons/whiteArrowUp.svg';
+import whiteArrowDown from '../../assets/img/docsIcons/whiteArrowDown.svg';
+import whiteCross from '../../assets/img/docsIcons/whiteCross.svg'
+import { MenuArrowsToggle } from '../../components/MenuArrowsToggle/MenuArrowsToggle';
 
 interface DocsMenuProps {
     docsData: Docs;
     expandAll?: boolean;
+    setExpandAll: Dispatch<SetStateAction<boolean>> | undefined;
+    setIsMenuClosed?: Dispatch<SetStateAction<boolean>>;
 }
 
-export const DocsMenu = ({ docsData, expandAll }: DocsMenuProps): React.ReactNode => {
+export const DocsMenu = ({ docsData, expandAll, setIsMenuClosed, setExpandAll}: DocsMenuProps): React.ReactNode => {
     const { classes } = useDocsMenuStyles();
     const theme = useTheme();
     const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
+    const isMobile = useMediaQuery('(max-width:768px)');
 
     useEffect(() => {
         if (expandAll !== undefined) {
@@ -43,6 +48,17 @@ export const DocsMenu = ({ docsData, expandAll }: DocsMenuProps): React.ReactNod
 
     return (
         <Box className={classes.container}>
+           {isMobile && <Box className={classes.menuTopBar}>
+                <MenuArrowsToggle
+                sx={{width: '62px', height: '30px'}}
+                onExpandAll={setExpandAll}/>
+                <img 
+                onClick={()=> {
+                    setIsMenuClosed?.(true)
+                }}
+                src={whiteCross}
+                 alt="close"/>
+            </Box>}
             <Box className={classes.menuInner}>
                 <Box className={classes.header}>
                     <Box className={classes.headerIcon}>

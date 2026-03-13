@@ -11,16 +11,22 @@ import { TopBarSearch } from '../../components/TopBarSearch/TopBarSearch';
 import { useStyles } from './DocsPage.styles';
 import { DocsTableOfContents } from '../../components/DocsTableOfContents/DocsTableOfContents';
 import linkImage from '../../assets/img/docsIcons/blueLink.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const DocsPage = (): React.ReactNode => {
     const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
     const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
-    const [expandAllDocs, setExpandAllDocs] = useState<boolean | undefined>(undefined);
-    const isMobile = useMediaQuery('(max-width:1181px)');
+    const [expandAllDocs, setExpandAllDocs] = useState<boolean>(false);
+    const isTablet = useMediaQuery('(max-width:1181px)');
+    const isMobile = useMediaQuery('(max-width:768px)');
     const [search, setSearch] = useState('');
     const params = useParams();
     const { classes } = useStyles({ isMenuCollapsed });
+    useEffect(() => {
+        if (isMobile) {
+            setIsMenuCollapsed(true)
+        }
+    }, [isMobile])
 
     const tableOfContentsItems = [
         {
@@ -63,35 +69,47 @@ const DocsPage = (): React.ReactNode => {
     return (
         <Box>
             <SectionTitle
-                sx={{ marginTop: '30px', marginLeft: '31px', letterSpacing: '-0.03em !important' }}
+                sx={{ marginTop: '30px', marginLeft: '31px', letterSpacing: '-0.03em !important',
+                    fontSize: !isTablet? '36px' : '28px !important'
+                 }}
             >{I18n.t('home.docs.title')}</SectionTitle>
             <Box className={classes.pageWrapper}>
                 <Box className={classes.topBar}>
                     <Box className={classes.menuToggleContainer}>
                         <MenuToggle
+                            sx={{width: isMobile? '70px !important': '55px',
+                                 height: isMobile? '40px !important': '32px'}}
+                            buttonSx={{minWidth: isMobile? '35px !important': '27px',}}
                             value={menuMode}
                             onChange={setMenuMode}
                             onCollapse={setIsMenuCollapsed}
                         />
+                        {!isMobile &&
                         <MenuArrowsToggle
                             onExpandAll={setExpandAllDocs}
-                        />
+                        />}
                     </Box>
                     <Box className={classes.searchContainer}>
                         <TopBarSearch
+                            isFluid={isMobile}
+                            sx={{
+                                '& .MuiOutlinedInput-root': {
+                                    height: isMobile ? '40px !important' : '32px',
+                                },
+                            }}
                             value={search}
                             onChange={setSearch}
                         />
                     </Box>
                 </Box>
                 {!isMenuCollapsed && (
-                    <Box className={classes.menuBlockMobile}>
-                        <DocsMenu docsData={docsData} expandAll={expandAllDocs} />
+                    <Box className={classes.menuBlockMobile}> 
+                        <DocsMenu docsData={docsData} expandAll={expandAllDocs} setExpandAll={setExpandAllDocs} setIsMenuClosed={setIsMenuCollapsed} />
                     </Box>
                 )}
                 <Box className={classes.root}>
                     <Box className={classes.menuBlock}>
-                        <DocsMenu docsData={docsData} expandAll={expandAllDocs} />
+                        <DocsMenu docsData={docsData} expandAll={expandAllDocs} setExpandAll={setExpandAllDocs} />
                     </Box>
                     <Box className={classes.mainBlock}>
                         <Box className={classes.content}>
@@ -204,7 +222,7 @@ const DocsPage = (): React.ReactNode => {
                         </Box>
                     </Box>
 
-                    {!isMobile && <DocsTableOfContents items={tableOfContentsItems} />}
+                    {!isTablet && <DocsTableOfContents items={tableOfContentsItems} />}
 
                     {/* {`https://www.iobroker.net/en/${params['*']}`} */}
                     {/* <MarkdownView url={`/api/iobroker/en/${params['*']}`} /> */}

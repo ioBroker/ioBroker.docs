@@ -51,6 +51,9 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         alignItems: 'center',
         width: '265px',
         flexShrink: 0,
+         [theme.breakpoints.down(769)]: {
+            width: 'auto'
+        },
     },
     searchContainer: {
         display: 'flex',
@@ -61,8 +64,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         [theme.breakpoints.up(1440)]: {
             marginLeft: 'calc(91px - 18px + 1px)',
         },
-        [theme.breakpoints.down(770)]: {
-            marginLeft: 'calc(80px - 55px + 1px)',
+        [theme.breakpoints.down(769)]: {
+            marginLeft: '98px',
         },
         [theme.breakpoints.down(661)]: {
             marginLeft: 'calc(80px - 55px + 1px)',
@@ -93,6 +96,9 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         gap: '16px',
         cursor: 'pointer',
         maxWidth: '100%',
+         [theme.breakpoints.down(481)]: {
+            fontSize: '18px',
+        },
     },
     heading: {
         color: theme.palette.primary.main,
@@ -107,6 +113,12 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         gap: '16px',
         cursor: 'pointer',
         maxWidth: '100%',
+         [theme.breakpoints.down(769)]: {
+             fontSize: '18px',
+        },
+        [theme.breakpoints.down(481)]: {
+            fontSize: '16px',
+        },
     },
     linkIcon: {
         width: '20px',
@@ -118,7 +130,10 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         marginBottom: '16px',
         fontSize: '18px',
         fontWeight: 300,
-        letterSpacing: '0.01em'
+        letterSpacing: '0.01em',
+         [theme.breakpoints.down(481)]: {
+            fontSize: '16px',
+        },
     },
     list: {
         marginLeft: '24px',
@@ -135,7 +150,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     },
     menuBlock: {
         flexShrink: 0,
-        [theme.breakpoints.down(768)]: {
+        [theme.breakpoints.down(769)]: {
             display: 'none',
         },
     },

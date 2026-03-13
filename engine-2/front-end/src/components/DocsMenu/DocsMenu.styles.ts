@@ -4,7 +4,7 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
     container: {
         paddingRight: '12px',
         backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
-        [theme.breakpoints.down(768)]: {
+        [theme.breakpoints.down(769)]: {
             borderRadius: '12px',
             border: `2px solid ${theme.palette.primary.main}`,
             padding: '12px 12px 12px',
@@ -38,6 +38,12 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
             backgroundClip: 'padding-box',
         },
 
+    },
+    menuTopBar: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginRight: '20px'
     },
     header: {
         display: 'flex',
