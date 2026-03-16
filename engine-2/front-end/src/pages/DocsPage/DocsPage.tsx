@@ -19,6 +19,7 @@ const DocsPage = (): React.ReactNode => {
     const [expandAllDocs, setExpandAllDocs] = useState<boolean>(false);
     const isTablet = useMediaQuery('(max-width:1181px)');
     const isMobile = useMediaQuery('(max-width:768px)');
+    const isMini = useMediaQuery('(max-width:480px)');
     const [search, setSearch] = useState('');
     const params = useParams();
     const { classes } = useStyles({ isMenuCollapsed });
@@ -70,16 +71,21 @@ const DocsPage = (): React.ReactNode => {
         <Box>
             <SectionTitle
                 sx={{ marginTop: '30px', marginLeft: '31px', letterSpacing: '-0.03em !important',
-                    fontSize: !isTablet? '36px' : '28px !important'
+                    fontSize: isMini ? '20px !important' : (isMobile ? '28px !important' : '36px')
                  }}
             >{I18n.t('home.docs.title')}</SectionTitle>
             <Box className={classes.pageWrapper}>
                 <Box className={classes.topBar}>
                     <Box className={classes.menuToggleContainer}>
                         <MenuToggle
-                            sx={{width: isMobile? '70px !important': '55px',
-                                 height: isMobile? '40px !important': '32px'}}
-                            buttonSx={{minWidth: isMobile? '35px !important': '27px',}}
+                            sx={{width: isMini ? '55px !important' :(isMobile? '70px !important': '55px'),
+                                 height: isMini ? '32px !important':(isMobile? '40px !important': '32px'),
+                                '& img': {
+                                    width: isMini? '15px !important':(isMobile? '18px': '15px'),
+                                    height: isMini? '7px !important':(isMobile? '10px': '7px')
+                                }
+                            }}
+                            buttonSx={{minWidth: isMini ? '27px !important': (isMobile? '35px !important': '27px'),}}
                             value={menuMode}
                             onChange={setMenuMode}
                             onCollapse={setIsMenuCollapsed}
@@ -94,7 +100,7 @@ const DocsPage = (): React.ReactNode => {
                             isFluid={isMobile}
                             sx={{
                                 '& .MuiOutlinedInput-root': {
-                                    height: isMobile ? '40px !important' : '32px',
+                                    height: isMini ? '32px !important':(isMobile ? '40px !important' : '32px'),
                                 },
                             }}
                             value={search}

@@ -7,7 +7,7 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
         [theme.breakpoints.down(769)]: {
             borderRadius: '12px',
             border: `2px solid ${theme.palette.primary.main}`,
-            padding: '12px 12px 12px',
+            padding: '16px 16px',
         },
     },
     menuInner: {
@@ -37,13 +37,17 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
             borderRight: '0px solid transparent',
             backgroundClip: 'padding-box',
         },
+         [theme.breakpoints.down(769)]: {
+              maxHeight: '100%',
+              overflowY: 'hidden',
+              paddingRight: '0px',
+        },
 
     },
     menuTopBar: {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginRight: '20px'
     },
     header: {
         display: 'flex',
@@ -100,6 +104,12 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
         fontFamily: "'Saira', sans-serif",
         fontWeight: 300,
         cursor: 'pointer',
+         [theme.breakpoints.down(769)]: {
+               width: '318px',
+        },
+        [theme.breakpoints.down(481)]: {
+               width: 'calc(100%)',
+        },
     },
     sectionIcon: {
         width: '24px',

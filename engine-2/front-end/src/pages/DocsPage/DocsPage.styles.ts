@@ -35,6 +35,14 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         [theme.breakpoints.down(768)]: {
             position: !isMenuCollapsed ? 'relative' : 'static',
         },
+         [theme.breakpoints.down(769)]: {
+              maxHeight: '100%',
+              overflowY: 'hidden',
+        },
+         [theme.breakpoints.down(481)]: {
+            margin: '0 10px',
+            paddingRight: '0px',   
+        },
     },
     topBar: {
         display: 'flex',
@@ -72,6 +80,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         },
         [theme.breakpoints.down(481)]: {
             justifyContent: 'end',
+            marginLeft: 'calc(80px - 61px + 1px)',
         },
     },
     mainBlock: {
@@ -156,12 +165,29 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     },
     menuBlockMobile: {
         position: 'absolute',
+        width: '350px',
         left: '32px',
         top: '0',
         zIndex: 1000,
         flexShrink: 0,
         [theme.breakpoints.up(769)]: {
             display: 'none',
+            width: 'calc(91px - 18px + 1px)'
+        },
+         [theme.breakpoints.down(481)]: {
+            width: 'calc(100% - 32px)',
+             left: '16px',
+            '&::before': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                left: '-16px',
+                right: '-16px',
+                height: '100%',
+                background: '#080B1C',
+                zIndex: -1,
+                pointerEvents: 'none',
+            },
         },
     },
     menuButton: {},
