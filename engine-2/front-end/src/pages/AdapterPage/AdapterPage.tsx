@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './AdapterPage.styles';
-import StarRateIcon from '@mui/icons-material/StarRate';
-import DownloadIcon from '@mui/icons-material/Download';
+import ArrowDownIcon from '../../assets/img/arrowIcon.svg';
 import ContentCopyTwoToneIcon from '@mui/icons-material/ContentCopyTwoTone';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import SymbolAdapter from '../../assets/img/adapterPageIcons/SymbolAdapter.png'
 import SaveIcon from '../../assets/img/adapterPageIcons/IconDownload.svg'
+import DownLoadIcon from '../../assets/img/adapterPageIcons/download.svg'
+import StarIcon from '../../assets/img/adapterPageIcons/star.svg'
 import npmImage from '../../assets/img/adapterPageIcons/npm.png'
 import GitHubIcon from '../../assets/img/adapterPageIcons/github.svg';
 import HistoryIcon from '../../assets/img/adapterPageIcons/history.svg';
 import LicenseIcon from '../../assets/img/adapterPageIcons/license.svg';
 import EditIcon from '../../assets/img/adapterPageIcons/edit-fill.svg';
 import theme from '../../theme';
+import LicenseModal from './LicenseModal';
+import HistoryModal from './HistoryModal';
 
 
 
 const AdapterPage = (): React.ReactNode => {
     const { classes } = useStyles();
+    const [isLicenseOpen, setIsLicenseOpen] = useState(false);
+    const [isHistoryOpen, setIsHistoryOpen] = useState(false);
 
     return (
         <Box className={classes.pageGrid}>
@@ -25,9 +29,9 @@ const AdapterPage = (): React.ReactNode => {
                 <Box className={classes.breadcrumbs}>
                     <span className={classes.breadcrumbSlash}>//</span> ADAPTER
                     <span className={classes.breadcrumbSlash}>/</span> GARTEN
-                    <span className={classes.breadcrumbSlash}>/</span> SOCKET.IO
+                    <span className={classes.breadcrumbsEnd}> / SOCKET.IO</span>
                 </Box>
-                <Typography className={classes.paragraph}>
+                <Typography className={classes.subTitle}>
                     Dieser Adapter ermöglicht die Kommunikation verschiedener Web-Anwendungen mit ioBroker.
                 </Typography>
             </Box>
@@ -61,10 +65,10 @@ const AdapterPage = (): React.ReactNode => {
 
                         <Box className={classes.statsContainer}>
                             <Box className={classes.statItem}>
-                                <StarRateIcon fontSize="small" /> 25
+                                <img src={StarIcon} alt="Star Icon" /> 25
                             </Box>
                             <Box className={classes.statItem}>
-                                <DownloadIcon fontSize="small" /> 16.000
+                                <img src={DownLoadIcon} alt="DownLoadIcon" /> 16.000
                             </Box>
                             <Box className={classes.statItem}>
                                 <img src={SaveIcon} alt="Save Icon" /> 39.400
@@ -76,29 +80,29 @@ const AdapterPage = (): React.ReactNode => {
                 <Box className={classes.sidebarRight}>
                     <Box component="a" href="#" className={classes.sidebarLink}>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                           <img src={GitHubIcon} alt="Github Icon"/>
+                            <img className={classes.sidebarLinkIcon} src={GitHubIcon} alt="Github Icon" />
                             GITHUB
                         </Box>
-                        <ArrowForwardIcon sx={{ color: 'rgba(255, 255, 255, 0.3)' }} />
+                        <img className={classes.arrowIconRight} src={ArrowDownIcon} alt="ArrowIconRight" />
                     </Box>
-                    <Box component="a" href="#" className={classes.sidebarLink}>
+                    <Box component="div" className={classes.sidebarLink} onClick={() => setIsLicenseOpen(true)}>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                            <img src={LicenseIcon} alt="License Icon"/>
+                            <img className={classes.sidebarLinkIcon} src={LicenseIcon} alt="License Icon" />
                             LIZENZ: MIT
                         </Box>
-                        <ArrowForwardIcon sx={{ transform: 'rotate(-45deg)', color: 'rgba(255, 255, 255, 0.3)' }} />
+                        <img className={classes.arrowIcon} src={ArrowDownIcon} alt="ArrowDownIcon" />
                     </Box>
-                    <Box component="a" href="#" className={classes.sidebarLink}>
+                    <Box component="div" className={classes.sidebarLink} onClick={() => setIsHistoryOpen(true)} >
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                            <img src={HistoryIcon} alt="History Icon"/>
+                            <img className={classes.sidebarLinkIcon} src={HistoryIcon} alt="History Icon" />
                             HISTORY
                         </Box>
-                        <ArrowForwardIcon sx={{ transform: 'rotate(-45deg)', color: 'rgba(255, 255, 255, 0.3)' }} />
+                        <img className={classes.arrowIcon} src={ArrowDownIcon} alt="ArrowDownIcon" />
                     </Box>
 
                     <Box className={classes.badgesContainer}>
-                        <Typography className={classes. badgeInfoLabel} sx={{ textTransform: 'uppercase' }}>Abzeichen:</Typography>
-                        <img className={classes.npmImage} src={npmImage} alt="npm"/>
+                        <Typography className={classes.badgeInfoLabel} sx={{ textTransform: 'uppercase' }}>Abzeichen:</Typography>
+                        <img className={classes.npmImage} src={npmImage} alt="npm" />
                         <img src="https://img.shields.io/npm/v/iobroker.socketio.svg" alt="NPM version" className={classes.badgeImage} />
                         <img src="https://img.shields.io/npm/v/iobroker.socketio.svg?label=stable" alt="Stable version" className={classes.badgeImage} />
                         <img src="https://img.shields.io/npm/dm/iobroker.socketio.svg" alt="Downloads" className={classes.badgeImage} />
@@ -144,6 +148,12 @@ const AdapterPage = (): React.ReactNode => {
                                 fontSize: 16,
                                 cursor: 'pointer',
                                 color: theme.palette.secondary.main,
+                                '@media (max-width: 769px)': {
+                                    fontSize: 26,
+                                },
+                                 '@media (max-width: 481px)': {
+                                    fontSize: 22,
+                                },
                                 '& path:first-of-type': {
                                     opacity: 1,
                                     fill: theme.palette.secondary.main,
@@ -210,11 +220,13 @@ const AdapterPage = (): React.ReactNode => {
                 </Typography>
 
                 <button className={classes.editButton}>
-                     <img src={EditIcon} alt="Edit Icon"/>
+                    <img src={EditIcon} alt="Edit Icon" />
                     BEARBEITEN AUF GITHUB
-                    <ArrowForwardIcon sx={{ ml: 'auto' }} />
+                    <img className={classes.arrowIconEdit} style={{ marginLeft: '34px' }} src={ArrowDownIcon} alt="ArrowIconRight" />
                 </button>
             </Box>
+            <LicenseModal open={isLicenseOpen} onClose={() => setIsLicenseOpen(false)} />
+            <HistoryModal open={isHistoryOpen} onClose={() => setIsHistoryOpen(false)} />
         </Box>
     );
 };
