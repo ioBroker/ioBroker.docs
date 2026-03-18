@@ -134,6 +134,9 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             '&:hover': {
                 background: 'rgba(29, 144, 202, 0.1)',
             },
+             '&.Mui-selected img': {
+                filter: 'brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(2476%) hue-rotate(169deg) brightness(101%) contrast(101%)',
+            }
         },
         [theme.breakpoints.down(769)]: {
             display: 'none'
@@ -141,7 +144,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         '& img': {
             filter: theme.palette.mode !== 'dark'
                 ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
-                : 'none',
+                : 'brightness(0) invert(100%)',
         },
     },
     adaptersGrid: {

@@ -3,6 +3,24 @@ import { makeStyles } from '../../theme';
 export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { isMenuCollapsed }) => ({
     pageWrapper: {
         position: 'relative',
+        '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            right: '15%',
+            transform: 'translate(40%, -40%)',
+            width: '520px',
+            height: '320px',
+            opacity: 0.5,
+            pointerEvents: 'none',
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.35) 0%, rgba(255, 255, 255, 0) 60%)'
+                    : 'none',
+            [theme.breakpoints.down(1278)]: {
+               display: 'none'
+            },
+        },
         [theme.breakpoints.down(768)]: {
             overflow: 'visible',
         },

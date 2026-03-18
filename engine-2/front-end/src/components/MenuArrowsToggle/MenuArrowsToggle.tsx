@@ -2,32 +2,36 @@ import { Box, ToggleButton, ToggleButtonGroup, type BoxProps } from '@mui/materi
 import ArrowUpIcon from '../../assets/img/docsIcons/whiteArrowUp.svg';
 import ArrowDownIcon from '../../assets/img/docsIcons/whiteArrowDown.svg';
 import { useStyles } from './MenuArrowsToggle.styles';
-import { useState, type Dispatch, type SetStateAction} from 'react';
+import { useState } from 'react';
 
 interface MenuArrowsToggleProps {
-    onExpandAll: Dispatch<SetStateAction<boolean>> | undefined
+    onExpandAll?: () => void;
+    onCollapseAll?: () => void;
+    value?: 'expand' | 'collapse';
     sx?: BoxProps['sx'];
 }
 
-export const MenuArrowsToggle = ({ onExpandAll,  sx, }: MenuArrowsToggleProps): React.ReactNode => {
+export const MenuArrowsToggle = ({ onExpandAll, onCollapseAll, value: valueProp, sx }: MenuArrowsToggleProps): React.ReactNode => {
     const { classes } = useStyles();
     const [value, setValue] = useState<'expand' | 'collapse'>('expand');
+    const isControlled = valueProp !== undefined;
+    const currentValue = isControlled ? valueProp : value;
     
     const handleExpandAll = () => {
-        setValue('expand');
-        onExpandAll?.(true);
+        if (!isControlled) setValue('expand');
+        onExpandAll?.();
     };
 
     const handleCollapseAll = () => {
-        setValue('collapse');
-        onExpandAll?.(false);
+        if (!isControlled) setValue('collapse');
+        onCollapseAll?.();
     };
 
     return (
         <Box sx={sx} className={classes.menuToggle}>
             <ToggleButtonGroup
                 exclusive
-                value={value}
+                value={currentValue}
             >
                 <ToggleButton
                     value="expand"

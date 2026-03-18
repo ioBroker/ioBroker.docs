@@ -20,9 +20,7 @@ export const useStyles = makeStyles()(theme => ({
                 borderRight: `2px solid ${theme.palette.primary.main}`,
             },
             '&.Mui-selected img': {
-                filter: theme.palette.mode !== 'dark'
-                    ? 'brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(1352%) hue-rotate(175deg) brightness(119%) contrast(119%)'
-                    : 'brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(2476%) hue-rotate(169deg) brightness(101%) contrast(101%)',
+                filter: 'brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(2476%) hue-rotate(169deg) brightness(101%) contrast(101%)',
             }
         },
         '& img': {

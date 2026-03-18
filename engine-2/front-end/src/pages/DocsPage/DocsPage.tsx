@@ -16,11 +16,13 @@ import { useEffect, useState } from 'react';
 const DocsPage = (): React.ReactNode => {
     const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
     const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
-    const [expandAllDocs, setExpandAllDocs] = useState<boolean>(false);
+    const [isAllExpanded, setIsAllExpanded] = useState(false);
+    const [expandAllSignal, setExpandAllSignal] = useState(0);
+    const [collapseAllSignal, setCollapseAllSignal] = useState(0);
     const isTablet = useMediaQuery('(max-width:1181px)');
     const isMobile = useMediaQuery('(max-width:768px)');
     const isMini = useMediaQuery('(max-width:480px)');
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState(''); 
     const params = useParams();
     const { classes } = useStyles({ isMenuCollapsed });
     useEffect(() => {
@@ -67,6 +69,15 @@ const DocsPage = (): React.ReactNode => {
         },
     ];
 
+    const expandAllSections = () => {
+        setIsAllExpanded(true);
+        setExpandAllSignal((v) => v + 1);
+    };
+    const collapseAllSections = () => {
+        setIsAllExpanded(false);
+        setCollapseAllSignal((v) => v + 1);
+    };
+
     return (
         <Box>
             <SectionTitle
@@ -92,7 +103,9 @@ const DocsPage = (): React.ReactNode => {
                         />
                         {!isMobile &&
                         <MenuArrowsToggle
-                            onExpandAll={setExpandAllDocs}
+                            value={isAllExpanded ? 'expand' : 'collapse'}
+                            onExpandAll={expandAllSections}
+                            onCollapseAll={collapseAllSections}
                         />}
                     </Box>
                     <Box className={classes.searchContainer}>
@@ -110,12 +123,27 @@ const DocsPage = (): React.ReactNode => {
                 </Box>
                 {!isMenuCollapsed && (
                     <Box className={classes.menuBlockMobile}> 
-                        <DocsMenu docsData={docsData} expandAll={expandAllDocs} setExpandAll={setExpandAllDocs} setIsMenuClosed={setIsMenuCollapsed} />
+                        <DocsMenu
+                            docsData={docsData}
+                            expandAllSignal={expandAllSignal}
+                            collapseAllSignal={collapseAllSignal}
+                            onAllExpandedChange={setIsAllExpanded}
+                            onExpandAll={expandAllSections}
+                            onCollapseAll={collapseAllSections}
+                            setIsMenuClosed={setIsMenuCollapsed}
+                        />
                     </Box>
                 )}
                 <Box className={classes.root}>
                     <Box className={classes.menuBlock}>
-                        <DocsMenu docsData={docsData} expandAll={expandAllDocs} setExpandAll={setExpandAllDocs} />
+                        <DocsMenu
+                            docsData={docsData}
+                            expandAllSignal={expandAllSignal}
+                            collapseAllSignal={collapseAllSignal}
+                            onAllExpandedChange={setIsAllExpanded}
+                            onExpandAll={expandAllSections}
+                            onCollapseAll={collapseAllSections}
+                        />
                     </Box>
                     <Box className={classes.mainBlock}>
                         <Box className={classes.content}>

@@ -10,7 +10,8 @@ export const useStyles = makeStyles()((theme) => ({
         `,
         position: 'relative',
         gap: '0 40px',
-        margin: '35px 8px 0px 32px',
+        margin: '0px 8px 0px 32px',
+        paddingTop: '35px',
         paddingBottom: '40px',
         color: theme.palette.text.primary,
         fontFamily: theme.typography.fontFamily,
@@ -37,7 +38,7 @@ export const useStyles = makeStyles()((theme) => ({
         '&::after': {
             content: '""',
             position: 'absolute',
-            top: '10%',
+            top: '13%',
             left: '60%',
             transform: 'translate(-50%, -50%)',
             width: '1000px',
@@ -101,7 +102,7 @@ export const useStyles = makeStyles()((theme) => ({
         },
 
         '@media (min-width: 769px) and (max-width: 1279px)': {
-            margin: '35px 8px 120px 32px',
+            margin: '0px 8px 120px 32px',
             maxHeight: 'none',
             overflowY: 'hidden',
             gridTemplateColumns: '1fr',
@@ -123,11 +124,11 @@ export const useStyles = makeStyles()((theme) => ({
                 "content"
             `,
             gap: '24px 0',
-            margin: '35px 24px 120px 24px',
+            margin: '0px 24px 120px 24px',
             paddingRight: '0px',
         },
         '@media (max-width: 480px)': {
-            margin: '35px 10px 120px 10px',
+            margin: '0px 10px 120px 10px',
         },
     },
 
@@ -324,10 +325,10 @@ export const useStyles = makeStyles()((theme) => ({
             background: 'rgba(255, 255, 255, 0.05)',
             borderRadius: '4px',
             margin: '0 31px',
-            border: `1px solid ${theme.palette.text.primary}`,
+            border: `1px solid white`,
         },
         '&::-webkit-scrollbar-thumb': {
-            background: theme.palette.text.primary,
+            background: 'white',
             borderRadius: '4px',
         },
         '&::-webkit-scrollbar-thumb:hover': {
@@ -547,11 +548,11 @@ export const useStyles = makeStyles()((theme) => ({
     },
 
     licenseDialogPaper: {
-        backgroundColor: '#080B1C',
+        backgroundColor: theme.palette.background.default,
         border: `1px solid ${theme.palette.primary.main}`,
         backgroundImage: 'none',
         borderRadius: '10px',
-        color: '#FFFFFF',
+        color: theme.palette.text.primary,
         maxWidth: '841px',
         width: '100%',
         margin: '16px',
@@ -563,10 +564,10 @@ export const useStyles = makeStyles()((theme) => ({
         padding: '32px 32px 16px 32px',
         fontSize: '18px',
         fontWeight: 300,
-        color: '#FFFFFF',
+        color: theme.palette.text.primary,
     },
     licenseCloseButton: {
-        color: '#FFFFFF',
+        color: theme.palette.text.primary,
         padding: '4px',
         '& svg': {
             fontSize: '36px',
@@ -590,16 +591,16 @@ export const useStyles = makeStyles()((theme) => ({
         fontSize: '18px',
         fontWeight: 300,
         lineHeight: 1.5,
-        color: 'white',
+        color: theme.palette.text.primary,
         marginBottom: '16px',
     },
     // СТИЛИ ДЛЯ МОДАЛЬНОГО ОКНА HISTORY
     historyDialogPaper: {
-        backgroundColor: '#080B1C',
+        backgroundColor: theme.palette.background.default,
         border: `1px solid ${theme.palette.primary.main}`,
         backgroundImage: 'none',
         borderRadius: '10px',
-        color: '#FFFFFF',
+        color: theme.palette.text.primary,
         maxWidth: '809px',
         width: '100%',
         margin: '16px',
@@ -638,13 +639,13 @@ export const useStyles = makeStyles()((theme) => ({
     historyVersionDate: {
         fontSize: '20px',
         fontWeight: 500,
-        color: '#FFFFFF',
+        color: theme.palette.text.primary,
         marginBottom: '4px',
     },
     historyChangeList: {
         margin: 0,
         paddingLeft: '16px',
-        color: 'white',
+        color: theme.palette.text.primary,
         fontSize: '20px',
         fontWeight: 200,
         lineHeight: 1.4,

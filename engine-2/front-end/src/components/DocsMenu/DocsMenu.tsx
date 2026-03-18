@@ -14,27 +14,36 @@ import { MenuArrowsToggle } from '../../components/MenuArrowsToggle/MenuArrowsTo
 
 interface DocsMenuProps {
     docsData: Docs;
-    expandAll?: boolean;
-    setExpandAll: Dispatch<SetStateAction<boolean>> | undefined;
+    expandAllSignal?: number;
+    collapseAllSignal?: number;
+    onAllExpandedChange?: (isAllExpanded: boolean) => void;
+    onExpandAll?: () => void;
+    onCollapseAll?: () => void;
     setIsMenuClosed?: Dispatch<SetStateAction<boolean>>;
 }
 
-export const DocsMenu = ({ docsData, expandAll, setIsMenuClosed, setExpandAll}: DocsMenuProps): React.ReactNode => {
+export const DocsMenu = ({ docsData, expandAllSignal, collapseAllSignal, onAllExpandedChange, setIsMenuClosed, onExpandAll, onCollapseAll}: DocsMenuProps): React.ReactNode => {
     const { classes } = useDocsMenuStyles();
     const theme = useTheme();
-    const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
     const isMobile = useMediaQuery('(max-width:768px)');
+    const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
+    const totalSections = Object.keys(docsData.pages).length;
+    const isAllExpanded = totalSections > 0 && expandedSections.size === totalSections;
 
     useEffect(() => {
-        if (expandAll !== undefined) {
-            if (expandAll) {
-                const allKeys = new Set(Object.keys(docsData.pages));
-                setExpandedSections(allKeys);
-            } else {
-                setExpandedSections(new Set());
-            }
-        }
-    }, [expandAll, docsData.pages]);
+        if (!expandAllSignal) return;
+        const allKeys = new Set(Object.keys(docsData.pages));
+        setExpandedSections(allKeys);
+    }, [expandAllSignal, docsData.pages]);
+
+    useEffect(() => {
+        if (!collapseAllSignal) return;
+        setExpandedSections(new Set());
+    }, [collapseAllSignal]);
+
+    useEffect(() => {
+        onAllExpandedChange?.(isAllExpanded);
+    }, [isAllExpanded, onAllExpandedChange]);
 
     const handleSectionToggle = (key: string) => {
         const newExpanded = new Set(expandedSections);
@@ -48,10 +57,12 @@ export const DocsMenu = ({ docsData, expandAll, setIsMenuClosed, setExpandAll}: 
 
     return (
         <Box className={classes.container}>
-           {isMobile && <Box className={classes.menuTopBar}>
+            {isMobile && <Box className={classes.menuTopBar}>
                 <MenuArrowsToggle
                 sx={{width: '62px', height: '30px'}}
-                onExpandAll={setExpandAll}/>
+                value={isAllExpanded ? 'expand' : 'collapse'}
+                onExpandAll={onExpandAll}
+                onCollapseAll={onCollapseAll}/>
                 <img 
                 onClick={()=> {
                     setIsMenuClosed?.(true)
