@@ -12,11 +12,48 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         gap: '40px',
         margin: '0 32px',
         paddingBottom: '20px',
+        position: 'relative',
         maxHeight: 'calc(100vh - 120px)',
         overflowY: 'scroll',
         overflowX: 'hidden',
         paddingRight: '12px',
         marginRight: '8px',
+        '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: '150%',
+            left: '13%',
+            transform: 'translate(-50%, -50%)',
+            width: '600px',
+            height: '1000px',
+            opacity: 0.5,
+            pointerEvents: 'none',
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.35) 0%, rgba(255, 255, 255, 0) 60%)'
+                    : 'none',
+            [theme.breakpoints.down(1278)]: {
+               display: 'none'
+            },
+        },
+        '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: '120%',
+            right: '10%',
+            transform: 'translate(50%, -50%)',
+            width: '400px',
+            height: '900px',
+            opacity: 0.5,
+            pointerEvents: 'none',
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.3) 0%, rgba(255, 255, 255, 0) 60%)'
+                    : 'none',
+             [theme.breakpoints.down(1278)]: {
+               display: 'none'
+            },
+        },
         '&::-webkit-scrollbar': {
             width: '8px',
         },
@@ -88,7 +125,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         minWidth: 0,
     },
     content: {
-        color: theme.palette.mode === 'dark' ? '#e2e8f0' : '#2d3748',
+        color: theme.palette.text.primary,
         lineHeight: 1.8,
         fontSize: '16px',
     },

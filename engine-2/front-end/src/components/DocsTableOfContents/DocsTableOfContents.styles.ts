@@ -23,7 +23,7 @@ export const useDocsTableOfContentsStyles = makeStyles()(theme => ({
      subTitle: {
         fontSize: '16px',
         fontWeight: 400,
-        color: 'white',
+        color: theme.palette.text.primary,
         marginBottom: '16px',
         letterSpacing: '0em',
     },
@@ -55,11 +55,11 @@ export const useDocsTableOfContentsStyles = makeStyles()(theme => ({
         gap: '8px',
         fontSize: '14px',
         fontWeight: 300,
-        color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.5)',
+        color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 88, 148, 0.8)',
         cursor: 'pointer',
         transition: 'color 0.2s',
         '&:hover': {
-            color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)',
+            color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 88, 148)',
         },
     },
     bullet: {

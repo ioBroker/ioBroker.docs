@@ -48,6 +48,9 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        '& img': {
+            filter: theme.palette.mode === 'light' ? 'brightness(0) saturate(100%) invert(21%) sepia(96%) saturate(1992%) hue-rotate(190deg) brightness(95%) contrast(91%)' : 'none',
+        },
     },
     header: {
         display: 'flex',

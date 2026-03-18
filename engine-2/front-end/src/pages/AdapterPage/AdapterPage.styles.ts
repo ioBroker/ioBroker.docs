@@ -8,8 +8,9 @@ export const useStyles = makeStyles()((theme) => ({
             "intro   sidebar"
             "content sidebar"
         `,
+        position: 'relative',
         gap: '0 40px',
-        margin: '35px 32px 120px 32px',
+        margin: '35px 8px 0px 32px',
         paddingBottom: '40px',
         color: theme.palette.text.primary,
         fontFamily: theme.typography.fontFamily,
@@ -17,7 +18,6 @@ export const useStyles = makeStyles()((theme) => ({
         overflowY: 'scroll',
         overflowX: 'hidden',
         paddingRight: '12px',
-        marginRight: '8px',
         '&::-webkit-scrollbar': {
             width: '8px',
         },
@@ -34,10 +34,76 @@ export const useStyles = makeStyles()((theme) => ({
         '&::-webkit-scrollbar-thumb:hover': {
             background: theme.palette.secondary.main,
         },
+        '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: '10%',
+            left: '60%',
+            transform: 'translate(-50%, -50%)',
+            width: '1000px',
+            height: '300px',
+            opacity: 0.5,
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.3) 0%, rgba(255, 255, 255, 0) 55%)'
+                    : 'none',
+            '@media (min-width: 769px) and (max-width: 1279px)': {
+                display: 'none'
+            },
+            '@media (max-width: 1440px)': {
+                top: '14%',
+            },
+            '@media (max-width: 769px)': {
+                top: '4%',
+                background:
+                    theme.palette.mode === 'dark'
+                        ? 'radial-gradient(circle, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)'
+                        : 'none',
+                width: '400px',
+                height: '400px',
+                left: 'auto',
+                right: '20%',
+                transform: 'translate(50%, -50%)',
+            },
+            '@media (max-width: 481px)': {
+                 top: '2%',
+              
+            },
+        },
+         '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: '90%',
+            right: '-20%',
+            transform: 'translateX(-50%)',
+            width: '600px',
+            height: '1200px',
+            opacity: 0.5,
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.4) 0%, rgba(255, 255, 255, 0) 55%)'
+                    : 'none',
+            pointerEvents: 'none',
+            zIndex: 0,
+             '@media (min-width: 769px) and (max-width: 1440px)': {
+                right: '-30%',
+            },
+             '@media (min-width: 769px) and (max-width: 1279px)': {
+                display: 'none'
+            },
+             '@media (max-width: 769px)': {
+                 top: '35%',
+            },
+             '@media (max-width: 481px)': {
+                  left: '80%',
+                  top: '25%',
+            },
+        },
 
         '@media (min-width: 769px) and (max-width: 1279px)': {
-             maxHeight: 'none',
-             overflowY: 'hidden',
+            margin: '35px 8px 120px 32px',
+            maxHeight: 'none',
+            overflowY: 'hidden',
             gridTemplateColumns: '1fr',
             gridTemplateAreas: `
                 "intro"
@@ -87,7 +153,7 @@ export const useStyles = makeStyles()((theme) => ({
             gap: '24px',
             marginBottom: '16px',
         },
-         '@media (min-width: 480px) and (max-width: 769px)': {
+        '@media (min-width: 480px) and (max-width: 769px)': {
             maxWidth: '460px'
         },
     },
@@ -106,8 +172,8 @@ export const useStyles = makeStyles()((theme) => ({
         width: '100%',
         '@media (min-width: 769px) and (max-width: 1279px)': {
             flex: 1,
-             maxWidth: '342px',
-             gap: '16px',
+            maxWidth: '342px',
+            gap: '16px',
         },
         '@media (max-width: 769px)': {
             maxWidth: 'none',
@@ -117,7 +183,7 @@ export const useStyles = makeStyles()((theme) => ({
     breadcrumbs: {
         fontFamily: 'Audiowide, sans-serif',
         fontSize: '20px',
-        color: theme.palette.mode === 'dark' ? 'white' : theme.palette.primary.main,
+        color: theme.palette.text.primary,
         marginBottom: '24px',
         display: 'flex',
         alignItems: 'center',
@@ -126,7 +192,7 @@ export const useStyles = makeStyles()((theme) => ({
         '@media (max-width: 1279px)': {
             fontSize: '18px',
         },
-          '@media (max-width: 480px)': {
+        '@media (max-width: 480px)': {
             fontSize: '16px',
         },
     },
@@ -141,7 +207,7 @@ export const useStyles = makeStyles()((theme) => ({
         '@media (max-width: 1279px)': {
             fontSize: '28px',
         },
-         '@media (max-width: 530px)': {
+        '@media (max-width: 530px)': {
             fontSize: '24px',
         },
         '@media (max-width: 480px)': {
@@ -161,8 +227,8 @@ export const useStyles = makeStyles()((theme) => ({
         lineHeight: 1.4,
         marginBottom: '16px',
         letterSpacing: '0.01em',
-        color: theme.palette.mode === 'dark' ? theme.palette.text.primary : theme.palette.text.primary,
-          '@media (max-width: 480px)': {
+        color: theme.palette.text.primary,
+        '@media (max-width: 480px)': {
             fontSize: '16px',
         },
     },
@@ -175,10 +241,10 @@ export const useStyles = makeStyles()((theme) => ({
         marginBottom: '16px',
         borderBottom: `1px solid ${theme.palette.primary.main}`,
         paddingBottom: '8px',
-         '@media (max-width: 769px)': {
+        '@media (max-width: 769px)': {
             fontSize: '16px',
         },
-         '@media (max-width: 480px)': {
+        '@media (max-width: 480px)': {
             fontSize: '18px',
         },
     },
@@ -188,11 +254,11 @@ export const useStyles = makeStyles()((theme) => ({
         color: theme.palette.text.primary,
         marginBottom: '8px',
         marginTop: '24px',
-          '@media (max-width: 1279px)': {
+        '@media (max-width: 1279px)': {
             fontSize: '18px',
             fontWeight: 300,
         },
-         '@media (max-width: 480px)': {
+        '@media (max-width: 480px)': {
             fontSize: '16px',
             fontWeight: 300,
         },
@@ -217,9 +283,9 @@ export const useStyles = makeStyles()((theme) => ({
         border: `1px solid ${theme.palette.secondary.main}`,
         marginBottom: '24px',
         paddingBottom: '16px',
-          '@media (max-width: 769px)': {
-             width: '630px',
-             height: '202px',           
+        '@media (max-width: 769px)': {
+            width: '630px',
+            height: '202px',
         },
     },
     codeBlockHeader: {
@@ -234,7 +300,7 @@ export const useStyles = makeStyles()((theme) => ({
         fontWeight: 500,
         fontSize: '20px',
         flexShrink: 0,
-          '@media (max-width: 769px)': {
+        '@media (max-width: 769px)': {
             fontSize: '18px',
         },
     },
@@ -267,7 +333,7 @@ export const useStyles = makeStyles()((theme) => ({
         '&::-webkit-scrollbar-thumb:hover': {
             background: '#FFF',
         },
-         '@media (max-width: 769px)': {
+        '@media (max-width: 769px)': {
             fontSize: '10px'
         },
 
@@ -295,8 +361,8 @@ export const useStyles = makeStyles()((theme) => ({
         display: 'flex',
         justifyContent: 'center',
         marginBottom: '24px',
-         '@media (max-width: 769px)': {
-               marginBottom: '0px',
+        '@media (max-width: 769px)': {
+            marginBottom: '0px',
         },
     },
     logo: {
@@ -305,10 +371,10 @@ export const useStyles = makeStyles()((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-         '@media (max-width: 1279px)': {
-            '& img':{
-                 width: '104px',
-                 height: '104px',
+        '@media (max-width: 1279px)': {
+            '& img': {
+                width: '104px',
+                height: '104px',
             }
         },
     },
@@ -345,10 +411,10 @@ export const useStyles = makeStyles()((theme) => ({
         justifyContent: 'space-between',
         marginTop: '24px',
         paddingTop: '24px',
-         '@media (max-width: 1279px)': {
-             marginTop: '0px',
+        '@media (max-width: 1279px)': {
+            marginTop: '0px',
         },
-        
+
     },
     statItem: {
         display: 'flex',
@@ -359,7 +425,10 @@ export const useStyles = makeStyles()((theme) => ({
         '& svg': {
             marginBottom: '4px',
             color: theme.palette.text.primary,
-        }
+        },
+        '& img': {
+            filter: theme.palette.mode === 'light' ? 'brightness(0) saturate(100%) invert(21%) sepia(96%) saturate(1992%) hue-rotate(190deg) brightness(95%) contrast(91%)' : 'none',
+        },
     },
     sidebarLink: {
         display: 'flex',
@@ -379,7 +448,7 @@ export const useStyles = makeStyles()((theme) => ({
             borderColor: theme.palette.primary.main,
             backgroundColor: theme.custom.backgroundColorOpacity,
         },
-          '@media (max-width: 1279px)': {
+        '@media (max-width: 1279px)': {
             height: '40px',
         },
     },
@@ -399,11 +468,11 @@ export const useStyles = makeStyles()((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         gap: '12px',
-         '@media (max-width: 1279px)': {
-           padding: '19px 24px',
+        '@media (max-width: 1279px)': {
+            padding: '19px 24px',
             borderRadius: '10px',
         },
-         '@media (max-width: 769px)': {
+        '@media (max-width: 769px)': {
             display: 'none',
         },
     },
@@ -416,7 +485,7 @@ export const useStyles = makeStyles()((theme) => ({
         width: '24px',
         height: '24px',
         flexShrink: 0,
-         '@media (max-width: 768px)': {
+        '@media (max-width: 768px)': {
             width: '18px',
             height: '18px',
         },
@@ -430,13 +499,13 @@ export const useStyles = makeStyles()((theme) => ({
         width: '24px',
         height: '24px',
         flexShrink: 0,
-         '@media (max-width: 1279px)': {
-            width: '12px',
-            height: '12px',
-        },
         '@media (max-width: 768px)': {
             width: '18px',
             height: '18px',
+        },
+         '@media (max-width: 1279px)': {
+            width: '12px',
+            height: '12px',
         },
     },
     arrowIconEdit: {
@@ -505,7 +574,7 @@ export const useStyles = makeStyles()((theme) => ({
     },
     licenseContent: {
         padding: '0 32px 32px 32px !important',
-         '&::-webkit-scrollbar': {
+        '&::-webkit-scrollbar': {
             width: '6px',
         },
         '&::-webkit-scrollbar-track': {
@@ -540,7 +609,7 @@ export const useStyles = makeStyles()((theme) => ({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '32px 32px 16px 32px',
-        fontSize: '32px', 
+        fontSize: '32px',
         fontWeight: 400,
         fontFamily: 'Audiowide, sans-serif',
         color: theme.palette.primary.main,
@@ -568,14 +637,14 @@ export const useStyles = makeStyles()((theme) => ({
     },
     historyVersionDate: {
         fontSize: '20px',
-        fontWeight: 500, 
+        fontWeight: 500,
         color: '#FFFFFF',
         marginBottom: '4px',
     },
     historyChangeList: {
         margin: 0,
         paddingLeft: '16px',
-        color: 'white', 
+        color: 'white',
         fontSize: '20px',
         fontWeight: 200,
         lineHeight: 1.4,

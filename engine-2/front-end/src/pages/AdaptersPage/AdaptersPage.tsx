@@ -94,7 +94,7 @@ const AdaptersPage = (): React.ReactNode => {
                 <SectionTitle
                     sx={{
                         marginLeft: '32px',
-                        ...(theme.palette.mode === 'dark' && { color: 'white !important' }),
+                        color: `${theme.palette.text.primary} !important`,
                         fontSize: {
                             '@media (max-width:1279px)': { fontSize: '28px !important' },
                             '@media (max-width:480px)': { fontSize: '20px !important' },
