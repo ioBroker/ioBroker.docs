@@ -27,7 +27,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     },
     root: {
         display: 'flex',
-        gap: '40px',
+        gap: '30px',
         margin: '0 32px',
         paddingBottom: '20px',
         position: 'relative',
@@ -152,10 +152,12 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         fontSize: '24px',
         fontFamily: 'Audiowide',
         fontWeight: 400,
+        textTransform: 'uppercase',
         marginBottom: '20px',
         scrollMarginTop: '100px',
         letterSpacing: '-0.03em',
         display: 'inline-flex',
+        width: '100%',
         alignItems: 'flex-start',
         gap: '16px',
         cursor: 'pointer',
@@ -169,6 +171,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         fontSize: '20px',
         fontFamily: 'Audiowide',
         fontWeight: 400,
+        textTransform: 'uppercase',
         marginBottom: '20px',
         scrollMarginTop: '100px',
         letterSpacing: '-0.03em',
@@ -214,6 +217,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     },
     menuBlock: {
         flexShrink: 0,
+         top: '0px',     
+        position: 'sticky',
         [theme.breakpoints.down(769)]: {
             display: 'none',
         },

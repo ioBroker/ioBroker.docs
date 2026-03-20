@@ -2,7 +2,6 @@ import { makeStyles } from '../../theme';
 
 export const useDocsTableOfContentsStyles = makeStyles()(theme => ({
     container: {
-        position: 'sticky',
         top: '1px',
         width: '222px',
         padding: '10px',
@@ -10,7 +9,6 @@ export const useDocsTableOfContentsStyles = makeStyles()(theme => ({
         border: `1px solid ${theme.palette.primary.main}`,
         borderRadius: '8px',
         backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
-        marginLeft: '40px',
         flexShrink: 0,
     },
     title: {

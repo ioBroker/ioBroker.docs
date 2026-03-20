@@ -12,6 +12,7 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
     },
     menuInner: {
         maxHeight: 'calc(100vh - 125px)',
+        maxWidth: '300px',  
         overflowY: 'scroll',
         overflowX: 'hidden',
         paddingRight: '16px',
