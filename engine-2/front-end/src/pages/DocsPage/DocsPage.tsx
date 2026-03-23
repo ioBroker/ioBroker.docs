@@ -25,10 +25,9 @@ const DocsPage = (): React.ReactNode => {
     const isTablet = useMediaQuery('(max-width:1181px)');
     const isMobile = useMediaQuery('(max-width:768px)');
     const isMini = useMediaQuery('(max-width:480px)');
-    const [search, setSearch] = useState(''); 
+    const [search, setSearch] = useState('');
     const { classes } = useStyles({ isMenuCollapsed });
     const [language, setLanguage] = useState(I18n.getLanguage());
-    useEffect(() => I18n.subscribe(setLanguage), []);
     const params = useParams();
     const docPath = (params['*'] ?? 'README.md').replace(/^\/+/, '');
     const markdownUrl = `${API_CONFIG.IOBROKER_BASE_URL}/${language}/${docPath}`;
@@ -37,6 +36,8 @@ const DocsPage = (): React.ReactNode => {
         ? API_CONFIG.IOBROKER_BASE_URL
         : 'https://www.iobroker.net';
     const markdownBaseUrl = `${baseOrigin}/${language}/${docPath}`;
+
+    useEffect(() => I18n.subscribe(setLanguage), []);
     useEffect(() => {
         if (isMobile) {
             setIsMenuCollapsed(true)
@@ -87,39 +88,41 @@ const DocsPage = (): React.ReactNode => {
     return (
         <Box>
             <SectionTitle
-                sx={{ marginTop: '30px', marginLeft: '31px', letterSpacing: '-0.03em !important',
+                sx={{
+                    marginTop: '30px', marginLeft: '31px', letterSpacing: '-0.03em !important',
                     fontSize: isMini ? '20px !important' : (isMobile ? '28px !important' : '36px')
-                 }}
+                }}
             >{I18n.t('home.docs.title')}</SectionTitle>
             <Box className={classes.pageWrapper}>
                 <Box className={classes.topBar}>
                     <Box className={classes.menuToggleContainer}>
                         <MenuToggle
-                            sx={{width: isMini ? '55px !important' :(isMobile? '70px !important': '55px'),
-                                 height: isMini ? '32px !important':(isMobile? '40px !important': '32px'),
+                            sx={{
+                                width: isMini ? '55px !important' : (isMobile ? '70px !important' : '55px'),
+                                height: isMini ? '32px !important' : (isMobile ? '40px !important' : '32px'),
                                 '& img': {
-                                    width: isMini? '15px !important':(isMobile? '18px': '15px'),
-                                    height: isMini? '7px !important':(isMobile? '10px': '7px')
+                                    width: isMini ? '15px !important' : (isMobile ? '18px' : '15px'),
+                                    height: isMini ? '7px !important' : (isMobile ? '10px' : '7px')
                                 }
                             }}
-                            buttonSx={{minWidth: isMini ? '27px !important': (isMobile? '35px !important': '27px'),}}
+                            buttonSx={{ minWidth: isMini ? '27px !important' : (isMobile ? '35px !important' : '27px'), }}
                             value={menuMode}
                             onChange={setMenuMode}
                             onCollapse={setIsMenuCollapsed}
                         />
                         {!isMobile &&
-                        <MenuArrowsToggle
-                            value={isAllExpanded ? 'expand' : 'collapse'}
-                            onExpandAll={expandAllSections}
-                            onCollapseAll={collapseAllSections}
-                        />}
+                            <MenuArrowsToggle
+                                value={isAllExpanded ? 'expand' : 'collapse'}
+                                onExpandAll={expandAllSections}
+                                onCollapseAll={collapseAllSections}
+                            />}
                     </Box>
                     <Box className={classes.searchContainer}>
                         <TopBarSearch
                             isFluid={isMobile}
                             sx={{
                                 '& .MuiOutlinedInput-root': {
-                                    height: isMini ? '32px !important':(isMobile ? '40px !important' : '32px'),
+                                    height: isMini ? '32px !important' : (isMobile ? '40px !important' : '32px'),
                                 },
                             }}
                             value={search}
@@ -128,7 +131,7 @@ const DocsPage = (): React.ReactNode => {
                     </Box>
                 </Box>
                 {!isMenuCollapsed && (
-                    <Box className={classes.menuBlockMobile}> 
+                    <Box className={classes.menuBlockMobile}>
                         <DocsMenu
                             expandAllSignal={expandAllSignal}
                             collapseAllSignal={collapseAllSignal}
@@ -165,6 +168,15 @@ const DocsPage = (): React.ReactNode => {
                                     listItem: classes.listItem,
                                     image: classes.image,
                                     linkIcon: classes.linkIcon,
+                                    table: classes.table,
+                                    tableHead: classes.tableHead,
+                                    tableRow: classes.tableRow,
+                                    tableHeaderCell: classes.tableHeaderCell,
+                                    tableCell: classes.tableCell,
+                                    codeBlockContainer: classes.codeBlockContainer,
+                                    codeBlockContent: classes.codeBlockContent,
+                                    inlineCode: classes.inlineCode,
+                                    blockquote: classes.blockquote,
                                 }}
                                 linkImage={linkImage}
                             />

@@ -215,6 +215,130 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         margin: '24px 0',
         borderRadius: '8px',
     },
+    table: {
+        width: '100%',
+        borderCollapse: 'collapse',
+        margin: '24px 0',
+        fontSize: '16px',
+        border: `1px solid ${theme.palette.divider}`,
+        borderRadius: '8px',
+        overflow: 'hidden',
+        [theme.breakpoints.down(768)]: {
+            fontSize: '14px',
+            display: 'block',
+            overflow: 'auto',
+            whiteSpace: 'nowrap',
+        },
+        [theme.breakpoints.down(481)]: {
+            fontSize: '12px',
+        },
+    },
+    tableHead: {
+        backgroundColor: theme.palette.mode === 'dark' 
+            ? 'rgba(35, 86, 174, 0.1)' 
+            : 'rgba(35, 86, 174, 0.05)',
+    },
+    tableRow: {
+        borderBottom: `1px solid ${theme.palette.divider}`,
+        '&:last-child': {
+            borderBottom: 'none',
+        },
+    },
+    tableHeaderCell: {
+        padding: '12px 16px',
+        fontWeight: 600,
+        textAlign: 'left',
+        color: theme.palette.primary.main,
+        borderRight: `1px solid ${theme.palette.divider}`,
+        '&:last-child': {
+            borderRight: 'none',
+        },
+        [theme.breakpoints.down(768)]: {
+            padding: '8px 12px',
+            minWidth: '120px',
+        },
+        [theme.breakpoints.down(481)]: {
+            padding: '6px 8px',
+            minWidth: '100px',
+        },
+    },
+    tableCell: {
+        padding: '12px 16px',
+        borderRight: `1px solid ${theme.palette.divider}`,
+        '&:last-child': {
+            borderRight: 'none',
+        },
+        [theme.breakpoints.down(768)]: {
+            padding: '8px 12px',
+            minWidth: '120px',
+        },
+        [theme.breakpoints.down(481)]: {
+            padding: '6px 8px',
+            minWidth: '100px',
+        },
+    },
+    codeBlockContainer: {
+        backgroundColor: theme.palette.secondary.main,
+        borderRadius: '8px',
+        border: `1px solid ${theme.palette.secondary.main}`,
+        margin: '16px 0 24px 0',
+        overflow: 'hidden',
+    },
+    codeBlockContent: {
+        padding: '10px 16px 10px 16px',
+        margin: 0,
+        fontFamily: 'monospace',
+        fontSize: '16px',
+        color: '#FFF',
+        overflowX: 'hidden',
+        overflowY: 'hidden',
+        whiteSpace: 'pre-wrap',
+        wordBreak: 'break-word',
+        backgroundColor: theme.palette.secondary.main,
+        '& code': {
+            fontFamily: 'inherit',
+            fontSize: 'inherit',
+            color: 'inherit',
+        },
+        '&::-webkit-scrollbar': {
+            height: '7px',
+        },
+        '&::-webkit-scrollbar-track': {
+            background: 'rgba(255, 255, 255, 0.05)',
+            borderRadius: '4px',
+            margin: '0 31px',
+            border: `1px solid white`,
+        },
+        '&::-webkit-scrollbar-thumb': {
+            background: 'white',
+            borderRadius: '4px',
+        },
+        '&::-webkit-scrollbar-thumb:hover': {
+            background: '#FFF',
+        },
+        [theme.breakpoints.down(769)]: {
+            fontSize: '10px'
+        },
+    },
+    inlineCode: {
+        fontFamily: 'monospace',
+        fontSize: '0.95em',
+        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(35, 86, 174, 0.25)' : 'rgba(35, 86, 174, 0.12)',
+        padding: '2px 6px',
+        borderRadius: '4px',
+        color: theme.palette.text.primary,
+    },
+    blockquote: {
+        margin: '12px 0 16px 0',
+        padding: '10px 16px',
+        borderLeft: `4px solid ${theme.palette.secondary.main}`,
+        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(35, 86, 174, 0.12)' : 'rgba(35, 86, 174, 0.06)',
+        borderRadius: '6px',
+        color: theme.palette.text.primary,
+        '& p': {
+            margin: 0,
+        },
+    },
     menuBlock: {
         flexShrink: 0,
          top: '0px',     

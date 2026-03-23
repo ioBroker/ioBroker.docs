@@ -1,8 +1,9 @@
 import { Box } from '@mui/material';
 import type React from 'react';
-import { Children, isValidElement } from 'react';
+import { Children, isValidElement, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { createSlugger, makeSlug, removeFrontmatter } from '../../utils/markdown';
 
 interface MarkdownViewProps {
@@ -19,6 +20,15 @@ interface MarkdownViewProps {
         listItem: string;
         image: string;
         linkIcon: string;
+        table: string;
+        tableHead: string;
+        tableRow: string;
+        tableHeaderCell: string;
+        tableCell: string;
+        codeBlockContainer: string;
+        codeBlockContent: string;
+        inlineCode: string;
+        blockquote: string;
     };
     linkImage: string;
 }
@@ -30,137 +40,76 @@ const normalizeText = (node: React.ReactNode): string => {
                 return String(child);
             }
             if (isValidElement(child)) {
-                return normalizeText(child.props.children);
+                return normalizeText((child.props as any).children);
             }
             return '';
         })
         .join('');
 };
 
-const normalizeTables = (markdown: string): string => {
-    const rawLines = markdown.split(/\r?\n/);
-    const lines: string[] = [];
+const fixTableFormat = (markdown: string): string => {
+    const lines = markdown.split('\n');
+    const processedLines: string[] = [];
+    let expectedColumns = 0;
+    let inTable = false;
 
-    rawLines.forEach((line) => {
-        const headerSepMatch = line.match(/^(.*?)(\s{2,}-{3,}(?:\s{2,}-{3,})+)\s*$/);
-        if (headerSepMatch && headerSepMatch[1].trim() && headerSepMatch[2].trim()) {
-            lines.push(headerSepMatch[1].trim());
-            lines.push(headerSepMatch[2].trim());
-            return;
-        }
-        const sepInlineMatch = line.match(/^(\s*-{3,}(?:\s{2,}-{3,})+)\s+(.*)$/);
-        if (sepInlineMatch) {
-            lines.push(sepInlineMatch[1].trim());
-            lines.push(sepInlineMatch[2].trim());
-            return;
-        }
-        lines.push(line);
-    });
+    for (let i = 0; i < lines.length; i++) {
+        let line = lines[i].trim();
 
-    const out: string[] = [];
-    let inCodeFence = false;
+        const isDelimiter = /^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)+\|?\s*$/.test(line);
 
-    const splitCols = (line: string): string[] => {
-        return line.trim().split(/\s{2,}/).map((c) => c.trim()).filter((c) => c.length > 0);
-    };
-    const isSeparatorLine = (line: string, colCount: number): boolean => {
-        const parts = splitCols(line);
-        if (parts.length < colCount) return false;
-        return parts.every((p) => /^-+$/.test(p));
-    };
+        if (isDelimiter) {
+            if (!line.startsWith('|')) line = '|' + line;
+            if (!line.endsWith('|')) line = line + '|';
 
-    let activePipeCols = 0;
-    for (let i = 0; i < lines.length; i += 1) {
-        const line = lines[i];
-        const trimmed = line.trim();
-        if (trimmed.startsWith('```')) {
-            inCodeFence = !inCodeFence;
-            out.push(line);
-            continue;
-        }
-        if (inCodeFence) {
-            out.push(line);
-            continue;
-        }
+            expectedColumns = line.split('|').length - 2;
 
-        if (trimmed.includes('|')) {
-            const pipeParts = trimmed.replace(/^\\|/, '').replace(/\\|$/, '').split('|').map((c) => c.trim()).filter((c) => c.length > 0);
-            // detect header separator to activate table mode
-            if (pipeParts.length > 0 && pipeParts.every((p) => /^-+$/.test(p))) {
-                activePipeCols = pipeParts.length;
-                out.push(line);
-                continue;
+            let prevLine = processedLines.pop() || '';
+            
+            if (prevLine.trim() === '' && processedLines.length > 0) {
+                prevLine = processedLines.pop() || '';
             }
-            if (activePipeCols > 0 && pipeParts.length > activePipeCols && pipeParts.length % activePipeCols === 0) {
-                for (let idx = 0; idx < pipeParts.length; idx += activePipeCols) {
-                    const row = pipeParts.slice(idx, idx + activePipeCols);
-                    out.push(`| ${row.join(' | ')} |`);
+
+            if (!prevLine.startsWith('|')) prevLine = '| ' + prevLine;
+            if (!prevLine.endsWith('|')) prevLine = prevLine + ' |';
+
+            processedLines.push(prevLine);
+            processedLines.push(line);
+            inTable = true;
+            continue;
+        }
+
+        if (inTable) {
+            if (line === '') {
+                inTable = false;
+                processedLines.push(lines[i]); 
+            } else {
+                let cells = line.split(/(?<!\\)\|/).map(c => c.trim());
+
+                if (cells[0] === '') cells.shift();
+                if (cells[cells.length - 1] === '') cells.pop();
+
+                for (let j = 0; j < cells.length; j += expectedColumns) {
+                    const chunk = cells.slice(j, j + expectedColumns);
+
+                    while (chunk.length < expectedColumns) chunk.push('');                    
+                    processedLines.push('| ' + chunk.join(' | ') + ' |');
                 }
-                continue;
             }
-            if (!trimmed) {
-                activePipeCols = 0;
-            }
-            out.push(line);
-            continue;
-        } else if (!trimmed) {
-            activePipeCols = 0;
+        } else {
+            processedLines.push(lines[i]);
         }
-
-        const headerCols = splitCols(line);
-        const next = lines[i + 1];
-        if (headerCols.length >= 2 && next && isSeparatorLine(next, headerCols.length)) {
-            const rows: string[][] = [];
-            i += 1; // skip separator
-            while (i + 1 < lines.length) {
-                const rowLine = lines[i + 1];
-                const rowTrimmed = rowLine.trim();
-                if (!rowTrimmed) break;
-                if (rowTrimmed.startsWith('#')) break;
-                if (rowTrimmed.startsWith('- ') || rowTrimmed.startsWith('* ')) break;
-                const cols = splitCols(rowLine);
-                if (cols.length === 0) break;
-                if (cols.length >= headerCols.length * 2) {
-                    let idx = 0;
-                    while (idx + headerCols.length <= cols.length) {
-                        const chunk = cols.slice(idx, idx + headerCols.length);
-                        rows.push(chunk);
-                        idx += headerCols.length;
-                    }
-                    if (idx < cols.length && rows.length > 0) {
-                        rows[rows.length - 1][headerCols.length - 1] += ` ${cols.slice(idx).join(' ')}`;
-                    }
-                } else {
-                    while (cols.length < headerCols.length) cols.push('');
-                    if (cols.length > headerCols.length) {
-                        const head = cols.slice(0, headerCols.length - 1);
-                        const tail = cols.slice(headerCols.length - 1).join(' ');
-                        rows.push([...head, tail]);
-                    } else {
-                        rows.push(cols);
-                    }
-                }
-                i += 1;
-            }
-
-            out.push(`| ${headerCols.join(' | ')} |`);
-            out.push(`| ${headerCols.map(() => '---').join(' | ')} |`);
-            rows.forEach((r) => {
-                out.push(`| ${r.join(' | ')} |`);
-            });
-            continue;
-        }
-
-        out.push(line);
     }
 
-    return out.join('\n');
+    return processedLines.join('\n');
 };
+
 
 const normalizeImageTags = (markdown: string): string => {
     let result = markdown;
     result = removeFrontmatter(result);
     result = result.replace(/^\s*<!--.*?-->\s*$/gm, '');
+    result = result.replace(/<image\b[^>]*>/gi, '');
     result = result.replace(/<img\b[^>]*>/gi, (tag) => {
         const srcMatch = tag.match(/src=["']([^"']+)["']/i);
         if (!srcMatch) return '';
@@ -173,7 +122,15 @@ const normalizeImageTags = (markdown: string): string => {
         return `![](${src})`;
     });
     result = result.replace(/!\(\s*([^)\\s]+)\s*\)/g, (_match, src) => `![](${src})`);
-    result = normalizeTables(result);
+    result = result.replace(/^\s*\[Image\s*#\d+\]\s*$/gmi, '');
+    result = result.replace(/\[Image\s*#\d+\]/gi, '');
+    result = result.replace(/^\s*!>\s+/gm, '> ');
+    result = result.replace(/^\s*\?>\s+/gm, '> ');
+    result = result.replace(/^\s*\*>\s+/gm, '> ');
+    result = result.replace(/^\s*[✓✔]\s+/gm, '> ');
+
+    result = fixTableFormat(result);
+
     return result;
 };
 
@@ -193,6 +150,88 @@ const resolveMarkdownUrl = (src: string | undefined, baseUrl: string, origin: st
 
 export const MarkdownView = ({ markdown, baseUrl, origin, headingIds, headingIdMap, classNames, linkImage }: MarkdownViewProps): React.ReactNode => {
     const markdownForRender = markdown ? normalizeImageTags(markdown) : '';
+    const isHashRouter = () => window.location.hash.startsWith('#/');
+    const getAnchorFromHash = (): string | null => {
+        const hash = window.location.hash;
+        if (!hash) return null;
+        if (hash.startsWith('#/')) {
+            const withoutHash = hash.slice(1);
+            const queryIndex = withoutHash.indexOf('?');
+            if (queryIndex === -1) return null;
+            const query = withoutHash.slice(queryIndex + 1);
+            const params = new URLSearchParams(query);
+            return params.get('anchor');
+        }
+        return hash.length > 1 ? decodeURIComponent(hash.slice(1)) : null;
+    };
+    const buildAnchorHref = (id: string) => {
+        if (!isHashRouter()) return `#${id}`;
+        const hash = window.location.hash;
+        const withoutHash = hash.startsWith('#') ? hash.slice(1) : hash;
+        const queryIndex = withoutHash.indexOf('?');
+        const path = queryIndex === -1 ? withoutHash : withoutHash.slice(0, queryIndex);
+        const query = queryIndex === -1 ? '' : withoutHash.slice(queryIndex + 1);
+        const params = new URLSearchParams(query);
+        params.set('anchor', id);
+        const nextHash = `${path}?${params.toString()}`;
+        return `#${nextHash}`;
+    };
+    const getScrollParent = (element: HTMLElement | null): HTMLElement | Window => {
+        let node = element?.parentElement ?? null;
+        while (node) {
+            const style = window.getComputedStyle(node);
+            const canScroll = /(auto|scroll)/.test(style.overflowY || '') && node.scrollHeight > node.clientHeight;
+            if (canScroll) return node;
+            node = node.parentElement;
+        }
+        return window;
+    };
+    const scrollToId = (id: string) => {
+        const target = document.getElementById(id);
+        if (!target) return;
+        const scrollParent = getScrollParent(target);
+        if (scrollParent === window) {
+            target.scrollIntoView({ block: 'start' });
+            return;
+        }
+        const parent = scrollParent as HTMLElement;
+        const parentRect = parent.getBoundingClientRect();
+        const targetRect = target.getBoundingClientRect();
+        const scrollMarginTop = parseFloat(window.getComputedStyle(target).scrollMarginTop || '0') || 0;
+        const top = targetRect.top - parentRect.top + parent.scrollTop - scrollMarginTop;
+        parent.scrollTo({ top, behavior: 'auto' });
+    };
+    const scrollToHeading = (id: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+        event.preventDefault();
+        scrollToId(id);
+        if (!isHashRouter()) {
+            const url = new URL(window.location.href);
+            url.hash = `#${id}`;
+            const nextUrl = url.toString();
+            if (window.location.hash !== `#${id}`) {
+                window.history.replaceState(null, '', nextUrl);
+            }
+            return;
+        }
+        const href = buildAnchorHref(id);
+        if (window.location.hash !== href) {
+            window.history.replaceState(null, '', href);
+        }
+    };
+
+    useEffect(() => {
+        if (!markdownForRender) return;
+        const handleHash = () => {
+            const id = getAnchorFromHash();
+            if (!id) return;
+            scrollToId(id);
+        };
+        requestAnimationFrame(() => requestAnimationFrame(handleHash));
+        window.addEventListener('hashchange', handleHash);
+        return () => window.removeEventListener('hashchange', handleHash);
+    }, [markdownForRender]);
+
+
     const getUniqueId = createSlugger();
     let headingIndex = 0;
     const slugIndex = new Map<string, number>();
@@ -215,6 +254,7 @@ export const MarkdownView = ({ markdown, baseUrl, origin, headingIds, headingIdM
     return markdownForRender ? (
         <ReactMarkdown
             remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw]}
             components={{
                 h1: () => null,
                 h2: ({ children }) => {
@@ -223,7 +263,9 @@ export const MarkdownView = ({ markdown, baseUrl, origin, headingIds, headingIdM
                     return (
                         <Box id={id} data-md-heading={makeSlug(text)} className={classNames.head}>
                             <div>{children}</div>
-                            <img src={linkImage} alt="link" className={classNames.linkIcon} />
+                            <a href={buildAnchorHref(id)} aria-label={`Link to ${text}`} style={{ display: 'inline-flex' }} onClick={scrollToHeading(id)}>
+                                <img src={linkImage} alt="link" className={classNames.linkIcon} />
+                            </a>
                         </Box>
                     );
                 },
@@ -233,7 +275,9 @@ export const MarkdownView = ({ markdown, baseUrl, origin, headingIds, headingIdM
                     return (
                         <Box id={id} data-md-heading={makeSlug(text)} className={classNames.heading}>
                             <div>{children}</div>
-                            <img src={linkImage} alt="link" className={classNames.linkIcon} />
+                            <a href={buildAnchorHref(id)} aria-label={`Link to ${text}`} style={{ display: 'inline-flex' }} onClick={scrollToHeading(id)}>
+                                <img src={linkImage} alt="link" className={classNames.linkIcon} />
+                            </a>
                         </Box>
                     );
                 },
@@ -264,6 +308,58 @@ export const MarkdownView = ({ markdown, baseUrl, origin, headingIds, headingIdM
                         />
                     </Box>
                 ),
+                table: ({ children }) => (
+                    <Box component="table" className={classNames.table}>
+                        {children}
+                    </Box>
+                ),
+                thead: ({ children }) => (
+                    <Box component="thead" className={classNames.tableHead}>
+                        {children}
+                    </Box>
+                ),
+                tbody: ({ children }) => (
+                    <Box component="tbody">
+                        {children}
+                    </Box>
+                ),
+                tr: ({ children }) => (
+                    <Box component="tr" className={classNames.tableRow}>
+                        {children}
+                    </Box>
+                ),
+                th: ({ children }) => (
+                    <Box component="th" className={classNames.tableHeaderCell}>
+                        {children}
+                    </Box>
+                ),
+                td: ({ children }) => (
+                    <Box component="td" className={classNames.tableCell}>
+                        {children}
+                    </Box>
+                ),
+                blockquote: ({ children }) => (
+                    <Box component="blockquote" className={classNames.blockquote}>
+                        {children}
+                    </Box>
+                ),
+                pre: ({ children }) => (
+                    <Box className={classNames.codeBlockContainer}>
+                        <Box component="pre" className={classNames.codeBlockContent}>
+                            {children}
+                        </Box>
+                    </Box>
+                ),
+                code: ({ children, ...props }) => {
+                    const inline = !props.className?.includes('language-');
+                    return inline ? (
+                        <Box component="code" className={classNames.inlineCode}>
+                            {children}
+                        </Box>
+                    ) : (
+                        <code>{children}</code>
+                    );
+                },
                 hr: () => null,
             }}
         >

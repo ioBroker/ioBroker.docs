@@ -22,13 +22,13 @@ export const useDocsTableOfContentsStyles = makeStyles()(theme => ({
         fontSize: '16px',
         fontWeight: 400,
         color: theme.palette.text.primary,
-        marginBottom: '16px',
+        marginBottom: '4px',
         letterSpacing: '0em',
     },
     list: {
         display: 'flex',
         flexDirection: 'column',
-        gap: '12px',
+        gap: '4px',
     },
     item: {
         fontSize: '14px',
