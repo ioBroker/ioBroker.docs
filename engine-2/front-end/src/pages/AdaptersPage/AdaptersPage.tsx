@@ -1,6 +1,5 @@
 import { Box, Typography, ToggleButton, ToggleButtonGroup, useMediaQuery, useTheme } from '@mui/material';
 import { AdapterBlock } from '../../components/AdapterBlock/AdapterBlock';
-import type { AdapterItem } from '../../components/AdapterItem/AdapterItem';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { I18n } from '../../utils/i18n';
 import { useStyles } from './AdaptersPage.styles';
@@ -8,59 +7,39 @@ import { AdapterTable } from '../../components/AdapterTable/AdapterTable';
 import { AdapterMenu } from '../../components/AdapterMenu/AdapterMenu';
 import { MenuToggle } from '../../components/MenuToggle/MenuToggle';
 import { TopBarSearch } from '../../components/TopBarSearch/TopBarSearch';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import GridIcon from '../../assets/img/blueGrid.svg';
 import AdaptersListIcon from '../../assets/img/whiteAdaptersList.svg';
+import { useAdapters } from '../../api/hooks/useAdapters';
 
-const sampleItem: AdapterItem = {
-    title: {
-        de: 'alarm',
-        en: 'alarm',
-        ru: 'alarm',
-        'zh-cn': 'alarm',
-    },
-    content: 'adapterref/iobroker.alarm/README.md',
-    icon: 'adapterref/iobroker.alarm/alarm.png',
-    keywords: 'alarm system, security, protection',
-    authors: 'misanorot <audi16v@gmx.de>',
-    license: 'MIT',
-    published: '2019-09-24T18:30:07.162Z',
-    version: '3.7.6',
-    latestVersion: '3.7.6',
-    compact: true,
-    description: {
-        en: 'Your own lttle alarm system',
-        de: 'Ihre eigene kleine Alarmanlage',
-        ru: 'Ваша собственная маленькая система сигнализации',
-        pt: 'Seu próprio pequeno sistema de alarme',
-        nl: 'Uw eigen kleine alarmsysteem',
-        fr: "Votre propre petit système d'alarme",
-        it: 'Il tuo piccolo sistema di allarme',
-        es: 'Tu propio pequeño sistema de alarma',
-        pl: 'Twój własny mały system alarmowy',
-        uk: 'Ваша власна маленька система сигналізації',
-        'zh-cn': '你自己的小警报系统',
-    },
-    titleFull: {
-        en: 'Alarm',
-        de: 'Alarm',
-        ru: 'Сигнализация',
-        pt: 'Alarme de alarme',
-        nl: 'Alarm',
-        fr: 'Alarme',
-        it: 'Allarme',
-        es: 'Alarma',
-        pl: 'Alarma',
-        uk: 'Напильник',
-        'zh-cn': 'Alarm',
-    },
-    branch: 'master',
-    github: 'https://github.com/misanorot/ioBroker.alarm',
-    installs: 1661,
-    weekDownloads: 167,
-    stars: 24,
-    issues: 0,
-    score: 1,
+type AdapterItem = {
+    title: Record<string, string>;
+    content: string;
+    icon: string;
+    keywords: string;
+    authors: string;
+    license: string;
+    published: string;
+    version: string;
+    latestVersion: string;
+    description: Record<string, string>;
+    installs?: number;
+    weekDownloads?: number;
+    stars?: number;
+};
+
+const getLocalizedTitle = (title: AdapterItem['title'] | undefined, language: string): string => {
+    if (!title) {
+        return '';
+    }
+    return (
+        title[language as keyof AdapterItem['title']] ||
+        title.en ||
+        title.de ||
+        title.ru ||
+        Object.values(title)[0] ||
+        ''
+    );
 };
 
 const AdaptersPage = (): React.ReactNode => {
@@ -69,9 +48,11 @@ const AdaptersPage = (): React.ReactNode => {
     const [search, setSearch] = useState('');
     const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
     const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
-    const [selectedMenuItem, setSelectedMenuItem] = useState('Beliebte');
+    const [selectedMenuItem, setSelectedMenuItem] = useState('');
     const isMobile = useMediaQuery('(max-width:661px)');
     const theme = useTheme();
+    const { data: adaptersData } = useAdapters();
+    const language = I18n.getLanguage();
 
     const { classes } = useStyles({ isMenuCollapsed });
 
@@ -81,12 +62,28 @@ const AdaptersPage = (): React.ReactNode => {
         }
     }, [isMobile]);
 
+    useEffect(() => {
+        if (!selectedMenuItem && adaptersData?.pages?.overview?.title) {
+            const overviewLabel = getLocalizedTitle(adaptersData.pages.overview.title, language);
+            if (overviewLabel) {
+                setSelectedMenuItem(overviewLabel);
+            }
+        }
+    }, [adaptersData, language, selectedMenuItem]);
+
     const handleMenuItemClick = (label: string) => {
         setSelectedMenuItem(label);
         if (isMobile) {
             setIsMenuCollapsed(true)
         }
     }
+
+    const adaptersList = useMemo<AdapterItem[]>(() => {
+        if (!adaptersData?.pages) {
+            return [];
+        }
+        return Object.values(adaptersData.pages).flatMap(category => Object.values(category.pages || {}));
+    }, [adaptersData]);
 
     return (
         <Box>
@@ -158,14 +155,12 @@ const AdaptersPage = (): React.ReactNode => {
                 <Box className={classes.mainBlock}>
                     {mode === 'block' ? (
                         <Box className={classes.adaptersGrid}>
-                            <AdapterBlock adapter={sampleItem} />
-                            <AdapterBlock adapter={sampleItem} />
-                            <AdapterBlock adapter={sampleItem} />
-                            <AdapterBlock adapter={sampleItem} />
-                            <AdapterBlock adapter={sampleItem} />
+                            {adaptersList.map(adapter => (
+                                <AdapterBlock adapter={adapter as any} key={adapter.content} />
+                            ))}
                         </Box>
                     ) : (
-                        <AdapterTable adapters={[sampleItem, sampleItem, sampleItem, sampleItem]} />
+                        <AdapterTable adapters={adaptersList as any} />
                     )}
                 </Box>
             </Box>

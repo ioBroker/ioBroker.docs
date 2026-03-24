@@ -67,11 +67,11 @@ export const useStyles = makeStyles()((theme) => ({
                 transform: 'translate(50%, -50%)',
             },
             '@media (max-width: 481px)': {
-                 top: '2%',
-              
+                top: '2%',
+
             },
         },
-         '&::before': {
+        '&::before': {
             content: '""',
             position: 'absolute',
             top: '90%',
@@ -86,18 +86,18 @@ export const useStyles = makeStyles()((theme) => ({
                     : 'none',
             pointerEvents: 'none',
             zIndex: 0,
-             '@media (min-width: 769px) and (max-width: 1440px)': {
+            '@media (min-width: 769px) and (max-width: 1440px)': {
                 right: '-30%',
             },
-             '@media (min-width: 769px) and (max-width: 1279px)': {
+            '@media (min-width: 769px) and (max-width: 1279px)': {
                 display: 'none'
             },
-             '@media (max-width: 769px)': {
-                 top: '35%',
+            '@media (max-width: 769px)': {
+                top: '35%',
             },
-             '@media (max-width: 481px)': {
-                  left: '80%',
-                  top: '25%',
+            '@media (max-width: 481px)': {
+                left: '80%',
+                top: '25%',
             },
         },
 
@@ -274,6 +274,108 @@ export const useStyles = makeStyles()((theme) => ({
             marginBottom: '8px',
         }
     },
+    listItem: {
+        marginBottom: '8px',
+    },
+    image: {
+        maxWidth: '100%',
+        height: 'auto',
+        margin: '24px 0',
+        borderRadius: '8px',
+    },
+    table: {
+        width: '100%',
+        maxWidth: '100%',
+        borderCollapse: 'collapse',
+        margin: '15px 0',
+        fontSize: '16px',
+        border: `1px solid ${theme.palette.divider}`,
+        borderRadius: '8px',
+        overflow: 'hidden',
+        tableLayout: 'fixed',
+        wordBreak: 'break-word',
+        overflowWrap: 'anywhere',
+        '@media (max-width: 1345px)': {
+            fontSize: '14px',
+        },
+        '@media (max-width: 920px)': {
+            fontSize: '14px',
+            display: 'block',
+            overflow: 'auto',
+            whiteSpace: 'nowrap',
+        },
+        '@media (max-width: 481px)': {
+            fontSize: '12px',
+        },
+    },
+    tableHead: {
+        backgroundColor: theme.palette.mode === 'dark'
+            ? 'rgba(35, 86, 174, 0.1)'
+            : 'rgba(35, 86, 174, 0.05)',
+    },
+    tableRow: {
+        borderBottom: `1px solid ${theme.palette.divider}`,
+        '&:last-child': {
+            borderBottom: 'none',
+        },
+    },
+    tableHeaderCell: {
+        padding: '12px 16px',
+        fontWeight: 600,
+        textAlign: 'left',
+        color: theme.palette.primary.main,
+        borderRight: `1px solid ${theme.palette.divider}`,
+        wordBreak: 'break-word',
+        overflowWrap: 'anywhere',
+        '&:last-child': {
+            borderRight: 'none',
+        },
+        '@media (max-width: 1345px)': {
+            padding: '10px 12px',
+        },
+        '@media (max-width: 768px)': {
+            padding: '8px 12px',
+            minWidth: '120px',
+        },
+        '@media (max-width: 481px)': {
+            padding: '6px 8px',
+            minWidth: '100px',
+        },
+    },
+    tableCell: {
+        padding: '12px 16px',
+        borderRight: `1px solid ${theme.palette.divider}`,
+        wordBreak: 'break-word',
+        overflowWrap: 'anywhere',
+        '&:last-child': {
+            borderRight: 'none',
+        },
+        '@media (max-width: 1345px)': {
+            padding: '10px 12px',
+        },
+        '@media (max-width: 768px)': {
+            padding: '8px 12px',
+            minWidth: '120px',
+        },
+        '@media (max-width: 481px)': {
+            padding: '6px 8px',
+            minWidth: '100px',
+        },
+    },
+    inlineCode: {
+        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.08)',
+        padding: '2px 6px',
+        borderRadius: '4px',
+        fontFamily: 'monospace',
+        fontSize: '0.9em',
+    },
+    blockquote: {
+        borderLeft: `3px solid ${theme.palette.primary.main}`,
+        paddingLeft: '12px',
+        margin: '12px 0 16px 0',
+        color: theme.palette.text.primary,
+        opacity: 0.9,
+    },
 
     codeBlockContainer: {
         backgroundColor: theme.palette.secondary.main,
@@ -284,6 +386,8 @@ export const useStyles = makeStyles()((theme) => ({
         border: `1px solid ${theme.palette.secondary.main}`,
         marginBottom: '24px',
         paddingBottom: '16px',
+        display: 'flex',
+        flexDirection: 'column',
         '@media (max-width: 769px)': {
             width: '630px',
             height: '202px',
@@ -311,6 +415,7 @@ export const useStyles = makeStyles()((theme) => ({
         fontFamily: 'monospace',
         fontSize: '16px',
         color: '#FFF',
+        flex: 1,
         flexGrow: 1,
         overflowX: 'scroll',
         overflowY: 'hidden',
@@ -372,6 +477,11 @@ export const useStyles = makeStyles()((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        '& img': {
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+        },
         '@media (max-width: 1279px)': {
             '& img': {
                 width: '104px',
@@ -392,8 +502,7 @@ export const useStyles = makeStyles()((theme) => ({
         fontWeight: 400,
     },
     npmImage: {
-        width: 242,
-        height: 36
+        width: 'auto',
     },
     badgeInfoLabel: {
         fontFamily: 'Audiowide, sans-serif',
@@ -504,7 +613,7 @@ export const useStyles = makeStyles()((theme) => ({
             width: '18px',
             height: '18px',
         },
-         '@media (max-width: 1279px)': {
+        '@media (max-width: 1279px)': {
             width: '12px',
             height: '12px',
         },

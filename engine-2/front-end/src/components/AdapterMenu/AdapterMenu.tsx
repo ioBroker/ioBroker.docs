@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
+import { useMemo } from 'react';
 import { useStyles } from './AdapterMenu.styles';
 import GesamtanzahlIcon from '../../assets/img/adaptersMenuIcons/Gesamtanzahl.svg';
-import BeliebteIcon from '../../assets/img/adaptersMenuIcons/Beliebte.svg';
 import AlarmIcon from '../../assets/img/adaptersMenuIcons/Alarm.svg';
 import KlimaIcon from '../../assets/img/adaptersMenuIcons/Klima.svg';
 import KommunicationIcon from '../../assets/img/adaptersMenuIcons/Kommunication.svg';
@@ -30,39 +30,55 @@ import VisualisierungIcon from '../../assets/img/adaptersMenuIcons/Visualisierun
 import VisualisierungIconsIcon from '../../assets/img/adaptersMenuIcons/VisualisierungIcons.svg';
 import VisualisierungWidgetsIcon from '../../assets/img/adaptersMenuIcons/VisualisierungWidgets.svg';
 import WetterIcon from '../../assets/img/adaptersMenuIcons/Wetter.svg';
+import { useAdapters } from '../../api/hooks/useAdapters';
+import { I18n } from '../../utils/i18n';
+import { useNavigate } from 'react-router-dom';
 
-const menuItems = [
-    { icon: GesamtanzahlIcon, label: 'Gesamtanzahl', count: 642 },
-    { icon: BeliebteIcon, label: 'Beliebte', count: 642 },
-    { icon: AlarmIcon, label: 'Alarm', count: 642 },
-    { icon: KlimaIcon, label: 'Klima / Lüftung', count: 642 },
-    { icon: KommunicationIcon, label: 'Kommunikation', count: 642 },
-    { icon: DatumIcon, label: 'Datum / Uhrzeit', count: 642 },
-    { icon: EnergieIcon, label: 'Energie', count: 642 },
-    { icon: GartenIcon, label: 'Garten', count: 642 },
-    { icon: GrundfunktionenIcon, label: 'Grundfunktionen', count: 642 },
-    { icon: GeopositionIcon, label: 'Geoposition / Location', count: 642 },
-    { icon: HardwareIcon, label: 'Hardware', count: 642 },
-    { icon: GesundheitIcon, label: 'Gesundheit', count: 642 },
-    { icon: HaushaltIcon, label: 'Haushalt', count: 642 },
-    { icon: InfrastrukturIcon, label: 'Infrastruktur', count: 642 },
-    { icon: IoTIcon, label: 'IoT Systeme', count: 642 },
-    { icon: BeleuchtungIcon, label: 'Beleuchtung', count: 642 },
-    { icon: LogicIcon, label: 'Logik', count: 642 },
-    { icon: BenachrichtigungIcon, label: 'Benachrichtigung', count: 642 },
-    { icon: MessungIcon, label: 'Messung', count: 642 },
-    { icon: SonstigeIcon, label: 'Sonstige', count: 642 },
-    { icon: MultimediaIcon, label: 'Multimedia', count: 642 },
-    { icon: NetzwerkIcon, label: 'Netzwerk', count: 642 },
-    { icon: ProtokolleIcon, label: 'Protokolle', count: 642 },
-    { icon: AufbewahrungIcon, label: 'Aufbewahrung', count: 642 },
-    { icon: DienstprogrammIcon, label: 'Dienstprogramm', count: 642 },
-    { icon: FahrzeugIcon, label: 'Fahrzeug', count: 642 },
-    { icon: VisualisierungIcon, label: 'Visualisierung', count: 642 },
-    { icon: VisualisierungIconsIcon, label: 'Visualisierung Icons', count: 642 },
-    { icon: VisualisierungWidgetsIcon, label: 'Visualisierung Widgets', count: 642 },
-    { icon: WetterIcon, label: 'Wetter', count: 642 },
+const menuOrder = [
+    { key: 'overview', icon: GesamtanzahlIcon, isTotal: true },
+    { key: 'alarm', icon: AlarmIcon },
+    { key: 'climate-control', icon: KlimaIcon },
+    { key: 'communication', icon: KommunicationIcon },
+    { key: 'date-and-time', icon: DatumIcon },
+    { key: 'energy', icon: EnergieIcon },
+    { key: 'garden', icon: GartenIcon },
+    { key: 'general', icon: GrundfunktionenIcon },
+    { key: 'geoposition', icon: GeopositionIcon },
+    { key: 'hardware', icon: HardwareIcon },
+    { key: 'health', icon: GesundheitIcon },
+    { key: 'household', icon: HaushaltIcon },
+    { key: 'infrastructure', icon: InfrastrukturIcon },
+    { key: 'iot-systems', icon: IoTIcon },
+    { key: 'lighting', icon: BeleuchtungIcon },
+    { key: 'logic', icon: LogicIcon },
+    { key: 'messaging', icon: BenachrichtigungIcon },
+    { key: 'metering', icon: MessungIcon },
+    { key: 'misc-data', icon: SonstigeIcon },
+    { key: 'multimedia', icon: MultimediaIcon },
+    { key: 'network', icon: NetzwerkIcon },
+    { key: 'protocols', icon: ProtokolleIcon },
+    { key: 'storage', icon: AufbewahrungIcon },
+    { key: 'utility', icon: DienstprogrammIcon },
+    { key: 'vehicle', icon: FahrzeugIcon },
+    { key: 'visualization', icon: VisualisierungIcon },
+    { key: 'visualization-icons', icon: VisualisierungIconsIcon },
+    { key: 'visualization-widgets', icon: VisualisierungWidgetsIcon },
+    { key: 'weather', icon: WetterIcon },
 ];
+
+const getLocalizedTitle = (title: Record<string, string> | undefined, language: string): string => {
+    if (!title) {
+        return '';
+    }
+    return title[language] || title.en || title.de || title.ru || Object.values(title)[0] || '';
+};
+
+interface MenuItem {
+    icon: string;
+    label: string;
+    count: number;
+    adapterId?: string;
+}
 
 interface AdapterMenuProps {
     isCollapsed?: boolean;
@@ -70,12 +86,46 @@ interface AdapterMenuProps {
     selectedItem?: string;
 }
 
-export const AdapterMenu = ({ isCollapsed = false, onMenuItemClick, selectedItem = 'Gesamtanzahl' }: AdapterMenuProps): React.ReactNode => {
+export const AdapterMenu = ({ isCollapsed = false, onMenuItemClick, selectedItem = '' }: AdapterMenuProps): React.ReactNode => {
     const { classes } = useStyles({ isCollapsed });
+    const { data: adaptersData } = useAdapters();
+    const language = I18n.getLanguage();
+    const navigate = useNavigate();
 
-    const handleItemClick = (label: string) => {
+    const totalAdapters = useMemo(() => {
+        if (!adaptersData?.pages) {
+            return 0;
+        }
+        return Object.values(adaptersData.pages).reduce((sum, category) => {
+            return sum + (category?.pages ? Object.keys(category.pages).length : 0);
+        }, 0);
+    }, [adaptersData]);
+
+    const menuItems = useMemo<MenuItem[]>(() => {
+        if (!adaptersData?.pages) {
+            return [];
+        }
+        return menuOrder
+            .map(item => {
+                const category = adaptersData.pages[item.key];
+                if (!category) {
+                    return null;
+                }
+                const label = getLocalizedTitle(category.title, language) || item.key;
+                const count = item.isTotal ? totalAdapters : Object.keys(category.pages || {}).length;
+                const firstAdapter = Object.values(category.pages || {})[0];
+                const adapterId = firstAdapter?.title?.en || getLocalizedTitle(firstAdapter?.title, language) || '';
+                return { icon: item.icon, label, count, adapterId };
+            })
+            .filter((item): item is MenuItem => Boolean(item));
+    }, [adaptersData, language, totalAdapters]);
+
+    const handleItemClick = (label: string, adapterId?: string) => {
         if (onMenuItemClick) {
             onMenuItemClick(label);
+        }
+        if (adapterId) {
+            navigate(`/adapters/${adapterId}`);
         }
     };
 
@@ -85,12 +135,12 @@ export const AdapterMenu = ({ isCollapsed = false, onMenuItemClick, selectedItem
                 {menuItems.map((item, index) => {
                     const isFirstItem = index === 0;
                     const isActive = !isFirstItem && item.label === selectedItem;
-                    
+
                     return (
                         <Box
                             key={index}
                             className={`${classes.menuItem} ${isActive ? classes.menuItemActive : ''}`}
-                            onClick={() => handleItemClick(item.label)}
+                            onClick={() => handleItemClick(item.label, item.adapterId)}
                         >
                             <Box className={classes.menuIcon}>
                                 <img src={item.icon} alt={item.label} />

@@ -14,16 +14,30 @@ import { Link } from 'react-router-dom';
 
 export const AdapterBlock = (props: { adapter: AdapterItem }): ReactNode => {
     const { classes } = useStyles();
+    const language = I18n.getLanguage();
+    const title =
+        props.adapter.title?.[language] ||
+        props.adapter.title?.en ||
+        props.adapter.title?.de ||
+        props.adapter.title?.ru ||
+        '';
+    const slug = props.adapter.title?.en || title;
+    const description =
+        props.adapter.description?.[language] ||
+        props.adapter.description?.en ||
+        props.adapter.description?.de ||
+        props.adapter.description?.ru ||
+        '';
     return (
         <Box className={classes.card}>
             <Box className={classes.title}>
-                <Link to={`/adapters/${props.adapter.title.en}`} className={classes.titleLink}>{props.adapter.title[I18n.getLanguage()]}</Link>
+                <Link to={`/adapters/${slug}`} className={classes.titleLink}>{title}</Link>
             </Box>
             <Box className={classes.topIcons}>
                 <Box className={classes.icon}>
                     <img
                         src={`https://www.iobroker.net/en/${props.adapter.icon}`}
-                        alt={props.adapter.title[I18n.getLanguage()]}
+                        alt={title}
                     />
                 </Box>
                 <Box className={classes.statsBlocks}>
@@ -63,9 +77,9 @@ export const AdapterBlock = (props: { adapter: AdapterItem }): ReactNode => {
                         src={AuthorIcon}
                     />
                 </Box>
-                <Box className={classes.authorName}>{props.adapter.authors}</Box>
+                <Box className={classes.authorName}>{props.adapter.authors || ''}</Box>
             </Box>
-            <Box className={classes.description}>{props.adapter.description[I18n.getLanguage()]}</Box>
+            <Box className={classes.description}>{description}</Box>
             <Box className={classes.bottomIcons}>
                 <Box className={classes.bottomIcon}>
                     <img

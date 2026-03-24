@@ -217,13 +217,20 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     },
     table: {
         width: '100%',
+        maxWidth: '100%',
         borderCollapse: 'collapse',
-        margin: '24px 0',
+        margin: '15px 0',
         fontSize: '16px',
         border: `1px solid ${theme.palette.divider}`,
         borderRadius: '8px',
         overflow: 'hidden',
-        [theme.breakpoints.down(768)]: {
+        tableLayout: 'fixed',
+        wordBreak: 'break-word',
+        overflowWrap: 'anywhere',
+        [theme.breakpoints.down(1345)]: {
+            fontSize: '14px',
+        },
+        [theme.breakpoints.down(920)]: {
             fontSize: '14px',
             display: 'block',
             overflow: 'auto',
@@ -250,8 +257,13 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         textAlign: 'left',
         color: theme.palette.primary.main,
         borderRight: `1px solid ${theme.palette.divider}`,
+        wordBreak: 'break-word',
+        overflowWrap: 'anywhere',
         '&:last-child': {
             borderRight: 'none',
+        },
+        [theme.breakpoints.down(1345)]: {
+            padding: '10px 12px',
         },
         [theme.breakpoints.down(768)]: {
             padding: '8px 12px',
@@ -265,8 +277,13 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     tableCell: {
         padding: '12px 16px',
         borderRight: `1px solid ${theme.palette.divider}`,
+        wordBreak: 'break-word',
+        overflowWrap: 'anywhere',
         '&:last-child': {
             borderRight: 'none',
+        },
+        [theme.breakpoints.down(1345)]: {
+            padding: '10px 12px',
         },
         [theme.breakpoints.down(768)]: {
             padding: '8px 12px',

@@ -10,6 +10,7 @@ import DownloadIcon from '../../assets/img/whiteDownloadIcon.svg';
 
 export const AdapterTable = (props: { adapters: AdapterItem[] }): React.ReactNode => {
     const { classes } = useStyles();
+    const language = I18n.getLanguage();
 
     return (
         <Box className={classes.tableContainer}>
@@ -37,29 +38,43 @@ export const AdapterTable = (props: { adapters: AdapterItem[] }): React.ReactNod
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {props.adapters.map(adapter => (
-                        <TableRow className={classes.tableRow} key={adapter.title.en}>
+                    {props.adapters.map(adapter => {
+                        const title =
+                            adapter.title?.[language] ||
+                            adapter.title?.en ||
+                            adapter.title?.de ||
+                            adapter.title?.ru ||
+                            '';
+                        const slug = adapter.title?.en || title;
+                        const description =
+                            adapter.description?.[language] ||
+                            adapter.description?.en ||
+                            adapter.description?.de ||
+                            adapter.description?.ru ||
+                            '';
+                        return (
+                        <TableRow className={classes.tableRow} key={slug}>
                             <TableCell className={classes.nameCell}>
                                 <Link
-                                    to={`/adapters/${adapter.title.en}`}
+                                    to={`/adapters/${slug}`}
                                     className={classes.nameContent}
                                 >
                                     <Box className={classes.adapterIcon}>
                                         <img
                                             src={`https://www.iobroker.net/en/${adapter.icon}`}
-                                            alt={adapter.title[I18n.getLanguage()]}
+                                            alt={title}
                                         />
                                     </Box>
                                     <Box className={classes.adapterName}>
-                                        {adapter.title[I18n.getLanguage()]}
+                                        {title}
                                     </Box>
                                 </Link>
                             </TableCell>
                             <TableCell className={classes.descriptionCell}>
-                                {adapter.description[I18n.getLanguage()]}
+                                {description}
                             </TableCell>
                             <TableCell className={classes.authorCell}>
-                                {adapter.authors}
+                                {adapter.authors || ''}
                             </TableCell>
                             <TableCell className={classes.statsCell}>{adapter.installs}</TableCell>
                             <TableCell className={classes.statsCell}>{adapter.version}</TableCell>
@@ -67,7 +82,8 @@ export const AdapterTable = (props: { adapters: AdapterItem[] }): React.ReactNod
                                 {adapter.stars}
                             </TableCell>
                         </TableRow>
-                    ))}
+                        );
+                    })}
                 </TableBody>
             </Table>
         </Box>

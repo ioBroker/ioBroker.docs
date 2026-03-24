@@ -15,6 +15,7 @@ interface AdapterItem {
     installs?: number;
     weekDownloads?: number;
     stars?: number;
+    github?: string;
 }
 
 interface Category {
