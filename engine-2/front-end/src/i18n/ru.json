@@ -18,6 +18,9 @@
     "Profile": "Профиль",
     "Search": "Поиск",
     "Statistics": "Статистика",
+    "adapters": {
+        "total": "Общее количество"
+    },
     "Support us": "Поддержите нас",
     "Support us (mobile)": "Поддержите нас:",
     "header": {

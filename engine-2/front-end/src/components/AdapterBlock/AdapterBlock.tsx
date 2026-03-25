@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useState } from 'react';
 import type { AdapterItem } from '../AdapterItem/AdapterItem';
 import { Box } from '@mui/material';
 import { I18n } from '../../utils/i18n';
@@ -10,10 +11,13 @@ import AuthorIcon from '../../assets/img/whiteUser.svg'
 import GitHubIcon from '../../assets/img/whiteGithubIcon.svg';
 import DiagramIcon from '../../assets/img/whitePieDiagram.svg';
 import BookIcon from '../../assets/img/whiteBook.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AdapterStatsModal } from '../AdapterStatsModal';
 
 export const AdapterBlock = (props: { adapter: AdapterItem }): ReactNode => {
     const { classes } = useStyles();
+    const navigate = useNavigate();
+    const [isStatsOpen, setIsStatsOpen] = useState(false);
     const language = I18n.getLanguage();
     const title =
         props.adapter.title?.[language] ||
@@ -28,8 +32,27 @@ export const AdapterBlock = (props: { adapter: AdapterItem }): ReactNode => {
         props.adapter.description?.de ||
         props.adapter.description?.ru ||
         '';
+    const handleNavigate = () => {
+        if (slug) {
+            navigate(`/adapters/${slug}`);
+        }
+    };
+    const handleGitHubClick = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        if (props.adapter.github) {
+            window.open(props.adapter.github, '_blank', 'noreferrer');
+        }
+    };
+    const handleStatsClick = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        setIsStatsOpen(true);
+    };
+    const handleBookClick = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        handleNavigate();
+    };
     return (
-        <Box className={classes.card}>
+        <Box className={classes.card} onClick={handleNavigate}>
             <Box className={classes.title}>
                 <Link to={`/adapters/${slug}`} className={classes.titleLink}>{title}</Link>
             </Box>
@@ -81,25 +104,31 @@ export const AdapterBlock = (props: { adapter: AdapterItem }): ReactNode => {
             </Box>
             <Box className={classes.description}>{description}</Box>
             <Box className={classes.bottomIcons}>
-                <Box className={classes.bottomIcon}>
+                <Box className={classes.bottomIcon} onClick={handleGitHubClick}>
                     <img
                         alt="GitHub Icon"
                         src={GitHubIcon}
                     />
                 </Box>
-                <Box className={classes.bottomIcon}>
+                <Box className={classes.bottomIcon} onClick={handleStatsClick}>
                     <img
                         alt="Diagram Icon"
                         src={DiagramIcon}
                     />
                 </Box>
-                <Box className={classes.bottomIcon}>
+                <Box className={classes.bottomIcon} onClick={handleBookClick}>
                     <img
                         alt="Book Icon"
                         src={BookIcon}
                     />
                 </Box>
             </Box>
+            <AdapterStatsModal
+                open={isStatsOpen}
+                onClose={() => setIsStatsOpen(false)}
+                adapterName={title}
+                adapterId={props.adapter.title?.en}
+            />
         </Box>
     );
 };

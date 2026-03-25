@@ -18,6 +18,9 @@
     "Profile": "Profile",
     "Search": "Search",
     "Statistics": "Statistics",
+    "adapters": {
+        "total": "Total"
+    },
     "Support us": "Support us",
     "Support us (mobile)": "Support us:",
     "header": {

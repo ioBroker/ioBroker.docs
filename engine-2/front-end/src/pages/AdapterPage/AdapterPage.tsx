@@ -17,7 +17,7 @@ import HistoryModal from './HistoryModal';
 import { useAdapters } from '../../api/hooks/useAdapters';
 import { API_CONFIG } from '../../config/api';
 import { I18n } from '../../utils/i18n';
-import { AdapterMarkdownView } from '../../components/AdapterMarkdownView';
+import { AdapterMarkdownView } from '../../components/AdapterMarkdownView/AdapterMarkdownView';
 import { removeFrontmatter } from '../../utils/markdown';
 
 const normalizeKey = (key: string): string => key.trim().toLowerCase();

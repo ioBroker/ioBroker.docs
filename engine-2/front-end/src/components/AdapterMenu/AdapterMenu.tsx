@@ -32,7 +32,6 @@ import VisualisierungWidgetsIcon from '../../assets/img/adaptersMenuIcons/Visual
 import WetterIcon from '../../assets/img/adaptersMenuIcons/Wetter.svg';
 import { useAdapters } from '../../api/hooks/useAdapters';
 import { I18n } from '../../utils/i18n';
-import { useNavigate } from 'react-router-dom';
 
 const menuOrder = [
     { key: 'overview', icon: GesamtanzahlIcon, isTotal: true },
@@ -77,12 +76,13 @@ interface MenuItem {
     icon: string;
     label: string;
     count: number;
+    key: string;
     adapterId?: string;
 }
 
 interface AdapterMenuProps {
     isCollapsed?: boolean;
-    onMenuItemClick?: (label: string) => void;
+    onMenuItemClick?: (label: string, categoryKey?: string) => void;
     selectedItem?: string;
 }
 
@@ -90,7 +90,6 @@ export const AdapterMenu = ({ isCollapsed = false, onMenuItemClick, selectedItem
     const { classes } = useStyles({ isCollapsed });
     const { data: adaptersData } = useAdapters();
     const language = I18n.getLanguage();
-    const navigate = useNavigate();
 
     const totalAdapters = useMemo(() => {
         if (!adaptersData?.pages) {
@@ -105,27 +104,23 @@ export const AdapterMenu = ({ isCollapsed = false, onMenuItemClick, selectedItem
         if (!adaptersData?.pages) {
             return [];
         }
-        return menuOrder
-            .map(item => {
-                const category = adaptersData.pages[item.key];
-                if (!category) {
-                    return null;
-                }
-                const label = getLocalizedTitle(category.title, language) || item.key;
-                const count = item.isTotal ? totalAdapters : Object.keys(category.pages || {}).length;
-                const firstAdapter = Object.values(category.pages || {})[0];
-                const adapterId = firstAdapter?.title?.en || getLocalizedTitle(firstAdapter?.title, language) || '';
-                return { icon: item.icon, label, count, adapterId };
-            })
-            .filter((item): item is MenuItem => Boolean(item));
+        return menuOrder.reduce<MenuItem[]>((acc, item) => {
+            const category = adaptersData.pages[item.key];
+            if (!category) {
+                return acc;
+            }
+            const label = item.isTotal ? I18n.t('adapters.total') : (getLocalizedTitle(category.title, language) || item.key);
+            const count = item.isTotal ? totalAdapters : Object.keys(category.pages || {}).length;
+            const firstAdapter = Object.values(category.pages || {})[0];
+            const adapterId = firstAdapter?.title?.en || getLocalizedTitle(firstAdapter?.title, language) || '';
+            acc.push({ icon: item.icon, label, count, key: item.key, adapterId });
+            return acc;
+        }, []);
     }, [adaptersData, language, totalAdapters]);
 
-    const handleItemClick = (label: string, adapterId?: string) => {
+    const handleItemClick = (label: string, categoryKey?: string) => {
         if (onMenuItemClick) {
-            onMenuItemClick(label);
-        }
-        if (adapterId) {
-            navigate(`/adapters/${adapterId}`);
+            onMenuItemClick(label, categoryKey);
         }
     };
 
@@ -140,7 +135,7 @@ export const AdapterMenu = ({ isCollapsed = false, onMenuItemClick, selectedItem
                         <Box
                             key={index}
                             className={`${classes.menuItem} ${isActive ? classes.menuItemActive : ''}`}
-                            onClick={() => handleItemClick(item.label, item.adapterId)}
+                            onClick={() => handleItemClick(item.label, item.key)}
                         >
                             <Box className={classes.menuIcon}>
                                 <img src={item.icon} alt={item.label} />

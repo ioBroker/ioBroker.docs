@@ -49,6 +49,7 @@ const AdaptersPage = (): React.ReactNode => {
     const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
     const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
     const [selectedMenuItem, setSelectedMenuItem] = useState('');
+    const [selectedCategoryKey, setSelectedCategoryKey] = useState<'overview' | string>('overview');
     const isMobile = useMediaQuery('(max-width:661px)');
     const theme = useTheme();
     const { data: adaptersData } = useAdapters();
@@ -64,15 +65,19 @@ const AdaptersPage = (): React.ReactNode => {
 
     useEffect(() => {
         if (!selectedMenuItem && adaptersData?.pages?.overview?.title) {
-            const overviewLabel = getLocalizedTitle(adaptersData.pages.overview.title, language);
+            const overviewLabel = I18n.t('adapters.total') || getLocalizedTitle(adaptersData.pages.overview.title, language);
             if (overviewLabel) {
                 setSelectedMenuItem(overviewLabel);
+                setSelectedCategoryKey('overview');
             }
         }
     }, [adaptersData, language, selectedMenuItem]);
 
-    const handleMenuItemClick = (label: string) => {
+    const handleMenuItemClick = (label: string, categoryKey?: string) => {
         setSelectedMenuItem(label);
+        if (categoryKey) {
+            setSelectedCategoryKey(categoryKey);
+        }
         if (isMobile) {
             setIsMenuCollapsed(true)
         }
@@ -82,8 +87,15 @@ const AdaptersPage = (): React.ReactNode => {
         if (!adaptersData?.pages) {
             return [];
         }
+        if (selectedCategoryKey && selectedCategoryKey !== 'overview') {
+            const category = adaptersData.pages[selectedCategoryKey];
+            if (!category?.pages) {
+                return [];
+            }
+            return Object.values(category.pages);
+        }
         return Object.values(adaptersData.pages).flatMap(category => Object.values(category.pages || {}));
-    }, [adaptersData]);
+    }, [adaptersData, selectedCategoryKey]);
 
     return (
         <Box>

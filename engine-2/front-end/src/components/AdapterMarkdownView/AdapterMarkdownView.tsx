@@ -5,8 +5,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import ContentCopyTwoToneIcon from '@mui/icons-material/ContentCopyTwoTone';
-import theme from '../theme';
-import { removeFrontmatter } from '../utils/markdown';
+import theme from '../../theme';
+import { removeFrontmatter } from '../../utils/markdown';
 
 interface AdapterMarkdownViewProps {
     markdown?: string;

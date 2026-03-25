@@ -7,6 +7,7 @@ export const useStyles = makeStyles()(theme => ({
         height: '294px',
         borderRadius: '16px',
         padding: '16px',
+        cursor: 'pointer',
         background: theme.palette.secondary.main,
         color: 'white',
         display: 'flex',

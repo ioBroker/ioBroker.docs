@@ -18,6 +18,9 @@
     "Profile": "Profil",
     "Search": "Suche",
     "Statistics": "Statistik",
+    "adapters": {
+        "total": "Gesamtanzahl"
+    },
     "Support us": "Unterstütze uns",
     "Support us (mobile)": "Unterstütze uns:",
     "header": {
