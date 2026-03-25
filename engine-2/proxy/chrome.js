@@ -14,7 +14,11 @@ let cache = {};
 let loading = {};
 app.set('trust proxy', true)
 app.get(/.*/, async (req, res) => {
-    if (!(req.get('User-agent')?.includes('TelegramBot'))) {
+    if (!(
+        req.get('User-agent')?.includes('TelegramBot')
+        || req.get('User-agent')?.includes('GoogleBot')
+        || req.get('User-agent')?.includes('YadnexBot')
+    )) {
         return proxy('http' + '://' + config.domain + req.originalUrl)(req, res);
     }
     try {
