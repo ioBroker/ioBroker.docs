@@ -1144,6 +1144,13 @@ This adapter integrates the HOYMILES MicroStorage systems into ioBroker. Current
 - Hoymiles MS-A2
 - Hoymiles HiBattery 1920 AC
 
+## smartm (25.03.2026) – new adapter at stable repository
+https://github.com/strulli85/ioBroker.smartm
+
+<img src="https://raw.githubusercontent.com/strulli85/ioBroker.smartm/main/admin/smartm.svg" width="100" height="100" />
+
+This Adapter reads Data of Photovoltaik SLEnergy Plats out of their Cloud named SmartM.
+
 
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
