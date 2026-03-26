@@ -8,39 +8,13 @@ import { AdapterMenu } from '../../components/AdapterMenu/AdapterMenu';
 import { MenuToggle } from '../../components/MenuToggle/MenuToggle';
 import { TopBarSearch } from '../../components/TopBarSearch/TopBarSearch';
 import { useState, useEffect, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import GridIcon from '../../assets/img/blueGrid.svg';
 import AdaptersListIcon from '../../assets/img/whiteAdaptersList.svg';
 import { useAdapters } from '../../api/hooks/useAdapters';
+import { getLocalizedTitle, matchesSearch, normalizeText, type AdapterListItem } from './adaptersPageUtils';
 
-type AdapterItem = {
-    title: Record<string, string>;
-    content: string;
-    icon: string;
-    keywords: string;
-    authors: string;
-    license: string;
-    published: string;
-    version: string;
-    latestVersion: string;
-    description: Record<string, string>;
-    installs?: number;
-    weekDownloads?: number;
-    stars?: number;
-};
-
-const getLocalizedTitle = (title: AdapterItem['title'] | undefined, language: string): string => {
-    if (!title) {
-        return '';
-    }
-    return (
-        title[language as keyof AdapterItem['title']] ||
-        title.en ||
-        title.de ||
-        title.ru ||
-        Object.values(title)[0] ||
-        ''
-    );
-};
+type AdapterItem = AdapterListItem;
 
 const AdaptersPage = (): React.ReactNode => {
 
@@ -49,11 +23,13 @@ const AdaptersPage = (): React.ReactNode => {
     const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
     const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
     const [selectedMenuItem, setSelectedMenuItem] = useState('');
-    const [selectedCategoryKey, setSelectedCategoryKey] = useState<'overview' | string>('overview');
+    const [selectedCategoryKey, setSelectedCategoryKey] = useState<string>('');
     const isMobile = useMediaQuery('(max-width:661px)');
     const theme = useTheme();
     const { data: adaptersData } = useAdapters();
     const language = I18n.getLanguage();
+    const location = useLocation();
+    const searchTerm = normalizeText(search, language);
 
     const { classes } = useStyles({ isMenuCollapsed });
 
@@ -64,14 +40,33 @@ const AdaptersPage = (): React.ReactNode => {
     }, [isMobile]);
 
     useEffect(() => {
-        if (!selectedMenuItem && adaptersData?.pages?.overview?.title) {
-            const overviewLabel = I18n.t('adapters.total') || getLocalizedTitle(adaptersData.pages.overview.title, language);
-            if (overviewLabel) {
-                setSelectedMenuItem(overviewLabel);
-                setSelectedCategoryKey('overview');
-            }
+        const state = location.state as { categoryKey?: string; categoryLabel?: string } | null;
+        if (!state?.categoryKey) {
+            return;
         }
-    }, [adaptersData, language, selectedMenuItem]);
+        setSelectedCategoryKey(state.categoryKey);
+        if (state.categoryLabel) {
+            setSelectedMenuItem(state.categoryLabel);
+            return;
+        }
+        const category = adaptersData?.pages?.[state.categoryKey];
+        const label = getLocalizedTitle(category?.title, language);
+        if (label) {
+            setSelectedMenuItem(label);
+        }
+    }, [location.state, adaptersData, language]);
+
+    useEffect(() => {
+        if (!searchTerm || !selectedCategoryKey || !adaptersData?.pages?.[selectedCategoryKey]) {
+            return;
+        }
+        const category = adaptersData.pages[selectedCategoryKey];
+        const hasMatch = Object.values(category.pages || {}).some((adapter) => matchesSearch(adapter as AdapterItem, searchTerm, language));
+        if (!hasMatch) {
+            setSelectedCategoryKey('');
+            setSelectedMenuItem('');
+        }
+    }, [searchTerm, selectedCategoryKey, adaptersData, language]);
 
     const handleMenuItemClick = (label: string, categoryKey?: string) => {
         setSelectedMenuItem(label);
@@ -92,10 +87,12 @@ const AdaptersPage = (): React.ReactNode => {
             if (!category?.pages) {
                 return [];
             }
-            return Object.values(category.pages);
+            const items = Object.values(category.pages);
+            return searchTerm ? items.filter((adapter) => matchesSearch(adapter as AdapterItem, searchTerm, language)) : items;
         }
-        return Object.values(adaptersData.pages).flatMap(category => Object.values(category.pages || {}));
-    }, [adaptersData, selectedCategoryKey]);
+        const all = Object.values(adaptersData.pages).flatMap(category => Object.values(category.pages || {}));
+        return searchTerm ? all.filter((adapter) => matchesSearch(adapter as AdapterItem, searchTerm, language)) : all;
+    }, [adaptersData, selectedCategoryKey, searchTerm, language]);
 
     return (
         <Box>
@@ -111,12 +108,14 @@ const AdaptersPage = (): React.ReactNode => {
                     }}
                 >{I18n.t('home.adapters.title')}
                 </SectionTitle>
-                <Typography
-                    variant="h4"
-                    className={classes.breadCrumbs}
-                >
-                    / {selectedMenuItem.toUpperCase()}
-                </Typography>
+                {selectedMenuItem ? (
+                    <Typography
+                        variant="h4"
+                        className={classes.breadCrumbs}
+                    >
+                        / {selectedMenuItem.toUpperCase()}
+                    </Typography>
+                ) : null}
             </Box>
             <Box className={classes.topBar}>
                 <MenuToggle
@@ -162,6 +161,7 @@ const AdaptersPage = (): React.ReactNode => {
                         isCollapsed={isMenuCollapsed}
                         onMenuItemClick={handleMenuItemClick}
                         selectedItem={selectedMenuItem}
+                        search={search}
                     />
                 </Box>
                 <Box className={classes.mainBlock}>

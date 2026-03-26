@@ -5,8 +5,7 @@ export const useStyles = makeStyles()((theme) => ({
         display: 'grid',
         gridTemplateColumns: '1fr 350px',
         gridTemplateAreas: `
-            "intro   sidebar"
-            "content sidebar"
+            "left sidebar"
         `,
         position: 'relative',
         gap: '0 40px',
@@ -132,6 +131,16 @@ export const useStyles = makeStyles()((theme) => ({
         },
     },
 
+    leftColumn: {
+        gridArea: 'left',
+        minWidth: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '0',
+        '@media (max-width: 1279px)': {
+            display: 'contents',
+        },
+    },
     introArea: {
         gridArea: 'intro',
         minWidth: 0,
@@ -175,6 +184,7 @@ export const useStyles = makeStyles()((theme) => ({
             flex: 1,
             maxWidth: '342px',
             gap: '16px',
+            height: '100%',
         },
         '@media (max-width: 769px)': {
             maxWidth: 'none',
@@ -229,6 +239,9 @@ export const useStyles = makeStyles()((theme) => ({
         marginBottom: '16px',
         letterSpacing: '0.01em',
         color: theme.palette.text.primary,
+        '& img': {
+             marginLeft: '10px',
+        },
         '@media (max-width: 480px)': {
             fontSize: '16px',
         },
@@ -313,6 +326,9 @@ export const useStyles = makeStyles()((theme) => ({
             ? 'rgba(35, 86, 174, 0.1)'
             : 'rgba(35, 86, 174, 0.05)',
     },
+    tableBody: {
+        backgroundColor: 'transparent',
+    },
     tableRow: {
         borderBottom: `1px solid ${theme.palette.divider}`,
         '&:last-child': {
@@ -381,7 +397,7 @@ export const useStyles = makeStyles()((theme) => ({
         backgroundColor: theme.palette.secondary.main,
         width: '820px',
         maxWidth: '100%',
-        height: '274px',
+        minHeight: '274px',
         borderRadius: '8px',
         border: `1px solid ${theme.palette.secondary.main}`,
         marginBottom: '24px',
@@ -399,6 +415,7 @@ export const useStyles = makeStyles()((theme) => ({
         lineHeight: 1,
         borderRadius: '8px 8px 0 0',
         padding: '11px 16px 7px 16px',
+        position: 'relative',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'end',
@@ -417,7 +434,7 @@ export const useStyles = makeStyles()((theme) => ({
         color: '#FFF',
         flex: 1,
         flexGrow: 1,
-        overflowX: 'scroll',
+        overflowX: 'auto',
         overflowY: 'hidden',
         whiteSpace: 'pre',
         '& .key': { color: '#7ec3f3' },
@@ -443,6 +460,21 @@ export const useStyles = makeStyles()((theme) => ({
             fontSize: '10px'
         },
 
+    },
+
+    copyConfirmation: {
+        position: 'absolute',
+        top: 18,
+        right: -90,
+        transition: 'opacity 0.3s',
+        background: theme.palette.common.white,
+        color: theme.palette.primary.main,
+        borderRadius: theme.shape.borderRadius,
+        padding: '5px 10px',
+        '@media (max-width: 975px)': {
+            top: 45,
+            right: 0,
+        },
     },
 
 
@@ -503,6 +535,9 @@ export const useStyles = makeStyles()((theme) => ({
     },
     npmImage: {
         width: 'auto',
+        height: '36px',
+        objectFit: 'contain',
+        objectPosition: 'left'
     },
     badgeInfoLabel: {
         fontFamily: 'Audiowide, sans-serif',
@@ -515,6 +550,11 @@ export const useStyles = makeStyles()((theme) => ({
         textAlign: 'right',
         fontSize: '16px',
         fontWeight: 400,
+        maxWidth: '200px',
+        flexShrink: 0,
+    },
+    infoValueOverflow: {
+        fontSize: '12px !important',
     },
     statsContainer: {
         display: 'flex',
@@ -581,6 +621,7 @@ export const useStyles = makeStyles()((theme) => ({
         '@media (max-width: 1279px)': {
             padding: '19px 24px',
             borderRadius: '10px',
+            flex: 1,
         },
         '@media (max-width: 769px)': {
             display: 'none',
@@ -637,6 +678,7 @@ export const useStyles = makeStyles()((theme) => ({
         fontSize: '14px',
         fontWeight: 400,
         letterSpacing: '-0.03em',
+        textTransform: 'uppercase',
         cursor: 'pointer',
         background: 'transparent',
         marginTop: '16px',

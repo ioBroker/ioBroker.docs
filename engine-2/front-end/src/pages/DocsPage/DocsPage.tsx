@@ -139,6 +139,7 @@ const DocsPage = (): React.ReactNode => {
                             onExpandAll={expandAllSections}
                             onCollapseAll={collapseAllSections}
                             setIsMenuClosed={setIsMenuCollapsed}
+                            search={search}
                         />
                     </Box>
                 )}
@@ -150,6 +151,7 @@ const DocsPage = (): React.ReactNode => {
                             onAllExpandedChange={setIsAllExpanded}
                             onExpandAll={expandAllSections}
                             onCollapseAll={collapseAllSections}
+                            search={search}
                         />
                     </Box>
                     <Box className={classes.mainBlock}>

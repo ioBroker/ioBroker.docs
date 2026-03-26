@@ -19,7 +19,18 @@
     "Search": "Search",
     "Statistics": "Statistics",
     "adapters": {
-        "total": "Total"
+        "label": "Adapter",
+        "total": "Total",
+        "edit_on_github": "Edit on GitHub",
+        "badges": "Badges",
+        "history": "History",
+        "license": "License",
+        "feedback_title": "Your Opinion Matters!",
+        "feedback_text": "Help us improve this documentation –\ngive feedback or suggest a change.",
+        "version": "Version",
+        "developer": "Developer",
+        "first_release": "First Release",
+        "current_release": "Current Release"
     },
     "Support us": "Support us",
     "Support us (mobile)": "Support us:",
@@ -83,7 +94,8 @@
             "word": "ADAPTERS"
         },
         "docs": {
-            "title": "DOCUMENTATION"
+            "title": "DOCUMENTATION",
+            "tableOfContents": "On this page"
         },
         "community": {
             "discord": "Discord",

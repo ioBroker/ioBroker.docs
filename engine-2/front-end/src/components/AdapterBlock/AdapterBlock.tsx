@@ -14,6 +14,10 @@ import BookIcon from '../../assets/img/whiteBook.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { AdapterStatsModal } from '../AdapterStatsModal';
 
+const stripEmails = (value: string): string => {
+    return value.replace(/\s*<[^>]*>/g, '').replace(/\s{2,}/g, ' ').trim();
+};
+
 export const AdapterBlock = (props: { adapter: AdapterItem }): ReactNode => {
     const { classes } = useStyles();
     const navigate = useNavigate();
@@ -52,12 +56,12 @@ export const AdapterBlock = (props: { adapter: AdapterItem }): ReactNode => {
         handleNavigate();
     };
     return (
-        <Box className={classes.card} onClick={handleNavigate}>
+        <Box className={classes.card}>
             <Box className={classes.title}>
                 <Link to={`/adapters/${slug}`} className={classes.titleLink}>{title}</Link>
             </Box>
             <Box className={classes.topIcons}>
-                <Box className={classes.icon}>
+                <Box className={classes.icon} onClick={handleNavigate}>
                     <img
                         src={`https://www.iobroker.net/en/${props.adapter.icon}`}
                         alt={title}
@@ -100,9 +104,9 @@ export const AdapterBlock = (props: { adapter: AdapterItem }): ReactNode => {
                         src={AuthorIcon}
                     />
                 </Box>
-                <Box className={classes.authorName}>{props.adapter.authors || ''}</Box>
+                <Box className={classes.authorName}>{stripEmails(props.adapter.authors || '')}</Box>
             </Box>
-            <Box className={classes.description}>{description}</Box>
+            <Box className={classes.description} onClick={handleNavigate}>{description}</Box>
             <Box className={classes.bottomIcons}>
                 <Box className={classes.bottomIcon} onClick={handleGitHubClick}>
                     <img

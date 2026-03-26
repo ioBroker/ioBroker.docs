@@ -7,7 +7,6 @@ export const useStyles = makeStyles()(theme => ({
         height: '294px',
         borderRadius: '16px',
         padding: '16px',
-        cursor: 'pointer',
         background: theme.palette.secondary.main,
         color: 'white',
         display: 'flex',
@@ -21,6 +20,7 @@ export const useStyles = makeStyles()(theme => ({
         fontStyle: 'normal',
         fontWeight: '500',
         fontSize: '20px',
+        cursor: 'pointer',
         marginBottom: '20px'
     },
     titleLink: {
@@ -40,6 +40,7 @@ export const useStyles = makeStyles()(theme => ({
         padding: '4px',
         width: '69px',
         height: '69px',
+        cursor: 'pointer',
         '& img': {
             width: 60,
         },
@@ -73,11 +74,19 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '14px',
         opacity: '0.5',
         lineHeight: '110%',
+        cursor: 'pointer',
+        display: '-webkit-box',
+        WebkitLineClamp: 5,
+        WebkitBoxOrient: 'vertical',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
     },
     bottomIcons: {
         display: 'flex',
         justifyContent: 'space-between',
         marginTop: 'auto',
     },
-    bottomIcon: {},
+    bottomIcon: {
+        cursor: 'pointer',
+    },
 }));

@@ -21,9 +21,47 @@ interface DocsMenuProps {
     onExpandAll?: () => void;
     onCollapseAll?: () => void;
     setIsMenuClosed?: Dispatch<SetStateAction<boolean>>;
+    search?: string;
 }
 
-export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChange, setIsMenuClosed, onExpandAll, onCollapseAll}: DocsMenuProps): React.ReactNode => {
+const normalizeSearch = (value: string): string => value.trim().toLowerCase();
+
+const matchesSearch = (title: Record<string, string> | undefined, search: string, language: string): boolean => {
+    if (!search) return true;
+    if (!title) return false;
+    const term = normalizeSearch(search);
+    const values = [
+        title[language],
+        title.en,
+        title.de,
+        title.ru,
+        ...Object.values(title),
+    ];
+    return values.some((text) => (text ?? '').toLowerCase().includes(term));
+};
+
+const filterPages = (pages: Docs['pages'], search: string, language: string): Docs['pages'] => {
+    if (!search) return pages;
+    const result: Docs['pages'] = {};
+    Object.keys(pages).forEach((key) => {
+        const page = pages[key];
+        const titleMatches = matchesSearch(page.title, search, language);
+        if (page.pages && Object.keys(page.pages).length > 0) {
+            const filteredChildren = filterPages(page.pages, search, language);
+            const hasChildren = Object.keys(filteredChildren).length > 0;
+            if (titleMatches || hasChildren) {
+                result[key] = { ...page, pages: filteredChildren };
+            }
+            return;
+        }
+        if (titleMatches) {
+            result[key] = page;
+        }
+    });
+    return result;
+};
+
+export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChange, setIsMenuClosed, onExpandAll, onCollapseAll, search = ''}: DocsMenuProps): React.ReactNode => {
     const { classes } = useDocsMenuStyles();
     const theme = useTheme();
     const isMobile = useMediaQuery('(max-width:768px)');
@@ -31,6 +69,8 @@ export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChan
     useEffect(() => I18n.subscribe(setLanguage), []);
     const { data: fetchedDocs } = useDocsContent();
     const data: Docs = fetchedDocs ?? { pages: {} };
+    const searchTerm = normalizeSearch(search);
+    const filteredPages = useMemo(() => filterPages(data.pages, searchTerm, language), [data.pages, searchTerm, language]);
     const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
     const expandableKeys = useMemo(() => {
         const keys: string[] = [];
@@ -44,9 +84,9 @@ export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChan
                 }
             });
         };
-        walk(data.pages, '');
+        walk(filteredPages, '');
         return keys;
-    }, [data.pages]);
+    }, [filteredPages]);
     const totalSections = expandableKeys.length;
     const isAllExpanded = totalSections > 0 && expandedSections.size === totalSections;
 
@@ -62,6 +102,11 @@ export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChan
     }, [collapseAllSignal]);
 
     useEffect(() => {
+        if (!searchTerm) return;
+        setExpandedSections(new Set(expandableKeys));
+    }, [searchTerm, expandableKeys]);
+
+    useEffect(() => {
         onAllExpandedChange?.(isAllExpanded);
     }, [isAllExpanded, onAllExpandedChange]);
 
@@ -75,9 +120,11 @@ export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChan
         setExpandedSections(newExpanded);
     };
 
+    const firstKeyOriginal = Object.keys(data.pages)[0];
+
     const renderPages = (pages: Docs['pages'], level: number, parentKey: string): React.ReactNode => {
         return Object.keys(pages).map((key) => {
-            if (!parentKey && key === firstKey) {
+            if (!parentKey && key === firstKeyOriginal) {
                 return null;
             }
             const page = pages[key];
@@ -135,9 +182,8 @@ export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChan
         });
     };
 
-    const firstKey = Object.keys(data.pages)[0];
-    const headerTitle = firstKey
-        ? (data.pages[firstKey].title[language] ?? data.pages[firstKey].title.en ?? firstKey)
+    const headerTitle = firstKeyOriginal
+        ? (data.pages[firstKeyOriginal].title[language] ?? data.pages[firstKeyOriginal].title.en ?? firstKeyOriginal)
         : 'Documentation';
 
     return (
@@ -160,8 +206,8 @@ export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChan
                     <Box className={classes.headerIcon}>
                         <img src={blueFolder} alt="Documentation" />
                     </Box>
-                    {firstKey ? (
-                        <Link to={`/docs/${data.pages[firstKey].content ?? ''}`}>
+                    {firstKeyOriginal ? (
+                        <Link to={`/docs/${data.pages[firstKeyOriginal].content ?? ''}`}>
                             {headerTitle}
                         </Link>
                     ) : (
@@ -169,7 +215,7 @@ export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChan
                     )}
                 </Box>
 
-                {renderPages(data.pages, 0, '')}
+                {renderPages(filteredPages, 0, '')}
             </Box>
         </Box>
     );

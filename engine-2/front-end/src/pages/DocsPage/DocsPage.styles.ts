@@ -146,6 +146,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         color: theme.palette.text.primary,
         lineHeight: 1.8,
         fontSize: '16px',
+        paddingBottom: "20px"
     },
     head: {
         color: theme.palette.primary.main,

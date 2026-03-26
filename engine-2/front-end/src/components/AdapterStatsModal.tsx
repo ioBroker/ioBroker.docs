@@ -189,10 +189,10 @@ export const AdapterStatsModal: React.FC<AdapterStatsModalProps> = ({ open, onCl
                     <Box className={classes.tableCard}>
                         <Box className={classes.tableHeader}>
                             <span className={classes.sortHeader} onClick={() => toggleSort('version')}>
-                                Version <span className={classes.sortArrow}>{sortKey === 'version' ? (sortDir === 'asc' ? '^' : 'v') : ''}</span>
+                                Version <span className={classes.sortArrow}>{sortKey === 'version' ? (sortDir === 'asc' ? '↑' : '↓') : ''}</span>
                             </span>
                             <span className={classes.sortHeader} onClick={() => toggleSort('count')}>
-                                Count <span className={classes.sortArrow}>{sortKey === 'count' ? (sortDir === 'asc' ? '^' : 'v') : ''}</span>
+                                Count <span className={classes.sortArrow}>{sortKey === 'count' ? (sortDir === 'asc' ? '↑' : '↓') : ''}</span>
                             </span>
                             <span>%</span>
                         </Box>

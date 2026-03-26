@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import type React from 'react';
+import { I18n } from '../../utils/i18n';
 import { useDocsTableOfContentsStyles } from './DocsTableOfContents.styles';
 import { makeSlug } from '../../utils/markdown';
 
@@ -29,7 +30,7 @@ export const DocsTableOfContents = ({ items }: DocsTableOfContentsProps): React.
 
     return (
         <Box className={classes.container}>
-            <Box className={classes.title}>Auf dieser Seite</Box>
+            <Box className={classes.title}>{I18n.t('home.docs.tableOfContents')}</Box>
             <Box className={classes.list}>
                 {items.map(item => (
                     <Box key={item.id}>

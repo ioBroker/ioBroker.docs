@@ -36,7 +36,11 @@ export const useStyles = makeStyles()((theme) => ({
         gap: '16px',
         alignItems: 'start',
         '@media (max-width: 900px)': {
+            width: '400px',
             gridTemplateColumns: '1fr',
+        },
+         '@media (max-width: 530px)': {
+            width: '300px',
         },
     },
     chartCard: {
