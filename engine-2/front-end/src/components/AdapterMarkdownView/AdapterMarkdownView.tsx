@@ -6,7 +6,14 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import ContentCopyTwoToneIcon from '@mui/icons-material/ContentCopyTwoTone';
 import theme from '../../theme';
-import {   normalizeImageTags,  normalizeText,  resolveMarkdownUrl,  getCodeLanguage,  isBadgeImage,  isPaypalButton} from './adapterMarkdownViewUtils';
+import {
+    normalizeImageTags,
+    normalizeText,
+    resolveMarkdownUrl,
+    getCodeLanguage,
+    isBadgeImage,
+    isPaypalButton,
+} from './adapterMarkdownViewUtils';
 import { I18n } from '../../utils/i18n';
 
 interface AdapterMarkdownViewProps {
@@ -23,7 +30,6 @@ interface AdapterMarkdownViewProps {
         image: string;
         table: string;
         tableHead: string;
-        tableBody: string;
         tableRow: string;
         tableHeaderCell: string;
         tableCell: string;
@@ -36,7 +42,13 @@ interface AdapterMarkdownViewProps {
     };
 }
 
-export const AdapterMarkdownView = ({ markdown, baseUrl, origin, classNames, excludeHeadings = [] }: AdapterMarkdownViewProps): React.ReactNode => {
+export const AdapterMarkdownView = ({
+    markdown,
+    baseUrl,
+    origin,
+    classNames,
+    excludeHeadings = [],
+}: AdapterMarkdownViewProps): React.ReactNode => {
     const markdownForRender = markdown ? normalizeImageTags(markdown, excludeHeadings) : '';
     const [copyVisible, setCopyVisible] = useState(false);
 
@@ -46,36 +58,36 @@ export const AdapterMarkdownView = ({ markdown, baseUrl, origin, classNames, exc
             rehypePlugins={[rehypeRaw]}
             components={{
                 h1: () => null,
-                h2: ({ children }) => (
-                    <Box className={classNames.head}>{children}</Box>
-                ),
-                h3: ({ children }) => (
-                    <Box className={classNames.heading}>{children}</Box>
-                ),
-                p: ({ children }) => (
-                    <Box className={classNames.paragraph}>{children}</Box>
-                ),
+                h2: ({ children }) => <Box className={classNames.head}>{children}</Box>,
+                h3: ({ children }) => <Box className={classNames.heading}>{children}</Box>,
+                p: ({ children }) => <Box className={classNames.paragraph}>{children}</Box>,
                 ul: ({ children }) => (
-                    <Box component="ul" className={classNames.list}>
+                    <Box
+                        component="ul"
+                        className={classNames.list}
+                    >
                         {children}
                     </Box>
                 ),
                 ol: ({ children }) => (
-                    <Box component="ol" className={classNames.list}>
+                    <Box
+                        component="ol"
+                        className={classNames.list}
+                    >
                         {children}
                     </Box>
                 ),
                 li: ({ children }) => (
-                    <Box component="li" className={classNames.listItem}>
+                    <Box
+                        component="li"
+                        className={classNames.listItem}
+                    >
                         {children}
                     </Box>
                 ),
                 img: ({ src, alt }) => {
                     const isBadge = isBadgeImage(src);
                     const isPaypal = isPaypalButton(src);
-                    const badgeStyle = isPaypal
-                        ? { width: 'auto', height: '50px',  objectFit: 'contain' }
-                        : { width: 'auto', height: '28px', maxWidth: '240px', objectFit: 'contain' };
                     return (
                         <Box
                             className={classNames.image}
@@ -84,53 +96,81 @@ export const AdapterMarkdownView = ({ markdown, baseUrl, origin, classNames, exc
                             <img
                                 src={resolveMarkdownUrl(src, baseUrl, origin)}
                                 alt={alt ?? ''}
-                                style={isBadge ? badgeStyle : { width: '100%', maxWidth: '600px' }}
+                                style={
+                                    isBadge
+                                        ? isPaypal
+                                            ? { width: 'auto', height: '50px', objectFit: 'contain' as const }
+                                            : {
+                                                  width: 'auto',
+                                                  height: '28px',
+                                                  maxWidth: '240px',
+                                                  objectFit: 'contain' as const,
+                                              }
+                                        : { width: '100%', maxWidth: '600px' }
+                                }
                             />
                         </Box>
                     );
                 },
                 table: ({ children }) => (
-                    <Box component="table" className={classNames.table}>
+                    <Box
+                        component="table"
+                        className={classNames.table}
+                    >
                         {children}
                     </Box>
                 ),
                 thead: ({ children }) => (
-                    <Box component="thead" className={classNames.tableHead}>
-                        {children}
-                    </Box>
-                ),
-                tbody: ({ children }) => (
-                    <Box component="tbody" className={classNames.tableBody}>
+                    <Box
+                        component="thead"
+                        className={classNames.tableHead}
+                    >
                         {children}
                     </Box>
                 ),
                 tr: ({ children }) => (
-                    <Box component="tr" className={classNames.tableRow}>
+                    <Box
+                        component="tr"
+                        className={classNames.tableRow}
+                    >
                         {children}
                     </Box>
                 ),
                 th: ({ children }) => (
-                    <Box component="th" className={classNames.tableHeaderCell}>
+                    <Box
+                        component="th"
+                        className={classNames.tableHeaderCell}
+                    >
                         {children}
                     </Box>
                 ),
                 td: ({ children }) => (
-                    <Box component="td" className={classNames.tableCell}>
+                    <Box
+                        component="td"
+                        className={classNames.tableCell}
+                    >
                         {children}
                     </Box>
                 ),
                 blockquote: ({ children }) => (
-                    <Box component="blockquote" className={classNames.blockquote}>
+                    <Box
+                        component="blockquote"
+                        className={classNames.blockquote}
+                    >
                         {children}
                     </Box>
                 ),
                 pre: ({ children }) => {
                     const child = Children.toArray(children)[0];
-                    const className = isValidElement(child) ? (child.props as any).className : undefined;
+                    const className = isValidElement<{ className?: string }>(child) ? child.props.className : undefined;
                     const language = getCodeLanguage(className);
-                    const codeText = isValidElement(child) ? normalizeText((child.props as any).children) : normalizeText(children);
-                    const handleCopy = () => {
-                        if (!codeText) return;
+                    const codeText = isValidElement<{ children?: React.ReactNode }>(child)
+                        ? normalizeText(child.props.children)
+                        : normalizeText(children);
+                    const handleCopy = (): void => {
+                        if (!codeText) {
+                            return;
+                        }
                         void navigator.clipboard?.writeText(codeText);
                         setCopyVisible(true);
                         window.setTimeout(() => {
@@ -166,7 +206,10 @@ export const AdapterMarkdownView = ({ markdown, baseUrl, origin, classNames, exc
                                     {I18n.t('installation.linux.copied')}
                                 </Box>
                             </Box>
-                            <Box component="pre" className={classNames.codeBlockContent}>
+                            <Box
+                                component="pre"
+                                className={classNames.codeBlockContent}
+                            >
                                 {children}
                             </Box>
                         </Box>
@@ -175,7 +218,10 @@ export const AdapterMarkdownView = ({ markdown, baseUrl, origin, classNames, exc
                 code: ({ inline, className, children }: React.ComponentProps<'code'> & { inline?: boolean }) => {
                     if (inline) {
                         return (
-                            <Box component="code" className={classNames.inlineCode}>
+                            <Box
+                                component="code"
+                                className={classNames.inlineCode}
+                            >
                                 {children}
                             </Box>
                         );

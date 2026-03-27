@@ -126,7 +126,7 @@ export const useHeaderStyles = makeStyles()(theme => ({
     profileMenu: {
         '& .MuiPaper-root': {
             fontFamily: theme.typography.h1.fontFamily,
-            backgroundColor: (theme as any).custom?.backgroundColorOpacity || theme.palette.background.paper,
+            backgroundColor: theme.custom?.backgroundColorOpacity || theme.palette.background.paper,
             border: `1px solid ${theme.palette.primary.main}`,
             color: theme.custom.textColorHover,
         },

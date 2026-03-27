@@ -17,14 +17,62 @@ interface DocsTableOfContentsProps {
 export const DocsTableOfContents = ({ items }: DocsTableOfContentsProps): React.ReactNode => {
     const { classes } = useDocsTableOfContentsStyles();
 
-    const handleClick = (id: string, title: string) => {
+    const getExplicitScrollContainer = (): HTMLElement | null => {
+        return document.querySelector('[data-docs-scroll="true"]');
+    };
+
+    const getScrollParent = (element: HTMLElement | null): HTMLElement | Window => {
+        let node = element?.parentElement ?? null;
+        while (node) {
+            const style = window.getComputedStyle(node);
+            const canScroll = /(auto|scroll)/.test(style.overflowY || '') && node.scrollHeight > node.clientHeight;
+            if (canScroll) {
+                return node;
+            }
+            node = node.parentElement;
+        }
+        return window;
+    };
+
+    const scrollToElement = (element: HTMLElement): void => {
+        const explicitContainer = getExplicitScrollContainer();
+        if (explicitContainer) {
+            const scrollMarginTop = parseFloat(window.getComputedStyle(element).scrollMarginTop || '0') || 0;
+            const containerRect = explicitContainer.getBoundingClientRect();
+            const targetRect = element.getBoundingClientRect();
+            const top = explicitContainer.scrollTop + (targetRect.top - containerRect.top) - scrollMarginTop;
+            explicitContainer.scrollTo({ top, behavior: 'smooth' });
+            window.setTimeout(() => {
+                const freshContainerRect = explicitContainer.getBoundingClientRect();
+                const freshTargetRect = element.getBoundingClientRect();
+                const correctedTop =
+                    explicitContainer.scrollTop + (freshTargetRect.top - freshContainerRect.top) - scrollMarginTop;
+                explicitContainer.scrollTo({ top: correctedTop, behavior: 'auto' });
+            }, 200);
+            return;
+        }
+
+        const scrollParent = getScrollParent(element);
+        if (scrollParent === window) {
+            element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+            return;
+        }
+        const parent = scrollParent as HTMLElement;
+        const parentRect = parent.getBoundingClientRect();
+        const targetRect = element.getBoundingClientRect();
+        const scrollMarginTop = parseFloat(window.getComputedStyle(element).scrollMarginTop || '0') || 0;
+        const top = targetRect.top - parentRect.top + parent.scrollTop - scrollMarginTop;
+        parent.scrollTo({ top, behavior: 'smooth' });
+    };
+
+    const handleClick = (id: string, title: string): void => {
         let element = document.getElementById(id);
         if (!element) {
             const slug = makeSlug(title);
-            element = document.querySelector(`[data-md-heading="${slug}"]`) as HTMLElement | null;
+            element = document.querySelector(`[data-md-heading="${slug}"]`);
         }
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            scrollToElement(element);
         }
     };
 

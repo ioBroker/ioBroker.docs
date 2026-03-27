@@ -1,8 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, type UseQueryResult } from '@tanstack/react-query';
 import { API_ENDPOINTS } from '../../config/api';
 import type { Docs } from '../../components/DocsItem/DocsItem';
 
-export function useDocsContent() {
+export function useDocsContent(): UseQueryResult<Docs, Error> {
     return useQuery<Docs>({
         queryKey: ['docs-content'],
         queryFn: async () => {

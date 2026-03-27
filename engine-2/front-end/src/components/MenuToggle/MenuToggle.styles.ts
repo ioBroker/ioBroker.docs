@@ -21,12 +21,13 @@ export const useStyles = makeStyles()(theme => ({
             },
             '&.Mui-selected img': {
                 filter: 'brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(2476%) hue-rotate(169deg) brightness(101%) contrast(101%)',
-            }
+            },
         },
         '& img': {
-            filter: theme.palette.mode !== 'dark'
-                ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
-                : 'none',
+            filter:
+                theme.palette.mode !== 'dark'
+                    ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
+                    : 'none',
         },
     },
 }));

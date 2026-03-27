@@ -8,7 +8,7 @@ export const usePageScrollProgress = (): UsePageScrollProgressReturn => {
     const [scrollPosition, setScrollPosition] = useState(0);
 
     useEffect(() => {
-        const handleScroll = () => {
+        const handleScroll = (): void => {
             const viewWindowHeight = window.innerHeight;
             const totalPageHeight = document.documentElement.scrollHeight;
             const scrollTop = window.scrollY || document.documentElement.scrollTop;

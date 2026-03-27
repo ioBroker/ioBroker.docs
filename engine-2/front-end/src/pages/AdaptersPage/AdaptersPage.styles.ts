@@ -5,9 +5,9 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         display: 'flex',
         alignItems: 'center',
         marginBottom: '24px',
-        margin: "0 32px 30px 32px",
+        margin: '0 32px 30px 32px',
         [theme.breakpoints.down(481)]: {
-            margin: "0 10px 30px 10px",
+            margin: '0 10px 30px 10px',
         },
     },
     container: {
@@ -38,7 +38,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             [theme.breakpoints.down(1280)]: {
                 display: 'none',
             },
-
         },
     },
     breadCrumbs: {
@@ -134,17 +133,18 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             '&:hover': {
                 background: 'rgba(29, 144, 202, 0.1)',
             },
-             '&.Mui-selected img': {
+            '&.Mui-selected img': {
                 filter: 'brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(2476%) hue-rotate(169deg) brightness(101%) contrast(101%)',
-            }
+            },
         },
         [theme.breakpoints.down(769)]: {
-            display: 'none'
+            display: 'none',
         },
         '& img': {
-            filter: theme.palette.mode !== 'dark'
-                ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
-                : 'brightness(0) invert(100%)',
+            filter:
+                theme.palette.mode !== 'dark'
+                    ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
+                    : 'brightness(0) invert(100%)',
         },
     },
     adaptersGrid: {

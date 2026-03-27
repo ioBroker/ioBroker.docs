@@ -20,7 +20,7 @@ import SearchIcon from '../icons/SearchIcon';
 import LogoutIcon from '../icons/LogoutIcon';
 import { useHeaderStyles } from './Header.styles';
 import SearchDialog from '../SearchDialog/SearchDialog';
-import MenuModal from '../Menu/Menu';
+import MenuModal, { type MenuItems, type MenuItemsSmall } from '../Menu/Menu';
 import { I18n, type Language } from '../../utils/i18n';
 
 export interface HeaderProps {
@@ -37,7 +37,7 @@ function NoIcon(): React.JSX.Element | null {
     return null;
 }
 
-export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: HeaderProps) => {
+export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: HeaderProps): React.ReactNode => {
     const tt = (menuKey: string, fallbackKey: string): string => {
         const v = I18n.t(menuKey);
         return v === menuKey ? I18n.t(fallbackKey) : v;
@@ -60,7 +60,7 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: Heade
         };
     }, []);
 
-    const renderProfileMenu = () => {
+    const renderProfileMenu = (): React.JSX.Element | null => {
         if (!showProfileMenu) {
             return null;
         }
@@ -75,7 +75,7 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: Heade
                 <MenuItem
                     onClick={() => {
                         setShowProfileMenu(null);
-                        navigate('/profile');
+                        void navigate('/profile');
                     }}
                 >
                     <ListItemIcon sx={{ color: 'inherit' }}>
@@ -98,7 +98,7 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: Heade
             {menuOpen && (
                 <MenuModal
                     onClose={() => setMenuOpen(false)}
-                    selected={selected as any}
+                    selected={selected as MenuItems | MenuItemsSmall}
                     noSearch={noSearch}
                     onLanguageUpdate={onLanguageUpdate}
                 />
@@ -116,7 +116,7 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: Heade
                 alt="logo"
                 onClick={e => {
                     e.preventDefault();
-                    navigate('/');
+                    void navigate('/');
                 }}
             />
 

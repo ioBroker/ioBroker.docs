@@ -4,12 +4,12 @@ import { removeFrontmatter } from '../../utils/markdown';
 
 export const normalizeText = (node: React.ReactNode): string => {
     return Children.toArray(node)
-        .map((child) => {
+        .map(child => {
             if (typeof child === 'string' || typeof child === 'number') {
                 return String(child);
             }
-            if (isValidElement(child)) {
-                return normalizeText((child.props as any).children);
+            if (isValidElement<{ children?: React.ReactNode }>(child)) {
+                return normalizeText(child.props.children);
             }
             return '';
         })
@@ -21,11 +21,10 @@ const fixTableFormat = (markdown: string): string => {
     const processedLines: string[] = [];
     let expectedColumns = 0;
     let inTable = false;
-    let tableStartIndex = -1;
 
     for (let i = 0; i < lines.length; i++) {
-        let line = lines[i];
-        const trimmedLine = line.trim();
+        const line = lines[i];
+        let trimmedLine = line.trim();
 
         // Проверяем, является ли строка разделителем таблицы (содержит только -, :, |)
         const isDelimiter = /^\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)+\|?\s*$/.test(trimmedLine);
@@ -35,15 +34,21 @@ const fixTableFormat = (markdown: string): string => {
 
         if (isDelimiter) {
             // Это разделитель таблицы
-            if (!trimmedLine.startsWith('|')) trimmedLine = '|' + trimmedLine;
-            if (!trimmedLine.endsWith('|')) trimmedLine = trimmedLine + '|';
+            if (!trimmedLine.startsWith('|')) {
+                trimmedLine = `|${trimmedLine}`;
+            }
+            if (!trimmedLine.endsWith('|')) {
+                trimmedLine = `${trimmedLine}|`;
+            }
 
             expectedColumns = trimmedLine.split('|').filter((c, idx) => idx > 0 || c !== '').length - 1;
-            if (expectedColumns < 1) expectedColumns = trimmedLine.split('|').length - 2;
+            if (expectedColumns < 1) {
+                expectedColumns = trimmedLine.split('|').length - 2;
+            }
 
             // Получаем предыдущую строку (заголовок)
             let prevLine = processedLines.length > 0 ? processedLines[processedLines.length - 1].trim() : '';
-            
+
             // Если предыдущая строка пустая, пропускаем её
             if (prevLine === '' && processedLines.length > 1) {
                 processedLines.pop();
@@ -52,15 +57,19 @@ const fixTableFormat = (markdown: string): string => {
 
             // Форматируем заголовок
             if (prevLine && !prevLine.startsWith('|')) {
-                const headerCells = prevLine.split('|').map(c => c.trim()).filter(c => c !== '');
-                while (headerCells.length < expectedColumns) headerCells.push('');
-                prevLine = '| ' + headerCells.join(' | ') + ' |';
+                const headerCells = prevLine
+                    .split('|')
+                    .map(c => c.trim())
+                    .filter(c => c !== '');
+                while (headerCells.length < expectedColumns) {
+                    headerCells.push('');
+                }
+                prevLine = `| ${headerCells.join(' | ')} |`;
                 processedLines[processedLines.length - 1] = prevLine;
             }
 
             processedLines.push(trimmedLine);
             inTable = true;
-            tableStartIndex = processedLines.length - 2;
             continue;
         }
 
@@ -72,25 +81,33 @@ const fixTableFormat = (markdown: string): string => {
                 processedLines.push(line);
             } else {
                 // Это строка таблицы
-                let cells = trimmedLine.split(/(?<!\\)\|/).map(c => c.trim());
+                const cells = trimmedLine.split(/(?<!\\)\|/).map(c => c.trim());
 
                 // Удаляем пустые ячейки в начале и конце
-                if (cells[0] === '') cells.shift();
-                if (cells.length > 0 && cells[cells.length - 1] === '') cells.pop();
+                if (cells[0] === '') {
+                    cells.shift();
+                }
+                if (cells.length > 0 && cells[cells.length - 1] === '') {
+                    cells.pop();
+                }
 
                 // Если это первая строка после разделителя и у неё нет expectedColumns
                 if (expectedColumns > 0 && cells.length !== expectedColumns) {
                     // Пытаемся разбить на нужное количество колонок
                     for (let j = 0; j < cells.length; j += expectedColumns) {
                         const chunk = cells.slice(j, j + expectedColumns);
-                        while (chunk.length < expectedColumns) chunk.push('');
-                        processedLines.push('| ' + chunk.join(' | ') + ' |');
+                        while (chunk.length < expectedColumns) {
+                            chunk.push('');
+                        }
+                        processedLines.push(`| ${chunk.join(' | ')} |`);
                     }
                 } else if (expectedColumns > 0) {
-                    while (cells.length < expectedColumns) cells.push('');
-                    processedLines.push('| ' + cells.join(' | ') + ' |');
+                    while (cells.length < expectedColumns) {
+                        cells.push('');
+                    }
+                    processedLines.push(`| ${cells.join(' | ')} |`);
                 } else {
-                    processedLines.push('| ' + cells.join(' | ') + ' |');
+                    processedLines.push(`| ${cells.join(' | ')} |`);
                 }
             }
         } else {
@@ -100,10 +117,14 @@ const fixTableFormat = (markdown: string): string => {
                 const nextIsDelimiter = /^\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)+\|?\s*$/.test(nextLine);
                 if (nextIsDelimiter) {
                     // Это начало таблицы, форматируем заголовок
-                    let headerCells = trimmedLine.split('|').map(c => c.trim());
-                    if (headerCells[0] === '') headerCells.shift();
-                    if (headerCells.length > 0 && headerCells[headerCells.length - 1] === '') headerCells.pop();
-                    processedLines.push('| ' + headerCells.join(' | ') + ' |');
+                    const headerCells = trimmedLine.split('|').map(c => c.trim());
+                    if (headerCells[0] === '') {
+                        headerCells.shift();
+                    }
+                    if (headerCells.length > 0 && headerCells[headerCells.length - 1] === '') {
+                        headerCells.pop();
+                    }
+                    processedLines.push(`| ${headerCells.join(' | ')} |`);
                 } else {
                     processedLines.push(line);
                 }
@@ -117,7 +138,9 @@ const fixTableFormat = (markdown: string): string => {
 };
 
 const removeSections = (markdown: string, headings: string[]): string => {
-    if (!headings.length) return markdown;
+    if (!headings.length) {
+        return markdown;
+    }
     const lines = markdown.split('\n');
     const removeSet = new Set(headings.map(h => h.trim().toLowerCase()));
     const result: string[] = [];
@@ -150,9 +173,11 @@ export const normalizeImageTags = (markdown: string, excludeHeadings: string[]):
     result = result.replace(/!\[([^\]]*)\]\s+\(([^)]+)\)/g, '![$1]($2)');
     result = result.replace(/\]\s+\(/g, '](');
     result = result.replace(/^(#{1,6})([^#\s])/gm, '$1 $2');
-    result = result.replace(/<img\b[^>]*>/gi, (tag) => {
+    result = result.replace(/<img\b[^>]*>/gi, tag => {
         const srcMatch = tag.match(/src=["']([^"']+)["']/i);
-        if (!srcMatch) return '';
+        if (!srcMatch) {
+            return '';
+        }
         const altMatch = tag.match(/alt=["']([^"']*)["']/i);
         const src = srcMatch[1];
         const alt = altMatch ? altMatch[1] : '';
@@ -162,12 +187,12 @@ export const normalizeImageTags = (markdown: string, excludeHeadings: string[]):
         return `![](${src})`;
     });
     result = result.replace(/!\(\s*([^)\\s]+)\s*\)/g, (_match, src) => `![](${src})`);
-    result = result.replace(/^\s*\[Image\s*#\d+\]\s*$/gmi, '');
+    result = result.replace(/^\s*\[Image\s*#\d+\]\s*$/gim, '');
     result = result.replace(/\[Image\s*#\d+\]/gi, '');
     result = result.replace(/^\s*!>\s+/gm, '> ');
     result = result.replace(/^\s*\?>\s+/gm, '> ');
     result = result.replace(/^\s*\*>\s+/gm, '> ');
-    result = result.replace(/^\s*[вњ“вњ”]\s+/gm, '> ');
+    result = result.replace(/^\s*[вњ"вњ"]\s+/gm, '> ');
 
     result = fixTableFormat(result);
 
@@ -175,12 +200,24 @@ export const normalizeImageTags = (markdown: string, excludeHeadings: string[]):
 };
 
 export const resolveMarkdownUrl = (src: string | undefined, baseUrl: string, origin: string): string => {
-    if (!src) return '';
-    if (/^https?:\/\//i.test(src)) return src;
-    if (/^\/\//i.test(src)) return `https:${src}`;
-    if (/^(data:|mailto:|tel:)/i.test(src)) return src;
-    if (src.startsWith('/')) return `${origin}${src}`;
-    if (/^[a-z]{2}(-[a-z]{2})?\//i.test(src)) return `${origin}/${src}`;
+    if (!src) {
+        return '';
+    }
+    if (/^https?:\/\//i.test(src)) {
+        return src;
+    }
+    if (/^\/\//i.test(src)) {
+        return `https:${src}`;
+    }
+    if (/^(data:|mailto:|tel:)/i.test(src)) {
+        return src;
+    }
+    if (src.startsWith('/')) {
+        return `${origin}${src}`;
+    }
+    if (/^[a-z]{2}(-[a-z]{2})?\//i.test(src)) {
+        return `${origin}/${src}`;
+    }
     try {
         return new URL(src, baseUrl).toString();
     } catch {
@@ -189,17 +226,23 @@ export const resolveMarkdownUrl = (src: string | undefined, baseUrl: string, ori
 };
 
 export const getCodeLanguage = (className: string | undefined): string => {
-    if (!className) return 'code';
+    if (!className) {
+        return 'code';
+    }
     const match = className.match(/language-([^\s]+)/);
     return match?.[1] ?? 'code';
 };
 
 export const isBadgeImage = (src: string | undefined): boolean => {
-    if (!src) return false;
+    if (!src) {
+        return false;
+    }
     return /shields\.io|badge|badges|travis|appveyor|nodei\.co\/npm|github\.com\/.*\/badge|donate|paypal/i.test(src);
 };
 
 export const isPaypalButton = (src: string | undefined): boolean => {
-    if (!src) return false;
+    if (!src) {
+        return false;
+    }
     return /paypalobjects\.com/i.test(src);
 };

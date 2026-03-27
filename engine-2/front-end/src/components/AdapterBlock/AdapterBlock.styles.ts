@@ -21,12 +21,11 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: '500',
         fontSize: '20px',
         cursor: 'pointer',
-        marginBottom: '20px'
+        marginBottom: '20px',
     },
     titleLink: {
         display: 'block',
-        lineHeight: '1'
-
+        lineHeight: '1',
     },
     topIcons: {
         display: 'flex',
@@ -53,19 +52,19 @@ export const useStyles = makeStyles()(theme => ({
     statsBlock: {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     statsIcon: {},
     statsNumber: {},
     authorBlock: {
         display: 'flex',
-        marginTop: '16px'
+        marginTop: '16px',
     },
     authorIcon: {
-        marginRight: '4px'
+        marginRight: '4px',
     },
     authorName: {
-        fontSize: '12px'
+        fontSize: '12px',
     },
     description: {
         fontFamily: "'Saira'",

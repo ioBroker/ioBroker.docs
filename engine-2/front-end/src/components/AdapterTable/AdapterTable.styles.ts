@@ -11,9 +11,7 @@ export const useStyles = makeStyles()(theme => ({
         '& .MuiTableCell-root': {
             borderBottom: 'none',
             padding: '16px',
-            color: theme.palette.mode === 'dark'
-                ? 'white'
-                : theme.palette.secondary.main,
+            color: theme.palette.mode === 'dark' ? 'white' : theme.palette.secondary.main,
             fontFamily: "'Saira'",
         },
     },
@@ -25,41 +23,37 @@ export const useStyles = makeStyles()(theme => ({
             fontFamily: theme.typography.h1.fontFamily,
             fontWeight: 400,
             fontSize: '20px',
-            color: theme.palette.mode === 'dark'
-                ? 'white'
-                : theme.palette.secondary.main,
+            color: theme.palette.mode === 'dark' ? 'white' : theme.palette.secondary.main,
             paddingBottom: '16px',
             background: 'transparent',
-            borderBottom: theme.palette.mode === 'dark'
-                ? `1px solid rgba(255, 255, 255, 0.1)`
-                : `1px solid rgba(29, 144, 202, 0.5)`
+            borderBottom:
+                theme.palette.mode === 'dark'
+                    ? `1px solid rgba(255, 255, 255, 0.1)`
+                    : `1px solid rgba(29, 144, 202, 0.5)`,
         },
     },
     tableRow: {
         fontSize: '14px',
         fontWeight: 400,
         '& .MuiTableCell-root': {
-            borderBottom: theme.palette.mode === 'dark'
-                ? '1px solid rgba(255, 255, 255, 0.1)'
-                : `1px solid rgba(29, 144, 202, 0.5)`,
+            borderBottom:
+                theme.palette.mode === 'dark'
+                    ? '1px solid rgba(255, 255, 255, 0.1)'
+                    : `1px solid rgba(29, 144, 202, 0.5)`,
             verticalAlign: 'top',
-            color: theme.palette.mode === 'dark'
-                ? 'white'
-                : theme.palette.secondary.main,
+            color: theme.palette.mode === 'dark' ? 'white' : theme.palette.secondary.main,
         },
     },
     nameCell: {
         width: '20%',
-        verticalAlign: 'top'
+        verticalAlign: 'top',
     },
     nameContent: {
         display: 'flex',
         alignItems: 'start',
         gap: '12px',
         textDecoration: 'none',
-        color: theme.palette.mode === 'dark'
-            ? 'white'
-            : theme.palette.secondary.main,
+        color: theme.palette.mode === 'dark' ? 'white' : theme.palette.secondary.main,
     },
     adapterIcon: {
         width: '40px',
@@ -90,9 +84,7 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '14px',
         fontWeight: 400,
         letterSpacing: '-0.03em',
-        color: theme.palette.mode === 'dark'
-            ? 'white'
-            : theme.palette.secondary.main,
+        color: theme.palette.mode === 'dark' ? 'white' : theme.palette.secondary.main,
         [theme.breakpoints.down(1441)]: {
             fontSize: '16px',
             fontWeight: 300,
@@ -107,9 +99,7 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '14px',
         fontWeight: 400,
         letterSpacing: '-0.03em',
-        color: theme.palette.mode === 'dark'
-            ? 'white'
-            : theme.palette.secondary.main,
+        color: theme.palette.mode === 'dark' ? 'white' : theme.palette.secondary.main,
         [theme.breakpoints.down(1441)]: {
             fontSize: '16px',
             fontWeight: 300,
@@ -124,9 +114,7 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '14px',
         fontWeight: 400,
         letterSpacing: '-0.03em',
-        color: theme.palette.mode === 'dark'
-            ? 'white'
-            : theme.palette.secondary.main,
+        color: theme.palette.mode === 'dark' ? 'white' : theme.palette.secondary.main,
         [theme.breakpoints.down(1441)]: {
             fontSize: '16px',
             fontWeight: 300,
@@ -142,9 +130,7 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '14px',
         fontWeight: 400,
         letterSpacing: '-0.03em',
-        color: theme.palette.mode === 'dark'
-            ? 'white'
-            : theme.palette.secondary.main,
+        color: theme.palette.mode === 'dark' ? 'white' : theme.palette.secondary.main,
         [theme.breakpoints.down(1441)]: {
             fontSize: '16px',
             fontWeight: 300,
@@ -154,9 +140,7 @@ export const useStyles = makeStyles()(theme => ({
             fontWeight: 300,
         },
     },
-    lastCell: {
-
-    },
+    lastCell: {},
     headerIcon: {
         display: 'flex',
         alignItems: 'center',
@@ -164,9 +148,10 @@ export const useStyles = makeStyles()(theme => ({
         '& img': {
             width: '20px',
             height: '20px',
-            filter: theme.palette.mode === 'dark'
-                ? 'none'
-                : 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)',
+            filter:
+                theme.palette.mode === 'dark'
+                    ? 'none'
+                    : 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)',
         },
     },
 }));

@@ -1,6 +1,6 @@
 import { makeStyles } from '../../theme';
 
-export const useStyles = makeStyles()((theme) => ({
+export const useStyles = makeStyles()(theme => ({
     pageGrid: {
         display: 'grid',
         gridTemplateColumns: '1fr 350px',
@@ -48,7 +48,7 @@ export const useStyles = makeStyles()((theme) => ({
                     ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.3) 0%, rgba(255, 255, 255, 0) 55%)'
                     : 'none',
             '@media (min-width: 769px) and (max-width: 1279px)': {
-                display: 'none'
+                display: 'none',
             },
             '@media (max-width: 1440px)': {
                 top: '14%',
@@ -67,7 +67,6 @@ export const useStyles = makeStyles()((theme) => ({
             },
             '@media (max-width: 481px)': {
                 top: '2%',
-
             },
         },
         '&::before': {
@@ -89,7 +88,7 @@ export const useStyles = makeStyles()((theme) => ({
                 right: '-30%',
             },
             '@media (min-width: 769px) and (max-width: 1279px)': {
-                display: 'none'
+                display: 'none',
             },
             '@media (max-width: 769px)': {
                 top: '35%',
@@ -164,7 +163,7 @@ export const useStyles = makeStyles()((theme) => ({
             marginBottom: '16px',
         },
         '@media (min-width: 480px) and (max-width: 769px)': {
-            maxWidth: '460px'
+            maxWidth: '460px',
         },
     },
     sidebarLeft: {
@@ -227,7 +226,7 @@ export const useStyles = makeStyles()((theme) => ({
     },
     breadcrumbSlash: {
         color: theme.palette.secondary.main,
-        ...(theme.palette.mode === 'dark' && { color: 'white !important' })
+        ...(theme.palette.mode === 'dark' && { color: 'white !important' }),
     },
     breadcrumbSlashEnd: {
         color: theme.palette.secondary.main,
@@ -240,7 +239,7 @@ export const useStyles = makeStyles()((theme) => ({
         letterSpacing: '0.01em',
         color: theme.palette.text.primary,
         '& img': {
-             marginLeft: '10px',
+            marginLeft: '10px',
         },
         '@media (max-width: 480px)': {
             fontSize: '16px',
@@ -285,7 +284,7 @@ export const useStyles = makeStyles()((theme) => ({
         color: theme.palette.mode === 'dark' ? '#D0D0D0' : theme.palette.text.primary,
         '& li': {
             marginBottom: '8px',
-        }
+        },
     },
     listItem: {
         marginBottom: '8px',
@@ -322,12 +321,7 @@ export const useStyles = makeStyles()((theme) => ({
         },
     },
     tableHead: {
-        backgroundColor: theme.palette.mode === 'dark'
-            ? 'rgba(35, 86, 174, 0.1)'
-            : 'rgba(35, 86, 174, 0.05)',
-    },
-    tableBody: {
-        backgroundColor: 'transparent',
+        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(35, 86, 174, 0.1)' : 'rgba(35, 86, 174, 0.05)',
     },
     tableRow: {
         borderBottom: `1px solid ${theme.palette.divider}`,
@@ -457,9 +451,8 @@ export const useStyles = makeStyles()((theme) => ({
             background: '#FFF',
         },
         '@media (max-width: 769px)': {
-            fontSize: '10px'
+            fontSize: '10px',
         },
-
     },
 
     copyConfirmation: {
@@ -477,7 +470,6 @@ export const useStyles = makeStyles()((theme) => ({
         },
     },
 
-
     sidebarCard: {
         border: `1px solid ${theme.palette.primary.main}`,
         borderRadius: '16px',
@@ -492,7 +484,7 @@ export const useStyles = makeStyles()((theme) => ({
         },
         '@media (max-width: 769px)': {
             borderRadius: '16px',
-            paddingTop: '20px'
+            paddingTop: '20px',
         },
     },
     logoContainer: {
@@ -518,7 +510,7 @@ export const useStyles = makeStyles()((theme) => ({
             '& img': {
                 width: '104px',
                 height: '104px',
-            }
+            },
         },
     },
     infoRow: {
@@ -537,7 +529,7 @@ export const useStyles = makeStyles()((theme) => ({
         width: 'auto',
         height: '36px',
         objectFit: 'contain',
-        objectPosition: 'left'
+        objectPosition: 'left',
     },
     badgeInfoLabel: {
         fontFamily: 'Audiowide, sans-serif',
@@ -564,7 +556,6 @@ export const useStyles = makeStyles()((theme) => ({
         '@media (max-width: 1279px)': {
             marginTop: '0px',
         },
-
     },
     statItem: {
         display: 'flex',
@@ -577,7 +568,10 @@ export const useStyles = makeStyles()((theme) => ({
             color: theme.palette.text.primary,
         },
         '& img': {
-            filter: theme.palette.mode === 'light' ? 'brightness(0) saturate(100%) invert(21%) sepia(96%) saturate(1992%) hue-rotate(190deg) brightness(95%) contrast(91%)' : 'none',
+            filter:
+                theme.palette.mode === 'light'
+                    ? 'brightness(0) saturate(100%) invert(21%) sepia(96%) saturate(1992%) hue-rotate(190deg) brightness(95%) contrast(91%)'
+                    : 'none',
         },
     },
     sidebarLink: {
@@ -695,7 +689,7 @@ export const useStyles = makeStyles()((theme) => ({
             alignItems: 'center',
             paddingRight: '0',
             paddingTop: '0',
-        }
+        },
     },
 
     licenseDialogPaper: {
@@ -722,7 +716,7 @@ export const useStyles = makeStyles()((theme) => ({
         padding: '4px',
         '& svg': {
             fontSize: '36px',
-        }
+        },
     },
     licenseContent: {
         padding: '0 32px 32px 32px !important',
@@ -785,7 +779,7 @@ export const useStyles = makeStyles()((theme) => ({
         marginBottom: '20px',
         '&:last-child': {
             marginBottom: 0,
-        }
+        },
     },
     historyVersionDate: {
         fontSize: '20px',

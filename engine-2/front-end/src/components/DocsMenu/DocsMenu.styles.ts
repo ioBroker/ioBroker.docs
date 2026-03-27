@@ -12,7 +12,7 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
     },
     menuInner: {
         maxHeight: 'calc(100vh - 125px)',
-        maxWidth: '300px',  
+        maxWidth: '300px',
         overflowY: 'scroll',
         overflowX: 'hidden',
         paddingRight: '16px',
@@ -38,19 +38,22 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
             borderRight: '0px solid transparent',
             backgroundClip: 'padding-box',
         },
-         [theme.breakpoints.down(769)]: {
-              maxHeight: '100%',
-              overflowY: 'hidden',
-              paddingRight: '0px',
+        [theme.breakpoints.down(769)]: {
+            maxHeight: '100%',
+            maxWidth: '360px',
+            overflowY: 'hidden',
+            paddingRight: '0px',
         },
-
     },
     menuTopBar: {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         '& img': {
-            filter: theme.palette.mode === 'light' ? 'brightness(0) saturate(100%) invert(21%) sepia(96%) saturate(1992%) hue-rotate(190deg) brightness(95%) contrast(91%)' : 'none',
+            filter:
+                theme.palette.mode === 'light'
+                    ? 'brightness(0) saturate(100%) invert(21%) sepia(96%) saturate(1992%) hue-rotate(190deg) brightness(95%) contrast(91%)'
+                    : 'none',
         },
     },
     header: {
@@ -108,11 +111,11 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
         fontFamily: "'Saira', sans-serif",
         fontWeight: 300,
         cursor: 'pointer',
-         [theme.breakpoints.down(769)]: {
-               width: '318px',
+        [theme.breakpoints.down(769)]: {
+            width: '318px',
         },
         [theme.breakpoints.down(481)]: {
-               width: 'calc(100%)',
+            width: 'calc(100%)',
         },
     },
     sectionIcon: {
@@ -121,10 +124,11 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-         '& img': {
-            filter: theme.palette.mode !== 'dark'
-                ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
-                : 'none',
+        '& img': {
+            filter:
+                theme.palette.mode !== 'dark'
+                    ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
+                    : 'none',
         },
     },
     arrowIcon: {

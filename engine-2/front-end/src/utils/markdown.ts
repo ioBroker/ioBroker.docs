@@ -12,7 +12,7 @@ export const makeSlug = (text: string): string => {
     const base = text
         .toLowerCase()
         .trim()
-        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/[^\p{L}\p{N}]+/gu, '-')
         .replace(/^-+|-+$/g, '');
     return base || 'section';
 };
@@ -51,7 +51,9 @@ export const buildTocItems = (markdown: string): TocItem[] => {
             inCodeFence = !inCodeFence;
             continue;
         }
-        if (inCodeFence) continue;
+        if (inCodeFence) {
+            continue;
+        }
 
         const h2 = trimmed.match(/^##\s+(.+)/);
         if (h2) {

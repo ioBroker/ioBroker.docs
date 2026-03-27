@@ -23,7 +23,7 @@ const getStyles = (theme: any): Record<string, any> => ({
     },
 });
 
-type PossibleSettings = '' | '-' | 'cms' | 'ms' | 'cm' | 'm';
+type PossibleSettings = '' | '-' | 'cms' | 'ms' | 'cm' | 'm' | 'acknowledged';
 
 export default function CookiesHint(props: { force?: boolean; onClose?: () => void }): React.JSX.Element | null {
     const theme = useTheme();
@@ -44,7 +44,7 @@ export default function CookiesHint(props: { force?: boolean; onClose?: () => vo
         if (props.force || !acknowledged) {
             const settings: PossibleSettings = (window.localStorage.getItem('cookieUsage') as PossibleSettings) || '';
             // legacy
-            if ((settings as any) === 'acknowledged') {
+            if (settings === 'acknowledged') {
                 setAcknowledged('');
             } else {
                 setStatistics(settings.includes('s'));
@@ -298,7 +298,7 @@ export default function CookiesHint(props: { force?: boolean; onClose?: () => vo
                         }}
                         href="/www/policy"
                         onClick={() => {
-                            navigate('/www/policy');
+                            void navigate('/www/policy');
                         }}
                     >
                         {I18n.t('Privacy policy')}
@@ -315,7 +315,7 @@ export default function CookiesHint(props: { force?: boolean; onClose?: () => vo
                         }}
                         href="/www/imprint"
                         onClick={() => {
-                            navigate('/www/imprint');
+                            void navigate('/www/imprint');
                         }}
                     >
                         {I18n.t('Imprint')}

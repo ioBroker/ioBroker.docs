@@ -1,33 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, type UseQueryResult } from '@tanstack/react-query';
 import { API_ENDPOINTS } from '../../config/api';
+import type { Adapters } from '../../components/AdapterItem/AdapterItem';
 
-interface AdapterItem {
-    title: Record<string, string>;
-    content: string;
-    icon: string;
-    keywords: string;
-    authors: string;
-    license: string;
-    published: string;
-    version: string;
-    latestVersion: string;
-    description: Record<string, string>;
-    installs?: number;
-    weekDownloads?: number;
-    stars?: number;
-    github?: string;
-}
-
-interface Category {
-    title: Record<string, string>;
-    pages: Record<string, AdapterItem>;
-}
-
-interface Adapters {
-    pages: Record<string, Category>;
-}
-
-export function useAdapters() {
+export function useAdapters(): UseQueryResult<Adapters, Error> {
     return useQuery<Adapters>({
         queryKey: ['adapters'],
         queryFn: async () => {

@@ -11,7 +11,7 @@ import CopyIcon from '../../assets/img/Copy.png';
 import AlertIcon from '../../assets/img/Alert.png';
 import { I18n } from '../../utils/i18n';
 
-const InstallationPage = () => {
+const InstallationPage = (): React.ReactNode => {
     const { classes } = useStyles();
     const [visible, setVisible] = useState(false);
 

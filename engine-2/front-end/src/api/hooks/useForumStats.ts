@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, type UseQueryResult } from '@tanstack/react-query';
 import { API_ENDPOINTS } from '../../config/api';
 
 interface ForumStats {
@@ -8,7 +8,7 @@ interface ForumStats {
     date: string;
 }
 
-export function useForumStats() {
+export function useForumStats(): UseQueryResult<ForumStats, Error> {
     return useQuery<ForumStats>({
         queryKey: ['forumStats'],
         queryFn: async () => {

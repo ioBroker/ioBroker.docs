@@ -29,7 +29,7 @@ const useStyles = makeStyles()(() => ({
     },
 }));
 
-const AppContent = () => {
+const AppContent = (): React.ReactNode => {
     const { classes } = useStyles();
     const routes = useRoutes();
     const { scrollPosition } = usePageScrollProgress();

@@ -26,21 +26,25 @@ const LicenseModal = ({ open, onClose, paragraphs = [] }: LicenseModalProps): Re
         >
             <DialogContent className={classes.licenseTitle}>
                 MIT License
-                <IconButton onClick={onClose} className={classes.licenseCloseButton}>
+                <IconButton
+                    onClick={onClose}
+                    className={classes.licenseCloseButton}
+                >
                     <CloseIcon />
                 </IconButton>
             </DialogContent>
             <DialogContent className={classes.licenseContent}>
                 {paragraphs.length > 0 ? (
                     paragraphs.map((text, index) => (
-                        <Typography className={classes.licenseParagraph} key={index}>
+                        <Typography
+                            className={classes.licenseParagraph}
+                            key={index}
+                        >
                             {text}
                         </Typography>
                     ))
                 ) : (
-                    <Typography className={classes.licenseParagraph}>
-                        {''}
-                    </Typography>
+                    <Typography className={classes.licenseParagraph}>{''}</Typography>
                 )}
             </DialogContent>
         </Dialog>

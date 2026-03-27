@@ -18,12 +18,13 @@ export const useDocsTableOfContentsStyles = makeStyles()(theme => ({
         marginBottom: '16px',
         letterSpacing: '0.1em',
     },
-     subTitle: {
+    subTitle: {
         fontSize: '16px',
         fontWeight: 400,
         color: theme.palette.text.primary,
         marginBottom: '4px',
         letterSpacing: '0em',
+        cursor: 'pointer',
     },
     list: {
         display: 'flex',

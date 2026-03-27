@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import { useMemo } from 'react';
 import { useStyles } from './AdapterMenu.styles';
+import type { AdapterItem } from '../AdapterItem/AdapterItem';
 import GesamtanzahlIcon from '../../assets/img/adaptersMenuIcons/Gesamtanzahl.svg';
 import AlarmIcon from '../../assets/img/adaptersMenuIcons/Alarm.svg';
 import KlimaIcon from '../../assets/img/adaptersMenuIcons/Klima.svg';
@@ -92,27 +93,53 @@ const normalizeText = (value: string, language: string): string => {
     return lowered.replace(/\u0451/g, '\u0435').replace(/\u0401/g, '\u0415');
 };
 
-const matchesSearch = (adapter: { title?: Record<string, string>; content?: string } | undefined, search: string, language: string): boolean => {
-    if (!search) return true;
-    if (!adapter) return false;
-    const term = normalizeText(search, language);
-    const titleValues = adapter.title ? Object.values(adapter.title) : [];
-    const localizedTitle = getLocalizedTitle(adapter.title, language);
-    const haystack = [
-        localizedTitle,
-        ...titleValues,
-        adapter.content,
-    ]
-        .filter(Boolean)
-        .map((text) => normalizeText(String(text), language));
-    return haystack.some((text) => text.includes(term));
-};
-
-export const AdapterMenu = ({ isCollapsed = false, onMenuItemClick, selectedItem = '', search = '' }: AdapterMenuProps): React.ReactNode => {
+export const AdapterMenu = ({
+    isCollapsed = false,
+    onMenuItemClick,
+    selectedItem = '',
+    search = '',
+}: AdapterMenuProps): React.ReactNode => {
     const { classes } = useStyles({ isCollapsed });
     const { data: adaptersData } = useAdapters();
     const language = I18n.getLanguage();
     const searchTerm = normalizeText(search, language);
+
+    const adapterSearchIndex = useMemo(() => {
+        if (!adaptersData?.pages) {
+            return new Map<string, string>();
+        }
+        const map = new Map<string, string>();
+        for (const category of Object.values(adaptersData.pages)) {
+            for (const adapter of Object.values(category.pages || {})) {
+                const normalized = normalizeText(
+                    [
+                        getLocalizedTitle(adapter.title as Record<string, string> | undefined, language),
+                        ...(adapter.title ? Object.values(adapter.title) : []),
+                        getLocalizedTitle(adapter.description as Record<string, string> | undefined, language),
+                        ...(adapter.description ? Object.values(adapter.description) : []),
+                        adapter.keywords || '',
+                    ]
+                        .filter(Boolean)
+                        .join(' '),
+                    language,
+                );
+                map.set(adapter.content, normalized);
+            }
+        }
+        return map;
+    }, [adaptersData, language]);
+
+    const matchesSearchFast = (adapter: AdapterItem | undefined): boolean => {
+        if (!searchTerm) {
+            return true;
+        }
+        if (!adapter) {
+            return false;
+        }
+        const text = adapterSearchIndex.get(adapter.content) || '';
+        const result = text.includes(searchTerm);
+        return result;
+    };
 
     const totalAdapters = useMemo(() => {
         if (!adaptersData?.pages) {
@@ -132,26 +159,29 @@ export const AdapterMenu = ({ isCollapsed = false, onMenuItemClick, selectedItem
             if (!category) {
                 return acc;
             }
-            const label = item.isTotal ? I18n.t('adapters.total') : (getLocalizedTitle(category.title, language) || item.key);
+            const label = item.isTotal
+                ? I18n.t('adapters.total')
+                : getLocalizedTitle(category.title as Record<string, string>, language) || item.key;
             const adapters = Object.values(category.pages || {});
-            const matched = searchTerm ? adapters.filter((adapter) => matchesSearch(adapter as any, searchTerm, language)) : adapters;
+            const matched = searchTerm ? adapters.filter(adapter => matchesSearchFast(adapter)) : adapters;
             const totalMatched = searchTerm
-                ? Object.values(adaptersData.pages)
-                    .flatMap((cat) => Object.values(cat.pages || {}))
-                    .filter((adapter) => matchesSearch(adapter as any, searchTerm, language)).length
+                ? Array.from(adapterSearchIndex.values()).filter(text => text.includes(searchTerm)).length
                 : totalAdapters;
             const count = item.isTotal ? totalMatched : matched.length;
             if (searchTerm && !item.isTotal && count === 0) {
                 return acc;
             }
             const firstAdapter = Object.values(category.pages || {})[0];
-            const adapterId = firstAdapter?.title?.en || getLocalizedTitle(firstAdapter?.title, language) || '';
+            const adapterId =
+                firstAdapter?.title?.en ||
+                getLocalizedTitle(firstAdapter?.title as Record<string, string> | undefined, language) ||
+                '';
             acc.push({ icon: item.icon, label, count, key: item.key, adapterId });
             return acc;
         }, []);
-    }, [adaptersData, language, totalAdapters, searchTerm]);
+    }, [adaptersData, language, totalAdapters, searchTerm, adapterSearchIndex, matchesSearchFast]);
 
-    const handleItemClick = (label: string, categoryKey?: string) => {
+    const handleItemClick = (label: string, categoryKey?: string): void => {
         if (onMenuItemClick) {
             onMenuItemClick(label, categoryKey);
         }
@@ -171,14 +201,21 @@ export const AdapterMenu = ({ isCollapsed = false, onMenuItemClick, selectedItem
                             onClick={() => handleItemClick(item.label, item.key)}
                         >
                             <Box className={classes.menuIcon}>
-                                <img src={item.icon} alt={item.label} />
+                                <img
+                                    src={item.icon}
+                                    alt={item.label}
+                                />
                             </Box>
                             {!isCollapsed && (
                                 <>
-                                    <Box className={`${classes.menuText} ${isFirstItem ? classes.firstItemText : ''} ${isActive ? classes.activeText : ''}`}>
+                                    <Box
+                                        className={`${classes.menuText} ${isFirstItem ? classes.firstItemText : ''} ${isActive ? classes.activeText : ''}`}
+                                    >
                                         {item.label}
                                     </Box>
-                                    <Box className={`${classes.menuCount} ${isFirstItem ? classes.firstItemCount : ''} ${isActive ? classes.activeCount : ''}`}>
+                                    <Box
+                                        className={`${classes.menuCount} ${isFirstItem ? classes.firstItemCount : ''} ${isActive ? classes.activeCount : ''}`}
+                                    >
                                         {item.count}
                                     </Box>
                                 </>

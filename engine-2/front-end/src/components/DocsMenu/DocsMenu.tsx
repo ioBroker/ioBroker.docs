@@ -9,10 +9,11 @@ import closedFolder from '../../assets/img/docsIcons/closed_folder.svg';
 import blueFolder from '../../assets/img/docsIcons/blueFolder.svg';
 import whiteArrowUp from '../../assets/img/docsIcons/whiteArrowUp.svg';
 import whiteArrowDown from '../../assets/img/docsIcons/whiteArrowDown.svg';
-import whiteCross from '../../assets/img/docsIcons/whiteCross.svg'
+import whiteCross from '../../assets/img/docsIcons/whiteCross.svg';
 import { MenuArrowsToggle } from '../../components/MenuArrowsToggle/MenuArrowsToggle';
 import { useDocsContent } from '../../api/hooks/useDocsContent';
 import { I18n } from '../../utils/i18n';
+import { filterPages, getChildrenPaddingLeft, normalizeSearch } from './DocsMenu.utils';
 
 interface DocsMenuProps {
     expandAllSignal?: number;
@@ -24,44 +25,15 @@ interface DocsMenuProps {
     search?: string;
 }
 
-const normalizeSearch = (value: string): string => value.trim().toLowerCase();
-
-const matchesSearch = (title: Record<string, string> | undefined, search: string, language: string): boolean => {
-    if (!search) return true;
-    if (!title) return false;
-    const term = normalizeSearch(search);
-    const values = [
-        title[language],
-        title.en,
-        title.de,
-        title.ru,
-        ...Object.values(title),
-    ];
-    return values.some((text) => (text ?? '').toLowerCase().includes(term));
-};
-
-const filterPages = (pages: Docs['pages'], search: string, language: string): Docs['pages'] => {
-    if (!search) return pages;
-    const result: Docs['pages'] = {};
-    Object.keys(pages).forEach((key) => {
-        const page = pages[key];
-        const titleMatches = matchesSearch(page.title, search, language);
-        if (page.pages && Object.keys(page.pages).length > 0) {
-            const filteredChildren = filterPages(page.pages, search, language);
-            const hasChildren = Object.keys(filteredChildren).length > 0;
-            if (titleMatches || hasChildren) {
-                result[key] = { ...page, pages: filteredChildren };
-            }
-            return;
-        }
-        if (titleMatches) {
-            result[key] = page;
-        }
-    });
-    return result;
-};
-
-export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChange, setIsMenuClosed, onExpandAll, onCollapseAll, search = ''}: DocsMenuProps): React.ReactNode => {
+export const DocsMenu = ({
+    expandAllSignal,
+    collapseAllSignal,
+    onAllExpandedChange,
+    setIsMenuClosed,
+    onExpandAll,
+    onCollapseAll,
+    search = '',
+}: DocsMenuProps): React.ReactNode => {
     const { classes } = useDocsMenuStyles();
     const theme = useTheme();
     const isMobile = useMediaQuery('(max-width:768px)');
@@ -70,12 +42,15 @@ export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChan
     const { data: fetchedDocs } = useDocsContent();
     const data: Docs = fetchedDocs ?? { pages: {} };
     const searchTerm = normalizeSearch(search);
-    const filteredPages = useMemo(() => filterPages(data.pages, searchTerm, language), [data.pages, searchTerm, language]);
+    const filteredPages = useMemo(
+        () => filterPages(data.pages, searchTerm, language),
+        [data.pages, searchTerm, language],
+    );
     const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
     const expandableKeys = useMemo(() => {
         const keys: string[] = [];
-        const walk = (pages: Docs['pages'], parentKey: string) => {
-            Object.keys(pages).forEach((key) => {
+        const walk = (pages: Docs['pages'], parentKey: string): void => {
+            Object.keys(pages).forEach(key => {
                 const item = pages[key];
                 const fullKey = parentKey ? `${parentKey}/${key}` : key;
                 if (item.pages && Object.keys(item.pages).length > 0) {
@@ -91,18 +66,24 @@ export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChan
     const isAllExpanded = totalSections > 0 && expandedSections.size === totalSections;
 
     useEffect(() => {
-        if (!expandAllSignal) return;
+        if (!expandAllSignal) {
+            return;
+        }
         const allKeys = new Set(expandableKeys);
         setExpandedSections(allKeys);
     }, [expandAllSignal, expandableKeys]);
 
     useEffect(() => {
-        if (!collapseAllSignal) return;
+        if (!collapseAllSignal) {
+            return;
+        }
         setExpandedSections(new Set());
     }, [collapseAllSignal]);
 
     useEffect(() => {
-        if (!searchTerm) return;
+        if (!searchTerm) {
+            return;
+        }
         setExpandedSections(new Set(expandableKeys));
     }, [searchTerm, expandableKeys]);
 
@@ -110,7 +91,7 @@ export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChan
         onAllExpandedChange?.(isAllExpanded);
     }, [isAllExpanded, onAllExpandedChange]);
 
-    const handleSectionToggle = (key: string) => {
+    const handleSectionToggle = (key: string): void => {
         const newExpanded = new Set(expandedSections);
         if (newExpanded.has(key)) {
             newExpanded.delete(key);
@@ -123,7 +104,7 @@ export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChan
     const firstKeyOriginal = Object.keys(data.pages)[0];
 
     const renderPages = (pages: Docs['pages'], level: number, parentKey: string): React.ReactNode => {
-        return Object.keys(pages).map((key) => {
+        return Object.keys(pages).map(key => {
             if (!parentKey && key === firstKeyOriginal) {
                 return null;
             }
@@ -149,14 +130,14 @@ export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChan
                                 <Box className={classes.sectionIcon}>
                                     <img
                                         src={isExpanded ? openedFolder : closedFolder}
-                                        alt={isExpanded ? "Opened folder" : "Closed folder"}
+                                        alt={isExpanded ? 'Opened folder' : 'Closed folder'}
                                     />
                                 </Box>
                                 {page.title[language] ?? page.title.en ?? key}
                                 <Box className={classes.arrowIcon}>
                                     <img
                                         src={isExpanded ? whiteArrowUp : whiteArrowDown}
-                                        alt={isExpanded ? "Collapse" : "Expand"}
+                                        alt={isExpanded ? 'Collapse' : 'Expand'}
                                     />
                                 </Box>
                             </Box>
@@ -165,7 +146,7 @@ export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChan
                             className={classes.childrenLevel}
                             sx={{
                                 backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
-                                paddingLeft: 32 + level * 12,
+                                paddingLeft: getChildrenPaddingLeft(level),
                             }}
                         >
                             {renderPages(page.pages!, level + 1, fullKey)}
@@ -188,28 +169,33 @@ export const DocsMenu = ({ expandAllSignal, collapseAllSignal, onAllExpandedChan
 
     return (
         <Box className={classes.container}>
-            {isMobile && <Box className={classes.menuTopBar}>
-                <MenuArrowsToggle
-                sx={{width: '62px', height: '30px'}}
-                value={isAllExpanded ? 'expand' : 'collapse'}
-                onExpandAll={onExpandAll}
-                onCollapseAll={onCollapseAll}/>
-                <img 
-                onClick={()=> {
-                    setIsMenuClosed?.(true)
-                }}
-                src={whiteCross}
-                 alt="close"/>
-            </Box>}
+            {isMobile && (
+                <Box className={classes.menuTopBar}>
+                    <MenuArrowsToggle
+                        sx={{ width: '62px', height: '30px' }}
+                        value={isAllExpanded ? 'expand' : 'collapse'}
+                        onExpandAll={onExpandAll}
+                        onCollapseAll={onCollapseAll}
+                    />
+                    <img
+                        onClick={() => {
+                            setIsMenuClosed?.(true);
+                        }}
+                        src={whiteCross}
+                        alt="close"
+                    />
+                </Box>
+            )}
             <Box className={classes.menuInner}>
                 <Box className={classes.header}>
                     <Box className={classes.headerIcon}>
-                        <img src={blueFolder} alt="Documentation" />
+                        <img
+                            src={blueFolder}
+                            alt="Documentation"
+                        />
                     </Box>
                     {firstKeyOriginal ? (
-                        <Link to={`/docs/${data.pages[firstKeyOriginal].content ?? ''}`}>
-                            {headerTitle}
-                        </Link>
+                        <Link to={`/docs/${data.pages[firstKeyOriginal].content ?? ''}`}>{headerTitle}</Link>
                     ) : (
                         headerTitle
                     )}

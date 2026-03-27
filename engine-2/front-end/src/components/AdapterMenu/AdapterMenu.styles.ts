@@ -13,9 +13,7 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         },
         [theme.breakpoints.down(661)]: {
             width: isCollapsed ? '59px' : '328px',
-            backgroundColor: !isCollapsed
-                ? (theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF')
-                : 'transparent',
+            backgroundColor: !isCollapsed ? (theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF') : 'transparent',
             padding: !isCollapsed ? '20px' : '0',
             marginLeft: !isCollapsed ? '24px' : '30px',
             borderRadius: !isCollapsed ? '10px' : '0px',
@@ -100,9 +98,7 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         gap: '8px',
         padding: isCollapsed ? '12px 8px' : '10px 0px',
         cursor: 'pointer',
-        color: theme.palette.mode === 'dark'
-            ? 'white'
-            : theme.palette.primary.main,
+        color: theme.palette.mode === 'dark' ? 'white' : theme.palette.primary.main,
         fontSize: '14px',
         fontFamily: "'Saira'",
         transition: 'all 0.2s',
@@ -111,19 +107,15 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         position: 'relative',
         zIndex: 1,
         '&:hover': {
-            color: theme.palette.mode === 'dark'
-                ? 'white'
-                : theme.palette.primary.main,
-            background: theme.palette.mode === 'dark'
-                ? 'rgba(255, 255, 255, 0.05)'
-                : 'rgba(29, 144, 202, 0.1)',
+            color: theme.palette.mode === 'dark' ? 'white' : theme.palette.primary.main,
+            background: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(29, 144, 202, 0.1)',
         },
     },
     menuItemActive: {
         color: theme.palette.primary.main,
         background: 'rgba(29, 144, 202, 0.1)',
         '& img': {
-            filter: 'brightness(0) saturate(100%) invert(47%) sepia(85%) saturate(1437%) hue-rotate(167deg) brightness(88%) contrast(89%)'
+            filter: 'brightness(0) saturate(100%) invert(47%) sepia(85%) saturate(1437%) hue-rotate(167deg) brightness(88%) contrast(89%)',
         },
     },
     menuIcon: {
@@ -135,9 +127,10 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         fontSize: '14px',
         transition: 'all 0.3s ease',
         '& img': {
-            filter: theme.palette.mode !== 'dark'
-                ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
-                : 'none',
+            filter:
+                theme.palette.mode !== 'dark'
+                    ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
+                    : 'none',
         },
         [theme.breakpoints.down(1280)]: {
             width: isCollapsed ? '32px' : '24px',
@@ -145,18 +138,17 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
             '& img': {
                 width: isCollapsed ? '32px' : '24px',
                 height: isCollapsed ? '32px' : '24px',
-                filter: theme.palette.mode !== 'dark'
-                    ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
-                    : 'none',
+                filter:
+                    theme.palette.mode !== 'dark'
+                        ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
+                        : 'none',
             },
         },
     },
     menuText: {
         flex: 1,
         fontSize: '18px',
-        color: theme.palette.mode === 'dark'
-            ? 'white'
-            : theme.palette.secondary.main,
+        color: theme.palette.mode === 'dark' ? 'white' : theme.palette.secondary.main,
         fontFamily: "'Saira', sans-serif",
         fontWeight: 200,
     },
@@ -166,7 +158,7 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
     },
     activeText: {
         fontWeight: 500,
-        color: theme.palette.primary.main
+        color: theme.palette.primary.main,
     },
     menuCount: {
         fontSize: '10px',
@@ -178,6 +170,6 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         fontWeight: 500,
     },
     activeCount: {
-        color: theme.palette.primary.main
+        color: theme.palette.primary.main,
     },
 }));

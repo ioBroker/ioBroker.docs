@@ -1,6 +1,6 @@
-import { makeStyles } from '../theme'; 
+import { makeStyles } from '../theme';
 
-export const useStyles = makeStyles()((theme) => ({
+export const useStyles = makeStyles()(() => ({
     dialogPaper: {
         borderRadius: '6px',
         backgroundColor: '#FFFFFF',
@@ -39,7 +39,7 @@ export const useStyles = makeStyles()((theme) => ({
             width: '400px',
             gridTemplateColumns: '1fr',
         },
-         '@media (max-width: 530px)': {
+        '@media (max-width: 530px)': {
             width: '300px',
         },
     },
@@ -54,7 +54,7 @@ export const useStyles = makeStyles()((theme) => ({
         borderRadius: '6px',
         padding: '10px 12px',
         backgroundColor: '#FFFFFF',
-        maxHeight: '324px', 
+        maxHeight: '324px',
         overflowY: 'auto',
     },
     tableHeader: {
@@ -98,7 +98,7 @@ export const useStyles = makeStyles()((theme) => ({
         padding: '8px 16px',
         '&:hover': {
             backgroundColor: '#F0F0F0',
-            borderRadius: '4px'
-        }
+            borderRadius: '4px',
+        },
     },
 }));

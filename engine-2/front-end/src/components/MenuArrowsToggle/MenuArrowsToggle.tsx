@@ -11,24 +11,36 @@ interface MenuArrowsToggleProps {
     sx?: BoxProps['sx'];
 }
 
-export const MenuArrowsToggle = ({ onExpandAll, onCollapseAll, value: valueProp, sx }: MenuArrowsToggleProps): React.ReactNode => {
+export const MenuArrowsToggle = ({
+    onExpandAll,
+    onCollapseAll,
+    value: valueProp,
+    sx,
+}: MenuArrowsToggleProps): React.ReactNode => {
     const { classes } = useStyles();
     const [value, setValue] = useState<'expand' | 'collapse'>('expand');
     const isControlled = valueProp !== undefined;
     const currentValue = isControlled ? valueProp : value;
-    
-    const handleExpandAll = () => {
-        if (!isControlled) setValue('expand');
+
+    const handleExpandAll = (): void => {
+        if (!isControlled) {
+            setValue('expand');
+        }
         onExpandAll?.();
     };
 
-    const handleCollapseAll = () => {
-        if (!isControlled) setValue('collapse');
+    const handleCollapseAll = (): void => {
+        if (!isControlled) {
+            setValue('collapse');
+        }
         onCollapseAll?.();
     };
 
     return (
-        <Box sx={sx} className={classes.menuToggle}>
+        <Box
+            sx={sx}
+            className={classes.menuToggle}
+        >
             <ToggleButtonGroup
                 exclusive
                 value={currentValue}

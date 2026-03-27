@@ -100,7 +100,7 @@ function Link(props: { name: string; url?: string; classes: any }): React.JSX.El
     );
 }
 
-export const Footer = ({ scrollTop }: FooterProps) => {
+export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
     const { classes } = useFooterStyles();
     const [, setShowCookies] = useState(false);
     const [lng, setLng] = useState(I18n.getLanguage());

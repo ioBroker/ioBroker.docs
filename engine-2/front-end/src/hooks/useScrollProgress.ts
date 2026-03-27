@@ -10,7 +10,7 @@ export const useScrollProgress = (): UseScrollProgressReturn => {
     const sectionRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
-        const handleScroll = () => {
+        const handleScroll = (): void => {
             if (!sectionRef.current) {
                 return;
             }

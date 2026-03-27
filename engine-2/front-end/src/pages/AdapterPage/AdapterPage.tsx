@@ -19,7 +19,18 @@ import { API_CONFIG } from '../../config/api';
 import { I18n } from '../../utils/i18n';
 import { AdapterMarkdownView } from '../../components/AdapterMarkdownView/AdapterMarkdownView';
 import { removeFrontmatter } from '../../utils/markdown';
-import { buildEditLink, formatDate, formatNumber, getBadge, getLocalizedText,  parseChangelog,  parseFrontmatter,  parseLicenseParagraphs, resolveAssetUrl, stripEmails} from './adapterPageUtils';
+import {
+    buildEditLink,
+    formatDate,
+    formatNumber,
+    getBadge,
+    getLocalizedText,
+    parseChangelog,
+    parseFrontmatter,
+    parseLicenseParagraphs,
+    resolveAssetUrl,
+    stripEmails,
+} from './adapterPageUtils';
 
 const AdapterPage = (): React.ReactNode => {
     const { classes } = useStyles();
@@ -44,7 +55,7 @@ const AdapterPage = (): React.ReactNode => {
                     return {
                         adapter,
                         categoryKey,
-                        categoryTitle: getLocalizedText(category.title, language),
+                        categoryTitle: getLocalizedText(category.title as Record<string, string>, language),
                     };
                 }
             }
@@ -66,11 +77,11 @@ const AdapterPage = (): React.ReactNode => {
 
     const adapterTitle =
         frontmatter.title ||
-        getLocalizedText(adapterInfo?.adapter?.title, language) ||
+        getLocalizedText(adapterInfo?.adapter?.title as Record<string, string>, language) ||
         adapterId;
     const adapterDescription =
         frontmatter.description ||
-        getLocalizedText(adapterInfo?.adapter?.description, language);
+        getLocalizedText(adapterInfo?.adapter?.description as Record<string, string>, language);
     const adapterLicense = frontmatter.license || adapterInfo?.adapter?.license || '';
     const adapterAuthors = frontmatter.authors || adapterInfo?.adapter?.authors || '';
     const adapterVersion = frontmatter.version || adapterInfo?.adapter?.version || '';
@@ -83,7 +94,7 @@ const AdapterPage = (): React.ReactNode => {
 
     useEffect(() => {
         if (authorsRef.current && !isAuthorsOverflow) {
-            const checkOverflow = () => {
+            const checkOverflow = (): void => {
                 const computedStyle = getComputedStyle(authorsRef.current!);
                 const lineHeight = parseFloat(computedStyle.lineHeight);
                 const maxHeight = lineHeight * 2;
@@ -102,12 +113,18 @@ const AdapterPage = (): React.ReactNode => {
         resolveAssetUrl(adapterInfo?.adapter?.icon, baseOrigin, language);
 
     const badgeNpm = getBadge(frontmatter, ['BADGE-NPM', 'BADGE-НПМ'], [/badge-npm$/, /badge-нпм$/]);
-    const badgeVersion = getBadge(frontmatter, 
+    const badgeVersion = getBadge(
+        frontmatter,
         ['BADGE-NPM version', 'BADGE-NPM-Version', 'BADGE-версия NPM', 'BADGE-NPM версия'],
-        [/badge-.*npm.*version/, /badge-.*верси.*npm/, /badge-.*npm.*верси/]
+        [/badge-.*npm.*version/, /badge-.*верси.*npm/, /badge-.*npm.*верси/],
     );
-    const badgeDownloads = getBadge(frontmatter, ['BADGE-Downloads', 'BADGE-Загрузки'], [/badge-.*download/, /badge-.*загруз/]);
-    const badgeInstalls = getBadge(frontmatter, 
+    const badgeDownloads = getBadge(
+        frontmatter,
+        ['BADGE-Downloads', 'BADGE-Загрузки'],
+        [/badge-.*download/, /badge-.*загруз/],
+    );
+    const badgeInstalls = getBadge(
+        frontmatter,
         [
             'BADGE-Number of Installations',
             'BADGE-Number-of-Installations',
@@ -115,11 +132,17 @@ const AdapterPage = (): React.ReactNode => {
             'BADGE-Количество установок',
             'BADGE-Кол-во установок',
         ],
-        [/badge-.*install/, /badge-.*установ/]
+        [/badge-.*install/, /badge-.*установ/],
     );
-    const badgeBuild = getBadge(frontmatter, 
-        ['BADGE-Travis CI Build Status', 'BADGE-Travis-CI-Build-Status', 'BADGE-AppVeyor Build Status', 'BADGE-AppVeyor-Build-Status'],
-        [/badge-.*travis.*build/, /badge-.*appveyor.*build/]
+    const badgeBuild = getBadge(
+        frontmatter,
+        [
+            'BADGE-Travis CI Build Status',
+            'BADGE-Travis-CI-Build-Status',
+            'BADGE-AppVeyor Build Status',
+            'BADGE-AppVeyor-Build-Status',
+        ],
+        [/badge-.*travis.*build/, /badge-.*appveyor.*build/],
     );
 
     const markdownBaseUrl = adapterInfo?.adapter?.content
@@ -129,12 +152,12 @@ const AdapterPage = (): React.ReactNode => {
     const changelogItems = useMemo(() => parseChangelog(markdown, removeFrontmatter), [markdown]);
     const licenseParagraphs = useMemo(() => parseLicenseParagraphs(markdown, removeFrontmatter), [markdown]);
 
-    const handleItemClick = () => {
+    const handleItemClick = (): void => {
         if (!adapterInfo?.categoryKey) {
-            navigate('/adapters');
+            void navigate('/adapters');
             return;
         }
-        navigate('/adapters', {
+        void navigate('/adapters', {
             state: {
                 categoryKey: adapterInfo.categoryKey,
                 categoryLabel: (adapterInfo?.categoryTitle || '').toUpperCase(),
@@ -163,9 +186,7 @@ const AdapterPage = (): React.ReactNode => {
                         </span>
                         <span className={classes.breadcrumbsEnd}> / {(adapterTitle || '').toUpperCase()}</span>
                     </Box>
-                    <Typography className={classes.subTitle}>
-                        {adapterDescription}
-                    </Typography>
+                    <Typography className={classes.subTitle}>{adapterDescription}</Typography>
                 </Box>
 
                 <Box className={classes.mainContentArea}>
@@ -183,7 +204,6 @@ const AdapterPage = (): React.ReactNode => {
                             image: classes.image,
                             table: classes.table,
                             tableHead: classes.tableHead,
-                            tableBody: classes.tableBody,
                             tableRow: classes.tableRow,
                             tableHeaderCell: classes.tableHeaderCell,
                             tableCell: classes.tableCell,
@@ -195,16 +215,21 @@ const AdapterPage = (): React.ReactNode => {
                             copyConfirmation: classes.copyConfirmation,
                         }}
                     />
-                    <Typography className={classes.subTitle} sx={{ mt: 4 }}>
+                    <Typography
+                        className={classes.subTitle}
+                        sx={{ mt: 4 }}
+                    >
                         {I18n.t('adapters.feedback_title')}
                     </Typography>
                     <Typography className={classes.paragraph}>
-                        {I18n.t('adapters.feedback_text').split('\n').map((line, i) => (
-                            <React.Fragment key={i}>
-                                {line}
-                                <br />
-                            </React.Fragment>
-                        ))}
+                        {I18n.t('adapters.feedback_text')
+                            .split('\n')
+                            .map((line, i) => (
+                                <React.Fragment key={i}>
+                                    {line}
+                                    <br />
+                                </React.Fragment>
+                            ))}
                     </Typography>
                     <button
                         className={classes.editButton}
@@ -214,9 +239,17 @@ const AdapterPage = (): React.ReactNode => {
                             }
                         }}
                     >
-                        <img src={EditIcon} alt="Edit Icon" />
+                        <img
+                            src={EditIcon}
+                            alt="Edit Icon"
+                        />
                         {editButtonLabel}
-                        <img className={classes.arrowIconEdit} style={{ marginLeft: '34px' }} src={ArrowDownIcon} alt="ArrowIconRight" />
+                        <img
+                            className={classes.arrowIconEdit}
+                            style={{ marginLeft: '34px' }}
+                            src={ArrowDownIcon}
+                            alt="ArrowIconRight"
+                        />
                     </button>
                 </Box>
             </Box>
@@ -226,7 +259,10 @@ const AdapterPage = (): React.ReactNode => {
                     <Box className={classes.sidebarCard}>
                         <Box className={classes.logoContainer}>
                             <Box className={classes.logo}>
-                                <img src={logoUrl || SymbolAdapter} alt={adapterTitle} />
+                                <img
+                                    src={logoUrl || SymbolAdapter}
+                                    alt={adapterTitle}
+                                />
                             </Box>
                         </Box>
 
@@ -254,56 +290,147 @@ const AdapterPage = (): React.ReactNode => {
 
                         <Box className={classes.statsContainer}>
                             <Box className={classes.statItem}>
-                                <img src={StarIcon} alt="Star Icon" /> {formatNumber(adapterInfo?.adapter?.stars)}
+                                <img
+                                    src={StarIcon}
+                                    alt="Star Icon"
+                                />{' '}
+                                {formatNumber(adapterInfo?.adapter?.stars)}
                             </Box>
                             <Box className={classes.statItem}>
-                                <img src={DownLoadIcon} alt="DownLoadIcon" /> {formatNumber(adapterInfo?.adapter?.weekDownloads)}
+                                <img
+                                    src={DownLoadIcon}
+                                    alt="DownLoadIcon"
+                                />{' '}
+                                {formatNumber(adapterInfo?.adapter?.weekDownloads)}
                             </Box>
                             <Box className={classes.statItem}>
-                                <img src={SaveIcon} alt="Save Icon" /> {formatNumber(adapterInfo?.adapter?.installs)}
+                                <img
+                                    src={SaveIcon}
+                                    alt="Save Icon"
+                                />{' '}
+                                {formatNumber(adapterInfo?.adapter?.installs)}
                             </Box>
                         </Box>
                     </Box>
                 </Box>
 
                 <Box className={classes.sidebarRight}>
-                    <Box component="a" href={adapterGitHub} className={classes.sidebarLink} target="_blank" rel="noreferrer">
+                    <Box
+                        component="a"
+                        href={adapterGitHub}
+                        className={classes.sidebarLink}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                            <img className={classes.sidebarLinkIcon} src={GitHubIcon} alt="Github Icon" />
+                            <img
+                                className={classes.sidebarLinkIcon}
+                                src={GitHubIcon}
+                                alt="Github Icon"
+                            />
                             GITHUB
                         </Box>
-                        <img className={classes.arrowIconRight} src={ArrowDownIcon} alt="ArrowIconRight" />
+                        <img
+                            className={classes.arrowIconRight}
+                            src={ArrowDownIcon}
+                            alt="ArrowIconRight"
+                        />
                     </Box>
-                    <Box component="div" className={classes.sidebarLink} onClick={() => setIsLicenseOpen(true)}>
+                    <Box
+                        component="div"
+                        className={classes.sidebarLink}
+                        onClick={() => setIsLicenseOpen(true)}
+                    >
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                            <img className={classes.sidebarLinkIcon} src={LicenseIcon} alt="License Icon" />
+                            <img
+                                className={classes.sidebarLinkIcon}
+                                src={LicenseIcon}
+                                alt="License Icon"
+                            />
                             {I18n.t('adapters.license')}: {adapterLicense || '-'}
                         </Box>
-                        <img className={classes.arrowIcon} src={ArrowDownIcon} alt="ArrowDownIcon" />
+                        <img
+                            className={classes.arrowIcon}
+                            src={ArrowDownIcon}
+                            alt="ArrowDownIcon"
+                        />
                     </Box>
-                    <Box component="div" className={classes.sidebarLink} onClick={() => setIsHistoryOpen(true)} >
+                    <Box
+                        component="div"
+                        className={classes.sidebarLink}
+                        onClick={() => setIsHistoryOpen(true)}
+                    >
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                            <img className={classes.sidebarLinkIcon} src={HistoryIcon} alt="History Icon" />
+                            <img
+                                className={classes.sidebarLinkIcon}
+                                src={HistoryIcon}
+                                alt="History Icon"
+                            />
                             {I18n.t('adapters.history')}
                         </Box>
-                        <img className={classes.arrowIcon} src={ArrowDownIcon} alt="ArrowDownIcon" />
+                        <img
+                            className={classes.arrowIcon}
+                            src={ArrowDownIcon}
+                            alt="ArrowDownIcon"
+                        />
                     </Box>
 
                     <Box className={classes.badgesContainer}>
-                        <Typography className={classes.badgeInfoLabel} sx={{ textTransform: 'uppercase' }}>
+                        <Typography
+                            className={classes.badgeInfoLabel}
+                            sx={{ textTransform: 'uppercase' }}
+                        >
                             {I18n.t('adapters.badges')}:
                         </Typography>
-                        {badgeNpm && <img className={classes.npmImage} src={badgeNpm} alt="npm" />}
-                        {badgeVersion && <img src={badgeVersion} alt="NPM version" className={classes.badgeImage} />}
-                        {badgeBuild && <img src={badgeBuild} alt="Build status" className={classes.badgeImage} />}
-                        {badgeDownloads && <img src={badgeDownloads} alt="Downloads" className={classes.badgeImage} />}
-                        {badgeInstalls && <img src={badgeInstalls} alt="Installed" className={classes.badgeImage} />}
+                        {badgeNpm && (
+                            <img
+                                className={classes.npmImage}
+                                src={badgeNpm}
+                                alt="npm"
+                            />
+                        )}
+                        {badgeVersion && (
+                            <img
+                                src={badgeVersion}
+                                alt="NPM version"
+                                className={classes.badgeImage}
+                            />
+                        )}
+                        {badgeBuild && (
+                            <img
+                                src={badgeBuild}
+                                alt="Build status"
+                                className={classes.badgeImage}
+                            />
+                        )}
+                        {badgeDownloads && (
+                            <img
+                                src={badgeDownloads}
+                                alt="Downloads"
+                                className={classes.badgeImage}
+                            />
+                        )}
+                        {badgeInstalls && (
+                            <img
+                                src={badgeInstalls}
+                                alt="Installed"
+                                className={classes.badgeImage}
+                            />
+                        )}
                     </Box>
                 </Box>
             </Box>
 
-            <LicenseModal open={isLicenseOpen} onClose={() => setIsLicenseOpen(false)} paragraphs={licenseParagraphs} />
-            <HistoryModal open={isHistoryOpen} onClose={() => setIsHistoryOpen(false)} items={changelogItems} />
+            <LicenseModal
+                open={isLicenseOpen}
+                onClose={() => setIsLicenseOpen(false)}
+                paragraphs={licenseParagraphs}
+            />
+            <HistoryModal
+                open={isHistoryOpen}
+                onClose={() => setIsHistoryOpen(false)}
+                items={changelogItems}
+            />
         </Box>
     );
 };

@@ -80,7 +80,7 @@ export const AdaptersSection: React.FC = () => {
     const columnsDesktop = [4, 5, 4, 5, 4];
     const columnsMobile = [5, 5, 5, 5, 5];
 
-    const renderGrid = (columns: number[], isMobile: boolean = false) => {
+    const renderGrid = (columns: number[], isMobile: boolean = false): React.JSX.Element[] => {
         let iconCounter = 0;
         const totalIcons = columns.reduce((sum, num) => sum + num, 0);
         const iconsToRender = [...adapterIcons];

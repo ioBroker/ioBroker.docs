@@ -1,6 +1,6 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, type UseQueryResult } from '@tanstack/react-query';
 
-export const useAdapterMarkdown = (markdownUrl: string) => {
+export const useAdapterMarkdown = (markdownUrl: string): UseQueryResult<string, Error> => {
     return useQuery<string>({
         queryKey: ['adapter-markdown', markdownUrl],
         queryFn: async () => {

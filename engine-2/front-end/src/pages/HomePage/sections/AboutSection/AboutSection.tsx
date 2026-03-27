@@ -115,11 +115,11 @@ export const AboutSection: React.FC = () => {
 
     const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-    const handleShowMore = () => {
+    const handleShowMore = (): void => {
         setVisibleCount(prev => prev + ALL_ITEMS.length);
     };
 
-    const handleExpandClick = (index: number) => {
+    const handleExpandClick = (index: number): void => {
         setExpandedIndex(prevIndex => (prevIndex === index ? null : index));
     };
 

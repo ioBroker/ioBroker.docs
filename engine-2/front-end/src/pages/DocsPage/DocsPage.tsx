@@ -15,6 +15,7 @@ import { useDocsMarkdown } from '../../api/hooks/useDocsMarkdown';
 import { API_CONFIG } from '../../config/api';
 import { MarkdownView } from '../../components/MarkdownView/MarkdownView';
 import { buildTocItems, makeSlug } from '../../utils/markdown';
+import { normalizeImageTags } from '../../components/MarkdownView/markdownViewUtils';
 
 const DocsPage = (): React.ReactNode => {
     const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
@@ -40,12 +41,16 @@ const DocsPage = (): React.ReactNode => {
     useEffect(() => I18n.subscribe(setLanguage), []);
     useEffect(() => {
         if (isMobile) {
-            setIsMenuCollapsed(true)
+            setIsMenuCollapsed(true);
         }
-    }, [isMobile])
+    }, [isMobile]);
 
     const tableOfContentsItems = useMemo(() => {
-        return markdown ? buildTocItems(markdown) : [];
+        if (!markdown) {
+            return [];
+        }
+        const fixedMarkdown = normalizeImageTags(markdown);
+        return buildTocItems(fixedMarkdown);
     }, [markdown]);
     const headingIds = useMemo(() => {
         const ids: string[] = [];
@@ -76,53 +81,58 @@ const DocsPage = (): React.ReactNode => {
         return map;
     }, [tableOfContentsItems]);
 
-    const expandAllSections = () => {
+    const expandAllSections = (): void => {
         setIsAllExpanded(true);
-        setExpandAllSignal((v) => v + 1);
+        setExpandAllSignal(v => v + 1);
     };
-    const collapseAllSections = () => {
+    const collapseAllSections = (): void => {
         setIsAllExpanded(false);
-        setCollapseAllSignal((v) => v + 1);
+        setCollapseAllSignal(v => v + 1);
     };
 
     return (
         <Box>
             <SectionTitle
                 sx={{
-                    marginTop: '30px', marginLeft: '31px', letterSpacing: '-0.03em !important',
-                    fontSize: isMini ? '20px !important' : (isMobile ? '28px !important' : '36px')
+                    marginTop: '30px',
+                    marginLeft: '31px',
+                    letterSpacing: '-0.03em !important',
+                    fontSize: isMini ? '20px !important' : isMobile ? '28px !important' : '36px',
                 }}
-            >{I18n.t('home.docs.title')}</SectionTitle>
+            >
+                {I18n.t('home.docs.title')}
+            </SectionTitle>
             <Box className={classes.pageWrapper}>
                 <Box className={classes.topBar}>
                     <Box className={classes.menuToggleContainer}>
                         <MenuToggle
                             sx={{
-                                width: isMini ? '55px !important' : (isMobile ? '70px !important' : '55px'),
-                                height: isMini ? '32px !important' : (isMobile ? '40px !important' : '32px'),
+                                width: isMini ? '55px !important' : isMobile ? '70px !important' : '55px',
+                                height: isMini ? '32px !important' : isMobile ? '40px !important' : '32px',
                                 '& img': {
-                                    width: isMini ? '15px !important' : (isMobile ? '18px' : '15px'),
-                                    height: isMini ? '7px !important' : (isMobile ? '10px' : '7px')
-                                }
+                                    width: isMini ? '15px !important' : isMobile ? '18px' : '15px',
+                                    height: isMini ? '7px !important' : isMobile ? '10px' : '7px',
+                                },
                             }}
-                            buttonSx={{ minWidth: isMini ? '27px !important' : (isMobile ? '35px !important' : '27px'), }}
+                            buttonSx={{ minWidth: isMini ? '27px !important' : isMobile ? '35px !important' : '27px' }}
                             value={menuMode}
                             onChange={setMenuMode}
                             onCollapse={setIsMenuCollapsed}
                         />
-                        {!isMobile &&
+                        {!isMobile && (
                             <MenuArrowsToggle
                                 value={isAllExpanded ? 'expand' : 'collapse'}
                                 onExpandAll={expandAllSections}
                                 onCollapseAll={collapseAllSections}
-                            />}
+                            />
+                        )}
                     </Box>
                     <Box className={classes.searchContainer}>
                         <TopBarSearch
                             isFluid={isMobile}
                             sx={{
                                 '& .MuiOutlinedInput-root': {
-                                    height: isMini ? '32px !important' : (isMobile ? '40px !important' : '32px'),
+                                    height: isMini ? '32px !important' : isMobile ? '40px !important' : '32px',
                                 },
                             }}
                             value={search}
@@ -143,7 +153,10 @@ const DocsPage = (): React.ReactNode => {
                         />
                     </Box>
                 )}
-                <Box className={classes.root}>
+                <Box
+                    className={classes.root}
+                    data-docs-scroll="true"
+                >
                     <Box className={classes.menuBlock}>
                         <DocsMenu
                             expandAllSignal={expandAllSignal}

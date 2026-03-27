@@ -1,4 +1,4 @@
-interface Lang {
+export interface Lang {
     en?: string;
     de?: string;
     ru?: string;

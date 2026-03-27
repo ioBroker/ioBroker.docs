@@ -22,7 +22,10 @@ export const TopBarSearch = ({ value, onChange, isMenuCollapsed, isFluid, sx }: 
                 slotProps={{
                     input: {
                         startAdornment: (
-                            <InputAdornment position="start" sx={{ marginLeft: '8px' }}>
+                            <InputAdornment
+                                position="start"
+                                sx={{ marginLeft: '8px' }}
+                            >
                                 <img
                                     alt="Search Icon"
                                     src={SearchIcon}

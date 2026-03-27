@@ -102,6 +102,7 @@ export function setLang(newLang: Language): void {
         try {
             cb(newLang);
         } catch (e) {
+            console.log(e);
             // ignore
         }
     });

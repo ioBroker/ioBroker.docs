@@ -18,7 +18,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
                     ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.35) 0%, rgba(255, 255, 255, 0) 60%)'
                     : 'none',
             [theme.breakpoints.down(1278)]: {
-               display: 'none'
+                display: 'none',
             },
         },
         [theme.breakpoints.down(768)]: {
@@ -51,7 +51,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
                     ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.35) 0%, rgba(255, 255, 255, 0) 60%)'
                     : 'none',
             [theme.breakpoints.down(1278)]: {
-               display: 'none'
+                display: 'none',
             },
         },
         '&::after': {
@@ -68,8 +68,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
                 theme.palette.mode === 'dark'
                     ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.3) 0%, rgba(255, 255, 255, 0) 60%)'
                     : 'none',
-             [theme.breakpoints.down(1278)]: {
-               display: 'none'
+            [theme.breakpoints.down(1278)]: {
+                display: 'none',
             },
         },
         '&::-webkit-scrollbar': {
@@ -90,22 +90,22 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         [theme.breakpoints.down(768)]: {
             position: !isMenuCollapsed ? 'relative' : 'static',
         },
-         [theme.breakpoints.down(769)]: {
-              maxHeight: '100%',
-              overflowY: 'hidden',
+        [theme.breakpoints.down(769)]: {
+            maxHeight: '100%',
+            overflowY: 'hidden',
         },
-         [theme.breakpoints.down(481)]: {
+        [theme.breakpoints.down(481)]: {
             margin: '0 10px',
-            paddingRight: '0px',   
+            paddingRight: '0px',
         },
     },
     topBar: {
         display: 'flex',
         alignItems: 'center',
-        margin: "0 32px 24px 32px",
+        margin: '0 32px 24px 32px',
         position: 'relative',
         [theme.breakpoints.down(481)]: {
-            margin: "0 10px 30px 10px",
+            margin: '0 10px 30px 10px',
         },
     },
     menuToggleContainer: {
@@ -114,8 +114,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         alignItems: 'center',
         width: '265px',
         flexShrink: 0,
-         [theme.breakpoints.down(769)]: {
-            width: 'auto'
+        [theme.breakpoints.down(769)]: {
+            width: 'auto',
         },
     },
     searchContainer: {
@@ -146,7 +146,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         color: theme.palette.text.primary,
         lineHeight: 1.8,
         fontSize: '16px',
-        paddingBottom: "20px"
+        paddingBottom: '20px',
     },
     head: {
         color: theme.palette.primary.main,
@@ -163,7 +163,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         gap: '16px',
         cursor: 'pointer',
         maxWidth: '100%',
-         [theme.breakpoints.down(481)]: {
+        [theme.breakpoints.down(481)]: {
             fontSize: '18px',
         },
     },
@@ -181,8 +181,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         gap: '16px',
         cursor: 'pointer',
         maxWidth: '100%',
-         [theme.breakpoints.down(769)]: {
-             fontSize: '18px',
+        [theme.breakpoints.down(769)]: {
+            fontSize: '18px',
         },
         [theme.breakpoints.down(481)]: {
             fontSize: '16px',
@@ -199,7 +199,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         fontSize: '18px',
         fontWeight: 300,
         letterSpacing: '0.01em',
-         [theme.breakpoints.down(481)]: {
+        [theme.breakpoints.down(481)]: {
             fontSize: '16px',
         },
     },
@@ -242,9 +242,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         },
     },
     tableHead: {
-        backgroundColor: theme.palette.mode === 'dark' 
-            ? 'rgba(35, 86, 174, 0.1)' 
-            : 'rgba(35, 86, 174, 0.05)',
+        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(35, 86, 174, 0.1)' : 'rgba(35, 86, 174, 0.05)',
     },
     tableRow: {
         borderBottom: `1px solid ${theme.palette.divider}`,
@@ -280,6 +278,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         borderRight: `1px solid ${theme.palette.divider}`,
         wordBreak: 'break-word',
         overflowWrap: 'anywhere',
+        display: 'table-cell',
         '&:last-child': {
             borderRight: 'none',
         },
@@ -335,7 +334,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             background: '#FFF',
         },
         [theme.breakpoints.down(769)]: {
-            fontSize: '10px'
+            fontSize: '10px',
         },
     },
     inlineCode: {
@@ -359,7 +358,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     },
     menuBlock: {
         flexShrink: 0,
-         top: '0px',     
+        top: '0px',
         position: 'sticky',
         [theme.breakpoints.down(769)]: {
             display: 'none',
@@ -367,18 +366,18 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     },
     menuBlockMobile: {
         position: 'absolute',
-        width: '350px',
+        width: '380px',
         left: '32px',
         top: '0',
         zIndex: 1000,
         flexShrink: 0,
         [theme.breakpoints.up(769)]: {
             display: 'none',
-            width: 'calc(91px - 18px + 1px)'
+            width: 'calc(91px - 18px + 1px)',
         },
-         [theme.breakpoints.down(481)]: {
+        [theme.breakpoints.down(481)]: {
             width: 'calc(100% - 32px)',
-             left: '16px',
+            left: '16px',
             '&::before': {
                 content: '""',
                 position: 'absolute',
