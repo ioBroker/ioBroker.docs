@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mercedesme/README.md
 title: ioBroker.mercedesme
-hash: n8+F9aionWvJttL+oYB/zYoVebpcNqcuFjIWXPh7mLQ=
+hash: FNiMh4veJEDS9m5/XywGQO4IafBpnx8U2q/1/UxGJ+k=
 ---
 ![Logo](../../../en/adapterref/iobroker.mercedesme/admin/mercedesme.png)
 
@@ -14,14 +14,90 @@ hash: n8+F9aionWvJttL+oYB/zYoVebpcNqcuFjIWXPh7mLQ=
 ![Travis-CI](http://img.shields.io/travis/TA2k/ioBroker.mercedesme/master.svg)
 
 # IoBroker.mercedesme
-## Mercedesme-Adapter für ioBroker
+## Mercedes-Adapter für ioBroker
 Mercedes me Adapter für ioBroker
 
+### Empfehlung: Zweitnutzer erstellen
+Es wird empfohlen, einen separaten Mercedes me Zweitnutzer für ioBroker zu erstellen. Mercedes begrenzt die Anzahl der Verbindungen pro Tag (~100-150). Bei Überschreitung wird der Account bis Mitternacht UTC gesperrt (HTTP 429).
+
+Mit einem Zweitnutzer:
+
+- Wird der Hauptnutzer in der Mercedes me App nicht eingeschränkt
+- Kann der Adapter uneingeschränkt funktionieren
+- Bleibt die App auf dem Handy voll funktionsfähig
+
+Den Zweitnutzer in der Mercedes me App als „Nutzer“ (nicht Hauptnutzer) zum Fahrzeug einladen.
+
+### Bedienung
 Unter commands das commando auf klappen und den button neben start drücken, wenn das command verfügbar ist.
 
 Remote sind vorgefertigte Remote-Befehle
 
 ## Changelog
+### 0.7.0-beta.0 (2026-03-03)
+- make api only mode default
+
+### 0.6.3 (2026-02-16)
+- add api refresh every 3 min after websocked block
+- add api only update mode
+
+### 0.5.5 (2026-02-09)
+- fix parsing and command sending
+
+### 0.4.2 (2026-02-07)
+- improve event parsing
+
+### 0.4.0 (2026-02-03)
+- fix remote command sending
+
+### 0.3.9 (2025-11-12)
+- fix login flow
+
+### 0.3.8 (2025-07-11)
+
+- change token refresh mechanism
+
+### 0.3.7 (2025-02-11)
+
+- fix relogin after adapter restart
+- add logs for reconnect
+
+### 0.3.6 (2025-02-06)
+
+- Fix for Login and WS connection
+
+### 0.3.5 (2025-01-31)
+
+- fix new login flow
+
+### 0.3.4 (2024-12-08)
+
+- added config parameter for reconnect delay
+
+### 0.3.2 (2024-12-06)
+
+- fix for too many request error
+
+### 0.2.4 (2024-10-17)
+
+- fix websocket connection
+
+### 0.2.3 (2024-05-18)
+
+- improve websocket ping with not internet connection
+
+### 0.2.1 (2024-04-08)
+
+- reduce cpu usage
+- add error logs
+
+### 0.2.0 (2024-04-08)
+
+- reduce cpu usage
+
+### 0.1.8 (2024-02-15)
+
+- improve code sending
 
 ### 0.1.6
 
@@ -34,22 +110,23 @@ Remote sind vorgefertigte Remote-Befehle
 ### 0.0.56
 
 - fix vehicle list while login
-  
+
 ### 0.0.55
 
 - fix refresh login
+
 ### 0.0.55
 
 - fix refresh login
-  
+
 ### 0.0.54
 
 - fix login
-  
+
 ### 0.0.52
 
 - fix js-controller 3.3 warnings
-  
+
 ### 0.0.51
 
 - improve handling of failing logins
@@ -57,11 +134,11 @@ Remote sind vorgefertigte Remote-Befehle
 ### 0.0.50
 
 - fix refresh token
-  
+
 ### 0.0.47
 
 - fix new login
-  
+
 ### 0.0.45
 
 - Small improvments
@@ -120,7 +197,7 @@ Remote sind vorgefertigte Remote-Befehle
 
 ### 0.0.15
 
-- fix soc history bug, add basic price and  adapter restart every 6h
+- fix soc history bug, add basic price and adapter restart every 6h
 
 ### 0.0.14
 
@@ -186,7 +263,7 @@ Remote sind vorgefertigte Remote-Befehle
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

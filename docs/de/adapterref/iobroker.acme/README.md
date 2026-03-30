@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.acme/README.md
 title: ioBroker.acme
-hash: 6PaTYasXWjL2QReVKVOM7tmkighgHD/M/nHbtZ3KGmU=
+hash: 62dal9BD4EriOW7RCEGOTkfVGHbC7SyeXM4oXO6xhVs=
 ---
 ![Logo](../../../en/adapterref/iobroker.acme/admin/acme.png)
 
@@ -24,7 +24,7 @@ Der Adapter startet regelmäßig (standardmäßig um Mitternacht) und nach Konfi
 
 Aktuell werden Bestellungen über die Zertifizierungsstelle Let's Encrypt abgewickelt und sind daher kostenlos.
 
-Die Zertifikatsdetails werden in einem „Zertifikatsammlungsobjekt“ gespeichert, das weitere relevante Informationen wie Ablaufdatum, zu sichernde Domains und privaten Schlüssel enthält.
+Die Zertifikatsdetails werden in einem „Zertifikatsammlungsobjekt“ gespeichert, das weitere relevante Informationen wie Ablaufdatum, zu sichernde Domains und den privaten Schlüssel enthält.
 Diese Objekte werden über ihre Sammlungs-ID referenziert.
 
 Adapter, die Zertifikate zur Sicherung ihrer Kommunikation benötigen (z. B. [Webadapter](https://www.npmjs.com/package/iobroker.web)), können Zertifikatssammlungen laden und nutzen.
@@ -32,14 +32,14 @@ Adapter, die Zertifikate zur Sicherung ihrer Kommunikation benötigen (z. B. [We
 Speicherung und Nutzung werden über eine Schnittstelle gesteuert, die in [Core ioBroker Controller](https://www.npmjs.com/package/iobroker.js-controller) enthalten ist.
 
 ### ACME-Herausforderungen
-Es sind zwei Methoden zur Überprüfung der Herausforderung implementiert, und mindestens eine davon sollte auf der Konfigurationsseite aktiviert sein.
+Es werden zwei Methoden zur Überprüfung der Herausforderung implementiert, und mindestens eine davon sollte auf der Konfigurationsseite aktiviert sein.
 
 Beachten Sie, dass Wildcard-Zertifikatsbestellungen nur mit der DNS-01-Challenge validiert werden können.
 
 #### HTTP-01
 Der Adapter startet seinen eigenen HTTP-01-Challenge-Server auf dem konfigurierten Port und der Adresse.
 
-Damit eine HTTP-01-Challenge erfolgreich ist, muss der Port/die Adresse des Challenge-Servers öffentlich erreichbar sein, und zwar über Port 80 des FQDN, der in einer Sammlung von Common/Alternative Names aus dem offenen Internet angegeben ist.
+Damit eine HTTP-01-Challenge erfolgreich ist, muss der Port/die Adresse des Challenge-Servers **öffentlich** über Port 80 des in einem allgemeinen/alternativen Namen der Sammlung angegebenen FQDN aus dem offenen Internet erreichbar sein.
 
 Konfigurieren Sie Ihre Firewall, Ihren Reverse-Proxy usw. entsprechend.
 
@@ -49,7 +49,7 @@ Beispielszenarien:
 
     Lösung:
 
-- Konfigurieren Sie ACME so, dass es auf einem beliebigen freien Port läuft: z. B. 8092.
+- Konfigurieren Sie ACME so, dass es auf einem beliebigen freien Port läuft: z.B.: 8092.
 - Konfigurieren Sie den Router so, dass er Verbindungen an Port 80 seiner öffentlichen Adresse an Port 8092 des IoB-Hosts weiterleitet.
 - Konfigurieren Sie den DNS-Namen des gewünschten Zertifikats (Common Name) so, dass er zur öffentlichen Adresse des Routers aufgelöst wird.
 
@@ -64,7 +64,7 @@ Beispielszenarien:
 
 Mögliche Lösungen:
 
-1. Wenn es sich bei dem anderen Dienst um einen IoB-Adapter handelt, der den Portkonfigurations-Namensstandards folgt, wird ACME diesen stoppen, bevor versucht wird, ein Zertifikat zu bestellen, Port 80 für den HTTP-01-Challenge-Server verwenden und jeden gestoppten Adapter nach Abschluss neu starten.
+1. Wenn es sich bei dem anderen Dienst um einen IoB-Adapter handelt, der den Standards für die Portkonfigurationsbenennung folgt, wird ACME diesen stoppen, bevor versucht wird, ein Zertifikat zu bestellen, Port 80 für den HTTP-01-Challenge-Server verwenden und jeden gestoppten Adapter nach Abschluss neu starten.
 
 Dies führt offensichtlich zu einem kurzen Ausfall des anderen Adapters, was unter Umständen unerwünscht ist.
 
@@ -97,12 +97,16 @@ Weitere Einzelheiten finden Sie in [AMCS.js](https://www.npmjs.com/package/acme)
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
+### 2.0.0 (2026-02-12)
 - (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
 - (mcm1957) Dependencies have been updated
+- (@GermanBluefox) Adater was migrated to TypeScript and vite
 
 ### 1.0.6 (2024-12-27)
 
-- (mcm1957) Missing size attributes for jsonCOnfig have been added.
+- (mcm1957) Missing size attributes for jsonConfig have been added.
 - (mcm1957) Dependencies have been updated
 
 ### 1.0.5 (2024-12-08)
@@ -118,11 +122,6 @@ Weitere Einzelheiten finden Sie in [AMCS.js](https://www.npmjs.com/package/acme)
 - (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 - (mcm1957) Dependencies have been updated
 - (bluefox) Prepared for admin v7
-
-### 0.1.2 (2023-11-15)
-
-- (mcm1957) Issues reported by adapter checker have been fixed.
-- (mcm1957) Release 0.1.1 has been released again due to error during deploy.
 
 ## License
 

@@ -79,6 +79,36 @@ A [widget for Vis-2](https://github.com/rg-engineering/ioBroker.vis-2-widgets-we
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.5.1 (2026-02-01)
+* (René) bug fix: wind url was not set if wind speed was zero
+* (René) bug fix: save selected icon type (svg, png or gif) in admin
+
+### 4.5.0 (2026-01-31)
+* (René) show symbol description beside the symbol in admin as preview
+* (René) see issue #480: set minimum interval for data request to 60 minutes to avoid too many requests
+* (René) new icons (png only) added (thanks to forum member Negalein)
+* (René) see issue #478. bug fix copy current data at midnight
+* (René) see issue #492: rate limiter: check expired time of last request before new request
+* (René) see issue #490: icon file extension selectable in admin (svg, png or gif)
+* (René) current is only cpopied, if data are valid for current hour
+
+### 4.4.1 (2026-01-19)
+**Attention:** The folder structure for the icons has changed. A few icon sets are already available, but others are still missing. If anyone would like to contribute their icons, please contact me.
+* (René) new folder structure for weather, wind and moon icons
+
+### 4.4.0 (2026-01-18)
+* (René, chatGPT, copilot) admin-UI overworked with react
+* (René, copilot) preview of symbols for weather, wind and moon in admin
+* (René) sunshine duration for day 1 based on daylight hours and clouds calculation added
+* (René) see issue #462: sun and moon times as Unix timestamp formated as complete date+time added
+* (René) new datapoints "Wind_Speed_Beauforts" and "Wind_symbol_URL" added
+* (René) calculation of wind speed Beauforts based on wind speed in km/h added
+* (René) WindIconURL calculation added based on wind direction and wind speed
+* (René, chatGPT) wind icons added (svg and png)
+* (René) translations updated
+* (René) URL for weather symbols, wind and moon updated to new icon folder structure
+* (René) see issue #473: copy datapoints of current hour into "current"-folder; update every hour with internal timer added; must be enabled in admin
+
 ### 4.3.0 (2026-01-03)
 * (H5N1v2) 41 icons for DasWetter@4.x (galeria7)
 

@@ -44,24 +44,52 @@ You can still do firmware updates with the official Zendure app via bluetooth an
 
 ## Important
 
-If you plan to control the charging and feed in of your device with a script/blockly, I recommend using the control parameter '**setDeviceAutomationInOutLimit**', as this controls the device without writing to the flash memory of the device. It is also a good idea to set the control state '**smartMode**' to true if you own a HUB 1200/2000 with ACE 1500, as it will also force the device to write 'acMode' changes to the ram instead of flash memory.
+If you plan to control the charging and feed in of your device with a script/blockly, I recommend using the control parameter '**setDeviceAutomationInOutLimit**', as this controls the device without writing to the flash memory of the device. You can use negative values to trigger charging from grid.
 
-### Hyper 2000, SF 2400 AC oder SF 800 (pro)
-
-On devices like the Hyper 2000, SF 2400 AC oder SF 800 (pro) you can use negative values to trigger charging from grid. SF 2400 AC oder SF 800 (pro) is currently **untested**!
-
-### HUB 1200 / HUB 2000 / ACE 1500 Combo
-
-On a HUB 1200 / HUB 2000 / ACE 1500 combination you have to use '**setDeviceAutomationInOutLimit**' for feed in and manualy switch acMode and the '**setInputLimit**' if you want to charge from the grid. Setting the '**smartMode**' to true is highly recommended in this scenario!
+As I only own Hyper 2000 devices, other devices are untestet from me and the funcionality rely on feedback from the community!
 
 ## Notes
 
 This adapter will now use the Cloud Authorization Code for authentication on the official mqtt servers, which you can generate in the Zendure app!
 
 ## Changelog
-### 3.3.0-alpha.0 (2025-12-22)
+### 3.5.3 (2026-03-01)
 
-- Test deviceAutomation for ACE1500
+- Fix setDeviceAutomationInOutLimit on certain HEMS devices like 2400 AC(+)
+
+### 3.5.2 (2026-02-28)
+
+- Add productKey '5fG27j' for Solarflow 2400 AC+
+
+### 3.5.1 (2026-02-19)
+
+- Try to update state only if state exist for this device
+- Improved error handling
+
+### 3.5.0 (2026-02-18)
+
+- Add productKey '2Qe7C9' for Solarflow 2400 Pro
+- Add event handler (log message) for MQTT disconnect
+
+### 3.4.0 (2026-02-16)
+
+- Add productKey '8n77V3' for Solarflow 800 Plus
+- Remove passMode, pass and buzzerSwitch from Hyper 2000
+
+### 3.3.2 (2026-02-02)
+
+- Fix another 'has no existing object' message bug on pvPower3 + 4
+- Fix Battery identification of AB2000X and calculation of 'energyWhMax'
+- Fix Battery identification of AB3000 and calculation of 'energyWhMax'
+
+### 3.3.1 (2026-01-30)
+
+- Fix calculation issue
+
+### 3.3.0 (2026-01-30)
+
+- Fix 'has no existing object' messages on pvPower3 + 4
+- Fix AC input limit of SF 800 Pro
 
 ### 3.2.2 (2025-12-21)
 
@@ -174,7 +202,7 @@ This adapter will now use the Cloud Authorization Code for authentication on the
 
 MIT License
 
-Copyright (c) 2025 Peter Frommert
+Copyright (c) 2026 Peter Frommert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

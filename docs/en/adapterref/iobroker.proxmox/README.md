@@ -27,6 +27,16 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
+### 2.4.10 (2026-01-28)
+* (arteck) fix node action
+
+### 2.4.9 (2026-01-09)
+* (arteck) fix webhookNotification array DP
+
 ### 2.4.8 (2025-12-27)
 * (arteck) add DP webhookNotification as string and as array
 
@@ -36,12 +46,6 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 ### 2.4.6 (2025-12-23)
 * (arteck) fix start request
 * (arteck) fix Cannot send request
-
-### 2.4.5 (2025-12-23)
-* (arteck) fix nodes response
-
-### 2.4.4 (2025-12-22)
-* (arteck) fix reconnect if node is offline
 
 ## License
 

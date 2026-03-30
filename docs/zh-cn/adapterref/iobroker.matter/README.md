@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.matter/README.md
 title: ioBroker Matter 适配器
-hash: O/e9Y+fasfqmfi0k7QYqZuVBlJB5PqEtsyfi3tTP9W0=
+hash: gAGo4u9VkNP6GkNvjV/3q+mv3vRzTuzoI+k6CrBXrj0=
 ---
 ![标识](../../../en/adapterref/iobroker.matter/admin/matter.svg)
 
@@ -12,36 +12,78 @@ hash: O/e9Y+fasfqmfi0k7QYqZuVBlJB5PqEtsyfi3tTP9W0=
 ![下载](https://img.shields.io/npm/dm/iobroker.matter.svg)
 
 # IoBroker Matter 适配器
-![测试和发布](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试与发布](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
 ＃＃ 介绍
-> [!重要] > 该适配器无法通过 GitHub 安装：必须通过 ioBroker 存储库（稳定版或最新版本）安装。
-> > ioBroker Matter 适配器的配置和使用详细说明请参阅 🇩🇪 [德语 Wiki](https://github.com/ioBroker/ioBroker.matter/wiki) 和🇬🇧 [英语 Wiki]](https://github.com/ioBroker/ioBroker.matter/wiki/Home-%E2%80%90-EN)。
-> > 使用适配器前，请阅读 [重要说明](https://github.com/ioBroker/ioBroker.matter/wiki/Einleitung-und-wichtige-Hinweise#wichtige-hinweise-bitte-dringend-beachten)。
+【重要】适配器不能通过 GitHub 安装：必须通过 ioBroker 仓库（稳定版或最新版）安装。
+
+ioBroker Matter 适配器的配置和使用详细说明请参见 🇩🇪 [德语维基（https://github.com/ioBroker/ioBroker.matter/wiki）和英语维基（🇬🇧）](https://github.com/ioBroker/ioBroker.matter/wiki/Home-%E2%80%90-EN)。
+
+请在使用适配器前阅读 [重要提示](https://github.com/ioBroker/ioBroker.matter/wiki/Einleitung-und-wichtige-Hinweise#wichtige-hinweise-bitte-dringend-beachten)。
 
 ＃＃ 描述
-使用 ioBroker Matter Adapter，可以映射以下用例：
+借助 ioBroker Matter Adapter，可以映射以下用例：
 
-* 基于物质的设备可以直接链接到ioBroker，从而读取/控制
-* 提供多个 ioBroker 设备作为 Matter Bridge：Matter Bridge 可以包含多个设备，是将 ioBroker 设备集成到 Matter 兼容生态系统的最简单方法。
-* ioBroker 根据 ioBroker 设备/ioBroker 状态提供单独的虚拟 Matter 设备，这些设备可以教授给与 Matter 兼容的生态系统（目前仅适用于 Amazon Alexa 的桥接器）
+基于物质的设备可以直接连接到 ioBroker，从而实现读取/控制。
+* 将多个 ioBroker 设备作为 Matter Bridge 提供：Matter Bridge 可以包含多个设备，是将 ioBroker 设备集成到 Matter 兼容生态系统中的最简单方法。
+* ioBroker 提供基于 ioBroker 设备/ioBroker 状态的独立虚拟 Matter 设备，这些设备可以学习到与 Matter 兼容的生态系统中（目前仅支持 Amazon Alexa 的桥接）。
+
+## OTA 更新（空中下载）
+Matter 适配器支持通过 Controller 连接的设备的固件更新，允许您直接通过 ioBroker 更新 Matter 设备。
+
+### 基本用法
+当有可用更新时，控制器面板中设备旁边会显示一个**更新图标**。更新每天检查一次，最初会在适配器启动后约 10-15 分钟进行检查。
+
+**更新设备：**
+
+1. 打开 Matter 适配器的**控制器面板**
+2. 在设备上点击带有更新图标的**更新操作**
+3. 查看更新信息（如有显示），然后点击“立即更新”。
+
+**更新阶段：**
+
+- **查询中** → **下载中**（显示百分比） → **应用中**
+
+您可以在查询/下载过程中取消操作。一旦开始应用更新，则无法取消。更新完成后，设备将自动重启（可能需要几分钟时间）。
+
+**提示**：更新下载过程中可能会出现卡顿现象——这是正常现象，尤其是在Thread设备上。请耐心等待。
+
+### 官方更新
+适配器会自动从官方的 Matter 认证数据库（[分布式合规账簿 (DCL)](https://webui.dcl.csa-iot.org/)）中检查已认证的固件。无需任何配置。
+
+### 自定义OTA更新（高级）
+用于测试预发布版或社区版固件：
+
+**警告**：自定义更新会绕过认证。请仅使用来自可信来源的固件。
+
+**设置：**
+
+1. 转到“常规”选项卡 → “自定义 OTA 更新”部分
+2. 启用**允许自定义/非官方OTA更新**
+3. （可选）设置自定义路径（默认值：`<实例数据>/custom-ota`）
+4. 如果路径尚不存在，则会在适配器下次重启时创建该路径。
+
+**正在添加文件：**
+
+- 将 `.ota` 文件放置在自定义更新目录中
+- 点击**立即导入更新**扫描新文件（适配器启动时会自动导入一次文件）
+- 该适配器会自动从文件头中提取供应商/产品 ID 并验证文件。
 
 ## 待办事项
 * 部分文本为英文
 * 将 Matter 中的最小值/最大值同步到 ioBroker 对象中
-* 移除设备/状态时清理对象
+* 设备/状态移除时清理对象
 * ioBroker 设备类型
 * (6) 吸尘器
-*（5+）音量，音量组
 * (5+/8) 空调
-*（7）火灾报警
-*（5）媒体播放器
-* 警告 - 怎么办？
-* 门 - 又称百叶窗，因为物质没有其他设备类型？
-* windowTilt - 如上所述，它是由两个接触传感器组成的设备......一个用于打开关闭，一个用于倾斜
-* levelSlider - 理想情况下作为非照明调光插座？
+* (7) 火警
+* (5) 媒体播放器
+* 警告 - 如何？
+* 门——又称百叶窗，因为物质没有其他类型的装置吗？
+* 窗户倾斜装置——如前所述，它是一个包含两个接触传感器的复合装置……一个用于窗户的开合，一个用于倾斜。
+* 亮度滑块 - 理想情况下用作非照明调光插座？
 * 物质设备类型
 * (8) 风扇 -> 空调？
 * (7) 空气质量传感器 -> ???
@@ -50,18 +92,18 @@ hash: O/e9Y+fasfqmfi0k7QYqZuVBlJB5PqEtsyfi3tTP9W0=
 * (6) 压力传感器 -> ??? DEF
 * (6) 机器人吸尘器 -> vacuumCleaner
 * (4) 流量传感器 -> ??? DEF
-* (5+) 房间空调 -> airCondition
+* (5+) 房间空调 -> 空调
 * (5+) 洗碗机-> ???
-* (4+) 基本视频播放器 -> mediaPlayer
+* (4+) 基本视频播放器 -> 媒体播放器
 * (4+) 洗衣机 -> ???
 * (4) 冰箱 -> ???
 * (4) 温控柜 -> ???
-* (2+) 水冻探测器 -> 警告？
-* (2+) 雨量传感器 -> 警告？
+* (2+) 水冻结探测器 -> 警告？
+* (2+) 雨量传感器 -> 发出警告？
 * (2) 水阀 -> ???
 * (2) 洗衣烘干机 -> ???
 * (2) 烤箱 -> ???
-* (2) 炉灶 -> ???
+* (2) 灶台 -> ???
 * (2) 烹饪表面 -> ???
 * (2) 抽油烟机 -> ???
 * (2) 微波炉 -> ???
@@ -73,13 +115,13 @@ hash: O/e9Y+fasfqmfi0k7QYqZuVBlJB5PqEtsyfi3tTP9W0=
 
 ＃＃ 发展
 ### 更新依赖项
-更新项目依赖项时（在根目录`package.json` 和`src-admin/package.json` 中），请始终使用以下命令：
+更新项目依赖项时（无论是在根目录`package.json`还是`src-admin/package.json`中），请始终使用以下命令：
 
 ```bash
 npm run npm
 ```
 
-此命令更新主项目和管理前端中的依赖项，确保`package-lock.json` 文件正确同步。
+此命令更新主项目和管理前端中的依赖项，确保 `package-lock.json` 文件正确同步。
 
 ### 运行测试
 所有测试均使用 TypeScript 编写，无需编译即可直接执行：
@@ -88,13 +130,25 @@ npm run npm
 npm test
 ```
 
-测试位于`test/`目录中，并使用 ts-node 直接执行 TypeScript。
+测试位于 `test/` 目录中，并使用 ts-node 直接执行 TypeScript。
 
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一版本的占位符（位于行首）：
 
-### **工作正在进行** -->
+### **正在进行中** -->
 
 ## Changelog
+### 1.0.0 (2026-02-25)
+* IMPORTANT: The first start of the controller with this version takes a bit longer to connect all devices because internal data are migrated
+* (@Apollon77) Updated to Matter 1.4.2 (matter.js to 0.16) including many optimizations and fixes
+* (@Apollon77) Also convert values for unit "mired" for Color temperatures
+  * (@Apollon77) Increases default color temperature range to 1.000-20.000 K
+* (@Apollon77) Added support for OTA updates (checked roughly 15 mins after adapter start and then daily)
+* (@Apollon77) Added Thread and Wifi topology overview with data from the devices. See Readme for details.
+* (@Apollon77) Detect duplicate commands/writes and prevent them from being sent out again if the first command is still in progress
+* (@GermanBluefox) Highlight the devices in GUI when hovering over the device in the device list
+* (@tarikweiss) Added support for volume, volumeGroup ioBroker devices to matter
+* (@Tyraenor/Apollon77) Add Off mode for Thermostats for Matter devices
+
 ### 0.5.6 (2025-10-21)
 * (@Apollon77) Type detector update, should detect single states in non-device structures better
 
@@ -103,7 +157,7 @@ npm test
 * (@Apollon77) Correctly shows "in progress changes" in UI when adjusting devices to ovoid overlapping actions
 * (@Apollon77) Fix HSV to RGB calculation for some cases
 * (@Apollon77) Updated matter.js to 0.15.6
-* (@Apollon77) Optimizes shutdown process to ensure everything is properly closed
+* (@Apollon77) Optimizes the shutdown process to ensure everything is properly closed
 
 ### 0.5.4 (2025-10-07)
 * (@Apollon77) Updated matter.js to 0.15.5
@@ -392,4 +446,4 @@ npm test
 ## License
 Apache-2.0
 
-Copyright (c) 2023-2025 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2023-2026 Denis Haev <dogafox@gmail.com>, Ingo Fischer <github@fischer-ka.de>

@@ -35,6 +35,17 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- Chore: #482 Update dependencies
+- FIX: Errors reported by sentry
+
+### 4.0.0 (2026-02-13)
+
+- FEAT: #478 Return text with more than one id
+- FEAT: #476 Add math to setstate
+- FIX: Errors reported by sentry
+
 ### 3.2.3 (2025-12-12)
 
 - FIX: Errors reported by sentry

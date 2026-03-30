@@ -58,6 +58,11 @@ Daraus setzen sich die Objektnamen zusammen z.B.
 - ...
 
 ## Changelog
+### 1.3.1 (2026-03-03) - 2026H1 maintenance release
+
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (pdbjjens) **Fixed**: update release-script (#845)
+
 ### 1.3.1-alpha.0 (2025-10-21)
 
 - (pdbjjens) Fix: Add GitHub as npm Trusted Publisher
@@ -81,10 +86,6 @@ Daraus setzen sich die Objektnamen zusammen z.B.
 - (pdbjjens) Change: Removed .npmignore
 - (pdbjjens) New: Updated dependencies
 - (pdbjjens) Fix: IP family property changed from string to number in nodejs 18.0.0-18.4.0
-
-### 1.0.1 (2024-01-26) - 2024 maintenance release
-
-- (pdbjjens) Updated dependencies
 
 ## License
 

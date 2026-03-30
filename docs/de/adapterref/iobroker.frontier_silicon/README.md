@@ -39,6 +39,12 @@ Andere FSAPI Dokumentation
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (pdbjjens) **Fixed**: update release-script (#348)
+
 ### 0.5.1-alpha.0 (2025-10-20)
 
 - (pdbjjens) Fix: Add GitHub as npm Trusted Publisher

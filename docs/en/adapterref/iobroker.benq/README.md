@@ -29,8 +29,13 @@ Supported models: W1200, W1070, W1080 to be...
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
+### 0.3.1 (2026-02-12)
+- (mcm1957) Adapter requires node.js >= 20  now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) changed: Dependencies have been updated
 
 ### 0.3.0 (2024-04-02)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
@@ -46,18 +51,10 @@ Supported models: W1200, W1070, W1080 to be...
 ### 0.2.2
  * (instalator) fixed clearTimeout
 
-### 0.2.1
- * (instalator) support compact mode
- * (instalator) support admin3
- * (instalator) refactoring
-
-### 0.0.6
-  (instalator) initial
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2021 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

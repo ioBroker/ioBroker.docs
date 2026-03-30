@@ -29,6 +29,11 @@ Thank you very much for your work - It really helped me a lot.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2026-02-28)
+* (hacki11) Update dependencies
+* (hacki11) Update minimum node version
+* (hacki11) Fix ioBroker issues
+
 ### 2.1.7 (2025-05-17)
 * (hacki11) Set `online` to false on adapter shutdown
 
@@ -71,10 +76,8 @@ Thank you very much for your work - It really helped me a lot.
 ## License
 MIT License
 
-Copyright (c) 2025 hacki11
-
-Copyright (c) 2023 W0w3
-
+Copyright (c) 2025-2026 hacki11  
+Copyright (c) 2023 W0w3  
 Copyright (c) 2023 wolkeSoftware
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

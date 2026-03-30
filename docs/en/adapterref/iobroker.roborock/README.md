@@ -20,14 +20,11 @@ This adapter allows you the control, get states, cleaning history and view the m
 
 ### This adapter cannot work on on MacOS
 
-## Two-Factor Authentication (2FA)
+## Requirements
 
-If you have enabled 2FA or if the adapter prompts for a code (error code 2031):
-1. Check your logs. You should see a message asking for the code.
-2. Go to the **Objects** tab in ioBroker.
-3. Find the state `roborock.0.loginCode` (assuming instance 0).
-4. Enter the 6-digit code you received via email into the **Value** column (without quotes).
-5. The adapter should pick it up and continue logging in.
+- Node.js >= 22.0.0
+- ioBroker.admin >= 7.6.17
+- ioBroker.js-controller >= 6.0.11
 
 ## The supported robots are:
 
@@ -52,6 +49,7 @@ If you have enabled 2FA or if the adapter prompts for a code (error code 2031):
 - Roborock Qrevo S
 - Roborock Qrevo Curve
 - Roborock Saros 10R
+- Roborock Saros 20 / Saros 20X
 
 ## Zone cleaning
 This feature only works when map creation is enabled in the adapter options!
@@ -68,13 +66,31 @@ This feature only works when map creation is enabled in the adapter options!
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (copystring) Update dependencies
-* (copystring) Update translations
-* (copystring) Bugfixes for map creator, clientID, network objects and local device discovery
-* (copystring) Get clean history when robot state changes to charging
-* (copystring) Q5 Pro does not support any water box modes. Removed them.
-* (copystring) Add basic read only support for Wet Dry Vacuums
-* (copystring) Add basic support for Saros 10R
+* (copystring) **Maps:** Obstacle icons and map graphics are loaded automatically at startup so maps display correctly.
+* (copystring) **Breaking Change:** Major refactoring of the entire adapter structure.
+* (copystring) **New Feature:** Implemented 'Strict Startup' - Adapter prevents startup without valid login to avoid bootloops.
+* (copystring) **Improvement:** Enhanced 2FA logging and instructions for easier login troubleshooting.
+* (copystring) **Feature:** Responsive Design for Admin UI (thanks to simatec).
+* (copystring) **New Protocol:** Added support for B01 protocol (AES-128-CBC) used by newer devices (e.g., Qrevo Slim).
+* (copystring) **Map System:** Complete overhaul of map generation using `@napi-rs/canvas`:
+    *   Improved room coloring and dark mode support.
+    *   Fixed coordinate scaling and Y-axis inversion issues.
+* (copystring) **Stability:** Fixed auto-relogin logic for invalid tokens.
+* (copystring) **Stability:** Resolved MQTT race conditions and connection instability.
+* (copystring) **Fix:** S6 MaxV Water Box & Fan Power attributes.
+* (copystring) **Fix:** Suction and mop intensity not showing (#1053).
+* (copystring) **Consumables:** Major refactoring to a data-driven, deterministic system mirroring the official Roborock app's "Maintenance" screen.
+* (copystring) **Translations:** Enhanced `TranslationManager` with case-insensitive lookups and 1:1 matching of native app labels (e.g., "Staubbeutel").
+* (copystring) **Reliability:** Added regression test suite for consumables, translations, and hour conversion logic.
+* (copystring) **Cleanup:** Removed duplicate/virtual percentage states in favor of authentic robot data.
+* (copystring) **Internal:** Modular feature handling and introduction of `lib/features/`.
+* (copystring) **Build:** Persistent caching for faster CI/CD.
+* (copystring) **Cleanup:** Removed daily build workflows.
+* (copystring) **Improved Map Retrieval:** Fixed issue where maps were not received over TCP by ignoring the initial "ok" acknowledgement and waiting for the actual map data via MQTT.
+* (copystring) **Network Probe:** Added Pre-Init Network Probe to detect local IP addresses via Cloud API before initialization, enabling faster local connection establishment (especially for Docker/VLAN setups).
+* (copystring) **UDP Discovery:** Implemented a 1.5s grace period for UDP discovery to better detect shared devices on the local network.
+* (copystring) **Bugfix:** Fixed infinite retry loop for failed Network Probes (Remote Devices).
+* (copystring) **Code Cleanup:** Removed extensive debug logging, buffering logic, and unused code for a cleaner codebase.
 
 ### 0.6.19 (2025-02-08)
 * (copystring) Rewrite of mqtt connection logic

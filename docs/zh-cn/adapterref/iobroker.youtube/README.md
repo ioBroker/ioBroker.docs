@@ -16,15 +16,15 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.youtube/README.md
 title: ioBroker.youtube
-hash: Fb0MkH2q7HF5bnJS9iKMa+ZYjhSq9q7TSrymrJfpSO8=
+hash: qvsWBduIyLeszcPvw+RmjSpdTc9K9uGEgXsU2+ZY8jY=
 ---
 ![标识](../../../en/admin/youtube.png)
 
 # IoBroker.youtube
 ＃＃ 要求
-- nodejs 18.0（或更高版本）
-- js-controller 5.0.0（或更高版本）
-- 管理适配器 6.0.0（或更高版本）
+- nodejs 20.0（或更高版本）
+- js-controller 6.0.11（或更高版本）
+- 管理适配器 7.6.17（或更高版本）
 
 ＃＃ 配置
 要获取 API 密钥，您必须前往 [console.developers.google.com](https://console.developers.google.com/apis/dashboard)。
@@ -37,11 +37,34 @@ hash: Fb0MkH2q7HF5bnJS9iKMa+ZYjhSq9q7TSrymrJfpSO8=
 
 ## 将所有统计信息记录到 InfluxDB
 ```javascript
-// v0.2
+// v0.3
 
 const targetDb = 'influxdb.0';
 const currentInstance = `javascript.${instance}`;
 
+async function storeToDb(ts, prefix, subscriberCount, viewCount) {
+    await this.sendToAsync(targetDb, 'storeState', {
+        id: `youtube.0.${prefix}.subscribers`,
+        state: {
+            ts,
+            val: subscriberCount,
+            ack: true,
+            from: `system.adapter.${currentInstance}.${scriptName}`,
+        }
+    });
+
+    await this.sendToAsync(targetDb, 'storeState', {
+        id: `youtube.0.${prefix}.views`,
+        state: {
+            ts,
+            val: viewCount,
+            ack: true,
+            from: `system.adapter.${currentInstance}.${scriptName}`,
+        }
+    });
+}
+
+// Save all channels
 on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
     try {
         const youtubeJson = obj.state.val;
@@ -51,25 +74,26 @@ on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
         for (const channel of channels) {
             const alias = channel.customUrl.substr(1); // remove leading @
 
-            await this.sendToAsync(targetDb, 'storeState', {
-                id: `youtube.0.channels.${alias}.subscribers`,
-                state: {
-                    ts,
-                    val: channel.subscriberCount,
-                    ack: true,
-                    from: `system.adapter.${currentInstance}.${scriptName}`,
-                }
-            });
+            await storeToDb(ts, `channels.${alias}`, channel.subscriberCount, channel.viewCount);
+        }
+    } catch (err) {
+        console.error(err);
+    }
+});
 
-            await this.sendToAsync(targetDb, 'storeState', {
-                id: `youtube.0.channels.${alias}.views`,
-                state: {
-                    ts,
-                    val: channel.viewCount,
-                    ack: true,
-                    from: `system.adapter.${currentInstance}.${scriptName}`,
-                }
-            });
+// Save channels by group
+$('youtube.0.groups.*.json').on(async (obj) => {
+    try {
+        const group = obj.id.slice('youtube.0.groups.'.length, '.json'.length * -1);
+
+        const youtubeJson = obj.state.val;
+        const channels = JSON.parse(youtubeJson);
+        const ts = Date.now();
+
+        for (const channel of channels) {
+            const alias = channel.customUrl.substr(1); // remove leading @
+
+            await storeToDb(ts, `groups.${group}.${alias}`, channel.subscriberCount, channel.viewCount);
         }
     } catch (err) {
         console.error(err);
@@ -112,7 +136,7 @@ NodeJS >= 18.x and js-controller >= 5 is required
 
 The MIT License (MIT)
 
-Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025-2026 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

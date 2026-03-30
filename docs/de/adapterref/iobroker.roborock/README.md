@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: dIA1NxNJXvqX4+THUOjsWRaVdzj+RJwVWoamUnsvxTI=
+hash: DATd5HFmzDJ0tHqkLnFzZaWS1uJyIf7+RoVSQ54kcNI=
 ---
 ![Logo](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -24,14 +24,10 @@ Mit diesem Adapter können Sie einen in der Roborock-App eingerichteten Roborock
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ### Dieser Adapter funktioniert nicht unter macOS.
-## Zwei-Faktor-Authentifizierung (2FA)
-Wenn Sie die Zwei-Faktor-Authentifizierung aktiviert haben oder der Adapter zur Eingabe eines Codes auffordert (Fehlercode 2031):
-
-1. Überprüfen Sie Ihre Protokolle. Dort sollte eine Meldung erscheinen, in der Sie nach dem Code gefragt werden.
-2. Wechseln Sie in ioBroker zum Tab **Objekte**.
-3. Ermitteln Sie den Zustand `roborock.0.loginCode` (bei Annahme von Instanz 0).
-4. Geben Sie den 6-stelligen Code, den Sie per E-Mail erhalten haben, in die Spalte **Wert** ein (ohne Anführungszeichen).
-5. Der Adapter sollte dies erkennen und den Anmeldevorgang fortsetzen.
+## Anforderungen
+- Node.js >= 22.0.0
+- ioBroker.admin >= 7.6.17
+- ioBroker.js-controller >= 6.0.11
 
 ## Folgende Roboter werden unterstützt:
 - Roborock S4
@@ -55,6 +51,7 @@ Wenn Sie die Zwei-Faktor-Authentifizierung aktiviert haben oder der Adapter zur 
 - Roborock Qrevo S
 - Roborock Qrevo Curve
 - Roborock Saros 10R
+- Roborock Saros 20 / Saros 20X
 
 ## Zonenreinigung
 Diese Funktion ist nur verfügbar, wenn die Kartenerstellung in den Adapteroptionen aktiviert ist!
@@ -72,13 +69,31 @@ Zeichnen Sie das Quadrat, das Sie reinigen möchten. Roborock unterstützt bis z
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (copystring) Update dependencies
-* (copystring) Update translations
-* (copystring) Bugfixes for map creator, clientID, network objects and local device discovery
-* (copystring) Get clean history when robot state changes to charging
-* (copystring) Q5 Pro does not support any water box modes. Removed them.
-* (copystring) Add basic read only support for Wet Dry Vacuums
-* (copystring) Add basic support for Saros 10R
+* (copystring) **Maps:** Obstacle icons and map graphics are loaded automatically at startup so maps display correctly.
+* (copystring) **Breaking Change:** Major refactoring of the entire adapter structure.
+* (copystring) **New Feature:** Implemented 'Strict Startup' - Adapter prevents startup without valid login to avoid bootloops.
+* (copystring) **Improvement:** Enhanced 2FA logging and instructions for easier login troubleshooting.
+* (copystring) **Feature:** Responsive Design for Admin UI (thanks to simatec).
+* (copystring) **New Protocol:** Added support for B01 protocol (AES-128-CBC) used by newer devices (e.g., Qrevo Slim).
+* (copystring) **Map System:** Complete overhaul of map generation using `@napi-rs/canvas`:
+    *   Improved room coloring and dark mode support.
+    *   Fixed coordinate scaling and Y-axis inversion issues.
+* (copystring) **Stability:** Fixed auto-relogin logic for invalid tokens.
+* (copystring) **Stability:** Resolved MQTT race conditions and connection instability.
+* (copystring) **Fix:** S6 MaxV Water Box & Fan Power attributes.
+* (copystring) **Fix:** Suction and mop intensity not showing (#1053).
+* (copystring) **Consumables:** Major refactoring to a data-driven, deterministic system mirroring the official Roborock app's "Maintenance" screen.
+* (copystring) **Translations:** Enhanced `TranslationManager` with case-insensitive lookups and 1:1 matching of native app labels (e.g., "Staubbeutel").
+* (copystring) **Reliability:** Added regression test suite for consumables, translations, and hour conversion logic.
+* (copystring) **Cleanup:** Removed duplicate/virtual percentage states in favor of authentic robot data.
+* (copystring) **Internal:** Modular feature handling and introduction of `lib/features/`.
+* (copystring) **Build:** Persistent caching for faster CI/CD.
+* (copystring) **Cleanup:** Removed daily build workflows.
+* (copystring) **Improved Map Retrieval:** Fixed issue where maps were not received over TCP by ignoring the initial "ok" acknowledgement and waiting for the actual map data via MQTT.
+* (copystring) **Network Probe:** Added Pre-Init Network Probe to detect local IP addresses via Cloud API before initialization, enabling faster local connection establishment (especially for Docker/VLAN setups).
+* (copystring) **UDP Discovery:** Implemented a 1.5s grace period for UDP discovery to better detect shared devices on the local network.
+* (copystring) **Bugfix:** Fixed infinite retry loop for failed Network Probes (Remote Devices).
+* (copystring) **Code Cleanup:** Removed extensive debug logging, buffering logic, and unused code for a cleaner codebase.
 
 ### 0.6.19 (2025-02-08)
 * (copystring) Rewrite of mqtt connection logic
@@ -411,7 +426,7 @@ Zeichnen Sie das Quadrat, das Sie reinigen möchten. Roborock unterstützt bis z
 ## License
 MIT License
 
-Copyright (c) 2025 copystring <copystring@gmail.com>
+Copyright (c) 2025-2026 copystring <copystring@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -429,4 +444,3 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

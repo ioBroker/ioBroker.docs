@@ -1,10 +1,10 @@
 ---
 title: Update NodeJS
-lastChanged: 11.08.2023
+lastChanged: 04.10.2025
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/updatenode.md
-hash: tJGX8RGXf39O/2BqWaP41YGMCp6Gq1+N03L+zh/H5MI=
+hash: 6RUWTdFc8Gx0Oh983zD6Bll/WAeCUCD7b80X91zFBNo=
 ---
 # Node.js Update
 | js controller | Node.js | npm |
@@ -12,103 +12,135 @@ hash: tJGX8RGXf39O/2BqWaP41YGMCp6Gq1+N03L+zh/H5MI=
 | < 4.x | 12.x, 14.x, 16.x | 6.x |
 | 4.x | 12.x, 14.x, 16.x | 6.x, 7.x, 8.x |
 | 5.x | 16.x, 18.x, 20.x | 8.x, 9.x |
+| **6.x** | **18.x, 20.x, 22.x** | **8.x, 9.x, 10.x** |
+| **7.x** | **18.x, 20.x, 22.x, (24.x)** | **8.x, 9.x, 10.x, 11.x** |
 
-## Why do you have to update this?
-As is common with many open source technologies, Node.js is evolving rapidly.
-Updates that increase **stability** and **security**, or even add **new features**, appear regularly.
+## Why is this update necessary?
+ioBroker won't work without Node.js; see [architecture](https://www.iobroker.net/#de/documentation/basics/architecture.md) for details.
 
-ioBroker does not work without Node.js, details under [architecture](https://www.iobroker.net/#de/documentation/basics/architecture.md).
-If you want to learn more about Node.js, [Wikipedia Node.js](https://de.wikipedia.org/wiki/Node.js).
+For more information about Node.js, see [Wikipedia Node.js](https://de.wikipedia.org/wiki/Node.js).
 
-?> **When changing the Node.js version, certain requirements must be checked and corrected in advance if necessary.
-It is important to note the paths in which the installation is located.**
+As is typical with many open-source technologies, Node.js is evolving rapidly.
+
+Updates that improve **stability** and **security**, or even add **new features**, are released regularly.
+
+Node.js 22.x is the current recommended version for ioBroker installations. This version has been in Active Long Term Support (LTS) status since October 2024 and will be supported until April 2027.
+
+The ioBroker community has officially recommended this version, and the command `iob nodejs-update` automatically installs the recommended version.
+
+Node.js 24.x is slated for Long Term Support (LTS) promotion in October 2025 and will then be supported until April 2028.
+
+While this version is already available, it will only be recommended for production environments after the LTS promotion.
+
+**When upgrading Node.js versions, certain prerequisites must be checked and corrected beforehand if necessary.
+
+It is important to pay attention to the installation paths.**
+
+**Important Notice October 2025:** Node.js 18.x has been end-of-life since April 2025 and will no longer receive security updates. **Node.js 22.x is the currently recommended LTS version** and should be used.
+
+#### Recommended Update Methods
+The simplest method for existing ioBroker installations is the integrated update command:
+
+```
+iob nodejs-update
+```
 
 ### Procedure
 #### 1 - Check the circumstances
 - Version and path
-- operating system
+- Operating system
 - js-controller
-- adapter
+- Adapter
 
-<details><summary>Why must it be checked</summary>
+<details><summary>Why is it necessary to check?</summary>
 
-- which version and, above all, in which directory is the installation located
+To ensure that all components are compatible with the new Node.js version and that the installation works correctly. Different JS controller versions support different Node.js versions, and not all adapters are automatically compatible with newer versions.
 
-- In the Raspi environment, older systems based on "Debian jessie" or "Debian wheezy" are often used. For these, there is nothing higher than Nodejs 10, although an operating system update might be possible.
+- which version and, most importantly, in which directory is the installation located
+- In the Raspberry Pi environment, older systems based on "Debian Jessie" or "Debian Wheezy" are still commonly used. For these, there is no version higher than Node.js 10; an operating system update might be possible.
+- Check which js-controller version is installed (also visible on the Host tab in the Admin panel). For versions **prior** to js-controller 3.x, please update js-controller first if possible. Ideally to at least version 3.2!
 
-- Check which js-controller version is installed (also visible on the Host tab in the admin).
+For example, there is this [Contribution](https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable) in the forum.
 
-For versions **before** js-controller 3.x, please update the js-controller first if possible. Ideally to at least 3.2! There is an example of this [Contribution](https://forum.iobroker.net/topic/42385/js-controller-3-2-jetzt-im-stable) in the forum.
+To avoid incompatibilities or problems after the update, you should check all adapters on the system and update them if necessary.
 
-- To avoid incompatibilities or problems after the update, you should check all adapters on the system and update them if necessary.
-
-It is best to check the adapter readme's via admin, in the changelog, or in the GitHub of the respective adapter to see whether the installed adapter versions explicitly support the planned Node.js version.
+It is best to check the adapter readme files via admin, in the changelog, or in the GitHub of the respective adapter to see if the installed adapter versions explicitly support the planned Node.js version.
 
 </details>
 
 #### 2 - Create backup
-Before making any changes to the system, a backup must be created. There are different options depending on the system. We recommend using the BackitUp adapter or a command line command.
-The backup should be up to date so that as little data as possible is lost.
+Before making any changes to the system, a backup must be created. Depending on the system, there are various options. The BackitUp adapter or using [Command line command](https://www.iobroker.net/#de/documentation/config/cli.md) is recommended. The backup should be recent to minimize data loss.
 
 #### 3 - Update adapter
-The adapters used in the system should be compatible with the new Node.js version; if necessary, they must be updated.
+The adapters used in the system should be compatible with the new Node.js version; they may need to be updated.
 
 #### 4 - Stop ioBroker
-ioBroker is stopped using its own console command or via system service management
+ioBroker can be stopped using its own console command or via system service management.
 
-#### 5 - Check if processes are still running
-This usually terminates all processes. To be on the safe side, you should check again that no processes (adapters, backups) are running. You can also use a tool like "top" to check whether there are any processes that start with "io.".
+#### 5 - Check if any processes are still running
+This usually terminates all processes. However, to be on the safe side, you should double-check that no processes (adapters, backups) are still running. You can also use a tool like "top" to check if any processes still exist that begin with "io.".
 
 #### 6 - Node.js Update
-The next step is to update Node.js to the desired new version.
-The update differs depending on the installed operating system, see instructions
+The next step is to update Node.js to the desired new version. However, the update process differs depending on the installed operating system; see the instructions.
 
-?> The Node Package Manager, `npm` for short, is also updated. Depending on the Node.js version used, this may need to be reset to npm v6.x up to js-controller version 3. From js-controller version 4, npm v8.x/9.x is also supported.
+The Node Package Manager, abbreviated `npm`, is also automatically updated.
 
 #### 7 - Check version and paths
 After the update is complete, the paths and installed versions are checked again.
 
 #### 8 - Run ioBroker fixer
-Since the installation of Node.js, as mentioned at the beginning, makes some changes to the system, it is necessary to run the ioBroker fixer afterwards.
-Among other things, this restores the security settings necessary for the operation of ioBroker and checks and corrects all permissions.
+Since installing Node.js, as mentioned earlier, makes some changes to the system, it is necessary to run [ioBroker fixer](https://www.iobroker.net/#de/documentation/trouble/install_fixer.md) afterwards. This restores, among other things, the security settings required for ioBroker to function and checks and corrects all permissions.
 
-#### 9 - Start ioBroker
-Some JavaScript modules used contain parts that need to be compiled. This process takes place during installation.
-By compiling, these modules are bound to the Node.js version. After an update, these parts must therefore be recompiled.
-Since js-controller version 3.0, an attempt has been made to detect adapters that contain such parts and to automatically perform a rebuild.
-This process can take some time and the affected adapters can restart several times. This can be observed in the log file. The easiest way to do this is in a terminal using ``iob logs --watch | uniq ``
+#### 9 - Starting ioBroker
+Some JavaScript modules contain components that need to be compiled. This process occurs during installation. Compiling these modules binds them to the Node.js version. After an update, these components must therefore be recompiled. Since js-controller version 3.0, an attempt is made to detect adapters containing such components and automatically perform a rebuild. This process can take some time, and the affected adapters may restart multiple times. This can be observed in the log file. The easiest way to do this is in a terminal using the command ``iob logs --watch | uniq``.
 
-<details><summary>Automatic rebuilds</summary>
+<details><summary>Automatic Rebuilds</summary>
 
-ioBroker automatically tries to detect adapters that do not start because they need to be updated. This works by recognizing the typical error messages and ioBroker attempts to update them accordingly. First, a "rebuild" of the affected adapter is carried out; if that does not help, the adapter dependencies are updated. This means that the adapter may restart several times. Please be patient! Only take action when the adapter remains permanently red and the log also shows that the rebuild did not work!
+Since js-controller 3.0, adapters with native modules are automatically detected and a rebuild is performed automatically. This can be monitored in the log and takes a few minutes depending on the system.
+
+ioBroker automatically attempts to identify adapters that are not starting because they need to be updated. This works by recognizing typical error messages and attempting the corresponding update. First, a rebuild of the affected adapter is performed. If that doesn't resolve the issue, the adapter's dependencies are updated. Therefore, the adapter may restart multiple times. Please be patient! Only take action if the adapter remains permanently red and the log indicates that the rebuild failed.
 
 </details>
 
-<details><summary>Manual rebuilds</summary>
+<details><summary>Manual Rebuilds</summary>
 
-If an automatic rebuild does not work, it can be performed manually, see Troubleshooting.
+If the automatic rebuild fails, a manual rebuild of all adapters can be performed:
+
+```bash
+iobroker rebuild
+```
+
+Or with a complete reinstallation:
+
+```bash
+iobroker rebuild --install
+```
+
+If an automatic rebuild has not worked, it can be performed manually; see Troubleshooting.
 
 </details>
 
-<details><summary>special cases (e.g. serial port)</summary>
+<details><summary>Special cases (e.g. serial port)</summary>
 
-Unfortunately, there are special cases where even the above options do not complete the rebuild, one of them is Serialport.
+Some adapters, such as the serial port adapter, require special handling. These may need to be manually reinstalled.
 
-There a log can look like this (even after all rebuild attempts)
+```bash
+iob install serialport
+```
 
-<details><summary>LOG</summary>
+Unfortunately, there are special cases where even the above options do not complete the rebuild; one of these is Serialport.
 
-![LOG](../../de/install/media/Log-Update_NodeJS.jpg)
+A log file might look like this (even after all rebuild attempts).
 
-</details>
+There are other error messages as well, but they all boil down to the same thing.
 
-There are also other error messages, but they all lead to the same thing.
-The simplest option is to rebuild manually in the **correct** directory.
-In this case, look for the directory with "bindings" - above it is */opt/iobroker/node_modules/serialport/node_modules/bindings ...* in newer versions it can also be something like */opt/iobroker/node_modules/serialport/node_modules/@serialport/bindings*.
+The simplest option is then to rebuild manually in the **correct** directory.
 
-Then change to this directory and execute `npm install --omit=dev`. Then restart the adapter again.
+In that case, look for the directory containing "bindings" - above, it's */opt/iobroker/node_modules/serialport/node_modules/bindings...* In newer versions, it might be something like */opt/iobroker/node_modules/serialport/node_modules/@serialport/bindings*.
 
-Another case is adapters with canvas modules (possibly echarts or Mihome-vacuum) where problems can arise.
+Then change to this directory and execute `npm install --omit=dev`. Afterwards, restart the adapter.
+
+Another case involves adapters with a canvas module (e.g., echarts or Mihome-vacuum) where problems can occur.
 
 </details>
 
@@ -117,7 +149,6 @@ Another case is adapters with canvas modules (possibly echarts or Mihome-vacuum)
 ```
 sudo ln -s /usr/bin/node /usr/bin/nodejs &> /dev/null
 type -p nodejs node npm npx corepack && nodejs -v && node -v && npm -v && npx -v && corepack -v
-
 ```
 
 - Edition
@@ -128,14 +159,14 @@ type -p nodejs node npm npx corepack && nodejs -v && node -v && npm -v && npx -v
 /usr/bin/npm
 /usr/bin/npx
 /usr/bin/corepack
-v18.15.0
-v18.15.0
-9.6.0
-9.6.0
-0.19.0
+v22.x.x
+v22.x.x
+10.x.x
+10.x.x
+0.x.x
 ```
 
-It is important: nodejs is in /usr/bin node is in /usr/bin npm is in /usr/bin npx is in /usr/bin corepack is in /usr/bin and the version numbers of nodejs and node as well as npm and npx are the same.
+Important: nodejs is located in /usr/bin, node is located in /usr/bin, npm is located in /usr/bin, npx is located in /usr/bin, corepack is located in /usr/bin, and the version numbers of nodejs and node, as well as of npm and npx, are identical.
 
 #### 2 - Backup
 ```
@@ -145,7 +176,11 @@ iobroker backup
 - alternative [options](https://www.iobroker.net/#de/documentation/config/backup.md)
 
 #### 3 - Update adapter
-- Instructions can be found under [Manage adapters](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)
+Instructions can be found under [Manage adapters](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)
+
+```bash
+iob update
+```
 
 #### 4 - Stop ioBroker
 ```
@@ -161,69 +196,158 @@ ps aux | grep 'io\|PID'
 
 ```
 ps aux | grep 'backup\|PID'
-
 ```
 
-- if processes are still running
+- if processes are still ongoing
 
 ```
-sudo kill -9 <ProzessID>
+sudo kill -9 [PROZESS-ID]
+```
+
+Or to terminate all ioBroker processes:
+
+```bash
+sudo pkill -f iobroker
+sudo pkill -f "io\."
 ```
 
 #### 6 - Node.JS Update
-- Details about [Node.Js](https://github.com/nodesource/distributions#installation-instructions)
+**Method A: ioBroker's own update command (Recommended for 2025)**
+
+```bash
+# Direktes Update auf empfohlene Version (22.x)
+iob nodejs-update
+
+# Oder spezifische Version
+iob nodejs-update 22
+```
+
+**Method B: NodeSource Repository**
+
+- Details about [Node.js](https://github.com/nodesource/distributions#installation-instructions)
 
 ```
-curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt install -y nodejs
 ```
 
-- For other Node.js versions simply replace 18 in the URL with the other version number.
+- For other Node.js versions, simply replace `22` in the URL with the other version number.
 
-!> As of March 2023, version 18 of Node.js is recommended for ioBroker!
+**As of October 2025, version 22.x of Node.js is recommended for ioBroker!**
 
-!> Odd Node.js versions must not be used.
+!> **Odd-numbered Node.js versions must not be used.**
+
+!> **Node.js 18.x is end-of-life (since April 2025) and should no longer be used.**
 
 #### 7 - Check version/path
 ```
 type -p nodejs node npm npx corepack && nodejs -v && node -v && npm -v && npx -v && corepack -v
 ```
 
-#### 8 - run iobroker fixer
+#### 8 - Execute iobroker fixer
 ```
 iobroker fix
 ```
 
-#### 9 - Start ioBroker
+#### 9 - Starting ioBroker
 ```
- iobroker start
- ```
+iobroker start
+```
 
 ## Instructions for Windows
-Node.js is updated by executing [Windows Installers](./windows.md).
+Node.js is updated by running the Windows Installer.
 
-## Instructions for Docker
-- Node.js is usually done by updating the container to a new version of the [Docker image](https://hub.docker.com/r/buanet/iobroker/tags).
-- A detailed procedure and further details about the iobroker container can be found at [buanet](https://smarthome.buanet.de/2020/10/iobroker-docker-container-updates-upgrades/).
+**Recommended steps for Windows (2025):**
+
+1. Download the latest Node.js Windows Installer from [nodejs.org](https://nodejs.org) (version 22.x LTS)
+2. **Stop ioBroker** via Services Manager or command line
+3. **Run the installer** (automatic update)
+4. **Run ioBroker Fixer:** `iobroker fix`
+5. **Start ioBroker**
+
+**Alternative for Windows:** Use Windows Subsystem for Linux (WSL2) with Ubuntu and then follow the Linux instructions.
+
+## Docker Guide
+- Node.js is usually updated by updating the container to a new version of the Docker image.
+- Detailed instructions and further details about the iobroker container can be found at [buanet](https://docs.buanet.de/).
 
 ## Problem solving
-### Manual rebuild
-- There are
+### Manual Rebuild
+- There is information on this.
 
 ```
-iobroker rebuild <adaptername>
+iobroker rebuild
 ```
 
-- if that is not enough
+- if that's not enough
 
 ```
-iobroker rebuild <adaptername> --install
+iobroker rebuild --install
 ```
 
-- simply execute it manually in the shell. Ideally, this should do everything automatically.
+- Simply execute it manually at the shell. Ideally, this should automate everything.
 
-?> As long as the js controller is lower than version 4, [ioBroker fixer](https://www.iobroker.net/#de/documentation/install/linux.md) must be executed even if a Node.js update is performed within a major version.
+This command performs a complete reinstallation of all Node modules and should resolve most problems after a Node.js update.
 
-With the future js controller in version 4, rebuilds will be handled fully automatically.
+### Common Problems (2025)
+**"nodejs is NOT correctly installed"**
 
-A manual rebuild will then no longer be supported.
+```bash
+# Lösung: Fixer ausführen
+iobroker fix
+
+# Falls das nicht hilft, Node.js neu installieren
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt install -y nodejs
+```
+
+**NPM error after update**
+
+```bash
+# NPM Cache leeren
+npm cache clean --force
+
+# Node modules neu installieren
+cd /opt/iobroker
+rm -rf node_modules
+npm install
+```
+
+**Adapters don't work after update**
+
+```bash
+# Einzelne Adapter neu installieren
+iob install [ADAPTER-NAME]
+
+# Oder alle Adapter rebuilden
+iobroker rebuild --install
+```
+
+**Permission Issues**
+
+```bash
+# Berechtigungen korrigieren (Linux)
+sudo chown -R iobroker:iobroker /opt/iobroker
+iobroker fix
+```
+
+### Diagnostic Commands
+```bash
+# Umfassende Systemdiagnose
+iob diag
+
+# Node.js Installation prüfen
+which node
+which npm
+ls -la $(which node)
+node -v
+npm -v
+
+# ioBroker Status
+iob status
+iob list instances
+```
+
+As long as the JS controller is lower than version 4, even during a Node.js update within a major version, the `[ioBroker fixer](https://www.iobroker.net/#de/documentation/install/linux.md)` command must be executed.
+
+With the future JS controller version 4, rebuilds will be handled fully automatically.

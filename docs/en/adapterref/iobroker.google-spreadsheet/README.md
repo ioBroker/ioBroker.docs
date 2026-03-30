@@ -119,6 +119,9 @@ Make sure the Service Account has adequate permissions to write to the spreadshe
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.1 (2026-02-16)
+* (Thomas Pohl) Fix for admin ui
+
 ### 1.0.0 (2026-01-06)
 * (Thomas Pohl) Support for multiple spreadsheets with aliases
 * (Thomas Pohl) Automatic migration of old configs
@@ -138,9 +141,6 @@ Make sure the Service Account has adequate permissions to write to the spreadshe
 ### 0.4.0
 * (Thomas Pohl) The privateKey is saved now encrypted
 * (Thomas Pohl) Support for node.js 22
-
-### 0.3.1
-* (Thomas Pohl) Fixed reading cells and added error handling
 
 ## License
 

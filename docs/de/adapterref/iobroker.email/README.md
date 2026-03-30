@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.email/README.md
 title: ioBroker-E-Mail
-hash: OCwy25hQr/7+CA/MUkCbY1CqRk1SW2ZZroC6I4SG/yA=
+hash: Ov4aLJqCZXW3HxuRV6bwJO5tYF3Tev0m8wEdJq4E7zI=
 ---
 ![Logo](../../../en/adapterref/iobroker.email/admin/email.png)
 
@@ -12,35 +12,37 @@ hash: OCwy25hQr/7+CA/MUkCbY1CqRk1SW2ZZroC6I4SG/yA=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.email.svg)
 
 # IoBroker-E-Mail
-![Testen und Freigeben](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Senden Sie E-Mails von ioBroker. Sie können mit diesem Adapter keine E-Mails abrufen, sondern nur senden.
+Senden Sie E-Mails von ioBroker. Mit diesem Adapter können Sie keine E-Mails abrufen, sondern nur senden.
 
-Der Adapter verwendet [Knotenmailer](https://github.com/nodemailer/nodemailer), um die Funktionalität bereitzustellen.
+Der Adapter verwendet [nodemailer](https://github.com/nodemailer/nodemailer), um die Funktionalität bereitzustellen.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## E-Mail-Anbieterspezifische Hinweise
-### Google Mail
-**Wichtig:** Wenn Sie die Zwei-Faktor-Authentifizierung (2FA) für Ihr Gmail-Konto aktiviert haben, **müssen** Sie anstelle Ihres regulären Gmail-Passworts ein App-Passwort verwenden. Dies war von nodemailer für Gmail mit 2FA schon immer erforderlich.
+**WICHTIG:** Sollten beim Wechsel von Version 1.x.x auf 2.x.x Verbindungsprobleme auftreten, müssen Sie Ihre Zugangsdaten möglicherweise erneut eingeben.
+
+## Hinweise speziell für E-Mail-Anbieter
+### Gmail
+**Wichtig:** Wenn Sie die Zwei-Faktor-Authentifizierung (2FA) für Ihr Gmail-Konto aktiviert haben, **müssen** Sie ein App-Passwort anstelle Ihres regulären Gmail-Passworts verwenden. Dies war für nodemailer bei Gmail mit 2FA schon immer erforderlich.
 
 So richten Sie Gmail mit 2FA ein:
 
-1. Aktivieren Sie die Bestätigung in zwei Schritten in Ihren Google-Kontoeinstellungen
-2. Generieren Sie ein App-Passwort speziell für den ioBroker-E-Mail-Adapter
-3. Verwenden Sie Ihre Gmail-Adresse als Benutzernamen und das generierte App-Passwort als Passwort in der Adapterkonfiguration
+1. Aktivieren Sie die zweistufige Bestätigung in Ihren Google-Kontoeinstellungen.
+2. Generieren Sie ein App-Passwort speziell für den ioBroker-E-Mail-Adapter.
+3. Verwenden Sie Ihre Gmail-Adresse als Benutzernamen und das generierte App-Passwort als Passwort in der Adapterkonfiguration.
 
-Für Konten ohne 2FA müssen Sie möglicherweise in Ihren Gmail-Kontoeinstellungen die Option „Weniger sichere Apps zulassen“ konfigurieren. Möglicherweise müssen Sie Ihr Konto auch mit „Zugriff auf Ihr Google-Konto zulassen“ entsperren, um SMTP verwenden zu können.
+Bei Konten ohne Zwei-Faktor-Authentifizierung müssen Sie möglicherweise in Ihren Gmail-Kontoeinstellungen die Option „Weniger sichere Apps zulassen“ aktivieren. Außerdem müssen Sie Ihr Konto unter „Zugriff auf Ihr Google-Konto erlauben“ entsperren, um SMTP nutzen zu können.
 
 ### Mail.ee
 Verwenden Sie für den E-Mail-Dienst mail.ee **nicht** Ihre normalen Webmail-Anmeldedaten. Stattdessen:
 
-- **Benutzername**: Verwenden Sie Ihre vollständige E-Mail-Adresse (z. B. „Benutzername@mail.ee“)
-- **Passwort**: Verwenden Sie das spezielle IMAP/SMTP-Passwort (nicht Ihr Webmail-Passwort)
+- **Benutzername**: Verwenden Sie Ihre vollständige E-Mail-Adresse (z. B. `username@mail.ee`).
+- **Passwort**: Verwenden Sie das spezielle IMAP/SMTP-Passwort (nicht Ihr Webmail-Passwort).
 - So finden Sie Ihr IMAP/SMTP-Passwort: Melden Sie sich bei Ihrem mail.ee-Webmail-Konto an und besuchen Sie [https://posti.mail.ee/prefs?group=enable_pop3](https://posti.mail.ee/prefs?group=enable_pop3)
 
 ## Verwendung
-Um eine E-Mail von ScriptEngine zu senden, schreiben Sie einfach:
+Um eine E-Mail aus ScriptEngine zu versenden, geben Sie einfach Folgendes ein:
 
 ```js
 // send email to all instances of email adapter
@@ -91,21 +93,21 @@ Um E-Mails von einem anderen Adapter zu senden, verwenden Sie die Funktion `adap
 - DynectEmail
 - FastMail
 - GandiMail
-- Google Mail
+- Gmail
 - GoDaddy
-- GodaddyAsia
-- GodaddyEurope
+- GoDaddyAsia
+- GoDaddy Europa
 - hot.ee
 - Hotmail
-iCloud
-- ich
+- iCloud
+- mit
 - mail.ee
 - Mail.ru
 - Mailgun
-Mailjet
+- Mailjet
 - Mandrill
 - Naver
-Office365
+- Office365
 - OpenMailBox
 - Poststempel
 - QQ
@@ -130,6 +132,13 @@ Weitere Dienste finden Sie in der Dokumentation von **Nodemailer**: `§§LLLLL_0
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+- (@copilot) Set up GitHub Copilot instructions with centralized ioBroker template (v0.5.7) and weekly monitoring workflow
+
 ### 2.0.5-alpha.0 (2025-10-06)
 * (@copilot) Fixed SMTP relay anonymous access by ignoring user and password when empty
 * (@copilot) Fixed Office365 OAuth email sending from scripts by ensuring fresh tokens are used
@@ -147,6 +156,7 @@ Weitere Dienste finden Sie in der Dokumentation von **Nodemailer**: `§§LLLLL_0
 * (@GermanBluefox) Fixing pass decoding
 
 ### 2.0.0 (2025-03-11)
+* **IMPORTANT:** You may have to enter your credentials once again if you encounter connection problems. 
 * (@GermanBluefox) Breaking change: Structure of configuration was corrected, and it could be they needed to be reconfigured
 * (@GermanBluefox) Made Outlook work again. Requires now to be authenticated via OAuth2
 * (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now
@@ -159,6 +169,8 @@ Weitere Dienste finden Sie in der Dokumentation von **Nodemailer**: `§§LLLLL_0
 
 The MIT License (MIT)
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2014-2025 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

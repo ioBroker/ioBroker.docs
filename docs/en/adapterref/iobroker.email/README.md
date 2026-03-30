@@ -15,6 +15,9 @@ The adapter uses [nodemailer](https://github.com/nodemailer/nodemailer) to provi
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
+**IMPORTANT:**
+You may have to enter your credentials once again when migrating from release 1.x.x to 2.x.x if you encounter connection problems. 
+
 ## Email Provider Specific Notes
 
 ### Gmail
@@ -122,6 +125,7 @@ To send email from another adapter, use `adapter.sendTo` function.
 
 For other services see documentation of **Nodemailer**: `[https://github.com/nodemailer/nodemailer](https://github.com/nodemailer/nodemailer)`
 
+
 ## Changelog
 <!--
   Placeholder for the next version (at the beginning of the line):
@@ -129,8 +133,10 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
+- (@copilot) Set up GitHub Copilot instructions with centralized ioBroker template (v0.5.7) and weekly monitoring workflow
 
 ### 2.0.5-alpha.0 (2025-10-06)
 * (@copilot) Fixed SMTP relay anonymous access by ignoring user and password when empty
@@ -149,6 +155,7 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 * (@GermanBluefox) Fixing pass decoding
 
 ### 2.0.0 (2025-03-11)
+* **IMPORTANT:** You may have to enter your credentials once again if you encounter connection problems. 
 * (@GermanBluefox) Breaking change: Structure of configuration was corrected, and it could be they needed to be reconfigured
 * (@GermanBluefox) Made Outlook work again. Requires now to be authenticated via OAuth2
 * (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now

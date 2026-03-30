@@ -177,6 +177,10 @@ is true when TV is on and false if TV is off
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
 ### 2.5.0 (2025-09-30)
 
 * (schoebelh) A crash when used with webOS update 25 has been fixed. [#336,#337]

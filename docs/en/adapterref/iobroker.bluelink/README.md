@@ -26,6 +26,9 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 ------------------------------------------------------------------------------------
 ## Changelog
+### 3.1.26 (2026-01-17)
+* (arteck) Dependencies have been updated
+
 ### 3.1.25 (2025-12-28)
 * (arteck) Dependencies have been updated
 * (arteck) adds documentation on the token generation process for HYUNDAI and KIA
@@ -222,7 +225,7 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 ## License
 MIT License
 
-Copyright (c) 2025 Newan <info@newan.de>
+Copyright (c) 2025-2026 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

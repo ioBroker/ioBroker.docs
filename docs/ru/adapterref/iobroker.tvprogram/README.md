@@ -2,213 +2,205 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tvprogram/README.md
-title: ioBroker.tvпрограмма
-hash: CGeWMiuk9CXldmTdWi1G2dQmGb8zqr43jwW2KGXzHqk=
+title: ioBroker.tvprogram
+hash: HQCNcfKk0ZimHkvdAFc4Ul9MGZEncFjEfpVSBztwIv8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.tvprogram.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.tvprogram.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tvprogram.svg)
 ![Количество установок](https://iobroker.live/badges/tvprogram-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/tvprogram-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/tvprogram-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.tvprogram.png?downloads=true)
 
 # IoBroker.tvprogram
-**Тесты:** ![Тест и выпуск](https://github.com/oweitman/ioBroker.tvprogram/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/oweitman/ioBroker.tvprogram/workflows/Test%20and%20Release/badge.svg)
 
 ## `tvprogram` адаптер для ioBroker
-Этот адаптер опрашивает информацию о телевизионной программе через регулярные промежутки времени. Данные могут отображаться в различных виджетах.
+Этот адаптер регулярно опрашивает информацию о телевизионной программе.
+Данные могут отображаться в различных виджетах.
 
-Для его настройки адаптер должен уже получить доступ к необходимым данным и заполнить их.
-Из-за своего размера данные хранятся не в точках данных, а в файлах (путь Linux: /opt/iobroker/data-files/tvprogram) и в памяти адаптера.
-В конфигурации виджету нужно только заполнить любую точку данных адаптера (например, cmd).
+Для настройки адаптер должен предварительно получить доступ к необходимым данным и заполнить их.
+Из-за своего размера данные хранятся не в виде отдельных точек данных, а в файлах (путь в Linux: /opt/iobroker/data-files/tvprogram) и в памяти адаптера.
+В конфигурации виджет необходимо заполнить только любыми точками данных адаптера (например, cmd).
 Виджет автоматически ищет все оставшиеся точки данных.
 
 ## Установка
-Адаптер можно установить через стабильную версию или для тестирования через бета-/последнюю версию репозитория.
+Адаптер можно установить через стабильную версию, а для тестирования — через репозиторий beta/latest.
 
 ## Конфигурация адаптера
-Вы можете настроить, сколько разных телевизоров или, по крайней мере, разных конфигураций у вас будет.
+Вы можете настроить количество различных телевизоров или, по крайней мере, различные конфигурации, которые у вас будут.
 
 ### Виджеты
 Виджеты поддерживаются только в современных браузерах (Google Chrome, Mozilla Firefox, Opera, Safari).
-Не поддерживаются Internet Explorer или Microsoft Edge без Chromium (версия <79).
+Не поддерживаются в Internet Explorer и Microsoft Edge без Chromium (версия <79).
 
 #### Время
-Этот виджет показывает текущую телепрограмму на временной шкале по телеканалам.
+Этот виджет отображает текущую телепрограмму на временной шкале по телеканалам.
 
 Если текст за логотипами каналов просвечивает, в виджете необходимо выбрать цвет фона.
-Обычно хорошим подходом является выбор явного цвета переднего плана и фона для представления или, по крайней мере, для виджета.
+Как правило, рекомендуется явно выбрать цвет переднего и заднего плана для представления или, по крайней мере, для виджета.
 Положение маркера обновляется каждые 15 секунд.
 
-Если после установки что-то пошло не так и виджет отображается неправильно, попробуйте выполнить следующую команду из оболочки:
+Если после установки что-то пойдёт не так и виджет будет отображаться некорректно, попробуйте выполнить следующую команду в командной строке:
 
 iobroker загрузить все
 
-Для настройки в vis доступны следующие атрибуты. Минимальная настройка — установить точку данных в cmd-datapoint.
+В vis для настройки доступны следующие атрибуты. Минимальная конфигурация заключается в установке точки данных в значение cmd-datapoint.
 
 | Атрибут | Пример | Описание |
 | ----------------------- | --------------------- | ----------------------------------------------------- |
 | `tvprogram_oid` | `tvprogram.0.tv1.cmd` | Точка данных экземпляра адаптера `tvprogram`. |
-| `heightRow` | 35 | Высота для каждой отображаемой строки |
-| `showpictures` | x | Показывать изображения на временной шкале, если они доступны |
-| `headerfontpercent` | 125 | Размер символа в процентах для заголовка (время) |
-| `broadcastfontpercent` | 75 | Размер символа в процентах для трансляций |
+| `heightRow` | 35 | Высота каждой отображаемой строки |
+| `showpictures` | x | Отображать изображения на временной шкале, если они доступны |
+| `headerfontpercent` | 125 | Размер символов в процентах для заголовка (время) |
+| `broadcastfontpercent` | 75 | Размер символов в процентах для трансляций |
 | `highlightcolor` | желтый | цвет для избранных |
 | `markerpositionpercent` | 25 | Положение маркера в процентах от ширины виджета |
-| `dialogwidthpercent` | 90 | размер диалогов в процентах от виджета |
-| `dialogheightpercent` | 90 | размер диалогов в процентах от виджета |
-| `dialogheightpercent` | 90 | размер диалогов в процентах от виджета |
+| `dialogwidthpercent` | 90 | размер диалоговых окон в процентах от размера виджета |
+| `dialogheightpercent` | 90 | размер диалоговых окон в процентах от размера виджета |
+| `dialogheightpercent` | 90 | размер диалоговых окон в процентах от размера виджета |
 
 ##### CSS-классы
-Пожалуйста, измените `w00001` на ваш идентификатор виджета
+Пожалуйста, замените `w00001` на идентификатор вашего виджета.
 
-Чтобы изменить форматирование диалогов
+Изменить форматирование диалоговых окон
 
 ```css
 #w00001channeldlg {
-  background-color: red !important;
+    background-color: red !important;
 }
 ```
 
 ```css
 #w00001broadcastdlg {
-  background-color: red !important;
+    background-color: red !important;
 }
 ```
 
-Если вы используете некоторые дополнительные диалоги с другими настройками z-index, вы можете установить более высокий z-index для диалогов телепрограмм.
-Возможно, вам придется установить большее число, чем 300. Это зависит от настроек в других диалогах, которые перекрывают или скрывают диалоги телепрограмм (информация о трансляции и выбор канала)
+Если вы используете дополнительные диалоговые окна с другими настройками z-index, вы можете установить более высокое значение z-index для диалоговых окон телепрограммы.
+Возможно, вам потребуется установить значение больше 300. Это зависит от настроек в других диалоговых окнах, которые перекрывают или скрывают диалоговые окна телепрограммы (информация о трансляции и выбор канала).
 
 ```css
 .ui-dialog.w00001 {
-  z-index: 300 !important;
+    z-index: 300 !important;
 }
 ```
 
-Чтобы изменить форматирование чередующихся фоновых цветов трансляций
+Изменить формат чередования цветов фона в трансляциях.
 
 ```css
 #w00001 .scrollcontainer ul.tv-row:nth-child(odd) > li.broadcast:nth-child(odd),
 #w00001 ul.tv-row:nth-child(odd) > li.time:nth-child(odd) {
-  background-color: rgba(128, 128, 128, 0.65);
+    background-color: rgba(128, 128, 128, 0.65);
 }
-#w00001
-  .scrollcontainer
-  ul.tv-row:nth-child(odd)
-  > li.broadcast:nth-child(even),
+#w00001 .scrollcontainer ul.tv-row:nth-child(odd) > li.broadcast:nth-child(even),
 #w00001 ul.tv-row:nth-child(odd) > li.time:nth-child(even) {
-  background-color: rgba(128, 128, 128, 0.55);
+    background-color: rgba(128, 128, 128, 0.55);
 }
-#w00001
-  .scrollcontainer
-  ul.tv-row:nth-child(even)
-  > li.broadcast:nth-child(odd) {
-  background-color: rgba(128, 128, 128, 0.45);
+#w00001 .scrollcontainer ul.tv-row:nth-child(even) > li.broadcast:nth-child(odd) {
+    background-color: rgba(128, 128, 128, 0.45);
 }
-#w00001
-  .scrollcontainer
-  ul.tv-row:nth-child(even)
-  > li.broadcast:nth-child(even) {
-  background-color: rgba(128, 128, 128, 0.35);
+#w00001 .scrollcontainer ul.tv-row:nth-child(even) > li.broadcast:nth-child(even) {
+    background-color: rgba(128, 128, 128, 0.35);
 }
 ```
 
 #### Избранное
-Этот виджет отображает список избранного, отсортированный по дате и времени.
+Этот виджет отображает список выбранных избранных элементов, отсортированных по дате и времени.
 
-Для настройки в vis доступны следующие атрибуты. Минимальная настройка — установить точку данных в cmd-datapoint.
+В vis для настройки доступны следующие атрибуты. Минимальная конфигурация заключается в установке точки данных в значение cmd-datapoint.
 
 | Атрибут | Пример | Описание |
 | ---------------- | ---------------------- | ----------------------------------------------------- |
 | `oid` | `tvprogram.0.tv 1.cmd` | Точка данных экземпляра адаптера `tvprogram`. |
-| `showweekday` | `yes` | Показать будний день |
-| `maxfavorites` | 10 | Максимальное количество избранных для показа |
-| `highlightcolor` | `yellow` | цвет для избранного |
+| `showweekday` | `yes` | Показывать в будние дни |
+| `maxfavorites` | 10 | Максимальное количество избранных для отображения |
+| `highlightcolor` | `yellow` | цвет для избранных |
 | `highlightcolor` | `yellow` | цвет для избранного |
 
 #### Контроль
-Этот виджет показывает все актуальные трансляции. Вы можете нажать на логотип канала, чтобы переключить канал.
-Вы можете нажать на трансляцию, чтобы получить подробную информацию о ней.
+Этот виджет отображает все актуальные трансляции. Вы можете нажать на логотип канала, чтобы переключиться на другой канал.
+Вы также можете нажать на трансляцию, чтобы получить подробную информацию о ней.
 
-Для настройки в vis доступны следующие атрибуты. Минимальная настройка — установить точку данных в cmd-datapoint.
+В vis для настройки доступны следующие атрибуты. Минимальная конфигурация заключается в установке точки данных в значение cmd-datapoint.
 
 | Атрибут | Пример | Описание |
 | ---------------------- | ------------------------ | -------------------------------------------------------------------------------------------------- |
 | `oid` | `tvprogram.0.tv1.cmd` | Точка данных экземпляра адаптера `tvprogram`. |
-| `time` | 20:15 | если бы время только трансляция в это время показывалась в течение 120 минут, то показывался бы следующий день |
-| `time` | 20:15/200 | если время с продолжительностью, то трансляция в это время будет показана в течение 200 минут |
-| `time` | 2021-02-15T20:15:00.000Z | Если действительная строка UTC-Datestring, то будет показана трансляция в это время. Запомните часовые пояса |
-| `heightRow` | 35 | Высота для каждой отображаемой строки |
-| `showpictures` | x | Показать фотографии, если они есть |
-| `broadcastfontpercent` | 75 | Размер символа в процентах для трансляций |
-| `highlightcolor` | `yellow` | цвет для избранного |
-| `dialogwidthpercent` | 90 | размер диалогов в процентах от виджета |
-| `dialogheightpercent` | 90 | размер диалогов в процентах от виджета |
-| `dialogheightpercent` | 90 | размер диалогов в процентах от виджета |
+| `time` | 20:15 | Если бы трансляция в это время длилась 120 минут, то показывалась бы трансляция на следующий день |
+| `time` | 20:15/200 | Если указать время с указанием продолжительности, трансляция в это время будет длиться 200 минут |
+| `time` | 2021-02-15T20:15:00.000Z | Если строка даты в формате UTC действительна, то будет показана трансляция в это время. Не забудьте про часовые пояса |
+| `heightRow` | 35 | Высота каждой отображаемой строки |
+| `showpictures` | x | Показать изображения, если они есть |
+| `broadcastfontpercent` | 75 | Размер символов в процентах для трансляций |
+| `highlightcolor` | `yellow` | цвет для избранных |
+| `dialogwidthpercent` | 90 | размер диалоговых окон в процентах от размера виджета |
+| `dialogheightpercent` | 90 | размер диалоговых окон в процентах от размера виджета |
+| `dialogheightpercent` | 90 | размер диалоговых окон в процентах от размера виджета |
 
 ##### CSS-классы
-Пожалуйста, измените `w00001` на ваш идентификатор виджета
+Пожалуйста, замените `w00001` на идентификатор вашего виджета.
 
-Чтобы изменить форматирование чередующихся фоновых цветов трансляций
+Изменить формат чередования цветов фона в трансляциях.
 
 ```css
 #w00001 .tv-control .tv-row:nth-child(odd) {
-  background-color: rgba(128, 128, 128, 0.65);
+    background-color: rgba(128, 128, 128, 0.65);
 }
 #w00001 .tv-control .tv-row:nth-child(even) {
-  background-color: rgba(128, 128, 128, 0.55);
+    background-color: rgba(128, 128, 128, 0.55);
 }
 ```
 
 #### Поиск
-С помощью этого виджета вы можете искать трансляцию по названию, описанию, дате начала и типу трансляции.
-Поле ввода «От» предварительно заполнено фактической датой. Если это поле не изменено, поиск начинается с фактического времени.
-Если вы измените это поле на будущую или прошедшую дату, поиск начнется с 00:00 этой даты.
-Одно или оба поля ввода searchtext и category должны быть заполнены/выбраны.
+С помощью этого виджета вы можете искать трансляции по названию, описанию, дате начала и типу трансляции.
+Поле ввода «От» предварительно заполняется фактической датой. Если это поле не изменяется, поиск начинается с фактического времени.
+Если вы измените это поле на будущую или прошлую дату, поиск начнется с 00:00 этой даты.
+Одно или оба поля ввода — текст поиска и категория — должны быть заполнены/выбраны.
 
-Для настройки в vis доступны следующие атрибуты. Минимальная настройка — установить точку данных в cmd-datapoint.
+В vis для настройки доступны следующие атрибуты. Минимальная конфигурация заключается в установке точки данных в значение cmd-datapoint.
 
 | Атрибут | Пример | Описание |
 | ---------------------- | --------------------- | ----------------------------------------------------- |
 | `Object ID` | `tvprogram.0.tv1.cmd` | Точка данных экземпляра адаптера `tvprogram`. |
-| `maxresults` | 10 | макс. результатов в списке |
-| `heightRow` | 35 | Высота для каждой отображаемой строки |
-| `broadcastfontpercent` | 75 | Размер символа в процентах для трансляций |
-| `highlightcolor` | `yellow` | цвет для избранного |
-| `dialogwidthpercent` | 90 | размер диалогов в процентах от виджета |
-| `dialogheightpercent` | 90 | размер диалогов в процентах от виджета |
-| `dialogheightpercent` | 90 | размер диалогов в процентах от виджета |
+| `maxresults` | 10 | максимальное количество результатов в списке |
+| `heightRow` | 35 | Высота каждой отображаемой строки |
+| `broadcastfontpercent` | 75 | Размер символов в процентах для трансляций |
+| `highlightcolor` | `yellow` | цвет для избранных |
+| `dialogwidthpercent` | 90 | размер диалоговых окон в процентах от размера виджета |
+| `dialogheightpercent` | 90 | размер диалоговых окон в процентах от размера виджета |
+| `dialogheightpercent` | 90 | размер диалоговых окон в процентах от размера виджета |
 
 ##### CSS-классы
-Пожалуйста, измените `w00001` на ваш идентификатор виджета
+Пожалуйста, замените `w00001` на идентификатор вашего виджета.
 
-Чтобы изменить форматирование чередующихся фоновых цветов трансляций
+Изменить формат чередующихся цветов фона в трансляциях.
 
 ```css
 #w00001 .tv-search .tv-row:nth-child(odd) {
-  background-color: rgba(128, 128, 128, 0.65);
+    background-color: rgba(128, 128, 128, 0.65);
 }
 #w00001 .tv-search .tv-row:nth-child(even) {
-  background-color: rgba(128, 128, 128, 0.55);
+    background-color: rgba(128, 128, 128, 0.55);
 }
 ```
 
 ### Предоставленные точки данных
-Следующий набор точек данных существует для каждого созданного телевизора
+Для каждого созданного телевизора существует следующий набор данных.
 
 #### `channelfilter`
-эта точка данных содержит каналы, отображаемые в виджете в виде JSON-массива
+Эта точка данных содержит каналы, отображаемые в виджете, в виде JSON-массива.
 
 #### `cmd`
-эта точка данных используется для внутренней связи между виджетами и адаптером
+Эта точка данных используется для внутренней связи между виджетами и адаптером.
 
 #### `favorites`
-эта точка данных содержит выбранные избранные элементы в виде JSON-массива
+Эта точка данных содержит выбранные избранные элементы в виде JSON-массива.
 
 #### `record`
-Эта точка данных устанавливается, если пользователь нажимает кнопку записи в подробном представлении трансляции.
-Предоставленные данные
+Этот параметр устанавливается, если пользователь нажимает кнопку записи в подробном представлении трансляции.
+Предоставленные данные:
 
 | поле | Пример | Описание |
 | ------------- | ------------------------- | ---------------------- |
@@ -221,18 +213,18 @@ iobroker загрузить все
 | `eventid` | 12345678 | Уникальный идентификатор трансляции |
 
 #### `selectchannel`
-Эта точка данных используется для распознавания команды переключения канала при щелчке по логотипу канала или значку переключателя в подробном представлении.
+Этот параметр используется для распознавания команды переключения канала при щелчке по логотипу канала или значку переключения в подробном представлении.
 
 #### `show`
-эта точка данных содержит статус того, следует ли отображать в виджете tvprogram только избранное или все
+Этот параметр содержит информацию о том, следует ли отображать в виджете tvprogram только избранное или все элементы.
 
 #### `config`
-эта точка данных устарела и будет удалена в следующих версиях
+Этот параметр устарел и будет удален в следующих версиях.
 
 #### `optchnlogopath`
-Данные указывают на папку, в которой могут быть сохранены альтернативные логотипы каналов. Путь должен быть доступен через браузер.
+Указанные данные ведут в папку, где можно сохранить альтернативные логотипы каналов. Путь должен быть доступен через браузер.
 
-В точке данных необходимо ввести полный путь, начинающийся с http, включая завершающий слеш.
+В поле данных необходимо указать полный путь, начинающийся с http, включая завершающую косую черту.
 
 **Пример:**
 
@@ -240,23 +232,23 @@ iobroker загрузить все
 /vis.0/icons/tvlogos/
 ```
 
-затем доступен через
+затем становится доступен через
 
 ```text
-ttp://localhost:8082/vis.0/icons/tvlogos/
-``
+http://localhost:8082/vis.0/icons/tvlogos/
+```
 
-Все иконки следует загружать через диалоговое окно файла iobroker.
+Все значки следует загружать через диалоговое окно выбора файла в iobroker.
 
-Для примера см. Главу [Пример альтернативных логотипов](#alternative-channel-logos-by-tino-0)
+Пример см. в главе [Пример альтернативных логотипов](#alternative-channel-logos-by-tino-0)
 
-### Предоставленные `Sendto`-Команды
-Все данные можно запросить у адаптера с помощью команд sendto. Это можно использовать для разработки индивидуальных функций.
+### Предоставлены `Sendto`-команды
+Все данные можно запросить у адаптера с помощью команд sendto. Это можно использовать для разработки индивидуальных функциональных возможностей.
 
 #### `getServerData`
-Запросить базовые данные у адаптера.
+Запросите базовые данные у адаптера.
 
-##### Допустимые параметры:
+##### Допустимые параметры
 - `категории`
 - `жанры`
 - `каналы`
@@ -268,15 +260,13 @@ ttp://localhost:8082/vis.0/icons/tvlogos/
 **Пример:**
 
 ```javascript
-sendTo("tvprogram.0", "getServerData", "categories", (data) =>
-  console.log(data),
-);
+sendTo('tvprogram.0', 'getServerData', 'categories', data => console.log(data));
 ```
 
 #### `getServerTVProgram`
-Запросить данные программы у адаптера.
+Запросите программные данные у адаптера.
 
-##### Допустимые параметры:
+##### Допустимые параметры
 строка даты в следующем формате: `yyyy-mm-dd`
 
 **Возвраты:**
@@ -286,16 +276,14 @@ sendTo("tvprogram.0", "getServerData", "categories", (data) =>
 **Пример:**
 
 ```javascript
-sendTo("tvprogram.0", "getServerTVProgram", "2021-02-10", (data) =>
-  console.log(data),
-);
+sendTo('tvprogram.0', 'getServerTVProgram', '2021-02-10', data => console.log(data));
 ```
 
 #### `getServerBroadcast`
-Запросите подробные данные трансляции.
+Запросите подробные данные о трансляции.
 
-##### Допустимые параметры:
-объект, содержащий дату просмотра в следующем формате гггг-мм-дд, идентификатор события трансляции
+##### Допустимые параметры
+Объект, содержащий дату просмотра в формате yyyy-mm-dd, идентификатор события трансляции.
 
 **Возвраты:**
 
@@ -304,19 +292,14 @@ sendTo("tvprogram.0", "getServerTVProgram", "2021-02-10", (data) =>
 **Пример:**
 
 ```javascript
-sendTo(
-  "tvprogram.0",
-  "getServerBroadcast",
-  { viewdate: "2021-02-10", eventid: "10659522" },
-  (data) => console.log(data),
-);
+sendTo('tvprogram.0', 'getServerBroadcast', { viewdate: '2021-02-10', eventid: '10659522' }, data => console.log(data));
 ```
 
 #### `getFavoritesData`
-Запросить все избранные трансляции с текущего момента до окончания сохраненных данных.
+Запросить все любимые трансляции с настоящего момента до конца сохраненных данных.
 
-##### Допустимые параметры:
-`Array` избранного
+##### Допустимые параметры
+`Array` избранных
 
 **Возвраты:**
 
@@ -325,16 +308,14 @@ sendTo(
 **Пример:**
 
 ```javascript
-sendTo("tvprogram.0", "getFavoritesData", ["heute", "Tagesschau"], (data) =>
-  console.log(data),
-);
+sendTo('tvprogram.0', 'getFavoritesData', ['heute', 'Tagesschau'], data => console.log(data));
 ```
 
 #### `getServerBroadcastNow`
-Запрашивает все трансляции, которые в данный момент идут
+Запрашивает все текущие трансляции.
 
-##### Допустимые параметры:
-Массив идентификаторов ваших любимых каналов
+##### Допустимые параметры
+Массив идентификаторов каналов (channelID) ваших любимых каналов.
 
 **Возвраты:**
 
@@ -343,16 +324,14 @@ sendTo("tvprogram.0", "getFavoritesData", ["heute", "Tagesschau"], (data) =>
 **Пример:**
 
 ```javascript
-sendTo("tvprogram.0", "getServerBroadcastNow", [1, 6, 22, 7], (data) =>
-  console.log(data),
-);
+sendTo('tvprogram.0', 'getServerBroadcastNow', [1, 6, 22, 7], data => console.log(data));
 ```
 
 #### `getServerBroadcastDate`
-Запрашивает все трансляции, запущенные в указанную дату и время
+Запрашивает все трансляции, которые идут в указанное время.
 
-##### Допустимые параметры:
-Массив идентификаторов каналов ваших любимых каналов datetime
+##### Допустимые параметры
+Массив идентификаторов каналов ваших любимых каналов (дата и время).
 
 **Возвраты:**
 
@@ -362,18 +341,18 @@ sendTo("tvprogram.0", "getServerBroadcastNow", [1, 6, 22, 7], (data) =>
 
 ```javascript
 sendTo(
-  "tvprogram.0",
-  "getServerBroadcastDate",
-  { channelfilter: [1, 6, 22, 7], date: "2021-02-10T20:15:00.000Z" },
-  (data) => console.log(data),
+    'tvprogram.0',
+    'getServerBroadcastDate',
+    { channelfilter: [1, 6, 22, 7], date: '2021-02-10T20:15:00.000Z' },
+    data => console.log(data),
 );
 ```
 
 #### `getServerBroadcastFind`
-Поиск трансляций в определенном диапазоне времени и по желанию с категориями
+Поиск трансляций в заданном временном диапазоне с возможностью выбора категорий.
 
-##### Допустимые параметры:
-`channelfilter`: Массив идентификаторов каналов ваших любимых каналов `categoryfilter`: Необязательный массив идентификаторов категорий `datetimefrom`: дата и время от `datetimetill`: дата и время до `textfilter`: Необязательный заголовок или часть заголовка для поиска `maxresults`: Необязательное максимальное количество результатов. Значение по умолчанию — 10
+##### Допустимые параметры
+`channelfilter`: Массив идентификаторов каналов (channelID) ваших любимых каналов `categoryfilter`: Необязательный массив идентификаторов категорий (categoryID) `datetimefrom`: дата и время от `datetimetill`: дата и время до `textfilter`: Необязательный заголовок или часть заголовка для поиска `maxresults`: Необязательное максимальное количество результатов. Значение по умолчанию — 10
 
 **Возвраты:**
 
@@ -383,24 +362,24 @@ sendTo(
 
 ```javascript
 sendTo(
-  "tvprogram.0",
-  "getServerBroadcastFind",
-  {
-    channelfilter: [1, 6, 22, 7],
-    categoryfilter: [],
-    datefrom: "2021-02-10T10:00:00.000Z",
-    datetill: "2021-02-10T23:00:00.000Z",
-    textfilter: "",
-    maxresults: 10,
-  },
-  (data) => console.log(data),
+    'tvprogram.0',
+    'getServerBroadcastFind',
+    {
+        channelfilter: [1, 6, 22, 7],
+        categoryfilter: [],
+        datefrom: '2021-02-10T10:00:00.000Z',
+        datetill: '2021-02-10T23:00:00.000Z',
+        textfilter: '',
+        maxresults: 10,
+    },
+    data => console.log(data),
 );
 ```
 
 #### `getServerInfo`
-Запросить доступные даты трансляции в памяти адаптера
+Запросите доступные даты трансляций в памяти адаптера.
 
-##### Допустимые параметры:
+##### Допустимые параметры
 пустой объект
 
 **Возвраты:**
@@ -410,12 +389,12 @@ sendTo(
 **Пример:**
 
 ```javascript
-sendTo("tvprogram.0", "getServerInfo", "{}", (data) => console.log(data));
+sendTo('tvprogram.0', 'getServerInfo', '{}', data => console.log(data));
 ```
 
 ### Сообщество предоставляет виджеты/скрипты
 #### `Harmony` и `MagentaTV`
-Скрипт предоставлен pix После нажатия на логотип канала скрипт устанавливает сопоставленный идентификатор канала в harmonity-datapoint
+Скрипт предоставлен компанией pix. После нажатия на логотип канала скрипт устанавливает сопоставленный идентификатор канала в значение harmony-datapoint.
 
 ```javascript
 /* TV Programm Adapter
@@ -430,130 +409,120 @@ Adapter von 1/2021 von oweitmann https://github.com/oweitman/ioBroker.tvprogram
 */
 
 const logging = true;
-const idKanalWahl = "tvprogram.0.tv1.selectchannel"; // Dateingabe aus VIS
+const idKanalWahl = 'tvprogram.0.tv1.selectchannel'; // Dateingabe aus VIS
 const fbdelay = 1000; // delay zwischen Tastendrücken der IR_Fernbedienung in ms
 const channelList = {
-  // Ausgabe vom Adapter : Kanalnummer im Receiver
-  ard: 1,
-  zdf: 2,
-  rtl: 3,
-  sat1: 4,
-  pro7: 5,
-  vox: 6,
-  kaka: 7,
-  rtl2: 8,
-  superrtl: 9,
-  kika: 10,
-  /* nickelodeon 11 */
-  "3sat": 12,
-  welt: 13,
-  ntv: 14,
-  phoenix: 15,
-  tele5: 16,
-  zdfneo: 17,
-  /* #dabeiTV 18 */
-  /* disneyplus 19 */
-  /* lokalTV 20 */
-  bayern3: 21,
-  hessen3: 25,
-  mdr: 27,
-  nord3: 29,
-  /* "bremen":30, */
-  /* "rbb berlin":31, */
-  /* "sr":36, */
-  sw3: 37, // bw
-  /* "sw3":38, // rp */
-  west3: 39,
-  /* "eurosport1":50, */
-  sport1: 51,
-  /* sky sport news 52 */
-  arte: 55,
-  one: 56,
-  /* anixe 60 */
-  dmax: 64,
-  pro7maxx: 69,
-  nitro: 70,
-  /* sat1 gold 73 */
-  sixx: 75,
-  /* ard alpha 80 */
-  /* DW 85 */
-  /* euronews */
-  /* Kabel Eins Doku 89 */
-  /* N24 Doku 90 */
-  tagesschau24: 91,
-  /* Welt der Wunder 92 */
-  /* zdfinfo 93 */
-  mtv: 99,
+    // Ausgabe vom Adapter : Kanalnummer im Receiver
+    ard: 1,
+    zdf: 2,
+    rtl: 3,
+    sat1: 4,
+    pro7: 5,
+    vox: 6,
+    kaka: 7,
+    rtl2: 8,
+    superrtl: 9,
+    kika: 10,
+    /* nickelodeon 11 */
+    '3sat': 12,
+    welt: 13,
+    ntv: 14,
+    phoenix: 15,
+    tele5: 16,
+    zdfneo: 17,
+    /* #dabeiTV 18 */
+    /* disneyplus 19 */
+    /* lokalTV 20 */
+    bayern3: 21,
+    hessen3: 25,
+    mdr: 27,
+    nord3: 29,
+    /* "bremen":30, */
+    /* "rbb berlin":31, */
+    /* "sr":36, */
+    sw3: 37, // bw
+    /* "sw3":38, // rp */
+    west3: 39,
+    /* "eurosport1":50, */
+    sport1: 51,
+    /* sky sport news 52 */
+    arte: 55,
+    one: 56,
+    /* anixe 60 */
+    dmax: 64,
+    pro7maxx: 69,
+    nitro: 70,
+    /* sat1 gold 73 */
+    sixx: 75,
+    /* ard alpha 80 */
+    /* DW 85 */
+    /* euronews */
+    /* Kabel Eins Doku 89 */
+    /* N24 Doku 90 */
+    tagesschau24: 91,
+    /* Welt der Wunder 92 */
+    /* zdfinfo 93 */
+    mtv: 99,
 };
 
 function selectChannel(chNo) {
-  // Zerlegen mehrstelliger Zahlen
-  let ch_arr = new Array();
-  ch_arr = [];
-  if (logging) log("Kanalnummer gewählt: " + chNo);
-  while (chNo > 0) {
-    // rückwärts
-    if (logging) log("erkannte Ziffer: " + (chNo % 10));
-    ch_arr.push(chNo % 10); // letzte Ziffer hinten dran hängen
-    chNo = chNo / 10;
-    chNo = parseInt(chNo);
-  }
-  // array umdrehen und wieder auslesen und Taste(n) der HARMONY+Fernbedienung drücken
-  ch_arr.reverse();
-  if (logging) log("Senderplatz hat " + ch_arr.length + " Ziffern" + ch_arr);
-  for (let i = 0; i < ch_arr.length; i++) {
-    // passende OID füllen
-    setStateDelayed(
-      "harmony.0.Harmony_Hub.Telekom-DVR.Number" + ch_arr[i],
-      1,
-      fbdelay,
-      function () {
-        if (logging) log(i + 1 + ". Taste: " + ch_arr[i] + " gedrückt");
-      },
-    );
-  }
+    // Zerlegen mehrstelliger Zahlen
+    let ch_arr = new Array();
+    ch_arr = [];
+    if (logging) log('Kanalnummer gewählt: ' + chNo);
+    while (chNo > 0) {
+        // rückwärts
+        if (logging) log('erkannte Ziffer: ' + (chNo % 10));
+        ch_arr.push(chNo % 10); // letzte Ziffer hinten dran hängen
+        chNo = chNo / 10;
+        chNo = parseInt(chNo);
+    }
+    // array umdrehen und wieder auslesen und Taste(n) der HARMONY+Fernbedienung drücken
+    ch_arr.reverse();
+    if (logging) log('Senderplatz hat ' + ch_arr.length + ' Ziffern' + ch_arr);
+    for (let i = 0; i < ch_arr.length; i++) {
+        // passende OID füllen
+        setStateDelayed('harmony.0.Harmony_Hub.Telekom-DVR.Number' + ch_arr[i], 1, fbdelay, function () {
+            if (logging) log(i + 1 + '. Taste: ' + ch_arr[i] + ' gedrückt');
+        });
+    }
 }
 
 on(idKanalWahl, function (obj) {
-  log(
-    "Neues TV Programm: " +
-      obj.state.val +
-      " auf Kanal " +
-      channelList[obj.state.val] +
-      " gewählt",
-  );
-  selectChannel(channelList[obj.state.val]);
+    log('Neues TV Programm: ' + obj.state.val + ' auf Kanal ' + channelList[obj.state.val] + ' gewählt');
+    selectChannel(channelList[obj.state.val]);
 });
 ```
 
-#### Альтернативные логотипы каналов от Tino 0
-Ссылка на форум с примерами скриншотов <https://forum.iobroker.net/topic/40168/test-adapter-tvprogram/863>
+#### Альтернативные логотипы канала от Тино 0
+Ссылка на форум с примерами скриншотов: <https://forum.iobroker.net/topic/40168/test-adapter-tvprogram/863>
 
-**Загрузить логотипы каналов:**
+**Скачать логотипы канала:**
 
-Вам необходимо зарегистрироваться, чтобы загрузить логотипы размером 400x160.
+Для скачивания логотипов размером 400x160 пикселей необходимо зарегистрироваться.
 
 <https://vuplus-support.org/wbb4/index.php?thread/64098-mirror-glass-3d-huminator-design-by-stefanbenno6/>
 
-**Переименовать логотипы:**
+**Переименуйте логотипы:**
 
-запустите следующие команды в загруженной и распакованной папке
+Выполните следующие команды в загруженной и распакованной папке.
 
 <details><summary>Подробности</summary><pre><code> copy 1_0_19_283D_3FB_1_C00000_0_0_0.png ard.png copy 1_0_19_2B66_3F3_1_C00000_0_0_0.png zdf.png copy 1_0_19_EF10_421_1_C00000_0_0_0.png rtl.png copy 1_0_19_EF15_421_1_C00000_0_0_0.png rtl2.png copy 1_0_19_2E9B_411_1_C00000_0_0_0.png srtl.png copy 1_0_19_2EAF_411_1_C00000_0_0_0.png nitro.png copy 1_0_19_EF74_3F9_1_C00000_0_0_0.png sat1.png copy 1_0_19_EF75_3F9_1_C00000_0_0_0.png pro7.png copy 1_0_19_EF78_3F9_1_C00000_0_0_0.png pro7maxx.png copy 1_0_19_EF76_3F9_1_C00000_0_0_0.png kaka.png copy 1_0_19_EF77_3F9_1_C00000_0_0_0.png sixx.png copy 1_0_19_EF11_421_1_C00000_0_0_0.png vox.png copy 1_0_19_1519_455_1_C00000_0_0_0.png tele5.png copy 1_0_19_2B7A_3F3_1_C00000_0_0_0.png zdfneo.png copy 1_0_19_2B98_3F2_1_C00000_0_0_0.png kika.png copy 1_0_19_2B8E_3F2_1_C00000_0_0_0.png 3sat.png copy 1_0_19_285B_401_1_C00000_0_0_0.png phoenix.png copy 1_0_19_157C_41F_1_C00000_0_0_0.png disney.png copy 1_0_19_2871_425_1_C00000_0_0_0.png mdr.png copy 1_0_19_286F_425_1_C00000_0_0_0.png rbb.png copy 1_0_19_283F_3FB_1_C00000_0_0_0.png sw3.png copy 1_0_19_1581_41F_1_C00000_0_0_0.png sport1de.png copy 1_0_19_283E_3FB_1_C00000_0_0_0.png arte.png copy 1_0_19_526C_41D_1_C00000_0_0_0.png anixehd.png copy 1_0_19_151A_455_1_C00000_0_0_0.png dmax.png copy 1_0_19_2855_401_1_C00000_0_0_0.png bayern3.png copy 1_0_19_2873_425_1_C00000_0_0_0.png hessen3.png copy 1_0_1_6EE1_4B1_1_C00000_0_0_0.png radiobremen.png copy 1_0_19_2858_401_1_C00000_0_0_0.png nord3.png copy 1_0_19_2BA2_3F2_1_C00000_0_0_0.png info.png copy 1_0_19_132F_3EF_1_C00000_0_0_0.png orf1.png copy 1_0_19_1330_3EF_1_C00000_0_0_0.png orf2.png copy 1_0_19_2777_409_1_C00000_0_0_0.png mtv.png copy 1_0_19_288A_40F_1_C00000_0_0_0.png sw3.sr.png copy 1_0_1_6F76_457_1_C00000_0_0_0.png west3.png copy 1_0_19_2887_40F_1_C00000_0_0_0.png tagesschau24.png COPY 1_0_16_2EB9_411_1_C00000_0_0_0.png ntv.png copy 1_0_19_2888_40F_1_C00000_0_0_0.png one.png copy 1_0_19_2889_40F_1_C00000_0_0_0.png alpha.png copy 1_0_1_445F_453_1_C00000_0_0_0.png welt.png copy 1_0_1_772D_416_1_C00000_0_0_0.png eurosp.png copy 1_0_1_76C8_40E_1_C00000_0_0_0.png comedycentral.png copy 1_0_1_2F1D_441_1_C00000_0_0_0.png rtlnitro.png</code></pre></details>
 
-**Создать новую папку в vis:**
+**Создайте новую папку в vis:**
 
-Откройте диалоговое окно «Диспетчер файлов».
+Открыть через диалоговое окно «Файловый менеджер».
 
-Проверьте, существует ли следующий путь, или создайте путь в диалоговом окне.
+Проверьте, существует ли следующий путь, или создайте его в диалоговом окне.
 
 ```text
 /vis.0/icons/tvlogos/
 ```
 
-**Введите путь в точку данных:**
+**Введите путь в точке данных:**
 
-Введите следующий путь в точку данных `optchnlogopath` вашего телевизора.
+Введите следующий путь в поле данных `optchnlogopath` вашего телевизора.
+
 Замените 192.1.2.3 на IP-адрес вашей установки iobroker.
 
 ```text
@@ -562,54 +531,54 @@ http://192.1.2.3:8082/vis.0/icons/tvlogos/
 
 **Настройте ширину значка:**
 
-Каждый виджет имеет атрибут "Ширина логотипа канала px". Введите подходящую ширину для набора иконок.
+Каждый виджет имеет атрибут "Ширина канала логотипа, пиксели". Пожалуйста, укажите подходящую ширину для набора иконок.
 
-### Функции не реализованы в адаптере, но предоставляются в виде скриптов для javascript-adapter
+### Функции, не реализованные в адаптере, но предоставляемые в виде скриптов для javascript-адаптера
 #### `Recordlist`
-Список всех текущих времен записи, записанных точкой данных записи и обновляемых каждую минуту.
-Вам необходимо настроить имя точки данных вашего RecorderList и имя точки данных, которую нужно отслеживать.
+Список всех текущих времен записи, зафиксированных точкой данных записи и обновляемых каждую минуту.
+Необходимо указать имя точки данных вашего списка RecorderList и имя точки данных, за которой необходимо наблюдать.
 Как только скрипт добавит запись в список, точка данных записи будет очищена.
 
 ```javascript
 // datapoint where the List should be saved
-var recorderListDP = "0_userdata.0.tvprogram.RecorderList";
+var recorderListDP = '0_userdata.0.tvprogram.RecorderList';
 // datapoint who should be monitored of new data
-var recorderDP = "tvprogram.0.tv1.record";
+var recorderDP = 'tvprogram.0.tv1.record';
 
 on(recorderDP, function (obj) {
-  var recorderList;
-  var index;
-  console.log(obj.state.val);
-  try {
-    var recObj = JSON.parse(obj.state.val);
-  } catch {
-    return;
-  }
-  var s = getState(recorderListDP).val;
-  s = s == "" ? (s = "[]") : s;
-  recorderList = JSON.parse(s) || [];
-  index = recorderList.findIndex(function (el) {
-    return JSON.stringify(el) == JSON.stringify(recObj);
-  });
-  if (index > -1) {
-    recorderList.splice(index, 1);
-  }
-  recorderList.push(recObj);
-  setState(recorderListDP, JSON.stringify(recorderList));
-  setState(recorderDP, "");
+    var recorderList;
+    var index;
+    console.log(obj.state.val);
+    try {
+        var recObj = JSON.parse(obj.state.val);
+    } catch {
+        return;
+    }
+    var s = getState(recorderListDP).val;
+    s = s == '' ? (s = '[]') : s;
+    recorderList = JSON.parse(s) || [];
+    index = recorderList.findIndex(function (el) {
+        return JSON.stringify(el) == JSON.stringify(recObj);
+    });
+    if (index > -1) {
+        recorderList.splice(index, 1);
+    }
+    recorderList.push(recObj);
+    setState(recorderListDP, JSON.stringify(recorderList));
+    setState(recorderDP, '');
 });
 var timer = setInterval(function () {
-  var recorderList;
-  var s = getState(recorderListDP).val;
-  s = s == "" ? (s = "[]") : s;
-  recorderList = JSON.parse(s) || [];
-  recorderList = recorderList.filter((el) => new Date(el.endTime) > new Date());
-  setState(recorderListDP, JSON.stringify(recorderList));
+    var recorderList;
+    var s = getState(recorderListDP).val;
+    s = s == '' ? (s = '[]') : s;
+    recorderList = JSON.parse(s) || [];
+    recorderList = recorderList.filter(el => new Date(el.endTime) > new Date());
+    setState(recorderListDP, JSON.stringify(recorderList));
 }, 1000 * 60);
 ```
 
-Для визуализации этих данных шаблон виджета JSON из адаптера myTime может помочь со следующим шаблоном.
-Введите как json_oid точку данных с `recordlist` и как json_template следующий код:
+Для визуализации этих данных может помочь виджет JSON-шаблон из адаптера myTime, используя следующий шаблон.
+В качестве параметра json_oid введите точку данных с `recordlist`, а в качестве параметра json_template — следующий код:
 
 ```javascript
 <% data.sort((a,b)=>new Date(a.startTime) - new Date(b.startTime)) %>
@@ -631,35 +600,35 @@ var timer = setInterval(function () {
 
 ```
 
-#### Любимая трансляция на данный момент
-Следующий скрипт раз в минуту определяет, запущена ли в данный момент любимая программа.
+#### Моя любимая трансляция на данный момент
+Следующий скрипт раз в минуту определяет, запущена ли в данный момент выбранная вами программа.
 
 ```javascript
 // Favorites datapoint of your tv
-var favoritesDP = "tvprogram.0.tv1.favorites";
+var favoritesDP = 'tvprogram.0.tv1.favorites';
 // channelfilter datapoint of your tv
-var channelfilterDP = "tvprogram.0.tv1.channelfilter";
+var channelfilterDP = 'tvprogram.0.tv1.channelfilter';
 // datapoint where the result should be saved
-var favoritesBool = "0_userdata.0.tvprogram.favoriteNow";
+var favoritesBool = '0_userdata.0.tvprogram.favoriteNow';
 
 var timer = setInterval(function () {
-  var favorites = JSON.parse(getState(favoritesDP).val);
-  var channelfilter = JSON.parse(getState(channelfilterDP).val);
-  sendTo("tvprogram.0", "getServerBroadcastNow", channelfilter, (data) => {
-    setState(
-      favoritesBool,
-      data.some((el) => favorites.includes(el.events[0].title)),
-    );
-  });
+    var favorites = JSON.parse(getState(favoritesDP).val);
+    var channelfilter = JSON.parse(getState(channelfilterDP).val);
+    sendTo('tvprogram.0', 'getServerBroadcastNow', channelfilter, data => {
+        setState(
+            favoritesBool,
+            data.some(el => favorites.includes(el.events[0].title)),
+        );
+    });
 }, 1000 * 60);
 ```
 
-#### Раскрашивание программ, которые находятся в точке данных `recordlist` в виджете tvprogram
-следующий шаблон предназначен для шаблона виджета JSON из адаптера rssfeed.
-этот шаблон не генерирует видимый вывод, но генерирует инструкции css, которые окрашивают текущие программы.
-он также окрашивает кнопку записи в подробном представлении.
+#### Раскраска программ, расположенных в точке данных `recordlist` в виджете tvprogram
+Следующий шаблон предназначен для JSON-шаблона виджета из адаптера RSS-ленты.
+Этот шаблон не генерирует никакого видимого вывода, но генерирует инструкции CSS, которые раскрашивают текущие программы.
+Он также раскрашивает кнопку записи в подробном представлении.
 
-Чтобы использовать этот шаблон, выберите точку данных recordlist в свойствах виджета json_oid и вставьте следующий шаблон в json_template
+Чтобы использовать этот шаблон, выберите точку данных recordlist в свойствах виджета json_oid и вставьте следующий шаблон в json_template.
 
 ```javascript
 <%
@@ -684,39 +653,39 @@ var timer = setInterval(function () {
 ```
 
 ### Функции
-- показывать данные ТВ на временной шкале по ТВ каналу
-- показать подробности о телетрансляции, если они доступны
-- показывать маркер фактического положения с автоматической прокруткой
-- настроить отображаемые телеканалы и порядок, изменение порядка возможно с помощью dragNdrop.
-- команда переключения через точку данных после нажатия на логотип
-- увеличить/уменьшить масштаб
+- Отображение данных о телепередачах на временной шкале по телеканалам
+- показать подробную информацию о телетрансляции, если таковая имеется
+- Отображение маркера фактического положения с автоматической прокруткой
+— Настройте отображаемые телеканалы и порядок их отображения; изменение порядка возможно с помощью перетаскивания (dragNdrop).
+- переключение команды через точку данных после нажатия на логотип
+- увеличение/уменьшение масштаба
 - навигация по следующим и предыдущим дням
-- кнопка воспроизведения для переключения точки данных канала
-- центральный зум в ближайшие дни
+- кнопка воспроизведения для переключения каналов (точка данных)
+- увеличение масштаба в ближайшие дни
 - вернуться к сегодняшнему дню
 - сбросить масштаб
 - любимые трансляции
 - скопировать текст из Detailview
-- положение маркера настраивается
-- ширина и высота диалогового окна настраиваются
+- положение маркера можно настроить
+- Ширина и высота диалогового окна настраиваются.
 - Datenpunkt Record, der nach druck auf Knopf mit Aufnahmedaten gefüllt wird.
-- Виджет для избранного
+- Виджет для избранных
 - скрыть неизбранное
 
-### То, что нужно сделать
-виджет твпрограмма:
+### Todo
+виджет телепрограммы:
 
-- возможно, виджет трансляций лучших моментов
-- Адаптер данных для других источников (Интернет, оборудование, такое как Enigma, VU-Box). Рассмотрение этого вопроса в настоящее время приостановлено из-за низкого спроса
-- ~~улучшить документацию по настройке виджетов~~
-- ~~транслировать изображения, если они доступны в главном окне виджета времени~~
-- ~~исследуйте весь текст, чтобы также найти режиссеров и актеров~~
-- ~~подсказки для кнопок в виджете времени~~
+- возможно, виджет для трансляций лучших моментов
+— Адаптер данных для других источников (интернет, оборудование, такое как Enigma, VU-Box). Рассмотрение этого вопроса в настоящее время приостановлено из-за низкого спроса.
+- ~~Улучшить документацию по настройке виджетов~~
+- ~~транслировать изображения, если они доступны в основном окне виджета времени~~
+— ~~просмотрите весь текст, чтобы найти также режиссеров и актеров~~
+- ~~всплывающие подсказки для кнопок в виджете времени~~
 - ~~Идеи для дальнейших виджетов на основе существующего сценария телепрограммы~~
 - ~~Проблема: бесконечная прокрутка в Firefox~~
-- ~~на обсуждение: Datenpunkt, mit allen Aufnahmedaten, должен быть реализован на адаптере видеомагнитофона или в отдельном скрипте~~
-- ~~адаптивный дизайн для подробного представления->адаптивный дизайн для диалогового окна jquery невозможен, нашел другое решение с фиксированными макетами для высоты>ширины~~
-- ~~Проблема: небольшая ошибка пикселей, если панель прокрутки полностью прокручена с левой стороны~~
+- ~~обсуждается: Datenpunkt, mit allen Aufnahmedaten, должен быть реализован на адаптере видеомагнитофона или в отдельном скрипте~~
+- ~~Адаптивный дизайн для просмотра подробной информации -> адаптивный дизайн для диалогового окна jQuery невозможен, найдено другое решение с фиксированными параметрами высоты и ширины~~
+- ~~Проблема: небольшой пиксельный сбой, если панель прокрутки полностью заполнена слева~~
 
 ## Changelog
 
@@ -724,10 +693,16 @@ var timer = setInterval(function () {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.0.3 (2026-02-27)
 
+- update dependencies
+- improve error handling
+
+### 4.0.2 (2026-01-27)
+
+- improve position of dialogs
 - reduce requests to data provider
-- revert to node 18
+- test remove node 18,extend to node 24
 
 ### 4.0.0 (2025-01-21)
 
@@ -836,4 +811,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2025 oweitman <oweitman@gmx.de>
+Copyright (c) 2025-2026 oweitman <oweitman@gmx.de>

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.acme/README.md
 title: ioBroker.acme
-hash: 6PaTYasXWjL2QReVKVOM7tmkighgHD/M/nHbtZ3KGmU=
+hash: 62dal9BD4EriOW7RCEGOTkfVGHbC7SyeXM4oXO6xhVs=
 ---
 ![标识](../../../en/adapterref/iobroker.acme/admin/acme.png)
 
@@ -33,20 +33,20 @@ hash: 6PaTYasXWjL2QReVKVOM7tmkighgHD/M/nHbtZ3KGmU=
 存储和使用由 [核心 ioBroker 控制器](https://www.npmjs.com/package/iobroker.js-controller) 中包含的接口处理。
 
 ### ACME挑战
-我们实现了两种挑战验证方法，配置页面中至少需要启用其中一种。
+实现了两种挑战验证方法，配置页面中至少应启用其中一种。
 
 请注意，通配符证书订单只能使用 DNS-01 质询进行验证。
 
 #### HTTP-01
 适配器会在配置的端口和地址上启动自己的 HTTP-01 挑战服务器。
 
-要使 HTTP-01 挑战成功，挑战服务器的端口/地址**必须**能够通过公共互联网上提供的通用/备用名称集合中的 FQDN 的 80 端口公开访问。
+要使 HTTP-01 挑战成功，挑战服务器的端口/地址**必须**能够通过公共互联网访问，即通过集合通用/备用名称中给出的 FQDN 的 80 端口访问。
 
 请相应地配置您的防火墙、反向代理等。
 
 示例场景：
 
-1. 运行 ACME 的 IoB 主机位于路由器之后，并且该路由器具有可公开访问的 IP 地址：
+1. 运行 ACME 的 IoB 主机位于路由器之后，该路由器具有可公开访问的 IP 地址：
 
     解决方案：
 
@@ -65,7 +65,7 @@ hash: 6PaTYasXWjL2QReVKVOM7tmkighgHD/M/nHbtZ3KGmU=
 
 可能的解决方案：
 
-1. 如果另一项服务是遵循端口配置命名标准的 IoB 适配器，ACME 将在尝试订购证书之前停止它，使用端口 80 作为 HTTP-01 质询服务器，并在完成后重新启动任何已停止的适配器。
+1. 如果另一项服务是遵循端口配置命名标准的 IoB 适配器，ACME 将在尝试订购证书之前停止该服务，使用端口 80 作为 HTTP-01 质询服务器，并在完成后重新启动任何已停止的适配器。
 
 显然，这会导致另一个适配器短暂中断，这可能是不希望看到的。
 
@@ -83,7 +83,7 @@ hash: 6PaTYasXWjL2QReVKVOM7tmkighgHD/M/nHbtZ3KGmU=
 - 从 IoB 管理实例页面手动启动 ACME。
 - 等待 ACME 完成所有证书订单。
 - 从 IoB 管理实例页面手动停止 ACME。
-每次申请/续期证书都需要执行这些步骤，因此**不建议**使用此方法。ACME旨在实现全自动流程。
+每次申请/续期证书都需要执行这些步骤，因此**不建议**使用此方法。ACME旨在实现完全自动化的流程。
 
 #### DNS-01
 针对流行的域名托管平台，已实现了多种 DNS-01 挑战插件。
@@ -98,12 +98,16 @@ hash: 6PaTYasXWjL2QReVKVOM7tmkighgHD/M/nHbtZ3KGmU=
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
+### 2.0.0 (2026-02-12)
 - (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
 - (mcm1957) Dependencies have been updated
+- (@GermanBluefox) Adater was migrated to TypeScript and vite
 
 ### 1.0.6 (2024-12-27)
 
-- (mcm1957) Missing size attributes for jsonCOnfig have been added.
+- (mcm1957) Missing size attributes for jsonConfig have been added.
 - (mcm1957) Dependencies have been updated
 
 ### 1.0.5 (2024-12-08)
@@ -119,11 +123,6 @@ hash: 6PaTYasXWjL2QReVKVOM7tmkighgHD/M/nHbtZ3KGmU=
 - (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 - (mcm1957) Dependencies have been updated
 - (bluefox) Prepared for admin v7
-
-### 0.1.2 (2023-11-15)
-
-- (mcm1957) Issues reported by adapter checker have been fixed.
-- (mcm1957) Release 0.1.1 has been released again due to error during deploy.
 
 ## License
 

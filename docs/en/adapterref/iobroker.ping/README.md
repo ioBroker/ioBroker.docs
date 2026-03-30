@@ -16,11 +16,11 @@ Pings specified IP addresses in a defined interval and monitors the results.
 
 You can also monitor TCP ports by specifying the port number after the IP address with a colon (e.g., `192.168.1.1:80` or `google.com:443`). This will check if the port is reachable instead of using ICMP ping.
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Ping from javascript adapter
 
-You can ping any IP address from the JavaScript adapter with command:
+You can ping any IP address from the JavaScript adapter with the command:
 
 ```js
 sendTo('ping.0', 'ping', '192.168.1.1', res => {
@@ -50,11 +50,71 @@ Or you can allow the ping execution by `sudo setcap cap_net_raw+ep /bin/ping` co
 
 You must install `setcap` with `sudo apt-get install libcap2-bin` before if `setcup` not found.
 
+## hping3 support for sleeping devices (e.g. iPhones)
+
+Some devices, particularly iPhones in deep sleep mode, do not respond to standard ICMP ping. To detect such devices reliably, the adapter can use `hping3` to send a burst of UDP packets to port 5353 (mDNS) which wakes the device, followed by a regular ping to confirm reachability.
+
+Enable **"Use hping3"** for individual devices in the Devices table. The adapter runs:
+
+```
+hping3 -2 -c 10 -p 5353 -i u1 -q <IP>
+```
+
+…then immediately performs a regular ICMP ping. If hping3 is not installed, the adapter falls back to regular ping automatically.
+
+**Installation (Linux only):** Enable **"Install hping3 if not available"** in the main settings. The adapter will run `sudo apt-get install -y hping3` on startup if hping3 is not yet present on the system. Alternatively, install it manually:
+
+```bash
+sudo apt-get install hping3
+```
+
 ## TCP Port Check
 
 From version 1.8.0 you can also check TCP ports by specifying the port number after the IP address with a colon (e.g., `192.168.1.1:80`).
 
 The adapter will check if the TCP port is reachable instead of using ICMP ping.
+
+## Wake-on-LAN from javascript adapter
+
+You can wake up any device by sending a Wake-on-LAN magic packet using its MAC address:
+
+```js
+// Send to broadcast (255.255.255.255)
+sendTo('ping.0', 'wakeOnLan', '01:23:45:67:89:AB', res => {
+    console.log('Result: ' + JSON.stringify(res)); // Result: {"result": {"mac": "01:23:45:67:89:AB"}}
+});
+
+// Send to a specific IP (e.g. directed broadcast)
+sendTo('ping.0', 'wakeOnLan', { mac: '01:23:45:67:89:AB', ip: '192.168.1.255' }, res => {
+    console.log('Result: ' + JSON.stringify(res)); // Result: {"result": {"mac": "01:23:45:67:89:AB", "ip": "192.168.1.255"}}
+});
+```
+
+## Writing to alive states
+
+Every device state is writable and reacts to unacknowledged writes:
+
+- **Write `false`** — triggers an immediate ping of that device, outside of the normal polling interval.
+- **Write `true`** — sends a [Wake-on-LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) magic packet to wake the device up.
+
+### Wake-on-LAN
+
+For Wake-on-LAN to work, the adapter needs to know the device's MAC address. It is resolved in this order:
+
+1. **MAC discovered by network browse** — if the device was found during a network browse, its MAC address is cached automatically.
+2. **Live ARP lookup** — if the above is not available, the adapter tries to resolve the MAC via ARP at the moment of the write.
+
+If the MAC address cannot be determined, a warning is logged and the packet is not sent.
+
+Example from the JavaScript adapter:
+
+```js
+// Trigger immediate ping
+setState('ping.0.myHost.192_168_1_1', false);
+
+// Send Wake-on-LAN magic packet
+setState('ping.0.myHost.192_168_1_1', true);
+```
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -62,6 +122,15 @@ The adapter will check if the TCP port is reachable instead of using ICMP ping.
 -->
 
 ## Changelog
+### 2.1.0 (2026-03-04)
+- (@GermanBluefox) Implemented wake-on-lan functionality
+- (@GermanBluefox) Implemented pings with hping3 for sleeping devices (e.g. iPhones)
+
+### 2.0.0 (2026-02-26)
+- (@GermanBluefox) Migrated to TypeScript
+- (@GermanBluefox) Updated dependencies
+- (@GermanBluefox) A Minimal Node.js version is now 20
+
 ### 1.8.0 (2025-10-05)
 
 - (@GermanBluefox) Removed admin 4,5 support
@@ -70,7 +139,7 @@ The adapter will check if the TCP port is reachable instead of using ICMP ping.
 
 ### 1.7.9 (2024-10-01)
 
-- (@GermanBluefox) Small changes the layout of the dynamic messages
+- (@GermanBluefox) Small changes to the layout of the dynamic messages
 
 ### 1.7.8 (2024-09-28)
 
@@ -84,7 +153,7 @@ The adapter will check if the TCP port is reachable instead of using ICMP ping.
 
 ### 1.7.5 (2024-09-18)
 
-- (@GermanBluefox) Corrected small error about range length
+- (@GermanBluefox) Corrected a small error about range length
 
 ### 1.7.4 (2024-09-17)
 
@@ -150,7 +219,7 @@ The adapter will check if the TCP port is reachable instead of using ICMP ping.
 
 ### 1.4.6 (2020-04-29)
 
-- (Apollon77) Make sure the adapter does not crash if ping command cannot be executed (Sentry)
+- (Apollon77) Make sure the adapter does not crash if the ping command cannot be executed (Sentry)
 - (Apollon77) Catch error when `ping.probe` could not be started (Sentry IOBROKER-PING-2)
 
 ### 1.4.5 (2020-04-23)
@@ -221,7 +290,7 @@ The adapter will check if the TCP port is reachable instead of using ICMP ping.
 
 ### 0.1.0 (2014-11-26)
 
-- (@GermanBluefox) Used ping npm module instead of static one
+- (@GermanBluefox) Used ping npm module instead of a static one
 
 ### 0.0.5 (2014-11-21)
 
@@ -233,7 +302,7 @@ The adapter will check if the TCP port is reachable instead of using ICMP ping.
 
 ### 0.0.3 (2014-11-03)
 
-- (@GermanBluefox) fix ping node (do not forget to remove package from git when the npm gets the update)
+- (@GermanBluefox) fix ping node (do not forget to remove the package from git when the npm gets the update)
 
 ### 0.0.1 (2014-11-02)
 
@@ -243,7 +312,7 @@ The adapter will check if the TCP port is reachable instead of using ICMP ping.
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2025, @GermanBluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026, @GermanBluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -875,7 +875,7 @@ Possible options and parameters:
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 Bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2014-2026 Bluefox <dogafox@gmail.com>, Apollon77
 
 Copyright (c) 2016 Smiling_Jack
 

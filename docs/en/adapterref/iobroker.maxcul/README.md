@@ -23,6 +23,13 @@ Before using you must first pair the devcies with ioBroker.
 E.g. for thermostats press longer the "boost" button till the countdown will start.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 2.0.0 (2026-02-25)
+* (9Mad-Max5) Updating serialport to version 12.0.0 to support Node.js 20
+* (@GermanBluefox) Refactoring and code cleanup
 
 ### 1.3.1 (2020-07-26)
 * (bowao) Fix unhandled exception
@@ -71,7 +78,7 @@ E.g. for thermostats press longer the "boost" button till the countdown will sta
 * (Apollon77) Upgrade Serialport and cul library
 
 ### 0.3.0 (2017-06-21)
-* (bowao) Fix control of thermostates
+* (bowao) Fix control of thermostats
 
 ### 0.2.3 (2017-04-11)
 * (bluefox) Fix calculation of serial number
@@ -85,4 +92,4 @@ E.g. for thermostats press longer the "boost" button till the countdown will sta
 
 ## License
 
-[Licensed under GPLv2](LICENSE) Copyright (c) 2017-2020 bluefox <dogafox@gmail.com>
+[Licensed under GPLv2](LICENSE) Copyright (c) 2017-2026 bluefox <dogafox@gmail.com>

@@ -107,8 +107,9 @@ On configuration page you can select following modules:
 ### NVME temperature
 Since adapter version 2.3.2 you can read NVMe temperature. To do this, you need to install `nvme-cli` package on your system. 
 You can do this with the following command: `sudo apt-get install nvme-cli`. You will also need to add the command to the ioBroker
-sudoers file `/etc/sudoers.d/iobroker`. Open it with an editor, for example nano: `sudo nano /etc/sudoers.d/iobroker` and add the following line:
-`nvme smart-log /dev/nvme0` to the bottom.
+sudoers file `/etc/sudoers.d/iobroker`. Open it with an editor, for example nano: `sudo nano /etc/sudoers.d/iobroker` and add the following line to the bottom:
+
+```iobroker ALL=(ALL) NOPASSWD: /usr/sbin/nvme smart-log /dev/nvme0```
 
 ## GPIOs
 You can read and control GPIOs too.
@@ -163,6 +164,10 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
+
 ### 3.0.2 (2025-12-01)
 * (@klein0r) Check for required libgpiod-dev package version
 

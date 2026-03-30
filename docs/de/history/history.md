@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: S40mN+It5nc4lrkyIOnjcY3JTs9xMCyrFz4W6F/5IKg=
+hash: XdiPH8YeAi233ueur5eE+gIFmlkhGJKAjaTJihgmaC0=
 ---
 # Was ist neu
 ## Hinweise für Autoren
@@ -45,7 +45,7 @@ https://github.com/foxriver76/ioBroker.notification-manager
 
 <img src="https://raw.githubusercontent.com/foxriver76/ioBroker.notification-manager/master/admin/notification-manager.png" width="100" height="100" />
 
-Verwalten Sie ioBroker-Benachrichtigungen, z. B. durch Versenden als Nachrichten.
+Verwalten Sie ioBroker-Benachrichtigungen, z. B. durch Senden als Nachrichten
 
 ## Procon-ip (2023-08-24)
 https://github.com/ylabonte/ioBroker.procon-ip
@@ -169,7 +169,7 @@ Dies ist ein komplettes Visualisierungssystem für ioBroker.
 * WYSIWYG-Editor für die Benutzeroberfläche, aber Sie können auch zur Quelltextansicht oder geteilten Ansicht wechseln.
 * Mehrfenster-Benutzeroberfläche in der Bearbeitungsansicht, wie in Visual Studio
 * Bindungen pro Drag & Drop von ioBroker-Objekten auf UI-Elemente oder Eigenschaften
-* komplexe Bindungen mit eingebettetem JavaScript und Konvertern
+* komplexe Bindungen mit JavaScript-Einbindung und Konvertern
 * eine einfache Skriptsprache, die über die Benutzeroberfläche erstellt werden kann.
 
 ## Heizungssteuerung (4.10.2023) - neuer Adapter
@@ -234,7 +234,7 @@ Für Smart-Home-Fans gibt es eine wichtige Neuigkeit: Die ESPHome-Dokumentation 
 Dieses Update folgt der Annahme eines kürzlich eingereichten Pull Requests und positioniert ioBroker neben Home Assistant als eines der wenigen Smart-Home-Systeme, die die native ESPHome-API für die direkte Client-Kommunikation nutzen.
 
 Die native API, bekannt für ihr hochoptimiertes Netzwerkprotokoll, bietet zahlreiche Vorteile gegenüber herkömmlichen MQTT-Methoden und vereinfacht die Interaktion von Smart-Geräten innerhalb des Ökosystems.
-Mit dieser Anerkennung bekräftigt ESPHome sein Engagement für effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche.
+Mit dieser Auszeichnung bekräftigt ESPHome sein Engagement für effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche.
 
 ## Vis (06.11.2023) - neue Funktion
 Die Lizenz von vis wurde auf MIT geändert. Das bedeutet, dass Sie vis kostenlos in kommerziellen Projekten verwenden können und keine weitere Lizenz erforderlich ist.
@@ -301,7 +301,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Art-Net-Daten in einer Datei speichern, um sie später wiederzugeben
 
-## Energiefluss (25.01.2024) – neuer Adapter
+##energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -396,7 +396,7 @@ https://github.com/ioBroker/ioBroker.nmea
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.nmea/main/admin/nmea.png" width="100" height="100" />
 
-Dieser Adapter ermöglicht die Verbindung von ioBroker mit dem NMEA-2000-Yachtbus. Sie können Geschwindigkeit über Grund (SOG), Kurs über Grund (COG), GPS-Position, Tiefe, Wind, Temperatur und viele weitere Daten vom NMEA-2000-Bus auslesen.
+Dieser Adapter ermöglicht den Anschluss von ioBroker an den NMEA-2000-Yachtbus. Sie können Geschwindigkeit über Grund (SOG), Kurs über Grund (COG), GPS-Position, Tiefe, Wind, Temperatur und viele weitere Daten vom NMEA-2000-Bus auslesen.
 
 Und sogar den Raymarine-Autopiloten steuern.
 
@@ -652,7 +652,7 @@ Benutzer können vom Alias-Ziel zum Alias selbst springen.
 ## Admin (28.09.2024) – Neue Funktion
 ![Passwort](../../en/history/media/2024_09_28_admin_password.png)
 
-Der Administrator prüft nun auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert, und fordert gegebenenfalls zur Änderung des Passworts auf.
+Der Administrator prüft nun auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert, und fordert ihn auf, dieses zu ändern, falls ein solcher Benutzer gefunden wird.
 
 Administratoren unterstützen die grafische Benutzeroberfläche für dynamische Benachrichtigungen.
 
@@ -963,7 +963,7 @@ https://github.com/oweitman/ioBroker.pi-hole2
 
 <img src="https://raw.githubusercontent.com/oweitman/ioBroker.pi-hole2/main/admin/pi-hole2.png" width="100" height="100" />
 
-Eine Pi-hole-Installation ab Version 6 verwalten. Informationen von Pi-hole abrufen. Domains blockieren/beenden. (Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
+Eine Pi-hole-Installation ab Version 6 verwalten. Informationen von Pi-hole abrufen. Domains blockieren/stoppen. (Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
 
 ## Energy-tracker (21.8.2025) – Neuer Adapter im stabilen Repository
 https://github.com/energy-tracker/ioBroker.energy-tracker
@@ -1072,5 +1072,68 @@ https://github.com/TA2k/ioBroker.bmw
 <img src="https://raw.githubusercontent.com/TA2k/ioBroker.bmw/master/admin/bmw.png" width="100" height="100" />
 
 Dieser Adapter integriert BMW-Fahrzeuge in ioBroker mithilfe der neuen BMW CarData API mit OAuth2-Authentifizierung und Echtzeit-MQTT-Streaming. Er ermöglicht die umfassende Überwachung von Fahrzeugdaten für alle mit Ihrem BMW-Konto verknüpften BMW-Modelle.
+
+## Nspanel-lovelace-ui (3.1.2026) – Neuer Adapter im stabilen Repository
+https://github.com/ticaki/ioBroker.nspanel-lovelace-ui
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.nspanel-lovelace-ui/main/admin/nspanel-lovelace-ui.png" width="100" height="100" />
+
+Die NSPanel Lovelace-Benutzeroberfläche ist eine alternative Oberfläche für das Sonoff NSPanel, die speziell für die Integration mit iobroker entwickelt wurde. Sie nutzt in der Regel Tasmota (Firmware) und MQTT (Messaging-Protokoll), um benutzerdefinierte Steuerelemente und Anzeigen direkt auf dem kleinen Touchscreen des NSPanel bereitzustellen.
+
+## Steam (20.1.2026) – Neuer Adapter im stabilen Repository
+https://github.com/bloop16/ioBroker.steam
+
+<img src="https://raw.githubusercontent.com/bloop16/ioBroker.steam/main/admin/steam.png" width="100" height="100" />
+
+Dieser Adapter ermöglicht es Ihnen, Informationen von der Steam-API in Ihr ioBroker-System zu integrieren.
+
+## Serial-gps (23.1.2026) – Neuer Adapter im stabilen Repository
+https://github.com/ioBroker/ioBroker.serial-gps
+
+<img src="https://github.com/ioBroker/ioBroker.serial-gps/blob/main/admin/serial-gps.svg" width="100" height="100" />
+
+Dieser Adapter liest GPS-Daten von einem seriellen oder USB-GPS-Gerät und stellt sie in ioBroker zur Verfügung.
+
+## Mitsubishi-local-control (28.01.2026) – Neuer Adapter im stabilen Repository
+https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
+
+<img src="https://raw.githubusercontent.com/Black-Thunder/ioBroker.mitsubishi-local-control/main/admin/mitsubishi-local-control.png" width="100" height="100" />
+
+Der Mitsubishi-Lokalsteuerungsadapter integriert Mitsubishi Electric Klimaanlagensysteme über eine direkte lokale Verbindung in ioBroker.
+
+## Autodarts (28.01.2026) – Neuer Adapter im stabilen Repository
+https://github.com/inventwo/ioBroker.autodarts
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.autodarts/main/admin/autodarts.svg" width="100" height="100" />
+
+Verbindet sich mit Ihrem lokalen Autodarts Board Manager (über IP und Port, z. B. 192.168.x.x:3180) und stellt ioBroker-Zustände für die Hausautomation bereit:
+
+## Zwavews (28.01.2026) – Neuer Adapter im stabilen Repository
+https://github.com/arteck/ioBroker.zwavews
+
+<img src="https://raw.githubusercontent.com/arteck/ioBroker.zwavews/main/admin/zwavews.png" width="100" height="100" />
+
+Der zwavews-Adapter verbindet eine zwave-js-ui mit ioBroker und erstellt entsprechende Datenpunkte für Geräte, Werte und Status. Dadurch lassen sich Z-Wave-Geräte komfortabel in Visualisierungen, Logik und Automatisierungen verwenden.
+
+## Smartfriends (10.2.2025) – Neuer Adapter im stabilen Repository
+https://github.com/Black-Thunder/ioBroker.smartfriends
+
+<img src="https://raw.githubusercontent.com/Black-Thunder/ioBroker.smartfriends/master/admin/smartfriends.png" width="100" height="100" />
+
+Dieser Adapter ermöglicht die direkte lokale Integration der SmartFriends Box (z. B. Smart Friends Box von Schellenberg, ABUS, Paulmann, STEINEL usw.) in ioBroker – ohne die offizielle Cloud zu nutzen.
+
+## Meteoswiss (13.2.2026) – Neuer Adapter im stabilen Repository
+https://github.com/deMynchi/ioBroker.meteoswiss
+
+<img src="https://raw.githubusercontent.com/deMynchi/ioBroker.meteoswiss/master/admin/meteoswiss.png" width="100" height="100" />
+
+Liefert Wetterinformationen von MeteoSwiss
+
+## Hagelschutz-vkf (25.02.2025) – Neuer Adapter im stabilen Repository
+https://github.com/UncleSamSwiss/ioBroker.hagelschutz-vkf
+
+<img src="https://raw.githubusercontent.com/UncleSamSwiss/ioBroker.hagelschutz-vkf/main/admin/hagelschutz-vkf.jpg" width="100" height="100" />
+
+Adapter für hagelschutz-einfach-automatisch.ch der kantonalen Gebäudeversicherungen.
 
 <!-- ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Symbole ! -->

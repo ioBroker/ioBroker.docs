@@ -3,25 +3,101 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mercedesme/README.md
 title: ioBroker.mercedesme
-hash: n8+F9aionWvJttL+oYB/zYoVebpcNqcuFjIWXPh7mLQ=
+hash: FNiMh4veJEDS9m5/XywGQO4IafBpnx8U2q/1/UxGJ+k=
 ---
 ![标识](../../../en/adapterref/iobroker.mercedesme/admin/mercedesme.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.mercedesme.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.mercedesme.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.mercedesme.svg)
 ![安装数量](https://iobroker.live/badges/mercedesme-installed.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.mercedesme.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.mercedesme.png?downloads=true)
 ![特拉维斯-CI](http://img.shields.io/travis/TA2k/ioBroker.mercedesme/master.svg)
 
 # IoBroker.mercedesme
-## IoBroker 的 Mercedesme 适配器
+## 适用于 ioBroker 的 Mercedesme 适配器
 适用于 ioBroker 的 Mercedes me 适配器
 
-在命令下，可以使用突击队命令和按钮来启动命令。
+### 使用：Zweitnutzer erstellen
+梅赛德斯与 ioBroker 是分开的。 Mercedes begrenzt die Anzahl der Verbindungen pro Tag (~100-150)。帐户是 Mitternacht UTC 版本 (HTTP 429) 的 Ueberschreitung。
 
-远程 Sind vorgefertige 远程 Befehle
+Mit einem Zweitnutzer:
+
+- Mercedes me 应用程序中的 Wird der Hauptnutzer
+- Kann der 适配器 unabhaengig arbeiten
+- 使用方便的应用程序来完成所有功能
+
+Mercedes me 应用程序中的 Zweitnutzer 称为“Nutzer”(nicht Hauptnutzer) zum Fahrzeug einladen。
+
+### 指令
+在命令下，突击队会击打并按下按钮，然后启动即可使用该命令。
+
+远程 sind vorgefertige 远程 Befehle
 
 ## Changelog
+### 0.7.0-beta.0 (2026-03-03)
+- make api only mode default
+
+### 0.6.3 (2026-02-16)
+- add api refresh every 3 min after websocked block
+- add api only update mode
+
+### 0.5.5 (2026-02-09)
+- fix parsing and command sending
+
+### 0.4.2 (2026-02-07)
+- improve event parsing
+
+### 0.4.0 (2026-02-03)
+- fix remote command sending
+
+### 0.3.9 (2025-11-12)
+- fix login flow
+
+### 0.3.8 (2025-07-11)
+
+- change token refresh mechanism
+
+### 0.3.7 (2025-02-11)
+
+- fix relogin after adapter restart
+- add logs for reconnect
+
+### 0.3.6 (2025-02-06)
+
+- Fix for Login and WS connection
+
+### 0.3.5 (2025-01-31)
+
+- fix new login flow
+
+### 0.3.4 (2024-12-08)
+
+- added config parameter for reconnect delay
+
+### 0.3.2 (2024-12-06)
+
+- fix for too many request error
+
+### 0.2.4 (2024-10-17)
+
+- fix websocket connection
+
+### 0.2.3 (2024-05-18)
+
+- improve websocket ping with not internet connection
+
+### 0.2.1 (2024-04-08)
+
+- reduce cpu usage
+- add error logs
+
+### 0.2.0 (2024-04-08)
+
+- reduce cpu usage
+
+### 0.1.8 (2024-02-15)
+
+- improve code sending
 
 ### 0.1.6
 
@@ -34,22 +110,23 @@ hash: n8+F9aionWvJttL+oYB/zYoVebpcNqcuFjIWXPh7mLQ=
 ### 0.0.56
 
 - fix vehicle list while login
-  
+
 ### 0.0.55
 
 - fix refresh login
+
 ### 0.0.55
 
 - fix refresh login
-  
+
 ### 0.0.54
 
 - fix login
-  
+
 ### 0.0.52
 
 - fix js-controller 3.3 warnings
-  
+
 ### 0.0.51
 
 - improve handling of failing logins
@@ -57,11 +134,11 @@ hash: n8+F9aionWvJttL+oYB/zYoVebpcNqcuFjIWXPh7mLQ=
 ### 0.0.50
 
 - fix refresh token
-  
+
 ### 0.0.47
 
 - fix new login
-  
+
 ### 0.0.45
 
 - Small improvments
@@ -120,7 +197,7 @@ hash: n8+F9aionWvJttL+oYB/zYoVebpcNqcuFjIWXPh7mLQ=
 
 ### 0.0.15
 
-- fix soc history bug, add basic price and  adapter restart every 6h
+- fix soc history bug, add basic price and adapter restart every 6h
 
 ### 0.0.14
 
@@ -186,7 +263,7 @@ hash: n8+F9aionWvJttL+oYB/zYoVebpcNqcuFjIWXPh7mLQ=
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

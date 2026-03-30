@@ -1012,6 +1012,12 @@ Standard ohne Zonen:
 ![img/array_nok.png](../en/img/array_nok.png)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (Lucky-ESA) Dependencies updated
+
 ### 3.2.7 (2025-08-16)
 
 - (Lucky-ESA) MQTT connection selection added
@@ -1038,7 +1044,6 @@ Standard ohne Zonen:
 ## License
 
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023-2025 TA2k <tombox2020@gmail.com>

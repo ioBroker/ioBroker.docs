@@ -26,6 +26,10 @@ The received data can also be saved as JSON (sofar_realtime.json).
 
 
 ## Changelog
+### 3.3.0 (2026-01-28)
+
+- Better Admin menu
+
 ### 3.2.7 (2025-10-14)
 
 - "Invalid station ID" message as warning instead of info

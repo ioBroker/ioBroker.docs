@@ -187,6 +187,11 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Fixed adapter crash if URI is empty
+
 ### 1.5.2 (2025-12-14)
 
 - (Lucky-ESA) Rate limit of 50 requests per minute intercepted at adapter startup

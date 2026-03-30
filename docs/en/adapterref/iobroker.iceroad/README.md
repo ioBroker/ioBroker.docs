@@ -39,6 +39,7 @@ If the adapter displays the status "Ice" or "Maybe ice", it is possible to be no
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 - (mcm1957) Adapter requires node.js 18 now

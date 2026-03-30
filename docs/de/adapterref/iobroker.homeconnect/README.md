@@ -205,6 +205,11 @@ Oder ob ein Gerät geöffnet ist
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Fixed adapter crash if URI is empty
+
 ### 1.5.2 (2025-12-14)
 
 - (Lucky-ESA) Rate limit of 50 requests per minute intercepted at adapter startup
