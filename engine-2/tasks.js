@@ -589,6 +589,7 @@ if (process.argv.includes('--i18n=>flat')) {
 } else if (process.argv.includes('--buildOnly')) {
     _0_clean(); // clean dir
     _1_blog() // translate and copy blogs
+        .then(() => _2_downloadAdapters()) // download all adapters and create adapter.json
         .then(() => _6_faq()) // combine FAQ
         .then(() => _7_documentation()) // create content for documentation
         .then(() => _8_copyFiles()) // copy all adapters and docs to the public
