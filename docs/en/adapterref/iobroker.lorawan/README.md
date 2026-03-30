@@ -24,6 +24,41 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.21.19 (2026-03-30)
+* (BenAhrdt) add value.power.active to cardRoles and possibility for Name (label? Name? ID)
+
+### 1.21.18 (2026-03-30)
+* (BenAhrdt) bugfix display states for bridged devices in dM
+
+### 1.21.17 (2026-03-30)
+* (BenAhrdt) change display of sensor.contact in dM card
+
+### 1.21.16 (2026-03-30)
+* (BenAhrdt) implements cardRoles state to define displayed Roles in card
+* (BenAhrdt) First try of custom Info at dM
+
+### 1.21.15 (2026-03-28)
+* (BenAhrdt) implement TTI tenant to download to TTI
+
+### 1.21.14 (2026-03-27)
+* (BenAhrdt) change userdata and alias query for bridge
+
+### 1.21.13 (2026-03-23)
+* (BenAhrdt) improve displaying devEUI in actual Values
+
+### 1.21.12 (2026-03-19)
+* (BenAhrdt) bugfix display devices in case of bridge is not selected
+
+### 1.21.11 (2026-03-15)
+* (BenAhrdt) improve nameing of actual values
+* (BenAhrdt) imlpement digits to actual values
+
+### 1.21.10 (2026-03-12)
+* (BenAhrdt) change Testing and change standard value of lorawan origin to off
+
+### 1.21.9 (2026-03-06)
+* (BenAhrdt) persistant Bride DeviceIds
+
 ### 1.21.8 (2026-03-04)
 * (BenAhrdt) update icons
 

@@ -289,6 +289,11 @@ When the adapter crashes or an other Code error happens, this error message that
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.1.0 (2026-03-16)
+* (softwarecrash) Add optional window-open thermostat priority
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
 ### 3.0.4 (2026-02-22)
 * (René) see issue #730: bug fix: if window sensor uses "false" for Open window state was always set to open
 

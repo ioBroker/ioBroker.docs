@@ -37,11 +37,11 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.1.0 (2026-03-06)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+- (copilot) **CI/CD**: Migrated to ESLint 9 with @iobroker/eslint-config
 
 ### 1.0.1 (2024-10-26)
 - (simatec) Admin-UI has been adapted for small displays.
@@ -61,15 +61,11 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 -   (o0Shojo0o) fix name for Workforce 3620
 -   (o0Shojo0o) fix firmware for Workforce 3620
 
-### 0.0.10 (2021-08-19)
-
--   (o0Shojo0o) fix translation
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Dennis Rathjen <dennis.rathjen@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -90,8 +86,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
-
-_Dank an die Erfinder des Basisskripts zum Parsen der Daten, Idittmar und MistyReblaus aus dem [Homematic-Forum](http://homematic-forum.de/forum/viewtopic.php?f=31&t=25140)._ :+1:
 
 \*Dank an pix und rr0v1 für die Vorlage

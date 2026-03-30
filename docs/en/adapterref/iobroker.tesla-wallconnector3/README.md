@@ -13,9 +13,6 @@ BADGE-NPM: https://nodei.co/npm/iobroker.tesla-wallconnector3.png?downloads=true
 Targeted at the Tesla Wall Connector Gen 3.
 Only provides read access to API data (write isn't supported by the API).
 
-## Installation
-Installation is facilitated via the ioBroker web interface and the configuration will auto-open once installation is completed.
-
 ## Setup
 In addition to the adapter installation you have to add an instance of the adapter.
 
@@ -394,6 +391,11 @@ Please be aware that most (if not all) descriptions might be way off and might r
    *SSID the Tesla Wall Connector Gen 3 is connected to.*
 
 ## Changelog
+### 1.1.0 (2026-03-30)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- Added state attributes (and moved notifications to debug from info)
+- Code optimization
+- Migration to i18n
 
 ### 1.0.6 (NoBl)
 * Maintenance update (dependencies, ...)
@@ -401,7 +403,7 @@ Please be aware that most (if not all) descriptions might be way off and might r
 ## License
 MIT License
 
-Copyright (c) 2024 Norbert Bluemle <github@bluemle.org>
+Copyright (c) 2024-2026 Norbert Bluemle <github@bluemle.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

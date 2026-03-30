@@ -254,7 +254,7 @@ function getUrl(url, binary) {
 
 // 1. reads from remote repo the remoteRepo/README.md and all files in remoteRepo/docs/LN (if exist)
 // 2a. if a local version for this adapter exists, merge a local version and remoteRepo/README.md
-// 2b. if remote version is in remoteRepo/docs/LN, so merge data with remote remoteRepo/README.md
+// 2b. if the remote version is in remoteRepo/docs/LN, so merge data with remote remoteRepo/README.md
 // returns the array of files that must be stored locally
 function getReadme(lang, dirName, repo, adapter) {
     if (!repo.readme) {
@@ -363,7 +363,7 @@ function getReadme(lang, dirName, repo, adapter) {
                 }
 
                 if (!local) {
-                    // check may be locally other languages exists.
+                    // check maybe locally other languages exists.
                     const isLocalExist = consts.LANGUAGES.find(lang => {
                         const file = `${consts.SRC_DOC_DIR + lang}/adapterref/iobroker.${adapter}/README.md`;
                         if (fs.existsSync(file)) {

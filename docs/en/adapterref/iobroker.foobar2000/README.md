@@ -41,11 +41,11 @@ To display the cover as a link to a file, in the file ```c:\Users\{USER}\AppData
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.3.0 (2026-03-07)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated.
 
 ### 2.2.0 (2024-04-17)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
@@ -62,36 +62,10 @@ To display the cover as a link to a file, in the file ```c:\Users\{USER}\AppData
 ### 2.0.3
 * (instalator) fixed admin error
 
-### 2.0.2
-* (instalator) fixed error
-
-### 2.0.0
-* (instalator) Completely rewritten
-
-### 1.0.0
-* (instalator) Up to stable
-
-### 0.2.0
-* (instalator) Change for widgets vis-players
-
-### 0.1.2
-* (instalator) del widgets folders
-* (instalator) change log level
-* (instalator) add news object
-
-### 0.1.1
-* (instalator) fix start, exit for local
-
-### 0.1.0
-* (instalator) beta (20.10.2016)
-
-### 0.0.1
-* (instalator) initial (12.10.2016)
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2021 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

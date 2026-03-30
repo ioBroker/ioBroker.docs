@@ -6,27 +6,26 @@
         "x509": "^0.3.4"
     },
     "dependencies": {
-        "body-parser": "^2.2.1",
-        "cors": "^2.8.5",
-        "express": "^4.21.2",
+        "body-parser": "^2.2.2",
+        "cors": "^2.8.6",
+        "express": "^4.22.1",
         "express-brute": "^1.0.1",
         "minisearch": "^7.2.0"
     },
     "main": "build/main.js",
     "devDependencies": {
         "@google-cloud/translate": "^9.3.0",
-        "@iobroker/build-tools": "^2.0.15",
+        "@iobroker/build-tools": "^3.0.1",
         "@iobroker/eslint-config": "^2.2.0",
         "@types/body-parser": "^1.19.6",
         "@types/cors": "^2.8.19",
         "@types/express": "^4.17.25",
         "@types/express-brute": "^1.0.6",
-        "axios": "^1.13.2",
+        "axios": "^1.14.0",
         "typescript": "^5.9.3"
     },
     "scripts": {
         "start": "node main",
-        "build-all": "gulp",
         "update-packages": "npx -y npm-check-updates --upgrade && cd front-end && npx -y npm-check-updates --upgrade && cd ..",
         "npm": "npm i && cd front-end && npm i -f && cd ..",
         "i18n=>flat": "node tasks --i18n=>flat",

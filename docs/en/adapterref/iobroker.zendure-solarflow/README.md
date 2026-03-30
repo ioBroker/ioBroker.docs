@@ -25,12 +25,57 @@ If you find the adapter useful for you and want to support my work, feel free to
 ## Features
 
 - Get all telemetry data from your Solarflow devices, also those not visible in the offical app - like battery voltage
-- Control your Solarflow HUB like in the offical app. Most of the settings are available.
-- Control the output limit - you are not limited to use a Shelly Pro EM to realize a zero feed-in. You can also design more complex scenarios via script or blockly in ioBroker.
+- Control your Solarflow devices like in the offical app. Most of the settings are available.
+- Control the output and input limit - you are not limited to use a Shelly Pro EM to realize a zero feed-in. You can also design more complex scenarios via script or blockly in ioBroker.
 - Stop input if one battery drops into low voltage (battery protect). Works only when setting the output limit via the adapter
 - Control more than one Solarflow at the same time!
 - Get more precise calculations!
-- Works with all Zendure SolarFlow devices: HUB1200, Hyper2000, HUB2000 and AIO!
+- Works with all Zendure SolarFlow devices!
+- **zenSDK Integration**: Advanced communication for compatible devices via local HTTP communication
+- **Relay MQTT messages to cloud**: The device has full local control and data is relayed to the Zendure MQTT. You won't lose control if internet if broken or Zendure servers are offline.
+
+## Supported Devices
+
+Currently all Zendure Solarflow devices are supported via cloud.
+
+## Modes
+
+- **Authentication Cloud Key** Official method supported by Zendure. Obtain a Cloud key from the official app. By default the zenSDK is used (the device has to be on the same network as the ioBroker instance). You can opt out to use only cloud mode. For older devices with mqtt set to a local server, it's now possible to relay data to the cloud without any disadvantages!
+
+- **Local MQTT** It's also possible to use the local only mode. Currently there is no known way for the new Solarflow devices to set the MQTT server directly on the device, so for these you have to use a DNS relay.
+
+### zenSDK Compatible Devices ✅
+
+These devices support the advanced zenSDK automation features with full **local** control over http:
+
+- **Solarflow 1600 AC Plus** - Full zenSDK support
+- **Solarflow 2400 AC** - Full zenSDK support
+- **Solarflow 2400 AC Plus** - Full zenSDK support
+- **Solarflow 2400 Pro** - Full zenSDK support
+- **Solarflow 800** - Full zenSDK support
+- **Solarflow 800 Plus** - Full zenSDK support
+- **Solarflow 800 Pro** - Full zenSDK support
+
+### Legacy Devices 🔄
+
+These devices are supported via **local** MQTT mode (Zendure Cloud Disconnector):
+
+- **HUB 1200** - Local mode support, can relay messages to cloud
+- **HUB 2000** - Local mode support, can relay messages to cloud
+- **Hyper 2000** - Local mode support, can relay messages to cloud
+- **AIO 2400** - Local mode support, can relay messages to cloud
+- **ACE 1500** - Local mode support, can relay messages to cloud
+
+### Local Mode Benefits 🏠
+
+"Legacy" devices can be completely disconnected from Zendure Cloud while maintaining full functionality:
+
+- **Privacy**: No data sent to Zendure servers
+- **Reliability**: Direct local MQTT communication
+- **Speed**: Faster response times without cloud latency
+- **Flexibility**: Can relay messages to cloud when needed
+- **Control**: Full local automation without internet dependency
+- **Updates**: You can still do firmware updates with the official Zendure app via bluetooth
 
 ## Offline-Mode (Disconnect from Zendure Cloud)
 
@@ -38,21 +83,53 @@ As a new feature you can disconnect the Zendure device from the Cloud. You can e
 
 Both tools connect to the Zendure device via bluetooth and simply sets the internal MQTT url to a new url/ip you have to provide. Currently you are forced to use the default MQTT port 1883 on your server. You are also forced to deactivate authentication on the MQTT server as the Zendure device use a hardcoded password.
 
-If the Zendure device communicates with your MQTT server, you can connect this ioBroker adapter to the same MQTT instance. You have to provide the device model and the device key (which is shown in the Zendure Cloud Disconnector app).
-
-You can still do firmware updates with the official Zendure app via bluetooth and use both bluetooth tools to reconnect the device to the cloud!
+You can use this in combination with your cloud authentication key or use the full local mode.
 
 ## Important
 
 If you plan to control the charging and feed in of your device with a script/blockly, I recommend using the control parameter '**setDeviceAutomationInOutLimit**', as this controls the device without writing to the flash memory of the device. You can use negative values to trigger charging from grid.
 
-As I only own Hyper 2000 devices, other devices are untestet from me and the funcionality rely on feedback from the community!
-
 ## Notes
 
-This adapter will now use the Cloud Authorization Code for authentication on the official mqtt servers, which you can generate in the Zendure app!
+This adapter will use the Cloud Authorization Code for authentication on the official mqtt servers, which you can generate in the Zendure app!
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- Fix missing ip field in settings for local mode
+- Add retry loop for zenSDK requests (retry 3 times if connection failed)
+
+### 4.0.2 (2026-03-24)
+
+- Re-add new SF devices to local mode settings
+- Add product key '64174u' for Solarflow 1600 AC+
+
+### 4.0.1 (2026-03-20)
+
+- Fix missing smartMode state for Solarflow AC 2400 and Solarflow 800
+
+### 4.0.0 (2026-03-17)
+
+- Add support for zenSDK! All devices can now communicate in the local network (with full cloud support for backup and maintenance)
+- Add possibility to relay local MQTT messages to Zendure cloud!
+- Save device list from Zendure Cloud as a local backup if cloud is unavailable
+- Major refactor and improvements
+- Fix 'packPower' not correctly set (resetting to 0 every new data package)
+
+### 3.6.0 (2026-03-06)
+
+- Fix packInputPower & outputPackPower on new Solarflow devices
+- Fix device constructor in local mode
+- Fix setDeviceAutomationInOutLimit for Solarflow 1600 AC+
+- Read more data from Zendure WebService
+- Set ACK flag correctly for hemsEP function
+- Refactor some files
+
+### 3.5.4 (2026-03-05)
+
+- Add device key '65174u' for Solarflow 1600 AC+
+
 ### 3.5.3 (2026-03-01)
 
 - Fix setDeviceAutomationInOutLimit on certain HEMS devices like 2400 AC(+)

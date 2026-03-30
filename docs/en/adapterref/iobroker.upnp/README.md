@@ -223,6 +223,9 @@ You can enable polling in admin via objects configuration.
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+
 ### 1.1.0 (2024-09-30)
 * (Jey Cee) Migrate config to JSONConfig 
 * (Jey Cee) Fix issues found by adapter checker

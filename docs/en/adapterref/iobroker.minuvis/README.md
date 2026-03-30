@@ -58,6 +58,9 @@ if you are upgrading from version < 1.3.0 please note:
 
 
 ## Changelog
+### 2.7.2 (2026-03-13)
+* updated app and builder to V2.7.2
+  
 ### 2.7.1 (2026-02-22)
 * updated README
 * updated app and builder to V2.7.1

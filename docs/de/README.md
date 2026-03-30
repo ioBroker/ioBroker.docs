@@ -18,7 +18,7 @@ Sie ermöglicht die Integration verschiedenster Smarthome-Systeme, die ohne ioBr
 **ioBroker** ist daher **die** Integrationsplattform für das Internet der Dinge (IoT) und ermöglicht die Einbindung von freien und kommerziellen Produkten
 aus fast allen Lebensbereichen sowie die Integration von selbst erstellten Lösungen.
 
-Das **ioBroker-System** ist modular aufgebaut und kann durch die Installation von einzelnen Plugins, bei uns Adaptern genannt, gemäß den individuellen Wünschen erweitert werden.
+Das **ioBroker-System** ist modular aufgebaut und kann durch die Installation von einzelnen Plugins, bei uns Adapter genannt, gemäß den individuellen Wünschen erweitert werden.
 
 Mit weit über 600 Adaptern ermöglicht ioBroker die Integration verschiedener Plattformen, Systeme und Geräte von A wie Alexa bis Z wie Zigbee und bietet viele weitere Möglichkeiten zur Automatisierung.
 
@@ -26,7 +26,7 @@ Mit weit über 600 Adaptern ermöglicht ioBroker die Integration verschiedener P
 
 **Adapter** sind in JavaScript für Node.js geschriebene **PlugIns** (Softwaremodule, kleine Programme), die speziell für bestimmte Geräte, Gerätetypen, Geräte bestimmter Hersteller oder andere Dienste, wie beispielsweise zur Abfrage von Webseiten, entwickelt wurden.
 
-Diese Adapter ermöglichen die Verbindung zwischen physischen Geräten (zum Beispiel steuerbare Steckdosen, Relais, Fernthermometer und ähnliche) und dem zentralen ioBroker-System. Sie sind in der Lage, die von den Geräten gemessenen Werte auszulesen und die Geräte zu steuern, was oft über WLAN im eigenen Heimnetz geschieht.
+Diese Adapter ermöglichen die Verbindung zwischen physischen Geräten (zum Beispiel steuerbare Steckdosen, Relais, Fernthermometer und ähnlichem) und dem zentralen ioBroker-System. Sie sind in der Lage, die von den Geräten gemessenen Werte auszulesen und die Geräte zu steuern, was oft über WLAN im eigenen Heimnetz geschieht.
 
 Andere Adapter sind darauf ausgelegt, Messwerte wie Temperatur, Leistung, Verbrauchswerte oder Schaltzustände grafisch in Diagrammen darzustellen.
 Visualisierungsadapter bieten zudem weitere Möglichkeiten, wie das Einbinden von Bildern (etwa von Überwachungskameras), Wetterdaten und vieles mehr.
@@ -39,7 +39,7 @@ Sollte ein Adapter fehlen, kann daher meistens schnell ein passender entwickelt 
 Die aktive **ioBroker-Entwickler-Community** unterstützt neue Entwickler dabei jederzeit gerne.
 
 **Tipp:**
- [Übersicht verfügbaren Adapter](https://www.iobroker.net/#de/adapters/adapters.md) 
+ [Übersicht verfügbarer Adapter](https://www.iobroker.net/#de/adapters/adapters.md) 
 
 ### ioBroker verbindet unterschiedlichste Smarthome-Systeme
 
@@ -55,15 +55,15 @@ Auf diese Weise kann die ioBroker-Software Statusinformationen abrufen oder Steu
 
 In diesem Anwendungsbeispiel wird exemplarisch aufgezeigt, wie die beiden voneinander unabhängigen Smarthome-Systeme Philipps Hue und Homematic IP mittels ioBroker zusammengeführt werden, um eine Anwesenheitssimulation zu realisieren.
 
-Durch die Anbindung der beiden Smarthome-Systeme an die ioBroker Software, ist ioBroker in der Lage die Zustände der Hue Lampen (ein/aus) sowie die Rollläden (hoch/runter) zu verändern. Die Erkennung der Urlaubszeit erfolgt durch die Anbindung des Kalenders in ioBroker.
+Durch die Anbindung der beiden Smarthome-Systeme an die ioBroker Software ist ioBroker in der Lage, die Zustände der Hue Lampen (ein/aus) sowie die Rollläden (hoch/runter) zu verändern. Die Erkennung der Urlaubszeit erfolgt durch die Anbindung des Kalenders in ioBroker.
 
-Durch Nutzung der Logikbausteine (Adapter Logikprogrammierung) in ioBroker kann der Anwender nun mit wenigen Schritten dem folgenden Ablauf realisieren:
+Durch Nutzung der Logikbausteine (Adapter Logikprogrammierung) in ioBroker kann der Anwender nun mit wenigen Schritten den folgenden Ablauf realisieren:
 
-- Wenn im Kalender der Eintrag "Urlaub" eingetragen ist, werden um 18 Uhr Abends alle HUE Lampen eingeschaltet.
+- Wenn im Kalender der Eintrag "Urlaub" eingetragen ist, werden um 18 Uhr abends alle HUE-Lampen eingeschaltet.
 - Um 22:00 Uhr werden alle Rollläden geschlossen und alle Hue Lampen ausgeschaltet.
 - Um 08:00 Uhr morgens werden alle Rollläden wieder hochgefahren.
 
-Über die verfügbaren Visualisierungs-Adapter kann sich der Anwender individuelle Status und Steuerungsseiten für seine Hue Lampen und Rollläden bauen, auf die mit den mobilen Endgeräten von zu Hause oder aus dem Urlaub (z.B. mittels ioBroker Cloud Services oder VPN) zugegriffen werden kann.
+Über die verfügbaren Visualisierungs-Adapter kann sich der Anwender individuelle Status und Steuerungsseiten für seine Hue-Lampen und Rollläden bauen, auf die mit den mobilen Endgeräten von zu Hause oder aus dem Urlaub (z.B. mittels ioBroker Cloud Services oder VPN) zugegriffen werden kann.
 
 ## Stärken von ioBroker
 
@@ -76,7 +76,7 @@ Eine einfache Installationsroutine aus einer einzigen Zeile (one-line installer)
 
 ### Skalierbar
 Sollen im Laufe der Zeit weitere Smarthome-Systeme angebunden werden, können
-diese vom Anwender jederzeit über zusätzliche Adapter im laufendem Betrieb
+diese vom Anwender jederzeit über zusätzliche Adapter im laufenden Betrieb
 implementiert werden.
 Auch ioBroker selbst ist skalierbar: Mehrere ioBroker-Server können zu einem
 Mutihost-System verbunden werden. Dabei ist sogar die Mischung von
@@ -85,7 +85,7 @@ großen Multicore-Servern möglich.
 
 ### Individuelle Programmierung von Abläufen
 
-Mit den Logikadaptern bietet ioBroker die Möglichkeit individuelle Abläufe und Skripte zu erstellen. 
+Mit den Logikadaptern bietet ioBroker die Möglichkeit, individuelle Abläufe und Skripte zu erstellen. 
 In einem Skript kann z.B. ein Wert von einem Adapter überwacht werden (Urlaub ist im Kalender am heutigen Tag eingetragen) und eine Aktion ausgelöst werden (Schalte um 18 Uhr alle Hue Lichter ein).
 
 In ioBroker können diese individuellen Abläufe durch Drag-and-Drop von Bausteinen (grafische Programmierung) in "Rules" oder "Blockly" realisiert werden oder in klassischer Form mit "Javascript" oder "Typescript" in Form von geschriebenem Quellcode implementiert werden. 
@@ -94,7 +94,7 @@ Weitere Erklärungen zu den Logikbausteinen sowie eine weitere Vorstellung von w
 
 ## Visualisierung
 
-Mehrere Visualisierungsadapter bieten dem Anwender die Möglichkeit Steuerungsoptionen, sowie Zustandsinformationen, grafisch zu realisieren.
+Mehrere Visualisierungsadapter bieten dem Anwender die Möglichkeit Steuerungsoptionen sowie Zustandsinformationen, grafisch zu realisieren.
 Diese individuellen Visualisierungen können dann auf einem Tablet, Smartphone oder Computer dargestellt und bedient werden.
 
 Nachfolgend werden einige Visualisierungsadapter und deren Haupteigenschaften kurz vorgestellt.
@@ -109,7 +109,7 @@ historische Verläufe grafisch aufbereitet dargestellt werden. Live-Bilder von
 Überwachungskameras, die Implementierung einer Alarmanlage, Heizungssysteme und 
 Klimatechnik - fast alles, was vorstellbar ist, kann auch umgesetzt werden. 
 
-Mit dem Einsatz von VIS hat der Anwender bei der Realisierung maximale Gestaltungsfreiheiten. Vorgefertigte Bausteine zur 
+Mit dem Einsatz von VIS hat der Anwender bei der Realisierung maximale Gestaltungsfreiheit. Vorgefertigte Bausteine zur 
 einfachen Verwendung helfen dem Anwender dabei beim Zusammenstellen der UI. Doch nicht nur die Anzeige von 
 Informationen ist möglich. Auch die Steuerung von Geräten ist über die 
 Visualisierungsoberfläche schnell umgesetzt. Die Bedienung der Oberfläche kann 
@@ -137,7 +137,7 @@ React und Material UI interface.
 
 Jarvis ist eine Material Design Visualisierung, die auf Material UI basiert. Jarvis gibt eine Struktur und Module vor, die zur Visualisierung genutzt werden, aber sehr flexibel konfiguriert werden können.
 
-Jarvis ist responsive fähig und passt sich der Größe des Screens an und bietet ein standardisiertes Design, so dass in kurzer Zeit eine Visualisierung zusammengestellt werden kann.
+Jarvis ist responsiv fähig und passt sich der Größe des Screens an und bietet ein standardisiertes Design, so dass in kurzer Zeit eine Visualisierung zusammengestellt werden kann.
 
 Das Layout ist flexibel konfigurierbar. Das Layout kann durch beliebig viele Tabs unterteilt werden. Jeder Tab kann daraufhin entweder im Vollbildmodus angezeigt werden oder durch einzele Spalten (columns) unterteilt werden.
 
@@ -147,7 +147,7 @@ Das Layout ist flexibel konfigurierbar. Das Layout kann durch beliebig viele Tab
 ### iQontrol
 
 Schnell ans Ziel - aber dennoch flexibel, das zeichnet iQontrol aus:
-- Die Vis einmal erstellen und überall nutzen: Vom PC, über Tablet zum Handy, iQontrol läuft auf allen Endgeräten - entweder im Browser oder als WebApp (lässt sich auf dem Homescreen speichern und fühlt sich dann an, wie eine App)
+- Die Vis einmal erstellen und überall nutzen: Vom PC, über Tablet zum Handy, läuft iQontrol auf allen Endgeräten - entweder im Browser oder als WebApp (lässt sich auf dem Homescreen speichern und fühlt sich dann an, wie eine App)
 - iQontrol passt sich dabei allen Auflösungen dynamisch an (responsive fähiges Design)
 - Superschnelle Ladezeit
 - Mit den Standard-Einstellungen kommt man schnell zum Ziel
@@ -165,11 +165,11 @@ Video [iQontrol Demo Video][]
 
 [Adapterseite lovelace](https://www.iobroker.net/#de/adapters/adapterref/iobroker.lovelace/README.md)
 
-Mit dem Lovelace Adapter kann die HomeAssistant UI Lovelace für ioBroker genutzt werden. Lovelace hat ein responsivefähiges Design und passt sich somit  automatisch an das Layout vom PC, Tablet oder Smartphone Bildschirm an. 
+Mit dem Lovelace Adapter kann die HomeAssistant UI Lovelace für ioBroker genutzt werden. Lovelace hat ein responsivefähiges Design und passt sich somit automatisch an das Layout vom PC, Tablet oder Smartphone Bildschirm an. 
 
 In Lovelace stehen direkt die Geräte mit ihren Eigenschaften zur Ansicht / Ansteuerung bereit, welche in ioBroker hinterlegt sind (z.B. bei einer Lampe Ein/Aus, Helligkeit, Farbtemperatur).
 
-Der Lovelace Editor (WYSIWYG Prinzip - What you see is what you get Prinzip) ermöglicht die einfache Erstellung von modernen UIs mit wenigen Handgriffen. Für die Umsetzung von komplexere Anforderungen und Wünschen stehen custom cards und der YAML Editor zur Verfügung. Inspirationen für eine Lovelace UI können in der HomeAssistant Welt gesammelt und dann in ioBroker umgesetzt werden.
+Der Lovelace Editor (WYSIWYG Prinzip - What you see is what you get Prinzip) ermöglicht die einfache Erstellung von modernen UIs mit wenigen Handgriffen. Für die Umsetzung von komplexeren Anforderungen und Wünschen stehen custom cards und der YAML Editor zur Verfügung. Inspirationen für eine Lovelace UI können in der HomeAssistant Welt gesammelt und dann in ioBroker umgesetzt werden.
 
 ![](media/iobroker-visualisation-lovelace.png)  
 
@@ -184,8 +184,8 @@ ioBroker verfolgt einen dezentralen Ansatz, bei welchem jeder Adapter in einem e
 Hierbei trifft der jeweilige Adapter-Entwickler weitestgehend eigenständig die Entscheidungen zu seinem Adapter.
 Funktionalitäterweiterungs-Wünsche oder auch fremde Feature-Erweiterungen als "pull-Request" werden hierbei natürlich berücksichtigt.
 
-Einige Entwickler haben sich darüber hinaus in der ioBroker Adapter-Community zusammengeschlossen, um sicherzustellen das auch im Falle davon,
-dass einzelner Entwickler keine Zeit mehr für Ihre Adapter haben, diese weitergepflegt werden können.
+Einige Entwickler haben sich darüber hinaus in der ioBroker Adapter-Community zusammengeschlossen, um sicherzustellen dass auch im Falle davon,
+dass einzelne Entwickler keine Zeit mehr für Ihre Adapter haben, diese weitergepflegt werden können.
 
 Es gibt keinen vertraglich festgelegten Support aus der Open-Source Community, aber gemeinsam haben wir bisher jedes Problem gelöst bekommen!
 

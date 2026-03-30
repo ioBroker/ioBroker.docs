@@ -49,13 +49,22 @@ For more information visit the ioBroker CLI documentation under https://github.c
 
 ## Configuration
 
-### Required
+![Configuration](docs/screenshot-config.png)
 
-To configure your instance you simply select whether you want to connect it through the IP or the short-ID of your device.
+### Finding your air-Q device
 
-<img width="1263" height="953" alt="2025-12-10T17:57:57,025532652+01:00" src="https://github.com/user-attachments/assets/93ff4c76-bdf5-4336-bb5a-1a0aa844ec0d" />
+The adapter can automatically discover air-Q devices on your local network using mDNS (Bonjour). When you open the instance settings, the **Scan network** dropdown will search for devices (~10 seconds) and list all found air-Q devices by name. Select your device and the Short ID and IP address will be filled in automatically.
 
-Please make sure you enter the correct IP/ID and password.
+**If no devices are found**, your router may be blocking mDNS traffic between devices (common with mesh networks, guest networks, or enterprise setups). In that case, check the **Connect with IP** checkbox and enter the device's IP address manually. You can find the IP in the air-Q smartphone app or in your router's device list.
+
+You can also configure the adapter via **ioBroker.discovery**: run a network scan from the discovery adapter and air-Q devices will be detected automatically via DNS or HTTP.
+
+### Connection options
+
+- **Scan network**: Automatically discovers air-Q devices via mDNS. Select a device to auto-fill the Short ID and IP address.
+- **Connect with IP**: Connect directly using the device's IP address. Use this when mDNS discovery doesn't work on your network.
+- **Short ID**: The first 5 characters of your device's serial number. Used for mDNS lookup when "Connect with IP" is unchecked.
+- **Device password**: The password of your air-Q device.
 
 ### Optional
 
@@ -80,6 +89,12 @@ The data will be retrieved and shown in the objects-tab according to your config
 ***For now we have all sensors for the air-Q Pro included. Optional sensors will be included in a future patch.***
 
 ## Changelog <a id="change" />
+
+### 1.2.0
+* **Network discovery**: air-Q devices on the local network are now automatically discovered via mDNS. Select a device from the dropdown and the Short ID and IP are filled in automatically.
+* **Admin UI modernized**: Migrated from Materialize HTML to jsonConfig (declarative JSON). Settings are now organized in two tabs: Connection and Data Retrieval.
+* **ioBroker.discovery integration**: Fixed the detection file to correctly populate adapter config fields, call the discovery callback, and distinguish multiple air-Q devices. Added HTTP `/ping` fallback for networks without reverse DNS.
+* **Troubleshooting guidance**: The admin UI now explains what to do when mDNS doesn't work (router blocking, how to find the device IP).
 
 ### 1.1.0
 * Added support for 19 new sensors: acetaldehyde (C₂H₄O), arsine (AsH₃), bromine (Br₂), methanethiol (CH₄S), chlorine dioxide (ClO₂), carbon disulfide (CS₂), ethylene (C₂H₄), fluorine (F₂), temperature in Farenheit, hydrochloric acid (HCl), hydrogen cyanide (HCN), hydrogen fluoride (HF), hydrogen peroxide (H₂O₂), mold protection, phosphine (PH₃), refrigerant R-32, refrigerant R-454B, refrigerant R-454C, silane (SiH₄)

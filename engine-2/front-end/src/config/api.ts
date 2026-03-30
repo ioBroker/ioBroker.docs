@@ -1,7 +1,7 @@
-const isDev = import.meta.env.DEV;
+const isDev = parseInt(window.location.port, 10) > 4000;
 
 export const API_CONFIG = {
-    IOBROKER_BASE_URL: isDev ? '/api/iobroker' : 'https://www.iobroker.net',
+    IOBROKER_BASE_URL: isDev ? './' : 'https://www.iobroker.net',
 } as const;
 
 export const API_ENDPOINTS = {

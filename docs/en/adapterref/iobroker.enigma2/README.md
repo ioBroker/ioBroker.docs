@@ -7,11 +7,8 @@
 - Adapter for ioBroker to retrieve information from an enigma2 receiver and send commands
 - (Adapter only runs on one host! with a client installation there's currently still problems.)
 
-- (DE) Adapter für ioBroker um Informationen von einem enigma2 Receiver abzufragen und Befehle zu senden
-- (DE)(Adapter läuft nur auf einem Host! bei einer Client Installation gib's aktuell noch probleme.)
-
 ----
-### Funktionen
+### Functions
 - BOX_IP
 - NETWORK
 - CHANNEL_SERVICEREFERENCE
@@ -102,17 +99,17 @@
  - msgType   = Number from 0 to 3 (0= Yes/No ; 1= Info ; 2=Message ; 3=Attention)
  - timeout   = timeout of Message in sec. Can be empty or the Number of seconds the Message should disappear after.
  
-![Bild Text](admin/enigma2_message2.png)
-### oder
-![Bild Text](admin/enigma2_message.png)
+![Picture Text](admin/enigma2_message2.png)
+### or
+![Picture Text](admin/enigma2_message.png)
 
-[> zum Blockly Import <](admin/Blockly_Import.md)
+[> Blockly Import <](admin/Blockly_Import.md)
 
 #### in JavaScript
 
 ```js
 sendTo('enigma2.0', 'send', {
-    message: 'Test Nachricht', /* Text of Message */
+    message: 'Test Messaget', /* Text of Message */
     timeout: 26,               /* timeout of Message in sec. (Can be empty or the Number of seconds the Message should disappear after.) */
     msgType: 1,                /* Number from 0 to 3 (0= Yes/No ; 1= Info ; 2=Message ; 3=Attention) */
 });
@@ -123,11 +120,11 @@ sendTo('enigma2.0', 'send', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.3.0 (2026-03-05)
+- (mcm1957) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated.
 
 ### 2.2.3 (2024-12-22)
 * (mcm1957) Adapter has been moigrated to @iobroker/eslint-config. [#266]
@@ -146,14 +143,10 @@ sendTo('enigma2.0', 'send', {
 ### 2.1.1 (2024-06-09)
 * (klein0r) Updated Blockly definitions
 
-### 2.1.0 (2024-04-11)
-* (mcm1957) Adapter requires node.js >=18 and js-controller >= 5 now
-* (mcm1957) Dependencies have been updated
-
 ## License
 MIT License
 
-Copyright (c) 2023-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

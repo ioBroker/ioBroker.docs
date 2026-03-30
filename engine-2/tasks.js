@@ -1,5 +1,5 @@
 /*!
- * Copyright 2019-2025, bluefox <dogafox@gmail.com>
+ * Copyright 2019-2026, bluefox <dogafox@gmail.com>
  * ioBroker gulpfile
  * Date: 2019-11-11
  * Build documentation site
@@ -422,7 +422,9 @@ async function translateTask() {
     if (fs.existsSync('./front-end/src/i18n/en/en.json')) {
         let enTranslations = require('./front-end/src/i18n/en.json');
         for (let l in languages) {
-            if (!languages.hasOwnProperty(l)) continue;
+            if (!languages.hasOwnProperty(l)) {
+                continue;
+            }
 
             console.log(`Translate Text: ${l}`);
             let existing = {};

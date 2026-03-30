@@ -75,7 +75,7 @@ the projector can be switched on **and** off depending on the current power stat
 The power switch will automatically return to **false**.
 
 #### Lamp status
-Only one lamp ist predefined in the database. If the lamp query returns more than one lamp,
+Only one lamp is predefined in the database. If the lamp query returns more than one lamp,
 the other lamps will be added dynamically.
 
 ## Changelog
@@ -111,7 +111,7 @@ the other lamps will be added dynamically.
 ## License
 MIT License
 
-Copyright (c) 2022-2025 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2022-2026 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

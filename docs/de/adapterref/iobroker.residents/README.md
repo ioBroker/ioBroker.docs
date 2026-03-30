@@ -18,6 +18,9 @@ Der Adapter ist außerdem so konzipiert, dass er _in Zukunft_ ein ausgeklügelte
 ## Konfiguration
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 ### 1.0.0 (2024-08-24) - 2024 Maintenance Release
 
 -   (jpawlowski) Set minimum Node version to 18.x

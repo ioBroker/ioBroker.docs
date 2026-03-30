@@ -86,8 +86,7 @@ export default function init(config: AppConfig): {
         next();
     });
 
-    if (config.sites) {
-        config.sites.forEach((site: SiteConfig) => {
+    config.sites?.forEach((site: SiteConfig) => {
             console.log(`Install path ${site.route} => ${site.path}`);
             let redirects: RedirectsMap | undefined;
             if (site.redirects && fs.existsSync(site.redirects)) {
@@ -118,7 +117,6 @@ export default function init(config: AppConfig): {
                 }
             });
         });
-    }
 
     // CORS für adapterref
     app.app.options('/*/adapterref/*', cors());
