@@ -3,7 +3,7 @@ import { makeStyles } from '../../theme';
 export const useStyles = makeStyles()(theme => ({
     tableContainer: {
         width: '100%',
-        maxHeight: 'calc(100vh - 300px)',
+        marginBottom: '100px',
     },
     table: {
         borderCollapse: 'separate',

@@ -39,6 +39,12 @@ export const AdapterBlock = memo((props: { adapter: AdapterItem }): ReactNode =>
         props.adapter.description?.de ||
         props.adapter.description?.ru ||
         '';
+    const statsFontSize =
+        String(props.adapter.version ?? '').length > 5 ||
+        String(props.adapter.stars ?? '').length > 5 ||
+        String(props.adapter.installs ?? '').length > 5
+            ? '11px'
+            : '14px';
     const handleNavigate = (): void => {
         if (slug) {
             void navigate(`/adapters/${slug}`);
@@ -86,7 +92,7 @@ export const AdapterBlock = memo((props: { adapter: AdapterItem }): ReactNode =>
                                 src={StackIcon}
                             />
                         </Box>
-                        <Box className={classes.statsNumber}>{props.adapter.version}</Box>
+                        <Box className={classes.statsNumber} sx={{ fontSize: statsFontSize }}>{props.adapter.version}</Box>
                     </Box>
                     <Box className={classes.statsBlock}>
                         <Box className={classes.statsIcon}>
@@ -95,7 +101,7 @@ export const AdapterBlock = memo((props: { adapter: AdapterItem }): ReactNode =>
                                 src={StarIcon}
                             />
                         </Box>
-                        <Box className={classes.statsNumber}>{props.adapter.stars}</Box>
+                        <Box className={classes.statsNumber} sx={{ fontSize: statsFontSize }}>{props.adapter.stars}</Box>
                     </Box>
                     <Box className={classes.statsBlock}>
                         <Box className={classes.statsIcon}>
@@ -104,7 +110,7 @@ export const AdapterBlock = memo((props: { adapter: AdapterItem }): ReactNode =>
                                 src={DownloadIcon}
                             />
                         </Box>
-                        <Box className={classes.statsNumber}>{props.adapter.installs}</Box>
+                        <Box className={classes.statsNumber} sx={{ fontSize: statsFontSize }}>{props.adapter.installs}</Box>
                     </Box>
                 </Box>
             </Box>

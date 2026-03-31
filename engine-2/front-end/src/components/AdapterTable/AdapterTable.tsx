@@ -1,5 +1,5 @@
 import type React from 'react';
-import { memo, useEffect, useMemo, useState } from 'react';
+import { memo } from 'react';
 import type { AdapterItem, Lang } from '../AdapterItem/AdapterItem';
 import { Box, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { I18n } from '../../utils/i18n';
@@ -80,48 +80,6 @@ AdapterTableRow.displayName = 'AdapterTableRow';
 export const AdapterTable = memo((props: { adapters: AdapterItem[] }): React.ReactNode => {
     const { classes } = useStyles();
     const language = I18n.getLanguage();
-    const [visibleCount, setVisibleCount] = useState(0);
-
-    useEffect(() => {
-        const total = props.adapters.length;
-        const initial = Math.min(80, total);
-        setVisibleCount(initial);
-        if (initial >= total) {
-            return;
-        }
-        let cancelled = false;
-        let current = initial;
-        const schedule = (): void => {
-            if (cancelled) {
-                return;
-            }
-            if (current >= total) {
-                return;
-            }
-            const next = Math.min(current + 120, total);
-            current = next;
-            setVisibleCount(next);
-            if (current < total) {
-                if ('requestIdleCallback' in window) {
-                    (window as any).requestIdleCallback(schedule, { timeout: 200 });
-                } else {
-                    setTimeout(schedule, 0);
-                }
-            }
-        };
-        if ('requestIdleCallback' in window) {
-            (window as any).requestIdleCallback(schedule, { timeout: 200 });
-        } else {
-            setTimeout(schedule, 0);
-        }
-        return () => {
-            cancelled = true;
-        };
-    }, [props.adapters]);
-
-    const visibleAdapters = useMemo(() => {
-        return props.adapters.slice(0, visibleCount);
-    }, [props.adapters, visibleCount]);
 
     return (
         <Box className={classes.tableContainer}>
@@ -158,7 +116,7 @@ export const AdapterTable = memo((props: { adapters: AdapterItem[] }): React.Rea
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {visibleAdapters.map(adapter => (
+                    {props.adapters.map(adapter => (
                         <AdapterTableRow
                             key={adapter.content}
                             adapter={adapter}

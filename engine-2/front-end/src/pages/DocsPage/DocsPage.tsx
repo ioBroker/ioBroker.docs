@@ -9,9 +9,10 @@ import { useStyles } from './DocsPage.styles';
 import { DocsTableOfContents } from '../../components/DocsTableOfContents/DocsTableOfContents';
 import linkImage from '../../assets/img/docsIcons/blueLink.svg';
 import type React from 'react';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useRef, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { Footer } from '../../components/Footer/Footer';
+import Divider from '../../components/Divider/Divider';
 import { useDocsMarkdown } from '../../api/hooks/useDocsMarkdown';
 import { API_CONFIG } from '../../config/api';
 import { MarkdownView } from '../../components/MarkdownView/MarkdownView';
@@ -28,6 +29,15 @@ const DocsPage = (): React.ReactNode => {
     const isMobile = useMediaQuery('(max-width:768px)');
     const isMini = useMediaQuery('(max-width:480px)');
     const [search, setSearch] = useState('');
+    const mainBlockRef = useRef<HTMLDivElement>(null);
+    const [scrollProgress, setScrollProgress] = useState(0);
+    const handleMainBlockScroll = useCallback(() => {
+        const el = mainBlockRef.current;
+        if (!el) return;
+        const scrollHeight = el.scrollHeight - el.clientHeight;
+        const percent = scrollHeight > 0 ? Math.round((el.scrollTop / scrollHeight) * 100) : 0;
+        setScrollProgress(Math.min(100, Math.max(0, percent)));
+    }, []);
     const { classes } = useStyles({ isMenuCollapsed });
     const [language, setLanguage] = useState(I18n.getLanguage());
     const params = useParams();
@@ -155,7 +165,7 @@ const DocsPage = (): React.ReactNode => {
                             search={search}
                         />
                     </Box>
-                    <Box className={classes.mainBlock}>
+                    <Box className={classes.mainBlock} ref={mainBlockRef} onScroll={handleMainBlockScroll}>
                         <Box className={classes.topBar}>
                             <TopBarSearch
                                 isFluid={isMobile}
@@ -196,6 +206,7 @@ const DocsPage = (): React.ReactNode => {
                                 linkImage={linkImage}
                             />
                         </Box>
+                        <Divider position={scrollProgress} parentWidth={mainBlockRef.current?.clientWidth || window.innerWidth} />
                         <Footer />
                     </Box>
 

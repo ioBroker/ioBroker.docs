@@ -247,9 +247,9 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     // Cards grid
     adaptersGrid: {
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
         gap: '20px',
-        paddingBottom: '20px',
+        marginBottom: '100px',
         [theme.breakpoints.down(661)]: {
             marginLeft: !isMenuCollapsed ? '32px' : '0',
         },

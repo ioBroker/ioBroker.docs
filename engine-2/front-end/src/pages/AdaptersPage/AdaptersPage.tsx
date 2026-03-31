@@ -7,23 +7,35 @@ import { AdapterTable } from '../../components/AdapterTable/AdapterTable';
 import { AdapterMenu } from '../../components/AdapterMenu/AdapterMenu';
 import { MenuToggle } from '../../components/MenuToggle/MenuToggle';
 import { TopBarSearch } from '../../components/TopBarSearch/TopBarSearch';
-import { useState, useEffect, useMemo, useDeferredValue, useTransition } from 'react';
+import { useState, useEffect, useMemo, useDeferredValue, useTransition, useRef, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import GridIcon from '../../assets/img/blueGrid.svg';
 import AdaptersListIcon from '../../assets/img/whiteAdaptersList.svg';
 import { useAdapters } from '../../api/hooks/useAdapters';
 import { Footer } from '../../components/Footer/Footer';
+import Divider from '../../components/Divider/Divider';
 import { getLocalizedTitle, normalizeText } from './adaptersPageUtils';
 import type { AdapterItem } from '../../components/AdapterItem/AdapterItem';
 
+const STORAGE_KEY = 'adaptersPageState';
+
+const loadSavedState = () => {
+    try {
+        const saved = sessionStorage.getItem(STORAGE_KEY);
+        if (saved) return JSON.parse(saved);
+    } catch { /* ignore */ }
+    return null;
+};
+
 const AdaptersPage = (): React.ReactNode => {
-    const [mode, setMode] = useState<'block' | 'table'>('block');
+    const saved = useMemo(() => loadSavedState(), []);
+    const [mode, setMode] = useState<'block' | 'table'>(saved?.mode || 'block');
     const [, startTransition] = useTransition();
-    const [search, setSearch] = useState('');
-    const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
-    const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
-    const [selectedMenuItem, setSelectedMenuItem] = useState('');
-    const [selectedCategoryKey, setSelectedCategoryKey] = useState<string>('');
+    const [search, setSearch] = useState(saved?.search || '');
+    const [menuMode, setMenuMode] = useState<'all' | 'installed'>(saved?.menuMode || 'all');
+    const [isMenuCollapsed, setIsMenuCollapsed] = useState(saved?.isMenuCollapsed || false);
+    const [selectedMenuItem, setSelectedMenuItem] = useState(saved?.selectedMenuItem || '');
+    const [selectedCategoryKey, setSelectedCategoryKey] = useState<string>(saved?.selectedCategoryKey || '');
     const isMobile = useMediaQuery('(max-width:661px)');
     const theme = useTheme();
     const { data: adaptersData } = useAdapters();
@@ -31,6 +43,24 @@ const AdaptersPage = (): React.ReactNode => {
     const location = useLocation();
     const deferredSearch = useDeferredValue(search);
     const searchTerm = normalizeText(deferredSearch, language);
+
+    // Persist page state to sessionStorage so it survives navigation
+    useEffect(() => {
+        sessionStorage.setItem(STORAGE_KEY, JSON.stringify({
+            mode, search, menuMode, isMenuCollapsed, selectedMenuItem, selectedCategoryKey,
+        }));
+    }, [mode, search, menuMode, isMenuCollapsed, selectedMenuItem, selectedCategoryKey]);
+
+    const mainBlockRef = useRef<HTMLDivElement>(null);
+    const [scrollProgress, setScrollProgress] = useState(0);
+
+    const handleMainBlockScroll = useCallback(() => {
+        const el = mainBlockRef.current;
+        if (!el) return;
+        const scrollHeight = el.scrollHeight - el.clientHeight;
+        const percent = scrollHeight > 0 ? Math.round((el.scrollTop / scrollHeight) * 100) : 0;
+        setScrollProgress(Math.min(100, Math.max(0, percent)));
+    }, []);
 
     const { classes } = useStyles({ isMenuCollapsed });
 
@@ -185,6 +215,7 @@ const AdaptersPage = (): React.ReactNode => {
                             isCollapsed={isMenuCollapsed}
                             onMenuItemClick={handleMenuItemClick}
                             selectedItem={selectedMenuItem}
+                            selectedCategoryKey={selectedCategoryKey}
                             search={search}
                         />
                     </Box>
@@ -224,7 +255,7 @@ const AdaptersPage = (): React.ReactNode => {
                             </ToggleButtonGroup>
                         </Box>
                     </Box>
-                    <Box className={classes.mainBlock}>
+                    <Box className={classes.mainBlock} ref={mainBlockRef} onScroll={handleMainBlockScroll}>
                         {mode === 'block' ? (
                             <Box className={classes.adaptersGrid}>
                                 {adaptersGridContent}
@@ -232,6 +263,7 @@ const AdaptersPage = (): React.ReactNode => {
                         ) : (
                             adaptersTableContent
                         )}
+                        <Divider position={scrollProgress} parentWidth={mainBlockRef.current?.clientWidth || window.innerWidth} />
                         <Footer />
                     </Box>
                 </Box>

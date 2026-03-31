@@ -34,6 +34,18 @@ import WetterIcon from '../../assets/img/adaptersMenuIcons/Wetter.svg';
 import { useAdapters } from '../../api/hooks/useAdapters';
 import { I18n } from '../../utils/i18n';
 
+// Fallback translations for category keys when API data has no localized title
+const categoryFallback: Record<string, Record<string, string>> = {
+    'messaging': { de: 'Benachrichtigung', en: 'Messaging', ru: 'Уведомления' },
+    'metering': { de: 'Messung', en: 'Metering', ru: 'Измерение' },
+    'misc-data': { de: 'Sonstige', en: 'Miscellaneous', ru: 'Разное' },
+    'climate-control': { de: 'Klimakontrolle', en: 'Climate Control', ru: 'Климат-контроль' },
+    'date-and-time': { de: 'Datum und Uhrzeit', en: 'Date and Time', ru: 'Дата и время' },
+    'iot-systems': { de: 'IoT Systeme', en: 'IoT Systems', ru: 'IoT системы' },
+    'visualization-icons': { de: 'Visualisierungs-Icons', en: 'Visualization Icons', ru: 'Иконки визуализации' },
+    'visualization-widgets': { de: 'Visualisierungs-Widgets', en: 'Visualization Widgets', ru: 'Виджеты визуализации' },
+};
+
 const menuOrder = [
     { key: 'overview', icon: GesamtanzahlIcon, isTotal: true },
     { key: 'alarm', icon: AlarmIcon },
@@ -85,6 +97,7 @@ interface AdapterMenuProps {
     isCollapsed?: boolean;
     onMenuItemClick?: (label: string, categoryKey?: string) => void;
     selectedItem?: string;
+    selectedCategoryKey?: string;
     search?: string;
 }
 
@@ -96,6 +109,7 @@ const normalizeText = (value: string, language: string): string => {
 export const AdapterMenu = ({
     isCollapsed = false,
     onMenuItemClick,
+    selectedCategoryKey: selectedCategoryKeyProp = '',
     selectedItem = '',
     search = '',
 }: AdapterMenuProps): React.ReactNode => {
@@ -161,7 +175,9 @@ export const AdapterMenu = ({
             }
             const label = item.isTotal
                 ? I18n.t('adapters.total')
-                : getLocalizedTitle(category.title as Record<string, string>, language) || item.key;
+                : getLocalizedTitle(category.title as Record<string, string>, language)
+                  || (categoryFallback[item.key] && getLocalizedTitle(categoryFallback[item.key], language))
+                  || item.key;
             const adapters = Object.values(category.pages || {});
             const matched = searchTerm ? adapters.filter(adapter => matchesSearchFast(adapter)) : adapters;
             const totalMatched = searchTerm
@@ -192,7 +208,7 @@ export const AdapterMenu = ({
             <Box className={classes.menuInner}>
                 {menuItems.map((item, index) => {
                     const isFirstItem = index === 0;
-                    const isActive = !isFirstItem && item.label === selectedItem;
+                    const isActive = !isFirstItem && (selectedCategoryKeyProp ? item.key === selectedCategoryKeyProp : item.label === selectedItem);
 
                     return (
                         <Box

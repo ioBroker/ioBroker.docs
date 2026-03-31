@@ -130,8 +130,9 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         color: theme.palette.primary.main,
     },
     menuCount: {
-        fontSize: '10px',
+        fontSize: '14px',
         opacity: 0.5,
+        marginRight: '6px',
     },
     firstItemCount: {
         fontSize: '18px',
