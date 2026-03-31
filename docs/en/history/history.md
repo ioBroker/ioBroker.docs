@@ -1136,3 +1136,13 @@ Ping adapter can use hping3 to detect iPhones and can send wake-on-lan packets t
 https://github.com/ioBroker/ioBroker.parser
 
 Parser can now parse values of states, ioBroker files and logs. Added export and import of parser rules via CSV files.
+
+## pjlink (31.3.2026) – new adapter at stable repository
+https://github.com/Bannsaenger/ioBroker.pjlink
+
+<img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.pjlink/main/admin/pjlink.png" width="100" height="100" />
+
+PJLink Projector controll
+
+<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
+
