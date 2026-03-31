@@ -3,10 +3,8 @@ import { makeStyles } from '../../theme';
 export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isCollapsed }) => ({
     menu: {
         width: isCollapsed ? '59px' : '264px',
-        position: 'sticky',
-        marginLeft: '32px',
-        maxHeight: 'calc(100vh - 125px)',
-        top: '80px',
+        marginLeft: '0px',
+        marginTop: '20px',
         transition: 'all 0.3s ease',
         [theme.breakpoints.down(878)]: {
             width: isCollapsed ? '59px' : '272px',
@@ -28,36 +26,7 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         },
     },
     menuInner: {
-        maxHeight: 'calc(100vh - 125px)',
-        overflowY: 'scroll',
         overflowX: 'hidden',
-        paddingRight: '12px',
-        position: 'relative',
-        '&::before': {
-            content: '""',
-            display: 'block',
-            height: '1px',
-            width: '100%',
-        },
-        '&::after': {
-            content: '""',
-            position: 'absolute',
-            bottom: '-200%',
-            left: '40%',
-            transform: 'translateX(-50%)',
-            width: '400px',
-            height: '800px',
-            opacity: 0.5,
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.4) 0%, rgba(255, 255, 255, 0) 55%)'
-                    : 'none',
-            pointerEvents: 'none',
-            zIndex: 0,
-            [theme.breakpoints.down(661)]: {
-                display: 'none',
-            },
-        },
         [theme.breakpoints.down(661)]: {
             maxHeight: !isCollapsed ? 'calc(100vh - 165px)' : 'calc(100vh - 125px)',
         },

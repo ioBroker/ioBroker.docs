@@ -11,6 +11,7 @@ import linkImage from '../../assets/img/docsIcons/blueLink.svg';
 import type React from 'react';
 import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Footer } from '../../components/Footer/Footer';
 import { useDocsMarkdown } from '../../api/hooks/useDocsMarkdown';
 import { API_CONFIG } from '../../config/api';
 import { MarkdownView } from '../../components/MarkdownView/MarkdownView';
@@ -91,55 +92,19 @@ const DocsPage = (): React.ReactNode => {
     };
 
     return (
-        <Box>
+        <Box className={classes.pageRoot}>
             <SectionTitle
                 sx={{
                     marginTop: '30px',
                     marginLeft: '31px',
                     letterSpacing: '-0.03em !important',
                     fontSize: isMini ? '20px !important' : isMobile ? '28px !important' : '36px',
+                    flexShrink: 0,
                 }}
             >
                 {I18n.t('home.docs.title')}
             </SectionTitle>
             <Box className={classes.pageWrapper}>
-                <Box className={classes.topBar}>
-                    <Box className={classes.menuToggleContainer}>
-                        <MenuToggle
-                            sx={{
-                                width: isMini ? '55px !important' : isMobile ? '70px !important' : '55px',
-                                height: isMini ? '32px !important' : isMobile ? '40px !important' : '32px',
-                                '& img': {
-                                    width: isMini ? '15px !important' : isMobile ? '18px' : '15px',
-                                    height: isMini ? '7px !important' : isMobile ? '10px' : '7px',
-                                },
-                            }}
-                            buttonSx={{ minWidth: isMini ? '27px !important' : isMobile ? '35px !important' : '27px' }}
-                            value={menuMode}
-                            onChange={setMenuMode}
-                            onCollapse={setIsMenuCollapsed}
-                        />
-                        {!isMobile && (
-                            <MenuArrowsToggle
-                                value={isAllExpanded ? 'expand' : 'collapse'}
-                                onExpandAll={expandAllSections}
-                                onCollapseAll={collapseAllSections}
-                            />
-                        )}
-                    </Box>
-                    <Box className={classes.searchContainer}>
-                        <TopBarSearch
-                            isFluid={isMobile}
-                            sx={{
-                                '& .MuiOutlinedInput-root': {
-                                    height: isMini ? '32px !important' : isMobile ? '40px !important' : '32px',
-                                },
-                            }}
-                            value={search}
-                            onChange={setSearch}
-                        />
-                    </Box>
-                </Box>
                 {!isMenuCollapsed && (
                     <Box className={classes.menuBlockMobile}>
                         <DocsMenu
@@ -158,6 +123,29 @@ const DocsPage = (): React.ReactNode => {
                     data-docs-scroll="true"
                 >
                     <Box className={classes.menuBlock}>
+                        <Box className={classes.menuToggleContainer}>
+                            <MenuToggle
+                                sx={{
+                                    width: isMini ? '55px !important' : isMobile ? '70px !important' : '55px',
+                                    height: isMini ? '32px !important' : isMobile ? '40px !important' : '32px',
+                                    '& img': {
+                                        width: isMini ? '15px !important' : isMobile ? '18px' : '15px',
+                                        height: isMini ? '7px !important' : isMobile ? '10px' : '7px',
+                                    },
+                                }}
+                                buttonSx={{ minWidth: isMini ? '27px !important' : isMobile ? '35px !important' : '27px' }}
+                                value={menuMode}
+                                onChange={setMenuMode}
+                                onCollapse={setIsMenuCollapsed}
+                            />
+                            {!isMobile && (
+                                <MenuArrowsToggle
+                                    value={isAllExpanded ? 'expand' : 'collapse'}
+                                    onExpandAll={expandAllSections}
+                                    onCollapseAll={collapseAllSections}
+                                />
+                            )}
+                        </Box>
                         <DocsMenu
                             expandAllSignal={expandAllSignal}
                             collapseAllSignal={collapseAllSignal}
@@ -168,6 +156,18 @@ const DocsPage = (): React.ReactNode => {
                         />
                     </Box>
                     <Box className={classes.mainBlock}>
+                        <Box className={classes.topBar}>
+                            <TopBarSearch
+                                isFluid={isMobile}
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                        height: isMini ? '32px !important' : isMobile ? '40px !important' : '32px',
+                                    },
+                                }}
+                                value={search}
+                                onChange={setSearch}
+                            />
+                        </Box>
                         <Box className={classes.content}>
                             <MarkdownView
                                 markdown={markdown}
@@ -196,6 +196,7 @@ const DocsPage = (): React.ReactNode => {
                                 linkImage={linkImage}
                             />
                         </Box>
+                        <Footer />
                     </Box>
 
                     {!isTablet && <DocsTableOfContents items={tableOfContentsItems} />}

@@ -7,11 +7,12 @@ import { AdapterTable } from '../../components/AdapterTable/AdapterTable';
 import { AdapterMenu } from '../../components/AdapterMenu/AdapterMenu';
 import { MenuToggle } from '../../components/MenuToggle/MenuToggle';
 import { TopBarSearch } from '../../components/TopBarSearch/TopBarSearch';
-import { useState, useEffect, useMemo, useDeferredValue, useTransition, useRef } from 'react';
+import { useState, useEffect, useMemo, useDeferredValue, useTransition } from 'react';
 import { useLocation } from 'react-router-dom';
 import GridIcon from '../../assets/img/blueGrid.svg';
 import AdaptersListIcon from '../../assets/img/whiteAdaptersList.svg';
 import { useAdapters } from '../../api/hooks/useAdapters';
+import { Footer } from '../../components/Footer/Footer';
 import { getLocalizedTitle, normalizeText } from './adaptersPageUtils';
 import type { AdapterItem } from '../../components/AdapterItem/AdapterItem';
 
@@ -130,69 +131,21 @@ const AdaptersPage = (): React.ReactNode => {
         return searchTerm ? all.filter(adapter => matchesSearchFast(adapter)) : all;
     }, [adaptersData, selectedCategoryKey, searchTerm, adapterSearchIndex]);
 
-    const mainBlockRef = useRef<HTMLDivElement | null>(null);
-    const [scrollTop, setScrollTop] = useState(0);
-    const [viewportHeight, setViewportHeight] = useState(0);
-    const [gridWidth, setGridWidth] = useState(0);
-
-    useEffect(() => {
-        const node = mainBlockRef.current;
-        if (!node) {
-            return;
-        }
-        const update = (): void => {
-            setViewportHeight(node.clientHeight);
-            setScrollTop(node.scrollTop);
-            setGridWidth(node.clientWidth);
-        };
-        update();
-        const observer = new ResizeObserver(update);
-        observer.observe(node);
-        return () => observer.disconnect();
-    }, []);
-
-    const handleScroll = (event: React.UIEvent<HTMLDivElement>): void => {
-        setScrollTop(event.currentTarget.scrollTop);
-    };
-
-    const virtualizedGrid = useMemo(() => {
-        if (mode !== 'block') {
-            return { items: adaptersList, offsetY: 0, totalHeight: 0 };
-        }
-        const gap = 20;
-        const cardHeight = 294;
-        const rowHeight = cardHeight + gap;
-        const minColWidth = 240;
-        const columns = Math.max(1, Math.floor((gridWidth + gap) / (minColWidth + gap)) || 1);
-        const rowCount = Math.ceil(adaptersList.length / columns);
-        const totalHeight = rowCount > 0 ? rowCount * rowHeight - gap : 0;
-        const startRow = Math.max(0, Math.floor(scrollTop / rowHeight) - 1);
-        const endRow = Math.min(rowCount - 1, Math.floor((scrollTop + viewportHeight) / rowHeight) + 1);
-        const startIndex = startRow * columns;
-        const endIndex = Math.min(adaptersList.length, (endRow + 1) * columns);
-        const items = adaptersList.slice(startIndex, endIndex);
-        return {
-            items,
-            offsetY: startRow * rowHeight,
-            totalHeight,
-        };
-    }, [adaptersList, gridWidth, scrollTop, viewportHeight, mode]);
-
     const adaptersGridContent = useMemo(() => {
-        return virtualizedGrid.items.map(adapter => (
+        return adaptersList.map(adapter => (
             <AdapterBlock
                 adapter={adapter}
                 key={adapter.content}
             />
         ));
-    }, [virtualizedGrid.items]);
+    }, [adaptersList]);
 
     const adaptersTableContent = useMemo(() => {
         return <AdapterTable adapters={adaptersList} />;
     }, [adaptersList]);
 
     return (
-        <Box>
+        <Box className={classes.pageRoot}>
             <Box className={classes.titleContainer}>
                 {selectedMenuItem ? (
                     <Box className={classes.breadcrumbsContainer}>
@@ -218,77 +171,69 @@ const AdaptersPage = (): React.ReactNode => {
                     </SectionTitle>
                 )}
             </Box>
-            <Box className={classes.topBar}>
-                <MenuToggle
-                    value={menuMode}
-                    onChange={setMenuMode}
-                    onCollapse={setIsMenuCollapsed}
-                />
-                <Box className={classes.searchAndMenuButton}>
-                    <TopBarSearch
-                        value={search}
-                        onChange={setSearch}
-                        isMenuCollapsed={isMenuCollapsed}
-                    />
-                    <Box className={classes.adaptersButton}>
-                        <ToggleButtonGroup
-                            exclusive
-                            value={mode}
-                            onChange={(_, value) => {
-                                if (!value) {
-                                    return;
-                                }
-                                startTransition(() => {
-                                    setMode(value);
-                                });
-                            }}
-                        >
-                            <ToggleButton value="block">
-                                <img
-                                    alt="Grid Icon"
-                                    src={GridIcon}
-                                />
-                            </ToggleButton>
-                            <ToggleButton value="table">
-                                <img
-                                    alt="AdaptersList Icon"
-                                    src={AdaptersListIcon}
-                                />
-                            </ToggleButton>
-                        </ToggleButtonGroup>
+            <Box className={classes.container}>
+                <Box className={classes.leftColumn}>
+                    <Box className={classes.menuToggleWrapper}>
+                        <MenuToggle
+                            value={menuMode}
+                            onChange={setMenuMode}
+                            onCollapse={setIsMenuCollapsed}
+                        />
+                    </Box>
+                    <Box className={classes.menuBlock}>
+                        <AdapterMenu
+                            isCollapsed={isMenuCollapsed}
+                            onMenuItemClick={handleMenuItemClick}
+                            selectedItem={selectedMenuItem}
+                            search={search}
+                        />
                     </Box>
                 </Box>
-            </Box>
-            <Box className={classes.container}>
-                <Box className={classes.menuBlock}>
-                    <AdapterMenu
-                        isCollapsed={isMenuCollapsed}
-                        onMenuItemClick={handleMenuItemClick}
-                        selectedItem={selectedMenuItem}
-                        search={search}
-                    />
-                </Box>
-                <Box
-                    className={classes.mainBlock}
-                    ref={mainBlockRef}
-                    onScroll={handleScroll}
-                >
-                    {mode === 'block' ? (
-                        <Box style={{ position: 'relative', height: virtualizedGrid.totalHeight || 'auto' }}>
-                            <Box
-                                className={classes.adaptersGrid}
-                                style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    transform: `translateY(${virtualizedGrid.offsetY}px)`,
+                <Box className={classes.rightColumn}>
+                    <Box className={classes.topBar}>
+                        <TopBarSearch
+                            value={search}
+                            onChange={setSearch}
+                            isMenuCollapsed={isMenuCollapsed}
+                        />
+                        <Box className={classes.adaptersButton}>
+                            <ToggleButtonGroup
+                                exclusive
+                                value={mode}
+                                onChange={(_, value) => {
+                                    if (!value) {
+                                        return;
+                                    }
+                                    startTransition(() => {
+                                        setMode(value);
+                                    });
                                 }}
                             >
+                                <ToggleButton value="block">
+                                    <img
+                                        alt="Grid Icon"
+                                        src={GridIcon}
+                                    />
+                                </ToggleButton>
+                                <ToggleButton value="table">
+                                    <img
+                                        alt="AdaptersList Icon"
+                                        src={AdaptersListIcon}
+                                    />
+                                </ToggleButton>
+                            </ToggleButtonGroup>
+                        </Box>
+                    </Box>
+                    <Box className={classes.mainBlock}>
+                        {mode === 'block' ? (
+                            <Box className={classes.adaptersGrid}>
                                 {adaptersGridContent}
                             </Box>
-                        </Box>
-                    ) : (
-                        adaptersTableContent
-                    )}
+                        ) : (
+                            adaptersTableContent
+                        )}
+                        <Footer />
+                    </Box>
                 </Box>
             </Box>
         </Box>

@@ -1,7 +1,15 @@
 import { makeStyles } from '../../theme';
 
 export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { isMenuCollapsed }) => ({
+    pageRoot: {
+        display: 'flex',
+        flexDirection: 'column',
+        height: 'calc(100vh - 64px)',
+        overflow: 'hidden',
+    },
     pageWrapper: {
+        flex: 1,
+        minHeight: 0,
         position: 'relative',
         '&::after': {
             content: '""',
@@ -31,11 +39,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         margin: '0 32px',
         paddingBottom: '20px',
         position: 'relative',
-        maxHeight: 'calc(100vh - 120px)',
-        overflowY: 'scroll',
+        height: '100%',
         overflowX: 'hidden',
-        paddingRight: '12px',
-        marginRight: '8px',
         '&::before': {
             content: '""',
             position: 'absolute',
@@ -102,45 +107,38 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     topBar: {
         display: 'flex',
         alignItems: 'center',
-        margin: '0 32px 24px 32px',
-        position: 'relative',
-        [theme.breakpoints.down(481)]: {
-            margin: '0 10px 30px 10px',
-        },
+        justifyContent: 'space-between',
+        marginBottom: '20px',
     },
     menuToggleContainer: {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '265px',
-        flexShrink: 0,
+        marginBottom: '16px',
         [theme.breakpoints.down(769)]: {
             width: 'auto',
-        },
-    },
-    searchContainer: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        flex: 1,
-        marginLeft: 'calc(91px - 18px + 1px)',
-        transition: 'margin-left 0.3s ease',
-        [theme.breakpoints.up(1440)]: {
-            marginLeft: 'calc(91px - 18px + 1px)',
-        },
-        [theme.breakpoints.down(769)]: {
-            marginLeft: '98px',
-        },
-        [theme.breakpoints.down(661)]: {
-            marginLeft: 'calc(80px - 55px + 1px)',
-        },
-        [theme.breakpoints.down(481)]: {
-            justifyContent: 'end',
-            marginLeft: 'calc(80px - 61px + 1px)',
         },
     },
     mainBlock: {
         flex: 1,
         minWidth: 0,
+        overflowY: 'scroll',
+        overflowX: 'hidden',
+        '&::-webkit-scrollbar': {
+            width: '8px',
+        },
+        '&::-webkit-scrollbar-track': {
+            background: 'rgba(255, 255, 255, 0.05)',
+            borderRadius: '8px',
+            border: `1px solid ${theme.palette.primary.main}`,
+        },
+        '&::-webkit-scrollbar-thumb': {
+            background: theme.palette.secondary.main,
+            borderRadius: '8px',
+        },
+        '&::-webkit-scrollbar-thumb:hover': {
+            background: theme.palette.secondary.main,
+        },
     },
     content: {
         color: theme.palette.text.primary,
@@ -358,8 +356,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     },
     menuBlock: {
         flexShrink: 0,
-        top: '0px',
-        position: 'sticky',
+        overflowY: 'auto',
         [theme.breakpoints.down(769)]: {
             display: 'none',
         },

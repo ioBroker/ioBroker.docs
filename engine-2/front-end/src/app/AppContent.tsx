@@ -5,6 +5,7 @@ import { Header, Footer } from '../components';
 import Divider from '../components/Divider/Divider';
 import { usePageScrollProgress } from '../hooks/usePageScrollProgress';
 import { useReducer } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles()(() => ({
     root: {
@@ -29,11 +30,17 @@ const useStyles = makeStyles()(() => ({
     },
 }));
 
+// Pages that render their own footer inside the scrollable area
+const PAGES_WITH_INLINE_FOOTER = ['/adapters', '/docs'];
+
 const AppContent = (): React.ReactNode => {
     const { classes } = useStyles();
     const routes = useRoutes();
     const { scrollPosition } = usePageScrollProgress();
     const [, forceUpdate] = useReducer((x: number) => x + 1, 0);
+    const location = useLocation();
+
+    const hideGlobalFooter = PAGES_WITH_INLINE_FOOTER.some(p => location.pathname.startsWith(p));
 
     return (
         <Box className={classes.root}>
@@ -50,11 +57,15 @@ const AppContent = (): React.ReactNode => {
             >
                 {routes}
             </Box>
-            <Divider
-                position={scrollPosition}
-                parentWidth={window.innerWidth}
-            />
-            <Footer />
+            {!hideGlobalFooter && (
+                <>
+                    <Divider
+                        position={scrollPosition}
+                        parentWidth={window.innerWidth}
+                    />
+                    <Footer />
+                </>
+            )}
         </Box>
     );
 };
