@@ -11,7 +11,7 @@ export const useStyles = makeStyles()(theme => ({
         gap: '0 40px',
         margin: '0px 8px 0px 32px',
         paddingTop: '30px',
-        paddingBottom: '40px',
+        marginBottom: '100px',
         color: theme.palette.text.primary,
         fontFamily: theme.typography.fontFamily,
         maxHeight: 'calc(100vh - 120px)',
@@ -71,12 +71,11 @@ export const useStyles = makeStyles()(theme => ({
         },
         '&::before': {
             content: '""',
-            position: 'absolute',
-            top: '90%',
-            right: '-20%',
-            transform: 'translateX(-50%)',
+            position: 'fixed',
+            bottom: '-200px',
+            right: '-100px',
             width: '600px',
-            height: '1200px',
+            height: '600px',
             opacity: 0.5,
             background:
                 theme.palette.mode === 'dark'
@@ -84,18 +83,11 @@ export const useStyles = makeStyles()(theme => ({
                     : 'none',
             pointerEvents: 'none',
             zIndex: 0,
-            '@media (min-width: 769px) and (max-width: 1440px)': {
-                right: '-30%',
-            },
             '@media (min-width: 769px) and (max-width: 1279px)': {
                 display: 'none',
             },
             '@media (max-width: 769px)': {
-                top: '35%',
-            },
-            '@media (max-width: 481px)': {
-                left: '80%',
-                top: '25%',
+                display: 'none',
             },
         },
 
@@ -474,7 +466,7 @@ export const useStyles = makeStyles()(theme => ({
         border: `1px solid ${theme.palette.primary.main}`,
         borderRadius: '16px',
         padding: '34px 24px',
-        height: '425px',
+        minHeight: '425px',
         backgroundColor: theme.palette.background.paper,
         marginTop: '80px',
         '@media (max-width: 1279px)': {

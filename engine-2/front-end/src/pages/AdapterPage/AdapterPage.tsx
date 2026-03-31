@@ -275,8 +275,11 @@ const AdapterPage = (): React.ReactNode => {
                             <span
                                 ref={authorsRef}
                                 className={`${classes.infoValue} ${isAuthorsOverflow ? classes.infoValueOverflow : ''}`}
+                                style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}
                             >
-                                {adapterAuthorsDisplay}
+                                {adapterAuthorsDisplay.split(',').map((author, i) => (
+                                    <span key={i}>{author.trim()}</span>
+                                ))}
                             </span>
                         </Box>
                         <Box className={classes.infoRow}>
