@@ -206,6 +206,10 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.19.7 (2026-03-06)
+* (jens-maus) Update node-ical from 0.25.4 to 0.25.5
+* (jens-maus) Update more general dependencies
+
 ### 1.19.6 (2026-02-23)
 * (jens-maus) Update node-ical from 0.25.2 to 0.25.4
 * (copilot) Adapter requires admin >= 7.7.22 now
@@ -218,9 +222,6 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 
 ### 1.19.3 (2026-01-31)
 * (jens-maus) Update node-ical from 0.23.1 to 0.24.1 (fixes #842)
-
-### 1.19.2 (2026-01-12)
-* (jens-maus) fix broken exdate calculation
 
 ## License
 

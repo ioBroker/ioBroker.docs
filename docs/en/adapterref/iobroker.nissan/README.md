@@ -6,15 +6,13 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.nissan.svg)](https://www.npmjs.com/package/iobroker.nissan)
 ![Number of Installations (latest)](https://iobroker.live/badges/nissan-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/nissan-stable.svg)
-[![Dependency Status](https://img.shields.io/david/TA2k/iobroker.nissan.svg)](https://david-dm.org/TA2k/iobroker.nissan)
 
 [![NPM](https://nodei.co/npm/iobroker.nissan.png?downloads=true)](https://nodei.co/npm/iobroker.nissan/)
 
 **Tests:** ![Test and Release](https://github.com/TA2k/ioBroker.nissan/workflows/Test%20and%20Release/badge.svg)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**\
-For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!\
-Sentry reporting is used starting with js-controller 3.0.
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Nissan adapter for ioBroker
 
@@ -32,6 +30,9 @@ Feel free to follow the discussions in the german [iobroker forum](https://forum
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.17 (2026-03-14)
+- (bolliy) dependency and configuration updates
+
 ### 0.1.17-alpha.0 (2025-11-22)
 - (bolliy) dependency and configuration updates
 - (booliy) NPM: migration to trusted publishing
@@ -90,7 +91,7 @@ Feel free to follow the discussions in the german [iobroker forum](https://forum
 
 MIT License
 
-Copyright (c) 2021-2025 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

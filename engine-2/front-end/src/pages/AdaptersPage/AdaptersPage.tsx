@@ -162,7 +162,7 @@ const AdaptersPage = (): React.ReactNode => {
         const gap = 20;
         const cardHeight = 294;
         const rowHeight = cardHeight + gap;
-        const minColWidth = 251;
+        const minColWidth = 240;
         const columns = Math.max(1, Math.floor((gridWidth + gap) / (minColWidth + gap)) || 1);
         const rowCount = Math.ceil(adaptersList.length / columns);
         const totalHeight = rowCount > 0 ? rowCount * rowHeight - gap : 0;
@@ -194,26 +194,29 @@ const AdaptersPage = (): React.ReactNode => {
     return (
         <Box>
             <Box className={classes.titleContainer}>
-                <SectionTitle
-                    sx={{
-                        marginLeft: '32px',
-                        color: `${theme.palette.text.primary} !important`,
-                        fontSize: {
-                            '@media (max-width:1279px)': { fontSize: '28px !important' },
-                            '@media (max-width:480px)': { fontSize: '20px !important' },
-                        },
-                    }}
-                >
-                    {I18n.t('home.adapters.title')}
-                </SectionTitle>
                 {selectedMenuItem ? (
-                    <Typography
-                        variant="h4"
-                        className={classes.breadCrumbs}
+                    <Box className={classes.breadcrumbsContainer}>
+                        <span className={classes.breadcrumbInactive}>
+                            // {I18n.t('home.adapters.title').toUpperCase()}
+                        </span>
+                        <span className={classes.breadcrumbSlash}> / </span>
+                        <span className={classes.breadcrumbActive}>
+                            {selectedMenuItem.toUpperCase()}
+                        </span>
+                    </Box>
+                ) : (
+                    <SectionTitle
+                        sx={{
+                            marginLeft: '32px',
+                            fontSize: {
+                                '@media (max-width:1279px)': { fontSize: '28px !important' },
+                                '@media (max-width:480px)': { fontSize: '20px !important' },
+                            },
+                        }}
                     >
-                        / {selectedMenuItem.toUpperCase()}
-                    </Typography>
-                ) : null}
+                        {I18n.t('home.adapters.title')}
+                    </SectionTitle>
+                )}
             </Box>
             <Box className={classes.topBar}>
                 <MenuToggle

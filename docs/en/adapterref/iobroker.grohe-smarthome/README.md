@@ -1,4 +1,3 @@
-![Logo](admin/grohe-smarthome.png)
 # ioBroker.grohe-smarthome
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.grohe-smarthome.svg)](https://www.npmjs.com/package/iobroker.grohe-smarthome)
@@ -11,8 +10,8 @@
 **Tests:** ![Test and Release](https://github.com/patricknitsch/ioBroker.grohe-smarthome/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker Grohe Smarthome Adapter
-
-This adapter connects ioBroker to the **Grohe Smarthome / Ondus** cloud and exposes Grohe devices as states (and some controls) inside ioBroker.
+<img align="left" src="admin/grohe-smarthome.png" alt="image" width="200"/>
+This adapter connects ioBroker to the <strong>Grohe Smarthome / Ondus</strong> cloud and exposes Grohe devices as states (and some controls) inside ioBroker.
 
 It supports:
 
@@ -23,7 +22,10 @@ It supports:
 
 The adapter logs in via Grohe’s OIDC/Keycloak flow, stores a **refresh token encrypted** in a state, and polls the Grohe cloud API on a configurable interval.
 
+Ideas and Concept came from the Home-Assistant Integration **ha-grohe_smarthome**. Special thanks goes to **Flo-Schilli**. 
+
 ---
+
 ## Documentation
 
 [🇺🇸 Documentation](./docs/en/README.md)
@@ -37,6 +39,32 @@ The adapter logs in via Grohe’s OIDC/Keycloak flow, stores a **refresh token e
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.3 (2026-03-25)
+
+* (patricknitsch) Clamp tapAmount between 50 and 2000 ml.
+
+### 0.3.2 (2026-03-21)
+
+* (copilot) Update Admin Tap for Blue systems
+* (patricknitsch) Fix Isues from RepoChecker
+
+### 0.3.1 (2026-03-18)
+* (claude/patricknitsch) Fix admin tab controls not triggered after confirmation – replace native `confirm()` with custom modal dialog (works inside ioBroker iframe)
+* (claude/patricknitsch) Fix 4 wrong state IDs in admin tab (Close Valve, Pressure Measurement, Reset CO₂, Reset Filter)
+
+### 0.3.0 (2026-03-18)
+
+* (claude/patricknitsch) Add card-based device overview tab with controls
+* (claude/patricknitsch) Add Valve, Pressure Measurement and Dispense controls in admin tab
+* (claude/patricknitsch) Disable controls when device is offline
+* (claude/patricknitsch) Adjust color scheme in admin tab (white/black based on light/dark mode)
+* (patricknitsch) Update Packages
+
+### 0.2.6 (2026-03-11)
+
+* (claude/patricknitsch) Fix measurement "Filter" for Blue Systems
+* (claude/patricknitsch) Fix permanent dispense without Trigger
+
 ### 0.2.5 (2026-02-26)
 
 * (patricknitsch) Update Admin Package

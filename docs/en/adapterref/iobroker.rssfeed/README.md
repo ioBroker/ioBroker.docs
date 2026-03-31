@@ -18,7 +18,7 @@ You can customize the output of the feed with a template system. In the template
 
 Important: Only the english translation is valid due to bugs in automatic translations into other languages made by iobroker
 
-## Installation
+## Configuration
 
 Install the adapter as normal from the stable repository. If you want to test new features or bug fixes you can also install the adapter from the beta repository. For Features and news, please see the Test and Support thread for this adapter in the iobroker forum.
 
@@ -30,8 +30,6 @@ iobroker upload rssfeed
 ```
 
 In the right area in the line of the adapter, an instance can be added using the plus button
-
-## Configuration
 
 The configuration is easy. There are only a few fields
 
@@ -162,7 +160,7 @@ With this widget, all title attributes will be displayed as a scrolling text. As
 | rss_feedCount    | General group       | Here you can set the number of feeds to be configured. A separate group is created in vis for each feed to be configured.                                                                                                                                                 |
 | rss_speed        | General group       | The scrolling speed of the scrolling text Attribute rss_divider - General group Here you can enter the characters used to separate the headlines. The default value is +++.                                                                                               |
 | rss_pauseonhover | General group       | If this option is switched on, the scrolling text stops as soon as you hover the mouse over the text.                                                                                                                                                                     |
-| rss_opentype     | General group       | Selection of how the link is opened: `none`, `link`, `popup`                                                                                                                                                                                                                    |
+| rss_opentype     | General group       | Selection of how the link is opened: `none`, `link`, `popup`                                                                                                                                                                                                              |
 | rss_withtime     | General group       | If this option is switched on, the time is displayed before the respective headline. Attribute rss_withdate - General group If this option is enabled, the date without the year and the time are displayed before the respective headline.                               |
 | rss_withyear     | General group       | If this option is enabled, the date with the year and the time are displayed before the respective headline.                                                                                                                                                              |
 | rss_oid          | Feeds[number] group | Select the data point with the corresponding RSS feed.                                                                                                                                                                                                                    |
@@ -191,19 +189,17 @@ In the examples above, only the pure output was covered. The template can now al
 ```html
 <h3>Output</h3>
 <style>
-  .mycssclassproperty {
-    color: green;
-  }
-  .mycssclassdata {
-    color: red;
-  }
+    .mycssclassproperty {
+        color: green;
+    }
+    .mycssclassdata {
+        color: red;
+    }
 </style>
 <% for (var prop in data.oneobject) { %>
 <div>
-  <span class="mycssclassproperty"
-    ><%- "data.oneobject." + prop + " = " %></span
-  >
-  <span class="mycssclassdata"><%- data.oneobject[prop] %></span>
+    <span class="mycssclassproperty"><%- "data.oneobject." + prop + " = " %></span>
+    <span class="mycssclassdata"><%- data.oneobject[prop] %></span>
 </div>
 <% } %>
 ```
@@ -232,22 +228,10 @@ stringify the result and output to html
 definition of the sendToAsync function
 
 ```html
-<% req = await sendToAsync("admin.0","selectSendTo",{test:"test"}); %>
-<%- JSON.stringify(req) %>
-<%
-async function sendToAsync(instance, command, sendData) {
-    console.log(`sendToAsync ${command} ${sendData}`);
-    return new Promise((resolve, reject) => {
-        try {
-            vis.conn.sendTo(instance, command, sendData, function (receiveData) {
-                resolve(receiveData);
-            });
-        } catch (error) {
-            reject(error);
-        }
-    });
-}
-%>  
+<% req = await sendToAsync("admin.0","selectSendTo",{test:"test"}); %> <%- JSON.stringify(req) %> <% async function
+sendToAsync(instance, command, sendData) { console.log(`sendToAsync ${command} ${sendData}`); return new
+Promise((resolve, reject) => { try { vis.conn.sendTo(instance, command, sendData, function (receiveData) {
+resolve(receiveData); }); } catch (error) { reject(error); } }); } %>
 ```
 
 **Result:**
@@ -282,12 +266,12 @@ First, a MySQL database named `test` is created. It contains a table `test` with
   <summary>Details</summary>
   <pre><code>
 
-  ```sql
+```sql
 
-  CREATE TABLE `test` (
-  `id` int(11) NOT NULL,
-  `todo` varchar(100) NOT NULL,
-  `action` int(11) NOT NULL
+CREATE TABLE `test` (
+`id` int(11) NOT NULL,
+`todo` varchar(100) NOT NULL,
+`action` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `test` (`id`, `todo`, `action`) VALUES
@@ -297,17 +281,18 @@ INSERT INTO `test` (`id`, `todo`, `action`) VALUES
 (4, 'Todo 4', 0);
 
 ALTER TABLE `test`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`),
-  ADD KEY `idx` (`id`);
+ADD PRIMARY KEY (`id`),
+ADD UNIQUE KEY `id` (`id`),
+ADD KEY `idx` (`id`);
 
 ALTER TABLE `test`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 ```
 
 </code></pre>
+
 </details>
 
 ---
@@ -340,8 +325,7 @@ We place the `JSONTemplate` widget and fill in the following fields:
   <summary>Details</summary>
   <pre><code>
 
-  ```html
-
+```html
 <style>
     .btn {
         width: 100%;
@@ -353,58 +337,54 @@ We place the `JSONTemplate` widget and fill in the following fields:
         <th>Todo</th>
         <th>Action</th>
     </tr>
-<%
-let todos = await getTodo();
-for (let i = 0; i < todos.length; i++) {
-    let todo = todos[i];
-%>
+    <% let todos = await getTodo(); for (let i = 0; i < todos.length; i++) { let todo = todos[i]; %>
     <tr>
         <td><%- todo.id %></td>
         <td><%- todo.todo %></td>
         <td><%- getButton(todo.id, todo.action) %></td>
     </tr>
-<% } %>
+    <% } %>
 </table>
 
 <script>
-window.jsontemplate = { clicktodo: clicktodo };
+    window.jsontemplate = { clicktodo: clicktodo };
 
-function getButton(id, action) {
-    let text = action === 0 ? "In Progress" : "Completed";
-    return `<button class="btn" onclick="window.jsontemplate.clicktodo(this)" data-id="${id}" data-action="${action}">${text}</button>`;
-}
+    function getButton(id, action) {
+        let text = action === 0 ? 'In Progress' : 'Completed';
+        return `<button class="btn" onclick="window.jsontemplate.clicktodo(this)" data-id="${id}" data-action="${action}">${text}</button>`;
+    }
 
-function clicktodo(el) {
-    let id = el.dataset.id;
-    let action = el.dataset.action;
-    let nextAction = action == 0 ? 1 : 0;
-    setAction(id, nextAction);
-}
+    function clicktodo(el) {
+        let id = el.dataset.id;
+        let action = el.dataset.action;
+        let nextAction = action == 0 ? 1 : 0;
+        setAction(id, nextAction);
+    }
 
-async function getTodo() {
-    let req = await sendToAsync("sql.0", "query", "SELECT * FROM test.test");
-    return req.result;
-}
+    async function getTodo() {
+        let req = await sendToAsync('sql.0', 'query', 'SELECT * FROM test.test');
+        return req.result;
+    }
 
-async function setAction(id, action) {
-    await sendToAsync("sql.0", "query", `UPDATE test.test SET action = ${action} WHERE id = ${id}`);
-    vis.setValue("local_trigger", Math.random());
-}
+    async function setAction(id, action) {
+        await sendToAsync('sql.0', 'query', `UPDATE test.test SET action = ${action} WHERE id = ${id}`);
+        vis.setValue('local_trigger', Math.random());
+    }
 
-async function sendToAsync(instance, command, sendData) {
-    return new Promise((resolve, reject) => {
-        try {
-            vis.conn.sendTo(instance, command, sendData, (receiveData) => resolve(receiveData));
-        } catch (error) {
-            reject(error);
-        }
-    });
-}
+    async function sendToAsync(instance, command, sendData) {
+        return new Promise((resolve, reject) => {
+            try {
+                vis.conn.sendTo(instance, command, sendData, receiveData => resolve(receiveData));
+            } catch (error) {
+                reject(error);
+            }
+        });
+    }
 </script>
-
 ```
 
-  </code></pre>
+</code></pre>
+
 </details>
 
 ###### **Data Point for Refreshing Content**
@@ -422,17 +402,17 @@ This data point **does not need to be explicitly created**, as `local_?` data po
 
 ###### **Template Structure**
 
-| Line | Content |
-|-------|--------|
-| 1-5 | CSS styles for button appearance |
-| 6-11 | Table header with columns ID, Todo, Action |
-| 12-16 | Fetching data from the MySQL database using `getTodo()` |
-| 17-21 | Loop to display to-do entries with buttons |
-| 23-28 | Global reference of the `clicktodo()` function |
-| 30-37 | `getButton()` function to create a button with the current status |
-| 38-44 | `clicktodo()` function to change the status via button click |
-| 45-48 | `getTodo()` function to fetch data via the SQL adapter |
-| 49-52 | `setAction()` function to update the database entry |
+| Line  | Content                                                                |
+| ----- | ---------------------------------------------------------------------- |
+| 1-5   | CSS styles for button appearance                                       |
+| 6-11  | Table header with columns ID, Todo, Action                             |
+| 12-16 | Fetching data from the MySQL database using `getTodo()`                |
+| 17-21 | Loop to display to-do entries with buttons                             |
+| 23-28 | Global reference of the `clicktodo()` function                         |
+| 30-37 | `getButton()` function to create a button with the current status      |
+| 38-44 | `clicktodo()` function to change the status via button click           |
+| 45-48 | `getTodo()` function to fetch data via the SQL adapter                 |
+| 49-52 | `setAction()` function to update the database entry                    |
 | 53-58 | `sendToAsync()` function to use `async/await` with `vis.conn.sendTo()` |
 
 ## Templatesystem
@@ -458,13 +438,13 @@ For all the following examples the following json is used.
 
 ```json
 {
-  "onearray": ["one", "two"],
-  "oneobject": {
-    "attribute1": 1,
-    "attribute2": 2
-  },
-  "onenumber": 123,
-  "onetext": "onetwothree"
+    "onearray": ["one", "two"],
+    "oneobject": {
+        "attribute1": 1,
+        "attribute2": 2
+    },
+    "onenumber": 123,
+    "onetext": "onetwothree"
 }
 ```
 
@@ -515,8 +495,7 @@ Arrays can also consist of a collection of objects. The example here contains on
 **Template:**
 
 ```html
-<% for (var i = 0; i < data.onearray.length ; i++ ) { %> <%- data.onearray[i] %>
-<% } %>
+<% for (var i = 0; i < data.onearray.length ; i++ ) { %> <%- data.onearray[i] %> <% } %>
 ```
 
 **Result:**
@@ -557,8 +536,7 @@ Loop over the attributes of an object
 **Template:**
 
 ```html
-<% for (var prop in data.oneobject) { %> <%- "data.oneobject." + prop + " = " +
-data.oneobject[prop] %> <% } %>
+<% for (var prop in data.oneobject) { %> <%- "data.oneobject." + prop + " = " + data.oneobject[prop] %> <% } %>
 ```
 
 **Result:**
@@ -637,22 +615,22 @@ It has been tested with the following feeds
     all variables are read only
     -->
 <style>
-  #<%- widgetid % > img {
-    width: calc(<%- style.width %> - 15px);
-    height: auto;
-  }
-  #<%- widgetid % > img.rssfeed {
-    width: auto;
-    height: auto;
-  }
+    #<%- widgetid % > img {
+        width: calc(<%- style.width %> - 15px);
+        height: auto;
+    }
+    #<%- widgetid % > img.rssfeed {
+        width: auto;
+        height: auto;
+    }
 </style>
 <p><%- rss.meta.title %></p>
 <% rss.articles.forEach(function(item){ %>
 <div class="article">
-  <p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
-  <h3><%- item.title %></h3>
-  <p><%- item.description %></p>
-  <div style="clear:both;"></div>
+    <p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
+    <h3><%- item.title %></h3>
+    <p><%- item.description %></p>
+    <div style="clear:both;"></div>
 </div>
 <% }); %>
 ```
@@ -678,14 +656,14 @@ It has been tested with the following feeds
     all variables are read only
     -->
 <style>
-  #<%- widgetid %> img {
-    width: calc(<%- style.width || "230px" %> - 15px);
-    height: auto;
-  }
-  #<%- widgetid %> img.rssfeed {
-    width: auto;
-    height: auto;
-  }
+    #<%- widgetid % > img {
+        width: calc(<%- style.width || '230px' %> - 15px);
+        height: auto;
+    }
+    #<%- widgetid % > img.rssfeed {
+        width: auto;
+        height: auto;
+    }
 </style>
 <% rss.articles.forEach(function(item){ %>
 <p><%- item.meta_name || item.meta_title || '' %></p>
@@ -709,83 +687,83 @@ It has been tested with the following feeds
 -->
 
 <style>
-  #<%- widgetid %> img {
-    width: calc(<%- style.width || "230px" %> - 15px);
-    height: auto;
-  }
-  #<%- widgetid %> img.rssfeed {
-    width: auto;
-    height: auto;
-  }
+    #<%- widgetid % > img {
+        width: calc(<%- style.width || '230px' %> - 15px);
+        height: auto;
+    }
+    #<%- widgetid % > img.rssfeed {
+        width: auto;
+        height: auto;
+    }
 
-  .container {
-    overflow: hidden;
-    height: 100%;
-  }
-  .content {
-    position: relative;
-    border: 1px solid #ccc;
-    overflow: scroll;
-    height: 90%;
-  }
+    .container {
+        overflow: hidden;
+        height: 100%;
+    }
+    .content {
+        position: relative;
+        border: 1px solid #ccc;
+        overflow: scroll;
+        height: 90%;
+    }
 
-  .slide {
-    position: absolute;
-    display: none;
-  }
+    .slide {
+        position: absolute;
+        display: none;
+    }
 
-  .slide.active {
-    display: contents;
-  }
+    .slide.active {
+        display: contents;
+    }
 
-  .controls {
-    margin-top: 10px;
-  }
+    .controls {
+        margin-top: 10px;
+    }
 </style>
 
 <div class="container">
-  <div class="content">
-    <% rss.articles.forEach(function(item){ %>
-    <div class="article slide">
-      <p>
-        <small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small>
-      </p>
-      <h3><%- item.title %></h3>
-      <p><%- item.description %></p>
-      <div style="clear:both;"></div>
+    <div class="content">
+        <% rss.articles.forEach(function(item){ %>
+        <div class="article slide">
+            <p>
+                <small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small>
+            </p>
+            <h3><%- item.title %></h3>
+            <p><%- item.description %></p>
+            <div style="clear:both;"></div>
+        </div>
+        <% }); %>
     </div>
-    <% }); %>
-  </div>
-  <div class="controls">
-    <button onclick="prevSlide()">Zurück</button>
-    <button onclick="nextSlide()">Weiter</button>
-  </div>
+    <div class="controls">
+        <button onclick="prevSlide()">Zurück</button>
+        <button onclick="nextSlide()">Weiter</button>
+    </div>
 </div>
 
 <script>
-  currentSlide = 0;
-  slides = document.querySelectorAll(".slide");
+    currentSlide = 0;
+    slides = document.querySelectorAll('.slide');
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      if (i === index) {
-        slide.classList.add("active");
-      } else {
-        slide.classList.remove("active");
-      }
-    });
-  }
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+    }
 
-  function prevSlide() {
-    currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
+    function prevSlide() {
+        currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
+        showSlide(currentSlide);
+    }
+
+    function nextSlide() {
+        currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
+        showSlide(currentSlide);
+    }
     showSlide(currentSlide);
-  }
-
-  function nextSlide() {
-    currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
-    showSlide(currentSlide);
-  }
-  showSlide(currentSlide);
 </script>
 ```
 
@@ -824,6 +802,24 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.0.3 (2026-03-26)
+
+- Update packages
+- fix repochecker
+
+### 4.0.2 (2026-03-07)
+
+- fix repochecker
+
+### 4.0.1 (2026-03-07)
+
+- fix repochecker
+
+### 4.0.0 (2026-03-05)
+
+- update packages
+- remove deprecated widgets
+
 ### 3.6.1 (2025-09-22)
 
 - remove dist/ folder from lint

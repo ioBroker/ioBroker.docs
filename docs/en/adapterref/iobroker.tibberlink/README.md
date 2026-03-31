@@ -170,8 +170,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 6.2.1 (2026-03-30)
 
 - (HombachC) optimize pull of consumption data (#860)
 - (HombachC) switch to ES2023 code
@@ -210,11 +209,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) optimize dependabot config (#805)
 - (HombachC) update axios and cron
 - (HombachC) update FlexChart template
-
-### 6.0.2 (2025-10-24)
-
-- (HombachC) update NPM deployment
-- (HombachC) update dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

@@ -753,6 +753,7 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
 * (@klein0r) Updated dependencies
 

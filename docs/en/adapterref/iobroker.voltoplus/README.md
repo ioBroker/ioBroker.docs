@@ -36,7 +36,11 @@ or any associated subsidiaries, logos or trademarks.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+
+### ***WORK IN PROGRESS***
+* Update dependencies
+
+### 0.2.1 (2025-10-13)
 * Fix value handling
 
 ### 0.2.0 (2025-09-26)
@@ -66,7 +70,7 @@ or any associated subsidiaries, logos or trademarks.
 ## License
 MIT License
 
-Copyright (c) 2025 Jey Cee <jey-cee@live.com>
+Copyright (c) 2025-2026 Jey Cee <jey-cee@live.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

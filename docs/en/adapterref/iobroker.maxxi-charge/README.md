@@ -30,7 +30,6 @@ BADGE-Donation: https://img.shields.io/badge/Paypal-Donate-blue?style=flat
 
 http://www.maxxisun.de
 
-
 ## Documentation
 
 [🇺🇸 Documentation](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/en/README.md)
@@ -39,11 +38,17 @@ http://www.maxxisun.de
 
 ## Version Compatibility
 
-|    Version    | CCU V1 Local | CCU V2 Local | CCU V1 Cloud | CCU V2 Cloud |
-|:-------------:|:------------:|:------------:|:------------:|:------------:|
-|  0.36 - 0.40  |      ❌       |      ❌       |      ✅       |      ❌       |
-| 0.41 or newer |      ✅       |      ❓       |      ✅       |      ❓       |
+|    CCU V1     | Local API | Cloud API |
+| :-----------: | :-------: | :-------: |
+|  0.36 - 0.40  |    ❌     |    ✅     |
+| 0.41 or newer |    ✅     |    ✅     |
 
+|     CCU V2     | Local API | Cloud API |
+| :------------: | :-------: | :-------: |
+| 2.0.0 or newer |    ❌     |    ❌     |
+|  Comming Soon  |    ❓     |    ❓     |
+
+<i>MaxxiSun can deactivate cloud services at any time. Local mode is always more secure.</i>
 
 🔹 **Legend**:  
 ✅ - Compatible  
@@ -52,17 +57,30 @@ http://www.maxxisun.de
 
 ## Changelog
 
+### 1.5.0 (comming soon 2026-X-X)
+
+- Adding CCU V2 Local API
+
+### 1.4.45 (2026-03-20)
+
+- Added optional cloud sync when using local mode
+- Redesign Adapter Config Page
+- Dependencies update
+
 ### 1.4.40 (2025-05-13)
+
 - New Option Mode "BKW"
-> At a battery level of ≥ 97%, the script enables BKW mode to feed a constant 600–800 W into the grid alongside household use, potentially receiving compensation if registered as a balcony power system (BKW).
+  > At a battery level of ≥ 97%, the script enables BKW mode to feed a constant 600–800 W into the grid alongside household use, potentially receiving compensation if registered as a balcony power system (BKW).
 
 ### 1.4.32 (2025-04-06)
+
 - New cloud method – Backup mode Server 2 (check config)
   > Note: Cloud Server 1 provides more datapoints but may be less stable.  
   > Cloud Server 2 (Backup mode) is more stable but delivers fewer datapoints.
 - Adds dynamic firmware version management with categorized release listings.
 
 ### 1.4.11 (2025-03-17)
+
 - CloudApi: Request times no longer aligned to second 0 on all adapters, improving load distribution.
 - Updated dependencies.
 
@@ -79,17 +97,20 @@ http://www.maxxisun.de
 - Improved: Redesigned adapter settings for a better user experience
 
 ### 1.3.13 (2025-01-07)
+
 - Fixed: Issue with the dcAlgorithm datapoint where the UI could crash due to an incorrect states definition
 - Removed the info.localip datapoint. The local IP address is now directly included in the jsonConfig.
 - Adjusted code to use modern methods, replacing deprecated ones like setObjectAsync.
 
 ### 1.3.0 (2024-12-15)
+
 - **Summer/Winter mode** added:
   - Dynamic adjustment of charging parameters based on seasons.
   - Configurable with start and end dates.
 - **Cloud API query interval**: Interval for CCU queries in cloud mode is now configurable via a slider between 10 and 60 seconds.
 
 ## License
+
 MIT License
 
 Copyright (c) 2024-2026

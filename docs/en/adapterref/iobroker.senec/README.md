@@ -5,6 +5,10 @@ BADGE-Number of Installations (latest): http://iobroker.live/badges/senec-instal
 BADGE-Number of Installations (stable): http://iobroker.live/badges/senec-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/nobl/ioBroker.senec/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.senec.png?downloads=true
+BADGE-WERO: https://img.shields.io/badge/WERO-8A2BE2
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&logoColor=white
+BADGE-Buy Me a Coffee: https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black
+BADGE-GitHub Sponsor: https://img.shields.io/badge/Sponsor-GitHub-181717?logo=github&logoColor=white
 ---
 ![Logo](/admin/senec.png)
 # ioBroker.senec
@@ -16,18 +20,15 @@ Senec currently also no longer provides a reliable way to influence peak shaving
 Whether other systems (e.g. V3) also work with it depends on whether they are also based on lala.cgi and provide the same JSON information.
 Even with integration into the Senec.Clound it is not guaranteed that the data can still be retrieved via the web interface (for this please report your experiences).
 
+Adapter supports local polling via lala.cgi and polling via Web API.
+
 Systems that might work:
-* Senec Home 4.0 / Blei
-* Senec Home 6.0 Pb
-* Senec Home 8.0 / Blei
-* Senec Home 10.0 Pb
-* Senec Home 5.0/7.5/10.0 / Lithium
-* Senec Home 15.0 / Lithium
-* Senec Home V2 5.0/7.5/10.0
-* Senec Home V2 10.0 / Blei
-* Senec Home V2.1 1ph / Lithium
-* Senec.Home V3 Hybrid
-* Senec.Home V3 Hybrid duo
+* Senec Home 4.0,  6.0, 8.0, 10.0 / Blei
+* Senec Home 5.0, 7.5, 10.0, 15.0 / Lithium
+* Senec Home V2 5.0, 7.5, 10.0
+* Senec Home V2.1
+* Senec.Home V3
+* Senec.Home V4
 * Senec Business 30.0 / Blei
 * Senec Business V2 30.0 / Blei
 * Senec Business 25.0 / Lithium
@@ -41,9 +42,6 @@ SENEC Systems that don't provide a local webinterface might be monitored by usin
 
 ## Disclaimer
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
-
-## Installation
-You is facilitated via the ioBroker web interface and the configuration will auto-open once installation is completed.
 
 ## Setup
 In addition to the adapter installation you have to add an instance of the adapter.
@@ -93,171 +91,11 @@ If a state is not documented (or only partially documented) and you know what it
 
    *Read-only boolean which is true if the adapter is connected to the senec system.*
    
-#### Channel: _calc
-This channel contained calculated values. Doesn't exist any longer due to STATISTIC not available anymore.
+#### Channel: _api
+This channel contains values polled from SENEC App-API. 
 
    
 #### Channel: BMS
-
-* BL[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents ? for each battery pack.*
-   
-* CHARGED_ENERGY[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents the amount of charged energy per battery pack in unit ?*
-   
-* CHARGE_CURRENT_LIMIT[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents the current charge limit in Ampere per battery pack.*
-   
-* CURRENT[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's current in Ampere.*
-   
-* CYCLES[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's current charching cycles.*
-   
-* DISCHARGED_ENERGY[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents the amount of energy discharged per battery in unit ?.*
-   
-* DISCHARGE_CURRENT_LIMIT[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's current discharge limit in Ampere.*
-   
-* FW[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's firmware version.*
-   
-* HW_EXTENSION[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's ?.*
-   
-* HW_MAINBOARD[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's mainboard version.*
-   
-* MAX_CELL_VOTAGE[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's maximum cell voltage in Volts.*
-   
-* MIN_CELL_VOTAGE[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's minimum cell voltage in Volts.*
-   
-* SN[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's serial number.*
-   
-* SOC[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's state of charge.*
-   
-* SOH[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's state of health.*
-   
-* STATUS[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's status.*
-   
-* TEMP_MAX[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's maximum temperature.*
-   
-* TEMP_MIN[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's minimum temperature.*
-   
-* VOLTAGE[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only number, which represents each battery pack's voltage in Volts.*
-   
-* BMS_READY_FLAG
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Read-only boolean, which represents if the BMS is ready.*
    
 * MODULES_CONFIGURED
 
@@ -275,57 +113,9 @@ This channel contained calculated values. Doesn't exist any longer due to STATIS
 
    *Read-only number, which represents the number of modules currently known the system (incl. non-configured).*
    
-* START_UPDATE
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Read-only boolean, which represents if an update is to be started.*
-   
-* WIZARD_ABORT
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Read-only boolean, which represents if the setup wizard was aborted.*
-   
-* WIZARD_CONFIRM
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Read-only boolean, which represents if the setup wizard was confirmed.*
-   
-* WIZARD_DCCONNECT
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Read-only boolean, which represents ?.*
-   
-* WIZARD_START
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-only boolean, which represents if the setup wizard is to be started.*
-   
-* WIZARD_STATE
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Read-only number, which represents the setup wizard's state.*
-   
 
 #### Channel: ENERGY
-
+   
 * GUI_BAT_DATA_CURRENT
 
     |Data type|Permission|                                                                       
@@ -357,14 +147,6 @@ This channel contained calculated values. Doesn't exist any longer due to STATIS
     |number|R|
 
    *Read-only number, which represents how much power is coming from / going into the battery in Watts. Negative values are discharging.*
-   
-* GUI_BOOSTING_INFO
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Read-only boolean, which we don't know the exact meaning of yet.*
    
 * GUI_CHARGING_INFO
 
@@ -406,14 +188,6 @@ This channel contained calculated values. Doesn't exist any longer due to STATIS
 
    *Read-only number, detailing the system's uptime in hours.*
    
-* STAT_MAINT_REQUIRED
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Read-only boolean, which represents if your senec system requires maintenance.*
-   
 * STAT_STATE
 
     |Data type|Permission|                                                                       
@@ -429,10 +203,7 @@ This channel contained calculated values. Doesn't exist any longer due to STATIS
     |string|R|
 
    *Read-only string, which represents the system's state in human readable format (sorry - we only have the german states from senec).*
-   
-#### Channel: STATISTIC
-Doesn't exist anymore.
-   
+     
    
 #### Channel: SYS_UPDATE
 
@@ -499,9 +270,9 @@ Doesn't exist anymore.
 
     |Data type|Permission|                                                                       
     |:---:|:---:|
-    |string|R|
+    |number|R|
 
-   *Read-only text, which designates the serial number of wallbox [0..3].*
+   *Read-only number, which designates the number of wallbox [0..3]. This is only available on systems with configured wallboxes.*
 
 ## Changelog
 
@@ -509,6 +280,40 @@ Doesn't exist anymore.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Increased default API poll interval to 6 minutes. This appears to be causing less issues with the server than 5 minutes.
+
+### 2.5.0 (2026-03-28)
+- Added control.RebootAppliance to initiate appliance reboot. Only works if local lala.cgi is available and connected. Function requires extra permission via adapter settings. Please use responsible!
+- We are now revealing that an ioBroker integration is accessing the API per default (UserAgent is set to 'integration'). Please consider leaving that to 'integration' so SENEC knows there are many users using the ioBroker integration. If you don't want this or experience issues with 'integration' UserAgent, check settings and revert UserAgent to 'Browser' or define your 'custom' UserAgent.
+- Fixed incremential back-off for local polling.
+- Moved local appliance control settings into own tab.
+- Concurrency for API requests can now be controlled via settings. Please be cautious! Senec API is fragile. Go with 1 concurrent request if you experience issues.
+- You can now enable diagnostics for api-request-queue. You can log them to 'info' log or have them in _api.diagnostics.queue.*
+- Reduced local polling interval for lowPrio to 5 minutes.
+- UI now hides unavailable options.
+- Added option to remove API log spam. If you don't need to know every few minutes we are refreshing tokens or polling the API: Deactivate it.
+- Partial code rewrite (you can now safely have several instances of adapter - if you ever wanted)
+- Dependency updates
+
+### 2.4.8 (2026-03-14)
+ - Connection type now is "cloud" (ioBroker internal setting) - although we still support local interaction (if possible per individual appliance)
+ - Dependency updates
+
+### 2.4.7 (2026-03-14)
+- Clearly indicating that initial API login busted and adapter will turn off API polling until restart
+- Certain warnings moved to debug (as they are pretty much for debug purposes only)
+- Made usage of axios-cookiejar-support ESM compatible (dynamic import). Solves issues with node 22.
+- RND made node22+ safe.
+- Code optimizations
+
+### 2.4.6 (2026-03-09)
+- Optimizations in Token Refesh Szenarios
+- Optimizations in case of authentication issues
+- Persisted RefreshToken across adapter restarts (less logins)
+- Reworded errors/warning messages
+- Dependency updates
+
 ### 2.4.5 (2026-03-03)
 - fixed typo that made today/hourly today/horly. You can safely delete the horly branch Measurements/Daily/horly
 - Updated delay for token refresh (it can be up to 2 min now).
@@ -578,7 +383,6 @@ Doesn't exist anymore.
 - less logging (moved some info to debug again)
 
 ### 2.1.0 (2026-02-04) - the API returns - finally finally hopefully finally
-
 - Complete rewrite of the Senec API functionality. Thanks to @timfxtones for pointing me in the right direction
 - No longer using the web-interface at mein-senec.de - it didn't work properly on the long run ...
 - Still missing some datapoints so far. They will be implemented in the future.

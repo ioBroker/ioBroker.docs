@@ -33,6 +33,11 @@ Discussion:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### 3.0.4-alpha.0 (2026-03-08)
+
+- (Black-Thunder) Retry and queue handling was added when device information is missing
+
 ### 3.0.3 (2026-01-21)
 
 - (Black-Thunder) Setting ATW device zone operation modes was fixed

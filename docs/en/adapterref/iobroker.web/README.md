@@ -117,6 +117,9 @@ More info could be found here: https://github.com/ioBroker/webserver?tab=readme-
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 ### 8.0.0 (2026-02-18)
 * (@GermanBluefox) Updated packages. Minimal Node.js version is now 20.0.0
 * (@GermanBluefox) Removed binary states

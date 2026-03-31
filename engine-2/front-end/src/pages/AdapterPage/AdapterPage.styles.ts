@@ -10,7 +10,7 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
         gap: '0 40px',
         margin: '0px 8px 0px 32px',
-        paddingTop: '35px',
+        paddingTop: '30px',
         paddingBottom: '40px',
         color: theme.palette.text.primary,
         fontFamily: theme.typography.fontFamily,

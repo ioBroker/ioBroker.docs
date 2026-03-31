@@ -35,6 +35,16 @@ For example, you can schedule the adapter query for a time when the hard disks a
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.4.4 (2026-03-17)
+
+- (Scrounger) dependencies updated
+
+### 1.4.3 (2026-03-09)
+
+- (Scrounger) translation updates
+- (Scrounger) dependencies updated
+- (Scrounger) downgrade @iobroker/adapter-core to v3.3.1 to prevent conflicts with js-controller < v7.1.0 in rare cases
+
 ### 1.4.2 (2025-12-04)
 
 - (Scrounger) connection timeout bug fix
@@ -108,7 +118,7 @@ For example, you can schedule the adapter query for a time when the hard disks a
 
 MIT License
 
-Copyright (c) 2025 Scrounger <scrounger@gmx.net>
+Copyright (c) 2025-2026 Scrounger <scrounger@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

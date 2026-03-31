@@ -40,23 +40,47 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             },
         },
     },
-    breadCrumbs: {
-        color: theme.palette.primary.main,
+    breadcrumbsContainer: {
+        fontFamily: 'Audiowide, sans-serif',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        marginLeft: '32px',
+        marginBottom: theme.spacing(4),
+        textTransform: 'uppercase',
+    },
+    breadcrumbInactive: {
         fontSize: '20px',
-        marginTop: '10px',
-        marginLeft: '10px',
-        fontWeight: 400,
+        color: theme.palette.text.primary,
         letterSpacing: '-0.02em',
+        fontWeight: 400,
         [theme.breakpoints.down(1280)]: {
-            fontSize: '24px',
-            marginTop: '4px',
-        },
-        [theme.breakpoints.down(769)]: {
-            fontSize: '20px',
-            marginTop: '6px',
+            fontSize: '18px',
         },
         [theme.breakpoints.down(481)]: {
-            marginTop: '0px',
+            fontSize: '16px',
+        },
+    },
+    breadcrumbSlash: {
+        fontSize: '20px',
+        color: 'white',
+        [theme.breakpoints.down(1280)]: {
+            fontSize: '18px',
+        },
+        [theme.breakpoints.down(481)]: {
+            fontSize: '16px',
+        },
+    },
+    breadcrumbActive: {
+        fontSize: '36px',
+        color: theme.palette.primary.main,
+        letterSpacing: '0.03em',
+        fontWeight: 400,
+        [theme.breakpoints.down(1280)]: {
+            fontSize: '28px',
+        },
+        [theme.breakpoints.down(481)]: {
+            fontSize: '20px',
         },
     },
     menuBlock: {
@@ -149,7 +173,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     },
     adaptersGrid: {
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(251px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
         gap: '20px',
         paddingBottom: '120px',
         [theme.breakpoints.down(661)]: {

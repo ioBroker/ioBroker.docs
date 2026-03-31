@@ -44,9 +44,9 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 
 ## Documentation
 
-[English Documentation](./docs/en/README.md)
+[🇺🇸 Documentation](./docs/en/README.md)
 
-[Deutsche Dokumentation](./docs/de/README.md)
+[🇩🇪 Dokumentation](./docs/de/README.md)
 
 ---
 
@@ -62,11 +62,36 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.5.0 (2026-03-21)
 
-### **WORK IN PROGRESS**
+* (patricknitsch) Fix Issues RepoChecker
+* (copilot) Add Tab for SOLECTRUS iFrame
+
+### 1.4.1 (2026-03-18)
+
+* (copilot) Update Tab Format
+* (copilot) Update Readme
+* (patricknitsch) Update Packages
+
+### 1.4.0 (2026-03-16)
+
+* (copilot) Fix String Handling in Formula Engine
+* (copilot) Fix Formula Engine when using state formulas
+* (copilot) New Page for smart Sensor Overview
+* (patricknitsch) Update Readme and Doc
+
+### 1.3.1 (2026-03-06)
+
+* (claude) Fix DS Tick time budget
+
+### 1.3.0 (2026-03-04)
 
 * (claude) Fix DS Tick time budget
 * (patricknitsch) Update Admin Package
+* (claude) Change Admin to easy and expert mode
+* (claude) Add information in easy mode 
+* (claude) Add type json for sending json, i.e. forecast
+* (claude) Update Readme
 
 ### 1.2.2 (2026-02-24)
 

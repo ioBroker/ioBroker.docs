@@ -40,14 +40,16 @@ Other FSAPI documents
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
+
+- (pdbjjens) **New**: navigation functions (up/down/select/back/home/search) for all modes (#342)
+- (pdbjjens) **New**: functions to set presets and to navigate presets up/down
+
+### 0.5.1 (2026-03-07)
 
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (pdbjjens) **Fixed**: update release-script (#348)
-
-### 0.5.1-alpha.0 (2025-10-20)
-
+- (mcm1957) Dependencies have been updated
 - (pdbjjens) Fix: Add GitHub as npm Trusted Publisher
 - (pdbjjens) Change: Update dependencies
 
@@ -83,7 +85,6 @@ Other FSAPI documents
 ## License
 
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2025 halloamt <iobroker@halloserv.de> & IoBroker-Community

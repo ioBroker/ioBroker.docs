@@ -15,7 +15,7 @@
 
 ## plenticore-g3 adapter for ioBroker
 
-Adapter to communicate with a KOSTAL Plenticore (various models, see section below) via REST API. This API ist much more powerful than modbus. It gives access to approximately 200 read-only data points referred to as 'processdata' and about 250 writable settings. This API is documented on this URL: 
+Adapter to communicate with a KOSTAL Plenticore (various models, see section below) via REST API. This API is much more powerful than modbus. It gives access to approximately 200 read-only data points referred to as 'processdata' and about 250 writable settings. This API is documented on this URL: 
 
 http://\<plenticore host>/api/v1
 
@@ -50,6 +50,7 @@ Despite what the name of the adapter may suggest (that only G3 models are suppor
 ## Changelog
 ### **WORK IN PROGRESS**
 - update dependencies
+- fix notification, only send notification about firmware updates every 14 days
 
 ### 0.5.2 (2026-01-04)
 - fix skipping optionals that have become preselected

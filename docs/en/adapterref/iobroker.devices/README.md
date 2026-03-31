@@ -17,7 +17,7 @@ Manage and create devices for using it in other adapters like material, iot, mat
 
 ![Screen](img/screen.png)
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## ioBroker.devices Adapter User Manual
 
@@ -46,14 +46,14 @@ The `ioBroker.devices` adapter serves the following purposes:
 
 #### Standardization
 Many adapters like mqtt, knx or similarly deliver data points with different names and structures. This adapter creates a virtual device with a consistent structure, making it easier to manage and visualize devices.
-It adds automatically roles, units and names to the states.
+It adds automatic roles, units and names to the states.
 
 #### Simplified Maintenance
 The `ioBroker.devices` adapter allows users to create virtual devices that can be easily remapped to different physical devices.
 This means that if you change a physical device, you don't need to update your scripts, visualizations or history settings; you just need to remap the data points in the adapter.
 
 #### Enhanced Compatibility
-The adapter knows how the devices should look like and how to use them. It creates a virtual device with the same structure as the physical device, making it easier to integrate with other adapters.
+The adapter knows what the devices should look like and how to use them. It creates a virtual device with the same structure as the physical device, making it easier to integrate with other adapters.
 
 #### User-Friendly
 The `ioBroker.devices` adapter is designed to be user-friendly, making it accessible for beginners while still offering advanced features for experienced users. The intuitive interface allows users to create and manage virtual devices without needing extensive technical knowledge.
@@ -71,7 +71,7 @@ Open Devices Tab in admin.
 - Click the "+" button to create a new virtual device.
 - Enter a Name for the device (e.g., "LivingRoomLight").
 - Select a Device Type (e.g., Light, Switch, Thermostat) from the predefined list.
-- Optionally, assign a Category (e.g., Lighting, Heating) for organization.
+- Optionally, assign a Category (e.g., Lighting, Heating) for the organization.
 
 Map Data Points:
 
@@ -109,7 +109,7 @@ If you created e.g. a temperature device named `Temperature` and provided both s
 
 Almost every device type could have additional states (indicators) for battery, connectivity, error and some more else. They are optional, but some adapters (e.g., `material` or `matter`) could interpret it.
 
-For every state, you can provide all settings, that aliases support:
+For every state, you can provide all settings that aliases support:
 - Different states for read and write
 - Convert formula for read and write
 
@@ -123,11 +123,20 @@ Organize Devices: Use categories to group devices (e.g., "Lighting", "Heating") 
 ## Type of devices
 This adapter is built with the help of `type-detector`. All possible devices could be found [here](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md) 
 
+## Video
+[![Video](https://img.youtube.com/vi/0Aecm5YAk7M/0.jpg)](https://www.youtube.com/watch?v=0Aecm5YAk7M)
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.5 (2026-03-26)
+* (@GermanBluefox) Added many new widgets.
+
+### 2.0.3 (2026-03-24)
+* (@GermanBluefox) Added widgets' visualisation. Now it is possible to create a GUI within the adapter
+
 ### 1.2.14 (2026-02-06)
 * (@GermanBluefox) Correcting the scrolling on the touch devices
 * (@GermanBluefox) Fixing a problem with `ACTUAL` state

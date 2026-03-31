@@ -3,7 +3,6 @@ import { makeStyles } from '../../theme';
 export const useStyles = makeStyles()(theme => ({
     card: {
         width: '100%',
-        maxWidth: '292px',
         height: '294px',
         borderRadius: '16px',
         padding: '16px',
@@ -11,9 +10,6 @@ export const useStyles = makeStyles()(theme => ({
         color: 'white',
         display: 'flex',
         flexDirection: 'column',
-        [theme.breakpoints.down(1280)]: {
-            maxWidth: 'none',
-        },
     },
     title: {
         fontFamily: "'Saira'",

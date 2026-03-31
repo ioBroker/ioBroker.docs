@@ -20,6 +20,9 @@ Settings available:
 
 ![möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/settings.png)
 
+For devices with the new JUDO connectivity module, enable `REST API (connectivity module)` in instance settings.
+This uses the local interface `http://<ip>/api/rest/...` (Basic Auth).
+(default username/password is 'admin' / 'Connectivity')
 
 
 ## Changelog

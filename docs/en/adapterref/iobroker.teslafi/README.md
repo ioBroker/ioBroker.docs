@@ -80,6 +80,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+- (HombachC) switch to ES2023 code
+
 ### 2.0.6 (2026-02-27)
 
 - (hombach) admin 7.6.20 needed by adapter checker

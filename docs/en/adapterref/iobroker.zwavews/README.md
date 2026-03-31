@@ -36,7 +36,20 @@ Activate WS Server Settings in `zwave-js-ui` we use the Home Assistant Settings 
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (arteck) fix unknown state from scene
+* (arteck) del last dot from DP
+
+### 0.1.2 (2026-03-15)
+* (arteck) typo
+
+### 0.1.1 (2026-03-15)
+* (arteck) add debug information
+
+### 0.1.0 (2026-03-08)
+* (arteck) BREAKING CHANGE - dp name is now with underline
 * (arteck) add deviceManager
+* (arteck) fix dp's with a space
+* (arteck) fix dp's with special chars
 
 ### 0.0.18 (2026-02-28)
 * (arteck) add info.sendMessageAllowed object to allow sending the message to zwave-ui-js

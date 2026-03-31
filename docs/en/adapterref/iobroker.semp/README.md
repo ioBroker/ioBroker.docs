@@ -82,6 +82,16 @@ The adapter allows you to control a dishwasher or other devices that consume sta
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.5 (2026-03-17)
+* (René) update dependencies + changes based on adapter checker
+
+### 2.0.3 (2026-03-01)
+ * (René) lint reported errors solved
+
+### 2.0.0 (2026-03-01)
+* (René) admin overworked completely with react and vite. **ATTENTION**: breaking changes in admin settings !!!
+* (René) backend complete overworked with typescript
+
 ### 1.5.4 (2025-10-26)
 * (René) bug fix sentry
 

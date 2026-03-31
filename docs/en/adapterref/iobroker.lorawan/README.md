@@ -24,6 +24,9 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.21.20 (2026-03-30)
+* (BenAhrdt) add more role definitions and logic to card roles
+
 ### 1.21.19 (2026-03-30)
 * (BenAhrdt) add value.power.active to cardRoles and possibility for Name (label? Name? ID)
 

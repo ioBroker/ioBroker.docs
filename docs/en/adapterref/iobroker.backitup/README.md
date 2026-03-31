@@ -687,6 +687,9 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (simatec) dependencies updated
+
 ### 3.3.14 (2026-02-18)
 * (simatec) License updated
 * (simatec) dependencies updated
