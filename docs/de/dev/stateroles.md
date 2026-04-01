@@ -106,7 +106,17 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `value.window` (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) Es ist wichtig, dass (`CLOSED/TILTED/OPEN`) vorhanden ist. Die Werte können unterschiedlich sein.
 * `value.temperature` (`common.unit='°C' or '°F' or 'K'`)
 * `value.humidity`
-* `value.co2` - CO2 (Einheit: ppm)
+* `value.co`              - Carbon monoxide (unit: ppm)
+* `value.co2`             - Carbon dioxide (unit: ppm)
+* `value.no2`             - Nitrogen dioxide (unit: µg/m³ or ppm)
+* `value.o3`              - Ozone (unit: µg/m³ or ppm)
+* `value.ch2o`            - Formaldehyde (unit: µg/m³)
+* `value.pm1`             - Particulate matter PM1 (unit: µg/m³)
+* `value.pm25`            - Particulate matter PM2.5 (unit: µg/m³)
+* `value.pm10`            - Particulate matter PM10 (unit: µg/m³)
+* `value.radon`           - Radon (unit: Bq/m³)
+* `value.tvoc`            - Total volatile organic compounds (unit: µg/m³ or ppb)
+* `value.airquality`      - Air quality index (AQI)
 * `value.brightness` - Leuchtdichtewert (Einheit: Lux)
 * `value.min`
 * `value.max`
