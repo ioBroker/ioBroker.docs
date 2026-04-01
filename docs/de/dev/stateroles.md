@@ -114,7 +114,7 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `value.pm1`             - Particulate matter PM1 (unit: µg/m³)
 * `value.pm25`            - Particulate matter PM2.5 (unit: µg/m³)
 * `value.pm10`            - Particulate matter PM10 (unit: µg/m³)
-* `value.radon`           - Radon (unit: Bq/m³)
+* `value.rn`              - Radon (unit: Bq/m³)
 * `value.tvoc`            - Total volatile organic compounds (unit: µg/m³ or ppb)
 * `value.airquality`      - Air quality index (AQI)
 * `value.brightness` - Leuchtdichtewert (Einheit: Lux)
