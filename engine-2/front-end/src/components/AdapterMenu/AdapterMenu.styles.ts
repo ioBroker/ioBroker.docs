@@ -27,17 +27,9 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
     },
     menuInner: {
         overflowX: 'hidden',
+        paddingRight: 0,
         [theme.breakpoints.down(661)]: {
             maxHeight: !isCollapsed ? 'calc(100vh - 165px)' : 'calc(100vh - 125px)',
-        },
-        [theme.breakpoints.down(481)]: {
-            paddingRight: !isCollapsed ? '20px' : '12px',
-        },
-        [theme.breakpoints.down(878)]: {
-            paddingRight: '20px',
-        },
-        [theme.breakpoints.up(1440)]: {
-            paddingRight: '20px',
         },
         '&::-webkit-scrollbar': {
             width: '8px',

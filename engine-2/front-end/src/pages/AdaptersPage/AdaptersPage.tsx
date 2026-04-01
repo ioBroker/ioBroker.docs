@@ -143,6 +143,7 @@ const AdaptersPage = (): React.ReactNode => {
         if (isMobile) {
             setIsMenuCollapsed(true);
         }
+        mainBlockRef.current?.scrollTo({ top: 0 });
     };
 
     const adaptersList = useMemo<AdapterItem[]>(() => {

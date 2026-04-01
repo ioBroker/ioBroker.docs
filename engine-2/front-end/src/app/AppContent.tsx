@@ -40,7 +40,8 @@ const AppContent = (): React.ReactNode => {
     const [, forceUpdate] = useReducer((x: number) => x + 1, 0);
     const location = useLocation();
 
-    const hideGlobalFooter = PAGES_WITH_INLINE_FOOTER.some(p => location.pathname === p);
+    const hideGlobalFooter = PAGES_WITH_INLINE_FOOTER.some(p => location.pathname === p)
+        || location.pathname.startsWith('/adapters/');
 
     return (
         <Box className={classes.root}>

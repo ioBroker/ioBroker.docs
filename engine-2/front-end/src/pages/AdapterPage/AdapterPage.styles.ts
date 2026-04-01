@@ -1,6 +1,17 @@
 import { makeStyles } from '../../theme';
 
 export const useStyles = makeStyles()(theme => ({
+    pageRoot: {
+        display: 'flex',
+        flexDirection: 'column',
+        height: 'calc(100vh - 64px)',
+        overflow: 'hidden',
+    },
+    titleContainer: {
+        flexShrink: 0,
+        paddingTop: '30px',
+        margin: '0px 8px 0px 32px',
+    },
     pageGrid: {
         display: 'grid',
         gridTemplateColumns: '1fr 350px',
@@ -8,13 +19,12 @@ export const useStyles = makeStyles()(theme => ({
             "left sidebar"
         `,
         position: 'relative',
+        flex: 1,
+        minHeight: 0,
         gap: '0 40px',
         margin: '0px 8px 0px 32px',
-        paddingTop: '30px',
-        marginBottom: '100px',
         color: theme.palette.text.primary,
         fontFamily: theme.typography.fontFamily,
-        maxHeight: 'calc(100vh - 120px)',
         overflowY: 'scroll',
         overflowX: 'hidden',
         paddingRight: '12px',
@@ -24,7 +34,6 @@ export const useStyles = makeStyles()(theme => ({
         '&::-webkit-scrollbar-track': {
             background: 'rgba(255, 255, 255, 0.05)',
             borderRadius: '8px',
-            marginTop: '80px',
             border: `1px solid ${theme.palette.primary.main}`,
         },
         '&::-webkit-scrollbar-thumb': {
@@ -92,9 +101,6 @@ export const useStyles = makeStyles()(theme => ({
         },
 
         '@media (min-width: 769px) and (max-width: 1279px)': {
-            margin: '0px 8px 120px 32px',
-            maxHeight: 'none',
-            overflowY: 'hidden',
             gridTemplateColumns: '1fr',
             gridTemplateAreas: `
                 "intro"
@@ -105,8 +111,6 @@ export const useStyles = makeStyles()(theme => ({
         },
 
         '@media (max-width: 768px)': {
-            maxHeight: 'none',
-            overflowY: 'hidden',
             gridTemplateColumns: '1fr',
             gridTemplateAreas: `
                 "intro"
@@ -114,11 +118,11 @@ export const useStyles = makeStyles()(theme => ({
                 "content"
             `,
             gap: '24px 0',
-            margin: '0px 24px 120px 24px',
+            margin: '0px 24px 0px 24px',
             paddingRight: '0px',
         },
         '@media (max-width: 480px)': {
-            margin: '0px 10px 120px 10px',
+            margin: '0px 10px 0px 10px',
         },
     },
 

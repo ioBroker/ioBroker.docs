@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState, useRef } from 'react';
+import React, { useEffect, useMemo, useState, useRef, useCallback } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useStyles } from './AdapterPage.styles';
@@ -12,6 +12,8 @@ import HistoryIcon from '../../assets/img/adapterPageIcons/history.svg';
 import LicenseIcon from '../../assets/img/adapterPageIcons/license.svg';
 import EditIcon from '../../assets/img/adapterPageIcons/edit-fill.svg';
 import LicenseModal from './LicenseModal';
+import { Footer } from '../../components/Footer/Footer';
+import Divider from '../../components/Divider/Divider';
 import HistoryModal from './HistoryModal';
 import { useAdapters } from '../../api/hooks/useAdapters';
 import { useAdapterMarkdown } from '../../api/hooks/useAdapterMarkdown';
@@ -41,7 +43,17 @@ const AdapterPage = (): React.ReactNode => {
     const [language, setLanguage] = useState(I18n.getLanguage());
     const { data: adaptersData } = useAdapters();
     const authorsRef = useRef<HTMLSpanElement>(null);
+    const pageGridRef = useRef<HTMLDivElement>(null);
+    const [scrollProgress, setScrollProgress] = useState(0);
     const [isAuthorsOverflow, setIsAuthorsOverflow] = useState(false);
+
+    const handlePageGridScroll = useCallback(() => {
+        const el = pageGridRef.current;
+        if (!el) return;
+        const scrollHeight = el.scrollHeight - el.clientHeight;
+        const percent = scrollHeight > 0 ? Math.round((el.scrollTop / scrollHeight) * 100) : 0;
+        setScrollProgress(Math.min(100, Math.max(0, percent)));
+    }, []);
 
     useEffect(() => I18n.subscribe(setLanguage), []);
 
@@ -166,28 +178,31 @@ const AdapterPage = (): React.ReactNode => {
     };
 
     return (
-        <Box className={classes.pageGrid}>
-            <Box className={classes.leftColumn}>
-                <Box className={classes.introArea}>
-                    <Box className={classes.breadcrumbs}>
-                        <span className={classes.breadcrumbSlash}>//</span>{' '}
-                        <span
-                            onClick={() => navigate('/adapters')}
-                            style={{ cursor: 'pointer' }}
-                        >
-                            {I18n.t('adapters.label').toUpperCase()}
-                        </span>
-                        <span className={classes.breadcrumbSlash}>/</span>
-                        <span
-                            onClick={handleItemClick}
-                            style={{ cursor: 'pointer' }}
-                        >
-                            {(adapterInfo?.categoryTitle || '').toUpperCase()}
-                        </span>
-                        <span className={classes.breadcrumbsEnd}> / {(adapterTitle || '').toUpperCase()}</span>
-                    </Box>
-                    <Typography className={classes.subTitle}>{adapterDescription}</Typography>
+        <Box className={classes.pageRoot}>
+            <Box className={classes.titleContainer}>
+                <Box className={classes.breadcrumbs}>
+                    <span className={classes.breadcrumbSlash}>//</span>{' '}
+                    <span
+                        onClick={() => navigate('/adapters')}
+                        style={{ cursor: 'pointer' }}
+                    >
+                        {I18n.t('adapters.label').toUpperCase()}
+                    </span>
+                    <span className={classes.breadcrumbSlash}>/</span>
+                    <span
+                        onClick={handleItemClick}
+                        style={{ cursor: 'pointer' }}
+                    >
+                        {(adapterInfo?.categoryTitle || '').toUpperCase()}
+                    </span>
+                    <span className={classes.breadcrumbsEnd}> / {(adapterTitle || '').toUpperCase()}</span>
                 </Box>
+            </Box>
+            <Box className={classes.pageGrid} ref={pageGridRef} onScroll={handlePageGridScroll}>
+                <Box className={classes.leftColumn}>
+                    <Box className={classes.introArea}>
+                        <Typography className={classes.subTitle}>{adapterDescription}</Typography>
+                    </Box>
 
                 <Box className={classes.mainContentArea}>
                     <AdapterMarkdownView
@@ -424,6 +439,10 @@ const AdapterPage = (): React.ReactNode => {
                 </Box>
             </Box>
 
+            <Box sx={{ gridColumn: '1 / -1', marginTop: '100px' }}>
+                <Divider position={scrollProgress} parentWidth={pageGridRef.current?.clientWidth || window.innerWidth} />
+                <Footer />
+            </Box>
             <LicenseModal
                 open={isLicenseOpen}
                 onClose={() => setIsLicenseOpen(false)}
@@ -434,6 +453,7 @@ const AdapterPage = (): React.ReactNode => {
                 onClose={() => setIsHistoryOpen(false)}
                 items={changelogItems}
             />
+            </Box>
         </Box>
     );
 };
