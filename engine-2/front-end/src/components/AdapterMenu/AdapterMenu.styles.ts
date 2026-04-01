@@ -13,13 +13,13 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
             width: isCollapsed ? '59px' : '328px',
             backgroundColor: !isCollapsed ? (theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF') : 'transparent',
             padding: !isCollapsed ? '20px' : '0',
-            marginLeft: !isCollapsed ? '24px' : '30px',
+            marginLeft: !isCollapsed ? '24px' : '0px',
             borderRadius: !isCollapsed ? '10px' : '0px',
             border: !isCollapsed ? `2px solid ${theme.palette.primary.main}` : 'none',
             boxShadow: !isCollapsed ? '0 4px 20px rgba(0, 0, 0, 0.5)' : 'none',
         },
-        [theme.breakpoints.down(401)]: {
-            marginLeft: !isCollapsed ? '10px' : '30px',
+        [theme.breakpoints.down(481)]: {
+            marginLeft: !isCollapsed ? '10px' : '0px',
         },
         [theme.breakpoints.up(1440)]: {
             width: isCollapsed ? '59px' : '272px',

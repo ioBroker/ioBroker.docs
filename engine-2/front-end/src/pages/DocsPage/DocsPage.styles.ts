@@ -6,6 +6,9 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         flexDirection: 'column',
         height: 'calc(100vh - 64px)',
         overflow: 'hidden',
+        [theme.breakpoints.down(481)]: {
+            paddingTop: '20px',
+        },
     },
     pageWrapper: {
         flex: 1,
@@ -92,6 +95,9 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         '&::-webkit-scrollbar-thumb:hover': {
             background: theme.palette.secondary.main,
         },
+        [theme.breakpoints.down(1280)]: {
+            margin: '0 24px',
+        },
         [theme.breakpoints.down(768)]: {
             position: !isMenuCollapsed ? 'relative' : 'static',
         },
@@ -100,7 +106,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             overflowY: 'hidden',
         },
         [theme.breakpoints.down(481)]: {
-            margin: '0 10px',
+            margin: '0',
+            paddingLeft: '10px',
             paddingRight: '0px',
         },
     },

@@ -6,11 +6,48 @@ export const useStyles = makeStyles()(theme => ({
         flexDirection: 'column',
         height: 'calc(100vh - 64px)',
         overflow: 'hidden',
+        position: 'relative',
+        '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: '180px',
+            left: '60%',
+            transform: 'translate(-50%, 0)',
+            width: '1000px',
+            height: '300px',
+            opacity: 0.5,
+            pointerEvents: 'none',
+            zIndex: 0,
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.3) 0%, rgba(255, 255, 255, 0) 55%)'
+                    : 'none',
+            '@media (min-width: 769px) and (max-width: 1279px)': {
+                display: 'none',
+            },
+            '@media (max-width: 769px)': {
+                background:
+                    theme.palette.mode === 'dark'
+                        ? 'radial-gradient(circle, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)'
+                        : 'none',
+                width: '400px',
+                height: '400px',
+                left: 'auto',
+                right: '20%',
+                transform: 'translate(50%, -50%)',
+            },
+        },
     },
     titleContainer: {
         flexShrink: 0,
-        paddingTop: '30px',
-        margin: '0px 8px 0px 32px',
+        margin: '0px 8px 0px 0px',
+        '@media (max-width: 1279px)': {
+            paddingTop: '20px',
+        },
+        '@media (max-width: 480px)': {
+            margin: '0px',
+            background: 'transparent',
+        },
     },
     pageGrid: {
         display: 'grid',
@@ -43,41 +80,6 @@ export const useStyles = makeStyles()(theme => ({
         '&::-webkit-scrollbar-thumb:hover': {
             background: theme.palette.secondary.main,
         },
-        '&::after': {
-            content: '""',
-            position: 'absolute',
-            top: '13%',
-            left: '60%',
-            transform: 'translate(-50%, -50%)',
-            width: '1000px',
-            height: '300px',
-            opacity: 0.5,
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.3) 0%, rgba(255, 255, 255, 0) 55%)'
-                    : 'none',
-            '@media (min-width: 769px) and (max-width: 1279px)': {
-                display: 'none',
-            },
-            '@media (max-width: 1440px)': {
-                top: '14%',
-            },
-            '@media (max-width: 769px)': {
-                top: '4%',
-                background:
-                    theme.palette.mode === 'dark'
-                        ? 'radial-gradient(circle, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)'
-                        : 'none',
-                width: '400px',
-                height: '400px',
-                left: 'auto',
-                right: '20%',
-                transform: 'translate(50%, -50%)',
-            },
-            '@media (max-width: 481px)': {
-                top: '2%',
-            },
-        },
         '&::before': {
             content: '""',
             position: 'fixed',
@@ -100,6 +102,11 @@ export const useStyles = makeStyles()(theme => ({
             },
         },
 
+        '@media (max-width: 1279px)': {
+            margin: '0px 2px 0px 24px',
+            paddingRight: '10px',
+        },
+
         '@media (min-width: 769px) and (max-width: 1279px)': {
             gridTemplateColumns: '1fr',
             gridTemplateAreas: `
@@ -118,11 +125,11 @@ export const useStyles = makeStyles()(theme => ({
                 "content"
             `,
             gap: '24px 0',
-            margin: '0px 24px 0px 24px',
             paddingRight: '0px',
         },
         '@media (max-width: 480px)': {
-            margin: '0px 10px 0px 10px',
+            margin: '0px',
+            padding: '0px 0px 0px 10px',
         },
     },
 
@@ -190,16 +197,22 @@ export const useStyles = makeStyles()(theme => ({
         fontFamily: 'Audiowide, sans-serif',
         fontSize: '20px',
         color: theme.palette.text.primary,
-        marginBottom: '24px',
+        marginBottom: '22px',
+        marginLeft: '32px',
         display: 'flex',
         alignItems: 'center',
-        gap: '8px',
+        flexWrap: 'wrap',
+        columnGap: '8px',
+        rowGap: '4px',
         textTransform: 'uppercase',
         '@media (max-width: 1279px)': {
             fontSize: '18px',
+            marginLeft: '24px',
+            marginBottom: '20px',
         },
         '@media (max-width: 480px)': {
             fontSize: '16px',
+            marginLeft: '10px',
         },
     },
     breadcrumbsEnd: {
@@ -394,9 +407,9 @@ export const useStyles = makeStyles()(theme => ({
         paddingBottom: '16px',
         display: 'flex',
         flexDirection: 'column',
-        '@media (max-width: 769px)': {
-            width: '630px',
-            height: '202px',
+        '@media (max-width: 1279px)': {
+            width: '100%',
+            minHeight: 'unset',
         },
     },
     codeBlockHeader: {
@@ -460,7 +473,8 @@ export const useStyles = makeStyles()(theme => ({
         color: theme.palette.primary.main,
         borderRadius: theme.shape.borderRadius,
         padding: '5px 10px',
-        '@media (max-width: 975px)': {
+        whiteSpace: 'nowrap',
+        '@media (max-width: 1279px)': {
             top: 45,
             right: 0,
         },
@@ -480,7 +494,12 @@ export const useStyles = makeStyles()(theme => ({
         },
         '@media (max-width: 769px)': {
             borderRadius: '16px',
-            paddingTop: '20px',
+            padding: '20px 24px',
+            minHeight: 'unset',
+        },
+        '@media (max-width: 480px)': {
+            padding: '20px 10px 20px 10px',
+            minHeight: 'unset',
         },
     },
     logoContainer: {
@@ -560,10 +579,11 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '14px',
         fontWeight: 200,
         '& svg': {
-            marginBottom: '4px',
+            marginBottom: '6px',
             color: theme.palette.text.primary,
         },
         '& img': {
+            marginBottom: '6px',
             filter:
                 theme.palette.mode === 'light'
                     ? 'brightness(0) saturate(100%) invert(21%) sepia(96%) saturate(1992%) hue-rotate(190deg) brightness(95%) contrast(91%)'

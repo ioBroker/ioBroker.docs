@@ -59,18 +59,45 @@ export const darkTheme = createTheme({
         fontWeightLight: 200,
         h1: {
             fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
-            fontSize: '2.5rem',
+            fontSize: '36px',
             fontWeight: 600,
+            lineHeight: 1.3,
+            letterSpacing: '-0.03em',
+            '@media (max-width:1279px)': {
+                fontSize: '28px',
+            },
+            '@media (max-width:480px)': {
+                fontSize: '20px',
+                lineHeight: 1.2,
+            },
         },
         h2: {
             fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
-            fontSize: '2rem',
+            fontSize: '24px',
             fontWeight: 600,
+            lineHeight: 1.3,
+            letterSpacing: '-0.03em',
+            '@media (max-width:1279px)': {
+                fontSize: '24px',
+            },
+            '@media (max-width:480px)': {
+                fontSize: '18px',
+                lineHeight: 1.2,
+            },
         },
         h3: {
             fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
-            fontSize: '1.75rem',
+            fontSize: '20px',
             fontWeight: 600,
+            lineHeight: 1.3,
+            letterSpacing: '-0.03em',
+            '@media (max-width:1279px)': {
+                fontSize: '18px',
+            },
+            '@media (max-width:480px)': {
+                fontSize: '16px',
+                lineHeight: 1.2,
+            },
         },
         h4: {
             fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
@@ -83,9 +110,23 @@ export const darkTheme = createTheme({
         },
         body1: {
             fontWeight: 200,
+            fontSize: '18px',
+            lineHeight: 1.4,
+            letterSpacing: '0.01em',
+            '@media (max-width:480px)': {
+                fontSize: '16px',
+                lineHeight: 1.5,
+            },
         },
         body2: {
             fontWeight: 200,
+            fontSize: '18px',
+            lineHeight: 1.4,
+            letterSpacing: '0.01em',
+            '@media (max-width:480px)': {
+                fontSize: '16px',
+                lineHeight: 1.5,
+            },
         },
     },
     spacing: 8,
@@ -133,18 +174,45 @@ export const lightTheme = createTheme({
         fontFamily: ['Saira', 'Roboto', 'Arial', 'sans-serif'].join(','),
         h1: {
             fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
-            fontSize: '2.5rem',
+            fontSize: '36px',
             fontWeight: 600,
+            lineHeight: 1.3,
+            letterSpacing: '-0.03em',
+            '@media (max-width:1279px)': {
+                fontSize: '28px',
+            },
+            '@media (max-width:480px)': {
+                fontSize: '20px',
+                lineHeight: 1.2,
+            },
         },
         h2: {
             fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
-            fontSize: '2rem',
+            fontSize: '24px',
             fontWeight: 600,
+            lineHeight: 1.3,
+            letterSpacing: '-0.03em',
+            '@media (max-width:1279px)': {
+                fontSize: '24px',
+            },
+            '@media (max-width:480px)': {
+                fontSize: '18px',
+                lineHeight: 1.2,
+            },
         },
         h3: {
             fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
-            fontSize: '1.75rem',
+            fontSize: '20px',
             fontWeight: 600,
+            lineHeight: 1.3,
+            letterSpacing: '-0.03em',
+            '@media (max-width:1279px)': {
+                fontSize: '18px',
+            },
+            '@media (max-width:480px)': {
+                fontSize: '16px',
+                lineHeight: 1.2,
+            },
         },
         h4: {
             fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
@@ -154,6 +222,24 @@ export const lightTheme = createTheme({
         },
         h6: {
             fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
+        },
+        body1: {
+            fontSize: '18px',
+            lineHeight: 1.4,
+            letterSpacing: '0.01em',
+            '@media (max-width:480px)': {
+                fontSize: '16px',
+                lineHeight: 1.5,
+            },
+        },
+        body2: {
+            fontSize: '18px',
+            lineHeight: 1.4,
+            letterSpacing: '0.01em',
+            '@media (max-width:480px)': {
+                fontSize: '16px',
+                lineHeight: 1.5,
+            },
         },
     },
     spacing: 8,

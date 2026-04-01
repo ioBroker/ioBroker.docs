@@ -50,6 +50,9 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
                 display: 'none',
             },
         },
+        [theme.breakpoints.down(481)]: {
+            paddingTop: '20px',
+        },
         ...debugBlock('#0ff', 'titleContainer'),
     },
     // Container: takes all remaining height, splits into left + right
@@ -62,11 +65,16 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         [theme.breakpoints.down(661)]: {
             position: !isMenuCollapsed ? 'relative' : 'static',
         },
+        [theme.breakpoints.down(1280)]: {
+            margin: '0 0 0 24px',
+        },
         [theme.breakpoints.down(770)]: {
             gap: '20px',
         },
         [theme.breakpoints.down(481)]: {
-            margin: '0 10px',
+            margin: '0',
+            paddingLeft: '10px',
+            gap: '10px',
         },
         ...debugBlock('#f00', 'container'),
     },
@@ -116,6 +124,13 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         '&::-webkit-scrollbar-thumb:hover': {
             background: theme.palette.secondary.main,
         },
+        [theme.breakpoints.down(769)]: {
+            paddingRight: '0px',
+            paddingLeft: '0px',
+            '&::-webkit-scrollbar': {
+                display: 'none',
+            },
+        },
         ...debugBlock('#3c3', 'menuBlock'),
     },
     // Right column: topBar (fixed) + mainBlock (scrollable)
@@ -124,6 +139,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         display: 'flex',
         flexDirection: 'column',
         minHeight: 0,
+        minWidth: 0,
+        overflow: 'hidden',
         ...debugBlock('#fa0', 'rightColumn'),
     },
     // Scrollable content area with cards + footer
@@ -151,6 +168,14 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         '&::-webkit-scrollbar-thumb:hover': {
             background: theme.palette.secondary.main,
         },
+        [theme.breakpoints.down(1280)]: {
+            paddingRight: '6px',
+            marginRight: '10px',
+        },
+        [theme.breakpoints.down(481)]: {
+            paddingRight: '0px',
+            marginRight: '0px',
+        },
         ...debugBlock('#a6f', 'mainBlock'),
     },
     // Search + view toggle above mainBlock
@@ -161,6 +186,9 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         marginBottom: '20px',
         flexShrink: 0,
         paddingRight: '32px', // align with cards: 10px + 14px marginRight + 8px scrollbar
+        [theme.breakpoints.down(1280)]: {
+            paddingRight: '24px', // align with cards: 6px + 10px marginRight + 8px scrollbar
+        },
         ...debugBlock('#ff0', 'topBar'),
     },
     // Breadcrumbs
@@ -168,10 +196,20 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         fontFamily: 'Audiowide, sans-serif',
         display: 'flex',
         alignItems: 'center',
-        gap: '8px',
+        flexWrap: 'wrap',
+        columnGap: '8px',
+        rowGap: '4px',
         marginLeft: '32px',
-        marginBottom: theme.spacing(4),
+        marginBottom: '22px',
         textTransform: 'uppercase',
+        [theme.breakpoints.down(1280)]: {
+            marginLeft: '24px',
+            marginBottom: '20px',
+        },
+        [theme.breakpoints.down(481)]: {
+            marginLeft: '10px',
+            marginBottom: '10px',
+        },
         ...debugBlock('#f0f', 'breadcrumbsContainer'),
     },
     breadcrumbInactive: {
@@ -255,6 +293,10 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         },
         [theme.breakpoints.down(769)]: {
             gridTemplateColumns: !isMenuCollapsed ? '1fr' : 'repeat(auto-fit, minmax(251px, 1fr))',
+        },
+        [theme.breakpoints.down(481)]: {
+            gridTemplateColumns: '1fr',
+            gap: '16px',
         },
         ...debugBlock('#66f', 'adaptersGrid'),
     },

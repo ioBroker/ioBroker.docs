@@ -10,6 +10,9 @@ export const useStyles = makeStyles()(theme => ({
         color: 'white',
         display: 'flex',
         flexDirection: 'column',
+        '@media (max-width: 480px)': {
+            padding: '12px',
+        },
     },
     title: {
         fontFamily: "'Saira'",
@@ -21,6 +24,9 @@ export const useStyles = makeStyles()(theme => ({
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
+        '@media (max-width: 480px)': {
+            fontSize: '18px',
+        },
     },
     titleLink: {
         display: 'block',
@@ -31,6 +37,9 @@ export const useStyles = makeStyles()(theme => ({
         width: '100%',
         justifyContent: 'space-between',
         gap: 30,
+        '@media (max-width: 480px)': {
+            gap: 16,
+        },
     },
     icon: {
         background: '#FFFFFF',
@@ -41,6 +50,13 @@ export const useStyles = makeStyles()(theme => ({
         cursor: 'pointer',
         '& img': {
             width: 60,
+        },
+        '@media (max-width: 480px)': {
+            width: '56px',
+            height: '56px',
+            '& img': {
+                width: 48,
+            },
         },
     },
     statsBlocks: {

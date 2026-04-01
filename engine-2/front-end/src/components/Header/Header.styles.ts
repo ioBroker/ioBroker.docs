@@ -17,9 +17,13 @@ export const useHeaderStyles = makeStyles()(theme => ({
         color: theme.palette.text.primary,
         // boxShadow: '0 1px 3px rgba(0, 0, 0, 0.3)',
         boxSizing: 'border-box' as const,
-        [theme.breakpoints.down('md')]: {
-            paddingLeft: theme.spacing(2),
-            paddingRight: theme.spacing(2),
+        [theme.breakpoints.down(1280)]: {
+            paddingLeft: '24px',
+            paddingRight: '24px',
+        },
+        [theme.breakpoints.down(481)]: {
+            paddingLeft: '10px',
+            paddingRight: '10px',
         },
     },
     logo: {
