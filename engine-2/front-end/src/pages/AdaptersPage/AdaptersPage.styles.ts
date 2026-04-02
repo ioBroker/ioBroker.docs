@@ -95,7 +95,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     // Fixed MenuToggle wrapper — covers scrolling menu items
     menuToggleWrapper: {
         flexShrink: 0,
-        position: 'relative',
         zIndex: 2,
         width: '100%',
         paddingBottom: '10px',
