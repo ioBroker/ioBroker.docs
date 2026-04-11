@@ -814,6 +814,9 @@ _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Update dependabot
+
 ### 2.0.12 (2026-02-21)
 * (simatec) License updated
 * (simatec) Update dependabot

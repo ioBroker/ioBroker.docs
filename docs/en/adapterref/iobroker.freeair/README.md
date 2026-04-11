@@ -6,6 +6,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.freeair.svg)](https://www.npmjs.com/package/iobroker.freeair)
 ![Number of Installations](https://iobroker.live/badges/freeair-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/freeair-stable.svg)
+![Weblate](https://weblate.iobroker.net/widgets/adapters/-/freeair/svg-badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.freeair.png?downloads=true)](https://nodei.co/npm/iobroker.freeair/)
 
@@ -48,10 +49,15 @@ locale connection to your [BluMartin FreeAir 100](https://blumartin.de/wohnrauml
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.0.8 (2026-03-17)
 
 - (Scrounger) dependencies updated
+
+### 1.0.7 (2026-03-09)
+
+- (Scrounger) dependencies updated
+- (Scrounger) downgrade @iobroker/adapter-core to v3.3.1 to prevent conflicts with js-controller < v7.1.0 in rare cases #56
+- (Scrounger) device error indicator bug fix
 
 ### 1.0.6 (2025-10-19)
 
@@ -100,7 +106,7 @@ locale connection to your [BluMartin FreeAir 100](https://blumartin.de/wohnrauml
 
 MIT License
 
-Copyright (c) 2025 Scrounger <scrounger@gmx.net>
+Copyright (c) 2025-2026 Scrounger <scrounger@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

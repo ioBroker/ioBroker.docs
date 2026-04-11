@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.enigma2/README.md
 title: ioBroker enigma2
-hash: fdyOycvPFspaROEIv+ZQbVNsc4JE0rZ4YKX5UIsZP80=
+hash: teRzjARBlwSRw3sMfaN5ubviI/pLHk0inOiRsQ7vdkk=
 ---
 ![Logo](../../../en/adapterref/iobroker.enigma2/admin/enigma2.png)
 
@@ -14,11 +14,8 @@ hash: fdyOycvPFspaROEIv+ZQbVNsc4JE0rZ4YKX5UIsZP80=
 ----
 
 # IoBroker enigma2
-- Adapter für ioBroker zum Abrufen von Informationen von einem Enigma2-Empfänger und Senden von Befehlen
-- (Adapter läuft nur auf einem Host! Bei einer Client-Installation gibt es aktuell noch Probleme.)
-
-- (DE) Adapter für ioBroker um Informationen von einem enigma2 Receiver abzufragen und Befehle zu senden
-- (DE)(Adapter läuft nur auf einem Host! bei einer Client-Installation gib's aktuell noch probleme.)
+- Adapter für ioBroker zum Abrufen von Informationen von einem Enigma2-Empfänger und zum Senden von Befehlen
+- (Der Adapter läuft nur auf einem Host! Bei einer Client-Installation gibt es derzeit noch Probleme.)
 
 ----
 
@@ -31,34 +28,34 @@ hash: fdyOycvPFspaROEIv+ZQbVNsc4JE0rZ4YKX5UIsZP80=
 - VERANSTALTUNGSBESCHREIBUNG
 - VERANSTALTUNGSDAUER
 - EVENTDURATION_MIN
-- VERBLEIBENDE VERANSTALTUNG
+- VERBLEIBENDES EREIGNIS
 - EVENTREMAINING_MIN
 - EVENT_PROGRESS_PERCENT
 - EVENT_TIME_START
 - EVENT_TIME_END
 - EVENT_TIME_PASSED
-HDD_CAPACITY (Festplattenkapazität)
-HDD_FREI
+- HDD_CAPACITY
+- HDD_FREE
 - MESSAGE_ANSWER
 - MODELL
-- STUMM
+- STUMMSCHALTET
 - PROGRAMM
 - PROGRAMM_INFO
 - PROGRAMM_AFTER
 - PROGRAMM_AFTER_INFO
 - STEHEN ZU
-- VOLUMEN
+- LAUTSTÄRKE
 - WEB_IF_VERSION
-- istAufzeichnung
-- Timer_ist_gesetzt
+- isRecording
+- Timer_ist_eingestellt
 - MOVIE_LIST (nur openwebif)
 - TIMER_LIST
-- CHANNEL_PICON (Picon-Pfad – nur openwebif)
+- CHANNEL_PICON (Picon-Pfad - nur openwebif)
 
 ----
 
 ### Hauptsächlich
-- enigma2-VERBINDUNG
+- enigma2-CONNECTION
 
 ----
 
@@ -67,14 +64,14 @@ HDD_FREI
 - Befehl.CHANNEL_UP
 - Befehl.AB
 - Befehl.UP
-- Befehl.EPG
+- command.EPG
 - Befehl.EXIT
 - Befehl.LINKS
-- Befehl.MENU
-- Befehl.MUTE_TOGGLE
+- Befehl.MENÜ
+- command.MUTE_TOGGLE
 - Befehl.OK
 - Befehl.PAUSE
-- Befehl.PLAY
+- command.PLAY
 - Befehl.RADIO
 - Befehl.REC
 - Befehl.FERNBEDIENUNG
@@ -82,51 +79,51 @@ HDD_FREI
 - Befehl.SET_VOLUME
 - Befehl.STANDBY_TOGGLE
 - Befehl.STOP
-- Befehl.TV
+- command.TV
 - Befehl.UP
-- Befehl.LAUTSTÄRKER
-- Befehl.LAUTSTÄRKER
-- command.ZAP = sende eine ungültige Servicereferenz
+- Befehl.VOLUME_DOWN
+- Befehl.VOLUME_UP
+- command.ZAP = sendet eine ungültige Dienstreferenz
 
 ----
 
 ### Hauptbefehl
 - main_command.DEEP_STANDBY = Deepstandby
 - main_command.REBOOT = Neustart
-- main_command.RESTART_GUI = Enigma2 neu starten (GUI)
+- main_command.RESTART_GUI = Enigma2 (GUI) neu starten
 - main_command.STANDBY = Standby
-- main_command.WAKEUP_FROM_STANDBY = Aufwachen aus dem Standby
+- main_command.WAKEUP_FROM_STANDBY = Aufwachen aus dem Standby-Modus
 
 ----
 
 ### Nachricht
 - Message.Text = Text der Nachricht (Eingabe -> Senden)
-- Message.Type = Zahl von 0 bis 3 (0=Ja/Nein; 1=Info; 2=Nachricht; 3=Achtung)
-- Message.Timeout = Timeout der Nachricht in Sek. Kann leer sein oder die Anzahl der Sekunden angeben, nach denen die Nachricht verschwinden soll.
+- Message.Type = Zahl von 0 bis 3 (0= Ja/Nein ; 1= Info ; 2=Nachricht ; 3=Achtung)
+- Message.Timeout = Timeout der Nachricht in Sekunden. Kann leer sein oder die Anzahl der Sekunden angeben, nach denen die Nachricht verschwinden soll.
 
 ----
 
-### Alexa_Befehl
+### Alexa-Befehl
 - Alexa_Command.Mute = Alexa-Befehl
 - Alexa_Command.Standby = Alexa-Befehl
 
 ----
 
-### Senden an
+### SendTo
 #### In Blockly
-- message = Text der Nachricht
-- msgType = Zahl von 0 bis 3 (0= Ja/Nein ; 1= Info ; 2=Nachricht ; 3=Achtung)
-- Timeout = Timeout der Nachricht in Sek. Kann leer sein oder die Anzahl der Sekunden angeben, nach denen die Nachricht verschwinden soll.
+- Nachricht = Text der Nachricht
+- msgType = Zahl von 0 bis 3 (0 = Ja/Nein; 1 = Info; 2 = Nachricht; 3 = Achtung)
+- timeout = Zeitüberschreitung der Nachricht in Sekunden. Kann leer sein oder die Anzahl der Sekunden angeben, nach denen die Nachricht verschwinden soll.
 
-![Bild Text](../../../en/adapterref/iobroker.enigma2/admin/enigma2_message2.png)
+![Bildtext](../../../en/adapterref/iobroker.enigma2/admin/enigma2_message2.png)
 
-### Oder ![Bild Text](../../../en/adapterref/iobroker.enigma2/admin/enigma2_message.png)
-[> zum Blockly Import <](admin/Blockly_Import.md)
+### Oder ![Bildtext](../../../en/adapterref/iobroker.enigma2/admin/enigma2_message.png)
+[Blockly-Import <](admin/Blockly_Import.md)
 
 #### In JavaScript
 ```js
 sendTo('enigma2.0', 'send', {
-    message: 'Test Nachricht', /* Text of Message */
+    message: 'Test Messaget', /* Text of Message */
     timeout: 26,               /* timeout of Message in sec. (Can be empty or the Number of seconds the Message should disappear after.) */
     msgType: 1,                /* Number from 0 to 3 (0= Yes/No ; 1= Info ; 2=Message ; 3=Attention) */
 });
@@ -137,6 +134,12 @@ sendTo('enigma2.0', 'send', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.3.0 (2026-03-05)
+- (mcm1957) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (mcm1957) Dependencies have been updated.
+
 ### 2.2.3 (2024-12-22)
 * (mcm1957) Adapter has been moigrated to @iobroker/eslint-config. [#266]
 
@@ -154,14 +157,10 @@ sendTo('enigma2.0', 'send', {
 ### 2.1.1 (2024-06-09)
 * (klein0r) Updated Blockly definitions
 
-### 2.1.0 (2024-04-11)
-* (mcm1957) Adapter requires node.js >=18 and js-controller >= 5 now
-* (mcm1957) Dependencies have been updated
-
 ## License
 MIT License
 
-Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

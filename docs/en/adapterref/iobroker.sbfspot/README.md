@@ -48,13 +48,6 @@ in /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts you can find a script
 
 ## known issues
 
-* sometimes installation of npm package sqlite3 fails. 
-in that case reinstall all npm packages
-
-> cd /opt/iobroker/node_modules/iobroker.sbfspot
-> sudo npm install
-
-sometimes npm intall must be called more then one time to successfully install all necessray packages
 
 
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.sbfspot/issues) if you find bugs or whish new features
@@ -65,6 +58,12 @@ sometimes npm intall must be called more then one time to successfully install a
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.6 (2026-04-06)
+* (René) changes based on adapter checker
+
+### 5.0.5 (2026-03-17)
+* (René) update dependencies + changes based on adapter checker
+
 ### 5.0.4 (2025-10-26)
 * (René) bug fix sentry
 

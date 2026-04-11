@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.danfoss-ally/README.md
 title: без названия
-hash: BXAuah3gL5UJFBqkIAbm5o3omQ3ZRRNN6cuOvvkE3Go=
+hash: hVcdlLVwHoiSco0XdVcLcghYreoDPRMJlT6VJXj++xQ=
 ---
-![версия](https://img.shields.io/badge/version-0.2.13-blue)
+![версия](https://img.shields.io/badge/version-0.2.15-blue)
 ![НПМ](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 Облачный адаптер для **Danfoss Ally™** — с использованием **OAuth2 (учетные данные клиента)**.
@@ -71,17 +71,59 @@ Polling:      300
 ---
 
 ## Штаты
-Каждое обнаруженное устройство создает канал: `danfoss-ally.0.<device_id>.*`
+Каждое обнаруженное устройство создает дерево устройств: `danfoss-ally.0.<device_id>.*`
+
+## Состояние статуса против состояния контроля
+Адаптер разделяет **значения состояния, доступные только для чтения**, от **значений управления, доступных для записи**.
+
+### Канал статуса
+`danfoss-ally.0.<deviceId>.status.*`
+
+Эти состояния отражают значения, полученные из API Danfoss Cloud.
+
+Характеристики:
+
+- читать: правда
+- write: false
+
+Не следует записывать данные в эти состояния из скриптов.
+
+Примеры:
+
+- `status.temp_current`
+- `status.temp_set`
+- `status.mode`
+- `status.humidity_value`
+- `status.battery_percentage`
+
+### Канал управления
+`danfoss-ally.0.<deviceId>.control.*`
+
+Эти состояния предназначены для **взаимодействия с пользователем** и могут быть созданы с помощью скриптов или Blockly.
+
+Характеристики:
+
+- читать: правда
+- write: true
+
+Примеры:
+
+- `control.temp_set`
+- `control.manual_mode_fast`
+- `control.mode`
+- `control.child_lock`
+
+Адаптер автоматически отправляет команды в облако Danfoss и обновляет соответствующие значения состояния.
 
 ### Примеры чтения
 | Штат | Описание | Единица измерения |
 | -------------------------------------- | --------------------------------------------- | ---- |
-| `temp_current` | Текущая температура | °C |
-| `battery_percentage` | Уровень заряда батареи | % |
-| `mode` | Текущий режим (`auto`, `manual`, `at_home`, …) | – |
-| `work_state`, `output_status`, `fault` | Статус или ошибка | – |
-| `upper_temp` / `lower_temp` | Температурные пределы | °C |
-| `верхняя_температура` / `нижняя_температура` | Температурные пределы | °C |
+| `status.temp_current` | Текущая температура | °C |
+| `status.battery_percentage` | Уровень заряда батареи | % |
+| `status.mode` | Текущий режим (`auto`, `manual`, `at_home`, …) | – |
+| `status.work_state`, `status.output_status`, `status.fault` | Статус или ошибка | – |
+| `status.upper_temp` / `status.lower_temp` | Температурные пределы | °C |
+| `status.upper_temp` / `status.lower_temp` | Температурные пределы | °C |
 
 Все числовые значения масштабируются автоматически в диапазоне от ×0,1 до °C/% .
 
@@ -93,12 +135,12 @@ Polling:      300
 
 | Доступное для записи состояние | Ожидаемое значение / поведение |
 | ----------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| `temp_set` | Целевая температура (°C, шаг 0,5; отправлено ×10) |
-| `at_home_setting`, `leaving_home_setting`, `pause_setting`, `holiday_setting` | Заданные температуры |
-| `mode` | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
-| `child_lock` | `true` / `false` |
-| `SetpointChangeSource` | `Externally` или `schedule` |
-| `SetpointChangeSource` | `Externally` или `schedule` |
+| `control.temp_set` | Целевая температура (°C, шаг 0,5; отправлено ×10) |
+| `control.at_home_setting`, `control.leaving_home_setting`, `control.pause_setting`, `control.holiday_setting` | Заданные температуры |
+| `control.mode` | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
+| `control.child_lock` | `true` / `false` |
+| `control.SetpointChangeSource` | `Externally` или `schedule` |
+| `control.SetpointChangeSource` | `Externally` или `schedule` |
 
 > Адаптер **не** переключает режимы автоматически при записи заданных значений — вы сами определяете это в соответствии со своей логикой.
 
@@ -107,35 +149,35 @@ Polling:      300
 ## Пример (Blockly / Script)
 ```js
 // Manual mode
-setState("danfoss-ally.0.<id>.mode", "manual");
-setState("danfoss-ally.0.<id>.temp_set", 21.5);
+setState("danfoss-ally.0.<id>.control.mode", "manual");
+setState("danfoss-ally.0.<id>.control.temp_set", 21.5);
 
 // At home
-setState("danfoss-ally.0.<id>.mode", "at_home");
-setState("danfoss-ally.0.<id>.at_home_setting", 21.0);
+setState("danfoss-ally.0.<id>.control.mode", "at_home");
+setState("danfoss-ally.0.<id>.control.at_home_setting", 21.0);
 
 // Leaving home
-setState("danfoss-ally.0.<id>.mode", "leaving_home");
-setState("danfoss-ally.0.<id>.leaving_home_setting", 19.0);
+setState("danfoss-ally.0.<id>.control.mode", "leaving_home");
+setState("danfoss-ally.0.<id>.control.leaving_home_setting", 19.0);
 
 // Pause
-setState("danfoss-ally.0.<id>.mode", "pause");
-setState("danfoss-ally.0.<id>.pause_setting", 5.0);
+setState("danfoss-ally.0.<id>.control.mode", "pause");
+setState("danfoss-ally.0.<id>.control.pause_setting", 5.0);
 
 // Holiday
-setState("danfoss-ally.0.<id>.mode", "holiday");
-setState("danfoss-ally.0.<id>.holiday_setting", 10.0);
+setState("danfoss-ally.0.<id>.control.mode", "holiday");
+setState("danfoss-ally.0.<id>.control.holiday_setting", 10.0);
 
 // Child lock
-setState("danfoss-ally.0.<id>.child_lock", true);
+setState("danfoss-ally.0.<id>.control.child_lock", true);
 
 // Explicit source (usually not needed)
-setState("danfoss-ally.0.<id>.SetpointChangeSource", "Externally"); // or 'schedule'
+setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // or 'schedule'
 ```
 
-При переключении на `manual`, `pause` или `holiday` адаптер устанавливает `SetpointChangeSource="Externally"`.
+> Команды записи должны быть нацелены на состояния `control.*`.
 
-При обратном переключении на `auto` он сбрасывается до `"schedule"`.
+> Состояния `status.*` представляют собой зеркала только для чтения из облака Danfoss.
 
 ---
 
@@ -240,27 +282,24 @@ node main.js
 
 ## Changelog
 
+
+### 0.2.15
+- Fixed invalid `io-package.json` (JSON syntax error)
+- No functional changes
+
+### 0.2.14
+- Introduced `control` channel for writable states
+- `status` channel is now strictly read-only
+- Improved write detection and state handling
+- Prevented writes to channels or non-state objects
+- Improved adapter stability
+
 ### 0.2.13
 - Updated CI & deploy workflow
 - Fixed npm publishing process
 - Improved code formatting (Prettier / ESLint)
 - No functional changes for end users
 
-### 0.2.12
-- Migrated CI to full ioBroker standard
-- Full rewrite of state roles (value._, level._, state) for compatibility
-- Correct creation of device and status channels according to ioBroker standards
-- Replaced all timers with adapter.setTimeout / adapter.setInterval
-- Stabilized soft refresh process and ensured channel creation
-
-### 0.2.11
-- Full write support for all cloud-controllable values
-- Improved token retry handling
-- Enhanced synchronization and logging
-
-### 0.2.10
-- Translation and compliance fixes
-- Improved admin schema, license info, encryption handling
 
 ---
 
@@ -268,7 +307,7 @@ node main.js
 
 MIT License
 
-Copyright (c) 2025 Author Stefan8485@me.com
+Copyright (c) 2025-2026 Author Stefan8485@me.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.

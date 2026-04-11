@@ -132,10 +132,10 @@ This adapter would not have been possible without the great work of @forelleblau
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.1.0 (2026-03-08)
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Dependencies have been update
 
 ### 1.0.0 (2024-11-23)
 - (mcm1957) Adapter requires node.js 20 now.
@@ -152,15 +152,6 @@ This adapter would not have been possible without the great work of @forelleblau
 
 ### 0.0.4
 - (Apollon77) Optimizations, brush up to comply with ioBroker.repositories requirements
-
-### 0.0.3
-- (forelleblau) dependencies updated, bugs fixed
-
-### 0.0.2
-- (forelleblau) first published version
-
-### 0.0.1
-- (forelleblau) initial release
 
 ## License
 
@@ -186,4 +177,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

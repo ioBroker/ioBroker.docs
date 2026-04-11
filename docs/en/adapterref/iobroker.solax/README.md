@@ -100,6 +100,13 @@ If you would like to have other inverters integrated, you should make the data e
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.9.23 (2026-03-29)
+* (simatec) dependencies updated
+
+### 0.9.22 (2026-02-21)
+* (simatec) Fix License
+* (simatec) dependencies updated
+
 ### 0.9.21 (2025-11-23)
 * (simatec) dependencies updated
 
@@ -345,7 +352,7 @@ If you would like to have other inverters integrated, you should make the data e
 ## License
 MIT License
 
-Copyright (c) 2021 - 2025 simatec
+Copyright (c) 2021 - 2026 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

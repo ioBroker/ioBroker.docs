@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: kuu9R/AfRD+dfWd72s0EXSwCSWyjpN6efn/fGJMHi44=
+hash: l33niKl6qt2C6ruGtp2BBhyvWL4WsOO9DDXv3XCXIj0=
 ---
 ![标识](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -34,7 +34,7 @@ hash: kuu9R/AfRD+dfWd72s0EXSwCSWyjpN6efn/fGJMHi44=
 倒计时收到停止信号后，倒计时将重置为定时器设定的时间。
 
 ##### 停止零行为
-倒计时收到停止信号后，倒计时仍停留在 0。
+倒计时收到停止信号后，倒计时仍为 0。
 
 ##### 停止行为重运行
 计时器到期后，它将自动重新启动。
@@ -42,7 +42,7 @@ hash: kuu9R/AfRD+dfWd72s0EXSwCSWyjpN6efn/fGJMHi44=
 #### 时间序列
 在配置对话框的“时间序列”选项卡中，您可以创建包含一个或多个时间规则的新时间序列。您可以为每个时间规则定义不同的参数。每个时间序列都会创建一个单独的数据点，该数据点会在计算出的时间事件发生时触发。
 
-时间事件是实时计算的。但是，所使用的 rrule 库尚未在所有参数组合下都完美运行。
+时间事件是实时计算的。但是，所使用的 rrule 库并非在所有参数组合下都完美无缺。
 
 这表明，在某些组合下，页面会陷入无限循环。
 
@@ -50,7 +50,7 @@ hash: kuu9R/AfRD+dfWd72s0EXSwCSWyjpN6efn/fGJMHi44=
 
 除了添加时间规则之外，您还可以添加时间规则来排除时间事件、添加单个时间事件以及排除单个时间事件。
 
-除了 rrule 的功能外，现在还可以动态计算各种太阳和月亮的相位时间。
+除了 rrule 的功能外，现在还可以动态计算各种太阳和月亮相位的时间。
 
 此计算仅在时间间隔至少为一天（而非每小时或每分钟）时才会进行。
 
@@ -62,7 +62,7 @@ hash: kuu9R/AfRD+dfWd72s0EXSwCSWyjpN6efn/fGJMHi44=
 - civilDawn
 - blueHourDawnEnd
 - goldenHourDawnStart
-- 日出
+- 日出开始
 - 日出结束
 - goldenHourDawnEnd
 - 正午
@@ -91,7 +91,7 @@ hash: kuu9R/AfRD+dfWd72s0EXSwCSWyjpN6efn/fGJMHi44=
 | 数据点 | 描述 |
 | --------- | ------------------------------------------------------------ |
 | 操作 | 此时间序列的实际状态。可能的值包括停止、运行 |
-| cmd | 目前无功能 |
+| 命令 | 目前无功能 |
 
 ##### 可用操作状态
 | 动作 | 描述 |
@@ -107,7 +107,7 @@ hash: kuu9R/AfRD+dfWd72s0EXSwCSWyjpN6efn/fGJMHi44=
 | --------- | ---------------------------------------------------------------------- |
 | 操作 | 倒计时的实际状态。可选值为停止、运行、暂停、结束 |
 | cmd | 命令数据点。可能的命令如下所述 |
-|配置 |倒计时器的配置。              |
+|配置 |倒计时定时器的配置。              |
 | 开始 | 起始时间（毫秒）数据点 |
 | 结束 | 结束时间（毫秒）的数据点 |
 | 计时器 | 以毫秒为单位的总时间数据点 |
@@ -216,7 +216,7 @@ hash: kuu9R/AfRD+dfWd72s0EXSwCSWyjpN6efn/fGJMHi44=
 
 ##### 小部件属性
 | 属性 | 描述 |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `Object ID` | 倒计时器的数据点。可以使用任何数据点 |
 | `HTML-Prepend` | 此文本或 HTML 代码将添加到小部件的输出前面 |
 | `HTML-Append` | 此文本或 HTML 代码将附加到小部件的输出中 |
@@ -268,19 +268,19 @@ vis1 和 vis2 各有两个不同的版本。
 
 ##### 倒计时圆圈组件属性
 | 属性 | 描述 |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Object ID` | 倒计时数据点的计时器数据点。 |
-| `Format` | 设置定时器输出格式。默认值为 mm:ss。详情请参见第 [日期时间格式](#format-of-the-template-to-format-the-countdown-output-in-the-widget) 章。反向设置用于增大或缩小圆环/圆圈 |
+| `Format` | 设置定时器输出格式。默认值为 mm:ss。详情请参见第 [日期时间格式](#format-of-the-datetime-to-format-the-output-in-the-widget) 章。反向设置用于增大或缩小圆环/圆圈 |
 | `reverse` | 圆环或圆的宽度。 |
-| `partring` | 选中的最大圆环将按比例显示，而非全屏显示。 |
+| `partring` | 选中的最大圆环将按比例显示，而非完整显示。 |
 | `Width` | 圆环或圆的宽度。 |
 | `Ring gap` | 环之间的像素间隙 |
-| `Ring Caps` | 圆环/圆的末端设置：圆形或直线 |
+| `Ring Caps` | 圆环/圆弧末端设置：圆形或直线形 |
 | `background` | 圆环/圆圈的背景颜色 |
 | `foreground` | 圆环/圆圈的前景色 |
 | `countdown_color_second` | 第二个环/圆的前景色 |
 | `countdown_color_hour` | 小时环/圆圈的前景色 |
-| `countdown_color_day` | 日环/圆圈的前景色 |
+| `countdown_color_day` | 日环/圆的前景色 |
 | `countdown_color_week` | 本周前景色环/圆圈 |
 | `countdown_color_month` | 月份环/圆圈的前景色 |
 | `countdown_color_year` | 第二个环/圆的前景色 |
@@ -366,7 +366,7 @@ vis1 和 vis2 各有两个不同的版本。
 | countdown_showhrs | 显示小时数。 |
 | countdown_showday | 显示播出时段。 |
 | countdown_showmonth | 显示月份部分。（不与周数一起显示） |
-| countdown_showweek | 显示周数。（不与月份一起显示） |
+| countdown_showweek | 显示星期几。（不与月份一起显示） |
 | countdown_showyear | 显示年份部分。 |
 | countdown_color_active | 倒计时器的颜色 |
 | countdown_color_inactive | 不活跃数字的颜色 |
@@ -446,7 +446,7 @@ vis1 和 vis2 各有两个不同的版本。
 - ~~字钟计时器~~
 - ~~定时任务规划器：像 Outlook 一样规划单个日期/时间和重复性事件~~
 - ~~Nixie风格~~
-- ~~翻页式显示屏（机场显示屏）~~
+- ~~翻板显示屏（机场显示屏）~~
 - ~~新增命令，仅设置目标时间，不设置日期~~
 - 带有禁用倒计时文本选项的倒计时圆圈小部件
 - ~~名称中的组分隔符为“.”~~
@@ -460,6 +460,11 @@ vis1 和 vis2 各有两个不同的版本。
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.3.4 (2026-03-30)
+
+- update packages
+- fix repochecker
+
 ### 2.3.2 (2026-01-04)
 
 - fix some translations

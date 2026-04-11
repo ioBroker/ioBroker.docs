@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: AF+RI5eEFD5nF67c1zE0cBxPzygqQnbWGlpn/U2DwyE=
+hash: 8C9H3FXK3XRavny+kDWWy6b4UMPSCeaN5Ep0C06qXoA=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -29,15 +29,6 @@ Der Adapter basiert auf der Arbeit von:
 - https://haus-automatisierung.com/hardware/2023/02/13/ecoflow-river-2-usv-batteriespeicher.html
 - https://forum.iobroker.net/topic/66743/ecoflow-connector-script-zur-dynamischen-leistungsanpassung
 - https://konkludenz.de/en/making-ecoflow-wave2-smart-home-capable-with-node-red-and-mqtt
-
-## Installation
-Der Adapter befindet sich im stabilen Repository und kann daher durch Suchen installiert werden.
-Sollten Updates verfügbar sein, sollten Sie diese installieren.
-
-Falls eine sehr neue Version verfügbar ist, kann eine benutzerdefinierte Installation über npm/GitHub erforderlich sein.
-In diesem Fall muss der Expertenmodus aktiviert werden, um auf das „octacat“-Symbol zugreifen zu können.
-
-![weitere Details](../../../en/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md)
 
 ## EF-Anmeldeinformationen
 Auf der Admin-Seite (erster Tab) müssen die MQQT-Zugangsdaten für den MQQT-Broker eingegeben werden.
@@ -121,7 +112,7 @@ Die Einstellungen des MQQT-Brokers sind Standard und müssen normalerweise nicht
 - Stellen Sie die Geräte-ID des Stromversorgungs-Kits wie in der App angezeigt ein, etwa so: "M10...".
 - gib ihm einen Namen
 - Stellen Sie den Typ auf „Power Kit BP2000“ oder „Power Kit BP5000“ ein.
-- Falls eine zweite oder dritte Batterie angeschlossen ist, prüfen Sie diese als Slave 1 oder Slave 2.
+- Falls eine zweite oder dritte Batterie angeschlossen ist, prüfen Sie diese als Slave1 oder Slave2.
 
 </p></details>
 
@@ -215,7 +206,7 @@ Der iobroker-Adapter filtert die eingehenden Nachrichten der Geräte. Nur geänd
 - Wenn ein Wert nicht durch eine Gerätedatenaktualisierung festgelegt wird, wird er in HA als unbekannt angezeigt.
 - Wenn das Gerät erreichbar ist, wird die Verfügbarkeit in der Geräteverbindung angezeigt; dies wird an die "Untergeräte" vererbt (Nichtverfügbarkeit wird auf die gleiche Weise verarbeitet).
 
-[einige_Hinweise_für HA](./doc/en/IOB_HA/navi.md)
+[einige Hinweise für HA](./doc/en/IOB_HA/navi.md)
 
 ### Anmerkungen zur Funktionalität
 Aufgrund der Asynchronität von Informationsaktualisierungen und Befehlsübertragung können mitunter Race Conditions auftreten. So kann beispielsweise beobachtet werden, wie ein Schalter betätigt wird und anschließend mehrmals hin und her schaltet, bevor er in der eingestellten Position verbleibt.
@@ -323,6 +314,9 @@ Wave ist derzeit nicht verfügbar, könnte aber implementiert werden, falls Date
 ### Lichtmaschine
 [Generator](./doc/devices/alternator.md)
 
+### Ladegerät
+[Rapid Pro](./doc/devices/rapid.md)
+
 ### Nicht unterstützte Geräte
 Dieser Abschnitt dient Debugging-Zwecken. Bitte wählen Sie das Gerät (Delta Pro3, Delta3, Delta3 Plus) aus und tragen Sie die Seriennummer in die hinzugefügte Zeile ein. Es wird davon ausgegangen, dass das unbekannte Gerät Protobuf verwendet. Es erzeugt [PROTOBUF unknown]-Meldungen im Log, die das rohe Hex-Telegramm enthalten.
 
@@ -346,10 +340,19 @@ Diese Open-Source-Software steht in keiner Verbindung zu Ecoflow und wird von di
 - (foxthefox) new device Glacier Classic 55L support
 - (foxthefox) new device Delta 3 Max Plus support
 - (foxthefox) new device Stream AC support
+- (foxthefox) new device Rapid Pro 320W support
 - (foxthefox) enhancements on wave3
+- (foxthefox) corrections in river3plus for data processing
+- (foxthefox) corrections in D2M for command inv.cfgAcEnabled #340
 - (foxthefox) poweroceanplus set hrPwr/fromPv/romBat/fromGrid values to 0 for non transmitted datapoints in HeatingRodEnergyStreamShow
 - (foxthefox) poweroceanplus pcsActPwr max 20kW, pcsXPhase_amp max 60A
 - (foxthefox) corrections in BMSHeartBeatReport for river3/river3plus
+- (foxthefox) powGetSysLoad for streamAC/ACPro/Ultra set to 10kW, powGetSchuko 2100W
+- (foxthefox) new msg counter for received telegrams from EF-cloud (within 10s)
+- (foxthefox) correction of enBeep (dataLen=2) for Delta3/+/max+/pro
+- (foxthefox) correction of AC1/2/3 switching on SHP2 (issue #312)
+- (foxthefox) Stream AC timetask58x exclude
+- (foxthefox) correction of powerocean / powerocean+ (issue #378), new ENERGY_STREAM_DETAIL and switch for missing datapoint -> value = 0
 - (foxthefox) dev dependencies cleanup
 
 ### 1.4.7 (npm)
@@ -795,7 +798,7 @@ Diese Open-Source-Software steht in keiner Verbindung zu Ecoflow und wird von di
 
 MIT License
 
-Copyright (c) 2023-2025 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2023-2026 foxthefox <foxthefox@wysiwis.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

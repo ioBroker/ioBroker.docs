@@ -49,9 +49,9 @@ The widget requires that also vis-metro and vis-jqui-mfd are installed
 The API of fritzbox has the following access:
 
 - sethkrtsoll
-  - 8-28°C for automatic control
-  - greater 28°C (254=ON)
-  - greater 28°C (253=OFF)
+    - 8-28°C for automatic control
+    - greater 28°C (254=ON)
+    - greater 28°C (253=OFF)
 
 These settings are covered by the hkrmode and the 3 buttons. The activation lasts as long there is no other command or programmed sequence.
 
@@ -207,12 +207,12 @@ The optional callback will be executed once the update is complete.
 Below is an example demonstrating how to trigger the manual update:
 
 ```javascript
-sendTo("fritzdect.0", "update", null, (e) => {
-  if (e["result"]) {
-    // update successful
-  } else {
-    console.log(e["error"]);
-  }
+sendTo('fritzdect.0', 'update', null, e => {
+    if (e['result']) {
+        // update successful
+    } else {
+        console.log(e['error']);
+    }
 });
 ```
 
@@ -254,6 +254,7 @@ These devices are split into a device and an unit (the function itself). The dev
 ### 2.6.4 (WIP)
 
 - new IKEA lamp commands issue #625
+- object corrections
 
 ### 2.6.3 (npm)
 
@@ -519,10 +520,10 @@ These devices are split into a device and an unit (the function itself). The dev
 ### 1.1.0
 
 - new features of AVM API 1.33
-  - setblind
-  - sethkrboost
-  - setwindowopen
-  - txbusy, windowopenactiveendtime, boostactiveendtime, boostactive
+    - setblind
+    - sethkrboost
+    - setwindowopen
+    - txbusy, windowopenactiveendtime, boostactiveendtime, boostactive
 - fade duration
 - DECT440
 - DECT500
@@ -538,9 +539,9 @@ These devices are split into a device and an unit (the function itself). The dev
 
 - merge of fritzapi into repo directly including added DECT500 commands
 - **no longer support of non-native API calls (scraping of website)**
-  - GuestWLAN
-  - BatteryCharge
-  - OS version
+    - GuestWLAN
+    - BatteryCharge
+    - OS version
 - correction of timestamp to date conversion for DECT400
 
 ### 0.3.2 (npm)
@@ -701,5 +702,3 @@ These devices are split into a device and an unit (the function itself). The dev
 The MIT License (MIT)
 
 Copyright (c) 2018-2026 foxthefox <foxthefox@wysiwis.net>
-
-Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>
