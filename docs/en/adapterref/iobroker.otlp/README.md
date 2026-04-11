@@ -70,10 +70,26 @@ Refer to the showcases below for practical examples:
 * [Prometheus & Grafana: Detect open windows](./docs/showcase.prom-graf.md)
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (OlliMartin) Remove `info.refreshTimerRuntime` state creation through code
+
+### 0.2.1 (2026-03-15)
+
+* (OlliMartin) Add state role for refresh job execution duration
+
+### 0.2.0 (2026-03-15)
+
+* (OlliMartin) Recurringly export data points/metrics (hardcoded to every minute)
+  * This fixes an issue where the OpenTelemetry Framework would stop exporting data after some time (~30 minutes) where the data did not change, which makes the metrics harder to consume in downstream services, because it produces gaps in the metrics. Especially Prometheus/Mimir cannot deal with missing values that well.
+* (OlliMartin) Add runtime (execution duration) state of periodic worker to be used as a metric itself (e.g. to monitor the performance of the adapter)
+
 ### 0.1.0 (2025-12-28)
 
 * (OlliMartin) Implement connection test by exporting (empty) dummy metric and shutdown on error

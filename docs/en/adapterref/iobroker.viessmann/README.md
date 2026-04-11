@@ -32,6 +32,9 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.7.4 (2026-03-15)
+* (misanorot) update packages
+
 ### 1.7.3 (2025-10-26)
 * (misanorot) update npm progress
 
@@ -44,11 +47,8 @@
 ### 1.6.0 (2025-05-03)
 * (misanorot) node 20 require
 
-### 1.5.4 (2025-01-08)
-* (misanorot) protect password
-
 ### License
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2025 misanorot <audi16v@gmx.de>
+Copyright (c) 2017-2026 misanorot <audi16v@gmx.de>

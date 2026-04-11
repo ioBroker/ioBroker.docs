@@ -15,12 +15,12 @@
 This adapter allows the connecting of Home Assistant to ioBroker.
 
 ## Usage
-Create a long term token in HASS and use it as PW (copy it also in the repeat field).
+Create a long-term token in HASS and use it as PW (copy it also in the repeat field).
 
-Then it should read out all attributes for all devices. Services might be controllable (e.g. "turn_on"). To control services you have two options:
+Then it should read out all attributes for all devices. Services might be controllable (e.g. "turn_on"). To control services, you have two options:
 
 ### Set a direct value
-Set the state with an ack=false value which is not a string (e.g. Boolean true) then it will be triggered also in HASS without additional service data. This will only work if the service has one field to be sent - then the value is sent as this field! If the service has more than one field you will find a warning in the log that provides more details about the fields taht are possible to be sent, e.g.
+Set the state with an ack=false value which is not a string (e.g. Boolean true) then it will be triggered also in HASS without additional service data. This will only work if the service has one field to be sent - then the value is sent as this field! If the service has more than one field, you will find a warning in the log that provides more details about the fields that are possible to be sent, e.g.
 
 ```
 Please make sure to provide a stringified JSON as value to set relevant fields! Please refer to the Readme for details!
@@ -30,10 +30,11 @@ Allowed field keys are: temperature, target_temp_high, target_temp_low, hvac_mod
 ### Set a stringified JSON to provide one or multiple fields
 Set the state with an ack=false String value which is a stringified JSON object to call the service and use the JSON object as service data
 
-For the last option on a light.turn_off with e.g. `{"transition":10,"flash":"short"}` these two service data details are sent with the call to HASS. The available fields with their exact data definition can be seen in the JSON definition of the ioBroker object in the native.fields section and would look like the following in the above example:
+For the last option on a light.turn_off with e.g. `{"transition":10,"flash":"short"}` these two service data details are sent with the call to HASS. The available fields with their exact data definition can be seen in the JSON definition of the ioBroker object in the `native` fields section and would look like the following in the above example:
 
-`
-...
+```json5
+{
+    // ...
     native: {
         "fields": {
             "transition": {
@@ -65,13 +66,15 @@ For the last option on a light.turn_off with e.g. `{"transition":10,"flash":"sho
         "attr": "turn_off",
         "type": "light"
     }
-...
-`
-
-For some services like set_speed it is required to call with a JSON object like `{speed: "high"}` in general to provide required values. In this case the field definition look e.g. like:
-
+    //...
+}
 ```
-...
+
+For some services like set_speed it is required to call with a JSON object like `{speed: "high"}` in general to provide required values. In this case the field definition looks e.g. like:
+
+```json5
+{
+    //...
     native: {
         "fields": {
             "speed": {
@@ -84,9 +87,10 @@ For some services like set_speed it is required to call with a JSON object like 
                 }
             }
         }
-        ...
+        // ...
     }
-...
+    // ...
+}
 ```
 
 ## Configuration
@@ -94,21 +98,25 @@ There is a good article about connection.
 
 Please check it https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen/ 
 
-**Unfortunately only in german, but the [google translate works rather good](https://translate.google.com/translate?hl=en&sl=de&tl=en&u=https%3A%2F%2Fwww.smarthomejetzt.de%2Fmit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen%2F)** 
+**Unfortunately only in German, but the [Google Translate works rather good](https://translate.google.com/translate?hl=en&sl=de&tl=en&u=https%3A%2F%2Fwww.smarthomejetzt.de%2Fmit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen%2F)** 
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 2.0.3 (2026-04-02)
+* (@GermanBluefox) Adapter was updated and migrated to TypeScript
+* (@Titanium177) Added roles for states and added debouncing for reading states from hass
+
 ### 1.4.0 (2023-01-03)
 * (Apollon77) Added more guidance logging when setting services incorrectly
 * (Apollon77) Prevent crashes when attributes contain "." at the end of their names
 * (Apollon77) Added logging for state updates for unknown objects
 
 ### 1.3.0 (2022-07-01)
-* (Apollon77) Further optimize sending data to HASS and allow to set values like numbers as normal states if the service has one attribute and it can be mapped
+* (Apollon77) Further optimize sending data to HASS and allow setting values like numbers as normal states if the service has one attribute and it can be mapped
 
 ### 1.2.0 (2022-06-17)
 * (Apollon77) IMPORTANT: Replace special characters in entity attribute names with an underscore! Object IDs might change!
@@ -127,7 +135,7 @@ Please check it https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assista
 * (Apollon7) Add Sentry for crash reporting
 
 ### 1.0.1 (2021-09-04)
-* IMPORTANT: js-controller 2.0 is needed st least!
+* IMPORTANT: js-controller 2.0 is needed at least!
 * (Apollon77) Fix start issue
 * (Apollon77/Garfonso) Fix issue where value could not be set in hass
 
@@ -140,7 +148,7 @@ Please check it https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assista
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,5 +1,5 @@
 <h1>
-    <img src="admin/heytech.png" width="64"/>
+    <img alt="" src="admin/heytech.png" width="64"/>
     ioBroker.heytech
 </h1>
 
@@ -26,6 +26,22 @@ Normaly you can leave the "Auto detect" function on. If this does not work you c
 [HEYTech](https://rolladensteuerung.de/index.htm)
 
 ## Changelog
+### 1.1.5 (2026-04-03)
+* Bump lodash from 4.17.23 to 4.18.1
+
+### 1.1.4 (2026-04-02)
+* (jey-cee) fix some issues found by adapter checker
+
+### 1.1.3 (2026-03-31)
+* (jey-cee) automate release
+
+### 1.1.2 (2026-03-31)
+* (jey-cee) fix linting errors
+
+### 1.1.1 (2026-03-31)
+* (jey-cee) update dependencies
+* (jey-cee) update testing
+* (jey-cee) fix repochecker issues
 
 ### 1.1.0 (2024-09-30)
 * (Jey Cee) Delete group objects if the group was removed from configuration
@@ -66,22 +82,17 @@ Normaly you can leave the "Auto detect" function on. If this does not work you c
 ### 0.1.4
 * update lux calculation (Thanks to stefan)
 
-
 ### 0.1.3
 * update calculation for brightness
-
 
 ### 0.1.2
 * added LUX calculation
 
-
 ### 0.1.1
 * added travis file
 
-
 ### 0.1.0
 * ready for beta test
-
 
 ### 0.0.1
 * (Author) initial release

@@ -141,11 +141,14 @@ TR-064 можно считать дальнейшим развитием, пос
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
+- (copilot) **ENHANCED**: Translated README documentation from German to English
+
+### 0.7.0 (2026-03-07)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated
 
 ### 0.6.0 (2024-04-11)
 * (mcm1957) Adapter requires node.js >=18 and js-controller >= 5 now
@@ -166,20 +169,11 @@ TR-064 можно считать дальнейшим развитием, пос
 * (BasGo) enhanced TR-064 configuration
 * (BasGo) added rudimentary phonebook download into object store
 
-### 0.3.0 (2015-06-26)
-* (UncleSamSwiss) added support for wlan.enabled (using TR-064)
-
-### 0.2.1 (2015-06-28)
-* (ruhr) more configuration options
-
-### 0.2.0 (2015-06-26)
-* (ruhr)
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2015-2022, ruhr70
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

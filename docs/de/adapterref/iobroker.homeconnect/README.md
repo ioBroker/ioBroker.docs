@@ -207,6 +207,7 @@ Oder ob ein Gerät geöffnet ist
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
 
 - (Lucky-ESA) Fixed adapter crash if URI is empty
 

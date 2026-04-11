@@ -148,6 +148,10 @@ The only difference is that Xiaomi supports the room cleaning.
 -->
 
 ## Changelog
+### 1.6.1 (2026-03-14)
+
+-   (@GermanBluefox) Corrected error with select value widget
+
 ### 1.6.0 (2025-09-03)
 
 -   (@GermanBluefox) Corrected "Actual" widget
@@ -372,7 +376,7 @@ The only difference is that Xiaomi supports the room cleaning.
 
 The MIT License (MIT)
 
-Copyright (c) 2022-2025 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2022-2026 Denis Haev <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

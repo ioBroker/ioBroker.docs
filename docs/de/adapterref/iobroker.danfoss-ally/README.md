@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.danfoss-ally/README.md
 title: kein Titel
-hash: BXAuah3gL5UJFBqkIAbm5o3omQ3ZRRNN6cuOvvkE3Go=
+hash: hVcdlLVwHoiSco0XdVcLcghYreoDPRMJlT6VJXj++xQ=
 ---
-![Version](https://img.shields.io/badge/version-0.2.13-blue)
+![Version](https://img.shields.io/badge/version-0.2.15-blue)
 ![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 Cloud-Adapter für **Danfoss Ally™** – mit **OAuth2 (Client-Anmeldeinformationen)**. Liest Temperatur-, Feuchtigkeits-, Ventilpositions- und Akkudaten aller Geräte in Ihrem Ally-Konto und ermöglicht gezielte Einzelzugriffe ohne erzwungene Modusänderungen oder verkettete Sequenzen.
@@ -28,7 +28,7 @@ Cloud-Adapter für **Danfoss Ally™** – mit **OAuth2 (Client-Anmeldeinformati
 - **Reibungslose Synchronisierungslogik**
 - Anti-Race (5s): Überspringe eine Umfrage direkt nach einem lokalen Schreibvorgang.
 - Haltezeitfenster (1 Minute): Schützt kürzlich gespeicherte lokale Werte vor dem Überschreiben
-- Lag Suppress (15s): Ignoriert vorübergehend veraltete Cloud-Daten
+- Verzögerungsunterdrückung (15s): Vorübergehend veraltete Cloud-Daten ignorieren
 - Soft Refresh (~1,5 s): Nach jedem Schreibvorgang werden nur die betroffenen Zustände neu abgerufen.
 - **Stille Protokollierung** – Info-Level für reibungslosen Betrieb, Debug-Level für Diagnosezwecke
 - **Automatische Skalierung** – Temperaturen/Luftfeuchtigkeit werden automatisch in °C / % umgerechnet
@@ -70,17 +70,59 @@ Polling:      300
 ---
 
 ## Staaten
-Jedes erkannte Gerät erzeugt einen Kanal: `danfoss-ally.0.<device_id>.*`
+Jedes erkannte Gerät erzeugt einen Gerätebaum: `danfoss-ally.0.<device_id>.*`
+
+## Status- vs. Kontrollzustände
+Der Adapter trennt **schreibgeschützte Statuswerte** von **beschreibbaren Steuerungswerten**.
+
+### Statuskanal
+`danfoss-ally.0.<deviceId>.status.*`
+
+Diese Zustände spiegeln Werte wider, die von der Danfoss Cloud API empfangen werden.
+
+Eigenschaften:
+
+- gelesen: wahr
+- schreiben: falsch
+
+Schreiben Sie **nicht** aus Skripten in diese Staaten.
+
+Beispiele:
+
+- `status.temp_current`
+- `status.temp_set`
+- `status.mode`
+- `status.humidity_value`
+- `status.battery_percentage`
+
+### Steuerkanal
+`danfoss-ally.0.<deviceId>.control.*`
+
+Diese Zustände sind für die **Benutzerinteraktion** vorgesehen und können über Skripte oder Blockly geschrieben werden.
+
+Eigenschaften:
+
+- gelesen: wahr
+- schreiben: wahr
+
+Beispiele:
+
+- `control.temp_set`
+- `control.manual_mode_fast`
+- `control.mode`
+- `control.child_lock`
+
+Der Adapter sendet automatisch Befehle an die Danfoss Cloud und aktualisiert die entsprechenden Statuswerte.
 
 ### Lesebeispiele
 | Bundesland | Beschreibung | Einheit |
 | -------------------------------------- | --------------------------------------------- | ---- |
-| `temp_current` | Aktuelle Temperatur | °C |
-| `battery_percentage` | Akkustand | % |
-| `mode` | Aktueller Modus (`auto`, `manual`, `at_home`, …) | – |
-| `work_state`, `output_status`, `fault` | Status oder Fehler | – |
-| `upper_temp` / `lower_temp` | Temperaturgrenzen | °C |
-| `obere_Temperatur` / `untere_Temperatur` | Temperaturgrenzen | °C |
+| `status.temp_current` | Aktuelle Temperatur | °C |
+| `status.battery_percentage` | Akkustand | % |
+| `status.mode` | Aktueller Modus (`auto`, `manual`, `at_home`, …) | – |
+| `status.work_state`, `status.output_status`, `status.fault` | Status oder Fehler | – |
+| `status.upper_temp` / `status.lower_temp` | Temperaturgrenzen | °C |
+| `status.upper_temp` / `status.lower_temp` | Temperaturgrenzen | °C |
 
 Alle numerischen Werte werden automatisch von ×0,1 → °C/ %s kaliert.
 
@@ -93,12 +135,12 @@ Dadurch haben Sie die volle Kontrolle in Blockly, JavaScript oder benutzerdefini
 
 | Schreibbarer Zustand | Erwarteter Wert / Verhalten |
 | ----------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| `temp_set` | Zieltemperatur (°C, 0,5 Schritte; gesendet ×10) |
-| `at_home_setting`, `leaving_home_setting`, `pause_setting`, `holiday_setting` | Voreingestellte Temperaturen |
-| `mode` | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
-| `child_lock` | `true` / `false` |
-| `SetpointChangeSource` | `Externally` oder `schedule` |
-| `SetpointChangeSource` | `Extern` oder `Zeitplan` |
+| `control.temp_set` | Zieltemperatur (°C, 0,5 Schritte; gesendet ×10) |
+| `control.at_home_setting`, `control.leaving_home_setting`, `control.pause_setting`, `control.holiday_setting` | Voreingestellte Temperaturen |
+| `control.mode` | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
+| `control.child_lock` | `true` / `false` |
+| `control.SetpointChangeSource` | `Externally` oder `schedule` |
+| `control.SetpointChangeSource` | `Extern` oder `schedule` |
 
 Der Adapter wechselt beim Schreiben von Sollwerten **nicht** automatisch den Modus – Sie entscheiden in Ihrer Logik.
 
@@ -107,35 +149,35 @@ Der Adapter wechselt beim Schreiben von Sollwerten **nicht** automatisch den Mod
 ## Beispiel (Blockly / Skript)
 ```js
 // Manual mode
-setState("danfoss-ally.0.<id>.mode", "manual");
-setState("danfoss-ally.0.<id>.temp_set", 21.5);
+setState("danfoss-ally.0.<id>.control.mode", "manual");
+setState("danfoss-ally.0.<id>.control.temp_set", 21.5);
 
 // At home
-setState("danfoss-ally.0.<id>.mode", "at_home");
-setState("danfoss-ally.0.<id>.at_home_setting", 21.0);
+setState("danfoss-ally.0.<id>.control.mode", "at_home");
+setState("danfoss-ally.0.<id>.control.at_home_setting", 21.0);
 
 // Leaving home
-setState("danfoss-ally.0.<id>.mode", "leaving_home");
-setState("danfoss-ally.0.<id>.leaving_home_setting", 19.0);
+setState("danfoss-ally.0.<id>.control.mode", "leaving_home");
+setState("danfoss-ally.0.<id>.control.leaving_home_setting", 19.0);
 
 // Pause
-setState("danfoss-ally.0.<id>.mode", "pause");
-setState("danfoss-ally.0.<id>.pause_setting", 5.0);
+setState("danfoss-ally.0.<id>.control.mode", "pause");
+setState("danfoss-ally.0.<id>.control.pause_setting", 5.0);
 
 // Holiday
-setState("danfoss-ally.0.<id>.mode", "holiday");
-setState("danfoss-ally.0.<id>.holiday_setting", 10.0);
+setState("danfoss-ally.0.<id>.control.mode", "holiday");
+setState("danfoss-ally.0.<id>.control.holiday_setting", 10.0);
 
 // Child lock
-setState("danfoss-ally.0.<id>.child_lock", true);
+setState("danfoss-ally.0.<id>.control.child_lock", true);
 
 // Explicit source (usually not needed)
-setState("danfoss-ally.0.<id>.SetpointChangeSource", "Externally"); // or 'schedule'
+setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // or 'schedule'
 ```
 
-Beim Wechsel zu `manual`, `pause` oder `holiday` setzt der Adapter `SetpointChangeSource="Externally"`.
+Schreibbefehle müssen auf die Zustände `control.*` abzielen.
 
-Ein erneuter Wechsel zu `auto` setzt den Wert auf `"schedule"` zurück.
+Die Zustände `status.*` sind schreibgeschützte Spiegelungen der Danfoss Cloud.
 
 ---
 
@@ -240,27 +282,24 @@ oder über die ioBroker-Entwicklungstools installieren.
 
 ## Changelog
 
+
+### 0.2.15
+- Fixed invalid `io-package.json` (JSON syntax error)
+- No functional changes
+
+### 0.2.14
+- Introduced `control` channel for writable states
+- `status` channel is now strictly read-only
+- Improved write detection and state handling
+- Prevented writes to channels or non-state objects
+- Improved adapter stability
+
 ### 0.2.13
 - Updated CI & deploy workflow
 - Fixed npm publishing process
 - Improved code formatting (Prettier / ESLint)
 - No functional changes for end users
 
-### 0.2.12
-- Migrated CI to full ioBroker standard
-- Full rewrite of state roles (value._, level._, state) for compatibility
-- Correct creation of device and status channels according to ioBroker standards
-- Replaced all timers with adapter.setTimeout / adapter.setInterval
-- Stabilized soft refresh process and ensured channel creation
-
-### 0.2.11
-- Full write support for all cloud-controllable values
-- Improved token retry handling
-- Enhanced synchronization and logging
-
-### 0.2.10
-- Translation and compliance fixes
-- Improved admin schema, license info, encryption handling
 
 ---
 
@@ -268,7 +307,7 @@ oder über die ioBroker-Entwicklungstools installieren.
 
 MIT License
 
-Copyright (c) 2025 Author Stefan8485@me.com
+Copyright (c) 2025-2026 Author Stefan8485@me.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.

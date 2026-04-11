@@ -26,6 +26,10 @@ The received data can also be saved as JSON (sofar_realtime.json).
 
 
 ## Changelog
+### 3.4.0 (2026-04-06)
+
+- node > 20
+
 ### 3.3.0 (2026-01-28)
 
 - Better Admin menu
