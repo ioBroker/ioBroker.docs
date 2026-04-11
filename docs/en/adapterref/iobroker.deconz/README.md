@@ -11,10 +11,6 @@ ioBroker deCONZ dresden-elektronik Adapter
 ## Notice
 No Support for Beta Versions of deCONZ
 
-Required js-controller version >5.x.x, Required node.js >= 18.x.x
-
-## English
-
 Connects to deCONZ REST-API software developed by dresden-elektronik. This software aims to be a universal ZigBee Gateway solution, using hardware from dresden-elektronik the ConBee(X) USB stick and RaspBee(X) a modul for the Raspberry Pi.
 
 
@@ -47,6 +43,41 @@ Examples:
 ## [Sponsors](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+### 1.7.6 (2026-04-02)f
+* migrate from request to fetch
+
+### 1.7.4 (2026-03-29)
+- update dependencies
+
+### 1.7.3 (2026-03-29)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- update dependencies
+- fix: errors found by ioBroker repo checker
+
+### 1.7.2 (2026-03-29)
+* fix: remove [skip ci] from release commit so test-and-release triggers on tag
+
+### 1.7.1 (2026-03-29)
+* chore: update GitHub Actions to v6 (Node.js 24 compatibility)
+* fix: export VERSION and DATE env vars for Python subprocess in release workflow
+* fix: make UTCtoLocal robust against invalid/already-timezone-aware timestamps
+* Bump node-forge from 1.3.2 to 1.4.0
+* Update from template: S5043-useNodePrefix
+* Bump picomatch
+* chore: update monthly release workflow - add io-package.json and README changelog
+* chore: add monthly release workflow
+* Uncomment NPM deployment steps in workflow
+* Bump flatted from 3.3.3 to 3.4.2
+* Update from template: X0000-updateNodeJsAtTestAndRelease
+* Bump minimatch
+* Bump ajv from 6.12.6 to 6.14.0
+* fix: correct indentation of migration code and main() closure
+* fix: add missing closing brace for deconz class after ESLint reformat
+* Update Node.js versions in CI workflow
+* chore: migrate to ESLint 9 with @iobroker/eslint-config
+* fix: migrate gateway config from Gateway_info to adapter.config on upgrade
+* Bump lodash from 4.17.21 to 4.17.23
+* Update from template: X0000-setupAutomergeDependabot
 
 ### 1.7.0 (2024-11-22)
 * (mattreim) Hide virtual sensors function

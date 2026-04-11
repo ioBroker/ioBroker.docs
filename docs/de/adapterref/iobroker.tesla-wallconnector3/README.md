@@ -5,6 +5,10 @@ BADGE-Number of Installations (latest): http://iobroker.live/badges/tesla-wallco
 BADGE-Number of Installations (stable): http://iobroker.live/badges/tesla-wallconnector3-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/nobl/ioBroker.tesla-wallconnector3/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.tesla-wallconnector3.png?downloads=true
+BADGE-WERO: https://img.shields.io/badge/WERO-8A2BE2
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&logoColor=white
+BADGE-Buy Me a Coffee: https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black
+BADGE-GitHub Sponsor: https://img.shields.io/badge/Sponsor-GitHub-181717?logo=github&logoColor=white
 ---
 ![Logo](/admin/tesla-wallconnector3.png)
 # ioBroker.tesla-wallconnector3
@@ -12,10 +16,6 @@ BADGE-NPM: https://nodei.co/npm/iobroker.tesla-wallconnector3.png?downloads=true
 ## Tesla Wall Connector Gen 3 Adapter für ioBroker
 Ausgerichtet auf den Tesla Wall Connector Gen 3.
 Bietet nur Lesezugriff auf API-Daten (Schreiben wird von der API nicht unterstützt).
-
-### Installation
-Eine Instanz des Adapters wird über die ioBroker Admin-Oberfläche installiert. 
-Nach Abschluss der Installation einer Adapterinstanz öffnet sich automatisch ein Konfigurationsfenster.
 
 ## Konfiguration
 
@@ -407,6 +407,11 @@ Falls zu einem State keine Dokumentation vorhanden ist, jemand aber weiß, was d
    *SSID, mit der der Tesla Wall Connector Gen 3 verbunden ist.*
 
 ## Changelog
+### 1.1.0 (2026-03-30)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- Added state attributes (and moved notifications to debug from info)
+- Code optimization
+- Migration to i18n
 
 ### 1.0.6 (NoBl)
 * Maintenance update (dependencies, ...)
@@ -414,7 +419,7 @@ Falls zu einem State keine Dokumentation vorhanden ist, jemand aber weiß, was d
 ## License
 MIT License
 
-Copyright (c) 2024 Norbert Bluemle <github@bluemle.org>
+Copyright (c) 2024-2026 Norbert Bluemle <github@bluemle.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

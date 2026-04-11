@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: DATd5HFmzDJ0tHqkLnFzZaWS1uJyIf7+RoVSQ54kcNI=
+hash: EuD4mcQjVzewQ8jBVVtmOSSoaIpw9Y2KBIPk1hDb6fo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -21,6 +21,11 @@ hash: DATd5HFmzDJ0tHqkLnFzZaWS1uJyIf7+RoVSQ54kcNI=
 ## Адаптер Roborock для ioBroker
 Этот адаптер позволяет управлять пылесосом Roborock, получать информацию о его состоянии, историю уборки и просматривать карту его местоположения, если он настроен в приложении Roborock.
 
+- [Требования](#требования)
+- [Поддерживаемые роботы](#supported-robots)
+- [Зональная уборка](#зональная-уборка)
+- [Список изменений](#changelog)
+
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
 ### Этот адаптер не работает на MacOS
@@ -29,36 +34,17 @@ hash: DATd5HFmzDJ0tHqkLnFzZaWS1uJyIf7+RoVSQ54kcNI=
 - ioBroker.admin >= 7.6.17
 - ioBroker.js-controller >= 6.0.11
 
-## Поддерживаются следующие роботы:
-- Роборок S4
-- Roborock S4 Max
-- Roborock S5 Max
-- Roborock S6
-- Roborock S6 Pure
-- Roborock S6 MaxV
-- Roborock S7
-- Roborock S7 MaxV (Ultra)
-- Roborock Q7
-- Roborock Q7 Max
-- Roborock S7 Pro Ultra
-- Roborock S7 Max Ultra
-- Roborock S8
-- Roborock S8 Pro Ultra
-- Roborock Q Revo
-- Roborock Q8 Max
-- Roborock Q5 Pro
-- Roborock Q Revo Pro
-- Roborock Qrevo S
-- Roborock Qrevo Curve
-- Roborock Saros 10R
-- Роборок Сарос 20 / Сарос 20X
+## Поддерживаемые роботы
+- **Серия S:** S4, S4 Max, S5 Max, S6, S6 Pure, S6 MaxV, S7, S7 MaxV (Pro/Ultra), S7 Pro Ultra, S7 Max Ultra, S8, S8 Pro Ultra, S8 MaxV Ultra
+- **Серия Q:** Q5 Pro, Q7, Q7 Max, Q7 L5, Q8 Max
+- **Q Revo:** Q Revo, Q Revo Pro
+- **Qrevo:** Qrevo Slim, Qrevo S, Qrevo Curve, Qrevo Curv Series, Qrevo Edge, Qrevo Edge Series, Qrevo L, Qrevo Master, Qrevo MaxV
+- **Saros:** Saros 10, Saros 10R, Saros 20 / Saros 20X, Saros Z70
 
 ## Зональная очистка
-Эта функция работает только в том случае, если в параметрах адаптера включено создание карт!
+Эта функция работает только при включенной возможности создания карт в параметрах адаптера. Откройте карту на вкладке веб-интерфейса адаптера в административном интерфейсе ioBroker; ввод URL-адреса вручную не требуется.
 
 ### Создание карт не работает на Raspberry Pi
-- Работает веб-сервер. Порт по умолчанию — 6824.
-- Откройте http://iobroker:6824/map.html в своем браузере (замените http://iobroker на имя хоста или IP-адрес ioBroker!!!)
 — Нарисуйте квадрат, предназначенный для уборки. Roborock поддерживает до 4 зон уборки одновременно.
 
  ![](https://github.com/copystring/ioBroker.roborock/blob/main/images/Rockrock_zone_cleaning.gif)
@@ -68,7 +54,12 @@ hash: DATd5HFmzDJ0tHqkLnFzZaWS1uJyIf7+RoVSQ54kcNI=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.0-beta.1 (2026-03-16)
+
+* (copystring) **Fix:** Request handling – message IDs are now assigned internally (externalId removed), avoiding ID conflicts.
+* (copystring) **Maps/Rooms:** Room states are only created for segments that exist on the loaded map for that floor; room names are taken only from the API so custom names are not overwritten.
+
+### 0.7.0-beta.0 (2026-03-11)
 * (copystring) **Maps:** Obstacle icons and map graphics are loaded automatically at startup so maps display correctly.
 * (copystring) **Breaking Change:** Major refactoring of the entire adapter structure.
 * (copystring) **New Feature:** Implemented 'Strict Startup' - Adapter prevents startup without valid login to avoid bootloops.
@@ -94,6 +85,9 @@ hash: DATd5HFmzDJ0tHqkLnFzZaWS1uJyIf7+RoVSQ54kcNI=
 * (copystring) **UDP Discovery:** Implemented a 1.5s grace period for UDP discovery to better detect shared devices on the local network.
 * (copystring) **Bugfix:** Fixed infinite retry loop for failed Network Probes (Remote Devices).
 * (copystring) **Code Cleanup:** Removed extensive debug logging, buffering logic, and unused code for a cleaner codebase.
+* (copystring) **New devices:** Saros 20X, Q7 L5.
+* (copystring) **Fix:** Cleaning history (records) now updates correctly after a cleaning run.
+* (copystring) **Stability:** Adapter no longer gets stuck in a boot loop when login fails or returns an error.
 
 ### 0.6.19 (2025-02-08)
 * (copystring) Rewrite of mqtt connection logic

@@ -90,6 +90,12 @@ sendTo('pushover', 'glances', {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2026-03-12)
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Dropped support for node 18
+* (@GermanBluefox) Migrated to TypeScript
+* (@GermanBluefox) Added the lowest priority to messages
+
 ### 4.1.1 (2025-05-19)
 * (robseh) Added a field "tags" to hand over a tag to pushover-service
 * (@GermanBluefox) Updated packages
@@ -108,14 +114,11 @@ sendTo('pushover', 'glances', {
 ### 3.0.6 (2023-11-06)
 * (ticaki) Caught the error by sending of sendToAsync if no configuration exists
 
-### 3.0.5 (2023-10-24)
-* (bluefox) Updated packages
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

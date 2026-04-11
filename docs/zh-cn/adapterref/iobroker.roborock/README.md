@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: DATd5HFmzDJ0tHqkLnFzZaWS1uJyIf7+RoVSQ54kcNI=
+hash: EuD4mcQjVzewQ8jBVVtmOSSoaIpw9Y2KBIPk1hDb6fo=
 ---
 ![标识](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -21,6 +21,11 @@ hash: DATd5HFmzDJ0tHqkLnFzZaWS1uJyIf7+RoVSQ54kcNI=
 ## Roborock ioBroker 适配器
 通过此适配器，您可以控制、获取状态、清洁历史记录并查看已在 Roborock 应用程序中设置的 Roborock 吸尘器的地图。
 
+- [要求](#requirements)
+- [支持的机器人](#supported-robots)
+- [区域清洁](#zone-cleaning)
+- [更新日志](#changelog)
+
 **此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
 ### 此适配器无法在 macOS 上使用
@@ -29,36 +34,17 @@ hash: DATd5HFmzDJ0tHqkLnFzZaWS1uJyIf7+RoVSQ54kcNI=
 - ioBroker.admin >= 7.6.17
 - ioBroker.js-controller >= 6.0.11
 
-支持的机器人有：
-- Roborock S4
-- Roborock S4 Max
-- Roborock S5 Max
-- Roborock S6
-- Roborock S6 Pure
-- Roborock S6 MaxV
-- Roborock S7
-- Roborock S7 MaxV（Ultra）
-- Roborock Q7
-- Roborock Q7 Max
-- Roborock S7 Pro Ultra
-- Roborock S7 Max Ultra
-- Roborock S8
-- Roborock S8 Pro Ultra
-- Roborock Q Revo
-- Roborock Q8 Max
-- Roborock Q5 Pro
-- Roborock Q Revo Pro
-- Roborock Qrevo S
-- Roborock Qrevo Curve
-- Roborock Saros 10R
-- 石头扫地机器人 Saros 20 / Saros 20X
+支持的机器人
+- **S系列：** S4、S4 Max、S5 Max、S6、S6 Pure、S6 MaxV、S7、S7 MaxV（Pro/Ultra）、S7 Pro Ultra、S7 Max Ultra、S8、S8 Pro Ultra、S8 MaxV Ultra
+- **Q系列：** Q5 Pro、Q7、Q7 Max、Q7 L5、Q8 Max
+- **Q Revo：** Q Revo、Q Revo Pro
+- **Qrevo：** Qrevo Slim、Qrevo S、Qrevo Curve、Qrevo Curv 系列、Qrevo Edge、Qrevo Edge 系列、Qrevo L、Qrevo Master、Qrevo MaxV
+- **Saros：** Saros 10、Saros 10R、Saros 20 / Saros 20X、Saros Z70
 
 区域清洁
-此功能仅在适配器选项中启用地图创建时有效！
+此功能仅在适配器选项中启用地图创建时有效。在 ioBroker 管理界面中，从适配器的 Web UI 选项卡打开地图；无需手动输入 URL。
 
 ### 树莓派上无法创建地图
-- 有一个网络服务器正在运行。默认端口是 6824
-- 在浏览器中打开 http://iobroker:6824/map.html（请将 http://iobroker 替换为您的 ioBroker 主机名或 IP 地址！）
 - 画出您的清洁区域。Roborock 最多可同时支持 4 个清洁区域。
 
  ![](https://github.com/copystring/ioBroker.roborock/blob/main/images/Rockrock_zone_cleaning.gif)
@@ -68,7 +54,12 @@ hash: DATd5HFmzDJ0tHqkLnFzZaWS1uJyIf7+RoVSQ54kcNI=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.0-beta.1 (2026-03-16)
+
+* (copystring) **Fix:** Request handling – message IDs are now assigned internally (externalId removed), avoiding ID conflicts.
+* (copystring) **Maps/Rooms:** Room states are only created for segments that exist on the loaded map for that floor; room names are taken only from the API so custom names are not overwritten.
+
+### 0.7.0-beta.0 (2026-03-11)
 * (copystring) **Maps:** Obstacle icons and map graphics are loaded automatically at startup so maps display correctly.
 * (copystring) **Breaking Change:** Major refactoring of the entire adapter structure.
 * (copystring) **New Feature:** Implemented 'Strict Startup' - Adapter prevents startup without valid login to avoid bootloops.
@@ -94,6 +85,9 @@ hash: DATd5HFmzDJ0tHqkLnFzZaWS1uJyIf7+RoVSQ54kcNI=
 * (copystring) **UDP Discovery:** Implemented a 1.5s grace period for UDP discovery to better detect shared devices on the local network.
 * (copystring) **Bugfix:** Fixed infinite retry loop for failed Network Probes (Remote Devices).
 * (copystring) **Code Cleanup:** Removed extensive debug logging, buffering logic, and unused code for a cleaner codebase.
+* (copystring) **New devices:** Saros 20X, Q7 L5.
+* (copystring) **Fix:** Cleaning history (records) now updates correctly after a cleaning run.
+* (copystring) **Stability:** Adapter no longer gets stuck in a boot loop when login fails or returns an error.
 
 ### 0.6.19 (2025-02-08)
 * (copystring) Rewrite of mqtt connection logic

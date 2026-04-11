@@ -29,6 +29,27 @@ The counter state will increase up from its saved value, when the shelly energy 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.5.15 (2026-04-05)
+* (BenAhrdt) building desc for id
+
+### 2.5.14 (2026-04-05)
+* (BenAhrdt) building icon and color for inactive counters in dM card
+
+### 2.5.13 (2026-04-05)
+* (BenAhrdt) change design of identifier and sort alphabetically
+
+### 2.5.12 (2026-04-04)
+* (BenAhrdt) improve id and transform back id
+
+### 2.5.11 (2026-04-04)
+* (BenAhrdt) sort display in card
+
+### 2.5.10 (2026-04-04)
+* (BenAhrdt) build id removed and building sourcestates improved
+
+### 2.5.9 (2026-04-04)
+* (BenAhrdt) add deviceManager
+
 ### 2.5.8 (2026-02-28)
 * (BenAhrdt) bugfix 2.0 dependencies
 

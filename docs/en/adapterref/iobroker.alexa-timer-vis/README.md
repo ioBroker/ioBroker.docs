@@ -228,17 +228,14 @@ to make them visible in the Vis. So you have a better overview if you have sever
 ### 0.1.1 (29.12.2021)
 
 - Adaptation to the English language (experimental)
-- Anpassung an die Englische Sprache (experimentell)
 
 ### 0.1.0 (28.12.021)
 
 - Fixed bug when deleting intervals and timeouts after shutdown
-- Fehler beim Löschen von Intervallen und Timeouts nach dem Shutdown, behoben
 
 ### 0.0.4 (27.12.2021)
 
 - Adaptation to various options for entering a timer
-- Anpassung an verschiedener Möglichkeiten der Eingabe eines Timers
 
 ### 0.0.3 (26.12.2021)
 

@@ -118,6 +118,10 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.6.0 (2026-03-29)
+* (Sneak-L8) information about new firmware also via admin notification (also works for x-series)
+* (Sneak-L8) updated dependencies
+
 ### 3.5.0 (2026-03-02)
 * (copilot) Adapter requires admin >= 7.7.22 now
 * (Sneak-L8) checking of firmware version is back
@@ -138,12 +142,6 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 * (Sneak-L8) new option to always start charging when vehicle is plugged if authorization is required to prevent charging station to block charging
 * (Sneak-L8) optimized strategy for battery charging
 * (Sneak-L8) node.js >= 20 required
-
-### 3.1.0 (2025-03-20)
-* (Sneak-L8) new option to reduce log entries on info level (write them with debug level)
-* (Sneak-L8) fix wording error ("regard" changed to grid consumption)
-* (Sneak-L8) fixed some english translations
-* (Sneak-L8) renamed state "regardTimestamp" to "consumptionTimestamp" - please delete old state
 
 ## Legal
 

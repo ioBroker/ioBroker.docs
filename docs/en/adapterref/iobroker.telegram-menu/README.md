@@ -457,7 +457,7 @@ CHORE: #401 Update config
 
 ### 0.7.0 (2023-10-01)
 
-- #53 feature: sendPicture von server-path
+- #53 feature: sendPicture from server-path
 - #52 icons are missing, copy data
 - #51 by creating a new Menu, the Users are not shown
 

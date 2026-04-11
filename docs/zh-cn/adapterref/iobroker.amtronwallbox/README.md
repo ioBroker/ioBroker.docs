@@ -3,51 +3,55 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.amtronwallbox/README.md
 title: ioBroker.amtronwallbox
-hash: eLNhMFwzFL3Fm+3SugLYppogqdYpR5umYJEhSg6oipo=
+hash: OtfRBmI1ATOdGfHZjkf+WDMsBy/AgNxeaayNiVF4itY=
 ---
 ![标识](../../../en/adapterref/iobroker.amtronwallbox/admin/amtronwallbox.png)
 
 ![安装数量](http://iobroker.live/badges/amtronwallbox-stable.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.amtronwallbox.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.amtronwallbox.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.amtronwallbox.svg)
 ![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.amtronwallbox/badge.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.amtronwallbox.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.amtronwallbox.png?downloads=true)
 ![节点-lts](https://img.shields.io/node/v-lts/iobroker.amtronwallbox?style=flat-square)
 ![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.amtronwallbox?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.amtronwallbox?style=flat-square)
-![GitHub 存储库大小](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
-![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
-![GitHub 最后一次提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![GitHub 仓库大小](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![GitHub提交活动](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![GitHub 最新提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
 ![GitHub 问题](https://img.shields.io/github/issues/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
 
 # IoBroker.amtronwallbox
-![GitHub 操作](https://github.com/rg-engineering/ioBroker.amtronwallbox/workflows/Test%20and%20Release/badge.svg)
+![GitHub Actions](https://github.com/rg-engineering/ioBroker.amtronwallbox/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
-**如果您喜欢，请考虑捐赠：**
+如果您喜欢，请考虑捐赠：
 
-[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-该适配器充当各种[Amtron 壁箱](https://www.mennekes.de/emobility/produkte/amtron-wallboxen/)的接口。盒子提供的数据被读出并作为适配器中的数据点使用。
-数据仅在本地处理，不需要云连接。对于也支持写访问的墙盒，适配器可以写入数据（例如充电电流）。
-支持以下 Amtron 墙盒：
+该适配器作为各种 [Amtron墙装式插座](https://www.mennekes.de/emobility/produkte/amtron-wallboxen/) 的接口。适配器读取充电盒提供的数据，并将其作为数据点提供给适配器。
 
-* 安创 Xtra
-* Amtron 充电控制
-* Amtron 紧凑型
+数据仅在本地处理，无需云连接。对于支持写入权限的壁挂式充电盒，适配器可以写入数据（例如充电电流）。
 
-该适配器可以管理多个盒子。
+支持以下 Amtron 壁挂式充电盒：
+
+* Amtron Xtra
+* Amtron充电控制器
+* Amtron Compact
+
+该适配器可以管理多个设备。
+
+如果您拥有的壁挂式电视盒尚未获得支持，请联系开发者。
 
 ＃＃ 配置
-只需要配置盒子的类型、IP 地址以及 API 密钥（如有必要）。
+只需要配置盒子类型、IP 地址，以及（如有必要）API 密钥。
 
 ![配置](../../../en/adapterref/iobroker.amtronwallbox/admin/docs/Amtron_Config.PNG)
 
-注意：由于盒子有不同的接口，因此可能并非所有接口都可以直接工作。在这种情况下，请联系开发商。
+注意：由于不同设备的接口各不相同，可能并非所有接口都能直接使用。如果遇到这种情况，请联系开发者。
 
-＃＃ 已知的问题
-* 如果您发现错误或希望有新功能，请在 [github](https://github.com/rg-engineering/ioBroker.amtronwallbox/issues) 上创建问题。
+已知问题
+如果您发现错误或希望添加新功能，请在 [github](https://github.com/rg-engineering/ioBroker.amtronwallbox/issues) 创建问题。
 
 ## Changelog
 
@@ -55,6 +59,42 @@ hash: eLNhMFwzFL3Fm+3SugLYppogqdYpR5umYJEhSg6oipo=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.3.6 (2026-03-15)
+* (René) update dependencies + changes based on adapter checker
+
+### 0.3.5 (2025-10-26)
+* (René) bug fix sentry
+
+### 0.3.4 (2025-10-21)
+* (René) update dependencies + changes based on adapter checker
+
+### 0.3.3 (2025-10-04)
+* (René) update dependencies + changes based on adapter checker
+
+### 0.3.2 (2025-06-28)
+* (René) update dependencies
+* (René) new testing
+
+### 0.3.1 (2025-02-27)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 0.3.0 (2024-12-17)
+* (René) see issue #284: test with nodejs@22
+* (René) update dependencies
+* (René) migration to jsonConfig
+
+### 0.2.16 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
+### 0.2.15 (2024-05-28)
+* (René) change of dependencies
+* (René) show cron job in log after creation
+
+### 0.2.14 (2024-01-12)
+* (René) dependencies updated
+
 ### 0.2.13 (2023-12-23)
 * (René) just a sentry test
 
@@ -105,7 +145,7 @@ hash: eLNhMFwzFL3Fm+3SugLYppogqdYpR5umYJEhSg6oipo=
 ## License
 MIT License
 
-Copyright (c) 2022-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2022-2026 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: gLEy/F6ki+86Hi0tqrYcwXrFVkLRa4fcK3xwGD+WM1c=
+hash: V8qwDl0EcYEzL4sB9SgTqXwY3zqZrH4548JUHozkRqo=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bmw.svg)
@@ -36,7 +36,7 @@ Eine detaillierte Beschreibung des Datenpunkts finden Sie hier [telematic.json](
 
 ## Installationsanleitung
 ### 1. BMW ConnectedDrive Portal einrichten
-1. Besuchen Sie das BMW ConnectedDrive Portal: **https://www.bmw.de/de-de/mybmw/vehicle-overview**
+1. Besuchen Sie das BMW ConnectedDrive Portal: **https://www.bmw.de/de-de/mybmw/vehicle-overview** oder https://www.mini.de/de-de/mymini/vehicle-overview
 2. Navigieren Sie zum Abschnitt **BMW CarData** (dort sehen Sie verschiedene Servicekategorien).
 
 ![BMW Portal – Übersicht](../../../en/adapterref/iobroker.bmw/img/bmw-portal-overview.png)
@@ -52,7 +52,7 @@ Eine detaillierte Beschreibung des Datenpunkts finden Sie hier [telematic.json](
 
 # **WICHTIG**: Klicken Sie auf einen Dienst und warten Sie 30 Sekunden, falls eine Fehlermeldung erscheint. Klicken Sie dann erneut. Klicken Sie nicht auf „Gerät Authentifizieren“. Geben Sie die Client-ID in den iobroker-Einstellungen ein. Falls dies nicht funktioniert, versuchen Sie es mit Kleinbuchstaben.
 ### 2. CarData-Streaming-Konfiguration
-**SIE MÜSSEN CARDATA STREAMING KONFIGURIERT UND ALLE 244 DATENPUNKTE AUSWÄHLEN**
+**SIE MÜSSEN CARDATA STREAMING KONFIGURIEREN UND ALLE 244 DATENPUNKTE AUSWÄHLEN**
 
 Nachdem Sie Ihre Client-ID erstellt haben, konfigurieren Sie das Streaming:
 
@@ -193,6 +193,12 @@ Dieser Adapter ist erhältlich unter: [https://github.com/TA2k/ioBroker.bmw](htt
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (hombach) fix repo checker warnings
+- (hombach) update dependencies
+
 ### 4.3.4 (2026-02-28)
 
 - enhance docu and logging

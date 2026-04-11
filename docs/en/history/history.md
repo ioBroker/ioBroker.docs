@@ -1156,3 +1156,20 @@ This Adapter reads Data of Photovoltaik SLEnergy Plats out of their Cloud named 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+## pjlink (31.3.2026) – new adapter at stable repository
+https://github.com/Bannsaenger/ioBroker.pjlink
+
+<img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.pjlink/main/admin/pjlink.png" width="100" height="100" />
+
+PJLink Projector controll
+
+<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
+
+## heos (15.03.2025) – new adapter at stable repository
+https://github.com/withstu/ioBroker.heos
+
+<img src="https://raw.githubusercontent.com/withstu/ioBroker.heos/main/admin/heos.png" width="100" height="100" />
+
+The adapter lets control HEOS from ioBroker.
+
+<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->

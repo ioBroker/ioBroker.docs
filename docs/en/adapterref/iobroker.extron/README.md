@@ -80,7 +80,7 @@ If you are a non commercial organisation or use it for private use you can get a
 ## License
 Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
 
-Copyright (c) 2021-2025 Bannsaenger, https://github.com/bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2026 Bannsaenger, https://github.com/bannsaenger <bannsaenger@gmx.de>
 
 ![CC BY-NC License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)
 

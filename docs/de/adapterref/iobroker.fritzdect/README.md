@@ -87,6 +87,7 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 ### 2.6.4 (WIP)
 
 - new IKEA lamp commands issue #625
+- object corrections
 
 ### 2.6.3 (npm)
 
@@ -352,10 +353,10 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 ### 1.1.0
 
 - new features of AVM API 1.33
-  - setblind
-  - sethkrboost
-  - setwindowopen
-  - txbusy, windowopenactiveendtime, boostactiveendtime, boostactive
+    - setblind
+    - sethkrboost
+    - setwindowopen
+    - txbusy, windowopenactiveendtime, boostactiveendtime, boostactive
 - fade duration
 - DECT440
 - DECT500
@@ -371,9 +372,9 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 
 - merge of fritzapi into repo directly including added DECT500 commands
 - **no longer support of non-native API calls (scraping of website)**
-  - GuestWLAN
-  - BatteryCharge
-  - OS version
+    - GuestWLAN
+    - BatteryCharge
+    - OS version
 - correction of timestamp to date conversion for DECT400
 
 ### 0.3.2 (npm)
@@ -534,5 +535,3 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 The MIT License (MIT)
 
 Copyright (c) 2018-2026 foxthefox <foxthefox@wysiwis.net>
-
-Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

@@ -137,7 +137,8 @@ Other topics related to this adapter are also documented in the associated [wiki
 
 ## Changelog
 ### **WORK IN PROGRESS**
-*
+* ZH 9.0
+* ZHC 25.115 or newer
 
 ### 3.3.5 (2026-01-30)
 * Bugfix - Error on startup from onEvent
