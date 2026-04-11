@@ -1118,15 +1118,6 @@ https://github.com/deMynchi/ioBroker.meteoswiss
 
 Provides weather information from MeteoSwiss
 
-## hagelschutz-vkf (25.02.2025) – new adapter at stable repository
-https://github.com/UncleSamSwiss/ioBroker.hagelschutz-vkf
-
-<img src="https://raw.githubusercontent.com/UncleSamSwiss/ioBroker.hagelschutz-vkf/main/admin/hagelschutz-vkf.jpg" width="100" height="100" />
-
-Adapter for hagelschutz-einfach-automatisch.ch of the cantonal building insurances.
-
-<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
-
 ## ping (28.02.2026) - new feature
 https://github.com/ioBroker/ioBroker.ping
 
@@ -1136,3 +1127,12 @@ Ping adapter can use hping3 to detect iPhones and can send wake-on-lan packets t
 https://github.com/ioBroker/ioBroker.parser
 
 Parser can now parse values of states, ioBroker files and logs. Added export and import of parser rules via CSV files.
+
+## heos (15.03.2025) – new adapter at stable repository
+https://github.com/withstu/ioBroker.heos
+
+<img src="https://raw.githubusercontent.com/withstu/ioBroker.heos/main/admin/heos.png" width="100" height="100" />
+
+The adapter lets control HEOS from ioBroker.
+
+<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
