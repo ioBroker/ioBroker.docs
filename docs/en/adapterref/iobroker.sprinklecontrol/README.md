@@ -242,6 +242,12 @@ Activate the Notifications tab. The communication settings are then made on the 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (Dirk-Peter-md) Add Homematic ON_TIME
+* (Dirk-Peter-md) Adapter configuration revised
+* (Dirk-Peter-md) ioBroker-Bot [E4041], [E4043] completed
+
 ### 1.0.0 (2026-03-21)
 * (Dirk-Peter-md) Adapter redesign => Be sure to check your configuration
 * (Dirk-Peter-md) Adaptation to “dasWeather” >= 4.0
@@ -254,12 +260,6 @@ Activate the Notifications tab. The communication settings are then made on the 
 
 ### 0.2.18 (2025-06-30)
 * (Dirk-Peter-md) Hysteresis switch-on value of the cistern changed to 20%
-
-### 0.2.17 (2025-06-15)
-* (Dirk-Peter-md) Valve timing corrected
-
-### 0.2.16 (2025-06-08)
-* (Dirk-Peter-md) issue #95 Pump lead time added
 
 ## License
 MIT License

@@ -2,32 +2,32 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.seplos-v3-sniffer/README.md
-title: ioBroker.seplos-v3-嗅探器
-hash: snOYxX39iBN2/nEN5uJR+Z0bTgu5GGF46xmmOhASu7w=
+title: ioBroker.seplos-v3-sniffer
+hash: 8bSCVtLKER3vRTxSHeRJQXp3hvFSYf9PsPG5Y0oMWSE=
 ---
 ![标识](../../../en/adapterref/iobroker.seplos-v3-sniffer/admin/seplos-v3-sniffer.jpg)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.seplos-v3-sniffer.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.seplos-v3-sniffer.svg)
 ![安装数量](https://iobroker.live/badges/seplos-v3-sniffer-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/seplos-v3-sniffer-stable.svg)
-![新平台](https://nodei.co/npm/iobroker.seplos-v3-sniffer.png?downloads=true)
+![稳定仓库中的当前版本](https://iobroker.live/badges/seplos-v3-sniffer-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.seplos-v3-sniffer.png?downloads=true)
 
-# IoBroker.seplos-v3-嗅探器
-**测试：**![测试与发布](https://github.com/DpunktS/ioBroker.seplos-v3-sniffer/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.seplos-v3-sniffer
+**测试：** ![测试与发布](https://github.com/DpunktS/ioBroker.seplos-v3-sniffer/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 seplos-v3-sniffer 适配器
 [www.seplos.com](https://www.seplos.com/)
 
-该适配器专为读取多包配置中的 Seplos V3 BMS 而开发。在 V3 代中，第一个 BMS 充当 Modbus 主设备，而所有其他 BMS 充当从设备。在这种配置中，不再可能从第三个设备通过 Modbus 访问 BMS，因为 RS-485 Modbus 系统中不能存在两个主设备。适配器被动检测设备之间的通信，这意味着单个 BMS 的通信不会中断。它可以通过本地接口（例如 /dec/ttyS0）或 Ser2Net（tcp://ip:2001）进行通信。
+此适配器专为读取多组配置中的 Seplos V3 BMS 而开发。在 V3 版本中，第一个 BMS 作为 Modbus 主站，其余 BMS 作为从站。在这种配置下，由于 RS-485 Modbus 系统中不能同时存在两个主站，因此无法从第三个设备通过 Modbus 访问 BMS。该适配器被动地检测设备间的通信，这意味着不会中断各个 BMS 的通信。它可以通过本地接口（例如 /dec/ttyS0）或 Ser2Net（tcp://ip:2001）进行通信。
 
-适配器自动检测可用设备的数量并创建相应的数据点。BMS 每 200 毫秒传输一组新数据集。更新间隔可以在适配器的配置页面上调整（默认值：5 秒）。
+适配器会自动检测可用设备数量并创建相应的数据点。电池管理系统 (BMS) 每 200 毫秒发送一次新的数据集。更新间隔可在适配器的配置页面中进行调整（默认值：5 秒）。
 
-![塞普洛斯 4x](https://github.com/user-attachments/assets/9d710287-069d-44b6-acda-e96764642a33)
+![seplos 4x](https://github.com/user-attachments/assets/9d710287-069d-44b6-acda-e96764642a33)
 
-要建立连接，必须将引脚 1/8 (B)、2/7 (A) 和 5 (GND) 连接到 RS485 适配器。可以使用各种 RS485 适配器，例如 RS485 转 USB 或 RS485 转 TTL。重要的是检查系统如何检测相应的适配器，并在“串行适配器”中相应地输入接口（例如 /dev/ttyUSB0 或 /dev/ttyS0）。如果使用 Ser2Net，则应输入地址 tcp://ip:2001。必须配置 Ser2Net 服务器以提供 RAW 格式的数据。一种简单的方法是使用带有 ESPHome 的 ESP8266/ESP32（参见下面的示例）。
+要建立连接，必须将引脚 1/8 (B)、2/7 (A) 和 5 (GND) 连接到 RS485 适配器。可以使用各种 RS485 适配器，例如 RS485 转 USB 或 RS485 转 TTL。务必检查系统如何检测到相应的适配器，并在“串口适配器”中相应地输入接口（例如 /dev/ttyUSB0 或 /dev/ttyS0）。如果使用 Ser2Net，则应输入地址 tcp://ip:2001。必须将 Ser2Net 服务器配置为以 RAW 格式提供数据。一种简单的方法是使用带有 ESPHome 的 ESP8266/ESP32（请参见下面的示例）。
 
-在我的测试中，我发现适配器中的 120 欧姆终端电阻是不必要的。原装 Seplos V3 USB 适配器中也没有终端电阻。如果只读取一个 BMS，则需要将引脚 6 (B) 连接到引脚 5 (GND)，以便主控可以独立发送数据。
+我的测试发现，适配器中的 120 欧姆终端电阻并非必需。原装 Seplos V3 USB 适配器中也没有终端电阻。如果只需要读取一个 BMS 的数据，则需要将引脚 6 (B) 连接到引脚 5 (GND)，以便主设备可以独立发送数据。
 
 ![引脚排列](https://github.com/user-attachments/assets/1c8ec271-d20f-4a5d-baf4-87e5a98fc35a)
 
@@ -50,7 +50,7 @@ stream_server:
    buffer_size: 2048
 ```
 
-当前已读出以下数据点：
+目前读取的数据点如下：
 
 ```
 pack_voltage
@@ -65,6 +65,7 @@ average_cell_voltage
 average_cell_temp
 max_cell_voltage
 min_cell_voltage
+delta_cell_voltage
 max_cell_temp
 min_cell_temp
 maxdiscurt
@@ -105,7 +106,8 @@ active_protections
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.0 (2026-04-08)
+* (DpunktS) add delta_cell_voltage
 
 ### 0.1.1 (2025-02-28)
 * (DpunktS) bugfix
@@ -140,7 +142,7 @@ active_protections
 ## License
 MIT License
 
-Copyright (c) 2025 DpunktS <dpunkts@online.de>
+Copyright (c) 2025-2026 DpunktS <dpunkts@online.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

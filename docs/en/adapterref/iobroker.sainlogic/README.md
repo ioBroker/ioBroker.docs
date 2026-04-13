@@ -107,6 +107,12 @@ Station does not answer to scheduler commands, so only listener mode is supporte
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.1 (2026-04-07)
+Issue #229: Adding additional parameters for humidity sensors, up to 20 now
+Issue #277: Display conversion issue fix (thanks to ManuelBu96)
+npm updates
+Adapter Checker updates
+
 ### 1.2.0 (2026-03-22)
 
 npm dependency updates
@@ -125,10 +131,6 @@ Changed max values for distance sensore (#262)
 
 Added deploy job for release script
 Changed to Admin UI to jsonConfig
-
-### 1.0.17 (2025-12-23)
-
-Updates for releasescript changelog logic
 
 ## Credits
 

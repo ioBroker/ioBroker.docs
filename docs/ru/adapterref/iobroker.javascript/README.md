@@ -17,6 +17,7 @@ chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru"
     ### **WORK IN PROGRESS**
 -->
 ### WORK IN PROGRESS
+* (Eistee82) Added OID display mode toggle for Blockly editor: 4 display modes (Name, Name path, State ID, Full ID) with toolbar dropdown, context menu, optional object icons, and translations in 11 languages
 * Per-provider test buttons in adapter config (OpenAI, Anthropic, Gemini, DeepSeek, Custom API)
 * Optional API key field for custom base URL providers (e.g. Ollama without auth)
 * Provider icons on test buttons and in model dropdown

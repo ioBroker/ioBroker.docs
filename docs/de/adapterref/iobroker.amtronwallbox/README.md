@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.amtronwallbox/README.md
 title: ioBroker.amtronwallbox
-hash: eLNhMFwzFL3Fm+3SugLYppogqdYpR5umYJEhSg6oipo=
+hash: OtfRBmI1ATOdGfHZjkf+WDMsBy/AgNxeaayNiVF4itY=
 ---
 ![Logo](../../../en/adapterref/iobroker.amtronwallbox/admin/amtronwallbox.png)
 
@@ -12,25 +12,25 @@ hash: eLNhMFwzFL3Fm+3SugLYppogqdYpR5umYJEhSg6oipo=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.amtronwallbox.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/rg-engineering/ioBroker.amtronwallbox/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.amtronwallbox.png?downloads=true)
-![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.amtronwallbox?style=flat-square)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.amtronwallbox?style=flat-square)
 ![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.amtronwallbox?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.amtronwallbox?style=flat-square)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
-![GitHub letzter Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
 
 # IoBroker.amtronwallbox
-![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.amtronwallbox/workflows/Test%20and%20Release/badge.svg)
+![GitHub Actions](https://github.com/rg-engineering/ioBroker.amtronwallbox/workflows/Test%20and%20Release/badge.svg)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
+**Wenn es Ihnen gefällt, erwägen Sie bitte eine Spende:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-Der Adapter dient als Schnittstelle zu verschiedenen [Amtron-Wallboxen](https://www.mennekes.de/emobility/produkte/amtron-wallboxen/). Die von der Box bereitgestellten Daten werden ausgelesen und als Datenpunkt im Adapter zur Verfügung gestellt.
-Die Daten werden nur lokal verarbeitet, eine Cloud-Anbindung ist nicht notwendig. Bei Wallboxen, die auch Schreibzugriff unterstützen, kann der Adapter Daten schreiben (z. B. Ladestrom).
+Der Adapter dient als Schnittstelle zu verschiedenen Geräten. Die von der Box bereitgestellten Daten werden ausgelesen und als Datenpunkt im Adapter verfügbar gemacht.
+Die Daten werden ausschließlich lokal verarbeitet; eine Cloud-Verbindung ist nicht erforderlich. Bei Wallboxen, die auch Schreibzugriff unterstützen, kann der Adapter Daten (z. B. Ladestrom) schreiben.
 Folgende Amtron-Wallboxen werden unterstützt:
 
 * Amtron Xtra
@@ -39,15 +39,17 @@ Folgende Amtron-Wallboxen werden unterstützt:
 
 Der Adapter kann mehrere Boxen verwalten.
 
-## Aufbau
-Lediglich der Typ der Box, ihre IP-Adresse und ggf. ein API-Schlüssel müssen konfiguriert werden.
+Falls Sie eine Wallbox besitzen, die noch nicht unterstützt wird, wenden Sie sich bitte an den Entwickler.
 
-![Aufbau](../../../en/adapterref/iobroker.amtronwallbox/admin/docs/Amtron_Config.PNG)
+## Konfiguration
+Lediglich der Boxentyp, die IP-Adresse und gegebenenfalls ein API-Schlüssel müssen konfiguriert werden.
 
-Hinweis: Da die Boxen über unterschiedliche Schnittstellen verfügen, kann es sein, dass nicht alle Schnittstellen direkt funktionieren. Bitte wenden Sie sich in diesem Fall an den Entwickler.
+![Konfiguration](../../../en/adapterref/iobroker.amtronwallbox/admin/docs/Amtron_Config.PNG)
+
+Hinweis: Da die Geräte unterschiedliche Schnittstellen haben, funktionieren möglicherweise nicht alle Schnittstellen direkt. Wenden Sie sich in diesem Fall bitte an den Entwickler.
 
 ## Bekannte Probleme
-* Bitte erstellen Sie Probleme bei [github](https://github.com/rg-engineering/ioBroker.amtronwallbox/issues), wenn Sie Fehler finden oder neue Funktionen wünschen.
+* Bitte erstellen Sie Issues auf [github](https://github.com/rg-engineering/ioBroker.amtronwallbox/issues), wenn Sie Fehler finden oder neue Funktionen wünschen.
 
 ## Changelog
 
@@ -55,6 +57,42 @@ Hinweis: Da die Boxen über unterschiedliche Schnittstellen verfügen, kann es s
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.3.6 (2026-03-15)
+* (René) update dependencies + changes based on adapter checker
+
+### 0.3.5 (2025-10-26)
+* (René) bug fix sentry
+
+### 0.3.4 (2025-10-21)
+* (René) update dependencies + changes based on adapter checker
+
+### 0.3.3 (2025-10-04)
+* (René) update dependencies + changes based on adapter checker
+
+### 0.3.2 (2025-06-28)
+* (René) update dependencies
+* (René) new testing
+
+### 0.3.1 (2025-02-27)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 0.3.0 (2024-12-17)
+* (René) see issue #284: test with nodejs@22
+* (René) update dependencies
+* (René) migration to jsonConfig
+
+### 0.2.16 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
+### 0.2.15 (2024-05-28)
+* (René) change of dependencies
+* (René) show cron job in log after creation
+
+### 0.2.14 (2024-01-12)
+* (René) dependencies updated
+
 ### 0.2.13 (2023-12-23)
 * (René) just a sentry test
 
@@ -105,7 +143,7 @@ Hinweis: Da die Boxen über unterschiedliche Schnittstellen verfügen, kann es s
 ## License
 MIT License
 
-Copyright (c) 2022-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2022-2026 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

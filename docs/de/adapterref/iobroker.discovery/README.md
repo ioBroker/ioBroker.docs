@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.discovery/README.md
 title: ioBroker Discover Adapter
-hash: 8ZC7Dm35Xlje6vXUX0PcjjVgWk0L6sXeaxRpbl3uHyM=
+hash: D/72x86GmJCeDJxyqlcj3Bp2mAh8a6fxHgt7E6LOgpM=
 ---
 ![Logo](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -12,32 +12,32 @@ hash: 8ZC7Dm35Xlje6vXUX0PcjjVgWk0L6sXeaxRpbl3uHyM=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.discovery.svg)
 
 # IoBroker Discover Adapter
-![Testen und Freigeben](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Geräte mit allen bekannten Methoden erkennen.**
+![Test und Freigabe](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Geräte mit allen bekannten Methoden erkennen.**
 
-Dies ist ein spezieller Adapter, der versucht, alle möglichen Geräte zu finden, die vom iobroker-Host aus erreichbar sind.
-Im Moment kann er die Erkennung über Ping und UPnP durchführen (seriell geplant).
+Dies ist ein spezieller Adapter, der versucht, alle vom iobroker-Host aus erreichbaren Geräte zu finden.
+Aktuell unterstützt er die Erkennung per Ping und UPnP (seriell ist geplant).
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Tatsächlich unterstützt
 ### Automatisch erkannt
-- Luft-Q
-- Beckhoff SPS
-- Bosch Smart Home
-Bose Soundtouch
-- Breitlink
+- Air-Q
+Beckhoff PLC
+Bosch Smart Home
+- Bose Soundtouch
+- Broadlink
 - BSBLan
 - Chromecast
-- Daikin-Klimaautomatik
+- Daikin Klimaanlage
 - deConz
-Denon /Marantz
+- Denon /Marantz
 - DoorBird
 - e3dc-rscp
-- E-Bus
-- eSchlüssel
+- ebus
+- ekey
 - Energiemanager (E.ON/Solarwatt)
 - enet (Jung)
-Epson Stylus PX830
+- Epson Stylus PX830
 - Fakeroku (Harmonie)
 - FHEM
 - FireTV
@@ -47,108 +47,118 @@ Epson Stylus PX830
 - G-Homa-Stecker
 - Harmonie
 - Heos
-Heimassistent
-- Homematic Zentraleinheit (hm-rpc, hm-rega)
+- Home Assistant
+- Homematic CCU (hm-rpc, hm-rega)
+- Hoymiles HMS Wechselrichter (hoymiles)
 - Homepilot
-- HP lio
-Philips HUE
-Plex
+- HP-lio
+- Philips Hue
+- Plex
 - InfluxDB
 - KLF-200
-- KNX (aktuell deaktiviert)
+- KNX (derzeit deaktiviert)
 - Keba KeContact P30
 - Kodi
 - LaMetric
 - Landroid
 - LGTV
-- Erleuchten
+- Lightify
 - Loxone
 - Lupusec
 - MAX! Würfel
-- McBeleuchtung
+- McLighting
 - MegaD
 - Miele
-- Miele Cloud Service
+- Miele Cloud-Service
 - Mi Home Smarthome
 - Mikrotik
 - MiLight-Brücke (v6)
-- MPD
-- Musiksendung
-- meinDlink
+- Mpd
+- Musiccast
+- myDlink
 - Mysensors USB/Seriell (9600, 38400, 57600, 115200)
-- meinVbus
-- Nanoleaf-Lichtpaneele / -Leinwand
-- Netzwerkzeuge
+- myvbus
+- nanoleaf Lichtpaneele / Leinwand
+- Net Tools
 - Nuki2
 - Nuss
 - Onkyo
 - OpenHAB
 - OpenKNX
-- Klingeln
-Plex
+- Ping
+- Plex
 - Proxmox
 - RFLink (Seriell 57600 Baud)
-SamsungTV
-- Schmach sie
+- SamsungTV
+- Sma-em
 - Smappee
 - Solarlog
 - Sonnen
-Sonos
+- Sonos
 - Stiebel-Eltron/Tecalor ISG (plus)
 - SQL (MySQL, MSSQL, PostgreSQL)
-- Quetschbox
 - SqueezeboxRPC
-Synologie
+- Synology
 - TR-064
-- Region Trådfri
-UPnP
+- Trådfri
+- UPnP
 - ValloxMV
-WLAN-Licht
+- Wifilight
 - WLED
 - Yamaha
 - Yeelight
-- Z-Wave USB (getestet mit Aeon Labs)
+- Z-Wave USB (Getestet mit Aeon Labs)
 
-### Als Zusatzadapter angeboten
+### Als zusätzliche Adapter angeboten
 - Wolke
-- Verlauf (wenn kein SQL oder InfluxDB gefunden wurde)
-- Internet der Dinge
-- ich kontrolliere
-- eCharts (angeboten, wenn ein History-Adapter vorhanden ist)
+- Verlauf (falls keine SQL- oder InfluxDB-Datenbank gefunden wurde)
+- IoT
+- iControl
+- eCharts (wird angeboten, wenn ein History-Adapter vorhanden ist)
 - JavaScript
-- Die Info
-- Region Vis
-- Netz
+- Info
+- Vis
+- Web
 
-## Wenn der Adapter keine IPs finden kann ...
-Der Adapter pingt das Netzwerk der IP des aktuellen Hosts (x.y.z.1..255). Zusätzlich werden UPnP und mDNS zur Erkennung von IPs verwendet.
-Wenn nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Benutzer `/bin/ping` ausführen kann.
-Sie können `sudo setcap cap_net_raw+p /bin/ping` ausführen, um fehlende Fähigkeiten/Berechtigungen hinzuzufügen.
+## Wenn der Adapter keine IPs findet ...
+Der Adapter pingt das Netzwerk der IP-Adresse des aktuellen Hosts (x.y.z.1..255) an. Zusätzlich werden UPnP und mDNS zur IP-Adresserkennung verwendet.
+Falls nicht alle IP-Adressen gefunden werden, überprüfen Sie bitte, ob der Benutzer „iobroker“ die Berechtigung `/bin/ping` ausführen kann.
+Sie können `sudo setcap cap_net_raw+p /bin/ping` ausführen, um fehlende Berechtigungen hinzuzufügen.
 
-## Machen
+## Todo
 - artnet? (Bluefox)
-- B-Kontrolliere sie? (Bluefox)
+- B-Control-Em? (Bluefox)
 - cul / maxcul (Bluefox)
 - Foobar200 (Installateur)
-- Fritzbox (Ruhr70)
-- km200 (offener Witz)
+- Fritzbox (ruhr70)
+- km200 (frankjoke)
 - megaesp (ausHaus)
 - Modbus (Bluefox)
 - mqtt/mqtt-client (Bluefox)
 - owfs (Bluefox)
-- rpi2 (wenn ioBroker auf Raspberry läuft)
+- rpi2 (falls ioBroker auf dem Raspberry Pi läuft)
 - rwe-smarthome (PArns)
 - s7 (Bluefox)
 - Smartmeter (Apollon77)
 - unifi (jens-maus)
 - Wolf (lächelnder Jack)
-- xs1 (Frankwitz)
+- xs1 (frankjoke)
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **IN BEARBEITUNG** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (iobroker-bot) Adapter requires node.js >= 20 now.
+* (UncleSamSwiss) Remove obsolete squeezebox adapter
+* (GermanBluefox) Packages were updated
+
+### 5.0.0 (2024-07-21)
+* (bluefox) Packages updated
+* (bluefox) Minimum node.js version is 18.x
+* (bluefox) Updated licenses for knx and jarvis
+
 ### 4.5.0 (2024-04-21)
 * (pr0crstntr) Added Air-Q
 
@@ -163,14 +173,11 @@ Sie können `sudo setcap cap_net_raw+p /bin/ping` ausführen, um fehlende Fähig
 ### 4.2.0 (2023-10-09)
 * (pdbjjens) Changed detection of myvbus and resol
 
-### 4.1.0 (2023-09-25)
-* (pdbjjens) Added detection of myvbus and resol
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2024, Denis Haev ak Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2026, Denis Haev ak Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

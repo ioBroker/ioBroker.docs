@@ -1118,14 +1118,12 @@ https://github.com/deMynchi/ioBroker.meteoswiss
 
 Provides weather information from MeteoSwiss
 
-## hagelschutz-vkf (25.02.2025) – new adapter at stable repository
+## hagelschutz-vkf (25.02.2026) – new adapter at stable repository
 https://github.com/UncleSamSwiss/ioBroker.hagelschutz-vkf
 
 <img src="https://raw.githubusercontent.com/UncleSamSwiss/ioBroker.hagelschutz-vkf/main/admin/hagelschutz-vkf.jpg" width="100" height="100" />
 
 Adapter for hagelschutz-einfach-automatisch.ch of the cantonal building insurances.
-
-<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
 ## ping (28.02.2026) - new feature
 https://github.com/ioBroker/ioBroker.ping
@@ -1136,3 +1134,42 @@ Ping adapter can use hping3 to detect iPhones and can send wake-on-lan packets t
 https://github.com/ioBroker/ioBroker.parser
 
 Parser can now parse values of states, ioBroker files and logs. Added export and import of parser rules via CSV files.
+
+## hoymiles-ms (25.03.2026) – new adapter at stable repository
+https://github.com/mcm4iob/ioBroker.hoymiles-ms
+
+<img src="https://raw.githubusercontent.com/mcm4iob/ioBroker.hoymiles-ms/main/admin/hoymiles-ms.png" width="100" height="100" />
+
+This adapter integrates the HOYMILES MicroStorage systems into ioBroker. Currently the following systems have been checked to work
+- Hoymiles MS-A2
+- Hoymiles HiBattery 1920 AC
+
+## smartm (25.03.2026) – new adapter at stable repository
+https://github.com/strulli85/ioBroker.smartm
+
+<img src="https://raw.githubusercontent.com/strulli85/ioBroker.smartm/main/admin/smartm.svg" width="100" height="100" />
+
+This Adapter reads Data of Photovoltaik SLEnergy Plats out of their Cloud named SmartM.
+
+
+
+<!--  ######################## keep these lines at end of file as a reminder ######################## -->
+<!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
+<!--  ######################## keep these lines at end of file as a reminder ######################## -->
+## pjlink (31.3.2026) – new adapter at stable repository
+https://github.com/Bannsaenger/ioBroker.pjlink
+
+<img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.pjlink/main/admin/pjlink.png" width="100" height="100" />
+
+PJLink Projector controll
+
+<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
+
+## heos (15.03.2025) – new adapter at stable repository
+https://github.com/withstu/ioBroker.heos
+
+<img src="https://raw.githubusercontent.com/withstu/ioBroker.heos/main/admin/heos.png" width="100" height="100" />
+
+The adapter lets control HEOS from ioBroker.
+
+<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->

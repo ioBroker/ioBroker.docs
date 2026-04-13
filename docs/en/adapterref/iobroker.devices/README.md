@@ -9,7 +9,7 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/devices/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.devices.svg)](https://www.npmjs.com/package/iobroker.devices)
 
-## devices adapter for ioBroker
+## Device adapter for ioBroker
 
 Manage and create devices for using it in other adapters like material, iot, matter...
 
@@ -131,6 +131,12 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.7 (2026-04-09)
+* (@GermanBluefox) Added new widgets
+
+### 2.0.6 (2026-03-31)
+* (@GermanBluefox) Corrected the layout for visualisation
+
 ### 2.0.5 (2026-03-26)
 * (@GermanBluefox) Added many new widgets.
 
@@ -158,7 +164,7 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 
 ### 1.2.6 (2025-04-29)
 * (@GermanBluefox) Type-detector updated
-* (@GermanBluefox) Execute the conversion formula on current value
+* (@GermanBluefox) Execute the conversion formula on the current value
 * (@GermanBluefox) Better categories selector
 * (@GermanBluefox) Corrected device importer
 

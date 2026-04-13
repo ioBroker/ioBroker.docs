@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.danfoss-ally/README.md
 title: 无标题
-hash: BXAuah3gL5UJFBqkIAbm5o3omQ3ZRRNN6cuOvvkE3Go=
+hash: hVcdlLVwHoiSco0XdVcLcghYreoDPRMJlT6VJXj++xQ=
 ---
-![版本](https://img.shields.io/badge/version-0.2.13-blue)
+![版本](https://img.shields.io/badge/version-0.2.15-blue)
 ![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 适用于 **丹佛斯 Ally™** 的云适配器 — 使用 **OAuth2（客户端凭证）**。
@@ -72,17 +72,59 @@ Polling:      300
 ---
 
 ## 州
-每个发现的设备都会创建一个通道：`danfoss-ally.0.<device_id>.*`
+每个发现的设备都会创建一个设备树：`danfoss-ally.0.<device_id>.*`
+
+## 状态与控制状态
+适配器将**只读状态值**与**可写控制值**分开。
+
+### 状态通道
+`danfoss-ally.0.<deviceId>.status.*`
+
+这些状态反映了从丹佛斯云 API 接收的值。
+
+特性：
+
+- 读取：真
+- 写入：false
+
+**请勿**从脚本中写入这些状态。
+
+例如：
+
+- `status.temp_current`
+- `status.temp_set`
+- `status.mode`
+- `status.humidity_value`
+- `status.battery_percentage`
+
+### 控制通道
+`danfoss-ally.0.<deviceId>.control.*`
+
+这些状态旨在供**用户交互**使用，可以通过脚本或 Blockly 编写。
+
+特性：
+
+- 读取：真
+- 写入：true
+
+例如：
+
+- `control.temp_set`
+- `control.manual_mode_fast`
+- `control.mode`
+- `control.child_lock`
+
+适配器会自动向丹佛斯云发送命令并更新相应的状态值。
 
 ### 阅读示例
 | 状态 | 描述 | 单位 |
 | -------------------------------------- | --------------------------------------------- | ---- |
-| `temp_current` | 当前温度 | °C |
-| `battery_percentage` | 电池电量 | % |
-| `mode` | 当前模式（`auto`, `manual`, `at_home`, …） | – |
-| `work_state`, `output_status`, `fault` | 状态或错误 | – |
-| `upper_temp` / `lower_temp` | 温度限制 | °C |
-| `upper_temp` / `lower_temp` | 温度范围 | °C |
+| `status.temp_current` | 当前温度 | °C |
+| `status.battery_percentage` | 电池电量 | % |
+| `status.mode` | 当前模式（`auto`, `manual`, `at_home`, …） | – |
+| `status.work_state`, `status.output_status`, `status.fault` | 状态或错误 | – |
+| `status.upper_temp` / `status.lower_temp` | 温度限制 | °C |
+| `status.upper_temp` / `status.lower_temp` | 温度限制 | °C |
 
 > 所有数值均自动按 ×0.1 → °C/% 进行缩放。
 
@@ -95,12 +137,12 @@ Polling:      300
 
 | 可写状态 | 预期值/行为 |
 | ----------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| `temp_set` | 目标温度（°C，0.5步；发送10次） |
-| `at_home_setting`, `leaving_home_setting`, `pause_setting`, `holiday_setting` | 预设温度 |
-| `mode` | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
-| `child_lock` | `true` / `false` |
-| `SetpointChangeSource` | `Externally` 或 `schedule` |
-| `SetpointChangeSource` | `外部` 或 `计划` |
+| `control.temp_set` | 目标温度（°C，0.5步；发送10次） |
+| `control.at_home_setting`, `control.leaving_home_setting`, `control.pause_setting`, `control.holiday_setting` | 预设温度 |
+| `control.mode` | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
+| `control.child_lock` | `true` / `false` |
+| `control.SetpointChangeSource` | `Externally` 或 `schedule` |
+| `control.SetpointChangeSource` | `外部` 或 `计划` |
 
 > 适配器在写入设定点时**不会**自动切换模式——您需要在逻辑中决定。
 
@@ -109,35 +151,35 @@ Polling:      300
 ## 示例（Blockly / 脚本）
 ```js
 // Manual mode
-setState("danfoss-ally.0.<id>.mode", "manual");
-setState("danfoss-ally.0.<id>.temp_set", 21.5);
+setState("danfoss-ally.0.<id>.control.mode", "manual");
+setState("danfoss-ally.0.<id>.control.temp_set", 21.5);
 
 // At home
-setState("danfoss-ally.0.<id>.mode", "at_home");
-setState("danfoss-ally.0.<id>.at_home_setting", 21.0);
+setState("danfoss-ally.0.<id>.control.mode", "at_home");
+setState("danfoss-ally.0.<id>.control.at_home_setting", 21.0);
 
 // Leaving home
-setState("danfoss-ally.0.<id>.mode", "leaving_home");
-setState("danfoss-ally.0.<id>.leaving_home_setting", 19.0);
+setState("danfoss-ally.0.<id>.control.mode", "leaving_home");
+setState("danfoss-ally.0.<id>.control.leaving_home_setting", 19.0);
 
 // Pause
-setState("danfoss-ally.0.<id>.mode", "pause");
-setState("danfoss-ally.0.<id>.pause_setting", 5.0);
+setState("danfoss-ally.0.<id>.control.mode", "pause");
+setState("danfoss-ally.0.<id>.control.pause_setting", 5.0);
 
 // Holiday
-setState("danfoss-ally.0.<id>.mode", "holiday");
-setState("danfoss-ally.0.<id>.holiday_setting", 10.0);
+setState("danfoss-ally.0.<id>.control.mode", "holiday");
+setState("danfoss-ally.0.<id>.control.holiday_setting", 10.0);
 
 // Child lock
-setState("danfoss-ally.0.<id>.child_lock", true);
+setState("danfoss-ally.0.<id>.control.child_lock", true);
 
 // Explicit source (usually not needed)
-setState("danfoss-ally.0.<id>.SetpointChangeSource", "Externally"); // or 'schedule'
+setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // or 'schedule'
 ```
 
-当切换到 `manual`、`pause` 或 `holiday` 时，适配器会设置 `SetpointChangeSource="Externally"`。
+写入命令必须针对 `control.*` 状态。
 
-切换回 `auto` 会将其重置为 `"schedule"`。
+`status.*` 状态是丹佛斯云的只读镜像。
 
 ---
 
@@ -205,7 +247,7 @@ setState("danfoss-ally.0.<id>.SetpointChangeSource", "Externally"); // or 'sched
 错误处理：
 
 - **400:** 无效的标头/值 → 已记录
-- **401:** 令牌刷新 + 重试
+- **401：** 令牌刷新 + 重试
 - **5xx:** 重试下一次轮询
 - 温度值自动缩放 10 倍（例如 21.5 → 215）
 
@@ -219,7 +261,7 @@ setState("danfoss-ally.0.<id>.SetpointChangeSource", "Externally"); // or 'sched
 
 ---
 
-## 撰写
+## 写入
 每个状态只能执行一条命令（不支持模式链式调用）
 - 模式和温度必须分开填写。
 - 数值被限制在允许的范围内，并缩放 10 倍
@@ -242,27 +284,24 @@ node main.js
 
 ## Changelog
 
+
+### 0.2.15
+- Fixed invalid `io-package.json` (JSON syntax error)
+- No functional changes
+
+### 0.2.14
+- Introduced `control` channel for writable states
+- `status` channel is now strictly read-only
+- Improved write detection and state handling
+- Prevented writes to channels or non-state objects
+- Improved adapter stability
+
 ### 0.2.13
 - Updated CI & deploy workflow
 - Fixed npm publishing process
 - Improved code formatting (Prettier / ESLint)
 - No functional changes for end users
 
-### 0.2.12
-- Migrated CI to full ioBroker standard
-- Full rewrite of state roles (value._, level._, state) for compatibility
-- Correct creation of device and status channels according to ioBroker standards
-- Replaced all timers with adapter.setTimeout / adapter.setInterval
-- Stabilized soft refresh process and ensured channel creation
-
-### 0.2.11
-- Full write support for all cloud-controllable values
-- Improved token retry handling
-- Enhanced synchronization and logging
-
-### 0.2.10
-- Translation and compliance fixes
-- Improved admin schema, license info, encryption handling
 
 ---
 
@@ -270,7 +309,7 @@ node main.js
 
 MIT License
 
-Copyright (c) 2025 Author Stefan8485@me.com
+Copyright (c) 2025-2026 Author Stefan8485@me.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.

@@ -75,6 +75,9 @@ The adapter creates the following data points:
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2026-04-06)
+- (skvarel) Updated: Minimum Node.js version requirement to >=22
+
 ### 0.1.9 (2026-03-13)
 - (skvarel) Improved: Enabled Node.js 24 support in GitHub Actions workflows.
 - (skvarel) Fixed: Issue detected by repository checker.
@@ -88,15 +91,6 @@ The adapter creates the following data points:
 ### 0.1.6 (2026-02-01)
 - (skvarel) Improved: Use node: prefix for core modules and adapter timer wrappers for better compatibility
 - (skvarel) Fixed: Added .env.example to .gitignore
-
-### 0.1.5 (2026-01-31)
-- (skvarel) Improved: Removed unnecessary devDependencies (eslint, should, dotenv) to follow ioBroker best practices.
-- (skvarel) Improved: Updated test scripts to use standard mocha command instead of hardcoded paths.
-- (skvarel) Improved: Switched Node.js core module imports to node:xxx format where applicable.
-- (skvarel) Improved: Enforced minimum and maximum interval limits for data polling to comply with Node.js timer restrictions.
-- (skvarel) Improved: Code formatting and configuration files updated for consistency with ioBroker standards.
-- (skvarel) Fixed: Addressed review feedback for ioBroker latest repository inclusion.
-- (skvarel) Added: Full multi-language support for all state names (EN, DE, RU, PT, NL, FR, IT, ES, PL, UK, ZH-CN).
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

@@ -94,11 +94,11 @@ If you plan to control the charging and feed in of your device with a script/blo
 This adapter will use the Cloud Authorization Code for authentication on the official mqtt servers, which you can generate in the Zendure app!
 
 ## Changelog
+### 4.0.3 (2026-03-31)
 
-### **WORK IN PROGRESS**
-
-- Fix missing ip field in settings for local mode
+- Fix missing ip address field in settings for local mode
 - Add retry loop for zenSDK requests (retry 3 times if connection failed)
+- Update battery detection
 
 ### 4.0.2 (2026-03-24)
 

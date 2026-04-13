@@ -43,12 +43,12 @@ http://www.maxxisun.de
 |  0.36 - 0.40  |    ❌     |    ✅     |
 | 0.41 or newer |    ✅     |    ✅     |
 
-|     CCU V2     | Local API | Cloud API |
-| :------------: | :-------: | :-------: |
-| 2.0.0 or newer |    ❌     |    ❌     |
-|  Comming Soon  |    ❓     |    ❓     |
+- <i>MaxxiSun can deactivate cloud services at any time. Local mode is always more secure for CCU 1.</i>
 
-<i>MaxxiSun can deactivate cloud services at any time. Local mode is always more secure.</i>
+|    CCU V2    | Local API | Cloud API |
+| :----------: | :-------: | :-------: |
+|  <= 2.10.1   |    ❌     |    ❌     |
+| Comming Soon |    ❓     |    ❓     |
 
 🔹 **Legend**:  
 ✅ - Compatible  
@@ -57,11 +57,18 @@ http://www.maxxisun.de
 
 ## Changelog
 
-### 1.5.0 (comming soon 2026-X-X)
+### 2.0.0-alpha.11 (2026-04-08)
 
-- Adding CCU V2 Local API
+- Requires Node.js >= 22
+- Migrated from JavaScript to TypeScript
+- Replaced Axios with native fetch
+- Fixed BKW mode after deactivation
 
-### 1.4.45 (2026-03-20)
+ToDo:
+
+- Adding CCU V2 Support
+
+### 1.4.48 (2026-04-02)
 
 - Added optional cloud sync when using local mode
 - Redesign Adapter Config Page
@@ -71,13 +78,6 @@ http://www.maxxisun.de
 
 - New Option Mode "BKW"
   > At a battery level of ≥ 97%, the script enables BKW mode to feed a constant 600–800 W into the grid alongside household use, potentially receiving compensation if registered as a balcony power system (BKW).
-
-### 1.4.32 (2025-04-06)
-
-- New cloud method – Backup mode Server 2 (check config)
-  > Note: Cloud Server 1 provides more datapoints but may be less stable.  
-  > Cloud Server 2 (Backup mode) is more stable but delivers fewer datapoints.
-- Adds dynamic firmware version management with categorized release listings.
 
 ### 1.4.11 (2025-03-17)
 
@@ -107,7 +107,7 @@ http://www.maxxisun.de
 - **Summer/Winter mode** added:
   - Dynamic adjustment of charging parameters based on seasons.
   - Configurable with start and end dates.
-- **Cloud API query interval**: Interval for CCU queries in cloud mode is now configurable via a slider between 10 and 60 seconds.
+- **Cloud API query interval**: CCU polling in cloud mode is fixed at 5 seconds.
 
 ## License
 

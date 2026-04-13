@@ -26,37 +26,31 @@ BADGE-Donation: https://img.shields.io/badge/Paypal-Donate-blue?style=flat
   - **Einspeisungssteuerung**: Konfiguration der maximalen Ladung zur Aktivierung oder Deaktivierung der Einspeisung.
 - **Steuerbefehle**:
   - Dynamische Datenpunkte (`<deviceId>.sendcommand`) zum Senden von Befehlen an die CCU.
-- **Flexibles Abfrageintervall (Cloud-Modus)**:
-  - Der Nutzer kann das Abfrageintervall der CCU-Daten zwischen 10 und 90 Sekunden anpassen.
+- **Abfrageintervall (Cloud-Modus)**:
+  - Das Abfrageintervall der CCU-Daten ist fest auf 5 Sekunden gesetzt.
 
 ## Anforderungen
 
-| Komponente          | Beschreibung                                                 |
-| ------------------- | ------------------------------------------------------------ |
-| **MaxxiCharge CCU** | Unterstütztes Gerät mit Netzwerkverbindung.                  |
-| **ioBroker**        | Installierte ioBroker-Instanz.                               |
-| **Node.js**         | Aktuelle Version von Node.js (siehe ioBroker-Anforderungen). |
+| Komponente          | Beschreibung                                |
+| ------------------- | ------------------------------------------- |
+| **MaxxiCharge CCU** | Unterstütztes Gerät mit Netzwerkverbindung. |
+| **ioBroker**        | Installierte ioBroker-Instanz.              |
+| **Node.js**         | Mindestens Node.js 22.x.                    |
 
 ## Installation
 
 1. **Adapter konfigurieren**:
-   - API-Modus auswählen (**Cloud - Server 1**, **Cloud - Server 2** oder **Local**).
-     - **Cloud S1 / Cloud S2**:
+   - API-Modus auswählen (**Cloud** oder **Local**).
+     - **Cloud**:
        - Tragen Sie den **CCU-Namen** ein (z. B. `maxxi-XXXXXX-YYY`).
-       - Tragen Sie die **E-Mail-Adresse** des Maxxisun-Kontos ein.
-       - Tragen Sie die **lokale IP-Adresse** Ihres MaxxiCharge Speichers ein (z. B. `192.168.1.123`).
      - **Local:** Adresse von ioBroker auf der MaxxiCharge-Webseite (`maxxi.local`) unter `Api-Route` eintragen: `http://"ioBroker IP":"PORT"`.
-2. **Wichtiger Hinweis beim Update**:
-   - Löschen Sie den Ordner `.sendcommand` und starten Sie den Adapter neu, wenn Sie von einer früheren Version aktualisieren. (< 1.4.0)
-
-**Hinweis:** Cloud Server 1 liefert mehr Datenpunkte als Cloud Server 2.
 
 ## Konfigurationsmöglichkeiten
 
 | Einstellung               | Beschreibung                                                                                                                                                                                                                     |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Maxxi CCU Name**        | Name oder IP-Adresse der Maxxi CCU.                                                                                                                                                                                              |
-| **CCU Abfrageintervall**  | Intervall (10-90 Sekunden) für die Abfrage der CCU-Daten im Cloud-Modus.                                                                                                                                                         |
+| **CCU Abfrageintervall**  | Legacy-Einstellung. Im Cloud-Modus ist das CCU-Abfrageintervall fest auf 5 Sekunden gesetzt und nicht konfigurierbar.                                                                                                            |
 | **Sommer/Winter-Betrieb** | Automatische Anpassung der Ladeparameter basierend auf definierten Winter-Daten.                                                                                                                                                 |
 | **Port für Local-API**    | Definiert den Port, auf dem die Local-API lauscht.                                                                                                                                                                               |
 | **Einspeisungssteuerung** | Konfiguration zur Aktivierung oder Deaktivierung der Einspeisung.                                                                                                                                                                |
@@ -72,7 +66,7 @@ Der Sommer/Winter-Betrieb bietet eine dynamische Anpassung der Ladeparameter:
   - Falls der SOC (State of Charge) ≥ 55% beträgt, wird die Mindestladung auf 40% reduziert.
 - **Sommermodus**:
   - Mindestladung wird auf 10% gesetzt.
-  - Maximale Ladung wird auf 97% begrenzt.
+  - Maximale Ladung wird auf 95% begrenzt.
 - Die Aktivierung erfolgt durch eine Checkbox in den Adapter-Einstellungen, die Zeiträume werden durch Winter-Start- und -Enddatum festgelegt.
 
 ## Batteriekalibrierung
@@ -92,8 +86,8 @@ Die Kalibrierung kann in den Experteneinstellungen aktiviert werden.
 
 Die Einspeisungssteuerung ermöglicht es, die maximale Ladung (`maxSOC`) so zu konfigurieren, dass überschüssiger Strom ins Netz eingespeist wird oder nicht:
 
-- **95% / 97% (Einspeisung aktiv)**:
-  - Überschüssiger Strom wird ins Netz eingespeist, wenn die Batterie mehr als 97% SOC hat.
+- **95% / 90% (Einspeisung aktiv)**:
+  - Überschüssiger Strom wird ins Netz eingespeist, wenn die Batterie mehr als 90% / 95% SOC hat.
 - **100% (Einspeisung deaktiviert)**:
   - Es wird kein überschüssiger Strom ins Netz eingespeist.
 
@@ -106,8 +100,6 @@ Dies kann sinnvoll sein, wenn ein Balkonkraftwerk (BKW) ordnungsgemäß angemeld
 
 Sinkt der Ladezustand des Akkus wieder unter 97 %, deaktiviert sich der BKW-Modus automatisch und die Einspeisung wird reduziert oder beendet.
 Der Prozess läuft vollständig automatisch und benötigt keine weitere Benutzerinteraktion.
-
-Hinweis: Die Aktivierung des BKW-Modus erfolgt nur, wenn in den Adaptereinstellungen BKW-Modus aktivieren gewählt und der Batteriekalibrierungsmodus (batterycalibration) deaktiviert ist.
 
 ## Datenpunkte
 
@@ -137,11 +129,18 @@ Der Adapter erstellt dynamisch Datenpunkte basierend auf den von der CCU zurück
 
 ## Changelog
 
-### 1.5.0 (comming soon 2026-X-X)
+### 2.0.0-alpha.11 (2026-04-08)
 
-- Adding CCU V2 Local API
+- Requires Node.js >= 22
+- Migrated from JavaScript to TypeScript
+- Replaced Axios with native fetch
+- Fixed BKW mode after deactivation
 
-### 1.4.45 (2026-03-20)
+ToDo:
+
+- Adding CCU V2 Support
+
+### 1.4.48 (2026-04-02)
 
 - Added optional cloud sync when using local mode
 - Redesign Adapter Config Page
@@ -151,13 +150,6 @@ Der Adapter erstellt dynamisch Datenpunkte basierend auf den von der CCU zurück
 
 - New Option Mode "BKW"
   > At a battery level of ≥ 97%, the script enables BKW mode to feed a constant 600–800 W into the grid alongside household use, potentially receiving compensation if registered as a balcony power system (BKW).
-
-### 1.4.32 (2025-04-06)
-
-- New cloud method – Backup mode Server 2 (check config)
-  > Note: Cloud Server 1 provides more datapoints but may be less stable.  
-  > Cloud Server 2 (Backup mode) is more stable but delivers fewer datapoints.
-- Adds dynamic firmware version management with categorized release listings.
 
 ### 1.4.11 (2025-03-17)
 
@@ -187,7 +179,7 @@ Der Adapter erstellt dynamisch Datenpunkte basierend auf den von der CCU zurück
 - **Summer/Winter mode** added:
   - Dynamic adjustment of charging parameters based on seasons.
   - Configurable with start and end dates.
-- **Cloud API query interval**: Interval for CCU queries in cloud mode is now configurable via a slider between 10 and 60 seconds.
+- **Cloud API query interval**: CCU polling in cloud mode is fixed at 5 seconds.
 
 ## License
 
