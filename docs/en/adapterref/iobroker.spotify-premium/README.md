@@ -5,24 +5,27 @@
 [![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.spotify-premium)](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/blob/master/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.spotify-premium.svg)](https://www.npmjs.com/package/iobroker.spotify-premium)
 ![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.spotify-premium)
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/spotify-premium/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/spotify-premium/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.spotify-premium)
 ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.spotify-premium/latest)
 ![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.spotify-premium)
 ![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.spotify-premium)
-</br>
-**Version:** </br>
+
+**Version:**
+
 [![NPM version](http://img.shields.io/npm/v/iobroker.spotify-premium.svg)](https://www.npmjs.com/package/iobroker.spotify-premium)
 ![Current version in stable repository](https://iobroker.live/badges/spotify-premium-stable.svg)
 ![Number of Installations](https://iobroker.live/badges/spotify-premium-installed.svg)
-</br>
-**Tests:** </br>
+
+**Tests:**
+
 [![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/actions/workflows/test-and-release.yml)
 [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/actions/workflows/codeql.yml)
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-Adapter to access spotify playback controls. Because of the spotify API a premium account is necessary.
+Adapter to access spotify playback controls. Because of the spotify API, a premium account is necessary.
 
 Connection to [Spotify Premium API](https://www.spotify.com/).
 
@@ -31,16 +34,18 @@ See also the [Spotify Developer API Documentation](https://developer.spotify.com
 
 ### Setup / Authorization
 1. Sign in on https://developer.spotify.com/dashboard/
-2. Create an application, you get a Client ID and a Client Secret
-3. Set the redirect URIs to `http://127.0.0.1` in your app settings at your created spotify application
+2. Create an application, you get a Client ID and a Client Secret (see [instruction](docs/create_app.png))
+3. Set the redirect URIs to `https://oauth2.iobroker.in/spotify` in your app settings at your created spotify application
 4. Put the Client ID and Client Secret in the fields down below
 5. Start the instance
-6. Switch to the objects tab and push the button getAuthorization at `spotify-premium.0.authorization`
+6. Switch to the object tab and push the button getAuthorization at `spotify-premium.0.authorization`
 7. Copy the appearing URL from `spotify-premium.0.authorization.authorizationUrl` to your webbrowser and call it
 8. You maybe need to sign in to spotify and grant access
 9. The browser will be redirected to an invalid URL. If the error `invalid redirect uri` occurs please verify step 3
 10. Copy that url and put it to `spotify-premium.0.authorization.authorizationReturnUri`
 11. The value in `spotify-premium.0.authorization.authorized` turns to true if everything was successful
+
+We must provide an HTTPS redirect URI as from December 2025 spotify does not allow non-secure URIs anymore.
 
 #### [Video tutorial](https://www.youtube.com/watch?v=n0m9201qABU)
 [![How to authorize](https://img.youtube.com/vi/n0m9201qABU/0.jpg "https://www.youtube.com/watch?v=n0m9201qABU")](https://www.youtube.com/watch?v=n0m9201qABU)
@@ -49,7 +54,7 @@ See also the [Spotify Developer API Documentation](https://developer.spotify.com
 All states are described in admin.
 
 ### VIS usage examples
-Click for widget source.
+Click for the widget source.
 <details>
   <summary>Start one specific playlist<br/><img src="docs/en/img/choose_playlist.png"></summary>
 <pre><code>[{"tpl":"tplJquiButtonState","data":{"oid":"spotify-premium.0.playlists.YourPlaylistName.playThisList","g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","buttontext":"Choose Playlist","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"value":"true","no_style":false},"style":{"left":"549px","top":"364px"},"widgetSet":"jqui"}]</code></pre>
@@ -100,32 +105,35 @@ Click for widget source.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.3 (2026-04-06)
+- (mcm1957) Adapter requires admin >= 7.8.9 now
+- (mcm1957) adapter requires js-controller >= 6.0.11 now
+- (mcm1957) Dependencies have been updated
+
+### 2.0.1 (2026-03-31)
+- (@GermanBluefox) Rewrite adapter to TypeScript
+- (@GermanBluefox) An Authorization process was changed and user must authenticate anew
+
 ### 1.6.0 (2026-02-28)
 - (mcm1957) Issues reported by repository checker have been fixed
 - (mightymurphy) stabilized token refresh and improved widget behavior
 - (copilot) Adapter requires admin >= 7.7.22 now
-- (aruttkamp) Merge pull request 522 from mightymurphy and 521 from michiproep>
+- (aruttkamp) Merge pull request 522 from mightymurphy and 521 from michiproep
 - (copilot) Improved error handling and logging for token refresh
 - (copilot) Device polling now continues during temporary authentication issues (401) instead of stopping.
 - (copilot) Next Track button widget name corrected
-- (copilot) Widget image paths fixed to use `/vis/widgets/` instead of relative path for proper display in VIS
+- (copilot) Widget image paths fixed to use `/vis/widgets/` instead of a relative path for proper display in VIS
 - (mcm1957) Dependencies have been updated
 
 ### 1.5.6 (2025-12-08)
 - (aruttkamp) dev dependencies aktualisiert
-- (mcm1957) adapter reuires node.js 20 now
+- (mcm1957) adapter requires node.js 20 now
 - (aruttkamp) dev dependencies aktualisiert
-- (aruttkamp) correct issues detected by repsoitory checker [#421]
+- (aruttkamp) correct issues detected by repository checker [#421]
 - (aruttkamp) changes redirect URI and docu
 
 ### 1.5.3 (2025-04-15)
 - (aruttkamp) redirect URI changed [#429]
-
-### 1.5.2 (2024-12-16)
-- (aruttkamp) ESLint 9 implemented
-
-### 1.5.1 (2024-12-16)
-- (aruttkamp) Testing Node 22.x implemented
 
 ## License
 The MIT License (MIT)

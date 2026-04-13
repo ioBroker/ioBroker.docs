@@ -28,6 +28,10 @@ The following data are read and written to ioBroker:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added visualisation for "devices" adapter
+* (@GermanBluefox) Added offset configuration for magnetometer
+
 ### 0.0.4 (2026-03-26)
 * (@GermanBluefox) Tests fixed
 

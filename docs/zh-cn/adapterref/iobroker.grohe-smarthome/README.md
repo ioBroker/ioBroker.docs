@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.grohe-smarthome/README.md
 title: ioBroker.grohe-smarthome
-hash: K1M5IYXIAAYhgwpP13n+wJLmSILRyeJgW4ZLUldQSJg=
+hash: 9e8bq0j+qbC3UA1PWUDMTcfa0t1/daxzQVyOtgUGqlE=
 ---
-![标识](../../../en/adapterref/iobroker.grohe-smarthome/admin/grohe-smarthome.png)
+# IoBroker.grohe-smarthome
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.grohe-smarthome.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.grohe-smarthome.svg)
@@ -13,11 +13,10 @@ hash: K1M5IYXIAAYhgwpP13n+wJLmSILRyeJgW4ZLUldQSJg=
 ![稳定仓库中的当前版本](https://iobroker.live/badges/grohe-smarthome-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.grohe-smarthome.png?downloads=true)
 
-# IoBroker.grohe-smarthome
 **测试：** ![测试与发布](https://github.com/patricknitsch/ioBroker.grohe-smarthome/workflows/Test%20and%20Release/badge.svg)
 
 # IoBroker 高仪智能家居适配器
-此适配器将 ioBroker 连接到 **Grohe Smarthome / Ondus** 云，并将 Grohe 设备作为状态（以及一些控件）公开到 ioBroker 内部。
+<img align="left" src="admin/grohe-smarthome.png" alt="图像" width="200"/>该适配器将 ioBroker 连接到<strong>Grohe Smarthome / Ondus</strong>云，并将 Grohe 设备作为 ioBroker 内部的状态（以及一些控件）公开。
 
 它支持：
 
@@ -27,6 +26,8 @@ hash: K1M5IYXIAAYhgwpP13n+wJLmSILRyeJgW4ZLUldQSJg=
 - **高仪蓝色专业系列**（型号“105”）
 
 该适配器通过 Grohe 的 OIDC/Keycloak 流程登录，将**加密的刷新令牌**存储在状态中，并按可配置的间隔轮询 Grohe 云 API。
+
+创意和概念源自 Home Assistant 集成 **ha-grohe_smarthome**。特别感谢 **Flo-Schilli**。
 
 ---
 
@@ -42,6 +43,32 @@ hash: K1M5IYXIAAYhgwpP13n+wJLmSILRyeJgW4ZLUldQSJg=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.3 (2026-03-25)
+
+* (patricknitsch) Clamp tapAmount between 50 and 2000 ml.
+
+### 0.3.2 (2026-03-21)
+
+* (copilot) Update Admin Tap for Blue systems
+* (patricknitsch) Fix Isues from RepoChecker
+
+### 0.3.1 (2026-03-18)
+* (claude/patricknitsch) Fix admin tab controls not triggered after confirmation – replace native `confirm()` with custom modal dialog (works inside ioBroker iframe)
+* (claude/patricknitsch) Fix 4 wrong state IDs in admin tab (Close Valve, Pressure Measurement, Reset CO₂, Reset Filter)
+
+### 0.3.0 (2026-03-18)
+
+* (claude/patricknitsch) Add card-based device overview tab with controls
+* (claude/patricknitsch) Add Valve, Pressure Measurement and Dispense controls in admin tab
+* (claude/patricknitsch) Disable controls when device is offline
+* (claude/patricknitsch) Adjust color scheme in admin tab (white/black based on light/dark mode)
+* (patricknitsch) Update Packages
+
+### 0.2.6 (2026-03-11)
+
+* (claude/patricknitsch) Fix measurement "Filter" for Blue Systems
+* (claude/patricknitsch) Fix permanent dispense without Trigger
+
 ### 0.2.5 (2026-02-26)
 
 * (patricknitsch) Update Admin Package

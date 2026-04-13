@@ -30,6 +30,9 @@ There a two acepted commands:
 -->
 ### **WORK IN PROGRESS**
 * (Bannsaenger) updated dependencies and issues from repository checker
+* (Bannsaenger) preserve names while database creation
+* (Bannsaenger) restructured main.js and completed JsDoc requirements
+* (Bannsaenger) fixed update the buttons from the desk when blanked/unblanked or new connected
 
 ### 0.8.3 (2025-10-24)
 * (Bannsaenger) updated dependencies and issues from repository checker
@@ -52,7 +55,7 @@ There a two acepted commands:
 ## License
 MIT License
 
-Copyright (c) 2021-2025 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2026 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

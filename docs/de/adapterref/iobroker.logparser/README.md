@@ -146,6 +146,7 @@ Wie zu sehen wird damit also "Quelle" (wäre hier normalerweise `javascript.0`) 
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 
@@ -180,7 +181,7 @@ Wie zu sehen wird damit also "Quelle" (wäre hier normalerweise `javascript.0`) 
 
 MIT License
 
-Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020 - 2024 Mic-M, McM1957 <mcm57@gmx.at>, ciddi89 <mail@christian-behrends.de>, ioBroker Community Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

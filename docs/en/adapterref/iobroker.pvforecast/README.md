@@ -20,19 +20,26 @@ chapters: {"pages":{"en/adapterref/iobroker.pvforecast/README.md":{"title":{"en"
 
 This Adapter replaced the javascript from the [ioBroker forum](https://forum.iobroker.net/topic/26068/forecast-solar-mit-dem-systeminfo-adapter)
 
-The adapter take the roh data from https://api.forecast.solar and need this information
+The adapter fetches forecast data from various solar forecast services and provides it as ioBroker states.
+
+## Supported Forecast Services
+
+- **Forecast.solar** - https://forecast.solar
+- **Solcast** - https://solcast.com
+- **SolarPredictionAPI** - via RapidAPI
+- **pvnode** - https://pvnode.com
 
 ## Settings
 
 1. longitude (-180 (west) … 180 (east))
-2. latitude (-90 (south) … 90 (nord))
+2. latitude (-90 (south) … 90 (north))
 4. link to homepage
 5. Api key
 6. graph y-axis step
 
 ![pvforecast options](https://user-images.githubusercontent.com/76852173/155196821-61d26563-48cc-4ddd-a37f-417088c60951.JPG)
 
-## With an api-key, you can receive optional the weather data with following points
+## With an api-key, you can receive optional the weather data with following points (Forecast.solar only)
 
 higher time resolution
 datetime -  date and time
@@ -42,23 +49,69 @@ condition - text
 icon - text + number
 wind_speed -  [km/h]
 wind_degrees - north at 0°[clockwise]. (windSpeed is zero, value will not be defined)
-wind_direction - Short name 
+wind_direction - Short name
 
 ## For the equipment you can make the following settings
 
 1. tilt (0°-90°)
 2. azimuth (-180 = north, -90 = east, 0 = south, 90 = west, 180 = north)
-3. plant power (kWh)
+3. plant power (kWp)
 4. plant name
 5. graph legend name
 9. graph color
-10. graph label color 
+10. graph label color
 
 ![pvforecast pvsystem](https://user-images.githubusercontent.com/76852173/155196852-62b928ca-4c8b-407e-8947-a45c7b31972a.JPG)
 
 All this information is needed, that the adapter runs perfect.
 
 If longitude and latitude in the iobroker main settings, the adapter will fill out the fields automatic.
+
+## pvnode
+
+[pvnode](https://pvnode.com) is a German service that provides high-resolution PV forecasts with 15-minute intervals.
+
+![pvforecast pvnode options](img/pvforecast-pvnode-options.png)
+
+### pvnode Configuration
+
+1. **API-Key**: Create an API key at https://pvnode.com/api-keys
+2. **Paid account**: Enable this option if you have a paid pvnode account
+3. **Forecast days**: Number of forecast days (paid accounts only, max 7). Free accounts automatically get 1 day.
+4. **Poll interval**: Recommended: 90 minutes (pvnode updates 16 times per day)
+5. **Extra parameters**: Optional API parameters like `diffuse_radiation_model=perez&snow_slide_coefficient=0.5`
+
+### pvnode Account Types
+
+| Feature | Free | Paid |
+|---------|------|------|
+| API requests/month | 40 | 1,000 |
+| Forecast days | 1 (today + tomorrow) | up to 7 |
+| Historical data | no | yes (-30 days) |
+| Sites | 1 | multiple |
+
+**Important**: Only enable the "Paid account" option if you actually have a paid pvnode account. Otherwise, API errors may occur as the adapter cannot automatically detect your account type.
+
+### pvnode Extra Parameters
+
+The "Extra parameters" field allows passing optional API parameters:
+
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `diffuse_radiation_model` | Radiation model | `perez` |
+| `snow_slide_coefficient` | Snow sliding speed factor (0.0-0.8) | `0.5` |
+| `shading_config` | Shading configuration | `7:2:3:1_1:1:0:0_0:0:0:0` |
+
+Format: `key1=value1&key2=value2`
+
+### pvnode Notes
+
+- **15-minute resolution**: pvnode provides forecast data in 15-minute intervals
+- **Azimuth conversion**: The adapter automatically converts the azimuth value (adapter: 0=south) to the pvnode format (180=south)
+- **Request batching**: When multiple plants are configured, the adapter automatically batches up to 2 plants per API request using pvnode's `second_array` feature. This reduces the number of API calls (e.g., 2 plants = 1 request instead of 2). The combined forecast data is stored under the first plant; the second plant is marked as batched.
+- **Summary data**: The summary JSON includes clearsky values (summed across all plants) as well as temperature and weather code (using the first plant's values).
+- **Timezones**: The pvnode API returns timestamps in UTC. The adapter automatically converts them to the local system time.
+- The "damping morning" and "damping evening" fields are not used for pvnode
 
 # VIS example
 
@@ -70,8 +123,9 @@ If you want to take the json graph and table you can use this [example](./vis.md
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 6.0.0 (2026-04-10)
 
-### **WORK IN PROGRESS**
+- (@patricknitsch) Added pvnode als alternative Provider
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 5.1.0 (2026-02-03)
@@ -94,10 +148,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 ### 4.0.1 (2024-10-22)
 
 * (@klein0r) Fixed: Missing color settings for new Solcast table
-
-### 4.0.0 (2024-10-14)
-
-* (@klein0r) Use Solcast rooftop sites api
 
 ## License
 

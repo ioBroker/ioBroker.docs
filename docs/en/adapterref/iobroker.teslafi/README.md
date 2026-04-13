@@ -79,10 +79,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.7 (2026-04-12)
 
-### **WORK IN PROGRESS**
-
-- (HombachC) switch to ES2023 code
+- (hombach) switch to ES2023 code
+- (hombach) fix vulnerability in axios
+- (hombach) update dependencies
 
 ### 2.0.6 (2026-02-27)
 
@@ -108,23 +109,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (hombach) fix schema URL for jsonConfig (#181)
 - (hombach) update chai system
 - (hombach) bump dependencies
-
-### 2.0.2 (2025-08-24)
-
-- (hombach) admin 7.6.17 recommended by ioBroker (#166)
-- (hombach) bumb adapter-core to 3.3.2 (#166)
-- (hombach) fix vulnerability
-- (hombach) bump dependencies
-
-### 2.0.1 (2025-06-08)
-
-- (hombach) add node.js 24 tests (#144)
-- (hombach) bump dependencies
-
-### 2.0.0 (2025-05-04)
-
-- (hombach) BREAKING: Dropped support for Node.js 18 (#135)
-- (hombach) BREAKING: Dropped support for js-controller 5 (#135)
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

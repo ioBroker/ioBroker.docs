@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.grohe-smarthome/README.md
 title: ioBroker.grohe-smarthome
-hash: K1M5IYXIAAYhgwpP13n+wJLmSILRyeJgW4ZLUldQSJg=
+hash: 9e8bq0j+qbC3UA1PWUDMTcfa0t1/daxzQVyOtgUGqlE=
 ---
-![Логотип](../../../en/adapterref/iobroker.grohe-smarthome/admin/grohe-smarthome.png)
+# IoBroker.grohe-smarthome
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.grohe-smarthome.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.grohe-smarthome.svg)
@@ -13,11 +13,10 @@ hash: K1M5IYXIAAYhgwpP13n+wJLmSILRyeJgW4ZLUldQSJg=
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/grohe-smarthome-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.grohe-smarthome.png?downloads=true)
 
-# IoBroker.grohe-smarthome
 **Тесты:** ![Тестирование и выпуск](https://github.com/patricknitsch/ioBroker.grohe-smarthome/workflows/Test%20and%20Release/badge.svg)
 
 # IoBroker Адаптер Grohe для умного дома
-Этот адаптер подключает ioBroker к облаку **Grohe Smarthome / Ondus** и предоставляет доступ к устройствам Grohe в виде состояний (и некоторых элементов управления) внутри ioBroker.
+<img align="left" src="admin/grohe-smarthome.png" alt="изображение" width="200"/>Этот адаптер подключает ioBroker к облаку <strong>Grohe Smarthome / Ondus</strong> и предоставляет доступ к устройствам Grohe в виде состояний (и некоторых элементов управления) внутри ioBroker.
 
 Он поддерживает:
 
@@ -27,6 +26,8 @@ hash: K1M5IYXIAAYhgwpP13n+wJLmSILRyeJgW4ZLUldQSJg=
 - **Grohe Blue Professional** (тип `105`)
 
 Адаптер выполняет вход через поток OIDC/Keycloak от Grohe, сохраняет **зашифрованный токен обновления** в определенном состоянии и опрашивает облачный API Grohe с настраиваемым интервалом.
+
+Идеи и концепция были заимствованы из интеграции Home Assistant **ha-grohe_smarthome**. Особая благодарность **Flo-Schilli**.
 
 ---
 
@@ -42,6 +43,32 @@ hash: K1M5IYXIAAYhgwpP13n+wJLmSILRyeJgW4ZLUldQSJg=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.3 (2026-03-25)
+
+* (patricknitsch) Clamp tapAmount between 50 and 2000 ml.
+
+### 0.3.2 (2026-03-21)
+
+* (copilot) Update Admin Tap for Blue systems
+* (patricknitsch) Fix Isues from RepoChecker
+
+### 0.3.1 (2026-03-18)
+* (claude/patricknitsch) Fix admin tab controls not triggered after confirmation – replace native `confirm()` with custom modal dialog (works inside ioBroker iframe)
+* (claude/patricknitsch) Fix 4 wrong state IDs in admin tab (Close Valve, Pressure Measurement, Reset CO₂, Reset Filter)
+
+### 0.3.0 (2026-03-18)
+
+* (claude/patricknitsch) Add card-based device overview tab with controls
+* (claude/patricknitsch) Add Valve, Pressure Measurement and Dispense controls in admin tab
+* (claude/patricknitsch) Disable controls when device is offline
+* (claude/patricknitsch) Adjust color scheme in admin tab (white/black based on light/dark mode)
+* (patricknitsch) Update Packages
+
+### 0.2.6 (2026-03-11)
+
+* (claude/patricknitsch) Fix measurement "Filter" for Blue Systems
+* (claude/patricknitsch) Fix permanent dispense without Trigger
+
 ### 0.2.5 (2026-02-26)
 
 * (patricknitsch) Update Admin Package
