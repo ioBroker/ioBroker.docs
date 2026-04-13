@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.poolcontrol/README.md
 title: ioBroker.poolcontrol
-hash: eIqeTqHW3nUxOeSsKahRRpawR5LYEU09UCdSTpXrdSw=
+hash: AUZm+yNMfbmjhuKgqNXr2p7rtC4oa5hyZ0yUVgZgxuQ=
 ---
 # IoBroker.poolcontrol
 ![测试与发布](https://github.com/DasBo1975/ioBroker.poolcontrol/actions/workflows/test-and-release.yml/badge.svg)
@@ -46,7 +46,7 @@ ioBroker.poolcontrol 适配器用于控制和监控泳池系统。
 - 根据泳池温度自动控制加热棒或热泵
 - 目标温度和最高安全温度可配置
 - 仅在以下情况下有效：
-泳池开放时间已到。
+泳池开放季已开始
 - 水泵模式**自动**
 维护模式未激活
 - 优先级逻辑：
@@ -158,7 +158,7 @@ ioBroker.poolcontrol 适配器用于控制和监控泳池系统。
 ＃＃ 配置
 配置是通过管理界面中的选项卡完成的：
 
-- **常规信息** → 泳池名称、泳池尺寸、最小循环水量
+- **常规信息** → 泳池名称、泳池尺寸、最小循环次数
 - **水泵** → 水泵功率、功率限制、安全功能
 - **温度** → 传感器选择和对象 ID
 - **太阳能管理** → 开/关阈值、滞后、警告阈值
@@ -191,268 +191,6 @@ ioBroker.poolcontrol 适配器用于控制和监控泳池系统。
 
 ---
 
-## 1.2.19 (2026-04-10)
-- 修复了 `photovoltaicHelper` 和 `controlHelper` 之间的交互问题，该问题会导致自动后续泵送意外停止。
-- photovoltaicHelper 现在会遵循 controlHelper 的优先级，并且在自动后续泵送运行时不再停止水泵。
-- 修复了当泵从外部停止时，`controlHelper` 可能仍处于“nachpumpen”状态的问题
-- `photovoltaic.threshold_w` 现在已与实例配置正确同步
-- 适配器设置中光伏剩余阈值的更改现在可以可靠地反映在相应的只读数据点中。
-
-### 2018年1月2日
-发布日期：2026年4月7日
-
-- 修复了 `status.season_active` 的持久性问题（适配器启动时不再被覆盖）
-- 提高了防冻设置的持久性
-
-### 2017年1月2日
-发布日期：2026年4月7日
-
-- 修复：解决了压力学习重置按钮无法可靠触发的问题。pumpHelper4 现在会显式订阅其相关的内部状态，以确保事件得到正确处理。
-
-### 2015年1月2日
-发布日期：2026年3月22日
-
-- 修复 i18n 使用问题（将 I18n.t 替换为 I18n.translate），以解决某些系统上的适配器启动崩溃和重启循环问题。
-
-### 2014年1月2日
-发布日期：2026年3月22日
-
-- ### 为化学帮助文本添加国际化支持
-
-### 2013年1月2日
-发布日期：2026年3月22日
-
-- 添加了多语言的州名和描述（德语/英语）
-- 提高了所有州文本的一致性
-- 对文本和结构进行了一些细微的修改
-
-### 1.2.12
-发布日期：2026年3月21日
-
-- 清理和修复 ioBroker 仓库检查器的问题
-- 已在 io-package.json 中恢复所需的本地对象
-- 删除了无效属性和过时的条目
-- 更新了 README 文件
-
-### 1.2.11
-- 代码库清理（已解决 ioBroker 检查器问题）
-- 从 io-package.json 中移除无效属性
-- README 文件已更新
-
-### 1.2.10 (2026-03-20)
-- 改进了管理界面（jsonConfig）中的德语翻译
-- 修正了不正确和误导性的术语（例如，流量传感器与温度传感器）
-- 改进了所有配置选项的一致性和措辞
-
-### 1.2.9
-发布日期：2026年3月19日
-
-- 修复：更正运行时通道中无效的公共对象。
-
-### 1.2.7
-发布日期：2026年3月16日
-
-- 根据 ioBroker 指南修正了可写状态的角色定义
-- 多个内部学习和诊断状态设置为只读
-- 从存储库中删除了过时的文件
-
-### 1.2.6
-发布日期：2026年3月12日
-
-- 修复了剩余的适配器检查器问题
-- 将发布脚本插件更新到最新版本
-- 将剩余的日志消息转换为英文
-- 更新了 Dependabot 配置（添加了 GitHub Actions 生态系统）
-- 减少了 io-package.json 中的 `common.news` 条目，以符合仓库要求
-
-### 1.2.5
-发布日期：2026年3月7日
-
-- 修复了 `actuatorsHelper` 中某些情况下状态更改处理不正确的问题
-- 进行了一些内部小改进和稳定性修复
-
-### 1.2.4
-发布日期：2026年3月7日
-
-- 修复：actuatorsHelper 未将实例配置与内部状态（活动/名称）同步。导致无法激活其他执行器。
-
-### 1.2.3
-发布日期：2026年3月6日
-
-- 将原生定时器（setTimeout / setInterval）替换为适配器定时器（adapter.setTimeout / adapter.setInterval）
-- 增加了适配器卸载时定时器的正确清理功能
-- 内部代码清理和维护改进
-
-### 1.2.2
-发布日期：2026年3月6日
-
-- 将所需的管理员版本提高到 >=7.6.20
-- jsonConfig i18n 重构后更新了翻译
-- 维护性更新（无功能变更）
-
-### 1.2.1
-发布日期：2026年3月6日
-
-- 将管理员配置迁移到 i18n 翻译环境
-- jsonConfig 现在使用英文标签，翻译在 admin/i18n 中进行管理。
-- 使用 `npm run translate` 生成的翻译
-
-### 1.2.0
-发布日期：2026年2月15日
-
-- 在 jsonConfig 中激活多语言支持 (i18n)。
-- 实例配置的双语标签（德语/英语）
-- 适配器功能未做任何更改
-
-## V1.1.0 水泵功率建议（2026年1月23日）
-- **泵功率建议（自 v1.1.0 起）**
-- 新增被动部分 `pump.speed`
-- 得出运行中水泵的清晰逻辑性能状态：
-- `off`、`frost`、`low`、`normal`、`high`、`boost`
-- 性能状态完全取决于：
-- 现有泵逻辑
-- 主动助手（例如，防霜、太阳能、维护）
-- 当前泵状态
-此外，还提供**推荐泵功率百分比（0-100%）**
-百分比值**可自由配置**，并且**防止过度安装**。
-- **无主动速度控制**
-- **不干扰现有泵的控制**
-- 旨在连接外部系统，例如：
-- Shelly 0–10 V
-- 变频器
-- Blockly / 脚本
-
-## V1.0.0 附加执行器（照明和辅助泵）（2026年2月1日）
-- 控制可选泳池执行器：
-- 泳池照明（最多 3 个通道）
-- 辅助水泵/游乐设施（最多 3 个通道）
-- 通过管理界面进行完整配置：
-- 通过复选框激活每个执行器
-- 分配**外部对象 ID**
-
-（例如，可切换的套接字或布尔控制状态）
-
-- 支持的操作模式：
-- 开/关
-- 定时运行（运行时间，以分钟为单位）
-- 连续运行
-- 内部状态和控制状态：
-- 当前运行状态
-剩余运行时间
-- 切换状态和操作模式
-- 清晰的系统分离：
-- 附加执行器**不**
-
-影响水泵、太阳能、供暖或人工智能逻辑
-
-- 纯可选的系统扩展
-
-## V0.9.0
-- 引入供暖/热泵控制（“heatHelper”）
-- 根据泳池温度自动发出加热请求
-- 目标温度和最高温度可配置
-- 支持：
-可切换插座
-- 布尔控制状态
-加热结束后泵的超负荷运转时间
-- 优先级系统：
-- 维护模式会阻止加热控制
-- 仅在自动模式下有效
-- 考虑赛季状态
-- 泵控制的所有权保护
-- 新增内部状态 `heat.heating_request`，用于外部评估
-
-## V0.8.2 (2025-12-25)
-- 新增人工智能模块**化学助手**（`aiChemistryHelpHelper`）
-- 纯粹提供泳池水化学信息的支持系统
-- 常见泳池问题示例（例如，pH值过高/过低、氯气消毒效果不佳、水体变绿/浑浊）
-- 以文本输出形式提供清晰的原因和解决方案提示
-- 无自动加药
-- 无产品推荐
-- 无设备或泵控制
-- 无语音输出（纯视觉信息）
-- `ai.chemistry_help.*` 下新增数据点
-
-## V0.8.0 (2025-12-08)
-- 模块：天气提示（OpenMeteo）、泳池小贴士、每日天气概览、周末天气预报
-- 自动文本输出，可选语音输出
-- 每小时更新天气信息，持续刷新
-- 反垃圾邮件系统，避免重复提示
-- 集成了新的AI预测系统`aiForecastHelper`
-- 每日自动生成“明日预测”，内容包括：
-温度范围
-天气描述
-降雨概率
-- 风力分析（微风/中风/强风）
-- 第二天泳池推荐
-- `ai.weather.*` 下新增开关、日程安排和输出
-- 实例启动后立即执行
-- “帮助与信息”下的扩展管理员概览，包含重要的 AI 说明
-- 改进了人工智能系统的内部结构（aiHelper + aiForecastHelper）
-
-## V0.7.4 (2025-12-03)
-- 修复了 ControlHelper 中的一个错误。为 control.circulation.mode 提供持久保护
-
-## V0.7.0 (2025-11-29)
-- 在 `pump.pressure.*` 下引入新的压力传感器系统
-- 支持外部压力传感器对象 ID（来自 ioBroker 的 bar 值）
-- 趋势检测（上升/下降/稳定）和移动压力平均值
-- 具有手动重置状态的自学习最小/最大压力值
-- 新增诊断文本（`status_text_diagnostic`），包含扩展分析信息
-- 扩展泵监测功能，不具备自动控制逻辑（纯信息功能）
-
-## V0.6.2 (2025-11-07)
-- 修改实例概览，采用新的标题结构，使操作更清晰
-- 新的起始页图片“Egon in Workwear”已集成到管理界面中
-- 扩展语音系统，可配置 Alexa 输出时间
-- 对 jsonConfig、speechHelper 和 speechStates 进行调整和清理
-
-## V0.6.0 (2025-11-03)
-- 引入带自动泵逻辑的全光伏控制
-
-（新泵模式 `Automatic (PV)`，位于 `pump.mode` 下）
-
-- 适配器根据可配置的家庭用电量和发电量对光伏发电盈余做出反应
-- 启动逻辑：当过剩功率≥（额定功率+阈值）时，泵开启
-- 考虑季节状态、超时时间和可选的“已达到发行量”保护措施
-- 自动迁移功能在现有安装中添加了新的模式 `auto_pv`。
-- 改进了内部逻辑、持久性和调试日志记录
-
-## V0.5.5 (2025-11-01)
-- 修复了周统计和月统计中的无限循环问题
-
-## V0.5.3 (2025-10-30)
-- 新增 Telegram 用户选择
-
-## V0.5.2 (2025-10-30)
-## V0.5.0 (2025-10-28)
-### **0.4.0 (2025年10月26日)**
-**新增功能**
-
-- 引入了新的统计系统，位于 `analytics.statistics.temperature.today` 下
-自动采集所有活动温度传感器的**最小值、最大值和平均值**
-- 每个传感器：持续更新的 JSON 和 HTML 摘要
-- 所有传感器的总输出（表格）
-
-`analytics.statistics.temperature.today.outputs.summary_all_html`
-
-- 完全**持久化数据点**，并具有覆盖安装保护功能
-- **每日重置自动午夜重置**，包含时间戳
-- 为未来的每周、每月和季节性统计数据做准备
-
-改进之处
-
-- 通过新的主文件夹“analytics”实现统一的结构
-- 无永久循环或定时器负载——纯事件处理
-- 提升了性能和内存稳定性
-- 修改了启动时所有统计状态的初始化方式
-
-**注意** 此版本构成了所有后续统计和分析功能的稳定基础（例如，每周和每月统计、历史记录和效率评估）。
-
-*（旧版本请参见[io-package.json](./io-package.json)）*
-
----
-
 ＃＃ 支持
 - [ioBroker 论坛](https://forum.iobroker.net/)
 - [GitHub Issues](https://github.com/DasBo1975/ioBroker.poolcontrol/issues)
@@ -476,6 +214,36 @@ ioBroker.poolcontrol 适配器用于控制和监控泳池系统。
 ---
 
 ## Changelog
+
+### 1.2.20
+Release: 11.04.2026
+- (DasBo) Reduced unnecessary state writes in status and photovoltaic helpers. Summary and PV timestamps are now only updated when the functional result actually changes, making the adapter quieter without affecting existing logic.
+
+### 1.2.19
+Release: 10.04.2026
+- Fixed an interaction issue between `photovoltaicHelper` and `controlHelper` where automatic follow-up pumping could be stopped unexpectedly
+- photovoltaicHelper now respects controlHelper priority and no longer stops the pump while automatic follow-up pumping is active
+- Fixed an issue where `controlHelper` could remain in "nachpumpen" state if the pump was stopped externally
+- `photovoltaic.threshold_w` is now correctly synchronized with the instance configuration
+- Changes to the PV surplus threshold in adapter settings are now reliably reflected in the corresponding read-only datapoint
+
+### 1.2.18
+Release: 07.04.2026
+- Fixed persistence issue for `status.season_active` (no longer overwritten on adapter start)
+- Improved persistence for frost protection settings
+
+### 1.2.17
+Release: 07.04.2026
+- Fix: Resolved an issue where the pressure learning reset button did not trigger reliably. The pumpHelper4 now explicitly subscribes to its relevant internal states to ensure proper event handling.
+
+### 1.2.15
+Release: 22.03.2026
+- Fix i18n usage (replace I18n.t with I18n.translate) to resolve adapter startup crash and restart loop on certain systems.
+
+
+*(older versions are automatically moved to CHANGELOG_OLD.md)*
+
+---
 
 ## License
 

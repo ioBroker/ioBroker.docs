@@ -9,7 +9,7 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/modbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.modbus.svg)](https://www.npmjs.com/package/iobroker.modbus)
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 Implementation of ModBus Slave and Master for ioBroker. The following types are supported:
 - Modbus RTU over serial (master)
@@ -60,10 +60,10 @@ Like addresses from 3 to 20 will be aligned to 0 up 32.
 If this option is active, the addresses will not be aligned.
 
 ### Do not use multiple registers
-If slave does not support "write multiple registers" command, you can activate it to get warnings when the multiple registers will be written.
+If a slave does not support the "write multiple registers" command, you can activate it to get warnings when the multiple registers will be written.
 
 ### Use only multiple write registers
-If slave only supports "write multiple registers" command, you can activate so the registers will be written always with FC15/FC16 command.
+If a slave only supports the "write multiple registers" command, you can activate so the registers will be written always with FC15/FC16 command.
 
 ### Round Real to
 How many digits after comma for float and doubles.
@@ -78,13 +78,13 @@ Reconnection interval (Only relevant for master)
 Timeout for read requests in milliseconds. If no response is received from a slave at this time, the connection will be terminated.
 
 ### Pulse time
-If pulse used for coils, this defines the interval in milliseconds how long is the pulse.
+If pulse is used for coils, this defines the interval in milliseconds how long is the pulse.
 
 ### Wait time
 Wait time between polling of two different device IDs in milliseconds.
 
 ### Max read request length
-Maximal length of command READ_MULTIPLE_REGISTERS as number of registers to read.
+Maximal length of command READ_MULTIPLE_REGISTERS as the number of registers to read.
 
 Some systems require first "write request" to deliver the data on "read request".
 You can force this mode by setting of the "Max read request length" to 1.
@@ -97,14 +97,32 @@ There is a software [**Modbus RTU <-> Modbus RTU over TCP**](http://mbus.sourcef
 Both solutions **RTU over TCP** and **TCP** work well.
 
 ### Read interval
-Delay between two read requests in ms. Default 0.
+Delay between two read requests in milliseconds. Default 0.
 
 ### Write interval
-Delay between two write requests in ms. Default 0.
+Delay between two write requests in milliseconds. Default 0.
 
 ### Update unchanged states
 Normally, if the value has not changed, it will not be written into ioBroker.
 This flag allows updating the value's timestamp by every cycle.
+
+### Value Sanitization
+Enable automatic sanitization of invalid register values (NaN, Infinity, extreme float values like ±3.4e38).
+This feature helps prevent corrupted Modbus float values from propagating into ioBroker states, which is especially useful for devices like SolarEdge inverters that occasionally return invalid values due to timeouts or internal scaling errors.
+
+When enabled, you can configure per-register sanitization options:
+- **Sanitize**: Enable sanitization for this specific register
+- **Sanitize Action**: Choose how to handle invalid values
+  - *Keep Last Valid*: Keeps the last known valid value when an invalid value is detected
+  - *Replace with 0*: Replaces invalid values with 0
+- **Min Valid Value**: Optional minimum valid value threshold
+- **Max Valid Value**: Optional maximum valid value threshold
+
+Invalid values detected:
+- `NaN` (Not a Number)
+- `Infinity` or `-Infinity`
+- Extreme float values (≥3.4e38 or ≤-3.4e38) - typical Modbus error values
+- Values outside the configured min/max range
 
 ### Do not include addresses in ID
 Do not add address in the generated ioBroker iD. `10_Input10` vs `_Input10`.
@@ -112,7 +130,7 @@ Do not add address in the generated ioBroker iD. `10_Input10` vs `_Input10`.
 ### Preserve dots in ID
 With this flag the Name will be `Inputs.Input10`. Without => `Inputs_Input10`.
 
-## Parameters for single address line in config
+## Parameters for a single address line in config
 ### Address
 Modbus address to read.
 
@@ -129,16 +147,16 @@ Parameter description.
 Unit of the Parameter.
 
 ### Type
-Datatype to read from Bus. For details about the possible data types see section Data types.
+Datatype to read from Bus. For details about the possible data types, see the section Data types.
 
 ### Length
-Length of parameter. For the most parameters, this is determined based on the data type, but for Strings this defines the length in Bytes / characters.
+Length of parameter. For most parameters, this is determined based on the data type, but for Strings this defines the length in Bytes / characters.
 
 ### Factor
 This factor is used to multiply the read value from Bus for static scaling. So the calculation looks like following `val = x * Factor + Offset`.
 
 ### Offset
-This offset is added to the read value after above multiplication. So the calculation looks like following `val = x * Factor + Offset`.
+This offset is added to the read value after the above multiplication. So the calculation looks like following `val = x * Factor + Offset`.
 
 ### Formula
 This field can be used for advanced calculations if Factor and Offset are not enough. **If this field is set, then the Factor and Offset fields are ignored.**
@@ -159,7 +177,7 @@ ioBroker role to assign.
 ioBroker room to assign.
 
 ### Poll
-If activated, the values are polled in a predefined interval from slave.
+If activated, the values are polled in a predefined interval from a slave.
 
 ### WP
 Write pulse
@@ -172,6 +190,17 @@ Use value as a scaling factor.
 This is necessary to be used by dynamic scaling factors which are on some systems provided through values on interface.
 If a value is marked with this flag, then the value will be stored into a variable with the following naming convention: `sf['Modbus_address']`.
 This variable can be then later used in any formula for other parameters. E.g., the following formula can set: `(x * sf['40065']) + 50;`
+
+### Sanitize (Expert Mode)
+Enable value sanitization for this register. Only available when "Value Sanitization" is enabled globally in the adapter settings.
+
+### Sanitize Action (Expert Mode)
+Choose the action to take when an invalid value is detected:
+- **Keep Last Valid**: Retains the last known valid value
+- **Replace with 0**: Replaces the invalid value with 0
+
+### Min Valid / Max Valid (Expert Mode)
+Optional minimum and maximum value thresholds for range validation. Values outside this range will be treated as invalid and sanitized according to the Sanitize Action.
 
 ## Data types
 - `uint16be`  - `Unsigned 16 bit (Big Endian): AABB => AABB`
@@ -206,7 +235,7 @@ This variable can be then later used in any formula for other parameters. E.g., 
 
 The following description was copied from [here](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/)
 
-The point-to-point Modbus protocol is a popular choice for RTU communications if for no other reason that its basic convenience. The protocol itself controls the interactions of each device on a Modbus network, how the device establishes a known address, how each device recognizes its messages and how basic information is extracted from the data. In essence, the protocol is the foundation of the entire Modbus network.
+The point-to-point Modbus protocol is a popular choice for RTU communications if for no other reason than its basic convenience. The protocol itself controls the interactions of each device on a Modbus network, how the device establishes a known address, how each device recognizes its messages and how basic information is extracted from the data. In essence, the protocol is the foundation of the entire Modbus network.
 
 Such a convenience does not come without any complications, however, and Modbus RTU Message protocol is no exception.
 The protocol itself was designed based on devices with a 16-bit register length.
@@ -216,7 +245,7 @@ It is within these four bytes of data that single-precision floating point data 
 
 ### The Importance of Byte Order
 Modbus itself does not define a floating point data type, but it is widely accepted that it implements 32-bit floating point data using the IEEE-754 standard.
-However, the IEEE standard has no clear definition of byte order of the data payload.
+However, the IEEE standard has no clear definition of the byte order of the data payload.
 Therefore, the most important consideration when dealing with 32-bit data is that data is addressed in the proper order.
 
 For example, the number 123/456.00 as defined in the IEEE 754 standard for single-precision 32-bit floating point numbers appears as follows:
@@ -249,7 +278,7 @@ Given that the Modbus RTU message protocol is big-Endian, in order to successful
 
 As a rule of thumb, the family of a device’s microprocessor determines its endianness. Typically, the big-Endian style (the high-order byte is stored first, followed by the low-order byte) is generally found in CPUs designed with a Motorola processor. The little-Endian style (the low-order byte is stored first, followed by the high-order byte) is generally found in CPUs using the Intel architecture. It is a matter of personal perspective as to which style is considered ‘backwards’.
 
-If, however, byte order and endianness are not a configurable option, you will have to determine how to interpret the byte. This can be done requesting a known floating-point value from the slave. If an impossible value is returned, i.e., a number with a double-digit exponent or such, the byte ordering will most likely need modification.
+If, however, byte order and endianness are not a configurable option, you will have to determine how to interpret the byte. This can be done by requesting a known floating-point value from the slave. If an impossible value is returned, i.e., a number with a double-digit exponent or such, the byte ordering will most likely need modification.
 
 ### Practical Help
 The FieldServer Modbus RTU drivers offer several function moves that handle 32-bit integers and 32-bit float values. More importantly, these function moves consider all different forms of byte sequencing. The following table shows the FieldServer function moves that copy two adjacent 16-bit registers to a 32-bit integer value.
@@ -301,22 +330,30 @@ The utility presents the decimal float value of 123456.00 as follows:
 One can then swap bytes and/or words to analyze what potential endianness issues may exist between Modbus RTU master and slave devices.
 
 ## Export / Import of registers
-With export / import functionality, you can convert all register data (only of one type) to a TSV (Tab separated values) file and back to easily copy data from one device to another or to edit register in Excel.
+With export / import functionality, you can convert all register data (only of one type) to a TSV (Tab-separated values) file and back to easily copy data from one device to another or to edit register in Excel.
 
 You can share your schemas with other users in [modbus-templates,](https://github.com/ioBroker/modbus-templates) or you can find some register schemas there.
 
 ## Test
 There are some programs in folder `test` to test the TCP communication:
 - Ananas32/64 is a slave simulator (only holding registers and inputs, no coils and digital inputs)
-- RMMS is master simulator
-- mod_RSsim.exe is a slave simulator. It can be that you need [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) to start it (because of Side-By-Side error).
+- RMMS is a master simulator
+- mod_RSsim.exe is a slave simulator. It can be that you need [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) to start it (because of a Side-By-Side error).
 
 <!--
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 8.1.2 (2026-04-13)
+* (@GermanBluefox) Added sanitizing of the values
+* (@GermanBluefox) Added "ttyADM***" to the list of possible serial ports
+* (@GermanBluefox) Write cyclic values even if they are not polled
+
+### 8.0.5 (2026-04-11)
+* (@GermanBluefox) Fixed possible errors
+
 ### 8.0.3 (2026-02-17)
-* (@GermanBluefox) Set default value of slave to '0' and not to 0
+* (@GermanBluefox) Set the default value of a slave to '0' and not to 0
 * (@GermanBluefox) Showed address 0
 
 ### 8.0.1 (2026-02-16)
@@ -339,18 +376,18 @@ There are some programs in folder `test` to test the TCP communication:
 
 ### 7.0.1 (2025-10-07)
 * (bluefox) Redesign of the configuration tabs
-* (bluefox) Added option to remove leading underscores in the object names
+* (bluefox) Added an option to remove leading underscores in the object names
 
 ### 7.0.0 (2025-10-06)
 * (copilot) Improved Modbus error handling and fault tolerance - continue polling working devices even when others fail
 * (copilot) Fixes memory leak
-* (copilot) Added option to disable connection error logging to avoid log spam when devices are unavailable
-* (bluefox) Show values directly in configuration
+* (copilot) Added an option to disable connection error logging to avoid log spam when devices are unavailable
+* (bluefox) Show values directly in the configuration
 * (bluefox) Implemented TLS connection (master)
 
 ### 6.4.0 (2024-11-22)
 * (bluefox) Moved GUI compilation to vite
-* (bluefox) Added error message if the response length is invalid
+* (bluefox) Added an error message if the response length is invalid
 
 ### 6.3.2 (2024-08-29)
 * (bluefox) Corrected the error with alignment of addresses
@@ -358,7 +395,7 @@ There are some programs in folder `test` to test the TCP communication:
 ### 6.3.0 (2024-08-28)
 * (Apollon77) Fix Timeout management to prevent leaking memory
 * (bluefox) Added information about connected clients in the server mode
-* (bluefox) Tried to fix error with aligning addresses
+* (bluefox) Tried to fix the error with aligning addresses
 * (bluefox) GUI was migrated to admin 7
 
 ### 6.2.3 (2024-05-25)
@@ -374,7 +411,7 @@ There are some programs in folder `test` to test the TCP communication:
 ### 6.2.0 (2024-04-12)
 * (PLCHome) String based on 16-bit values big endian as well as little endian
 * (PLCHome) Raw data as a hex string
-* (PLCHome) Fix issue `stringle` was always converted to number for slave
+* (PLCHome) Fix issue `stringle` was always converted to number for a slave
 * (PLCHome) Enable formula for strings and hex strings
 
 ### 6.1.0 (2023-12-14)
@@ -406,7 +443,7 @@ There are some programs in folder `test` to test the TCP communication:
 
 ### 5.0.0 (2022-05-11)
 * BREAKING: All space characters will be replaced with underscores now in the Objects IDs, not only the first one.
-* (Apollon77) Catch error reported by sentry when invalid Master port is entered
+* (Apollon77) Catch error reported by sentry when the invalid Master port is entered
 * (bluefox) GUI migrated to mui-v5
 
 ### 4.0.4 (2022-03-25)
@@ -425,7 +462,7 @@ There are some programs in folder `test` to test the TCP communication:
 
 ### 3.4.14 (2021-08-31)
 * (nkleber78) Fixed issue with sorting
-* (bluefox) Corrected the calculations with scaling factor
+* (bluefox) Corrected the calculations with a scaling factor
 * (bluefox) Read times were optimized
 
 ### 3.4.11 (2021-07-31)
@@ -433,13 +470,13 @@ There are some programs in folder `test` to test the TCP communication:
 
 ### 3.4.10 (2021-07-30)
 * (Apollon77) Make sure that slave reconnections at least wait 1000ms to allow old connectio to close properly
-* (bluefox) Corrected the error with write single registers
+* (bluefox) Corrected the error with writing single registers
 
 ### 3.4.9 (2021-07-06)
 * (bluefox) Changed edit behaviour
 
 ### 3.4.8 (2021-06-24)
-* (Apollon77) Fix crash case on writing floats (Sentry IOBROKER-MODBUS-2D)
+* (Apollon77) Fix a crash case on writing floats (Sentry IOBROKER-MODBUS-2D)
 
 ### 3.4.7 (2021-06-22)
 * (bluefox) Corrected addressing with aliases in GUI
@@ -457,7 +494,7 @@ There are some programs in folder `test` to test the TCP communication:
 ### 3.4.2 (2021-06-15)
 * (nkleber78) Corrected issue with the scale factors
 * (bluefox) New react GUI added
-* (bluefox) Add new option: Use only Write multiple registers, read interval
+* (bluefox) Add a new option: Use only Write multiple registers, read interval
 
 ### 3.3.1 (2021-05-10)
 * (bluefox) fixed the configuration dialog for "input registers" in slave mode
@@ -465,18 +502,18 @@ There are some programs in folder `test` to test the TCP communication:
 ### 3.3.0 (2021-04-16)
 * (Apollon77) Allowed usage of write-only (no poll) states
 * (Apollon77/TmShaz) F Write multiple registers
-* (prog42) create states of type string with default value of type string
+* (prog42) create states of type string with the default value of type string
 
 ### 3.2.6 (2021-03-05)
 * (Apollon77) Prevent a crash case (Sentry IOBROKER-MODBUS-20)
 * (Apollon77) Better handle invalid responses
 
 ### 3.2.4 (2021-01-30)
-* (Sierra83) also support ttyXRUSB0 style devices
+* (Sierra83) also supports ttyXRUSB0 style devices
 
 ### 3.2.3 (2021-01-21)
 * (Apollon77) Catch value encoding error and do not crash adapter (Sentry IOBROKER-MODBUS-1W)
-* (Apollon77) add a meta object as instance object
+* (Apollon77) add a meta-object as an instance object
 
 ### 3.2.2 (2020-12-15)
 * (Apollon77) prevent a rash case (Sentry IOBROKER-MODBUS-1S)
@@ -485,7 +522,7 @@ There are some programs in folder `test` to test the TCP communication:
 * (Apollon77) prevent a crash case (Sentry IOBROKER-MODBUS-1R)
 
 ### 3.2.0 (2020-12-09)
-* (nkleber78) Fixed formula where return keyword was missing
+* (nkleber78) Fixed the formula where the return keyword was missing
 
 ### 3.1.13 (2020-12-07)
 * (nkleber78) Added the possibility to use formulas for values
@@ -497,7 +534,7 @@ There are some programs in folder `test` to test the TCP communication:
 * (nkleber78) Corrected: the exported data cannot be imported without modification
 
 ### 3.1.9 (2020-09-17)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-MODBUS-1C)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-MODBUS-1C)
 
 ### 3.1.7 (2020-07-23)
 * (Apollon77) Fix some Sentry crash reports (IOBROKER-MODBUS-N)
@@ -510,7 +547,7 @@ There are some programs in folder `test` to test the TCP communication:
 
 ### 3.1.4 (2020-06-24)
 * (Apollon77) Fix some Sentry crash reports (IOBROKER-MODBUS-4, IOBROKER-MODBUS-7, IOBROKER-MODBUS-6)
-* (Apollon77) Change the way adapter restarts when reconnections do not help
+* (Apollon77) Change the way the adapter restarts when reconnections do not help
 
 ### 3.1.3 (2020-06-12)
 * (Apollon77) fix scheduled restart
@@ -544,7 +581,7 @@ There are some programs in folder `test` to test the TCP communication:
 * (Apollon77) Support for Node.js 12 added, Node.js 4 is no longer supported!
 
 ### 2.0.9 (2018-10-11)
-* (Bjoern3003) Write registers was corrected
+* (Bjoern3003) Write registers were corrected
 
 ### 2.0.7 (2018-07-02)
 * (bluefox) The server mode was fixed
@@ -556,7 +593,7 @@ There are some programs in folder `test` to test the TCP communication:
 * (bluefox) Fixed the rounding of numbers
 
 ### 2.0.2 (2018-06-12)
-* (bluefox) The error with blocks reading was fixed
+* (bluefox) The error with block reading was fixed
 * (bluefox) The block reading for discrete values was implemented
 
 ### 2.0.1 (2018-05-06)
@@ -579,7 +616,7 @@ There are some programs in folder `test` to test the TCP communication:
 * (bluefox) Create all states each after other
 
 ### 0.4.10 (2017-02-10)
-* (Apollon77) Do not recreate all data points on start of adapter
+* (Apollon77) Do not recreate all data points at the start of the adapter
 * (ykuendig) Multiple optimization and wording fixes
 
 ### 0.4.9 (2016-12-20)
@@ -604,34 +641,34 @@ There are some programs in folder `test` to test the TCP communication:
 * (bluefox) Support of ModBus RTU over serial and over TCP (only slave)
 
 ### 0.3.11 (2016-08-18)
-* (Apollon77) Fix wrong byte count in loop
+* (Apollon77) Fixed the wrong byte count in loop
 
 ### 0.3.10 (2016-02-01)
-* (bluefox) fix lost of history settings.
+* (bluefox) fixed lost of history settings.
 
 ### 0.3.9 (2015-11-09)
-* (bluefox) Use always write_multiple_registers by write of holding registers.
+* (bluefox) Used always write_multiple_registers by writing of holding registers.
 
 ### 0.3.7 (2015-11-02)
-* (bluefox) add special read/write mode if "Max read request length" is 1.
+* (bluefox) added special read/write mode if "Max read request length" is 1.
 
 ### 0.3.6 (2015-11-01)
-* (bluefox) add cyclic write for holding registers (fix)
+* (bluefox) added cyclic write for holding registers (fix)
 
 ### 0.3.5 (2015-10-31)
-* (bluefox) add cyclic write for holding registers
+* (bluefox) added cyclic write for holding registers
 
 ### 0.3.4 (2015-10-28)
-* (bluefox) add doubles and fix uint64
+* (bluefox) added doubles and fix uint64
 
 ### 0.3.3 (2015-10-27)
-* (bluefox) fix holding registers
+* (bluefox) fixed holding registers
 
 ### 0.3.2 (2015-10-27)
-* (bluefox) fix import from text file
+* (bluefox) fixed import from text file
 
 ### 0.3.1 (2015-10-26)
-* (bluefox) fix error with length of read block (master)
+* (bluefox) fixed the error with the length of read block (master)
 * (bluefox) support of read blocks and maximal length of read request (master)
 * (bluefox) can define fields by import
 
@@ -644,7 +681,7 @@ There are some programs in folder `test` to test the TCP communication:
 * (bluefox) add different types for inputRegisters and for holding registers ONLY FOR MASTER
 
 ### 0.2.5 (2015-10-20)
-* (bluefox) fix names of objects if aliases used
+* (bluefox) fix names of objects if aliases are used
 
 ### 0.2.4 (2015-10-19)
 * (bluefox) fix error add new values

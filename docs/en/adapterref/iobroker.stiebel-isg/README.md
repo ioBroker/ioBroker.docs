@@ -35,11 +35,6 @@ If you update this adapter from a previous version instead of a new installation
 If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log or object values and/or names are not updated correctly. To prevent this from happening, the most simple solution is to stop the adapter in the instances tab of ioBroker, completely delete the object tree in the objects tab and then restart the adapter. However, this is only neccessary once after the update and is not required if you do a clean new installation.  
 **CAUTION:** Deleting the object tree will erase any user-defined settings e.g. links to other adapters like history or statistics. You will have to recreate them manually, so make sure to remember the details of the settings.  
 
-## Installation
-
-1. You need a fully configured and running STIEBEL ELTRON or Tecalor Internet Service Gateway (ISG Web or ISG Plus) in the same network as your ioBroker server.
-2. Install the adapter on your ioBroker server and create an instance
-
 ## Configuration
 
 1. Configure the instance by entering the IP-address or domain name of the ISG and if configured in the ISG, the user name and password.  

@@ -139,7 +139,7 @@ You can install it via GitHub icon in admin by entering `iobroker.jsonconfig-dem
 - [**`certificateCollection`:**](#certificatecollection) Selects a collection for Let's Encrypt certificates
 - [**`certificates`:**](#certificates) Universal type for managing different certificate types (from Admin 6.4.0)
 - [**`checkbox`:**](#checkbox) Checkbox for boolean values
-- [**`checkDocker`:**](#checkdocker) Special component to check if the docker available and if yes, you can activate a checkbox (from Admin 7.8.0)
+- [**`checkDocker`:**](#checkdocker) Special component to check if the docker is available and if yes, you can activate a checkbox (from Admin 7.8.0)
 - [**`checkLicense`:**](#checklicense) Very special component to check the license online
 - [**`chips`:**](#chips) User can enter words that are added to an array
 - [**`color`:**](#color) Color picker
@@ -442,11 +442,24 @@ Select function from `enum.func` (With color and icon) - (only Admin6)
 
 ### `select`
 
-| Property        | Description                                                               |
-|-----------------|---------------------------------------------------------------------------|
-| `options`       | object with labels, optional translations, optional grouping and values   |
-| `multiple`      | Multiple choice select (From 7.6.5)                                       |
-| `showAllValues` | show item even if no label was found for it (by multiple), default=`true` |
+| Property        | Description                                                                                                    |
+|-----------------|----------------------------------------------------------------------------------------------------------------|
+| `options`       | object with labels, optional translations, optional grouping and values                                        |
+| `multiple`      | Multiple choice select (From 7.6.5)                                                                            |
+| `showAllValues` | show item even if no label was found for it (by multiple), default=`true`                                      |
+| `format`        | Render format: `"dropdown"` (default) or `"radio"` to display options as radio buttons instead of a dropdown   |
+| `horizontal`    | If `true`, radio buttons are shown horizontally (only applies when `format` is `"radio"`) (from v8.3.3)        |
+
+Each option in `options` can have:
+
+| Property      | Description                                                           |
+|---------------|-----------------------------------------------------------------------|
+| `label`       | Label of the option (can be a string or translatable object)          |
+| `value`       | Value of the option                                                   |
+| `color`       | Color of the option text                                              |
+| `hidden`      | Formula or boolean value to show or hide the option                   |
+| `description` | Description shown below the option label (can be translatable)        |
+| `icon`        | Icon URL or base64 string to display next to the option (from v8.3.3) |
 
 #### Example for `select options`
 
@@ -530,10 +543,12 @@ To use this, you must first provide the OAuth2 data (client ID, secret, etc.) to
 
 | Property       | Description                                                                                                                                                   |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `identifier`   | Oauth2 identifier, like `spotify`, `google`, `dropbox`, `microsoft`                                                                                           |                                                                      
-| `saveTokenIn`  | Optional state name where the token will be saved. Default is `oauth2Tokens`. The path is relative to the adapter instance, like `adapterName.X.oauth2Tokens` |
-| `scope`        | Optional scopes divided by space, e.g. `user-read-private user-read-email`                                                                                    |
-| `refreshLabel` | Optional button label for refreshing the token                                                                                                                |
+| `identifier`      | Oauth2 identifier, like `spotify`, `google`, `dropbox`, `microsoft`                                                                                           |
+| `saveTokenIn`     | Optional state name where the token will be saved. Default is `oauth2Tokens`. The path is relative to the adapter instance, like `adapterName.X.oauth2Tokens` |
+| `scope`           | Optional scopes divided by space, e.g. `user-read-private user-read-email`                                                                                    |
+| `refreshLabel`    | Optional button label for refreshing the token                                                                                                                |
+| `ownClientId`     | Optional attribute name where the user's own OAuth Client ID will be stored. If set, an input field for Client ID is shown                                    |
+| `ownClientSecret` | Optional attribute name where the user's own OAuth Client Secret will be stored. If set, an input field for Client Secret is shown                             |
 
 #### Example for `oauth2`
 
@@ -552,12 +567,13 @@ See also [OAUTH2.md](OAUTH2.md) for more information.
 
 object ID: show it with name, color and icon
 
-| Property       | Description                                                                                                                                                                           |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `types`        | Desired type: `channel`, `device`, ... (has only `state` by default). It is plural, because `type` is already occupied.                                                               |
-| `root`         | [optional] Show only this root object and its children                                                                                                                                |
-| `customFilter` | [optional] Cannot be used together with `type` settings. It is an object and not a JSON string.                                                                                       |
-| `filterFunc`   | [optional] Cannot be used together with `type` settings. It is a function that will be called for every object and must return true or false. Example: `obj.common.type === 'number'` |
+| Property       | Description                                                                                                                                                                                                                                                                                                          |
+|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `types`        | Desired type: `channel`, `device`, ... (has only `state` by default). It is plural, because `type` is already occupied.                                                                                                                                                                                              |
+| `root`         | [optional] Show only this root object and its children                                                                                                                                                                                                                                                               |
+| `customFilter` | [optional] Cannot be used together with `type` settings. It is an object and not a JSON string.                                                                                                                                                                                                                      |
+| `filterFunc`   | [optional] Cannot be used together with `type` settings. It is a function that will be called for every object and must return true or false. Example: `obj.common.type === 'number'`                                                                                                                                |
+| `fillOnSelect` | [optional] Fill other config fields when an object ID is selected. Format: `pathInObject=>attr,pathInObject=>attr(X)`. Append `(X)` to overwrite non-empty fields. Example: `common.name=>name,common.color=>color(X)` fills the `name` field with the object's name and overwrites `color` with the object's color. |
 
 #### Examples for `customFilter`
 
@@ -693,34 +709,48 @@ button that sets instance's state
 
 ### `staticText`
 
-static text like description
+Static text like description
 
-| Property | Description         |
-|----------|---------------------|
-| `label`  | multi-language text |
-| `text`   | same as label       |
+| Property       | Description                                                                                                                                                                                                                                                                     |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `label`        | multi-language text                                                                                                                                                                                                                                                             |
+| `text`         | same as label                                                                                                                                                                                                                                                                   |
+| `format`       | `text` (default), `html`, `json` (from admin version 7.8.4)                                                                                                                                                                                                                    |
+| `href`         | link. Link could be dynamic like `#tab-objects/customs/${data.parentId}`                                                                                                                                                                                                        |
+| `target`       | `_blank` or `_self` or window name. For relative links the default is `_self` and for absolute - `_blank`                                                                                                                                                                       |
+| `close`        | if true, the GUI will be closed (used not for JsonConfig in admin, but for dynamic GUI, only if the target is `_self`)                                                                                                                                                          |
+| `button`       | show a link as a button                                                                                                                                                                                                                                                         |
+| `variant`      | type of button (`outlined`, `contained`, `text`)                                                                                                                                                                                                                                |
+| `color`        | color of button (e.g. `primary`)                                                                                                                                                                                                                                                |
+| `icon`         | if icon should be shown: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. You can use `base64` icons (it starts with `data:image/svg+xml;base64,...`) or `jpg/png` images (ends with `.png`) . (Request via issue if you need more icons) |
+| `controlStyle` | CSS Styles in React format for the button or control itself                                                                                                                                                                                                                     |
 
 exactly one of `label` or `text` must be specified - not both
 
 ### `staticLink`
 
-| Property  | Description                                                                                                                                                                                                                                                                     |
-|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `label`   | multi-language text                                                                                                                                                                                                                                                             |
-| `href`    | link. Link could be dynamic like `#tab-objects/customs/${data.parentId}`                                                                                                                                                                                                        |
-| `target`  | `_blank` or `_self` or window name                                                                                                                                                                                                                                              |
-| `close`   | if true, the GUI will be closed (used not for JsonConfig in admin, but for dynamic GUI)                                                                                                                                                                                         |
-| `button`  | show a link as button                                                                                                                                                                                                                                                           |
-| `variant` | type of button (`outlined`, `contained`, `text`)                                                                                                                                                                                                                                |
-| `color`   | color of button (e.g. `primary`)                                                                                                                                                                                                                                                |
-| `icon`    | if icon should be shown: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. You can use `base64` icons (it starts with `data:image/svg+xml;base64,...`) or `jpg/png` images (ends with `.png`) . (Request via issue if you need more icons) |
+| Property       | Description                                                                                                                                                                                                                                                                     |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `label`        | multi-language text                                                                                                                                                                                                                                                             |
+| `href`         | link. Link could be dynamic like `#tab-objects/customs/${data.parentId}`                                                                                                                                                                                                        |
+| `target`       | `_blank` or `_self` or window name. For relative links the default is `_self` and for absolute - `_blank`                                                                                                                                                                       |
+| `close`        | if true, the GUI will be closed (used not for JsonConfig in admin, but for dynamic GUI, only if the target is `_self`)                                                                                                                                                          |
+| `button`       | show a link as button                                                                                                                                                                                                                                                           |
+| `variant`      | type of button (`outlined`, `contained`, `text`)                                                                                                                                                                                                                                |
+| `color`        | color of button (e.g. `primary`)                                                                                                                                                                                                                                                |
+| `icon`         | if icon should be shown: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. You can use `base64` icons (it starts with `data:image/svg+xml;base64,...`) or `jpg/png` images (ends with `.png`) . (Request via issue if you need more icons) |
+| `controlStyle` | CSS Styles in React format for the button or control itself                                                                                                                                                                                                                     |
+| `format`       | `text` (default), `html`, `json`                                                                                                                                                                                                                                                |
 
 ### `staticImage`
 
-| Property | Description                            |
-|----------|----------------------------------------|
-| `href`   | optional HTTP link                     |
-| `src`    | name of picture (from admin directory) |
+| Property                   | Description                                                                                  |
+|----------------------------|----------------------------------------------------------------------------------------------|
+| `href`                     | optional HTTP link                                                                           |
+| `src`                      | name of picture (from admin directory)                                                       |
+| `showInDialog`             | if true, a small thumbnail is shown and clicking it opens a dialog with the full-size image  |
+| `showInDialogButtonLabel`  | if `showInDialog`, an optional label for a button that also opens the dialog                 |
+| `showInDialogSmallSize`    | if `showInDialog`, the height of the small thumbnail in pixels (default 100)                 |
 
 ### `table`
 
@@ -1042,6 +1072,8 @@ Shows the drop-down menu with the given from the instance values.
 | `noTranslation` | do not translate label of selects. To use this option, your adapter must implement message handler.The result of command must be an array in form `[{"value": 1, "label": "one"}, ...]` |
 | `alsoDependsOn` | by change of which attributes, the command must be resent                                                                                                                               |
 
+The backend handler can return items with an optional `description` field: `[{"value": 1, "label": "one", "description": "Some hint"}, ...]`. The description is shown below the label in the dropdown.
+
 #### Example of code in back-end for `selectSendTo`
 
 ```js
@@ -1320,6 +1352,10 @@ Shows closable static text with optional title and icon. (From admin >= 7.6.19)
 ### `deviceManager`
 
 show device manager. For that, the adapter must support device manager protocol. See iobroker/dm-utils.
+
+| Property     | Description                                                    |
+|--------------|----------------------------------------------------------------|
+| `smallCards` | (optional) Show small device cards in the device manager       |
 
 Here is an example of how to show the device manager in a tab:
 
@@ -1600,6 +1636,30 @@ The following variables are available in JS function in custom settings:
 - `arrayIndex` - used only in table and represent current line in an array
 - `globalData` - used only in table for all settings and not only one table line
 
+```json5
+{
+   "general": {
+      // ....
+      "customSettingsValidator": "customObj.common.type === 'boolean' && data.options.myType == 2",
+      // ....
+   }
+}
+```
+
+You can limit the application of the custom settings only to specific states by defining the `statesFilter` on the root (`panel` or `tabs`) element of the custom settings:
+
+`jsonCustom.json`:
+```json5
+{
+   "i18n": true,
+   "type": "panel",
+   "statesFilter": true, // or "^hm-rpc\\.\\d\\..*\\.STATE$" - apply on "hm-rpc.X.*.STATE" states only
+   "items": {
+        // ...
+   }
+}
+```
+
 ## Custom component
 
 ```jsx
@@ -1708,12 +1768,51 @@ The schema is used here: https://github.com/SchemaStore/schemastore/blob/6da29cd
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 8.3.6 (2026-04-12)
+- (@GermanBluefox) Adjust a path to images
+
+### 8.3.5 (2026-04-11)
+- (@GermanBluefox) Extend schema for staticLink and staticImage components
+
+### 8.3.4 (2026-04-09)
+- (@GermanBluefox) Added `horizontal` option for `select` component with `format: "radio"` to display radio buttons in a row
+- (@GermanBluefox) Added `icon` option for `select` component options to display icons next to labels
+
+### 8.3.2 (2026-03-31)
+- (@GermanBluefox) Added possibility to provide custom components
+
+### 8.2.22 (2026-03-29)
+- (@GermanBluefox) Corrected error for "state" component
+
+### 8.2.19 (2026-03-27)
+- (@GermanBluefox) Added option "small cards" for device manager
+
+### 8.2.18 (2026-03-25)
+- (@GermanBluefox) Added the possibility to use own Client ID for oauth authentication
+- (@GermanBluefox) Added the possibility to show a small image and open it in full size by clicking on it
+
+### 8.2.11 (2026-03-20)
+- (@GermanBluefox) Correcting unit in schema
+- (@GermanBluefox) Fill other config fields when an object ID is selected
+
+### 8.2.8 (2026-03-15)
+- (@GermanBluefox) Added radio button control for the state component ('select')
+
+### 8.2.7 (2026-03-14)
+- (@GermanBluefox) Made the secondary text in 'select' and 'selectSendTo' smaller, italic and semi-transparent
+
+### 8.2.6 (2026-03-14)
+- (@GermanBluefox) Added description for options in 'select' or 'selectSendTo' component
+
+### 8.2.5 (2026-03-12)
+- (@GermanBluefox) Extended the staticText component with HTML and JSON visualization
+
 ### 8.2.3 (2026-03-04)
 - (@GermanBluefox) Increased the QR code padding
 
 ### 8.2.2 (2026-03-03)
 - (@GermanBluefox) Added option `sendFirstByClick` to `imageSendTo`
-- (@GermanBluefox) Added new component: `qrCodeSendTo`
+- (@GermanBluefox) Added a new component: `qrCodeSendTo`
 - (@GermanBluefox) Added option `digits` to `state` component
 - (@GermanBluefox) Trying to fix indication of the problems in the table
 

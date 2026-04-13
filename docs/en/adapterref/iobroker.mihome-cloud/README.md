@@ -13,173 +13,134 @@
 
 ## mihome-cloud adapter for ioBroker
 
-Adapter for Mi Home Cloud devices
+Adapter for all Mi Home Cloud devices. Connects to the Xiaomi Cloud API and provides status, control and scene execution for all devices registered in your Mi Home account.
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 5.0.
 
-# Login procedure
+## Requirements
 
-Enter the app mail and password.
+- Node.js >= 20
+- js-controller >= 6.0.11
+- Admin >= 7.6.20
 
-# Control
+## Configuration
 
-mihome-cloud.0.ID.remote
+In the adapter settings you can configure:
 
-Can send commands either set the state unconfirmed to true.
+| Setting             | Description                                                                                               |
+| ------------------- | --------------------------------------------------------------------------------------------------------- |
+| **Region**          | Select the Xiaomi Cloud region matching your Mi Home app (Germany, China, Russia, Taiwan, Singapore, USA) |
+| **Update interval** | Polling interval in minutes (minimum 1 minute)                                                            |
 
-If a command expects input those are listed in the name and as default value the IDs are listed.
+## Login
 
-Name and ID can be found under status. Possible values can be found by pressing the pencil and then under states.
+The adapter uses a **URL-based login** (no username/password needed in the adapter settings).
 
-Input values could be e.g. `["10",0,1] `
+1. Configure the **Region** and **Interval** in the adapter settings and save.
+2. Start the adapter.
+3. Check the adapter log – a **login URL** will appear:
+   ```
+   XIAOMI CLOUD LOGIN REQUIRED
+   Please visit this URL in your browser and log in: https://account.xiaomi.com/...
+   ```
+4. Open the URL in your browser and log in with your Xiaomi account.
+5. The adapter detects the successful login automatically and connects.
 
-If no control is possible under remote, scenes/smart scenarios can be created and executed under mihome-cloud.0.scenes.
+The session is persisted and survives adapter restarts. A fresh login is only required if the session expires server-side.
 
-Example: Robot vacuum cleaner room cleaning
+## Object tree
 
-mihome-cloud.0.id.remote.set-room-clean needs as input
-sweep set-room-clean 7-3 in[clean-room-ids,clean-room-mode,clean-room-oper] [24,25,26].
+After a successful login, the adapter creates the following object structure for each device:
 
-Potentially, room ids can be found at:
+### `mihome-cloud.0.<device-id>.general`
 
-mihome-cloud.0.id.remote.get-map-room-list
+General device information (model, name, firmware version, etc.).
 
-mihome-cloud.0.id.remote.get-preference-ii
+### `mihome-cloud.0.<device-id>.status`
 
-both require
-[clean-current-map] [33] as input
+Read-only status values from the MIoT Spec (e.g. power state, brightness, temperature). These are polled at the configured interval.
 
-mihome-cloud.0.id.status.clean-current-map sweep clean-current-map 7-33
+### `mihome-cloud.0.<device-id>.remote`
 
-is unfortunately null
-You can alternatively use
+Writable control commands from the MIoT Spec. To send a command, set the state (unconfirmed) to `true` or to the required value.
 
-mihome-cloud.0.id.status.cur-map-id
+If a command expects input parameters, they are listed in the state name and the expected IDs are shown as the default value.
 
-or
+### `mihome-cloud.0.<device-id>.custom`
 
-mihome-cloud.0.id.remote.get-map-list map get-map-list 10-1 out[map-list]
-query the map list and see the result under mihome-cloud.0.id.status.map-list map map-list 10-4
+Device-specific properties from the internal `configDes` database (e.g. for vacuum cleaners: `clean_area`, `clean_time`, `battery`). These are polled via `get_prop` / `get_status`.
 
-You can then set this id
+### `mihome-cloud.0.<device-id>.remotePlugins`
 
-mihome-cloud.0.id.remote.get-map-room-list map get-map-room-list 10-13 in[cur-map-id] out[room-id-name-list]
+Additional commands extracted from the Xiaomi cloud plugins. These are discovered automatically during startup by analysing the plugin bundles for each device model.
 
-mihome-cloud.0.id.remote.get-preference-ii sweep get-preference-ii 7-10 in[clean-current-map] out[clean-preference,clean-prefer-on,clean-preference-ii,clean-prefer-on-ii]
+### `mihome-cloud.0.scenes`
 
-Format: [1673811000]
+Smart scenes / automations from your Mi Home account. Set a scene to `true` to execute it.
 
-Then you get the information under:
+## Example: Robot vacuum room cleaning
 
-mihome-cloud.0.id.status.room-id-name-list: [{"name":"room1","id":10}]
+1. Find room IDs:
 
-or
+   `mihome-cloud.0.<id>.remote.get-map-room-list` – requires `[cur-map-id]` as input.
 
-mihome-cloud.0.id.status.clean-preference ["1_10_0_1_0_0_1","1_11_0_0_0_0_1","1_12_1_1_2_0_1","1_13_0_0_0_0_1"]
+   You can get the current map ID from `mihome-cloud.0.<id>.status.cur-map-id`, or query the map list via:
 
-mihome-cloud.0.id.status.clean-prefer-on
+   `mihome-cloud.0.<id>.remote.get-map-list` (no input needed) → result appears under `mihome-cloud.0.<id>.status.map-list`
 
-mihome-cloud.0.id.status.clean-preference-ii
+2. Set the map ID and query rooms:
 
-mihome-cloud.0.id.status.clean-prefer-on-ii
+   `mihome-cloud.0.<id>.remote.get-map-room-list` with input `[<map-id>]`
 
-With the information you can then use
+   → Result: `mihome-cloud.0.<id>.status.room-id-name-list`: `[{"name":"room1","id":10}]`
 
-mihome-cloud.0.id.remote.start-room-sweep
-format ["10", "11", "12", "13"]
+3. Start room cleaning:
 
-or
+   `mihome-cloud.0.<id>.remote.start-room-sweep` with format `["10", "11", "12", "13"]`
 
-mihome-cloud.0.id.remote.set-room-clean
+   or
 
-Format ["10",0,1]
+   `mihome-cloud.0.<id>.remote.set-room-clean` with format `["10",0,1]`
+
+## Troubleshooting
+
+- **"DB closed" errors**: Harmless – occurs when the adapter is stopping while a request is still pending. These are suppressed automatically.
+- **"ECONNRESET" errors**: Temporary network interruptions to the Xiaomi Cloud. The adapter retries automatically at the next polling interval.
+- **"-106 device network unreachable"**: The device (e.g., a vacuum cleaner) is currently offline, disconnected from Wi-Fi, or powered off. The adapter will log this as debug and keep trying.
+- **401 errors**: The session has expired server-side. Restart the adapter to trigger a fresh QR-code login.
+- **No properties for device**: Some pure Zigbee/Bluetooth sensor devices (e.g. `lumi.sensor_switch.v2`) do not expose their status via the Cloud API. Consider using a local Zigbee adapter instead.
 
 ## Discussion and questions
 
 <https://forum.iobroker.net/topic/59636/test-adapter-mihome-cloud>
 
-# Loginablauf
-
-Die App Mail und Passwort eingeben.
-
-# Steuerung
-
-mihome-cloud.0.ID.remote
-
-Können Befehle gesendet entweder den State unbestätigt auf true setzen.
-
-Wenn ein Befehl Input erwartet werden die im Namen aufgezählt und als default Wert werden die IDs aufgelistet.
-
-Name und ID findet man unter status. Mögliche Werte findet man auf den Bleistift drückt und dann unter states.
-
-Eingabewerte könnte z.b. `["10",0,1] `
-
-Falls unter Remote keine Steuerung möglich ist können Szenen/Smart Szenario angelegt werden und diese können unter mihome-cloud.0.scenes ausgeführt werden.
-
-Bsp: Saugroboter Raumreinigung
-
-mihome-cloud.0.id.remote.set-room-clean benötigt als Input
-sweep set-room-clean 7-3 in[clean-room-ids,clean-room-mode,clean-room-oper] [24,25,26]
-
-Potenziel findet man Room Ids unter:
-
-mihome-cloud.0.id.remote.get-map-room-list
-
-mihome-cloud.0.id.remote.get-preference-ii
-
-beide benötigen
-[clean-current-map] [33] als Input
-
-mihome-cloud.0.id.status.clean-current-map sweep clean-current-map 7-33
-
-ist leider null
-Man kann alternativ
-
-mihome-cloud.0.id.status.cur-map-id
-
-nutzen oder
-
-mihome-cloud.0.id.remote.get-map-list map get-map-list 10-1 out[map-list]
-die Kartenliste abfragen und sieht das result unter unter mihome-cloud.0.id.status.map-list map map-list 10-4
-
-Diese Id kann man dann setzen
-
-mihome-cloud.0.id.remote.get-map-room-list map get-map-room-list 10-13 in[cur-map-id] out[room-id-name-list]
-
-mihome-cloud.0.id.remote.get-preference-ii sweep get-preference-ii 7-10 in[clean-current-map] out[clean-preference,clean-prefer-on,clean-preference-ii,clean-prefer-on-ii]
-
-Format: [1673811000]
-
-Dann erhält man die Informationen unter:
-
-mihome-cloud.0.id.status.room-id-name-list: [{"name":"room1","id":10}]
-
-oder
-
-mihome-cloud.0.id.status.clean-preference ["1_10_0_1_0_0_1","1_11_0_0_0_0_1","1_12_1_1_2_0_1","1_13_0_0_0_0_1"]
-
-mihome-cloud.0.id.status.clean-prefer-on
-
-mihome-cloud.0.id.status.clean-preference-ii
-
-mihome-cloud.0.id.status.clean-prefer-on-ii
-
-Mit den Informationen kann man dann
-
-mihome-cloud.0.id.remote.start-room-sweep
-Format ["10","11","12","13"]
-
-oder
-
-mihome-cloud.0.id.remote.set-room-clean
-
-Format ["10",0,1]
-
-## Diskussion und Fragen
-
-<https://forum.iobroker.net/topic/59636/test-adapter-mihome-cloud>
-
 ## Changelog
+### 1.0.5 (2026-04-01)
+- (fix) improve 401 authentication error handling and session reset
+- (fix) validate and limit user configurable update interval
+- (fix) update dependencies to address vulnerabilities
+
+### 1.0.4 (2026-03-14)
+- Maintenance update: Consolidated changelog and fixed repository metadata for better standards compliance
+
+### 1.0.3 (2026-03-14)
+- **Major update with complete rewrite:**
+  - New QR-code based login flow
+  - Support for many new Xiaomi device models (Air Purifiers 4 series, newer fans/heaters, robot vacuums)
+  - Added environment properties (Temperature, Humidity) to many device configurations
+  - Improved error handling for network interruptions
+  - Migration to external i18n files and Node.js 20+ requirement
+  - Updated dependencies and fixed known vulnerabilities
+  - Added missing translations (uk, ru, pt, nl, fr, it, es, pl, zh-cn)
+  - Migration to ESLint flat config and release-script support
+
+### 0.2.2
+
+- Minor improvements with device handling
+
+### 0.2.1
+
+- Fix login. Check Log after starting Adapter
 
 ### 0.2.0
 
@@ -189,7 +150,7 @@ Format ["10",0,1]
 
 - (TA2k) Bugfixes
 
-### 0.0.3
+### 0.0.4
 
 - (TA2k) initial release
 
@@ -197,7 +158,7 @@ Format ["10",0,1]
 
 MIT License
 
-Copyright (c) 2023 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

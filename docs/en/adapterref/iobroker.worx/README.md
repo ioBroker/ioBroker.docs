@@ -1009,10 +1009,13 @@ Default without zone:
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 3.3.0 (2026-04-12)
 
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (Lucky-ESA) Dependencies updated
+- (Lucky-ESA) Error HTTP 405 fixed
+- (Lucky-ESA) Preparation Vision Cloud Mower
+- (Lucky-ESA) Sentry Error from "Vision Cloud" fixed
 
 ### 3.2.7 (2025-08-16)
 
@@ -1031,11 +1034,6 @@ Default without zone:
 ### 3.2.4 (2025-06-14)
 
 - (Lucky-ESA) TypeError native_excluded fixed
-
-### 3.2.3 (2025-06-05)
-
-- (Lucky-ESA) All Sentry issues fixed
-- (Lucky-ESA) Add new mowers without adapter restart
 
 ## License
 

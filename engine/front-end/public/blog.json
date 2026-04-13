@@ -1,5 +1,23 @@
 {
   "pages": {
+    "2026_04_13": {
+      "date": "2026.04.13",
+      "title": {
+        "de": "ioBroker Monatsrückblick – März/April 2026",
+        "en": "ioBroker Monthly Review – March/April 2026",
+        "ru": "Ежемесячный обзор ioBroker – март/апрель 2026 г.",
+        "zh-cn": "ioBroker月度回顾 – 2026年3月/4月"
+      },
+      "logo": "de/blog/images/2026_04_13.jpg",
+      "type": "news",
+      "originalName": "2026_04_13.md",
+      "desc": {
+        "de": "Das Frühjahr bringt frischen Wind in das ioBroker-Ökosystem!\\nIn den Monaten März und April 2026 wurden gleich **13 neue Adapter** in das `latest`-Repository aufgenommen,\\nvon Fußbodenheizung über Polarlicht-Nowcast bis hin zu Flugsimulator-Hardware im Smart Home.\\nAußerdem hat der **nmea**-Adapter den Sprung in die `stable`-Version geschafft.\\nAber das ist noch nicht alles: Der **JavaScript-Adapter** bringt ein AI Chat Panel mit,\\nder **Devices-Adapter** erhält eine komplett neue Visualisierung,\\nder **Admin** wurde mit Device Manager und neuen JsonConfig-Features verbessert,\\nund der **xterm**-Adapter fühlt sich jetzt wie ein echtes Terminal an.",
+        "en": "Spring brings a breath of fresh air to the ioBroker ecosystem! In March and April 2026, **13 new adapters** were added to the `latest` repository, ranging from underfloor heating and aurora nowcasting to flight simulator hardware in the smart home.",
+        "ru": "Весна принесла глоток свежего воздуха в экосистему ioBroker! В марте и апреле 2026 года в репозиторий `latest` было добавлено **13 новых адаптеров**, от систем подогрева пола и прогнозирования северного сияния до оборудования для авиасимуляторов в умном доме.",
+        "zh-cn": "春天为 ioBroker 生态系统带来了一股清新的气息！2026 年 3 月和 4 月，**13 个全新适配器**被添加到 `latest` 版本库中，涵盖了从地暖、极光预报到智能家居飞行模拟器硬件等各种应用。"
+      }
+    },
     "2026_03_04": {
       "date": "2026.03.04",
       "title": {

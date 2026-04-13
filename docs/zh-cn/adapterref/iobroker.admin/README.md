@@ -90,7 +90,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (@GermanBluefox) Copy common.states by alias creation
+- (@GermanBluefox) Copy `common.states` by alias creation
 
 ### 7.8.20 (2026-03-30)
 - (@GermanBluefox) Improved the device manager

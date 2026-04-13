@@ -90,7 +90,7 @@ The repositories and security settings can also be set here.
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (@GermanBluefox) Copy common.states by alias creation
+- (@GermanBluefox) Copy `common.states` by alias creation
 
 ### 7.8.20 (2026-03-30)
 - (@GermanBluefox) Improved the device manager

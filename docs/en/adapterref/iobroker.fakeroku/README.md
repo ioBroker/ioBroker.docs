@@ -30,11 +30,11 @@ States are automatically created when fakeRoku receives a key for the first time
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-
-### **WORK IN PROGRESS**
+### 0.4.0 (2026-03-07)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated
 
 ### 0.3.0 (2024-06-11)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
@@ -50,16 +50,10 @@ States are automatically created when fakeRoku receives a key for the first time
 ### 0.2.0
   (Pmant) run multiple fakeroku's in one instance
 
-### 0.1.1
-  (Pmant) fix package.json
-
-### 0.1.0
-  (Pmant) initial release
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017 Pmant
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

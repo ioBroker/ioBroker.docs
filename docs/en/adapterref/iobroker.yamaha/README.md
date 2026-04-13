@@ -45,8 +45,10 @@ You have to enable "network standby" function in the configuration of your recei
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) dependencies have been updated
 
 ### 0.5.4 (2024-06-14)
 * (foxriver76) updated packages

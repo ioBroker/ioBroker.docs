@@ -20,9 +20,20 @@ Settings available:
 
 ![möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/settings.png)
 
+For devices with the new JUDO connectivity module, enable `REST API (connectivity module)` in instance settings.
+This uses the local interface `http://<ip>/api/rest/...` (Basic Auth).
+(default username/password is 'admin' / 'Connectivity')
 
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (@SimonFischer04) support rest-api (#143). closes #32, closes #82
+- (@arteck, @SimonFischer04) (dependency) bump / cleanups
+- (@SimonFischer04) Migration to ESLint 9 and @iobroker/eslint-config. #114
+- (@SimonFischer04) Migrate admin config to ioBroker jsonConfig. Closes #55
+
 ### 1.1.2 (2025-01-04)
 * (arteck) corr some errors
 
@@ -68,7 +79,7 @@ Settings available:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2025Arthur Rupp arteck@outlook.com
+Copyright (c) 2018-2026 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

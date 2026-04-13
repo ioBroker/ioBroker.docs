@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: FUWYi45Z5HYY4colpKrhNV+BolMJv/MIyIn1c4N/dUU=
+hash: uSySW6XTQD7Ml8Wf5ZMTTDDlxCoRRftoS2wshs7h1RI=
 ---
 ![Logo](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -15,160 +15,174 @@ hash: FUWYi45Z5HYY4colpKrhNV+BolMJv/MIyIn1c4N/dUU=
 ![Travis-CI](http://img.shields.io/travis/ta2k/ioBroker.vw-connect/master.svg)
 
 # IoBroker.vw-connect
-## VW-Connect-Adapter für ioBroker
+## Vw-connect-Adapter für ioBroker
 Adapter für VW We Connect, We Connect ID, We Charge, myAudi, Skoda Connect, Seat Connect und We Connect Go
 
-Bitte aktualisieren Sie Ihr System auf Knoten 10.
+Bitte aktualisieren Sie Ihr System auf Node 10.
+
 <https://forum.iobroker.net/topic/22867/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten>
 
 ## Verwendung
-Nutzen Sie den Status unter Fernbedienung, um Ihr Auto fernzusteuern.
-Normale Aktualisierung ist das Abfrageintervall zum Empfangen von Daten aus der VAG-Cloud. Force-Aktualisierung dient zur Erzwingung einer Aktualisierung bei Nicht-E-Autos. Diese Anzahl wird von VAG begrenzt, bis das Fahrzeug wieder eingeschaltet wird.
-Fahrtdaten sind nur für Nicht-E-Autos verfügbar.
+Nutzen Sie den Status unter „Fernsteuerung“, um Ihr Fahrzeug fernzusteuern. Das normale Aktualisierungsintervall ist das Abfrageintervall für Daten aus der VAG Cloud. Die erzwungene Aktualisierung wird für Fahrzeuge ohne Elektroantrieb aktiviert. Dieses Intervall ist von VAG begrenzt, bis das Fahrzeug wieder eingeschaltet wird. Fahrtdaten sind nur für Fahrzeuge ohne Elektroantrieb verfügbar.
 
-Sie können die Klimatisierungstemperatur in .climater.settings.targetTemperature.content einstellen
+Die Klimatisierungstemperatur kann in .climater.settings.targetTemperature.content eingestellt werden.
 
 ## Diskussion und Fragen
 <https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-seat-skoda>
 
-## Statusfelder Erläuterung
+## Erläuterung der Statusfelder
 ### Liste der Einträge
 ```
 
 ```
 
-## Changelog
+### 0.7.16 (2026-03-18)
+- Myskoda MQTT-Verbindung reparieren
+
+### 0.7.15 (2025-11-26)
+- VW-Refresh-Token reparieren
+
+### 0.7.14 (2025-11-25)
+- VW-ID-Anmeldung reparieren
+
+### 0.7.13 (2025-11-09)
+- Problem mit dem Skoda-Login behoben
+
+### 0.7.12 (2025-05-05)
+- Behebung des Problems mit dem Skoda-Refresh-Token
+- Behebung des Problems mit der Lüftungsaktivierung
+- neue, nicht unterstützte Endpunkte hinzufügen
+
+### 0.7.9 (2025-03-20)
+- Reparatur für das ID-Wandladegerät
+
+### 0.7.7 (2025-03-02)
+- Behebung des Problems mit der Standheizung und deren Dauer beim Skoda
+- Behebung des Problems mit der Skoda-Sperre/Entriegelung
+
+### 0.7.6 (2025-02-28)
+- Behebung des Problems, dass der Ladestatus nur beim Start aktualisiert wird
+- Behebung des Problems mit dem sich bewegenden Zustand von Skoda
+
+### 0.7.3 (2025-02-26)
+- Fehlerbehebung für set setTemperature
+- Lösung für das Entriegelungsproblem bei Skoda
+
+### 0.7.0 (2025-02-25)
+- Lösung für Skoda und Seat
+Die Zustandsstruktur wurde vollständig geändert. Bitte löschen Sie die alten Zustände unter „Objekte“.
+
+### 0.6.1 (2024-10-01)
+- Problem mit dem Skoda-Login behoben
+
+### 0.6.0 (11.04.2024)
+- zusätzliche Cupra-Zustände hinzufügen
+
+### 0.5.4 (2024-03-17)
+- Tür- und Fensterzustände reparieren
+
+### 0.4.1
+- VW-Statusaktualisierung beheben
 
 ### 0.0.65
-
-- Fix Cupra login
+- Cupra-Login reparieren
 
 ### 0.0.63
-
-- Fix VW/Skoda etron login
+- VW/Skoda e-tron-Anmeldeproblem behoben
 
 ### 0.0.62
-
-- Fix Audi etron login
+- Audi e-tron-Anmeldeproblem beheben
 
 ### 0.0.61
-
-- Fix ID login
+- ID-Anmeldung reparieren
 
 ### 0.0.60
-
-- Minor improvements. WeCharge Minimum interval is now 15 minutes
+Kleinere Verbesserungen. Das minimale Ladeintervall von WeCharge beträgt jetzt 15 Minuten.
 
 ### 0.0.55
-
-- fix id status update
+- Fehlerbehebung bei der Aktualisierung des ID-Status
 
 ### 0.0.51
-
-- fix audi etron login
+- Audi e-tron-Anmeldung reparieren
 
 ### 0.0.48
-
-- fix login, fix audi update, add limit for wallbox
+- Login-Probleme behoben, Audi-Update-Problem behoben, Limit für Wallbox hinzugefügt
 
 ### 0.0.43
-
-- increase refresh token timeouts
+- Erhöhung der Timeouts für Refresh-Token
 
 ### 0.0.42
-
-- fix skoda login
+- Skoda-Anmeldeproblem beheben
 
 ### 0.0.40
-
-- add climate v3 for newer cars. Add Powerpass and Seat Elli
+- Klimatisierungsversion 3 für neuere Fahrzeuge hinzufügen. Powerpass und Seat Elli hinzufügen.
 
 ### 0.0.39
-
-- fix id login
+- Problem mit der ID-Anmeldung beheben
 
 ### 0.0.36
-
-- add Skoda Enyaq support
+- Skoda Enyaq-Unterstützung hinzufügen
 
 ### 0.0.35
-
-- add nodeJS v10 compatibility
+- Kompatibilität mit NodeJS v10 hinzufügen
 
 ### 0.0.34
-
-- add auto accept of new privacy consent
+- Automatische Annahme neuer Datenschutzeinwilligungen hinzufügen
 
 ### 0.0.32
-
-- correct selection of last recent trips
+- korrekte Auswahl der letzten Reisen
 
 ### 0.0.31
-
-- enable multiple selection of trip types
+- Mehrfachauswahl von Reisearten ermöglichen
 
 ### 0.0.30
-
-- fix mutiple car problem, add VWv2 mode at the moment there is no different between VW and VWv2
+- Problem mit mehreren Fahrzeugen behoben, VWv2-Modus hinzugefügt; derzeit gibt es keinen Unterschied zwischen VW und VWv2
 
 ### 0.0.29
-
-- fix skoda refreshToken, smaller improvements
+- Skoda-RefreshToken-Problem behoben, kleinere Verbesserungen
 
 ### 0.0.26
-
-- bugfixes
+- Fehlerbehebungen
 
 ### 0.0.25
-
-- add we charge
+- Wir berechnen zusätzlich Gebühren
 
 ### 0.0.24
-
-- add remote state update
+- Remote-Statusaktualisierung hinzufügen
 
 ### 0.0.23
-
-- add Seat and new climatisation v2
+- Sitz hinzugefügt und neue Klimatisierung v2
 
 ### 0.0.22
-
-- calculate outside temperatur in °C also for Skoda and Audi
+- Außentemperatur in °C auch für Skoda und Audi berechnen
 
 ### 0.0.21
-
-- add remotes for id
+- Remotes für ID hinzufügen
 
 ### 0.0.20
-
-- fix audi login, add ID login
+- Audi-Login reparieren, ID-Login hinzufügen
 
 ### 0.0.19
-
-- save status objects in state by id instead of consecutive numbers
+- Speichern von Statusobjekten im Zustand anhand ihrer ID anstatt anhand fortlaufender Nummern
 
 ### 0.0.18
-
-- fix battery status for 2020 models
+- Behebung des Problems mit dem Akkustatus bei Modellen aus dem Jahr 2020
 
 ### 0.0.17
-
-- add support for 2020 models
+- Unterstützung für 2020er Modelle hinzufügen
 
 ### 0.0.16
-
-- fix js.controller 3 problems
+- Behebung der 3 Probleme mit js.controller
 
 ### 0.0.11
-
-- fix audi bug with multiple vehicles
-- hide status update error if feature is not available
+- Audi-Fehler bei mehreren Fahrzeugen behoben
+- Statusaktualisierungsfehler ausblenden, falls die Funktion nicht verfügbar ist
 
 ## License
 
 MIT License
 
-Copyright (c) 2019 ta2k <tombox2020@gmail.com>
+Copyright (c) 2019-2030 ta2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

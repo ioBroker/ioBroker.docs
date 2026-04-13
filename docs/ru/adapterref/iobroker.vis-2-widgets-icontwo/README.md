@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-icontwo/README.md
 title: Иконки inventwo для ioBroker.vis 2.0
-hash: lndJJOs6Q01o4Jdv03uaLHlcyKTQ8adfJxARvr+mPAk=
+hash: oXur4it9ErOpeG3qG3QFlL74z/su3wRUlPcRDRePjVY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/vis-2-widgets-icontwo.png)
 
@@ -15,7 +15,7 @@ hash: lndJJOs6Q01o4Jdv03uaLHlcyKTQ8adfJxARvr+mPAk=
 
 # Иконки inventwo для ioBroker.vis 2.0
 ## Адаптер значков для адаптера ioBroker.vis (только для VIS-2)
-### **Обратите внимание:** Эти значки работают только с версией 2.13.x (или выше) адаптера ioBroker.vis-2!
+### **Обратите внимание:** Эти значки работают только с версией 2.13.5 (или выше) адаптера ioBroker.vis-2!
 .... более подробная информация будет предоставлена позже.
 
 ![Предварительное](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/solid.png)
@@ -30,23 +30,22 @@ hash: lndJJOs6Q01o4Jdv03uaLHlcyKTQ8adfJxARvr+mPAk=
 
 ## Changelog
 <!--
-	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.22.2 (2026-01-06)
-- Added: CHANGELOG_OLD.md
+### 1.38.1 (2026-04-09)
+- (skvarel) Fixed: Added Dependabot cooldown configuration (7 days) to reduce supply chain risk
 
-### 1.22.1 (2026-01-03)
-- Fix Copyright Year
+### 1.38.0 (2026-04-01)
+- (skvarel) Added: New icons (brands enpal)
 
-### 1.22.0 (2025-12-31)
-- new icons added (TV amazon & echo)
+### 1.37.0 (2026-03-30)
+- (skvarel) Added: New icons (player-repeat & -stop)
 
-### 1.21.2 (2025-12-31)
-- bugfix
+### 1.36.0 (2026-03-30)
+- (skvarel) Added: New icons (more lawn-mower icons)
 
-### 1.21.1 (2025-12-31)
-- bugfix
+### 1.35.0 (2026-03-30)
+- (skvarel) Added: New icons (lawn-mower)
 
 ## License
 

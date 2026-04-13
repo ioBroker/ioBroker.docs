@@ -79,7 +79,7 @@ For better view a custom lovelace card is created - see https://github.com/algar
 ## License
 MIT License
 
-Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2021-2023 algar42 <igor.aleschenkov@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

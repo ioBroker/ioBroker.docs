@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: q5y0ine8XUEAhBDAHSwdI++t8DShZsZvp0kzdLX+hu4=
+hash: hwAWHgbqN4OZ5ffAQUp3DaN2MiSvvVhaOFde0QNrS4Q=
 ---
 ![标识](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -44,9 +44,9 @@ ru: [Установка и базовая настройка адаптера](d
 开始之前：所有 com.Objects 的 DPT 都应在您的 ETS 项目中设置。所有设备都应按您的设施结构进行分类。
 
 ＃＃ 要求
-* Node 版本 >= 14.15.4
+* 节点版本 >= 24.0.0
 * 管理员版本 >= 5.2.0
-* js-controller 版本 >=3.3.20
+* js-controller 版本 >= 3.3.20
 
 如果没有这个要求，适配器将无法安装或无法正常工作。
 
@@ -62,6 +62,7 @@ ru: [Установка и базовая настройка адаптера](d
 * 新增：允许非 KNX 状态的直接链接（反之亦然）
 * 新增：适配器响应对通过 directLink 连接的对象的 GroupValueRead 读取操作
 * 新增：导入受密码保护的项目文件（感谢 aKzenT）
+* 新增：管理界面响应式设计（Materialize）
 
 ＃＃＃安装
 此适配器只能通过 npm 安装。通过 GitHub 安装**无效**。
@@ -98,13 +99,13 @@ ru: [Установка и базовая настройка адаптера](d
 ### 配置接口
 ![knxV2-2-5-在线安装许可证-已应用-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-5-Install-License-online-applied-mod.jpg)
 
-1. KNX-Gateway IP：KNX-LAN 网关的 IPv4。
+1. KNX-网关 IP：KNX-LAN 网关的 IPv4。
 2. KNX 网关端口：默认端口为 3671。
 3. 物理地址：iobroker knx 实例的物理地址。**重要提示：这不是局域网的物理地址。
 
 网关！** 且可能不以 0 结尾。
 
-4. 每秒 KNX 数据包数量：此设置限制数据包传输速率。如果 KNX LAN 网关重连次数过多或暂时无法连接，则可能会出现此问题。
+4. 每秒 KNX 数据包数量：此设置限制数据包传输速率。如果 KNX LAN 网关重连次数过多或暂时无法连接，则可能会出现此限制。
 
 如果价格合适，那就降低价格。
 
@@ -205,7 +206,7 @@ GA 工具使更改 GA 的属性变得容易。
 3. 设置 iobroker 标志
 4. 设置 GA DPT
 5. 公认法案
-6. 佐治亚州认可
+6. 佐治亚州（GA）是公认的州。
 
 ![knxV2-3-2-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-2-GATools-mod.jpg)
 
@@ -255,8 +256,13 @@ GA 工具使更改 GA 的属性变得容易。
 
 ### **正在进行中** -->
 ## 版本
+### 2.0.39 (2026年4月5日)
+* 新增对 ETS 6.4.1 的支持
+* 修复漏洞
+* 依赖项更新
+
 ### 2.0.38 (2026年3月1日)
-* 新增对 ETS 6.4.0 的支持
+* 0
 
 ### 2.0.37 (2026年2月20日)
 * 依赖项更新
@@ -624,7 +630,7 @@ on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
 
 The CC-NC-BY License (CC-NC-BY)
 
-Copyright (c) 2016-2026 K.Ringmann <info@punktnetzwerk.net>
+Copyright (c) 2016-2026 K.Ringmann info@punktnetzwerk.net
 
 THE WORK IS PROVIDED UNDER THE TERMS OF THIS CREATIVE
 COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY

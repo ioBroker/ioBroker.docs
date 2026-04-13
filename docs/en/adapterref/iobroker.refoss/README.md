@@ -26,9 +26,18 @@ You can find more and detailed information about the device here: [Refoss](https
 | Refoss Smart Energy Monitor, EM06 | >= v2.3.8 |
 
 ## Changelog
-### 1.3.5 (2025-12-16)
+### 1.4.2 (2026-04-10)
 
-- (zhoulinyue) Improve test and lease.yml
+- (zhoulinyue) Fix license
+
+### 1.4.1 (2026-04-10)
+
+- (zhoulinyue) Upgrade iobroker dependencies
+
+### 1.4.0 (2026-03-24)
+
+- (zhoulinyue) Support EM06P devices
+
 ### 1.3.4 (2025-12-10)
 
 - (zhoulinyue) Resolve the issue of request timeout after network interruption
@@ -109,7 +118,7 @@ You can find more and detailed information about the device here: [Refoss](https
 
 MIT License
 
-Copyright (c) 2025 zhaochuanling zhaochuanling8@gmail.com,
+Copyright (c) 2026 zhoulinyue zhoulinyue@meross.com,
 Bluefox dogafox@gmail.com and
 Refoss support@refoss.net
 

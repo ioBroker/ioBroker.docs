@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate - 用于在 Vis/Vis2 中可视化 JSON 数据和其他数据的适配器
-hash: 3qI1R14HZeXdNTbXjv2UmguTzNHwrVruYa0GYJZZgCs=
+hash: SBqUVc0lqvE6u1MS8iZcarssZkbyaVc4gIRL6fSJsJk=
 ---
 # JSONTemplate - 用于在 Vis/Vis2 中可视化 JSON 数据和其他数据的适配器
 ![标识](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -22,6 +22,12 @@ hash: 3qI1R14HZeXdNTbXjv2UmguTzNHwrVruYa0GYJZZgCs=
 您可以使用模板系统自定义数据输出。
 
 您可以在模板中包含 HTML、CSS 和 Javascript。
+
+使用的模板系统是 `ejs`。
+
+您可以在此在线 Playground 中体验基本功能。
+
+<https://ionicabizau.github.io/ejs-playground>
 
 jsontemplate 小部件之前可在 rssfeed（适用于 vis1）和 vis-2-widgets-ovarious 适配器中使用。这些小部件将在不久的将来从这些适配器中移除。
 
@@ -133,261 +139,10 @@ B) 数据点的索引号（编号始终从 0 开始）
 
 （Markdown 中颜色不可见）
 
-#### 异步调用的使用案例
-**模块 1：**
-
-使用 await 调用 sendToAsync 函数。此示例调用管理适配器中的测试函数。
-
-**模块 2：**
-
-将结果字符串化并输出为 HTML
-
-**模块 3：**
-
-sendToAsync 函数的定义
-
-```ejs
-<% req = await sendToAsync("admin.0","selectSendTo",{test:"test"}); %>
-<%- JSON.stringify(req) %>
-<% async function sendToAsync(instance, command, sendData) {
-    console.log(`sendToAsync ${command} ${sendData}`);
-    return new Promise((resolve, reject) => {
-        try {
-            vis.conn.sendTo(instance, command, sendData, function (receiveData) {
-                resolve(receiveData);
-            });
-        } catch (error) {
-            reject(error);
-        }
-    });
-} %>
-```
-
-**结果：**
-
-```text
-[{"label":"Afghanistan","value":"AF"},{"label":"Åland Islands","value":"AX"},{"label":"Albania","value":"AL"}]
-```
-
-#### 加载额外脚本的使用案例
-其他字段允许您加载 JavaScript 库（例如，从 jsDelivr 或 cdnjs 等 CDN）。以下示例演示了如何使用 chartJS 库。
-
-**步骤 1：**
-
-创建一个名为 `0_userdata.0.chartData` 的新数据点，类型为字符串或 JSON，内容如下
-
-```json
-[12, 19, 3, 5, 2, 3]
-```
-
-**步骤 2：**
-
-在 json_script[1] 字段中输入以下网址：
-
-```text
-https://cdn.jsdelivr.net/npm/chart.js
-```
-
-**步骤 3：**
-
-在“JSON 数据点”字段中输入创建的数据点名称。
-
-在“JSON 模板”字段中输入以下模板。
-
-除了其中一行代码外，其余部分均为标准的 HTML + JavaScript 代码。
-
-```html
-data: <%- JSON.stringify(data) %>,
-```
-
-从数据点读取的数据存储在 JavaScript 变量 `data` 中，并输出到模板指令 <%- ... %> 内。
-
-模板编译并包含在 HTML 文档中后，将由浏览器执行，从而通过 JavaScript 显示图表。
-
-```ejs
-<div>
-  <canvas id="myChart"></canvas>
-</div>
-
-<script>
-  const ctx = document.getElementById('myChart');
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: <%- JSON.stringify(data) %>,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-</script>
-```
-
-![例子](../../../en/adapterref/iobroker.vis-jsontemplate/img/example_extscripts.png)
-
-#### 数据库支持的任务列表的使用案例
-＃＃＃＃＃ **介绍**
-本用例描述了如何可视化并交互式地修改 `ioBroker` 中 MySQL 数据库中的待办事项列表。
-
-重点在于通过按钮点击实现简单的状态更改。此概念作为**概念验证 (PoC)**，未来可将其纳入文档。
-
----
-
-##### **数据库结构（MySQL）**
-首先，创建一个名为 `test` 的 MySQL 数据库。
-
-它包含一个名为 `test` 的表，该表包含以下字段：
-
-- `id`：每个条目的唯一 ID
-- `todo`：待办事项的标题
-- `action`：条目的状态（0 = 进行中，1 = 已完成）
-
-###### **创建表的 SQL 代码**
-<details><summary>细节</summary><pre><code>
-
-```sql
-
-CREATE TABLE `test` (
-`id` int(11) NOT NULL,
-`todo` varchar(100) NOT NULL,
-`action` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `test` (`id`, `todo`, `action`) VALUES
-(1, 'Todo 1', 0),
-(2, 'Todo 2', 1),
-(3, 'Todo 3', 1),
-(4, 'Todo 4', 0);
-
-ALTER TABLE `test`
-ADD PRIMARY KEY (`id`),
-ADD UNIQUE KEY `id` (`id`),
-ADD KEY `idx` (`id`);
-
-ALTER TABLE `test`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-COMMIT;
-
-```
-
-</code></pre>
-
-</details>
-
----
-
-##### **集成到 ioBroker**
-###### **SQL适配器**
-要与数据库交互，需要使用适配器 `ioBroker.sql`。
-
-它已配置为连接到 MySQL 数据库 `test`。
-
-请注意，`ioBroker` 会自动在数据库中创建自己的结构来存储历史数据点。
-
-###### **JSON模板小部件**
-为了进行可视化，我们使用 `JSONTemplate` 小部件。
-
-##### **集成到 VIS 中**
-我们放置 `JSONTemplate` 小部件并填写以下字段：
-
-###### **模板代码**
-<details><summary>细节</summary><pre><code>
-
-```html
-<style>
-    .btn {
-        width: 100%;
-    }
-</style>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Todo</th>
-        <th>Action</th>
-    </tr>
-    <% let todos = await getTodo(); for (let i = 0; i < todos.length; i++) { let todo = todos[i]; %>
-    <tr>
-        <td><%- todo.id %></td>
-        <td><%- todo.todo %></td>
-        <td><%- getButton(todo.id, todo.action) %></td>
-    </tr>
-    <% } %>
-</table>
-
-<script>
-    window.vis-jsontemplate = { clicktodo: clicktodo };
-
-    function getButton(id, action) {
-        let text = action === 0 ? 'In Progress' : 'Completed';
-        return `<button class="btn" onclick="window.vis-jsontemplate.clicktodo(this)" data-id="${id}" data-action="${action}">${text}</button>`;
-    }
-
-    function clicktodo(el) {
-        let id = el.dataset.id;
-        let action = el.dataset.action;
-        let nextAction = action == 0 ? 1 : 0;
-        setAction(id, nextAction);
-    }
-
-    async function getTodo() {
-        let req = await sendToAsync('sql.0', 'query', 'SELECT * FROM test.test');
-        return req.result;
-    }
-
-    async function setAction(id, action) {
-        await sendToAsync('sql.0', 'query', `UPDATE test.test SET action = ${action} WHERE id = ${id}`);
-        vis.setValue('local_trigger', Math.random());
-    }
-
-    async function sendToAsync(instance, command, sendData) {
-        return new Promise((resolve, reject) => {
-            try {
-                vis.conn.sendTo(instance, command, sendData, receiveData => resolve(receiveData));
-            } catch (error) {
-                reject(error);
-            }
-        });
-    }
-</script>
-```
-
-</code></pre>
-
-</details>
-
-###### **用于刷新内容的数据点**
-为确保状态变更后能够及时反映更新，我们添加了以下本地数据点：
-
-```text
-local_trigger
-```
-
-此数据点**无需显式创建**，因为 `local_?` 数据点在 VIS 内部进行处理（参见 `vis` 文档）。
-
-##### **代码说明**
-###### **模板结构**
-| 行 | 内容 |
-| ----- | ---------------------------------------------------------------------- |
-| 1-5 | 按钮外观的 CSS 样式 |
-| 6-11 | 表格标题，包含 ID、待办事项、操作三列 |
-| 12-16 | 使用 `getTodo()` 从 MySQL 数据库获取数据 |
-| 23-28 | `clicktodo()` 函数的全局参考 |
-| 30-37 | `getButton()` 用于创建带有当前状态的按钮的函数 |
-| 38-44 | `clicktodo()` 通过按钮点击更改状态的功能 |
-| 45-48 | `getTodo()` 通过 SQL 适配器获取数据的函数 |
-| 49-52 | `setAction()` 更新数据库条目的函数 |
-| 53-58 | `sendToAsync()` 函数与 `async/await` 和 `vis.conn.sendTo()` 一起使用 |
-| 53-58 | `sendToAsync()` 函数用于将 `async/await` 与 `vis.conn.sendTo()` 结合使用 |
+更多用例
+- [使用用例异步调用](documentation/usecase-asynccall.md)
+- [用例加载脚本](documentation/usecase-loadingscripts.md)
+- [用例任务清单](documentation/usecase-tasklist.md)
 
 ## 模板系统
 ## 关于vis模板系统的重要说明
@@ -517,7 +272,7 @@ local_trigger
 
 方括号表示法也适用于不符合命名规则的属性。
 
-**点表示法：**
+**点记法：**
 
 **模板：**
 
@@ -604,6 +359,19 @@ local_trigger
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.4.1 (2026-04-13)
+
+- fix regression
+- update packages
+
+### 4.4.0 (2026-03-24)
+
+- optimize lib size
+- The ability to load additional JavaScript and CSS files
+  has been added (also for vis2).
+- Improve react components
+- align translation for vis2 widget
+
 ### 4.3.11 (2026-01-25)
 
 - check test release workflow

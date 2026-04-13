@@ -10,27 +10,27 @@ This adapter is used by WEB applications and adapters to communicate with ioBrok
 
 It is almost the same as `ioBroker.socketio`, but does not use socket.io library and only simulates it.
 
-**Important Note: Since v4.0 of this adapter pure Websockets are used exclusively! Socket.io is no longer implemented by the socket.io library, but simulated via pure WebSockets!**
+**Important Note: Since v4.0 of this adapter, pure Websockets are used exclusively! Socket.io is no longer implemented by the socket.io library but simulated via pure WebSockets!**
 
 Users can use this adapter to connect their products to ioBroker via web sockets.
 Actually, this adapter could be used by echarts, vis and many other adapters to extract data from ioBroker.
 
-You can find in the example [directory](https://github.com/ioBroker/ioBroker.ws/tree/master/example) simple application that uses this interface to show some data.
+You can find in the example [directory](https://github.com/ioBroker/ioBroker.ws/tree/master/example) a simple application that uses this interface to show some data.
 
 By using of socket.io interface user should understand the [basics and concept](https://github.com/ioBroker/ioBroker) of the system.
 
 It is useful to read about the [structure of the objects](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md) too. 
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## Brief description of concept
+## Brief description of the concept
 ### Object
-Object is description of data point or group. The group could content other data points in this case it called channel. If a group consists of other channels, in this case it is called device. 
+Object is a description of a data point or group. The group could content other data points in this case it called a channel. If a group consists of other channels, in this case it is called a device. 
 
-Object is meta information that describes data point and could content: max/min value, unit, name, default value, type of value, information for adapter for communication (e.g., IP address) and so on.
+Object is meta-information that describes data point and could content: max/min value, unit, name, default value, type of value, information for adapter for communication (e.g., IP address) and so on.
 
 ### State
-State is the actual value of the data point and presented by JavaScript object: 
+State is the actual value of the data point and presented by a JavaScript object: 
 ```json
 {
     "val": VALUE, 
@@ -42,7 +42,7 @@ State is the actual value of the data point and presented by JavaScript object:
 }
 ```
 
-States change itself very frequently in compare to the objects. (Normally objects should be changed once by creation and that's all) 
+States change themselves very frequently in comparison to the objects. (Normally objects should be changed once by creation, and that's all) 
 
 ### Acknowledgment
 Every state has the attribute `ack`. It shows the direction of command. 
@@ -50,7 +50,7 @@ Every state has the attribute `ack`. It shows the direction of command.
 - If ack=true, it means that the device informs about new value. (e.g., light was switched on manually or motion was detected)
  
 **Example**: we have some home automation adapter (HAA) that has one lamp connected under address `haa.0.lamp1`. 
-- Lamp can be switched on manually with physical switch or via Wi-Fi with the help of HAA. 
+- Lamp can be switched on manually with a physical switch or via Wi-Fi with the help of HAA. 
 - If vis wants to switch the lamp on via Wi-Fi, it should set the new value with `{value: true, ack: false}`. 
 - When the lamp is switched on it is normally informing HAA about new state and the value should be immediately overwritten with `{value: true, ack: true}`.
 - If the lamp is switched off manually via physical switch it informs HAA about new state with `{value: false, ack: true}`. 
@@ -69,6 +69,10 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 -->
 
 ## Changelog
+### 4.1.0 (2026-04-13)
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Fixed possible bugs
+
 ### 4.0.0 (2026-02-17)
 * (@GermanBluefox) Updated packages
 * (@GermanBluefox) Removed support for node.js 18

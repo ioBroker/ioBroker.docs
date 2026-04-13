@@ -35,277 +35,284 @@ Actually there are 5 widgets available. Please enter openligadb in the widget fi
 
 ![Widget table 4](/widgets/openligadb/img/table.png)
 
-Das ist die klassische Tabellenansicht.\
-Die Tabelle enthält verschiedene Spalten.
+This is the classic table view. The table contains several columns.
 
-- Sp=Anzahl gespielter Spiele
-- S=Siege
-- U=Unentschieden
-- N=Niederlagen
-- Tore=Torverhältnis
-- Punkte=Punktestand
+- MP = Number of games played
+- W = Wins
+- D = Draw
+- L = Losses
+- Goals = Goal difference
+- Points = Points standing
+- T = Trend
 
 #### Attribute Table
 
-| Attribut                            | Gruppe                   | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ----------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| allmatches                          |                          | Hier muss ein Datenpunkt mit der Bezeichnung allmatches (Achtung im alten widget musste hier noch table ausgewählt werden) ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, falls die Angaben gültig sind. Der Datenpunkt enthält alle Spieldaten einer Liga/Season im JSON-Format. Aus diesen Daten wird dann auf Basis des Modus die Tabellen die verschiedenen Modis berechnet. |
-| currgameday                         |                          | Hier ist ein Datenpunk zu wählen, der mit currgameday benannt ist. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, falls die Angaben gültig sind. Der Wert wird im Adapter auf Basis des aktuellen Datums berechnet. Der aktuelle Spieltag wechselt zur Hälfte der Zeit zwischen dem letzten Spiel des vorherigen Spieltags und dem ersten Spiel des folgenden Spieltages.                           |
-| mode                                |                          | Listenauswahl in welchem Modus die Tabelle angezeigt werden soll zur Auswahl steht Gesamt(1total), Heim (2home) oder Auswärts (3away), Hinrunde (4round1) oder Rückrunde (5round2).                                                                                                                                                                                                                                                        |
-| mode_binding                        |                          | Dieses Attribut entspricht inhaltlich dem Attribut mode. Es wurde ergänzend eingeführ, so das der Tabellenmodus ebenfalls per Binding gesteuert werden kann. In dieses Textfeld können genau die gleichen Werte wie bei mode eingetragen werden.Wenn hier ein korrekter Wert eingetragen ist, dann hat dieses Attribut vorrang vor dem Attribut mode. Ein Normalanwender sollte er nichts eintragen.                                       |
-| maxicon                             |                          | Maximale Größe des Manschaftsicons in x oder y-Richtung.                                                                                                                                                                                                                                                                                                                                                                                   |
-| shortname                           |                          | Anstatt des Manschaftsnamens wird der Kurzname angezeigt, falls dieser in den vorliegenden Daten gepflegt wurde.                                                                                                                                                                                                                                                                                                                           |
-| sowtrend                            |                          | Auswahl, wenn Trendicons angezeigt werden sollen. Der Trend wird im Vergleich zum vorherigen Spieltag berechnet.                                                                                                                                                                                                                                                                                                                           |
-| highlight                           |                          | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden die hervorgehoben werden sollen. Die Suche erfolgt nur in den Mannschaftsnamen. Der jeweilige Namen wird mit HTML-Tags `<b>` eingefasst. Eine detailliertere Formatierung kann über die css-Klasse "favorite" erfolgen. Ausserdem kann je Highlight eine individuelle CSS-Klasse angegeben werden. Vgl. Kapitel todo                                    |
-| filter                              |                          | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden anhand deren die Tabelle gefiltert dargestellt wird.                                                                                                                                                                                                                                                                                                    |
-| iconup,icondn,iconst                | Attributgruppe Icons     | Hier können eigene Trendicons definiert werden.                                                                                                                                                                                                                                                                                                                                                                                            |
-| showgameday in der Attributgruppe   | Erweiterte Einstellungen | Hier kann ein vom aktuellen Spieltag abweichender Tag zur Berechnung der Tabelle eingegeben werden                                                                                                                                                                                                                                                                                                                                         |
-| lastgamecount in der Attributgruppe | Erweiterte Einstellungen | Wenn hier eine Zahl eingegeben wird, dann wird die Tabelle nur für die Anzahl von Spieltagen bis zum aktuell angezeigten Spieltag (in Abhängigkeit von currgameday und showgameday) berechnet Beispiel: Eingabe bei showgameday = 10 und bei lastgamecount=5: Die Tabelle wird nur für die Spieltage 6-10 berechnet (5 Spieltage)                                                                                                          |
+| Attributs                           | Group                 | Description                                                                                                                                                                                                                                                                                                                                |
+| ----------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| allmatches                          |                       | Select the data point `allmatches`. (Note: In the legacy widget, `table` was used instead.) This data point is created during configuration after a league/season has been successfully set up. It contains all match data for the selected league/season in JSON format. All table views (modes) are derived from this dataset.           |
+| currgameday                         |                       | Select the data point `currgameday`. This data point is created during configuration after a league/season has been successfully set up. Its value is calculated by the adapter based on the current date. The matchday switches at the midpoint between the last match of the previous matchday and the first match of the next matchday. |
+| mode                                |                       | Defines the table view mode. Available options: Total (`1total`), Home (`2home`), Away (`3away`), First half (`4round1`), Second half (`5round2`).                                                                                                                                                                                         |
+| mode_binding                        |                       | Alternative to `mode`, intended for dynamic control via binding. Accepts the same values as `mode`. If a valid value is provided, it overrides the `mode` attribute. Typically, this field can remain empty.                                                                                                                               |
+| maxicon                             |                       | Maximum size of the team icon (applies to both width and height).                                                                                                                                                                                                                                                                          |
+| shortname                           |                       | Displays the team short name instead of the full team name, if available in the dataset.                                                                                                                                                                                                                                                   |
+| sowtrend                            |                       | Displays the team trend (e.g. recent performance) if available.                                                                                                                                                                                                                                                                            |
+| highlight                           |                       | Highlights teams whose names match the provided terms. Multiple terms can be separated by semicolons (`;`). Matches are wrapped in `<b>` tags. Additional styling can be applied via the CSS class `favorite` or by defining custom classes per highlight (see corresponding documentation section).                                       |
+| filter                              |                       | Filters the table by team names. Multiple filter terms can be separated by semicolons (`;`).                                                                                                                                                                                                                                               |
+| iconup,icondn,iconst                | Attribute group icons | Defines custom icons for trend indicators (up, down, stable).                                                                                                                                                                                                                                                                              |
+| showgameday in der Attributgruppe   | Advanced settings     | Allows overriding the automatically calculated matchday by specifying a fixed matchday.                                                                                                                                                                                                                                                    |
+| lastgamecount in der Attributgruppe | Advanced settings     | Limits the table calculation to a specific number of recent matchdays relative to the displayed matchday (`currgameday` or `showgameday`). Example: `showgameday` = 10 and `lastgamecount` = 5 → only matchdays 6–10 are considered.                                                                                                       |
 
 ### Games of Gameday v2
 
 ![Widget Gameday](/widgets/openligadb/img/gameday.png)
 
-Dieses Widget zeigt den Spieltag an. Je nach Einstellung kann immer der
-aktuelle, relativ zum aktuellen oder ein bestimmter Spieltag angezeigt werden.  
-Darüber hinaus kann auch die Menge der angezeigten Spieltage festgelegt werden.
-Bestimmte Elemente der Anzeige wurden mit **CSS-Klassen** versehen,
-für die dann beliebig eine bestimmte Formatierung festgelegt werden kann:
+This widget displays the matchday. Depending on the settings,
+it can always show the current matchday, the matchday relative to the
+current matchday, or a specific matchday.
 
-| CSS-Klasse      | Formatierung betrifft welches Element           | Anmerkung                                                                                                                                                                 |
-| --------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| favorite        | im Anzeigekopf eines Spieltages (Datum/Uhrzeit) | Hier kann Datum und Uhrzeit formatiert werden, wenn die Lieblingsmannschaft am Spieltag spielt. ggfs. kann es auch mit der CSS-Klasse "todaygameheader" verbunden werden. |
-| favorite        | Mannschaftsname                                 | Hier kann der Mannschaftsname entsprechend formatiert werden.                                                                                                             |
-| todaygame       | Die komplette Zeile eines Spiels                | Wird markiert, wenn das Spiel am heutigen Tag statt findet.                                                                                                               |
-| todaygameheader | im Anzeigekopf eines Spieltages (Datum/Uhrzeit) | Wird markiert, wenn das Spieltagsdatum am heutigen Tag ist                                                                                                                |
+Furthermore, the number of matchdays displayed can also be set.
+Certain elements of the display have been tagged with **CSS classes**,
+for which a specific format can then be defined as desired:
 
-#### Beispiele für CSS Klassen
+| CSS class       | Affects which element       | Notes                                                                                                                                                   |
+| --------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| favorite        | Matchday header (date/time) | Allows formatting of date and time when the favorite team is playing on that matchday. Can optionally be combined with the CSS class `todaygameheader`. |
+| favorite        | Team name                   | Allows custom formatting of the team name.                                                                                                              |
+| todaygame       | Entire match row            | Applied when the match takes place on the current day.                                                                                                  |
+| todaygameheader | Matchday header (date/time) | Applied when the matchday date corresponds to the current day.                                                                                          |
 
-##### Beispiel Anzeigekopf eines Spieltages (Datum generell)
+#### Examples of CSS Classes
+
+##### Example: Display Header for a Matchday (General Date)
 
 ```css
 .oldb-tt tr.favorite {
-  color: yellow;
+    color: yellow;
 }
 ```
 
-##### Beispiel Mannschaftsname
+##### Example team name
 
 ```css
 .oldb-tt b.favorite {
-  color: blue;
+    color: blue;
 }
 ```
 
-##### Beispiel Zeile eines Spiels
+##### Example line of a game
 
 ```css
 .oldb-tt .todaygame {
-  color: red;
+    color: red;
 }
 ```
 
-##### Beispiel Anzeigekopf eines Spieltages (Datum heute)
+##### Example display header for a match day (today's date)
 
 ```css
 .oldb-tt .todaygameheader {
-  color: lightgreen;
+    color: lightgreen;
 }
 ```
 
 #### Attribute Game of Gamedays
 
-| Attribut         | Gruppe                   | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| allmatches       |                          | Hier muss ein Datenpunkt mit der Bezeichnung allmatches ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, falls die Angaben gültig sind. Der Datenpunkt enthält alle Spiele und Ergebnisse einer Liga/Season im JSON-Format Wenn der Spieltag am heutigen Tag statt findet, dann wird das Datum (todaygameheader) und das jeweilige Spiel (todaygame) mit CSS-Klassen versehen. |
-| currgameday      |                          | Hier ist ein Datenpunk zu wählen, der mit currgameday benannt ist. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, falls die Angaben gültig sind. Der Wert wird im Adapter auf Basis des aktuellen Datums berechnet. Der aktuelle Spieltag wechselt zur Hälfte der Zeit zwischen dem letzten Spielt der vorherigen Spieltags und dem ersten Spiel des folgenden Spieltages.                      |
-| maxicon          |                          | Maximale Größe des Manschaftsicons in x oder y-Richtung.                                                                                                                                                                                                                                                                                                                                                                               |
-| shortname        |                          | Anstatt des Manschaftsnamens wird der Kurzname angezeigt, falls dieser in den vorliegenden Daten gepflegt wurde.                                                                                                                                                                                                                                                                                                                       |
-| showgoals        |                          | Informationen zu den Torschützen wird angezeigt.                                                                                                                                                                                                                                                                                                                                                                                       |
-| highlight        |                          | Hier können ein oder mehrere Begriffe mit Semicolon (;) getrennt eingegeben werden, die hervorgehoben werden sollen. Die Suche erfolgt nur in den Mannschaftsnamen. Der jeweilige Namen wird mit HTML-Tags `<b>` eingefasst. Eine detailliertere Formatierung kann über die css-Klasse "favorite" erfolgen. Ausserdem kann je Highlight eine individuelle CSS-Klasse angegeben werden. Vgl. Kapitel todo                               |
-| showgameday      | Erweiterte Einstellungen | Wenn dieses Feld leer bleibt, wird immer der aktuelle Spieltag angezeigt.Trägt man eine positive Zahl ein, dann wird, falls vorhanden, der ausgewählte Spieltag angezeigt.Trägt man eine negative Zahl ein, dann wird relativ vom aktuellen Spieltag dieser angezeigt (bspw -1 entspricht dem vorherigen Spieltag)                                                                                                                     |
-| showgamedaycount | Erweiterte Einstellungen | Üblicherweise bleibt dieses Feld leer oder enthält 1. Dadurch wird genau ein Spieltag angezeigt. Wird hier eine andere Zahl eingegeben, dann wird diese Anzahl von Spieltagen, ausgehend von der 'Einstellung in showgameday angezeigt.                                                                                                                                                                                                |
-| showweekday      | Erweiterte Einstellungen | Zeigt vor dem Datum wahlweise den Wochentag an.                                                                                                                                                                                                                                                                                                                                                                                        |
+| Attribute        | Group             | Description                                                                                                                                                                                                                                                                                                                                                              |
+| ---------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| allmatches       |                   | A datapoint named **allmatches** must be selected here. This datapoint is created after configuring the league/season, provided the configuration is valid. It contains all matches and results of a league/season in JSON format. If a matchday takes place today, the date (**todaygameheader**) and the corresponding match (**todaygame**) are assigned CSS classes. |
+| currgameday      |                   | A datapoint named **currgameday** must be selected here. This datapoint is created after configuring the league/season, provided the configuration is valid. Its value is calculated by the adapter based on the current date. The current matchday switches halfway between the last match of the previous matchday and the first match of the next matchday.           |
+| maxicon          |                   | Maximum size of the team icon in either x or y direction.                                                                                                                                                                                                                                                                                                                |
+| shortname        |                   | Displays the short name instead of the team name, if available in the provided data.                                                                                                                                                                                                                                                                                     |
+| showgoals        |                   | Displays information about goal scorers.                                                                                                                                                                                                                                                                                                                                 |
+| highlight        |                   | One or more terms can be entered here, separated by semicolons (;), to be highlighted. The search is performed only within team names. Matching names are wrapped with HTML `<b>` tags. More detailed formatting can be applied via the CSS class **"favorite"**. Additionally, a custom CSS class can be defined per highlight. See chapter "todo".                     |
+| showgameday      | Advanced Settings | If this field is empty, the current matchday is always displayed. If a positive number is entered, the specified matchday is shown (if available). If a negative number is entered, the matchday is displayed relative to the current one (e.g., -1 corresponds to the previous matchday).                                                                               |
+| showgamedaycount | Advanced Settings | Usually this field remains empty or contains 1, meaning exactly one matchday is shown. If another number is entered, that number of matchdays will be displayed, starting from the setting defined in **showgameday**.                                                                                                                                                   |
+| showweekday      | Advanced Settings | Optionally displays the weekday before the date.                                                                                                                                                                                                                                                                                                                         |
 
-##### Beispiele
+##### Examples
 
-###### Beispiele für das Binding im Attribut showgameday
+###### Examples of binding in the attribute showgameday
 
-ggfs. kann dieses Feld auch über vis-binding berechnet und gefüllt werden.
-Beispiele für relativ berechneten Spieltag: |
+This field can also be calculated and populated using vis-binding, if necessary.
+Examples of a relatively calculated matchday: |
 
 ```text
-    Vorheriger Spieltag
-    {a:openligadb.0.bl1.2019.currgameday;a-1} oder
-    Nachfolgender Spieltag
+    Previous matchday
+    {a:openligadb.0.bl1.2019.currgameday;a-1} or
+    Next matchday
     {a:openligadb.0.bl1.2019.currgameday;a+1}
 ```
 
-Da das Binding nicht im vis editmode berechnet wird,
-wird bei Verwendung von Binding im editmode immer der aktuelle Spieltag angezeigt.
+Since the binding is not calculated in the vis edit mode,
+
+when using binding in edit mode, the current match day is always displayed.
 
 ### Games of favorite clubs 2
 
 ![Favorite Games](/widgets/openligadb/img/favgames.png)  
-Diese Widget zeigt die nächsten Spiele deiner Lieblingsmannschaften aus ein oder
-mehrerer Ligen an. Durch die Auswahl der Anzahl der anzuzeigenden Ligen,
-wird für jede Liga eine separate Konfigurationsgruppe angezeigt,
-in der die folgenden Einstellungen vorgenommen werden können.
-Wenn das Spiel am heutigen Tag statt findet, dann wird das jeweilige
-Spiel (todaygame) mit CSS-Klassen versehen.
+This widget displays the upcoming matches of your favorite teams
+from one or more leagues. By selecting the number of leagues to display,
+a separate configuration group is shown for each league,
+where the following settings can be configured.
 
-#### Beispiel
+If the match is today, the respective match (todaygame)
+will be tagged with CSS classes.
+
+#### Example
 
 ```css
 .todaygame {
-  color: red;
+    color: red;
 }
 
 .todaygameheader {
-  color: yellow;
+    color: yellow;
 }
 ```
 
 #### Attribute
 
-| Attribut         | Gruppe     | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ---------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Anzahl Liga      | Allgemein  | Hier kann die Anzahl der abzufragenden Ligen eingetragen werden. Für jede Liga wird ein separate Konfigurationsgruppe angezeigt.                                                                                                                                                                                                                                                                                           |
-| maxicon          | Allgemeinv | Maximale Größe des Manschaftsicons in x oder y-Richtung.                                                                                                                                                                                                                                                                                                                                                                   |
-| showresult       | Allgemein  | Auswahl, ob die Spielergebnisse, sofern bekannt, angezeigt werden sollen                                                                                                                                                                                                                                                                                                                                                   |
-| showabbreviation | Allgemein  | Um die Spiele der einzelnen Ligen unterscheiden zu können, kann man eine eigene Kürzung in der jeweiligen Konfiguration eintragen. Hier kann ausgewählt werden, ob diese angezeigt werden soll.                                                                                                                                                                                                                            |
-| showweekday      | Allgemein  | Zeigt vor dem Datum wahlweise den Wochentag an. Die folgenden Attribute in der Gruppe Liga können sich in Abhängigkeit der Eingabe bei **Anzahl Liga** mehrfach wiederholen.                                                                                                                                                                                                                                               |
-| allmatches       | Liga       | Hier muss ein Datenpunkt mit der Bezeichnung allmatches ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, falls die Angaben gültig sind. Der Datenpunkt enthält alle Spiele und Ergebnisse einer Liga/Season im JSON-Format                                                                                                                                         |
-| currgameday      | Liga       | Hier muss ein Datenpunkt mit der Bezeichnung currgameday ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, falls die Angaben gültig sind. Der Wert wird im Adapter auf Basis des aktuellen Datums berechnet. Der aktuelle Spieltag wechselt zur Hälfte der Zeit zwischen dem letzten Spielt der vorherigen Spieltags und dem ersten Spiel des folgenden Spieltages. |
-| showgameday      | Liga       | Wenn dieses Feld leer bleibt, wird immer vom aktuelle Spieltag ausgegangen. Trägt man eine positive Zahl ein, dann wird, falls vorhanden, vom ausgewählte Spieltag ausgegangen. Trägt man eine negative Zahl ein, dann wird relativ vom aktuellen Spieltag ausgegangen (bspw -1 entspricht dem vorherigen Spieltag)                                                                                                        |
-| showgamedaycount | Liga       | Hier kann angegeben werden für wie viele Spieltage die Spiele angezeigt werden sollen. Wenn das Feld leer bleibt, dann werden alle restlichen Spieltage angezeigt (max 9999 Spieltage) Wird hier eine andere Zahl angezeigt, dann werden alle Spiele für diese Anzahl von Spieltagen, ausgehend von der 'Einstellung in showgameday angezeigt.                                                                             |
-| shortname        | Liga       | Anstatt des Manschaftsnamens wird der Kurzname angezeigt, falls dieser in den vorliegenden Daten gepflegt wurde.                                                                                                                                                                                                                                                                                                           |
-| abbreviation     | Liga       | Abkürzung die für diese Liga angezeigt werden soll, sofern showabbreviation ausgewählt wurde.                                                                                                                                                                                                                                                                                                                              |
-| highlight        | Liga       | Hier können ein oder mehrere Begriffe mit Semicolon (;) getrennt eingegeben werden, um die Lieblingsmanschaften zu finden. Die Suche erfolgt nur in den Mannschaftsnamen. Eine besondere Hervorhebung wie bei den anderen Widgets gibt es hier nicht.                                                                                                                                                                      |
+| Attribute        | Group   | Description                                                                                                                                                                                                                                                                                                                                                    |
+| ---------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| leaguecount      | General | Specifies the number of leagues to be queried. A separate configuration group is displayed for each league.                                                                                                                                                                                                                                                    |
+| maxicon          | General | Maximum size of the team icon in either x or y direction.                                                                                                                                                                                                                                                                                                      |
+| showresult       | General | Determines whether match results should be displayed, if available.                                                                                                                                                                                                                                                                                            |
+| showabbreviation | General | To distinguish matches from different leagues, a custom abbreviation can be defined per configuration. This option controls whether that abbreviation is displayed.                                                                                                                                                                                            |
+| showweekday      | General | Optionally displays the weekday before the date. The following attributes in the **League** group may repeat depending on the value of **leaguecount**.                                                                                                                                                                                                        |
+| allmatches       | League  | A datapoint named **allmatches** must be selected here. This datapoint is created after configuring the league/season, provided the configuration is valid. It contains all matches and results of a league/season in JSON format.                                                                                                                             |
+| currgameday      | League  | A datapoint named **currgameday** must be selected here. This datapoint is created after configuring the league/season, provided the configuration is valid. Its value is calculated by the adapter based on the current date. The current matchday switches halfway between the last match of the previous matchday and the first match of the next matchday. |
+| showgameday      | League  | If this field is empty, the current matchday is used. If a positive number is entered, the specified matchday is used (if available). If a negative number is entered, the matchday is determined relative to the current one (e.g., -1 corresponds to the previous matchday).                                                                                 |
+| showgamedaycount | League  | Defines how many matchdays should be displayed. If left empty, all remaining matchdays are shown (max. 9999 matchdays). If a number is entered, matches for that number of matchdays are displayed, starting from the setting defined in **showgameday**.                                                                                                      |
+| shortname        | League  | Displays the short name instead of the team name, if available in the provided data.                                                                                                                                                                                                                                                                           |
+| abbreviation     | League  | Abbreviation to be displayed for this league, if **showabbreviation** is enabled.                                                                                                                                                                                                                                                                              |
+| highlight        | League  | One or more terms can be entered here, separated by semicolons (;), to identify favorite teams. The search is performed only within team names. Unlike other widgets, no special visual highlighting is applied here.                                                                                                                                          |
 
-#### Beispiele Game of Favorite Clubs
+#### Game of Favorite Clubs Examples
 
-##### Beispiele für das Binding im Attribut showgameday Game of Favorite Clubs
+##### Examples of binding in the `showgameday` attribute for Game of Favorite Clubs
 
-ggfs. kann dieses Feld auch über vis-binding berechnet und gefüllt werden.  
-Beispiele für einen relativ berechneten Spieltag:
+This field can also be calculated and populated using `vis-binding`.
+
+Examples of a relatively calculated matchday:
 
 ```css
-    Vorheriger Spieltag
-    {a:openligadb.0.bl1.2019.currgameday;a-1} oder
-    Nachfolgender Spieltag
-    {a:openligadb.0.bl1.2019.currgameday;a+1}
+Previous matchday
+{a:openligadb.0.bl1.2019.currgameday;a-1} or
+Next matchday
+{a:openligadb.0.bl1.2019.currgameday;a+1}
 ```
 
-Da das Binding nicht im vis editmode berechnet wird, wird bei Verwendung
-von Binding im editmode immer der aktuelle Spieltag angezeigt.
+Since the binding is not calculated in the vis edit mode,
+when using binding in edit mode, the current match day is always displayed.
 
 ### Pivot Table 2
 
-Diese Widget zeigt die alle Spiele und Ergebnisse als Pivottabelle an
+This widget displays all matches and results as a pivot table.
 
-| CSS-Klasse | Formatierung betrifft welches Element          | Beispiel |
-| ---------- | ---------------------------------------------- | -------- |
-| favorite   | Der per highlight ausgewählte Mannschaftsnamen |          |
+| CSS Class | Affects which element                 | Example |
+| --------- | ------------------------------------- | ------- |
+| favorite  | Team names selected via **highlight** |         |
 
-#### Beispiele Pivot Table
+#### Pivot Table Examples
 
-##### Beispiel Der per highlight ausgewählte Mannschaftsnamen
+##### Example: Team Name Selected via Highlight
 
 ```css
 .oldb-tt .favorite {
-  color: yellow;
+    color: yellow;
 }
 ```
 
 #### Attribute Pivot Table
 
-| Attribut            | Gruppe    | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| allmatches          | Allgemein | Hier muss ein Datenpunkt mit der Bezeichnung allmatches ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, falls die Angaben gültig sind. Der Datenpunkt enthält alle Spiele und Ergebnisse einer Liga/Season im JSON-Format                                                                                                                                         |
-| currgameday         | Allgemein | Hier muss ein Datenpunkt mit der Bezeichnung currgameday ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, falls die Angaben gültig sind. Der Wert wird im Adapter auf Basis des aktuellen Datums berechnet. Der aktuelle Spieltag wechselt zur Hälfte der Zeit zwischen dem letzten Spielt der vorherigen Spieltags und dem ersten Spiel des folgenden Spieltages. |
-| maxicon             |           | Maximale Größe des Manschaftsicons in x oder y-Richtung.                                                                                                                                                                                                                                                                                                                                                                   |
-| sort4e              |           | Einstellung nachdem sortiert werden soll.                                                                                                                                                                                                                                                                                                                                                                                  |
-| shortname           |           | Anstatt des Manschaftsnamens wird der Kurzname angezeigt, falls dieser in den vorliegenden Daten gepflegt wurde.                                                                                                                                                                                                                                                                                                           |
-| highlight am Anfang |           | Das highlight wird am Anfang der Tabelle angezeigt.                                                                                                                                                                                                                                                                                                                                                                        |
-| highlight           |           | Hier können ein oder mehrere Begriffe mit Semicolon (;) getrennt eingegeben werden, die hervorgehoben werden sollen. Die Suche erfolgt nur in den Mannschaftsnamen. Der jeweilige Namen wird mit HTML-Tags `<b>` eingefasst. Eine detailliertere Formatierung kann über die css-Klasse "favorite" erfolgen.                                                                                                                |
+| Attribute          | Group   | Description                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| allmatches         | General | A datapoint named **allmatches** must be selected here. This datapoint is created after configuring the league/season, provided the configuration is valid. It contains all matches and results of a league/season in JSON format.                                                                                                                             |
+| currgameday        | General | A datapoint named **currgameday** must be selected here. This datapoint is created after configuring the league/season, provided the configuration is valid. Its value is calculated by the adapter based on the current date. The current matchday switches halfway between the last match of the previous matchday and the first match of the next matchday. |
+| maxicon            |         | Maximum size of the team icon in either x or y direction.                                                                                                                                                                                                                                                                                                      |
+| sort4e             |         | Defines the sorting criteria to be applied.                                                                                                                                                                                                                                                                                                                    |
+| shortname          |         | Displays the short name instead of the team name, if available in the provided data.                                                                                                                                                                                                                                                                           |
+| highlight at start |         | Displays highlighted teams at the beginning of the table.                                                                                                                                                                                                                                                                                                      |
+| highlight          |         | One or more terms can be entered here, separated by semicolons (;), to be highlighted. The search is performed only within team names. Matching names are wrapped with HTML `<b>` tags. More detailed formatting can be applied via the CSS class **"favorite"**.                                                                                              |
 
 ### Goal getters 2
 
-Diese Widget zeigt die alle Torjäger an
+This widget displays all the top scorers.
 
 #### Attribute Goal getters
 
-| Attribut        | Gruppe    | Beschreibung                                                                                                                                                                                                                                                                                            |
-| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| goalgetters     | Allgemein | Hier muss ein Datenpunkt mit der Bezeichnung goalgetters ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, falls die Angaben gültig sind. Der Datenpunkt enthält alle Torjäger der aktuellen Saison.                                             |
-| maximala Anzahl |           | Nur die angegebene Anzahl an Torjäger wird angezeigt.                                                                                                                                                                                                                                                   |
-| sortiert        |           | Auswahl der Sortierreihenfolge.                                                                                                                                                                                                                                                                         |
-| Nur Highlights  |           | Nur die Einträge zum Higlightfilter werden angezeigt.                                                                                                                                                                                                                                                   |
-| highlight       |           | Hier können ein oder mehrere Begriffe mit Semicolon (;) getrennt eingegeben werden, die hervorgehoben werden sollen. Die Suche erfolgt nur in den Spielernamen. Der jeweilige Namen wird mit HTML-Tags `<b>` eingefasst. Eine detailliertere Formatierung kann über die css-Klasse "favorite" erfolgen. |
+| Attribute     | Group   | Description                                                                                                                                                                                                                                                         |
+| ------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| goalgetters   | General | A datapoint named **goalgetters** must be selected here. This datapoint is created after configuring the league/season, provided the configuration is valid. It contains all top scorers of the current season.                                                     |
+| maxcount      |         | Limits the number of goal scorers to be displayed.                                                                                                                                                                                                                  |
+| sortorder     |         | Defines the sorting order.                                                                                                                                                                                                                                          |
+| onlyhighlight |         | Displays only entries matching the highlight filter.                                                                                                                                                                                                                |
+| highlight     |         | One or more terms can be entered here, separated by semicolons (;), to be highlighted. The search is performed only within player names. Matching names are wrapped with HTML `<b>` tags. More detailed formatting can be applied via the CSS class **"favorite"**. |
 
-## Rezepte zur Wiederverwendung
+## Recipes for Reuse
 
-### Steuerung des Tabellenmodus über Knöpfe
+### Controlling table mode via buttons
 
-1. Ein Widgets table v2 anlegen. und wie hier in der Hilfe beschrieben konfigurieren
-2. Bei Widgeteinstellungen in der Gruppe Sichtbarkeit bei Datenpunkt deinen
-   erstellten Datenpunk eintragen
-3. Dieses Widget kopieren und nebeneinander einfügen, so das es insgesamt
-   3 mal im view existiert
-4. Bei Widgeteinstellungen in der Gruppe Sichtbarkeit den "Wert für die
-   Bedingung dann bei jedem der 3 Widgets jeweils nur einen der folgenden
-   Werte eintragen total,home,away
-5. Dann ein neues Widget anlegen: Radiobuttons ValueList (ist in der
-   Standardinstallation von vis schon enthalten
-6. In diesem Widget in Gruppe Allgemein deinen angelegten ObjectID auswählen
-7. Bei Werte das folgende eintragen: total;home;away (dies muss mit dem was
-   du unter sichtbarkeit bei den widgets eingetragen hast zusammenpassen
-8. Bei Texte das folgende eintragen: Gesamt;Heim;Auswärts
-9. Dann in den vis runtime gehen und ausprobieren
-10. Wenn alles funktioniert zum Schluss noch die widgets exakt übereinander
-    legen, so das es wie eines aussieht
+1. Create a **table v2** widget and configure it as described in this documentation.
+2. In the widget settings, under the **Visibility** group, assign your created datapoint.
+3. Duplicate this widget and place the copies side by side so that a
+   total of **three instances** exist in the view.
+4. In each widget’s **Visibility** settings, set the **“Condition value”**
+   to one of the following values (one per widget):
+   `total`, `home`, `away`
+5. Create a new widget: **Radiobuttons ValueList**
+   (included in the default vis installation).
+6. In this widget, under the **General** group, select your created Object ID.
+7. In the **Values** field, enter:
+   `total;home;away`
+   (this must match the values used in the visibility settings of the widgets)
+8. In the **Texts** field, enter:
+   `Total;Home;Away`
+9. Open the vis runtime and test the setup.
+10. Once everything works, place the widgets exactly on top of each other
+    so that they appear as a single widget.
 
-### Laufschrift einer Widgetzeile
+### Scrolling (marquee) effect for a widget row
 
-sieht nur schön aus, wenn nur eine oder wenige Zeilen angezeigt werden bspw
-bei dem FavGame-widget
+This looks best when only one or a few rows are displayed,
+e.g., in the **FavGame widget**.
 
-`#w00000` ist die ID des widgets, das animiert werden soll.
+`#w00000` is the ID of the widget that should be animated.
 
 Expand
 
 ```css
 #w00000 .oldb-tt {
-  max-width: 100vw; /* iOS braucht das */
-  overflow: hidden;
+    max-width: 100vw; /* iOS needs this */
+    overflow: hidden;
 }
 
 #w00000 .oldb-tt tbody {
-  display: inline-block;
-  padding-left: 100%;
-  animation: marquee 10s linear infinite;
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 10s linear infinite;
 }
 
 /* Make it move */
 @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 ```
 
 ### Spieltag über +/- Buttons steuern, sowie direkte Auswahl per Listbox
 
-![Controlbuttons](/widgets/openligadb/img/controlbuttons.png)  
-Dazu ist für die Steuerung ein zusätzlicher Datenpunkt mit
-Typ Zahl/number anzulegen.  
-In diesem Beispiel wurde er javascript.0.bl1.spieltag genannt.  
-Danke an bommel_030  
-Die 4 Steuerelemente zum importieren findet ihr hier:
+![Controlbuttons](/widgets/openligadb/img/controlbuttons.png)
+
+For this control, an additional data point of type number must be created.
+In this example, it was named javascript.0.bl1.spieltag.
+
+Thanks to bommel_030
+The 4 controls for import can be found here:
 
 Expand
 
@@ -313,12 +320,13 @@ Expand
     [{"tpl":"_tplGroup","data":{"members":["w00065","w00066","g00001"],"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","attrCount":"1","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0},"widgetSet":null,"style":{"top":38.28125,"left":"663px","width":"141px","height":"37px"}},{"tpl":"tplIconInc","data":{"oid":"javascript.0.bl1.spieltag","repeat_delay":"800","repeat_interval":"800","src":"","step":"-1","minmax":"1","text":"-","g_last_change":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"name":"spieltag_minus","g_visibility":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","g_gestures":false,"g_signals":false,"signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false},"style":{"left":"0%","top":"16.22%","background":"#303030","width":"17.73%","height":"67.57%","z-index":"50","font-family":"","background-color":"#303030","font-weight":"bolder","border-width":"2px","border-radius":"10px","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","color":"white","border-style":"solid","border-color":"white","font-size":""},"widgetSet":"jqui","grouped":true,"groupName":"w00065"},{"tpl":"tplIconInc","data":{"oid":"javascript.0.bl1.spieltag","repeat_delay":"800","repeat_interval":"800","src":"","step":"+1","minmax":"34","text":"+","gestures-offsetX":0,"gestures-offsetY":"-1","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis.0/VIS/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis.0/VIS/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis.0/VIS/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"g_last_change":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"name":"spieltag_plus","g_visibility":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide"},"style":{"left":"82.27%","top":"16.22%","background":"#303030","width":"17.73%","height":"67.57%","z-index":"50","font-family":"","background-color":"#303030","font-weight":"bolder","border-width":"2px","border-radius":"10px","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","color":"white","border-style":"solid","border-color":"white"},"widgetSet":"jqui","grouped":true,"groupName":"w00066"},{"tpl":"_tplGroup","data":{"members":["w00064","w00059"],"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","attrCount":"1","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0},"widgetSet":null,"style":{"top":"0%","left":"21.99%","width":"56.74%","height":"100%"},"grouped":true,"groupName":"g00001"},{"tpl":"tplJquiSelectList","data":{"oid":"javascript.0.bl1.spieltag","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"values":"1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34","texts":"1. Spieltag;2. Spieltag;3. Spieltag;4. Spieltag;5. Spieltag;6. Spieltag;7. Spieltag;8. Spieltag;9. Spieltag;10. Spieltag;11. Spieltag;12. Spieltag;13. Spieltag;14. Spieltag;15. Spieltag;16. Spieltag;17. Spieltag;18. Spieltag;19. Spieltag;20. Spieltag;21. Spieltag;22. Spieltag;23. Spieltag;24. Spieltag;25. Spieltag;26. Spieltag;27. Spieltag;28. Spieltag;29. Spieltag;30. Spieltag;31. Spieltag;32. Spieltag;33. Spieltag;34. Spieltag","height":"150","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"no_style":true,"class":"","lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"open":false,"name":"spieltag_liste","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide"},"style":{"left":"0%","top":"54.77%","height":"45.95%","width":"100%","background":"","box-shadow":"","border-radius":"5px","padding-left":"","padding-right":"","margin-right":"","color":"","font-weight":"bolder","border-width":"2px","border-style":"solid","border-color":"white","background-color":""},"widgetSet":"jqui","grouped":true,"groupName":"w00064"},{"tpl":"tplIconState","data":{"oid":"javascript.0.bl1.spieltag","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":false,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"text":"Heute","invert_icon":false,"value":"{openligadb.0.bl1.2019.currgameday}"},"style":{"left":"0%","top":"0%","color":"white","background":"#303030","font-size":"small","font-weight":"normal","height":"45.95%","border-width":"2px","border-style":"solid","border-color":"white","width":"100%"},"widgetSet":"jqui","grouped":true,"groupName":"w00059"}]
 ```
 
-### Anzeige von bestimmten Eigenschaften, falls eine der Lieblingsmannschaften am heutigen Tag spielen
+### Display of specific properties if one of your favorite teams is playing today
 
-**Beipiel 1** HTML-Widget erhält einen grünen Hintergrund,
-wenn bayern heute spielt.  
-Der Bindungsausdruck wir hier in das Feld background-color im Reiter
-CSS Hintergrund gesetzt.
+**Example 1** The HTML widget gets a green background
+if Bayern is playing today.
+
+The binding expression is placed here in the background-color field in the
+CSS Background tab.
 
 ```text
     {a:openligadb.0.bl1.2019.currgameday;vis.binds["openligadb"].checkTodayFavorite('openligadb.0.bl1.2019.allmatches','bayern')?'red':'green'}
@@ -330,22 +338,21 @@ Expand
     [{"tpl":"tplHtml","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":true,"g_css_shadow_padding":false,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","refreshInterval":"0","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0},"style":{"left":"445px","top":"589px","background":"{a:openligadb.0.bl1.2019.currgameday;vis.binds[\"openligadb\"].checkTodayFavorite('openligadb.0.bl1.2019.allmatches','bayer')?'red':'green'}","width":"70px","height":"70px","border-radius":"10px"},"widgetSet":"basic"}]
 ```
 
-### Auswahl des Tabellenmodus für das table widget
+### Selecting the Table Mode for the Table Widget
 
-![Tabellenmodus](/widgets/openligadb/img/tableselect.png)  
-Mit diesem HTML-widget lässt sich der Modus des Tabellen widgets steuern.  
-Der im folgenden widget verwendete Datenpunkt lautet:
+![Table mode](/widgets/openligadb/img/tableselect.png)
+This HTML widget controls the mode of the table widget.
+The data point used in the following widget is:
 
-`javascript.0.tabellemodus`
+`javascript.0.tablemode`
 
-Dieser ist als Bindung in das attribut mode_binding im tabellen
-widget wie folgt zu hinterlegen:
+This must be bound to the `mode_binding` attribute in the table widget as follows:
 
 ```text
     {javascript.0.tabellemodus}
 ```
 
-Hier der widget code zum importieren.
+Here is the widget code for importing.
 
 Expand
 
@@ -353,20 +360,21 @@ Expand
     [{"tpl":"tplJquiRadioList","data":{"oid":"javascript.0.tabellemodus","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","values":"1total;2home;3away;4round1;5round2","texts":"Gesamt;Heim;Auswärts;Hinrunde;Rückrunde","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"class":""},"style":{"left":"54px","top":"356px","background":"black","font-size":"xx-small"},"widgetSet":"jqui"}]
 ```
 
-## Besondere Funktionen
+## Special Functions
 
 ### vis.binds\["openligadb"\].checkTodayFavorite(ObjectID,Favorites)
 
-Javascript-Funktion zur Überprüfung, ob am heutigen Tag für ein oder
-mehrere Mannschaften ein Spiel statt findet. Diese Funktion kann über vis
-binding verwendet werden. Aufgrund der Anforderung des Bindings sind hier
-ein paar Dinge zu beachten.
+JavaScript function to check if a match is taking place today
+for one or more teams. This function can be used via the vis binding.
+Due to the binding requirements, a few things need to be considered.
 
-Diese Funktion kann im Binding bspw. wie folgt verwendet werden.  
-Zum Test kann die folgende Notation in ein HTML-widget eingetragen werden.
-Als Ergebnis wird dann entweder ja oder nein ausgegeben, je nachdem ob am
-heutigen Tag der Suchbegriff in den Mannschaftsnamen gefunden wurde.  
-Alle Anführungszeichen (einfache und doppelte) müssen exakt so eingegeben werden.
+This function can be used in the binding, for example, as follows.
+
+For testing purposes, the following notation can be entered into an HTML widget.
+The result will then be either yes or no, depending on whether the search term
+was found in the team names today.
+
+All quotation marks (single and double) must be entered exactly as shown.
 
 #### Schema
 
@@ -383,7 +391,7 @@ Alle Anführungszeichen (einfache und doppelte) müssen exakt so eingegeben werd
 #### Bedeutung der Parameter
 
 ```text
-<table><tbody><tr><td>oid</td><td>ein beliebiger Datenpunkt, der die Aktualisierung triggert. Es empfiehlt sich bspw. currgameday zu wählen,<br>da dies gleichzeitig mit allmatches aktualisiert wird.</td></tr><tr><td>oid_allmatches</td><td>Bezeichnung eines Datenpunktes allmatches der jeweiligen Liga/Saison.</td></tr><tr><td>clubsuche</td><td>ein oder mehrere Bezeichnungen (können auch Teilbezeichnungen sein), mit Komma (,) getrennt. Bitte beachten.<br>Diese Feld entspricht in den Widgets dem Feldt highlight. Mehrere Suchbegriffe müssen hier nur mit Komma getrennt werden und nicht mit Semikolon wie in den Widgets.</td></tr></tbody></table>
+<table><tbody><tr><td>oid</td><td>An arbitrary data point that triggers the update. It is recommended to choose, for example, currgameday,<br>as this is updated simultaneously with allmatches.</td></tr><tr><td>oid_allmatches</td><td>Name of an allmatches data point for the respective league/season.</td></tr><tr><td>clubsuche</td><td>One or more names (can also be partial names), separated by commas (,). Please note:<br>This field corresponds to the highlight field in the widgets. Multiple search terms only need to be separated by commas here, not by semicolons as in the widgets.</td></tr></tbody></table>
 ```
 
 Documentation for the vis-widgets are available inside vis or [Widget-Documentation/german](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.openligadb/blob/master/widgets/openligadb/doc.html)
@@ -403,21 +411,21 @@ Request the data from OpenLigaDB by league,season and a time range.
 | `datefrom`  | `2024-09-01T00:00` | `string` | `date in ISO notation`                     |
 | `datetill`  | `2024-09-10T00:00` | `string` | `date in ISO notation`                     |
 
-#### Example
+#### Example sendTo
 
 ```javascript
 sendTo(
-  "openligadb.0",
-  "getMatchData",
-  {
-    league: "bl1",
-    season: "2024",
-    datefrom: "2024-09-01T00:00",
-    datetill: "2024-09-10T00:00",
-  },
-  function (matches) {
-    console.log(matches);
-  }
+    'openligadb.0',
+    'getMatchData',
+    {
+        league: 'bl1',
+        season: '2024',
+        datefrom: '2024-09-01T00:00',
+        datetill: '2024-09-10T00:00',
+    },
+    function (matches) {
+        console.log(matches);
+    },
 );
 ```
 
@@ -447,6 +455,15 @@ sendTo(
   Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
+### 1.9.3 (2026-03-29)
+
+- translate widgets
+- translate readme
+- move widgetscript to dist folder
+- remove unused scripts
+- release
+- fix workflow
+
 ### 1.9.1 (2025-08-26)
 
 - test remove node 18,extend to node 24

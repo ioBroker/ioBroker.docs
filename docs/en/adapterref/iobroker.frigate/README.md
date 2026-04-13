@@ -15,95 +15,13 @@
 
 ## frigate adapter for ioBroker
 
-Adapter for Frigate Tool [Frigate Video](https://frigate.video/)
+Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hosted video surveillance system with AI-powered object detection.
 
-## Setup
+## Documentation
 
-- Enter Frigate url e.g. `localhost:5000` or `192.168.178.2:5000`
-- Enter MQTT port: 1883 from the frigate config
-- Enter host or ip of iobroker system in the frigate config under
-```yaml
-mqtt:
-    host: ioBrokerIP
-    port: ioBrokerPort
-```
+[🇺🇸 Documentation](./docs/en/README.md)
 
-After Starting Frigate and the Adapter, you should see a new client connected in the log.
-
-## Usage
-
-### stats
-
-General Information about the system and cameras.
-
-### remotes
-
-`frigate.0.remote.pauseNotifications` - Pause Notification for all Cameras.
-
-### events
-
-Last Event with before and after information.
-
-`frigate.0.events.history` - History of the last X events.
-
-History event has a thumbnail of the event and URL to the snapshot and clip.
-
-### camera_name
-
-Status and settings of the camera.
-
-Change states to change the settings of the camera.
-
-[Detailed Information about all states](https://docs.frigate.video/integrations/mqtt/)
-
-* `frigate.0.camera_name.motion` - Whether camera_name is currently detecting motion. Expected values are ON and OFF. NOTE: After motion is initially detected, ON will be set until no motion has been detected for mqtt_off_delay seconds (30 by default).
-* `frigate.0.camera_name.person_snapshot` - Publishes a jpeg encoded frame of the detected object type. When the object is no longer detected, the highest confidence image is published or the original image is published again.
-   The height and crop of snapshots can be configured in the config.
-* `frigate.0.camera_name.history` - Event history of the camera.
-* `frigate.0.camera_name.remote.notificationText` - custom notification text for the camera.
-* `frigate.0.camera_name.remote.notificationMinScore` - custom notification min score for the camera.
-* `frigate.0.camera_name.remote.pauseNotifications` - pause notification for the camera.
-* `frigate.0.camera_name.remote.ptz` - send ptz commands https://docs.frigate.video/integrations/mqtt/#frigatecamera_nameptz
-
-## Notifications
-
-The adapter can send snapshots and clips from events and object detection to instances like `telegram`, `pushover` and `signal-cbm`.
-
-You can specify multiple instances or users to send snapshots or clips.
-
-Activate notifications in the settings to receive snapshots or clips.
-
-For Event can enter a minimum score before sending. 0 = Disabled.
-
-Clips are sent 5 seconds (Instance settings) after the event ends.
-
-You can enter custom notification text with placeholder `{{source}} {{type}} erkannt {{status}} {{score}} {{state}}`.
-
-## Integrate in vis
-
-You can integrate snapshots and clips in the vis:
-
-Snapshot:
-- Add a `String img src` and use as Object ID: `frigate.0.camera_name.person_snapshot`
-- Add a `String img src` and use as Object ID: `frigate.0.events.history.01.thumbnail`
-
-Clips:
-- Add a `HTML` add as HTML:
-```html
-<video width="100%" height="auto" src="{frigate.0.events.history.01.webclip}" autoplay muted>
-</video>
-```
-
-Number of persons: 
-- `frigate.0.camera.person`
-
-Event with Person: 
-- `frigate.0.events.after.label` = person
-
-## Running frigate docker on different host
-If you want to send via telegram and co. the clips and snapshots to the iobroker host,
-the frigate instance and telegram (or other) instance must run on the same host,
-as frigate uses disk to store the clips and snapshots. 
+[🇩🇪 Dokumentation](./docs/de/README.md)
 
 ## Discussion and questions
 
@@ -115,37 +33,52 @@ as frigate uses disk to store the clips and snapshots.
     Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (@GermanBluefox) Code optimizations and refactoring
+### 2.3.1 (2026-03-29)
+- (Eistee82) Added Frigate API authentication support for port 8971 (username/password login with JWT)
+- (Eistee82) Automatic token refresh on 401 responses
 
-### 2.0.2 (2026-02-16)
-- (@GermanBluefox) Removed gpu_usages
+### 2.3.0 (2026-03-29)
+- (Eistee82) Many new features, improvements, and bug fixes in development for the next major release (see 2.2.2)
 
-### 2.0.0 (2026-02-16)
-- (@GermanBluefox) Adapter was migrated to TypeScript
-- (@GermanBluefox) Breaking change: All states with value ON/OFF were changed to boolean true/false
-- (@GermanBluefox) Better handling of complex objects and arrays
-- (@GermanBluefox) `path_data` is not parsed anymore
-- (@GermanBluefox) Added еру possibility to start and manage docker with frigate from the adapter
+### 2.2.2 (2026-03-29)
 
-### 1.4.0 (2026-01-26)
+**New Features:**
+- (Eistee82) Added per-camera motion threshold control (`remote.motionThreshold`)
+- (Eistee82) Added per-camera motion contour area control (`remote.motionContourArea`)
+- (Eistee82) Added per-camera birdseye mode control (`remote.birdseyeMode`)
+- (Eistee82) Added per-camera improve contrast toggle (`remote.improveContrast`)
+- (Eistee82) Added Frigate notification control via MQTT (`notifications.enabled`, `notifications.suspend`)
+- (Eistee82) Added automatic zone device creation from Frigate config
+- (Eistee82) Audio details (dBFS, RMS, transcription, audio types) now automatically available
+- (Eistee82) Camera health status (detect/audio/record role status) now automatically available
+- (Eistee82) Classification states and review status now automatically available
 
-- (mcm1957) Adapter requires node.js 20 as minimum now.
-- (TA2k) Remove path_data objects to prevent too many objects generated by the adapter
+**Modernization:**
+- (Eistee82) Migrated adapter to ESM (ECMAScript Modules) — requires js-controller >= 6.0.5
+- (Eistee82) Upgraded aedes MQTT broker from 0.51 to 1.x
+- (Eistee82) Replaced uuid dependency with built-in `crypto.randomUUID()`
+- (Eistee82) Replaced json-bigint dependency with native `JSON.parse`
+- (Eistee82) Refactored monolithic main.ts into focused modules
+- (Eistee82) Include build directory in repository for direct GitHub installation
 
-### 1.3.3 (2026-01-26)
+**Bug Fixes:**
+- (Eistee82) Fixed critical bug: motion ON was always parsed as false due to operator precedence
+- (Eistee82) Fixed snapshot notification missing image parameter
+- (Eistee82) Fixed duplicate MQTT message processing in built-in broker mode
+- (Eistee82) Fixed tmp directory cleanup deleting files from other programs
+- (Eistee82) Converted synchronous filesystem operations to async
+- (Eistee82) Debounced event history fetching to prevent excessive API calls
+- (Eistee82) Improved error logging consistency across all catch blocks
 
-- (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+### 2.2.1 (2026-03-29)
+- (Eistee82) Added support for connecting to an external MQTT broker (e.g. Mosquitto) as an alternative to the built-in broker
+- (Eistee82) Added configurable MQTT topic prefix
+- (Eistee82) Added i18n translations for new MQTT configuration fields
+- (mcm1957) dependencies have been updated
 
-- (mcm1957) Adapter requires admin 6.17.14 as minimum now.
-
-### 1.3.2 (2025-05-06)
-
-- (TA2k) remove path_data from v0.16
-- (TA2k) move clip url from mp4 to m3u8
-- (mcm1957) Adapter requires js-controller 5.0.19 as minimum now.
-- (mcm1957) Several issues reported by the adapter checker have been fixed.
+### 2.1.3 (2026-03-19)
+- (@GermanBluefox) Remove wrong log message about missing docker
+- (@GermanBluefox) Send on connection the topic onConnect to receive camera_activity topic
 
 ## License
 

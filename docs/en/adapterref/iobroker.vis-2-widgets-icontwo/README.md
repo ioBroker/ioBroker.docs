@@ -15,7 +15,7 @@
 
 ## Icon adapter for the ioBroker.vis adapter (only for VIS-2)
 
-### **Please note:** This icons only work with version 2.13.x (or higher) of the ioBroker.vis-2 adapter!
+### **Please note:** This icons only work with version 2.13.5 (or higher) of the ioBroker.vis-2 adapter!
 
 
 .... more information will follow
@@ -32,20 +32,20 @@
 <!--
 	### **WORK IN PROGRESS**
 -->
-### 1.26.2 (2026-02-28)
-- (skvarel) Updated: @alcalzone/release-script dependencies to latest versions
+### 1.38.1 (2026-04-09)
+- (skvarel) Fixed: Added Dependabot cooldown configuration (7 days) to reduce supply chain risk
 
-### 1.26.1 (2026-02-15)
-- (skvarel) Fixed: Issue 61 SUGGESTIONS
+### 1.38.0 (2026-04-01)
+- (skvarel) Added: New icons (brands enpal)
 
-### 1.26.0 (2026-01-25)
-- Added: New icons (rooms)
+### 1.37.0 (2026-03-30)
+- (skvarel) Added: New icons (player-repeat & -stop)
 
-### 1.25.0 (2026-01-12)
-- Added: New icons (navigation gear & wrench)
+### 1.36.0 (2026-03-30)
+- (skvarel) Added: New icons (more lawn-mower icons)
 
-### 1.24.0 (2026-01-11)
-- Added: New icons (hobby darts)
+### 1.35.0 (2026-03-30)
+- (skvarel) Added: New icons (lawn-mower)
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

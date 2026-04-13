@@ -58,6 +58,7 @@ https://www.iobroker.net/#de/blog/2025_09_24
 https://www.iobroker.net/#de/blog/2025_12_21
 https://www.iobroker.net/#de/blog/2025_12_29
 https://www.iobroker.net/#de/blog/2026_03_04
+https://www.iobroker.net/#de/blog/2026_04_13
 https://www.iobroker.net/#en/blog/2018_03_17
 https://www.iobroker.net/#en/blog/2019_02_22
 https://www.iobroker.net/#en/blog/2019_02_25
@@ -90,6 +91,7 @@ https://www.iobroker.net/#en/blog/2025_09_24
 https://www.iobroker.net/#en/blog/2025_12_21
 https://www.iobroker.net/#en/blog/2025_12_29
 https://www.iobroker.net/#en/blog/2026_03_04
+https://www.iobroker.net/#en/blog/2026_04_13
 https://www.iobroker.net/#ru/blog/2018_03_17
 https://www.iobroker.net/#ru/blog/2019_02_22
 https://www.iobroker.net/#ru/blog/2019_02_25
@@ -122,6 +124,7 @@ https://www.iobroker.net/#ru/blog/2025_09_24
 https://www.iobroker.net/#ru/blog/2025_12_21
 https://www.iobroker.net/#ru/blog/2025_12_29
 https://www.iobroker.net/#ru/blog/2026_03_04
+https://www.iobroker.net/#ru/blog/2026_04_13
 https://www.iobroker.net/#zh-cn/blog/2018_03_17
 https://www.iobroker.net/#zh-cn/blog/2019_02_22
 https://www.iobroker.net/#zh-cn/blog/2019_02_25
@@ -154,6 +157,7 @@ https://www.iobroker.net/#zh-cn/blog/2025_09_24
 https://www.iobroker.net/#zh-cn/blog/2025_12_21
 https://www.iobroker.net/#zh-cn/blog/2025_12_29
 https://www.iobroker.net/#zh-cn/blog/2026_03_04
+https://www.iobroker.net/#zh-cn/blog/2026_04_13
 https://www.iobroker.net/#de/documentation/admin/adapter.md
 https://www.iobroker.net/#de/documentation/admin/enums.md
 https://www.iobroker.net/#de/documentation/admin/files.md
@@ -901,6 +905,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.energymanager/README.m
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.enet/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.enigma2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.enocean/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.enpal/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.envertech-pv/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.epson_ecotank_et_2750/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.epson_stylus_px830/README.md
@@ -991,6 +996,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.hp-ilo/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hs100/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hue/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hue-sync-box/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.hueemu/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.huum-sauna/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hydrawise/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hydrop/README.md
@@ -1253,6 +1259,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.sbms/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.scenes/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.schedule-switcher/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.scheduler/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.schlueter-thermostat/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.schoolfree/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.schwoerer-ventcube/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.seko/README.md
@@ -1368,6 +1375,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.tuya/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.tvprogram/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.tvspielfilm/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.twinkly/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.ultrahuman/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.unifi/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.unifi-network/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.unifi-protect/README.md
@@ -1650,6 +1658,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.energymanager/README.m
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.enet/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.enigma2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.enocean/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.enpal/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.envertech-pv/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.epson_ecotank_et_2750/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.epson_stylus_px830/README.md
@@ -1740,6 +1749,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.hp-ilo/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hs100/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hue/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hue-sync-box/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.hueemu/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.huum-sauna/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hydrawise/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hydrop/README.md
@@ -2002,6 +2012,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.sbms/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.scenes/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.schedule-switcher/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.scheduler/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.schlueter-thermostat/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.schoolfree/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.schwoerer-ventcube/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.seko/README.md
@@ -2117,6 +2128,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.tuya/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.tvprogram/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.tvspielfilm/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.twinkly/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.ultrahuman/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.unifi/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.unifi-network/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.unifi-protect/README.md
@@ -2399,6 +2411,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.energymanager/README.m
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.enet/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.enigma2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.enocean/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.enpal/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.envertech-pv/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.epson_ecotank_et_2750/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.epson_stylus_px830/README.md
@@ -2489,6 +2502,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hp-ilo/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hs100/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hue/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hue-sync-box/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hueemu/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.huum-sauna/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hydrawise/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hydrop/README.md
@@ -2751,6 +2765,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sbms/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.scenes/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.schedule-switcher/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.scheduler/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.schlueter-thermostat/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.schoolfree/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.schwoerer-ventcube/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.seko/README.md
@@ -2866,6 +2881,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.tuya/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.tvprogram/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.tvspielfilm/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.twinkly/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ultrahuman/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.unifi/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.unifi-network/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.unifi-protect/README.md
@@ -3148,6 +3164,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.energymanager/READM
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.enet/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.enigma2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.enocean/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.enpal/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.envertech-pv/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.epson_ecotank_et_2750/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.epson_stylus_px830/README.md
@@ -3238,6 +3255,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hp-ilo/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hs100/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hue/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hue-sync-box/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hueemu/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.huum-sauna/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hydrawise/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hydrop/README.md
@@ -3500,6 +3518,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sbms/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.scenes/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.schedule-switcher/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.scheduler/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.schlueter-thermostat/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.schoolfree/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.schwoerer-ventcube/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.seko/README.md
@@ -3615,6 +3634,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tuya/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tvprogram/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tvspielfilm/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.twinkly/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ultrahuman/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.unifi/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.unifi-network/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.unifi-protect/README.md

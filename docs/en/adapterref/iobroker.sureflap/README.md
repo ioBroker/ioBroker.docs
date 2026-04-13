@@ -186,6 +186,12 @@ from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (Sickboy78) code refactoring
+* (Sickboy78) added unit tests
+
 ### 3.4.2 (2026-01-09)
 
 * (Sickboy78) dependency updates
