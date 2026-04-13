@@ -2,6 +2,7 @@
 # ioBroker.nextcloud-monitoring
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.nextcloud-monitoring.svg)](https://www.npmjs.com/package/iobroker.nextcloud-monitoring)
+![Current version in stable repository](https://iobroker.live/badges/nextcloud-monitoring-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.nextcloud-monitoring.svg)](https://www.npmjs.com/package/iobroker.nextcloud-monitoring)
 ![Number of Installations](https://iobroker.live/badges/nextcloud-monitoring-installed.svg)
 
