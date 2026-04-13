@@ -62,6 +62,20 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.7.0 (2026-04-10)
+
+* (patricknitsch) Increased max value from 10.000W to 15.000W
+* (copilot) Zero-value alive monitoring: when a sensor timeout fires and the current value is 0, log info instead of warn and retry after 60 minutes
+* (copilot) Sensor overview: numeric value row shows current value with unit (W) left-aligned and max value with unit (W) right-aligned
+* (copilot) Sensor overview: timestamp row shows last timestamp left-aligned and auto-computed next expected update timestamp right-aligned (no manual input needed)
+* (copilot) Sensor overview: change Format
+
+### 1.6.0 (2026-04-06)
+
+* (patricknitsch) Catch max. Values - settable in Config
+* (patricknitsch) Increase Version from 20 to 24 becauso of deploy error
+* (copilot) Add Alive monitoring: configurable timeout warns when sensor values are not updated
+
 ### 1.5.0 (2026-03-21)
 
 * (patricknitsch) Fix Issues RepoChecker

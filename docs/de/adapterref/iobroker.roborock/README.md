@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: DATd5HFmzDJ0tHqkLnFzZaWS1uJyIf7+RoVSQ54kcNI=
+hash: EuD4mcQjVzewQ8jBVVtmOSSoaIpw9Y2KBIPk1hDb6fo=
 ---
 ![Logo](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -21,44 +21,30 @@ hash: DATd5HFmzDJ0tHqkLnFzZaWS1uJyIf7+RoVSQ54kcNI=
 ## Roborock-Adapter für ioBroker
 Mit diesem Adapter können Sie einen in der Roborock-App eingerichteten Roborock-Staubsauger steuern, seinen Status abrufen, die Reinigungshistorie einsehen und seine Karte anzeigen.
 
+- [Anforderungen](#requirements)
+- [Unterstützte Roboter](#supported-robots)
+- [Zonenreinigung](#zone-cleaning)
+- [Änderungsprotokoll](#changelog)
+
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-### Dieser Adapter funktioniert nicht unter macOS.
+### Dieser Adapter funktioniert nicht unter macOS
 ## Anforderungen
 - Node.js >= 22.0.0
 - ioBroker.admin >= 7.6.17
 - ioBroker.js-controller >= 6.0.11
 
-## Folgende Roboter werden unterstützt:
-- Roborock S4
-- Roborock S4 Max
-- Roborock S5 Max
-- Roborock S6
-- Roborock S6 Pure
-- Roborock S6 MaxV
-- Roborock S7
-- Roborock S7 MaxV (Ultra)
-- Roborock Q7
-- Roborock Q7 Max
-- Roborock S7 Pro Ultra
-- Roborock S7 Max Ultra
-- Roborock S8
-- Roborock S8 Pro Ultra
-- Roborock Q Revo
-- Roborock Q8 Max
-- Roborock Q5 Pro
-- Roborock Q Revo Pro
-- Roborock Qrevo S
-- Roborock Qrevo Curve
-- Roborock Saros 10R
-- Roborock Saros 20 / Saros 20X
+## Unterstützte Roboter
+- **S-Serie:** S4, S4 Max, S5 Max, S6, S6 Pure, S6 MaxV, S7, S7 MaxV (Pro/Ultra), S7 Pro Ultra, S7 Max Ultra, S8, S8 Pro Ultra, S8 MaxV Ultra
+- **Q-Serie:** Q5 Pro, Q7, Q7 Max, Q7 L5, Q8 Max
+- **Q Revo:** Q Revo, Q Revo Pro
+- **Qrevo:** Qrevo Slim, Qrevo S, Qrevo Curve, Qrevo Curv Series, Qrevo Edge, Qrevo Edge Series, Qrevo L, Qrevo Master, Qrevo MaxV
+- **Saros:** Saros 10, Saros 10R, Saros 20 / Saros 20X, Saros Z70
 
 ## Zonenreinigung
-Diese Funktion ist nur verfügbar, wenn die Kartenerstellung in den Adapteroptionen aktiviert ist!
+Diese Funktion ist nur verfügbar, wenn die Kartenerstellung in den Adapteroptionen aktiviert ist. Öffnen Sie die Karte über die Registerkarte „Web-UI“ des Adapters in der ioBroker-Administrationsoberfläche; eine manuelle URL ist nicht erforderlich.
 
 ### Die Kartenerstellung funktioniert nicht auf dem Raspberry Pi
-Es läuft ein Webserver. Der Standardport ist 6824.
-- Öffnen Sie http://iobroker:6824/map.html in Ihrem Browser (ersetzen Sie http://iobroker durch Ihren ioBroker-Hostnamen oder Ihre IP-Adresse!!!).
 Zeichnen Sie das Quadrat, das Sie reinigen möchten. Roborock unterstützt bis zu 4 Reinigungszonen gleichzeitig.
 
  ![](https://github.com/copystring/ioBroker.roborock/blob/main/images/Rockrock_zone_cleaning.gif)
@@ -68,7 +54,12 @@ Zeichnen Sie das Quadrat, das Sie reinigen möchten. Roborock unterstützt bis z
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.0-beta.1 (2026-03-16)
+
+* (copystring) **Fix:** Request handling – message IDs are now assigned internally (externalId removed), avoiding ID conflicts.
+* (copystring) **Maps/Rooms:** Room states are only created for segments that exist on the loaded map for that floor; room names are taken only from the API so custom names are not overwritten.
+
+### 0.7.0-beta.0 (2026-03-11)
 * (copystring) **Maps:** Obstacle icons and map graphics are loaded automatically at startup so maps display correctly.
 * (copystring) **Breaking Change:** Major refactoring of the entire adapter structure.
 * (copystring) **New Feature:** Implemented 'Strict Startup' - Adapter prevents startup without valid login to avoid bootloops.
@@ -94,6 +85,9 @@ Zeichnen Sie das Quadrat, das Sie reinigen möchten. Roborock unterstützt bis z
 * (copystring) **UDP Discovery:** Implemented a 1.5s grace period for UDP discovery to better detect shared devices on the local network.
 * (copystring) **Bugfix:** Fixed infinite retry loop for failed Network Probes (Remote Devices).
 * (copystring) **Code Cleanup:** Removed extensive debug logging, buffering logic, and unused code for a cleaner codebase.
+* (copystring) **New devices:** Saros 20X, Q7 L5.
+* (copystring) **Fix:** Cleaning history (records) now updates correctly after a cleaning run.
+* (copystring) **Stability:** Adapter no longer gets stuck in a boot loop when login fails or returns an error.
 
 ### 0.6.19 (2025-02-08)
 * (copystring) Rewrite of mqtt connection logic

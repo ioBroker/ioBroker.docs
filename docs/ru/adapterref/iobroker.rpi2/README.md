@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rpi2/README.md
 title: ioBroker.rpi2
-hash: 40wy2PWHoaAr24/O2GwDtBu28xu56LuV7yls9JkhbhU=
+hash: iWZz/8v14KtH0J/yeCjkhMZcJ/V6o5/dXkYZsac+7Ow=
 ---
 # IoBroker.rpi2
 
@@ -30,6 +30,8 @@ hash: 40wy2PWHoaAr24/O2GwDtBu28xu56LuV7yls9JkhbhU=
 **Для управления GPIO пользователю ioBroker требуются специальные разрешения.** В большинстве дистрибутивов Linux этого можно добиться, добавив пользователя ioBroker в группу `gpio`.
 
 Для работы GPIO необходимо установить `libgpiod` в версии `2.x`, **до** установки адаптера (см. ниже)!
+
+> [!ВНИМАНИЕ] > Версия 3.x.x этого адаптера поддерживает и требует Debian trixie. Не обновляйте, если вы используете более старую операционную систему.
 
 ## Установка
 После установки необходимо настроить все необходимые модули через страницу администрирования.
@@ -163,6 +165,7 @@ sudo apt install -y libgpiod-dev
 
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (mcm1957) Dependencies have been updated.
 
 ### 3.0.2 (2025-12-01)
 * (@klein0r) Check for required libgpiod-dev package version

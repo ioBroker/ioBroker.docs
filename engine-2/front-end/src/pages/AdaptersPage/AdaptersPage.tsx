@@ -1,4 +1,4 @@
-import { Box, Typography, ToggleButton, ToggleButtonGroup, useMediaQuery, useTheme } from '@mui/material';
+import { Box, ToggleButton, ToggleButtonGroup, useMediaQuery } from '@mui/material';
 import { AdapterBlock } from '../../components/AdapterBlock/AdapterBlock';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { I18n } from '../../utils/i18n';
@@ -37,7 +37,6 @@ const AdaptersPage = (): React.ReactNode => {
     const [selectedMenuItem, setSelectedMenuItem] = useState(saved?.selectedMenuItem || '');
     const [selectedCategoryKey, setSelectedCategoryKey] = useState<string>(saved?.selectedCategoryKey || '');
     const isMobile = useMediaQuery('(max-width:661px)');
-    const theme = useTheme();
     const { data: adaptersData } = useAdapters();
     const language = I18n.getLanguage();
     const location = useLocation();

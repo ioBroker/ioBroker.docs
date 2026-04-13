@@ -54,6 +54,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
+- (HombachC) min admin 7.6.20 as recommended (#762)
 - (HombachC) switch to ES2023 code
 - (HombachC) update dependencies
 

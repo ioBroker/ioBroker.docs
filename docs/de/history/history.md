@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: XdiPH8YeAi233ueur5eE+gIFmlkhGJKAjaTJihgmaC0=
+hash: X+625t6JdVSwdGyyuz6ie/vDJNUN8UMgbYhASarTFbc=
 ---
 # Was ist neu
 ## Hinweise für Autoren
@@ -234,7 +234,7 @@ Für Smart-Home-Fans gibt es eine wichtige Neuigkeit: Die ESPHome-Dokumentation 
 Dieses Update folgt der Annahme eines kürzlich eingereichten Pull Requests und positioniert ioBroker neben Home Assistant als eines der wenigen Smart-Home-Systeme, die die native ESPHome-API für die direkte Client-Kommunikation nutzen.
 
 Die native API, bekannt für ihr hochoptimiertes Netzwerkprotokoll, bietet zahlreiche Vorteile gegenüber herkömmlichen MQTT-Methoden und vereinfacht die Interaktion von Smart-Geräten innerhalb des Ökosystems.
-Mit dieser Auszeichnung bekräftigt ESPHome sein Engagement für effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche.
+Mit dieser Anerkennung bekräftigt ESPHome sein Engagement für effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche.
 
 ## Vis (06.11.2023) - neue Funktion
 Die Lizenz von vis wurde auf MIT geändert. Das bedeutet, dass Sie vis kostenlos in kommerziellen Projekten verwenden können und keine weitere Lizenz erforderlich ist.
@@ -812,7 +812,7 @@ https://github.com/DpunktS/ioBroker.seplos-v3-sniffer
 
 <img src="https://raw.githubusercontent.com/DpunktS/ioBroker.seplos-v3-sniffer/main/admin/seplos-v3-sniffer.jpg" width="100" height="100" />
 
-Dieser Adapter wurde entwickelt, um das Seplos V3 BMS in einer Multipack-Konfiguration auszulesen. In der V3-Generation fungiert das erste BMS als Modbus-Master, alle weiteren BMS als Slaves. In dieser Konfiguration ist der Zugriff auf das BMS über Modbus von einem dritten Gerät aus nicht mehr möglich, da in einem RS-485-Modbus-System nicht zwei Master-Geräte gleichzeitig existieren können. Der Adapter erkennt die Kommunikation zwischen den Geräten passiv, sodass die Kommunikation der einzelnen BMS nicht beeinträchtigt wird. Die Kommunikation kann entweder über eine lokale Schnittstelle (z. B. /dec/ttyS0) oder über Ser2Net (tcp://ip:2001) erfolgen.
+Dieser Adapter wurde entwickelt, um das Seplos V3 BMS in einer Multipack-Konfiguration auszulesen. In der V3-Generation fungiert das erste BMS als Modbus-Master, alle weiteren als Slaves. In dieser Konfiguration ist der Zugriff auf das BMS über Modbus von einem dritten Gerät aus nicht mehr möglich, da in einem RS-485-Modbus-System nicht zwei Master-Geräte gleichzeitig existieren können. Der Adapter erkennt die Kommunikation zwischen den Geräten passiv, sodass die Kommunikation der einzelnen BMS nicht beeinträchtigt wird. Die Kommunikation kann entweder über eine lokale Schnittstelle (z. B. /dec/ttyS0) oder über Ser2Net (tcp://ip:2001) erfolgen.
 
 ## Lcn (12.3.2025) – neue Funktion
 https://github.com/ioBroker/ioBroker.lcn
@@ -963,7 +963,7 @@ https://github.com/oweitman/ioBroker.pi-hole2
 
 <img src="https://raw.githubusercontent.com/oweitman/ioBroker.pi-hole2/main/admin/pi-hole2.png" width="100" height="100" />
 
-Eine Pi-hole-Installation ab Version 6 verwalten. Informationen von Pi-hole abrufen. Domains blockieren/stoppen. (Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
+Eine Pi-hole-Installation ab Version 6 verwalten. Informationen von Pi-hole abrufen. Domains blockieren/beenden. (Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
 
 ## Energy-tracker (21.8.2025) – Neuer Adapter im stabilen Repository
 https://github.com/energy-tracker/ioBroker.energy-tracker
@@ -1027,7 +1027,7 @@ https://github.com/Scrounger/ioBroker.freeair
 
 Lokale Verbindung zu Ihrem BluMartin FreeAir 100 Lüftungssystem
 
-## Unifi-netzwerk (18.10.2025) – Neuer Adapter im stabilen Repository
+## Unifi-network (18.10.2025) – Neuer Adapter im stabilen Repository
 https://github.com/Scrounger/ioBroker.unifi-network
 
 <img src="https://raw.githubusercontent.com/Scrounger/ioBroker.unifi-network/main/admin/unifi-network.png" width="100" height="100" />
@@ -1137,3 +1137,13 @@ https://github.com/UncleSamSwiss/ioBroker.hagelschutz-vkf
 Adapter für hagelschutz-einfach-automatisch.ch der kantonalen Gebäudeversicherungen.
 
 <!-- ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Symbole ! -->
+
+## Ping (28.02.2026) – neue Funktion
+https://github.com/ioBroker/ioBroker.ping
+
+Der Ping-Adapter kann hping3 verwenden, um iPhones zu erkennen und Wake-on-LAN-Pakete zu senden, um Geräte im Netzwerk aufzuwecken.
+
+## Parser (28.02.2026) - neue Funktion
+https://github.com/ioBroker/ioBroker.parser
+
+Der Parser kann nun Werte von Zuständen, ioBroker-Dateien und Protokollen analysieren. Der Export und Import von Parserregeln über CSV-Dateien wurde hinzugefügt.

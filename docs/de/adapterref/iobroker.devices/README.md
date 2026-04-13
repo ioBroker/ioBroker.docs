@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.devices/README.md
 title: ioBroker.devices
-hash: UrDkIXPAx9G5N4ogz6LNnhjSZ17KDCkY4mB+cokYESQ=
+hash: g74lUY4Rg6o5il6Prtz1MtTUYQbwszxqKGBRra9rHHo=
 ---
 ![Logo](../../../en/adapterref/iobroker.devices/admin/devices.svg)
 
@@ -12,124 +12,163 @@ hash: UrDkIXPAx9G5N4ogz6LNnhjSZ17KDCkY4mB+cokYESQ=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.devices.svg)
 
 # IoBroker.devices
-![Testen und Freigeben](https://github.com/ioBroker/iobroker.devices/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/devices/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/ioBroker/iobroker.devices/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/devices/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Geräteadapter für ioBroker
-Verwalten und erstellen Sie Geräte zur Verwendung in anderen Adaptern wie Material, IoT, Matter usw.
+Geräte verwalten und erstellen, um sie in anderen Adaptern wie Material, IoT, Matter usw. zu verwenden...
 
-**Wichtig: Registerkarte im Admin aktivieren, wie Protokoll und Skripte**
+**Wichtig: Aktivieren Sie im Adminbereich die Registerkarten „Protokoll“ und „Skripte“.**
 
 ![Bildschirm](../../../en/adapterref/iobroker.devices/img/screen.png)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## IoBroker.devices Adapter-Benutzerhandbuch
+## IoBroker.devices Adapter Benutzerhandbuch
 ### Übersicht
-Der Adapter `ioBroker.devices` ist eine Komponente der Smart-Home-Plattform ioBroker, die die Geräteverwaltung durch die Erstellung und Verwaltung virtueller Geräte vereinfachen soll.
+Der `ioBroker.devices`-Adapter ist eine Komponente der ioBroker Smart-Home-Plattform, die die Geräteverwaltung durch die Erstellung und Verwaltung virtueller Geräte vereinfachen soll.
 
 Diese virtuellen Geräte bieten eine standardisierte Schnittstelle für physische Geräte und erleichtern so die Integration, Skripterstellung, Visualisierung und Steuerung von Geräten verschiedener Hersteller und Protokolle.
 
-Der Adapter gewährleistet Konsistenz bei der Benennung und Struktur von Datenpunkten, sodass bei Hardwareänderungen weniger Änderungen an Skripten oder Visualisierungen erforderlich sind.
+Der Adapter gewährleistet Konsistenz bei der Benennung und Strukturierung der Datenpunkte, wodurch der Bedarf an Änderungen an Skripten oder Visualisierungen bei Hardwareänderungen reduziert wird.
 
 Es verpackt jede Sammlung von Zuständen in ioBroker (physisch **oder** virtuell) in wohlgeformte **Geräte** mit umfangreichen Informationen:
 
-* `Typ`, `Rolle`, `SmartName`, `Farbe`, `Raum`, `Funktion`, `Symbol`, `Einheit` und mehr
+* `type`, `role`, `smartName`, `color`, `room`, `function`, `icon`, `unit` und mehr
 
-Das Ergebnis wird von Dashboards (Material UI, VIS‑2), Sprachassistenten (Alexa/Google), Matter-Adapter, dem **IoT/Cloud**-Adapter und Skripten genutzt, wodurch Sie einen sauberen, zukunftssicheren Objektbaum erhalten.
+Das Ergebnis wird von Dashboards (Material UI, VIS‑2), Sprachassistenten (Alexa/Google), dem Matter-Adapter, dem IoT/Cloud-Adapter und Skripten genutzt und bietet Ihnen so eine übersichtliche, zukunftssichere Objektstruktur.
 
-**Hinweis:** Der Adapter führt **keine** Abfrage der Hardware durch. Er wird als reine Tab-basierte „Web“-Instanz ausgeführt → kein CPU-/RAM-Bedarf.
+**Hinweis:** Der Adapter fragt die Hardware **nicht** ab. Er läuft als reine Tab-basierte „Web“-Instanz → keine CPU-/RAM-Belastung.
 
 ### Zweck
-Der Adapter `ioBroker.devices` dient folgenden Zwecken:
+Der `ioBroker.devices`-Adapter dient folgenden Zwecken:
 
-- Standardisierung: Erstellt virtuelle Geräte mit konsistenten Datenpunktstrukturen, unabhängig von der zugrunde liegenden Hardware oder dem Protokoll verschiedener Datenpunkte.
-- Vereinfachte Wartung: Ermöglicht Benutzern das Austauschen physischer Geräte ohne Aktualisierung von Skripten oder Visualisierungen durch Neuzuordnung von Datenpunkten im Adapter.
-- Verbesserte Kompatibilität: Nahtlose Integration mit Visualisierungsadaptern (z. B. Material UI, VIS), IoT-Adaptern (z. B. Alexa, Google Home).
-- Benutzerfreundlich: Vereinfacht die Geräteverwaltung für Anfänger und bietet gleichzeitig Flexibilität für fortgeschrittene Benutzer.
+- Standardisierung: Erzeugt virtuelle Geräte mit konsistenten Datenpunktstrukturen, unabhängig von der zugrunde liegenden Hardware oder dem Protokoll aus verschiedenen Datenpunkten.
+- Vereinfachte Wartung: Ermöglicht Benutzern den Austausch physischer Geräte, ohne Skripte oder Visualisierungen aktualisieren zu müssen, indem Datenpunkte im Adapter neu zugeordnet werden.
+- Verbesserte Kompatibilität: Lässt sich nahtlos in Visualisierungsadapter (z. B. Material UI, VIS) und IoT-Adapter (z. B. Alexa, Google Home) integrieren.
+- Benutzerfreundlich: Vereinfacht die Geräteverwaltung für Einsteiger und bietet gleichzeitig Flexibilität für fortgeschrittene Benutzer.
 
 #### Standardisierung
-Viele Adapter wie MQTT, KNX oder ähnliche liefern Datenpunkte mit unterschiedlichen Namen und Strukturen. Dieser Adapter erstellt ein virtuelles Gerät mit einer konsistenten Struktur und vereinfacht so die Verwaltung und Visualisierung von Geräten.
-Er fügt den Zuständen automatisch Rollen, Einheiten und Namen hinzu.
+Viele Adapter wie MQTT, KNX oder ähnliche liefern Datenpunkte mit unterschiedlichen Namen und Strukturen. Dieser Adapter erstellt ein virtuelles Gerät mit einer einheitlichen Struktur, wodurch die Geräteverwaltung und -visualisierung vereinfacht wird. Er fügt den Zuständen automatisch Rollen, Einheiten und Namen hinzu.
 
 #### Vereinfachte Wartung
-Mit dem Adapter `ioBroker.devices` können Nutzer virtuelle Geräte erstellen, die sich problemlos anderen physischen Geräten zuordnen lassen.
-Das bedeutet: Wenn Sie ein physisches Gerät wechseln, müssen Sie Ihre Skripte, Visualisierungen oder Verlaufseinstellungen nicht aktualisieren. Sie müssen lediglich die Datenpunkte im Adapter neu zuordnen.
+Der Adapter `ioBroker.devices` ermöglicht es Benutzern, virtuelle Geräte zu erstellen, die sich problemlos verschiedenen physischen Geräten zuordnen lassen.
+Das bedeutet: Wenn Sie ein physisches Gerät ändern, müssen Sie weder Ihre Skripte, Visualisierungen noch die Verlaufseinstellungen aktualisieren; Sie müssen lediglich die Datenpunkte im Adapter neu zuordnen.
 
 #### Verbesserte Kompatibilität
-Der Adapter weiß, wie die Geräte aussehen und wie sie verwendet werden sollen. Er erstellt ein virtuelles Gerät mit der gleichen Struktur wie das physische Gerät und erleichtert so die Integration mit anderen Adaptern.
+Der Adapter weiß, wie die Geräte aussehen und wie sie verwendet werden. Er erstellt ein virtuelles Gerät mit der gleichen Struktur wie das physische Gerät, wodurch die Integration mit anderen Adaptern vereinfacht wird.
 
 #### Benutzerfreundlich
-Der `ioBroker.devices`-Adapter ist benutzerfreundlich gestaltet und eignet sich sowohl für Anfänger als auch für erfahrene Benutzer mit erweiterten Funktionen. Die intuitive Benutzeroberfläche ermöglicht das Erstellen und Verwalten virtueller Geräte ohne umfassende technische Kenntnisse.
+Der `ioBroker.devices`-Adapter ist benutzerfreundlich gestaltet und somit sowohl für Einsteiger als auch für erfahrene Anwender geeignet. Dank der intuitiven Oberfläche können Benutzer virtuelle Geräte erstellen und verwalten, ohne über umfassende technische Kenntnisse verfügen zu müssen.
 
 ## Konfiguration
-Konfigurieren Sie den Adapter nach der Installation über die Registerkarte „Geräte“ in der ioBroker-Administrationsoberfläche.
+Nach der Installation konfigurieren Sie den Adapter über die Registerkarte „Geräte“ in der ioBroker-Administrationsoberfläche.
 
 ### Erstellen eines virtuellen Geräts
-Öffnen Sie die Registerkarte „Geräte“ im Administrator.
+Öffnen Sie den Geräte-Tab im Adminbereich.
 
 #### Gerät hinzufügen
-– Klicken Sie auf die Schaltfläche „+“, um ein neues virtuelles Gerät zu erstellen.
-- Geben Sie einen Namen für das Gerät ein (z. B. „Wohnzimmerlicht“).
-- Wählen Sie einen Gerätetyp (z. B. Licht, Schalter, Thermostat) aus der vordefinierten Liste.
-- Optional können Sie zur Organisation eine Kategorie (z. B. Beleuchtung, Heizung) zuweisen.
+- Klicken Sie auf die Schaltfläche "+", um ein neues virtuelles Gerät zu erstellen.
+- Geben Sie einen Namen für das Gerät ein (z. B. "Wohnzimmerleuchte").
+- Wählen Sie einen Gerätetyp (z. B. Licht, Schalter, Thermostat) aus der vordefinierten Liste aus.
+- Optional kann der Organisation eine Kategorie (z. B. Beleuchtung, Heizung) zugewiesen werden.
 
 Kartendatenpunkte:
 
-Ordnen Sie für jede Funktion (z. B. An/Aus, Helligkeit) den Datenpunkt des virtuellen Geräts dem entsprechenden Zustand des physischen Geräts zu (z. B. `hm-rpc.0.12345.1.STATE` für einen Homematic-Schalter).
+Ordnen Sie für jede Funktion (z. B. Ein/Aus, Helligkeit) den Datenpunkt des virtuellen Geräts dem entsprechenden Zustand des physischen Geräts zu (z. B. `hm-rpc.0.12345.1.STATE` für einen Homematic-Schalter).
 
-Verwenden Sie die Schnittstelle, um Zustände anderer Adapter zu durchsuchen und auszuwählen.
+Über die Benutzeroberfläche können Sie Zustände anderer Adapter durchsuchen und auswählen.
 
 Speichern: Klicken Sie auf „Speichern“, um das virtuelle Gerät zu erstellen. Es wird unter alias.0.<Gerätename> auf der Registerkarte „Objekte“ angezeigt.
 
 #### Gerätetypen
-Der Adapter `ioBroker.devices` unterstützt drei Hauptansätze zur Geräteerstellung:
+Der `ioBroker.devices`-Adapter unterstützt drei Hauptansätze zur Geräteerstellung:
 
 1. Automatisch erkannte Geräte
 
-Einige Adapter (z. B. ioBroker.zigbee, ioBroker.hm-rpc) bieten bereits eine gültige Struktur für die Geräte und werden automatisch erkannt, **wenn eine Kategorie (Funktion oder Raum) zugewiesen ist**.
-Ohne die zugewiesene Kategorie wird das automatisch erkannte Gerät nicht verarbeitet.
+Einige Adapter (z. B. ioBroker.zigbee, ioBroker.hm-rpc) stellen bereits eine gültige Struktur für die Geräte bereit, sodass diese automatisch erkannt werden, **sofern eine Kategorie (Funktion oder Raum) zugewiesen ist**.
+Ohne zugewiesene Kategorie wird das automatisch erkannte Gerät nicht verarbeitet.
 
-2. Verknüpfte Geräte
+2. Verbundene Geräte
 
-Verknüpfte Geräte sind virtuelle Geräte, die manuell erstellt wurden, um die Datenpunkte eines bestimmten physischen Geräts mit `ioBroker.linkeddevices` zu spiegeln.
+Verknüpfte Geräte sind virtuelle Geräte, die manuell erstellt werden, um die Datenpunkte eines bestimmten physischen Geräts mit `ioBroker.linkeddevices` zu spiegeln.
 
-Es wird empfohlen, die Zweige `ioBroker.devices` und `alias.0` anstelle von `linkeddevices` zu verwenden.
+Es wird empfohlen, den Zweig `ioBroker.devices` und `alias.0` anstelle des Zweigs `linkeddevices` zu verwenden.
 
-3. Aliase
+3. Aliasnamen
 
-Aliase sind leichtgewichtige virtuelle Geräte, die als Verknüpfungen oder vereinfachte Verweise auf vorhandene Zustände fungieren, ohne eine vollständige Gerätestruktur zu erstellen.
+Aliase sind leichtgewichtige virtuelle Geräte, die als Abkürzungen oder vereinfachte Verweise auf bestehende Zustände fungieren, ohne eine vollständige Gerätestruktur zu erzeugen.
 
-Sie können ein neues virtuelles Gerät in einem Zweig `alias.0` erstellen. Wählen Sie den Gerätetyp aus und füllen Sie alle erforderlichen Zustände (mit * gekennzeichnet) aus. Optional können Sie nicht erforderliche Zustände hinzufügen (z. B. Luftfeuchtigkeit durch Temperatursensor).
-Für jeden erforderlichen Zustand und jeden ausgefüllten optionalen Zustand erstellt der Adapter eine Aliasstruktur.
-Wenn Sie beispielsweise ein Temperaturgerät mit dem Namen `Temperature` erstellt und beide Zustände (Temperatur und Luftfeuchtigkeit) angegeben haben, finden Sie im Zweig `alias.0` die folgenden Zustände und Kanäle:
+Sie können ein neues virtuelles Gerät im Zweig `alias.0` erstellen. Wählen Sie den Gerätetyp aus und geben Sie alle erforderlichen Zustände (mit * gekennzeichnet) an. Optional können Sie weitere, nicht erforderliche Zustände hinzufügen (z. B. Luftfeuchtigkeit über einen Temperatursensor).
+Für jeden erforderlichen und jeden ausgefüllten optionalen Zustand erstellt der Adapter eine Aliasstruktur.
+Wenn Sie beispielsweise ein Temperaturgerät mit dem Namen `Temperature` erstellt und beide Zustände (Temperatur und Luftfeuchtigkeit) angegeben haben, finden Sie die folgenden Zustände und Kanäle im Zweig `alias.0`:
 
 - `alias.0.Temperature` - Kanal
-- `alias.0.Temperature.temperature` – Zustand mit der Einheit „°C“. Es sollte eine virtuelle Verknüpfung zu einem realen Zustand mit Temperatur vorhanden sein. Wenn Sie den Alias im Adapter `ioBroker.devices` entfernen, bleibt dieser Zustand ohne Verknüpfung.
-- `alias.0.Temperature.humidity` – Status mit der Einheit „%“. Dies hat eine virtuelle Verknüpfung zum tatsächlichen Status (z. B. zu `hm-rpc.0.JHAGHGJJJ.1.HUMIDITY`). Wenn Sie den Alias im Adapter `ioBroker.devices` entfernen, wird dieser Status gelöscht.
+- `alias.0.Temperature.temperature` - Zustand mit der Einheit '°C'. Er sollte eine virtuelle Verknüpfung zu einem realen Zustand mit Temperaturangabe haben. Wenn Sie den Alias im `ioBroker.devices`-Adapter entfernen, bleibt dieser Zustand ohne Verknüpfung.
+- `alias.0.Temperature.humidity` – Zustand mit der Einheit '%'. Dieser Zustand stellt eine virtuelle Verknüpfung zum realen Zustand her (z. B. zu `hm-rpc.0.JHAGHGJJJ.1.HUMIDITY`). Wenn Sie den Alias im Adapter `ioBroker.devices` entfernen, wird dieser Zustand gelöscht.
 
-Fast jeder Gerätetyp kann zusätzliche Statusanzeigen für Akku, Konnektivität, Fehler und mehr haben. Diese sind optional, können aber von einigen Adaptern (z. B. `material` oder `matter`) interpretiert werden.
+Nahezu jeder Gerätetyp könnte zusätzliche Statusanzeigen für Akku, Verbindung, Fehler und weitere Parameter aufweisen. Diese sind optional, können aber von einigen Adaptern (z. B. `material` oder `matter`) interpretiert werden.
 
-Für jeden Status können Sie alle Einstellungen vornehmen, die Aliase unterstützen:
+Für jeden Bundesstaat können Sie alle Einstellungen angeben, die von Aliasen unterstützt werden:
 
 - Unterschiedliche Zustände für Lesen und Schreiben
-- Formel zum Lesen und Schreiben konvertieren
+- Umrechnungsformel für Lesen und Schreiben
 
-#### Geräte verwalten
-Gerät bearbeiten: Klicken Sie auf der Registerkarte „Geräte“ auf das Stiftsymbol neben einem Gerät, um dessen Namen, Typ, Kategorie, Farbe, Namen, Symbol oder Datenpunktzuordnungen zu ändern.
+#### Geräteverwaltung
+Gerät bearbeiten: Klicken Sie auf der Registerkarte „Geräte“ auf das Stiftsymbol neben einem Gerät, um dessen Namen, Typ, Kategorie, Farbe, Symbol oder Datenpunktzuordnungen zu ändern.
 
-Gerät löschen: Klicken Sie auf das Papierkorbsymbol, um ein virtuelles Gerät zu entfernen. Dies hat keine Auswirkungen auf das physische Gerät oder seinen Adapter.
+Gerät löschen: Klicken Sie auf das Papierkorbsymbol, um ein virtuelles Gerät zu entfernen. Dies hat keine Auswirkungen auf das physische Gerät oder dessen Adapter.
 
 Geräte organisieren: Verwenden Sie Kategorien, um Geräte zu gruppieren (z. B. „Beleuchtung“, „Heizung“), um die Verwaltung in Visualisierungen zu vereinfachen.
 
-## Gerätetyp
-Dieser Adapter wurde mit Hilfe von `type-detector` erstellt. Alle möglichen Geräte wurden gefunden [Hier](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md)
+## Gerätetypen
+Dieser Adapter wurde mithilfe von `type-detector` erstellt. Alle möglichen Geräte konnten unter [Hier](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md) gefunden werden.
+
+## Video
+[![Video](https://img.youtube.com/vi/0Aecm5YAk7M/0.jpg)](https://www.youtube.com/watch?v=0Aecm5YAk7M)
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.2.2 (2025-04-26)
+### 2.0.7 (2026-04-09)
+* (@GermanBluefox) Added new widgets
+
+### 2.0.6 (2026-03-31)
+* (@GermanBluefox) Corrected the layout for visualisation
+
+### 2.0.5 (2026-03-26)
+* (@GermanBluefox) Added many new widgets.
+
+### 2.0.3 (2026-03-24)
+* (@GermanBluefox) Added widgets' visualisation. Now it is possible to create a GUI within the adapter
+
+### 1.2.14 (2026-02-06)
+* (@GermanBluefox) Correcting the scrolling on the touch devices
+* (@GermanBluefox) Fixing a problem with `ACTUAL` state
+* (@GermanBluefox) Correcting the hover effect under safari
+
+### 1.2.12 (2026-02-04)
+* (@GermanBluefox) Show in color if fx is not empty
+* (@GermanBluefox) Added for all text fields the clear button
+
+### 1.2.9 (2025-09-08)
+* (@GermanBluefox) Created for newly created states of devices the full name and not just last part, like `ACTUAL`
+
+### 1.2.8 (2025-07-21)
+* (@GermanBluefox) Corrected error in GUI
+
+### 1.2.7 (2025-06-14)
+* (@GermanBluefox) Replaced icon for the state import
+* (@GermanBluefox) Corrected the edit dialog
+
+### 1.2.6 (2025-04-29)
+* (@GermanBluefox) Type-detector updated
+* (@GermanBluefox) Execute the conversion formula on the current value
+* (@GermanBluefox) Better categories selector
+* (@GermanBluefox) Corrected device importer
+
+### 1.2.4 (2025-04-27)
 * (@GermanBluefox) Corrected many GUI issues
 
 ### 1.2.1 (2025-04-22)
@@ -248,7 +287,7 @@ Dieser Adapter wurde mit Hilfe von `type-detector` erstellt. Alle möglichen Ger
 ## License
 MIT License
 
-Copyright (c) 2019-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

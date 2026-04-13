@@ -67,6 +67,20 @@ This channel contains system data about the hardware and firmware as well as run
 -->
 
 ## Changelog
+### 0.0.13 (2026-04-08)
+
+- Auto PRs merged
+- Fixing other deployment issues...
+
+### 0.0.12 (2026-04-06)
+
+- Deploy workflow changed from "npm install" to "npm ci"
+
+### 0.0.11 (2026-04-06)
+
+- TypeScript updated to 6.0
+- Some dependency work
+
 ### 0.0.10 (2026-03-15)
 
 - Auto PRs merged

@@ -51,7 +51,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             },
         },
         [theme.breakpoints.down(481)]: {
-            paddingTop: '0px',
+            paddingTop: '20px',
         },
         ...debugBlock('#0ff', 'titleContainer'),
     },
@@ -59,7 +59,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     container: {
         flex: 1,
         display: 'flex',
-        gap: '32px',
+        gap: '30px',
         margin: '0 0 0 32px',
         minHeight: 0, // crucial for flex children to shrink & scroll
         [theme.breakpoints.down(661)]: {
@@ -67,7 +67,9 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         },
         [theme.breakpoints.down(1280)]: {
             margin: '0 0 0 24px',
-            gap: '24px',
+        },
+        [theme.breakpoints.down(770)]: {
+            gap: '20px',
         },
         [theme.breakpoints.down(481)]: {
             margin: '0',
@@ -93,7 +95,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     // Fixed MenuToggle wrapper — covers scrolling menu items
     menuToggleWrapper: {
         flexShrink: 0,
-        position: 'relative',
         zIndex: 2,
         width: '100%',
         paddingBottom: '10px',
@@ -186,10 +187,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         paddingRight: '32px', // align with cards: 10px + 14px marginRight + 8px scrollbar
         [theme.breakpoints.down(1280)]: {
             paddingRight: '24px', // align with cards: 6px + 10px marginRight + 8px scrollbar
-            marginBottom: '0px',
-        },
-        [theme.breakpoints.down(481)]: {
-            marginBottom: '0px',
         },
         ...debugBlock('#ff0', 'topBar'),
     },
@@ -294,7 +291,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             marginLeft: !isMenuCollapsed ? '32px' : '0',
         },
         [theme.breakpoints.down(769)]: {
-            gridTemplateColumns: !isMenuCollapsed ? '1fr' : 'repeat(auto-fill, minmax(240px, 1fr))',
+            gridTemplateColumns: !isMenuCollapsed ? '1fr' : 'repeat(auto-fit, minmax(251px, 1fr))',
         },
         [theme.breakpoints.down(481)]: {
             gridTemplateColumns: '1fr',

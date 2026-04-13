@@ -189,6 +189,23 @@ New features are added regularly – please refer to the changelog.
 
 ## Changelog
 
+## 1.2.19 (2026-04-10)
+
+- Fixed an interaction issue between `photovoltaicHelper` and `controlHelper` where automatic follow-up pumping could be stopped unexpectedly
+- photovoltaicHelper now respects controlHelper priority and no longer stops the pump while automatic follow-up pumping is active
+- Fixed an issue where `controlHelper` could remain in "nachpumpen" state if the pump was stopped externally
+- `photovoltaic.threshold_w` is now correctly synchronized with the instance configuration
+- Changes to the PV surplus threshold in adapter settings are now reliably reflected in the corresponding read-only datapoint
+
+### 1.2.18
+Release: 07.04.2026
+- Fixed persistence issue for `status.season_active` (no longer overwritten on adapter start)
+- Improved persistence for frost protection settings
+
+### 1.2.17
+Release: 07.04.2026
+- Fix: Resolved an issue where the pressure learning reset button did not trigger reliably. The pumpHelper4 now explicitly subscribes to its relevant internal states to ensure proper event handling.
+
 ### 1.2.15
 Release: 22.03.2026
 - Fix i18n usage (replace I18n.t with I18n.translate) to resolve adapter startup crash and restart loop on certain systems.

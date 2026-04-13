@@ -124,6 +124,9 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Copy common.states by alias creation
+
 ### 7.8.20 (2026-03-30)
 - (@GermanBluefox) Improved the device manager
 
