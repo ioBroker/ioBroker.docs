@@ -37,6 +37,8 @@ The following Amtron wallboxes are supported:
 
 The adapter can manage multiple boxes.
 
+If you own a wallbox that is not supported yet, please contact the developer.
+
 ## Configuration
 Only the type of box, its IP address and, if necessary, an API key need to be configured.
 
@@ -54,6 +56,9 @@ Note: Since the boxes have different interfaces, it may be that not all interfac
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.3.6 (2026-03-15)
+* (René) update dependencies + changes based on adapter checker
+
 ### 0.3.5 (2025-10-26)
 * (René) bug fix sentry
 

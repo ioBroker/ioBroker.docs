@@ -25,7 +25,7 @@ To use this adapter in `ioBroker` you need to accept the source code license of 
 Additionally, you need a license to use the adapter. The following license editions are available on https://iobroker.net/www/pricing 
 * **Community-License: Free for private use!**: Get a free license by registering an account on [https://iobroker.net](https://iobroker.net). The license if checked online against the ioBroker license server when the vis-2 adapter is started, so an online connection at this time point is required!
 * **Private use Offline-License**: For paying a small support fee, you can get rid of the required online license check on adapter startup. **Only for Private use!**
-* **Commercial License**: When using Vis in a commercial environment or selling Vis as part of ioBroker packages to your customers, this license is for you. License check is also not requiring an online connection.
+* **Commercial License**: When using Vis in a commercial environment or selling Vis as a part of ioBroker packages to your customers, this license is for you. License check is also not requiring an online connection.
 
 ## Installation & Documentation
 
@@ -35,7 +35,7 @@ Additionally, you need a license to use the adapter. The following license editi
 [Online Demos](https://iobroker.click/)
 
 ## Bindings of objects
-Normally, most of the widgets have ObjectID attribute and this attribute can be bound with some value of object ID.
+Normally, most of the widgets have ObjectID attribute, and this attribute can be bound with some value of object ID.
 But there is another option for how to bind *any* attribute of widget to some ObjectID. 
 
 Just write into attribute `{object.id}` e.g. `{hm-rpc.0.OEQ1880105.4.ACTUAL_TEMPERATURE}` and it will be bound to this object's value. 
@@ -60,7 +60,7 @@ or
 
 You can use *any* JavaScript (browser) functions. Arguments must be defined with ':', if not, it will be interpreted as formula.
 
-Take care about types. All of them are defined as strings. To be sure, that value will be treated as number use parseFloat function.
+Take care about types. All of them are defined as strings. To be sure, that value will be treated as a number use parseFloat function.
 
 So our Hypotenuse calculation will be:
 ```
@@ -95,7 +95,7 @@ The following operations are supported:
 - `pow` - power of 2.
 - `floor` - Math.floor
 - `ceil` - Math.ceil
-- `json` - operation for getting json or object property. E.g., `{id;json(common.name.en)}`
+- `json` - operation for getting JSON or object property. E.g., `{id;json(common.name.en)}`
 - `random(R)` - Math.random() * R, or just Math.random() if no argument
 - `formatValue(decimals)` - format value according to system settings and use decimals
 - `date(format)` - format value as date. The format is like: "YYYY-MM-DD hh:mm:ss.sss"
@@ -114,7 +114,7 @@ or color calculations:
 #{objectRed;/(100);*(255);HEX2}{objectGreen;HEX2}{objectBlue;HEX2}
 ```
 
-To show timestamp of object write `.ts` or `.lc` (for last change) at the end of object id, e.g.:
+To show timestamp of an object write `.ts` or `.lc` (for last change) at the end of object id, e.g.:
 
 ```
 Last change: {objectRed.lc;date(hh:mm)}
@@ -133,9 +133,9 @@ There are a number of different internal bindings to provide additional informat
 * `login` - if login required or not (e.g., to show/hide logout button)
 * `local_*` - if state name is started from `local_` it will not be reported to ioBroker but will update all widgets, that depends on this state. (Local variable for current browser session)
 
-Note: to use ":" in calculations (e.g., in string formula) use "::" instead.
+Note: to use ":" in calculations (e.g., in string formula), use "::" instead.
 
-**Remember**, that style definitions will be interpreted as bindings, so use `{{style: value}}` or just
+**Remember** that style definitions will be interpreted as bindings, so use `{{style: value}}` or just
 
 ```
 {
@@ -154,8 +154,8 @@ Every widget has a field `filter`. If you set it to some value, e.g. `light`, so
 Vis creates 3 variables:
 
 - `control.instance` - Here the browser instance should be written or `FFFFFFFF` if every browser must be controlled.
-- `control.data`     - Parameter for command. See specific command description.
-- `control.command`  - Command name. Write this variable triggers the command. That means before command will be written, the "instance" and "data" must be prepared with data.
+- `control.data`     - Parameter for command. See a specific command description.
+- `control.command`  - Command name. Write this variable triggering the command. That means before the command will be written, the "instance" and "data" must be prepared with data.
 
 Commands:
 
@@ -185,9 +185,9 @@ If the user changes the view or at the start, the variables will be filled by th
 - `control.data`: project and view name in form `project/view`, e.g. `main/view` (and `ack=true`)
 - `control.command`: `changedView` and `ack=true`
 
-You can write the JSON string or Object into `control.command` as `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. In this case, the instance and data will be taken from JSON object.
+You can write the JSON string or Object into `control.command` as `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. In this case, the instance and data will be taken from the JSON object.
 
-Example for javascript adapter:
+Example for JavaScript adapter:
 
 ```js
 setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: ''});
@@ -206,7 +206,7 @@ If only one view has *"Default"* flag, so this view will be opened independently
 
 E.g., you can create two views "Landscape-Mobile" and "Portrait-Mobile" and these two views will be switched automatically when you change the orientation or screen size.
 
-There is a helper widget "basic - Screen Resolution" that shows actual screen resolution and best suitable default view for this resolution. 
+There is a helper widget "basic - Screen Resolution" that shows actual screen resolution and the best suitable default view for this resolution. 
 
 ## Permissions System
 ### Project
@@ -219,9 +219,9 @@ When a new user is created via ioBroker Admin adapter, it will have both permiss
 
 ### View
 You can also specify which views the user is allowed to access for runtime and edit mode. 
-When one of the access rights is not granted on project level, it does not have any effect to specify them on view level, as the project as a whole will not be accessible.
+When one of the access rights is not granted on the project level, it does not have any effect to specify them on view level, as the project as a whole will not be accessible.
 
-Note that whenever you try to access a view, where the current user has no permission for, the user will see the project selection panel instead.
+Note that whenever you try to access a view where the current user has no permission for, the user will see the project selection panel instead.
 
 ### Widget
 If the user has no `read` permissions, the widget will not be rendered in the runtime. If user has no `write` permissions, the widget
@@ -253,14 +253,14 @@ Here's a simple example with a circle in an SVG:
     <circle cx="50" cy="50" r="40" fill="currentColor" />
 </svg>
 ```
-In this case, if the SVG takes the color of parent element.
+In this case, if the SVG takes the color of the parent element.
 E.g., if it was used in a menu and the menu is red, the circle would be red.
 
 ## Development and Debugging
 
 In order to make adjustments to the vis-2 editor itself, to search for errors and to debug, the following steps must be carried out.
 
-1. fork the iobroker/iobroker.vis-2 repository into your own account via user interface of GitHub
+1. fork the iobroker/iobroker.vis-2 repository into your own account via the user interface of GitHub
 
 2. clone the repository into a directory. copy the url from your GitHub repository. the command looks like
 
@@ -292,7 +292,10 @@ npm run start
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
-### 2.13.10 (2026-02-13)
+### 2.13.17 (2026-03-29)
+* (@GermanBluefox) Removed debug code for theme
+
+### 2.13.16 (2026-03-26)
 * (@GermanBluefox) Fixing the usage of umlauts in patterns
 * (@GermanBluefox) Fixing commands via control interface when sent as JSON
 
@@ -304,10 +307,7 @@ npm run start
 * (@GermanBluefox) Corrected the basic image refreshing
 
 ### 2.13.6 (2025-10-10)
-* (@GermanBluefox) Prevent error by the icons selection dialog
-
-### 2.13.5 (2025-09-16)
-* (@GermanBluefox) Corrected loading of icon sets
+* (@GermanBluefox) Prevent error by the icon selection dialog
 
 ## License
  Copyright (c) 2021-2026 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,

@@ -29,20 +29,24 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.0.2 (2026-04-07)
+* (@GermanBluefox) fixed #368
+
+### 4.0.1 (2026-04-07)
+* (misanorot) fixed little GUI issue at zone tab
+
+### 4.0.0 (2026-03-22)
+* (@GermanBluefox) Adapter was migrated to TypeScript
+* (@GermanBluefox) GUI was migrated to JsonConfig
+* (@GermanBluefox) Refactor code and remove duplicated methods
+* (@GermanBluefox) Added option repeat writing of state values
+* (@GermanBluefox) Added option to retrigger the alarm if already triggered
+
+### 3.7.7 (2026-03-15)
+* (misanorot) update packages
+
 ### 3.7.6 (2025-10-26)
 * (misanorot) update npm progress
-
-### 3.7.5 (2025-10-12)
-* (misanorot) update packages
-
-### 3.7.4 (2025-08-17)
-* (misanorot) update packages
-
-### 3.7.0 (2025-05-03)
-* (misanorot) node 20 require
-
-### 3.6.8 (2025-01-08)
-* (misanorot) protect password
 
 ## License
 MIT License

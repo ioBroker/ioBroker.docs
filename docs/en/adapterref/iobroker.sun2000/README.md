@@ -34,9 +34,27 @@ Work in progress
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* statistics: new state `statistics.jsonToday` — live summary of today's energy values
+* statistics: computed values `selfSufficiency` and `selfConsumption` calculated automatically in all time-series states
+* statistics: default chart shows energy flows above/below zero line, SOC (hourly only), self-sufficiency and self-consumption on second Y-axis
+* statistics: no-data hint per chart type when no entries are available yet
+* statistics: data placeholders (`%%solarYield%%`, `%%selfSufficiency%%` etc.) and negated variants (`%%gridExportNeg%%` etc.) for mirrored chart layouts
+* statistics: built-in `%%tooltipFormatter%%` placeholder — always shows positive values with correct units
+
+### 2.4.2 (2026-04-04)
+* fix test-and-release: deploy with 24.x
+
+### 2.4.1 (2026-04-04)
+* statistics: flexcharts integration — built-in Apache ECharts configuration with bar and line chart support
+* statistics: day-break visualization with alternating shaded areas for hourly charts
+* statistics: per chart-type templates (`statistics.flexCharts.template.hourly` etc.) for full ECharts customization including functions
+* statistics: data placeholders (`%%solarYield%%`, `%%gridExport%%` etc.) allow complete chart layout control via template states
+* statistics: chart output states (`statistics.flexCharts.jsonOutput.hourly` etc.) updated automatically each hour
+
+### 2.4.0 (2026-03-14)
 * fix: the order of bit assignment corrected of alarmsJSON
 * new state `inverter.x.emma.activeAlarmSN` and `inverter.x.emma.HistoricalAlarmSN` : emma alarms  [#226](https://github.com/bolliy/ioBroker.sun2000/issues/226)
-* statistics 
+* statistics: Aggregates historical collected datapoints into time-based summaries (e.g. hourly, daily, monthly, yearly). The data is stored in the path `statistics` as JSON.
 
 ### 2.3.7 (2026-02-01)
 * deleted deprecated state `collected.usableSurplusPower`

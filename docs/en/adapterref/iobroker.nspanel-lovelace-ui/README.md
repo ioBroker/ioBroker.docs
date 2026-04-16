@@ -157,6 +157,55 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.17.2 (2026-04-13)
+- (ticaki) bugfix: pageitem name / icon as id for most roles / textSize
+
+### 0.17.1 (2026-04-12)
+- (ticaki) bugfix: longpress
+
+### 0.17.0 (2026-04-12)
+- (tt-tom17) added: ChannelColorDialog
+- (ticaki) added: customItem, longPress, targetPageLongPress, icons as id, div.
+
+### 0.16.2 (2026-04-09)
+- (ticaki) fixed: channel duplicate error
+- (tt-tom17) fixed: ChannelConfigDialog – error messages (datapointErrors, datapointDuplicates, checkResult) are now properly reset when reopening the dialog
+
+### 0.16.1 (2026-04-09)
+- (ticaki) The native configuration in pageitems is available to everyone. It corresponds exactly to the script configuration for a page item.
+
+### 0.16.0 (2026-04-09)
+- (ticaki) feat: new visual page editor in the admin UI – configure cardGrid, cardGrid2, cardGrid3, cardEntities and cardSchedule pages including their items directly in the admin.
+
+### 0.15.4 (2026-04-04)
+- (tt-tom17) fixed: iCal / trash page – date display year format (2-digit vs. 4-digit) was swapped for short and long item lists
+- (ticaki) fixed: panel rule timer increased from 120 s to 140 s to reduce false "panel disconnected" events after startup
+- (ticaki) fixed: `setPopupNotification` now returns `{ error: 'No Panels Online' }` via callback when no panel is online instead of silently ignoring the call
+
+### 0.15.2 (2026-03-26)
+- (tt-tom17) added: message dialog when berry installation fails due to missing internet access on the panel
+- (ticaki) added: improved offline detection for panels
+- (ticaki) improved: version info caching (15–60 min) to reduce external API calls
+- (ticaki) fixed: admin panel info tab now displays state labels in the correct system language
+
+### 0.15.1 (2026-03-18)
+- (ticaki) added: internet access check for Tasmota device before berry installation
+
+### 0.15.0 (2026-03-16)
+- (ticaki) added: `ScreensaverEntityFillIfBelowMin` – fills screensaver slots when too few items are visible (default: true)
+- (ticaki) fixed: various bug fixes and improvements in the admin UI
+
+### 0.14.0 (2026-03-14)
+- (tt-tom17) refactored: timezone selection code moved from adapter to admin handler (internal, no UI changes)
+- (ticaki) added: TempOffset configurable in objects and admin tab (#629)
+- (ticaki) added: "Update scripts for all panels" button in Maintain tab
+
+### 0.13.4 (2026-03-07)
+- (ticaki) added: buttonOnDelayOff / buttonOffDelayOn / buttonDelayOn / buttonDelayOff modes for HW button actions
+
+### 0.13.3 (2026-03-04)
+- (ticaki) fixed critical bug when using internal MQTT server
+
 ### 0.13.2 (2026-03-02)
 - (ticaki) Maintain table: proper semver comparison for Tasmota and TFT versions (upgrade vs. downgrade detection)
 - (ticaki) TabPanelinfo: openTasmotaConsole button fixed

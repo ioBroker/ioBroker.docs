@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: AF+RI5eEFD5nF67c1zE0cBxPzygqQnbWGlpn/U2DwyE=
+hash: 8C9H3FXK3XRavny+kDWWy6b4UMPSCeaN5Ep0C06qXoA=
 ---
 ![标识](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -31,17 +31,6 @@ hash: AF+RI5eEFD5nF67c1zE0cBxPzygqQnbWGlpn/U2DwyE=
 - https://haus-automatisierung.com/hardware/2023/02/13/ecoflow-river-2-usv-batteriespeicher.html
 - https://forum.iobroker.net/topic/66743/ecoflow-connector-script-zur-dynamischen-leistungsanpassung
 - https://konkludenz.de/en/making-ecoflow-wave2-smart-home-capable-with-node-red-and-mqtt
-
-＃＃ 安装
-该适配器已在稳定版软件仓库中，因此您可以通过搜索安装它。
-
-如果有可用更新，您应该安装它们。
-
-如果有最新版本可用，可能需要从 npm/github 进行自定义安装。
-
-在这种情况下，必须启用专家模式才能访问“octacat”图标。
-
-![更多细节](../../../en/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md)
 
 ## EF凭证
 需要在管理页面（第一个标签页）中输入 MQTT 代理的 MQTT 凭据。
@@ -196,7 +185,7 @@ HA侧的修饰：
 ## IoBroker 适配器函数
 - 定义的设备通过 MQTT 连接到适配器
 适配器会对来自设备的消息进行过滤，只有更改后的值才会被内部存储。
-- 如果应用程序在特定条件下阻止调整，则在已知该条件时会进行复制（例如，当电池电量低于最低值时阻止逆变器开启，您可以在日志中看到警告）。
+- 如果应用程序在特定条件下阻止调整，则在已知的情况下会复制该情况（例如，当电池电量低于最低值时阻止逆变器开启，您可以在日志中看到警告）。
 - 并非所有信息都已知，因此状态解读可能存在不确定性，这种情况通常会在信息末尾加上“？”标记。
 
 ### 关于更新数据点设置（最小值、最大值、单位等）的备注
@@ -224,7 +213,7 @@ HA侧的修饰：
 [HA的一些提示](./doc/en/IOB_HA/navi.md)
 
 ### 功能注释
-由于信息更新和命令传输不同步，有时会出现竞争条件。因此，可以观察到，当发出命令后，开关会在最终稳定下来之前来回切换。
+由于信息更新和命令传输不同步，有时会出现竞争条件。因此，可以观察到，当发出命令后，开关会在最终锁定状态之前来回切换。
 
 ## 已实现的设备和结构以及数据点
 对设备数据的一些解释
@@ -256,7 +245,7 @@ HA侧的修饰：
 
 [最大差值](./doc/devices/deltamax.md)
 
-[德尔塔2号](./doc/devices/delta2.md)
+[Delta 2](./doc/devices/delta2.md)
 
 [Delta 2 Max](./doc/devices/delta2max.md)
 
@@ -303,7 +292,7 @@ HA侧的修饰：
 
 [流式逆变器](./doc/devices/stream_inverter.md)
 
-800W 版本也已实现，唯一的区别在于其最大功率为 800W。
+800W 版本也已实现，唯一的区别在于最大功率为 800W。
 
 供电优先级 -> 0/false = 优先使用电网供电；-> 1/true = 优先使用电池供电（充电）
 
@@ -330,6 +319,9 @@ Wave功能目前不可用，但如果有数据的话可以实现。
 ### 交流发电机
 [交流发电机](./doc/devices/alternator.md)
 
+＃＃＃ 充电器
+[Rapid Pro](./doc/devices/rapid.md)
+
 ### 不支持的设备
 此部分用于调试目的，请选择设备（Delta Pro3、Delta3、Delta3 Plus），并在新增行中输入序列号。预计未知设备正在使用 protobuf，它会在日志中创建 [PROTOBUF unknown] 消息，这些消息包含原始十六进制电报。
 
@@ -355,10 +347,19 @@ Wave功能目前不可用，但如果有数据的话可以实现。
 - (foxthefox) new device Glacier Classic 55L support
 - (foxthefox) new device Delta 3 Max Plus support
 - (foxthefox) new device Stream AC support
+- (foxthefox) new device Rapid Pro 320W support
 - (foxthefox) enhancements on wave3
+- (foxthefox) corrections in river3plus for data processing
+- (foxthefox) corrections in D2M for command inv.cfgAcEnabled #340
 - (foxthefox) poweroceanplus set hrPwr/fromPv/romBat/fromGrid values to 0 for non transmitted datapoints in HeatingRodEnergyStreamShow
 - (foxthefox) poweroceanplus pcsActPwr max 20kW, pcsXPhase_amp max 60A
 - (foxthefox) corrections in BMSHeartBeatReport for river3/river3plus
+- (foxthefox) powGetSysLoad for streamAC/ACPro/Ultra set to 10kW, powGetSchuko 2100W
+- (foxthefox) new msg counter for received telegrams from EF-cloud (within 10s)
+- (foxthefox) correction of enBeep (dataLen=2) for Delta3/+/max+/pro
+- (foxthefox) correction of AC1/2/3 switching on SHP2 (issue #312)
+- (foxthefox) Stream AC timetask58x exclude
+- (foxthefox) correction of powerocean / powerocean+ (issue #378), new ENERGY_STREAM_DETAIL and switch for missing datapoint -> value = 0
 - (foxthefox) dev dependencies cleanup
 
 ### 1.4.7 (npm)
@@ -804,7 +805,7 @@ Wave功能目前不可用，但如果有数据的话可以实现。
 
 MIT License
 
-Copyright (c) 2023-2025 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2023-2026 foxthefox <foxthefox@wysiwis.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

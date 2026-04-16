@@ -44,10 +44,9 @@ Before beginning: Every DPT of com.Objects should be set in your ETS project. Ev
 facility structure.
 
 ## Requirements
-
-* node Version >= 14.15.4
+* node Version >= 24.0.0
 * admin Version >= 5.2.0
-* js-controller Version >=3.3.20
+* js-controller Version >= 3.3.20
 
 Without this requirement, the adapter is not installable or will work not properly.
 
@@ -76,6 +75,7 @@ on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
 * NEW: allow a non-KNX State direct link (vice-verse)
 * NEW: adapter responses to GroupValueRead to a directLink connected object
 * NEW: import of passwort protected project files (thanks to aKzenT)
+* NEW: Responsive Design for Admin-Interface (materialize)
 
 ###Installation
 This adapter is only installable with npm. Installation via GitHub does **not** work.
@@ -273,9 +273,15 @@ relation.
 
 ## Versions
 
+### 2.0.39 (05.04.2026)
+
+* added support for ETS 6.4.1
+* bug fixing
+* dependency updates
+
 ### 2.0.38 (01.03.2026)
 
-* added support for ETS 6.4.0
+* 0
 
 ### 2.0.37 (20.02.2026)
 
@@ -488,7 +494,7 @@ relation.
 ### 1.0.38
 
 * fixed some bugs on import
-* show warning if import-file ist password protected
+* show warning if import-file is password protected
 
 ### 1.0.37 (2010-01-31)
 
@@ -716,7 +722,7 @@ adapter version and host ID are also reported.
 
 The CC-NC-BY License (CC-NC-BY)
 
-Copyright (c) 2016-2026 K.Ringmann <info@punktnetzwerk.net>
+Copyright (c) 2016-2026 K.Ringmann info@punktnetzwerk.net
 
 THE WORK IS PROVIDED UNDER THE TERMS OF THIS CREATIVE
 COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY

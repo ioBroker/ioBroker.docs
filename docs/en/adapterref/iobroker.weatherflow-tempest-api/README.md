@@ -29,6 +29,11 @@ Get data for your [Tempest Weather Station](https://tempest.earth/tempest-home-w
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.4 (2026-03-17)
+
+- (Scrounger) dependencies updated
+- (Scrounger) downgrade @iobroker/adapter-core to v3.3.1 to prevent conflicts with js-controller < v7.1.0 in rare cases
+
 ### 1.1.3 (2025-10-19)
 
 - (Scrounger) dependencies updated

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：新手指南
-hash: 7ziegV+BjbzDnaPC4m+5m5RvIOfUu8K2pyUytmxbePE=
+hash: lrAcCG5s4r+NW//IOgKlqBgJ5vSQCfmTqn7zUhrNIbk=
 ---
 # IoBroker JSON 配置：新手指南
 本指南解释了如何使用 JSON 为 ioBroker 适配器定义配置选项。这种方法提供了一种更友好、更灵活的方式，可以在 ioBroker 管理界面中管理适配器设置。
@@ -134,7 +134,7 @@ jsonConfig 由多个按层级结构组织的元素组成。每个元素可以是
 - [**`certificateCollection`:**](#certificatecollection) 选择一个 Let's Encrypt 证书集合
 - [**`certificates`:**](#certificates) 用于管理不同证书类型的通用类型（自 Admin 6.4.0 起）
 - [**`checkbox`:**](#checkbox) 布尔值复选框
-- [**`checkDocker`:**](#checkdocker) 用于检查 Docker 是否可用的特殊组件，如果可用，您可以激活一个复选框（从 Admin 7.8.0 开始）
+- [**`checkDocker`:**](#checkdocker) 用于检查 Docker 是否可用，如果可用，则可以激活复选框（从 Admin 7.8.0 开始）
 - [**`checkLicense`:**](#checklicense) 用于在线检查许可证的特殊组件
 - [**`chips`:**](#chips) 用户可以输入单词，这些单词将被添加到数组中。
 - [**`color`:**](#color) 颜色选择器
@@ -178,7 +178,7 @@ jsonConfig 由多个按层级结构组织的元素组成。每个元素可以是
 - [**`staticInfo`:**](#staticinfo) 以预格式化形式显示静态信息，例如“标题:值 单位”（admin >= 7.3.3）
 - [**`staticLink`:**](#staticlink) 创建静态链接
 - [**`staticText`:**](#statictext) 显示静态文本（例如，描述）
-- [**`table`:**](#table) 可添加、删除或重新排序的表格
+- [**`table`:**](#table) 可添加、删除或重新排序的行的表格
 - [**`tabs`:**](#tabs) 包含项目的标签页
 - [**`text`:**](#text) 单行或多行文本输入字段
 - [**`textSendTo`:**](#textsendto) 显示实例值中给定的只读控件。
@@ -299,7 +299,7 @@ admin/customI18n/en.json
 ### 直接在 i18n 中提供翻译
 翻译也可以直接作为对象在 `jsonConfig` 对象的顶层 `i18n` 属性中提供。
 
-搜索翻译时，系统会使用特定字段中的信息在 i18n 对象中查找包含指定文本的属性。
+搜索翻译时，系统会使用特定字段中的信息在 i18n 对象中查找包含该文本的属性。
 
 如果找不到该属性，则保留字段中的信息。
 
@@ -419,10 +419,23 @@ admin/customI18n/en.json
 
 ### `select`
 | 房产 | 描述 |
-|-----------------|---------------------------------------------------------------------------|
+|-----------------|----------------------------------------------------------------------------------------------------------------|
 | `options` | 带有标签、可选翻译、可选分组和值的对象 |
 | `showAllValues` | 即使未找到标签也显示项目（通过多个），默认值=`true` |
-| `showAllValues` | 即使没有找到标签也显示该项（通过多个选项），默认值为`true` |
+| `format` | 渲染格式：`"dropdown"`（默认）或 `"radio"`，以将选项显示为单选按钮而不是下拉列表 |
+| `horizontal` | 如果 `true`，则单选按钮水平显示（仅当 `format` 为 `"radio"` 时适用）（自 v8.3.3 起） |
+| `horizontal` | 如果为 `true`，则单选按钮水平显示（仅当 `format` 为 `"radio"` 时适用）（自 v8.3.3 起） |
+
+`options` 中的每个选项都可以有：
+
+| 房产 | 描述 |
+|---------------|-----------------------------------------------------------------------|
+| `label` | 选项标签（可以是字符串或可翻译对象） |
+| `color` | 选项文本颜色 |
+| `hidden` | 用于显示或隐藏选项的公式或布尔值 |
+| `description` | 选项标签下方显示的描述（可翻译） |
+| `icon` | 要显示在选项旁边的图标 URL 或 base64 字符串（自 v8.3.3 起） |
+| `icon` | 要显示在选项旁边的图标 URL 或 base64 字符串（自 v8.3.3 起） |
 
 #### `select options`示例
 ```json5
@@ -496,7 +509,7 @@ admin/customI18n/en.json
 ```
 
 ### `oauth2`
-（管理员版本 >= 2018 年 6 月 17 日）
+（管理员版本 >= 6.17.18）
 
 显示 OAuth2 身份验证按钮，以获取适配器的刷新令牌和访问令牌。
 
@@ -507,7 +520,9 @@ admin/customI18n/en.json
 | `identifier` | OAuth2 标识符，例如 `spotify`、`google`、`dropbox`、`microsoft` |
 | `scope` | 可选作用域，以空格分隔，例如 `user-read-private user-read-email` |
 | `refreshLabel` | 刷新令牌的可选按钮标签 |
-| `refreshLabel` | 用于刷新令牌的可选按钮标签 |
+| `ownClientId` | 可选属性名称，用于存储用户的 OAuth 客户端 ID。如果设置，则会显示客户端 ID 输入字段。 |
+| `ownClientSecret` | 可选属性名称，用于存储用户的 OAuth 客户端密钥。如果设置，则会显示客户端密钥输入字段。 |
+| `ownClientSecret` | 可选属性名称，用于存储用户的 OAuth 客户端密钥。如果设置，则会显示客户端密钥输入字段。 |
 
 #### `oauth2`示例
 ```json
@@ -526,11 +541,12 @@ admin/customI18n/en.json
 对象 ID：显示其名称、颜色和图标
 
 | 房产 | 描述 |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `types` | 期望类型：`channel`, `device`, ...（默认只有 `state`）。这里使用复数形式，因为 `type` 已被占用。 |
 | `customFilter` | [可选] 不能与 `type` 设置一起使用。它是一个对象，而不是 JSON 字符串。 |
 | `filterFunc` | [可选] 不能与 `type` 设置一起使用。这是一个将对每个对象调用的函数，必须返回 true 或 false。示例：`obj.common.type === 'number'` |
-| `filterFunc` | [可选] 不能与 `type` 设置一起使用。这是一个将对每个对象调用的函数，必须返回 true 或 false。示例：`obj.common.type === 'number'` |
+| `fillOnSelect` | [可选] 选择对象 ID 时填充其他配置字段。格式：`pathInObject=>attr,pathInObject=>attr(X)`。附加 `(X)` 可覆盖非空字段。例如：`common.name=>name,common.color=>color(X)` 会将对象名称填充到 `name` 字段，并将对象颜色覆盖到 `color` 字段。 |
+| `fillOnSelect` | [可选] 当选中对象 ID 时填充其他配置字段。格式：`pathInObject=>attr,pathInObject=>attr(X)`。附加 `(X)` 以覆盖非空字段。例如：`common.name=>name,common.color=>color(X)` 会将对象名称填充到 `name` 字段，并将对象颜色覆盖到 `color` 字段。 |
 
 #### `customFilter`的示例
 ##### 仅显示具有某些自定义设置的对象
@@ -647,32 +663,46 @@ admin/customI18n/en.json
 | `变体` | `包含`、`轮廓`、'' |
 
 ### `staticText`
-静态文本，例如描述
+静态文本描述
 
 | 房产 | 描述 |
-|----------|---------------------|
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `label` | 多语言文本 |
-| `文本` | 与标签相同 |
+| `format` | `text`（默认），`html`，`json`（自管理员版本 7.8.4 起） |
+| `href` | 链接。链接可以是动态的，例如 `#tab-objects/customs/${data.parentId}` |
+| `target` | `_blank` 或 `_self` 或窗口名称。对于相对链接，默认值为 `_self`，对于绝对链接，默认值为 `_blank` |
+| `close` | 如果为真，则关闭 GUI（不用于管理中的 JsonConfig，而用于动态 GUI，仅当目标是 `_self` 时才使用） |
+| `button` | 将链接显示为按钮 |
+| `variant` | 按钮类型（`outlined`, `contained`, `text`） |
+| `color` | 按钮颜色（例如 `primary`） |
+| `icon` | 如果需要显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`、`book`、`help`、`upload`。您可以使用 `base64` 图标（以 `data:image/svg+xml;base64,...` 开头）或 `jpg/png` 图片（以 `.png` 结尾）。（如果您需要更多图标，请通过 issue 提出请求） |
+| `controlStyle` | 按钮或控件本身的 React 格式 CSS 样式 |
+| `controlStyle` | 按钮或控件本身的 React 格式 CSS 样式 |
 
 必须指定 `label` 或 `text` 中的一个，不能同时指定两者。
 
 ### `staticLink`
 | 房产 | 描述 |
-|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `label` | 多语言文本 |
-| `target` | `_blank` 或 `_self` 或窗口名称 |
-| `close` | 如果为真，则关闭图形用户界面（不用于管理界面中的 JsonConfig，而是用于动态图形用户界面） |
+| `target` | `_blank` 或 `_self` 或窗口名称。对于相对链接，默认值为 `_self`，对于绝对链接，默认值为 `_blank` |
+| `close` | 如果为真，则关闭 GUI（不用于管理中的 JsonConfig，而是用于动态 GUI，仅当目标是 `_self` 时才使用） |
 | `button` | 将链接显示为按钮 |
 | `variant` | 按钮类型（`outlined`, `contained`, `text`） |
 | `color` | 按钮颜色（例如 `primary`） |
 | `icon` | 如果需要显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`、`book`、`help`、`upload`。您可以使用 `base64` 图标（以 `data:image/svg+xml;base64,...` 开头）或 `jpg/png` 图片（以 `.png` 结尾）。（如果您需要更多图标，请通过 issue 提出请求） |
-| `icon` | 如果需要显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`、`book`、`help`、`upload`。您可以使用 `base64` 图标（以 `data:image/svg+xml;base64,...` 开头）或 `jpg/png` 图片（以 `.png` 结尾）。（如果您需要更多图标，请通过 issue 提出请求） |
+| `controlStyle` | 按钮或控件本身的 React 格式 CSS 样式 |
+| `format` | `text`（默认），`html`，`json` |
+| `格式` | `文本`（默认），`html`，`json` |
 
 ### `staticImage`
 | 房产 | 描述 |
-|----------|----------------------------------------|
+|----------------------------|----------------------------------------------------------------------------------------------|
 | `href` | 可选的 HTTP 链接 |
-| `src` | 图片名称（来自管理员目录） |
+| `showInDialog` | 如果为真，则会显示一个小缩略图，点击它会打开一个对话框，显示完整尺寸的图像 |
+| `showInDialogButtonLabel` | 如果 `showInDialog`，则为同时打开对话框的按钮提供可选标签 |
+| `showInDialogSmallSize` | 如果 `showInDialog`，则小缩略图的高度（以像素为单位）（默认为 100） |
+| `showInDialogSmallSize` | 如果为 `showInDialog`，则小缩略图的高度（以像素为单位）（默认为 100） |
 
 ### `table`
 包含可删除、添加、上移、下移项目的表格
@@ -824,7 +854,7 @@ admin/customI18n/en.json
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pattern` | 文件扩展名模式。允许使用 `**/*.ext` 显示所有子文件夹中的文件，`*.ext` 显示根文件夹中的文件，或 `folderName/*.ext` 显示子文件夹 `folderName` 中的所有文件。默认值为 `**/*.*`。 |
 | `objectID` | 类型为 `meta` 的对象 ID。您可以使用特殊占位符 `%INSTANCE%`，例如 `myAdapter.%INSTANCE%.files` |
-| `upload` | 上传文件的存储路径。类似于 `folderName`。如果未定义，则不会显示上传字段。要上传到根目录，请将此字段设置为 `/`。 |
+| `upload` | 上传文件的存储路径。与 `folderName` 类似。如果未定义，则不会显示上传字段。要上传到根目录，请将此字段设置为 `/`。 |
 | `refresh` | 在选择框附近显示刷新按钮。 |
 | `maxSize` | 最大文件大小（默认 2MB） |
 | `withFolder` | 即使所有文件都在同一文件夹中，也显示文件夹名称 |
@@ -861,7 +891,7 @@ admin/customI18n/en.json
 | `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
 | `sendFirstByClick` | 点击时首先显示图片。`true` - 标准文本（点击显示）或指定文本 |
-| `sendFirstByClick` | 点击时首先显示图片。`true` - 标准文本（点击显示）或指定文本 |
+| `sendFirstByClick` | 点击时优先显示图片。`true` - 标准文本（点击显示）或指定文本 |
 
 #### `imageSendTo`后端代码示例
 ```js
@@ -972,6 +1002,8 @@ adapter.on("message", (obj) => {
 | `noTranslation` | 不翻译下拉列表的标签。要使用此选项，您的适配器必须实现消息处理程序。命令的结果必须是 `[{"value": 1, "label": "one"}, ...]` | 形式的数组。 |
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
+
+后端处理程序可以返回带有可选字段 `description` 或 `[{"value": 1, "label": "one", "description": "Some hint"}, ...]` 的项目。描述显示在下拉列表标签下方。
 
 #### `selectSendTo`后端代码示例
 ```js
@@ -1236,6 +1268,10 @@ adapter.on("message", (obj) => {
 ### `deviceManager`
 显示设备管理器。为此，适配器必须支持设备管理器协议。请参阅 iobroker/dm-utils。
 
+| 房产 | 描述 |
+|--------------|----------------------------------------------------------------|
+| `smallCards` | （可选）在设备管理器中显示小型设备卡 |
+
 以下是如何在标签页中显示设备管理器的示例：
 
 ```json5
@@ -1271,7 +1307,7 @@ adapter.on("message", (obj) => {
 
 ## 控件的共同属性
 ### 布局选项 `xl`,`lg`,`md`,`sm`,`xs`
-这些选项用于定义元素在不同屏幕尺寸上的宽度，确保在各种设备上实现响应式和适应性布局。
+这些选项用于定义元素在不同屏幕尺寸上的宽度，从而确保在各种设备上实现响应式和适应性布局。
 
 有效数字为1至12。
 
@@ -1509,6 +1545,31 @@ const isValid = func(
 - `arrayIndex` - 仅用于表格，表示数组中的当前行
 - `globalData` - 仅用于表格中的所有设置，而不仅仅是表格中的一行。
 
+```json5
+{
+   "general": {
+      // ....
+      "customSettingsValidator": "customObj.common.type === 'boolean' && data.options.myType == 2",
+      // ....
+   }
+}
+```
+
+您可以通过在自定义设置的根元素（`panel` 或 `tabs`）上定义 `statesFilter`，将自定义设置的应用范围限制在特定状态：
+
+`jsonCustom.json`:
+
+```json5
+{
+   "i18n": true,
+   "type": "panel",
+   "statesFilter": true, // or "^hm-rpc\\.\\d\\..*\\.STATE$" - apply on "hm-rpc.X.*.STATE" states only
+   "items": {
+        // ...
+   }
+}
+```
+
 ## 自定义组件
 ```jsx
 <CustomInstancesEditor
@@ -1620,12 +1681,51 @@ onMessage = (obj: ioBroker.Message): void => {
 ### **正在进行中** -->
 
 ## Changelog
+### 8.3.6 (2026-04-12)
+- (@GermanBluefox) Adjust a path to images
+
+### 8.3.5 (2026-04-11)
+- (@GermanBluefox) Extend schema for staticLink and staticImage components
+
+### 8.3.4 (2026-04-09)
+- (@GermanBluefox) Added `horizontal` option for `select` component with `format: "radio"` to display radio buttons in a row
+- (@GermanBluefox) Added `icon` option for `select` component options to display icons next to labels
+
+### 8.3.2 (2026-03-31)
+- (@GermanBluefox) Added possibility to provide custom components
+
+### 8.2.22 (2026-03-29)
+- (@GermanBluefox) Corrected error for "state" component
+
+### 8.2.19 (2026-03-27)
+- (@GermanBluefox) Added option "small cards" for device manager
+
+### 8.2.18 (2026-03-25)
+- (@GermanBluefox) Added the possibility to use own Client ID for oauth authentication
+- (@GermanBluefox) Added the possibility to show a small image and open it in full size by clicking on it
+
+### 8.2.11 (2026-03-20)
+- (@GermanBluefox) Correcting unit in schema
+- (@GermanBluefox) Fill other config fields when an object ID is selected
+
+### 8.2.8 (2026-03-15)
+- (@GermanBluefox) Added radio button control for the state component ('select')
+
+### 8.2.7 (2026-03-14)
+- (@GermanBluefox) Made the secondary text in 'select' and 'selectSendTo' smaller, italic and semi-transparent
+
+### 8.2.6 (2026-03-14)
+- (@GermanBluefox) Added description for options in 'select' or 'selectSendTo' component
+
+### 8.2.5 (2026-03-12)
+- (@GermanBluefox) Extended the staticText component with HTML and JSON visualization
+
 ### 8.2.3 (2026-03-04)
 - (@GermanBluefox) Increased the QR code padding
 
 ### 8.2.2 (2026-03-03)
 - (@GermanBluefox) Added option `sendFirstByClick` to `imageSendTo`
-- (@GermanBluefox) Added new component: `qrCodeSendTo`
+- (@GermanBluefox) Added a new component: `qrCodeSendTo`
 - (@GermanBluefox) Added option `digits` to `state` component
 - (@GermanBluefox) Trying to fix indication of the problems in the table
 

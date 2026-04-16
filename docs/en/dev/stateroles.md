@@ -8,12 +8,12 @@ to detect the function of the object and also how/if they relate to other object
 The following State Role types exist:
 
 ### Operative States
-Operative states are used to control the normal functionality of a device. A RGB Lamp can have the following three objects (or more) with different roles that belong together:
+Operative states are used to control the normal functionality of a device. An RGB Lamp can have the following three objects (or more) with different roles that belong together:
 * `switch` (On/Off)
 * `level.color.rgb` with #RRGGBB color code of the lamp
 * `level.brightness` with the brightness value
 
-Also the cleaning mode or the room-to-clean of a robotic vacuum cleaner is such an operative state. These states are using the below definition witout any adjustments.
+Also, the cleaning mode or the room-to-clean of a robotic vacuum cleaner is such an operative state. These states are using the below definition without any adjustments.
 
 Please use the most detailed role name possible that provide the most details (e.g. `level.color.temperature` should be used over `level` for the color temperature, or `switch.power` is better than `switch` to operate the power of a device).
 Additionally, when using detailed role names (more than one level), it is important not to use the same role twice in a channel of a device.
@@ -24,7 +24,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 ### Configuration/Setting States
 States that are configuring further "Non-operative" settings of the devices can also use the below basic role definitions to give more context of the type and usage of the provided value, **but add a ".setting." as second level of the role name**. For example:
 * `level.setting.color.temperature` with a 0..100% number can be used to set the "Startup ColorTemperature" of a light bulb
-* `switch.setting` (On/Off) coud be used to define setting that can be turned on or off (e.g. child lock functionality)
+* `switch.setting` (On/Off) could be used to define setting that can be turned on or off (e.g. child lock functionality)
 
 User Interfaces might use these special roles to determine device settings and show then in a "Settings" dialog for the device, or ignore them.
 
@@ -32,7 +32,7 @@ Please note: These types of roles were defined in June 2025, so many (older) ada
 
 ### Generic States
 
-If no detailed matching role can be found or the usecase is not specific then you can fallback to us the below defined **Common** roles.
+If no detailed matching role can be found or the use case is not specific then you can fall back to us the below defined **Common** roles.
 
 ## State role categories
 
@@ -122,7 +122,7 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.battery`         - battery level
 * `value.valve`           - valve level
 * `value.time`            - getTime() of Date() object
-* `value.timer`           - duration in s (r/o equivalent to level.timer)
+* `value.timer`           - duration in s (r/o equivalent to `level.timer`)
 * `value.interval`    (common.unit='sec') - Interval in seconds (can be 0.1 or less)
 * ~~value.date        (common.type=string) - Date in form 2015.01.01 (without time)~~
 * ~~value.datetime    (common.type=string) - Date and time in system format~~

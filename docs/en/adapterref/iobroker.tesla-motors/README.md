@@ -14,32 +14,86 @@
 
 ## Tesla adapter for ioBroker
 
-All Tesla models and Powerwalls from the Tesla App are displayed and updated.
+All Tesla vehicles and Powerwalls from the Tesla App are displayed and updated via the official **Tesla Fleet API**.
 
-**Remote commands for Tesla and Powerwall are available under**
-tesla-motors.0.id.remote
+Vehicle commands (lock, unlock, climate, charging, etc.) are supported for all models including post-2021 vehicles that require **end-to-end command signing** (Vehicle Command Protocol).
 
-**Login process:**
+### Requirements
 
-- Click the Auth Link in the instance options.
-- Enter your login credentials and, if necessary, complete Captcha/reCaptcha and MFA.
-- On the "Page not Found" page, copy the complete URL from the browser and paste it into the instance options, then click Save and Close.
-- The initial data may only appear after the first drive
+- Tesla account with vehicles or energy products
+- Node.js >= 20
+- A registered Tesla Fleet API application (Client ID + Client Secret) from [developer.tesla.com](https://developer.tesla.com)
+- A Fleet Key domain (for virtual key installation on the vehicle)
 
-**Field Description**
+### Setup (Step by Step)
 
-- df driver front
-- dr driver rear
-- pf passenger front
-- pr passenger rear
-- ft front trunk
-- rt rear trunk
+The adapter admin UI guides you through 4 steps:
 
-[Option Codes Explanation](https://tesla-api.timdorr.com/vehicle/optioncodes)
+#### Step 1: Generate Key Pair
 
-## Questions and Discussions:
+1. Click **Generate Key Pair** in the adapter settings to create an EC key pair (prime256v1)
+2. Click **Copy Public Key** and go to [fleetkey.net](https://fleetkey.net) - create an account and get your subdomain (e.g. `abc123.fleetkey.net`)
+3. Upload the Public Key to your FleetKey.net account. Tesla will download the key from there during registration.
 
-https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
+#### Step 2: Tesla Developer App
+
+1. Create a Fleet API Application at [developer.tesla.com](https://developer.tesla.com/request)
+2. Set **Origin** to your full FleetKey subdomain (e.g. `https://abc123.fleetkey.net`)
+3. Set **Redirect URL** to `https://auth.tesla.com/void/callback`
+4. Copy **Client ID** and **Client Secret** from the created app and enter them below together with your FleetKey domain (e.g. `abc123.fleetkey.net`)
+
+#### Step 3: Authentication (OAuth2)
+
+1. Click **Generate Auth Link** - a new browser tab opens with the Tesla login page
+2. Log in with your Tesla account and authorize the app
+3. After login you will see "Page Not Found" - this is expected! Copy the complete URL from the browser address bar
+4. Paste the URL into the code URL field and click **Save and close**
+
+**Warning:** Never share this URL with anyone! It grants access to your Tesla account.
+
+#### Step 4: Install Virtual Key
+
+The Virtual Key is required to send commands to your vehicle (lock/unlock, climate, charging, etc.). Without it, you can only read vehicle data. You can do this step after the adapter is running.
+
+1. Open the Virtual Key URL shown in the adapter settings on your phone (or scan the QR code)
+2. The Tesla App will ask you to confirm adding a "third-party key"
+3. Go to your vehicle and hold your key card to the center console to confirm the installation
+
+### Remote Commands
+
+Remote commands are available under `tesla-motors.0.<VIN>.remote`.
+
+Supported commands include:
+
+- **Lock/Unlock**: `door_lock`, `door_unlock`
+- **Climate**: `auto_conditioning_start`, `auto_conditioning_stop`, `set_temps`, `set_preconditioning_max`, `remote_seat_heater_request`, `remote_steering_wheel_heater_request`
+- **Charging**: `charge_start`, `charge_stop`, `set_charge_limit`, `set_charging_amps`, `charge_port_door_open`, `charge_port_door_close`, `set_scheduled_charging`
+- **Trunk**: `actuate_trunk` (front/rear)
+- **Windows**: `window_control` (vent/close)
+- **Security**: `set_sentry_mode`, `remote_start_drive`
+- **Media**: `media_toggle_playback`, `media_next_track`, `media_prev_track`
+- **Other**: `flash_lights`, `honk_horn`, `trigger_homelink`, `schedule_software_update`
+
+### Field Description
+
+- df: driver front
+- dr: driver rear
+- pf: passenger front
+- pr: passenger rear
+- ft: front trunk
+- rt: rear trunk
+
+### Technical Details
+
+- **Fleet API**: Regional endpoints (EU/NA/CN) with automatic region detection from JWT token
+- **Command Signing**: ECDSA P-256 + HMAC-SHA256 via protobuf (Vehicle Command Protocol)
+- **Two Domains**: DOMAIN_INFOTAINMENT (climate, charging, media) and DOMAIN_VEHICLE_SECURITY (lock, unlock, trunk)
+- **Session Management**: ECDH handshake per domain, epoch + counter based, stored in ioBroker state
+- **Token Refresh**: Automatic refresh before expiry
+
+### Questions and Discussions
+
+<https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0>
 
 <!--
   Placeholder for the next version (at the beginning of the line):
@@ -47,12 +101,17 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 -->
 
 ## Changelog
+### 2.0.0 (2026-04-12)
 
-### **WORK IN PROGRESS**
+- (TA2k) Migrate to Tesla Fleet API with OAuth2
+- (TA2k) Add Vehicle Command Protocol signing (ECDSA P-256) for post-2021 vehicles
+- (TA2k) Add admin UI for Fleet API setup (key generation, credentials, virtual key)
+- (TA2k) Add regional endpoint detection (EU/NA/CN) from JWT token
+- (TA2k) Store session in ioBroker state to avoid restart loops
 - (copilot) Adapter requires admin >= 7.7.22 now
-- (copilot) Adapter requires admin >= 7.6.17 now
 
 ### 1.5.0 (2025-12-28)
+
 - (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 6.17.14 now.
 - (TA2k) powerwall backup history has been fixed
 - (TA2k) Dependencies have been updated.
@@ -69,47 +128,9 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 - fix for too many state in the powerwall energy history
 
-### 1.4.2 (2023-11-17)
-
-- fix km states are not refreshed
-
-### 1.4.1 (2023-11-17)
-
-- fix \_km states are not refreshed
-
-### 1.4.0 (2023-11-14)
-
-- fix location fetching and add new option to change location fetching interval
-
-### 1.3.5 (2023-10-24)
-
-- fix vehicle update
-
-### 1.3.4 (2023-10-24)
-
-- add wall_connector devices
-
-### 1.3.4-alpha.0 (2023-10-18)
-
-- (mcm1957) Standard iobroker release environment has been added.
-- (mcm1957) Some dependencies have been updated.
-
-### 1.3.2
-
-- Create history elements by index not by date
-
-### 1.3.1
-
-- login url and ordered car fix
-
-### 1.0.2
-
-- (iobroker-community-adapters) ALL DATA POINTS ARE NEW, Vis must be adapted. New version with new states for Tesla and Powerwalls.
-
 ## License
 
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2021-2025 iobroker-community

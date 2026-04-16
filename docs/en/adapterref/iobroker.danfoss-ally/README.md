@@ -1,4 +1,4 @@
-# ioBroker.danfoss-ally ![version](https://img.shields.io/badge/version-0.2.13-blue) [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=shields)](https://nodei.co/npm/iobroker.danfoss-ally/)
+# ioBroker.danfoss-ally ![version](https://img.shields.io/badge/version-0.2.15-blue) [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=shields)](https://nodei.co/npm/iobroker.danfoss-ally/)
 
 [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=flat&data=d&color=blue)](https://nodei.co/npm/iobroker.danfoss-ally/)
 
@@ -72,19 +72,62 @@ Polling:      300
 
 ## States
 
-Each discovered device creates a channel:  
+Each discovered device creates a device tree:
 `danfoss-ally.0.<device_id>.*`
+
+## Status vs Control States
+
+The adapter separates **read-only status values** from **writeable control values**.
+
+### Status channel
+`danfoss-ally.0.<deviceId>.status.*`
+
+These states mirror values received from the Danfoss Cloud API.
+
+Properties:
+
+- read: true
+- write: false
+
+Do **not write** to these states from scripts.
+
+Examples:
+
+- `status.temp_current`
+- `status.temp_set`
+- `status.mode`
+- `status.humidity_value`
+- `status.battery_percentage`
+
+### Control channel
+`danfoss-ally.0.<deviceId>.control.*`
+
+These states are intended for **user interaction** and can be written from scripts or Blockly.
+
+Properties:
+
+- read: true
+- write: true
+
+Examples:
+
+- `control.temp_set`
+- `control.manual_mode_fast`
+- `control.mode`
+- `control.child_lock`
+
+The adapter automatically sends commands to the Danfoss Cloud and updates the corresponding status values.
 
 ### Reading examples
 
 | State                                  | Description                                   | Unit |
 | -------------------------------------- | --------------------------------------------- | ---- |
-| `temp_current`                         | Current temperature                           | °C   |
-| `humidity_value`                       | Relative humidity                             | %    |
-| `battery_percentage`                   | Battery level                                 | %    |
-| `mode`                                 | Current mode (`auto`, `manual`, `at_home`, …) | –    |
-| `work_state`, `output_status`, `fault` | Status or error                               | –    |
-| `upper_temp` / `lower_temp`            | Temperature limits                            | °C   |
+| `status.temp_current`                         | Current temperature                           | °C   |
+| `status.humidity_value`                       | Relative humidity                             | %    |
+| `status.battery_percentage`                   | Battery level                                 | %    |
+| `status.mode`                                 | Current mode (`auto`, `manual`, `at_home`, …) | –    |
+| `status.work_state`, `status.output_status`, `status.fault` | Status or error                               | –    |
+| `status.upper_temp` / `status.lower_temp`            | Temperature limits                            | °C   |
 
 > All numeric values are scaled from ×0.1 → °C/% automatically.
 
@@ -97,12 +140,12 @@ This gives you full control in Blockly, JavaScript, or custom logic scripts.
 
 | Writable state                                                                | Expected value / behavior                                       |
 | ----------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| `temp_set`                                                                    | Target temperature (°C, 0.5steps; sent ×10)                     |
-| `manual_mode_fast`                                                            | Alias for `temp_set`                                            |
-| `at_home_setting`, `leaving_home_setting`, `pause_setting`, `holiday_setting` | Preset temperatures                                             |
-| `mode`                                                                        | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
-| `child_lock`                                                                  | `true` / `false`                                                |
-| `SetpointChangeSource`                                                        | `Externally` or `schedule`                                      |
+| `control.temp_set`                                                            | Target temperature (°C, 0.5steps; sent ×10)                     |
+| `control.manual_mode_fast`                                                    | Alias for `temp_set`                                            |
+| `control.at_home_setting`, `control.leaving_home_setting`, `control.pause_setting`, `control.holiday_setting` | Preset temperatures                                             |
+| `control.mode`                                                                | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
+| `control.child_lock`                                                          | `true` / `false`                                                |
+| `control.SetpointChangeSource`                                                | `Externally` or `schedule`                                      |
 
 > Adapter does **not** auto-switch modes when writing setpoints — you decide in your logic.
 
@@ -112,34 +155,34 @@ This gives you full control in Blockly, JavaScript, or custom logic scripts.
 
 ```js
 // Manual mode
-setState("danfoss-ally.0.<id>.mode", "manual");
-setState("danfoss-ally.0.<id>.temp_set", 21.5);
+setState("danfoss-ally.0.<id>.control.mode", "manual");
+setState("danfoss-ally.0.<id>.control.temp_set", 21.5);
 
 // At home
-setState("danfoss-ally.0.<id>.mode", "at_home");
-setState("danfoss-ally.0.<id>.at_home_setting", 21.0);
+setState("danfoss-ally.0.<id>.control.mode", "at_home");
+setState("danfoss-ally.0.<id>.control.at_home_setting", 21.0);
 
 // Leaving home
-setState("danfoss-ally.0.<id>.mode", "leaving_home");
-setState("danfoss-ally.0.<id>.leaving_home_setting", 19.0);
+setState("danfoss-ally.0.<id>.control.mode", "leaving_home");
+setState("danfoss-ally.0.<id>.control.leaving_home_setting", 19.0);
 
 // Pause
-setState("danfoss-ally.0.<id>.mode", "pause");
-setState("danfoss-ally.0.<id>.pause_setting", 5.0);
+setState("danfoss-ally.0.<id>.control.mode", "pause");
+setState("danfoss-ally.0.<id>.control.pause_setting", 5.0);
 
 // Holiday
-setState("danfoss-ally.0.<id>.mode", "holiday");
-setState("danfoss-ally.0.<id>.holiday_setting", 10.0);
+setState("danfoss-ally.0.<id>.control.mode", "holiday");
+setState("danfoss-ally.0.<id>.control.holiday_setting", 10.0);
 
 // Child lock
-setState("danfoss-ally.0.<id>.child_lock", true);
+setState("danfoss-ally.0.<id>.control.child_lock", true);
 
 // Explicit source (usually not needed)
-setState("danfoss-ally.0.<id>.SetpointChangeSource", "Externally"); // or 'schedule'
+setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // or 'schedule'
 ```
 
-> When switching to `manual`, `pause`, or `holiday`, the adapter sets `SetpointChangeSource="Externally"`.  
-> Switching back to `auto` resets it to `"schedule"`.
+> Write commands must target the `control.*` states.  
+> The `status.*` states are read-only mirrors from the Danfoss Cloud.
 
 ---
 
@@ -244,27 +287,24 @@ All send, retry, and confirm logs appear at debug level.
 
 ## Changelog
 
+
+### 0.2.15
+- Fixed invalid `io-package.json` (JSON syntax error)
+- No functional changes
+
+### 0.2.14
+- Introduced `control` channel for writable states
+- `status` channel is now strictly read-only
+- Improved write detection and state handling
+- Prevented writes to channels or non-state objects
+- Improved adapter stability
+
 ### 0.2.13
 - Updated CI & deploy workflow
 - Fixed npm publishing process
 - Improved code formatting (Prettier / ESLint)
 - No functional changes for end users
 
-### 0.2.12
-- Migrated CI to full ioBroker standard
-- Full rewrite of state roles (value._, level._, state) for compatibility
-- Correct creation of device and status channels according to ioBroker standards
-- Replaced all timers with adapter.setTimeout / adapter.setInterval
-- Stabilized soft refresh process and ensured channel creation
-
-### 0.2.11
-- Full write support for all cloud-controllable values
-- Improved token retry handling
-- Enhanced synchronization and logging
-
-### 0.2.10
-- Translation and compliance fixes
-- Improved admin schema, license info, encryption handling
 
 ---
 
@@ -283,7 +323,7 @@ or install via ioBroker development tooling.
 
 MIT License
 
-Copyright (c) 2025 Author Stefan8485@me.com
+Copyright (c) 2025-2026 Author Stefan8485@me.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.

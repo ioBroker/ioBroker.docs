@@ -594,6 +594,10 @@ Possible options and parameters:
 - **--simulate**: With this parameter you enable the simulation mode, means that no real write happens and also the analyze-datafiles will not be updated on exit.
 
 ## Changelog
+### 4.0.0 (2026-03-10)
+* (iobroker-bot) Adapter requires node.js >= 20 now.
+* (@GermanBluefox) Migrated to Typescript
+
 ### 3.0.1 (2023-10-24)
 * (tuxyme) activated the round option when averaging
 

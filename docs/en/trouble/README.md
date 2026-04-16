@@ -1,103 +1,203 @@
 ---
 title: Introduction
-lastChanged: 14.09.2018
+lastChanged: 05.10.2025
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/trouble/README.md
-hash: f+b5Wx4PObU1hl03ZqMvdYWbEwCSyTc+LPx3j3prRfQ=
+hash: NTA2o0nW9VvzoSsjrl2s8CcA3LI2t3CVjcxuMmsvduw=
 ---
-# Troubleshooting
-@@@ General procedures. Refer to individual help for each adapter, installation procedure and platform.
-@@@
+# IoBroker Troubleshooting - Comprehensive Guide
+## Introduction for Beginners
+ioBroker is a powerful Node.js-based smart home platform that connects various IoT devices and services via adapters. For beginners, it's important to understand that a stable ioBroker installation is based on five fundamental pillars, which should be systematically checked when problems arise.
 
-On this page you will find information about problems and their solutions or approaches to solutions.
-Please look through the topics to see whether your problem is already included here or on the subpages and possibly also the solution.
+## The 5 pillars of a stable ioBroker installation
+### 1. **Operating System Selection and Configuration**
+**Recommended operating systems:**
 
-## First aid checklist "My ioBroker no longer works" - What should I check first and always post in the forum?
-Important information is always the following version information:
+- **Debian** (Stable): Maximum stability, longest support cycles, ideal for production systems
+- **Ubuntu LTS**: Good compromise between up-to-dateness and stability, large community
+- **Raspberry Pi OS**: Optimized for Pi hardware, based on Debian
 
-* `node -v`: ioBroker supports the "LTS versions" of nodejs (even version numbers). New installations must use at least nodejs 8.12. **Attention:** Development versions of nodejs (odd version numbers) are not officially supported! Please only use completely new LTS versions after reading the forum information. Nodejs 8.15 or higher is recommended.
-* `npm -v`: ioBroker supports npm version 3 and >5.7.1. Recommended is 6.4.1 or higher
-* `iobroker -v`
-* Version number of the adapter(s) in question
-* Operating system (Linux, MacOS, Windows)
-* Hardware platform
+- **Possible, but not recommended:**
 
-It is best to provide this information directly in the thread.
+- **macOS**
 
-Furthermore, BEFORE posting a forum query, please check this troubleshooting page and the FAQ --LINK-- to see if the topic is already covered there. If you have already tried actions from these documents, please write that down as well.
+**Basic system requirements:**
 
-Please check the logs to see if there are any entries from the relevant adapters at the time of the problem that are helpful. Always put logs and scripts etc. in spoilers.
+- At least 2 GB RAM (4 GB recommended for larger installations)
+- At least 16 GB of storage space (32 GB+ for large installations)
+- Stable internet connection for updates and adapter downloads
+- SSH access for maintenance work
 
-## Where can I find logs?
-In the simplest case, logs can be found in the admin UI in the web browser. Please note, however, that in the admin the log lines are cut off after around 200 characters. This may result in important information being lost or incomplete.
-Furthermore, the logs in the admin are only available for the current browser session.
+**Why OS Choice Matters:** Choosing the wrong operating system leads to recurring problems. Ubuntu intermediate releases have short support cycles and quickly become obsolete. Windows installations are possible, but not recommended.
 
-ioBroker also writes all logs to a log file. This is located in the ioBroker directory in the "log" subdirectory and is normally available there for 7 days. Simply open it with a text editor and send excerpts if necessary.
+### 2. **Operating System Maintenance**
+**Regular maintenance routine:**
 
-## How do I change the log level of an adapter instance?
-By default, the js controller and the adapters run in the log level "info". This means that information that the adapter developer considers useful is output in the log. In total, there are the following log levels:
+```bash
+# Wöchentlich ausführen:
+sudo apt update          # Paketlisten aktualisieren
+sudo apt upgrade -y      # Sicherheitsupdates installieren
+sudo apt autoremove      # Nicht benötigte Pakete entfernen
+```
 
-* **error**: Only errors are logged
-* **warn**: Errors and warnings are logged
-* **info**: Information, warnings and errors are logged, default
-* **debug**: in addition to information, warnings and errors, additional information is logged that the adapter developer considers useful for debugging.
-* **silly**: Most detailed log level, in which messages from the js-controller are also logged, only use if explicitly requested.
+```bash
+# Monatliche Vollwartung:
+sudo apt update
+sudo apt full-upgrade    # Größere Systemupdates
+sudo apt autoclean       # Paket-Cache bereinigen
+sudo reboot             # Neustart nach Kernel-Updates
+```
 
-The log level of an instance can be set in the Admin WebUI. To do this, activate the expert mode under "Instances" and set the log level in the column of the same name for the instance.
-After changing the log level, the instance is automatically restarted.
+**Automating Maintenance:** Experienced users can use maintenance scripts that automatically perform system and ioBroker updates. However, these should only be used after extensive testing in production environments.
 
-**Warning:** Depending on the log level (especially debug and silly), the log file on the disk can become quite large. Pay attention to the available storage space.
+### 3. **Correct ioBroker installation**
+**Single-line installation (recommended):**
 
-## After operating system updates ioBroker no longer works (checking node versions and such)
-## An adapter/ioBroker no longer starts with the error "wrong node version native package. bla" ? (npm rebuild and so on)
-## I have several different nodejs versions on my computer?
-## Suddenly ioBroker/Adapter stops working with the message "Syntax Error Unexpected/Invalid Token or similar" (File corrupt, SD card ...)
-## Error 7/ Reconnect to DB when starting the adapter (Reasons...Solutions)
-## The ioBroker is suddenly no longer accessible, but my computer is still accessible? (syslog oom or something like that)
-## The whole host suddenly freezes during operation (swapping top ...)
-## The whole host freezes during adapter updates (e.g. sql installation)
-## How can I manually reinstall the js-controller and when should I do this? What do I need to consider?
-## How can I manually reinstall an adapter and when should I do this? What do I need to consider?
-## When installing an adapter, a window appears with "index.html not found"? (Install Admin3)
-## My adapters are all gone?
-...
+```bash
+curl -sLf https://iobroker.net/install.sh | bash -
+```
 
-## Where is iobroker's data?
-* Iobroker-data Objects, and Backup and so on
+**What the installation script does:**
 
-## My RAM memory is always full?
-## My system crashes? Constantly stops, no longer accessible
-* SSH still?
-* Not at all anymore?
-* Power supply?
-* Syslog
+- Automatically creates the user `iobroker`
+- Installs the correct Node.js version
+- Set up all necessary directories and permissions
+- Installs basic adapter (Admin, Discovery)
+- Configures autostart services
 
-## Where can I find the iobroker log file?
-## Cannot be installed twice on the same computer/Docker
-## Node and nodejs different outputs
-## How do I enable debug log mode for adapter instances?
-## Ppm error when installing adapters
-* ENOGIT
-* EACCESS
-* ENOSPC
+**Avoid common installation errors:**
 
-## Error: Module version mismatch. Expected 48, got 67.
-## IoT devices no longer work?
-## Cloud or IoT?
-## Error when accessing the admin page "index.html not found"
-## When forum when GitHub issue?
-## Everything worked, I didn't change anything and now something isn't working?
-* Communication error
-* Filesystem error
+- **Do not** install as root
+- **Do not** manually pre-install Node.js (the script does it automatically)
+- **Do not** use sudo before the curl command
+- Always use a fresh, updated system
 
-## After power failure/power off without clean shutdown error
-## Iobroker updates? Adapter? Controller? When npm?
-## Warnings for ppm actions?
-* No Access
-* Audit, security, deprivations
+### 4. **Working with the right user**
+**Understanding the user concept:** ioBroker runs under its own system user named `iobroker`, **not** as root. This is a critical security aspect.
 
-## Reconnection to DB
-## Error 7 Adapter is already running
-## Reinstall/rebuild (and error shell script)
-## I haven't made a backup but still have the ioBroker directory? Is that enough for a restore?
+**User Hierarchy:**
+
+- **Your login user** (e.g., pi, ubuntu): For SSH login and system administration
+- **iobroker-User**: Executes all ioBroker processes, has limited sudo rights
+- **root**: For system administration only, never for ioBroker operation
+
+**Resolve typical legal problems:**
+
+```bash
+# Wenn ioBroker-Befehle nicht funktionieren:
+sudo usermod -aG iobroker $(whoami)  # Ihren User zur iobroker-Gruppe hinzufügen
+# Danach: Aus- und wieder einloggen
+
+# Fixer-Script bei Rechteproblemen:
+iob fix
+# als Fallback, falls die Kurzform nicht greift
+curl -sL https://iobroker.net/fix.sh | bash -
+```
+
+**What you should NEVER do:**
+
+- Run ioBroker with `sudo iobroker ...`
+- Work as root user for normal ioBroker operations
+- Manually "repair" file permissions with chmod 777
+
+### 5. **Keep Node.js up to date**
+**Understanding compatibility:**
+
+- **js-controller 7.x**: Node.js 18.x, 20.x, 22.x, 24.x
+- **js-controller 6.x**: Node.js 18.x, 20.x, 22.x
+- **js-controller 5.x**: Node.js 16.x, 18.x, 20.x
+- **Outdated versions**: Node.js versions below 20.x are end-of-life.
+
+**Update Node.js correctly:**
+
+```bash
+# Moderne Methode (seit 2024):
+iob stop                 # ioBroker stoppen
+iob fix                  # System reparieren
+iob nodejs-update     # Auf empfohlene Node.js 20.x wechseln
+sudo reboot             # System neu starten
+iob start               # ioBroker starten
+```
+
+**Why Node.js updates are critical:**
+
+- Security updates close vulnerabilities
+- New adapters require modern Node.js versions.
+- Performance improvements
+- LTS versions (20, 22, 24) are stable and supported long-term.
+
+**Update frequency:**
+
+- **Security updates**: Install immediately
+- **Minor Updates**: Check monthly
+- **Major Updates**: Based on community feedback, not immediately upon release
+
+## Additional important concepts for beginners
+### Setting up and using SSH access
+SSH (Secure Shell) is the standard way to manage ioBroker systems:
+
+- **Windows**: Use PuTTY or Windows Terminal
+- **macOS/Linux**: Use the built-in Terminal app
+- **Connection**: `ssh username@IP address`
+
+### Backup strategy from the beginning
+```bash
+# Manuelles Backup:
+iob backup
+
+# Automatisches Backup mit backitup-Adapter:
+# Über Admin-Interface installieren und konfigurieren
+```
+
+### Learning to understand log files
+```bash
+# Live-Logs anzeigen:
+iob logs --watch
+
+# Spezifische Adapter-Logs:
+iob logs adaptername
+
+# System-Logs:
+sudo journalctl -u iobroker -f
+```
+
+### Basic troubleshooting mentality
+1. **Always back up before making changes**
+2. **One change at a time**
+3. **Read logs before experimenting wildly**
+4. **Use the community forum for complex problems**
+5. **Be patient - the system needs time to start**
+
+## Typical beginner pitfalls
+### 1. Too many changes, too fast
+- **Problem**: Installing multiple adapters in parallel leaves it unclear what is causing the problems.
+- **Solution**: Test one adapter at a time
+
+### 2. Updates without backup
+- **Problem**: System broken after update, no recovery possible
+- **Solution**: Perform an automatic backup before every major update
+
+### 3. Root privileges as a "solution"
+- **Problem**: Putting `sudo` before ioBroker commands when something isn't working
+- **Solution**: Find the cause, don't forcefully "fix" the symptom.
+
+### 4. Follow outdated instructions
+- **Problem**: Following internet tutorials from 2018
+- **Solution**: Prefer official documentation and current forum threads
+
+### 5. Docker without Linux basics
+- **Problem**: Using Docker containers without understanding volumes, networks, etc.
+- **Solution**: First Linux basics, then Docker specializations
+
+## How these fundamentals lead to troubleshooting
+Understanding these five pillars will help you understand the following chapters much better:
+
+- **"ioBroker is no longer working"**: Addresses problems with database locks, admin outages, and Node.js conflicts.
+- **"Adapter errors"**: Focuses on installation, startup, and performance problems of individual adapters
+
+**Important Note**: Most ioBroker problems arise from one or more neglected fundamentals. Before attempting complex repairs, systematically check these five areas.
+
+---
+
+*The following chapters build on this basic understanding and offer concrete solutions for specific problem situations.*

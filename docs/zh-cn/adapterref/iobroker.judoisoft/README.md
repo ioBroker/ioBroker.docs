@@ -3,29 +3,49 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.judoisoft/README.md
 title: ioBroker.judoisoft
-hash: ZxOGXDTDfqXFZ3X3m2u9JkcSLtq+rzgfSuVnFZnfARA=
+hash: 94PTq/GJP0CTD1to4XsTqDKMykjkTvCCcJijxUL63Zs=
 ---
 ![标识](../../../en/adapterref/iobroker.judoisoft/admin/judo.png)
 
 ![安装数量](http://iobroker.live/badges/judoisoft-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.judoisoft.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.judoisoft.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.judoisoft.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.judoisoft.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.judoisoft.png?downloads=true)
 
 # IoBroker.judoisoft
 =================
 
-judoisoft ioBroker 适配器 ---------------------------------------------------------- --------------------------------
+judoisoft ioBroker 适配器 ------------------------------------------------------------------------------------------
 
-命令选项的一小段摘录：
+以下是命令选项的一小段摘录：
 
-![莫格利希凯滕](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/datenpunkte.png)
+![可能性](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/datenpunkte.png)
 
 可用设置：
 
-![莫格利希凯滕](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/settings.png)
+![可能性](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/settings.png)
+
+对于配备全新 JUDO 连接模块的设备，请在实例设置中启用 `REST API (connectivity module)`。
+
+这将使用本地接口 `http://<ip>/api/rest/...`（基本身份验证）。
+
+（默认用户名/密码为“admin”/“Connectivity”）
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (@SimonFischer04) support rest-api (#143). closes #32, closes #82
+- (@arteck, @SimonFischer04) (dependency) bump / cleanups
+- (@SimonFischer04) Migration to ESLint 9 and @iobroker/eslint-config. #114
+- (@SimonFischer04) Migrate admin config to ioBroker jsonConfig. Closes #55
+
+### 1.1.2 (2025-01-04)
+* (arteck) corr some errors
+
+### 1.1.1 (2024-09-26)
+* (arteck) corr cloud connection
+
 ### 1.1.0 (2023-10-27)
 * (arteck) switch to intervall
 
@@ -65,7 +85,7 @@ judoisoft ioBroker 适配器 ---------------------------------------------------
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 Arthur Rupp arteck@outlook.com
+Copyright (c) 2018-2026 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

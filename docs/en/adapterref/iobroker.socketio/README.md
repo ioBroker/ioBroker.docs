@@ -76,6 +76,10 @@ You can set the option *Force Web-Sockets* to force using only web-sockets trans
 -->
 
 ## Changelog
+### 7.1.3 (2026-04-13)
+* (@GermanBluefox) Fixed possible problems
+* (@GermanBluefox) Updated packages
+
 ### 7.0.8 (2025-03-04)
 * (@GermanBluefox) Removed the frequent debug output
 
@@ -144,4 +148,4 @@ You can set the option *Force Web-Sockets* to force using only web-sockets trans
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2025 @GermanBluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026 @GermanBluefox <dogafox@gmail.com>

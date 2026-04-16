@@ -677,7 +677,13 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.1 (2026-04-11)
+* (Dirk-Peter-md) Add Homematic ON_TIME
+* (Dirk-Peter-md) Adapter configuration revised
+* (Dirk-Peter-md) ioBroker-Bot [E4041], [E4043] completed
+
+### 1.0.0 (2026-03-21)
+* (Dirk-Peter-md) Adapter redesign => Be sure to check your configuration
 * (Dirk-Peter-md) Adaptation to “dasWeather” >= 4.0
 * (Dirk-Peter-md) Fix npm publish
 * (Dirk-Peter-md) dependencies updated
@@ -691,14 +697,6 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 
 ### 0.2.17 (2025-06-15)
 * (Dirk-Peter-md) Valve timing corrected
-
-### 0.2.16 (2025-06-08)
-* (Dirk-Peter-md) issue #95 Pump lead time added
-
-### 0.2.15 (2025-06-01)
-* (Dirk-Peter-md) Readme updated
-* (Dirk-Peter-md) Fixed an error when switching off with autoOnOff
-* (Dirk-Peter-md) ioBroker-Bot [W028]
 
 ## License
 MIT License

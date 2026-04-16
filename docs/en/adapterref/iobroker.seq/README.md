@@ -6,7 +6,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)](https://www.npmjs.com/package/iobroker.seq)
 ![Number of Installations (latest)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
 ![Number of Installations (stable)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
-[![dependencies Status](https://status.david-dm.org/gh/arteck/iobroker.seq.svg)](https://david-dm.org/arteck/iobroker.seq)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [![NPM](https://nodei.co/npm/iobroker.seq.png?downloads=true)](https://nodei.co/npm/iobroker.seq/)
@@ -24,15 +23,15 @@ It is also possible to apply a filter to the log levels and also to the adapters
 4. Save the settings
 
 ## Changelog
+### 1.0.2 (2026-04-06)
+* (arteck) back to seq-logging 2.2.0
 
-<!--
- https://github.com/AlCalzone/release-script#usage
-    npm run release minor -- --all 0.9.8 -> 0.10.0
-    npm run release patch -- --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
-	Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
--->
+### 1.0.1 (2026-04-06)
+* (arteck) Dependencies have been updated
+
+### 1.0.0 (2026-04-05)
+* (arteck) new admin
+
 ### 0.4.2 (2025-10-20)
 * (arteck) fixes
 
@@ -133,7 +132,7 @@ It is also possible to apply a filter to the log levels and also to the adapters
 
 MIT License
 
-Copyright (c) 2025 Arthur Rupp <arteck@outlook.com>,
+Copyright (c) 2026 Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

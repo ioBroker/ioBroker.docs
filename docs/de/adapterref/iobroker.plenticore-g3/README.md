@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.plenticore-g3/README.md
 title: ioBroker.plenticore-g3
-hash: B0UYuVEGJli+1hMjS9GTkZerCB7REb/xhVWqz2I5zaQ=
+hash: 5Njb1uuifzufH0XN64J4An6cNiJoHI77lwTIuQgVna0=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.plenticore-g3.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.plenticore-g3.svg)
@@ -14,34 +14,53 @@ hash: B0UYuVEGJli+1hMjS9GTkZerCB7REb/xhVWqz2I5zaQ=
 <p align="left"> <img src="admin/plenticore-g3.png" width="30%"> </p>
 
 # IoBroker.plenticore-g3
-**Tests:** ![Testen und Freigeben](https://github.com/fernetmenta/ioBroker.plenticore-g3/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/fernetmenta/ioBroker.plenticore-g3/workflows/Test%20and%20Release/badge.svg)
 
 ## Plenticore-g3-Adapter für ioBroker
-Adapter zur Kommunikation mit einem KOSTAL Plenticore (verschiedene Modelle, siehe Abschnitt unten) über die REST-API. Diese API ist deutlich leistungsfähiger als Modbus. Sie ermöglicht den Zugriff auf ca. 200 schreibgeschützte Datenpunkte, sogenannte „Prozessdaten“, und ca. 250 schreibbare Einstellungen. Die API ist unter folgender URL dokumentiert:
+Adapter zur Kommunikation mit einem KOSTAL Plenticore (verschiedene Modelle, siehe unten) über eine REST-API. Diese API ist deutlich leistungsfähiger als Modbus. Sie ermöglicht den Zugriff auf ca. 200 schreibgeschützte Datenpunkte, die als „Prozessdaten“ bezeichnet werden, und ca. 250 beschreibbare Einstellungen. Die API ist unter folgender URL dokumentiert:
 
 http://\<plenticore host>/api/v1
 
 <p align="center"> <img src="images/rest1.png" width="50%"> <img src="images/rest2.png" width="50%"> </p>
 
-Dieser Adapter verwendet die 'Prozessdaten' und 'Einstellungen' der REST-API. Da kein Benutzer alle verfügbaren Daten benötigt, verfügt der Adapter nur über eine sehr kleine Anzahl voreingestellter Prozessdaten und Einstellungen, bietet dem Benutzer jedoch die Möglichkeit, zusätzliche Datenpunkte aus einer Liste aller verfügbaren Prozessdaten bzw. Einstellungen auszuwählen.
+Dieser Adapter nutzt die REST-API-Funktionen „Prozessdaten“ und „Einstellungen“. Da kein Benutzer alle verfügbaren Daten benötigt, verfügt der Adapter nur über eine sehr geringe Anzahl voreingestellter Prozessdaten und Einstellungen. Der Benutzer hat jedoch die Möglichkeit, zusätzliche Datenpunkte aus einer Liste aller verfügbaren Prozessdaten bzw. Einstellungen auszuwählen.
 
 <p align="center"> <img src="images/processdata.png" width="50%"> </p>
 
-Sie können optionalen Datenpunkten auch eigene Beschreibungen hinzufügen, die dann im Objektbaum von iobroker angezeigt werden. Der Zweck eines Datenpunkts lässt sich meist anhand seines Namens ableiten. Beispielsweise steht „devices:local/HomeBat_P“ für den Stromverbrauch des Hauses aus der Batterie.
+Sie können optionalen Datenpunkten eigene Beschreibungen hinzufügen, die dann im Objektbaum von iobroker angezeigt werden. In den meisten Fällen lässt sich der Zweck eines Datenpunkts aus seinem Namen ableiten. Beispielsweise repräsentiert „devices:local/HomeBat_P“ die vom Haus aus der Batterie verbrauchte Leistung.
 
-### Benennung
-Native Objekte bestehen aus einer Modul-ID und einer Daten-ID, zum Beispiel „scb:statistic:EnergyFlow/Statistic:Yield:Day“. Der Teil vor dem Schrägstrich ist die Modul-ID. In diesem Fall also „scb:statistic:EnergyFlow“. Im Objektbaum von iobroker wird für die Modul-ID eine Ordnerstruktur angelegt:<br> scb<br> Statistiken<br> Energiefluss<br>
+### Namensgebung
+Native Objekte bestehen aus einer Modul-ID und einer Daten-ID, beispielsweise „scb:statistic:EnergyFlow/Statistic:Yield:Day“. Der Teil vor dem Schrägstrich ist die Modul-ID, in diesem Fall „scb:statistic:EnergyFlow“. Im Objektbaum von iobroker wird für die Modul-ID eine Ordnerstruktur erstellt.<br> scb<br> Statistiken<br> EnergyFlow<br>
 
-Doppelpunkte in der Daten-ID werden durch einen Unterstrich ersetzt:<br> „Statistik:Ertrag:Tag“ wird zu „Statistik_Ertrag_Tag“
+Doppelpunkte in der Daten-ID werden durch einen Unterstrich ersetzt:<br> &#39;Statistic:Yield:Day&#39; wird zu &#39;Statistic_Yield_Day&#39;
 
-## Unterstützte / getestete Plenticore-Modelle
-Obwohl der Name des Adapters vermuten lässt (nur G3-Modelle werden unterstützt), werden auch andere Modelle unterstützt. Die API scheint identisch zu sein, lediglich die verfügbaren Datenpunkte können unterschiedlich sein. Nachfolgend finden Sie eine Liste der Modelle, die von Benutzern erfolgreich getestet wurden.
+## Unterstützte/getestete Plenticore-Modelle
+Entgegen der Annahme, dass nur G3-Modelle unterstützt werden, werden auch andere Modelle unterstützt, wie der Name des Adapters vermuten lässt. Die API scheint identisch zu sein; lediglich die verfügbaren Datenpunkte können sich unterscheiden. Nachfolgend finden Sie eine Liste der Modelle, die von Nutzern erfolgreich getestet wurden.
 
-Plenticore G3
+- Plenticore G3
 - Plenticore plus 10 (G1) - FW Version 01.30.12092
 - Plenticore BI 10/26 (G2) - FW Version 02.15.19562
 
 ## Changelog
+### 0.5.3 (2026-04-02)
+- update dependencies
+- fix notification, only send notification about firmware updates every 14 days
+
+### 0.5.2 (2026-01-04)
+- fix skipping optionals that have become preselected
+- fix not showing settings for battery when present
+- update dependencies
+
+### 0.5.1 (2025-11-20)
+- bump some packages
+- split react bundle
+- fix unhandled exception when polling inverter state
+- fix missing description of preselected values (former optionals)
+
+### 0.5.0 (2025-10-29)
+- make API-Call timeout configurable
+- update translations
+
 ### 0.4.1 (2025-10-17)
 - move to npm trusted publishing
 
@@ -134,7 +153,7 @@ Initial release
 ## License
 MIT License
 
-Copyright (c) 2025 fernetmenta <fernetmenta@online.de>
+Copyright (c) 2025-2026 fernetmenta <fernetmenta@online.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

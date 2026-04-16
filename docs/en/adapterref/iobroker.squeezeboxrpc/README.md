@@ -640,10 +640,10 @@ are contained in the following CLI documentation:
    ### **WORK IN PROGRESS**
 
 -->
-
-### **WORK IN PROGRESS**
+### 1.6.4 (2026-03-25)
 
 - test remove node 18,extend to node 24
+- update packages
 
 ### 1.6.2 (2025-05-05)
 

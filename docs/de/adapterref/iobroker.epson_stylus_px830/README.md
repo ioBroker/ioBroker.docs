@@ -61,11 +61,11 @@ VIS Widget Beispiel
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.4.0 (2026-03-06)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated
 
 ### 0.3.0 (2024-04-15)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
@@ -80,27 +80,11 @@ VIS Widget Beispiel
 ### 0.1.4 (2018-04-23)
 * (pix) settings window design
 
-### 0.1.2 (2018-04-20)
-* (pix) Readme/Documentation structure
-
-### 0.1.1 (2018-04-20)
-* (pix) Translations to ru, pt, nl, fr, it, es and pl language
-
-### 0.1.0 (2018-04-20)
-* (pix) Admin3 ready
-* (pix) Documentation
-
-### 0.0.2 (2016-06-27)
-* (pix) fixed connection state
-
-### 0.0.1 (2016-06-22)
-* (pix) first release
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

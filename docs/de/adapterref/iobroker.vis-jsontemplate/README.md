@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
-hash: 3qI1R14HZeXdNTbXjv2UmguTzNHwrVruYa0GYJZZgCs=
+hash: SBqUVc0lqvE6u1MS8iZcarssZkbyaVc4gIRL6fSJsJk=
 ---
 # JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
 ![Logo](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -18,8 +18,12 @@ hash: 3qI1R14HZeXdNTbXjv2UmguTzNHwrVruYa0GYJZZgCs=
 
 ## Übersicht
 Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2.
-Sie können die Datenausgabe mithilfe eines Vorlagensystems anpassen.
-In den Vorlagen können Sie HTML, CSS und JavaScript einbinden.
+Sie können die Datenausgabe mithilfe eines Templatesystems anpassen.
+In den Templates können Sie HTML, CSS und JavaScript einbinden.
+Das verwendete Templatesystem war `ejs`.
+Sie können die grundlegenden Funktionen hier im Online-Spielplatz ausprobieren.
+
+<https://ionicabizau.github.io/ejs-playground>
 
 Das jsontemplate-Widget war zuvor in den Adaptern rssfeed (für vis1) und vis-2-widgets-ovarious verfügbar. Die Widgets werden in Kürze aus diesen Adaptern entfernt.
 
@@ -125,256 +129,10 @@ Die Vorlage kann nun auch mit HTML-Tags angereichert werden, um ein bestimmtes L
 
 (In Markdown sind Farben nicht sichtbar)
 
-#### Anwendungsfall für asynchrone Aufrufe
-**Block 1:**
-
-Die Funktion `sendToAsync` wird mit `await` aufgerufen. Dieses Beispiel ruft eine Testfunktion im Admin-Adapter auf.
-
-**Block 2:**
-
-Das Ergebnis in einen String umwandeln und als HTML ausgeben.
-
-**Block 3:**
-
-Definition der Funktion sendToAsync
-
-```ejs
-<% req = await sendToAsync("admin.0","selectSendTo",{test:"test"}); %>
-<%- JSON.stringify(req) %>
-<% async function sendToAsync(instance, command, sendData) {
-    console.log(`sendToAsync ${command} ${sendData}`);
-    return new Promise((resolve, reject) => {
-        try {
-            vis.conn.sendTo(instance, command, sendData, function (receiveData) {
-                resolve(receiveData);
-            });
-        } catch (error) {
-            reject(error);
-        }
-    });
-} %>
-```
-
-**Ergebnis:**
-
-```text
-[{"label":"Afghanistan","value":"AF"},{"label":"Åland Islands","value":"AX"},{"label":"Albania","value":"AL"}]
-```
-
-#### Anwendungsfall für das Laden zusätzlicher Skripte
-Zusätzliche Felder ermöglichen das Laden von JavaScript-Bibliotheken (z. B. von CDNs wie jsDelivr oder cdnjs). Das folgende Beispiel veranschaulicht dies am Beispiel der ChartJS-Bibliothek.
-
-**Schritt 1:**
-
-Erstellen Sie einen neuen Datenpunkt vom Typ String oder JSON mit dem Namen `0_userdata.0.chartData` und dem folgenden Inhalt
-
-```json
-[12, 19, 3, 5, 2, 3]
-```
-
-**Schritt 2:**
-
-Geben Sie die folgende URL in das Feld json_script[1] ein:
-
-```text
-https://cdn.jsdelivr.net/npm/chart.js
-```
-
-**Schritt 3:**
-
-Geben Sie den Namen des erstellten Datenpunkts im Feld „JSON-Datenpunkt“ ein.
-Geben Sie die folgende Vorlage im Feld „JSON-Vorlage“ ein.
-
-Bis auf eine Zeile handelt es sich um Standard-HTML + JavaScript.
-
-```html
-data: <%- JSON.stringify(data) %>,
-```
-
-Die vom Datenpunkt gelesenen Daten sind in der JavaScript-Variablen `data` verfügbar und werden innerhalb der Template-Anweisungen <%- ... %> ausgegeben.
-
-Sobald das Template kompiliert und in das HTML-Dokument eingebunden ist, wird es vom Browser ausgeführt, sodass das Diagramm über JavaScript angezeigt wird.
-
-```ejs
-<div>
-  <canvas id="myChart"></canvas>
-</div>
-
-<script>
-  const ctx = document.getElementById('myChart');
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: <%- JSON.stringify(data) %>,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-</script>
-```
-
-![Beispiel](../../../en/adapterref/iobroker.vis-jsontemplate/img/example_extscripts.png)
-
-#### Anwendungsfall für eine datenbankgestützte Aufgabenliste
-##### **Einführung**
-Dieser Anwendungsfall beschreibt, wie eine Aufgabenliste aus einer MySQL-Datenbank in `ioBroker` visualisiert und interaktiv bearbeitet werden kann. Der Fokus liegt auf der Implementierung einer einfachen Statusänderung per Knopfdruck. Dieses Konzept dient als **Proof of Concept (PoC)** und kann in zukünftige Dokumentationen aufgenommen werden.
-
----
-
-##### **Datenbankstruktur (MySQL)**
-Zunächst wird eine MySQL-Datenbank mit dem Namen `test` erstellt.
-
-Sie enthält eine Tabelle `test` mit den folgenden Feldern:
-
-- `id`: Eindeutige ID für jeden Eintrag
-- `todo`: Titel des Aufgabeneintrags
-- `action`: Status des Eintrags (0 = in Bearbeitung, 1 = abgeschlossen)
-
-###### **SQL-Code zur Tabellenerstellung**
-<details><summary>Details</summary><pre><code>
-
-```sql
-
-CREATE TABLE `test` (
-`id` int(11) NOT NULL,
-`todo` varchar(100) NOT NULL,
-`action` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `test` (`id`, `todo`, `action`) VALUES
-(1, 'Todo 1', 0),
-(2, 'Todo 2', 1),
-(3, 'Todo 3', 1),
-(4, 'Todo 4', 0);
-
-ALTER TABLE `test`
-ADD PRIMARY KEY (`id`),
-ADD UNIQUE KEY `id` (`id`),
-ADD KEY `idx` (`id`);
-
-ALTER TABLE `test`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-COMMIT;
-
-```
-
-</code></pre>
-
-</details>
-
----
-
-##### **Integration in ioBroker**
-###### **SQL-Adapter**
-Für die Interaktion mit der Datenbank wird der Adapter `ioBroker.sql` benötigt.
-Dieser ist entsprechend konfiguriert, um eine Verbindung zur MySQL-Datenbank `test` herzustellen.
-Beachten Sie, dass `ioBroker` automatisch eigene Strukturen in der Datenbank erstellt, um Verlaufsdaten zu speichern.
-
-###### **JSONTemplate-Widget**
-Zur Visualisierung verwenden wir das Widget `JSONTemplate`.
-
-##### **Integration in VIS**
-Wir platzieren das Widget `JSONTemplate` und füllen die folgenden Felder aus:
-
-###### **Vorlagencode**
-<details><summary>Details</summary><pre><code>
-
-```html
-<style>
-    .btn {
-        width: 100%;
-    }
-</style>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Todo</th>
-        <th>Action</th>
-    </tr>
-    <% let todos = await getTodo(); for (let i = 0; i < todos.length; i++) { let todo = todos[i]; %>
-    <tr>
-        <td><%- todo.id %></td>
-        <td><%- todo.todo %></td>
-        <td><%- getButton(todo.id, todo.action) %></td>
-    </tr>
-    <% } %>
-</table>
-
-<script>
-    window.vis-jsontemplate = { clicktodo: clicktodo };
-
-    function getButton(id, action) {
-        let text = action === 0 ? 'In Progress' : 'Completed';
-        return `<button class="btn" onclick="window.vis-jsontemplate.clicktodo(this)" data-id="${id}" data-action="${action}">${text}</button>`;
-    }
-
-    function clicktodo(el) {
-        let id = el.dataset.id;
-        let action = el.dataset.action;
-        let nextAction = action == 0 ? 1 : 0;
-        setAction(id, nextAction);
-    }
-
-    async function getTodo() {
-        let req = await sendToAsync('sql.0', 'query', 'SELECT * FROM test.test');
-        return req.result;
-    }
-
-    async function setAction(id, action) {
-        await sendToAsync('sql.0', 'query', `UPDATE test.test SET action = ${action} WHERE id = ${id}`);
-        vis.setValue('local_trigger', Math.random());
-    }
-
-    async function sendToAsync(instance, command, sendData) {
-        return new Promise((resolve, reject) => {
-            try {
-                vis.conn.sendTo(instance, command, sendData, receiveData => resolve(receiveData));
-            } catch (error) {
-                reject(error);
-            }
-        });
-    }
-</script>
-```
-
-</code></pre>
-
-</details>
-
-###### **Datenpunkt für die Aktualisierung von Inhalten**
-Um sicherzustellen, dass Aktualisierungen nach einer Statusänderung wirksam werden, fügen wir den folgenden lokalen Datenpunkt hinzu:
-
-```text
-local_trigger
-```
-
-Dieser Datenpunkt **muss nicht explizit erstellt werden**, da `local_?`-Datenpunkte intern innerhalb von VIS verarbeitet werden (siehe `vis`-Dokumentation).
-
-##### **Code-Erklärung**
-###### **Vorlagenstruktur**
-| Zeile | Inhalt |
-| ----- | ---------------------------------------------------------------------- |
-| 1-5 | CSS-Stile für das Aussehen von Schaltflächen |
-| 6-11 | Tabellenkopf mit Spalten ID, Todo, Aktion |
-| 12-16 | Daten aus der MySQL-Datenbank mit `getTodo()` abrufen |
-| 23-28 | Globale Referenz der Funktion `clicktodo()` |
-| 30-37 | `getButton()` Funktion zum Erstellen einer Schaltfläche mit dem aktuellen Status |
-| 38-44 | `clicktodo()` Funktion zum Ändern des Status per Knopfdruck |
-| 45-48 | `getTodo()` Funktion zum Abrufen von Daten über den SQL-Adapter |
-| 49-52 | `setAction()` Funktion zum Aktualisieren des Datenbankeintrags |
-| 53-58 | `sendToAsync()` Funktion zur Verwendung von `async/await` mit `vis.conn.sendTo()` |
-| 53-58 | Die Funktion `sendToAsync()` zur Verwendung von `async/await` mit `vis.conn.sendTo()` |
+#### Weitere Anwendungsfälle
+- [Anwendungsfall Asynchrone Aufrufe](documentation/usecase-asynccall.md)
+- [Anwendungsfall-Ladeskripte](documentation/usecase-loadingscripts.md)
+- [Anwendungsfall-Aufgabenliste](documentation/usecase-tasklist.md)
 
 ## Templatesystem
 ## Wichtiger Hinweis zum Templatesystem in vis
@@ -474,7 +232,7 @@ Wenn Sie versuchen, ein Array direkt ohne Index auszugeben, gibt die Vorlage all
 
 Arrays können auch aus einer Sammlung von Objekten bestehen.
 Das hier gezeigte Beispiel enthält nur ein einfaches Array.
-Ein Beispiel für Arrays mit Objekten folgt später.
+Ein Beispiel für Arrays mit Objekten wird später gegeben.
 
 **Vorlage:**
 
@@ -584,6 +342,19 @@ Da Vite Hot Reload unterstützt, ist es manchmal nützlich, Vis2 mit F5 neu zu l
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.4.1 (2026-04-13)
+
+- fix regression
+- update packages
+
+### 4.4.0 (2026-03-24)
+
+- optimize lib size
+- The ability to load additional JavaScript and CSS files
+  has been added (also for vis2).
+- Improve react components
+- align translation for vis2 widget
+
 ### 4.3.11 (2026-01-25)
 
 - check test release workflow

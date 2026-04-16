@@ -99,6 +99,7 @@ The contents of the current playlist is available in the object info.playlist (J
 ### **WORK IN PROGRESS**
 
 - (Uwe Nagel) [#152](https://github.com/Uwe1958/ioBroker.bluesound/issues/152)
+- (Uwe Nagel) [#162][https://github.com/Uwe1958/ioBroker.bluesound/issues/162]
 
 ### 1.3.0 (2025-12-03)
 

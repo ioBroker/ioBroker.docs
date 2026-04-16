@@ -545,6 +545,8 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 (git-kick)
 * "@iobroker/testing": "^5.2.2" - [Issue #301](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/301)
 * Added JSDoc - [Issue #300](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/300)
+* Updated dependencies in package.json - [Issue #305](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/305)
+* Updated dependencies in package.json and added dependabot.yml - [Issue #309](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/309)
 
 ### 1.4.5-alpha.1 (2026-01-26)
 

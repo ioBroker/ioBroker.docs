@@ -40,7 +40,7 @@ A detailed datapoint description you can find here [telematic.json](telematic.js
 
 ### 1. BMW ConnectedDrive Portal Setup
 
-1. Visit the BMW ConnectedDrive portal: **https://www.bmw.de/de-de/mybmw/vehicle-overview**
+1. Visit the BMW ConnectedDrive portal: **https://www.bmw.de/de-de/mybmw/vehicle-overview** or https://www.mini.de/de-de/mymini/vehicle-overview
 2. Navigate to the **BMW CarData** section (you'll see various service categories)
 
 ![BMW Portal Overview](img/bmw-portal-overview.png)
@@ -214,6 +214,13 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.3.5 (2026-04-11)
+
+- (hombach) fix repo checker warnings
+- (hombach) fix vulnerability
+- (hombach) update dependencies
+- (hombach) remove old admin files
+
 ### 4.3.4 (2026-02-28)
 
 - enhance docu and logging

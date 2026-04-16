@@ -61,6 +61,11 @@ When a game is being played, its `isPlaying` state will be set to true, and all 
 
 ## Changelog
 
+### 0.5.9 (2026-03-22)
+* (bloop16)
+    * Added concurrency configuration to CI workflow
+    * Removed obsolete dependabot workflow file
+
 ### 0.5.8 (2026-01-19)
 * (bloop16)
     * Repository checker compliance fully verified

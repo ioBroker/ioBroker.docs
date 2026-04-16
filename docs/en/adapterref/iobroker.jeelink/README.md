@@ -55,6 +55,10 @@ to be done in admin
 
 ## Changelog:
 
+### 1.2.8 (npm)
+
+- (foxthefox) update dependencies, comply with repo checker
+
 ### 1.2.7 (npm)
 
 - (foxthefox) update dependencies, comply with repo checker
@@ -179,4 +183,3 @@ to be done in admin
 The MIT License (MIT)
 
 Copyright (c) 2016-2026 foxthefox <foxthefox@wysiwis.net>
-Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

@@ -24,62 +24,26 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.21.8 (2026-03-04)
-* (BenAhrdt) update icons
+### 1.22.6 (2026-04-10)
+* (BenAhrdt) bugfix cover endposition open
 
-### 1.21.7 (2026-03-04)
-* (BenAhrdt) update logic for icons and link building
+### 1.22.5 (2026-04-10)
+* (BenAhrdt) bugfix displaying buttons in dM cards
 
-### 1.21.6 (2026-03-04)
-* (BenAhrdt) change logic for TTN link and change base ip handling
-* (BenAhrdt) set more devices at default
+### 1.22.4 (2026-04-10)
+* (BenAhrdt) bugfix lock entity in dM card
 
-### 1.21.5 (2026-03-04)
-* (BenAhrdt) implements link to Chirpstack / TTN
+### 1.22.3 (2026-04-10)
+* (BenAhrdt) add first Test for states of configed devices shown in device Manager cards
 
-### 1.21.4 (2026-03-03)
-* (BenAhrdt) update the updateBridge function in objectStore
-* (BenAhrdt) improve LoraWAN and ToIob funkction (init / update)
+### 1.22.2 (2026-04-07)
+* (BenAhrdt) remove readOnly flag from jsonEditor
 
-### 1.21.3 (2026-03-02)
-* (BenAhrdt) add Link to ToIoB Devices
+### 1.22.1 (2026-04-02)
+* (BenAhrdt) add more roles to toIob devices
 
-### 1.21.2 (2026-03-02)
-* (BenAhrdt) update icon for device link
-
-### 1.21.1 (2026-03-02)
-* (BenAhrdt) bring possibility for editing base ip in devce Manager
-
-### 1.21.0 (2026-03-02)
-* (BenAhrdt) update deviceManager (dm-utils) to 3.0.0
-* (BenAhrdt) add Links for Bridge devices
-
-### 1.20.57 (2026-03-02)
-* (BenAhrdt) bugfix query for null
-
-### 1.20.56 (2026-03-02)
-* (BenAhrdt) implement deviceId Handling from bridge
-
-### 1.20.55 (2026-03-02)
-* (BenAhrdt) catch publishing value (null) and log warning for this id
-
-### 1.20.54 (2026-02-27)
-* (BenAhrdt) update dependencies
-* (BenAhrdt) bugfix button press
-
-### 1.20.53 (2026-02-21)
-* (BenAhrdt) errorhandling in case of aggregat error with mqtt connection
-
-### 1.20.52 (2026-02-20)
-* (BenAhrdt) bugfix show ToIob always in device Manager
-* (BenAhrdt) correction of wording in downlink Profil Vicki
-* (BenAhrdt) add role button.mode.startMotorcalibration
-
-### 1.20.51 (2026-02-14)
-* (BenAhrdt) including of more entites in ToIob functionality (light, climate, hummidifier, lock, cover)
-
-### 1.20.50 (2026-02-10)
-* (BenAhrdt) implements light to ToIoB function
+### 1.22.0 (2026-04-01)
+* (BenAhrdt) new Design in device Manager Cards
 
 ### Older entries
 [here](OLD_CHANGELOG.md)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: q5y0ine8XUEAhBDAHSwdI++t8DShZsZvp0kzdLX+hu4=
+hash: hwAWHgbqN4OZ5ffAQUp3DaN2MiSvvVhaOFde0QNrS4Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -44,9 +44,9 @@ Es ist mit Standard-KNX/LAN-Gateways kompatibel.
 Vor Beginn: Alle DPTs von com.Objects müssen in Ihrem ETS-Projekt eingerichtet sein. Alle Geräte müssen Ihrer Anlagenstruktur zugeordnet sein.
 
 ## Anforderungen
-* Node-Version >= 14.15.4
+* Node-Version >= 24.0.0
 * Administratorversion >= 5.2.0
-* js-controller Version >=3.3.20
+* js-controller Version >= 3.3.20
 
 Ohne diese Voraussetzung lässt sich der Adapter nicht installieren oder er funktioniert nicht richtig.
 
@@ -62,6 +62,7 @@ Ohne diese Voraussetzung lässt sich der Adapter nicht installieren oder er funk
 * NEU: Direkte Verbindung eines Nicht-KNX-Zustands zulassen (und umgekehrt)
 * NEU: Adapterantworten auf GroupValueRead für ein mit directLink verbundenes Objekt
 * NEU: Import passwortgeschützter Projektdateien (danke an aKzenT)
+* NEU: Responsives Design für die Admin-Oberfläche (materialize)
 
 ###Installation
 Dieser Adapter lässt sich nur mit npm installieren. Die Installation über GitHub funktioniert **nicht**.
@@ -106,7 +107,7 @@ Gateway!** und darf nicht auf 0 enden
 
 4. KNX-Pakete pro Sekunde: Dies begrenzt die Paketrate. Wenn das KNX LAN-Gateway zu oft die Verbindung wiederherstellt oder vorübergehend nicht erreichbar ist.
 
-Wenn Sie die Möglichkeit nutzen, senken Sie diesen Satz.
+Wenn Sie die Möglichkeit nutzen, reduzieren Sie diesen Satz.
 
 5. Lokale iobroker-IP: Wählen Sie die IP-Adresse/Schnittstelle aus, an die der Adapter gebunden werden soll.
 6. loglevel: Normalerweise ist dies die Stufe "Info", zum Debuggen erhöhen Sie die Stufe.
@@ -119,7 +120,9 @@ Die bestehenden GAs werden neu erstellt.
 Exportieren Sie im Format `knxproj`.
 
 Nach erfolgreichem Import zeigt ein Dialogfeld die Anzahl der importierten Objekte an. Klicken Sie nun auf „Speichern & Schließen“. Der Adapter sollte nun starten.
+
 Beim Start liest der Adapter alle Gruppenadressen mit Lese- und Schreibflag. Dies kann einige Zeit dauern und die KNX-Buslast erhöhen. Die Werte in Ihrer Visualisierung werden jedoch nach dem Start aktualisiert.
+
 Das Hochladen einer passwortgeschützten Datei ist derzeit nicht möglich.
 
 9. Host-ID: Dies ist eine spezielle ID des iobroker-Hosts. Diese ID ist für die Generierung und Validierung der Lizenz erforderlich.
@@ -205,7 +208,7 @@ Mit dem GA-Tool lassen sich die Eigenschaften von GAs einfach ändern.
 
 ![knxV2-3-2-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-2-GATools-mod.jpg)
 
-1. Zeigen Sie die Zustands-Handlungs-Beziehung auf.
+1. Zeigen Sie die Zustands-Handlungs-Beziehung.
 2. Falls eine Beziehung besteht, kann sie entfernt werden.
 
 Besteht keine Beziehung, kann durch Klicken auf (2) für die ausgewählte GA (1) eine neue erstellt werden.
@@ -240,7 +243,7 @@ Seit Adapterversion 2.0.6 ist es möglich, den Status eines Nicht-KNX-ioBrokers 
 
 ![knxV2-3-9-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-9-GATools-DirectLink-mod.jpg)
 
-KNX-GA **(1)** ist nun direkt mit dem Nicht-KNX-iobroker **(2)** verknüpft. Mit **(3)** kann diese Verknüpfung aufgehoben werden.
+KNX-GA ist nun **(1)** direkt mit dem Nicht-KNX-iobroker **(2)** verknüpft. Mit **(3)** kann diese Verknüpfung aufgehoben werden.
 
 ## Geplante Funktionen
 * esf-import
@@ -250,8 +253,13 @@ KNX-GA **(1)** ist nun direkt mit dem Nicht-KNX-iobroker **(2)** verknüpft. Mit
 
 ### **IN BEARBEITUNG** -->
 ## Versionen
+### 2.0.39 (05.04.2026)
+* Unterstützung für ETS 6.4.1 hinzugefügt.
+* Fehlerbehebung
+* Aktualisierungen der Abhängigkeiten
+
 ### 2.0.38 (01.03.2026)
-* Unterstützung für ETS 6.4.0 hinzugefügt.
+* 0
 
 ### 2.0.37 (20.02.2026)
 * Aktualisierungen der Abhängigkeiten
@@ -472,7 +480,7 @@ Ich kann es nicht ändern, aber ich appelliere an alle: Seid Nachbarn und keine 
 ### 1.0.18
 * Problem beim Hochladen von ETS5.6.x-Projektdateien behoben
 * Die Werte für "boolean" wurden von 1 und 0 auf true false geändert.
-* Die Erkennung des Rollensatzes für DPT1.x zum Umschalten wurde korrigiert.
+* Die Erkennung der Rolleneinstellung für DPT1.x wurde korrigiert.
 * Problem behoben: DPT16.xxx schreibt Werte < 14 Byte auf den KNX-Bus.
 
 ### 1.0.17 (2018-08-16)
@@ -528,7 +536,7 @@ Ich kann es nicht ändern, aber ich appelliere an alle: Seid Nachbarn und keine 
 * Beginn der Implementierung der übergreifenden Eigenschaftsaktualisierung auf dem entsprechenden DPT (beim Projektimport)
 
 ### 1.0.4 (2018-02-27)
-* Schema-Update für die Raumaufzählung wird mit ETS 5.6 eingeführt.
+* Schema-Update für die Raumaufzählung in ETS 5.6
 
 ### 1.0.2 (2018-02-27)
 * Kleiner Fehler aus
@@ -619,7 +627,7 @@ on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
 
 The CC-NC-BY License (CC-NC-BY)
 
-Copyright (c) 2016-2026 K.Ringmann <info@punktnetzwerk.net>
+Copyright (c) 2016-2026 K.Ringmann info@punktnetzwerk.net
 
 THE WORK IS PROVIDED UNDER THE TERMS OF THIS CREATIVE
 COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY

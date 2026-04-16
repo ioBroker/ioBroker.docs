@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: 7ziegV+BjbzDnaPC4m+5m5RvIOfUu8K2pyUytmxbePE=
+hash: lrAcCG5s4r+NW//IOgKlqBgJ5vSQCfmTqn7zUhrNIbk=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -134,7 +134,7 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`certificateCollection`:**](#certificatecollection) Wählt eine Sammlung für Let's Encrypt-Zertifikate aus
 - [**`certificates`:**](#certificates) Universeller Typ zur Verwaltung verschiedener Zertifikatstypen (ab Admin 6.4.0)
 - [**`checkbox`:**](#checkbox) Kontrollkästchen für boolesche Werte
-- [**`checkDocker`:**](#checkdocker) Spezielle Komponente zur Überprüfung der Docker-Verfügbarkeit. Falls ja, kann eine Checkbox aktiviert werden (ab Admin 7.8.0).
+- [**`checkDocker`:**](#checkdocker) Spezielle Komponente zur Überprüfung, ob Docker verfügbar ist, und falls ja, kann ein Kontrollkästchen aktiviert werden (ab Admin 7.8.0)
 - [**`checkLicense`:**](#checklicense) Eine spezielle Komponente zur Online-Lizenzprüfung
 - [**`chips`:**](#chips) Der Benutzer kann Wörter eingeben, die einem Array hinzugefügt werden.
 - [**`color`:**](#color) Farbauswahl
@@ -416,10 +416,23 @@ Funktion aus `enum.func` auswählen (mit Farbe und Symbol) - (nur Admin6)
 
 ### `select`
 | Objekt | Beschreibung |
-|-----------------|---------------------------------------------------------------------------|
+|-----------------|----------------------------------------------------------------------------------------------------------------|
 | `options` | Objekt mit Beschriftungen, optionalen Übersetzungen, optionaler Gruppierung und Werten |
 | `showAllValues` | Element auch dann anzeigen, wenn keine Bezeichnung dafür gefunden wurde (bei mehreren Elementen), Standardwert=`true` |
-| `showAllValues` | Element auch dann anzeigen, wenn keine Bezeichnung dafür gefunden wurde (bei mehreren Elementen), Standardwert=`true` |
+| `format` | Darstellungsformat: `"dropdown"` (Standard) oder `"radio"`, um Optionen als Optionsfelder anstelle eines Dropdown-Menüs anzuzeigen |
+| `horizontal` | Wenn `true`, werden Optionsfelder horizontal angezeigt (gilt nur, wenn `format` gleich `"radio"` ist) (ab Version 8.3.3) |
+| `horizontal` | Wenn `true`, werden Optionsfelder horizontal angezeigt (gilt nur, wenn `format` auf `"radio"` gesetzt ist) (ab Version 8.3.3) |
+
+Jede Option in `options` kann Folgendes enthalten:
+
+| Objekt | Beschreibung |
+|---------------|-----------------------------------------------------------------------|
+| `label` | Bezeichnung der Option (kann eine Zeichenkette oder ein übersetzbares Objekt sein) |
+| `color` | Farbe des Optionstextes |
+| `hidden` | Formel oder boolescher Wert zum Ein- oder Ausblenden der Option |
+| `description` | Beschreibung unterhalb der Optionsbezeichnung (kann übersetzbar sein) |
+| `icon` | Symbol-URL oder Base64-Zeichenkette, die neben der Option angezeigt werden soll (ab Version 8.3.3) |
+| `icon` | Symbol-URL oder Base64-Zeichenkette, die neben der Option angezeigt werden soll (ab Version 8.3.3) |
 
 #### Beispiel für `select options`
 ```json5
@@ -501,10 +514,12 @@ Um dies nutzen zu können, müssen Sie zunächst die OAuth2-Daten (Client-ID, Ge
 
 | Objekt | Beschreibung |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `identifier` | OAuth2-Kennung, z. B. `spotify`, `google`, `dropbox`, `microsoft` |
+| `identifier` | OAuth2-Kennung, wie z. B. `spotify`, `google`, `dropbox`, `microsoft` |
 | `scope` | Optionale Bereiche, durch Leerzeichen getrennt, z. B. `user-read-private user-read-email` |
 | `refreshLabel` | Optionale Schaltflächenbeschriftung zum Aktualisieren des Tokens |
-| `refreshLabel` | Optionale Schaltflächenbeschriftung zum Aktualisieren des Tokens |
+| `ownClientId` | Optionaler Attributname, unter dem die OAuth-Client-ID des Benutzers gespeichert wird. Falls gesetzt, wird ein Eingabefeld für die Client-ID angezeigt. |
+| `ownClientSecret` | Optionaler Attributname, unter dem das OAuth-Client-Geheimnis des Benutzers gespeichert wird. Falls festgelegt, wird ein Eingabefeld für das Client-Geheimnis angezeigt. |
+| `ownClientSecret` | Optionaler Attributname, unter dem das OAuth-Clientgeheimnis des Benutzers gespeichert wird. Falls festgelegt, wird ein Eingabefeld für das Clientgeheimnis angezeigt. |
 
 #### Beispiel für `oauth2`
 ```json
@@ -523,11 +538,12 @@ Siehe auch [OAUTH2.md](OAUTH2.md) für weitere Informationen.
 Objekt-ID: Anzeige mit Name, Farbe und Symbol
 
 | Objekt | Beschreibung |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `types` | Gewünschter Typ: `channel`, `device`, ... (standardmäßig nur `state`). Es handelt sich um einen Plural, da `type` bereits belegt ist. |
 | `customFilter` | [optional] Kann nicht zusammen mit den `type`-Einstellungen verwendet werden. Es handelt sich um ein Objekt und nicht um eine JSON-Zeichenfolge. |
 | `filterFunc` | [optional] Kann nicht zusammen mit den Einstellungen `type` verwendet werden. Es handelt sich um eine Funktion, die für jedes Objekt aufgerufen wird und true oder false zurückgeben muss. Beispiel: `obj.common.type === 'number'` |
-| `filterFunc` | [optional] Kann nicht zusammen mit `type`-Einstellungen verwendet werden. Es handelt sich um eine Funktion, die für jedes Objekt aufgerufen wird und true oder false zurückgeben muss. Beispiel: `obj.common.type === 'number'` |
+| `fillOnSelect` | [optional] Füllt weitere Konfigurationsfelder, wenn eine Objekt-ID ausgewählt wird. Format: `pathInObject=>attr,pathInObject=>attr(X)`. Hängen Sie `(X)` an, um nicht leere Felder zu überschreiben. Beispiel: `common.name=>name,common.color=>color(X)` füllt das Feld `name` mit dem Namen des Objekts und überschreibt `color` mit der Farbe des Objekts. |
+| `fillOnSelect` | [optional] Füllt andere Konfigurationsfelder, wenn eine Objekt-ID ausgewählt wird. Format: `pathInObject=>attr,pathInObject=>attr(X)`. Hängen Sie `(X)` an, um nicht leere Felder zu überschreiben. Beispiel: `common.name=>name,common.color=>color(X)` füllt das Feld `name` mit dem Namen des Objekts und überschreibt `color` mit der Farbe des Objekts. |
 
 #### Beispiele für `customFilter`
 ##### Nur Objekte mit bestimmten benutzerdefinierten Einstellungen anzeigen
@@ -578,7 +594,7 @@ Zusätzlich können Sie verhindern, dass diese Eigenschaft an andere Adapter als
 | `adapter` | Name des Adapters. Mit dem speziellen Namen `_dataSources` erhalten Sie alle Adapter mit dem Flag `common.getHistory`. |
 | `allowDeactivate` | falls wahr. Die zusätzliche Option "Deaktivieren" wird angezeigt. |
 | `onlyEnabled` | falls wahr. Nur aktivierte Instanzen werden angezeigt. |
-| `long` | Der Wert sieht eher aus wie `system.adapter.ADAPTER.0` und nicht wie `ADAPTER.0` |
+| `long` | Der Wert sieht aus wie `system.adapter.ADAPTER.0` und nicht wie `ADAPTER.0` |
 | `short` | Der Wert sieht aus wie `0` und nicht wie `ADAPTER.0` |
 | `all` | Füge der Option "all" den Wert `*` hinzu |
 | `all` | Füge der Optionsliste die Option "all" mit dem Wert `*` hinzu. |
@@ -642,32 +658,46 @@ Schaltfläche zum Festlegen des Instanzstatus
 | `Variante` | `enthalten`, `umrandet`, '' |
 
 ### `staticText`
-statischer Text wie Beschreibung
+Statischer Text wie Beschreibung
 
 | Objekt | Beschreibung |
-|----------|---------------------|
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `label` | mehrsprachiger Text |
-| `text` | entspricht der Beschriftung |
+| `format` | `text` (Standard), `html`, `json` (ab Admin-Version 7.8.4) |
+| `href` | Link. Der Link könnte dynamisch sein, wie z. B. `#tab-objects/customs/${data.parentId}` |
+| `target` | `_blank` oder `_self` oder Fenstername. Bei relativen Links ist der Standardwert `_self` und bei absoluten `_blank` |
+| `close` | Wenn wahr, wird die GUI geschlossen (wird nicht für JsonConfig im Adminbereich verwendet, sondern nur für die dynamische GUI, und zwar nur, wenn das Ziel `_self` ist) |
+| `button` | Link als Schaltfläche anzeigen |
+| `variant` | Typ der Schaltfläche (`outlined`, `contained`, `text`) |
+| `color` | Farbe der Schaltfläche (z. B. `primary`) |
+| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Symbole `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Symbole über das Issue an.) |
+| `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
+| `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 
 Es muss genau eines von `label` oder `text` angegeben werden – nicht beide.
 
 ### `staticLink`
 | Objekt | Beschreibung |
-|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `label` | mehrsprachiger Text |
-| `target` | `_blank` oder `_self` oder Fenstername |
-| `close` | Wenn wahr, wird die GUI geschlossen (wird nicht für JsonConfig im Adminbereich verwendet, sondern für die dynamische GUI) |
+| `target` | `_blank` oder `_self` oder Fenstername. Bei relativen Links ist der Standardwert `_self` und bei absoluten `_blank` |
+| `close` | Wenn wahr, wird die GUI geschlossen (wird nicht für JsonConfig im Adminbereich verwendet, sondern nur für die dynamische GUI, und zwar nur, wenn das Ziel `_self` ist) |
 | `button` | Link als Schaltfläche anzeigen |
 | `variant` | Typ der Schaltfläche (`outlined`, `contained`, `text`) |
 | `color` | Farbe der Schaltfläche (z. B. `primary`) |
-| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Icons `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Icons über das Issue an.) |
-| `icon` | Wenn ein Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können `base64`-Symbole (beginnt mit `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Symbole über ein Issue an.) |
+| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Symbole `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Symbole über das Issue an.) |
+| `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
+| `format` | `text` (Standard), `html`, `json` |
+| `format` | `text` (Standard), `html`, `json` |
 
 ### `staticImage`
 | Objekt | Beschreibung |
-|----------|----------------------------------------|
+|----------------------------|----------------------------------------------------------------------------------------------|
 | `href` | optionaler HTTP-Link |
-| `src` | Name des Bildes (aus dem Admin-Verzeichnis) |
+| `showInDialog` | Wenn wahr, wird eine kleine Miniaturansicht angezeigt; durch Klicken darauf öffnet sich ein Dialog mit dem Bild in voller Größe. |
+| `showInDialogButtonLabel` | falls `showInDialog`, eine optionale Beschriftung für eine Schaltfläche, die auch den Dialog öffnet |
+| `showInDialogSmallSize` | falls `showInDialog`, die Höhe des kleinen Vorschaubildes in Pixeln (Standardwert 100) |
+| `showInDialogSmallSize` | falls `showInDialog`, die Höhe des kleinen Vorschaubildes in Pixeln (Standardwert 100) |
 
 ### `table`
 Tabelle mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten verschoben werden können.
@@ -962,9 +992,11 @@ Zeigt das Dropdown-Menü mit den angegebenen Instanzwerten an.
 | `manual` | Manuelle Bearbeitung zulassen. Ohne Dropdown-Menü (wenn die Instanz offline ist). Standardmäßig `true`. |
 | `multiple` | Mehrfachauswahl |
 | `showAllValues` | Element auch dann anzeigen, wenn keine Bezeichnung dafür gefunden wurde (bei mehreren Elementen), Standardwert=`true` |
-| `noTranslation` | Die Beschriftung der Auswahllisten wird nicht übersetzt. Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren. Das Ergebnis des Befehls muss ein Array der Form `[{"value": 1, "label": "one"}, ...]` | sein. |
+| `noTranslation` | Die Beschriftung der Auswahllisten wird nicht übersetzt. Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren. Das Ergebnis des Befehls muss ein Array im Format `[{"value": 1, "label": "one"}, ...]` | sein. |
 | `alsoDependsOn` | Durch welche Änderung der Attribute muss der Befehl erneut gesendet werden? |
 | `alsoDependsOn` | Durch die Änderung welcher Attribute muss der Befehl erneut gesendet werden |
+
+Der Backend-Handler kann Elemente mit einem optionalen Feld `description`: `[{"value": 1, "label": "one", "description": "Some hint"}, ...]` zurückgeben. Die Beschreibung wird unterhalb der Bezeichnung im Dropdown-Menü angezeigt.
 
 #### Beispielcode im Backend für `selectSendTo`
 ```js
@@ -1107,7 +1139,7 @@ Ermittelt den aktuellen Standort und verwendet die Koordinaten `system.config`, 
 | `divider` | Trennzeichen zwischen Breitengrad und Längengrad. Standardwert: "," (Wird verwendet, wenn longitudeName und latitudeName nicht definiert sind) |
 | `longitudeName` | Falls definiert, wird der Längengrad in diesem Attribut gespeichert, das Trennzeichen wird ignoriert. |
 | `latitudeName` | Falls definiert, wird der Breitengrad in diesem Attribut gespeichert, das Trennzeichen wird ignoriert. |
-| `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und Breitengrad und Längengrad werden aus `system.config` gelesen. Ein boolescher Wert wird unter dem angegebenen Namen gespeichert. |
+| `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und die Breiten- und Längengrade werden aus `system.config` gelesen. Ein boolescher Wert wird unter dem angegebenen Namen gespeichert. |
 | `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und die Breiten- und Längengrade werden aus `system.config` gelesen. Ein boolescher Wert wird unter dem angegebenen Namen gespeichert. |
 
 ### `interface`
@@ -1176,7 +1208,7 @@ Spezielle Eingabe für Ports. Es prüft automatisch, ob der Port von anderen Ins
 | `falseImage` | Dieses Bild wird angezeigt, wenn der Wert falsch ist oder wenn es sich bei dem Steuerelement um eine Schaltfläche handelt. |
 | `min` | Minimalwert für Schieberegler oder Zahl |
 | `max` | Maximalwert für Schieberegler oder Zahl |
-| `step` | Schrittwert für Steuerelementtyp Schieberegler oder Zahl |
+| `step` | Schrittwert für Schieberegler oder Zahl |
 | `controlDelay` | Verzögerung in ms für Schieberegler oder Zahl |
 | `variant` | Varianten der Schaltfläche: `contained`, `outlined`, `text` |
 | `readOnly` | Legt fest, ob das Steuerelement schreibgeschützt ist |
@@ -1227,6 +1259,10 @@ Zeigt einen ausschließbaren statischen Text mit optionalem Titel und Symbol an.
 
 ### `deviceManager`
 Zeigen Sie den Geräte-Manager an. Dazu muss der Adapter das Geräte-Manager-Protokoll unterstützen. Siehe iobroker/dm-utils.
+
+| Objekt | Beschreibung |
+|--------------|----------------------------------------------------------------|
+| `smallCards` | (optional) Kleine Gerätekarten im Geräte-Manager anzeigen |
 
 Hier ist ein Beispiel, wie der Geräte-Manager in einem Tab angezeigt werden kann:
 
@@ -1497,6 +1533,31 @@ Folgende Variablen stehen in der JS-Funktion in den benutzerdefinierten Einstell
 - `arrayIndex` - wird nur in Tabellen verwendet und repräsentiert die aktuelle Zeile in einem Array
 - `globalData` - wird nur in der Tabelle für alle Einstellungen verwendet und nicht nur in einer einzelnen Tabellenzeile
 
+```json5
+{
+   "general": {
+      // ....
+      "customSettingsValidator": "customObj.common.type === 'boolean' && data.options.myType == 2",
+      // ....
+   }
+}
+```
+
+Sie können die Anwendung der benutzerdefinierten Einstellungen auf bestimmte Zustände beschränken, indem Sie `statesFilter` im Stammelement (`panel` oder `tabs`) der benutzerdefinierten Einstellungen definieren:
+
+`jsonCustom.json`:
+
+```json5
+{
+   "i18n": true,
+   "type": "panel",
+   "statesFilter": true, // or "^hm-rpc\\.\\d\\..*\\.STATE$" - apply on "hm-rpc.X.*.STATE" states only
+   "items": {
+        // ...
+   }
+}
+```
+
 ## Benutzerdefinierte Komponente
 ```jsx
 <CustomInstancesEditor
@@ -1608,12 +1669,51 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 8.3.6 (2026-04-12)
+- (@GermanBluefox) Adjust a path to images
+
+### 8.3.5 (2026-04-11)
+- (@GermanBluefox) Extend schema for staticLink and staticImage components
+
+### 8.3.4 (2026-04-09)
+- (@GermanBluefox) Added `horizontal` option for `select` component with `format: "radio"` to display radio buttons in a row
+- (@GermanBluefox) Added `icon` option for `select` component options to display icons next to labels
+
+### 8.3.2 (2026-03-31)
+- (@GermanBluefox) Added possibility to provide custom components
+
+### 8.2.22 (2026-03-29)
+- (@GermanBluefox) Corrected error for "state" component
+
+### 8.2.19 (2026-03-27)
+- (@GermanBluefox) Added option "small cards" for device manager
+
+### 8.2.18 (2026-03-25)
+- (@GermanBluefox) Added the possibility to use own Client ID for oauth authentication
+- (@GermanBluefox) Added the possibility to show a small image and open it in full size by clicking on it
+
+### 8.2.11 (2026-03-20)
+- (@GermanBluefox) Correcting unit in schema
+- (@GermanBluefox) Fill other config fields when an object ID is selected
+
+### 8.2.8 (2026-03-15)
+- (@GermanBluefox) Added radio button control for the state component ('select')
+
+### 8.2.7 (2026-03-14)
+- (@GermanBluefox) Made the secondary text in 'select' and 'selectSendTo' smaller, italic and semi-transparent
+
+### 8.2.6 (2026-03-14)
+- (@GermanBluefox) Added description for options in 'select' or 'selectSendTo' component
+
+### 8.2.5 (2026-03-12)
+- (@GermanBluefox) Extended the staticText component with HTML and JSON visualization
+
 ### 8.2.3 (2026-03-04)
 - (@GermanBluefox) Increased the QR code padding
 
 ### 8.2.2 (2026-03-03)
 - (@GermanBluefox) Added option `sendFirstByClick` to `imageSendTo`
-- (@GermanBluefox) Added new component: `qrCodeSendTo`
+- (@GermanBluefox) Added a new component: `qrCodeSendTo`
 - (@GermanBluefox) Added option `digits` to `state` component
 - (@GermanBluefox) Trying to fix indication of the problems in the table
 

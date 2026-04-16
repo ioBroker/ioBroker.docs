@@ -88,24 +88,27 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 ## Changelog
 <!--
 	### **WORK IN PROGRESS**
-	- (@copilot) Added `Cache-Control: no-cache` header to `index.html` to prevent browser from using stale cached HTML after admin updates
-	- (@copilot) Handle Vite dynamic import failures (ERR_CACHE_READ_FAILURE) by triggering page reload instead of showing white screen
 -->
-### 7.8.3 (2026-03-04)
-- (@GermanBluefox) Added the device manager tab in the admin
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Copy `common.states` by alias creation
 
-### 7.7.31 (2026-02-16)
-- (@GermanBluefox) Added better table layout for JSON Config
+### 7.8.20 (2026-03-30)
+- (@GermanBluefox) Improved the device manager
 
-### 7.7.28 (2026-02-08)
-- (@GermanBluefox) Added iframe support for JSON Config
+### 7.8.9 (2026-03-25)
+- (@GermanBluefox) Added in JsonConfig OAuth2 process for spotify
 
-### 7.7.23 (2026-01-27)
-- (@GermanBluefox) Added support of device manager in the admin tabs
-- (@GermanBluefox) Corrected JSON Config issues
+### 7.8.8 (2026-03-24)
+- (@GermanBluefox) Implemented the possibility to upload adapter from the file (useful for development and testing)
 
-### 7.7.22 (2025-12-15)
-- (@GermanBluefox) Layout fix in the edit object dialog
+### 7.8.6 (2026-03-20)
+- (@GermanBluefox) Added the possibility to use the Object properties in JsonConfig
+
+### 7.8.5 (2026-03-18)
+- (@GermanBluefox) Custom editor could be limited to specific instances or specific states by regex expression
+- (@GermanBluefox) Added some options to JSON Config
+- (@copilot) Added `Cache-Control: no-cache` header to `index.html` to prevent browser from using stale cached HTML after admin updates
+- (@copilot) Handle Vite dynamic import failures (ERR_CACHE_READ_FAILURE) by triggering page reload instead of showing white screen
 
 ## License
 

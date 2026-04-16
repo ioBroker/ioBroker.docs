@@ -1,4 +1,5 @@
 ![Logo](admin/solarmanpv.png)
+
 # ioBroker.solarmanpv
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.solarmanpv.svg)](https://www.npmjs.com/package/iobroker.solarmanpv)
@@ -15,196 +16,242 @@
 
 Reading data from balcony power plant
 
-
 ### Getting started
 
-This adapter is used to display data of a balcony power plant, which 
-is provided by a inverter "Bosswerk MI600" in ioBroker. This inverter 
+This adapter is used to display data of a balcony power plant, which
+is provided by a inverter "Bosswerk MI600" in ioBroker. This inverter
 is compatible with others in the Deye family.
 
-I assume that the plant is monitored by the app "Solarman" so far. 
+I assume that the plant is monitored by the app "Solarman" so far.
 This adapter gets the data from this cloud.
 
-First you have to ask Solarman support <service@solarmanpv.com> for 
+First you have to ask Solarman support <service@solarmanpv.com> for
 the needed Credentials (app_id & app_secret) must be requested.
-There may still be a query of the type, "I need to ask what platform 
-are you using? What is your role? Are you an individual, O&M provider, 
-manufacturer, or distributor? Can you give me your email address for 
-the API?". In my case, another query then came: "Why are you applying 
-for API?". I politely answered this question as well and was sent the 
+There may still be a query of the type, "I need to ask what platform
+are you using? What is your role? Are you an individual, O&M provider,
+manufacturer, or distributor? Can you give me your email address for
+the API?". In my case, another query then came: "Why are you applying
+for API?". I politely answered this question as well and was sent the
 necessary data the next day.
 
-On the admin page the 4 fields  have to be according to the description. 
-This adapter is created as a "scheduled" adapter. 
-Since the data in the cloud is updated only about every 6 minutes, 
+On the admin page the 4 fields have to be according to the description.
+This adapter is created as a "scheduled" adapter.
+Since the data in the cloud is updated only about every 6 minutes,
 it does not make to start the adapter more frequently.
 
-Since version 0.3.0, in contrast to the previous versions, a blacklist 
-is made possible. This means that "all" values supplied by the Api are 
-read in and the user can filter out the values that are not needed via 
-the blacklist. The corresponding data points can be deleted, which 
+Since version 0.3.0, in contrast to the previous versions, a blacklist
+is made possible. This means that "all" values supplied by the Api are
+read in and the user can filter out the values that are not needed via
+the blacklist. The corresponding data points can be deleted, which
 makes the number of objects clearer.
 
-Since 16.04.2023 Solarman has switched to a new platform - version 0.4.0. 
+Since 16.04.2023 Solarman has switched to a new platform - version 0.4.0.
 Further adaptations of the api, as far as they exist, have not been made.
 
 In versions 0.5.2 to 0.6.x, only developer adjustments were made.
 
-In version 0.7.0, the node-js was raised to the recommended version 20.x 
-and the js-controller >6 was made a prerequisite. Email and app-secret are 
+In version 0.7.0, the node-js was raised to the recommended version 20.x
+and the js-controller >6 was made a prerequisite. Email and app-secret are
 encrypted. Therefore, both values must be entered again after an update!
 
 In version 0.7.1, only minor adjustments were made to the instance view.
 
-Potentially sensitive data such as “activeToken” should be encrypted, but 
+Potentially sensitive data such as “activeToken” should be encrypted, but
 this does not work reliably. Therefore, this was rolled back in version 0.7.3.
 
 ## Changelog
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
 ### 0.7.3 (2025-11-04)
-* (raschy) Bump axios from 1.12.2 to 1.13.1
-* (raschy) Token encryption revoked
-* (raschy) Dependencies updated according to Dependabot on November 24
+
+- (raschy) Bump axios from 1.12.2 to 1.13.1
+- (raschy) Token encryption revoked
+- (raschy) Dependencies updated according to Dependabot on November 24
 
 ### 0.7.2 (2025-10-01)
-* (raschy) Bump axios from 1.11.0 to 1.12.2
+
+- (raschy) Bump axios from 1.11.0 to 1.12.2
 
 ### 0.7.1 (2025-04-25)
-* (raschy) jsonConfig customized
+
+- (raschy) jsonConfig customized
 
 ### 0.7.0 (2025-04-23)
-* (raschy) NodeJS >= 20.x and js-controller >= 6 is required
-* (raschy) email and appsecret is now encrypted, please re-enter!
+
+- (raschy) NodeJS >= 20.x and js-controller >= 6 is required
+- (raschy) email and appsecret is now encrypted, please re-enter!
 
 ### 0.6.4 (2025-02-06)
-* (raschy) Developer system to nodejs 22.x updated
+
+- (raschy) Developer system to nodejs 22.x updated
 
 ### 0.6.3 (2025-01-02)
-* (raschy) Design edited
-* (raschy) Migration from ESLint 8.x to 9.x
+
+- (raschy) Design edited
+- (raschy) Migration from ESLint 8.x to 9.x
 
 ### 0.6.2 (2024-11-08)
-* (raschy) responsive-design customized
-* (raschy) updated to adapter-core 3.2.2
+
+- (raschy) responsive-design customized
+- (raschy) updated to adapter-core 3.2.2
 
 ### 0.6.1 (2024-08-15)
-* (raschy)  renewed version without changes
-* (raschy) 	Dependencies require minor releases
+
+- (raschy) renewed version without changes
+- (raschy) Dependencies require minor releases
 
 ### 0.6.0 (2024-08-15)
-* (raschy) 	Dependencies require minor releases
+
+- (raschy) Dependencies require minor releases
 
 ### 0.5.3 (2024-08-14)
-* (raschy) 	Warning in schema corrected
+
+- (raschy) Warning in schema corrected
 
 ### 0.5.2 (2024-08-10)
-* (raschy) 	updated dependencies
-* (raschy)  NodeJS >= 18.x and js-controller >= 5 is required
+
+- (raschy) updated dependencies
+- (raschy) NodeJS >= 18.x and js-controller >= 5 is required
 
 ### 0.5.1 (2023-09-04)
-* (raschy) Expanded number of modules
+
+- (raschy) Expanded number of modules
 
 ### 0.5.0 (2023-06-16)
-* (raschy) Set selected values to zero
+
+- (raschy) Set selected values to zero
 
 ### 0.4.3 (2023-06-12)
-* (raschy) Blacklist also deletes data points
-* (raschy) Fixed error with multiple inverters
+
+- (raschy) Blacklist also deletes data points
+- (raschy) Fixed error with multiple inverters
 
 ### 0.4.2 (2023-05-31)
-* (raschy) Module selection activated
+
+- (raschy) Module selection activated
 
 ### 0.4.1 (2023-05-27)
-* (raschy) Do not display devices that are not required
+
+- (raschy) Do not display devices that are not required
 
 ### 0.4.0 (2023-04-16)
-* (raschy) Solarman has switched to a new platform
+
+- (raschy) Solarman has switched to a new platform
 
 ### 0.3.2 (2023-03-28)
-* (raschy) Error 'DB-closed' fixed
+
+- (raschy) Error 'DB-closed' fixed
 
 ### 0.3.1 (2023-02-19)
-* (raschy) Inverter-Filter deactivated
+
+- (raschy) Inverter-Filter deactivated
 
 ### 0.3.0 (2023-02-17)
-* (raschy) Blacklist added
+
+- (raschy) Blacklist added
 
 ### 0.2.2 (2023-02-08)
-* (raschy) Release for github/npm
+
+- (raschy) Release for github/npm
 
 ### 0.2.1 (2023-02-08)
-* (raschy) Timeout extended, type error fixed during setup, some data added from BMS
+
+- (raschy) Timeout extended, type error fixed during setup, some data added from BMS
 
 ### 0.2.0 (2022-11-07)
-* (raschy) Adding the battery data from hybrid inverters
+
+- (raschy) Adding the battery data from hybrid inverters
 
 ### 0.1.5 (2022-10-17)
-* (raschy) Added support for hybrid inverters and 4 MPPTs
+
+- (raschy) Added support for hybrid inverters and 4 MPPTs
 
 ### 0.1.4 (2022-09-17)
-* (raschy) Corrections after first review
+
+- (raschy) Corrections after first review
 
 ### 0.1.3 (2022-08-19)
-* (raschy) Adapter termination code changed
+
+- (raschy) Adapter termination code changed
 
 ### 0.1.2 (2022-07-30)
-* (raschy) Added device status, structure reduced
+
+- (raschy) Added device status, structure reduced
 
 ### 0.1.1 (2022-07-27)
-* (raschy) Clean up the code and start delay
+
+- (raschy) Clean up the code and start delay
 
 ### 0.1.0 (2022-07-26)
-* (raschy) Also for multiple inverter per station
+
+- (raschy) Also for multiple inverter per station
 
 ### 0.0.14 (2022-07-13)
-* (raschy) Extension for multiple plants
+
+- (raschy) Extension for multiple plants
 
 ### 0.0.13 (2022-07-11)
-* (raschy) Clean up the debug values
+
+- (raschy) Clean up the debug values
 
 ### 0.0.13-alpha.0 (2022-07-10)
-* (raschy) ApiClient swapped to separate file
+
+- (raschy) ApiClient swapped to separate file
 
 ### 0.0.12 (2022-07-04)
-* (raschy) test and release workflow for npm activated
+
+- (raschy) test and release workflow for npm activated
 
 ### 0.0.11 (2022-07-03)
-* (raschy) Create to release
+
+- (raschy) Create to release
 
 ### 0.0.10 (2022-07-03)
-* (raschy) User warnings addet
+
+- (raschy) User warnings addet
 
 ### 0.0.9 (2022-06-20)
-* (raschy) Errorhandling addet
+
+- (raschy) Errorhandling addet
 
 ### 0.0.8 (2022-06-19)
-* (raschy) Try after clearing folder
+
+- (raschy) Try after clearing folder
 
 ### 0.0.7 (2022-06-19)
-* (raschy) Try first release
+
+- (raschy) Try first release
 
 ### 0.0.6 (2022-06-19)
-* (raschy) Crypto version corrected
+
+- (raschy) Crypto version corrected
 
 ### 0.0.5 (2022-06-19)
-* (raschy) Crypto version changed
+
+- (raschy) Crypto version changed
 
 ### 0.0.4 (2022-06-19)
-* (raschy) Dependecies addet
+
+- (raschy) Dependecies addet
 
 ### 0.0.3 (2022-06-19)
-* (raschy) ReadMe changed
+
+- (raschy) ReadMe changed
 
 ### 0.0.2 (2022-06-19)
-* (raschy) changed to jsonConfig
+
+- (raschy) changed to jsonConfig
 
 ### 0.0.1 (2022-06-16)
-* (raschy) initial release
+
+- (raschy) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2022-2026 raschy <raschy@gmx.de>

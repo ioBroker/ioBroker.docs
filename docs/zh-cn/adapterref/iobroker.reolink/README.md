@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: 50y3ZeJ3MS1dkRKIpyBd3FY/d1+0pNHJpsSoWBp/fKA=
+hash: xaZzmVNw6uvjy6H3TumpfbeTCTSIQHcKssShqS0fPxk=
 ---
 ![标识](../../../en/adapterref/iobroker.reolink/admin/reolink.png)
 
@@ -95,24 +95,133 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 });
 ```
 
-## 已知可用的摄像头（固件版本为 2023 年之后）
-- RLC-420-5MP
-E1户外
-- E1 变焦
-- RLC-522
-- RLC-810A
-- RLC-823A
-- 双人组 3 PoE
+## 电池供电相机
+电池摄像头（Argus PT、Argus 3 Pro 等）使用专有协议，并通过 **[新链接](https://github.com/QuantumEntangledAndy/neolink)** 提供支持——这是一个开源工具，首次使用时会自动下载。
 
-## 已知无法正常工作的摄像头
-E1 Pro
-- Argus 4（可能所有 Argus 版本都无法正常工作）
+### 快速设置
+1. **在配置中启用：** ✅ “电池供电摄像头”
+2. **输入相机 UID：** 在 Reolink 应用中查找 → 设备信息
+3. **安装依赖项（Linux）：**
+
+```bash
+sudo apt install gstreamer1.0-rtsp
+```
+
+4. **启动适配器** → RTSP 流可通过 `rtsp://<服务器 IP 地址>:8554/<摄像头名称>/mainStream` 获取
+
+服务器 IP 地址会自动检测。`<CameraName>` 是适配器配置中设置的名称。
+
+### 省电模式
+**电池在运行时耗电很快！** 该适配器采用自动禁用策略：
+
+- **`streams.enable`**（布尔值）— 启用/禁用 RTSP 流媒体
+- 默认值：`false`（关闭 = 节省电池电量）
+- 30 秒后自动禁用（可配置）
+- 当没有客户端连接时，流媒体会自动暂停。
+
+- **`mqtt.enable`**（布尔值）— 启用 MQTT 集成，用于运动/电池/泛光灯/PIR 传感器。
+- 用于状态更新和泛光灯/PIR 控制
+- 超时后自动禁用（电池保护）
+- 在适配器设置中配置代理
+
+### 电池相机状态
+| 状态 | 类型 | 读/写 | 描述 |
+|---|---|---|---|
+| `streams.enable` | 布尔值 | 读/写 | 启动/停止 RTSP 流 |
+| `streams.subStream` | 字符串 | R | 子流的 RTSP URL |
+| `mqtt.enable` | 布尔值 | 读/写 | 启动/停止 MQTT 集成 |
+| `floodlight` | 布尔值 | 读/写 | 泛光灯开/关 — 状态通过 MQTT 传输，控制通过 MQTT 传输（自动启动 MQTT） |
+| `pir` | 布尔值 | 读/写 | PIR传感器开/关 — 状态通过MQTT传输，控制通过MQTT传输（自动启动MQTT） |
+| `snapshot` | 按钮 | W | 通过 RTSP 捕获快照 |
+| `query.battery` | 按钮 | W | 通过 Neolink CLI 查询电池电量 |
+| `query.preview` | 按钮 | W | 通过 RTSP 捕获快照 |
+| `ptz.preset` | 数字 | 读/写 | 将相机移动到已保存的预设位置（0-9） |
+| `ptz.up/down/left/right` | 布尔值 | 读/写 | 按住移动（`true`=开始，`false`=停止） |
+| `ptz.speed` | 数字 | 读/写 | 云台移动速度（1-100，默认值 32） |
+| `status.motion` | 布尔值 | R | 检测到运动（通过 MQTT） |
+| `status.battery_level` | 数字 | R | 电池电量百分比（通过 Neolink CLI，定期显示） |
+| `status.battery_level` | 数字 | R | 电池电量百分比（通过 neolink CLI，定期更新） |
+
+| `snapshotImage` | 字符串 | R | 最新快照图像（base64，数据 URI） |
+| `info.neolink_status` | 字符串 | R | neolink 进程状态：`stopped` / `running` |
+| `info.neolink_status` | 字符串 | R | neolink 进程状态：`已停止` / `正在运行` |
+
+### 云台控制
+PTZ 通过 neolink CLI 实现——无需 MQTT。
+
+**方向移动** (`ptz.up/down/left/right`):
+
+- 设置为“true”→ 相机开始移动，5 秒后自动停止
+- 设置为“false” → 相机立即停止拍摄
+- 在 VIS 中：配置按钮，使其 `mousedown=true` / `mouseup=false` 以实现按住移动功能
+- 使用 `ptz.speed` 调整速度（1–100）
+
+**预设** (`ptz.preset`): 设置为预设数字 (0–9) 以移动到该已保存的位置。
+
+＃＃＃ 特征
+✅ RTSP 流（主流 + 子流） ✅ 快照捕获（需要 ffmpeg） ✅ 泛光灯控制（状态 + 通过 MQTT 控制） ✅ PIR 传感器控制（状态 + 通过 MQTT 控制） ✅ 运动检测（通过 MQTT） ✅ 电池电量（通过 neolink CLI 定期更新） ✅ 预览图像（通过 MQTT 自动更新） ✅ 云台控制 — 方向移动 + 预设位置（通过 neolink CLI） ✅ 多平台 — neolink 二进制文件自动下载（Linux x64/ARM/ARM64、macOS）
+
+### MQTT 设置
+在适配器设置中进行配置：
+
+- **代理主机**（默认值：`127.0.0.1`）
+- **代理端口**（默认值：`1883`）
+- **用户名/密码**（可选）
+- **自动禁用超时**（默认值：30 秒，电池保护）
+
+MQTT 用于摄像头状态更新和控制。当 `mqtt.enable` 设置为 `true` 时，适配器会自动订阅。
+
+状态主题（由摄像头通过 Neolink 发布）：
+
+- `neolink/<摄像头>/状态/运动`
+- `neolink/<摄像头>/status/battery_level`
+- `neolink/<摄像头>/状态/泛光灯`
+- `neolink/<摄像头>/状态/pir`
+- `neolink/<摄像头>/状态/预览`
+
+控制主题（由适配器发布到相机）：
+
+- `neolink/<摄像头>/control/泛光灯`
+- `neolink/<摄像头>/control/pir`
+
+### 故障排除
+| 问题 | 解决方案 |
+|---|---|
+| “需要相机 UID” | 从 Reolink 应用 → 设备信息中输入 UID |
+| "未找到 libgstrtspserver" | `sudo apt install gstreamer1.0-rtsp` |
+| 快照失败 | 安装 ffmpeg：`sudo apt install ffmpeg` |
+| 快照失败 | 安装 ffmpeg：`sudo apt install ffmpeg` |
+| MQTT `NotAuthorized` | 检查代理凭据；Neolink 使用 `credentials = ["user", "pass"]` 格式 |
+| MQTT 未授权 | 检查代理凭据；Neolink 使用 `credentials = ["user", "pass"]` 格式 |
+| 电池耗电快 | 不使用时请禁用流媒体传输；仅使用 MQTT 进行运动检测 |
+| 云台无响应 | 每个云台指令需要约 2 秒（P2P 摄像机登录）——这是正常现象 |
+
+---
+
+## 已知可用的摄像头
+### HTTP API（标准）
+RLC-420-5MP、E1 Zoom、RLC-522、RLC-810A、RLC-823A、Duo 3 PoE
+
+### 电池供电摄像头（通过 Neolink）
+Reolink Argus PT，Reolink Argus 3 Pro
+
+---
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.4.2 (2026-03-16)
+* (oelison) fast fix for issue #230
+
+### 1.4.1 (2026-03-15)
+* (oelison) fix issue #187
+
+### 1.4.0 (2026-03-13)
+* (bloop16) Battery camera support via neolink
+* (oelison) Adapter requires node.js >= 20 now.
+
 ### 1.3.0 (2025-12-20)
 * (agross) AiCfg config
 * (oelison) bump some libs #202
@@ -171,7 +280,7 @@ E1 Pro
 ## License
 MIT License
 
-Copyright (c) 2025 Andy Grundt <andygrundt@gmail.com>
+Copyright (c) 2026 Andy Grundt <andygrundt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -97,9 +97,15 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
 -->
 
 ## Changelog
+### 3.0.2 (2026-03-10)
+- (@GermanBluefox) Correcting configuration dialog
+- (@GermanBluefox) Added tests for GUI component
 
-### **WORK IN PROGRESS**
+### 3.0.0 (2026-03-05)
+- (lubepi) BREAKING: DNS-01 credentials are encrypted now. You might have to reenter them once after upgrading the aadapter. 
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (lubepi) Added support for Netcup DNS-01 challenge 
+- (@GermanBluefox) Optimisations on log output and error handling
 
 ### 2.0.0 (2026-02-12)
 - (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
@@ -114,16 +120,6 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
 ### 1.0.5 (2024-12-08)
 
 - (@GermanBluefox) Corrected error with admin 7.4.3
-
-### 1.0.3 (2024-11-27)
-
-- (@GermanBluefox) Migrated GUI for admin 7 (one more time)
-
-### 1.0.1 (2024-07-06)
-
-- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-- (mcm1957) Dependencies have been updated
-- (bluefox) Prepared for admin v7
 
 ## License
 

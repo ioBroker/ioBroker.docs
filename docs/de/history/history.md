@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: XdiPH8YeAi233ueur5eE+gIFmlkhGJKAjaTJihgmaC0=
+hash: S477x8lD9BMWNtu9CJLIXZ9Ut9m2L9SRMZ8M/a2B9BU=
 ---
 # Was ist neu
 ## Hinweise für Autoren
@@ -430,7 +430,7 @@ Admin unterstützt nun die Einbindung in JSONConfig-Dateien:
 
 https://github.com/ioBroker/ioBroker.admin/blob/master/packages/jsonConfig/SCHEMA.md#includes
 
-## Glättung (8.4.2024) – neuer Adapter
+## Geglättet (8.4.2024) – neuer Adapter
 https://github.com/BenAhrdt/ioBroker.smoothed
 
 <img src="https://raw.githubusercontent.com/BenAhrdt/ioBroker.smoothed/main/admin/smoothed.png" width="100" height="100" />
@@ -596,7 +596,7 @@ https://github.com/Bannsaenger/ioBroker.extron
 
 <img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.extron/master/admin/extron.png" width="100" height="100" />
 
-Steuergeräte von Extron. Dieser Adapter dient zur Steuerung einiger Extron-Audio-/Videoprodukte über das Simple Instruction Set Protocol (SIPS). Der Funktionsumfang der Geräte ist enorm. Nicht alle Funktionen lassen sich mit diesem Adapter und der Interaktion mit ioBroker sinnvoll unterstützen.
+Steuergeräte von Extron. Dieser Adapter dient zur Steuerung einiger Extron-Audio-/Videoprodukte über das Simple Instruction Set Protocol (SISP). Der Funktionsumfang der Geräte ist enorm. Nicht alle Funktionen lassen sich mit diesem Adapter und der Interaktion mit ioBroker sinnvoll unterstützen.
 
 ## Ping (23.08.2024) – neue Funktion
 Der Ping-Adapter kann den IP-Adressbereich erkennen, sofern dieser weniger als 4096 Adressen umfasst.
@@ -652,7 +652,7 @@ Benutzer können vom Alias-Ziel zum Alias selbst springen.
 ## Admin (28.09.2024) – Neue Funktion
 ![Passwort](../../en/history/media/2024_09_28_admin_password.png)
 
-Der Administrator prüft nun auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert, und fordert ihn auf, dieses zu ändern, falls ein solcher Benutzer gefunden wird.
+Der Administrator prüft nun auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert, und fordert gegebenenfalls zur Änderung des Passworts auf.
 
 Administratoren unterstützen die grafische Benutzeroberfläche für dynamische Benachrichtigungen.
 
@@ -1129,11 +1129,54 @@ https://github.com/deMynchi/ioBroker.meteoswiss
 
 Liefert Wetterinformationen von MeteoSwiss
 
-## Hagelschutz-vkf (25.02.2025) – Neuer Adapter im stabilen Repository
+## Hagelschutz-vkf (25.02.2026) – Neuer Adapter im stabilen Repository
 https://github.com/UncleSamSwiss/ioBroker.hagelschutz-vkf
 
 <img src="https://raw.githubusercontent.com/UncleSamSwiss/ioBroker.hagelschutz-vkf/main/admin/hagelschutz-vkf.jpg" width="100" height="100" />
 
 Adapter für hagelschutz-einfach-automatisch.ch der kantonalen Gebäudeversicherungen.
+
+## Ping (28.02.2026) – neue Funktion
+https://github.com/ioBroker/ioBroker.ping
+
+Der Ping-Adapter kann hping3 verwenden, um iPhones zu erkennen und Wake-on-LAN-Pakete zu senden, um Geräte im Netzwerk aufzuwecken.
+
+## Parser (28.02.2026) - neue Funktion
+https://github.com/ioBroker/ioBroker.parser
+
+Der Parser kann nun Werte von Zuständen, ioBroker-Dateien und Protokollen analysieren. Der Export und Import von Parserregeln über CSV-Dateien wurde hinzugefügt.
+
+## Hoymiles-ms (25.03.2026) – Neuer Adapter im stabilen Repository
+https://github.com/mcm4iob/ioBroker.hoymiles-ms
+
+<img src="https://raw.githubusercontent.com/mcm4iob/ioBroker.hoymiles-ms/main/admin/hoymiles-ms.png" width="100" height="100" />
+
+Dieser Adapter integriert die HOYMILES MicroStorage-Systeme in ioBroker. Aktuell wurde die Funktionsfähigkeit der folgenden Systeme geprüft.
+
+- Hoymiles MS-A2
+- Hoymiles HiBattery 1920 AC
+
+## Smartm (25.03.2026) – Neuer Adapter im stabilen Repository
+https://github.com/strulli85/ioBroker.smartm
+
+<img src="https://raw.githubusercontent.com/strulli85/ioBroker.smartm/main/admin/smartm.svg" width="100" height="100" />
+
+Dieser Adapter liest Daten von Photovoltaik-Energieanlagen aus deren Cloud namens SmartM.
+
+<!-- ######################### Diese Zeilen am Ende der Datei als Erinnerung behalten ######################## --> <!-- ##### ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Icons! ### --> <!-- ######################## Diese Zeilen am Ende der Datei als Erinnerung behalten ####################### -->
+
+## Pjlink (31.03.2026) – Neuer Adapter im stabilen Repository https://github.com/Bannsaenger/ioBroker.pjlink
+<img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.pjlink/main/admin/pjlink.png" width="100" height="100" />
+
+PJLink Projektorsteuerung
+
+<!-- ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Symbole ! -->
+
+## Heos (15.03.2025) – Neuer Adapter im stabilen Repository
+https://github.com/withstu/ioBroker.heos
+
+<img src="https://raw.githubusercontent.com/withstu/ioBroker.heos/main/admin/heos.png" width="100" height="100" />
+
+Der Adapter ermöglicht die Steuerung von HEOS über ioBroker.
 
 <!-- ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Symbole ! -->

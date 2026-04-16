@@ -638,6 +638,10 @@ Mögliche Optionen und Parameter:
  Analysedatendateien werden beim Beenden nicht aktualisiert.
 
 ## Changelog
+### 4.0.0 (2026-03-10)
+* (iobroker-bot) Adapter requires node.js >= 20 now.
+* (@GermanBluefox) Migrated to Typescript
+
 ### 3.0.1 (2023-10-24)
 * (tuxyme) activated the round option when averaging
 

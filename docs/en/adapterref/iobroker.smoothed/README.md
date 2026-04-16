@@ -27,6 +27,11 @@ Or ignore values with a high standard deviation.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.7.0 (2026-04-05)
+* (BenAhrdt) improve sourceId in desc => id
+* (BenAhrdt) add objectStore
+* (BenAhrdt) add device Manager
+
 ### 1.5.1 (2026-02-28)
 * (BenAhrdt) update dependecies
 

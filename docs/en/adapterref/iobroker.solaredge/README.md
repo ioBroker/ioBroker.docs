@@ -47,6 +47,7 @@ This adapter would not have been possible without the great work of @92lleo (htt
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -101,7 +102,7 @@ This adapter would not have been possible without the great work of @92lleo (htt
 ## License
 MIT License
 
-Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2019-2023 Leonhard Kuenzler <leonhard@kuenzler.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

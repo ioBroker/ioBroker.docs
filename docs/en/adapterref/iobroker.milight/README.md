@@ -99,7 +99,10 @@ version 5 also to be used for v4 lamps
 * ??
 
 
-## Changelog:
+## Changelog
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.:
 ### 0.4.0
 * compact mode
 ### 0.3.6

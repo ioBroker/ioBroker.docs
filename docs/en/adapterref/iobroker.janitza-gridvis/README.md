@@ -32,6 +32,36 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.7.9 (2026-04-08)
+* (BenAhrdt) remove wrong debug warn logging
+
+### 3.7.8 (2026-04-08)
+* (BenAhrdt) improve handling of http STatus 400 & 404
+
+### 3.7.7 (2026-04-05)
+* (BenAhrdt) show id of device
+
+### 3.7.6 (2026-04-05)
+* (BenAhrdt) sort entries
+
+### 3.7.5 (2026-04-04)
+* (BenAhrdt) test changed from 22.x to 24.x
+
+### 3.7.4 (2026-04-04)
+* (BenAhrdt) add deviceinfos und deviceObject to card
+
+### 3.7.3 (2026-04-03)
+* (BenAhrdt) use fetch instead of axios and set language to ioBroker language
+
+### 3.7.2 (2026-04-02)
+* (BenAhrdt) replacement of defined preLabels
+
+### 3.7.1 (2026-04-02)
+* (BenAhrdt) bugfixing model type === undefined
+
+### 3.7.0 (2026-04-02)
+* (BenAhrdt) display online Values in card
+
 ### 3.6.14 (2026-02-28)
 * (BenAhrdt) bugfix dependencies
 

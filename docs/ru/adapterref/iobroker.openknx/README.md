@@ -1,52 +1,331 @@
 ---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.openknx?style=flat-square
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.openknx?label=npm%20downloads&style=flat-square
+BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.openknx?style=flat-square
+BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.openknx?label=npm%20dependencies&style=flat-square
+BADGE-GitHub: https://img.shields.io/github/license/iobroker-community-adapters/iobroker.openknx?style=flat-square
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.openknx?logo=github&style=flat-square
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.openknx?logo=github&style=flat-square
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.openknx?logo=github&style=flat-square
+BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.openknx?logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.openknx/test-and-release.yml?branch=master&logo=github&style=flat-square
+BADGE-Beta: https://img.shields.io/npm/v/iobroker.openknx.svg?color=red&label=beta
+BADGE-Stable: http://iobroker.live/badges/openknx-stable.svg
+BADGE-Installed: http://iobroker.live/badges/openknx-installed.svg
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: iU9c5zVxou3Xu6xlqqCzsv40++abSRllMEH366knqDE=
+hash: OLamgqmbjWOnyXZ5LhZ+B2tG2TBAluQSOPqDv4tLvmc=
 ---
-![Логотип](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
-
-![версия НПМ](https://img.shields.io/npm/v/iobroker.openknx?style=flat-square)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.openknx?label=npm%20downloads&style=flat-square)
-![node-lts](https://img.shields.io/node/v-lts/iobroker.openknx?style=flat-square)
-![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.openknx?label=npm%20dependencies&style=flat-square)
-![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.openknx?style=flat-square)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.openknx?logo=github&style=flat-square)
-![Активность коммитов GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.openknx?logo=github&style=flat-square)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.openknx?logo=github&style=flat-square)
-![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.openknx?logo=github&style=flat-square)
-![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.openknx/test-and-release.yml?branch=master&logo=github&style=flat-square)
-![Бета](https://img.shields.io/npm/v/iobroker.openknx.svg?color=red&label=beta)
-![Стабильный](http://iobroker.live/badges/openknx-stable.svg)
-![Установлено](http://iobroker.live/badges/openknx-installed.svg)
+![Логотип](../../../en/admin/openknx.png)
 
 # IoBroker.openknx
-## Версии
-Этот адаптер служит интерфейсом связи между Iobroker и вашим KNX IP-шлюзом.
-Адаптер позволяет автоматически генерировать объекты связи iobroker, импортируя XML-экспорт группового адреса ETS.
-Все сгенерированные объекты связи изначально настроены на чтение и запись, значения извлекаются из шины KNX при перезапуске адаптера.
+## Функции
+- Встроенная функция импорта файлов .knxproj (ETS4, ETS5, ETS6) с поддержкой паролей.
+- Чтение/запись/передача/обновление флагов из объектов ETS ComObject.
+- Вывод DPT из ComObjects при отсутствии DPT на уровне GA.
+- Распределение комнат (перечисление комнат) в соответствии со структурой здания ETS.
+- Импорт адресов групп в формате XML в качестве резервного варианта
+- Защищенное туннелирование KNX IP через файл ключа .knxkeys или пароль
+- Стабильный и надежный стек KNX на базе KNXUltimate
+- Автоматическое кодирование/декодирование KNX-датаграмм для большинства DPT, чтение и запись в необработанном виде для остальных.
+- Поддержка чтения, записи и ответа GroupValue
+- Генерация псевдонимов для объединения значков действий и статусов в единый объект ioBroker.
+- Прямая связь: подключите любое состояние ioBroker к адресу группы KNX.
+- Поддерживает все стили адресации групп (3-уровневый, 2-уровневый, свободный).
+- Бесплатный открытый исходный код, не зависит от облачных сервисов, работает в автономном режиме.
 
-## Документация
-[🇺🇸 Документация](./docs/en/README.md)
+## Установка
+Найдите "openknx" в списке адаптеров и установите его, нажав на символ "+".
 
-**Если вам нравится OpenKNX, пожалуйста, рассмотрите возможность пожертвования:**
+## Конфигурация адаптера
+![настройки](../../../en/adapterref/img/setting.png)
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z8UFC8QEC4ARW&source=url)
+Нажмите «Сохранить и закрыть» или «Сохранить», чтобы перезапустить адаптер и применить изменения.
+
+- **Обнаружение** — сканирует сеть на наличие всех доступных IP-шлюзов KNX. Рекомендуется сначала выбрать локальный сетевой интерфейс, а затем запустить обнаружение — IP-адрес, порт и физический адрес шлюза заполняются автоматически.
+- **Локальный сетевой интерфейс IPv4** — сетевой интерфейс сервера ioBroker, который может взаимодействовать с IP-шлюзом KNX. Выберите его перед запуском обнаружения.
+- **IP-адрес шлюза KNX** -- IP-адрес вашего шлюза KNX. Заполняется автоматически при обнаружении.
+- **Порт** -- обычно 3671. Заполняется автоматически по результатам обнаружения.
+- **Протокол** -- тип подключения к IP-шлюзу KNX. **Туннелирование UDP** является методом по умолчанию для большинства IP-интерфейсов и маршрутизаторов KNX (например, Weinzierl, MDT, ABB). **Туннелирование TCP** обеспечивает более надежное соединение и поддерживается более новыми шлюзами — рекомендуется, если доступно. **Многоадресная маршрутизация** подключается через маршрутизацию KNXnet/IP (многоадресная группа 224.0.23.12) и предназначена для IP-маршрутизаторов KNX, выступающих в качестве линейных соединителей — туннельное соединение не устанавливается, и несколько клиентов могут одновременно получать доступ.
+- **Физический KNX-адрес** — индивидуальный адрес, используемый адаптером на шине KNX (например, 1.1.250). Должен быть настроен как дополнительный адрес в IP-интерфейсе в ETS и не должен использоваться другим устройством.
+- **Минимальная задержка отправки между двумя кадрами [мс]** -- защищает шину KNX от перегрузки слишком быстрыми телеграммами. Увеличьте это значение, если в журнале появляются ошибки DISCONNECT_REQUEST (например, до 80-150 мс).
+- **Используйте common.type boolean для однобитного перечисления вместо number** -- DPT-1 (переключение) представляется в ioBroker как логический тип (true/false) вместо number (0/1). Включите эту опцию для лучшей совместимости с виджетами VIS и скриптами, которые ожидают логические значения.
+- **Считывание значений KNX при запуске** -- все объекты с флагом авточтения считываются с шины KNX при первом подключении после запуска адаптера для синхронизации текущих состояний.
+- **не выдавать предупреждения по неизвестным адресам групп KNX** -- подавлять записи предупреждений в журнале при получении телеграмм для групп KNX, не настроенных в адаптере. Полезно в системах с большим количеством групп KNX, где в адаптере используется только их подмножество.
+- **Стиль группового адреса** — определяет представление группового адреса в соответствии с вашей конфигурацией ETS. Поддерживаются все 3 стиля, которые преобразуются в 3-уровневый формат для хранения: 3-уровневый (1/3/5), 2-уровневый (1/25) или свободный (300). Объединенное имя группового адреса и группы должно быть уникальным в дереве объектов ioBroker.
+
+### Импорт проекта ETS (.knxproj или .xml)
+Диалоговое окно импорта принимает как файлы **.knxproj** (рекомендуется), так и файлы **.xml**.
+
+#### Импорт .knxproj (рекомендуется)
+Импортируйте файл проекта ETS напрямую. Это обеспечит получение наиболее полных данных:
+
+1. В ETS сохраните свой проект (Файл > Сохранить). Файл .knxproj находится в каталоге вашего проекта ETS.
+2. Если проект защищен паролем, введите пароль проекта в поле «Пароль» рядом с кнопкой импорта.
+3. Загрузите файл .knxproj в адаптер через диалоговое окно импорта.
+4. Импорт начинается немедленно и отображает приблизительный ход выполнения в зависимости от размера файла.
+
+Преимущества по сравнению с импортом XML:
+
+- **Флаги чтения/записи/передачи/обновления** из объектов ComObject (вместо значений по умолчанию read=true, write=true)
+- **Вывод DPT** из ComObjects, если DPT не назначен для GA.
+- **Назначение комнат** из структуры здания/местоположения ETS (автоматически создает перечисление комнат)
+- **Флаг автоматического чтения**, полученный из флага ComObject ReadOnInit.
+- Поддерживает проекты ETS4, ETS5 и ETS6 (включая проекты, защищенные паролем)
+- В будущих версиях ETS все будет работать автоматически — обновление адаптера не требуется для новых патчей/минорных релизов ETS.
+
+После успешного импорта файла .knxproj используйте функцию "Создать псевдонимы" ниже, чтобы связать групповые алгоритмы статуса с соответствующими групповыми алгоритмами действий.
+
+#### Импорт XML (резервный вариант)
+Если вы не можете использовать файл .knxproj, вы можете экспортировать адреса групп из ETS в формате XML:
+
+![Как экспортировать адреса групп в формате XML в ETS](../../../en/adapterref/img/exportGA.png)
+
+1. В ETS перейдите в раздел «Групповые адреса», выберите «Экспорт групповых адресов» и выберите «Экспорт XML в последней версии формата».
+
+Формат ETS4 не поддерживается, он не содержит информации DPT.
+
+2. Загрузите XML-файл экспорта ETS в адаптер через диалоговое окно импорта.
+3. Импорт начинается немедленно, и по завершении предоставляется отчет о состоянии.
+
+Подсказка: Если у вас разные подтипы DPT для GA и объектов связи, использующих его, ETS будет использовать наименьший номер DPT. Убедитесь, что все элементы используют желаемый тип данных. GA без базового типа DPT не может быть импортирован. Проекты ETS4 необходимо преобразовать в ETS5 или более позднюю версию с установленным типом DPT для GA.
+
+#### Параметры импорта
+- **Не перезаписывать существующие объекты IOB** — пропускать существующие объекты связи во время импорта, добавлять только новые.
+- **Удаление существующих объектов IOB, отсутствующих в файле импорта ETS** -- удаление объектов из дерева ioBroker, которые больше не существуют в проекте ETS. Полезно для очистки после удаления GA в ETS.
+- **Удалите все существующие объекты KNX перед импортом (чистый повторный импорт)** -- сначала удалите все объекты KNX, а затем импортируйте заново. Используйте это при реструктуризации проекта ETS.
+
+### KNX Secure
+![KNX Secure](../../../en/adapterref/img/knxsecure.png)
+
+Адаптер поддерживает туннелирование KNX IP Secure. Настройка выполняется на вкладке "KNX Secure":
+
+1. **Включить KNX Secure** — установите флажок.
+2. **Файл ключей (.knxkeys)** — вставьте содержимое файла .knxkeys в текстовое поле. Файл экспортируется в ETS через Дополнительно > Экспорт KNX-ключей.
+3. **Пароль файла ключа** — пароль, устанавливаемый при экспорте связки ключей в ETS.
+4. **Альтернативный вариант: Пароль пользователя туннеля** — вместо файла ключа пароль туннеля можно ввести напрямую (из конфигурации проекта ETS IP-интерфейса).
+5. **Интерфейс туннеля IA** — при необходимости укажите индивидуальный адрес интерфейса туннеля (например, 1.1.254).
+6. **Идентификатор пользователя туннеля** — значение по умолчанию 2. Изменяйте его только в том случае, если на одном интерфейсе настроено несколько туннельных соединений.
+
+### Псевдонимы и миграция GA
+![Псевдонимы и миграция GA](../../../en/adapterref/img/alias.png)
+
+В KNX для действий и статуса часто используются отдельные GA. Этот инструмент автоматически объединяет их в [Псевдонимы ioBroker](https://www.iobroker.net/#en/documentation/dev/aliases.md), так что чтение и запись осуществляются в одном объекте.
+
+На вкладке предлагаются два варианта:
+
+#### Вариант A: Псевдонимы (рекомендуется)
+Создает объекты-псевдонимы ioBroker, объединяющие действие GA (запись) и статус GA (чтение) в один объект.
+
+- **Регулярное выражение для идентификации статусов GA** — регулярное выражение для идентификации статуса GA по имени (например, с совпадением окончаний типа "status", "rm", "Rückmeldung"). Это же регулярное выражение используется как для генерации псевдонимов (Вариант A), так и для режима совместимости с KNX (Вариант B).
+- **Минимальное сходство** — насколько строго алгоритм сопоставления фильтрует похожие записи (0 = приблизительное сходство, 1 = точное сходство).
+- **Путь к псевдонимам** -- папка с объектами, где создаются псевдонимы (например, `alias.0.KNX`).
+- **Включить диапазон групп в поиск** -- используйте полный путь, включая названия групп, для сопоставления, а не только название GA.
+- **Сгенерировать псевдонимы** -- кнопка для запуска генерации псевдонимов. Адаптер должен быть запущен. По завершении отображается количество сгенерированных псевдонимов.
+
+#### Вариант B: Миграция адаптера knx
+Для пользователей, переходящих со старого адаптера KNX, которые хотят, чтобы существующие скрипты, проекты VIS и панели мониторинга продолжали работать без изменений.
+
+- **Режим совместимости ioBroker.knx** -- внутренне связывает GA статуса с GA действия (как в старом адаптере knx) вместо создания псевдонимов. Использует то же регулярное выражение, что и вариант A.
+- **Целевое пространство имен** -- установите значение `knx.0`, чтобы повторно использовать старые пути к объектам адаптера KNX, благодаря чему существующие скрипты, проекты VIS и панели мониторинга продолжат работать без изменений. Значение по умолчанию — `openknx.0`.
+
+### GA-Tools / Прямая ссылка
+![GA-Tools / Прямая ссылка](../../../en/adapterref/img/gatools.png)
+
+Технология Direct Link соединяет любое состояние ioBroker (с любого адаптера) с групповым адресом KNX. Изменения во внешнем состоянии записываются в шину KNX, а значения, полученные от KNX, передаются обратно во внешнее состояние.
+
+Выберите Google Analytics из дерева слева. На панели свойств отображаются метаданные Google Analytics (имя, адрес, DPT, флаги). Используйте карточку «Прямая ссылка» справа, чтобы связать иностранный штат.
+
+#### Режимы связи
+- **Прямой (1:1)** — каждое изменение значения передается в шину KNX без изменений. Используется для датчиков, диммеров или ползунков.
+- **Триггер (только ВКЛ.)** -- передаются только истинные значения (ВКЛ. / true / ненулевое значение), ложные значения (ВЫКЛ. / false / 0) игнорируются. Используется для триггеров сцен или открывателей дверей, где источник отправляет ВКЛ./ВЫКЛ. (нажатие/отпускание).
+- **Переключение (инвертирование KNX в положении ВКЛ)** -- при каждом истинном значении считывается текущее состояние KNX и отправляется инвертированное значение. Ложные значения игнорируются. Используйте для кнопок, которые должны включать/выключать индикатор KNX.
+
+#### Порог
+Минимальное изменение, необходимое перед отправкой на шину KNX. Если абсолютная разница между входящим значением и текущим значением KNX меньше порогового значения, обновление незаметно отбрасывается. Это предотвращает перегрузку шины источниками, отправляющими множество небольших инкрементальных изменений (например, аналоговыми датчиками). Применяется только к числовым значениям. Оставьте поле пустым, чтобы отправлять каждое изменение.
+
+#### Преобразовать выражение
+Выражение JavaScript для преобразования значения перед записью в KNX. Переменная `value` хранит текущее значение для записи. Примеры:
+
+- `!!value` -- преобразует любое истинное/ложное значение в логическое.
+- `value*100` -- масштабирование числа с плавающей запятой от 0 до 1 в процентное значение от 0 до 100
+- `value>0?100:0` -- преобразование порогового значения в двоичный код
+- `Math.round(value)` -- округляет значения с плавающей запятой
+
+Выражение convert применяется только в направлении от внешнего состояния к KNX. В обратном направлении (от KNX к внешнему состоянию) значения передаются без преобразования.
+
+## Переход с адаптера knx
+Самый простой способ: установите **целевое пространство имен** в `knx.0` в настройках псевдонима. Все существующие скрипты, проекты VIS и панели мониторинга будут автоматически использовать объекты openknx — ручной поиск/замена не потребуется.
+
+Если это невозможно, ссылки на `knx.0.` необходимо вручную заменить на `openknx.0.` в соответствующих инструментах (экспорт/импорт потоков Node Red, проекты VIS, скрипты, панели мониторинга Grafana).
+
+## Концепции автобуса KNX
+### Флаги подтверждения (ACK) при туннельных соединениях
+Приложениям не следует устанавливать флаг ack. Адаптер устанавливает флаг ack, когда данные подтверждены:
+
+| GA — это | устройство с флагом R | устройство без флага R | не подключено |
+| --- | --- | --- | --- |
+| Приложение отправляет GroupValue_Write | ack | ack | no ack |
+| Приложение отправляет GroupValue_Read | подтверждение | нет подтверждения | нет подтверждения |
+
+### Запись группового значения
+Срабатывает при записи в коммуникационный объект в ioBroker. Также срабатывает при получении кадра записи на шине.
+
+### GroupValue Read
+Может быть активировано добавлением специального комментария или флага качества:
+
+```javascript
+setState(myState, { val: false, ack: false, c: "GroupValue_Read" });
+setState(myState, { val: false, ack: false, q: 0x10 });
+```
+
+Примечание: Метод комментариев не работает с адаптером JavaScript. Используйте вместо него `q: 0x10`.
+
+### Ответ GroupValue
+Если `native.answer_groupValueResponse` установлено в значение true, адаптер отвечает сообщением GroupValue_Response на полученное сообщение GroupValue_Read. Этот флаг должен быть установлен только у одного объекта на шине.
+
+### Сопоставление с флагами KNX
+При импорте файлов .knxproj флаги считываются непосредственно из объектов ETS ComObject. При импорте XML применяются разумные значения по умолчанию.
+
+| Флаг | Использование адаптера (.knxproj) | Использование адаптера (импорт XML) |
+| --- | --- | --- |
+| C: Коммуникация | всегда установлено | всегда установлено |
+| R: Чтение | объект common.read | по умолчанию true |
+| T: Передача | объект common.update | по умолчанию false |
+| W: Запись | объект common.write | по умолчанию true |
+| U: Обновление | собственный объект native.update | по умолчанию false |
+| I: Инициализация | объект native.autoread | производный от DPT |
+
+`native.answer_groupValueResponse` необходимо установить вручную при необходимости.
+
+## Описание объекта ioBroker
+Импорт из Google Analytics создает структуру папок в порядке основная группа/промежуточная группа. Адрес каждой группы становится объектом:
+
+```json
+{
+    "_id": "path.and.name.to.object",
+    "type": "state",
+    "common": {
+        "desc": "Basetype: 1-bit value, Subtype: switch",
+        "name": "Aussen Melder Licht schalten",
+        "read": true,
+        "role": "state",
+        "type": "boolean",
+        "unit": "",
+        "write": true
+    },
+    "native": {
+        "address": "0/1/2",
+        "answer_groupValueResponse": false,
+        "autoread": true,
+        "bitlength": 1,
+        "dpt": "DPT1.001",
+        "encoding": { "0": "Off", "1": "On" },
+        "force_encoding": "",
+        "signedness": "",
+        "valuetype": "basic"
+    }
+}
+```
+
+Роли определяются на основе DPT (например, переключатель, уровень, дата). Для триггерных DPT, таких как номера сцен, параметр Autoread установлен в значение false.
+
+## Ссылка на DPT
+Поддерживаемые DPT: 1-22, 26, 28, 29, 213, 222, 232, 235, 237, 238, 242, 249, 251, 275.
+Неподдерживаемые DPT записываются в виде шестнадцатеричных строк (исходные данные).
+
+| KNX DPT | Тип | Описание |
+| --- | --- | --- |
+| DPT-1 | логическое значение | 1 бит, ложь/истина |
+| DPT-2 | объект | {"priority":0/1, "data":0/1} |
+| DPT-3 | объект | {"decr_incr":0/1, "data":0..7} |
+| DPT-4 | строка | один 8-битный символ |
+| DPT-5 | число | 8-битное беззнаковое (0..255); DPT-5.001: 0..100%, DPT-5.003: 0..360° |
+| DPT-6 | число | 8-битное знаковое (-128..127) |
+| DPT-7 | число | 16-битное беззнаковое |
+| DPT-8 | число | 2-байтовый знаковый (-32768..32767) |
+| DPT-9 | число | 2-байтовое число с плавающей запятой |
+| DPT-10 | Дата | время (чч:мм:сс + день недели), часть даты игнорировать |
+| DPT-11 | Дата | дата (дд/мм/гггг), часть времени не учитывать |
+| DPT-12 | число | 4-байтовый беззнаковый |
+| DPT-13 | число | 4-байтовый знаковый |
+| DPT-14 | число | 4-байтовое число с плавающей запятой |
+| DPT-15 | номер | 4-байтовый (данные доступа) |
+| DPT-16 | строка | 14-символьная строка ASCII/ISO-8859-1 |
+| DPT-17 | номер | номер сцены, не считывается автоматическим считыванием |
+| DPT-18 | объект | {"save_recall":0/1, "scenenumber":0..63}, не считывается функцией авточтения |
+| DPT-19 | Дата | дата + время, флаги качества не поддерживаются |
+| DPT-20 | число | 1-байтовое перечисление |
+| DPT-21 | объект | {"outOfService":bool, "fault":bool, "overridden":bool, ...} |
+| DPT-22 | объект | статус RHCC |
+| DPT-26 | строка | шестнадцатеричное значение, DPT_SceneInfo, не считывается функцией авточтения |
+| DPT-28 | строка | Строка Unicode UTF-8, переменной длины |
+| DPT-29 | строка | 8-байтовая знаковая (строка из-за ограничений на количество символов в JavaScript) |
+| DPT-213 | объект | 4-байтовый временной период (часы, минуты, секунды) |
+| DPT-222 | объект | 3x 2-байтовых числа с плавающей запятой |
+| DPT-232 | объект | {красный:0..255, зеленый:0..255, синий:0..255} |
+| DPT-235 | объект | тарифный счетчик активной энергии |
+| DPT-237 | объект | Диагностика DALI |
+| DPT-238 | объект | конфигурация сцены, не считывается функцией автоматического чтения |
+| DPT-242 | объект | цвет xy (CIE 1931) |
+| DPT-249 | объект | переход цветовой температуры |
+| DPT-251 | объект | Цвет RGBW |
+| DPT-275 | объект | смещение заданного значения температуры |
+| другое | строка | шестнадцатеричная строка (исходные данные), например, "0102feff" |
+
+Примечание о DPT для даты/времени: JavaScript и KNX используют разные базовые типы. DPT-10 возвращает объект JS Date, где часть, отвечающая за дату, игнорируется. DPT-11 возвращает объект JS Date, где часть, отвечающая за время, также игнорируется.
+
+## Пример использования Node Red
+Сложный тип данных DPT-2, передаваемый через функциональный узел, подключенный к выходному узлу ioBroker:
+
+```javascript
+msg.payload = { priority: 1, data: 0 };
+return msg;
+```
+
+## Уровень лога
+Включите экспертный режим для переключения между уровнями логирования. По умолчанию — информационный.
+![уровень логирования](../../../en/adapterref/img/loglevel.png)
+
+## Мониторинг
+Openknx использует sentry.io для отслеживания ошибок (данные отправляются на сервер ioBroker Sentry в Германии, в псевдонимизированном виде).
+Загрузка шины оценивается в объекте `info.busload`.
+
+## Ограничения
+— Поддерживается только IPv4
+
+## ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
+**Автоматическое чтение запускает действия на шине.** Проверьте в ETS, установлен ли флаг R/L для групповых объектов, подключенных к GA. Потребители сигнала не должны иметь этот флаг. При необходимости отключите автоматическое чтение для соответствующего объекта.
+
+**DISCONNECT_REQUEST при запуске** Увеличьте минимальную задержку отправки между двумя кадрами.
+
+**Поддерживается ли защищенное туннелирование?** Да. Защищенное туннелирование KNX IP поддерживается с помощью файла ключа .knxkeys или пароля.
 
 ## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
-  * .... -> this is used by script to generate a new entry, copy after a new release
-  * npm run release
-  * npm run release major/minor/patch major.minor.patch
-  * update gui: iob upload openknx
-  * update stable: https://github.com/ioBroker/ioBroker.repositories#add-a-new-adapter-to-the-stable-repository
+    ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.1.6 (2026-04-12)
 
+- (TA2k) **breaking:** KNX communication switched to KNXUltimate
+- (TA2k) **breaking:** DPT21 property names changed (outofservice → outOfService, inalarm → inAlarm, alarmeunack → alarmUnAck), values must be boolean
+- (TA2k) **breaking:** DPT237 property names changed to camelCase
+- (TA2k) feature: Native .knxproj import (ETS4/5/6, password-protected) with flags, DPT inference, room assignment
+- (TA2k) feature: KNX Secure support
+- (TA2k) feature: Extended DPT coverage and compatibility (9 additional DPTs, including DPT-22, 213, 222, 235, 242, 249, 251)
+- (TA2k) feature: Improved connection stability
+- (TA2k) feature: Improved role detection (switch, level, value, text, date) based on DPT type
+- (TA2k) feature: Direct Link all iobroker states to a KNX state with a conversion mode
+- (TA2k) feature: GA-Tools: all GA properties editable (DPT, type, role, flags) with compact layout
+
+### 0.9.1 (2026-03-12)
+- bugfix: Fixing increased delay in knx commands after several days
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
 - (@klein0r) Adapter requires node.js >= 20 and js-controller >= 6 now
 
 ### 0.9.0 (2024-04-21)
@@ -64,267 +343,6 @@ hash: iU9c5zVxou3Xu6xlqqCzsv40++abSRllMEH366knqDE=
 
 -   feature: one of the warnings is configurable in the dialog
 
-### 0.7.2 (2024-01-09)
-
--   feature: handle network connection instability issues
--   feature: generate more log messages
--   bugfix: telegram count
-
-### 0.7.1 (2024-01-07)
-
--   feature: when requesting fast message sendout create iob acks per bus message status, situation before: it triggered all acks on first message send confirmance
--   feature: when requesting fast message sendout create iob acks per bus message status, situation before: it triggered all acks on first message send confirmance
--   feature: add message count object
--   feature: use common.desc from ets xml Description field and move datatype info to native
--   cleanup: stop timers on shutdown
--   bugfix: create a log entry on reception of unknown ga
--   bugfix: do not count send as duplicate trigger in load measurement
--   increase default minimum send delay to 80ms
-
-### 0.7.0 (2023-12-18)
-
--   feature: adding support for DPT-28 and DPT-29
--   severity lifted to warning for gas appearing in multiple objects
--   feature: some more verbose failure outputs
--   feature: always warn if knx element in object tree not found in import file
--   bugfix: do not report errors resulting from bad bus data to sentry #433
--   bugfix: do not forward invalid bus data to iob object tree
--   cleanup: DTP library
-
-### 0.6.3 (2023-12-10)
-
--   stable release of version 0.6.1
-
-### 0.6.1 (2023-12-02)
-
--   feature: add KNX bus load measurement
--   feature: remove standard autoread enable for some DPT-1 datatypes which are triggers
--   bugfix: in error logging
-
-### 0.5.3 (2023-03-17)
-
--   savek-cc bugfix: Fix handling of addinfo_length - used to crash if addinfo was actually supplied #338
--   bugfix: admin menu scroll small screen #339
--   feature: add DTP-9.009
-
-### 0.5.2 (2023-01-02)
-
--   bugfix: correct falsly generated "confirmation false received" notifications on high sending load
-
-### 0.5.0 (2022-12-30)
-
--   feature: use common.type boolean for 1 bit enum instead of number
-    import enum with one bit as common.type mixed and not strict as number
--   handling of iob ack improved for tunneling connections, see description
-
-### 0.4.5 (2022-12-19)
-
--   bugfix in knx lib: make DPT-2 not an enum datatype
-
-### 0.4.2 (2022-12-18)
-
--   bugfix: swap value for DPT-1 for enums
-
-### 0.4.1 (2022-12-17)
-
--   bugfix: fix statup issue
--   feature: add support for more datatypes
-
-### 0.4.0 (2022-12-15)
-
--   feature: support for Free and Two Level Group Address Style in addition to the existing Three Level support #320
--   feature: map knx datapoint type enconding to object common.states #313
--   debug message for send queue size
-
-### 0.3.2 (2022-11-20)
-
--   feature: sync knx library
--   feature: sync with create adapter 0.2.3
--   feature: update to newer versions of dependant packages
--   feature: setting autoreadEnabled autoread
--   bugfix: allow alias generation with missing gateway configuration
--   bugfix in knx lib: keep correct order of send datagrams in case of burst write
-
-### 0.2.7 (2022-08-26)
-
--   bugfix: fix issue with writing to DPT-19 object
-
-### 0.2.6 (2022-07-09)
-
--   bugfix: fix filtering of addresses 1.1.1
-
-### 0.2.5 (2022-06-22)
-
--   feature: option remove existing KNX objects that are not in import file
-
-### 0.2.4 (2022-05-27)
-
--   feature: cleanly disconnect on shutdown, upgrade to knx lib 2.5.2
-
-### 0.2.2 (2022-05-26)
-
--   feature: writing to bus l_data.con creates a ack on the iobroker object if successful (the knx conf flag unset) #133
--   bugfix: remove manual Physical KNX address dialog, use 0.0.0 instead
--   bugfix: remove error log when answering to GroupValueRead: #183
--   bugfix: improve warning logs on intended and unintended disconnects
-
-### 0.1.25 (2022-04-18)
-
--   feature: datatype check for raw value
--   feature: check if knx is connected before usage
--   bugfix: if update ack after write, use correct timestamp and set adapter as user
--   bugfix: remove enless loop if event received before initialisation
-
-### 0.1.24 (2022-03-31)
-
--   feature: support for latin1 charset in dpt16
-
-### 0.1.23 (2022-03-19)
-
--   feature: change default regexp for alias
--   feature: new option to set ack flag when application writes to object
--   feature: supportes knx device scan in iobroker.discovery 2.8.0
--   bugfix: min max common object values only for number
-
-### 0.1.22 (2022-02-26)
-
--   bufix: repair reception error
-
-### 0.1.21 (2022-02-25)
-
--   feature: dont sent ack request in ldata.ind, this is disturbing clients if not filtered out by gateway
--   bugfix: reinit if event received before connection established to avoid deadlock
--   dependency:adapter core must be 2.6.0 or higher
-
-### 0.1.20 (2022-02-19)
-
--   feature: add more dpts
--   bugfix: corrected some min max values
--   bugfix: some unhandeled dpts could not be received
--   bugfix: fix import
--   bugfix: min max values
-
-### 0.1.19 (2022-02-11)
-
--   feature: allow usage of same KNX GAs in multiple objects
--   bugfix: less warnings in alias generation
--   bugfix: adapter reset after project import
-
-### 0.1.18 (2022-01-30)
-
--   bugfix: issue #61 Alias dialog not working 1st time
-
-### 0.1.17 (2022-01-29)
-
--   feature: more information in alias import dialog
--   feature: warning on startup if ga are inconsistent
--   fix: corrected object count statistics on startup
-
-### 0.1.16 (2022-01-27)
-
--   feature: add back sentry
--   fix: stability alias generation
--   fix: better input settings plausibilization in admin
--   fix: reset after settings change was broken, dont reset for alias change
-
-### 0.1.15 (2022-01-23)
-
--   feature: more sanity checks for gui
--   feature: issue #84, add openknx to discovery adapter
--   feature: issue #82, warnings on import of duplicate ga addresses, also check iob object for duplicates
--   fix: issue #87, added q interface to trigger GroupValue_Read, comments are overwritten in javascript adapter
--   fix: remove currently unused reference to sentry
-
-### 0.1.14 (2022-01-08)
-
--   feature: autodetect the KNX IP interface parameters
--   feature: create warning if DPT of alias pair does not match
--   feature: create warning in log in case of possible data loss if gateway disconnects
--   feature: better gui for import status, newline per warning, count number of succeeding ga's
--   fix: local ip interface in admin was not taken
--   fix: default regexp for status ga's corrected to match common nomenclature
-
-### 0.1.13 (2021-12-30)
-
--   bugfix: state.value of type object must be serialized
--   bugfix: alias algorithm error handling, takover more info to alias
-
-### 0.1.12 (2021-12-30)
-
--   feature: improve alias status search algorithm, add units
--   feature: notify user after import if no DPT subtype is set
--   fix: library did not allow to write possible 0 values to certain dpts
--   fix: admin dialog ui fixes, better presentation of some warnings
-
-### 0.1.11 (2021-12-28)
-
--   feature: remove more scene DPTs from default autoread
--   feature: sends GroupValue_Response on GroupValue_Read if configured
--   feature: admin dialog with option to generate aliases (beta)
--   feature: admin dialog reactivates after adapter reset
--   feature: add support for DPT-7.600
--   feature: show logs of knx library
--   fix: filter out logs with device address bus interactions
--   fix: filter ga names that are forbidden in IOB
--   fix: reply with GroupValue_Response on request, not with GroupValue_Write
--   fix: remove more scene DPTs from autoread
-
-### 0.1.10 (2021-12-24)
-
--   fix: interface to write objects corrected
-
-### 0.1.9 (2021-12-22)
-
--   fix: algorith to generate the iob objects improved
--   fix: min max removed for boolean
--   fix: ackqnowledgement handling
--   removed feature: override path of knx objects
--   feature: new logo
-
-### 0.1.8
-
--   (tombox) feature: changed ui and many fixes
--   (boellner) feature: skip wrong initial disconnect warning
--   (boellner) feature: add translation
--   (boellner) doc: github ci pipleline, testing
-
-### 0.1.6
-
--   (boellner) fix: missing dependencies
-
-### 0.1.5
-
--   (boellner) feature: corrected adapter status info.connection (green, yellow, red indicator)
--   (boellner) fix: remove default fallback ip settings from stack to get error message on missing configuration
--   (boellner) fix: autoread
--   (boellner) fix: finding non knx objects int tree leading to problems on startup
-
-### 0.1.3
-
--   (boellner) feature: state roles now set to best match for some elements, default is state
--   (boellner) feature: exclude scene dtc (trigger) from autoread
--   (boellner) doc: corrected warwings reported by https://adapter-check.iobroker.in/
--   (boellner) fix: improve ui of admin dialog
--   (boellner) fix: project import, now continue to write iob objects in case of incorrect input file
-
-### 0.1.2
-
--   (boellner) doc: initial test release
-
-### 0.0.19
-
--   (boellner) feature: display warning on ga import file errors
-
-### 0.0.17
-
--   (boellner) feature: raw value handling, can now write and receive ga of unsupported DPT
--   (boellner) bugfix: setting onlyAddNewObjects fixed
--   (boellner) feature: adapter restart after import
-
-### 0.0.14
-
--   (boellner) feature: import ga xml
-
 ### initial version
 
 -   initial version from https://www.npmjs.com/package/iobroker.knx/v/0.8.3
@@ -340,6 +358,8 @@ Copyright Contributors to the ioBroker.openknx project
 
     				   Version 3, 29 June 2007
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.

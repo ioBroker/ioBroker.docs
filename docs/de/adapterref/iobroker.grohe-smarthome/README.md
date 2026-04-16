@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.grohe-smarthome/README.md
 title: ioBroker.grohe-smarthome
-hash: K1M5IYXIAAYhgwpP13n+wJLmSILRyeJgW4ZLUldQSJg=
+hash: 9e8bq0j+qbC3UA1PWUDMTcfa0t1/daxzQVyOtgUGqlE=
 ---
-![Logo](../../../en/adapterref/iobroker.grohe-smarthome/admin/grohe-smarthome.png)
+# IoBroker.grohe-smarthome
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.grohe-smarthome.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.grohe-smarthome.svg)
@@ -13,11 +13,10 @@ hash: K1M5IYXIAAYhgwpP13n+wJLmSILRyeJgW4ZLUldQSJg=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/grohe-smarthome-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.grohe-smarthome.png?downloads=true)
 
-# IoBroker.grohe-smarthome
 **Tests:** ![Test und Freigabe](https://github.com/patricknitsch/ioBroker.grohe-smarthome/workflows/Test%20and%20Release/badge.svg)
 
 # IoBroker Grohe Smarthome-Adapter
-Dieser Adapter verbindet ioBroker mit der **Grohe Smarthome / Ondus** Cloud und stellt Grohe-Geräte als Zustände (und einige Steuerelemente) innerhalb von ioBroker zur Verfügung.
+<img align="left" src="admin/grohe-smarthome.png" alt="Bild" width="200"/>Dieser Adapter verbindet ioBroker mit der <strong>Grohe Smarthome / Ondus</strong> Cloud und stellt Grohe-Geräte als Zustände (und einige Steuerelemente) innerhalb von ioBroker zur Verfügung.
 
 Es unterstützt:
 
@@ -27,6 +26,8 @@ Es unterstützt:
 - **Grohe Blue Professional** (Typ `105`)
 
 Der Adapter meldet sich über den OIDC/Keycloak-Flow von Grohe an, speichert ein **verschlüsseltes Aktualisierungstoken** in einem Zustand und fragt die Grohe Cloud-API in einem konfigurierbaren Intervall ab.
+
+Ideen und Konzept stammen aus der Smart-Home-Integration **ha-grohe_smarthome**. Besonderer Dank gilt **Flo-Schilli**.
 
 ---
 
@@ -42,6 +43,32 @@ Der Adapter meldet sich über den OIDC/Keycloak-Flow von Grohe an, speichert ein
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.3 (2026-03-25)
+
+* (patricknitsch) Clamp tapAmount between 50 and 2000 ml.
+
+### 0.3.2 (2026-03-21)
+
+* (copilot) Update Admin Tap for Blue systems
+* (patricknitsch) Fix Isues from RepoChecker
+
+### 0.3.1 (2026-03-18)
+* (claude/patricknitsch) Fix admin tab controls not triggered after confirmation – replace native `confirm()` with custom modal dialog (works inside ioBroker iframe)
+* (claude/patricknitsch) Fix 4 wrong state IDs in admin tab (Close Valve, Pressure Measurement, Reset CO₂, Reset Filter)
+
+### 0.3.0 (2026-03-18)
+
+* (claude/patricknitsch) Add card-based device overview tab with controls
+* (claude/patricknitsch) Add Valve, Pressure Measurement and Dispense controls in admin tab
+* (claude/patricknitsch) Disable controls when device is offline
+* (claude/patricknitsch) Adjust color scheme in admin tab (white/black based on light/dark mode)
+* (patricknitsch) Update Packages
+
+### 0.2.6 (2026-03-11)
+
+* (claude/patricknitsch) Fix measurement "Filter" for Blue Systems
+* (claude/patricknitsch) Fix permanent dispense without Trigger
+
 ### 0.2.5 (2026-02-26)
 
 * (patricknitsch) Update Admin Package
