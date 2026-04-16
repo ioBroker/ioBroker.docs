@@ -108,6 +108,7 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `value.humidity`
 * `value.co`              - Carbon monoxide (unit: ppm)
 * `value.co2`             - Carbon dioxide (unit: ppm)
+* `value.no`              - Nitrogen monoxide (unit: µg/m³ or ppm)
 * `value.no2`             - Nitrogen dioxide (unit: µg/m³ or ppm)
 * `value.o3`              - Ozone (unit: µg/m³ or ppm)
 * `value.ch2o`            - Formaldehyde (unit: µg/m³)
