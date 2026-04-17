@@ -103,7 +103,18 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.window`      (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) It is important to have (`CLOSED/TILTED/OPEN`). Values can differ.
 * `value.temperature` (`common.unit='°C' or '°F' or 'K'`)
 * `value.humidity`
-* `value.co2`             - CO2 (unit: ppm)
+* `value.co`              - Carbon monoxide (unit: ppm)
+* `value.co2`             - Carbon dioxide (unit: ppm)
+* `value.no`              - Nitrogen monoxide (unit: µg/m³ or ppm)
+* `value.no2`             - Nitrogen dioxide (unit: µg/m³ or ppm)
+* `value.o3`              - Ozone (unit: µg/m³ or ppm)
+* `value.ch2o`            - Formaldehyde (unit: µg/m³)
+* `value.pm1`             - Particulate matter PM1 (unit: µg/m³)
+* `value.pm25`            - Particulate matter PM2.5 (unit: µg/m³)
+* `value.pm10`            - Particulate matter PM10 (unit: µg/m³)
+* `value.rn`              - Radon (unit: Bq/m³)
+* `value.tvoc`            - Total volatile organic compounds (unit: µg/m³ or ppb)
+* `value.airquality`      - Air quality index (AQI)
 * `value.brightness`      - luminance level (unit: lux)
 * `value.min`
 * `value.max`
