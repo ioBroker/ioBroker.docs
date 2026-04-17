@@ -1151,19 +1151,12 @@ https://github.com/strulli85/ioBroker.smartm
 
 This Adapter reads Data of Photovoltaik SLEnergy Plats out of their Cloud named SmartM.
 
-
-
-<!--  ######################## keep these lines at end of file as a reminder ######################## -->
-<!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
-<!--  ######################## keep these lines at end of file as a reminder ######################## -->
 ## pjlink (31.3.2026) – new adapter at stable repository
 https://github.com/Bannsaenger/ioBroker.pjlink
 
 <img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.pjlink/main/admin/pjlink.png" width="100" height="100" />
 
 PJLink Projector controll
-
-<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
 ## heos (15.03.2025) – new adapter at stable repository
 https://github.com/withstu/ioBroker.heos
@@ -1172,4 +1165,27 @@ https://github.com/withstu/ioBroker.heos
 
 The adapter lets control HEOS from ioBroker.
 
-<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
+## open-meteo-weather (14.4.2025) – new adapter at stable repository
+https://github.com/H5N1v2/ioBroker.open-meteo-weather
+
+<img src="https://raw.githubusercontent.com/H5N1v2/ioBroker.open-meteo-weather/main/admin/open-meteo.png" width="100" height="100" />
+
+This adapter provides precise weather data, forecasts, air quality, and pollen information powered by Open-Meteo.com. It is free for non-commercial use (under 10,000 daily API calls) and requires no API key registration, making the setup process extremely simple.
+
+## nextcloud-monitoring (14.4.2025) – new adapter at stable repository
+https://github.com/H5N1v2/ioBroker.nextcloud-monitoringr
+
+<img src="https://raw.githubusercontent.com/H5N1v2/ioBroker.nextcloud-monitoring/main/admin/nextcloud_monitoring.png" width="100" height="100" />
+
+This adapter allows for detailed monitoring of your Nextcloud instance via the official OCS API (serverinfo). It provides numerous system data, user statistics, shares, as well as performance values from PHP (OPcache/FPM) and the database directly in ioBroker.
+
+## aurora-nowcastg (14.4.2025) – new adapter at stable repository
+https://github.com/chrmenne/ioBroker.aurora-nowcast
+
+<img src="https://raw.githubusercontent.com/chrmenne/ioBroker.aurora-nowcast/main/admin/aurora-nowcast.png" width="100" height="100" />
+
+Provides current (nowcast) data on aurora activity (northern and southern lights) for a given location, based on publicly available data from the NOAA Space Weather Prediction Center (SWPC).
+
+<!--  ######################## keep these lines at end of file as a reminder ######################## -->
+<!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
+<!--  ######################## keep these lines at end of file as a reminder ######################## -->
