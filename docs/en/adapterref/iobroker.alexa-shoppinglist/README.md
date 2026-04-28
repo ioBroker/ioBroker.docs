@@ -84,6 +84,7 @@ function setOnDblClickCustomShop( myvalue) {
 -->
 ### **WORK IN PROGRESS**
 
+CHORE: Update dependencies
 CHORE: #203 Issues reported by repository checker
 CHORE: #193-Repository-Checker
 

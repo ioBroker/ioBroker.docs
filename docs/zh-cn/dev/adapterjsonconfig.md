@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：新手指南
-hash: lrAcCG5s4r+NW//IOgKlqBgJ5vSQCfmTqn7zUhrNIbk=
+hash: QPitZJ1RCY7qZv3q7/d2Tdl/eJ6Dg/g+5CflI61eIlw=
 ---
 # IoBroker JSON 配置：新手指南
 本指南解释了如何使用 JSON 为 ioBroker 适配器定义配置选项。这种方法提供了一种更友好、更灵活的方式，可以在 ioBroker 管理界面中管理适配器设置。
@@ -109,7 +109,7 @@ jsonConfig 会自动确保收集到的数据作为适配器的配置数据记录
 更多示例可以在 GitHub 上相应管理目录中的其他适配器中找到。
 
 ## 支持开发工具
-### VS Code
+### VS代码
 要在 VS Code 中启用 jsonConfig 的验证，必须将以下部分添加到文件“.vscode/settings.json”中。
 
 ```json5
@@ -126,7 +126,7 @@ jsonConfig 由多个按层级结构组织的元素组成。每个元素可以是
 
 如果您测试此适配器，可以看到几乎所有组件都在运行：[jsonconfig-demo](https://github.com/mcm4iob/ioBroker.jsonconfig-demo).\ 您可以通过在 npm 选项卡上输入 `iobroker.jsonconfig-demo`，在管理界面中的 GitHub 图标上安装它。
 
-- [**`accordion`:**](#accordion) 用于折叠内容的折叠面板元素（Admin 6.6.0 或更高版本）
+- [**`accordion`:**](#accordion) 用于可折叠内容的折叠面板元素（Admin 6.6.0 或更高版本）
 - [**`alive`:**](#alive) 显示实例是否正在运行（只读）
 - [**`autocomplete`:**](#autocomplete) 带有自动完成建议的输入字段
 - [**`autocompleteSendTo`:**](#autocompletesendto) 用于发送数据的带有实例值的自动完成控件
@@ -299,7 +299,7 @@ admin/customI18n/en.json
 ### 直接在 i18n 中提供翻译
 翻译也可以直接作为对象在 `jsonConfig` 对象的顶层 `i18n` 属性中提供。
 
-搜索翻译时，系统会使用特定字段中的信息在 i18n 对象中查找包含该文本的属性。
+搜索翻译时，系统会使用特定字段中的信息在 i18n 对象中查找包含指定文本的属性。
 
 如果找不到该属性，则保留字段中的信息。
 
@@ -541,12 +541,12 @@ admin/customI18n/en.json
 对象 ID：显示其名称、颜色和图标
 
 | 房产 | 描述 |
-|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `types` | 期望类型：`channel`, `device`, ...（默认只有 `state`）。这里使用复数形式，因为 `type` 已被占用。 |
-| `customFilter` | [可选] 不能与 `type` 设置一起使用。它是一个对象，而不是 JSON 字符串。 |
-| `filterFunc` | [可选] 不能与 `type` 设置一起使用。这是一个将对每个对象调用的函数，必须返回 true 或 false。示例：`obj.common.type === 'number'` |
-| `fillOnSelect` | [可选] 选择对象 ID 时填充其他配置字段。格式：`pathInObject=>attr,pathInObject=>attr(X)`。附加 `(X)` 可覆盖非空字段。例如：`common.name=>name,common.color=>color(X)` 会将对象名称填充到 `name` 字段，并将对象颜色覆盖到 `color` 字段。 |
-| `fillOnSelect` | [可选] 当选中对象 ID 时填充其他配置字段。格式：`pathInObject=>attr,pathInObject=>attr(X)`。附加 `(X)` 以覆盖非空字段。例如：`common.name=>name,common.color=>color(X)` 会将对象名称填充到 `name` 字段，并将对象颜色覆盖到 `color` 字段。 |
+| `customFilter` | [可选] 不能与 `types` 设置一起使用。它是一个对象，而不是 JSON 字符串。 |
+| `filterFunc` | [可选] 不能与 `types` 设置一起使用。这是一个将对每个对象调用的函数，必须返回 true 或 false。示例：`obj.common.type === 'number'` |
+| `fillOnSelect` | [可选] 选择对象 ID 时填充其他配置字段。格式：`pathInObject1=>attr1,pathInObject2=>attr2(X)`。附加 `(X)` 可覆盖非空字段。例如：`common.name=>name,common.color=>color(X)` 会将对象名称填充到 `name` 字段，并将对象颜色覆盖到 `color` 字段。 |
+| `fillOnSelect` | [可选] 当选中对象 ID 时填充其他配置字段。格式：`pathInObject1=>attr1,pathInObject2=>attr2(X)`。附加 `(X)` 以覆盖非空字段。例如：`common.name=>name,common.color=>color(X)` 会将对象名称填充到 `name` 字段，并将对象颜色覆盖到 `color` 字段。 |
 
 #### `customFilter`的示例
 ##### 仅显示具有某些自定义设置的对象
@@ -623,7 +623,7 @@ admin/customI18n/en.json
 | `textNotAlive` | 默认文本为 `实例 %s 已失效`，其中 %s 将被替换为 `ADAPTER.0`。翻译必须存在于 i18n 文件中。 |
 
 ### `pattern`
-只读字段，模式类似“https://${data.ip}:${data.port}”（不会保存到配置中）。带有只读标志的文本输入，显示一个模式。
+只读字段，模式类似“https://${data.ip}:${data.port}”（不会保存在配置中）。带有只读标志的文本输入，显示一个模式。
 
 | 房产 | 描述 |
 |-------------------|-----------------------|
@@ -686,7 +686,7 @@ admin/customI18n/en.json
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `label` | 多语言文本 |
 | `target` | `_blank` 或 `_self` 或窗口名称。对于相对链接，默认值为 `_self`，对于绝对链接，默认值为 `_blank` |
-| `close` | 如果为真，则关闭 GUI（不用于管理中的 JsonConfig，而是用于动态 GUI，仅当目标是 `_self` 时才使用） |
+| `close` | 如果为真，则关闭 GUI（不用于管理中的 JsonConfig，而用于动态 GUI，仅当目标为 `_self` 时才使用） |
 | `button` | 将链接显示为按钮 |
 | `variant` | 按钮类型（`outlined`, `contained`, `text`） |
 | `color` | 按钮颜色（例如 `primary`） |
@@ -838,7 +838,7 @@ admin/customI18n/en.json
 
 - `simple` - 显示简单的 CRON 设置
 - `complex` - 显示带有“分钟”、“秒”等单位的 CRON 任务
-- 既不是“简单”也不是“复杂”——用户可以在对话框中切换简单和复杂模式。
+- 既不提供“简单”选项，也不提供“复杂”选项 - 用户可以在对话框中切换简单和复杂模式
 
 | 房产 | 描述 |
 |-----------|-----------------------------------------------|
@@ -854,7 +854,7 @@ admin/customI18n/en.json
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pattern` | 文件扩展名模式。允许使用 `**/*.ext` 显示所有子文件夹中的文件，`*.ext` 显示根文件夹中的文件，或 `folderName/*.ext` 显示子文件夹 `folderName` 中的所有文件。默认值为 `**/*.*`。 |
 | `objectID` | 类型为 `meta` 的对象 ID。您可以使用特殊占位符 `%INSTANCE%`，例如 `myAdapter.%INSTANCE%.files` |
-| `upload` | 上传文件的存储路径。与 `folderName` 类似。如果未定义，则不会显示上传字段。要上传到根目录，请将此字段设置为 `/`。 |
+| `upload` | 上传文件的存储路径。类似于 `folderName`。如果未定义，则不会显示上传字段。要上传到根目录，请将此字段设置为 `/`。 |
 | `refresh` | 在选择框附近显示刷新按钮。 |
 | `maxSize` | 最大文件大小（默认 2MB） |
 | `withFolder` | 即使所有文件都在同一文件夹中，也显示文件夹名称 |
@@ -1171,7 +1171,7 @@ adapter.on("message", (obj) => {
 ### `checkDocker`
 - (admin >= 7.7.2) 初始实现
 
-用于检查 Docker 是否已安装并运行的特殊组件。
+用于检查 Docker 是否已安装并正在运行的特殊组件。
 
 如果 Docker 已安装，则会显示一个复选框，允许使用 Docker。
 
@@ -1415,7 +1415,7 @@ adapter.on("message", (obj) => {
 }
 ```
 
-在这种情况下，输入内容必须为文本，例如 `__different__`，并提供三个可选值的自动完成选项。
+在这种情况下，输入内容必须为文本，显示为`__different__`，并提供三个可选值的自动完成选项。
 
 用户可以从下拉列表中选择 1000、2000 或 3000，也可以输入自己的新值，例如 500。
 
@@ -1534,7 +1534,7 @@ const isValid = func(
 );
 ```
 
-以下变量可在自定义设置中的JS函数中使用：
+以下变量可在自定义设置中的 JS 函数中使用：
 
 - `data` - 当前自定义设置或表中的当前行（要访问所有设置，请使用 globalData）
 - `originalData` - 未更改的数据
@@ -1681,7 +1681,10 @@ onMessage = (obj: ioBroker.Message): void => {
 ### **正在进行中** -->
 
 ## Changelog
-### 8.3.6 (2026-04-12)
+### 8.3.9 (2026-04-17)
+- (@GermanBluefox) Updated packages
+
+### 8.3.8 (2026-04-13)
 - (@GermanBluefox) Adjust a path to images
 
 ### 8.3.5 (2026-04-11)

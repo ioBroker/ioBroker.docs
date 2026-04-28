@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: lrAcCG5s4r+NW//IOgKlqBgJ5vSQCfmTqn7zUhrNIbk=
+hash: QPitZJ1RCY7qZv3q7/d2Tdl/eJ6Dg/g+5CflI61eIlw=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -432,7 +432,7 @@ Jede Option in `options` kann Folgendes enthalten:
 | `hidden` | Formel oder boolescher Wert zum Ein- oder Ausblenden der Option |
 | `description` | Beschreibung unterhalb der Optionsbezeichnung (kann übersetzbar sein) |
 | `icon` | Symbol-URL oder Base64-Zeichenkette, die neben der Option angezeigt werden soll (ab Version 8.3.3) |
-| `icon` | Symbol-URL oder Base64-Zeichenkette, die neben der Option angezeigt werden soll (ab Version 8.3.3) |
+| `icon` | URL oder Base64-String des Symbols, das neben der Option angezeigt werden soll (ab Version 8.3.3) |
 
 #### Beispiel für `select options`
 ```json5
@@ -538,12 +538,12 @@ Siehe auch [OAUTH2.md](OAUTH2.md) für weitere Informationen.
 Objekt-ID: Anzeige mit Name, Farbe und Symbol
 
 | Objekt | Beschreibung |
-|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `types` | Gewünschter Typ: `channel`, `device`, ... (standardmäßig nur `state`). Es handelt sich um einen Plural, da `type` bereits belegt ist. |
-| `customFilter` | [optional] Kann nicht zusammen mit den `type`-Einstellungen verwendet werden. Es handelt sich um ein Objekt und nicht um eine JSON-Zeichenfolge. |
-| `filterFunc` | [optional] Kann nicht zusammen mit den Einstellungen `type` verwendet werden. Es handelt sich um eine Funktion, die für jedes Objekt aufgerufen wird und true oder false zurückgeben muss. Beispiel: `obj.common.type === 'number'` |
-| `fillOnSelect` | [optional] Füllt weitere Konfigurationsfelder, wenn eine Objekt-ID ausgewählt wird. Format: `pathInObject=>attr,pathInObject=>attr(X)`. Hängen Sie `(X)` an, um nicht leere Felder zu überschreiben. Beispiel: `common.name=>name,common.color=>color(X)` füllt das Feld `name` mit dem Namen des Objekts und überschreibt `color` mit der Farbe des Objekts. |
-| `fillOnSelect` | [optional] Füllt andere Konfigurationsfelder, wenn eine Objekt-ID ausgewählt wird. Format: `pathInObject=>attr,pathInObject=>attr(X)`. Hängen Sie `(X)` an, um nicht leere Felder zu überschreiben. Beispiel: `common.name=>name,common.color=>color(X)` füllt das Feld `name` mit dem Namen des Objekts und überschreibt `color` mit der Farbe des Objekts. |
+| `customFilter` | [optional] Kann nicht zusammen mit den `types`-Einstellungen verwendet werden. Es handelt sich um ein Objekt und nicht um eine JSON-Zeichenfolge. |
+| `filterFunc` | [optional] Kann nicht zusammen mit den Einstellungen `types` verwendet werden. Es handelt sich um eine Funktion, die für jedes Objekt aufgerufen wird und true oder false zurückgeben muss. Beispiel: `obj.common.type === 'number'` |
+| `fillOnSelect` | [optional] Füllt weitere Konfigurationsfelder, wenn eine Objekt-ID ausgewählt wird. Format: `pathInObject1=>attr1,pathInObject2=>attr2(X)`. Hängen Sie `(X)` an, um nicht leere Felder zu überschreiben. Beispiel: `common.name=>name,common.color=>color(X)` füllt das Feld `name` mit dem Namen des Objekts und überschreibt `color` mit der Farbe des Objekts. |
+| `fillOnSelect` | [optional] Füllt andere Konfigurationsfelder, wenn eine Objekt-ID ausgewählt wird. Format: `pathInObject1=>attr1,pathInObject2=>attr2(X)`. Hängen Sie `(X)` an, um nicht leere Felder zu überschreiben. Beispiel: `common.name=>name,common.color=>color(X)` füllt das Feld `name` mit dem Namen des Objekts und überschreibt `color` mit der Farbe des Objekts. |
 
 #### Beispiele für `customFilter`
 ##### Nur Objekte mit bestimmten benutzerdefinierten Einstellungen anzeigen
@@ -594,7 +594,7 @@ Zusätzlich können Sie verhindern, dass diese Eigenschaft an andere Adapter als
 | `adapter` | Name des Adapters. Mit dem speziellen Namen `_dataSources` erhalten Sie alle Adapter mit dem Flag `common.getHistory`. |
 | `allowDeactivate` | falls wahr. Die zusätzliche Option "Deaktivieren" wird angezeigt. |
 | `onlyEnabled` | falls wahr. Nur aktivierte Instanzen werden angezeigt. |
-| `long` | Der Wert sieht aus wie `system.adapter.ADAPTER.0` und nicht wie `ADAPTER.0` |
+| `long` | Der Wert sieht eher aus wie `system.adapter.ADAPTER.0` und nicht wie `ADAPTER.0` |
 | `short` | Der Wert sieht aus wie `0` und nicht wie `ADAPTER.0` |
 | `all` | Füge der Option "all" den Wert `*` hinzu |
 | `all` | Füge der Optionsliste die Option "all" mit dem Wert `*` hinzu. |
@@ -670,7 +670,7 @@ Statischer Text wie Beschreibung
 | `button` | Link als Schaltfläche anzeigen |
 | `variant` | Typ der Schaltfläche (`outlined`, `contained`, `text`) |
 | `color` | Farbe der Schaltfläche (z. B. `primary`) |
-| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Symbole `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Symbole über das Issue an.) |
+| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Icons `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Icons über das Issue an.) |
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 
@@ -685,7 +685,7 @@ Es muss genau eines von `label` oder `text` angegeben werden – nicht beide.
 | `button` | Link als Schaltfläche anzeigen |
 | `variant` | Typ der Schaltfläche (`outlined`, `contained`, `text`) |
 | `color` | Farbe der Schaltfläche (z. B. `primary`) |
-| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Symbole `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Symbole über das Issue an.) |
+| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Icons `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Icons über das Issue an.) |
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 | `format` | `text` (Standard), `html`, `json` |
 | `format` | `text` (Standard), `html`, `json` |
@@ -992,7 +992,7 @@ Zeigt das Dropdown-Menü mit den angegebenen Instanzwerten an.
 | `manual` | Manuelle Bearbeitung zulassen. Ohne Dropdown-Menü (wenn die Instanz offline ist). Standardmäßig `true`. |
 | `multiple` | Mehrfachauswahl |
 | `showAllValues` | Element auch dann anzeigen, wenn keine Bezeichnung dafür gefunden wurde (bei mehreren Elementen), Standardwert=`true` |
-| `noTranslation` | Die Beschriftung der Auswahllisten wird nicht übersetzt. Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren. Das Ergebnis des Befehls muss ein Array im Format `[{"value": 1, "label": "one"}, ...]` | sein. |
+| `noTranslation` | Die Beschriftung der Auswahllisten wird nicht übersetzt. Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren. Das Ergebnis des Befehls muss ein Array der Form `[{"value": 1, "label": "one"}, ...]` | sein. |
 | `alsoDependsOn` | Durch welche Änderung der Attribute muss der Befehl erneut gesendet werden? |
 | `alsoDependsOn` | Durch die Änderung welcher Attribute muss der Befehl erneut gesendet werden |
 
@@ -1139,7 +1139,7 @@ Ermittelt den aktuellen Standort und verwendet die Koordinaten `system.config`, 
 | `divider` | Trennzeichen zwischen Breitengrad und Längengrad. Standardwert: "," (Wird verwendet, wenn longitudeName und latitudeName nicht definiert sind) |
 | `longitudeName` | Falls definiert, wird der Längengrad in diesem Attribut gespeichert, das Trennzeichen wird ignoriert. |
 | `latitudeName` | Falls definiert, wird der Breitengrad in diesem Attribut gespeichert, das Trennzeichen wird ignoriert. |
-| `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und die Breiten- und Längengrade werden aus `system.config` gelesen. Ein boolescher Wert wird unter dem angegebenen Namen gespeichert. |
+| `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und Breitengrad und Längengrad werden aus `system.config` gelesen. Ein boolescher Wert wird unter dem angegebenen Namen gespeichert. |
 | `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und die Breiten- und Längengrade werden aus `system.config` gelesen. Ein boolescher Wert wird unter dem angegebenen Namen gespeichert. |
 
 ### `interface`
@@ -1203,12 +1203,12 @@ Spezielle Eingabe für Ports. Es prüft automatisch, ob der Port von anderen Ins
 | `trueText` | Dieser Text wird angezeigt, wenn der Wert wahr ist |
 | `trueTextStyle` | Textstil, wenn der Wert wahr ist |
 | `falseText` | Dieser Text wird angezeigt, wenn der Wert falsch ist oder wenn es sich bei dem Steuerelement um eine Schaltfläche handelt. |
-| `falseTextStyle` | Textstil, wenn der Wert falsch ist oder wenn das Steuerelement eine "Schaltfläche" ist |
+| `falseTextStyle` | Textstil, wenn der Wert „false“ ist oder wenn es sich bei dem Steuerelement um eine „Schaltfläche“ handelt |
 | `trueImage` | Dieses Bild wird angezeigt, wenn der Wert wahr ist |
 | `falseImage` | Dieses Bild wird angezeigt, wenn der Wert falsch ist oder wenn es sich bei dem Steuerelement um eine Schaltfläche handelt. |
 | `min` | Minimalwert für Schieberegler oder Zahl |
 | `max` | Maximalwert für Schieberegler oder Zahl |
-| `step` | Schrittwert für Schieberegler oder Zahl |
+| `step` | Schrittwert für Steuerelementtyp Schieberegler oder Zahl |
 | `controlDelay` | Verzögerung in ms für Schieberegler oder Zahl |
 | `variant` | Varianten der Schaltfläche: `contained`, `outlined`, `text` |
 | `readOnly` | Legt fest, ob das Steuerelement schreibgeschützt ist |
@@ -1669,7 +1669,10 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
-### 8.3.6 (2026-04-12)
+### 8.3.9 (2026-04-17)
+- (@GermanBluefox) Updated packages
+
+### 8.3.8 (2026-04-13)
 - (@GermanBluefox) Adjust a path to images
 
 ### 8.3.5 (2026-04-11)

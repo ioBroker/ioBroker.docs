@@ -29,6 +29,10 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@GermanBluefox) fixed json config issues
+* (@GermanBluefox) packages were updated
+
 ### 4.0.2 (2026-04-07)
 * (@GermanBluefox) fixed #368
 

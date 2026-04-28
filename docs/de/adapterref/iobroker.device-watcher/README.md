@@ -27,25 +27,24 @@ BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-insta
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.15.9 (2026-04-22)
+* (arteck) new xsense (v. 0.4.0) structure, plz update before
 
-### **WORK IN PROGRESS**
+### 2.15.8 (2026-04-18)
+* (arteck) fix cronParserLib.parseExpression message
+
+### 2.15.7 (2026-04-18)
+* (arteck) fix matter 
+* (arteck) fix cronParserLib.parseExpression message
+
+### 2.15.6 (2026-04-18)
 - (copilot) Adapter requires admin >= 7.7.22 now
+* (arteck) fix instanz restart
+* (arteck) fix cronParserLib.parseExpression message
+* (arteck) fix group in zigbee2mqtt
 
 ### 2.15.5 (2026-01-12)
 * (arteck) fix admin
-
-### 2.15.4 (2026-01-11)
-* (arteck) define subscribe rules new
-
-### 2.15.3 (2026-01-10)
-* (arteck) fix ping adapter, fritzdec
-
-### 2.15.2 (2026-01-10)
-* (arteck) fix cronjob response
-
-### 2.15.1 (2026-01-10)
-* (arteck) fix instance check
-* (arteck) fix admin json
 
 ## License
 

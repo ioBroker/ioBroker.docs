@@ -33,6 +33,9 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
     Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.3.2 (2026-04-14)
+- (@GermanBluefox) Added support of shm_size
+
 ### 2.3.1 (2026-03-29)
 - (Eistee82) Added Frigate API authentication support for port 8971 (username/password login with JWT)
 - (Eistee82) Automatic token refresh on 401 responses
@@ -49,9 +52,9 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
 - (Eistee82) Added per-camera improve contrast toggle (`remote.improveContrast`)
 - (Eistee82) Added Frigate notification control via MQTT (`notifications.enabled`, `notifications.suspend`)
 - (Eistee82) Added automatic zone device creation from Frigate config
-- (Eistee82) Audio details (dBFS, RMS, transcription, audio types) now automatically available
-- (Eistee82) Camera health status (detect/audio/record role status) now automatically available
-- (Eistee82) Classification states and review status now automatically available
+- (Eistee82) Audio details (dBFS, RMS, transcription, audio types) are now automatically available
+- (Eistee82) Camera health status (detect/audio/record role status) is now automatically available
+- (Eistee82) Classification states and review status are now automatically available
 
 **Modernization:**
 - (Eistee82) Migrated adapter to ESM (ECMAScript Modules) — requires js-controller >= 6.0.5
@@ -59,10 +62,10 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
 - (Eistee82) Replaced uuid dependency with built-in `crypto.randomUUID()`
 - (Eistee82) Replaced json-bigint dependency with native `JSON.parse`
 - (Eistee82) Refactored monolithic main.ts into focused modules
-- (Eistee82) Include build directory in repository for direct GitHub installation
+- (Eistee82) Include build directory in the repository for direct GitHub installation
 
 **Bug Fixes:**
-- (Eistee82) Fixed critical bug: motion ON was always parsed as false due to operator precedence
+- (Eistee82) Fixed a critical bug: motion ON was always parsed as false due to operator precedence
 - (Eistee82) Fixed snapshot notification missing image parameter
 - (Eistee82) Fixed duplicate MQTT message processing in built-in broker mode
 - (Eistee82) Fixed tmp directory cleanup deleting files from other programs
@@ -75,10 +78,6 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
 - (Eistee82) Added configurable MQTT topic prefix
 - (Eistee82) Added i18n translations for new MQTT configuration fields
 - (mcm1957) dependencies have been updated
-
-### 2.1.3 (2026-03-19)
-- (@GermanBluefox) Remove wrong log message about missing docker
-- (@GermanBluefox) Send on connection the topic onConnect to receive camera_activity topic
 
 ## License
 

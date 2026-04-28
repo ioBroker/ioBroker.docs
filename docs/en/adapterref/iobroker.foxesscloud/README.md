@@ -75,6 +75,9 @@ The adapter creates the following data points:
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 0.2.1 (2026-04-13)
+- (skvarel) Removed: React and mui
+
 ### 0.2.0 (2026-04-06)
 - (skvarel) Updated: Minimum Node.js version requirement to >=22
 
@@ -87,10 +90,6 @@ The adapter creates the following data points:
 
 ### 0.1.7 (2026-02-28)
 - (skvarel) Fixed: Issue detected by repository checker.
-
-### 0.1.6 (2026-02-01)
-- (skvarel) Improved: Use node: prefix for core modules and adapter timer wrappers for better compatibility
-- (skvarel) Fixed: Added .env.example to .gitignore
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

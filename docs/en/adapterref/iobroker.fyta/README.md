@@ -21,6 +21,9 @@ Sensors can be purchased an the [FYTA Shop](https://fyta.de/collections/all)
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.5 (2026-04-20)
+-	Made data retrieval more synchronous and introduced delays to avoid exceeding API limits 
+
 ### 0.2.4 (2025-12-28)
 -	Added additional notifications ans support for airt humidity status
 
