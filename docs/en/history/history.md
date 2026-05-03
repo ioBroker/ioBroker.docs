@@ -1186,6 +1186,20 @@ https://github.com/chrmenne/ioBroker.aurora-nowcast
 
 Provides current (nowcast) data on aurora activity (northern and southern lights) for a given location, based on publicly available data from the NOAA Space Weather Prediction Center (SWPC).
 
+## speedport (3.5.2025) – new adapter at stable repository
+https://github.com/hacki11/ioBroker.speedport
+
+<img src="https://raw.githubusercontent.com/hacki11/ioBroker.speedport/master/admin/speedport.png" width="100" height="100" />
+
+Fetches data from Telekom Speedport Router
+
+## life360ng (3.5.2025) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.life360ng
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.life360ng/main/admin/Life360ng.svg" width="100" height="100" />
+
+This adapter connects to the Life360 cloud services to track people and detect presence at defined places. It retrieves circles, members and places data and persists it as ioBroker states, updated at a configurable interval.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
