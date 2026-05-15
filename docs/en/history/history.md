@@ -1158,33 +1158,42 @@ https://github.com/Bannsaenger/ioBroker.pjlink
 
 PJLink Projector controll
 
-## heos (15.03.2025) – new adapter at stable repository
+## heos (15.03.2026) – new adapter at stable repository
 https://github.com/withstu/ioBroker.heos
 
 <img src="https://raw.githubusercontent.com/withstu/ioBroker.heos/main/admin/heos.png" width="100" height="100" />
 
 The adapter lets control HEOS from ioBroker.
 
-## open-meteo-weather (14.4.2025) – new adapter at stable repository
+## open-meteo-weather (14.4.2026) – new adapter at stable repository
 https://github.com/H5N1v2/ioBroker.open-meteo-weather
 
 <img src="https://raw.githubusercontent.com/H5N1v2/ioBroker.open-meteo-weather/main/admin/open-meteo.png" width="100" height="100" />
 
 This adapter provides precise weather data, forecasts, air quality, and pollen information powered by Open-Meteo.com. It is free for non-commercial use (under 10,000 daily API calls) and requires no API key registration, making the setup process extremely simple.
 
-## nextcloud-monitoring (14.4.2025) – new adapter at stable repository
+## nextcloud-monitoring (14.4.2026) – new adapter at stable repository
 https://github.com/H5N1v2/ioBroker.nextcloud-monitoringr
 
 <img src="https://raw.githubusercontent.com/H5N1v2/ioBroker.nextcloud-monitoring/main/admin/nextcloud_monitoring.png" width="100" height="100" />
 
 This adapter allows for detailed monitoring of your Nextcloud instance via the official OCS API (serverinfo). It provides numerous system data, user statistics, shares, as well as performance values from PHP (OPcache/FPM) and the database directly in ioBroker.
 
-## aurora-nowcastg (14.4.2025) – new adapter at stable repository
+## aurora-nowcastg (14.4.2026) – new adapter at stable repository
 https://github.com/chrmenne/ioBroker.aurora-nowcast
 
 <img src="https://raw.githubusercontent.com/chrmenne/ioBroker.aurora-nowcast/main/admin/aurora-nowcast.png" width="100" height="100" />
 
 Provides current (nowcast) data on aurora activity (northern and southern lights) for a given location, based on publicly available data from the NOAA Space Weather Prediction Center (SWPC).
+
+## solectrus-influxdb (15.5.2026) – new adapter at stable repository
+https://github.com/patricknitsch/ioBroker.solectrus-influxdb
+
+<img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.solectrus-influxdb/main/admin/solectrus-influxdb.png" width="100" height="100" />
+
+The SOLECTRUS InfluxDB Adapter stores selected ioBroker states into an InfluxDB 2.x database and optionally computes derived values using a built-in formula engine.
+
+It is designed for energy monitoring systems such as photovoltaic installations, battery storage, heat pumps, wallboxes, grid import/export monitoring, and custom sensors.
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
