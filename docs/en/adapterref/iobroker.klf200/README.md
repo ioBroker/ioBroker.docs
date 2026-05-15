@@ -358,6 +358,8 @@ The values of the state provide multiple manipulation modes:
 
 - (Michael Schroeder) Initial developer release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## Contribute
 
 To release a new version run the following script:

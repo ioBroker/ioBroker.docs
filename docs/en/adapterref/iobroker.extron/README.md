@@ -60,7 +60,7 @@ If you are a non commercial organisation or use it for private use you can get a
 -->
 
 ### **WORK IN PROGRESS**
-
+- (copilot) Adapter requires node.js >= 22 now
 - (Bannsaenger) updated dependencies and issues from repository checker
 
 ### 0.3.0 (2025-10-28)
@@ -88,6 +88,8 @@ If you are a non commercial organisation or use it for private use you can get a
 ### 0.2.12
 
 - (mschlgl) added instance.comon.title / .titleLang to be set at startup
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

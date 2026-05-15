@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.enpal/README.md
 title: kein Titel
-hash: vKO+Q2VLzuldwLkkQcycfuE09hl4BBMfd8Wbup5+i+A=
+hash: Z/fJiETQ5VqCX4KIfrkSyJ3B4W4iZQuwv37BWa5LOJU=
 ---
 ![Logo](../../../en/adapterref/iobroker.enpal/admin/enpal_logo.svg)
 
@@ -70,10 +70,16 @@ Dieser Adapter verbindet sich ausschließlich mit Ihrer **lokalen InfluxDB** –
 Ihr API-Token wird verschlüsselt in der ioBroker-Datenbank gespeichert.
 Es werden keine externen Server kontaktiert.
 
+## Ältere Änderungen
+- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+
 ## Changelog
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Added link to CHANGELOG_OLD.md at readme 
+
 ### 0.2.0 (2026-04-06)
 - (skvarel) Updated minimum Node.js version requirement to >=22
 - (skvarel) Normalize unit display: "Percent" is now shown as "%"

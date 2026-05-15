@@ -70,6 +70,7 @@ to make them visible in the Vis. So you have a better overview if you have sever
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 
 - CHORE: Update dependencies
 
@@ -248,6 +249,8 @@ to make them visible in the Vis. So you have a better overview if you have sever
 ### 0.0.1 (25.12.2021)
 
 - initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

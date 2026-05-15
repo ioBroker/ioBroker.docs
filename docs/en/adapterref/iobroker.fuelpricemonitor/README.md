@@ -27,6 +27,9 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### __WORK IN PROGRESS__
 * (HGlab01) some small improvements
 
@@ -50,6 +53,8 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
 ### 0.3.5 (2023-07-07)
 * (HGlab01) Spread API calls
 * (HGlab01) Bump ioBroker-jsonExplorer to 0.1.12
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

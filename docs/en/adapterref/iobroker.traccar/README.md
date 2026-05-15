@@ -6,7 +6,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.traccar.svg?dummy=unused)](https://www.npmjs.com/package/iobroker.traccar)
 ![Number of Installations (latest)](https://iobroker.live/badges/traccar-installed.svg?dummy=unused)
 ![Number of Installations (stable)](https://iobroker.live/badges/traccar-stable.svg?dummy=unused)
-[![Known Vulnerabilities](https://snyk.io/test/github/arteck/ioBroker.traccar/badge.svg?dummy=unused)](https://snyk.io/test/github/arteck/ioBroker.traccar)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/traccar/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [![NPM](https://nodei.co/npm/iobroker.traccar.png?downloads=true)](https://nodei.co/npm/iobroker.traccar/)
@@ -24,6 +23,12 @@ This adapter imports in real time the position and the extended data from [Tracc
 5. Have fun :)
 
 ## Changelog
+### 1.2.0 (2026-04-23)
+* (arteck) refactoring
+
+### 1.1.7 (2026-04-14)
+* (arteck) Dependencies have been updated
+
 ### 1.1.6 (2024-10-28)
 -   (arteck) dependency update
 

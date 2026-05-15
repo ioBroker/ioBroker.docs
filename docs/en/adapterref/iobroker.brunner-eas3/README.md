@@ -36,6 +36,9 @@ This adapter is NOT an official product from Urlich Brunner GmbH. It was develop
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.1.4 (2026-04-14)
 * (JR-HOME) release - some non-functional changes to be compliant to all IOBroker bot checks
 

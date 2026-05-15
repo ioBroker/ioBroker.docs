@@ -51,7 +51,7 @@ With this widget, you can control one device. Boolean or number.
 
 ![View in widget](img/material-view-in-widget-1.png)
 
-Not as button: View could be shown in full size, and you can control elements in view.
+Not as a button: View could be shown in full size, and you can control elements in view.
 
 ![View in widget - button](img/material-view-in-widget-2.png)
 
@@ -77,8 +77,8 @@ Additionally, it can show a history if you activated it.
 
 You can define the delay in seconds.
 
-By activation, the defined ID will be written with number of the delay seconds,
-and after the delay is over, the defined ID will be set to 0, and the alarm ID be set to true.
+By activation, the defined ID will be written with the number of the delay seconds,
+and after the delay is over, the defined ID will be set to 0, and the alarm ID will be set to true.
 
 ![Security control](img/material-security-2.png)
 
@@ -88,26 +88,26 @@ and after the delay is over, the defined ID will be set to 0, and the alarm ID b
 
 ### Map
 
-![Player](img/material-map-1.png)
+![Map](img/material-map-1.png)
 
-Position could be defined as a combined state, like `9.2344;41.374652` - (longitude;latitude) or as two separate states.
+Position could be defined as a combined state, like `9.2344;41.374652` - `longitude;latitude` or as two separate states.
 
 ### Camera
 
-![Player](img/material-camera-1.png)
+![Camera](img/material-camera-1.png)
 
-### Html Template
+### HTML Template
 
-![Player](img/material-html-1.png)
+![HTML](img/material-html-1.png)
 
-Html template can be used to show any html code.
-Additionally, you can show image or iframe with this widget too.
+HTML template can be used to show any HTML code.
+Additionally, you can show an image or iframe with this widget too.
 
 ### Blinds
 
 ![Blinds](img/material-blinds-1.png)
 
-![Player](img/material-blinds-2.png)
+![Blinds](img/material-blinds-2.png)
 
 ### Color Lamp
 
@@ -119,7 +119,7 @@ With the RGB lamp widget, you can control different types of RGB lamps. Here are
 -   R/G/B/W colors are set in different states from 0 to 255
 -   hue/sat/lum as 3 different states
 -   color temperature as one state from 2700 to 6500 or defined by min/max of the object
--   White mode state can be used to switch between RGB and white mode via special state
+-   White mode state can be used to switch between RGB and white mode via a special state
 
 ![RGB Lamp 1](img/material-rgb-1.png)
 
@@ -148,6 +148,10 @@ The only difference is that Xiaomi supports the room cleaning.
 -->
 
 ## Changelog
+### 1.6.6 (2026-05-06)
+
+-   (@GermanBluefox) Corrected error with button and alarm widget
+
 ### 1.6.1 (2026-03-14)
 
 -   (@GermanBluefox) Corrected error with select value widget
@@ -164,7 +168,7 @@ The only difference is that Xiaomi supports the room cleaning.
 -   (bluefox) Corrected thermostat slider
 -   (bluefox) Rewritten with TypeScript and vite
 -   (bluefox) Corrected blinds control
--   (bluefox) Added disabled mode additionally to hidden mode in 'switches and buttons' widget
+-   (bluefox) Added disabled mode additionally to hidden mode in the 'switches and buttons' widget
 -   (bluefox) Added `_ts=Date.now()` to camera URL to disable the browser cache
 -   (bluefox) Simple state has a new option - step
 -   (bluefox) Added new navigation widget: jump to view, url or list of views
@@ -224,7 +228,7 @@ The only difference is that Xiaomi supports the room cleaning.
 
 ### 1.3.23 (2024-03-05)
 
--   (bluefox) Added possibility to change the icon size in simple widget
+-   (bluefox) Added possibility to change the icon size in a simple widget
 
 ### 1.3.21 (2024-02-22)
 
@@ -237,15 +241,15 @@ The only difference is that Xiaomi supports the room cleaning.
 
 ### 1.3.17 (2023-12-19)
 
--   (bluefox) Added option to hide the line in switches widget
+-   (bluefox) Added an option to hide the line in the switches widget
 
 ### 1.3.15 (2023-12-17)
 
--   (foxriver76) Added option to rotate video
+-   (foxriver76) Added an option to rotate video
 
 ### 1.3.14 (2023-12-05)
 
--   (bluefox) Allowed with on click on the widget toggling the ON/OFF state of RGB widget
+-   (bluefox) Allowed with on click on the widget toggling the ON/OFF state of the RGB widget
 -   (bluefox) Added class names to ON/OFF widgets to allow styling
 
 ### 1.3.11 (2023-11-17)
@@ -264,7 +268,7 @@ The only difference is that Xiaomi supports the room cleaning.
 
 -   (bluefox) Corrected layout of RGB widget
 -   (bluefox) Added option for RGB widget to hide brightness control
--   (bluefox) Added option for white mode in RGB widget
+-   (bluefox) Added option for white mode in the RGB widget
 
 ### 1.3.3 (2023-10-26)
 
@@ -331,7 +335,7 @@ The only difference is that Xiaomi supports the room cleaning.
 
 ### 0.5.3 (2023-06-21)
 
--   (bluefox) Corrected errors with view in widget
+-   (bluefox) Corrected errors with view in the widget
 
 ### 0.5.1 (2023-06-20)
 
@@ -341,7 +345,7 @@ The only difference is that Xiaomi supports the room cleaning.
 ### 0.4.0 (2023-06-16)
 
 -   (bluefox) Added button texts for switches widget
--   (bluefox) Removed static widget, as it was replaced by switches widget
+-   (bluefox) Removed static widget, as it was replaced by the switches widget
 
 ### 0.3.1 (2023-06-14)
 
@@ -371,6 +375,8 @@ The only difference is that Xiaomi supports the room cleaning.
 ### 0.1.2 (2022-10-21)
 
 -   (bluefox) initial commit
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

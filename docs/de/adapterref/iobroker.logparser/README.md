@@ -144,8 +144,9 @@ Wie zu sehen wird damit also "Quelle" (wäre hier normalerweise `javascript.0`) 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.5.0 (2026-05-09)
+- (iobroker-community-adapters) **ENHANCED**: Migrated linting to shared `@iobroker/eslint-config` base configuration
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -171,11 +172,6 @@ Wie zu sehen wird damit also "Quelle" (wäre hier normalerweise `javascript.0`) 
 
 -   (ciddi89) Fixed: Visualization tables was not working correctly [#97](https://github.com/iobroker-community-adapters/ioBroker.logparser/issues/97)
 -   (ciddi89) Updated: Dependencies
-
-### 2.2.0 (2023-05-28)
-
--   (ciddi89) Dropped: Node v14.x support and added: Node v20.x support
--   (ciddi89) Added: Option to empty log for each parser rule.
 
 ## License
 

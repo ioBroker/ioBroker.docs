@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: v6FxPWFAENHd0IH3Y9/brIEtva1r3Zc6X3khIMaTbtI=
+hash: WKJsw/HidHHxNSnP3LoQU7C55PATtKkU/j3hzURQ/C0=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -36,9 +36,9 @@ Neue Funktion: Der Adapter unterstützt jetzt das direkte lokale Auslesen des Ti
 Falls Sie derzeit kein Tibber-Nutzer sind, würde ich mich sehr freuen, wenn Sie meinen Empfehlungslink verwenden könnten: [Tibber-Empfehlungslink](https://invite.tibber.com/mu8c82n5).
 
 ## Standardkonfiguration
-- Beginnen Sie mit dem Erstellen einer neuen Instanz des Adapters.
+- Erstellen Sie zunächst eine neue Instanz des Adapters.
 Sie benötigen außerdem ein API-Token von Tibber, das Sie hier erhalten können: [Tibber Developer API](https://developer.tibber.com).
-- Geben Sie Ihren Tibber-API-Token in den Standardeinstellungen ein und konfigurieren Sie mindestens eine Zeile für Live-Feed-Einstellungen (wählen Sie „Keine verfügbar“).
+- Geben Sie Ihren Tibber-API-Token in den Standardeinstellungen ein und konfigurieren Sie mindestens eine Zeile für Live-Feed-Einstellungen (wählen Sie "Keine verfügbar").
 - Speichern Sie die Einstellungen und beenden Sie die Konfiguration, um den Adapter neu zu starten; dieser Schritt ermöglicht es, dass Ihre Home-Server beim ersten Mal vom Tibber-Server abgefragt werden.
 Kehren Sie zum Konfigurationsbildschirm zurück und wählen Sie die Haushalte aus, von denen Sie mit Ihrem Tibber Pulse Echtzeitdaten abrufen möchten. Sie können auch Haushalte auswählen und den Datenfeed deaktivieren (Hinweis: Dies funktioniert nur, wenn die Hardware installiert ist und der Tibber-Server die Verbindung zu Pulse bestätigt hat).
 Hinweis: Falls Sie in Ihrem Tibber-Konto mehrere Häuser aktiv haben, müssen Sie alle hinzufügen, um Fehlermeldungen aufgrund möglicherweise unnötiger Häuser zu beheben. Fügen Sie alle Häuser hinzu und deaktivieren Sie die entsprechenden Optionen.
@@ -106,6 +106,18 @@ Diese Methode erfordert die separate Installation des "FlexCharts"-Adapters.
 http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibberlink.0.Homes.[TIBBER-HOME-ID].PricesTotal.jsonFlexCharts
 ```
 
+- Ab Version 0.7.0 unterstützt FlexCharts automatische Diagrammaktualisierungen über SSE (Server Sent Events). Um diese Funktion zu nutzen, fügen Sie `&sse` zur URL hinzu:
+
+```
+http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibberlink.0.Homes.[TIBBER-HOME-ID].PricesTotal.jsonFlexCharts&sse=30
+```
+
+Weitere Details finden Sie in der [FlexCharts-Adapterdokumentation](https://github.com/MyHomeMyData/ioBroker.flexcharts).
+
+@reblausgt Mit v0.7.0 ist es in Flexcharts nun möglich, Charts automatisch neu aufzubauen, wenn sich der State des Charts geändert hat. Das Verfahren nennt sich SSE (Server Sent Events). Aktiviert wird es denkbar einfach, indem ein &sse an den html-Aufruf anhängt. Details sind im Readme beschrieben.
+
+Die Version ist in NPM und im Beta-Repo verfügbar. Ab 26. April auch im Stall.
+
 Weitere Details finden Sie in der [FlexCharts-Adapterdokumentation](https://github.com/MyHomeMyData/ioBroker.flexcharts).
 
 #### **Verwendung der JSON-Vorlage**
@@ -169,51 +181,49 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 
 ### **WORK IN PROGRESS**
 
+- (copilot) BREAKING: Adapter requires node.js >= 22 now
+- (HombachC) Adapter requires admin >=7.6.20 now
+- (HombachC) fix some type definitions
+- (HombachC) extend FlexCharts docu
+- (HombachC) update dependencies
+
+### 6.2.2 (2026-04-13)
+
+- (HombachC) fix vulnerability in axios
+- (HombachC) update dependencies
+
+### 6.2.1 (2026-03-30)
+
+- (HombachC) optimize pull of consumption data (#860)
+- (HombachC) switch to ES2023 code
+- (HombachC) update dependencies
+
+### 6.2.0 (2026-03-07)
+
+- (HombachC) enable umlauts to calculation channel names (#844)
+- (HombachC) enhance resolution of pulse meter data (#840)
+- (HombachC) fix wrong end block state calculation (#841)
+- (HombachC) setup auto-merge for dependabot (#834)
+- (HombachC) update dependencies
+
+### 6.1.1 (2026-02-05)
+
+- (HombachC) fix LTF shifting for frames greater 24h
+- (HombachC) update dependencies
+
+### 6.1.0 (2026-01-03)
+
 - (HombachC) BREAKING: change flexcharts x-axis type
 - (HombachC) introduce FlexChart output for SBB channels second output
 - (HombachC) introduce second name for FlexChart output of SBB channels
 - (HombachC) introduce color for FlexChart output of calculator results
+- (HombachC) introduce more statistics for yesterdays prices
 - (HombachC) clean code for 15min time slots
 - (HombachC) fix schema links (#822)
+- (HombachC) fix CurrentPrice after midnight (#812)
 - (HombachC) update cron
+- (HombachC) year 2026 changes
 - (HombachC) update dependencies
-
-### 6.0.3 (2025-11-16)
-
-- (HombachC) optimize sentry
-- (HombachC) optimize dependabot config (#805)
-- (HombachC) update axios and cron
-- (HombachC) update FlexChart template
-
-### 6.0.2 (2025-10-24)
-
-- (HombachC) update NPM deployment
-- (HombachC) update dependencies
-
-### 6.0.1 (2025-10-09)
-
-- (HombachC) fix error in cleaning tomorrow data
-- (HombachC) update release management to 4.x.x
-
-### 6.0.0 (2025-10-06)
-
-- (HombachC) BREAKING: hourly price states (0...23) are now quarterhourly (0...95)
-- (HombachC) BREAKING: adapted calculator time blocks need reentry of "AmountHours" values
-- (HombachC) change price updates to 15 minutes resolution as default
-- (HombachC) change current price updates to use existing today values instead of Tibber calls
-- (HombachC) more timely precision for current price and calculator
-- (HombachC) adapt chart generation
-- (HombachC) fix error in efficiency loss
-- (HombachC) adapt calculator time blocks
-- (HombachC) update tibber-api to 5.5.2
-- (HombachC) update typescript to 5.9.3 (#777)
-- (HombachC) add names to price states folders
-
-### 5.0.4 (2025-09-27)
-
-- (HombachC) prepared price updates to 15 minutes resolution (#384)
-- (HombachC) update tibber-api to 5.4.2
-- (HombachC) update chai system
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
@@ -221,4 +231,4 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 
 GNU General Public License v3.0 only
 
-Copyright (c) 2023-2025 C.Hombach <TibberLink@homba.ch>
+Copyright (c) 2023-2026 C.Hombach <TibberLink@homba.ch>

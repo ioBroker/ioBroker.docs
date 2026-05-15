@@ -56,9 +56,10 @@ Wait some seconds until the cronjob collects the data for the first time.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 6.0.1 (2026-05-05)
 
-* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+* (copilot) Adapter requires node.js >= 22 now
+* (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
 * (@klein0r) Updated dependencies
 
 ### 5.0.0 (2025-07-02)
@@ -87,15 +88,11 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 * (klein0r) Dropped Admin 5 support
 * (klein0r) Added Ukrainian language
 
-### 2.2.4 (2022-04-14)
-
-* (klein0r) Abort HTTP requests if running too long
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2025-2026 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2026 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

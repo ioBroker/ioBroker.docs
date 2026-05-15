@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: 8mk2ybif7DmQLIK1kNTbrxTutX7NCm21GNxys/rkW7E=
+hash: NSo23ZZJFyEvhcKaN9Y+hI611HavqaS+hfFbhTdWT7w=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -17,14 +17,20 @@ hash: 8mk2ybif7DmQLIK1kNTbrxTutX7NCm21GNxys/rkW7E=
 **Tests:** ![Test und Freigabe](https://github.com/MyHomeMyData/ioBroker.e3oncan/workflows/Test%20and%20Release/badge.svg)
 
 ## E3oncan-Adapter für ioBroker
+> Eine deutsche Version dieser Dokumentation ist verfügbar: [README.de.md](README.de.md)
+
 ## Inhaltsverzeichnis
 - [Übersicht](#overview)
+- [Neuerungen in Version 1.0.0](#whats-new-in-v100)
+- [Neuerungen in Version 0.11.x](#whats-new-in-v011x)
 - [Schnellstart](#quick-start)
 - [Konfigurationsleitfaden](#configuration-guide)
 - [Schritt 1 – CAN-Adapter](#step-1--can-adapter)
-- [Schritt 2 – Gerätescan](#step-2--device-scan)
+- [Schritt 2 – Gerätescan und Energiezählererkennung](#step-2--device-scan-and-energy-meter-detection)
 - [Schritt 3 – Datenpunktscan](#step-3--data-point-scan)
 - [Schritt 4 – Aufgaben und Zeitpläne](#step-4--assignments-and-schedules)
+- [Bustopologieanalyse](#bus-topology-analysis)
+- [e3oncan datapoints tab](#e3oncan-datapoints-tab)
 - [Datenpunkte lesen](#reading-data-points)
 - [Schreiben von Datenpunkten](#writing-data-points)
 - [Datenpunkte und Metadaten](#data-points-and-metadata)
@@ -44,7 +50,7 @@ Zwei Betriebsarten funktionieren unabhängig voneinander und können kombiniert 
 
 | Modus | Beschreibung |
 |---|---|
-| **Erfassen** | Lauscht passiv auf dem CAN-Bus und extrahiert Daten in Echtzeit, während Geräte diese austauschen. Es werden keine Anfragen gesendet. Ideal für sich schnell ändernde Werte wie z. B. den Energiefluss. |
+| **Erfassen** | Lauscht passiv auf dem CAN-Bus und extrahiert Daten in Echtzeit, während Geräte sie austauschen. Es werden keine Anfragen gesendet. Ideal für sich schnell ändernde Werte wie z. B. den Energiefluss. |
 | **UDSonCAN** | Liest und schreibt aktiv Datenpunkte mithilfe des UDS-Protokolls (Universal Diagnostic Services over CAN). Erforderlich für Sollwerte, Zeitpläne und Daten, die nicht spontan übertragen werden. |
 
 Welche Modi verfügbar sind, hängt von Ihrer Gerätetopologie ab. Siehe Abschnitt [Weitere Details zur Gerätetopologie finden Sie in der Diskussion unter [https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/34]. Anregungen für die Verwendung des Adapters finden Sie in der Diskussion zu Anwendungsfällen.](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35).
@@ -52,6 +58,43 @@ Welche Modi verfügbar sind, hängt von Ihrer Gerätetopologie ab. Siehe Abschni
 Wichtige Teile dieses Adapters basieren auf dem Projekt [open3e](https://github.com/open3e).
 
 Eine Python-basierte Implementierung, die ausschließlich Daten sammelt und MQTT verwendet, ist unter [E3onCAN](https://github.com/MyHomeMyData/E3onCAN) verfügbar.
+
+---
+
+## Was ist neu in Version 1.0.0?
+### Registerkarte „Datenpunkte“
+Eine neue **e3oncan-Datenpunktseite** ist direkt an die Instanzzeile des Adapters in der ioBroker-Instanzansicht angeheftet. Klicken Sie auf die<img src="admin/icon_open_tab.svg" height="20"> Klicken Sie auf die Schaltfläche in der Instanzzeile, um sie zu öffnen. Sie bietet eine eigene Benutzeroberfläche zur Verwaltung von Zeitplänen und Erfassungseinstellungen pro Gerät und Datenpunkt – für alltägliche Änderungen muss nicht der vollständige Adapterkonfigurationsdialog geöffnet werden.
+
+### Automatische Erkennung von Energiezählern
+Energiezähler (E380 und E3100CB) werden nun **automatisch** während des Gerätescans durch passives CAN-Abhören auf beiden CAN-Kanälen erkannt. Statusnamen werden automatisch anhand der erkannten CAN-Adresse und des Kanals vergeben. Die Aktivierung/Deaktivierung und die Erfassungsverzögerung für jeden Energiezähler werden ausschließlich im Datenpunkte-Tab konfiguriert.
+
+Beim ersten Start nach einem Upgrade von einer früheren Version wird die vorherige Energiezählerkonfiguration automatisch migriert.
+
+### Automatische Erkennung von Collect-fähigen Geräten
+Während des Datenpunkt-Scans überwacht der Adapter passiv den CAN-Bus, um zu erkennen, welche Geräte den Sammelmodus unterstützen. Erkannte Geräte werden im Gerätekarten-Header des Datenpunkt-Tabs mit einem Stecknadelsymbol hervorgehoben.
+
+### Flexibler Datenpunktscan
+Die neue Option „Datenpunktwerte während des Scans im Objektbaum speichern“ steuert, ob die aktuellen Werte während des Scans im Objektbaum gespeichert werden. Ist die Option deaktiviert, aktualisiert der Adapter weiterhin Werte und Metadaten aller vorhandenen Datenpunktobjekte – lediglich neue Objekte werden während des Scans nicht erstellt. Dies ist nützlich, um Metadaten nach einer Migration zu aktualisieren, ohne alle Zustandswerte neu schreiben zu müssen.
+
+### Bustopologieanalyse
+Nach dem Scan der Datenpunkte analysiert der Adapter automatisch die während des Scans erfassten Bustopologiedaten und generiert eine Zusammenfassung. Das Ergebnis wird in zwei neuen Zuständen im Kanal `info` gespeichert:
+
+- `info.topology` – strukturiertes JSON mit allen gefundenen UDS-zugänglichen Geräten und Topologieelementen (über alle Topologiematrizen hinweg dedupliziert).
+- `info.topologyHtml` – eine gerenderte HTML-Tabelle, farblich nach Bustyp (CanInternal, CanExternal, CanRaw, ModBus, ServiceBus) gekennzeichnet, mit einem UDS-Badge für Geräte, die auch über UDS erreichbar sind. Zur Anzeige in vis, jarvis oder jedem HTML-fähigen Widget geeignet.
+
+---
+
+## Was ist neu in Version 0.11.x?
+### Aktualisierte Datenpunktstrukturen (Aktion beim Upgrade erforderlich)
+Version 0.11.0 enthält aktualisierte Definitionen für zahlreiche Datenpunkte – neue Variantentypen, zusätzliche Metadaten (Beschreibung, Einheit, Verknüpfungen) und eine überarbeitete Datenformatverarbeitung. **Wenn Sie von Version 0.10.x aktualisieren, führen Sie bitte einen Gerätescan und anschließend einen vollständigen Datenpunktscan durch,** um die neuen Definitionen und Metadaten auf Ihren ioBroker-Objektbaum anzuwenden.
+
+Eine detaillierte Liste der geänderten Datenpunkte finden Sie im Abschnitt [Änderungsprotokoll für Datenpunkte](lib/data-points.md#changelog-of-data-point-definitions).
+
+### Variantendatenpunkte und Geräteformatkonfiguration
+Der Adapter verarbeitet nun variable Datenpunkte – Datenpunkte, deren Struktur von der Gerätekonfiguration abhängt (z. B. Temperatureinheit °C/°F, Datums-/Zeitformat). Während des Gerätescans wird die entsprechende Formatkonfiguration (Datenpunkt 382) gelesen und gespeichert. Anschließend wird automatisch der passende Codec für jedes Gerät angewendet.
+
+### Metadaten zu Datenpunktobjekten
+Datenpunktobjekte im ioBroker-Objektbaum enthalten nun Metadaten: Beschreibung, physikalische Einheit, Lese-/Schreibzugriffsflag und, falls verfügbar, Links zu weiteren Informationen. Die Metadaten vorhandener Objekte werden bei jedem Datenpunktscan aktualisiert und auch wiederhergestellt, wenn ein Datenpunktobjekt gelöscht und neu erstellt wird (hinzugefügt in Version 0.11.1).
 
 ---
 
@@ -89,15 +132,21 @@ Die detaillierten Schritte werden in den nachfolgenden Abschnitten [Konfiguratio
 
 Falls Sie über einen zweiten CAN-Bus verfügen (z. B. einen internen Bus), konfigurieren Sie diesen hier als zweiten Adapter. Nach der Konfiguration des zweiten Adapters wird ein zweiter Reiter „Zuweisungen“ angezeigt.
 
-### Schritt 2 – Gerätescan
+### Schritt 2 – Gerätescan und Energiezählererkennung
 Wechseln Sie zum Tab **Liste der UDS-Geräte** und klicken Sie auf die Schaltfläche **Scannen**.
 
 Der Scan dauert einige Sekunden. Sie können den Fortschritt im Adapterprotokoll verfolgen (öffnen Sie dazu einen zweiten Browsertab).
-Alle im Bus befindlichen E3-Geräte werden aufgelistet. Energiezähler (E380, E3100CB) werden hier nicht aufgeführt – sie werden separat konfiguriert.
-- Sie können die Geräte in der zweiten Spalte umbenennen. Diese Namen werden als Kennungen im Objektbaum von ioBroker verwendet.
+Alle im Bus gefundenen E3-Geräte werden aufgelistet. Sie können die Geräte in der zweiten Spalte umbenennen – diese Namen dienen als Kennungen im Objektbaum von ioBroker.
 - Klicken Sie nach Abschluss auf **SPEICHERN**. Die Instanz wird neu gestartet.
 
 Während des Gerätescans liest der Adapter auch die Datenformatkonfiguration des Geräts (Datenpunkt 382), einschließlich der Temperatureinheiten (°C oder °F) und des Datums-/Zeitformats. Diese Daten werden gespeichert und bei nachfolgenden Datenpunktscans verwendet.
+
+**Energiezählererkennung**
+
+Während der Gerätescan läuft, empfängt der Adapter passiv Signale vom CAN-Bus der Energiezähler E380 und E3100CB. Es ist keine zusätzliche Scanzeit erforderlich – die Erkennung erfolgt parallel. Das Ergebnis wird gespeichert und angezeigt.
+
+- Im Adapterkonfigurationsdialog (Registerkarte **Liste der UDS-Geräte**) als Textzusammenfassung.
+- Auf der Seite **e3oncan datapoints** als einzelne Karten für jeden erkannten Zählertyp (siehe [unten](#e3oncan-datapoints-tab)).
 
 ### Schritt 3 – Datenpunktscan
 Gehen Sie zum Tab **Liste der Datenpunkte**, klicken Sie auf **Scan starten…** und bestätigen Sie mit **OK**.
@@ -110,31 +159,91 @@ Was der Scan bewirkt:
 - Fügt jedem Datenpunktobjekt Metadaten (Beschreibung, Einheit, Lese-/Schreibzugriff) hinzu.
 - Legt die physikalischen Einheiten anhand der in Schritt 2 ermittelten Geräteformatkonfiguration fest.
 - Erstellt den vollständigen Objektbaum für jedes Gerät in ioBroker.
+- Erkennt Collect-fähige Geräte durch passives Abhören ihrer Zeitsignale im CAN-Bus (keine zusätzliche Scanzeit erforderlich – läuft parallel). Für jedes erkannte Gerät wird im Gerätekarten-Header der Seite **e3oncan datapoints** ein Stecknadelsymbol angezeigt.
 
 Dieser Schritt ist für die Nutzung im Nur-Lese-Modus nicht unbedingt erforderlich, wird aber **dringend empfohlen** – und ist **erforderlich**, wenn Sie Datenpunkte beschreiben möchten.
 
-Nach dem Scan können Sie die gefundenen Datenpunkte im Konfigurationsdialog durchsuchen, indem Sie ein Gerät auswählen und auf „Datenpunktliste aktualisieren“ klicken. Verwenden Sie das Filtersymbol, um nach Name oder Codec zu suchen. Deaktivieren Sie den Filter, bevor Sie zu einem anderen Gerät wechseln.
+**Speichern der Datenpunktwerte im Objektbaum während des Scans**
+
+Standardmäßig schreibt der Scan den aktuellen Wert jedes Datenpunkts in den Objektbaum (Zustände `json`, `raw`, `tree`). Sie können dieses Verhalten über die Option **Datenpunktwerte während des Scans im Objektbaum speichern** oberhalb der Scan-Schaltfläche anpassen. Wenn diese Option deaktiviert ist, aktualisiert der Adapter Werte und Metadaten bereits vorhandener Datenpunktobjekte, erstellt aber keine neuen – diese werden automatisch beim ersten Datenempfang nach dem Scan angelegt.
+
+Diese Option ist nützlich, wenn Sie eine große Anzahl von Statusänderungen während des Scans vermeiden möchten (z. B. auf Systemen mit vielen Geräten). Wenn Sie zuvor einen Scan mit gespeicherten Werten durchgeführt haben und nun einen sauberen Zustand wünschen, können Sie die Unterobjekte `json`, `raw` oder `tree` eines beliebigen Geräts aus dem ioBroker-Objektbaum löschen – der Adapter erstellt sie automatisch neu, sobald er die nächsten Daten empfängt. **Hinweis:** Das gleichzeitige Löschen einer großen Anzahl von Objekten führt dazu, dass ioBroker viele interne Ereignisse gleichzeitig auslöst, was kurzzeitig zu einem Anstieg der RAM-Auslastung führen kann. Löschen Sie die Objekte in kleinen Gruppen, wenn Ihr System unter Speichermangel leidet.
+
+**Hinweis zu Verlaufsadaptern:** Das Löschen von Objekten löscht **nicht** die vom Verlaufsadapter (History, InfluxDB, SQL) gespeicherten Verlaufsdaten. Die aufgezeichneten Werte bleiben im Backend des Adapters erhalten und werden in den Diagrammen wieder angezeigt, sobald die Status-ID neu erstellt wurde. Die Konfiguration des Verlaufsabonnements (das „Aktiviert“-Flag des Objekts) geht jedoch beim Löschen eines Objekts verloren und muss für das neue Objekt manuell wieder aktiviert werden.
+
+**Warnung:** Löschen Sie niemals den Kanal `info` (z. B. `e3oncan.0.info`). Er enthält Scan-Ergebnisse, Informationen zur Energiezählererkennung, Verzögerungen, aktive Flags, Bus-Topologie-Zusammenfassungen und den CAN-Verbindungsstatus. Durch das Löschen gehen Konfigurationsdaten verloren, die nicht automatisch wiederhergestellt werden können.
+
+**Bustopologieanalyse**
+
+Nach Abschluss des Scans generiert der Adapter automatisch eine Bustopologie-Zusammenfassung und speichert diese in zwei Zuständen im Kanal `info`: `info.topology` (JSON) und `info.topologyHtml` (HTML). Weitere Details finden Sie unter [Bustopologieanalyse](#bus-topology-analysis).
+
+Nach dem Scan können Sie die gefundenen Datenpunkte auf der Seite **e3oncan datapoints** durchsuchen und verwalten (siehe [unten](#e3oncan-datapoints-tab)).
 
 ### Schritt 4 – Aufgaben und Zeitpläne
-Wechseln Sie zum Reiter **Zuweisungen zum UDS CAN-Adapter** (und gegebenenfalls zum Reiter des zweiten Adapters).
+Die empfohlene Methode zum Konfigurieren von Lesezeitplänen und des gerätespezifischen Erfassungsmodus ist die **e3oncan-Datenpunkte**-Seite (siehe [unten](#e3oncan-datapoints-tab)).
 
-**Energiemesser (Sammelmodus)**
+**Energiezähler**
 
-Wenn Sie Energiezähler vom Typ E380 oder E3100CB verwenden, können Sie die Datenüberwachung hier aktivieren. Legen Sie die **Mindestaktualisierungszeit (s)** fest, um zu steuern, wie oft Werte gespeichert werden. Der Standardwert von 5 Sekunden wird empfohlen, da Energiezähler mehr als 20 Werte pro Sekunde übertragen. Die Einstellung auf 0 führt zu einer hohen Auslastung von ioBroker.
+Wenn der Gerätescan E380- oder E3100CB-Energiezähler erkannt hat, wird auf der Seite **e3oncan-Datenpunkte** für jeden erkannten Zähler eine Karte angezeigt. Aktivieren Sie die Datenerfassung mit dem Schalter **Erfassen** auf der Karte. Legen Sie im Feld **Verzögerung (s)** das minimale Intervall zwischen den Wertaktualisierungen in ioBroker fest. Der Standardwert von 5 Sekunden wird empfohlen, da Energiezähler mehr als 20 Werte pro Sekunde übertragen. Die Einstellung auf 0 führt zu einer erheblichen Belastung von ioBroker.
 
-**E3-Geräteerfassung (Erfassungsmodus)**
+Klicken Sie nach Abschluss der Arbeit auf **Speichern & Schließen**. Überprüfen Sie die Objektstruktur, um sicherzustellen, dass Daten erfasst werden.
 
-Drücken Sie **+**, um ein Gerät hinzuzufügen. Aktivieren Sie **Aktiv**, wählen Sie das Gerät aus und legen Sie die **Mindestaktualisierungszeit (s)** fest. Ein Wert von 5 Sekunden wird empfohlen; 0 Sekunden (Speichern jedes empfangenen Werts) sind zwar möglich, führen aber zu einer höheren Systemlast.
+---
 
-Dieser Modus erfasst die zwischen Ihren E3-Geräten ausgetauschten Daten in Echtzeit, ohne Anfragen zu senden. Details zu den Geräten, die dies unterstützen, finden Sie im Abschnitt [Häufig gestellte Fragen](#faq-and-limitations).
+## Bustopologieanalyse
+Nach dem Scan der Datenpunkte analysiert der Adapter alle während des Scans erfassten Bustopologiedaten und speichert das Ergebnis in zwei Zuständen im Kanal `info`:
 
-**UDSonCAN kann Spielpläne lesen**
+| Status | Rolle | Inhalt |
+|---|---|---|
+| `info.topology` | `json` | Strukturiertes JSON: Liste der über UDS zugänglichen Geräte und aller Topologieelemente, dedupliziert über alle Topologiematrizen hinweg |
+| `info.topologyHtml` | `html` | Gerenderte HTML-Tabelle, farblich nach Bustyp gekennzeichnet, mit einem **UDS**-Badge auf Geräten, die auch UDS-fähig sind |
 
-Drücken Sie **+**, um einen Zeitplan hinzuzufügen. Wählen Sie ein Gerät und eine Liste der zu erfassenden Datenpunkte aus und legen Sie anschließend ein Intervall in Sekunden fest. Der Wert 0 bedeutet, dass die Datenpunkte einmalig beim Start des Adapters erfasst werden.
+**Anzeigen der HTML-Tabelle**
 
-Sie können pro Gerät mehrere Zeitpläne hinzufügen, um bestimmte Datenpunkte häufiger als andere abzufragen. Nutzen Sie die Registerkarte **Liste der Datenpunkte** (in einem zweiten Browser-Tab öffnen) als Referenz.
+Die einfachste Möglichkeit, die Topologie in ioBroker anzuzeigen, besteht in der Verwendung eines Dashboard-Tools, das HTML-Zustände rendern kann:
 
-Klicken Sie nach Abschluss auf **SPEICHERN & SCHLIESSEN**. Überprüfen Sie die Objektstruktur, um sicherzustellen, dass Daten erfasst werden.
+- **jarvis**: Füge ein **stateHTML**-Widget hinzu → wähle `e3oncan.x.info.topologyHtml` aus.
+- **vis / vis2**: Fügen Sie ein **einfaches – String (unmaskiert)**- oder **HTML**-Widget hinzu → wählen Sie `e3oncan.x.info.topologyHtml`.
+
+**Hinweis:** Die Zustände `info.topology` und `info.topologyHtml` sind möglicherweise zu groß, um im Standarddialog des ioBroker-Admin-Zustandseditors angezeigt zu werden. Dies ist eine bekannte Einschränkung der Admin-Benutzeroberfläche für große Zeichenkettenzustände. Die Zustände sind korrekt geschrieben und können von Skripten und Widgets normal verwendet werden.
+
+---
+
+## E3oncan-Datenpunkte-Registerkarte
+Die Seite **e3oncan-Datenpunkte** dient als zentrale Anlaufstelle zum Durchsuchen von Datenpunkten und zum Konfigurieren von UDSonCAN-Lesezeitplänen und des gerätespezifischen Erfassungsmodus. Sie öffnet sich in einem neuen Browser-Tab, wenn Sie in der ioBroker-Administrationsansicht auf die Schaltfläche **Datenpunkte** in der Instanzzeile des Adapters klicken.
+
+**Durchsuchen von Datenpunkten**
+
+Alle Geräte und erkannten Energiezähler werden als ausklappbare Karten angezeigt, die standardmäßig zusammengeklappt sind, sodass Sie Ihr gesamtes System auf einen Blick erfassen können. Klicken Sie auf eine Kartenüberschrift, um sie auszuklappen. Das Suchfeld filtert nach Name oder ID, und passende Karten werden automatisch ausgeklappt.
+
+Wurde für ein Gerät noch kein Datenpunktscan durchgeführt, erscheint oben auf der Seite ein Warnhinweis. Wurde zwar ein Scan durchgeführt, die in Version 1.x eingeführte automatische Datenerfassung jedoch noch nicht ausgeführt, empfiehlt ein Informationsbanner einen neuen Datenpunktscan. Dieser Hinweis kann mit der Schaltfläche „Nicht mehr anzeigen“ dauerhaft ausgeblendet werden.
+
+**Gerätekarten**
+
+Jede Gerätekarte listet ihre Datenpunkte mit ID, Name, Codec und Zeitplaneinstellungen auf. Die Schaltfläche „Erfassen“ und die minimale Aktualisierungszeit werden in der Kartenüberschrift angezeigt. Wurde während des Scans der Datenpunkte Datenverkehr vom Gerät erfasst, erscheint zur Bestätigung ein grünes Stecknadelsymbol in der Kartenüberschrift. Sind Datenpunkte geplant, erscheint ein grünes Symbol mit der Aufschrift „**N geplant**“. Klicken Sie darauf, um die Karte zu erweitern und nur die geplanten Datenpunkte anzuzeigen. Klicken Sie erneut auf das Symbol, um den Filter zu entfernen. Durch Klicken auf die Kartenüberschrift wird der Filter entfernt und die Karte – je nachdem, ob sie durch das Symbol geöffnet wurde – ein- oder ausgeblendet.
+
+**Energiezählerkarten**
+
+Wurden während des Gerätescans Energiezähler erkannt (siehe [Schritt 2](#step-2--device-scan-and-energy-meter-detection)), erscheint für jeden erkannten Zähler eine Karte oben auf der Seite. Aktivieren Sie die Datenerfassung mit dem Schalter **Erfassen** und legen Sie im Feld **Verzögerung (s)** das Mindestintervall zwischen Wertaktualisierungen in ioBroker fest.
+
+**Terminplanung**
+
+Für jeden Datenpunkt können Sie Folgendes tun:
+
+- Prüfen Sie **Beim Start** – der Datenpunkt wird einmal beim Start des Adapters ausgelesen.
+- Geben Sie ein **Intervall (s)** ein – der Datenpunkt wird in diesem Intervall wiederholt ausgelesen.
+
+Beide Optionen lassen sich kombinieren. Verwenden Sie den Zeitplanfilter (Alle / Bei Start / Intervall), um sich schnell auf bereits geplante Datenpunkte zu konzentrieren.
+
+**Topologie**
+
+Die Schaltfläche **Topologie** in der Symbolleiste öffnet das Bus-Topologiediagramm in einem modalen Dialog. Das Diagramm wird nach jedem Datenpunkt-Scan automatisch generiert (siehe [Bustopologieanalyse](#bus-topology-analysis)). Die Schaltfläche ist deaktiviert, bis Topologiedaten verfügbar sind.
+
+**Ersparnis**
+
+Klicken Sie auf **Speichern**, um Ihre Änderungen anzuwenden, ohne den Tab zu schließen. **Speichern & Schließen** speichert die Änderungen und schließt den Tab. Sie gelangen zurück zur Instanzenansicht. **Verwerfen & Schließen** schließt den Tab, ohne die Änderungen zu speichern – ein Neustart des Adapters wird nicht ausgelöst. Ein Symbol für **Nicht gespeicherte Änderungen** wird angezeigt, sobald Änderungen ausstehen.
+
+**Hinweis:** Beim Speichern werden die Zeitpläne aller in diesem Tab angezeigten Geräte anhand des aktuellen UI-Zustands neu erstellt. Zeitpläne für hier nicht aufgeführte Geräte (z. B. direkt im Adapterkonfigurationsdialog hinzugefügt) bleiben unverändert. Falls für dasselbe Gerät an beiden Stellen Zeitpläne vorhanden sind, hat beim Speichern der Tab „Datenpunkte“ Vorrang. Doppelte Einträge werden automatisch entfernt.
 
 ---
 
@@ -152,7 +261,7 @@ Der numerische Scanbereich ist derzeit begrenzt (z. B. 256–3338 in Version 0.1
 ## Schreiben von Datenpunkten
 Der Schreibvorgang ist bewusst einfach gehalten: Der Wert des entsprechenden Zustands in ioBroker wird geändert und gespeichert, **ohne** das Kontrollkästchen `Acknowledged` (Bestätigung) zu aktivieren. Der Adapter erkennt den nicht bestätigten Schreibvorgang und sendet ihn an das Gerät.
 
-Etwa 2,5 Sekunden nach dem Schreiben liest der Adapter den Datenpunkt vom Gerät zurück und speichert den bestätigten Wert. Wird der Status anschließend nicht bestätigt, überprüfen Sie das Adapterprotokoll auf Fehlerdetails.
+Etwa 2,5 Sekunden nach dem Schreiben liest der Adapter den Datenpunkt vom Gerät zurück und speichert den bestätigten Wert. Wird der Status danach nicht bestätigt, überprüfen Sie das Adapterprotokoll auf Fehlerdetails.
 
 **Whitelist der beschreibbaren Datenpunkte**
 
@@ -174,6 +283,19 @@ Detaillierte Informationen darüber, wie Datenpunkte strukturiert sind, wie Vari
 ---
 
 ## Energiezähler
+Energiezähler werden während des Gerätescans automatisch erkannt. Eine manuelle Konfiguration ist nicht erforderlich. Der Adapter weist jedem Zähler basierend auf seinem Fundort einen Statusnamen im Objektbaum von ioBroker zu.
+
+| Kanal | CAN-Adresse | Bundesstaat |
+|---|---|---|
+| UDS CAN | 98 | `e380` |
+| 2. CAN | 98 | `e380_98` |
+| 2. CAN | 97 | `e380_97` |
+| 2. CAN | 97 | `e380_97` |
+
+`e380` (ohne Suffix) wird für die CAN-Adresse 98 auf dem UDS-CAN-Kanal verwendet, um die Abwärtskompatibilität mit bestehenden Installationen zu gewährleisten. `e3100cb` wird immer für den E3100CB verwendet.
+
+Die Erfassungsverzögerung (standardmäßig 5 s) kann pro Zählertyp auf der Seite **e3oncan-Datenpunkte** angepasst werden. Änderungen werden nach einem Neustart des Adapters wirksam.
+
 ### E380 Daten und Einheiten
 Es werden bis zu zwei E380-Energiezähler unterstützt. Die Datenpunkt-IDs hängen von der CAN-Adresse des Geräts ab:
 
@@ -222,8 +344,10 @@ Collect liefert Ihnen Echtzeitdaten für alle zwischen den Geräten ausgetauscht
 
 Das Collect-Protokoll ist derzeit bekannt für:
 
-- Vitocal (lauscht auf CAN-ID `0x693`, interner CAN-Bus)
-- Vitocharge VX3 und Vitoair (hören auf CAN-ID `0x451`, externer und interner CAN-Bus)
+- Vitocal / HPMUMASTER (Sammel-ID `0x693`, interner CAN-Bus)
+- Vitocharge VX3 und Vitoair / EMCUMASTER (Sammel-ID `0x451`, externer und interner CAN-Bus)
+
+Die Collect-CAN-IDs werden während des Gerätescans automatisch anhand des UDS-Gerätenamens zugewiesen. Geräte, die oben nicht aufgeführt sind, erhalten keine automatische Collect-ID; diese kann manuell in der Adapterkonfiguration eingegeben werden.
 
 Kann ich open3e gleichzeitig verwenden?
 
@@ -255,17 +379,51 @@ Ja. Bearbeiten Sie den Status `e3oncan.0.<DEVICE>.cmnd.udsReadByDid` und geben S
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.1 (2026-05-11)
+* (MyHomeMyData) Clicking the green scheduled badge on a device card filters the view to show only its scheduled data points; clicking the badge again or the card header restores the full view
+* (MyHomeMyData) Fixed: saving from the datapoints tab now preserves inactive schedules (disabled in the old config UI) for full backward compatibility
 
-### **WORK IN PROGRESS**
+### 1.0.0 (2026-05-06)
+* (MyHomeMyData) Adapter requires node.js >= 22 now
+* (MyHomeMyData) Improved scan status detection: uses `udsDidsWritable` instead of `didsMetaDict` to reliably detect whether a data point scan has been performed
+* (MyHomeMyData) Added re-scan recommendation hint in datapoints tab when a scan exists but Collect auto-detection has not yet been run
+
+### 1.0.0-beta.2 (2026-05-02)
+* (MyHomeMyData) Fixed: saving schedules in the datapoints tab could leave stale entries under certain conditions
+* (MyHomeMyData) Added Topology button to the datapoints tab; opens the bus topology diagram in a modal dialog
+
+### 1.0.0-beta.1 (2026-04-30)
+* (MyHomeMyData) Bus topology analysis is now generated automatically after the data point scan; results are stored in `info.topology` (JSON) and `info.topologyHtml` (HTML); see Readme for details
+* (MyHomeMyData) Input validation added for interval and delay fields in the datapoints tab — only positive integers are accepted
+
+### 1.0.0-beta.0 (2026-04-26)
+* (MyHomeMyData) Introduced new e3oncan datapoints webUI pinned to the adapter's instance row
+* (MyHomeMyData) Energy meters (E380, E3100CB) are now auto-detected during the device scan by passive CAN listening on both CAN channels
+* (MyHomeMyData) State names for energy meters are assigned automatically based on CAN address and channel; see Readme for details
+* (MyHomeMyData) Energy meter Collect toggle and delay are now configured exclusively in the e3oncan datapoints page; changes take effect after adapter restart
+* (MyHomeMyData) On first run after upgrade, the active setting is automatically migrated from the previous adapter configuration
+* (MyHomeMyData) Collect-capable devices are now auto-detected during the data point scan by passive CAN listening; a pin icon is shown in the device card header for each detected device
+* (MyHomeMyData) Added option to suppress storing of data point values during data point scan
+
+### 0.11.3 (2026-05-03)
+* (MyHomeMyData) The accidentally mentioned data points 1415-1418 have been removed from the changelog of version 0.11.0
+
+### 0.11.2 (2026-05-02)
+* (MyHomeMyData) Added "What's new in v0.11.x" section to Readme with upgrade notes for data point structure changes
+
+### 0.11.1 (2026-04-23)
+* (MyHomeMyData) Improved robustness: Receiving a data point of length zero is treated as a "negative response"
+* (MyHomeMyData) The metadata is now also restored after a data point is deleted
+* (MyHomeMyData) Aligned test cases for German system language
+
+### 0.11.0 (2026-04-14)
 * (MyHomeMyData) To take full advantage of the variant data points and metadata, please perform a device scan followed by a data point scan
 * (MyHomeMyData) Added handling for variant data points and for device's data format configuration, refer to https://github.com/MyHomeMyData/ioBroker.e3oncan/lib/data-points.md for details
 * (MyHomeMyData) Added metadata to several data points, e.g. description, unit, link to further info
 * (MyHomeMyData) During scan of data points now metadata are added to data point objects
 * (MyHomeMyData) Changed handling of writable data points; this info now also is available within definition of data point; however, there is no change to handling of the whitelist of writables
 * (MyHomeMyData) During device scan the information about used data formats (data point 382) is evaluated
-* (MyHomeMyData) Updated structure of the following data points: 268,269,271,274,279,282,284,285,286,287,288,289,290,291,318,320,321,324,531,1659,1684,1768,1769,1770,1771,1772,2084,2085,2087,2088,2090,2091,2093,2094,2096,2097,2099,2100,2102,2103,2105,2106,2108,2109,2111,2112,2114,2115,2117,2118,2120,2121,2123,2124,2126,2127,2129,2130,2132,2133,2135,2136,2138,2139,2141,2142,2240,2260,2261,2263,2264,2266,2267,2269,2270,2272,2273,2275,2276,2278,2279,2281,2282,2284,2285,2287,2288,2290,2291,2293,2294,2296,2297,2299,2300,2302,2303,2305,2306,2308,2309,2311,2312,2314,2315,2317,2318,2320,2333,2334,2351,2352,2593,2735,2806,3014,3015,3016,3017,3018,3032,3034,3035,3036
-* (MyHomeMyData) Hint: For all sensor data points the last entry "Unknown" was changed to "SensorStatus". That's why the list of changed data points is so long.
-* (MyHomeMyData) Hint: For the frequently used data points 531, 1415..1418, 2351, 2532 and 2735 the numerical value has been moved to the sub "ID": 0531_DomesticHotWaterOperationState, 1415_MixerOneCircuitOperationState.State.ID, 2351_HeatPumpCompressor.PowerState.ID, 2352_AdditionalElectricHeater.PowerState.ID, 2735_FourThreeWayValveValveCurrentPosition.ID
+* (MyHomeMyData) Updated structure of many data points; for details see this [changelog](lib/data-points.md#changelog-of-data-point-definitions)
 
 ### 0.10.14 (2025-11-03)
 * (MyHomeMyData) Added elements to enums.js based of PR no. 182 of open3e
@@ -276,58 +434,7 @@ Ja. Bearbeiten Sie den Status `e3oncan.0.<DEVICE>.cmnd.udsReadByDid` und geben S
 * (MyHomeMyData) Bugfix: Manual change of device specific dids was not evaluated for collect workers
 * (MyHomeMyData) Update of list of data points for E3 devices to version 20251102
 
-### 0.10.13 (2025-09-30)
-* (MyHomeMyData) Fix for issue #162
-
-### 0.10.12 (2025-09-15)
-* (MyHomeMyData) Migration to ESLint 9, refer to issues #141 and #152
-
-### 0.10.11 (2025-09-06)
-* (MyHomeMyData) Fix for issue #152 (repository checker) and #126 (node.js 24)
-* (MyHomeMyData) Added hint to readme regarding user action after upgrading version of node.js
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20250903
-
-### 0.10.10 (2025-08-07)
-* (MyHomeMyData) Fix for issue #142 (WriteByDid not working in case of specific UDS control frame)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20250729
-* (MyHomeMyData) Added codec for 64-bit integers. Remark: Encoding (for writing of data) is limited to values < 2^52 (4.503.599.627.370.496).
-
-### 0.10.9 (2025-05-22)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20250422
-* (MyHomeMyData) Fixed version number of enum info
-* (MyHomeMyData) Fix for issue #125 (findings of repository checker)
-
-### 0.10.8 (2025-03-07)
-* (MyHomeMyData) Bugfix for issue #117
-* (MyHomeMyData) Updated data point 381, refer to discussion https://github.com/open3e/open3e/discussions/212
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20250307
-
-### 0.10.7 (2025-02-26)
-* (MyHomeMyData) Updated dependencies according to issue #111
-
-### 0.10.6 (2025-02-19)
-* (MyHomeMyData) Added missing enum info for data point 2850
-
-### 0.10.5 (2025-02-18)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20250217
-* (MyHomeMyData) Updated dependencies according to issues #101 and #108
-
-### 0.10.4 (2025-01-15)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20250114
-
-### 0.10.3 (2024-11-26)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20241125
-
-### 0.10.2 (2024-11-16)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20241115
-* (MyHomeMyData) Fixes for issue #81 (added missing size attributes)
-
-### 0.10.1 (2024-10-20)
-* (MyHomeMyData) Fixes for issue #79 (improvements for usability on mobile devices)
-
-### 0.10.0 (2024-10-14)
-* (MyHomeMyData) Added extended support for writing of data points.
-* (MyHomeMyData) Changed naming for CAN adapter.
+### Older versions
 
 Older changelog entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 

@@ -253,6 +253,8 @@ known issue: Icons are not updated yet.
 ### 0.2.0 (2024-04-26)
 * (René) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 

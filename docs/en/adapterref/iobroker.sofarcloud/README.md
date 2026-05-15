@@ -98,6 +98,8 @@ The received data can also be saved as JSON (sofar_realtime.json).
 ### 1.0.0 (2025-08-15)
 - Initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 

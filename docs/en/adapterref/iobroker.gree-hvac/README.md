@@ -23,6 +23,9 @@ All devices which can be controlled via EWPE Smart app should be supported, incl
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.0.8 (2026-02-14)
  - Updated properties mapping
 ### 2.0.7 (2025-12-25)
@@ -40,6 +43,8 @@ All devices which can be controlled via EWPE Smart app should be supported, incl
 ### 1.1.2 (2024-10-16)
  - Updated dependencies
  - Adjusted admin layout
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

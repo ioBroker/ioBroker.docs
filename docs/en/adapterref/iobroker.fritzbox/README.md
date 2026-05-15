@@ -142,6 +142,7 @@ Newcomers are recommended to install [TR-064 Adapter](https://github.com/ioBroke
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) **ENHANCED**: Translated README documentation from German to English
 
 ### 0.7.0 (2026-03-07)

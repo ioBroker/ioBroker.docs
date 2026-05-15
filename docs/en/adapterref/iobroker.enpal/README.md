@@ -75,6 +75,9 @@ Typical examples (depending on your inverter and Enpal configuration):
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Added link to CHANGELOG_OLD.md at readme 
+
 ### 0.2.0 (2026-04-06)
 - (skvarel) Updated minimum Node.js version requirement to >=22
 - (skvarel) Normalize unit display: "Percent" is now shown as "%"
@@ -90,6 +93,9 @@ Typical examples (depending on your inverter and Enpal configuration):
 
 ### 0.1.7 (2026-04-04)
 - (skvarel) Title and description edited
+
+## Older changes
+- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
-hash: SBqUVc0lqvE6u1MS8iZcarssZkbyaVc4gIRL6fSJsJk=
+hash: dVoDQ4rWzdmdbQhvrMxzsi+dKOiQ+4Rae7ybxovwcS4=
 ---
 # JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
 ![Logo](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -26,6 +26,27 @@ Sie können die grundlegenden Funktionen hier im Online-Spielplatz ausprobieren.
 <https://ionicabizau.github.io/ejs-playground>
 
 Das jsontemplate-Widget war zuvor in den Adaptern rssfeed (für vis1) und vis-2-widgets-ovarious verfügbar. Die Widgets werden in Kürze aus diesen Adaptern entfernt.
+
+## Inhaltsverzeichnis
+- [Übersicht](#overview)
+- [Installation](#installation)
+- [Konfiguration](#configuration)
+- [vis and widgets](#vis-and-widgets)
+- [JSON-Vorlage](#json-template)
+- [Erweiterter Anwendungsfall](#advanced-use-case)
+- [Weitere Anwendungsfälle](#more-use-cases)
+- [Templatesystem](#templatesystem)
+- [Sehr wichtiger Hinweis zur Verwendung in vis / vis-2](#very-important-note-for-use-in-vis--vis-2)
+- [Geschweifte Klammern in CSS und JSON](#curly-braces-in-css-and-json)
+- [Verwendung von setInterval](#use-of-setinterval)
+- [Tags](#tags)
+- [Beispielobjekt](#example-object)
+- [Entwicklung und Debugging](#development-and-debugging)
+- [Vis1 Widgets](#vis1-widgets)
+- [Vis2 Widgets](#vis2-widgets)
+- [Todo](#todo)
+- [Änderungsprotokoll](#changelog)
+- [Lizenz](#Lizenz)
 
 ## Installation
 Installieren Sie den Adapter wie gewohnt aus dem stabilen Repository.
@@ -54,7 +75,7 @@ Mit diesem Widget lassen sich beliebige Datenpunkte mit JSON-Daten wie gewünsch
 
 | Schauplatz | Beschreibung |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| json_template | Die Vorlage kann verwendet werden, um das Erscheinungsbild der JSON-Daten festzulegen. Alle gültigen HTML-Tags (einschließlich CSS-Attribute in Style-Tags) können in der Vorlage verwendet werden. Es gibt auch spezielle Tags, innerhalb derer die JSON-Daten angezeigt werden und JavaScript-Anweisungen ausgeführt werden können. |
+| json_template | Mit der Vorlage kann das Erscheinungsbild der JSON-Daten bestimmt werden. Alle gültigen HTML-Tags (einschließlich CSS-Attribute in Style-Tags) können in der Vorlage verwendet werden. Es gibt auch spezielle Tags, innerhalb derer die JSON-Daten angezeigt werden und JavaScript-Anweisungen ausgeführt werden können. |
 | json_oid | Auswahl des Datenpunkts mit den entsprechenden JSON-Daten. |
 | json_dpCount | Anzahl der Datenpunkte, die in der Vorlage verfügbar gemacht werden sollen. |
 | json_dp | Die Datenpunkt-ID soll bereitgestellt werden. |
@@ -69,7 +90,7 @@ Verfügbare Datenobjekte in der Vorlage:
 
 | Objekt/Variable | Beschreibung |
 | --------------- | ------------------------------------------------------------------------ |
-| widgetID | widgetID des Widgets. |
+| widgetid | widgetid des Widgets. |
 | data | JSON-Objekt, auf das der Datenpunkt in json_oid verweist. |
 | dp | Array der Datenpunktdaten, auf die die zusätzlichen Datenpunkte verweisen |
 | Widget | Interne Widget-Daten. Objekt mit allen verfügbaren Widget-Einstellungen |
@@ -133,27 +154,31 @@ Die Vorlage kann nun auch mit HTML-Tags angereichert werden, um ein bestimmtes L
 - [Anwendungsfall Asynchrone Aufrufe](documentation/usecase-asynccall.md)
 - [Anwendungsfall-Ladeskripte](documentation/usecase-loadingscripts.md)
 - [Anwendungsfall-Aufgabenliste](documentation/usecase-tasklist.md)
+- [Anwendungsfall öffentlicher Verkehr](documentation/usecase-public-transport.md)
+- [Anwendungsfall einfaches Messgerät](documentation/usecase-simplegauge.md)
 
 ## Templatesystem
-## Wichtiger Hinweis zum Templatesystem in vis
-In vis werden alle Objektnotationen der folgenden Form als Bindungen erkannt und ersetzt.
+### Sehr wichtiger Hinweis zur Verwendung in vis / vis-2
+#### Geschweifte Klammern in CSS und JSON
+Der Bindungsmechanismus in vis / vis-2 verwendet das Muster `{ ... }`, um Bindungsausdrücke in HTML zu erkennen.
+Daher müssen geschweifte Klammern bei der Angabe von CSS oder JSON immer in separaten Zeilen stehen. Andernfalls wird der Inhalt des vis-Widgets mit `undefined` überschrieben.
 
-Daher müssen die öffnenden und schließenden Klammern aller Objektbezeichnungen in getrennten Zeilen stehen:
-
-Falsch:
-
-```json
-{ "a": 1, "b": 2 }
+##### Beispiel
+```text
+#w_id_<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
 ```
 
-Richtig
+muss wie folgt geschrieben werden:
 
-```json
-{
-    "a": 1,
-    "b": 2
+```text
+#w_id_<%- widgetid %> {
+    height: 100%; display: flex; flex-direction: column; overflow: hidden;
 }
 ```
+
+#### Verwendung von setInterval
+Bitte verwenden Sie nicht `setInterval`. Da die Vorlage bei jeder Datenpunktänderung neu aufgerufen wird, können vorhandene `setInterval`-Aufrufe nicht ordnungsgemäß gelöscht werden. Dadurch häufen sich mit der Zeit immer mehr überlappende `setInterval`-Aufrufe an, was RAM verbraucht und zu unvorhersehbaren Nebenwirkungen führen kann. Zwar lässt sich das Problem durch Neuladen der Seite beheben, der Code sollte jedoch nicht auf diese Weise implementiert werden.
+Alternativ sollten solche Szenarien mit `setTimeout` implementiert werden.
 
 ## Tags
 Das Templatesystem arbeitet mit bestimmten Tags.
@@ -232,7 +257,7 @@ Wenn Sie versuchen, ein Array direkt ohne Index auszugeben, gibt die Vorlage all
 
 Arrays können auch aus einer Sammlung von Objekten bestehen.
 Das hier gezeigte Beispiel enthält nur ein einfaches Array.
-Ein Beispiel für Arrays mit Objekten wird später gegeben.
+Ein Beispiel für Arrays mit Objekten folgt später.
 
 **Vorlage:**
 
@@ -342,6 +367,21 @@ Da Vite Hot Reload unterstützt, ist es manchmal nützlich, Vis2 mit F5 neu zu l
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- change documentation that in the template the widgetid is available and not widgetID
+- add documentation for the usecase simple gauge
+
+### 4.4.3 (2026-04-21)
+
+- revert repochecker warning about fs/node:fs and path/node:path
+  because of error loading ejs
+
+### 4.4.2 (2026-04-13)
+
+- fix runtime
+
 ### 4.4.1 (2026-04-13)
 
 - fix regression

@@ -416,6 +416,9 @@ setState('iot.0.app.message', JSON.stringify({
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 6.0.3 (2026-04-23)
+- (@GermanBluefox) Allowed to read temperature information via Alexa
+
 ### 6.0.1 (2026-04-07)
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 - (@GermanBluefox) Removed support for Alexa 2
@@ -433,14 +436,6 @@ setState('iot.0.app.message', JSON.stringify({
 ### 5.0.11 (2025-12-16)
 - (@GermanBluefox) Added percentual control
 - (@GermanBluefox) Correcting creation for complex groups
-
-### 5.0.8 (2025-11-28)
-- (@GermanBluefox) Showed last controller ID in `smart.lastObjectID`
-- (@GermanBluefox) Showed subscription valid period in `info.validTill` and GUI
-- (@Copilot) Implemented increasing reconnect interval
-- (@GermanBluefox) Added automatically conversion of type TV (alexaV3) to button (alexaV3)
-- (@GermanBluefox) Optimized the update of devices in GUI
-- (@GermanBluefox) Implemented slider with custom min/max values
 
 ## License
 

@@ -21,6 +21,9 @@ Sensors can be purchased an the [FYTA Shop](https://fyta.de/collections/all)
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.2.5 (2026-04-20)
 -	Made data retrieval more synchronous and introduced delays to avoid exceeding API limits 
 
@@ -48,6 +51,8 @@ Sensors can be purchased an the [FYTA Shop](https://fyta.de/collections/all)
 
 ### 0.1.0 (2025-01-30)
 -   initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

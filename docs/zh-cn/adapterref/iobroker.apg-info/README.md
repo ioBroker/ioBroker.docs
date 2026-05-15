@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: Q563Dth9hJZtJntiWYmZrKhRrVqsc6Ay5TzTIfrva+4=
+hash: QO/yjYAubnIEc+BCNn/SFJEqWG6pymmf0z3D4cDhJIg=
 ---
 ![标识](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -28,19 +28,19 @@ hash: Q563Dth9hJZtJntiWYmZrKhRrVqsc6Ay5TzTIfrva+4=
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！
 
 ## 需要
-* Node.js 20 或更高版本
-* ioBroker 主机（js-controller）5.0 或更高版本
+* Node.js 22 或更高版本
+* ioBroker 主机（js-controller）6.0.11 或更高版本
 
 每刻钟市场价格
-这些市场价格由 Exaa 收集，并由 Entsoe 作为备份。因此，如果配置了每刻钟一次的价格，建议*申请 Entsoe 代币*。
+这些市场价格由 Exaa 收集，并由 Entsoe 和 Energy Charts 作为备份。因此，如果配置了每刻钟一次的价格，建议*申请 Entsoe 代币*。
 
 瑞士市场
-对于瑞士市场，需要使用来自entsoe.eu的代币。请将您的代币添加到适配器配置中的“ENTSOE TOKEN”选项卡中。
+对于瑞士市场，需要来自 entsoe.eu 的代币。
 
 如何获得 Entsoe 代币
 请在 https://transparency.entsoe.eu/ 页面注册，然后发送电子邮件至 transparency@entsoe.eu，请求授予您注册的电子邮件地址 RESTFUL API 访问权限。<br>更多详情请查看 https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
 
-## 基于时间的电网成本计算（新增）
+## 基于时间的电网成本计算
 在像奥地利这样电网成本随时间变化的市场（例如，夏季中午时段电价降低），现在可以通过表格配置相关参数。参考表格展示了所需的数据输入格式。该功能位于适配器配置的“计算”选项卡中。
 
 **重要提示：**表格视图适用于 Admin 7.7.23 或更高版本。在旧版本中，日期字段显示不正确（https://github.com/ioBroker/ioBroker.admin/issues/3344）。
@@ -50,8 +50,13 @@ hash: Q563Dth9hJZtJntiWYmZrKhRrVqsc6Ay5TzTIfrva+4=
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.32 (2026-05-02)
+* (HGlab01) Adapter requires node.js >= 22 now
+* (HGlab01) fix 'DE' is not the code for an available bidding zone
+* (HGlab01) Bump axios to 1.15.2
+
 ### 0.1.30 (2026-02-24)
-* (@HGlab01) finetune timeout management
+* (HGlab01) finetune timeout management
 
 ### 0.1.29 (2026-02-14)
 * (HGlab01) add time based grid costs calculation (see above)
@@ -63,11 +68,7 @@ hash: Q563Dth9hJZtJntiWYmZrKhRrVqsc6Ay5TzTIfrva+4=
 ### 0.1.27 (2025-11-19)
 * (HGlab01) disable data provider Epex (not a stable option)
 
-### 0.1.26 (2025-11-15)
-* (HGlab01) optimize handling for source Entsoe
-* (HGlab01) optimize handling when data provider runs in timeout
-* (HGlab01) market price details can be switched on/off
-* (HGlab01) enhanced logs when it comes to retries
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
@@ -96,12 +97,11 @@ SOFTWARE.
 More about the security of supply & all data, facts and figures regarding the world of electricity and the energy transition can be found at www.apg-powermonitor.at.
 
 #### Disclaimer data providers
-Three data providers are used for this adapter
+Four data providers are used for this adapter
 * Exaa (https://www.exaa.at/)
 * Entso-e (https://www.entsoe.eu/data/transparency-platform/)
 * Energy Charts (https://api.energy-charts.info/) licensed under the CC BY 4.0 license
-
-
+* aWATTar (https://www.awattar.at/services/api and https://www.awattar.de/services/api)
 
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_large)

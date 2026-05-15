@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: uSySW6XTQD7Ml8Wf5ZMTTDDlxCoRRftoS2wshs7h1RI=
+hash: W9u6o46PEaAWh9EsWC9acTK0ulg5j9OupQzSHe06Tgo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -36,6 +36,18 @@ hash: uSySW6XTQD7Ml8Wf5ZMTTDDlxCoRRftoS2wshs7h1RI=
 ```
 
 ```
+
+### 0.8.4 (2026-05-14)
+- отключить Skoda MQTT
+
+### 0.8.3 (2026-05-10)
+- исправление MQTT для Skoda
+
+### 0.8.1 (2026-05-06)
+- исправление MQTT для Skoda
+
+### 0.8.0 (2026-04-13)
+- исправление для Seat Cupra
 
 ### 0.7.16 (2026-03-18)
 - исправить подключение MQTT к MySkoda

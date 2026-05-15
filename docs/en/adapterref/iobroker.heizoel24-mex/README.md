@@ -25,6 +25,9 @@ The data points CalculatedRemaining/JsonForEcharts (calculated remaining quantit
 
 
 ## Changelog
+### 1.9.0 (2026-05-03)
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.8.1 (2026-04-06)
 
 - "Reference month for annual consumption (1–12)" edited
@@ -121,6 +124,8 @@ Error intercepted for:
 ### 1.0.0 (2024-03-08)
 
 - Initial release for tests
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

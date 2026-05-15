@@ -120,6 +120,9 @@ sendTo('enigma2.0', 'send', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.3.0 (2026-03-05)
 - (mcm1957) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now

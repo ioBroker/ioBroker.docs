@@ -30,6 +30,9 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.5.2 (2025-03-12)
 * (HGlab01) Bump axios to 1.8.3
 
@@ -48,6 +51,8 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 
 ### 0.4.1 (2023-02-05)
 * (HGlab01) Improve error log if coordinates are not set
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

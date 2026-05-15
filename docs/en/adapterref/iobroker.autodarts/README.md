@@ -132,6 +132,9 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.0.8 (2026-04-13)
 - (skvarel) Removed react and mui
 - (skvarel) Removed admin/style.css

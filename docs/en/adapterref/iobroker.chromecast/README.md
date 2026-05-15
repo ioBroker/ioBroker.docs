@@ -60,9 +60,12 @@ Build on top of the following projects:
   ### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 4.2.0 (2026-05-04)
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (mcm1957) Logging technical deatils reduced to debug level
+- (mcm1957) Dependencies have been updated
+-
 
 ### 4.1.1 (2026-02-16)
 - (mcm1957) Linting has been updated to @iobroker/eslint-config
@@ -81,10 +84,6 @@ Build on top of the following projects:
 
 ### 3.4.1 (2024-07-02)
 * (foxriver76) migrated binary state to file
-
-### 3.4.0 (2024-04-13)
-* (neopholus) Support for devices located in different subnets has been added. [#154, #160]
-* (mcm1957) Dependencies have been updated
 
 ## License
 The MIT License (MIT)

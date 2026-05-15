@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nextcloud-monitoring/README.md
 title: ioBroker.nextcloud-monitoring
-hash: momSlqN6CXpmBHPru4FOT30LKaT66YrCXQSfXks16wM=
+hash: lZ19bv8ndAFfOdaXAwuD5/7NuAno3peM4nX/N6sJmgo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nextcloud-monitoring/admin/nextcloud_monitoring.png)
 
@@ -16,28 +16,14 @@ hash: momSlqN6CXpmBHPru4FOT30LKaT66YrCXQSfXks16wM=
 # IoBroker.nextcloud-monitoring
 **Тесты:** ![Тестирование и выпуск](https://github.com/H5N1v2/iobroker.nextcloud-monitoring/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и инструкций по отключению сообщений об ошибках, пожалуйста, обратитесь к разделу [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Использование системы отчетов Sentry начинается с версии js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и инструкций по отключению сообщений об ошибках, пожалуйста, обратитесь к разделу [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Использование системы отчетности Sentry начинается с версии js-controller 3.0.
 
 Я использую собственный сервер Sentry на базе Glitchtip.
 
 # Адаптер nextcloud-monitoring для ioBroker
 ---
 
-## ⚠️ Важное примечание: Изменение соглашения об именовании (версия 1.1.2+)
-> **ВНИМАНИЕ:** В соответствии с официальными правилами именования ioBroker, этот адаптер был переименован из `nextcloud_monitoring` (подчеркивание) в **`nextcloud-monitoring`** (тире).
-
-**Что это значит для вас?**
-
-* **Автоматические обновления отсутствуют:** Если вы используете версию 1.1.1 или более старую, вы больше не будете получать обновления через старое имя пакета.
-* **Требуется переустановка:** Пожалуйста, удалите старую версию (`nextcloud_monitoring`) и установите новую версию (`nextcloud-monitoring`) через репозиторий ioBroker или GitHub.
-* **Настройки:** В новой версии вам потребуется повторно ввести конфигурацию вашего экземпляра.
-
-Приносим извинения за неудобства, но это изменение было необходимо для соответствия официальным стандартам репозитория ioBroker.
-
---
-
 ## Описание
-### Во-первых: если вам нужен виджет специально для этого адаптера, создайте его с помощью [VIS2-widget-nextcloud-monitoring](https://github.com/H5N1v2/VIS2-widget-nextcloud-monitoring)
 Этот адаптер позволяет осуществлять детальный мониторинг вашего экземпляра Nextcloud через официальный API OCS (`serverinfo`). Он предоставляет множество системных данных, статистику пользователей, информацию о распределении ресурсов, а также показатели производительности PHP (OPcache/FPM) и базы данных непосредственно в ioBroker.
 
 ## Функции
@@ -45,7 +31,7 @@ hash: momSlqN6CXpmBHPru4FOT30LKaT66YrCXQSfXks16wM=
 * **Статистика пользователей:** Количество активных пользователей (5 мин, 1 ч, 24 ч), общее количество файлов и использование хранилища.
 * **Общие ресурсы:** Мониторинг общих ресурсов, чатов и объединенных ресурсов.
 * **Состояние сервера:** версия PHP, лимит памяти, частота попаданий в OPcache и подробная статистика процесса FPM.
-* **Виджет:** Специальный виджет для мониторинга Nextcloud доступен [ЗДЕСЬ](https://github.com/H5N1v2/VIS2-widget-nextcloud-monitoring).
+* **Виджет:** Используйте внутренний виджет, который создает точку данных htmlWidget в папке location; или, если вы хотите настроить его самостоятельно, используйте [этот](https://github.com/H5N1v2/VIS2-widget-nextcloud-monitoring).
 
 ---
 
@@ -55,6 +41,12 @@ hash: momSlqN6CXpmBHPru4FOT30LKaT66YrCXQSfXks16wM=
 * **Токен:** Токен API OCS для вашего Nextcloud (см. раздел «Как использовать: Токен»).
 * **Интервал обновления:** Время в минутах между запросами к API (по умолчанию: 10 мин, минимум: 5 мин).
 * **Многосерверная поддержка:** Теперь вы можете добавлять несколько серверов, например: my_server_1, и следующий сервер, например: other_server_2
+* **Виджет:**
+1. **Включить:** Установите флажок «Создать виджет» в настройках экземпляра для вашего местоположения.
+2. **Найти состояние:** Адаптер создаст состояние с именем `htmlWidget` (в каталоге `nextcloud-monitoring.0.SERVERNAME.htmlWidget`).
+3. **В VIS/VIS2:** * Перетащите стандартный **виджет HTML** на ваше представление.
+* Установите свойство "HTML" этого виджета в соответствии с привязкой вашего состояния: `{nextcloud-monitoring.0.SERVERNAME.htmlWidget}`.
+* Отрегулируйте ширину и высоту контейнера виджета в соответствии с содержимым.
 
 ### 2. Параметры данных
 * **Пропустить приложения:** Отключает подробный список установленных приложений для снижения нагрузки на API.
@@ -156,6 +148,11 @@ hp /path_to/your/nextcloud_folder/occ config:app:set serverinfo token --value YO
 ---
 
 ## Changelog
+### 2.1.0 (2026-05-09)
+* (H5N1v2) widget toggleable in the admin area.
+* (H5N1v2) update dependencies.
+* (copilot) Adapter requires node.js >= 22 now.
+
 ### 2.0.6 (2026-03-30)
 * (H5N1v2) Update axios dependency to version 1.14.0
 
@@ -170,42 +167,7 @@ hp /path_to/your/nextcloud_folder/occ config:app:set serverinfo token --value YO
 * (mcm1957) fix: reevaluate state roles
 * (mcm1957) fix: creation of intermediate objects missing
 
-### 2.0.2 (2026-03-05)
-* (H5N1v2) fix: language used for stateIds and names
-* (H5N1v2) fix: creation of intermediate objects missing
-* (H5N1v2) chore: update dependencies to latest versions
-* (H5N1v2) added axios in dependencies
-
-### 2.0.1 (2026-02-05)
-* (H5N1v2) fix: Optimize state creation by caching existing states
-* (H5N1v2) fix: Set Connection header to 'close' in API request
-
-### 2.0.0 (2026-01-16)
-* (H5N1v2) Added Multi-Server Support: You can now manage and monitor multiple Nextcloud instances within a single adapter instance using a dynamic table configuration.
-* (H5N1v2) Refactored State Structure: Reorganized the object tree to provide a cleaner and more logical hierarchy for all monitored data.
-* (H5N1v2) Expanded Data Points: Added several new monitoring points including detailed PHP Opcache, APCu stats, and FPM process information.
-* (H5N1v2) Enhanced Localization: Updated and added comprehensive translations for 11 languages (DE, EN, IT, FR, ES, NL, RU, UK, ZH-CN, PL, PT).
-* (H5N1v2) Improved Admin UI: Integrated a dynamic table-based management system with helpful tooltips and descriptions for better user experience.
-
-### 1.1.3 (2026-01-14)
-* (H5N1v2) repair tsconfig and cleanup release config
-
-### 1.1.2 (2026-01-14)
-* (H5N1v2) Change name from nextcloud_monitoring to nextcloud-monitoring
-* (H5N1v2) Improved handling of Nextcloud maintenance mode (logged as info instead of error)
-
-### 1.1.1 (2026-01-13)
-* (H5N1v2) fixed: repository URLs and naming conventions
-* (H5N1v2) added: encrypted and protected native support for tokens
-
-### 1.1.0
-
-* (H5N1v2) Initial release.
-* (H5N1v2) Multi-language support for object names (DE/EN/IT/ES/RU etc.).
-* (H5N1v2) Support for OCS API Token.
-* (H5N1v2) Integrated dynamic update interval.
-
----
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

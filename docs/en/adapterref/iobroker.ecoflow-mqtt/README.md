@@ -366,6 +366,9 @@ it creates [PROTOBUF unknown] messages in th log, they contain the raw hex teleg
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.4.9 (WIP)
 
 - (foxthefox) new datapoints Delta2max
@@ -391,6 +394,8 @@ it creates [PROTOBUF unknown] messages in th log, they contain the raw hex teleg
 - (foxthefox) dev dependencies cleanup
 
 [older changes](./CHANGELOG.md)
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

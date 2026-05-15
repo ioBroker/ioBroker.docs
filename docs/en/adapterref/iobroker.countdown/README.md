@@ -40,6 +40,9 @@ who created pre V3.x.x releases of this adapter.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**0
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 3.1.0 (2026-02-23)
 - (R3dRuM) Added option to sort countdowns by date in HTML and JSON output
 

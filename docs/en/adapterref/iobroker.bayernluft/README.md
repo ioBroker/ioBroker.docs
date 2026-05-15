@@ -41,6 +41,7 @@ Also a big thanks to the company Bayernluft for their great support
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 3.1.1 (2026-02-11)

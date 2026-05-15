@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tesla-motors/README.md
 title: ioBroker.tesla-motors
-hash: 0ADka5jwLgihOKMHvKhc7X9AqeXOVpljg3x9oxgDcBo=
+hash: lRRiuCu9iGCekWvg3ZkZraLZ1vSdLm3QIsz0NlaV9Ao=
 ---
 ![Logo](../../../en/adapterref/iobroker.tesla-motors/admin/tesla-motors.png)
 
@@ -33,8 +33,8 @@ Die Admin-Benutzeroberfläche des Adapters führt Sie durch 4 Schritte:
 
 #### Schritt 1: Schlüsselpaar generieren
 1. Klicken Sie in den Adaptereinstellungen auf **Schlüsselpaar generieren**, um ein EC-Schlüsselpaar zu erstellen (prime256v1).
-2. Klicken Sie auf **Öffentlichen Schlüssel kopieren** und gehen Sie zu [fleetkey.net](https://fleetkey.net) - erstellen Sie ein Konto und erhalten Sie Ihre Subdomain (z. B. `abc123.fleetkey.net`).
-3. Laden Sie den öffentlichen Schlüssel in Ihr FleetKey.net-Konto hoch. Tesla lädt den Schlüssel während der Registrierung von dort herunter.
+2. Klicken Sie auf **Öffentlichen Schlüssel kopieren** und gehen Sie zu [fleetkey.net](https://fleetkey.net) - fügen Sie ihn unter "Host Public Key" ein und erstellen Sie eine Subdomain (z. B. `abc123.fleetkey.net`).
+3. Nach dem Speichern wird Ihr öffentlicher Schlüssel auf FleetKey.net gespeichert. Tesla lädt den Schlüssel während der Registrierung von dort herunter.
 
 #### Schritt 2: Tesla Developer App
 1. Erstellen Sie eine Fleet-API-Anwendung unter [developer.tesla.com](https://developer.tesla.com/request)
@@ -53,7 +53,7 @@ Die Admin-Benutzeroberfläche des Adapters führt Sie durch 4 Schritte:
 #### Schritt 4: Virtuellen Schlüssel installieren
 Der virtuelle Schlüssel wird benötigt, um Befehle an Ihr Fahrzeug zu senden (Verriegeln/Entriegeln, Klimatisierung, Laden usw.). Ohne ihn können Sie lediglich Fahrzeugdaten auslesen. Diesen Schritt können Sie durchführen, nachdem der Adapter in Betrieb genommen wurde.
 
-1. Öffnen Sie die in den Adaptereinstellungen Ihres Telefons angezeigte URL des virtuellen Schlüssels (oder scannen Sie den QR-Code).
+1. Öffnen Sie die in den Adaptereinstellungen Ihres Telefons angezeigte virtuelle Schlüssel-URL (oder scannen Sie den QR-Code).
 2. Die Tesla-App fordert Sie auf, das Hinzufügen eines „Schlüssels eines Drittanbieters“ zu bestätigen.
 3. Gehen Sie zu Ihrem Fahrzeug und halten Sie Ihre Schlüsselkarte an die Mittelkonsole, um die Installation zu bestätigen.
 
@@ -94,7 +94,11 @@ Unterstützte Befehle umfassen:
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
-### 2.0.0 (2026-04-12)
+### 2.0.3 (2026-05-12)
+- instruction text improved
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.0.2 (2026-04-17)
 
 - (TA2k) Migrate to Tesla Fleet API with OAuth2
 - (TA2k) Add Vehicle Command Protocol signing (ECDSA P-256) for post-2021 vehicles
@@ -116,10 +120,6 @@ Unterstützte Befehle umfassen:
 ### 1.4.4 (2024-04-10)
 
 - improve energy history data
-
-### 1.4.3 (2024-04-10)
-
-- fix for too many state in the powerwall energy history
 
 ## License
 

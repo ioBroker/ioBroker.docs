@@ -55,23 +55,23 @@ All widgets come with extensive design options to customize the look and feel to
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.7.2 (2026-04-26)
+- Fix button click and hold for mobile devices (#192)
+
+### 0.7.1 (2026-04-24)
+- Fixed table widget fixed header not working
+
+### 0.7.0 (2026-04-21)
+- Table widget added fixed header option (#234)
+- Table widget added conditional row color (#234)
+- Table widget added column filter (#234)
+
+### 0.6.5 (2026-04-11)
+- Changed click behavior to fix click and hold for mobile devices (#192)
+- Fixed dropdown border on focus visible even though border with is 0 (#200)
+
 ### 0.6.4 (2026-03-19)
 - Fixed touch triggers twice on universal state widget
-
-### 0.6.3 (2026-03-19)
-- Fixed HTML support for table widget without configured columns
-
-### 0.6.2 (2026-03-18)
-- Fixed button not working on touchscreens (#192)
-- Added HTML support for table widget cells (#196)
-
-### 0.6.1 (2026-03-04)
-- Fixed background label in editor for dropdown widget
-- Added sort option for table widget (#191)
-
-### 0.6.0 (2026-03-01)
-- Added new widget: Dropdown (#178)
-- Fixed issue table widget width isn't applied when header is hidden (#177)
 
 ## License
 The MIT License (MIT)

@@ -288,7 +288,30 @@ When the adapter crashes or an other Code error happens, this error message that
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
--->
+--->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 3.1.4 (2026-04-26)
+* (Eistee82 + Claude Opus 4.6) fix visualization step width: selecting 0.5°C stored 1.5 instead of 0.5 (#785)
+* (Eistee82 + Claude Opus 4.6) fix admin UI field name mismatch: ExtHandlingRepTime renamed to ExtHandlingActorRepTime (#787)
+* (Eistee82 + Claude Opus 4.6) fix off-by-one error in thermostat ID assignment (#788)
+* (Eistee82 + Claude Opus 4.6) add guard for GetRoomId returning -1 to prevent negative array index (#789)
+* (Eistee82 + Claude Opus 4.6) add null checks for getStateAsync results in SaveProfile (#790)
+* (Eistee82 + Claude Opus 4.6) fix copy-paste error: UseFixHeatingPeriod had label UseFireplaceMode (#791)
+* (Eistee82 + Claude Opus 4.6) fix typo in types.d.ts: strin → string (#792)
+* (Eistee82 + Claude Opus 4.6) fix onChange field name mismatch for customized notification window close (#793)
+* (Eistee82 + Claude Opus 4.6) fix type mismatch: notificationsType should be string not number (#794)
+* (Eistee82 + Claude Opus 4.6) add missing Discord notification defaults to io-package.json (#795)
+* (Eistee82 + Claude Opus 4.6) add missing config key defaults to io-package.json (#796)
+* (Eistee82 + Claude Opus 4.6) fix hysteresis debug log showing wrong calculation (+ instead of -) (#798)
+* (Eistee82 + Claude Opus 4.6) fix duplicate variable in hysteresis error message (#799)
+* (Eistee82 + Claude Opus 4.6) remove dead code: identical if/else branches in notification functions (#800)
+* (Eistee82 + Claude Opus 4.6) fix wrong typeof in error message in support_tools.js (#802)
+* (Eistee82 + Claude Opus 4.6) fix package.json bugs URL missing /issues suffix (#803)
+* (Eistee82 + Claude Opus 4.6) simplify redundant null check in main.js (#805)
+* (Eistee82 + Claude Opus 4.6) fix typo in error message: userTage → userTag (#808)
+
 ### 3.1.3 (2026-04-11)
 * (René) fix in migrate data: wait, until room list is available and check if room list is empty, otherwise do not migrate data to avoid removing rooms
 * (René) changelog_old.md added
@@ -305,11 +328,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ### 3.0.4 (2026-02-22)
 * (René) see issue #730: bug fix: if window sensor uses "false" for Open window state was always set to open
 
-### 3.0.3 (2026-01-04)
-* (René) see issue #723: The OIDs selected in the OID selection dialog were not saved.
-* (René) bug fix: use correct actor ID
-* (René) bug fix: OID-Path for Path2HolidayPresentDP now taken from old version
-* (René) old device structure deleted after migration to avoid double import
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: QPitZJ1RCY7qZv3q7/d2Tdl/eJ6Dg/g+5CflI61eIlw=
+hash: c7oBHf4czku6tPilXdfE00f4S5tx+JA4VxXiaEFtEnc=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -146,7 +146,7 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`divider`:**](#divider) Erzeugt eine horizontale Trennlinie
 - [**`file`:**](#file) Eingabefeld mit Dateiauswahl und optionaler Upload-/Download-Funktion (nur Admin 6)
 - [**`fileSelector`:**](#fileselector) Ermöglicht Benutzern die Auswahl von Dateien aus dem System (nur Admin6)
-- [**`func`:**](#func) Wählt eine Funktion aus der enum.func-Liste aus (nur Admin 6)
+- [**`func`:**](#func) Wählt eine Funktion aus der Liste enum.func aus (nur Admin 6)
 - [**`header`:**](#header) Erstellt eine Überschrift mit verschiedenen Größen (h1-h5)
 - [**`iframe`:**](#iframe) Zeigt iFrame mit der angegebenen URL an (admin >= 7.7.28)
 - [**`iframeSendTo`:**](#iframe) Zeigt ein iFrame mit URL aus dem Backend an (Admin >= 7.7.28)
@@ -644,7 +644,8 @@ Schaltfläche, die eine Anfrage an die aktuelle Instanz sendet (<https://github.
 | `timeout` | Timeout für die Anfrage in ms. Standard: keiner. |
 | `onLoaded` | Die Schaltflächenlogik einmalig initial ausführen |
 | `controlStyle` | Stile für die Schaltfläche. |
-| `controlStyle` | Stile für die Schaltfläche. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 ### `setState`
 Schaltfläche zum Festlegen des Instanzstatus
@@ -879,13 +880,14 @@ Nur Admin6.
 zeigt das vom Backend empfangene Bild als Base64-Zeichenkette an.
 
 | Objekt | Beschreibung |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `width` | Breite des QR-Codes in Pixeln |
 | `command` | sendTo-Befehl |
 | `jsonData` | Zeichenkette - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
 | `sendFirstByClick` | Bild zuerst anzeigen, wenn angeklickt wird. `true` - Standardtext (Zum Anzeigen klicken) oder spezifischer Text |
-| `sendFirstByClick` | Bild zuerst beim Anklicken anzeigen. `true` - Standardtext (Zum Anzeigen klicken) oder spezifischer Text |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 #### Beispielcode im Backend für `imageSendTo`
 ```js
@@ -906,7 +908,7 @@ Sendet einen Befehl an die Adapterinstanz und zeigt die Antwortzeichenfolge als 
 Das Backend muss eine einfache Zeichenkette (die zu kodierenden Daten) zurückgeben.
 
 | Objekt | Beschreibung |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo-Befehl (Standard: `"send"`) |
 | `jsonData` | Zeichenkette - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
@@ -915,7 +917,8 @@ Das Backend muss eine einfache Zeichenkette (die zu kodierenden Daten) zurückge
 | `fgColor` | Vordergrundfarbe (Standard: `"#000000"`) |
 | `bgColor` | Hintergrundfarbe (Standard: `"#ffffff"`) |
 | `level` | Fehlerkorrekturstufe: `L`, `M`, `Q` oder `H` (Standard: `L`) |
-| `level` | Fehlerkorrekturstufe: `L`, `M`, `Q` oder `H` (Standard: `L`) |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 #### Beispielcode im Backend für `qrCodeSendTo`
 ```js
@@ -955,10 +958,11 @@ Zeigt einen iFrame mit der angegebenen URL an. (aus Admin 7.7.28)
 Zeigt einen iFrame mit einer vom Backend empfangenen URL an. (aus Admin 7.7.28)
 
 | Objekt | Beschreibung |
-|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo-Befehl |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
-| `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 Das Backend muss eine URL als Zeichenkette zurückgeben.
 
@@ -986,15 +990,16 @@ adapter.on("message", (obj) => {
 Zeigt das Dropdown-Menü mit den angegebenen Instanzwerten an.
 
 | Objekt | Beschreibung |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo-Befehl |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
 | `manual` | Manuelle Bearbeitung zulassen. Ohne Dropdown-Menü (wenn die Instanz offline ist). Standardmäßig `true`. |
 | `multiple` | Mehrfachauswahl |
 | `showAllValues` | Element auch dann anzeigen, wenn keine Bezeichnung dafür gefunden wurde (bei mehreren Elementen), Standardwert=`true` |
-| `noTranslation` | Die Beschriftung der Auswahllisten wird nicht übersetzt. Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren. Das Ergebnis des Befehls muss ein Array der Form `[{"value": 1, "label": "one"}, ...]` | sein. |
+| `noTranslation` | Die Beschriftung der Auswahllisten wird nicht übersetzt. Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren. Das Ergebnis des Befehls muss ein Array im Format `[{"value": 1, "label": "one"}, ...]` | sein. |
 | `alsoDependsOn` | Durch welche Änderung der Attribute muss der Befehl erneut gesendet werden? |
-| `alsoDependsOn` | Durch die Änderung welcher Attribute muss der Befehl erneut gesendet werden |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 Der Backend-Handler kann Elemente mit einem optionalen Feld `description`: `[{"value": 1, "label": "one", "description": "Some hint"}, ...]` zurückgeben. Die Beschreibung wird unterhalb der Bezeichnung im Dropdown-Menü angezeigt.
 
@@ -1055,13 +1060,14 @@ adapter.on("message", (obj) => {
 Zeigt ein Autovervollständigungssteuerelement mit den angegebenen Instanzwerten an.
 
 | Objekt | Beschreibung |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo-Befehl |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
 | `freeSolo` | Setze `freeSolo` auf `true`, damit das Textfeld einen beliebigen Wert enthalten kann. |
 | `alsoDependsOn` | Durch welche Änderung der Attribute muss der Befehl erneut gesendet werden? |
 | `maxLength` | Maximale Textlänge im Feld |
-| `maxLength` | Maximale Textlänge im Feld |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 Um diese Option nutzen zu können, muss Ihr Adapter einen Nachrichtenhandler implementieren:
 
@@ -1071,13 +1077,14 @@ Das Ergebnis des Befehls muss ein Array der Form `["value1", {"value": "value2",
 Zeigt ein schreibgeschütztes Steuerelement mit den angegebenen Instanzwerten.
 
 | Objekt | Beschreibung |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `container` | `div`, `text`, `html` |
 | `alsoDependsOn` | Durch welche Änderung der Attribute muss der Befehl erneut gesendet werden? |
 | `command` | sendTo-Befehl |
 | `jsonData` | Zeichenkette - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
-| `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 Um diese Option zu nutzen, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss eine Zeichenkette oder ein Objekt mit den folgenden Parametern sein:
 
@@ -1331,7 +1338,7 @@ Dies kann beispielsweise mit den Web Developer Tools getestet werden, die in jed
 
 Schritt 1: Öffnen Sie die Webentwicklertools mit F12
 
-Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1)
+Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1).
 
 Schritt 3: Verschiedene Geräte auswählen (2)
 
@@ -1669,6 +1676,9 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 8.3.11 (2026-04-29)
+- (@GermanBluefox) Added `instance` option for all `sendTo` components to override the target adapter instance
+
 ### 8.3.9 (2026-04-17)
 - (@GermanBluefox) Updated packages
 

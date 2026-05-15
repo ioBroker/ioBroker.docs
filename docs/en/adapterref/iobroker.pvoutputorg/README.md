@@ -113,6 +113,9 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.9.7 (2026-03-15)
 * (René) update dependencies + changes based on adapter checker
 
@@ -212,6 +215,8 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
 
 ### 0.0.1 (2022-04-24)
 * (René) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

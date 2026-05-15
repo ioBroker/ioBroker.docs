@@ -62,6 +62,22 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.8.2 (2026-05-03)
+* (copilot) Adapter requires node.js >= 22 now
+* (copilot) Fix sensor duplicate: stale draft cache caused wrong sensor data to appear in the detail panel after duplicating or deleting a sensor
+* (copilot) Update Dependencies
+
+### 1.8.1 (2026-04-25)
+
+* (copilot) Auto-detect sensor unit from ioBroker state `common.unit`; unit field configurable in Expert Mode; display defaults to `W` when no unit is set
+* (copilot) Update Documentation
+
+### 1.8.0 (2026-04-24)
+
+* (copilot) Update Dependencies
+* (copilot) Add Notification function, to send warnings and errors to selectable providers
+* (copilot) Update Documentation
+
 ### 1.7.1 (2026-04-11)
 
 * (patricknitsch) Default for max Values with 0W deactivated
@@ -205,6 +221,8 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 
 ### 0.1.0 (2026-01-14)
 * (patricknitsch) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

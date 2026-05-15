@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: Q563Dth9hJZtJntiWYmZrKhRrVqsc6Ay5TzTIfrva+4=
+hash: QO/yjYAubnIEc+BCNn/SFJEqWG6pymmf0z3D4cDhJIg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -26,19 +26,19 @@ hash: Q563Dth9hJZtJntiWYmZrKhRrVqsc6Ay5TzTIfrva+4=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Требует
-* Node.js 20 или выше
-* ioBroker host (js-controller) 5.0 или выше
+* Node.js 22 или выше
+* ioBroker host (js-controller) 6.0.11 или выше
 
 ## Рыночные цены с интервалом в четверть часа
-Эти рыночные цены собираются компанией Exaa, а в качестве резервной копии используются компанией Entsoe. Поэтому рекомендуется *запросить токен Entsoe*, если настроены цены с интервалом в четверть часа.
+Эти рыночные цены собираются компанией Exaa, а в качестве резервных данных используются Entsoe и Energy Charts. Поэтому рекомендуется *запросить токен Entsoe*, если настроены цены с интервалом в четверть часа.
 
 ## Швейцарский рынок
-Для швейцарского рынка необходим токен с сайта entsoe.eu. Пожалуйста, добавьте свой токен в конфигурацию адаптера на вкладке "ENTSOE TOKEN".
+Для швейцарского рынка необходим токен с сайта entsoe.eu.
 
 ## Как получить токен Entsoe
 Зарегистрируйтесь на странице https://transparency.entsoe.eu/ и затем отправьте электронное письмо на адрес transparency@entsoe.eu с просьбой предоставить доступ к RESTFUL API для указанного вами адреса электронной почты.<br> Более подробную информацию можно найти по ссылке: https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
 
-## Расчет стоимости электроэнергии по времени (НОВИНКА)
+## Расчет стоимости сети на основе времени
 На рынках (например, в Австрии), характеризующихся переменными во времени тарифами на электроэнергию (например, сниженными тарифами в полдень летом), параметры теперь можно настраивать с помощью таблицы. В справочной таблице показан необходимый формат ввода данных. Эта функция находится в настройках адаптера на вкладке «Расчеты».
 
 **Важно:** Табличный вид работает с Admin 7.7.23 и более поздними версиями. В более старых версиях поле даты отображается некорректно (https://github.com/ioBroker/ioBroker.admin/issues/3344).
@@ -48,8 +48,13 @@ hash: Q563Dth9hJZtJntiWYmZrKhRrVqsc6Ay5TzTIfrva+4=
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.32 (2026-05-02)
+* (HGlab01) Adapter requires node.js >= 22 now
+* (HGlab01) fix 'DE' is not the code for an available bidding zone
+* (HGlab01) Bump axios to 1.15.2
+
 ### 0.1.30 (2026-02-24)
-* (@HGlab01) finetune timeout management
+* (HGlab01) finetune timeout management
 
 ### 0.1.29 (2026-02-14)
 * (HGlab01) add time based grid costs calculation (see above)
@@ -61,11 +66,7 @@ hash: Q563Dth9hJZtJntiWYmZrKhRrVqsc6Ay5TzTIfrva+4=
 ### 0.1.27 (2025-11-19)
 * (HGlab01) disable data provider Epex (not a stable option)
 
-### 0.1.26 (2025-11-15)
-* (HGlab01) optimize handling for source Entsoe
-* (HGlab01) optimize handling when data provider runs in timeout
-* (HGlab01) market price details can be switched on/off
-* (HGlab01) enhanced logs when it comes to retries
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
@@ -94,12 +95,11 @@ SOFTWARE.
 More about the security of supply & all data, facts and figures regarding the world of electricity and the energy transition can be found at www.apg-powermonitor.at.
 
 #### Disclaimer data providers
-Three data providers are used for this adapter
+Four data providers are used for this adapter
 * Exaa (https://www.exaa.at/)
 * Entso-e (https://www.entsoe.eu/data/transparency-platform/)
 * Energy Charts (https://api.energy-charts.info/) licensed under the CC BY 4.0 license
-
-
+* aWATTar (https://www.awattar.at/services/api and https://www.awattar.de/services/api)
 
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_large)

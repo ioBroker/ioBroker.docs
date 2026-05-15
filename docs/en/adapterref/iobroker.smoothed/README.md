@@ -27,6 +27,9 @@ Or ignore values with a high standard deviation.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.7.0 (2026-04-05)
 * (BenAhrdt) improve sourceId in desc => id
 * (BenAhrdt) add objectStore
@@ -117,6 +120,8 @@ Or ignore values with a high standard deviation.
 
 ### 0.1.0 (2023-12-20)
 * (Ben1983) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

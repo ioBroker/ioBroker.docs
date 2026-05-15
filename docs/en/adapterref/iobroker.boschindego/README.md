@@ -29,6 +29,7 @@ Use id.remote.\* to control the mower
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 1.4.0 (2026-02-13)

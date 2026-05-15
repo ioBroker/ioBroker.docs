@@ -52,6 +52,7 @@ Adapter 2.0.3 and newer support node.js 22. Prior node.js version require a spec
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 2.0.3 (2025-10-26)

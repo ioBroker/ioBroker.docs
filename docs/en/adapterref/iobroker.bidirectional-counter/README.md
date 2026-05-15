@@ -29,6 +29,9 @@ The counter state will increase up from its saved value, when the shelly energy 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.5.15 (2026-04-05)
 * (BenAhrdt) building desc for id
 
@@ -114,6 +117,8 @@ The counter state will increase up from its saved value, when the shelly energy 
 
 ### Older entries
 [here](OLD_CHANGELOG.md)
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

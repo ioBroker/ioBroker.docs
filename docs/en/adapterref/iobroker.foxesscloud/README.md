@@ -75,6 +75,12 @@ The adapter creates the following data points:
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 0.2.3 (2026-05-14)
+- (skvarel) Fixed issue from adapter checker
+
+### 0.2.2 (2026-05-14)
+- (skvarel) Fixed some lint errors/warnings
+
 ### 0.2.1 (2026-04-13)
 - (skvarel) Removed: React and mui
 
@@ -83,12 +89,6 @@ The adapter creates the following data points:
 
 ### 0.1.9 (2026-03-13)
 - (skvarel) Improved: Enabled Node.js 24 support in GitHub Actions workflows.
-- (skvarel) Fixed: Issue detected by repository checker.
-
-### 0.1.8 (2026-03-12)
-- (skvarel) Fixed: Issue detected by repository checker.
-
-### 0.1.7 (2026-02-28)
 - (skvarel) Fixed: Issue detected by repository checker.
 
 ## Older changes

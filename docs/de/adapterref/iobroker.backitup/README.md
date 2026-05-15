@@ -727,6 +727,9 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (simatec) dependencies updated
+
 ### 3.3.17 (2026-04-14)
 * (simatec) Fix vite Build
 
@@ -747,6 +750,8 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ### 3.3.13 (2025-12-14)
 * (simatec) Fix Error Log for CCU Backup
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

@@ -12,47 +12,52 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.shelly.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/shelly-stable.svg
 BADGE-Installed: http://iobroker.live/badges/shelly-installed.svg
-chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"},"de/adapterref/iobroker.shelly/faq.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/faq.md"},"de/adapterref/iobroker.shelly/debug.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/debug.md"}}}
+chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/ble-devices.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/ble-devices.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"},"de/adapterref/iobroker.shelly/faq.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/faq.md"},"de/adapterref/iobroker.shelly/debug.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/debug.md"}}}
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: xjWAz+/VB/eyyIYdkPUidWv84DiCjfryiQ8WfTmqPJY=
+hash: ZIcQ4W5pvkCGSwHMt+eGMWWcpf56Ny0hcz9OTgJKNtE=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
-Это немецкая документация - [🇺🇸 Английская версия](../en/README.md).
+Это немецкая документация - [🇺🇸 Английская версия](../en/README.md)
 
 ## Оглавление
+- [Менеджер устройств](devicemanager.md)
 - [Протокол MQTT](protocol-mqtt.md)
 - [Протокол CoAP/CoIoT](protocol-coap.md)
-- [Ограниченный вход](restricted-login.md)
+- [Устройства BLE](ble-devices.md)
+- [Ограниченный доступ](restricted-login.md)
 - [Изменения состояния](state-changes.md)
 - [Отладка](debug.md)
 - [FAQ](faq.md)
 
 ## Требования
-1. Node.js 20 (или новее)
-2. js-контроллер 6.0.0 (или новее)
-3. Адаптер администратора 6.6.0 (или новее)
+1. Node.js 22 (или более новая версия)
+2. js-controller 6.0.11 (или более новая версия)
+3. Административный адаптер 7.8.20 (или более новая версия)
 
 ## Поколения устройств
-Дополнительную информацию см. в разделе *поддерживаемые устройства*.
+Для получения дополнительной информации см. [*Поддерживаемые устройства*](../../README.md#supported-devices).
 
-- **Поколение 1**: устройства ESP8266, [CoAP/CoIoT](protocol-coap.md) или [MQTT](protocol-mqtt.md).
-- **Поколение 2+**: устройства ESP32, [MQTT](protocol-mqtt.md).
+- **Первое поколение**: устройства ESP8266, [CoAP/CoIoT](protocol-coap.md) или [MQTT](protocol-mqtt.md)
+- **Поколение 2+**: устройства ESP32, [MQTT](protocol-mqtt.md)
 
 ## В целом
-Адаптер может обмениваться данными с устройствами через MQTT (рекомендуется) или CoAP/CoIoT.
+Адаптер может взаимодействовать с устройствами через MQTT (рекомендуется) или CoAP/CoIoT.
 
-- Режим адаптера по умолчанию — MQTT (дополнительную информацию см. в [Документации](protocol-mqtt.md)).
-- CoAP/CoIoT совместим только с устройствами Gen1!
-- **Если необходимо интегрировать устройства Gen2, необходимо настроить MQTT!**
+- Режим по умолчанию адаптера — MQTT (подробнее см. в [документации](protocol-mqtt.md))
+- CoAP/CoIoT совместим только с устройствами первого поколения!
+— **Для интеграции устройств Gen2 необходимо настроить MQTT!**
 
-Вопросы? Сначала взгляните на [Часто задаваемые вопросы](faq.md)!
+Есть вопросы? Сначала проверьте [Часто задаваемые вопросы](faq.md)!
 
 ![iobroker_general](../../../de/adapterref/iobroker.shelly/img/iobroker_general.png)
+
+## Функции
+Адаптер интегрирован в диспетчер устройств ioBroker. Дополнительную информацию можно найти в [Документация диспетчера устройств](devicemanager.md).
 
 ## Changelog
 
@@ -60,40 +65,48 @@ hash: xjWAz+/VB/eyyIYdkPUidWv84DiCjfryiQ8WfTmqPJY=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 11.0.0-alpha.15 (2026-05-10)
+- (@copilot) Added Shelly Dimmer 0/1-10V PM Gen4 (shelly0110dimg4).
+- (@copilot) Added HiluX DS8 by Shelly (hiluxds8)
+- (@copilot) Added Shelly EM Gen4 (shellyemg4)
+- (@mcm1957) Adapter requires node.js >= 22, js-controller >= 6.0.11 and admin >= 7.8.20 now.
+- (@GermanBluefox) Device manager has been added providing info and control of devices and provisioning.
+- (@mcm1957) IMPORTANT: Please read changelog at README.md listing more information.
 
-NodeJS >= 20.x and js-controller >= 6 is required
+### 11.0.0 additional information 
+- (@mcm1957) Added Shelly Presence Gen 4
+- (@mcm1957) Added Shelly Cury
+- (@GermanBluefox) Added support for Device manager: info and control of devices and provisioning
+- (@GermanBluefox) Added detection of new devices in the background
+- (@mcm1957) Some missing states added at illuminance component
+- (@mcm1957) DISABLE all PLUG_UI functionality due to unrecoverable HW faults.
+- (@mcm1957) Dependencies have been updated
 
-* (@Zefau) add Source and MinBrightness to Shelly Dimmer
+### 10.6.1 (2026-02-23)
+- (HGlab01) OnUnload handling has been improved. [#1279]
+- (@mcm1957) shellypill: missing input 202 has been added, nonexisting analog input has been removed.
 
-### 8.5.1 (2024-12-02)
+### 10.6.0 (2026-02-08)
+* (@mcm1957) The-Pill-By-Shelly (shellypill) has been added. [#1232]
+* (@mcm1957) Shelly EM mini Gen 4 (shellyemminimg4) and Plug M Gen 3 (shellyplugmg3) have been added. [#1327,#1332]
+* (@mcm1957) Shelly BLU H&T Display ZB support for light attribute has been added. [#1230]
+* (@mcm1957) Support for favorites for Gen 2+ devices with cover support has been added. [#1001]
+* (@mcm1957) Power metering support has been added to RGB and RGBW components. [#1339]
+* (@mcm1957) FrankEver Smart Watervalve (watervalve) has been added. [#1341]
+* (@mcm1957) LinkedGo ST1820 (st1820) has been added. [#1257]
+* (@mcm1957) Dependencies have been updated
 
-* (@klein0r) Fixed digest auth for Shelly Wall Display
-* (@klein0r) Added LED control for Shelly Plus Plug S
+### 10.5.2 (2025-12-28)
+* (@mcm1957) Monophase profile support has been fixed for shellypro3em and shellypro3em400.
 
-### 8.5.0 (2024-11-24)
-
-* (@klein0r) Added Shelly Plug S Gen3
-* (@klein0r) Added Shelly BLU Gateway Gen3
-* (@klein0r) Added Shelly I4 / I4DC Gen3
-
-### 8.4.0 (2024-10-20)
-
-* (@klein0r) Added AddOn support for Gen3 devices
-* (@kalledausb) Added Shelly 0/1-10V PM Gen3 Integration
-
-### 8.3.0 (2024-10-10)
-* (@rockflopp) Added Shelly 2 PM gen 3 Integration
-
-### 8.2.1 (2024-09-23)
-
-* (@Matze2010) Added datapoint for cover target position
-* (@klein0r) Fixed integration of Shelly 1 PM Gen 3
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2025 Thorsten Stueben <thorsten@stueben.de>,
                         Apollon77 <iobroker@fischer-ka.de> and
                         Matthias Kleine <info@haus-automatisierung.com>

@@ -59,10 +59,17 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 7.0.0 (2026-05-09)
 
-### **WORK IN PROGRESS**
+- (copilot) BREAKING: adapter requires node.js >= 22 now
+- (HombachC) update dependencies
+
+### 6.0.7 (2026-04-13)
 
 - (HombachC) switch to ES2023 code
+- (HombachC) fix vulnerability in axios
+- (HombachC) min admin 7.6.20 as recommended (#893)
+- (HombachC) update dependencies
 
 ### 6.0.6 (2026-02-28)
 
@@ -80,19 +87,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) optimize dependabot config (#856)
 - (HombachC) update axios
 - (HombachC) update dependencies, fix vulnerability
-
-### 6.0.3 (2025-10-19)
-
-- (HombachC) update NPM deployment
-- (HombachC) fixing issues detected by repository checker (#839)
-- (HombachC) update chai system
-- (HombachC) bump dependencies
-
-### 6.0.2 (2025-09-14)
-
-- (HombachC) update axios (#829)
-- (HombachC) min admin 7.6.17 as recommended (#817)
-- (HombachC) bump dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

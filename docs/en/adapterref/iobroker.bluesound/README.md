@@ -97,6 +97,7 @@ The contents of the current playlist is available in the object info.playlist (J
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 
 - (Uwe Nagel) [#152](https://github.com/Uwe1958/ioBroker.bluesound/issues/152)
 - (Uwe Nagel) [#162][https://github.com/Uwe1958/ioBroker.bluesound/issues/162]
@@ -212,6 +213,8 @@ The contents of the current playlist is available in the object info.playlist (J
 ### 1.0.0 (2024-05-17)
 
 - (Uwe Nagel) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

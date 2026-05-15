@@ -157,6 +157,8 @@ version 5 also to be used for v4 lamps
 ### 0.0.1
 * (foxthefox) initial setup
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)

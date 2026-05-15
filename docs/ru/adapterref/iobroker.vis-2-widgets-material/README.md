@@ -3,16 +3,16 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Материальные виджеты для ioBroker.vis 2.0
-hash: A/LUw2OF9kxJI2ckvXSi8c0DcJINowASCGR9R9TSL98=
+hash: eg0asaXUh8jpfpnLW9SfiV1420WHVv/HOambFcpKpME=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
 ![Количество установок](http://iobroker.live/badges/vis-2-widgets-material-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.vis-2-widgets-material.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-2-widgets-material.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-material.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-2-widgets-material.png?downloads=true)
 
-# Материальные виджеты для ioBroker.vis 2.0
+# Виджеты Material Design для ioBroker.vis 2.0
 ## Виджеты
 ### Кнопки и переключатели
 ![Переключатели](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-switches.png)
@@ -21,12 +21,12 @@ hash: A/LUw2OF9kxJI2ckvXSi8c0DcJINowASCGR9R9TSL98=
 
 ![Переключатели](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-switches-buttons-2.png)
 
-### Часы
+Часы
 - Аналоговый
 
 ![Аналоговые часы](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-analog-1.png)
 
-- Аналоговая вариация
+- Аналоговый вариант
 
 ![Аналоговые часы 2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-analog-2.png)
 
@@ -34,9 +34,9 @@ hash: A/LUw2OF9kxJI2ckvXSi8c0DcJINowASCGR9R9TSL98=
 
 ![Цифровой](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-digital-1.png)
 
-- Digital2 (текст SVG)
+- Digital2 (SVG Текст)
 
-![Цифровой2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-digital-2.png)
+![Digital2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-digital-2.png)
 
 ### Простое состояние
 С помощью этого виджета вы можете управлять одним устройством. Логическое значение или число.
@@ -49,19 +49,19 @@ hash: A/LUw2OF9kxJI2ckvXSi8c0DcJINowASCGR9R9TSL98=
 
 ![Простое состояние](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-2.png)
 
-### Посмотреть в виджете
-![Посмотреть в виджете](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-1.png)
+### Просмотреть в виджете
+![Просмотреть в виджете](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-1.png)
 
-Не как кнопка: Вид может отображаться в полном размере, и вы можете управлять элементами в виде.
+Не в виде кнопки: представление может отображаться в полном размере, и вы можете управлять элементами, находящимися в поле зрения.
 
 ![Просмотреть в виджете - кнопка](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-2.png)
 
-В виде кнопки: Вы можете отобразить небольшую миниатюру вида, а нажав на нее, вы увидите ее в полном размере.
+В качестве кнопки: вы можете отобразить небольшую миниатюру изображения, и при нажатии на нее оно отобразится в полном размере.
 
 ### Термостат
 ![Термостат](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-thermostat-1.png)
 
-Кроме того, он может отображать историю, если вы ее активировали.
+Кроме того, при активации этой функции можно просматривать историю просмотров.
 
 ### Фактическое значение с диаграммой
 ![Фактическое значение](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-actual-value-1.png)
@@ -73,9 +73,9 @@ hash: A/LUw2OF9kxJI2ckvXSi8c0DcJINowASCGR9R9TSL98=
 
 ![Контроль безопасности](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-security-1.png)
 
-Вы можете определить задержку в секундах.
+Вы можете задать задержку в секундах.
 
-При активации определенный идентификатор будет записан с числом секунд задержки, а после окончания задержки определенный идентификатор будет установлен на 0, а идентификатор тревоги будет установлен на значение true.
+При активации заданный идентификатор будет записан вместе с числом секунд задержки, а по истечении задержки заданный идентификатор будет установлен на 0, и идентификатор тревоги будет установлен в значение true.
 
 ![Контроль безопасности](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-security-2.png)
 
@@ -83,62 +83,82 @@ hash: A/LUw2OF9kxJI2ckvXSi8c0DcJINowASCGR9R9TSL98=
 ![Игрок](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-player.png)
 
 ### Карта
-![Игрок](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-map-1.png)
+![Карта](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-map-1.png)
 
-Положение может быть определено как комбинированное состояние, например `9.2344;41.374652` - (долгота;широта) или как два отдельных состояния.
+Положение можно определить как комбинированное состояние, например, `9.2344;41.374652` - `longitude;latitude`, или как два отдельных состояния.
 
 ### Камера
-![Игрок](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-camera-1.png)
+![Камера](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-camera-1.png)
 
 ### HTML-шаблон
-![Игрок](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-html-1.png)
+![HTML](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-html-1.png)
 
-Шаблон Html можно использовать для отображения любого кода HTML.
+HTML-шаблон можно использовать для отображения любого HTML-кода.
 Кроме того, с помощью этого виджета можно отображать изображение или iframe.
 
 ### Жалюзи
 ![Жалюзи](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-1.png)
 
-![Игрок](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-2.png)
+![Жалюзи](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-2.png)
 
 ### Цветная лампа
-С помощью виджета RGB-лампы вы можете управлять различными типами RGB-ламп. Вот несколько примеров:
+С помощью виджета RGB-подсветки вы можете управлять различными типами RGB-светильников. Вот несколько примеров:
 
-- Цвета RGB устанавливаются в одном состоянии, например, «#RRGGBB»
-- Цвета R/G/B устанавливаются в различных состояниях от 0 до 255
-- RGBW как одна переменная, например '#RRGGBBWW'
-- Цвета R/G/B/W устанавливаются в различных состояниях от 0 до 255
+- Цвета RGB задаются в одном состоянии, например, '#RRGGBB'.
+- Цвета R/G/B устанавливаются в разных состояниях от 0 до 255.
+- RGBW как одна переменная, например, '#RRGGBBWW'
+- Цвета R/G/B/W устанавливаются в разных состояниях от 0 до 255.
 - оттенок/насыщенность/яркость как 3 различных состояния
-- цветовая температура как одно состояние от 2700 до 6500 или определяется мин/макс объекта
-- Состояние белого режима можно использовать для переключения между режимами RGB и белого через специальное состояние.
+- Цветовая температура в одном из состояний от 2700 до 6500 или определяемая минимальным/максимальным значением объекта.
+— Состояние «Белый режим» позволяет переключаться между режимами RGB и «Белый режим» с помощью специального параметра.
 
 ![RGB-лампа 1](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-1.png)
 
 ![RGB-лампа 2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-2.png)
 
-### Дверной замок
-![Дверной замок](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-lock.png)
+### Замок двери
+![Замок двери](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-lock.png)
 
 ### Пылесос
-Этот виджет в первую очередь предназначен для пылесоса Xiaomi. Но его можно использовать и для любого другого пылесоса.
+Этот виджет предназначен в первую очередь для пылесосов Xiaomi. Но его можно использовать и для любых других пылесосов.
 
-Единственное отличие в том, что Xiaomi поддерживает уборку помещения.
+Единственное отличие заключается в том, что Xiaomi поддерживает функцию уборки помещения.
 
 ![Пылесос](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-vacuum.png)
 
 ### Выбор времени
-## То, что нужно сделать
-- Раздвижные жалюзи со шторой
+## Todo
+- Выдвижные жалюзи с ставнями
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **РАБОТА В ХОДЕ** -->
+### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
+### 1.6.6 (2026-05-06)
 
-### **WORK IN PROGRESS**
+-   (@GermanBluefox) Corrected error with button and alarm widget
+
+### 1.6.1 (2026-03-14)
+
+-   (@GermanBluefox) Corrected error with select value widget
+
+### 1.6.0 (2025-09-03)
+
+-   (@GermanBluefox) Corrected "Actual" widget
+
+### 1.5.3 (2025-08-27)
+-   (@GermanBluefox) Added support for older Android devices
+
+### 1.5.0 (2025-05-19)
 
 -   (bluefox) Corrected thermostat slider
+-   (bluefox) Rewritten with TypeScript and vite
+-   (bluefox) Corrected blinds control
+-   (bluefox) Added disabled mode additionally to hidden mode in the 'switches and buttons' widget
+-   (bluefox) Added `_ts=Date.now()` to camera URL to disable the browser cache
+-   (bluefox) Simple state has a new option - step
+-   (bluefox) Added new navigation widget: jump to view, url or list of views
 
 ### 1.4.10 (2024-08-09)
 
@@ -195,7 +215,7 @@ hash: A/LUw2OF9kxJI2ckvXSi8c0DcJINowASCGR9R9TSL98=
 
 ### 1.3.23 (2024-03-05)
 
--   (bluefox) Added possibility to change the icon size in simple widget
+-   (bluefox) Added possibility to change the icon size in a simple widget
 
 ### 1.3.21 (2024-02-22)
 
@@ -208,15 +228,15 @@ hash: A/LUw2OF9kxJI2ckvXSi8c0DcJINowASCGR9R9TSL98=
 
 ### 1.3.17 (2023-12-19)
 
--   (bluefox) Added option to hide the line in switches widget
+-   (bluefox) Added an option to hide the line in the switches widget
 
 ### 1.3.15 (2023-12-17)
 
--   (foxriver76) Added option to rotate video
+-   (foxriver76) Added an option to rotate video
 
 ### 1.3.14 (2023-12-05)
 
--   (bluefox) Allowed with on click on the widget toggling the ON/OFF state of RGB widget
+-   (bluefox) Allowed with on click on the widget toggling the ON/OFF state of the RGB widget
 -   (bluefox) Added class names to ON/OFF widgets to allow styling
 
 ### 1.3.11 (2023-11-17)
@@ -235,7 +255,7 @@ hash: A/LUw2OF9kxJI2ckvXSi8c0DcJINowASCGR9R9TSL98=
 
 -   (bluefox) Corrected layout of RGB widget
 -   (bluefox) Added option for RGB widget to hide brightness control
--   (bluefox) Added option for white mode in RGB widget
+-   (bluefox) Added option for white mode in the RGB widget
 
 ### 1.3.3 (2023-10-26)
 
@@ -302,7 +322,7 @@ hash: A/LUw2OF9kxJI2ckvXSi8c0DcJINowASCGR9R9TSL98=
 
 ### 0.5.3 (2023-06-21)
 
--   (bluefox) Corrected errors with view in widget
+-   (bluefox) Corrected errors with view in the widget
 
 ### 0.5.1 (2023-06-20)
 
@@ -312,7 +332,7 @@ hash: A/LUw2OF9kxJI2ckvXSi8c0DcJINowASCGR9R9TSL98=
 ### 0.4.0 (2023-06-16)
 
 -   (bluefox) Added button texts for switches widget
--   (bluefox) Removed static widget, as it was replaced by switches widget
+-   (bluefox) Removed static widget, as it was replaced by the switches widget
 
 ### 0.3.1 (2023-06-14)
 
@@ -343,11 +363,13 @@ hash: A/LUw2OF9kxJI2ckvXSi8c0DcJINowASCGR9R9TSL98=
 
 -   (bluefox) initial commit
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2022-2024 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2022-2026 Denis Haev <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

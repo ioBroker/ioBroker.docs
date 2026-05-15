@@ -211,6 +211,11 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (copilot) Adapter requires node.js >= 22 now
+* (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
+
 ### 3.0.0 (2025-10-21)
 
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
@@ -237,6 +242,8 @@ Updated recommended firmware version to 0.98
 Updated recommended firmware version to 0.97
 
 * (@klein0r) Updated dependencies
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

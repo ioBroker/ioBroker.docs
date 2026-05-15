@@ -36,6 +36,12 @@ or any associated subsidiaries, logos or trademarks.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+### 0.2.9 (2026-05-03)
+* Bump @types/node from 25.5.0 to 25.6.0
+* Update from template: X0000-updateNodeJsAtTestAndRelease
+
 ### 0.2.8 (2026-04-02)
 * Update dependencies
 * automate release
@@ -104,6 +110,8 @@ or any associated subsidiaries, logos or trademarks.
 
 ### 0.0.1
 * (Jey Cee) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

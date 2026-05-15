@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: PiZ4XJCJshjXGglMy02J8onIWW6Y8nsFhwDZoBad/jU=
+hash: knZKs6Tj3pEJd9A9RBG+KAsygbWTgTF5sc+bomF5aTg=
 ---
 ![logo](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -37,7 +37,6 @@ It is designed to receive data from XSense smoke detectors, CO detectors, and ot
 The adapter communicates with the XSense cloud server and provides an easy way to integrate XSense devices into existing ioBroker setups.
 An XSense Bridge SBS50 is required.
 
-## The [Original Python Code](https://github.com/theosnel/python-xsense) is from [theosnel](https://github.com/theosnel) .. big THX for
 ---
 
 ## ❗ WARNING
@@ -76,41 +75,7 @@ Since XSense does not allow simultaneous login from the app and third-party soft
 
 ---
 
-## 🚀 Installing Python (if not already installed)
-It must be an official and publicly released Python version.
-
-💻 **Windows**
-
-1. **Install Python**
-   - Download: [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/)
-   - During installation, **enable “Add Python to PATH”**
-- Then verify:
-
-```powershell
-python --version
-pip --version
-```
-
-   - Afterwards, in the objects under `xsense.0.info.callPython`, enter `python` (default value is `python3`).
-
-🐧 **Linux / Docker**
-
-- This happens automatically — just select the preferred version in the adapter settings.
-
----
-
 ## ❗ Troubleshooting
-If the correct version is installed but the adapter has already fetched the wrong one, first delete the environment:
-
-```
-  rm -Rf /home/iobroker/.cache/autopy/venv/xsense-env
- ```
-
-Then restart the adapter.
-If it still doesn’t work, check the file /home/iobroker/.cache/autopy/venv/xsense-env/pyvenv.cfg.
-It lists the Python versions relevant to the environment — adjust if necessary.
-If the file does not exist, you did not wait long enough for the adapter to start.
-
 Error message after installation
 
 [XSense] Cannot find package '@mongodb-js/zstd'
@@ -132,9 +97,43 @@ or if you have a VM on proxmox check your CPU settings <img width="676" height="
 ### **WORK IN PROGRESS** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 0.6.1 (2026-05-03)
+* (arteck) fix deviceManager
+
+### 0.6.0 (2026-05-03)
+* (arteck) fix battery info
+* (arteck) add deviceManager
+
+### 0.5.1 (2026-05-02)
+* (arteck) fix battery info
+* (arteck) mqtt message as info in log
+
+### 0.5.0 (2026-04-26)
+* (arteck) fix translations
+* (arteck) del deprectated setStateAsync
+
+### 0.4.2 (2026-04-23)
+* (arteck) add retry logic
+
+### 0.4.1 (2026-04-23)
+* (arteck) fix type blank 
+* (arteck) fix network error
+
+### 0.4.0 (2026-04-22)
+*    BREAKING CHANGES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+* (arteck) python code changed to js
+* (arteck) battery state now in percentage
+* (arteck) new structure for home, del all DP and restart the adapter
+* <img width="1745" height="225" alt="grafik" src="https://github.com/user-attachments/assets/2d784ff7-677a-44f2-8712-f0d81e42ec4b" />
+
+### 0.3.7 (2026-04-13)
+* (arteck) add XS0B-MR
+
 ### 0.3.6 (2026-01-26)
 * (arteck) typo
-*
 
 ### 0.3.5 (2026-01-26)
 * (arteck) check object isLifeEnd
@@ -243,6 +242,8 @@ or if you have a VM on proxmox check your CPU settings <img width="676" height="
 
 ### 0.0.1 (2025-07-27)
 * (arteck) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

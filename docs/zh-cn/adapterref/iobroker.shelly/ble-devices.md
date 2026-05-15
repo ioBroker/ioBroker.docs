@@ -4,11 +4,13 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/ble-devices.md
 title: ioBroker.shelly
-hash: aEWF5+BxF+wZ1WT86EnQQ3RuVt4QqUNKVvn3yZ9Z2YE=
+hash: vqfjinyF2YgblOMF96rjVnRtH2TK40PughvaTInBOzE=
 ---
 ![标识](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
+这是德语文档 - [🇺🇸 英文版](../en/ble-devices.md)
+
 **此功能为实验性功能！**
 
 必须在 Plus 或 Pro 设备（第二代及以上）上创建一个新脚本（见下文），才能以 JSON 格式接收此状态下的事件：`shelly.0.<device>.BLE.Event`。
@@ -63,7 +65,7 @@ hash: aEWF5+BxF+wZ1WT86EnQQ3RuVt4QqUNKVvn3yZ9Z2YE=
 之后，即可解码下一个BLE事件。
 
 ## 激活蓝牙
-**重要提示** 请务必启用将用作网关的 Shelly 设备上的蓝牙功能。
+**重要提示** 必须激活用作网关的 Shelly 设备上的蓝牙功能。
 
 ## JavaScript（Shelly 脚本）
 在 Shelly Plus 或 Pro 设备（第二代及更高版本）的 Shelly 脚本部分添加并运行此脚本：

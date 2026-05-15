@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.danfoss-ally/README.md
 title: 无标题
-hash: hVcdlLVwHoiSco0XdVcLcghYreoDPRMJlT6VJXj++xQ=
+hash: D2tYzgZDtgkSwZNZNyfO3YdbP0JbkkOG3DPUDdcmuC0=
 ---
-![版本](https://img.shields.io/badge/version-0.2.15-blue)
+![版本](https://img.shields.io/badge/version-0.2.16-blue)
 ![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 适用于 **丹佛斯 Ally™** 的云适配器 — 使用 **OAuth2（客户端凭证）**。
@@ -40,8 +40,10 @@ hash: hVcdlLVwHoiSco0XdVcLcghYreoDPRMJlT6VJXj++xQ=
 ---
 
 支持的设备
+- 丹佛斯 Ally™ TRV（散热器恒温器）
 - 丹佛斯 Icon2 RT（房间温控器）
 - 丹佛斯 Icon2 控制器
+- 丹佛斯 Ally™ 锅炉继电器
 - 丹佛斯 Ally™ 网关
 
 （自动发现其他丹佛斯设备）
@@ -247,7 +249,7 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 错误处理：
 
 - **400:** 无效的标头/值 → 已记录
-- **401：** 令牌刷新 + 重试
+- **401:** 令牌刷新 + 重试
 - **5xx:** 重试下一次轮询
 - 温度值自动缩放 10 倍（例如 21.5 → 215）
 
@@ -262,11 +264,11 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 ---
 
 ## 写入
-每个状态只能执行一条命令（不支持模式链式调用）
+- 默认情况下只写入一次；`temp_set` 首先尝试使用组合的 `SetpointChangeSource` + `temp_set` 命令。
 - 模式和温度必须分开填写。
 - 数值被限制在允许的范围内，并缩放 10 倍
 - `child_lock`：尝试 `0/1` 次，在 400 错误时重试 `true/false`
-- `SetpointChangeSource`：可选；手动模式激活时默认为 `"Externally"`
+- `SetpointChangeSource`：可选；`temp_set` 尝试从外部获取 Ally TRV。
 
 所有发送、重试和确认日志均以调试级别显示。
 
@@ -284,23 +286,23 @@ node main.js
 
 ## Changelog
 
+### 0.2.17
+- Improved Ally TRV `temp_set` writes by trying `SetpointChangeSource=Externally` and `temp_set` as one combined command first
+- Falls back to `temp_set` only if Danfoss rejects the combined command
+- Fixed `control.switch` subscriptions for Icon2 / Boiler Relay writes
+- Added alias handling for `Occupied_Setpoint`
+- Fixed jsonConfig header validation warning
 
-### 0.2.15
-- Fixed invalid `io-package.json` (JSON syntax error)
-- No functional changes
+### 0.2.16
+- Fixed `temp_set` for Ally TRVs (`SetpointChangeSource=Externally` auto-sent)
+- Fixed wrong path for `lower_temp`/`upper_temp` clamp
+- Fixed `OccupiedSetpoint` scaling (÷100 instead of ÷10)
+- Added type hints for 16 new data points (`MeasuredValue`, `pi_heating_demand`, `window_state`, etc.)
+- `Icon2 switch` state is now writable
+- Fixed jsonConfig admin validation warning (missing `size` property)
+- Added Boiler Relay to supported devices
 
-### 0.2.14
-- Introduced `control` channel for writable states
-- `status` channel is now strictly read-only
-- Improved write detection and state handling
-- Prevented writes to channels or non-state objects
-- Improved adapter stability
-
-### 0.2.13
-- Updated CI & deploy workflow
-- Fixed npm publishing process
-- Improved code formatting (Prettier / ESLint)
-- No functional changes for end users
+[Older changes](CHANGELOG_OLD.md)
 
 
 ---

@@ -95,6 +95,9 @@ Please follow the Steps to ensure the Adapter will work correctly and you can se
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.3.0 (2026-03-03)
 - (mcm1957) Adapter requires node.js >= 20 now
 - (copilot) Adapter requires admin >= 7.7.22 now

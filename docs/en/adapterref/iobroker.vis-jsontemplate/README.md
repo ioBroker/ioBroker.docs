@@ -24,6 +24,28 @@ The jsontemplate widget was previously available in the rssfeed (for vis1) and
 vis-2-widgets-ovarious adapters. The widgets will be removed from these
 adapters in the near future.
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [vis and widgets](#vis-and-widgets)
+    - [JSON Template](#json-template)
+    - [Advanced use case](#advanced-use-case)
+    - [More Use Cases](#more-use-cases)
+- [Templatesystem](#templatesystem)
+    - [Very Important Note for use in vis / vis-2](#very-important-note-for-use-in-vis--vis-2)
+    - [Curly braces in CSS and JSON](#curly-braces-in-css-and-json)
+    - [Use of setInterval](#use-of-setinterval)
+- [Tags](#tags)
+- [Example object](#example-object)
+- [Development and Debugging](#development-and-debugging)
+    - [Vis1 Widgets](#vis1-widgets)
+    - [Vis2 Widgets](#vis2-widgets)
+- [Todo](#todo)
+- [Changelog](#changelog)
+- [License](#license)
+
 ## Installation
 
 Install the adapter as normal from the stable repository.
@@ -79,7 +101,7 @@ Available data objects in the template:
 
 | object/variable | description                                                              |
 | --------------- | ------------------------------------------------------------------------ |
-| widgetID        | widgetID of the widget.                                                  |
+| widgetid        | widgetid of the widget.                                                  |
 | data            | JSON object referenced by the datapoint in json_oid.                     |
 | dp              | Array of the datapoint data, referenced by the additional datapoints     |
 | widget          | internal widget data. object with all available widget settings          |
@@ -147,31 +169,44 @@ a specific layout. Here is an example:
 - [Use Case Async calls](documentation/usecase-asynccall.md)
 - [Use Case loading scripts](documentation/usecase-loadingscripts.md)
 - [Use Case Tasklist](documentation/usecase-tasklist.md)
+- [Use Case public-transport](documentation/usecase-public-transport.md)
+- [Use Case simple gauge](documentation/usecase-simplegauge.md)
 
 ## Templatesystem
 
-## Important note for the template system in vis
+### Very Important Note for use in vis / vis-2
 
-In vis, all object notations in the following form are recognized
-and replaced as bindings.
+#### Curly braces in CSS and JSON
 
-Therefore, the opening and closing brackets of all object notations must
-be placed on separate lines:
+The binding mechanism in vis / vis-2 uses the pattern `{ ... }`
+to detect binding expressions within HTML.
+For this reason, when specifying CSS or JSON, the curly braces must
+always be placed on separate lines. Otherwise, the content of
+the vis widget will be overwritten with `undefined`.
 
-Incorrect:
+##### Example
 
-```json
-{ "a": 1, "b": 2 }
+```text
+#w_id_<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
 ```
 
-Correct
+must be written as follows:
 
-```json
-{
-    "a": 1,
-    "b": 2
+```text
+#w_id_<%- widgetid %> {
+    height: 100%; display: flex; flex-direction: column; overflow: hidden;
 }
 ```
+
+#### Use of setInterval
+
+Please do not use `setInterval`. Since the template is re-invoked
+every time a data point changes, any existing `setInterval` calls
+cannot be properly cleared. Consequently, an increasing number
+of overlapping `setInterval` calls accumulate over time; this consumes RAM and
+can lead to unpredictable side effects. While reloading the page can resolve
+this issue, the code should not be implemented in this manner.
+As an alternative, such scenarios should be implemented using `setTimeout`.
 
 ## Tags
 
@@ -363,6 +398,21 @@ Loop over the attributes of an object
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- change documentation that in the template the widgetid is available and not widgetID
+- add documentation for the usecase simple gauge
+
+### 4.4.3 (2026-04-21)
+
+- revert repochecker warning about fs/node:fs and path/node:path
+  because of error loading ejs
+
+### 4.4.2 (2026-04-13)
+
+- fix runtime
+
 ### 4.4.1 (2026-04-13)
 
 - fix regression

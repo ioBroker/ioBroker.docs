@@ -18,6 +18,26 @@ You can customize the output of the feed with a template system. In the template
 
 Important: Only the english translation is valid due to bugs in automatic translations into other languages made by iobroker
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Configuration](#configuration)
+- [vis and widgets](#vis-and-widgets)
+    - [RSS Feed widget 2](#rss-feed-widget-2)
+    - [RSS Feed Multi widget 3](#rss-feed-multi-widget-3)
+    - [RSS Feed Meta Helper](#rss-feed-meta-helper)
+    - [RSS Feed Article Helper](#rss-feed-article-helper)
+    - [RSS Feed Title marquee 4 (deprecated)](#rss-feed-title-marquee-4-deprecated)
+    - [RSS Feed Title marquee 5](#rss-feed-title-marquee-5)
+- [Templatesystem](#templatesystem)
+    - [Very Important Note for use in vis / vis-2](#very-important-note-for-use-in-vis--vis-2)
+    - [Tags](#tags)
+    - [Available variables in templates](#available-variables-in-templates)
+    - [Template based on examples](#template-based-on-examples)
+- [Todo](#todo)
+- [Changelog](#changelog)
+- [License](#license)
+
 ## Configuration
 
 Install the adapter as normal from the stable repository. If you want to test new features or bug fixes you can also install the adapter from the beta repository. For Features and news, please see the Test and Support thread for this adapter in the iobroker forum.
@@ -61,7 +81,6 @@ The following widgets actually exists
 - [`RSS Feed Article Helper 2`](#rss-feed-article-helper) - a helper widget to inspect the article data of a feed
 - [`RSS Feed Title marquee 4 (deprecated)`](#rss-feed-title-marquee-4-deprecated) - a widget to show the Headlines of a feed as a marquee
 - [`RSS Feed Title marquee 5`](#rss-feed-title-marquee-5) - a widget to show the Headlines of a feed as a marquee
-- [`JSON Template 3`](#json-template3) - a widget that have nothing todo with RSS Feeds, but uses the same technology, and you can define a custom template to show any JSON-Data in vis.
 
 ### RSS Feed widget 2
 
@@ -166,21 +185,6 @@ With this widget, all title attributes will be displayed as a scrolling text. As
 | rss_oid          | Feeds[number] group | Select the data point with the corresponding RSS feed.                                                                                                                                                                                                                    |
 | rss_maxarticles  | Feeds[number] group | The maximum number of individual articles displayed from the RSS feed                                                                                                                                                                                                     |
 | rss_filter       | Feeds[number] group | For the filter function, one or more filter criteria can be entered in the field, separated by semicolons (;). The following article attributes are searched for the search: title, description, categories. Only articles that contain one of these terms are displayed. |
-
-### JSON Template3
-
-Using this widget, any data point with JSON data can be displayed as desired.
-The display is done using a template format, which can be thought of as a combined form of HTML code + JavaScript + special tags that control the display of the JSON attributes.
-JSON Template3 now supports async calls with await. JSON Template 2 is going to be deprecated in the future.
-
-| Setting      | description                                                                                                                                                                                                                                                                       |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rss_template | The template can be used to determine the appearance of the JSON data. All valid HTML tags (including CSS attributes in style tags) can be used in the template. There are also special tags within which the JSON data is displayed and JavaScript instructions can be executed. |
-| json_oid     | Selection of the data point with the corresponding JSON data.                                                                                                                                                                                                                     |
-
-For details on the template system, see chapter Template based on examples
-
-The JSON data is passed to the template with the prefix data. In addition, the current widgetID is also available as a variable so that it can be specified in individual CSS instructions.
 
 #### Advanced use case
 
@@ -417,6 +421,32 @@ This data point **does not need to be explicitly created**, as `local_?` data po
 
 ## Templatesystem
 
+### Very Important Note for use in vis / vis-2
+
+#### Curly braces in CSS and JSON
+
+The binding mechanism in vis / vis-2 uses the pattern `{ ... }` to detect binding expressions within HTML.
+For this reason, when specifying CSS or JSON, the curly braces must always be placed on separate lines. Otherwise, the content of the vis widget will be overwritten with `undefined`.
+
+##### Example
+
+```text
+#w_id_<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
+```
+
+must be written as follows:
+
+```text
+#w_id_<%- widgetid %> {
+    height: 100%; display: flex; flex-direction: column; overflow: hidden;
+}
+```
+
+#### Use of setInterval
+
+Please do not use `setInterval`. Since the template is re-invoked every time a data point changes, any existing `setInterval` calls cannot be properly cleared. Consequently, an increasing number of overlapping `setInterval` calls accumulate over time; this consumes RAM and can lead to unpredictable side effects. While reloading the page can resolve this issue, the code should not be implemented in this manner.
+As an alternative, such scenarios should be implemented using `setTimeout`.
+
 ## Tags
 
 The template system works with certain tags.
@@ -604,7 +634,7 @@ It has been tested with the following feeds
 - <http://www.tagesschau.de/xml/rss2> or
 - <https://www.bild.de/rssfeeds/rss3-20745882,feed=alles.bild.html>
 
-```html
+```ejs
 <!--
     available variables:
     widgetid      ->  id of the widget
@@ -615,11 +645,11 @@ It has been tested with the following feeds
     all variables are read only
     -->
 <style>
-    #<%- widgetid % > img {
+    #<%- widgetid %> img {
         width: calc(<%- style.width %> - 15px);
         height: auto;
     }
-    #<%- widgetid % > img.rssfeed {
+    #<%- widgetid %> img.rssfeed {
         width: auto;
         height: auto;
     }
@@ -641,7 +671,7 @@ The following template is currently used as standard in the RSS feed multi widge
 Please note little differences in the usage of the variables
 It has been tested with the following feeds
 
-```html
+```ejs
 <!--
     available variables:
     widgetid      ->  id of the widget
@@ -656,11 +686,11 @@ It has been tested with the following feeds
     all variables are read only
     -->
 <style>
-    #<%- widgetid % > img {
+    #<%- widgetid %> img {
         width: calc(<%- style.width || '230px' %> - 15px);
         height: auto;
     }
-    #<%- widgetid % > img.rssfeed {
+    #<%- widgetid %> img.rssfeed {
         width: auto;
         height: auto;
     }
@@ -676,7 +706,7 @@ It has been tested with the following feeds
 
 ### Example Template for RSS-Feed multi widget 3 with articles as a slide show and Prev/Next-Buttons
 
-```html
+```ejs
 <!--
  available variables:
  widgetid      ->  id of the widget
@@ -687,11 +717,11 @@ It has been tested with the following feeds
 -->
 
 <style>
-    #<%- widgetid % > img {
+    #<%- widgetid %> img {
         width: calc(<%- style.width || '230px' %> - 15px);
         height: auto;
     }
-    #<%- widgetid % > img.rssfeed {
+    #<%- widgetid %> img.rssfeed {
         width: auto;
         height: auto;
     }
@@ -802,6 +832,7 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### 4.0.3 (2026-03-26)
 
 - Update packages

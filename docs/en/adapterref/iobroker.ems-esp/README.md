@@ -53,6 +53,7 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 * dependabot updates
 
 ### 7.0.1 (2026-01-05)
@@ -71,6 +72,8 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 ### 6.0.3 (2025-12-01)
 * dependabot updates 
 * update error message for ems-esp gateway
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

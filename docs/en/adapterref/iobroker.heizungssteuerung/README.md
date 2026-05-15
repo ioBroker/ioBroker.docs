@@ -213,6 +213,9 @@ Enable debug logging in adapter settings to see detailed information about:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.1.2 (2025-12-10)
 - (jbeenenga) fix invalid state roles according to ioBroker documentation
 - (jbeenenga) fix repository checker issues (#237)

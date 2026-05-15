@@ -188,36 +188,87 @@ New features are added regularly – please refer to the changelog.
 ---
 
 ## Changelog
+### 1.3.20 (2026-05-13)
 
-### 1.2.20
-Release: 11.04.2026
-- (DasBo) Reduced unnecessary state writes in status and photovoltaic helpers. Summary and PV timestamps are now only updated when the functional result actually changes, making the adapter quieter without affecting existing logic.
+- Added runtime self-healing for missed pump start events.
+- Stabilized runtime and circulation calculations for delayed or filtered pump switch updates.
+- Fixed a rare synchronization issue where circulation counting could stop although pump live values were still available.
+- Protected time control states from being overwritten during adapter updates.
+- Preserved configured time windows, start/end times and weekdays during adapter reinstallations or updates.
 
-### 1.2.19
-Release: 10.04.2026
-- Fixed an interaction issue between `photovoltaicHelper` and `controlHelper` where automatic follow-up pumping could be stopped unexpectedly
-- photovoltaicHelper now respects controlHelper priority and no longer stops the pump while automatic follow-up pumping is active
-- Fixed an issue where `controlHelper` could remain in "nachpumpen" state if the pump was stopped externally
-- `photovoltaic.threshold_w` is now correctly synchronized with the instance configuration
-- Changes to the PV surplus threshold in adapter settings are now reliably reflected in the corresponding read-only datapoint
+### 1.3.19 (2026-05-13)
 
-### 1.2.18
-Release: 07.04.2026
-- Fixed persistence issue for `status.season_active` (no longer overwritten on adapter start)
-- Improved persistence for frost protection settings
+- Added runtime self-healing for missed pump start events
+- Stabilized runtime and circulation calculations for delayed or filtered pump switch updates
+- Fixed a rare synchronization issue where circulation counting could stop although pump live values were still available
+- Improved internal runtime synchronization
 
-### 1.2.17
-Release: 07.04.2026
-- Fix: Resolved an issue where the pressure learning reset button did not trigger reliably. The pumpHelper4 now explicitly subscribes to its relevant internal states to ensure proper event handling.
+### 1.3.18 (2026-05-11)
 
-### 1.2.15
-Release: 22.03.2026
-- Fix i18n usage (replace I18n.t with I18n.translate) to resolve adapter startup crash and restart loop on certain systems.
+- Fixed incorrect date display in the pH, ORP and TDS areas.
+- Time states with `value.time` are now stored as numeric timestamps instead of localized date strings.
+- Improved compatibility with ioBroker/Admin date handling.
+- Added backward-compatible handling for previously stored German date strings.
+- Kept history JSON output unchanged with readable date strings for users and VIS displays.
 
+### 1.3.17 (2026-05-11)
 
-*(older versions are automatically moved to CHANGELOG_OLD.md)*
+- Fixed release/upload issue from v1.3.16.
+- Fixed circulation calculation in time mode when live flow values were not recalculated after helper-driven pump starts.
+- Improved speech system stability.
+- Stabilized runtime persistence.
+- Reduced repeated solar notifications.
+- Added internal stability improvements.
 
----
+- Added new ORP/Redox chemistry preparation:
+  - new `chemistryOrpStates.js`
+  - new `chemistryOrpHelper.js`
+  - integrated ORP handling into `main.js`
+  - supports disabled/manual/state input modes
+  - ORP value handling in mV
+  - pH reference from `chemistry.ph.enabled` and `chemistry.ph.input.current_value`
+  - measurement location, pump and stabilization logic aligned with pH/TDS
+  - ORP evaluation without automatic dosing or chlorine control
+  - ORP 24h/7d/30d trend support
+  - ORP history support
+  - ORP text/HTML/JSON outputs
+
+- Added ORP i18n texts.
+- Aligned pH structure with TDS/ORP:
+  - added `chemistry.ph.history.*`
+  - added `chemistry.ph.trend.*`
+  - added `chemistry.ph.outputs.*`
+  - extended pH helper with history, trend and summary logic
+  - existing pH input, evaluation and mix-run logic remain backward compatible
+
+### 1.3.16 (2026-05-11)
+
+- Fixed circulation calculation in time mode when live flow values were not recalculated after helper-driven pump starts.
+- Improved speech system stability.
+- Stabilized runtime persistence.
+- Reduced repeated solar notifications.
+- Added internal stability improvements.
+
+- Added new ORP/Redox chemistry preparation:
+  - new `chemistryOrpStates.js`
+  - new `chemistryOrpHelper.js`
+  - integrated ORP handling into `main.js`
+  - supports disabled/manual/state input modes
+  - ORP value handling in mV
+  - pH reference from `chemistry.ph.enabled` and `chemistry.ph.input.current_value`
+  - measurement location, pump and stabilization logic aligned with pH/TDS
+  - ORP evaluation without automatic dosing or chlorine control
+  - ORP 24h/7d/30d trend support
+  - ORP history support
+  - ORP text/HTML/JSON outputs
+
+- Added ORP i18n texts.
+- Aligned pH structure with TDS/ORP:
+  - added `chemistry.ph.history.*`
+  - added `chemistry.ph.trend.*`
+  - added `chemistry.ph.outputs.*`
+  - extended pH helper with history, trend and summary logic
+  - existing pH input, evaluation and mix-run logic remain backward compatible
 
 ## Support
 - [ioBroker Forum](https://forum.iobroker.net/)  

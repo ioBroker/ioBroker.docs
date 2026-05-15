@@ -124,6 +124,10 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 6.1.0 (2026-04-26)
+- (@mcm1957) Adapter requires node.js >= 22, js-controller >= 6.0.11 and admin >= 7.7.22 now
+- (@mcm1957) Dependencies have been updated
+
 ### 6.0.0 (2026-04-10)
 
 - (@patricknitsch) Added pvnode als alternative Provider
@@ -146,9 +150,7 @@ NodeJS >= 20.x and js-controller >= 6 is required
 * (@klein0r) Added estimated energy: now until end of day
 * (@simatec) Admin-UI has been adapted for small displays
 
-### 4.0.1 (2024-10-22)
-
-* (@klein0r) Fixed: Missing color settings for new Solcast table
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

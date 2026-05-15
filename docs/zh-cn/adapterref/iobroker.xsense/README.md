@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: PiZ4XJCJshjXGglMy02J8onIWW6Y8nsFhwDZoBad/jU=
+hash: knZKs6Tj3pEJd9A9RBG+KAsygbWTgTF5sc+bomF5aTg=
 ---
 ![标识](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -40,7 +40,6 @@ hash: PiZ4XJCJshjXGglMy02J8onIWW6Y8nsFhwDZoBad/jU=
 
 需要 XSense Bridge SBS50。
 
-## [原始 Python 代码](https://github.com/theosnel/python-xsense) 来自 [theosnel]](https://github.com/theosnel) .. 非常感谢
 ---
 
 ## ❗ 警告
@@ -80,44 +79,7 @@ hash: PiZ4XJCJshjXGglMy02J8onIWW6Y8nsFhwDZoBad/jU=
 
 ---
 
-## 🚀 安装 Python（如果尚未安装）
-必须是官方公开发布的Python版本。
-
-💻 **Windows**
-
-1. 安装 Python
-- 下载：[https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/)
-安装过程中，请启用“将 Python 添加到 PATH”选项。
-然后进行核实：
-
-```powershell
-python --version
-pip --version
-```
-
-- 之后，在 `xsense.0.info.callPython` 下的对象中，输入 `python`（默认值为 `python3`）。
-
-🐧 **Linux / Docker**
-
-- 这会自动发生——只需在适配器设置中选择首选版本即可。
-
----
-
 ## ❗ 故障排除
-如果已安装正确的版本，但适配器已获取到错误的版本，请先删除环境变量：
-
-```
-  rm -Rf /home/iobroker/.cache/autopy/venv/xsense-env
- ```
-
-然后重启适配器。
-
-如果仍然无效，请检查文件 /home/iobroker/.cache/autopy/venv/xsense-env/pyvenv.cfg。
-
-该文件列出了与环境相关的 Python 版本——如有必要，请进行调整。
-
-如果该文件不存在，则说明您等待适配器启动的时间不够长。
-
 安装后出现错误信息
 
 [XSense] 找不到软件包“@mongodb-js/zstd”
@@ -139,9 +101,43 @@ pip --version
 ### **正在进行中** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 0.6.1 (2026-05-03)
+* (arteck) fix deviceManager
+
+### 0.6.0 (2026-05-03)
+* (arteck) fix battery info
+* (arteck) add deviceManager
+
+### 0.5.1 (2026-05-02)
+* (arteck) fix battery info
+* (arteck) mqtt message as info in log
+
+### 0.5.0 (2026-04-26)
+* (arteck) fix translations
+* (arteck) del deprectated setStateAsync
+
+### 0.4.2 (2026-04-23)
+* (arteck) add retry logic
+
+### 0.4.1 (2026-04-23)
+* (arteck) fix type blank 
+* (arteck) fix network error
+
+### 0.4.0 (2026-04-22)
+*    BREAKING CHANGES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+* (arteck) python code changed to js
+* (arteck) battery state now in percentage
+* (arteck) new structure for home, del all DP and restart the adapter
+* <img width="1745" height="225" alt="grafik" src="https://github.com/user-attachments/assets/2d784ff7-677a-44f2-8712-f0d81e42ec4b" />
+
+### 0.3.7 (2026-04-13)
+* (arteck) add XS0B-MR
+
 ### 0.3.6 (2026-01-26)
 * (arteck) typo
-*
 
 ### 0.3.5 (2026-01-26)
 * (arteck) check object isLifeEnd
@@ -250,6 +246,8 @@ pip --version
 
 ### 0.0.1 (2025-07-27)
 * (arteck) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
