@@ -103,6 +103,8 @@ This adapter would not have been possible without the great work of Peter Baumer
 ### 0.0.1 (2020-04-18)
 * (Peter Baumert) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## Disclaimer
 Vodafone is a trademark of Vodafone GmbH. I am in no way endorsed by or affiliated with Vodafone GmbH, or any associated subsidiaries, logos or trademarks
 

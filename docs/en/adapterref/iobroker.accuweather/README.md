@@ -71,6 +71,8 @@ For better view a custom lovelace card is created - see https://github.com/algar
 * (ticaki) Dependencies and eslint updated
 * (devtronic) Add nextHour.CloudCover
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 

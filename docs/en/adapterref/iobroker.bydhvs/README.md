@@ -85,6 +85,9 @@ the send command is ```010300100003040e```
 | SF | Scale Factor (Value 1234 & SF 100 => Real Value: 12.34) |
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.5.12 (2026-05-01)
 * (arteck) fix exCode 0x04
 
@@ -103,6 +106,8 @@ the send command is ```010300100003040e```
 * (arteck) typo
 
 ###
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

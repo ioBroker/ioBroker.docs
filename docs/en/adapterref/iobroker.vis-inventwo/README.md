@@ -94,13 +94,19 @@ If you like our work and would like to support us, we appreciate every donation.
 
 ## Changelog
 
-### **WORK IN PROGRESS**
-- (iobroker-bot) Adapter requires node.js >= 20 now.
-
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.0.1 (2026-05-15)
+- Fixed widget gif images missing
+
+### 4.0.0 (2026-05-15)
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- Updated dependencies
+- Updated project structure to meet latest ioBroker standards
+- Updated build process to use latest tools and best practices
 
 ### 3.3.5
 - Fixed: [#688](https://github.com/inventwo/ioBroker.vis-inventwo/issues/688) Radio button cannot write a boolean value
@@ -119,14 +125,6 @@ If you like our work and would like to support us, we appreciate every donation.
 
 ### 3.3.3
 - Fixed issue with border color on Multi-Widget View in PopUp
-
-### 3.3.2
-- Bugfix
-
-### 3.3.1
-- Bugfix
-
----
 
 ## License
 

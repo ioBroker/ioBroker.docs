@@ -112,6 +112,8 @@ For example, `red = 0`, blue and green will stay unchanged.
 ### 1.0.0 (2019-10-18)
 * (ldittmar) first version for the community
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 

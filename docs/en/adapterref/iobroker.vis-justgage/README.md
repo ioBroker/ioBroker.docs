@@ -130,6 +130,8 @@ More about pointer options could be found here: https://github.com/toorshia/just
 ### 0.1.1 (2016-02-10)
 - (Pmant) initial checkin
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)

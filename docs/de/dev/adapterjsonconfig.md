@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: c7oBHf4czku6tPilXdfE00f4S5tx+JA4VxXiaEFtEnc=
+hash: IJo1FDQe20GLWcgRlZIHS+7cDnM/4kGOhPImbNAjj9M=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -146,7 +146,7 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`divider`:**](#divider) Erzeugt eine horizontale Trennlinie
 - [**`file`:**](#file) Eingabefeld mit Dateiauswahl und optionaler Upload-/Download-Funktion (nur Admin 6)
 - [**`fileSelector`:**](#fileselector) Ermöglicht Benutzern die Auswahl von Dateien aus dem System (nur Admin6)
-- [**`func`:**](#func) Wählt eine Funktion aus der Liste enum.func aus (nur Admin 6)
+- [**`func`:**](#func) Wählt eine Funktion aus der enum.func-Liste aus (nur Admin 6)
 - [**`header`:**](#header) Erstellt eine Überschrift mit verschiedenen Größen (h1-h5)
 - [**`iframe`:**](#iframe) Zeigt iFrame mit der angegebenen URL an (admin >= 7.7.28)
 - [**`iframeSendTo`:**](#iframe) Zeigt ein iFrame mit URL aus dem Backend an (Admin >= 7.7.28)
@@ -1215,7 +1215,7 @@ Spezielle Eingabe für Ports. Es prüft automatisch, ob der Port von anderen Ins
 | `falseImage` | Dieses Bild wird angezeigt, wenn der Wert falsch ist oder wenn es sich bei dem Steuerelement um eine Schaltfläche handelt. |
 | `min` | Minimalwert für Schieberegler oder Zahl |
 | `max` | Maximalwert für Schieberegler oder Zahl |
-| `step` | Schrittwert für Steuerelementtyp Schieberegler oder Zahl |
+| `step` | Schrittwert für Schieberegler oder Zahl |
 | `controlDelay` | Verzögerung in ms für Schieberegler oder Zahl |
 | `variant` | Varianten der Schaltfläche: `contained`, `outlined`, `text` |
 | `readOnly` | Legt fest, ob das Steuerelement schreibgeschützt ist |
@@ -1338,7 +1338,7 @@ Dies kann beispielsweise mit den Web Developer Tools getestet werden, die in jed
 
 Schritt 1: Öffnen Sie die Webentwicklertools mit F12
 
-Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1).
+Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1)
 
 Schritt 3: Verschiedene Geräte auswählen (2)
 
@@ -1483,6 +1483,7 @@ const func = new Function(
   'arrayIndex',    // filled only by table and represents the row index
   'globalData',    // filled only by table and represents the obj.native or obj.common.custom['adapter.X'] object
   '_changed',      // indicator if some data was changed and must be saved
+  '_href',         // Current browser href
   myValidator.includes('return') ? myValidator : 'return ' + myValidator); // e.g. "_alive === true"
 
 const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, this.props.socket);
@@ -1676,6 +1677,9 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 8.3.13 (2026-05-16)
+- (@GermanBluefox) Added `_href` to `jsonData`
+
 ### 8.3.11 (2026-04-29)
 - (@GermanBluefox) Added `instance` option for all `sendTo` components to override the target adapter instance
 

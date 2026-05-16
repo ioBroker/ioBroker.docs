@@ -78,6 +78,8 @@ Adapter 2.0.3 and newer support node.js 22. Prior node.js version require a spec
 * (bropat) Fixed issue #436
 * (bropat) Fixed issue #439
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License

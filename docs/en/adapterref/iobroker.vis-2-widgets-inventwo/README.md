@@ -39,14 +39,14 @@ Color picker
 
 ![Preview Checkbox](img/preview_checkbox.png)
 
-### Widget—Table
+### Widget - Table
 
 ![Preview Table](img/preview_table.png)
 
 ### Design
 All widgets come with extensive design options to customize the look and feel to your needs.
-
-![Preview Customization](img/preview_css_customization.png)
+For more see [here](./docs/universal-widget-design-examples.md).
+![Preview Customization](img/preview_univseral_design_examples.png)
 
 ### More will follow...
 
@@ -55,6 +55,14 @@ All widgets come with extensive design options to customize the look and feel to
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Marquee widget: new scrolling text widget with configurable speed, direction, loop count, gap and pause-on-hover
+
+### 0.8.0 (2026-05-15)
+- Slider widget: added read-only mode, gradient support for colors and an option to place steps inside the slider bar (#244)
+- Dropdown widget: added conditional background color (#198), read-only mode (#201) and option to show value without text (#201)
+- Table widget: added multi-column sort (#234)
+
 ### 0.7.2 (2026-04-26)
 - Fix button click and hold for mobile devices (#192)
 
@@ -69,9 +77,6 @@ All widgets come with extensive design options to customize the look and feel to
 ### 0.6.5 (2026-04-11)
 - Changed click behavior to fix click and hold for mobile devices (#192)
 - Fixed dropdown border on focus visible even though border with is 0 (#200)
-
-### 0.6.4 (2026-03-19)
-- Fixed touch triggers twice on universal state widget
 
 ## License
 The MIT License (MIT)

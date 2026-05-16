@@ -83,6 +83,8 @@ Example set of widgets for VIS
 ### 0.1.4 (2018-04-23)
 * (pix) settings window design
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)

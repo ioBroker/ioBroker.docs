@@ -166,6 +166,8 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 * (@GermanBluefox) Migrated to TypeScript
 * (@GermanBluefox) Added "Ignore SSL errors" option
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)

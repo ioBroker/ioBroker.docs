@@ -55,6 +55,8 @@ Es können natürlich weitere Instanzen des Adapters mit abweichenden Feiertagsa
 ### 1.1.4 (2023-09-07)
 * (Quarkmax) Fixed description for Saxony from SA to SN
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 Copyright (c) 2016-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>

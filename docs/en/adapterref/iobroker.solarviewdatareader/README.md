@@ -61,6 +61,7 @@ TKK= Temperature inverter
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (copilot) Adapter requires node.js >= 22 now
 * (afuerhoff) dependencies updated
 * (afuerhoff) dependabot.yml fixed [#246](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/246)
 * (afuerhoff) license information updated
@@ -90,6 +91,8 @@ TKK= Temperature inverter
 * (afuerhoff) fixing chksum message if inverter 2 - 4 is not available
 * (afuerhoff) logging optimized
 * (afuerhoff) net handling optimized
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

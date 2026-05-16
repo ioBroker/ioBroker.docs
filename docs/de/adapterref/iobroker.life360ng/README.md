@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.life360ng/README.md
 title: ioBroker.life360ng
-hash: IP0mE2nAEA+zdt+Z2nCaFJfUEyM2kSKQ4NxPbsglAxQ=
+hash: 8E0Kpeahb7M0AU5ZO9C8l7DFQfi8cFwVnTpylc34z/M=
 ---
 # IoBroker.life360ng
 ![Logo](../../../en/adapterref/iobroker.life360ng/admin/Life360ng.svg)
@@ -25,8 +25,8 @@ ioBroker-Adapter für [Leben360](https://www.life360.com) — aktualisiert für 
 Dieser Adapter verbindet sich mit den Cloud-Diensten [Leben360](https://www.life360.com), um Personen zu verfolgen und ihre Anwesenheit an definierten Orten zu erkennen. Er ruft Daten zu Kreisen, Mitgliedern und Orten ab und speichert diese als ioBroker-Zustände, die in einem konfigurierbaren Intervall aktualisiert werden.
 
 ## Dokumentation
-- 🇺🇸 [Dokumentation](./docs/en/README.md)
-- 🇩🇪 [Dokumentation](./docs/de/README.md)
+- 🇺🇸 [Dokumentation](https://github.com/inventwo/ioBroker.life360ng/blob/main/docs/en/README.md)
+- 🇩🇪 [Dokumentation](https://github.com/inventwo/ioBroker.life360ng/blob/main/docs/de/README.md)
 
 ## Konfiguration
 ### Bearer-Token (für EU-Nutzer erforderlich)
@@ -252,7 +252,7 @@ Verwenden Sie die Karten-URL in einem **iFrame-Widget** (Vis) oder einer **URL-K
 /life360ng.0/tracker/<name>.html
 ```
 
-Die Karte aktualisiert sich automatisch – es ist keine zusätzliche Konfiguration erforderlich.
+Die Karte aktualisiert sich selbst – keine zusätzliche Konfiguration erforderlich.
 
 **Hinweis:** Der vollständige Routenverlauf (`allTime.geojson`) wächst kontinuierlich. Bei einem Abfrageintervall von 60 Sekunden und einer Mindestentfernung von 20 Metern ist mit etwa **1 MB pro Person und Jahr** zu rechnen – deutlich innerhalb der Speichergrenzen von ioBroker.
 
@@ -273,13 +273,21 @@ Wenn Ihnen unsere Arbeit gefällt und Sie uns unterstützen möchten, freuen wir
 Dieser Adapter basiert auf der Originalarbeit von [MiGoller](https://github.com/MiGoller).<br> Vielen Dank für die erste Umsetzung und die Idee! Dieses Repository enthält Optimierungen und Weiterentwicklungen.<br> Hinweis: Der ursprüngliche [Repository](https://github.com/MiGoller/ioBroker.life360) ist archiviert und wird nicht mehr aktualisiert.
 
 ## Ältere Änderungen
-- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+- [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.life360ng/blob/main/CHANGELOG_OLD.md)
 
 ## Changelog
 
 <!--
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Fixed documentation links in README not working on the ioBroker adapter page
+- (skvarel) Fixed first notification after leaving a My Place being silently suppressed due to inconsistent internal map keys (namespace mismatch between publishPerson and publishMyPlaces)
+- (skvarel) Fixed My Place location name prioritization not working correctly for the same reason
+- (skvarel) Fixed unhandled promise rejections ("DB closed") at adapter shutdown caused by async DB operations running after the Redis connection was already closed; adapter now sets an unloading flag to prevent new operations from starting and catches any remaining DB errors gracefully
+- (skvarel) Added Notifications tab with Telegram support: send a message when a person arrives at a known place (Life360 app places, own places and/or unknown places); configurable per person with prefix text and per recipient with instance number and Chat ID
+- (skvarel) Added Alexa announcements support: announce location arrivals via Amazon Echo devices using the ioBroker Alexa2 adapter; configurable device list with speak state ID and announcement volume (volume is automatically restored by the Alexa adapter after each announcement)
+
 ### 1.7.0 (2026-05-14)
 - (skvarel) Fixed crash on fresh install caused by adapter writing tracker files before the namespace meta object was created
 - (skvarel) Improved error message when Life360 API requests are blocked by Cloudflare (IP rate-limited); no longer logs the full HTML response

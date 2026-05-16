@@ -135,6 +135,8 @@ Click for the widget source.
 ### 1.5.3 (2025-04-15)
 - (aruttkamp) redirect URI changed [#429]
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 

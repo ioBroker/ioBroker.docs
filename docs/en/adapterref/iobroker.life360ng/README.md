@@ -26,8 +26,8 @@ This adapter connects to the [Life360](https://www.life360.com) cloud services t
 
 ## Documentation
 
-- 🇺🇸 [Documentation](./docs/en/README.md)
-- 🇩🇪 [Dokumentation](./docs/de/README.md)
+- 🇺🇸 [Documentation](https://github.com/inventwo/ioBroker.life360ng/blob/main/docs/en/README.md)
+- 🇩🇪 [Dokumentation](https://github.com/inventwo/ioBroker.life360ng/blob/main/docs/de/README.md)
 
 ## Configuration
 
@@ -301,6 +301,14 @@ Note: The original [repository](https://github.com/MiGoller/ioBroker.life360) is
 <!--
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Fixed documentation links in README not working on the ioBroker adapter page
+- (skvarel) Fixed first notification after leaving a My Place being silently suppressed due to inconsistent internal map keys (namespace mismatch between publishPerson and publishMyPlaces)
+- (skvarel) Fixed My Place location name prioritization not working correctly for the same reason
+- (skvarel) Fixed unhandled promise rejections ("DB closed") at adapter shutdown caused by async DB operations running after the Redis connection was already closed; adapter now sets an unloading flag to prevent new operations from starting and catches any remaining DB errors gracefully
+- (skvarel) Added Notifications tab with Telegram support: send a message when a person arrives at a known place (Life360 app places, own places and/or unknown places); configurable per person with prefix text and per recipient with instance number and Chat ID
+- (skvarel) Added Alexa announcements support: announce location arrivals via Amazon Echo devices using the ioBroker Alexa2 adapter; configurable device list with speak state ID and announcement volume (volume is automatically restored by the Alexa adapter after each announcement)
+
 ### 1.7.0 (2026-05-14)
 - (skvarel) Fixed crash on fresh install caused by adapter writing tracker files before the namespace meta object was created
 - (skvarel) Improved error message when Life360 API requests are blocked by Cloudflare (IP rate-limited); no longer logs the full HTML response
@@ -337,7 +345,7 @@ Note: The original [repository](https://github.com/MiGoller/ioBroker.life360) is
 - (skvarel) Map no longer auto-zooms after a data refresh when the user has manually panned or zoomed; the chosen view is kept until the tab or window is closed
 
 ## Older changes
-- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+- [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.life360ng/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

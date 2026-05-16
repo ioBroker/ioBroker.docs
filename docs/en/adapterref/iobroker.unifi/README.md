@@ -83,6 +83,7 @@ The adapter uses [node-unifi](https://github.com/jens-maus/node-unifi) to connec
 -->
 
 ### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -207,6 +208,8 @@ The adapter uses [node-unifi](https://github.com/jens-maus/node-unifi) to connec
 
 ### 0.0.1
 * (jens-maus) initial checkin of non-working development version
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## References
 This adapter uses functionality from the following third-party nodejs modules:
