@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.life360ng/README.md
 title: ioBroker.life360ng
-hash: 8E0Kpeahb7M0AU5ZO9C8l7DFQfi8cFwVnTpylc34z/M=
+hash: 8YBAEnXTNSs2o7nPuClIsc0fVulNS9uGllpwlRzYJyk=
 ---
 # IoBroker.life360ng
 ![Logo](../../../en/adapterref/iobroker.life360ng/admin/Life360ng.svg)
@@ -33,16 +33,18 @@ Dieser Adapter verbindet sich mit den Cloud-Diensten [Leben360](https://www.life
 Life360 hat die passwortbasierte Anmeldung für EU-Nutzer deaktiviert. Beantragen Sie manuell ein Bearer-Token:
 
 1. Öffnen Sie [https://life360.com/login](https://life360.com/login) in Ihrem Browser.
-2. Geben Sie Ihre E-Mail-Adresse ein und klicken Sie auf **Weiter**.
-3. Geben Sie den an Ihre E-Mail-Adresse gesendeten Einmalcode ein.
-4. Öffnen Sie die Entwicklertools Ihres Browsers (**F12**) und wechseln Sie zur Registerkarte **Netzwerk**.
+2. Öffnen Sie die Entwicklertools Ihres Browsers (**F12**) und wechseln Sie zur Registerkarte **Netzwerk**.
+3. Geben Sie Ihre E-Mail-Adresse ein und klicken Sie auf **Weiter**.
+4. Geben Sie den an Ihre E-Mail-Adresse gesendeten Einmalcode ein.
 5. Suchen Sie die **POST**-Anfrage mit dem Namen `token` (OPTIONS ignorieren).
 6. Kopieren Sie in **Vorschau** / **Antwort** den Wert von `access_token`.
 7. Fügen Sie es in das Feld **Bearer-Token** in der Adapterkonfiguration ein.
 
-**Hinweis:** Geben Sie das Token OHNE das Wort „Bearer“ und OHNE Leerzeichen ein!
+**Hinweis:** Geben Sie das Token OHNE das Wort „Bearer“, OHNE Leerzeichen und OHNE Anführungszeichen ein!
 
 **Hinweis:** Tokens sind lange gültig (in der Regel mehrere Monate). Nach Ablauf der Gültigkeitsdauer wird im Adapterprotokoll ein Verbindungsfehler angezeigt. Wiederholen Sie die oben genannten Schritte, um ein neues Token zu erhalten.
+
+![Token](../../../en/adapterref/iobroker.life360ng/img/readme_anonym.png)
 
 ### Meine Orte
 Fügen Sie private Orte hinzu, die für die Life360-Cloud-Dienste nicht sichtbar sind. Der Adapter prüft bei jeder Abfrage die Anwesenheit an Ihren benutzerdefinierten Orten.
@@ -92,7 +94,7 @@ Life360-Kreise mit ihren zugehörigen Orten und der Anwesenheit ihrer Mitglieder
 |---|---|---|
 | `info.connection` | boolescher Wert | `true` bei Verbindung mit der Life360-Cloud |
 
-### Myplaces
+### Meine Orte
 Benutzerdefinierte Orte, die in der Adapterkonfiguration definiert sind (werden nicht mit der Life360-Cloud synchronisiert).
 
 Struktur: `myplaces.<placeName>.<memberName>.*`
@@ -281,9 +283,14 @@ Dieser Adapter basiert auf der Originalarbeit von [MiGoller](https://github.com/
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (skvarel) Fixed documentation links in README not working on the ioBroker adapter page
-- (skvarel) Fixed first notification after leaving a My Place being silently suppressed due to inconsistent internal map keys (namespace mismatch between publishPerson and publishMyPlaces)
-- (skvarel) Fixed My Place location name prioritization not working correctly for the same reason
+
+- (skvarel) Added place-specific notification overrides table in the Notifications tab: configure custom arrival and leave messages per place and person, with optional suppression of the default standard message; place and person columns use dropdowns populated from known places and Life360 persons
+- (skvarel) Extended the Alexa test button to send two back-to-back announcements so sequential playback and restoration of the original volume can be verified directly from the adapter UI
+- (skvarel) Added a longer pause between Alexa announcements when the adapter must fall back to inline `volume;text` commands, giving the device more time to restore the previous volume before the next message
+- (skvarel) Reworked Alexa volume handling again: life360ng now saves the current `Player.volume`, sets the configured announcement volume explicitly for the speech, and restores the original device volume afterwards so the test button and real notifications follow the configured volume reliably
+
+
+### 1.8.0 (2026-05-17)
 - (skvarel) Fixed unhandled promise rejections ("DB closed") at adapter shutdown caused by async DB operations running after the Redis connection was already closed; adapter now sets an unloading flag to prevent new operations from starting and catches any remaining DB errors gracefully
 - (skvarel) Added Notifications tab with Telegram support: send a message when a person arrives at a known place (Life360 app places, own places and/or unknown places); configurable per person with prefix text and per recipient with instance number and Chat ID
 - (skvarel) Added Alexa announcements support: announce location arrivals via Amazon Echo devices using the ioBroker Alexa2 adapter; configurable device list with speak state ID and announcement volume (volume is automatically restored by the Alexa adapter after each announcement)
@@ -314,14 +321,6 @@ Dieser Adapter basiert auf der Originalarbeit von [MiGoller](https://github.com/
 - (skvarel) Fixed JSDoc type warnings introduced by updated ESLint config (jsdoc/reject-any-type, jsdoc/reject-function-type)
 - (skvarel) Added documentation for tracker file storage location (Admin → Files → life360ng.<instance>/tracker/)
 - (skvarel) Added separate docs page for the Map Display tab (colors, route style, place flags, layout) in English and German; moved map appearance content out of the Logbook docs page
-
-### 1.5.0 (2026-05-10)
-- (skvarel) Added flag markers for Life360 places and own places (MyPlaces) to all tracker maps, configurable color, size and visibility per source
-- (skvarel) Map legend now hides automatically when the route checkbox is unchecked, on both person and circle maps
-- (skvarel) Removed the separate "Show map legend" checkbox – legend visibility is now controlled via the route checkbox
-- (skvarel) Moved map appearance settings (colors, markers, flags, layout) to a dedicated "Map Display" tab in admin config
-- (skvarel) Replaced header checkboxes with a hamburger menu (☰) on all tracker maps; Route, Places, Footer and Map Size are now toggleable directly in the map; footer and map-size preferences are stored per map in the browser
-- (skvarel) Map no longer auto-zooms after a data refresh when the user has manually panned or zoomed; the chosen view is kept until the tab or window is closed
 
 ## License
 

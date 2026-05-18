@@ -59,6 +59,17 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 7.0.2 (2026-05-17)
+
+- (HombachC) fix tsconfig
+
+### 7.0.1 (2026-05-16)
+
+- (HombachC) update typescript from 5.9.3 to 6.0.3
+- (HombachC) fix vulnerability in axios
+- (HombachC) update dependencies
+
 ### 7.0.0 (2026-05-09)
 
 - (copilot) BREAKING: adapter requires node.js >= 22 now
@@ -75,18 +86,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (HombachC) fix vulnerability
 - (HombachC) update dependencies
-
-### 6.0.5 (2026-01-01)
-
-- (HombachC) Fix schema links (#868)
-- (HombachC) year 2026 changes
-- (HombachC) update dependencies
-
-### 6.0.4 (2025-11-25)
-
-- (HombachC) optimize dependabot config (#856)
-- (HombachC) update axios
-- (HombachC) update dependencies, fix vulnerability
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

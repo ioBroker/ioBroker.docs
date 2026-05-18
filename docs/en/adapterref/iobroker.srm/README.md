@@ -141,7 +141,7 @@ Thanks to
 ## License
 MIT License
 
-Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2024 stephan stricker <stephan.stricker@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

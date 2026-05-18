@@ -84,7 +84,7 @@ Now they could be found in `cloud.X.devices.NAME`:
 -->
 
 ## Changelog
-### 6.0.3 (2026-05-15)
+### 6.0.4 (2026-05-17)
 * (bluefox) Respect the types of states if writing from visu app
 
 ### 6.0.1 (2026-03-04)

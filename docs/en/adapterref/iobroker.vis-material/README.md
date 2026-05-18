@@ -62,7 +62,7 @@ In some installations, the font in the context menu may no longer be readable. T
 
 The MIT License (MIT)
 
-Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2015-2024 nisiode <nisio.air@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

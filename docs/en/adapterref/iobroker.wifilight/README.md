@@ -117,7 +117,7 @@ For example, `red = 0`, blue and green will stay unchanged.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2022 ioBroker Community Developers, 2019-2020 soef <soef@gmx.net>, 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
