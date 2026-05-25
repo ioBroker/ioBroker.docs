@@ -1186,6 +1186,27 @@ https://github.com/chrmenne/ioBroker.aurora-nowcast
 
 Provides current (nowcast) data on aurora activity (northern and southern lights) for a given location, based on publicly available data from the NOAA Space Weather Prediction Center (SWPC).
 
+## grohe-smarthome (2026-02-09) - new adapter at stable repository
+https://github.com/patricknitsch/ioBroker.grohe-smarthome
+   
+<img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.grohe-smarthome/main/admin/grohe-smarthome.png" width="100" height="100" />
+
+This adapter connects ioBroker to the Grohe Smarthome / Ondus cloud and exposes Grohe devices as states (and some controls) inside ioBroker.
+It supports:
+
+Grohe Sense (type 101)
+Grohe Sense Guard (type 103)
+Grohe Blue Home (type 104)
+Grohe Blue Professional (type 105)
+
+The adapter logs in via Grohe’s OIDC/Keycloak flow, stores a refresh token encrypted in a state, and polls the Grohe cloud API on a configurable interval. Important Messages can be send via included notification manager.
+
+## schlueter-thermostat (2026-01-28) - new adapter at stable repository
+https://github.com/patricknitsch/ioBroker.schlueter-thermostat
+   
+<img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.schlueter-thermostat/main/admin/schlueter-thermostat.png" width="100" height="100" />
+
+This adapter integrates Schlüter / OJ Microline OWD5 thermostats into ioBroker via the official cloud APIs.
 ## nextcloudtalk (15.5.2026) – new adapter at stable repository
 https://github.com/Rello/ioBroker.nextcloudtalk
 
