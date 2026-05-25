@@ -26,8 +26,8 @@ This adapter connects to the [Life360](https://www.life360.com) cloud services t
 
 ## Documentation
 
-- 🇺🇸 [Documentation](./docs/en/README.md)
-- 🇩🇪 [Dokumentation](./docs/de/README.md)
+- 🇺🇸 [Documentation](https://github.com/inventwo/ioBroker.life360ng/blob/main/docs/en/README.md)
+- 🇩🇪 [Dokumentation](https://github.com/inventwo/ioBroker.life360ng/blob/main/docs/de/README.md)
 
 ## Configuration
 
@@ -36,16 +36,20 @@ This adapter connects to the [Life360](https://www.life360.com) cloud services t
 Life360 has disabled password-based login for EU users. Obtain a Bearer token manually:
 
 1. Open [https://life360.com/login](https://life360.com/login) in your browser.
-2. Enter your email address and click **Continue**.
-3. Enter the one-time code sent to your email.
-4. Open browser DevTools (**F12**) and switch to the **Network** tab.
+2. Open browser DevTools (**F12**) and switch to the **Network** tab.
+3. Enter your email address and click **Continue**.
+4. Enter the one-time code sent to your email.
 5. Find the **POST** request named `token` (ignore OPTIONS).
 6. In **Preview** / **Response**, copy the value of `access_token`.
 7. Paste it into the **Bearer token** field in the adapter configuration.
 
-**Note:** Enter the token WITHOUT the word 'Bearer' and WITHOUT spaces!
+>**Note:** Enter the token WITHOUT the word 'Bearer', WITHOUT spaces and WITHOUT quotation marks!!
 
-**Note:** Tokens are long-lived (typically months). When expired, the adapter log will show a connection error — repeat the steps above to get a new token.
+>**Note:** Tokens are long-lived (typically months). When expired, the adapter log will show a connection error — repeat the steps above to get a new token.
+
+![Token](img/readme_anonym.png)
+
+
 
 ### My Places
 
@@ -301,6 +305,19 @@ Note: The original [repository](https://github.com/MiGoller/ioBroker.life360) is
 <!--
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (skvarel) Added place-specific notification overrides table in the Notifications tab: configure custom arrival and leave messages per place and person, with optional suppression of the default standard message; place and person columns use dropdowns populated from known places and Life360 persons
+- (skvarel) Extended the Alexa test button to send two back-to-back announcements so sequential playback and restoration of the original volume can be verified directly from the adapter UI
+- (skvarel) Added a longer pause between Alexa announcements when the adapter must fall back to inline `volume;text` commands, giving the device more time to restore the previous volume before the next message
+- (skvarel) Reworked Alexa volume handling again: life360ng now saves the current `Player.volume`, sets the configured announcement volume explicitly for the speech, and restores the original device volume afterwards so the test button and real notifications follow the configured volume reliably
+
+
+### 1.8.0 (2026-05-17)
+- (skvarel) Fixed unhandled promise rejections ("DB closed") at adapter shutdown caused by async DB operations running after the Redis connection was already closed; adapter now sets an unloading flag to prevent new operations from starting and catches any remaining DB errors gracefully
+- (skvarel) Added Notifications tab with Telegram support: send a message when a person arrives at a known place (Life360 app places, own places and/or unknown places); configurable per person with prefix text and per recipient with instance number and Chat ID
+- (skvarel) Added Alexa announcements support: announce location arrivals via Amazon Echo devices using the ioBroker Alexa2 adapter; configurable device list with speak state ID and announcement volume (volume is automatically restored by the Alexa adapter after each announcement)
+
 ### 1.7.0 (2026-05-14)
 - (skvarel) Fixed crash on fresh install caused by adapter writing tracker files before the namespace meta object was created
 - (skvarel) Improved error message when Life360 API requests are blocked by Cloudflare (IP rate-limited); no longer logs the full HTML response
@@ -328,16 +345,8 @@ Note: The original [repository](https://github.com/MiGoller/ioBroker.life360) is
 - (skvarel) Added documentation for tracker file storage location (Admin → Files → life360ng.<instance>/tracker/)
 - (skvarel) Added separate docs page for the Map Display tab (colors, route style, place flags, layout) in English and German; moved map appearance content out of the Logbook docs page
 
-### 1.5.0 (2026-05-10)
-- (skvarel) Added flag markers for Life360 places and own places (MyPlaces) to all tracker maps, configurable color, size and visibility per source
-- (skvarel) Map legend now hides automatically when the route checkbox is unchecked, on both person and circle maps
-- (skvarel) Removed the separate "Show map legend" checkbox – legend visibility is now controlled via the route checkbox
-- (skvarel) Moved map appearance settings (colors, markers, flags, layout) to a dedicated "Map Display" tab in admin config
-- (skvarel) Replaced header checkboxes with a hamburger menu (☰) on all tracker maps; Route, Places, Footer and Map Size are now toggleable directly in the map; footer and map-size preferences are stored per map in the browser
-- (skvarel) Map no longer auto-zooms after a data refresh when the user has manually panned or zoomed; the chosen view is kept until the tab or window is closed
-
 ## Older changes
-- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+- [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.life360ng/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

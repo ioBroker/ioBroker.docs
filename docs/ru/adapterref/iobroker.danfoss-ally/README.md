@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.danfoss-ally/README.md
 title: без названия
-hash: D2tYzgZDtgkSwZNZNyfO3YdbP0JbkkOG3DPUDdcmuC0=
+hash: x8WosFEER+yJnraUu8Zd7H0Cm9C7yURg4hhJSh9InnQ=
 ---
-![версия](https://img.shields.io/badge/version-0.2.16-blue)
+![версия](https://img.shields.io/badge/version-0.2.18-blue)
 ![НПМ](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 Облачный адаптер для **Danfoss Ally™** — с использованием **OAuth2 (учетные данные клиента)**.
@@ -131,9 +131,9 @@ Polling:      300
 
 ---
 
-## Написание команд (отдельные команды)
-Адаптер поддерживает **точные одиночные записи** в каждое управляемое состояние без цепочек или автоматических переключений режимов.
-Это дает вам полный контроль в Blockly, JavaScript или пользовательских логических скриптах.
+## Письмо
+Адаптер поддерживает **целевую запись** в каждое управляемое состояние без автоматического переключения режимов.
+Это дает вам полный контроль в Blockly, JavaScript или в пользовательских логических скриптах.
 
 | Доступное для записи состояние | Ожидаемое значение / поведение |
 | ----------------------------------------------------------------------------- | --------------------------------------------------------------- |
@@ -199,7 +199,7 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 Адаптер предоставляет подробную информацию на уровне отладки для диагностики, но при нормальной работе остается бесшумным.
 
 - Обновления `ack=true` отображаются только в режиме отладки (debug).
-- `HOLD`, `MATCH`, `SUPPRESS` → диагностика на уровне отладки, безвредная.
+- `HOLD`, `MATCH`, `SUPPRESS` → отладочная, безвредная диагностика
 - Ошибки API (`HTTP 400/401`) автоматически повторяются (регистрируются в режиме отладки)
 - Подробный информационный отчет после каждого опроса:
 
@@ -262,11 +262,13 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 ---
 
 ## Пишет
-- По умолчанию выполняется одиночная запись; `temp_set` сначала пытается выполнить комбинированную команду `SetpointChangeSource` + `temp_set`.
+- `temp_set` сначала пытается выполнить комбинированную команду `SetpointChangeSource` + `temp_set`.
+- Термостаты Ally TRV также получают значение `manual_mode_fast`, если такая точка данных существует, поскольку некоторые устройства сообщают о заданном вручную значении.
 - Режим + температура должны быть указаны отдельно.
 - Значения ограничены допустимыми пределами и масштабированы в 10 раз.
 - `child_lock`: пытается `0/1`, повторяет попытку `true/false` при ошибке 400
 - `SetpointChangeSource`: необязательный параметр; `temp_set` пытается использовать `"Externally"` для TRV союзников.
+— Если облако впоследствии снова сообщит о старой заданной точке, адаптер запишет предупреждение вместо того, чтобы молча принять её.
 
 Все записи об отправке, повторной попытке и подтверждении отображаются в режиме отладки.
 
@@ -283,6 +285,11 @@ node main.js
 ---
 
 ## Changelog
+
+### 0.2.18
+- Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
+- Added explicit warnings when the Danfoss Cloud does not confirm the requested setpoint
+- Improved device naming/detection for relay-like devices so the Boiler Relay is easier to identify
 
 ### 0.2.17
 - Improved Ally TRV `temp_set` writes by trying `SetpointChangeSource=Externally` and `temp_set` as one combined command first

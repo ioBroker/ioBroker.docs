@@ -53,6 +53,8 @@ States are automatically created when fakeRoku receives a key for the first time
 ### 0.2.0
   (Pmant) run multiple fakeroku's in one instance
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 

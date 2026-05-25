@@ -310,6 +310,7 @@ You may edit the variable ```message``` to any notification you would like to re
 -->
 
 ### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -429,6 +430,8 @@ Note: If you are coming from an earlier version, you have to (1) empty your sett
 
 ### 0.1.0 (2018-11-04)
 - (zefau) initial version
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Credits
 ### unofficial API

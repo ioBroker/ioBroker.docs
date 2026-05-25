@@ -528,6 +528,8 @@ Please see [release page](https://github.com/Zefau/ioBroker.nuki-extended/releas
 ### 2.6.5 (2022-06-17)
 * (Apollon77) Fix some crash cases reported by Sentry
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 

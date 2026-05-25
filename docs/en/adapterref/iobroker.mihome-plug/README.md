@@ -19,6 +19,7 @@ This adapter is forked from [MeisterTR](https://github.com/MeisterTR/iobroker.mi
 -->
 
 ### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -40,11 +41,13 @@ This adapter is forked from [MeisterTR](https://github.com/MeisterTR/iobroker.mi
 ### 0.1.1 (2017-08-04)
 * (bluefox) initial commit
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License
 
-Copyright (c) 2023-2024 iobroker-community-adapters <mcm57@gmx.at>
+Copyright (c) 2023-2026 iobroker-community-adapters <mcm57@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

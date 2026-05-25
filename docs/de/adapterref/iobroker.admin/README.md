@@ -124,6 +124,9 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 7.8.25 (2026-05-16)
+- (@GermanBluefox) Extended JSON config for frigate adapter
+
 ### 7.8.24 (2026-05-05)
 - (@GermanBluefox) Correcting the IP address calculation
 
@@ -136,9 +139,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 
 ### 7.8.9 (2026-03-25)
 - (@GermanBluefox) Added in JsonConfig OAuth2 process for Spotify
-
-### 7.8.8 (2026-03-24)
-- (@GermanBluefox) Implemented the possibility to upload adapter from the file (useful for development and testing)
 
 ## License
 

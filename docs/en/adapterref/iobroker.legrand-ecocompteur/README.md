@@ -74,6 +74,8 @@ The following configuration is required:
 ### 0.0.3
 * (Robin Rainton) initial clean release.
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 

@@ -33,8 +33,10 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
     Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.0.0 (2026-05-16)
 - (copilot) Adapter requires node.js >= 22 now
+- (copilot) Added re-streaming support for live video feeds (experimental)
+- (copilot) Added support for license plate recognition events from Frigate
 
 ### 2.3.2 (2026-04-14)
 - (@GermanBluefox) Added support of shm_size
@@ -75,14 +77,6 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
 - (Eistee82) Converted synchronous filesystem operations to async
 - (Eistee82) Debounced event history fetching to prevent excessive API calls
 - (Eistee82) Improved error logging consistency across all catch blocks
-
-### 2.2.1 (2026-03-29)
-- (Eistee82) Added support for connecting to an external MQTT broker (e.g. Mosquitto) as an alternative to the built-in broker
-- (Eistee82) Added configurable MQTT topic prefix
-- (Eistee82) Added i18n translations for new MQTT configuration fields
-- (mcm1957) dependencies have been updated
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

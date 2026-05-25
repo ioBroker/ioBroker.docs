@@ -89,6 +89,9 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 7.8.25 (2026-05-16)
+- (@GermanBluefox) Extended JSON config for frigate adapter
+
 ### 7.8.24 (2026-05-05)
 - (@GermanBluefox) Correcting the IP address calculation
 
@@ -101,9 +104,6 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 
 ### 7.8.9 (2026-03-25)
 - (@GermanBluefox) Added in JsonConfig OAuth2 process for Spotify
-
-### 7.8.8 (2026-03-24)
-- (@GermanBluefox) Implemented the possibility to upload adapter from the file (useful for development and testing)
 
 ## License
 

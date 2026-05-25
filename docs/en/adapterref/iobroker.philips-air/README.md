@@ -68,6 +68,8 @@ It can happen, that some devices have not all variables, and they will stay unfi
 ### 0.1.1 (2020-10-14)
 * (bluefox) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 

@@ -71,6 +71,8 @@ This adapter would not have been possible without the great work of @inbux (http
 ### 1.2.7 (2025-07-11)
 - (arteck) fix adapter stop after wrong request
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: QO/yjYAubnIEc+BCNn/SFJEqWG6pymmf0z3D4cDhJIg=
+hash: sGnFtCBDpgdN3WGj6ueeyAWmWF44erkKKjDegciqKKg=
 ---
 ![Logo](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -19,11 +19,9 @@ hash: QO/yjYAubnIEc+BCNn/SFJEqWG6pymmf0z3D4cDhJIg=
 [![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_shield) ![Test und Freigabe](https://github.com/HGlab01/ioBroker.apg-info/workflows/Test%20and%20Release/badge.svg)
 
 ## Apg-info-Adapter für ioBroker
-Dieser Adapter liefert die Spitzenzeiten des österreichischen Stromnetzes (nur österreichische Werte!), in denen der Stromverbrauch vermieden werden soll. Zusätzlich stellt er die PHELIX Day-Ahead-Preise (EPEX Spot) für Österreich, die Schweiz und Deutschland bereit (konfigurierbar in den Adaptereinstellungen). Providergebühren, Steuern und Netzkosten können optional in der Konfiguration (Registerkarte „Berechnung“) hinzugefügt werden.
+Dieser Adapter liefert die Spitzenzeiten des österreichischen Stromnetzes (nur österreichische Werte!), in denen Stromverbrauch vermieden werden soll. Zusätzlich stellt er die PHELIX-Day-Ahead-Preise (EPEX Spot) für Österreich, die Schweiz und Deutschland bereit (konfigurierbar in den Adaptereinstellungen). Anbietergebühren, Steuern und Netzkosten können optional in der Konfiguration (Registerkarte „Berechnung“) hinzugefügt werden.
 
-`[..].marketprice.today.jsonChart` und `[..].marketprice.tomorrow.jsonChart` können mit https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart verwendet werden.
-
-In der Standardkonfiguration läuft der Adapter um 00:00, 13:00 und 15:00 Uhr. Es wird dringend empfohlen, den Lauf um 00:00 Uhr nicht zu deaktivieren, da sonst der Tageswechsel (morgen → heute) nicht korrekt funktioniert.
+In der Standardkonfiguration läuft der Adapter um 00:00, 13:00 und 15:00 Uhr. Es wird dringend empfohlen, den Lauf um 00:00 Uhr nicht zu deaktivieren, da sonst der Tageswechsel (morgen → heute) nicht ordnungsgemäß funktioniert.
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
@@ -45,11 +43,30 @@ In Märkten (wie Österreich), die durch zeitlich variable Netzkosten gekennzeic
 
 **Wichtig:** Die Tabellenansicht funktioniert ab Admin 7.7.23. In älteren Versionen wird das Datumsfeld nicht korrekt angezeigt (https://github.com/ioBroker/ioBroker.admin/issues/3344).
 
+## Diagramme
+Mit den von diesem Adapter bereitgestellten Daten lassen sich problemlos Diagramme erstellen. Je nach verwendetem Visualisierungsadapter stehen Ihnen verschiedene Optionen zur Verfügung. Einige gängige Beispiele sind unten aufgeführt:
+
+### Vis-1 `[..].marketprice.today.jsonChart` und `[..].marketprice.tomorrow.jsonChart` können mit https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart verwendet werden.
+
+Leider wird vis-materialdesign vom vis-2-Adapter nicht unterstützt (siehe: https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/227, https://github.com/Scrounger/ioBroker.vis-materialdesign/pull/224).
+
+Der neue vis-2-widgets-material-Adapter verfügt nicht mehr über ein „jsonChart“.
+### Vis-2 Alternativ können Sie [ECharts-Adapter](https://github.com/ioBroker/ioBroker.echarts) mit "JSON" als Datenquelle verwenden (https://github.com/ioBroker/ioBroker.echarts#data-from-json). Der apg-info-Adapter stellt hierfür die vollständigen Daten auch in anderen Objekten bereit:
+- `[..].marketprice.today.jsonChartData` und `[..].marketprice.tomorrow.jsonChartData` enthalten nur das Array mit den Diagrammdaten.
+- `[..].marketprice.jsonChartData` kombiniert die Chartdaten von heute und morgen in einem Array.
+- `[..].marketprice_quarter_hourly.jsonChartData` stellt die gleichen kombinierten Chartdaten für viertelstündliche Preise bereit.
+
+Damit lassen sich schöne Diagramme wie dieses erstellen (erstellt mit dem ECharts-Adapter und den kombinierten viertelstündlichen Diagrammdaten):<img src="doc/echarts.svg" alt="JSON-Diagrammdaten" width="50%" />
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.33-alpha.0 (2026-05-17)
+* (HGlab01) Bump axios to 1.16.0
+* (SimonFischer04) support echarts (vis-2)
+
 ### 0.1.32 (2026-05-02)
 * (HGlab01) Adapter requires node.js >= 22 now
 * (HGlab01) fix 'DE' is not the code for an available bidding zone
@@ -64,11 +81,6 @@ In Märkten (wie Österreich), die durch zeitlich variable Netzkosten gekennzeic
 
 ### 0.1.28 (2025-12-11)
 * (HGlab01) add Energy-Charts as third data provider
-
-### 0.1.27 (2025-11-19)
-* (HGlab01) disable data provider Epex (not a stable option)
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -99,6 +99,8 @@ Tested on comfoair CA350.
 
 -   boost-error fixed (sentry)
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
