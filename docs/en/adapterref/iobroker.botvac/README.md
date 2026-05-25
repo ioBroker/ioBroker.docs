@@ -63,6 +63,8 @@
 - (ar7bd) SpotWidth and spotHeight are now allowed to be zero. [#29]
 - (mcm1957) Dependencies have been updated.
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License

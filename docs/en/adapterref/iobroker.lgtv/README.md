@@ -203,6 +203,8 @@ is true when TV is on and false if TV is off
 * (uKL) Ability to unicast the WOL packet has been added. This is needed if sender and TV are on different subnets.
 * (mcm1957) Dependencies have been updated
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License

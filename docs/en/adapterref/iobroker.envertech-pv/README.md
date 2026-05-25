@@ -101,6 +101,8 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 -   (mcm1957) State roles have been checked and adapter [#75].
 -   (mcm1957) Dependencies have been updated.
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License

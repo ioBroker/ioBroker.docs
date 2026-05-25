@@ -200,6 +200,8 @@ Neueinsteigern wird empfohlen, den [TR-064-Adapter](https://github.com/ioBroker/
 * (BasGo) enhanced TR-064 configuration
 * (BasGo) added rudimentary phonebook download into object store
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)

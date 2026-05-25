@@ -1158,28 +1158,28 @@ https://github.com/Bannsaenger/ioBroker.pjlink
 
 PJLink Projector controll
 
-## heos (15.03.2025) – new adapter at stable repository
+## heos (15.03.2026) – new adapter at stable repository
 https://github.com/withstu/ioBroker.heos
 
 <img src="https://raw.githubusercontent.com/withstu/ioBroker.heos/main/admin/heos.png" width="100" height="100" />
 
 The adapter lets control HEOS from ioBroker.
 
-## open-meteo-weather (14.4.2025) – new adapter at stable repository
+## open-meteo-weather (14.4.2026) – new adapter at stable repository
 https://github.com/H5N1v2/ioBroker.open-meteo-weather
 
 <img src="https://raw.githubusercontent.com/H5N1v2/ioBroker.open-meteo-weather/main/admin/open-meteo.png" width="100" height="100" />
 
 This adapter provides precise weather data, forecasts, air quality, and pollen information powered by Open-Meteo.com. It is free for non-commercial use (under 10,000 daily API calls) and requires no API key registration, making the setup process extremely simple.
 
-## nextcloud-monitoring (14.4.2025) – new adapter at stable repository
+## nextcloud-monitoring (14.4.2026) – new adapter at stable repository
 https://github.com/H5N1v2/ioBroker.nextcloud-monitoringr
 
 <img src="https://raw.githubusercontent.com/H5N1v2/ioBroker.nextcloud-monitoring/main/admin/nextcloud_monitoring.png" width="100" height="100" />
 
 This adapter allows for detailed monitoring of your Nextcloud instance via the official OCS API (serverinfo). It provides numerous system data, user statistics, shares, as well as performance values from PHP (OPcache/FPM) and the database directly in ioBroker.
 
-## aurora-nowcastg (14.4.2025) – new adapter at stable repository
+## aurora-nowcastg (14.4.2026) – new adapter at stable repository
 https://github.com/chrmenne/ioBroker.aurora-nowcast
 
 <img src="https://raw.githubusercontent.com/chrmenne/ioBroker.aurora-nowcast/main/admin/aurora-nowcast.png" width="100" height="100" />
@@ -1207,6 +1207,60 @@ https://github.com/patricknitsch/ioBroker.schlueter-thermostat
 <img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.schlueter-thermostat/main/admin/schlueter-thermostat.png" width="100" height="100" />
 
 This adapter integrates Schlüter / OJ Microline OWD5 thermostats into ioBroker via the official cloud APIs.
+## nextcloudtalk (15.5.2026) – new adapter at stable repository
+https://github.com/Rello/ioBroker.nextcloudtalk
+
+<img src="https://raw.githubusercontent.com/Rello/ioBroker.nextcloudtalk/main/admin/nextcloud.png" width="100" height="100" />
+
+This adapter allows sending notifications to Nextcloud Talk rooms.
+## mspa (15.5.2026) – new adapter at stable repository
+https://github.com/arteck/ioBroker.mspa
+
+<img src="https://raw.githubusercontent.com/arteck/ioBroker.mspa/main/admin/mspa.png" width="100" height="100" />
+
+Controls MSpa hot tubs via the MSpa Cloud API.
+Supports heating, filter, UVC, bubble and jet control with full automation via time windows, PV surplus and frost protection.
+
+## solectrus-influxdb (15.5.2026) – new adapter at stable repository
+https://github.com/patricknitsch/ioBroker.solectrus-influxdb
+
+<img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.solectrus-influxdb/main/admin/solectrus-influxdb.png" width="100" height="100" />
+
+The SOLECTRUS InfluxDB Adapter stores selected ioBroker states into an InfluxDB 2.x database and optionally computes derived values using a built-in formula engine.
+
+It is designed for energy monitoring systems such as photovoltaic installations, battery storage, heat pumps, wallboxes, grid import/export monitoring, and custom sensors.
+## brunner-eas3 (21.5.2026) – new adapter at stable repository
+https://github.com/JR-Home/ioBroker.brunner-eas3
+
+<img src="https://raw.githubusercontent.com/JR-Home/ioBroker.brunner-eas3/main/admin/brunner-eas3.png" width="100" height="100" />
+
+Adapter for reading data from Brunner combustion control system EAS 3. The data is published via WLAN broadcast messages.
+## speedport (3.5.2025) – new adapter at stable repository
+https://github.com/hacki11/ioBroker.speedport
+
+<img src="https://raw.githubusercontent.com/hacki11/ioBroker.speedport/master/admin/speedport.png" width="100" height="100" />
+
+Fetches data from Telekom Speedport Router
+
+## life360ng (3.5.2025) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.life360ng
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.life360ng/main/admin/Life360ng.svg" width="100" height="100" />
+
+This adapter connects to the Life360 cloud services to track people and detect presence at defined places. It retrieves circles, members and places data and persists it as ioBroker states, updated at a configurable interval.
+## enpal (29.4.2025) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.enpal
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.enpal/main/admin/enpal.svg" width="100" height="100" />
+
+Reads energy data from the local InfluxDB 2.x instance provided by Enpal solar systems and exposes ioBroker states for home automation:
+
+Monitor solar power production
+Track battery state of charge (SoC)
+Analyze grid consumption and feed-in power
+Automate based on power generation
+Visualize energy flows in ioBroker dashboard
+
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->

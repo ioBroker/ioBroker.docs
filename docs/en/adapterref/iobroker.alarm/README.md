@@ -29,6 +29,9 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.0.4 (2026-05-17)
+* (@misanorot) fixed little JSON Ui issues
+
 ### 4.0.3 (2026-05-11)
 * (@misanorot) fixed checker issues
 - (copilot) Adapter requires node.js >= 22 now
@@ -47,9 +50,6 @@
 * (@GermanBluefox) Refactor code and remove duplicated methods
 * (@GermanBluefox) Added option repeat writing of state values
 * (@GermanBluefox) Added option to retrigger the alarm if already triggered
-
-### 3.7.7 (2026-03-15)
-* (misanorot) update packages
 
 ## License
 MIT License

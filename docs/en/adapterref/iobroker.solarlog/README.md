@@ -68,6 +68,8 @@ SolarLog 50: There is no open JSON-Interface @ SolarLog 50 devices. So certain v
 
 -   testing fixed
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)

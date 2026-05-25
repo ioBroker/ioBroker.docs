@@ -1,4 +1,4 @@
-# ioBroker.danfoss-ally ![version](https://img.shields.io/badge/version-0.2.16-blue) [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=shields)](https://nodei.co/npm/iobroker.danfoss-ally/)
+# ioBroker.danfoss-ally ![version](https://img.shields.io/badge/version-0.2.18-blue) [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=shields)](https://nodei.co/npm/iobroker.danfoss-ally/)
 
 [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=flat&data=d&color=blue)](https://nodei.co/npm/iobroker.danfoss-ally/)
 
@@ -135,15 +135,15 @@ The adapter automatically sends commands to the Danfoss Cloud and updates the co
 
 ---
 
-## Writing (Single Commands)
+## Writing
 
-The adapter supports **precise single writes** to each controllable state without chaining or automatic mode changes.  
+The adapter supports **targeted writes** to each controllable state without automatic mode changes.  
 This gives you full control in Blockly, JavaScript, or custom logic scripts.
 
 | Writable state                                                                | Expected value / behavior                                       |
 | ----------------------------------------------------------------------------- | --------------------------------------------------------------- |
 | `control.temp_set`                                                            | Target temperature (°C, 0.5steps; sent ×10)                     |
-| `control.manual_mode_fast`                                                    | Alias for `temp_set`                                            |
+| `control.manual_mode_fast`                                                    | Fast manual setpoint command / fallback for Ally TRVs           |
 | `control.at_home_setting`, `control.leaving_home_setting`, `control.pause_setting`, `control.holiday_setting` | Preset temperatures                                             |
 | `control.mode`                                                                | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
 | `control.child_lock`                                                          | `true` / `false`                                                |
@@ -277,17 +277,24 @@ Optional: `X-App-Key`, `X-Tenant-Id`, etc.
 
 ## Writes
 
-- Single writes by default; `temp_set` first tries a combined `SetpointChangeSource` + `temp_set` command
+- `temp_set` first tries a combined `SetpointChangeSource` + `temp_set` command
+- Ally TRVs also get `manual_mode_fast` when the datapoint exists, because some devices report the manual setpoint there
 - Mode + temperature must be written separately
 - Values are clamped to allowed limits, scaled ×10
 - `child_lock`: tries `0/1`, retries `true/false` on 400 error
 - `SetpointChangeSource`: optional; `temp_set` attempts `"Externally"` for Ally TRVs
+- If the cloud later reports the old setpoint again, the adapter logs a warning instead of silently accepting it
 
 All send, retry, and confirm logs appear at debug level.
 
 ---
 
 ## Changelog
+
+### 0.2.18
+- Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
+- Added explicit warnings when the Danfoss Cloud does not confirm the requested setpoint
+- Improved device naming/detection for relay-like devices so the Boiler Relay is easier to identify
 
 ### 0.2.17
 - Improved Ally TRV `temp_set` writes by trying `SetpointChangeSource=Externally` and `temp_set` as one combined command first

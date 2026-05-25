@@ -60,7 +60,8 @@ UL3, IL3 = mains voltage, mains power phase 3
 TKK= Temperature inverter
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.2.5 (2026-05-16)
+* (copilot) Adapter requires node.js >= 22 now
 * (afuerhoff) dependencies updated
 * (afuerhoff) dependabot.yml fixed [#246](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/246)
 * (afuerhoff) license information updated
@@ -83,15 +84,7 @@ TKK= Temperature inverter
 ### 1.2.1 (2025-02-26)
 * (afuerhoff) dependencies updated
 
-### 1.2.0 (2024-12-20)
-* (afuerhoff) dependencies updated
-* (afuerhoff) Migration to ESLint 9 and @iobroker/eslint-config - issue [#189]
-* (afuerhoff) eslint: code optimized
-* (afuerhoff) fixing chksum message if inverter 2 - 4 is not available
-* (afuerhoff) logging optimized
-* (afuerhoff) net handling optimized
-
-## License
+[Older changelogs can be found there](CHANGELOG_OLD.md)## License
 MIT License
 
 Copyright (c) 2019-2026 Achim Fürhoff <achim.fuerhoff@outlook.de>

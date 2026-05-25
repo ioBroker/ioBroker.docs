@@ -174,6 +174,8 @@ See [example Scripts](doc/ExampleScripts.md) for some example scripts that help 
 * Swtiched from event-stream to readline.
 * Probably fixed missed incomming events.
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
