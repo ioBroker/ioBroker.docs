@@ -1186,6 +1186,12 @@ https://github.com/chrmenne/ioBroker.aurora-nowcast
 
 Provides current (nowcast) data on aurora activity (northern and southern lights) for a given location, based on publicly available data from the NOAA Space Weather Prediction Center (SWPC).
 
+## nextcloudtalk (15.5.2026) – new adapter at stable repository
+https://github.com/Rello/ioBroker.nextcloudtalk
+
+<img src="https://raw.githubusercontent.com/Rello/ioBroker.nextcloudtalk/main/admin/nextcloud.png" width="100" height="100" />
+
+This adapter allows sending notifications to Nextcloud Talk rooms.
 ## mspa (15.5.2026) – new adapter at stable repository
 https://github.com/arteck/ioBroker.mspa
 
