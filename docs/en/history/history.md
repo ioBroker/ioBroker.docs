@@ -1186,6 +1186,14 @@ https://github.com/chrmenne/ioBroker.aurora-nowcast
 
 Provides current (nowcast) data on aurora activity (northern and southern lights) for a given location, based on publicly available data from the NOAA Space Weather Prediction Center (SWPC).
 
+## solectrus-influxdb (15.5.2026) – new adapter at stable repository
+https://github.com/patricknitsch/ioBroker.solectrus-influxdb
+
+<img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.solectrus-influxdb/main/admin/solectrus-influxdb.png" width="100" height="100" />
+
+The SOLECTRUS InfluxDB Adapter stores selected ioBroker states into an InfluxDB 2.x database and optionally computes derived values using a built-in formula engine.
+
+It is designed for energy monitoring systems such as photovoltaic installations, battery storage, heat pumps, wallboxes, grid import/export monitoring, and custom sensors.
 ## brunner-eas3 (21.5.2026) – new adapter at stable repository
 https://github.com/JR-Home/ioBroker.brunner-eas3
 
