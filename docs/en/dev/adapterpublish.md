@@ -21,7 +21,7 @@ Key requirements:
 2. **Metadata**: `io-package.json` must have:
    - `title` and `titleLang` (not containing "ioBroker" or "Adapter")
    - `desc` with at least English description
-   - `type` — matching [adapter category](adapterdev.md#adapter-categories)
+   - `type` — matching the allowed adapter categories defined in the [ioBroker.repositories README](https://github.com/ioBroker/ioBroker.repositories/blob/master/README.md)
    - `connectionType` (`local` or `cloud`) and `dataSource` (`push`, `poll`, or `assumption`)
    - `license` field
    - `authors` with at least one entry
