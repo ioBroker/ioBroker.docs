@@ -1194,6 +1194,12 @@ https://github.com/patricknitsch/ioBroker.solectrus-influxdb
 The SOLECTRUS InfluxDB Adapter stores selected ioBroker states into an InfluxDB 2.x database and optionally computes derived values using a built-in formula engine.
 
 It is designed for energy monitoring systems such as photovoltaic installations, battery storage, heat pumps, wallboxes, grid import/export monitoring, and custom sensors.
+## brunner-eas3 (21.5.2026) – new adapter at stable repository
+https://github.com/JR-Home/ioBroker.brunner-eas3
+
+<img src="https://raw.githubusercontent.com/JR-Home/ioBroker.brunner-eas3/main/admin/brunner-eas3.png" width="100" height="100" />
+
+Adapter for reading data from Brunner combustion control system EAS 3. The data is published via WLAN broadcast messages.
 ## speedport (3.5.2025) – new adapter at stable repository
 https://github.com/hacki11/ioBroker.speedport
 
