@@ -149,6 +149,8 @@ The adapter understands also 'sendTo' commands.
 
 * config of devices and codes in separate config tool
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## Installation
 
 with ioBroker admin, npm install iobroker.broadlink2 or from <https://github.com/frankjoke/ioBroker.broadlink2>

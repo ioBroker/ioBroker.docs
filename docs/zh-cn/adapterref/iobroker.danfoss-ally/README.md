@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.danfoss-ally/README.md
 title: 无标题
-hash: D2tYzgZDtgkSwZNZNyfO3YdbP0JbkkOG3DPUDdcmuC0=
+hash: x8WosFEER+yJnraUu8Zd7H0Cm9C7yURg4hhJSh9InnQ=
 ---
-![版本](https://img.shields.io/badge/version-0.2.16-blue)
+![版本](https://img.shields.io/badge/version-0.2.18-blue)
 ![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 适用于 **丹佛斯 Ally™** 的云适配器 — 使用 **OAuth2（客户端凭证）**。
@@ -132,10 +132,10 @@ Polling:      300
 
 ---
 
-## 编写（单条命令）
-该适配器支持对每个可控状态进行**精确的单次写入**，无需链式调用或自动模式切换。
+## 写作
+该适配器支持对每个可控状态进行**定向写入**，而无需自动切换模式。
 
-这使您可以在 Blockly、JavaScript 或自定义逻辑脚本中完全控制这些状态。
+这使您可以在 Blockly、JavaScript 或自定义逻辑脚本中完全控制这些操作。
 
 | 可写状态 | 预期值/行为 |
 | ----------------------------------------------------------------------------- | --------------------------------------------------------------- |
@@ -249,7 +249,7 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 错误处理：
 
 - **400:** 无效的标头/值 → 已记录
-- **401:** 令牌刷新 + 重试
+- **401：** 令牌刷新 + 重试
 - **5xx:** 重试下一次轮询
 - 温度值自动缩放 10 倍（例如 21.5 → 215）
 
@@ -264,11 +264,13 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 ---
 
 ## 写入
-- 默认情况下只写入一次；`temp_set` 首先尝试使用组合的 `SetpointChangeSource` + `temp_set` 命令。
+- `temp_set` 首先尝试使用 `SetpointChangeSource` + `temp_set` 命令的组合。
+- 当数据点存在时，Ally TRV 也会获得 `manual_mode_fast`，因为某些设备会在那里报告手动设定点。
 - 模式和温度必须分开填写。
 - 数值被限制在允许的范围内，并缩放 10 倍
 - `child_lock`：尝试 `0/1` 次，在 400 错误时重试 `true/false`
 - `SetpointChangeSource`：可选；`temp_set` 尝试从外部获取 Ally TRV。
+- 如果云端稍后再次报告了旧的设定值，适配器会记录一条警告信息，而不是默默地接受它。
 
 所有发送、重试和确认日志均以调试级别显示。
 
@@ -285,6 +287,11 @@ node main.js
 ---
 
 ## Changelog
+
+### 0.2.18
+- Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
+- Added explicit warnings when the Danfoss Cloud does not confirm the requested setpoint
+- Improved device naming/detection for relay-like devices so the Boiler Relay is easier to identify
 
 ### 0.2.17
 - Improved Ally TRV `temp_set` writes by trying `SetpointChangeSource=Externally` and `temp_set` as one combined command first

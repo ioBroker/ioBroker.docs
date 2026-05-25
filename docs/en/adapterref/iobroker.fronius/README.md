@@ -130,6 +130,8 @@ The following request are sent to the API. But the availlable datapoints strongl
 
 -   (mcm1957) Deploy mechanism at github has been reactivated.
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)

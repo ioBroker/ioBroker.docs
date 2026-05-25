@@ -61,6 +61,8 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 -   (o0Shojo0o) fix name for Workforce 3620
 -   (o0Shojo0o) fix firmware for Workforce 3620
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)

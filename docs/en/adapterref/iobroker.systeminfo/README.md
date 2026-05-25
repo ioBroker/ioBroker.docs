@@ -138,6 +138,8 @@ It handles text, HTML, json and XML data types wizh special query mechanisms.
 
 -   Added save and load config in admin screen
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)

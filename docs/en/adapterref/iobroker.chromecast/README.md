@@ -85,6 +85,8 @@ Build on top of the following projects:
 ### 3.4.1 (2024-07-02)
 * (foxriver76) migrated binary state to file
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 

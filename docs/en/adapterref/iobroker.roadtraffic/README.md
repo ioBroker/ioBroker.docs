@@ -90,6 +90,7 @@ In each Channel you have following states:
 -->
 
 ### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -131,6 +132,8 @@ In each Channel you have following states:
 
 ### 0.0.1
 * (BuZZy1337) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Credits
 Code adaptions to use HERE v8 pi have been provided by @icastillo15 <starwarsmalu@gmail.com>.

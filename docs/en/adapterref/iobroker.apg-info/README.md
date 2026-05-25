@@ -13,8 +13,8 @@
 [![NPM](https://nodei.co/npm/iobroker.apg-info.png?downloads=true)](https://nodei.co/npm/iobroker.apg-info/)
 
 ## apg-info adapter for ioBroker
-This adapter provides the peak-times for the Austrian Power Grid (Austrian values only!), where power consumption shall be avoided. In addition the adapter provides the PHELIX Day-Ahead (EPEX Spot) prices for Austria, Swiss and Germany (configure in Adapter settngs). Provider fee, tax, grid costs can be added optionally in the config (tab Calculation). 
-`[..].marketprice.today.jsonChart` and `[..].marketprice.tomorrow.jsonChart` can be used with https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart.  
+This adapter provides the peak-times for the Austrian Power Grid (Austrian values only!), where power consumption shall be avoided. In addition the adapter provides the PHELIX Day-Ahead (EPEX Spot) prices for Austria, Swiss and Germany (configure in Adapter settngs). Provider fee, tax, grid costs can be added optionally in the config (tab Calculation).
+
 With the standard-configuration the adapter runs at 00:00, 13:00 and 15.00 o'clock. It's highly recommended not to remove the run at 00:00, otherwise the day-change (tomorrow --> today) will nit work propperly.
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
@@ -35,13 +35,33 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
 
 ## Time based grid cost calculation
 In markets (like Austria) characterized by time-variable grid costs (e.g., reduced rates during midday hours in summer), parameters are now configurable via a table. A reference table illustrates the required data entry format. The feature is in the adapter configuration in the tab "calculation".  
-**Important:** Table view works with Admin 7.7.23 or later. In older versions the date field is not shown propperly (https://github.com/ioBroker/ioBroker.admin/issues/3344). 
+**Important:** Table view works with Admin 7.7.23 or later. In older versions the date field is not shown propperly (https://github.com/ioBroker/ioBroker.admin/issues/3344).
+
+## Charts
+Its easy to create charts with the data provided by this adapter. Depending on your used visualization adapter, you have multiple options. A few common samples are listed bellow:
+### Vis-1
+`[..].marketprice.today.jsonChart` and `[..].marketprice.tomorrow.jsonChart` can be used with https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart.
+Unfortuneately vis-materialdesign is not supported by the vis-2 adapter (See: https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/227, https://github.com/Scrounger/ioBroker.vis-materialdesign/pull/224).
+And the new vis-2-widgets-material adapter does no longer have a "jsonChart".
+### Vis-2
+As an alternative you can use the [echarts adapter](https://github.com/ioBroker/ioBroker.echarts) with "JSON" as data source (https://github.com/ioBroker/ioBroker.echarts#data-from-json). For this, apg-info adapter also provides the full data in other objects:
+
+- `[..].marketprice.today.jsonChartData` and `[..].marketprice.tomorrow.jsonChartData` contain only the chart data array
+- `[..].marketprice.jsonChartData` combines today's and tomorrow's chart data in one array.  
+- `[..].marketprice_quarter_hourly.jsonChartData` provides the same combined chart data for quarter-hourly prices.
+
+With this you can create nice charts like this one (created with echarts adapter and the combined chart quarter hourly data):  
+<img src="doc/echarts.svg" alt="JSON Chart Data" width="50%" />
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.33-alpha.0 (2026-05-17)
+* (HGlab01) Bump axios to 1.16.0
+* (SimonFischer04) support echarts (vis-2)
+
 ### 0.1.32 (2026-05-02)
 * (HGlab01) Adapter requires node.js >= 22 now
 * (HGlab01) fix 'DE' is not the code for an available bidding zone
@@ -56,11 +76,6 @@ In markets (like Austria) characterized by time-variable grid costs (e.g., reduc
 
 ### 0.1.28 (2025-12-11)
 * (HGlab01) add Energy-Charts as third data provider
-
-### 0.1.27 (2025-11-19)
-* (HGlab01) disable data provider Epex (not a stable option)
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -58,6 +58,8 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 - (mcm1957) Adapter requires js-controller 5, admin 6 and node.js 20 now.
 - (mcm1957) Dependencies have been updated.
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License

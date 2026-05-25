@@ -99,6 +99,8 @@ This adapter would not have been possible without the great work of @92lleo (htt
 ### 0.0.1
 * (92lleo) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 

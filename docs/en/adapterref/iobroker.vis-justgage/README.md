@@ -130,11 +130,13 @@ More about pointer options could be found here: https://github.com/toorshia/just
 ### 0.1.1 (2016-02-10)
 - (Pmant) initial checkin
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 iobroker-community-adapters 
+Copyright (c) 2023-2026 iobroker-community-adapters 
 Copyright (c) 2015-2019 Pmant <patrickmo@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -121,6 +121,8 @@ Please follow the Steps to ensure the Adapter will work correctly and you can se
 ### 1.0.3
 * Added more info for playing item
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License
