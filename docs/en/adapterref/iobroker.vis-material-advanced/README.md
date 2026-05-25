@@ -78,6 +78,9 @@ On the left side, choose vis-material-adapter and then all widgets are shown in 
 thanks to @sigi234
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 <!--
     Placeholder
     ### **WORK IN PROGRESS**
@@ -96,6 +99,8 @@ thanks to @sigi234
 
 ### 1.7.0 (2021-04-19)
 * added new Widget Window3 for possibility showing open/tilted/closed [0/1/2] windows
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

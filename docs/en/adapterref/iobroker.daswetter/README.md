@@ -79,6 +79,9 @@ A [widget for Vis-2](https://github.com/rg-engineering/ioBroker.vis-2-widgets-we
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 4.5.3 (2026-03-08)
 * (René) solved lint errors and warnings based on adapter checker
 * (René) dependency updates and fixes based on adapter checker recommendations
@@ -313,6 +316,8 @@ instances of older versions **must be deleted** and a new instance must be creat
 now parsing all data from xml and store them in datapoints
 for compatibility: in configuration old data structure can be enabled 
 needs also 2.x of vis-weather-widget
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

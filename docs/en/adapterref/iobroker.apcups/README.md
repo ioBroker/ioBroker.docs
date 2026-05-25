@@ -26,6 +26,9 @@ More useful information about apcupsd config for Ubuntu you can find on https://
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 5.0.5 (2025-12-25)
   - Fixed admin layout
   - Updated dependencies
@@ -45,6 +48,8 @@ More useful information about apcupsd config for Ubuntu you can find on https://
 1. Added support of multiple UPS so states structure was changed. All existed states will be deleted. Please do backup before upgrade the adapter! Also existed configuration will be lost. Please re-configure the adapter and add one or more devices to it.
 2. Minimal js-controller version is 5.0.19
 3. Minimal admin version is 6.13.16
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

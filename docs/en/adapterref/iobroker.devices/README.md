@@ -131,6 +131,13 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.0 (2026-05-17)
+* (@GermanBluefox) Corrected dragging of widgets
+
+### 2.0.19 (2026-05-16)
+* (@GermanBluefox) Corrected icons for rooms
+* (@GermanBluefox) Added 2x2 for iFrame
+
 ### 2.0.10 (2026-04-25)
 * (@GermanBluefox) Working on the new GUI
 

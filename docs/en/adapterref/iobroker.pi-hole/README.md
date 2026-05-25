@@ -67,6 +67,8 @@ This adapter would not have been possible without the great work of Michael Schu
 
 * (unltdnetworx) new adapter testing and security update
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## Donate
 
 Kaffee spendieren/serve a coffee

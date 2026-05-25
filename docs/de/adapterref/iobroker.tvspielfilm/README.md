@@ -135,6 +135,7 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 -->
 
 ### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -155,6 +156,8 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 
 ### 2.0.2 (2021-03-19)
 * (DutchmanNL) Now cron is initialized at adapter start
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

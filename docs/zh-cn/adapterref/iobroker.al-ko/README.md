@@ -8,7 +8,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.al-ko/README.md
 title: ioBroker.al-ko – 德语文档
-hash: mfnW7nb851CN+8eNR8e8QpAUijOu62ETX0SmdtNp/bY=
+hash: 4D5X3Pj5khSf2vX2M0CojOe9nVsQYJWv/RNfBDLy00k=
 ---
 # IoBroker.al-ko – 德语文档
 ![标识](../../../de/admin/al-ko-128.png)
@@ -55,6 +55,11 @@ AL-KO 对此不提供**官方支持**。
 ---
 
 ## 变更（节选）
+### 0.3.7 (2026-05-07)
+- 依赖项已更新（包括 Axios 安全修复）
+需要Node.js版本22或更高版本。
+- 稳定性提升
+
 ### 0.3.6 (2026-04-26)
 - 修正了无效的状态角色（移除了 `value.number`，正确使用了 `value` 和 `level`）
 - 修正了可写状态的白名单
@@ -98,7 +103,12 @@ AL-KO 对此不提供**官方支持**。
 
 ## Changelog
 
-### 0.3.6
+### 0.3.7 (2026-05-07)
+- Updated dependencies (including axios security fixes)
+- Require Node.js >= 22
+- Stability improvements
+
+### 0.3.6 (2026-04-26)
 - Fixed invalid state roles (`value.number` removed, correct usage of `value` and `level`)
 - Fixed whitelist handling for writable states
 - Improved object structure according to review feedback

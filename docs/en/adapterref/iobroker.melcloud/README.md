@@ -34,6 +34,9 @@ Discussion:
 	### __WORK IN PROGRESS__
 -->
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 3.0.4 (2026-04-10)
 
 - (Black-Thunder) Retry and queue handling was added when device information is missing
@@ -57,6 +60,8 @@ Discussion:
 - (Black-Thunder) Adapter requires node.js >= 20, admin >= 7.4.10 and js-controller >= 6 now
 - (Black-Thunder) Experimental support for ERV devices was added
 - (Black-Thunder) Dependencies were updated and code refactorings applied
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

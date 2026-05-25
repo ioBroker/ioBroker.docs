@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: 5tDrOqbdbO2RJI1DB8F7NZOXTFbd9ljxD4WDiniKwI0=
+hash: 76o0DZZcuwEOPU4zsiT6wpiWJ2rU5y77tKq5tDIEEts=
 ---
 ![标识](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -25,16 +25,30 @@ hash: 5tDrOqbdbO2RJI1DB8F7NZOXTFbd9ljxD4WDiniKwI0=
 
 备注：该适配器尚未在MacOS上进行测试。
 
-## V0.6.0 版本新增内容
-**Apache ECharts v6.0.0** 现已成为 flexcharts 的基础。主要新增功能：
+## V0.7.2 版本新增内容
+**面向初学者的友好模板和分步指南**——让 ECharts 新手用户更容易上手使用 flexcharts：
 
-- 全新的默认主题
-- 传递无限数量的自定义主题
-- 动态主题切换——例如，跟随系统的深色模式（`&darkmode=auto`）
-- 新的图表类型
-- 传递无限数量的事件驱动函数
+- 两个新的适合初学者的模板：[template6](templates/flexchartsTemplate6.js)（带有历史适配器数据的能量堆叠柱状图）和[template7](templates/flexchartsTemplate7.js)（带有 SSE 自动更新的响应式仪表图）
+- 改进了所有现有模板（1-5）中的注释和步骤标记
+- 新增[带教程的 Wiki](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki): 从零开始构建实时图表的逐步指南 — 请参阅[更多示例和资源](#further-examples-and-resources)
 
-> **ECharts v5 主题** 仍然可以通过 `&themev5` 参数使用，例如： > `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1&themev5` > > Apache 提供 v5 浅色主题，但没有 v5 深色主题——我们提供了一个基于 Apache v5.6.0 深色主题的自定义 v5 深色主题。如果您发现任何差异，请提交问题报告。
+## V0.7.1 版本新增内容
+**SSE 图表更新无需重新加载页面** — 使用 `&sse` 时，图表现在会直接更新，而无需重新加载整个页面：
+
+- ECharts动画在每次数据更新时都能流畅运行
+- 刷新时无闪烁或图表重建
+- 对所有现有的 `&sse` URL 都透明生效——无需任何更改
+
+## V0.7.0 版本新增内容
+**通过 SSE 实现事件触发图表刷新** — 现在，当源数据发生变化时，图表会自动更新，无需任何轮询：
+
+- 在图表 URL 中添加 `&sse` 以激活 [服务器发送事件](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)
+- 使用 `source=state` 时：图表会在 `&id=` 指定的州发生变化时更新
+- 如果使用 `source=script`，则添加 `&triggerid=<state_id>` 以指定哪个状态触发更新
+
+示例：`http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userdata.0.echarts.chart1&sse`
+
+详情请参见[事件触发图表刷新 (SSE)](#event-triggered-chart-refresh-sse)。
 
 ## 工作原理
 其他 ioBroker 图表适配器使用用户界面来配置图表内容和选项——这通常会限制您可以表达的内容。flexcharts 采用了不同的方法：
@@ -149,11 +163,51 @@ ECharts 支持可根据用户操作进行更新的交互式图表。请参阅此
 - 处理程序必须是 JavaScript 字符串（请使用一致的引用，或使用 [JS 代码压缩器](https://www.toptal.com/developers/javascript-minifier) 进行压缩）。
 - 将所有内容作为数组传递：`callback([strify.stringify(option), onEvent1, onEvent2])`
 
-如果使用**state 作为数据源**，则 state 必须是字符串的 JSON 数组。图表定义和处理程序字符串都必须是有效的 JSON 字符串（不能有换行符，只能使用转义引号）。例如：`flexcharts.0.info.chart3`。
+如果以状态作为数据源，则状态必须是字符串的 JSON 数组。图表定义和处理程序字符串都必须是有效的 JSON 字符串（不能有换行符，只能使用转义引号）。例如：`flexcharts.0.info.chart3`。
 
 > **从 v0.4.x 升级的用户请注意：** v0.5.0 版本中，图表选项变量已从 `jsopts` 重命名为 `option`。请相应地更新您的事件处理函数。
 
 > **安全提示：** 与上述相同 — 使用 `javascript-stringify` 时，请勿将 ioBroker 暴露于互联网。
+
+### 事件触发图表刷新 (SSE)
+在任何图表 URL 后添加 `&sse` 即可通过 [服务器发送事件](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) 启用图表自动更新。浏览器会与服务器保持持久连接，并在源数据更改时立即更新图表——无需重新加载页面，也无需轮询间隔。ECharts 动画在每次更新时都能流畅运行。
+
+**包含 `source=state`:**
+
+当 `&id=` 指定的状态发生变化时，图表会自动更新。
+
+```
+http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userdata.0.echarts.chart1&sse
+```
+
+**包含 `source=script`:**
+
+脚本控制图表内容，因此 flexcharts 无法知道哪个状态会触发刷新。请使用 `&triggerid=<state_id>` 显式指定：
+
+```
+http://localhost:8082/flexcharts/echarts.html?source=script&message=mycharts&triggerid=0_userdata.0.echarts.trigger&sse
+```
+
+当 `0_userdata.0.echarts.trigger` 发生变化时，图表也会更新。您的 ioBroker 脚本可以更新该状态，从而将图表更新推送至浏览器。
+
+**节气门和备用过滤器：**
+
+默认情况下（`&sse` 无值），图表最多每 5 秒更新一次（最小值）。传递一个数字以设置更长的最小更新间隔：
+
+```
+...&sse=30    → update at most once every 30 seconds
+```
+
+如需进行更精细的控制，请使用 JSON 对象（URL 编码）：
+
+```
+...&sse={"refresh":10,"ack":true}   → update only on acknowledged state changes, at most every 10 s
+...&sse={"ack":false}               → update only on unacknowledged changes (set by script), default interval
+```
+
+节流间隔期间的状态变化不会丢失——更新会推迟到下一个允许的时刻。
+
+> **注意：** `&sse` 和 `&refresh` 可以组合使用 — SSE 在状态更改时触发就地更新，`&refresh` 提供回退定期页面重新加载。
 
 ### 主题（ECharts v6）
 使用 Apache ECharts [主题生成器](https://echarts.apache.org/en/theme-builder.html) 创建或修改主题。
@@ -189,11 +243,25 @@ callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":
 | [模板3](templates/flexchartsTemplate3.js) | 图表定义中包含函数的堆叠条形图 |
 | [模板4](templates/flexchartsTemplate4.js) | 事件驱动型动态图表 |
 | [模板5](templates/flexchartsTemplate5.js) | 具有动态深色模式切换的自定义主题 |
-| [template5](templates/flexchartsTemplate5.js) | 具有动态暗黑模式切换的自定义主题 |
+| [模板6](templates/flexchartsTemplate6.js) | **适合初学者：** 能源概览 — 堆叠条形图，数据来自历史适配器 |
+| [模板7](templates/flexchartsTemplate7.js) | **适合初学者：** 仪表盘图表显示当前状态值（电池、光伏、热泵、传感器）— 响应式 SSE 更新 |
+| [template7](templates/flexchartsTemplate7.js) | **适合初学者：** 仪表盘图表显示当前状态值（电池、光伏、热泵、传感器）— 响应式 SSE 更新 |
 
-更多示例：
+更多示例和资源
+### 食谱（分步指南）
+刚接触 flexcharts 或 ECharts？**[弹性图表维基](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki)** 提供了一系列循序渐进的教程文章，指导您从静态图表过渡到完全实时、交互式的仪表板：
 
+| 文章 | 你将学到什么 |
+|---------|---------------|
+| [A1 — 堆积面积图](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki/Cookbook-A1-Stacked-Area-Chart) | 构建具有 SSE 自动更新功能的实时图表；通过脚本连接真实数据状态 |
+| [A3 — 交互式图表](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki/Cookbook-A3-Interactive-Charts) | 事件驱动图表：饼图响应鼠标悬停；共享数据集、事件处理程序字符串 |
+| [A3 — 交互式图表](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki/Cookbook-A3-Interactive-Charts) | 事件驱动图表：饼图响应鼠标悬停；共享数据集、事件处理程序字符串 |
+
+我们计划撰写更多烹饪书籍文章。
+
+### 第三方适配器示例
 - **tibberLink 适配器：** 请参阅[此处](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67)和[此处](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66)的讨论 — tibberLink 也原生支持 flexcharts，请参阅其[文档](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json)
+- **sun2000 适配器：**原生集成 flexcharts（https://github.com/bolliy/ioBroker.sun2000/wiki/Statistk-(statistics)）可用
 - **威能 E3 系列**（例如 Vitocal 250 热泵）：[ioBroker.e3oncan 讨论](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35)
 
 ＃＃ 参考
@@ -206,6 +274,8 @@ callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":
 | `message=<name>` | 默认值：`flexcharts` | 脚本中 `onMessage()` 的消息名称。 |
 | `darkmode` | `on` \| `off` \| `auto` | 深色模式：`on`/无值 = 始终深色，`off` = 始终浅色，`auto` = 遵循系统设置。 |
 | `refresh=<n>` | 秒，最小值 5，默认值 60 | 自动重新加载间隔。仅当存在此参数时才有效。 |
+| `sse` | 无值 \| `<n>` \| `<json>` | 通过服务器发送事件激活事件触发的图表更新。无值或 `&sse=5`：最多每 5 秒更新一次（最小值）。`&sse=<n>`：更新之间的最小秒数。`&sse={"refresh":<n>,"ack":true\|false}`：额外按确认状态筛选。 |
+| `triggerid=<state_id>` | | 当 `source=script` 与 `&sse` 一起使用时，要监视状态 ID 的变化。 |
 | `themev5` | | 请使用 Apache ECharts v5 的默认主题和深色主题，而不是 v6 的默认主题。 |
 | `<custom>=<value>` | | 任何其他参数都将传递给 `httpParams` 中的脚本。 |
 | `<custom>=<value>` | | 任何其他参数都会通过 `httpParams` 传递给脚本。 |
@@ -218,6 +288,18 @@ callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.2 (2026-05-07)
+* (MyHomeMyData) Added beginner-friendly templates 6 (energy stacked bar chart with history adapter) and 7 (reactive gauge chart with SSE auto-update)
+* (MyHomeMyData) Improved comments and STEP markers in templates 1–5
+* (MyHomeMyData) Added Wiki with Cookbook articles A1–A3 (step-by-step guides for building live charts)
+
+### 0.7.1 (2026-05-05)
+* (MyHomeMyData) Adapter requires node.js >= 22 now
+* (MyHomeMyData) SSE now updates chart in place via setOption instead of reloading the page — ECharts animations work correctly on data updates
+
+### 0.7.0 (2026-04-15)
+* (MyHomeMyData) Implemented SSE (Server-Sent Events) to support event driven updating of chart
+
 ### 0.6.2 (2026-04-13)
 * (MyHomeMyData) Restructuring of code for better readability and improved performance.
 * (MyHomeMyData) Restructuring of Readme for better readability.
@@ -236,67 +318,9 @@ callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":
 * (MyHomeMyData) Changed internal naming of chart's options from 'jsopts' to 'option'. If you're using event driven functions within your charts, you may need to adapt the naming accordingly. Pls. refer to Readme.
 * (MyHomeMyData) Migration to ESLint 9. Fixes issues #107 (Migration to ESLint 9) and #114 (findings of repository checker)
 
-### 0.4.1 (2025-05-22)
-* (MyHomeMyData) Fix for issue #96 (findings of repository checker)
+### Older versions
 
-### 0.4.0 (2025-03-24)
-* (MyHomeMyData) Added functionality to support event driven functions within charts, ref. issue #85
-* (MyHomeMyData) Added timeout for script as source
-* (MyHomeMyData) Added test cases for integration testing
-
-### 0.3.2 (2025-02-09)
-* (MyHomeMyData) Added hint for use of flexcharts by adapter tibberLink
-
-### 0.3.1 (2025-02-02)
-* (MyHomeMyData) Updated Apache ECharts to version 5.6.0
-* (MyHomeMyData) Added support for 3D charts using extension echarts-gl, see issue #68
-* (MyHomeMyData) Added templates for tibberLink Adapter
-
-### 0.3.0 (2025-01-08)
-* (MyHomeMyData) Enhancement for usage of functions within echart definitions.
-* (MyHomeMyData) Fix for issue #56 (findings of repository checker)
-
-### 0.2.0 (2024-11-06)
-* (MyHomeMyData) Updated readme. Added sections Templates and Reference.
-* (MyHomeMyData) Fix for issue #41 (findings of repository checker)
-* (MyHomeMyData) Updated ECharts to version 5.5.1, see issue #40
-* (MyHomeMyData) Fix for issue #39 (html warnings)
-* (MyHomeMyData) Added option 'refresh' to enable auto update of chart
-
-### 0.1.6 (2024-10-19)
-* (MyHomeMyData) Fix for issue #37
-
-### 0.1.5 (2024-10-11)
-* (MyHomeMyData) Fixes for issue #36
-
-### 0.1.4 (2024-10-06)
-* (MyHomeMyData) Fixes for issue #34
-* (MyHomeMyData) Fixes for issue #33
-
-### 0.1.3 (2024-10-05)
-* (MyHomeMyData) Fixed issue on windows systems (handling of file path)
-
-### 0.1.2 (2024-10-01)
-* (MyHomeMyData) Adapted adapter configurations
-
-### 0.1.1 (2024-10-01)
-* (MyHomeMyData) Removed main.js from package.json since it's obsolete
-
-### 0.1.0 (2024-10-01)
-* (MyHomeMyData) Use web extension instead of creating own web server. Use http://localhost:8082/flexcharts/echarts.html instead of http://localhost:3100/echarts.html
-
-### 0.0.4 (2024-09-13)
-* (MyHomeMyData) Changed default port to 3100 to avoid conflict with camera adapter
-* (MyHomeMyData) Check for conflicting port usage during start of instance
-* (MyHomeMyData) Added option to select dark mode
-* (MyHomeMyData) Fixed missing 404-page
-
-### 0.0.3 (2024-08-25)
-* (MyHomeMyData) Disabled sinon should interface
-* (MyHomeMyData) Update of npm dependencies
-
-### 0.0.2 (2024-08-05)
-* (MyHomeMyData) initial release
+Older changelog entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 MIT License

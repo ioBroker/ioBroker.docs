@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.danfoss-ally/README.md
 title: kein Titel
-hash: hVcdlLVwHoiSco0XdVcLcghYreoDPRMJlT6VJXj++xQ=
+hash: x8WosFEER+yJnraUu8Zd7H0Cm9C7yURg4hhJSh9InnQ=
 ---
-![Version](https://img.shields.io/badge/version-0.2.15-blue)
+![Version](https://img.shields.io/badge/version-0.2.18-blue)
 ![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 Cloud-Adapter für **Danfoss Ally™** – mit **OAuth2 (Client-Anmeldeinformationen)**. Liest Temperatur-, Feuchtigkeits-, Ventilpositions- und Akkudaten aller Geräte in Ihrem Ally-Konto und ermöglicht gezielte Einzelzugriffe ohne erzwungene Modusänderungen oder verkettete Sequenzen.
@@ -38,8 +38,10 @@ Cloud-Adapter für **Danfoss Ally™** – mit **OAuth2 (Client-Anmeldeinformati
 ---
 
 ## Unterstützte Geräte
+- Danfoss Ally™ TRV (Heizkörperthermostate)
 - Danfoss Icon2 RT (Raumthermostate)
 - Danfoss Icon2 Controller
+- Danfoss Ally™ Kesselrelais
 - Danfoss Ally™ Gateway
 
 (Weitere Danfoss-Geräte wurden automatisch erkannt)
@@ -128,9 +130,8 @@ Alle numerischen Werte werden automatisch von ×0,1 → °C/ %s kaliert.
 
 ---
 
-## Schreiben (Einzelbefehle)
-Der Adapter unterstützt **präzise Einzelschreibvorgänge** in jeden steuerbaren Zustand ohne Verkettung oder automatische Moduswechsel.
-
+## Schreiben
+Der Adapter unterstützt **gezielte Schreibvorgänge** in jeden steuerbaren Zustand ohne automatische Moduswechsel.
 Dadurch haben Sie die volle Kontrolle in Blockly, JavaScript oder benutzerdefinierten Logikskripten.
 
 | Schreibbarer Zustand | Erwarteter Wert / Verhalten |
@@ -260,11 +261,13 @@ Der Adapter kommuniziert mit der Danfoss Ally Cloud API (Basis-URL konfigurierba
 ---
 
 ## Schreibt
-- Ein Befehl pro Zustand (keine Modusverkettung)
+- `temp_set` versucht zunächst einen kombinierten Befehl `SetpointChangeSource` + `temp_set` auszuführen.
+- Auch Ally-TRVs erhalten `manual_mode_fast`, wenn der Datenpunkt vorhanden ist, da einige Geräte dort den manuellen Sollwert melden.
 - Modus + Temperatur müssen separat angegeben werden
 Die Werte sind auf zulässige Grenzwerte begrenzt und mit ×10 skaliert.
 - `child_lock`: versucht `0/1`, wiederholt `true/false` bei Fehler 400
-- `SetpointChangeSource`: optional; standardmäßig auf `"Extern"` gesetzt, wenn manuelle Modi aktiv sind
+- `SetpointChangeSource`: optional; `temp_set` versucht, Ally-Thermometerventile extern zu setzen.
+- Meldet die Cloud später erneut den alten Sollwert, protokolliert der Adapter eine Warnung, anstatt ihn stillschweigend zu akzeptieren.
 
 Alle Sende-, Wiederholungs- und Bestätigungsprotokolle werden auf Debug-Ebene angezeigt.
 
@@ -282,23 +285,28 @@ oder über die ioBroker-Entwicklungstools installieren.
 
 ## Changelog
 
+### 0.2.18
+- Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
+- Added explicit warnings when the Danfoss Cloud does not confirm the requested setpoint
+- Improved device naming/detection for relay-like devices so the Boiler Relay is easier to identify
 
-### 0.2.15
-- Fixed invalid `io-package.json` (JSON syntax error)
-- No functional changes
+### 0.2.17
+- Improved Ally TRV `temp_set` writes by trying `SetpointChangeSource=Externally` and `temp_set` as one combined command first
+- Falls back to `temp_set` only if Danfoss rejects the combined command
+- Fixed `control.switch` subscriptions for Icon2 / Boiler Relay writes
+- Added alias handling for `Occupied_Setpoint`
+- Fixed jsonConfig header validation warning
 
-### 0.2.14
-- Introduced `control` channel for writable states
-- `status` channel is now strictly read-only
-- Improved write detection and state handling
-- Prevented writes to channels or non-state objects
-- Improved adapter stability
+### 0.2.16
+- Fixed `temp_set` for Ally TRVs (`SetpointChangeSource=Externally` auto-sent)
+- Fixed wrong path for `lower_temp`/`upper_temp` clamp
+- Fixed `OccupiedSetpoint` scaling (÷100 instead of ÷10)
+- Added type hints for 16 new data points (`MeasuredValue`, `pi_heating_demand`, `window_state`, etc.)
+- `Icon2 switch` state is now writable
+- Fixed jsonConfig admin validation warning (missing `size` property)
+- Added Boiler Relay to supported devices
 
-### 0.2.13
-- Updated CI & deploy workflow
-- Fixed npm publishing process
-- Improved code formatting (Prettier / ESLint)
-- No functional changes for end users
+[Older changes](CHANGELOG_OLD.md)
 
 
 ---

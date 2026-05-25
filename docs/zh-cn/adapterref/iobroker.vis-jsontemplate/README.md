@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate - 用于在 Vis/Vis2 中可视化 JSON 数据和其他数据的适配器
-hash: SBqUVc0lqvE6u1MS8iZcarssZkbyaVc4gIRL6fSJsJk=
+hash: dVoDQ4rWzdmdbQhvrMxzsi+dKOiQ+4Rae7ybxovwcS4=
 ---
 # JSONTemplate - 用于在 Vis/Vis2 中可视化 JSON 数据和其他数据的适配器
 ![标识](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -31,8 +31,29 @@ hash: SBqUVc0lqvE6u1MS8iZcarssZkbyaVc4gIRL6fSJsJk=
 
 jsontemplate 小部件之前可在 rssfeed（适用于 vis1）和 vis-2-widgets-ovarious 适配器中使用。这些小部件将在不久的将来从这些适配器中移除。
 
+＃＃ 目录
+- [概述](#概述)
+- [安装](#installation)
+- [配置](#configuration)
+- [vis 和 widgets](#vis-and-widgets)
+- [JSON 模板](#json-template)
+- [高级用例](#advanced-use-case)
+- [更多用例](#more-use-cases)
+- [模板系统](#templatesystem)
+- [vis / vis-2 使用的重要提示](#very-important-note-for-use-in-vis--vis-2)
+- [CSS 和 JSON 中的花括号](#curly-braces-in-css-and-json)
+- [setInterval 的使用](#use-of-setinterval)
+- [标签](#tags)
+- [示例对象](#example-object)
+- [开发和调试](#development-and-debugging)
+- [Vis1 小部件](#vis1-widgets)
+- [Vis2 小部件](#vis2-widgets)
+- [待办事项](#待办事项)
+- [更新日志](#changelog)
+- [许可证](#license)
+
 ＃＃ 安装
-请按照正常流程从稳定版软件源安装适配器。
+像往常一样从稳定版软件源安装适配器。
 
 如果您想测试新功能或错误修复，也可以从测试版软件源安装适配器。有关功能和最新消息，请参阅 iobroker 论坛中该适配器的“测试与支持”主题帖。
 
@@ -78,7 +99,7 @@ JSONTemplate 现在支持使用 await 进行异步调用。
 
 | 对象/变量 | 描述 |
 | --------------- | ------------------------------------------------------------------------ |
-| widgetID | 该小部件的 widgetID。 |
+| widgetid | 该小部件的 widgetid。 |
 | 数据 | json_oid 中数据点引用的 JSON 对象。 |
 | dp | 数据点数组，由附加数据点引用 |
 | 小部件 | 内部小部件数据。包含所有可用小部件设置的对象 |
@@ -143,27 +164,33 @@ B) 数据点的索引号（编号始终从 0 开始）
 - [使用用例异步调用](documentation/usecase-asynccall.md)
 - [用例加载脚本](documentation/usecase-loadingscripts.md)
 - [用例任务清单](documentation/usecase-tasklist.md)
+- [公共交通用例](documentation/usecase-public-transport.md)
+- [简单仪表用例](documentation/usecase-simplegauge.md)
 
 ## 模板系统
-## 关于vis模板系统的重要说明
-在 vis 中，以下形式的所有对象表示法都会被识别并替换为绑定。
+### 非常重要的提示（适用于 vis / vis-2）
+#### CSS 和 JSON 中的花括号
+vis / vis-2 中的绑定机制使用模式 `{ ... }` 来检测 HTML 中的绑定表达式。
 
-因此，所有对象表示法的左括号和右括号必须分别放在不同的行上：
+因此，在指定 CSS 或 JSON 时，花括号必须始终放在单独的行上。否则，vis 小部件的内容将被 `undefined` 覆盖。
 
-错误：
-
-```json
-{ "a": 1, "b": 2 }
+＃＃＃＃＃ 例子
+```text
+#w_id_<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
 ```
 
-正确的
+必须按如下方式书写：
 
-```json
-{
-    "a": 1,
-    "b": 2
+```text
+#w_id_<%- widgetid %> {
+    height: 100%; display: flex; flex-direction: column; overflow: hidden;
 }
 ```
+
+#### 使用 setInterval
+请勿使用 `setInterval`。由于模板会在每次数据点更改时重新调用，因此任何现有的 `setInterval` 调用都无法被正确清除。结果，随着时间的推移，重叠的 `setInterval` 调用会不断累积；这会消耗内存，并可能导致不可预知的副作用。虽然重新加载页面可以解决此问题，但代码不应以这种方式实现。
+
+作为替代方案，此类场景应使用 `setTimeout` 来实现。
 
 ## 标签
 模板系统使用特定的标签。
@@ -319,7 +346,7 @@ B) 数据点的索引号（编号始终从 0 开始）
 - 启动 vscode 启动配置“vis-1 编辑器”
 - 如果小部件不可用，请在适配器页面以专家模式上传适配器。
 现在你可以在 VS Code 的 jsontemplate.js 文件中设置断点了
-- 如果您更改了 js 文件中的内容，则必须重新编译源代码。
+- 如果您更改了 js 文件中的任何内容，则必须重新编译源代码。
 
 使用 npm run build-vis1widgets 命令在 dist 文件夹中运行。
 
@@ -359,6 +386,21 @@ B) 数据点的索引号（编号始终从 0 开始）
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- change documentation that in the template the widgetid is available and not widgetID
+- add documentation for the usecase simple gauge
+
+### 4.4.3 (2026-04-21)
+
+- revert repochecker warning about fs/node:fs and path/node:path
+  because of error loading ejs
+
+### 4.4.2 (2026-04-13)
+
+- fix runtime
+
 ### 4.4.1 (2026-04-13)
 
 - fix regression

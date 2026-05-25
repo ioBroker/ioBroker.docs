@@ -92,6 +92,7 @@ Die \*.tpy Datei aus dem SPS Projekt muss hochgeladen werden. -> Immer wenn am S
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 1.7.0 (2026-02-12)
@@ -166,6 +167,8 @@ Die \*.tpy Datei aus dem SPS Projekt muss hochgeladen werden. -> Immer wenn am S
 ### 1.0.5 (2019-08-10)
 
 - (dkleber89) Eslint, Prettier with Airbnb Codestyle, CI adopted, little random changes in Project Structure
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

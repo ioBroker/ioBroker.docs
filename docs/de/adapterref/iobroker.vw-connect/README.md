@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: uSySW6XTQD7Ml8Wf5ZMTTDDlxCoRRftoS2wshs7h1RI=
+hash: W9u6o46PEaAWh9EsWC9acTK0ulg5j9OupQzSHe06Tgo=
 ---
 ![Logo](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -36,6 +36,18 @@ Die Klimatisierungstemperatur kann in .climater.settings.targetTemperature.conte
 
 ```
 
+### 0.8.4 (2026-05-14)
+- Skoda MQTT deaktivieren
+
+### 0.8.3 (2026-05-10)
+- Skoda MQTT reparieren
+
+### 0.8.1 (2026-05-06)
+- Skoda MQTT reparieren
+
+### 0.8.0 (13.04.2026)
+- Reparatur für Seat Cupra
+
 ### 0.7.16 (2026-03-18)
 - Myskoda MQTT-Verbindung reparieren
 
@@ -62,7 +74,7 @@ Die Klimatisierungstemperatur kann in .climater.settings.targetTemperature.conte
 
 ### 0.7.6 (2025-02-28)
 - Behebung des Problems, dass der Ladestatus nur beim Start aktualisiert wird
-- Behebung des Problems mit dem sich bewegenden Zustand von Skoda
+- Behebung des Problems mit dem Zustand "Skoda bewegt sich"
 
 ### 0.7.3 (2025-02-26)
 - Fehlerbehebung für set setTemperature
@@ -148,7 +160,7 @@ Kleinere Verbesserungen. Das minimale Ladeintervall von WeCharge beträgt jetzt 
 - Wir berechnen zusätzlich Gebühren
 
 ### 0.0.24
-- Remote-Statusaktualisierung hinzufügen
+- Hinzufügen einer Remote-Statusaktualisierung
 
 ### 0.0.23
 - Sitz hinzugefügt und neue Klimatisierung v2
@@ -163,7 +175,7 @@ Kleinere Verbesserungen. Das minimale Ladeintervall von WeCharge beträgt jetzt 
 - Audi-Login reparieren, ID-Login hinzufügen
 
 ### 0.0.19
-- Speichern von Statusobjekten im Zustand anhand ihrer ID anstatt anhand fortlaufender Nummern
+- Speichern von Statusobjekten im Status anhand ihrer ID anstatt anhand fortlaufender Nummern
 
 ### 0.0.18
 - Behebung des Problems mit dem Akkustatus bei Modellen aus dem Jahr 2020

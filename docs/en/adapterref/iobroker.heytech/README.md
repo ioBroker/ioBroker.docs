@@ -26,6 +26,16 @@ Normaly you can leave the "Auto detect" function on. If this does not work you c
 [HEYTech](https://rolladensteuerung.de/index.htm)
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+### 1.1.6 (2026-05-03)
+* Bump typescript from 6.0.2 to 6.0.3
+* Bump @types/node from 25.5.0 to 25.6.0
+* Bump protobufjs from 7.5.4 to 7.5.5
+* Bump follow-redirects from 1.15.11 to 1.16.0
+* Bump axios from 1.14.0 to 1.15.0
+* Update from template: X0000-updateNodeJsAtTestAndRelease
+
 ### 1.1.5 (2026-04-03)
 * Bump lodash from 4.17.23 to 4.18.1
 
@@ -96,6 +106,8 @@ Normaly you can leave the "Auto detect" function on. If this does not work you c
 
 ### 0.0.1
 * (Author) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

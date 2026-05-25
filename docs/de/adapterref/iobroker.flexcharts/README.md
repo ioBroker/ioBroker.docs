@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: 5tDrOqbdbO2RJI1DB8F7NZOXTFbd9ljxD4WDiniKwI0=
+hash: 76o0DZZcuwEOPU4zsiT6wpiWJ2rU5y77tKq5tDIEEts=
 ---
 ![Logo](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -25,16 +25,30 @@ Werfen Sie einen Blick auf [ECharts-Demogalerie](https://echarts.apache.org/exam
 
 Anmerkung: Der Adapter wurde noch nicht unter MacOS getestet.
 
-## Was ist neu in Version 0.6.0?
-**Apache ECharts v6.0.0** bildet nun die Grundlage für flexcharts. Wichtigste Neuerungen:
+## Was ist neu in Version 0.7.2?
+**Anfängerfreundliche Vorlagen und Schritt-für-Schritt-Anleitung** – so werden Flexcharts auch für ECharts-Neulinge zugänglicher:
 
-- Brandneues Standarddesign
-- Übergeben Sie eine unbegrenzte Anzahl benutzerdefinierter Designs
-- Dynamische Themenumschaltung — z. B. dem Dunkelmodus des Systems folgen (`&darkmode=auto`)
-- Neue Diagrammtypen
-- Übergeben Sie eine unbegrenzte Anzahl ereignisgesteuerter Funktionen
+- Zwei neue, anfängerfreundliche Vorlagen: [template6](templates/flexchartsTemplate6.js) (Energie-Stapelbalken mit Verlaufsadapterdaten) und [template7](templates/flexchartsTemplate7.js) (reaktives Tachometerdiagramm mit SSE-Auto-Update)
+- Verbesserte Kommentare und STEP-Markierungen in allen bestehenden Vorlagen (1–5)
+- Neues [Wiki mit Kochbuch](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki): Schritt-für-Schritt-Anleitungen zum Erstellen von Live-Charts von Grund auf — siehe [Weitere Beispiele und Ressourcen](#further-examples-and-resources)
 
-**ECharts v5-Themes** sind weiterhin über den Parameter `&themev5` verfügbar, z. B.: > `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1&themev5` > > Apache bietet ein helles v5-Theme, aber kein dunkles v5-Theme an – ein benutzerdefiniertes dunkles v5-Theme, basierend auf dem dunklen Theme von Apache v5.6.0, ist enthalten. Sollten Sie Unterschiede feststellen, melden Sie bitte ein Problem.
+## Was ist neu in Version 0.7.1?
+**SSE-Diagrammaktualisierungen ohne Seitenneuladung** — Bei Verwendung von `&sse` wird das Diagramm nun direkt aktualisiert, anstatt die gesamte Seite neu zu laden:
+
+Die ECharts-Animationen laufen bei jeder Datenaktualisierung reibungslos.
+- Kein Flackern oder Neuaufbau des Diagramms beim Aktualisieren
+- Funktioniert transparent für alle bestehenden `&sse`-URLs – keine Änderungen erforderlich
+
+## Was ist neu in Version 0.7.0?
+**Ereignisgesteuerte Diagrammaktualisierung über SSE** – Diagramme werden nun automatisch aktualisiert, wenn sich ihre Quelldaten ändern, ohne dass ein Polling erforderlich ist:
+
+- Fügen Sie `&sse` zu einer Diagramm-URL hinzu, um [Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) zu aktivieren.
+- Mit `source=state`: Das Diagramm wird immer dann aktualisiert, wenn sich der durch `&id=` angegebene Zustand ändert.
+- Bei `source=script`: Fügen Sie `&triggerid=<state_id>` hinzu, um anzugeben, welcher Staat die Aktualisierung auslöst.
+
+Beispiel: `http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userdata.0.echarts.chart1&sse`
+
+Die vollständigen Details finden Sie in [Ereignisgesteuerte Diagrammaktualisierung (SSE)](#event-triggered-chart-refresh-sse).
 
 ## So funktioniert es
 Andere ioBroker-Chartadapter verwenden eine Benutzeroberfläche zur Konfiguration von Chartinhalten und -optionen – was die Ausdrucksmöglichkeiten in der Regel einschränkt. flexcharts verfolgt einen anderen Ansatz:
@@ -117,7 +131,7 @@ function chart1(callback) {
 
 Starten Sie das Skript und öffnen Sie anschließend: `http://localhost:8082/flexcharts/echarts.html?source=script`
 
-Der Standardname der Nachricht lautet `flexcharts`. Um einen anderen Namen zu verwenden, fügen Sie `&message=mycharts` hinzu und passen Sie `onMessage('mycharts', ...)` entsprechend an.
+Der Standardnachrichtenname lautet `flexcharts`. Um einen anderen Namen zu verwenden, fügen Sie `&message=mycharts` hinzu und passen Sie `onMessage('mycharts', ...)` entsprechend an.
 
 Zusätzliche URL-Parameter werden in `httpParams` an das Skript übergeben:
 
@@ -155,6 +169,46 @@ Bei Verwendung eines **Zustands als Quelle** muss der Zustand ein JSON-Array von
 
 > **Sicherheitshinweis:** Wie oben – setzen Sie ioBroker nicht dem Internet aus, wenn Sie `javascript-stringify` verwenden.
 
+### Ereignisgesteuerte Diagrammaktualisierung (SSE)
+Fügen Sie `&sse` zu einer beliebigen Diagramm-URL hinzu, um automatische Diagrammaktualisierungen über [Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) zu aktivieren. Der Browser hält eine dauerhafte Verbindung zum Server aufrecht und aktualisiert das Diagramm sofort, sobald sich die Quelldaten ändern – kein Neuladen der Seite, kein Abfrageintervall erforderlich. ECharts-Animationen laufen bei jeder Aktualisierung flüssig.
+
+**Mit `source=state`:**
+
+Das Diagramm wird automatisch aktualisiert, sobald sich der durch `&id=` angegebene Zustand ändert.
+
+```
+http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userdata.0.echarts.chart1&sse
+```
+
+**Mit `source=script`:**
+
+Das Skript steuert den Diagramminhalt, daher kann Flexcharts nicht erkennen, welcher Zustand eine Aktualisierung auslöst. Geben Sie ihn explizit mit `&triggerid=<state_id>` an:
+
+```
+http://localhost:8082/flexcharts/echarts.html?source=script&message=mycharts&triggerid=0_userdata.0.echarts.trigger&sse
+```
+
+Das Diagramm wird aktualisiert, sobald sich `0_userdata.0.echarts.trigger` ändert. Ihr ioBroker-Skript kann diesen Status aktualisieren, um Diagrammaktualisierungen an den Browser zu senden.
+
+**Drossel- und Bestätigungsfilter:**
+
+Standardmäßig (`&sse` ohne Wert) wird das Diagramm höchstens einmal alle 5 Sekunden aktualisiert (Minimum). Geben Sie eine Zahl an, um ein längeres Mindestintervall festzulegen:
+
+```
+...&sse=30    → update at most once every 30 seconds
+```
+
+Für eine detaillierte Steuerung verwenden Sie ein JSON-Objekt (URL-codiert):
+
+```
+...&sse={"refresh":10,"ack":true}   → update only on acknowledged state changes, at most every 10 s
+...&sse={"ack":false}               → update only on unacknowledged changes (set by script), default interval
+```
+
+Zustandsänderungen während des Drosselungsintervalls gehen nicht verloren – die Aktualisierung wird auf den nächsten zulässigen Zeitpunkt verschoben.
+
+> **Hinweis:** `&sse` und `&refresh` können kombiniert werden — SSE löst bei Zustandsänderung eine Aktualisierung direkt vor Ort aus, `&refresh` bietet einen Fallback mit periodischem Seitenneuladen.
+
 ### Designs (ECharts v6)
 Verwenden Sie Apache ECharts [Theme-Builder](https://echarts.apache.org/en/theme-builder.html), um Designs zu erstellen oder zu ändern.
 
@@ -188,11 +242,25 @@ callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":
 | [Vorlage 3](templates/flexchartsTemplate3.js) | Gestapeltes Balkendiagramm mit Funktion in der Diagrammdefinition |
 | [Vorlage 4](templates/flexchartsTemplate4.js) | Ereignisgesteuertes dynamisches Diagramm |
 | [Vorlage 5](templates/flexchartsTemplate5.js) | Benutzerdefinierte Designs mit dynamischer Umschaltung des Dunkelmodus |
-| [template5](templates/flexchartsTemplate5.js) | Benutzerdefinierte Designs mit dynamischem Dunkelmodus-Umschalten |
+| [Vorlage 6](templates/flexchartsTemplate6.js) | **Anfängerfreundlich:** Energieübersicht — gestapeltes Balkendiagramm mit Daten aus dem Verlaufsadapter |
+| [Vorlage 7](templates/flexchartsTemplate7.js) | **Anfängerfreundlich:** Anzeigediagramm mit aktuellen Statuswerten (Batterie, PV, Wärmepumpe, Sensoren) — reaktive SSE-Aktualisierungen |
+| [template7](templates/flexchartsTemplate7.js) | **Anfängerfreundlich:** Anzeige von aktuellen Statuswerten (Batterie, PV, Wärmepumpe, Sensoren) — reaktive SSE-Aktualisierungen |
 
-Weitere Beispiele:
+## Weitere Beispiele und Ressourcen
+### Kochbuch (Schritt-für-Schritt-Anleitungen)
+Neu bei Flexcharts oder ECharts? Die **[Flexcharts Wiki](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki)** bietet Ihnen Schritt-für-Schritt-Anleitungen, die Sie von einem statischen Diagramm zu einem vollständig interaktiven Dashboard führen:
 
+| Artikel | Was Sie lernen |
+|---------|---------------|
+| [A1 — Gestapeltes Flächendiagramm](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki/Cookbook-A1-Stacked-Area-Chart) | Erstellen Sie ein Live-Diagramm mit SSE-Auto-Update; verbinden Sie Echtzeitdatenzustände über ein Skript |
+| [A3 – Interaktive Diagramme](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki/Cookbook-A3-Interactive-Charts) | Ereignisgesteuerte Diagramme: Kreisdiagramm reagiert auf Hover; gemeinsam genutzte Datensätze, Ereignisbehandler-Zeichenketten |
+| [A3 — Interaktive Diagramme](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki/Cookbook-A3-Interactive-Charts) | Ereignisgesteuerte Diagramme: Kreisdiagramme reagieren auf Hover; gemeinsam genutzte Datensätze, Ereignisbehandler-Zeichenketten |
+
+Weitere Kochbuchartikel sind geplant.
+
+### Beispiele für Adapter von Drittanbietern
 - **tibberLink-Adapter:** Siehe Diskussionen [hier](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) und [hier](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66) — tibberLink verwendet auch flexcharts nativ, siehe die [Dokumentation](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json)
+- **sun2000-Adapter:** Native [Integration von Flexcharts](https://github.com/bolliy/ioBroker.sun2000/wiki/Statistk-(statistics)) ist verfügbar
 - **Viessmann E3-Serie** (z. B. Wärmepumpe Vitocal 250): [ioBroker.e3oncan-Diskussion](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35)
 
 ## Referenz
@@ -205,6 +273,8 @@ Basis-URL: `http://localhost:8082/flexcharts/echarts.html`
 | `message=<name>` | Standard: `flexcharts` | Nachrichtenname für `onMessage()` im Skript. |
 | `darkmode` | `on` \| `off` \| `auto` | Dunkelmodus: `on`/kein Wert = immer dunkel, `off` = immer hell, `auto` = Systemeinstellungen folgen. |
 | `refresh=<n>` | Sekunden, min. 5, Standard 60 | Automatisches Neuladeintervall. Nur aktiv, wenn der Parameter vorhanden ist. |
+| `sse` | kein Wert \| `<n>` \| `<json>` | Aktiviert ereignisgesteuerte Diagrammaktualisierungen über Server-Sent Events. Kein Wert oder `&sse=5`: Aktualisierung maximal alle 5 Sekunden (Minimum). `&sse=<n>`: Mindestintervall zwischen Aktualisierungen. `&sse={"refresh":<n>,"ack":true\|false}`: Zusätzlich Filterung nach Bestätigungsstatus. |
+| `triggerid=<state_id>` | | Status-ID, die bei der Verwendung von `source=script` mit `&sse` auf Änderungen überwacht werden soll. |
 | `themev5` | | Verwende die Standard- und Dunkel-Themes von Apache ECharts v5 anstelle der Standard-Themes von v6. |
 | `<custom>=<value>` | | Alle weiteren Parameter werden an das Skript in `httpParams` weitergeleitet. |
 | `<custom>=<value>` | | Alle zusätzlichen Parameter werden in `httpParams` an das Skript weitergeleitet. |
@@ -217,6 +287,18 @@ Basis-URL: `http://localhost:8082/flexcharts/echarts.html`
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.2 (2026-05-07)
+* (MyHomeMyData) Added beginner-friendly templates 6 (energy stacked bar chart with history adapter) and 7 (reactive gauge chart with SSE auto-update)
+* (MyHomeMyData) Improved comments and STEP markers in templates 1–5
+* (MyHomeMyData) Added Wiki with Cookbook articles A1–A3 (step-by-step guides for building live charts)
+
+### 0.7.1 (2026-05-05)
+* (MyHomeMyData) Adapter requires node.js >= 22 now
+* (MyHomeMyData) SSE now updates chart in place via setOption instead of reloading the page — ECharts animations work correctly on data updates
+
+### 0.7.0 (2026-04-15)
+* (MyHomeMyData) Implemented SSE (Server-Sent Events) to support event driven updating of chart
+
 ### 0.6.2 (2026-04-13)
 * (MyHomeMyData) Restructuring of code for better readability and improved performance.
 * (MyHomeMyData) Restructuring of Readme for better readability.
@@ -235,67 +317,9 @@ Basis-URL: `http://localhost:8082/flexcharts/echarts.html`
 * (MyHomeMyData) Changed internal naming of chart's options from 'jsopts' to 'option'. If you're using event driven functions within your charts, you may need to adapt the naming accordingly. Pls. refer to Readme.
 * (MyHomeMyData) Migration to ESLint 9. Fixes issues #107 (Migration to ESLint 9) and #114 (findings of repository checker)
 
-### 0.4.1 (2025-05-22)
-* (MyHomeMyData) Fix for issue #96 (findings of repository checker)
+### Older versions
 
-### 0.4.0 (2025-03-24)
-* (MyHomeMyData) Added functionality to support event driven functions within charts, ref. issue #85
-* (MyHomeMyData) Added timeout for script as source
-* (MyHomeMyData) Added test cases for integration testing
-
-### 0.3.2 (2025-02-09)
-* (MyHomeMyData) Added hint for use of flexcharts by adapter tibberLink
-
-### 0.3.1 (2025-02-02)
-* (MyHomeMyData) Updated Apache ECharts to version 5.6.0
-* (MyHomeMyData) Added support for 3D charts using extension echarts-gl, see issue #68
-* (MyHomeMyData) Added templates for tibberLink Adapter
-
-### 0.3.0 (2025-01-08)
-* (MyHomeMyData) Enhancement for usage of functions within echart definitions.
-* (MyHomeMyData) Fix for issue #56 (findings of repository checker)
-
-### 0.2.0 (2024-11-06)
-* (MyHomeMyData) Updated readme. Added sections Templates and Reference.
-* (MyHomeMyData) Fix for issue #41 (findings of repository checker)
-* (MyHomeMyData) Updated ECharts to version 5.5.1, see issue #40
-* (MyHomeMyData) Fix for issue #39 (html warnings)
-* (MyHomeMyData) Added option 'refresh' to enable auto update of chart
-
-### 0.1.6 (2024-10-19)
-* (MyHomeMyData) Fix for issue #37
-
-### 0.1.5 (2024-10-11)
-* (MyHomeMyData) Fixes for issue #36
-
-### 0.1.4 (2024-10-06)
-* (MyHomeMyData) Fixes for issue #34
-* (MyHomeMyData) Fixes for issue #33
-
-### 0.1.3 (2024-10-05)
-* (MyHomeMyData) Fixed issue on windows systems (handling of file path)
-
-### 0.1.2 (2024-10-01)
-* (MyHomeMyData) Adapted adapter configurations
-
-### 0.1.1 (2024-10-01)
-* (MyHomeMyData) Removed main.js from package.json since it's obsolete
-
-### 0.1.0 (2024-10-01)
-* (MyHomeMyData) Use web extension instead of creating own web server. Use http://localhost:8082/flexcharts/echarts.html instead of http://localhost:3100/echarts.html
-
-### 0.0.4 (2024-09-13)
-* (MyHomeMyData) Changed default port to 3100 to avoid conflict with camera adapter
-* (MyHomeMyData) Check for conflicting port usage during start of instance
-* (MyHomeMyData) Added option to select dark mode
-* (MyHomeMyData) Fixed missing 404-page
-
-### 0.0.3 (2024-08-25)
-* (MyHomeMyData) Disabled sinon should interface
-* (MyHomeMyData) Update of npm dependencies
-
-### 0.0.2 (2024-08-05)
-* (MyHomeMyData) initial release
+Older changelog entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 MIT License

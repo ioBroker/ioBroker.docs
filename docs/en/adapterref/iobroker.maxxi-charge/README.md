@@ -57,7 +57,7 @@ http://www.maxxisun.de
 
 ## Changelog
 
-### 2.0.0-alpha.11 (2026-04-08)
+### 2.0.0-alpha.12 (2026-04-08)
 
 - Requires Node.js >= 22
 - Migrated from JavaScript to TypeScript
@@ -77,7 +77,7 @@ ToDo:
 ### 1.4.40 (2025-05-13)
 
 - New Option Mode "BKW"
-  > At a battery level of ≥ 97%, the script enables BKW mode to feed a constant 600–800 W into the grid alongside household use, potentially receiving compensation if registered as a balcony power system (BKW).
+    > At a battery level of ≥ 97%, the script enables BKW mode to feed a constant 600–800 W into the grid alongside household use, potentially receiving compensation if registered as a balcony power system (BKW).
 
 ### 1.4.11 (2025-03-17)
 
@@ -105,9 +105,11 @@ ToDo:
 ### 1.3.0 (2024-12-15)
 
 - **Summer/Winter mode** added:
-  - Dynamic adjustment of charging parameters based on seasons.
-  - Configurable with start and end dates.
+    - Dynamic adjustment of charging parameters based on seasons.
+    - Configurable with start and end dates.
 - **Cloud API query interval**: CCU polling in cloud mode is fixed at 5 seconds.
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

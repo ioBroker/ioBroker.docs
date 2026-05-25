@@ -215,9 +215,20 @@ valid</br>
     - `HL.enabled`: Head light installed yes = 1/no = 0 🟢
     - `HL.on`: Daylight = 0/Darkness = 1 🟢
 
+- NL Module (Vision Cloud only)
+    - `NL.error`: Error Code (Code unknown) (readonly)
+    - `NL.status`: Status NearLink Module ok/err (readonly)
+    - `NL.connection_X.mac`: MAC Address (readonly)
+    - `NL.connection_X.rssi`: RSSI (readonly)
+    - `NL.connection_X.type`: Type (readonly)
+    - `NL.connection_X.vers`: Firmware Release (readonly)
+    - `NL.connection_X.wifi_rssi`: Wifi RSSI (readonly)
+    - `NL.connection_X.wifi_stat`: Wifi Status (readonly)
+
 ![Module img/module.png](img/module.png)
 ![Module img/module_ea.png](img/module_ea.png)
 ![Module img/module_hl.png](img/module_hl.png)
+![Module img/module_hl.png](img/module_nl.png)
 
 ### mower (Wire and Vision)
 
@@ -1009,6 +1020,13 @@ Default without zone:
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+- (copilot) Adapter requires node.js >= 22 now
+- (Lucky-ESA) MQTT connection status display fixed
+- (Lucky-ESA) NearLink module added to Vision Cloud
+- (Lucky-ESA) Objects from Protocol 1 changed to read-only
+
 ### 3.3.0 (2026-04-12)
 
 - (copilot) Adapter requires admin >= 7.7.22 now
@@ -1034,6 +1052,8 @@ Default without zone:
 ### 3.2.4 (2025-06-14)
 
 - (Lucky-ESA) TypeError native_excluded fixed
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

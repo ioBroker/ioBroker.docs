@@ -20,8 +20,10 @@ This adapter connects ioBroker to Unraid servers via the GraphQL API to monitor 
 ## Features
 
 - Monitor CPU and memory usage (including per-core statistics)
+- Monitor mainboard temperature sensors (chipset, ambient, ...) — requires Unraid 7.2+
 - Track server status and network information
-- Monitor and control Docker containers (start/stop)
+- Monitor and control Docker containers (start/stop/pause/resume/update) — pause/resume/update require Unraid 7.2+
+- Docker update detection per container and as a summary — requires Unraid 7.2+
 - View array disks (data, parity, cache) with health information
 - Monitor network shares (usage, configuration, file system details)
 - Monitor and control virtual machines (start/stop/pause/resume/reboot)
@@ -98,6 +100,20 @@ The adapter creates a structured tree of objects for the monitored data:
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.9.0 (2026-05-03)
+
+- (ingel81) New mainboard temperature sensors (chipset, ambient, ...) as an optional data domain
+- (ingel81) New update indicator per Docker container plus a summary (`docker.updates.hasUpdates` / `availableCount`)
+- (ingel81) New Pause, Resume and Update buttons for Docker containers
+- (ingel81) Requires Unraid 7.2 or newer for the new features (tested on 7.2.4). Older Unraid versions keep working as before — new states are silently omitted and existing data is preserved.
+
+### 0.8.0 (2026-04-19)
+
+- (ingel81) **Node.js 22 or higher is now required** (Node 20 reached end-of-life on 2026-03-24)
+- (ingel81) Requires ioBroker admin 7.6.20 or newer
+- (ingel81) Updated runtime dependencies (graphql, undici, ws, @apollo/client)
+- (ingel81) Internal: CI migrated to Node 22/24, dev dependencies refreshed
+
 ### 0.7.2 (2026-01-04)
 
 - (ingel81) Updated dependencies and admin UI (React 19)

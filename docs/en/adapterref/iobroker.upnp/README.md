@@ -15,6 +15,17 @@ This adapter helps users discover and control UPnP-compatible devices in their n
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+### 1.1.10 (2026-05-03)
+* chore(deps-dev): bump typescript from 6.0.2 to 6.0.3
+* chore(deps-dev): bump @types/node from 25.5.0 to 25.6.0
+* chore(deps): bump @xmldom/xmldom from 0.9.9 to 0.9.10
+* chore(deps-dev): bump protobufjs from 7.5.4 to 7.5.5
+* chore(deps): bump follow-redirects from 1.15.11 to 1.16.0
+* chore(deps): bump axios from 1.14.0 to 1.15.0
+* Update from template: X0000-updateNodeJsAtTestAndRelease
+
 ### 1.1.9 (2026-04-04)
 * fix: remove unused envelope variable (lint)
 * fix: SOAP envelope operator-precedence bug in createMessage()
@@ -139,6 +150,8 @@ Breaking change: naming was changed and command to poll has another name - "requ
 
 ### 0.1.0
 * (jey-cee) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

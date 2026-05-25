@@ -292,6 +292,9 @@ npm run start
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.13.19 (2026-04-27)
+* (@GermanBluefox) Refactoring
+
 ### 2.13.17 (2026-03-29)
 * (@GermanBluefox) Removed debug code for theme
 
@@ -305,9 +308,6 @@ npm run start
 ### 2.13.7 (2025-11-09)
 * (@GermanBluefox) Updated packages
 * (@GermanBluefox) Corrected the basic image refreshing
-
-### 2.13.6 (2025-10-10)
-* (@GermanBluefox) Prevent error by the icon selection dialog
 
 ## License
  Copyright (c) 2021-2026 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,

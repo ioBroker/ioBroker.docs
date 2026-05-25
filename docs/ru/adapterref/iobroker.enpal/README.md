@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.enpal/README.md
 title: без названия
-hash: vKO+Q2VLzuldwLkkQcycfuE09hl4BBMfd8Wbup5+i+A=
+hash: Z/fJiETQ5VqCX4KIfrkSyJ3B4W4iZQuwv37BWa5LOJU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.enpal/admin/enpal_logo.svg)
 
@@ -28,7 +28,7 @@ hash: vKO+Q2VLzuldwLkkQcycfuE09hl4BBMfd8Wbup5+i+A=
 
 - Автоматическое обнаружение всех измерений, устройств и полей, хранящихся в вашем хранилище InfluxDB.
 - Динамическое создание состояния в рамках `enpal.0.<измерение>.<устройство>.<поле>`
-- Настраиваемый интервал опроса (по умолчанию: 60 секунд)
+— Настраиваемый интервал опроса (по умолчанию: 60 секунд)
 — Статус подключения через `info.connection` — экземпляр адаптера становится красным, когда база данных недоступна.
 
 ## Точки данных
@@ -70,10 +70,16 @@ enpal.0.<measurement>.<device>.<field>
 — Ваш API-токен хранится в зашифрованном виде в базе данных ioBroker.
 - Внешние серверы не подключаются
 
+## Более старые изменения
+- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+
 ## Changelog
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Added link to CHANGELOG_OLD.md at readme 
+
 ### 0.2.0 (2026-04-06)
 - (skvarel) Updated minimum Node.js version requirement to >=22
 - (skvarel) Normalize unit display: "Percent" is now shown as "%"

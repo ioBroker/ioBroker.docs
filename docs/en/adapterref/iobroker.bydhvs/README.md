@@ -85,6 +85,12 @@ the send command is ```010300100003040e```
 | SF | Scale Factor (Value 1234 & SF 100 => Real Value: 12.34) |
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 1.5.12 (2026-05-01)
+* (arteck) fix exCode 0x04
+
 ### 1.5.11 (2026-04-26)
 * (arteck) del deprectated setStateAsync
 
@@ -99,10 +105,9 @@ the send command is ```010300100003040e```
 ### 1.5.8 (2026-04-23)
 * (arteck) typo
 
-### 1.5.7 (2026-04-23)
-* (arteck) fix tower count > 1
-
 ###
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

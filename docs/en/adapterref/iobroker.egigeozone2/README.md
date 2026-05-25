@@ -38,6 +38,9 @@ protocol://address:port/person
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.0.9
 * (obakuhl) Updating dependencies
 
@@ -71,6 +74,8 @@ protocol://address:port/person
 ### 1.0.0
 * (obakuhl) Refactoring
 * (obakuhl) New name (ioBroker.egigeozone -> ioBroker.egigeozone2) necessary due to npm collaborators settings of [previous adapter ioBroker.egigeozone](https://github.com/BasGo/ioBroker.egigeozone)
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 This adapter is licensed under the [MIT license](../blob/master/LICENSE) which is part of this repository.

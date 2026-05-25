@@ -80,8 +80,19 @@ The adapter allows you to control a dishwasher or other devices that consume sta
 
 <!--
   Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.0.12 (2026-04-24)
+* (René) bug fix for issue #451: device base ID is editable now
+
+### 2.0.10 (2026-04-21)
+* (René) bug fix for issue #445: planning requests corrected
+
+### 2.0.9 (2026-04-13)
+* (René) bug fix in admin, see issue #442: time settings in energy request corrected
+
 ### 2.0.8 (2026-04-12)
 * (René) bug fix in admin, see issue #442: time settings in energy request corrected
 
@@ -89,15 +100,7 @@ The adapter allows you to control a dishwasher or other devices that consume sta
 * (René) github workflow with node@24
 * (René) see issue #433: make sure this.device.WallboxOID is defined before using it
 
-### 2.0.5 (2026-03-17)
-* (René) update dependencies + changes based on adapter checker
-
-### 2.0.3 (2026-03-01)
- * (René) lint reported errors solved
-
-### 2.0.0 (2026-03-01)
-* (René) admin overworked completely with react and vite. **ATTENTION**: breaking changes in admin settings !!!
-* (René) backend complete overworked with typescript
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

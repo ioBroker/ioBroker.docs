@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tesla-motors/README.md
 title: ioBroker.tesla-motors
-hash: 0ADka5jwLgihOKMHvKhc7X9AqeXOVpljg3x9oxgDcBo=
+hash: lRRiuCu9iGCekWvg3ZkZraLZ1vSdLm3QIsz0NlaV9Ao=
 ---
 ![标识](../../../en/adapterref/iobroker.tesla-motors/admin/tesla-motors.png)
 
@@ -33,8 +33,8 @@ hash: 0ADka5jwLgihOKMHvKhc7X9AqeXOVpljg3x9oxgDcBo=
 
 #### 步骤 1：生成密钥对
 1. 在适配器设置中点击**生成密钥对**，创建 EC 密钥对 (prime256v1)
-2. 点击**复制公钥**，然后访问[fleetkey.net](https://fleetkey.net) - 创建一个帐户并获取您的子域名（例如`abc123.fleetkey.net`）。
-3. 将公钥上传到您的 FleetKey.net 帐户。特斯拉将在注册过程中从该帐户下载密钥。
+2. 点击**复制公钥**，然后访问[fleetkey.net](https://fleetkey.net)，将其粘贴到“托管公钥”下方，并创建一个子域名（例如`abc123.fleetkey.net`）。
+3. 保存后，您的公钥将托管在 FleetKey.net 上。特斯拉会在注册过程中从那里下载密钥。
 
 #### 第二步：特斯拉开发者应用程序
 1. 在 [developer.tesla.com](https://developer.tesla.com/request) 创建车队 API 应用程序
@@ -94,7 +94,11 @@ hash: 0ADka5jwLgihOKMHvKhc7X9AqeXOVpljg3x9oxgDcBo=
 ### **正在进行中** -->
 
 ## Changelog
-### 2.0.0 (2026-04-12)
+### 2.0.3 (2026-05-12)
+- instruction text improved
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.0.2 (2026-04-17)
 
 - (TA2k) Migrate to Tesla Fleet API with OAuth2
 - (TA2k) Add Vehicle Command Protocol signing (ECDSA P-256) for post-2021 vehicles
@@ -116,10 +120,6 @@ hash: 0ADka5jwLgihOKMHvKhc7X9AqeXOVpljg3x9oxgDcBo=
 ### 1.4.4 (2024-04-10)
 
 - improve energy history data
-
-### 1.4.3 (2024-04-10)
-
-- fix for too many state in the powerwall energy history
 
 ## License
 

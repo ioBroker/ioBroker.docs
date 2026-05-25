@@ -33,6 +33,11 @@ chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":
 -->
 ### **WORK IN PROGRESS**
 
+* (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
+
+### 6.0.0 (2026-05-05)
+
+* (copilot) Adapter requires node.js >= 22 now
 * (@klein0r) Updated dependencies
 
 ### 5.0.0 (2025-10-30)
@@ -55,17 +60,13 @@ NodeJS >= 20.x and js-controller >= 6 is required
 
 * (@klein0r) Fixed value of nextWeekday in states
 
-### 3.0.0 (2024-05-13)
-
-NodeJS >= 18.x and js-controller >= 5 is required
-
-* (klein0r) Skipping invalid ical events (e.g. not recurring yearly)
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2025-2026 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2026 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

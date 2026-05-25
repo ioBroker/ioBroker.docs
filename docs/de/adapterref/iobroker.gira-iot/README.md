@@ -30,9 +30,10 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.0 (2026-05-05)
 
-* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+* (copilot) Adapter requires node.js >= 22 now
+* (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
 * (@klein0r) Updated dependencies
 
 ### 0.6.1 (2025-05-02)
@@ -53,15 +54,11 @@ NodeJS >= 18.x and js-controller >= 5 is required
 * (klein0r) Url preview in instance configuration
 * (klein0r) Improved error handling
 
-### 0.2.1 (2023-01-11)
-
-* (klein0r) Added Ukrainian language
-
 ## License
 
 MIT License
 
-Copyright (c) 2025-2026 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2026 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

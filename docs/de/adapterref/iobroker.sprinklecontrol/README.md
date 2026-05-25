@@ -677,26 +677,23 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 1.0.1 (2026-04-11)
-* (Dirk-Peter-md) Add Homematic ON_TIME
-* (Dirk-Peter-md) Adapter configuration revised
-* (Dirk-Peter-md) ioBroker-Bot [E4041], [E4043] completed
+### 1.0.6 (2026-05-10)
+* (Dirk-Peter-md) Cistern Control Optimized
+* (Dirk-Peter-md) Translation revised
 
-### 1.0.0 (2026-03-21)
-* (Dirk-Peter-md) Adapter redesign => Be sure to check your configuration
-* (Dirk-Peter-md) Adaptation to “dasWeather” >= 4.0
-* (Dirk-Peter-md) Fix npm publish
-* (Dirk-Peter-md) dependencies updated
-* (Dirk-Peter-md) update dependabot
+### 1.0.5 (2026-05-03)
+* (Copilot) Adapter benötigt jetzt node.js >= 22
+* (Dirk-Peter-md) Second start time added
+* (Dirk-Peter-md) bug fixed in sprinklerState
 
-### 0.2.19 (2025-07-02)
-* (Dirk-Peter-md) The switch-on hysteresis of the cistern is now stored in the configuration.
+### 1.0.4 (2026-04-26)
+* (Dirk-Peter-md) GitHub error message #274
 
-### 0.2.18 (2025-06-30)
-* (Dirk-Peter-md) Hysteresis switch-on value of the cistern changed to 20%
+### 1.0.3 (2026-04-25)
+* (Dirk-Peter-md) Pressure relief valve added after irrigation.
 
-### 0.2.17 (2025-06-15)
-* (Dirk-Peter-md) Valve timing corrected
+### 1.0.2 (2026-04-19)
+* (Dirk-Peter-md) Added times for the irrigation ban
 
 ## License
 MIT License

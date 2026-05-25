@@ -302,6 +302,8 @@ Hier können allgemeine Einstellungen des Geräts vorgenommen werden. Beispielsw
 
 - (eifel-tech) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License

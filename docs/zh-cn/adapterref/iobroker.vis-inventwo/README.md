@@ -3,79 +3,92 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: FejhTHt7SeJtoyLXEqzNx7P4XuBqvAJoQR1jlw80lyE=
+hash: 4lGSBouwytw/te6md9v0tJWNonsY572rb8yxgRXNEQE=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)
-![安装数量（稳定）](http://iobroker.live/badges/vis-inventwo-stable.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)
 ![安装数量（最新）](http://iobroker.live/badges/vis-inventwo-installed.svg)
-![已知漏洞](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)
+![安装数量（稳定版）](http://iobroker.live/badges/vis-inventwo-stable.svg)
+![NPM 版本](https://nodei.co/npm/iobroker.vis-inventwo.svg?style=shields&data=v,u,d&color=orange)
+![下载](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)
 ![构建状态](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![Paypal 捐款](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)
-![新平台](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)
+![PayPal捐赠](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)
 
 # IoBroker.vis-inventwo
-## IoBroker.vis 适配器的小部件
-Schalter、Slider、Tabellen、Regler、Checkboxen、Radiobuttons 等...<br> Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen ganz einfür dein Smart-Home zu erstellen.
+## IoBroker.vis 适配器的组件
+开关、滑块、表格、控件、复选框、单选按钮等等……<br>借助我们的组件集，您可以自由轻松地为您的智能家居创建个性化的可视化效果。
 
-### <span style="color:red">Wichtiger Hinweis für Vis 2</span>
-适配器适用于 VIS 1 的安装和测试。 In Vis 2 können Fehler auftreten die die die die die diener Visualisierung nicht ermöglichen。
-Eine nahtlose Kompatibilität wrd nicht möglich sein。 Vis 2 的新适配器：https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
+### <span style="color:red">Vis 2 的重要提示</span>
+此适配器是为 VIS 1 开发和测试的。在 VIS 2 中可能会出现错误，导致您的可视化功能无法使用。
+
+无法实现无缝兼容。您可以在此处找到适用于 VIS 2 的新适配器：https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
 
 ## 适配器内容
-Verschiedene 小部件 zum schalten、navigieren 和 mehr。
+用于切换、导航等的各种小部件。
 
-![Vorschau 通用和多功能小部件](../../../en/adapterref/iobroker.vis-inventwo/img/preview_universal_widget.png)
+![预览通用和多组件小部件](../../../en/adapterref/iobroker.vis-inventwo/img/preview_universal_widget.png)
 
-指针式钟表[更多信息](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
+模拟时钟 [更多信息](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![预览 模拟手表](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clocks.png)
+![模拟时钟预览](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clocks.png)
 
-数字钟表[更多信息](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
+数字时钟 [更多信息](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![预览 数字钟表](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clock_digital.png)
+![数字时钟预览](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clock_digital.png)
 
-颜色选择器[更多信息](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
+颜色选择器 [更多信息](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
 
-![预览 颜色选择器](../../../en/adapterref/iobroker.vis-inventwo/img/Preview_Colorpicker.png)
+![预览颜色选择器](../../../en/adapterref/iobroker.vis-inventwo/img/Preview_Colorpicker.png)
 
-Für mehr Infos schaue dich im [维基百科](https://github.com/inventwo/ioBroker.vis-inventwo/wiki) um。
+有关更多信息，请查看 [维基百科](https://github.com/inventwo/ioBroker.vis-inventwo/wiki)。
 
-###### 所有小部件 ab 版本 2.0.0
-<table><tr><td><center><b>普遍的<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center><b>多<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center><b>图像<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center><b>桌子<br></b><br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>列表<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center><b>跑马灯<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center><b>单选按钮<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center><b>滑块<br>垂直的</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>滑块<br>水平的</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center><b>颜色滑块<br>水平的</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center><b>颜色滑块<br>水平的</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center><b>拨动开关<br></b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>基本开关<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center><b>复选框/<br>单选按钮</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td><td><center><b>颜色选择器<br></b><br><img src="widgets/vis-inventwo/img/Colorpicker.png"></td></tr></table>
+###### 2.0.0 版本及之后的所有小部件
+<table><tr><td><center><b>普遍的<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center><b>多<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center><b>图像<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center><b>桌子<br></b><br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>列表<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center><b>帐篷<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center><b>单选按钮<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center><b>滑块<br>垂直的</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>滑块<br>水平的</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center><b>颜色滑块<br>水平的</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center><b>颜色滑块<br>垂直的</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center><b>拨动开关<br></b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>基本开关<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center><b>复选框/<br>单选按钮</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td><td><center><b>颜色选择器<br></b><br><img src="widgets/vis-inventwo/img/Colorpicker.png"></td></tr></table>
 
-Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen。 Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben)。 Uhr und Wetter stammen aus anderen Adaptern und müssen ggf。 zusätzlich installiert werden。
+借助我们的组件，您可以实现以下项目。目前，我们的适配器仅包含纯按钮（见上图）。时钟和天气功能来自其他适配器，可能需要额外安装。
 
-![示例](../../../en/adapterref/iobroker.vis-inventwo/img/Preview.png)
+![例子](../../../en/adapterref/iobroker.vis-inventwo/img/Preview.png)
 
-![示例](../../../en/adapterref/iobroker.vis-inventwo/img/Preview2.png)
+![例子](../../../en/adapterref/iobroker.vis-inventwo/img/Preview2.png)
 ---
 
-## 服务
-瀑布Dir unsere Arbeit gefällt und Du uns unterstützen möchtest，wir freuen uns über jede Spende。
+＃＃ 支持
+如果您喜欢我们的作品并愿意支持我们，我们感谢每一笔捐赠。
 
-（Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker）
+（此链接指向我们的PayPal账户，与ioBroker无关）
 
-[![斯彭德](img/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
+[![捐赠](img/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 3.3.5
+- Fixed: [#688](https://github.com/inventwo/ioBroker.vis-inventwo/issues/688) Radio button cannot write a boolean value
+- Fixed: [#736](https://github.com/inventwo/ioBroker.vis-inventwo/issues/736) Adapter checker errors in package.json and io-package.json resolved
+- Fixed: [#678](https://github.com/inventwo/ioBroker.vis-inventwo/issues/678) Mode in io-package changed from daemon to once
+
 ### 3.3.4
-- Fixed: [#455](https://github.com/inventwo/ioBroker.vis-inventwo/issues/455) Color-Picker-Widget "verschwindet" bei Auswahl von CIE
-- Fixed: [#369](https://github.com/inventwo/ioBroker.vis-inventwo/issues/369) Simple Slider Farbe der Schritte nicht änderbar
-- Fixed: [#361](https://github.com/inventwo/ioBroker.vis-inventwo/issues/361) Image Widget zeigt immer das Image für true
-- Fixed: [#564](https://github.com/inventwo/ioBroker.vis-inventwo/issues/564) Radiobutton - Bildfarbe true wird von false übernommen
-- Fixed: [#461](https://github.com/inventwo/ioBroker.vis-inventwo/issues/461) Doppelauslösung Taster/state und "slider lässt sich nicht "sliden bei Windows Touch
-- Fixed: [#474](https://github.com/inventwo/ioBroker.vis-inventwo/issues/474) json Tabelle mit "Binding"
-- Fixed: [#580](https://github.com/inventwo/ioBroker.vis-inventwo/issues/580) JSON Table Widget: Farbänderung der Werte via Schwellwert ist nur im Editor, nicht in Runtime sichtbar.
-- Fixed: [#622](https://github.com/inventwo/ioBroker.vis-inventwo/issues/622) Think about to fix the issues found by adapter checker
+- Fixed: [#455](https://github.com/inventwo/ioBroker.vis-inventwo/issues/455) Color picker widget "disappears" when selecting CIE
+- Fixed: [#369](https://github.com/inventwo/ioBroker.vis-inventwo/issues/369) Simple slider step color cannot be changed
+- Fixed: [#361](https://github.com/inventwo/ioBroker.vis-inventwo/issues/361) Image widget always shows the image for true
+- Fixed: [#564](https://github.com/inventwo/ioBroker.vis-inventwo/issues/564) Radio button – image color for true is taken from false
+- Fixed: [#461](https://github.com/inventwo/ioBroker.vis-inventwo/issues/461) Double trigger on button/state and "slider cannot be slid" with Windows Touch
+- Fixed: [#474](https://github.com/inventwo/ioBroker.vis-inventwo/issues/474) JSON table with "Binding" does not work in the editor
+- Fixed: [#580](https://github.com/inventwo/ioBroker.vis-inventwo/issues/580) JSON Table Widget: color change of values via threshold is only visible in the editor, not at runtime
+- Fixed: [#622](https://github.com/inventwo/ioBroker.vis-inventwo/issues/622) Issues found by adapter checker
 
 ### 3.3.3
-- Problem mit Umrandungsfarbe beim Multi-Widget View in PopUp behoben
+- Fixed issue with border color on Multi-Widget View in PopUp
 
 ### 3.3.2
 - Bugfix
@@ -83,402 +96,11 @@ Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen。 Zur Zei
 ### 3.3.1
 - Bugfix
 
-### 3.3.0
-- Neues Widget: Konfigurierbarer Colorpicker für HEX, RGB, HSL, HSV und CIE/XY basierend auf [iro.js](https://iro.js.org/)
-
-### 3.2.8
-- Radiobutton-List: Mehrzeilige/Mehrspaltige Darstellung möglich  [#393](https://github.com/inventwo/ioBroker.vis-inventwo/issues/393)
-- JSON-Tabelle: Textausrichtung für Kopfzeile hinzugefügt [#394](https://github.com/inventwo/ioBroker.vis-inventwo/issues/394)
-
-### 3.2.7
-- FIXED: Popup schließt nicht bei Datenpunktwert
-
-### 3.2.6 
-- JSON-Tabelle: Hintergrund pro Zeile in Abhängigkeit eines Wertes färben [#280](https://github.com/inventwo/ioBroker.vis-inventwo/issues/280)
-- JSON-Tabelle: Standardsortierung einer Spalte [#286](https://github.com/inventwo/ioBroker.vis-inventwo/issues/286)
-- Universal- & Multi-Widget ViewInPopUp: Scrollen der View möglich [#344](https://github.com/inventwo/ioBroker.vis-inventwo/issues/344)
-- Universal- & Multi-Widget HTTP: Link kann im gleichem oder neuem Tab geöffnet werden [#363](https://github.com/inventwo/ioBroker.vis-inventwo/issues/363)
-
-- FIXED: JSON-Tabelle funktioniert nun auch wenn nur ein einzelnes Objekt statt Array mit Objekten im Datenpunkt steht [#319](https://github.com/inventwo/ioBroker.vis-inventwo/issues/319)
-- FIXED: JSON-Tabelle: 10-stelliger Zeitstempel funktionierte nicht [#376](https://github.com/inventwo/ioBroker.vis-inventwo/issues/376)
-
-### 3.2.5
-- Bugfix
-
-### 3.2.4
-- Bugfix
-
-### 3.2.3
-- Bugfix
-
-### 3.2.2
-- Bugfix
-
-### 3.2.1
-- Problem mit aktiver Textfarbe behoben (#302)
-- Problem mit Multi-Widget und unterschiedlichem Prüftyp behoben (#303)
-- Problem beim Schließen mit View im PopUp behoben (#254)
-- Navigationseffekte aus der Basisnavigation hinzugefügt (#304)
-- Neu hinzugefügt Widget-Typ 'HTTP' für Universal- und Multi-Widget (#249)
-- Sichtbare Schritte für einfachen Slider hinzugefügt
-
-### 3.2.0
-- Textfarbe aktiv/inaktiv für Universal- & Multiwidget
-- Colorslider CIE Wert mit eckigen Klammern
-- Fehler behoben, dass Schattenfarbe bei Universal- & Multiwidget nicht aktualisiert
-- JSON Tabelle: Vorangestellter und angehänget Text
-
-### 3.1.3
-- Bugfix
-
-### 3.1.2
-- Bugfix
-
-### 3.1.1
-- Bugfix
-
-### 3.1.0
-- Neues Widget: Basisschalter
-- Neues Widget: Checkbox/Radiobutton
-- Bugfixes
-
-### 3.0.11
-- Bugfix
-
-### 3.0.10
-- Bugfix
-
-### 3.0.9
-- Bugfix
-
-### 3.0.8
-- Bugfix
-
-### 3.0.7
-- Bugfix
-
-### 3.0.6
-- Bugfix
-
-### 3.0.5
-- Bugfix
-
-### 3.0.4
-- Bugfix
-
-### 3.0.3
-- Bugfix
-
-### 3.0.2
-- Bugfix
-
-### 3.0.1
-- Bugfix
-
-### 3.0.0
-```diff
-#### ACHTUNG ####
-Nach dem Update sind die Icons vom Universal- und Multiwidget 
-nicht zu sehen, sind aber nicht weg! Damit diese wieder zu sehen sind müssen 
-die Widgets einmal EINZELN im Editor angeklickt werden.
-```
-- Beim Universal- und Multiwidget kann der Inhaltstyp geändert werden.
-    - Inhaltstypen: Bild (Standard), Analoge Uhr, Digitale Uhr und HTML/Text 
-    - Analoge und digitale Uhr: Farbe des Ziffernblatts under Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
-    - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden
-- Vergleichsoperatoren Größer-Gelich und Kleiner-Gleich
-- PopUp kann per Datenpunk geöffnet werden
-- Bugfix:
-    - Colorslider unsichtbar wenn für CIE kein Wert vorhanden ist
-    - Links funktionieren nicht im Popup
-    - State Rückmeldedauer funktioniert nicht richtig
-
-### 2.9.7
-- Bugfix
-
-### 2.9.6
-- Bugfix
-
-### 2.9.5
-- Bugfix
-
-### 2.9.4
-- Bugfix
-
-### 2.9.3
-- Fehler mit PopUp behoben: Klick zum schließen wurde direkt nach Öffnen registriert und Klick löste Buttons hinter dem PopUp aus
-- Zustände wurden bei View in PopUp nicht richtig angezeigt
-
-### 2.9.2
-- Problem mit Datenpunkt zum Schließen des Popups behoben. ACHTUNG! Der Datenpunkt muss erneut ausgewählt werden
-
-### 2.9.1
-- Bugfix
-
-### 2.9.0
-- Multi-Widget-Status können unabhängig vom Widget-Typ nach Datenpunkten oder Views prüfen
-- Optionen zum automatischen Schließen des Popups hinzugefügt
-- Bugfixes
-
-### 2.8.3
-- Bugfix
-
-### 2.8.2
-- Problem mit Colorslider behoben: Wert wird nicht in Datenpunkt gesetzt, wenn "Wert bei Freigabe aktualisieren" aktiviert ist",
-
-### 2.8.1
-- Fehler behoben: Color Slider RGB aktualisiert bei Dp Änderung nicht (WICHTIG: Datenpunkte müssen neu ausgewählt werden!) 
-
-### 2.8.0
-- View in PopUp Option für Universal- und Multi-Widget hinzugefügt
-- Bugfix
-
-### 2.7.11
-- Bugfix
-
-### 2.7.10
-- Problem mit Bildern im Universal und Multi Widget behoben
-- Problem mit Bildwechesl im Universal und Multi Widget behoben
-
-### 2.7.9
-- Option für die Bildgröße für das Image-Widget hinzugefügt
-- Fehler von vorheriger Version behoben
-
-### 2.7.8
-- Problem mit Textausrichtung behoben
-- Problem mit Bildgröße im Image-Widget behoben
-
-### 2.7.7
-
-- Problem mit der Bildgröße behoben
-- Problem mit dem Farbregler behoben, dass der Wert beim loslassen nicht gespeichert wurde
-
-### 2.7.6
-- Problem mit Symbolfarbe für Navi-Widget behoben
-- Problem mit Hervorhebung auf Touch-Geräten behoben
-- Problem mit Radiobutton-Widget und Datentyp Zahlen behobenn
-
-### 2.7.5
-- JSON Tabelle farbliche Schwellenwerte für Zahlen
-- Fehler beim Slider behoben wenn ungültiger Wert im Datenpunkt steht
-- Fehler behoben: Signalbilder wurden mit eingefärbt
-- Option um Bildfarbe zu invertieren eingefügt, um Farbfilter zu umgehen
-- Color Slider kann nun zwischen HEX, RGB und CIE unterscheiden
-
-
-### 2.7.4
-- Fehlende Übersetzung für Hover-Farben hinzugefügt
-
-### 2.7.3
-- Fehler beim Multi-State und mehreren Zuständen behoben
-- Schatten und Rand Hover für Buttons hinzugefügt
-
-### 2.7.2
-- Fehler in Radiobutton mit Bildfarbe behoben
-- Fehler behoben: Doppeltes klicken bei State mit Verweildauer
-- Hovereffekt für Buttons eingefügt
-- Problem mit anzeigen des Sliderwertss behoben
-- Slider Text anhängen möglich
-
-### 2.7.1
-- Bugfix
-
-### 2.7.0
-- Neues Widget: Farbslider
-- JSON Tabelle Spaltenformat boolean und number
-- JSON Tabelle Kopfzeile kann fixiert werden
-- JSON Tabelle Fehler beim sortieren behoben
-- JSON Tabelle konfigurierbare Dummyzeile wenn JSON leer ist
-- Fehler behoben
-
-### 2.6.0
-- Universal- & Multi-Widget Vergleichsoperatoren gleich, größer, kleiner und nicht hinzugefügt
-- Slider Min/Max invertieren
-- Slider Wert erst beim loslassen setzen
-- Widget um Wert zu erhöhen oder zu senken
-- JSON Tabelle Fehler mit Datum behoben
-. JSON Tabelle anzeige von Millisekunden möglich
-- JSON Tabelle Platzhalter wenn Eintrag leer ist
-- JSON Tabelle Spalten können per Klick sortiert werden
-
-### 2.5.11
-- Bugfix
-
-### 2.5.10
-- Bugfix
-
-### 2.5.9
-- Der Prozess der Bildfarbfilterung wurde geändert
-- Die Bildfarbe kann jetzt ein Datenpunkt sein
-
-### 2.5.8
-- Bugfix
-
-### 2.5.7
-- Bugfix
-
-### 2.5.6
-- Bugfix
-
-### 2.5.5
-- Bugfix
-
-### 2.5.4
-- Bugfix (State: doppeltes senden dese Wertes bei touch)
-
-
-### 2.5.3
-- Grauer Kippschalter hinzugefügt
-
-### 2.5.2
-- Bugfix
-
-### 2.5.1
-- Bugfix
-
-### 2.5.0
-- Kippschalter hinzugefügt
-- Bugfix
-
-### 2.4.3
-- Bugfix
-
-### 2.4.2
-- Bugfix
-
-### 2.4.1
-- Bugfix
-
-### 2.4.0
-- Randstil zur JSON-Tabelle hinzugefügt
-- Farbauswahö für Icons zu allen Widgets hinzugefügt
-- Fehlerbehebung
-
-### 2.3.2
-- Fehler bei der Navigation mit dem Widget 'View in Widget' behoben
-
-### 2.3.1
-- Fehler in JSON Tabelle behoben
-
-
-### 2.3.0
-- Problem behoben, bei dem Schaltflächen zweimal Werte senden
-- Datum / Uhrzeit und Bildformat für Tabellenzellen hinzugefügt
-- Universal- und Multi-Widget-Attribute werden beim Klicken auf Widget aktualisiert
-
-### 2.2.3
-- Fehler in JSON Tabelle behoben
-
-### 2.2.2
-- Fehler im Multi Widget behoben: Bilder und Text wechseln nicht bei Typ Navigation
-
-### 2.2.1
-- Fehler in JSON Tabelle behoben, wenn kein gültiges JSON-Objekt vorhanden ist
-- Fehler in Value-List behoben: Wert wird nicht aktualisiert
-
-### 2.2.0
-- Datenpunktwerte werden jetzt bei allen Widgets im Editor angezeigt
-- Neues Widget: Marquee (Laufschrift)
-- Universal und Multi State Verweildauer hinzugefügt
-- List Widget Abstand zwischen den Einträgen kann eingestell werden
-
-### 2.1.0
-- Datenpunktwerte werden im VIS Editor angezeigt!
-
-### 2.0.1
-- Übersetzungsfehler behoben
-- Border Farbe behoben
-- Widget-Untertitel behoben
-
-### 2.0.0
-- Switch, Button, Nav und Background Widget (sowie die kleinen Ausführungen) zu einem einzigen Widget zussammengeführt -> dem Universal Widget 
-- Multi Widget -> wie das Universal, nur dass hier auf mehrere Datenpunkte und Werte geprüft werden kann (Ähnlich der Signalbild Funktion)
-- Image Widget kann nun auf Datenpunkt prüfen
-- Radiobuttons hinzugefügt
-- Werteliste hinzugefügt (Kann Liste aus einem Datenpunkt oder manuell eingetragenem Text erstellen)
-
-### 1.3.8
-- Changed slider step to decimal
-- Fixed problem with numeric values
-
-### 1.3.7
-- Fixed problem with navigation on touchscreens
-
-### 1.3.6
-- Added set state option for navigation
-- Fixed problem with datapoints without config
-
-### 1.3.5
-- Added refresh rate for table
-
-### 1.3.4
-- Removed icons and backgrounds, changed config, Fixed navigation
-
-### 1.3.3
-- Fixed background widget value option
-
-### 1.3.2
-- Bug fix
-
-### 1.3.1
-- Changed navigation button color behaviour
-- Added new icons
-
-### 1.3.0
-- Added JSON table
-- Added delay for navigations
-- Text in buttons can now be HTML
-- Added new icons
-
-### 1.2.3
-- Added Navigation active color
-- Fixed state color for value switch
-
-### 1.2.2
-- Bug Fix: slider value, config
-
-### 1.2.1
-- Fixed Slider Widget: seperatet into two widgets (horizontal and vertical)
-
-### 1.2.0
-- Added image widget
-- Added Slider to change border radius for all 4 corners (If this version is an update for you, you need to click on each button in the vis-editor to get back the default corners)
-- Added new icons
-
-
-### 1.1.1
-- Bug fix
-
-
-### 1.1.0
-- Added slider widget
-- Added option to mirror image
-- Added new icons
-- Changed button widgets to use default font and text options
-
-### 1.0.0
-- Widget background and content opacity, Switch can be changed from boolean to value, changed icons from white to black, added seamless backgrounds
-
-### 0.1.2
-- Bug fixes
-...
-
-### 0.1.1
-- Bug fixes
-...
-
-### 0.1.0 (Erstveröffentlichung)
-- inventwo Design Widgets
-...
-
-### 0.0.1
-- Die Idee ist geboren
-
 ---
 
 ## License
 
-MIT License (nur in englisch / englisch only)
+MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -502,4 +124,4 @@ SOFTWARE.
 
 Icons from Icons8 https://icons8.com/
 
-Copyright (c) 2025 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
+Copyright (c) 2025-2026 [jkvarel](https://github.com/jkvarel) and [skvarel](https://github.com/skvarel) from [inventwo](https://github.com/inventwo)

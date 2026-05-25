@@ -43,6 +43,14 @@ Examples:
 ## [Sponsors](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+### 1.7.7 (2026-05-03)
+* chore(deps-dev): bump protobufjs from 7.5.4 to 7.5.5
+* chore(deps-dev): bump follow-redirects from 1.15.11 to 1.16.0
+* chore(deps-dev): bump axios from 1.14.0 to 1.15.0
+* Update from template: X0000-updateNodeJsAtTestAndRelease
+
 ### 1.7.6 (2026-04-02)f
 * migrate from request to fetch
 
@@ -365,6 +373,8 @@ Examples:
 ### 0.1.0
 
 * (Jey-Cee) first release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 Apache-2.0

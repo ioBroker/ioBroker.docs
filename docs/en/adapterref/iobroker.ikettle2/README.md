@@ -59,6 +59,12 @@ After the beep from base you can turn the kettle back on base and use it.
 
 ---
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+### 1.0.5 (2026-05-03)
+* chore(deps-dev): bump @types/node from 25.5.0 to 25.6.0
+* Update from template: X0000-updateNodeJsAtTestAndRelease
+
 ### 1.0.4 (2026-04-02)
 * (jey-cee) fix some issues found by adapter checker
 
@@ -79,6 +85,8 @@ After the beep from base you can turn the kettle back on base and use it.
 
 ### 1.0.0
 * (Jey Cee) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

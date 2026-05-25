@@ -27,6 +27,9 @@ select the refresh cycle and the type of reading data: (without, basic oder deta
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.0.0 (2026-04-03)
 * (BenAhrdt) change axios to fetch
 
@@ -121,6 +124,8 @@ select the refresh cycle and the type of reading data: (without, basic oder deta
 
 ### 0.0.2 (2024-08-02)
 * (BenAhrdt) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

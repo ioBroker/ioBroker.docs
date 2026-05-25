@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nmea/README.md
 title: ioBroker.nmea
-hash: vCBjYK3WCOWWlFgakL8tYFBe3C7h7qjsD8NUn2FuIoI=
+hash: p/eq6B7PZVQLUKFxfimS1lRZY/ms2S//3QunbayRtVY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nmea/admin/nmea.png)
 
@@ -51,7 +51,7 @@ dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
 
 - Запуск в командной строке: `sudo raspi-config`
 - перейдите в раздел «3 параметра интерфейса»
-- перейдите в раздел «Последовательный порт I5»
+- перейдите к `I5 Serial Port`
 — Отключить параметры «доступ к оболочке через последовательный порт» и «аппаратное обеспечение последовательного порта включено».
 — Выйдите из `raspi-config` и перезагрузите устройство.
 
@@ -105,6 +105,12 @@ iobroker ALL=(ALL) timedatectl set-timezone
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Implemented Raymarine autopilot support
+
+### 0.4.2 (2026-01-05)
+* (bluefox) Updated packages
+
 ### 0.4.0 (2025-11-30)
 * (bluefox) Added support of YDEN-02/03 and YDWG-02/03 gateways
 
@@ -133,7 +139,7 @@ iobroker ALL=(ALL) timedatectl set-timezone
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2024-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

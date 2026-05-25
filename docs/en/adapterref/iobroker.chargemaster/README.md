@@ -51,6 +51,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.15.0 (2026-05-09)
+
+- (copilot) BREAKING: adapter requires node.js >= 22 now
+- (HombachC) update dependencies
+
 ### 0.14.7 (2026-04-16)
 
 - (HombachC) min admin 7.6.20 as recommended (#762)
@@ -72,12 +77,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (HombachC) update NPM deploy system
 - (HombachC) bump dependencies
-
-### 0.14.3 (2025-09-27)
-
-- (HombachC) bump typescript (#684)
-- (HombachC) update adapter-dev (#693)
-- (HombachC) update chai system (#678)
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

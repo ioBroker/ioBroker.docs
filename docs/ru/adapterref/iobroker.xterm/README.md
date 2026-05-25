@@ -1,52 +1,64 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.xterm/README.md
 title: ioBroker.xterm
-hash: Yd+XjBxXX/gFGwzCrttfIJrU0k9so6ikCV9JwSCDE1M=
+hash: KIHNdM8FMczv17rFWpZdDZLTqFOky2QAamKqcdMWbZ0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.xterm/admin/xterm.png)
 
 ![Количество установок](http://iobroker.live/badges/xterm-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.xterm.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.xterm.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.xterm.svg)
 
 # IoBroker.xterm
-![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.xterm/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/xterm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.xterm/workflows/Test%20and%20Release/badge.svg) [![[Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/xterm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
 ## Адаптер xterm для ioBroker
 Этот адаптер позволяет выполнять команды оболочки на хосте ioBroker. Он заменяет адаптер `ioBroker.terminal`.
 
 Терминальный сервер для открытия интерфейса командной строки.
-Пожалуйста, используйте его только для целей администрирования.
+Пожалуйста, используйте его только в административных целях.
 
-На основе пакетов xterm.js и node-pty.
+Основано на пакетах xterm.js и node-pty.
 
-Если аутентификация включена, только пользователь ioBroker с правами администратора может войти в систему.
+Если аутентификация включена, войти в систему сможет только пользователь ioBroker с правами "admin".
 
-## Применение
-Адаптер поддерживает 2 режима:
+## Использование
+Адаптер запускает cmd.exe (Windows) или bash (Linux) через настоящий псевдотерминал (node-pty).
+В Linux bash работает под пользователем `iobroker` — вы можете переключиться на другого пользователя с большими привилегиями через `su USER`.
 
-- Запускает cmd.exe (Windows) или Bash (Linux). В Linux bash работает под пользователем iobroker, и, возможно, вам следует переключиться на другого пользователя с большими привилегиями (через su USER).
-- Или имитировать оболочку с помощью node.js (Вы можете активировать эту опцию, если первая опция не работает)
-
-Примечание. Некоторые команды терминала с интерактивностью не работают. Например. `nano` и некоторые другие.
-
-## СДЕЛАТЬ
-- Моделирование: Ctrl + R (История)
-- Моделирование: больше страниц кодирования. Если вы найдете кодовую страницу, подходящую для вашей системы, создайте вопрос. Возможные страницы кодирования можно найти [здесь](https://github.com/ashtuchkin/iconv-lite/wiki/Supported-Encodings).
-- Поддержка более одного сеанса (вкладки)
+## Сочетания клавиш
+| Ярлык | Действие |
+|------------------|-------------------------------------------------------------------------------------|
+| **Ctrl+Shift+V** | Открыть диалог вставки (полезно при HTTP-соединениях, где API буфера обмена недоступен) |
+| **Ctrl+Shift+F** | Поиск в прокрутке терминала |
+| **Щелчок правой кнопкой мыши** | Вставить из буфера обмена (HTTPS) или открыть диалоговое окно вставки (HTTP) |
+| Выделить текст | Автоматически копируется в буфер обмена (в стиле PuTTY) |
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **В РАБОТЕ** -->
+### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
+### 3.0.2 (2026-04-13)
+* (bluefox) Added the icon in the GUI
+* (bluefox) Added possibility to run under specified user on Linux
+
+### 3.0.0 (2026-04-12)
+* (bluefox) Migrated the adapter to Typescript
+* (bluefox) Added multiple terminal sessions
+
+### 2.0.1 (2023-09-18)
+* (bluefox) xterm library updated
+* (bluefox) Move Lets encrypt settings to acme adapter
+* (bluefox) Minimal supported node.js version is 16
+
 ### 1.1.0 (2022-10-08)
-* (Apollon77) Update xterm library
-* (Apollon77) Prepare for future js-controller versions
+* (Apollon77) Updated the xterm library
+* (Apollon77) Prepared for future js-controller versions
 
 ### 1.0.0 (2022-08-29)
 * (bluefox) Check only port of the interface and not of all interfaces
@@ -59,16 +71,16 @@ hash: Yd+XjBxXX/gFGwzCrttfIJrU0k9so6ikCV9JwSCDE1M=
 
 ### 0.3.0 (2022-03-12)
 * (Apollon77) Prevent some warnings in js-controller 3+
-* (Apollon77) Add Fallback to simulated shell if bash/cmd.exe is selected by node-pty was not installed correctly!
-* (Apollon77) Rework info.connection status to show that server is connected also as green by using "none" to show that no one is connected
+* (Apollon77) Add Fallback to the simulated shell if bash/cmd.exe is selected by node-pty was not installed correctly!
+* (Apollon77) Rework `info.connection` status to show that server is connected also as green by using "none" to show that no one is connected
 * (Apollon77) Update all dependencies
 * (Apollon77) Add sentry for crash reporting
 
 ### 0.2.0 (2021-09-18)
-* (bluefox) Added the real terminal (bash or cmd.exe) to simulated one
+* (bluefox) Added the real terminal (bash or cmd.exe) to the simulated one
 
 ### 0.1.0 (2021-09-18)
-* (bluefox) changed type of the connection state to "string"
+* (bluefox) changed the type of the connection state to "string"
 
 ### 0.0.3 (2021-09-16)
 * (ioBroker) first working release
@@ -79,7 +91,7 @@ hash: Yd+XjBxXX/gFGwzCrttfIJrU0k9so6ikCV9JwSCDE1M=
 ## License
 MIT License
 
-Copyright (c) 2021-2022 ioBroker <dogafox@gmail.com>
+Copyright (c) 2021-2026 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -302,6 +302,8 @@ General settings for the device can be made here. For example, the light of an o
 
 - (eifel-tech) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License

@@ -79,18 +79,76 @@ In the adapter settings under "AI settings", you will find API key fields for ea
 | **Custom API Base URL** | Base URL for custom providers (e.g. `http://localhost:11434/v1` for Ollama) |
 | **Custom API key** | Optional API key for custom providers (Ollama doesn't need one) |
 
-Only enter the keys for providers you want to use. Each provider has its own **Test** button.
+All API key fields are rendered as password inputs (masked), and only the keys of providers you actually want to use need to be entered. Each provider has its own **Test** button.
+
+### API Key Security
+
+API keys are handled with two layers of protection provided by the ioBroker platform:
+
+1. **`encryptedNative`** — Keys are automatically encrypted using the system secret before being written to the object database. Database dumps or object backups no longer expose the raw keys.
+2. **`protectedNative`** — Keys are never transmitted to admin web UIs or foreign adapters. Only the `javascript` adapter instance itself can read them via `this.config` (where the ioBroker runtime delivers them transparently decrypted).
+
+Because of this, the AI Chat Panel, the inline completion provider, and any other frontend component **no longer access the keys directly**. Instead, they request AI services via a `sendTo` call and let the backend resolve the correct key:
+
+```
+Frontend                      Backend (this.config, decrypted)
+────────                      ───────────────────────────────
+sendTo('chatCompletion', {    →   looks up provider → picks gptKey/claudeKey/…
+    provider: 'openai',           → performs HTTP request to provider
+    model: 'gpt-4o',              → streams response back
+    messages: [...]               
+})
+```
+
+A dedicated `sendTo` command is available for discovery:
+
+| Command | Payload | Response |
+|---------|---------|----------|
+| `getAvailableAiProviders` | `{}` | `{ providers: [{ provider: 'openai' }, { provider: 'custom', baseUrl: '…' }, …] }` |
+
+The response lists only which providers have credentials configured — it never includes the keys themselves. This allows the UI to show the correct provider icons and populate the model dropdown without pulling secrets into the browser.
+
+**Upgrade note:** After upgrading from an earlier version, the existing (unencrypted) keys will remain working until the first time you save the adapter settings. When you save, the runtime re-encrypts them. If a key appears blank after the upgrade, re-enter it once in the settings dialog and save.
 
 ### Test API Connection
 
-Each provider has a dedicated **Test** button next to its API key field. The test will:
+Each provider has a dedicated **Test** button next to its API key field. Two cases are handled:
+
+1. **Form-value test** — Immediately after entering or editing a key in the settings dialog, the `Test` button uses the current form value (which is still in the browser before saving). This lets you verify a new key before persisting it.
+2. **Stored-key test** — When the button is invoked from contexts where no form value is available (e.g. the script editor during model discovery), the backend resolves the key from `this.config` based on the selected provider.
+
+The test will:
 - Connect to the provider's API endpoint
 - Validate the API key
-- Return the number of available models
+- Return the number of available chat models
+
+The test-button icons are embedded as inline SVG data URIs with `fill="currentColor"`, so their color automatically follows the active theme (light/dark mode).
 
 ### Dynamic Model Loading
 
-When opening the AI code generator dialog in the script editor, the available models are automatically fetched from the configured API endpoint. The model dropdown is populated dynamically — no hardcoded model list is used.
+When opening the AI code generator dialog in the script editor, the available models are automatically fetched from each configured provider. The model dropdown is populated dynamically — no hardcoded model list is used.
+
+#### Non-chat model filter
+
+The provider model lists returned by OpenAI, Anthropic, Gemini, DeepSeek, and custom (Ollama/LM Studio/OpenRouter) endpoints contain many models that cannot be used for chat completion. The adapter filters these automatically so that the dropdown only shows models suitable for ioBroker script generation.
+
+The following categories are excluded:
+
+| Category | Keyword examples |
+|----------|------------------|
+| Embeddings | `embedding`, `text-embedding`, `embeddinggemma`, `bge-`, `nomic-embed`, `mxbai-embed`, `arctic-embed`, `all-minilm`, `voyage-`, `gecko`, `paraphrase-multilingual` |
+| Image generation / editing | `dall-e`, `gpt-image`, `image-edit`, `-image-preview`, `-image-latest`, `flash-image`, `nano-banana`, `stable-diffusion`, `sdxl`, `midjourney`, `flux-`, `imagen` |
+| Video generation | `sora`, `veo-`, `cogvideo`, `runway-`, `lumiere` |
+| Music generation | `lyria` |
+| Audio / speech / transcribe / realtime | `whisper`, `tts-`, `-tts`, `speech-`, `audio-preview`, `-transcribe`, `native-audio`, `flash-live`, `gpt-audio`, `realtime`, `bark-`, `xtts`, `voicebox` |
+| Moderation / safety | `moderation`, `omni-moderation`, `llama-guard`, `shieldgemma`, `prompt-guard`, `-guardian`, `safeguard` |
+| Rerankers | `rerank`, `reranker` |
+| Legacy completion (OpenAI GPT-3 era) | `babbage-`, `davinci-`, `curie-`, `text-davinci`, `instructgpt`, `code-davinci`, `code-cushman`, `-turbo-instruct` |
+| Web search / browsing endpoints | `-search-preview`, `-search-api` |
+| Legacy search / similarity | `code-search`, `text-search`, `similarity-` |
+| Specialty / single-task | `computer-use-preview`, `deep-research`, `robotics`, `aqa`, `reader-lm` (HTML→Markdown), `-nsql` (text-to-SQL), `minicheck` (fact-check), `claude-1`, `claude-instant` |
+
+The filter uses case-insensitive substring matching. If a provider adds a new non-chat model family in the future, the list can be extended in `src-editor/src/AiChat/AiChatService.ts` (see `NON_CHAT_KEYWORDS`).
 
 ### Error Handling
 
@@ -103,25 +161,32 @@ If the API endpoint is unreachable or returns an error, user-friendly messages a
 A **Retry** button is shown when model loading fails, allowing you to retry without closing the dialog.
 
 ## Changelog
-<!--
-    ### **WORK IN PROGRESS**
--->
-### WORK IN PROGRESS
+### 9.2.2 (2026-05-07)
+* (Eistee82) Fix: AI chat mode tooltip no longer covers the dropdown options (issue #2201) — moved tooltip to the left of the selector
+* (Eistee82) Clarified the AI chat mode descriptions in the tooltip: Agent is for larger models with tool support and handles both analysis and script creation, Code is for smaller models without tool support (uses two-step plan-then-code) — translations updated in all 11 languages
+* (@GermanBluefox) Added the "is state exists" block to blockly
+
+### 9.2.1 (2026-04-30)
+* (@GermanBluefox) See previous changelog entries
+
+### 9.2.0 (2026-04-30)
+* (@GermanBluefox) Agent keys are encrypted now. You must enter your keys anew!
+* (Eistee82) AI API keys are now stored encrypted and only used server-side (`encryptedNative` + `protectedNative`); the frontend never sees them
+* (Eistee82) Code Lens above every top-level function/class/arrow with `💡 Explain | 🔧 Refactor | ✅ Tests` actions
+* (Eistee82) Inline Chat Widget (Ctrl+Alt+I) directly in the editor with response preview and Apply button
+* (Eistee82) Inline diff for AI "Show diff": only the targeted lines change as red/green, the rest of the script stays untouched; Accept replaces just those lines
+* (Eistee82) Six VS-Code-like AI actions in the Monaco editor (right-click menu, Ctrl+Alt+I/E/R/C/F shortcuts, and `/explain`, `/refactor`, `/comment`, `/fix`, `/tests`, `/ask` slash commands with German aliases)
+* (Eistee82) Hover over an ioBroker object ID in any string literal to see a rich tooltip with object metadata and the current live state — works without AI
+* (Eistee82) Anthropic agent mode (native `tool_use`/`tool_result` blocks) and 10 new Monaco editor tools so the AI agent can read/navigate/edit the live editor
+* (Eistee82) `search_datapoints` covers every object type (channels, devices, folders, enums, …) and matches on role; `get_object_info` lists children for containers — fixes finding aliases/motion-sensors modeled as channels
+* (Eistee82) Non-chat model filter expanded (embeddings, image/audio/video/TTS, transcription, moderation, web-search, Ollama single-task models, …)
+
+### 9.2.0 (2026-04-11)
+* (Eistee82) AI Chat panel with multi-provider support, tool calling, inline completions, and smart-apply
+* (Eistee82) Fix: prevent duplicate 'Stopping script' log when script is not running
+* (Eistee82) Fix: only restart scripts on the instance that owns them
 * (Eistee82) Added OID display mode toggle for Blockly editor: 4 display modes (Name, Name path, State ID, Full ID) with toolbar dropdown, context menu, optional object icons, and translations in 11 languages
-* Per-provider test buttons in adapter config (OpenAI, Anthropic, Gemini, DeepSeek, Custom API)
-* Optional API key field for custom base URL providers (e.g. Ollama without auth)
-* Provider icons on test buttons and in model dropdown
-* Human-readable HTTP error messages with API response details
-* Two-step AI code generation: plan first, then generate code
-* Collapsible plan view in AI code generator UI
-* Status display during generation ("Planning..." / "Generating code...")
-* Optimized prompts with code examples for better results with small local models
-* Compact API reference (docs-compact.md) for reduced context usage
-* Disable reasoning/thinking for local models (reasoning_effort: none)
-* TODO_DEVICE_ID placeholder when a required device is not in the device list
-* Node 25 compatibility: replaced deprecated rmdirSync with rmSync in build tasks
-* Flexible result area height in AI code generator (no extra scrollbar)
-* Added translations for all 11 languages
+* (Eistee82) Node 25 compatibility: replaced deprecated rmdirSync with rmSync in build tasks
 * (@GermanBluefox) Added support for plain import/export
 * (@GermanBluefox) Correcting error in configuration
 * (@GermanBluefox) disallow writing into node_modules folder by scripts
@@ -140,24 +205,6 @@ A **Retry** button is shown when model loading fails, allowing you to retry with
 * Added retry functionality for failed model loading
 * All API calls (models + chat) are proxied server-side to avoid CORS issues with local providers
 * Strip LLM thinking artifacts from responses (for local models like Ollama)
-
-### 9.0.18 (2026-01-11)
-* (@GermanBluefox) Corrected an error message with `lastSync`
-* (@klein0r) Corrected JavaScript filter
-
-### 9.0.17 (2025-12-14)
-* (@GermanBluefox) Added possibility to encrypt scripts with password (only for vendors)
-
-### 9.0.11 (2025-07-29)
-* (@GermanBluefox) Corrected the rule editor if the condition is empty
-* (@GermanBluefox) Corrected types for TypeScript
-
-### 9.0.10 (2025-07-27)
-* (@klein0r) Added Blockly block to format a numeric value
-* (@GermanBluefox) Fixing some blocks in blockly: cron, time
-* (@GermanBluefox) Added a new block: "unconditional return"
-* (@GermanBluefox) Type definitions for TypeScript were updated
-* (@GermanBluefox) Corrected bug with deleting of sub-folders
 
 ## License
 The MIT License (MIT)

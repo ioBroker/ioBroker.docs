@@ -3,10 +3,10 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：新手指南
-hash: QPitZJ1RCY7qZv3q7/d2Tdl/eJ6Dg/g+5CflI61eIlw=
+hash: IJo1FDQe20GLWcgRlZIHS+7cDnM/4kGOhPImbNAjj9M=
 ---
 # IoBroker JSON 配置：新手指南
-本指南解释了如何使用 JSON 为 ioBroker 适配器定义配置选项。这种方法提供了一种更友好、更灵活的方式，可以在 ioBroker 管理界面中管理适配器设置。
+本指南介绍如何使用 JSON 为 ioBroker 适配器定义配置选项。这种方法提供了一种更友好、更灵活的方式，可以在 ioBroker 管理界面中管理适配器设置。
 
 你需要准备什么
 - ioBroker Admin 版本 6（或更高版本）
@@ -126,7 +126,7 @@ jsonConfig 由多个按层级结构组织的元素组成。每个元素可以是
 
 如果您测试此适配器，可以看到几乎所有组件都在运行：[jsonconfig-demo](https://github.com/mcm4iob/ioBroker.jsonconfig-demo).\ 您可以通过在 npm 选项卡上输入 `iobroker.jsonconfig-demo`，在管理界面中的 GitHub 图标上安装它。
 
-- [**`accordion`:**](#accordion) 用于可折叠内容的折叠面板元素（Admin 6.6.0 或更高版本）
+- [**`accordion`:**](#accordion) 用于折叠内容的折叠面板元素（Admin 6.6.0 或更高版本）
 - [**`alive`:**](#alive) 显示实例是否正在运行（只读）
 - [**`autocomplete`:**](#autocomplete) 带有自动完成建议的输入字段
 - [**`autocompleteSendTo`:**](#autocompletesendto) 用于发送数据的带有实例值的自动完成控件
@@ -522,7 +522,7 @@ admin/customI18n/en.json
 | `refreshLabel` | 刷新令牌的可选按钮标签 |
 | `ownClientId` | 可选属性名称，用于存储用户的 OAuth 客户端 ID。如果设置，则会显示客户端 ID 输入字段。 |
 | `ownClientSecret` | 可选属性名称，用于存储用户的 OAuth 客户端密钥。如果设置，则会显示客户端密钥输入字段。 |
-| `ownClientSecret` | 可选属性名称，用于存储用户的 OAuth 客户端密钥。如果设置，则会显示客户端密钥输入字段。 |
+| `ownClientSecret` | 可选属性名称，用于存储用户自己的 OAuth 客户端密钥。如果设置，则会显示客户端密钥输入字段。 |
 
 #### `oauth2`示例
 ```json
@@ -623,7 +623,7 @@ admin/customI18n/en.json
 | `textNotAlive` | 默认文本为 `实例 %s 已失效`，其中 %s 将被替换为 `ADAPTER.0`。翻译必须存在于 i18n 文件中。 |
 
 ### `pattern`
-只读字段，模式类似“https://${data.ip}:${data.port}”（不会保存在配置中）。带有只读标志的文本输入，显示一个模式。
+只读字段，模式类似“https://${data.ip}:${data.port}”（不会保存到配置中）。带有只读标志的文本输入，显示一个模式。
 
 | 房产 | 描述 |
 |-------------------|-----------------------|
@@ -649,7 +649,8 @@ admin/customI18n/en.json
 | `timeout` | 请求超时时间（毫秒）。默认值：无。 |
 | `onLoaded` | 初始执行一次按钮逻辑 |
 | `controlStyle` | 按钮样式。 |
-| `controlStyle` | 按钮的样式。 |
+| `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 ### `setState`
 设置实例状态的按钮
@@ -671,7 +672,7 @@ admin/customI18n/en.json
 | `format` | `text`（默认），`html`，`json`（自管理员版本 7.8.4 起） |
 | `href` | 链接。链接可以是动态的，例如 `#tab-objects/customs/${data.parentId}` |
 | `target` | `_blank` 或 `_self` 或窗口名称。对于相对链接，默认值为 `_self`，对于绝对链接，默认值为 `_blank` |
-| `close` | 如果为真，则关闭 GUI（不用于管理中的 JsonConfig，而用于动态 GUI，仅当目标是 `_self` 时才使用） |
+| `close` | 如果为真，则关闭 GUI（不用于管理中的 JsonConfig，而用于动态 GUI，仅当目标为 `_self` 时才使用） |
 | `button` | 将链接显示为按钮 |
 | `variant` | 按钮类型（`outlined`, `contained`, `text`） |
 | `color` | 按钮颜色（例如 `primary`） |
@@ -686,7 +687,7 @@ admin/customI18n/en.json
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `label` | 多语言文本 |
 | `target` | `_blank` 或 `_self` 或窗口名称。对于相对链接，默认值为 `_self`，对于绝对链接，默认值为 `_blank` |
-| `close` | 如果为真，则关闭 GUI（不用于管理中的 JsonConfig，而用于动态 GUI，仅当目标为 `_self` 时才使用） |
+| `close` | 如果为真，则关闭 GUI（不用于管理中的 JsonConfig，而是用于动态 GUI，仅当目标是 `_self` 时才使用） |
 | `button` | 将链接显示为按钮 |
 | `variant` | 按钮类型（`outlined`, `contained`, `text`） |
 | `color` | 按钮颜色（例如 `primary`） |
@@ -838,7 +839,7 @@ admin/customI18n/en.json
 
 - `simple` - 显示简单的 CRON 设置
 - `complex` - 显示带有“分钟”、“秒”等单位的 CRON 任务
-- 既不提供“简单”选项，也不提供“复杂”选项 - 用户可以在对话框中切换简单和复杂模式
+- 既不是“简单”也不是“复杂”——用户可以在对话框中切换简单和复杂模式。
 
 | 房产 | 描述 |
 |-----------|-----------------------------------------------|
@@ -885,13 +886,14 @@ admin/customI18n/en.json
 显示从后端接收的图像，格式为 base64 字符串。
 
 | 房产 | 描述 |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `width` | 二维码宽度（像素） |
 | `command` | sendTo 命令 |
 | `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
 | `sendFirstByClick` | 点击时首先显示图片。`true` - 标准文本（点击显示）或指定文本 |
-| `sendFirstByClick` | 点击时优先显示图片。`true` - 标准文本（点击显示）或指定文本 |
+| `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 #### `imageSendTo`后端代码示例
 ```js
@@ -913,7 +915,7 @@ adapter.on("message", (obj) => {
 后端必须返回纯文本字符串（待编码的数据）。
 
 | 房产 | 描述 |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo 命令（默认值：`"send"`） |
 | `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
@@ -922,7 +924,8 @@ adapter.on("message", (obj) => {
 | `fgColor` | 前景色（默认值：`"#000000"`） |
 | `bgColor` | 背景颜色（默认值：`"#ffffff"`） |
 | `level` | 纠错级别：`L`、`M`、`Q` 或 `H`（默认值：`L`） |
-| `level` | 纠错级别：`L`、`M`、`Q` 或 `H`（默认值：`L`） |
+| `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 #### `qrCodeSendTo`后端代码示例
 ```js
@@ -962,10 +965,11 @@ adapter.on("message", (obj) => {
 显示一个包含从后端接收的 URL 的 iframe。（来自 Admin 7.7.28）
 
 | 房产 | 描述 |
-|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo 命令 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
-| `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
+| `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 后端必须返回一个URL字符串。
 
@@ -993,7 +997,7 @@ adapter.on("message", (obj) => {
 显示包含实例值中给定选项的下拉菜单。
 
 | 房产 | 描述 |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo 命令 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
 | `manual` | 允许手动编辑。无下拉菜单（如果实例离线）。默认值为 `true`。 |
@@ -1001,7 +1005,8 @@ adapter.on("message", (obj) => {
 | `showAllValues` | 即使未找到标签也显示项目（通过多个），默认值=`true` |
 | `noTranslation` | 不翻译下拉列表的标签。要使用此选项，您的适配器必须实现消息处理程序。命令的结果必须是 `[{"value": 1, "label": "one"}, ...]` | 形式的数组。 |
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
-| `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
+| `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 后端处理程序可以返回带有可选字段 `description` 或 `[{"value": 1, "label": "one", "description": "Some hint"}, ...]` 的项目。描述显示在下拉列表标签下方。
 
@@ -1062,29 +1067,31 @@ adapter.on("message", (obj) => {
 显示自动完成控件，并根据实例值提供相应的选项。
 
 | 房产 | 描述 |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo 命令 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
 | `freeSolo` | 将 `freeSolo` 设置为 `true`，以便文本框可以包含任意值。 |
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
 | `maxLength` | 字段中文本的最大长度 |
-| `maxLength` | 字段中文本的最大长度 |
+| `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 要使用此选项，您的适配器必须实现消息处理程序：
 
-命令结果必须是一个符合 `["value1", {"value": "value2", "label": "Value2"}, ...]` 格式的数组（键和名称（值）必须唯一）。有关处理程序示例，请参见 `selectSendTo`。
+命令结果必须是一个形如 `["value1", {"value": "value2", "label": "Value2"}, ...]` 的数组（键和名称（值）必须唯一）。有关处理程序示例，请参见 `selectSendTo`。
 
 ### `textSendTo`
 显示只读控件，其值取自实例。
 
 | 房产 | 描述 |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `container` | `div`, `text`, `html` |
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
 | `command` | sendTo 命令 |
 | `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
-| `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
+| `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 要使用此选项，您的适配器必须实现消息处理程序：命令的结果必须是字符串或包含以下参数的对象：
 
@@ -1171,7 +1178,7 @@ adapter.on("message", (obj) => {
 ### `checkDocker`
 - (admin >= 7.7.2) 初始实现
 
-用于检查 Docker 是否已安装并正在运行的特殊组件。
+用于检查 Docker 是否已安装并运行的特殊组件。
 
 如果 Docker 已安装，则会显示一个复选框，允许使用 Docker。
 
@@ -1415,7 +1422,7 @@ adapter.on("message", (obj) => {
 }
 ```
 
-在这种情况下，输入内容必须为文本，显示为`__different__`，并提供三个可选值的自动完成选项。
+在这种情况下，输入内容必须为文本，例如 `__different__`，并提供三个可选值的自动完成选项。
 
 用户可以从下拉列表中选择 1000、2000 或 3000，也可以输入自己的新值，例如 500。
 
@@ -1488,6 +1495,7 @@ const func = new Function(
   'arrayIndex',    // filled only by table and represents the row index
   'globalData',    // filled only by table and represents the obj.native or obj.common.custom['adapter.X'] object
   '_changed',      // indicator if some data was changed and must be saved
+  '_href',         // Current browser href
   myValidator.includes('return') ? myValidator : 'return ' + myValidator); // e.g. "_alive === true"
 
 const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, this.props.socket);
@@ -1534,7 +1542,7 @@ const isValid = func(
 );
 ```
 
-以下变量可在自定义设置中的 JS 函数中使用：
+以下变量可在自定义设置中的JS函数中使用：
 
 - `data` - 当前自定义设置或表中的当前行（要访问所有设置，请使用 globalData）
 - `originalData` - 未更改的数据
@@ -1681,6 +1689,12 @@ onMessage = (obj: ioBroker.Message): void => {
 ### **正在进行中** -->
 
 ## Changelog
+### 8.3.13 (2026-05-16)
+- (@GermanBluefox) Added `_href` to `jsonData`
+
+### 8.3.11 (2026-04-29)
+- (@GermanBluefox) Added `instance` option for all `sendTo` components to override the target adapter instance
+
 ### 8.3.9 (2026-04-17)
 - (@GermanBluefox) Updated packages
 

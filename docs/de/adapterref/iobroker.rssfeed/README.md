@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rssfeed/README.md
 title: ioBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
-hash: lyXFXr3Ju6dg0BPZZRhneQ+hOP4x0mGTAy7vzr/kM5E=
+hash: f/e1mtfjAG+qME1boqNF/6p3BeeBZfCPWDVOtO+fysA=
 ---
 # IoBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
 ![Logo](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed.png)
@@ -21,6 +21,25 @@ Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, 
 Sie können die Ausgabe des Feeds mithilfe eines Templatesystems anpassen. In den Templates können Sie HTML, CSS und JavaScript einbinden.
 
 Wichtig: Aufgrund von Fehlern in den automatischen Übersetzungen von iobroker in andere Sprachen ist nur die englische Übersetzung gültig.
+
+## Inhaltsverzeichnis
+- [Übersicht](#overview)
+- [Konfiguration](#configuration)
+- [vis and widgets](#vis-and-widgets)
+- [RSS-Feed-Widget 2](#rss-feed-widget-2)
+- [RSS Feed Multi Widget 3](#rss-feed-multi-widget-3)
+- [RSS Feed Meta Helper](#rss-feed-meta-helper)
+- [RSS-Feed-Artikel-Helper](#rss-feed-article-helper)
+- [RSS Feed Title marquee 4 (deprecated)](#rss-feed-title-marquee-4-deprecated)
+- [RSS Feed Title marquee 5](#rss-feed-title-marquee-5)
+- [Templatesystem](#templatesystem)
+- [Sehr wichtiger Hinweis zur Verwendung in vis / vis-2](#very-important-note-for-use-in-vis--vis-2)
+- [Tags](#tags)
+- [Verfügbare Variablen in Vorlagen](#available-variables-in-templates)
+- [Vorlage basierend auf Beispielen](#template-based-on-examples)
+- [Todo](#todo)
+- [Änderungsprotokoll](#changelog)
+- [Lizenz](#Lizenz)
 
 ## Konfiguration
 Installieren Sie den Adapter wie gewohnt aus dem stabilen Repository. Wenn Sie neue Funktionen oder Fehlerbehebungen testen möchten, können Sie den Adapter auch aus dem Beta-Repository installieren. Informationen zu Funktionen und Neuigkeiten finden Sie im Thread „Test und Support“ für diesen Adapter im iobroker-Forum.
@@ -49,7 +68,7 @@ Dann für jeden neuen Feed:
 | Kategorie | Name für einen Unterordner, in dem der Datenpunkt erscheinen soll. |
 | URL | Die vollständige Adresse des Feeds (mit http:// oder https://, siehe Beispiele unten) |
 | Aktualisierung (Min.) | Zeit zum Aktualisieren/Laden des Feeds. Für diesen Feed kann ein anderer Wert angegeben werden. Andernfalls wird die allgemeine Vorgabe verwendet. |
-| Maximale Anzahl Artikel | Anzahl der Artikel, die im Datenpunkt gespeichert werden sollen. Für diesen Feed kann ein anderer Wert angegeben werden. Andernfalls wird die allgemeine Spezifikation verwendet. |
+| Maximale Artikelanzahl | Anzahl der Artikel, die im Datenpunkt gespeichert werden sollen. Für diesen Feed kann ein anderer Wert angegeben werden. Andernfalls wird die allgemeine Spezifikation verwendet. |
 
 Wenn Sie die Konfiguration gespeichert und geschlossen haben, finden Sie die Feed-Daten als JSON-Datenpunkt in der Objektstruktur.
 Wenn Sie einen Eintrag löschen, werden die Datenpunkte nicht automatisch gelöscht.
@@ -63,7 +82,6 @@ Folgende Widgets existieren tatsächlich
 - [`RSS Feed Article Helper 2`](#rss-feed-article-helper) - ein Hilfs-Widget zum Untersuchen der Artikeldaten eines Feeds.
 - [`RSS Feed Title marquee 4 (deprecated)`](#rss-feed-title-marquee-4-deprecated) - ein Widget zur Anzeige der Überschriften eines Feeds als Laufschrift
 - [`RSS Feed Title marquee 5`](#rss-feed-title-marquee-5) - ein Widget zur Anzeige der Überschriften eines Feeds als Laufschrift
-- [`JSON Template 3`](#json-template3) - ein Widget, das nichts mit RSS-Feeds zu tun hat, aber die gleiche Technologie verwendet, und mit dem Sie eine benutzerdefinierte Vorlage definieren können, um beliebige JSON-Daten in der Ansicht anzuzeigen.
 
 ### RSS-Feed-Widget 2
 Dieses Widget zeigt die im Konfigurationsdialog des Adapters abonnierten RSS-Feeds an.
@@ -163,18 +181,6 @@ Mit diesem Widget werden alle Titelattribute als Lauftext angezeigt. Im Zuge der
 | rss_maxarticles | Feeds[Anzahl] Gruppe | Die maximale Anzahl der einzelnen Artikel, die aus dem RSS-Feed angezeigt werden |
 | rss_filter | Feeds[Anzahl] Gruppe | Für die Filterfunktion können ein oder mehrere Filterkriterien durch Semikolons (;) getrennt in das Feld eingegeben werden. Folgende Artikelattribute werden durchsucht: Titel, Beschreibung, Kategorien. Es werden nur Artikel angezeigt, die einen dieser Begriffe enthalten. |
 
-### JSON-Vorlage 3
-Mit diesem Widget lassen sich beliebige Datenpunkte mit JSON-Daten wie gewünscht darstellen. Die Darstellung erfolgt mithilfe eines Template-Formats, das sich als Kombination aus HTML-Code, JavaScript und speziellen Tags zur Steuerung der JSON-Attribute verstehen lässt. JSON Template 3 unterstützt nun asynchrone Aufrufe mit `await`. JSON Template 2 wird zukünftig nicht mehr unterstützt.
-
-| Schauplatz | Beschreibung |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rss_template | Mit der Vorlage kann das Erscheinungsbild der JSON-Daten bestimmt werden. Alle gültigen HTML-Tags (einschließlich CSS-Attribute in Style-Tags) können in der Vorlage verwendet werden. Es gibt auch spezielle Tags, innerhalb derer die JSON-Daten angezeigt und JavaScript-Anweisungen ausgeführt werden können. |
-| json_oid | Auswahl des Datenpunkts mit den entsprechenden JSON-Daten. |
-
-Einzelheiten zum Vorlagensystem finden Sie im Kapitel „Vorlagen basierend auf Beispielen“.
-
-Die JSON-Daten werden zusammen mit den Präfixdaten an die Vorlage übergeben. Zusätzlich steht die aktuelle Widget-ID als Variable zur Verfügung, sodass sie in einzelnen CSS-Anweisungen angegeben werden kann.
-
 #### Erweiterter Anwendungsfall
 In den obigen Beispielen wurde nur die reine Ausgabe betrachtet. Die Vorlage kann nun auch mit HTML-Tags angereichert werden, um ein bestimmtes Layout zu erzielen. Hier ist ein Beispiel:
 
@@ -233,7 +239,7 @@ resolve(receiveData); }); } catch (error) { reject(error); } }); } %>
 
 #### Anwendungsfall für eine datenbankgestützte Aufgabenliste
 ##### **Einführung**
-Dieser Anwendungsfall beschreibt, wie eine Aufgabenliste aus einer MySQL-Datenbank in `ioBroker` mithilfe des `>=rssfeed 3.5.0`-Adapters visualisiert und interaktiv bearbeitet werden kann. Der Fokus liegt auf der Implementierung einer einfachen Statusänderung per Knopfdruck. Dieses Konzept dient als **Proof of Concept (PoC)** und kann in zukünftige Dokumentationen aufgenommen werden.
+Dieser Anwendungsfall beschreibt, wie man eine Aufgabenliste aus einer MySQL-Datenbank in `ioBroker` mithilfe des `>=rssfeed 3.5.0`-Adapters visualisiert und interaktiv bearbeitet. Der Fokus liegt auf der Implementierung einer einfachen Statusänderung per Knopfdruck. Dieses Konzept dient als **Proof of Concept (PoC)** und kann in zukünftige Dokumentationen aufgenommen werden.
 
 ---
 
@@ -385,6 +391,28 @@ Dieser Datenpunkt **muss nicht explizit erstellt werden**, da `local_?`-Datenpun
 | 53-58 | Die Funktion `sendToAsync()` zur Verwendung von `async/await` mit `vis.conn.sendTo()` |
 
 ## Templatesystem
+### Sehr wichtiger Hinweis zur Verwendung in vis / vis-2
+#### Geschweifte Klammern in CSS und JSON
+Der Bindungsmechanismus in vis / vis-2 verwendet das Muster `{ ... }`, um Bindungsausdrücke in HTML zu erkennen.
+Daher müssen geschweifte Klammern bei der Angabe von CSS oder JSON immer in separaten Zeilen stehen. Andernfalls wird der Inhalt des vis-Widgets mit `undefined` überschrieben.
+
+##### Beispiel
+```text
+#w_id_<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
+```
+
+muss wie folgt geschrieben werden:
+
+```text
+#w_id_<%- widgetid %> {
+    height: 100%; display: flex; flex-direction: column; overflow: hidden;
+}
+```
+
+#### Verwendung von setInterval
+Bitte verwenden Sie nicht `setInterval`. Da die Vorlage bei jeder Datenpunktänderung neu aufgerufen wird, können vorhandene `setInterval`-Aufrufe nicht ordnungsgemäß gelöscht werden. Dadurch häufen sich mit der Zeit immer mehr überlappende `setInterval`-Aufrufe an, was RAM verbraucht und zu unvorhersehbaren Nebenwirkungen führen kann. Zwar lässt sich das Problem durch Neuladen der Seite beheben, der Code sollte jedoch nicht auf diese Weise implementiert werden.
+Alternativ sollten solche Szenarien mit `setTimeout` implementiert werden.
+
 ## Tags
 Das Templatesystem arbeitet mit bestimmten Tags.
 Die verwendeten Tags haben folgende Bedeutung:
@@ -562,7 +590,7 @@ Die folgende Vorlage wird aktuell standardmäßig im RSS-Feed-Widget 2 verwendet
 - <http://www.tagesschau.de/xml/rss2> oder
 - <https://www.bild.de/rssfeeds/rss3-20745882,feed=alles.bild.html>
 
-```html
+```ejs
 <!--
     available variables:
     widgetid      ->  id of the widget
@@ -573,11 +601,11 @@ Die folgende Vorlage wird aktuell standardmäßig im RSS-Feed-Widget 2 verwendet
     all variables are read only
     -->
 <style>
-    #<%- widgetid % > img {
+    #<%- widgetid %> img {
         width: calc(<%- style.width %> - 15px);
         height: auto;
     }
-    #<%- widgetid % > img.rssfeed {
+    #<%- widgetid %> img.rssfeed {
         width: auto;
         height: auto;
     }
@@ -596,7 +624,7 @@ Die folgende Vorlage wird aktuell standardmäßig im RSS-Feed-Widget 2 verwendet
 ### Basisvorlage RSS-Feed Multi-Widget 3
 Die folgende Vorlage wird aktuell standardmäßig im RSS-Feed-Multi-Widget 3 verwendet. Bitte beachten Sie geringfügige Unterschiede in der Verwendung der Variablen. Sie wurde mit den folgenden Feeds getestet.
 
-```html
+```ejs
 <!--
     available variables:
     widgetid      ->  id of the widget
@@ -611,11 +639,11 @@ Die folgende Vorlage wird aktuell standardmäßig im RSS-Feed-Multi-Widget 3 ver
     all variables are read only
     -->
 <style>
-    #<%- widgetid % > img {
+    #<%- widgetid %> img {
         width: calc(<%- style.width || '230px' %> - 15px);
         height: auto;
     }
-    #<%- widgetid % > img.rssfeed {
+    #<%- widgetid %> img.rssfeed {
         width: auto;
         height: auto;
     }
@@ -630,7 +658,7 @@ Die folgende Vorlage wird aktuell standardmäßig im RSS-Feed-Multi-Widget 3 ver
 ```
 
 ### Beispielvorlage für RSS-Feed-Multi-Widget 3 mit Artikeln als Diashow und Zurück-/Weiter-Schaltflächen
-```html
+```ejs
 <!--
  available variables:
  widgetid      ->  id of the widget
@@ -641,11 +669,11 @@ Die folgende Vorlage wird aktuell standardmäßig im RSS-Feed-Multi-Widget 3 ver
 -->
 
 <style>
-    #<%- widgetid % > img {
+    #<%- widgetid %> img {
         width: calc(<%- style.width || '230px' %> - 15px);
         height: auto;
     }
-    #<%- widgetid % > img.rssfeed {
+    #<%- widgetid %> img.rssfeed {
         width: auto;
         height: auto;
     }
@@ -743,7 +771,7 @@ Z6: Ausgabe eines `<div>`-Tags, der die spezielle Formatierung im `feed-html` en
 Z7: Keine Ausgabe. Diese Zeile schließt die JavaScript-Schleife. Alles, was zwischen Z2 und Z7 definiert wurde, wird für jeden einzelnen Artikel wiederholt.
 
 ## Todo
-- Nicht verwendete Einträge im Datenpunkt info.lastRequest werden durch Speichern im Admin-Dialog bereinigt.
+- Nicht verwendete Einträge in der Datenpunktinformation.lastRequest werden durch Speichern im Admin-Dialog bereinigt.
 - Schaltfläche zum Bereinigen nicht verwendeter Datenpunkte im Admin-Dialog
 - ~~RSS-Feeds für mehrere Widgets~~
 - ~~Multi-Widget-Laufschrift~~
@@ -756,6 +784,7 @@ Z7: Keine Ausgabe. Diese Zeile schließt die JavaScript-Schleife. Alles, was zwi
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### 4.0.3 (2026-03-26)
 
 - Update packages

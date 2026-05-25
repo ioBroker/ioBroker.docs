@@ -133,6 +133,7 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
@@ -164,6 +165,8 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 * (mcm1957) Dependencies have been updated
 * (@GermanBluefox) Migrated to TypeScript
 * (@GermanBluefox) Added "Ignore SSL errors" option
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

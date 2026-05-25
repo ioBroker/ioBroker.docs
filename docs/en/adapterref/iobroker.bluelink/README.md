@@ -26,6 +26,9 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 ------------------------------------------------------------------------------------
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 3.1.28 (2026-04-08)
 * (arteck) Dependencies have been updated
 * (arteck) better LOG
@@ -225,6 +228,8 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 ### 1.0.0
 * (Newan) First stable version
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Donation
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)

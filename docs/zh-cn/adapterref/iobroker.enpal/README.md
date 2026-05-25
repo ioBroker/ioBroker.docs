@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.enpal/README.md
 title: 无标题
-hash: vKO+Q2VLzuldwLkkQcycfuE09hl4BBMfd8Wbup5+i+A=
+hash: Z/fJiETQ5VqCX4KIfrkSyJ3B4W4iZQuwv37BWa5LOJU=
 ---
 ![标识](../../../en/adapterref/iobroker.enpal/admin/enpal_logo.svg)
 
@@ -70,10 +70,16 @@ enpal.0.<measurement>.<device>.<field>
 您的 API 令牌以加密形式存储在 ioBroker 数据库中。
 - 不连接任何外部服务器。
 
+## 较早的更改
+- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+
 ## Changelog
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Added link to CHANGELOG_OLD.md at readme 
+
 ### 0.2.0 (2026-04-06)
 - (skvarel) Updated minimum Node.js version requirement to >=22
 - (skvarel) Normalize unit display: "Percent" is now shown as "%"

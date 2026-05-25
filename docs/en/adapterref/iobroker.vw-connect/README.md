@@ -39,6 +39,18 @@ You can set climatisaton temperature in
 ```
 
 ```
+### 0.8.4 (2026-05-14)
+- disable skoda mqtt
+
+### 0.8.3 (2026-05-10)
+- fix skoda mqtt
+
+### 0.8.1 (2026-05-06)
+- fix skoda mqtt
+
+### 0.8.0 (2026-04-13)
+- fix for seat cupra
+
 ### 0.7.16 (2026-03-18)
 - fix myskoda mqtt connection
 

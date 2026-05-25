@@ -21,6 +21,16 @@ Sensors can be purchased an the [FYTA Shop](https://fyta.de/collections/all)
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+-	none
+
+### 0.2.7 (2026-05-17)
+-	repaired error in writing rawValues
+
+### 0.2.6 (2026-05-16)
+- 	Updated dependencies
+-	repaired raw value retrieval
+
 ### 0.2.5 (2026-04-20)
 -	Made data retrieval more synchronous and introduced delays to avoid exceeding API limits 
 
@@ -34,20 +44,7 @@ Sensors can be purchased an the [FYTA Shop](https://fyta.de/collections/all)
 -   Added retrieval of raw values
 -	Added use of internal notifications
 
-### 0.1.5 (2025-03-23)
--   fix token handling when downloading plant images
-
-### 0.1.4 (2025-02-23)
--   minor changes due to publishing in ioBroker.repository:latest
-
-### 0.1.3 (2025-02-13)
--   minor changes due to release process
-
-### 0.1.2 (2025-01-31)
--   minor changes to align with requirements of ioBroker-Adapter-Checker
-
-### 0.1.0 (2025-01-30)
--   initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

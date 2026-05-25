@@ -97,6 +97,10 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
 -->
 
 ## Changelog
+### 3.1.0 (2026-05-04)
+- (copilot) Adapter requires node.js >= 22 now
+- (mcm1957) Dependencies have been updated
+
 ### 3.0.2 (2026-03-10)
 - (@GermanBluefox) Correcting configuration dialog
 - (@GermanBluefox) Added tests for GUI component
@@ -116,10 +120,6 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
 
 - (mcm1957) Missing size attributes for jsonConfig have been added.
 - (mcm1957) Dependencies have been updated
-
-### 1.0.5 (2024-12-08)
-
-- (@GermanBluefox) Corrected error with admin 7.4.3
 
 ## License
 

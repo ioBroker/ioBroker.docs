@@ -27,25 +27,24 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.6.0 (2026-05-13)
+* (arteck) fix high i/o
+* (copilot) Adapter requires node.js >= 22 now
 
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires admin >= 7.7.22 now
+### 2.5.5 (2026-05-09)
+* (arteck) fix ceph info
+* (arteck) fix ceph tree limit
 
-### 2.4.10 (2026-01-28)
-* (arteck) fix node action
+### 2.5.4 (2026-04-23)
+* (arteck) fix erro local on storage/pve/local
 
-### 2.4.9 (2026-01-09)
-* (arteck) fix webhookNotification array DP
+### 2.5.3 (2026-04-23)
+* (arteck) Dependencies have been updated
 
-### 2.4.8 (2025-12-27)
-* (arteck) add DP webhookNotification as string and as array
+### 2.5.2 (2026-04-23)
+* (arteck) add token login process
 
-### 2.4.7 (2025-12-27)
-* (arteck) fix refresh vm/lxc
-
-### 2.4.6 (2025-12-23)
-* (arteck) fix start request
-* (arteck) fix Cannot send request
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

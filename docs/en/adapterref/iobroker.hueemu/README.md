@@ -1,7 +1,7 @@
 # ioBroker.hueemu
 
 [![npm version](https://img.shields.io/npm/v/iobroker.hueemu)](https://www.npmjs.com/package/iobroker.hueemu)
-![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen)
+![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![npm downloads](https://img.shields.io/npm/dt/iobroker.hueemu)](https://www.npmjs.com/package/iobroker.hueemu)
@@ -11,24 +11,38 @@
 
 <img src="https://raw.githubusercontent.com/krobipd/ioBroker.hueemu/main/admin/hue-emu-logo.png" width="100" />
 
-Emulates a [Philips Hue](https://www.philips-hue.com) Bridge (v2, BSB002) so that ioBroker devices can be controlled via Alexa, Google Home, and other Hue-compatible smart home systems.
+Emulates a [Philips Hue](https://www.philips-hue.com) Bridge (v2, BSB002) so that ioBroker devices appear as Hue lights to clients that only support the Hue API.
+
+---
+
+## When to use this adapter
+
+**Use it if you want to control ioBroker states from an older device or app that only speaks the Hue API.** Examples: Logitech Harmony Hub, Bosch Smart Home Controller, legacy Echo firmware, in-wall touch panels, abandoned dashboard apps, old control systems with a Hue plugin.
+
+### Modern Alexa, Google Home or Apple Home — use the Matter adapter instead
+
+Modern voice assistants all support Matter directly. Use the [ioBroker Matter adapter](https://github.com/ioBroker/ioBroker.matter) — it's the right tool for that. This adapter is only for clients that don't have a Matter option.
 
 ---
 
 ## Features
 
-- **Hue Bridge Emulation** — Full Hue API v1 compatibility
-- **UPnP/SSDP Discovery** — Automatic detection by smart home systems
-- **Modern Admin UI** — JSON-Config for easy device configuration
-- **Flexible Device Types** — On/Off, Dimmable, Color Temperature, RGB lights
+- **Hue API v1** — Bridge model BSB002 (Hue Bridge v2)
+- **UPnP/SSDP Discovery** — Automatic detection by any Hue-compatible client
+- **Direct state mapping** — Point to any ioBroker state, no bridge scripts
+- **Light types** — On/Off, Dimmable, Color Temperature, RGB
+- **Per-device value scale** — pick how brightness and saturation are stored in your source state
+- **Persistent TLS certificate** — clients only trust the bridge once, restarts keep the same identity
+- **Localized state names** — admin labels follow the ioBroker system language
+- **Automatic migration** — legacy `createLight` setups are converted to the admin configuration on first start
 
 ---
 
 ## Requirements
 
-- **Node.js >= 20**
-- **ioBroker js-controller >= 7.0.0**
-- **ioBroker Admin >= 7.6.20**
+- **Node.js >= 22**
+- **ioBroker js-controller >= 7.0.7**
+- **ioBroker Admin >= 7.8.23**
 
 ---
 
@@ -37,7 +51,7 @@ Emulates a [Philips Hue](https://www.philips-hue.com) Bridge (v2, BSB002) so tha
 | Port | Protocol | Purpose | Configurable |
 |------|----------|---------|--------------|
 | 8080 | TCP/HTTP | Hue Bridge API | Yes — clients are informed via SSDP |
-| 1900 | UDP      | SSDP/UPnP Discovery | No — fixed (all UPnP clients including Harmony, Alexa, Google Home scan exactly this port) |
+| 1900 | UDP      | SSDP/UPnP Discovery | No — fixed by the UPnP standard |
 | —    | TCP/HTTPS | Optional TLS (if configured) | Yes |
 
 ---
@@ -50,7 +64,7 @@ Emulates a [Philips Hue](https://www.philips-hue.com) Bridge (v2, BSB002) so tha
 |--------|-------------|---------|
 | **Host** | IP address of the bridge (must be a real network IP) | — |
 | **HTTP Port** | Port for the Hue API | 8080 |
-| **HTTPS Port** | Optional HTTPS port | — |
+| **HTTPS Port** | Only needed if a client insists on TLS; leave empty otherwise | — |
 | **MAC Address** | Bridge MAC (auto-generated if empty) | — |
 
 ### Adding Devices
@@ -72,13 +86,15 @@ Emulates a [Philips Hue](https://www.philips-hue.com) Bridge (v2, BSB002) so tha
 
 ### Pairing
 
-Before any client (Alexa, Google Home, Harmony Hub, etc.) can connect, pairing must be activated:
+Before any client can connect, pairing must be activated:
 
 1. ioBroker Objects → `hueemu.0` → set **`startPairing`** to `true`
 2. Start the device search / pairing in your client app within **50 seconds**
 3. After successful pairing a new entry appears under `hueemu.0.clients.*`
 
-### Connecting with Alexa
+### Connecting with Alexa (older Echo without Matter)
+
+> If you have a current Echo, use the [Matter adapter](https://github.com/ioBroker/ioBroker.matter) instead.
 
 > **Tip:** If Alexa cannot find the bridge, try changing the HTTP port to **80** in the adapter settings — some Alexa firmware versions only discover bridges on port 80.
 
@@ -100,7 +116,7 @@ Before any client (Alexa, Google Home, Harmony Hub, etc.) can connect, pairing m
 hueemu.0.
 ├── startPairing         — Enable pairing mode for 50 seconds (button)
 ├── disableAuth          — Disable authentication (switch)
-└── clients/             — Paired client devices (Alexa, Google Home, Harmony Hub, etc.)
+└── clients/             — Paired client devices
     └── {username}       — Client API key (created during pairing)
 ```
 
@@ -112,7 +128,7 @@ hueemu.0.
 
 If you used the old `createLight` JSON state to define lights, your devices are **automatically migrated** on first start. The adapter reads your existing device objects, converts them to the new admin configuration format, and restarts once. No manual action required — your existing scripts and automations continue to work as before.
 
-**Optional improvement:** The old system used internal adapter states as intermediaries, requiring separate scripts to control the actual devices. You can now open the adapter settings and change the state mappings to point **directly** to your device states (e.g. `hm-rpc.0.dimmer.LEVEL` instead of `hueemu.0.1.state.bri`). This eliminates the need for bridge scripts entirely.
+**Optional improvement:** The old system used internal adapter states as intermediaries, requiring separate scripts to control the actual devices. You can now open the adapter settings and change the state mappings to point **directly** to your device states (e.g. `hm-rpc.0.dimmer.LEVEL` instead of `hueemu.0.1.state.bri`).
 
 ### Bridge not found
 
@@ -129,61 +145,42 @@ If you used the old `createLight` JSON state to define lights, your devices are 
 ### State changes not working
 
 - Verify state IDs in device configuration
-- Check value ranges: `bri` 0–100 or 0–1, `ct` 153–500 (Mireds)
+- Pick the matching brightness/saturation scale per device in the admin — Auto, Percent (0..100), Normalized (0..1) or Hue-Raw (1..254). A `level.dimmer` storing 0..100 needs Percent.
+- `ct` range is 153–500 (Mireds)
 
 ---
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.4.6 (2026-05-17)
+- Internal refactoring. No user-facing changes.
 
-### 1.2.4 (2026-04-13)
-- Remove dead types from light model (6 unused interfaces, 3 unused LightType variants)
-- Refactor UserService from callback to async API (removes ~40 lines boilerplate)
-- Extract `requireAuth()` helper in API routes (DRY, 6 duplicated auth checks → 1 function)
-- Centralize `BRIDGE_MODEL_ID` constant (was duplicated in config-service and main)
-- Make logger required in all services (removes conditional null-checks in 5 files)
-- Use `try/finally` in onUnload for safer shutdown
-- Remove dead `createLight` instanceObject from io-package.json
-- Remove synchronous `generateCertificate` from being unnecessarily async
+### 1.4.5 (2026-05-13)
+- Debug log now traces previously silent paths: TLS certificate validity on reuse, every Hue API error response, SSDP discovery answers and device-binding scale decisions. Default log unchanged.
 
-### 1.2.3 (2026-04-11)
-- Extract shared `sanitizeId` utility module (DRY)
-- Add Hue API value range constants for readability
-- Add pairing timeout constant
-- Improve callback error handling in UserService
-- Replace `as any` with type-safe casts in DeviceBindingService
-- Enforce `no-floating-promises` as error
-- Split monolithic test file into focused modules (146 tests)
-- Fix duplicate io-package.json news entry
+### 1.4.4 (2026-05-10)
+- Brightness and saturation now have an explicit scale option per device, so values stored as 0..100 are no longer misread as full brightness. Existing setups keep working on the default.
 
-### 1.2.2 (2026-04-11)
-- Remove redundant `actions/checkout@v6` from CI workflow (ioBroker testing actions handle checkout internally)
-- Fix `readme` URL in io-package.json (master → main)
+### 1.4.3 (2026-05-10)
+- TLS certificate is now stored and reused across restarts — clients only need to trust it once, and the adapter starts noticeably faster.
+- Paired clients appear in Hue tools that read the bridge whitelist.
+- HTTP API stays reachable even when SSDP port 1900 is already used by another adapter — the log explains how to add the bridge by IP.
+- "Disable Auth" now reliably keeps its value across adapter restarts.
+- Pairing window has a safety cap so a noisy network can't flood the bridge with new clients.
 
-### 1.2.1 (2026-04-08)
-- Restore standard integration tests (create-adapter compatible)
-- Add FORBIDDEN_CHARS sanitization for all external object IDs
-- Remove CHANGELOG.md (changelog in README + CHANGELOG_OLD.md)
-- Remove dead code, clean up empty JSDoc stubs
+### 1.4.2 (2026-05-09)
+- Adapter log messages are now English only, in line with the ioBroker community standard. Localized state names are unchanged.
 
-### 1.2.0 (2026-04-06)
-- Rename `user` folder to `clients` — clearer naming for paired endpoints (Alexa, Harmony, etc.)
-- Automatic migration of existing paired clients on startup
-
-### 1.1.4 (2026-04-05)
-- Clean up obsolete `info.connection` state, remove empty parent folders after state cleanup
-
-### 1.1.3 (2026-04-05)
-- Remove unused `info.connection` state (no external connection to track)
-
-Older entries have been moved to [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
-
----
+Older entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## Credits
 
 **Original Author:** Christopher Holomek ([@holomekc](https://github.com/holomekc))
 
-**Modernization (2026):** krobi
+**Modernization:** krobi
 
 ---
 
