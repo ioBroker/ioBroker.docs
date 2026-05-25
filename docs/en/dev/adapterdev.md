@@ -59,7 +59,7 @@ if (require.main !== module) {
 }
 ```
 
-> **Critical:** Always wrap async handlers with `.catch()`. An unhandled rejection crashes the adapter with SIGKILL code 6 — no stack trace, restart loop.
+> **Critical:** Always wrap async handlers with `.catch()`. An unhandled rejection can crash or terminate the adapter, leading to missing stack traces and restart loops.
 
 ## Lifecycle Events
 
