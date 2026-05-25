@@ -1192,6 +1192,19 @@ https://github.com/JR-Home/ioBroker.brunner-eas3
 <img src="https://raw.githubusercontent.com/JR-Home/ioBroker.brunner-eas3/main/admin/brunner-eas3.png" width="100" height="100" />
 
 Adapter for reading data from Brunner combustion control system EAS 3. The data is published via WLAN broadcast messages.
+## speedport (3.5.2025) – new adapter at stable repository
+https://github.com/hacki11/ioBroker.speedport
+
+<img src="https://raw.githubusercontent.com/hacki11/ioBroker.speedport/master/admin/speedport.png" width="100" height="100" />
+
+Fetches data from Telekom Speedport Router
+
+## life360ng (3.5.2025) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.life360ng
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.life360ng/main/admin/Life360ng.svg" width="100" height="100" />
+
+This adapter connects to the Life360 cloud services to track people and detect presence at defined places. It retrieves circles, members and places data and persists it as ioBroker states, updated at a configurable interval.
 ## enpal (29.4.2025) – new adapter at stable repository
 https://github.com/inventwo/ioBroker.enpal
 
