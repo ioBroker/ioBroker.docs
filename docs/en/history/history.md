@@ -1186,6 +1186,20 @@ https://github.com/chrmenne/ioBroker.aurora-nowcast
 
 Provides current (nowcast) data on aurora activity (northern and southern lights) for a given location, based on publicly available data from the NOAA Space Weather Prediction Center (SWPC).
 
+## enpal (29.4.2025) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.enpal
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.enpal/main/admin/enpal.svg" width="100" height="100" />
+
+Reads energy data from the local InfluxDB 2.x instance provided by Enpal solar systems and exposes ioBroker states for home automation:
+
+Monitor solar power production
+Track battery state of charge (SoC)
+Analyze grid consumption and feed-in power
+Automate based on power generation
+Visualize energy flows in ioBroker dashboard
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
