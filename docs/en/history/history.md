@@ -1192,6 +1192,19 @@ https://github.com/JR-Home/ioBroker.brunner-eas3
 <img src="https://raw.githubusercontent.com/JR-Home/ioBroker.brunner-eas3/main/admin/brunner-eas3.png" width="100" height="100" />
 
 Adapter for reading data from Brunner combustion control system EAS 3. The data is published via WLAN broadcast messages.
+## enpal (29.4.2025) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.enpal
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.enpal/main/admin/enpal.svg" width="100" height="100" />
+
+Reads energy data from the local InfluxDB 2.x instance provided by Enpal solar systems and exposes ioBroker states for home automation:
+
+Monitor solar power production
+Track battery state of charge (SoC)
+Analyze grid consumption and feed-in power
+Automate based on power generation
+Visualize energy flows in ioBroker dashboard
+
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
