@@ -64,6 +64,8 @@ who created pre V3.x.x releases of this adapter.
 * (jack-blackson) Updated dependencies
 * (jack-blackson) Small adjustments in package files
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 

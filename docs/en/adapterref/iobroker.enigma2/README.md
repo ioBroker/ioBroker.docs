@@ -146,6 +146,8 @@ sendTo('enigma2.0', 'send', {
 ### 2.1.1 (2024-06-09)
 * (klein0r) Updated Blockly definitions
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 

@@ -226,6 +226,8 @@ DSP-W115 and other *newer* devices use a completely different protocol and a dif
 ### 0.0.1
 * (Garfonso) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 

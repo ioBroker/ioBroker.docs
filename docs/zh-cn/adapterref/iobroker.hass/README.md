@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hass/README.md
 title: ioBroker.hass
-hash: DTMrMvmhDjW3snxD6Sxstww2gJf/X7BwdV54R2ogU0M=
+hash: M+nm+izoaISjlBc/GvVPcDabI3Tm57D4yI8ZBmSYd5I=
 ---
 ![标识](../../../en/adapterref/iobroker.hass/admin/hass.png)
 
@@ -14,7 +14,7 @@ hash: DTMrMvmhDjW3snxD6Sxstww2gJf/X7BwdV54R2ogU0M=
 # IoBroker.hass
 ![测试与发布](https://github.com/ioBroker/ioBroker.hass/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/hass/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告的信息，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
 此适配器允许将 Home Assistant 连接到 ioBroker。
 
@@ -24,7 +24,7 @@ hash: DTMrMvmhDjW3snxD6Sxstww2gJf/X7BwdV54R2ogU0M=
 然后它应该读取所有设备的全部属性。服务可能是可控的（例如，“开启”）。要控制服务，您有两种选择：
 
 ### 设置直接值
-将状态设置为 ack=false 且该值不是字符串（例如布尔值 true），则即使没有额外的服务数据，HASS 也会触发该状态。这仅适用于只有一个字段需要发送的情况——此时值将作为该字段发送！如果服务有多个字段，您将在日志中找到一条警告，其中包含有关可发送字段的更多详细信息，例如：
+将状态设置为 ack=false 且该值不是字符串（例如布尔值 true），则即使没有额外的服务数据，HASS 也会触发该状态。这仅适用于服务只有一个待发送字段的情况——此时值将作为该字段发送！如果服务有多个字段，您将在日志中找到一条警告，其中包含有关可发送字段的更多详细信息，例如：
 
 ```
 Please make sure to provide a stringified JSON as value to set relevant fields! Please refer to the Readme for details!
@@ -98,17 +98,53 @@ Allowed field keys are: temperature, target_temp_high, target_temp_low, hvac_mod
 ```
 
 ＃＃ 配置
-有一篇关于人际关系的好文章。
+有一篇关于这种联系的好文章。
 
 请查看 https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen/
 
 **可惜只有德语版，但是 [谷歌翻译效果相当不错。](https://translate.google.com/translate?hl=en&sl=de&tl=en&u=https%3A%2F%2Fwww.smarthomejetzt.de%2Fmit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen%2F)**
+
+## 实体排除过滤器
+（可选）限制哪些 Home Assistant 实体同步到 ioBroker。
+
+“排除模式”字段中每个非空且非注释的行都是一个通配符（只有 `*` 是通配符，可以匹配任何字符序列，包括 `.`）。
+
+模式会区分大小写地与完整的 `entity_id` 进行匹配（例如：
+
+`switch.living_room`）。与任何模式匹配的实体是：
+
+- 创建或更新对象时跳过（初始同步和重新同步）
+- 当其在 HASS 中状态发生变化时被忽略（ioBroker 中未触发状态写入）
+
+以 `#` 开头的行将被视为注释。
+
+例如：
+
+```
+# Drop every entity whose name starts with `iob_`, regardless of domain:
+*.iob_*
+
+# Drop sensors only:
+sensor.iob_*
+```
+
+勾选“详细过滤器日志记录”选项，可在首次同步期间单独记录每个排除的 `entity_id`（需要适配器日志级别为 `info` 或 `debug`）。后续重新同步仅输出汇总计数，以保持日志简洁。
+
+如果模式列表为空，则适配器的行为与以前的版本相同。
 
 <!-- 下一版本的占位符（位于行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 2.1.0 (2026-05-16)
+* (mokusone) Added optional entity exclude filter with glob patterns, configurable via the admin UI, plus a verbose-logging toggle for inspecting matches
+* (@klein0r) Use `/core/` instead of `/api/` when connecting to supervisor directly (e.g., in ha app)
+* (@klein0r) Use ENV var SUPERVISOR_TOKEN as fallback for password
+
+### 2.0.4 (2026-05-05)
+* (@GermanBluefox) Tried to keep the custom settings of the objects when updating them with new data from HASS
+
 ### 2.0.3 (2026-04-02)
 * (@GermanBluefox) Adapter was updated and migrated to TypeScript
 * (@Titanium177) Added roles for states and added debouncing for reading states from hass
@@ -120,33 +156,6 @@ Allowed field keys are: temperature, target_temp_high, target_temp_low, hvac_mod
 
 ### 1.3.0 (2022-07-01)
 * (Apollon77) Further optimize sending data to HASS and allow setting values like numbers as normal states if the service has one attribute and it can be mapped
-
-### 1.2.0 (2022-06-17)
-* (Apollon77) IMPORTANT: Replace special characters in entity attribute names with an underscore! Object IDs might change!
-* (Apollon77) make sure a "null" value in state changes is not crashing
-
-### 1.1.2 (2022-03-29)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 1.1.1 (2022-03-25)
-* (Apollon77) Show password fields masked again in config
-
-### 1.1.0 (2022-03-24)
-* IMPORTANT: You need to re-enter the password once after installing this version!
-* (Apollon77) Implement Service triggers to use any value to trigger or stringified JSON to call with fields
-* (Apollon77) Optimize unload handling
-* (Apollon7) Add Sentry for crash reporting
-
-### 1.0.1 (2021-09-04)
-* IMPORTANT: js-controller 2.0 is needed at least!
-* (Apollon77) Fix start issue
-* (Apollon77/Garfonso) Fix issue where value could not be set in hass
-
-### 1.0.0 (2020-12-13)
-* (bluefox) added the support of compact mode
-
-### 0.1.0
-* (bluefox) initial release
 
 ## License
 The MIT License (MIT)

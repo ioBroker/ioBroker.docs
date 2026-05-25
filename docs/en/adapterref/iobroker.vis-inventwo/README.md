@@ -94,13 +94,22 @@ If you like our work and would like to support us, we appreciate every donation.
 
 ## Changelog
 
-### **WORK IN PROGRESS**
-- (iobroker-bot) Adapter requires node.js >= 20 now.
-
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.1.0 (2026-05-17)
+- Hide widgets in vis 2 editor
+
+### 4.0.1 (2026-05-15)
+- Fixed widget gif images missing
+
+### 4.0.0 (2026-05-15)
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- Updated dependencies
+- Updated project structure to meet latest ioBroker standards
+- Updated build process to use latest tools and best practices
 
 ### 3.3.5
 - Fixed: [#688](https://github.com/inventwo/ioBroker.vis-inventwo/issues/688) Radio button cannot write a boolean value
@@ -116,17 +125,6 @@ If you like our work and would like to support us, we appreciate every donation.
 - Fixed: [#474](https://github.com/inventwo/ioBroker.vis-inventwo/issues/474) JSON table with "Binding" does not work in the editor
 - Fixed: [#580](https://github.com/inventwo/ioBroker.vis-inventwo/issues/580) JSON Table Widget: color change of values via threshold is only visible in the editor, not at runtime
 - Fixed: [#622](https://github.com/inventwo/ioBroker.vis-inventwo/issues/622) Issues found by adapter checker
-
-### 3.3.3
-- Fixed issue with border color on Multi-Widget View in PopUp
-
-### 3.3.2
-- Bugfix
-
-### 3.3.1
-- Bugfix
-
----
 
 ## License
 

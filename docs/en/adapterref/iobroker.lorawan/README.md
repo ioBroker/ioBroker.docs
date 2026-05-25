@@ -26,7 +26,7 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 -->
 ### 1.22.12 (2026-05-09)
 - (copilot) Adapter requires node.js >= 22 now
-* (BenAhrdt) Default Bridge all downlink.control and uplin.decoded to bridge
+* (BenAhrdt) Default Bridge all downlink.control and uplink.decoded to bridge
 
 ### 1.22.11 (2026-04-20)
 * (BenAhrdt) correct default value for pause (worx)

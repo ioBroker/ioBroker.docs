@@ -1,0 +1,83 @@
+<svg width="1814" height="308" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 1814 308">
+<rect width="1814" height="308" x="0" y="0" fill="#000"></rect>
+<path d="M26 268.5L1784 268.5" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M26 229.5L1784 229.5" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M26 164.5L1784 164.5" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M26 99.5L1784 99.5" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M26 34.5L1784 34.5" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M26 8.5L1784 8.5" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M26.5 8L26.5 268" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M26.5 8L26.5 268" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M172.5 8L172.5 268" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M319.5 8L319.5 268" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M465.5 8L465.5 268" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M612.5 8L612.5 268" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M758.5 8L758.5 268" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M905.5 8L905.5 268" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M1051.5 8L1051.5 268" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M1198.5 8L1198.5 268" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M1344.5 8L1344.5 268" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M1491.5 8L1491.5 268" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M1637.5 8L1637.5 268" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M1784.5 8L1784.5 268" fill="none" stroke="#aaa" stroke-dasharray="4,2" class="zr3-cls-2"></path>
+<path d="M26 268.5L1784 268.5" fill="none" stroke="#eee" stroke-linecap="round" class="zr3-cls-2"></path>
+<path d="M26.5 268L26.5 273" fill="none" stroke="#eee" class="zr3-cls-2"></path>
+<path d="M172.5 268L172.5 273" fill="none" stroke="#eee" class="zr3-cls-2"></path>
+<path d="M319.5 268L319.5 273" fill="none" stroke="#eee" class="zr3-cls-2"></path>
+<path d="M465.5 268L465.5 273" fill="none" stroke="#eee" class="zr3-cls-2"></path>
+<path d="M612.5 268L612.5 273" fill="none" stroke="#eee" class="zr3-cls-2"></path>
+<path d="M758.5 268L758.5 273" fill="none" stroke="#eee" class="zr3-cls-2"></path>
+<path d="M905.5 268L905.5 273" fill="none" stroke="#eee" class="zr3-cls-2"></path>
+<path d="M1051.5 268L1051.5 273" fill="none" stroke="#eee" class="zr3-cls-2"></path>
+<path d="M1198.5 268L1198.5 273" fill="none" stroke="#eee" class="zr3-cls-2"></path>
+<path d="M1344.5 268L1344.5 273" fill="none" stroke="#eee" class="zr3-cls-2"></path>
+<path d="M1491.5 268L1491.5 273" fill="none" stroke="#eee" class="zr3-cls-2"></path>
+<path d="M1637.5 268L1637.5 273" fill="none" stroke="#eee" class="zr3-cls-2"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(18 268)" fill="#eee">2</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(18 229)" fill="#eee">5</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(18 164)" fill="#eee">10</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(18 99)" fill="#eee">15</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(18 34)" fill="#eee">20</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" transform="translate(18 8)" fill="#eee">22</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px sans-serif" y="4.5" transform="translate(172.5 276)" fill="#eee">04:00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px sans-serif" y="4.5" transform="translate(319 276)" fill="#eee">08:00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px sans-serif" y="4.5" transform="translate(465.5 276)" fill="#eee">12:00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px sans-serif" y="4.5" transform="translate(612 276)" fill="#eee">16:00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px sans-serif" y="4.5" transform="translate(758.5 276)" fill="#eee">20:00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px sans-serif" y="4.5" transform="translate(1051.5 276)" fill="#eee">04:00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px sans-serif" y="4.5" transform="translate(1198 276)" fill="#eee">08:00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px sans-serif" y="4.5" transform="translate(1344.5 276)" fill="#eee">12:00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px sans-serif" y="4.5" transform="translate(1491 276)" fill="#eee">16:00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px sans-serif" y="4.5" transform="translate(1637.5 276)" fill="#eee">20:00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px sans-serif" x="-3.333984375" y="4.5" transform="translate(26 276)" fill="#eee">00:00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" x="15.0146484375" y="4.5" transform="translate(26 276)" fill="#eee" fill-opacity="0">..</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;font-weight:bold;" y="13.5" transform="translate(26 276)" fill="#eee">12.05.</text>
+<text dominant-baseline="central" text-anchor="middle" style="font: normal normal 12px sans-serif" x="-3.333984375" y="4.5" transform="translate(905 276)" fill="#eee">00:00</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" x="15.0146484375" y="4.5" transform="translate(905 276)" fill="#eee" fill-opacity="0">..</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;font-weight:bold;" y="13.5" transform="translate(905 276)" fill="#eee">13.05.</text>
+<g clip-path="url(#zr3-c0)">
+<path d="M26 154.653L35.1563 154.653L35.1563 160.854L44.3125 160.854L44.3125 166.236L53.4688 166.236L53.4688 171.228L62.625 171.228L62.625 163.051L71.7813 163.051L71.7813 168.68L80.9375 168.68L80.9375 169.46L90.0938 169.46L99.25 168.992L99.25 169.863L108.4063 169.863L108.4063 173.074L117.5625 173.074L117.5625 169.629L126.7188 169.629L126.7188 164.338L135.875 164.338L135.875 170.656L145.0313 170.656L145.0313 169.512L154.1875 169.512L163.3438 169.928L163.3438 178.222L172.5 178.222L172.5 180.653L181.6563 180.653L181.6563 174.634L190.8125 174.634L190.8125 170.513L199.9688 170.513L199.9688 155.329L209.125 155.329L209.125 173.958L218.2813 173.958L218.2813 168.797L227.4375 168.797L227.4375 158.202L236.5938 158.202L236.5938 152.729L245.75 152.729L245.75 156.434L254.9063 156.434L254.9063 144.643L264.0625 144.643L264.0625 140.067L273.2188 140.067L273.2188 137.415L282.375 137.415L282.375 128.692L291.5313 128.692L291.5313 131.487L300.6875 131.487L300.6875 134.295L309.8438 134.295L309.8438 141.9L319 141.9L319 131.435L328.1563 131.435L328.1563 140.6L337.3125 140.6L337.3125 152.911L346.4688 152.911L346.4688 167.9L355.625 167.9L355.625 152.911L364.7813 152.911L364.7813 164L373.9375 164L373.9375 173.386L383.0938 173.386L383.0938 196.513L392.25 196.513L392.25 158.228L401.4063 158.228L401.4063 176.311L410.5625 176.311L410.5625 185.008L419.7188 185.008L419.7188 212.464L428.875 212.464L428.875 190.078L438.0313 190.078L438.0313 171.956L447.1875 171.956L447.1875 179.288L456.3438 179.288L456.3438 187.14L465.5 187.14L465.5 209.877L474.6563 209.877L474.6563 228.142L483.8125 228.142L483.8125 238.152L492.9688 238.152L502.125 238.152L502.125 214.648L511.2813 214.648L511.2813 217.599L520.4375 217.599L520.4375 230.963L529.5938 230.963L529.5938 235.11L538.75 235.11L538.75 233.472L547.9063 233.472L547.9063 223.748L557.0625 223.748L557.0625 216L566.2188 216L566.2188 191.209L575.375 191.209L575.375 211.008L584.5313 211.008L584.5313 190.507L593.6875 190.507L593.6875 171.982L602.8438 171.982L602.8438 144.526L612 144.526L612 200.4L621.1563 200.4L621.1563 171.54L630.3125 171.54L630.3125 166.6L639.4688 166.6L639.4688 144.5L648.625 144.5L648.625 187.075L657.7813 187.075L657.7813 158.072L666.9375 158.072L666.9375 142.212L676.0938 142.212L676.0938 121.334L685.25 121.334L685.25 153.964L694.4063 153.964L694.4063 132.085L703.5625 132.085L703.5625 128.848L712.7188 128.848L712.7188 120.437L721.875 120.437L721.875 127.236L731.0313 127.236L731.0313 118.604L740.1875 118.604L740.1875 106.384L749.3438 106.384L749.3438 87.729L758.5 87.729L758.5 103.42L767.6563 103.42L767.6563 96.608L776.8125 96.608L776.8125 93.371L785.9688 93.371L785.9688 100.508L795.125 100.508L795.125 87.599L804.2813 87.599L804.2813 98.662L813.4375 98.662L813.4375 110.817L822.5938 110.817L822.5938 116.407L831.75 116.407L831.75 110.206L840.9063 110.206L840.9063 118.604L850.0625 118.604L850.0625 122.595L859.2188 122.595L859.2188 127.977L868.375 127.977L868.375 121.906L877.5313 121.906L877.5313 132.761L886.6875 132.761L886.6875 139.495L895.8438 139.495L895.8438 147.789L905 147.789L905 119.423L914.1563 119.423L914.1563 135.764L923.3125 135.764L923.3125 143.668L932.4688 143.668L932.4688 149.83L941.625 149.83L941.625 146.58L950.7813 146.58L950.7813 153.782L959.9375 153.782L969.0938 153.886L969.0938 154.666L978.25 154.666L987.4063 154.523L987.4063 155.303L996.5625 155.303L996.5625 150.22L1005.7188 150.22L1005.7188 148.192L1014.875 148.192L1014.875 149.232L1024.0313 149.232L1024.0313 145.423L1033.1875 145.423L1033.1875 139.261L1042.3438 139.261L1051.5 139.469L1051.5 145.865L1060.6563 145.865L1060.6563 137.597L1069.8125 137.597L1069.8125 134.997L1078.9688 134.997L1078.9688 130.408L1088.125 130.408L1088.125 143.291L1097.2813 143.291L1097.2813 133.307L1106.4375 133.307L1106.4375 117.941L1115.5938 117.941L1115.5938 107.84L1124.75 107.84L1124.75 114.301L1133.9063 114.301L1133.9063 101.795L1143.0625 101.795L1152.2188 101.99L1161.375 102.055L1161.375 100.3L1170.5313 100.3L1170.5313 102.172L1179.6875 102.172L1179.6875 99.286L1188.8438 99.286L1188.8438 111.883L1198 111.883L1198 100.612L1207.1563 100.612L1207.1563 115.835L1216.3125 115.835L1216.3125 127.236L1225.4688 127.236L1225.4688 148.998L1234.625 148.998L1234.625 123.804L1243.7813 123.804L1243.7813 151.052L1252.9375 151.052L1252.9375 155.004L1262.0938 155.004L1262.0938 170.188L1271.25 170.188L1271.25 154.835L1280.4063 154.835L1280.4063 166.821L1289.5625 166.821L1298.7188 166.197L1298.7188 185.866L1307.875 185.866L1307.875 165.053L1317.0313 165.053L1317.0313 175.895L1326.1875 175.895L1335.3438 175.999L1335.3438 180.224L1344.5 180.224L1344.5 179.093L1353.6563 179.093L1353.6563 186.581L1362.8125 186.581L1362.8125 193.978L1371.9688 193.978L1371.9688 199.139L1381.125 199.139L1381.125 188.999L1390.2813 188.999L1390.2813 190L1399.4375 190L1399.4375 191.43L1408.5938 191.43L1408.5938 198.216L1417.75 198.216L1417.75 202.688L1426.9063 202.688L1426.9063 199.243L1436.0625 199.243L1436.0625 190.377L1445.2188 190.377L1445.2188 183.058L1454.375 183.058L1454.375 195.824L1463.5313 195.824L1463.5313 184.202L1472.6875 184.202L1472.6875 172.489L1481.8438 172.489L1481.8438 156.239L1491 156.239L1491 186.373L1500.1563 186.373L1500.1563 168.901L1509.3125 168.901L1509.3125 158.566L1518.4688 158.566L1518.4688 137.285L1527.625 137.285L1527.625 158.553L1536.7813 158.553L1536.7813 142.043L1545.9375 142.043L1545.9375 118.929L1555.0938 118.929L1555.0938 104.629L1564.25 104.629L1564.25 129.836L1573.4063 129.836L1573.4063 111.857L1582.5625 111.857L1582.5625 100.976L1591.7188 100.976L1591.7188 85.129L1600.875 85.129L1600.875 109.387L1610.0313 109.387L1610.0313 93.332L1619.1875 93.332L1619.1875 79.994L1628.3438 79.994L1628.3438 45.57L1637.5 45.57L1637.5 68.112L1646.6563 68.112L1646.6563 57.517L1655.8125 57.517L1655.8125 45.024L1664.9688 45.024L1664.9688 49.73L1674.125 49.73L1674.125 32.297L1683.2813 32.297L1683.2813 70.751L1692.4375 70.751L1692.4375 85.701L1701.5938 85.701L1701.5938 101.808L1710.75 101.808L1710.75 76.731L1719.9063 76.731L1719.9063 98.207L1729.0625 98.207L1729.0625 111.155L1738.2188 111.155L1738.2188 110.271L1747.375 110.271L1747.375 107.84L1756.5313 107.84L1756.5313 116.992L1765.6875 116.992L1765.6875 130.018L1774.8438 130.018L1774.8438 136.726L1784 136.726" fill="none" stroke="#458c6b" stroke-width="2" stroke-linejoin="bevel" class="zr3-cls-2"></path>
+</g>
+<path d="M-5 -5l134.3633 0l0 21.2l-134.3633 0Z" transform="translate(1653.6367 15)" fill="none" stroke="#b7b9be" stroke-width="0" class="zr3-cls-2"></path>
+<path d="M0 7L25 7" transform="translate(1654.6367 13.6)" fill="#000" stroke="#458c6b" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr3-cls-2"></path>
+<path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.9994" transform="translate(1654.6367 13.6)" fill="#458c6b" class="zr3-cls-2"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" x="30" y="7" transform="translate(1654.6367 13.6)" fill="#FFF">JSON Chart Data</text>
+<path d="M-1 1.4l124.3633 0l0 11.2l-124.3633 0Z" transform="translate(1654.6367 13.6)" fill="none" class="zr3-cls-3"></path>
+<defs >
+<clipPath id="zr3-c0">
+<path d="M25 7l1760 0l0 262l-1760 0Z" fill="#000" class="zr3-cls-2"></path>
+</clipPath>
+</defs>
+<style ><![CDATA[
+.zr3-cls-2:hover {
+pointer-events:none;
+}
+.zr3-cls-3:hover {
+cursor:pointer;
+fill:rgba(0,0,0,0);
+}
+
+]]>
+
+</style>
+</svg>

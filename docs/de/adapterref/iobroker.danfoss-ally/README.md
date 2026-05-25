@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.danfoss-ally/README.md
 title: kein Titel
-hash: D2tYzgZDtgkSwZNZNyfO3YdbP0JbkkOG3DPUDdcmuC0=
+hash: x8WosFEER+yJnraUu8Zd7H0Cm9C7yURg4hhJSh9InnQ=
 ---
-![Version](https://img.shields.io/badge/version-0.2.16-blue)
+![Version](https://img.shields.io/badge/version-0.2.18-blue)
 ![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 Cloud-Adapter für **Danfoss Ally™** – mit **OAuth2 (Client-Anmeldeinformationen)**. Liest Temperatur-, Feuchtigkeits-, Ventilpositions- und Akkudaten aller Geräte in Ihrem Ally-Konto und ermöglicht gezielte Einzelzugriffe ohne erzwungene Modusänderungen oder verkettete Sequenzen.
@@ -130,9 +130,8 @@ Alle numerischen Werte werden automatisch von ×0,1 → °C/ %s kaliert.
 
 ---
 
-## Schreiben (Einzelbefehle)
-Der Adapter unterstützt **präzise Einzelschreibvorgänge** in jeden steuerbaren Zustand ohne Verkettung oder automatische Moduswechsel.
-
+## Schreiben
+Der Adapter unterstützt **gezielte Schreibvorgänge** in jeden steuerbaren Zustand ohne automatische Moduswechsel.
 Dadurch haben Sie die volle Kontrolle in Blockly, JavaScript oder benutzerdefinierten Logikskripten.
 
 | Schreibbarer Zustand | Erwarteter Wert / Verhalten |
@@ -262,11 +261,13 @@ Der Adapter kommuniziert mit der Danfoss Ally Cloud API (Basis-URL konfigurierba
 ---
 
 ## Schreibt
-- Standardmäßig werden einzelne Schreibvorgänge ausgeführt; `temp_set` versucht zuerst einen kombinierten `SetpointChangeSource` + `temp_set`-Befehl.
+- `temp_set` versucht zunächst einen kombinierten Befehl `SetpointChangeSource` + `temp_set` auszuführen.
+- Auch Ally-TRVs erhalten `manual_mode_fast`, wenn der Datenpunkt vorhanden ist, da einige Geräte dort den manuellen Sollwert melden.
 - Modus + Temperatur müssen separat angegeben werden
 Die Werte sind auf zulässige Grenzwerte begrenzt und mit ×10 skaliert.
 - `child_lock`: versucht `0/1`, wiederholt `true/false` bei Fehler 400
 - `SetpointChangeSource`: optional; `temp_set` versucht, Ally-Thermometerventile extern zu setzen.
+- Meldet die Cloud später erneut den alten Sollwert, protokolliert der Adapter eine Warnung, anstatt ihn stillschweigend zu akzeptieren.
 
 Alle Sende-, Wiederholungs- und Bestätigungsprotokolle werden auf Debug-Ebene angezeigt.
 
@@ -283,6 +284,11 @@ oder über die ioBroker-Entwicklungstools installieren.
 ---
 
 ## Changelog
+
+### 0.2.18
+- Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
+- Added explicit warnings when the Danfoss Cloud does not confirm the requested setpoint
+- Improved device naming/detection for relay-like devices so the Boiler Relay is easier to identify
 
 ### 0.2.17
 - Improved Ally TRV `temp_set` writes by trying `SetpointChangeSource=Externally` and `temp_set` as one combined command first

@@ -1421,6 +1421,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-radar-tr
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-rssfeed/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-sigenergy/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-tibberlink/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-weather-and-heating/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-bars/README.md
@@ -1460,6 +1461,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.wallpanel/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.warp/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.waterkotte-easycon/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.wattcycle/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weather-warnings/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weatherflow-tempest-api/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weatherflow_udp/README.md
@@ -2190,6 +2192,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-radar-tr
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-rssfeed/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-sigenergy/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-tibberlink/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-weather-and-heating/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-bars/README.md
@@ -2229,6 +2232,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.wallpanel/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.warp/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.waterkotte-easycon/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.wattcycle/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weather-warnings/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weatherflow-tempest-api/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weatherflow_udp/README.md
@@ -2959,6 +2963,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-radar-tr
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-rssfeed/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-sigenergy/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-tibberlink/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-weather-and-heating/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-bars/README.md
@@ -2998,6 +3003,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wallpanel/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.warp/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.waterkotte-easycon/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wattcycle/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weather-warnings/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weatherflow-tempest-api/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weatherflow_udp/README.md
@@ -3728,6 +3734,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-radar
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-rssfeed/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-sigenergy/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-tibberlink/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-weather-and-heating/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-bars/README.md
@@ -3767,6 +3774,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wallpanel/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.warp/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.waterkotte-easycon/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wattcycle/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weather-warnings/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weatherflow-tempest-api/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weatherflow_udp/README.md

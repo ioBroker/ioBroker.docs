@@ -136,6 +136,19 @@ As the libraries are shared, any device supported in zigbee2mqtt.io will in time
 Other topics related to this adapter are also documented in the associated [wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki).
 
 ## Changelog
+### 3.4.5 (2026-05-17)
+* Bugfix
+* Wider Webkit scrollbars
+*
+
+### 3.4.4 (2026-05-17)
+* ZH10 ZHC 26.51.0
+* Configurable dynamic UI
+* Configurable read after binding trigger
+* Bugfix in binding creation
+* edit binding button on device tile
+*
+
 ### 3.4.3 (2026-05-08)
 * Dynamic IU setting (2 card sizes)
 * Bugfixes
