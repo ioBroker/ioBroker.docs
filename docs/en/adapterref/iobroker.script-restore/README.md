@@ -75,31 +75,31 @@ The archive is parsed entirely in the browser — no files are written to disk d
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.4 (2026-05-24)
+* (ipod86) add syntax highlighting for JS/TS, Blockly (XML) and Rules (JSON) — pure JS, no external deps
+* (ipod86) fix language detection: read ioBroker system language via adapter (system.config) instead of browser/DOM
+* (ipod86) translate all remaining loader texts (reading file/archive, extracting, loading URL)
+
+### 0.1.3 (2026-05-24)
+* (ipod86) fix language flash: skip socket override when language already detected from admin frame
+* (ipod86) replace all hardcoded status strings with translated t() calls
+* (ipod86) add codeHint translation key in all 11 languages
+
+### 0.1.2 (2026-05-24)
+* (ipod86) add full i18n to tab UI: all strings translated into de/en/fr/es/it/nl/pl/pt/ru/uk/zh-cn
+
+### 0.1.1 (2026-05-24)
+* (ipod86) allow overwriting existing scripts during restore (confirmation dialog with path display)
+* (ipod86) allow empty suffix to restore script under its original name
+* (ipod86) prompt to start script immediately after successful restore
+
 ### 0.1.0 (2026-05-13)
 * (ipod86) drop Node.js 20 support (EOL 2026-04-30), require >= 22
 * (ipod86) fix: move @iobroker/types to production dependencies to fix CI integration test
 * (ipod86) add .npmrc with legacy-peer-deps to resolve peer dependency conflicts
 * (ipod86) update dependencies: webdav, basic-ftp, typescript, @types/node, @iobroker/eslint-config
 
-### 0.0.12 (2026-04-30)
-* (ipod86) add common.singleton to prevent multiple instances
-* (ipod86) complete i18n translations for all supported languages (fr, es, it, nl, pl, pt, ru, uk, zh-cn)
-
-### 0.0.11 (2026-04-13)
-* (ipod86) add type filter (JS/TS/Blockly/Rules) in script sidebar
-* (ipod86) add direct restore into ioBroker with suffix input and confirm modal
-* (ipod86) remove obsolete admin/words.js and .prettierignore
-
-### 0.0.10 (2026-04-08)
-* (ipod86) fix jsonConfig responsive sizes lg/xl for backupPath (E5509)
-* (ipod86) trim news entries to 7 (W1032)
-* (ipod86) add Dependabot npm cooldown of 7 days (W8915)
-
-### 0.0.9 (2026-04-08)
-* (ipod86) fix jsonConfig: add responsive size attributes (E5507)
-* (ipod86) add i18n translation files (W5022)
-* (ipod86) remove outdated index_m.html and style.css (W5047)
-* (ipod86) remove invalid copyToField attribute (W5512)
+Older changelogs are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 MIT License

@@ -677,6 +677,9 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.0.7 (2026-05-24)
+* (Dirk-Peter-md) Added pressure monitoring.
+
 ### 1.0.6 (2026-05-10)
 * (Dirk-Peter-md) Cistern Control Optimized
 * (Dirk-Peter-md) Translation revised
@@ -691,29 +694,3 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 
 ### 1.0.3 (2026-04-25)
 * (Dirk-Peter-md) Pressure relief valve added after irrigation.
-
-### 1.0.2 (2026-04-19)
-* (Dirk-Peter-md) Added times for the irrigation ban
-
-## License
-MIT License
-
-Copyright (c) 2020-2026     Dirk Peter     <dirk.peter@freenet.de>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

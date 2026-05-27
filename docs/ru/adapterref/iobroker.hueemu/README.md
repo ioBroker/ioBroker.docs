@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hueemu/README.md
 title: ioBroker.hueemu
-hash: 1lFEu0gzNuBtT0wR4PYm+iopAZ5XS46ADYOC7Gx6Y+E=
+hash: Xd145W3bYz85XXnCJwE6JxjMJPFQcnQ+1E0ebaCnDRk=
 ---
 # IoBroker.hueemu
 
@@ -16,7 +16,7 @@ hash: 1lFEu0gzNuBtT0wR4PYm+iopAZ5XS46ADYOC7Gx6Y+E=
 ![Ко-фи](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)
 ![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)
 
-<img src="https://raw.githubusercontent.com/krobipd/ioBroker.hueemu/main/admin/hue-emu-logo.png" width="100" />
+<img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="100" />
 
 Эмулирует мост [Philips Hue](https://www.philips-hue.com) (v2, BSB002), благодаря чему устройства ioBroker отображаются как светильники Hue для клиентов, поддерживающих только API Hue.
 
@@ -51,7 +51,7 @@ hash: 1lFEu0gzNuBtT0wR4PYm+iopAZ5XS46ADYOC7Gx6Y+E=
 
 ## Порты
 | Порт | Протокол | Назначение | Настраиваемый |
-|------|----------|---------|--------------|
+| ---- | --------- | ---------------------------- | ----------------------------------- |
 | 8080 | TCP/HTTP | API Hue Bridge | Да — клиенты получают уведомления через SSDP |
 | 1900 | UDP | Обнаружение SSDP/UPnP | Нет — исправлено стандартом UPnP |
 | — | TCP/HTTPS | Дополнительный TLS (если настроен) | Да |
@@ -61,7 +61,7 @@ hash: 1lFEu0gzNuBtT0wR4PYm+iopAZ5XS46ADYOC7Gx6Y+E=
 ## Конфигурация
 ### Сетевые настройки
 | Параметр | Описание | По умолчанию |
-|--------|-------------|---------|
+| --------------- | ------------------------------------------------------------- | ------- |
 | **Хост** | IP-адрес моста (должен быть реальным сетевым IP-адресом) | — |
 | **HTTP-порт** | Порт для API Hue | 8080 |
 | **HTTPS-порт** | Требуется только в том случае, если клиент настаивает на TLS; в противном случае оставьте пустым | — |
@@ -72,11 +72,11 @@ hash: 1lFEu0gzNuBtT0wR4PYm+iopAZ5XS46ADYOC7Gx6Y+E=
 2. Нажмите кнопку «+».
 3. Введите **название** (например, «Светильник в гостиной»).
 4. Выберите **тип освещения**.
-5. Отобразите **штаты** на карте с помощью обозревателя объектов (`...`)
+5. Отображение **штатов** на карте через браузер объектов (`...`)
 
 ### Поддерживаемые типы освещения
 | Тип | Состояния | Модель оттенка |
-|------|--------|-----------|
+| --------------------- | ------------------------------------- | --------- |
 | **Вкл/Выкл** | `on` | LWB007 |
 | **Цветовая температура** | `on`, `bri`, `ct` | LTW001 |
 | **Цветной свет** | `on`, `bri`, `ct`, `hue`, `sat`, `xy` | LCT003 |
@@ -156,28 +156,30 @@ hueemu.0.
 ---
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.4.5 (2026-05-13)
-- Debug log now traces previously silent paths: TLS certificate validity on reuse, every Hue API error response, SSDP discovery answers and device-binding scale decisions. Default log unchanged.
+### 1.5.1 (2026-05-23)
 
-### 1.4.4 (2026-05-10)
-- Brightness and saturation now have an explicit scale option per device, so values stored as 0..100 are no longer misread as full brightness. Existing setups keep working on the default.
+- Changelog rewritten in user-centric style across all versions.
 
-### 1.4.3 (2026-05-10)
-- TLS certificate is now stored and reused across restarts — clients only need to trust it once, and the adapter starts noticeably faster.
-- Paired clients appear in Hue tools that read the bridge whitelist.
-- HTTP API stays reachable even when SSDP port 1900 is already used by another adapter — the log explains how to add the bridge by IP.
-- "Disable Auth" now reliably keeps its value across adapter restarts.
-- Pairing window has a safety cap so a noisy network can't flood the bridge with new clients.
+### 1.5.0 (2026-05-22)
 
-### 1.4.2 (2026-05-09)
-- Adapter log messages are now English only, in line with the ioBroker community standard. Localized state names are unchanged.
+- User-modified state names are no longer overwritten on adapter restart
 
-### 1.4.1 (2026-05-07)
-- Internal hardening. No user-facing changes.
+### 1.4.9 (2026-05-21)
+
+- Improved error handling and stability.
+
+### 1.4.8 (2026-05-20)
+
+- Improved security: TLS private key is no longer visible in the admin interface.
+
+### 1.4.7 (2026-05-19)
+
+- TLS private key is now encrypted at rest in the ioBroker object database.
 
 Older entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 

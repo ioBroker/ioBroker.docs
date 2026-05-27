@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.autodarts/README.md
-title: 无标题
-hash: RWoaggK0UrH75aAvOtIv8j7fdEFI9RfEQPr3VKfKwxc=
+title: 适用于 AUTODARTS 的 ioBroker 适配器
+hash: sC7toOO/mx3ZUxeUm2mtGLcGmrmRcJ52AVzuKl95LCs=
 ---
 ![标识](../../../en/adapterref/iobroker.autodarts/admin/autodarts.svg)
 
@@ -11,9 +11,14 @@ hash: RWoaggK0UrH75aAvOtIv8j7fdEFI9RfEQPr3VKfKwxc=
 ![稳定仓库中的当前版本](https://iobroker.live/badges/autodarts-stable.svg)
 ![NPM 版本](https://nodei.co/npm/iobroker.autodarts.svg?style=shields&data=v,u,d&color=orange)
 ![下载](https://img.shields.io/npm/dm/iobroker.autodarts.svg)
+![社区](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)
+![维护者](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)
+![人工智能](https://img.shields.io/badge/ai%20assisted-copilot-blue.svg)
 ![PayPal捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
-## Autodarts 集成适配器
+# 适用于 AUTODARTS 的 ioBroker 适配器
+---
+
 ## 此适配器的功能
 连接到本地 Autodarts 棋盘管理器（通过 IP 和端口，例如 `192.168.x.x:3180`），并公开 ioBroker 状态以进行家庭自动化：
 
@@ -74,7 +79,7 @@ hash: RWoaggK0UrH75aAvOtIv8j7fdEFI9RfEQPr3VKfKwxc=
 ![配置截图](../../../en/adapterref/iobroker.autodarts/docs/config-screenshot.png)
 
 ### 适配器设置分为四个选项卡：**选项**、**映射**、**工具插件集成**和**帮助和常见问题解答**。
-### 选项卡：选项
+### 标签页：选项
 在**选项**中，您可以配置适配器如何连接到本地 Autodarts 棋盘管理器以及轮询数据的频率：
 
 - **董事会管理 IP**
@@ -85,7 +90,7 @@ hash: RWoaggK0UrH75aAvOtIv8j7fdEFI9RfEQPr3VKfKwxc=
 
 板级管理器的 TCP 端口（通常为 `3180`）。
 
-- **三连发范围**
+- **三重触发范围**
 
 两个下拉菜单用于定义 `trigger.isTriple` 应考虑的**最小**和**最大**字段编号（1-20）。
 
@@ -137,6 +142,15 @@ hash: RWoaggK0UrH75aAvOtIv8j7fdEFI9RfEQPr3VKfKwxc=
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 1.0.9 (2026-05-25)
+- (skvarel) Adapter requires node.js >= 22 now
+- (skvarel) Updated @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)
+- (skvarel) Downgraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)
+
+### 1.0.8 (2026-04-13)
+- (skvarel) Removed react and mui
+- (skvarel) Removed admin/style.css
+
 ### 1.0.7 (2026-03-01)
 - (skvarel) CI/CD: Updated GitHub Copilot instructions template to version 0.5.7 with latest ioBroker best practices (fixes #21, #25)
 
@@ -145,14 +159,6 @@ hash: RWoaggK0UrH75aAvOtIv8j7fdEFI9RfEQPr3VKfKwxc=
 
 ### 1.0.5 (2026-02-28)
 - (skvarel) FIXED: Updated outdated dependencies - release-script packages to v5.1.x and admin globalDependency to v7.6.20 (fixes #23)
-
-### 1.0.4 (2026-01-24)
-- (skvarel) FIXED: Reverted to setState() from deprecated setStateAsync()
-
-### 1.0.3 (2026-01-21)
-- (copilot) FIXED: Use setStateAsync() instead of setState() for trigger resets in throw.js to ensure database reliability
-- (copilot) ENHANCED: Corrected API endpoints in copilot-instructions.md - now documents /api/state, /api/config, /api/host, /api/version correctly
-- (copilot) TESTING: Added comprehensive unit tests for core modules (throw, visit, config, trafficLight, httpHelper)
 
 ## License
 MIT License

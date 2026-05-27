@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nextcloud-monitoring/README.md
 title: ioBroker.nextcloud-Überwachung
-hash: lZ19bv8ndAFfOdaXAwuD5/7NuAno3peM4nX/N6sJmgo=
+hash: 20f/WtVfmJH6wIgym2GH28wiX1w8XXxMj0OW8hETglI=
 ---
 ![Logo](../../../en/adapterref/iobroker.nextcloud-monitoring/admin/nextcloud_monitoring.png)
 
@@ -20,7 +20,6 @@ hash: lZ19bv8ndAFfOdaXAwuD5/7NuAno3peM4nX/N6sJmgo=
 
 Ich nutze meinen eigenen Sentry-Server, der auf Glitchtip basiert.
 
-# Nextcloud-Monitoring-Adapter für ioBroker
 ---
 
 ## Beschreibung
@@ -54,7 +53,7 @@ Dieser Adapter ermöglicht die detaillierte Überwachung Ihrer Nextcloud-Instanz
 
 ---
 
-# Anleitung: Token erstellen und festlegen
+## Anleitung: Token erstellen und festlegen
 Für den Zugriff auf die `serverinfo`-API ist ein gültiges API-Token erforderlich. Dieses Token muss direkt in der Nextcloud-Konfiguration gespeichert werden.
 
 ### Token generieren (Linux / Windows)
@@ -74,7 +73,7 @@ Alternativ können Sie Online-Tools wie beispielsweise verwenden
 
 [it-tools.tech/token-generator](https://it-tools.tech/token-generator).*
 
-# Token in Nextcloud festlegen
+## Token in Nextcloud festlegen
 **Beispiel für Linux (Standardpfad) im Terminal:**
 
 ```bash
@@ -90,10 +89,10 @@ sudo -u www-data php occ config:app:set serverinfo token --value YOUR_GENERATED_
 **Wenn Sie Nextcloud in einem Webspace oder bei einem anderen Anbieter nutzen, benötigen Sie in der Regel kein sudo. Führen Sie einfach Folgendes aus:**
 
 ```bash
-#Directly in your Nextcloudfolder
+Directly in your Nextcloudfolder
 hp occ config:app:set serverinfo token --value YOUR_GENERATED_TOKEN
 
- Or with path
+Or with path
 hp /path_to/your/nextcloud_folder/occ config:app:set serverinfo token --value YOUR_GENERATED_TOKEN
 ``
 
@@ -113,7 +112,7 @@ Befehl für Windows (PowerShell/CMD): Navigieren Sie zu Ihrem Nextcloud-Verzeich
 | `activeUsers.last5min` | Benutzer, die in den letzten 5 Minuten aktiv waren | Anzahl |
 | `activeUsers.last5min` | Benutzer, die in den letzten 5 Minuten aktiv waren | Anzahl |
 
-# Fehlerbehebung (FAQ)
+## Fehlerbehebung (FAQ)
 ### Ungültige Domäne: Geben Sie die Domäne ohne Protokoll ein.
 Korrekt: mycloud.com oder mycloud.com/folder
 

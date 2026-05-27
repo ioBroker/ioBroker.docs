@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hueemu/README.md
 title: ioBroker.hueemu
-hash: 1lFEu0gzNuBtT0wR4PYm+iopAZ5XS46ADYOC7Gx6Y+E=
+hash: Xd145W3bYz85XXnCJwE6JxjMJPFQcnQ+1E0ebaCnDRk=
 ---
 # IoBroker.hueemu
 
@@ -16,7 +16,7 @@ hash: 1lFEu0gzNuBtT0wR4PYm+iopAZ5XS46ADYOC7Gx6Y+E=
 ![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)
 ![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)
 
-<img src="https://raw.githubusercontent.com/krobipd/ioBroker.hueemu/main/admin/hue-emu-logo.png" width="100" />
+<img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="100" />
 
 模拟 [飞利浦 Hue](https://www.philips-hue.com) 桥接器（v2，BSB002），以便 ioBroker 设备对于仅支持 Hue API 的客户端来说，看起来像 Hue 灯。
 
@@ -51,7 +51,7 @@ hash: 1lFEu0gzNuBtT0wR4PYm+iopAZ5XS46ADYOC7Gx6Y+E=
 
 端口
 | 端口 | 协议 | 用途 | 可配置 |
-|------|----------|---------|--------------|
+| ---- | --------- | ---------------------------- | ----------------------------------- |
 | 8080 | TCP/HTTP | Hue Bridge API | 是 — 通过 SSDP 通知客户端 |
 | 1900 | UDP | SSDP/UPnP 发现 | 否 — 由 UPnP 标准修复 |
 | — | TCP/HTTPS | 可选 TLS（如果已配置） | 是 |
@@ -61,7 +61,7 @@ hash: 1lFEu0gzNuBtT0wR4PYm+iopAZ5XS46ADYOC7Gx6Y+E=
 ＃＃ 配置
 ### 网络设置
 | 选项 | 描述 | 默认值 |
-|--------|-------------|---------|
+| --------------- | ------------------------------------------------------------- | ------- |
 | **主机** | 网桥的 IP 地址（必须是真实的网络 IP 地址） | — |
 | **HTTP 端口** | Hue API 端口 | 8080 |
 | **HTTPS 端口** | 仅当客户端坚持使用 TLS 时才需要；否则留空 | — |
@@ -76,7 +76,7 @@ hash: 1lFEu0gzNuBtT0wR4PYm+iopAZ5XS46ADYOC7Gx6Y+E=
 
 ### 支持的灯光类型
 | 类型 | 状态 | 色调模型 |
-|------|--------|-----------|
+| --------------------- | ------------------------------------- | --------- |
 | **开/关** | `on` | LWB007 |
 | **色温** | `on`, `bri`, `ct` | LTW001 |
 | **彩色灯光** | `on`, `bri`, `ct`, `hue`, `sat`, `xy` | LCT003 |
@@ -156,28 +156,30 @@ hueemu.0.
 ---
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.4.5 (2026-05-13)
-- Debug log now traces previously silent paths: TLS certificate validity on reuse, every Hue API error response, SSDP discovery answers and device-binding scale decisions. Default log unchanged.
+### 1.5.1 (2026-05-23)
 
-### 1.4.4 (2026-05-10)
-- Brightness and saturation now have an explicit scale option per device, so values stored as 0..100 are no longer misread as full brightness. Existing setups keep working on the default.
+- Changelog rewritten in user-centric style across all versions.
 
-### 1.4.3 (2026-05-10)
-- TLS certificate is now stored and reused across restarts — clients only need to trust it once, and the adapter starts noticeably faster.
-- Paired clients appear in Hue tools that read the bridge whitelist.
-- HTTP API stays reachable even when SSDP port 1900 is already used by another adapter — the log explains how to add the bridge by IP.
-- "Disable Auth" now reliably keeps its value across adapter restarts.
-- Pairing window has a safety cap so a noisy network can't flood the bridge with new clients.
+### 1.5.0 (2026-05-22)
 
-### 1.4.2 (2026-05-09)
-- Adapter log messages are now English only, in line with the ioBroker community standard. Localized state names are unchanged.
+- User-modified state names are no longer overwritten on adapter restart
 
-### 1.4.1 (2026-05-07)
-- Internal hardening. No user-facing changes.
+### 1.4.9 (2026-05-21)
+
+- Improved error handling and stability.
+
+### 1.4.8 (2026-05-20)
+
+- Improved security: TLS private key is no longer visible in the admin interface.
+
+### 1.4.7 (2026-05-19)
+
+- TLS private key is now encrypted at rest in the ioBroker object database.
 
 Older entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 

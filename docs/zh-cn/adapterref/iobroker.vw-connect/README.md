@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: W9u6o46PEaAWh9EsWC9acTK0ulg5j9OupQzSHe06Tgo=
+hash: R1AfOdc+Qb9x6Naq0ZvD4ncPquNe3JcqdQLzvHqzDi4=
 ---
 ![标识](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -39,6 +39,9 @@ hash: W9u6o46PEaAWh9EsWC9acTK0ulg5j9OupQzSHe06Tgo=
 ```
 
 ```
+
+### 0.8.5 (2026-05-24)
+- 修复 Cupra
 
 ### 0.8.4 (2026-05-14)
 - 禁用斯柯达 MQTT
@@ -92,7 +95,7 @@ hash: W9u6o46PEaAWh9EsWC9acTK0ulg5j9OupQzSHe06Tgo=
 - 修复斯柯达登录问题
 
 ### 0.6.0 (2024-04-11)
-- 添加额外的 Cupra 状态
+- 添加额外的铜矿状态
 
 ### 0.5.4 (2024-03-17)
 - 修复门窗状态

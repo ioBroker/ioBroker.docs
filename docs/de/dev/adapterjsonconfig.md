@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: IJo1FDQe20GLWcgRlZIHS+7cDnM/4kGOhPImbNAjj9M=
+hash: t8JOi4020CFbkeTOeDqlhxoJ8c0FTDD0zY4L4ifJdYg=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -514,7 +514,7 @@ Um dies nutzen zu können, müssen Sie zunächst die OAuth2-Daten (Client-ID, Ge
 
 | Objekt | Beschreibung |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `identifier` | OAuth2-Kennung, wie z. B. `spotify`, `google`, `dropbox`, `microsoft` |
+| `identifier` | OAuth2-Kennung, z. B. `spotify`, `google`, `dropbox`, `microsoft` |
 | `scope` | Optionale Bereiche, durch Leerzeichen getrennt, z. B. `user-read-private user-read-email` |
 | `refreshLabel` | Optionale Schaltflächenbeschriftung zum Aktualisieren des Tokens |
 | `ownClientId` | Optionaler Attributname, unter dem die OAuth-Client-ID des Benutzers gespeichert wird. Falls gesetzt, wird ein Eingabefeld für die Client-ID angezeigt. |
@@ -594,7 +594,7 @@ Zusätzlich können Sie verhindern, dass diese Eigenschaft an andere Adapter als
 | `adapter` | Name des Adapters. Mit dem speziellen Namen `_dataSources` erhalten Sie alle Adapter mit dem Flag `common.getHistory`. |
 | `allowDeactivate` | falls wahr. Die zusätzliche Option "Deaktivieren" wird angezeigt. |
 | `onlyEnabled` | falls wahr. Nur aktivierte Instanzen werden angezeigt. |
-| `long` | Der Wert sieht eher aus wie `system.adapter.ADAPTER.0` und nicht wie `ADAPTER.0` |
+| `long` | Der Wert sieht aus wie `system.adapter.ADAPTER.0` und nicht wie `ADAPTER.0` |
 | `short` | Der Wert sieht aus wie `0` und nicht wie `ADAPTER.0` |
 | `all` | Füge der Option "all" den Wert `*` hinzu |
 | `all` | Füge der Optionsliste die Option "all" mit dem Wert `*` hinzu. |
@@ -636,7 +636,7 @@ Schaltfläche, die eine Anfrage an die aktuelle Instanz sendet (<https://github.
 | `error` | `{error1: {en: 'E'}, error2: {en: 'E2'}}` |
 | `variant` | `contained`, `outlined` oder nichts. Variante der Schaltfläche. |
 | `openUrl` | Wenn wahr - URL in neuem Tab öffnen, falls die Antwort das Attribut `openUrl` enthält, wie z. B. `{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
-| `reloadBrowser` | Falls wahr - lade das aktuelle Browserfenster neu, falls die Antwort das Attribut `reloadBrowser` enthält, z. B. `{"reloadBrowser": true}`. |
+| `reloadBrowser` | Wenn wahr - lade das aktuelle Browserfenster neu, falls die Antwort das Attribut `reloadBrowser` enthält, z. B. `{"reloadBrowser": true}`. |
 | `window` | Wenn `openUrl` wahr ist, ist dies der Name des neuen Fensters. Kann überschrieben werden, wenn die Antwort das Attribut `window` enthält. `this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
 | `icon` | Falls ein Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können Symbole der Kategorie `base64` (wie `data:image/svg+xml;base64,...`) oder Bilder der Kategorie `jpg/png` (endet mit `.png`) verwenden. (Bitte melden Sie weitere Symbole über ein Issue an.) |
 | `useNative` | Wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird dieses für die Konfiguration verwendet. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
@@ -1210,12 +1210,12 @@ Spezielle Eingabe für Ports. Es prüft automatisch, ob der Port von anderen Ins
 | `trueText` | Dieser Text wird angezeigt, wenn der Wert wahr ist |
 | `trueTextStyle` | Textstil, wenn der Wert wahr ist |
 | `falseText` | Dieser Text wird angezeigt, wenn der Wert falsch ist oder wenn es sich bei dem Steuerelement um eine Schaltfläche handelt. |
-| `falseTextStyle` | Textstil, wenn der Wert „false“ ist oder wenn es sich bei dem Steuerelement um eine „Schaltfläche“ handelt |
+| `falseTextStyle` | Textstil, wenn der Wert falsch ist oder wenn das Steuerelement eine "Schaltfläche" ist |
 | `trueImage` | Dieses Bild wird angezeigt, wenn der Wert wahr ist |
 | `falseImage` | Dieses Bild wird angezeigt, wenn der Wert falsch ist oder wenn es sich bei dem Steuerelement um eine Schaltfläche handelt. |
 | `min` | Minimalwert für Schieberegler oder Zahl |
 | `max` | Maximalwert für Schieberegler oder Zahl |
-| `step` | Schrittwert für Schieberegler oder Zahl |
+| `step` | Schrittwert für Steuerelementtyp Schieberegler oder Zahl |
 | `controlDelay` | Verzögerung in ms für Schieberegler oder Zahl |
 | `variant` | Varianten der Schaltfläche: `contained`, `outlined`, `text` |
 | `readOnly` | Legt fest, ob das Steuerelement schreibgeschützt ist |
@@ -1338,7 +1338,7 @@ Dies kann beispielsweise mit den Web Developer Tools getestet werden, die in jed
 
 Schritt 1: Öffnen Sie die Webentwicklertools mit F12
 
-Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1)
+Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1).
 
 Schritt 3: Verschiedene Geräte auswählen (2)
 
@@ -1484,6 +1484,7 @@ const func = new Function(
   'globalData',    // filled only by table and represents the obj.native or obj.common.custom['adapter.X'] object
   '_changed',      // indicator if some data was changed and must be saved
   '_href',         // Current browser href
+  'getObject',     // You can call `await getObject(data.id)`in hidden, disabled, pattern functions
   myValidator.includes('return') ? myValidator : 'return ' + myValidator); // e.g. "_alive === true"
 
 const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, this.props.socket);
@@ -1677,6 +1678,12 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 8.4.3 (2026-05-24)
+- (@GermanBluefox) Optimization of interfaces
+
+### 8.4.1 (2026-05-19)
+- (@GermanBluefox) Allowed to use `await getObject(data.oid)?.common?.type === 'boolean'` in hidden, pattern or disabled
+
 ### 8.3.13 (2026-05-16)
 - (@GermanBluefox) Added `_href` to `jsonData`
 

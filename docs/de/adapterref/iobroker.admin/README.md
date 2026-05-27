@@ -124,6 +124,9 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 7.8.27 (2026-05-25)
+- (@GermanBluefox) Updated packages
+
 ### 7.8.25 (2026-05-16)
 - (@GermanBluefox) Extended JSON config for frigate adapter
 
@@ -136,9 +139,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 
 ### 7.8.20 (2026-03-30)
 - (@GermanBluefox) Improved the device manager
-
-### 7.8.9 (2026-03-25)
-- (@GermanBluefox) Added in JsonConfig OAuth2 process for Spotify
 
 ## License
 

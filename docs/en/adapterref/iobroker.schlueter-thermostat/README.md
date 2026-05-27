@@ -111,6 +111,16 @@ flowchart TB
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.3 (2026-05-25)
+* (copilot) Fixes for Repo Checker
+
+### 0.7.2 (2026-05-23)
+* (copilot) Add Icons for Notifications
+
+### 0.7.1 (2026-05-21)
+* (copilot) Modify notification manager to work with instances
+* (copilot) Update Dependencies
+
 ### 0.7.0 (2026-05-14)
 
 - (claude) Add Notification Manager
@@ -119,26 +129,7 @@ flowchart TB
 
 - (patricknitsch) Update Icon and Online State automatically when Folder exists
 
-### 0.6.2 (2026-05-14)
-
-- (patricknitsch) Fix Header Style when Device is offline
-- (patricknitsch) Add Icon and Online State on each Thermostat
-- (patricknitsch) Update Readme and Doc
-
-### 0.6.1 (2026-05-09)
-
-- (patricknitsch) Add Measurement in DM Info
-- (patricknitsch) Update Admin Dependency >= 7.6.23 for Device Manager
-- First Important Note: From 0.5.3 to 0.6.X the Sensor Overview is removed but visible. Thats a Bug from js-controller and should be fixed with 7.1.3
-- Second Important Note: If you come from 0.5.3 you'll need to re-enter your API key because of removed Encryption. Use from Doc.
-
-### 0.6.0 (2026-05-08)
-
-- (copilot) Integrate Adapter in ioBroker Device Manager
-- (copilot) Remove Tab
-- (patricknitsch) Removed Encryption and Protection from Api-Key because it's a global key --> fill in ApiKey again after Update
-
-##
+Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).##
 
 ## License
 

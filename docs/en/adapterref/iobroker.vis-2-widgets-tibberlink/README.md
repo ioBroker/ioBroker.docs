@@ -95,8 +95,11 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 | `tib_darkmode` | `true` | Dark (default) or light theme |
 
 ## Changelog
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 0.4.7 (2026-05-27)
+* (ssbingo) Add prettier.config.mjs; fix code style to single quotes throughout
+
+### 0.4.6 (2026-05-27)
+* (ssbingo) Add ESLint config and lint script; update Node.js to 24; fix Dependabot for @types/node
 
 ### 0.4.5 (2026-04-29)
 * (ssbingo) Fix common.news to remove unpublished versions; fix Dependabot config for src-widgets

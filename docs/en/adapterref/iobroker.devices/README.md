@@ -131,6 +131,9 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.2 (2026-05-20)
+* (@GermanBluefox) Extended universal widget
+
 ### 2.1.0 (2026-05-17)
 * (@GermanBluefox) Corrected dragging of widgets
 

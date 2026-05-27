@@ -169,6 +169,7 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (mcm1957) Dependencies have been updated.
 

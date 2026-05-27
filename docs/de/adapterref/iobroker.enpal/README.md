@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.enpal/README.md
-title: kein Titel
-hash: Z/fJiETQ5VqCX4KIfrkSyJ3B4W4iZQuwv37BWa5LOJU=
+title: ioBroker-Adapter für Enpal Solar
+hash: U1UL37z/jw57Kjlw8P0I1GSoBLOv+qUeK1GQW7d5i9w=
 ---
 ![Logo](../../../en/adapterref/iobroker.enpal/admin/enpal_logo.svg)
 
@@ -11,9 +11,14 @@ hash: Z/fJiETQ5VqCX4KIfrkSyJ3B4W4iZQuwv37BWa5LOJU=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/enpal-stable.svg)
 ![NPM-Version](https://nodei.co/npm/iobroker.enpal.svg?style=shields&data=v,u,d&color=orange)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.enpal.svg)
+![GEMEINSCHAFT](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)
+![WARTUNGSKRAFT](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)
+![KI](https://img.shields.io/badge/ai%20assisted-copilot-blue.svg)
 ![PayPal-Spende](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
-## IoBroker-Adapter für Enpal Solar
+# IoBroker-Adapter für Enpal Solar
+---
+
 ## Was dieser Adapter bewirkt
 Liest Energiedaten von der lokalen InfluxDB 2.x-Instanz, die von Enpal Solar Systems bereitgestellt wird, und stellt ioBroker-Zustände für die Hausautomation bereit:
 
@@ -77,8 +82,9 @@ Es werden keine externen Server kontaktiert.
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.2.1 (2026-05-25)
 - (skvarel) Added link to CHANGELOG_OLD.md at readme 
+- (skvarel) Updated @alcalzone/release-script and related plugins
 
 ### 0.2.0 (2026-04-06)
 - (skvarel) Updated minimum Node.js version requirement to >=22
@@ -92,9 +98,6 @@ Es werden keine externen Server kontaktiert.
 
 ### 0.1.8 (2026-04-04)
 - (skvarel) Fixed display of unit "None" in data points - now hidden for cleaner UI
-
-### 0.1.7 (2026-04-04)
-- (skvarel) Title and description edited
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: W9u6o46PEaAWh9EsWC9acTK0ulg5j9OupQzSHe06Tgo=
+hash: R1AfOdc+Qb9x6Naq0ZvD4ncPquNe3JcqdQLzvHqzDi4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -36,6 +36,9 @@ hash: W9u6o46PEaAWh9EsWC9acTK0ulg5j9OupQzSHe06Tgo=
 ```
 
 ```
+
+### 0.8.5 (2026-05-24)
+- исправить Cupra
 
 ### 0.8.4 (2026-05-14)
 - отключить Skoda MQTT
@@ -70,7 +73,7 @@ hash: W9u6o46PEaAWh9EsWC9acTK0ulg5j9OupQzSHe06Tgo=
 - исправление для настенного зарядного устройства ID
 
 ### 0.7.7 (2025-03-02)
-- Исправлена ошибка, связанная с дополнительным обогревом Skoda и продолжительностью его работы.
+- Исправлена ошибка, связанная с дополнительным отоплением Skoda и продолжительностью его работы.
 - Исправление проблемы с блокировкой/разблокировкой дверей Skoda
 
 ### 0.7.6 (2025-02-28)
@@ -131,7 +134,7 @@ hash: W9u6o46PEaAWh9EsWC9acTK0ulg5j9OupQzSHe06Tgo=
 - Добавлена система климат-контроля версии 3 для новых автомобилей. Добавлены Powerpass и Seat Elli.
 
 ### 0.0.39
-- исправлена ошибка входа в систему с использованием ID
+- исправить вход в систему с использованием ID
 
 ### 0.0.36
 - добавить поддержку Skoda Enyaq

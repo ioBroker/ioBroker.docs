@@ -336,7 +336,13 @@ Yes. KNX IP Secure tunneling is supported via .knxkeys keyfile or password.
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+
+- feat: improve disconnect handling on high bus load (MDT) — new options "Wait for ACK", "Max Direct Link send rate" (coalescing queue) and per-GA "linkedStateDebounce"; burst log with actionable recommendations on tunnel drop, hint at linkedStateDebounce in TUNNELING_REQUEST ACK errors for Direct Link GAs
+- docs: add hint to switch to Multicast/Routing on persistent TUNNELING_ACK timeouts (network-side unicast filtering)
+
+### 1.1.12 (2026-05-19)
 - feat: cyclic sending for Direct Links (periodically re-send current value to KNX bus)
+- fix: DPT19 accepts numeric timestamps and ISO strings
 
 ### 1.1.11 (2026-05-08)
 - fix for UDP interface connection
@@ -350,9 +356,6 @@ Yes. KNX IP Secure tunneling is supported via .knxkeys keyfile or password.
 ### 1.1.8 (2026-04-30)
 - add compatiblity mode für raw DPT5.*
 - reduce default delay to 25ms
-
-### 1.1.7 (2026-04-29)
-- improve Umlaute handling for DPT-16
 
 ### initial version
 

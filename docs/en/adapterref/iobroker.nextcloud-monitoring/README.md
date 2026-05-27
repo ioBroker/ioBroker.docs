@@ -14,8 +14,6 @@
 
 I use my own Sentry server based on Glitchtip.
 
-# nextcloud-monitoring adapter for ioBroker
-
 ---
 
 ## Description
@@ -50,7 +48,7 @@ This adapter allows for detailed monitoring of your Nextcloud instance via the o
 
 ---
 
-# How-To: Create & Set Token
+## How-To: Create & Set Token
 
 Accessing the `serverinfo` API requires a valid API token. This token must be stored directly in the Nextcloud configuration.
 
@@ -69,7 +67,7 @@ To enable access, you must generate a token (a random string) and register it in
 
 [it-tools.tech/token-generator](https://it-tools.tech/token-generator).*
 
-# Set Token in Nextcloud
+## Set Token in Nextcloud
 **Example for Linux (Standard path) in Terminal:**
 ```bash
 sudo -u www-data php /path_to/your/nextcloud_folder/occ config:app:set serverinfo token --value YOUR_GENERATED_TOKEN
@@ -80,10 +78,10 @@ sudo -u www-data php occ config:app:set serverinfo token --value YOUR_GENERATED_
 ```
 **If you use your Nextcloud in a webspace or other Provider, mostly you don't need sudo, simply do:**
  ```bash
- #Directly in your Nextcloudfolder
+#Directly in your Nextcloudfolder
 php occ config:app:set serverinfo token --value YOUR_GENERATED_TOKEN
 
-# Or with path
+#Or with path
 php /path_to/your/nextcloud_folder/occ config:app:set serverinfo token --value YOUR_GENERATED_TOKEN
 ```
 
@@ -103,7 +101,7 @@ Monitored Data Points (Excerpt)
 | `fpm.active_processes` | Active PHP-FPM processes | number |
 | `activeUsers.last5min` | Users active in the last 5 minutes | number |
 
-# Troubleshooting (FAQ)
+## Troubleshooting (FAQ)
 
 ### Invalid Domain: Enter the domain without a protocol.
 

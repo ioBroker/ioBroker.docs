@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: hwAWHgbqN4OZ5ffAQUp3DaN2MiSvvVhaOFde0QNrS4Q=
+hash: BG9g9kypy8lgesLpBARqRjzK7oSNIywI9FVi3+zlp6o=
 ---
 ![Logo](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -243,7 +243,7 @@ Seit Adapterversion 2.0.6 ist es möglich, den Status eines Nicht-KNX-ioBrokers 
 
 ![knxV2-3-9-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-9-GATools-DirectLink-mod.jpg)
 
-KNX-GA ist nun **(1)** direkt mit dem Nicht-KNX-iobroker **(2)** verknüpft. Mit **(3)** kann diese Verknüpfung aufgehoben werden.
+KNX-GA **(1)** ist nun direkt mit dem Nicht-KNX-iobroker **(2)** verknüpft. Mit **(3)** kann diese Verknüpfung aufgehoben werden.
 
 ## Geplante Funktionen
 * esf-import
@@ -253,6 +253,9 @@ KNX-GA ist nun **(1)** direkt mit dem Nicht-KNX-iobroker **(2)** verknüpft. Mit
 
 ### **IN BEARBEITUNG** -->
 ## Versionen
+### 2.0.40 (05.04.2026)
+* Behandlung von Verbindungsstatusreaktionen mit Fixierung
+
 ### 2.0.39 (05.04.2026)
 * Unterstützung für ETS 6.4.1 hinzugefügt.
 * Fehlerbehebung
@@ -304,7 +307,7 @@ KNX-GA ist nun **(1)** direkt mit dem Nicht-KNX-iobroker **(2)** verknüpft. Mit
 
 ### 2.0.23 (11.10.2023)
 * Falscher Gateway-Port nach Adapter-Upgrade korrigiert
-* Erlauben Sie selbstdefinierte Werte für Minimum und Maximum.
+* Erlaubt selbstdefinierte Werte für Minimum und Maximum
 * einige weitere kleinere Korrekturen
 
 ### 2.0.22 (04.07.2023)
@@ -490,7 +493,7 @@ Ich kann es nicht ändern, aber ich appelliere an alle: Seid Nachbarn und keine 
 
 ### 1.0.15 (2018-07-18)
 * Ändere ChID bei erneuter Verbindung
-* Beim Startvorgang auf Antwort des Statuskanals warten oder Timeout auslösen
+* Beim Startvorgang auf Antwort des Statuskanals warten oder Timeout
 
 ### 1.0.13 (2018-07-04)
 * Wegfall von Sonderzeichen beim Import
@@ -556,7 +559,7 @@ Ich kann es nicht ändern, aber ich appelliere an alle: Seid Nachbarn und keine 
 
 ### 0.8.6 (2017-06-17)
 * einige kleinere Fehlerbehebungen
-* Schieberegler einfügen, um eine Sendeverzögerung für langsame KNX/LAN-Gateways einzustellen und so Verbindungsverluste zu verhindern.
+* Schieberegler einfügen, um eine Sendeverzögerung für langsame KNX/LAN-Gateways einzustellen und so Verbindungsverluste zu verhindern
 
 ### 0.8.5 (2017-06-05)
 * Projektlader neu erstellen, dpt13-Fix

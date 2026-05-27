@@ -31,59 +31,59 @@ Alle Geraete werden regelmaessig gepollt. Die Werte werden automatisch unter `ta
 
 Beispiel: `tapo.0.80A5897B21C7.nickname`, `tapo.0.80A5897B21C7.device_on`
 
-| Wert | Typ | Beschreibung |
-| --- | --- | --- |
-| nickname | string | Geraetename |
-| device_id | string | Geraete-ID |
-| model | string | Modellbezeichnung |
-| fw_ver | string | Firmware-Version |
-| hw_ver | string | Hardware-Version |
-| mac | string | MAC-Adresse |
-| device_on | boolean | Geraet ein/aus |
-| on_time | number | Einschaltdauer in Sekunden |
-| rssi | number | WLAN-Signalstaerke |
-| signal_level | number | Signalstaerke (1-3) |
-| ssid | string | WLAN-Name |
-| ip | string | IP-Adresse |
-| overheated | boolean | Ueberhitzungsstatus |
+| Wert         | Typ     | Beschreibung               |
+| ------------ | ------- | -------------------------- |
+| nickname     | string  | Geraetename                |
+| device_id    | string  | Geraete-ID                 |
+| model        | string  | Modellbezeichnung          |
+| fw_ver       | string  | Firmware-Version           |
+| hw_ver       | string  | Hardware-Version           |
+| mac          | string  | MAC-Adresse                |
+| device_on    | boolean | Geraet ein/aus             |
+| on_time      | number  | Einschaltdauer in Sekunden |
+| rssi         | number  | WLAN-Signalstaerke         |
+| signal_level | number  | Signalstaerke (1-3)        |
+| ssid         | string  | WLAN-Name                  |
+| ip           | string  | IP-Adresse                 |
+| overheated   | boolean | Ueberhitzungsstatus        |
 
 ### Lampen (zusaetzlich)
 
 Beispiel: `tapo.0.80A5897B21C7.brightness`, `tapo.0.80A5897B21C7.hue`
 
-| Wert | Typ | Beschreibung |
-| --- | --- | --- |
-| brightness | number | Helligkeit (0-100) |
-| color_temp | number | Farbtemperatur in Kelvin |
-| hue | number | Farbton (0-360, nur L530/L630) |
+| Wert       | Typ    | Beschreibung                      |
+| ---------- | ------ | --------------------------------- |
+| brightness | number | Helligkeit (0-100)                |
+| color_temp | number | Farbtemperatur in Kelvin          |
+| hue        | number | Farbton (0-360, nur L530/L630)    |
 | saturation | number | Saettigung (0-100, nur L530/L630) |
 
 ### P110/P115 Energiedaten (zusaetzlich)
 
 Beispiel: `tapo.0.80A5897B21C7.current_power`, `tapo.0.80A5897B21C7.voltage_mv`
 
-| Wert | Typ | Beschreibung |
-| --- | --- | --- |
-| current_power | number | Aktuelle Leistung (mW) |
-| today_energy | number | Energieverbrauch heute (Wh) |
-| month_energy | number | Energieverbrauch Monat (Wh) |
-| voltage_mv | number | Spannung (mV) |
-| current_ma | number | Strom (mA) |
-| power_mw | number | Leistung (mW) |
+| Wert                  | Typ    | Beschreibung                     |
+| --------------------- | ------ | -------------------------------- |
+| current_power         | number | Aktuelle Leistung (mW)           |
+| today_energy          | number | Energieverbrauch heute (Wh)      |
+| month_energy          | number | Energieverbrauch Monat (Wh)      |
+| voltage_mv            | number | Spannung (mV)                    |
+| current_ma            | number | Strom (mA)                       |
+| power_mw              | number | Leistung (mW)                    |
 | current (consumption) | number | Aktuelle Leistung (W, berechnet) |
-| total (consumption) | number | Energie heute (kWh, berechnet) |
+| total (consumption)   | number | Energie heute (kWh, berechnet)   |
 
 ### Hub-Sensoren (Child Devices)
 
 Beispiel: `tapo.0.80A5897B21C7.child_SENSOR_ID.current_temp`
 
-| Sensor | Werte | Beschreibung |
-| --- | --- | --- |
-| T100 (Bewegung) | detected | Bewegung erkannt |
-| T110 (Kontakt) | open | Tuer/Fenster offen |
-| T300 (Wasserleck) | water_leak_status, in_alarm | Wasserleck-Status |
-| T310/T315 (Temp/Feuchte) | current_temp, current_humidity, temp_unit | Temperatur und Luftfeuchtigkeit |
-| KE100 (Thermostat) | target_temp, current_temp, frost_protection_on, trv_states | Thermostat-Status |
+| Sensor                   | Werte                                                      | Beschreibung                    |
+| ------------------------ | ---------------------------------------------------------- | ------------------------------- |
+| T100 (Bewegung)          | detected                                                   | Bewegung erkannt                |
+| T110 (Kontakt)           | open                                                       | Tuer/Fenster offen              |
+| T300 (Wasserleck)        | water_leak_status, in_alarm                                | Wasserleck-Status               |
+| T310/T315 (Temp/Feuchte) | current_temp, current_humidity, temp_unit                  | Temperatur und Luftfeuchtigkeit |
+| KE100 (Thermostat)       | target_temp, current_temp, frost_protection_on, trv_states | Thermostat-Status               |
 
 Alle Sensoren liefern zusaetzlich `battery_percentage`, `at_low_battery` und `signal_level`.
 
@@ -91,26 +91,26 @@ Alle Sensoren liefern zusaetzlich `battery_percentage`, `at_low_battery` und `si
 
 Beispiel: `tapo.0.80A5897B21C7.alarm`, `tapo.0.80A5897B21C7.personDetection`
 
-| Wert | Typ | Beschreibung |
-| --- | --- | --- |
-| alarm | boolean | Alarm aktiv |
-| eyes | boolean | Privacy-Modus (invertiert: true = Kamera sieht) |
-| notifications | boolean | Push-Benachrichtigungen aktiv |
-| motionDetection | boolean | Bewegungserkennung aktiv |
-| led | boolean | LED aktiv |
-| autoTrack | boolean | Auto-Tracking aktiv |
-| personDetection | boolean | Personenerkennung aktiv |
-| vehicleDetection | boolean | Fahrzeugerkennung aktiv |
-| petDetection | boolean | Tiererkennung aktiv |
-| babyCryDetection | boolean | Baby-Schrei-Erkennung aktiv |
-| barkDetection | boolean | Bellen-Erkennung aktiv |
-| meowDetection | boolean | Miauen-Erkennung aktiv |
-| glassBreakDetection | boolean | Glasbruch-Erkennung aktiv |
-| tamperDetection | boolean | Manipulations-Erkennung aktiv |
-| imageFlip | boolean | Bild vertikal gespiegelt |
-| ldc | boolean | Linsenverzerrungskorrektur aktiv |
-| recordAudio | boolean | Audio-Aufnahme aktiv |
-| autoUpgrade | boolean | Firmware Auto-Update aktiv |
+| Wert                | Typ     | Beschreibung                                    |
+| ------------------- | ------- | ----------------------------------------------- |
+| alarm               | boolean | Alarm aktiv                                     |
+| eyes                | boolean | Privacy-Modus (invertiert: true = Kamera sieht) |
+| notifications       | boolean | Push-Benachrichtigungen aktiv                   |
+| motionDetection     | boolean | Bewegungserkennung aktiv                        |
+| led                 | boolean | LED aktiv                                       |
+| autoTrack           | boolean | Auto-Tracking aktiv                             |
+| personDetection     | boolean | Personenerkennung aktiv                         |
+| vehicleDetection    | boolean | Fahrzeugerkennung aktiv                         |
+| petDetection        | boolean | Tiererkennung aktiv                             |
+| babyCryDetection    | boolean | Baby-Schrei-Erkennung aktiv                     |
+| barkDetection       | boolean | Bellen-Erkennung aktiv                          |
+| meowDetection       | boolean | Miauen-Erkennung aktiv                          |
+| glassBreakDetection | boolean | Glasbruch-Erkennung aktiv                       |
+| tamperDetection     | boolean | Manipulations-Erkennung aktiv                   |
+| imageFlip           | boolean | Bild vertikal gespiegelt                        |
+| ldc                 | boolean | Linsenverzerrungskorrektur aktiv                |
+| recordAudio         | boolean | Audio-Aufnahme aktiv                            |
+| autoUpgrade         | boolean | Firmware Auto-Update aktiv                      |
 
 Nicht jedes Geraet liefert alle Werte. Felder die das Geraet nicht unterstuetzt werden nicht angelegt.
 
@@ -120,36 +120,36 @@ Beispiel: `tapo.0.80A5897B21C7.detection.active`, `tapo.0.80A5897B21C7.detection
 
 Die Kamera wird lokal gepollt und liefert Erkennungs-Events (Bewegung, Personen, etc.). Die letzten 10 Events werden abgerufen (`searchDetectionList`), neuestes Event zuerst.
 
-| Wert | Typ | Beschreibung |
-| --- | --- | --- |
-| detection.active | boolean | true wenn Erkennung in den letzten 30 Sekunden |
-| detection.eventCount | number | Anzahl Ereignisse in den letzten 10 Minuten |
-| detection.events.0.start_time | number | Unix-Timestamp Start des neuesten Events |
-| detection.events.0.end_time | number | Unix-Timestamp Ende des neuesten Events |
-| detection.events.0.alarm_type | number | Erkennungstyp (siehe Tabelle unten) |
-| detection.events.1.start_time | number | Zweitneuestes Event (usw. bis 9) |
-| motionEvent | boolean | ONVIF Echtzeit-Bewegungserkennung |
+| Wert                          | Typ     | Beschreibung                                   |
+| ----------------------------- | ------- | ---------------------------------------------- |
+| detection.active              | boolean | true wenn Erkennung in den letzten 30 Sekunden |
+| detection.eventCount          | number  | Anzahl Ereignisse in den letzten 10 Minuten    |
+| detection.events.0.start_time | number  | Unix-Timestamp Start des neuesten Events       |
+| detection.events.0.end_time   | number  | Unix-Timestamp Ende des neuesten Events        |
+| detection.events.0.alarm_type | number  | Erkennungstyp (siehe Tabelle unten)            |
+| detection.events.1.start_time | number  | Zweitneuestes Event (usw. bis 9)               |
+| motionEvent                   | boolean | ONVIF Echtzeit-Bewegungserkennung              |
 
 #### alarm_type Werte
 
-| ID | Beschreibung |
-| --- | --- |
-| 2 | Bewegung (motion) |
-| 3 | Manipulation (tamper) |
-| 4 | Linienueberquerung (line crossing) |
-| 5 | Bereichsintrusion (area intrusion) |
-| 6 | Person (human) |
-| 7 | Baby-Schrei (baby cry) |
-| 8 | Fahrzeug (vehicle) |
-| 9 | Tier (pet) |
-| 11 | Bellen (bark) |
-| 12 | Miauen (meow) |
-| 13 | Glasbruch (glass break) |
-| 14 | Rauch (smoke) |
-| 15 | Paket abgelegt (package delivery) |
-| 16 | Paket abgeholt (package pick-up) |
-| 20 | Gesichtserkennung (face detection) |
-| 32 | Herumlungern (loitering) |
+| ID  | Beschreibung                       |
+| --- | ---------------------------------- |
+| 2   | Bewegung (motion)                  |
+| 3   | Manipulation (tamper)              |
+| 4   | Linienueberquerung (line crossing) |
+| 5   | Bereichsintrusion (area intrusion) |
+| 6   | Person (human)                     |
+| 7   | Baby-Schrei (baby cry)             |
+| 8   | Fahrzeug (vehicle)                 |
+| 9   | Tier (pet)                         |
+| 11  | Bellen (bark)                      |
+| 12  | Miauen (meow)                      |
+| 13  | Glasbruch (glass break)            |
+| 14  | Rauch (smoke)                      |
+| 15  | Paket abgelegt (package delivery)  |
+| 16  | Paket abgeholt (package pick-up)   |
+| 20  | Gesichtserkennung (face detection) |
+| 32  | Herumlungern (loitering)           |
 
 Nicht jede Kamera liefert alle Typen. Die verfuegbaren Werte haengen von Modell und Firmware ab.
 
@@ -157,41 +157,56 @@ Nicht jede Kamera liefert alle Typen. Die verfuegbaren Werte haengen von Modell 
 
 Beispiel: `tapo.0.80A5897B21C7.alarmInfo.enabled`, `tapo.0.80A5897B21C7.alarmInfo.alarm_volume`
 
-| Wert | Typ | Beschreibung |
-| --- | --- | --- |
-| alarmInfo.enabled | string | Alarm aktiv (on/off) |
-| alarmInfo.alarm_mode | mixed | Alarm-Modus (z.B. sound, light) |
-| alarmInfo.alarm_volume | string | Lautstaerke |
-| alarmInfo.alarm_duration | string | Dauer in Sekunden |
-| alarmInfo.alarm_type | string | Sirenen-Typ |
-| alarmInfo.light_type | string | Licht-Typ |
-| alarmInfo.light_alarm_enabled | string | Licht-Alarm aktiv (on/off) |
-| alarmInfo.sound_alarm_enabled | string | Sound-Alarm aktiv (on/off) |
+| Wert                          | Typ    | Beschreibung                    |
+| ----------------------------- | ------ | ------------------------------- |
+| alarmInfo.enabled             | string | Alarm aktiv (on/off)            |
+| alarmInfo.alarm_mode          | mixed  | Alarm-Modus (z.B. sound, light) |
+| alarmInfo.alarm_volume        | string | Lautstaerke                     |
+| alarmInfo.alarm_duration      | string | Dauer in Sekunden               |
+| alarmInfo.alarm_type          | string | Sirenen-Typ                     |
+| alarmInfo.light_type          | string | Licht-Typ                       |
+| alarmInfo.light_alarm_enabled | string | Licht-Alarm aktiv (on/off)      |
+| alarmInfo.sound_alarm_enabled | string | Sound-Alarm aktiv (on/off)      |
 
 ### Alarm-Event-Typen (welche Erkennungen loesen Alarm aus)
 
 Beispiel: `tapo.0.80A5897B21C7.alertEventTypes.motion`, `tapo.0.80A5897B21C7.alertEventTypes.person`
 
-| Wert | Typ | Beschreibung |
-| --- | --- | --- |
-| alertEventTypes.motion | boolean | Alarm bei Bewegung |
-| alertEventTypes.person | boolean | Alarm bei Person |
+| Wert                    | Typ     | Beschreibung       |
+| ----------------------- | ------- | ------------------ |
+| alertEventTypes.motion  | boolean | Alarm bei Bewegung |
+| alertEventTypes.person  | boolean | Alarm bei Person   |
 | alertEventTypes.vehicle | boolean | Alarm bei Fahrzeug |
-| alertEventTypes.pet | boolean | Alarm bei Tier |
+| alertEventTypes.pet     | boolean | Alarm bei Tier     |
 
 ### Benachrichtigungen einrichten
 
 Fuer Benachrichtigungen bei Erkennung ein ioBroker-Skript auf `detection.events.0.start_time` triggern:
 
 ```javascript
-const alarmTypen = { 2:'Bewegung', 3:'Manipulation', 4:'Linienueberquerung', 5:'Bereichsintrusion',
-  6:'Person', 7:'Baby-Schrei', 8:'Fahrzeug', 9:'Tier', 11:'Bellen', 12:'Miauen',
-  13:'Glasbruch', 14:'Rauch', 15:'Paket abgelegt', 16:'Paket abgeholt', 20:'Gesicht', 32:'Herumlungern' };
+const alarmTypen = {
+  2: "Bewegung",
+  3: "Manipulation",
+  4: "Linienueberquerung",
+  5: "Bereichsintrusion",
+  6: "Person",
+  7: "Baby-Schrei",
+  8: "Fahrzeug",
+  9: "Tier",
+  11: "Bellen",
+  12: "Miauen",
+  13: "Glasbruch",
+  14: "Rauch",
+  15: "Paket abgelegt",
+  16: "Paket abgeholt",
+  20: "Gesicht",
+  32: "Herumlungern",
+};
 
-on({ id: 'tapo.0.DEVICE_ID.detection.events.0.start_time', change: 'ne' }, (obj) => {
-  const typ = getState('tapo.0.DEVICE_ID.detection.events.0.alarm_type').val;
-  sendTo('telegram.0', {
-    text: (alarmTypen[typ] || 'Typ ' + typ) + ' um ' + new Date(obj.state.val * 1000).toLocaleString()
+on({ id: "tapo.0.DEVICE_ID.detection.events.0.start_time", change: "ne" }, (obj) => {
+  const typ = getState("tapo.0.DEVICE_ID.detection.events.0.alarm_type").val;
+  sendTo("telegram.0", {
+    text: (alarmTypen[typ] || "Typ " + typ) + " um " + new Date(obj.state.val * 1000).toLocaleString(),
   });
 });
 ```
@@ -248,18 +263,18 @@ tapo.0.id.remote auf true/false setzen steuert den jeweiligen Befehl. Der Befehl
 
 ### Plugs / Switches (P100, P110, P115, ...)
 
-| Remote | Typ | Beschreibung |
-| --- | --- | --- |
-| refresh | boolean | Manueller Status-Refresh |
-| setPowerState | boolean | Ein/Aus |
-| setPowerStateChild | string | Child-Device steuern: `childId,true` oder `childId,false` |
-| setLedEnabled | boolean | LED Indikator ein/aus |
-| setAutoOff | boolean | Auto-Off Timer ein/aus |
-| setAutoOffDelay | number | Auto-Off Verzoegerung in Minuten |
-| setChildProtection | boolean | Tastensperre (Button Lock) ein/aus |
-| setPowerProtection | boolean | Ueberlastschutz ein/aus |
-| setPowerProtectionThreshold | number | Ueberlast-Schwellwert in Watt |
-| setAutoUpdate | boolean | Firmware Auto-Update ein/aus |
+| Remote                      | Typ     | Beschreibung                                              |
+| --------------------------- | ------- | --------------------------------------------------------- |
+| refresh                     | boolean | Manueller Status-Refresh                                  |
+| setPowerState               | boolean | Ein/Aus                                                   |
+| setPowerStateChild          | string  | Child-Device steuern: `childId,true` oder `childId,false` |
+| setLedEnabled               | boolean | LED Indikator ein/aus                                     |
+| setAutoOff                  | boolean | Auto-Off Timer ein/aus                                    |
+| setAutoOffDelay             | number  | Auto-Off Verzoegerung in Minuten                          |
+| setChildProtection          | boolean | Tastensperre (Button Lock) ein/aus                        |
+| setPowerProtection          | boolean | Ueberlastschutz ein/aus                                   |
+| setPowerProtectionThreshold | number  | Ueberlast-Schwellwert in Watt                             |
+| setAutoUpdate               | boolean | Firmware Auto-Update ein/aus                              |
 
 P110/P115 liefern zusaetzlich Energiedaten (Leistung, Spannung, Strom).
 
@@ -267,37 +282,37 @@ P110/P115 liefern zusaetzlich Energiedaten (Leistung, Spannung, Strom).
 
 Alle Plug-Remotes plus:
 
-| Remote | Typ | Beschreibung |
-| --- | --- | --- |
-| setBrightness | number | Helligkeit setzen |
-| setColorTemp | number | Farbtemperatur (2500-6500K) |
-| setColor | string | Farbe setzen: `hue, saturation` |
-| setLightEffect | string | Lichteffekt ID oder `off` |
-| setGradualOnOff | boolean | Sanftes Ein-/Ausschalten |
+| Remote          | Typ     | Beschreibung                    |
+| --------------- | ------- | ------------------------------- |
+| setBrightness   | number  | Helligkeit setzen               |
+| setColorTemp    | number  | Farbtemperatur (2500-6500K)     |
+| setColor        | string  | Farbe setzen: `hue, saturation` |
+| setLightEffect  | string  | Lichteffekt ID oder `off`       |
+| setGradualOnOff | boolean | Sanftes Ein-/Ausschalten        |
 
 ### Fans (F1xx)
 
-| Remote | Typ | Beschreibung |
-| --- | --- | --- |
-| setFanSpeedLevel | number | Geschwindigkeit 0-4 (0 = aus) |
-| setFanSleepMode | boolean | Schlafmodus ein/aus |
+| Remote           | Typ     | Beschreibung                  |
+| ---------------- | ------- | ----------------------------- |
+| setFanSpeedLevel | number  | Geschwindigkeit 0-4 (0 = aus) |
+| setFanSleepMode  | boolean | Schlafmodus ein/aus           |
 
 ### Hub (H100, H200)
 
-| Remote | Typ | Beschreibung |
-| --- | --- | --- |
-| playAlarm | boolean | Alarm abspielen |
-| stopAlarm | boolean | Alarm stoppen |
-| setAlarmVolume | string | Alarm Lautstaerke: mute/low/normal/high |
-| setAlarmDuration | number | Alarm Dauer in Sekunden |
+| Remote           | Typ     | Beschreibung                            |
+| ---------------- | ------- | --------------------------------------- |
+| playAlarm        | boolean | Alarm abspielen                         |
+| stopAlarm        | boolean | Alarm stoppen                           |
+| setAlarmVolume   | string  | Alarm Lautstaerke: mute/low/normal/high |
+| setAlarmDuration | number  | Alarm Dauer in Sekunden                 |
 
 ### Thermostat / TRV (KE100)
 
-| Remote | Typ | Beschreibung |
-| --- | --- | --- |
-| setTargetTemperature | number | Zieltemperatur setzen |
-| setTemperatureOffset | number | Temperatur-Offset (-10 bis 10) |
-| setFrostProtection | boolean | Frostschutz ein/aus |
+| Remote               | Typ     | Beschreibung                   |
+| -------------------- | ------- | ------------------------------ |
+| setTargetTemperature | number  | Zieltemperatur setzen          |
+| setTemperatureOffset | number  | Temperatur-Offset (-10 bis 10) |
+| setFrostProtection   | boolean | Frostschutz ein/aus            |
 
 ### Hub-Sensoren (T100, T110, T300, T310, T315)
 
@@ -305,50 +320,50 @@ Sensordaten (Temperatur, Luftfeuchtigkeit, Bewegung, Kontakt, Wasserleck) werden
 
 ### Kameras (C200, C310, C520, TC70, ...)
 
-| Remote | Typ | Beschreibung |
-| --- | --- | --- |
-| refresh | boolean | Manueller Status-Refresh |
-| setAlertConfig | boolean | Alarm ein/aus |
-| setLensMaskConfig | boolean | Privacy (Eyes) ein/aus |
-| setForceWhitelampState | boolean | Weisslicht ein/aus |
-| setLedStatus | boolean | LED ein/aus |
-| setMsgPushConfig | boolean | Benachrichtigungen ein/aus |
-| setDetectionConfig | boolean | Bewegungserkennung ein/aus |
-| setAutoTrackTarget | boolean | Auto-Tracking ein/aus |
-| setPersonDetection | boolean | Personenerkennung ein/aus |
-| setVehicleDetection | boolean | Fahrzeugerkennung ein/aus |
-| setPetDetection | boolean | Tiererkennung ein/aus |
-| setBabyCryDetection | boolean | Baby-Schrei-Erkennung ein/aus |
-| setBarkDetection | boolean | Bellen-Erkennung ein/aus |
-| setMeowDetection | boolean | Miauen-Erkennung ein/aus |
-| setGlassBreakDetection | boolean | Glasbruch-Erkennung ein/aus |
-| setTamperDetection | boolean | Manipulations-Erkennung ein/aus |
-| setImageFlipVertical | boolean | Bild vertikal spiegeln |
-| setLensDistortionCorrection | boolean | Linsenverzerrungskorrektur ein/aus |
-| setRecordAudio | boolean | Audio aufnehmen ein/aus |
-| setAutoUpgrade | boolean | Firmware Auto-Update ein/aus |
-| setHDR | boolean | HDR ein/aus |
-| setCoverConfig | boolean | Privacy Zones ein/aus |
-| setRecordPlan | boolean | SD-Karten Aufnahme ein/aus |
-| moveMotor | string | Kamera bewegen: `x, y` (-360..360, -45..45) |
-| moveMotorStep | string | Schrittwinkel (0-360) |
-| moveToPreset | string | Zu Preset fahren (ID) |
-| calibrateMotor | boolean | Motor kalibrieren |
-| savePreset | string | Preset speichern (Name) |
-| deletePreset | string | Preset loeschen (ID) |
-| setCruise | string | Patrol: x/y/off |
-| startManualAlarm | boolean | Manuellen Alarm starten |
-| stopManualAlarm | boolean | Manuellen Alarm stoppen |
-| setAlarmMode | string | Alarm-Modus: both/light/sound/off |
-| setDayNightMode | string | Tag/Nacht-Modus: auto/on/off |
-| setLightFrequencyMode | string | Lichtfrequenz: auto/50/60 |
-| setSpeakerVolume | number | Lautsprecher-Lautstaerke (0-100) |
-| setMicrophoneVolume | number | Mikrofon-Lautstaerke (0-100) |
-| setMotionDetectionSensitivity | string | Bewegungs-Sensitivitaet: high/normal/low |
-| setPersonDetectionSensitivity | string | Personen-Sensitivitaet: high/normal/low |
-| setOsd | string | OSD Beschriftungstext |
-| reboot | boolean | Kamera neustarten |
-| formatSdCard | boolean | SD-Karte formatieren |
+| Remote                        | Typ     | Beschreibung                                |
+| ----------------------------- | ------- | ------------------------------------------- |
+| refresh                       | boolean | Manueller Status-Refresh                    |
+| setAlertConfig                | boolean | Alarm ein/aus                               |
+| setLensMaskConfig             | boolean | Privacy (Eyes) ein/aus                      |
+| setForceWhitelampState        | boolean | Weisslicht ein/aus                          |
+| setLedStatus                  | boolean | LED ein/aus                                 |
+| setMsgPushConfig              | boolean | Benachrichtigungen ein/aus                  |
+| setDetectionConfig            | boolean | Bewegungserkennung ein/aus                  |
+| setAutoTrackTarget            | boolean | Auto-Tracking ein/aus                       |
+| setPersonDetection            | boolean | Personenerkennung ein/aus                   |
+| setVehicleDetection           | boolean | Fahrzeugerkennung ein/aus                   |
+| setPetDetection               | boolean | Tiererkennung ein/aus                       |
+| setBabyCryDetection           | boolean | Baby-Schrei-Erkennung ein/aus               |
+| setBarkDetection              | boolean | Bellen-Erkennung ein/aus                    |
+| setMeowDetection              | boolean | Miauen-Erkennung ein/aus                    |
+| setGlassBreakDetection        | boolean | Glasbruch-Erkennung ein/aus                 |
+| setTamperDetection            | boolean | Manipulations-Erkennung ein/aus             |
+| setImageFlipVertical          | boolean | Bild vertikal spiegeln                      |
+| setLensDistortionCorrection   | boolean | Linsenverzerrungskorrektur ein/aus          |
+| setRecordAudio                | boolean | Audio aufnehmen ein/aus                     |
+| setAutoUpgrade                | boolean | Firmware Auto-Update ein/aus                |
+| setHDR                        | boolean | HDR ein/aus                                 |
+| setCoverConfig                | boolean | Privacy Zones ein/aus                       |
+| setRecordPlan                 | boolean | SD-Karten Aufnahme ein/aus                  |
+| moveMotor                     | string  | Kamera bewegen: `x, y` (-360..360, -45..45) |
+| moveMotorStep                 | string  | Schrittwinkel (0-360)                       |
+| moveToPreset                  | string  | Zu Preset fahren (ID)                       |
+| calibrateMotor                | boolean | Motor kalibrieren                           |
+| savePreset                    | string  | Preset speichern (Name)                     |
+| deletePreset                  | string  | Preset loeschen (ID)                        |
+| setCruise                     | string  | Patrol: x/y/off                             |
+| startManualAlarm              | boolean | Manuellen Alarm starten                     |
+| stopManualAlarm               | boolean | Manuellen Alarm stoppen                     |
+| setAlarmMode                  | string  | Alarm-Modus: both/light/sound/off           |
+| setDayNightMode               | string  | Tag/Nacht-Modus: auto/on/off                |
+| setLightFrequencyMode         | string  | Lichtfrequenz: auto/50/60                   |
+| setSpeakerVolume              | number  | Lautsprecher-Lautstaerke (0-100)            |
+| setMicrophoneVolume           | number  | Mikrofon-Lautstaerke (0-100)                |
+| setMotionDetectionSensitivity | string  | Bewegungs-Sensitivitaet: high/normal/low    |
+| setPersonDetectionSensitivity | string  | Personen-Sensitivitaet: high/normal/low     |
+| setOsd                        | string  | OSD Beschriftungstext                       |
+| reboot                        | boolean | Kamera neustarten                           |
+| formatSdCard                  | boolean | SD-Karte formatieren                        |
 
 Nicht jede Kamera unterstuetzt alle Funktionen. Nicht unterstuetzte Befehle werden mit einer Fehlermeldung im Log quittiert.
 
@@ -362,7 +377,11 @@ Nicht jede Kamera unterstuetzt alle Funktionen. Nicht unterstuetzte Befehle werd
 <https://forum.iobroker.net/topic/57336/test-adapter-tp-link-tapo/>
 
 ## Changelog
-### 0.5.0 (2026-04-02)
+### 0.5.5 (2026-05-25)
+
+- added udp detection for better device detection
+
+### 0.5.4 (2026-04-02)
 
 - Support for TPAP/SPAKE2+ protocol (P100 FW 1.4.3+ and newer devices)
 - Support for KLAP v1 (md5) handshake

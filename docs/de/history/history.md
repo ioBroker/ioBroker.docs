@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: n8nCttPpmN8txf6XqVthFJZXzALGJdr/0Ak6WKBioU8=
+hash: LnYpLc2PjqxRAVTjziuhU4+z2DiVOECzWlTU4I/EcgA=
 ---
 # Was ist neu
 ## Hinweise für Autoren
@@ -396,7 +396,7 @@ https://github.com/ioBroker/ioBroker.nmea
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.nmea/main/admin/nmea.png" width="100" height="100" />
 
-Dieser Adapter ermöglicht die Verbindung von ioBroker mit dem NMEA-2000-Yachtbus. Sie können Geschwindigkeit über Grund (SOG), Kurs über Grund (COG), GPS-Position, Tiefe, Wind, Temperatur und viele weitere Daten vom NMEA-2000-Bus auslesen.
+Dieser Adapter ermöglicht den Anschluss von ioBroker an den NMEA-2000-Yachtbus. Sie können Geschwindigkeit über Grund (SOG), Kurs über Grund (COG), GPS-Position, Tiefe, Wind, Temperatur und viele weitere Daten vom NMEA-2000-Bus auslesen.
 
 Und sogar den Raymarine-Autopiloten steuern.
 
@@ -1027,7 +1027,7 @@ https://github.com/Scrounger/ioBroker.freeair
 
 Lokale Verbindung zu Ihrem BluMartin FreeAir 100 Lüftungssystem
 
-## Unifi-netzwerk (18.10.2025) – Neuer Adapter im stabilen Repository
+## Unifi-network (18.10.2025) – Neuer Adapter im stabilen Repository
 https://github.com/Scrounger/ioBroker.unifi-network
 
 <img src="https://raw.githubusercontent.com/Scrounger/ioBroker.unifi-network/main/admin/unifi-network.png" width="100" height="100" />
@@ -1170,32 +1170,95 @@ https://github.com/Bannsaenger/ioBroker.pjlink
 
 PJLink Projektorsteuerung
 
-## Heos (15.03.2025) – Neuer Adapter im stabilen Repository
+## Heos (15.03.2026) – Neuer Adapter im stabilen Repository
 https://github.com/withstu/ioBroker.heos
 
 <img src="https://raw.githubusercontent.com/withstu/ioBroker.heos/main/admin/heos.png" width="100" height="100" />
 
 Der Adapter ermöglicht die Steuerung von HEOS über ioBroker.
 
-## Open-meteo-weather (14.4.2025) – Neuer Adapter im stabilen Repository
+## Open-meteo-weather (14.4.2026) – Neuer Adapter im stabilen Repository
 https://github.com/H5N1v2/ioBroker.open-meteo-weather
 
 <img src="https://raw.githubusercontent.com/H5N1v2/ioBroker.open-meteo-weather/main/admin/open-meteo.png" width="100" height="100" />
 
 Dieser Adapter liefert präzise Wetterdaten, Vorhersagen, Luftqualitäts- und Polleninformationen von Open-Meteo.com. Er ist für nichtkommerzielle Zwecke (bis zu 10.000 API-Aufrufe pro Tag) kostenlos und erfordert keine API-Schlüsselregistrierung, wodurch die Einrichtung extrem einfach ist.
 
-## Nextcloud-monitoring (14.4.2025) – Neuer Adapter im stabilen Repository
+## Nextcloud-monitoring (14.4.2026) – Neuer Adapter im stabilen Repository
 https://github.com/H5N1v2/ioBroker.nextcloud-monitoringr
 
 <img src="https://raw.githubusercontent.com/H5N1v2/ioBroker.nextcloud-monitoring/main/admin/nextcloud_monitoring.png" width="100" height="100" />
 
 Dieser Adapter ermöglicht die detaillierte Überwachung Ihrer Nextcloud-Instanz über die offizielle OCS-API (serverinfo). Er liefert zahlreiche Systemdaten, Benutzerstatistiken, Shares sowie Leistungskennzahlen von PHP (OPcache/FPM) und der Datenbank direkt in ioBroker.
 
-## Aurora-nowcastg (14.4.2025) – Neuer Adapter im stabilen Repository
+## Aurora-nowcastg (14.4.2026) – Neuer Adapter im stabilen Repository
 https://github.com/chrmenne/ioBroker.aurora-nowcast
 
 <img src="https://raw.githubusercontent.com/chrmenne/ioBroker.aurora-nowcast/main/admin/aurora-nowcast.png" width="100" height="100" />
 
 Liefert aktuelle (Nowcast-)Daten zur Aurora-Aktivität (Nord- und Südlichter) für einen bestimmten Ort, basierend auf öffentlich verfügbaren Daten des NOAA Space Weather Prediction Center (SWPC).
+
+## Grohe-smarthome (09.02.2026) – Neuer Adapter im stabilen Repository
+https://github.com/patricknitsch/ioBroker.grohe-smarthome
+
+<img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.grohe-smarthome/main/admin/grohe-smarthome.png" width="100" height="100" />
+
+Dieser Adapter verbindet ioBroker mit der Grohe Smarthome/Ondus-Cloud und stellt Grohe-Geräte als Zustände (und einige Steuerelemente) in ioBroker bereit.
+
+Er unterstützt:
+
+Grohe Sense (Typ 101) Grohe Sense Guard (Typ 103) Grohe Blue Home (Typ 104) Grohe Blue Professional (Typ 105)
+
+Der Adapter meldet sich über den OIDC/Keycloak-Flow von Grohe an, speichert ein verschlüsseltes Aktualisierungstoken in einem Zustand und fragt die Grohe Cloud-API in einem konfigurierbaren Intervall ab. Wichtige Nachrichten können über den integrierten Benachrichtigungsmanager versendet werden.
+
+## Schlueter-thermostat (28.01.2026) – neuer Adapter im stabilen Repository
+https://github.com/patricknitsch/ioBroker.schlueter-thermostat
+
+<img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.schlueter-thermostat/main/admin/schlueter-thermostat.png" width="100" height="100" />
+
+Dieser Adapter integriert Schlüter / OJ Microline OWD5-Thermostate über die offiziellen Cloud-APIs in ioBroker.
+
+## Nextcloudtalk (15.05.2026) – Neuer Adapter im stabilen Repository https://github.com/Rello/ioBroker.nextcloudtalk
+<img src="https://raw.githubusercontent.com/Rello/ioBroker.nextcloudtalk/main/admin/nextcloud.png" width="100" height="100" />
+
+Dieser Adapter ermöglicht das Senden von Benachrichtigungen an Nextcloud Talk-Räume.
+
+## Mspa (15.05.2026) – Neuer Adapter im stabilen Repository https://github.com/arteck/ioBroker.mspa
+<img src="https://raw.githubusercontent.com/arteck/ioBroker.mspa/main/admin/mspa.png" width="100" height="100" />
+
+Steuert MSpa-Whirlpools über die MSpa Cloud API. Unterstützt Heizung, Filter, UVC-Beleuchtung, Sprudel- und Düsensteuerung mit vollständiger Automatisierung über Zeitfenster, PV-Überschuss und Frostschutz.
+
+## Solectrus-influxdb (15.5.2026) – Neuer Adapter im stabilen Repository
+https://github.com/patricknitsch/ioBroker.solectrus-influxdb
+
+<img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.solectrus-influxdb/main/admin/solectrus-influxdb.png" width="100" height="100" />
+
+Der SOLECTRUS InfluxDB Adapter speichert ausgewählte ioBroker-Zustände in einer InfluxDB 2.x-Datenbank und berechnet optional abgeleitete Werte mithilfe einer integrierten Formel-Engine.
+
+Es ist für Energiemonitoringsysteme wie Photovoltaikanlagen, Batteriespeicher, Wärmepumpen, Wanddosen, Netzimport-/Netzexportüberwachung und kundenspezifische Sensoren konzipiert.
+
+## Brunner-eas3 (21.05.2026) – Neuer Adapter im stabilen Repository https://github.com/JR-Home/ioBroker.brunner-eas3
+<img src="https://raw.githubusercontent.com/JR-Home/ioBroker.brunner-eas3/main/admin/brunner-eas3.png" width="100" height="100" />
+
+Adapter zum Auslesen von Daten aus dem Brunner-Verbrennungsregelungssystem EAS 3. Die Daten werden über WLAN-Broadcast-Nachrichten veröffentlicht.
+
+## Speedport (3.5.2025) – Neuer Adapter im stabilen Repository https://github.com/hacki11/ioBroker.speedport
+<img src="https://raw.githubusercontent.com/hacki11/ioBroker.speedport/master/admin/speedport.png" width="100" height="100" />
+
+Ruft Daten vom Telekom Speedport Router ab
+
+## Life360ng (3.5.2025) – Neuer Adapter im stabilen Repository
+https://github.com/inventwo/ioBroker.life360ng
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.life360ng/main/admin/Life360ng.svg" width="100" height="100" />
+
+Dieser Adapter verbindet sich mit den Life360-Cloud-Diensten, um Personen zu verfolgen und ihre Anwesenheit an definierten Orten zu erfassen. Er ruft Daten zu Kreisen, Mitgliedern und Orten ab und speichert diese als ioBroker-Zustände, die in einem konfigurierbaren Intervall aktualisiert werden.
+
+## Enpal (29.4.2025) – Neuer Adapter im stabilen Repository https://github.com/inventwo/ioBroker.enpal
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.enpal/main/admin/enpal.svg" width="100" height="100" />
+
+Liest Energiedaten von der lokalen InfluxDB 2.x-Instanz, die von Enpal Solar Systems bereitgestellt wird, und stellt ioBroker-Zustände für die Hausautomation bereit:
+
+Überwachen Sie die Solarstromproduktion, verfolgen Sie den Ladezustand der Batterie (SoC), analysieren Sie den Netzverbrauch und die Einspeisung, automatisieren Sie Prozesse basierend auf der Stromerzeugung und visualisieren Sie die Energieflüsse im ioBroker-Dashboard.
 
 <!-- ######################### Diese Zeilen am Ende der Datei als Erinnerung behalten ######################## --> <!-- ##### ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Icons! ### --> <!-- ######################## Diese Zeilen am Ende der Datei als Erinnerung behalten ####################### -->

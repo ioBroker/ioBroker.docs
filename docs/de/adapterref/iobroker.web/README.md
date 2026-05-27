@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: vQHzTP8mzOS9nXXWF81cYazOfJVkP7pz+Z+g89oG6vo=
+hash: o2CrQOuwEBgQrUCXNjJa36BOvwjgITQON2IfS/Jqeuw=
 ---
 ![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -20,7 +20,7 @@ Webserver auf Basis von Node.js und Express zum Lesen der Dateien aus der ioBrok
 
 ## WebSockets optimieren
 Bei einigen WebSocket-Clients kann es zu Leistungsproblemen bei der Kommunikation kommen.
-Dieses Problem wird mitunter durch die Verwendung eines Long-Polling-Mechanismus für die Socket.IO-Kommunikation verursacht. Sie können die Option „WebSockets erzwingen“ aktivieren, um die ausschließliche Verwendung von WebSockets zu erzwingen.
+Dieses Problem wird mitunter durch die Verwendung eines Long-Polling-Mechanismus anstelle der Socket.IO-Kommunikation verursacht. Sie können die Option „WebSockets erzwingen“ aktivieren, um die ausschließliche Verwendung von WebSockets zu erzwingen.
 
 ## Let's Encrypt-Zertifikate
 Lesen Sie [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
@@ -72,6 +72,48 @@ Oder als JSON-Objekt mit zusätzlichen Parametern:
 
 Hinweis: Um diese Funktion nutzen zu können, muss die Option „Status und Socket-Informationen deaktivieren“ in den Webadapter-Einstellungen deaktiviert sein.
 
+## Zugriffsobjekte
+Objekte (einschließlich Muster mit Platzhaltern) können per HTTP-GET-Anfrage gelesen werden. Die Antwort ist **immer ein JSON-Array**, da das Muster auf mehrere Objekte zutreffen kann.
+
+Standardmäßig enthält jedes zurückgegebene Objekt nur `_id`, `type` und `common`. Verwenden Sie die Abfrageparameter `extended` und/oder `native`, um weitere Daten anzufordern.
+
+Wenn die Abfrage `depth` verwendet wird und sich ein übereinstimmendes Objekt tiefer als die angeforderte Ebene befindet, wird ein synthetischer Platzhalter genau in dieser Tiefe zurückgegeben:
+
+```json
+{ "_id": "0_userdata.0", "type": "virtual" }
+```
+
+Dadurch kann ein Baumbrowser erkennen, dass Inhalte unterhalb eines Zwischenpfads vorhanden sind, selbst wenn dieser Pfad selbst kein reales ioBroker-Objekt enthält. Virtuelle Objekte lassen `common` absichtlich weg, um die Nutzdaten klein zu halten – der Anzeigename kann von `_id` abgeleitet werden. Ein reales Objekt mit derselben ID hat immer Vorrang vor seinem virtuellen Platzhalter.
+
+```
+http://IP:8082/object/0_userdata.0.branch.* =>
+[ { "_id": "0_userdata.0.branch.a", "type": "state", "common": { ... } }, ... ]
+```
+
+Unterstützte Abfrageparameter:
+
+| Parameter | Beschreibung |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type` | Filtert nach Objekttyp (z. B. `state`, `channel`, `device`, `folder`, `enum`, `instance`, ...). **Standardmäßig wird `state` verwendet**, wenn dieser Parameter weggelassen wird. Verwenden Sie `all`, um Objekte aller Typen abzufragen. |
+| `depth` | Absolute Maximalanzahl von durch Punkte getrennten Teilen in der Objekt-ID. Um beispielsweise nur die direkten Kinder von `0_userdata.0.branch` (das 3 Teile hat) abzurufen, fordern Sie `/object/0_userdata.0.branch.*?depth=4` an. `depth=1` wird stillschweigend auf `depth=2` begrenzt (ioBroker-Objekte existieren auf 1 Ebene oder 3+ Ebenen – die 2-stufigen „Instanz“-Einträge wie `0_userdata.0` sind das, was ein Browser auf der obersten Ebene des Baums tatsächlich benötigt). Alle echten Einzelsegmentobjekte werden aus dem gleichen Grund aus der Antwort entfernt. |
+| `extended` | Übergeben Sie `?extended` oder `?extended=true`, um zusätzlich Systemattribute wie `acl`, `from`, `ts`, `user`, `enums`, `_rev` einzuschließen. |
+| `native` | Übergeben Sie `?native` oder `?native=true`, um zusätzlich den Teil `native` jedes Objekts einzuschließen. |
+| `system` | Objekte unter `system.*` und `script.*` sind standardmäßig **ausgeblendet**. Übergeben Sie `?system` oder `?system=true`, um sie einzuschließen. |
+| `system` | Standardmäßig sind Objekte unter `system.*` und `script.*` **ausgeblendet**. Verwenden Sie `?system` oder `?system=true`, um sie einzuschließen. |
+
+Beispiele:
+
+```
+[GET] http://IP:8082/object/0_userdata.0.branch.*?depth=4&type=all
+[GET] http://IP:8082/object/0_userdata.0.*?type=state
+[GET] http://IP:8082/object/0_userdata.0.*?type=state&commonType=boolean
+[GET] http://IP:8082/object/system.adapter.web.0?native=true
+[GET] http://IP:8082/object/system.adapter.web.0?extended=true&native=true
+[GET] http://IP:8082/object/system.adapter.web.0
+```
+
+Hinweis: Um diese Funktion nutzen zu können, muss die Option „Objektübermittlung deaktivieren“ in den Webadaptereinstellungen deaktiviert sein.
+
 ## Option "Basisauthentifizierung"
 Ermöglicht die Anmeldung per Basisauthentifizierung durch Senden der Meldung „`401` Nicht autorisiert“ mit einem Header „`WWW-Authenticate`“.
 
@@ -116,124 +158,130 @@ Weitere Informationen finden Sie hier: https://github.com/ioBroker/webserver?tab
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **IN BEARBEITUNG** -->
+### 8.2.0 (2026-05-21)
+* (@GermanBluefox) Der GET-Endpunkt `/object/<ID>` wurde mit den Abfrageparametern `type`, `commonType`, `depth`, `extended`, `native` und `system` zum Lesen von Objekten hinzugefügt (Wildcards werden unterstützt). Standardmäßig werden nur `_id`, `type` und `common` zurückgegeben, wobei `type` standardmäßig auf `state` gesetzt ist. Objekte unter `system.*` / `script.*` werden ausgeblendet. Mit dem Parameter `depth` werden bei tieferen Übereinstimmungen synthetische Platzhalter vom Typ `type: "virtual"` erzeugt, sodass ein Baumbrowser erkennen kann, dass darunter Inhalte vorhanden sind.
+* (@GermanBluefox) Die Einstellung „Objektzustellung deaktivieren“ wurde hinzugefügt, um den Endpunkt `/object/<ID>` ein- bzw. auszuschalten.
 
-## Changelog
-### 8.0.0 (2026-02-18)
-* (@GermanBluefox) Updated packages. Minimal Node.js version is now 20.0.0
-* (@GermanBluefox) Removed binary states
-* (@GermanBluefox) Added possibility to write values via `/state/` endpoint with `POST`
+### 8.1.0 (2026-04-13)
+* (@GermanBluefox) Pakete aktualisiert.
+* (@GermanBluefox) Mögliche Fehler korrigiert
+
+### 8.0.0 (18.02.2026)
+* (@GermanBluefox) Pakete aktualisiert. Minimale Node.js-Version ist jetzt 20.0.0.
+* (@GermanBluefox) Binärzustände entfernt
+* (@GermanBluefox) Möglichkeit hinzugefügt, Werte über den Endpunkt `/state/` mit `POST` zu schreiben.
 
 ### 7.0.9 (2025-03-28)
-* (@GermanBluefox) Corrected the loading of the material adapter
+* (@GermanBluefox) Das Laden des Materialadapters wurde korrigiert.
 
 ### 7.0.8 (2025-03-18)
-* (@GermanBluefox) Added settings for custom CORS headers
-* (@GermanBluefox) Added the possibility to show admin instances on the web welcome page
-* (@GermanBluefox) Implemented the new index page
+* (@GermanBluefox) Einstellungen für benutzerdefinierte CORS-Header hinzugefügt
+* (@GermanBluefox) Es wurde die Möglichkeit hinzugefügt, Admin-Instanzen auf der Web-Willkommensseite anzuzeigen.
+* (@GermanBluefox) Die neue Indexseite wurde implementiert
 
-### 7.0.7 (2025-03-15)
-* (@GermanBluefox) Trying to catch an error by the web extension
+### 7.0.7 (15.03.2025)
+* (@GermanBluefox) Versuch, einen Fehler der Weberweiterung abzufangen
 
 ### 7.0.6 (2025-03-09)
-* (@GermanBluefox) Corrected the login for iobroker.visu app
-* (@GermanBluefox) Corrected load of TypeScript Web extensions
+* (@GermanBluefox) Der Login für die iobroker.visu-App wurde korrigiert.
+* (@GermanBluefox) Korrigiertes Laden von TypeScript-Web-Erweiterungen
 
 ### 7.0.4 (2025-03-04)
-* (@GermanBluefox) Corrected the login page
-* (@GermanBluefox) Removed the frequent debug output
+* (@GermanBluefox) Die Anmeldeseite wurde korrigiert.
+* (@GermanBluefox) Die häufigen Debug-Ausgaben wurden entfernt.
 
 ### 7.0.3 (2025-03-03)
-* (@GermanBluefox) Corrected the problem with the user rights
+* (@GermanBluefox) Das Problem mit den Benutzerrechten wurde behoben.
 
 ### 7.0.1 (2025-03-02)
-* (@GermanBluefox) [Breaking change] Removed simple-api as it could be connected as web-extension
-* (@GermanBluefox) updated packages
-* (@GermanBluefox) removed gulp in a build process
-* (@GermanBluefox) Migrated GUI to vite
-* (@GermanBluefox) Rewritten in TypeScript
-* (@GermanBluefox) Added OAuth2 support
-* (@GermanBluefox) Added new 404 and the directory list pages
+* (@GermanBluefox) [Wichtige Änderung] Die simple-api wurde entfernt, da sie als Web-Erweiterung eingebunden werden konnte.
+* (@GermanBluefox) aktualisierte Pakete
+* (@GermanBluefox) hat gulp aus einem Build-Prozess entfernt
+* (@GermanBluefox) GUI auf Vite migriert
+* (@GermanBluefox) In TypeScript neu geschrieben
+* (@GermanBluefox) OAuth2-Unterstützung hinzugefügt
+* (@GermanBluefox) Neue 404-Seite und Verzeichnislistenseiten hinzugefügt
 
 ### 6.3.1 (2024-09-23)
-* (@foxriver76) added new admin icon (svg)
+* (@foxriver76) hat ein neues Admin-Symbol (SVG) hinzugefügt
 
 ### 6.3.0 (2024-06-27)
-* (bluefox) Corrected call of getObjectView with null parameter
-* (bluefox) updated packages
-* (bluefox) GUI was migrated to a non-style framework
+* (bluefox) Korrigierter Aufruf von getObjectView mit Null-Parameter
+* (bluefox) aktualisierte Pakete
+* (bluefox) Die Benutzeroberfläche wurde auf ein nicht-stilbasiertes Framework migriert.
 
 ### 6.2.6 (2024-05-25)
-* (bluefox) Preparations for a custom loading background
-* (bluefox) updated packages
+* (bluefox) Vorbereitungen für einen benutzerdefinierten Ladehintergrund
+* (bluefox) aktualisierte Pakete
 
 ### 6.2.5 (2024-02-22)
-* (bluefox) Just some packages were updates
+* (bluefox) Nur einige Pakete wurden aktualisiert.
 
 ### 6.2.4 (2024-02-17)
-* (klein0r) Extensions may block the web instance
-* (klein0r) Fixed directory listing
+* (klein0r) Erweiterungen können die Webinstanz blockieren
+* (klein0r) Verzeichnisauflistung korrigiert
 
-### 6.2.3 (2023-12-18)
-* (foxriver76) updated the websocket library to increase the maximum file size from 100 MB to 500 MB
+### 6.2.3 (18.12.2023)
+* (foxriver76) hat die WebSocket-Bibliothek aktualisiert, um die maximale Dateigröße von 100 MB auf 500 MB zu erhöhen.
 
-### 6.2.2 (2023-12-14)
-* (joltcoke) Corrected the crash if authentication is enabled
+### 6.2.2 (14.12.2023)
+* (joltcoke) Der Absturz bei aktivierter Authentifizierung wurde behoben.
 
 ### 6.2.1 (2023-12-04)
-* (bluefox) Added the user access list option
+* (bluefox) Option für die Benutzerzugriffsliste hinzugefügt
 
 ### 6.1.10 (2023-10-16)
-* (bluefox) Corrected the start screen
+* (bluefox) Startbildschirm korrigiert
 
 ### 6.1.7 (2023-10-16)
-* (bluefox) Added the public accessibility check
+* (bluefox) Öffentliche Zugänglichkeitsprüfung hinzugefügt.
 
 ### 6.1.6 (2023-10-13)
-* (bluefox) Corrected adapter termination if the alias has no target
-* (bluefox) Corrected socket.io connection
+* (bluefox) Korrigierte Adapterterminierung, falls der Alias kein Ziel hat
+* (bluefox) Korrigierte Socket.IO-Verbindung
 
 ### 6.1.4 (2023-10-08)
-* (foxriver76) upgrade socketio and ws dependencies to fix a vis subscribe problem
+* (foxriver76) Aktualisierung der socketio- und ws-Abhängigkeiten zur Behebung eines vis subscribe-Problems
 
 ### 6.1.3 (2023-09-28)
-* (bluefox) upgraded socketio and ws dependencies to correct the error by unsubscribing on client disconnect
+* (bluefox) hat die Socket.IO- und WS-Abhängigkeiten aktualisiert, um den Fehler durch das Abmelden beim Trennen der Client-Verbindung zu beheben.
 
 ### 6.1.2 (2023-09-14)
-* (foxriver76) upgraded socketio and ws dependencies
+* (foxriver76) aktualisierte socketio- und ws-Abhängigkeiten
 
 ### 6.1.1 (2023-09-05)
-* (mcm1957) Added missing node16 requirement
+* (mcm1957) Fehlende Anforderung node16 hinzugefügt
 
 ### 6.1.0 (2023-08-01)
-* (bluefox) Added the subscribing on the specific instance messages
+* (bluefox) Das Abonnieren von Nachrichten auf spezifischer Instanzebene wurde hinzugefügt.
 
 ### 6.0.3 (2023-07-27)
-* (bluefox) Updated packages
-* (bluefox) Implemented the possibility to view folder content
+* (bluefox) Aktualisierte Pakete
+* (bluefox) Die Möglichkeit, Ordnerinhalte anzuzeigen, wurde implementiert.
 
 ### 6.0.1 (2023-03-20)
-* (bluefox) Removed letsencrypt handling from web adapter
+* (bluefox) Die Unterstützung für Let's Encrypt wurde aus dem Webadapter entfernt.
 
 ### 5.5.3 (2023-03-17)
-* (bluefox) Increased max size of the uploaded file via socket.io to 200MB (from 10MB)
+* (bluefox) Die maximale Größe der über socket.io hochgeladenen Datei wurde von 10 MB auf 200 MB erhöht.
 
 ### 5.5.2 (2023-03-03)
-* (bluefox) Allowed deletion of fullcalendar objects
+* (bluefox) Erlaubte das Löschen von FullCalendar-Objekten
 
 ### 5.5.1 (2023-02-25)
-* (bluefox) Allowed reading projects of vis-2-beta
+* (bluefox) Erlaubte das Lesen von Projekten der vis-2-beta-Version
 
-### 5.5.0 (2023-02-15)
-* (bluefox) Added special end-points for app authentication
+### 5.5.0 (15.02.2023)
+* (bluefox) Spezielle Endpunkte für die App-Authentifizierung hinzugefügt.
 
 ### 5.4.3 (2023-01-29)
-* (bluefox) Corrected error with `publishFileAll` (for future use)
+* (bluefox) Fehler bei `publishFileAll` behoben (für zukünftige Verwendung)
 
 ### 5.4.1 (2022-12-23)
-* (bluefox) Corrected GUI error
+* (bluefox) GUI-Fehler behoben
 
 ### 5.4.0 (2022-12-22)
-* (bluefox) Used a new version of socket classes
+* (bluefox) Verwendete eine neue Version von Socket-Klassen
 
 ## License
 The MIT License (MIT)

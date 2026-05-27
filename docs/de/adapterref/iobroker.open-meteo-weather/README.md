@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.open-meteo-weather/README.md
 title: ioBroker.open-meteo-weather
-hash: vJI1a7I2P40kZMHtN7tMOQQ3QzTJzbezl9cSPjWixM0=
+hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
 ---
 ![Logo](../../../en/adapterref/iobroker.open-meteo-weather/admin/open-meteo.png)
 
@@ -32,7 +32,7 @@ Dieser Adapter liefert präzise Wetterdaten, Vorhersagen, Informationen zur Luft
 
 ---
 
-# Wetterfunktionen
+## Wettermerkmale
 * **Aktuelle Wetterdaten:** Echtzeit-Abruf von Temperatur-, Feuchtigkeits-, Luftdruck- und Winddaten.
 * **Flexible Prognosen:** Konfigurierbare Anzahl an Prognosetagen und stündliche Auflösung.
 * **Luftqualität & Pollen:** Optionale Daten zu Feinstaub (PM2,5, PM10) sowie zu verschiedenen Pollenarten (Erle, Birke, Gras usw.).
@@ -72,7 +72,7 @@ Merkmale:
 ## Konfiguration
 Konfigurieren Sie nach der Installation die folgenden Felder in den Instanzeinstellungen:
 
-1. **Ort:** Geben Sie hier Ihren Ort oder einen gewünschten Namen an.
+1. **Ort:** Geben Sie hier Ihren Standort oder einen gewünschten Namen ein.
 2. **Koordinaten (Breitengrad & Längengrad):** Geben Sie Ihre Koordinaten ein. Sie finden diese, indem Sie auf die Schaltfläche „Koordinaten mit OpenStreetMap finden“ klicken, oder lassen Sie die Felder leer, um die Systemkoordinaten zu verwenden.
 3. **Zeitzone:** Stellen Sie die Zeitzone im Dropdown-Menü ein. Standardmäßig ist die Option „Auto“ ausgewählt, die sich automatisch an Ihre Koordinaten anpasst.
 4. **Aktualisierungsintervall:** Zeitintervall in Minuten (Standard: 30 min).
@@ -137,7 +137,7 @@ Der Adapter stellt dynamische Symbolpfade bereit, die direkt in Visualisierungen
 #### Wenn Sie keine Wettervorhersagen benötigen, lassen Sie das Feld „Ort“ leer. Es werden dann keine Bundesländer eingetragen.
 
 --- ---
-# Funktionen PV-Prognose (falls aktiviert)
+## Funktionen PV-Prognose (falls aktiviert)
 * **Mehrere Standorte:** Unterstützung für mehrere PV-Systeme/Standorte, z. B. für Ost-/West-Ausrichtung.
 * **Stündliche Vorhersage:** Detaillierte Vorhersage von Stromerzeugung, Temperatur, Bewölkung und Sonnenscheindauer.
 * **Tagesprognose:** Zusammenfassung des erwarteten Energieverbrauchs (Wh) für bis zu 14 Tage.
@@ -311,8 +311,6 @@ Die in diesem Adapter enthaltenen statischen Wetter- und Windrichtungssymbole un
 
 ### 2.6.3 (2026-03-26)
 * (H5N1v2) add sentry plugin to automatically report errors to developer
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 This project is licensed under the **MIT License** - see the `LICENSE` file for details.

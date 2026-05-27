@@ -27,6 +27,9 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.6.1 (2026-05-21)
+* (arteck) fix reconnect
+
 ### 2.6.0 (2026-05-13)
 * (arteck) fix high i/o
 * (copilot) Adapter requires node.js >= 22 now
@@ -40,11 +43,6 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 
 ### 2.5.3 (2026-04-23)
 * (arteck) Dependencies have been updated
-
-### 2.5.2 (2026-04-23)
-* (arteck) add token login process
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

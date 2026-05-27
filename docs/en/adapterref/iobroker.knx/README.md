@@ -44,6 +44,7 @@ Before beginning: Every DPT of com.Objects should be set in your ETS project. Ev
 facility structure.
 
 ## Requirements
+
 * node Version >= 24.0.0
 * admin Version >= 5.2.0
 * js-controller Version >= 3.3.20
@@ -272,6 +273,10 @@ relation.
 ## Changelog
 
 ## Versions
+
+### 2.0.40 (05.04.2026)
+
+* fixed connection state response handling
 
 ### 2.0.39 (05.04.2026)
 

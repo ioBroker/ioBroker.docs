@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: W9u6o46PEaAWh9EsWC9acTK0ulg5j9OupQzSHe06Tgo=
+hash: R1AfOdc+Qb9x6Naq0ZvD4ncPquNe3JcqdQLzvHqzDi4=
 ---
 ![Logo](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -35,6 +35,9 @@ Die Klimatisierungstemperatur kann in .climater.settings.targetTemperature.conte
 ```
 
 ```
+
+### 0.8.5 (2026-05-24)
+- Cupra reparieren
 
 ### 0.8.4 (2026-05-14)
 - Skoda MQTT deaktivieren
@@ -74,7 +77,7 @@ Die Klimatisierungstemperatur kann in .climater.settings.targetTemperature.conte
 
 ### 0.7.6 (2025-02-28)
 - Behebung des Problems, dass der Ladestatus nur beim Start aktualisiert wird
-- Behebung des Problems mit dem Zustand "Skoda bewegt sich"
+- Behebung des Problems mit dem sich bewegenden Zustand von Skoda
 
 ### 0.7.3 (2025-02-26)
 - Fehlerbehebung für set setTemperature
@@ -160,7 +163,7 @@ Kleinere Verbesserungen. Das minimale Ladeintervall von WeCharge beträgt jetzt 
 - Wir berechnen zusätzlich Gebühren
 
 ### 0.0.24
-- Hinzufügen einer Remote-Statusaktualisierung
+- Remote-Statusaktualisierung hinzufügen
 
 ### 0.0.23
 - Sitz hinzugefügt und neue Klimatisierung v2

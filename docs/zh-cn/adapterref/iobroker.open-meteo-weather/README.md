@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.open-meteo-weather/README.md
 title: ioBroker.open-meteo-weather
-hash: vJI1a7I2P40kZMHtN7tMOQQ3QzTJzbezl9cSPjWixM0=
+hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
 ---
 ![标识](../../../en/adapterref/iobroker.open-meteo-weather/admin/open-meteo.png)
 
@@ -32,10 +32,10 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 
 ---
 
-# 天气特色
+## 天气功能
 * **当前天气数据：**实时获取温度、湿度、气压和风力数据。
 * **灵活的预测：** 可配置预测天数和小时分辨率。
-* **空气质量和花粉：** 可选的颗粒物（PM2.5、PM10）以及各种花粉类型（桤木、桦树、草等）数据。
+* **空气质量和花粉：**可选的颗粒物（PM2.5、PM10）以及各种花粉类型（桤木、桦树、草等）数据。
 * **自动清理：** 如果预测周期在配置中缩短或更改，适配器会自动清理对象结构。
 * **多语言支持：**支持 11 种语言（包括英语、德语、波兰语、俄语、法语、中文等）。
 * **单位制：** 可在公制（°C，km/h）和英制（°F，mph）系统之间无缝切换。
@@ -137,7 +137,7 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 如果您不需要天气预报，请将位置字段留空，系统将不会输入州/省份信息。
 
 --- ---
-# 功能 PV 预测（如果已启用）
+## 功能 PV 预测（如果启用）
 * **多位置：**支持多个光伏系统/位置，例如东西朝向。
 * **逐小时预报：** 详细预测发电量、温度、云量和日照时长。
 * **每日预测：**未来 14 天的预期能源量（瓦时）汇总。
@@ -159,7 +159,7 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 | `pv-forecast` | 光伏预测数据文件夹 |
 | `pv-forecast` | 光伏预测数据文件夹 |
 
-### 15分钟预报（`15-min-forecast.0 - 95`），（当前24小时），如果启用
+### 15 分钟预报 (`15-min-forecast.0 - 95`)，（当前日期的 24 小时），如果启用
 | 数据点 | 单位 | 描述 |
 | `global_tilted_irradiance` | 瓦时 | 基于装机容量（kWp）的预期能量。 |
 | `pv_temperature` | °C | 光伏组件预估温度（Faiman 计算）。 |
@@ -170,7 +170,7 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 
 信息：需要 temperature_2m 和 wind_spread_10m 来计算光伏组件温度。
 
-如有需要，可选择是否启用；否则，DP 将包含在天气信息中。
+可根据需要选择，否则 DP 包含在天气中。
 
 | 数据点 | 单位 | 描述 |
 | `cloud_cover` | % | 总云量百分比。 |
@@ -311,8 +311,6 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 
 ### 2.6.3 (2026-03-26)
 * (H5N1v2) add sentry plugin to automatically report errors to developer
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 This project is licensed under the **MIT License** - see the `LICENSE` file for details.

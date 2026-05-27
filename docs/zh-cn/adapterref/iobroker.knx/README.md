@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: hwAWHgbqN4OZ5ffAQUp3DaN2MiSvvVhaOFde0QNrS4Q=
+hash: BG9g9kypy8lgesLpBARqRjzK7oSNIywI9FVi3+zlp6o=
 ---
 ![标识](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -99,7 +99,7 @@ ru: [Установка и базовая настройка адаптера](d
 ### 配置接口
 ![knxV2-2-5-在线安装许可证-已应用-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-5-Install-License-online-applied-mod.jpg)
 
-1. KNX-网关 IP：KNX-LAN 网关的 IPv4。
+1. KNX-Gateway IP：KNX-LAN 网关的 IPv4。
 2. KNX 网关端口：默认端口为 3671。
 3. 物理地址：iobroker knx 实例的物理地址。**重要提示：这不是局域网的物理地址。
 
@@ -206,7 +206,7 @@ GA 工具使更改 GA 的属性变得容易。
 3. 设置 iobroker 标志
 4. 设置 GA DPT
 5. 公认法案
-6. 佐治亚州（GA）是公认的州。
+6. 佐治亚州认可
 
 ![knxV2-3-2-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-2-GATools-mod.jpg)
 
@@ -256,6 +256,9 @@ GA 工具使更改 GA 的属性变得容易。
 
 ### **正在进行中** -->
 ## 版本
+### 2.0.40 (2026年4月5日)
+* 固定连接状态响应处理
+
 ### 2.0.39 (2026年4月5日)
 * 新增对 ETS 6.4.1 的支持
 * 修复漏洞

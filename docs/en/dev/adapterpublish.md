@@ -1,5 +1,5 @@
 ---
-lastChanged: 2026.05.18
+lastChanged: 2026.05.27
 ---
 # Publishing an Adapter
 
@@ -21,7 +21,7 @@ Key requirements:
 2. **Metadata**: `io-package.json` must have:
    - `title` and `titleLang` (not containing "ioBroker" or "Adapter")
    - `desc` with at least English description
-   - `type` — matching the allowed adapter categories defined in the [ioBroker.repositories README](https://github.com/ioBroker/ioBroker.repositories/blob/master/README.md)
+   - `type` — matching the allowed adapter categories defined in the [ioBroker.repositories README](https://github.com/ioBroker/ioBroker.repositories/blob/master/README.md#types)
    - `connectionType` (`local` or `cloud`) and `dataSource` (`push`, `poll`, or `assumption`)
    - `license` field
    - `authors` with at least one entry
@@ -35,7 +35,7 @@ Key requirements:
 
 6. **Testing**: CI must run on GitHub Actions with tests passing across supported Node.js versions
 
-7. **npm**: Adapter must be published on npm and the ioBroker organization must be added as owner (see below)
+7. **npm**: Adapter must be published on npm, and the ioBroker organization must be added as owner (see below)
 
 8. **Clean repo**: Delete unused `www/` and `widget/` directories
 
@@ -67,7 +67,7 @@ After pushing the tag, the GitHub Actions deploy workflow publishes to npm autom
 
 ### Automated Deploy with GitHub Actions
 
-The standard workflow `.github/workflows/test-and-release.yml` includes a deploy job that triggers on version tags:
+The standard workflow `.github/workflows/test-and-release.yml` includes a deployment job that triggers on version tags:
 
 ```yaml
 deploy:
@@ -86,15 +86,17 @@ deploy:
               NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
-For a more secure setup, use **npm OIDC trusted publishers** instead of storing an npm token in GitHub secrets. This eliminates the need for long-lived tokens.
+For a more secure setup, use **npm OIDC trusted publishers** instead of storing a npm token in GitHub secrets. This eliminates the need for long-lived tokens.
 
-### Add ioBroker Organization as npm Owner
+### Add ioBroker as npm Owner
 
-This is required so the ioBroker team can maintain the package if needed:
+This is required so the ioBroker team can maintain the package if needed — for example if the original author becomes unresponsive. The maintainer account is `bluefox`:
 
 ```bash
 npm owner add bluefox iobroker.adaptername
 ```
+
+`bluefox` must accept the invitation, which can take a day or two. If it expires, send the invite again.
 
 ## Submitting to the Latest Repository
 
@@ -143,11 +145,11 @@ Requirements:
 
 Use [SemVer](https://semver.org/):
 
-| Part | When to bump | Example |
-|------|-------------|---------|
-| Patch | Bug fixes only | 1.0.0 → 1.0.1 |
+| Part  | When to bump                       | Example       |
+|-------|------------------------------------|---------------|
+| Patch | Bug fixes only                     | 1.0.0 → 1.0.1 |
 | Minor | New features, backwards compatible | 1.0.0 → 1.1.0 |
-| Major | Breaking changes | 1.0.0 → 2.0.0 |
+| Major | Breaking changes                   | 1.0.0 → 2.0.0 |
 
 ### Pre-1.0 Versions
 

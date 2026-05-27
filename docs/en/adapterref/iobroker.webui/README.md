@@ -133,6 +133,9 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.47.0 (2026-05-20)
+- package uprades
+
 ### 1.46.1 (2026-05-08)
 - fix runtime
 
@@ -145,12 +148,7 @@ runtime.html?screenName=screen2
 ### 1.45.1 (2026-05-07)
 - fix release
 
-### 1.45.0 (2026-05-07)
-- update designer with new features
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
-## License
+[Older changelogs can be found there](CHANGELOG_OLD.md)## License
 The MIT License (MIT)
 
 

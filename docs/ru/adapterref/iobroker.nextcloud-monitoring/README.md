@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nextcloud-monitoring/README.md
 title: ioBroker.nextcloud-monitoring
-hash: lZ19bv8ndAFfOdaXAwuD5/7NuAno3peM4nX/N6sJmgo=
+hash: 20f/WtVfmJH6wIgym2GH28wiX1w8XXxMj0OW8hETglI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nextcloud-monitoring/admin/nextcloud_monitoring.png)
 
@@ -20,7 +20,6 @@ hash: lZ19bv8ndAFfOdaXAwuD5/7NuAno3peM4nX/N6sJmgo=
 
 Я использую собственный сервер Sentry на базе Glitchtip.
 
-# Адаптер nextcloud-monitoring для ioBroker
 ---
 
 ## Описание
@@ -29,7 +28,7 @@ hash: lZ19bv8ndAFfOdaXAwuD5/7NuAno3peM4nX/N6sJmgo=
 ## Функции
 * **Состояние системы:** загрузка ЦП, использование ОЗУ, свободное место на диске и версия Nextcloud.
 * **Статистика пользователей:** Количество активных пользователей (5 мин, 1 ч, 24 ч), общее количество файлов и использование хранилища.
-* **Общие ресурсы:** Мониторинг общих ресурсов, чатов и объединенных ресурсов.
+* **Общие ресурсы:** Мониторинг общих ссылок, чатов и объединенных ресурсов.
 * **Состояние сервера:** версия PHP, лимит памяти, частота попаданий в OPcache и подробная статистика процесса FPM.
 * **Виджет:** Используйте внутренний виджет, который создает точку данных htmlWidget в папке location; или, если вы хотите настроить его самостоятельно, используйте [этот](https://github.com/H5N1v2/VIS2-widget-nextcloud-monitoring).
 
@@ -54,7 +53,7 @@ hash: lZ19bv8ndAFfOdaXAwuD5/7NuAno3peM4nX/N6sJmgo=
 
 ---
 
-# Инструкция: Создание и установка токена
+## Инструкция: Создание и установка токена
 Для доступа к API `serverinfo` требуется действительный токен API. Этот токен необходимо сохранить непосредственно в конфигурации Nextcloud.
 
 ### Генерация токена (Linux / Windows)
@@ -74,7 +73,7 @@ hash: lZ19bv8ndAFfOdaXAwuD5/7NuAno3peM4nX/N6sJmgo=
 
 [it-tools.tech/token-generator](https://it-tools.tech/token-generator).*
 
-# Установка токена в Nextcloud
+## Установка токена в Nextcloud
 **Пример для Linux (стандартный путь) в терминале:**
 
 ```bash
@@ -90,10 +89,10 @@ sudo -u www-data php occ config:app:set serverinfo token --value YOUR_GENERATED_
 **Если вы используете Nextcloud в веб-пространстве или у другого провайдера, в большинстве случаев вам не потребуется sudo, просто выполните следующие действия:**
 
 ```bash
-#Directly in your Nextcloudfolder
+Directly in your Nextcloudfolder
 hp occ config:app:set serverinfo token --value YOUR_GENERATED_TOKEN
 
- Or with path
+Or with path
 hp /path_to/your/nextcloud_folder/occ config:app:set serverinfo token --value YOUR_GENERATED_TOKEN
 ``
 
@@ -113,7 +112,7 @@ hp /path_to/your/nextcloud_folder/occ config:app:set serverinfo token --value YO
 | `activeUsers.last5min` | Пользователи, активные за последние 5 минут | количество |
 | `activeUsers.last5min` | Пользователи, активные за последние 5 минут | число |
 
-# Устранение неполадок (Часто задаваемые вопросы)
+## Устранение неполадок (Часто задаваемые вопросы)
 ### Недопустимый домен: Введите домен без протокола.
 Правильно: mycloud.com или mycloud.com/folder
 

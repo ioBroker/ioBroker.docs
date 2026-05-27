@@ -2,21 +2,24 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.life360ng/README.md
-title: ioBroker.life360ng
-hash: 8YBAEnXTNSs2o7nPuClIsc0fVulNS9uGllpwlRzYJyk=
+title: ioBroker-Adapter für Life360 (nächste Generation)
+hash: LJzjPPkeIFkh3FtPq6/AeHZwmpVqJx4c1ABLT5jRdPg=
 ---
-# IoBroker.life360ng
 ![Logo](../../../en/adapterref/iobroker.life360ng/admin/Life360ng.svg)
 
 ![Anzahl der Installationen](https://iobroker.live/badges/life360ng-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/life360ng-stable.svg)
 ![NPM-Version](https://nodei.co/npm/iobroker.life360ng.svg?style=shields&data=v,u,d&color=orange)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.life360ng.svg)
+![GEMEINSCHAFT](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)
+![WARTUNGSKRAFT](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)
+![KI](https://img.shields.io/badge/ai%20assisted-copilot-blue.svg)
 ![PayPal-Spende](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
-## Life360-Adapter für ioBroker (nächste Generation)
-ioBroker-Adapter für [Leben360](https://www.life360.com) — aktualisiert für EU-Benutzer mit moderner tokenbasierter Authentifizierung.
+# IoBroker-Adapter für Life360 (nächste Generation)
+---
 
+## Aktualisiert für EU-Nutzer mit moderner tokenbasierter Authentifizierung.
 **Haftungsausschluss:** Dies ist ein inoffizieller, von der Community entwickelter Adapter. Er steht in keiner Verbindung zu Life360, Inc. und wird von diesem Unternehmen auch nicht unterstützt. Er wird kostenlos für den privaten, nicht-kommerziellen Gebrauch im Bereich Hausautomation zur Verfügung gestellt. Die Nutzung erfolgt auf eigene Gefahr. Life360 behält sich das Recht vor, die API jederzeit und ohne Vorankündigung zu deaktivieren oder zu ändern.
 
 **Datenschutz:** Alle von Life360 abgerufenen Daten werden ausschließlich auf Ihrem lokalen ioBroker-System gespeichert. Dieser Adapter übermittelt **keine** Daten an Dritte oder externe Cloud-Dienste über die Life360-API hinaus.
@@ -42,7 +45,7 @@ Life360 hat die passwortbasierte Anmeldung für EU-Nutzer deaktiviert. Beantrage
 
 **Hinweis:** Geben Sie das Token OHNE das Wort „Bearer“, OHNE Leerzeichen und OHNE Anführungszeichen ein!
 
-**Hinweis:** Tokens sind lange gültig (in der Regel mehrere Monate). Nach Ablauf der Gültigkeitsdauer wird im Adapterprotokoll ein Verbindungsfehler angezeigt. Wiederholen Sie die oben genannten Schritte, um ein neues Token zu erhalten.
+**Hinweis:** Tokens sind lange gültig (in der Regel mehrere Monate). Nach Ablauf der Gültigkeit wird im Adapterprotokoll ein Verbindungsfehler angezeigt. Wiederholen Sie die oben genannten Schritte, um ein neues Token zu erhalten.
 
 ![Token](../../../en/adapterref/iobroker.life360ng/img/readme_anonym.png)
 
@@ -167,11 +170,13 @@ Diese Orte sind **schreibgeschützt** und können im Adapter nicht konfiguriert 
 
 > **Hinweis:** Informationen zu benutzerdefinierten Orten mit Anwesenheitserkennung finden Sie in [myplaces](#myplaces).
 
+**Life360-Orte nicht verfügbar?** Life360 hat den API-Zugriff auf Cloud-Orte für einige Konten (insbesondere EU-Gratiskonten) eingeschränkt. Wenn im Adapterprotokoll `All place sources returned 0 places` angezeigt wird, liefert die Life360-API keine Ortsdaten mehr für Ihr Konto. **Abhilfe:** Definieren Sie Ihre Orte im Tab [Meine Orte](#my-places) – diese funktionieren unabhängig von der Life360-Cloud und bieten dieselbe Anwesenheitserkennung.
+
 ### Tracker
 Der Adapter beinhaltet einen optionalen GPS-Routenlogger, der die Bewegungen jedes Life360-Mitglieds aufzeichnet und interaktive Leaflet-Karten generiert, die direkt über eine URL in jedem Browser, ioBroker Vis oder Jarvis-Dashboard zugänglich sind.
 
 #### So funktioniert es
-Bei jeder Aktualisierung der GPS-Position prüft der Tracker, ob die neue Position mindestens **minDistance** Meter vom zuletzt aufgezeichneten Punkt entfernt ist. Ist dies der Fall, wird der Punkt an einen GeoJSON-LineString für den aktuellen Tag angehängt. Der vollständige Verlauf wird in `allTime.geojson` gespeichert, und monatliche Backups werden in `currentYear.MM.geojson` geschrieben.
+Bei jeder GPS-Positionsaktualisierung prüft der Tracker, ob die neue Position mindestens **minDistance** Meter vom zuletzt aufgezeichneten Punkt entfernt ist. Ist dies der Fall, wird der Punkt an einen GeoJSON-LineString für den aktuellen Tag angehängt. Der vollständige Verlauf wird in `allTime.geojson` gespeichert, und monatliche Backups werden in `currentYear.MM.geojson` geschrieben.
 
 Eine HTML-Karte wird nach jeder Aktualisierung automatisch (neu) generiert und im ioBroker-Dateisystem gespeichert. Sie ist sofort über HTTP zugänglich.
 
@@ -254,9 +259,9 @@ Verwenden Sie die Karten-URL in einem **iFrame-Widget** (Vis) oder einer **URL-K
 /life360ng.0/tracker/<name>.html
 ```
 
-Die Karte aktualisiert sich selbst – keine zusätzliche Konfiguration erforderlich.
+Die Karte aktualisiert sich automatisch – es ist keine zusätzliche Konfiguration erforderlich.
 
-**Hinweis:** Der vollständige Routenverlauf (`allTime.geojson`) wächst kontinuierlich. Bei einem Abfrageintervall von 60 Sekunden und einer Mindestentfernung von 20 Metern ist mit etwa **1 MB pro Person und Jahr** zu rechnen – deutlich innerhalb der Speichergrenzen von ioBroker.
+**Hinweis:** Der vollständige Routenverlauf (`allTime.geojson`) wächst kontinuierlich. Bei einem Abfrageintervall von 60 Sekunden und einer Mindestdistanz von 20 Metern ist mit etwa **1 MB pro Person und Jahr** zu rechnen – deutlich innerhalb der Speichergrenzen von ioBroker.
 
 Verwenden Sie die Option **Aufbewahrungsdauer (Tage)** in der Adapterkonfiguration, um Daten, die älter als eine bestimmte Anzahl von Tagen sind, automatisch zu entfernen (0 = unbegrenzt aufbewahren). Die Bereinigung erfolgt bei jedem Adapterstart und einmal täglich.
 
@@ -282,45 +287,29 @@ Dieser Adapter basiert auf der Originalarbeit von [MiGoller](https://github.com/
 <!--
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.10.2 (2026-05-25)
+- (skvarel) Updated @alcalzone/release-script and related plugins to minimum required version 5.2.0
+- (skvarel) Updated minimum required Node.js engine from 20 to 22 in package.json
+- (skvarel) Replaced custom wait/sleep helper with the built-in adapter.delay() method
 
+### 1.10.1 (2026-05-24)
+- (skvarel) Life360 places display settings in Map Display tab are now hidden when "Process Life360 places" is disabled in the Integration tab
+- (skvarel) Added "Enable own places" checkbox in the Integration tab; disabling it hides the My Places tab, related Map Display settings and own place markers in the map hamburger menus
+- (skvarel) Added descriptive info text to the Logging tab explaining what verbose logging records and when to use it
+
+### 1.10.0 (2026-05-23)
+- (skvarel) Improved Life360 places discovery with multiple API fallbacks: v3 endpoint, embedded v4 circle data (including singular "place" key), and direct v4 places endpoint; logs a one-time info message when no places are available via any source (affects some EU free-tier accounts); added documentation note about this API restriction
+- (skvarel) Added person display name aliases in the Integration tab: assign a custom alias per person used in tracker map headers, legend labels, and ioBroker object display names; circle map header name setting moved to the same tab
+- (skvarel) Fixed `people.<id>.disconnected` and `people.<id>.isConnected` states always showing wrong values because the Life360 API returns the `disconnected` field as a string instead of a boolean
+- (skvarel) Added `notifications.lastSpokenText` state that stores every notification text for use in Blockly, Sonos, or other automations without requiring Telegram or Alexa
+- (skvarel) Added Auto-Refresh checkbox (default on) and Live Follow checkbox to tracker map hamburger menus; in the circle map, clicking a person's name in the legend focuses the map on that person's route
+
+### 1.9.1 (2026-05-20)
+- (skvarel) Fixed tracker map showing wrong day (yesterday's route) for users in timezones ahead of UTC: date calculations now use local time instead of UTC, preventing GPS points and the default date range from being assigned to the previous day between midnight and the UTC offset hour
+- (skvarel) Reduced risk of Cloudflare rate-limiting: API retry loops now abort immediately on a 403/503 block instead of hammering the API with further requests; added a short delay between consecutive API calls within each poll cycle
+
+### 1.9.0 (2026-05-18)
 - (skvarel) Added place-specific notification overrides table in the Notifications tab: configure custom arrival and leave messages per place and person, with optional suppression of the default standard message; place and person columns use dropdowns populated from known places and Life360 persons
-- (skvarel) Extended the Alexa test button to send two back-to-back announcements so sequential playback and restoration of the original volume can be verified directly from the adapter UI
-- (skvarel) Added a longer pause between Alexa announcements when the adapter must fall back to inline `volume;text` commands, giving the device more time to restore the previous volume before the next message
-- (skvarel) Reworked Alexa volume handling again: life360ng now saves the current `Player.volume`, sets the configured announcement volume explicitly for the speech, and restores the original device volume afterwards so the test button and real notifications follow the configured volume reliably
-
-
-### 1.8.0 (2026-05-17)
-- (skvarel) Fixed unhandled promise rejections ("DB closed") at adapter shutdown caused by async DB operations running after the Redis connection was already closed; adapter now sets an unloading flag to prevent new operations from starting and catches any remaining DB errors gracefully
-- (skvarel) Added Notifications tab with Telegram support: send a message when a person arrives at a known place (Life360 app places, own places and/or unknown places); configurable per person with prefix text and per recipient with instance number and Chat ID
-- (skvarel) Added Alexa announcements support: announce location arrivals via Amazon Echo devices using the ioBroker Alexa2 adapter; configurable device list with speak state ID and announcement volume (volume is automatically restored by the Alexa adapter after each announcement)
-
-### 1.7.0 (2026-05-14)
-- (skvarel) Fixed crash on fresh install caused by adapter writing tracker files before the namespace meta object was created
-- (skvarel) Improved error message when Life360 API requests are blocked by Cloudflare (IP rate-limited); no longer logs the full HTML response
-- (skvarel) Hovering over a route point or line now temporarily highlights the active day (thicker line, full opacity, other days faded) when "Day highlight" is enabled; the tooltip on a line shows date (person map) or name and date (circle map)
-- (skvarel) Clicking a line now opens a single popup at the cursor position with date and name instead of opening all marker popups
-- (skvarel) Added optional radius circles for Life360 places and own places (My Places) on the tracker map; toggleable via new "Place radius" and "My Place radius" checkboxes in the hamburger menu; circles use the same color as the flag markers
-- (skvarel) Updated documentation
-- (skvarel) Added per-person minimum distance setting to the tracker table; a value of 0 falls back to the global minimum distance
-
-### 1.6.0 (2026-05-12) 
-- (skvarel) Added refresh button to the hamburger menu
-- (skvarel) Clicking a route point in multi-day view now highlights the active day (thicker line, full opacity) while other days fade into the background; all timestamps for the selected day open simultaneously; clicking the map background or the same point again resets the view
-- (skvarel) Added "Day highlight" toggle to the hamburger menu to switch between single-popup and day-highlight mode; state persists per map in the browser
-- (skvarel) Reduced popup size (smaller font and padding) for a less dominant appearance
-- (skvarel) Added configurable popup opacity in the Map Display settings (default: 1.0)
-- (skvarel) Active day highlight and open popups are restored after auto-refresh
-- (skvarel) Added configurable default view range for the date picker; the map opens showing the last N days by default on every load
-
-### 1.5.2 (2026-05-10)
-- (skvarel) Added configurable opacity for flag markers (Life360 places and own places)
-
-### 1.5.1 (2026-05-10)
-- (skvarel) Extracted shared map JS and CSS from HTML tracker files into static files served once by the web adapter, reducing the size of each GPS-update HTML file significantly
-- (skvarel) Fixed JSDoc type warnings introduced by updated ESLint config (jsdoc/reject-any-type, jsdoc/reject-function-type)
-- (skvarel) Added documentation for tracker file storage location (Admin → Files → life360ng.<instance>/tracker/)
-- (skvarel) Added separate docs page for the Map Display tab (colors, route style, place flags, layout) in English and German; moved map appearance content out of the Logbook docs page
 
 ## License
 

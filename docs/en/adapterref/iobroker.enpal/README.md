@@ -1,13 +1,19 @@
 ![Logo](admin/enpal_logo.svg)
 
-## ioBroker adapter for Enpal Solar
+# ioBroker adapter for Enpal Solar
 
 ![Number of Installations](https://iobroker.live/badges/enpal-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/enpal-stable.svg)
 [![NPM Version](https://nodei.co/npm/iobroker.enpal.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.enpal)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.enpal.svg)](https://www.npmjs.com/package/iobroker.enpal)
 
+[![COMMUNITY](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)](https://forum.iobroker.net/topic/84188/enpal-influxdb-integration)
+[![MAINTAINER](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)](https://github.com/skvarel)
+[![AI](https://img.shields.io/badge/ai%20assisted-copilot-blue.svg)](https://github.com/inventwo/ioBroker.enpal/blob/main/.github/copilot-instructions.md)
+
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
+
+---
 
 ## What this adapter does
 
@@ -75,8 +81,9 @@ Typical examples (depending on your inverter and Enpal configuration):
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.2.1 (2026-05-25)
 - (skvarel) Added link to CHANGELOG_OLD.md at readme 
+- (skvarel) Updated @alcalzone/release-script and related plugins
 
 ### 0.2.0 (2026-04-06)
 - (skvarel) Updated minimum Node.js version requirement to >=22
@@ -90,9 +97,6 @@ Typical examples (depending on your inverter and Enpal configuration):
 
 ### 0.1.8 (2026-04-04)
 - (skvarel) Fixed display of unit "None" in data points - now hidden for cleaner UI
-
-### 0.1.7 (2026-04-04)
-- (skvarel) Title and description edited
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-icontwo/README.md
-title: ioBroker.vis-icontwo
-hash: YEGoxWbOMVH7xaoTOS7lbK9qy7LLfWXCQD/NYatUwP0=
+title: Адаптер ioBroker для ioBroker.vis (VIS-1 и VIS-2)
+hash: HKYZbPlX8JxX0TgQbIYrDonSxWI2/aNQiSvvqm5ihgg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-icontwo/admin/icontwo.png)
 
@@ -11,10 +11,14 @@ hash: YEGoxWbOMVH7xaoTOS7lbK9qy7LLfWXCQD/NYatUwP0=
 ![Количество установок (стабильных)](http://iobroker.live/badges/vis-icontwo-stable.svg)
 ![Версия NPM](https://nodei.co/npm/iobroker.vis-icontwo.svg?style=shields&data=v,u,d&color=orange)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-icontwo.svg?)
+![СООБЩЕСТВО](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)
+![ОБСЛУЖИВАЮЩИЙ](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)
 ![Пожертвование через PayPal](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
-# IoBroker.vis-icontwo
-## Адаптер значков для адаптера ioBroker.vis (для VIS-1 и VIS-2)
+# Адаптер ioBroker для ioBroker.vis (VIS-1 и VIS-2)
+---
+
+## Иконки inventwo для адаптера ioBroker.vis (VIS-1 и VIS-2)
 Простой адаптер значков для вашей визуализации.
 
 Все значки можно найти в папке vis-icontwo через файловый менеджер (на верхнем уровне).
@@ -55,6 +59,9 @@ hash: YEGoxWbOMVH7xaoTOS7lbK9qy7LLfWXCQD/NYatUwP0=
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 2.11.5 (2026-05-25)
+- (skvarel) Fixed repo checker issue #818
+
 ### 2.11.3 (2026-03-17)
 - (skvarel) Translated: Readme in english
 
@@ -66,9 +73,6 @@ hash: YEGoxWbOMVH7xaoTOS7lbK9qy7LLfWXCQD/NYatUwP0=
 
 ### 2.11.0 (2026-02-26)
 - (skvarel) Added: New 3D-Icons (poolrobot)
-
-### 2.10.0 (2026-02-26)
-- (skvarel) Added: New 3D-Icons (beach)
 
 ## License
 

@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/ble-devices.md
 title: ioBroker.shelly
-hash: vqfjinyF2YgblOMF96rjVnRtH2TK40PughvaTInBOzE=
+hash: vP5dN0wklx3SyaWL+NApdcrrUKUb2c9mA/ter2kuok8=
 ---
 ![标识](../../../de/admin/shelly.png)
 
@@ -43,7 +43,8 @@ hash: vqfjinyF2YgblOMF96rjVnRtH2TK40PughvaTInBOzE=
 
 | 适配器版本 | 脚本版本 |
 |-----------------------------------------------------------------------------------------------------------------|----------------|
-| [版本 >= 10.3.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.3.0/docs/en/ble-devices.md) | v1.2 |
+| [版本 >= 11.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v11.0.0/docs/en/ble-devices.md) | v1.3 |
+| [版本 >= 10.2.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.2.0/docs/en/ble-devices.md) | v1.1 |
 | [版本 >= 10.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.1.0/docs/en/ble-devices.md) | v1.0 |
 | [版本 >= 9.1.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v9.1.0/docs/en/ble-devices.md) | v0.5 |
 | [版本 >= 8.2.1](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v8.2.1/docs/en/ble-devices.md) | v0.4 |
@@ -71,8 +72,8 @@ hash: vqfjinyF2YgblOMF96rjVnRtH2TK40PughvaTInBOzE=
 在 Shelly Plus 或 Pro 设备（第二代及更高版本）的 Shelly 脚本部分添加并运行此脚本：
 
 ```javascript
-// v1.2
-const SCRIPT_VERSION = '1.2';
+// v1.3
+const SCRIPT_VERSION = '1.3';
 const BTHOME_SVC_ID_STR = 'fcd2';
 
 let SHELLY_ID = undefined;
@@ -124,7 +125,7 @@ function init() {
     let bleConfig = Shelly.getComponentConfig('ble');
 
     // exit if the BLE isn't enabled
-    if (!bleConfig.enable) {
+    if (!bleConfig.rpc.enable) {
         console.log('Error: The Bluetooth is not enabled, please enable it in the settings');
         return;
     }

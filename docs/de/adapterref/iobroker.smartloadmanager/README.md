@@ -198,6 +198,9 @@ Für jeden Verbraucher wird ein eigener Channel mit folgenden States erzeugt:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.1.2 (2026-04-15)
 
 - (quorle) Update dependencies
@@ -227,6 +230,8 @@ Für jeden Verbraucher wird ein eigener Channel mit folgenden States erzeugt:
 
 - (quorle) Adjustments package.json
 - (quorle) Code changed
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

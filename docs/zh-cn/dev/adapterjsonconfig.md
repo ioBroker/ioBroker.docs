@@ -3,10 +3,10 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：新手指南
-hash: IJo1FDQe20GLWcgRlZIHS+7cDnM/4kGOhPImbNAjj9M=
+hash: t8JOi4020CFbkeTOeDqlhxoJ8c0FTDD0zY4L4ifJdYg=
 ---
 # IoBroker JSON 配置：新手指南
-本指南介绍如何使用 JSON 为 ioBroker 适配器定义配置选项。这种方法提供了一种更友好、更灵活的方式，可以在 ioBroker 管理界面中管理适配器设置。
+本指南解释了如何使用 JSON 为 ioBroker 适配器定义配置选项。这种方法提供了一种更友好、更灵活的方式，可以在 ioBroker 管理界面中管理适配器设置。
 
 你需要准备什么
 - ioBroker Admin 版本 6（或更高版本）
@@ -109,7 +109,7 @@ jsonConfig 会自动确保收集到的数据作为适配器的配置数据记录
 更多示例可以在 GitHub 上相应管理目录中的其他适配器中找到。
 
 ## 支持开发工具
-### VS代码
+### VS Code
 要在 VS Code 中启用 jsonConfig 的验证，必须将以下部分添加到文件“.vscode/settings.json”中。
 
 ```json5
@@ -522,7 +522,7 @@ admin/customI18n/en.json
 | `refreshLabel` | 刷新令牌的可选按钮标签 |
 | `ownClientId` | 可选属性名称，用于存储用户的 OAuth 客户端 ID。如果设置，则会显示客户端 ID 输入字段。 |
 | `ownClientSecret` | 可选属性名称，用于存储用户的 OAuth 客户端密钥。如果设置，则会显示客户端密钥输入字段。 |
-| `ownClientSecret` | 可选属性名称，用于存储用户自己的 OAuth 客户端密钥。如果设置，则会显示客户端密钥输入字段。 |
+| `ownClientSecret` | 可选属性名称，用于存储用户的 OAuth 客户端密钥。如果设置，则会显示客户端密钥输入字段。 |
 
 #### `oauth2`示例
 ```json
@@ -650,7 +650,7 @@ admin/customI18n/en.json
 | `onLoaded` | 初始执行一次按钮逻辑 |
 | `controlStyle` | 按钮样式。 |
 | `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
-| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 ### `setState`
 设置实例状态的按钮
@@ -672,7 +672,7 @@ admin/customI18n/en.json
 | `format` | `text`（默认），`html`，`json`（自管理员版本 7.8.4 起） |
 | `href` | 链接。链接可以是动态的，例如 `#tab-objects/customs/${data.parentId}` |
 | `target` | `_blank` 或 `_self` 或窗口名称。对于相对链接，默认值为 `_self`，对于绝对链接，默认值为 `_blank` |
-| `close` | 如果为真，则关闭 GUI（不用于管理中的 JsonConfig，而用于动态 GUI，仅当目标为 `_self` 时才使用） |
+| `close` | 如果为真，则关闭 GUI（不用于管理中的 JsonConfig，而是用于动态 GUI，仅当目标是 `_self` 时才使用） |
 | `button` | 将链接显示为按钮 |
 | `variant` | 按钮类型（`outlined`, `contained`, `text`） |
 | `color` | 按钮颜色（例如 `primary`） |
@@ -839,7 +839,7 @@ admin/customI18n/en.json
 
 - `simple` - 显示简单的 CRON 设置
 - `complex` - 显示带有“分钟”、“秒”等单位的 CRON 任务
-- 既不是“简单”也不是“复杂”——用户可以在对话框中切换简单和复杂模式。
+- 既不提供“简单”选项，也不提供“复杂”选项 - 用户可以在对话框中切换简单和复杂模式
 
 | 房产 | 描述 |
 |-----------|-----------------------------------------------|
@@ -969,7 +969,7 @@ adapter.on("message", (obj) => {
 | `command` | sendTo 命令 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
 | `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
-| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 后端必须返回一个URL字符串。
 
@@ -1006,7 +1006,7 @@ adapter.on("message", (obj) => {
 | `noTranslation` | 不翻译下拉列表的标签。要使用此选项，您的适配器必须实现消息处理程序。命令的结果必须是 `[{"value": 1, "label": "one"}, ...]` | 形式的数组。 |
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
 | `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
-| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 后端处理程序可以返回带有可选字段 `description` 或 `[{"value": 1, "label": "one", "description": "Some hint"}, ...]` 的项目。描述显示在下拉列表标签下方。
 
@@ -1078,7 +1078,7 @@ adapter.on("message", (obj) => {
 
 要使用此选项，您的适配器必须实现消息处理程序：
 
-命令结果必须是一个形如 `["value1", {"value": "value2", "label": "Value2"}, ...]` 的数组（键和名称（值）必须唯一）。有关处理程序示例，请参见 `selectSendTo`。
+命令结果必须是一个符合 `["value1", {"value": "value2", "label": "Value2"}, ...]` 格式的数组（键和名称（值）必须唯一）。有关处理程序示例，请参见 `selectSendTo`。
 
 ### `textSendTo`
 显示只读控件，其值取自实例。
@@ -1157,7 +1157,7 @@ adapter.on("message", (obj) => {
 | `useSystemName` | 如果已定义，则会显示“使用系统设置”复选框，并从 `system.config` 读取纬度、经度，并将布尔值保存到给定的名称中 |
 
 ### `interface`
-选择实例运行所在主机的接口
+选择实例运行所在的主机接口。
 
 | 房产 | 描述 |
 |------------------|----------------------------------------------------------------|
@@ -1374,7 +1374,7 @@ adapter.on("message", (obj) => {
 | `default` | 默认值 |
 | `defaultFunc` | 用于计算默认值的 JS 函数 |
 | `placeholder` | 占位符（用于文本控件） |
-| `noTranslation` | 请勿翻译下拉列表或其他选项（不包括帮助、标签或占位符） |
+| `noTranslation` | 请勿翻译下拉列表或其他选项（帮助、标签或占位符除外） |
 | `onChange` | 结构形式 `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}` |
 | `doNotSave` | 此属性仅用于内部计算，请勿保存 |
 | `noMultiEdit` | 如果此标志设置为 true，则当用户选择多个对象进行编辑时，此字段将不会显示。 |
@@ -1496,6 +1496,7 @@ const func = new Function(
   'globalData',    // filled only by table and represents the obj.native or obj.common.custom['adapter.X'] object
   '_changed',      // indicator if some data was changed and must be saved
   '_href',         // Current browser href
+  'getObject',     // You can call `await getObject(data.id)`in hidden, disabled, pattern functions
   myValidator.includes('return') ? myValidator : 'return ' + myValidator); // e.g. "_alive === true"
 
 const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, this.props.socket);
@@ -1689,6 +1690,12 @@ onMessage = (obj: ioBroker.Message): void => {
 ### **正在进行中** -->
 
 ## Changelog
+### 8.4.3 (2026-05-24)
+- (@GermanBluefox) Optimization of interfaces
+
+### 8.4.1 (2026-05-19)
+- (@GermanBluefox) Allowed to use `await getObject(data.oid)?.common?.type === 'boolean'` in hidden, pattern or disabled
+
 ### 8.3.13 (2026-05-16)
 - (@GermanBluefox) Added `_href` to `jsonData`
 

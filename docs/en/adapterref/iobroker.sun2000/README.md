@@ -60,6 +60,8 @@ Work in progress
 * new state `inverter.x.emma.activeAlarmSN` and `inverter.x.emma.HistoricalAlarmSN` : emma alarms  [#226](https://github.com/bolliy/ioBroker.sun2000/issues/226)
 * statistics: Aggregates historical collected datapoints into time-based summaries (e.g. hourly, daily, monthly, yearly). The data is stored in the path `statistics` as JSON.
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 

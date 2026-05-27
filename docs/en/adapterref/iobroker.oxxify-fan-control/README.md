@@ -66,6 +66,11 @@ This channel contains system data about the hardware and firmware as well as run
 -->
 
 ## Changelog
+### 0.0.16 (2026-05-18)
+
+- Security vulnerabilities fixed (#143)
+- Dependencies updated
+
 ### 0.0.15 (2026-05-05)
 
 - Security vulnerabilities fixed (#141)
@@ -84,11 +89,6 @@ This channel contains system data about the hardware and firmware as well as run
 ### 0.0.12 (2026-04-06)
 
 - Deploy workflow changed from "npm install" to "npm ci"
-
-### 0.0.11 (2026-04-06)
-
-- TypeScript updated to 6.0
-- Some dependency work
 
 ## License
 

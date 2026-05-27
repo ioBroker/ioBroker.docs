@@ -9,7 +9,7 @@
 
 **Tests:** ![Test and Release](https://github.com/patricknitsch/ioBroker.grohe-smarthome/workflows/Test%20and%20Release/badge.svg)
 
-# ioBroker Grohe Smarthome Adapter
+## ioBroker Grohe Smarthome Adapter
 <img align="left" src="admin/grohe-smarthome.png" alt="image" width="200"/>
 This adapter connects ioBroker to the <strong>Grohe Smarthome / Ondus</strong> cloud and exposes Grohe devices as states (and some controls) inside ioBroker.
 
@@ -39,6 +39,14 @@ Ideas and Concept came from the Home-Assistant Integration **ha-grohe_smarthome*
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.4 (2026-05-23)
+* (copilot) Add latest Message for Notifications
+* (copilot) Add Icons in Notifications
+
+### 0.5.3 (2026-05-21)
+* (copilot) Modify notification manager to work with instances
+* (copilot) Update Dependencies
+
 ### 0.5.2 (2026-05-14)
 * (patricknitsch) Fix Header when Device offline
 * (patricknitsch) Add Icon and Online State on each Device
@@ -52,12 +60,7 @@ Ideas and Concept came from the Home-Assistant Integration **ha-grohe_smarthome*
 * (copilot) Integrate Adapter in ioBroker Device Manager
 * (copilot) Remove tab
 
-### 0.4.0 (2026-05-05)
-* (copilot) Add Notification Manager
-
-### 0.3.4 (2026-05-03)
-* (copilot) Adapter requires node.js >= 22 now
-* (copilot) Update Dependencies
+Older entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 MIT License

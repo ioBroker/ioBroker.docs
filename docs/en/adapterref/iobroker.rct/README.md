@@ -3,15 +3,22 @@
 # ioBroker.rct
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.rct.svg)](https://www.npmjs.com/package/iobroker.rct)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.rct.svg)](https://www.npmjs.com/package/iobroker.rct)
-![Number of Installations (latest)](https://iobroker.live/badges/rct-installed.svg)
-![Number of Installations (stable)](https://iobroker.live/badges/rct-stable.svg)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.rct?label=npm%20downloads&style=flat-square)](https://www.npmjs.com/package/iobroker.rct)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.rct?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.rct?label=npm%20dependencies&style=flat-square)
 
-[![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/aruttkamp/ioBroker.rct)](https://img.shields.io/librariesio/github/aruttkamp/ioBroker.rct)
+![GitHub](https://img.shields.io/github/license/aruttkamp/iobroker.rct?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/aruttkamp/iobroker.rct?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/aruttkamp/iobroker.rct?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/aruttkamp/iobroker.rct?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/aruttkamp/iobroker.rct?logo=github&style=flat-square)
+
+## Versions
+
+![Stable](http://iobroker.live/badges/rct-stable.svg)
+![Installed](https://iobroker.live/badges/rct-installed.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.rct.png?downloads=true)](https://nodei.co/npm/iobroker.rct/)
-
-**Tests:** ![Test and Release](https://github.com/aruttkamp/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
 
 ## RCT adapter for ioBroker
 
@@ -62,7 +69,11 @@ None
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 1.2.27 (2026-05-15)
+### **WORK IN PROGRESS**
+Improve Logging Consistency and Debug Handling
+#320
+
+### 1.2.27 (2026-05-19)
 - (copilot) Adapter requires node.js >= 22 now
 - (Andreas Ruttkamp) dependencies updated
 - (Andreas Ruttkamp) minimum version for admin now 7.6.20
