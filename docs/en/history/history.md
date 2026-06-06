@@ -1248,6 +1248,7 @@ https://github.com/inventwo/ioBroker.life360ng
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.life360ng/main/admin/Life360ng.svg" width="100" height="100" />
 
 This adapter connects to the Life360 cloud services to track people and detect presence at defined places. It retrieves circles, members and places data and persists it as ioBroker states, updated at a configurable interval.
+
 ## enpal (29.4.2025) – new adapter at stable repository
 https://github.com/inventwo/ioBroker.enpal
 
@@ -1260,6 +1261,30 @@ Track battery state of charge (SoC)
 Analyze grid consumption and feed-in power
 Automate based on power generation
 Visualize energy flows in ioBroker dashboard
+
+## parcelapp (6.6.2025) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.parcelapp
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.parcelapp/main/admin/parcelapp.svg" width="100" height="100" />
+
+ioBroker adapter for the parcel.app API. Supports all carriers that parcel.app tracks.
+
+## hueemu (6.6.2025) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.hueemu
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.hueemu/main/admin/hue-emu-logo.svg" width="100" height="100" />
+
+Emulates a Philips Hue Bridge (v2, BSB002) so that ioBroker devices appear as Hue lights to clients that only support the Hue API.
+
+
+## linky (6.6.2025) – new adapter at stable repository
+https://github.com/iobroker-community-adapters/ioBroker.linky
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.linky/blob/admin/linky.png" width="100" height="100" />
+
+Read data from Linky smart electricity meters, in fact any meter supporting the French Teleinfo protocol: https://www.enedis.fr/sites/default/files/Enedis-NOI-CPT_54E.pdf
+
+
 
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
