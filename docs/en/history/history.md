@@ -17,6 +17,20 @@
     <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
 ```
 
+## hueemu (2026-06-06) - stable release
+https://github.com/krobipd/ioBroker.hueemu
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.hueemu/main/admin/hue-emu-logo.svg" width="100" height="100" />
+
+Emulates a Philips Hue Bridge (v2) so that ioBroker devices appear as Hue lights to clients that only speak the Hue API — e.g. Amazon Alexa or Logitech Harmony.
+
+## parcelapp (2026-06-06) - stable release
+https://github.com/krobipd/ioBroker.parcelapp
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.parcelapp/main/admin/parcelapp.svg" width="100" height="100" />
+
+Parcel tracking via the parcel.app API — follows your deliveries across all carriers that parcel.app supports, directly in ioBroker.
+
 ## ecoflow-mqtt (2024-10-14) - new adapter
 https://github.com/foxthefox/ioBroker.ecoflow-mqtt
 
