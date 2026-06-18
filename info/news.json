@@ -1129,7 +1129,7 @@
       "pl": "Wersje js-controller od 7.1.0 do 7.2.1 są wadliwe",
       "uk": "Версії js-controller від 7.1.0 до 7.2.1 мають помилки",
       "zh-cn": "js-controller 7.1.0 至 7.2.1 版本存在缺陷"
-    }
+    },
     "content": {
       "en": "Releases 7.1.0 up to 7.2.1 of js-controller are faulty and cause excessive central error logging. Please update to js-controller 7.2.2 (or newer) as soon as possible. Release 7.2.2. has been released to stable repository already. ",
       "de": "Die Versionen 7.1.0 bis 7.2.1 von js-controller sind fehlerhaft und verursachen übermäßig viele zentrale Fehlermeldungen. Bitte aktualisieren Sie js-controller so schnell wie möglich auf Version 7.2.2 (oder neuer). Version 7.2.2 ist bereits im stable Repository verfügbar.",
