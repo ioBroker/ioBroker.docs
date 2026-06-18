@@ -1115,5 +1115,40 @@
     "conditions": {
       "zwave2": "installed"
     }
+  },
+    {
+    "title":{
+      "en": "js-controller releases 7.1.0 up to 7.2.1 are faulty",
+      "de": "Die js-controller-Versionen 7.1.0 bis 7.2.1 sind fehlerhaft.",
+      "ru": "В версиях js-controller от 7.1.0 до 7.2.1 обнаружены ошибки.",
+      "pt": "As versões do js-controller de 7.1.0 a 7.2.1 apresentam falhas.",
+      "nl": "De js-controller-versies 7.1.0 tot en met 7.2.1 bevatten fouten.",
+      "fr": "Les versions 7.1.0 à 7.2.1 de js-controller présentent des dysfonctionnements.",
+      "it": "Le versioni di js-controller dalla 7.1.0 alla 7.2.1 presentano dei difetti.",
+      "es": "Las versiones 7.1.0 a 7.2.1 de js-controller presentan fallos.",
+      "pl": "Wersje js-controller od 7.1.0 do 7.2.1 są wadliwe",
+      "uk": "Версії js-controller від 7.1.0 до 7.2.1 мають помилки",
+      "zh-cn": "js-controller 7.1.0 至 7.2.1 版本存在缺陷"
+    }
+    "content": {
+      "en": "Releases 7.1.0 up to 7.2.1 of js-controller are faulty and cause excessive central error logging. Please update to js-controller 7.2.2 (or newer) as soon as possible. Release 7.2.2. has been released to stable repository already. ",
+      "de": "Die Versionen 7.1.0 bis 7.2.1 von js-controller sind fehlerhaft und verursachen übermäßig viele zentrale Fehlermeldungen. Bitte aktualisieren Sie js-controller so schnell wie möglich auf Version 7.2.2 (oder neuer). Version 7.2.2 ist bereits im stable Repository verfügbar.",
+      "ru": "Версии js-controller с 7.1.0 по 7.2.1 содержат ошибки и приводят к чрезмерному количеству сообщений об ошибках в центральной системе. Пожалуйста, обновите js-controller до версии 7.2.2 (или более новой) как можно скорее. Версия 7.2.2 уже выпущена в стабильный репозиторий.",
+      "pt": "As versões 7.1.0 a 7.2.1 do js-controller apresentam falhas e causam excesso de registros de erros no repositório central. Por favor, atualize para a versão 7.2.2 (ou mais recente) do js-controller o mais rápido possível. A versão 7.2.2 já foi lançada no repositório estável.",
+      "nl": "Versies 7.1.0 tot en met 7.2.1 van js-controller bevatten fouten en veroorzaken overmatige centrale foutmeldingen. Update zo snel mogelijk naar js-controller 7.2.2 (of nieuwer). Versie 7.2.2 is al beschikbaar in de stabiele repository.",
+      "fr": "Les versions 7.1.0 à 7.2.1 de js-controller présentent des anomalies et génèrent une quantité excessive de messages d'erreur. Veuillez mettre à jour js-controller vers la version 7.2.2 (ou une version ultérieure) dès que possible. La version 7.2.2 est déjà disponible dans le dépôt stable.",
+      "it": "Le versioni di js-controller dalla 7.1.0 alla 7.2.1 presentano dei difetti e causano un'eccessiva generazione di messaggi di errore nel sistema centrale. Si prega di aggiornare a js-controller 7.2.2 (o versioni successive) il prima possibile. La versione 7.2.2 è già stata rilasciata nel repository stabile.",
+      "es": "Las versiones 7.1.0 a 7.2.1 de js-controller presentan fallos y generan un registro de errores excesivo. Actualice a js-controller 7.2.2 (o posterior) lo antes posible. La versión 7.2.2 ya está disponible en el repositorio estable.",
+      "pl": "Wersje js-controller od 7.1.0 do 7.2.1 są wadliwe i powodują nadmierne centralne rejestrowanie błędów. Prosimy o jak najszybszą aktualizację do js-controller 7.2.2 (lub nowszej). Wersja 7.2.2 została już opublikowana w stabilnym repozytorium.",
+      "uk": "Версії js-controller від 7.1.0 до 7.2.1 містять помилки та спричиняють надмірне централізоване реєстрування помилок. Будь ласка, оновіть js-controller до версії 7.2.2 (або новішої) якомога швидше. Версія 7.2.2 вже випущена у стабільний репозиторій.",
+      "zh-cn": "js-controller 的 7.1.0 至 7.2.1 版本存在缺陷，会导致过多的集中式错误日志记录。请尽快更新至 js-controller 7.2.2（或更高版本）。7.2.2 版本已发布到稳定版仓库。"
+    },
+    "id": "js-controller-7-2-2",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2026-06-18T20:30:00.000Z",
+    "conditions": {
+      "js-controller": "between(7.1.0,7.2.1)"
+    }
   }
 ]
