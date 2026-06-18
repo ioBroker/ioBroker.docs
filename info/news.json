@@ -1115,5 +1115,40 @@
     "conditions": {
       "zwave2": "installed"
     }
+  },
+    {
+    "title":{
+      "en": "js-controller releases 7.1.0 up to 7.2.1 need urgent update",
+      "de": "Die js-controller-Versionen 7.1.0 bis 7.2.1 benötigen dringend ein Update.",
+      "ru": "Требуется срочное обновление для js-controller версий от 7.1.0 до 7.2.1.",
+      "pt": "As versões do js-controller de 7.1.0 a 7.2.1 precisam de atualização urgente.",
+      "nl": "js-controller releases 7.1.0 tot en met 7.2.1 vereisen dringend een update.",
+      "fr": "Les versions 7.1.0 à 7.2.1 de js-controller nécessitent une mise à jour urgente",
+      "it": "js-controller, versioni dalla 7.1.0 alla 7.2.1, necessita di un aggiornamento urgente.",
+      "es": "js-controller (versiones 7.1.0 a 7.2.1) necesita una actualización urgente.",
+      "pl": "Wersje js-controller od 7.1.0 do 7.2.1 wymagają pilnej aktualizacji",
+      "uk": "Релізи js-controller від 7.1.0 до 7.2.1 потребують термінового оновлення",
+      "zh-cn": "js-controller 版本 7.1.0 到 7.2.1 急需更新"
+    },
+    "content": {
+      "en": "Releases 7.1.0 up to 7.2.1 of js-controller cause excessive central error logging and need an urgent replacement. Please update to js-controller 7.2.2 (or newer) as soon as possible. Release 7.2.2. has been released to stable repository already. ",
+      "de": "Die Versionen 7.1.0 bis 7.2.1 von js-controller verursachen übermäßig viele zentrale Fehlerprotokollierungen und müssen dringend ersetzt werden. Bitte aktualisieren Sie js-controller so schnell wie möglich auf Version 7.2.2 (oder neuer). Version 7.2.2 ist bereits im stabilen Repository verfügbar.",
+      "ru": "В версиях js-controller от 7.1.0 до 7.2.1 наблюдается чрезмерное количество ошибок в центральном логировании, поэтому требуется срочная замена. Пожалуйста, обновите js-controller до версии 7.2.2 (или более новой) как можно скорее. Версия 7.2.2 уже выпущена в стабильный репозиторий.",
+      "pt": "As versões 7.1.0 a 7.2.1 do js-controller causam um excesso de registros de erros no repositório central e precisam ser substituídas com urgência. Por favor, atualize para o js-controller 7.2.2 (ou mais recente) o mais rápido possível. A versão 7.2.2 já foi lançada no repositório estável.",
+      "nl": "Versies 7.1.0 tot en met 7.2.1 van js-controller veroorzaken overmatige centrale foutmeldingen en moeten dringend worden vervangen. Update zo snel mogelijk naar js-controller 7.2.2 (of nieuwer). Versie 7.2.2 is al beschikbaar in de stabiele repository.",
+      "fr": "Les versions 7.1.0 à 7.2.1 de js-controller génèrent une quantité excessive d'erreurs dans la journalisation centrale et nécessitent un remplacement urgent. Veuillez mettre à jour js-controller vers la version 7.2.2 (ou une version ultérieure) dès que possible. La version 7.2.2 est déjà disponible dans le dépôt stable.",
+      "it": "Le versioni di js-controller dalla 7.1.0 alla 7.2.1 causano un'eccessiva registrazione degli errori nel sistema centrale e necessitano di una sostituzione urgente. Si prega di aggiornare js-controller alla versione 7.2.2 (o successiva) il prima possibile. La versione 7.2.2 è già stata rilasciata nel repository stabile.",
+      "es": "Las versiones 7.1.0 a 7.2.1 de js-controller generan un registro de errores centralizado excesivo y requieren una actualización urgente. Por favor, actualice a js-controller 7.2.2 (o posterior) lo antes posible. La versión 7.2.2 ya está disponible en el repositorio estable.",
+      "pl": "Wersje js-controller od 7.1.0 do 7.2.1 powodują nadmierne centralne rejestrowanie błędów i wymagają pilnej wymiany. Prosimy o jak najszybszą aktualizację do js-controller 7.2.2 (lub nowszej). Wersja 7.2.2 została już opublikowana w stabilnym repozytorium.",
+      "uk": "Версії js-controller від 7.1.0 до 7.2.1 спричиняють надмірну централізовану реєстрацію помилок і потребують термінової заміни. Будь ласка, оновіть js-controller до версії 7.2.2 (або новішої) якомога швидше. Версія 7.2.2 вже випущена до стабільного репозиторію.",
+      "zh-cn": "js-controller 7.1.0 至 7.2.1 版本存在集中式错误日志记录过多的问题，需要尽快更换。请尽快更新至 js-controller 7.2.2 或更高版本。7.2.2 版本已发布到稳定版仓库。"
+    },
+    "id": "js-controller-7-2-2",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2026-06-18T20:30:00.000Z",
+    "conditions": {
+      "js-controller": "between(7.1.0,7.2.1)"
+    }
   }
 ]
