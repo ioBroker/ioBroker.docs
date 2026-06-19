@@ -1116,7 +1116,7 @@
       "zwave2": "installed"
     }
   },
-    {
+  {
     "title":{
       "en": "js-controller releases 7.1.0 up to 7.2.1 need urgent update",
       "de": "Die js-controller-Versionen 7.1.0 bis 7.2.1 benötigen dringend ein Update.",
@@ -1150,5 +1150,38 @@
     "conditions": {
       "js-controller": "between(7.1.0,7.2.1)"
     }
+  },
+  {
+    "title":{
+      "en": "js-controller news - update required",
+      "de": "Neuigkeiten zum js-Controller – Aktualisierung erforderlich",
+      "ru": "Новости js-контроллера - требуется обновление",
+      "pt": "Notícias do js-controller - atualização necessária",
+      "nl": "js-controller nieuws - update vereist",
+      "fr": "Actualités js-controller - Mise à jour requise",
+      "it": "Notizie su js-controller: aggiornamento necessario",
+      "es": "Noticias sobre js-controller: se requiere actualización.",
+      "pl": "Aktualności js-controller - wymagana aktualizacja",
+      "uk": "новини js-controller - потрібне оновлення",
+      "zh-cn": "js-controller 最新消息 - 需要更新"
+    },
+    "content": {
+      "en": "js-controller 7.2.2 is now available in the STABLE repository. Users currently running js-controller 7.1.x, 7.2.0, or 7.2.1 should update as soon as possible. Versions 7.1.0 through 7.2.1 of js-controller generate an excessive number of central error logs and therefore negatively impact the operation of all users. A prompt update is recommended for all users, as this release contains necessary adjustments required for future adapter updates.",
+      "de": "js-controller 7.2.2 ist jetzt im STABLE-Repository verfügbar. Nutzer von js-controller 7.1.x, 7.2.0 oder 7.2.1 sollten schnellstmöglich aktualisieren. Die Versionen 7.1.0 bis 7.2.1 erzeugen eine übermäßige Anzahl zentraler Fehlerprotokolle und beeinträchtigen dadurch die Funktionalität für alle Nutzer. Ein umgehendes Update wird allen Nutzern empfohlen, da diese Version notwendige Anpassungen für zukünftige Adapter-Updates enthält.",
+      "ru": "В стабильном репозитории теперь доступна версия js-controller 7.2.2. Пользователям, использующим в настоящее время js-controller 7.1.x, 7.2.0 или 7.2.1, следует как можно скорее обновиться. Версии 7.1.0–7.2.1 js-controller генерируют чрезмерное количество центральных журналов ошибок и, следовательно, негативно влияют на работу всех пользователей. Всем пользователям рекомендуется незамедлительно обновиться, поскольку этот релиз содержит необходимые корректировки, требуемые для будущих обновлений адаптера.",
+      "pt": "O js-controller 7.2.2 já está disponível no repositório ESTÁVEL. Usuários que atualmente executam o js-controller 7.1.x, 7.2.0 ou 7.2.1 devem atualizar o mais rápido possível. As versões 7.1.0 a 7.2.1 do js-controller geram um número excessivo de logs de erro centralizados e, portanto, impactam negativamente a operação de todos os usuários. Recomenda-se uma atualização imediata para todos os usuários, pois esta versão contém os ajustes necessários para futuras atualizações do adaptador.",
+      "nl": "js-controller 7.2.2 is nu beschikbaar in de STABLE-repository. Gebruikers die momenteel js-controller 7.1.x, 7.2.0 of 7.2.1 gebruiken, wordt aangeraden zo snel mogelijk te updaten. Versies 7.1.0 tot en met 7.2.1 van js-controller genereren een overmatig aantal centrale foutenlogboeken en hebben daardoor een negatieve invloed op de werking van alle gebruikers. Een snelle update wordt aanbevolen voor alle gebruikers, aangezien deze release noodzakelijke aanpassingen bevat voor toekomstige adapterupdates.",
+      "fr": "js-controller 7.2.2 est désormais disponible dans le dépôt STABLE. Les utilisateurs de js-controller 7.1.x, 7.2.0 ou 7.2.1 sont invités à effectuer la mise à jour dès que possible. Les versions 7.1.0 à 7.2.1 de js-controller génèrent un nombre excessif de messages d'erreur dans les journaux centraux, ce qui perturbe le fonctionnement pour tous les utilisateurs. Une mise à jour rapide est donc recommandée, car cette version inclut les ajustements nécessaires pour les futures mises à jour de l'adaptateur.",
+      "it": "js-controller 7.2.2 è ora disponibile nel repository STABLE. Gli utenti che attualmente utilizzano js-controller 7.1.x, 7.2.0 o 7.2.1 dovrebbero aggiornare il prima possibile. Le versioni dalla 7.1.0 alla 7.2.1 di js-controller generano un numero eccessivo di log di errore centralizzati, con conseguenti ripercussioni negative sul funzionamento per tutti gli utenti. Si raccomanda un aggiornamento immediato a tutti gli utenti, poiché questa versione contiene le modifiche necessarie per i futuri aggiornamenti dell'adattatore.",
+      "es": "js-controller 7.2.2 ya está disponible en el repositorio ESTABLE. Los usuarios que actualmente utilizan js-controller 7.1.x, 7.2.0 o 7.2.1 deben actualizar lo antes posible. Las versiones 7.1.0 a 7.2.1 de js-controller generan una cantidad excesiva de registros de errores centrales y, por lo tanto, afectan negativamente el funcionamiento de todos los usuarios. Se recomienda una actualización inmediata para todos los usuarios, ya que esta versión incluye los ajustes necesarios para futuras actualizaciones del adaptador.",
+      "pl": "js-controller 7.2.2 jest już dostępny w repozytorium STABLE. Użytkownicy korzystający obecnie z js-controller w wersji 7.1.x, 7.2.0 lub 7.2.1 powinni jak najszybciej dokonać aktualizacji. Wersje od 7.1.0 do 7.2.1 js-controller generują nadmierną liczbę centralnych dzienników błędów, co negatywnie wpływa na działanie wszystkich użytkowników. Zaleca się wszystkim użytkownikom szybką aktualizację, ponieważ ta wersja zawiera niezbędne poprawki wymagane do przyszłych aktualizacji adaptera.",
+      "uk": "js-controller версії 7.2.2 тепер доступний у репозиторії STABLE. Користувачам, які зараз використовують js-controller 7.1.x, 7.2.0 або 7.2.1, слід оновити його якомога швидше. Версії js-controller від 7.1.0 до 7.2.1 генерують надмірну кількість централізованих журналів помилок і тому негативно впливають на роботу всіх користувачів. Усім користувачам рекомендується оперативне оновлення, оскільки цей випуск містить необхідні налаштування, необхідні для майбутніх оновлень адаптера.",
+      "zh-cn": "js-controller 7.2.2 现已在稳定版仓库中发布。当前正在使用 js-controller 7.1.x、7.2.0 或 7.2.1 的用户应尽快更新。js-controller 7.1.0 至 7.2.1 版本会生成过多的集中式错误日志，从而对所有用户的运行造成负面影响。建议所有用户立即更新，因为此版本包含未来适配器更新所需的必要调整。"
+    },
+    "id": "js-controller-7-2-2-v2",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2026-06-19T18:00:00.000Z",
+    "date-end": "2026-07-31T23:00:00.000Z"
   }
 ]
