@@ -95,6 +95,7 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `button`         - the difference, that `common.write=false`. Please avoid this role and use `button.press` or `button.long`.
 * `button.long`
 * `button.press`
+* `button.press.double`
 
 ### Values (numbers, read-only)
 `common.type=number, common.write=false`
