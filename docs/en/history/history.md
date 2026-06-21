@@ -1298,6 +1298,14 @@ https://github.com/krobipd/ioBroker.homewizard
 
 Real-time energy monitoring for HomeWizard Energy devices with API v2.
 
+## al-ko (21.6.2026) – new adapter at stable repository
+https://github.com/zechnerhubert/ioBroker.al-ko
+
+<img src="https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/master/admin/al-ko.png" width="100" height="100" />
+
+The ioBroker.al-ko adapter integrates AL-KO Robolinho robotic lawnmowers and other AL-KO smart garden devices into ioBroker using the official AL-KO Cloud API, including real-time updates via WebSocket.
+
+
 
 
 
