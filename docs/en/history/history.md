@@ -1297,13 +1297,28 @@ https://github.com/krobipd/ioBroker.homewizard
 <img src="https://raw.githubusercontent.com/krobipd/ioBroker.homewizard/main/admin/homewizard.svg" width="100" height="100" />
 
 Real-time energy monitoring for HomeWizard Energy devices with API v2.
-
 ## al-ko (21.6.2026) – new adapter at stable repository
 https://github.com/zechnerhubert/ioBroker.al-ko
 
 <img src="https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/master/admin/al-ko.png" width="100" height="100" />
 
 The ioBroker.al-ko adapter integrates AL-KO Robolinho robotic lawnmowers and other AL-KO smart garden devices into ioBroker using the official AL-KO Cloud API, including real-time updates via WebSocket.
+
+## google-sharedlocations2 (24.6.2026) – new adapter at stable repository
+https://github.com/Garfonso/ioBroker.google-sharedlocations2
+
+<img src="https://raw.githubusercontent.com/Garfonso/ioBroker.google-sharedlocations2/main/admin/google-sharedlocations2.png" width="100" height="100" />
+
+Share your location with ioBroker via Google Maps. You should create a separate Google account for this purpose, i.e. an account for your ioBroker installation. Do NOT use your personal account.
+
+## govee-smart (24.6.2026) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.govee-smart
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.govee-smart/main/admin/govee-smart.svg" width="100" height="100" />
+
+Control all Govee WiFi products from ioBroker — lights, sensors and appliances. Bluetooth-only devices are not supported. The adapter uses every available Govee channel (LAN, Cloud REST, AWS IoT MQTT, OpenAPI MQTT, App API) and picks whichever delivers the fastest answer for each device
+
+
 
 
 
