@@ -106,6 +106,7 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `value.window` (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) Es ist wichtig, dass (`CLOSED/TILTED/OPEN`) vorhanden ist. Die Werte können unterschiedlich sein.
 * `value.temperature` (`common.unit='°C' or '°F' or 'K'`)
 * `value.humidity`
+* `value.humidity.absolute` - (unit: g/m³, mg/m³)
 * `value.co`              - Carbon monoxide (unit: ppm)
 * `value.co2`             - Carbon dioxide (unit: ppm)
 * `value.no`              - Nitrogen monoxide (unit: µg/m³ or ppm)
