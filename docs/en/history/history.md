@@ -1318,10 +1318,25 @@ https://github.com/krobipd/ioBroker.govee-smart
 
 Control all Govee WiFi products from ioBroker — lights, sensors and appliances. Bluetooth-only devices are not supported. The adapter uses every available Govee channel (LAN, Cloud REST, AWS IoT MQTT, OpenAPI MQTT, App API) and picks whichever delivers the fastest answer for each device
 
+## vs-2-widgets-tibberlink (30.6.2026) – new adapter at stable repository
+https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink
+
+<img src="https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/main/admin/vis-2-widgets-tibberlink.png" width="100" height="100" />
+
+VIS-2 widgets for visualizing Tibber dynamic electricity tariff data: current price, cheapest time window and monthly cost.
+
+## hassemu (30.6.2026) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.hassemu
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.hassemu/main/admin/hassemu.svg" width="100" height="100" />
+
+Emulates a Home Assistant server so displays that only accept an HA dashboard show any web URL instead.
 
 
 
 
+
+i
 
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
