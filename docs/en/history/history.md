@@ -1235,21 +1235,22 @@ https://github.com/JR-Home/ioBroker.brunner-eas3
 <img src="https://raw.githubusercontent.com/JR-Home/ioBroker.brunner-eas3/main/admin/brunner-eas3.png" width="100" height="100" />
 
 Adapter for reading data from Brunner combustion control system EAS 3. The data is published via WLAN broadcast messages.
-## speedport (3.5.2025) – new adapter at stable repository
+
+## speedport (3.5.2026) – new adapter at stable repository
 https://github.com/hacki11/ioBroker.speedport
 
 <img src="https://raw.githubusercontent.com/hacki11/ioBroker.speedport/master/admin/speedport.png" width="100" height="100" />
 
 Fetches data from Telekom Speedport Router
 
-## life360ng (3.5.2025) – new adapter at stable repository
+## life360ng (3.5.2026) – new adapter at stable repository
 https://github.com/inventwo/ioBroker.life360ng
 
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.life360ng/main/admin/Life360ng.svg" width="100" height="100" />
 
 This adapter connects to the Life360 cloud services to track people and detect presence at defined places. It retrieves circles, members and places data and persists it as ioBroker states, updated at a configurable interval.
 
-## enpal (29.4.2025) – new adapter at stable repository
+## enpal (29.4.2026) – new adapter at stable repository
 https://github.com/inventwo/ioBroker.enpal
 
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.enpal/main/admin/enpal.svg" width="100" height="100" />
@@ -1262,7 +1263,7 @@ Analyze grid consumption and feed-in power
 Automate based on power generation
 Visualize energy flows in ioBroker dashboard
 
-## parcelapp (6.6.2025) – new adapter at stable repository
+## parcelapp (6.6.2026) – new adapter at stable repository
 https://github.com/krobipd/ioBroker.parcelapp
 
 <img src="https://raw.githubusercontent.com/krobipd/ioBroker.parcelapp/main/admin/parcelapp.svg" width="100" height="100" />
@@ -1276,15 +1277,66 @@ https://github.com/krobipd/ioBroker.hueemu
 
 Emulates a Philips Hue Bridge (v2, BSB002) so that ioBroker devices appear as Hue lights to clients that only support the Hue API.
 
-
-## linky (6.6.2025) – new adapter at stable repository
+## linky (6.6.2026) – new adapter at stable repository
 https://github.com/iobroker-community-adapters/ioBroker.linky
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.linky/blob/admin/linky.png" width="100" height="100" />
 
 Read data from Linky smart electricity meters, in fact any meter supporting the French Teleinfo protocol: https://www.enedis.fr/sites/default/files/Enedis-NOI-CPT_54E.pdf
 
+## beszel (21.6.2026) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.beszel
 
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.beszel/main/admin/beszel.svg" width="100" height="100" />
+
+Connects to a Beszel Hub and exposes server monitoring metrics for all registered systems as ioBroker states.
+
+## homewizard (21.6.2026) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.homewizard
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.homewizard/main/admin/homewizard.svg" width="100" height="100" />
+
+Real-time energy monitoring for HomeWizard Energy devices with API v2.
+## al-ko (21.6.2026) – new adapter at stable repository
+https://github.com/zechnerhubert/ioBroker.al-ko
+
+<img src="https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/master/admin/al-ko.png" width="100" height="100" />
+
+The ioBroker.al-ko adapter integrates AL-KO Robolinho robotic lawnmowers and other AL-KO smart garden devices into ioBroker using the official AL-KO Cloud API, including real-time updates via WebSocket.
+
+## google-sharedlocations2 (24.6.2026) – new adapter at stable repository
+https://github.com/Garfonso/ioBroker.google-sharedlocations2
+
+<img src="https://raw.githubusercontent.com/Garfonso/ioBroker.google-sharedlocations2/main/admin/google-sharedlocations2.png" width="100" height="100" />
+
+Share your location with ioBroker via Google Maps. You should create a separate Google account for this purpose, i.e. an account for your ioBroker installation. Do NOT use your personal account.
+
+## govee-smart (24.6.2026) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.govee-smart
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.govee-smart/main/admin/govee-smart.svg" width="100" height="100" />
+
+Control all Govee WiFi products from ioBroker — lights, sensors and appliances. Bluetooth-only devices are not supported. The adapter uses every available Govee channel (LAN, Cloud REST, AWS IoT MQTT, OpenAPI MQTT, App API) and picks whichever delivers the fastest answer for each device
+
+## vs-2-widgets-tibberlink (30.6.2026) – new adapter at stable repository
+https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink
+
+<img src="https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/main/admin/vis-2-widgets-tibberlink.png" width="100" height="100" />
+
+VIS-2 widgets for visualizing Tibber dynamic electricity tariff data: current price, cheapest time window and monthly cost.
+
+## hassemu (30.6.2026) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.hassemu
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.hassemu/main/admin/hassemu.svg" width="100" height="100" />
+
+Emulates a Home Assistant server so displays that only accept an HA dashboard show any web URL instead.
+
+
+
+
+
+i
 
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
