@@ -102,6 +102,16 @@ This method requires the "FlexCharts" adapter to be installed separately.
     ```
     http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibberlink.0.Homes.[TIBBER-HOME-ID].PricesTotal.jsonFlexCharts
     ```
+- Starting with V0.7.0 FlexCharts supports automatic chart updates via SSE (Server Sent Events). To use this add `&sse` to the URL:
+    ```
+    http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibberlink.0.Homes.[TIBBER-HOME-ID].PricesTotal.jsonFlexCharts&sse=30
+    ```
+- Refer to the [FlexCharts adapter documentation](https://github.com/MyHomeMyData/ioBroker.flexcharts) for more details.
+
+@reblausgt Mit v0.7.0 ist es in Flexcharts nun möglich, Charts automatisch neu aufzubauen, wenn sich der State des Charts geändert hat. Das Verfahren nennt sich SSE (Server Sent Events). Aktiviert wird es denkbar einfach, indem ein &sse an den html-Aufruf anhängt. Details sind im Readme beschrieben.
+
+Die Version ist in NPM und im Beta-Repo verfügbar. Ab 26. April auch im Stable.
+
 - Refer to the [FlexCharts adapter documentation](https://github.com/MyHomeMyData/ioBroker.flexcharts) for more details.
 
 #### **JSON Template Usage**
@@ -170,6 +180,24 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (copilot) BREAKING: Adapter requires node.js >= 22 now
+- (HombachC) Adapter requires admin >=7.6.20 now
+- (grok) added current month consumption (#872)
+- (HombachC) upgraded typescript to 6.x
+- (HombachC) fixed vulnerability in axios
+- (HombachC) fixed some type definitions
+- (HombachC) extended FlexCharts docu
+- (HombachC) updated dependencies
+- (HombachC) updated projectUtils
+
+### 6.2.2 (2026-04-13)
+
+- (HombachC) fix vulnerability in axios
+- (HombachC) update dependencies
+
 ### 6.2.1 (2026-03-30)
 
 - (HombachC) optimize pull of consumption data (#860)
@@ -202,13 +230,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) update cron
 - (HombachC) year 2026 changes
 - (HombachC) update dependencies
-
-### 6.0.3 (2025-11-16)
-
-- (HombachC) optimize sentry
-- (HombachC) optimize dependabot config (#805)
-- (HombachC) update axios and cron
-- (HombachC) update FlexChart template
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

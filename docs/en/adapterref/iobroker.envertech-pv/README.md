@@ -74,6 +74,7 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 1.5.1 (2026-02-14)
@@ -99,6 +100,8 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 -   (mcm1957) Incorrect description has been corrected [#50].
 -   (mcm1957) State roles have been checked and adapter [#75].
 -   (mcm1957) Dependencies have been updated.
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

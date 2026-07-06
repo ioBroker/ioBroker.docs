@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.danfoss-ally/README.md
 title: без названия
-hash: hVcdlLVwHoiSco0XdVcLcghYreoDPRMJlT6VJXj++xQ=
+hash: x8WosFEER+yJnraUu8Zd7H0Cm9C7yURg4hhJSh9InnQ=
 ---
-![версия](https://img.shields.io/badge/version-0.2.15-blue)
+![версия](https://img.shields.io/badge/version-0.2.18-blue)
 ![НПМ](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 Облачный адаптер для **Danfoss Ally™** — с использованием **OAuth2 (учетные данные клиента)**.
@@ -39,8 +39,10 @@ hash: hVcdlLVwHoiSco0XdVcLcghYreoDPRMJlT6VJXj++xQ=
 ---
 
 ## Поддерживаемые устройства
+- Термостаты радиатора Danfoss Ally™ TRV
 - Danfoss Icon2 RT (комнатные термостаты)
 - Контроллер Danfoss Icon2
+Реле котла Danfoss Ally™
 - Danfoss Ally™ Gateway
 
 (Другие устройства Danfoss обнаружены автоматически)
@@ -129,9 +131,9 @@ Polling:      300
 
 ---
 
-## Написание команд (отдельные команды)
-Адаптер поддерживает **точные одиночные записи** в каждое управляемое состояние без цепочек или автоматических переключений режимов.
-Это дает вам полный контроль в Blockly, JavaScript или пользовательских логических скриптах.
+## Письмо
+Адаптер поддерживает **целевую запись** в каждое управляемое состояние без автоматического переключения режимов.
+Это дает вам полный контроль в Blockly, JavaScript или в пользовательских логических скриптах.
 
 | Доступное для записи состояние | Ожидаемое значение / поведение |
 | ----------------------------------------------------------------------------- | --------------------------------------------------------------- |
@@ -260,11 +262,13 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 ---
 
 ## Пишет
-- Одна команда на состояние (без цепочки режимов)
+- `temp_set` сначала пытается выполнить комбинированную команду `SetpointChangeSource` + `temp_set`.
+- Термостаты Ally TRV также получают значение `manual_mode_fast`, если такая точка данных существует, поскольку некоторые устройства сообщают о заданном вручную значении.
 - Режим + температура должны быть указаны отдельно.
 - Значения ограничены допустимыми пределами и масштабированы в 10 раз.
 - `child_lock`: пытается `0/1`, повторяет попытку `true/false` при ошибке 400
-- `SetpointChangeSource`: необязательный параметр; по умолчанию используется значение `"Externally"` при активации ручного режима.
+- `SetpointChangeSource`: необязательный параметр; `temp_set` пытается использовать `"Externally"` для TRV союзников.
+— Если облако впоследствии снова сообщит о старой заданной точке, адаптер запишет предупреждение вместо того, чтобы молча принять её.
 
 Все записи об отправке, повторной попытке и подтверждении отображаются в режиме отладки.
 
@@ -282,23 +286,28 @@ node main.js
 
 ## Changelog
 
+### 0.2.18
+- Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
+- Added explicit warnings when the Danfoss Cloud does not confirm the requested setpoint
+- Improved device naming/detection for relay-like devices so the Boiler Relay is easier to identify
 
-### 0.2.15
-- Fixed invalid `io-package.json` (JSON syntax error)
-- No functional changes
+### 0.2.17
+- Improved Ally TRV `temp_set` writes by trying `SetpointChangeSource=Externally` and `temp_set` as one combined command first
+- Falls back to `temp_set` only if Danfoss rejects the combined command
+- Fixed `control.switch` subscriptions for Icon2 / Boiler Relay writes
+- Added alias handling for `Occupied_Setpoint`
+- Fixed jsonConfig header validation warning
 
-### 0.2.14
-- Introduced `control` channel for writable states
-- `status` channel is now strictly read-only
-- Improved write detection and state handling
-- Prevented writes to channels or non-state objects
-- Improved adapter stability
+### 0.2.16
+- Fixed `temp_set` for Ally TRVs (`SetpointChangeSource=Externally` auto-sent)
+- Fixed wrong path for `lower_temp`/`upper_temp` clamp
+- Fixed `OccupiedSetpoint` scaling (÷100 instead of ÷10)
+- Added type hints for 16 new data points (`MeasuredValue`, `pi_heating_demand`, `window_state`, etc.)
+- `Icon2 switch` state is now writable
+- Fixed jsonConfig admin validation warning (missing `size` property)
+- Added Boiler Relay to supported devices
 
-### 0.2.13
-- Updated CI & deploy workflow
-- Fixed npm publishing process
-- Improved code formatting (Prettier / ESLint)
-- No functional changes for end users
+[Older changes](CHANGELOG_OLD.md)
 
 
 ---

@@ -211,6 +211,12 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (Brainbug01) Added option/setting for global overlay
+* (copilot) Adapter requires node.js >= 22 now
+* (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
+
 ### 3.0.0 (2025-10-21)
 
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
@@ -238,11 +244,13 @@ Updated recommended firmware version to 0.97
 
 * (@klein0r) Updated dependencies
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License
 
-Copyright (c) 2025-2026 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2026 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

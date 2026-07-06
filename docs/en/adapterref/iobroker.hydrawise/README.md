@@ -39,6 +39,9 @@ You can see all controller information, schedules and sensors. It is also possib
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.0.5 (2025-12-05)
 
 - (SentiQ) updated js-controller dependency
@@ -205,6 +208,8 @@ You can see all controller information, schedules and sensors. It is also possib
 ### 0.0.1 (2023-01-26)
 
 - (aDabbelju) Initial commit by adapter creator
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

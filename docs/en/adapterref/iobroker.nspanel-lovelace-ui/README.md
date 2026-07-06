@@ -157,6 +157,32 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (ticaki) cardPower admin: drag & drop between slots now works (missing dataTransfer.setData prevented Firefox/Safari from starting the drag)
+- (copilot) Adapter requires node.js >= 22 now
+
+### 0.17.8 (2026-04-25)
+- (ticaki) fixed: Cannot read properties of undefined (reading 'trim')
+
+### 0.17.7 (2026-04-24)
+- (ticaki) Added `panels.{id}.cmd.activated` state to enable/disable a panel; toggle visible in TabMaintain and TabPanelinfo admin UI
+- (ticaki) Fixed `textSize`/`fontSize` value `0` being rejected by the admin and ignored in some cases
+
+### 0.17.6 (2026-04-22)
+- (ticaki) Added `useValueConditions` to `pageItem`. This can be used to set conditions for when the value and when the icon should be displayed.
+- (ticaki) textSize=0 was rejected by the admin
+
+### 0.17.5 (2026-04-18)
+- (ticaki) When the panel was restarted by the script, the model was set to ‘eu’
+
+### 0.17.4 (2026-04-16)
+- (ticaki) The admin navigation has been assembled incorrectly.
+- (ticaki) Improved selection of custom button IDs
+- (tt-tom17) fixed: ChannelConfigDialog bottom cut off on small laptop screens (save/color buttons not reachable)
+
+### 0.17.3 (2026-04-14)
+- (ticaki) fixed: textSize/fontSize 0-5 and tooltip, us-p admin layout, not update emu berry, textSize for custom item, activate trigger for custom id
+
 ### 0.17.2 (2026-04-13)
 - (ticaki) bugfix: pageitem name / icon as id for most roles / textSize
 
@@ -255,6 +281,8 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
 - (ticaki) pagePopup added
 - (ticaki) color for brightsky favorit/bottom day fixed
 - (ticaki) unlock pin fail fixed
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

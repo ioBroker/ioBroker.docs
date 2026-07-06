@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.enpal/README.md
-title: 无标题
-hash: vKO+Q2VLzuldwLkkQcycfuE09hl4BBMfd8Wbup5+i+A=
+title: Enpal Solar 的 ioBroker 适配器
+hash: U1UL37z/jw57Kjlw8P0I1GSoBLOv+qUeK1GQW7d5i9w=
 ---
 ![标识](../../../en/adapterref/iobroker.enpal/admin/enpal_logo.svg)
 
@@ -11,9 +11,14 @@ hash: vKO+Q2VLzuldwLkkQcycfuE09hl4BBMfd8Wbup5+i+A=
 ![稳定仓库中的当前版本](https://iobroker.live/badges/enpal-stable.svg)
 ![NPM 版本](https://nodei.co/npm/iobroker.enpal.svg?style=shields&data=v,u,d&color=orange)
 ![下载](https://img.shields.io/npm/dm/iobroker.enpal.svg)
+![社区](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)
+![维护者](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)
+![人工智能](https://img.shields.io/badge/ai%20assisted-copilot-blue.svg)
 ![PayPal捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
-## Enpal Solar 的 ioBroker 适配器
+# Enpal Solar 的 ioBroker 适配器
+---
+
 ## 此适配器的功能
 从 Enpal 太阳能系统提供的本地 InfluxDB 2.x 实例读取能源数据，并公开 ioBroker 状态以用于家庭自动化：
 
@@ -70,10 +75,17 @@ enpal.0.<measurement>.<device>.<field>
 您的 API 令牌以加密形式存储在 ioBroker 数据库中。
 - 不连接任何外部服务器。
 
+## 较早的更改
+- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+
 ## Changelog
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 0.2.1 (2026-05-25)
+- (skvarel) Added link to CHANGELOG_OLD.md at readme 
+- (skvarel) Updated @alcalzone/release-script and related plugins
+
 ### 0.2.0 (2026-04-06)
 - (skvarel) Updated minimum Node.js version requirement to >=22
 - (skvarel) Normalize unit display: "Percent" is now shown as "%"
@@ -86,9 +98,6 @@ enpal.0.<measurement>.<device>.<field>
 
 ### 0.1.8 (2026-04-04)
 - (skvarel) Fixed display of unit "None" in data points - now hidden for cleaner UI
-
-### 0.1.7 (2026-04-04)
-- (skvarel) Title and description edited
 
 ## License
 MIT License

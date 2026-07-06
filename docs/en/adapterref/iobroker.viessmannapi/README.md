@@ -112,7 +112,12 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 ```
 
 ## Changelog
+### 2.4.5 (2026-05-01)
+
+- remove logbook from objects
+
 ### 2.4.4 (2025-12-16)
+
 - fix for depreacted endpoint
 
 ### 2.4.3 (2025-08-10)

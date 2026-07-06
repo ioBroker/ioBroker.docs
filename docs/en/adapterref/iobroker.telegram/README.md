@@ -753,6 +753,7 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
 * (@klein0r) Updated dependencies
@@ -775,11 +776,13 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 ### 3.8.0 (2024-07-14)
 * (bluefox) Migrated GUI for Admin 7
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2016-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

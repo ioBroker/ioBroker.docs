@@ -83,6 +83,8 @@ A derived version of this adapter supporting control of VBus devices is availabl
 * (pdbjjens) Change: Migration to ESLint 9
 * (simatec) Responsive Design added
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## Legal Notices
 
 RESOL, VBus, VBus.net, DeltaSol and others are trademarks or registered trademarks of RESOL - Elektronische Regelungen GmbH

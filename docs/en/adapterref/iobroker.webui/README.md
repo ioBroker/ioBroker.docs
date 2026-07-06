@@ -133,24 +133,22 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
-### 1.40.2 (2026-04-12)
-- fix build scripts
+### 1.47.0 (2026-05-20)
+- package uprades
 
-### 1.40.1 (2026-04-12)
-- fix build script
+### 1.46.1 (2026-05-08)
+- fix runtime
 
-### 1.40.0 (2026-04-12)
-- many many fixes in designer
-- css nesting supported
-- svg path editor
+### 1.46.0 (2026-05-08)
+- update designer once more
 
-### 1.39.0 (2025-12-06)
-- npm upgrades for firefox fixes
+### 1.45.2 (2026-05-07)
+- fix build
 
-### 1.38.7 (2025-11-29)
-- upgrade designer once more
+### 1.45.1 (2026-05-07)
+- fix release
 
-## License
+[Older changelogs can be found there](CHANGELOG_OLD.md)## License
 The MIT License (MIT)
 
 

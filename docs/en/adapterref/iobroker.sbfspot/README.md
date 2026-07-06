@@ -58,6 +58,9 @@ in /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts you can find a script
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 5.0.6 (2026-04-06)
 * (René) changes based on adapter checker
 
@@ -237,6 +240,8 @@ in /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts you can find a script
 
 ### 0.0.1
 * (René) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

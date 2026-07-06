@@ -22,8 +22,10 @@ This is the English documentation - [🇩🇪 German version](../de/README.md)
 
 ## Table of contents
 
+- [Devicemanager support](devicemanager.md)
 - [MQTT protocol](protocol-mqtt.md)
 - [CoAP/CoIoT protocol](protocol-coap.md)
+- [BLE device support](ble-devices.md)
 - [Restricted login](restricted-login.md)
 - [State changes](state-changes.md)
 - [Debug](debug.md)
@@ -31,13 +33,13 @@ This is the English documentation - [🇩🇪 German version](../de/README.md)
 
 ## Requirements
 
-1. Node.js 20 (or later)
-2. js-controller 6.0.0 (or later)
-3. Admin Adapter 6.6.0 (or later)
+1. Node.js 22 (or later)
+2. js-controller 6.0.11 (or later)
+3. Admin Adapter 7.8.20 (or later)
 
 ## Device generations
 
-Check the list of *supported devices* for more details.
+Check the list of [*supported devices*](../../README.md#supported-devices) for more details.
 
 - **Gen 1**: ESP8266 devices, [CoAP/CoIoT](protocol-coap.md) or [MQTT](protocol-mqtt.md)
 - **Gen 2+**: ESP32 devices, [MQTT](protocol-mqtt.md)
@@ -54,17 +56,34 @@ Questions? Check the [FAQ](faq.md) section first!
 
 ![iobroker_general](./img/iobroker_general.png)
 
+## Features
+
+The adapter integrates with the ioBroker Device Manager. See [Devicemanager support documentation](devicemanager.md).
+
 ## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 11.0.0-alpha.2 (2026-03-30)
-- (copilot) Adapter requires admin >= 7.8.19 now
+### **WORK IN PROGRESS**
+- (@klein0r) Updated ble script (v1.3) for Shelly firmware > 2.0
+
+### 11.0.0-alpha.15 (2026-05-10)
+- (@copilot) Added Shelly Dimmer 0/1-10V PM Gen4 (shelly0110dimg4).
+- (@copilot) Added HiluX DS8 by Shelly (hiluxds8)
+- (@copilot) Added Shelly EM Gen4 (shellyemg4)
+- (@mcm1957) Adapter requires node.js >= 22, js-controller >= 6.0.11 and admin >= 7.8.20 now.
+- (@GermanBluefox) Device manager has been added providing info and control of devices and provisioning.
+- (@mcm1957) IMPORTANT: Please read changelog at README.md listing more information.
+
+### 11.0.0 additional information 
+- (@mcm1957) Added Shelly Presence Gen 4
+- (@mcm1957) Added Shelly Cury
 - (@GermanBluefox) Added support for Device manager: info and control of devices and provisioning
 - (@GermanBluefox) Added detection of new devices in the background
-- (mcm1957) DISABLE all PLUG*_UI functionality due to unrecoverable HW faults.
+- (@mcm1957) Some missing states added at illuminance component
+- (@mcm1957) DISABLE all PLUG_UI functionality due to unrecoverable HW faults.
 - (@mcm1957) Dependencies have been updated
 
 ### 10.6.1 (2026-02-23)
@@ -84,11 +103,7 @@ Questions? Check the [FAQ](faq.md) section first!
 ### 10.5.2 (2025-12-28)
 * (@mcm1957) Monophase profile support has been fixed for shellypro3em and shellypro3em400.
 
-### 10.5.1 (2025-12-27)
-* (@mcm1957) Monophase profile support has been added to shellypro3em, shellypro3em63 and shellypro3em400. [#1016]
-* (@mcm1957) ResetCounters functionality has been added to components EMData and EM1Data. This effect shellypro3em* but also other shellyem* devices gen2 and later.
-* (@mcm1957) Changes to shellypro3em could affect shellyemg3 and shellyproem50.
-* (@HGlab01) Several fixes for Shelly Ecowitt WS90 have been implemented. [#1293]
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

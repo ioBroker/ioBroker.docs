@@ -143,6 +143,12 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.1.0 (2026-04-13)
+* (bluefox) Updated dependencies
+* (TA2k) Fixed disabled rules still being polled when sharing an interval
+* (bluefox) Fixed possible problems
+* (bluefox) Added possibility to use CRON as interval
+
 ### 3.0.0 (2026-03-03)
 * (bluefox) Migrated the new NPM token
 * (bluefox) Migrated to TypeScript

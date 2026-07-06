@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: vQHzTP8mzOS9nXXWF81cYazOfJVkP7pz+Z+g89oG6vo=
+hash: o2CrQOuwEBgQrUCXNjJa36BOvwjgITQON2IfS/Jqeuw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -76,6 +76,48 @@ http://IP:8082/vis-2.0/javascript.picture.png =>
 
 Примечание: для использования этой функции необходимо отключить параметр "Отключить состояния и информацию о сокете" в настройках веб-адаптера.
 
+## Доступ к объектам
+Вы можете считывать объекты (включая шаблоны с подстановочными знаками) с помощью HTTP GET-запроса. Ответ **всегда представляет собой JSON-массив**, поскольку шаблон может соответствовать нескольким объектам.
+
+По умолчанию каждый возвращаемый объект содержит только `_id`, `type` и `common`. Используйте флаги запроса `extended` и/или `native`, чтобы запросить больше данных.
+
+При использовании запроса `depth` и если соответствующий объект находится глубже запрошенного уровня, возвращается синтетический заполнитель точно на этой глубине:
+
+```json
+{ "_id": "0_userdata.0", "type": "virtual" }
+```
+
+Это позволяет браузеру дерева видеть, что контент существует ниже промежуточного пути, даже если сам этот путь не содержит реального объекта ioBroker. Виртуальные объекты намеренно опускают `common`, чтобы уменьшить размер полезной нагрузки — отображаемое имя может быть получено из `_id`. Реальный объект с тем же ID всегда имеет приоритет над своим виртуальным заполнителем.
+
+```
+http://IP:8082/object/0_userdata.0.branch.* =>
+[ { "_id": "0_userdata.0.branch.a", "type": "state", "common": { ... } }, ... ]
+```
+
+Поддерживаемые параметры запроса:
+
+| Параметр | Описание |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type` | Фильтр по типу объекта (например, `state`, `channel`, `device`, `folder`, `enum`, `instance`, ...). **По умолчанию используется `state`**, если не указано. Передайте `all` для запроса объектов всех типов. |
+| `depth` | Абсолютное максимальное количество частей, разделенных точками, в идентификаторе объекта. Например, чтобы получить только непосредственных потомков `0_userdata.0.branch` (который состоит из 3 частей), запросите `/object/0_userdata.0.branch.*?depth=4`. `depth=1` автоматически ограничивается `depth=2` (объекты ioBroker существуют на 1 уровне или на 3+ уровнях — записи «экземпляров» 2-го уровня, такие как `0_userdata.0`, — это то, что на самом деле требуется корневому древовидному браузеру). Любые реальные односегментные объекты отбрасываются из ответа по той же причине. |
+| `extended` | Передайте `?extended` или `?extended=true`, чтобы дополнительно включить системные атрибуты, такие как `acl`, `from`, `ts`, `user`, `enums`, `_rev`. |
+| `native` | Передайте `?native` или `?native=true`, чтобы дополнительно включить часть `native` каждого объекта. |
+| `system` | По умолчанию объекты в `system.*` и `script.*` **скрыты**. Передайте `?system` или `?system=true`, чтобы включить их. |
+| `system` | По умолчанию объекты в `system.*` и `script.*` **скрыты**. Передайте `?system` или `?system=true`, чтобы включить их. |
+
+Примеры:
+
+```
+[GET] http://IP:8082/object/0_userdata.0.branch.*?depth=4&type=all
+[GET] http://IP:8082/object/0_userdata.0.*?type=state
+[GET] http://IP:8082/object/0_userdata.0.*?type=state&commonType=boolean
+[GET] http://IP:8082/object/system.adapter.web.0?native=true
+[GET] http://IP:8082/object/system.adapter.web.0?extended=true&native=true
+[GET] http://IP:8082/object/system.adapter.web.0
+```
+
+Примечание: для использования этой функции необходимо отключить параметр "Отключить доставку объектов" в настройках веб-адаптера.
+
 ## Опция "Базовая аутентификация"
 Разрешает вход через базовую аутентификацию путем отправки `401` Unauthorized с заголовком `WWW-Authenticate`.
 Это можно использовать для таких приложений, как *FullyBrowser*. При однократном вводе неверных учетных данных вы будете перенаправлены на страницу входа.
@@ -119,124 +161,130 @@ http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<passwo
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **РАБОТА В ПРОЦЕССЕ** -->
+### 8.2.0 (2026-05-21)
+* (@GermanBluefox) Добавлена конечная точка GET `/object/<ID>` с параметрами запроса `type`, `commonType`, `depth`, `extended`, `native` и `system` для чтения объектов (поддерживаются подстановочные знаки). По умолчанию возвращаются только `_id`, `type` и `common`, тип по умолчанию равен `state`, а объекты в `system.*` / `script.*` скрыты. При использовании `depth` более глубокие совпадения дают синтетические заполнители `type: "virtual"`, чтобы браузер дерева мог видеть, что контент существует ниже.
+* (@GermanBluefox) Добавлен параметр `Disable objects delivery`, позволяющий включать/выключать конечную точку `/object/<ID>`.
 
-## Changelog
+### 8.1.0 (2026-04-13)
+* (@GermanBluefox) Обновлены пакеты.
+* (@GermanBluefox) Исправлены возможные ошибки
+
 ### 8.0.0 (2026-02-18)
-* (@GermanBluefox) Updated packages. Minimal Node.js version is now 20.0.0
-* (@GermanBluefox) Removed binary states
-* (@GermanBluefox) Added possibility to write values via `/state/` endpoint with `POST`
+* (@GermanBluefox) Обновлены пакеты. Минимальная версия Node.js теперь 20.0.0
+* (@GermanBluefox) Удалены бинарные состояния
+* (@GermanBluefox) Добавлена возможность записи значений через конечную точку `/state/` с помощью `POST`.
 
 ### 7.0.9 (2025-03-28)
-* (@GermanBluefox) Corrected the loading of the material adapter
+* (@GermanBluefox) Исправлена загрузка адаптера материалов.
 
 ### 7.0.8 (2025-03-18)
-* (@GermanBluefox) Added settings for custom CORS headers
-* (@GermanBluefox) Added the possibility to show admin instances on the web welcome page
-* (@GermanBluefox) Implemented the new index page
+* (@GermanBluefox) Добавлены настройки для пользовательских заголовков CORS
+* (@GermanBluefox) Добавлена возможность отображения экземпляров административной панели на веб-странице приветствия.
+* (@GermanBluefox) Внедрена новая главная страница
 
 ### 7.0.7 (2025-03-15)
-* (@GermanBluefox) Trying to catch an error by the web extension
+* (@GermanBluefox) Пытаюсь перехватить ошибку веб-расширения
 
 ### 7.0.6 (2025-03-09)
-* (@GermanBluefox) Corrected the login for iobroker.visu app
-* (@GermanBluefox) Corrected load of TypeScript Web extensions
+* (@GermanBluefox) Исправлена ошибка входа в приложение iobroker.visu
+* (@GermanBluefox) Исправлена загрузка веб-расширений TypeScript.
 
 ### 7.0.4 (2025-03-04)
-* (@GermanBluefox) Corrected the login page
-* (@GermanBluefox) Removed the frequent debug output
+* (@GermanBluefox) Исправлена страница входа
+* (@GermanBluefox) Удалён часто появляющийся отладочный вывод
 
 ### 7.0.3 (2025-03-03)
-* (@GermanBluefox) Corrected the problem with the user rights
+* (@GermanBluefox) Исправлена проблема с правами пользователя.
 
-### 7.0.1 (2025-03-02)
-* (@GermanBluefox) [Breaking change] Removed simple-api as it could be connected as web-extension
-* (@GermanBluefox) updated packages
-* (@GermanBluefox) removed gulp in a build process
-* (@GermanBluefox) Migrated GUI to vite
-* (@GermanBluefox) Rewritten in TypeScript
-* (@GermanBluefox) Added OAuth2 support
-* (@GermanBluefox) Added new 404 and the directory list pages
+### 7.0.1 (02.03.2025)
+* (@GermanBluefox) [Критическое изменение] Удален simple-api, так как его можно было подключить как веб-расширение
+* (@GermanBluefox) обновил пакеты
+* (@GermanBluefox) удалил gulp в процессе сборки
+* (@GermanBluefox) Перенес графический интерфейс на Vite
+* (@GermanBluefox) Переписано на TypeScript
+* (@GermanBluefox) Добавлена поддержка OAuth2
+* (@GermanBluefox) Добавлены новые страницы 404 и список каталогов.
 
 ### 6.3.1 (2024-09-23)
-* (@foxriver76) added new admin icon (svg)
+* (@foxriver76) добавил новый значок администратора (svg)
 
 ### 6.3.0 (2024-06-27)
-* (bluefox) Corrected call of getObjectView with null parameter
-* (bluefox) updated packages
-* (bluefox) GUI was migrated to a non-style framework
+* (bluefox) Исправлен вызов функции getObjectView с нулевым параметром
+* (bluefox) обновленные пакеты
+* (bluefox) Графический интерфейс пользователя был перенесен на фреймворк без стилей.
 
 ### 6.2.6 (2024-05-25)
-* (bluefox) Preparations for a custom loading background
-* (bluefox) updated packages
+* (bluefox) Подготовка к созданию пользовательского фона загрузки
+* (bluefox) обновленные пакеты
 
 ### 6.2.5 (2024-02-22)
-* (bluefox) Just some packages were updates
+* (bluefox) Были обновлены только некоторые пакеты.
 
-### 6.2.4 (2024-02-17)
-* (klein0r) Extensions may block the web instance
-* (klein0r) Fixed directory listing
+### 6.2.4 (17.02.2024)
+* (klein0r) Расширения могут блокировать веб-версию.
+* (klein0r) Исправлен список каталогов
 
-### 6.2.3 (2023-12-18)
-* (foxriver76) updated the websocket library to increase the maximum file size from 100 MB to 500 MB
+### 6.2.3 (18.12.2023)
+* (foxriver76) обновил библиотеку websocket, увеличив максимальный размер файла со 100 МБ до 500 МБ.
 
-### 6.2.2 (2023-12-14)
-* (joltcoke) Corrected the crash if authentication is enabled
+### 6.2.2 (14.12.2023)
+* (joltcoke) Исправлена ошибка, приводившая к сбою при включенной аутентификации.
 
-### 6.2.1 (2023-12-04)
-* (bluefox) Added the user access list option
+### 6.2.1 (04.12.2023)
+* (bluefox) Добавлена опция списка доступа пользователей
 
 ### 6.1.10 (2023-10-16)
-* (bluefox) Corrected the start screen
+* (bluefox) Исправлен начальный экран
 
-### 6.1.7 (2023-10-16)
-* (bluefox) Added the public accessibility check
+### 6.1.7 (16.10.2023)
+* (bluefox) Добавлена проверка доступности для всех пользователей
 
-### 6.1.6 (2023-10-13)
-* (bluefox) Corrected adapter termination if the alias has no target
-* (bluefox) Corrected socket.io connection
+### 6.1.6 (13.10.2023)
+* (bluefox) Исправлено завершение работы адаптера, если псевдоним не имеет целевого объекта.
+* (bluefox) Исправлено соединение socket.io
 
-### 6.1.4 (2023-10-08)
-* (foxriver76) upgrade socketio and ws dependencies to fix a vis subscribe problem
+### 6.1.4 (08.10.2023)
+* (foxriver76) Обновление зависимостей socketio и ws для исправления проблемы с подпиской vis
 
 ### 6.1.3 (2023-09-28)
-* (bluefox) upgraded socketio and ws dependencies to correct the error by unsubscribing on client disconnect
+* (bluefox) обновлены зависимости socketio и ws для исправления ошибки, связанной с отменой подписки при отключении клиента.
 
-### 6.1.2 (2023-09-14)
-* (foxriver76) upgraded socketio and ws dependencies
+### 6.1.2 (14.09.2023)
+* (foxriver76) обновлены зависимости socketio и ws
 
-### 6.1.1 (2023-09-05)
-* (mcm1957) Added missing node16 requirement
+### 6.1.1 (05.09.2023)
+* (mcm1957) Добавлено недостающее требование node16
 
-### 6.1.0 (2023-08-01)
-* (bluefox) Added the subscribing on the specific instance messages
+### 6.1.0 (01.08.2023)
+* (bluefox) Добавлена возможность подписки на сообщения конкретного экземпляра.
 
 ### 6.0.3 (2023-07-27)
-* (bluefox) Updated packages
-* (bluefox) Implemented the possibility to view folder content
+* (bluefox) Обновленные пакеты
+* (bluefox) Реализована возможность просмотра содержимого папок
 
 ### 6.0.1 (2023-03-20)
-* (bluefox) Removed letsencrypt handling from web adapter
+* (bluefox) Удалена обработка Let's Encrypt из веб-адаптера
 
-### 5.5.3 (2023-03-17)
-* (bluefox) Increased max size of the uploaded file via socket.io to 200MB (from 10MB)
+### 5.5.3 (17.03.2023)
+* (bluefox) Увеличен максимальный размер загружаемого файла через socket.io до 200 МБ (с 10 МБ)
 
-### 5.5.2 (2023-03-03)
-* (bluefox) Allowed deletion of fullcalendar objects
+### 5.5.2 (03.03.2023)
+* (bluefox) Разрешено удаление объектов fullcalendar
 
 ### 5.5.1 (2023-02-25)
-* (bluefox) Allowed reading projects of vis-2-beta
+* (bluefox) Разрешенные проекты чтения vis-2-beta
 
-### 5.5.0 (2023-02-15)
-* (bluefox) Added special end-points for app authentication
+### 5.5.0 (15.02.2023)
+* (bluefox) Добавлены специальные конечные точки для аутентификации приложения
 
 ### 5.4.3 (2023-01-29)
-* (bluefox) Corrected error with `publishFileAll` (for future use)
+* (bluefox) Исправлена ошибка с `publishFileAll` (для дальнейшего использования)
 
 ### 5.4.1 (2022-12-23)
-* (bluefox) Corrected GUI error
+* (bluefox) Исправлена ошибка графического интерфейса пользователя
 
 ### 5.4.0 (2022-12-22)
-* (bluefox) Used a new version of socket classes
+* (bluefox) Использована новая версия классов сокетов
 
 ## License
 The MIT License (MIT)

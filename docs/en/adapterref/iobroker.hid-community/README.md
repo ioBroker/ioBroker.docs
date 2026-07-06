@@ -88,6 +88,7 @@ Restart the iobroker.hid-community module...
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -102,10 +103,12 @@ Restart the iobroker.hid-community module...
 ### 0.2.0 (2022-12-30)
 * General updates
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2015-2023 ioBroker-Community, soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

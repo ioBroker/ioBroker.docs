@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: v6FxPWFAENHd0IH3Y9/brIEtva1r3Zc6X3khIMaTbtI=
+hash: WKJsw/HidHHxNSnP3LoQU7C55PATtKkU/j3hzURQ/C0=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -42,7 +42,7 @@ hash: v6FxPWFAENHd0IH3Y9/brIEtva1r3Zc6X3khIMaTbtI=
 - 保存设置并退出配置以重新启动适配器；此步骤允许 Tibber 服务器首次查询您的家庭。
 - 返回配置界面，选择您希望使用 Tibber Pulse 获取实时数据的住宅。您也可以选择住宅并禁用数据馈送（注意：此功能仅在硬件已安装且 Tibber 服务器已验证与 Pulse 的连接后才有效）。
 注意：如果您的 Tibber 帐户中有多处房产处于激活状态，则必须添加所有房产才能消除因可能不需要的房产而导致的错误信息。添加所有房产并禁用相关选项。
-例如，如果您只打算使用 Pulse 实时数据，您可以选择停用今天和明天的价格数据检索功能。
+- 例如，如果您只打算使用 Pulse 实时数据，您可以选择停用今天和明天的价格数据检索功能。
 - 您可以选择启用历史消费数据检索功能。请指定小时、天、周、月和年的数据集数量。您可以根据个人喜好，使用“0”禁用一个或多个时间段的数据。
 注意：务必注意数据集的大小，因为过大的请求可能会导致 Tibber 服务器无响应。我们建议您尝试不同的数据集大小，以确保最佳功能。调整时间间隔和数据集数量有助于在获取有价值的数据和保持服务器响应速度之间找到合适的平衡点。例如，48 小时是一个相当不错的数值。
 - 保存设置。
@@ -52,14 +52,14 @@ hash: v6FxPWFAENHd0IH3Y9/brIEtva1r3Zc6X3khIMaTbtI=
 - 该计算器使用通道进行操作，每个通道与选定的家庭相关联。
 - 这些状态旨在作为 TibberLink 的外部动态输入，例如，允许您从外部来源调整边际成本（“触发价格”）或启用计算器通道（“活动”）。
 - 这些通道需要根据相应的状态激活或停用。
-计算器频道的状态位于主页状态旁边，并根据频道编号命名。此处显示的频道名称是您在管理界面中选择的名称，以便更好地识别您的配置。
+计算器频道的状态位于主页状态旁边，并根据频道编号命名。此处显示的是您在管理界面中选择的频道名称，以便更好地识别您的配置。
 
   ![计算器状态](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStates.png)
 
 - 每个通道的行为由其类型决定：“最佳成本（LTF）”、“最佳单小时（LTF）”、“最佳小时块（LTF）”或“智能电池缓冲”。
 每个通道都会填充一个或两个外部状态作为输出，需要在设置选项卡中选择。例如，该状态可以是“0_userdata.0.example_state”或任何其他可写的外部状态。
 - 如果没有选择外部输出状态，则会在通道的范围内创建一个内部状态。
-- 可以定义写入输出状态的值，用“值 YES”和“值 NO”表示，例如，“true”表示布尔状态，或者写入数字或文本。
+- 可以定义要写入输出状态的值，用“值 YES”和“值 NO”表示，例如，“true”表示布尔状态，或者要写入的数字或文本。
 - 输出：
 - “最佳成本”：以“触发价格”状态作为输入，当当前 Tibber 能源成本低于触发价格时，每小时输出“是”。
 - “最佳单小时数”：在成本最低的小时数内生成“YES”输出，该数字在“AmountHours”状态中定义。
@@ -74,7 +74,7 @@ hash: v6FxPWFAENHd0IH3Y9/brIEtva1r3Zc6X3khIMaTbtI=
 - “最佳百分比 LTF”：在有限时间范围内 (LTF) 的“最佳百分比”。
 - “智能电池缓冲器”：
 “效率损失”参数定义了电池系统的效率损失。其取值范围为 0 到 1，其中 0 表示无效率损失，1 表示完全能量损失。例如，值为 0.25 表示每次充放电循环的效率损失为 25%。
-“AmountHours”参数指定系统可用于电池充电的最大小时数，精确到刻度点。重要提示：这是上限值，并非保证的充电小时数。实际的充电时段数会根据能源价格和效率损失动态调整。系统只会选择那些在经济上划算的时段（即，考虑到效率损失，价格远低于最贵时段的价格）。
+“AmountHours”参数指定系统可用于电池充电的最大小时数，精确到刻度点。重要提示：这是上限值，并非保证的充电小时数。实际的充电时段数会根据能源价格和效率损失动态确定。系统只会选择那些在经济上划算的时段（即，考虑到效率损失，价格远低于最贵时段的价格）。
 - 该计算器的工作原理如下：
 - 低价时段：电池充电功能已启用（值为“是”），但向家庭能源系统供电的功能已禁用（值为“否”）。这些时段价格最低，且符合能效筛选条件，最高时长为 AmountHours。
 - 高价时段：电池充电功能已禁用（值为“否”），但已启用并入家庭能源系统（值为“是”）。这些时段的价格最高，高于根据最低时段价格和效率损失动态计算的阈值。
@@ -105,6 +105,18 @@ hash: v6FxPWFAENHd0IH3Y9/brIEtva1r3Zc6X3khIMaTbtI=
 ```
 http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibberlink.0.Homes.[TIBBER-HOME-ID].PricesTotal.jsonFlexCharts
 ```
+
+从 V0.7.0 版本开始，FlexCharts 支持通过 SSE（服务器发送事件）自动更新图表。要使用此功能，请在 URL 中添加 `&sse`：
+
+```
+http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibberlink.0.Homes.[TIBBER-HOME-ID].PricesTotal.jsonFlexCharts&sse=30
+```
+
+- 有关更多详细信息，请参阅 [FlexCharts 适配器文档](https://github.com/MyHomeMyData/ioBroker.flexcharts)。
+
+@reblausgt Mit v0.7.0 是 Flexcharts 中的版本，图表自动生成，我们可以在图表状态中查看。 Das Verfahren nennt sich SSE（服务器发送事件）。激活该功能，并在 html-Aufruf anhängt 中进行操作。详细信息请参阅自述文件。
+
+该版本位于 NPM 和 Beta-Repo verfügbar 中。 Ab 26。四月，情况稳定。
 
 - 有关更多详细信息，请参阅 [FlexCharts 适配器文档](https://github.com/MyHomeMyData/ioBroker.flexcharts)。
 
@@ -170,51 +182,49 @@ https://github.com/marq24/ha-tibber-pulse-local
 
 ### **WORK IN PROGRESS**
 
+- (copilot) BREAKING: Adapter requires node.js >= 22 now
+- (HombachC) Adapter requires admin >=7.6.20 now
+- (HombachC) fix some type definitions
+- (HombachC) extend FlexCharts docu
+- (HombachC) update dependencies
+
+### 6.2.2 (2026-04-13)
+
+- (HombachC) fix vulnerability in axios
+- (HombachC) update dependencies
+
+### 6.2.1 (2026-03-30)
+
+- (HombachC) optimize pull of consumption data (#860)
+- (HombachC) switch to ES2023 code
+- (HombachC) update dependencies
+
+### 6.2.0 (2026-03-07)
+
+- (HombachC) enable umlauts to calculation channel names (#844)
+- (HombachC) enhance resolution of pulse meter data (#840)
+- (HombachC) fix wrong end block state calculation (#841)
+- (HombachC) setup auto-merge for dependabot (#834)
+- (HombachC) update dependencies
+
+### 6.1.1 (2026-02-05)
+
+- (HombachC) fix LTF shifting for frames greater 24h
+- (HombachC) update dependencies
+
+### 6.1.0 (2026-01-03)
+
 - (HombachC) BREAKING: change flexcharts x-axis type
 - (HombachC) introduce FlexChart output for SBB channels second output
 - (HombachC) introduce second name for FlexChart output of SBB channels
 - (HombachC) introduce color for FlexChart output of calculator results
+- (HombachC) introduce more statistics for yesterdays prices
 - (HombachC) clean code for 15min time slots
 - (HombachC) fix schema links (#822)
+- (HombachC) fix CurrentPrice after midnight (#812)
 - (HombachC) update cron
+- (HombachC) year 2026 changes
 - (HombachC) update dependencies
-
-### 6.0.3 (2025-11-16)
-
-- (HombachC) optimize sentry
-- (HombachC) optimize dependabot config (#805)
-- (HombachC) update axios and cron
-- (HombachC) update FlexChart template
-
-### 6.0.2 (2025-10-24)
-
-- (HombachC) update NPM deployment
-- (HombachC) update dependencies
-
-### 6.0.1 (2025-10-09)
-
-- (HombachC) fix error in cleaning tomorrow data
-- (HombachC) update release management to 4.x.x
-
-### 6.0.0 (2025-10-06)
-
-- (HombachC) BREAKING: hourly price states (0...23) are now quarterhourly (0...95)
-- (HombachC) BREAKING: adapted calculator time blocks need reentry of "AmountHours" values
-- (HombachC) change price updates to 15 minutes resolution as default
-- (HombachC) change current price updates to use existing today values instead of Tibber calls
-- (HombachC) more timely precision for current price and calculator
-- (HombachC) adapt chart generation
-- (HombachC) fix error in efficiency loss
-- (HombachC) adapt calculator time blocks
-- (HombachC) update tibber-api to 5.5.2
-- (HombachC) update typescript to 5.9.3 (#777)
-- (HombachC) add names to price states folders
-
-### 5.0.4 (2025-09-27)
-
-- (HombachC) prepared price updates to 15 minutes resolution (#384)
-- (HombachC) update tibber-api to 5.4.2
-- (HombachC) update chai system
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
@@ -222,4 +232,4 @@ https://github.com/marq24/ha-tibber-pulse-local
 
 GNU General Public License v3.0 only
 
-Copyright (c) 2023-2025 C.Hombach <TibberLink@homba.ch>
+Copyright (c) 2023-2026 C.Hombach <TibberLink@homba.ch>

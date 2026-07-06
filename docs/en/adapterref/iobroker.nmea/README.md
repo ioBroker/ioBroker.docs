@@ -42,7 +42,7 @@ dtparam=spi=on
 dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25 
 ```
 
-Disable outputs on UART console: 
+Disable outputs on the UART console: 
 - start in CLI `sudo raspi-config`
 - go to `3 Interface Options`
 - go ot `I5 Serial Port`
@@ -97,6 +97,9 @@ The development of Simrad/navico/B&G is not completed yet.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Implemented Raymarine autopilot support
+
 ### 0.4.2 (2026-01-05)
 * (bluefox) Updated packages
 

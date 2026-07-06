@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.nmea/README.md
 title: ioBroker.nmea
-hash: vCBjYK3WCOWWlFgakL8tYFBe3C7h7qjsD8NUn2FuIoI=
+hash: p/eq6B7PZVQLUKFxfimS1lRZY/ms2S//3QunbayRtVY=
 ---
 ![标识](../../../en/adapterref/iobroker.nmea/admin/nmea.png)
 
@@ -51,7 +51,7 @@ dtparam=spi=on
 dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
 ```
 
-禁用 UART 控制台输出：
+禁用 UART 控制台的输出：
 
 - 在命令行界面中启动 `sudo raspi-config`
 - 转到“3 界面选项”
@@ -102,7 +102,7 @@ iobroker ALL=(ALL) timedatectl set-timezone
 ```
 
 ## 自动驾驶仪
-实际上，目前只支持一款自动驾驶仪：Raymarine。
+实际上，目前只支持一种自动驾驶仪：Raymarine。
 
 Simrad/navico/B&G 的研发尚未完成。
 
@@ -111,6 +111,12 @@ Simrad/navico/B&G 的研发尚未完成。
 ### **正在进行中** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Implemented Raymarine autopilot support
+
+### 0.4.2 (2026-01-05)
+* (bluefox) Updated packages
+
 ### 0.4.0 (2025-11-30)
 * (bluefox) Added support of YDEN-02/03 and YDWG-02/03 gateways
 
@@ -139,7 +145,7 @@ Simrad/navico/B&G 的研发尚未完成。
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2024-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

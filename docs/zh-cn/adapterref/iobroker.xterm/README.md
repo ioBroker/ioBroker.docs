@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.xterm/README.md
 title: ioBroker.xterm
-hash: Yd+XjBxXX/gFGwzCrttfIJrU0k9so6ikCV9JwSCDE1M=
+hash: KIHNdM8FMczv17rFWpZdDZLTqFOky2QAamKqcdMWbZ0=
 ---
 ![标识](../../../en/adapterref/iobroker.xterm/admin/xterm.png)
 
@@ -12,41 +12,55 @@ hash: Yd+XjBxXX/gFGwzCrttfIJrU0k9so6ikCV9JwSCDE1M=
 ![下载](https://img.shields.io/npm/dm/iobroker.xterm.svg)
 
 # IoBroker.xterm
-![测试和发布](https://github.com/ioBroker/ioBroker.xterm/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/xterm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试与发布](https://github.com/ioBroker/ioBroker.xterm/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/xterm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告的信息，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
 ## IoBroker 的 xterm 适配器
-该适配器允许在 ioBroker 主机上执行 shell 命令。它取代了 `ioBroker.terminal` 适配器。
+此适配器允许在 ioBroker 主机上执行 shell 命令。它取代了 `ioBroker.terminal` 适配器。
 
-终端服务器打开命令行界面。
-请仅将其用于管理目的。
+终端服务器用于打开命令行界面。
 
-基于 xterm.js 和 node-pty 包。
+请仅将其用于管理用途。
 
-如果启用了身份验证，则只有 ioBroker "admin" 用户可以登录。
+基于 xterm.js 和 node-pty 软件包。
+
+如果启用身份验证，则只有 ioBroker“admin”用户才能登录。
 
 ＃＃ 用法
-适配器支持2种模式：
+该适配器通过真正的伪终端（node-pty）启动 cmd.exe（Windows）或 bash（Linux）。
 
-- 启动 cmd.exe(windows) 或 bash(linux)。在 Linux 上，bash 在 `iobroker` 用户下运行，也许您应该切换到具有更多权限的其他用户（通过 `su USER`）。
-- 或者使用 node.js 模拟 shell（如果第一个选项不起作用，您可以激活此选项）
+在 Linux 系统中，bash 以 `iobroker` 用户身份运行——您可以通过 `su USER` 切换到具有更高权限的其他用户。
 
-注意：一些具有交互性的终端命令不起作用。例如。 `nano`和其他一些。
+## 键盘快捷键
+| 快捷方式 | 操作 |
+|------------------|-------------------------------------------------------------------------------------|
+| **Ctrl+Shift+V** | 打开粘贴对话框（在无法使用剪贴板 API 的 HTTP 连接中很有用） |
+| **Ctrl+Shift+F** | 在终端中搜索 |
+| **右键单击** | 从剪贴板粘贴 (HTTPS) 或打开粘贴对话框 (HTTP) |
+| 选择文本 | 自动复制到剪贴板（PuTTY 风格） |
 
-＃＃ 去做
-- 模拟：Ctrl + R（历史）
-- 模拟：更多编码页面。如果您找到适合您系统的代码页，请创建问题。可以在 [这里](https://github.com/ashtuchkin/iconv-lite/wiki/Supported-Encodings) 找到可能的编码页面。
-- 支持多个会话（标签）
-
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一版本的占位符（位于行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 3.0.2 (2026-04-13)
+* (bluefox) Added the icon in the GUI
+* (bluefox) Added possibility to run under specified user on Linux
+
+### 3.0.0 (2026-04-12)
+* (bluefox) Migrated the adapter to Typescript
+* (bluefox) Added multiple terminal sessions
+
+### 2.0.1 (2023-09-18)
+* (bluefox) xterm library updated
+* (bluefox) Move Lets encrypt settings to acme adapter
+* (bluefox) Minimal supported node.js version is 16
+
 ### 1.1.0 (2022-10-08)
-* (Apollon77) Update xterm library
-* (Apollon77) Prepare for future js-controller versions
+* (Apollon77) Updated the xterm library
+* (Apollon77) Prepared for future js-controller versions
 
 ### 1.0.0 (2022-08-29)
 * (bluefox) Check only port of the interface and not of all interfaces
@@ -59,16 +73,16 @@ hash: Yd+XjBxXX/gFGwzCrttfIJrU0k9so6ikCV9JwSCDE1M=
 
 ### 0.3.0 (2022-03-12)
 * (Apollon77) Prevent some warnings in js-controller 3+
-* (Apollon77) Add Fallback to simulated shell if bash/cmd.exe is selected by node-pty was not installed correctly!
-* (Apollon77) Rework info.connection status to show that server is connected also as green by using "none" to show that no one is connected
+* (Apollon77) Add Fallback to the simulated shell if bash/cmd.exe is selected by node-pty was not installed correctly!
+* (Apollon77) Rework `info.connection` status to show that server is connected also as green by using "none" to show that no one is connected
 * (Apollon77) Update all dependencies
 * (Apollon77) Add sentry for crash reporting
 
 ### 0.2.0 (2021-09-18)
-* (bluefox) Added the real terminal (bash or cmd.exe) to simulated one
+* (bluefox) Added the real terminal (bash or cmd.exe) to the simulated one
 
 ### 0.1.0 (2021-09-18)
-* (bluefox) changed type of the connection state to "string"
+* (bluefox) changed the type of the connection state to "string"
 
 ### 0.0.3 (2021-09-16)
 * (ioBroker) first working release
@@ -79,7 +93,7 @@ hash: Yd+XjBxXX/gFGwzCrttfIJrU0k9so6ikCV9JwSCDE1M=
 ## License
 MIT License
 
-Copyright (c) 2021-2022 ioBroker <dogafox@gmail.com>
+Copyright (c) 2021-2026 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

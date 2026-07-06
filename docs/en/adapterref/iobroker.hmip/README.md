@@ -71,8 +71,9 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated.
 
 ### 1.27.0 (2025-03-24)
 * (mcm1957) Adapter requires admin 7.6.3, js-controller 6.0.11 and node.js 20 now.
@@ -359,10 +360,12 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 ### 0.0.1
 * (jogibear9988) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

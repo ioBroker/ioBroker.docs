@@ -235,6 +235,8 @@ Gerät, die er braucht.
 ### 0.0.1
 * (Garfonso) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 

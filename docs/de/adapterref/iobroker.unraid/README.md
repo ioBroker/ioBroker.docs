@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.unraid/README.md
 title: ioBroker.unraid
-hash: Klz4BrytXGLfoSSr+r2o3NOepVL0kjcr7g4bE06sAZo=
+hash: sbDuaOIOyKGmg4EXxm+ElxkCvKwe2keY4gQCpA+ASGU=
 ---
 ![Logo](../../../en/adapterref/iobroker.unraid/admin/unraid.png)
 
@@ -23,8 +23,10 @@ Dieser Adapter verbindet ioBroker über die GraphQL-API mit Unraid-Servern, um S
 
 ## Merkmale
 - Überwachung der CPU- und Speicherauslastung (einschließlich Statistiken pro Kern)
+- Überwachung der Temperatursensoren auf dem Mainboard (Chipsatz, Umgebungstemperatur usw.) — erfordert Unraid 7.2+
 - Serverstatus und Netzwerkinformationen verfolgen
-- Docker-Container überwachen und steuern (Start/Stopp)
+- Docker-Container überwachen und steuern (Starten/Stoppen/Pausieren/Fortsetzen/Aktualisieren) – Pause/Fortsetzen/Aktualisieren erfordert Unraid 7.2+
+- Docker-Update-Erkennung pro Container und als Zusammenfassung – erfordert Unraid 7.2+
 - Array-Festplatten (Daten, Parität, Cache) mit Zustandsinformationen anzeigen
 - Netzwerkfreigaben überwachen (Nutzung, Konfiguration, Dateisystemdetails)
 - Virtuelle Maschinen überwachen und steuern (Starten/Stoppen/Anhalten/Fortsetzen/Neustarten)
@@ -90,6 +92,24 @@ Der Adapter erstellt eine strukturierte Objektstruktur für die überwachten Dat
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.9.0 (2026-05-03)
+
+- (ingel81) New mainboard temperature sensors (chipset, ambient, ...) as an optional data domain
+- (ingel81) New update indicator per Docker container plus a summary (`docker.updates.hasUpdates` / `availableCount`)
+- (ingel81) New Pause, Resume and Update buttons for Docker containers
+- (ingel81) Requires Unraid 7.2 or newer for the new features (tested on 7.2.4). Older Unraid versions keep working as before — new states are silently omitted and existing data is preserved.
+
+### 0.8.0 (2026-04-19)
+
+- (ingel81) **Node.js 22 or higher is now required** (Node 20 reached end-of-life on 2026-03-24)
+- (ingel81) Requires ioBroker admin 7.6.20 or newer
+- (ingel81) Updated runtime dependencies (graphql, undici, ws, @apollo/client)
+- (ingel81) Internal: CI migrated to Node 22/24, dev dependencies refreshed
+
+### 0.7.2 (2026-01-04)
+
+- (ingel81) Updated dependencies and admin UI (React 19)
+
 ### 0.7.1 (2025-11-30)
 
 - (ingel81) Minor pipeline issues fixed
@@ -164,7 +184,7 @@ Der Adapter erstellt eine strukturierte Objektstruktur für die überwachten Dat
 
 MIT License
 
-Copyright (c) 2025 ingel81 <ingel81@sgeht.net>
+Copyright (c) 2025-2026 ingel81 <ingel81@sgeht.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

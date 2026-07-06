@@ -763,6 +763,39 @@ Typical usage:
 </xml>
 ```
 
+### State exists
+
+This block returns a boolean (`true` / `false`) indicating whether the given state currently has a value record in the state DB. The OID is supplied via a value input, so it can come from the OID selector block (`Object ID`), a string variable, or any other block that produces a state ID.
+
+**Why is this useful?** ioBroker stores objects (metadata) and states (values) separately. An adapter can create a state's *object* — so the object ID appears in the OID picker — without ever writing a *value*. In that case, calling `getState(...)` will log a warning:
+
+```
+warn  getState "zigbee.0.187a3efffee9e4e8.load_power" not found (3)
+```
+
+Even a check like `value of Object ID … != null` will trigger that warning, because the warning happens *during* the `getState` call itself — before the comparison is evaluated.
+
+The **State exists** block uses `existsStateAsync(...)` under the hood, which checks the cache silently and never logs a warning when the state is missing. This is the correct way to guard a `getState` call for adapters that pre-create data points lazily (e.g. zigbee, Tuya).
+
+Typical usage — guard a value read against missing state records:
+
+```
+if [State exists [Object ID "zigbee.0.…load_power"]]
+    set [power] to [Value of Object ID "zigbee.0.…load_power"]
+    log [power]
+```
+
+The generated JavaScript is:
+
+```javascript
+if ((await existsStateAsync('zigbee.0.187a3efffee9e4e8.load_power'))) {
+    let power = getState('zigbee.0.187a3efffee9e4e8.load_power').val;
+    console.log(power);
+}
+```
+
+**Note:** With the adapter setting *"Do not subscribe to all states on start"* enabled, `existsState` cannot be evaluated synchronously. The block emits the async form (`await existsStateAsync(...)`), so it works correctly in both modes.
+
 ## Actions Blocks
 
 ### Exec - execute
@@ -2754,3 +2787,37 @@ Like here:
 For every created function in the menu appears additional block with the name of this function. 
 
 You can use it like normal blocks in you scripts.
+
+## AI Chat for Blockly
+
+The AI Chat panel is now available for Blockly scripts. Click the AI button (magic wand icon) in the toolbar to open the chat panel alongside the Blockly editor.
+
+### Features
+
+- **Chat mode**: Ask questions about your Blockly script. The AI sees the generated JavaScript code as context.
+- **Code mode**: Describe an automation task and the AI generates Blockly XML blocks in a two-step process (plan, then blocks).
+- **Visual preview**: AI-generated blocks are rendered as a visual Blockly preview directly in the chat instead of showing raw XML.
+- **Insert blocks**: Click "Insert blocks" to append the AI-generated blocks into your Blockly workspace.
+- **Diff view**: Click "Show as diff" to see a side-by-side comparison of your current blocks vs. the AI-suggested blocks, with Accept/Reject buttons.
+
+### Supported Block Types
+
+The AI can generate the following ioBroker Blockly block types:
+
+- **on_ext** – Trigger (react to state changes)
+- **schedule** – Cron-based schedules
+- **control** – Set state (setState)
+- **get_value** – Get state value (getState)
+- **debug** – Log output
+- **sendto_custom** – Send messages (e.g. Telegram)
+- **timeouts_settimeout** – Delayed actions
+- **controls_if** – If/else conditions
+- **logic_compare** – Comparisons (EQ, NEQ, LT, GT, etc.)
+- **math_number**, **text**, **logic_boolean** – Value blocks
+
+### Tips
+
+- Use **Code mode** for generating new blocks from a task description.
+- Use **Chat mode** (or Agent mode) for asking questions about existing blocks.
+- The AI works best when you describe your automation in plain language, e.g. "Turn on the living room light when the motion sensor triggers".
+- You can use `@devices` to include your smart home devices in the context.

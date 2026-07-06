@@ -119,6 +119,9 @@ Make sure the Service Account has adequate permissions to write to the spreadshe
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.0.1 (2026-02-16)
 * (Thomas Pohl) Fix for admin ui
 
@@ -141,6 +144,8 @@ Make sure the Service Account has adequate permissions to write to the spreadshe
 ### 0.4.0
 * (Thomas Pohl) The privateKey is saved now encrypted
 * (Thomas Pohl) Support for node.js 22
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

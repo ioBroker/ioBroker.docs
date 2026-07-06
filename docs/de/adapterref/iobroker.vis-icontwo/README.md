@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-icontwo/README.md
-title: ioBroker.vis-icontwo
-hash: YEGoxWbOMVH7xaoTOS7lbK9qy7LLfWXCQD/NYatUwP0=
+title: ioBroker-Adapter für ioBroker.vis (VIS-1 und VIS-2)
+hash: HKYZbPlX8JxX0TgQbIYrDonSxWI2/aNQiSvvqm5ihgg=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-icontwo/admin/icontwo.png)
 
@@ -11,10 +11,14 @@ hash: YEGoxWbOMVH7xaoTOS7lbK9qy7LLfWXCQD/NYatUwP0=
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/vis-icontwo-stable.svg)
 ![NPM-Version](https://nodei.co/npm/iobroker.vis-icontwo.svg?style=shields&data=v,u,d&color=orange)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-icontwo.svg?)
+![GEMEINSCHAFT](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)
+![WARTUNGSKRAFT](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)
 ![PayPal-Spende](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
-# IoBroker.vis-icontwo
-## Symboladapter für den ioBroker.vis-Adapter (für VIS-1 und VIS-2)
+# IoBroker-Adapter für ioBroker.vis (VIS-1 und VIS-2)
+---
+
+## Inventtwo icons for the ioBroker.vis adapter (VIS-1 and VIS-2)
 Ein einfacher Symboladapter für Ihre Visualisierung.
 
 Alle Icons befinden sich im Ordner vis-icontwo, den Sie über den Dateimanager (auf der obersten Ebene) finden.
@@ -55,6 +59,9 @@ Eine vollständige Übersicht aller Symbole finden Sie hier (die Ordnerstruktur 
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 2.11.5 (2026-05-25)
+- (skvarel) Fixed repo checker issue #818
+
 ### 2.11.3 (2026-03-17)
 - (skvarel) Translated: Readme in english
 
@@ -66,9 +73,6 @@ Eine vollständige Übersicht aller Symbole finden Sie hier (die Ordnerstruktur 
 
 ### 2.11.0 (2026-02-26)
 - (skvarel) Added: New 3D-Icons (poolrobot)
-
-### 2.10.0 (2026-02-26)
-- (skvarel) Added: New 3D-Icons (beach)
 
 ## License
 

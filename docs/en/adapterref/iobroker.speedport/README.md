@@ -20,6 +20,9 @@ Fetches data from Telekom Speedport Router
 * Speedport Smart 3 (experimental)
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.1.0 (2026-03-24)
 * (hacki11) Maintenance release
 

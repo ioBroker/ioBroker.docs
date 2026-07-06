@@ -88,8 +88,10 @@ onStop(function (callback) {
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (copilot) Adapter requires node.js >= 22 now
+* (HGlab01) add logs for clientError, connectionError and keepaliveTimeout
 * (HGlab01) Bump aedes to 1.0.2
-* 
+ 
 ### 0.1.6 (2026-03-19)
 * (HGlab01) Bump aedes to 1.0.1
 * (HGlab01) Rename config items
@@ -132,6 +134,8 @@ onStop(function (callback) {
 
 ### 0.0.4(2023-06-30)
 * (HGlab01) first release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -73,6 +73,9 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.8.4 (2026-02-24)
 * (HGlab01) checkExpire for termination-attributes
 * (HGlab01) add attributes 'smartReminders' & 'smartRemindersInAppEnabled'
@@ -109,6 +112,8 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 * (HGlab01) fix Object of state "tado.0.xxxxx.Rooms.y.openWindow" is missing the required property "common.type" (#1059)
 * (HGlab01) Bump axios to 1.12.2
 * (HGlab01) Bump iobroker-jsonexplorer to 0.2.0
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

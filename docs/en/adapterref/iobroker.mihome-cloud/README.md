@@ -19,7 +19,7 @@ Adapter for all Mi Home Cloud devices. Connects to the Xiaomi Cloud API and prov
 
 ## Requirements
 
-- Node.js >= 20
+- Node.js >= 22
 - js-controller >= 6.0.11
 - Admin >= 7.6.20
 
@@ -30,27 +30,48 @@ In the adapter settings you can configure:
 | Setting             | Description                                                                                               |
 | ------------------- | --------------------------------------------------------------------------------------------------------- |
 | **Region**          | Select the Xiaomi Cloud region matching your Mi Home app (Germany, China, Russia, Taiwan, Singapore, USA) |
-| **Update interval** | Polling interval in minutes (minimum 1 minute)                                                            |
+| **Update interval** | Polling interval in minutes for device status updates via the Xiaomi Cloud API (minimum 1 minute in Admin UI) |
+| **Block additional runtime login attempts** | If enabled, no additional automatic login attempts are started during runtime after the initial startup attempt. |
 
 ## Login
 
 The adapter uses a **URL-based login** (no username/password needed in the adapter settings).
 
-1. Configure the **Region** and **Interval** in the adapter settings and save.
+1. Configure **Region**, **Update interval** and (optionally) **Block additional runtime login attempts** in the adapter settings and save.
 2. Start the adapter.
-3. Check the adapter log – a **login URL** will appear:
-   ```
-   XIAOMI CLOUD LOGIN REQUIRED
-   Please visit this URL in your browser and log in: https://account.xiaomi.com/...
-   ```
-4. Open the URL in your browser and log in with your Xiaomi account.
+3. If no valid persisted session is available, the adapter creates a **login URL** and exposes it in two places:
+   - as a warning in the adapter log
+   - as state `mihome-cloud.0.auth.loginUrl`
+4. Open the URL in your browser and sign in with your Xiaomi account.
 5. The adapter detects the successful login automatically and connects.
 
-The session is persisted and survives adapter restarts. A fresh login is only required if the session expires server-side.
+When the session expires server-side, the adapter clears the invalid session and switches to re-authentication state (`mihome-cloud.0.auth.status = reauth_required`).
+
+- **Startup behavior**: If no valid session exists on adapter start, one login attempt (login URL generation) is triggered.
+- **Runtime behavior**: Automatic re-login attempts are scheduled after authentication failures/session expiry.
+- **Optional runtime block**: If **Block additional runtime login attempts** is enabled, no further automatic login attempts are started during runtime.
+
+The session is persisted in `auth.session` and can be reused after adapter restarts when still valid.
 
 ## Object tree
 
-After a successful login, the adapter creates the following object structure for each device:
+After startup and login, the adapter creates the following object structure:
+
+### `mihome-cloud.0.info.connection`
+
+Connection indicator (`true`/`false`) for the Xiaomi Cloud session.
+
+### `mihome-cloud.0.auth.*`
+
+Authentication runtime and session states:
+
+- `auth.status` - current authentication state (for example `connected`, `qr_login_pending`, `reauth_required`, `cooldown_wait`)
+- `auth.loginUrl` - current Xiaomi login URL used for browser login
+- `auth.session` - persisted cookie/session JSON for session restore
+
+Per device, the adapter creates:
+
+If the Xiaomi account or configured region changes, old device objects are removed and recreated for the current account/region.
 
 ### `mihome-cloud.0.<device-id>.general`
 
@@ -58,25 +79,31 @@ General device information (model, name, firmware version, etc.).
 
 ### `mihome-cloud.0.<device-id>.status`
 
-Read-only status values from the MIoT Spec (e.g. power state, brightness, temperature). These are polled at the configured interval.
+Read-only states from MIoT specification properties (polled at the configured update interval).
+
+Event indicator states may exist depending on model/spec parsing, but cloud event subscription is currently not active in this adapter.
 
 ### `mihome-cloud.0.<device-id>.remote`
 
-Writable control commands from the MIoT Spec. To send a command, set the state (unconfirmed) to `true` or to the required value.
+Writable MIoT specification properties and actions.
 
-If a command expects input parameters, they are listed in the state name and the expected IDs are shown as the default value.
+- Writable properties are sent via MIoT `prop/set`
+- Actions are sent via MIoT `action`
+- Actions with input arguments expect JSON input in the state value
+
+After commands, the adapter performs an automatic status refresh for MIoT spec and custom states (vacuum status updates continue via normal polling cycle).
 
 ### `mihome-cloud.0.<device-id>.custom`
 
-Device-specific properties from the internal `configDes` database (e.g. for vacuum cleaners: `clean_area`, `clean_time`, `battery`). These are polled via `get_prop` / `get_status`.
+Model-specific states from internal `configDes` mappings (for example vacuum metrics such as `clean_area`, `clean_time`, `battery`).
 
 ### `mihome-cloud.0.<device-id>.remotePlugins`
 
-Additional commands extracted from the Xiaomi cloud plugins. These are discovered automatically during startup by analysing the plugin bundles for each device model.
+Additional writable commands extracted from Xiaomi plugin bundles (best-effort, depends on plugin/model).
 
 ### `mihome-cloud.0.scenes`
 
-Smart scenes / automations from your Mi Home account. Set a scene to `true` to execute it.
+Smart scenes / automations from your Mi Home account. Set a scene state to `true` to execute it.
 
 ## Example: Robot vacuum room cleaning
 
@@ -104,10 +131,12 @@ Smart scenes / automations from your Mi Home account. Set a scene to `true` to e
 
 ## Troubleshooting
 
-- **"DB closed" errors**: Harmless – occurs when the adapter is stopping while a request is still pending. These are suppressed automatically.
+- **"DB closed" warnings**: Harmless – these are now proactively prevented during adapter shutdown by a clean termination flag.
 - **"ECONNRESET" errors**: Temporary network interruptions to the Xiaomi Cloud. The adapter retries automatically at the next polling interval.
 - **"-106 device network unreachable"**: The device (e.g., a vacuum cleaner) is currently offline, disconnected from Wi-Fi, or powered off. The adapter will log this as debug and keep trying.
-- **401 errors**: The session has expired server-side. Restart the adapter to trigger a fresh QR-code login.
+- **401/400 authentication errors**: The adapter clears the invalid session and enters re-authentication mode. A new login URL is provided via log warning and `auth.loginUrl` if automatic login attempts are enabled.
+- **No new login URL after session expiry**: Check **Block additional runtime login attempts**. If enabled, runtime auto-retries are suppressed by design.
+- **Device tree rebuilt after account/region change**: Expected behavior. The adapter removes old device objects and recreates them for the active account/region.
 - **No properties for device**: Some pure Zigbee/Bluetooth sensor devices (e.g. `lumi.sensor_switch.v2`) do not expose their status via the Cloud API. Consider using a local Zigbee adapter instead.
 
 ## Discussion and questions
@@ -115,32 +144,38 @@ Smart scenes / automations from your Mi Home account. Set a scene to `true` to e
 <https://forum.iobroker.net/topic/59636/test-adapter-mihome-cloud>
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 1.0.6 (2026-04-29)
+- (lubepi) **NEW**: Added admin option to block additional automatic runtime login attempts to reduce log spam
+- (lubepi) **ENHANCED**: Exposed Xiaomi login URL in `auth.loginUrl` for automation and easier re-authentication handling
+- (lubepi) **ENHANCED**: Updated README
+- (lubepi) **FIXED**: Suppress "DB closed" warnings during adapter shutdown and restart by implementing a clean shutdown flag
+- (lubepi) **ENHANCED**: Optimized error handling to prevent uncontrolled adapter crashes from expired sessions and missing null guards
+
 ### 1.0.5 (2026-04-01)
-- (fix) improve 401 authentication error handling and session reset
-- (fix) validate and limit user configurable update interval
-- (fix) update dependencies to address vulnerabilities
+- (lubepi) improve 401 authentication error handling and session reset
+- (lubepi) validate and limit user configurable update interval
+- (lubepi) update dependencies to address vulnerabilities
 
 ### 1.0.4 (2026-03-14)
-- Maintenance update: Consolidated changelog and fixed repository metadata for better standards compliance
+- (lubepi) Maintenance update: Consolidated changelog and fixed repository metadata for better standards compliance
 
 ### 1.0.3 (2026-03-14)
-- **Major update with complete rewrite:**
-  - New QR-code based login flow
-  - Support for many new Xiaomi device models (Air Purifiers 4 series, newer fans/heaters, robot vacuums)
-  - Added environment properties (Temperature, Humidity) to many device configurations
-  - Improved error handling for network interruptions
-  - Migration to external i18n files and Node.js 20+ requirement
-  - Updated dependencies and fixed known vulnerabilities
-  - Added missing translations (uk, ru, pt, nl, fr, it, es, pl, zh-cn)
-  - Migration to ESLint flat config and release-script support
+- (lubepi) Improved error handling for network interruptions
+- (lubepi) Migration to external i18n files and Node.js 20+ requirement
+- (lubepi) Updated dependencies and fixed known vulnerabilities
+- (lubepi) Added missing translations (uk, ru, pt, nl, fr, it, es, pl, zh-cn)
+- (lubepi) Migration to ESLint flat config and release-script support
 
 ### 0.2.2
 
-- Minor improvements with device handling
+- (lubepi) Minor improvements with device handling
 
 ### 0.2.1
 
-- Fix login. Check Log after starting Adapter
+- (lubepi) Fix login. Check Log after starting Adapter
 
 ### 0.2.0
 
@@ -153,6 +188,8 @@ Smart scenes / automations from your Mi Home account. Set a scene to `true` to e
 ### 0.0.4
 
 - (TA2k) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

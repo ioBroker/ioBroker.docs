@@ -79,6 +79,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.0.0 (2026-05-05)
+
+- (copilot) BREAKING: adapter requires node.js >= 22 now
+- (hombach) update dependencies
+
 ### 2.0.7 (2026-04-12)
 
 - (hombach) switch to ES2023 code
@@ -101,13 +106,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 2.0.4 (2025-10-22)
 
 - (hombach) upgrade NPM deployment system
-- (hombach) bump dependencies
-
-### 2.0.3 (2025-09-27)
-
-- (hombach) remove allowInit (#181)
-- (hombach) fix schema URL for jsonConfig (#181)
-- (hombach) update chai system
 - (hombach) bump dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)

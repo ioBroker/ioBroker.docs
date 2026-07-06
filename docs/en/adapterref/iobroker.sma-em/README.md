@@ -58,6 +58,9 @@ From this, the object names are put together, e.g.
 - ...
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.3.1 (2026-03-03) - 2026H1 maintenance release
 
 - (copilot) Adapter requires admin >= 7.7.22 now
@@ -86,6 +89,8 @@ From this, the object names are put together, e.g.
 - (pdbjjens) Change: Removed .npmignore
 - (pdbjjens) New: Updated dependencies
 - (pdbjjens) Fix: IP family property changed from string to number in nodejs 18.0.0-18.4.0
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

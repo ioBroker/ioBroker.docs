@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tesla-motors/README.md
 title: ioBroker.tesla-motors
-hash: 0ADka5jwLgihOKMHvKhc7X9AqeXOVpljg3x9oxgDcBo=
+hash: lRRiuCu9iGCekWvg3ZkZraLZ1vSdLm3QIsz0NlaV9Ao=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tesla-motors/admin/tesla-motors.png)
 
@@ -28,13 +28,13 @@ hash: 0ADka5jwLgihOKMHvKhc7X9AqeXOVpljg3x9oxgDcBo=
 - Зарегистрированное приложение Tesla Fleet API (идентификатор клиента + секретный ключ клиента) от [developer.tesla.com](https://developer.tesla.com)
 - Домен Fleet Key (для установки виртуального ключа на транспортное средство)
 
-### Настройка (пошаговая инструкция)
+### Настройка (пошагово)
 Административный интерфейс адаптера проведет вас через 4 шага:
 
 #### Шаг 1: Сгенерируйте пару ключей
 1. В настройках адаптера нажмите кнопку **Создать пару ключей**, чтобы создать пару ключей EC (prime256v1).
-2. Нажмите **Скопировать открытый ключ** и перейдите на [fleetkey.net](https://fleetkey.net) - создайте учетную запись и получите свой поддомен (например, `abc123.fleetkey.net`).
-3. Загрузите открытый ключ в свою учетную запись FleetKey.net. Tesla загрузит ключ оттуда во время регистрации.
+2. Нажмите **Скопировать открытый ключ** и перейдите на [fleetkey.net](https://fleetkey.net) - вставьте его в поле "Открытый ключ хоста" и создайте поддомен (например, `abc123.fleetkey.net`).
+3. После сохранения FleetKey.net разместит ваш открытый ключ. Tesla загрузит ключ оттуда во время регистрации.
 
 #### Шаг 2: Приложение Tesla для разработчиков
 1. Создайте приложение Fleet API на сайте [developer.tesla.com](https://developer.tesla.com/request)
@@ -94,7 +94,11 @@ hash: 0ADka5jwLgihOKMHvKhc7X9AqeXOVpljg3x9oxgDcBo=
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
-### 2.0.0 (2026-04-12)
+### 2.0.3 (2026-05-12)
+- instruction text improved
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.0.2 (2026-04-17)
 
 - (TA2k) Migrate to Tesla Fleet API with OAuth2
 - (TA2k) Add Vehicle Command Protocol signing (ECDSA P-256) for post-2021 vehicles
@@ -116,10 +120,6 @@ hash: 0ADka5jwLgihOKMHvKhc7X9AqeXOVpljg3x9oxgDcBo=
 ### 1.4.4 (2024-04-10)
 
 - improve energy history data
-
-### 1.4.3 (2024-04-10)
-
-- fix for too many state in the powerwall energy history
 
 ## License
 

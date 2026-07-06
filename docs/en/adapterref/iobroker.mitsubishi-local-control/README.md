@@ -40,6 +40,10 @@ The **mitsubishi-local-control** adapter integrates Mitsubishi Electric air cond
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.0.6 (2026-03-28)
 
 - (Black-Thunder) Minimum target temperature was updated to 10°C
@@ -68,6 +72,8 @@ The **mitsubishi-local-control** adapter integrates Mitsubishi Electric air cond
 ### 1.0.0 (2025-12-18)
 
 - (Black-Thunder) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Acknowledgements
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: uSySW6XTQD7Ml8Wf5ZMTTDDlxCoRRftoS2wshs7h1RI=
+hash: R1AfOdc+Qb9x6Naq0ZvD4ncPquNe3JcqdQLzvHqzDi4=
 ---
 ![标识](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -39,6 +39,21 @@ hash: uSySW6XTQD7Ml8Wf5ZMTTDDlxCoRRftoS2wshs7h1RI=
 ```
 
 ```
+
+### 0.8.5 (2026-05-24)
+- 修复 Cupra
+
+### 0.8.4 (2026-05-14)
+- 禁用斯柯达 MQTT
+
+### 0.8.3 (2026-05-10)
+- 修复斯柯达 MQTT
+
+### 0.8.1 (2026-05-06)
+- 修复斯柯达 MQTT
+
+### 0.8.0 (2026-04-13)
+- 修复 Seat Cupra
 
 ### 0.7.16 (2026-03-18)
 - 修复 MySkoda MQTT 连接
@@ -146,7 +161,7 @@ hash: uSySW6XTQD7Ml8Wf5ZMTTDDlxCoRRftoS2wshs7h1RI=
 - 修复斯柯达 refreshToken 问题，以及其他一些小改进
 
 ### 0.0.26
-- 修复错误
+- 修复了一些错误
 
 ### 0.0.25
 - 另加费用

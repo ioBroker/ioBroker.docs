@@ -32,8 +32,8 @@ The adapter admin UI guides you through 4 steps:
 #### Step 1: Generate Key Pair
 
 1. Click **Generate Key Pair** in the adapter settings to create an EC key pair (prime256v1)
-2. Click **Copy Public Key** and go to [fleetkey.net](https://fleetkey.net) - create an account and get your subdomain (e.g. `abc123.fleetkey.net`)
-3. Upload the Public Key to your FleetKey.net account. Tesla will download the key from there during registration.
+2. Click **Copy Public Key** and go to [fleetkey.net](https://fleetkey.net) - paste it under "Host Public Key" and create a subdomain (e.g. `abc123.fleetkey.net`)
+3. After saving, FleetKey.net hosts your Public Key. Tesla will download the key from there during registration.
 
 #### Step 2: Tesla Developer App
 
@@ -101,7 +101,11 @@ Supported commands include:
 -->
 
 ## Changelog
-### 2.0.0 (2026-04-12)
+### 2.0.3 (2026-05-12)
+- instruction text improved
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.0.2 (2026-04-17)
 
 - (TA2k) Migrate to Tesla Fleet API with OAuth2
 - (TA2k) Add Vehicle Command Protocol signing (ECDSA P-256) for post-2021 vehicles
@@ -124,11 +128,7 @@ Supported commands include:
 
 - improve energy history data
 
-### 1.4.3 (2024-04-10)
-
-- fix for too many state in the powerwall energy history
-
-## License
+[Older changelogs can be found there](CHANGELOG_OLD.md)## License
 
 MIT License
 

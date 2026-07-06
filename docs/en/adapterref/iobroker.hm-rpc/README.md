@@ -139,6 +139,11 @@ Here, measured values, control and status data are listed; depending on the func
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.0.2 (2026-05-07)
+* (bluefox) Updated packages
+* (bluefox) Migrated to TypeScript 6
+* (bluefox) Corrected device manager
+
 ### 3.0.1 (2025-10-22)
 * (bluefox) Renamed role of `STICKY_UNREACH` to `indicator.unreach.sticky` for the better typing detection
 
@@ -154,9 +159,6 @@ Here, measured values, control and status data are listed; depending on the func
 * (bluefox) Updated packages
 * (bluefox) Removed support of Node.js 16
 
-### 1.17.0 (2024-03-18)
-* (klein0r) Fixed encrypted configuration
-
 ### Older entries
 [here](OLD_CHANGELOG.md)
 
@@ -164,7 +166,7 @@ Here, measured values, control and status data are listed; depending on the func
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>
 
 Copyright (c) 2014 hobbyquaker
 

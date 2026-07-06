@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: lrAcCG5s4r+NW//IOgKlqBgJ5vSQCfmTqn7zUhrNIbk=
+hash: t8JOi4020CFbkeTOeDqlhxoJ8c0FTDD0zY4L4ifJdYg=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -432,7 +432,7 @@ Jede Option in `options` kann Folgendes enthalten:
 | `hidden` | Formel oder boolescher Wert zum Ein- oder Ausblenden der Option |
 | `description` | Beschreibung unterhalb der Optionsbezeichnung (kann übersetzbar sein) |
 | `icon` | Symbol-URL oder Base64-Zeichenkette, die neben der Option angezeigt werden soll (ab Version 8.3.3) |
-| `icon` | Symbol-URL oder Base64-Zeichenkette, die neben der Option angezeigt werden soll (ab Version 8.3.3) |
+| `icon` | URL oder Base64-String des Symbols, das neben der Option angezeigt werden soll (ab Version 8.3.3) |
 
 #### Beispiel für `select options`
 ```json5
@@ -514,7 +514,7 @@ Um dies nutzen zu können, müssen Sie zunächst die OAuth2-Daten (Client-ID, Ge
 
 | Objekt | Beschreibung |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `identifier` | OAuth2-Kennung, wie z. B. `spotify`, `google`, `dropbox`, `microsoft` |
+| `identifier` | OAuth2-Kennung, z. B. `spotify`, `google`, `dropbox`, `microsoft` |
 | `scope` | Optionale Bereiche, durch Leerzeichen getrennt, z. B. `user-read-private user-read-email` |
 | `refreshLabel` | Optionale Schaltflächenbeschriftung zum Aktualisieren des Tokens |
 | `ownClientId` | Optionaler Attributname, unter dem die OAuth-Client-ID des Benutzers gespeichert wird. Falls gesetzt, wird ein Eingabefeld für die Client-ID angezeigt. |
@@ -538,12 +538,12 @@ Siehe auch [OAUTH2.md](OAUTH2.md) für weitere Informationen.
 Objekt-ID: Anzeige mit Name, Farbe und Symbol
 
 | Objekt | Beschreibung |
-|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `types` | Gewünschter Typ: `channel`, `device`, ... (standardmäßig nur `state`). Es handelt sich um einen Plural, da `type` bereits belegt ist. |
-| `customFilter` | [optional] Kann nicht zusammen mit den `type`-Einstellungen verwendet werden. Es handelt sich um ein Objekt und nicht um eine JSON-Zeichenfolge. |
-| `filterFunc` | [optional] Kann nicht zusammen mit den Einstellungen `type` verwendet werden. Es handelt sich um eine Funktion, die für jedes Objekt aufgerufen wird und true oder false zurückgeben muss. Beispiel: `obj.common.type === 'number'` |
-| `fillOnSelect` | [optional] Füllt weitere Konfigurationsfelder, wenn eine Objekt-ID ausgewählt wird. Format: `pathInObject=>attr,pathInObject=>attr(X)`. Hängen Sie `(X)` an, um nicht leere Felder zu überschreiben. Beispiel: `common.name=>name,common.color=>color(X)` füllt das Feld `name` mit dem Namen des Objekts und überschreibt `color` mit der Farbe des Objekts. |
-| `fillOnSelect` | [optional] Füllt andere Konfigurationsfelder, wenn eine Objekt-ID ausgewählt wird. Format: `pathInObject=>attr,pathInObject=>attr(X)`. Hängen Sie `(X)` an, um nicht leere Felder zu überschreiben. Beispiel: `common.name=>name,common.color=>color(X)` füllt das Feld `name` mit dem Namen des Objekts und überschreibt `color` mit der Farbe des Objekts. |
+| `customFilter` | [optional] Kann nicht zusammen mit den `types`-Einstellungen verwendet werden. Es handelt sich um ein Objekt und nicht um eine JSON-Zeichenfolge. |
+| `filterFunc` | [optional] Kann nicht zusammen mit den Einstellungen `types` verwendet werden. Es handelt sich um eine Funktion, die für jedes Objekt aufgerufen wird und true oder false zurückgeben muss. Beispiel: `obj.common.type === 'number'` |
+| `fillOnSelect` | [optional] Füllt weitere Konfigurationsfelder, wenn eine Objekt-ID ausgewählt wird. Format: `pathInObject1=>attr1,pathInObject2=>attr2(X)`. Hängen Sie `(X)` an, um nicht leere Felder zu überschreiben. Beispiel: `common.name=>name,common.color=>color(X)` füllt das Feld `name` mit dem Namen des Objekts und überschreibt `color` mit der Farbe des Objekts. |
+| `fillOnSelect` | [optional] Füllt andere Konfigurationsfelder, wenn eine Objekt-ID ausgewählt wird. Format: `pathInObject1=>attr1,pathInObject2=>attr2(X)`. Hängen Sie `(X)` an, um nicht leere Felder zu überschreiben. Beispiel: `common.name=>name,common.color=>color(X)` füllt das Feld `name` mit dem Namen des Objekts und überschreibt `color` mit der Farbe des Objekts. |
 
 #### Beispiele für `customFilter`
 ##### Nur Objekte mit bestimmten benutzerdefinierten Einstellungen anzeigen
@@ -636,7 +636,7 @@ Schaltfläche, die eine Anfrage an die aktuelle Instanz sendet (<https://github.
 | `error` | `{error1: {en: 'E'}, error2: {en: 'E2'}}` |
 | `variant` | `contained`, `outlined` oder nichts. Variante der Schaltfläche. |
 | `openUrl` | Wenn wahr - URL in neuem Tab öffnen, falls die Antwort das Attribut `openUrl` enthält, wie z. B. `{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
-| `reloadBrowser` | Falls wahr - lade das aktuelle Browserfenster neu, falls die Antwort das Attribut `reloadBrowser` enthält, z. B. `{"reloadBrowser": true}`. |
+| `reloadBrowser` | Wenn wahr - lade das aktuelle Browserfenster neu, falls die Antwort das Attribut `reloadBrowser` enthält, z. B. `{"reloadBrowser": true}`. |
 | `window` | Wenn `openUrl` wahr ist, ist dies der Name des neuen Fensters. Kann überschrieben werden, wenn die Antwort das Attribut `window` enthält. `this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
 | `icon` | Falls ein Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können Symbole der Kategorie `base64` (wie `data:image/svg+xml;base64,...`) oder Bilder der Kategorie `jpg/png` (endet mit `.png`) verwenden. (Bitte melden Sie weitere Symbole über ein Issue an.) |
 | `useNative` | Wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird dieses für die Konfiguration verwendet. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
@@ -644,7 +644,8 @@ Schaltfläche, die eine Anfrage an die aktuelle Instanz sendet (<https://github.
 | `timeout` | Timeout für die Anfrage in ms. Standard: keiner. |
 | `onLoaded` | Die Schaltflächenlogik einmalig initial ausführen |
 | `controlStyle` | Stile für die Schaltfläche. |
-| `controlStyle` | Stile für die Schaltfläche. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 ### `setState`
 Schaltfläche zum Festlegen des Instanzstatus
@@ -670,7 +671,7 @@ Statischer Text wie Beschreibung
 | `button` | Link als Schaltfläche anzeigen |
 | `variant` | Typ der Schaltfläche (`outlined`, `contained`, `text`) |
 | `color` | Farbe der Schaltfläche (z. B. `primary`) |
-| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Symbole `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Symbole über das Issue an.) |
+| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Icons `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Icons über das Issue an.) |
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 
@@ -685,7 +686,7 @@ Es muss genau eines von `label` oder `text` angegeben werden – nicht beide.
 | `button` | Link als Schaltfläche anzeigen |
 | `variant` | Typ der Schaltfläche (`outlined`, `contained`, `text`) |
 | `color` | Farbe der Schaltfläche (z. B. `primary`) |
-| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Symbole `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Symbole über das Issue an.) |
+| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Icons `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Icons über das Issue an.) |
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 | `format` | `text` (Standard), `html`, `json` |
 | `format` | `text` (Standard), `html`, `json` |
@@ -879,13 +880,14 @@ Nur Admin6.
 zeigt das vom Backend empfangene Bild als Base64-Zeichenkette an.
 
 | Objekt | Beschreibung |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `width` | Breite des QR-Codes in Pixeln |
 | `command` | sendTo-Befehl |
 | `jsonData` | Zeichenkette - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
 | `sendFirstByClick` | Bild zuerst anzeigen, wenn angeklickt wird. `true` - Standardtext (Zum Anzeigen klicken) oder spezifischer Text |
-| `sendFirstByClick` | Bild zuerst beim Anklicken anzeigen. `true` - Standardtext (Zum Anzeigen klicken) oder spezifischer Text |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 #### Beispielcode im Backend für `imageSendTo`
 ```js
@@ -906,7 +908,7 @@ Sendet einen Befehl an die Adapterinstanz und zeigt die Antwortzeichenfolge als 
 Das Backend muss eine einfache Zeichenkette (die zu kodierenden Daten) zurückgeben.
 
 | Objekt | Beschreibung |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo-Befehl (Standard: `"send"`) |
 | `jsonData` | Zeichenkette - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
@@ -915,7 +917,8 @@ Das Backend muss eine einfache Zeichenkette (die zu kodierenden Daten) zurückge
 | `fgColor` | Vordergrundfarbe (Standard: `"#000000"`) |
 | `bgColor` | Hintergrundfarbe (Standard: `"#ffffff"`) |
 | `level` | Fehlerkorrekturstufe: `L`, `M`, `Q` oder `H` (Standard: `L`) |
-| `level` | Fehlerkorrekturstufe: `L`, `M`, `Q` oder `H` (Standard: `L`) |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 #### Beispielcode im Backend für `qrCodeSendTo`
 ```js
@@ -955,10 +958,11 @@ Zeigt einen iFrame mit der angegebenen URL an. (aus Admin 7.7.28)
 Zeigt einen iFrame mit einer vom Backend empfangenen URL an. (aus Admin 7.7.28)
 
 | Objekt | Beschreibung |
-|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo-Befehl |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
-| `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 Das Backend muss eine URL als Zeichenkette zurückgeben.
 
@@ -986,7 +990,7 @@ adapter.on("message", (obj) => {
 Zeigt das Dropdown-Menü mit den angegebenen Instanzwerten an.
 
 | Objekt | Beschreibung |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo-Befehl |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
 | `manual` | Manuelle Bearbeitung zulassen. Ohne Dropdown-Menü (wenn die Instanz offline ist). Standardmäßig `true`. |
@@ -994,7 +998,8 @@ Zeigt das Dropdown-Menü mit den angegebenen Instanzwerten an.
 | `showAllValues` | Element auch dann anzeigen, wenn keine Bezeichnung dafür gefunden wurde (bei mehreren Elementen), Standardwert=`true` |
 | `noTranslation` | Die Beschriftung der Auswahllisten wird nicht übersetzt. Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren. Das Ergebnis des Befehls muss ein Array im Format `[{"value": 1, "label": "one"}, ...]` | sein. |
 | `alsoDependsOn` | Durch welche Änderung der Attribute muss der Befehl erneut gesendet werden? |
-| `alsoDependsOn` | Durch die Änderung welcher Attribute muss der Befehl erneut gesendet werden |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 Der Backend-Handler kann Elemente mit einem optionalen Feld `description`: `[{"value": 1, "label": "one", "description": "Some hint"}, ...]` zurückgeben. Die Beschreibung wird unterhalb der Bezeichnung im Dropdown-Menü angezeigt.
 
@@ -1055,13 +1060,14 @@ adapter.on("message", (obj) => {
 Zeigt ein Autovervollständigungssteuerelement mit den angegebenen Instanzwerten an.
 
 | Objekt | Beschreibung |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo-Befehl |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
 | `freeSolo` | Setze `freeSolo` auf `true`, damit das Textfeld einen beliebigen Wert enthalten kann. |
 | `alsoDependsOn` | Durch welche Änderung der Attribute muss der Befehl erneut gesendet werden? |
 | `maxLength` | Maximale Textlänge im Feld |
-| `maxLength` | Maximale Textlänge im Feld |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 Um diese Option nutzen zu können, muss Ihr Adapter einen Nachrichtenhandler implementieren:
 
@@ -1071,13 +1077,14 @@ Das Ergebnis des Befehls muss ein Array der Form `["value1", {"value": "value2",
 Zeigt ein schreibgeschütztes Steuerelement mit den angegebenen Instanzwerten.
 
 | Objekt | Beschreibung |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `container` | `div`, `text`, `html` |
 | `alsoDependsOn` | Durch welche Änderung der Attribute muss der Befehl erneut gesendet werden? |
 | `command` | sendTo-Befehl |
 | `jsonData` | Zeichenkette - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
-| `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 Um diese Option zu nutzen, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss eine Zeichenkette oder ein Objekt mit den folgenden Parametern sein:
 
@@ -1139,7 +1146,7 @@ Ermittelt den aktuellen Standort und verwendet die Koordinaten `system.config`, 
 | `divider` | Trennzeichen zwischen Breitengrad und Längengrad. Standardwert: "," (Wird verwendet, wenn longitudeName und latitudeName nicht definiert sind) |
 | `longitudeName` | Falls definiert, wird der Längengrad in diesem Attribut gespeichert, das Trennzeichen wird ignoriert. |
 | `latitudeName` | Falls definiert, wird der Breitengrad in diesem Attribut gespeichert, das Trennzeichen wird ignoriert. |
-| `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und die Breiten- und Längengrade werden aus `system.config` gelesen. Ein boolescher Wert wird unter dem angegebenen Namen gespeichert. |
+| `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und Breitengrad und Längengrad werden aus `system.config` gelesen. Ein boolescher Wert wird unter dem angegebenen Namen gespeichert. |
 | `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und die Breiten- und Längengrade werden aus `system.config` gelesen. Ein boolescher Wert wird unter dem angegebenen Namen gespeichert. |
 
 ### `interface`
@@ -1208,7 +1215,7 @@ Spezielle Eingabe für Ports. Es prüft automatisch, ob der Port von anderen Ins
 | `falseImage` | Dieses Bild wird angezeigt, wenn der Wert falsch ist oder wenn es sich bei dem Steuerelement um eine Schaltfläche handelt. |
 | `min` | Minimalwert für Schieberegler oder Zahl |
 | `max` | Maximalwert für Schieberegler oder Zahl |
-| `step` | Schrittwert für Schieberegler oder Zahl |
+| `step` | Schrittwert für Steuerelementtyp Schieberegler oder Zahl |
 | `controlDelay` | Verzögerung in ms für Schieberegler oder Zahl |
 | `variant` | Varianten der Schaltfläche: `contained`, `outlined`, `text` |
 | `readOnly` | Legt fest, ob das Steuerelement schreibgeschützt ist |
@@ -1331,7 +1338,7 @@ Dies kann beispielsweise mit den Web Developer Tools getestet werden, die in jed
 
 Schritt 1: Öffnen Sie die Webentwicklertools mit F12
 
-Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1)
+Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1).
 
 Schritt 3: Verschiedene Geräte auswählen (2)
 
@@ -1476,6 +1483,8 @@ const func = new Function(
   'arrayIndex',    // filled only by table and represents the row index
   'globalData',    // filled only by table and represents the obj.native or obj.common.custom['adapter.X'] object
   '_changed',      // indicator if some data was changed and must be saved
+  '_href',         // Current browser href
+  'getObject',     // You can call `await getObject(data.id)`in hidden, disabled, pattern functions
   myValidator.includes('return') ? myValidator : 'return ' + myValidator); // e.g. "_alive === true"
 
 const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, this.props.socket);
@@ -1669,7 +1678,22 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
-### 8.3.6 (2026-04-12)
+### 8.4.3 (2026-05-24)
+- (@GermanBluefox) Optimization of interfaces
+
+### 8.4.1 (2026-05-19)
+- (@GermanBluefox) Allowed to use `await getObject(data.oid)?.common?.type === 'boolean'` in hidden, pattern or disabled
+
+### 8.3.13 (2026-05-16)
+- (@GermanBluefox) Added `_href` to `jsonData`
+
+### 8.3.11 (2026-04-29)
+- (@GermanBluefox) Added `instance` option for all `sendTo` components to override the target adapter instance
+
+### 8.3.9 (2026-04-17)
+- (@GermanBluefox) Updated packages
+
+### 8.3.8 (2026-04-13)
 - (@GermanBluefox) Adjust a path to images
 
 ### 8.3.5 (2026-04-11)

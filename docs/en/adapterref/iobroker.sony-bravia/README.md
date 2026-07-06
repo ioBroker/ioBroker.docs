@@ -31,6 +31,7 @@ This is an ioBroker adapter for your Sony Bravia Smart-TV with Android OS. Teste
 -->
 
 ### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -52,6 +53,8 @@ This is an ioBroker adapter for your Sony Bravia Smart-TV with Android OS. Teste
 * (ThomasBra) Audio volume/mute control
 * (ThomasBra) value lists for AV Contents
 * (Apollon77) Add Sentry error reporting
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

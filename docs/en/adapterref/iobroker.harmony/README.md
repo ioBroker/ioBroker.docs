@@ -259,8 +259,7 @@ Trigger device functions. Here, the Denon AV receiver is turned on or off when t
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.1.0 (2026-04-15)
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 2.0.5 (2026-02-06)
@@ -276,11 +275,6 @@ Trigger device functions. Here, the Denon AV receiver is turned on or off when t
 * (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now.
 * (@GermanBluefox) Added state "switch" to switch activities on/off with Alexa
 * (@GermanBluefox) Adapter has been rewritten with TypeScript
-* (mcm1957) Dependencies have been updated.
-
-### 1.5.0 (2024-06-02)
-* (WolfspiritM) Multiple subnets can be entered as a comma-separated list now. (#147)
-* (mcm1957) Testing for node.js 22 has been added.
 * (mcm1957) Dependencies have been updated.
 
 ## License
@@ -306,3 +300,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)

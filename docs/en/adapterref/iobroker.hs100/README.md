@@ -22,6 +22,9 @@ bulb LBxxx
 
 ------------------------------------------------------------------------------
 ## Changelog
+### 3.0.6 (2026-04-14)
+* (arteck) Dependencies have been updated
+
 ### 3.0.5 (2025-05-16)
 * (arteck) dependency update
 
@@ -52,7 +55,7 @@ bulb LBxxx
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2025 Arthur Rupp arteck@outlook.com
+Copyright (c) 2014-2026 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

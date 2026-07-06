@@ -13,17 +13,17 @@ You must not use any external resources, the scheduling is processed only in ioB
 
 ![Example](img/example.png)
 
-You can control your events with calendar and can plan to control them periodically.
+You can control your events with a calendar and can plan to control them periodically.
 
 ## Events simulation
-You can record your behavior and can play back it later.
+You can record your behavior and can play it back later.
 For example, you can create two recordings for workday and for weekend and play them back on according days.
 
-Or you can record the whole week and can play it back on the next weeks during you are away.
+Or you can record the whole week and can play it back in the next weeks while you are away.
 
 How to use:
-- Go to simulation tab
-- Create the new simulation by clicking on the "+" button and select type of simulation: day or week
+- Go to the simulation tab
+- Create the new simulation by clicking on the "+" button and selecting the type of simulation: day or week
 - Click the record button and wait 24 hours or 7 days till simulation stops to record events
 - Now you can replay the simulation by clicking on the play button. Additionally, you can define the time when the simulation should be started.
 
@@ -35,6 +35,9 @@ How to use:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Migrated GUI to vite
+
 ### 2.4.5 (2024-09-09)
 * (bluefox) Corrected SelectID Dialog
 
@@ -108,7 +111,7 @@ How to use:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2024 Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2026 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

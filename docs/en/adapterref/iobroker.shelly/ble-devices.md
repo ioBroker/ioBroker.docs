@@ -5,6 +5,9 @@ chapters: {"pages":{"en/adapterref/iobroker.shelly/README.md":{"title":{"en":"io
 
 # ioBroker.shelly
 
+This is the English documentation - [🇩🇪 German version](../de/ble-devices.md)
+
+
 **This feature is experimental!**
 
 You have to create a new script (see below) on a Plus or Pro device (Gen 2+) to get Events in this state as JSON: `shelly.0.<device>.BLE.Event`.
@@ -38,6 +41,7 @@ Since adapter version 7.1.0 you will get a list of all devices (JSON object) whi
 
 | Adapter version                                                                                                 | Script version |
 |-----------------------------------------------------------------------------------------------------------------|----------------|
+| [>= 11.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v11.0.0/docs/en/ble-devices.md) | v1.3           |
 | [>= 10.3.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.3.0/docs/en/ble-devices.md) | v1.2           |
 | [>= 10.2.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.2.0/docs/en/ble-devices.md) | v1.1           |
 | [>= 10.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.1.0/docs/en/ble-devices.md) | v1.0           |
@@ -47,7 +51,7 @@ Since adapter version 7.1.0 you will get a list of all devices (JSON object) whi
 | [>= 6.8.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v6.8.0/docs/en/ble-devices.md)   | v0.2           |
 | [>= 6.6.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v6.6.0/docs/en/ble-devices.md)   | v0.1           |
 
-*Since script version v1.0 the processing of the ble message has been migrated to ioBroker. Older versions may not run on Gen3 devices, since they need more ressources to unpack the Bluetooth messages.*
+*Since script version v1.0 the processing of the ble message has been migrated to ioBroker. Older versions may not run on Gen3 devices, since they need more resources to unpack the Bluetooth messages.*
 
 ## Encryption
 
@@ -63,15 +67,15 @@ After that, the next BLE event can be decrypted.
 ## Enable Bluetooth
 
 **IMPORTANT**
-Do not forget to enable bluetooth functionalita at the Shelly to be used as gateway.
+Do not forget to enable the Bluetooth functionality at the Shelly device to be used as a gateway.
 
 ## JavaScript (Shelly Scripting)
 
 Add this script in the Shelly Scripting section of a Shelly Plus or Pro device (Gen 2+) and start it:
 
 ```javascript
-// v1.2
-const SCRIPT_VERSION = '1.2';
+// v1.3
+const SCRIPT_VERSION = '1.3';
 const BTHOME_SVC_ID_STR = 'fcd2';
 
 let SHELLY_ID = undefined;
@@ -123,7 +127,7 @@ function init() {
     let bleConfig = Shelly.getComponentConfig('ble');
 
     // exit if the BLE isn't enabled
-    if (!bleConfig.enable) {
+    if (!bleConfig.rpc.enable) {
         console.log('Error: The Bluetooth is not enabled, please enable it in the settings');
         return;
     }

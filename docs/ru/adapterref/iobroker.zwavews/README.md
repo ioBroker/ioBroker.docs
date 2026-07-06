@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zwavews/README.md
 title: ioBroker.zwavews
-hash: zpQOuWRa/PVC4Q3tAUfv6sFysg3YF58DjzTKdCNdv7I=
+hash: 78RGvtORJzvArh8nMXl+5J/Gmqb4+HTJBOQMqqEjYRQ=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.zwavews.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.zwavews.svg)
@@ -19,6 +19,14 @@ hash: zpQOuWRa/PVC4Q3tAUfv6sFysg3YF58DjzTKdCNdv7I=
 ## Адаптер zwave-WS для ioBroker
 Адаптер `zwavews` подключает [`zwave-js-ui`](https://zwave-js.github.io/zwave-js-ui/#/) к ioBroker и создает соответствующие точки данных для устройств, значений и статусов. Это позволяет удобно использовать устройства Z-Wave в визуализациях, логике и автоматизации.
 
+### Функции
+* **Обмен данными в реальном времени**: Мгновенно получает обновления значений и статусов устройства через WebSocket или MQTT.
+* **Автоматическое обнаружение**: Автоматически создает и обновляет структуру устройства и состояния в ioBroker из узлов `zwave-js-ui`.
+* **Управление устройством**: Просматривайте уровень заряда батареи, состояние подключения и подробные показатели устройства прямо из интерфейса ioBroker.
+* **Обновление прошивки**: Отслеживайте ход обновления прошивки непосредственно через журналы и состояния адаптера.
+* **Управление состоянием**: Отправляйте команды и обновляйте значения непосредственно через дерево объектов ioBroker.
+* **Поддержка нескольких протоколов**: Вы можете подключиться к `zwave-js-ui` с помощью WebSocket, внешнего MQTT-сервера или внутреннего фиктивного MQTT-сервера.
+
 ## Документация по адаптеру
 Необходимо установить zwave-js-ui (возможно перенести устройства zwave2 в zwave-js-ui. Скопируйте файл кэша JSON из /opt/iobroker/iobroker-data/zwave2/ в каталог хранилища Z-Wave JS UI, затем запустите zwave-js-ui) и активировать связь WS.<br> Переключиться с адаптера Z-Wave 2 очень просто, поскольку вся информация хранится на координаторе.<br> Для повторного считывания данных с устройств с батарейным питанием достаточно один раз активировать zwave-js-ui или выполнить миграцию с zwave2.<br>
 
@@ -30,7 +38,36 @@ hash: zpQOuWRa/PVC4Q3tAUfv6sFysg3YF58DjzTKdCNdv7I=
 
 ## Changelog
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 0.2.0 (2026-04-26)
+* (arteck) del deprectated setStateAsync
+
+### 0.1.6 (2026-04-23)
+* (arteck) add test
+
+### 0.1.5 (2026-04-21)
+* (arteck) upd devicemanager
+
+### 0.1.4 (2026-04-16)
+* (arteck) Dependencies have been updated
+* (arteck) add vscode folder
+
+### 0.1.3 (2026-04-03)
+* (arteck) del last dot from DP
+* (arteck) fix scene
+
+### 0.1.2 (2026-03-15)
+* (arteck) typo
+
+### 0.1.1 (2026-03-15)
+* (arteck) add debug information
+
+### 0.1.0 (2026-03-08)
+* (arteck) BREAKING CHANGE - dp name is now with underline
 * (arteck) add deviceManager
+* (arteck) fix dp's with a space
+* (arteck) fix dp's with special chars
 
 ### 0.0.18 (2026-02-28)
 * (arteck) add info.sendMessageAllowed object to allow sending the message to zwave-ui-js
@@ -87,6 +124,8 @@ hash: zpQOuWRa/PVC4Q3tAUfv6sFysg3YF58DjzTKdCNdv7I=
 
 ### 0.0.2 (2026-01-06)
 - (arteck) first release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

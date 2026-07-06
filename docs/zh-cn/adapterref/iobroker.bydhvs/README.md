@@ -1,77 +1,114 @@
 ---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.bydhvs.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.bydhvs.svg
+BADGE-Number of Installations: https://iobroker.live/badges/bydhvs-installed.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/bydhvs-stable.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.bydhvs.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bydhvs/README.md
-title: 无标题
-hash: KB7RargX+yva7yH7Db8nwbj/wkP5w5DHRtli0soAJ0E=
+title: 比亚迪HVS消息的结构
+hash: ivS/3Uo2lXRDo8NTqbOQ+atzevFaI9uKutZFWHsuwMA=
 ---
-![标识](../../../en/adapterref/iobroker.bydhvs/admin/bydhvs.png)
+# BYD HVS消息的结构
+## 消息捕获
+这些信息是通过捕获Be Connect软件与硬件之间的通信而解密的。每条信息的具体位置和内容均由社区解读，可能存在误差。请仅参考比亚迪或其子公司发布的官方信息。
 
-![NPM 版本](https://img.shields.io/npm/v/iobroker.bydhvs.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.bydhvs.svg)
-![安装数量](https://iobroker.live/badges/bydhvs-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/bydhvs-stable.svg)
-![新公共管理](https://nodei.co/npm/iobroker.bydhvs.png?downloads=true)
+## 消息
+TCP 连接建立后，通信需要发送命令来接收数据或执行测量。smarthomeNG 项目将其描述为类似于 ModBus，即通过 TCP 连接读写寄存器。
 
-**测试：**![测试和发布](https://github.com/christianh17/ioBroker.bydhvs/workflows/Test%20and%20Release/badge.svg)![CodeQL](https://github.com/christianh17/ioBroker.bydhvs/actions/workflows/codeql.yml/badge.svg?branch=main)
+https://github.com/lgb-this/plugins/blob/develop/byd_bat/user_doc.rst 所有消息的前两个字节都包含头部信息。
 
-## IoBroker 的 bydhvs 适配器
-比亚迪HVS电池调查数据
+### 消息 0 - 建立连接和基本数据
+发送的消息是```010300000066c5e0```
 
-＃＃ 介绍
-此适配器从比亚迪光伏电池 (https://www.bydbatterybox.com/) 获取数据，并将其放入适配器中的数据点。遗憾的是，它没有官方 API 和文档，因此我使用了 wireshark 和 byd-hvs-simulator 来尝试理解通信过程。我的适配器模拟了 byd-app，向设备发送类似的数据包并分析响应。
+| 字节 | 类型 | 描述 |
+|:-- |:--:|:--|
+| 3 至 21 | 字符串 | 这是序列号。第 2 个字符可以识别硬件类型（HVS、HVM 等） |
+| 27 + 28 | 字符 | 第一个 BMU 的版本格式为 V(27).(28) |
+| 29 + 30 | 字符 | 版本格式为 V(29).(30)，适用于第二个 BMU |
+| 33 | 整数 | 已使用塔式 BMU |
+| 36 | 2 个独立的字节整数 | 1 字节 - 塔；2 字节 - 模块（2³ => 2 个塔和 3 个模块） |
+| 38 | 枚举 | 0：离网；1：并网；2：备份 |
 
-＃＃ 当心
-beConnect 应用程序有两个步骤：第一步获取常规数据；第二步获取所有电池的详细数据（单个电池的温度、电压以及其他一些详细信息）。为了获取详细数据，必须在其中一个数据包发送后延迟一段时间才能得到结果。我认为在此期间所有电池都会被测量，但我不确定。我不确定过于频繁地轮询这些数据是否会损害你的电池，所以请注意：风险自负！
+### 消息 1 - 系统诊断
+发送的消息是```01030500001984cc```
 
-## 支持最多 5 个模块
-现在支持最多 5 个 HVS 模块。
+| 字节 | 类型 | 描述 |
+|:-- |:--:|:--|
+| 3 | int16 有符号 | 整个系统的 SOC |
+| 5 | int16 有符号数 | 系统最大电压 |
+| 7 | int16 有符号数 | 系统最小电压 |
+| 9 | int16 有符号 | 系统 SOH |
+| 11 | int16 有符号 | 系统安培 |
+| 13 | int16 unsigned | 电池电压（SF 100） |
+| 15 | 有符号整数16 | 最高温度 |
+| 17 | 有符号整数16 | 最低温度 |
+| 19 | int16 有符号整数 | 电池温度 |
+| 29 | int16 有符号 | 错误编号 |
+| 31 + 32 | 个字符 | 参数 T |
+| 35 | int16 unsigned | 输出电压，SF 100 |
+| 37 | int16 无符号 | 系统总电荷 |
+| 41 | int16 无符号 | 系统总排放量 |
 
-＃＃ 设置
-间隔：这很简单：数据轮询频率 IP 地址：这不言自明。您可以使用标准地址（192.168.16.254）并更改家中的路由，例如：https://www.photovoltaikforum.com/thread/150898-byd-hvs-firmware-update/?postID=2215343#post2215343。优点是：beConnect 应用程序也可以工作。另一种可能性：您可以更改盒子的 IP 地址。但是：请注意：网页上的文字令人困惑，如果您不完全确定您要做的事情：请不要触摸设置。在德国论坛中，我看到有人被锁定在系统之外并且没有办法恢复，要么比亚迪向您发送替换的 HVU，要么您必须购买新的。
-电池详细信息：如上所述：您需要电池的详细信息吗？如果是，请设置复选框。
-电池详情 - 每...次循环：同样与上述类似，应该清晰可见。测试模式 - 在错误日志中显示数据：如果勾选此框，发送和接收的数据将显示在错误日志中，以便您在出现错误时轻松下载数据并发送给我。
-复制粘贴无效 - 数据在最后会被剪切。您必须先下载后才能发送给我。
+### 消息 2 - 系统诊断
+发送命令为```010300100003040e```
 
-[链接 zur nativen deutschen 自述文件：](README-German.md)
+| 字节 | 类型 | 描述 |
+|:-- |:--:|:--|
+| 3 | 枚举 | 反相器类型 |
+| 5 |枚举 |电池类型：0：HVL； 1：HVM； 2：HVS |
+
+### 消息 5 - 塔台基本信息
+| 字节 | 类型 | 描述 |
+|:-- |:--:|:--|
+| 5 | int16 有符号 | 塔最大电压 |
+| 7 | int16 已签名 | 塔最小伏特 |
+| 9 | 整数 | 最大电压电池编号 |
+| 10 | 整数 | 最小电压电池编号 |
+| 11 | 有符号整数16 | 最高温度 |
+| 13 | 16 位有符号整数 | 最低温度 |
+| 15 | 整数 | 最高温度单元 |
+| 16 | 整数 | 最小温度单元编号 |
+| 17 - 32 | 最高有效位 (MSB)、最低有效位 (LSB) | 平衡标志 |
+| 33 | int32 无符号 | 塔台总费用（含 SF 1000） |
+| 37 | int32 无符号 | 塔排放总量（SF 1000） |
+| 45 | int16 有符号 | 塔电池电压 SF 10 |
+| 51 | int16 已签名 | 塔伏特输出 |
+| 53 | int16 有符号 | SOC 百分比 |
+| 55 | int16 有符号 | SOH 百分比 |
+| 57 | int16 已签名 | Currentamperes |
+| 59 + 60 | 十六进制 | 状态 |
+
+## 词汇表
+| 简短 | 描述 |
+|:--:|:-- |
+| SF | 比例因子（数值 1234 且 SF 为 100 => 实际值：12.34） |
 
 ## Changelog
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
--->
-### __WORK IN PROGRESS__
-* (arteck) add current info
-* (arteck) add creates into separated file 
+### 1.5.11 (2026-04-26)
+* (arteck) del deprectated setStateAsync
 
-### 1.5.4 (2025-08-03)
+### 1.5.10 (2026-04-26)
+* (arteck) fix Modbus Exception – fc=0x3 exCode=0x4 in State 7
+* (arteck) add Max retry attempts after error into settings
+
+### 1.5.9 (2026-04-25)
+* (arteck) fix wrong package
+* (arteck) fix Modbus-RTU
+
+### 1.5.8 (2026-04-23)
 * (arteck) typo
 
-### 1.5.3 (2025-08-02)
-* (arteck) update dependecy
-
-### 1.5.2 (2025-08-02)
-* (arteck) add socketConnection DP
-* (arteck) use jsconConfig
-* (arteck) refactoring to modern Code
-* (arteck) use direct socket connection without detour IPClient
-* first Version with two towers in NPM
-
-### 1.5.1 (2024-01-15)
-* Enable the possibility to get informations from a two tower setup
-* BREAKING CHANGE of Structure.
-
-### 1.5.0 (2023-11-04)
-* Breaking change: nodejs 16 minimum required
-* automated checks and release-script repaired (thanks to mcm1957, he did the work)
-* nothing else changed in code
+### 1.5.7 (2026-04-23)
+* (arteck) fix tower count > 1
 
 ###
 
 ## License
 MIT License
 
-Copyright (c) 2025 Christian <github@familie-herrmann.de>
+Copyright (c) 2026 Christian <github@familie-herrmann.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

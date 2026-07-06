@@ -28,6 +28,7 @@ This uses the local interface `http://<ip>/api/rest/...` (Basic Auth).
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 - (@SimonFischer04) support rest-api (#143). closes #32, closes #82
 - (@arteck, @SimonFischer04) (dependency) bump / cleanups
@@ -75,6 +76,8 @@ This uses the local interface `http://<ip>/api/rest/...` (Basic Auth).
 
 ### 0.0.1 (2020-12-26)
 * (arteck) refactoring
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

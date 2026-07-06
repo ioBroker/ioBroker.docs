@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome-cloud/README.md
 title: ioBroker.mihome-cloud
-hash: MAZ2H0yS5SFp1zG4VizqNi3Wndc4JrvDqZerO2GB6U0=
+hash: EgFNTjhuXL4jCtUWDqmgspUKCYzhPQkzbql0DIzpl1o=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mihome-cloud/admin/mihome-cloud.png)
 
@@ -22,7 +22,7 @@ hash: MAZ2H0yS5SFp1zG4VizqNi3Wndc4JrvDqZerO2GB6U0=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 5.0.
 
 ## Требования
-- Node.js >= 20
+- Node.js >= 22
 - js-controller >= 6.0.11
 - Администратор >= 7.6.20
 
@@ -32,47 +32,70 @@ hash: MAZ2H0yS5SFp1zG4VizqNi3Wndc4JrvDqZerO2GB6U0=
 | Настройки | Описание |
 | ------------------- | --------------------------------------------------------------------------------------------------------- |
 | **Регион** | Выберите регион Xiaomi Cloud, соответствующий вашему приложению Mi Home (Германия, Китай, Россия, Тайвань, Сингапур, США) |
-| **Интервал обновления** | Интервал опроса в минутах (минимум 1 минута) |
+| **Интервал обновления** | Интервал опроса в минутах для получения обновлений статуса устройства через API Xiaomi Cloud (минимум 1 минута в административном интерфейсе) |
+| **Блокировать дополнительные попытки входа в систему во время выполнения** | Если включено, после первой попытки запуска автоматические попытки входа в систему во время выполнения не запускаются. |
 
 ## Авторизоваться
 Адаптер использует **вход через URL-адрес** (в настройках адаптера не требуется вводить имя пользователя и пароль).
 
-1. Настройте **Регион** и **Интервал** в параметрах адаптера и сохраните изменения.
+1. Настройте **Регион**, **Интервал обновления** и (при необходимости) **Блокировку дополнительных попыток входа в систему во время выполнения** в настройках адаптера и сохраните изменения.
 2. Включите адаптер.
-3. Проверьте журнал адаптера – там появится **URL-адрес для входа**:
-
-```
-XIAOMI CLOUD LOGIN REQUIRED
-Please visit this URL in your browser and log in: https://account.xiaomi.com/...
-```
-
+3. Если действительная сохраненная сессия недоступна, адаптер создает **URL-адрес для входа** и предоставляет к нему доступ в двух местах:
+- в виде предупреждения в журнале адаптера
+- в состоянии `mihome-cloud.0.auth.loginUrl`
 4. Откройте URL-адрес в браузере и войдите в свою учетную запись Xiaomi.
 5. Адаптер автоматически определяет успешный вход в систему и подключается.
 
-Сессия сохраняется и остается активной после перезапуска адаптера. Новый вход в систему требуется только в том случае, если сессия истекает на стороне сервера.
+Когда сессия истекает на стороне сервера, адаптер очищает недействительную сессию и переключается в состояние повторной аутентификации (`mihome-cloud.0.auth.status = reauth_required`).
+
+- **Поведение при запуске**: Если при запуске адаптера отсутствует действительная сессия, запускается одна попытка входа в систему (генерация URL-адреса для входа).
+- **Поведение во время выполнения**: Автоматические попытки повторного входа в систему запланированы после сбоев аутентификации/истечения срока действия сессии.
+- **Дополнительная блокировка во время выполнения**: Если включена опция **Блокировать дополнительные попытки входа в систему во время выполнения**, то во время выполнения автоматические попытки входа в систему не запускаются.
+
+Сессия сохраняется в `auth.session` и может быть повторно использована после перезапуска адаптера, если она все еще действительна.
 
 ## Дерево объектов
-После успешного входа в систему адаптер создает для каждого устройства следующую структуру объектов:
+После запуска и входа в систему адаптер создает следующую структуру объектов:
+
+### `mihome-cloud.0.info.connection`
+Индикатор подключения (`true`/`false`) для сессии Xiaomi Cloud.
+
+### `mihome-cloud.0.auth.*`
+Состояния среды выполнения и сессии аутентификации:
+
+- `auth.status` - текущее состояние аутентификации (например, `connected`, `qr_login_pending`, `reauth_required`, `cooldown_wait`)
+- `auth.loginUrl` - текущий URL-адрес для входа в систему Xiaomi, используемый для авторизации через браузер.
+- `auth.session` - сохраненный JSON-файл cookie/сессии для восстановления сессии
+
+Для каждого устройства адаптер создает:
+
+При изменении учетной записи Xiaomi или настроенного региона старые объекты устройств удаляются и создаются заново для текущей учетной записи/региона.
 
 ### `mihome-cloud.0.<device-id>.general`
 Общая информация об устройстве (модель, название, версия прошивки и т. д.).
 
 ### `mihome-cloud.0.<device-id>.status`
-Значения состояния, доступные только для чтения, из спецификации MIoT (например, состояние питания, яркость, температура). Они опрашиваются с заданным интервалом.
+Состояния, доступные только для чтения, из свойств спецификации MIoT (опрашиваются с заданным интервалом обновления).
+
+В зависимости от анализа модели/спецификации могут существовать состояния индикаторов событий, но подписка на облачные события в данном адаптере в настоящее время не активна.
 
 ### `mihome-cloud.0.<device-id>.remote`
-Команды управления с возможностью записи из спецификации MIoT. Для отправки команды установите состояние (неподтверждено) в `true` или в требуемое значение.
+Свойства и действия спецификации MIoT, доступные для записи.
 
-Если команда ожидает входные параметры, они указываются в названии состояния, а ожидаемые идентификаторы отображаются в качестве значений по умолчанию.
+- Записываемые свойства передаются через MIoT `prop/set`.
+- Действия отправляются через MIoT `action`.
+- Действия с входными аргументами ожидают ввода в формате JSON в значении состояния.
+
+После выполнения команд адаптер автоматически обновляет состояние в соответствии со спецификацией MIoT и пользовательскими состояниями (обновление состояния пылесоса продолжается в обычном цикле опроса).
 
 ### `mihome-cloud.0.<device-id>.custom`
-Специфические для устройства свойства из внутренней базы данных `configDes` (например, для пылесосов: `clean_area`, `clean_time`, `battery`). Они опрашиваются через `get_prop` / `get_status`.
+Специфические для модели состояния из внутренних отображений `configDes` (например, вакуумные метрики, такие как `clean_area`, `clean_time`, `battery`).
 
 ### `mihome-cloud.0.<device-id>.remotePlugins`
-Дополнительные команды, извлеченные из облачных плагинов Xiaomi. Они автоматически обнаруживаются при запуске путем анализа пакетов плагинов для каждой модели устройства.
+Дополнительные команды для записи, извлеченные из пакетов плагинов Xiaomi (по мере возможности, зависит от плагина/модели).
 
 ### `mihome-cloud.0.scenes`
-Создавайте интеллектуальные сценарии/автоматизации из вашей учетной записи Mi Home. Установите сценарий на `true`, чтобы он был выполнен.
+Создавайте интеллектуальные сценарии/автоматизации из вашей учетной записи Mi Home. Установите состояние сценария на `true`, чтобы его выполнить.
 
 ## Пример: Робот-пылесос для уборки комнаты
 1. Найдите идентификаторы комнат:
@@ -98,42 +121,50 @@ Please visit this URL in your browser and log in: https://account.xiaomi.com/...
 `mihome-cloud.0.<id>.remote.set-room-clean` в формате `["10",0,1]`
 
 ## Поиск неисправностей
-- **Ошибки "DB closed"**: Безвредны – возникают, когда адаптер останавливается, пока запрос еще ожидает обработки. Эти ошибки автоматически подавляются.
+- **Предупреждения типа «БД закрыта»**: Безвредны – теперь их можно предотвратить при завершении работы адаптера с помощью флага корректного завершения.
 - **Ошибки «ECONNRESET»**: Временные сбои в сети Xiaomi Cloud. Адаптер автоматически повторит попытку при следующем интервале опроса.
 - **"-106 Сеть устройства недоступна"**: Устройство (например, пылесос) в данный момент находится в автономном режиме, отключено от Wi-Fi или выключено. Адаптер запишет это как отладочную информацию и продолжит попытки подключения.
-- **Ошибка 401**: Срок действия сессии истек на стороне сервера. Перезапустите адаптер, чтобы активировать новую авторизацию с помощью QR-кода.
+- **Ошибки аутентификации 401/400**: Адаптер очищает недействительную сессию и переходит в режим повторной аутентификации. Новый URL-адрес для входа предоставляется через предупреждение в журнале и `auth.loginUrl`, если включены автоматические попытки входа.
+- **Нет нового URL-адреса для входа после истечения срока действия сессии**: Установите флажок **Блокировать дополнительные попытки входа во время выполнения**. Если этот флажок включен, автоматические повторные попытки во время выполнения по умолчанию отключаются.
+- **Перестройка дерева устройств после изменения учетной записи/региона**: Ожидаемое поведение. Адаптер удаляет старые объекты устройств и создает их заново для активной учетной записи/региона.
 - **Нет свойств для устройства**: Некоторые сенсорные устройства, работающие исключительно по протоколам Zigbee/Bluetooth (например, `lumi.sensor_switch.v2`), не отображают свой статус через облачный API. Рекомендуется использовать локальный адаптер Zigbee.
 
 ## Обсуждение и вопросы
 <https://forum.iobroker.net/topic/59636/test-adapter-mihome-cloud>
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 1.0.6 (2026-04-29)
+- (lubepi) **NEW**: Added admin option to block additional automatic runtime login attempts to reduce log spam
+- (lubepi) **ENHANCED**: Exposed Xiaomi login URL in `auth.loginUrl` for automation and easier re-authentication handling
+- (lubepi) **ENHANCED**: Updated README
+- (lubepi) **FIXED**: Suppress "DB closed" warnings during adapter shutdown and restart by implementing a clean shutdown flag
+- (lubepi) **ENHANCED**: Optimized error handling to prevent uncontrolled adapter crashes from expired sessions and missing null guards
+
 ### 1.0.5 (2026-04-01)
-- (fix) improve 401 authentication error handling and session reset
-- (fix) validate and limit user configurable update interval
-- (fix) update dependencies to address vulnerabilities
+- (lubepi) improve 401 authentication error handling and session reset
+- (lubepi) validate and limit user configurable update interval
+- (lubepi) update dependencies to address vulnerabilities
 
 ### 1.0.4 (2026-03-14)
-- Maintenance update: Consolidated changelog and fixed repository metadata for better standards compliance
+- (lubepi) Maintenance update: Consolidated changelog and fixed repository metadata for better standards compliance
 
 ### 1.0.3 (2026-03-14)
-- **Major update with complete rewrite:**
-  - New QR-code based login flow
-  - Support for many new Xiaomi device models (Air Purifiers 4 series, newer fans/heaters, robot vacuums)
-  - Added environment properties (Temperature, Humidity) to many device configurations
-  - Improved error handling for network interruptions
-  - Migration to external i18n files and Node.js 20+ requirement
-  - Updated dependencies and fixed known vulnerabilities
-  - Added missing translations (uk, ru, pt, nl, fr, it, es, pl, zh-cn)
-  - Migration to ESLint flat config and release-script support
+- (lubepi) Improved error handling for network interruptions
+- (lubepi) Migration to external i18n files and Node.js 20+ requirement
+- (lubepi) Updated dependencies and fixed known vulnerabilities
+- (lubepi) Added missing translations (uk, ru, pt, nl, fr, it, es, pl, zh-cn)
+- (lubepi) Migration to ESLint flat config and release-script support
 
 ### 0.2.2
 
-- Minor improvements with device handling
+- (lubepi) Minor improvements with device handling
 
 ### 0.2.1
 
-- Fix login. Check Log after starting Adapter
+- (lubepi) Fix login. Check Log after starting Adapter
 
 ### 0.2.0
 
@@ -146,6 +177,8 @@ Please visit this URL in your browser and log in: https://account.xiaomi.com/...
 ### 0.0.4
 
 - (TA2k) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

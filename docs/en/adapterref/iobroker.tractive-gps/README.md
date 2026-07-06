@@ -85,6 +85,7 @@ Or you can use the tab **files** to upload the file. (see image below)
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -112,6 +113,8 @@ Or you can use the tab **files** to upload the file. (see image below)
 * (Scrounger) Bugfix: objects will be created only if necessary
 * (Scrounger) Bugfix for excessive number of warnings has been added
 * (Scrounger) Distance calculation between ioBroker and tracker has been added
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

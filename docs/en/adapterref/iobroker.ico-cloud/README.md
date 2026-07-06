@@ -77,6 +77,8 @@ Icon and name of ICO and Ondilo are property of Ondilo.
 ### 0.0.2 (2021-07-20)
 * (Garfonso) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 

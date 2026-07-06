@@ -335,43 +335,33 @@ Yes. KNX IP Secure tunneling is supported via .knxkeys keyfile or password.
   Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.1.6 (2026-04-12)
+### **WORK IN PROGRESS**
 
-- (TA2k) **breaking:** KNX communication switched to KNXUltimate
-- (TA2k) **breaking:** DPT21 property names changed (outofservice → outOfService, inalarm → inAlarm, alarmeunack → alarmUnAck), values must be boolean
-- (TA2k) **breaking:** DPT237 property names changed to camelCase
-- (TA2k) feature: Native .knxproj import (ETS4/5/6, password-protected) with flags, DPT inference, room assignment
-- (TA2k) feature: KNX Secure support
-- (TA2k) feature: Extended DPT coverage and compatibility (9 additional DPTs, including DPT-22, 213, 222, 235, 242, 249, 251)
-- (TA2k) feature: Improved connection stability
-- (TA2k) feature: Improved role detection (switch, level, value, text, date) based on DPT type
-- (TA2k) feature: Direct Link all iobroker states to a KNX state with a conversion mode
-- (TA2k) feature: GA-Tools: all GA properties editable (DPT, type, role, flags) with compact layout
+- feat: improve disconnect handling on high bus load (MDT) — new options "Wait for ACK", "Max Direct Link send rate" (coalescing queue) and per-GA "linkedStateDebounce"; burst log with actionable recommendations on tunnel drop, hint at linkedStateDebounce in TUNNELING_REQUEST ACK errors for Direct Link GAs
+- docs: add hint to switch to Multicast/Routing on persistent TUNNELING_ACK timeouts (network-side unicast filtering)
 
-### 0.9.1 (2026-03-12)
-- bugfix: Fixing increased delay in knx commands after several days
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (copilot) Adapter requires js-controller >= 6.0.11 now
-- (@klein0r) Adapter requires node.js >= 20 and js-controller >= 6 now
+### 1.1.12 (2026-05-19)
+- feat: cyclic sending for Direct Links (periodically re-send current value to KNX bus)
+- fix: DPT19 accepts numeric timestamps and ISO strings
 
-### 0.9.0 (2024-04-21)
+### 1.1.11 (2026-05-08)
+- fix for UDP interface connection
 
-- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-- (mcm1957) Dependencies have been updated
+### 1.1.10 (2026-05-05)
+- add new DPTs and units
 
-### 0.8.0 (2024-03-30)
+### 1.1.9 (2026-05-04)
+- fix handling of unkown DPT
 
--   feature: put KNX interface name into log
--   bugfix: #419 wait for connection complete before data processing in case of receiving data before
--   bugfix: #457 Ack missing after changing IOB object value
-
-### 0.7.3 (2024-03-05)
-
--   feature: one of the warnings is configurable in the dialog
+### 1.1.8 (2026-04-30)
+- add compatiblity mode für raw DPT5.*
+- reduce default delay to 25ms
 
 ### initial version
 
 -   initial version from https://www.npmjs.com/package/iobroker.knx/v/0.8.3
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

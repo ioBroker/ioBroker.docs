@@ -4,11 +4,13 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/ble-devices.md
 title: ioBroker.shelly
-hash: aEWF5+BxF+wZ1WT86EnQQ3RuVt4QqUNKVvn3yZ9Z2YE=
+hash: vP5dN0wklx3SyaWL+NApdcrrUKUb2c9mA/ter2kuok8=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
+Это немецкая документация - [🇺🇸 Английская версия](../en/ble-devices.md)
+
 **Эта функция экспериментальная!**
 
 Для получения событий в этом состоянии в формате JSON необходимо создать новый скрипт (см. ниже) на устройстве Plus или Pro (Gen 2+): `shelly.0.<device>.BLE.Event`.
@@ -41,7 +43,8 @@ hash: aEWF5+BxF+wZ1WT86EnQQ3RuVt4QqUNKVvn3yZ9Z2YE=
 
 | Версия адаптера | Версия скрипта |
 |-----------------------------------------------------------------------------------------------------------------|----------------|
-| [>= 10.3.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.3.0/docs/en/ble-devices.md) | v1.2 |
+| [>= 11.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v11.0.0/docs/en/ble-devices.md) | v1.3 |
+| [>= 10.2.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.2.0/docs/en/ble-devices.md) | v1.1 |
 | [>= 10.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.1.0/docs/en/ble-devices.md) | v1.0 |
 | [>= 9.1.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v9.1.0/docs/en/ble-devices.md) | v0.5 |
 | [>= 8.2.1](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v8.2.1/docs/en/ble-devices.md) | v0.4 |
@@ -63,14 +66,14 @@ hash: aEWF5+BxF+wZ1WT86EnQQ3RuVt4QqUNKVvn3yZ9Z2YE=
 После этого можно будет расшифровать следующее событие BLE.
 
 ## Активировать Bluetooth
-**ВАЖНО** Пожалуйста, не забудьте активировать функцию Bluetooth на устройстве Shelly, которое будет использоваться в качестве шлюза.
+**ВАЖНО** Необходимо активировать функцию Bluetooth на устройстве Shelly, которое будет использоваться в качестве шлюза.
 
 ## JavaScript (Shelly Scripting)
 Добавьте и запустите этот скрипт в разделе «Скрипты Shelly» на устройстве Shelly Plus или Pro (2-го поколения и выше):
 
 ```javascript
-// v1.2
-const SCRIPT_VERSION = '1.2';
+// v1.3
+const SCRIPT_VERSION = '1.3';
 const BTHOME_SVC_ID_STR = 'fcd2';
 
 let SHELLY_ID = undefined;
@@ -122,7 +125,7 @@ function init() {
     let bleConfig = Shelly.getComponentConfig('ble');
 
     // exit if the BLE isn't enabled
-    if (!bleConfig.enable) {
+    if (!bleConfig.rpc.enable) {
         console.log('Error: The Bluetooth is not enabled, please enable it in the settings');
         return;
     }

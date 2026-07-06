@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.poolcontrol/README.md
 title: ioBroker.poolcontrol
-hash: AUZm+yNMfbmjhuKgqNXr2p7rtC4oa5hyZ0yUVgZgxuQ=
+hash: nE1zdiOBPnbfSn/KHa2BjgeqquXjhkSUlBpIeAhbkC8=
 ---
 # IoBroker.poolcontrol
 ![测试与发布](https://github.com/DasBo1975/ioBroker.poolcontrol/actions/workflows/test-and-release.yml/badge.svg)
@@ -17,141 +17,191 @@ hash: AUZm+yNMfbmjhuKgqNXr2p7rtC4oa5hyZ0yUVgZgxuQ=
 ---
 
 ＃＃ 描述
-ioBroker.poolcontrol 适配器用于控制和监控泳池系统。
+适配器 ioBroker.poolcontrol 用于控制、监控和分析池系统。
 
-它支持水泵、温度和太阳能控制的自动化，并可进行能耗分析。
+它提供泵、加热、太阳能和光伏控制的自动化，以及监测、诊断、化学分析和能源评估。
 
 ---
 
 ＃＃ 特征
+### 控制与自动化
 - **泵控制**
 - 操作模式：自动、自动（PV）、手动、定时控制、关闭
-- 自动（PV）控制泵的运行取决于光伏发电盈余。
-- 错误检测（无功耗、即使“关闭”状态仍有功耗、过载）
+- 错误检测（无功耗、关机后仍耗电、过载）
 - 安全功能（防冻保护、过热保护）
+- 优先所有权和协助协调
 - 变速泵的泵功率建议
-
-- **温度管理**
-- 最多可连接 6 个传感器（表面、底部、流量、回流、收集器、外部温度）
-- 每日最低/最高
-- 每小时变化
-- 差异（例如，集热器 - 空气集热器、表面集热器 - 底部集热器、流动集热器 - 回流集热器）
-
-- **太阳能控制**
-- 具有滞后特性的开/关阈值
-- 集线器警告（低于阈值 10% 时自动复位）
-- 警告时可选择语音输出
-
-- **供暖/热泵控制（新增，测试阶段）**
-- 根据泳池温度自动控制加热棒或热泵
-- 目标温度和最高安全温度可配置
-- 仅在以下情况下有效：
-泳池开放季已开始
-- 水泵模式**自动**
-维护模式未激活
-- 优先级逻辑：
-- 维护模式完全禁用加热控制
-- 加热功能不会干扰手动或定时泵模式
-- 加热结束后可配置泵的超负荷运转时间
-所有权保护：
-只有当水泵之前是由 heatHelper 本身开启时，水泵才会关闭。
-- 支持：
-- 可切换插座 **或**
-- 外部供暖系统的布尔控制状态
-- `heat.*` 下的内部状态和诊断部分
-纯粹的控制，**不涉及化学或太阳能逻辑**
-
-**注意：**此功能目前处于**测试阶段**。
-
-逻辑已完全实现，但初期仅供感兴趣的测试用户使用。
-
-- **光伏控制（自 v0.6.0 版本起）**
-- 基于光伏发电量和家庭用电量的自动水泵控制
-- 启动逻辑：盈余 ≥（泵额定功率 + 安全裕度）
-- 阴天期间可选择延时
-- 如果已达到每日发行量目标，则忽略此规则
-- 通过两个外部对象 ID（power_generated_id、power_house_id）进行配置
-- 新增泵模式“自动（PV）”
+- 学习功率和流量行为的功能（`pump.learning.*`）
 
 - **时间控制**
-- 每周最多可设置 3 个可自由配置的时间窗口
+- 最多可设置 3 个可自由配置的每周时间窗口
+- 持久配置值
+- 防止更新过程中被覆盖
+
+- **太阳能控制**
+- 带滞后特性的集电极开/关阈值
+- 收集器警告阈值
+- 可选语音输出，用于发出警告
+自动复位逻辑
+
+- **太阳能扩展**
+- 外部太阳能执行器的独立控制
+- Delta 开/关阈值
+- 最高泳池温度限制
+- 诊断和原因状态
+- 优先级和阻塞逻辑
+- `solar.extended.*` 下的状态部分
+
+- **光伏控制（自 v0.6.0 版本起）**
+- 基于光伏盈余和家庭用电量的水泵控制
+- 开始使用可配置盈余边际的逻辑
+- 阴天期间可选择延时
+- 当达到流通目标时忽略模式
+- 支持外部能源对象 ID
+- 水泵模式：`自动（PV）`
+
+- **供暖/热泵控制（测试阶段）**
+- 加热棒或热泵的自动控制
+- 可配置的目标温度和安全温度
+- 可选泵预运行和超运行
+所有权保护
+- 维护阻塞逻辑
+- 支持可切换输出和布尔状态
+- 在 `heat.*` 下的内部状态和诊断
+- 不涉及化学或太阳能逻辑
+
+- **附加执行器**
+- 照明控制
+- 额外的泵
+- 随泵装置
+- 根据泵的运行情况自动开启/关闭
+- 外部目标状态的验证
+适用于紫外线系统、水景和辅助系统
+
+### 监测与诊断
+- **温度管理**
+- 最多可连接 6 个传感器：
+    - 表面
+- 地面/底部
+    - 流动
+    - 返回
+收藏家
+室外温度
+- 每日最小值/最大值
+- 每小时变化
+温度差异
+- 最后有效值跟踪
+- 源监测和诊断
+- 缺失更新的恢复逻辑
+- 来源状态评估
 
 - **放映时间和发行量**
-- 统计运行时间（今天，总计）
-- 计算每日循环量和剩余容量
-- 反冲洗提醒，间隔可配置（例如，每7天一次）
-- 显示上次反冲洗的日期
+- 运行时间计数器（今日/总计）
+- 循环计算和剩余容量
+- 运行时自愈
+反冲洗提醒系统
+- 最后一次反冲跟踪
 反冲洗完成后自动复位
-- PV 模式考虑循环状态（例如，“达到循环状态时忽略”）
-
-- **消耗量与成本**
-- 外部千瓦时表的评估
-- 每日、每周、每月和每年的消耗量
-- 基于可配置价格的电力成本计算
-
-**注意：**有关能耗和成本值的变化详情（例如，重启后或更换电表时）请点击此处查看：
-
-- [文档（英文）](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/en/help.md)
-- [文档（德语）](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/de/help.md)
-
-- **统计系统**
-- 包含每日、每周和每月值的 `analytics.statistics.*` 部分
-- 自动计算最小值、最大值、平均值和运行时间值
-- 完全持久化的数据点（安装后保护）
-- 每个传感器的 HTML 和 JSON 摘要以及总体概览
+- 光伏发电集成以实现循环目标
 
 - **压力传感器集成（自 v0.7.x 版本起）**
-- 实时过滤器压力测量
-趋势分析：上升/下降/稳定
-- 移动学习平均值（avg_bar）
-- 自学习最小/最大压力值
-- 诊断文本 + 最新更新
-- 无自动控制 - 纯粹信息提供
-- 用户可配置正常压力范围
+- 实时压力测量
+趋势分析
+- 学习平均值
+- 自学习最小/最大范围
+- 诊断状态
+- 压力历史和评估
+- 支持外部传感器和 PoolControl PressureBox
+仅供参考（无自动控制）
 
-- **人工智能系统（自 v0.8.0 版本起）**
-- 模块：天气提示（OpenMeteo）、泳池小贴士、每日天气概览、周末天气预报
-- 自动文本输出，可选语音输出
-- 每小时更新天气信息，持续刷新
-- 反垃圾邮件系统，避免重复提示
+- **系统检查**
+- 诊断和调试区域
+- 对选定的子系统进行监控
+- 内部调试日志
+- 手动清除日志
+- 用于分析和故障排除
 
-- **明日天气预报（aiForecastHelper，版本 0.8.0 及更高版本）**
-- 自动生成第二天的每日天气预报
-- 分析温度、天气状况、降雨概率和风力
-- 生成第二天泳池使用建议（例如，关闭盖子，预计太阳辐射热量较少）
-- 完全基于事件，仅需来自 ioBroker 地理数据的 Open-Meteo 数据
-- 在 `ai.weather.switches.*` 下设置单独的开关，用于启用/禁用各个预报功能
-- 结果存储在 `ai.weather.outputs.forecast_text` 下
+### 分析与洞察
+- **统计系统**
+- 每日/每周/每月统计数据
+- 最小值/最大值/平均值计算
+- 运行时评估
+- 持久状态
+- HTML 和 JSON 摘要
 
-- **化学帮助（aiChemistryHelpHelper，版本 0.8.x 及更高版本）**
-- 用于水化学的交互式、纯粹信息型人工智能助手
-- 通过选择字段选择典型的泳池问题（例如，pH 值过高/过低、氯气无效、水变绿/浑浊）
-- 以文本形式清晰描述原因和解决方案
+- **太阳能洞察**
+- 太阳能运行时间分析
+- 效率计算
+- 诊断输出
+- 每日日志
+- HTML / JSON / 文本输出
+仅供参考（无控制权）
+
+- **光伏洞察**
+- 运行时分析
+- 能源评估
+- 储蓄计算
+- 启动和运行统计数据
+- HTML/JSON摘要
+
+- **支持可视化输出**
+- 结构化文本输出
+- HTML 输出
+- JSON 摘要
+- 适用于 VIS / VIS2 / 仪表盘
+
+### 化学与人工智能
+- **水质化学分析**
+
+**pH值**
+
+- 手动或外部来源
+- 测量位置逻辑
+- 稳定逻辑
+- 手动混合运行支持
 - 无自动加药
-- 无产品推荐
-- 无设备控制
-- 无语音输出（纯视觉信息）
-目标：了解原因并系统地进行处理（测量→纠正→过滤→再次测量）
-- `ai.chemistry_help.*` 下的数据点
 
-- **信息系统（自 v0.7.x 版本起）**
-- 适配器信息系统
-- 节日问候（圣诞节、新年、复活节）
-- 显示已安装的适配器版本
+**TDS**
+
+- 手动或外部来源
+- 趋势评估（24小时/7天/30天）
+- 参考值
+- 测量位置逻辑
+- HTML / JSON / 文本输出
+
+**氧化还原电位/氧化还原反应**
+
+- ORP评估
+- pH 参考支持
+仅供参考
+- 无氯控制
+- 无自动加药
+
+- **人工智能系统**
+- 天气提示（Open-Meteo）
+泳池推荐
+- 每日摘要
+- 周末报道
+- 明日天气预报
+- 可选语音输出
+- 重复上下文跟踪
+
+- **化学帮助**
+- 互动式化学辅助
+- 典型的泳池问题选择
+原因和解决方案的解释
+- 无自动加药
+- 无设备控制
 
 - **语音输出**
-- 通过 Alexa 或 Telegram 输出
-- 关于水泵启动/停止、错误或温度阈值的公告
+- 支持 Alexa
+- Telegram 支持
+- 水泵、警告和温度通知
 
-- **系统检查（诊断部分）**
-- 用于调试和监控功能的内部诊断部分
-- 选择要监测的区域（例如，水泵、太阳能、温度）
-- 持续记录最新变更
-- 可手动清除日志
-
-本部分仅用于分析和故障排除。
-
-正常运行时，监控功能应保持禁用状态。
+### 信息系统
+- 适配器信息系统
+- 节日问候
+版本信息
 
 ---
 
@@ -169,11 +219,11 @@ ioBroker.poolcontrol 适配器用于控制和监控泳池系统。
 ---
 
 ## 计划扩展
-- 扩展光伏和太阳能效率分析（COP 计算、每日效益、天气因素整合）
+- 扩展光伏和太阳能效率分析（COP 计算、每日收益、天气因素整合）
 - 统计数据导出功能（CSV/Excel）
 - 用于自动系统检查的诊断助手
 - VIS/VIS2（图形化泳池和太阳能可视化）的自有小部件
-- 控制泳池照明、阀门和逆流系统
+- 阀门和逆流系统的专用控制模块
 - 集成其他传感器盒（例如，温度盒、压力盒、液位盒）
 - AI 和语音助手扩展（每日报告、提示、语音命令）
 
@@ -187,7 +237,20 @@ ioBroker.poolcontrol 适配器用于控制和监控泳池系统。
 ---
 
 ## 文档
-- [help.md（详细说明和注释）](./help.md)
+＃＃＃ 英语
+- [文档/帮助](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/en/help.md)
+- [函数概述](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/en/function_overview.md)
+
+### 德语
+- [文档/Hilfe](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/de/help.md)
+- [Funktionsübersicht](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/de/funktionsuebersicht.md)
+
+---
+
+## 已存档的发布历史记录
+有关旧版本和存档版本历史记录，请参阅：
+
+[变更日志_旧版.md](./CHANGELOG_OLD.md)
 
 ---
 
@@ -213,53 +276,79 @@ ioBroker.poolcontrol 适配器用于控制和监控泳池系统。
 
 ---
 
+## 法律声明
+PoolControl 是由 D. Bertin (DasBo1975) 开发的开源项目。
+
+- PoolControl 名称和相关徽标均为原创作品，可在开源出版物（适配器、GitHub 存储库、wiki、文档、可视化）范围内自由使用。
+
+- 商业用途、再分发或以修改形式出版（尤其是作为商业产品或服务的一部分）需要获得作者的明确许可。
+
+- 所有已开发的传感器、硬件和外壳结构（例如温度、压力、液位、电子元件或控制箱），包括设计、原理图、3D 模型和内部结构，均受 D. Bertin (DasBo1975) 的版权保护。
+
+- 未经作者书面授权，不得出版、复制用于转售或商业用途。
+
+本项目的软件源代码采用 MIT 许可证授权。详情请参阅 LICENSE 文件。
+
+---
+
 ## Changelog
+### 1.3.25 (2026-05-26)
 
-### 1.2.20
-Release: 11.04.2026
-- (DasBo) Reduced unnecessary state writes in status and photovoltaic helpers. Summary and PV timestamps are now only updated when the functional result actually changes, making the adapter quieter without affecting existing logic.
+- Updated README structure and feature overview
+- Synchronized German and English function overviews
+- Updated repository maintenance dependencies
 
-### 1.2.19
-Release: 10.04.2026
-- Fixed an interaction issue between `photovoltaicHelper` and `controlHelper` where automatic follow-up pumping could be stopped unexpectedly
-- photovoltaicHelper now respects controlHelper priority and no longer stops the pump while automatic follow-up pumping is active
-- Fixed an issue where `controlHelper` could remain in "nachpumpen" state if the pump was stopped externally
-- `photovoltaic.threshold_w` is now correctly synchronized with the instance configuration
-- Changes to the PV surplus threshold in adapter settings are now reliably reflected in the corresponding read-only datapoint
+### 1.3.24 (2026-05-26)
 
-### 1.2.18
-Release: 07.04.2026
-- Fixed persistence issue for `status.season_active` (no longer overwritten on adapter start)
-- Improved persistence for frost protection settings
+- Updated release-script dependencies to current versions
+- Improved README and changelog structure
+- Repository checker recommendations reviewed
 
-### 1.2.17
-Release: 07.04.2026
-- Fix: Resolved an issue where the pressure learning reset button did not trigger reliably. The pumpHelper4 now explicitly subscribes to its relevant internal states to ensure proper event handling.
+### 1.3.23 (2026-05-26)
 
-### 1.2.15
-Release: 22.03.2026
-- Fix i18n usage (replace I18n.t with I18n.translate) to resolve adapter startup crash and restart loop on certain systems.
+- Added extended temperature diagnostics for all temperature sensors:
+  - last valid value
+  - last valid value timestamp
+  - minutes since last value
+  - source status (`ok`, `warning`, `not_received`, `invalid_timestamp`)
+- Added automatic recovery mechanism for stalled temperature updates
+- Recovery runs only when a sensor enters warning state and uses cooldown protection
+- Switched temperature helper timers to ioBroker adapter timers
+- Improved visibility and troubleshooting for missing or delayed temperature updates
 
+### 1.3.22 (2026-05-24)
 
-*(older versions are automatically moved to CHANGELOG_OLD.md)*
+- Improved ORP pH reference synchronization
+- ORP helper now updates pH reference independently from ORP value processing
+- Immediate update of ORP pH reference when pH enabled state or pH value changes
+- Fixed missing pH reference updates when ORP evaluation was blocked, invalid or waiting for measurement conditions
 
----
+### 1.3.21 (2026-05-17)
 
-## License
+NEW: Follow-pump devices
 
-PoolControl is an open-source project developed by D. Bertin (DasBo1975).
+Added a new `actuators.follow_pump_devices` area.
 
-- The name PoolControl and the associated logo are original developments and may be freely used within the scope of the open-source publication (adapter, GitHub repository, wiki, documentation, visualizations).
+Up to three external devices can now automatically follow the operation of the main pump.
 
-- Commercial use, redistribution or publication in modified form (especially as part of a commercial product or service) requires the explicit permission of the author.
+Typical examples:
 
-- All developed sensor, hardware and enclosure constructions (e.g., temperature, pressure, level, electronics or control boxes) including designs, schematics, 3D models and internal constructions are subject to the copyright of D. Bertin (DasBo1975).
+- UV systems
+- Water features
+- Auxiliary filters
+- Additional circulation devices
 
-- Publication, reproduction for resale or commercial use of these hardware designs is only permitted with written authorization from the author.
+Features:
 
-The software source code of this project is licensed under the MIT License. See LICENSE for details.
-
----
+- Automatic ON when the main pump starts
+- Automatic OFF when the main pump stops
+- Configurable target state per device
+- Validation of target states:
+  - state exists
+  - boolean type required
+  - writable required
+- Protection against invalid internal follow-pump targets
+- Persistent configuration values
 
 ## License
 Copyright (c) 2026 D. Bertin (DasBo1975) <dasbo1975@outlook.de>  

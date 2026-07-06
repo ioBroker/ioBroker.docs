@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.enpal/README.md
-title: без названия
-hash: vKO+Q2VLzuldwLkkQcycfuE09hl4BBMfd8Wbup5+i+A=
+title: Адаптер ioBroker для Enpal Solar
+hash: U1UL37z/jw57Kjlw8P0I1GSoBLOv+qUeK1GQW7d5i9w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.enpal/admin/enpal_logo.svg)
 
@@ -11,9 +11,14 @@ hash: vKO+Q2VLzuldwLkkQcycfuE09hl4BBMfd8Wbup5+i+A=
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/enpal-stable.svg)
 ![Версия NPM](https://nodei.co/npm/iobroker.enpal.svg?style=shields&data=v,u,d&color=orange)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.enpal.svg)
+![СООБЩЕСТВО](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)
+![ОБСЛУЖИВАЮЩИЙ](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)
+![ИИ](https://img.shields.io/badge/ai%20assisted-copilot-blue.svg)
 ![Пожертвование через PayPal](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
-## Адаптер ioBroker для Enpal Solar
+# Адаптер ioBroker для Enpal Solar
+---
+
 ## Что делает этот адаптер
 Считывает данные об энергопотреблении из локального экземпляра InfluxDB 2.x, предоставленного компанией Enpal Solar Systems, и предоставляет доступ к состояниям ioBroker для домашней автоматизации:
 
@@ -70,10 +75,17 @@ enpal.0.<measurement>.<device>.<field>
 — Ваш API-токен хранится в зашифрованном виде в базе данных ioBroker.
 - Внешние серверы не подключаются
 
+## Более старые изменения
+- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+
 ## Changelog
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 0.2.1 (2026-05-25)
+- (skvarel) Added link to CHANGELOG_OLD.md at readme 
+- (skvarel) Updated @alcalzone/release-script and related plugins
+
 ### 0.2.0 (2026-04-06)
 - (skvarel) Updated minimum Node.js version requirement to >=22
 - (skvarel) Normalize unit display: "Percent" is now shown as "%"
@@ -86,9 +98,6 @@ enpal.0.<measurement>.<device>.<field>
 
 ### 0.1.8 (2026-04-04)
 - (skvarel) Fixed display of unit "None" in data points - now hidden for cleaner UI
-
-### 0.1.7 (2026-04-04)
-- (skvarel) Title and description edited
 
 ## License
 MIT License

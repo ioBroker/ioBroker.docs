@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-icontwo/README.md
-title: ioBroker.vis-icontwo
-hash: YEGoxWbOMVH7xaoTOS7lbK9qy7LLfWXCQD/NYatUwP0=
+title: ioBroker 适配器，适用于 ioBroker.vis（VIS-1 和 VIS-2）
+hash: HKYZbPlX8JxX0TgQbIYrDonSxWI2/aNQiSvvqm5ihgg=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-icontwo/admin/icontwo.png)
 
@@ -11,10 +11,14 @@ hash: YEGoxWbOMVH7xaoTOS7lbK9qy7LLfWXCQD/NYatUwP0=
 ![安装数量（稳定版）](http://iobroker.live/badges/vis-icontwo-stable.svg)
 ![NPM 版本](https://nodei.co/npm/iobroker.vis-icontwo.svg?style=shields&data=v,u,d&color=orange)
 ![下载](https://img.shields.io/npm/dm/iobroker.vis-icontwo.svg?)
+![社区](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)
+![维护者](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)
 ![PayPal捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
-# IoBroker.vis-icontwo
-## IoBroker.vis 适配器的图标适配器（适用于 VIS-1 和 VIS-2）
+# IoBroker.vis（VIS-1 和 VIS-2）的 ioBroker 适配器
+---
+
+## 为 ioBroker.vis 适配器创建两个图标（VIS-1 和 VIS-2）
 一个简单的图标适配器，用于您的可视化。
 
 所有图标都可以在文件管理器（位于顶层）的 vis-icontwo 文件夹中找到。
@@ -55,6 +59,9 @@ hash: YEGoxWbOMVH7xaoTOS7lbK9qy7LLfWXCQD/NYatUwP0=
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 2.11.5 (2026-05-25)
+- (skvarel) Fixed repo checker issue #818
+
 ### 2.11.3 (2026-03-17)
 - (skvarel) Translated: Readme in english
 
@@ -66,9 +73,6 @@ hash: YEGoxWbOMVH7xaoTOS7lbK9qy7LLfWXCQD/NYatUwP0=
 
 ### 2.11.0 (2026-02-26)
 - (skvarel) Added: New 3D-Icons (poolrobot)
-
-### 2.10.0 (2026-02-26)
-- (skvarel) Added: New 3D-Icons (beach)
 
 ## License
 

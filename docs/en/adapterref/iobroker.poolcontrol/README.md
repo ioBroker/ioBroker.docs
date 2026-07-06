@@ -11,141 +11,198 @@
 
 ## Description
 
-The adapter ioBroker.poolcontrol is used for controlling and monitoring pool systems.
-It enables automation of pump, temperature, and solar control as well as energy consumption analysis.
+The adapter ioBroker.poolcontrol is used for controlling, monitoring and analyzing pool systems.
+
+It provides automation for pumps, heating, solar and photovoltaic control as well as monitoring, diagnostics, chemistry analysis and energy evaluations.
 
 ---
 
 ## Features
 
+### Control & Automation
+
 - **Pump Control**
   - Operating modes: Automatic, Automatic (PV), Manual, Time Control, Off
-  - Automatic (PV) controls the pump depending on photovoltaic surplus
-  - Error detection (no power consumption, power despite “OFF”, overload)
+  - Error detection (no power consumption, power despite OFF, overload)
   - Safety functions (frost protection, overheating protection)
-  - Pump power recommendation for variable-speed pumps
-  
-- **Temperature Management**
-  - Up to 6 sensors (surface, bottom, flow, return, collector, outside temperature)
-  - Daily minimum / maximum
-  - Hourly change
-  - Differences (e.g., collector – air, surface – bottom, flow – return)
-
-- **Solar Control**
-  - On/off thresholds with hysteresis
-  - Collector warning (with automatic reset at 10% below threshold)
-  - Optional speech output on warning
-
-- **Heating / Heat Pump Control (new, test phase)**
-  - Automatic control of heating rod or heat pump based on pool temperature
-  - Target temperature and maximum safety temperature configurable
-  - Active only when:
-    - pool season is active
-    - pump mode **Automatic**
-    - maintenance mode is not active
-  - Priority logic:
-    - Maintenance mode fully blocks heating control
-    - Heating does not interfere with manual or time-based pump modes
-  - Configurable pump overrun time after heating ends
-  - Ownership protection:
-    - The pump is only switched off if it was previously switched on by the heatHelper itself
-  - Supports:
-    - switchable sockets **or**
-    - boolean control states of external heating systems
-  - Internal status and diagnostic section under `heat.*`
-  - Purely controlling, **no chemistry or solar logic**
-  
-  **Note:**  
-  This function is currently in a **test phase**.  
-  The logic is fully implemented but should initially only be used by interested test users.
-
-- **Photovoltaic Control (since v0.6.0)**
-  - Automatic pump control based on PV generation and household consumption
-  - Start logic: surplus ≥ (pump rated power + safety margin)
-  - Optional overrun during cloudy phases
-  - Ignore if daily circulation target reached
-  - Configuration via two foreign object IDs (power_generated_id, power_house_id)
-  - New pump mode “Automatic (PV)”
+  - Priority ownership and helper coordination
+  - Pump power recommendations for variable-speed pumps
+  - Learning functions for power and flow behavior (`pump.learning.*`)
 
 - **Time Control**
-  - Up to 3 freely configurable time windows per week
+  - Up to 3 freely configurable weekly time windows
+  - Persistent configuration values
+  - Protection against overwriting during updates
+
+- **Solar Control**
+  - Collector on/off thresholds with hysteresis
+  - Collector warning threshold
+  - Optional speech output for warnings
+  - Automatic reset logic
+
+- **Solar Extended**
+  - Separate control for external solar actuators
+  - Delta on/off thresholds
+  - Maximum pool temperature limits
+  - Diagnostic and reason states
+  - Priority and block logic
+  - Status section under `solar.extended.*`
+
+- **Photovoltaic Control (since v0.6.0)**
+  - Pump control based on PV surplus and household consumption
+  - Start logic using configurable surplus margins
+  - Optional overrun during cloudy phases
+  - Ignore mode when circulation target is reached
+  - Supports external energy object IDs
+  - Pump mode: `Automatic (PV)`
+
+- **Heating / Heat Pump Control (test phase)**
+  - Automatic control of heating rod or heat pump
+  - Configurable target and safety temperatures
+  - Optional pump prerun and overrun
+  - Ownership protection
+  - Maintenance blocking logic
+  - Supports switchable outputs and boolean states
+  - Internal status and diagnostics under `heat.*`
+  - No chemistry or solar logic
+
+- **Additional Actuators**
+  - Lighting control
+  - Extra pumps
+  - Follow-pump devices
+  - Automatic ON/OFF depending on pump operation
+  - Validation of external target states
+  - Suitable for UV systems, water features and auxiliary systems
+
+
+### Monitoring & Diagnostics
+
+- **Temperature Management**
+  - Up to 6 sensors:
+    - surface
+    - ground / bottom
+    - flow
+    - return
+    - collector
+    - outside temperature
+  - Daily min/max values
+  - Hourly changes
+  - Temperature differences
+  - Last valid value tracking
+  - Source monitoring and diagnostics
+  - Recovery logic for missing updates
+  - Source status evaluation
 
 - **Runtime & Circulation**
-  - Counts runtime (today, total)
-  - Calculates daily circulation and remaining volume
-  - Backwash reminder with configurable interval (e.g., every 7 days)
-  - Display of last backwash including date
+  - Runtime counters (today / total)
+  - Circulation calculation and remaining volume
+  - Runtime self-healing
+  - Backwash reminder system
+  - Last backwash tracking
   - Automatic reset after completed backwash
-  - PV mode considers circulation status (e.g., “Ignore when circulation reached”)
-
-- **Consumption & Costs**
-  - Evaluation of an external kWh meter
-  - Daily, weekly, monthly and yearly consumption
-  - Calculation of electricity costs based on configurable price  
-
-**Note:**  
-Details about the behavior of consumption and cost values (e.g., after restarts or when changing the electricity meter) can be found here:  
-
-- [Documentation (English)](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/en/help.md)  
-- [Dokumentation (Deutsch)](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/de/help.md)
-
-- **Statistics System**
-  - Section `analytics.statistics.*` with daily, weekly and monthly values
-  - Automatic calculation of min, max, average and runtime values
-  - Fully persistent data points (overinstall protection)
-  - HTML and JSON summaries per sensor and overall overview
+  - PV integration for circulation targets
 
 - **Pressure Sensor Integration (since v0.7.x)**
-  - Real-time filter pressure measurement
-  - Trend analysis: rising / falling / stable
-  - Moving learning average (avg_bar)
-  - Self-learning min/max pressure values
-  - Diagnostic text + last update
-  - No automatic control – purely informational
-  - Normal pressure range configurable by the user
+  - Real-time pressure measurement
+  - Trend analysis
+  - Learning average values
+  - Self-learning min/max ranges
+  - Diagnostic states
+  - Pressure history and evaluation
+  - Support for external sensors and PoolControl PressureBox
+  - Informational only (no automatic control)
 
-- **AI System (from v0.8.0)**
-  - Modules: Weather hints (Open-Meteo), pool tips, daily summary, weekend report
-  - Automatic text outputs with optional speech output
-  - Hourly weather updates for continuous refresh
-  - Anti-spam system to avoid duplicate hints
-  
-  - **Forecast for Tomorrow (aiForecastHelper, from v0.8.0)**
-    - Automatically creates a daily weather forecast for the next day
-    - Analysis of temperature, weather situation, rain probability and wind strength
-    - Generates pool recommendations for the following day (e.g., close cover, little solar heat expected)
-    - Fully event-based and only requires Open-Meteo data from ioBroker geodata
-    - Separate switches under `ai.weather.switches.*` to enable/disable individual forecast functions
-    - Results stored under `ai.weather.outputs.forecast_text`
+- **SystemCheck**
+  - Diagnostic and debug area
+  - Monitoring of selected subsystems
+  - Internal debug log
+  - Manual log clearing
+  - Intended for analysis and troubleshooting
 
-  - **Chemistry Help (aiChemistryHelpHelper, from v0.8.x)**
-    - Interactive, purely informative AI help for water chemistry
-    - Selection of typical pool problems via selection field (e.g., pH too high/low, chlorine ineffective, green/cloudy water)
-    - Clear cause and solution descriptions as text output
-    - No automatic dosing
-    - No product recommendations
-    - No device control
-    - No speech output (purely visual information)
-    - Goal: understand causes and proceed systematically (measure → correct → filter → measure again)
-    - Data points under `ai.chemistry_help.*`
 
-- **Info System (since v0.7.x)**
-  - Adapter information system
-  - Seasonal greetings (Christmas, New Year’s Eve, New Year, Easter)
-  - Display of installed adapter version
-   
+### Analytics & Insights
+
+- **Statistics System**
+  - Daily / weekly / monthly statistics
+  - Min / max / average calculations
+  - Runtime evaluations
+  - Persistent states
+  - HTML and JSON summaries
+
+- **Solar Insights**
+  - Solar runtime analysis
+  - Efficiency calculations
+  - Diagnostic outputs
+  - Daily logbook
+  - HTML / JSON / text outputs
+  - Informational only (no control)
+
+- **Photovoltaic Insights**
+  - Runtime analysis
+  - Energy evaluations
+  - Savings calculations
+  - Starts and operating statistics
+  - HTML / JSON summaries
+
+- **VIS-ready Outputs**
+  - Structured text outputs
+  - HTML outputs
+  - JSON summaries
+  - Suitable for VIS / VIS2 / dashboards
+
+
+### Chemistry & AI
+
+- **Water Chemistry Analysis**
+
+  **pH**
+  - Manual or external sources
+  - Measurement location logic
+  - Stabilization logic
+  - Manual mixing run support
+  - No automatic dosing
+
+  **TDS**
+  - Manual or external sources
+  - Trend evaluation (24h / 7d / 30d)
+  - Reference values
+  - Measurement location logic
+  - HTML / JSON / text outputs
+
+  **ORP / Redox**
+  - ORP evaluation
+  - pH reference support
+  - Informational only
+  - No chlorine control
+  - No automatic dosing
+
+- **AI System**
+  - Weather hints (Open-Meteo)
+  - Pool recommendations
+  - Daily summary
+  - Weekend report
+  - Forecast for tomorrow
+  - Optional speech outputs
+  - Duplicate context tracking
+
+- **Chemistry Help**
+  - Interactive chemistry assistance
+  - Typical pool problem selection
+  - Cause and solution explanations
+  - No automatic dosing
+  - No device control
+
 - **Speech Outputs**
-  - Output via Alexa or Telegram
-  - Announcements on pump start/stop, errors or temperature thresholds
+  - Alexa support
+  - Telegram support
+  - Notifications for pump, warnings and temperatures
 
-- **SystemCheck (Diagnostic Section)**
-  - Internal diagnostic section for debug and monitoring functions
-  - Selection of area to monitor (e.g., pump, solar, temperature)
-  - Continuous log of the latest changes
-  - Manual log clearing possible
 
-  This section is used exclusively for analysis and troubleshooting.  
-  In normal operation, monitoring should remain disabled.
+### Information System
+
+- Adapter information system
+- Seasonal greetings
+- Version information
 
 ---
 
@@ -169,7 +226,7 @@ Configuration is done via tabs in the Admin interface:
 - Statistics export function (CSV/Excel)
 - Diagnostic helper for automatic system checks
 - Own widgets for VIS/VIS2 (graphical pool and solar visualization)
-- Control of pool lighting, valves and counter-current systems
+- Dedicated control modules for valves and counter-current systems
 - Integration of additional sensor boxes (e.g., TempBox, PressureBox, LevelBox)
 - AI and voice assistant extension (pool daily report, tips, voice commands)
 
@@ -183,39 +240,81 @@ New features are added regularly – please refer to the changelog.
 ---
 
 ## Documentation
-- [help.md (detailed description and notes)](./help.md)
+
+### English
+- [Documentation / Help](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/en/help.md)
+- [Function Overview](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/en/function_overview.md)
+
+### Deutsch
+- [Dokumentation / Hilfe](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/de/help.md)
+- [Funktionsübersicht](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/de/funktionsuebersicht.md)
 
 ---
 
 ## Changelog
+### 1.3.25 (2026-05-26)
 
-### 1.2.20
-Release: 11.04.2026
-- (DasBo) Reduced unnecessary state writes in status and photovoltaic helpers. Summary and PV timestamps are now only updated when the functional result actually changes, making the adapter quieter without affecting existing logic.
+- Updated README structure and feature overview
+- Synchronized German and English function overviews
+- Updated repository maintenance dependencies
 
-### 1.2.19
-Release: 10.04.2026
-- Fixed an interaction issue between `photovoltaicHelper` and `controlHelper` where automatic follow-up pumping could be stopped unexpectedly
-- photovoltaicHelper now respects controlHelper priority and no longer stops the pump while automatic follow-up pumping is active
-- Fixed an issue where `controlHelper` could remain in "nachpumpen" state if the pump was stopped externally
-- `photovoltaic.threshold_w` is now correctly synchronized with the instance configuration
-- Changes to the PV surplus threshold in adapter settings are now reliably reflected in the corresponding read-only datapoint
+### 1.3.24 (2026-05-26)
 
-### 1.2.18
-Release: 07.04.2026
-- Fixed persistence issue for `status.season_active` (no longer overwritten on adapter start)
-- Improved persistence for frost protection settings
+- Updated release-script dependencies to current versions
+- Improved README and changelog structure
+- Repository checker recommendations reviewed
 
-### 1.2.17
-Release: 07.04.2026
-- Fix: Resolved an issue where the pressure learning reset button did not trigger reliably. The pumpHelper4 now explicitly subscribes to its relevant internal states to ensure proper event handling.
+### 1.3.23 (2026-05-26)
 
-### 1.2.15
-Release: 22.03.2026
-- Fix i18n usage (replace I18n.t with I18n.translate) to resolve adapter startup crash and restart loop on certain systems.
+- Added extended temperature diagnostics for all temperature sensors:
+  - last valid value
+  - last valid value timestamp
+  - minutes since last value
+  - source status (`ok`, `warning`, `not_received`, `invalid_timestamp`)
+- Added automatic recovery mechanism for stalled temperature updates
+- Recovery runs only when a sensor enters warning state and uses cooldown protection
+- Switched temperature helper timers to ioBroker adapter timers
+- Improved visibility and troubleshooting for missing or delayed temperature updates
 
+### 1.3.22 (2026-05-24)
 
-*(older versions are automatically moved to CHANGELOG_OLD.md)*
+- Improved ORP pH reference synchronization
+- ORP helper now updates pH reference independently from ORP value processing
+- Immediate update of ORP pH reference when pH enabled state or pH value changes
+- Fixed missing pH reference updates when ORP evaluation was blocked, invalid or waiting for measurement conditions
+
+### 1.3.21 (2026-05-17)
+
+NEW: Follow-pump devices
+
+Added a new `actuators.follow_pump_devices` area.
+
+Up to three external devices can now automatically follow the operation of the main pump.
+
+Typical examples:
+
+- UV systems
+- Water features
+- Auxiliary filters
+- Additional circulation devices
+
+Features:
+
+- Automatic ON when the main pump starts
+- Automatic OFF when the main pump stops
+- Configurable target state per device
+- Validation of target states:
+  - state exists
+  - boolean type required
+  - writable required
+- Protection against invalid internal follow-pump targets
+- Persistent configuration values
+
+## Archived Release History
+
+For older releases and archived version history see:
+
+[CHANGELOG_OLD.md](./CHANGELOG_OLD.md)
 
 ---
 
@@ -239,7 +338,7 @@ The user is responsible for the **safe installation and operation of their hardw
 
 ---
 
-## License & Legal
+## Legal Notice
 
 PoolControl is an open-source project developed by D. Bertin (DasBo1975).
 

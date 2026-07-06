@@ -1,12 +1,18 @@
 ![Logo](admin/autodarts.svg)
-## Adapter for Autodarts Integration
+
+# ioBroker adapter for AUTODARTS
 
 ![Number of Installations](https://iobroker.live/badges/autodarts-installed.svg) ![Current version in stable repository](https://iobroker.live/badges/autodarts-stable.svg)
 [![NPM Version](https://nodei.co/npm/iobroker.autodarts.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.autodarts)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.autodarts.svg)](https://www.npmjs.com/package/iobroker.autodarts)
 
+[![COMMUNITY](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)](https://forum.iobroker.net/)
+[![MAINTAINER](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)](https://github.com/skvarel)
+[![AI](https://img.shields.io/badge/ai%20assisted-copilot-blue.svg)](https://github.com/inventwo/ioBroker.autodarts/blob/main/.github/copilot-instructions.md)
+
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
+---
 
 ## What this adapter does
 
@@ -132,6 +138,15 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 1.0.9 (2026-05-25)
+- (skvarel) Adapter requires node.js >= 22 now
+- (skvarel) Updated @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)
+- (skvarel) Downgraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)
+
+### 1.0.8 (2026-04-13)
+- (skvarel) Removed react and mui
+- (skvarel) Removed admin/style.css
+
 ### 1.0.7 (2026-03-01)
 - (skvarel) CI/CD: Updated GitHub Copilot instructions template to version 0.5.7 with latest ioBroker best practices (fixes #21, #25)
 
@@ -140,14 +155,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 
 ### 1.0.5 (2026-02-28)
 - (skvarel) FIXED: Updated outdated dependencies - release-script packages to v5.1.x and admin globalDependency to v7.6.20 (fixes #23)
-
-### 1.0.4 (2026-01-24)
-- (skvarel) FIXED: Reverted to setState() from deprecated setStateAsync()
-
-### 1.0.3 (2026-01-21)
-- (copilot) FIXED: Use setStateAsync() instead of setState() for trigger resets in throw.js to ensure database reliability
-- (copilot) ENHANCED: Corrected API endpoints in copilot-instructions.md - now documents /api/state, /api/config, /api/host, /api/version correctly
-- (copilot) TESTING: Added comprehensive unit tests for core modules (throw, visit, config, trafficLight, httpHelper)
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

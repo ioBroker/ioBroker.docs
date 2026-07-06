@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nmea/README.md
 title: ioBroker.nmea
-hash: vCBjYK3WCOWWlFgakL8tYFBe3C7h7qjsD8NUn2FuIoI=
+hash: p/eq6B7PZVQLUKFxfimS1lRZY/ms2S//3QunbayRtVY=
 ---
 ![Logo](../../../en/adapterref/iobroker.nmea/admin/nmea.png)
 
@@ -105,6 +105,12 @@ Die Entwicklung von Simrad/navico/B&G ist noch nicht abgeschlossen.
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Implemented Raymarine autopilot support
+
+### 0.4.2 (2026-01-05)
+* (bluefox) Updated packages
+
 ### 0.4.0 (2025-11-30)
 * (bluefox) Added support of YDEN-02/03 and YDWG-02/03 gateways
 
@@ -133,7 +139,7 @@ Die Entwicklung von Simrad/navico/B&G ist noch nicht abgeschlossen.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2024-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
