@@ -103,7 +103,8 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.window`      (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) It is important to have (`CLOSED/TILTED/OPEN`). Values can differ.
 * `value.temperature` (`common.unit='°C' or '°F' or 'K'`)
 * `value.temperature.dewpoint` (`common.unit='°C' or '°F')
-* `value.humidity`
+* `value.humidity`(deprecated)
+* `value.humidity.relative` - (unit: %)
 * `value.humidity.absolute` - (unit: g/m³, mg/m³)
 * `value.co`              - Carbon monoxide (unit: ppm)
 * `value.co2`             - Carbon dioxide (unit: ppm)
