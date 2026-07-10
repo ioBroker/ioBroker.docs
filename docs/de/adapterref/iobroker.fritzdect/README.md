@@ -85,12 +85,14 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 ## Changelog
 
 ### **WORK IN PROGRESS**
+
 - (copilot) Adapter requires node.js >= 22 now
 
 ### 2.6.4 (WIP)
 
 - new IKEA lamp commands issue #625
 - object corrections
+- thermostat temp tist max 40°C
 
 ### 2.6.3 (npm)
 

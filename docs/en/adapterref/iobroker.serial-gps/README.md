@@ -12,7 +12,7 @@
 
 This adapter reads GPS data from a serial or USB GPS device and makes it available in ioBroker.
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Getting Started
 Insert a USB or serial GPS receiver into your ioBroker host system. Make sure the device is recognized by the operating system and note the assigned serial port (e.g. COM3 on Windows or /dev/ttyUSB0 on Linux).
@@ -29,6 +29,9 @@ Normally, all devices that deliver NMEA data via serial or USB should work. Here
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.0.0 (2026-05-29)
+- (@GermanBluefox) Added possibility to select GPS device by name instead of path
+
 ### 0.0.4 (2025-12-03)
 - (@GermanBluefox) Corrected issues for repo checker
 

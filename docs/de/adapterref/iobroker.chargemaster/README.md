@@ -3,167 +3,162 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.chargemaster/README.md
 title: ioBroker.chargemaster
-hash: KfVHMItVNCViMqWmyjqrfNs8LXM7PsnleXNwKMOqs8A=
+hash: kR1RIxIkER7PRGMDoJ0JYXNiXx4h27Tsp1CUxcCMvEg=
 ---
 ![Logo](../../../en/adapterref/iobroker.chargemaster/admin/chargemaster.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.chargemaster?style=flat-square)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.chargemaster?label=npm%20downloads&style=flat-square)
-![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.chargemaster?style=flat-square)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.chargemaster?style=flat-square)
 ![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.chargemaster?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/hombach/iobroker.chargemaster?style=flat-square)
 ![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/hombach/iobroker.chargemaster?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/hombach/iobroker.chargemaster?logo=github&style=flat-square)
-![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/hombach/iobroker.chargemaster?logo=github&style=flat-square)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/hombach/iobroker.chargemaster?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/hombach/iobroker.chargemaster?logo=github&style=flat-square)
 ![GitHub-Workflow-Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.chargemaster/test-and-release.yml?branch=main&logo=github&style=flat-square)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.chargemaster?branch=master&svg=true)
-![Bekannte SNYK-Sicherheitslücken](https://snyk.io/test/github/hombach/ioBroker.chargemaster/badge.svg)
+![Bekannte Schwachstellen von SNYK](https://snyk.io/test/github/hombach/ioBroker.chargemaster/badge.svg)
 ![Beta](https://img.shields.io/npm/v/iobroker.chargemaster.svg?color=red&label=beta)
 ![Stabil](https://iobroker.live/badges/chargemaster-stable.svg)
-![Eingerichtet](https://iobroker.live/badges/chargemaster-installed.svg)
+![Installiert](https://iobroker.live/badges/chargemaster-installed.svg)
 ![NPM](https://nodei.co/npm/iobroker.chargemaster.png?downloads=true)
 
 # IoBroker.chargemaster
 [![CodeQL](https://github.com/hombach/ioBroker.chargemaster/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.chargemaster/actions/workflows/codeql-analysis.yml)
 
 ## Versionen
-## Adapter zur Steuerung eines oder mehrerer EV-Ladegeräte unter Nutzung von PV-Energie
-**!!! DIESER ADAPTER STELLT NOCH EINEN ENTWICKLUNGSSTAND DAR!!!**
+## Wächter
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">der Sentry-Plugin-Dokumentation</a> !
 
-Adapter zur Steuerung eines oder mehrerer EV-Ladegeräte (Wallboxen) mit Nutzung von PV-Überschussenergie.
+## Adapter zur Steuerung eines oder mehrerer Ladegeräte für Elektrofahrzeuge unter Verwendung von Photovoltaikenergie
+**!!! DIESER ADAPTER BEFINDE SICH NOCH IM ENTWICKLUNGSZUSTAND !!!**
 
-## Einstellungen
-Um eine Verbindung zu den Wallboxen herzustellen, geben Sie die Zustände mit den benötigten Daten in die Konfiguration ein.
+ChargeMaster verwaltet eine oder mehrere Ladestationen für Elektrofahrzeuge (Wallboxen) und steuert deren Ladestrom basierend auf dem verfügbaren PV-Überschussstrom Ihres Hauses. Es ist herstellerunabhängig: Es kommuniziert nicht direkt mit der Hardware, sondern liest und schreibt die ioBroker-Zustände Ihrer vorhandenen Wallbox-Adapter (z. B. go-e, aber jeder Adapter, der die benötigten Zustände bereitstellt, funktioniert).
 
-## Wachposten
-Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden. Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 gestartet.
+### Merkmale
+- Steuert bis zu mehrere Wanddosen gleichzeitig unter Berücksichtigung eines globalen maximalen Gesamtstroms (z. B. der Grenze Ihres Hausanschlusses oder der Zuleitung zur Wanddose)
+- **ChargeNOW**-Modus pro Wallbox: Sofortiges Laden mit einem benutzerdefinierten Strom, unabhängig von der PV-Produktion
+- **ChargeManager**-Modus pro Wallbox: Automatisches Laden aus PV-Überschuss unter Berücksichtigung des Hausverbrauchs und des Speichers Ihres Heimspeichers
+- Konfigurierbare Priorität der Heimbatterie: Das Laden des Elektrofahrzeugs beginnt erst, wenn die Heimbatterie einen konfigurierbaren Ladezustand erreicht hat; darüber hinaus kann ein Teil der Batterieleistung das Laden des Elektrofahrzeugs unterstützen.
+- Sanfte Regelung: Der Ladestrom wird pro Steuerzyklus um 1 A erhöht/verringert, mit Hysterese und verzögerter Abschaltung zum Schutz des Fahrzeugladegeräts vor schnellem Schalten.
+- Ereignisgesteuert: Reagiert sofort auf Benutzereingaben (z. B. Aktivierung von ChargeNOW) und empfängt Energiedaten über Statusabonnements anstatt durch Abfragen.
+
+### So funktioniert es
+Der Adapter führt einen Regelzyklus durch (standardmäßig alle 10 Sekunden). Für jede konfigurierte Wanddose plant er einen Zielstrom basierend auf ihrem Betriebsmodus:
+
+1. **ChargeNOW aktiviert** → Die Wallbox wird mit dem benutzerdefinierten `ChargeCurrent` geplant.
+2. **ChargeManager aktiviert** → Wenn der Ladezustand (SoC) der Heimbatterie den Sollwert erreicht hat (`Settings.Setpoint_HomeBatSoC`), wird der optimale Strom aus dem PV-Überschuss berechnet (siehe [Lademanager-Algorithmus](#charge-manager-algorithm)). Andernfalls bleibt die Wallbox ausgeschaltet, bis die Batterie geladen ist.
+3. **Keine aktiviert** → Die Wallbox ist ausgeschaltet.
+
+Anschließend verteilt ein globaler Strombegrenzer den verfügbaren Gesamtstrom (Einstellung `maximum total current`): Wallboxen im ChargeNOW-Modus werden zuerst bedient, der verbleibende Strom geht an die Wallboxen des ChargeManagers. Sollte der verbleibende Strom einer Wallbox unter ihren Mindeststrom fallen, wird diese vollständig abgeschaltet. Abschließend werden die resultierenden Ströme und Ladeaktivierungsbefehle in die konfigurierten Wallbox-Zustände geschrieben.
+
+## Anforderungen
+- node.js >= 22.18, js-controller >= 6.0.11, admin >= 7.6.20
+- Ein ioBroker-Adapter für Ihre Wallbox(en) mit folgenden Funktionen: Ladestrom einstellen, Laden zulassen/deaktivieren, aktive Ladeleistung, aktiver Ladestrom
+ioBroker zeigt Ihre PV-Produktion (W), Ihren Stromverbrauch im Haus (W) und – falls vorhanden – den Ladezustand (%) Ihrer Hausbatterie an, z. B. vom Wechselrichteradapter.
+
+## Konfiguration
+### Grundeinstellungen
+| Schauplatz | Beschreibung |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `cycle time` | Kontrollzyklusintervall in Millisekunden (Standardwert 10000). Werte unter 5000 werden nicht empfohlen. |
+| `state of solar power` | Ausländischer Staat mit der aktuellen PV-Produktion in W. |
+| `state of home power consumption` | Ausländischer Staat mit dem aktuellen Haushaltsverbrauch in W (ohne Wallbox-Ladeleistung). |
+| `state of home battery state of charge`| Fremdzustand mit dem aktuellen SoC der Heimbatterie in %. |
+| `Ladezustand der Heimbatterie`| Fremder Status mit dem aktuellen SoC der Heimbatterie in %. |
+
+### Wallbox-Liste
+Füge pro Wandkasten eine Zeile hinzu:
+
+| Spalte | Beschreibung |
+| ----------------------- | ------------------------------------------------------------------------ |
+| `state charge current` | Fremder Zustand, der den Sollwert des Ladestroms (A) **schreiben** soll. |
+| `state active power` | Ausländischer Staat, der die aktuelle Ladeleistung (W) **liest**. |
+| `state active current` | Fremdstaat, der den aktuellen Ladestrom (A) **liest**. |
+| `min current` | Minimaler Ladestrom dieser Wallbox in A (typischerweise 6 A). |
+| `max current` | Maximaler Ladestrom dieser Wallbox in A (z. B. 16 A). |
+| `max current` | Maximaler Ladestrom dieser Wallbox in Ampere (z. B. 16 A). |
+
+Alle konfigurierten Zustände werden beim Start des Adapters überprüft – falls ein Zustand nicht existiert, protokolliert der Adapter einen Fehler und stoppt.
+
+## Vom Adapter erstellte Zustände
+| Bundesland | Beschreibung |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `Settings.Setpoint_HomeBatSoC` | Minimaler Ladezustand der Hausbatterie in % vor Beginn der PV-Überschussladung (beschreibbar, Standardwert 80). |
+| `Settings.WB_<x>.ChargeCurrent` | Ladestrom in A im ChargeNOW-Modus (beschreibbar). |
+| `Settings.WB_<x>.ChargeManager` | PV-Überschussladung für Wallbox `<x>` aktivieren (beschreibbar). |
+| `Power.Charge` | Gemessene Gesamtladeleistung aller Wallboxen in W. |
+| `info.connection` | Wahr, solange alle konfigurierten externen Zustände verifiziert wurden und der Adapter ausgeführt wird. |
+| `info.connection` | Wahr, solange alle konfigurierten externen Zustände überprüft wurden und der Adapter ausgeführt wird. |
+
+## Algorithmus für die Ladeverwaltung
+Der optimale Ladestrom für eine Wallbox im ChargeManager-Modus wird wie folgt berechnet:
+
+```
+batteryShare = up to 2000 W, scaling linearly from 0 at Setpoint_HomeBatSoC to 2000 W at 100% SoC
+optimalCurrent = (solarPower - houseConsumption + 100 W reserve + batteryShare) / 230 V
+```
+
+Der geplante Strom nähert sich dann diesem Optimum um 1 A pro Zyklus. Der Ladevorgang wird aktiviert, sobald der geplante Strom den Mindeststrom der Wallbox zuzüglich einer Hysterese von 3 A überschreitet, und erst deaktiviert, nachdem der geplante Strom über 15 aufeinanderfolgende Zyklen unter dem Mindeststrom geblieben ist (verzögerte Abschaltung, vermeidet das Ein- und Ausschalten bei kurzen Bewölkungen).
+
+## Hinweise und Einschränkungen
+Die Leistungs-Strom-Umwandlung geht von einphasigem Laden mit 230 V aus. Bei dreiphasigen Wallboxen wird der berechnete Überschussstrom derzeit nicht durch die Anzahl der Phasen geteilt – die konfigurierbare Phasenanzahl ist geplant.
+- Der Eigenverbrauch darf nicht die Ladeleistung der Wallbox selbst beinhalten, da sonst der Regelkreis oszilliert.
+- Der Adapter schreibt in jedem Zyklus in die Zustände Ihrer Wanddose - stellen Sie sicher, dass die konfigurierten Werte für `state charge current` / `state charge allowed` tatsächlich die beschreibbaren Steuerzustände Ihres Wanddosenadapters sind.
 
 ## Spenden
-<a href="https://www.paypal.com/donate/?hosted_button_id=H5PMQ8JKQL7SL"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a> Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach nur großzügig sind –, denken Sie darüber nach, mir ein Bier auszugeben. Prost! :Bier:
+<a href="https://www.paypal.com/donate/?hosted_button_id=H5PMQ8JKQL7SL"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a> Wenn dir dieses Projekt gefallen hat – oder du einfach nur großzügig sein möchtest –, spendiere mir doch ein Bier. Prost! 😉
 
 ## Getestet mit
 - 3x go-E Ladegerät & Kostal PikoBA
 
 ## Changelog
 
-! Note that missing version entries are typically dependency updates for improved security.
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 0.16.0 (2026-07-05)
 
-### 0.12.5 (2024-12-12)
+- (HombachC) switched data acquisition from polling to event driven foreign state subscriptions, react immediately to user input
+- (HombachC) fixed warnings of adapter checker
+- (HombachC) repository cleanup
+- (HombachC) removed unused chai/sinon-chai/chai-as-promised/proxyquire devDependencies and switch tests to node:assert
+- (HombachC) fixed race condition at first start
+- (HombachC) fixed wrong config default keys in io-package.json and added guard for missing maxAmpTotal
+- (HombachC) moved module-global variables into adapter class to fix possible conflicts in compact mode
+- (HombachC) stop state machine and reset info.connection on adapter unload
+- (HombachC) await wallbox state writes with proper error handling and throttle/switch off boxes exceeding the measured total current limit
+- (HombachC) fixed lost min/max/step value of 0 and duplicated unit handling in projectUtils
+- (HombachC) charge manager: clamp optimal current at zero and fix division by zero with home battery setpoint of 100%
+- (HombachC) validate and clamp Setpoint_HomeBatSoC state changes (NaN guard, 0-100%)
+- (HombachC) improved typing: typed state getters in projectUtils instead of any, fixed wallBoxList tuple type
+- (HombachC) removed yarn devDependency and switched release build hook to npm
+- (HombachC) extracted charge planning and limiting algorithms into testable module and added 18 unit tests
+- (HombachC) improved README with feature overview, configuration, states and algorithm documentation
 
-- (HombachC) switch to i18n translation (#572)
-- (HombachC) implement ioBroker.eslint-config (#580)
-- (HombachC) bump dependencies
+### 0.15.1 (2026-06-04)
 
-### 0.12.4 (2024-11-23)
+- (HombachC) fix warnings of adapter checker
+- (HombachC) upgraded typescript to 6.x.x
+- (HombachC) updated projectUtils
+- (HombachC) updated dependencies
 
-- (HombachC) implement better state change error handling
+### 0.15.0 (2026-05-09)
 
-### 0.12.3 (2024-11-18)
+- (copilot) BREAKING: adapter requires node.js >= 22 now
+- (HombachC) update dependencies
 
-- (HombachC) fix bug in state subscription
-- (HombachC) harmonize project tools
-- (HombachC) bump dependencies
+### 0.14.7 (2026-04-16)
 
-### 0.12.2 (2024-10-27)
+- (HombachC) min admin 7.6.20 as recommended (#762)
+- (HombachC) switch to ES2023 code
+- (HombachC) update dependencies
 
-- (HombachC) migrate eslint to >9.x
-- (HombachC) bumped dependencies
+### 0.14.6 (2026-02-27)
 
-### 0.12.1 (2024-10-22)
-
-- (HombachC) fix error in jsonConfig.json
-
-### 0.12.0 (2024-10-22)
-
-- (HombachC) BREAKING: dropped support for admin < 7 (#544)
-- (HombachC) optimized responsive design (#544)
-- (HombachC) optimized translation handling
-
-### 0.11.1 (2024-09-16)
-
-- (HombachC) add node.js 22 to the adapter testing matrix (#523)
-- (HombachC) Bump @iobroker/testing to 5.0.0
-
-### 0.11.0 (2024-08-29)
-
-- (HombachC) implement variable wallbox amount
-- (HombachC) fix errors in wallbox control
-- (HombachC) complete rework of configuration screen
-- (HombachC) move utils to extra class
-- (HombachC) switch to ECMA 2022 code
-- (HombachC) bumped dependencies
-
-### 0.10.0 (2024-08-18)
-
-- (HombachC) switch to Typescript
-- (HombachC) change adapter type to "energy"
-- (HombachC) replace deprecated setStateAsync
-
-### 0.9.3 (2024-08-18)
-
-- (HombachC) change translation handling
-- (HombachC) code and repository cleanup
-- (HombachC) prepare switch to Typescript
-
-### 0.9.2 (2024-08-16)
-
-- (HombachC) fixed vulnerability in dependency
-- (HombachC) added tests for node 22
-
-### 0.9.1 (2024-08-06)
-
-- (HombachC) fixed issues detected by repository checker (#494)
-- (HombachC) code cleanups
-
-### 0.9.0 (2024-04-20)
-
-- (HombachC) BREAKING: dropped support for node.js 16 (#455)
-- (HombachC) BREAKING: js-controller >= 5 is required (#456)
-
-### 0.8.5 (2024-03-27)
-
-- (HombachC) updated CI definitions, switched to node 20 as main test scenario
-- (HombachC) corrected io-package.json according to new schema
-- (HombachC) bumped dependencies
-
-### 0.8.4 (2023-12-29)
-
-- (HombachC) BREAKING: dropped support for js-controller 3.x
-- (HombachC) Year 2024 changes
-- (HombachC) Bump axios to 1.6.3 because of vulnerability
-
-### 0.8.3 (2023-10-29)
-
-- (HombachC) Bumb adapter core to 3.x
-- (HombachC) Bump axios to 1.6.0 because of vulnerability
-
-### 0.8.2 (2023-10-01)
-
-- (HombachC) Several dependency updates
-- (HombachC) Fixed acknowledging of state changes (#339)
-
-### 0.8.1 (2023-08-29)
-
-- (HombachC) bumped dependencies, added min/max to settings state defaults
-
-### 0.8.0 (2023-06-23)
-
-- (HombachC) changed config screen to admin 5 solution
-
-### 0.7.2 (2023-06-19)
-
-- (HombachC) Removed Travis
-
-### 0.7.1 (2023-06-13)
-
-- (HombachC) Fixed typo in docu, added translations
-
-### 0.7.0 (2023-06-11)
-
-- (HombachC) BREAKING: dropped node.js 14 support
-- (HombachC) Add tests for node.js 20, removed for node.js 14, bumped dependencies
-- (HombachC) BREAKING: dropped ioBroker.admin 4 support
+- (HombachC) update dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
@@ -171,7 +166,7 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Aus
 
 MIT License
 
-Copyright (c) 2021-2024 Christian Hombach
+Copyright (c) 2021-2026 Christian Hombach
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -189,4 +184,5 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
 SOFTWARE.

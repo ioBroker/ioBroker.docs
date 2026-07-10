@@ -11,7 +11,9 @@
 
 **Tests:** ![Test and Release](https://github.com/Sneak-L8/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
-# ioBroker adapter for KEBA KeContact P20 or P30 and BMW i wallbox
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
+## ioBroker adapter for KEBA KeContact P20 or P30 and BMW i wallbox
 
 Control your charging station using its UDP protocol and use automatic regulation e.g. to charge your vehicle by photovoltaic surplus and battery storage.
 
@@ -119,8 +121,12 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (@mcm1957) Adapter requires node.js >= 22 now.
--  
+* (Sneak-L8) addPower can now also be used to preserve power for other consumers by specifying negative value
+* (@mcm1957) Adapter requires node.js >= 22 now.
+* (Sneak-L8) Minimum time between phase switching has also to be respected when using state for phase switch, thanks to SmartNightly
+* (Sneak-L8) fix errors [E0036], [S0082] and [S5004] found by repository checker
+* (Sneak-L8) fix errors [E6025], [W1130], [W1132], [W1134],  [W5060] and [W6023] found by repository checker
+  
 ### 3.6.0 (2026-03-29)
 * (Sneak-L8) information about new firmware also via admin notification (also works for x-series)
 * (Sneak-L8) updated dependencies

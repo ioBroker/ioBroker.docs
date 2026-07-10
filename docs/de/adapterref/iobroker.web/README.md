@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: o2CrQOuwEBgQrUCXNjJa36BOvwjgITQON2IfS/Jqeuw=
+hash: RX5gJmwINYaHb24oUVM7SD+u2tYaXo/mtiJf7P5Zl/4=
 ---
 ![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -93,9 +93,9 @@ http://IP:8082/object/0_userdata.0.branch.* =>
 Unterstützte Abfrageparameter:
 
 | Parameter | Beschreibung |
-|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `type` | Filtert nach Objekttyp (z. B. `state`, `channel`, `device`, `folder`, `enum`, `instance`, ...). **Standardmäßig wird `state` verwendet**, wenn dieser Parameter weggelassen wird. Verwenden Sie `all`, um Objekte aller Typen abzufragen. |
-| `depth` | Absolute Maximalanzahl von durch Punkte getrennten Teilen in der Objekt-ID. Um beispielsweise nur die direkten Kinder von `0_userdata.0.branch` (das 3 Teile hat) abzurufen, fordern Sie `/object/0_userdata.0.branch.*?depth=4` an. `depth=1` wird stillschweigend auf `depth=2` begrenzt (ioBroker-Objekte existieren auf 1 Ebene oder 3+ Ebenen – die 2-stufigen „Instanz“-Einträge wie `0_userdata.0` sind das, was ein Browser auf der obersten Ebene des Baums tatsächlich benötigt). Alle echten Einzelsegmentobjekte werden aus dem gleichen Grund aus der Antwort entfernt. |
+| `depth` | Absolute Maximalanzahl von durch Punkte getrennten Teilen in der Objekt-ID. Um beispielsweise nur die direkten Kinder von `0_userdata.0.branch` (das 3 Teile hat) abzurufen, fordern Sie `/object/0_userdata.0.branch.*?depth=4` an. `depth=1` wird stillschweigend auf `depth=2` begrenzt (ioBroker-Objekte existieren auf 1 Ebene oder 3+ Ebenen – die 2-stufigen „Instanz“-Einträge wie `0_userdata.0` sind das, was ein Browser auf der Wurzel des Baums tatsächlich benötigt). Alle echten Einzelsegmentobjekte werden aus dem gleichen Grund aus der Antwort entfernt. |
 | `extended` | Übergeben Sie `?extended` oder `?extended=true`, um zusätzlich Systemattribute wie `acl`, `from`, `ts`, `user`, `enums`, `_rev` einzuschließen. |
 | `native` | Übergeben Sie `?native` oder `?native=true`, um zusätzlich den Teil `native` jedes Objekts einzuschließen. |
 | `system` | Objekte unter `system.*` und `script.*` sind standardmäßig **ausgeblendet**. Übergeben Sie `?system` oder `?system=true`, um sie einzuschließen. |
@@ -158,8 +158,15 @@ Weitere Informationen finden Sie hier: https://github.com/ioBroker/webserver?tab
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **IN BEARBEITUNG** -->
+### 9.0.0 (2026-06-21)
+* (@GermanBluefox) Verwendete Bibliotheken für die Socket-Kommunikation anstelle von Adaptern
+* (@GermanBluefox) Migriert zu TS 6
+
+### 8.3.0 (2026-06-12)
+* (@SimonFischer04) Option „rootPath“ hinzugefügt, um den Betrieb hinter einem Reverse-Proxy zu unterstützen.
+
 ### 8.2.0 (2026-05-21)
-* (@GermanBluefox) Der GET-Endpunkt `/object/<ID>` wurde mit den Abfrageparametern `type`, `commonType`, `depth`, `extended`, `native` und `system` zum Lesen von Objekten hinzugefügt (Wildcards werden unterstützt). Standardmäßig werden nur `_id`, `type` und `common` zurückgegeben, wobei `type` standardmäßig auf `state` gesetzt ist. Objekte unter `system.*` / `script.*` werden ausgeblendet. Mit dem Parameter `depth` werden bei tieferen Übereinstimmungen synthetische Platzhalter vom Typ `type: "virtual"` erzeugt, sodass ein Baumbrowser erkennen kann, dass darunter Inhalte vorhanden sind.
+* (@GermanBluefox) Der GET-Endpunkt `/object/<ID>` wurde mit den Abfrageparametern `type`, `commonType`, `depth`, `extended`, `native` und `system` zum Lesen von Objekten hinzugefügt (Wildcards werden unterstützt). Standardmäßig werden nur `_id`, `type` und `common` zurückgegeben, wobei `type` standardmäßig auf `state` gesetzt ist. Objekte unter `system.*` / `script.*` werden ausgeblendet. Mit dem Parameter `depth` werden bei tieferen Übereinstimmungen synthetische Platzhalter `type: "virtual"` erzeugt, sodass ein Baumbrowser erkennen kann, dass darunter Inhalte vorhanden sind.
 * (@GermanBluefox) Die Einstellung „Objektzustellung deaktivieren“ wurde hinzugefügt, um den Endpunkt `/object/<ID>` ein- bzw. auszuschalten.
 
 ### 8.1.0 (2026-04-13)
@@ -167,121 +174,11 @@ Weitere Informationen finden Sie hier: https://github.com/ioBroker/webserver?tab
 * (@GermanBluefox) Mögliche Fehler korrigiert
 
 ### 8.0.0 (18.02.2026)
-* (@GermanBluefox) Pakete aktualisiert. Minimale Node.js-Version ist jetzt 20.0.0.
+* (@GermanBluefox) Pakete aktualisiert. Die minimale Node.js-Version ist jetzt 20.0.0.
 * (@GermanBluefox) Binärzustände entfernt
 * (@GermanBluefox) Möglichkeit hinzugefügt, Werte über den Endpunkt `/state/` mit `POST` zu schreiben.
 
-### 7.0.9 (2025-03-28)
-* (@GermanBluefox) Das Laden des Materialadapters wurde korrigiert.
-
-### 7.0.8 (2025-03-18)
-* (@GermanBluefox) Einstellungen für benutzerdefinierte CORS-Header hinzugefügt
-* (@GermanBluefox) Es wurde die Möglichkeit hinzugefügt, Admin-Instanzen auf der Web-Willkommensseite anzuzeigen.
-* (@GermanBluefox) Die neue Indexseite wurde implementiert
-
-### 7.0.7 (15.03.2025)
-* (@GermanBluefox) Versuch, einen Fehler der Weberweiterung abzufangen
-
-### 7.0.6 (2025-03-09)
-* (@GermanBluefox) Der Login für die iobroker.visu-App wurde korrigiert.
-* (@GermanBluefox) Korrigiertes Laden von TypeScript-Web-Erweiterungen
-
-### 7.0.4 (2025-03-04)
-* (@GermanBluefox) Die Anmeldeseite wurde korrigiert.
-* (@GermanBluefox) Die häufigen Debug-Ausgaben wurden entfernt.
-
-### 7.0.3 (2025-03-03)
-* (@GermanBluefox) Das Problem mit den Benutzerrechten wurde behoben.
-
-### 7.0.1 (2025-03-02)
-* (@GermanBluefox) [Wichtige Änderung] Die simple-api wurde entfernt, da sie als Web-Erweiterung eingebunden werden konnte.
-* (@GermanBluefox) aktualisierte Pakete
-* (@GermanBluefox) hat gulp aus einem Build-Prozess entfernt
-* (@GermanBluefox) GUI auf Vite migriert
-* (@GermanBluefox) In TypeScript neu geschrieben
-* (@GermanBluefox) OAuth2-Unterstützung hinzugefügt
-* (@GermanBluefox) Neue 404-Seite und Verzeichnislistenseiten hinzugefügt
-
-### 6.3.1 (2024-09-23)
-* (@foxriver76) hat ein neues Admin-Symbol (SVG) hinzugefügt
-
-### 6.3.0 (2024-06-27)
-* (bluefox) Korrigierter Aufruf von getObjectView mit Null-Parameter
-* (bluefox) aktualisierte Pakete
-* (bluefox) Die Benutzeroberfläche wurde auf ein nicht-stilbasiertes Framework migriert.
-
-### 6.2.6 (2024-05-25)
-* (bluefox) Vorbereitungen für einen benutzerdefinierten Ladehintergrund
-* (bluefox) aktualisierte Pakete
-
-### 6.2.5 (2024-02-22)
-* (bluefox) Nur einige Pakete wurden aktualisiert.
-
-### 6.2.4 (2024-02-17)
-* (klein0r) Erweiterungen können die Webinstanz blockieren
-* (klein0r) Verzeichnisauflistung korrigiert
-
-### 6.2.3 (18.12.2023)
-* (foxriver76) hat die WebSocket-Bibliothek aktualisiert, um die maximale Dateigröße von 100 MB auf 500 MB zu erhöhen.
-
-### 6.2.2 (14.12.2023)
-* (joltcoke) Der Absturz bei aktivierter Authentifizierung wurde behoben.
-
-### 6.2.1 (2023-12-04)
-* (bluefox) Option für die Benutzerzugriffsliste hinzugefügt
-
-### 6.1.10 (2023-10-16)
-* (bluefox) Startbildschirm korrigiert
-
-### 6.1.7 (2023-10-16)
-* (bluefox) Öffentliche Zugänglichkeitsprüfung hinzugefügt.
-
-### 6.1.6 (2023-10-13)
-* (bluefox) Korrigierte Adapterterminierung, falls der Alias kein Ziel hat
-* (bluefox) Korrigierte Socket.IO-Verbindung
-
-### 6.1.4 (2023-10-08)
-* (foxriver76) Aktualisierung der socketio- und ws-Abhängigkeiten zur Behebung eines vis subscribe-Problems
-
-### 6.1.3 (2023-09-28)
-* (bluefox) hat die Socket.IO- und WS-Abhängigkeiten aktualisiert, um den Fehler durch das Abmelden beim Trennen der Client-Verbindung zu beheben.
-
-### 6.1.2 (2023-09-14)
-* (foxriver76) aktualisierte socketio- und ws-Abhängigkeiten
-
-### 6.1.1 (2023-09-05)
-* (mcm1957) Fehlende Anforderung node16 hinzugefügt
-
-### 6.1.0 (2023-08-01)
-* (bluefox) Das Abonnieren von Nachrichten auf spezifischer Instanzebene wurde hinzugefügt.
-
-### 6.0.3 (2023-07-27)
-* (bluefox) Aktualisierte Pakete
-* (bluefox) Die Möglichkeit, Ordnerinhalte anzuzeigen, wurde implementiert.
-
-### 6.0.1 (2023-03-20)
-* (bluefox) Die Unterstützung für Let's Encrypt wurde aus dem Webadapter entfernt.
-
-### 5.5.3 (2023-03-17)
-* (bluefox) Die maximale Größe der über socket.io hochgeladenen Datei wurde von 10 MB auf 200 MB erhöht.
-
-### 5.5.2 (2023-03-03)
-* (bluefox) Erlaubte das Löschen von FullCalendar-Objekten
-
-### 5.5.1 (2023-02-25)
-* (bluefox) Erlaubte das Lesen von Projekten der vis-2-beta-Version
-
-### 5.5.0 (15.02.2023)
-* (bluefox) Spezielle Endpunkte für die App-Authentifizierung hinzugefügt.
-
-### 5.4.3 (2023-01-29)
-* (bluefox) Fehler bei `publishFileAll` behoben (für zukünftige Verwendung)
-
-### 5.4.1 (2022-12-23)
-* (bluefox) GUI-Fehler behoben
-
-### 5.4.0 (2022-12-22)
-* (bluefox) Verwendete eine neue Version von Socket-Klassen
+[Ältere Änderungsprotokolle finden Sie dort.](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

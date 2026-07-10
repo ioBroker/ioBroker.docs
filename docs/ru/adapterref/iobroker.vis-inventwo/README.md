@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventw
-hash: 4lGSBouwytw/te6md9v0tJWNonsY572rb8yxgRXNEQE=
+hash: sotg5sV7N0Gwx0N7PPj8XiJ85MpkHvjkBkpJxsCrFk4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -22,6 +22,8 @@ hash: 4lGSBouwytw/te6md9v0tJWNonsY572rb8yxgRXNEQE=
 ### <span style="color:red">Важное примечание для Vis 2</span>
 Этот адаптер был разработан и протестирован для VIS 1. В Vis 2 могут возникать ошибки, препятствующие использованию вашей визуализации.
 Бесшовная совместимость невозможна. Новый адаптер для Vis 2 можно найти здесь: https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
+
+**Начиная с версии 4.1.x, виджеты явно исключены из редактора Vis 2, и адаптер больше не будет работать в Vis 2 вообще.** Если вы хотите продолжить использовать этот адаптер в Vis 2, вам необходимо оставаться на версии, предшествующей 4.1.x.
 
 ## Содержимое адаптера
 Различные виджеты для переключения, навигации и многого другого.
@@ -61,41 +63,37 @@ hash: 4lGSBouwytw/te6md9v0tJWNonsY572rb8yxgRXNEQE=
 
 ---
 
-## Changelog
+## Более старые изменения
+Можно найти в [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
 
-### **WORK IN PROGRESS**
-- (iobroker-bot) Adapter requires node.js >= 20 now.
+---
+
+## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.1.1 (2026-06-04)
+- correct z-index layering for popups — date/time picker dropdowns now appear in front of the popup overlay instead of behind it (#583)
+
+### 4.1.0 (2026-05-17)
+- Hide widgets in vis 2 editor
+
+### 4.0.1 (2026-05-15)
+- Fixed widget gif images missing
+
+### 4.0.0 (2026-05-15)
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- Updated dependencies
+- Updated project structure to meet latest ioBroker standards
+- Updated build process to use latest tools and best practices
 
 ### 3.3.5
 - Fixed: [#688](https://github.com/inventwo/ioBroker.vis-inventwo/issues/688) Radio button cannot write a boolean value
 - Fixed: [#736](https://github.com/inventwo/ioBroker.vis-inventwo/issues/736) Adapter checker errors in package.json and io-package.json resolved
 - Fixed: [#678](https://github.com/inventwo/ioBroker.vis-inventwo/issues/678) Mode in io-package changed from daemon to once
-
-### 3.3.4
-- Fixed: [#455](https://github.com/inventwo/ioBroker.vis-inventwo/issues/455) Color picker widget "disappears" when selecting CIE
-- Fixed: [#369](https://github.com/inventwo/ioBroker.vis-inventwo/issues/369) Simple slider step color cannot be changed
-- Fixed: [#361](https://github.com/inventwo/ioBroker.vis-inventwo/issues/361) Image widget always shows the image for true
-- Fixed: [#564](https://github.com/inventwo/ioBroker.vis-inventwo/issues/564) Radio button – image color for true is taken from false
-- Fixed: [#461](https://github.com/inventwo/ioBroker.vis-inventwo/issues/461) Double trigger on button/state and "slider cannot be slid" with Windows Touch
-- Fixed: [#474](https://github.com/inventwo/ioBroker.vis-inventwo/issues/474) JSON table with "Binding" does not work in the editor
-- Fixed: [#580](https://github.com/inventwo/ioBroker.vis-inventwo/issues/580) JSON Table Widget: color change of values via threshold is only visible in the editor, not at runtime
-- Fixed: [#622](https://github.com/inventwo/ioBroker.vis-inventwo/issues/622) Issues found by adapter checker
-
-### 3.3.3
-- Fixed issue with border color on Multi-Widget View in PopUp
-
-### 3.3.2
-- Bugfix
-
-### 3.3.1
-- Bugfix
-
----
 
 ## License
 

@@ -8,7 +8,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.al-ko/README.md
 title: ioBroker.al-ko – 德语文档
-hash: 4D5X3Pj5khSf2vX2M0CojOe9nVsQYJWv/RNfBDLy00k=
+hash: kWJTXjzNI4eSIS0CkGJ3ZfGnZsHvJB8XFSnoO+w7sf4=
 ---
 # IoBroker.al-ko – 德语文档
 ![标识](../../../de/admin/al-ko-128.png)
@@ -55,6 +55,27 @@ AL-KO 对此不提供**官方支持**。
 ---
 
 ## 变更（节选）
+### 0.3.11 (2026-05-07)
+- CI问题已解决，工作流程已稳定
+发布工具已更新
+需要Node.js版本>= 22.13.0。
+- 提高了代码质量（eslint/prettier）
+
+### 0.3.10 (2026-05-07)
+- i18n 已切换至短格式
+- 已针对 Node.js 22 进行适配的 tsconfig
+- Node.js 版本要求增加至 >=22.13.0
+- CI配置已稳定
+
+### 0.3.9 (2026-05-07)
+- 添加了版本 0.3.8 缺失的变更日志条目
+版本比较
+
+### 0.3.8 (2026-05-07)
+- CI/npm 发布问题已解决
+- 依赖项已更新
+- 稳定性提升
+
 ### 0.3.7 (2026-05-07)
 - 依赖项已更新（包括 Axios 安全修复）
 需要Node.js版本22或更高版本。
@@ -68,23 +89,6 @@ AL-KO 对此不提供**官方支持**。
 ### 0.3.5 (2026-03-26)
 - 已启用 npm Trusted Publishing
 - 修复了 GitHub Actions 工作流警告
-
-### 0.3.4 (2026-03-20)
-- 修正了 jsonConfig 中的响应式布局（xs/sm/md/lg/xl）
-- 示例 i18n 条目（选项 1/选项 2）已移除
-
-### 0.3.3 (2026-03-13)
-- 改进了 WebSocket 处理
-- 修正了对 AL-KO `reportedState` WebSocket 消息的处理
-- WebSocket 连接重连更加稳定
-- GitHub 工作流程已更新（Dependabot / Automerge）
-- 开发依赖项已更新
-
-### 0.3.2 (2026-03-12)
-- 改进了令牌更新后的 WebSocket 重连机制
-- 防止在有意关闭的 WebSocket 连接中出现重连循环
-- 改进了推送请求的 API 错误日志记录
-- 添加了 WebSocket 关闭代码和原因的日志记录
 
 查看完整变更日志了解所有变更：➡ [变更日志_旧版.md](../../CHANGELOG_OLD.md)
 
@@ -103,20 +107,31 @@ AL-KO 对此不提供**官方支持**。
 
 ## Changelog
 
+### 0.3.11 (2026-05-07)
+- Fixed CI issues and stabilized workflow
+- Updated release tooling
+- Require Node.js >= 22.13.0
+- Improved code quality (eslint/prettier)
+
+### 0.3.10 (2026-05-07)
+- Migrated i18n to short format
+- Aligned tsconfig with Node.js 22
+- Updated Node.js requirement to >=22.13.0
+- Stabilized CI configuration
+
+### 0.3.9 (2026-05-07)
+- Fixed missing changelog entry for 0.3.8
+- Version alignment
+
+### 0.3.8 (2026-05-07)
+- Fixed CI/npm publish issues
+- Updated dependencies
+- Stability improvements
+
 ### 0.3.7 (2026-05-07)
 - Updated dependencies (including axios security fixes)
 - Require Node.js >= 22
 - Stability improvements
-
-### 0.3.6 (2026-04-26)
-- Fixed invalid state roles (`value.number` removed, correct usage of `value` and `level`)
-- Fixed whitelist handling for writable states
-- Improved object structure according to review feedback
-
-### 0.3.5 (2026-03-26)
-
-- Enable npm trusted publishing
-- Fix GitHub Actions workflow warnings
 
 
 ➡ Full changelog here:  

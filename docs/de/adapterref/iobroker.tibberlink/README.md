@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: WKJsw/HidHHxNSnP3LoQU7C55PATtKkU/j3hzURQ/C0=
+hash: iwbspMgdqO0nSwgSwN1TjS7hojgnazbna9VpDYzooIw=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -28,40 +28,48 @@ hash: WKJsw/HidHHxNSnP3LoQU7C55PATtKkU/j3hzURQ/C0=
 [![CodeQL](https://github.com/hombach/ioBroker.tibberlink/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.tibberlink/actions/workflows/codeql-analysis.yml)
 
 ## Versionen
-## Adapter zur Nutzung von TIBBER-Energiedaten in ioBroker
-Dieser Adapter ermöglicht die Anbindung von Daten aus der API Ihres Tibber-Kontos an ioBroker, egal ob für ein einzelnes Haus oder mehrere Wohneinheiten.
+## Wächter
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">der Sentry-Plugin-Dokumentation</a> !
 
-Neue Funktion: Der Adapter unterstützt jetzt das direkte lokale Auslesen des Tibber-Pulssensors über Ihr Heimnetzwerk. Dies ermöglicht Echtzeitüberwachung und Datenerfassung, ohne ausschließlich auf die Cloud-API angewiesen zu sein.
+## Adapter zur Nutzung von Tibber-Energiedaten in ioBroker
+Dieser Adapter verbindet die API-Daten Ihres Tibber-Kontos mit ioBroker, egal ob für ein einzelnes Haus oder mehrere Wohneinheiten. Er unterstützt außerdem das direkte lokale Auslesen des Tibber Pulse-Sensors über Ihr Heimnetzwerk und ermöglicht so Echtzeitüberwachung und Datenerfassung, ohne ausschließlich auf die Cloud-API angewiesen zu sein.
 
 Falls Sie derzeit kein Tibber-Nutzer sind, würde ich mich sehr freuen, wenn Sie meinen Empfehlungslink verwenden könnten: [Tibber-Empfehlungslink](https://invite.tibber.com/mu8c82n5).
 
 ## Standardkonfiguration
-- Erstellen Sie zunächst eine neue Instanz des Adapters.
+- Beginnen Sie mit dem Erstellen einer neuen Instanz des Adapters.
 Sie benötigen außerdem ein API-Token von Tibber, das Sie hier erhalten können: [Tibber Developer API](https://developer.tibber.com).
-- Geben Sie Ihren Tibber-API-Token in den Standardeinstellungen ein und konfigurieren Sie mindestens eine Zeile für Live-Feed-Einstellungen (wählen Sie "Keine verfügbar").
-- Speichern Sie die Einstellungen und beenden Sie die Konfiguration, um den Adapter neu zu starten; dieser Schritt ermöglicht es, dass Ihre Home-Server beim ersten Mal vom Tibber-Server abgefragt werden.
+- Geben Sie Ihren Tibber-API-Token in den Standardeinstellungen ein und konfigurieren Sie mindestens eine Zeile für Live-Feed-Einstellungen (wählen Sie „Keine verfügbar“).
+- Speichern Sie die Einstellungen und beenden Sie die Konfiguration, um den Adapter neu zu starten; dieser Schritt ermöglicht es, dass Ihre Home-Server zum ersten Mal vom Tibber-Server abgefragt werden.
 Kehren Sie zum Konfigurationsbildschirm zurück und wählen Sie die Haushalte aus, von denen Sie mit Ihrem Tibber Pulse Echtzeitdaten abrufen möchten. Sie können auch Haushalte auswählen und den Datenfeed deaktivieren (Hinweis: Dies funktioniert nur, wenn die Hardware installiert ist und der Tibber-Server die Verbindung zu Pulse bestätigt hat).
-Hinweis: Falls Sie in Ihrem Tibber-Konto mehrere Häuser aktiv haben, müssen Sie alle hinzufügen, um Fehlermeldungen aufgrund möglicherweise unnötiger Häuser zu beheben. Fügen Sie alle Häuser hinzu und deaktivieren Sie die entsprechenden Optionen.
-- Sie haben die Möglichkeit, den Abruf von Preisdaten für heute und morgen zu deaktivieren, beispielsweise wenn Sie ausschließlich Pulse-Live-Feeds nutzen möchten.
+Hinweis: Falls Sie in Ihrem Tibber-Konto mehrere Häuser haben, müssen Sie alle hinzufügen, um Fehlermeldungen durch möglicherweise unnötige Häuser zu vermeiden. Fügen Sie alle Häuser hinzu und deaktivieren Sie die nicht benötigten.
+- Sie haben die Möglichkeit, den Abruf von Preisdaten für heute und morgen zu deaktivieren, beispielsweise wenn Sie nur den Pulse-Live-Feed nutzen möchten.
 Optional können Sie den Abruf historischer Verbrauchsdaten aktivieren. Bitte geben Sie die Anzahl der Datensätze für Stunden, Tage, Wochen, Monate und Jahre an. Sie können „0“ verwenden, um ein oder mehrere dieser Intervalle je nach Ihren Präferenzen zu deaktivieren.
-Hinweis: Die Größe des Datensatzes ist entscheidend, da zu große Anfragen dazu führen können, dass der Tibber-Server nicht reagiert. Wir empfehlen, mit der Datensatzgröße zu experimentieren, um eine optimale Funktionalität zu gewährleisten. Durch Anpassen der Intervalle und der Datensatzanzahl lässt sich ein gutes Gleichgewicht zwischen aussagekräftigen Daten und der Serverleistung finden. Beispielsweise sind 48 Datensätze für mehrere Stunden ein guter Wert.
+Hinweis: Die Größe des Datensatzes ist entscheidend, da zu große Anfragen dazu führen können, dass der Tibber-Server nicht antwortet. Wir empfehlen, mit der Datensatzgröße zu experimentieren, um eine optimale Funktionalität zu gewährleisten. Durch Anpassen der Intervalle und der Datensatzanzahl lässt sich ein optimales Gleichgewicht zwischen aussagekräftigen Daten und Serverleistung erzielen. Beispielsweise ist 48 ein empfohlener Wert für Stunden.
 - Einstellungen speichern.
+
+## Dokumentation der Verbrauchsdaten
+Wenn die tägliche historische Verbrauchsanzeige aktiviert ist, liefert der Adapter einen aggregierten Status für den aktuellen Monat:
+
+- `Homes.<HOME-ID>.Consumption.currentMonthConsumption`
+
+Dieser Wert entspricht dem Gesamtverbrauch für den aktuellen Kalendermonat in `kWh`, berechnet aus den von Tibber zurückgegebenen täglichen Verbrauchsdaten. Sind zu wenige Tage konfiguriert, spiegelt der Wert nur diese Anzahl an Tagen wider – nicht einen vollständigen Monat.
 
 ## Rechnerkonfiguration
 - Nachdem die Tibber-Verbindung nun eingerichtet und betriebsbereit ist, können Sie den Calculator auch nutzen, um zusätzliche Automatisierungsfunktionen in den TibberLink-Adapter zu integrieren.
 Der Rechner arbeitet mit Kanälen, wobei jeder Kanal mit einem ausgewählten Haushalt verknüpft ist.
 - Diese Zustände sind so konzipiert, dass sie als externe, dynamische Eingaben für TibberLink dienen und es Ihnen beispielsweise ermöglichen, die Grenzkosten ("TriggerPrice") aus einer externen Quelle anzupassen oder den Rechnerkanal ("Active") zu aktivieren.
 - Diese Kanäle müssen je nach den entsprechenden Zuständen aktiviert oder deaktiviert werden.
-Die Zustände eines Rechnerkanals werden neben den Startzuständen angeordnet und entsprechend der Kanalnummer benannt. Der im Admin-Bereich gewählte Kanalname wird hier angezeigt, um Ihre Konfigurationen besser identifizieren zu können.
+Die Zustände eines Rechnerkanals werden neben den Startzuständen angeordnet und entsprechend der Kanalnummer benannt. Der im Admin-Bildschirm eingegebene Kanalname wird hier angezeigt, um die Identifizierung Ihrer Konfigurationen zu erleichtern.
 
-  ![Rechnerzustände](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStates.png)
+  <img src="docu/calculatorStates.png" width="938" alt="Rechnerzustände">
 
 - Das Verhalten jedes Kanals wird durch seinen Typ bestimmt: „Best Cost (LTF)“, „Best Single Hours (LTF)“, „Best Hours Block (LTF)“ oder „Smart Battery Buffer“.
 Jeder Kanal gibt einen oder zwei externe Zustände aus, die im Einstellungsmenü ausgewählt werden müssen. Dieser Zustand könnte beispielsweise „0_userdata.0.example_state“ oder ein anderer beschreibbarer externer Zustand sein.
 - Wenn kein externer Ausgabezustand ausgewählt ist, wird ein interner Zustand innerhalb des Bereichs des Kanals erstellt.
 - Die Werte, die in den Ausgabestatus geschrieben werden sollen, können in "value YES" und "value NO" definiert werden, z. B. "true" für boolesche Zustände oder eine Zahl oder ein Text, der geschrieben werden soll.
 - Ausgaben:
-- „Beste Kosten“: Nutzt den Zustand „TriggerPrice“ als Eingabe und erzeugt stündlich eine Ausgabe „JA“, wenn die aktuellen Tibber-Energiekosten unter dem Triggerpreis liegen.
+- „Beste Kosten“: Nutzt den Zustand „TriggerPrice“ als Eingabe und erzeugt stündlich eine „JA“-Ausgabe, wenn die aktuellen Tibber-Energiekosten unter dem Triggerpreis liegen.
 - "Beste Einzelstunden": Erzeugt eine "JA"-Ausgabe während der günstigsten Stunden, wobei die Anzahl im Zustand "AmountHours" definiert ist.
 - "Bester Stundenblock": Gibt "JA" aus, wenn der kostengünstigste Stundenblock mit der im Zustand "AmountHours" angegebenen Stundenzahl aktiv ist.
 
@@ -83,14 +91,12 @@ Der Rechner funktioniert wie folgt:
 LTF-Kanäle: Diese funktionieren ähnlich wie Standardkanäle, sind aber nur innerhalb eines durch die Statusobjekte „StartTime“ und „StopTime“ definierten Zeitraums aktiv. Nach Ablauf von „StopTime“ wird der Kanal automatisch deaktiviert. „StartTime“ und „StopTime“ können sich über zwei Kalendertage erstrecken, da Tibber keine Daten über ein 48-Stunden-Fenster hinaus bereitstellt. Beide Status erfordern eine Datums-/Zeitangabe im ISO-8601-Format mit Zeitzonenverschiebung, z. B. „2024-12-24T18:00:00.000+01:00“. Zusätzlich verfügen die LTF-Kanäle über einen neuen Statusparameter namens „RepeatDays“, der standardmäßig auf 0 gesetzt ist. Wenn „RepeatDays“ auf eine positive ganze Zahl gesetzt wird, wiederholt der Kanal seinen Zyklus, indem er sowohl „StartTime“ als auch „StopTime“ um die angegebene Anzahl von Tagen nach Erreichen von „StopTime“ erhöht. Setzen Sie beispielsweise „RepeatDays“ auf 1 für eine tägliche Wiederholung.
 
 ## Konfiguration der Grafikausgabe
-Der Adapter visualisiert Preistrends und Rechnerergebnisse. Er bietet drei Komplexitätsstufen mit jeweils unterschiedlichen Optionen.
-
-Diese drei Methoden ermöglichen vielfältige Visualisierungen von Preistrends und Rechnerergebnissen. Je nach Bedarf können Sie zwischen einem einfachen JSON-basierten Ansatz und einer vollständig individualisierten JavaScript-Lösung wählen.
+Der Adapter hilft bei der Visualisierung von Preistrends und Rechnerergebnissen. Er bietet drei Komplexitätsstufen – von einem einfachen JSON-basierten Ansatz bis hin zu einer vollständig individualisierten JavaScript-Lösung.
 
 ### 1. **(In Entwicklung) Visualisierung mit dem "E-Charts"-Adapter**
 Bei dieser Methode muss der Adapter „E-Charts“ separat installiert werden.
 
-- Es können JSON-Daten verwendet werden, die im Abschnitt „Rechnerzustände“ als `Output-E-Charts` generiert werden.
+- Es können JSON-Daten verwendet werden, die im Abschnitt „Rechnerzustände“ (`Output-E-Charts`) generiert werden.
 - Die Möglichkeiten sind durch die Beschränkungen des E-Charts-Adapters eingeschränkt.
 
 ### 2. **Verwendung des "FlexCharts"- (oder "Fully Featured eCharts")-Adapters mit JSON**
@@ -98,7 +104,7 @@ Diese Methode erfordert die separate Installation des "FlexCharts"-Adapters.
 
 - Der TibberLink-Adapter erzeugt einen Zustand namens `jsonFlexCharts`.
 
-    ![jsonFlexChartsState.png](../../../en/adapterref/iobroker.tibberlink/docu/jsonFlexChartsState.png)
+                      <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts-Status">
 
 - Der FlexCharts-Adapter rendert diesen Zustand über die folgende URL:
 
@@ -106,7 +112,7 @@ Diese Methode erfordert die separate Installation des "FlexCharts"-Adapters.
 http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibberlink.0.Homes.[TIBBER-HOME-ID].PricesTotal.jsonFlexCharts
 ```
 
-- Ab Version 0.7.0 unterstützt FlexCharts automatische Diagrammaktualisierungen über SSE (Server Sent Events). Um diese Funktion zu nutzen, fügen Sie `&sse` zur URL hinzu:
+Ab Version 0.7.0 unterstützt FlexCharts automatische Diagrammaktualisierungen über SSE (Server-Sent Events). Um diese Funktion zu nutzen, fügen Sie `&sse` zur URL hinzu:
 
 ```
 http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibberlink.0.Homes.[TIBBER-HOME-ID].PricesTotal.jsonFlexCharts&sse=30
@@ -114,25 +120,19 @@ http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibb
 
 Weitere Details finden Sie in der [FlexCharts-Adapterdokumentation](https://github.com/MyHomeMyData/ioBroker.flexcharts).
 
-@reblausgt Mit v0.7.0 ist es in Flexcharts nun möglich, Charts automatisch neu aufzubauen, wenn sich der State des Charts geändert hat. Das Verfahren nennt sich SSE (Server Sent Events). Aktiviert wird es denkbar einfach, indem ein &sse an den html-Aufruf anhängt. Details sind im Readme beschrieben.
-
-Die Version ist in NPM und im Beta-Repo verfügbar. Ab 26. April auch im Stall.
-
-Weitere Details finden Sie in der [FlexCharts-Adapterdokumentation](https://github.com/MyHomeMyData/ioBroker.flexcharts).
-
 #### **Verwendung der JSON-Vorlage**
 - Der `jsonFlexCharts`-Status wird auf Basis einer Vorlage generiert, die über den JSON-Editor in den Adaptereinstellungen konfiguriert ist.
-- **Wichtig:** Der in ioBroker.Admin integrierte JSON-Editor unterstützt kein JSON5, was zu falschen Fehlermeldungen führen kann.
+- Der integrierte JSON-Editor verwendet den JSON5-Modus, daher sind Kommentare und nachfolgende Kommas zulässig.
 - Eine Beispielvorlage kann hier heruntergeladen werden: [TemplateFlexChart01.md](docu/TemplateFlexChart01.md).
 - Kopieren Sie die Vorlage und fügen Sie sie in den JSON-Editor ein.
 - Die Vorlage enthält die Platzhalter:
-- `%%xAxisData%%` und `%%yAxisData%%` (werden zur Laufzeit mit Preisinformationen gefüllt).
+- `%%seriesData%%` (wird zur Laufzeit mit den Zeitreihen-Preisdaten gefüllt).
 - `%%CalcChannelsData%%` (gefüllt mit ausgewählten Taschenrechnerkanaldaten).
 Der Rest der Vorlage folgt der Apache ECharts-Konfiguration. Beispiele finden Sie unter [Apache ECharts Examples](https://echarts.apache.org/examples/en/index.html).
 - **Empfehlung:** Testen Sie den TibberLink-Adapter ohne echte Vorlage mit der Standardzeichenfolge:
 
 ```
-%%xAxisData%%\n\n%%yAxisData%%\n\n%%CalcChannelsData%%
+%%seriesData%%\n\n%%CalcChannelsData%%
 ```
 
 Dies hilft, seine Funktionsweise zu verstehen.
@@ -149,25 +149,83 @@ Weitere Details finden Sie in der [FlexCharts Adapter Discussion](https://github
 
 ## Hinweise
 ### Umgekehrte Verwendung
-Um beispielsweise Spitzenzeiten anstelle von optimalen Zeiten zu erhalten, kehren Sie einfach die Verwendung und die Parameter um: ![Rechnerzustände invers](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png) Durch Vertauschen von true <-> false erhalten Sie in der ersten Zeile ein true bei niedrigen Kosten und in der zweiten Zeile ein true bei hohen Kosten (Kanalnamen sind keine Auslöser und können weiterhin frei gewählt werden).
+Um beispielsweise Spitzenzeiten anstelle von optimalen Zeiten zu erhalten, kehren Sie einfach die Nutzung und die Parameter um:
 
-Achtung: Bei Spitzenzeiten, wie im Beispiel, muss die Stundenzahl angepasst werden. Original: 5 -> Kehrwert (24-5) = 19 -> Sie erhalten ein korrektes Ergebnis für die 5 Spitzenstunden.
+<img src="docu/calculatorStatesInverse.png" width="938" alt="Rechnerzustände invers">
+
+Durch Vertauschen von true <-> false erhalten Sie in der ersten Zeile ein true mit niedrigen Kosten und in der zweiten Zeile ein true mit hohen Kosten (die Kanalnamen sind nur Beispiele und können frei gewählt werden).
+
+Achtung: Bei Spitzenzeiten, wie im Beispiel, muss die Stundenzahl angepasst werden. Original: 5 -> Kehrwert (24-5) = 19 -> Sie erhalten während der 5 Spitzenstunden einen „wahren“ Wert.
 
 ### LTF-Kanäle
-Die Berechnung erfolgt anhand von Daten über mehrere Tage. Da uns nur Informationen für heute und morgen vorliegen (verfügbar ab ca. 13:00 Uhr), ist der Zeitraum effektiv auf maximal 35 Stunden begrenzt. Es ist jedoch wichtig, dies zu beachten, da sich das Ergebnis gegen 13:00 Uhr ändern kann, sobald die neuen Daten für die Preise von morgen verfügbar sind.
+Die Berechnung erfolgt anhand von Daten über mehrere Tage. Da uns nur Informationen für heute und morgen vorliegen (verfügbar ab ca. 13:00 Uhr), umfasst der Zeitraum bis zu 48 Stunden, typischerweise jedoch etwa 35 Stunden unmittelbar nach der Preisaktualisierung um 13:00 Uhr. Es ist jedoch wichtig, dieses Verhalten zu beachten, da sich das berechnete Ergebnis gegen 13:00 Uhr ändern kann, sobald die neuen Daten für die Preise von morgen verfügbar sind.
 
 Um diese dynamische Veränderung des Zeitrahmens für einen Standardkanal zu beobachten, können Sie einen begrenzten Zeitrahmen (Limited Time Frame, LTF) über mehrere Jahre wählen. Dies ist besonders nützlich für das Szenario „Best Single Hours LTF“.
 
 ## Direkte lokale Abfrage von Pulse-Daten
 Damit das funktioniert, müssen Sie die Weboberfläche der Bridge so anpassen, dass sie dauerhaft aktiviert bleibt.
-marq24 hat die Vorgehensweise für seine Home Assistant-Integration hier hervorragend beschrieben:
+marq24 beschreibt hier ausführlich, wie das für seine Home-Assistant-Integration funktioniert:
 
 https://github.com/marq24/ha-tibber-pulse-local
 
 Wenn alles korrekt funktioniert, werden die Messdaten alle 2 Sekunden in die ioBroker-Zustände geschrieben.
 
-## Wächter
-Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung ist ab js-controller 3.0 verfügbar.
+## Fahrzeug- und Ladegerätekonfiguration
+Tibber betreibt zwei separate APIs mit unterschiedlichen Zwecken:
+
+Die **Entwickler-GraphQL-API** (`api.tibber.com`) bietet Zugriff auf Energiepreise, Verbrauchshistorie und den Pulse-Live-Feed. Dies ist der Inhalt der Standard-Tibber-API-Token (von [developer.tibber.com](https://developer.tibber.com)).
+- **Tibber Data API** (`data-api.tibber.com`) – IoT-Gerätedaten für gekoppelte Fahrzeuge, Ladegeräte, Wärmepumpen und Wechselrichter. Dies ist eine neuere, separate REST-API, die eine eigene OAuth2-Client-Registrierung erfordert.
+
+Die APIs ersetzen einander nicht – sie ergänzen sich. Die hier beschriebene Fahrzeug- und Ladegerätfunktion nutzt die Daten-API und benötigt daher neben dem Haupt-API-Token eigene Zugangsdaten.
+
+### Voraussetzungen
+1. Öffnen Sie [https://data-api.tibber.com/clients/manage](https://data-api.tibber.com/clients/manage) und klicken Sie auf **+ Neuer Client**.
+
+ <img src="docu/dataApi1.png" width="938" alt="Tibber Data API Clientverwaltung">
+
+2. Geben Sie dem Client einen Namen (z. B. `ioBrokerTibber`), setzen Sie die **Umleitungs-URI** exakt auf `http://localhost/` (mit abschließendem Schrägstrich) und aktivieren Sie mindestens die folgenden Bereiche:
+- `data-api-homes-read`
+- `data-api-vehicles-read`
+- `data-api-chargers-read`
+
+    <img src="docu/dataApi2.png" width="938" alt="Kundenformular mit Berechtigungen erstellen">
+
+3. Klicken Sie auf **Erstellen**. Kopieren Sie sofort die **Client-ID** und das **Client-Geheimnis** – das Geheimnis wird nur einmal angezeigt.
+
+ <img src="docu/dataApi3.png" width="938" alt="Client mit ID und Geheimnis erstellt">
+
+4. Öffnen Sie die Registerkarte **Fahrzeuge & Ladegeräte** in der Adapterkonfiguration, geben Sie beide Werte ein und speichern Sie.
+5. Starten Sie den Adapter neu. Es wird eine **Warnung** protokolliert, die die sofort einsatzbereite Autorisierungs-URL mit Ihrer bereits eingetragenen Client-ID enthält:
+
+```
+[tibberDataAPI]: no auth code configured — please authorize. URL: https://thewall.tibber.com/connect/authorize?client_id=<your-id>&...
+```
+
+6. Öffnen Sie diese URL in einem Browser und melden Sie sich mit Ihrem Tibber-Konto an, um Zugriff zu gewähren.
+7. Der Browser leitet zu `http://localhost/` weiter und zeigt einen Verbindungsfehler an – dies ist **erwartet und korrekt**. Kopieren Sie die vollständige URL aus der Adressleiste (sie enthält `?code=...`).
+
+ <img src="docu/dataApi4.png" width="938" alt="Der Browser zeigt an, dass die Verbindung zu localhost mit einem Fehlercode in der URL abgelehnt wurde.">
+
+8. Fügen Sie die vollständige URL in das Feld **Auth Code** in der Adapterkonfiguration ein und speichern Sie die Einstellungen.
+9. Der Adapter tauscht den Code gegen Tokens aus und beginnt mit dem Polling. Das Feld „Auth-Code“ wird automatisch geleert.
+
+Der Adapter speichert das Aktualisierungstoken intern und erneuert das Zugriffstoken automatisch, sodass dieser einmalige Autorisierungsschritt nicht wiederholt werden muss.
+
+### Verfügbare Staaten
+Fahrzeugdaten werden in `Vehicles.<VIN>.*` geschrieben:
+
+| Bundesland | Beschreibung |
+| --------------------- | --------------------------------- |
+| `ChargingStatus` | Aktueller Ladestatus |
+| `LastUpdated` | Zeitstempel der letzten Datenaktualisierung |
+| `PlugStatus` | Steckerverbindungsstatus |
+| `Range` | Verbleibende Reichweite in km |
+| `StateOfCharge` | Ladezustand der Batterie in % |
+| `TargetStateOfCharge` | Zielladezustand in % |
+| `TargetStateOfCharge` | Zielladezustand in % |
+
+### Umfrageintervall
+Das Abfrageintervall kann auf der Registerkarte **Fahrzeuge & Ladegeräte** konfiguriert werden (1–60 Minuten, Standard: 5 Minuten).
 
 ## Spenden
 <a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/master/docu/bluePayPal.svg" height="40"></a> Wenn dir dieses Projekt gefallen hat – oder du einfach nur großzügig sein möchtest –, spendiere mir doch ein Bier. Prost! 😉
@@ -178,52 +236,44 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
 
-- (copilot) BREAKING: Adapter requires node.js >= 22 now
-- (HombachC) Adapter requires admin >=7.6.20 now
-- (HombachC) fix some type definitions
-- (HombachC) extend FlexCharts docu
-- (HombachC) update dependencies
+- (HombachC) removed redundant test devDependencies (chai, chai-as-promised, sinon-chai, proxyquire) and switched unit tests to Node's built-in assert
 
-### 6.2.2 (2026-04-13)
+### 7.1.4 (2026-07-09)
 
-- (HombachC) fix vulnerability in axios
-- (HombachC) update dependencies
+- (HombachC) fixed regression where smart battery buffer ignored the EfficiencyLoss parameter (#918)
 
-### 6.2.1 (2026-03-30)
+### 7.1.3 (2026-06-27)
 
-- (HombachC) optimize pull of consumption data (#860)
-- (HombachC) switch to ES2023 code
-- (HombachC) update dependencies
+- (HombachC) updated axios
+- (HombachC) fixed local SML parsing for EMH meters reporting meter_mode 4 but sending binary SML data (#912)
+- (HombachC) fixed false warn log for SBB when no price slot matches current quarter (#912)
 
-### 6.2.0 (2026-03-07)
+### 7.1.2 (2026-06-19)
 
-- (HombachC) enable umlauts to calculation channel names (#844)
-- (HombachC) enhance resolution of pulse meter data (#840)
-- (HombachC) fix wrong end block state calculation (#841)
-- (HombachC) setup auto-merge for dependabot (#834)
-- (HombachC) update dependencies
+- (HombachC) fixed adapter crash on null liveMeasurement from Tibber feed (#910)
+- (HombachC) improved vehicles & chargers OAuth2 setup documentation
+- (HombachC) fixed setInterval/clearInterval to use adapter-managed variants
+- (HombachC) removed yarn dependency, replaced with npm in release script
+- (HombachC) updated adapter-core
+- (HombachC) fixed adapter checker warnings
+- (HombachC) updated dependencies
 
-### 6.1.1 (2026-02-05)
+### 7.1.1 (2026-06-07)
 
-- (HombachC) fix LTF shifting for frames greater 24h
-- (HombachC) update dependencies
+- (HombachC) optimized vehicle states
+- (HombachC) fixed adapter checker warnings
 
-### 6.1.0 (2026-01-03)
+### 7.1.0 (2026-06-07)
 
-- (HombachC) BREAKING: change flexcharts x-axis type
-- (HombachC) introduce FlexChart output for SBB channels second output
-- (HombachC) introduce second name for FlexChart output of SBB channels
-- (HombachC) introduce color for FlexChart output of calculator results
-- (HombachC) introduce more statistics for yesterdays prices
-- (HombachC) clean code for 15min time slots
-- (HombachC) fix schema links (#822)
-- (HombachC) fix CurrentPrice after midnight (#812)
-- (HombachC) update cron
-- (HombachC) year 2026 changes
-- (HombachC) update dependencies
+- (claude) added integration for vehicles(#67)
+- (HombachC) optimized documentation
+- (claude) added code documentation
+- (claude) performance optimization of event listeners
+- (HombachC) added current month consumption docu
+- (HombachC) updated release-script
+- (HombachC) fixed adapter checker warnings
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

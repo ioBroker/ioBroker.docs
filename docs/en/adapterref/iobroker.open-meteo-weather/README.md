@@ -1,4 +1,5 @@
-![Logo](admin/open-meteo.png)
+<img src="admin/open-meteo.png" width=100 >
+
 # ioBroker.open-meteo-weather
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.open-meteo-weather.svg)](https://www.npmjs.com/package/iobroker.open-meteo-weather)
@@ -36,7 +37,7 @@ This adapter provides precise weather data, forecasts, air quality, pollen & Pho
 * **Automatic Cleanup:** The adapter automatically cleans up the object structure if forecast periods are shortened or changed in the configuration.
 * **Multi-Language Support:** Supports 11 languages (including English, German, Polish, Russian, French, Chinese, etc.).
 * **Unit System:** Seamless switching between Metric (°C, km/h) and Imperial (°F, mph) systems.
-* **Multi Location:** Add multible Locations.
+* **Multi Location:** Add multiple Locations.
 * **Night Icons:** You can choose between two night icon sets, "Bright" and "Dark". This makes it easier to match the icon to your background.
 ### Wind Direction Icons
 
@@ -117,7 +118,7 @@ The adapter provides dynamic icon paths that can be used directly in visualizati
 * **Wind Direction:** Static paths under `wind_direction_icon` display a compass arrow corresponding to the degree value (Display direction selectable).
 * **Wind Gust Warning:** A warning icon is displayed under `wind_gust_icon` for wind speeds above approx. 39 km/h (Bft 6), featuring levels 0–4.
 * **Moon Phases Icons:** Moon icons can be found under `moon_phase_icon` they display the moon phases.
-* **Multible Icons:** You can choose between static and animated (by [basmilius](https://github.com/basmilius/meteocons)) icons.
+* **Multiple Icons:** You can choose between static and animated (by [basmilius](https://github.com/basmilius/meteocons)) icons.
 
 ---
 
@@ -160,7 +161,7 @@ For each configured location, a channel is created with the following data point
 |:---|:---|
 | `pv-forecast` | Folder for PV-Forecast Data |
 
-### 15 Minutely Forecast (`15-min-forecast.0 - 95`), (24 Hours of current day), if enebled
+### 15 Minutely Forecast (`15-min-forecast.0 - 95`), (24 Hours of current day), if enabled
 | Data Point | Unit | Description |
 |:---|:---|:---|
 | `global_tilted_irradiance` | Wh | Expected energy based on installed capacity (kWp). |
@@ -183,7 +184,7 @@ Optionally selectable if needed, otherwise the DP are included in the weather.
 | `Date` | - | Forecast date (DD.MM.YYYY). |
 | `Peak_day` | Wh | Expected total daily yield. |
 
-### Forecast JSON (`location_folder`) if enebled
+### Forecast JSON (`location_folder`) if enabled
 | Data Point | Unit | Description |
 |:---|:---|:---|
 | `15-min-json_chart` | - | JSON 15-min |
@@ -206,24 +207,24 @@ Optionally selectable if needed, otherwise the DP are included in the weather.
 | `cloud_cover` | % | Total cloud cover in percent. |
 | `sunshine_duration` | min | Actual sunshine minutes within this hour. |
 
-### sum_peak_locations_15_Minutly (`0-95`) if enebled
+### sum_peak_locations_15_Minutly (`0-95`) if enabled
 | Data Point | Unit | Description |
 |:---|:---|:---|
 | `sum_locations` | Wh | Sum of Locations 15 Minutely |
 | `time` | - | Forecast time (HH:mm). |
 
-### sum_peak_locations_Daily (`dayX`) if enebled
+### sum_peak_locations_Daily (`dayX`) if enabled
 | Data Point | Unit | Description |
 |:---|:---|:---|
 | `sum_locations` | Wh | Sum of Locations Daily |
 
-### sum_peak_locations_Hourly (`HourX`) if enebled
+### sum_peak_locations_Hourly (`HourX`) if enabled
 | Data Point | Unit | Description |
 |:---|:---|:---|
 | `sum_locations` | Wh | Sum of Locations Hourly |
 | `time` | - | Forecast time (HH:mm). |
 
-### JSON Datapoints if enebled
+### JSON Datapoints if enabled
 | Data Point | Unit | Description |
 |:---|:---|:---|
 | `sum_peak_15-min-json_chart` | - | Sum of Locations 15 min in JSON |
@@ -254,7 +255,7 @@ The following values must be defined for each location:
 
 ![Logo](admin/img/doc.png)
 
-### Global Options, only adjustable if you have multible Locations!
+### Global Options, only adjustable if you have multiple Locations!
 * **Total Sum (Daily):** Creates the channel `sum_peak_locations_Daily`, summing the yields of all systems.
 * **Total Sum (Hourly):** Creates the channel `sum_peak_locations_Hourly` for the total hourly performance.
 * **Total Sum (15-Minutely):** Creates the channel `sum_peak_locations_15_Minutely` for the total 15 Minutes forecast.
@@ -274,6 +275,26 @@ The adapter uses the **Faiman model** to estimate the module temperature. This m
 After a new adapter update, it is recommended to delete the entire directory tree and let it be recreated.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) upscaled the logo
+* (@GermanBluefox) Updated TS to 6
+* (@GermanBluefox) Corrected image in JsonConfig
+
+### 3.1.3 (2026-06-20)
+* (H5N1v2) Fixed an issue with object creation caused by an accidental change.
+
+### 3.1.2 (2026-06-20)
+* (mcuiobroker) fix: after adapter update, automatically adjust type and role if they have been changed in new versions.
+* (H5N1v2) Update dependencies
+
+### 3.1.1 (2026-06-10)
+* (pk68) fix: `info.lastUpdate_weather`, `info.lastUpdate_PV_Forecast` and `hourly.next_hours.hour*.date` now store a Unix timestamp (`value.time`) instead of a formatted string, preventing incorrect date parsing by ioBroker.
+* (H5N1v2) Update dependencies
+* (H5N1v2) fix: [W5612] Remove unused custom actions configuration from jsonConfig
+* (H5N1v2) fix: [W5063] JSON formatting in "admin/jsonConfig.json" is hard to read (mixed indentation).
+* (H5N1v2) fix type assertion for channel name
+* (H5N1v2) fix some things in README.md
+
 ### 3.1.0 (2026-05-03)
 * (H5N1v2) Changed update routine for weather and PV forecast to fixed fetch times.
 * (H5N1v2) Added a customizable HTML weather widget in the admin area.
@@ -291,32 +312,19 @@ After a new adapter update, it is recommended to delete the entire directory tre
 * (Negalein) fix: yellow help text in admin for pv-forecast extra dp's, poor recognition on white background
 * (H5N1v2) fix: update interval for pv-forecast "once before sunrise" time incorrectly calculated
 
-### 3.0.0 (2026-04-18)
-* (H5N1v2) merged open-meteo-weather and open-meteo-pv-forecast
-* (H5N1v2) adding icon selection tab and animated icons for weather by Bas Milius
-* (H5N1v2) adding solar_noon in daily, freezing_level_height and snowfall_height in hourly
-* (H5N1v2) remove global_tilted_irradiance datapoint from weather.hourly
-
-### 2.6.4 (2026-03-30)
-* (H5N1v2) Update axios dependency to version 1.14.0
-
-### 2.6.3 (2026-03-26)
-* (H5N1v2) add sentry plugin to automatically report errors to developer
-
-
 ## Older Changelog
 [OLDER CHANGELOG](CHANGELOG_OLD.md)
 
 ## Legal & Copyright
 
 ### Icons & Images
-Animatetd weather icons by [Bas Milius](https://github.com/basmilius/meteocons)
+Animated weather icons by [Bas Milius](https://github.com/basmilius/meteocons)
 
 The static weather and wind direction icons included in this adapter are subject to the creator's copyright.
 * **Usage:** These icons are licensed for use within ioBroker. Commercial redistribution or use outside of this adapter requires the explicit consent of the author: h5n1@iknox.de.
 * **Weather Data:** All weather data is provided by [Open-Meteo.com](https://open-meteo.com/). Please review their terms of use for commercial purposes.
 
-### License
+## License
 This project is licensed under the **MIT License** - see the `LICENSE` file for details.
 
 Copyright (c) 2026 H5N1v2 <h5n1@iknox.de>

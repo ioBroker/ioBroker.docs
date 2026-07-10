@@ -16,7 +16,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: OLamgqmbjWOnyXZ5LhZ+B2tG2TBAluQSOPqDv4tLvmc=
+hash: dJvvvwhbpG0TyhuYMt/pUFNmK0oJwlZTL/nUTTgK3Do=
 ---
 ![标识](../../../en/admin/openknx.png)
 
@@ -106,8 +106,9 @@ hash: OLamgqmbjWOnyXZ5LhZ+B2tG2TBAluQSOPqDv4tLvmc=
 2. **密钥文件 (.knxkeys)** -- 将 .knxkeys 文件的内容粘贴到文本字段中。该文件在 ETS 中通过“附加功能”>“导出 KNX 密钥环”导出。
 3. **密钥文件密码** -- 在 ETS 中导出密钥环时设置的密码。
 4. **替代方案：隧道用户密码** -- 可以直接输入隧道密码（从 IP 接口的 ETS 项目配置中输入），而不是使用密钥文件。
-5. **隧道接口 IA** -- （可选）指定隧道接口的单独地址（例如 1.1.254）。
-6. **隧道用户 ID** -- 默认值为 2。仅当在同一接口上配置多个隧道连接时才更改。
+5. **设备认证密码（主干密钥）** -- 仅在手动模式（无密钥文件）下需要。自 knxultimate 6.0 起，握手过程中会验证 `SESSION_RESPONSE` MAC 地址；如果没有此密码，握手将降级（仍可连接，但会记录警告）。如果提供了密钥文件，则会自动从中提取此值。
+6. **隧道接口 IA** -- （可选）指定隧道接口的单独地址（例如 1.1.254）。
+7. **隧道用户 ID** -- 默认值为 2。仅当在同一接口上配置多个隧道连接时才更改。
 
 ### GA别名和迁移
 ![GA别名和迁移](../../../en/adapterref/img/alias.png)
@@ -156,7 +157,7 @@ hash: OLamgqmbjWOnyXZ5LhZ+B2tG2TBAluQSOPqDv4tLvmc=
 
 转换表达式仅适用于从外部状态到 KNX 方向的转换。反向转换（KNX 到外部状态）则直接传递值，不进行转换。
 
-## 从 KNX 适配器迁移
+## 从 knx 适配器迁移
 最简单的方法：在别名设置中将**目标命名空间**设置为`knx.0`。所有现有的脚本、VIS项目和仪表板都将自动使用openknx对象——无需手动查找/替换。
 
 如果无法做到这一点，则必须在相应的工具（导出/导入 Node Red 流程、VIS 项目、脚本、Grafana 仪表板）中手动将对 `knx.0.` 的引用替换为 `openknx.0.`。
@@ -312,43 +313,26 @@ Openknx 使用 sentry.io 进行错误跟踪（数据发送到位于德国的 ioB
   Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.1.6 (2026-04-12)
+### 1.2.0 (2026-06-25)
+- (copilot) Adapter requires node.js >= 22 now
 
-- (TA2k) **breaking:** KNX communication switched to KNXUltimate
-- (TA2k) **breaking:** DPT21 property names changed (outofservice → outOfService, inalarm → inAlarm, alarmeunack → alarmUnAck), values must be boolean
-- (TA2k) **breaking:** DPT237 property names changed to camelCase
-- (TA2k) feature: Native .knxproj import (ETS4/5/6, password-protected) with flags, DPT inference, room assignment
-- (TA2k) feature: KNX Secure support
-- (TA2k) feature: Extended DPT coverage and compatibility (9 additional DPTs, including DPT-22, 213, 222, 235, 242, 249, 251)
-- (TA2k) feature: Improved connection stability
-- (TA2k) feature: Improved role detection (switch, level, value, text, date) based on DPT type
-- (TA2k) feature: Direct Link all iobroker states to a KNX state with a conversion mode
-- (TA2k) feature: GA-Tools: all GA properties editable (DPT, type, role, flags) with compact layout
+### 1.1.14 (2026-06-11)
+- improve reconnect logic
+- improve project import
 
-### 0.9.1 (2026-03-12)
-- bugfix: Fixing increased delay in knx commands after several days
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (copilot) Adapter requires js-controller >= 6.0.11 now
-- (@klein0r) Adapter requires node.js >= 20 and js-controller >= 6 now
+### 1.1.13 (2026-06-01)
 
-### 0.9.0 (2024-04-21)
+- feat: improve disconnect handling on high bus load for MDT Gateways
+- new options "Wait for ACK", "Max Direct Link send rate" (coalescing queue) and per-GA "linkedStateDebounce"; burst log with, hint at linkedStateDebounce GAs
 
-- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-- (mcm1957) Dependencies have been updated
+### 1.1.12 (2026-05-19)
+- feat: cyclic sending for Direct Links (periodically re-send current value to KNX bus)
+- fix: DPT19 accepts numeric timestamps and ISO strings
 
-### 0.8.0 (2024-03-30)
+### 1.1.11 (2026-05-08)
+- fix for UDP interface connection
 
--   feature: put KNX interface name into log
--   bugfix: #419 wait for connection complete before data processing in case of receiving data before
--   bugfix: #457 Ack missing after changing IOB object value
-
-### 0.7.3 (2024-03-05)
-
--   feature: one of the warnings is configurable in the dialog
-
-### initial version
-
--   initial version from https://www.npmjs.com/package/iobroker.knx/v/0.8.3
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: EajmOZN39ieDon/Nr5SpCsXDOTJr3WYFZc0/QNl0INo=
+hash: ja4Xq840nSnlef0NHoGnS79lIeVqxLbZfTt6SRPqMA0=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rct?label=npm%20downloads&style=flat-square)
@@ -27,6 +27,10 @@ Bitte beachten Sie, dass es sich hierbei um ein privates Projekt handelt und ich
 Werte eines Photovoltaik-Leistungswandlers von RCT Power ablesen.
 
 ## ANMERKUNGEN
+**WICHTIG: Der RCT-Wechselrichter kann nicht zwischen verschiedenen Clients unterscheiden, die Daten anfordern.** Wenn Sie die „RCT Power App“ auf einem Smartphone/Tablet öffnen oder andere Adapter (z. B. EVCC) verwenden, die Anfragen an den Wechselrichter senden, empfängt der Adapter stets nicht angeforderte Daten (im Debug-Modus sichtbar).
+
+Diese Daten werden verworfen, und nur die angeforderten Daten werden verarbeitet.
+
 Im Feld „RCT-Elemente“ kann ausgewählt werden, welche Daten vom Stromrichter gelesen werden sollen.
 Wenn hier nichts eingegeben wird, werden die Standardwerte verwendet.
 
@@ -44,7 +48,7 @@ Das Objekt "battery.bat_status" gibt den Status einer angeschlossenen Batterie a
 * 1024 -> Kalibrierung - Entladephase (xx% --> 0%)
 * 2048 -> Ausgleich
 
-Das Objekt „inverter_state“ gibt den Status des Wechselrichters an.
+Das Objekt „prim_sm.state“ gibt den Status des Wechselrichters an.
 
 * 0 -> 'Standby'
 * 1 -> 'Initialisierung'
@@ -70,7 +74,7 @@ Keiner
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.2.28 (2026-06-18)
 Improve Logging Consistency and Debug Handling
 #320
 
@@ -91,28 +95,15 @@ Improve Logging Consistency and Debug Handling
 * (Andreas Ruttkamp) minimum version for admin now 7.6.17
 * (Andreas Ruttkamp) minimum version for js controller now 6.0.11
 
-### 1.2.23 (2025-08-19)
-* (Andreas Ruttkamp) enhancement issue #241
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Copyright (c) 2025-2026 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>
+Copyright (c) 2025-2026 Andreas Ruttkamp ioBroker.rct@ruttkamp.com

@@ -35,20 +35,20 @@
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 1.42.2 (2026-07-05)
+- (skvarel) Fixed: Repository checker warning W3048 (test-command override removed, added test:package)
+
+### 1.42.1 (2026-06-29)
+- (skvarel) Fixed: Repository checker error E0036
+
+### 1.42.0 (2026-05-31)
+- (skvarel) Added: New Icon (brands/github)
+
 ### 1.41.0 (2026-05-24)
 - (skvarel) Added: New icons (star and gear filled)
 
 ### 1.40.1 (2026-05-24)
 - (skvarel) Fixed: Issue repo-checker [W8917]
-
-### 1.40.0 (2026-05-12)
-- (skvarel) Added: New Icons (people filled)
-
-### 1.39.0 (2026-05-10)
-- (skvarel) Added: New Icons (people & map filled)
-
-### 1.38.1 (2026-04-09)
-- (skvarel) Fixed: Added Dependabot cooldown configuration (7 days) to reduce supply chain risk
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

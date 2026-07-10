@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heizoel24-mex/README.md
 title: ioBroker.heizoel24-mex
-hash: m9tlHglZw1zXdc24DjansbtlpKjHplLaw4XBW6nga4o=
+hash: CzYN8HTeTVyfkIUXiwxe5VPHqfyFg25XnDuFVq5bpiE=
 ---
 ![Logo](../../../en/adapterref/iobroker.heizoel24-mex/admin/heizoel24-mex.png)
 
@@ -25,6 +25,18 @@ Siehe: https://www.heizoel24.de/mex
 Geben Sie einfach die Anmeldedaten Ihres Heizoel24-Kontos (E-Mail-Adresse und Passwort) ein.<br> Die MEX-Daten sind im Datenpunkt heizoel24-mex gespeichert.<br> Der Adapter startet standardmäßig alle 3 Stunden. Das ist völlig ausreichend, da der MEX nur einmal täglich Daten sendet.<br> Die Datenpunkte CalculatedRemaining/JsonForEcharts (berechnete Restmenge) und OilUsage/JsonForEcharts können direkt mit eCharts verwendet werden.<br> Der Adapter kann Daten via MQTT senden.<br> Die Original-App berechnet die jährliche Nutzung immer zum 31. Dezember.<br> Das ist unpraktisch, da dies mitten in der Heizperiode geschieht.<br> Dieser Adapter kann den Jahresverbrauch auf Basis eines bestimmten Monats berechnen.<br>
 
 ## Changelog
+### 1.10.1 (2026-06-12)
+
+- allowScripts esbuild and protobufjs
+
+### 1.10.0 (2026-05-29)
+
+- More translations added
+
+### 1.9.3 (2026-05-29)
+
+- Translation issues resolved
+
 ### 1.9.2 (2026-05-26)
 
 - Fix: Prevent crash on network errors by safely handling axios exceptions…
@@ -34,13 +46,27 @@ Geben Sie einfach die Anmeldedaten Ihres Heizoel24-Kontos (E-Mail-Adresse und Pa
 
 - Fix: Prevent crash on network errors by safely handling axios exceptions & Remove unused main1.js backup file
 
-### 1.9.0 (2026-05-03)
-- (copilot) Adapter requires node.js >= 22 now
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
-### 1.8.1 (2026-04-06)
+## License
+MIT License
 
-- "Reference month for annual consumption (1–12)" edited
+Copyright (c) 2025-2026 Daniel Luginbühl <webmaster@ltspiceusers.ch>
 
-### 1.8.0 (2026-04-05)
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-- Yearly Oil usage by reference month added
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

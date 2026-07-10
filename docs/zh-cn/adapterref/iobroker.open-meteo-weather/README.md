@@ -3,16 +3,16 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.open-meteo-weather/README.md
 title: ioBroker.open-meteo-weather
-hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
+hash: ZDtyYCv3+PZq9GWbyJ9HYdjGqTd6XEDq5f/Mq3OAUIA=
 ---
-![标识](../../../en/adapterref/iobroker.open-meteo-weather/admin/open-meteo.png)
-
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.open-meteo-weather.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.open-meteo-weather.svg)
 ![安装数量](https://iobroker.live/badges/open-meteo-weather-installed.svg)
 ![稳定仓库中的当前版本](https://iobroker.live/badges/open-meteo-weather-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.open-meteo-weather.svg?data=d)
 ![节点-lts](https://img.shields.io/node/v-lts/iobroker.open-meteo-weather?style=flat-square)
+
+<img src="admin/open-meteo.png" width=100 >
 
 # IoBroker.open-meteo-weather
 ![测试与发布](https://github.com/H5N1v2/iobroker.open-meteo-weather/workflows/Test%20and%20Release/badge.svg)
@@ -28,14 +28,14 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 
 **适用于 ioBroker 的 OpenMeteo 天气和光伏预测服务适配器。**
 
-此适配器提供由[Open-Meteo.com](https://open-meteo.com/)支持的精确天气数据、预报、空气质量、花粉和光伏发电预报信息。它对非商业用途（每日API调用次数低于10,000次）免费，无需注册API密钥，因此设置过程极其简单。
+此适配器提供由[Open-Meteo.com](https://open-meteo.com/)支持的精确天气数据、预报、空气质量、花粉和光伏发电预报信息。它对非商业用途（每日API调用次数低于10,000次）免费，且无需注册API密钥，因此设置过程极其简单。
 
 ---
 
 ## 天气功能
 * **当前天气数据：**实时获取温度、湿度、气压和风力数据。
 * **灵活的预测：** 可配置预测天数和小时分辨率。
-* **空气质量和花粉：**可选的颗粒物（PM2.5、PM10）以及各种花粉类型（桤木、桦树、草等）数据。
+* **空气质量和花粉：** 可选的颗粒物（PM2.5、PM10）以及各种花粉类型（桤木、桦树、草等）数据。
 * **自动清理：** 如果预测周期在配置中缩短或更改，适配器会自动清理对象结构。
 * **多语言支持：**支持 11 种语言（包括英语、德语、波兰语、俄语、法语、中文等）。
 * **单位制：** 可在公制（°C，km/h）和英制（°F，mph）系统之间无缝切换。
@@ -118,7 +118,7 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 * **风向：** `wind_direction_icon` 下的静态路径会显示与度数对应的罗盘箭头（显示方向可选择）。
 * **阵风警告：**当风速超过约 39 公里/小时（Bft 6）时，`wind_gust_icon` 下方会显示警告图标，等级为 0-4。
 * **月相图标：** 可以在 `moon_phase_icon` 下找到月亮图标，它们显示月相。
-* **多种图标：** 您可以选择静态图标和动态图标（由 [basmilius](https://github.com/basmilius/meteocons) 提供）。
+* **多种图标：** 您可以选择静态图标和动态图标（由 [basmilius](https://github.com/basmilius/meteocons) 制作）。
 
 ---
 
@@ -159,7 +159,7 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 | `pv-forecast` | 光伏预测数据文件夹 |
 | `pv-forecast` | 光伏预测数据文件夹 |
 
-### 15 分钟预报 (`15-min-forecast.0 - 95`)，（当前日期的 24 小时），如果启用
+### 15 分钟预报 (`15-min-forecast.0 - 95`)，（当前 24 小时），如果启用
 | 数据点 | 单位 | 描述 |
 | `global_tilted_irradiance` | 瓦时 | 基于装机容量（kWp）的预期能量。 |
 | `pv_temperature` | °C | 光伏组件预估温度（Faiman 计算）。 |
@@ -170,7 +170,7 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 
 信息：需要 temperature_2m 和 wind_spread_10m 来计算光伏组件温度。
 
-可根据需要选择，否则 DP 包含在天气中。
+如有需要，可选择是否启用；否则，DP 将包含在天气信息中。
 
 | 数据点 | 单位 | 描述 |
 | `cloud_cover` | % | 总云量百分比。 |
@@ -183,7 +183,7 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 | `Peak_day` | 瓦时 | 预计每日总产量。 |
 | `Peak_day` | Wh | 预计每日总发电量。 |
 
-### 如果启用，则预测 JSON (`location_folder`)
+### 预测 JSON (`location_folder` 如果启用
 | 数据点 | 单位 | 描述 |
 | `15-min-json_chart` | - | JSON 15分钟 |
 | `hourly-json_chart` | - | JSON 小时 |
@@ -224,7 +224,7 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 | `time` | - | 预测时间（时:分）。 |
 | `时间` | - | 预测时间（时:分）。 |
 
-### 如果启用，则使用 JSON 数据点
+### 如果启用，则显示 JSON 数据点
 | 数据点 | 单位 | 描述 |
 |:---|:---|:---|
 | `sum_peak_15-min-json_chart` | - | 15 分钟位置总和（JSON 格式） |
@@ -275,7 +275,7 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 
 ## 法律与版权
 ### 图标和图像
-动画天气图标，作者：[巴斯·米利乌斯](https://github.com/basmilius/meteocons)
+由 [巴斯·米利乌斯](https://github.com/basmilius/meteocons) 制作的动态天气图标
 
 本适配器中包含的静态天气和风向图标受创作者的版权保护。
 
@@ -283,6 +283,26 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 * **天气数据：**所有天气数据均由[Open-Meteo.com](https://open-meteo.com/)提供。请查看其商业用途使用条款。
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) upscaled the logo
+* (@GermanBluefox) Updated TS to 6
+* (@GermanBluefox) Corrected image in JsonConfig
+
+### 3.1.3 (2026-06-20)
+* (H5N1v2) Fixed an issue with object creation caused by an accidental change.
+
+### 3.1.2 (2026-06-20)
+* (mcuiobroker) fix: after adapter update, automatically adjust type and role if they have been changed in new versions.
+* (H5N1v2) Update dependencies
+
+### 3.1.1 (2026-06-10)
+* (pk68) fix: `info.lastUpdate_weather`, `info.lastUpdate_PV_Forecast` and `hourly.next_hours.hour*.date` now store a Unix timestamp (`value.time`) instead of a formatted string, preventing incorrect date parsing by ioBroker.
+* (H5N1v2) Update dependencies
+* (H5N1v2) fix: [W5612] Remove unused custom actions configuration from jsonConfig
+* (H5N1v2) fix: [W5063] JSON formatting in "admin/jsonConfig.json" is hard to read (mixed indentation).
+* (H5N1v2) fix type assertion for channel name
+* (H5N1v2) fix some things in README.md
+
 ### 3.1.0 (2026-05-03)
 * (H5N1v2) Changed update routine for weather and PV forecast to fixed fetch times.
 * (H5N1v2) Added a customizable HTML weather widget in the admin area.
@@ -299,18 +319,6 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 * (H5N1) fix: attribute in jsonConfig.
 * (Negalein) fix: yellow help text in admin for pv-forecast extra dp's, poor recognition on white background
 * (H5N1v2) fix: update interval for pv-forecast "once before sunrise" time incorrectly calculated
-
-### 3.0.0 (2026-04-18)
-* (H5N1v2) merged open-meteo-weather and open-meteo-pv-forecast
-* (H5N1v2) adding icon selection tab and animated icons for weather by Bas Milius
-* (H5N1v2) adding solar_noon in daily, freezing_level_height and snowfall_height in hourly
-* (H5N1v2) remove global_tilted_irradiance datapoint from weather.hourly
-
-### 2.6.4 (2026-03-30)
-* (H5N1v2) Update axios dependency to version 1.14.0
-
-### 2.6.3 (2026-03-26)
-* (H5N1v2) add sentry plugin to automatically report errors to developer
 
 ## License
 This project is licensed under the **MIT License** - see the `LICENSE` file for details.

@@ -27,11 +27,16 @@
 	- Changing Vito.xml without losing settings
 	- Implement unit on/off
 
+
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.5 (2026-06-29)
+* (misanorot) fixed checker issues
+
 ### 2.0.4 (2026-05-17)
 * (misanorot) fixed checker issues
 
@@ -45,13 +50,10 @@
 ### 1.7.3 (2025-10-26)
 * (misanorot) update npm progress
 
-### 1.7.2 (2025-10-12)
-* (misanorot) update packages
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
-### License
+## License
 
 The MIT License (MIT)
 
 Copyright (c) 2017-2026 misanorot <audi16v@gmx.de>
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)

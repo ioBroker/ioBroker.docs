@@ -82,7 +82,8 @@ The adapter allows you to control a dishwasher or other devices that consume sta
   Placeholder for the next version (at the beginning of the line):
 -->
 ### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+* (copilot) Adapter requires node.js >= 22 now
+* (René) dependencies updated
 
 ### 2.0.12 (2026-04-24)
 * (René) bug fix for issue #451: device base ID is editable now

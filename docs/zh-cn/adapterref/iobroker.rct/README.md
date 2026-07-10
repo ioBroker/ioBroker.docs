@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: EajmOZN39ieDon/Nr5SpCsXDOTJr3WYFZc0/QNl0INo=
+hash: ja4Xq840nSnlef0NHoGnS79lIeVqxLbZfTt6SRPqMA0=
 ---
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.rct?label=npm%20downloads&style=flat-square)
@@ -28,6 +28,10 @@ hash: EajmOZN39ieDon/Nr5SpCsXDOTJr3WYFZc0/QNl0INo=
 读取RCT Power光伏功率转换器的数值。
 
 ＃＃ 评论
+**重要提示：RCT逆变器无法区分请求数据的不同客户端。** 在智能手机/平板电脑上打开“RCT Power App”或运行其他适配器（例如EVCC）向逆变器发送查询时，适配器始终会收到未经请求的数据（可在调试模式下查看）。
+
+这些数据将被丢弃，只有请求的数据才会被处理。
+
 通过使用“RCT元件”字段，可以选择要从电源转换器读取哪些数据。
 
 如果此处未输入任何内容，则将使用默认值：
@@ -46,7 +50,7 @@ hash: EajmOZN39ieDon/Nr5SpCsXDOTJr3WYFZc0/QNl0INo=
 * 1024 -> 校准 - 放电阶段 (xx% --> 0%)
 * 2048 -> 平衡
 
-对象“inverter_state”指示逆变器的状态。
+对象“prim_sm.state”指示逆变器的状态。
 
 * 0 -> '待机'
 * 1 -> '初始化'
@@ -72,7 +76,7 @@ hash: EajmOZN39ieDon/Nr5SpCsXDOTJr3WYFZc0/QNl0INo=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.2.28 (2026-06-18)
 Improve Logging Consistency and Debug Handling
 #320
 
@@ -93,28 +97,15 @@ Improve Logging Consistency and Debug Handling
 * (Andreas Ruttkamp) minimum version for admin now 7.6.17
 * (Andreas Ruttkamp) minimum version for js controller now 6.0.11
 
-### 1.2.23 (2025-08-19)
-* (Andreas Ruttkamp) enhancement issue #241
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Copyright (c) 2025-2026 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>
+Copyright (c) 2025-2026 Andreas Ruttkamp ioBroker.rct@ruttkamp.com

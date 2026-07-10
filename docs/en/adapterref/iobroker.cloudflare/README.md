@@ -41,7 +41,9 @@ Automatically updates the registered domain name at Cloudflare with your public 
 * Fixed #23
 * Fixed #24
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
+## License
 MIT License
 
 Copyright (c) 2025-2026 Marco15453 <support@marco15453.dev>

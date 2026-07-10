@@ -166,6 +166,17 @@ Supports heating, filter, UVC, bubble and jet control with full automation via t
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (arteck) add offline message
+* (arteck) fix app override
+
+### 0.4.1 (2026-06-16)
+* (arteck) refactoring
+* (arteck) fix offline status
+
+### 0.4.0 (2026-06-03)
+* (arteck) new logic for heater
+
 ### 0.3.9 (2026-05-27)
 * (arteck) fix heater start
 
@@ -176,34 +187,3 @@ Supports heating, filter, UVC, bubble and jet control with full automation via t
 
 ### 0.3.7 (2026-05-12)
 * (arteck) add warning as text
-
-### 0.3.6 (2026-05-12)
-* (arteck) fix daily uvc timer after adapter restart
-
-### 0.3.5 (2026-05-12)
-* (arteck) clean code
-* (arteck) less notification
-
-## License
-
-MIT License
-
-Copyright (c) 2026 Arthur Rupp <arteck@outlook.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

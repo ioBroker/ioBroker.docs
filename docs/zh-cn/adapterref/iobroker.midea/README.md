@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.midea/README.md
 title: ioBroker.midea
-hash: rN8jfwxs85SLopsq8p9KCqOXt0t8ZLeiXzJA2gUVZQ8=
+hash: 8B0gvezYULYsWVQGevePwpqE8T8Pc9I3vMtt7FxSJo8=
 ---
 ![标识](../../../en/adapterref/iobroker.midea/admin/midea.png)
 
@@ -85,7 +85,7 @@ midea.0
 
 ### 控制（除湿器，0xA1）
 | 控制 | 类型 | 描述 |
-| ------------------ | ------- | -------------------------------------------- |
+| ------------------ | ------- | ------------------------------------------------------- |
 | `powerOn` | 布尔值 | 打开/关闭设备 |
 | `targetHumidity` | 数值 | 0–100% 目标湿度 |
 | `fanSpeed` | 数字 | 0–127 (40 静音，60 低，80 高，102 自动) |
@@ -134,7 +134,7 @@ midea.0
 - `0xB1` 烤箱，`0xB3` 蒸笼，`0xB4` 烤箱-蒸笼组合。
 - `0xAD` 空气盒（PM2.5 / VOC 传感器）。
 
-对于每个可控类型，可写字段在 `devices.<id>.controls.*` 下公开；传感器值在 `devices.<id>.status.*` 下公开。
+对于每个可控类型，可写字段在 `<deviceId>.control.*` 下公开；传感器值在 `<deviceId>.status.*` 下公开。
 
 ### 控制（风扇，0xFA）
 | 控制 | 类型 | 描述 |
@@ -196,6 +196,15 @@ midea.0
 <!-- 
   Placeholder for next versions. Do NOT remove. 
 -->
+### 1.8.6 (2026-06-29)
+- Improved State parsing
+
+### 1.8.5 (2026-06-13)
+- Improve Device detection
+
+### 1.8.4 (2026-06-01)
+- Minor Bugfixes
+
 ### 1.8.3 (2026-05-25)
 
 -   Adds a NetHome Plus Fallback for ot working devices

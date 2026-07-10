@@ -126,6 +126,8 @@ Individual parameters can be removed, e.g. just to change the log text (message)
 -   (ciddi89) Fixed: Visualization tables was not working correctly [#97](https://github.com/iobroker-community-adapters/ioBroker.logparser/issues/97)
 -   (ciddi89) Updated: Dependencies
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License

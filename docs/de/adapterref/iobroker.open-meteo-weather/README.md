@@ -3,16 +3,16 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.open-meteo-weather/README.md
 title: ioBroker.open-meteo-weather
-hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
+hash: ZDtyYCv3+PZq9GWbyJ9HYdjGqTd6XEDq5f/Mq3OAUIA=
 ---
-![Logo](../../../en/adapterref/iobroker.open-meteo-weather/admin/open-meteo.png)
-
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.open-meteo-weather.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.open-meteo-weather.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/open-meteo-weather-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/open-meteo-weather-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.open-meteo-weather.svg?data=d)
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.open-meteo-weather?style=flat-square)
+
+<img src="admin/open-meteo.png" width=100 >
 
 # IoBroker.open-meteo-weather
 ![Test und Freigabe](https://github.com/H5N1v2/iobroker.open-meteo-weather/workflows/Test%20and%20Release/badge.svg)
@@ -39,7 +39,7 @@ Dieser Adapter liefert präzise Wetterdaten, Vorhersagen, Informationen zur Luft
 * **Automatische Bereinigung:** Der Adapter bereinigt die Objektstruktur automatisch, wenn Prognosezeiträume verkürzt oder in der Konfiguration geändert werden.
 * **Mehrsprachige Unterstützung:** Unterstützt 11 Sprachen (darunter Englisch, Deutsch, Polnisch, Russisch, Französisch, Chinesisch usw.).
 * **Einheitensystem:** Nahtloses Umschalten zwischen metrischen (°C, km/h) und imperialen (°F, mph) Einheiten.
-* **Mehrere Standorte:** Mehrere Standorte hinzufügen.
+* **Mehrere Standorte:** Fügen Sie mehrere Standorte hinzu.
 * **Nacht-Icons:** Sie können zwischen zwei Nacht-Icon-Sets wählen: „Hell“ und „Dunkel“. Dadurch lässt sich das Icon leichter an Ihren Hintergrund anpassen.
 
 ### Windrichtungssymbole
@@ -207,18 +207,18 @@ Bei Bedarf optional auswählbar, ansonsten sind die DP in den Wetterdaten enthal
 | `sunshine_duration` | min | Tatsächliche Sonnenscheindauer in Minuten innerhalb dieser Stunde. |
 | `sunshine_duration` | min | Tatsächliche Sonnenscheindauer in Minuten innerhalb dieser Stunde. |
 
-### Sum_peak_locations_15_Minutely (`0-95`) if enebled
+### Sum_peak_locations_15_Minutly (`0-95`) if enabled
 | Datenpunkt | Einheit | Beschreibung |
 | `sum_locations` | Wh | Summe der Standorte alle 15 Minuten |
 | `time` | - | Vorhersagezeit (HH:mm). |
 | `time` | - | Vorhersagezeit (HH:mm). |
 
-### Sum_peak_locations_Daily (`dayX`) if enebled
+### Sum_peak_locations_Daily (`dayX`) falls aktiviert
 | Datenpunkt | Einheit | Beschreibung |
 | `sum_locations` | Wh | Summe der Standorte täglich |
 | `sum_locations` | Wh | Summe der Standorte täglich |
 
-### Sum_peak_locations_Hourly (`HourX`) if enebled
+### Sum_peak_locations_Hourly (`HourX`) falls aktiviert
 | Datenpunkt | Einheit | Beschreibung |
 | `sum_locations` | Wh | Summe der Standorte stündlich |
 | `time` | - | Vorhersagezeit (HH:mm). |
@@ -283,6 +283,26 @@ Die in diesem Adapter enthaltenen statischen Wetter- und Windrichtungssymbole un
 * **Wetterdaten:** Alle Wetterdaten werden von [Open-Meteo.com](https://open-meteo.com/) bereitgestellt. Bitte beachten Sie deren Nutzungsbedingungen für kommerzielle Zwecke.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) upscaled the logo
+* (@GermanBluefox) Updated TS to 6
+* (@GermanBluefox) Corrected image in JsonConfig
+
+### 3.1.3 (2026-06-20)
+* (H5N1v2) Fixed an issue with object creation caused by an accidental change.
+
+### 3.1.2 (2026-06-20)
+* (mcuiobroker) fix: after adapter update, automatically adjust type and role if they have been changed in new versions.
+* (H5N1v2) Update dependencies
+
+### 3.1.1 (2026-06-10)
+* (pk68) fix: `info.lastUpdate_weather`, `info.lastUpdate_PV_Forecast` and `hourly.next_hours.hour*.date` now store a Unix timestamp (`value.time`) instead of a formatted string, preventing incorrect date parsing by ioBroker.
+* (H5N1v2) Update dependencies
+* (H5N1v2) fix: [W5612] Remove unused custom actions configuration from jsonConfig
+* (H5N1v2) fix: [W5063] JSON formatting in "admin/jsonConfig.json" is hard to read (mixed indentation).
+* (H5N1v2) fix type assertion for channel name
+* (H5N1v2) fix some things in README.md
+
 ### 3.1.0 (2026-05-03)
 * (H5N1v2) Changed update routine for weather and PV forecast to fixed fetch times.
 * (H5N1v2) Added a customizable HTML weather widget in the admin area.
@@ -299,18 +319,6 @@ Die in diesem Adapter enthaltenen statischen Wetter- und Windrichtungssymbole un
 * (H5N1) fix: attribute in jsonConfig.
 * (Negalein) fix: yellow help text in admin for pv-forecast extra dp's, poor recognition on white background
 * (H5N1v2) fix: update interval for pv-forecast "once before sunrise" time incorrectly calculated
-
-### 3.0.0 (2026-04-18)
-* (H5N1v2) merged open-meteo-weather and open-meteo-pv-forecast
-* (H5N1v2) adding icon selection tab and animated icons for weather by Bas Milius
-* (H5N1v2) adding solar_noon in daily, freezing_level_height and snowfall_height in hourly
-* (H5N1v2) remove global_tilted_irradiance datapoint from weather.hourly
-
-### 2.6.4 (2026-03-30)
-* (H5N1v2) Update axios dependency to version 1.14.0
-
-### 2.6.3 (2026-03-26)
-* (H5N1v2) add sentry plugin to automatically report errors to developer
 
 ## License
 This project is licensed under the **MIT License** - see the `LICENSE` file for details.

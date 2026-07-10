@@ -105,6 +105,10 @@ Click for the widget source.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.0.1 (2026-06-21)
+- (mcm1957) Linter issues fixed blocking release process
+- (mcm1957) Dependencies have been updated
+
 ### 3.0.0 (2026-05-17)
 - (copilot) Adapter requires node.js >= 22 now
 - (@GermanBluefox) Updated packages
@@ -129,14 +133,9 @@ Click for the widget source.
 - (copilot) Widget image paths fixed to use `/vis/widgets/` instead of a relative path for proper display in VIS
 - (mcm1957) Dependencies have been updated
 
-### 1.5.6 (2025-12-08)
-- (aruttkamp) dev dependencies aktualisiert
-- (mcm1957) adapter requires node.js 20 now
-- (aruttkamp) dev dependencies aktualisiert
-- (aruttkamp) correct issues detected by repository checker [#421]
-- (aruttkamp) changes redirect URI and docu
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
+## License
 The MIT License (MIT)
 
 Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  

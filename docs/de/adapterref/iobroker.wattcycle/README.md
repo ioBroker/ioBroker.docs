@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wattcycle/README.md
 title: ioBroker.wattcycle
-hash: FCcN7Xly6ogIdv+jxgtbe0vwSxoNOU6KjDNKpGx4Ipk=
+hash: iwXC7pbp3GozHWWzpfotm7/hKeirAJWzTUe0012QhEA=
 ---
 <img src="admin/wattcycle.png" width="100" />
 
@@ -84,7 +84,6 @@ sendTo('wattcycle.0', 'scan', { duration: 8000 }, res => console.log(res.devices
 
 ## Anforderungen
 - Linux mit BlueZ (`apt install bluez libbluetooth-dev`).
-- Node.js ≥ 20.
 - Dem Adapter muss der Zugriff auf den HCI-Socket erlaubt werden (typischerweise als Root ausgeführt oder mit `setcap`).
 - Der Bluetooth-Adapter muss Bluetooth 5.0 (LE Long Range) unterstützen.
 
@@ -93,18 +92,21 @@ sendTo('wattcycle.0', 'scan', { duration: 8000 }, res => console.log(res.devices
    Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.0 (2026-07-01)
 * (@GermanBluefox) Improved total calculations
+* (@GermanBluefox) Updated packages
 
 ### 0.2.2 (2026-05-07)
 * (@GermanBluefox) Managed timeouts and power off
 
 ### 0.2.1 (2026-05-06)
-* (@GermanBluefox) Use MAC address as unique identifier bluetooth adapter
+* (@GermanBluefox) Use MAC address as a unique identifier bluetooth adapter
 
 ### 0.1.0 (2026-05-05)
 
 * (@GermanBluefox) Initial version.
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

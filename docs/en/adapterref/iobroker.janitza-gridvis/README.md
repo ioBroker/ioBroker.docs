@@ -65,9 +65,6 @@ Implemented are the following times:
 ### 3.7.0 (2026-04-02)
 * (BenAhrdt) display online Values in card
 
-### Older entries
-[here](OLD_CHANGELOG.md)
-
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License

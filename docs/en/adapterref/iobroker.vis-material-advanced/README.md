@@ -80,6 +80,7 @@ thanks to @sigi234
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 <!--
     Placeholder

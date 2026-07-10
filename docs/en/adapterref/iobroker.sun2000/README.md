@@ -33,6 +33,19 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.5.1 (2026-06-29)
+- (bolliy) fix: update service queue logic ([#283](https://github.com/bolliy/ioBroker.sun2000/discussions/283))
+- (bolliy) statistics fix: adjust reset handling logic to treat significant drops in value as potential resets
+
+### 2.5.0 (2026-06-09)
+* (bolliy) statistics: added live power chart (statistics.jsonLive)
+* (bolliy) statistics: consumption breakdown — breakdown values are now subtracted from the total `consumption` entry so the lower chart panel shows the remainder separately from the breakdown series
+* (bolliy) statistics: `xAxisFormatter` for the live chart only labels full-hour ticks to avoid clutter
+* (bolliy) statistics: tooltip formatter refactored — `formatTooltipValue(unit, negative, decimals)` helper used consistently across all series
+* (bolliy) statistics: if no battery is present, the charts are generated without battery information (SOC, charge, discharge).
+* (bolliy) fix emma: update register addresses of meter.activePowerL1-L3 ([#282](https://github.com/bolliy/ioBroker.sun2000/issues/282))
+* (bolliy) requires node.js >= 22
+
 ### 2.4.5 (2026-05-14)
 * statistics fix: return weekly range up to current Monday
 * statistics: added support for generating statistics templates directly from built-in charts
@@ -46,19 +59,6 @@ Work in progress
 * statistics: default chart shows energy flows above/below zero line, SOC (hourly only), self-sufficiency and self-consumption on second Y-axis
 * statistics: computed values `selfSufficiency` and `selfConsumption` calculated automatically in all time-series states
 * statistics: data placeholders (`%%solarYield%%`, `%%selfSufficiency%%` etc.) and negated variants (`%%gridExportNeg%%` etc.) for mirrored chart layouts
-
-### 2.4.2 (2026-04-04)
-* fix test-and-release: deploy with 24.x
-* statistics: flexcharts integration — built-in Apache ECharts configuration with bar and line chart support
-* statistics: day-break visualization with alternating shaded areas for hourly charts
-* statistics: per chart-type templates (`statistics.flexCharts.template.hourly` etc.) for full ECharts customization including functions
-* statistics: data placeholders (`%%solarYield%%`, `%%gridExport%%` etc.) allow complete chart layout control via template states
-* statistics: chart output states (`statistics.flexCharts.jsonOutput.hourly` etc.) updated automatically each hour
-
-### 2.4.0 (2026-03-14)
-* fix: the order of bit assignment corrected of alarmsJSON
-* new state `inverter.x.emma.activeAlarmSN` and `inverter.x.emma.HistoricalAlarmSN` : emma alarms  [#226](https://github.com/bolliy/ioBroker.sun2000/issues/226)
-* statistics: Aggregates historical collected datapoints into time-based summaries (e.g. hourly, daily, monthly, yearly). The data is stored in the path `statistics` as JSON.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -58,7 +58,11 @@ Questions? Check the [FAQ](faq.md) section first!
 
 ## Features
 
-The adapter integrates with the ioBroker Device Manager. See [Devicemanager support documentation](devicemanager.md).
+- The adapter integrates with the ioBroker Device Manager. See [Devicemanager support documentation](devicemanager.md).
+
+## Restrictions
+
+- The Shelly adapter does not support Shellies connecting using any sort of NAT, i.e. most vpns and shelly range extender.
 
 ## Changelog
 
@@ -67,22 +71,24 @@ The adapter integrates with the ioBroker Device Manager. See [Devicemanager supp
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (@klein0r) Updated ble script (v1.3) for Shelly firmware > 2.0
+- (@klein0r) Added hold (128) and nothing (0) to BLE states for buttons
 
-### 11.0.0-alpha.15 (2026-05-10)
+### 11.0.0 (2026-07-03)
+- (@klein0r) Updated ble script (v1.3) for Shelly firmware > 2.0
+- (@GermanBluefox) Added firmware update available indicator for devices supporting this feature.
 - (@copilot) Added Shelly Dimmer 0/1-10V PM Gen4 (shelly0110dimg4).
 - (@copilot) Added HiluX DS8 by Shelly (hiluxds8)
 - (@copilot) Added Shelly EM Gen4 (shellyemg4)
-- (@mcm1957) Adapter requires node.js >= 22, js-controller >= 6.0.11 and admin >= 7.8.20 now.
+- (@mcm1957) Adapter requires node.js >= 22, js-controller >= 6.0.11 and admin >= 7.8.23 now.
 - (@GermanBluefox) Device manager has been added providing info and control of devices and provisioning.
-- (@mcm1957) IMPORTANT: Please read changelog at README.md listing more information.
+- (@mcm1957) IMPORTANT: Please read the changelog at README.md listing more information.
 
 ### 11.0.0 additional information 
 - (@mcm1957) Added Shelly Presence Gen 4
 - (@mcm1957) Added Shelly Cury
 - (@GermanBluefox) Added support for Device manager: info and control of devices and provisioning
 - (@GermanBluefox) Added detection of new devices in the background
-- (@mcm1957) Some missing states added at illuminance component
+- (@mcm1957) Some missing states added at an illuminance component
 - (@mcm1957) DISABLE all PLUG_UI functionality due to unrecoverable HW faults.
 - (@mcm1957) Dependencies have been updated
 
@@ -102,6 +108,7 @@ The adapter integrates with the ioBroker Device Manager. See [Devicemanager supp
 
 ### 10.5.2 (2025-12-28)
 * (@mcm1957) Monophase profile support has been fixed for shellypro3em and shellypro3em400.
+
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

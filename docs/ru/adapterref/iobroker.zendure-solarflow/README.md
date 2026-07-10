@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: BT6fq8xLzzR6Bd5pWDJ1gjLaIyPhg+Q15p/ibrt8wCo=
+hash: FOzwWSvFOpUsK0/fB2iZjiSBxwNWuvJfzIvLcGuKsN8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -26,7 +26,7 @@ hash: BT6fq8xLzzR6Bd5pWDJ1gjLaIyPhg+Q15p/ibrt8wCo=
 ## Функции
 — Получайте все телеметрические данные с ваших устройств Solarflow, включая те, которые не отображаются в официальном приложении, например, напряжение батареи.
 — Управляйте устройствами Solarflow так же, как и в официальном приложении. Большинство настроек доступны.
-— Контролируйте ограничения на входе и выходе — вы не ограничены использованием Shelly Pro EM для реализации нулевой подачи сигнала. Вы также можете проектировать более сложные сценарии с помощью скриптов или Blockly в ioBroker.
+— Контролируйте ограничения на вход и выход — вы не ограничены использованием Shelly Pro EM для реализации нулевой подачи сигнала. Вы также можете проектировать более сложные сценарии с помощью скриптов или Blockly в ioBroker.
 - Отключение входного сигнала при низком напряжении одной из батарей (защита батареи). Работает только при установке ограничения выходного напряжения через адаптер.
 — Управляйте несколькими устройствами Solarflow одновременно!
 — Получите более точные расчеты!
@@ -75,7 +75,7 @@ hash: BT6fq8xLzzR6Bd5pWDJ1gjLaIyPhg+Q15p/ibrt8wCo=
 ## Автономный режим (отключение от Zendure Cloud)
 В качестве новой функции вы можете отключить устройство Zendure от облака. Для этого можно использовать [Solarflow Bluetooth Manager от Райнхарда Брандштеттера (https://github.com/reinhard-brandstaedter/solarflow-bt-manager) или мой собственный инструмент для Windows [Zendure Cloud Disconnector].](https://github.com/nograx/zendure-cloud-disconnector). Также можно перенаправлять DNS-запросы с вашего маршрутизатора с "mq.zen-iot.com" на ваш собственный MQTT-сервер!
 
-Оба инструмента подключаются к устройству Zendure через Bluetooth и просто устанавливают внутренний URL-адрес MQTT на новый URL/IP-адрес, который вам необходимо указать. В настоящее время вы вынуждены использовать порт MQTT по умолчанию 1883 на вашем сервере. Вам также необходимо отключить аутентификацию на сервере MQTT, поскольку устройство Zendure использует жестко закодированный пароль.
+Оба инструмента подключаются к устройству Zendure через Bluetooth и просто устанавливают внутренний URL-адрес MQTT на новый URL/IP-адрес, который вам необходимо указать. В настоящее время вы вынуждены использовать порт MQTT по умолчанию 1883 (или 8883 с SSL) на вашем сервере. Вам также необходимо отключить аутентификацию на сервере MQTT, поскольку устройство Zendure использует жестко закодированный пароль.
 
 Вы можете использовать это в сочетании с ключом облачной аутентификации или в полном локальном режиме.
 
@@ -87,13 +87,24 @@ hash: BT6fq8xLzzR6Bd5pWDJ1gjLaIyPhg+Q15p/ibrt8wCo=
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-## **РАБОТА В ПРОЦЕССЕ** -->
+### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
+### 4.1.0 (2026-06-19)
 
-### **WORK IN PROGRESS**
+- Allow local TLS MQTT Server connection on port 8883 (due to new device firmware) in settings
+- Fix batcur calculation
 
-- (copilot) Adapter requires node.js >= 22 now
+### 4.0.6 (2026-06-06)
+
+- Add productKey 'nVyeqM' for Solarflow 800 Pro 2
+
+### 4.0.5 (2026-06-03)
+
+- Add state 'socStatus' (Auto-calibration) for modern devices (SF 800 upwards)
+- Fix adapter start if deviceList is empty
+- Improve logging of errors
+- Adapter requires node.js >= 22 now
 
 ### 4.0.4 (2026-04-14)
 
@@ -104,25 +115,6 @@ hash: BT6fq8xLzzR6Bd5pWDJ1gjLaIyPhg+Q15p/ibrt8wCo=
 - Fix missing ip address field in settings for local mode
 - Add retry loop for zenSDK requests (retry 3 times if connection failed)
 - Update battery detection
-
-### 4.0.2 (2026-03-24)
-
-- Re-add new SF devices to local mode settings
-- Add product key '64174u' for Solarflow 1600 AC+
-
-### 4.0.1 (2026-03-20)
-
-- Fix missing smartMode state for Solarflow AC 2400 and Solarflow 800
-
-### 4.0.0 (2026-03-17)
-
-- Add support for zenSDK! All devices can now communicate in the local network (with full cloud support for backup and maintenance)
-- Add possibility to relay local MQTT messages to Zendure cloud!
-- Save device list from Zendure Cloud as a local backup if cloud is unavailable
-- Major refactor and improvements
-- Fix 'packPower' not correctly set (resetting to 0 every new data package)
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

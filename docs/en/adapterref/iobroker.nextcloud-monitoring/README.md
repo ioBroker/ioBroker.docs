@@ -134,6 +134,11 @@ Verify if the token was correctly saved in Nextcloud using:
 If your Nextcloud is in maintenance mode, the adapter will not be able to fetch data and will log an info. This is normal behavior as the API is disabled during maintenance.
 
 ## Changelog
+### 2.1.1 (2026-07-06)
+* (H5N1v2) chore: update dependencies
+* (H5N1v2) fix: [W5612] add translations for 'your-cloud.com' in multiple languages
+* (H5N1v2) fix: [E6025] README.md must contain exactly one H1 heading, but found 6.
+
 ### 2.1.0 (2026-05-09)
 * (H5N1v2) widget toggleable in the admin area.
 * (H5N1v2) update dependencies.
@@ -149,11 +154,8 @@ If your Nextcloud is in maintenance mode, the adapter will not be able to fetch 
 * (H5N1v2) update @types/node dependency to version 22.19.15
 * (mcm1957) fix: update opcache hit rate state type from string to number
 
-### 2.0.3 (2026-03-18)
-* (mcm1957) fix: reevaluate state roles
-* (mcm1957) fix: creation of intermediate objects missing
-
 [Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## Support & Feedback
 
 If you encounter any **bugs**, have **feature requests**, or want to suggest **improvements**, please feel free to open an **Issue** on GitHub. This helps to track the progress and helps other users with similar problems.

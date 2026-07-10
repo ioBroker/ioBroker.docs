@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.parcel/README.md
 title: ioBroker.parcel
-hash: Nm4SayAjwi1Nrr7/Oq+EaX3AhMCqe3GFN8bzvbgp3/E=
+hash: B5JuvLe0ZuWJA2tA5w6LYfLaK6giYB51FW7kHwJg0ck=
 ---
 ![Logo](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
 
@@ -15,50 +15,82 @@ hash: Nm4SayAjwi1Nrr7/Oq+EaX3AhMCqe3GFN8bzvbgp3/E=
 ![NPM](https://nodei.co/npm/iobroker.parcel.png?downloads=true)
 
 # IoBroker.parcel
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.parcel/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.parcel/workflows/Test%20and%20Release/badge.svg)
 
-##Paketverfolgung/Sendungsverfolgung Adapter für ioBroker
-Paketverfolgung / Sendungsverfolgung Folgen mit deinem ioBroker SmartHome Pakete deine von Amazon, DHL, DPD, Hermes, UPS und GLS. Außerdem wirst du über die Briefverfolgung von der Deutschen Post informiert. Direkt per Push auf Telegram, Pushover oder Signal.
+## Paketverfolgungsadapter für ioBroker
+Verfolgen Sie Pakete von Amazon, DHL, DPD, Hermes, UPS und GLS mit Ihrem ioBroker Smart Home. Auch die Sendungsverfolgung der Deutschen Post wird unterstützt. Benachrichtigungen können direkt via Telegram, Pushover oder Signal versendet werden.
 
-## Anmeldeablauf
+Dieser Adapter verwendet die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
+## Anmeldevorgang
 **DHL:**
 
 - DHL-App-Login eingeben
-- SMS/EMail-Code erhalten
-- In die Instanzeinstellungen eingeben und speichern
+- SMS-/E-Mail-Code erhalten
+- Geben Sie den Code in den Instanzeinstellungen ein und speichern Sie ihn.
 
 **Amazonas:**
 
-- Einloggen eingeben
-- Wenn nötig vorab ein OTP-Token aus der 2FA App vor dem ersten Login eingeben.
+- Geben Sie die Anmeldedaten ein.
+- Geben Sie gegebenenfalls vor der ersten Anmeldung ein OTP-Token aus Ihrer 2FA-App ein.
 
-**DPD, GLS, UPS, 17Track-Benutzer:**
+**DPD, GLS, UPS, 17Track-Nutzer:**
 
-Login und Passwort eingeben
+Geben Sie Benutzername und Passwort ein.
 
-**Telegramm Benachrichtigun für Sendungen und Briefe**
+**Telegram-Benachrichtigung für Pakete und Briefe**
 
-In den Instanz Einstellung aktivieren und z.B. Telegramm.0 eingeben
+Aktivieren Sie die Option in den Instanzeinstellungen und geben Sie beispielsweise `telegram.0` ein.
 
 ## Vis
-**Sendungen als Vis Table darstellen**
+**Grundstücke in einer Vis-Tabelle anzeigen**
 
-Datenpunkte alle Sendungen: packet.0.allProviderJson
+Datenpunkt für alle Parzellen: `parcel.0.allProviderJson`
 
-Datenpunkte in Zustellung: packet.0.inDelivery
+Datenpunkt für Pakete in Zustellung: `parcel.0.inDelivery`
 
-**Widget: json-Tabelle**
+**Widget: JSON-Tabelle**
 
 Anleitung: https://www.smarthome-tricks.de/software-iobroker/iobroker-vis-json-table-widget-teil-1-basics/
 
-**DHL Briefverfolgung in Vis anzeigen.**
+**DHL-Sendungsverfolgung in Vis anzeigen**
 
-Den Datenpunkt packet.0.dhl.briefe....image ein "String img src"-Element als Objekt-ID zuordnen
+Weisen Sie den Datenpunkt `parcel.0.dhl.briefe....image` einem "String img src"-Element als Objekt-ID zu.
 
-##Diskussion und Fragen
+## Diskussion und Fragen
 <https://forum.iobroker.net/topic/51795/test-adapter-parcel-paketverfolgung-dhl-v0-0-1>
 
 ## Changelog
+### 0.3.2 (2026-07-08)
+- Fix for DPD
+- Fix for GLS
+
+### 0.3.1 (2026-07-07)
+
+- DHL: New login via browser code (dhllogin://)
+- Amazon: Login fix and captcha detection with note
+
+### 0.3.0 (2026-04-05)
+
+- DHL: New login via browser code (dhllogin://)
+- Amazon: Login fix and captcha detection with note
+
+### 0.2.10 (2025-01-15)
+
+- add alternative way for dhl login
+- move dhl connections error to info level
+
+### 0.2.8 (2024-10-18)
+
+- fix amazon login
+
+### 0.0.30
+
+- Fix hermes login
+
+### 0.0.25
+
+- Fix amazon UI parsing
 
 ### 0.0.19
 
@@ -76,7 +108,7 @@ Den Datenpunkt packet.0.dhl.briefe....image ein "String img src"-Element als Obj
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

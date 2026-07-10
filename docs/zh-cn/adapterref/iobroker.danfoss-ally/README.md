@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.danfoss-ally/README.md
 title: 无标题
-hash: x8WosFEER+yJnraUu8Zd7H0Cm9C7yURg4hhJSh9InnQ=
+hash: sbctulZ/na+dm0rPNfffIVn7LK1FOKBA4eCl+gSrvTk=
 ---
-![版本](https://img.shields.io/badge/version-0.2.18-blue)
+![版本](https://img.shields.io/badge/version-0.2.19-blue)
 ![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 适用于 **丹佛斯 Ally™** 的云适配器 — 使用 **OAuth2（客户端凭证）**。
@@ -61,7 +61,7 @@ hash: x8WosFEER+yJnraUu8Zd7H0Cm9C7yURg4hhJSh9InnQ=
 | **轮询间隔** | 默认值 `300s` |
 | **轮询间隔** | 默认值：300秒 |
 
-较短的更新间隔可以加快更新速度，但会增加 API 流量。30-60 秒是一个比较合适的平衡点。
+较短的更新间隔可以加快更新速度，但会增加 API 流量。30-60 秒是一个不错的平衡点。
 
 ```bash
 API Key:      your-client-id
@@ -249,7 +249,7 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 错误处理：
 
 - **400:** 无效的标头/值 → 已记录
-- **401：** 令牌刷新 + 重试
+- **401:** 令牌刷新 + 重试
 - **5xx:** 重试下一次轮询
 - 温度值自动缩放 10 倍（例如 21.5 → 215）
 
@@ -266,6 +266,7 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 ## 写入
 - `temp_set` 首先尝试使用 `SetpointChangeSource` + `temp_set` 命令的组合。
 - 当数据点存在时，Ally TRV 也会获得 `manual_mode_fast`，因为某些设备会在那里报告手动设定点。
+- 轮询仅更新 `status.*`；`control.*` 保持纯写入通道，以避免反馈循环。
 - 模式和温度必须分开填写。
 - 数值被限制在允许的范围内，并缩放 10 倍
 - `child_lock`：尝试 `0/1` 次，在 400 错误时重试 `true/false`
@@ -287,6 +288,12 @@ node main.js
 ---
 
 ## Changelog
+
+### 0.2.19
+- Stopped polling from writing cloud values back into `control.*` states to avoid feedback loops with Loxone/scripts
+- Added `state.from` to debug write logs so external write sources can be identified
+- Added direct status fallback for devices that are listed without status values, improving Boiler Relay datapoints
+- Reduced poll debug noise: the initial run still logs all `SET` lines, later polls summarize changed values per device
 
 ### 0.2.18
 - Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
@@ -313,6 +320,8 @@ node main.js
 
 
 ---
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

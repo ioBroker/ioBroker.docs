@@ -504,7 +504,18 @@ To correct the regional endpoints, go to `Instances > alexa2.x > Settings > Cook
 If you region is not present, and you find out the value, do not hesitate to enrich this documentation with your findings.
 
 ## Changelog
-<!-- ### __WORK IN PROGRESS__ -->
+
+<!-- ### **WORK IN PROGRESS** -->
+### 3.28.3 (2026-07-06)
+* (@Apollon77) Fix the proxy login process when no static port is specified
+
+### 3.28.2 (2026-07-05)
+* (@fkhr79, @blabond, @Apollon77) Fix Amazon login proxy auth flow and refreshs
+
+### 3.28.1 (2026-05-22)
+* (MiRo1310) Adds durationMillis to the activeTimerList
+* (Apollon77) Added some more device types
+
 ### 3.27.4 (2025-11-06)
 * (@Apollon77) Adjusts authentication check to recent Amazon changes
 
@@ -1095,7 +1106,7 @@ If you region is not present, and you find out the value, do not hesitate to enr
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2025 Ingo Fischer <iobroker@fischer-ka.de>, 2017-2018 soef <soef@gmx.net>
+Copyright (c) 2018-2026 Ingo Fischer <iobroker@fischer-ka.de>, 2017-2018 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

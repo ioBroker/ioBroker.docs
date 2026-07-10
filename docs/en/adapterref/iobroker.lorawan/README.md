@@ -24,37 +24,24 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.22.13 (2026-05-25)
-- (BenAhrdt) Changes in io-package.
-- (BenAhrdt) Changes in package.json
+### 1.22.31 (2026-07-09)
+- (BenAhrdt) Add selection of ToIob source id
 
-### 1.22.12 (2026-05-09)
-- (copilot) Adapter requires node.js >= 22 now
-* (BenAhrdt) Default Bridge all downlink.control and uplink.decoded to bridge
+### 1.22.30 (2026-07-07)
+- (BenAhrdt) Add PIR Mini device Profile
+- (BenAhrdt) Add possibillity to ad states to downlink numbers
 
-### 1.22.11 (2026-04-20)
-* (BenAhrdt) correct default value for pause (worx)
+### 1.22.29 (2026-07-06)
+- (BenAhrdt) Add some roles and units to assignhandler
 
-### 1.22.10 (2026-04-20)
-* (BenAhrdt) implements button in card
+### 1.22.28 (2026-07-05)
+- (BenAhrdt) Add DewPointTemperature to assignhandler
 
-### 1.22.9 (2026-04-20)
-* (BenAhrdt) error resolve git push
+### 1.22.27 (2026-07-04)
+- (BenAhrdt) Bugfix warning for wrong id
+- (BenAhrdt) Add Profile to downloadconfig
 
-### Older entries
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
-## DISCLAIMER
-The rights of the trademarks and company names,
-remain with their owners and have no relation to this adapter.
-The fairuse policy must continue to be adhered to by the operator of the adapter.
-If this repository is forked, it must be cited as the source.
-
-LoRa® is a registered trademark or service
-mark of Semtech Corporation or its affilantes.
-
-LoRaWAN® is a licensed mark.
+[Older changes can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

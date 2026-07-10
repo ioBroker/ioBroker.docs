@@ -33,6 +33,14 @@ chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":
 -->
 ### **WORK IN PROGRESS**
 
+* (@klein0r) Updated dependencies
+
+### 6.1.0 (2026-05-28)
+
+* (@klein0r) Increased axios timeout to 30 seconds (for large files)
+
+### 6.0.1 (2026-05-19)
+
 * (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
 
 ### 6.0.0 (2026-05-05)
@@ -50,15 +58,6 @@ chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":
 NodeJS >= 20.x and js-controller >= 6 is required
 
 * (@klein0r) Replace webcal url with http (for iCloud)
-
-### 3.1.0 (2024-11-19)
-
-* (@simatec) Responsive Design added
-* (@klein0r) Updated dependencies
-
-### 3.0.1 (2024-06-26)
-
-* (@klein0r) Fixed value of nextWeekday in states
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

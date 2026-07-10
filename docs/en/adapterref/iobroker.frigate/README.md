@@ -33,6 +33,15 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
     Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (Eistee82) Fixed zone object counters (e.g. `<zone>.person`) staying at their last value after the object left the zone. Per-zone object counts are now sourced solely from the Frigate MQTT occupancy topics, and the zone aggregator resets its active/stationary states to 0 and uses `current_zones` instead of the cumulative `entered_zones`.
+
+### 3.0.3 (2026-06-09)
+- (@GermanBluefox) Added button to re-create the docker container
+
+### 3.0.2 (2026-05-30)
+- (@GermanBluefox) Replaced the track of objects with drop down menu
+
 ### 3.0.0 (2026-05-16)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Added re-streaming support for live video feeds (experimental)
@@ -45,38 +54,7 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
 - (Eistee82) Added Frigate API authentication support for port 8971 (username/password login with JWT)
 - (Eistee82) Automatic token refresh on 401 responses
 
-### 2.3.0 (2026-03-29)
-- (Eistee82) Many new features, improvements, and bug fixes in development for the next major release (see 2.2.2)
-
-### 2.2.2 (2026-03-29)
-
-**New Features:**
-- (Eistee82) Added per-camera motion threshold control (`remote.motionThreshold`)
-- (Eistee82) Added per-camera motion contour area control (`remote.motionContourArea`)
-- (Eistee82) Added per-camera birdseye mode control (`remote.birdseyeMode`)
-- (Eistee82) Added per-camera improve contrast toggle (`remote.improveContrast`)
-- (Eistee82) Added Frigate notification control via MQTT (`notifications.enabled`, `notifications.suspend`)
-- (Eistee82) Added automatic zone device creation from Frigate config
-- (Eistee82) Audio details (dBFS, RMS, transcription, audio types) are now automatically available
-- (Eistee82) Camera health status (detect/audio/record role status) is now automatically available
-- (Eistee82) Classification states and review status are now automatically available
-
-**Modernization:**
-- (Eistee82) Migrated adapter to ESM (ECMAScript Modules) — requires js-controller >= 6.0.5
-- (Eistee82) Upgraded aedes MQTT broker from 0.51 to 1.x
-- (Eistee82) Replaced uuid dependency with built-in `crypto.randomUUID()`
-- (Eistee82) Replaced json-bigint dependency with native `JSON.parse`
-- (Eistee82) Refactored monolithic main.ts into focused modules
-- (Eistee82) Include build directory in the repository for direct GitHub installation
-
-**Bug Fixes:**
-- (Eistee82) Fixed a critical bug: motion ON was always parsed as false due to operator precedence
-- (Eistee82) Fixed snapshot notification missing image parameter
-- (Eistee82) Fixed duplicate MQTT message processing in built-in broker mode
-- (Eistee82) Fixed tmp directory cleanup deleting files from other programs
-- (Eistee82) Converted synchronous filesystem operations to async
-- (Eistee82) Debounced event history fetching to prevent excessive API calls
-- (Eistee82) Improved error logging consistency across all catch blocks
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
 title: ioBroker IoT-адаптер
-hash: jqVgNsg6zSRWJpClkvvC5pVcFxSEHky+KfuzAGvskaM=
+hash: GG9fiSgNG/NQPpDUfiLJ7XR+yvdsCedhxNSqtuKsu1k=
 ---
 ![Количество установок](http://iobroker.live/badges/iot-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.iot.svg)
@@ -85,7 +85,7 @@ hash: jqVgNsg6zSRWJpClkvvC5pVcFxSEHky+KfuzAGvskaM=
 
 Оставьте это поле пустым, если у вас нет веской причины добавлять связующие слова.
 
-### Уровень выключения для переключателей
+### Уровень ВЫКЛ для переключателей
 Некоторые группы состоят из смешанных устройств: диммеров и выключателей. Их можно управлять командами «ВКЛ» и «ВЫКЛ», а также процентами.
 Если команда `Set to 30%` и `OFF level is 30%`, то выключатели будут включены. При команде «Установить на 25%» все выключатели будут выключены.
 
@@ -246,7 +246,7 @@ sendTo('iot.0', 'getServiceEndpoint', { serviceName: 'custom_myService' }, resul
 ```
 
 ### `text2command`
-Вы можете добавить `text2command` в белый список, а также отправить POST-запрос на `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` для записи данных в переменную _text2command.X.text_.
+Вы можете добавить `text2command` в белый список, а также отправить POST-запрос на `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` для записи данных в переменную `text2command.X.text`.
 
 Вы также можете использовать метод GET `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
 
@@ -392,39 +392,32 @@ setState('iot.0.app.message', JSON.stringify({
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
-- (@GermanBluefox) Added copy of credentials from cloud instance
+### 6.1.3 (2026-06-12)
+- (@GermanBluefox) Added support of credentials manager
 
-### 5.0.11 (2025-12-16)
-- (@GermanBluefox) Added percentual control
-- (@GermanBluefox) Correcting creation for complex groups
+### 6.1.0 (2026-06-02)
+- (@GermanBluefox) Implemented new feature to select devices from the list and not by enumeration
+- (@GermanBluefox) Possibility to send messages to the app directly from the state
+- (@GermanBluefox) Migrated google and alisa to TypeScript
 
-### 5.0.8 (2025-11-28)
-- (@GermanBluefox) Showed last controller ID in `smart.lastObjectID`
-- (@GermanBluefox) Showed subscription valid period in `info.validTill` and GUI
-- (@Copilot) Implemented increasing reconnect interval
-- (@GermanBluefox) Added automatically conversion of type TV (alexaV3) to button (alexaV3)
-- (@GermanBluefox) Optimized the update of devices in GUI
-- (@GermanBluefox) Implemented slider with custom min/max values
+### 6.0.3 (2026-04-23)
+- (@GermanBluefox) Allowed to read temperature information via Alexa
 
-### 5.0.7 (2025-11-03)
-- (@GermanBluefox) Added possibility to group devices by type in GUI
-- (@GermanBluefox) Allowed to select any type in Alexe V3
-- (@GermanBluefox) Remove disabled states from auto-detection
+### 6.0.1 (2026-04-07)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (@GermanBluefox) Removed support for Alexa 2
+- (@GermanBluefox) Fixed bug in Alisa with color and motion sensor
+- (@GermanBluefox) Validate Discovery response before sending it back
 
-### 5.0.6 (2025-11-01)
-- (@GermanBluefox) Added logs to detect the issues with detection
-- (@GermanBluefox) Added possibility to use the 0/1 state as socket
-- (@GermanBluefox) Added dialog to bulk manage the smart names of one device
-
-### 5.0.5 (2025-10-31)
-- (@GermanBluefox) Changed behavior of HUE lamps
+### 5.0.13 (2026-03-31)
+- (@GermanBluefox) Corrected the handling of the multiple group names
+- (@GermanBluefox) Fixing the license validation
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

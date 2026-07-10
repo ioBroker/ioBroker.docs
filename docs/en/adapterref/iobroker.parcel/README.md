@@ -12,60 +12,70 @@
 
 **Tests:** ![Test and Release](https://github.com/TA2k/ioBroker.parcel/workflows/Test%20and%20Release/badge.svg)
 
-## Paketverfolgung/Sendungsverfolgung Adapter für ioBroker
+## Parcel tracking adapter for ioBroker
 
-Parcel tracking / Sendungsverfolgung
-Verfolge mit deinem ioBroker SmartHome deine Pakete von Amazon, DHL, DPD, Hermes, UPS und GLS. Außerdem wirst du über die Briefverfolgung von der deutschen Post informiert. Direkt per Push auf Telegram, Pushover oder Signal.
+Track parcels from Amazon, DHL, DPD, Hermes, UPS and GLS with your ioBroker smart home. Letter tracking of Deutsche Post is also supported. Notifications can be sent directly via Telegram, Pushover or Signal.
 
-## Loginablauf
+This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
+## Login flow
 
 **DHL:**
 
-- DHL App Login eingeben
-- SMS/EMail Code erhalten
-- In die Instanzeinstellungen eingeben und speichern
+- Enter DHL app login
+- Receive SMS/email code
+- Enter code in instance settings and save
 
 **Amazon:**
 
-- Login eingeben
-- Wenn nötig vorab ein OTP token aus der 2FA App vor dem ersten Login eingeben.
+- Enter login credentials
+- If required, enter an OTP token from your 2FA app before first login
 
 **DPD, GLS, UPS, 17Track User:**
 
-Login und Passwort eingeben
+Enter username and password
 
-**Telegram Benachrichtigun für Sendungen und Briefe**
+**Telegram notification for parcels and letters**
 
-In den Instanz Einstellung aktivieren und z.B. telegram.0 eingeben
+Enable in instance settings and enter e.g. `telegram.0`
 
 ## Vis
 
-**Sendungen als Vis Table darstellen**
+**Show parcels in a Vis table**
 
-Datenpunkte alle Sendungen:
-parcel.0.allProviderJson
+Datapoint for all parcels:
+`parcel.0.allProviderJson`
 
-Datenpunkte in Zustellung:
-parcel.0.inDelivery
+Datapoint for parcels in delivery:
+`parcel.0.inDelivery`
 
-**Widget: json Table**
+**Widget: json table**
 
-Anleitung:
+Instructions:
 https://www.smarthome-tricks.de/software-iobroker/iobroker-vis-json-table-widget-teil-1-basics/
 
-**DHL Briefverfolgung in Vis anzeigen.**
+**Display DHL letter tracking in Vis**
 
-Den Datenpunkt parcel.0.dhl.briefe....image ein "String img src" element als Object ID zuordnen
+Assign the datapoint `parcel.0.dhl.briefe....image` to a "String img src" element as object ID.
 
-## Diskussion und Fragen
+## Discussion and questions
 
 <https://forum.iobroker.net/topic/51795/test-adapter-parcel-paketverfolgung-dhl-v0-0-1>
 
 ## Changelog
+### 0.3.2 (2026-07-08)
+- Fix for DPD
+- Fix for GLS
+
+### 0.3.1 (2026-07-07)
+
+- DHL: New login via browser code (dhllogin://)
+- Amazon: Login fix and captcha detection with note
+
 ### 0.3.0 (2026-04-05)
 
-- DHL: Neuer Login über Browser-Code (dhllogin://)
-- Amazon: Login Fix und Captcha-Erkennung mit Hinweis
+- DHL: New login via browser code (dhllogin://)
+- Amazon: Login fix and captcha detection with note
 
 ### 0.2.10 (2025-01-15)
 
@@ -100,7 +110,7 @@ Den Datenpunkt parcel.0.dhl.briefe....image ein "String img src" element als Obj
 
 MIT License
 
-Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.weathersense/README.md
 title: ioBroker.weathersense
-hash: R9W0fq0+0n0bk9WmcAT2HZ4T+O732ZgL0df6q6YXULQ=
+hash: KidM5Ba4LU29tLpPps9GkMP8pYa1nrPOuLUfmYmcTjY=
 ---
 ![Logo](../../../en/adapterref/iobroker.weathersense/admin/weathersense.png)
 
@@ -34,53 +34,53 @@ Geben Sie einfach Ihre Anmeldedaten für Ihr WeatherSense-Konto ein (E-Mail-Adre
 Die Wetterstationsdaten werden im WeatherSense-Datenpunkt gespeichert.
 Die Daten können auch per MQTT übertragen werden.
 
+## Umgang mit mehreren Wetterstationen (Unterstützung mehrerer Instanzen)
+Der ursprüngliche WeatherSense-Cloud-Server hat eine Software-Beschränkung/einen Software-Fehler: Wenn Sie zwei oder mehr identische Wetterstationen im selben Smartphone-Konto registrieren, werden diese überschrieben und verschwinden aus Ihrer Geräteliste.
+
+Um Daten von mehreren Stationen gleichzeitig und konfliktfrei zu lesen, können Sie die native Multi-Instanz-Architektur von ioBroker nutzen.
+
+### Schritt-für-Schritt-Einrichtung:
+1. **Separate Cloud-Konten erstellen:** Registrieren Sie für **jede** Ihrer Wetterstationen ein eigenes, kostenloses Konto in der WeatherSense-Mobil-App (z. B. *E-Mail A* für Station 1 und *E-Mail B* für Station 2).
+2. **Verknüpfen Sie eine Station pro Konto:** Verknüpfen Sie Ihre erste Station ausschließlich mit Konto A und Ihre zweite Station ausschließlich mit Konto B.
+3. **Mehrere Instanzen in ioBroker hinzufügen:**
+* Gehen Sie in ioBroker auf die Registerkarte `Instances` und fügen Sie eine zweite Instanz des WeatherSense-Adapters hinzu (dadurch werden `weathersense.0` und `weathersense.1` erstellt).
+4. **Instanzen konfigurieren:**
+* Öffnen Sie die Konfiguration für **`weathersense.0`** und geben Sie die Anmeldedaten für **Konto A** ein. Stellen Sie die `Sensor-ID` auf `1` ein.
+* Öffnen Sie die Konfiguration für **`weathersense.1`** und geben Sie die Anmeldedaten für **Konto B** ein. Stellen Sie die `Sensor-ID` auf `2` ein.
+
+### Vorteile dieser Konfiguration:
+* **Keine Datenkonflikte:** ioBroker startet zwei völlig getrennte Prozesse.
+* **Getrennte Objekte:** Ihre Datenpunkte sind übersichtlich in `weathersense.0.*` und `weathersense.1.*` getrennt.
+* **Sauberes MQTT-Routing:** Wenn Sie die integrierte MQTT-Funktion verwenden, werden Ihre Themen sauber durch die Sensor-ID getrennt (z. B. `weathersense/1/...` und `weathersense/2/...`), wodurch verhindert wird, dass Daten auf Ihrem Broker überschrieben werden.
+
 ## Changelog
-### 3.0.3 (2025-09-14)
+### 5.2.2 (2026-07-09)
 
-- eslint-config & testing version updated
+- Typo corrected
 
-### 3.0.2 (2025-08-29)
+### 5.2.1 (2026-07-09)
 
-- Passwords protected, clean convert string > number
+- Typo corrected
 
-### 3.0.1 (2025-08-18)
+### 5.2.0 (2026-07-09)
 
-- Delay 0-117s added
+- Invert PowerStatus flag added
 
-### 3.0.0 (2025-08-18)
+### 5.1.1 (2026-07-05)
 
-- Type and channel position swapped for more meaningful sorting
+- Bugfix: Unit windDirection km/h → °
 
-### 2.0.2 (2025-08-17)
+### 5.1.0 (2026-07-04)
 
-- Unit hPa added
+- Now filenames of JSON files beginning with weathersense.{sensor_id}...
 
-### 2.0.1 (2025-08-17)
-
-- More data output
-- Cleaner type & channel output
-
-### 1.0.3 (2025-07-03)
-
-- Delay with different syntax
-
-### 1.0.2 (2025-07-02)
-
-- New release because SSH troubles in dev portal
-
-### 1.0.1 (2025-07-02)
-
-- Code cleanups
-
-### 1.0.0 (2025-07-01)
-
-- Initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2025 Daniel Luginbühl <webmaster@ltspiceusers.ch>
+Copyright (c) 2025-2026 Daniel Luginbühl <webmaster@ltspiceusers.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

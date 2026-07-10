@@ -49,8 +49,7 @@ From the list, select the network host adapter to which you have connected your 
 Default is 60000. Without error message from the network there is no need the change that.
 
 #### **Receiver-Port**
-Default is 60001. Without error message from the network there is no need the change that.
-I redefined port 60099 for the adapter. If something doesn't work, change this back to the default.
+Default is 60099. Without error message from the network there is no need to change that.
 
 #### **Connection Timeout in milli seconds**
 Default is 2500 (2,5 seconds).
@@ -128,6 +127,16 @@ The publicly known IP port of the ioBroker instance on the remote network after 
 [^8]: You can replace the "Unicast Address" with the "Directed Broadcast Address" in the configuration.
 
 ## Changelog
+### 1.0.0 (2026-07-07)
+* Node.js >= 22 required (Node.js 20 EOL)
+* js-controller >= 6.0.11 required
+* Migrated to NPM Trusted Publishing (no more classic NPM tokens)
+* Migrated to ESLint 9 with `@iobroker/eslint-config`
+* Added Dependabot configuration with auto-merge
+* TypeScript 5.x, removed deprecated `common.materialize`
+* `node:` prefix added to all built-in module imports
+* Added UHPPOTE simulator based regression tests and release preflight scripts
+
 ### 0.4.7 (2024-11-05)
 * Fix for ioBroker.BOT see issues
 * Changes to new dependencies Node 22.x, Admin 5 and JS-Controler 5.0.19...
@@ -138,9 +147,37 @@ The publicly known IP port of the ioBroker instance on the remote network after 
 * Cosmetic improvements
 * Fix for [Repository PR1720](https://github.com/ioBroker/ioBroker.repositories/pull/1720).
 
-#### [History](CHANGELOG.md)
+### 0.4.5 (2022-03-11)
+* Bugfix: error in workflow
+
+### 0.4.4 (2022-03-11)
+* Structur Native uAPI-Framework
+* user action for setTime
+* setup docs
+
+### 0.4.3
+* setTime if device is running out
+* add per Controller the Model (1-, 2- and 4-Doors)
+* add info direction
+
+### 0.4.2 (Beta)
+* Remote network setup
+* Broadcast device communication
+* Remote device communication
+* Bug ::Found uncleared intervals:: change clearInterval to adapter.clearInterval
+* special remoteDoorOpen (in other contex change net-access-mode unmotivated to broadcast)
+* device lowlevel debug enabled (from UHPPOTE framework connect to ioBroker log)
+* add various "silly" log messages
+
+### 0.4.1-beta
+* Small blemishes fixed and translation completed
+
+### 0.4.0-alpha
+* First working package
+
+Initial release
 
 ## License
 GPL-3.0-only
 
-Copyright (c) 2024 kbrausew <kbrausew@magenta.de>
+Copyright (c) 2024-2026 kbrausew <kbrausew@magenta.de>

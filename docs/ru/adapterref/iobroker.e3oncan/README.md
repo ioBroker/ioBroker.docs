@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: NSo23ZZJFyEvhcKaN9Y+hI611HavqaS+hfFbhTdWT7w=
+hash: wXIczJacqbskGLq1SulPllz5UnBhihq/qg5LFf8dh8M=
 ---
 ![Логотип](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -17,10 +17,14 @@ hash: NSo23ZZJFyEvhcKaN9Y+hI611HavqaS+hfFbhTdWT7w=
 **Тесты:** ![Тестирование и выпуск](https://github.com/MyHomeMyData/ioBroker.e3oncan/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер e3oncan для ioBroker
-> Eine deutsche Version dieser Dokumentation ist verfügbar: [README.de.md](README.de.md)
+> **Примечание:** Навигационные ссылки в этом документе лучше всего работают при просмотре ([[https://github.com/MyHomeMyData/ioBroker.e3oncan#readme] на GitHub. Относительные ссылки на другие документы (например, [data-points.md]).](https://github.com/MyHomeMyData/ioBroker.e3oncan/blob/main/lib/data-points.md)) также в открытом виде на GitHub.
+
+> Eine deutsche Version dieser Documentation ist verfügbar: [README.de.md](README.de.md)
 
 ## Оглавление
 - [Обзор](#обзор)
+- [Что нового в версии 1.1.0](#whats-new-in-v110)
+- [Что нового в версии 1.0.3](#whats-new-in-v103)
 - [Что нового в версии 1.0.0](#whats-new-in-v100)
 - [Что нового в версии 0.11.x](#whats-new-in-v011x)
 - [Быстрый старт](#quick-start)
@@ -60,6 +64,41 @@ hash: NSo23ZZJFyEvhcKaN9Y+hI611HavqaS+hfFbhTdWT7w=
 
 ---
 
+## Что нового в версии 1.1.1
+### Обновлены определения точек данных
+Определения точек данных обновлены до версий 20260705 (общая) и 20260630 (вариантная).
+
+### Новый кодек O3ESwitch
+Добавлен новый кодек `O3ESwitch` для точек данных, структура которых зависит от байта-дискриминатора типа устройства. Первый байт выбирает активный вариант из набора предопределенных ветвей кодека. Это позволяет осуществлять полное структурированное декодирование DID слотов устройств ZigBee (2086–2143, 2262), где декодируемые поля различаются в зависимости от типа устройства (например, датчик климата, термостатический клапан, напольный термостат, исполнительный механизм).
+
+### Округление десятичных знаков для числовых кодеков
+Числовые кодеки (`O3EInt8`, `O3EInt16`, `O3EInt32`, `O3EInt64`, `O3EFloat32`) теперь поддерживают необязательный параметр `decimals`. Если ему присвоено значение больше 0, декодированный результат округляется до этого количества десятичных знаков. Это используется, например, для `SignalLevel` (масштаб 2,55, количество десятичных знаков 2), чтобы избежать чрезмерно длинных значений с плавающей запятой.
+
+### Единицы измерения и метаданные устанавливаются при запуске при изменении структуры точек данных
+Когда адаптер при запуске обнаруживает изменение структуры точки данных (новая версия в `didsE3var.json` или `didsE3.json`), он теперь корректно регистрирует единицы измерения и описания для всех подсостояний перестроенного дерева. Ранее единицы измерения устанавливались только во время сканирования точки данных; для их заполнения после обновления структуры требовалось последующее сканирование.
+
+---
+
+## Что нового в версии 1.0.3
+### После обновления Node.js пересборка больше не требуется
+Встроенный модуль CAN `socketcan` обновлен до версии 4.2.1, которая использует стабильный интерфейс **N-API**. Модуль больше не требует перекомпиляции при изменении версии Node.js. Обновление Node.js (например, с версии 22 до 24) больше не требует последующего запуска `iob rebuild` — адаптер запускается без каких-либо дополнительных действий.
+
+### Фильтр запланированных точек данных на вкладке «Точки данных»
+Теперь, при нажатии на зелёный значок, отображающий количество запланированных точек данных на карточке устройства, **карточка фильтруется, отображая только запланированные точки данных**. Это упрощает просмотр или корректировку расписания для конкретного устройства. Повторное нажатие на значок или заголовок карточки восстанавливает полный вид.
+
+### Защита пользовательских определений точек данных вариантов
+Теперь пользовательские структуры в `e3oncan.0.<DEVICE>.info.udsDidsSpecific` можно **защитить от автоматических обновлений**, добавив `"protected": true` к записи. При каждом срабатывании защиты регистрируется необязательное поле `"reason"`. Без защиты определения точек данных вариантов (также перечисленные в `didsE3var.json`) обновляются автоматически при появлении более нового определения — это поведение остается неизменным. Подробности см. в [документация](lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific).
+
+### Обновлены определения точек данных
+Внесены изменения в определения точек данных до версий 20260528 (общая) и 20260527 (вариантная). Основные изменения:
+
+- Полная структура DID-номеров ZigBee 2084–2319 (свойства устройства, текущие значения в 57-байтовом и 68-байтовом вариантах)
+- Структурированные идентификаторы помещений (DID) 1884–1943 гг. (название, тип, контроль температуры, обнаружение окон, минимальная/максимальная влажность)
+- Новые структуры DID, полученные на основе ViGuide, для метрик топливных элементов, охвата энергопотребления и подписок на батареи/инверторы.
+— В полях типа `Unknown*` теперь последовательно используется `RawCodec`.
+
+---
+
 ## Что нового в версии 1.0.0
 ### Вкладка «Точки данных»
 Новая страница **точек данных e3oncan** закреплена непосредственно в строке экземпляра адаптера в представлении экземпляров ioBroker. Щелкните<img src="admin/icon_open_tab.svg" height="20"> Нажмите кнопку в строке экземпляра, чтобы открыть его. Он предоставляет специальный пользовательский интерфейс для управления расписаниями и настройками сбора данных для каждого устройства и точки данных — нет необходимости открывать полный диалог конфигурации адаптера для ежедневных изменений.
@@ -83,20 +122,6 @@ hash: NSo23ZZJFyEvhcKaN9Y+hI611HavqaS+hfFbhTdWT7w=
 
 ---
 
-## Что нового в версии 0.11.x
-### Обновлены структуры точек данных (необходимы действия при обновлении)
-В версии 0.11.0 были обновлены определения для многих точек данных — добавлены новые типы вариантов, метаданные (описание, единица измерения, ссылки) и пересмотрена обработка формата данных. **Если вы обновляетесь с версии 0.10.x, выполните сканирование устройств, а затем полное сканирование точек данных**, чтобы применить новые определения и метаданные к дереву объектов ioBroker.
-
-Подробный список измененных точек данных см. в разделе [журнал изменений точек данных](lib/data-points.md#changelog-of-data-point-definitions).
-
-### Варианты точек данных и конфигурация формата устройства
-Теперь адаптер обрабатывает вариативные точки данных — точки данных, структура которых зависит от конфигурации устройства (например, единица измерения температуры °C/°F, формат даты/времени). Во время сканирования устройств считывается и сохраняется соответствующая конфигурация формата (точка данных 382). Затем сканирование точек данных автоматически применяет правильный кодек для каждого устройства.
-
-### Метаданные объектов точек данных
-В дереве объектов ioBroker теперь содержатся метаданные: описание, физический блок, флаг доступа на чтение/запись и ссылки на дополнительную информацию, если таковая имеется. Метаданные для существующих объектов обновляются при каждом сканировании точек данных и восстанавливаются, если объект точки данных удаляется и создается заново (добавлено в версии 0.11.1).
-
----
-
 ## Быстрый старт
 **Предварительные требования**
 
@@ -117,8 +142,6 @@ hash: NSo23ZZJFyEvhcKaN9Y+hI611HavqaS+hfFbhTdWT7w=
 
 Подробные шаги описаны в разделе [Руководство по настройке](#configuration-guide) ниже.
 
-> **После обновления Node.js:** Нативные модули, используемые этим адаптером, необходимо пересобрать при изменении версии Node.js. Если адаптер не запускается после обновления Node.js, остановите его, выполните команду `iob rebuild` в командной строке, а затем запустите снова.
-
 ---
 
 ## Руководство по настройке
@@ -138,7 +161,7 @@ hash: NSo23ZZJFyEvhcKaN9Y+hI611HavqaS+hfFbhTdWT7w=
 — Все устройства E3, обнаруженные на шине, будут перечислены. Вы можете переименовывать устройства во втором столбце — эти имена используются в качестве идентификаторов в дереве объектов ioBroker.
 — После завершения нажмите **СОХРАНИТЬ**. Экземпляр перезапустится.
 
-В процессе сканирования устройства адаптер также считывает конфигурацию формата данных устройства (точка данных 382), включая единицы измерения температуры (°C или °F) и форматы даты/времени. Эти данные сохраняются и используются при последующих сканированиях точек данных.
+В процессе сканирования устройства адаптер также считывает конфигурацию формата данных устройства (точка данных 382), включая единицы измерения температуры (°C или °F) и форматы даты/времени. Эта информация сохраняется и используется при последующих сканированиях точек данных.
 
 **Обнаружение неисправностей счетчика электроэнергии**
 
@@ -301,7 +324,7 @@ e3oncan.0.<DEVICE>.info.udsDidsWritable
 - **CAN-адрес 97:** точки данных с четными идентификаторами
 - **CAN-адрес 98:** точки данных с нечетными идентификаторами
 
-| ID | Данные | Единица измерения |
+| ID | Данные | Единица |
 |---|---|---|
 | 592, 593 | Активная мощность L1, L2, L3, общая | Вт |
 | 594, 595 | Реактивная мощность L1, L2, L3, общая | вар |
@@ -354,7 +377,7 @@ Collect предоставляет данные в реальном времен
 
 **Адаптер перестал работать после обновления Node.js. Что мне делать?**
 
-Этот адаптер использует нативные модули, которые необходимо пересобрать при изменении версии Node.js. Остановите адаптер, выполните команду `iob rebuild` в командной строке, а затем снова запустите адаптер. Если проблема сохраняется, пожалуйста, создайте заявку в службу поддержки.
+Начиная с версии адаптера 1.0.3, собственный модуль CAN (socketcan) использует N-API и больше не требует пересборки после обновления Node.js. Если вы используете более старую версию, сначала обновите адаптер. Если проблема сохраняется после обновления, пожалуйста, создайте заявку в службу поддержки.
 
 **Чем проект отличается от проекта open3e?**
 
@@ -378,6 +401,29 @@ Collect предоставляет данные в реальном времен
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (MyHomeMyData) Fixed missing update of meta data (unit, description) when user changes device specific data point definition
+
+### 1.1.1 (2026-07-06)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20260705 (common)
+* (MyHomeMyData) Fixed duplicate display of variant data points in data point list of WebUI
+
+### 1.1.0 (2026-07-05)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20260701 (common) and 20260630 (variant)
+* (MyHomeMyData) Added codec `O3ESwitch` for device-dependent data point structures selected by a discriminator byte
+* (MyHomeMyData) Added optional `decimals` parameter to numeric codecs to round decoded values
+* (MyHomeMyData) Added update of meta data during startup, when structure of data point has changed
+
+### 1.0.3 (2026-06-02)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20260528 for common and 20260527 for variant data points; For details see this [changelog](lib/data-points.md#changelog-of-data-point-definitions)
+* (MyHomeMyData) Suppress spurious variant-did warning when common dict covers the length
+* (MyHomeMyData) User-defined variant data point structures in `udsDidsSpecific` can now be protected from automatic updates by adding `"protected": true` (and an optional `"reason"` text) to the entry; see [documentation](lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific)
+* (MyHomeMyData) Updated socketcan dependency to 4.2.1 (N-API) — the native CAN module no longer needs to be rebuilt after a Node.js upgrade
+
+### 1.0.2 (2026-05-17)
+* (MyHomeMyData) Improved error message when native module socketcan fails to load after a Node.js version upgrade — adapter now logs a clear hint to run `iob rebuild`
+
 ### 1.0.1 (2026-05-11)
 * (MyHomeMyData) Clicking the green scheduled badge on a device card filters the view to show only its scheduled data points; clicking the badge again or the card header restores the full view
 * (MyHomeMyData) Fixed: saving from the datapoints tab now preserves inactive schedules (disabled in the old config UI) for full backward compatibility
@@ -386,52 +432,6 @@ Collect предоставляет данные в реальном времен
 * (MyHomeMyData) Adapter requires node.js >= 22 now
 * (MyHomeMyData) Improved scan status detection: uses `udsDidsWritable` instead of `didsMetaDict` to reliably detect whether a data point scan has been performed
 * (MyHomeMyData) Added re-scan recommendation hint in datapoints tab when a scan exists but Collect auto-detection has not yet been run
-
-### 1.0.0-beta.2 (2026-05-02)
-* (MyHomeMyData) Fixed: saving schedules in the datapoints tab could leave stale entries under certain conditions
-* (MyHomeMyData) Added Topology button to the datapoints tab; opens the bus topology diagram in a modal dialog
-
-### 1.0.0-beta.1 (2026-04-30)
-* (MyHomeMyData) Bus topology analysis is now generated automatically after the data point scan; results are stored in `info.topology` (JSON) and `info.topologyHtml` (HTML); see Readme for details
-* (MyHomeMyData) Input validation added for interval and delay fields in the datapoints tab — only positive integers are accepted
-
-### 1.0.0-beta.0 (2026-04-26)
-* (MyHomeMyData) Introduced new e3oncan datapoints webUI pinned to the adapter's instance row
-* (MyHomeMyData) Energy meters (E380, E3100CB) are now auto-detected during the device scan by passive CAN listening on both CAN channels
-* (MyHomeMyData) State names for energy meters are assigned automatically based on CAN address and channel; see Readme for details
-* (MyHomeMyData) Energy meter Collect toggle and delay are now configured exclusively in the e3oncan datapoints page; changes take effect after adapter restart
-* (MyHomeMyData) On first run after upgrade, the active setting is automatically migrated from the previous adapter configuration
-* (MyHomeMyData) Collect-capable devices are now auto-detected during the data point scan by passive CAN listening; a pin icon is shown in the device card header for each detected device
-* (MyHomeMyData) Added option to suppress storing of data point values during data point scan
-
-### 0.11.3 (2026-05-03)
-* (MyHomeMyData) The accidentally mentioned data points 1415-1418 have been removed from the changelog of version 0.11.0
-
-### 0.11.2 (2026-05-02)
-* (MyHomeMyData) Added "What's new in v0.11.x" section to Readme with upgrade notes for data point structure changes
-
-### 0.11.1 (2026-04-23)
-* (MyHomeMyData) Improved robustness: Receiving a data point of length zero is treated as a "negative response"
-* (MyHomeMyData) The metadata is now also restored after a data point is deleted
-* (MyHomeMyData) Aligned test cases for German system language
-
-### 0.11.0 (2026-04-14)
-* (MyHomeMyData) To take full advantage of the variant data points and metadata, please perform a device scan followed by a data point scan
-* (MyHomeMyData) Added handling for variant data points and for device's data format configuration, refer to https://github.com/MyHomeMyData/ioBroker.e3oncan/lib/data-points.md for details
-* (MyHomeMyData) Added metadata to several data points, e.g. description, unit, link to further info
-* (MyHomeMyData) During scan of data points now metadata are added to data point objects
-* (MyHomeMyData) Changed handling of writable data points; this info now also is available within definition of data point; however, there is no change to handling of the whitelist of writables
-* (MyHomeMyData) During device scan the information about used data formats (data point 382) is evaluated
-* (MyHomeMyData) Updated structure of many data points; for details see this [changelog](lib/data-points.md#changelog-of-data-point-definitions)
-
-### 0.10.14 (2025-11-03)
-* (MyHomeMyData) Added elements to enums.js based of PR no. 182 of open3e
-* (MyHomeMyData) Simplified configuration of dids scan limits in source code
-* (MyHomeMyData) Extended scan up to did 3338
-* (MyHomeMyData) Added hint regarding scan range in Readme
-* (MyHomeMyData) Fixes for issue #169 (repository checker)
-* (MyHomeMyData) Bugfix: Manual change of device specific dids was not evaluated for collect workers
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20251102
 
 ### Older versions
 

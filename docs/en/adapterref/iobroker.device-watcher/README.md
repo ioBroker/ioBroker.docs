@@ -27,8 +27,10 @@ BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-insta
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 2.15.16 (2026-05-15)
-* (arteck) minimize i/o
+### 2.15.17 (2026-06-19)
+- (mcm1957) Release of 2.15.16 has failed and has been restarted
+- (arteck) i/o minimized
+- (mcm1957) Dependencies have been updated
 
 ### 2.15.15 (2026-05-13)
 * (arteck) fix adapter device mix
@@ -41,6 +43,7 @@ BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-insta
 
 ### 2.15.12 (2026-05-06)
 * (arteck) fix hueExtended battery check
+
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

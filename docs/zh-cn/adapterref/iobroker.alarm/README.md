@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alarm/README.md
 title: ioBroker.alarm
-hash: 2JdV6+BF9GW97A5BkCpAcKU4T9GqLI2jCYFrDipyc5c=
+hash: A7EFoEodD4sa1G3hTwHnBhNGO9xRkNYfb5k4n4lxhy0=
 ---
 ![标识](../../../en/adapterref/iobroker.alarm/admin/alarm.png)
 
@@ -13,135 +13,46 @@ hash: 2JdV6+BF9GW97A5BkCpAcKU4T9GqLI2jCYFrDipyc5c=
 ![已知漏洞](https://snyk.io/test/github/misanorot/ioBroker.alarm/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.alarm.png?downloads=true)
 
-#ioBroker.alarm
-**Github 操作**：
+# IoBroker.alarm
+**GitHub Actions**：
 
-![GitHub 操作](https://github.com/misanorot/ioBroker.alarm/workflows/Test%20and%20Release/badge.svg)
+![GitHub Actions](https://github.com/misanorot/ioBroker.alarm/workflows/Test%20and%20Release/badge.svg)
 
-[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYHW84XXF5REJ&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYHW84XXF5REJ&source=url)
 
-## 为 ioBroker 报警
-**[德意志研究](docs/de/alarm.md)**
+## IoBroker 的报警系统
+**[英文描述](docs/en/alarm_en.md)** **[德语描述](docs/de/alarm.md)**
 
-## IoBroker 的警报系统
-**[英文说明](docs/en/alarm_en.md)**
-
-******************************************************************************************
+这款适配器让您无需丰富的编程知识即可设置家庭报警系统。它支持配置 3 个安全回路，并在夜间休息、激活或停用期间对其进行监控。此外，适配器内部状态可直接与外部状态关联。这些关联在“快捷方式”选项卡中进行配置。您可以轻松配置简单的模拟有人在场功能，以增强防盗保护。系统还支持各种事件通知，并可通过 Telegram 或电子邮件等多种渠道发送。（前提是已安装相应的适配器！）
 
 ## Changelog
 
-#### 3.2.0 (15.10.2022)
-* (misanorot) fixed enableable
-* (misanorot) added presence simulation
-* (misanorot) added zones
-* (misanorot) fixed set number states
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 4.0.6 (2026-07-07)
+* (@GermanBluefox) Packages were updated
+* (@GermanBluefox) Some compiler errors were fixed
 
-#### 3.1.1 (29.06.2022)
-* (MK-2001) added speech delay
+### 4.0.5 (2026-06-23)
+* (@misanorot) fixed checker issues
 
-#### 3.1.0 (26.04.2022)
-* (misanorot) added speech delay
+### 4.0.4 (2026-05-17)
+* (@misanorot) fixed little JSON Ui issues
 
-#### 3.0.3 (31.01.2022)
-* (misanorot) changed burgle concept, added silent alarm at sharp inside, fixed little issues
+### 4.0.3 (2026-05-11)
+* (@misanorot) fixed checker issues
+- (copilot) Adapter requires node.js >= 22 now
+* (@GermanBluefox) fixed JSON config issues
+* (@GermanBluefox) packages were updated
 
-#### 2.2.1 (20.01.2022)
-* (misanorot) added notification when warnings at beginning night rest
+### 4.0.2 (2026-04-07)
+* (@GermanBluefox) fixed #368
 
-#### 2.2.0 (16.01.2022)
-* (misanorot) added telegram special parameters
-
-#### 2.1.1 (07.11.2021)
-* (misanorot) added countdown state for silent alarm
-
-#### 2.1.0 (11.10.2021)
-* (misanorot) extend list states and speech output, added leave option
-
-#### 2.0.2 (08.08.2021)
-* (misanorot) fixed password issues
-
-#### 2.0.1 (04.05.2021)
-* (misanorot) fixed ack issues
-
-#### 2.0.0 (22.03.2021)
-* (misanorot) added other alarms
-
-#### 1.9.0 (08.01.2021)
-* (misanorot) added html states and fixed little issues
-
-#### 1.8.0 (26.11.2020)
-* (misanorot) added status.state_list to shortcuts
-
-#### 1.7.0 (20.11.2020)
-* (misanorot) changed notifications and fixed little issues
-
-#### 1.6.0 (08.11.2020)
-* (misanorot) changed time inputs to numbers
-
-#### 1.5.0 (08.11.2020)
-* (misanorot) added stop inside alarm with disable
-
-#### 1.4.0 (05.11.2020)
-* (misanorot) added silent alarm selection for every state
-
-#### 1.3.0 (01.11.2020)
-* (misanorot) added diffrent time options
-
-#### 1.2.0 (09.07.2020)
-* (misanorot) added countdown speech output
-
-#### 1.1.0 (05.07.2020)
-* (misanorot) Added input shortcuts
-
-#### 1.0.0 (01.07.2020)
-* (misanorot) added alarm and silent flash light
-
-#### 0.9.0 (28.06.2020)
-* (misanorot) Homekit integrated, set shortcuts only when changed
-
-#### 0.8.0 (18.06.2020)
-#### (misanorot) !!! Changed circuits dramatacly !!! Please do a new installation when you come from less versions
-
-#### 0.7.5 (14.06.2020)
-* (misanorot) fixed a few little issues
-
-#### 0.7.0 (07.06.2020)
-* (misanorot) edit notification sentences in admin
-
-#### 0.6.0 (31.05.2020)
-* (misanorot) changed speech output
-
-#### 0.5.0 (14.05.2020)
-* (misanorot) added use.list state
-
-#### 0.4.0 (14.05.2020)
-* (misanorot) added warn circuit monitoring
-
-#### 0.3.0 (04.05.2020)
-* (misanorot) expaned speech output
-
-#### 0.2.2 (30.04.2020)
-* (misanorot) added alexa2 speak output
-
-#### 0.2.0 (22.04.2020)
-* (misanorot) added more states
-
-#### 0.1.2 (19.04.2020)
-* (misanorot) status.state  activated
-
-#### 0.1.1 (28.03.2020)
-* (misanorot) added states and lists - fixed issues - translation
-
-#### 0.1.0 ()
-* (misanorot) add password for de/activation -- better logging
-
-#### 0.0.9 (19.02.2020)
-* (misanorot) add sayit
-
-#### 0.0.8 (03.02.2020)
-* (misanorot) initial release
+[Older changes](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2019-2022 misanorot <audi16v@gmx.de>
+Copyright (c) 2019-2026 misanorot <audi16v@gmx.de>

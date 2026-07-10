@@ -100,6 +100,14 @@ Based on [Pittini's](https://github.com/Pittini/iobroker-heatingcontrol-vis) pro
 -->
 
 ## Changelog
+### 1.4.3 (2026-07-05)
+* (René) dependencies updated
+
+### 1.4.2 (2026-06-05)
+* (René) see #264: decimal places for temperature values can now be configured in weather day widget 
+* (René) decimal places for Y axis can now be configured in SourceAnalytics bar graph widget 
+* (René) #263: bug fix to switch color for datepicker in dark mode
+
 ### 1.4.0 (2026-05-26)
 * (René) see #174: unused empty space in weather widget removed
 * (René) dependencies updated
@@ -117,16 +125,12 @@ Based on [Pittini's](https://github.com/Pittini/iobroker-heatingcontrol-vis) pro
 known issue: Icons are not updated yet.
 * (René, copilot) fixes based on Lint recommendation
 
-### 1.1.5 (2025-10-26)
-* (René) dependencies updated and bug fix based on adapter checker and linter
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
-### 1.1.3 (2025-09-06)
-* (René) dependencies updated and bug fix based on adapter checker
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
+## License
 The MIT License (MIT)
 
-Copyright (c) 2024-2026 rg-engineering <info@rg-engineering.eu>
+Copyright (c) 2024-2026  rg-engineering <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

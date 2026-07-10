@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: AQ/3a7xDK2/rrtNmPB2gNDgGO4EowKXQ5mSoKfV2lKQ=
+hash: J5A2Cfv4U16cR36FdZJGX5Qc4Oee1XLNczGVa1VrIJ4=
 ---
 ![Logo](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -32,6 +32,20 @@ Adapter zur Steuerung von Hyundai- oder Kia-Fahrzeugen (bis 2023)
 ## Spende [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 3.1.28 (2026-04-08)
+* (arteck) Dependencies have been updated
+* (arteck) better LOG
+
+### 3.1.27 (2026-04-06)
+* (arteck) fix position_text 
+* (arteck) Dependencies have been updated
+
+### 3.1.26 (2026-01-17)
+* (arteck) Dependencies have been updated
+
 ### 3.1.25 (2025-12-28)
 * (arteck) Dependencies have been updated
 * (arteck) adds documentation on the token generation process for HYUNDAI and KIA
@@ -221,10 +235,12 @@ Adapter zur Steuerung von Hyundai- oder Kia-Fahrzeugen (bis 2023)
 ### 1.0.0
 * (Newan) First stable version
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2025 Newan <info@newan.de>
+Copyright (c) 2025-2026 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

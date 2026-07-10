@@ -38,6 +38,22 @@ or any associated subsidiaries, logos or trademarks.
 -->
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+### 0.2.11 (2026-07-03)
+* Bump @types/node from 25.9.1 to 25.9.4
+* Bump @alcalzone/release-script from 5.2.0 to 5.2.1
+
+### 0.2.10 (2026-06-03)
+* Bump @alcalzone/release-script-plugin-manual-review from 5.1.1 to 5.2.0
+* Bump @alcalzone/release-script from 5.1.1 to 5.2.0
+* Bump @alcalzone/release-script-plugin-license from 5.1.1 to 5.2.0
+* Bump @iobroker/eslint-config from 2.2.0 to 2.3.4
+* Bump @types/node from 25.6.0 to 25.9.1
+* Bump @alcalzone/release-script-plugin-iobroker from 5.1.2 to 5.2.0
+* Update from template: S6020-addChangelogOld
+* Update from template: X0000-dropNode20
+* Update from template: W8917-dependabot-addIgnoreTypesNode
+* Bump axios from 1.13.6 to 1.15.2
+
 ### 0.2.9 (2026-05-03)
 * Bump @types/node from 25.5.0 to 25.6.0
 * Update from template: X0000-updateNodeJsAtTestAndRelease

@@ -281,133 +281,43 @@ This channel contains values polled from SENEC App-API.
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
-- Dependency updates
 
-### 2.5.3 (2026-04-13)
-- Clamping end-dates to current time if they are in the future to avoid issues with API
-- Dependency updates
-- Updated iobroker\testing-action-* versions
+### 2.8.2 (2026-07-09)
+- removed v2.8.0 from documentation - it never was released
 
-### 2.5.2 (2026-03-31)
-- Rewrote AllTime History Rebuild: We should now be able to rebuild AllTime History even if the senec server struggles with timeouts. Warning! Rebuild will take considerable time now depending on the server. Current state of rebuild will be reported to log (info).
-- You will now need to supply the installation year of your appliance upon AllTime History rebuild if you don't want empty yearly folders in the measurements path for yours you don't have data.
-- More comprehensive logging on what is being polled from API.
-- Better debug-logging for polling
-
-### 2.5.1 (2026-03-31)
-- Increased default API poll interval to 6 minutes. This appears to be causing less issues with the server than 5 minutes.
-- You can now define different polling intervals for dashboard (frequently), details (usually hourly and daily information), heavy (for everything else that usually is done per month or year).<br>Please be careful with high frequency polling as this can and will lead to problems and the senec server will stop responding to your requests. Longer delays between polls are preferred.
-- Dependency updates
+### 2.8.1 (2026-07-09)
+- Housekeeping
 - Code optimizations
+- Log messages now include connector prefix ([API], [Local], [Web], [Connect]) for easier filtering and debugging
 
-### 2.5.0 (2026-03-28)
-- Added control.RebootAppliance to initiate appliance reboot. Only works if local lala.cgi is available and connected. Function requires extra permission via adapter settings. Please use responsible!
-- We are now revealing that an ioBroker integration is accessing the API per default (UserAgent is set to 'integration'). Please consider leaving that to 'integration' so SENEC knows there are many users using the ioBroker integration. If you don't want this or experience issues with 'integration' UserAgent, check settings and revert UserAgent to 'Browser' or define your 'custom' UserAgent.
-- Fixed incremential back-off for local polling.
-- Moved local appliance control settings into own tab.
-- Concurrency for API requests can now be controlled via settings. Please be cautious! Senec API is fragile. Go with 1 concurrent request if you experience issues.
-- You can now enable diagnostics for api-request-queue. You can log them to 'info' log or have them in _api.diagnostics.queue.*
-- Reduced local polling interval for lowPrio to 5 minutes.
-- UI now hides unavailable options.
-- Added option to remove API log spam. If you don't need to know every few minutes we are refreshing tokens or polling the API: Deactivate it.
-- Partial code rewrite (you can now safely have several instances of adapter - if you ever wanted)
+### 2.7.0 (2026-07-07)
+- SENEC Account tab: Shared credentials (email, password, TOTP) moved to a dedicated tab, always visible regardless of which cloud features are enabled.
+- mein-senec.de controls: Emergency power reserve, peak shaving (mode, capacity limit, end time), and SG-Ready settings can now be controlled via mein-senec.de. Controls appear under `control.EmergencyPower`, `control.PeakShaving`, and `control.SGReady`. Enable in adapter settings under Appliance Control.
+- Switchable socket control via mein-senec.de: Sockets can now be controlled via mein-senec.de web portal in addition to local lala.cgi. Unified control datapoints (Mode: Off/On/Auto, thresholds, durations, switch-on time) work with both connectors. A force override option is available for systems where socket capability is not detected.
+- Connector-based control routing: Appliance Control tab restructured with per-connector consent checkboxes and per-feature connector dropdowns (Off/Local/API/Web). Only one connector per feature to avoid conflicts. Warning messages shown when a selected connector is not enabled.
+- Independent control gates: Web, API, and local controls each have independent gates in state change handling. API controls no longer require local lala.cgi connection. Fixed plant number 0 falsy bug.
+- API error handling: All mein-senec.de POST handlers check HTTP response status and log error messages from the API.
+- Peak shaving fixes: Capacity limit uses correct field (peakShavingCapacityLimitInPercent), capped at 90%. End time split into EndHour/EndMinute fields. UTC timestamp construction for correct time handling with SENEC API.
+- Debug & Logging tab: Debug settings moved to a dedicated tab applying to all connectors. Request/response logging now includes mein-senec.de traffic.
+
+### 2.6.0 (2026-07-06)
+- TOTP/2FA: If your mein-senec.de account requires two-factor authentication, you can now enter your TOTP secret (the base32 key from your authenticator app setup) in the adapter settings. The adapter will automatically generate login codes — no manual interaction needed.
+- Switchable sockets: If your SENEC system has switchable sockets configured, you can now control them via `control.Sockets` datapoints. Enable in adapter settings under active appliance control.
+- Section discovery: The adapter now queries the device at startup to discover available data sections. New sections are automatically added to polling, and unavailable sections are removed. Check `info.discoveredSections` and `info.unavailableSections` for details.
+- Added support for AMPACE battery module data (cell temperatures, alarm/fault/warning states).
+- System details: Battery SOH, inverter state/temperatures, module states, casing temperature, warranty info and more are now polled from the SENEC app API (hourly).
+- Abilities: Installed feature packages (MOBILITY, PEAK_SHAVING, SG_READY, etc.) are queried at startup.
+- Wallbox control (experimental): If your SENEC system has wallboxes, you can control charging current, smart charge, and intercharge via `control.Wallbox` datapoints. Enable in adapter settings. Please report your experience to the developer.
+- Wallbox cloud API (experimental): Wallbox discovery and measurements via SENEC App API. Wallbox data is polled on all tiers (dashboard/details/heavy) including AllTime history rebuild. Cloud-based wallbox control is being worked on. Shoutout to [marq24](https://github.com/marq24/ha-senec-v3) for the groundwork on wallbox API integration in the HA community.
+- New API endpoints: System status, data availability, online state, and forecast charging settings.
+- API polling resilience: Each API endpoint is now polled independently via `Promise.allSettled` — one failing endpoint no longer blocks others in the same tier. Per-endpoint last-poll timestamps visible under `_api.info.lastPoll.*`.
+- SENEC.Connect: Support for the official SENEC.Connect API (paid subscription). Provides battery, meter, and wallbox data via a simple subscription key. Configure in the new SENEC.Connect tab in adapter settings. Note: At this point SENEC.Connect appears to only be available for V4/E4 systems. Older systems (V2/V3) may return empty data.
+- API paths updated to June 2026 format for future compatibility.
+
+### 2.5.5 (2026-07-06)
+- Add TOTP/2FA support for SENEC API login (configure TOTP secret in adapter settings)
+- Replace plain setTimeout/clearTimeout with adapter-managed timers
 - Dependency updates
-
-### 2.4.8 (2026-03-14)
- - Connection type now is "cloud" (ioBroker internal setting) - although we still support local interaction (if possible per individual appliance)
- - Dependency updates
-
-### 2.4.7 (2026-03-14)
-- Clearly indicating that initial API login busted and adapter will turn off API polling until restart
-- Certain warnings moved to debug (as they are pretty much for debug purposes only)
-- Made usage of axios-cookiejar-support ESM compatible (dynamic import). Solves issues with node 22.
-- RND made node22+ safe.
-- Code optimizations
-
-### 2.4.6 (2026-03-09)
-- Optimizations in Token Refesh Szenarios
-- Optimizations in case of authentication issues
-- Persisted RefreshToken across adapter restarts (less logins)
-- Reworded errors/warning messages
-- Dependency updates
-
-### 2.4.5 (2026-03-03)
-- fixed typo that made today/hourly today/horly. You can safely delete the horly branch Measurements/Daily/horly
-- Updated delay for token refresh (it can be up to 2 min now).
-
-### 2.4.4 (2026-03-03)
-- Exponential backoff, if all systems cannot get polled. If at least 1 system can be polled we resume normal action. Now - if all systems fail polling (like 1 if you only have 1) this would be example backoff times for a 5min base interval: 1 Failure -> 0-10 min, 2 Failure -> 0-20 min, 3 Failures -> 0-40 min, 4+ Failures -> 0-40 min. Once polling works again we will resume normal operations.
-
-### 2.4.3 (2026-03-03)
-- API uses its own backoff settings when polling. You can only configure delay between polls. Instead we are using strategy used by: AWS SDK, Google Cloud SDK, Stripe API client, Kubernetes controllers or Distributed message brokers to prevent: retry storms, thundering herd, burst collapse after outage recovery, adapter lockups or permanent dead loops. This leads to: IF (SENEC API down for 2 hours, or Token refresh fails 20 times, or 429 rate limiting kicks in, or Internet drops temporarily) ? (Never dies, never overlaps, never floods API, always recovers)
-- API polling no longer honors retries-setting. It will just keep backing off exponentially if errors persist -> we keep trying until you stop the adapter.
-- Using Token-Refresh strategy. No unnecessary logins anymore.
-- 401 won't throw warning anymore
-- ReAuth shouldn't stop polling anymore
-
-### 2.4.2 (2026-03-03)
-- AuthToken in _api is no longer used. You can safely delete it.
-- Decoupled frequencies to lower API load. Every poll: Dashboard and today values; Once per day: Yesterday, Monthly, Yearly values (we reduce load by about 65% compared to polling everything every time)
-- AccessToken logic centralized
-- True Single Flight Token refresh (avoiding duplicate logins, duplicate login storms)
-- Avoiding overlapping Polls
-- exponential backoff on auth failure
-- retry backoff
-- proper lifecycle safety
-- Automatic 401 retry
-
-### 2.4.1 (2026-03-01)
-- Fixing issues with polling from senec api when token expires
-- Old entries in changelog moved to old.
-
-### 2.4.0 (2026-02-28)
-- Senec changed login procedure (again). Adapter now also works with 2-stage login where senec asks for username/email first and password second.
-- Dependency updates
-
-### 2.3.0 (2026-02-17)
-- Measurements for today and yesterday are also available by the hour
-- Measurements for month and previous month are also available by day
-- Measurements for year are also available by month
-- Unit calculation fixed if we don't know the unit yet per state_attr.js
-- Added definitions for cascadeDevicesCount and mode
-- Dependency update
-
-### 2.2.2 (2026-02-06)
-- Migrated to i18n
-- Update handling of "new" states that are just an "extra" to an existing state like state and state.1 or state.42
-- Dependency Updates
-
-### 2.2.1 (2026-02-06)
-- Fixed: History rebuild will only run once now when requested (remember: To force rebuild you need to configure this in settings)
-
-### 2.2.0 (2026-02-05)
-- Polling yearly measurements as year from API - not months (and summing them up)
-- Added back AllTimeHistory with BATTERY_LEVEL_IN_PERCENT averaged and AUTARKY_IN_PERCENT calculated
-- Removed selection to use https or http for lala.cgi. https is enforced now.
-
-### 2.1.3 (2026-02-04)
-- reading all previous years (up to inception of SENEC) added again (to make this happen: activate recalculation of full history via settings)
-- added today / yesterday again
-- optimizations for measurements handling
-- less log noise
-
-### 2.1.2 (2026-02-04)
-- more silencing log messages
-- housekeeping
-
-### 2.1.1 (2026-02-04)
-- fixed datatype for WIZARD.SG_READY_CURR_MODE
-- less logging (moved some info to debug again)
-
-### 2.1.0 (2026-02-04) - the API returns - finally finally hopefully finally
-- Complete rewrite of the Senec API functionality. Thanks to @timfxtones for pointing me in the right direction
-- No longer using the web-interface at mein-senec.de - it didn't work properly on the long run ...
-- Still missing some datapoints so far. They will be implemented in the future.
-
-### 2.0.0 (maett81, NoBl)
-* Updated to use new SENEC API via mein-senec.de - Thanks to @maett81
-* Some code and dependency housekeeping
 
 ### [Former Updates](CHANGELOG_OLD.md)
 

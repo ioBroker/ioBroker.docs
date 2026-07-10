@@ -87,6 +87,14 @@ Use the buttons under `volvo.0.<VIN>.remote` to control your vehicle:
 
 ## Changelog
 
+### 3.0.1
+- Fix: address ioBroker repo checker findings:
+  - `eslint.config.mjs` now imports `@iobroker/eslint-config`
+  - Added `prettier.config.mjs`
+  - License copyright line updated to `(c)` format
+  - All `setInterval`/`setTimeout` migrated to `this.setInterval`/`this.setTimeout`
+  - i18n migrated to short format (`{lang}.json`)
+
 ### 3.0.0
 - Adapter now requires node.js >= 22
 
@@ -205,7 +213,7 @@ First stable release — complete rewrite of the Volvo ioBroker adapter.
 
 MIT License
 
-Copyright © 2020-2026 TA2k <tombox2020@gmail.com>
+Copyright (c) 2020-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

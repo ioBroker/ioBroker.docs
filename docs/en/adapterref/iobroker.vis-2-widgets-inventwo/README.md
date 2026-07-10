@@ -13,6 +13,8 @@
 
 A collection of highly customizable widgets for **ioBroker vis 2.0** — built for users who want full control over the look and feel of their dashboards. Every widget comes with extensive styling options and integrates seamlessly with ioBroker data points.
 
+📖 **[User Documentation](docs/README.md)** — detailed guides for all widgets, settings and examples.
+
 ---
 
 ## Widgets
@@ -254,25 +256,42 @@ Renders a bullet-point list from a single text value — either from a data poin
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.0.0 (2026-05-17)
-- Universal Widget: Add polygon shape support (triangle, diamond, pentagon, hexagon, heptagon, octagon, star) with configurable rotation and corner radius
+### 1.7.0 (2026-06-24)
+- Dropdown Widget: Added support for manually defined value/label pairs as an alternative to OID-based state enumeration
 
-### 0.9.0 (2026-05-17)
-- Added document with example designs for universal widget
-- Marquee widget: new scrolling text widget with configurable speed, direction, loop count, gap and pause-on-hover (#5)
-- Dropdown widget: optional conditional background color on title, configurable title padding (top, bottom, left, right) (#246)
-- Value List widget: new widget that renders a bullet-point list from a text value (datapoint or manual), with configurable separator, bullet type, colors, spacing and padding (#2)
+### 1.6.0 (2026-06-19)
+- Universal Widget: Fixed navigation active state not updating correctly when nav buttons are placed inside a "View in Widget"
+- Table Widget: Empty JSON array now renders a "No data" row regardless of column configuration, instead of an empty or broken table structure
+- Marquee Widget: Added vertical scroll directions "Up" and "Down" in addition to the existing "Left" and "Right"
 
-### 0.8.0 (2026-05-15)
-- Slider widget: added read-only mode, gradient support for colors and an option to place steps inside the slider bar (#244)
-- Dropdown widget: added conditional background color (#198), read-only mode (#201) and option to show value without text (#201)
-- Table widget: added multi-column sort (#234)
+### 1.5.0 (2026-06-13)
+- Table Widget: Added "URL" column format for clickable links with configurable target
+- Table Widget: Added "Sum row" option to visually separate the last row with a double border
+- Universal Widget: Added "Corner style" – switch between rounded and chamfered (45 degree bevel) corners
+- Table Widget: Added "Formula" field per column to compute values from row fields (e.g. price * qty)
+- Slider Widget: Added "Title" and "Unit" fields
+- Dropdown Widget: Fixed border radius; added "Widget shadow" for the entire widget container
 
-### 0.7.2 (2026-04-26)
-- Fix button click and hold for mobile devices (#192)
+### 1.4.0 (2026-06-04)
+- Universal Widget: Added "RGB (Scaled)" color model for the color picker – supports configurable value ranges (e.g. 0–1023 for 10-bit RGB controllers)
+- Universal Widget: Added optional password/PIN protection for navigation buttons
+- Universal Widget: Added per-state content mirror option (inherit from content style / yes / no)
+- Table Widget: Added configurable decimal and thousand separators for number format columns
+- Table Widget: Added value color to row conditions (in addition to row background color)
+- Table Widget: Added boolean column format displaying a readonly checkbox with optional configurable checked/unchecked colors
+- Table Widget: Added comparison operator selection to row conditions (equal, not equal, greater, less, greater/less equal)
+- Table Widget: Added value color per row condition – applicable to the whole row or to the condition column only
 
-### 0.7.1 (2026-04-24)
-- Fixed table widget fixed header not working
+### 1.3.0 (2026-06-03)
+- Slider: Added configurable value label display (always/on drag/never) and step marks position (above/below)
+- Universal: Added "Disable click when active" option per state
+- Universal: Fixed color picker components not updating when toggled in the editor
+- Added links to widget documentation in widget settings
+
+## Older changes
+Can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+
+---
 
 ## License
 The MIT License (MIT)

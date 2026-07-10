@@ -17,7 +17,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: ZIcQ4W5pvkCGSwHMt+eGMWWcpf56Ny0hcz9OTgJKNtE=
+hash: 6KI7+6aaDkefhAXx3k31J5XYjqmMrsWkAMV0OljbWPc=
 ---
 ![标识](../../../de/admin/shelly.png)
 
@@ -57,7 +57,10 @@ hash: ZIcQ4W5pvkCGSwHMt+eGMWWcpf56Ny0hcz9OTgJKNtE=
 ![iobroker_general](../../../de/adapterref/iobroker.shelly/img/iobroker_general.png)
 
 ＃＃ 特征
-该适配器已集成到 ioBroker 设备管理器中。更多信息请参见 [设备管理器文档](devicemanager.md)。
+- 该适配器已集成到 ioBroker 设备管理器中。更多信息请参见[设备管理器文档](devicemanager.md)。
+
+＃＃ 限制
+- Shelly 适配器不支持使用 NAT 的 Shelly 集成（例如，许多 VPN 和 Shelly 范围扩展器）。
 
 ## Changelog
 
@@ -65,20 +68,25 @@ hash: ZIcQ4W5pvkCGSwHMt+eGMWWcpf56Ny0hcz9OTgJKNtE=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 11.0.0-alpha.15 (2026-05-10)
+### **WORK IN PROGRESS**
+- (@klein0r) Added hold (128) and nothing (0) to BLE states for buttons
+
+### 11.0.0 (2026-07-03)
+- (@klein0r) Updated ble script (v1.3) for Shelly firmware > 2.0
+- (@GermanBluefox) Added firmware update available indicator for devices supporting this feature.
 - (@copilot) Added Shelly Dimmer 0/1-10V PM Gen4 (shelly0110dimg4).
 - (@copilot) Added HiluX DS8 by Shelly (hiluxds8)
 - (@copilot) Added Shelly EM Gen4 (shellyemg4)
-- (@mcm1957) Adapter requires node.js >= 22, js-controller >= 6.0.11 and admin >= 7.8.20 now.
+- (@mcm1957) Adapter requires node.js >= 22, js-controller >= 6.0.11 and admin >= 7.8.23 now.
 - (@GermanBluefox) Device manager has been added providing info and control of devices and provisioning.
-- (@mcm1957) IMPORTANT: Please read changelog at README.md listing more information.
+- (@mcm1957) IMPORTANT: Please read the changelog at README.md listing more information.
 
 ### 11.0.0 additional information 
 - (@mcm1957) Added Shelly Presence Gen 4
 - (@mcm1957) Added Shelly Cury
 - (@GermanBluefox) Added support for Device manager: info and control of devices and provisioning
 - (@GermanBluefox) Added detection of new devices in the background
-- (@mcm1957) Some missing states added at illuminance component
+- (@mcm1957) Some missing states added at an illuminance component
 - (@mcm1957) DISABLE all PLUG_UI functionality due to unrecoverable HW faults.
 - (@mcm1957) Dependencies have been updated
 
@@ -98,6 +106,7 @@ hash: ZIcQ4W5pvkCGSwHMt+eGMWWcpf56Ny0hcz9OTgJKNtE=
 
 ### 10.5.2 (2025-12-28)
 * (@mcm1957) Monophase profile support has been fixed for shellypro3em and shellypro3em400.
+
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

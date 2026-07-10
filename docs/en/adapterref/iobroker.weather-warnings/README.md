@@ -34,7 +34,7 @@ Push service
 - Sayit
 
 ## Installation
-Min. Nodejs: v18
+Min. Nodejs: v22
 After installation the configuration site will automatically open and will be needed to be **reloaded**. This will show the templates in the language that was set.
 
 ## Configuration
@@ -146,6 +146,21 @@ Iconpage: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.11.2 (2026-06-18)
+- (ticaki) **FIXED**: DWD spoken/written color names (`warnlevelcolorname`) now come from an exact lookup of the official DWD CAP color palette instead of a hue heuristic; light heat violet is now distinguished from dark heat violet, and the extreme-storm, UV and preliminary-information colors are named correctly (adds the color names light violet, dark red, magenta and pink) (#220)
+
+### 0.11.1 (2026-06-18)
+- (ticaki) **FIXED**: spoken/written color name for DWD heat warnings (`warnlevelcolorname`) is now correct: the light violet DWD heat color (`#cc99ff`) was misclassified as "green" and is now named "violet", matching email/vis (#220)
+
+### 0.11.0 (2026-06-02)
+- (copilot) **BREAKING**: Adapter requires node.js >= 22 now
+- (ticaki) **NEW**: added DWD warning type 86 "extreme black ice" (extremes Glatteis) (#251)
+- (ticaki) **NEW**: added global aggregate states `provider.hasActiveWarning` (boolean), `provider.maxLevel` (number) and `provider.maxLevelText` (text)
+- (ticaki) **FIXED**: alexa2 notification no longer crashes when a warning type has no assigned sound
+- (ticaki) **FIXED**: per-provider deactivation of datapoint categories (warning/alerts/formatedKeys) is applied again on restart
+- (ticaki) **FIXED**: addressed ioBroker repository checker findings (node >= 22, `source-map-support` moved to runtime dependencies, admin jsonConfig schema issues, missing translations) (#300, #112)
+- (ticaki) **FIXED**: DWD color name (`warnlevelcolorname`, e.g. spoken by Alexa) now matches the actual DWD warning color shown in email/vis instead of being derived from severity (#220)
+
 ### 0.10.1 (2026-04-20)
 - (ticaki) **FIXED**: Network errors (e.g. internet down, DNS failure, HTTP errors) now show a clear, readable message instead of `[object Object]` or a useless stack trace
 
@@ -153,102 +168,3 @@ Iconpage: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 - (ticaki) update deps
 - (ticaki) fix a problem with "remove" key
 - (ticaki) support added for nspanel-lovelace-ui (>= v0.8.0)
-
-### 0.9.0 (2025-10-28)
-- (ticaki) Data retrieval function changed from axios to fetch 
-- (ticaki) Retrieval timeout changed from 15 seconds to 5 minutes (DWD server needs a 'little' more time)
-
-### 0.8.0 (2025-10-02)
-- (ticaki) Add configurable email recipients with correct processing of comma-separated addresses
-- (ticaki) Update dependencies
-
-### 0.7.4 (2025-02-03)
-- (ticaki) change sendTo for whatsapp
-
-### 0.7.3 (2025-01-16)
-- (ticaki) fix typo
-
-### 0.7.2 (2025-01-13)
-* (ticaki) Replacing „ and “ in the json template before parsing with "
-* (ticaki) Fixing activeWarning_json (adapter.0.provider.activeWarning_json)
-
-### 0.7.1 (2025-01-10)
-* (CrEaK) Fixing send to chatId in telegram
-
-### 0.7.0 (2025-01-03)
-* (ticaki) added gotify (notificationservice)
-
-### 0.6.11 (2024-11-29)
-* (ticaki) eslint 8 -> 9
-
-### 0.6.10 (2024-11-11)
-* (ticaki) fixed: warntype filter 
-* (ticaki) fixed: if every provider except zamg is deactivated in the notifications - no message went out
-* (ticaki) fixed: downgrade a dependency for compatibility with node 18
-
-### 0.6.9 (2024-11-10)
-* (ticaki) added missing text (settings - alexa - soundtable)
-* (ticaki) fixed alerts start/end datapoints. (string -> number)
-* (ticaki) dependencies up to date
-
-### 0.6.7 (2024-02-19)
-* (ticaki) Reduce history data to 80 entries around 4000 lines, because of jerks in the admin
-
-### 0.6.6 (2024-01-14)
-* (ticaki) fullday(ZAMG only): If time span is 24h +/- 5 minutes and the start hour is between 0-3, day of the week from start time, otherwise blank.
-
-### 0.6.5 (2024-01-06)
-* (ticaki) Added: ZAMG full day token
-* (ticaki) fixed: Send emails asynchron
-* (ticaki) fixed: dont ignore uwz activate setting
-* (ticaki) update dp-objects on every start.
-
-### 0.6.4 (2023-12-03)
-* (ticaki) Optimise DWD warning cell selection. Place names are being given more and more details to make them unique.
-
-### 0.6.3 (2023-11-30)
-* (ticaki) add cleartimeout, add axios timeout
-
-### 0.6.2 (2023-11-20)
-* (ticaki) Reduce zamg spam
-
-### 0.6.1 (2023-11-19)
-* (ticaki) Optimise: DWD City names, adminconfiguration, translations
-
-### 0.6.0 (2023-11-16)
-* (ticaki) Added: global alerts.
-* (ticaki) Changed: Token ...adverb - if no adverb, then day of the week.
-
-### 0.5.6 (2023-11-15)
-* (ticaki) Added: Select template for manual notification without warnings.
-* (ticaki) Added: Configuration dialogue marks invalid template keys for most notification services.
-
-### 0.5.5 (2023-11-14)
-* (ticaki) Added: Missing space in emailMessage template.
-* (ticaki) Fixed: wrong status for all removed.
-* (ticaki) Admin: moving test options to tab general.
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
-## License
-MIT License
-
-Copyright (c) 2024-2026 ticaki <github@renopoint.de>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

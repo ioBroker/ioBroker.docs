@@ -20,7 +20,7 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 [Login Infos](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
 
-[Token generieren](https://github.com/Newan/ioBroker.bluelink/tree/master/py) oder [workaround with Token](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo/2249?_=1761189451343)
+[Token generieren](https://github.com/Newan/ioBroker.bluelink/tree/master/py) or [workaround with Token](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo/2249?_=1761189451343)
 
 [Wiki](https://github.com/Newan/ioBroker.bluelink/wiki)
 

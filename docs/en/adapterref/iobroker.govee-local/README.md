@@ -25,13 +25,22 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+- update dependencies
+
+### 0.4.7 (2026-06-02)
+
+- update dependencies
+- maintenance refactoring
+
 ### 0.4.6 (2026-05-18)
 
 - Adapter requires node.js >= 22 now
 - Fixed multiple security vulnerabilities in dev dependencies:
-  - Updated `@iobroker/testing` to resolve axios, esbuild, and mocha-related CVEs
-  - Added npm overrides for `mocha` subdependencies: `diff` (^8.0.3) and `serialize-javascript` (^7.0.5)
-  - All npm audit checks now pass with zero vulnerabilities
+    - Updated `@iobroker/testing` to resolve axios, esbuild, and mocha-related CVEs
+    - Added npm overrides for `mocha` subdependencies: `diff` (^8.0.3) and `serialize-javascript` (^7.0.5)
+    - All npm audit checks now pass with zero vulnerabilities
 
 - update dependencies: @types/node (25.5.0), eslint (10.1.0), @alcalzone/release-script (5.1.1), admin (7.6.20)
 - update dependencies: @alcalzone/release-script (5.2.0), @alcalzone/release-script-plugin-iobroker (5.2.0), @alcalzone/release-script-plugin-license (5.2.0), @alcalzone/release-script-plugin-manual-review (5.2.0), @iobroker/eslint-config (2.3.4), @types/node (25.6.2), eslint (10.3.0), prettier (3.8.3), typescript (6.0.3)
@@ -50,11 +59,6 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 - fix responsive design in the settings
 - revert forbidden characters checking
 - update dependencies
-
-### 0.4.2 (2025-11-08)
-
-- update dependencies
-- fix device name / model identifier in the objects
 
 Older entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 

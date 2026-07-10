@@ -292,6 +292,12 @@ npm run start
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.14.3 (2026-06-09)
+* (@GermanBluefox) Applied the user-defined style to tplValueInput
+
+### 2.14.0 (2026-05-29)
+* (@GermanBluefox) Refactoring of the build process
+
 ### 2.13.19 (2026-04-27)
 * (@GermanBluefox) Refactoring
 
@@ -301,13 +307,6 @@ npm run start
 ### 2.13.16 (2026-03-26)
 * (@GermanBluefox) Fixing the usage of umlauts in patterns
 * (@GermanBluefox) Fixing commands via control interface when sent as JSON
-
-### 2.13.8 (2025-11-15)
-* (@GermanBluefox) Updated packages
-
-### 2.13.7 (2025-11-09)
-* (@GermanBluefox) Updated packages
-* (@GermanBluefox) Corrected the basic image refreshing
 
 ## License
  Copyright (c) 2021-2026 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,

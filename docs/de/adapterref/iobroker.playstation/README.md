@@ -4354,10 +4354,15 @@ Bekannte paltform: PS5, PS4, PS3, PSVita
 
 ### **WORK IN PROGRESS**
 
+- (Lucky-ESA) Admin 7.6.20 required
+
+### 0.0.4 (2026-05-30)
+
 - (Lucky-ESA) Added Playstation Stars
 - (Lucky-ESA) Added Playstation Store
 - (Lucky-ESA) Fixed create folder
-- (Lucky-ESA) Admin 7.6.17 required
+- (Lucky-ESA) Admin 7.8.23 required
+- (copilot) Adapter requires node.js >= 22 now
 
 ### 0.0.3 (2025-02-14)
 
@@ -4377,6 +4382,8 @@ Bekannte paltform: PS5, PS4, PS3, PSVita
 ### 0.0.1 (2025-01-23)
 
 - (Lucky-ESA) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

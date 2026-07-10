@@ -82,7 +82,6 @@ sendTo('wattcycle.0', 'scan', { duration: 8000 }, res => console.log(res.devices
 ## Requirements
 
 - Linux with BlueZ (`apt install bluez libbluetooth-dev`).
-- Node.js ≥ 20.
 - Adapter must be allowed to access the HCI socket (typically run as root or with `setcap`).
 - Bluetooth adapter must support Bluetooth 5.0 (LE long range).
 
@@ -91,14 +90,15 @@ sendTo('wattcycle.0', 'scan', { duration: 8000 }, res => console.log(res.devices
    Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.0 (2026-07-01)
 * (@GermanBluefox) Improved total calculations
+* (@GermanBluefox) Updated packages
 
 ### 0.2.2 (2026-05-07)
 * (@GermanBluefox) Managed timeouts and power off
 
 ### 0.2.1 (2026-05-06)
-* (@GermanBluefox) Use MAC address as unique identifier bluetooth adapter
+* (@GermanBluefox) Use MAC address as a unique identifier bluetooth adapter
 
 ### 0.1.0 (2026-05-05)
 

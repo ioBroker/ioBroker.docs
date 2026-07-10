@@ -20,10 +20,9 @@ This adapter allows you the control, get states, cleaning history and view the m
 - [Supported robots](#supported-robots)
 - [Zone cleaning](#zone-cleaning)
 - [Changelog](#changelog)
+- [License](#license)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
-
-### This adapter cannot work on MacOS
 
 ## Requirements
 
@@ -33,7 +32,7 @@ This adapter allows you the control, get states, cleaning history and view the m
 
 ## Supported robots
 
-- **S-Series:** S4, S4 Max, S5 Max, S6, S6 Pure, S6 MaxV, S7, S7 MaxV (Pro/Ultra), S7 Pro Ultra, S7 Max Ultra, S8, S8 Pro Ultra, S8 MaxV Ultra
+- **S-Series:** S4, S4 Max, S5 Max, S6, S6 Pure, S6 MaxV, S7, S7 MaxV (Pro/Ultra), S7 Pro Ultra, S7 Max Ultra, S8, S8+, S8 Pro Ultra, S8 MaxV Ultra
 - **Q-Series:** Q5 Pro, Q7, Q7 Max, Q7 L5, Q8 Max
 - **Q Revo:** Q Revo, Q Revo Pro
 - **Qrevo:** Qrevo Slim, Qrevo S, Qrevo Curve, Qrevo Curv Series, Qrevo Edge, Qrevo Edge Series, Qrevo L, Qrevo Master, Qrevo MaxV
@@ -52,6 +51,15 @@ This feature only works when map creation is enabled in the adapter options. Ope
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.4 (2026-06-07)
+
+* (copystring) Documented tested Roborock S8+ support.
+* (copystring) Fixed consumable percentage values for devices where Roborock reports maintenance data via HomeData.
+* (copystring) Re-enabled macOS support and added macOS test coverage.
+* (copystring) Improved dependency update automation so updates are checked weekly and merged only after successful checks.
+* (copystring) Updated `p-queue` to 9.3.0 and `protobufjs` to 8.5.0.
+* (copystring) Improved CI performance for Linux, macOS and Windows adapter tests without reducing test coverage.
+
 ### 0.7.3 (2026-05-22)
 
 * (copystring) Fixed V1 auto-empty dust collection to use the AppPlugin-verified `app_start_collect_dust` command.
@@ -75,7 +83,12 @@ This feature only works when map creation is enabled in the adapter options. Ope
 * (copystring) Improved local connections for newer Roborock models so reconnects, keepalive checks and map transfers are more reliable.
 * (copystring) Fixed empty images in `mapBase64` and `mapBase64Truncated`.
 
-### 0.7.0-beta.1 (2026-03-16)
+Older changelog entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
-* (copystring) **Fix:** Request handling – message IDs are now assigned internally (externalId removed), avoiding ID conflicts.
-* (copystring) **Maps/Rooms:** Room states are only created for segments that exist on the loaded map for that floor; room names are taken only from the API so custom names are not overwritten.
+## License
+
+MIT License
+
+Copyright (c) 2026 copystring <copystring@gmail.com>
+
+See [LICENSE](LICENSE) for the full license text.

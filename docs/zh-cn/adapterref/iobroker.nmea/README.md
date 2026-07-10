@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.nmea/README.md
 title: ioBroker.nmea
-hash: p/eq6B7PZVQLUKFxfimS1lRZY/ms2S//3QunbayRtVY=
+hash: brMDTUVo2fZ0JwY7pf+WQjH3ADkepYbMj2CQ1i4IvzY=
 ---
 ![标识](../../../en/adapterref/iobroker.nmea/admin/nmea.png)
 
@@ -102,17 +102,42 @@ iobroker ALL=(ALL) timedatectl set-timezone
 ```
 
 ## 自动驾驶仪
-实际上，目前只支持一种自动驾驶仪：Raymarine。
+实际上，目前只支持一款自动驾驶仪：Raymarine。
 
 Simrad/navico/B&G 的研发尚未完成。
+
+### 风向基准显示
+对于发布“Pilot Wind Datum”（PGN 65345）的 Raymarine 设备，适配器会将原始角度以弧度存储在 `seatalkPilotWindDatum.windDatum` 下（这是自动驾驶仪在您更改风角时读取的标准值，因此必须保持弧度）。
+
+此外，还创建了一个只读便捷状态 `seatalkPilotWindDatum.windDatumDisplay`。
+
+它显示的角度与 Raymarine 飞行员头像显示的角度完全相同：
+
+- `0…180°` → 右舷，`180…360°` → 左舷，
+每个值都表示为 `≤180°`，外加一个与语言相关的附加字母（例如，基准值为 `230°`）。
+
+英文显示为 `130°P`，德文显示为 `130°B`）。`0°`（正前方）和 `180°`（正后方）没有侧字母。
+
+使用 `windDatumDisplay` 进行可视化，使用 `windDatum` 进行计算/自动化。
 
 <!--
 
 ### **正在进行中** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.3 (2026-07-08)
+- (bluefox) Better decoding of motor PGNs
+
+### 1.0.2 (2026-06-30)
+- (copilot) Adapter requires node.js >= 22 now
+- (bluefox) Added `seatalkPilotWindDatum.windDatumDisplay` state with the Raymarine-style port/starboard wind-angle display
+- (bluefox) The autopilot device-manager widget now shows the wind datum the Raymarine way (e.g. `130°P`) with a language-dependent port/starboard letter
+- (bluefox) Added the custom icon set
+
+### 1.0.1 (2026-06-26)
 * (bluefox) Implemented Raymarine autopilot support
+* (bluefox) Corrected values simulation for yacht devices gateways
+* (bluefox) Added support of Fusion player
 
 ### 0.4.2 (2026-01-05)
 * (bluefox) Updated packages
@@ -120,27 +145,7 @@ Simrad/navico/B&G 的研发尚未完成。
 ### 0.4.0 (2025-11-30)
 * (bluefox) Added support of YDEN-02/03 and YDWG-02/03 gateways
 
-### 0.3.0 (2025-08-16)
-* (bluefox) Widgets were rewritten on TypeScript
-* (bluefox) Corrected errors in the widgets and in the calculations
-* (bluefox) Small fix for ais data
-
-### 0.2.2 (2024-06-20)
-* (bluefox) Backend was rewritten on TypeScript
-* (bluefox) Support for AIS added
-* (bluefox) Valid processing of temperature, pressure and humidity
-
-### 0.1.8 (2024-03-20)
-* (bluefox) Corrected vis-2 widgets
-
-### 0.1.1 (2024-03-19)
-* (bluefox) Corrected vis-2 widgets
-
-### 0.0.4 (2024-03-12)
-* (bluefox) Fixed CI tests
-
-### 0.0.3 (2024-03-12)
-* (bluefox) Initial commit
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

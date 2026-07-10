@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
-hash: dVoDQ4rWzdmdbQhvrMxzsi+dKOiQ+4Rae7ybxovwcS4=
+hash: Ff2/8FhheGHxROpeqSFrjF6DG2L258+2E7+X4uX4Qww=
 ---
 # JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
 ![Logo](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -156,6 +156,7 @@ Die Vorlage kann nun auch mit HTML-Tags angereichert werden, um ein bestimmtes L
 - [Anwendungsfall-Aufgabenliste](documentation/usecase-tasklist.md)
 - [Anwendungsfall öffentlicher Verkehr](documentation/usecase-public-transport.md)
 - [Anwendungsfall einfaches Messgerät](documentation/usecase-simplegauge.md)
+- [Anwendungsfall-GitHub-Issues und PRs](documentation/usecase-githubissues.md)
 
 ## Templatesystem
 ### Sehr wichtiger Hinweis zur Verwendung in vis / vis-2

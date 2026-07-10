@@ -9,7 +9,7 @@
 
 [![COMMUNITY](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)](https://forum.iobroker.net/topic/84376/life360-nextgeneration-latest)
 [![MAINTAINER](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)](https://github.com/skvarel)
-[![AI](https://img.shields.io/badge/ai%20assisted-copilot-blue.svg)](https://github.com/inventwo/ioBroker.life360ng/blob/main/.github/copilot-instructions.md)
+[![AI](https://img.shields.io/badge/ai%20assisted-cursor-blue.svg)](https://github.com/inventwo/ioBroker.life360ng/blob/main/.cursor/iobroker-adapter.mdc)
 
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
@@ -308,29 +308,22 @@ Note: The original [repository](https://github.com/MiGoller/ioBroker.life360) is
 <!--
     ### **WORK IN PROGRESS**
 -->
-### 1.10.2 (2026-05-25)
-- (skvarel) Updated @alcalzone/release-script and related plugins to minimum required version 5.2.0
-- (skvarel) Updated minimum required Node.js engine from 20 to 22 in package.json
-- (skvarel) Replaced custom wait/sleep helper with the built-in adapter.delay() method
+### 1.11.4 (2026-07-02)
+- (skvarel) Fixed issue detected by repository checker #31
 
-### 1.10.1 (2026-05-24)
-- (skvarel) Life360 places display settings in Map Display tab are now hidden when "Process Life360 places" is disabled in the Integration tab
-- (skvarel) Added "Enable own places" checkbox in the Integration tab; disabling it hides the My Places tab, related Map Display settings and own place markers in the map hamburger menus
-- (skvarel) Added descriptive info text to the Logging tab explaining what verbose logging records and when to use it
+### 1.11.3 (2026-06-10)
+- (skvarel) Added meta object types for adapter and instance namespace
 
-### 1.10.0 (2026-05-23)
-- (skvarel) Improved Life360 places discovery with multiple API fallbacks: v3 endpoint, embedded v4 circle data (including singular "place" key), and direct v4 places endpoint; logs a one-time info message when no places are available via any source (affects some EU free-tier accounts); added documentation note about this API restriction
-- (skvarel) Added person display name aliases in the Integration tab: assign a custom alias per person used in tracker map headers, legend labels, and ioBroker object display names; circle map header name setting moved to the same tab
-- (skvarel) Fixed `people.<id>.disconnected` and `people.<id>.isConnected` states always showing wrong values because the Life360 API returns the `disconnected` field as a string instead of a boolean
-- (skvarel) Added `notifications.lastSpokenText` state that stores every notification text for use in Blockly, Sonos, or other automations without requiring Telegram or Alexa
-- (skvarel) Added Auto-Refresh checkbox (default on) and Live Follow checkbox to tracker map hamburger menus; in the circle map, clicking a person's name in the legend focuses the map on that person's route
+### 1.11.2 (2026-06-05)
+- (skvarel) Updated @alcalzone/release-script to minimum required version 5.2.1
+- (skvarel) Replaced plain setTimeout/clearTimeout with adapter.setTimeout/clearTimeout in life360DbConnector
 
-### 1.9.1 (2026-05-20)
-- (skvarel) Fixed tracker map showing wrong day (yesterday's route) for users in timezones ahead of UTC: date calculations now use local time instead of UTC, preventing GPS points and the default date range from being assigned to the previous day between midnight and the UTC offset hour
-- (skvarel) Reduced risk of Cloudflare rate-limiting: API retry loops now abort immediately on a 403/503 block instead of hammering the API with further requests; added a short delay between consecutive API calls within each poll cycle
+### 1.11.1 (2026-06-03)
+- (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
 
-### 1.9.0 (2026-05-18)
-- (skvarel) Added place-specific notification overrides table in the Notifications tab: configure custom arrival and leave messages per place and person, with optional suppression of the default standard message; place and person columns use dropdowns populated from known places and Life360 persons
+### 1.11.0 (2026-05-28)
+- (skvarel) Added "Enable datapoint notifications" checkbox in the Notifications tab; when enabled, the general notification settings panel is shown even without Telegram or Alexa configured
+- (skvarel) Updated geolocation-utils dependency from 1.2.5 to 1.2.6
 
 ## Older changes
 - [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.life360ng/blob/main/CHANGELOG_OLD.md)

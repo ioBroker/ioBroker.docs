@@ -93,18 +93,18 @@ your scripts on what the appliance actually supports.
 
 ### Controls (dehumidifier, 0xA1)
 
-| Control            | Type    | Description                                  |
-| ------------------ | ------- | -------------------------------------------- |
-| `powerOn`          | boolean | Turn the unit on/off                         |
-| `mode`             | enum    | setpoint / continuous / smart / dryer        |
-| `targetHumidity`   | number  | 0–100 % target humidity                      |
-| `fanSpeed`         | number  | 0–127 (40 silent, 60 low, 80 high, 102 auto) |
-| `fanSpeedName`     | enum    | silent / low / medium / high / auto          |
-| `ionMode`          | boolean | Ionizer / anion mode                         |
-| `sleepMode`        | boolean | Sleep mode                                   |
-| `pumpSwitch`       | boolean | Drain pump on/off                            |
-| `verticalSwing`    | boolean | Vertical swing                               |
-| `tankWarningLevel` | number  | Tank warning threshold (0–100 %)             |
+| Control            | Type    | Description                                             |
+| ------------------ | ------- | ------------------------------------------------------- |
+| `powerOn`          | boolean | Turn the unit on/off                                    |
+| `mode`             | enum    | set / continuity / auto / dry_clothes / dry_shoes / fan |
+| `targetHumidity`   | number  | 0–100 % target humidity                                 |
+| `fanSpeed`         | number  | 0–127 (40 silent, 60 low, 80 high, 102 auto)            |
+| `fanSpeedName`     | enum    | silent / low / medium / high / auto                     |
+| `ionMode`          | boolean | Ionizer / anion mode                                    |
+| `sleepMode`        | boolean | Sleep mode                                              |
+| `pumpSwitch`       | boolean | Drain pump on/off                                       |
+| `verticalSwing`    | boolean | Vertical swing                                          |
+| `tankWarningLevel` | number  | Tank warning threshold (0–100 %)                        |
 
 The `status.*` tree exposes everything the device reports (indoor / outdoor
 temperature, swing axes, error codes, timer state, total `powerUsage` in kWh, …).
@@ -138,7 +138,7 @@ Read-only metadata (no `MessageSet` defined upstream):
 - `0xAD` air-box (PM2.5 / VOC sensor).
 
 For every controllable type, the writable fields are exposed under
-`devices.<id>.controls.*`; sensor values land under `devices.<id>.status.*`.
+`<deviceId>.control.*`; sensor values land under `<deviceId>.status.*`.
 
 ### Controls (fan, 0xFA)
 
@@ -202,6 +202,15 @@ device ids so the implementation can be diagnosed from logs alone.
 <!-- 
   Placeholder for next versions. Do NOT remove. 
 -->
+### 1.8.6 (2026-06-29)
+- Improved State parsing
+
+### 1.8.5 (2026-06-13)
+- Improve Device detection
+
+### 1.8.4 (2026-06-01)
+- Minor Bugfixes
+
 ### 1.8.3 (2026-05-25)
 
 -   Adds a NetHome Plus Fallback for ot working devices

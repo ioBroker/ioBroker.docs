@@ -27,6 +27,11 @@ Read values of a RCT Power photovoltaics power converter.
 
 ## REMARKS
 
+**IMPORTANT:
+The RCT Inverter cannot distinguish between different clients asking for data.**
+Opening the "RCT Power App" on a smartphone / tablet or running other adapters sending queries to the inverter (like EVCC), always leads to the adapter receiving unrequested data (visible in debug mode).
+This data will be discarded and only requested data will be handled.
+
 By using the "RCT Elements" field, one may select which data shall be read from the power converter.
 If nothing is entered here, default will be used:
 
@@ -43,7 +48,7 @@ The object "battery.bat_status" indicates the status of a connected battery:
 * 1024 -> calibrating - discharge phase (xx% --> 0%)
 * 2048 -> balancing
 	
-The object "inverter_state" indicates the status of the inverter
+The object "prim_sm.state" indicates the status of the inverter
 *	0 -> 'Standby'
 *	1 -> 'Initialization'
 *	2 -> 'Standby'
@@ -69,7 +74,7 @@ None
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.2.28 (2026-06-18)
 Improve Logging Consistency and Debug Handling
 #320
 
@@ -90,28 +95,15 @@ Improve Logging Consistency and Debug Handling
 * (Andreas Ruttkamp) minimum version for admin now 7.6.17
 * (Andreas Ruttkamp) minimum version for js controller now 6.0.11
 
-### 1.2.23 (2025-08-19)
-* (Andreas Ruttkamp) enhancement issue #241
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
+## License
 MIT License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Copyright (c) 2025-2026 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>
+Copyright (c) 2025-2026 Andreas Ruttkamp ioBroker.rct@ruttkamp.com

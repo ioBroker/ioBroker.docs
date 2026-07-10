@@ -64,6 +64,7 @@ http://www.maxxisun.de
 - Migrated from JavaScript to TypeScript
 - Replaced Axios with native fetch
 - Fixed BKW mode after deactivation
+- Dependencies update
 
 ### 1.4.48 (2026-04-02)
 

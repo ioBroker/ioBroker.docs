@@ -77,7 +77,8 @@ in /opt/iobroker/node_modules/iobroker.ebus/lib/scripts you can find a scripts t
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+* (copilot) Adapter requires node.js >= 22 now
+* (Rneé) Update dependencies
 
 ### 4.0.3 (2026-04-12)
 * (René): bug fix see issue #517: avoid crash when using external command

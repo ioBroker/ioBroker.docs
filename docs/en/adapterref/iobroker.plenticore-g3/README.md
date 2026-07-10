@@ -48,6 +48,9 @@ Despite what the name of the adapter may suggest (that only G3 models are suppor
 - Plenticore BI 10/26 (G2) - FW Version 02.15.19562
 
 ## Changelog
+### 1.0.1 (2026-06-29)
+- update dependencies
+
 ### 1.0.0 (2026-05-12)
 - (copilot) Adapter requires node.js >= 22 now
 - update dependencies
@@ -68,11 +71,9 @@ Despite what the name of the adapter may suggest (that only G3 models are suppor
 - fix unhandled exception when polling inverter state
 - fix missing description of preselected values (former optionals)
 
-### 0.5.0 (2025-10-29)
-- make API-Call timeout configurable
-- update translations
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
+## License
 MIT License
 
 Copyright (c) 2025-2026 fernetmenta <fernetmenta@online.de>

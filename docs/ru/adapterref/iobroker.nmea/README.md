@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nmea/README.md
 title: ioBroker.nmea
-hash: p/eq6B7PZVQLUKFxfimS1lRZY/ms2S//3QunbayRtVY=
+hash: brMDTUVo2fZ0JwY7pf+WQjH3ADkepYbMj2CQ1i4IvzY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nmea/admin/nmea.png)
 
@@ -100,13 +100,37 @@ iobroker ALL=(ALL) timedatectl set-timezone
 
 Разработка Simrad/Navico/B&G еще не завершена.
 
+### Отображение уровня ветрового давления
+Для устройств Raymarine, которые публикуют "Опорную точку ветра для автопилота" (PGN 65345), адаптер сохраняет исходный угол в радианах в поле `seatalkPilotWindDatum.windDatum` (это каноническое значение, которое автопилот считывает при изменении угла ветра, поэтому оно должно оставаться в радианах).
+
+Кроме того, создается состояние только для чтения `seatalkPilotWindDatum.windDatumDisplay`.
+Оно отображает угол точно так же, как и на пилотном дисплее Raymarine:
+
+- `0…180°` → правый борт, `180…360°` → левый борт,
+- каждый в виде значения `≤180°` плюс буква, зависящая от языка (например, значение `230°`).
+
+обозначается как `130°P` на английском языке и `130°B` на немецком). `0°` (прямо впереди) и `180°` (прямо позади) не имеют бортовой маркировки.
+
+Используйте `windDatumDisplay` для визуализации и `windDatum` для вычислений/автоматизации.
+
 <!--
 
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.3 (2026-07-08)
+- (bluefox) Better decoding of motor PGNs
+
+### 1.0.2 (2026-06-30)
+- (copilot) Adapter requires node.js >= 22 now
+- (bluefox) Added `seatalkPilotWindDatum.windDatumDisplay` state with the Raymarine-style port/starboard wind-angle display
+- (bluefox) The autopilot device-manager widget now shows the wind datum the Raymarine way (e.g. `130°P`) with a language-dependent port/starboard letter
+- (bluefox) Added the custom icon set
+
+### 1.0.1 (2026-06-26)
 * (bluefox) Implemented Raymarine autopilot support
+* (bluefox) Corrected values simulation for yacht devices gateways
+* (bluefox) Added support of Fusion player
 
 ### 0.4.2 (2026-01-05)
 * (bluefox) Updated packages
@@ -114,27 +138,7 @@ iobroker ALL=(ALL) timedatectl set-timezone
 ### 0.4.0 (2025-11-30)
 * (bluefox) Added support of YDEN-02/03 and YDWG-02/03 gateways
 
-### 0.3.0 (2025-08-16)
-* (bluefox) Widgets were rewritten on TypeScript
-* (bluefox) Corrected errors in the widgets and in the calculations
-* (bluefox) Small fix for ais data
-
-### 0.2.2 (2024-06-20)
-* (bluefox) Backend was rewritten on TypeScript
-* (bluefox) Support for AIS added
-* (bluefox) Valid processing of temperature, pressure and humidity
-
-### 0.1.8 (2024-03-20)
-* (bluefox) Corrected vis-2 widgets
-
-### 0.1.1 (2024-03-19)
-* (bluefox) Corrected vis-2 widgets
-
-### 0.0.4 (2024-03-12)
-* (bluefox) Fixed CI tests
-
-### 0.0.3 (2024-03-12)
-* (bluefox) Initial commit
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

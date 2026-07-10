@@ -17,7 +17,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pvforecast/README.md
 title: ioBroker.pvforecast
-hash: RnzFvMyK05iDdvPpCZVyygS3oWkZedIRNwjB/iJZilg=
+hash: Kb3rKJpIxmN5wZW4IU5YysJr8bw4nL3CrHhkuKEOQ70=
 ---
 ![标识](../../../de/admin/pvforecast.png)
 
@@ -70,30 +70,56 @@ hash: RnzFvMyK05iDdvPpCZVyygS3oWkZedIRNwjB/iJZilg=
 如果纬度和经度已存储在系统中，系统将自动将数据输入到相应字段中。
 
 ## 光伏节点
-[pvnode](https://pvnode.com) 是一项德国服务，提供以 15 分钟为间隔的高分辨率光伏预测。
+[pvnode](https://pvnode.com) 是一项德国服务，提供 15 分钟间隔的高分辨率光伏预测。该适配器同时支持 **API v1**（在适配器中进行系统配置）和 **API v2**（通过站点 ID 在 pvnode 门户中进行系统配置）。
 
-![pvforecast pvnode选项](../../../de/adapterref/iobroker.pvforecast/img/pvforecast-pvnode-options.png)
+**警告**：pvnode API v1 将于 **2026 年 12 月 31 日** 关闭。自 **2027 年 1 月 1 日** 起，如果配置了 v1，适配器将返回错误并停止轮询。必须迁移到 API v2 — 请参阅下文 [pvnode API v2](#pvnode-api-v2-empfohlen)。
 
-### PVNode 配置
-1. **API密钥**：在https://pvnode.com/api-keys 创建API密钥
-2. **付费账户**：如果您拥有付费的 pvnode 账户，请启用此选项。
-3. **预测天数**：预测天数（仅限付费账户，最多 7 天）。免费账户自动获得 1 天预测天数。
-4. **查询间隔**：建议：90 分钟（pvnode 每天更新 16 次）
-5. **附加参数**：可选的 API 参数，例如 `diffuse_radiation_model=perez&snow_slide_coefficient=0.5`
+### Pvnode 账户级别
+| 功能 | 免费 | 轻便 | 加 |
+|----------|------|-------|------|
+| API 请求/月 | 250 | 3,000 | 3,000 |
+| 每日更新次数 | 1 | 24（每小时） | 144（每10分钟） |
+| 天气预报日期 | 1-2 天（今天 + 明天） | 1-7 天 | 1-7 天 |
+| 太阳能电池板 | 最多 4 个 | 最多 4 个 | 最多 8 个 |
+| 历史数据 | 否 | 否 | 30 天 |
 
-### Pvnode 账户类型
-| 功能 | 免费 | 付费 |
-|----------|-----------|---------|
-| API 请求/月 | 40 | 1,000 |
-| 预测天数 | 1 天（今天 + 明天） | 最多 7 天 |
-| 历史数据 | 否 | 是（-30 天） |
-| 地点 | 1 | 多个 |
+**查询间隔**由适配器根据所选帐户级别自动设置，无需手动配置：
 
-**重要提示**：仅当您拥有付费的 PVNode 账户时才启用“付费账户”选项。否则，可能会出现 API 错误，因为适配器无法自动检测您使用的账户类型。
+| 级别 | 自动间隔 |
+|-------|------------------------|
+| 免费 | 24 小时 |
+| 轻度 | 60分钟 |
+| 加 | 10 分钟（实时预报） |
 
-### Pvnode 附加参数
-以下可选 API 参数可通过“附加参数”字段传递：
+### Pvnode API v2（推荐）
+在 API v2 中，整个系统配置（方位角、倾角、功率）都通过 **站点 ID** 在 pvnode 门户中直接管理。适配器只需要站点 ID，适配器本身不需要方位角/倾角/功率信息。
 
+**前提条件：**配置适配器之前，必须在 pvnode 门户网站 https://pvnode.com/sites/new 中创建一个站点。所有太阳能电池阵列（组串）的信息，包括其朝向、倾角和峰值功率，都需要在此处输入。保存后，门户网站将提供站点 ID。
+
+**配置：**
+
+1. **API密钥**：请访问 https://pvnode.com/api-keys 创建
+2. **使用 pvnode API v2**：启用复选框
+3. **pvnode 站点 ID**：来自 pvnode 门户的站点 ID（例如 `site_xxxx…`）
+4. **订阅级别**：免费/轻量级/高级（自动确定检索间隔）
+5. **预报天数**：预报天数（免费版：最多 2 天 - 今天和明天；精简版/增强版：最多 7 天）
+
+**电厂表 (v2)：** 至少需要填写一个条目。名称仅用于显示；可选的峰值功率用于“已安装功率”状态。适配器从 v2 API 查询字符串数据，并根据电厂位置将每个字符串分配给已配置的电厂（电厂 1 → 字符串 0，电厂 2 → 字符串 1，依此类推）。这实现了真正的按区域预测。如果没有可用的字符串数据，则将站点总值存储在第一个电厂下。
+
+### Pvnode API v1
+在 API v1 中，方位角、倾角和功率直接在每个系统的适配器中配置。每个系统都有自己的 API 调用。
+
+**配置：**
+
+1. **API密钥**：请访问 https://pvnode.com/api-keys 创建
+2. **使用 pvnode API v2**：请勿勾选此复选框
+3. **订阅级别**：免费/轻量级/高级
+4. **预报天数**：预报天数（免费版：最多 2 天 - 今天和明天；精简版/高级版：最多 7 天）
+5. **附加参数**：可选的 API 参数（仅限 v1 版本），例如 `diffuse_radiation_model=perez&snow_slide_coefficient=0.5`
+
+**轮换查询流程 (v1)：** 对于多个系统，每个系统在启动时查询一次。之后，每个周期（轮换）只查询一个系统。对于 N 个系统，间隔为 T，每个系统每 N×T 更新一次。例如：3 个系统，轻量级（60 分钟）→ 每个系统每 3 小时更新一次，每小时调用一次 API。
+
+### Pvnode 附加参数（仅限 v1）
 | 参数 | 说明 | 示例 |
 |-----------|--------------|---------|
 | `diffuse_radiation_model` | 辐射模型 | `perez` |
@@ -103,11 +129,11 @@ hash: RnzFvMyK05iDdvPpCZVyygS3oWkZedIRNwjB/iJZilg=
 格式：`key1=value1&key2=value2`
 
 ### Pvnode 特色功能
-- **15分钟分辨率**：pvnode以15分钟为间隔提供预测数据
+- **15分钟分辨率**：pvnode以15分钟的间隔提供预测数据（v1和v2）
 - **方位角转换**：适配器会自动将方位角值（适配器：0=南）转换为 pvnode 格式（180=南）。
-- **请求捆绑**：配置多个系统时，每个 API 请求最多会自动捆绑两个系统（pvnode `second_array` 功能）。这可以减少 API 调用次数（例如，两个系统只需一个请求，而不是两个）。合并后的预测数据存储在第一个系统中；第二个系统会被标记为已捆绑。
-- **摘要数据**：摘要 JSON 包含 Clearsky 值（所有系统的总和）以及温度和天气代码（每个值均为第一个系统的值）。
-- **时区**：pvnode API 提供的时间戳为 UTC 时间。适配器会自动将其转换为本地系统时间。
+- **查询间隔**：根据账户级别自动设置，无需手动配置
+- **区域预报（v2）**：如果 pvnode 账户提供字符串数据，则每个已配置的系统都会收到其自身的预报。晴空值、温度和天气代码均取自站点范围的数据。
+- **摘要数据**：摘要 JSON 包含 Clearsky 值以及温度和天气代码。
 - “早晨阻尼”和“傍晚阻尼”字段不适用于光伏节点。
 
 ## VIS 示例
@@ -120,6 +146,23 @@ hash: RnzFvMyK05iDdvPpCZVyygS3oWkZedIRNwjB/iJZilg=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (@patricknitsch) Change Free Tier Forecast from only today to today and tomorrow
+
+### 6.2.0 (2026-07-06)
+- (@patricknitsch) pvnode API v2 support: plant configuration via Site ID in the pvnode portal — create a site at https://pvnode.com/sites/new
+- (@patricknitsch) pvnode v2: per-string forecasts — each configured plant receives its own forecast matched by index (plant 1 → string 0, etc.)
+- (@patricknitsch) pvnode subscription tiers (Free / Light / Plus) replace the old paid-account checkbox; poll interval is set automatically per tier
+- (@patricknitsch) pvnode v1: rotating round-robin fetch — one plant per poll cycle instead of one combined request; each plant receives an individual API call
+- (@patricknitsch) Poll interval field hidden for pvnode (auto-managed)
+- (@patricknitsch) Update Documentation of pvnode
+- (@patricknitsch) Include warning for v1 and error after 31.12.26. The adapter cannot use v1 after this date anymore
+
+### 6.1.0 (2026-04-26)
+- (@mcm1957) Adapter requires node.js >= 22, js-controller >= 6.0.11 and admin >= 7.7.22 now
+- (@mcm1957) Dependencies have been updated
+
 ### 6.0.0 (2026-04-10)
 
 - (@patricknitsch) Added pvnode als alternative Provider
@@ -137,14 +180,7 @@ NodeJS >= 20.x and js-controller >= 6 is required
 
 * (@klein0r) Minimum peak power is 0.1 kWp
 
-### 4.1.0 (2024-11-15)
-
-* (@klein0r) Added estimated energy: now until end of day
-* (@simatec) Admin-UI has been adapted for small displays
-
-### 4.0.1 (2024-10-22)
-
-* (@klein0r) Fixed: Missing color settings for new Solcast table
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

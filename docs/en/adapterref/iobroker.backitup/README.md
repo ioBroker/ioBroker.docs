@@ -689,6 +689,12 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ## Changelog
 ### **WORK IN PROGRESS**
 * (simatec) dependencies updated
+* (simatec) Fix Translation
+* (simatec) small Fixes
+* (simatec) Integrated token encryption
+* (simatec) Fix Yahka Backup
+* (@GermanBluefox) Updated GUI packages und removed linter errors
+* (simatec) Update Node Engine
 
 ### 3.3.17 (2026-04-14)
 * (simatec) Fix vite Build

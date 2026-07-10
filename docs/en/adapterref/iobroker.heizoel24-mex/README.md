@@ -1,4 +1,5 @@
 ![Logo](admin/heizoel24-mex.png)
+
 # ioBroker.heizoel24-mex
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.heizoel24-mex.svg)](https://www.npmjs.com/package/iobroker.heizoel24-mex)
@@ -28,6 +29,18 @@ This is impractical, since that is in the middle of the heating season.<br>
 This adapter can calculate annual usage based on a specific month.<br>
 
 ## Changelog
+### 1.10.1 (2026-06-12)
+
+- allowScripts esbuild and protobufjs
+
+### 1.10.0 (2026-05-29)
+
+- More translations added
+
+### 1.9.3 (2026-05-29)
+
+- Translation issues resolved
+
 ### 1.9.2 (2026-05-26)
 
 - Fix: Prevent crash on network errors by safely handling axios exceptions…
@@ -37,13 +50,27 @@ This adapter can calculate annual usage based on a specific month.<br>
 
 - Fix: Prevent crash on network errors by safely handling axios exceptions & Remove unused main1.js backup file
 
-### 1.9.0 (2026-05-03)
-- (copilot) Adapter requires node.js >= 22 now
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
-### 1.8.1 (2026-04-06)
+## License
+MIT License
 
-- "Reference month for annual consumption (1–12)" edited
+Copyright (c) 2025-2026 Daniel Luginbühl <webmaster@ltspiceusers.ch>
 
-### 1.8.0 (2026-04-05)
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-- Yearly Oil usage by reference month added
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

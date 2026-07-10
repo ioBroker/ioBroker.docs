@@ -224,6 +224,8 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
 - (Lucky-ESA) Adapter requires admin >= 7.6.17 now
 - (mcm1957) Adapter requires node.js >= 20 now
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)

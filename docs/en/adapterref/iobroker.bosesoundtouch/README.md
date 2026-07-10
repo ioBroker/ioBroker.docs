@@ -105,7 +105,7 @@ Soundtouch Application itself.
 
 MIT License
 
-Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019-2022 SwedishChef <swedish.chef@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
