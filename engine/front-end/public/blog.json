@@ -13,9 +13,9 @@
       "originalName": "2026_07_10.md",
       "desc": {
         "de": "Der Sommer 2026 hält das ioBroker-Ökosystem ordentlich auf Trab!\\nSeit dem letzten Rückblick sind gleich **15 neue Adapter** ins Repository gewandert.\\nVom MSpa-Whirlpool über den AL-KO-Mähroboter bis hin zum Home-Assistant-Emulator für Wandpanels.\\nAuffällig viel tut sich rund um **Energie und Solar** (HomeWizard, FoxESS, SOLECTRUS, Linky, Tibber-Widgets),\\naber auch **Ortung, Monitoring und Beleuchtung** sind stark vertreten.",
-        "en": "Summer 2026 is keeping the ioBroker ecosystem busy! Since the last update, **15 new adapters** have been added to the repository.",
-        "ru": "Лето 2026 года не даёт заскучать экосистеме ioBroker! С момента последнего обновления в репозиторий было добавлено **15 новых адаптеров**.",
-        "zh-cn": "2026 年夏季，ioBroker 生态系统可谓热闹非凡！自上次更新以来，我们已在产品库中新增了 15 个适配器。"
+        "en": "# IoBroker Monthly Review – May/June 2026\\nSummer 2026 is keeping the ioBroker ecosystem busy! Since the last update, **15 new adapters** have been added to the repository.",
+        "ru": "# Ежемесячный обзор ioBroker – май/июнь 2026 г.\\nЛето 2026 года не даёт заскучать экосистеме ioBroker! С момента последнего обновления в репозиторий было добавлено **15 новых адаптеров**.",
+        "zh-cn": "# IoBroker 月度回顾 – 2026 年 5 月/6 月\\n2026 年夏季，ioBroker 生态系统异常活跃！自上次更新以来，我们已在代码库中新增了 15 个适配器。"
       }
     },
     "2026_04_13": {
