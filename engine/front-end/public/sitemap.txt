@@ -59,6 +59,7 @@ https://www.iobroker.net/#de/blog/2025_12_21
 https://www.iobroker.net/#de/blog/2025_12_29
 https://www.iobroker.net/#de/blog/2026_03_04
 https://www.iobroker.net/#de/blog/2026_04_13
+https://www.iobroker.net/#de/blog/2026_07_10
 https://www.iobroker.net/#en/blog/2018_03_17
 https://www.iobroker.net/#en/blog/2019_02_22
 https://www.iobroker.net/#en/blog/2019_02_25
@@ -92,6 +93,7 @@ https://www.iobroker.net/#en/blog/2025_12_21
 https://www.iobroker.net/#en/blog/2025_12_29
 https://www.iobroker.net/#en/blog/2026_03_04
 https://www.iobroker.net/#en/blog/2026_04_13
+https://www.iobroker.net/#en/blog/2026_07_10
 https://www.iobroker.net/#ru/blog/2018_03_17
 https://www.iobroker.net/#ru/blog/2019_02_22
 https://www.iobroker.net/#ru/blog/2019_02_25
@@ -125,6 +127,7 @@ https://www.iobroker.net/#ru/blog/2025_12_21
 https://www.iobroker.net/#ru/blog/2025_12_29
 https://www.iobroker.net/#ru/blog/2026_03_04
 https://www.iobroker.net/#ru/blog/2026_04_13
+https://www.iobroker.net/#ru/blog/2026_07_10
 https://www.iobroker.net/#zh-cn/blog/2018_03_17
 https://www.iobroker.net/#zh-cn/blog/2019_02_22
 https://www.iobroker.net/#zh-cn/blog/2019_02_25
@@ -158,6 +161,7 @@ https://www.iobroker.net/#zh-cn/blog/2025_12_21
 https://www.iobroker.net/#zh-cn/blog/2025_12_29
 https://www.iobroker.net/#zh-cn/blog/2026_03_04
 https://www.iobroker.net/#zh-cn/blog/2026_04_13
+https://www.iobroker.net/#zh-cn/blog/2026_07_10
 https://www.iobroker.net/#de/documentation/admin/adapter.md
 https://www.iobroker.net/#de/documentation/admin/enums.md
 https://www.iobroker.net/#de/documentation/admin/files.md
@@ -959,6 +963,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.googleauth/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.gotify/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.gotify-ws/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.govee-local/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.govee-smart/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.gree-hvac/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.grohe-smarthome/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.growatt/README.md
@@ -994,6 +999,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.homee/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.homekit-controller/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.homenet/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.homepilot/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.homewizard/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hoover/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hoymiles/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hoymiles-ms/README.md
@@ -1226,6 +1232,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.powerfox2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.procon-ip/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.proxmox/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.proxy/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.public-holidays/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.public-transport/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.puppeteer/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.pushbullet/README.md
@@ -1730,6 +1737,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.googleauth/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.gotify/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.gotify-ws/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.govee-local/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.govee-smart/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.gree-hvac/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.grohe-smarthome/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.growatt/README.md
@@ -1765,6 +1773,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.homee/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.homekit-controller/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.homenet/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.homepilot/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.homewizard/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hoover/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hoymiles/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hoymiles-ms/README.md
@@ -1997,6 +2006,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.powerfox2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.procon-ip/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.proxmox/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.proxy/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.public-holidays/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.public-transport/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.puppeteer/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.pushbullet/README.md
@@ -2501,6 +2511,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.googleauth/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.gotify/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.gotify-ws/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.govee-local/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.govee-smart/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.gree-hvac/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.grohe-smarthome/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.growatt/README.md
@@ -2536,6 +2547,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.homee/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.homekit-controller/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.homenet/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.homepilot/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.homewizard/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hoover/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hoymiles/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hoymiles-ms/README.md
@@ -2768,6 +2780,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.powerfox2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.procon-ip/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.proxmox/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.proxy/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.public-holidays/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.public-transport/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.puppeteer/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.pushbullet/README.md
@@ -3272,6 +3285,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.googleauth/README.m
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.gotify/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.gotify-ws/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.govee-local/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.govee-smart/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.gree-hvac/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.grohe-smarthome/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.growatt/README.md
@@ -3307,6 +3321,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.homee/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.homekit-controller/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.homenet/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.homepilot/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.homewizard/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hoover/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hoymiles/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hoymiles-ms/README.md
@@ -3539,6 +3554,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.powerfox2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.procon-ip/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.proxmox/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.proxy/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.public-holidays/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.public-transport/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.puppeteer/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pushbullet/README.md

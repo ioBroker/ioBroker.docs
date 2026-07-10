@@ -2,21 +2,21 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hueemu/README.md
-title: ioBroker.hueemu
-hash: Xd145W3bYz85XXnCJwE6JxjMJPFQcnQ+1E0ebaCnDRk=
+title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="48" align="top" /> ioBroker.hueemu
+hash: PNYFNKNFdn+kQybZ0zLalPuIAizKMhqWXSWjxVNtmT8=
 ---
-# IoBroker.hueemu
+# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="48" align="top" /> ioBroker.hueemu
 
 ![npm 版本](https://img.shields.io/npm/v/iobroker.hueemu)
+![稳定的](https://iobroker.live/badges/hueemu-stable.svg)
+![安装](https://iobroker.live/badges/hueemu-installed.svg)
+![npm 下载](https://img.shields.io/npm/dt/iobroker.hueemu)
 ![节点](https://img.shields.io/badge/node-%3E%3D22-brightgreen)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue)
 ![执照](https://img.shields.io/badge/license-MIT-green)
-![npm 下载](https://img.shields.io/npm/dt/iobroker.hueemu)
-![安装](https://iobroker.live/badges/hueemu-installed.svg)
+![哨兵](https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white)
 ![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)
 ![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)
-
-<img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="100" />
 
 模拟 [飞利浦 Hue](https://www.philips-hue.com) 桥接器（v2，BSB002），以便 ioBroker 设备对于仅支持 Hue API 的客户端来说，看起来像 Hue 灯。
 
@@ -34,6 +34,7 @@ hash: Xd145W3bYz85XXnCJwE6JxjMJPFQcnQ+1E0ebaCnDRk=
 - **Hue API v1** — 桥接器型号 BSB002（Hue Bridge v2）
 - **UPnP/SSDP 发现** — 任何兼容 Hue 的客户端均可自动检测
 - **直接状态映射** — 指向任何 ioBroker 状态，无需桥接脚本
+- **设备助手** — 扫描 ioBroker 中可映射的灯具并自动添加，或手动添加和编辑每个灯具。
 - **灯光类型** — 开/关、可调光、色温、RGB
 - **每个设备的值缩放** — 选择如何在源状态中存储亮度和饱和度
 - **持久性 TLS 证书** — 客户端只需信任桥接一次，重启后仍保持相同的身份。
@@ -42,9 +43,16 @@ hash: Xd145W3bYz85XXnCJwE6JxjMJPFQcnQ+1E0ebaCnDRk=
 
 ---
 
+## 哨兵/错误报告
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 仅当您在 ioBroker 诊断中启用错误报告功能（**系统设置 → 诊断和错误报告**）时，才会进行报告。仅传输匿名安装 ID，不包含姓名、电子邮件地址或 IP 地址。
+
+有关详细信息以及如何禁用此功能，请参阅 [Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)。错误报告需要 js-controller 3.0 或更高版本。
+
+---
+
 ＃＃ 要求
 - **Node.js >= 22**
-- **ioBroker js-controller >= 7.0.7**
+- **ioBroker js-controller >= 7.2.2**
 - **ioBroker 管理员 >= 7.8.23**
 
 ---
@@ -61,18 +69,21 @@ hash: Xd145W3bYz85XXnCJwE6JxjMJPFQcnQ+1E0ebaCnDRk=
 ＃＃ 配置
 ### 网络设置
 | 选项 | 描述 | 默认值 |
-| --------------- | ------------------------------------------------------------- | ------- |
-| **主机** | 网桥的 IP 地址（必须是真实的网络 IP 地址） | — |
+| ----------------- | -------------------------------------------------------------------------------------------------------------- | ------- |
+| **主机** | 要绑定的网络接口。选择 `0.0.0.0` 可监听所有接口（即使 IP 地址更改，仍保持可达性） | 0.0.0.0 |
+| **通告 IP 地址** | 向客户端通告以供发现的可达 IP 地址。留空则自动检测主接口 | 自动 |
 | **HTTP 端口** | Hue API 端口 | 8080 |
 | **HTTPS 端口** | 仅当客户端坚持使用 TLS 时才需要；否则留空 | — |
 | **MAC 地址** | 桥接 MAC 地址（如果为空则自动生成） | — |
 
 ### 添加设备
-1. 打开“设备配置”选项卡
-2. 点击“+”按钮
-3. 输入**名称**（例如“客厅灯”）
-4. 选择**灯光类型**
-5. 通过对象浏览器映射**状态**（`...`）
+打开“设备配置”选项卡。有两种方法可以添加灯具：
+
+**手动** — 点击 **添加灯光**，输入名称，选择灯光类型，并将 ioBroker 状态映射到对象浏览器。
+
+**自动** — 点击**搜索灯光**。适配器会扫描您的物体，查找类似灯光的物体（开关、调光器、色温和彩色灯光），并添加可以映射的灯光。对于检测到但无法映射的物体（例如 RGB 通道设备），适配器会进行报告，以便您手动添加。
+
+每个灯都显示为一张卡片——使用**编辑**更改其映射，或使用**删除**将其移除。
 
 ### 支持的灯光类型
 | 类型 | 状态 | 色调模型 |
@@ -161,27 +172,37 @@ hueemu.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.5.1 (2026-05-23)
+### 1.11.0 (2026-07-09)
 
-- Changelog rewritten in user-centric style across all versions.
+- The devices tab can now scan ioBroker for dimmer, colour-temperature and colour lights and add the mappable ones. Manual add still works.
 
-### 1.5.0 (2026-05-22)
+### 1.10.0 (2026-07-09)
 
-- User-modified state names are no longer overwritten on adapter restart
+- Fixed the adapter looking like it was running but ignoring all light changes when UDP port 1900 was already in use (common on Windows); it now recovers cleanly and stays reachable
+- A light's on/off source state holding text such as "off", "no" or "disabled" is now correctly read as off instead of on
+- Closed a brief moment during startup where requests could still be challenged for a password even though authentication was turned off in the configuration
+- Upgrading from the old light setup no longer leaves stray leftover entries behind in the object tree
+- Colour coordinates written as a spaced list such as "0.3, 0.4" are now parsed correctly instead of falling back to white
+- The port fields in the settings now warn you if the chosen port is already in use by another adapter instance
+- Hue and colour-temperature source states can now be given a scale: hue in degrees (0–360) and colour temperature in Kelvin are converted correctly, alongside the native Hue units
 
-### 1.4.9 (2026-05-21)
+### 1.9.0 (2026-06-21) — stable
 
-- Improved error handling and stability.
+- You can now listen on all network interfaces (`0.0.0.0`) and set a separate advertised IP, so discovery keeps working even if the bridge's IP address changes
+- Color lights mapped with only hue or only saturation now report the correct colour instead of falling back to a default white
+- Fixed already-paired clients being wrongly rejected until a restart after a transient error while loading clients at startup
+- A configured source state that no longer exists now produces a one-time warning in the log instead of a silently dead light
 
-### 1.4.8 (2026-05-20)
+### 1.8.1 (2026-06-12) — stable
 
-- Improved security: TLS private key is no longer visible in the admin interface.
+- Number values read from light states are now parsed strictly: text with extra characters after the number falls back to the default instead of being half-parsed
+- Faster bridge config responses for clients that poll every second (such as Echo devices) by reusing the timestamp formatter instead of rebuilding it on every request
 
-### 1.4.7 (2026-05-19)
+### 1.8.0 (2026-06-09)
 
-- TLS private key is now encrypted at rest in the ioBroker object database.
+- Color lights mapped via hue and saturation (without an XY state) now report the correct color mode, so apps that honor it show the actual color instead of a default white.
 
-Older entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
@@ -210,4 +231,4 @@ SOFTWARE.
 
 ---
 
-*Developed with assistance from Claude.ai*
+_Developed with assistance from Claude.ai_

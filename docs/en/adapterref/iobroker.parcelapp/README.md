@@ -1,15 +1,10 @@
-# ioBroker.parcelapp
+# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.parcelapp@main/admin/parcelapp.svg" width="48" align="top" /> ioBroker.parcelapp
 
-[![npm version](https://img.shields.io/npm/v/iobroker.parcelapp)](https://www.npmjs.com/package/iobroker.parcelapp)
-![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen)
-![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![npm downloads](https://img.shields.io/npm/dt/iobroker.parcelapp)](https://www.npmjs.com/package/iobroker.parcelapp)
-![Installations](https://iobroker.live/badges/parcelapp-installed.svg)
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)](https://ko-fi.com/krobipd)
-[![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/krobipd)
+**Release:** [![npm version](https://img.shields.io/npm/v/iobroker.parcelapp)](https://www.npmjs.com/package/iobroker.parcelapp) ![stable](https://iobroker.live/badges/parcelapp-stable.svg) ![Installations](https://iobroker.live/badges/parcelapp-installed.svg) [![npm downloads](https://img.shields.io/npm/dt/iobroker.parcelapp)](https://www.npmjs.com/package/iobroker.parcelapp)
 
-<img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.parcelapp@main/admin/parcelapp.svg" width="100" />
+**Build:** [![Test and Release](https://github.com/krobipd/ioBroker.parcelapp/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/krobipd/ioBroker.parcelapp/actions/workflows/test-and-release.yml) ![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![Sentry](https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white)](https://github.com/ioBroker/plugin-sentry#plugin-sentry)
+
+**Support:** [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)](https://ko-fi.com/krobipd) [![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/krobipd)
 
 ioBroker adapter for the [parcel.app](https://parcelapp.net) API. Supports all carriers that parcel.app tracks.
 
@@ -28,10 +23,18 @@ ioBroker adapter for the [parcel.app](https://parcelapp.net) API. Supports all c
 
 ---
 
+## Sentry / Error reporting
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** Reporting only happens if you have enabled error reporting in the ioBroker diagnostics (**System settings → Diagnostics and error reporting**). Only an anonymous installation ID is transmitted — no name, e-mail address or IP address.
+
+For details and how to disable it, see the [Sentry plugin documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Error reporting requires js-controller 3.0 or newer.
+
+---
+
 ## Requirements
 
 - **Node.js >= 22**
-- **ioBroker js-controller >= 7.0.7**
+- **ioBroker js-controller >= 7.2.2**
 - **ioBroker Admin >= 7.8.23**
 - **parcel.app Premium subscription** — required for API access
 
@@ -42,7 +45,7 @@ ioBroker adapter for the [parcel.app](https://parcelapp.net) API. Supports all c
 | Option                    | Description                                                                                                | Default |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------- | ------- |
 | **API Key**               | Your parcel.app API key (get it at [web.parcelapp.net](https://web.parcelapp.net))                         | —       |
-| **Poll Interval**         | How often to fetch updates (minutes)                                                                       | 10      |
+| **Poll Interval**         | How often to fetch updates (minutes). parcel.app serves the list from a ~45–90 min server cache, so shorter intervals mostly reduce the delay until a refresh is noticed. | 10      |
 | **Auto-remove delivered** | Remove delivered packages from states automatically. When disabled, they stay until deleted in parcel.app. | Yes     |
 
 Status labels (`Delivered`, `In Transit`, …) and delivery estimates (`today`, `tomorrow`, `in X days`) are rendered in the ioBroker system language.
@@ -62,7 +65,7 @@ parcelapp.0.
     └── {packageId}.             — One device per package
         ├── carrier              — Carrier name (e.g. DHL Express)
         ├── status               — Status text (e.g. In Transit)
-        ├── statusCode           — Status code (0-8)
+        ├── statusCode           — Status code (0-8, -1 = unknown)
         ├── description          — Package description
         ├── trackingNumber       — Tracking number
         ├── extraInfo            — Extra information (postal code, email)
@@ -70,8 +73,18 @@ parcelapp.0.
         ├── deliveryEstimate     — Human-readable estimate (today, tomorrow)
         ├── lastEvent            — Latest tracking event
         ├── lastLocation         — Last known location
-        └── lastUpdated          — Last update timestamp
+        └── lastUpdated          — Timestamp of the last tracking-data change
 ```
+
+**Status codes** (`statusCode` — the primary datapoint for automations):
+
+| Code | Meaning         | Code | Meaning                 |
+| ---- | --------------- | ---- | ----------------------- |
+| 0    | Delivered       | 5    | Not Found               |
+| 1    | Frozen          | 6    | Delivery Attempt Failed |
+| 2    | In Transit      | 7    | Exception               |
+| 3    | Awaiting Pickup | 8    | Info Received           |
+| 4    | Out for Delivery | -1  | Unknown (unexpected API value — package stays visible) |
 
 ---
 
@@ -84,14 +97,18 @@ sendTo("parcelapp.0", "addDelivery", {
   tracking_number: "1234567890",
   carrier_code: "dhl",
   description: "My package",
+  // optional:
+  language: "de", // tracking language as an ISO 639-1 code, default "en"
+  send_push_confirmation: true, // send a push once the delivery is added, default false
 });
 ```
 
-The delivery is added to your parcel.app account and immediately appears in ioBroker after an automatic poll.
+`tracking_number`, `carrier_code` and `description` are required; `language` and `send_push_confirmation` are optional. The delivery is added to your parcel.app account and a poll follows right away (at most one poll per minute) — but freshly added deliveries usually have no tracking data yet (see the note below).
 
 **Notes:**
 
 - **POST rate limit: 20 deliveries per day** — failed attempts (e.g. wrong `carrier_code`) also count against this limit.
+- **Each field may be at most 512 characters**, and the adapter accepts at most **20 addDelivery calls per minute** — beyond either limit the call returns `success: false` with an explanatory `error_message` instead of reaching parcel.app.
 - Fresh deliveries usually have no tracking events for **45–90 minutes** after they are added. That's a parcel.app-side delay, not an adapter issue.
 - **Deleting packages is only possible in the parcel.app app/web UI** — the API has no delete endpoint. With `autoRemoveDelivered` enabled, the adapter still drops delivered packages from ioBroker states automatically.
 
@@ -107,7 +124,7 @@ The delivery is added to your parcel.app account and immediately appears in ioBr
 
 ### No deliveries shown
 
-- The API returns cached data — new deliveries may take a few minutes to appear
+- The API returns cached data — new deliveries and fresh tracking events can take **45–90 minutes** to appear (parcel.app-side cache)
 - Check if you have active deliveries in the parcel.app
 
 ### Rate limit
@@ -123,27 +140,37 @@ The delivery is added to your parcel.app account and immediately appears in ioBr
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.5.3 (2026-05-23)
+### 0.10.0 (2026-07-08)
 
-- Reduced unnecessary state-change events by skipping writes when the value has not changed.
+- Fixed: the admin "Test Connection" button now reports real failures — before, it always showed "Ok" even with a wrong API key.
+- Fixed: a package's last-updated timestamp no longer jumps to the restart time after an adapter restart — it only changes when tracking data actually changed.
+- Fixed: a stalled API response can no longer freeze polling until a manual restart — every request now has a hard 60-second deadline.
+- Fixed: a failed adapter start now triggers an automatic restart instead of leaving the adapter idle until restarted by hand.
+- Changed: recurring errors such as a wrong API key are logged once instead of every poll cycle, and stopping the adapter no longer leaves a red error line in the log.
+- Changed: short ioBroker database hiccups no longer flip the connection indicator — it now reflects only the parcel.app connection.
+- Changed: the fallback package name ("Package …") is localized like all other texts, and the adapter is listed under a fitting admin category (misc-data).
+- Changed: the automatic poll after adding a delivery now respects the one-minute pacing, so bulk-adds can no longer exhaust the hourly API budget.
 
-### 0.5.2 (2026-05-23)
+### 0.9.0 (2026-06-23) — stable
 
-- Changelog rewritten in user-centric style across all versions.
+- Fixed: tracked packages could disappear from the object tree after a temporary update error or an unexpected API response — a package is now kept until parcel.app actually stops returning it.
+- Changed: multi-day delivery windows now show the date on each side (e.g. `12-06 14:30 - 12-08 18:30`) instead of looking same-day; out-of-range or reversed dates no longer produce a misleading window.
 
-### 0.5.1 (2026-05-23)
+### 0.8.0 (2026-06-19)
 
-- Internal cleanup. No user-facing changes.
+- The delivery window is now also shown for carriers that report it only as a date/time range, not just when the API provides a Unix timestamp.
+- When adding a delivery via script, you can now set an optional tracking language and request a push confirmation.
 
-### 0.5.0 (2026-05-22)
+### 0.7.2 (2026-06-12) — stable
 
-- User-modified state names are no longer overwritten on adapter restart
+- Much quieter state updates: a package's last-updated timestamp now only changes when its tracking data actually changed, and device entries are no longer rewritten on every poll
+- Adding a delivery with a malformed request now returns a clear error message instead of failing cryptically
 
-### 0.4.9 (2026-05-21)
+### 0.7.1 (2026-06-09)
 
-- Improved error handling and stability.
+- Fixed a timezone edge case in delivery estimates: when the API reports only a calendar date, the estimate could be off by a day in time zones west of UTC — now stable everywhere.
 
-Older entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Support
 
@@ -185,4 +212,4 @@ SOFTWARE.
 
 ---
 
-*Developed with assistance from Claude.ai*
+_Developed with assistance from Claude.ai_

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: t8JOi4020CFbkeTOeDqlhxoJ8c0FTDD0zY4L4ifJdYg=
+hash: VCMZaxdbPUcO10dU2pTGiNkplzi+Uv6n/R6PFmvucPA=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -139,6 +139,7 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`chips`:**](#chips) Der Benutzer kann Wörter eingeben, die einem Array hinzugefügt werden.
 - [**`color`:**](#color) Farbauswahl
 - [**`coordinates`:**](#coordinates) Bestimmt den aktuellen Standort und verwendet die Koordinaten aus `system.config`, falls diese nicht im Format `latitude,longitude` verfügbar sind.
+- [**`credential`:**](#credential) Wählt eine Anmeldeinformation aus dem zentralen Anmeldeinformationsspeicher aus (verwaltet in den Administratoreinstellungen)
 - [**`cron`:**](#cron) Konfiguriert Cron-Ausdrücke für die Planung von Aufgaben
 - [**`custom`:**](#custom) Integriert benutzerdefinierte Komponenten für spezifische Funktionalitäten (nur Admin 6)
 - [**`datePicker`:**](#datepicker) Ermöglicht Benutzern die Auswahl eines Datums
@@ -594,7 +595,7 @@ Zusätzlich können Sie verhindern, dass diese Eigenschaft an andere Adapter als
 | `adapter` | Name des Adapters. Mit dem speziellen Namen `_dataSources` erhalten Sie alle Adapter mit dem Flag `common.getHistory`. |
 | `allowDeactivate` | falls wahr. Die zusätzliche Option "Deaktivieren" wird angezeigt. |
 | `onlyEnabled` | falls wahr. Nur aktivierte Instanzen werden angezeigt. |
-| `long` | Der Wert sieht aus wie `system.adapter.ADAPTER.0` und nicht wie `ADAPTER.0` |
+| `long` | Der Wert sieht eher aus wie `system.adapter.ADAPTER.0` und nicht wie `ADAPTER.0` |
 | `short` | Der Wert sieht aus wie `0` und nicht wie `ADAPTER.0` |
 | `all` | Füge der Option "all" den Wert `*` hinzu |
 | `all` | Füge der Optionsliste die Option "all" mit dem Wert `*` hinzu. |
@@ -636,7 +637,7 @@ Schaltfläche, die eine Anfrage an die aktuelle Instanz sendet (<https://github.
 | `error` | `{error1: {en: 'E'}, error2: {en: 'E2'}}` |
 | `variant` | `contained`, `outlined` oder nichts. Variante der Schaltfläche. |
 | `openUrl` | Wenn wahr - URL in neuem Tab öffnen, falls die Antwort das Attribut `openUrl` enthält, wie z. B. `{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
-| `reloadBrowser` | Wenn wahr - lade das aktuelle Browserfenster neu, falls die Antwort das Attribut `reloadBrowser` enthält, z. B. `{"reloadBrowser": true}`. |
+| `reloadBrowser` | Falls wahr - lade das aktuelle Browserfenster neu, falls die Antwort das Attribut `reloadBrowser` enthält, z. B. `{"reloadBrowser": true}`. |
 | `window` | Wenn `openUrl` wahr ist, ist dies der Name des neuen Fensters. Kann überschrieben werden, wenn die Antwort das Attribut `window` enthält. `this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
 | `icon` | Falls ein Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können Symbole der Kategorie `base64` (wie `data:image/svg+xml;base64,...`) oder Bilder der Kategorie `jpg/png` (endet mit `.png`) verwenden. (Bitte melden Sie weitere Symbole über ein Issue an.) |
 | `useNative` | Wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird dieses für die Konfiguration verwendet. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
@@ -786,6 +787,41 @@ Wählen Sie eine Zertifikatssammlung aus, verwenden Sie einfach alle Sammlungen 
 | Objekt | Beschreibung |
 |--------------------|------------------------------------|
 | `leCollectionName` | Name der Zertifikatssammlung |
+
+### `credential`
+Wählen Sie eine Anmeldeinformation aus dem zentralen Anmeldeinformationsspeicher aus. Die Anmeldeinformationen können in den Administratoreinstellungen (Einstellungen → Anmeldeinformationen) verwaltet werden, und die Adapterkonfiguration speichert lediglich die ID der ausgewählten Anmeldeinformation (z. B. `system.credentials.anthropic`) im entsprechenden Attribut.
+
+Sofern `disableCreation` nicht festgelegt ist, wird neben dem Auswahlfeld eine Schaltfläche **➕** angezeigt, die direkt ein kleines Dialogfeld zum Hinzufügen von Anmeldeinformationen öffnet – ähnlich dem Admin-Dialog. Es bietet Vorlagen (mit Symbolen), gefiltert nach `credentialType` (z. B. Anthropic / ChatGPT / Google Gemini für `ai` sowie die allgemeinen Vorlagen „Anmelden & Passwort“ und „Schlüssel“).
+Die gewählte Vorlage definiert das Formular, einen vorgeschlagenen Namen und das Symbol; die geheimen Felder werden beim Speichern mit dem Systemschlüssel verschlüsselt. Die neu erstellten Anmeldeinformationen werden als `system.credentials.<name>` gespeichert und sofort ausgewählt.
+
+| Objekt | Beschreibung |
+|-------------------|----------------------------------------------------------------------------------------------------------------------|
+| `credentialType` | Zeigt nur Anmeldeinformationen dieses Typs an: `email`, `cloud`, `ai` oder `custom`. Falls nicht definiert, werden alle Anmeldeinformationen aufgelistet. |
+| `disableCreation` | Wenn `true`, wird die Schaltfläche ➕ ausgeblendet, sodass der Benutzer nur eine vorhandene Anmeldeinformation auswählen kann (keine Erstellung an dieser Stelle). |
+
+Beispiel:
+
+```json
+{
+  "credentialId": {
+    "type": "credential",
+    "credentialType": "email",
+    "label": "E-Mail account",
+    "disableCreation": false,
+    "sm": 6
+  }
+}
+```
+
+Jede Anmeldeinformation hat eine von zwei Formen: `login` (ein `login`- und ein `password`-Feld) oder `key` (ein einzelnes `key`-Feld, z. B. ein API-Schlüssel). Im Adapter werden die Anmeldeinformationen mit `@iobroker/adapter-core` gelesen und entschlüsselt.
+
+```typescript
+import { Credentials } from '@iobroker/adapter-core';
+
+const cred = await Credentials.getCredentials<Credentials.LoginPasswordCredentials>(this, this.config.credentialId);
+// cred.values.login, cred.values.password (already decrypted)
+// or for the key form: Credentials.KeyCredentials -> cred.values.key
+```
 
 ### `custom`
 nur Admin6
@@ -1678,6 +1714,36 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 8.4.15 (2026-07-04)
+- (@GermanBluefox) Extended Credentials Component with AWS and Azure
+
+### 8.4.13 (2026-06-29)
+- (@GermanBluefox) Corrected the file selector component
+- (@GermanBluefox) Implemented no translation for the select component
+- (@GermanBluefox) Implemented debug mode for components to analyze JS functions
+- (@ThomasPohl) Corrected rendering of the link in the static text component
+
+### 8.4.11 (2026-06-21)
+- (@GermanBluefox) Added missing translations
+
+### 8.4.10 (2026-06-20)
+- (@GermanBluefox) Fixed state component
+
+### 8.4.9 (2026-06-19)
+- (@GermanBluefox) Moved translations from adapter-react to this repository
+
+### 8.4.8 (2026-06-18)
+- (@GermanBluefox) Allowed creating credentials directly in the `credential` component (templates with icons, filtered by `credentialType`; can be disabled with `disableCreation`)
+
+### 8.4.7 (2026-06-07)
+- (@GermanBluefox) Added a credential component
+
+### 8.4.5 (2026-05-30)
+- (@GermanBluefox) Fixing help rendering
+
+### 8.4.4 (2026-05-29)
+- (@GermanBluefox) Corrected groups in the select component
+
 ### 8.4.3 (2026-05-24)
 - (@GermanBluefox) Optimization of interfaces
 
