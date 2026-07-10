@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: o2CrQOuwEBgQrUCXNjJa36BOvwjgITQON2IfS/Jqeuw=
+hash: RX5gJmwINYaHb24oUVM7SD+u2tYaXo/mtiJf7P5Zl/4=
 ---
 ![标识](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -35,7 +35,7 @@ WebDriver 支持扩展。
 
 扩展程序看起来与普通适配器类似，但它们没有运行进程，而是由 Web 服务器调用。
 
-例如，用户可以激活一个特殊的代理适配器，从而访问同一台网络服务器上的其他设备（例如网络摄像头）。
+例如，用户可以启用一个特殊的代理适配器，从而访问同一台网络服务器上的其他设备（例如网络摄像头）。
 
 必须确保所有服务都在同一台网络服务器上可用。
 
@@ -104,7 +104,7 @@ http://IP:8082/object/0_userdata.0.branch.* =>
 支持的查询参数：
 
 | 参数 | 描述 |
-|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `type` | 按对象类型筛选（例如 `state`、`channel`、`device`、`folder`、`enum`、`instance` 等）。**省略时默认为 `state`**。传递 `all` 可查询所有类型的对象。 |
 | `depth` | 对象 ID 中以点分隔的部分的最大数量。例如，要仅获取 `0_userdata.0.branch`（包含 3 个部分）的直接子项，请请求 `/object/0_userdata.0.branch.*?depth=4`。`depth=1` 会被静默限制为 `depth=2`（ioBroker 对象存在于 1 级或 3 级及以上——根级树状浏览器实际需要的是像 `0_userdata.0` 这样的 2 级“实例”条目）。出于同样的原因，任何实际的单段对象都会从响应中丢弃。 |
 | `extended` | 传递 `?extended` 或 `?extended=true` 以额外包含系统属性，例如 `acl`、`from`、`ts`、`user`、`enums`、`_rev`。 |
@@ -164,13 +164,20 @@ http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<passwo
 }
 ```
 
-更多信息请参见：https://github.com/ioBroker/webserver?tab=readme-ov-file#oauth2-support
+更多信息请访问：https://github.com/ioBroker/webserver?tab=readme-ov-file#oauth2-support
 
 <!-- 下一版本的占位符（位于行首）：
 
 ### **正在进行中** -->
+### 9.0.0 (2026-06-21)
+* (@GermanBluefox) 使用库进行套接字通信，而不是适配器。
+* (@GermanBluefox) 已迁移至 TS 6
+
+### 8.3.0 (2026-06-12)
+* (@SimonFischer04) 添加了 rootPath 选项，以支持在反向代理后运行
+
 ### 8.2.0 (2026-05-21)
-* (@GermanBluefox) 新增了 `/object/<ID>` GET 端点，支持 `type`、`commonType`、`depth`、`extended`、`native` 和 `system` 查询参数，用于读取对象（支持通配符）。默认情况下，仅返回 `_id`、`type` 和 `common`，`type` 默认为 `state`，`system.*` / `script.*` 下的对象会被隐藏。使用 `depth` 参数时，更深层的匹配会生成合成的 `type: "virtual"` 占位符，以便树状浏览器能够看到其下方存在的内容。
+* (@GermanBluefox) 新增了 `/object/<ID>` GET 端点，支持 `type`、`commonType`、`depth`、`extended`、`native` 和 `system` 查询参数，用于读取对象（支持通配符）。默认情况下，仅返回 `_id`、`type` 和 `common`，`type` 默认为 `state`，并且隐藏 `system.*` / `script.*` 下的对象。使用 `depth` 参数时，更深层的匹配会生成合成的 `type: "virtual"` 占位符，以便树状浏览器能够看到其下方存在的内容。
 * (@GermanBluefox) 添加了“禁用对象传递”设置，用于启用/禁用“/object/<ID>”端点
 
 ### 8.1.0 (2026-04-13)
@@ -178,121 +185,11 @@ http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<passwo
 * (@GermanBluefox) 修正了潜在错误
 
 ### 8.0.0 (2026-02-18)
-* (@GermanBluefox) 已更新软件包。最低 Node.js 版本现为 20.0.0
+* (@GermanBluefox) 已更新软件包。最低 Node.js 版本现为 20.0.0。
 * (@GermanBluefox) 移除二进制状态
 * (@GermanBluefox) 添加了通过 `/state/` 端点使用 `POST` 发送值的功能
 
-### 7.0.9 (2025-03-28)
-* (@GermanBluefox) 修正了材质适配器的加载问题
-
-### 7.0.8 (2025-03-18)
-* (@GermanBluefox) 添加了自定义 CORS 标头的设置
-* (@GermanBluefox) 添加了在网页欢迎页面上显示管理员实例的功能
-* (@GermanBluefox) 实现了新的索引页面
-
-### 7.0.7 (2025-03-15)
-* (@GermanBluefox) 尝试通过 Web 扩展程序捕获错误
-
-### 7.0.6 (2025-03-09)
-* (@GermanBluefox) 已更正 iobroker.visu 应用的登录信息
-* (@GermanBluefox) 已修正 TypeScript Web 扩展的加载问题。
-
-### 7.0.4 (2025-03-04)
-* (@GermanBluefox) 已修正登录页面
-* (@GermanBluefox) 移除了频繁的调试输出
-
-### 7.0.3 (2025-03-03)
-* (@GermanBluefox) 已修复用户权限问题
-
-### 7.0.1 (2025-03-02)
-* (@GermanBluefox) [重大变更] 移除了 simple-api，因为它可能被连接为 Web 扩展。
-* (@GermanBluefox) 更新了软件包
-* (@GermanBluefox) 在构建过程中移除了 Gulp
-* (@GermanBluefox) 将 GUI 迁移到 vite
-* (@GermanBluefox) 使用 TypeScript 重写
-* (@GermanBluefox) 添加了 OAuth2 支持
-* (@GermanBluefox) 添加了新的 404 页面和目录列表页面
-
-### 6.3.1 (2024-09-23)
-* (@foxriver76) 添加了新的管理员图标（svg）
-
-### 6.3.0 (2024-06-27)
-* (bluefox) 修正了带有空参数的 getObjectView 调用
-* (bluefox) 更新软件包
-* (bluefox) GUI 已迁移到非样式框架
-
-### 6.2.6 (2024-05-25)
-* (bluefox) 自定义加载背景的准备工作
-* (bluefox) 更新软件包
-
-### 6.2.5 (2024-02-22)
-* (bluefox) 仅部分软件包已更新
-
-### 6.2.4 (2024-02-17)
-* (klein0r) 扩展程序可能会阻止 Web 实例
-* (klein0r) 修复了目录列表
-
-### 6.2.3 (2023-12-18)
-* (foxriver76) 更新了 WebSocket 库，将最大文件大小从 100 MB 增加到 500 MB
-
-### 6.2.2 (2023-12-14)
-* (joltcoke) 修复了启用身份验证时发生的崩溃问题
-
-### 6.2.1 (2023-12-04)
-* (bluefox) 添加了用户访问列表选项
-
-### 6.1.10 (2023-10-16)
-* (bluefox) 修正了开始屏幕
-
-### 6.1.7 (2023-10-16)
-* (bluefox) 添加了公共可访问性检查
-
-### 6.1.6 (2023-10-13)
-* (bluefox) 修正了别名没有目标时的适配器终止问题
-* (bluefox) 已修正 socket.io 连接
-
-### 6.1.4 (2023-10-08)
-* (foxriver76) 升级 socketio 和 ws 依赖项以修复 vis 订阅问题
-
-### 6.1.3 (2023-09-28)
-* (bluefox) 升级了 socketio 和 ws 依赖项，通过在客户端断开连接时取消订阅来修复错误
-
-### 6.1.2 (2023-09-14)
-* (foxriver76) 升级了 socketio 和 ws 依赖项
-
-### 6.1.1 (2023-09-05)
-* (mcm1957) 添加了缺失的 node16 要求
-
-### 6.1.0 (2023-08-01)
-* (bluefox) 添加了对特定实例消息的订阅
-
-### 6.0.3 (2023-07-27)
-* (bluefox) 更新软件包
-* (bluefox) 实现了查看文件夹内容的功能
-
-### 6.0.1 (2023-03-20)
-* (bluefox) 从 Web 适配器中移除了 Let's Encrypt 处理
-
-### 5.5.3 (2023-03-17)
-* (bluefox) 通过 socket.io 上传文件的最大大小从 10MB 增加到 200MB
-
-### 5.5.2 (2023-03-03)
-* (bluefox) 允许删除 fullcalendar 对象
-
-### 5.5.1 (2023-02-25)
-* (bluefox) 允许阅读 vis-2-beta 的项目
-
-### 5.5.0 (2023-02-15)
-* (bluefox) 为应用程序身份验证添加了特殊端点
-
-### 5.4.3 (2023-01-29)
-* (bluefox) 已修正 `publishFileAll` 的错误（供将来使用）
-
-### 5.4.1 (2022-12-23)
-* (bluefox) 已修正 GUI 错误
-
-### 5.4.0 (2022-12-22)
-* (bluefox) 使用了新版本的套接字类
+[更早的更新日志可以在这里找到。](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

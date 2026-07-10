@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-sigenergy/README.md
 title: ioBroker.vis-2-widgets-sigenergy
-hash: rOh8CIKMyKu6fpFtXuPSVtxHOnNBruhKJu8FB0UP78g=
+hash: zWTx5E4wtU0ZupTB7b3mrRktLhzSHIrS3u9B3POe6+g=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/admin/vis-2-widgets-sigenergy.png)
 
@@ -142,6 +142,29 @@ hash: rOh8CIKMyKu6fpFtXuPSVtxHOnNBruhKJu8FB0UP78g=
 
 **OID（每个设备，前缀为 sigenergy.0.sigenmicro.<slaveId>）：** modelType、serialNumber、firmwareVersion、runningState、outputPower、gridFrequency、temperature、mppt1Voltage、mppt1Current、mppt1Power、mppt2Voltage、mppt2Current、mppt2Power、dailyYield、totalYield
 
+### 车辆充电水平 (EV SOC)
+以可配置的车辆图像（例如菲亚特 500e）作为中心视觉元素。右上角的彩色徽章显示闪电图案、当前电量百分比以及“LADESTAND”字样。底部进度条反映当前电量状态 (SOC)。当可选充电状态激活时，徽章会发出闪烁的绿色光芒。
+
+#### 色彩逻辑
+| 电量 | 颜色 |
+|---|---|
+| ≤ 15 % | 红色 (#f87171) |
+| ≤ 35 % | 黄色 (#fbbf24) |
+| > 35% | 绿色 (#4ade80) |
+
+#### 小部件设置
+| 参数 | 类型 | 默认值 | 描述 |
+|---|---|---|---|
+| oid_ev_soc | OID | — | 荷电状态 0–100 |
+| oid_charging | OID | — | 充电状态（可选）— 激活时呈绿色发光 |
+| sig_标题 |文字| Fahrzeug-Ladestand |图片下方显示车辆名称 |
+| sig_car_image | 图片 | — | 来自 ioBroker 文件浏览器的车辆图片（例如 /vis-2/img/） |
+| sig_darkmode | 复选框 | true | 深色/浅色模式 |
+
+![Fahrzeug-Ladestand Widget](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-autoLadestand.png)
+
+**OID：** `oid_ev_soc`, `oid_charging`
+
 ＃＃ 外貌
 所有小部件均支持**浅色和深色模式**，可通过小部件设置`Dark mode`进行切换。
 
@@ -157,8 +180,20 @@ hash: rOh8CIKMyKu6fpFtXuPSVtxHOnNBruhKJu8FB0UP78g=
 - 🇵🇹 [葡萄牙语](doc/pt/README.md)
 
 ## Changelog
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 1.8.2 (2026-06-28)
+* (ssbingo) Updated CI actions: actions/checkout to v7.0.0, ioBroker/testing-action-deploy to v1.5.0
+
+### 1.8.1 (2026-06-08)
+* (ssbingo) Fixed JSON syntax error in io-package.json; added widget screenshot to documentation
+
+### 1.8.0 (2026-06-08)
+* (ssbingo) New widget: "Fahrzeug-Ladestand" — shows a configurable EV image with animated SOC bar, color-coded charge level (red/yellow/green), and optional blinking charging badge
+
+### 1.7.9 (2026-05-27)
+* (ssbingo) Removed obsolete .eslintrc.json and .prettierignore
+
+### 1.7.8 (2026-05-27)
+* (ssbingo) Added ESLint linting, updated CI to Node.js 24; adapter requires node.js >= 22
 
 ### 1.7.7 (2026-04-20)
 * (ssbingo) Text no longer distorts under non-uniform scaling — letters keep their proportions while containers continue to fill the widget area

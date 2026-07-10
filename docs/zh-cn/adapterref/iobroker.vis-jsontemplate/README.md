@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate - 用于在 Vis/Vis2 中可视化 JSON 数据和其他数据的适配器
-hash: dVoDQ4rWzdmdbQhvrMxzsi+dKOiQ+4Rae7ybxovwcS4=
+hash: Ff2/8FhheGHxROpeqSFrjF6DG2L258+2E7+X4uX4Qww=
 ---
 # JSONTemplate - 用于在 Vis/Vis2 中可视化 JSON 数据和其他数据的适配器
 ![标识](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -53,7 +53,7 @@ jsontemplate 小部件之前可在 rssfeed（适用于 vis1）和 vis-2-widgets-
 - [许可证](#license)
 
 ＃＃ 安装
-像往常一样从稳定版软件源安装适配器。
+请按照正常流程从稳定版软件源安装适配器。
 
 如果您想测试新功能或错误修复，也可以从测试版软件源安装适配器。有关功能和最新消息，请参阅 iobroker 论坛中该适配器的“测试与支持”主题帖。
 
@@ -166,6 +166,7 @@ B) 数据点的索引号（编号始终从 0 开始）
 - [用例任务清单](documentation/usecase-tasklist.md)
 - [公共交通用例](documentation/usecase-public-transport.md)
 - [简单仪表用例](documentation/usecase-simplegauge.md)
+- [用例 GitHub Issues 和 PR](documentation/usecase-githubissues.md)
 
 ## 模板系统
 ### 非常重要的提示（适用于 vis / vis-2）
@@ -346,7 +347,7 @@ vis / vis-2 中的绑定机制使用模式 `{ ... }` 来检测 HTML 中的绑定
 - 启动 vscode 启动配置“vis-1 编辑器”
 - 如果小部件不可用，请在适配器页面以专家模式上传适配器。
 现在你可以在 VS Code 的 jsontemplate.js 文件中设置断点了
-- 如果您更改了 js 文件中的任何内容，则必须重新编译源代码。
+- 如果您更改了 js 文件中的内容，则必须重新编译源代码。
 
 使用 npm run build-vis1widgets 命令在 dist 文件夹中运行。
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: BT6fq8xLzzR6Bd5pWDJ1gjLaIyPhg+Q15p/ibrt8wCo=
+hash: FOzwWSvFOpUsK0/fB2iZjiSBxwNWuvJfzIvLcGuKsN8=
 ---
 ![标识](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -75,7 +75,7 @@ hash: BT6fq8xLzzR6Bd5pWDJ1gjLaIyPhg+Q15p/ibrt8wCo=
 ## 离线模式（断开与 Zendure 云的连接）
 作为一项新功能，您可以将 Zendure 设备与云端断开连接。您可以使用 [Reinhard Brandstätter 的 Solarflow Bluetooth Manager（https://github.com/reinhard-brandstaedter/solarflow-bt-manager）或我自己的 Windows 工具 [Zendure Cloud Disconnector](https://github.com/reinhard-brandstaedter/solarflow-bt-manager)。](https://github.com/nograx/zendure-cloud-disconnector) 断开设备与云端的连接。此外，您还可以通过路由器将来自“mq.zen-iot.com”的 DNS 请求重定向到您自己的 MQTT 服务器！
 
-这两个工具都通过蓝牙连接到 Zendure 设备，并将内部 MQTT URL 设置为您需要提供的新 URL/IP 地址。目前，您只能使用服务器上的默认 MQTT 端口 1883。此外，由于 Zendure 设备使用硬编码密码，您还必须禁用 MQTT 服务器上的身份验证。
+这两个工具都通过蓝牙连接到 Zendure 设备，并将内部 MQTT URL 设置为您需要提供的新 URL/IP 地址。目前，您只能在服务器上使用默认的 MQTT 端口 1883（或启用 SSL 后的 8883）。此外，由于 Zendure 设备使用硬编码密码，您还必须禁用 MQTT 服务器上的身份验证。
 
 您可以将其与云身份验证密钥结合使用，或者使用完全本地模式。
 
@@ -87,13 +87,24 @@ hash: BT6fq8xLzzR6Bd5pWDJ1gjLaIyPhg+Q15p/ibrt8wCo=
 
 <!-- 下一版本的占位符（位于行首）：
 
-## **正在进行中** -->
+### **正在进行中** -->
 
 ## Changelog
+### 4.1.0 (2026-06-19)
 
-### **WORK IN PROGRESS**
+- Allow local TLS MQTT Server connection on port 8883 (due to new device firmware) in settings
+- Fix batcur calculation
 
-- (copilot) Adapter requires node.js >= 22 now
+### 4.0.6 (2026-06-06)
+
+- Add productKey 'nVyeqM' for Solarflow 800 Pro 2
+
+### 4.0.5 (2026-06-03)
+
+- Add state 'socStatus' (Auto-calibration) for modern devices (SF 800 upwards)
+- Fix adapter start if deviceList is empty
+- Improve logging of errors
+- Adapter requires node.js >= 22 now
 
 ### 4.0.4 (2026-04-14)
 
@@ -104,25 +115,6 @@ hash: BT6fq8xLzzR6Bd5pWDJ1gjLaIyPhg+Q15p/ibrt8wCo=
 - Fix missing ip address field in settings for local mode
 - Add retry loop for zenSDK requests (retry 3 times if connection failed)
 - Update battery detection
-
-### 4.0.2 (2026-03-24)
-
-- Re-add new SF devices to local mode settings
-- Add product key '64174u' for Solarflow 1600 AC+
-
-### 4.0.1 (2026-03-20)
-
-- Fix missing smartMode state for Solarflow AC 2400 and Solarflow 800
-
-### 4.0.0 (2026-03-17)
-
-- Add support for zenSDK! All devices can now communicate in the local network (with full cloud support for backup and maintenance)
-- Add possibility to relay local MQTT messages to Zendure cloud!
-- Save device list from Zendure Cloud as a local backup if cloud is unavailable
-- Major refactor and improvements
-- Fix 'packPower' not correctly set (resetting to 0 every new data package)
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
