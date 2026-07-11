@@ -1353,6 +1353,14 @@ https://github.com/Lucky-ESA/ioBroker.playstation
 
 You can wake up the Playstation or put it into standby mode. Some buttons are also possible. The PSN login can be used to load data from other players.
 
+## miner (11.7.2026) – new adapter at stable repository
+https://github.com/SimonFischer04/ioBroker.miner
+
+<img src="https://raw.githubusercontent.com/SimonFischer04/ioBroker.miner/main/admin/miner.png width="100" height="100" />
+
+Interact with different crypto miner apis
+
+
 
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
