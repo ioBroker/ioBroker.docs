@@ -164,6 +164,15 @@ General settings for the device can be made here. For example, the light of an o
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 1.7.0 (2026-06-19)
+
+- (eifel-tech) Don't ignore readwrite-options anymore (Issue #505)
+
+### 1.6.4 (2026-03-13)
+
+- (eifel-tech) Dependency updates and required Admin-Version >= 7.6.20
+
 ### 1.6.3 (2025-09-15)
 
 - (eifel-tech) Try to replace access=none in some options (Issue #333)
@@ -176,127 +185,7 @@ General settings for the device can be made here. For example, the light of an o
 
 - (eifel-tech) Possibility to log communication errors as debug (Issue #242)
 
-### 1.6.0 (2025-02-27)
-
-- (eifel-tech) Datapoint to send program options seperately (Issue #208)
-
-> [!CAUTION]
->
-> See [english](./docs/en/README.md#sendoptionsseperately) or [german docu](./docs/de/README.md#sendoptionsseperately)
-
-### 1.5.0 (2025-02-24)
-
-- (eifel-tech) Admin-Version >= 7.4.10
-- (eifel-tech) Handling to start program for dishwasher S255HVX15E (Issue #201)
-
-### 1.4.3 (2025-02-18)
-
-- (eifel-tech) Handling to start program for dishwasher SN53ES02CE (Issue #194)
-
-### 1.4.2 (2025-02-13)
-
-- (eifel-tech) Error message after sending to /ro/selectedProgram on hood devices (Issue #193)
-
-### 1.4.1 (2025-01-16)
-
-- (eifel-tech) Creating instance directory if absent
-
-### 1.4.0 (2025-01-15)
-
-- (eifel-tech) Dependency updates
-- (eifel-tech) Changed login process for getting device information by homeconnect (Issue #170)
-
-### 1.3.0 (2024-12-02)
-
-- (eifel-tech) Dependency updates
-- (eifel-tech) common.min is only set if it is also present in the config (Issue #149)
-- (eifel-tech) Password in admin will be stored encrypted natively
-
-> [!CAUTION]
->
-> You have to reenter your password in admin config!
-
-### 1.2.10 (2024-11-20)
-
-- (eifel-tech) Handle missing enums during parsing (Issue #148)
-
-### 1.2.9 (2024-11-14)
-
-- (eifel-tech) Bugfix while reading program options (Issue #143)
-
-### 1.2.8 (2024-11-05)
-
-- (eifel-tech) Prevent forbidden signs
-- (eifel-tech) More resolutions considered in instance settings
-- (eifel-tech) Number of connection attempts configurable (Issue #135)
-
-### 1.2.7 (2024-10-24)
-
-- (eifel-tech) Notes from adapter checker
-
-### 1.2.6 (2024-10-24)
-
-- (eifel-tech) Added translations
-
-### 1.2.5 (2024-10-23)
-
-- (eifel-tech) Instance remains yellow when first started (Issue #129)
-
-### 1.2.4 (2024-10-23)
-
-- (eifel-tech) Prevent message `undefined` from being sent
-
-### 1.2.3
-
-- (eifel-tech) Added datapoint to indicate whether a socket connection exists
-
-### 1.2.2
-
-- (eifel-tech) Using a persistent websocket connection
-
-### 1.2.1
-
-- (eifel-tech) Abort the connection if errors occur in the socket connection to the device
-
-### 1.2.0
-
-- (eifel-tech) Ability to exclude individual devices from control (Issue #117)
-
-> [!CAUTION]
->
-> The configuration had to be expanded for this, so the contents of the `info.config` data point have to be deleted and the adapter has to be restarted. Also delete the `General` object tree.
-
-### 1.1.2
-
-- (eifel-tech) Washing machine: Program options are sent separately and not including the program to be started
-
-### 1.1.1
-
-- (eifel-tech) Parsing the configuration simplified
-
-### 1.1.0
-
-- (eifel-tech) Parsing of configuration for multiple devices revised
-
-### 1.0.4
-
-- (eifel-tech) Dishwasher support
-
-### 1.0.3
-
-- (eifel-tech) New socket connection after timeout
-
-### 1.0.2
-
-- (eifel-tech) If a new program is started, any program that may be running will first be terminated
-
-### 1.0.1
-
-- (eifel-tech) Increasing security with TLS
-
-### 1.0.0
-
-- (eifel-tech) initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

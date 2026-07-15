@@ -103,13 +103,15 @@ This adapter would not have been possible without the great work of Peter Baumer
 ### 0.0.1 (2020-04-18)
 * (Peter Baumert) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## Disclaimer
 Vodafone is a trademark of Vodafone GmbH. I am in no way endorsed by or affiliated with Vodafone GmbH, or any associated subsidiaries, logos or trademarks
 
 ## License
 MIT License
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2023 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

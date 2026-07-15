@@ -12,20 +12,21 @@
 **Tests:
 ** ![Test and Release](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more
+details and instructions on disabling error reporting, please refer to
+the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Use of Sentry reporting
+starts with js-controller 3.0.
+
 ## alexa-shoppingList adapter for ioBroker
 
-This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more
-details and for information how to disable the error reporting see Sentry-Plugin Documentation! Sentry reporting is used
-starting with js-controller 3.0.
+Generates the shopping list from Alexa.
 
-Generates the shoppingList from Alexa
+You can also use other lists from Alexa - configure this in the admin settings.
+Using the new Admin UI makes this much easier.
 
-You can also use other Lists from alexa. Configure it in Admin.
-When you use the new Admin UI, it will be much easier for you.
-
-There is a State to insert new Items. Just write the Text and Enter.
-You can delete active and inactive Lists.
-You can also move only one Item, to both directions.
+There is a state for inserting new items: just enter the text and press Enter.
+You can delete active and inactive lists.
+You can also move individual items in both directions.
 
 I hope you enjoy
 
@@ -82,9 +83,17 @@ function setOnDblClickCustomShop( myvalue) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.1.5 (2026-06-04)
 
-CHORE: #193-Repository-Checker
+- CHORE: Update dependencies
+
+### 1.1.4 (2026-06-04)
+
+- CHORE: Add unit tests
+- (copilot) Adapter requires node.js >= 22 now
+- CHORE: Update dependencies
+- CHORE: #203 Issues reported by repository checker
+- CHORE: #193-Repository-Checker
 
 ### 1.1.3 (2025-11-29)
 
@@ -99,53 +108,7 @@ CHORE: #193-Repository-Checker
 
 - FIX: Error reported by sentry
 
-### 1.1.0 (2025-07-14)
-
-- FEAT: Activate sentry
-- Breaking change: minimal supported node.js version is 20.x
-- FEAT: Add typescript
-
-### 1.0.3 (2024-12-04)
-
-- CHORE: Migration to ESLint 9 and @iobroker/eslint-config
-
-### 1.0.2 (2024-11-09)
-
-- FIX: #97 Add missing attributes to jsonConfig
-
-### 1.0.1 (2024-10-19)
-
-- FEAT: #95 Responsive Design
-
-### 1.0.0 (2024-08-09)
-
-- Js-controller >=5.0.19 is required
-- Breaking change: minimal supported node.js version is 18.x
-
-### 0.1.5 (09.01.2023)
-
-- Error when deleting via the JSON list fixed
-
-### 0.1.4 (25.09.2022)
-
-- Its now possible to delete always the inactive list, when you delete an article from the active list
-- You only have to check the checkbox
-
-### 0.1.2 ( 09.04.2022)
-
-- Add Buttons in JSON String
-
-### 0.1.1 ( 20.02.2022)
-
-- Error fixed in jsonConfig
-
-### 0.1.0 ( 20.02.2022)
-
-- First complete working Releases
-
-### 0.0.1
-
-- (MiRo1310) initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)## License
 
 ## License
 

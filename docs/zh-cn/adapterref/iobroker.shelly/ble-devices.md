@@ -4,11 +4,13 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/ble-devices.md
 title: ioBroker.shelly
-hash: aEWF5+BxF+wZ1WT86EnQQ3RuVt4QqUNKVvn3yZ9Z2YE=
+hash: 6JRge0PN3y8ieErjI4l3/SVw0fdGA6c4X42VnXSX540=
 ---
 ![标识](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
+这是德语文档 - [🇺🇸 英文版](../en/ble-devices.md)
+
 **此功能为实验性功能！**
 
 必须在 Plus 或 Pro 设备（第二代及以上）上创建一个新脚本（见下文），才能以 JSON 格式接收此状态下的事件：`shelly.0.<device>.BLE.Event`。
@@ -41,7 +43,8 @@ hash: aEWF5+BxF+wZ1WT86EnQQ3RuVt4QqUNKVvn3yZ9Z2YE=
 
 | 适配器版本 | 脚本版本 |
 |-----------------------------------------------------------------------------------------------------------------|----------------|
-| [版本 >= 10.3.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.3.0/docs/en/ble-devices.md) | v1.2 |
+| [版本 >= 11.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v11.0.0/docs/en/ble-devices.md) | v1.3 |
+| [版本 >= 10.2.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.2.0/docs/en/ble-devices.md) | v1.1 |
 | [版本 >= 10.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.1.0/docs/en/ble-devices.md) | v1.0 |
 | [版本 >= 9.1.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v9.1.0/docs/en/ble-devices.md) | v0.5 |
 | [版本 >= 8.2.1](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v8.2.1/docs/en/ble-devices.md) | v0.4 |
@@ -63,14 +66,14 @@ hash: aEWF5+BxF+wZ1WT86EnQQ3RuVt4QqUNKVvn3yZ9Z2YE=
 之后，即可解码下一个BLE事件。
 
 ## 激活蓝牙
-**重要提示** 请务必启用将用作网关的 Shelly 设备上的蓝牙功能。
+**重要提示** 必须激活用作网关的 Shelly 设备上的蓝牙功能。
 
 ## JavaScript（Shelly 脚本）
 在 Shelly Plus 或 Pro 设备（第二代及更高版本）的 Shelly 脚本部分添加并运行此脚本：
 
 ```javascript
-// v1.2
-const SCRIPT_VERSION = '1.2';
+// v1.3
+const SCRIPT_VERSION = '1.3';
 const BTHOME_SVC_ID_STR = 'fcd2';
 
 let SHELLY_ID = undefined;
@@ -122,7 +125,7 @@ function init() {
     let bleConfig = Shelly.getComponentConfig('ble');
 
     // exit if the BLE isn't enabled
-    if (!bleConfig.enable) {
+    if (!bleConfig.rpc.enable) {
         console.log('Error: The Bluetooth is not enabled, please enable it in the settings');
         return;
     }
@@ -152,61 +155,33 @@ Shelly.call('Mqtt.GetConfig', '', function (res, err_code, err_msg, ud) {
 });
 ```
 
-## 示例有效载荷（仅供开发使用）
+## 已测试设备
 **Shelly BLU Button（和 Tough 1）**
 
-- 文档：https://shelly-api-docs.shelly.cloud/docs-ble/Devices/button
-- 已使用固件版本：`20250314-080633/v1.0.22@cb5ca611` 进行测试
-
-```json
-{
-  "encryption": false,
-  "BTHome_version": 2,
-  "pid": 6,
-  "battery": 70,
-  "button": 1 // 1 = einzelner Druck, 2 = Doppeldruck, 3 = Dreifachdruck, 4 = langer Druck
-}
-```
+- 文档：https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/button
+- 知识库：https://kb.shelly.cloud/knowledge-base/shellyblu-button1
+- 已使用固件版本：`20250314-080633/v1.0.22` 进行测试
 
 **Shelly BLU H&T**
 
-- 文档：https://shelly-api-docs.shelly.cloud/docs-ble/Devices/ht
-- 已使用固件版本：`20250314-080647/v1.0.22@cb5ca611` 进行测试
-
-```json
-
-```
+- 文档：https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/ht
+- 知识库：
+- 已使用固件版本：`20250314-080647/v1.0.22` 进行测试
 
 **Shelly BLU 门窗**
 
-- 文档：https://shelly-api-docs.shelly.cloud/docs-ble/Devices/dw
-- 已使用固件版本：`20250314-080641/v1.0.22@cb5ca611` 进行测试
-
-```json
-{
-  "encryption": false,
-  "BTHome_version": 2,
-  "pid": 12,
-  "battery": 100,
-  "illuminance": 13,
-  "window": 0, // 1 = offen, 0 = geschlossen
-  "rotation": 0
-}
-```
+- 文档：https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/dw
+- 知识库：https://kb.shelly.cloud/knowledge-base/shellyblu-door-window
+- 已使用固件版本：`20250314-080641/v1.0.22` 进行测试
 
 **Shelly BLU Motion**
 
-- 文档：https://shelly-api-docs.shelly.cloud/docs-ble/Devices/motion
-- 已使用固件版本：`20250314-080656/v1.0.22@cb5ca611` 进行测试
+- 文档：https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/motion
+- 知识库：https://kb.shelly.cloud/knowledge-base/shellyblu-motion
+- 已使用固件版本：`20250314-080656/v1.0.22` 进行测试
 
-```json
-{
-  "encryption": false,
-  "BTHome_version": 2,
-  "pid": 182,
-  "battery": 100,
-  "temperature": 25.9,
-  "illuminance": 427,
-  "motion": 1 // 1 = Bewegung, 0 = Bewegung beendet
-}
-```
+Shelly BLU 墙壁开关 4
+
+- 文档：https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/wall_eu
+- 知识库：https://kb.shelly.cloud/knowledge-base/shelly-blu-wall-switch-4
+- 已使用固件版本：`20250824-135711/v1.0.23` 进行测试

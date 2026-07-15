@@ -2,30 +2,34 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.artnet-recorder/README.md
-title: ioBroker.artnet-记录器
-hash: m8OLdXb7kjlJO34QT/IXo//ie7Bd4Uu8jUukaY3Vt4M=
+title: ioBroker.artnet-recorder
+hash: IVN89sZAHrOrE2Bb/tN/BDBrOWsBhHCcsKMgefS2HhU=
 ---
 ![标识](../../../en/adapterref/iobroker.artnet-recorder/admin/artnet-recorder.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.artnet-recorder.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.artnet-recorder.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.artnet-recorder.svg)
 ![安装数量（最新）](http://iobroker.live/badges/artnet-recorder-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/artnet-recorder-stable.svg)
+![安装数量（稳定版）](http://iobroker.live/badges/artnet-recorder-stable.svg)
 ![已知漏洞](https://snyk.io/test/github/Bannsaenger/ioBroker.artnet-recorder/badge.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.artnet-recorder.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.artnet-recorder.png?downloads=true)
 
-# IoBroker.artnet-记录器
+# IoBroker.artnet-recorder
 ![测试与发布](https://github.com/bannsaenger/iobroker.artnet-recorder/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 artnet 记录器适配器
-将 Art-Net 数据记录到文件中以便稍后播放
+将 Art-Net 数据记录到文件中，以便稍后播放
 
 ＃＃ 目的
-用于记录 Art-Net 数据的简单适配器，该数据通过广播发送到位于用户数据中的 json 文件。
+一个简单的适配器，用于记录通过广播发送到用户数据中 JSON 文件的 Art-Net 数据。
+
 仅记录 DMX 值的变化。
-播放按 json 文件中存储的时间原样发送数据。
-当合并模式为 LTP 或 HTP 时，服务器侦听通过网络发送的所有 ArtDMX 数据包，并尝试使用实际的 DMX 数据图像来添加存储的值。
-发送数据的间隔或步进由配置设置。
+
+回放功能会按原样发送数据，并保留 JSON 文件中存储的时间信息。
+
+当合并模式为 LTP 或 HTP 时，服务器会监听通过网络发送的所有 ArtDMX 数据包，并尝试获取实际的 DMX 数据图像，以便添加存储的值。
+
+发送数据的间隔或步长由配置设置。
 
 ## Changelog
 
@@ -33,27 +37,29 @@ hash: m8OLdXb7kjlJO34QT/IXo//ie7Bd4Uu8jUukaY3Vt4M=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.0.5 (2023-12-25)
-* (Bannsaenger) added releaseconfig
+### **WORK IN PROGRESS**
+* (Bannsaenger) updated dependencies and issues from repository checker
 
-### 0.0.4 (2023-12-21)
-* (Bannsaenger) updated dependencies
-* (Bannsaenger) switched to release script
-* (Bannsaenger) switched to json-config
+### 0.1.5 (2025-10-24)
+* (Bannsaenger) updated dependencies and issues from repository checker
+* (Bannsaenger) migrate to NPM Trusted Publishing
 
-### 0.0.3
-* (Bannsaenger) fixed comments from code review
+### 0.1.4 (2025-09-06)
+* (Bannsaenger) updated dependencies and issues from repository checker
 
-### 0.0.2
-* (Bannsaenger) added engine and prepared for review
+### 0.1.3 (2025-02-25)
+* (Bannsaenger) previous release did not work
 
-### 0.0.1
-* (Bannsaenger) initial release
+### 0.1.2 (2025-02-25)
+* (Bannsaenger) updated admin dependency
+
+### 0.1.1 (2025-01-21)
+* (Bannsaenger) removed script build on deploy
 
 ## License
 MIT License
 
-Copyright (c) 2021-2023 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2026 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

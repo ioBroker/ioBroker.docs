@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: 7yLbgbElOKGLdbPXvmA+mjat20QDtzBYxvZoOhg61A4=
+hash: GdX3TNsSwVEKYkD9qSjM0NWi0uKyNbjn7rQEqsV5qbU=
 ---
 # IoBroker.tado
 
@@ -23,11 +23,11 @@ Tado° (https://www.tado.com) ist Ihr Experte für intelligentes Heizen und Ener
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## !WICHTIG! Tado° wird API-Aufrufbeschränkungen einführen.
-Tado führt ein Limit für API-Aufrufe ein. Nutzer ohne Auto-Assist-Abonnement sind auf 100 Aufrufe pro Tag beschränkt, mit einem Abonnement sind es bis zu 20.000 Aufrufe.
+## !WICHTIG! Tado° hat API-Aufrufbeschränkungen eingeführt.
+Tado hat die Anzahl der API-Aufrufe begrenzt. Nutzer ohne Auto-Assist-Abonnement können maximal 100 Aufrufe pro Tag tätigen.
 
 Weitere Informationen finden Sie im Artikel [Das](https://support.tado.com/en/articles/12165739-limitation-for-rest-api-usage).
-Der Tado ioBroker-Adapter wurde um eine neue Funktion erweitert, die neue Konfigurationsmöglichkeiten zur Verwaltung der API-Nutzung bietet. Das tägliche Limit von 100 Aufrufen bedeutet jedoch, dass der Adapter ohne Auto-Assist-Abonnement nicht nutzbar ist. Dies entspricht nur etwa vier Anfragen pro Stunde, was die Funktionalität des Adapters erheblich einschränkt.
+Der Tado ioBroker-Adapter wurde um eine neue Funktion erweitert, die neue Konfigurationsmöglichkeiten zur Verwaltung der API-Nutzung bietet. Die tägliche Begrenzung auf 100 Aufrufe bedeutet jedoch, dass der Adapter ohne Auto-Assist-Abonnement nicht nutzbar ist. Dies entspricht nur etwa vier Anfragen pro Stunde, was die Funktionalität des Adapters erheblich einschränkt.
 Wenn Sie mit Tados Entscheidung nicht einverstanden sind, sollten Sie ihnen das mitteilen! [wissen](https://support.tado.com/de/articles/3590239-wie-kann-ich-den-kundensupport-von-tado-kontaktieren)
 
 ## Tado° X
@@ -49,7 +49,7 @@ Falls Ihre Konfiguration nicht funktioniert, melden Sie bitte ein Problem mit de
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds | Timeout, nach dem Thermostate bei Erkennung eines offenen Fensters ausgeschaltet bleiben |
 | tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow | Thermostate ausschalten, wenn ein offenes Fenster erkannt wird (funktioniert nur, wenn der Thermostat ein offenes Fenster erkennt) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC-Modus (nur AC-Geräte) |
-| tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Lüftergeschwindigkeit (nur AC-Geräte mit Version V3 und älter) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Lüftergeschwindigkeit (nur AC-Geräte mit V3 und älteren Versionen) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel (nur AC-Geräte ab Version V3) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Vertikale Schwenkfunktion (nur AC-Geräte ab Version V3) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontale Schwenkfunktion (nur AC-Geräte mit V3 und älteren Versionen) |
@@ -82,6 +82,13 @@ Falls Ihre Konfiguration nicht funktioniert, melden Sie bitte ein Problem mit de
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.8.4 (2026-02-24)
+* (HGlab01) checkExpire for termination-attributes
+* (HGlab01) add attributes 'smartReminders' & 'smartRemindersInAppEnabled'
+* (HGlab01) fix #1107 masterswitch turning OFF does not work any longer
+* (HGlab01) fix #1117 Request failed with status code 400 with response "Unsupported content type"
+* (HGlab01) bump axios to 1.13.5
+
 ### 0.8.3 (2025-11-13)
 * (HGlab01) add capability to set OffSet [TadoX]
 * (HGlab01) Implement deboucing also for TadoX
@@ -112,13 +119,10 @@ Falls Ihre Konfiguration nicht funktioniert, melden Sie bitte ein Problem mit de
 * (HGlab01) Bump axios to 1.12.2
 * (HGlab01) Bump iobroker-jsonexplorer to 0.2.0
 
-### 0.7.10 (2025-04-25)
-* (HGlab01) further token refresh optimizations
-
 ## License
 MIT License
 
-Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com> & DutchmanNL <oss@drozmotix.eu>
+Copyright (c) 2020-2026 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -136,5 +140,6 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
 
 SOFTWARE.

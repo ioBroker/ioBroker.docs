@@ -15,8 +15,8 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## !IMPORTANT! Tado° will introduce API call limits
-Tado will introduce a limit on API calls. Users without an Auto-Assist subscription are restricted to 100 calls per day, with subsription to 20.000 calls.  
+## !IMPORTANT! Tado° introduced API call limits
+Tado introduced a limit on API calls. Users without an Auto-Assist subscription are restricted to 100 calls per day.  
 For more information, please refer to [this](https://support.tado.com/en/articles/12165739-limitation-for-rest-api-usage) article.  
 A new feature has been added to the Tado ioBroker adapter, providing new configuration capabilities to manage API usage. Nevertheless, the daily limit of 100 calls means the adapter is unusable without an Auto-Assist subscription. This translates to only about four requests per hour, which significantly hinders the adapter’s functionality.  
 If you're not happy with Tado's decision, you should let them [know](https://support.tado.com/de/articles/3590239-wie-kann-ich-den-kundensupport-von-tado-kontaktieren)!
@@ -73,6 +73,12 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.8.5 (2026-06-19)
+* (HGlab01) improve code quality
+* (HGlab01) add attribute adminUserId
+* (HGlab01) use automated translation into several languages
+* (HGlab01) bump axios to 1.8.0
+
 ### 0.8.4 (2026-02-24)
 * (HGlab01) checkExpire for termination-attributes
 * (HGlab01) add attributes 'smartReminders' & 'smartRemindersInAppEnabled'
@@ -99,16 +105,7 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 * (HGlab01) fix issue 'cannot read properties of undefined (reading 'match')'
 * (HGlab01) fix issue openWindow data not up to date #1086
 
-### 0.8.0 (2025-10-07)
-* (HGlab01) new configuration capabilities to manage API usage quota (#1047, #1048)
-* (HGlab01) Implement API debouncing
-* (HGlab01) Refactorings Tado API calls
-* (HGlab01) fix issue 'definition missing for awayMode' [TadoX]
-* (HGlab01) fix issue 'definition missing for preheating' [TadoX]
-* (HGlab01) Additional guidance/log when it comes to RefreshToken issue
-* (HGlab01) fix Object of state "tado.0.xxxxx.Rooms.y.openWindow" is missing the required property "common.type" (#1059)
-* (HGlab01) Bump axios to 1.12.2
-* (HGlab01) Bump iobroker-jsonexplorer to 0.2.0
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
@@ -131,5 +128,6 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
 
 SOFTWARE.

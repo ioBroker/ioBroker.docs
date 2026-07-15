@@ -21,7 +21,7 @@ Record only the change in the DMX values.
 Playback sends the data as is with the timing stored in the json file.
 When merge-mode is LTP or HTP the server listens to all ArtDMX packets sent through the network
 and tries to have a actual DMX data image to add the stored values.
-The interval or the stepping to send the data ist set by the configuartion.
+The interval or the stepping to send the data is set by the configuartion.
 
 ## Changelog
 
@@ -30,6 +30,7 @@ The interval or the stepping to send the data ist set by the configuartion.
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 * (Bannsaenger) updated dependencies and issues from repository checker
 
 ### 0.1.5 (2025-10-24)
@@ -48,10 +49,12 @@ The interval or the stepping to send the data ist set by the configuartion.
 ### 0.1.1 (2025-01-21)
 * (Bannsaenger) removed script build on deploy
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2021-2025 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2026 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

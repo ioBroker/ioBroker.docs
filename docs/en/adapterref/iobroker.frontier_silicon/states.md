@@ -82,6 +82,81 @@ States can be read-only (`ro`) or read-write (`rw`) *ok, write-only for buttons 
 
 - modes
 
+  - currentNavIndex (`number, ro`)
+
+    Indicates the index into the current nav list.  
+    The complete nav list is read in chunks of 25 items.
+    The native part of this object also contains some other properties of the current navigation like  
+    all nav names, the number of items in the current complete nav list as well as the type and subtype of the current items the index points to.
+      nav types:
+        "0": "Directory",
+        "1": "PlayableItem",
+        "2": "SearchDirectory",
+        "3": "Unknown",
+        "4": "FormItem",
+        "5": "MessageItem",
+        "6": "AmazonLogin"
+      nav subtypes:
+        "0": "None",
+        "1": "Station",
+        "2": "Podcast",
+        "3": "Track",
+        "4": "Text",
+        "5": "Password",
+        "6": "Options",
+        "7": "Submit",
+        "8": "Button",
+        "9": "Disabled"
+
+  - currentNavKey (`number, rw`)
+
+    Indicates or sets the selected key of the complete nav list.
+
+  - currentNavList (`string, ro`)
+
+    A JSON-formatted string of the currently selected chunk of the nav list.
+    It is a key/value array containing all the properties of each item like f.i.  
+    {"key":"116","name":"1LIVE diGGi ","type":"1","subtype":"1","graphicuri":"","artist":"","contextmenu":"0"}  
+    It can be used by a js script to dynamically generate a JSON object or HTML page for use in a media player widget.
+
+  - currentNavName (`string, ro`)
+
+    The name of the currently selected item of the nav list, e.g. directory or playable item.
+
+  - navigationBack (`boolean, wo`)
+
+    navigate back one level in the navigation tree
+
+  - navigationDown (`boolean, wo`)
+
+    navigate down within the current level of the navigation tree
+
+  - navigationUp (`boolean, wo`)
+
+    navigate up within the current level of the navigation tree
+
+  - navigationSelect (`boolean, wo`)
+
+    selects the currently indexed item. This opens the next level in the navigation tree if the selected item is a directory. If the selected item is a playable item, it will automatically start playing.
+
+  - navigationHome (`boolean, wo`)
+
+    navigate back to the top level of the navigation tree
+
+  - navigationSearch (`string, rw`)
+
+    allows to enter a search term which is sent to the device. However, the device will only start searching if navigationSelect is pressed and the selected item is of type SearchDirectory. The navigation search term should be entered briefly before navigationSelect is pressed.
+
+  - presetDown (`boolean, wo`)
+
+    navigate down within the presets of the current mode. The next station or track automatically starts  
+    playing.
+
+  - presetUp (`boolean, wo`)
+
+    navigate up within the presets of the current mode. The next station or track automatically starts  
+    playing.
+
   - readPresets (`boolean, wo`)
 
     Re-reads all presets
@@ -143,4 +218,8 @@ States can be read-only (`ro`) or read-write (`rw`) *ok, write-only for buttons 
 
           Selects that preset **and** the corresponding mode.
 
-Please be aware that you can sometimes choose between "pushing a button" or "setting a value". Use what is more convenient for you.
+        - set (`boolean, wo`)
+
+          Sets that preset to the currently playing radio station or track
+          If you try setting a preset of a mode X while a radio station of a different mode is playing,  
+          you will get a warning.

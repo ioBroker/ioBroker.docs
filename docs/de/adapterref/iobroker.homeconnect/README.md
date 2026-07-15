@@ -208,7 +208,19 @@ Oder ob ein Gerät geöffnet ist
 
 ### **WORK IN PROGRESS**
 
+- (Lucky-ESA) Fixed unnecessary object overwriting (#387)
+
+### 1.6.1 (2026-05-12)
+
+- (TA2k) Login/Refresh flow improved
+
+### 1.6.0 (2026-05-11)
+
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (Lucky-ESA) Fixed adapter crash if URI is empty
+- (Lucky-ESA) Save remaining time in active folder
+- (Lucky-ESA) Device monitoring starts only after the adapter has started (this may take up to 2 minutes)
 
 ### 1.5.2 (2025-12-14)
 
@@ -230,14 +242,7 @@ Oder ob ein Gerät geöffnet ist
 - (Lucky-ESA) Adapter requires admin >= 7.6.17 now
 - (mcm1957) Adapter requires node.js >= 20 now
 
-### 1.4.3 (2024-11-19)
-
-- (TA2k) fix for -001 devices
-- (simatec) Adapter has been adapted to meet Responsive Design rules.
-
-### 1.4.2 (2024-10-25)
-
-- (TA2k) fix for devices with object values
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

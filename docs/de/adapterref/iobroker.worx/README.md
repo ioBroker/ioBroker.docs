@@ -217,9 +217,20 @@ Richtig</br>
     - `HL.enabled`: Scheinwerfer installiert ja = 1/nein = 0 🟢
     - `HL.on`: Tageslicht = 0/Dunkelheit = 1 🟢
 
+- NL Modul (nur Vision Cloud)
+    - `NL.error`: Error Code (Code nicht bekannt) (nur lesen)
+    - `NL.status`: Status von NearLink Modul ok/err (nur lesen)
+    - `NL.connection_X.mac`: MAC Adresse (nur lesen)
+    - `NL.connection_X.rssi`: RSSI (nur lesen)
+    - `NL.connection_X.type`: Typ (nur lesen)
+    - `NL.connection_X.vers`: Firmware Release (nur lesen)
+    - `NL.connection_X.wifi_rssi`: Wifi RSSI (nur lesen)
+    - `NL.connection_X.wifi_stat`: Wifi Status (nur lesen)
+
 ![Module img/module.png](../en/img/module.png)
 ![Module img/module_ea.png](../en/img/module_ea.png)
 ![Module img/module_hl.png](../en/img/module_hl.png)
+![Module img/module_hl.png](../en/img/module_nl.png)
 
 ### mower (Draht und Vision)
 
@@ -1015,8 +1026,18 @@ Standard ohne Zonen:
 
 ### **WORK IN PROGRESS**
 
+- (copilot) Adapter requires node.js >= 22 now
+- (Lucky-ESA) MQTT connection status display fixed
+- (Lucky-ESA) NearLink module added to Vision Cloud
+- (Lucky-ESA) Objects from Protocol 1 changed to read-only
+
+### 3.3.0 (2026-04-12)
+
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (Lucky-ESA) Dependencies updated
+- (Lucky-ESA) Error HTTP 405 fixed
+- (Lucky-ESA) Preparation Vision Cloud Mower
+- (Lucky-ESA) Sentry Error from "Vision Cloud" fixed
 
 ### 3.2.7 (2025-08-16)
 
@@ -1036,10 +1057,7 @@ Standard ohne Zonen:
 
 - (Lucky-ESA) TypeError native_excluded fixed
 
-### 3.2.3 (2025-06-05)
-
-- (Lucky-ESA) All Sentry issues fixed
-- (Lucky-ESA) Add new mowers without adapter restart
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

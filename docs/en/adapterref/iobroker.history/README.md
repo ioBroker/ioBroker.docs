@@ -594,11 +594,20 @@ Possible options and parameters:
 - **--simulate**: With this parameter you enable the simulation mode, means that no real write happens and also the analyze-datafiles will not be updated on exit.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+* (simatec) Responsive Design added
+
+### 4.0.0 (2026-03-10)
+* (iobroker-bot) Adapter requires node.js >= 20 now.
+* (@GermanBluefox) Migrated to Typescript
+
 ### 3.0.1 (2023-10-24)
 * (tuxyme) activated the round option when averaging
 
 ### 3.0.0 (2023-09-19)
-* (foxriver76) fix history2db.js with controller v5
+* (foxriver76) fix `history2db.js` with controller v5
 * (bluefox) Minimal node.sj version is 16
 * (bluefox) Added support for `count` aggregate type on getHistory
 
@@ -609,7 +618,7 @@ Possible options and parameters:
 * (Apollon77) Update for future js-controller versions
 
 ### 2.2.3 (2022-09-12)
-* (Apollon77) Fix error in history2db converter script
+* (Apollon77) Fix error in `history2db` converter script
 
 ### 2.2.1 (2022-08-13)
 * (Apollon77) Fix crash cases reported by Sentry
@@ -653,16 +662,16 @@ Possible options and parameters:
 ### 2.0.0 (2022-05-11)
 * (Apollon77) BREAKING: Configuration is only working in the new Admin 5 UI!
 * (Apollon77) BREAKING! Did bigger adjustments to the recording logic. Debounce is refined and blockTime is added to differentiate between the two checks
-* (Apollon77) BREAKING! GetHistory requests now need to deliver the ts in milliseconds! Make sure to use up to date scripts and Charting UIs
+* (Apollon77) BREAKING! GetHistory requests now need to deliver the ts in milliseconds! Make sure to use up-to-date scripts and Charting UIs
 * (Apollon77) New setting added to disable the "logging of additional values for charting optimization" - then only the expected data are logged
 * (Apollon77) Add flag returnNewestEntries for GetHistory to determine which records to return when more entries as "count" are existing for aggregate "none"
 * (Apollon77) Make sure id is always returned on GetHistory when addId is set
 * (Apollon77) Add new Debug flag to enable/disable debug logging on datapoint level (default is false) to optimize performance
 * (Apollon77) Add support to specify how to round numbers on query per datapoint
-* (Apollon77) Add aggregate method "percentile" to calculate the percentile (0..100) of the values (requires options.percentile with the percentile level, defaults to 50 if not provided). Basically same as Quantile just different levels are used
-* (Apollon77) Add aggregate method "quantile" to calculate the quantile (0..1) of the values (requires options.quantile with the quantile level, defaults to 0.5 if not provided). Basically same as Percentile just different levels are used
+* (Apollon77) Add aggregate method "percentile" to calculate the percentile (0..100) of the values (requires `options.percentile` with the percentile level, defaults to 50 if not provided). Basically same as Quantile just different levels are used
+* (Apollon77) Add aggregate method "quantile" to calculate the quantile (0..1) of the values (requires `options.quantile` with the quantile level, defaults to 0.5 if not provided). Basically same as Percentile just different levels are used
 * (Apollon77) Add (experimental) method "integral" to calculate the integral of the values. Requires options.integralUnit with the time duration of the integral in seconds, defaults to 60s if not provided. Optionally a linear interpolation can be done by setting options.integralInterpolation to "linear"
-* (Apollon77) When request contains flag removeBorderValues: true, the result then cut the additional pre and post border values out of the results
+* (Apollon77) When request contains flag removeBorderValues: true, the result then cut the additional pre- and post-border values out of the results
 * (Apollon77) If storeState Message calls include a rules property then the new value is added with respecting all rules (incl. debounce, so be careful!)
 * (Apollon77) Enhance the former "Ignore below 0" feature and now allow specifying to ignore below or above specified values. The old setting is converted to the new one
 * (Apollon77) Allow to specify custom retention duration in days
@@ -686,7 +695,7 @@ Possible options and parameters:
 ### 1.10.4 (2021-12-14)
 * (bluefox) Support only `js.controller` >= 3.3.x
 * (bluefox) Used system/custom view for collecting the objects
-* (bluefox) Implemented option to ignore zero- or/and below zero- values
+* (bluefox) Implemented option to ignore zero- or/and below zero-values
 
 ### 1.9.14 (2021-11-19)
 * (Apollon77) Prevent crash cases reported by Sentry
@@ -723,7 +732,7 @@ Possible options and parameters:
 
 ### 1.9.3 (2020-04-19)
 * __Requires js-controller >= 2.0.0__
-* (foxriver76) removed usage of adapter.objects
+* (foxriver76) removed usage of `adapter.objects`
 * (Apollon77) check if objects have changed and ignore unchanged
 * (Apollon77) adjust allowed file system names
 * (Apollon77) Add Sentry for Error Reporting with js-controller 3.0
@@ -800,7 +809,7 @@ Possible options and parameters:
 * (bluefox) Fix selector for history objects
 
 ### 1.3.0 (2016-08-30)
-* (bluefox) сompatible only with new admin
+* (bluefox) compatible only with new admin
 
 ### 1.2.0 (2016-08-27)
 * (bluefox) change name of object from history to custom
@@ -870,6 +879,8 @@ Possible options and parameters:
 
 ### 0.0.6 (2014-10-19)
 * (bluefox) add configuration page
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

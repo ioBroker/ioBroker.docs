@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.govee-local/README.md
-title: kein Titel
-hash: 0+ORttMM0E5A5h+aitNGmGMC97RYQQ4WFXIfEaZsbJY=
+title: govee-lokaler Adapter für ioBroker
+hash: 3ibYBYJmTuzhHsl0CoLxNWhbnFCYtSGaWOnxdtg8Gmk=
 ---
 ![Logo](../../../en/adapterref/iobroker.govee-local/admin/govee-local.png)
 
@@ -13,14 +13,14 @@ hash: 0+ORttMM0E5A5h+aitNGmGMC97RYQQ4WFXIfEaZsbJY=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/govee-local-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.govee-local.png?downloads=true)
 
-## Govee-local-Adapter für ioBroker
+# Govee-lokaler Adapter für ioBroker
 **Tests:** ![Test und Freigabe](https://github.com/boergegrunicke/ioBroker.govee-local/workflows/Test%20and%20Release/badge.svg)
 
-Steuern Sie Govee-Geräte über lokalen Zugriff (keine Cloud)
+Govee-Geräte über lokalen Zugriff steuern (keine Cloud)
 
-Um das Govee-Gerät lokal steuern zu können, muss die Funktion explizit in den Einstellungen der Govve-Anwendungseinstellungen aktiviert werden, wie in deren [Dokumentation](<https://app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20(continually%20updated)> beschrieben. Da ich derzeit nur die H6051-Lampe habe, ist dies das einzige Gerät Ich kann mit testen.
+Um ein GoVee-Gerät lokal steuern zu können, muss die Funktion in den Einstellungen der GoVe-Anwendung explizit aktiviert werden, wie in deren Abschnitt [Dokumentation](<https://app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20(continually%20updated)>) beschrieben. Da ich derzeit nur die Lampe H6051 besitze, ist dies das einzige Gerät, mit dem ich testen kann.
 
-Für **Windows**-Benutzer: Bitte gehen Sie zu den Einstellungen und stellen Sie sicher, dass Sie die richtige Netzwerkschnittstelle auswählen, sonst erhält der Adapter keine Antwort von Govee Devices.
+Für **Windows**-Benutzer: Bitte gehen Sie zu den Einstellungen und stellen Sie sicher, dass Sie die richtige Netzwerkschnittstelle auswählen, da der Adapter sonst keine Antwort von Govee-Geräten empfängt.
 
 ## Changelog
 
@@ -28,72 +28,45 @@ Für **Windows**-Benutzer: Bitte gehen Sie zu den Einstellungen und stellen Sie 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.2.5 (2024-01-13)
 
--   create only one socket, as the second seems not to be necessary
--   refactoring the code for better structure
--   possibility to choose listen interface in settings
+### 0.4.6 (2026-05-18)
 
-### 0.2.4 (2024-01-05)
+- Adapter requires node.js >= 22 now
+- Fixed multiple security vulnerabilities in dev dependencies:
+  - Updated `@iobroker/testing` to resolve axios, esbuild, and mocha-related CVEs
+  - Added npm overrides for `mocha` subdependencies: `diff` (^8.0.3) and `serialize-javascript` (^7.0.5)
+  - All npm audit checks now pass with zero vulnerabilities
 
--   fix access
+- update dependencies: @types/node (25.5.0), eslint (10.1.0), @alcalzone/release-script (5.1.1), admin (7.6.20)
+- update dependencies: @alcalzone/release-script (5.2.0), @alcalzone/release-script-plugin-iobroker (5.2.0), @alcalzone/release-script-plugin-license (5.2.0), @alcalzone/release-script-plugin-manual-review (5.2.0), @iobroker/eslint-config (2.3.4), @types/node (25.6.2), eslint (10.3.0), prettier (3.8.3), typescript (6.0.3)
 
-### 0.2.2 (2024-01-05)
+### 0.4.5 (2025-11-16)
 
--   fix color temperature messsage
+- fix scan mode inconsistency
+  enhance log output behavior
 
-### 0.2.1 (2023-12-24)
+### 0.4.4 (2025-11-13)
 
--   repair onOff / all other actions Fixes: [#65](https://github.com/boergegrunicke/ioBroker.govee-local/issues/65)
--   fix log spamming because of wildcard
+- add option to run auto discovery once on startup, in interval or completly disable it
 
-### 0.2.0 (2023-12-17)
+### 0.4.3 (2025-11-11)
 
--   support controlling the color
--   extended logging mode
+- fix responsive design in the settings
+- revert forbidden characters checking
+- update dependencies
 
-### 0.1.2 (2023-09-06)
+### 0.4.2 (2025-11-08)
 
--   change icon path and resolution
+- update dependencies
+- fix device name / model identifier in the objects
 
-### 0.1.1 (2023-08-21)
-
--   fix image
-
-### 0.1.0 (2023-08-09)
-
--   make search intervals configurable
--   clear all timeouts, when adapter is stopped
--   replace forbidden characters in names
--   update translations
--   update dependecies
-
-### 0.0.6 (2023-05-18)
-
--   update dependencies
-
-### 0.0.5 (2023-04-02)
-
--   make pipeline run
-
-### 0.0.4 (2023-04-02)
-
--   make device status refresh invertal indepentent from device search interval
-
-### 0.0.3 (2023-04-01)
-
--   update dependecies
-
-### 0.0.2
-
--   frequently searching for devices and requesting their specific state
--   on / off state, brightness and and color temperature can be controlled
+Older entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 
 MIT License
 
-Copyright (c) 2024 Børge Grunicke
+Copyright (c) 2025-2026 Børge Grunicke
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

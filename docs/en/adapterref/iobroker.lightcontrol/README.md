@@ -56,6 +56,7 @@ iobroker add lightcontrol
 -->
 
 ### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 
 -   (Schmakus) fix responsive issues
 
@@ -88,7 +89,7 @@ iobroker add lightcontrol
 
 MIT License
 
-Copyright (c) 2025 Schmakus <schmakus@gmail.com>
+Copyright (c) 2025-2026 Schmakus <schmakus@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

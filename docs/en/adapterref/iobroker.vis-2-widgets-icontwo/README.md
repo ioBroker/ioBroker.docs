@@ -1,21 +1,24 @@
 ![Logo](admin/vis-2-widgets-icontwo.png)
 
-# inventwo Icons for  ioBroker.vis 2.0
+# ioBroker adapter for ioBroker.vis 2.0
 
 
 ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-icontwo-installed.svg)
 ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-icontwo-stable.svg) 
 [![NPM Version](https://nodei.co/npm/iobroker.vis-2-widgets-icontwo.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.vis-2-widgets-icontwo)
-
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-icontwo.svg)](https://www.npmjs.com/package/iobroker.vis-2-widgets-icontwo)
-![GitHub repo size](https://img.shields.io/github/repo-size/inventwo/iobroker.vis-2-widgets-icontwo)
+
+[![COMMUNITY](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)](https://forum.iobroker.net/)
+[![MAINTAINER](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)](https://github.com/skvarel)
 
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
+---
 
-## Icon adapter for the ioBroker.vis adapter (only for VIS-2)
 
-### **Please note:** This icons only work with version 2.13.x (or higher) of the ioBroker.vis-2 adapter!
+## inventwo icons for the ioBroker.vis adapter (only for VIS-2)
+
+### **Please note:** This icons only work with version 2.13.5 (or higher) of the ioBroker.vis-2 adapter!
 
 
 .... more information will follow
@@ -32,20 +35,20 @@
 <!--
 	### **WORK IN PROGRESS**
 -->
-### 1.26.2 (2026-02-28)
-- (skvarel) Updated: @alcalzone/release-script dependencies to latest versions
+### 1.42.2 (2026-07-05)
+- (skvarel) Fixed: Repository checker warning W3048 (test-command override removed, added test:package)
 
-### 1.26.1 (2026-02-15)
-- (skvarel) Fixed: Issue 61 SUGGESTIONS
+### 1.42.1 (2026-06-29)
+- (skvarel) Fixed: Repository checker error E0036
 
-### 1.26.0 (2026-01-25)
-- Added: New icons (rooms)
+### 1.42.0 (2026-05-31)
+- (skvarel) Added: New Icon (brands/github)
 
-### 1.25.0 (2026-01-12)
-- Added: New icons (navigation gear & wrench)
+### 1.41.0 (2026-05-24)
+- (skvarel) Added: New icons (star and gear filled)
 
-### 1.24.0 (2026-01-11)
-- Added: New icons (hobby darts)
+### 1.40.1 (2026-05-24)
+- (skvarel) Fixed: Issue repo-checker [W8917]
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

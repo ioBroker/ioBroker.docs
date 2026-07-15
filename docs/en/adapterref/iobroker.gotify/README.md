@@ -22,6 +22,9 @@ Send push notifications from [ioBroker](https://iobroker.net/) to [Gotify](https
     ### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.5.0 (2025-12-28)
 
 - (Thomas Pohl) Allow to overwrite token when sending messages (javascript only not for blockly)
@@ -45,6 +48,8 @@ Send push notifications from [ioBroker](https://iobroker.net/) to [Gotify](https
 
 - (Thomas Pohl) Add timeout for http calls
 - (Thomas Pohl) Update dependency versions
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Installation
 

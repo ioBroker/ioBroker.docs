@@ -98,6 +98,7 @@ doorbell recorded video.
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -541,6 +542,8 @@ doorbell recorded video.
 ### 0.1.0 (14.12.2018)
 
 * (Stübi) First Version
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

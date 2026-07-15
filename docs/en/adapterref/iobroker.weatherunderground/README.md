@@ -73,6 +73,9 @@ Or you can aso use your own "custom" icons, for this purpose the following gif-f
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 
@@ -247,11 +250,13 @@ config dialog fixed
 ### 0.0.1
 initial release with all basics to load WU-forecast data
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2015-2023 dschaedl <daniel.schaedler@gmail.com>, iobroker-community-adapters
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

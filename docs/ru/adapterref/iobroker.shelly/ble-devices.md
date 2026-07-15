@@ -4,11 +4,13 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/ble-devices.md
 title: ioBroker.shelly
-hash: aEWF5+BxF+wZ1WT86EnQQ3RuVt4QqUNKVvn3yZ9Z2YE=
+hash: 6JRge0PN3y8ieErjI4l3/SVw0fdGA6c4X42VnXSX540=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
+Это немецкая документация - [🇺🇸 Английская версия](../en/ble-devices.md)
+
 **Эта функция экспериментальная!**
 
 Для получения событий в этом состоянии в формате JSON необходимо создать новый скрипт (см. ниже) на устройстве Plus или Pro (Gen 2+): `shelly.0.<device>.BLE.Event`.
@@ -41,7 +43,8 @@ hash: aEWF5+BxF+wZ1WT86EnQQ3RuVt4QqUNKVvn3yZ9Z2YE=
 
 | Версия адаптера | Версия скрипта |
 |-----------------------------------------------------------------------------------------------------------------|----------------|
-| [>= 10.3.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.3.0/docs/en/ble-devices.md) | v1.2 |
+| [>= 11.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v11.0.0/docs/en/ble-devices.md) | v1.3 |
+| [>= 10.2.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.2.0/docs/en/ble-devices.md) | v1.1 |
 | [>= 10.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.1.0/docs/en/ble-devices.md) | v1.0 |
 | [>= 9.1.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v9.1.0/docs/en/ble-devices.md) | v0.5 |
 | [>= 8.2.1](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v8.2.1/docs/en/ble-devices.md) | v0.4 |
@@ -63,14 +66,14 @@ hash: aEWF5+BxF+wZ1WT86EnQQ3RuVt4QqUNKVvn3yZ9Z2YE=
 После этого можно будет расшифровать следующее событие BLE.
 
 ## Активировать Bluetooth
-**ВАЖНО** Пожалуйста, не забудьте активировать функцию Bluetooth на устройстве Shelly, которое будет использоваться в качестве шлюза.
+**ВАЖНО** Необходимо активировать функцию Bluetooth на устройстве Shelly, которое будет использоваться в качестве шлюза.
 
 ## JavaScript (Shelly Scripting)
 Добавьте и запустите этот скрипт в разделе «Скрипты Shelly» на устройстве Shelly Plus или Pro (2-го поколения и выше):
 
 ```javascript
-// v1.2
-const SCRIPT_VERSION = '1.2';
+// v1.3
+const SCRIPT_VERSION = '1.3';
 const BTHOME_SVC_ID_STR = 'fcd2';
 
 let SHELLY_ID = undefined;
@@ -122,7 +125,7 @@ function init() {
     let bleConfig = Shelly.getComponentConfig('ble');
 
     // exit if the BLE isn't enabled
-    if (!bleConfig.enable) {
+    if (!bleConfig.rpc.enable) {
         console.log('Error: The Bluetooth is not enabled, please enable it in the settings');
         return;
     }
@@ -152,61 +155,33 @@ Shelly.call('Mqtt.GetConfig', '', function (res, err_code, err_msg, ud) {
 });
 ```
 
-## Примеры полезных нагрузок (только для использования в процессе разработки)
+## Протестированные устройства
 **Кнопка Shelly BLU (и Tough 1)**
 
-- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/button
-- Протестировано с прошивкой: `20250314-080633/v1.0.22@cb5ca611`
-
-```json
-{
-  "encryption": false,
-  "BTHome_version": 2,
-  "pid": 6,
-  "battery": 70,
-  "button": 1 // 1 = einzelner Druck, 2 = Doppeldruck, 3 = Dreifachdruck, 4 = langer Druck
-}
-```
+- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/button
+- База знаний: https://kb.shelly.cloud/knowledge-base/shellyblu-button1
+- Протестировано с прошивкой: `20250314-080633/v1.0.22`
 
 **Shelly BLU H&T**
 
-- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/ht
-- Протестировано с прошивкой: `20250314-080647/v1.0.22@cb5ca611`
-
-```json
-
-```
+- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/ht
+- База знаний:
+- Протестировано с прошивкой: `20250314-080647/v1.0.22`
 
 **Дверь/окно Shelly BLU**
 
-- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/dw
-- Протестировано с прошивкой: `20250314-080641/v1.0.22@cb5ca611`
-
-```json
-{
-  "encryption": false,
-  "BTHome_version": 2,
-  "pid": 12,
-  "battery": 100,
-  "illuminance": 13,
-  "window": 0, // 1 = offen, 0 = geschlossen
-  "rotation": 0
-}
-```
+- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/dw
+- База знаний: https://kb.shelly.cloud/knowledge-base/shellyblu-door-window
+- Протестировано с прошивкой: `20250314-080641/v1.0.22`
 
 **Shelly BLU Motion**
 
-- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/motion
-- Протестировано с прошивкой: `20250314-080656/v1.0.22@cb5ca611`
+- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/motion
+- База знаний: https://kb.shelly.cloud/knowledge-base/shellyblu-motion
+- Протестировано с прошивкой: `20250314-080656/v1.0.22`
 
-```json
-{
-  "encryption": false,
-  "BTHome_version": 2,
-  "pid": 182,
-  "battery": 100,
-  "temperature": 25.9,
-  "illuminance": 427,
-  "motion": 1 // 1 = Bewegung, 0 = Bewegung beendet
-}
-```
+**Настенный выключатель Shelly BLU 4**
+
+- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/wall_eu
+- База знаний: https://kb.shelly.cloud/knowledge-base/shelly-blu-wall-switch-4
+- Протестировано с прошивкой: `20250824-135711/v1.0.23`

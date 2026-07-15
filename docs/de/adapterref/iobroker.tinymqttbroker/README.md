@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: QfKSqlGftbJyv0MlEm0qUNwcfEF1jai3/FY+3jQYAzI=
+hash: T/z5SsqtFhQwPhzCawpUsjP2JCdaMfOPn6RQQS+oW3A=
 ---
 ![Logo](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
@@ -22,8 +22,8 @@ Dies ist ein sehr kleiner MQTT-Broker, der keine Objekte/Zustände in iobroker v
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Erfordert
-* Node.js 20 oder höher
-* ioBroker-Host (js-Controller) 5.0 oder höher
+* Node.js 22 oder höher
+* ioBroker-Host (js-Controller) 6.0.11 oder höher
 
 ## Wie man es benutzt
 Ein MQTT-Client könnte wie folgt aussehen:
@@ -96,9 +96,20 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.7 (2026-06-16)
+* (HGlab01) add logs for clientError, connectionError and keepaliveTimeout
+* (HGlab01) Bump aedes to 1.0.2
+* (HGlab01) code quality improvements
+* (HGlab01) dependecy updates
+
+### 0.1.6 (2026-03-19)
+* (HGlab01) Bump aedes to 1.0.1
+* (HGlab01) Rename config items
+
+### 0.1.5 (2026-03-04)
 * (HGlab01) Update libs
 * (HGlab01) (c) 2026
+* (HGlab01) Bump aedes to 1.0.0
 
 ### 0.1.4 (2025-04-22)
 * (HGlab01) Improve port scan
@@ -109,30 +120,7 @@ onStop(function (callback) {
 * (HGlab01) Bump json-explorer to 0.1.16
 * (HGlab01) Bump aedes to 0.51.3
 
-### 0.1.1 (2024-02-01)
-* (HGlab01) Bump json-explorer to 0.1.15
-* (HGlab01) Bump aedes to 0.51.0
-
-### 0.1.0 (2023-12-04)
-* (HGlab01) first minor release
-* (HGlab01) Node.js 18.0 or higher
-* (HGlab01) ioBroker host (js-controller) 5.0 or higher
-
-### 0.0.8 (2023-10-09)
-* (HGlab01) Bump json-explorer to 0.1.14
-
-### 0.0.7 (2023-10-05)
-* (HGlab01) add logs for "address already in use"-issue
-
-### 0.0.6 (2023-09-18)
-* (HGlab01) Improve error handling
-* (HGlab01) Verify if port is used from other process
-
-### 0.0.5 (2023-09-11)
-* (HGlab01) add sentry support
-
-### 0.0.4(2023-06-30)
-* (HGlab01) first release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
@@ -156,5 +144,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=large&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_large&issueType=license)

@@ -1,30 +1,30 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.artnet-recorder/README.md
-title: ioBroker.artnet-рекордер
-hash: m8OLdXb7kjlJO34QT/IXo//ie7Bd4Uu8jUukaY3Vt4M=
+title: ioBroker.artnet-recorder
+hash: IVN89sZAHrOrE2Bb/tN/BDBrOWsBhHCcsKMgefS2HhU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.artnet-recorder/admin/artnet-recorder.png)
 
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.artnet-recorder.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.artnet-recorder.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.artnet-recorder.svg)
-![Количество установок (последних)](http://iobroker.live/badges/artnet-recorder-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/artnet-recorder-stable.svg)
+![Количество установок (последние)](http://iobroker.live/badges/artnet-recorder-installed.svg)
+![Количество установок (стабильных)](http://iobroker.live/badges/artnet-recorder-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Bannsaenger/ioBroker.artnet-recorder/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.artnet-recorder.png?downloads=true)
 
-# IoBroker.artnet-рекордер
+# IoBroker.artnet-recorder
 ![Тестирование и выпуск](https://github.com/bannsaenger/iobroker.artnet-recorder/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер artnet-recorder для ioBroker
 Запишите данные Art-Net в файл для последующего воспроизведения.
 
 ## Цель
-Простой адаптер для записи данных Art-Net, которые передаются по трансляции в json-файл, расположенный в пользовательских данных.
-Записывайте только изменения значений DMX.
-Воспроизведение отправляет данные в неизменном виде с указанием времени, хранящегося в файле JSON.
-Когда режим слияния LTP или HTP, сервер прослушивает все пакеты ArtDMX, отправляемые через сеть, и пытается получить фактическое изображение данных DMX для добавления сохраненных значений.
+Простой адаптер для записи данных Art-Net, отправляемых широковещательно в JSON-файл, расположенный в пользовательских данных.
+Записывается только изменение значений DMX.
+При воспроизведении данные отправляются как есть, с указанием времени, хранящегося в JSON-файле.
+В режиме слияния LTP или HTP сервер прослушивает все пакеты ArtDMX, отправляемые по сети, и пытается получить фактическое изображение данных DMX для добавления сохраненных значений.
 Интервал или шаг отправки данных задается конфигурацией.
 
 ## Changelog
@@ -33,27 +33,29 @@ hash: m8OLdXb7kjlJO34QT/IXo//ie7Bd4Uu8jUukaY3Vt4M=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.0.5 (2023-12-25)
-* (Bannsaenger) added releaseconfig
+### **WORK IN PROGRESS**
+* (Bannsaenger) updated dependencies and issues from repository checker
 
-### 0.0.4 (2023-12-21)
-* (Bannsaenger) updated dependencies
-* (Bannsaenger) switched to release script
-* (Bannsaenger) switched to json-config
+### 0.1.5 (2025-10-24)
+* (Bannsaenger) updated dependencies and issues from repository checker
+* (Bannsaenger) migrate to NPM Trusted Publishing
 
-### 0.0.3
-* (Bannsaenger) fixed comments from code review
+### 0.1.4 (2025-09-06)
+* (Bannsaenger) updated dependencies and issues from repository checker
 
-### 0.0.2
-* (Bannsaenger) added engine and prepared for review
+### 0.1.3 (2025-02-25)
+* (Bannsaenger) previous release did not work
 
-### 0.0.1
-* (Bannsaenger) initial release
+### 0.1.2 (2025-02-25)
+* (Bannsaenger) updated admin dependency
+
+### 0.1.1 (2025-01-21)
+* (Bannsaenger) removed script build on deploy
 
 ## License
 MIT License
 
-Copyright (c) 2021-2023 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2026 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -22,8 +22,10 @@ This is the German documentation - [🇺🇸 English version](../en/README.md)
 
 ## Inhaltsverzeichnis
 
+- [Devicemanager](devicemanager.md)
 - [MQTT Protokoll](protocol-mqtt.md)
 - [CoAP/CoIoT Protokoll](protocol-coap.md)
+- [BLE Geräte](ble-devices.md)
 - [Geschützter Login](restricted-login.md)
 - [Zustandsänderungen](state-changes.md)
 - [Debug](debug.md)
@@ -31,13 +33,13 @@ This is the German documentation - [🇺🇸 English version](../en/README.md)
 
 ## Anforderungen
 
-1. Node.js 20 (oder neuer)
-2. js-controller 6.0.0 (oder neuer)
-3. Admin Adapter 6.6.0 (oder neuer)
+1. Node.js 22 (oder neuer)
+2. js-controller 6.0.11 (oder neuer)
+3. Admin Adapter 7.8.20 (oder neuer)
 
 ## Geräte-Generationen
 
-Für mehr Informationen, siehe *supported devices*.
+Für mehr Informationen, siehe [*unterstützte Geräte*](../../README.md#supported-devices).
 
 - **Gen 1**: ESP8266 Geräte, [CoAP/CoIoT](protocol-coap.md) oder [MQTT](protocol-mqtt.md)
 - **Gen 2+**: ESP32 Geräte, [MQTT](protocol-mqtt.md)
@@ -54,20 +56,41 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 
 ![iobroker_general](./img/iobroker_general.png)
 
+## Features
+
+- Der Adapter ist in den ioBroker Device Manager integriert. Weitere Informationen in der [Devicemanager-Dokumentation](devicemanager.md).
+
+## Einschränkungen
+
+- Der Shelly Adapter unterstützt keine Einbindung von Shellies unter Verwendung von NAT (z.B. viele VPNS und den Shelly Range Extender)
+
 ## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 10.6.2-alpha.1 (2026-02-26)
-- (mcm1957) DISABLE all PLUG*_UI functionality due to unrecoverable HW faults.
+### **WORK IN PROGRESS**
+- (@klein0r) Added hold (128) and nothing (0) to BLE states for buttons
 
-### 10.6.2-alpha.0 (2026-02-26) - REVOKED
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (mcm1957) PLUGS_UI component has been added to AZ PLUG (shellyazplug), Plug M (shellyplugmg3), Plug S Gen 3 (shellyplugsg3).
-- (mcm1957) PLUGS_UI component has been addepted for Plus Plug S (shellyplusplugs). No changes should be noticeable. 
-- (mcm1957) PLUGPM_UI component has been addepted for Plug PM (shellyplugpmg3).
+### 11.0.0 (2026-07-03)
+- (@klein0r) Updated ble script (v1.3) for Shelly firmware > 2.0
+- (@GermanBluefox) Added firmware update available indicator for devices supporting this feature.
+- (@copilot) Added Shelly Dimmer 0/1-10V PM Gen4 (shelly0110dimg4).
+- (@copilot) Added HiluX DS8 by Shelly (hiluxds8)
+- (@copilot) Added Shelly EM Gen4 (shellyemg4)
+- (@mcm1957) Adapter requires node.js >= 22, js-controller >= 6.0.11 and admin >= 7.8.23 now.
+- (@GermanBluefox) Device manager has been added providing info and control of devices and provisioning.
+- (@mcm1957) IMPORTANT: Please read the changelog at README.md listing more information.
+
+### 11.0.0 additional information 
+- (@mcm1957) Added Shelly Presence Gen 4
+- (@mcm1957) Added Shelly Cury
+- (@GermanBluefox) Added support for Device manager: info and control of devices and provisioning
+- (@GermanBluefox) Added detection of new devices in the background
+- (@mcm1957) Some missing states added at an illuminance component
+- (@mcm1957) DISABLE all PLUG_UI functionality due to unrecoverable HW faults.
+- (@mcm1957) Dependencies have been updated
 
 ### 10.6.1 (2026-02-23)
 - (HGlab01) OnUnload handling has been improved. [#1279]
@@ -85,6 +108,9 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 
 ### 10.5.2 (2025-12-28)
 * (@mcm1957) Monophase profile support has been fixed for shellypro3em and shellypro3em400.
+
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

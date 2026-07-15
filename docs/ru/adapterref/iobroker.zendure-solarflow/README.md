@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: xvocCcuZLsdfsukPve8EdU9O4QqVZuU4O7uY5zs2+P8=
+hash: FOzwWSvFOpUsK0/fB2iZjiSBxwNWuvJfzIvLcGuKsN8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -25,175 +25,96 @@ hash: xvocCcuZLsdfsukPve8EdU9O4QqVZuU4O7uY5zs2+P8=
 
 ## Функции
 — Получайте все телеметрические данные с ваших устройств Solarflow, включая те, которые не отображаются в официальном приложении, например, напряжение батареи.
-— Управляйте своим Solarflow HUB так же, как и в официальном приложении. Большинство настроек доступны.
-- Контролируйте ограничение выходного сигнала — вы не ограничены использованием Shelly Pro EM для реализации нулевой подачи сигнала. Вы также можете проектировать более сложные сценарии с помощью скриптов или Blockly в ioBroker.
+— Управляйте устройствами Solarflow так же, как и в официальном приложении. Большинство настроек доступны.
+— Контролируйте ограничения на вход и выход — вы не ограничены использованием Shelly Pro EM для реализации нулевой подачи сигнала. Вы также можете проектировать более сложные сценарии с помощью скриптов или Blockly в ioBroker.
 - Отключение входного сигнала при низком напряжении одной из батарей (защита батареи). Работает только при установке ограничения выходного напряжения через адаптер.
 — Управляйте несколькими устройствами Solarflow одновременно!
 — Получите более точные расчеты!
-- Совместимо со всеми устройствами Zendure SolarFlow: HUB1200, Hyper2000, HUB2000 и AIO!
+- Работает со всеми устройствами Zendure SolarFlow!
+- **Интеграция с zenSDK**: Расширенные возможности связи для совместимых устройств через локальный HTTP-интерфейс.
+- **Передача сообщений MQTT в облако**: Устройство полностью контролируется локально, и данные передаются в Zendure MQTT. Вы не потеряете контроль, если интернет-соединение прервется или серверы Zendure будут недоступны.
+
+## Поддерживаемые устройства
+В настоящее время все устройства Zendure Solarflow поддерживаются через облако.
+
+## Режимы
+- **Ключ для аутентификации в облаке** Официальный метод, поддерживаемый Zendure. Получите ключ Cloud Key из официального приложения. По умолчанию используется zenSDK (устройство должно находиться в той же сети, что и экземпляр ioBroker). Вы можете отключить использование только облачного режима. Для старых устройств с MQTT, настроенным на локальный сервер, теперь возможна передача данных в облако без каких-либо недостатков!
+
+- **Локальный MQTT** Также возможен локальный режим. В настоящее время для новых устройств Solarflow нет известного способа установить MQTT-сервер непосредственно на устройстве, поэтому для них необходимо использовать DNS-ретранслятор.
+
+### Устройства, совместимые с zenSDK ✅
+Эти устройства поддерживают расширенные функции автоматизации zenSDK с полным **локальным** управлением по протоколу HTTP:
+
+- **Solarflow 1600 AC Plus** - Полная поддержка zenSDK
+- **Solarflow 2400 AC** - Полная поддержка zenSDK
+- **Solarflow 2400 AC Plus** - Полная поддержка zenSDK
+- **Solarflow 2400 Pro** - Полная поддержка zenSDK
+- **Solarflow 800** - Полная поддержка zenSDK
+- **Solarflow 800 Plus** - Полная поддержка zenSDK
+- **Solarflow 800 Pro** - Полная поддержка zenSDK
+
+### Устаревшие устройства 🔄
+Поддержка этих устройств осуществляется в **локальном** режиме MQTT (Zendure Cloud Disconnector):
+
+- **HUB 1200** - Поддержка локального режима, возможность пересылки сообщений в облако.
+- **HUB 2000** - Поддержка локального режима, возможность пересылки сообщений в облако.
+- **Hyper 2000** - Поддержка локального режима, возможность пересылки сообщений в облако.
+- **AIO 2400** - Поддержка локального режима, возможность передачи сообщений в облако.
+- **ACE 1500** - Поддержка локального режима, возможность передачи сообщений в облако.
+
+### Преимущества локального режима 🏠
+«Устаревшие» устройства можно полностью отключить от Zendure Cloud, сохранив при этом всю их функциональность:
+
+- **Конфиденциальность**: Данные не передаются на серверы Zendure.
+- **Надежность**: Прямая локальная связь по протоколу MQTT.
+- **Скорость**: Более быстрое время отклика без задержек, связанных с облачными сервисами.
+- **Гибкость**: Возможность передачи сообщений в облако при необходимости.
+- **Управление**: Полная локальная автоматизация без зависимости от интернета.
+- **Обновления**: Вы по-прежнему можете обновлять прошивку с помощью официального приложения Zendure через Bluetooth.
 
 ## Автономный режим (отключение от Zendure Cloud)
 В качестве новой функции вы можете отключить устройство Zendure от облака. Для этого можно использовать [Solarflow Bluetooth Manager от Райнхарда Брандштеттера (https://github.com/reinhard-brandstaedter/solarflow-bt-manager) или мой собственный инструмент для Windows [Zendure Cloud Disconnector].](https://github.com/nograx/zendure-cloud-disconnector). Также можно перенаправлять DNS-запросы с вашего маршрутизатора с "mq.zen-iot.com" на ваш собственный MQTT-сервер!
 
-Оба инструмента подключаются к устройству Zendure через Bluetooth и просто устанавливают внутренний URL-адрес MQTT на новый URL/IP-адрес, который вам необходимо указать. В настоящее время вы вынуждены использовать порт MQTT по умолчанию 1883 на вашем сервере. Вам также необходимо отключить аутентификацию на сервере MQTT, поскольку устройство Zendure использует жестко закодированный пароль.
+Оба инструмента подключаются к устройству Zendure через Bluetooth и просто устанавливают внутренний URL-адрес MQTT на новый URL/IP-адрес, который вам необходимо указать. В настоящее время вы вынуждены использовать порт MQTT по умолчанию 1883 (или 8883 с SSL) на вашем сервере. Вам также необходимо отключить аутентификацию на сервере MQTT, поскольку устройство Zendure использует жестко закодированный пароль.
 
-Если устройство Zendure взаимодействует с вашим MQTT-сервером, вы можете подключить этот адаптер ioBroker к тому же экземпляру MQTT. Вам необходимо указать модель устройства и ключ устройства (который отображается в приложении Zendure Cloud Disconnector).
-
-Вы по-прежнему можете обновлять прошивку с помощью официального приложения Zendure через Bluetooth и использовать оба инструмента Bluetooth для повторного подключения устройства к облаку!
+Вы можете использовать это в сочетании с ключом облачной аутентификации или в полном локальном режиме.
 
 ## Важный
 Если вы планируете управлять зарядкой и подачей электроэнергии к вашему устройству с помощью скрипта/blockly, я рекомендую использовать параметр управления '**setDeviceAutomationInOutLimit**', поскольку он управляет устройством без записи во флэш-память устройства. Вы можете использовать отрицательные значения для запуска зарядки от сети.
 
-Поскольку у меня есть только устройства Hyper 2000, другие устройства я не тестировал, и их функциональность зависит от отзывов сообщества!
-
 ## Примечания
-Теперь этот адаптер будет использовать код авторизации облака для аутентификации на официальных серверах MQTT, который вы можете сгенерировать в приложении Zendure!
+Этот адаптер будет использовать код авторизации облака для аутентификации на официальных серверах MQTT, который вы можете сгенерировать в приложении Zendure!
+
+<!-- Заполнитель для следующей версии (в начале строки):
+
+### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
-### 3.5.3 (2026-03-01)
+### 4.1.0 (2026-06-19)
 
-- Fix setDeviceAutomationInOutLimit on certain HEMS devices like 2400 AC(+)
+- Allow local TLS MQTT Server connection on port 8883 (due to new device firmware) in settings
+- Fix batcur calculation
 
-### 3.5.2 (2026-02-28)
+### 4.0.6 (2026-06-06)
 
-- Add productKey '5fG27j' for Solarflow 2400 AC+
+- Add productKey 'nVyeqM' for Solarflow 800 Pro 2
 
-### 3.5.1 (2026-02-19)
+### 4.0.5 (2026-06-03)
 
-- Try to update state only if state exist for this device
-- Improved error handling
+- Add state 'socStatus' (Auto-calibration) for modern devices (SF 800 upwards)
+- Fix adapter start if deviceList is empty
+- Improve logging of errors
+- Adapter requires node.js >= 22 now
 
-### 3.5.0 (2026-02-18)
+### 4.0.4 (2026-04-14)
 
-- Add productKey '2Qe7C9' for Solarflow 2400 Pro
-- Add event handler (log message) for MQTT disconnect
+- Update dependencies
 
-### 3.4.0 (2026-02-16)
+### 4.0.3 (2026-03-31)
 
-- Add productKey '8n77V3' for Solarflow 800 Plus
-- Remove passMode, pass and buzzerSwitch from Hyper 2000
-
-### 3.3.2 (2026-02-02)
-
-- Fix another 'has no existing object' message bug on pvPower3 + 4
-- Fix Battery identification of AB2000X and calculation of 'energyWhMax'
-- Fix Battery identification of AB3000 and calculation of 'energyWhMax'
-
-### 3.3.1 (2026-01-30)
-
-- Fix calculation issue
-
-### 3.3.0 (2026-01-30)
-
-- Fix 'has no existing object' messages on pvPower3 + 4
-- Fix AC input limit of SF 800 Pro
-
-### 3.2.2 (2025-12-21)
-
-- Fix reset of calculation states if PV3+4 (SF 800 Pro)
-
-### 3.2.1 (2025-12-17)
-
-- Fix setDeviceAutomation charging mode
-
-### 3.2.0 (2025-12-17)
-
-- Fix inputLimit on certain devices
-- Fix calculation of PV3 & 4 again (hopefully now 100%)
-- Add some more specific debug messages
-- Remove misleading error message on adapter start
-- Replace restart on checkStatesJob with a debug message (I think Zendure cloud is stable now)
-- Update adapter to adapter-react-v5 (MUI v5)
-- Fix commandbar in settings
-
-### 3.1.1 (2025-12-01)
-
-- Fix Uppercase 'a4ss5p' in helpers.ts
-
-### 3.1.0 (2025-12-01)
-
-- Fix setInputLimit (always use positive value!)
-- Add calculation states for PV3 & PV4 (used by SF 800 Pro)
-
-### 3.0.8 (2025-10-22)
-
-- Fix missing smartMode state for SF 800 Pro
-
-### 3.0.7 (2025-10-20)
-
-- Fix creation of SF 800 Pro device
-
-### 3.0.5 (2025-10-20)
-
-- Add some more log information on device creation
-
-### 3.0.4 (2025-10-09)
-
-- Fix inputLimit issue
-- Fix Wifi status not updating when packData changes
-
-### 3.0.3 (2025-10-07)
-
-- Optimize setting of wifiMode in local mode
-- Optimize Debug option
-
-### 3.0.2 (2025-10-06)
-
-- Ignore 'wifiState' for last update value
-
-### 3.0.1 (2025-10-02)
-
-- Update 'lastUpdate' when a battery value changes
-- Add deviceKey 'R3mn8U' for Solarflow 800 Pro
-
-### 3.0.0 (2025-09-30)
-
-- Breaking Change: Change authentication to "authentication cloud key". You can generate a key in the official zendure app
-- Removed fallback server
-- Add deviceKey 'a4ss5P' for Solarflow 800
-- Refactor a lot of code
-
-### 2.0.4 (2025-09-12)
-
-- Fix creation of control states on new Hyper 2000 v3
-- Updates dependencies
-
-### 2.0.3 (2025-09-09)
-
-- Added 'B3Dxda' as new Hyper 2000 productKey
-- Removed parameter 'upTime' and 'pullTime' from 'setDeviceAutomationInOutLimit'
-- TEST: Use 'setDeviceAutomationInOutLimit' to let HUB1200/HUB2000 charge with connected ACE 1500
-
-### 2.0.1 (2025-07-22)
-
-- Small fix MQTT service
-
-### 2.0.0 (2025-07-21)
-
-- Breaking Change: Add control parameter 'setDeviceAutomationInOutLimit' which emulates Zendure's Smart Matching mode. I recommend using this device automation instead of 'setInputLimit'/'setOutputLimit' from now on, as there were concerns that setting limits/modes would be stored in the flash memory. You can use negative values for charging and positive for feed in. On HUB 1200/2000 with ACE 1500 you can use "smartMode" to prevent switching AC mode trigger writing to the flash memory. Check you the readme for more details or participate in the ioBroker forum.
-
-### 1.15.4 (2025-07-17)
-
-- Add smart mode control parameter for more devices
-
-### 1.15.3 (2025-07-17)
-
-- Match case sensitive product key for SF 2400 AC and SF 800 in settings if local mode is used
-- Add sensor and control of "SmartMode"
-
-### 1.15.2 (2025-07-14)
-
-- Fix missing SF 800 & 2400 AC in local mode settings
-
-### 1.15.1 (2025-07-11)
-
-- Fix missing Solar Input 3 & 4 on Solarflow 800 Pro
-- Fix 'packPower' state did not set to 0 if no input/output
-
-### 1.15.0 (2025-06-27)
-
-- Add 'packPower' state, which shows combined power from (packInputPower and outputPackPower). Discharging will be shown with a negative value.
-- Add 'hyperTmp' to Solarflow 800 devices in hope this will show the temperature of the Solarflow 800 (can not test it due to lack of test device).
+- Fix missing ip address field in settings for local mode
+- Add retry loop for zenSDK requests (retry 3 times if connection failed)
+- Update battery detection
 
 ## License
 

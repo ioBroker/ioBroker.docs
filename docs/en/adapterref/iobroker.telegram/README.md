@@ -193,6 +193,42 @@ sendTo('telegram.0', 'send', {
 });
 ```
 
+### Sending files from the ioBroker file storage or from states (iob:// URIs)
+Besides a local file path or a web URL, the `text` can be an **ioBroker URI**. The adapter resolves the URI, reads the content and sends it with the automatically detected media type (photo, video, audio, document, ...). This is especially useful when the file is stored in the ioBroker file storage behind Redis/jsonl, where it does **not** exist on the local filesystem, so a plain path would not work.
+
+The following schemes are supported:
+
+- `iobfile://<adapter.instance>/<path>` — a file from the ioBroker file storage.
+- `iobstate://<state.id>` — the value of a state (see below how the value is interpreted).
+- `iobobject://<object.id>/<path>` — a value nested inside an ioBroker object (the `path` navigates into the object by `/`).
+
+```javascript
+// send a snapshot that another adapter has written into the file storage
+sendTo('telegram.0', 'send', {
+    user: 'UserName',
+    text: 'iobfile://cameras.0/snapshots/front_door.jpg',
+    caption: 'Someone is at the front door',
+});
+
+// send a file whose full path is stored in a state
+sendTo('telegram.0', 'send', {
+    text: 'iobstate://0_userdata.0.lastReport',
+});
+
+// take a value out of an object
+sendTo('telegram.0', 'send', {
+    text: 'iobobject://0_userdata.0.myObject/native/document',
+});
+```
+
+The media type is derived from the file extension (`.jpg`/`.png` → photo, `.mp4` → video, `.mp3`/`.ogg`/`.wav` → audio, `.gif` → animation, `.webp` → sticker, `.pdf`/`.csv`/`.docx`/... → document). If the extension is unknown, the type is taken from the stored MIME type; as a fallback the content is sent as a document. You can still override it explicitly with the `type` option.
+
+**How a state/object value is interpreted** (`iobstate://` and `iobobject://`):
+- a **data URL** (`data:image/png;base64,...`) is decoded and sent as the corresponding media type;
+- a value that itself is an `iob*://` URI or an `http(s)://` URL is resolved further (up to 5 levels of nesting);
+- any other string is treated as a file path / URL;
+- numbers, booleans and objects are sent as text (objects are JSON-stringified).
+
 ### Keyboard
 You can show keyboard **ReplyKeyboardMarkup** in the client:
 
@@ -250,7 +286,8 @@ You can read more [here](https://github.com/yagop/node-telegram-bot-api/blob/rel
 
 ### Question
 You can send to telegram the message, and the next answer will be returned in callback. 
-Timeout can be set in instance configuration (default is 60 seconds).
+The answer timeout can be set in the instance configuration (default is 60 seconds). If the user does not
+answer in time, the callback is called with the **string** `'__timeout__'` (so `msg.data` is `undefined`).
 
 ```javascript
 sendTo('telegram.0', 'ask', {
@@ -264,8 +301,30 @@ sendTo('telegram.0', 'ask', {
         ]
     }
 }, msg => {
-    console.log('user says ' + msg.data);
+    if (msg === '__timeout__') {
+        console.log('no answer within the configured timeout');
+    } else if (msg.data === '1') {
+        console.log('user pressed Yes');
+    } else {
+        console.log('user pressed No');
+    }
 });
+```
+
+**Important – the caller has its own `sendTo` timeout:** the adapter that sends the `ask` (e.g. the
+JavaScript adapter) applies its **own** timeout to the `sendTo` callback, and in the JavaScript adapter this
+defaults to about **20 seconds**. If your configured answer timeout is longer than that, the callback is
+fired early by the *caller* with a timeout result – which looks like the user answered "No". Increase the
+caller's timeout so it is **larger** than the answer timeout, e.g. in the JavaScript adapter by passing it as
+the last argument:
+
+```javascript
+sendTo('telegram.0', 'ask', {
+    text: 'Are you sure?',
+    reply_markup: { inline_keyboard: [[{ text: 'Yes!', callback_data: '1' }], [{ text: 'No...', callback_data: '0' }]] }
+}, msg => {
+    // ... handle msg (see above)
+}, { timeout: 65000 }); // must be > the configured answer timeout (here 60 s)
 ```
 
 ## Chat ID
@@ -287,6 +346,45 @@ sendTo('telegram.0', 'send', {
     chatId: 'SOME-CHAT-ID-123',
     message_thread_id: 7,
 });
+```
+
+## Receiving a location
+When a user shares a location with the bot (paperclip → location) or sends a venue, the coordinates are written to the state `telegram.INSTANCE.communicate.requestLocation` as a `latitude;longitude` string (role `value.gps`). The metadata states (`requestChatId`, `requestMessageId`, `requestUserId`) are updated as well, so you know who sent it.
+
+```javascript
+on({ id: 'telegram.0.communicate.requestLocation', change: 'any' }, obj => {
+    const [latitude, longitude] = obj.state.val.split(';').map(parseFloat);
+    const user = getState('telegram.0.communicate.requestUserId').val;
+    console.log(`User ${user} is at ${latitude}, ${longitude}`);
+    // e.g. forward the coordinates to a map widget
+});
+```
+
+## Receiving channel posts
+If the bot is an administrator of a channel, posts published in that channel are received as well and written
+to `telegram.INSTANCE.communicate.request` in the form `[channel title]text` (together with
+`communicate.requestChatId` and `communicate.requestMessageId`). Channel posts are anonymous (they have no
+sender user), so the authentication/command handling does not apply to them - they are only exposed as a
+request. Any attached media is saved like for normal messages, and the channel is added to
+`communicate.chats`.
+
+## Known chats and groups
+Every chat or group the bot receives a message from is remembered in the state
+`telegram.INSTANCE.communicate.chats` as a JSON object `id => { title, type }` (where `type` is one of
+`private`, `group`, `supergroup` or `channel`). This is handy to look up a group's chat id (e.g. to let
+another adapter pick a group to send to). Add the bot to the group and send one message so the group appears.
+
+```json
+{
+    "1234567": { "title": "John Doe", "type": "private" },
+    "-1001234567890": { "title": "My smart home group", "type": "supergroup" }
+}
+```
+
+The list is persisted, so it survives an adapter restart. Use the chat id as `chatId` when sending:
+
+```javascript
+sendTo('telegram.0', 'send', { text: 'Hello group', chatId: '-1001234567890' });
 ```
 
 ## Updating messages
@@ -752,13 +850,43 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 5.0.0-alpha.0 (2026-07-10)
+- (@GermanBluefox) Channel posts (from a channel where the bot is an admin) are now received and written to `communicate.request`/`communicate.requestChatId` (previously ignored)
+- (@GermanBluefox) Robustness: all `setState` calls now catch their errors (via a `setStateSafe` helper), so a failing state write can no longer cause an unhandled promise rejection
+- (@GermanBluefox) Added the state `communicate.chats`: every chat/group the bot receives a message from is remembered as JSON (`id => {title, type}`), so other adapters can offer a chat/group picker
+- (@GermanBluefox) Outgoing messages that fail because telegram is unreachable are now queued in memory and resent automatically once the connection is back (bounded queue, permanent errors like "chat not found" are not retried)
+- (@GermanBluefox) Documented that an unanswered `ask` returns the string `'__timeout__'`, and that the calling adapter's own `sendTo` timeout (JavaScript adapter defaults to ~20 s) must be larger than the configured answer timeout - otherwise the callback fires early (looks like a "No" answer)
+- (@GermanBluefox) A received location or venue is now written to the new state `communicate.requestLocation` as `latitude;longitude` (role `value.gps`), so it can be shown e.g. on a map
+- (@GermanBluefox) Fixed: recipients can now be mixed by username and first name in one list - a recipient without a public telegram username is matched by first name even when "store username" is active
+- (@GermanBluefox) Added the missing translations for the configuration labels (API URL, port, certificates, media quality, ...) in all languages
+- (@GermanBluefox) Robustness: all telegram API calls now catch their errors, so a failing call can no longer terminate the adapter with an unhandled promise rejection
+- (@GermanBluefox) The inline keyboard of a broadcast `ask` question is now removed for the user who answered (taken from the pressed callback message)
+- (@GermanBluefox) Fixed: the adapter no longer crashes (unhandled promise rejection) when the inline keyboard of an answered/timed-out `ask` question cannot be removed (e.g. "message to edit not found")
+- (@GermanBluefox) Fixed: `deleteMessage`/`editMessage*` without an explicit `user`/`chatId` is now executed once for the chat given in its options instead of being broadcast to every user (which made the other users fail)
+- (@GermanBluefox) The caption of a received photo/video/document is now written to `communicate.request` (like a normal text message), so image captions are no longer lost
+- (@GermanBluefox) Added a "Parsemode" option to the "ask via Telegram" Blockly block, so questions can be formatted with HTML/MarkdownV2
+- (@GermanBluefox) Added support for sending files directly from the ioBroker file storage via `iobfile://`, `iobobject://` and `iobstate://` URIs (works with Redis/jsonl where the file is not on the local filesystem)
+- (@GermanBluefox) The `/password` message is now deleted from the chat after a successful authentication
+- (@GermanBluefox) Fixed: `requestChatId`/`requestMessageId`/`requestUserId` are now set when receiving a photo, document or other media
+- (@GermanBluefox) Fixed: sending to a recipient by numeric user id (`{ user: "12345" }`) now works
+- (@GermanBluefox) Fixed: no longer crashes when a system notification contains an empty messages list
+- (@GermanBluefox) Added an optional `ioBroker.assistant` instance: messages that no internal rule/command matched are forwarded to it and its answer is sent back to the chat
+- (@GermanBluefox) Migrated the adapter backend to TypeScript; texts are now provided as `i18n` JSON files loaded via `I18n`
+- (@GermanBluefox) The target instance is now checked to be alive before a message is forwarded (text2command/assistant)
+- (@GermanBluefox) States without a value are now reported as "uncertain" instead of showing an unset boolean as "ON"
+- (@GermanBluefox) Timers are now managed by the adapter and cleared on unload (including pending question timeouts)
+- (@GermanBluefox) Fixed: the "allow states" option could not be disabled
+- (@GermanBluefox) Fixed: a question timeout could drop other pending questions
+- (@GermanBluefox) Fixed: `communicate.responseSilentJson` acknowledged the wrong state
+- (@GermanBluefox) Fixed: removed a stray empty entry from the generated command keyboard
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
 * (@klein0r) Updated dependencies
 
 ### 4.1.0 (2025-03-19)
 * (bluefox) Admin component was migrated to TypeScript
-* (bluefox) NodeJS >= 20.x and js-controller >= 6 and admin >= 7 are required now.
+* (bluefox) Node.js >= 20.x and js-controller >= 6 and admin >= 7 are required now.
 
 ### 4.0.0 (2025-01-13)
 * NodeJS >= 20.x and js-controller >= 6 are required
@@ -771,14 +899,13 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 ### 3.8.2 (2024-07-16)
 * (bluefox) Username can consist of more than one user. The separator is comma, semicolon or space.
 
-### 3.8.0 (2024-07-14)
-* (bluefox) Migrated GUI for Admin 7
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2016-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -2,107 +2,104 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.enigma2/README.md
-title: ioBroker энигма2
-hash: fdyOycvPFspaROEIv+ZQbVNsc4JE0rZ4YKX5UIsZP80=
+title: ioBroker enigma2
+hash: teRzjARBlwSRw3sMfaN5ubviI/pLHk0inOiRsQ7vdkk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.enigma2/admin/enigma2.png)
 
-![версия НПМ](http://img.shields.io/npm/v/iobroker.enigma2.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.enigma2.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.enigma2.svg)
 ![НПМ](https://nodei.co/npm/iobroker.enigma2.png?downloads=true)
 
 ----
 
-# IoBroker энигма2
-- Адаптер для ioBroker для получения информации с приемника enigma2 и отправки команд
-- (Адаптер работает только на одном хосте! С установкой клиента в настоящее время все еще возникают проблемы.)
-
-- (DE) Адаптер для ioBroker и получения информации от einem enigma2 Receiver abzufragen und Befehle zu senden
-- (DE)(Адаптер не работает на своем хосте! При установке клиента возникла актуальная проблема.)
+# IoBroker enigma2
+- Адаптер для ioBroker, позволяющий получать информацию от приемника enigma2 и отправлять команды.
+— (Адаптер работает только на одном хосте! При установке на клиентском компьютере пока сохраняются проблемы.)
 
 ----
 
 ### Функции
-- ЯЩИК_IP
+- BOX_IP
 - СЕТЬ
-- CHANNEL_SERVICEREFERENCE
+- СПРАВОЧНИК ПО СЕРВИСАМ КАНАЛА
 - CHANNEL_SERVICEREFERENCE_NAME
 - КАНАЛ
 - ОПИСАНИЕ СОБЫТИЯ
 - ПРОДОЛЖИТЕЛЬНОСТЬ СОБЫТИЯ
-- EVENTDURATION_MIN
-- СОБЫТИЕ ОСТАВШЕЕСЯ
+- ПРОДОЛЖИТЕЛЬНОСТЬ_СОБЫТИЯ_МИН
+- EVENTREMAINING
 - EVENTREMAINING_MIN
-- СОБЫТИЕ_ПРОГРЕСС_ПЕРЦЕНТ
-- СОБЫТИЕ_ВРЕМЯ_НАЧАЛА
+- ПРОЦЕНТ ВЫПОЛНЕНИЯ СОБЫТИЯ
+- EVENT_TIME_START
 - EVENT_TIME_END
-- СОБЫТИЕ_ВРЕМЯ_ПРОШЛО
-- ЕМКОСТЬ_ЖЕСТКОГО_ДИСКА
-- HDD_БЕСПЛАТНО
-- СООБЩЕНИЕ_ОТВЕТ
+- EVENT_TIME_PASSED
+- Емкость жесткого диска
+- HDD_FREE
+- ОТВЕТ_СООБЩЕНИЯ
 - МОДЕЛЬ
-- ПРИГЛУШЕНО
+- ОТКЛЮЧЕНО
 - ПРОГРАММА
-- ПРОГРАММНАЯ_ИНФОРМАЦИЯ
-- ПРОГРАММА_ПОСЛЕ
-- ПРОГРАММА_ПОСЛЕ_ИНФОРМАЦИИ
+- PROGRAMM_INFO
+- PROGRAMM_AFTER
+- PROGRAMM_AFTER_INFO
 - ПОДДЕРЖИВАТЬ
 - ОБЪЕМ
 - WEB_IF_VERSION
 - isRecording
 - Таймер_установлен
 - MOVIE_LIST (только openwebif)
-- СПИСОК_ТАЙМЕРОВ
-- CHANNEL_PICON (путь к пикоконам - только openwebif)
+- TIMER_LIST
+- CHANNEL_PICON (Путь к иконке - только для OpenWebIF)
 
 ----
 
 ### Основной
-- enigma2-СОЕДИНЕНИЕ
+- enigma2-CONNECTION
 
 ----
 
 ### Команда
-- команда.CHANNEL_DOWN
-- команда.CHANNEL_UP
+- command.CHANNEL_DOWN
+- command.CHANNEL_UP
 - команда.ВНИЗ
 - команда.UP
 - команда.EPG
 - команда.ВЫХОД
-- команда.ЛЕВЫЙ
+- команда.ЛЕВАЯ
 - команда.МЕНЮ
-- команда.MUTE_TOGGLE
+- command.MUTE_TOGGLE
 - команда.ОК
-- команда ПАУЗА
+- command.PAUSE
 - команда.PLAY
 - команда.РАДИО
-- команда.REC
+- command.REC
 - команда.ДИСТАНЦИОННОЕ УПРАВЛЕНИЕ
-- команда.ПРАВИЛЬНО
-- команда.SET_VOLUME
-- команда.STANDBY_TOGGLE
-- команда СТОП
-- команда.ТВ
+- команда.ПРАВО
+- command.SET_VOLUME
+- command.STANDBY_TOGGLE
+- команда.СТОП
+- command.TV
 - команда.UP
 - команда.VOLUME_DOWN
 - команда.VOLUME_UP
-- command.ZAP = отправить недействительную ссылку на службу
+- command.ZAP = отправить недействительную ссылку на сервис
 
 ----
 
-### Главное командование
-- main_command.DEEP_STANDBY = Глубокий режим ожидания
+### Главная команда
+- main_command.DEEP_STANDBY = Deepstandby
 - main_command.REBOOT = Перезагрузка
-- main_command.RESTART_GUI = Перезапустить Enigma2 (графический интерфейс)
-- main_command.STANDBY = Режим ожидания
+- main_command.RESTART_GUI = Перезапустить Enigma2 (GUI)
+- main_command.STANDBY = Standby
 - main_command.WAKEUP_FROM_STANDBY = Пробуждение из режима ожидания
 
 ----
 
 ### Сообщение
-- Message.Text = Текст сообщения (Ввод -> Отправить)
-- Тип сообщения = Число от 0 до 3 (0= Да/Нет; 1= Информация; 2=Сообщение; 3=Внимание)
-- Message.Timeout = время ожидания сообщения в сек. Может быть пустым или указывать количество секунд, через которое сообщение должно исчезнуть.
+- Message.Text = Текст сообщения (Enter -> Send)
+- Message.Type = Число от 0 до 3 (0 = Да/Нет; 1 = Информация; 2 = Сообщение; 3 = Внимание)
+- Message.Timeout = время ожидания сообщения в секундах. Может быть пустым значением или числом секунд, через которое сообщение должно исчезнуть.
 
 ----
 
@@ -112,21 +109,21 @@ hash: fdyOycvPFspaROEIv+ZQbVNsc4JE0rZ4YKX5UIsZP80=
 
 ----
 
-### ОтправитьКому
-#### В Блочном
+### SendTo
+#### В Blockly
 - сообщение = Текст сообщения
-- msgType = Число от 0 до 3 (0= Да/Нет; 1= Информация; 2=Сообщение; 3=Внимание)
-- timeout = время ожидания сообщения в сек. Может быть пустым или указывать количество секунд, по истечении которых сообщение должно исчезнуть.
+- msgType = Число от 0 до 3 (0 = Да/Нет; 1 = Информация; 2 = Сообщение; 3 = Внимание)
+- timeout = время ожидания сообщения в секундах. Может быть пустым значением или числом секунд, через которое сообщение должно исчезнуть.
 
-![Текст изображения](../../../en/adapterref/iobroker.enigma2/admin/enigma2_message2.png)
+![Текст с изображением](../../../en/adapterref/iobroker.enigma2/admin/enigma2_message2.png)
 
-### Или ![Текст изображения](../../../en/adapterref/iobroker.enigma2/admin/enigma2_message.png)
-[> zum Blockly Import <](admin/Blockly_Import.md)
+### Или ![Текст с изображением](../../../en/adapterref/iobroker.enigma2/admin/enigma2_message.png)
+[> Импорт Blockly <](admin/Blockly_Import.md)
 
-#### В JavaScript
+#### На JavaScript
 ```js
 sendTo('enigma2.0', 'send', {
-    message: 'Test Nachricht', /* Text of Message */
+    message: 'Test Messaget', /* Text of Message */
     timeout: 26,               /* timeout of Message in sec. (Can be empty or the Number of seconds the Message should disappear after.) */
     msgType: 1,                /* Number from 0 to 3 (0= Yes/No ; 1= Info ; 2=Message ; 3=Attention) */
 });
@@ -137,6 +134,12 @@ sendTo('enigma2.0', 'send', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.3.0 (2026-03-05)
+- (mcm1957) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (mcm1957) Dependencies have been updated.
+
 ### 2.2.3 (2024-12-22)
 * (mcm1957) Adapter has been moigrated to @iobroker/eslint-config. [#266]
 
@@ -154,14 +157,10 @@ sendTo('enigma2.0', 'send', {
 ### 2.1.1 (2024-06-09)
 * (klein0r) Updated Blockly definitions
 
-### 2.1.0 (2024-04-11)
-* (mcm1957) Adapter requires node.js >=18 and js-controller >= 5 now
-* (mcm1957) Dependencies have been updated
-
 ## License
 MIT License
 
-Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

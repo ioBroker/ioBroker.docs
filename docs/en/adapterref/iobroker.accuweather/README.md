@@ -43,7 +43,12 @@ For better view a custom lovelace card is created - see https://github.com/algar
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
+### 2.3.0 (2026-05-04)
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (mcm1957) Dependencies have been updated
 
 ### 2.2.0 (2026-02-10)
 - (copilot) Adapter requires admin 7.6.17 now
@@ -70,16 +75,12 @@ For better view a custom lovelace card is created - see https://github.com/algar
 * (ticaki) Dependencies and eslint updated
 * (devtronic) Add nextHour.CloudCover
 
-### 1.5.0 (2024-06-23)
-* (xdaamg) limit updates to once an hour, this fixes part of issue #273.
-* (mcm1957) Adapter requires js-controller >= 5 and admin >= 6 now
-* (mcm1957) Node 22 support has been added to testing
-* (mcm1957) Dependencies have been updated
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2021-2023 algar42 <igor.aleschenkov@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

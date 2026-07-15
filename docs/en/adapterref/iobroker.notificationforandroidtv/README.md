@@ -97,6 +97,12 @@ Now, you should be able to use PiPup on your Fire TV or other Android TV without
 
 
 ## Changelog
+### 3.1.0 (2026-03-13)
+* (DNAngelX) Migrate admin UI to jsonConfig (responsive design)
+* (DNAngelX) Update dependencies: ESLint 10, sinon 21, chai-as-promised 8, adapter-core 3.2.3
+* (DNAngelX) Add Node.js 22 and 24 to test matrix
+* (DNAngelX) Enable NPM Trusted Publishing
+
 ### 3.0.4 (2024-04-24)
 * (DNAngel/mcm1957) Release merges
 
@@ -150,7 +156,7 @@ Now, you should be able to use PiPup on your Fire TV or other Android TV without
 ## License
 MIT License
 
-Copyright (c) 2024 DNAngel
+Copyright (c) 2024-2026 DNAngel
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

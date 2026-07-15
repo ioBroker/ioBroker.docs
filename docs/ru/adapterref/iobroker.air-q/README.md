@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.air-q/README.md
 title: ioBroker.air-q
-hash: /mRC28Db6zteKQ26qsHwEGoBQpAsc98CHy0AbKPJ7ns=
+hash: n8TAgcFn4LhWTlqTjxNW1MkZ003SePBMmj9nOZmqgXo=
 ---
 # IoBroker.air-q
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.air-q.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.air-q.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.air-q.svg)
 ![Количество установок](https://iobroker.live/badges/air-q-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/air-q-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/air-q-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.air-q.png?downloads=true)
 
 <img src="admin/air-q.png" alt="airq-logo" width="200"/>
@@ -32,7 +32,7 @@ hash: /mRC28Db6zteKQ26qsHwEGoBQpAsc98CHy0AbKPJ7ns=
 
 ## Начиная<a id="start" />
 ### Установите адаптер и добавьте экземпляр
-В административном интерфейсе перейдите в боковую панель по адресу `Adapters` и найдите `air-q` в `Filter by name`. Выберите `+` (`Add instance`) в меню `⋮` (`Info`) адаптера.
+В административном интерфейсе перейдите к `Adapters` на боковой панели и найдите `air-q` в `Filter by name`. Выберите `+` (`Add instance`) в меню `⋮` (`Info`) адаптера.
 
 Это автоматически откроет настройки экземпляра.
 
@@ -53,12 +53,20 @@ iobroker install air-q
 Для получения более подробной информации посетите документацию по CLI ioBroker по адресу https://github.com/ioBroker/ioBroker/wiki/Console-commands.
 
 ## Конфигурация
-### Необходимый
-Для настройки вашего экземпляра вам достаточно выбрать, хотите ли вы подключиться через IP-адрес или короткий идентификатор вашего устройства.
+![Конфигурация](../../../en/adapterref/iobroker.air-q/docs/screenshot-config.png)
 
-<img width="1263" height="953" alt="2025-12-10T17:57:57,025532652+01:00" src="https://github.com/user-attachments/assets/93ff4c76-bdf5-4336-bb5a-1a0aa844ec0d" />
+### Как найти ваше устройство air-Q
+Адаптер может автоматически обнаруживать устройства air-Q в вашей локальной сети с помощью mDNS (Bonjour). При открытии настроек экземпляра в раскрывающемся списке **Сканировать сеть** будет выполнен поиск устройств (примерно 10 секунд), и отобразится список всех найденных устройств air-Q по имени. Выберите ваше устройство, и короткий идентификатор и IP-адрес будут заполнены автоматически.
 
-Пожалуйста, убедитесь, что вы ввели правильный IP-адрес/идентификатор и пароль.
+**Если устройства не обнаружены**, возможно, ваш маршрутизатор блокирует mDNS-трафик между устройствами (это часто встречается в ячеистых сетях, гостевых сетях или корпоративных системах). В этом случае установите флажок **Подключиться по IP** и введите IP-адрес устройства вручную. IP-адрес можно найти в приложении air-Q для смартфона или в списке устройств вашего маршрутизатора.
+
+Вы также можете настроить адаптер через **ioBroker.discovery**: запустите сканирование сети с помощью адаптера обнаружения, и устройства air-Q будут обнаружены автоматически через DNS или HTTP.
+
+### Варианты подключения
+- **Сканирование сети**: Автоматически обнаруживает устройства air-Q через mDNS. Выберите устройство, чтобы автоматически заполнить короткий идентификатор и IP-адрес.
+- **Подключение по IP-адресу**: Подключайтесь напрямую, используя IP-адрес устройства. Используйте этот вариант, если обнаружение mDNS не работает в вашей сети.
+- **Краткий идентификатор**: первые 5 символов серийного номера вашего устройства. Используется для поиска mDNS, если флажок «Подключиться по IP» снят.
+- **Пароль устройства**: Пароль вашего устройства air-Q.
 
 ### Необязательный
 - **Учитывать ночной режим устройства**. По умолчанию: `включено`. Если на вашем устройстве air-Q включен ночной режим, но Wi-Fi отключен в ночное время, адаптер может автоматически пропускать попытки опроса в эти часы. Это исключает ненужные ошибки подключения в ваших журналах. ⚠️ Если вы измените настройки ночного режима вашего устройства (время начала/окончания, включение/выключение), у вас есть два варианта:
@@ -81,6 +89,20 @@ iobroker install air-q
 ***На данный момент все датчики для Air-Q Pro включены. Дополнительные датчики будут добавлены в одном из будущих обновлений.***
 
 ## Changelog
+
+### 1.2.0
+* **Network discovery**: air-Q devices on the local network are now automatically discovered via mDNS. Select a device from the dropdown and the Short ID and IP are filled in automatically.
+* **Admin UI modernized**: Migrated from Materialize HTML to jsonConfig (declarative JSON). Settings are now organized in two tabs: Connection and Data Retrieval.
+* **ioBroker.discovery integration**: Fixed the detection file to correctly populate adapter config fields, call the discovery callback, and distinguish multiple air-Q devices. Added HTTP `/ping` fallback for networks without reverse DNS.
+* **Troubleshooting guidance**: The admin UI now explains what to do when mDNS doesn't work (router blocking, how to find the device IP).
+
+### 1.1.0
+* Added support for 19 new sensors: acetaldehyde (C₂H₄O), arsine (AsH₃), bromine (Br₂), methanethiol (CH₄S), chlorine dioxide (ClO₂), carbon disulfide (CS₂), ethylene (C₂H₄), fluorine (F₂), temperature in Farenheit, hydrochloric acid (HCl), hydrogen cyanide (HCN), hydrogen fluoride (HF), hydrogen peroxide (H₂O₂), mold protection, phosphine (PH₃), refrigerant R-32, refrigerant R-454B, refrigerant R-454C, silane (SiH₄)
+
+### 1.0.7
+* Missing (e.g. warming up) sensors are skipped gracefully
+* Fixed incorrect translations
+* Refactor redundant methods
 
 ### 1.0.6
 * The adapter can automatically respect your air-Q device's night mode configuration
@@ -130,7 +152,7 @@ iobroker install air-q
 
 MIT License
 
-Copyright (c) 2024 Corant GmbH
+Copyright (c) 2024-2026 Corant GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

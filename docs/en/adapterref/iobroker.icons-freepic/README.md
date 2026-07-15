@@ -27,11 +27,15 @@ You can check other adapters for examples or ask in the developer community. Usi
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 
 ### 1.0.0 (2023-08-30)
 * (jogibear9988) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

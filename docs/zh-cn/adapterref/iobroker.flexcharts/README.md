@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: B0rBGSntv+Ju2U5qKM7ggjfK+HoJx55myfnP3C/Ghc4=
+hash: 76o0DZZcuwEOPU4zsiT6wpiWJ2rU5y77tKq5tDIEEts=
 ---
 ![标识](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -17,97 +17,96 @@ hash: B0rBGSntv+Ju2U5qKM7ggjfK+HoJx55myfnP3C/Ghc4=
 **测试：** ![测试与发布](https://github.com/MyHomeMyData/ioBroker.flexcharts/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 flexcharts 适配器
-# 最新消息
-**Apache ECharts 发布了 v6.0.0 版本，包含 12 项重大更新。** 详情请参阅 https://echarts.apache.org/handbook/en/basics/release-note/v6-feature。
+将 [Apache ECharts](https://echarts.apache.org/en/index.html) 的全部功能引入 ioBroker，而无需图形配置 UI 施加任何限制。
 
-Flexcharts v0.6.0 基于此新版本，并提供以下新功能：
+> **此适配器面向经验丰富的用户。** 没有用于配置图表的用户界面。您完全可以通过代码（JavaScript 或 Blockly）或存储在 ioBroker 状态中的 JSON 来定义图表。
 
-* 全新默认主题
-* 可以传递无限数量的自定义主题
-* 动态主题切换，典型场景是监听系统的暗黑模式并动态调整图表主题（添加 http 参数 `&darkmode=auto` 以激活）
-* 新的图表类型
-* 可以传递无限数量的事件驱动函数
-
-**备注：** 您可以通过添加 http 参数 `&themev5`（例如 `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1&themev5`）来保留 **ECharts v5 主题**（默认和深色主题）。Apache 提供 v5 浅色主题，但没有 v5 深色主题——我已经提交了相关问题报告。目前，我基于 Apache v5.6.0 的深色主题自行创建了一个 v5 深色主题。如果您发现 v5 主题之间存在差异，请向 flexcharts 提交问题报告。
-
-# 基本概念
-ioBroker 提供了多种图表查看适配器。据我所知，它们都使用用户界面来配置图表的内容和选项。通常情况下，并非所有图形子系统的功能都能通过这种方式使用。例如，使用 eChart 适配器就无法查看功能齐全的堆叠图。
-
-该适配器采用了一种不同的方法。它几乎包含了[将 Apache ECharts 集成到 ioBroker 中。请查看[演示图表](https://echarts.apache.org/en/index.html)。](https://echarts.apache.org/examples/en/index.html)的全部功能集。
+请查看 [ECharts演示图库](https://echarts.apache.org/examples/en/index.html)，了解可能的情况。
 
 备注：该适配器尚未在MacOS上进行测试。
 
-**没有用于配置图表的用户界面。** 您需要自行定义图表，适配器会负责可视化。您需要提供图表的定义和内容，内容以 JSON 对象的形式提供——在 eCharts 示例中，它对应于变量 `option` 的内容。以下示例可以帮助您理解。要创建堆叠图，您需要将其定义存储在 ioBroker 状态（JSON 格式）中：
+## V0.7.2 版本新增内容
+**面向初学者的友好模板和分步指南**——让 ECharts 新手用户更容易上手使用 flexcharts：
 
-```
+- 两个新的适合初学者的模板：[template6](templates/flexchartsTemplate6.js)（带有历史适配器数据的能量堆叠柱状图）和[template7](templates/flexchartsTemplate7.js)（带有 SSE 自动更新的响应式仪表图）
+- 改进了所有现有模板（1-5）中的注释和步骤标记
+- 新增[带教程的 Wiki](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki): 从零开始构建实时图表的逐步指南 — 请参阅[更多示例和资源](#further-examples-and-resources)
+
+## V0.7.1 版本新增内容
+**SSE 图表更新无需重新加载页面** — 使用 `&sse` 时，图表现在会直接更新，而无需重新加载整个页面：
+
+- ECharts动画在每次数据更新时都能流畅运行
+- 刷新时无闪烁或图表重建
+- 对所有现有的 `&sse` URL 都透明生效——无需任何更改
+
+## V0.7.0 版本新增内容
+**通过 SSE 实现事件触发图表刷新** — 现在，当源数据发生变化时，图表会自动更新，无需任何轮询：
+
+- 在图表 URL 中添加 `&sse` 以激活 [服务器发送事件](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)
+- 使用 `source=state` 时：图表会在 `&id=` 指定的州发生变化时更新
+- 如果使用 `source=script`，则添加 `&triggerid=<state_id>` 以指定哪个状态触发更新
+
+示例：`http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userdata.0.echarts.chart1&sse`
+
+详情请参见[事件触发图表刷新 (SSE)](#event-triggered-chart-refresh-sse)。
+
+## 工作原理
+其他 ioBroker 图表适配器使用用户界面来配置图表内容和选项——这通常会限制您可以表达的内容。flexcharts 采用了不同的方法：
+
+1. 您可以将图表定义为 JSON 对象（ECharts 的 `option` 变量）——该对象可以存储在 ioBroker 状态中，也可以从 JavaScript 脚本返回。
+2. flexcharts 将该定义传递给浏览器中的 Apache ECharts 并进行渲染。
+
+示例——以状态值形式存储的堆叠条形图：
+
+```json
 { "tooltip": {"trigger": "axis","axisPointer": {"type": "shadow"}},
   "legend": {},
   "xAxis": [{"type": "category","data": ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]}],
   "yAxis": [{"type": "value"}],
   "dataZoom": [{"show": true,"start": 0, "end": 100}],
   "series": [
-    { "name": "Grid", "type": "bar", "color": "#a30000", "stack": "Supply",
-      "data": [8,19,21,50,26,0,36]},
-    { "name": "PV", "type": "bar", "color": "#00a300", "stack": "Supply",
-      "data": [30,32,20,8,33,21,36]},
-    { "name": "Household", "type": "bar", "color": "#0000a3", "stack": "Consumption",
-      "data": [16,12,11,13,14,9,12]},
-    { "name": "Heat pump", "type": "bar", "color": "#0000ff", "stack": "Consumption",
-      "data": [22,24,30,20,22,12,25]},
-    { "name": "Wallbox", "type": "bar", "color": "#00a3a3", "stack": "Consumption",
-      "data": [0,15,0,25,23,0,35]}
+    { "name": "Grid",      "type": "bar", "color": "#a30000", "stack": "Supply",      "data": [8,19,21,50,26,0,36]},
+    { "name": "PV",        "type": "bar", "color": "#00a300", "stack": "Supply",      "data": [30,32,20,8,33,21,36]},
+    { "name": "Household", "type": "bar", "color": "#0000a3", "stack": "Consumption", "data": [16,12,11,13,14,9,12]},
+    { "name": "Heat pump", "type": "bar", "color": "#0000ff", "stack": "Consumption", "data": [22,24,30,20,22,12,25]},
+    { "name": "Wallbox",   "type": "bar", "color": "#00a3a3", "stack": "Consumption", "data": [0,15,0,25,23,0,35]}
   ]
 }
 ```
 
-然后，flexchart适配器将显示此图表：
+结果：
 
 ![flexcharts_stacked1](https://github.com/user-attachments/assets/7cf6dfab-ddad-4b2f-a1e1-20fa4b876b4c)
 
-通常情况下，你会使用 Blockly 或 javascript 来创建和更新此状态的内容。
+## 先决条件
+flexcharts 作为 Web 扩展程序运行。必须安装并运行 [Web适配器](https://www.iobroker.net/#en/adapters/adapterref/iobroker.ws/README.md) (`web.0`)。以下示例假设使用默认端口 8082。
 
-还有另一种方法可以通过 JavaScript 中的回调函数直接传递 eCharts 数据。详情请见下文。
+＃＃ 入门
+### 验证安装
+在浏览器中打开此网址（将`localhost`替换为您的ioBroker服务器地址）：
 
-需要明确的是：这种方法并非旨在快速创建简单的图表。
+`http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1`
 
-但如果您心中已有更复杂的图表构想，flexcharts 可以帮助您实现。
+应该会显示一个演示图表。如果显示了，则说明适配器工作正常。
 
-＃ 入门
-### 使用适配器
-此适配器以 Web 扩展的形式提供其功能。因此，必须安装并运行 [Web适配器](https://www.iobroker.net/#en/adapters/adapterref/iobroker.ws/README.md) (`web.0`)。本自述文件假设您使用的是 Web 适配器的标准端口 8082。
+### 来源选项 1 — ioBroker 状态
+`http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userdata.0.echarts.chart1`
 
-当 flexcharts 适配器处于活动状态时，您可以通过 http://localhost:8082/flexcharts/echarts.html 访问它（将 `localhost` 替换为您的 ioBroker 服务器地址）。
+flexcharts 读取状态 `0_userdata.0.echarts.chart1` 并将其渲染为 EChart。创建此状态，将上面的 JSON 示例粘贴为其值，然后打开 URL。
 
-您可以在 vis、jarvis 或其他可视化工具的 iFrame 小部件中使用此地址。当然，您也可以直接在浏览器标签页中使用它。
+> **注意：** 状态 ID 中不允许使用以下字符：`: / ? # [ ] @ ! $ & ' ( ) * + , ; = %`
 
-要使其正常工作，您需要提供额外的参数来告知适配器数据来源。有两种选项可供选择：
+### 来源选项 2 — JavaScript 脚本
+这种方式更加灵活。flexcharts 会在每次请求时调用您的脚本，而您的脚本会返回图表定义。其他 URL 参数也会转发给脚本。
 
-* `source=state` => 您在 ioBroker 状态（json）中提供图表数据
-* `source=script` => 您通过脚本（javascript 或 blockly）提供图表数据
+仅支持 **javascript.0**（第一个 JS 适配器实例）。
 
-还有其他选项，请参阅[参考部分](#reference)
+创建脚本：
 
-要检查适配器是否正确安装，请使用内置演示图表：http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1
-
-### 使用 ioBroker 状态作为 eChart 的数据源
-示例：`http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userdata.0.echarts.chart1`
-
-<!-- Would this be better to read: Example: http://localhost:8082/flexcharts/echarts.html?<mark style="background-color: #ffff00">source=state</mark>&<mark style="background-color: #00c000">&id=0_userdata.0.echarts.chart1</mark> -->
-
-Flexcharts 会将状态 `0_userdata.0.echarts.chart1` 作为 eChart 的数据进行评估。您可以尝试：创建一个这样的状态，并将上面示例中显示的 JSON 数据 (`{ "tooltip": { ...`) 复制到该状态作为状态内容，然后使用浏览器访问给定的地址。
-
-状态 ID 中不允许使用以下字符：`: / ? # [ ] @ ! $ & ' ( ) * + , ; = %`
-
-### 使用 JavaScript 作为电子图表的源代码
-这种方法稍微复杂一些，但效率更高，也更灵活。您可以直接通过 JS 脚本提供图表数据，该脚本由 flexcharts 适配器动态调用。您可以通过向 http 地址添加参数（例如 `&chart=chart1`）来向脚本传递其他参数。所有 http 参数都可以在脚本对象 `httpParams` 中使用（参见下面的示例）。
-
-最好还是用例子来解释。创建一个包含以下内容的脚本（仅支持第一个 JS 实例 (**javascript.0**)，脚本名称无关紧要）：
-
-```
+```javascript
 onMessage('flexcharts', (httpParams, callback) => {
-    const myJsonParams  = (httpParams.myjsonparams ? JSON.parse(httpParams.myjsonparams) : {} );
+    const myJsonParams = (httpParams.myjsonparams ? JSON.parse(httpParams.myjsonparams) : {});
     console.log(`httpParams = ${JSON.stringify(httpParams)}`);
-    console.log(`myJsonParams = ${JSON.stringify(myJsonParams)}`);
     chart1(result => callback(result));
 });
 
@@ -119,164 +118,167 @@ function chart1(callback) {
         yAxis: [{type: "value"}],
         dataZoom: [{show: true, start: 0, end: 100}],
         series: [
-            { name: "Grid", type: "bar", color: "#a30000", stack: "Supply",
-              data: [8,19,21,50,26,0,36]},
-            { name: "PV", type: "bar", color: "#00a300", stack: "Supply",
-            data: [30,32,20,8,33,21,36]},
-            { name: "Household", type: "bar", color: "#0000a3", stack: "Consumption",
-            data: [16,12,11,13,14,9,12]},
-            { name: "Heat pump", type: "bar", color: "#0000ff", stack: "Consumption",
-            data: [22,24,30,20,22,12,25]},
-            { name: "Wallbox", type: "bar", color: "#00a3a3", stack: "Consumption",
-            data: [0,15,0,25,23,0,35]}
+            {name: "Grid",      type: "bar", color: "#a30000", stack: "Supply",      data: [8,19,21,50,26,0,36]},
+            {name: "PV",        type: "bar", color: "#00a300", stack: "Supply",      data: [30,32,20,8,33,21,36]},
+            {name: "Household", type: "bar", color: "#0000a3", stack: "Consumption", data: [16,12,11,13,14,9,12]},
+            {name: "Heat pump", type: "bar", color: "#0000ff", stack: "Consumption", data: [22,24,30,20,22,12,25]},
+            {name: "Wallbox",   type: "bar", color: "#00a3a3", stack: "Consumption", data: [0,15,0,25,23,0,35]}
         ]
     };
     callback(option);
 }
 ```
 
-启动脚本并在浏览器中访问此地址：`http://localhost:8082/flexcharts/echarts.html?source=script`
+启动脚本，然后打开：`http://localhost:8082/flexcharts/echarts.html?source=script`
 
-<!-- Would this be better to read: Start the script and access this in a browser: http://localhost:8082/flexcharts/echarts.html?<mark style="background-color: #ffff00">source=script</mark> -->
+默认消息名称为`flexcharts`。要使用不同的名称，请添加`&message=mycharts`，并相应地调整`onMessage('mycharts', ...)`。
 
-应该显示与之前示例相同的图表。
+`httpParams`中的额外URL参数会传递给脚本：
 
-你应该会看到示例脚本的两条日志条目：
+`http://localhost:8082/flexcharts/echarts.html?source=script&chart=chart1&myjsonparams={"period":"daily"}`
+
+## 高级功能
+### 图表定义中的 JavaScript 函数
+标准 `JSON.stringify()` 会从图表定义中移除函数。要包含函数（例如自定义格式化程序），请使用 npm 模块 `javascript-stringify`：
+
+1. 在 JavaScript 适配器配置的“附加 npm 模块”中添加 `javascript-stringify`：
+
+   ![添加 npm 模块](../../../en/adapterref/iobroker.flexcharts/add_npm_modules.png)
+
+2. 在你的脚本中：`var strify = require('javascript-stringify');`
+3. 将 `callback(option)` 替换为 `callback(strify.stringify(option))`
+
+— 或对于一个州：`setState('my_chart_id', strify.stringify(option), true)`
+
+有关使用工具提示格式化程序的示例，请参阅 [模板3](templates/flexchartsTemplate3.js)。
+
+> **安全提示：** `javascript-stringify` 允许向浏览器传递任意代码。使用此模块时，请勿将 ioBroker 暴露于互联网。
+
+### 事件驱动型动态图表
+ECharts 支持可根据用户操作进行更新的交互式图表。请参阅此 [ECharts 示例](https://echarts.apache.org/examples/en/editor.html?c=dataset-link) 和 [使用 flexcharts 的屏幕录像]](dynamic_charts_with_flexcharts.mkv)。
+
+使用**脚本作为源**，并将图表定义和事件处理程序作为数组传递。[模板 4](templates/flexchartsTemplate4.js) 对此进行了演示。关键规则：
+
+- 事件处理程序必须使用 `myChart.on("event", function(e){ ... })`
+- 处理程序必须是 JavaScript 字符串（请使用一致的引用，或使用 [JS 代码压缩器](https://www.toptal.com/developers/javascript-minifier) 进行压缩）。
+- 将所有内容作为数组传递：`callback([strify.stringify(option), onEvent1, onEvent2])`
+
+如果以状态作为数据源，则状态必须是字符串的 JSON 数组。图表定义和处理程序字符串都必须是有效的 JSON 字符串（不能有换行符，只能使用转义引号）。例如：`flexcharts.0.info.chart3`。
+
+> **从 v0.4.x 升级的用户请注意：** v0.5.0 版本中，图表选项变量已从 `jsopts` 重命名为 `option`。请相应地更新您的事件处理函数。
+
+> **安全提示：** 与上述相同 — 使用 `javascript-stringify` 时，请勿将 ioBroker 暴露于互联网。
+
+### 事件触发图表刷新 (SSE)
+在任何图表 URL 后添加 `&sse` 即可通过 [服务器发送事件](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) 启用图表自动更新。浏览器会与服务器保持持久连接，并在源数据更改时立即更新图表——无需重新加载页面，也无需轮询间隔。ECharts 动画在每次更新时都能流畅运行。
+
+**包含 `source=state`:**
+
+当 `&id=` 指定的状态发生变化时，图表会自动更新。
 
 ```
-httpParams = {"message":"mylinechart","source":"script"}
-myJsonParams = {}
+http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userdata.0.echarts.chart1&sse
 ```
 
-可以将其他参数传递给脚本，这些参数将在脚本中的变量 `httpParams` 中可用。请尝试以下命令：`http://localhost:8082/flexcharts/echarts.html?source=script&chart=chart1&myjsonparams={"period":"daily"}`
+**包含 `source=script`:**
 
-日志条目现在应该如下所示：
+脚本控制图表内容，因此 flexcharts 无法知道哪个状态会触发刷新。请使用 `&triggerid=<state_id>` 显式指定：
 
 ```
-httpParams = {"source":"script","chart":"chart1","myjsonparams":"{\"period\":\"daily\"}"}`
-myJsonParams = {"period":"daily"}
+http://localhost:8082/flexcharts/echarts.html?source=script&message=mycharts&triggerid=0_userdata.0.echarts.trigger&sse
 ```
 
-请注意，**您必须使用 `onMessage()` 功能才能从适配器接收触发消息**。消息的默认值为 `flexcharts`，如上例所示。您可以通过提供附加参数来使用不同的消息，例如，要使用消息 `mycharts`，请在 HTTP 地址中添加 `&message=mycharts`：`http://localhost:8082/flexcharts/echarts.html?source=script&message=mycharts`
+当 `0_userdata.0.echarts.trigger` 发生变化时，图表也会更新。您的 ioBroker 脚本可以更新该状态，从而将图表更新推送至浏览器。
 
-### 在图表定义中使用函数
-遗憾的是，图表定义中的函数定义通常不起作用，因为在使用 `JSON.stringify(option)` 或 `callback(option)` 时会进行过滤。
+**节气门和备用过滤器：**
 
-然而，自 flexcharts V0.3.0 版本起，就可以将其应用到工作中了。不过还需要多花一些功夫：
+默认情况下（`&sse` 无值），图表最多每 5 秒更新一次（最小值）。传递一个数字以设置更长的最小更新间隔：
 
-* 将 npm 模块 `javascript-stringify` 添加到 JavaScript 适配器的第 0 个实例。为此，请在适配器的配置中将 `javascript-stringify` 添加到“附加 npm 模块”中：
+```
+...&sse=30    → update at most once every 30 seconds
+```
 
-![添加 npm 模块](../../../en/adapterref/iobroker.flexcharts/add_npm_modules.png)
+如需进行更精细的控制，请使用 JSON 对象（URL 编码）：
 
-* 在脚本开头添加 `var strify = require('javascript-stringify');`
-* 当使用脚本作为数据源时：在 `onMessage()` 函数中，将 `callback(option);` 替换为 `callback(strify.stringify(option));`（假设 `option` 包含您的图表定义）。
-* 然后使用状态作为数据源：创建状态时，将 `setState('my_chart_id', JSON.stringify(option), true);` 替换为 `setState('my_chart_id', strify.stringify(option), true);`
-就这样。现在图表定义中的函数将正确地转发到 flexcharts。
+```
+...&sse={"refresh":10,"ack":true}   → update only on acknowledged state changes, at most every 10 s
+...&sse={"ack":false}               → update only on unacknowledged changes (set by script), default interval
+```
 
-试试用 [模板3](templates/flexchartsTemplate3.js)。函数用于显示带有两位小数的工具提示数据：`tooltip: {trigger: "axis", valueFormatter: (value) => '。 + value.toFixed(2)}`。
+节流间隔期间的状态变化不会丢失——更新会推迟到下一个允许的时刻。
 
-`flexcharts.0.info.chart2`中给出了一个通过状态定义图表的示例。这将显示与模板3相同的图表。
+> **注意：** `&sse` 和 `&refresh` 可以组合使用 — SSE 在状态更改时触发就地更新，`&refresh` 提供回退定期页面重新加载。
 
-注意：安装 npm 模块 `javascript-stringify` 后，其功能可能被恶意代码（跨站脚本攻击）利用。因此，使用此模块时，ioBroker 不应可从互联网访问。
+### 主题（ECharts v6）
+使用 Apache ECharts [主题生成器](https://echarts.apache.org/en/theme-builder.html) 创建或修改主题。
 
-### 使用事件驱动函数创建动态变化的图表
-Apache ECharts 支持动态图表。请看这个 [例子](https://echarts.apache.org/examples/en/editor.html?c=dataset-link)。当鼠标移动到折线图的某个数据点时，饼图也会相应更新。
+**使用脚本作为数据源：**
 
-以下是使用 flexcharts 操作此图表的屏幕录像：[动态变化的图表](dynamic_charts_with_flexcharts.mkv)
+1. 从主题生成器下载主题 → “JSON 版本”选项卡 → 复制
+2. 在你的脚本中：`const myThemeDefault = <粘贴到此处>`
+3. 将其作为回调数组的一部分传递：
 
-**重要提示**：如果您正在使用 flexcharts 的 **0.5.0** 版本，并且希望在事件驱动函数中动态更改图表选项，则必须通过名为 `jsopts` 的变量来指定选项。在 0.5.0 及更高版本中，该变量已更改为 `option`。请相应地修改函数中的变量命名，即将 `jsopts` 替换为 `option`。
+`callback([JSON.stringify(option), ['default', JSON.stringify(myThemeDefault)]])`
 
-要在自定义图表中使用事件驱动函数，我建议使用**脚本作为数据源**。[模板 4](templates/flexchartsTemplate4.js) 演示了实现方法。请注意以下事项：
+[模板 5](templates/flexchartsTemplate5.js) 显示完整的主题切换，包括深色模式。
 
-* 要使图表动态化，您需要定义处理图表内事件的功能。这可以通过定义类似 `myChart.on("event",function(e){ ... });` 的函数来实现。
-* 必须将每个函数命名为 `myChart.on()`
-* 要将函数定义传递给 flexcharts，必须将其转换为**JavaScript 字符串**。这可以通过在函数内部使用引号 (`"`) 并用单引号 (`'`) 将其括起来来实现——反之亦然。您可以使用代码压缩工具，例如[这个](https://www.toptal.com/developers/javascript-minifier)，来减少所需的空间。
-最后，您需要通过回调函数以**JavaScript 字符串数组**的形式提供所有部分，包括图表定义和事件函数定义。在模板 4 中，代码为 `callback([strify.stringify(option), onEvent]);`，其中 `option` 包含图表定义，`onEvent` 包含事件函数的 JavaScript 字符串定义。如果您定义了多个函数，可以将它们添加到字符串 `onEvent` 中，也可以将它们作为额外的数组元素添加，例如 `callback([strify.stringify(option), onEvent1, onEvent2, onEvent3]);`。函数定义的数量没有限制。
-* 要将图表定义（`option`）字符串化，您必须使用上一章中描述的`javascript-stringify`。
+**以州/省为数据源：**
 
-注意：安装 npm 模块 `javascript-stringify` 后，其功能可能被恶意代码（跨站脚本攻击）利用。因此，使用此模块时，ioBroker 不应可从互联网访问。
+状态值必须是一个数组：`[<stringified chart>, ['default', <stringified theme>]]`。
 
-也可以将此功能与**州/省/自治区**作为数据源一起使用。但是，这样做会更加复杂：
+有关工作示例，请参见 `flexcharts.0.info.chart4`。
 
-* 状态必须以**JSON字符串数组**的形式构成。该数组包含两个元素：图表定义和事件函数定义。
-但现在，这两个字符串都必须是有效的**JSON字符串**。这与JavaScript字符串不同，并带来了额外的限制：
-* 要将字符串括起来，必须使用引号。因此，字符串内部只允许使用撇号或转义引号（`\"`）。
-* 字符串内部不允许换行。
-* 最好使用 JSON 验证器来确保数组的有效性，例如[这个](https://jsonformatter.curiousconcept.com/#)。
-当然，您需要对图表数据进行操作。但数据本身就是图表定义的一部分。因此，您必须使用 JavaScript 来读取和写入 JSON 字符串数组。所以我建议您使用如上所述的脚本作为数据源。
-不过，flexcharts 的 info 部分提供了一个示例：`flexcharts.0.info.chart3`。要在浏览器中查看，请使用 `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart3`
+除了 `default` 和 `dark` 之外的主题需要通过事件驱动函数中的 `myChart.setTheme(<name>)` 进行显式激活。
 
-### 使用 Apache EChart 主题（v6 功能）
-ECharts 提供了多种图表自定义选项。其中一种强大的方法是使用主题。默认情况下，普通模式下使用“default”主题，深色模式下使用“dark”主题。这些主题是预定义的，但可以修改。
+快速尝试：
 
-Flexcharts 0.6.0 及更高版本支持主题定义。此外，结合事件驱动函数的定义（参见前一章），可以动态切换主题。
-
-创建或修改主题的最佳方法是使用 Apache ECharts [主题生成器](https://echarts.apache.org/en/theme-builder.html)。
-
-要使用**脚本作为源**将主题传递给 flexcharts，请按照以下步骤操作：
-
-* 在网站的“主题生成器”中选择或修改主题，然后点击“下载”按钮。
-* 选择“JSON 版本”选项卡，然后按“复制”按钮将内容复制到剪贴板。
-* 在脚本中添加类似 `const myThemeDefault = ` 的代码，然后将剪贴板内容粘贴到脚本中。
-* 使用数组将主题传递给 flexcharts，如事件驱动函数所示：`callback([JSON.stringify(option), ['default', JSON.stringify(myThemeDefault)]]);`
-请注意：您必须将主题作为字符串数组 `[<主题名称>, <主题的字符串化定义>]` 传递。
-
-[模板 5](templates/flexchartsTemplate5.js) 演示了如何为标准模式（主题“default”）和深色模式（主题“dark”）传递新主题。已启用基于系统设置的两种主题之间的动态切换。
-
-要使用**状态作为源**来传递主题：
-
-* 创建格式为“数组”的状态
-* 将图表定义添加为数组的第一个元素
-* 将主题准备为字符串化的 JSON 对象。您可以使用 JSON 格式化工具（例如 https://jsonformatter.curiousconcept.com/，模板为“compact”）将 JSON 对象压缩成字符串。
-* 将主题作为第二个元素以数组形式添加到状态中（见上文）：`[<主题名称>, <主题定义>]`
-* 最后，状态应该类似于 `[<图表的字符串化定义>,['default', <默认主题的字符串化定义>]]`。
-* 示例可在 `flexcharts.0.info.chart4` 中找到（仅限新安装的实例）。
-
-主题定义数量没有限制。但是，要激活名称不是“default”或“dark”的主题，您必须定义包含表达式`myChart.setTheme(<name of theme>);`的自定义功能，以及在特定条件下调用该功能的代码。
-
-不妨一试：
-
-* 基于[此示例](https://echarts.apache.org/examples/en/editor.html?c=area-stack)创建一个简单的图表
-* 要将数据传递给 Flexcharts，请使用 `callback(JSON.stringify(option));`
-* 现在对默认主题进行一些更改。将回调函数替换为以下版本：
-
-`callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":["#ff715e","#ffaf51","#ffee51","#8c6ac4","#715c87"],"backgroundColor":"rgba(64,64,64,0.5)"}']]);`
-
-* 您应该会看到左对齐的标题，以及数据和背景颜色的改变。
+```
+callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":["#ff715e","#ffaf51","#ffee51","#8c6ac4","#715c87"],"backgroundColor":"rgba(64,64,64,0.5)"}']]);
+```
 
 ## 模板
-某些使用场景可以使用 Javascript 模板：
+| 模板 | 描述 |
+|----------|-------------|
+| [模板1](templates/flexchartsTemplate1.js) | 图表数据来自历史适配器 |
+| [模板3](templates/flexchartsTemplate3.js) | 图表定义中包含函数的堆叠条形图 |
+| [模板4](templates/flexchartsTemplate4.js) | 事件驱动型动态图表 |
+| [模板5](templates/flexchartsTemplate5.js) | 具有动态深色模式切换的自定义主题 |
+| [模板6](templates/flexchartsTemplate6.js) | **适合初学者：** 能源概览 — 堆叠条形图，数据来自历史适配器 |
+| [模板7](templates/flexchartsTemplate7.js) | **适合初学者：** 仪表盘图表显示当前状态值（电池、光伏、热泵、传感器）— 响应式 SSE 更新 |
+| [template7](templates/flexchartsTemplate7.js) | **适合初学者：** 仪表盘图表显示当前状态值（电池、光伏、热泵、传感器）— 响应式 SSE 更新 |
 
-* 使用历史适配器中的数据创建图表：[template1](templates/flexchartsTemplate1.js)
-* 简单的热曲线图：[template2](templates/flexchartsTemplate2.js)
-* 使用图表定义中的函数创建简单的堆叠条形图：[template3](templates/flexchartsTemplate3.js)
-* **tibberLink 适配器** 的数据图表：请参阅[此处](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67)和[此处](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66)的讨论
-* 威能E3系列设备（例如Vitocal 250热泵）有一个非常具体的应用案例。请参阅https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
-* 实现动态变化的图表：[template4](templates/flexchartsTemplate4.js)
-* 实现标准模式和暗黑模式的自定义主题，并根据系统设置进行动态切换：[template5](templates/flexchartsTemplate5.js)
-* 适配器 [tibberLink](https://github.com/hombach/ioBroker.tibberlink) 使用 flexcharts 作为数据图形化处理的选项。目前可在 ioBroker 的 Beta 版本仓库中找到。请参阅[文档](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json)。
+更多示例和资源
+### 食谱（分步指南）
+刚接触 flexcharts 或 ECharts？**[弹性图表维基](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki)** 提供了一系列循序渐进的教程文章，指导您从静态图表过渡到完全实时、交互式的仪表板：
+
+| 文章 | 你将学到什么 |
+|---------|---------------|
+| [A1 — 堆积面积图](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki/Cookbook-A1-Stacked-Area-Chart) | 构建具有 SSE 自动更新功能的实时图表；通过脚本连接真实数据状态 |
+| [A3 — 交互式图表](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki/Cookbook-A3-Interactive-Charts) | 事件驱动图表：饼图响应鼠标悬停；共享数据集、事件处理程序字符串 |
+| [A3 — 交互式图表](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki/Cookbook-A3-Interactive-Charts) | 事件驱动图表：饼图响应鼠标悬停；共享数据集、事件处理程序字符串 |
+
+我们计划撰写更多烹饪书籍文章。
+
+### 第三方适配器示例
+- **tibberLink 适配器：** 请参阅[此处](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67)和[此处](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66)的讨论 — tibberLink 也原生支持 flexcharts，请参阅其[文档](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json)
+- **sun2000 适配器：**原生集成 flexcharts（https://github.com/bolliy/ioBroker.sun2000/wiki/Statistk-(statistics)）可用
+- **威能 E3 系列**（例如 Vitocal 250 热泵）：[ioBroker.e3oncan 讨论](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35)
 
 ＃＃ 参考
-使用 **ioBroker 状态** 作为数据源：`http://localhost:8082/flexcharts/echarts.html?source=state&id=my_state_id`
+基本 URL：`http://localhost:8082/flexcharts/echarts.html`
 
-使用**javascript**作为数据源：`http://localhost:8082/flexcharts/echarts.html?source=script`
-
-### 可选参数
-* `&message=my_message` - 将“my_message”发送到 JavaScript。使用 `onMessage('my_message', (httpParams, callback) => { callback(mychart); })` 提供图表数据。默认使用 `flexcharts`。
-* `&darkmode[=on|off|auto]` - 指定 ECharts 的暗黑模式可视化：'off' => 永久关闭暗黑模式；'on' 或无值 => 永久开启暗黑模式；'auto' => 监听系统的暗黑模式设置。
-* `&refresh=number` - 每隔“number”秒刷新一次图表。默认值为60秒。最小允许值为5秒。
-* `&themev5` - 将图表的默认主题设置为 Apache ECharts 主题“v5” - 请参阅 https://echarts.apache.org/handbook/en/basics/release-note/v6-upgrade-guide/ 中的“默认主题”章节
-* `&user_defined_arguments` - 根据需要添加更多参数。所有参数均可在 `httpParams` 对象中的 `onMessage()` 函数中使用。更多详情请参见上面的示例和模板。
-
-### 在图表定义中使用函数
-适用于 0.3.0 或更高版本。请参阅之前的 [章](#using-functions-within-definition-of-chart)
-
-### 内置演示图表
-内置演示图表可用：http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1
-
-如果 flexcharts 和 web-adapter 正在运行，则应该会显示一个演示图表。
-
-**注意：**请将`localhost`替换为您的ioBroker服务器地址。请将`8082`替换为您的Web-Adapter使用的端口号。
+| 参数 | 值 | 描述 |
+|-----------|--------|-------------|
+| `source=state` | | 从 ioBroker 状态读取图表定义。需要 `id`。 |
+| `id=<state_id>` | | 要读取的州 ID（`source=state` 为必填项）。 |
+| `message=<name>` | 默认值：`flexcharts` | 脚本中 `onMessage()` 的消息名称。 |
+| `darkmode` | `on` \| `off` \| `auto` | 深色模式：`on`/无值 = 始终深色，`off` = 始终浅色，`auto` = 遵循系统设置。 |
+| `refresh=<n>` | 秒，最小值 5，默认值 60 | 自动重新加载间隔。仅当存在此参数时才有效。 |
+| `sse` | 无值 \| `<n>` \| `<json>` | 通过服务器发送事件激活事件触发的图表更新。无值或 `&sse=5`：最多每 5 秒更新一次（最小值）。`&sse=<n>`：更新之间的最小秒数。`&sse={"refresh":<n>,"ack":true\|false}`：额外按确认状态筛选。 |
+| `triggerid=<state_id>` | | 当 `source=script` 与 `&sse` 一起使用时，要监视状态 ID 的变化。 |
+| `themev5` | | 请使用 Apache ECharts v5 的默认主题和深色主题，而不是 v6 的默认主题。 |
+| `<custom>=<value>` | | 任何其他参数都将传递给 `httpParams` 中的脚本。 |
+| `<custom>=<value>` | | 任何其他参数都会通过 `httpParams` 传递给脚本。 |
 
 捐赠
 <a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/bluePayPal.svg" height="40"></a>如果你喜欢这个项目——或者只是想慷慨解囊，不妨请我喝杯啤酒。干杯！🍻
@@ -286,6 +288,22 @@ Flexcharts 0.6.0 及更高版本支持主题定义。此外，结合事件驱动
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.2 (2026-05-07)
+* (MyHomeMyData) Added beginner-friendly templates 6 (energy stacked bar chart with history adapter) and 7 (reactive gauge chart with SSE auto-update)
+* (MyHomeMyData) Improved comments and STEP markers in templates 1–5
+* (MyHomeMyData) Added Wiki with Cookbook articles A1–A3 (step-by-step guides for building live charts)
+
+### 0.7.1 (2026-05-05)
+* (MyHomeMyData) Adapter requires node.js >= 22 now
+* (MyHomeMyData) SSE now updates chart in place via setOption instead of reloading the page — ECharts animations work correctly on data updates
+
+### 0.7.0 (2026-04-15)
+* (MyHomeMyData) Implemented SSE (Server-Sent Events) to support event driven updating of chart
+
+### 0.6.2 (2026-04-13)
+* (MyHomeMyData) Restructuring of code for better readability and improved performance.
+* (MyHomeMyData) Restructuring of Readme for better readability.
+
 ### 0.6.1 (2025-11-01)
 * (MyHomeMyData) Added support for dark mode theme of ECharts version 5.6.0 (when using paramter themev5). Based on Apache ECharts 6.
 
@@ -300,72 +318,14 @@ Flexcharts 0.6.0 及更高版本支持主题定义。此外，结合事件驱动
 * (MyHomeMyData) Changed internal naming of chart's options from 'jsopts' to 'option'. If you're using event driven functions within your charts, you may need to adapt the naming accordingly. Pls. refer to Readme.
 * (MyHomeMyData) Migration to ESLint 9. Fixes issues #107 (Migration to ESLint 9) and #114 (findings of repository checker)
 
-### 0.4.1 (2025-05-22)
-* (MyHomeMyData) Fix for issue #96 (findings of repository checker)
+### Older versions
 
-### 0.4.0 (2025-03-24)
-* (MyHomeMyData) Added functionality to support event driven functions within charts, ref. issue #85
-* (MyHomeMyData) Added timeout for script as source
-* (MyHomeMyData) Added test cases for integration testing
-
-### 0.3.2 (2025-02-09)
-* (MyHomeMyData) Added hint for use of flexcharts by adapter tibberLink
-
-### 0.3.1 (2025-02-02)
-* (MyHomeMyData) Updated Apache ECharts to version 5.6.0
-* (MyHomeMyData) Added support for 3D charts using extension echarts-gl, see issue #68
-* (MyHomeMyData) Added templates for tibberLink Adapter
-
-### 0.3.0 (2025-01-08)
-* (MyHomeMyData) Enhancement for usage of functions within echart definitions.
-* (MyHomeMyData) Fix for issue #56 (findings of repository checker)
-
-### 0.2.0 (2024-11-06)
-* (MyHomeMyData) Updated readme. Added sections Templates and Reference.
-* (MyHomeMyData) Fix for issue #41 (findings of repository checker)
-* (MyHomeMyData) Updated ECharts to version 5.5.1, see issue #40
-* (MyHomeMyData) Fix for issue #39 (html warnings)
-* (MyHomeMyData) Added option 'refresh' to enable auto update of chart
-
-### 0.1.6 (2024-10-19)
-* (MyHomeMyData) Fix for issue #37
-
-### 0.1.5 (2024-10-11)
-* (MyHomeMyData) Fixes for issue #36
-
-### 0.1.4 (2024-10-06)
-* (MyHomeMyData) Fixes for issue #34
-* (MyHomeMyData) Fixes for issue #33
-
-### 0.1.3 (2024-10-05)
-* (MyHomeMyData) Fixed issue on windows systems (handling of file path)
-
-### 0.1.2 (2024-10-01)
-* (MyHomeMyData) Adapted adapter configurations
-
-### 0.1.1 (2024-10-01)
-* (MyHomeMyData) Removed main.js from package.json since it's obsolete
-
-### 0.1.0 (2024-10-01)
-* (MyHomeMyData) Use web extension instead of creating own web server. Use http://localhost:8082/flexcharts/echarts.html instead of http://localhost:3100/echarts.html
-
-### 0.0.4 (2024-09-13)
-* (MyHomeMyData) Changed default port to 3100 to avoid conflict with camera adapter
-* (MyHomeMyData) Check for conflicting port usage during start of instance
-* (MyHomeMyData) Added option to select dark mode
-* (MyHomeMyData) Fixed missing 404-page
-
-### 0.0.3 (2024-08-25)
-* (MyHomeMyData) Disabled sinon should interface
-* (MyHomeMyData) Update of npm dependencies
-
-### 0.0.2 (2024-08-05)
-* (MyHomeMyData) initial release
+Older changelog entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 MIT License
 
-Copyright (c) 2025 MyHomeMyData <juergen.bonfert@gmail.com>
+Copyright (c) 2024-2026 MyHomeMyData <juergen.bonfert@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

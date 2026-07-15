@@ -240,12 +240,12 @@ The output can be configured in detail.
 
 ##### Widget Attributes
 
-| Attribute      | Description                                                                                                                                  |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Object ID`    | Datapoint of the countdown timer. any datapoint can be used                                                                                  |
-| `Format`       | Format of the output, Please see chapter [Datetime Format](#format-of-the-template-to-format-the-countdown-output-in-the-widget) for details |
-| `HTML-Prepend` | This text or html is prepended to the output of the widget                                                                                   |
-| `HTML-Append`  | This text or html is appended to the output of the widget                                                                                    |
+| Attribute      | Description                                                                                                                        |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `Object ID`    | Datapoint of the countdown timer. any datapoint can be used                                                                        |
+| `Format`       | Format of the output, Please see chapter [Datetime Format](#format-of-the-datetime-to-format-the-output-in-the-widget) for details |
+| `HTML-Prepend` | This text or html is prepended to the output of the widget                                                                         |
+| `HTML-Append`  | This text or html is appended to the output of the widget                                                                          |
 
 ##### Example widget code
 
@@ -291,7 +291,7 @@ A widget that shows the elapsed time from a given point in time
 | Datapoint      | Description                                                                                                                                                                                                                                                                              |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ISO datetime` | A DateTime-String of the start time. The expression must be interpretable by the javascript function new Date(expression). See also <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse> Example: 2022-01-10 23:12 or 2022-01-104T23:12:00.000Z |
-| `Format`       | Formats the timer output. default is mm:ss. Please see chapter [Datetime Format](#format-of-the-template-to-format-the-countdown-output-in-the-widget) for details                                                                                                                       |
+| `Format`       | Formats the timer output. default is mm:ss. Please see chapter [Datetime Format](#format-of-the-datetime-to-format-the-output-in-the-widget) for details                                                                                                                                 |
 | `HTML-Prepend` | This text or html is prepended to the output of the widget                                                                                                                                                                                                                               |
 | `HTML-Append`  | This text or html is appended to the output of the widget                                                                                                                                                                                                                                |
 
@@ -303,31 +303,31 @@ A countdown widget in a ring/circle design.
 
 ##### Widget Properties of Countdown Circle
 
-| Attribute                | Description                                                                                                                                                                                                           |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Object ID`              | The timer datapoint of a countdown datapoint.                                                                                                                                                                         |
-| `notimetext`             | Disables the time text over the polar clock                                                                                                                                                                           |
-| `Format`                 | Formats the timer output. default is mm:ss. for details see Chapter [Datetime Format](#format-of-the-template-to-format-the-countdown-output-in-the-widget). ReversevSetting for growing or shrinking the ring/circle |
-| `reverse`                | The width of the ring or circle.                                                                                                                                                                                      |
-| `partring`               | The largest selected ring is displayed proportionally and not in full.                                                                                                                                                |
-| `Width`                  | The width of the ring or circle.                                                                                                                                                                                      |
-| `Ring gap`               | Gap in pixel between the rings                                                                                                                                                                                        |
-| `Ring Caps`              | Setting for the ends of the ring/circle: round or straight                                                                                                                                                            |
-| `background`             | Backgroundcolor of the ring/circle                                                                                                                                                                                    |
-| `foreground`             | Foregroundcolor of the ring/circle                                                                                                                                                                                    |
-| `countdown_color_second` | Foregroundcolor of the second ring/circle                                                                                                                                                                             |
-| `countdown_color_hour`   | Foregroundcolor of the hour ring/circle                                                                                                                                                                               |
-| `countdown_color_day`    | Foregroundcolor of the day ring/circle                                                                                                                                                                                |
-| `countdown_color_week`   | Foregroundcolor of the week ring/circle                                                                                                                                                                               |
-| `countdown_color_month`  | Foregroundcolor of the month ring/circle                                                                                                                                                                              |
-| `countdown_color_year`   | Foregroundcolor of the second ring/circle                                                                                                                                                                             |
-| `showsec`                | Show the ring of seconds                                                                                                                                                                                              |
-| `showmin`                | Show the ring of minutes                                                                                                                                                                                              |
-| `showhrs`                | Show the ring of minutes                                                                                                                                                                                              |
-| `showday`                | Show the ring of days                                                                                                                                                                                                 |
-| `showmonth`              | Show the ring of months (not together with the weeks)                                                                                                                                                                 |
-| `showweek`               | Show the ring of weeks (not together with the months)                                                                                                                                                                 |
-| `showyear`               | Show the ring of years                                                                                                                                                                                                |
+| Attribute                | Description                                                                                                                                                                                                 |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Object ID`              | The timer datapoint of a countdown datapoint.                                                                                                                                                               |
+| `notimetext`             | Disables the time text over the polar clock                                                                                                                                                                 |
+| `Format`                 | Formats the timer output. default is mm:ss. for details see Chapter [Datetime Format](#format-of-the-datetime-to-format-the-output-in-the-widget). ReversevSetting for growing or shrinking the ring/circle |
+| `reverse`                | The width of the ring or circle.                                                                                                                                                                            |
+| `partring`               | The largest selected ring is displayed proportionally and not in full.                                                                                                                                      |
+| `Width`                  | The width of the ring or circle.                                                                                                                                                                            |
+| `Ring gap`               | Gap in pixel between the rings                                                                                                                                                                              |
+| `Ring Caps`              | Setting for the ends of the ring/circle: round or straight                                                                                                                                                  |
+| `background`             | Backgroundcolor of the ring/circle                                                                                                                                                                          |
+| `foreground`             | Foregroundcolor of the ring/circle                                                                                                                                                                          |
+| `countdown_color_second` | Foregroundcolor of the second ring/circle                                                                                                                                                                   |
+| `countdown_color_hour`   | Foregroundcolor of the hour ring/circle                                                                                                                                                                     |
+| `countdown_color_day`    | Foregroundcolor of the day ring/circle                                                                                                                                                                      |
+| `countdown_color_week`   | Foregroundcolor of the week ring/circle                                                                                                                                                                     |
+| `countdown_color_month`  | Foregroundcolor of the month ring/circle                                                                                                                                                                    |
+| `countdown_color_year`   | Foregroundcolor of the second ring/circle                                                                                                                                                                   |
+| `showsec`                | Show the ring of seconds                                                                                                                                                                                    |
+| `showmin`                | Show the ring of minutes                                                                                                                                                                                    |
+| `showhrs`                | Show the ring of minutes                                                                                                                                                                                    |
+| `showday`                | Show the ring of days                                                                                                                                                                                       |
+| `showmonth`              | Show the ring of months (not together with the weeks)                                                                                                                                                       |
+| `showweek`               | Show the ring of weeks (not together with the months)                                                                                                                                                       |
+| `showyear`               | Show the ring of years                                                                                                                                                                                      |
 
 When multiple parts are selected, there must be no gaps between them.
 
@@ -516,6 +516,11 @@ of the countdown is available as CSS-Class selector:**
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.3.4 (2026-03-30)
+
+- update packages
+- fix repochecker
+
 ### 2.3.2 (2026-01-04)
 
 - fix some translations

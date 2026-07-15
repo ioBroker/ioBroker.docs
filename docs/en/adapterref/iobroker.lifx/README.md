@@ -59,6 +59,20 @@ Lifx adapter for ioBroker
 
 ## Changelog:
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.0.0 [BREAKING]
+
+- update lifx-lan-client 2.1.2
+- state roles (colorLamp, infraredLamp, multizoneLampe) are no longer string, corrected to boolean (delete those states when adapter is stopped and restart adapter)
+- hue and saturation states in warm white lamp, since the states are transmitted and causing warnings
+
+### 1.0.10
+
+- update dependencies
+- update to comply with repo checker
+
 ### 1.0.9
 
 - update dependencies
@@ -150,9 +164,10 @@ Lifx adapter for ioBroker
 
 - initial setup with lifx
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
 Copyright (c) 2016-2026 foxthefox <foxthefox@wysiwis.net>
-Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

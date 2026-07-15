@@ -194,10 +194,11 @@ You have restarted the adapter too often and each time a new session is requeste
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.0 (2026-06-10)
 
-### **WORK IN PROGRESS**
-
+- fix errors
 - add test and coverage
+- improve and harden error handling
 
 ### 1.1.1 (2025-07-25)
 
@@ -258,6 +259,8 @@ You have restarted the adapter too often and each time a new session is requeste
 ### 0.2.0 (2025-06-24)
 
 - (oweitman) first npm release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

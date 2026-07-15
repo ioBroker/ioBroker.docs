@@ -335,6 +335,8 @@ The supported commands are:
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -657,6 +659,8 @@ The supported commands are:
 
 ### 0.0.1 (2017-01-16)
 * (bluefox) initial commit
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

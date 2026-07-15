@@ -71,6 +71,10 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 ---
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
@@ -129,6 +133,8 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 ### 1.0.1 19.01.2024
 * (Jey Cee) add device manager to configuration
 * (Jey Cee) add use of license
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 Attribution-NonCommercial 4.0 (CC BY-NC 4.0)

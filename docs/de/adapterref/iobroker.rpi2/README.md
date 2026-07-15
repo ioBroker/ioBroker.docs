@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rpi2/README.md
 title: ioBroker.rpi2
-hash: 40wy2PWHoaAr24/O2GwDtBu28xu56LuV7yls9JkhbhU=
+hash: iWZz/8v14KtH0J/yeCjkhMZcJ/V6o5/dXkYZsac+7Ow=
 ---
 # IoBroker.rpi2
 
@@ -30,6 +30,8 @@ RPI-Monitor-Implementierung zur Integration in ioBroker. Es handelt sich um die 
 **ioBroker benötigt spezielle Berechtigungen zur Steuerung von GPIOs.** Auf den meisten Linux-Distributionen kann dies erreicht werden, indem der Benutzer ioBroker der Gruppe `gpio` hinzugefügt wird.
 
 Damit GPIO funktioniert, müssen Sie `libgpiod` in Version `2.x` installieren, **bevor** Sie den Adapter installieren (siehe unten)!
+
+[!VORSICHT] Version 3.x.x dieses Adapters unterstützt und erfordert Debian Trixie. Führen Sie kein Update durch, wenn Sie ein älteres Betriebssystem verwenden.
 
 ## Installation
 Nach der Installation müssen Sie alle erforderlichen Module über die Administrationsseite konfigurieren.
@@ -164,6 +166,7 @@ Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Seite des 
 
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (mcm1957) Dependencies have been updated.
 
 ### 3.0.2 (2025-12-01)
 * (@klein0r) Check for required libgpiod-dev package version

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.stiebel-isg/README.md
 title: ioBroker.stiebel-isg
-hash: 1UXB2sp9rJx89CJzzkNIL3w3M4+M3w/s+SfqwzORVJE=
+hash: R2YOflZRZ7SUS6SXQJFi9zSA02CB2JE+OROWDLwPJFE=
 ---
 ![标识](../../../en/adapterref/iobroker.stiebel-isg/admin/stiebel-isg.png)
 
@@ -41,10 +41,6 @@ hash: 1UXB2sp9rJx89CJzzkNIL3w3M4+M3w/s+SfqwzORVJE=
 如果您是从旧版本更新此适配器，而不是全新安装，则可能会在 ioBroker 日志中发现警告，或者对象值和/或名称未正确更新。为避免这种情况，最简单的解决方法是在 ioBroker 的“实例”选项卡中停止适配器，在“对象”选项卡中彻底删除对象树，然后重新启动适配器。但是，此操作仅在更新后需要执行一次，如果您执行的是全新安装，则无需执行此操作。
 
 **注意：**删除对象树将清除所有用户定义的设置，例如指向其他适配器的链接（如历史记录或统计信息）。您需要手动重新创建这些设置，因此请务必记住设置的详细信息。
-
-＃＃ 安装
-1. 您需要一个配置完整且正在运行的 STIEBEL ELTRON 或 Tecalor Internet Service Gateway（ISG Web 或 ISG Plus），并且该网关与您的 ioBroker 服务器位于同一网络中。
-2. 在 ioBroker 服务器上安装适配器并创建一个实例
 
 ＃＃ 配置
 1. 通过输入 ISG 的 IP 地址或域名来配置实例，如果 ISG 中已配置，则还需要输入用户名和密码。

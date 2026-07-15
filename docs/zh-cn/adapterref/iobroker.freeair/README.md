@@ -3,42 +3,44 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.freeair/README.md
 title: ioBroker.freeair
-hash: 071HoZn58gexhUgL6j0Qf1IiGB9GHN+qih2FWHUiBS8=
+hash: njTVR5cc2TJdRqa1vV4a2OWtx3PeVh5s6mARD0hP5nQ=
 ---
 ![标识](../../../en/adapterref/iobroker.freeair/admin/freeair.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.freeair.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.freeair.svg)
 ![安装数量](https://iobroker.live/badges/freeair-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/freeair-stable.svg)
-![新公共管理](https://nodei.co/npm/iobroker.freeair.png?downloads=true)
+![稳定仓库中的当前版本](https://iobroker.live/badges/freeair-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.freeair.png?downloads=true)
 
 # IoBroker.freeair
-**测试：**![测试和发布](https://github.com/Scrounger/ioBroker.freeair/workflows/Test%20and%20Release/badge.svg)
+![Weblate](https://weblate.iobroker.net/widgets/adapters/-/freeair/svg-badge.svg)
+
+**测试：** ![测试与发布](https://github.com/Scrounger/ioBroker.freeair/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 freeair 适配器
-与您的[BluMartin FreeAir 100](https://blumartin.de/wohnraumlueftung-freeair-dezentral-mit-waermerueckgewinnung/)通风系统进行本地连接
+本地连接到您的 [BluMartin FreeAir 100](https://blumartin.de/wohnraumlueftung-freeair-dezentral-mit-waermerueckgewinnung/) 通风系统
 
 ＃＃ 设置
 ### FreeAir 100
-![图像信息](../../../en/adapterref/iobroker.freeair/doc/freeair_config.png)
+![图片信息](../../../en/adapterref/iobroker.freeair/doc/freeair_config.png)
 
-- 在“bluHome”下添加你的ioBroker的IP地址
+- 在 `bluHome` 下添加您的 ioBroker 的 IP 地址
 
 ＃＃＃ 适配器
-![图像信息](../../../en/adapterref/iobroker.freeair/doc/adapter_config.png)
+![图片信息](../../../en/adapterref/iobroker.freeair/doc/adapter_config.png)
 
 #### 服务器设置
 - 适配器地址：您的 ioBroker 的 IP 地址
-- 端口：默认端口为 80，因为 FreeAir 100 设备将其数据发送到端口 80<br> **_注意：_**您可以更改端口，例如在网关中配置 DNAT 规则
-- 活动检查间隔：如果在此间隔内未收到数据，设备将显示为离线
+- 端口：默认端口为 80，因为 FreeAir 100 设备将其数据发送到端口 80。<br> **注意：** 您可以通过在网关中配置 DNAT 规则来更改端口。
+- 设备存活检查间隔：如果在该间隔内未收到任何数据，设备将显示为离线状态
 
 #### 设备凭证
 - 添加您的 FreeAir 100 设备的序列号
 - 添加您在 FreeAir 100 设备中设置的密码
 
 #### 数据点黑名单/白名单
-- 黑名单或白名单数据点。
+- 将数据点列入黑名单或白名单。
 
 ## Changelog
 
@@ -46,6 +48,16 @@ hash: 071HoZn58gexhUgL6j0Qf1IiGB9GHN+qih2FWHUiBS8=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.8 (2026-03-17)
+
+- (Scrounger) dependencies updated
+
+### 1.0.7 (2026-03-09)
+
+- (Scrounger) dependencies updated
+- (Scrounger) downgrade @iobroker/adapter-core to v3.3.1 to prevent conflicts with js-controller < v7.1.0 in rare cases #56
+- (Scrounger) device error indicator bug fix
+
 ### 1.0.6 (2025-10-19)
 
 - (Scrounger) auto translation bug fix
@@ -93,7 +105,7 @@ hash: 071HoZn58gexhUgL6j0Qf1IiGB9GHN+qih2FWHUiBS8=
 
 MIT License
 
-Copyright (c) 2025 Scrounger <scrounger@gmx.net>
+Copyright (c) 2025-2026 Scrounger <scrounger@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

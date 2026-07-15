@@ -3,39 +3,40 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.seq/README.md
 title: ioBroker.seq
-hash: 4lYcnQYfG6avpQQzmubo56sJld4ntQ7Z6tPM3BcNKrQ=
+hash: 66jrUwtyG6WxMEGt6bHtlPIxcfM73LuOq5eoGooGyaQ=
 ---
 ![标识](../../../en/adapterref/iobroker.seq/admin/seq.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
 ![下载](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
 ![安装数量（最新）](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
-![安装数量（稳定）](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
-![新公共管理](https://nodei.co/npm/iobroker.seq.png?downloads=true)
+![安装数量（稳定版）](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
+![NPM](https://nodei.co/npm/iobroker.seq.png?downloads=true)
 
 # IoBroker.seq
-[![依赖项状态](https://status.david-dm.org/gh/arteck/iobroker.seq.svg)](https://david-dm.org/arteck/iobroker.seq) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## IoBroker 的 Seq 适配器
-此适配器允许您将 ioBroker 日志推送到[序列](https://datalust.co/seq) 系统。
-您还可以对日志级别和适配器应用过滤器。
+此适配器允许您将 ioBroker 日志推送到 [序列](https://datalust.co/seq) 系统中。
+
+还可以对日志级别和适配器应用过滤器。
 
 ＃＃ 配置
 1. 创建适配器的新实例
-2. 填写 [Seq](https://datalust.co/seq) 实例的 URL/IP 和端口
+2. 填写 [Seq](https://datalust.co/seq) 实例的 URL/IP 地址和端口。
 3. 指定要推送到 [Seq](https://datalust.co/seq) 的日志事件
-4.保存设置
+4. 保存设置
 
 ## Changelog
+### 1.0.2 (2026-04-06)
+* (arteck) back to seq-logging 2.2.0
 
-<!--
- https://github.com/AlCalzone/release-script#usage
-    npm run release minor -- --all 0.9.8 -> 0.10.0
-    npm run release patch -- --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
-	Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
--->
+### 1.0.1 (2026-04-06)
+* (arteck) Dependencies have been updated
+
+### 1.0.0 (2026-04-05)
+* (arteck) new admin
+
 ### 0.4.2 (2025-10-20)
 * (arteck) fixes
 
@@ -136,7 +137,7 @@ hash: 4lYcnQYfG6avpQQzmubo56sJld4ntQ7Z6tPM3BcNKrQ=
 
 MIT License
 
-Copyright (c) 2025 Arthur Rupp <arteck@outlook.com>,
+Copyright (c) 2026 Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -20,12 +20,23 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 [Login Infos](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
 
-[Token generieren](https://github.com/Newan/ioBroker.bluelink/tree/master/py) oder [workaround with Token](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo/2249?_=1761189451343)
+[Token generieren](https://github.com/Newan/ioBroker.bluelink/tree/master/py) or [workaround with Token](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo/2249?_=1761189451343)
 
 [Wiki](https://github.com/Newan/ioBroker.bluelink/wiki)
 
 ------------------------------------------------------------------------------------
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 3.1.28 (2026-04-08)
+* (arteck) Dependencies have been updated
+* (arteck) better LOG
+
+### 3.1.27 (2026-04-06)
+* (arteck) fix position_text 
+* (arteck) Dependencies have been updated
+
 ### 3.1.26 (2026-01-17)
 * (arteck) Dependencies have been updated
 
@@ -217,6 +228,8 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 ### 1.0.0
 * (Newan) First stable version
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Donation
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)

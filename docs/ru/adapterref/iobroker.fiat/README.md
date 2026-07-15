@@ -1,35 +1,65 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fiat/README.md
 title: ioBroker.fiat
-hash: t3EC4vKfUA3gL+sci5y5WUXeiwmhW34DMxIoTPKJDgk=
+hash: n21nQeX3lRWpDJAGybHkB3B7vtiKW6IVn8Ltgn8qqyo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fiat/admin/fiat.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.fiat.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.fiat.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.fiat.svg)
-![Количество установок (последних)](https://iobroker.live/badges/fiat-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/fiat-stable.svg)
+![Количество установок (последние)](https://iobroker.live/badges/fiat-installed.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/fiat-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.fiat.svg)
 ![НПМ](https://nodei.co/npm/iobroker.fiat.png?downloads=true)
 
 # IoBroker.fiat
 **Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.fiat/workflows/Test%20and%20Release/badge.svg)
 
-##адаптер для джипа fiat для ioBroker
+## Адаптер для Fiat Jeep для ioBroker
 Адаптер для Fiat и Jeep
 
-## Логинабауф:
+## Логинаблауф:
 Используйте Fiat или Jeep App Mail и Passwort.
 
-## Стойерн
-fiat.0.id.remote на истинном экране управления ювелирными изделиями Befehl
+## Steuern
+fiat.0.id.remote на истинном уровне управления ювелирными изделиями Befehl
 
-## Обсуждение и Fragen:
+### Ladeplan (remote.CPPLUS)
+Состояние `<VIN>.remote.CPPLUS` используется в массиве объектов расписания (этот отдельный объект может быть активирован и автоматически установлен в пакете массива). Адаптер для Wrapper-Body с официальным приложением My-Uconnect:
+
+```json
+{
+  "command": "CPPLUS",
+  "pinAuth": "…",
+  "schedules": [
+    {
+      "cabinPriority": false,
+      "chargeToFull": false,
+      "enableScheduleType": true,
+      "endTime": "13:05",
+      "repeatSchedule": true,
+      "scheduleType": "CHARGE",
+      "scheduledDays": {
+        "friday": true, "monday": true, "saturday": true, "sunday": true,
+        "thursday": true, "tuesday": true, "wednesday": true
+      },
+      "startTime": "13:00"
+    }
+  ]
+}
+```
+
+Получите `/v2/accounts/{UID}/vehicles/{VIN}/ev/schedule/` — формат тела является общедоступным из `ScheduleV2Model$Post$Request` официального приложения (APK 1.99.701).
+
+## Обсуждение и вопросы:
 https://forum.iobroker.net/topic/46378/test-adapter-fiat-v0-0-x
 
 ## Changelog
+### 0.0.11 (2026-06-28)
+- Updated Dependencies and latest API changes
+
 ### 0.0.10 (2024-06-10)
 
 - added schedule edit via remote.CPPLUS

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：新手指南
-hash: 7ziegV+BjbzDnaPC4m+5m5RvIOfUu8K2pyUytmxbePE=
+hash: VCMZaxdbPUcO10dU2pTGiNkplzi+Uv6n/R6PFmvucPA=
 ---
 # IoBroker JSON 配置：新手指南
 本指南解释了如何使用 JSON 为 ioBroker 适配器定义配置选项。这种方法提供了一种更友好、更灵活的方式，可以在 ioBroker 管理界面中管理适配器设置。
@@ -126,7 +126,7 @@ jsonConfig 由多个按层级结构组织的元素组成。每个元素可以是
 
 如果您测试此适配器，可以看到几乎所有组件都在运行：[jsonconfig-demo](https://github.com/mcm4iob/ioBroker.jsonconfig-demo).\ 您可以通过在 npm 选项卡上输入 `iobroker.jsonconfig-demo`，在管理界面中的 GitHub 图标上安装它。
 
-- [**`accordion`:**](#accordion) 用于折叠内容的折叠面板元素（Admin 6.6.0 或更高版本）
+- [**`accordion`:**](#accordion) 用于可折叠内容的折叠面板元素（Admin 6.6.0 或更高版本）
 - [**`alive`:**](#alive) 显示实例是否正在运行（只读）
 - [**`autocomplete`:**](#autocomplete) 带有自动完成建议的输入字段
 - [**`autocompleteSendTo`:**](#autocompletesendto) 用于发送数据的带有实例值的自动完成控件
@@ -134,11 +134,12 @@ jsonConfig 由多个按层级结构组织的元素组成。每个元素可以是
 - [**`certificateCollection`:**](#certificatecollection) 选择一个 Let's Encrypt 证书集合
 - [**`certificates`:**](#certificates) 用于管理不同证书类型的通用类型（自 Admin 6.4.0 起）
 - [**`checkbox`:**](#checkbox) 布尔值复选框
-- [**`checkDocker`:**](#checkdocker) 用于检查 Docker 是否可用的特殊组件，如果可用，您可以激活一个复选框（从 Admin 7.8.0 开始）
+- [**`checkDocker`:**](#checkdocker) 用于检查 Docker 是否可用，如果可用，则可以激活复选框（从 Admin 7.8.0 开始）
 - [**`checkLicense`:**](#checklicense) 用于在线检查许可证的特殊组件
 - [**`chips`:**](#chips) 用户可以输入单词，这些单词将被添加到数组中。
 - [**`color`:**](#color) 颜色选择器
 - [**`coordinates`:**](#coordinates) 确定当前位置，如果无法以 `latitude,longitude` 的形式获取坐标，则使用 `system.config` 中的坐标。
+- [**`credential`:**](#credential) 从中央凭据存储（在管理员设置中管理）中选择凭据
 - [**`cron`:**](#cron) 配置用于调度任务的 cron 表达式
 - [**`custom`:**](#custom) 集成自定义组件以实现特定功能（仅限管理员 6）
 - [**`datePicker`:**](#datepicker) 允许用户选择日期
@@ -178,7 +179,7 @@ jsonConfig 由多个按层级结构组织的元素组成。每个元素可以是
 - [**`staticInfo`:**](#staticinfo) 以预格式化形式显示静态信息，例如“标题:值 单位”（admin >= 7.3.3）
 - [**`staticLink`:**](#staticlink) 创建静态链接
 - [**`staticText`:**](#statictext) 显示静态文本（例如，描述）
-- [**`table`:**](#table) 可添加、删除或重新排序的表格
+- [**`table`:**](#table) 可添加、删除或重新排序的行的表格
 - [**`tabs`:**](#tabs) 包含项目的标签页
 - [**`text`:**](#text) 单行或多行文本输入字段
 - [**`textSendTo`:**](#textsendto) 显示实例值中给定的只读控件。
@@ -299,7 +300,7 @@ admin/customI18n/en.json
 ### 直接在 i18n 中提供翻译
 翻译也可以直接作为对象在 `jsonConfig` 对象的顶层 `i18n` 属性中提供。
 
-搜索翻译时，系统会使用特定字段中的信息在 i18n 对象中查找包含指定文本的属性。
+搜索翻译时，系统会使用特定字段中的信息在 i18n 对象中查找包含该文本的属性。
 
 如果找不到该属性，则保留字段中的信息。
 
@@ -419,10 +420,23 @@ admin/customI18n/en.json
 
 ### `select`
 | 房产 | 描述 |
-|-----------------|---------------------------------------------------------------------------|
+|-----------------|----------------------------------------------------------------------------------------------------------------|
 | `options` | 带有标签、可选翻译、可选分组和值的对象 |
 | `showAllValues` | 即使未找到标签也显示项目（通过多个），默认值=`true` |
-| `showAllValues` | 即使没有找到标签也显示该项（通过多个选项），默认值为`true` |
+| `format` | 渲染格式：`"dropdown"`（默认）或 `"radio"`，以将选项显示为单选按钮而不是下拉列表 |
+| `horizontal` | 如果 `true`，则单选按钮水平显示（仅当 `format` 为 `"radio"` 时适用）（自 v8.3.3 起） |
+| `horizontal` | 如果为 `true`，则单选按钮水平显示（仅当 `format` 为 `"radio"` 时适用）（自 v8.3.3 起） |
+
+`options` 中的每个选项都可以有：
+
+| 房产 | 描述 |
+|---------------|-----------------------------------------------------------------------|
+| `label` | 选项标签（可以是字符串或可翻译对象） |
+| `color` | 选项文本颜色 |
+| `hidden` | 用于显示或隐藏选项的公式或布尔值 |
+| `description` | 选项标签下方显示的描述（可翻译） |
+| `icon` | 要显示在选项旁边的图标 URL 或 base64 字符串（自 v8.3.3 起） |
+| `icon` | 要显示在选项旁边的图标 URL 或 base64 字符串（自 v8.3.3 起） |
 
 #### `select options`示例
 ```json5
@@ -507,7 +521,9 @@ admin/customI18n/en.json
 | `identifier` | OAuth2 标识符，例如 `spotify`、`google`、`dropbox`、`microsoft` |
 | `scope` | 可选作用域，以空格分隔，例如 `user-read-private user-read-email` |
 | `refreshLabel` | 刷新令牌的可选按钮标签 |
-| `refreshLabel` | 用于刷新令牌的可选按钮标签 |
+| `ownClientId` | 可选属性名称，用于存储用户的 OAuth 客户端 ID。如果设置，则会显示客户端 ID 输入字段。 |
+| `ownClientSecret` | 可选属性名称，用于存储用户的 OAuth 客户端密钥。如果设置，则会显示客户端密钥输入字段。 |
+| `ownClientSecret` | 可选属性名称，用于存储用户的 OAuth 客户端密钥。如果设置，则会显示客户端密钥输入字段。 |
 
 #### `oauth2`示例
 ```json
@@ -526,11 +542,12 @@ admin/customI18n/en.json
 对象 ID：显示其名称、颜色和图标
 
 | 房产 | 描述 |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `types` | 期望类型：`channel`, `device`, ...（默认只有 `state`）。这里使用复数形式，因为 `type` 已被占用。 |
-| `customFilter` | [可选] 不能与 `type` 设置一起使用。它是一个对象，而不是 JSON 字符串。 |
-| `filterFunc` | [可选] 不能与 `type` 设置一起使用。这是一个将对每个对象调用的函数，必须返回 true 或 false。示例：`obj.common.type === 'number'` |
-| `filterFunc` | [可选] 不能与 `type` 设置一起使用。这是一个将对每个对象调用的函数，必须返回 true 或 false。示例：`obj.common.type === 'number'` |
+| `customFilter` | [可选] 不能与 `types` 设置一起使用。它是一个对象，而不是 JSON 字符串。 |
+| `filterFunc` | [可选] 不能与 `types` 设置一起使用。这是一个将对每个对象调用的函数，必须返回 true 或 false。示例：`obj.common.type === 'number'` |
+| `fillOnSelect` | [可选] 选择对象 ID 时填充其他配置字段。格式：`pathInObject1=>attr1,pathInObject2=>attr2(X)`。附加 `(X)` 可覆盖非空字段。例如：`common.name=>name,common.color=>color(X)` 会将对象名称填充到 `name` 字段，并将对象颜色覆盖到 `color` 字段。 |
+| `fillOnSelect` | [可选] 当选中对象 ID 时填充其他配置字段。格式：`pathInObject1=>attr1,pathInObject2=>attr2(X)`。附加 `(X)` 以覆盖非空字段。例如：`common.name=>name,common.color=>color(X)` 会将对象名称填充到 `name` 字段，并将对象颜色覆盖到 `color` 字段。 |
 
 #### `customFilter`的示例
 ##### 仅显示具有某些自定义设置的对象
@@ -633,7 +650,8 @@ admin/customI18n/en.json
 | `timeout` | 请求超时时间（毫秒）。默认值：无。 |
 | `onLoaded` | 初始执行一次按钮逻辑 |
 | `controlStyle` | 按钮样式。 |
-| `controlStyle` | 按钮的样式。 |
+| `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 ### `setState`
 设置实例状态的按钮
@@ -647,32 +665,46 @@ admin/customI18n/en.json
 | `变体` | `包含`、`轮廓`、'' |
 
 ### `staticText`
-静态文本，例如描述
+静态文本描述
 
 | 房产 | 描述 |
-|----------|---------------------|
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `label` | 多语言文本 |
-| `文本` | 与标签相同 |
+| `format` | `text`（默认），`html`，`json`（自管理员版本 7.8.4 起） |
+| `href` | 链接。链接可以是动态的，例如 `#tab-objects/customs/${data.parentId}` |
+| `target` | `_blank` 或 `_self` 或窗口名称。对于相对链接，默认值为 `_self`，对于绝对链接，默认值为 `_blank` |
+| `close` | 如果为真，则关闭 GUI（不用于管理中的 JsonConfig，而是用于动态 GUI，仅当目标是 `_self` 时才使用） |
+| `button` | 将链接显示为按钮 |
+| `variant` | 按钮类型（`outlined`, `contained`, `text`） |
+| `color` | 按钮颜色（例如 `primary`） |
+| `icon` | 如果需要显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`、`book`、`help`、`upload`。您可以使用 `base64` 图标（以 `data:image/svg+xml;base64,...` 开头）或 `jpg/png` 图片（以 `.png` 结尾）。（如果您需要更多图标，请通过 issue 提出请求） |
+| `controlStyle` | 按钮或控件本身的 React 格式 CSS 样式 |
+| `controlStyle` | 按钮或控件本身的 React 格式 CSS 样式 |
 
 必须指定 `label` 或 `text` 中的一个，不能同时指定两者。
 
 ### `staticLink`
 | 房产 | 描述 |
-|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `label` | 多语言文本 |
-| `target` | `_blank` 或 `_self` 或窗口名称 |
-| `close` | 如果为真，则关闭图形用户界面（不用于管理界面中的 JsonConfig，而是用于动态图形用户界面） |
+| `target` | `_blank` 或 `_self` 或窗口名称。对于相对链接，默认值为 `_self`，对于绝对链接，默认值为 `_blank` |
+| `close` | 如果为真，则关闭 GUI（不用于管理中的 JsonConfig，而是用于动态 GUI，仅当目标是 `_self` 时才使用） |
 | `button` | 将链接显示为按钮 |
 | `variant` | 按钮类型（`outlined`, `contained`, `text`） |
 | `color` | 按钮颜色（例如 `primary`） |
 | `icon` | 如果需要显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`、`book`、`help`、`upload`。您可以使用 `base64` 图标（以 `data:image/svg+xml;base64,...` 开头）或 `jpg/png` 图片（以 `.png` 结尾）。（如果您需要更多图标，请通过 issue 提出请求） |
-| `icon` | 如果需要显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`、`book`、`help`、`upload`。您可以使用 `base64` 图标（以 `data:image/svg+xml;base64,...` 开头）或 `jpg/png` 图片（以 `.png` 结尾）。（如果您需要更多图标，请通过 issue 提出请求） |
+| `controlStyle` | 按钮或控件本身的 React 格式 CSS 样式 |
+| `format` | `text`（默认），`html`，`json` |
+| `格式` | `文本`（默认），`html`，`json` |
 
 ### `staticImage`
 | 房产 | 描述 |
-|----------|----------------------------------------|
+|----------------------------|----------------------------------------------------------------------------------------------|
 | `href` | 可选的 HTTP 链接 |
-| `src` | 图片名称（来自管理员目录） |
+| `showInDialog` | 如果为真，则会显示一个小缩略图，点击它会打开一个对话框，显示完整尺寸的图像 |
+| `showInDialogButtonLabel` | 如果 `showInDialog`，则为同时打开对话框的按钮提供可选标签 |
+| `showInDialogSmallSize` | 如果 `showInDialog`，则小缩略图的高度（以像素为单位）（默认为 100） |
+| `showInDialogSmallSize` | 如果为 `showInDialog`，则小缩略图的高度（以像素为单位）（默认为 100） |
 
 ### `table`
 包含可删除、添加、上移、下移项目的表格
@@ -761,6 +793,42 @@ admin/customI18n/en.json
 |--------------------|------------------------------------|
 | `leCollectionName` | 证书集合名称 |
 
+### `credential`
+从中央凭据存储中选择一个凭据。凭据可以在管理设置（设置 → 凭据）中进行管理，适配器配置仅在给定属性中存储所选凭据的 ID（例如 `system.credentials.anthropic`）。
+
+除非设置了 `disableCreation`，否则选择器旁边会显示一个 **➕ 按钮**，点击即可打开一个类似于管理员对话框的小型“添加凭据”对话框。该对话框提供按 `credentialType` 筛选的模板（带有图标）（例如，`ai` 的模板包括 Anthropic / ChatGPT / Google Gemini，以及通用的“登录名和密码”和“密钥”模板）。
+
+所选模板定义了表单、建议的名称和图标；保存时，密钥字段会使用系统密钥进行加密。新创建的凭据存储为 `system.credentials.<name>`，并立即生效。
+
+| 房产 | 描述 |
+|-------------------|----------------------------------------------------------------------------------------------------------------------|
+| `credentialType` | 仅显示以下类型的凭据：`email`、`cloud`、`ai` 或 `custom`。如果未定义，则列出所有凭据。|
+| `disableCreation` | 如果为 `true`，则隐藏 ➕ 按钮，以便用户只能选择现有凭据（此处不允许创建新凭据） |
+
+例子：
+
+```json
+{
+  "credentialId": {
+    "type": "credential",
+    "credentialType": "email",
+    "label": "E-Mail account",
+    "disableCreation": false,
+    "sm": 6
+  }
+}
+```
+
+每个凭证都有两种形式之一：`login`（包含 `login` 和 `password` 字段）或 `key`（包含单个 `key` 字段，例如 API 密钥）。在适配器中，使用 `@iobroker/adapter-core` 读取并解密凭证：
+
+```typescript
+import { Credentials } from '@iobroker/adapter-core';
+
+const cred = await Credentials.getCredentials<Credentials.LoginPasswordCredentials>(this, this.config.credentialId);
+// cred.values.login, cred.values.password (already decrypted)
+// or for the key form: Credentials.KeyCredentials -> cred.values.key
+```
+
 ### `custom`
 仅限管理员6
 
@@ -824,7 +892,7 @@ admin/customI18n/en.json
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pattern` | 文件扩展名模式。允许使用 `**/*.ext` 显示所有子文件夹中的文件，`*.ext` 显示根文件夹中的文件，或 `folderName/*.ext` 显示子文件夹 `folderName` 中的所有文件。默认值为 `**/*.*`。 |
 | `objectID` | 类型为 `meta` 的对象 ID。您可以使用特殊占位符 `%INSTANCE%`，例如 `myAdapter.%INSTANCE%.files` |
-| `upload` | 上传文件的存储路径。类似于 `folderName`。如果未定义，则不会显示上传字段。要上传到根目录，请将此字段设置为 `/`。 |
+| `upload` | 上传文件的存储路径。与 `folderName` 类似。如果未定义，则不会显示上传字段。要上传到根目录，请将此字段设置为 `/`。 |
 | `refresh` | 在选择框附近显示刷新按钮。 |
 | `maxSize` | 最大文件大小（默认 2MB） |
 | `withFolder` | 即使所有文件都在同一文件夹中，也显示文件夹名称 |
@@ -855,13 +923,14 @@ admin/customI18n/en.json
 显示从后端接收的图像，格式为 base64 字符串。
 
 | 房产 | 描述 |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `width` | 二维码宽度（像素） |
 | `command` | sendTo 命令 |
 | `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
 | `sendFirstByClick` | 点击时首先显示图片。`true` - 标准文本（点击显示）或指定文本 |
-| `sendFirstByClick` | 点击时首先显示图片。`true` - 标准文本（点击显示）或指定文本 |
+| `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 #### `imageSendTo`后端代码示例
 ```js
@@ -883,7 +952,7 @@ adapter.on("message", (obj) => {
 后端必须返回纯文本字符串（待编码的数据）。
 
 | 房产 | 描述 |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo 命令（默认值：`"send"`） |
 | `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
@@ -892,7 +961,8 @@ adapter.on("message", (obj) => {
 | `fgColor` | 前景色（默认值：`"#000000"`） |
 | `bgColor` | 背景颜色（默认值：`"#ffffff"`） |
 | `level` | 纠错级别：`L`、`M`、`Q` 或 `H`（默认值：`L`） |
-| `level` | 纠错级别：`L`、`M`、`Q` 或 `H`（默认值：`L`） |
+| `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 #### `qrCodeSendTo`后端代码示例
 ```js
@@ -932,10 +1002,11 @@ adapter.on("message", (obj) => {
 显示一个包含从后端接收的 URL 的 iframe。（来自 Admin 7.7.28）
 
 | 房产 | 描述 |
-|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo 命令 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
-| `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
+| `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 后端必须返回一个URL字符串。
 
@@ -963,7 +1034,7 @@ adapter.on("message", (obj) => {
 显示包含实例值中给定选项的下拉菜单。
 
 | 房产 | 描述 |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo 命令 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
 | `manual` | 允许手动编辑。无下拉菜单（如果实例离线）。默认值为 `true`。 |
@@ -971,7 +1042,10 @@ adapter.on("message", (obj) => {
 | `showAllValues` | 即使未找到标签也显示项目（通过多个），默认值=`true` |
 | `noTranslation` | 不翻译下拉列表的标签。要使用此选项，您的适配器必须实现消息处理程序。命令的结果必须是 `[{"value": 1, "label": "one"}, ...]` | 形式的数组。 |
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
-| `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
+| `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+
+后端处理程序可以返回带有可选字段 `description` 或 `[{"value": 1, "label": "one", "description": "Some hint"}, ...]` 的项目。描述显示在下拉列表标签下方。
 
 #### `selectSendTo`后端代码示例
 ```js
@@ -1030,13 +1104,14 @@ adapter.on("message", (obj) => {
 显示自动完成控件，并根据实例值提供相应的选项。
 
 | 房产 | 描述 |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo 命令 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
 | `freeSolo` | 将 `freeSolo` 设置为 `true`，以便文本框可以包含任意值。 |
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
 | `maxLength` | 字段中文本的最大长度 |
-| `maxLength` | 字段中文本的最大长度 |
+| `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 要使用此选项，您的适配器必须实现消息处理程序：
 
@@ -1046,13 +1121,14 @@ adapter.on("message", (obj) => {
 显示只读控件，其值取自实例。
 
 | 房产 | 描述 |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `container` | `div`, `text`, `html` |
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
 | `command` | sendTo 命令 |
 | `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
-| `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
+| `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 要使用此选项，您的适配器必须实现消息处理程序：命令的结果必须是字符串或包含以下参数的对象：
 
@@ -1210,7 +1286,7 @@ adapter.on("message", (obj) => {
 | `narrow` | （可选）通常，标题和值分别显示在行的左侧和右侧。使用此标志，值将紧跟在标签之后 |
 | `addColon` | （可选）如果标签末尾没有冒号，则添加冒号 |
 | `blinkOnUpdate` | （可选）值更新时应闪烁（真或颜色） |
-| `blink` | （可选）值应持续闪烁（真或颜色） |
+| `blink` | （可选）值应持续闪烁（真或彩色） |
 | `styleLabel` | （可选）React CSS 样式 |
 | `styleValue` | （可选）React CSS 样式 |
 | `styleUnit` | （可选）React CSS 样式 |
@@ -1235,6 +1311,10 @@ adapter.on("message", (obj) => {
 
 ### `deviceManager`
 显示设备管理器。为此，适配器必须支持设备管理器协议。请参阅 iobroker/dm-utils。
+
+| 房产 | 描述 |
+|--------------|----------------------------------------------------------------|
+| `smallCards` | （可选）在设备管理器中显示小型设备卡 |
 
 以下是如何在标签页中显示设备管理器的示例：
 
@@ -1271,11 +1351,11 @@ adapter.on("message", (obj) => {
 
 ## 控件的共同属性
 ### 布局选项 `xl`,`lg`,`md`,`sm`,`xs`
-这些选项用于定义元素在不同屏幕尺寸上的宽度，确保在各种设备上实现响应式和适应性布局。
+这些选项用于定义元素在不同屏幕尺寸上的宽度，从而确保在各种设备上实现响应式和适应性布局。
 
 有效数字为1至12。
 
-如果您指定一个数字，例如 6，则元素的宽度将是屏幕宽度的 6/12（50%）；例如，如果您指定数字 3，则元素的宽度将是屏幕宽度的 3/12（25%）。
+如果您指定一个数字，例如 6，则元素的宽度将是屏幕宽度的 6/12（50%）；例如，如果您指定 3，则元素的宽度将是屏幕宽度的 3/12（25%）。
 
 为不同的布局选项分配数字，即可指定元素在不同屏幕尺寸下的宽度。
 
@@ -1452,6 +1532,8 @@ const func = new Function(
   'arrayIndex',    // filled only by table and represents the row index
   'globalData',    // filled only by table and represents the obj.native or obj.common.custom['adapter.X'] object
   '_changed',      // indicator if some data was changed and must be saved
+  '_href',         // Current browser href
+  'getObject',     // You can call `await getObject(data.id)`in hidden, disabled, pattern functions
   myValidator.includes('return') ? myValidator : 'return ' + myValidator); // e.g. "_alive === true"
 
 const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, this.props.socket);
@@ -1508,6 +1590,31 @@ const isValid = func(
 - `_socket` - 套接字
 - `arrayIndex` - 仅用于表格，表示数组中的当前行
 - `globalData` - 仅用于表格中的所有设置，而不仅仅是表格中的一行。
+
+```json5
+{
+   "general": {
+      // ....
+      "customSettingsValidator": "customObj.common.type === 'boolean' && data.options.myType == 2",
+      // ....
+   }
+}
+```
+
+您可以通过在自定义设置的根元素（`panel` 或 `tabs`）上定义 `statesFilter`，将自定义设置的应用范围限制在特定状态：
+
+`jsonCustom.json`:
+
+```json5
+{
+   "i18n": true,
+   "type": "panel",
+   "statesFilter": true, // or "^hm-rpc\\.\\d\\..*\\.STATE$" - apply on "hm-rpc.X.*.STATE" states only
+   "items": {
+        // ...
+   }
+}
+```
 
 ## 自定义组件
 ```jsx
@@ -1620,12 +1727,96 @@ onMessage = (obj: ioBroker.Message): void => {
 ### **正在进行中** -->
 
 ## Changelog
+### 8.4.15 (2026-07-04)
+- (@GermanBluefox) Extended Credentials Component with AWS and Azure
+
+### 8.4.13 (2026-06-29)
+- (@GermanBluefox) Corrected the file selector component
+- (@GermanBluefox) Implemented no translation for the select component
+- (@GermanBluefox) Implemented debug mode for components to analyze JS functions
+- (@ThomasPohl) Corrected rendering of the link in the static text component
+
+### 8.4.11 (2026-06-21)
+- (@GermanBluefox) Added missing translations
+
+### 8.4.10 (2026-06-20)
+- (@GermanBluefox) Fixed state component
+
+### 8.4.9 (2026-06-19)
+- (@GermanBluefox) Moved translations from adapter-react to this repository
+
+### 8.4.8 (2026-06-18)
+- (@GermanBluefox) Allowed creating credentials directly in the `credential` component (templates with icons, filtered by `credentialType`; can be disabled with `disableCreation`)
+
+### 8.4.7 (2026-06-07)
+- (@GermanBluefox) Added a credential component
+
+### 8.4.5 (2026-05-30)
+- (@GermanBluefox) Fixing help rendering
+
+### 8.4.4 (2026-05-29)
+- (@GermanBluefox) Corrected groups in the select component
+
+### 8.4.3 (2026-05-24)
+- (@GermanBluefox) Optimization of interfaces
+
+### 8.4.1 (2026-05-19)
+- (@GermanBluefox) Allowed to use `await getObject(data.oid)?.common?.type === 'boolean'` in hidden, pattern or disabled
+
+### 8.3.13 (2026-05-16)
+- (@GermanBluefox) Added `_href` to `jsonData`
+
+### 8.3.11 (2026-04-29)
+- (@GermanBluefox) Added `instance` option for all `sendTo` components to override the target adapter instance
+
+### 8.3.9 (2026-04-17)
+- (@GermanBluefox) Updated packages
+
+### 8.3.8 (2026-04-13)
+- (@GermanBluefox) Adjust a path to images
+
+### 8.3.5 (2026-04-11)
+- (@GermanBluefox) Extend schema for staticLink and staticImage components
+
+### 8.3.4 (2026-04-09)
+- (@GermanBluefox) Added `horizontal` option for `select` component with `format: "radio"` to display radio buttons in a row
+- (@GermanBluefox) Added `icon` option for `select` component options to display icons next to labels
+
+### 8.3.2 (2026-03-31)
+- (@GermanBluefox) Added possibility to provide custom components
+
+### 8.2.22 (2026-03-29)
+- (@GermanBluefox) Corrected error for "state" component
+
+### 8.2.19 (2026-03-27)
+- (@GermanBluefox) Added option "small cards" for device manager
+
+### 8.2.18 (2026-03-25)
+- (@GermanBluefox) Added the possibility to use own Client ID for oauth authentication
+- (@GermanBluefox) Added the possibility to show a small image and open it in full size by clicking on it
+
+### 8.2.11 (2026-03-20)
+- (@GermanBluefox) Correcting unit in schema
+- (@GermanBluefox) Fill other config fields when an object ID is selected
+
+### 8.2.8 (2026-03-15)
+- (@GermanBluefox) Added radio button control for the state component ('select')
+
+### 8.2.7 (2026-03-14)
+- (@GermanBluefox) Made the secondary text in 'select' and 'selectSendTo' smaller, italic and semi-transparent
+
+### 8.2.6 (2026-03-14)
+- (@GermanBluefox) Added description for options in 'select' or 'selectSendTo' component
+
+### 8.2.5 (2026-03-12)
+- (@GermanBluefox) Extended the staticText component with HTML and JSON visualization
+
 ### 8.2.3 (2026-03-04)
 - (@GermanBluefox) Increased the QR code padding
 
 ### 8.2.2 (2026-03-03)
 - (@GermanBluefox) Added option `sendFirstByClick` to `imageSendTo`
-- (@GermanBluefox) Added new component: `qrCodeSendTo`
+- (@GermanBluefox) Added a new component: `qrCodeSendTo`
 - (@GermanBluefox) Added option `digits` to `state` component
 - (@GermanBluefox) Trying to fix indication of the problems in the table
 

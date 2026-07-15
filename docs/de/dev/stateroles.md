@@ -3,10 +3,10 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/stateroles.md
 title: Staatliche Rollen
-hash: DUb1rk72D0Ms5wb4J5n+wtv5PnWgTVszOSvA2EnF9GQ=
+hash: 3Qz3vEfztTOu2Yz2dy9AydYSHZKs/lyh1rXLtFz+cAU=
 ---
 # Rollen der Bundesstaaten
-Objekte des Typs `state` benötigen eine auf eine der unten definierten Rollen festgelegte Eigenschaft `common.role`.
+Objekte des Typs `state` benötigen eine Eigenschaft `common.role`, die auf eine der unten definierten Rollen gesetzt ist.
 Die Rolleninformationen sind sehr wichtig und ermöglichen es Visualisierungs- und Smart-Assistant-Adaptern, die Funktion des Objekts zu erkennen und festzustellen, ob und wie es mit anderen Objekten im selben Kanal, Gerät oder Ordner zusammenhängt.
 
 ## Staatliche Rollentypen
@@ -19,10 +19,10 @@ Betriebszustände dienen der Steuerung der normalen Funktionalität eines Gerät
 * `level.color.rgb` mit dem Farbcode #RRGGBB der Lampe
 * `level.brightness` mit dem Helligkeitswert
 
-Auch der Reinigungsmodus bzw. der zu reinigende Raum eines Saugroboters ist ein solcher Betriebszustand. Diese Zustände verwenden die unten stehende Definition ohne jegliche Anpassungen.
+Auch der Reinigungsmodus oder der zu reinigende Raum eines Saugroboters ist ein solcher Betriebszustand. Diese Zustände verwenden die unten stehende Definition ohne jegliche Anpassungen.
 
 Bitte verwenden Sie den detailliertesten Rollennamen, der die meisten Informationen enthält (z. B. sollte `level.color.temperature` für die Farbtemperatur anstelle von `level` verwendet werden, oder `switch.power` ist besser als `switch` für die Leistungssteuerung eines Geräts).
-Bei der Verwendung detaillierter Rollennamen (mehrerer Ebenen) ist es außerdem wichtig, dieselbe Rolle nicht zweimal innerhalb eines Gerätekanals zu verwenden.
+Bei der Verwendung detaillierter Rollennamen (mehrerer Ebenen) ist es außerdem wichtig, dieselbe Rolle nicht zweimal innerhalb eines Kanals eines Geräts zu verwenden.
 
 Verschiedene Gerätevorlagen, die für die Erkennung mit den erforderlichen und optionalen Objekten und ihren Rollen verwendet werden, finden Sie in [Repository für Typdetektoren](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md).
 
@@ -53,7 +53,7 @@ Falls keine passende Rolle gefunden werden kann oder der Anwendungsfall nicht sp
 ### Sensor (Boolesche Werte, schreibgeschützt)
 `common.type=boolean, common.write=false`
 
-* `sensor` - generischer Sensorstatus zur Darstellung eines Zustands: aktiv - `true` oder inaktiv `false`
+* `sensor` - generischer Sensorstatus zur Darstellung eines Status: aktiv - `true` oder inaktiv `false`
 * `sensor.contact` - allgemeiner Kontakt: offen - `true` oder geschlossen - `false`
 * `sensor.window` - Fenster geöffnet - `true` oder geschlossen - `false`
 * `sensor.door` - Tür geöffnet - `true` oder geschlossen - `false`
@@ -114,7 +114,7 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `value.battery` - Akkuladestand
 * `value.valve` - Ventilpegel
 * `value.time` - getTime() des Date()-Objekts
-* `value.timer` - Dauer in Sekunden (entspricht level.timer)
+* `value.timer` - Dauer in Sekunden (entspricht im Lese-/Schreibmodus `level.timer`)
 * `value.interval` (common.unit='sec') - Intervall in Sekunden (kann 0,1 oder weniger sein)
 * ~~value.date (common.type=string) - Datum im Format 2015.01.01 (ohne Uhrzeit)~~
 * ~~value.datetime (common.type=string) - Datum und Uhrzeit im Systemformat~~
@@ -195,7 +195,7 @@ Mit **Levels** können Sie einen Zahlenwert steuern oder festlegen.
 * `level.pressure.max` - maximal zulässiger Luft- oder Öldruckwert
 * `level.voltage` - Zielspannung für Generatoren
 * `level.voltage.min` - Mindestspannung für Generatoren
-* `level.voltage.max` - Maximalspannung für Generatoren
+* `level.voltage.max` - maximale Spannung für Generatoren
 * `level.current` - Zielstrom, z. B. für geladene Akkus
 * `level.current.min` - Mindeststrom, z. B. für batteriebetriebene Geräte
 * `level.current.max` - Maximalstrom, z. B. für batteriebetriebene Geräte

@@ -134,6 +134,9 @@ The adapter connects to the Wattpilot's WebSocket interface and converts incomin
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 4.8.0 (2025-11-29)
 - Integrated working bcrypt algorithm
 
@@ -289,6 +292,8 @@ The adapter connects to the Wattpilot's WebSocket interface and converts incomin
 
 ### 0.0.1 (2020-01-01)
 - Initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

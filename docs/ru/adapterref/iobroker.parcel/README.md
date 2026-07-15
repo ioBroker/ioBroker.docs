@@ -1,64 +1,96 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.parcel/README.md
 title: ioBroker.parcel
-hash: Nm4SayAjwi1Nrr7/Oq+EaX3AhMCqe3GFN8bzvbgp3/E=
+hash: B5JuvLe0ZuWJA2tA5w6LYfLaK6giYB51FW7kHwJg0ck=
 ---
 ![Логотип](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.parcel.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.parcel.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.parcel.svg)
 ![Количество установок](https://iobroker.live/badges/parcel-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/parcel-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/parcel-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.parcel.svg)
 ![НПМ](https://nodei.co/npm/iobroker.parcel.png?downloads=true)
 
-# IoBroker.посылка
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.parcel/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.parcel
+**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.parcel/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер пакетной/отправочной информации для ioBroker
-Отслеживание посылок / Отправка данных с помощью ioBroker SmartHome из пакетов Amazon, DHL, DPD, Hermes, UPS и GLS. Außerdem wirst du über die Briefverfolgung von der Deutschen Post informiert. Прямая передача для Telegram, Pushover или Signal.
+## Адаптер для отслеживания посылок для ioBroker
+Отслеживайте посылки от Amazon, DHL, DPD, Hermes, UPS и GLS с помощью вашего умного дома ioBroker. Также поддерживается отслеживание писем Deutsche Post. Уведомления можно отправлять напрямую через Telegram, Pushover или Signal.
 
-## Войти
-**ДХЛ:**
+Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде. Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. в разделе [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
-- Авторизация в приложении DHL
-- SMS/EMail код erhalten
-- In die Instanzeinstellungen eingeben und speichern
+## Процесс входа в систему
+**DHL:**
 
-**Амазонка:**
+— Войдите в приложение DHL
+- Получить SMS/код по электронной почте
+— Введите код в настройках экземпляра и сохраните.
 
-- Войти
-- Wenn nötig vorab ein OTP token aus der 2FA App vor dem ersten Login eingeben.
+**Амазон:**
 
-**DPD, GLS, UPS, 17 пользователей трека:**
+- Введите учетные данные для входа
+— При необходимости введите одноразовый пароль (OTP) из приложения двухфакторной аутентификации (2FA) перед первым входом в систему.
 
-Логин и пароль
+**Пользователь DPD, GLS, UPS, 17Track:**
 
-**Telegram Benachrichtigun für Sendungen und Briefe**
+Введите имя пользователя и пароль.
 
-In den Instanz Einstellung aktivieren und z.B. телеграмма.0 eingeben
+**Уведомления в Telegram о посылках и письмах**
 
-## Вид
-**Sendungen als Vis Table darstellen**
+Включите эту опцию в настройках экземпляра и введите, например, `telegram.0`
 
-Дата всех отправок: посылка.0.allProviderJson
+## Виза
+**Отображение посылок в таблице Vis**
 
-Datenpunkte в Zustellung: посылка.0.inDelivery
+Данные по всем участкам: `parcel.0.allProviderJson`
 
-**Виджет: таблица json**
+Данные о посылках в процессе доставки: `parcel.0.inDelivery`
 
-Анлейтунг: https://www.smarthome-tricks.de/software-iobroker/iobroker-vis-json-table-widget-teil-1-basics/
+**Виджет: таблица JSON**
 
-**DHL Briefverfolgung в Vis anzeigen.**
+Инструкции: https://www.smarthome-tricks.de/software-iobroker/iobroker-vis-json-table-widget-teil-1-basics/
 
-Den Datenpunkt partition.0.dhl.briefe....image ein "String img src" element als Object ID zuordnen
+**Отображение отслеживания писем DHL в Vis**
 
-## Обсуждение и обсуждение
-<https://forum.iobroker.net/topic/51795/test-adapter-parcel-packetverfolgung-dhl-v0-0-1>
+Присвойте точку данных `parcel.0.dhl.briefe....image` элементу "String img src" в качестве идентификатора объекта.
+
+## Обсуждение и вопросы
+<https://forum.iobroker.net/topic/51795/test-adapter-parcel-paketverfolgung-dhl-v0-0-1>
 
 ## Changelog
+### 0.3.2 (2026-07-08)
+- Fix for DPD
+- Fix for GLS
+
+### 0.3.1 (2026-07-07)
+
+- DHL: New login via browser code (dhllogin://)
+- Amazon: Login fix and captcha detection with note
+
+### 0.3.0 (2026-04-05)
+
+- DHL: New login via browser code (dhllogin://)
+- Amazon: Login fix and captcha detection with note
+
+### 0.2.10 (2025-01-15)
+
+- add alternative way for dhl login
+- move dhl connections error to info level
+
+### 0.2.8 (2024-10-18)
+
+- fix amazon login
+
+### 0.0.30
+
+- Fix hermes login
+
+### 0.0.25
+
+- Fix amazon UI parsing
 
 ### 0.0.19
 
@@ -76,7 +108,7 @@ Den Datenpunkt partition.0.dhl.briefe....image ein "String img src" element als 
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -795,6 +795,12 @@ widget tvprogram:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.0.4 (2026-03-27)
+
+- update dependencies
+- fix repochecker
+- tranform translation files
+
 ### 4.0.3 (2026-02-27)
 
 - update dependencies

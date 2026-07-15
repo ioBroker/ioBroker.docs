@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.deconz/README.md
 title: без названия
-hash: ewaf6MGJi/Q4NpS6i2CfUKF7i0e2iga4/x8MTXH/zlw=
+hash: MybRE2stat2dK89Qt+6G72naXvWqGDal9pGmTKLw0o0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
 ![Количество установок](http://iobroker.live/badges/deconz-stable.svg)
-![версия НПМ](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
+![Версия NPM](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.deconz.svg)
 
 Адаптер ioBroker deCONZ Dresden-elektronik
@@ -16,24 +16,21 @@ hash: ewaf6MGJi/Q4NpS6i2CfUKF7i0e2iga4/x8MTXH/zlw=
 ==============
 
 ## Уведомление
-Нет поддержки бета-версий deCONZ
+Бета-версии deCONZ не поддерживаются.
 
-Требуемая версия js-controller >5.x.x, Требуемый node.js >= 18.x.x
+Подключается к программному обеспечению deCONZ REST-API, разработанному компанией dresden-elektronik. Это программное обеспечение призвано стать универсальным решением для шлюза ZigBee, использующим аппаратное обеспечение от dresden-elektronik — USB-адаптер ConBee(X) и модуль RaspBee(X) для Raspberry Pi.
 
-## Английский
-Подключается к программному обеспечению deCONZ REST-API, разработанному компанией dresden-elektronik. Это программное обеспечение призвано стать универсальным шлюзом ZigBee, использующим оборудование от dresden-elektronik: USB-накопитель ConBee(X) и модуль RaspBee(X) для Raspberry Pi.
-
-Сначала необходимо сделать ссылку на deCONZ.
+Сначала необходимо установить соединение с deCONZ.
 
 1. а) Введите IP-адрес для deCONZ<br>
 
-б) Введите стандартный порт моста: 80 и стандартный порт Websocket: 443.<br> [например, приложение Phoscon - Справка - Информация об API - Без фильтра - поиск по порту/websocketport]
+b) Введите стандартный порт моста: 80 и стандартный Websocket: 443.<br> [например, приложение Phoscon - Справка - Информация об API - Без фильтра - поиск по порту/порту веб-сокета]
 
-2. После ввода и сохранения IP-адреса и порта нажмите кнопку «Создать ключ API». Теперь вы можете ввести учётные данные для deCONZ или перейти в приложение Phoscon и зарегистрировать ioBroker как стороннее приложение.
+2. После ввода и сохранения IP-адреса и порта нажмите кнопку «Создать ключ API». Теперь вы можете ввести учетные данные для deCONZ или перейти в приложение Phoscon и зарегистрировать ioBroker как стороннее приложение.
 
-## Чтобы избежать ошибок после обновления (deCONZ/adapter), остановите адаптер и удалите эти записи в структуре объектов. При запуске структура объектов создаётся заново.
+## Во избежание ошибок после обновления (deCONZ/адаптера) остановите адаптер и удалите эти записи в структуре объекта. При повторном запуске структура объекта будет создана заново.
 * Группы
-* Огни
+* Свет
 * Датчики
 
 #### Отправка нескольких команд одновременно
@@ -51,6 +48,41 @@ hash: ewaf6MGJi/Q4NpS6i2CfUKF7i0e2iga4/x8MTXH/zlw=
 ## [Спонсоры](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+### 1.7.6 (2026-04-02)f
+* migrate from request to fetch
+
+### 1.7.4 (2026-03-29)
+- update dependencies
+
+### 1.7.3 (2026-03-29)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- update dependencies
+- fix: errors found by ioBroker repo checker
+
+### 1.7.2 (2026-03-29)
+* fix: remove [skip ci] from release commit so test-and-release triggers on tag
+
+### 1.7.1 (2026-03-29)
+* chore: update GitHub Actions to v6 (Node.js 24 compatibility)
+* fix: export VERSION and DATE env vars for Python subprocess in release workflow
+* fix: make UTCtoLocal robust against invalid/already-timezone-aware timestamps
+* Bump node-forge from 1.3.2 to 1.4.0
+* Update from template: S5043-useNodePrefix
+* Bump picomatch
+* chore: update monthly release workflow - add io-package.json and README changelog
+* chore: add monthly release workflow
+* Uncomment NPM deployment steps in workflow
+* Bump flatted from 3.3.3 to 3.4.2
+* Update from template: X0000-updateNodeJsAtTestAndRelease
+* Bump minimatch
+* Bump ajv from 6.12.6 to 6.14.0
+* fix: correct indentation of migration code and main() closure
+* fix: add missing closing brace for deconz class after ESLint reformat
+* Update Node.js versions in CI workflow
+* chore: migrate to ESLint 9 with @iobroker/eslint-config
+* fix: migrate gateway config from Gateway_info to adapter.config on upgrade
+* Bump lodash from 4.17.21 to 4.17.23
+* Update from template: X0000-setupAutomergeDependabot
 
 ### 1.7.0 (2024-11-22)
 * (mattreim) Hide virtual sensors function
@@ -342,4 +374,4 @@ hash: ewaf6MGJi/Q4NpS6i2CfUKF7i0e2iga4/x8MTXH/zlw=
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2024 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2026 Jey Cee jey-cee@live.com

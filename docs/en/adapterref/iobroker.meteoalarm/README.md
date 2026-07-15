@@ -39,6 +39,7 @@ Bell in icon designed by Freepik from www.flaticon.com
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 
@@ -63,6 +64,8 @@ Bell in icon designed by Freepik from www.flaticon.com
 ### 3.0.1 (2024-02-29)
 * (jack-blackson) Bugfix for location names
 * (jack-blackson) Removed necessity to choose country, this is now automatically detected
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

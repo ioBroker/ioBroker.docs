@@ -107,20 +107,47 @@ Station does not answer to scheduler commands, so only listener mode is supporte
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- [S5601] translation format changed
+- [S5004] Change setInterval()
+- [S9508] CHANGELOG_OLD.md removed from package.json
+- [#277] Fix unit_config for UVRaw
+- [#314] Reject out of bounds values based on min/max
+- [W1132] wrong roles fixed
+- [S9508] CHANGELOG_OLD.md removed from publishing
+- [S5004] Removed plain setInterval()
+
+### 1.2.3 (2026-06-04)
+- [W5612] Updated labels
+- [E0036] Update release scripts to 5.2.1
+
+### 1.2.2 (2026-06-04)
+- (copilot) Adapter requires node.js >= 22 now
+- [E0036] Update release scripts to 5.2.0
+- [E3022] Update test and release to node 24
+- [W0066] Downgrade to node.js 22.x.x to avoid wrong typing is recommended.
+- [W1126] common.role updated
+- [W5039] Removed admin/words.js
+- [W5612] Updated labels
+- #292 windheading changed to read only
+
+### 1.2.1 (2026-04-07)
+Issue #229: Adding additional parameters for humidity sensors, up to 20 now
+Issue #277: Display conversion issue fix (thanks to ManuelBu96)
+npm updates
+Adapter Checker updates
+
+### 1.2.0 (2026-03-22)
+
+npm dependency updates
+automatic dependency updates added
 
 ### 1.1.2 (2026-01-19)
 
 npm dependency updates
 fix admin page: scheduler reported interval in minutes instead of seconds
 
-### 1.1.1 (2025-12-29)
-
-Changed max values for distance sensore (#262)
-
-### 1.1.0 (2025-12-24)
-
-Added deploy job for release script
-Changed to Admin UI to jsonConfig
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Credits
 

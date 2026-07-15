@@ -37,6 +37,70 @@ or any associated subsidiaries, logos or trademarks.
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+### 0.2.11 (2026-07-03)
+* Bump @types/node from 25.9.1 to 25.9.4
+* Bump @alcalzone/release-script from 5.2.0 to 5.2.1
+
+### 0.2.10 (2026-06-03)
+* Bump @alcalzone/release-script-plugin-manual-review from 5.1.1 to 5.2.0
+* Bump @alcalzone/release-script from 5.1.1 to 5.2.0
+* Bump @alcalzone/release-script-plugin-license from 5.1.1 to 5.2.0
+* Bump @iobroker/eslint-config from 2.2.0 to 2.3.4
+* Bump @types/node from 25.6.0 to 25.9.1
+* Bump @alcalzone/release-script-plugin-iobroker from 5.1.2 to 5.2.0
+* Update from template: S6020-addChangelogOld
+* Update from template: X0000-dropNode20
+* Update from template: W8917-dependabot-addIgnoreTypesNode
+* Bump axios from 1.13.6 to 1.15.2
+
+### 0.2.9 (2026-05-03)
+* Bump @types/node from 25.5.0 to 25.6.0
+* Update from template: X0000-updateNodeJsAtTestAndRelease
+
+### 0.2.8 (2026-04-02)
+* Update dependencies
+* automate release
+
+### 0.2.7 (2026-03-31)
+* publish directly from monthly release workflow
+
+### 0.2.6 (2026-03-31)
+* next try to fix monthly release workflow
+
+### 0.2.5 (2026-03-31)
+* next try to fix monthly release workflow
+
+### 0.2.4 (2026-03-31)
+* switch to PAT for GitHub release token
+
+### 0.2.3 (2026-03-31)
+* dont block test and release
+* remove codeql.yml
+
+### 0.2.2 (2026-03-31)
+* updated codeql.yml fix monthly-release.yml
+* only test against ubuntu-latest
+* fix lint error no-unused-vars in main.js
+* update test and release workflow
+* chore: update monthly release workflow - add io-package.json and README changelog
+* chore: add monthly release workflow
+* Uncomment NPM deployment section in workflow
+* Delete .github/workflows/dependabot-auto-merge.yml.OLD
+* fix admin dependency version to >=7.6.17
+* update dependabot.yml
+* update dependencies
+* Bump @alcalzone/release-script-plugin-license from 3.7.0 to 5.1.1
+* Bump @alcalzone/release-script from 3.8.0 to 5.1.1
+* Bump axios from 1.13.2 to 1.13.6
+* Bump @types/node from 25.0.3 to 25.5.0
+* Update from template: X0000-updateNodeJsAtTestAndRelease
+* Update from template: X0000-setupAutomergeDependabot
+* Update from template: E6005-fixCopyrightYear
+* Bump @types/node from 22.10.3 to 25.0.3
+* Update from template: E40xx-fixSchemaLinkForVsCode
+
+### 0.2.1 (2025-10-13)
 * Fix value handling
 
 ### 0.2.0 (2025-09-26)
@@ -63,10 +127,12 @@ or any associated subsidiaries, logos or trademarks.
 ### 0.0.1
 * (Jey Cee) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2025 Jey Cee <jey-cee@live.com>
+Copyright (c) 2025-2026 Jey Cee <jey-cee@live.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

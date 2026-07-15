@@ -3,37 +3,43 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.followthesun/README.md
 title: ioBroker.followthesun
-hash: UOxhXOT3u0A6RX/RgeUZbAxPeZjT/i/smo8FYZrnU5c=
+hash: BRQNdNMRwJEA1EaojOqvqVyctslhVlZaVBvCg6iH6Ko=
 ---
 ![标识](../../../en/adapterref/iobroker.followthesun/admin/followthesun.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.followthesun.svg)
-![安装数量（稳定）](http://iobroker.live/badges/followthesun-stable.svg)
+![安装数量（稳定版）](http://iobroker.live/badges/followthesun-stable.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.followthesun.svg)
 ![安装数量（最新）](http://iobroker.live/badges/followthesun-installed.svg)
 ![依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.followthesun)
 ![已知漏洞](https://snyk.io/test/github/HGlab01/ioBroker.followthesun/badge.svg)
-![新公共管理](https://nodei.co/npm/iobroker.followthesun.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.followthesun.png?downloads=true)
 
 # IoBroker.followthesun
-[![FOSSA 状态](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun?ref=badge_shield) ![测试和发布](https://github.com/HGlab01/ioBroker.followthesun/workflows/Test%20and%20Release/badge.svg)
+[![FOSSA 状态](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun?ref=badge_shield) ![测试与发布](https://github.com/HGlab01/ioBroker.followthesun/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 followthesun 适配器
-此适配器根据地理位置计算太阳的当前高度和方位角。此外，还会存储罗盘方向和太阳的运动（日出或日落）。
+此适配器根据地理位置计算太阳的当前高度角和方位角。此外，它还会存储罗盘方向和太阳的运动状态（日出或日落）。
+
 它使用配置中定义的地理位置。计算间隔可在实例首选项中定义。
-某些日期（例如今天、明天或春季/夏季/秋季/冬季的开始）的太阳正午值也会被存储。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！
+它还会存储某些日期（例如今天、明天或春/夏/秋/冬初）的太阳正午值。
 
-## 要求
-* Node.js 20 或更高版本
-* ioBroker 主机（js-controller）5.0 或更高版本
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！
+
+## 需要
+* Node.js 22 或更高版本
+* ioBroker 主机（js-controller）6.0.11 或更高版本
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.3 (2026-06-16)
+* (HGlab01) code quality improvements
+* (HGlab01) dependecy updates
+
 ### 0.5.2 (2025-03-12)
 * (HGlab01) Bump axios to 1.8.3
 
@@ -50,13 +56,12 @@ hash: UOxhXOT3u0A6RX/RgeUZbAxPeZjT/i/smo8FYZrnU5c=
 ### 0.4.2 (2023-08-10)
 * (HGlab01) Improve admin5 UI usage
 
-### 0.4.1 (2023-02-05)
-* (HGlab01) Improve error log if coordinates are not set
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2020-2026 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

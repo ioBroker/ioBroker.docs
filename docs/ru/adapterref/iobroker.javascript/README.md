@@ -13,29 +13,29 @@ chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru"
 - [Blockly](blockly.md)
 
 ## Changelog
-<!--
-	### **WORK IN PROGRESS**
--->
-### 9.0.18 (2026-01-11)
-* (@GermanBluefox) Corrected error message with `lastSync`
-* (@klein0r) Corrected JavaScript filter
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Showed host name in the instance selection dialog
 
-### 9.0.17 (2025-12-14)
-* (@GermanBluefox) Added possibility to encrypt scripts with password (only for vendors)
+### 9.3.1 (2026-06-18)
+* (@GermanBluefox) Added the possibility to execute one-way scripts without saving it
 
-### 9.0.11 (2025-07-29)
-* (@GermanBluefox) Corrected the rule editor if the condition is empty
-* (@GermanBluefox) Corrected types for TypeScript
+### 9.3.0 (2026-06-17)
+* (@GermanBluefox) Implemented the support for credentials manager in the configuration
 
-### 9.0.10 (2025-07-27)
-* (@klein0r) Added Blockly block to format a numeric value
-* (@GermanBluefox) Fixing some blocks in blockly: cron, time
-* (@GermanBluefox) Added new block: "unconditional return"
-* (@GermanBluefox) Type definitions for TypeScript were updated
-* (@GermanBluefox) Corrected bug with deleting of sub-folders
+### 9.2.4 (2026-06-08)
+* (arteck) Performance optimizations part 2
+* (arteck) fix filter in tab scripts
+* (@GermanBluefox) Fixed a subscription leak on script stop for RegExp-notation string ids (dispatch index)
+* (@GermanBluefox) `extendObject` no longer throws into the script when the object contains non-clonable values (e.g. functions)
 
-### 9.0.7 (2025-06-29)
-* (@GermanBluefox) Fixing some blocks in blockly: time, function
+### 9.2.3 (2026-05-27)
+* (arteck) Performance optimizations done
+* (@GermanBluefox) Added on mouse over the value of the state
+
+### 9.2.2 (2026-05-07)
+* (Eistee82) Fix: AI chat mode tooltip no longer covers the dropdown options (issue #2201) — moved tooltip to the left of the selector
+* (Eistee82) Clarified the AI chat mode descriptions in the tooltip: Agent is for larger models with tool support and handles both analysis and script creation, Code is for smaller models without tool support (uses two-step plan-then-code) — translations updated in all 11 languages
+* (@GermanBluefox) Added the "is state exists" block to blockly
 
 ## License
 The MIT License (MIT)

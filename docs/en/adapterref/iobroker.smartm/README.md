@@ -21,6 +21,10 @@ This Adapter reads Data of [Photovoltaik SLEnergy Plats](https://www.slenergy.co
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.5 (2026-03-11)
+
+- fixed some wrong versionnumbers detected by githab bot
+
 ### 0.0.4 (2025-12-22)
 
 - incorporated reviews
@@ -38,7 +42,7 @@ This Adapter reads Data of [Photovoltaik SLEnergy Plats](https://www.slenergy.co
 
 MIT License
 
-Copyright (c) 2025 Christian Müller
+Copyright (c) 2026 Christian Müller
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

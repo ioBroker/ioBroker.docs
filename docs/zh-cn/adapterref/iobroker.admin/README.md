@@ -87,25 +87,37 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 
 ## Changelog
 <!--
-	### **WORK IN PROGRESS**
-	- (@copilot) Added `Cache-Control: no-cache` header to `index.html` to prevent browser from using stale cached HTML after admin updates
-	- (@copilot) Handle Vite dynamic import failures (ERR_CACHE_READ_FAILURE) by triggering page reload instead of showing white screen
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
 -->
-### 7.8.3 (2026-03-04)
-- (@GermanBluefox) Added the device manager tab in the admin
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Added AWS and Azure credentials in credentials manager
+- (@GermanBluefox) Allowed to set the log level without expert mode
 
-### 7.7.31 (2026-02-16)
-- (@GermanBluefox) Added better table layout for JSON Config
+### 7.9.12 (2026-07-03)
+- (@GermanBluefox) Added the port (native.port) to the instances table and cards and the possibility to sort instances by port
+- (@GermanBluefox) Corrected the intro and instances links for adapters running as web-extension
+- (@GermanBluefox) Improved the error message on unmet global dependencies in multihost setups by listing the hosts that do not fulfill the requirement
+- (@GermanBluefox) Sorted the notification categories by severity (alert, notify, info), so the most important notifications are shown first
 
-### 7.7.28 (2026-02-08)
-- (@GermanBluefox) Added iframe support for JSON Config
+### 7.9.11 (2026-06-29)
+- (@GermanBluefox) Allowed creating an AI API key directly from the assistant settings dialog
+- (@GermanBluefox) Added provider logos (incl. DeepSeek) to the AI assistant provider and credential selectors
+- (@GermanBluefox) The adapter-core version will be updated if required by start
+- (@GermanBluefox) Show status of the instance in the web-extension mode
 
-### 7.7.23 (2026-01-27)
-- (@GermanBluefox) Added support of device manager in the admin tabs
-- (@GermanBluefox) Corrected JSON Config issues
+### 7.9.10 (2026-06-22)
+- (@GermanBluefox) Added a dialog describing how to use the AI assistant without an API key (external MCP client)
+- (@GermanBluefox) Updated device manager
+- (@GermanBluefox) Added possibility to see the prompt and use it outside of assistant
 
-### 7.7.22 (2025-12-15)
-- (@GermanBluefox) Layout fix in the edit object dialog
+### 7.9.9 (2026-06-21)
+- (@GermanBluefox) Correcting the change of the AI providers
+
+### 7.9.6 (2026-06-20)
+- (@GermanBluefox) Added "between" news rule
+- (@GermanBluefox) Better config-manager layout
+- (@GermanBluefox) Added filtering options for config-manager
 
 ## License
 

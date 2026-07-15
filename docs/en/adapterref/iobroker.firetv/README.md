@@ -35,11 +35,14 @@ Alternatively, you can use *adbLink*
 <!-- 
     ### **WORK IN PROGRESS** 
 -->
-
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.2.0 (2026-03-07)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated
 
 ### 2.1.0 (2024-04-07) 
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
@@ -55,10 +58,12 @@ Alternatively, you can use *adbLink*
 ### 1.0.0 (2020-04-09)
 * (foxriver76) compatibility for js-c 3
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2016-2023 soef <soef@gmx.net> and Community developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

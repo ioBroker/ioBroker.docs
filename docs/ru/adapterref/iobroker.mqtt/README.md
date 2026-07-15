@@ -746,33 +746,36 @@ void loop() {
 получать от нее данные через облачный сервис!
 
 ## Changelog
+### 7.1.1 (2026-07-08)
+* (@Marc-Berg) Fixed: Publish only on change issue
 
-### __WORK IN PROGRESS__
-* (Apollon77) Optimized client state generation logic to prevent load issues
-* (Apollon77) Optimized detection of incoming data as ioBroker states 
+### 7.1.0 (2026-07-03)
+* (@GermanBluefox) Added a "Binary topics" setting to store raw binary payloads (e.g. Valetudo map, camera images) as files instead of corrupting them as UTF-8 strings (#573)
+
+### 7.0.2 (2026-07-02)
+* (@Apollon77) Added an optional "Parse comma-separated numbers as character codes" setting (disabled by default) to prevent garbled values from devices like NUKI locks
+* (@GermanBluefox) Migrated the test suite to TypeScript
+
+### 7.0.1 (2026-07-01)
+* (@Apollon77) Optimized client state generation logic to prevent load issues
+* (@Apollon77) Optimized detection of incoming data as ioBroker states 
+* (@GermanBluefox) Breaking change: removed binary states
+* (@GermanBluefox) Migrated to TypeScript
+* (@GermanBluefox) Breaking change: a minimal supported Node.js version is 22
+* (@Marc-Berg) Fixed some errors
+* (@driemekasten) Fixed the reject unresolved topic ids with SUBACK failure
 
 ### 6.1.4 (2025-05-07)
-* (bluefox) Allowed disabling the client objects creation
-* (bluefox) Create client objects with timeout (1s) to prevent memory leaks
+* (@GermanBluefox) Allowed disabling the client objects creation
+* (@GermanBluefox) Create client objects with timeout (1s) to prevent memory leaks
 
-### 6.1.3 (2025-05-04)
-* (Code-X77) Corrected TLS communication
-* (bluefox) Packages updated
-
-### 6.1.2 (2024-09-04)
-* (bluefox) Corrected error if the client has no ID
-
-### 6.1.1 (2024-08-29)
-* (bluefox) Added information about connected clients in the server mode
-
-### 6.0.2 (2024-08-13)
-* (bluefox) Added a space to the connection string for better readability
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2025, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

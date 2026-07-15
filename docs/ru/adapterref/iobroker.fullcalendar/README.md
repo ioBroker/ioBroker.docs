@@ -1,49 +1,80 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fullcalendar/README.md
 title: ioBroker.fullcalendar
-hash: aK2B2glZDSol529TZiHY9yAAyRGwmFS9/XwsNgsuvEU=
+hash: PipFNCmfF+NjqxglcGPuDRBSPI+4S6MBNoM0fQTqzqU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fullcalendar/admin/fullcalendar.png)
 
 ![Количество установок](http://iobroker.live/badges/fullcalendar-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.fullcalendar.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.fullcalendar.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.fullcalendar.svg)
 ![НПМ](https://nodei.co/npm/iobroker.fullcalendar.png?downloads=true)
 
 # IoBroker.fullcalendar
-Расписания с [полный календарь](https://fullcalendar.io).
+Приложения с [полный календарь](https://fullcalendar.io).
 
-## Планируйте события (управляйте своими устройствами)
-Вы не должны использовать какие-либо внешние ресурсы, планирование обрабатывается только в ioBroker и не будет сочетаться с какими-либо внешними службами, такими как «календарь Google» или «iTunes».
+## Планируйте мероприятия (управляйте своими устройствами)
+Запрещено использовать любые внешние ресурсы; планирование осуществляется исключительно в ioBroker и не будет интегрировано с какими-либо внешними сервисами, такими как «Google Calendar» или «iTunes».
 
 ![Пример](../../../en/adapterref/iobroker.fullcalendar/img/example.png)
 
-Вы можете управлять своими событиями с помощью календаря и планировать их периодическое управление.
+Вы можете управлять своими событиями с помощью календаря и планировать периодическое управление ими.
 
 ## Моделирование событий
-Вы можете записать свое поведение и воспроизвести его позже.
-Например, вы можете создать две записи для рабочего дня и для выходных и воспроизвести их в соответствующие дни.
+Вы можете записать свое поведение и воспроизвести запись позже.
+Например, вы можете создать две записи: для рабочего дня и для выходных, и воспроизвести их в соответствующие дни.
 
-Или вы можете записать всю неделю и воспроизвести ее в следующие недели, когда вас нет дома.
+Или вы можете записать всю неделю и прослушать запись в последующие недели, пока вас нет.
 
-Как использовать:
+Способ применения:
 
-- Перейти на вкладку моделирования
-- Создайте новую симуляцию, нажав кнопку «+», и выберите тип симуляции: день или неделя.
-- Нажмите кнопку записи и подождите 24 часа или 7 дней, пока симуляция не прекратится для записи событий.
-- Теперь вы можете воспроизвести симуляцию, нажав на кнопку воспроизведения. Кроме того, вы можете определить время начала моделирования.
+- Перейдите на вкладку "Симуляция".
+— Создайте новую симуляцию, нажав кнопку «+» и выбрав тип симуляции: день или неделя.
+— Нажмите кнопку записи и подождите 24 часа или 7 дней, пока моделирование не остановится, чтобы записать события.
+— Теперь вы можете повторно запустить симуляцию, нажав кнопку воспроизведения. Кроме того, вы можете указать время начала симуляции.
 
-## Делать
-- Неделя и день должны прокручиваться до текущего времени
+## Todo
+- Время недели и дня недели должно отображаться текущим образом.
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **В РАБОТЕ** -->
+### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
-### 2.2.1 (2023-04-25)
+### **WORK IN PROGRESS**
+* (bluefox) Migrated GUI to vite
+
+### 2.4.5 (2024-09-09)
+* (bluefox) Corrected SelectID Dialog
+
+### 2.4.4 (2024-09-09)
+* (bluefox) Removed withStyles package
+
+### 2.3.17 (2024-05-26)
+* (bluefox) Corrected the simulation
+
+### 2.3.16 (2024-05-25)
+* (bluefox) Small UI fixes on widget
+
+### 2.3.10 (2024-05-22)
+* (bluefox) Small UI fixes
+
+### 2.3.9 (2024-05-20)
+* (bluefox) Corrected vis-2 widget
+
+### 2.3.4 (2023-11-28)
+* (bluefox) Corrected monthly events
+
+### 2.3.1 (2023-11-27)
+* (bluefox) Packages were updated
+* (bluefox) Corrected vis-2 widget
+
+### 2.2.6 (2023-07-27)
+* (bluefox) Compatibility with vis-2
+
+### 2.2.2 (2023-06-19)
 * (bluefox) Corrected stop of the recording
 
 ### 2.2.0 (2023-04-24)
@@ -53,7 +84,7 @@ hash: aK2B2glZDSol529TZiHY9yAAyRGwmFS9/XwsNgsuvEU=
 * (bluefox) Corrected vis-2 widgets
 
 ### 2.0.5 (2023-03-07)
-* (bluefox) New material design
+* (bluefox) New material design added
 * (bluefox) License changed to MIT
 * (bluefox) Allowed deletion of events
 
@@ -64,23 +95,23 @@ hash: aK2B2glZDSol529TZiHY9yAAyRGwmFS9/XwsNgsuvEU=
 * (foxriver76) Updated to use with js-controller 2.x
 
 ### 1.0.0 (2019-11-17)
-* (bluefox) Support of compact mode added
+* (bluefox) Support for compact mode is added
 
 ### 0.2.4 (2017-11-23)
 * Translations
 
 ### 0.2.3 (2017-11-22)
-* (bluefox) Fix interval settings
+* (bluefox) Fixed interval settings
 * (bluefox) Update fullcalendar library
 
 ### 0.2.1 (2017-09-25)
 * (bluefox) Fixed error
 
 ### 0.2.0 (2017-08-06)
-* (bluefox) Support of new admin
+* (bluefox) Support for new admin
 
 ### 0.1.1 (2017-07-13)
-* (bluefox) fix double event by creation
+* (bluefox) Fixed double event by creation
 
 ### 0.1.0 (2017-03-20)
 * (bluefox) initial commit
@@ -88,7 +119,7 @@ hash: aK2B2glZDSol529TZiHY9yAAyRGwmFS9/XwsNgsuvEU=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2023 Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2026 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

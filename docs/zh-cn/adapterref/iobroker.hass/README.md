@@ -2,48 +2,83 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hass/README.md
-title: ioBroker.hass文件
-hash: eBAeruKiQlaxbVpjORRTJD9tA1f50+4Es37Ejzdw1Xo=
+title: ioBroker.hass
+hash: M+nm+izoaISjlBc/GvVPcDabI3Tm57D4yI8ZBmSYd5I=
 ---
-![商标](../../../en/adapterref/iobroker.hass/admin/hass.png)
+![标识](../../../en/adapterref/iobroker.hass/admin/hass.png)
 
 ![安装数量](http://iobroker.live/badges/hass-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.hass.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.hass.svg)
 
-#ioBroker.hass
-![测试和发布](https://github.com/ioBroker/ioBroker.hass/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/hass/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker.hass
+![测试与发布](https://github.com/ioBroker/ioBroker.hass/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/hass/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告的信息，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
-此适配器允许 Home Assistant 连接到 ioBroker。
+此适配器允许将 Home Assistant 连接到 ioBroker。
 
 ＃＃ 用法
-在 HASS 中创建一个长期令牌并将其用作 PW（也将其复制到重复字段中）。
+在 HASS 中创建一个长期令牌并将其用作密码（同时将其复制到重复字段中）。
 
-然后它应该读出所有设备的所有属性。服务可能是可控的（例如“turn_on”）。要控制服务，您有两种选择：
+然后它应该读取所有设备的全部属性。服务可能是可控的（例如，“开启”）。要控制服务，您有两种选择：
 
-###设置一个直接值
-使用不是字符串的 ack=false 值设置状态（例如布尔值 true），然后它也会在 HASS 中被触发而无需额外的服务数据。这仅在服务有一个字段要发送时才有效——然后值将作为该字段发送！如果该服务有多个字段，您会在日志中发现一条警告，提供有关可能发送的字段的更多详细信息，例如
+### 设置直接值
+将状态设置为 ack=false 且该值不是字符串（例如布尔值 true），则即使没有额外的服务数据，HASS 也会触发该状态。这仅适用于服务只有一个待发送字段的情况——此时值将作为该字段发送！如果服务有多个字段，您将在日志中找到一条警告，其中包含有关可发送字段的更多详细信息，例如：
 
 ```
 Please make sure to provide a stringified JSON as value to set relevant fields! Please refer to the Readme for details!
 Allowed field keys are: temperature, target_temp_high, target_temp_low, hvac_mode
 ```
 
-### 设置一个字符串化的JSON来提供一个或多个字段
-使用 ack=false String 值设置状态，该值是一个字符串化的 JSON 对象，用于调用服务并将 JSON 对象用作服务数据
+### 设置字符串化的 JSON 以提供一个或多个字段
+将状态设置为 ack=false，该状态是一个字符串化的 JSON 对象，用于调用服务并将该 JSON 对象用作服务数据。
 
-对于 light.turn_off 的最后一个选项，例如`{"transition":10,"flash":"short"}` 这两个服务数据详细信息随调用 HASS 一起发送。可以在 native.fields 部分的 ioBroker 对象的 JSON 定义中看到可用字段及其确切的数据定义，在上面的示例中如下所示：
+对于 light.turn_off 的最后一个选项（例如 `{"transition":10,"flash":"short"}`），这两个服务数据详细信息会随调用发送到 HASS。可用字段及其确切的数据定义可以在 ioBroker 对象的 JSON 定义中的 `native` 字段部分找到，在上面的示例中如下所示：
 
-` ...
-native: { "fields": { "transition": { "name": "Transition", "description": "Duration it takes to to next state.", "selector": { "number": { "min" : 0, "max": 300, "unit_of_measurement": "seconds" } } }, "flash": { "name": "Flash", "description": "If the light should flash.", "advanced":真，“选择器”：{“选择”：{“选项”：[“长”，“短”]}}}}，“entity_id”：“light.mi_control_hub_light”，“attr”：“turn_off”，“类型“： “光” } ...
-`
-
-对于像 set_speed 这样的一些服务，通常需要使用像 `{speed: "high"}` 这样的 JSON 对象来调用以提供所需的值。在这种情况下，字段定义看起来例如喜欢：
-
+```json5
+{
+    // ...
+    native: {
+        "fields": {
+            "transition": {
+                "name": "Transition",
+                "description": "Duration it takes to get to next state.",
+                "selector": {
+                    "number": {
+                        "min": 0,
+                        "max": 300,
+                        "unit_of_measurement": "seconds"
+                    }
+                }
+            },
+            "flash": {
+                "name": "Flash",
+                "description": "If the light should flash.",
+                "advanced": true,
+                "selector": {
+                    "select": {
+                        "options": [
+                            "long",
+                            "short"
+                        ]
+                    }
+                }
+            }
+        },
+        "entity_id": "light.mi_control_hub_light",
+        "attr": "turn_off",
+        "type": "light"
+    }
+    //...
+}
 ```
-...
+
+对于某些服务（例如 set_speed），通常需要使用类似 `{speed: "high"}` 的 JSON 对象来调用，以提供所需的值。在这种情况下，字段定义例如如下所示：
+
+```json5
+{
+    //...
     native: {
         "fields": {
             "speed": {
@@ -56,62 +91,76 @@ native: { "fields": { "transition": { "name": "Transition", "description": "Dura
                 }
             }
         }
-        ...
+        // ...
     }
-...
+    // ...
+}
 ```
 
 ＃＃ 配置
-有一篇关于连接的好文章。
+有一篇关于这种联系的好文章。
 
 请查看 https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen/
 
-**不幸的是只有德语，但是 [谷歌翻译效果不错](https://translate.google.com/translate?hl=en&sl=de&tl=en&u=https%3A%2F%2Fwww.smarthomejetzt.de%2Fmit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen%2F)**
+**可惜只有德语版，但是 [谷歌翻译效果相当不错。](https://translate.google.com/translate?hl=en&sl=de&tl=en&u=https%3A%2F%2Fwww.smarthomejetzt.de%2Fmit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen%2F)**
 
-<!-- 下一个版本的占位符（在行首）：
+## 实体排除过滤器
+（可选）限制哪些 Home Assistant 实体同步到 ioBroker。
 
-### __工作进行中__ -->
+“排除模式”字段中每个非空且非注释的行都是一个通配符（只有 `*` 是通配符，可以匹配任何字符序列，包括 `.`）。
+
+模式会区分大小写地与完整的 `entity_id` 进行匹配（例如：
+
+`switch.living_room`）。与任何模式匹配的实体是：
+
+- 创建或更新对象时跳过（初始同步和重新同步）
+- 当其在 HASS 中状态发生变化时被忽略（ioBroker 中未触发状态写入）
+
+以 `#` 开头的行将被视为注释。
+
+例如：
+
+```
+# Drop every entity whose name starts with `iob_`, regardless of domain:
+*.iob_*
+
+# Drop sensors only:
+sensor.iob_*
+```
+
+勾选“详细过滤器日志记录”选项，可在首次同步期间单独记录每个排除的 `entity_id`（需要适配器日志级别为 `info` 或 `debug`）。后续重新同步仅输出汇总计数，以保持日志简洁。
+
+如果模式列表为空，则适配器的行为与以前的版本相同。
+
+<!-- 下一版本的占位符（位于行首）：
+
+### **正在进行中** -->
 
 ## Changelog
+### 2.1.0 (2026-05-16)
+* (mokusone) Added optional entity exclude filter with glob patterns, configurable via the admin UI, plus a verbose-logging toggle for inspecting matches
+* (@klein0r) Use `/core/` instead of `/api/` when connecting to supervisor directly (e.g., in ha app)
+* (@klein0r) Use ENV var SUPERVISOR_TOKEN as fallback for password
+
+### 2.0.4 (2026-05-05)
+* (@GermanBluefox) Tried to keep the custom settings of the objects when updating them with new data from HASS
+
+### 2.0.3 (2026-04-02)
+* (@GermanBluefox) Adapter was updated and migrated to TypeScript
+* (@Titanium177) Added roles for states and added debouncing for reading states from hass
+
 ### 1.4.0 (2023-01-03)
 * (Apollon77) Added more guidance logging when setting services incorrectly
 * (Apollon77) Prevent crashes when attributes contain "." at the end of their names
 * (Apollon77) Added logging for state updates for unknown objects
 
 ### 1.3.0 (2022-07-01)
-* (Apollon77) Further optimize sending data to HASS and allow to set values like numbers as normal states if the service has one attribute and it can be mapped
-
-### 1.2.0 (2022-06-17)
-* (Apollon77) IMPORTANT: Replace special characters in entity attribute names with an underscore! Object IDs might change!
-* (Apollon77) make sure a "null" value in state changes is not crashing
-
-### 1.1.2 (2022-03-29)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 1.1.1 (2022-03-25)
-* (Apollon77) Show password fields masked again in config
-
-### 1.1.0 (2022-03-24)
-* IMPORTANT: You need to re-enter the password once after installing this version!
-* (Apollon77) Implement Service triggers to use any value to trigger or stringified JSON to call with fields
-* (Apollon77) Optimize unload handling
-* (Apollon7) Add Sentry for crash reporting
-
-### 1.0.1 (2021-09-04)
-* IMPORTANT: js-controller 2.0 is needed st least!
-* (Apollon77) Fix start issue
-* (Apollon77/Garfonso) Fix issue where value could not be set in hass
-
-### 1.0.0 (2020-12-13)
-* (bluefox) added the support of compact mode
-
-### 0.1.0
-* (bluefox) initial release
+* (Apollon77) Further optimize sending data to HASS and allow setting values like numbers as normal states if the service has one attribute and it can be mapped
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

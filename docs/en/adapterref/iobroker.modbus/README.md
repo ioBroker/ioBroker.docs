@@ -9,7 +9,7 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/modbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.modbus.svg)](https://www.npmjs.com/package/iobroker.modbus)
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 Implementation of ModBus Slave and Master for ioBroker. The following types are supported:
 - Modbus RTU over serial (master)
@@ -40,6 +40,11 @@ Modbus Device ID. Important if TCP/Modbus bridge is used.
 ### Type
 Slave (Server) or Master (Client).
 
+### Select device by (serial)
+For serial connections you can choose how the device is addressed:
+- **Serial port**: pick a fixed port path (e.g. `COM3` or `/dev/ttyUSB0`).
+- **USB device ID**: pick the device by its stable USB identifier (vendor ID / product ID / serial number). The actual port is resolved at start, so the connection keeps working even if the operating system assigns a different port name (e.g. after a reboot or replugging).
+
 ### Use aliases as address
 Normally, all registers can have address from 0 to 65535. By using of aliases, you can define virtual address fields for every type of registers. Normally:
 - discrete inputs are from 10001 to 20000
@@ -60,10 +65,10 @@ Like addresses from 3 to 20 will be aligned to 0 up 32.
 If this option is active, the addresses will not be aligned.
 
 ### Do not use multiple registers
-If slave does not support "write multiple registers" command, you can activate it to get warnings when the multiple registers will be written.
+If a slave does not support the "write multiple registers" command, you can activate it to get warnings when the multiple registers will be written.
 
 ### Use only multiple write registers
-If slave only supports "write multiple registers" command, you can activate so the registers will be written always with FC15/FC16 command.
+If a slave only supports the "write multiple registers" command, you can activate so the registers will be written always with FC15/FC16 command.
 
 ### Round Real to
 How many digits after comma for float and doubles.
@@ -78,13 +83,13 @@ Reconnection interval (Only relevant for master)
 Timeout for read requests in milliseconds. If no response is received from a slave at this time, the connection will be terminated.
 
 ### Pulse time
-If pulse used for coils, this defines the interval in milliseconds how long is the pulse.
+If pulse is used for coils, this defines the interval in milliseconds how long is the pulse.
 
 ### Wait time
 Wait time between polling of two different device IDs in milliseconds.
 
 ### Max read request length
-Maximal length of command READ_MULTIPLE_REGISTERS as number of registers to read.
+Maximal length of command READ_MULTIPLE_REGISTERS as the number of registers to read.
 
 Some systems require first "write request" to deliver the data on "read request".
 You can force this mode by setting of the "Max read request length" to 1.
@@ -97,14 +102,32 @@ There is a software [**Modbus RTU <-> Modbus RTU over TCP**](http://mbus.sourcef
 Both solutions **RTU over TCP** and **TCP** work well.
 
 ### Read interval
-Delay between two read requests in ms. Default 0.
+Delay between two read requests in milliseconds. Default 0.
 
 ### Write interval
-Delay between two write requests in ms. Default 0.
+Delay between two write requests in milliseconds. Default 0.
 
 ### Update unchanged states
 Normally, if the value has not changed, it will not be written into ioBroker.
 This flag allows updating the value's timestamp by every cycle.
+
+### Value Sanitization
+Enable automatic sanitization of invalid register values (NaN, Infinity, extreme float values like ±3.4e38).
+This feature helps prevent corrupted Modbus float values from propagating into ioBroker states, which is especially useful for devices like SolarEdge inverters that occasionally return invalid values due to timeouts or internal scaling errors.
+
+When enabled, you can configure per-register sanitization options:
+- **Sanitize**: Enable sanitization for this specific register
+- **Sanitize Action**: Choose how to handle invalid values
+  - *Keep Last Valid*: Keeps the last known valid value when an invalid value is detected
+  - *Replace with 0*: Replaces invalid values with 0
+- **Min Valid Value**: Optional minimum valid value threshold
+- **Max Valid Value**: Optional maximum valid value threshold
+
+Invalid values detected:
+- `NaN` (Not a Number)
+- `Infinity` or `-Infinity`
+- Extreme float values (≥3.4e38 or ≤-3.4e38) - typical Modbus error values
+- Values outside the configured min/max range
 
 ### Do not include addresses in ID
 Do not add address in the generated ioBroker iD. `10_Input10` vs `_Input10`.
@@ -112,7 +135,7 @@ Do not add address in the generated ioBroker iD. `10_Input10` vs `_Input10`.
 ### Preserve dots in ID
 With this flag the Name will be `Inputs.Input10`. Without => `Inputs_Input10`.
 
-## Parameters for single address line in config
+## Parameters for a single address line in config
 ### Address
 Modbus address to read.
 
@@ -129,16 +152,16 @@ Parameter description.
 Unit of the Parameter.
 
 ### Type
-Datatype to read from Bus. For details about the possible data types see section Data types.
+Datatype to read from Bus. For details about the possible data types, see the section Data types.
 
 ### Length
-Length of parameter. For the most parameters, this is determined based on the data type, but for Strings this defines the length in Bytes / characters.
+Length of parameter. For most parameters, this is determined based on the data type, but for Strings this defines the length in Bytes / characters.
 
 ### Factor
 This factor is used to multiply the read value from Bus for static scaling. So the calculation looks like following `val = x * Factor + Offset`.
 
 ### Offset
-This offset is added to the read value after above multiplication. So the calculation looks like following `val = x * Factor + Offset`.
+This offset is added to the read value after the above multiplication. So the calculation looks like following `val = x * Factor + Offset`.
 
 ### Formula
 This field can be used for advanced calculations if Factor and Offset are not enough. **If this field is set, then the Factor and Offset fields are ignored.**
@@ -159,7 +182,7 @@ ioBroker role to assign.
 ioBroker room to assign.
 
 ### Poll
-If activated, the values are polled in a predefined interval from slave.
+If activated, the values are polled in a predefined interval from a slave.
 
 ### WP
 Write pulse
@@ -172,6 +195,17 @@ Use value as a scaling factor.
 This is necessary to be used by dynamic scaling factors which are on some systems provided through values on interface.
 If a value is marked with this flag, then the value will be stored into a variable with the following naming convention: `sf['Modbus_address']`.
 This variable can be then later used in any formula for other parameters. E.g., the following formula can set: `(x * sf['40065']) + 50;`
+
+### Sanitize (Expert Mode)
+Enable value sanitization for this register. Only available when "Value Sanitization" is enabled globally in the adapter settings.
+
+### Sanitize Action (Expert Mode)
+Choose the action to take when an invalid value is detected:
+- **Keep Last Valid**: Retains the last known valid value
+- **Replace with 0**: Replaces the invalid value with 0
+
+### Min Valid / Max Valid (Expert Mode)
+Optional minimum and maximum value thresholds for range validation. Values outside this range will be treated as invalid and sanitized according to the Sanitize Action.
 
 ## Data types
 - `uint16be`  - `Unsigned 16 bit (Big Endian): AABB => AABB`
@@ -206,7 +240,7 @@ This variable can be then later used in any formula for other parameters. E.g., 
 
 The following description was copied from [here](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/)
 
-The point-to-point Modbus protocol is a popular choice for RTU communications if for no other reason that its basic convenience. The protocol itself controls the interactions of each device on a Modbus network, how the device establishes a known address, how each device recognizes its messages and how basic information is extracted from the data. In essence, the protocol is the foundation of the entire Modbus network.
+The point-to-point Modbus protocol is a popular choice for RTU communications if for no other reason than its basic convenience. The protocol itself controls the interactions of each device on a Modbus network, how the device establishes a known address, how each device recognizes its messages and how basic information is extracted from the data. In essence, the protocol is the foundation of the entire Modbus network.
 
 Such a convenience does not come without any complications, however, and Modbus RTU Message protocol is no exception.
 The protocol itself was designed based on devices with a 16-bit register length.
@@ -216,7 +250,7 @@ It is within these four bytes of data that single-precision floating point data 
 
 ### The Importance of Byte Order
 Modbus itself does not define a floating point data type, but it is widely accepted that it implements 32-bit floating point data using the IEEE-754 standard.
-However, the IEEE standard has no clear definition of byte order of the data payload.
+However, the IEEE standard has no clear definition of the byte order of the data payload.
 Therefore, the most important consideration when dealing with 32-bit data is that data is addressed in the proper order.
 
 For example, the number 123/456.00 as defined in the IEEE 754 standard for single-precision 32-bit floating point numbers appears as follows:
@@ -249,7 +283,7 @@ Given that the Modbus RTU message protocol is big-Endian, in order to successful
 
 As a rule of thumb, the family of a device’s microprocessor determines its endianness. Typically, the big-Endian style (the high-order byte is stored first, followed by the low-order byte) is generally found in CPUs designed with a Motorola processor. The little-Endian style (the low-order byte is stored first, followed by the high-order byte) is generally found in CPUs using the Intel architecture. It is a matter of personal perspective as to which style is considered ‘backwards’.
 
-If, however, byte order and endianness are not a configurable option, you will have to determine how to interpret the byte. This can be done requesting a known floating-point value from the slave. If an impossible value is returned, i.e., a number with a double-digit exponent or such, the byte ordering will most likely need modification.
+If, however, byte order and endianness are not a configurable option, you will have to determine how to interpret the byte. This can be done by requesting a known floating-point value from the slave. If an impossible value is returned, i.e., a number with a double-digit exponent or such, the byte ordering will most likely need modification.
 
 ### Practical Help
 The FieldServer Modbus RTU drivers offer several function moves that handle 32-bit integers and 32-bit float values. More importantly, these function moves consider all different forms of byte sequencing. The following table shows the FieldServer function moves that copy two adjacent 16-bit registers to a 32-bit integer value.
@@ -301,363 +335,52 @@ The utility presents the decimal float value of 123456.00 as follows:
 One can then swap bytes and/or words to analyze what potential endianness issues may exist between Modbus RTU master and slave devices.
 
 ## Export / Import of registers
-With export / import functionality, you can convert all register data (only of one type) to a TSV (Tab separated values) file and back to easily copy data from one device to another or to edit register in Excel.
+With export / import functionality, you can convert all register data (only of one type) to a TSV (Tab-separated values) file and back to easily copy data from one device to another or to edit register in Excel.
 
 You can share your schemas with other users in [modbus-templates,](https://github.com/ioBroker/modbus-templates) or you can find some register schemas there.
 
 ## Test
 There are some programs in folder `test` to test the TCP communication:
 - Ananas32/64 is a slave simulator (only holding registers and inputs, no coils and digital inputs)
-- RMMS is master simulator
-- mod_RSsim.exe is a slave simulator. It can be that you need [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) to start it (because of Side-By-Side error).
+- RMMS is a master simulator
+- mod_RSsim.exe is a slave simulator. It can be that you need [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) to start it (because of a Side-By-Side error).
 
+## Changelog
 <!--
+	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-## Changelog
-### 8.0.3 (2026-02-17)
-* (@GermanBluefox) Set default value of slave to '0' and not to 0
-* (@GermanBluefox) Showed address 0
-
-### 8.0.1 (2026-02-16)
-* (@GermanBluefox) Disable logging of request timeout if `disableLogging` parameter is set to true
-
-### 8.0.0 (2026-02-15)
-* (bluefox) Minimal Node.js version is 20
-* (bluefox) Corrected `info.connected` type
-* (bluefox) Fixed writing of registers
-
-### 7.0.6 (2025-10-29)
-* (bluefox) Updated packages
-
-### 7.0.5 (2025-10-13)
-* (bluefox) Prohibited installation from github
-
-### 7.0.4 (2025-10-08)
-* (bluefox) Added migration procedure from 6 to 7
-* (bluefox) Corrected serial communication
-
-### 7.0.1 (2025-10-07)
-* (bluefox) Redesign of the configuration tabs
-* (bluefox) Added option to remove leading underscores in the object names
-
-### 7.0.0 (2025-10-06)
-* (copilot) Improved Modbus error handling and fault tolerance - continue polling working devices even when others fail
-* (copilot) Fixes memory leak
-* (copilot) Added option to disable connection error logging to avoid log spam when devices are unavailable
-* (bluefox) Show values directly in configuration
-* (bluefox) Implemented TLS connection (master)
-
-### 6.4.0 (2024-11-22)
-* (bluefox) Moved GUI compilation to vite
-* (bluefox) Added error message if the response length is invalid
-
-### 6.3.2 (2024-08-29)
-* (bluefox) Corrected the error with alignment of addresses
-
-### 6.3.0 (2024-08-28)
-* (Apollon77) Fix Timeout management to prevent leaking memory
-* (bluefox) Added information about connected clients in the server mode
-* (bluefox) Tried to fix error with aligning addresses
-* (bluefox) GUI was migrated to admin 7
-
-### 6.2.3 (2024-05-25)
-* (Q7Jensen) Fixed error at aligning addresses to word
-* (Apollon77) Added device id to some errors
-
-### 6.2.2 (2024-04-26)
-* (Apollon77) Downgrade gulp to 4.0.2 to fix build
-
-### 6.2.1 (2024-04-16)
-* (PLCHome) Warning regarding scale factor due to incorrect check: "Calculation of a scaleFactor which is based on another scaleFactor seems strange."
-
-### 6.2.0 (2024-04-12)
-* (PLCHome) String based on 16-bit values big endian as well as little endian
-* (PLCHome) Raw data as a hex string
-* (PLCHome) Fix issue `stringle` was always converted to number for slave
-* (PLCHome) Enable formula for strings and hex strings
-
-### 6.1.0 (2023-12-14)
-* (nkleber78) Implement the connection keepAlive
-
-### 6.0.1 (2023-10-30)
-* (bluefox) Better tooltips in settings
-
-### 6.0.0 (2023-10-27)
-* (bluefox) GUI packages updated
-* (bluefox) Added help for settings
-* (bluefox) Minimal supported node.js version is 16
-
-### 5.0.11 (2022-12-01)
-* (clausmuus) fixed reconnect of serial communication
-
-### 5.0.8 (2022-09-27)
-* (bluefox) GUI packages updated
-
-### 5.0.5 (2022-08-13)
-* (Apollon77) Prevent some crash cases reported by Sentry
-
-### 5.0.4 (2022-06-15)v
-* (bluefox) Corrected the coils reading in slave mode
-* (bluefox) Corrected type of connection indicator
-
-### 5.0.3 (2022-05-13)
-* (bluefox) Fixed error with multi-devices
-
-### 5.0.0 (2022-05-11)
-* BREAKING: All space characters will be replaced with underscores now in the Objects IDs, not only the first one.
-* (Apollon77) Catch error reported by sentry when invalid Master port is entered
-* (bluefox) GUI migrated to mui-v5
-
-### 4.0.4 (2022-03-25)
-* (Apollon77/UncleSamSwiss) Prevent invalid state log
-
-### 4.0.3 (2022-03-21)
-* (bluefox) Updated serial port package
-* (bluefox) A minimal node.js version is 12
-
-### 3.4.17 (2021-11-11)
-* (Apollon77) Catch errors in tasks processing to prevent crashes
-
-### 3.4.15 (2021-11-09)
-* (Apollon77) Catch errors in tasks processing to prevent crashes
-* (Apollon77) make sure generated IDs do not end with "."
-
-### 3.4.14 (2021-08-31)
-* (nkleber78) Fixed issue with sorting
-* (bluefox) Corrected the calculations with scaling factor
-* (bluefox) Read times were optimized
-
-### 3.4.11 (2021-07-31)
-* (bluefox) Corrected import of last line
-
-### 3.4.10 (2021-07-30)
-* (Apollon77) Make sure that slave reconnections at least wait 1000ms to allow old connectio to close properly
-* (bluefox) Corrected the error with write single registers
-
-### 3.4.9 (2021-07-06)
-* (bluefox) Changed edit behaviour
-
-### 3.4.8 (2021-06-24)
-* (Apollon77) Fix crash case on writing floats (Sentry IOBROKER-MODBUS-2D)
-
-### 3.4.7 (2021-06-22)
-* (bluefox) Corrected addressing with aliases in GUI
-
-### 3.4.6 (2021-06-21)
-* (bluefox) Corrected addressing with aliases
-
-### 3.4.5 (2021-06-19)
-* (bluefox) Corrected the "write multiple registers" option
-
-### 3.4.4 (2021-06-16)
-* (bluefox) GUI bugs were corrected
-* (bluefox) Added output of error codes
-
-### 3.4.2 (2021-06-15)
-* (nkleber78) Corrected issue with the scale factors
-* (bluefox) New react GUI added
-* (bluefox) Add new option: Use only Write multiple registers, read interval
-
-### 3.3.1 (2021-05-10)
-* (bluefox) fixed the configuration dialog for "input registers" in slave mode
-
-### 3.3.0 (2021-04-16)
-* (Apollon77) Allowed usage of write-only (no poll) states
-* (Apollon77/TmShaz) F Write multiple registers
-* (prog42) create states of type string with default value of type string
-
-### 3.2.6 (2021-03-05)
-* (Apollon77) Prevent a crash case (Sentry IOBROKER-MODBUS-20)
-* (Apollon77) Better handle invalid responses
-
-### 3.2.4 (2021-01-30)
-* (Sierra83) also support ttyXRUSB0 style devices
-
-### 3.2.3 (2021-01-21)
-* (Apollon77) Catch value encoding error and do not crash adapter (Sentry IOBROKER-MODBUS-1W)
-* (Apollon77) add a meta object as instance object
-
-### 3.2.2 (2020-12-15)
-* (Apollon77) prevent a rash case (Sentry IOBROKER-MODBUS-1S)
-
-### 3.2.1 (2020-12-12)
-* (Apollon77) prevent a crash case (Sentry IOBROKER-MODBUS-1R)
-
-### 3.2.0 (2020-12-09)
-* (nkleber78) Fixed formula where return keyword was missing
-
-### 3.1.13 (2020-12-07)
-* (nkleber78) Added the possibility to use formulas for values
-
-### 3.1.12 (2020-12-05)
-* (Apollon77) fix admin serial port selection
-
-### 3.1.10 (2020-09-25)
-* (nkleber78) Corrected: the exported data cannot be imported without modification
-
-### 3.1.9 (2020-09-17)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-MODBUS-1C)
-
-### 3.1.7 (2020-07-23)
-* (Apollon77) Fix some Sentry crash reports (IOBROKER-MODBUS-N)
-
-### 3.1.6 (2020-07-06)
-* (bluefox) Fix some Sentry crash reports (IOBROKER-MODBUS-J)
-
-### 3.1.5 (2020-06-29)
-* (Apollon77) Fix some Sentry crash reports (IOBROKER-MODBUS-F)
-
-### 3.1.4 (2020-06-24)
-* (Apollon77) Fix some Sentry crash reports (IOBROKER-MODBUS-4, IOBROKER-MODBUS-7, IOBROKER-MODBUS-6)
-* (Apollon77) Change the way adapter restarts when reconnections do not help
-
-### 3.1.3 (2020-06-12)
-* (Apollon77) fix scheduled restart
-
-### 3.1.2 (2020-06-12)
-* (Apollon77) fix serialport list for Admin
-
-### 3.1.1 (2020-06-11)
-* (Apollon77) Add Sentry crash reporting when used with js-controller >=3.x
-
-### 3.1.0 (2020-06-11)
-* (Apollon77) Make sure that regular adapter stops do not terminate the process, so that scheduled restarts still work
-* (Apollon77) update serialport, support nodejs 12/14
-
-### 3.0.4 (2020-06-05)
-* (bluefox) Added device ID by export/import
-* (bluefox) Added the "write interval" parameter
-* (bluefox) Added the disabling of write multiple registers
-
-### 3.0.3 (2020-06-05)
-* (bluefox) Corrected error after refactoring
-
-### 3.0.2 (2020-06-01)
-* (compton-git) Decodes 0xFF00 as coil ON
-
-### 3.0.1 (2020-01-23)
-* (BlackBird77) Fixes for Serial Timeouts done
-* (bluefox) Refactoring
-
-### 3.0.0 (2019-05-15)
-* (Apollon77) Support for Node.js 12 added, Node.js 4 is no longer supported!
-
-### 2.0.9 (2018-10-11)
-* (Bjoern3003) Write registers was corrected
-
-### 2.0.7 (2018-07-02)
-* (bluefox) The server mode was fixed
-
-### 2.0.6 (2018-06-26)
-* (bluefox) rtu-tcp master mode was fixed
-
-### 2.0.3 (2018-06-16)
-* (bluefox) Fixed the rounding of numbers
-
-### 2.0.2 (2018-06-12)
-* (bluefox) The error with blocks reading was fixed
-* (bluefox) The block reading for discrete values was implemented
-
-### 2.0.1 (2018-05-06)
-* (bluefox) Added the support of multiple device IDs
-
-### 1.1.1 (2018-04-15)
-* (Apollon77) Optimize reconnect handling
-
-### 1.1.0 (2018-01-23)
-* (bluefox) Little endian strings added
-* (Apollon77) Upgrade Serialport Library
-
-### 1.0.2 (2018-01-20)
-* (bluefox) Fixed read of coils
-
-### 0.5.4 (2017-09-27)
-* (Apollon77) Several Fixes
-
-### 0.5.0 (2017-02-11)
-* (bluefox) Create all states each after other
-
-### 0.4.10 (2017-02-10)
-* (Apollon77) Do not recreate all data points on start of adapter
-* (ykuendig) Multiple optimization and wording fixes
-
-### 0.4.9 (2016-12-20)
-* (bluefox) fix serial RTU
-
-### 0.4.8 (2016-12-15)
-* (Apollon77) update serialport library for node 6.x compatibility
-
-### 0.4.7 (2016-11-27)
-* (bluefox) Use old version of jsmodbus
-
-### 0.4.6 (2016-11-08)
-* (bluefox) backward compatibility with 0.3.x
-
-### 0.4.5 (2016-10-25)
-* (bluefox) better buffer handling on tcp and serial
-
-### 0.4.4 (2016-10-21)
-* (bluefox) Fix write of holding registers
-
-### 0.4.1 (2016-10-19)
-* (bluefox) Support of ModBus RTU over serial and over TCP (only slave)
-
-### 0.3.11 (2016-08-18)
-* (Apollon77) Fix wrong byte count in loop
-
-### 0.3.10 (2016-02-01)
-* (bluefox) fix lost of history settings.
-
-### 0.3.9 (2015-11-09)
-* (bluefox) Use always write_multiple_registers by write of holding registers.
-
-### 0.3.7 (2015-11-02)
-* (bluefox) add special read/write mode if "Max read request length" is 1.
-
-### 0.3.6 (2015-11-01)
-* (bluefox) add cyclic write for holding registers (fix)
-
-### 0.3.5 (2015-10-31)
-* (bluefox) add cyclic write for holding registers
-
-### 0.3.4 (2015-10-28)
-* (bluefox) add doubles and fix uint64
-
-### 0.3.3 (2015-10-27)
-* (bluefox) fix holding registers
-
-### 0.3.2 (2015-10-27)
-* (bluefox) fix import from text file
-
-### 0.3.1 (2015-10-26)
-* (bluefox) fix error with length of read block (master)
-* (bluefox) support of read blocks and maximal length of read request (master)
-* (bluefox) can define fields by import
-
-### 0.3.0 (2015-10-24)
-* (bluefox) add round settings
-* (bluefox) add deviceID
-* (bluefox) slave supports floats, integers and strings
-
-### 0.2.6 (2015-10-22)
-* (bluefox) add different types for inputRegisters and for holding registers ONLY FOR MASTER
-
-### 0.2.5 (2015-10-20)
-* (bluefox) fix names of objects if aliases used
-
-### 0.2.4 (2015-10-19)
-* (bluefox) fix error add new values
-
-### 0.2.3 (2015-10-15)
-* (bluefox) fix error with master
-
-### 0.2.2 (2015-10-14)
-* (bluefox) implement slave
-* (bluefox) change addressing model
-
-### 0.0.1
-* (bluefox) initial commit
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Fixed repeated `Can not set value: The value of "offset" is out of range` errors when a device answers a combined read block with fewer registers than requested (issue #502, via `@iobroker/modbus`): the short response is now reported with a single clear warning and the values that were returned are still stored. Workaround without the update: set "Max address gap to combine" to 0
+- (@GermanBluefox) Added Modbus/UDP support as a master (issue #222): select "UDP (Master)" as the connection type. Requires `@iobroker/modbus` >= 7.6.0
+- (@GermanBluefox) The register table export/import dialog can now use CSV (`;`-separated, quoted) or JSON in addition to TSV, and the data can be saved to / loaded from a file (issue #249): pick the format in the dialog to mass-edit the data points in Excel or a text editor. Empty columns (e.g. an unused "name") are preserved, so a round-trip export→edit→import no longer breaks the format
+- (@GermanBluefox) Register tables with many data points are now much faster to edit (issue #249): rows are virtualized (only the visible ones are rendered), and a new "freeze order" toolbar button keeps rows from re-sorting/jumping while you type
+- (@GermanBluefox) When "Multi device IDs" is enabled, register tables can be shown as a tree grouped by slave/device ID with collapsible sections (issue #249): toggle it with the new "Group by device ID" toolbar button
+
+### 8.3.0 (2026-07-03)
+- (@GermanBluefox) Added a "Max address gap to combine" setting (issue #581): controls how large an address gap may be bridged when combining registers into one read request. Set it to 0 to read only contiguous configured registers, so devices that reject a non-existent register in a gap no longer fail the whole read (requires `@iobroker/modbus` >= 7.5.1)
+- (@GermanBluefox) Added per-device timeout and wait time (issue #605): when "Multi device IDs" is enabled, the Connection tab shows a table of all device IDs used in the register tables, each with its own timeout and wait time (blank = global value)
+- (@GermanBluefox) Added a proxy mode (issue #775): a master can additionally serve its polled data as a Modbus TCP slave. Enable it in the Connection tab (requires `@iobroker/modbus` >= 7.5.1)
+- (@GermanBluefox) Fixed the TCP/SSL master not recovering after a communication loss (issue #594, via `@iobroker/modbus`): the receive buffer is now cleared and the socket recreated on every reconnect, so a frame cut off by the disconnect can no longer desync the parser and permanently break polling until an adapter restart
+- (@GermanBluefox) Fixed cyclic write of non-polled holding registers in immediate-write mode `maxBlock < 2` (follow-up to issue #771, via `@iobroker/modbus`)
+- (@GermanBluefox) Updated the `@iobroker/modbus` package: fixed `Put.floatle()` to write a valid IEEE-754 little-endian float and to stop dropping data written after it
+
+### 8.2.2 (2026-07-01)
+- (@johannes-lode) Fixed FC1 coil reads returning stale data: the slave now refreshes the coil buffer before responding (event name matched the listener)
+- (@johannes-lode) Fixed the TCP slave crashing on server listen errors (e.g. address already in use or privileged port without permission); such errors are now logged instead
+- (@johannes-lode) Fixed coil/discrete-input reads being written to the wrong buffer bit for start addresses other than 0
+- (@johannes-lode) Fixed the coil/discrete-input buffer size when the highest address is a multiple of 8 (`ceil(addressHigh / 8)`)
+
+### 8.2.1 (2026-06-27)
+- (@GermanBluefox) Allowed the selection of port by USB path
+
+### 8.2.0 (2026-05-29)
+- (@GermanBluefox) Added selection of the serial device by its stable USB ID (vendor/product/serial), so the connection keeps working even if the OS reassigns the port name
+
+### 8.1.3 (2026-04-13)
+- (@GermanBluefox) Corrected room definition for the first register
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

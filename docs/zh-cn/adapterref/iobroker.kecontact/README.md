@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kecontact/README.md
 title: ioBroker.ke联系方式
-hash: MGiYMwJoul92QwJbU2ve3VGjaw4SuxeBxGvNS9gxt8c=
+hash: oVufczSonHhlIy89jlBVIxnvpoMLkBWnu01wKPedSKU=
 ---
 ![标识](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -18,7 +18,9 @@ hash: MGiYMwJoul92QwJbU2ve3VGjaw4SuxeBxGvNS9gxt8c=
 
 **测试：** ![测试与发布](https://github.com/Sneak-L8/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
-# 适用于 KEBA KeContact P20 或 P30 以及 BMW i 壁挂式充电桩的 ioBroker 适配器
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
+
+## 适用于 KEBA KeContact P20 或 P30 以及 BMW i 壁挂式充电桩的 ioBroker 适配器
 使用 UDP 协议控制您的充电站，并使用自动调节功能，例如通过光伏余能和电池储能为您的车辆充电。
 
 ＃＃ 安装
@@ -65,7 +67,7 @@ Keba 网站改版后，已不再提供支持。
 * 电流增量（建议 500 mA）
 * 用于暂时维持充电过程的电网消耗值（这意味着即使剩余电量不足，充电也会稍后停止——初始电网消耗量将被加上——建议 500 瓦）
 * 最短充电持续时间（即使剩余电量不足，充电过程也至少会持续此时间 - 建议 300 秒）
-* 当剩余电量不足以满足需求时，需继续充电（以弥补阴天充电时间不足的情况）。
+* 当剩余电量不足以满足需求时，需要继续充电（以弥补阴天充电时间不足的情况）。
 * 车辆插入电源后，应立即开始充电，并等待授权（以防止出现未立即充电而无法继续充电的错误）。
 
 ### 1p/3p 充电
@@ -123,6 +125,22 @@ KeConnect是KEBA AG的注册商标。
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (Sneak-L8) addPower can now also be used to preserve power for other consumers by specifying negative value
+* (@mcm1957) Adapter requires node.js >= 22 now.
+* (Sneak-L8) Minimum time between phase switching has also to be respected when using state for phase switch, thanks to SmartNightly
+* (Sneak-L8) fix errors [E0036], [S0082] and [S5004] found by repository checker
+* (Sneak-L8) fix errors [E6025], [W1130], [W1132], [W1134],  [W5060] and [W6023] found by repository checker
+  
+### 3.6.0 (2026-03-29)
+* (Sneak-L8) information about new firmware also via admin notification (also works for x-series)
+* (Sneak-L8) updated dependencies
+
+### 3.5.0 (2026-03-02)
+* (copilot) Adapter requires admin >= 7.7.22 now
+* (Sneak-L8) checking of firmware version is back
+* (Sneak-L8) updated dependencies
+
+### 3.4.0 (2026-01-17)
 * (Sneak-L8) new options to charge vehicle up to a specified SoC
 * (Sneak-L8) new option to stop charging at a certain SoC
 * (Sneak-L8) raise adapter-dev version from 1.4 to 1.5
@@ -138,31 +156,12 @@ KeConnect是KEBA AG的注册商标。
 * (Sneak-L8) optimized strategy for battery charging
 * (Sneak-L8) node.js >= 20 required
 
-### 3.1.0 (2025-03-20)
-* (Sneak-L8) new option to reduce log entries on info level (write them with debug level)
-* (Sneak-L8) fix wording error ("regard" changed to grid consumption)
-* (Sneak-L8) fixed some english translations
-* (Sneak-L8) renamed state "regardTimestamp" to "consumptionTimestamp" - please delete old state
-
-### 3.0.1 (2025-03-15)
-* (Sneak-L8) fix error sentry IOBROKER-KECONTACT-29 an IOBROKER-KECONTACT-2A
-* (Sneak-L8) minimum js-controller now >= 7 due to I18n
-* (Sneak-L8) fix roles of states in io-package.json
-* (Sneak-L8) log of config on level debug instead of info
-
-### 3.0.0 (2025-03-10)
-* (Sneak-L8) rebase adapter on newest version of adapter creator
-* (Sneak-L8) required js-controller now >= 6.0.11 and admin >= 7.0.23
-* (Sneak-L8) new option to limit amperage of charging station to maximum value for amperage of whole mains circuit
-* (Sneak-L8) immediately reduce charging power when over max amperage or max power limits
-* (Sneak-L8) fix one time attempt for recharging vehicle in state 5
-* (Sneak-L8) reduced info logs for max power adjustment when no vehicle is plugged (log as debug in that case)
-* (Sneak-L8) pay attention to minimum time for phase switch by x2 when vehicle is plugged/unplugged
-* (Sneak-L8) fix error sentry IOBROKER-KECONTACT-21
-* (Sneak-L8) migrate from request to axios
-* (Sneak-L8) migrate from ESlint v8 to v9
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+
                                  Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/

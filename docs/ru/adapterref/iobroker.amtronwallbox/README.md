@@ -1,53 +1,55 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.amtronwallbox/README.md
 title: ioBroker.amtronwallbox
-hash: eLNhMFwzFL3Fm+3SugLYppogqdYpR5umYJEhSg6oipo=
+hash: OtfRBmI1ATOdGfHZjkf+WDMsBy/AgNxeaayNiVF4itY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.amtronwallbox/admin/amtronwallbox.png)
 
 ![Количество установок](http://iobroker.live/badges/amtronwallbox-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.amtronwallbox.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.amtronwallbox.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.amtronwallbox.svg)
 ![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.amtronwallbox/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.amtronwallbox.png?downloads=true)
-![узел-lts](https://img.shields.io/node/v-lts/iobroker.amtronwallbox?style=flat-square)
-![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.amtronwallbox?label=npm%20dependencies&style=flat-square)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.amtronwallbox?style=flat-square)
+![Статус зависимостей Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.amtronwallbox?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.amtronwallbox?style=flat-square)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
-![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
-![Проблемы с GitHub](https://img.shields.io/github/issues/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![размер репозитория GitHub](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![активность коммитов на GitHub](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![Проблемы на GitHub](https://img.shields.io/github/issues/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
 
 # IoBroker.amtronwallbox
-![Действия GitHub](https://github.com/rg-engineering/ioBroker.amtronwallbox/workflows/Test%20and%20Release/badge.svg)
+![GitHub Actions](https://github.com/rg-engineering/ioBroker.amtronwallbox/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
-**Если вам это нравится, пожалуйста, рассмотрите возможность пожертвования:**
+**Если вам понравилось, пожалуйста, рассмотрите возможность пожертвования:**
 
-[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![[paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-Адаптер служит интерфейсом для различных [Настенные коробки Amtron](https://www.mennekes.de/emobility/produkte/amtron-wallboxen/). Данные, предоставленные блоком, считываются и становятся доступными в виде точки данных в адаптере.
-Данные обрабатываются только локально, подключение к облаку не требуется. Для настенных коробок, которые также поддерживают доступ для записи, адаптер может записывать данные (например, ток зарядки).
-Поддерживаются следующие настенные коробки Amtron:
+Адаптер служит интерфейсом для различных устройств [Настенные коробки Amtron](https://www.mennekes.de/emobility/produkte/amtron-wallboxen/). Данные, предоставляемые устройством, считываются и становятся доступными в качестве точки данных в адаптере.
+Обработка данных происходит только локально, подключение к облаку не требуется. Для настенных зарядных устройств, поддерживающих также запись, адаптер может записывать данные (например, зарядный ток).
+Поддерживаются следующие настенные зарядные устройства Amtron:
 
-* Амтрон Экстра
+* Amtron Xtra
 * Amtron ChargeControl
 * Амтрон Компакт
 
-Адаптер может управлять несколькими ящиками.
+Адаптер может управлять несколькими устройствами.
+
+Если у вас настенное устройство, которое еще не поддерживается, пожалуйста, свяжитесь с разработчиком.
 
 ## Конфигурация
-Необходимо настроить только тип ящика, его IP-адрес и, при необходимости, API-ключ.
+Необходимо настроить только тип устройства, его IP-адрес и, при необходимости, ключ API.
 
 ![Конфигурация](../../../en/adapterref/iobroker.amtronwallbox/admin/docs/Amtron_Config.PNG)
 
-Примечание. Поскольку устройства имеют разные интерфейсы, возможно, не все интерфейсы работают напрямую. В этом случае обратитесь к разработчику.
+Примечание: Поскольку устройства имеют разные интерфейсы, возможно, не все интерфейсы будут работать напрямую. В этом случае, пожалуйста, свяжитесь с разработчиком.
 
-## Известные вопросы
-* создавайте проблемы на [github](https://github.com/rg-engineering/ioBroker.amtronwallbox/issues), если вы обнаружите ошибки или захотите новых функций.
+## Известные проблемы
+* Пожалуйста, создавайте запросы на [github](https://github.com/rg-engineering/ioBroker.amtronwallbox/issues), если вы обнаружите ошибки или пожелаете добавить новые функции.
 
 ## Changelog
 
@@ -55,6 +57,42 @@ hash: eLNhMFwzFL3Fm+3SugLYppogqdYpR5umYJEhSg6oipo=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.3.6 (2026-03-15)
+* (René) update dependencies + changes based on adapter checker
+
+### 0.3.5 (2025-10-26)
+* (René) bug fix sentry
+
+### 0.3.4 (2025-10-21)
+* (René) update dependencies + changes based on adapter checker
+
+### 0.3.3 (2025-10-04)
+* (René) update dependencies + changes based on adapter checker
+
+### 0.3.2 (2025-06-28)
+* (René) update dependencies
+* (René) new testing
+
+### 0.3.1 (2025-02-27)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 0.3.0 (2024-12-17)
+* (René) see issue #284: test with nodejs@22
+* (René) update dependencies
+* (René) migration to jsonConfig
+
+### 0.2.16 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
+### 0.2.15 (2024-05-28)
+* (René) change of dependencies
+* (René) show cron job in log after creation
+
+### 0.2.14 (2024-01-12)
+* (René) dependencies updated
+
 ### 0.2.13 (2023-12-23)
 * (René) just a sentry test
 
@@ -105,7 +143,7 @@ hash: eLNhMFwzFL3Fm+3SugLYppogqdYpR5umYJEhSg6oipo=
 ## License
 MIT License
 
-Copyright (c) 2022-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2022-2026 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

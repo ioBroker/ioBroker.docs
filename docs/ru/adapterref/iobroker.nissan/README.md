@@ -1,31 +1,30 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nissan/README.md
 title: ioBroker.nissan
-hash: FbxmhAnuLWz2syQPO2VGYuM2z74lmRVrTUd5kZrMjuQ=
+hash: af3Tfnb0rFKT6ZGLso/XfB+KB0Tt+b3H0sjQmWHoYUU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nissan/admin/nissan.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.nissan.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.nissan.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.nissan.svg)
-![Количество установок (последних)](https://iobroker.live/badges/nissan-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/nissan-stable.svg)
-![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.nissan.svg)
+![Количество установок (последние)](https://iobroker.live/badges/nissan-installed.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/nissan-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.nissan.png?downloads=true)
 
 # IoBroker.nissan
 **Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.nissan/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.**\ Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!\ Отчеты Sentry используются, начиная с js-контроллера. 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
-##адаптер Nissan для ioBroker
-С помощью адаптера Nissan вы можете запросить у вашего автомобиля Nissan последние данные, отобразить текущий статус аккумулятора и зарядки, текущее состояние климат-контроля, запустить или остановить климат-контроль, а также начать зарядку удаленно.
+## Адаптер Nissan для ioBroker
+С помощью адаптера Nissan вы можете запрашивать у своего автомобиля Nissan самые свежие данные, отображать текущее состояние батареи и зарядки, текущее состояние системы климат-контроля, запускать или останавливать климат-контроль и дистанционно запускать зарядку.
 
-[Nissan Connect/информация о приложении](https://www.nissan.de/kunden/nissan-connect-apps.html)
+[Информация о приложении Nissan Connect](https://www.nissan.de/kunden/nissan-connect-apps.html)
 
 ## Форум
-Не стесняйтесь следить за обсуждениями на немецком языке [форум iobroker](https://forum.iobroker.net/topic/46700/test-adapter-nissan-v-0-0-x).
+Не стесняйтесь следить за обсуждениями в немецком разделе [форум iobroker](https://forum.iobroker.net/topic/46700/test-adapter-nissan-v-0-0-x)
 
 ## Changelog
 
@@ -33,12 +32,46 @@ hash: FbxmhAnuLWz2syQPO2VGYuM2z74lmRVrTUd5kZrMjuQ=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.17 (2026-03-14)
+- (bolliy) dependency and configuration updates
 
-### **WORK IN PROGRESS**
-- (bolliy) Dependency and configuration updates
-- (bolliy) Added Admin 5 configuration
-- (bolliy) ConnectEV: Update status before reading cachedeStatus
+### 0.1.17-alpha.0 (2025-11-22)
+- (bolliy) dependency and configuration updates
+- (booliy) NPM: migration to trusted publishing
+
+### 0.1.16 (2025-07-03)
+- (bolliy) dependency and configuration updates
+- (bolliy) ConnectEV: update API endpoint and enhance password encryption method
+
+### 0.1.15 (2025-02-22)
+- (bolliy) dependency and configuration updates
+- (bolliy) ConnectEV: Unset user-agent
+
+### 0.1.14 (2025-01-16)
+
+- fix for nissan ev login
+
+### 0.1.13 (2024-11-22)
+
+- battery status v2 moved to to batter-statusv2 object folder
+
+### 0.1.7 (2024-11-11)
+
+- battery status fixed
+
+### 0.1.6 (2024-11-01)
+
+- (bolliy) dependency and configuration updates
+- (bolliy) Requirements from ioBroker Check and Service Bot
+- (bolliy) dependency and configuration updates
+
+### 0.1.4 (2024-07-07)
+
+- (bolliy) dependency and configuration updates
+- (bolliy) breaking change: added Admin 5 configuration
+- (bolliy) ConnectEV: update status before reading cachedeStatus
 - (bolliy) improve State roles and types
+- (bolliy) ConnectEV: update Blowfish v4.1
 
 ### 0.1.2 (2024-05-31)
 
@@ -60,7 +93,7 @@ hash: FbxmhAnuLWz2syQPO2VGYuM2z74lmRVrTUd5kZrMjuQ=
 
 MIT License
 
-Copyright (c) 2021-2024 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

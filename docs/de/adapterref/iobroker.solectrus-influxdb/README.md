@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solectrus-influxdb/README.md
 title: ioBroker.solectrus-influxdb
-hash: IQxnlGrnIkLyfp5nTbjgidHoSO0+SesrZYSkwU8jjno=
+hash: hREJONcmWVlz+RGZBoLlhW69OrWB/0boOuaM9/wpUi8=
 ---
 # IoBroker.solectrus-influxdb
 
@@ -13,13 +13,13 @@ hash: IQxnlGrnIkLyfp5nTbjgidHoSO0+SesrZYSkwU8jjno=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/solectrus-influxdb-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.solectrus-influxdb.png?downloads=true)
 ![ioBroker](https://img.shields.io/badge/ioBroker-Adapter-blue)
-![Node.js](https://img.shields.io/badge/Node.js-%3E%3D20-green)
+![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22-green)
 ![InfluxDB](https://img.shields.io/badge/InfluxDB-2.x-orange)
 ![Lizenz](https://img.shields.io/badge/License-MIT-lightgrey)
 
 **Tests:** ![Test und Freigabe](https://github.com/patricknitsch/ioBroker.solectrus-influxdb/workflows/Test%20and%20Release/badge.svg)
 
-# 🌞 SOLECTRUS InfluxDB-Adapter für ioBroker
+## 🌞 SOLECTRUS InfluxDB-Adapter für ioBroker
 ---
 
 ## Übersicht
@@ -29,11 +29,13 @@ Es ist für Energiemonitoringsysteme wie Photovoltaikanlagen, Batteriespeicher, 
 
 ### Merkmale
 - **Sensor Mapping** -- Ordnen Sie jeden ioBroker-Status einer InfluxDB-Messung/einem Feld mit konfigurierbarem Datentyp (int, float, bool, string) zu.
+- **Interne Sensoren** – Spiegeln und Überwachen von Zuständen, ohne diese in InfluxDB zu schreiben
 - **Zuverlässige Pufferung** – Der persistente Schreibpuffer (bis zu 100.000 Punkte) bleibt auch bei InfluxDB-Ausfällen und Adapterneustarts erhalten.
 - **Data-SOLECTRUS Formel-Engine** (optional) – Berechnet abgeleitete Werte aus mehreren Eingaben mithilfe von Formeln, Quellspiegelung oder regelbasierten Zustandsautomaten
 - **Zustandsautomatenmodus** -- Generiert Zeichenketten-/Boolesche Zustände aus Regelbedingungen (Erster Treffer gewinnt), ideal für Statusbezeichnungen und Betriebsmodi
 - **Formelgenerator** – Visueller Editor mit Drag-and-Drop-Bausteinen, Live-Vorschau, Operator-Tooltips und Beispielmustern
-- **Ordnergruppierung** – Berechnete Werte zur besseren Übersicht in Ordnern organisieren.
+- **Ordnergruppierung** – Ordnen Sie Sensoren und berechnete Werte in Ordnern, um eine bessere Übersicht zu erhalten.
+- **Integrierte Datensicherung** – Lokale Backups der Instanzkonfiguration, Sensoren und Data-SOLECTRUS-Elemente können direkt über die Registerkarte **Datensicherung** erstellt, hochgeladen, wiederhergestellt, heruntergeladen und gelöscht werden. Es ist kein weiterer Adapter erforderlich.
 
 ### Schnellstart
 1. Installieren Sie den Adapter über die ioBroker-Admin-Oberfläche.
@@ -45,15 +47,15 @@ Es ist für Energiemonitoringsysteme wie Photovoltaikanlagen, Batteriespeicher, 
 ---
 
 ## Dokumentation
-[Englische Dokumentation](./docs/en/README.md)
+[🇺🇸 Dokumentation](./docs/en/README.md)
 
-[Deutsche Dokumentation](./docs/de/README.md)
+[🇩🇪 Dokumentation](./docs/de/README.md)
 
 ---
 
 ### Anforderungen
 - ioBroker >= neueste stabile Version
-- Node.js >= 20
+- Node.js >= 22
 - InfluxDB 2.x
 
 ---
@@ -65,103 +67,33 @@ Es ist für Energiemonitoringsysteme wie Photovoltaikanlagen, Batteriespeicher, 
 -->
 
 ### **WORK IN PROGRESS**
+* (patricknitsch) Cleanup i18n
+* (copilot) Fix timeout for Backup Manager
 
-* (claude) Fix DS Tick time budget
-* (patricknitsch) Update Admin Package
+### 1.12.0 (2026-07-08)
+* (patricknitsch) Final Release
 
-### 1.2.2 (2026-02-24)
+### 1.12.0-beta.1 (2026-07-08)
+* (patricknitsch) Fix `npm run check` (tsc type-checking of the JSDoc-typed JS codebase) so it passes cleanly again
+* (patricknitsch) Improve JSDoc type coverage across `dsProxy.js`, `jsonpath.js`, `stateMachine.js` and `helpers.js`
+* (patricknitsch) Resolve all remaining ESLint JSDoc warnings (`npm run lint` is now warning-free)
 
-* (claude) Synchronize Formal Engine with Repo from Felliglanz
-* (claude) Add Warning after first start, if value is negative
-* (claude) Add Comment on first page, that SOLECTRUS doesn't accept negative values
-* (claude) Update Readme and Translations
+### 1.12.0-beta.0 (2026-07-05)
+* (patricknitsch) Update Dependencies
+* (patricknitsch) Add built-in **Backup** tab: create/upload/restore/download/delete local backups of the instance config, sensors and Data-SOLECTRUS items, with a configurable storage location (InfluxDB token is excluded and must be re-entered after a restore)
+* (patricknitsch) Add **Enable iFrame dashboard** checkbox: gates both the iFrame config tab and the Dashboard tab in the sensor overview (tab.html); reuse **Enable notifications** as the single switch that both activates notifications and reveals the Notifications tab
 
-### 1.2.1 (2026-02-13)
+### 1.11.0 (2026-06-23)
+* (copilot) Remove legacy Forecast Lib
+* (copilot) Migrate old config to new(now no Datapoints will be generated)
+* (copilot) Fix some small possible issues
+* (copilot) Update Docs
 
-* (patricknitsch) Fix wrong package
+### 1.10.0 (2026-06-06)
+* (copilot) Add internal sensors (mirrored/monitored, but not written to InfluxDB) so they can also be used for interval and value checks
+* (copilot) Add sensor folder/group support and document sensor status/group behavior
 
-### 1.2.0 (2026-02-13)
-
-* (claude) Concurrent collect and flush without delay of 5s
-
-### 1.1.2 (2026-02-13)
-
-* (patricknitsch) Fix Eslint-Warnings
-
-### 1.1.1 (2026-02-12)
-
-* (patricknitsch) Fix Eslint-Errors
-
-### 1.1.0 (2026-02-12)
-
-* (claude) Add Formula Engine to build own sensors
-
-### 1.0.0 (2026-01-31)
-
-* (patricknitsch) change Config for Encryption -> Credentials must be re-entered
-
-### 0.3.5 (2026-01-30)
-
-* (patricknitsch) Using node:package format
-* (patricknitsch) encrypt sensitive information -> Token must be re-entered
-* (patricknitsch) onStateChange ignores ack flag
-* (patricknitsch) creation of intermediate objects missing
-* (patricknitsch) using this.setTimeout
-* (patricknitsch) check and limit configurable timeouts/intervals
-* (patricknitsch) Extend Readme
-
-### 0.3.4 (2026-01-19)
-
-* (patricknitsch) Update Readme and split it in two own docs
-
-### 0.3.3 (2026-01-19)
-
-* (patricknitsch) Try fixing automatic npm release
-
-### 0.3.2 (2026-01-19)
-
-* (patricknitsch) change Repo from ssh to https
-
-### 0.3.1 (2026-01-19)
-
-* (Felliglanz) Fix some issues in UI
-
-### 0.3.0 (2026-01-18)
-
-* (patricknitsch) Better handling of Influx Connection, also if no sensor is active
-* (Felliglanz) Rebuild of UI with actual status of each sensor
-
-### 0.2.0 (2026-01-18)
-
-* (patricknitsch) Refactoring code and improve readability
-* (patricknitsch) Buffer values and send to Influx if Influx is online
-* (patricknitsch) Save max. 100000 values and send all to Influx if Influx is online again
-* (patricknitsch) Split Data Collecting and Influx writing
-* (patricknitsch) Updated Translations
-
-### 0.1.5 (2026-01-17)
-
-* (Felliglanz) Improve sensor configuration UI (accordion)
-
-### 0.1.4 (2026-01-15)
-
-* (patricknitsch) Bugfix with Icon
-
-### 0.1.3 (2026-01-15)
-
-* (patricknitsch) Bugfix for License
-* (patricknitsch) Bugfix for Interval
-* (patricknitsch) Synchronize Names, Measurements and Fields to SOLECTRUS Documentation
-
-### 0.1.2 (2026-01-14)
-* (patricknitsch) change UI to look for Source in Tree
-
-### 0.1.1 (2026-01-14)
-* (patricknitsch) add more Debugging
-* (patricknitsch) optimize translation
-
-### 0.1.0 (2026-01-14)
-* (patricknitsch) initial release
+**Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
 
 ## License
 

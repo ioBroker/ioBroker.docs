@@ -12,43 +12,48 @@
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYHW84XXF5REJ&source=url)
 
-## Viessmann über vcontrold
+## Viessmann via vcontrold (German)
 
-**[Deutsche Beschreibung](docs/de/viessmann.md)**
+**[German description](docs/de/viessmann.md)**
 
 ## Viessmann via vcontrold
 
 **[English description](docs/en/viessmann_en.md)**
 
 ******************************************************************************************
-*die benutzten Bilder stammen von www.viessmann.com.*
+*The images used are from www.viessmann.com.*
 
 ## ToDo
-	- Anderung der Vito.xml ohne Verlust der Einstellungen
-	- Implementierung Unit on/off
+	- Changing Vito.xml without losing settings
+	- Implement unit on/off
+
+
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.5 (2026-06-29)
+* (misanorot) fixed checker issues
+
+### 2.0.4 (2026-05-17)
+* (misanorot) fixed checker issues
+
+### 2.0.2 (2026-05-16)
+* (misanorot) change to JSON UI
+- (copilot) Adapter requires node.js >= 22 now
+
+### 1.7.4 (2026-03-15)
+* (misanorot) update packages
+
 ### 1.7.3 (2025-10-26)
 * (misanorot) update npm progress
 
-### 1.7.2 (2025-10-12)
-* (misanorot) update packages
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
-### 1.7.1 (2025-06-01)
-* (ghecker1) optimize reconnect
-
-### 1.6.0 (2025-05-03)
-* (misanorot) node 20 require
-
-### 1.5.4 (2025-01-08)
-* (misanorot) protect password
-
-### License
+## License
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2025 misanorot <audi16v@gmx.de>
+Copyright (c) 2017-2026 misanorot <audi16v@gmx.de>

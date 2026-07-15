@@ -35,9 +35,6 @@ It is designed to receive data from XSense smoke detectors, CO detectors, and ot
 The adapter communicates with the XSense cloud server and provides an easy way to integrate XSense devices into existing ioBroker setups.  
 An XSense Bridge SBS50 is required.
 
-
-## the [Orginal Python Code](https://github.com/theosnel/python-xsense) is from [theosnel](https://github.com/theosnel) .. big THX for
-
 ---
 
 ## ❗ WARNING
@@ -78,42 +75,7 @@ Since XSense does not allow simultaneous login from the app and third-party soft
 
 ---
 
-## 🚀 Installing Python (if not already installed)
-
-It must be an official and publicly released Python version.
-
-💻 **Windows**
-
-1. **Install Python**  
-   - Download: [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/)  
-   - During installation, **enable “Add Python to PATH”**  
-   - Then verify:  
-     ```powershell
-     python --version
-     pip --version
-     ```
-   - Afterwards, in the objects under `xsense.0.info.callPython`, enter `python` (default value is `python3`).
-
-🐧 **Linux / Docker**  
-- This happens automatically — just select the preferred version in the adapter settings.
-
----
-
 ## ❗ Troubleshooting
-
-If the correct version is installed but the adapter has already fetched the wrong one,  
-first delete the environment:
-
-```
-  rm -Rf /home/iobroker/.cache/autopy/venv/xsense-env
- ```
-
-
-Then restart the adapter.
-If it still doesn’t work, check the file /home/iobroker/.cache/autopy/venv/xsense-env/pyvenv.cfg.
-It lists the Python versions relevant to the environment — adjust if necessary.
-If the file does not exist, you did not wait long enough for the adapter to start.
-
 
 Error Message after install
 
@@ -140,117 +102,24 @@ or if you have a VM on proxmox check your CPU settings
 -->
 
 ## Changelog
-### 0.3.6 (2026-01-26)
-* (arteck) typo
-*
-
-### 0.3.5 (2026-01-26)
-* (arteck) check object isLifeEnd
-
-### 0.3.4 (2026-01-25)
-* (arteck) fix bridge with hex
-
-### 0.3.3 (2026-01-25)
-* (arteck) fix battery state
-
-### 0.3.2 (2026-01-25)
-* (arteck) update settings
-
-### 0.3.1 (2026-01-25)
-* (arteck) update settings
-
-### 0.3.0 (2026-01-25)
-* (arteck) update settings
-
-### 0.2.6 (2026-01-24)
-* (arteck) update settings
-
-### 0.2.5 (2026-01-24)
+### 0.6.4 (2026-06-22)
 * (arteck) Dependencies have been updated
 
-### 0.2.4 (2026-01-24)
-* (arteck) add MQTT communication to Bridge. Xsense app Version > 1.34 is necessary
-
-### 0.2.3 (2026-01-15)
-* (arteck) add new smoke detectors
-
-### 0.2.2 (2025-12-03)
-* (arteck) add XS0D-MR
-
-### 0.2.1 (2025-10-30)
-* (arteck) fix link to readme
-* (arteck) fix load bridge as first
-
-### 0.2.0 (2025-10-21)
-* (arteck) !!!!!!!!!!!!!!!!!!!!!!!   new tree structure, delete all old devices
-* (arteck) fix for more bridges
-
-### 0.1.3 (2025-10-20)
-* (arteck) fix for more devices than 15
-
-### 0.1.2 (2025-10-06)
-* (arteck) fix error message
-
-### 0.1.1 (2025-10-04)
-* (arteck) fix
-
-### 0.1.0 (2025-10-04)
-* (arteck) improved query handling
-* (arteck) add Test button with answer message
-* (arteck) shorter request interval (min 10 sec)
-
-### 0.0.18 (2025-09-06)
-* (arteck) fix time state from device
-
-### 0.0.17 (2025-09-06)
+### 0.6.3 (2026-05-20)
 * (arteck) Dependencies have been updated
 
-### 0.0.16 (2025-09-06)
+### 0.6.2 (2026-05-20)
+* (copilot) Adapter requires node.js >= 22 now
 * (arteck) Dependencies have been updated
 
-### 0.0.15 (2025-08-17)
-* (arteck) add forceRefresh button for manual refresh of device data
+### 0.6.1 (2026-05-03)
+* (arteck) fix deviceManager
 
-### 0.0.14 (2025-08-16)
-* (arteck) add checkbox for windows
-* (arteck) add timeout for python
-* (arteck) fix state roles
+### 0.6.0 (2026-05-03)
+* (arteck) fix battery info
+* (arteck) add deviceManager
 
-### 0.0.13 (2025-08-03)
-* (arteck) fix io-package
-
-### 0.0.12 (2025-07-30)
-* (arteck) fix util
-
-### 0.0.11 (2025-07-30)
-* (arteck) fix util missing
-
-### 0.0.10 (2025-07-30)
-* (arteck) pip auto install for linux
-
-### 0.0.9 (2025-07-30)
-* (arteck) fix callPython Object
-
-### 0.0.8 (2025-07-30)
-* (arteck) add callPython Object
-
-### 0.0.6 (2025-07-29)
-* (arteck) new error message
-
-### 0.0.5 (2025-07-29)
-* (arteck) serialnumber is a string
-
-### 0.0.4 (2025-07-28)
-* (arteck) fix language
-
-### 0.0.3 (2025-07-28)
-* (arteck) modify Debug method
-
-### 0.0.2 (2025-07-28)
-* (arteck) initial release
-
-### 0.0.1 (2025-07-27)
-* (arteck) initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

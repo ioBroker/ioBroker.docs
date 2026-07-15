@@ -33,276 +33,34 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* fix: the order of bit assignment corrected of alarmsJSON
-* new state `inverter.x.emma.activeAlarmSN` and `inverter.x.emma.HistoricalAlarmSN` : emma alarms  [#226](https://github.com/bolliy/ioBroker.sun2000/issues/226)
-* statistics 
+### 2.5.1 (2026-06-29)
+- (bolliy) fix: update service queue logic ([#283](https://github.com/bolliy/ioBroker.sun2000/discussions/283))
+- (bolliy) statistics fix: adjust reset handling logic to treat significant drops in value as potential resets
 
-### 2.3.7 (2026-02-01)
-* deleted deprecated state `collected.usableSurplusPower`
+### 2.5.0 (2026-06-09)
+* (bolliy) statistics: added live power chart (statistics.jsonLive)
+* (bolliy) statistics: consumption breakdown — breakdown values are now subtracted from the total `consumption` entry so the lower chart panel shows the remainder separately from the breakdown series
+* (bolliy) statistics: `xAxisFormatter` for the live chart only labels full-hour ticks to avoid clutter
+* (bolliy) statistics: tooltip formatter refactored — `formatTooltipValue(unit, negative, decimals)` helper used consistently across all series
+* (bolliy) statistics: if no battery is present, the charts are generated without battery information (SOC, charge, discharge).
+* (bolliy) fix emma: update register addresses of meter.activePowerL1-L3 ([#282](https://github.com/bolliy/ioBroker.sun2000/issues/282))
+* (bolliy) requires node.js >= 22
 
-### 2.3.6 (2026-01-29)
-* dependency and configuration updates
-* new state `inverter.x.derived.alarmsJSON` : json array with intverter alarms (id, name, level) [#226](https://github.com/bolliy/ioBroker.sun2000/issues/226)
-* add ChargeDischargePower for Battery units [#234](https://github.com/bolliy/ioBroker.sun2000/issues/234)
-* add minimum and maximum temperature for battery packs [#236](https://github.com/bolliy/ioBroker.sun2000/issues/236)
+### 2.4.5 (2026-05-14)
+* statistics fix: return weekly range up to current Monday
+* statistics: added support for generating statistics templates directly from built-in charts
+* statistics: improved tooltip formatter - tooltip units are now provided explicitly via tooltip.valueFormatter
 
-### 2.3.5 (2025-11-17)
-* dependency and configuration updates
-* Battery status check was suspended in inverter control [#220](https://github.com/bolliy/ioBroker.sun2000/issues/220)
-* Emma: dynamic detection of sun2000 inverters and integration of devices such as sun2000
-* allow Modbus ID 0 when using the sDongle [#218](https://github.com/bolliy/ioBroker.sun2000/issues/218)
+### 2.4.4 (2026-05-04)
+* statistics fix: add error handling for waitForValue function
 
-### 2.3.4 (2025-11-01)
-* dependency and configuration updates
-* new state `collected.dailyExternalYield` Riemann sum of `collected.externalPower`
+### 2.4.3 (2026-04-19)
+* statistics: new state `statistics.jsonToday` — live summary of today's energy values
+* statistics: default chart shows energy flows above/below zero line, SOC (hourly only), self-sufficiency and self-consumption on second Y-axis
+* statistics: computed values `selfSufficiency` and `selfConsumption` calculated automatically in all time-series states
+* statistics: data placeholders (`%%solarYield%%`, `%%selfSufficiency%%` etc.) and negated variants (`%%gridExportNeg%%` etc.) for mirrored chart layouts
 
-### 2.3.3 (2025-10-31)
-* Improved verification of the adapter configuration
-* new state `inverter.x.derived.dailyActiveEnergy` Inverter daily active energy, which is determined via the Riemann sum of `inverter.x.activePower`
-* state `collected.dailyInputYield` was redisigned based on inverter.[0..n-1].derived.dailyActiveEnergy
-
-### 2.3.2 (2025-10-24)
-* allows again `control.battery.chargeFromGridFunction` when using the Emma
-
-### 2.3.1 (2025-10-21)
-* fix: handle potential null values in set method of RegisterMap
-
-### 2.3.0 (2025-10-21)
-* new release for npm migrates to Trusted Publishing
-
-### 2.2.1-alpha.0 (2025-10-21)
-* inverter control: add same state for startup and shutdown an inverter [#199](https://github.com/bolliy/ioBroker.sun2000/issues/199)
-* fix: Device status name has been corrected [#202](https://github.com/bolliy/ioBroker.sun2000/pull/202)
-* add undocumented device status `Shutdown: End of the ESS discharge process` 
-* emma control: new state `emma.control.battery.ESSControlMode`. You can now configure EMMA with TOU-mode (Time of Use) to charge the battery from grid. [#200](https://github.com/bolliy/ioBroker.sun2000/discussions/200)
-* if an Emma is installed, some control states of the inverter are deactivated (read only). Mainly for the grid settings.
-* deprecated control states have been removed.
-* a workaround for issue [#582](https://github.com/yaacov/node-modbus-serial/issues/582) of node-modbus-serial has been implemented.
-
-### 2.2.0 (2025-10-05)
-* dependency and configuration updates
-* new state `meter.derived.signConventionForPowerFeed-in` sign of meter.activePower that is currently being fed into the power grid
-* new state `meter.derived.feed-inPower` electric power that is supplied to a grid ("fed in")
-
-### 2.1.1 (2025-09-24)
-* dependency and configuration updates
-* fix: adjust event value limits based on usableSurplus parameters
-* fix: swap register values for power consumption in Emma driver #190
-* emma: improve power calculation with exponential moving average in EmmaCharger
-* update surplus power state definitions and deprecate old identifiers
-
-### 2.1.0 (2025-07-06)
-* emma: system time is being determined [#179](https://github.com/bolliy/ioBroker.sun2000/issues/179)
-* control: add grid power scheduling functionality to inverter driver [#176](https://github.com/bolliy/ioBroker.sun2000/issues/176)
-
-### 2.0.0 (2025-06-29)
-* add support for chargers via Emma and save the data in the charger path #171
-* Establish data consistency between meter.activePower and the power of the meter phases #174
-* allows `control.battery.chargeFromGridFunction` when using the Emma
-* breaking change: 
-   - the value `sun2000.x.inverter.x.battery.runningStatus` is saved as a number. The translated value (such as STANDBY, RUNNING etc.) is stored in the path sun2000.x.inverter.x.battery.derived
-
-### 1.5.0 (2025-05-20)
-* update dependencies
-* fix: surplus power during battery discharge
-* control: new control value `sun2000.0.control.usableSurplus.bufferHysteresis`
-
-### 1.4.0 (2025-04-07)
-* control: new control state `sun2000.0.control.externalPower` #76
-* fixed issue detected by repository checker #166
-
-### 1.3.0 (2025-04-02)
-* usableSurplusPower: new control state `sun2000.0.control.usableSurplus.allowNegativeValue`
-
-### 1.2.0 (2025-04-01)
-* dependency and configuration updates
-* fix: Object state sDongle.OSVersion to short
-* new setting path for controlling the usableSurplusPower parameters `control.usableSurplus`
-
-### 1.1.0 (2025-03-19)
-* startupTime/shutdownTime are read from the inverter as local time and not as UTC - fixed times are saved in path `derived`
-* new state [usableSurplusPower](https://github.com/bolliy/ioBroker.sun2000/wiki/%C3%9Cberschuss-(surplus))
-* control: checking and rounding integer numbers
-* better solution for math rounding
-
-### 1.0.1 (2025-03-01)
-* updated further case sensitivity of the object status name
-* require ioBroker admin 7.4.10 or higher #154
-
-### 1.0.0 (2025-02-10)
-* dependency and configuration updates
-* updated case sensitivity of the object status name
-* Interval time of the slave inverter increased slightly
-* Register data is not read in "Standby: detecting irradiation" (0x0002) of the slave inverter
-* Control: battery.maximumDischargePower is deprecated use "maximumDischargingPower" instead
-* Control: battery.maximumChargePower is deprecated use "maximumChargingPower" instead
-* breaking changes
-	- Node.js 20 or higher required
-	- ioBroker host (js-controller) 6.0.1 or higher
-	- ioBroker admin 6.13.16 or higher
-
-### 0.18.1 (2025-01-08) 
-* dependency and configuration updates
-* control: if the battery is not running, events related to the battery are discarded
-* modbus-proxy: adjusted advanced logging
-
-### 0.18.0 (2024-12-11)
-* dependency and configuration updates
-* modbus-proxy: the modbus ID 250 is mapped to ID 0
-
-### 0.17.1 (2024-11-21)
-* during the device status "Standby: detecting irradiation" (0x0002) register data is now also read from the inverter
-* The reading order of the battery data has been adjusted
-
-### 0.17.0 (2024-11-05)
-* adjust for Responsive Design #134
-* migrate to ESLint 9.x
-* node >= v18.18.0
-* modbus-proxy: enabled reading data via input register
-
-### 0.16.0 (2024-11-01)
-* dependency and configuration updates
-* read additional register data of Huawei Emma
-
-### 0.15.2 (2024-10-30)
-* EMMA Device was not initialized
-
-### 0.15.1 (2024-10-28)
-* SDongle data was not written as object states
-* adjust the adapter settings
-
-### 0.15.0 (2024-10-24)
-* dependency and configuration updates
-* display a clearly legible table bar #121
-* modbus-proxy write data also to the read cache #119
-
-### 0.14.0 (2024-10-20)
-* adjust for Responsive Design #121
-* lock on asynchronous modbus code
-* writing data ​​via the modbus-proxy #119
-* read additional register data of Huawei Emma
-
-### 0.13.0 (2024-10-11)
-* improve Modbus reconnection #116
-* configuration update
-* initial Integration of Huawei Emma (Huawei Energy Management Assistant) #63
-
-### 0.12.1 (2024-09-29)
-* no warning from check the valid number during standby: "no irradiation"
-
-### 0.12.0 (2024-09-23)
-* Requirements from ioBroker Check and Service Bot #104
-* added battery packs #85
-* added config panel `Further Register`
-
-### 0.11.0 (2024-06-27)
-* added a donation link in the adapter settings
-* dependency updated
-
-### 0.10.0 (2024-06-14)
-* dependency and configuration updates
-* adjust roles in the control path
-* Battery control: add backup power SOC #84
-* fix: wrong state name `control.battery.targetSOC` with trailing space
-
-### 0.9.0 (2024-05-09)
-* dependency and configuration updates
-* modbus device remains active in standby on the inverter M2,M3
-
-### 0.8.0 (2024-04-19)
-* Check numerical values for plausibility #75
-* realization the "limit the power fed to grid" (Export control)
-* realization the "forcible Charge or Discharge Power"
-* If the error 'ECONNRESET' appear, the modbus proxy should not terminate
-
-### 0.7.1 (2024-04-09)
-* inverter model name too many characters #73
-
-### 0.7.0 (2024-04-03)
-* breaking changes
-	- Node.js 18.x or higher required
-	- ioBroker host (js-controller) 5.x or higher
-
-### 0.6.2 (2024-03-31)
-* standby detection adjusted
-* improvement of logs
-
-### 0.6.1 (2024-03-23)
-* Battery control: After the second failed attempt, the control event is discarded
-* Battery control: Adjust the battery maxCharge and Discharge to the actual values
-
-### 0.6.0 (2024-03-21)
-* realization the "battery charge control" #61
-* fix the standby detection #60
-
-### 0.5.1 (2024-03-11)
-* config page restructured
-* read only the required string data
-* fix interval medium
-
-### 0.5.0 (2024-03-07)
-* Integration of [Huawei SmartLogger](https://support.huawei.com/enterprise/de/doc/EDOC1100130069/d8a00460)
-* some meter states the unit was changed (for example sun2000.0.meter.activePowerL1) (#56)
-* sun2000 serie M2 or higher can also be processed
-
-### 0.4.1 (2024-03-03)
-* read PV string data slower (medium interval)
-
-### 0.4.0 (2024-03-01)
-* detect standby mode of inverters (#34)
-* devices in standby often give incorrect values. These are assigned "0" (#40)
-* the modbus register and the length are stored in the description of the states
-* implemented modbus-proxy (read-only cache)
-* read register data from SDongleA 
-* additional loop interval medium (SDongle data)
-* Integration of [NRGkick Wallbox](https://www.nrgkick.com)
-* read string data faster (high interval)
-
-### 0.3.1 (2024-02-12)
-* state `sun2000.0.collected.chargeDischargePowercharge` is not always refreshed #47
-
-### 0.3.0 (2024-02-10)
-* add battery unit information for example temperature #40
-* modbus timeout, connect delay and delay can be configured #34
-* device status as plain text `sun2000.0.inverter.x.derived.deviceStatus`
-* Introduction of a driver model. A separate driver can be created for each device #41
-
-### 0.2.1 (2024-02-02)
-* Requirements from [Add sun2000 to latest](https://github.com/ioBroker/ioBroker.repositories/pull/3219)
-
-### 0.2.0 (2024-01-24)
-* [Add sun2000 to latest](https://github.com/ioBroker/ioBroker.repositories/pull/3219)
-* improve error handling (#34)
-* add simple optimizer info 
-* Riemann sum of input power with energy loss for new state `dailySolarYield`
-* try to recreate the `yield today` from the fusion portal
-
-### 0.1.3 (2024-01-17)
-* display the data from PV strings (#27)
-* optimize the timing of interval loop
-* improved handling of read timeouts from more then 2 inverters
-
-### 0.1.2 (2024-01-12)
-* fix: no Data if interval less 20 sec (#24)
-* prepare collected values more precisely
-* expand up to 5 inverters #18
-* fix: problems with multiple inverters
-
-### 0.1.1 (2024-01-07)
-* fix some collected values
-
-### 0.1.0 (2024-01-06)
-* watchdog implemented #11
-* state values are cached - only changed data should be stored 
-* derived and collected values for example `inputPowerEffective` or `inputYield`
-* deploy more register
-
-### 0.0.2 (2023-12-19)
-Dependency and configuration updates
-
-### 0.0.1 
-initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

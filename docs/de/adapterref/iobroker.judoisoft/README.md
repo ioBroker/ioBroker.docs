@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.judoisoft/README.md
 title: ioBroker.judoisoft
-hash: ZxOGXDTDfqXFZ3X3m2u9JkcSLtq+rzgfSuVnFZnfARA=
+hash: 94PTq/GJP0CTD1to4XsTqDKMykjkTvCCcJijxUL63Zs=
 ---
 ![Logo](../../../en/adapterref/iobroker.judoisoft/admin/judo.png)
 
@@ -15,9 +15,9 @@ hash: ZxOGXDTDfqXFZ3X3m2u9JkcSLtq+rzgfSuVnFZnfARA=
 # IoBroker.judoisoft
 =================
 
-judoisoft-Adapter für ioBroker ------------------------------- --------------------------------
+judoisoft-Adapter für ioBroker ----------------------------------------------------------------
 
-Ein kleiner Auszug nur der Befehlsoptionen:
+Ein kleiner Auszug aus den Befehlsoptionen:
 
 ![Möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/datenpunkte.png)
 
@@ -25,7 +25,26 @@ Verfügbare Einstellungen:
 
 ![Möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/settings.png)
 
+Bei Geräten mit dem neuen JUDO-Konnektivitätsmodul aktivieren Sie `REST API (connectivity module)` in den Instanzeinstellungen.
+Dadurch wird die lokale Schnittstelle `http://<ip>/api/rest/...` (Basisauthentifizierung) verwendet.
+
+(Standardbenutzername/-passwort: „admin“ / „Connectivity“)
+
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (@SimonFischer04) support rest-api (#143). closes #32, closes #82
+- (@arteck, @SimonFischer04) (dependency) bump / cleanups
+- (@SimonFischer04) Migration to ESLint 9 and @iobroker/eslint-config. #114
+- (@SimonFischer04) Migrate admin config to ioBroker jsonConfig. Closes #55
+
+### 1.1.2 (2025-01-04)
+* (arteck) corr some errors
+
+### 1.1.1 (2024-09-26)
+* (arteck) corr cloud connection
+
 ### 1.1.0 (2023-10-27)
 * (arteck) switch to intervall
 
@@ -65,7 +84,7 @@ Verfügbare Einstellungen:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 Arthur Rupp arteck@outlook.com
+Copyright (c) 2018-2026 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

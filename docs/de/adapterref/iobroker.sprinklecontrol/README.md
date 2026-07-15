@@ -677,33 +677,35 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (Dirk-Peter-md) Adaptation to “dasWeather” >= 4.0
-* (Dirk-Peter-md) Fix npm publish
-* (Dirk-Peter-md) dependencies updated
-* (Dirk-Peter-md) update dependabot
+### 1.0.9 (2026-07-01)
+ * (Dirk-Peter-md) Fixed error reading the soil moisture sensor
 
-### 0.2.19 (2025-07-02)
-* (Dirk-Peter-md) The switch-on hysteresis of the cistern is now stored in the configuration.
+### 1.0.8 (2026-06-12)
+ * (Dirk-Peter-md) Fixed error in "Command without response"
+ * (Dirk-Peter-md) Water Pressure Control Revised
+ * (Dirk-Peter-md) ioBroker-Bot [E6004], [W1127], [W1133], [W1134], [S6022] completed
 
-### 0.2.18 (2025-06-30)
-* (Dirk-Peter-md) Hysteresis switch-on value of the cistern changed to 20%
+### 1.0.7 (2026-05-24)
+* (Dirk-Peter-md) Added pressure monitoring.
 
-### 0.2.17 (2025-06-15)
-* (Dirk-Peter-md) Valve timing corrected
+### 1.0.6 (2026-05-10)
+* (Dirk-Peter-md) Cistern Control Optimized
+* (Dirk-Peter-md) Translation revised
 
-### 0.2.16 (2025-06-08)
-* (Dirk-Peter-md) issue #95 Pump lead time added
+### 1.0.5 (2026-05-03)
+* (Copilot) Adapter benötigt jetzt node.js >= 22
+* (Dirk-Peter-md) Second start time added
+* (Dirk-Peter-md) bug fixed in sprinklerState
 
-### 0.2.15 (2025-06-01)
-* (Dirk-Peter-md) Readme updated
-* (Dirk-Peter-md) Fixed an error when switching off with autoOnOff
-* (Dirk-Peter-md) ioBroker-Bot [W028]
+### Older versions
+[CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+
+*************************************************************************************************************************************
 
 ## License
-MIT License
+[MIT License](LICENSE)
 
-Copyright (c) 2020-2026     Dirk Peter     <dirk.peter@freenet.de>
+Copyright (c) 2020-2026       Dirk-Peter-md     <dirk.peter@freenet.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -717,7 +719,7 @@ copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE

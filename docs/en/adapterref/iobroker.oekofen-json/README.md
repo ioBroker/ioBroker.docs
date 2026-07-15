@@ -46,6 +46,7 @@ This adapter would not have been possible without the great work of Markus Feile
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 2.0.0 (2025-11-26)
@@ -80,10 +81,12 @@ This adapter would not have been possible without the great work of Markus Feile
 ### **0.0.1**
 * (chaozmc) initial build phase, much try and error
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2025-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 chaozmc <chaozmc@is-jo.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

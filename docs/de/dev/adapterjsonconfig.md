@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: 7ziegV+BjbzDnaPC4m+5m5RvIOfUu8K2pyUytmxbePE=
+hash: VCMZaxdbPUcO10dU2pTGiNkplzi+Uv6n/R6PFmvucPA=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -134,11 +134,12 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`certificateCollection`:**](#certificatecollection) Wählt eine Sammlung für Let's Encrypt-Zertifikate aus
 - [**`certificates`:**](#certificates) Universeller Typ zur Verwaltung verschiedener Zertifikatstypen (ab Admin 6.4.0)
 - [**`checkbox`:**](#checkbox) Kontrollkästchen für boolesche Werte
-- [**`checkDocker`:**](#checkdocker) Spezielle Komponente zur Überprüfung der Docker-Verfügbarkeit. Falls ja, kann eine Checkbox aktiviert werden (ab Admin 7.8.0).
+- [**`checkDocker`:**](#checkdocker) Spezielle Komponente zur Überprüfung, ob Docker verfügbar ist, und falls ja, kann ein Kontrollkästchen aktiviert werden (ab Admin 7.8.0)
 - [**`checkLicense`:**](#checklicense) Eine spezielle Komponente zur Online-Lizenzprüfung
 - [**`chips`:**](#chips) Der Benutzer kann Wörter eingeben, die einem Array hinzugefügt werden.
 - [**`color`:**](#color) Farbauswahl
 - [**`coordinates`:**](#coordinates) Bestimmt den aktuellen Standort und verwendet die Koordinaten aus `system.config`, falls diese nicht im Format `latitude,longitude` verfügbar sind.
+- [**`credential`:**](#credential) Wählt eine Anmeldeinformation aus dem zentralen Anmeldeinformationsspeicher aus (verwaltet in den Administratoreinstellungen)
 - [**`cron`:**](#cron) Konfiguriert Cron-Ausdrücke für die Planung von Aufgaben
 - [**`custom`:**](#custom) Integriert benutzerdefinierte Komponenten für spezifische Funktionalitäten (nur Admin 6)
 - [**`datePicker`:**](#datepicker) Ermöglicht Benutzern die Auswahl eines Datums
@@ -416,10 +417,23 @@ Funktion aus `enum.func` auswählen (mit Farbe und Symbol) - (nur Admin6)
 
 ### `select`
 | Objekt | Beschreibung |
-|-----------------|---------------------------------------------------------------------------|
+|-----------------|----------------------------------------------------------------------------------------------------------------|
 | `options` | Objekt mit Beschriftungen, optionalen Übersetzungen, optionaler Gruppierung und Werten |
 | `showAllValues` | Element auch dann anzeigen, wenn keine Bezeichnung dafür gefunden wurde (bei mehreren Elementen), Standardwert=`true` |
-| `showAllValues` | Element auch dann anzeigen, wenn keine Bezeichnung dafür gefunden wurde (bei mehreren Elementen), Standardwert=`true` |
+| `format` | Darstellungsformat: `"dropdown"` (Standard) oder `"radio"`, um Optionen als Optionsfelder anstelle eines Dropdown-Menüs anzuzeigen |
+| `horizontal` | Wenn `true`, werden Optionsfelder horizontal angezeigt (gilt nur, wenn `format` gleich `"radio"` ist) (ab Version 8.3.3) |
+| `horizontal` | Wenn `true`, werden Optionsfelder horizontal angezeigt (gilt nur, wenn `format` auf `"radio"` gesetzt ist) (ab Version 8.3.3) |
+
+Jede Option in `options` kann Folgendes enthalten:
+
+| Objekt | Beschreibung |
+|---------------|-----------------------------------------------------------------------|
+| `label` | Bezeichnung der Option (kann eine Zeichenkette oder ein übersetzbares Objekt sein) |
+| `color` | Farbe des Optionstextes |
+| `hidden` | Formel oder boolescher Wert zum Ein- oder Ausblenden der Option |
+| `description` | Beschreibung unterhalb der Optionsbezeichnung (kann übersetzbar sein) |
+| `icon` | Symbol-URL oder Base64-Zeichenkette, die neben der Option angezeigt werden soll (ab Version 8.3.3) |
+| `icon` | URL oder Base64-String des Symbols, das neben der Option angezeigt werden soll (ab Version 8.3.3) |
 
 #### Beispiel für `select options`
 ```json5
@@ -504,7 +518,9 @@ Um dies nutzen zu können, müssen Sie zunächst die OAuth2-Daten (Client-ID, Ge
 | `identifier` | OAuth2-Kennung, z. B. `spotify`, `google`, `dropbox`, `microsoft` |
 | `scope` | Optionale Bereiche, durch Leerzeichen getrennt, z. B. `user-read-private user-read-email` |
 | `refreshLabel` | Optionale Schaltflächenbeschriftung zum Aktualisieren des Tokens |
-| `refreshLabel` | Optionale Schaltflächenbeschriftung zum Aktualisieren des Tokens |
+| `ownClientId` | Optionaler Attributname, unter dem die OAuth-Client-ID des Benutzers gespeichert wird. Falls gesetzt, wird ein Eingabefeld für die Client-ID angezeigt. |
+| `ownClientSecret` | Optionaler Attributname, unter dem das OAuth-Client-Geheimnis des Benutzers gespeichert wird. Falls festgelegt, wird ein Eingabefeld für das Client-Geheimnis angezeigt. |
+| `ownClientSecret` | Optionaler Attributname, unter dem das OAuth-Clientgeheimnis des Benutzers gespeichert wird. Falls festgelegt, wird ein Eingabefeld für das Clientgeheimnis angezeigt. |
 
 #### Beispiel für `oauth2`
 ```json
@@ -523,11 +539,12 @@ Siehe auch [OAUTH2.md](OAUTH2.md) für weitere Informationen.
 Objekt-ID: Anzeige mit Name, Farbe und Symbol
 
 | Objekt | Beschreibung |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `types` | Gewünschter Typ: `channel`, `device`, ... (standardmäßig nur `state`). Es handelt sich um einen Plural, da `type` bereits belegt ist. |
-| `customFilter` | [optional] Kann nicht zusammen mit den `type`-Einstellungen verwendet werden. Es handelt sich um ein Objekt und nicht um eine JSON-Zeichenfolge. |
-| `filterFunc` | [optional] Kann nicht zusammen mit den Einstellungen `type` verwendet werden. Es handelt sich um eine Funktion, die für jedes Objekt aufgerufen wird und true oder false zurückgeben muss. Beispiel: `obj.common.type === 'number'` |
-| `filterFunc` | [optional] Kann nicht zusammen mit `type`-Einstellungen verwendet werden. Es handelt sich um eine Funktion, die für jedes Objekt aufgerufen wird und true oder false zurückgeben muss. Beispiel: `obj.common.type === 'number'` |
+| `customFilter` | [optional] Kann nicht zusammen mit den `types`-Einstellungen verwendet werden. Es handelt sich um ein Objekt und nicht um eine JSON-Zeichenfolge. |
+| `filterFunc` | [optional] Kann nicht zusammen mit den Einstellungen `types` verwendet werden. Es handelt sich um eine Funktion, die für jedes Objekt aufgerufen wird und true oder false zurückgeben muss. Beispiel: `obj.common.type === 'number'` |
+| `fillOnSelect` | [optional] Füllt weitere Konfigurationsfelder, wenn eine Objekt-ID ausgewählt wird. Format: `pathInObject1=>attr1,pathInObject2=>attr2(X)`. Hängen Sie `(X)` an, um nicht leere Felder zu überschreiben. Beispiel: `common.name=>name,common.color=>color(X)` füllt das Feld `name` mit dem Namen des Objekts und überschreibt `color` mit der Farbe des Objekts. |
+| `fillOnSelect` | [optional] Füllt andere Konfigurationsfelder, wenn eine Objekt-ID ausgewählt wird. Format: `pathInObject1=>attr1,pathInObject2=>attr2(X)`. Hängen Sie `(X)` an, um nicht leere Felder zu überschreiben. Beispiel: `common.name=>name,common.color=>color(X)` füllt das Feld `name` mit dem Namen des Objekts und überschreibt `color` mit der Farbe des Objekts. |
 
 #### Beispiele für `customFilter`
 ##### Nur Objekte mit bestimmten benutzerdefinierten Einstellungen anzeigen
@@ -628,7 +645,8 @@ Schaltfläche, die eine Anfrage an die aktuelle Instanz sendet (<https://github.
 | `timeout` | Timeout für die Anfrage in ms. Standard: keiner. |
 | `onLoaded` | Die Schaltflächenlogik einmalig initial ausführen |
 | `controlStyle` | Stile für die Schaltfläche. |
-| `controlStyle` | Stile für die Schaltfläche. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 ### `setState`
 Schaltfläche zum Festlegen des Instanzstatus
@@ -642,32 +660,46 @@ Schaltfläche zum Festlegen des Instanzstatus
 | `Variante` | `enthalten`, `umrandet`, '' |
 
 ### `staticText`
-statischer Text wie Beschreibung
+Statischer Text wie Beschreibung
 
 | Objekt | Beschreibung |
-|----------|---------------------|
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `label` | mehrsprachiger Text |
-| `text` | entspricht der Beschriftung |
+| `format` | `text` (Standard), `html`, `json` (ab Admin-Version 7.8.4) |
+| `href` | Link. Der Link könnte dynamisch sein, wie z. B. `#tab-objects/customs/${data.parentId}` |
+| `target` | `_blank` oder `_self` oder Fenstername. Bei relativen Links ist der Standardwert `_self` und bei absoluten `_blank` |
+| `close` | Wenn wahr, wird die GUI geschlossen (wird nicht für JsonConfig im Adminbereich verwendet, sondern nur für die dynamische GUI, und zwar nur, wenn das Ziel `_self` ist) |
+| `button` | Link als Schaltfläche anzeigen |
+| `variant` | Typ der Schaltfläche (`outlined`, `contained`, `text`) |
+| `color` | Farbe der Schaltfläche (z. B. `primary`) |
+| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Icons `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Icons über das Issue an.) |
+| `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
+| `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 
 Es muss genau eines von `label` oder `text` angegeben werden – nicht beide.
 
 ### `staticLink`
 | Objekt | Beschreibung |
-|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `label` | mehrsprachiger Text |
-| `target` | `_blank` oder `_self` oder Fenstername |
-| `close` | Wenn wahr, wird die GUI geschlossen (wird nicht für JsonConfig im Adminbereich verwendet, sondern für die dynamische GUI) |
+| `target` | `_blank` oder `_self` oder Fenstername. Bei relativen Links ist der Standardwert `_self` und bei absoluten `_blank` |
+| `close` | Wenn wahr, wird die GUI geschlossen (wird nicht für JsonConfig im Adminbereich verwendet, sondern nur für die dynamische GUI, und zwar nur, wenn das Ziel `_self` ist) |
 | `button` | Link als Schaltfläche anzeigen |
 | `variant` | Typ der Schaltfläche (`outlined`, `contained`, `text`) |
 | `color` | Farbe der Schaltfläche (z. B. `primary`) |
 | `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Icons `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Icons über das Issue an.) |
-| `icon` | Wenn ein Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können `base64`-Symbole (beginnt mit `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Symbole über ein Issue an.) |
+| `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
+| `format` | `text` (Standard), `html`, `json` |
+| `format` | `text` (Standard), `html`, `json` |
 
 ### `staticImage`
 | Objekt | Beschreibung |
-|----------|----------------------------------------|
+|----------------------------|----------------------------------------------------------------------------------------------|
 | `href` | optionaler HTTP-Link |
-| `src` | Name des Bildes (aus dem Admin-Verzeichnis) |
+| `showInDialog` | Wenn wahr, wird eine kleine Miniaturansicht angezeigt; durch Klicken darauf öffnet sich ein Dialog mit dem Bild in voller Größe. |
+| `showInDialogButtonLabel` | falls `showInDialog`, eine optionale Beschriftung für eine Schaltfläche, die auch den Dialog öffnet |
+| `showInDialogSmallSize` | falls `showInDialog`, die Höhe des kleinen Vorschaubildes in Pixeln (Standardwert 100) |
+| `showInDialogSmallSize` | falls `showInDialog`, die Höhe des kleinen Vorschaubildes in Pixeln (Standardwert 100) |
 
 ### `table`
 Tabelle mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten verschoben werden können.
@@ -755,6 +787,41 @@ Wählen Sie eine Zertifikatssammlung aus, verwenden Sie einfach alle Sammlungen 
 | Objekt | Beschreibung |
 |--------------------|------------------------------------|
 | `leCollectionName` | Name der Zertifikatssammlung |
+
+### `credential`
+Wählen Sie eine Anmeldeinformation aus dem zentralen Anmeldeinformationsspeicher aus. Die Anmeldeinformationen können in den Administratoreinstellungen (Einstellungen → Anmeldeinformationen) verwaltet werden, und die Adapterkonfiguration speichert lediglich die ID der ausgewählten Anmeldeinformation (z. B. `system.credentials.anthropic`) im entsprechenden Attribut.
+
+Sofern `disableCreation` nicht festgelegt ist, wird neben dem Auswahlfeld eine Schaltfläche **➕** angezeigt, die direkt ein kleines Dialogfeld zum Hinzufügen von Anmeldeinformationen öffnet – ähnlich dem Admin-Dialog. Es bietet Vorlagen (mit Symbolen), gefiltert nach `credentialType` (z. B. Anthropic / ChatGPT / Google Gemini für `ai` sowie die allgemeinen Vorlagen „Anmelden & Passwort“ und „Schlüssel“).
+Die gewählte Vorlage definiert das Formular, einen vorgeschlagenen Namen und das Symbol; die geheimen Felder werden beim Speichern mit dem Systemschlüssel verschlüsselt. Die neu erstellten Anmeldeinformationen werden als `system.credentials.<name>` gespeichert und sofort ausgewählt.
+
+| Objekt | Beschreibung |
+|-------------------|----------------------------------------------------------------------------------------------------------------------|
+| `credentialType` | Zeigt nur Anmeldeinformationen dieses Typs an: `email`, `cloud`, `ai` oder `custom`. Falls nicht definiert, werden alle Anmeldeinformationen aufgelistet. |
+| `disableCreation` | Wenn `true`, wird die Schaltfläche ➕ ausgeblendet, sodass der Benutzer nur eine vorhandene Anmeldeinformation auswählen kann (keine Erstellung an dieser Stelle). |
+
+Beispiel:
+
+```json
+{
+  "credentialId": {
+    "type": "credential",
+    "credentialType": "email",
+    "label": "E-Mail account",
+    "disableCreation": false,
+    "sm": 6
+  }
+}
+```
+
+Jede Anmeldeinformation hat eine von zwei Formen: `login` (ein `login`- und ein `password`-Feld) oder `key` (ein einzelnes `key`-Feld, z. B. ein API-Schlüssel). Im Adapter werden die Anmeldeinformationen mit `@iobroker/adapter-core` gelesen und entschlüsselt.
+
+```typescript
+import { Credentials } from '@iobroker/adapter-core';
+
+const cred = await Credentials.getCredentials<Credentials.LoginPasswordCredentials>(this, this.config.credentialId);
+// cred.values.login, cred.values.password (already decrypted)
+// or for the key form: Credentials.KeyCredentials -> cred.values.key
+```
 
 ### `custom`
 nur Admin6
@@ -849,13 +916,14 @@ Nur Admin6.
 zeigt das vom Backend empfangene Bild als Base64-Zeichenkette an.
 
 | Objekt | Beschreibung |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `width` | Breite des QR-Codes in Pixeln |
 | `command` | sendTo-Befehl |
 | `jsonData` | Zeichenkette - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
 | `sendFirstByClick` | Bild zuerst anzeigen, wenn angeklickt wird. `true` - Standardtext (Zum Anzeigen klicken) oder spezifischer Text |
-| `sendFirstByClick` | Bild zuerst beim Anklicken anzeigen. `true` - Standardtext (Zum Anzeigen klicken) oder spezifischer Text |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 #### Beispielcode im Backend für `imageSendTo`
 ```js
@@ -876,7 +944,7 @@ Sendet einen Befehl an die Adapterinstanz und zeigt die Antwortzeichenfolge als 
 Das Backend muss eine einfache Zeichenkette (die zu kodierenden Daten) zurückgeben.
 
 | Objekt | Beschreibung |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo-Befehl (Standard: `"send"`) |
 | `jsonData` | Zeichenkette - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
@@ -885,7 +953,8 @@ Das Backend muss eine einfache Zeichenkette (die zu kodierenden Daten) zurückge
 | `fgColor` | Vordergrundfarbe (Standard: `"#000000"`) |
 | `bgColor` | Hintergrundfarbe (Standard: `"#ffffff"`) |
 | `level` | Fehlerkorrekturstufe: `L`, `M`, `Q` oder `H` (Standard: `L`) |
-| `level` | Fehlerkorrekturstufe: `L`, `M`, `Q` oder `H` (Standard: `L`) |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 #### Beispielcode im Backend für `qrCodeSendTo`
 ```js
@@ -925,10 +994,11 @@ Zeigt einen iFrame mit der angegebenen URL an. (aus Admin 7.7.28)
 Zeigt einen iFrame mit einer vom Backend empfangenen URL an. (aus Admin 7.7.28)
 
 | Objekt | Beschreibung |
-|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo-Befehl |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
-| `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 Das Backend muss eine URL als Zeichenkette zurückgeben.
 
@@ -956,15 +1026,18 @@ adapter.on("message", (obj) => {
 Zeigt das Dropdown-Menü mit den angegebenen Instanzwerten an.
 
 | Objekt | Beschreibung |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo-Befehl |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
 | `manual` | Manuelle Bearbeitung zulassen. Ohne Dropdown-Menü (wenn die Instanz offline ist). Standardmäßig `true`. |
 | `multiple` | Mehrfachauswahl |
 | `showAllValues` | Element auch dann anzeigen, wenn keine Bezeichnung dafür gefunden wurde (bei mehreren Elementen), Standardwert=`true` |
-| `noTranslation` | Die Beschriftung der Auswahllisten wird nicht übersetzt. Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren. Das Ergebnis des Befehls muss ein Array der Form `[{"value": 1, "label": "one"}, ...]` | sein. |
+| `noTranslation` | Die Beschriftung der Auswahllisten wird nicht übersetzt. Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren. Das Ergebnis des Befehls muss ein Array im Format `[{"value": 1, "label": "one"}, ...]` | sein. |
 | `alsoDependsOn` | Durch welche Änderung der Attribute muss der Befehl erneut gesendet werden? |
-| `alsoDependsOn` | Durch die Änderung welcher Attribute muss der Befehl erneut gesendet werden |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+
+Der Backend-Handler kann Elemente mit einem optionalen Feld `description`: `[{"value": 1, "label": "one", "description": "Some hint"}, ...]` zurückgeben. Die Beschreibung wird unterhalb der Bezeichnung im Dropdown-Menü angezeigt.
 
 #### Beispielcode im Backend für `selectSendTo`
 ```js
@@ -1023,13 +1096,14 @@ adapter.on("message", (obj) => {
 Zeigt ein Autovervollständigungssteuerelement mit den angegebenen Instanzwerten an.
 
 | Objekt | Beschreibung |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo-Befehl |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
 | `freeSolo` | Setze `freeSolo` auf `true`, damit das Textfeld einen beliebigen Wert enthalten kann. |
 | `alsoDependsOn` | Durch welche Änderung der Attribute muss der Befehl erneut gesendet werden? |
 | `maxLength` | Maximale Textlänge im Feld |
-| `maxLength` | Maximale Textlänge im Feld |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 Um diese Option nutzen zu können, muss Ihr Adapter einen Nachrichtenhandler implementieren:
 
@@ -1039,13 +1113,14 @@ Das Ergebnis des Befehls muss ein Array der Form `["value1", {"value": "value2",
 Zeigt ein schreibgeschütztes Steuerelement mit den angegebenen Instanzwerten.
 
 | Objekt | Beschreibung |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `container` | `div`, `text`, `html` |
 | `alsoDependsOn` | Durch welche Änderung der Attribute muss der Befehl erneut gesendet werden? |
 | `command` | sendTo-Befehl |
 | `jsonData` | Zeichenkette - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
-| `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
+| `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
 Um diese Option zu nutzen, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss eine Zeichenkette oder ein Objekt mit den folgenden Parametern sein:
 
@@ -1228,6 +1303,10 @@ Zeigt einen ausschließbaren statischen Text mit optionalem Titel und Symbol an.
 ### `deviceManager`
 Zeigen Sie den Geräte-Manager an. Dazu muss der Adapter das Geräte-Manager-Protokoll unterstützen. Siehe iobroker/dm-utils.
 
+| Objekt | Beschreibung |
+|--------------|----------------------------------------------------------------|
+| `smallCards` | (optional) Kleine Gerätekarten im Geräte-Manager anzeigen |
+
 Hier ist ein Beispiel, wie der Geräte-Manager in einem Tab angezeigt werden kann:
 
 ```json5
@@ -1295,7 +1374,7 @@ Dies kann beispielsweise mit den Web Developer Tools getestet werden, die in jed
 
 Schritt 1: Öffnen Sie die Webentwicklertools mit F12
 
-Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1)
+Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1).
 
 Schritt 3: Verschiedene Geräte auswählen (2)
 
@@ -1440,6 +1519,8 @@ const func = new Function(
   'arrayIndex',    // filled only by table and represents the row index
   'globalData',    // filled only by table and represents the obj.native or obj.common.custom['adapter.X'] object
   '_changed',      // indicator if some data was changed and must be saved
+  '_href',         // Current browser href
+  'getObject',     // You can call `await getObject(data.id)`in hidden, disabled, pattern functions
   myValidator.includes('return') ? myValidator : 'return ' + myValidator); // e.g. "_alive === true"
 
 const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, this.props.socket);
@@ -1496,6 +1577,31 @@ Folgende Variablen stehen in der JS-Funktion in den benutzerdefinierten Einstell
 - `_socket` - Socket
 - `arrayIndex` - wird nur in Tabellen verwendet und repräsentiert die aktuelle Zeile in einem Array
 - `globalData` - wird nur in der Tabelle für alle Einstellungen verwendet und nicht nur in einer einzelnen Tabellenzeile
+
+```json5
+{
+   "general": {
+      // ....
+      "customSettingsValidator": "customObj.common.type === 'boolean' && data.options.myType == 2",
+      // ....
+   }
+}
+```
+
+Sie können die Anwendung der benutzerdefinierten Einstellungen auf bestimmte Zustände beschränken, indem Sie `statesFilter` im Stammelement (`panel` oder `tabs`) der benutzerdefinierten Einstellungen definieren:
+
+`jsonCustom.json`:
+
+```json5
+{
+   "i18n": true,
+   "type": "panel",
+   "statesFilter": true, // or "^hm-rpc\\.\\d\\..*\\.STATE$" - apply on "hm-rpc.X.*.STATE" states only
+   "items": {
+        // ...
+   }
+}
+```
 
 ## Benutzerdefinierte Komponente
 ```jsx
@@ -1608,12 +1714,96 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 8.4.15 (2026-07-04)
+- (@GermanBluefox) Extended Credentials Component with AWS and Azure
+
+### 8.4.13 (2026-06-29)
+- (@GermanBluefox) Corrected the file selector component
+- (@GermanBluefox) Implemented no translation for the select component
+- (@GermanBluefox) Implemented debug mode for components to analyze JS functions
+- (@ThomasPohl) Corrected rendering of the link in the static text component
+
+### 8.4.11 (2026-06-21)
+- (@GermanBluefox) Added missing translations
+
+### 8.4.10 (2026-06-20)
+- (@GermanBluefox) Fixed state component
+
+### 8.4.9 (2026-06-19)
+- (@GermanBluefox) Moved translations from adapter-react to this repository
+
+### 8.4.8 (2026-06-18)
+- (@GermanBluefox) Allowed creating credentials directly in the `credential` component (templates with icons, filtered by `credentialType`; can be disabled with `disableCreation`)
+
+### 8.4.7 (2026-06-07)
+- (@GermanBluefox) Added a credential component
+
+### 8.4.5 (2026-05-30)
+- (@GermanBluefox) Fixing help rendering
+
+### 8.4.4 (2026-05-29)
+- (@GermanBluefox) Corrected groups in the select component
+
+### 8.4.3 (2026-05-24)
+- (@GermanBluefox) Optimization of interfaces
+
+### 8.4.1 (2026-05-19)
+- (@GermanBluefox) Allowed to use `await getObject(data.oid)?.common?.type === 'boolean'` in hidden, pattern or disabled
+
+### 8.3.13 (2026-05-16)
+- (@GermanBluefox) Added `_href` to `jsonData`
+
+### 8.3.11 (2026-04-29)
+- (@GermanBluefox) Added `instance` option for all `sendTo` components to override the target adapter instance
+
+### 8.3.9 (2026-04-17)
+- (@GermanBluefox) Updated packages
+
+### 8.3.8 (2026-04-13)
+- (@GermanBluefox) Adjust a path to images
+
+### 8.3.5 (2026-04-11)
+- (@GermanBluefox) Extend schema for staticLink and staticImage components
+
+### 8.3.4 (2026-04-09)
+- (@GermanBluefox) Added `horizontal` option for `select` component with `format: "radio"` to display radio buttons in a row
+- (@GermanBluefox) Added `icon` option for `select` component options to display icons next to labels
+
+### 8.3.2 (2026-03-31)
+- (@GermanBluefox) Added possibility to provide custom components
+
+### 8.2.22 (2026-03-29)
+- (@GermanBluefox) Corrected error for "state" component
+
+### 8.2.19 (2026-03-27)
+- (@GermanBluefox) Added option "small cards" for device manager
+
+### 8.2.18 (2026-03-25)
+- (@GermanBluefox) Added the possibility to use own Client ID for oauth authentication
+- (@GermanBluefox) Added the possibility to show a small image and open it in full size by clicking on it
+
+### 8.2.11 (2026-03-20)
+- (@GermanBluefox) Correcting unit in schema
+- (@GermanBluefox) Fill other config fields when an object ID is selected
+
+### 8.2.8 (2026-03-15)
+- (@GermanBluefox) Added radio button control for the state component ('select')
+
+### 8.2.7 (2026-03-14)
+- (@GermanBluefox) Made the secondary text in 'select' and 'selectSendTo' smaller, italic and semi-transparent
+
+### 8.2.6 (2026-03-14)
+- (@GermanBluefox) Added description for options in 'select' or 'selectSendTo' component
+
+### 8.2.5 (2026-03-12)
+- (@GermanBluefox) Extended the staticText component with HTML and JSON visualization
+
 ### 8.2.3 (2026-03-04)
 - (@GermanBluefox) Increased the QR code padding
 
 ### 8.2.2 (2026-03-03)
 - (@GermanBluefox) Added option `sendFirstByClick` to `imageSendTo`
-- (@GermanBluefox) Added new component: `qrCodeSendTo`
+- (@GermanBluefox) Added a new component: `qrCodeSendTo`
 - (@GermanBluefox) Added option `digits` to `state` component
 - (@GermanBluefox) Trying to fix indication of the problems in the table
 

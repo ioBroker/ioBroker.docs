@@ -51,6 +51,7 @@ This adapter cannot be installed directly from GitHub. Only from npm.
 -->
 
 ### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 - (mcm1957) Adapter requires nodeJS >=18 now.
@@ -100,7 +101,7 @@ This adapter cannot be installed directly from GitHub. Only from npm.
 * (bluefox) initial commit
 
 ## License
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright 2017-2022 bluefox <dogafox@gmail.com>
 
 Eclipse Public License

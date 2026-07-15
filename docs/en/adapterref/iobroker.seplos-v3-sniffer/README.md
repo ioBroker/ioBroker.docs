@@ -58,6 +58,7 @@ average_cell_voltage
 average_cell_temp
 max_cell_voltage
 min_cell_voltage
+delta_cell_voltage
 max_cell_temp
 min_cell_temp
 maxdiscurt
@@ -99,7 +100,10 @@ active_protections
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (DpunktS) Node.js >= 20
+- (copilot) Adapter requires node.js >= 22 now
+
+### 1.0.0 (2026-04-08)
+* (DpunktS) add delta_cell_voltage
 
 ### 0.1.1 (2025-02-28)
 * (DpunktS) bugfix
@@ -130,6 +134,8 @@ active_protections
 
 ### 0.0.1 (2025-01-11)
 * (DpunktS) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.danfoss-ally/README.md
 title: без названия
-hash: BXAuah3gL5UJFBqkIAbm5o3omQ3ZRRNN6cuOvvkE3Go=
+hash: sbctulZ/na+dm0rPNfffIVn7LK1FOKBA4eCl+gSrvTk=
 ---
-![версия](https://img.shields.io/badge/version-0.2.13-blue)
+![версия](https://img.shields.io/badge/version-0.2.19-blue)
 ![НПМ](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 Облачный адаптер для **Danfoss Ally™** — с использованием **OAuth2 (учетные данные клиента)**.
@@ -39,8 +39,10 @@ hash: BXAuah3gL5UJFBqkIAbm5o3omQ3ZRRNN6cuOvvkE3Go=
 ---
 
 ## Поддерживаемые устройства
+- Термостаты радиатора Danfoss Ally™ TRV
 - Danfoss Icon2 RT (комнатные термостаты)
 - Контроллер Danfoss Icon2
+Реле котла Danfoss Ally™
 - Danfoss Ally™ Gateway
 
 (Другие устройства Danfoss обнаружены автоматически)
@@ -71,34 +73,76 @@ Polling:      300
 ---
 
 ## Штаты
-Каждое обнаруженное устройство создает канал: `danfoss-ally.0.<device_id>.*`
+Каждое обнаруженное устройство создает дерево устройств: `danfoss-ally.0.<device_id>.*`
+
+## Состояние статуса против состояния контроля
+Адаптер разделяет **значения состояния, доступные только для чтения**, от **значений управления, доступных для записи**.
+
+### Канал статуса
+`danfoss-ally.0.<deviceId>.status.*`
+
+Эти состояния отражают значения, полученные из API Danfoss Cloud.
+
+Характеристики:
+
+- читать: правда
+- write: false
+
+Не следует записывать данные в эти состояния из скриптов.
+
+Примеры:
+
+- `status.temp_current`
+- `status.temp_set`
+- `status.mode`
+- `status.humidity_value`
+- `status.battery_percentage`
+
+### Канал управления
+`danfoss-ally.0.<deviceId>.control.*`
+
+Эти состояния предназначены для **взаимодействия с пользователем** и могут быть созданы с помощью скриптов или Blockly.
+
+Характеристики:
+
+- читать: правда
+- write: true
+
+Примеры:
+
+- `control.temp_set`
+- `control.manual_mode_fast`
+- `control.mode`
+- `control.child_lock`
+
+Адаптер автоматически отправляет команды в облако Danfoss и обновляет соответствующие значения состояния.
 
 ### Примеры чтения
 | Штат | Описание | Единица измерения |
 | -------------------------------------- | --------------------------------------------- | ---- |
-| `temp_current` | Текущая температура | °C |
-| `battery_percentage` | Уровень заряда батареи | % |
-| `mode` | Текущий режим (`auto`, `manual`, `at_home`, …) | – |
-| `work_state`, `output_status`, `fault` | Статус или ошибка | – |
-| `upper_temp` / `lower_temp` | Температурные пределы | °C |
-| `верхняя_температура` / `нижняя_температура` | Температурные пределы | °C |
+| `status.temp_current` | Текущая температура | °C |
+| `status.battery_percentage` | Уровень заряда батареи | % |
+| `status.mode` | Текущий режим (`auto`, `manual`, `at_home`, …) | – |
+| `status.work_state`, `status.output_status`, `status.fault` | Статус или ошибка | – |
+| `status.upper_temp` / `status.lower_temp` | Температурные пределы | °C |
+| `status.upper_temp` / `status.lower_temp` | Температурные пределы | °C |
 
 Все числовые значения масштабируются автоматически в диапазоне от ×0,1 до °C/% .
 
 ---
 
-## Написание команд (отдельные команды)
-Адаптер поддерживает **точные одиночные записи** в каждое управляемое состояние без цепочек или автоматических переключений режимов.
-Это дает вам полный контроль в Blockly, JavaScript или пользовательских логических скриптах.
+## Письмо
+Адаптер поддерживает **целевую запись** в каждое управляемое состояние без автоматического переключения режимов.
+Это дает вам полный контроль в Blockly, JavaScript или в пользовательских логических скриптах.
 
 | Доступное для записи состояние | Ожидаемое значение / поведение |
 | ----------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| `temp_set` | Целевая температура (°C, шаг 0,5; отправлено ×10) |
-| `at_home_setting`, `leaving_home_setting`, `pause_setting`, `holiday_setting` | Заданные температуры |
-| `mode` | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
-| `child_lock` | `true` / `false` |
-| `SetpointChangeSource` | `Externally` или `schedule` |
-| `SetpointChangeSource` | `Externally` или `schedule` |
+| `control.temp_set` | Целевая температура (°C, шаг 0,5; отправлено ×10) |
+| `control.at_home_setting`, `control.leaving_home_setting`, `control.pause_setting`, `control.holiday_setting` | Заданные температуры |
+| `control.mode` | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
+| `control.child_lock` | `true` / `false` |
+| `control.SetpointChangeSource` | `Externally` или `schedule` |
+| `control.SetpointChangeSource` | `Externally` или `schedule` |
 
 > Адаптер **не** переключает режимы автоматически при записи заданных значений — вы сами определяете это в соответствии со своей логикой.
 
@@ -107,35 +151,35 @@ Polling:      300
 ## Пример (Blockly / Script)
 ```js
 // Manual mode
-setState("danfoss-ally.0.<id>.mode", "manual");
-setState("danfoss-ally.0.<id>.temp_set", 21.5);
+setState("danfoss-ally.0.<id>.control.mode", "manual");
+setState("danfoss-ally.0.<id>.control.temp_set", 21.5);
 
 // At home
-setState("danfoss-ally.0.<id>.mode", "at_home");
-setState("danfoss-ally.0.<id>.at_home_setting", 21.0);
+setState("danfoss-ally.0.<id>.control.mode", "at_home");
+setState("danfoss-ally.0.<id>.control.at_home_setting", 21.0);
 
 // Leaving home
-setState("danfoss-ally.0.<id>.mode", "leaving_home");
-setState("danfoss-ally.0.<id>.leaving_home_setting", 19.0);
+setState("danfoss-ally.0.<id>.control.mode", "leaving_home");
+setState("danfoss-ally.0.<id>.control.leaving_home_setting", 19.0);
 
 // Pause
-setState("danfoss-ally.0.<id>.mode", "pause");
-setState("danfoss-ally.0.<id>.pause_setting", 5.0);
+setState("danfoss-ally.0.<id>.control.mode", "pause");
+setState("danfoss-ally.0.<id>.control.pause_setting", 5.0);
 
 // Holiday
-setState("danfoss-ally.0.<id>.mode", "holiday");
-setState("danfoss-ally.0.<id>.holiday_setting", 10.0);
+setState("danfoss-ally.0.<id>.control.mode", "holiday");
+setState("danfoss-ally.0.<id>.control.holiday_setting", 10.0);
 
 // Child lock
-setState("danfoss-ally.0.<id>.child_lock", true);
+setState("danfoss-ally.0.<id>.control.child_lock", true);
 
 // Explicit source (usually not needed)
-setState("danfoss-ally.0.<id>.SetpointChangeSource", "Externally"); // or 'schedule'
+setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // or 'schedule'
 ```
 
-При переключении на `manual`, `pause` или `holiday` адаптер устанавливает `SetpointChangeSource="Externally"`.
+> Команды записи должны быть нацелены на состояния `control.*`.
 
-При обратном переключении на `auto` он сбрасывается до `"schedule"`.
+> Состояния `status.*` представляют собой зеркала только для чтения из облака Danfoss.
 
 ---
 
@@ -217,12 +261,15 @@ setState("danfoss-ally.0.<id>.SetpointChangeSource", "Externally"); // or 'sched
 
 ---
 
-## Пишет
-- Одна команда на состояние (без цепочки режимов)
+## Записывает
+- `temp_set` сначала пытается выполнить комбинированную команду `SetpointChangeSource` + `temp_set`.
+- Термостаты Ally TRV также получают значение `manual_mode_fast`, если такая точка данных существует, поскольку некоторые устройства сообщают о заданном вручную значении.
+- Опрос обновляет только `status.*`; `control.*` остается каналом чистой записи, чтобы избежать циклов обратной связи.
 - Режим + температура должны быть указаны отдельно.
 - Значения ограничены допустимыми пределами и масштабированы в 10 раз.
 - `child_lock`: пытается `0/1`, повторяет попытку `true/false` при ошибке 400
-- `SetpointChangeSource`: необязательный параметр; по умолчанию используется значение `"Externally"` при активации ручного режима.
+- `SetpointChangeSource`: необязательный параметр; `temp_set` пытается использовать `"Externally"` для TRV союзников.
+— Если облако впоследствии снова сообщит о старой заданной точке, адаптер запишет предупреждение вместо того, чтобы молча принять её.
 
 Все записи об отправке, повторной попытке и подтверждении отображаются в режиме отладки.
 
@@ -240,35 +287,45 @@ node main.js
 
 ## Changelog
 
-### 0.2.13
-- Updated CI & deploy workflow
-- Fixed npm publishing process
-- Improved code formatting (Prettier / ESLint)
-- No functional changes for end users
+### 0.2.19
+- Stopped polling from writing cloud values back into `control.*` states to avoid feedback loops with Loxone/scripts
+- Added `state.from` to debug write logs so external write sources can be identified
+- Added direct status fallback for devices that are listed without status values, improving Boiler Relay datapoints
+- Reduced poll debug noise: the initial run still logs all `SET` lines, later polls summarize changed values per device
 
-### 0.2.12
-- Migrated CI to full ioBroker standard
-- Full rewrite of state roles (value._, level._, state) for compatibility
-- Correct creation of device and status channels according to ioBroker standards
-- Replaced all timers with adapter.setTimeout / adapter.setInterval
-- Stabilized soft refresh process and ensured channel creation
+### 0.2.18
+- Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
+- Added explicit warnings when the Danfoss Cloud does not confirm the requested setpoint
+- Improved device naming/detection for relay-like devices so the Boiler Relay is easier to identify
 
-### 0.2.11
-- Full write support for all cloud-controllable values
-- Improved token retry handling
-- Enhanced synchronization and logging
+### 0.2.17
+- Improved Ally TRV `temp_set` writes by trying `SetpointChangeSource=Externally` and `temp_set` as one combined command first
+- Falls back to `temp_set` only if Danfoss rejects the combined command
+- Fixed `control.switch` subscriptions for Icon2 / Boiler Relay writes
+- Added alias handling for `Occupied_Setpoint`
+- Fixed jsonConfig header validation warning
 
-### 0.2.10
-- Translation and compliance fixes
-- Improved admin schema, license info, encryption handling
+### 0.2.16
+- Fixed `temp_set` for Ally TRVs (`SetpointChangeSource=Externally` auto-sent)
+- Fixed wrong path for `lower_temp`/`upper_temp` clamp
+- Fixed `OccupiedSetpoint` scaling (÷100 instead of ÷10)
+- Added type hints for 16 new data points (`MeasuredValue`, `pi_heating_demand`, `window_state`, etc.)
+- `Icon2 switch` state is now writable
+- Fixed jsonConfig admin validation warning (missing `size` property)
+- Added Boiler Relay to supported devices
+
+[Older changes](CHANGELOG_OLD.md)
+
 
 ---
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2025 Author Stefan8485@me.com
+Copyright (c) 2025-2026 Author Stefan8485@me.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.

@@ -69,9 +69,11 @@ Bitte nutzt den Datenpunkt `system.adapter.octoprint.0.alive` um die Instanz zu 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 7.0.0 (2026-05-05)
 
+* (copilot) Adapter requires node.js >= 22 now
 * (@klein0r) Updated dependencies
+* (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
 
 ### 6.0.1 (2025-08-25)
 
@@ -96,19 +98,11 @@ Tested with OctoPrint 1.9.3
 
 * (klein0r) Allow self-signed certificates
 
-### 5.0.0 (2023-05-24)
-
-Tested with OctoPrint 1.9.0
-
-* (klein0r) Removed binary states (deprecated)
-* (klein0r) Allow self-signed certificates
-* (klein0r) Added Ukrainian language
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2025-2026 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2026 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

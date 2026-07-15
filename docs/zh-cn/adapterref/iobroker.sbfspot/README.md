@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sbfspot/README.md
 title: ioBroker.sbfspot
-hash: uzMds3K6zvGp2QE1ulEfXg5DsBuf5j28qI+RwpdccCM=
+hash: EffU0PQMYG6UF82oyb4GfP1z9acn4c6tcqGgiQeh9Y0=
 ---
 ![标识](../../../en/adapterref/iobroker.sbfspot/admin/sbfspot.png)
 
@@ -11,49 +11,43 @@ hash: uzMds3K6zvGp2QE1ulEfXg5DsBuf5j28qI+RwpdccCM=
 ![下载](https://img.shields.io/npm/dm/iobroker.sbfspot.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
 ![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.sbfspot/badge.svg)
-![新公共管理](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
-![节点](https://img.shields.io/node/v-lts/iobroker.sbfspot?style=flat-square)
+![NPM](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
+![节点-lts](https://img.shields.io/node/v-lts/iobroker.sbfspot?style=flat-square)
 ![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.sbfspot?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.sbfspot?style=flat-square)
 ![GitHub 仓库大小](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
-![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
-![GitHub 上次提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
+![GitHub提交活动](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
+![GitHub 最新提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
 ![GitHub 问题](https://img.shields.io/github/issues/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
 
 # IoBroker.sbfspot
 ![GitHub Actions](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
-**如果您喜欢它，请考虑捐赠：**
+如果您喜欢，请考虑捐赠：
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 此适配器使用 sbfspot 从 SMA 电源逆变器读取数据。
-现在支持两种数据库类型（mySQL 和 sqlite）。
-自 0.2.3 版本起，我们提供了一个基于 flot 的可视化小部件，用于显示历史数据。
+
+现在支持两种数据库类型（MySQL 和 SQLite）。
+
+自 0.2.3 版本起，新增了一个基于 flot 的可视化组件，用于显示历史数据。
 
 ## 安装/更新
-请按照 https://github.com/SBFspot/SBFspot/wiki 下的 sbfspot 安装说明进行操作
+请按照 https://github.com/SBFspot/SBFspot/wiki 上的 SBFspot 安装说明进行操作。
 
-在 /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts 中，您可以找到在基于 debian 的系统上安装和更新 SBFspot 的脚本。
+在 /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts 中，您可以找到用于在基于 Debian 的系统上安装和更新 SBFspot 的脚本。
 
-## 提示
-* 使用来自 https://github.com/SBFspot/SBFspot 的 sbfspot 的最新版本
-* 适配器、sbfspot 和数据库（mySQL 或 sqlite）必须在同一系统上运行，例如 Raspberry PI
-* Raspberry Pi（或类似产品）上的 sbfspot 安装手册可在 https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite 或 https://www.rg-engineering.eu/index.php/produkte/software/plugin-fuer-iobroker-sbfspot 下找到
-* 对于 Raspberry Pi，有一个半自动配置工具，可在 https://github.com/SBFspot/sbfspot-config 下使用
+提示
+* 请使用来自 https://github.com/SBFspot/SBFspot 的 sbfspot 最新版本
+* 适配器、sbfspot 和数据库（MySQL 或 SQLite）必须运行在同一系统上，例如 Raspberry Pi。
+* SBFspot 在 Raspberry Pi（或类似设备）上的安装手册可在以下网址找到：https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite 或 https://www.rg-engineering.eu/index.php/produkte/software/plugin-fuer-iobroker-sbfspot
+* 对于树莓派，可以使用一个半自动化的配置工具，网址为 https://github.com/SBFspot/sbfspot-config
 
-## 已知问题
-* 有时 npm 包 sqlite3 的安装会失败。
-
-在这种情况下重新安装所有 npm 包
-
-> cd /opt/iobroker/node_modules/iobroker.sbfspot > sudo npm install
-
-有时必须多次调用 npm intall 才能成功安装所有必要的软件包
-
-* 如果您发现错误或需要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.sbfspot/issues) 创建问题
+已知问题
+如果您发现错误或希望添加新功能，请在 [github](https://github.com/rg-engineering/ioBroker.sbfspot/issues) 创建 issue。
 
 ## Changelog
 
@@ -61,6 +55,25 @@ hash: uzMds3K6zvGp2QE1ulEfXg5DsBuf5j28qI+RwpdccCM=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.6 (2026-04-06)
+* (René) changes based on adapter checker
+
+### 5.0.5 (2026-03-17)
+* (René) update dependencies + changes based on adapter checker
+
+### 5.0.4 (2025-10-26)
+* (René) bug fix sentry
+
+### 5.0.3 (2025-10-21)
+* (René) see issue #510: read interval minimum reduced to 1 minute
+* (René) update dependencies + changes based on adapter checker
+
+### 5.0.2 (2025-10-04)
+* (René) update dependencies + changes based on adapter checker
+
+### 5.0.1 (2025-06-29)
+* (René) new testing
+
 ### 5.0.0 (2025-06-07)
 * (René) ATTENTION breaking change: adapter type changed from scheduled to daemon
 * (René) update hints added to admin
@@ -225,7 +238,7 @@ hash: uzMds3K6zvGp2QE1ulEfXg5DsBuf5j28qI+RwpdccCM=
 ## License
 MIT License
 
-Copyright (c) 2017-2025 René G. <info@rg-engineering.eu>
+Copyright (c) 2017-2026 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

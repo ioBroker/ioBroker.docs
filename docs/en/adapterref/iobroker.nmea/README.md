@@ -42,7 +42,7 @@ dtparam=spi=on
 dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25 
 ```
 
-Disable outputs on UART console: 
+Disable outputs on the UART console: 
 - start in CLI `sudo raspi-config`
 - go to `3 Interface Options`
 - go ot `I5 Serial Port`
@@ -93,37 +93,45 @@ Actually, only one autopilot is supported: Raymarine
 
 The development of Simrad/navico/B&G is not completed yet.
 
+### Wind datum display
+For Raymarine units that publish the "Pilot Wind Datum" (PGN 65345), the adapter stores the
+raw angle in radians under `seatalkPilotWindDatum.windDatum` (this is the canonical value the
+autopilot reads back when you change the wind angle, so it must stay in radians).
+
+In addition, a read-only convenience state `seatalkPilotWindDatum.windDatumDisplay` is created.
+It shows the angle exactly the way the Raymarine pilot head does:
+- `0…180°` → starboard, `180…360°` → port,
+- each as a `≤180°` value plus a language-dependent side letter (e.g. a datum of `230°`
+  is shown as `130°P` in English and `130°B` in German). `0°` (dead ahead) and `180°`
+  (dead astern) carry no side letter.
+
+Use `windDatumDisplay` for visualization and `windDatum` for calculations/automation.
+
 <!--
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.0.3 (2026-07-08)
+- (bluefox) Better decoding of motor PGNs
+
+### 1.0.2 (2026-06-30)
+- (copilot) Adapter requires node.js >= 22 now
+- (bluefox) Added `seatalkPilotWindDatum.windDatumDisplay` state with the Raymarine-style port/starboard wind-angle display
+- (bluefox) The autopilot device-manager widget now shows the wind datum the Raymarine way (e.g. `130°P`) with a language-dependent port/starboard letter
+- (bluefox) Added the custom icon set
+
+### 1.0.1 (2026-06-26)
+* (bluefox) Implemented Raymarine autopilot support
+* (bluefox) Corrected values simulation for yacht devices gateways
+* (bluefox) Added support of Fusion player
+
 ### 0.4.2 (2026-01-05)
 * (bluefox) Updated packages
 
 ### 0.4.0 (2025-11-30)
 * (bluefox) Added support of YDEN-02/03 and YDWG-02/03 gateways
 
-### 0.3.0 (2025-08-16)
-* (bluefox) Widgets were rewritten on TypeScript
-* (bluefox) Corrected errors in the widgets and in the calculations
-* (bluefox) Small fix for ais data
-
-### 0.2.2 (2024-06-20)
-* (bluefox) Backend was rewritten on TypeScript
-* (bluefox) Support for AIS added
-* (bluefox) Valid processing of temperature, pressure and humidity
-
-### 0.1.8 (2024-03-20)
-* (bluefox) Corrected vis-2 widgets
-
-### 0.1.1 (2024-03-19)
-* (bluefox) Corrected vis-2 widgets
-
-### 0.0.4 (2024-03-12)
-* (bluefox) Fixed CI tests
-
-### 0.0.3 (2024-03-12)
-* (bluefox) Initial commit
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

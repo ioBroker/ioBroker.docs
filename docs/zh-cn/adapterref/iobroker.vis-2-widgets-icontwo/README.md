@@ -2,20 +2,23 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-icontwo/README.md
-title: inventwo ioBroker.vis 2.0 的图标
-hash: lndJJOs6Q01o4Jdv03uaLHlcyKTQ8adfJxARvr+mPAk=
+title: ioBroker 适配器，适用于 ioBroker.vis 2.0
+hash: b+WyQSn3+j5Qln9MBEgrP0V6tN3sEGb+Es9DGRbt6zw=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/vis-2-widgets-icontwo.png)
 
 ![安装数量](http://iobroker.live/badges/vis-2-widgets-icontwo-stable.svg)
 ![NPM 版本](https://nodei.co/npm/iobroker.vis-2-widgets-icontwo.svg?style=shields&data=v,u,d&color=orange)
 ![下载](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-icontwo.svg)
-![GitHub 仓库大小](https://img.shields.io/github/repo-size/inventwo/iobroker.vis-2-widgets-icontwo)
+![社区](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)
+![维护者](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)
 ![PayPal捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
-# 为 ioBroker.vis 2.0 开发图标
-## IoBroker.vis 适配器的图标适配器（仅适用于 VIS-2）
-### **请注意：** 这些图标仅适用于 ioBroker.vis-2 适配器的 2.13.x 版本（或更高版本）！
+# IoBroker 适配器，适用于 ioBroker.vis 2.0
+---
+
+## 为 ioBroker.vis 适配器创建两个图标（仅适用于 VIS-2）
+### **请注意：** 这些图标仅适用于 ioBroker.vis-2 适配器的 2.13.5 版本（或更高版本）！
 更多信息稍后奉上
 
 ![沃绍](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/solid.png)
@@ -30,23 +33,22 @@ hash: lndJJOs6Q01o4Jdv03uaLHlcyKTQ8adfJxARvr+mPAk=
 
 ## Changelog
 <!--
-	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.22.2 (2026-01-06)
-- Added: CHANGELOG_OLD.md
+### 1.41.0 (2026-05-24)
+- (skvarel) Added: New icons (star and gear filled)
 
-### 1.22.1 (2026-01-03)
-- Fix Copyright Year
+### 1.40.1 (2026-05-24)
+- (skvarel) Fixed: Issue repo-checker [W8917]
 
-### 1.22.0 (2025-12-31)
-- new icons added (TV amazon & echo)
+### 1.40.0 (2026-05-12)
+- (skvarel) Added: New Icons (people filled)
 
-### 1.21.2 (2025-12-31)
-- bugfix
+### 1.39.0 (2026-05-10)
+- (skvarel) Added: New Icons (people & map filled)
 
-### 1.21.1 (2025-12-31)
-- bugfix
+### 1.38.1 (2026-04-09)
+- (skvarel) Fixed: Added Dependabot cooldown configuration (7 days) to reduce supply chain risk
 
 ## License
 

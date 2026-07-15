@@ -55,6 +55,17 @@ to be done in admin
 
 ## Changelog:
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 1.2.9 (npm)
+
+- (foxthefox) fix jsonConfig
+
+### 1.2.8 (npm)
+
+- (foxthefox) update dependencies, comply with repo checker
+
 ### 1.2.7 (npm)
 
 - (foxthefox) update dependencies, comply with repo checker
@@ -174,9 +185,10 @@ to be done in admin
 
 - working with 3 sensors emon
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
 Copyright (c) 2016-2026 foxthefox <foxthefox@wysiwis.net>
-Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

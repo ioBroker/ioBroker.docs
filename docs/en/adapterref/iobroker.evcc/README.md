@@ -21,6 +21,13 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.8 (2026-03-09)
+* (arteck) reduce read request, static dp read only once
+
+### 0.2.7 (2026-03-09)
+* (arteck) delete big arrays feedin, grid, planner
+* (arteck) refactor tests
+
 ### 0.2.6 (2026-02-13)
 * (arteck) fix set minSoc
 
@@ -42,7 +49,8 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
 * (arteck) update dependencies
 
 ### 0.2.0 (2025-03-10)
-* (arteck) generate status folder, Status folder must be deleted manually
+* (arteck) BREAKING CHANGE - check settings for status folder
+* (arteck) new generate the status folder (Status folder must be deleted manually) then restart the adapter
 
 ### 0.1.1 (2024-01-07)
 * (Newan) add batteriemangement

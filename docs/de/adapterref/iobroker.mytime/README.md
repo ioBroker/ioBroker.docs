@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: kuu9R/AfRD+dfWd72s0EXSwCSWyjpN6efn/fGJMHi44=
+hash: l33niKl6qt2C6ruGtp2BBhyvWL4WsOO9DDXv3XCXIj0=
 ---
 ![Logo](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -146,7 +146,7 @@ Wenn Sie den Timer auf einen Tag einstellen möchten, müssen Sie auch Stunden, 
 
 Sie können auch 48 Stunden einstellen.
 
-Sie können optional auch andere Zeitformate verwenden. Die Zeit wird separat summiert.
+Sie können optional auch ungewöhnliche Zeitangaben verwenden. Die Zeit wird separat summiert.
 
 **Beispiele:**
 
@@ -209,7 +209,7 @@ Die Ausgabe kann detailliert konfiguriert werden.
 
 ##### Widget-Attribute
 | Attribut | Beschreibung |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `Object ID` | Datenpunkt des Countdown-Timers. Es kann jeder beliebige Datenpunkt verwendet werden. |
 | `HTML-Prepend` | Dieser Text oder HTML-Code wird der Ausgabe des Widgets vorangestellt |
 | `HTML-Append` | Dieser Text oder HTML-Code wird an die Ausgabe des Widgets angehängt |
@@ -260,9 +260,9 @@ Ein Countdown-Widget in Ring-/Kreisform.
 
 ##### Widget-Eigenschaften des Countdown-Kreises
 | Attribut | Beschreibung |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Object ID` | Der Timer-Datenpunkt eines Countdown-Datenpunkts. |
-| `Format` | Formatiert die Timer-Ausgabe. Standardwert ist mm:ss. Details finden Sie in Kapitel [Datums-/Zeitformat](#format-of-the-template-to-format-the-countdown-output-in-the-widget). Umkehrbare Einstellung zum Vergrößern oder Verkleinern des Rings/Kreises |
+| `Format` | Formatiert die Timer-Ausgabe. Standardwert ist mm:ss. Details finden Sie in Kapitel [Datums-/Zeitformat](#format-of-the-datetime-to-format-the-output-in-the-widget). Umkehrbare Einstellung zum Vergrößern oder Verkleinern des Rings/Kreises |
 | `reverse` | Die Breite des Rings oder Kreises. |
 | `partring` | Der größte ausgewählte Ring wird proportional und nicht vollständig angezeigt. |
 | `Width` | Die Breite des Rings oder Kreises. |
@@ -280,7 +280,7 @@ Ein Countdown-Widget in Ring-/Kreisform.
 | `showmin` | Minutenring anzeigen |
 | `showhrs` | Minutenring anzeigen |
 | `showday` | Zeige den Ring der Tage an |
-| `showmonth` | Zeige den Monatsring an (nicht zusammen mit den Wochen) |
+| `showmonth` | Monatering anzeigen (nicht zusammen mit den Wochen) |
 | `showweek` | Zeige den Wochenring an (nicht zusammen mit den Monaten) |
 | `showyear` | Zeige den Jahresring an |
 | `showyear` | Jahresring anzeigen |
@@ -449,6 +449,11 @@ Ein Widget zur Anzeige einer Wortuhr mit vielen Optionen
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.3.4 (2026-03-30)
+
+- update packages
+- fix repochecker
+
 ### 2.3.2 (2026-01-04)
 
 - fix some translations

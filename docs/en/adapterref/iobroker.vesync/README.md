@@ -111,6 +111,11 @@ Stop:
 <https://forum.iobroker.net/topic/59466/test-adapter-vesync>
 
 ## Changelog
+### 1.0.4 (2026-05-18)
+
+- Add Cosori Oven support (CS130, CS125, CS100, AG500) with getOvenStatusV2, startStepCook, skipStep, setTempUnit
+- Add Cosori Dual Blaze TwinFry multi-zone support (getAirfryerMultiStatus, startMultiCook, quitSyncFinish)
+- Add Purifier pet mode (setPurifierMode: pet, turbo, pollen)
 
 ### 1.0.3 (2026-01-12)
 

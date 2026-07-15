@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iot/README.md
 title: ioBroker 物联网适配器
-hash: jqVgNsg6zSRWJpClkvvC5pVcFxSEHky+KfuzAGvskaM=
+hash: GG9fiSgNG/NQPpDUfiLJ7XR+yvdsCedhxNSqtuKsu1k=
 ---
 ![安装数量](http://iobroker.live/badges/iot-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.iot.svg)
@@ -141,7 +141,7 @@ Alexa, lock the "lock name"
 该适配器通过结合 ioBroker 设置中的信息，自动创建虚拟智能家居设备。
 
 ### 理解枚举
-枚举是ioBroker内置的设备组织方式：
+枚举是ioBroker内置的一种组织设备的方式：
 
 - **房间编号**：包含位置（客厅、浴室、卧室、厨房等）
 - **功能枚举**：包含设备类型（照明、遮光、加热等）
@@ -252,7 +252,7 @@ sendTo('iot.0', 'getServiceEndpoint', { serviceName: 'custom_myService' }, resul
 ```
 
 ### `text2command`
-您可以将 `text2command` 写入白名单，然后向 `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` 发送 POST 请求，将数据写入 _text2command.X.text_ 变量。
+您可以将 `text2command` 写入白名单，您可以向 `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` 发送 POST 请求，将数据写入 `text2command.X.text` 变量。
 
 您也可以使用 GET 方法 `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
 
@@ -270,7 +270,7 @@ sendTo('iot.0', 'getServiceEndpoint', { serviceName: 'custom_myService' }, resul
 `text2command` 必须配置为解析预期短语并返回答案。
 
 ### `Javascript`
-可以直接使用脚本处理问题。如果未选择任何 `text2command` 实例，则默认情况下会启用此功能。
+可以直接使用脚本处理问题。如果未选择任何 `text2command` 实例，则默认情况下启用此功能。
 
 如果定义了 `text2command` 实例，则该实例必须提供答案，而来自 _script_ 的答案将被忽略。
 
@@ -402,39 +402,32 @@ setState('iot.0.app.message', JSON.stringify({
 ### **正在进行中** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
-- (@GermanBluefox) Added copy of credentials from cloud instance
+### 6.1.3 (2026-06-12)
+- (@GermanBluefox) Added support of credentials manager
 
-### 5.0.11 (2025-12-16)
-- (@GermanBluefox) Added percentual control
-- (@GermanBluefox) Correcting creation for complex groups
+### 6.1.0 (2026-06-02)
+- (@GermanBluefox) Implemented new feature to select devices from the list and not by enumeration
+- (@GermanBluefox) Possibility to send messages to the app directly from the state
+- (@GermanBluefox) Migrated google and alisa to TypeScript
 
-### 5.0.8 (2025-11-28)
-- (@GermanBluefox) Showed last controller ID in `smart.lastObjectID`
-- (@GermanBluefox) Showed subscription valid period in `info.validTill` and GUI
-- (@Copilot) Implemented increasing reconnect interval
-- (@GermanBluefox) Added automatically conversion of type TV (alexaV3) to button (alexaV3)
-- (@GermanBluefox) Optimized the update of devices in GUI
-- (@GermanBluefox) Implemented slider with custom min/max values
+### 6.0.3 (2026-04-23)
+- (@GermanBluefox) Allowed to read temperature information via Alexa
 
-### 5.0.7 (2025-11-03)
-- (@GermanBluefox) Added possibility to group devices by type in GUI
-- (@GermanBluefox) Allowed to select any type in Alexe V3
-- (@GermanBluefox) Remove disabled states from auto-detection
+### 6.0.1 (2026-04-07)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (@GermanBluefox) Removed support for Alexa 2
+- (@GermanBluefox) Fixed bug in Alisa with color and motion sensor
+- (@GermanBluefox) Validate Discovery response before sending it back
 
-### 5.0.6 (2025-11-01)
-- (@GermanBluefox) Added logs to detect the issues with detection
-- (@GermanBluefox) Added possibility to use the 0/1 state as socket
-- (@GermanBluefox) Added dialog to bulk manage the smart names of one device
-
-### 5.0.5 (2025-10-31)
-- (@GermanBluefox) Changed behavior of HUE lamps
+### 5.0.13 (2026-03-31)
+- (@GermanBluefox) Corrected the handling of the multiple group names
+- (@GermanBluefox) Fixing the license validation
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

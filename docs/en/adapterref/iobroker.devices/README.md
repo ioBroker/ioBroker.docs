@@ -9,7 +9,7 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/devices/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.devices.svg)](https://www.npmjs.com/package/iobroker.devices)
 
-## devices adapter for ioBroker
+## Device adapter for ioBroker
 
 Manage and create devices for using it in other adapters like material, iot, matter...
 
@@ -17,7 +17,7 @@ Manage and create devices for using it in other adapters like material, iot, mat
 
 ![Screen](img/screen.png)
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## ioBroker.devices Adapter User Manual
 
@@ -46,14 +46,14 @@ The `ioBroker.devices` adapter serves the following purposes:
 
 #### Standardization
 Many adapters like mqtt, knx or similarly deliver data points with different names and structures. This adapter creates a virtual device with a consistent structure, making it easier to manage and visualize devices.
-It adds automatically roles, units and names to the states.
+It adds automatic roles, units and names to the states.
 
 #### Simplified Maintenance
 The `ioBroker.devices` adapter allows users to create virtual devices that can be easily remapped to different physical devices.
 This means that if you change a physical device, you don't need to update your scripts, visualizations or history settings; you just need to remap the data points in the adapter.
 
 #### Enhanced Compatibility
-The adapter knows how the devices should look like and how to use them. It creates a virtual device with the same structure as the physical device, making it easier to integrate with other adapters.
+The adapter knows what the devices should look like and how to use them. It creates a virtual device with the same structure as the physical device, making it easier to integrate with other adapters.
 
 #### User-Friendly
 The `ioBroker.devices` adapter is designed to be user-friendly, making it accessible for beginners while still offering advanced features for experienced users. The intuitive interface allows users to create and manage virtual devices without needing extensive technical knowledge.
@@ -71,7 +71,7 @@ Open Devices Tab in admin.
 - Click the "+" button to create a new virtual device.
 - Enter a Name for the device (e.g., "LivingRoomLight").
 - Select a Device Type (e.g., Light, Switch, Thermostat) from the predefined list.
-- Optionally, assign a Category (e.g., Lighting, Heating) for organization.
+- Optionally, assign a Category (e.g., Lighting, Heating) for the organization.
 
 Map Data Points:
 
@@ -109,7 +109,7 @@ If you created e.g. a temperature device named `Temperature` and provided both s
 
 Almost every device type could have additional states (indicators) for battery, connectivity, error and some more else. They are optional, but some adapters (e.g., `material` or `matter`) could interpret it.
 
-For every state, you can provide all settings, that aliases support:
+For every state, you can provide all settings that aliases support:
 - Different states for read and write
 - Convert formula for read and write
 
@@ -123,151 +123,36 @@ Organize Devices: Use categories to group devices (e.g., "Lighting", "Heating") 
 ## Type of devices
 This adapter is built with the help of `type-detector`. All possible devices could be found [here](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md) 
 
+## Video
+[![Video](https://img.youtube.com/vi/0Aecm5YAk7M/0.jpg)](https://www.youtube.com/watch?v=0Aecm5YAk7M)
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.2.14 (2026-02-06)
-* (@GermanBluefox) Correcting the scrolling on the touch devices
-* (@GermanBluefox) Fixing a problem with `ACTUAL` state
-* (@GermanBluefox) Correcting the hover effect under safari
+### 3.0.2 (2026-06-30)
+* (@GermanBluefox) Added support for widget icons
 
-### 1.2.12 (2026-02-04)
-* (@GermanBluefox) Show in color if fx is not empty
-* (@GermanBluefox) Added for all text fields the clear button
+### 3.0.1 (2026-06-29)
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+- (krobipd) Reduced Safari rendering lag of the device list
+- (patricknitsch) Added consumption values to the categories
+- (patricknitsch) Fixed the data loss by the folder renaming
 
-### 1.2.9 (2025-09-08)
-* (@GermanBluefox) Created for newly created states of devices the full name and not just last part, like `ACTUAL`
+### 3.0.0 (2026-06-26)
+* (@GermanBluefox) Corrected universal widget
+* (@GermanBluefox) Added open-meteo-weather adapter support
+* (@GermanBluefox) Read all states anew after the reconnection
 
-### 1.2.8 (2025-07-21)
-* (@GermanBluefox) Corrected error in GUI
+### 2.1.5 (2026-05-28)
+* (@GermanBluefox) Added a theme type to context
 
-### 1.2.7 (2025-06-14)
-* (@GermanBluefox) Replaced icon for the state import
-* (@GermanBluefox) Corrected the edit dialog
+### 2.1.4 (2026-05-27)
+* (@GermanBluefox) Added digits after comma for Display widget
+* (@GermanBluefox) Added an installation script
 
-### 1.2.6 (2025-04-29)
-* (@GermanBluefox) Type-detector updated
-* (@GermanBluefox) Execute the conversion formula on current value
-* (@GermanBluefox) Better categories selector
-* (@GermanBluefox) Corrected device importer
-
-### 1.2.4 (2025-04-27)
-* (@GermanBluefox) Corrected many GUI issues
-
-### 1.2.1 (2025-04-22)
-* (@GermanBluefox) Updated logo
-* (@GermanBluefox) Updated type-detector
-
-### 1.2.0 (2025-04-20)
-* (@GermanBluefox) Updated packages
-* (@GermanBluefox) Used vite
-* (@GermanBluefox) Used eslint-config of ioBroker
-* (@GermanBluefox) Rewritten to TypeScript and corrected all known bugs (Except extension requests)
-
-### 1.1.5 (2023-06-06)
-* (Garfonso) fixed: problem with editing imported states
-* (Garfonso) fixed: warning
-* (Garfonso) fixed: enabling iot again (without setting a custom smartName)
-* (Garfonso) fixed: possible crash / typo in 1.1.3.
-
-### 1.1.4 (2023-06-06)
-* (bluefox) Updated packages
-
-### 1.1.3 (2023-05-16)
-* (bluefox) Better behavior of category selection
-
-### 1.1.2 (2022-11-09)
-* (Garfonso) corrected the double states in light devices
-* (Garfonso) added CIE color type as equivalent to `rgbSingle` type
-
-### 1.1.1 (2022-11-03)
-* (bluefox) Corrected delete dialog
-* (bluefox) Added ukrainian translation
-
-### 1.1.0 (2022-09-27)
-* (bluefox) Migrated GUI to v5
-
-### 1.0.12 (2022-06-09)
-* (bluefox) Allowed to work with devices behind reverse proxy
-* (bluefox) Replaced the function icon
-
-### 1.0.11 (2022-06-08)
-* (bluefox) Updated some libraries
-
-### 1.0.10 (2022-02-13)
-* (bluefox) Corrected edit of folders
-* (bluefox) Updated some libraries
-
-### 1.0.9 (2021-07-11)
-* (bluefox) Implement the narrow rows
-
-### 1.0.8 (2021-07-04)
-* (bluefox) Corrected creation of the devices
-
-### 1.0.7 (2021-06-30)
-* (bluefox) Corrected creation the folders
-
-### 1.0.6 (2021-06-27)
-* (bluefox) Implemented the filters
-
-### 1.0.5 (2021-06-26)
-* (bluefox) Implemented the edit of `states` parameter
-
-### 1.0.4 (2021-06-08)
-* (bluefox) Fixed some GUI errors
-
-### 1.0.1 (2021-06-07)
-* (bluefox) Added sentry
-
-### 1.0.0 (2021-06-07)
-* (bluefox) Added new devices
-
-### 0.3.16 (2021-03-11)
-* (bluefox) Fixed the error for IDs with the strange characters
-
-### 0.3.15 (2020-12-13)
-* (bluefox) Updated the select ID dialog
-
-### 0.3.13 (2020-08-17)
-* (bluefox) Fixed errors by optional states
-
-### 0.3.12 (2020-08-16)
-* (bluefox) added the vacuum cleaner
-
-### 0.3.10 (2020-08-12)
-* (bluefox) added the air conditioner
-
-### 0.3.6 (2020-04-17)
-* (Apollon77) Added Sentry error reporting for Frontend/React
-
-### 0.3.5 (2020-04-17)
-* (Apollon77) Fixed typo
-
-### 0.3.4 (2020-03-24)
-* (bluefox) Fixed error by device creation
-
-### 0.3.2 (2020-02-09)
-* (Apollon77) usage with all kinds of admin ports and reverse proxies optimized
-
-### 0.3.1 (2020-02-09)
-* (Apollon77) compatibility with Admin >4.0.0 added
-
-### 0.2.0 (2019-12-20)
-* (bluefox) Backend was removed
-
-### 0.1.8 (2019-11-13)
-* (bluefox) Allowed the clone of devices
-
-### 0.1.7 (2019-09-15)
-* (bluefox) work in progress
-
-### 0.1.2 (2019-09-04)
-* (bluefox) work in progress
-
-### 0.1.0 (2019-08-31)
-* (bluefox) initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

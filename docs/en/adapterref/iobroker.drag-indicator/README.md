@@ -21,6 +21,15 @@ e.g. you can use it for power or temperature values.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.6.1 (2026-04-05)
+* (BenAhrdt) correct nameing of tab and subscribtion
+
+### 2.6.0 (2026-04-05)
+* (BenAhrdt) implement device Manager
+
 ### 2.5.1 (2026-02-28)
 * (BenAhrdt) update dependecies
 
@@ -103,6 +112,8 @@ e.g. you can use it for power or temperature values.
 
 ### 1.14.7
 * (BenAhrdt) first official version
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -5,9 +5,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.pegelalarm.svg)](https://www.npmjs.com/package/iobroker.pegelalarm)
 ![Number of Installations (latest)](http://iobroker.live/badges/pegelalarm-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/pegelalarm-stable.svg)
-[![Known Vulnerabilities](https://snyk.io/test/github/simatec/ioBroker.pegelalarm/badge.svg)](https://snyk.io/test/github/simatec/ioBroker.pegelalarm)
 ![Test and Release](https://github.com/simatec/ioBroker.pegelalarm/workflows/Test%20and%20Release/badge.svg)
-
 [![License](https://img.shields.io/github/license/simatec/ioBroker.pegelalarm?style=flat)](https://github.com/simatec/ioBroker.pegelalarm/blob/master/LICENSE)
 [![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/simatec)
@@ -36,8 +34,18 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!--### __WORK IN PROGRESS__-->
-### **WORK IN PROGRESS**
+### 1.4.0 (2026-04-22)
+* (simatec) dependencies updated
+* (simatec) Request Fix
+* (simatec) Timeout Fix
+* (simatec) Source code rewritten,
+* (simatec) Source code improved
+* (simatec) Station names fixed
+* (simatec) Header added
+
+### 1.3.13 (2026-03-29)
 * (simatec) Fix License
+* (simatec) dependencies updated
 
 ### 1.3.12 (2025-11-23)
 * (simatec) dependencies updated

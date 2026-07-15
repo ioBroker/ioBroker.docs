@@ -5,6 +5,8 @@ chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"io
 
 # ioBroker.shelly
 
+This is the German documentation - [🇺🇸 English version](../en/ble-devices.md)
+
 **Diese Funktion ist experimentell!**
 
 Ein neues Skript (siehe unten) muss auf einem Plus- oder Pro-Gerät (Gen 2+) erstellt werden, um Ereignisse in diesem Zustand als JSON zu erhalten: `shelly.0.<device>.BLE.Event`.
@@ -38,6 +40,7 @@ Seit Adapter-Version 7.1.0 wird eine Liste aller Geräte (JSON-Objekt) bereitges
 
 | Adapterversion                                                                                                 | Skriptversion |
 |-----------------------------------------------------------------------------------------------------------------|----------------|
+| [>= 11.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v11.0.0/docs/en/ble-devices.md) | v1.3           |
 | [>= 10.3.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.3.0/docs/en/ble-devices.md) | v1.2           |
 | [>= 10.2.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.2.0/docs/en/ble-devices.md) | v1.1           |
 | [>= 10.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.1.0/docs/en/ble-devices.md) | v1.0           |
@@ -63,15 +66,15 @@ Danach kann das nächste BLE-Ereignis entschlüsselt werden.
 ## Bluetooth aktivieren
 
 **WICHTIG**
-Bitte nicht vergessen die Bluetooth-Funktionalität am Shelly der als Gateway verwendet werden soll zu aktivieren.
+Die Bluetooth-Funktionalität am Shelly-Gerät, das als Gateway verwendet werden soll, muss aktiviert werden.
 
 ## JavaScript (Shelly Scripting)
 
 Dieses Skript im Shelly Scripting-Bereich eines Shelly Plus- oder Pro-Geräts (Gen 2+) hinzufügen und starten:
 
 ```javascript
-// v1.2
-const SCRIPT_VERSION = '1.2';
+// v1.3
+const SCRIPT_VERSION = '1.3';
 const BTHOME_SVC_ID_STR = 'fcd2';
 
 let SHELLY_ID = undefined;
@@ -123,7 +126,7 @@ function init() {
     let bleConfig = Shelly.getComponentConfig('ble');
 
     // exit if the BLE isn't enabled
-    if (!bleConfig.enable) {
+    if (!bleConfig.rpc.enable) {
         console.log('Error: The Bluetooth is not enabled, please enable it in the settings');
         return;
     }
@@ -153,62 +156,34 @@ Shelly.call('Mqtt.GetConfig', '', function (res, err_code, err_msg, ud) {
 });
 ```
 
-## Beispiel-Payloads (nur für Entwicklung)
+## Getestete Geräte
 
-**Shelly BLU Button (und Tough 1)**
+**Shelly BLU Button (and Tough 1)**
 
-- Docs: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/button
-- Getestet mit Firmware: `20250314-080633/v1.0.22@cb5ca611`
-
-```json
-{
-  "encryption": false,
-  "BTHome_version": 2,
-  "pid": 6,
-  "battery": 70,
-  "button": 1 // 1 = einzelner Druck, 2 = Doppeldruck, 3 = Dreifachdruck, 4 = langer Druck
-}
-```
+- Docs: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/button
+- Knowledge Base: https://kb.shelly.cloud/knowledge-base/shellyblu-button1
+- Getestet mit Firmware: `20250314-080633/v1.0.22`
 
 **Shelly BLU H&T**
 
-- Docs: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/ht
-- Getestet mit Firmware: `20250314-080647/v1.0.22@cb5ca611`
-
-```json
-
-```
+- Docs: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/ht
+- Knowledge Base: 
+- Getestet mit Firmware: `20250314-080647/v1.0.22`
 
 **Shelly BLU Door/Window**
 
-- Docs: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/dw
-- Getestet mit Firmware: `20250314-080641/v1.0.22@cb5ca611`
-
-```json
-{
-  "encryption": false,
-  "BTHome_version": 2,
-  "pid": 12,
-  "battery": 100,
-  "illuminance": 13,
-  "window": 0, // 1 = offen, 0 = geschlossen
-  "rotation": 0
-}
-```
+- Docs: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/dw
+- Knowledge Base: https://kb.shelly.cloud/knowledge-base/shellyblu-door-window
+- Getestet mit Firmware: `20250314-080641/v1.0.22`
 
 **Shelly BLU Motion**
 
-- Docs: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/motion
-- Getestet mit Firmware: `20250314-080656/v1.0.22@cb5ca611`
+- Docs: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/motion
+- Knowledge Base: https://kb.shelly.cloud/knowledge-base/shellyblu-motion
+- Getestet mit Firmware: `20250314-080656/v1.0.22`
 
-```json
-{
-  "encryption": false,
-  "BTHome_version": 2,
-  "pid": 182,
-  "battery": 100,
-  "temperature": 25.9,
-  "illuminance": 427,
-  "motion": 1 // 1 = Bewegung, 0 = Bewegung beendet
-}
-```
+**Shelly BLU Wall Switch 4**
+
+- Docs: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/wall_eu
+- Knowledge Base: https://kb.shelly.cloud/knowledge-base/shelly-blu-wall-switch-4
+- Getestet mit Firmware: `20250824-135711/v1.0.23`

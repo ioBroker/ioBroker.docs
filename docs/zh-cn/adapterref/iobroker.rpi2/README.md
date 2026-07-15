@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rpi2/README.md
 title: ioBroker.rpi2
-hash: 40wy2PWHoaAr24/O2GwDtBu28xu56LuV7yls9JkhbhU=
+hash: iWZz/8v14KtH0J/yeCjkhMZcJ/V6o5/dXkYZsac+7Ow=
 ---
 # IoBroker.rpi2
 
@@ -26,10 +26,12 @@ hash: 40wy2PWHoaAr24/O2GwDtBu28xu56LuV7yls9JkhbhU=
 
 用于集成到 ioBroker 中的 RPI-Monitor 实现。它与 iobroker.rpi 的实现相同，但使用了 GPIO。
 
-重要信息
+## 重要信息
 **ioBroker 需要特殊权限才能控制 GPIO。** 在大多数 Linux 发行版中，可以通过将 ioBroker 用户添加到 `gpio` 组来实现这一点。
 
 要使 GPIO 工作，您需要在安装适配器之前（见下文）**安装 `libgpiod` 版本 `2.x` ！
+
+【注意】此适配器的 3.x.x 版本支持并需要 Debian trixie 操作系统。如果您使用的是旧版操作系统，请勿更新。
 
 ＃＃ 安装
 安装完成后，您需要通过管理页面配置所有必需的模块。
@@ -166,6 +168,7 @@ sudo apt install -y libgpiod-dev
 
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (mcm1957) Dependencies have been updated.
 
 ### 3.0.2 (2025-12-01)
 * (@klein0r) Check for required libgpiod-dev package version

@@ -1,5 +1,5 @@
 <h1>
-    <img src="admin/heytech.png" width="64"/>
+    <img alt="" src="admin/heytech.png" width="64"/>
     ioBroker.heytech
 </h1>
 
@@ -26,6 +26,51 @@ Normaly you can leave the "Auto detect" function on. If this does not work you c
 [HEYTech](https://rolladensteuerung.de/index.htm)
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+### 1.1.8 (2026-07-03)
+* chore(deps-dev): bump @alcalzone/release-script from 5.2.0 to 5.2.1
+* Bump js-yaml from 4.1.1 to 4.2.0
+* Bump http-proxy-middleware from 3.0.5 to 3.0.7
+
+### 1.1.7 (2026-06-03)
+* Bump @alcalzone/release-script-plugin-iobroker from 5.1.2 to 5.2.0
+* Bump @alcalzone/release-script-plugin-license from 5.1.1 to 5.2.0
+* Bump @alcalzone/release-script from 5.1.1 to 5.2.0
+* Bump @iobroker/eslint-config from 2.2.0 to 2.3.4
+* Bump @alcalzone/release-script-plugin-manual-review from 5.1.1 to 5.2.0
+* Bump protobufjs from 7.5.5 to 7.5.8
+* Bump @protobufjs/utf8 from 1.1.0 to 1.1.1
+* Bump fast-uri from 3.1.0 to 3.1.2
+* Bump axios from 1.15.0 to 1.16.0
+* Update from template: S6020-addChangelogOld
+* Update from template: X0000-dropNode20
+* Update from template: W8917-dependabot-addIgnoreTypesNode
+
+### 1.1.6 (2026-05-03)
+* Bump typescript from 6.0.2 to 6.0.3
+* Bump @types/node from 25.5.0 to 25.6.0
+* Bump protobufjs from 7.5.4 to 7.5.5
+* Bump follow-redirects from 1.15.11 to 1.16.0
+* Bump axios from 1.14.0 to 1.15.0
+* Update from template: X0000-updateNodeJsAtTestAndRelease
+
+### 1.1.5 (2026-04-03)
+* Bump lodash from 4.17.23 to 4.18.1
+
+### 1.1.4 (2026-04-02)
+* (jey-cee) fix some issues found by adapter checker
+
+### 1.1.3 (2026-03-31)
+* (jey-cee) automate release
+
+### 1.1.2 (2026-03-31)
+* (jey-cee) fix linting errors
+
+### 1.1.1 (2026-03-31)
+* (jey-cee) update dependencies
+* (jey-cee) update testing
+* (jey-cee) fix repochecker issues
 
 ### 1.1.0 (2024-09-30)
 * (Jey Cee) Delete group objects if the group was removed from configuration
@@ -66,25 +111,22 @@ Normaly you can leave the "Auto detect" function on. If this does not work you c
 ### 0.1.4
 * update lux calculation (Thanks to stefan)
 
-
 ### 0.1.3
 * update calculation for brightness
-
 
 ### 0.1.2
 * added LUX calculation
 
-
 ### 0.1.1
 * added travis file
-
 
 ### 0.1.0
 * ready for beta test
 
-
 ### 0.0.1
 * (Author) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

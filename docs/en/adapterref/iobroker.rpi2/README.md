@@ -28,6 +28,9 @@ RPI-Monitor implementation for integration into ioBroker. It is the same impleme
 
 For gpio to work, you need to install `libgpiod` in version `2.x`, **before** installing the adapter (see below)!
 
+> [!CAUTION]
+> Version 3.x.x of this adapter supports and requires Debian trixie. Do not update if you are using older o/s.
+
 ## Installation
 
 After installation you have to configure all required modules via administration page.
@@ -166,7 +169,10 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (mcm1957) Dependencies have been updated.
+- (copilot) **ENHANCED**: Added `temperature.fan_activity` object to monitor fan RPM via `/sys/devices/platform/cooling_fan/...`; falls back to `0` when unavailable.
 
 ### 3.0.2 (2025-12-01)
 * (@klein0r) Check for required libgpiod-dev package version
@@ -189,6 +195,8 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 ### 2.3.2 (2025-02-06)
 * (asgothian) added support for NVMe temperature (needs additional configuration, see README)
 * (Garfonso) fixed inital values for outputs.
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

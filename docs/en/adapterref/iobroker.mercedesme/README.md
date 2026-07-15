@@ -31,25 +31,34 @@ Unter commands das commando auf klappen und den button neben start drücken wenn
 
 Remote sind vorgefertige Remote Befehle
 
-
 ## Changelog
-### 0.7.0-beta.0 (2026-03-03)
-- make api only mode default
+### 0.7.1 (2026-04-15)
+
+- fix vehicle fetching
+
+### 0.7.0 (2026-03-16)
+
+- make api only mode default. use websocket for remote controls only
 
 ### 0.6.3 (2026-02-16)
+
 - add api refresh every 3 min after websocked block
 - add api only update mode
 
 ### 0.5.5 (2026-02-09)
+
 - fix parsing and command sending
 
 ### 0.4.2 (2026-02-07)
+
 - improve event parsing
 
 ### 0.4.0 (2026-02-03)
+
 - fix remote command sending
 
 ### 0.3.9 (2025-11-12)
+
 - fix login flow
 
 ### 0.3.8 (2025-07-11)

@@ -104,11 +104,14 @@ The following request are sent to the API. But the availlable datapoints strongl
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.2.0 (2026-03-07)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated.
 
 ### 2.1.1 (2024-07-24)
 * (nkleber78) Better handling of empty objects [#374]
@@ -127,17 +130,7 @@ The following request are sent to the API. But the availlable datapoints strongl
 
 -   (mcm1957) Deploy mechanism at github has been reactivated.
 
-### 2.0.0 (2023-06-04)
-
--   (nkleber78) Several errors resulting in missing data have been fixed. (#152, #242, #175)
--   (nkleber78) Several errors due to missing objects have been solved. (#206, #129, #76)
--   (nkleber78) The usage of the ping utility has been removed. (#169)
--   (nkleber78) Reading of mpp values has been added. (#78)
--   (nkleber78) 'Request' module has been replaced by 'axios'.
--   (nkleber78) Fixed changes related to GEN24 API update for latest FW incl. object creation for storage objects
--   (nkleber78) Fixed issue #97, Added some new predefined objects
--   (nkleber78) Added Inverter Temperature readout (#86)
--   (mcm1957) Dependencies and toolset have been updated.
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

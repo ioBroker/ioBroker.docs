@@ -14,7 +14,7 @@ This is a special adapter that tries to find all possible devices that can be re
 Just now it can detect via ping, UPnP (serial planned).
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
-For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+For more details and for information on how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Actually supported
 
@@ -48,6 +48,7 @@ For more details and for information how to disable the error reporting see [Sen
 - Heos
 - Home Assistant
 - Homematic CCU (hm-rpc, hm-rega)
+- Hoymiles HMS inverters (hoymiles)
 - Homepilot
 - HP-lio
 - Philips HUE
@@ -95,13 +96,13 @@ For more details and for information how to disable the error reporting see [Sen
 - Sonos
 - Stiebel-Eltron/Tecalor ISG (plus)
 - SQL (MySQL, MSSQL, PostgreSQL)
-- Squeezebox
 - SqueezeboxRPC
 - Synology
 - TR-064
 - Trådfri
 - UPnP
 - ValloxMV
+- VictronCerbo
 - Wifilight
 - WLED
 - Yamaha
@@ -151,6 +152,14 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.0.1 (2026-07-03)
+* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+* (Eistee82) Fix Hoymiles HMS discovery: correct a require path and align native config with hoymiles 0.3.4 device-array schema
+* (iobroker-bot) Adapter requires node.js >= 20 now.
+* (UncleSamSwiss) Remove obsolete squeezebox adapter
+* (GermanBluefox) Packages were updated
+* (GermanBluefox) Added victron-cerbo
+
 ### 5.0.0 (2024-07-21)
 * (bluefox) Packages updated
 * (bluefox) Minimum node.js version is 18.x
@@ -167,14 +176,13 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 ### 4.3.0 (2024-02-21)
 * (bluefox) Replaced vis with vis-2
 
-### 4.2.0 (2023-10-09)
-* (pdbjjens) Changed detection of myvbus and resol
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2024, Denis Haev ak Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2026, Denis Haev ak Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

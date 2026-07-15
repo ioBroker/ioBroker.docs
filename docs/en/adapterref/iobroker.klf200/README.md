@@ -358,6 +358,8 @@ The values of the state provide multiple manipulation modes:
 
 - (Michael Schroeder) Initial developer release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## Contribute
 
 To release a new version run the following script:
@@ -370,7 +372,7 @@ npm run release major|minor|patch|... [-- --dry]
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2025 Michael Schroeder <klf200@gmx.de>
+Copyright (c) 2018-2026 Michael Schroeder <klf200@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

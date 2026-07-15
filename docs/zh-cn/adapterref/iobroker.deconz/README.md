@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.deconz/README.md
 title: 无标题
-hash: ewaf6MGJi/Q4NpS6i2CfUKF7i0e2iga4/x8MTXH/zlw=
+hash: MybRE2stat2dK89Qt+6G72naXvWqGDal9pGmTKLw0o0=
 ---
 ![标识](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
@@ -18,10 +18,7 @@ ioBroker deCONZ 德累斯顿电子适配器
 ＃＃ 注意
 不支持 deCONZ 的 Beta 版本
 
-需要 js-controller 版本 >5.x.x，需要 node.js 版本 >= 18.x.x
-
-＃＃ 英语
-连接到由dresden-elektronik开发的deCONZ REST-API软件。该软件旨在成为通用的ZigBee网关解决方案，使用dresden-elektronik的ConBee(X) USB适配器和RaspBee(X) Raspberry Pi模块。
+连接到由dresden-elektronik开发的deCONZ REST-API软件。该软件旨在成为通用的ZigBee网关解决方案，使用dresden-elektronik的ConBee(X) USB适配器和RaspBee(X)树莓派模块。
 
 您必须先连接到 deCONZ。
 
@@ -51,6 +48,41 @@ b) 输入标准桥接端口：80 和标准 WebSocket：443<br> [例如 Phoscon A
 ## [赞助商](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+### 1.7.6 (2026-04-02)f
+* migrate from request to fetch
+
+### 1.7.4 (2026-03-29)
+- update dependencies
+
+### 1.7.3 (2026-03-29)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- update dependencies
+- fix: errors found by ioBroker repo checker
+
+### 1.7.2 (2026-03-29)
+* fix: remove [skip ci] from release commit so test-and-release triggers on tag
+
+### 1.7.1 (2026-03-29)
+* chore: update GitHub Actions to v6 (Node.js 24 compatibility)
+* fix: export VERSION and DATE env vars for Python subprocess in release workflow
+* fix: make UTCtoLocal robust against invalid/already-timezone-aware timestamps
+* Bump node-forge from 1.3.2 to 1.4.0
+* Update from template: S5043-useNodePrefix
+* Bump picomatch
+* chore: update monthly release workflow - add io-package.json and README changelog
+* chore: add monthly release workflow
+* Uncomment NPM deployment steps in workflow
+* Bump flatted from 3.3.3 to 3.4.2
+* Update from template: X0000-updateNodeJsAtTestAndRelease
+* Bump minimatch
+* Bump ajv from 6.12.6 to 6.14.0
+* fix: correct indentation of migration code and main() closure
+* fix: add missing closing brace for deconz class after ESLint reformat
+* Update Node.js versions in CI workflow
+* chore: migrate to ESLint 9 with @iobroker/eslint-config
+* fix: migrate gateway config from Gateway_info to adapter.config on upgrade
+* Bump lodash from 4.17.21 to 4.17.23
+* Update from template: X0000-setupAutomergeDependabot
 
 ### 1.7.0 (2024-11-22)
 * (mattreim) Hide virtual sensors function
@@ -342,4 +374,4 @@ b) 输入标准桥接端口：80 和标准 WebSocket：443<br> [例如 Phoscon A
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2024 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2026 Jey Cee jey-cee@live.com

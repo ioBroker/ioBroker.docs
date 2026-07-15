@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pjlink/README.md
 title: ioBroker.pjlink
-hash: fRFyqywoqjqqH5xW0ND8o/PnzeQLT9fhEDVWAGrmvi8=
+hash: WMYyUCmJf3uL/OkE/7ikxum6NtgrLHsELY+PNQgpcMk=
 ---
 ![Logo](../../../en/adapterref/iobroker.pjlink/admin/pjlink.png)
 
@@ -45,7 +45,7 @@ Aktuell wird nur Klasse 1 unterstützt. Das bedeutet, der Adapter kann den Statu
 #### PJLink Klasse 1 Eingänge
 Die Eingaben müssen als zweistellige Zahlen festgelegt werden. Die erste Ziffer beschreibt den Eingabetyp.
 
-| Typ | Anzahl | mögliche Eingaben |
+| Typ | Zahl | mögliche Eingaben |
 | ------- | ------ | --------------- |
 | RGB | 1 | 1 - 9 |
 | VIDEO | 2 | 1 - 9 |
@@ -69,13 +69,17 @@ Der Projektor kann je nach aktuellem Stromzustand ein- und ausgeschaltet werden.
 Der Netzschalter kehrt automatisch in die Position **falsch** zurück.
 
 #### Lampenstatus
-Nur eine Lampe ist in der Datenbank vordefiniert. Falls die Lampenabfrage mehrere Lampen zurückgibt, werden die übrigen Lampen dynamisch hinzugefügt.
+In der Datenbank ist nur eine Lampe vordefiniert. Falls die Lampenabfrage mehrere Lampen zurückgibt, werden die übrigen Lampen dynamisch hinzugefügt.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+* (Bannsaenger) updated dependencies and issues from repository checker
+
 ### 0.1.2 (2025-10-27)
 * (Bannsaenger) updated dependencies and issues from repository checker
 * (Bannsaenger) migrate to NPM Trusted Publishing
@@ -98,10 +102,12 @@ Nur eine Lampe ist in der Datenbank vordefiniert. Falls die Lampenabfrage mehrer
 * (Bannsaenger) changed some info logs to debug. Fixed one power state issue.
 * (Bannsaenger) redesign of timer and error handling
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2022-2025 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2022-2026 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -29,6 +29,9 @@ Important: The desired schedules must be set up in the app prior to use. These c
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.0.3
 * (Smart-Gang) Update of various dependencies and update to Node 20.
 
@@ -53,6 +56,7 @@ Important: The desired schedules must be set up in the app prior to use. These c
 ### 0.1.7
 * (Smart-Gang) First public release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

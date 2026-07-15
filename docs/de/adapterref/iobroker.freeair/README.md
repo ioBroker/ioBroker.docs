@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.freeair/README.md
 title: ioBroker.freeair
-hash: 071HoZn58gexhUgL6j0Qf1IiGB9GHN+qih2FWHUiBS8=
+hash: njTVR5cc2TJdRqa1vV4a2OWtx3PeVh5s6mARD0hP5nQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.freeair/admin/freeair.png)
 
@@ -14,31 +14,33 @@ hash: 071HoZn58gexhUgL6j0Qf1IiGB9GHN+qih2FWHUiBS8=
 ![NPM](https://nodei.co/npm/iobroker.freeair.png?downloads=true)
 
 # IoBroker.freeair
-**Tests:** ![Testen und Freigeben](https://github.com/Scrounger/ioBroker.freeair/workflows/Test%20and%20Release/badge.svg)
+![Weblate](https://weblate.iobroker.net/widgets/adapters/-/freeair/svg-badge.svg)
 
-## Freeair-Adapter für ioBroker
-lokale Verbindung zu Ihrem [BluMartin FreeAir 100](https://blumartin.de/wohnraumlueftung-freeair-dezentral-mit-waermerueckgewinnung/) Lüftungssystem
+**Tests:** ![Test und Freigabe](https://github.com/Scrounger/ioBroker.freeair/workflows/Test%20and%20Release/badge.svg)
+
+## FreeAir-Adapter für ioBroker
+Lokale Verbindung zu Ihrem [BluMartin FreeAir 100](https://blumartin.de/wohnraumlueftung-freeair-dezentral-mit-waermerueckgewinnung/) Lüftungssystem
 
 ## Einstellungen
 ### FreeAir 100
 ![Bildinformationen](../../../en/adapterref/iobroker.freeair/doc/freeair_config.png)
 
-- Fügen Sie unter „bluHome“ die IP-Adresse Ihres ioBrokers hinzu
+- Fügen Sie unter `bluHome` die IP-Adresse Ihres ioBrokers hinzu.
 
 ### Adapter
 ![Bildinformationen](../../../en/adapterref/iobroker.freeair/doc/adapter_config.png)
 
 #### Servereinstellungen
 - Adapteradresse: die IP-Adresse Ihres ioBrokers
-- Port: Der Standardport ist 80, da die FreeAir 100-Geräte ihre Daten an Port 80 senden<br> **_HINWEIS:_** Sie können den Port ändern, z. B. indem Sie eine DNAT-Regel in Ihrem Gateway konfigurieren
-- Alive-Check-Intervall: Wenn in diesem Intervall keine Daten empfangen werden, werden Geräte als offline angezeigt
+- Port: Standardport ist 80, da die FreeAir 100-Geräte ihre Daten an Port 80 senden.<br> **Hinweis:** Sie können den Port ändern, z. B. durch Konfigurieren einer DNAT-Regel in Ihrem Gateway.
+- Überprüfungsintervall für die Verfügbarkeit: Werden innerhalb dieses Intervalls keine Daten empfangen, werden die Geräte als offline angezeigt.
 
 #### Geräteanmeldeinformationen
-- Fügen Sie die Seriennummer Ihres FreeAir 100-Geräts hinzu
-- Fügen Sie das Passwort hinzu, das Sie in Ihrem FreeAir 100-Gerät festgelegt haben
+- Fügen Sie die Seriennummer Ihres FreeAir 100-Geräts hinzu.
+- Fügen Sie das Passwort hinzu, das Sie in Ihrem FreeAir 100-Gerät festgelegt haben.
 
-#### Datenpunkte Blacklist / Whitelist
-- Datenpunkte auf die schwarze oder weiße Liste setzen.
+#### Datenpunkte-Sperrliste / Zulassungsliste
+- Datenpunkte auf die Blacklist oder Whitelist setzen.
 
 ## Changelog
 
@@ -46,6 +48,16 @@ lokale Verbindung zu Ihrem [BluMartin FreeAir 100](https://blumartin.de/wohnraum
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.8 (2026-03-17)
+
+- (Scrounger) dependencies updated
+
+### 1.0.7 (2026-03-09)
+
+- (Scrounger) dependencies updated
+- (Scrounger) downgrade @iobroker/adapter-core to v3.3.1 to prevent conflicts with js-controller < v7.1.0 in rare cases #56
+- (Scrounger) device error indicator bug fix
+
 ### 1.0.6 (2025-10-19)
 
 - (Scrounger) auto translation bug fix
@@ -93,7 +105,7 @@ lokale Verbindung zu Ihrem [BluMartin FreeAir 100](https://blumartin.de/wohnraum
 
 MIT License
 
-Copyright (c) 2025 Scrounger <scrounger@gmx.net>
+Copyright (c) 2025-2026 Scrounger <scrounger@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

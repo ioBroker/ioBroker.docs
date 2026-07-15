@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: 50y3ZeJ3MS1dkRKIpyBd3FY/d1+0pNHJpsSoWBp/fKA=
+hash: xaZzmVNw6uvjy6H3TumpfbeTCTSIQHcKssShqS0fPxk=
 ---
 ![Logo](../../../en/adapterref/iobroker.reolink/admin/reolink.png)
 
@@ -28,7 +28,7 @@ Falls Sie einen bestimmten API-Befehl einbeziehen möchten, lassen Sie es mich e
 
 ## Implementierte Funktionen
 ### SATZ
-- PTZ-Steuerung / PTZ-Wächter
+- PTZ-Steuerung / PTZ-Überwachung
 - Push-Benachrichtigung
 - Autofokus einstellen
 
@@ -95,24 +95,133 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 });
 ```
 
-## Bekannte funktionierende Kameras (Firmware aus dem Jahr 2023)
-- RLC-420-5MP
-- E1 Outdoor
-- E1 Zoom
-- RLC-522
-- RLC-810A
-- RLC-823A
-- Duo 3 PoE
+## Batteriebetriebene Kameras
+Akkubetriebene Kameras (Argus PT, Argus 3 Pro, ...) verwenden ein proprietäres Protokoll und werden über **[Neolink](https://github.com/QuantumEntangledAndy/neolink)** unterstützt – ein Open-Source-Tool, das bei der ersten Verwendung automatisch heruntergeladen wird.
 
-## Bekannte *NICHT* funktionierende Kameras
-- E1 Pro
-- Argus 4 (möglicherweise funktionieren alle Argus-Geräte nicht)
+### Schnellkonfiguration
+1. **In den Einstellungen aktivieren:** ✅ „Batteriebetriebene Kamera“
+2. **Kamera-UID eingeben:** In der Reolink-App unter „Geräteinformationen“ finden Sie diese Option.
+3. **Abhängigkeit installieren (Linux):**
+
+```bash
+sudo apt install gstreamer1.0-rtsp
+```
+
+4. **Adapter starten** → RTSP-Streams verfügbar unter `rtsp://<Server-IP>:8554/<Kameraname>/mainStream`
+
+Die Server-IP wird automatisch erkannt. `<CameraName>` ist der in der Adapterkonfiguration festgelegte Name.
+
+### Batteriesparen
+**Der Akku entlädt sich im Betrieb schnell!** Der Adapter verwendet eine automatische Deaktivierungsstrategie:
+
+- **`streams.enable`** (Boolescher Wert) — RTSP-Streaming aktivieren/deaktivieren
+- Standardwert: `false` (aus = Batteriesparmodus)
+- Automatische Deaktivierung nach 30 Sekunden (konfigurierbar)
+Der Stream wird automatisch pausiert, wenn kein Client verbunden ist.
+
+- **`mqtt.enable`** (Boolescher Wert) — Aktiviert die MQTT-Integration für Bewegungs-/Batterie-/Flutlicht-/PIR-Sensoren
+- Erforderlich für Statusaktualisierungen und Flutlicht-/PIR-Steuerung
+- Automatische Deaktivierung nach konfigurierbarem Timeout (Batterieschutz)
+- Broker in den Adaptereinstellungen konfigurieren
+
+### Akku-Kamera-Zustände
+| Zustand | Typ | R/W | Beschreibung |
+|---|---|---|---|
+| `streams.enable` | Boolescher Wert | Lesen/Schreiben | RTSP-Stream starten/stoppen |
+| `streams.subStream` | Zeichenkette | R | RTSP-URL für Unterstream |
+| `mqtt.enable` | Boolesch | Lesen/Schreiben | MQTT-Integration starten/stoppen |
+| `floodlight` | Boolesch | Lese-/Schreibzugriff | Flutlicht ein/aus — Status über MQTT, Steuerung über MQTT (automatischer MQTT-Start) |
+| `pir` | Boolesch | Lese-/Schreibzugriff | PIR-Sensor ein/aus — Status über MQTT, Steuerung über MQTT (automatischer MQTT-Start) |
+| `snapshot` | Schaltfläche | W | Schnappschuss via RTSP aufnehmen |
+| `query.battery` | Taste | W | Akkustand über Neolink CLI abfragen |
+| `query.preview` | Schaltfläche | W | Schnappschuss via RTSP aufnehmen |
+| `ptz.preset` | Nummer | R/W | Kamera auf gespeicherte Voreinstellungsposition bewegen (0–9) |
+| `ptz.up/down/left/right` | Boolesch | Lesen/Schreiben | Halten zum Bewegen (`true`=Start, `false`=Stopp) |
+| `ptz.speed` | Nummer | Lese-/Schreibzugriff | PTZ-Bewegungsgeschwindigkeit (1–100, Standard 32) |
+| `status.motion` | Boolesch | R | Bewegung erkannt (via MQTT) |
+| `status.battery_level` | Nummer | R | Akkustand in % (über Neolink CLI, periodisch) |
+| `status.battery_level` | Zahl | R | Akkustand in % (über Neolink CLI, periodisch) |
+
+| `snapshotImage` | Zeichenkette | R | Letztes Snapshot-Bild (base64, Daten-URI) |
+| `info.neolink_status` | Zeichenkette | R | Neolink-Prozessstatus: `stopped` / `running` |
+| `info.neolink_status` | Zeichenkette | R | Neolink-Prozessstatus: `stopped` / `running` |
+
+### PTZ-Steuerung
+PTZ funktioniert über die Neolink-Befehlszeilenschnittstelle – MQTT ist nicht erforderlich.
+
+**Richtungsbewegung** (`ptz.up/down/left/right`):
+
+- Auf `true` setzen → Die Kamera beginnt sich zu bewegen und stoppt automatisch nach 5 Sekunden.
+- Auf `false` setzen → Kamera stoppt sofort
+- In VIS: Konfigurieren Sie eine Schaltfläche mit `mousedown=true` / `mouseup=false` für die Halte-zum-Bewegen-Funktion.
+- Geschwindigkeit mit `ptz.speed` anpassen (1–100)
+
+**Voreinstellungen** (`ptz.preset`): Stellen Sie eine voreingestellte Zahl (0–9) ein, um zu dieser gespeicherten Position zu springen.
+
+### Merkmale
+✅ RTSP-Streams (Haupt- + Nebenstream) ✅ Snapshot-Aufnahme (erfordert ffmpeg) ✅ Flutlichtsteuerung (Status + Steuerung via MQTT) ✅ PIR-Sensorsteuerung (Status + Steuerung via MQTT) ✅ Bewegungserkennung (via MQTT) ✅ Akkustand (periodisch via NeoLink CLI) ✅ Vorschaubild (automatische Aktualisierung via MQTT) ✅ PTZ-Steuerung – Richtungsbewegung + Voreinstellungen (via NeoLink CLI) ✅ Multiplattform – NeoLink-Binärdatei wird automatisch heruntergeladen (Linux x64/ARM/ARM64, macOS)
+
+### MQTT-Einrichtung
+In den Adaptereinstellungen konfigurieren:
+
+- **Broker-Host** (Standard: `127.0.0.1`)
+- **Broker-Port** (Standard: `1883`)
+- **Benutzername / Passwort** (optional)
+- **Automatische Deaktivierung des Timeouts** (Standard: 30 s, Batterieschutz)
+
+MQTT wird für Kamerastatusaktualisierungen und -steuerung verwendet. Der Adapter abonniert automatisch, wenn `mqtt.enable` auf `true` gesetzt wird.
+
+Statusthemen (von der Kamera über Neolink veröffentlicht):
+
+- `neolink/<Kamera>/Status/Bewegung`
+- `neolink/<Kamera>/status/Batteriestand`
+- `neolink/<Kamera>/Status/Flutlicht`
+- `neolink/<Kamera>/status/pir`
+- `neolink/<Kamera>/status/Vorschau`
+
+Steuerungsthemen (vom Adapter an die Kamera gesendet):
+
+- `neolink/<Kamera>/Steuerung/Flutlicht`
+- `neolink/<Kamera>/Steuerung/PIR`
+
+### Fehlerbehebung
+| Problem | Lösung |
+|---|---|
+| "Kamera-UID erforderlich" | UID aus der Reolink-App eingeben → Geräteinformationen |
+| "libgstrtspserver nicht gefunden" | `sudo apt install gstreamer1.0-rtsp` |
+| Snapshot fehlgeschlagen | ffmpeg installieren: `sudo apt install ffmpeg` |
+| Snapshot fehlgeschlagen | ffmpeg installieren: `sudo apt install ffmpeg` |
+| MQTT `NotAuthorized` | Broker-Zugangsdaten prüfen; Neolink verwendet das Format `credentials = ["user", "pass"]` |
+| MQTT `Nicht autorisiert` | Broker-Zugangsdaten prüfen; Neolink verwendet das Format `credentials = ["user", "pass"]` |
+| Akku entlädt sich schnell | Streaming deaktivieren, wenn nicht verwendet; MQTT nur für Bewegungserkennung verwenden |
+| PTZ reagiert nicht | Jeder PTZ-Befehl benötigt ca. 2 Sekunden (P2P-Kameraanmeldung) — dies ist normal |
+
+---
+
+## Bekannte funktionierende Kameras
+### HTTP-API (Standard)
+RLC-420-5MP, E1 Zoom, RLC-522, RLC-810A, RLC-823A, Duo 3 PoE
+
+### Akku-Kameras (über Neolink)
+Reolink Argus PT, Reolink Argus 3 Pro
+
+---
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.4.2 (2026-03-16)
+* (oelison) fast fix for issue #230
+
+### 1.4.1 (2026-03-15)
+* (oelison) fix issue #187
+
+### 1.4.0 (2026-03-13)
+* (bloop16) Battery camera support via neolink
+* (oelison) Adapter requires node.js >= 20 now.
+
 ### 1.3.0 (2025-12-20)
 * (agross) AiCfg config
 * (oelison) bump some libs #202
@@ -171,7 +280,7 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 ## License
 MIT License
 
-Copyright (c) 2025 Andy Grundt <andygrundt@gmail.com>
+Copyright (c) 2026 Andy Grundt <andygrundt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

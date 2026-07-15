@@ -5,6 +5,10 @@ BADGE-Number of Installations (latest): http://iobroker.live/badges/senec-instal
 BADGE-Number of Installations (stable): http://iobroker.live/badges/senec-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/nobl/ioBroker.senec/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.senec.png?downloads=true
+BADGE-WERO: https://img.shields.io/badge/WERO-8A2BE2
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&logoColor=white
+BADGE-Buy Me a Coffee: https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black
+BADGE-GitHub Sponsor: https://img.shields.io/badge/Sponsor-GitHub-181717?logo=github&logoColor=white
 ---
 ![Logo](/admin/senec.png)
 # ioBroker.senec
@@ -16,18 +20,15 @@ Senec stellt derzeit über die Webschnittstelle auch keine zuverlässige Möglic
 Ob andere Systeme (z.B. V3) ebenfalls damit funktionieren, ist davon abhängig, ob diese ebenfalls auf lala.cgi basieren und die gleichen JSON Informationen zur Verfügung stellen.
 Auch bei Einbindung in die Senec.Clound ist nicht gewährleistet, dass die Daten weiterhin über die Webschnittstelle abgerufen werden können (hierzu bitte Erfahrungsberichte).
 
+Der Adapter unterstützt lokales Polling via lala.cgi als auch via Web API.
+
 Systeme, die funktionieren dürften, da sie die gleiche Schnittstelle nutzen sind nachfolgend gelistet. Allerdings können die Datenpunkte unterschiedlich sein (fehlen, zusätzlich, geändert).
-* Senec Home 4.0 / Blei
-* Senec Home 6.0 Pb
-* Senec Home 8.0 / Blei
-* Senec Home 10.0 Pb
-* Senec Home 5.0/7.5/10.0 / Lithium
-* Senec Home 15.0 / Lithium
-* Senec Home V2 5.0/7.5/10.0
-* Senec Home V2 10.0 / Blei
-* Senec Home V2.1 1ph / Lithium
-* Senec.Home V3 Hybrid
-* Senec.Home V3 Hybrid duo
+* Senec Home 4.0,  6.0, 8.0, 10.0 / Blei
+* Senec Home 5.0, 7.5, 10.0, 15.0 / Lithium
+* Senec Home V2 5.0, 7.5, 10.0
+* Senec Home V2.1
+* Senec.Home V3
+* Senec.Home V4
 * Senec Business 30.0 / Blei
 * Senec Business V2 30.0 / Blei
 * Senec Business 25.0 / Lithium
@@ -47,10 +48,6 @@ Es handelt sich um ein System, dessen Herzstück ein Lithium-Ionen-Akku ist, der
 
 ## Voraussetzungen vor der Installation
 Voraussetzungen für den Betrieb eines Senec.Home Speichersystems mit ioBroker, ist die erfolgreiche Einrichtung des Systems durch einen Elektriker. Ebenfalls muss sich das System im gleichen Netzwerk wie der ioBroker befinden.
-
-### Installation
-Eine Instanz des Adapters wird über die ioBroker Admin-Oberfläche installiert. 
-Nach Abschluss der Installation einer Adapterinstanz öffnet sich automatisch ein Konfigurationsfenster.
 
 ## Konfiguration
 
@@ -113,172 +110,11 @@ Falls zu einem State keine Dokumentation vorhanden ist, jemand aber weiß, was d
     |boolean|R|
 
    *Nur lesbarer boolscher Wert, welcher true ist, wenn die Verbindung zwischen ioBroker und Senec.Home hergestellt ist.*
-   
-#### Channel: _calc
-Dieser Kanal enthielt berechnete Werte. Nicht mehr versorgt, da STATISTIC nicht mehr verfügbar.
 
+#### Channel: _api
+Werte, die von der Web API abgerufen werden
    
 #### Channel: BMS
-
-* BL[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt: ? für jeden Battery Pack.*
-   
-* CHARGED_ENERGY[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wieviel Energie je Battery Pack geladen wurde. Einheit: ?*
-   
-* CHARGE_CURRENT_LIMIT[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wie hoch die Ladeleistung je Battery Pack in Ampere ist.*
-   
-* CURRENT[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wieviel Ampere jeder Battery Pack aktuell hat.*
-   
-* CYCLES[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wieviele Ladezyklen jeder Battery Pack hat.*
-   
-* DISCHARGED_ENERGY[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wieviel Energie aus einem Battery Pack ausgespeist wurde. Einheit: ?*
-   
-* DISCHARGE_CURRENT_LIMIT[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, welche Entladeleistung jeder Battery Pack aktuell hat.*
-   
-* FW[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, welche Firmwareversion ein Battery Pack aktuell hat.*
-   
-* HW_EXTENSION[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, welche Hardware Erweiterung der jeweilige Battery Pack hat.*
-   
-* HW_MAINBOARD[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, welche Hardwareversion das Mainboard des jeweiligen Battery Pack hat.*
-   
-* MAX_CELL_VOTAGE[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wie hoch die maximale Voltzahl des einzelnen Battery Pack ist.*
-   
-* MIN_CELL_VOTAGE[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wie hoch die minimale Voltzahl des einzelnen Battery Pack ist.*
-   
-* SN[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wie die Seriennummer des einzelnen Battery Pack lautet.*
-   
-* SOC[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wie der Ladezustand des einzelnen Battery Pack ist.*
-   
-* SOH[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wie der Gesundheitszustand des einzelnen Battery Pack ist.*
-   
-* STATUS[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wie der Status des einzelnen Battery Pack ist.*
-   
-* TEMP_MAX[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wie hoch die maximale Temperatur des einzelnen Battery Pack ist.*
-   
-* TEMP_MIN[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wie hoch die minimale Temperatur des einzelnen Battery Pack ist.*
-   
-* VOLTAGE[0-3]
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wie hoch die Volt des einzelnen Battery Pack sind.*
-   
-* BMS_READY_FLAG
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Nur lesbarer boolscher Wert, welcher true ist, falls das BMS bereit ist.*
    
 * MODULES_CONFIGURED
 
@@ -295,54 +131,6 @@ Dieser Kanal enthielt berechnete Werte. Nicht mehr versorgt, da STATISTIC nicht 
     |number|R|
 
    *Nur lesbare Zahl, die angibt, wieviele Module im System angeschlossen sind (inkl. nicht konfigurierter).*
-   
-* START_UPDATE
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Nur lesbarer boolscher Wert, welcher true ist, falls ein Update zu starten ist.*
-   
-* WIZARD_ABORT
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Nur lesbarer boolscher Wert, welcher true ist, der Einrichtungsprozess unterbrochen wurde.*
-   
-* WIZARD_CONFIRM
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Nur lesbarer boolscher Wert, welcher true ist, der Einrichtungsprozess bestätigt wurde.*
-   
-* WIZARD_DCCONNECT
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Nur lesbarer boolscher Wert, welcher true ist, der Einrichtungsprozess ?.*
-   
-* WIZARD_START
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Nur lesbarer boolscher Wert, welcher true ist, der Einrichtungsprozess gestartet wurde.*
-   
-* WIZARD_STATE
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, welchen Status der Einrichtungsprozess hat.*
 
 #### Channel: ENERGY
 
@@ -377,14 +165,6 @@ Dieser Kanal enthielt berechnete Werte. Nicht mehr versorgt, da STATISTIC nicht 
     |number|R|
 
    *Nur lesbare Zahl, die angibt, wieviel Watt gerade in die Batterie eingespeist werden oder aus ihr entnommen (negativer Wert) werden.*
-   
-* GUI_BOOSTING_INFO
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Nur lesbarer boolscher Wert, dessen Sinn bisher nicht eindeutig klar ist.*
    
 * GUI_CHARGING_INFO
 
@@ -426,14 +206,6 @@ Dieser Kanal enthielt berechnete Werte. Nicht mehr versorgt, da STATISTIC nicht 
 
    *Nur lesbare Zahl, die die Betriebsstunden des Systems angibt.*
    
-* STAT_MAINT_REQUIRED
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Nur lesbarer boolscher Wert, der angibt, ob das System gewartet werden muss.*
-   
 * STAT_STATE
 
     |Data type|Permission|                                                                       
@@ -450,10 +222,7 @@ Dieser Kanal enthielt berechnete Werte. Nicht mehr versorgt, da STATISTIC nicht 
 
    *Nur lesbare Zeichenkette, die den Zustand des Systems in Klartext angibt. Leider liegen uns nur die original Senec-Texte in Deutsch vor.*
    
-#### Channel: STATISTIC
-Existiert nicht mehr
- 
-   
+
 #### Channel: SYS_UPDATE
 
 * NPU_IMAGE_VERSION
@@ -523,91 +292,58 @@ Existiert nicht mehr
 
    *Nur lesbarer Text, die die Seriennummern der evtl. vorhandenen Wallboxen 0-3 angibt.*
 
+### Nicht mehr vorhanden, bzw. entfernt
+* STATISTIC
+* Display
+* _calc (mit Wegfall von STATISTIC nicht mehr relevant)
+* BAT1OBJ[2-4]
+
 ## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 2.4.5 (2026-03-03)
-- fixed typo that made today/hourly today/horly. You can safely delete the horly branch Measurements/Daily/horly
-- Updated delay for token refresh (it can be up to 2 min now).
+### **WORK IN PROGRESS**
 
-### 2.4.4 (2026-03-03)
-- Exponential backoff, if all systems cannot get polled. If at least 1 system can be polled we resume normal action. Now - if all systems fail polling (like 1 if you only have 1) this would be example backoff times for a 5min base interval: 1 Failure -> 0-10 min, 2 Failure -> 0-20 min, 3 Failures -> 0-40 min, 4+ Failures -> 0-40 min. Once polling works again we will resume normal operations.
+### 2.8.2 (2026-07-09)
+- removed v2.8.0 from documentation - it never was released
 
-### 2.4.3 (2026-03-03)
-- API uses its own backoff settings when polling. You can only configure delay between polls. Instead we are using strategy used by: AWS SDK, Google Cloud SDK, Stripe API client, Kubernetes controllers or Distributed message brokers to prevent: retry storms, thundering herd, burst collapse after outage recovery, adapter lockups or permanent dead loops. This leads to: IF (SENEC API down for 2 hours, or Token refresh fails 20 times, or 429 rate limiting kicks in, or Internet drops temporarily) ? (Never dies, never overlaps, never floods API, always recovers)
-- API polling no longer honors retries-setting. It will just keep backing off exponentially if errors persist -> we keep trying until you stop the adapter.
-- Using Token-Refresh strategy. No unnecessary logins anymore.
-- 401 won't throw warning anymore
-- ReAuth shouldn't stop polling anymore
+### 2.8.1 (2026-07-09)
+- Housekeeping
+- Code optimizations
+- Log messages now include connector prefix ([API], [Local], [Web], [Connect]) for easier filtering and debugging
 
-### 2.4.2 (2026-03-03)
-- AuthToken in _api is no longer used. You can safely delete it.
-- Decoupled frequencies to lower API load. Every poll: Dashboard and today values; Once per day: Yesterday, Monthly, Yearly values (we reduce load by about 65% compared to polling everything every time)
-- AccessToken logic centralized
-- True Single Flight Token refresh (avoiding duplicate logins, duplicate login storms)
-- Avoiding overlapping Polls
-- exponential backoff on auth failure
-- retry backoff
-- proper lifecycle safety
-- Automatic 401 retry
+### 2.7.0 (2026-07-07)
+- SENEC Account tab: Shared credentials (email, password, TOTP) moved to a dedicated tab, always visible regardless of which cloud features are enabled.
+- mein-senec.de controls: Emergency power reserve, peak shaving (mode, capacity limit, end time), and SG-Ready settings can now be controlled via mein-senec.de. Controls appear under `control.EmergencyPower`, `control.PeakShaving`, and `control.SGReady`. Enable in adapter settings under Appliance Control.
+- Switchable socket control via mein-senec.de: Sockets can now be controlled via mein-senec.de web portal in addition to local lala.cgi. Unified control datapoints (Mode: Off/On/Auto, thresholds, durations, switch-on time) work with both connectors. A force override option is available for systems where socket capability is not detected.
+- Connector-based control routing: Appliance Control tab restructured with per-connector consent checkboxes and per-feature connector dropdowns (Off/Local/API/Web). Only one connector per feature to avoid conflicts. Warning messages shown when a selected connector is not enabled.
+- Independent control gates: Web, API, and local controls each have independent gates in state change handling. API controls no longer require local lala.cgi connection. Fixed plant number 0 falsy bug.
+- API error handling: All mein-senec.de POST handlers check HTTP response status and log error messages from the API.
+- Peak shaving fixes: Capacity limit uses correct field (peakShavingCapacityLimitInPercent), capped at 90%. End time split into EndHour/EndMinute fields. UTC timestamp construction for correct time handling with SENEC API.
+- Debug & Logging tab: Debug settings moved to a dedicated tab applying to all connectors. Request/response logging now includes mein-senec.de traffic.
 
-### 2.4.1 (2026-03-01)
-- Fixing issues with polling from senec api when token expires
-- Old entries in changelog moved to old.
+### 2.6.0 (2026-07-06)
+- TOTP/2FA: If your mein-senec.de account requires two-factor authentication, you can now enter your TOTP secret (the base32 key from your authenticator app setup) in the adapter settings. The adapter will automatically generate login codes — no manual interaction needed.
+- Switchable sockets: If your SENEC system has switchable sockets configured, you can now control them via `control.Sockets` datapoints. Enable in adapter settings under active appliance control.
+- Section discovery: The adapter now queries the device at startup to discover available data sections. New sections are automatically added to polling, and unavailable sections are removed. Check `info.discoveredSections` and `info.unavailableSections` for details.
+- Added support for AMPACE battery module data (cell temperatures, alarm/fault/warning states).
+- System details: Battery SOH, inverter state/temperatures, module states, casing temperature, warranty info and more are now polled from the SENEC app API (hourly).
+- Abilities: Installed feature packages (MOBILITY, PEAK_SHAVING, SG_READY, etc.) are queried at startup.
+- Wallbox control (experimental): If your SENEC system has wallboxes, you can control charging current, smart charge, and intercharge via `control.Wallbox` datapoints. Enable in adapter settings. Please report your experience to the developer.
+- Wallbox cloud API (experimental): Wallbox discovery and measurements via SENEC App API. Wallbox data is polled on all tiers (dashboard/details/heavy) including AllTime history rebuild. Cloud-based wallbox control is being worked on. Shoutout to [marq24](https://github.com/marq24/ha-senec-v3) for the groundwork on wallbox API integration in the HA community.
+- New API endpoints: System status, data availability, online state, and forecast charging settings.
+- API polling resilience: Each API endpoint is now polled independently via `Promise.allSettled` — one failing endpoint no longer blocks others in the same tier. Per-endpoint last-poll timestamps visible under `_api.info.lastPoll.*`.
+- SENEC.Connect: Support for the official SENEC.Connect API (paid subscription). Provides battery, meter, and wallbox data via a simple subscription key. Configure in the new SENEC.Connect tab in adapter settings. Note: At this point SENEC.Connect appears to only be available for V4/E4 systems. Older systems (V2/V3) may return empty data.
+- API paths updated to June 2026 format for future compatibility.
 
-### 2.4.0 (2026-02-28)
-- Senec changed login procedure (again). Adapter now also works with 2-stage login where senec asks for username/email first and password second.
+### 2.5.5 (2026-07-06)
+- Add TOTP/2FA support for SENEC API login (configure TOTP secret in adapter settings)
+- Replace plain setTimeout/clearTimeout with adapter-managed timers
 - Dependency updates
 
-### 2.3.0 (2026-02-17)
-- Measurements for today and yesterday are also available by the hour
-- Measurements for month and previous month are also available by day
-- Measurements for year are also available by month
-- Unit calculation fixed if we don't know the unit yet per state_attr.js
-- Added definitions for cascadeDevicesCount and mode
-- Dependency update
-
-### 2.2.2 (2026-02-06)
-- Migrated to i18n
-- Update handling of "new" states that are just an "extra" to an existing state like state and state.1 or state.42
-- Dependency Updates
-
-### 2.2.1 (2026-02-06)
-- Fixed: History rebuild will only run once now when requested (remember: To force rebuild you need to configure this in settings)
-
-### 2.2.0 (2026-02-05)
-- Polling yearly measurements as year from API - not months (and summing them up)
-- Added back AllTimeHistory with BATTERY_LEVEL_IN_PERCENT averaged and AUTARKY_IN_PERCENT calculated
-- Removed selection to use https or http for lala.cgi. https is enforced now.
-
-### 2.1.3 (2026-02-04)
-- reading all previous years (up to inception of SENEC) added again (to make this happen: activate recalculation of full history via settings)
-- added today / yesterday again
-- optimizations for measurements handling
-- less log noise
-
-### 2.1.2 (2026-02-04)
-- more silencing log messages
-- housekeeping
-
-### 2.1.1 (2026-02-04)
-- fixed datatype for WIZARD.SG_READY_CURR_MODE
-- less logging (moved some info to debug again)
-
-### 2.1.0 (2026-02-04) - the API returns - finally finally hopefully finally
-
-- Complete rewrite of the Senec API functionality. Thanks to @timfxtones for pointing me in the right direction
-- No longer using the web-interface at mein-senec.de - it didn't work properly on the long run ...
-- Still missing some datapoints so far. They will be implemented in the future.
-
-### 2.0.0 (maett81, NoBl)
-* Updated to use new SENEC API via mein-senec.de - Thanks to @maett81
-* Some code and dependency housekeeping
-
-### [Former Updates](CHANGELOG_old.md)
+### [Former Updates](CHANGELOG_OLD.md)
 
 ## License
 MIT License

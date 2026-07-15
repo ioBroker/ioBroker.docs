@@ -126,6 +126,8 @@ API Profiling allows you to track the Wolf Smartset API usage of the adapter. if
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (mcm1957) Dependencies have been updated.
 
 ### 2.1.2 (2025-08-14)
@@ -159,10 +161,12 @@ API Profiling allows you to track the Wolf Smartset API usage of the adapter. if
 - (flingo64) Support for two sepearate poll cycles to avoid server abuse reactions has been added. 
 - (flingo64) Switched AdminUI to `jsconConfig`.
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021-2023 MeisterTR <meistertr.smarthome@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

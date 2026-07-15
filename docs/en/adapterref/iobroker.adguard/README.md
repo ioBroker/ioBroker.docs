@@ -39,7 +39,12 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 -->
 
 ### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
+### 1.2.0 (2026-05-04)
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (mcm1957) Dependencies have been updated.
 
 ### 1.1.1 (2026-02-11)
 - (mcm1957) Dependencies have been updated.
@@ -57,9 +62,7 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 - (mcm1957) Adapter requires js-controller 5, admin 6 and node.js 20 now.
 - (mcm1957) Dependencies have been updated.
 
-### 0.0.8 (2021-08-18)
-
--   (o0Shojo0o) change UI to JSONConfig
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

@@ -61,6 +61,15 @@
 -->
 
 ## Changelog
+### 2.4.2 (2026-07-06)
+- (steiger04) JSON Table: bug fixes and improvements (date handling, table state persistence, refactor)
+- (steiger04) ColorPickerField: debouncing for picker drag events and refactor
+- (steiger04) CheckboxCollection: refactor (helpers, memoization, type safety)
+
+### 2.4.1 (2026-03-11)
+- (steiger04) Add HTML rendering support for table cells of Json Table
+- (steiger04) Bug fixing
+
 ### 2.4.0 (2026-03-01)
 - (steiger04) JSON Table added
 - (steiger04) Bug fixing

@@ -26,7 +26,11 @@
 
 [![NPM](https://nodei.co/npm/iobroker.teslafi.png?downloads=true)](https://nodei.co/npm/iobroker.teslafi/)
 
-# ioBroker TeslaFi Adapter – Seamless Tesla Data Integration for Your Smart Home
+## Sentry
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable error reporting, see <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">Sentry-Plugin Documentation</a>!
+
+## ioBroker TeslaFi Adapter – Seamless Tesla Data Integration for Your Smart Home
 
 The TeslaFi adapter enables effortless integration of vehicle data from your TeslaFi account into the ioBroker system. Leverage this data to enhance your Tesla experience and optimize home automation workflows.
 
@@ -64,10 +68,6 @@ The adapter is compatible with all Tesla models supported by TeslaFi. A valid Te
 
 The TeslaFi adapter is actively maintained, and additional features or data categories can be added based on user requests. Feel free to submit your ideas and help improve the adapter for the entire community!
 
-## Sentry
-
-This adapter employs Sentry libraries to automatically report exceptions and code errors to the developers. For more details and information on how to disable error reporting, please consult the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is initiated starting with js-controller 3.0.
-
 ## Donate
 
 <a href="https://www.paypal.com/donate/?hosted_button_id=6EE4YUJRK7UWC"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.teslafi/master/docu/bluePayPal.svg" height="40"></a>
@@ -79,191 +79,33 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.0.3 (2026-07-05)
 
-### 2.0.6 (2026-02-27)
+- (hombach) removed unneeded test devDependencies (chai, sinon-chai, proxyquire) and switched tests to Node.js assert
+- (hombach) updated axios
 
-- (hombach) admin 7.6.20 needed by adapter checker
-- (hombach) update axios
+### 3.0.2 (2026-06-19)
+
+- (hombach) fixed warnings by adapter checker
+
+### 3.0.1 (2026-06-05)
+
+- (hombach) upgraded TypeScript to 6.x
+- (hombach) fixed warnings by adapter checker
+- (hombach) updated dependencies
+
+### 3.0.0 (2026-05-05)
+
+- (copilot) BREAKING: adapter requires node.js >= 22 now
 - (hombach) update dependencies
 
-### 2.0.5 (2026-01-01)
+### 2.0.7 (2026-04-12)
 
-- (hombach) optimize dependabot config (#209)
-- (hombach) year 2026 changes
-- (hombach) update axios
+- (hombach) switch to ES2023 code
+- (hombach) fix vulnerability in axios
 - (hombach) update dependencies
 
-### 2.0.4 (2025-10-22)
-
-- (hombach) upgrade NPM deployment system
-- (hombach) bump dependencies
-
-### 2.0.3 (2025-09-27)
-
-- (hombach) remove allowInit (#181)
-- (hombach) fix schema URL for jsonConfig (#181)
-- (hombach) update chai system
-- (hombach) bump dependencies
-
-### 2.0.2 (2025-08-24)
-
-- (hombach) admin 7.6.17 recommended by ioBroker (#166)
-- (hombach) bumb adapter-core to 3.3.2 (#166)
-- (hombach) fix vulnerability
-- (hombach) bump dependencies
-
-### 2.0.1 (2025-06-08)
-
-- (hombach) add node.js 24 tests (#144)
-- (hombach) bump dependencies
-
-### 2.0.0 (2025-05-04)
-
-- (hombach) BREAKING: Dropped support for Node.js 18 (#135)
-- (hombach) BREAKING: Dropped support for js-controller 5 (#135)
-
-### 1.5.0 (2025-04-14)
-
-- (hombach) add set HVAC temperature (#121)
-- (hombach) acknowledge commands after sending to TeslaFi
-- (hombach) add commands count state (#127)
-- (hombach) add set seat heater commands (#121)
-
-### 1.4.0 (2025-03-31)
-
-- (hombach) add charge limit commands (#121)
-- (hombach) add statevalue range to projectUtils
-
-### 1.3.0 (2025-03-30)
-
-- (hombach) add stop HVAC command (#121)
-- (hombach) add start/stop charging command (#121)
-
-### 1.2.2 (2025-03-11)
-
-- (hombach) fix "Invalid time value" error (#115)
-- (hombach) fix vulnerability in axios <1.8.2
-
-### 1.2.1 (2025-03-06)
-
-- (hombach) bump dependencies
-
-### 1.2.0 (2025-02-23)
-
-- (hombach) change to admin 7.4.10 as recommended by ioBroker (#102)
-
-### 1.1.2 (2025-02-22)
-
-- (hombach) added @alcalzone/release-script (#97)
-- (hombach) bump @iobroker/adapter-dev to 1.4.0 (#104)
-- (hombach) fix error in config (#106)
-
-### 1.1.1 (2025-02-01)
-
-- (hombach) fix deletion of newversion (#93)
-
-### 1.1.0 (2025-01-23)
-
-- (hombach) deprecated object calls removed
-- (hombach) add start HVAC command and commands tab (#36)
-
-### 1.0.1 (2025-01-11)
-
-- (hombach) year 2025 changes
-- (hombach) code optimizations
-- (hombach) bump typescript
-
-### 1.0.0 (2024-12-25)
-
-- (hombach) set version to 1.0 for stable release
-- (hombach) add newVersionStatus (#80)
-- (hombach) add configurable poll timeout
-
-### 0.4.6 (2024-12-21)
-
-- (hombach) fix chai-as-promised
-- (hombach) enrich documentation
-
-### 0.4.5 (2024-12-11)
-
-- (hombach) change some state roles
-
-### 0.4.4 (2024-12-10)
-
-- (hombach) add roles to projectUtils
-
-### 0.4.3 (2024-12-09)
-
-- (hombach) use of ioBroker.setInterval
-
-### 0.4.2 (2024-12-06)
-
-- (hombach) intruduce i18n for translations (#41)
-
-### 0.4.1 (2024-11-28)
-
-- (hombach) intruduce 'iobroker/eslint-config' (#67)
-- (hombach) add axios timeout
-- (hombach) optimized code stability
-- (hombach) remove message handler
-
-### 0.4.0 (2024-11-10)
-
-- (hombach) implement managed charging time (#29)
-- (hombach) implement battery range
-- (hombach) fixed errors in 'time to finish charge'
-- (hombach) changed min update interval to 10 sec
-- (hombach) fixed typos
-
-### 0.3.0 (2024-11-08)
-
-- (hombach) implement string for time to finish charge (#42)
-- (hombach) reorganize data in folders (#43)
-- (hombach) show 3rd row seat heater only if 3rd row is available (#40)
-- (hombach) implement 'charging_state' (#37)
-
-### 0.2.1 (2024-11-08)
-
-- (hombach) change 'time_to_full_charge' type to number (#38)
-- (hombach) total rework of vehicle data parser
-- (hombach) set speed to 0 if null in API data (#39)
-
-### 0.2.0 (2024-11-07)
-
-- (hombach) implement raw data state (#26)
-- (hombach) implement charger_phases (#28)
-- (hombach) implement driver_temp_setting (#31)
-- (hombach) implement seat and steeringwheel heater states (#30)
-
-### 0.1.5 (2024-11-06)
-
-- (hombach) harmonize project tools
-- (hombach) removed doubled texts in state names
-
-### 0.1.4 (2024-11-01)
-
-- (hombach) fix conversion error
-
-### 0.1.3 (2024-10-30)
-
-- (hombach) fix typo in error text
-- (hombach) optimize responsive design
-
-### 0.1.2 (2024-10-28)
-
-- (hombach) introduce to ioBroker latest repo
-
-### 0.1.1 (2024-10-26)
-
-- (hombach) fix npm error
-
-### 0.1.0 (2024-10-26)
-
-- (hombach) first working version
-
-### 0.0.1 (2024-10-24)
-
-- (hombach) initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

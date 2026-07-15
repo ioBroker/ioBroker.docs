@@ -1,4 +1,3 @@
-![Logo](admin/grohe-smarthome.png)
 # ioBroker.grohe-smarthome
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.grohe-smarthome.svg)](https://www.npmjs.com/package/iobroker.grohe-smarthome)
@@ -8,11 +7,15 @@
 
 [![NPM](https://nodei.co/npm/iobroker.grohe-smarthome.png?downloads=true)](https://nodei.co/npm/iobroker.grohe-smarthome/)
 
+![ioBroker](https://img.shields.io/badge/ioBroker-Adapter-blue)
+![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22-green)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
+
 **Tests:** ![Test and Release](https://github.com/patricknitsch/ioBroker.grohe-smarthome/workflows/Test%20and%20Release/badge.svg)
 
-# ioBroker Grohe Smarthome Adapter
-
-This adapter connects ioBroker to the **Grohe Smarthome / Ondus** cloud and exposes Grohe devices as states (and some controls) inside ioBroker.
+## ioBroker Grohe Smarthome Adapter
+<img align="left" src="admin/grohe-smarthome.png" alt="image" width="200"/>
+This adapter connects ioBroker to the <strong>Grohe Smarthome / Ondus</strong> cloud and exposes Grohe devices as states (and some controls) inside ioBroker.
 
 It supports:
 
@@ -23,7 +26,10 @@ It supports:
 
 The adapter logs in via Grohe’s OIDC/Keycloak flow, stores a **refresh token encrypted** in a state, and polls the Grohe cloud API on a configurable interval.
 
+Ideas and Concept came from the Home-Assistant Integration **ha-grohe_smarthome**. Special thanks goes to **Flo-Schilli**. 
+
 ---
+
 ## Documentation
 
 [🇺🇸 Documentation](./docs/en/README.md)
@@ -37,69 +43,31 @@ The adapter logs in via Grohe’s OIDC/Keycloak flow, stores a **refresh token e
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.2.5 (2026-02-26)
+### 0.6.0 (2026-06-05)
+* (copilot) Fixes Repo Checker
+* (copilot) Change Raw-States to Bump Funktion for Debugging(see Doc.)
+* (copilot) Fixes Problems Error 404
+* (copilot) New functions for Grohe with Snooze, Withdrawal and Sprinkler
+* (copilot) Extend Documentation
 
-* (patricknitsch) Update Admin Package
+### 0.5.4 (2026-05-23)
+* (copilot) Add latest Message for Notifications
+* (copilot) Add Icons in Notifications
 
-### 0.2.4 (2026-02-25)
+### 0.5.3 (2026-05-21)
+* (copilot) Modify notification manager to work with instances
+* (copilot) Update Dependencies
 
-* (patricknitsch) Fix Points for Latest Repo
-* (patricknitsch) Update Packages
+### 0.5.2 (2026-05-14)
+* (patricknitsch) Fix Header when Device offline
+* (patricknitsch) Add Icon and Online State on each Device
+* (patricknitsch) Update Readme and Doc
 
-### 0.2.3 (2026-02-15)
+### 0.5.1 (2026-05-09)
+* (patricknitsch) Update Admin Dependency >= 7.6.23 for Device Manager
+* Important Note: From 0.4.0 to 0.5.X the Sensor Overview is removed but visible. Thats a Bug from js-controller and should be fixed with 7.1.3
 
-* (claude) Fix no correct messages
-
-### 0.2.2 (2026-02-12)
- * (claude) Fix Problem with jsonConfig and Interval
-
-### 0.2.1 (2026-02-11)
-* (patricknitsch) Change Log for measurement
-
-### 0.2.0 (2026-02-10)
-
-* (claude) Extend Error Handling for noon and midnight
-
-### 0.1.7 (2026-02-09)
-
-* (patricknitsch) Update Error Handling
-* (patricknitsch) Update Readme
-
-### 0.1.6 (2026-02-09)
-
-* (patricknitsch) Changed Loglevel
-* (claude) Update Error Handling -> increase Try-Timeouts
-
-### 0.1.5 (2026-02-09)
-
-* (patricknitsch) Update Dependencies
-
-### 0.1.4 (2026-02-09)
-
-* (claude) Fix wrong value for Grohe Blue remainingFilter
-* (claude) Update Readme
-
-### 0.1.3 (2026-02-08)
-
-* (claude) Fix null of Total Consumption
-* (claude) Update Readme
-
-### 0.1.2 (2026-02-07)
-
-* (patricknitsch) Update Readme and Translations
-
-### 0.1.1 (2026-02-07) 
-* (claude) Rate limiting awareness (HTTP 403 handling)
-* (claude) Immediate state readback after commands
-* (claude) Optimized polling with tiered API call frequency
-
-### 0.1.0 (2026-02-07)
-* (patricknitsch) initial release
-* (claude) OAuth login via Grohe Keycloak with automatic token refresh
-* (claude) Support for Sense, Sense Guard, Blue Home, Blue Professional
-* (claude) Encrypted refresh token storage
-* (claude) Optional raw measurement data states
-* (claude) i18n support (EN/DE) for admin UI
+**Older entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
 
 ## License
 MIT License

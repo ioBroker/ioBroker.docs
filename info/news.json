@@ -1046,46 +1046,6 @@
     }
   },
   {
-    "title":{
-      "de": "Neuer KISSHOME-Defender-Adapter",
-      "en": "New KISSHOME Defender adapter",
-      "ru": "Новый адаптер KISSHOME Defender",
-      "pt": "Novo adaptador KISSHOME Defender",
-      "nl": "Nieuwe KISSHOME Defender-adapter",
-      "fr": "Nouveau adaptateur KISSHOME Defender",
-      "it": "Nuovo adattatore KISSHOME Defender",
-      "es": "Nuevo adaptador KISSHOME Defender",
-      "pl": "Nowy adapter KISSHOME Defender",
-      "uk": "Новий адаптер KISSHOME Defender",
-      "zh-cn": "新的 KISSHOME Defender 适配器"
-    },
-    "content": {
-      "de": "\uD83D\uDE80 Neuer KISSHOME-Defender-Adapter: IT-Sicherheit für Dein Smart Home\n\n\uD83D\uDD0D Überwacht Datenverkehr Deiner Geräte mit KI und zeigt auffälliges Verhalten.\n\n\uD83C\uDF81 Teilnahme an Forschungsstudie = Chance auf 50 € Gutschein + 2 Monate ioBroker.Pro\n\n\uD83D\uDC49 Weitere Infos & Anmeldung: https://kisshome-defender.if-is.net/#/",
-      "en": "\uD83D\uDE80 New KISSHOME Defender adapter: IT security for your smart home\n\n\uD83D\uDD0D Monitors data traffic of your devices with AI and detects unusual behavior.\n\n\uD83C\uDF81 Participation in research study = chance to win a €50 voucher + 2 months of ioBroker.Pro\n\n\uD83D\uDC49 More info & registration: https://kisshome-defender.if-is.net/#/",
-      "ru": "\uD83D\uDE80 Новый адаптер KISSHOME Defender: IT-безопасность для вашего умного дома\n\n\uD83D\uDD0D Мониторит сетевой трафик ваших устройств с помощью ИИ и обнаруживает необычное поведение.\n\n\uD83C\uDF81 Участие в исследовательском проекте = шанс выиграть ваучер на 50 € + 2 месяца ioBroker.Pro\n\n\uD83D\uDC49 Подробнее и регистрация: https://kisshome-defender.if-is.net/#/",
-      "pt": "\uD83D\uDE80 Novo adaptador KISSHOME Defender: segurança de TI para sua casa inteligente\n\n\uD83D\uDD0D Monitora o tráfego de dados dos seus dispositivos com IA e detecta comportamentos incomuns.\n\n\uD83C\uDF81 Participação em estudo de pesquisa = chance de ganhar um voucher de €50 + 2 meses de ioBroker.Pro\n\n\uD83D\uDC49 Mais informações e inscrição: https://kisshome-defender.if-is.net/#/",
-      "nl": "\uD83D\uDE80 Nieuwe KISSHOME Defender-adapter: IT-beveiliging voor je slimme huis\n\n\uD83D\uDD0D Houdt het dataverkeer van je apparaten in de gaten met AI en detecteert ongewoon gedrag.\n\n\uD83C\uDF81 Deelname aan onderzoek = kans om een voucher van €50 + 2 maanden ioBroker.Pro te winnen\n\n\uD83D\uDC49 Meer info& registratie: https://kisshome-defender.if-is.net/#/",
-      "fr": "\uD83D\uDE80 Nouvel adaptateur KISSHOME Defender : sécurité informatique pour votre maison intelligente\n\n\uD83D\uDD0D Surveille le trafic de données de vos appareils avec l'IA et détecte les comportements inhabituels.\n\n\uD83C\uDF81 Participation à une étude de recherche = chance de gagner un bon de 50 € + 2 mois d'ioBroker.Pro\n\n\uD83D\uDC49 Plus d'infos et inscription : https://kisshome-defender.if-is.net/#/",
-      "it": "\uD83D\uDE80 Nuovo adattatore KISSHOME Defender: sicurezza IT per la tua casa intelligente\n\n\uD83D\uDD0D Monitora il traffico dati dei tuoi dispositivi con l'IA e rileva comportamenti insoliti.\n\n\uD83C\uDF81 Partecipazione a uno studio di ricerca = possibilità di vincere un voucher da 50 € + 2 mesi di ioBroker.Pro\n\n\uD83D\uDC49 Maggiori info e registrazione: https://kisshome-defender.if-is.net/#/",
-      "es": "\uD83D\uDE80 Nuevo adaptador KISSHOME Defender: seguridad informática para tu hogar inteligente\n\n\uD83D\uDD0D Monitorea el tráfico de datos de tus dispositivos con IA y detecta comportamientos inusuales.\n\n\uD83C\uDF81 Participación en estudio de investigación = oportunidad de ganar un vale de 50 € + 2 meses de ioBroker.Pro\n\n\uD83D\uDC49 Más información e inscripción: https://kisshome-defender.if-is.net/#/",
-      "pl": "\uD83D\uDE80 Nowy adapter KISSHOME Defender: bezpieczeństwo IT dla Twojego inteligentnego domu\n\n\uD83D\uDD0D Monitoruje ruch danych Twoich urządzeń za pomocą AI i wykrywa nietypowe zachowania.\n\n\uD83C\uDF81 Udział w badaniu naukowym = szansa na wygranie vouchera o wartości 50 € + 2 miesiące ioBroker.Pro\n\n\uD83D\uDC49 Więcej informacji i rejestracja: https://kisshome-defender.if-is.net/#/",
-      "uk": "\uD83D\uDE80 Новий адаптер KISSHOME Defender: ІТ-безпека для вашого розумного будинку\n\n\uD83D\uDD0D Моніторить трафік даних ваших пристроїв за допомогою ШІ та виявляє незвичайну поведінку.\n\n\uD83C\uDF81 Участь у дослідницькому проєкті = шанс виграти ваучер на 50 євро + 2 місяці ioBroker.Pro\n\n\uD83D\uDC49 Детальніше та реєстрація: https://kisshome-defender.if-is.net/#/",
-      "zh-cn": "\uD83D\uDE80 新的 KISSHOME Defender 适配器：为您的智能家居提供 IT 安全保障\n\n\uD83D\uDD0D 使用 AI 监控您的设备数据流量并检测异常行为。\n\n\uD83C\uDF81 参与研究调查 = 有机会赢取 50 欧元代金券 + 2 个月 ioBroker.Pro 订阅\n\n\uD83D\uDC49 更多信息及注册：https://kisshome-defender.if-is.net/#/"
-    },
-    "id": "kisshome-defender-new",
-    "class": "info",
-    "fa-icon": "exclamation-circle",
-    "created": "2025-11-14T10:00:00.000Z",
-    "date-end": "2025-11-16T23:59:59.000Z",
-    "conditions": {
-      "tr-064": "installed",
-      "fb-checkpresence": "installed",
-      "fritzbox": "installed",
-      "fritzdect": "installed",
-      "or": "true"
-    }
-  },
-  {
     "title": {
       "en": "Cloud / Vis offline Christmas offer 2025",
       "de": "Cloud / Vis Offline Weihnachtsangebot 2025",
@@ -1155,5 +1115,73 @@
     "conditions": {
       "zwave2": "installed"
     }
+  },
+  {
+    "title":{
+      "en": "js-controller releases 7.1.0 up to 7.2.1 need urgent update",
+      "de": "Die js-controller-Versionen 7.1.0 bis 7.2.1 benötigen dringend ein Update.",
+      "ru": "Требуется срочное обновление для js-controller версий от 7.1.0 до 7.2.1.",
+      "pt": "As versões do js-controller de 7.1.0 a 7.2.1 precisam de atualização urgente.",
+      "nl": "js-controller releases 7.1.0 tot en met 7.2.1 vereisen dringend een update.",
+      "fr": "Les versions 7.1.0 à 7.2.1 de js-controller nécessitent une mise à jour urgente",
+      "it": "js-controller, versioni dalla 7.1.0 alla 7.2.1, necessita di un aggiornamento urgente.",
+      "es": "js-controller (versiones 7.1.0 a 7.2.1) necesita una actualización urgente.",
+      "pl": "Wersje js-controller od 7.1.0 do 7.2.1 wymagają pilnej aktualizacji",
+      "uk": "Релізи js-controller від 7.1.0 до 7.2.1 потребують термінового оновлення",
+      "zh-cn": "js-controller 版本 7.1.0 到 7.2.1 急需更新"
+    },
+    "content": {
+      "en": "Releases 7.1.0 up to 7.2.1 of js-controller cause excessive central error logging and need an urgent replacement. Please update to js-controller 7.2.2 (or newer) as soon as possible. Release 7.2.2. has been released to stable repository already. ",
+      "de": "Die Versionen 7.1.0 bis 7.2.1 von js-controller verursachen übermäßig viele zentrale Fehlerprotokollierungen und müssen dringend ersetzt werden. Bitte aktualisieren Sie js-controller so schnell wie möglich auf Version 7.2.2 (oder neuer). Version 7.2.2 ist bereits im stabilen Repository verfügbar.",
+      "ru": "В версиях js-controller от 7.1.0 до 7.2.1 наблюдается чрезмерное количество ошибок в центральном логировании, поэтому требуется срочная замена. Пожалуйста, обновите js-controller до версии 7.2.2 (или более новой) как можно скорее. Версия 7.2.2 уже выпущена в стабильный репозиторий.",
+      "pt": "As versões 7.1.0 a 7.2.1 do js-controller causam um excesso de registros de erros no repositório central e precisam ser substituídas com urgência. Por favor, atualize para o js-controller 7.2.2 (ou mais recente) o mais rápido possível. A versão 7.2.2 já foi lançada no repositório estável.",
+      "nl": "Versies 7.1.0 tot en met 7.2.1 van js-controller veroorzaken overmatige centrale foutmeldingen en moeten dringend worden vervangen. Update zo snel mogelijk naar js-controller 7.2.2 (of nieuwer). Versie 7.2.2 is al beschikbaar in de stabiele repository.",
+      "fr": "Les versions 7.1.0 à 7.2.1 de js-controller génèrent une quantité excessive d'erreurs dans la journalisation centrale et nécessitent un remplacement urgent. Veuillez mettre à jour js-controller vers la version 7.2.2 (ou une version ultérieure) dès que possible. La version 7.2.2 est déjà disponible dans le dépôt stable.",
+      "it": "Le versioni di js-controller dalla 7.1.0 alla 7.2.1 causano un'eccessiva registrazione degli errori nel sistema centrale e necessitano di una sostituzione urgente. Si prega di aggiornare js-controller alla versione 7.2.2 (o successiva) il prima possibile. La versione 7.2.2 è già stata rilasciata nel repository stabile.",
+      "es": "Las versiones 7.1.0 a 7.2.1 de js-controller generan un registro de errores centralizado excesivo y requieren una actualización urgente. Por favor, actualice a js-controller 7.2.2 (o posterior) lo antes posible. La versión 7.2.2 ya está disponible en el repositorio estable.",
+      "pl": "Wersje js-controller od 7.1.0 do 7.2.1 powodują nadmierne centralne rejestrowanie błędów i wymagają pilnej wymiany. Prosimy o jak najszybszą aktualizację do js-controller 7.2.2 (lub nowszej). Wersja 7.2.2 została już opublikowana w stabilnym repozytorium.",
+      "uk": "Версії js-controller від 7.1.0 до 7.2.1 спричиняють надмірну централізовану реєстрацію помилок і потребують термінової заміни. Будь ласка, оновіть js-controller до версії 7.2.2 (або новішої) якомога швидше. Версія 7.2.2 вже випущена до стабільного репозиторію.",
+      "zh-cn": "js-controller 7.1.0 至 7.2.1 版本存在集中式错误日志记录过多的问题，需要尽快更换。请尽快更新至 js-controller 7.2.2 或更高版本。7.2.2 版本已发布到稳定版仓库。"
+    },
+    "id": "js-controller-7-2-2",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2026-06-18T20:30:00.000Z",
+    "conditions": {
+      "js-controller": "between(7.1.0,7.2.1)"
+    }
+  },
+  {
+    "title":{
+      "en": "js-controller news - update required",
+      "de": "Neuigkeiten zum js-Controller – Aktualisierung erforderlich",
+      "ru": "Новости js-контроллера - требуется обновление",
+      "pt": "Notícias do js-controller - atualização necessária",
+      "nl": "js-controller nieuws - update vereist",
+      "fr": "Actualités js-controller - Mise à jour requise",
+      "it": "Notizie su js-controller: aggiornamento necessario",
+      "es": "Noticias sobre js-controller: se requiere actualización.",
+      "pl": "Aktualności js-controller - wymagana aktualizacja",
+      "uk": "новини js-controller - потрібне оновлення",
+      "zh-cn": "js-controller 最新消息 - 需要更新"
+    },
+    "content": {
+      "en": "js-controller 7.2.2 is now available in the STABLE repository. Users currently running js-controller 7.1.x, 7.2.0, or 7.2.1 should update as soon as possible. Versions 7.1.0 through 7.2.1 of js-controller generate an excessive number of central error logs and therefore negatively impact the operation of all users. A prompt update is recommended for all users, as this release contains necessary adjustments required for future adapter updates.",
+      "de": "js-controller 7.2.2 ist jetzt im STABLE-Repository verfügbar. Nutzer von js-controller 7.1.x, 7.2.0 oder 7.2.1 sollten schnellstmöglich aktualisieren. Die Versionen 7.1.0 bis 7.2.1 erzeugen eine übermäßige Anzahl zentraler Fehlerprotokolle und beeinträchtigen dadurch die Funktionalität für alle Nutzer. Ein umgehendes Update wird allen Nutzern empfohlen, da diese Version notwendige Anpassungen für zukünftige Adapter-Updates enthält.",
+      "ru": "В стабильном репозитории теперь доступна версия js-controller 7.2.2. Пользователям, использующим в настоящее время js-controller 7.1.x, 7.2.0 или 7.2.1, следует как можно скорее обновиться. Версии 7.1.0–7.2.1 js-controller генерируют чрезмерное количество центральных журналов ошибок и, следовательно, негативно влияют на работу всех пользователей. Всем пользователям рекомендуется незамедлительно обновиться, поскольку этот релиз содержит необходимые корректировки, требуемые для будущих обновлений адаптера.",
+      "pt": "O js-controller 7.2.2 já está disponível no repositório ESTÁVEL. Usuários que atualmente executam o js-controller 7.1.x, 7.2.0 ou 7.2.1 devem atualizar o mais rápido possível. As versões 7.1.0 a 7.2.1 do js-controller geram um número excessivo de logs de erro centralizados e, portanto, impactam negativamente a operação de todos os usuários. Recomenda-se uma atualização imediata para todos os usuários, pois esta versão contém os ajustes necessários para futuras atualizações do adaptador.",
+      "nl": "js-controller 7.2.2 is nu beschikbaar in de STABLE-repository. Gebruikers die momenteel js-controller 7.1.x, 7.2.0 of 7.2.1 gebruiken, wordt aangeraden zo snel mogelijk te updaten. Versies 7.1.0 tot en met 7.2.1 van js-controller genereren een overmatig aantal centrale foutenlogboeken en hebben daardoor een negatieve invloed op de werking van alle gebruikers. Een snelle update wordt aanbevolen voor alle gebruikers, aangezien deze release noodzakelijke aanpassingen bevat voor toekomstige adapterupdates.",
+      "fr": "js-controller 7.2.2 est désormais disponible dans le dépôt STABLE. Les utilisateurs de js-controller 7.1.x, 7.2.0 ou 7.2.1 sont invités à effectuer la mise à jour dès que possible. Les versions 7.1.0 à 7.2.1 de js-controller génèrent un nombre excessif de messages d'erreur dans les journaux centraux, ce qui perturbe le fonctionnement pour tous les utilisateurs. Une mise à jour rapide est donc recommandée, car cette version inclut les ajustements nécessaires pour les futures mises à jour de l'adaptateur.",
+      "it": "js-controller 7.2.2 è ora disponibile nel repository STABLE. Gli utenti che attualmente utilizzano js-controller 7.1.x, 7.2.0 o 7.2.1 dovrebbero aggiornare il prima possibile. Le versioni dalla 7.1.0 alla 7.2.1 di js-controller generano un numero eccessivo di log di errore centralizzati, con conseguenti ripercussioni negative sul funzionamento per tutti gli utenti. Si raccomanda un aggiornamento immediato a tutti gli utenti, poiché questa versione contiene le modifiche necessarie per i futuri aggiornamenti dell'adattatore.",
+      "es": "js-controller 7.2.2 ya está disponible en el repositorio ESTABLE. Los usuarios que actualmente utilizan js-controller 7.1.x, 7.2.0 o 7.2.1 deben actualizar lo antes posible. Las versiones 7.1.0 a 7.2.1 de js-controller generan una cantidad excesiva de registros de errores centrales y, por lo tanto, afectan negativamente el funcionamiento de todos los usuarios. Se recomienda una actualización inmediata para todos los usuarios, ya que esta versión incluye los ajustes necesarios para futuras actualizaciones del adaptador.",
+      "pl": "js-controller 7.2.2 jest już dostępny w repozytorium STABLE. Użytkownicy korzystający obecnie z js-controller w wersji 7.1.x, 7.2.0 lub 7.2.1 powinni jak najszybciej dokonać aktualizacji. Wersje od 7.1.0 do 7.2.1 js-controller generują nadmierną liczbę centralnych dzienników błędów, co negatywnie wpływa na działanie wszystkich użytkowników. Zaleca się wszystkim użytkownikom szybką aktualizację, ponieważ ta wersja zawiera niezbędne poprawki wymagane do przyszłych aktualizacji adaptera.",
+      "uk": "js-controller версії 7.2.2 тепер доступний у репозиторії STABLE. Користувачам, які зараз використовують js-controller 7.1.x, 7.2.0 або 7.2.1, слід оновити його якомога швидше. Версії js-controller від 7.1.0 до 7.2.1 генерують надмірну кількість централізованих журналів помилок і тому негативно впливають на роботу всіх користувачів. Усім користувачам рекомендується оперативне оновлення, оскільки цей випуск містить необхідні налаштування, необхідні для майбутніх оновлень адаптера.",
+      "zh-cn": "js-controller 7.2.2 现已在稳定版仓库中发布。当前正在使用 js-controller 7.1.x、7.2.0 或 7.2.1 的用户应尽快更新。js-controller 7.1.0 至 7.2.1 版本会生成过多的集中式错误日志，从而对所有用户的运行造成负面影响。建议所有用户立即更新，因为此版本包含未来适配器更新所需的必要调整。"
+    },
+    "id": "js-controller-7-2-2-v2",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2026-06-19T18:00:00.000Z",
+    "date-end": "2026-07-31T23:00:00.000Z"
   }
 ]

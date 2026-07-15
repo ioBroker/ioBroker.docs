@@ -2,32 +2,32 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.seplos-v3-sniffer/README.md
-title: ioBroker.seplos-v3-сниффер
-hash: snOYxX39iBN2/nEN5uJR+Z0bTgu5GGF46xmmOhASu7w=
+title: ioBroker.seplos-v3-sniffer
+hash: 8bSCVtLKER3vRTxSHeRJQXp3hvFSYf9PsPG5Y0oMWSE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.seplos-v3-sniffer/admin/seplos-v3-sniffer.jpg)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.seplos-v3-sniffer.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.seplos-v3-sniffer.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.seplos-v3-sniffer.svg)
 ![Количество установок](https://iobroker.live/badges/seplos-v3-sniffer-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/seplos-v3-sniffer-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/seplos-v3-sniffer-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.seplos-v3-sniffer.png?downloads=true)
 
 # IoBroker.seplos-v3-sniffer
-**Тесты:** ![Тест и выпуск](https://github.com/DpunktS/ioBroker.seplos-v3-sniffer/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/DpunktS/ioBroker.seplos-v3-sniffer/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер seplos-v3-sniffer для ioBroker
 [www.seplos.com](https://www.seplos.com/)
 
-Этот адаптер был разработан для чтения Seplos V3 BMS в конфигурации multipack. В поколении V3 первый BMS действует как ведущий Modbus, в то время как все остальные BMS действуют как ведомые. В этой конфигурации больше невозможно получить доступ к BMS через Modbus с третьего устройства, поскольку два ведущих устройства не могут существовать в системе RS-485 Modbus. Адаптер пассивно обнаруживает связь между устройствами, что означает, что связь отдельных BMS не нарушается. Он может взаимодействовать либо через локальный интерфейс (например, /dec/ttyS0), либо через Ser2Net (tcp://ip:2001).
+Этот адаптер разработан для считывания данных с BMS Seplos V3 в конфигурации с несколькими устройствами. В поколении V3 первое устройство BMS выступает в роли ведущего устройства Modbus, а все остальные — в роли ведомых. В такой конфигурации доступ к BMS через Modbus с третьего устройства больше невозможен, поскольку в системе RS-485 Modbus не может существовать два ведущих устройства. Адаптер пассивно обнаруживает связь между устройствами, что означает, что связь между отдельными устройствами BMS не прерывается. Он может обмениваться данными либо через локальный интерфейс (например, /dec/ttyS0), либо через Ser2Net (tcp://ip:2001).
 
-Адаптер автоматически определяет количество доступных устройств и создает соответствующие точки данных. BMS передает новый набор данных каждые 200 мс. Интервал обновления можно настроить на странице конфигурации адаптера (значение по умолчанию: 5 секунд).
+Адаптер автоматически определяет количество доступных устройств и создает соответствующие точки данных. Система управления батареей (BMS) передает новый набор данных каждые 200 мс. Интервал обновления можно настроить на странице конфигурации адаптера (значение по умолчанию: 5 секунд).
 
-![сеплос 4x](https://github.com/user-attachments/assets/9d710287-069d-44b6-acda-e96764642a33)
+![сеплос 4х](https://github.com/user-attachments/assets/9d710287-069d-44b6-acda-e96764642a33)
 
-Для установки соединения контакты 1/8 (B), 2/7 (A) и 5 ​​(GND) должны быть подключены к адаптеру RS485. Можно использовать различные адаптеры RS485, например RS485 в USB или RS485 в TTL. Важно проверить, как система обнаружила соответствующий адаптер, и ввести интерфейс соответствующим образом в «последовательный адаптер» (например, /dev/ttyUSB0 или /dev/ttyS0). Если используется Ser2Net, следует ввести адрес tcp://ip:2001. Сервер Ser2Net должен быть настроен на предоставление данных в формате RAW. Самый простой способ — использовать ESP8266/ESP32 с ESPHome (см. мой пример ниже).
+Для установления соединения необходимо подключить контакты 1/8 (B), 2/7 (A) и 5 ​​(GND) к адаптеру RS485. Можно использовать различные адаптеры RS485, например, RS485-USB или RS485-TTL. Важно проверить, как система обнаружила соответствующий адаптер, и ввести интерфейс в поле "последовательный адаптер" (например, /dev/ttyUSB0 или /dev/ttyS0). Если используется Ser2Net, следует ввести адрес tcp://ip:2001. Сервер Ser2Net должен быть настроен на передачу данных в формате RAW. Простой способ — использовать ESP8266/ESP32 с ESPHome (см. мой пример ниже).
 
-В ходе моих тестов я обнаружил, что терминатор 120 Ом в адаптере не нужен. Терминатор также отсутствует в оригинальном USB-адаптере Seplos V3. Если необходимо прочитать только один BMS, необходимо подключить контакт 6 (B) к контакту 5 (GND), чтобы мастер мог отправлять данные независимо.
+В ходе моих тестов я обнаружил, что 120-омный терминатор в адаптере не нужен. В оригинальном USB-адаптере Seplos V3 терминатора тоже нет. Если необходимо считывать данные только с одного BMS, нужно соединить контакт 6 (B) с контактом 5 (GND), чтобы ведущее устройство могло передавать данные независимо.
 
 ![распиновка](https://github.com/user-attachments/assets/1c8ec271-d20f-4a5d-baf4-87e5a98fc35a)
 
@@ -50,7 +50,7 @@ stream_server:
    buffer_size: 2048
 ```
 
-В настоящее время считываются следующие данные:
+В настоящий момент считываются следующие данные:
 
 ```
 pack_voltage
@@ -65,6 +65,7 @@ average_cell_voltage
 average_cell_temp
 max_cell_voltage
 min_cell_voltage
+delta_cell_voltage
 max_cell_temp
 min_cell_temp
 maxdiscurt
@@ -105,7 +106,8 @@ active_protections
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.0 (2026-04-08)
+* (DpunktS) add delta_cell_voltage
 
 ### 0.1.1 (2025-02-28)
 * (DpunktS) bugfix
@@ -140,7 +142,7 @@ active_protections
 ## License
 MIT License
 
-Copyright (c) 2025 DpunktS <dpunkts@online.de>
+Copyright (c) 2025-2026 DpunktS <dpunkts@online.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

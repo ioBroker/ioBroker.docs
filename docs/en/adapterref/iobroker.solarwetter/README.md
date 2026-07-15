@@ -59,6 +59,8 @@ The adapter starts once a day.
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -107,6 +109,8 @@ The adapter starts once a day.
 ### 0.0.1 (2016-05-12)
 * (pix) first release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## ToDo
 * Translation of Datapoints
 * Russian translation of a settings window
@@ -115,7 +119,7 @@ The adapter starts once a day.
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2023 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

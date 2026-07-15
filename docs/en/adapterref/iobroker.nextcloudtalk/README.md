@@ -23,7 +23,8 @@ Messages are sent via the Nextcloud Talk API endpoint `/ocs/v2.php/apps/spreed/a
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 1.0.3
+* Adapter requires node.js >= 22 now
 
 ### 1.0.2
 * updated logo
@@ -35,9 +36,10 @@ Messages are sent via the Nextcloud Talk API endpoint `/ocs/v2.php/apps/spreed/a
 ### 1.0.0
 * initial version
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
-Copyright (c) 2025 Rello
+Copyright (c) 2025-2026 Rello
 
 MIT
-

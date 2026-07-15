@@ -21,6 +21,9 @@
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.0.3 (2026-06-04)
+* (bluefox) Updated packages
+
 ### 2.0.2 (2025-08-26)
 * (bluefox) Support for older Android devices
 
@@ -74,7 +77,7 @@
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2022-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

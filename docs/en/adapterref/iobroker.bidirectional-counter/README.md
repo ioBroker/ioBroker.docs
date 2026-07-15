@@ -29,6 +29,30 @@ The counter state will increase up from its saved value, when the shelly energy 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.5.15 (2026-04-05)
+* (BenAhrdt) building desc for id
+
+### 2.5.14 (2026-04-05)
+* (BenAhrdt) building icon and color for inactive counters in dM card
+
+### 2.5.13 (2026-04-05)
+* (BenAhrdt) change design of identifier and sort alphabetically
+
+### 2.5.12 (2026-04-04)
+* (BenAhrdt) improve id and transform back id
+
+### 2.5.11 (2026-04-04)
+* (BenAhrdt) sort display in card
+
+### 2.5.10 (2026-04-04)
+* (BenAhrdt) build id removed and building sourcestates improved
+
+### 2.5.9 (2026-04-04)
+* (BenAhrdt) add deviceManager
+
 ### 2.5.8 (2026-02-28)
 * (BenAhrdt) bugfix 2.0 dependencies
 
@@ -91,45 +115,7 @@ The counter state will increase up from its saved value, when the shelly energy 
 ### 2.1.0 (2023-04-06)
 * (BenAhrdt) updated to new releasescript
 
-### 2.0.8 (2022-06-17) - Readme updated
-* (BenAhrdt) readme updated with paypal link
-
-### 2.0.7 (2022-06-16) - loglevel query deleted
-* (BenAhrdt) dont check loglevel before log.debug()
-
-### 2.0.6 (2022-06-13) - adapter type changed
-* (BenAhrdt) change adapter type into misc-data
-
-### 2.0.5 (2022-06-08) - rewrite additional state with ack true
-* (BenAhrdt) write ack = true in case of additional state is subscribed
-
-### 2.0.4 (2022-06-08) - do not unsubscribe
-* (BenAhrdt) unsubscribe fixed
-
-### 2.0.3 (2022-06-06)
-* (BenAhrdt) readme fixed
-
-### 2.0.2 (2022-06-04)
-* (BenAhrdt) fixed a comment Bug
-
-### 2.0.1 (2022-06-04)
-* (BenAhrdt) first try to release and push with Token
-
-### 2.0.0 (2022-06-03)
-* (BenAhrdt) release script implemented
-
-### 1.14.9
-* (BenAhrdt) fixed some changes in readme
-
-### 1.13.8
-* (BenAhrdt) fixed changes for official version
-  use seState to write internal adapter states
-
-### 1.8.7
-* (BenAhrdt) edit changelog
-
-### 1.8.6
-* (BenAhrdt) first official version
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -18,7 +18,27 @@ You can customize the output of the feed with a template system. In the template
 
 Important: Only the english translation is valid due to bugs in automatic translations into other languages made by iobroker
 
-## Installation
+## Table of Contents
+
+- [Overview](#overview)
+- [Configuration](#configuration)
+- [vis and widgets](#vis-and-widgets)
+    - [RSS Feed widget 2](#rss-feed-widget-2)
+    - [RSS Feed Multi widget 3](#rss-feed-multi-widget-3)
+    - [RSS Feed Meta Helper](#rss-feed-meta-helper)
+    - [RSS Feed Article Helper](#rss-feed-article-helper)
+    - [RSS Feed Title marquee 4 (deprecated)](#rss-feed-title-marquee-4-deprecated)
+    - [RSS Feed Title marquee 5](#rss-feed-title-marquee-5)
+- [Templatesystem](#templatesystem)
+    - [Very Important Note for use in vis / vis-2](#very-important-note-for-use-in-vis--vis-2)
+    - [Tags](#tags)
+    - [Available variables in templates](#available-variables-in-templates)
+    - [Template based on examples](#template-based-on-examples)
+- [Todo](#todo)
+- [Changelog](#changelog)
+- [License](#license)
+
+## Configuration
 
 Install the adapter as normal from the stable repository. If you want to test new features or bug fixes you can also install the adapter from the beta repository. For Features and news, please see the Test and Support thread for this adapter in the iobroker forum.
 
@@ -31,14 +51,19 @@ iobroker upload rssfeed
 
 In the right area in the line of the adapter, an instance can be added using the plus button
 
-## Configuration
-
 The configuration is easy. There are only a few fields
 
 | Setting                | description                                                                                                        |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | Default Refresh (min)  | is the general specification of how often the feed should be called up again in minutes. The default is 60 minutes |
 | Max Artikel (Standard) | The total amount of data to be processed can be limited here.                                                      |
+| User Agent             | Optional, but recommended. This is the user agent that is used when requesting the feed.                           |
+
+At the moment of release the defualt is. You maybe update this each year if some request problems of rssfeed exists.
+
+```text
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+```
 
 Then for each new feed:
 
@@ -63,7 +88,6 @@ The following widgets actually exists
 - [`RSS Feed Article Helper 2`](#rss-feed-article-helper) - a helper widget to inspect the article data of a feed
 - [`RSS Feed Title marquee 4 (deprecated)`](#rss-feed-title-marquee-4-deprecated) - a widget to show the Headlines of a feed as a marquee
 - [`RSS Feed Title marquee 5`](#rss-feed-title-marquee-5) - a widget to show the Headlines of a feed as a marquee
-- [`JSON Template 3`](#json-template3) - a widget that have nothing todo with RSS Feeds, but uses the same technology, and you can define a custom template to show any JSON-Data in vis.
 
 ### RSS Feed widget 2
 
@@ -162,27 +186,12 @@ With this widget, all title attributes will be displayed as a scrolling text. As
 | rss_feedCount    | General group       | Here you can set the number of feeds to be configured. A separate group is created in vis for each feed to be configured.                                                                                                                                                 |
 | rss_speed        | General group       | The scrolling speed of the scrolling text Attribute rss_divider - General group Here you can enter the characters used to separate the headlines. The default value is +++.                                                                                               |
 | rss_pauseonhover | General group       | If this option is switched on, the scrolling text stops as soon as you hover the mouse over the text.                                                                                                                                                                     |
-| rss_opentype     | General group       | Selection of how the link is opened: `none`, `link`, `popup`                                                                                                                                                                                                                    |
+| rss_opentype     | General group       | Selection of how the link is opened: `none`, `link`, `popup`                                                                                                                                                                                                              |
 | rss_withtime     | General group       | If this option is switched on, the time is displayed before the respective headline. Attribute rss_withdate - General group If this option is enabled, the date without the year and the time are displayed before the respective headline.                               |
 | rss_withyear     | General group       | If this option is enabled, the date with the year and the time are displayed before the respective headline.                                                                                                                                                              |
 | rss_oid          | Feeds[number] group | Select the data point with the corresponding RSS feed.                                                                                                                                                                                                                    |
 | rss_maxarticles  | Feeds[number] group | The maximum number of individual articles displayed from the RSS feed                                                                                                                                                                                                     |
 | rss_filter       | Feeds[number] group | For the filter function, one or more filter criteria can be entered in the field, separated by semicolons (;). The following article attributes are searched for the search: title, description, categories. Only articles that contain one of these terms are displayed. |
-
-### JSON Template3
-
-Using this widget, any data point with JSON data can be displayed as desired.
-The display is done using a template format, which can be thought of as a combined form of HTML code + JavaScript + special tags that control the display of the JSON attributes.
-JSON Template3 now supports async calls with await. JSON Template 2 is going to be deprecated in the future.
-
-| Setting      | description                                                                                                                                                                                                                                                                       |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rss_template | The template can be used to determine the appearance of the JSON data. All valid HTML tags (including CSS attributes in style tags) can be used in the template. There are also special tags within which the JSON data is displayed and JavaScript instructions can be executed. |
-| json_oid     | Selection of the data point with the corresponding JSON data.                                                                                                                                                                                                                     |
-
-For details on the template system, see chapter Template based on examples
-
-The JSON data is passed to the template with the prefix data. In addition, the current widgetID is also available as a variable so that it can be specified in individual CSS instructions.
 
 #### Advanced use case
 
@@ -191,19 +200,17 @@ In the examples above, only the pure output was covered. The template can now al
 ```html
 <h3>Output</h3>
 <style>
-  .mycssclassproperty {
-    color: green;
-  }
-  .mycssclassdata {
-    color: red;
-  }
+    .mycssclassproperty {
+        color: green;
+    }
+    .mycssclassdata {
+        color: red;
+    }
 </style>
 <% for (var prop in data.oneobject) { %>
 <div>
-  <span class="mycssclassproperty"
-    ><%- "data.oneobject." + prop + " = " %></span
-  >
-  <span class="mycssclassdata"><%- data.oneobject[prop] %></span>
+    <span class="mycssclassproperty"><%- "data.oneobject." + prop + " = " %></span>
+    <span class="mycssclassdata"><%- data.oneobject[prop] %></span>
 </div>
 <% } %>
 ```
@@ -232,22 +239,10 @@ stringify the result and output to html
 definition of the sendToAsync function
 
 ```html
-<% req = await sendToAsync("admin.0","selectSendTo",{test:"test"}); %>
-<%- JSON.stringify(req) %>
-<%
-async function sendToAsync(instance, command, sendData) {
-    console.log(`sendToAsync ${command} ${sendData}`);
-    return new Promise((resolve, reject) => {
-        try {
-            vis.conn.sendTo(instance, command, sendData, function (receiveData) {
-                resolve(receiveData);
-            });
-        } catch (error) {
-            reject(error);
-        }
-    });
-}
-%>  
+<% req = await sendToAsync("admin.0","selectSendTo",{test:"test"}); %> <%- JSON.stringify(req) %> <% async function
+sendToAsync(instance, command, sendData) { console.log(`sendToAsync ${command} ${sendData}`); return new
+Promise((resolve, reject) => { try { vis.conn.sendTo(instance, command, sendData, function (receiveData) {
+resolve(receiveData); }); } catch (error) { reject(error); } }); } %>
 ```
 
 **Result:**
@@ -282,12 +277,12 @@ First, a MySQL database named `test` is created. It contains a table `test` with
   <summary>Details</summary>
   <pre><code>
 
-  ```sql
+```sql
 
-  CREATE TABLE `test` (
-  `id` int(11) NOT NULL,
-  `todo` varchar(100) NOT NULL,
-  `action` int(11) NOT NULL
+CREATE TABLE `test` (
+`id` int(11) NOT NULL,
+`todo` varchar(100) NOT NULL,
+`action` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `test` (`id`, `todo`, `action`) VALUES
@@ -297,17 +292,18 @@ INSERT INTO `test` (`id`, `todo`, `action`) VALUES
 (4, 'Todo 4', 0);
 
 ALTER TABLE `test`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`),
-  ADD KEY `idx` (`id`);
+ADD PRIMARY KEY (`id`),
+ADD UNIQUE KEY `id` (`id`),
+ADD KEY `idx` (`id`);
 
 ALTER TABLE `test`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 ```
 
 </code></pre>
+
 </details>
 
 ---
@@ -340,8 +336,7 @@ We place the `JSONTemplate` widget and fill in the following fields:
   <summary>Details</summary>
   <pre><code>
 
-  ```html
-
+```html
 <style>
     .btn {
         width: 100%;
@@ -353,58 +348,54 @@ We place the `JSONTemplate` widget and fill in the following fields:
         <th>Todo</th>
         <th>Action</th>
     </tr>
-<%
-let todos = await getTodo();
-for (let i = 0; i < todos.length; i++) {
-    let todo = todos[i];
-%>
+    <% let todos = await getTodo(); for (let i = 0; i < todos.length; i++) { let todo = todos[i]; %>
     <tr>
         <td><%- todo.id %></td>
         <td><%- todo.todo %></td>
         <td><%- getButton(todo.id, todo.action) %></td>
     </tr>
-<% } %>
+    <% } %>
 </table>
 
 <script>
-window.jsontemplate = { clicktodo: clicktodo };
+    window.jsontemplate = { clicktodo: clicktodo };
 
-function getButton(id, action) {
-    let text = action === 0 ? "In Progress" : "Completed";
-    return `<button class="btn" onclick="window.jsontemplate.clicktodo(this)" data-id="${id}" data-action="${action}">${text}</button>`;
-}
+    function getButton(id, action) {
+        let text = action === 0 ? 'In Progress' : 'Completed';
+        return `<button class="btn" onclick="window.jsontemplate.clicktodo(this)" data-id="${id}" data-action="${action}">${text}</button>`;
+    }
 
-function clicktodo(el) {
-    let id = el.dataset.id;
-    let action = el.dataset.action;
-    let nextAction = action == 0 ? 1 : 0;
-    setAction(id, nextAction);
-}
+    function clicktodo(el) {
+        let id = el.dataset.id;
+        let action = el.dataset.action;
+        let nextAction = action == 0 ? 1 : 0;
+        setAction(id, nextAction);
+    }
 
-async function getTodo() {
-    let req = await sendToAsync("sql.0", "query", "SELECT * FROM test.test");
-    return req.result;
-}
+    async function getTodo() {
+        let req = await sendToAsync('sql.0', 'query', 'SELECT * FROM test.test');
+        return req.result;
+    }
 
-async function setAction(id, action) {
-    await sendToAsync("sql.0", "query", `UPDATE test.test SET action = ${action} WHERE id = ${id}`);
-    vis.setValue("local_trigger", Math.random());
-}
+    async function setAction(id, action) {
+        await sendToAsync('sql.0', 'query', `UPDATE test.test SET action = ${action} WHERE id = ${id}`);
+        vis.setValue('local_trigger', Math.random());
+    }
 
-async function sendToAsync(instance, command, sendData) {
-    return new Promise((resolve, reject) => {
-        try {
-            vis.conn.sendTo(instance, command, sendData, (receiveData) => resolve(receiveData));
-        } catch (error) {
-            reject(error);
-        }
-    });
-}
+    async function sendToAsync(instance, command, sendData) {
+        return new Promise((resolve, reject) => {
+            try {
+                vis.conn.sendTo(instance, command, sendData, receiveData => resolve(receiveData));
+            } catch (error) {
+                reject(error);
+            }
+        });
+    }
 </script>
-
 ```
 
-  </code></pre>
+</code></pre>
+
 </details>
 
 ###### **Data Point for Refreshing Content**
@@ -422,20 +413,46 @@ This data point **does not need to be explicitly created**, as `local_?` data po
 
 ###### **Template Structure**
 
-| Line | Content |
-|-------|--------|
-| 1-5 | CSS styles for button appearance |
-| 6-11 | Table header with columns ID, Todo, Action |
-| 12-16 | Fetching data from the MySQL database using `getTodo()` |
-| 17-21 | Loop to display to-do entries with buttons |
-| 23-28 | Global reference of the `clicktodo()` function |
-| 30-37 | `getButton()` function to create a button with the current status |
-| 38-44 | `clicktodo()` function to change the status via button click |
-| 45-48 | `getTodo()` function to fetch data via the SQL adapter |
-| 49-52 | `setAction()` function to update the database entry |
+| Line  | Content                                                                |
+| ----- | ---------------------------------------------------------------------- |
+| 1-5   | CSS styles for button appearance                                       |
+| 6-11  | Table header with columns ID, Todo, Action                             |
+| 12-16 | Fetching data from the MySQL database using `getTodo()`                |
+| 17-21 | Loop to display to-do entries with buttons                             |
+| 23-28 | Global reference of the `clicktodo()` function                         |
+| 30-37 | `getButton()` function to create a button with the current status      |
+| 38-44 | `clicktodo()` function to change the status via button click           |
+| 45-48 | `getTodo()` function to fetch data via the SQL adapter                 |
+| 49-52 | `setAction()` function to update the database entry                    |
 | 53-58 | `sendToAsync()` function to use `async/await` with `vis.conn.sendTo()` |
 
 ## Templatesystem
+
+### Very Important Note for use in vis / vis-2
+
+#### Curly braces in CSS and JSON
+
+The binding mechanism in vis / vis-2 uses the pattern `{ ... }` to detect binding expressions within HTML.
+For this reason, when specifying CSS or JSON, the curly braces must always be placed on separate lines. Otherwise, the content of the vis widget will be overwritten with `undefined`.
+
+##### Example
+
+```text
+#w_id_<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
+```
+
+must be written as follows:
+
+```text
+#w_id_<%- widgetid %> {
+    height: 100%; display: flex; flex-direction: column; overflow: hidden;
+}
+```
+
+#### Use of setInterval
+
+Please do not use `setInterval`. Since the template is re-invoked every time a data point changes, any existing `setInterval` calls cannot be properly cleared. Consequently, an increasing number of overlapping `setInterval` calls accumulate over time; this consumes RAM and can lead to unpredictable side effects. While reloading the page can resolve this issue, the code should not be implemented in this manner.
+As an alternative, such scenarios should be implemented using `setTimeout`.
 
 ## Tags
 
@@ -458,13 +475,13 @@ For all the following examples the following json is used.
 
 ```json
 {
-  "onearray": ["one", "two"],
-  "oneobject": {
-    "attribute1": 1,
-    "attribute2": 2
-  },
-  "onenumber": 123,
-  "onetext": "onetwothree"
+    "onearray": ["one", "two"],
+    "oneobject": {
+        "attribute1": 1,
+        "attribute2": 2
+    },
+    "onenumber": 123,
+    "onetext": "onetwothree"
 }
 ```
 
@@ -515,8 +532,7 @@ Arrays can also consist of a collection of objects. The example here contains on
 **Template:**
 
 ```html
-<% for (var i = 0; i < data.onearray.length ; i++ ) { %> <%- data.onearray[i] %>
-<% } %>
+<% for (var i = 0; i < data.onearray.length ; i++ ) { %> <%- data.onearray[i] %> <% } %>
 ```
 
 **Result:**
@@ -557,8 +573,7 @@ Loop over the attributes of an object
 **Template:**
 
 ```html
-<% for (var prop in data.oneobject) { %> <%- "data.oneobject." + prop + " = " +
-data.oneobject[prop] %> <% } %>
+<% for (var prop in data.oneobject) { %> <%- "data.oneobject." + prop + " = " + data.oneobject[prop] %> <% } %>
 ```
 
 **Result:**
@@ -626,7 +641,7 @@ It has been tested with the following feeds
 - <http://www.tagesschau.de/xml/rss2> or
 - <https://www.bild.de/rssfeeds/rss3-20745882,feed=alles.bild.html>
 
-```html
+```ejs
 <!--
     available variables:
     widgetid      ->  id of the widget
@@ -637,22 +652,22 @@ It has been tested with the following feeds
     all variables are read only
     -->
 <style>
-  #<%- widgetid % > img {
-    width: calc(<%- style.width %> - 15px);
-    height: auto;
-  }
-  #<%- widgetid % > img.rssfeed {
-    width: auto;
-    height: auto;
-  }
+    #<%- widgetid %> img {
+        width: calc(<%- style.width %> - 15px);
+        height: auto;
+    }
+    #<%- widgetid %> img.rssfeed {
+        width: auto;
+        height: auto;
+    }
 </style>
 <p><%- rss.meta.title %></p>
 <% rss.articles.forEach(function(item){ %>
 <div class="article">
-  <p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
-  <h3><%- item.title %></h3>
-  <p><%- item.description %></p>
-  <div style="clear:both;"></div>
+    <p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
+    <h3><%- item.title %></h3>
+    <p><%- item.description %></p>
+    <div style="clear:both;"></div>
 </div>
 <% }); %>
 ```
@@ -663,7 +678,7 @@ The following template is currently used as standard in the RSS feed multi widge
 Please note little differences in the usage of the variables
 It has been tested with the following feeds
 
-```html
+```ejs
 <!--
     available variables:
     widgetid      ->  id of the widget
@@ -678,14 +693,14 @@ It has been tested with the following feeds
     all variables are read only
     -->
 <style>
-  #<%- widgetid %> img {
-    width: calc(<%- style.width || "230px" %> - 15px);
-    height: auto;
-  }
-  #<%- widgetid %> img.rssfeed {
-    width: auto;
-    height: auto;
-  }
+    #<%- widgetid %> img {
+        width: calc(<%- style.width || '230px' %> - 15px);
+        height: auto;
+    }
+    #<%- widgetid %> img.rssfeed {
+        width: auto;
+        height: auto;
+    }
 </style>
 <% rss.articles.forEach(function(item){ %>
 <p><%- item.meta_name || item.meta_title || '' %></p>
@@ -698,7 +713,7 @@ It has been tested with the following feeds
 
 ### Example Template for RSS-Feed multi widget 3 with articles as a slide show and Prev/Next-Buttons
 
-```html
+```ejs
 <!--
  available variables:
  widgetid      ->  id of the widget
@@ -709,83 +724,83 @@ It has been tested with the following feeds
 -->
 
 <style>
-  #<%- widgetid %> img {
-    width: calc(<%- style.width || "230px" %> - 15px);
-    height: auto;
-  }
-  #<%- widgetid %> img.rssfeed {
-    width: auto;
-    height: auto;
-  }
+    #<%- widgetid %> img {
+        width: calc(<%- style.width || '230px' %> - 15px);
+        height: auto;
+    }
+    #<%- widgetid %> img.rssfeed {
+        width: auto;
+        height: auto;
+    }
 
-  .container {
-    overflow: hidden;
-    height: 100%;
-  }
-  .content {
-    position: relative;
-    border: 1px solid #ccc;
-    overflow: scroll;
-    height: 90%;
-  }
+    .container {
+        overflow: hidden;
+        height: 100%;
+    }
+    .content {
+        position: relative;
+        border: 1px solid #ccc;
+        overflow: scroll;
+        height: 90%;
+    }
 
-  .slide {
-    position: absolute;
-    display: none;
-  }
+    .slide {
+        position: absolute;
+        display: none;
+    }
 
-  .slide.active {
-    display: contents;
-  }
+    .slide.active {
+        display: contents;
+    }
 
-  .controls {
-    margin-top: 10px;
-  }
+    .controls {
+        margin-top: 10px;
+    }
 </style>
 
 <div class="container">
-  <div class="content">
-    <% rss.articles.forEach(function(item){ %>
-    <div class="article slide">
-      <p>
-        <small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small>
-      </p>
-      <h3><%- item.title %></h3>
-      <p><%- item.description %></p>
-      <div style="clear:both;"></div>
+    <div class="content">
+        <% rss.articles.forEach(function(item){ %>
+        <div class="article slide">
+            <p>
+                <small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small>
+            </p>
+            <h3><%- item.title %></h3>
+            <p><%- item.description %></p>
+            <div style="clear:both;"></div>
+        </div>
+        <% }); %>
     </div>
-    <% }); %>
-  </div>
-  <div class="controls">
-    <button onclick="prevSlide()">Zurück</button>
-    <button onclick="nextSlide()">Weiter</button>
-  </div>
+    <div class="controls">
+        <button onclick="prevSlide()">Zurück</button>
+        <button onclick="nextSlide()">Weiter</button>
+    </div>
 </div>
 
 <script>
-  currentSlide = 0;
-  slides = document.querySelectorAll(".slide");
+    currentSlide = 0;
+    slides = document.querySelectorAll('.slide');
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      if (i === index) {
-        slide.classList.add("active");
-      } else {
-        slide.classList.remove("active");
-      }
-    });
-  }
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+    }
 
-  function prevSlide() {
-    currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
+    function prevSlide() {
+        currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
+        showSlide(currentSlide);
+    }
+
+    function nextSlide() {
+        currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
+        showSlide(currentSlide);
+    }
     showSlide(currentSlide);
-  }
-
-  function nextSlide() {
-    currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
-    showSlide(currentSlide);
-  }
-  showSlide(currentSlide);
 </script>
 ```
 
@@ -820,307 +835,37 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
 
 ## Changelog
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 3.6.1 (2025-09-22)
 
-- remove dist/ folder from lint
+### **WORK IN PROGRESS**
 
-### 3.6.0 (2025-09-22)
+- update ejs and update prepare mechanism
 
-- revert to node 18
-- remove deprecated marquee4 widget
-- improve widget build
-- integrate translations and css into build process
-- remove unused css
-- deprecate JSON-Template widgets, please use new adapter iobroker.vis-jsontemplate
-- add message for the update to inform users
+### 4.1.2 (2026-06-10)
 
-### 3.5.2 (2025-03-20)
+- fix package lock
 
-- improve build
+### 4.1.0 (2026-06-10)
 
-### 3.5.1 (2025-03-20)
+- fix repochecker
 
-- improve build
+### 4.0.4-alpha.0 (2026-06-09)
 
-### 3.5.0 (2025-03-18)
+- add user agent to settings and axios request
 
-- make async function calls available in templates
+### 4.0.3 (2026-03-26)
 
-### 3.4.1 (2025-02-18)
+- Update packages
+- fix repochecker
 
-- fix eslint
-- introducing a new attribute opentype to open the links in the marquee widget
+### 4.0.2 (2026-03-07)
 
-### 3.3.1 (2025-01-23)
-
-- add an accept request header, because axios send only application/json
-
-### 3.3.0 (2025-01-21)
-
-- upgrade version js-controller
-- switch from request to axios
-
-### 3.2.0 (2024-11-27)
-
-- update jsonconfig responsive
-- switch to iobroker/eslint
-- improver adapter code
-- improve widget code
-
-### 3.1.0 (2024-08-11)
-
-- adjust dependency to js-controller in a minor release
-
-### 3.0.2 (2024-08-09)
-
-- add keyword in package.json
-
-### 3.0.1 (2024-08-09)
-
-- add template example for articles as a Diashow
-- adjust dependency to js-controller
-
-### 3.0.0 (2024-07-24)
-
-- update multifeed widget 3 and deprecate multifeed widget 2
-- breaking change: in rssfeed widget 2: articles and meta have to be changed to rss.articles and rss.meta
-
-### 2.10.0 (2024-07-11)
-
-- fine tuning on templates and available variables
-- fine tuning on format and translation
-- move widget documentation form doc.html to readme
-
-### 2.9.10 (2024-07-11)
-
-- update images for dark and light theme
-
-### 2.9.9 (2024-07-11)
-
-- update packages
-- update formating and improve error logging
-- remove detailed sentry status reporting
-- fix subscribing states
-
-### 2.9.8 (2024-07-09)
-
-- ignore widgets in vis-2
-- add restart vis/vis2
-
-### 2.9.7 (2024-06-22)
-
-- formating code
-- remove common.main from io-package.json
-
-### 2.9.6 (2024-06-06)
-
-- fix branch name in link
-
-### 2.9.4 (2024-06-05)
-
-- test release after rename branch from master to main
-
-### 2.9.3 (2024-06-05)
-
-- switch branchname from master to main
-- add node 22 to tests
-
-### 2.9.2 (2024-06-04)
-
-- add some translations
-- fix warning from adapter checker
-
-### 2.9.1 (2024-06-03)
-
-- update iobroker files and settings
-
-### 2.8.2 (2024-04-21)
-
-- (bluefox) Fixed loading of words.js in vis
-
-### 2.8.1 (2023-03-15)
-
-- (bluefox) Corrected vis widget
-- admin changed to jsonConfig, dev-environment now devcontainer
-
-### 2.7.0 (2022-12-11)
-
-### 2.6.1 (2022-07-30)
-
-- added more information to sentry
-
-### 2.6.0 (2022-07-26)
-
-- added sentry
-
-### 2.4.0 (2022-07-25)
-
-- added name option to marquee widget
-
-### 2.0.0
-
-- Rework of the admin dialog
-- Fix some errors and glitches
-
-### 1.0.0
-
-- Released in stable
-
-### 0.9.0
-
-- fixed/extended json template
-
-### 0.8.0
-
-- adapted configuration pages to react.
-- Prepared for stable release
-
-### 0.0.30
-
-- added some template examples to the widget documentation
-
-### 0.0.29
-
-- improved error messages
-- removed deprecated widget / change widget beta flag
-- changed createObject/setState logic due iobroker-controller >3.0
-
-### 0.0.28
-
-- removed customtab
-
-### 0.0.27
-
-- adapter configuration is now editable
-
-### 0.0.26
-
-- corrected changelog size
-
-### 0.0.25
-
-- the error messages for the template are improved
-
-### 0.0.24
-
-- errors in the request of feeds are now real errors in the iobroker log
-- loading of rules for ejs in the editor is improved
-- marquee3 widget: options to show time and date
-
-### 0.0.23
-
-- republish to npm
-
-### 0.0.22
-
-- improvements in the configuration dialog
-- remove unused admintab
-- new RSS Feed multi widget. in this widget you can add your one or more datapoints, that are available in the template.
-- New marquee widget 3 replaces the existing marquee widget 2.The marquee widget 3 is now a multi widget and can handle more than one feed. The Headlines are now aggregated.
-- the existing widget JSON template is improved. in this widget you can add your one or more datapoints, that are available in the template.
-- Remove several deprecated widgets (RSS Feed widget 1, Article Helper 1, Marquee 1, JSON template 1)
-
-### 0.0.21
-
-- add link option to marquee widget
-- widget help added
-- marquee widget: the divider characters (default: +++) are configurable
-
-### 0.0.20
-
-- add ejs syntax to template editor
-
-### 0.0.19
-
-- try to fix marquee widget.
-
-### 0.0.18
-
-- try to fix the wrong NoSave dialog
-
-### 0.0.17
-
-- rework setting objects and states
-
-### 0.0.16
-
-- improve logic adding rssfeed in configuration dialog
-- fix wrong icon for marquee widget
-- define default template for rssfeed widget
-- deprecate existing and replace with new version of widgets to improve naming of the attributes in case of translation
-- widget rss marquee: replace duration attribute with speed attribute and improved the calculation algorithm. now same number is same speed regardless of the length of the titles
-
-### 0.0.15
-
-- fix bug saving last request in adapter configuration / improve debug messages
-
-### 0.0.14
-
-- update package.json and install new tools for stream encoding/decoding detection
-- implement encoding detection and stream encoding
-- change the ejs lib with a real browserified lib
-
-### 0.0.13
-
-- new widget as a guest, because it is not directly related to the rssfeed functionality, but reuse the same code base. maybe later i transfer it to an own adapter. the new widget can take a json datapoint and you can visualize the data with the ejs template system.
-
-### 0.0.12
-
-- now you can download the adapter configuration in the admin dialog. upload is not possible due to security restrictions in modern browsers.
-
-### 0.0.11
-
-- improve admin layout
-- implement a forceRefresh button
-
-### 0.0.10
-
-- fix bug a bug in marquee widget. not all styles should applied to the span tag.
-
-### 0.0.9
-
-- apply widget styles also to the inner span element, because they had not any effect on the marquee.
-- renew the package-lock.json
-- add categories to save feeds in subfolders
-- improve mechanism to write only updated feeds to datapoint. the feed has new data if comparision of articles in title and description is different.
-
-### 0.0.8
-
-- improve lasrequest logic of the adapter
-- fix problem with datapoint naming
-
-### 0.0.7
-
-- test with encapsulation of ejs.js, because of error in some browsers
-
-### 0.0.6
-
-- add attribute duration for widget marquee to control animation duration
-
-### 0.0.5
-
-- new widget marquee for article titles
-- add filter function for articles. the filter searches in title,description and categories, several filter criteria can be seperated by semicolon
-
-### 0.0.4
-
-- some adjustments in readme, io-package
-
-### 0.0.3
-
-- add addveyor build
-
-### 0.0.2
-
-- added widgets meta helper and article helper
-
-### 0.0.1
-
-- initial release
+- fix repochecker
 
 ## License
 

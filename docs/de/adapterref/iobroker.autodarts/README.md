@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.autodarts/README.md
-title: kein Titel
-hash: RWoaggK0UrH75aAvOtIv8j7fdEFI9RfEQPr3VKfKwxc=
+title: ioBroker-Adapter für AUTODARTS
+hash: sC7toOO/mx3ZUxeUm2mtGLcGmrmRcJ52AVzuKl95LCs=
 ---
 ![Logo](../../../en/adapterref/iobroker.autodarts/admin/autodarts.svg)
 
@@ -11,9 +11,14 @@ hash: RWoaggK0UrH75aAvOtIv8j7fdEFI9RfEQPr3VKfKwxc=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/autodarts-stable.svg)
 ![NPM-Version](https://nodei.co/npm/iobroker.autodarts.svg?style=shields&data=v,u,d&color=orange)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.autodarts.svg)
+![GEMEINSCHAFT](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)
+![WARTUNGSKRAFT](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)
+![KI](https://img.shields.io/badge/ai%20assisted-copilot-blue.svg)
 ![PayPal-Spende](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
-## Adapter für die Autodarts-Integration
+# IoBroker-Adapter für AUTODARTS
+---
+
 ## Was dieser Adapter bewirkt
 Verbindet sich mit Ihrem lokalen Autodarts Board Manager (über IP und Port, z. B. `192.168.x.x:3180`) und stellt ioBroker-Zustände für die Hausautomation bereit:
 
@@ -135,6 +140,15 @@ Es werden keine personenbezogenen Daten an externe Server gesendet oder in der C
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 1.0.9 (2026-05-25)
+- (skvarel) Adapter requires node.js >= 22 now
+- (skvarel) Updated @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)
+- (skvarel) Downgraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)
+
+### 1.0.8 (2026-04-13)
+- (skvarel) Removed react and mui
+- (skvarel) Removed admin/style.css
+
 ### 1.0.7 (2026-03-01)
 - (skvarel) CI/CD: Updated GitHub Copilot instructions template to version 0.5.7 with latest ioBroker best practices (fixes #21, #25)
 
@@ -143,14 +157,6 @@ Es werden keine personenbezogenen Daten an externe Server gesendet oder in der C
 
 ### 1.0.5 (2026-02-28)
 - (skvarel) FIXED: Updated outdated dependencies - release-script packages to v5.1.x and admin globalDependency to v7.6.20 (fixes #23)
-
-### 1.0.4 (2026-01-24)
-- (skvarel) FIXED: Reverted to setState() from deprecated setStateAsync()
-
-### 1.0.3 (2026-01-21)
-- (copilot) FIXED: Use setStateAsync() instead of setState() for trigger resets in throw.js to ensure database reliability
-- (copilot) ENHANCED: Corrected API endpoints in copilot-instructions.md - now documents /api/state, /api/config, /api/host, /api/version correctly
-- (copilot) TESTING: Added comprehensive unit tests for core modules (throw, visit, config, trafficLight, httpHelper)
 
 ## License
 MIT License

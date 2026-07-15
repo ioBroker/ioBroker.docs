@@ -541,10 +541,27 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
 
 (git-kick)
 * "@iobroker/testing": "^5.2.2" - [Issue #301](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/301)
 * Added JSDoc - [Issue #300](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/300)
+* Updated dependencies in package.json - [Issue #305](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/305)
+* Updated dependencies in package.json and added dependabot.yml - [Issue #309](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/309)
+* Merged PRs created by Check and Service Bot:
+  * Update Dependabot Configuration – Add npm Cooldown - [PR #316](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/316)
+  * Bump @iobroker/eslint-config from 0.1.7 to 2.2.0 - [PR #319](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/319)
+  * Bump @sentry/tracing from 6.19.7 to 7.120.4 - [PR #320](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/320)
+  * Update Node.js versions in test-and-release workflow - [PR #322](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/322)
+  * Add Dependabot Ignore Rule for @types/node Major Version Updates - [PR #324](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/324)
+  * Drop Node.js 20 support (End of Life) - [PR #325](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/325)
+  * Add CHANGELOG_OLD.md to store older changelog entries - [PR #326](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/326)
+  * Bump html-to-text from 9.0.5 to 10.0.0 - [PR #327](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/327)
+  * Bump @types/node from 25.5.0 to 25.6.0 - [PR #328](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/328)
+  * Bump @sentry/node from 10.43.0 to 10.51.0 - [PR #329](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/329)
+* Fixed errors reported by the ioBroker Check and Service Bot - [Issue #317](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/317)
+  * \[E0036\] now "@iobroker/adapter-dev": "^1.5.0" at package.json
+  * \[E0036\] now "@iobroker/testing": "^5.2.2" at package.json
 
 ### 1.4.5-alpha.1 (2026-01-26)
 
@@ -594,18 +611,6 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
   * \[W444\] added schema for JSON5 config files in settings.json
   * \[S532\] removed unused lib/tools.js
   * \[S906\] added ".commitinfo§ to .gitignore
-
-### 1.4.2
-
-(git-kick)
-* introduced config value maxindex_wb - before, maxIndex["WB"] remained undefined in some cases - [Issue #262](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/262)
-* restored EP_RESERVE is writable - [Issue #263](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/263)
-* fixed errors reported by the ioBroker Check and Service Bot:
-  * \[E160\]\[E190\] "peerDependencies.iobroker.admin"  in package.json
-  * \[605\] updated (c) 2025.
-  * \[254\] removed v1.3.2 which was never released.
-* removed duplicate queueWbRequestData() definition from main.js - the relevant one is in wallbox.js
-* removed obsolete initialisation of maxIndex for BAT and PVI from constructor(). Both values are now initialized from config during initChannel().
 
 ## License  
 Copyright (c) 2026 Ulrich Kick <iobroker@kick-web.de>  
