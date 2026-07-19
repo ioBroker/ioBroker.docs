@@ -1,25 +1,33 @@
 ---
 title: Proxmox
-Version: 0.2
+Version: 0.3
 Autoren: TeNNo2k5, crunchip
 Schlüsselworte: Proxmox, VM, LXC, USB Passthrough, Usb-Backup
-lastChanged: 12.08.2023
+lastChanged: 19.07.2026
 ---
 
-# Proxmox 
+# Proxmox
 
 ![proxmoxlogo](media/proxmox/Proxmox-logo-860.png)
 
 ## Proxmox Installation
 
-Proxmox Virtual Environment (kurz Proxmox VE) ist eine auf Debian basierende Virtualisierungsplattform. Die Technik der Virtualisierung basiert bei Proxmox auf QEMU/KVM.
+Proxmox Virtual Environment (kurz Proxmox VE) ist eine auf Debian basierende
+Virtualisierungsplattform. Die Virtualisierung basiert auf QEMU/KVM.
 
-Proxmox „verpackt“ QEMU/KVM in einer eigenen Web-Oberfläche und macht die Administration damit recht einfach (und unterstützt darüber hinaus auch noch Linux Containers – LXC). Dadurch ist Proxmox auf der einen Seite einsteigerfreundlich, auf der anderen Seite aber auch so mächtig, dass es auch im professionellen Umfeld genutzt werden kann.
+Proxmox „verpackt“ QEMU/KVM in einer eigenen Web-Oberfläche, vereinfacht die
+Administration und unterstützt zusätzlich Linux-Containers (LXC). Dadurch ist
+Proxmox einsteigerfreundlich, aber stark genug für den professionellen Einsatz.
 
-Dieser Abschnitt zeigt an einem Beispiel die Installation und Grundkonfiguration von Proxmox in der kostenlosen Variante (non-subscription).
+Dieser Abschnitt zeigt an einem Beispiel die Installation und Grundkonfiguration
+von Proxmox in der kostenlosen Variante (non-subscription).
 
-Aufgrund der Übersichtlichkeit, sind Bildbeschreibungen und Zusatzinfo's zum aufklappen.
+Aufgrund der Übersichtlichkeit sind Bildbeschreibungen und Zusatzinfos zum Aufklappen.
 
+_Hinweis:_ Einige Abbildungen in dieser Anleitung stammen aus älteren
+Versionen von Proxmox oder Debian. Der Ablauf und die Klickpfade sind jedoch
+inhaltlich stimmig und direkt auf aktuelle Versionen (wie Proxmox VE 9 und
+Debian 13) übertragbar.
 
 ### Voraussetzungen
 
@@ -27,7 +35,8 @@ Aufgrund der Übersichtlichkeit, sind Bildbeschreibungen und Zusatzinfo's zum au
 <summary>Voraussetzungen</summary>
    
 - 64 Bit CPU
-- CPU und Mainboard müssen Intel VT/AMD-V für die Virtualisierung unterstützen und im Bios aktiviert sein.
+- CPU und Mainboard unterstützen Intel VT/AMD-V für die Virtualisierung (im
+  BIOS zu aktivieren).
 - 1 GB RAM (nur für Proxmox) – abhängig von der Anzahl der zu betreibenden virtuellen Maschinen wird hier natürlich mehr RAM benötigt. Daher sind hier minimal 8 GB, besser noch 16 GB RAM empfehlenswert.
    
 </details>
@@ -43,11 +52,17 @@ Zunächst benöigt man ein ISO-Image, welches auf der [Proxmox-Download-Seite](h
    
 </details>
 
-Zur Installation muss mit diesem ISO-Image noch ein bootfähiger USB-Stick erstellt werden. Dieser sollte dabei mindestens 2 GB Speicher haben. Zur Erstellung eines bootfähigen Sticks gibt es mehrere Möglichkeiten, siehe [Installationmedien vorbereiten](https://pve.proxmox.com/wiki/Prepare_Installation_Media#_instructions_for_windows)
+Zur Installation wird mit diesem ISO-Image ein bootfähiger USB-Stick erstellt.
+Dieser sollte mindestens 2 GB Speicher haben. Zur Erstellung eines bootfähigen
+Sticks gibt es mehrere Möglichkeiten, siehe [Installationsmedien vorbereiten][].
 
 ### Installation
 
-Das System muss im UEFI/BIOS so konfiguriert werden, dass von einem USB-Device gestartet werden kann. Nach dem Einstecken des USB-Sticks erscheint dann nach kurzer Zeit das Installations-Menü von Proxmox (falls nicht, kann man den USB-Stick auch manuell als Startmedium angeben (bei den meisten Mainboards kann man dies mit F8 oder F11 bewerkstelligen).
+Das System wird im UEFI/BIOS so konfiguriert, dass der Start von einem
+USB-Device erfolgt. Nach dem Einstecken des USB-Sticks erscheint nach kurzer
+Zeit das Installations-Menü von Proxmox. Alternativ lässt sich der USB-Stick
+manuell als Startmedium angeben (bei den meisten Mainboards über F8 oder
+F11).
 
 Im Installations-Menü wird nun einfach **Install Proxmox VE** ausgewählt.
 
@@ -58,7 +73,7 @@ Im Installations-Menü wird nun einfach **Install Proxmox VE** ausgewählt.
    
 </details>
 
-Im nächsten Schritt muss den Nutzungsbedingungen (EULA) zugestimmt werden.
+Im nächsten Schritt wird den Nutzungsbedingungen (EULA) zugestimmt.
 
 <details>
 <summary>Eula</summary>
@@ -97,7 +112,7 @@ Der Installer erstellt eine Volume Group (VG) mit dem Namen pve und zusätzliche
 - maxroot: Gibt die maximal Größe des root-Volumes an(Proxmox selbst). **Hier ist zu erwähnen, das in der Grundinstallation, spätere benötigte Template's und Iso-Image's ebenfalls hier abgelegt werden.**
 - minfree: Speicherplatz, der auf der LVM Volume Group pve freigelassen wird. Wenn die Festplatte größer als 128 GB ist, werden hier standardmäßig 16 GB frei gelassen (LVM benötigt immer etwas freien Speicher für die Erzeugung von Snapshots).
 - maxvz: Legt die maximale Größe des data-Volumes fest.
-   
+
 </details>
 
 Im Normalfall kann man hier alle Optionen auf der Standard-Einstellung belassen (d.h. hier wird nichts angegeben). Diese sind für die meisten Installationen bereits optimal eingestellt.
@@ -111,7 +126,10 @@ Nach der Wahl der Festplatte für Proxmox werden die Optionen zur Lokalisierung 
    
 </details>
 
-Im Anschluss wird das Passwort des root-Users eingegeben. Ebenso wird hier eine Mail-Adresse angefragt. Diese wird dazu verwendet, bei wichtigen Systemmeldungen eine E-Mail an die hier angegebene Adresse zu senden. Dies muss aber nicht zwingend eine echte E-Mail-Adresse sein (dann wird man als Admin aber nicht mehr per Mail auf wichtige Ereignisse des Systems hingewiesen).
+Im Anschluss wird das Passwort des root-Users eingegeben. Ebenso wird eine
+E-Mail-Adresse angefragt, um wichtige Systemmeldungen dorthin zu senden. Eine
+echte Adresse ist nicht zwingend erforderlich (dann erfolgt jedoch kein Hinweis
+auf Systemereignisse per Mail).
 
 <details>
 <summary>Passwort und Email</summary>
@@ -120,7 +138,9 @@ Im Anschluss wird das Passwort des root-Users eingegeben. Ebenso wird hier eine 
    
 </details>
 
-Der nächste Schritt des Installers beschäftigt sich mit den Netzwerk-Einstellungen. Zur Auswahl steht die jeweilige Schnittstelle. Hostname kann frei gewählt werden, jedoch muss die DNS-Domane mit angegeben werden.
+Der nächste Schritt des Installers beschäftigt sich mit den Netzwerk-
+Einstellungen. Zur Auswahl steht die jeweilige Schnittstelle. Der Hostname
+ist frei wählbar, erfordert jedoch die Angabe der DNS-Domäne.
 Als Beispiel für Fritzbox User, wäre es `hostname.fritz.box`.
 Bei IP Adress ist vorzugsweise eine statische IP-Adresse anzugeben (kein DHCP). Dazu zählt die IP-Adresse selbst (als CIDR-Notation), die Gateway-IP (normalerweise die IP-Adresse des Routers) und der zu verwendende DNS-Server (im privaten Umfeld meist auch die IP-Adresse des Routers). Proxmox erkennt meist das Netzwerk automatisch.
 
@@ -149,7 +169,8 @@ Durch eine Kontrolle der Einstellungen und einem Klick auf Install wird das Syst
    
 </details>
 
-Nach einer kurzen Wartezeit ist die Installation abgeschlossen und das System muss neu gebootet werden (dazu vorher den USB-Stick mit dem ISO-Image entfernen).
+Nach einer kurzen Wartezeit ist die Installation abgeschlossen und das System
+wird neu gestartet (zuvor den USB-Stick mit dem ISO-Image entfernen).
 
 Anschließend sieht man das Terminal. Hier wird schon die Anweisung angezeigt, wie nun auf das System zugegriffen werden kann:
 
@@ -169,7 +190,9 @@ Nun geht es im Browser weiter (beispielhaft https://10.1.1.89:8006). Als erstes 
    
 </details>
 
-Die Anmeldung erfolgt dann mit dem User root und dem während der Installation gewähltem Passwort. Die Sprache kann man hier **zuerst** auf Deutsch umstellen, ansonsten wird die Oberfläche von Proxmox in Englisch angezeigt und man muss Benutzername und Kennwort nicht ein zweites mal  eingeben.
+Die Anmeldung erfolgt mit dem User root und dem während der Installation
+gewählten Passwort. Die Sprache lässt sich hier **zuerst** auf Deutsch
+umstellen, wodurch eine erneute Eingabe von Benutzername und Kennwort entfällt.
 
 <details>
 <summary>Anmeldung</summary>
@@ -187,7 +210,7 @@ Direkt nach dieser Anmeldung wird man von einer Meldung begrüßt, dass man kein
    
 </details>
 
-Nun müssen die Proxmox Paketquellen angepasst werden, damit man Updates erhalten kann.
+Nun werden die Proxmox-Paketquellen angepasst, um Updates erhalten zu können.
 
 <details>
 <summary>Paketquellen</summary>
@@ -217,6 +240,7 @@ Die Konfiguration der Repositories sieht danach dann so aus:
 </details>
 
 ### Updates
+
 Nachdem die Paketquellen umgestellt wurden, sollte im Anschluß ein erstes System Update durchgeführt werden. Hier geht man am besten über die Web-Oberfläche:
 
 <details>
@@ -226,7 +250,11 @@ Nachdem die Paketquellen umgestellt wurden, sollte im Anschluß ein erstes Syste
    
 </details>
 
-Einfach den gewünschten Proxmox-Knoten aussuchen (z.B. „pve“) und dann unter Updates auf **Aktualisieren** klicken. Hier öffnet sich dann der sog. Task Viewer, der immer angezeigt wird, wenn irgendwelche Aktivitäten am System durchgeführt werden. Der Task-Viewer kann nun wieder geschlossen werden. Übrigens muss bei der Anzeige des Task-Viewers nicht gewartet werden, bis der Task abgeschlossen wurde („TASK OK“), sondern dieser Dialog kann immer direkt wieder geschlossen werden – der Task an sich läuft im Hintergrund weiter.
+Einfach den gewünschten Proxmox-Knoten aussuchen (z.B. „pve“) und dann unter
+Updates auf **Aktualisieren** klicken. Hier öffnet sich der sogenannte Task
+Viewer, der bei Systemaktivitäten erscheint. Dieser Dialog kann direkt wieder
+geschlossen werden, da der Task im Hintergrund weiterläuft. Ein Warten auf den
+Abschluss („TASK OK“) ist nicht erforderlich.
 Falls nun Updates verfügbar sind, können diese mit einem Klick auf **Upgrade** eingespielt werden.
 
 Hier öffnet sich dann die Web-Konsole und man kann den Fortschritt beobachten.
@@ -241,10 +269,16 @@ Hier öffnet sich dann die Web-Konsole und man kann den Fortschritt beobachten.
 Es ist natürlich auch möglich, den Proxmox-Server über die Kommandozeile (z.B. per SSH) upzudaten:
 
 ```bash
-apt update && apt dist-upgrade
+apt-get update && apt-get dist-upgrade
 ```
 
-Wichtig ist hier nur, dass man ein **apt dist-upgrade** verwendet (auf „normalen“ Debian/Ubuntu-Maschinen nutzt man ja eher apt upgrade). Das „dist-upgrade“ ist bei Proxmox allerdings wichtig, da hier Abhängigkeiten besser aufgelöst werden, die zum Betrieb von Proxmox benötigt werden.
+oder seit kurzem auch:
+
+```bash
+apt update && apt full-upgrade
+```
+
+Wichtig ist hier nur, dass man ein **apt-get dist-upgrade** oder **apt full-upgrade** verwendet (auf „normalen“ Debian/Ubuntu-Maschinen nutzt man ja eher apt upgrade). Das „dist-upgrade“ bzw. "full-upgrade" ist bei Proxmox allerdings wichtig, da hier Abhängigkeiten besser aufgelöst werden, die zum Betrieb von Proxmox benötigt werden.
 
 Insofern ist Proxmox nun in seiner Grundkonfiguration abgeschlossen. Wenn man sich ausgiebiger mit Proxmox beschäftigen möchte, lohnt ein Blick ins [Proxmox Wiki](https://pve.proxmox.com/wiki/Main_Page) bzw. ins [offizielle Forum](https://forum.proxmox.com/).
 
@@ -252,21 +286,23 @@ Insofern ist Proxmox nun in seiner Grundkonfiguration abgeschlossen. Wenn man si
 
 ## Proxmox - Erstellen einer Virtuellen Qemu/KVM-Maschine (VM) + ioBroker Installation im Anschluß
 
-Diese Beispiel-Anleitung zeigt wie eine [VM](https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines) (debian stable (Stand 30.10.2024 = Debian 12 'Bookworm')) erstellt und anschließend ioBroker darin installiert wird.
+Diese Anleitung zeigt, wie eine [VM][] (Debian stable, Stand 2026 = Debian 13
+'Trixie') erstellt und anschließend ioBroker darin installiert wird.
 
-Es ist natürlich möglich, anstatt Debian auch ein Ubuntu zu verwenden, jedoch ist hierbei darauf zu achten, eine Ubuntu Server **LTS Version** zu verwenden.
+Alternativ zu Debian kann ein Ubuntu verwendet werden, wobei auf die Verwendung
+einer **LTS-Version** zu achten ist.
 
-Aufgrund der Übersichtlichkeit, sind Bildbeschreibungen und Zusatzinfo's zum aufklappen.
+Zur besseren Übersichtlichkeit sind Bildbeschreibungen und Zusatzinfos in
+aufklappbaren Bereichen enthalten.
 
 ### 1 - ISO-Image herunterladen
 
-Zuerst wird ein [ISO-Image](https://www.debian.org/distrib/) (64-Bit-PC Netinst-ISO) benötigt, welches in der Grundinstallation (sofern keine weiteren Laufwerke angelegt wurden) ins root Verzeichnis (local) geladen werden muss.
+Zuerst wird ein [ISO-Image][] (64-Bit-PC Netinst-ISO) benötigt, welches in der Grundinstallation in das root-Verzeichnis (local) geladen wird.
 
-Hierzu geht man auf local > ISO-Images. Dort gibt es zwei Möglichkeiten.
+Hierzu wird der Bereich local > ISO-Images aufgerufen. Es gibt zwei Möglichkeiten:
 
-- Über den Button **Hochladen** kann die ISO, welche zuvor auf dem Rechner abgelegt wurde, auf den Proxmox Host geladen werden.
-- **Von URL herunterladen** ist es möglich, die ISO direkt per URL auf den Host zu laden. Dazu kopiert man sich die Link Adresse der 64-Bit-PC Netinst-ISO(rechte Maustaste), fügt die URL ein und mit einem Klick auf **URL abfragen** wird diese abgerufen. Mit einem abschliessenden Klick auf **Herunterladen**, wird nun die ISO direkt heruntergeladen.
-
+- Über den Button **Hochladen** lässt sich die ISO, die zuvor auf dem Rechner abgelegt wurde, auf den Proxmox-Host laden.
+- Über **Von URL herunterladen** lässt sich die ISO direkt per URL auf den Host laden. Dazu wird die Link-Adresse der 64-Bit-PC Netinst-ISO kopiert (rechte Maustaste), die URL eingefügt und mit einem Klick auf **URL abfragen** abgerufen. Ein abschließender Klick auf **Herunterladen** startet den Download direkt auf den Host.
 
 <details>
 <summary>ISO herunterladen</summary>
@@ -275,16 +311,15 @@ Hierzu geht man auf local > ISO-Images. Dort gibt es zwei Möglichkeiten.
 
 ![vm-isourl](media/proxmox/vm-isourl.png)
 
-
 </details>
-
 
 ### 2 - VM erstellen
 
-Mit einem Klick auf den blauen Button **Erstelle VM** öffnet sich ein Fenster, in dem folgende Einstellungen getroffen werden müssen.
+Mit einem Klick auf den blauen Button **Erstelle VM** öffnet sich ein Fenster
+für die folgenden Einstellungen:
 
 - Allgemein: Vergabe des Hostname und Passwort, ID wird vorgegeben (beginnt mit 100), kann geändert werden, jedoch nicht nachträglich.
-- OS: Storage Auswahl(local) und ISO-Image(debian-11-netinst.iso)
+- OS: Storage Auswahl(local) und ISO-Image(debian-13-netinst.iso)
 - System: bleibt alles in der Standardeinstellung, **Qemu Agent Haken setzen**
 - Disks: Storage local-lvm, Disk-Größe 10GB (10-20GB sollten ausreichend sein, ein nachträgliches Ändern ist möglich, wird jedoch hier nicht weiter beschrieben).
 - CPU: Ist abhängig wie Leistungsstark der Rechner ist (kann ebenfalls jederzeit angepasst werden, VM muss dazu neu gestartet werden)
@@ -294,7 +329,6 @@ Mit einem Klick auf den blauen Button **Erstelle VM** öffnet sich ein Fenster, 
 
 <details>
 <summary>Bilderserie Erstelle VM</summary>
-
 
 ![vm-allgemein](media/proxmox/vm-allgemein.png)
 
@@ -312,14 +346,11 @@ Mit einem Klick auf den blauen Button **Erstelle VM** öffnet sich ein Fenster, 
 
 ![vm-bestätigen](media/proxmox/vm-bestätigen.png)
 
-
 </details>
-
 
 ### 3 - Debian Install
 
 Nachdem die VM gestartet wurde, begibt man sich nun auf die Konsole der VM und startet den **Install**.
-
 
 <details>
 <summary>Konsole</summary>
@@ -332,11 +363,9 @@ Hierbei wird man durch die Installation geführt und muss währenddessen einige 
 
 <span style="color:red">**ACHTUNG! - Es darf kein root Passwort vergeben werden.**</span>
 
-Hinweis:
+<span style="color:red">**ACHTUNG! - ioBroker darf nicht als Benutzername gewählt werden, da dieser schon Systemintern verwendet wird.**</span>
 
-**iobroker** nicht als Benutzernamen wählen, da dieser schon Systemintern verwendet wird.
-Der Benutzername sollte lediglich aus Kleinbuchstaben und den Ziffern 0-9 bestehen und mit einem Buchstaben beginnen. Ebenfalls zulässig ist der Bindestrich, allerdings nicht als erstes Zeichen. 
-
+Der Benutzername sollte lediglich aus Kleinbuchstaben und den Ziffern 0-9 bestehen und mit einem Buchstaben beginnen. Ebenfalls zulässig ist der Bindestrich, allerdings nicht als erstes Zeichen.
 
 <details>
 <summary>Bilderserie Debian Install</summary>
@@ -393,9 +422,7 @@ Der Benutzername sollte lediglich aus Kleinbuchstaben und den Ziffern 0-9 besteh
 
 ![vm-26](media/proxmox/vm-26.png)
 
-
 </details>
-
 
 ### 4 - VM einrichten
 
@@ -430,7 +457,6 @@ sudo nano /etc/network/interfaces
 
 ![vm-statisch](media/proxmox/vm-statisch.png)
 
-
 </details>
 
 Änderungen im Editor werden mit der Tastenkombination STRG + o , danach ENTER, gespeichert, STRG + x beendet den Editor.
@@ -448,8 +474,8 @@ sudo systemctl status qemu-guest-agent
 
 </details>
 
-
-<span style="color:orange">**ACHTUNG! - Bei Ubuntu Installationen muss der Qemu-Guest-Agent nachinstalliert und gestartet werden..**</span>
+<span style="color:orange">**ACHTUNG! - Bei Ubuntu-Installationen ist der
+Qemu-Guest-Agent nachzuinstallieren und zu starten.**</span>
 
 Befehle dazu:
 
@@ -458,7 +484,9 @@ sudo apt-get install qemu-guest-agent
 sudo systemctl start qemu-guest-agent
 ```
 
-Desweitern, um iobroker installieren zu können, muss **curl** noch nachinstalliert werden.
+Des Weiteren ist für die Installation von ioBroker das Tool **curl**
+nachzuinstallieren.
+
 ```bash
 sudo apt install curl
 ```
@@ -479,8 +507,8 @@ Um Geräte(USB) in einer VM durchzureichen, wählt man die VM > Hardware > Hinzu
 
 </details>
 
-
-Damit die VM auch nach einem reboot des Rechners(Proxmox) automatisch startet, muss dies in den Optionen der VM noch aktiviert werden.
+Damit die VM nach einem Neustart des Proxmox-Hosts automatisch startet,
+wird diese Funktion in den Optionen der VM aktiviert.
 
 <details>
 <summary>Option booten</summary>
@@ -489,23 +517,47 @@ Damit die VM auch nach einem reboot des Rechners(Proxmox) automatisch startet, m
 
 </details>
 
-
 Somit ist die Installation und Einrichtung der VM abgeschlossen. Nun kann die VM neu gestartet und im Anschluß ioBroker installiert werden.
 
 ---
 
 ## Proxmox - Erstellen eines Linux Containers (LXC) + ioBroker Installation im Anschluß
 
-Diese Beispiel-Anleitung zeigt wie ein [LXC Container](https://pve.proxmox.com/wiki/Linux_Container) (debian11) erstellt und anschließend ioBroker darin installiert wird.
+Diese Beispiel-Anleitung zeigt, wie ein [LXC Container][] (Debian 13) erstellt
+und anschließend ioBroker darin installiert wird.
 
-Aufgrund der Übersichtlichkeit, sind Bildbeschreibungen und Zusatzinfo's zum aufklappen.
- 
+Aufgrund der Übersichtlichkeit sind Bildbeschreibungen und Zusatzinfos zum Aufklappen.
+
+### Alternative: Automatische Installation über Helper-Skripte
+
+Für Proxmox existieren populäre Helper-Skripte. Diese wurden ursprünglich
+von tteck erstellt und werden nach dessen Tod von der Community unter
+[helper-scripts.com][] aktiv weitergepflegt. Sie ermöglichen es, einen
+ioBroker-Container mit einem einzigen Befehl vollautomatisch aufzusetzen.
+
+> [!WARNING]
+> **WICHTIGER SICHERHEITSHINWEIS:**
+> Das blinde Kopieren und Ausführen von Skripten aus dem Internet direkt in der
+> Proxmox-Konsole (z. B. via `curl | bash`) stellt ein erhebliches
+> Sicherheitsrisiko dar!
+>
+> Man sollte vor der Ausführung immer den Quellcode des Skripts genau lesen und
+> verstehen, um zu wissen, was das Skript im System anrichtet. Wer die Syntax
+> nicht versteht oder dem Projekt nicht vertraut, sollte von dieser Methode
+> absehen und die manuelle Installation bevorzugen, um die Integrität und
+> Sicherheit des eigenen Proxmox-Servers nicht zu gefährden.
+
+Wer sich des Risikos bewusst ist und die Skripte geprüft hat, findet die
+Befehle und Dokumentation direkt unter [helper-scripts.com][].
+
 ### 1 - Container Template herunterladen
 
-Zuerst wird ein Template benötigt, welches in der Grundinstallation (sofern keine weiteren Laufwerke angelegt wurden) ins root Verzeichnis (local) geladen werden muss.
+Zuerst wird ein Template benötigt, das in der Grundinstallation (sofern keine
+weiteren Laufwerke angelegt wurden) in das root-Verzeichnis (local) geladen wird.
 
-Hierzu geht man auf local > Container Templates. Mit einem Klick auf **Templates** öffnet sich eine Auswahliste. Hier wählt man debian-11-standard(bullseye) und klickt auf herunterladen.
-
+Hierzu geht man auf local > Container Templates. Mit einem Klick auf
+**Templates** öffnet sich eine Auswahlliste. Hier wählt man
+`debian-13-standard` (Trixie) und klickt auf herunterladen.
 
 <details>
 <summary>Template herunterladen</summary>
@@ -520,17 +572,17 @@ Hierzu geht man auf local > Container Templates. Mit einem Klick auf **Templates
 
 ### 2 - LXC erstellen
 
-Mit einem Klick auf den blauen Button **Erstelle CT** öffnet sich ein Fenster, in dem nun folgende Einstellungen getroffen werden müssen.
+Mit einem Klick auf den blauen Button **Erstelle CT** öffnet sich ein Fenster
+für die folgenden Einstellungen:
 
 - Allgemein: Vergabe des Hostname und Passwort, ID wird vorgegeben (beginnt mit 100), kann jedoch geändert werden.
-- Template: Storage Auswahl(local) und Template(debian-11-standard)
+- Template: Storage Auswahl(local) und Template(debian-13-standard)
 - Disks: Vergabe der Diskgröße(nicht zu großzügig sein, vergrößern kann man jederzeit)
 - CPU: Ist abhängig wie Leistungsstark der Rechner ist (kann ebenfalls jederzeit angepasst werden)
 - Speicher: Ram/Swap-Vergabe (kann jederzeit, auch im laufendem Betrieb angepasst werden)
 - Netzwerk: statische IP/CIDR Vergabe, Gateway, sofern kein Ipv6 eingerichtet, wird dies auf SLAAC gestellt
 - DNS: wird in der Regel nichts verändert(verwende Werte vom Host)
 - Bestätigen: Zusammenfassung, (Haken setzen bei **Nach Erstellen starten**) anschließend wird mit einem Klick auf **Abschließen** der Container erstellt.
-
 
 <details>
 <summary>Bilderserie Erstelle CT</summary>
@@ -555,9 +607,7 @@ Mit einem Klick auf den blauen Button **Erstelle CT** öffnet sich ein Fenster, 
 
 ![lxc-taskviewer](media/proxmox/lxc-taskviewer.png)
 
-
 </details>
-
 
 ### 3 - LXC einrichten
 
@@ -570,7 +620,7 @@ Nachdem der Container nun gestartet wurde, begibt man sich auf die Konsole des L
 
 </details>
 
-Hier loggt man sich zunächst als root mit dem zuvor vergebenen Passwort, welches beim LXC erstellen vergeben wurde, ein und bringt diesen erst einmal auf einen aktuellen  Stand.
+Hier loggt man sich zunächst als root mit dem zuvor vergebenen Passwort, welches beim LXC erstellen vergeben wurde, ein und bringt diesen erst einmal auf einen aktuellen Stand.
 
 ```bash
 apt update && apt upgrade
@@ -583,12 +633,11 @@ apt update && apt upgrade
 
 </details>
 
-Hierbei wird direkt darauf hingewiesen, das die Zeitzone noch eingestellt werden muss.
+Hierbei erfolgt direkt ein Hinweis darauf, die Zeitzone einzustellen.
 
 ```bash
 dpkg-reconfigure tzdata
 ```
-
 
 <details>
 <summary>Zeitzone</summary>
@@ -601,13 +650,11 @@ dpkg-reconfigure tzdata
 
 </details>
 
-
 Nun wird **sudo** und **curl** nachinstalliert. Sudo wird benötigt, um wie im nächsten Schritt, einen Benutzer korrekt anzulegen, mit dem zukünftig auf der Konsole gearbeitet wird. Curl ist nötig, um im letzten Schritt das IoBroker Installationsscript abzurufen.
 
 ```bash
 apt install sudo curl
 ```
-
 
 <details>
 <summary>Nachinstallieren</summary>
@@ -615,7 +662,6 @@ apt install sudo curl
 ![lxc-sudo](media/proxmox/lxc-sudo.png)
 
 </details>
-
 
 Jetzt legt man den zukünftigen Benutzer an. "Benutzername" in dem Fall ersetzen. Passwortvergabe für den User. Der Rest kann mit ENTER bestätigt werden.
 
@@ -627,18 +673,18 @@ Hinweis:
 adduser benutzername
 ```
 
-Anschließend muss der User noch der sudo Gruppe zugeordnet werden.
+Anschließend wird der Benutzer der sudo-Gruppe zugeordnet.
 
 ```bash
 usermod -aG sudo benutzername
 ```
 
-Falls ein User nachträglich angelegt werden soll muss dieser noch per 
+Wird ein Benutzer nachträglich angelegt, erfolgt die Zuordnung zu den
+relevanten Gruppen über:
 
 ```bash
 usermod -aG adm,dialout,sudo,audio,video,plugdev,users,iobroker benutzername
 ```
-den relevanten Gruppen hinzugefügt werden. 
 
 <details>
 <summary>User anlegen</summary>
@@ -646,7 +692,6 @@ den relevanten Gruppen hinzugefügt werden.
 ![lxc-adduser](media/proxmox/lxc-adduser.png)
 
 </details>
-
 
 Im letzten Schritt, bevor ioBroker installiert wird, einmal ausloggen
 
@@ -663,8 +708,8 @@ und anschließend mit den neuen Benutzer einloggen. Im Anschluß kann iobroker j
 
 </details>
 
-
-Damit der LXC auch nach einem reboot des Rechners(Proxmox) automatisch startet, muss dies in den Optionen des Containers noch aktiviert werden.
+Damit der LXC nach einem Neustart des Proxmox-Hosts automatisch startet,
+wird diese Funktion in den Optionen des Containers aktiviert.
 
 <details>
 <summary>Option booten</summary>
@@ -678,7 +723,7 @@ Damit der LXC auch nach einem reboot des Rechners(Proxmox) automatisch startet, 
 Beim Aufruf iob diag können beispielsweise untenstehende Fehlermeldungen in der Ausgabe zu finden sein.
 Teilweise treten sie nur bei nicht privilegierten Containern aus, teilweise auch bei privilegierten Containern.
 
-~~~
+```
 ....
 *** FAILED SERVICES ***
 
@@ -687,8 +732,7 @@ Teilweise treten sie nur bei nicht privilegierten Containern aus, teilweise auch
 * sys-kernel-config.mount              loaded failed failed Kernel Configuration File System
 * systemd-networkd-wait-online.service loaded failed failed Wait for Network to be Configured
 ...
-~~~
-
+```
 
 Wenn man den Container schon vor dem Installieren von iobroker aufräumen will, kriegt man die "FAILED SERVICES" folgendermaßen:
 
@@ -709,9 +753,9 @@ sudo systemctl mask var-lib-nfs-rpc_pipefs.mount
 
 An die Container Konfigurationsdatei im Verzeichnis `/etc/pve/lxc` folgende Zeile anhängen:
 
-~~~
-lxc.cap.drop: "sys_rawio audit_read" 
-~~~
+```
+lxc.cap.drop: "sys_rawio audit_read"
+```
 
 #### failed service systemd-networkd-wait-online.service
 
@@ -758,13 +802,12 @@ Die Installationschritte dabei, sind in 4 Schritten unterteilt, welche vollautom
 
 Die Installation ist erfolgreich abgeschlossen, wenn am Ende folgendes erscheint.
 
-~~~
+```
 ioBroker was installed successfully
 Open http://10.1.1.222:8081 in a browser and start configuring!
-~~~
+```
 
 Dies bedeutet auch zugleich, das über die Adresse, ioBroker nun im Browser aufgerufen werden kann. Wenn alles problemlos funktioniert hat, wird man mit dem ioBroker-Setup berüßt. Nun sind es nur noch ein paar Schritte, durch die man mit dem Assistenten geleitet wird.
-
 
 <details>
 <summary>Bilderserie ioBroker Assistent</summary>
@@ -795,23 +838,34 @@ Im Anschluss hat man noch die Möglichkeit, nach Geräten und Diensten suchen zu
 ![instanzen](media/proxmox/instanzen.png)
 
 ![iobroker-fertig](media/proxmox/iobroker-fertig.png)
-   
+
 </details>
 
 Somit ist die ioBroker Installation beendet. Weitere Adapter können je nach Anwendungsfall und Wunsch, jederzeit zusätzlich installiert werden.
 
 ---
-   
-## Proxmox - LXC (Linux Containers) -> USB Geräte durchreichen
 
-Dieser Teil der Anleitung erklärt Schritt für Schritt das durchreichen eines USB-Gerätes (USB Passthrough) in Proxmox an einen LXC (Linux Container).
+## Proxmox - LXC (Linux Containers) -> USB-Geräte durchreichen
 
-Bei einer VM ist das durchreichen eines USB-Gerätes direkt über die Web Oberfläche von Proxmox möglich, bei einem Linux Container muss hierfür aktuell noch manuell die Konfigurationsdatei des lxc bearbeitet werden. 
+Dieser Teil der Anleitung erklärt Schritt für Schritt das Durchreichen eines
+USB-Gerätes (USB Passthrough) in Proxmox an einen LXC (Linux Container).
 
-In der Anleitung wird das Einbinden eines **Texas Instruments Inc. CC2531** Zigbee Stick beschrieben, dieselben Schritte können aber analog für andere Zigbee Sticks (ConBee, CC2652P etc.) oder für andere USB-Geräte mit der Ausnahme von USB Netzwerk Geräten (Bluetooth/Wlan) verwendet werden.
+Bei einer VM ist das Durchreichen eines USB-Gerätes direkt über die
+Web-Oberfläche von Proxmox möglich. Bei einem Linux-Container ist hierfür
+aktuell die Konfigurationsdatei des LXC manuell zu bearbeiten.
 
-* Für diesen Teil der Anleitung wurde Proxmox in der Version 7.1 verwendet. 
+In der Anleitung wird beispielhaft das Einbinden eines **Texas Instruments Inc.
+CC2531** Zigbee-Sticks beschrieben.
 
+_Hinweis:_ Der CC2531 ist mittlerweile technisch komplett veraltet, besitzt
+sehr wenig Speicher und wird für neue Setups in der ioBroker-Community nicht
+mehr empfohlen. Es sollten stattdessen moderne Sticks (z. B. der _Sonoff Zigbee
+3.0 USB Dongle Plus_ auf CC2652P-Basis oder ein _ConBee 3_) verwendet werden.
+Die in dieser Anleitung gezeigten Schritte zum Durchreichen sind jedoch für
+fast alle USB-Seriell-Geräte (z. B. Smart-Meter-Leseköpfe, andere Zigbee-Sticks)
+identisch. Ausgenommen sind USB-Netzwerkgeräte (wie Bluetooth oder WLAN).
+
+- Für diesen Teil der Anleitung wurde Proxmox in der Version 9.x verwendet.
 
 ### 1.) Informationen zum USB-Gerät sammeln
 
@@ -825,17 +879,17 @@ ssh root@IP-Adresse
 
 <span style="color:red">**Sollte das USB-Gerät bereits mit dem Proxmox Host verbunden sein, stecke das Gerät vorerst ab.**</span>
 
-Mit folgendem Befehl werden alle aktuell verbunden USB-Geräte am Proxmox Host aufgelistet: 
+Mit folgendem Befehl werden alle aktuell verbunden USB-Geräte am Proxmox Host aufgelistet:
 
 ```bash
 lsusb
 ```
- 
+
 ![proxmoxlxc00](media/proxmox/proxmoxlxc00.PNG)
 
 Nun wird das zu einbindende USB-Gerät am Proxmox Host eingesteckt und der Befehl lsusb erneut ausgeführt
 
-![proxmoxlxc01](media/proxmox/proxmoxlxc01.PNG) 
+![proxmoxlxc01](media/proxmox/proxmoxlxc01.PNG)
 
 Im Screenshot ist zusehen das ein neues Gerät mit der USB-Bus-Nummer: **001** und der Device-Nummer: **003** gelistet wird.
 
@@ -847,15 +901,16 @@ ls -l /dev/bus/usb/001/003
 
 Wichtig verwende bei dem Befehl die Ausgabe deiner USB-Bus-Nummer und Device-Nummer!
 
-***ls -l /dev/bus/usb/USB-Bus-Nummer/Device-Nummer***
+**_ls -l /dev/bus/usb/USB-Bus-Nummer/Device-Nummer_**
 
 ![proxmoxlxc02](media/proxmox/proxmoxlxc02.PNG)
 
 Das USB-Gerät hat in diesem Beispiel die major device number **189**, notiere dir den Wert deines Gerätes in einer Textdatei mit dem Vermerk: #1
 
 ![proxmoxlxc03](media/proxmox/proxmoxlxc03.PNG)
- 
-Als nächstes geben wir die unique id des USB-Gerätes aus und notieren den Ausgabe Wert in der Textdatei mit dem Vermerk: #2
+
+Als Nächstes wird die Unique-ID des USB-Geräts ausgegeben und der Wert
+in der Textdatei mit dem Vermerk: #2 notiert:
 
 ```bash
 ls /dev/serial/by-id/
@@ -864,7 +919,7 @@ ls /dev/serial/by-id/
 ![proxmoxlxc04](media/proxmox/proxmoxlxc04.PNG)
 
 ![proxmoxlxc05](media/proxmox/proxmoxlxc05.PNG)
- 
+
 Als letzten Schritt wird die major device number des ttyACM ausgegeben und mit dem Vermerk: #3 notiert:
 
 ```bash
@@ -872,16 +927,17 @@ ls -l /dev/ttyACM*
 ```
 
 ![proxmoxlxc06](media/proxmox/proxmoxlxc06.PNG)
- 
->*Sollte hierbei keine Ausgabe erfolgen, prüfe mit „ls -l /dev/serial/by-id/“ ob das USB-Gerät vom System als ttyUSB eingebunden wird, wenn ja ersetze alle folgenden Befehle die sich auf **ttyACM…** beziehen durch **ttyUSB…**  sollte keine Ausgabe erscheinen ist es kein USB CDC class Gerät (Serielle Kommunikation) damit können alle Punkte zum Einbinden vom ttyACM ignoriert werden.*
 
-Somit haben wir **drei** Werte vom USB-Gerät notiert die für das Einbinden in der Konfigurationsdatei des lxc benötigt werden.
- 
+> _Sollte hierbei keine Ausgabe erfolgen, prüfe mit „ls -l /dev/serial/by-id/“ ob das USB-Gerät vom System als ttyUSB eingebunden wird, wenn ja ersetze alle folgenden Befehle die sich auf **ttyACM…** beziehen durch **ttyUSB…** sollte keine Ausgabe erscheinen ist es kein USB CDC class Gerät (Serielle Kommunikation) damit können alle Punkte zum Einbinden vom ttyACM ignoriert werden._
+
+Somit liegen die **drei** Werte des USB-Geräts vor, die für das Einbinden in die
+Konfigurationsdatei des LXC benötigt werden.
+
 ![proxmoxlxc07](media/proxmox/proxmoxlxc07.PNG)
 
 </details>
 
-###  2.) LXC Konfigurationsdatei bearbeiten
+### 2.) LXC Konfigurationsdatei bearbeiten
 
 <details>
 
@@ -892,11 +948,11 @@ cd /etc/pve/lxc
 ```
 
 Die Konfigurationsdatei hat die gleiche ID Nummer die bei der Erstellung des lxc vergeben wurde!
- 
+
 ![proxmoxlxc08](media/proxmox/proxmoxlxc08.PNG)
 
 ![proxmoxlxc09](media/proxmox/proxmoxlxc09.PNG)
- 
+
 Bevor die Konfigurationsdatei bearbeitet wird, sollte eine Sicherheitskopie erstellt werden:
 
 ```bash
@@ -904,42 +960,42 @@ cp 201.conf 201.conf.backup
 ```
 
 ![proxmoxlxc10](media/proxmox/proxmoxlxc10.PNG)
- 
+
 Nun wird die Konfigurationsdatei mit vi oder nano bearbeitet:
 
 ```bash
 nano 201.conf
 ```
- 
+
 ![proxmoxlxc11](media/proxmox/proxmoxlxc11.PNG)
 
 Ans Ende der Konfigurationsdatei wird folgendes hinzugefügt:
 
-~~~
+```
 lxc.cgroup2.devices.allow: c 189:* rwm
 lxc.mount.entry: usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 none bind,optional,create=file
 
 lxc.cgroup2.devices.allow: c 166:* rwm
 lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file
-~~~
+```
 
 Ersetze die markierten Werte mit den vermerkten Einträgen aus deiner Notiz!
 
 ![12](media/proxmox/proxmoxlxc12.PNG)
 
-* Die erste Zeile bezieht sich auf die major device number **189** Vermerk: #1
-* In der zweiten Zeile wird die unique id (usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00) aus Vermerk: #2 einzeln und mit dem absoluten Pfad angegeben, beachte das der komplette Text in einer Zeile ohne Zeilenumbruch geschrieben wird.
-* In der dritten Zeile wird die major device number **166** von ttyACM aus Vermerk: #3 angegeben.
+- Die erste Zeile bezieht sich auf die major device number **189** Vermerk: #1
+- In der zweiten Zeile wird die unique id (usb-Texas_Instruments_TI_CC2531_USB_CDC\_\_\_0X00124B0012023529-if00) aus Vermerk: #2 einzeln und mit dem absoluten Pfad angegeben (ohne Zeilenumbruch).
+- In der dritten Zeile wird die major device number **166** von ttyACM aus Vermerk: #3 angegeben.
 
 Die Konfigurationsdatei abspeichern (Im Nano Editor mit der Tastenkombination: STRG + o & STRG + x zum beenden des Editors)
 
-</br>  
+</br>
 
 <span style="color:orange">**ACHTUNG! - Sollte dein Container aktive Snapshots besitzen:**</span>
 
 <details>
 
-Dann gehört der lxc.cgroup Code nicht an das Ende der Config-Datei sondern vor den ersten Eintrag eines Snapshots. 
+Dann gehört der lxc.cgroup Code nicht an das Ende der Config-Datei sondern vor den ersten Eintrag eines Snapshots.
 
 ![proxmoxlxc18](media/proxmox/proxmoxlxc18.PNG)
 
@@ -950,27 +1006,29 @@ Dann gehört der lxc.cgroup Code nicht an das Ende der Config-Datei sondern vor 
 <details>
 
 Ersetze die Einträge mit
-   
-~~~
+
+```
 lxc.cgroup2
-~~~   
+```
 
 durch
-   
-~~~
+
+```
 lxc.cgroup
-~~~
+```
 
 </details>
 
 </br>  
-Abschließend noch folgenden Befehl absetzen um die benötigten Rechte für ttyACM0 zu setzen:
+Abschließend wird der folgende Befehl ausgeführt, um die benötigten Rechte
+für `ttyACM0` zu setzen:
 
 ```bash
 chmod o+rw /dev/ttyACM*
 ```
 
-Um die Anpassungen am lxc zu übernehmen einen cold boot vom Container mit **pct stop id / pct start id** durchführen:
+Um die Anpassungen am LXC zu übernehmen, wird ein Kaltstart (Cold Boot) des
+Containers mittels **pct stop id / pct start id** durchgeführt:
 
 ```bash
 pct stop 201
@@ -980,11 +1038,11 @@ pct stop 201
 pct start 201
 ```
 
-</br>  
+</br>
 
 <span style="color:green">**Tipp lege dir eine Kopie deiner funktionierenden Config Datei am besten extern ab, da z. B. der integrierte Proxmox Backup Dienst nicht den Inhalt deiner Config mit sichert!**</span>
 
-</br>  
+</br>
 
 </details>
 
@@ -1011,26 +1069,27 @@ ls -l /dev
 ```
 
 wird überprüft ob die Anpassungen an der Konfigurationsdatei erfolgreich waren.
- 
+
 ![proxmoxlxc13](media/proxmox/proxmoxlxc13.PNG)
- 
-* Wie im Screenshot zu sehen, hat nun der Container Zugriff auf das USB-Gerät.
 
-* Wichtig hierbei ist das ttyACM0 die gleichen Rechte hat im Screenshot also **crw-rw-rw- 1 nobody nogroup**
->***Wenn nicht überprüfe ob alle Werte in der Konfigurationsdatei so gesetzt sind wie beschrieben, sollten die Rechte dann immer noch nicht übereinstimmen springe zu Punkt 5.***
+- Wie im Screenshot zu sehen, hat nun der Container Zugriff auf das USB-Gerät.
 
-* Im Screenshot ist ebenfalls zusehen das sich die Device-Nummer vom cc2531 von dem Wert 3 auf 4 verändert hat, dies liegt daran das der Stick zwischenzeitlich einmal aus- und wieder angesteckt wurde. Da in der Konfigurationsdatei aber die unique id und nicht die Bus/Device Nummer angegeben ist funktioniert der USB Passthrough weiterhin.
+- Wichtig hierbei ist das ttyACM0 die gleichen Rechte hat im Screenshot also **crw-rw-rw- 1 nobody nogroup**
 
+  > **_Wenn nicht überprüfe ob alle Werte in der Konfigurationsdatei so gesetzt sind wie beschrieben, sollten die Rechte dann immer noch nicht übereinstimmen springe zu Punkt 5._**
 
+- Im Screenshot ist ebenfalls zusehen das sich die Device-Nummer vom cc2531 von dem Wert 3 auf 4 verändert hat, dies liegt daran das der Stick zwischenzeitlich einmal aus- und wieder angesteckt wurde. Da in der Konfigurationsdatei aber die unique id und nicht die Bus/Device Nummer angegeben ist funktioniert der USB Passthrough weiterhin.
 
-Wird wie eingangsbeschrieben ein Zigbee Stick an den Container durchgereicht muss im iobroker in den Einstellungen des Zigbee Adapters unter dem Punkt COM-Anschlussname
+Wird wie eingangs beschrieben ein Zigbee-Stick an den Container durchgereicht,
+ist im ioBroker in den Einstellungen des Zigbee-Adapters unter dem Punkt
+_COM-Anschlussname_
 
-~~~
+```
 /dev/ttyACM0
-~~~
+```
 
-angegeben werden damit das korrekte Gerät vom Adapter angesprochen wird.
- 
+einzutragen, damit das Gerät korrekt angesprochen wird.
+
 ![proxmoxlxc14](media/proxmox/proxmoxlxc14.PNG)
 
 </details>
@@ -1039,13 +1098,13 @@ angegeben werden damit das korrekte Gerät vom Adapter angesprochen wird.
 
 <details>
 
-Am Ende von Schritt 3 wurde mit dem Befehl 
+Am Ende von Schritt 3 wurde mit dem Befehl
 
 ```bash
 chmod o+rw /dev/ttyACM*
 ```
 
-die passenden Rechte für ttyACM0 gesetzt, diese Rechte Änderungen werden aber mit Neustart des Proxmox Host zurückgesetzt, für eine permanente Anpassung wird auf dem Proxmox Host eine udev Regel benötigt. 
+die passenden Rechte für ttyACM0 gesetzt, diese Rechte Änderungen werden aber mit Neustart des Proxmox Host zurückgesetzt, für eine permanente Anpassung wird auf dem Proxmox Host eine udev Regel benötigt.
 
 Mit lsusb listen wir wieder die aktuell verbunden USB-Geräte auf:
 
@@ -1054,10 +1113,10 @@ lsusb
 ```
 
 ![proxmoxlxc15](media/proxmox/proxmoxlxc15.PNG)
- 
+
 Diesmal notieren wir uns die Zahlenwerte Werte nach ID in diesem Fall also **0451:16a8**
 
-* Der erste Wert: ***0451*** steht hierbei für den **idVendor** und der zweite Wert: ***16a8*** für **idProduct**.
+- Der erste Wert: **_0451_** steht hierbei für den **idVendor** und der zweite Wert: **_16a8_** für **idProduct**.
 
 Nun wird mit vi oder nano die udev Regel unter /etc/udev/rules.d erstellt:
 
@@ -1067,12 +1126,11 @@ nano /etc/udev/rules.d/50-myusb.rules
 
 und folgender Inhalt eingefügt:
 
-~~~
+```
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="0451", ATTRS{idProduct}=="16a8", GROUP="users", MODE="0666"
-~~~
+```
 
 ![proxmoxlxc16](media/proxmox/proxmoxlxc16.PNG)
- 
 
 Abschließend noch folgenden Befehl ausführen um die udev Regel zu aktivieren:
 
@@ -1095,11 +1153,9 @@ ls -l /dev/ttyACM0
 
 </br>
 
-**Lösung:** mit mknod eine dauerhafte Bindung für den Container erstellen. 
+**Lösung:** mit mknod eine dauerhafte Bindung für den Container erstellen.
 
-
-
-Dazu wird im Pfad **"/var/lib/lxc/CONTAINERID"** der Ordner **devices** erstellt und in diesem Ordner mit mknod die Bindung erzeugt: 
+Dazu wird im Pfad **"/var/lib/lxc/CONTAINERID"** der Ordner **devices** erstellt und in diesem Ordner mit mknod die Bindung erzeugt:
 
 ```bash
 mkdir /var/lib/lxc/201/devices
@@ -1113,74 +1169,94 @@ cd /var/lib/lxc/201/devices
 mknod -m 666 ttyACM0 c 166 0
 ```
 
-+ *mknod erstellt in dem Pfad eine Datei namens ttyACM0 (solange die Datei existiert ist das Gerät an den lxc gebunden)*
+- _mknod erstellt in dem Pfad eine Datei namens ttyACM0 (solange die Datei existiert ist das Gerät an den lxc gebunden)_
 
 ![proxmoxlxc17](media/proxmox/proxmoxlxc17.PNG)
 
-***major device number und ttyACM.. ggbfs. anpassen***
+**_major device number und ttyACM.. ggbfs. anpassen_**
 
 Anschließend muss noch der Eintrag der lxc Konfigurationsdatei angepasst werden:
 
-~~~
+```
 lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file
-~~~
+```
 
 wird ersetzt durch:
 
-~~~
+```
 lxc.mount.entry: /var/lib/lxc/CONTAINERID/devices/ttyACM0 dev/ttyACM0 none bind,optional,create=file
-~~~
+```
 
 </details>
 
 ---
 
-## Usb-Stick/Platte für Backups einrichten
+## USB-Stick/Platte für Backups einrichten
 
-Damit zukünftige Backups separat gespeichert werden können, gibt es die Möglichkeit ein USB-Device in Form eines Stick`s oder Platte auf dem Proxmox Host einzubinden.
-Hierzu muss das Device ein bestimmtes Format aufweisen.
-Gängige [Filesysteme](https://wiki.ubuntuusers.de/Dateisystem/) sind **vFAT** oder auch **NTFS**. Beide können sowohl von Linux als auch Windows oder MacOS gelesen werden.
-Für reines Linux üblicherweise **EXT4**.
+Damit zukünftige Backups separat gespeichert werden können, gibt es die
+Möglichkeit, ein USB-Device in Form eines Sticks oder einer Platte auf dem
+Proxmox-Host einzubinden.
 
-Ist der Datenträger noch unpartitioniert, bzw möchte man neu formartieren, besteht die Möglichkeit dies an einem Windows PC (ntfs) oder direkt am Proxmox Server zu tun.
-Wenn der Datenträger vorbereitet ist, kann er danach ins System gemountet und im Anschluss direkt über die Proxmox Gui als Storage(Verzeichnis) zugefügt werden.
+_Hinweis:_ In früheren Versionen dieser Anleitung wurde oft das Dateisystem
+**vFAT (FAT32)** empfohlen, da dieses sowohl unter Linux als auch unter Windows
+problemlos gelesen werden kann. Davon wird heute dringend abgeraten! FAT32
+besitzt ein technisches Limit von maximal **4 GB pro Datei**. Da moderne
+Proxmox-Backups (z. B. `.vma.zst`-Dateien ganzer VMs oder Container) diese
+Größe meist weit überschreiten, bricht das Backup bei FAT32 mit Fehlern wie
+"File too large" ab.
 
+Gängige, geeignete [Filesysteme][] sind daher:
 
-<span style="color:orange">**ACHTUNG! - Bei einer Neu Formatierung werden alle bisherigen Daten auf dem Datenträger gelöscht</span>
+- **EXT4** (Standard für reines Linux, dringend empfohlen für Proxmox-Backups)
+- **NTFS** oder **exFAT** (falls die Backup-Platte zwingend auch nativ unter
+  Windows ausgelesen werden muss)
 
+Ist der Datenträger noch unpartitioniert bzw. möchte man neu formatieren,
+besteht die Möglichkeit, dies an einem Windows-PC oder direkt am
+Proxmox-Server zu tun.
 
-Folgende Beispiel-Anleitung bezieht sich auf das Einrichten direkt auf dem Proxmox Host. Es kann auch ssh/putty verwendet werden.
+Wenn der Datenträger vorbereitet ist, kann er danach ins System gemountet
+und im Anschluss direkt über die Proxmox-GUI als Storage (Verzeichnis)
+hinzugefügt werden.
 
-**Zu beachten,
-die folgenden Befehle setzen root voraus, sollte ein eigener User auf dem Host verwendet werden, müssen untenstehende Befehle mit sudo voran ausgeführt werden.**
+<span style="color:orange">**ACHTUNG! - Bei einer Neuformatierung werden alle
+bisherigen Daten auf dem Datenträger gelöscht.**</span>
 
+Folgende Beispiel-Anleitung bezieht sich auf das Einrichten von **EXT4** direkt
+auf dem Proxmox-Host.
+
+**Zu beachten:** Die folgenden Befehle setzen `root` voraus. Sollte ein eigener
+User auf dem Host verwendet werden, müssen die Befehle mit `sudo` ausgeführt
+werden.
 
 ### Device vorbereiten
 
-
 ### 1 - Gerät identifizieren
 
-Zuerst macht man das Device mittels [lsblk](https://wiki.ubuntuusers.de/lsblk/) ausfindig. Dabei ist es ratsam den Befehl einmal vor und nach dem Einstecken auszuführen. Dadurch lässt sich das Device leichter identifizieren.
+Zuerst macht man das Device mittels [lsblk][] ausfindig. Dabei ist es ratsam,
+den Befehl einmal vor und einmal nach dem Einstecken auszuführen. Dadurch
+lässt sich das Device leichter identifizieren.
 
 ```bash
 lsblk
 ```
 
-sieht dann in etwa so aus (Buchstaben varieren, je nachdem wie viele Geräte eingebunden sind)
+sieht dann in etwa so aus (Buchstaben variieren, je nachdem wie viele Geräte
+eingebunden sind):
 
-~~~
-sdd                    8:48   0 119.2G  0 disk 
-├─sdd1                 8:49   0 119.2G  0 part 
-└─sdd9                 8:57   0     8M  0 part 
+```
+sdd                    8:48   0 119.2G  0 disk
+├─sdd1                 8:49   0 119.2G  0 part
+└─sdd9                 8:57   0     8M  0 part
 sde                    8:64   0 931.5G  0 disk                    <-- Das ist die Disk /dev/sde
-└─sde1                 8:65   0 931.5G  0 part                    <-- Das ist die erste Partition /dev/sde1, falls schon formartiert
-sr0                   11:0    1  1024M  0 rom  
+└─sde1                 8:65   0 931.5G  0 part                    <-- Das ist die erste Partition /dev/sde1
+sr0                   11:0    1  1024M  0 rom
 sr1                   11:1    1  1024M  0 rom
-~~~
+```
 
 ### 2 - Partitionieren
 
-Mit dem menügesteuerten [cfdisk](https://wiki.ubuntuusers.de/fdisk/) wird das Laufwerk partitioniert
+Mit dem menügesteuerten [cfdisk][] wird das Laufwerk partitioniert:
 
 ```bash
 cfdisk /dev/sde
@@ -1188,54 +1264,84 @@ cfdisk /dev/sde
 
 ### 3 - Filesystem erstellen
 
-Nun muss die zuvor erstellte Partition noch formatiert werden. Wie oben bereits erwähnt, gibt es verschiedene Möglichkeiten, abhänging vom jeweilegen Verwendungszweck.
-Mit dem Befehl [mkfs](https://wiki.ubuntuusers.de/Formatieren/) und den passenden Parametern wird die Partition formatiert.
+Nun muss die zuvor erstellte Partition noch formatiert werden. Wie oben bereits
+erwähnt, verwenden wir hierfür das Dateisystem **EXT4**.
+Mit dem Befehl [mkfs][] und den passenden Parametern wird die Partition
+formatiert:
 
 ```bash
-mkfs.vfat /dev/sde1
+mkfs.ext4 /dev/sde1
 ```
 
 ### 4 - Laufwerk mounten
 
-Um den fertiggestellten Datenträger verwenden zu können muss dieser [gemountet](https://wiki.ubuntuusers.de/mount/) werden.
+Um den fertiggestellten Datenträger verwenden zu können, muss dieser
+[gemountet][] werden.
 
-Dazu wird ein passender Mountpoint erstellt und damit der Datenträger auch nach einem Reboot automatisch wieder eingebunden wird, benötigt man noch einen passenden Eintrag in der [/etc/fstab](https://wiki.ubuntuusers.de/fstab/).
+Dazu wird ein passender Mountpoint erstellt. Damit der Datenträger nach
+einem Reboot automatisch wieder eingebunden wird, ist ein passender Eintrag in
+der [/etc/fstab][] erforderlich.
 
 Hierzu muss die eindeutige **UUID** des Laufwerks ausgelesen werden.
 
-Mountpoint erstellen
+Mountpoint erstellen:
+
 ```bash
 mkdir /media/ext_usb
 ```
 
-Datenträger mounten
+Datenträger mounten:
+
 ```bash
 mount /dev/sde1 /media/ext_usb
 ```
 
-UUID ermitteln
+UUID ermitteln:
+
 ```bash
 blkid | grep -i sde
 ```
-ergibt
-~~~
-/dev/sde1: LABEL="Export_Bilder" UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" UUID_SUB="951e8519-8478-4d64-b093-c3597147f989" BLOCK_SIZE="4096" TYPE="btrfs" PARTUUID="00011a10-01"
-~~~
 
-Eintrag in der */etc/fstab* mit nano bearbeiten
+ergibt beispielsweise:
+
+```
+/dev/sde1: LABEL="Backup" UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="00011a10-01"
+```
+
+Eintrag in der [/etc/fstab][] mit nano bearbeiten:
+
 ```bash
 nano /etc/fstab
 ```
-nun wird dieser Eintrag hinzugefügt und anschließend gespeichert
-~~~
-UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" /media/ext_usb vfat defaults 0 0
-~~~
 
+Nun wird dieser Eintrag hinzugefügt und anschließend gespeichert:
 
-### 5- Storage in Proxmox hinzufügen
+```
+UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" /media/ext_usb ext4 defaults 0 2
+```
 
-Unter Rechenzentrum>Storage kann jetzt ein Verzeichnis hinzugefügt werden. Die ID Bezeichnung ist frei wählbar, z.b *usb-backup*.
+_(Hinweis: Bei EXT4-Partitionen wird am Zeilenende der fstab meist `0 2` für
+den Dateisystem-Check eingetragen.)_
 
-In der Spalte *Verzeichnis* wird der Pfad angegeben, in dem Fall */media/ext_usb*.
+### 5 - Storage in Proxmox hinzufügen
 
-Bei *Inhalt* muss nur noch das gewünschte Anliegen ausgewählt werden. 
+Unter Rechenzentrum > Storage kann jetzt ein Verzeichnis hinzugefügt werden. Die
+ID-Bezeichnung ist frei wählbar, z. B. _usb-backup_.
+
+In der Spalte _Verzeichnis_ wird der Pfad angegeben, in dem Fall
+`/media/ext\_usb`.
+
+Bei _Inhalt_ muss nur noch das gewünschte Anliegen ausgewählt werden (z. B.
+VZDump-Backup-Datei).
+
+[VM]: https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines
+[LXC Container]: https://pve.proxmox.com/wiki/Linux_Container
+[Filesysteme]: https://wiki.ubuntuusers.de/Dateisystem/
+[lsblk]: https://wiki.ubuntuusers.de/lsblk/
+[cfdisk]: https://wiki.ubuntuusers.de/fdisk/
+[mkfs]: https://wiki.ubuntuusers.de/Formatieren/
+[gemountet]: https://wiki.ubuntuusers.de/mount/
+[/etc/fstab]: https://wiki.ubuntuusers.de/fstab/
+[helper-scripts.com]: https://helper-scripts.com
+[Installationsmedien vorbereiten]: https://pve.proxmox.com/wiki/Prepare_Installation_Media#_instructions_for_windows
+[ISO-Image]: https://www.debian.org/distrib/
