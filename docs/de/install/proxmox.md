@@ -297,7 +297,7 @@ aufklappbaren Bereichen enthalten.
 
 ### 1 - ISO-Image herunterladen
 
-Zuerst wird ein [ISO-Image][] (64-Bit-PC Netinst-ISO) benötigt, welches in der Grundinstallation in das root-Verzeichnis (local) geladen wird.
+Zuerst wird ein ISO-Image ([64-Bit-PC Netinst-ISO][ISO-Image]) benötigt, welches in der Grundinstallation in das root-Verzeichnis (local) geladen wird.
 
 Hierzu wird der Bereich local > ISO-Images aufgerufen. Es gibt zwei Möglichkeiten:
 

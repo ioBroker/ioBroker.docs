@@ -1,71 +1,45 @@
-# Der Name des Workflows, wie er im "Actions"-Tab auf GitHub erscheint.
 name: Publish
 
-# Festlegung der Ereignisse, die diesen Workflow auslösen.
 on:
-  # Automatischer Zeitplan: Alle 3 Tage um 02:00 Uhr nachts.
   schedule:
     - cron: '0 2 */3 * *'
   
-  # Ermöglicht es dir, den Workflow jederzeit manuell über die 
-  # GitHub-Weboberfläche (Button "Run workflow") zu starten.
   workflow_dispatch:
 
 jobs:
-  # Der Name des Jobs, der die Übersetzung durchführt.
   translate:
-    # Wir verwenden das aktuellste stabile Ubuntu-Image von GitHub.
     runs-on: ubuntu-latest
     
     steps:
-      # Schritt 1: Das Repository auschecken.
-      # Wir nutzen v4 für beste Stabilität und Performance.
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Schritt 2: Die Node.js-Umgebung vorbereiten.
-      # Wir setzen die Version auf 20, um Kompatibilität mit modernen 
-      # Modulen wie 'node:path' sicherzustellen.
-      # Das Caching wurde entfernt, da die 'package-lock.json' im Projekt fehlt.
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # Schritt 3: In das 'engine'-Verzeichnis wechseln und Module installieren.
       - name: Install Dependencies
         working-directory: engine
-        # Installiert alle in der package.json definierten Pakete.
         run: npm install
 
-      # Schritt 4: Das Gulp-Skript ausführen, das die Übersetzungen vornimmt.
       - name: Run Gulp Translation
         working-directory: engine
-        # npx stellt sicher, dass das lokal installierte gulp verwendet wird.
         run: npx gulp
         env:
-          # Übergabe des Google API-Keys aus den GitHub Secrets.
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
 
-      # Schritt 5: Die erzeugten Änderungen (Übersetzungen) für den Commit vorbereiten.
       - name: Commit changes
         run: |
-          # Virtuellen Nutzer für den automatischen Commit konfigurieren.
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          # Alle geänderten Dateien zur Staging-Area hinzufügen.
           git add .
           
-          # Nur committen, wenn es tatsächlich Änderungen gibt. 
-          # Verhindert Fehlermeldungen bei leeren Durchläufen.
           git diff-index --quiet HEAD || git commit -m "Automated translation update" -a
 
-      # Schritt 6: Die Änderungen zurück in das Repository auf GitHub schieben.
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          # Verwendet das automatische Token für die Schreibberechtigung.
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # Pusht zurück in den aktuellen Branch (master/main).
           branch: ${{ github.ref }}
