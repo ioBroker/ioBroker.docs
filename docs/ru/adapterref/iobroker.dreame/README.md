@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.dreame/README.md
 title: ioBroker.dreame
-hash: g1QuOY4iiAVrnM10uAngpzgiBrH37ampgmcsBgKUfUg=
+hash: naCLadNH5twq/v+MT5/mrkqMaQZI642DviDDAUn+ZI0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.dreame/admin/dreame.png)
 
@@ -27,9 +27,37 @@ hash: g1QuOY4iiAVrnM10uAngpzgiBrH37ampgmcsBgKUfUg=
 
 ---
 
+## Установка
+### Через административную панель ioBroker (рекомендуется)
+1. Убедитесь, что репозиторий "Последние версии" активен в разделе
+
+Администрирование → Настройки → Репозитории
+
+2. Перейдите на вкладку «Адаптеры» и найдите «dreame».
+3. Нажмите «Установить».
+
+В настоящее время адаптер доступен в репозитории **Latest**. Запрос на включение в стабильный репозиторий был отправлен (см. статус по ссылке https://github.com/ioBroker/ioBroker.repositories/pull/6200).
+
+### Через командную строку
+```
+iobroker install dreame@latest
+```
+
+### Для разработки адаптеров
+Если вы хотите внести свой вклад в разработку самого кода адаптера (а не просто использовать его):
+
+```
+git clone https://github.com/TA2k/ioBroker.dreame.git
+cd ioBroker.dreame
+npm install
+npm link
+```
+
+---
+
 ## Конфигурация
 | Настройки | Описание |
-| --- | --- |
+| --------------- | --------------------------------------------------- |
 | Облачный сервис | Выберите **Dreame** или **MOVA** в зависимости от вашего приложения |
 | Электронная почта приложения | Ваш адрес электронной почты для входа в приложение Dreame/MOVA |
 | Пароль приложения | Ваш пароль от приложения Dreame/MOVA |
@@ -41,11 +69,11 @@ hash: g1QuOY4iiAVrnM10uAngpzgiBrH37ampgmcsBgKUfUg=
 ---
 
 ## Пылесос (L10, L20, X40, ...)
-Адаптер создает отдельное дерево состояний для роботов-пылесосов с именованными состояниями, записываемыми настройками и кнопками действий.
+Адаптер создает состояния для роботов-пылесосов отложенно — в дереве объектов отображаются только те свойства, которые фактически сообщает ваше устройство. Состояния заполняются постепенно после запуска адаптера и после первого цикла опроса. В таблицах ниже показаны все известные возможные состояния; ваше устройство может сообщать только их часть.
 
 ### Состояние вакуума
 | Штат | Описание |
-| ----- | ----------- |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | состояние | Состояние робота (1=Уборка, 2=Ожидание, 3=Пауза, 5=Возвращение, 6=Зарядка, 7=Влажная уборка, 8=Сушка, 9=Мытье, ...) |
 | ошибка | Код ошибки |
 | Уровень заряда батареи | Процент заряда батареи |
@@ -69,7 +97,7 @@ hash: g1QuOY4iiAVrnM10uAngpzgiBrH37ampgmcsBgKUfUg=
 
 #### Расходные материалы
 | Штат | Описание |
-| ----- | ----------- |
+| ---------------------- | ------------------------ |
 | Основная щетка слева | Срок службы основной щетки (%) |
 | Осталось времени работы основной кисти | Осталось времени работы основной кисти (ч) |
 | Левая боковая щетка | Срок службы боковой щетки (%) |
@@ -82,7 +110,7 @@ hash: g1QuOY4iiAVrnM10uAngpzgiBrH37ampgmcsBgKUfUg=
 
 #### Статус станции
 | Штат | Описание |
-| ----- | ----------- |
+| ----------------------- | ----------------------------------------- |
 | Состояние резервуара для чистой воды | 0 = Установлен, 1 = Не установлен, 2 = Низкий уровень воды |
 | Состояние резервуара для грязной воды | 0 = Установлен, 1 = Не установлен или не заполнен |
 | Состояние пылесборника | 0 = Установлено, 1 = Не установлено, 2 = Проверено |
@@ -91,7 +119,7 @@ hash: g1QuOY4iiAVrnM10uAngpzgiBrH37ampgmcsBgKUfUg=
 
 #### Статистика
 | Штат | Описание |
-| ----- | ----------- |
+| ------------------- | ------------------------------------ |
 | Дата первой очистки | Дата первой очистки (метка времени Unix) |
 | Общее время уборки | Общее время уборки (мин) |
 | Количество уборок | Общее количество уборок |
@@ -101,7 +129,7 @@ hash: g1QuOY4iiAVrnM10uAngpzgiBrH37ampgmcsBgKUfUg=
 Эти данные извлекаются из JSON-файла `auto-switch-settings` и доступны в виде отдельных состояний:
 
 | Штат | Описание |
-| ----- | ----------- |
+| ------------------- | ---------------------------------------------- |
 | Автоматическая сушка | Автоматическая сушка: 0 = выключено, 1 = включено |
 | Предотвращение столкновений | Предотвращение столкновений: 0 = выключено, 1 = включено |
 | Заполняющий свет | Заполняющий свет в темноте: 0 = выключено, 1 = включено |
@@ -121,7 +149,7 @@ hash: g1QuOY4iiAVrnM10uAngpzgiBrH37ampgmcsBgKUfUg=
 
 ### Пульт дистанционного управления пылесосом
 | Штат | Описание |
-| ----- | ----------- |
+| ---------------------- | ----------------------------------------------------- |
 | Уровень всасывания | 0=Тихий, 1=Стандартный, 2=Мощный, 3=Турбо |
 | объем воды | 1=Низкий, 2=Средний, 3=Высокий |
 | Режим уборки | 0=Подметание, 1=Мойка, 2=Подметание + Мойка, 3=Мойка после подметания |
@@ -143,7 +171,7 @@ hash: g1QuOY4iiAVrnM10uAngpzgiBrH37ampgmcsBgKUfUg=
 | громкость | Уровень громкости |
 | Автоматический пылеулавливание | Автоматическое включение/выключение пылеулавливания |
 | частота автоматического опорожнения | Частота автоматического опорожнения |
-| Уровень влажности | Уровень влажности |
+| Уровень влажности | Уровень влажности (1–32) |
 | cleangenius-mode | 0=Выкл., 1=Стандартная, 2=Глубокая |
 | Температура воды | 0 = Холодная, 1 = Теплая, 2 = Горячая, 3 = Кипящая |
 | Бесшумная сушка | Включение/выключение бесшумной сушки |
@@ -154,7 +182,7 @@ hash: g1QuOY4iiAVrnM10uAngpzgiBrH37ampgmcsBgKUfUg=
 Эти данные записываются непосредственно в настройки автоматического переключения устройства (свойство 4-50):
 
 | Штат | Описание |
-| ----- | ----------- |
+| --------------------------- | ------------------------------------------------------------ |
 | Настройка автоматической сушки | Настройка автоматической сушки: 0 = выключено, 1 = включено |
 | set-collision-avoidance | Установить предотвращение столкновений: 0=выкл, 1=вкл |
 | set-fill-light | Установить заполняющий свет: 0=выкл, 1=вкл |
@@ -179,8 +207,11 @@ hash: g1QuOY4iiAVrnM10uAngpzgiBrH37ampgmcsBgKUfUg=
 | set-custom-mopping | Установить пользовательский режим влажной уборки: 0=выкл, 1=вкл |
 
 #### Действия
+> **Критически важное изменение с версии 0.3.18:** Состояния действий (`start-clean`, `stop`, > `pause`, `return-to-dock`, `locate`, `start-washing`, `start-auto-empty`, > `clear-warning` и все кнопки сброса) теперь **типа логическое значение / роль кнопки**.
+> Для их запуска необходимо написать `true`. Скрипты или виджеты Vis, которые ранее записывали строковое значение, должны быть обновлены.
+
 | Штат | Описание |
-| ----- | ----------- |
+| ------------------ | ------------------------------------------------------ |
 | Начать очистку | Начать очистку (кнопка) |
 | Пауза | Приостановить очистку (кнопка) |
 | Стоп | Остановить уборку (кнопка) |
@@ -220,12 +251,62 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 
 ---
 
+### Уборка номеров на заказ
+Функция **Уборка отдельных комнат** позволяет выбрать конкретные комнаты и отправить робота только в эти комнаты, вместо того чтобы убирать весь этаж. Уровень всасывания и объем воды применяются ко всем выбранным комнатам.
+
+#### Пошаговое руководство
+**а) Присвойте название карте (необязательно, рекомендуется для многоэтажных домов)**
+
+При первом обнаружении карты создается состояние `map.maps.<id>.mapName` со значением-заполнителем `"Map <id>"` (например, `"Map 1"`). Это состояние можно напрямую записывать — изменить значение в дереве объектов ioBroker на что-то осмысленное, например, с `"Map 1"` на `"Ground Floor"`. Имя канала `map.maps.<id>` автоматически обновляется сразу после сохранения нового значения. Перезапуск адаптера не требуется.
+
+**b) Установите активную карту**
+
+Запишите идентификатор карты (например, `1`) в `remote.custom-room-cleaning.active-map`. При нажатии кнопки «Старт» роботу будут отправлены только комнаты, относящиеся к этой карте. Указанная на шаге (а) карта поможет вам определить, какой идентификатор соответствует какому этажу.
+
+**c) Выберите номера**
+
+В разделе `remote.custom-room-cleaning.map-<id>/` каждое распознанное помещение отображается как логическое состояние. Названия каналов и состояний показывают переведенное название помещения с карты (например, `kitchen`, `living-room`, `bathroom`). Установите для нужных помещений значение `true`.
+
+**d) Отрегулируйте уровень всасывания и объем воды (опционально)**
+
+`remote.suction-level` и `remote.water-volume` применяются ко всем выбранным комнатам. Установите их перед запуском, если хотите использовать значения, отличные от значений по умолчанию. Это те же состояния, которые используются для обычной уборки.
+
+**e) Включите настраиваемый режим очистки**
+
+Перед запуском параметр `remote.customized-cleaning` должен быть равен `true`. Если он не активен, команда запуска отклоняется, и в журнал записывается предупреждение. Это предварительное условие на уровне устройства, и оно не устанавливается автоматически.
+
+**f) Начать цикл уборки**
+
+Установите `remote.custom-room-cleaning.start` в `true`. Адаптер формирует выбор комнаты на основе флажков активной карты, отправляет его роботу и автоматически сбрасывает состояние `start` в `false`.
+
+#### Расширенные возможности: прямое редактирование `customCommand`
+`remote.custom-room-cleaning.customCommand` содержит исходные данные выбора в виде строки JSON. При желании вы можете записать их напрямую:
+
+```json
+{"selects":[[roomId, repeats, suctionLevel, waterVolume, index], ...]}
+```
+
+Пример — кухня (ID 4), один раз при сильном всасывании, средний расход воды:
+
+```json
+{"selects":[[4, 1, 2, 2, 1]]}
+```
+
+Флажки `customCommand` и флажки комнаты **синхронизированы в обоих направлениях**: редактирование одного из них автоматически обновляет другой. Ввод `customCommand` напрямую обновляет флажки активной карты; установка флажка перестраивает `customCommand`. Оба пути эквивалентны.
+
+#### Известные ограничения
+- **Глобальная регулировка мощности всасывания/объема воды** — уровень всасывания и объем воды устанавливаются одинаково для всех выбранных комнат. Настройки для каждой комнаты отдельно (как показано в `map.cleanset.*`) не поддерживаются этой функцией.
+- **Предварительное условие для `customized-cleaning`** — `remote.customized-cleaning` необходимо включить вручную перед запуском `start`. Адаптер не активирует его автоматически.
+- **Протестировано на нескольких этажах с одной картой** — структура с несколькими картами (одна группа каналов на карту) полностью реализована, но на реальном оборудовании было проведено всестороннее тестирование только работы с одной картой. Многоэтажные дома с двумя и более картами должны работать, но сквозная проверка еще не проведена.
+
+---
+
 ## Газонокосилка (A2, A2 1200, ...)
-Адаптер поддерживает роботизированные газонокосилки Dreame с выделенными состояниями и отображением карты.
+Адаптер поддерживает роботизированные газонокосилки Dreame с выделенными состояниями и отрисовкой карт. Состояния создаются лениво — в дереве объектов отображаются только те свойства, которые фактически были переданы вашим устройством.
 
 ### Состояние газонокосилки
 | Штат | Описание |
-| ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------- |
 | статус | Состояние газонокосилки (1=Кошение, 2=В режиме ожидания, 3=Приостановлено, 5=Возобновлено, 6=Зарядка, 11=Картирование, 13=Заряжено, 14=Обновление) |
 | ошибка | Код ошибки |
 | Уровень заряда батареи | Процент заряда батареи |
@@ -275,15 +356,45 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 | Скашивание краев газона | Скашивание краев газона (PRE): 0=выкл, 1=вкл |
 | Обнаружение краев | Обнаружение краев (PRE): 0=выкл, 1=вкл |
 
+#### Данные о местоположении и задании (бинарный протокол, в реальном времени)
+Эти состояния заполняются из двоичных сообщений MQTT и создаются лениво — они появляются только после того, как газонокосилка отправит первое двоичное обновление.
+
+**Из пакета данных о положении робота (siid 1-5):**
+
+| Штат | Описание |
+| -------------------- | ------------------------------------------------------------------ |
+| Положение робота | Текущее положение робота в формате JSON: `{"x":..., "y":..., "angle":...}` |
+| Ход покоса | Текущий прогресс выполнения задачи (%) |
+| площадь скошенной травы | Площадь, обработанная в рамках текущей задачи (м²) |
+| Задача по кошению | Полный JSON-файл с данными задачи: `{regionId, taskId, percent, total, finish}` |
+| Задача по кошению | Полный JSON-файл с данными задачи: `{regionId, taskId, percent, total, finish}` |
+
+**Из пакета телеметрии устройства (siid 1-1):**
+
+| Штат | Описание |
+| ------------------ | ------------------------------------------------------------------------------------------------ |
+| dock-position | Положение док-станции/зарядного устройства JSON: `{"x":..., "y":..., "angle":...}` (обновляется при стыковке) |
+| состояние стыковки | НА СТАНЦИИ / ВНЕ СТАНЦИИ / ПРИОСТАНОВКА СТОЙКИ / ЗАВЕРШЕНИЕ СТОЙКИ / СБОЙ СТОЙКИ / СТОЙКА НА БАЗЕ |
+| состояние местоположения | Состояние местоположения (0–3) |
+| Уровень заряда батареи в реальном времени | Уровень заряда батареи (%) в реальном времени по данным бинарной телеметрии |
+| Зарядка в реальном времени | Зарядка в реальном времени: 0 = Не заряжается, 1 = Заряжается |
+| wifi-rssi | Уровень сигнала WiFi (дБм) |
+| lte-rssi | Уровень сигнала LTE (дБм) |
+| ble-rssi | Уровень сигнала Bluetooth (дБм) |
+| код ошибки в двоичном формате | Исходный код ошибки из двоичной телеметрии |
+| состояние контакта | Состояние контакта (0/1) |
+| отстыковка | Флаг отстыковки (0/1) |
+| состояние камеры | Состояние камеры |
+
 ### Пульт дистанционного управления газонокосилкой
 | Штат | Описание |
-| ---------------------- | ---------------------------------------------------------------------- |
-| начать косить | Начать косить |
-| Прекратить косить | Остановить кошение |
-| пауза-кошение | Приостановить кошение |
-| Начальная зарядка | Возврат на причал |
+| ----------------------- | ------------------------------------------------------------------------ |
+| Начать кошение | Начать кошение (кнопка) |
+| Остановить кошение | Остановить кошение (кнопка) |
+| пауза-коса | Приостановить кошение (кнопка) |
+| Начало зарядки | Возврат на зарядную станцию (кнопка) |
 | start-mow-ext | Запуск пользовательской стрижки (очистка зон/сегментов с параметрами) |
-| clear-warning | Clear warning/error state |
+| clear-warning | Сбросить состояние предупреждения/ошибки (кнопка) |
 | Обход препятствий | Включение/выключение обхода препятствий |
 | Обнаружение ИИ | Включение/выключение обнаружения ИИ |
 | Блокировка от детей | Включение/выключение блокировки от детей |
@@ -294,7 +405,7 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 | установить низкую скорость | Установить низкую скорость в ночное время: `{"value":1,"time":[1200,480]}` или `{"value":0}` |
 | set-dnd | Установить режим «Не беспокоить»: `{"value":1,"time":[1200,480]}` или `{"value":0}` |
 | set-dnd | Установить режим «Не беспокоить»: `{"value":1,"time":[1200,480]}` или `{"value":0}` |
-| установить блокировку для дочерних детей | Установить блокировку для дочерних детей: 0=выкл, 1=вкл |
+| set-child-lock | Установить блокировку для детей: 0=выкл, 1=вкл |
 | установить громкость | Установить громкость: 0-100 |
 | set-ai-obstacle | Настройка обхода препятствий ИИ: 0=выкл, 1=вкл |
 | установить фары | Установить фары: `{"value":1,"time":[480,1200],"light":[1,1,1,1]}` |
@@ -317,12 +428,66 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 | Настройка режима кошения краев | Настройка режима кошения краев (PRE): 0=выкл, 1=вкл |
 | set-edge-detection | Установить обнаружение краев (PRE): 0=выкл, 1=вкл |
 | set-direction-change | Установить изменение направления (PRE): 0=авто, 1=выкл |
+| зона кошения | Выбранные зоны кошения — CSV `"1,3"` или JSON `"[1,3]"` (o=102) |
+| зона кошения | Выбранные зоны кошения — CSV `"1,3"` или JSON `"[1,3]"` (o=102) |
+| План кошения | Начать кошение согласно сохраненному плану (кнопка, o=104) |
+| край скашивания | Контур скашивания: JSON `{"edge":[[x,y],...]}` (o=101) |
+| mow-spot | Площадь зоны скашивания: JSON `{"area":{...}}` (o=103) |
+| mow-spot | Площадь зоны кошения: JSON `{"area":{...}}` (o=103) |
+| mow-change-map | Переключить активную карту (число, индекс от 0, o=200) |
+
+#### Покос отдельных зон
+Каждая зона скашивания, определенная на карте, отображается как отдельный канал в `dreame.0.<did>.mower.map.slot<X>.zone<zoneId>`. Откройте обозреватель объектов ioBroker, перейдите к вашей газонокосилке, затем к `mower.map`, и вы увидите по одному каналу `slot0`, `slot1`, ... для каждой сохраненной карты. Каждый слот содержит один канал `zone<N>` для каждой зоны скашивания — например, `slot0.zone1`, `slot0.zone3`. Внутри каждой зоны вы найдете `name` (как показано в приложении), `area` (м²), `time` и `path`.
+
+**Числовая часть после `zone`** — это идентификатор зоны, который вы записываете в `remote.mow-zone`. Таким образом, если дерево выглядит так:
+
+```text
+dreame.0.<did>.mower.map.slot0.zone1     name = "Front lawn"
+dreame.0.<did>.mower.map.slot0.zone3     name = "Back lawn"
+dreame.0.<did>.mower.map.slot0.zone5     name = "Side strip"
+```
+
+затем:
+
+Однозонная стрижка: "Передний газон":
+
+```text
+dreame.0.<did>.remote.mow-zone = "1"
+```
+
+Несколько зон — стрижка газона: "Передний газон" + "Задний газон" + "Боковая полоса":
+
+```text
+dreame.0.<did>.remote.mow-zone = "1,3,5"
+```
+
+Формат JSON тоже работает — это удобно при использовании Blockly или JavaScript-скриптов:
+
+```text
+dreame.0.<did>.remote.mow-zone = "[1,3,5]"
+```
+
+Пример использования Blockly / JavaScript-адаптера:
+
+```js
+setState('dreame.0.' + did + '.remote.mow-zone', '1,3', false);
+```
+
+Газонокосилка обрабатывает список, начинает косить выбранные зоны и возвращается на станцию по завершении работы. Чтобы остановить работу в середине процесса, нажмите `stop-mow` (o=2) или `pause-mow` (o=4). Если целевые зоны находятся на другой карте, необходимо сначала переключиться на другую карту (`mow-change-map`) — в противном случае идентификаторы зон не будут определены.
+
+#### Переключение активной карты
+Если у газонокосилки несколько карт, выберите активную карту перед записью идентификаторов зон:
+
+```text
+dreame.0.<did>.remote.mow-change-map = 0   // first map
+dreame.0.<did>.remote.mow-change-map = 1   // second map
+```
 
 ### Быстрые команды для газонокосилки
 Сокращения определяются по свойству 4-48 (имена, закодированные в base64). Каждому сокращению присваивается свой собственный канал в разделе `deviceId.shortcuts.{id}`:
 
 | Штат | Описание |
-| ----- | ----------- |
+| ------- | ----------------------------------------- |
 | имя | Расшифрованное имя ярлыка |
 | запущено | Запущен ли в данный момент ярлык |
 | Старт | Кнопка для запуска ярлыка |
@@ -331,7 +496,7 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 История уборки загружается из облачного API (последние 20 сеансов кошения).
 
 | Штат | Описание |
-| ----- | ----------- |
+| ------------------ | ------------------------------------------- |
 | дата последнего кошения | Дата последнего сеанса кошения |
 | last-mow-duration | Продолжительность последней сессии (мин) |
 | Площадь, скошенная за последний сеанс | Площадь, скошенная за последний сеанс (м²) |
@@ -342,7 +507,7 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 Данные карты получаются через API Dreame iotuserdata (а не через MQTT, как у пылесосов).
 
 | Штат | Описание |
-| --------------- | ---------------------------------------- |
+| -------------- | -------------------------------------- |
 | mapImage | Карта, отрисованная в формате PNG (URL данных base64) |
 | slot0.zone_X | Данные зоны (название, площадь, время кошения) |
 | Путь скашивания | Исходные координаты пути скашивания |
@@ -368,12 +533,51 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 }
 ```
 
+## Известные ограничения
+**Дерево объектов заполняется постепенно (ленивое создание состояний)** Состояния появляются только после того, как устройство хотя бы раз сообщило о соответствующем свойстве. После чистой установки или перезагрузки адаптера дерево может выглядеть неполным в течение нескольких минут — это ожидаемое поведение.
+
+**L40s Pro Ultra и аналогичные устройства: некоторые состояния отображаются только после активного использования.** Свойства в группе SIID 4 (`cleaning-mode` 4-23, `suction-level` 4-4, `water-volume` 4-5) и SIID 28 (`wetness-level` 28-1) могут передаваться устройством только после активного сеанса очистки, а не во время опроса в режиме ожидания.
+Эти состояния не появятся до завершения хотя бы одного цикла очистки после установки или перезапуска адаптера.
+
+**`cleaning-mode` необработанные значения на некоторых устройствах** В версиях до 0.3.18 на некоторых устройствах, включая L40s Pro Ultra, вместо задокументированного диапазона 0–3 могли отображаться необработанные составные значения (например, 5120, 5121, 5122). Это было вызвано тем, что адаптер не декодировал составное значение, объединяющее режим, площадь и влажность в одно целое число. Начиная с версии 0.3.18, декодирование выполняется корректно. Если после обновления вы по-прежнему видите необработанные значения выше 1000, пожалуйста, создайте заявку с указанием вашей модели и наблюдаемого необработанного значения.
+
+---
+
+## Переводы
+Названия и описания штатов доступны на 11 языках: английском, немецком, русском, португальском, голландском, французском, итальянском, испанском, польском, украинском и китайском (упрощенном).
+
+`lib/i18n/en.json` является авторитетным источником. Все остальные языки генерируются на его основе через `npm run translate`. Исправления к переводам на другие языки следует отправлять в виде запросов на слияние (PR) в соответствующий файл `lib/i18n/<lang>.json`.
+
+---
+
 ## Changelog
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+### 0.3.24 (2026-07-01)
+- Fixed custom room cleaning bug where switching active-map without touching a checkbox left customCommand holding room IDs from the previously selected map, causing the robot to clean the wrong room (room segment IDs are not unique across maps). customCommand is now rebuilt automatically whenever active-map changes, and is recomputed fresh from the active map's checkboxes immediately before every start as a final safeguard. Start is now aborted with a warning if no room is selected for the active map.
+
+### 0.3.23 (2026-07-01)
+- Added map name synchronization: renaming a map via map.maps.<id>.mapName now automatically updates the corresponding remote.custom-room-cleaning channel name. Changed active-map state to a dropdown (common.states) showing map names with their id instead of requiring the raw numeric id to be typed manually.
+
+### 0.3.22 (2026-06-28)
+- Added custom room cleaning feature under remote.custom-room-cleaning: select rooms per map via checkboxes, bidirectionally synchronized with customCommand, using global suction level and water volume; start triggers a real multi-zone cleaning command. Added editable map name state (map.maps.<id>.mapName) to rename maps directly in ioBroker admin without adapter restart. Fixed I18n initialization order on startup so mapName state is now correctly created on first start. Fixed cleanset channel names to show translated room names instead of raw path strings. Added JSON validation before sending customCommand to device. Fixed multi-language index suffix for rooms with identical types (e.g. Bedroom 2). Fixed German translation for corridor room type (Flur).
+
+### 0.3.21 (2026-06-25)
+- Added lazy-created, translated states for mower position, battery, position/DND, schedule and statistics data (mower SIID 2/3/4/5/8/12). Fixed state ordering bug where settings (rain protection, child lock, etc.) appeared empty on first adapter start. Added translations for all mower config/AutoSwitch/preference states in 11 languages. Fixed boolean states incorrectly storing numeric 0/1 instead of true/false (affects auto-dust-collecting, dnd-enable, resume-cleaning and 15 other states). Improved fallback handling for unknown properties: registered 3 previously-unmapped properties (camera stream status, map object name, robot-cleaner property 2-6) and stopped creating misleading writable states for properties we cannot confirm are writable. Added a one-time cleanup for leftover phantom states from the old fallback mechanism. Updated installation instructions in README (the adapter is now available directly via ioBroker Admin from the Latest repository). Fixed adapter crash (unhandled promise rejection) when a device reports an unmapped property with an undefined value.
+
+### 0.3.20 (2026-06-24)
+- Added lazy-created, translated states for mower position, battery, position/DND, schedule and statistics data (mower SIID 2/3/4/5/8/12). Fixed state ordering bug where settings (rain protection, child lock, etc.) appeared empty on first adapter start. Added translations for all mower config/AutoSwitch/preference states in 11 languages. Fixed boolean states incorrectly storing numeric 0/1 instead of true/false (affects auto-dust-collecting, dnd-enable, resume-cleaning and 15 other states). Improved fallback handling for unknown properties: registered 3 previously-unmapped properties (camera stream status, map object name, robot-cleaner property 2-6) and stopped creating misleading writable states for properties we cannot confirm are writable. Added a one-time cleanup for leftover phantom states from the old fallback mechanism. Updated installation instructions in README (the adapter is now available directly via ioBroker Admin from the Latest repository).
+
+### 0.3.19 (2026-06-23)
+- Documentation fix: 0.3.18 changelog entry was missing from README.md due to a release script bug. No functional changes.
+
+### 0.3.18 (2026-06-23)
+- Vacuum states are now created lazily — only properties actually reported by the device appear in the object tree, filling in gradually after adapter start. All vacuum states now have full translations in 11 languages. Fixed cleaning-mode encoding for L40s Pro Ultra and similar models (mode, area and humidity were previously combined into a single raw value). Action buttons (start, stop, reset, etc.) now display correctly as buttons instead of raw text. Added translated, lazily-created states for mower position/task data (binary protocol). Fixed data loss on first write to rawCompound states (previous compound value was discarded before decoding, causing partial state updates). Added min/max range (1-32) for wetness-level state. BREAKING CHANGE: Action states (start-clean, stop-clean, return-to-base, etc.) changed from type string/text to boolean/button. Scripts or Vis widgets that write string values to these states must be updated to write true instead.
+
+### 0.3.17 (2026-06-21)
+
+- Fix command sent for some states
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
 ### 0.3.7 (2026-04-28)
 
 - Fix mower SETTINGS/SCHEDULE parsing: reassemble chunked data before JSON.parse (fixes warning every 30s)
@@ -415,56 +619,13 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 - Correct prop.2.51 as generic settings-update trigger (WRP/FDP/LOW)
 - Remove invalid cleaning-progress (4-63) from mower states
 
-### 0.3.3 (2026-04-19)
-
-- Parse all mower MQTT binary state fields (battery, error, location, docking, pin, camera, BLE/WiFi/LTE RSSI)
-- Parse mower live position from MQTT siid:1 piid:4 (12-bit packed format)
-- Parse mower task progress (region, percent, total/finished area)
-- Draw robot position and dock on mower map image
-- Draw robot, charger, virtual walls, no-go zones and zone names on vacuum map image
-- Add siid-piid identifiers to all mower state names
-- Fix mower status labels per common_mower_protocol.json
-- Add named mower properties (task-info, device-time, zone-status, RTK, GPS satellites, positioning-mode)
-- Fetch all siid property values on startup (removed siid<=3 filter)
-- Fix undefined deviceArray entry in connectMqtt
-
-### 0.3.2 (2026-04-17)
-
-- Add MOVA brand support (MOVA 600, MOVA 1000)
-- Add Cloud Service selector (Dreame/MOVA) in adapter settings
-- Centralize API configuration (domain, auth, headers) per brand
-- Add mower support (A1, A1 Pro, A2, A2 1200, A3 AWD 1000)
-- Dedicated mower states (status, remote, map)
-- Mower map rendering via iotuserdata API
-- Add 3D LIDAR map generation and download URL
-- Add retry logic for API requests
-- Fix JSON parsing errors
-
-### 0.2.2 (2025-01-24)
-
-- Reduce CPU load while cleaning
-
-### 0.2.1 (2025-01-15)
-
-- Fix for canvas installation
-
-### 0.2.0 (2024-12-28)
-
-- Add simple maps
-
-### 0.1.1 (2024-12-14)
-
-- Improve error handling
-
-### 0.1.0 (2024-12-14)
-
-- (TA2k) initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2024-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

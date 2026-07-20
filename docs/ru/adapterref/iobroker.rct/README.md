@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: EajmOZN39ieDon/Nr5SpCsXDOTJr3WYFZc0/QNl0INo=
+hash: ja4Xq840nSnlef0NHoGnS79lIeVqxLbZfTt6SRPqMA0=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rct?label=npm%20downloads&style=flat-square)
@@ -27,6 +27,9 @@ hash: EajmOZN39ieDon/Nr5SpCsXDOTJr3WYFZc0/QNl0INo=
 См. значения преобразователя мощности фотоэлектрических элементов RCT Power.
 
 ## ЗАМЕЧАНИЯ
+**ВАЖНО: Инвертор RCT не может различать запросы данных от разных клиентов.** Открытие приложения «RCT Power App» на смартфоне/планшете или запуск других адаптеров, отправляющих запросы инвертору (например, EVCC), всегда приводит к тому, что адаптер получает незапрошенные данные (это видно в режиме отладки).
+Эти данные будут отброшены, и будут обрабатываться только запрошенные данные.
+
 С помощью поля "Элементы RCT" можно выбрать, какие данные будут считываться с преобразователя мощности.
 Если здесь ничего не указано, будут использоваться значения по умолчанию:
 
@@ -44,7 +47,7 @@ hash: EajmOZN39ieDon/Nr5SpCsXDOTJr3WYFZc0/QNl0INo=
 * 1024 -> калибровка - фаза разряда (xx% --> 0%)
 * 2048 -> балансировка
 
-Объект "inverter_state" указывает состояние инвертора.
+Объект "prim_sm.state" указывает состояние инвертора.
 
 * 0 -> 'Режим ожидания'
 * 1 -> 'Инициализация'
@@ -70,7 +73,7 @@ hash: EajmOZN39ieDon/Nr5SpCsXDOTJr3WYFZc0/QNl0INo=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.2.28 (2026-06-18)
 Improve Logging Consistency and Debug Handling
 #320
 
@@ -91,28 +94,15 @@ Improve Logging Consistency and Debug Handling
 * (Andreas Ruttkamp) minimum version for admin now 7.6.17
 * (Andreas Ruttkamp) minimum version for js controller now 6.0.11
 
-### 1.2.23 (2025-08-19)
-* (Andreas Ruttkamp) enhancement issue #241
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Copyright (c) 2025-2026 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>
+Copyright (c) 2025-2026 Andreas Ruttkamp ioBroker.rct@ruttkamp.com

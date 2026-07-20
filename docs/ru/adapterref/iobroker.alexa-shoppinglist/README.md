@@ -3,62 +3,62 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa-shoppinglist/README.md
 title: ioBroker.alexa-shoppingList
-hash: or7jj4BKgLMQAtb9TD415gPeR8SUoLzBJq0i6Me7pzQ=
+hash: ldEMbB39aTHrj0g0nfj/LqO6422ANlU9mz3N+7pun3A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/alexa-shoppinglist.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.alexa-shoppinglist.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.alexa-shoppinglist.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.alexa-shoppinglist.svg)
 ![Количество установок](https://iobroker.live/badges/alexa-shoppinglist-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/alexa-shoppinglist-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/alexa-shoppinglist-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.alexa-shoppinglist.png?downloads=true)
 
 # IoBroker.alexa-shoppingList
-**Тесты: ** ![Тестирование и выпуск](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и инструкций по отключению сообщений об ошибках, пожалуйста, обратитесь к разделу [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Использование системы отчетности Sentry начинается с версии js-controller 3.0.
 
 ## Адаптер alexa-shoppingList для ioBroker
-Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. Подробнее об отключении отправки сообщений об ошибках см. в документации Sentry-Plugin! Отправка сообщений Sentry используется начиная с версии js-controller 3.0.
+Генерирует список покупок с помощью Alexa.
 
-Генерирует список покупок из Alexa
+Вы также можете использовать другие списки из Alexa — настройте это в параметрах администратора.
+Использование нового административного интерфейса значительно упрощает этот процесс.
 
-Вы также можете использовать другие списки Alexa. Настройте их в панели администратора.
-С новым интерфейсом администратора всё станет гораздо проще.
-
-Есть состояние для добавления новых элементов. Просто введите текст и нажмите Enter.
+Есть режим для добавления новых элементов: просто введите текст и нажмите Enter.
 Вы можете удалять активные и неактивные списки.
-Вы также можете перемещать только один элемент в обоих направлениях.
+Вы также можете перемещать отдельные элементы в обоих направлениях.
 
-Надеюсь вам понравится
+Надеюсь, вам понравится.
 
 **Если вам понравилось, пожалуйста, рассмотрите возможность пожертвования:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
+[![[paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
 ## Точки данных
-| Имя DP | Тип | Описание |
+| Название DP | Тип | Описание |
 |---------------------|--------|-----------------------------------------------------------------------------------------------------|
-| add_position | Строка | Введите текст для вставки в список |
-| delete_activ_list | Кнопка | Очищает активный список и перемещает его в неактивный список |
-| delete_inactiv_list | Кнопка | Очищает неактивный список |
-| position_to_shift | Номер | Вы можете вставить номер позиции перемещения элемента, затем кнопку to_active_list или to_inactive list |
-| list_active | JSON | Список актив в формате JSON |
-| list_active_sort | Switch | Вы можете сортировать активный список по имени или по времени вставки |
-| list_inactive | JSON | Неактивный список в формате JSON |
-| list_inactive_sort | Switch | Вы можете сортировать неактивный список по имени или по времени вставки |
+| add_position | String | Введите текст для вставки в список |
+| delete_activ_list | Кнопка | Очищает список активных элементов и перемещает его в список неактивных элементов |
+| delete_inactiv_list | Кнопка | Очищает список неактивных пользователей |
+| position_to_shift | Number | Вы можете ввести номер позиции перемещения элемента, а затем нажать кнопку to_active_list или to_inactive list |
+| list_active | JSON | Список активных объектов в формате JSON |
+| list_active_sort | Переключатель | Вы можете отсортировать список активных элементов по имени или по времени вставки |
+| list_inactive | JSON | Список неактивных пользователей в формате JSON |
+| list_inactive_sort | Переключатель | Вы можете отсортировать список неактивных пользователей по имени или по времени добавления |
 | to_activ_list | Кнопка | Сначала вставьте position_to_shift, а затем нажмите кнопку, чтобы перейти к activ_list |
-| to_inactive_list | Кнопка | Сначала вставьте position_to_shift, а затем нажмите кнопку, чтобы перейти к inactiv_list |
+| to_inactive_list | Кнопка | Сначала вставьте position_to_shift, а затем нажмите кнопку, чтобы перейти в список неактивных пользователей |
 
-| Атрибут в JSON | Описание |
+| Атрибут в JSON | Дескриптон |
 |-------------------|-------------------------------------------|
 | имя | Название товара |
-| время | Временная метка вставки |
+| время | Отметка времени вставки |
 | id | id в адаптере Alexa2 |
-| pos | Позиция в списке |
-| buttonmove | Кнопка перехода к активному или неактивному списку |
-| buttondelete | Кнопка полного удаления элемента |
+| поз | Позиция в списке |
+| buttonmove | Кнопка для перемещения в список активных или неактивных пользователей |
+| buttondelete | Кнопка для полного удаления элемента |
 
-JSON теперь содержит 2 кнопки для перемещения и удаления элементов.
-Для этого необходимо вставить код в редактор VIS в разделе «Скрипт» следующим образом:
+Теперь JSON содержит 2 кнопки для перемещения элементов или удаления.
+Для этого вам нужно вставить код в редактор VIS в разделе Skript, вот что:
 
 ```
  /* Alexa Einkaufsliste JSON */
@@ -82,8 +82,24 @@ function setOnDblClickCustomShop( myvalue) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.5 (2026-06-04)
 
-### **WORK IN PROGRESS**
+- CHORE: Update dependencies
+
+### 1.1.4 (2026-06-04)
+
+- CHORE: Add unit tests
+- (copilot) Adapter requires node.js >= 22 now
+- CHORE: Update dependencies
+- CHORE: #203 Issues reported by repository checker
+- CHORE: #193-Repository-Checker
+
+### 1.1.3 (2025-11-29)
+
+- CHORE: Update dependencies
+- FIX: Error reported by sentry
+
+### 1.1.2 (2025-09-20)
 
 - CHORE: #145 Update dependencies
 
@@ -91,59 +107,13 @@ function setOnDblClickCustomShop( myvalue) {
 
 - FIX: Error reported by sentry
 
-### 1.1.0 (2025-07-14)
-
-- FEAT: Activate sentry
-- Breaking change: minimal supported node.js version is 20.x
-- FEAT: Add typescript
-
-### 1.0.3 (2024-12-04)
-
-- CHORE: Migration to ESLint 9 and @iobroker/eslint-config
-
-### 1.0.2 (2024-11-09)
-
-- FIX: #97 Add missing attributes to jsonConfig
-
-### 1.0.1 (2024-10-19)
-
-- FEAT: #95 Responsive Design
-
-### 1.0.0 (2024-08-09)
-
-- Js-controller >=5.0.19 is required
-- Breaking change: minimal supported node.js version is 18.x
-
-### 0.1.5 (09.01.2023)
-
-- Error when deleting via the JSON list fixed
-
-### 0.1.4 (25.09.2022)
-
-- Its now possible to delete always the inactive list, when you delete an article from the active list
-- You only have to check the checkbox
-
-### 0.1.2 ( 09.04.2022)
-
-- Add Buttons in JSON String
-
-### 0.1.1 ( 20.02.2022)
-
-- Error fixed in jsonConfig
-
-### 0.1.0 ( 20.02.2022)
-
-- First complete working Releases
-
-### 0.0.1
-
-- (MiRo1310) initial release
+## License
 
 ## License
 
 MIT License
 
-Copyright (c) 2025 MiRo1310 <michael.roling@gmx.de>
+Copyright (c) 2021-2026 MiRo1310 <michael.roling@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

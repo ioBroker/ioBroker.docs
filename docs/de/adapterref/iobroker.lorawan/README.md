@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lorawan/README.md
 title: ioBroker.lorawan
-hash: sMZfwV8TUXXWa4qLliB0sgdbz+aEsEcCI6vT/aASaxo=
+hash: +2AvOJrUWLBQdvNOzwMRYXj8fqtf7D2p6OcPUqw847k=
 ---
 ![Logo](../../../en/adapterref/iobroker.lorawan/admin/lorawan.png)
 
@@ -24,79 +24,29 @@ Der Adapter wurde in Zusammenarbeit mit Jörg Froehner (LoraWan@hafenmeister.com
 
 Die Dokumentation im Wiki finden Sie hier: https://github.com/BenAhrdt/ioBroker.lorawan/wiki<br/> Aktuell gibt es hier eine Dokumentation auf Englisch: https://wiki.hafenmeister.de
 
-## HAFTUNGSAUSSCHLUSS
-Die Rechte an den Marken und Firmennamen verbleiben bei ihren jeweiligen Inhabern und stehen in keiner Verbindung zu diesem Adapter.
-Der Betreiber des Adapters muss die Fair-Use-Richtlinien weiterhin einhalten.
-Wenn dieses Repository geforkt wird, muss es als Quelle angegeben werden.
-
-LoRa® ist eine eingetragene Marke oder Dienstleistungsmarke der Semtech Corporation oder ihrer verbundenen Unternehmen.
-
-LoRaWAN® ist eine eingetragene Marke.
-
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.21.8 (2026-03-04)
-* (BenAhrdt) update icons
+### 1.22.31 (2026-07-09)
+- (BenAhrdt) Add selection of ToIob source id
 
-### 1.21.7 (2026-03-04)
-* (BenAhrdt) update logic for icons and link building
+### 1.22.30 (2026-07-07)
+- (BenAhrdt) Add PIR Mini device Profile
+- (BenAhrdt) Add possibillity to ad states to downlink numbers
 
-### 1.21.6 (2026-03-04)
-* (BenAhrdt) change logic for TTN link and change base ip handling
-* (BenAhrdt) set more devices at default
+### 1.22.29 (2026-07-06)
+- (BenAhrdt) Add some roles and units to assignhandler
 
-### 1.21.5 (2026-03-04)
-* (BenAhrdt) implements link to Chirpstack / TTN
+### 1.22.28 (2026-07-05)
+- (BenAhrdt) Add DewPointTemperature to assignhandler
 
-### 1.21.4 (2026-03-03)
-* (BenAhrdt) update the updateBridge function in objectStore
-* (BenAhrdt) improve LoraWAN and ToIob funkction (init / update)
+### 1.22.27 (2026-07-04)
+- (BenAhrdt) Bugfix warning for wrong id
+- (BenAhrdt) Add Profile to downloadconfig
 
-### 1.21.3 (2026-03-02)
-* (BenAhrdt) add Link to ToIoB Devices
-
-### 1.21.2 (2026-03-02)
-* (BenAhrdt) update icon for device link
-
-### 1.21.1 (2026-03-02)
-* (BenAhrdt) bring possibility for editing base ip in devce Manager
-
-### 1.21.0 (2026-03-02)
-* (BenAhrdt) update deviceManager (dm-utils) to 3.0.0
-* (BenAhrdt) add Links for Bridge devices
-
-### 1.20.57 (2026-03-02)
-* (BenAhrdt) bugfix query for null
-
-### 1.20.56 (2026-03-02)
-* (BenAhrdt) implement deviceId Handling from bridge
-
-### 1.20.55 (2026-03-02)
-* (BenAhrdt) catch publishing value (null) and log warning for this id
-
-### 1.20.54 (2026-02-27)
-* (BenAhrdt) update dependencies
-* (BenAhrdt) bugfix button press
-
-### 1.20.53 (2026-02-21)
-* (BenAhrdt) errorhandling in case of aggregat error with mqtt connection
-
-### 1.20.52 (2026-02-20)
-* (BenAhrdt) bugfix show ToIob always in device Manager
-* (BenAhrdt) correction of wording in downlink Profil Vicki
-* (BenAhrdt) add role button.mode.startMotorcalibration
-
-### 1.20.51 (2026-02-14)
-* (BenAhrdt) including of more entites in ToIob functionality (light, climate, hummidifier, lock, cover)
-
-### 1.20.50 (2026-02-10)
-* (BenAhrdt) implements light to ToIoB function
-
-### Older entries
-[here](OLD_CHANGELOG.md)
+[Older changes can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -69,48 +69,75 @@ If longitude and latitude in the iobroker main settings, the adapter will fill o
 
 ## pvnode
 
-[pvnode](https://pvnode.com) is a German service that provides high-resolution PV forecasts with 15-minute intervals.
+[pvnode](https://pvnode.com) is a German service providing high-resolution PV forecasts in 15-minute intervals. The adapter supports both **API v1** (plant configuration in the adapter) and **API v2** (plant configuration in the pvnode portal via Site ID).
 
-![pvforecast pvnode options](img/pvforecast-pvnode-options.png)
+> **Warning**: pvnode API v1 will be shut down on **2026-12-31**. From **2027-01-01** onwards the adapter will log an error and stop polling when v1 is configured. Migration to API v2 is required — see [pvnode API v2](#pvnode-api-v2-recommended) below.
 
-### pvnode Configuration
+### pvnode Subscription Tiers
 
-1. **API-Key**: Create an API key at https://pvnode.com/api-keys
-2. **Paid account**: Enable this option if you have a paid pvnode account
-3. **Forecast days**: Number of forecast days (paid accounts only, max 7). Free accounts automatically get 1 day.
-4. **Poll interval**: Recommended: 90 minutes (pvnode updates 16 times per day)
-5. **Extra parameters**: Optional API parameters like `diffuse_radiation_model=perez&snow_slide_coefficient=0.5`
+| Feature | Free | Light | Plus |
+|---------|------|-------|------|
+| API requests/month | 250 | 3,000 | 3,000 |
+| Updates per day | 1 | 24 (hourly) | 144 (every 10 min) |
+| Forecast days | 1-2 (today + tomorrow) | 1-7 | 1-7 |
+| Solar arrays | up to 4 | up to 4 | up to 8 |
+| Historical data | no | no | 30 days |
 
-### pvnode Account Types
+The **poll interval** is set automatically by the adapter based on the selected tier — no manual configuration required:
 
-| Feature | Free | Paid |
-|---------|------|------|
-| API requests/month | 40 | 1,000 |
-| Forecast days | 1 (today + tomorrow) | up to 7 |
-| Historical data | no | yes (-30 days) |
-| Sites | 1 | multiple |
+| Tier | Automatic interval |
+|------|--------------------|
+| Free | 24 hours |
+| Light | 60 minutes |
+| Plus | 10 minutes (nowcasting) |
 
-**Important**: Only enable the "Paid account" option if you actually have a paid pvnode account. Otherwise, API errors may occur as the adapter cannot automatically detect your account type.
+### pvnode API v2 (recommended)
 
-### pvnode Extra Parameters
+In API v2, all plant configuration (orientation, tilt, power) is managed directly in the pvnode portal via a **Site ID**. The adapter only needs the Site ID — no azimuth/tilt/power values are required in the adapter.
 
-The "Extra parameters" field allows passing optional API parameters:
+**Prerequisites:** Before configuring the adapter, create a site in the pvnode portal at https://pvnode.com/sites/new. Add all solar arrays (strings) there with their orientation, tilt, and peak power. The portal will provide the Site ID after saving.
+
+**Configuration:**
+
+1. **API Key**: Create at https://pvnode.com/api-keys
+2. **Use pvnode API v2**: Enable checkbox
+3. **pvnode Site ID**: Site ID from the pvnode portal (e.g. `site_xxxx…`)
+4. **Subscription tier**: Free / Light / Plus (determines poll interval automatically)
+5. **Forecast days**: Number of forecast days (Free: max 2 – today and tomorrow; Light/Plus: max 7)
+
+**Plant table (v2):** At least one entry is required. The name is used for display; the optional peak power is used for the "Installed power" state. The adapter requests per-string data from the v2 API and maps each string to the configured plant by position (plant 1 → string 0, plant 2 → string 1, etc.). This allows individual per-plant forecasts. If no string data is available, the site total is stored under the first plant.
+
+### pvnode API v1
+
+In API v1, azimuth, tilt, and power are configured per plant directly in the adapter. Each plant gets its own API call.
+
+**Configuration:**
+
+1. **API Key**: Create at https://pvnode.com/api-keys
+2. **Use pvnode API v2**: Leave checkbox disabled
+3. **Subscription tier**: Free / Light / Plus
+4. **Forecast days**: Number of forecast days (Free: max 2 – today and tomorrow; Light/Plus: max 7)
+5. **Extra parameters**: Optional API parameters (v1 only), e.g. `diffuse_radiation_model=perez&snow_slide_coefficient=0.5`
+
+**Rotating fetch (v1):** With multiple plants, all plants are fetched once on startup. Afterwards, only one plant is fetched per cycle (round-robin). With N plants and interval T, each plant is refreshed every N×T. Example: 3 plants, Light tier (60 min) → each plant every 3 hours, 1 API call per hour.
+
+### pvnode Extra Parameters (v1 only)
 
 | Parameter | Description | Example |
 |-----------|-------------|---------|
 | `diffuse_radiation_model` | Radiation model | `perez` |
-| `snow_slide_coefficient` | Snow sliding speed factor (0.0-0.8) | `0.5` |
+| `snow_slide_coefficient` | Snow sliding coefficient (0.0–0.8) | `0.5` |
 | `shading_config` | Shading configuration | `7:2:3:1_1:1:0:0_0:0:0:0` |
 
 Format: `key1=value1&key2=value2`
 
 ### pvnode Notes
 
-- **15-minute resolution**: pvnode provides forecast data in 15-minute intervals
-- **Azimuth conversion**: The adapter automatically converts the azimuth value (adapter: 0=south) to the pvnode format (180=south)
-- **Request batching**: When multiple plants are configured, the adapter automatically batches up to 2 plants per API request using pvnode's `second_array` feature. This reduces the number of API calls (e.g., 2 plants = 1 request instead of 2). The combined forecast data is stored under the first plant; the second plant is marked as batched.
-- **Summary data**: The summary JSON includes clearsky values (summed across all plants) as well as temperature and weather code (using the first plant's values).
-- **Timezones**: The pvnode API returns timestamps in UTC. The adapter automatically converts them to the local system time.
+- **15-minute resolution**: pvnode delivers forecast data in 15-minute intervals (v1 and v2)
+- **Azimuth conversion**: The adapter automatically converts the azimuth (adapter: 0=south) to pvnode format (180=south)
+- **Poll interval**: Set automatically based on subscription tier — no manual configuration needed
+- **Per-plant forecasts (v2)**: When the pvnode account returns string data, each configured plant receives its own forecast. Clearsky values, temperature, and weather code come from the site-wide data.
+- **Summary data**: The summary JSON includes clearsky values as well as temperature and weather code
 - The "damping morning" and "damping evening" fields are not used for pvnode
 
 # VIS example
@@ -123,6 +150,19 @@ If you want to take the json graph and table you can use this [example](./vis.md
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (@patricknitsch) Change Free Tier Forecast from only today to today and tomorrow
+
+### 6.2.0 (2026-07-06)
+- (@patricknitsch) pvnode API v2 support: plant configuration via Site ID in the pvnode portal — create a site at https://pvnode.com/sites/new
+- (@patricknitsch) pvnode v2: per-string forecasts — each configured plant receives its own forecast matched by index (plant 1 → string 0, etc.)
+- (@patricknitsch) pvnode subscription tiers (Free / Light / Plus) replace the old paid-account checkbox; poll interval is set automatically per tier
+- (@patricknitsch) pvnode v1: rotating round-robin fetch — one plant per poll cycle instead of one combined request; each plant receives an individual API call
+- (@patricknitsch) Poll interval field hidden for pvnode (auto-managed)
+- (@patricknitsch) Update Documentation of pvnode
+- (@patricknitsch) Include warning for v1 and error after 31.12.26. The adapter cannot use v1 after this date anymore
+
 ### 6.1.0 (2026-04-26)
 - (@mcm1957) Adapter requires node.js >= 22, js-controller >= 6.0.11 and admin >= 7.7.22 now
 - (@mcm1957) Dependencies have been updated
@@ -143,11 +183,6 @@ If you want to take the json graph and table you can use this [example](./vis.md
 NodeJS >= 20.x and js-controller >= 6 is required
 
 * (@klein0r) Minimum peak power is 0.1 kWp
-
-### 4.1.0 (2024-11-15)
-
-* (@klein0r) Added estimated energy: now until end of day
-* (@simatec) Admin-UI has been adapted for small displays
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

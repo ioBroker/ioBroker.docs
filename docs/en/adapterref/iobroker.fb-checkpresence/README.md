@@ -109,8 +109,11 @@ The format mask is used for formatting the html and json table objects.
 If this option is checked, the objects for every device in the Fritzbox device list are created.
 If this option is disabled, then also the mesh informations are disabled.
 
-### Resynchronisation of FB device objects
-If this option is checked, then the FB device object are re-synchronized with the device list fom Fritzbox.
+### Resynchronisation of FB device objects (once)
+If this option is checked, then the FB device object are re-synchronized with the device list fom Fritzbox once.
+
+### Resynchronisation of FB device objects (automaticaly)
+If this option is checked, then the FB device object are re-synchronized with the device list fom Fritzbox every x days.
 
 ### Creation of mesh information
 This option can be checked if the creation of FB devices is allowed. If this option is checked, 
@@ -234,6 +237,9 @@ Here you will find information about the history of the current day.
 - (copilot) Adapter requires node.js >= 22 now
 * (afuerhoff) dependencies updated
 * (afuerhoff) dependabot.yml fixed [#358](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/358)
+* (afuerhoff) new fb-devices sync option integrated
+* (afuerhoff) readme updated
+* (softwarecrash) PR398 fixes a crash in newfilter mode
 
 ### 1.4.2 (2025-10-30)
 * (afuerhoff) dependencies updated

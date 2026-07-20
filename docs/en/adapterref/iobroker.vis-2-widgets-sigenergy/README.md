@@ -139,11 +139,43 @@ The horizontal backbone line and the vertical drop lines show animated dashes th
 **OIDs (per device, prefix sigenergy.0.sigenmicro.<slaveId>):**
 modelType, serialNumber, firmwareVersion, runningState, outputPower, gridFrequency, temperature, mppt1Voltage, mppt1Current, mppt1Power, mppt2Voltage, mppt2Current, mppt2Power, dailyYield, totalYield
 
+### Vehicle Charge Level (EV SOC)
+Displays a configurable vehicle image (e.g. Fiat 500e) as the central visual element. A colour-coded badge in the top-right corner shows a lightning bolt, the current charge level in percent and the label "LADESTAND". A progress bar at the bottom reflects the current SOC. When the optional charging state is active, the badge emits a pulsing green glow.
+
+#### Colour logic
+| Charge level | Colour |
+|---|---|
+| ≤ 15 % | Red (#f87171) |
+| ≤ 35 % | Yellow (#fbbf24) |
+| > 35 % | Green (#4ade80) |
+
+#### Widget settings
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| oid_ev_soc | OID | — | State of Charge 0–100 |
+| oid_charging | OID | — | Charging state (optional) — green glow when active |
+| sig_title | text | Fahrzeug-Ladestand | Vehicle name shown below the image |
+| sig_car_image | image | — | Vehicle image from ioBroker file browser (e.g. /vis-2/img/) |
+| sig_darkmode | checkbox | true | Dark / Light mode |
+
+![Fahrzeug-Ladestand Widget](img/widget-autoLadestand.png)
+
+**OIDs:** `oid_ev_soc`, `oid_charging`
+
 ## Appearance
 
 All widgets support a **light and dark mode**, switchable via the widget setting `Dark mode`.
 
 ## Changelog
+### 1.8.2 (2026-06-28)
+* (ssbingo) Updated CI actions: actions/checkout to v7.0.0, ioBroker/testing-action-deploy to v1.5.0
+
+### 1.8.1 (2026-06-08)
+* (ssbingo) Fixed JSON syntax error in io-package.json; added widget screenshot to documentation
+
+### 1.8.0 (2026-06-08)
+* (ssbingo) New widget: "Fahrzeug-Ladestand" — shows a configurable EV image with animated SOC bar, color-coded charge level (red/yellow/green), and optional blinking charging badge
+
 ### 1.7.9 (2026-05-27)
 * (ssbingo) Removed obsolete .eslintrc.json and .prettierignore
 

@@ -2,21 +2,21 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hueemu/README.md
-title: ioBroker.hueemu
-hash: Xd145W3bYz85XXnCJwE6JxjMJPFQcnQ+1E0ebaCnDRk=
+title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="48" align="top" /> ioBroker.hueemu
+hash: PNYFNKNFdn+kQybZ0zLalPuIAizKMhqWXSWjxVNtmT8=
 ---
-# IoBroker.hueemu
+# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="48" align="top" /> ioBroker.hueemu
 
 ![npm версия](https://img.shields.io/npm/v/iobroker.hueemu)
+![стабильный](https://iobroker.live/badges/hueemu-stable.svg)
+![Установки](https://iobroker.live/badges/hueemu-installed.svg)
+![npm downloads](https://img.shields.io/npm/dt/iobroker.hueemu)
 ![Узел](https://img.shields.io/badge/node-%3E%3D22-brightgreen)
 ![Машинопись](https://img.shields.io/badge/TypeScript-strict-blue)
 ![Лицензия](https://img.shields.io/badge/license-MIT-green)
-![npm downloads](https://img.shields.io/npm/dt/iobroker.hueemu)
-![Установки](https://iobroker.live/badges/hueemu-installed.svg)
+![Часовой](https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white)
 ![Ко-фи](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)
 ![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)
-
-<img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="100" />
 
 Эмулирует мост [Philips Hue](https://www.philips-hue.com) (v2, BSB002), благодаря чему устройства ioBroker отображаются как светильники Hue для клиентов, поддерживающих только API Hue.
 
@@ -34,6 +34,7 @@ hash: Xd145W3bYz85XXnCJwE6JxjMJPFQcnQ+1E0ebaCnDRk=
 - **Hue API v1** — Модель моста BSB002 (Hue Bridge v2)
 - **Обнаружение UPnP/SSDP** — Автоматическое обнаружение любым клиентом, совместимым с Hue.
 - **Прямое сопоставление состояний** — Указывает на любое состояние ioBroker, без использования скриптов-мостов.
+- **Помощник по устройствам** — сканирует ioBroker на наличие доступных для сопоставления источников света и добавляет их автоматически, или добавляет и редактирует каждый источник света вручную.
 - **Типы освещения** — Включение/выключение, Регулировка яркости, Цветовая температура, RGB
 - **Шкала значений для каждого устройства** — выберите способ хранения яркости и насыщенности в исходном состоянии.
 - **Постоянный TLS-сертификат** — клиенты доверяют мосту только один раз, при перезапусках идентификатор остается тем же.
@@ -42,9 +43,16 @@ hash: Xd145W3bYz85XXnCJwE6JxjMJPFQcnQ+1E0ebaCnDRk=
 
 ---
 
+## Система Sentry / Отчет об ошибках
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Сообщение об ошибках отправляется только в том случае, если включена функция отправки сообщений об ошибках в диагностике ioBroker (**Системные настройки → Диагностика и отправка сообщений об ошибках**). Передается только анонимный идентификатор установки — имя, адрес электронной почты или IP-адрес не передаются.
+
+Подробности и инструкции по отключению см. в разделе [документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Для отправки сообщений об ошибках требуется js-controller версии 3.0 или новее.
+
+---
+
 ## Требования
 - **Node.js >= 22**
-- **ioBroker js-controller >= 7.0.7**
+- **ioBroker js-controller >= 7.2.2**
 - **Администратор ioBroker >= 7.8.23**
 
 ---
@@ -61,18 +69,21 @@ hash: Xd145W3bYz85XXnCJwE6JxjMJPFQcnQ+1E0ebaCnDRk=
 ## Конфигурация
 ### Сетевые настройки
 | Параметр | Описание | По умолчанию |
-| --------------- | ------------------------------------------------------------- | ------- |
-| **Хост** | IP-адрес моста (должен быть реальным сетевым IP-адресом) | — |
+| ----------------- | -------------------------------------------------------------------------------------------------------------- | ------- |
+| **Хост** | Сетевой интерфейс для привязки. Выберите `0.0.0.0`, чтобы прослушивать все интерфейсы (остается доступным при изменении IP-адреса) | 0.0.0.0 |
+| **Объявленный IP-адрес** | Доступный IP-адрес, объявляемый клиентам для обнаружения. Оставьте поле пустым для автоматического определения основного интерфейса | авто |
 | **HTTP-порт** | Порт для API Hue | 8080 |
 | **HTTPS-порт** | Требуется только в том случае, если клиент настаивает на TLS; в противном случае оставьте пустым | — |
 | **MAC-адрес** | MAC-адрес моста (сгенерирован автоматически, если пуст) | — |
 
 ### Добавление устройств
-1. Откройте вкладку **Конфигурация устройства**.
-2. Нажмите кнопку «+».
-3. Введите **название** (например, «Светильник в гостиной»).
-4. Выберите **тип освещения**.
-5. Отображение **штатов** на карте через браузер объектов (`...`)
+Откройте вкладку **Конфигурация устройства**. Есть два способа добавить светильники:
+
+**Вручную** — нажмите **Добавить источник света**, введите имя, выберите тип источника света и сопоставьте состояния ioBroker с обозревателем объектов.
+
+**Автоматически** — нажмите **Поиск источников света**. Адаптер сканирует ваши объекты на наличие элементов, похожих на источники света (включенные/выключенные, диммеры, устройства с регулировкой цветовой температуры и цветные светильники), и добавляет те, которые может сопоставить. Все обнаруженные, но не сопоставленные элементы (например, устройства с RGB-каналами) отображаются в отчете, поэтому вы можете добавить их вручную.
+
+Каждый индикатор отображается в виде карточки — используйте **Редактировать**, чтобы изменить его назначение, или **Удалить**, чтобы удалить его.
 
 ### Поддерживаемые типы освещения
 | Тип | Состояния | Модель оттенка |
@@ -161,27 +172,37 @@ hueemu.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.5.1 (2026-05-23)
+### 1.11.0 (2026-07-09)
 
-- Changelog rewritten in user-centric style across all versions.
+- The devices tab can now scan ioBroker for dimmer, colour-temperature and colour lights and add the mappable ones. Manual add still works.
 
-### 1.5.0 (2026-05-22)
+### 1.10.0 (2026-07-09)
 
-- User-modified state names are no longer overwritten on adapter restart
+- Fixed the adapter looking like it was running but ignoring all light changes when UDP port 1900 was already in use (common on Windows); it now recovers cleanly and stays reachable
+- A light's on/off source state holding text such as "off", "no" or "disabled" is now correctly read as off instead of on
+- Closed a brief moment during startup where requests could still be challenged for a password even though authentication was turned off in the configuration
+- Upgrading from the old light setup no longer leaves stray leftover entries behind in the object tree
+- Colour coordinates written as a spaced list such as "0.3, 0.4" are now parsed correctly instead of falling back to white
+- The port fields in the settings now warn you if the chosen port is already in use by another adapter instance
+- Hue and colour-temperature source states can now be given a scale: hue in degrees (0–360) and colour temperature in Kelvin are converted correctly, alongside the native Hue units
 
-### 1.4.9 (2026-05-21)
+### 1.9.0 (2026-06-21) — stable
 
-- Improved error handling and stability.
+- You can now listen on all network interfaces (`0.0.0.0`) and set a separate advertised IP, so discovery keeps working even if the bridge's IP address changes
+- Color lights mapped with only hue or only saturation now report the correct colour instead of falling back to a default white
+- Fixed already-paired clients being wrongly rejected until a restart after a transient error while loading clients at startup
+- A configured source state that no longer exists now produces a one-time warning in the log instead of a silently dead light
 
-### 1.4.8 (2026-05-20)
+### 1.8.1 (2026-06-12) — stable
 
-- Improved security: TLS private key is no longer visible in the admin interface.
+- Number values read from light states are now parsed strictly: text with extra characters after the number falls back to the default instead of being half-parsed
+- Faster bridge config responses for clients that poll every second (such as Echo devices) by reusing the timestamp formatter instead of rebuilding it on every request
 
-### 1.4.7 (2026-05-19)
+### 1.8.0 (2026-06-09)
 
-- TLS private key is now encrypted at rest in the ioBroker object database.
+- Color lights mapped via hue and saturation (without an XY state) now report the correct color mode, so apps that honor it show the actual color instead of a default white.
 
-Older entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
@@ -210,4 +231,4 @@ SOFTWARE.
 
 ---
 
-*Developed with assistance from Claude.ai*
+_Developed with assistance from Claude.ai_

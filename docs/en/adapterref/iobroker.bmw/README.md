@@ -24,9 +24,13 @@
 
 [![NPM](https://nodei.co/npm/iobroker.bmw.png?downloads=true)](https://nodei.co/npm/iobroker.bmw/)
 
-# BMW Adapter for ioBroker
+## BMW Adapter for ioBroker
 
 This adapter integrates BMW vehicles into ioBroker using the new BMW CarData API with OAuth2 authentication and real-time MQTT streaming. It provides comprehensive vehicle data monitoring for all BMW models linked to your BMW account.
+
+## Sentry
+
+This adapter employs Sentry libraries to automatically report exceptions and code errors to the developers. For more details and information on how to disable error reporting, please consult the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Data Updata while charging
 
@@ -54,7 +58,7 @@ A detailed datapoint description you can find here [telematic.json](telematic.js
 
 ![CarData Client Setup](img/cardata-client-setup.png)
 
-# **CRITICAL**: Click one service and wait 30 seconds if you see an error message, then click again. Don't press on "Gerät Authentifizieren/Devict authentication" Enter the client_id in iobroker settings. If it is not working try all letters as lowercase.
+## **CRITICAL**: Click one service and wait 30 seconds if you see an error message, then click again. Don't press on "Gerät Authentifizieren/Devict authentication" Enter the client_id in iobroker settings. If it is not working try all letters as lowercase.
 
 ### 2. CarData Streaming Configuration
 
@@ -214,6 +218,15 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (hombach) updated adapter-core
+- (hombach) fixed adapterchecker errors: downgraded @types/node to ^22, added Sentry notice to README, added @iobroker/adapter-dev
+- (hombach) replaced native setInterval/setTimeout with adapter-managed equivalents in main.js
+- (hombach) moved all jsonConfig.json inline translations to i18n files
+- (hombach) updated dependencies
+
 ### 5.0.0 (2026-05-17)
 
 - (copilot) BREAKING: Adapter requires node.js >= 22 now

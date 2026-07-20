@@ -173,6 +173,8 @@ Wie zu sehen wird damit also "Quelle" (wäre hier normalerweise `javascript.0`) 
 -   (ciddi89) Fixed: Visualization tables was not working correctly [#97](https://github.com/iobroker-community-adapters/ioBroker.logparser/issues/97)
 -   (ciddi89) Updated: Dependencies
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License

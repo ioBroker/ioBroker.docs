@@ -7,6 +7,10 @@
 
 [![NPM](https://nodei.co/npm/iobroker.grohe-smarthome.png?downloads=true)](https://nodei.co/npm/iobroker.grohe-smarthome/)
 
+![ioBroker](https://img.shields.io/badge/ioBroker-Adapter-blue)
+![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22-green)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
+
 **Tests:** ![Test and Release](https://github.com/patricknitsch/ioBroker.grohe-smarthome/workflows/Test%20and%20Release/badge.svg)
 
 ## ioBroker Grohe Smarthome Adapter
@@ -39,6 +43,13 @@ Ideas and Concept came from the Home-Assistant Integration **ha-grohe_smarthome*
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.0 (2026-06-05)
+* (copilot) Fixes Repo Checker
+* (copilot) Change Raw-States to Bump Funktion for Debugging(see Doc.)
+* (copilot) Fixes Problems Error 404
+* (copilot) New functions for Grohe with Snooze, Withdrawal and Sprinkler
+* (copilot) Extend Documentation
+
 ### 0.5.4 (2026-05-23)
 * (copilot) Add latest Message for Notifications
 * (copilot) Add Icons in Notifications
@@ -56,11 +67,7 @@ Ideas and Concept came from the Home-Assistant Integration **ha-grohe_smarthome*
 * (patricknitsch) Update Admin Dependency >= 7.6.23 for Device Manager
 * Important Note: From 0.4.0 to 0.5.X the Sensor Overview is removed but visible. Thats a Bug from js-controller and should be fixed with 7.1.3
 
-### 0.5.0 (2026-05-08)
-* (copilot) Integrate Adapter in ioBroker Device Manager
-* (copilot) Remove tab
-
-Older entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+**Older entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
 
 ## License
 MIT License

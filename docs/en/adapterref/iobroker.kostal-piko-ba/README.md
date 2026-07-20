@@ -46,7 +46,7 @@ If your hardware supports it, you can also enable the read-out of the four analo
 
 ## Sentry
 
-This adapter employs Sentry libraries to automatically report exceptions and code errors to the developers. For more details and information on how to disable error reporting, please consult the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is initiated starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable error reporting, see <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">Sentry-Plugin Documentation</a>!
 
 ## Donate
 
@@ -59,6 +59,22 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 7.0.5 (2026-07-05)
+
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now
+- (HombachC) removed chai-based unit test dependencies; modernized test harness to Node.js assert
+- (HombachC) updated dependencies
+
+### 7.0.4 (2026-06-19)
+
+- (HombachC) fixed adapterchecker warnings
+- (HombachC) updated dependencies
+
+### 7.0.3 (2026-06-03)
+
+- (HombachC) fixed instanceObject roles
+- (HombachC) fixed warnings of adapter checker
+- (HombachC) updated dependencies
 
 ### 7.0.2 (2026-05-17)
 
@@ -68,23 +84,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (HombachC) update typescript from 5.9.3 to 6.0.3
 - (HombachC) fix vulnerability in axios
-- (HombachC) update dependencies
-
-### 7.0.0 (2026-05-09)
-
-- (copilot) BREAKING: adapter requires node.js >= 22 now
-- (HombachC) update dependencies
-
-### 6.0.7 (2026-04-13)
-
-- (HombachC) switch to ES2023 code
-- (HombachC) fix vulnerability in axios
-- (HombachC) min admin 7.6.20 as recommended (#893)
-- (HombachC) update dependencies
-
-### 6.0.6 (2026-02-28)
-
-- (HombachC) fix vulnerability
 - (HombachC) update dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)

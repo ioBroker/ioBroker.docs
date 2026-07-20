@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.maveo/README.md
 title: ioBroker.maveo
-hash: OTb1C7Wu8KuosX+S97Mekj7DmUJxdCpDlZyxLoVw/24=
+hash: +GQ5WqtQ2YUxOnIFrRAURFLWvp9VbO/KPPHm/Qut4m0=
 ---
 ![Logo](../../../en/adapterref/iobroker.maveo/admin/maveo.png)
 
@@ -11,33 +11,79 @@ hash: OTb1C7Wu8KuosX+S97Mekj7DmUJxdCpDlZyxLoVw/24=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.maveo.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/maveo-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/maveo-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.maveo.svg)
 ![NPM](https://nodei.co/npm/iobroker.maveo.png?downloads=true)
 
-#ioBroker.maveo
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.maveo/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.maveo
+**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.maveo/workflows/Test%20and%20Release/badge.svg)
 
 ## Maveo-Adapter für ioBroker
-Adapter für maveo Garagentor App
+Adapter für die Maveo Garagentorsysteme von Marantec. Zwei Betriebsmodi:
 
-##Anmeldeablauf:
-Die maveo App Mail und Passwort eingeben.
+- **Cloud-Modus (Standard)** — Anmeldung über die Marantec-Cloud (Amazon Cognito),
 
-##Steuern
-maveo.0.id.remote auf true setzen steuert den jeweiligen Befehl
+Steuerung über den Nymea-Tunnel `wss://remoteproxy.nymea.io`.
 
-## Diskussion und Fragen:
+Die Box muss **per Bluetooth-Onboarding** in der Maveo-App gekoppelt werden (die App schreibt die Cognito-Identitäts-ID während des Onboardings in die Box).
+
+Wenn die Box nur lokal hinzugefügt wurde, ist die Cloud-Geräteliste leer. In diesem Fall meldet der Adapter dies im Protokoll, und Sie können in den LAN-Modus wechseln.
+
+- **LAN-Modus** — direkte JSON-RPC-Verbindung zur Box (`<boxIp>:2222` über
+
+TLS ist standardmäßig aktiviert. Beim ersten Start erfolgt eine Authentifizierung per Knopfdruck: Drücken Sie innerhalb von 60 Sekunden die gelbe Taste auf der Rückseite der Maveo-Box. Das generierte Token wird im Adapter gespeichert. Diese Funktion ist unabhängig vom Cognito-Konto und stellt die zuverlässigste Option dar, wenn die Box im lokalen Netzwerk erreichbar ist.
+
+Statusaktualisierungen (Position, Bewegung, Sensoren) werden in beiden Modi als Push-Benachrichtigungen über `Integrations.StateChanged` übermittelt; Öffnen/Schließen wird über `Integrations.ExecuteAction` ausgelöst.
+
+## Konfiguration
+| Feld | Bedeutung | Standardwert |
+|---|---|---|
+| `App Email` / `App Password` | Anmeldeinformationen der Maveo-App (nur Cloud-Modus) | — |
+| `IoT wake topic` | Optionales AWS IoT-Thema zum Aufwecken der Box | leer |
+| `Maveo box IP` | Aktiviert den LAN-Modus, wenn | leer |
+| `Port` | JSON-RPC-Port | 2222 |
+| `TLS` | SSL für den JSON-RPC-Socket | ein |
+| `TLS` | SSL für den JSON-RPC-Socket | ein |
+
+Die Cognito-Pool-/Client-IDs und IoT-Endpunkte sind in der Maveo-App 2.6.1 fest codiert und regionsabhängig. Das lokale Druckknopf-Token wird verschlüsselt in `native.localToken` gespeichert.
+
+## Kontrolle
+Für jedes Objekt erstellt der Adapter beschreibbare Zustände unter `maveo.<inst>.<thingId>.remote.<action>` (z. B. `open`, `close`).
+Das Schreiben eines beliebigen Werts in einen solchen Zustand löst `Integrations.ExecuteAction` aus.
+Zustandsänderungen werden automatisch als Push-Updates in `maveo.<inst>.<thingId>.<stateTypeId>` übernommen.
+
+## Diskussion
 https://forum.iobroker.net/topic/48101/test-adapter-maveo-v-0-0-x
+
+## Wächter
+Dieser Adapter verwendet die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an den Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry).
 
 ## Changelog
 
+### 0.1.0
+
+* Two operating modes: cloud (Cognito + Nymea tunnel) and LAN (direct
+  connection to the box with push-button auth). Region selectable (EU/US).
+  Cognito pool/client IDs and cloud endpoints verified against the maveo app
+  2.6.1 (Ghidra decompile). Thing/action discovery over Nymea, push-based
+  state updates, working remote control, message buffering and exponential
+  reconnect back-off.
+
+### 0.0.5
+
+* (TA2k) update login keys
+
+### 0.0.4
+
+* (TA2k) fix status
+
 ### 0.0.1
+
 * (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

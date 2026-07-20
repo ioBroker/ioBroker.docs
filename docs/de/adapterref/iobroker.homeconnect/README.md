@@ -242,6 +242,8 @@ Oder ob ein Gerät geöffnet ist
 - (Lucky-ESA) Adapter requires admin >= 7.6.17 now
 - (mcm1957) Adapter requires node.js >= 20 now
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)

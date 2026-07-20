@@ -1,4 +1,4 @@
-# ioBroker.danfoss-ally ![version](https://img.shields.io/badge/version-0.2.18-blue) [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=shields)](https://nodei.co/npm/iobroker.danfoss-ally/)
+# ioBroker.danfoss-ally ![version](https://img.shields.io/badge/version-0.2.19-blue) [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=shields)](https://nodei.co/npm/iobroker.danfoss-ally/)
 
 [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=flat&data=d&color=blue)](https://nodei.co/npm/iobroker.danfoss-ally/)
 
@@ -279,6 +279,7 @@ Optional: `X-App-Key`, `X-Tenant-Id`, etc.
 
 - `temp_set` first tries a combined `SetpointChangeSource` + `temp_set` command
 - Ally TRVs also get `manual_mode_fast` when the datapoint exists, because some devices report the manual setpoint there
+- Polling updates `status.*` only; `control.*` remains a pure write channel to avoid feedback loops
 - Mode + temperature must be written separately
 - Values are clamped to allowed limits, scaled ×10
 - `child_lock`: tries `0/1`, retries `true/false` on 400 error
@@ -290,6 +291,12 @@ All send, retry, and confirm logs appear at debug level.
 ---
 
 ## Changelog
+
+### 0.2.19
+- Stopped polling from writing cloud values back into `control.*` states to avoid feedback loops with Loxone/scripts
+- Added `state.from` to debug write logs so external write sources can be identified
+- Added direct status fallback for devices that are listed without status values, improving Boiler Relay datapoints
+- Reduced poll debug noise: the initial run still logs all `SET` lines, later polls summarize changed values per device
 
 ### 0.2.18
 - Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
@@ -316,6 +323,8 @@ All send, retry, and confirm logs appear at debug level.
 
 
 ---
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Development
 

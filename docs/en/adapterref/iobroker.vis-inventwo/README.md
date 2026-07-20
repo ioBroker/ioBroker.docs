@@ -21,6 +21,9 @@ With our widget set you have the freedom to easily create individual visualizati
 This adapter was developed and tested for VIS 1. Errors may occur in Vis 2 that prevent the use of your visualization.
 Seamless compatibility will not be possible. A new adapter for Vis 2 can be found here: https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
 
+**Starting with version 4.1.x, the widgets are explicitly excluded from the Vis 2 editor and the adapter will no longer work in Vis 2 at all.**
+If you want to continue using this adapter in Vis 2, you must stay on a version prior to 4.1.x.
+
 ## Contents of the Adapter
 
 Various widgets for switching, navigating and more.
@@ -98,6 +101,9 @@ If you like our work and would like to support us, we appreciate every donation.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.1.1 (2026-06-04)
+- correct z-index layering for popups — date/time picker dropdowns now appear in front of the popup overlay instead of behind it (#583)
+
 ### 4.1.0 (2026-05-17)
 - Hide widgets in vis 2 editor
 
@@ -116,15 +122,10 @@ If you like our work and would like to support us, we appreciate every donation.
 - Fixed: [#736](https://github.com/inventwo/ioBroker.vis-inventwo/issues/736) Adapter checker errors in package.json and io-package.json resolved
 - Fixed: [#678](https://github.com/inventwo/ioBroker.vis-inventwo/issues/678) Mode in io-package changed from daemon to once
 
-### 3.3.4
-- Fixed: [#455](https://github.com/inventwo/ioBroker.vis-inventwo/issues/455) Color picker widget "disappears" when selecting CIE
-- Fixed: [#369](https://github.com/inventwo/ioBroker.vis-inventwo/issues/369) Simple slider step color cannot be changed
-- Fixed: [#361](https://github.com/inventwo/ioBroker.vis-inventwo/issues/361) Image widget always shows the image for true
-- Fixed: [#564](https://github.com/inventwo/ioBroker.vis-inventwo/issues/564) Radio button – image color for true is taken from false
-- Fixed: [#461](https://github.com/inventwo/ioBroker.vis-inventwo/issues/461) Double trigger on button/state and "slider cannot be slid" with Windows Touch
-- Fixed: [#474](https://github.com/inventwo/ioBroker.vis-inventwo/issues/474) JSON table with "Binding" does not work in the editor
-- Fixed: [#580](https://github.com/inventwo/ioBroker.vis-inventwo/issues/580) JSON Table Widget: color change of values via threshold is only visible in the editor, not at runtime
-- Fixed: [#622](https://github.com/inventwo/ioBroker.vis-inventwo/issues/622) Issues found by adapter checker
+## Older changes
+Can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
+
+---
 
 ## License
 

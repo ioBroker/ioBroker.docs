@@ -127,6 +127,10 @@ select the refresh cycle and the type of reading data: (without, basic oder deta
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
+## DISCLAIMER
+This project is not officially affiliated with Paperless-ngx,
+i.e. they do not maintain this project.
+
 ## License
 MIT License
 
@@ -149,7 +153,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-## DISCLAIMER
-This project is not officially affiliated with Paperless-ngx,
-i.e. they do not maintain this project.

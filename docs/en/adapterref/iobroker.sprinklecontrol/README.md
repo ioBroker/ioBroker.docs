@@ -242,6 +242,14 @@ Activate the Notifications tab. The communication settings are then made on the 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.0.9 (2026-07-01)
+ * (Dirk-Peter-md) Fixed error reading the soil moisture sensor
+
+### 1.0.8 (2026-06-12)
+ * (Dirk-Peter-md) Fixed error in "Command without response"
+ * (Dirk-Peter-md) Water Pressure Control Revised
+ * (Dirk-Peter-md) ioBroker-Bot [E6004], [W1127], [W1133], [W1134], [S6022] completed
+
 ### 1.0.7 (2026-05-24)
 * (Dirk-Peter-md) Added pressure monitoring.
 
@@ -254,8 +262,30 @@ Activate the Notifications tab. The communication settings are then made on the 
 * (Dirk-Peter-md) Second start time added
 * (Dirk-Peter-md) bug fixed in sprinklerState
 
-### 1.0.4 (2026-04-26)
-* (Dirk-Peter-md) GitHub error message #274
+### Older versions
+[CHANGELOG_OLD.md](CHANGELOG_OLD.md)
 
-### 1.0.3 (2026-04-25)
-* (Dirk-Peter-md) Pressure relief valve added after irrigation.
+*************************************************************************************************************************************
+
+## License
+[MIT License](LICENSE)
+
+Copyright (c) 2020-2026       Dirk-Peter-md     <dirk.peter@freenet.de>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

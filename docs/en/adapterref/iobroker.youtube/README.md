@@ -130,6 +130,8 @@ NodeJS >= 20.x and js-controller >= 6 is required
 * (klein0r) Added groups
 * (klein0r) Added icons of channels to object list
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)

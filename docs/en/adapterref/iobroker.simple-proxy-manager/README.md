@@ -143,7 +143,7 @@ Hosts with an unknown hostname are rejected at the TLS level – no fallback cer
 Certificate loading details are available in the debug log.
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.0 (2026-07-07)
 - (copilot) Adapter requires node.js >= 22 now
 
 ### 0.1.10 (2026-04-29)
@@ -167,12 +167,6 @@ Certificate loading details are available in the debug log.
 ### 0.1.7 (2026-03-20)
 
 - Docs: remove generic installation section per S6014
-
-### 0.1.6 (2026-03-16)
-
-- Add rich README header with badges and logo
-- Update release workflow documentation
-- Switch to NPM Trusted Publishing
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

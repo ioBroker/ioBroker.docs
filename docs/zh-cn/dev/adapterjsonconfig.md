@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：新手指南
-hash: t8JOi4020CFbkeTOeDqlhxoJ8c0FTDD0zY4L4ifJdYg=
+hash: VCMZaxdbPUcO10dU2pTGiNkplzi+Uv6n/R6PFmvucPA=
 ---
 # IoBroker JSON 配置：新手指南
 本指南解释了如何使用 JSON 为 ioBroker 适配器定义配置选项。这种方法提供了一种更友好、更灵活的方式，可以在 ioBroker 管理界面中管理适配器设置。
@@ -126,7 +126,7 @@ jsonConfig 由多个按层级结构组织的元素组成。每个元素可以是
 
 如果您测试此适配器，可以看到几乎所有组件都在运行：[jsonconfig-demo](https://github.com/mcm4iob/ioBroker.jsonconfig-demo).\ 您可以通过在 npm 选项卡上输入 `iobroker.jsonconfig-demo`，在管理界面中的 GitHub 图标上安装它。
 
-- [**`accordion`:**](#accordion) 用于折叠内容的折叠面板元素（Admin 6.6.0 或更高版本）
+- [**`accordion`:**](#accordion) 用于可折叠内容的折叠面板元素（Admin 6.6.0 或更高版本）
 - [**`alive`:**](#alive) 显示实例是否正在运行（只读）
 - [**`autocomplete`:**](#autocomplete) 带有自动完成建议的输入字段
 - [**`autocompleteSendTo`:**](#autocompletesendto) 用于发送数据的带有实例值的自动完成控件
@@ -139,6 +139,7 @@ jsonConfig 由多个按层级结构组织的元素组成。每个元素可以是
 - [**`chips`:**](#chips) 用户可以输入单词，这些单词将被添加到数组中。
 - [**`color`:**](#color) 颜色选择器
 - [**`coordinates`:**](#coordinates) 确定当前位置，如果无法以 `latitude,longitude` 的形式获取坐标，则使用 `system.config` 中的坐标。
+- [**`credential`:**](#credential) 从中央凭据存储（在管理员设置中管理）中选择凭据
 - [**`cron`:**](#cron) 配置用于调度任务的 cron 表达式
 - [**`custom`:**](#custom) 集成自定义组件以实现特定功能（仅限管理员 6）
 - [**`datePicker`:**](#datepicker) 允许用户选择日期
@@ -299,7 +300,7 @@ admin/customI18n/en.json
 ### 直接在 i18n 中提供翻译
 翻译也可以直接作为对象在 `jsonConfig` 对象的顶层 `i18n` 属性中提供。
 
-搜索翻译时，系统会使用特定字段中的信息在 i18n 对象中查找包含指定文本的属性。
+搜索翻译时，系统会使用特定字段中的信息在 i18n 对象中查找包含该文本的属性。
 
 如果找不到该属性，则保留字段中的信息。
 
@@ -509,7 +510,7 @@ admin/customI18n/en.json
 ```
 
 ### `oauth2`
-（管理员版本 >= 6.17.18）
+（管理员版本 >= 2018 年 6 月 17 日）
 
 显示 OAuth2 身份验证按钮，以获取适配器的刷新令牌和访问令牌。
 
@@ -792,6 +793,42 @@ admin/customI18n/en.json
 |--------------------|------------------------------------|
 | `leCollectionName` | 证书集合名称 |
 
+### `credential`
+从中央凭据存储中选择一个凭据。凭据可以在管理设置（设置 → 凭据）中进行管理，适配器配置仅在给定属性中存储所选凭据的 ID（例如 `system.credentials.anthropic`）。
+
+除非设置了 `disableCreation`，否则选择器旁边会显示一个 **➕ 按钮**，点击即可打开一个类似于管理员对话框的小型“添加凭据”对话框。该对话框提供按 `credentialType` 筛选的模板（带有图标）（例如，`ai` 的模板包括 Anthropic / ChatGPT / Google Gemini，以及通用的“登录名和密码”和“密钥”模板）。
+
+所选模板定义了表单、建议的名称和图标；保存时，密钥字段会使用系统密钥进行加密。新创建的凭据存储为 `system.credentials.<name>`，并立即生效。
+
+| 房产 | 描述 |
+|-------------------|----------------------------------------------------------------------------------------------------------------------|
+| `credentialType` | 仅显示以下类型的凭据：`email`、`cloud`、`ai` 或 `custom`。如果未定义，则列出所有凭据。|
+| `disableCreation` | 如果为 `true`，则隐藏 ➕ 按钮，以便用户只能选择现有凭据（此处不允许创建新凭据） |
+
+例子：
+
+```json
+{
+  "credentialId": {
+    "type": "credential",
+    "credentialType": "email",
+    "label": "E-Mail account",
+    "disableCreation": false,
+    "sm": 6
+  }
+}
+```
+
+每个凭证都有两种形式之一：`login`（包含 `login` 和 `password` 字段）或 `key`（包含单个 `key` 字段，例如 API 密钥）。在适配器中，使用 `@iobroker/adapter-core` 读取并解密凭证：
+
+```typescript
+import { Credentials } from '@iobroker/adapter-core';
+
+const cred = await Credentials.getCredentials<Credentials.LoginPasswordCredentials>(this, this.config.credentialId);
+// cred.values.login, cred.values.password (already decrypted)
+// or for the key form: Credentials.KeyCredentials -> cred.values.key
+```
+
 ### `custom`
 仅限管理员6
 
@@ -839,7 +876,7 @@ admin/customI18n/en.json
 
 - `simple` - 显示简单的 CRON 设置
 - `complex` - 显示带有“分钟”、“秒”等单位的 CRON 任务
-- 既不提供“简单”选项，也不提供“复杂”选项 - 用户可以在对话框中切换简单和复杂模式
+- 既不是“简单”也不是“复杂”——用户可以在对话框中切换简单和复杂模式。
 
 | 房产 | 描述 |
 |-----------|-----------------------------------------------|
@@ -855,7 +892,7 @@ admin/customI18n/en.json
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pattern` | 文件扩展名模式。允许使用 `**/*.ext` 显示所有子文件夹中的文件，`*.ext` 显示根文件夹中的文件，或 `folderName/*.ext` 显示子文件夹 `folderName` 中的所有文件。默认值为 `**/*.*`。 |
 | `objectID` | 类型为 `meta` 的对象 ID。您可以使用特殊占位符 `%INSTANCE%`，例如 `myAdapter.%INSTANCE%.files` |
-| `upload` | 上传文件的存储路径。类似于 `folderName`。如果未定义，则不会显示上传字段。要上传到根目录，请将此字段设置为 `/`。 |
+| `upload` | 上传文件的存储路径。与 `folderName` 类似。如果未定义，则不会显示上传字段。要上传到根目录，请将此字段设置为 `/`。 |
 | `refresh` | 在选择框附近显示刷新按钮。 |
 | `maxSize` | 最大文件大小（默认 2MB） |
 | `withFolder` | 即使所有文件都在同一文件夹中，也显示文件夹名称 |
@@ -925,7 +962,7 @@ adapter.on("message", (obj) => {
 | `bgColor` | 背景颜色（默认值：`"#ffffff"`） |
 | `level` | 纠错级别：`L`、`M`、`Q` 或 `H`（默认值：`L`） |
 | `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
-| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 #### `qrCodeSendTo`后端代码示例
 ```js
@@ -969,7 +1006,7 @@ adapter.on("message", (obj) => {
 | `command` | sendTo 命令 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
 | `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
-| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 后端必须返回一个URL字符串。
 
@@ -1091,7 +1128,7 @@ adapter.on("message", (obj) => {
 | `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
 | `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
-| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 要使用此选项，您的适配器必须实现消息处理程序：命令的结果必须是字符串或包含以下参数的对象：
 
@@ -1157,7 +1194,7 @@ adapter.on("message", (obj) => {
 | `useSystemName` | 如果已定义，则会显示“使用系统设置”复选框，并从 `system.config` 读取纬度、经度，并将布尔值保存到给定的名称中 |
 
 ### `interface`
-选择实例运行所在的主机接口。
+选择实例运行所在主机的接口
 
 | 房产 | 描述 |
 |------------------|----------------------------------------------------------------|
@@ -1249,7 +1286,7 @@ adapter.on("message", (obj) => {
 | `narrow` | （可选）通常，标题和值分别显示在行的左侧和右侧。使用此标志，值将紧跟在标签之后 |
 | `addColon` | （可选）如果标签末尾没有冒号，则添加冒号 |
 | `blinkOnUpdate` | （可选）值更新时应闪烁（真或颜色） |
-| `blink` | （可选）值应持续闪烁（真或颜色） |
+| `blink` | （可选）值应持续闪烁（真或彩色） |
 | `styleLabel` | （可选）React CSS 样式 |
 | `styleValue` | （可选）React CSS 样式 |
 | `styleUnit` | （可选）React CSS 样式 |
@@ -1318,7 +1355,7 @@ adapter.on("message", (obj) => {
 
 有效数字为1至12。
 
-如果您指定一个数字，例如 6，则元素的宽度将是屏幕宽度的 6/12（50%）；例如，如果您指定数字 3，则元素的宽度将是屏幕宽度的 3/12（25%）。
+如果您指定一个数字，例如 6，则元素的宽度将是屏幕宽度的 6/12（50%）；例如，如果您指定 3，则元素的宽度将是屏幕宽度的 3/12（25%）。
 
 为不同的布局选项分配数字，即可指定元素在不同屏幕尺寸下的宽度。
 
@@ -1374,7 +1411,7 @@ adapter.on("message", (obj) => {
 | `default` | 默认值 |
 | `defaultFunc` | 用于计算默认值的 JS 函数 |
 | `placeholder` | 占位符（用于文本控件） |
-| `noTranslation` | 请勿翻译下拉列表或其他选项（帮助、标签或占位符除外） |
+| `noTranslation` | 请勿翻译下拉列表或其他选项（不包括帮助、标签或占位符） |
 | `onChange` | 结构形式 `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}` |
 | `doNotSave` | 此属性仅用于内部计算，请勿保存 |
 | `noMultiEdit` | 如果此标志设置为 true，则当用户选择多个对象进行编辑时，此字段将不会显示。 |
@@ -1690,6 +1727,36 @@ onMessage = (obj: ioBroker.Message): void => {
 ### **正在进行中** -->
 
 ## Changelog
+### 8.4.15 (2026-07-04)
+- (@GermanBluefox) Extended Credentials Component with AWS and Azure
+
+### 8.4.13 (2026-06-29)
+- (@GermanBluefox) Corrected the file selector component
+- (@GermanBluefox) Implemented no translation for the select component
+- (@GermanBluefox) Implemented debug mode for components to analyze JS functions
+- (@ThomasPohl) Corrected rendering of the link in the static text component
+
+### 8.4.11 (2026-06-21)
+- (@GermanBluefox) Added missing translations
+
+### 8.4.10 (2026-06-20)
+- (@GermanBluefox) Fixed state component
+
+### 8.4.9 (2026-06-19)
+- (@GermanBluefox) Moved translations from adapter-react to this repository
+
+### 8.4.8 (2026-06-18)
+- (@GermanBluefox) Allowed creating credentials directly in the `credential` component (templates with icons, filtered by `credentialType`; can be disabled with `disableCreation`)
+
+### 8.4.7 (2026-06-07)
+- (@GermanBluefox) Added a credential component
+
+### 8.4.5 (2026-05-30)
+- (@GermanBluefox) Fixing help rendering
+
+### 8.4.4 (2026-05-29)
+- (@GermanBluefox) Corrected groups in the select component
+
 ### 8.4.3 (2026-05-24)
 - (@GermanBluefox) Optimization of interfaces
 

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.airquality/README.md
-title: ioBroker.Luftqualität
-hash: jikrEMuqCpJ/5qloEaSpyaN0sv//2SOzIVI//ESvCo0=
+title: ioBroker.airquality
+hash: VESbSZ3qZ3zRFZAZWez5WMXmfqrmNJI2S98y6dEosT8=
 ---
 ![Logo](../../../en/adapterref/iobroker.airquality/admin/airquality.png)
 
@@ -14,23 +14,25 @@ hash: jikrEMuqCpJ/5qloEaSpyaN0sv//2SOzIVI//ESvCo0=
 ![NPM](https://nodei.co/npm/iobroker.airquality.png?downloads=true)
 
 # IoBroker.airquality
-**Tests:** ![Testen und Freigeben](https://github.com/raschy/ioBroker.airquality/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/raschy/ioBroker.airquality/workflows/Test%20and%20Release/badge.svg)
 
-## Airquality-Adapter für ioBroker
-Daten vom deutschen UBA abrufen
+## Luftqualitätsadapter für ioBroker
+Daten von der deutschen UBA abrufen
 
 ### Erste Schritte
-In diesem Adapter muss in der Konfiguration mindestens eine Umweltstation eingetragen werden, von der Messwerte gesammelt werden sollen. Die Stationsnamen können auf der Internetseite des Umweltbundesamtes unter https://www.umweltbundesamt.de/themen/luft/luftqualitaet#luftdaten (dann auf ‚Nächstgelegene Station‘ klicken) anhand der angezeigten Karte ausgewählt werden.
-Die Stationen beginnen immer mit ‚DE‘, gefolgt vom Bundesland ‚BW‘ und einer dreistelligen laufenden Nummer. Diese Kennung, z.B. ‚DEBW052‘, muss dann in der Konfigurationsseite des Adapters eingetragen werden (mit Enter bestätigen). Hier können auch weitere Stationen hinzugefügt werden.
+In diesem Adapter muss mindestens eine Umweltmessstation, von der Messwerte erfasst werden sollen, in der Konfiguration hinterlegt werden. Die Stationsnamen können auf der Website des Umweltbundesamts unter https://www.umweltbundesamt.de/themen/luft/luftqualitaet#luftdaten (anschließend auf „Nächstgelegene Station“ klicken) mithilfe der angezeigten Karte ausgewählt werden.
+Die Stationsbezeichnungen beginnen stets mit „DE“, gefolgt vom Bundesland „BW“ und einer dreistelligen Kennnummer. Diese Kennnummer, z. B. „DEBW052“, muss anschließend auf der Konfigurationsseite des Adapters eingegeben und mit Enter bestätigt werden. Weitere Stationen können hier ebenfalls hinzugefügt werden.
 
-Sind die Koordinaten in der Hauptkonfiguration des ioBrokers hinterlegt, versucht der Adapter beim ersten Start selbst die nächstgelegene Station zu finden.
+Die Air Quality Data API ist aktuell in Version 4 (v4) verfügbar. Die Vorgängerversion (v3) wird vorerst parallel weitergeführt. Der Hauptunterschied zwischen den Versionen besteht in der Umstellung auf stündliche Daten für den Luftqualitätsindex (AQI) und einer neuen Klassifizierung der Indexkategorien.
+
+Wenn die Koordinaten in der Hauptkonfiguration des ioBrokers hinterlegt sind, versucht der Adapter beim ersten Start selbst die nächstgelegene Station zu finden.
 
 ## Hinweis
-Es kommt gelegentlich vor, dass Messwerte nicht abgerufen werden können. Dies passiert häufig zu jeder vollen Stunde, da die Daten vermutlich intern komprimiert und verarbeitet werden. Aber auch nachts (gegen Mitternacht) ist es häufig nicht möglich, die Daten abzurufen. Als Warnung wird dann ein Logeintrag 'Keine Daten empfangen' geschrieben. Dies ist kein Defekt des Adapters, sondern systembedingt.
+Gelegentlich kommt es vor, dass Messwerte nicht abgerufen werden können. Dies geschieht häufig zur vollen Stunde, da die Daten vermutlich komprimiert und intern verarbeitet werden. Aber auch nachts (gegen Mitternacht) ist der Datenabruf oft nicht möglich. In diesem Fall wird als Warnung der Eintrag „Keine Daten empfangen“ im Protokoll gespeichert. Dies ist kein Fehler des Adapters, sondern systembedingt.
 
 ### HAFTUNGSAUSSCHLUSS
-Bitte beachten Sie Urheberrechte und Markenrechte, wenn Sie Namen oder Logos eines Unternehmens verwenden, und fügen Sie Ihrer README-Datei einen Haftungsausschluss hinzu.
-Sie können andere Adapter nach Beispielen durchsuchen oder in der Entwickler-Community nachfragen. Die unbefugte Verwendung eines Namens oder Logos eines Unternehmens kann rechtliche Probleme für Sie nach sich ziehen.
+Bitte beachten Sie Urheberrechte und Markenrechte, wenn Sie Namen oder Logos von Unternehmen verwenden, und fügen Sie einen entsprechenden Hinweis in Ihre README-Datei ein.
+Sie können sich Beispiele anderer Adapter ansehen oder in der Entwickler-Community nachfragen. Die Verwendung von Firmennamen oder -logos ohne Genehmigung kann rechtliche Konsequenzen haben.
 
 ## Changelog
 
@@ -38,11 +40,27 @@ Sie können andere Adapter nach Beispielen durchsuchen oder in der Entwickler-Co
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
+
+- (raschy) change to version 4
+- (raschy) some dependency updates
+
+### 0.1.7 (2025-08-22)
+
+- (raschy) Station names visible again
+
+### 0.1.6 (2025-08-22)
+
+- (raschy) Removal of an unused state
+- (raschy) improved error messages
+- (raschy) improved retrieval logic
+
+### 0.1.5 (2025-05-03)
 
 - (raschy) Supplementary data points i18n
 - (raschy) Data point type corrected 
-- (raschy) @iobroker/adapter-core 3.2.3 is recommended 
+- (raschy) @iobroker/adapter-core 3.2.3 is recommended
 
 ### 0.1.4 (2024-12-16)
 
@@ -78,11 +96,13 @@ Sie können andere Adapter nach Beispielen durchsuchen oder in der Entwickler-Co
 
 - (raschy) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License
 
-Copyright (c) 2024-2025 raschy <raschy@gmx.de>
+Copyright (c) 2024-2026 raschy <raschy@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

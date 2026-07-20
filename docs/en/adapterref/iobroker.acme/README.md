@@ -121,6 +121,8 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
 - (mcm1957) Missing size attributes for jsonConfig have been added.
 - (mcm1957) Dependencies have been updated
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License

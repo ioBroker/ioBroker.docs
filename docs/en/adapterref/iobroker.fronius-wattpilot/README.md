@@ -293,6 +293,8 @@ The adapter connects to the Wattpilot's WebSocket interface and converts incomin
 ### 0.0.1 (2020-01-01)
 - Initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 

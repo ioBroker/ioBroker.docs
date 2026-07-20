@@ -58,9 +58,22 @@ With this you can create nice charts like this one (created with echarts adapter
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.1.33-alpha.0 (2026-05-17)
-* (HGlab01) Bump axios to 1.16.0
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
+### 0.1.35 (2026-06-15)
+* (HGlab01) improve provider sequence for forecast capability
+
+### 0.1.34 (2026-06-13)
+* (HGlab01) change provider sequence (Exaa as last)
+* (HGlab01) fix EnergyCharts empty data recognition
+* (HGlab01) Bump axios to 1.17.0
+
+### 0.1.33 (2026-05-26)
+* (HGlab01) Bump axios to 1.16.1
 * (SimonFischer04) support echarts (vis-2)
+* (HGlab01) fix E5050 process.exit() used
 
 ### 0.1.32 (2026-05-02)
 * (HGlab01) Adapter requires node.js >= 22 now
@@ -70,12 +83,8 @@ With this you can create nice charts like this one (created with echarts adapter
 ### 0.1.30 (2026-02-24)
 * (HGlab01) finetune timeout management
 
-### 0.1.29 (2026-02-14)
-* (HGlab01) add time based grid costs calculation (see above)
-* (HGlab01) Bump axios to 1.13.5
-
-### 0.1.28 (2025-12-11)
-* (HGlab01) add Energy-Charts as third data provider
+### Older Changelog
+can be find [here](https://github.com/HGlab01/ioBroker.apg-info/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

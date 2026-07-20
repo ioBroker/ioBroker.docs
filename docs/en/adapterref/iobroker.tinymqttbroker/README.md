@@ -17,8 +17,8 @@ This is very tiny MQTT broker which is not managing any objects/states in iobrok
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Requires
-* Node.js 20 or higher
-* ioBroker host (js-controller) 5.0 or higher
+* Node.js 22 or higher
+* ioBroker host (js-controller) 6.0.11 or higher
 
 ## How to use it
 A MQTT client could look like
@@ -87,11 +87,12 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (copilot) Adapter requires node.js >= 22 now
+### 0.1.7 (2026-06-16)
 * (HGlab01) add logs for clientError, connectionError and keepaliveTimeout
 * (HGlab01) Bump aedes to 1.0.2
- 
+* (HGlab01) code quality improvements
+* (HGlab01) dependecy updates
+
 ### 0.1.6 (2026-03-19)
 * (HGlab01) Bump aedes to 1.0.1
 * (HGlab01) Rename config items
@@ -109,31 +110,6 @@ onStop(function (callback) {
 * (HGlab01) Improve UI config
 * (HGlab01) Bump json-explorer to 0.1.16
 * (HGlab01) Bump aedes to 0.51.3
-
-### 0.1.1 (2024-02-01)
-* (HGlab01) Bump json-explorer to 0.1.15
-* (HGlab01) Bump aedes to 0.51.0
-
-### 0.1.0 (2023-12-04)
-* (HGlab01) first minor release
-* (HGlab01) Node.js 18.0 or higher
-* (HGlab01) ioBroker host (js-controller) 5.0 or higher
-
-### 0.0.8 (2023-10-09)
-* (HGlab01) Bump json-explorer to 0.1.14
-
-### 0.0.7 (2023-10-05)
-* (HGlab01) add logs for "address already in use"-issue
-
-### 0.0.6 (2023-09-18)
-* (HGlab01) Improve error handling
-* (HGlab01) Verify if port is used from other process
-
-### 0.0.5 (2023-09-11)
-* (HGlab01) add sentry support
-
-### 0.0.4(2023-06-30)
-* (HGlab01) first release
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

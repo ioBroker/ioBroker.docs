@@ -57,6 +57,9 @@ If checked, the adapter also sends an output once it changes.
 
 
 ## Changelog
+### 1.3.1 (2026-07-06)
+* update dependencies
+
 ### 1.3.0 (2026-05-14)
 * update dependencies
 * (copilot) Adapter requires node.js >= 22 now
@@ -74,8 +77,7 @@ If checked, the adapter also sends an output once it changes.
 ### 1.2.3 (2025-10-25)
 * migrate to npm trusted publishing
 
-### 1.2.2 (2025-10-18)
-* added export/import to config tables
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

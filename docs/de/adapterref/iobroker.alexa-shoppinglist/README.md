@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa-shoppinglist/README.md
 title: ioBroker.alexa-shoppingList
-hash: or7jj4BKgLMQAtb9TD415gPeR8SUoLzBJq0i6Me7pzQ=
+hash: ldEMbB39aTHrj0g0nfj/LqO6422ANlU9mz3N+7pun3A=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/alexa-shoppinglist.png)
 
@@ -13,52 +13,53 @@ hash: or7jj4BKgLMQAtb9TD415gPeR8SUoLzBJq0i6Me7pzQ=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/alexa-shoppinglist-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.alexa-shoppinglist.png?downloads=true)
 
-# IoBroker.alexa-shoppingList
-**Tests: ** ![Testen und Freigeben](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.alexa-Einkaufsliste
+**Tests: ** ![Test und Freigabe](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
 
-## Alexa-ShoppingList-Adapter für ioBroker
-Dieser Adapter verwendet Sentry-Bibliotheken, um Exceptions und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in der Sentry-Plugin-Dokumentation! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Anweisungen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Verwendung der Sentry-Berichterstattung beginnt mit js-controller 3.0.
 
-Generiert die Einkaufsliste von Alexa
+## Alexa-Einkaufslisten-Adapter für ioBroker
+Erstellt die Einkaufsliste von Alexa.
 
-Sie können auch andere Listen von Alexa verwenden. Konfigurieren Sie diese im Admin-Bereich.
-Mit der neuen Admin-Benutzeroberfläche wird es für Sie viel einfacher.
+Sie können auch andere Listen von Alexa verwenden – konfigurieren Sie dies in den Administratoreinstellungen.
+Die neue Benutzeroberfläche für Administratoren vereinfacht dies erheblich.
 
-Es gibt einen Status zum Einfügen neuer Elemente. Geben Sie einfach den Text ein und drücken Sie die Eingabetaste.
+Es gibt eine Funktion zum Einfügen neuer Elemente: Geben Sie einfach den Text ein und drücken Sie die Eingabetaste.
 Sie können aktive und inaktive Listen löschen.
-Sie können auch nur ein Element in beide Richtungen verschieben.
+Sie können einzelne Elemente auch in beide Richtungen verschieben.
 
-Ich hoffe, es gefällt Ihnen
+Ich hoffe, es gefällt Ihnen.
 
-**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
+**Wenn es Ihnen gefällt, erwägen Sie bitte eine Spende:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
 ## Datenpunkte
 | DP-Name | Typ | Beschreibung |
 |---------------------|--------|-----------------------------------------------------------------------------------------------------|
-| add_position | Zeichenfolge | Geben Sie den in die Liste einzufügenden Text ein |
+| add_position | String | Geben Sie den Text ein, der in die Liste eingefügt werden soll |
 | delete_activ_list | Schaltfläche | Löscht die aktive Liste und verschiebt sie in die inaktive Liste |
-| delete_inactiv_list | Schaltfläche | Löscht die Inaktivliste |
-| position_to_shift | Nummer | Sie können die Positionsnummer des Elements eingeben, das Sie verschieben möchten, und dann auf die Schaltfläche „to_active_list“ oder „to_inactive_list“ klicken. |
-| list_active | JSON | Die aktive Liste als JSON |
-| list_active_sort | Schalter | Sie können die aktive Liste nach Name oder Einfügezeit sortieren |
+| Inaktive Liste löschen | Schaltfläche | Löscht die Liste der inaktiven Elemente |
+| position_to_shift | Nummer | Sie können die Positionsnummer des zu verschiebenden Elements eingeben und dann auf die Schaltflächen "zur_aktiven_Liste" oder "zur_inaktiven_Liste" klicken. |
+| list_active | JSON | Die Aktivliste als JSON |
+| list_active_sort | Schalter | Sie können die aktive Liste nach Namen oder Einfügezeit sortieren |
 | list_inactive | JSON | Die inaktive Liste als JSON |
-| list_inactive_sort | Schalter | Sie können die inaktive Liste nach Namen oder Einfügezeit sortieren |
-| to_activ_list | Button | Geben Sie zuerst position_to_shift ein und drücken Sie dann den Button, um zur Activ_list zu wechseln |
-| to_inactive_list | Button | Geben Sie zuerst position_to_shift ein und drücken Sie dann den Button, um zur inactiv_list zu wechseln |
+| list_inactive_sort | Schalter | Sie können die Liste der inaktiven Elemente nach Namen oder nach Einfügezeit sortieren. |
+| to_activ_list | Button | Zuerst position_to_shift eingeben und dann den Button drücken, um zur activ_list zu wechseln |
+| to_inactive_list | Button | Zuerst position_to_shift eingeben und dann den Button drücken, um zur inactiv_list zu wechseln |
 
 | Attribut in JSON | Beschreibung |
 |-------------------|-------------------------------------------|
-| Name | Name des Artikels |
-| Zeit | Zeitstempel des Einfügens |
+| Name | Bezeichnung des Artikels |
+| Zeit | Zeitstempel der Einfügung |
 | id | id im Alexa2-Adapter |
 | pos | Position in der Liste |
-| buttonmove | Schaltfläche zum Wechseln zur aktiven oder inaktiven Liste |
+| buttonmove | Schaltfläche zum Verschieben in die aktive oder inaktive Liste |
 | buttondelete | Schaltfläche zum vollständigen Löschen des Elements |
 
-Das JSON enthält nun zwei Schaltflächen zum Verschieben oder Löschen von Elementen.
-Hierfür müssen Sie im VIS-Editor unter Skript Code einfügen. Geben Sie Folgendes ein:
+Die JSON-Datei enthält nun zwei Schaltflächen zum Verschieben und Löschen von Elementen.
+
+Dazu müssen Sie im VIS-Editor unter „Skript“ folgenden Code einfügen:
 
 ```
  /* Alexa Einkaufsliste JSON */
@@ -82,8 +83,24 @@ function setOnDblClickCustomShop( myvalue) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.5 (2026-06-04)
 
-### **WORK IN PROGRESS**
+- CHORE: Update dependencies
+
+### 1.1.4 (2026-06-04)
+
+- CHORE: Add unit tests
+- (copilot) Adapter requires node.js >= 22 now
+- CHORE: Update dependencies
+- CHORE: #203 Issues reported by repository checker
+- CHORE: #193-Repository-Checker
+
+### 1.1.3 (2025-11-29)
+
+- CHORE: Update dependencies
+- FIX: Error reported by sentry
+
+### 1.1.2 (2025-09-20)
 
 - CHORE: #145 Update dependencies
 
@@ -91,59 +108,13 @@ function setOnDblClickCustomShop( myvalue) {
 
 - FIX: Error reported by sentry
 
-### 1.1.0 (2025-07-14)
-
-- FEAT: Activate sentry
-- Breaking change: minimal supported node.js version is 20.x
-- FEAT: Add typescript
-
-### 1.0.3 (2024-12-04)
-
-- CHORE: Migration to ESLint 9 and @iobroker/eslint-config
-
-### 1.0.2 (2024-11-09)
-
-- FIX: #97 Add missing attributes to jsonConfig
-
-### 1.0.1 (2024-10-19)
-
-- FEAT: #95 Responsive Design
-
-### 1.0.0 (2024-08-09)
-
-- Js-controller >=5.0.19 is required
-- Breaking change: minimal supported node.js version is 18.x
-
-### 0.1.5 (09.01.2023)
-
-- Error when deleting via the JSON list fixed
-
-### 0.1.4 (25.09.2022)
-
-- Its now possible to delete always the inactive list, when you delete an article from the active list
-- You only have to check the checkbox
-
-### 0.1.2 ( 09.04.2022)
-
-- Add Buttons in JSON String
-
-### 0.1.1 ( 20.02.2022)
-
-- Error fixed in jsonConfig
-
-### 0.1.0 ( 20.02.2022)
-
-- First complete working Releases
-
-### 0.0.1
-
-- (MiRo1310) initial release
+## License
 
 ## License
 
 MIT License
 
-Copyright (c) 2025 MiRo1310 <michael.roling@gmx.de>
+Copyright (c) 2021-2026 MiRo1310 <michael.roling@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

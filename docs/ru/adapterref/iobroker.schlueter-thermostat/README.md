@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.schlueter-thermostat/README.md
 title: ioBroker.schlueter-thermostat
-hash: yt/ET3sBQoIQkkRYrUVIAgXdMOlOAC4DpP1WNWv/cGk=
+hash: XsM1CXUOLgWGPWM/rQJ6W+lOzuTdSFDDotXkTOKqYTE=
 ---
 # IoBroker.schlueter-термостат
 
@@ -12,6 +12,9 @@ hash: yt/ET3sBQoIQkkRYrUVIAgXdMOlOAC4DpP1WNWv/cGk=
 ![Количество установок](https://iobroker.live/badges/schlueter-thermostat-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/schlueter-thermostat-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.schlueter-thermostat.png?downloads=true)
+![ioBroker](https://img.shields.io/badge/ioBroker-Adapter-blue)
+![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22-green)
+![Лицензия](https://img.shields.io/badge/License-MIT-lightgrey)
 ![Облачная архитектура](https://img.shields.io/badge/Architecture-Cloud%20API%20Bridge-blue?style=for-the-badge&logo=cloudflare)
 ![Применение концепции](https://img.shields.io/badge/Control-Apply%20Based-green?style=for-the-badge)
 ![Поддержка режимов](https://img.shields.io/badge/Modes-Schedule%20|%20Comfort%20|%20Manual%20|%20Boost%20|%20Eco%20|%20Frost%20Protection%20|%20Vacation-orange?style=for-the-badge)
@@ -101,89 +104,24 @@ flowchart TB
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.5.2 (2026-03-20)
+### 0.7.4 (2026-06-05)
+* (copilot) Fixes for Repo Checker
 
-- (patricknitsch) Update Readme
-- (patricknitsch) Fix Issues from RepoChecker
+### 0.7.3 (2026-05-25)
+* (copilot) Fixes for Repo Checker
 
-### 0.5.1 (2026-03-18)
+### 0.7.2 (2026-05-23)
+* (copilot) Add Icons for Notifications
 
-- (copilot) Fix issue with configuration button in Tab
+### 0.7.1 (2026-05-21)
+* (copilot) Modify notification manager to work with instances
+* (copilot) Update Dependencies
 
-### 0.5.0 (2026-03-17)
+### 0.7.0 (2026-05-14)
 
-- (copilot) Add `admin/tab.html` control panel with green theme, i18n (DE/EN), live status banner, quick modes, temperature control, vacation, schedule viewer and configuration button
-- (copilot) Status banner now shows energy consumption for today (kWh)
-- (copilot) Instance selector removed — instance is auto-detected from the `?instance=N` URL parameter passed by Admin 7
+- (claude) Add Notification Manager
 
-### 0.4.3 (2026-03-06)
-
-- (patricknitsch) Fix adapter type in io-package.json
-
-### 0.4.2 (2026-03-06)
-
-- (claude) Fixed object hirarchy
-- (patricknitsch) Update Readme
-
-### 0.4.1 (2026-02-26)
-
-- (patricknitsch) Update Packages and Workflow
-
-### 0.4.0 (2026-02-11)
-
-- (claude) Fallback if Devices or Cloud offline
-
-### 0.3.2 (2026-01-31)
-
-- (patricknitsch) Update from git to https
-
-### 0.3.1 (2026-01-31)
-
-- (patricknitsch) Add Mode Frost Protection
-- (patricknitsch) Show Enum instead of Regulation Number
-
-### 0.3.0 (2026-01-31)
-
-- (patricknitsch) Update Readme
-- (patricknitsch) Verify Polling if Thermostat give no Response
-- (patricknitsch) Complete Refactoring to handle functions better
-- (patricknitsch) encrypt all sensitive credentials -> Relogin necessary
-- (patricknitsch) Code Fixing for latest repo
-
-### 0.2.4 (2026-01-28)
-
-- (patricknitsch) Change Format of Times
-
-### 0.2.3 (2026-01-28)
-
-- (patricknitsch) Catch wrong values for Temperature and Regulation Mode
-
-### 0.2.2 (2026-01-28)
-
-- (patricknitsch) Update setStates for ComfortMode
-- (patricknitsch) More Debugging
-
-### 0.2.1 (2026-01-28)
-
-- (patricknitsch) Fix JsonConfig
-
-### 0.2.0 (2026-01-28)
-
-- (patricknitsch) add automatic Refresh of Token after Error 403
-- (patricknitsch) fix max Value of Regulation Mode to 9 for error preventing
-- (patricknitsch) improve Handling of Mode Settings
-
-### 0.1.1 (2026-01-28)
-
-- (patricknitsch) updated Readme
-
-### 0.1.0 (2026-01-28)
-
-- (patricknitsch) initial release
-- (patricknitsch) fetch data and write in Datapoints
-- (patricknitsch) functional version with Energy and settable functions
-
-##
+**Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
 
 ## License
 

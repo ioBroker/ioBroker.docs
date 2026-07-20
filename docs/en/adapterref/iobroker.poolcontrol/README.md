@@ -36,6 +36,7 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
 
 - **Solar Control**
   - Collector on/off thresholds with hysteresis
+  - Live collector-surface delta for dashboards and scripts
   - Collector warning threshold
   - Optional speech output for warnings
   - Automatic reset logic
@@ -43,12 +44,14 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
 - **Solar Extended**
   - Separate control for external solar actuators
   - Delta on/off thresholds
+  - Live collector-pool reference delta for dashboards and scripts
   - Maximum pool temperature limits
   - Diagnostic and reason states
   - Priority and block logic
   - Status section under `solar.extended.*`
+  - Runtime changes to `solar.extended.pool_temperature_source` are applied automatically; because Solar Extended uses a cyclic check interval, calculation, control logic, and `solar.extended.collector_pool_reference_delta` may take up to approximately 60 seconds to update.
 
-- **Photovoltaic Control (since v0.6.0)**
+- **Photovoltaic Control**
   - Pump control based on PV surplus and household consumption
   - Start logic using configurable surplus margins
   - Optional overrun during cloudy phases
@@ -56,7 +59,7 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
   - Supports external energy object IDs
   - Pump mode: `Automatic (PV)`
 
-- **Heating / Heat Pump Control (test phase)**
+- **Heating / Heat Pump Control**
   - Automatic control of heating rod or heat pump
   - Configurable target and safety temperatures
   - Optional pump prerun and overrun
@@ -102,7 +105,7 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
   - Automatic reset after completed backwash
   - PV integration for circulation targets
 
-- **Pressure Sensor Integration (since v0.7.x)**
+- **Pressure Sensor Integration**
   - Real-time pressure measurement
   - Trend analysis
   - Learning average values
@@ -144,6 +147,14 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
   - Starts and operating statistics
   - HTML / JSON summaries
 
+- **Pool Insights**
+  - Rule-based overall pool analysis under analytics.insights.pool.*
+  - Reads existing PoolControl data only
+  - No automatic control, dosing, pump switching, or actuator switching
+  - Disabled by default
+  - Optional summary handoff to speech.queue
+  - HTML / JSON / text outputs
+
 - **VIS-ready Outputs**
   - Structured text outputs
   - HTML outputs
@@ -175,6 +186,26 @@ It provides automation for pumps, heating, solar and photovoltaic control as wel
   - Informational only
   - No chlorine control
   - No automatic dosing
+
+  **Two-tier bounded chemistry history**
+  - Existing samples_json states remain the 7-day, 15-minute short-term history: at most 672 samples and 64 KB each
+  - New internal daily_json states keep compact local-calendar-day aggregates with min/max/avg/last/count: at most 32 entries and 8 KB each
+  - 24h and 7d trends use samples_json; 30d trends use the last value of the matching daily aggregate
+  - Existing 24h, 7d, and 30d trend states and text/HTML/JSON reports retain their API and meaning
+  - The daily aggregates complement but do not replace raw history; valid legacy data is normalized during migration and oversized JSON is rejected before parsing
+  - Raw long-term histories belong in a dedicated ioBroker history/time-series database
+  - If an oversized states.jsonl already prevents js-controller startup, it must be repaired externally before PoolControl can run
+
+  **Chemistry Tools**
+  - pH Plus calculator
+  - pH Minus calculator
+  - Salt calculator
+  - Manual calculation helpers
+  - Pool volume prefill support
+  - Optional manual value override
+  - Result texts with validation and error handling
+  -No automatic chemical dosing
+  - Informational only
 
 - **AI System**
   - Weather hints (Open-Meteo)
@@ -252,63 +283,48 @@ New features are added regularly – please refer to the changelog.
 ---
 
 ## Changelog
-### 1.3.25 (2026-05-26)
+### 1.4.2 (2026-07-01)
 
-- Updated README structure and feature overview
-- Synchronized German and English function overviews
-- Updated repository maintenance dependencies
+- Fixed monthly temperature statistics reset scheduling
+  - Monthly reset no longer uses long timeouts above the Node.js/ioBroker limit
+  - Added persistent monthly period tracking
+  - Missed month changes after adapter downtime are detected safely
+  - Monthly reset is now checked daily and executed only once per period
 
-### 1.3.24 (2026-05-26)
+- Improved solar logbook logging
+  - Oversized solar logbook entries are now logged as debug instead of warning
+  - This avoids unnecessary warning noise for non-critical diagnostic information
 
-- Updated release-script dependencies to current versions
-- Improved README and changelog structure
-- Repository checker recommendations reviewed
+### 1.4.1 (2026-06-30)
 
-### 1.3.23 (2026-05-26)
+- Fixed Auto-PV holding logic for already running pumps.
+- When Auto-PV already controls the pump, the current pump power is now considered for the holding decision.
+- This prevents a running pump from triggering its own Auto-PV afterrun/stop cycle after startup.
+- The displayed PV surplus (`photovoltaic.power_surplus_w`) remains the real remaining surplus and is not artificially adjusted.
 
-- Added extended temperature diagnostics for all temperature sensors:
-  - last valid value
-  - last valid value timestamp
-  - minutes since last value
-  - source status (`ok`, `warning`, `not_received`, `invalid_timestamp`)
-- Added automatic recovery mechanism for stalled temperature updates
-- Recovery runs only when a sensor enters warning state and uses cooldown protection
-- Switched temperature helper timers to ioBroker adapter timers
-- Improved visibility and troubleshooting for missing or delayed temperature updates
+### 1.4.0 (2026-06-29)
 
-### 1.3.22 (2026-05-24)
+- Added a reset button for pump learning to quickly clear learned values after a pump replacement or incorrect learning while keeping user settings intact.
+- Made the daily circulation factor writable and persistent. The adapter configuration is now only used as the initial value, allowing adjustments directly via states (e.g. VIS or HomePanel).
+- Added an optional temperature-dependent circulation factor that automatically increases the required daily circulation based on a selectable temperature sensor and configurable threshold.
+- Extended the existing time control with an optional interval mode. Each time window can now operate either continuously or in configurable intervals without introducing a new pump mode.
+- Added new diagnostic states and multilingual status messages to improve transparency and troubleshooting for the new circulation and time control features.
 
-- Improved ORP pH reference synchronization
-- ORP helper now updates pH reference independently from ORP value processing
-- Immediate update of ORP pH reference when pH enabled state or pH value changes
-- Fixed missing pH reference updates when ORP evaluation was blocked, invalid or waiting for measurement conditions
+### 1.3.35 (2026-06-29)
 
-### 1.3.21 (2026-05-17)
+- Fixed an inconsistency in the daily circulation calculation.
+- `circulation.daily_remaining` is now recalculated together with `circulation.daily_required`.
+- Changing the pool size or minimum daily circulation now produces consistent values immediately after adapter restart.
+- The remaining daily circulation is no longer blocked by zero flow or a stopped pump.
 
-NEW: Follow-pump devices
+### 1.3.34 (2026-06-27)
 
-Added a new `actuators.follow_pump_devices` area.
-
-Up to three external devices can now automatically follow the operation of the main pump.
-
-Typical examples:
-
-- UV systems
-- Water features
-- Auxiliary filters
-- Additional circulation devices
-
-Features:
-
-- Automatic ON when the main pump starts
-- Automatic OFF when the main pump stops
-- Configurable target state per device
-- Validation of target states:
-  - state exists
-  - boolean type required
-  - writable required
-- Protection against invalid internal follow-pump targets
-- Persistent configuration values
+- **Major stability improvement:** Completely redesigned the internal chemistry history (pH, ORP and TDS) to prevent unbounded JSON state growth. This significantly reduces the risk of oversized `states.jsonl` files and potential js-controller startup failures.
+- **New two-stage history architecture:** Chemistry history now uses a compact short-term history for recent measurements together with a dedicated daily history for long-term trends. All existing 24-hour, 7-day and 30-day trend calculations and reports remain fully available.
+- **Protected history storage:** Added strict limits for chemistry history sample count and JSON size. Oversized or invalid history states are now safely detected, validated and handled before being processed.
+- **Daily aggregates introduced:** Added compact daily aggregates for pH, ORP and TDS containing minimum, maximum, average and last measurement together with the number of valid samples. This preserves long-term trend analysis without storing large raw histories.
+- **Additional safeguards:** Added size protection for the solar logbook and debug log to prevent uncontrolled state growth.
+- **Maintenance:** Updated the `@iobroker/adapter-core` dependency to the latest recommended version.
 
 ## Archived Release History
 

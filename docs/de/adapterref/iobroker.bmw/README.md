@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: V8qwDl0EcYEzL4sB9SgTqXwY3zqZrH4548JUHozkRqo=
+hash: wXG9jNeA0kjQfS9C2uI1GqkbLX4/AyELs56eCubif4A=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bmw.svg)
@@ -25,8 +25,11 @@ hash: V8qwDl0EcYEzL4sB9SgTqXwY3zqZrH4548JUHozkRqo=
 
 # IoBroker.bmw
 ## Versionen
-# BMW-Adapter für ioBroker
+## BMW-Adapter für ioBroker
 Dieser Adapter integriert BMW-Fahrzeuge in ioBroker mithilfe der neuen BMW CarData API mit OAuth2-Authentifizierung und Echtzeit-MQTT-Streaming. Er ermöglicht die umfassende Überwachung von Fahrzeugdaten für alle mit Ihrem BMW-Konto verknüpften BMW-Modelle.
+
+## Wächter
+Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Datenaktualisierung während des Ladevorgangs
 Während des Ladevorgangs kann es vorkommen, dass der Akkustand nicht per Stream aktualisiert wird, da sich das Fahrzeug im Schlaf-/Standby-Modus befindet. Beim Einschalten des Fahrzeugs werden die Daten aktualisiert. Sie können eine Aktualisierung über die API `bmw.0.vin.remote.fetchViaAPI` auslösen.
@@ -50,7 +53,7 @@ Eine detaillierte Beschreibung des Datenpunkts finden Sie hier [telematic.json](
 
 ![CarData-Client-Einrichtung](../../../en/adapterref/iobroker.bmw/img/cardata-client-setup.png)
 
-# **WICHTIG**: Klicken Sie auf einen Dienst und warten Sie 30 Sekunden, falls eine Fehlermeldung erscheint. Klicken Sie dann erneut. Klicken Sie nicht auf „Gerät Authentifizieren“. Geben Sie die Client-ID in den iobroker-Einstellungen ein. Falls dies nicht funktioniert, versuchen Sie es mit Kleinbuchstaben.
+## **WICHTIG**: Klicken Sie auf einen Dienst und warten Sie 30 Sekunden, falls eine Fehlermeldung erscheint. Klicken Sie dann erneut. Klicken Sie nicht auf „Gerät Authentifizieren“. Geben Sie die Client-ID in den iobroker-Einstellungen ein. Falls dies nicht funktioniert, versuchen Sie es mit Kleinbuchstaben.
 ### 2. CarData-Streaming-Konfiguration
 **SIE MÜSSEN CARDATA STREAMING KONFIGURIEREN UND ALLE 244 DATENPUNKTE AUSWÄHLEN**
 
@@ -196,8 +199,26 @@ Dieser Adapter ist erhältlich unter: [https://github.com/TA2k/ioBroker.bmw](htt
 
 ### **WORK IN PROGRESS**
 
+- (hombach) updated adapter-core
+- (hombach) fixed adapterchecker errors: downgraded @types/node to ^22, added Sentry notice to README, added @iobroker/adapter-dev
+- (hombach) replaced native setInterval/setTimeout with adapter-managed equivalents in main.js
+- (hombach) moved all jsonConfig.json inline translations to i18n files
+- (hombach) updated dependencies
+
+### 5.0.0 (2026-05-17)
+
+- (copilot) BREAKING: Adapter requires node.js >= 22 now
+- (hombach) fixed axios vulnerability
+- (hombach) removed node 20 tests
+- (hombach) added CHANGELOG_OLD.md
+- (hombach) updated dependencies
+
+### 4.3.5 (2026-04-11)
+
 - (hombach) fix repo checker warnings
+- (hombach) fix vulnerability
 - (hombach) update dependencies
+- (hombach) remove old admin files
 
 ### 4.3.4 (2026-02-28)
 
@@ -215,130 +236,7 @@ Dieser Adapter ist erhältlich unter: [https://github.com/TA2k/ioBroker.bmw](htt
 - update telemetry ids for container creation
 - optimize dependabot config (#209)
 
-### 4.3.1 (2025-10-11)
-
-- fix gps coordinate parsing
-
-### 4.3.0 (2025-10-09)
-
-- improve logs
-- add autocast
-- add descriptions
-
-### 4.2.0 (2025-10-04)
-
-- improve token refresh
-- fix image fetching
-
-### 4.1.1 (2025-10-03)
-
-- Add API fetching via Container and move other apis to manually fetching
-
-### 4.0.5 (2025-10-01)
-
-- **BREAKING:** Complete migration to BMW CarData API with OAuth2 Device Flow authentication
-- **BREAKING:** Removed username/password authentication (deprecated by BMW)
-- **BREAKING:** Removed all remote control functionality (CarData API is read-only)
-- **BREAKING:** Removed second user support and CAPTCHA requirements
-- **NEW:** Real-time MQTT streaming for instant vehicle data updates
-- **NEW:** OAuth2 Device Code Flow authentication with PKCE
-- **NEW:** API quota management system (50 calls per 24 hours)
-- **NEW:** Configurable API endpoint selection to manage quota usage
-- **NEW:** Organized folder structure: api/ for periodic updates, stream/ for real-time data
-- **NEW:** Enhanced state management with proper object creation
-- **NEW:** Modern JSON-based configuration interface (jsonConfig.json)
-- **NEW:** Comprehensive setup documentation with BMW portal integration
-- **FIXED:** MQTT message processing logic for correct data validation
-- **FIXED:** State creation issues preventing "no existing object" errors
-- **IMPROVED:** Removed unused dependencies (cookie handling, legacy auth)
-- **IMPROVED:** Enhanced error handling with specific guidance for common issues
-
-### 3.0.1 (2025-09-27)
-
-- (hombach) change to recommended stable admin 7.6.17 (#159)
-- (hombach) migrate to iobroker/eslint-config (#146)
-- (hombach) fix form-data vulnerability
-- (hombach) code cleanups
-- (hombach) update axios
-- (hombach) bump adapter-core
-- (hombach) fix issues detected by repository checker (#170)
-- (hombach) bump dependencies
-
-### 3.0.0 (2025-06-10)
-
-- BREAKING: Dropped support for Node.js 18 (#88)
-- (hombach) BREAKING: Dropped support for js-controller 5 (#111)
-- (hombach) BREAKING: change to admin 7.4.10 as recommended by ioBroker (#111)
-- (hombach) encrypt and protect second user password - has to be reentered (#111)
-- (hombach) bump dependencies
-
-### 2.9.5 (2025-05-18)
-
-- (hombach) update axios
-- (hombach) fixing issues detected by repository checker (#88)
-- (hombach) some small code cleanups/modernisations
-- (hombach) add/translate description
-- (hombach) update logo
-
-### 2.9.4 (2025-02-26)
-
-- fix for Mitbenutzer Feature
-
-### 2.9.3 (2025-01-29)
-
-- fix remote controls
-- add Mitbenutzer Login for remote controls
-
-### 2.9.0 (2024-11-28)
-
-- added new remotes as switch and updated values
-- added retry logic for remotes
-
-### 2.8.4 (2024-11-21)
-
-- improved charging session parsing
-- added remote to fetch charging session from a specific month
-- added raw JSON of charging session for export
-
-### 2.8.3 (2024-11-18)
-
-- login fixed
-
-### 2.8.2 (2024-10-05)
-
-- fix error getvehicles v2 failed
-
-### 2.8.1 (2024-09-30)
-
-- fix remote commands
-
-### 2.7.1
-
-- Bugfixes
-
-### 2.5.5
-
-- Fix login
-
-### 2.5.0
-
-- Fix login
-
-### 2.4.1
-
-- Add support for MINI and force refresh remote
-
-### 2.3.0
-
-- Disable v1 Endpoints
-
-### 2.1.1
-
-- Upgrade to statusV2 and remoteV2
-
-### 2.0.0
-
-- (TA2k) initial release
+### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
 ## License
 

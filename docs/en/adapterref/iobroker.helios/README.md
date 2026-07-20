@@ -59,7 +59,9 @@ https://forum.iobroker.net/topic/47762/test-helios-kwl-v0-0-x
 * (iobroker-community-adapters) initial release
 
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
+## License
 MIT License
 
 Copyright (c) 2021-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>

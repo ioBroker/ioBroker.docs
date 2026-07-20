@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: MGiYMwJoul92QwJbU2ve3VGjaw4SuxeBxGvNS9gxt8c=
+hash: oVufczSonHhlIy89jlBVIxnvpoMLkBWnu01wKPedSKU=
 ---
 ![Logo](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -18,7 +18,9 @@ hash: MGiYMwJoul92QwJbU2ve3VGjaw4SuxeBxGvNS9gxt8c=
 
 **Tests:** ![Test und Freigabe](https://github.com/Sneak-L8/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker-Adapter für KEBA KeContact P20 oder P30 und BMW i Wallbox
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
+## IoBroker-Adapter für KEBA KeContact P20 oder P30 und BMW i Wallbox
 Steuern Sie Ihre Ladestation über das UDP-Protokoll und nutzen Sie die automatische Regelung, z. B. um Ihr Fahrzeug mit Photovoltaik-Überschuss und Batteriespeicher zu laden.
 
 ## Installieren
@@ -100,7 +102,7 @@ Darüber hinaus gibt es einige Zustände, die das Verhalten von Photovoltaikanla
 * kecontact.n.automatic.resetTargetSoC - auf „true“ setzen, wenn der Ziel-SoC nach Erreichen eines bestimmten Wertes gelöscht werden soll.
 * kecontact.n.automatic.maxSoC – ein maximaler Ladezustand (SoC); das Fahrzeug wird nicht geladen, wenn dieser SoC erreicht ist.
 
-Beispiel: Um Ihr Fahrzeug unabhängig vom Überschuss mit einer konstanten Stromstärke von 6A zu laden, stellen Sie Photovoltaik auf „false“ und Strombegrenzung auf 6000 ein.
+Beispiel: Um Ihr Fahrzeug unabhängig vom Überschuss mit einer konstanten Stromstärke von 6A zu laden, stellen Sie Photovoltaik auf „false“ und LimitCurrent auf 6000 ein.
 
 ## Rechtliches
 Dieses Projekt steht in keiner direkten oder indirekten Verbindung zur Firma KEBA AG.
@@ -113,6 +115,22 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (Sneak-L8) addPower can now also be used to preserve power for other consumers by specifying negative value
+* (@mcm1957) Adapter requires node.js >= 22 now.
+* (Sneak-L8) Minimum time between phase switching has also to be respected when using state for phase switch, thanks to SmartNightly
+* (Sneak-L8) fix errors [E0036], [S0082] and [S5004] found by repository checker
+* (Sneak-L8) fix errors [E6025], [W1130], [W1132], [W1134],  [W5060] and [W6023] found by repository checker
+  
+### 3.6.0 (2026-03-29)
+* (Sneak-L8) information about new firmware also via admin notification (also works for x-series)
+* (Sneak-L8) updated dependencies
+
+### 3.5.0 (2026-03-02)
+* (copilot) Adapter requires admin >= 7.7.22 now
+* (Sneak-L8) checking of firmware version is back
+* (Sneak-L8) updated dependencies
+
+### 3.4.0 (2026-01-17)
 * (Sneak-L8) new options to charge vehicle up to a specified SoC
 * (Sneak-L8) new option to stop charging at a certain SoC
 * (Sneak-L8) raise adapter-dev version from 1.4 to 1.5
@@ -128,31 +146,12 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
 * (Sneak-L8) optimized strategy for battery charging
 * (Sneak-L8) node.js >= 20 required
 
-### 3.1.0 (2025-03-20)
-* (Sneak-L8) new option to reduce log entries on info level (write them with debug level)
-* (Sneak-L8) fix wording error ("regard" changed to grid consumption)
-* (Sneak-L8) fixed some english translations
-* (Sneak-L8) renamed state "regardTimestamp" to "consumptionTimestamp" - please delete old state
-
-### 3.0.1 (2025-03-15)
-* (Sneak-L8) fix error sentry IOBROKER-KECONTACT-29 an IOBROKER-KECONTACT-2A
-* (Sneak-L8) minimum js-controller now >= 7 due to I18n
-* (Sneak-L8) fix roles of states in io-package.json
-* (Sneak-L8) log of config on level debug instead of info
-
-### 3.0.0 (2025-03-10)
-* (Sneak-L8) rebase adapter on newest version of adapter creator
-* (Sneak-L8) required js-controller now >= 6.0.11 and admin >= 7.0.23
-* (Sneak-L8) new option to limit amperage of charging station to maximum value for amperage of whole mains circuit
-* (Sneak-L8) immediately reduce charging power when over max amperage or max power limits
-* (Sneak-L8) fix one time attempt for recharging vehicle in state 5
-* (Sneak-L8) reduced info logs for max power adjustment when no vehicle is plugged (log as debug in that case)
-* (Sneak-L8) pay attention to minimum time for phase switch by x2 when vehicle is plugged/unplugged
-* (Sneak-L8) fix error sentry IOBROKER-KECONTACT-21
-* (Sneak-L8) migrate from request to axios
-* (Sneak-L8) migrate from ESlint v8 to v9
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+
                                  Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/

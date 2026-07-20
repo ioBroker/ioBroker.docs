@@ -23,7 +23,7 @@ This adapter loads the weather warnings from the German weather service via JSON
 -->
 
 ## Changelog
-### 2.8.6 (2026-05-11)
+### 2.8.7 (2026-05-19)
 * (arteck) fix invalid JSON
 * (arteck) add info.lastUpdate
 * (arteck) add eslint

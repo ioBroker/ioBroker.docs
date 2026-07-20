@@ -66,6 +66,13 @@ This channel contains system data about the hardware and firmware as well as run
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- Security vulnerabilities fixed
+- Dependencies updated
+- Adapter checker stuff fixed (https://github.com/N-b-dy/ioBroker.oxxify-fan-control/issues/158)
+
 ### 0.0.16 (2026-05-18)
 
 - Security vulnerabilities fixed (#143)
@@ -89,6 +96,10 @@ This channel contains system data about the hardware and firmware as well as run
 ### 0.0.12 (2026-04-06)
 
 - Deploy workflow changed from "npm install" to "npm ci"
+
+### 0.0.11 and older
+
+[Link](/CHANGELOG_OLD.md)
 
 ## License
 

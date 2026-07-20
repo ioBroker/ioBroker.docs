@@ -171,6 +171,7 @@ a specific layout. Here is an example:
 - [Use Case Tasklist](documentation/usecase-tasklist.md)
 - [Use Case public-transport](documentation/usecase-public-transport.md)
 - [Use Case simple gauge](documentation/usecase-simplegauge.md)
+- [Use Case Github Issues and PRs](documentation/usecase-githubissues.md)
 
 ## Templatesystem
 

@@ -35,6 +35,20 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.2.3 (2026-07-08)
+
+- FIX: #575 Submenu cannot set 0 as value
+
+### 4.2.2 (2026-06-12)
+
+- FIX: #560 Fix error when using setState with confirm=true sends double return text
+
+### 4.2.1 (2026-06-06)
+
+- FIX: #556 Disable send menu after adapter restart
+- FIX: #555 Prevent double sending of state IDs when confirm=true
+- CHORE: Update dependencies
+
 ### 4.2.0 (2026-05-09)
 
 - FIX: Errors reported by sentry
@@ -45,23 +59,7 @@ You can create different groups with separate menus, and then assign users to th
 - FEAT: Add Unit tests
 - FIX: SetDynamicValue does not send return text
 
-### 4.1.0 (2026-04-12)
-
-- FIX: #510 Error in json table textTable and button table, input changed please check the documentation
-- Chore: #482 Update dependencies
-- FIX: Errors reported by sentry
-
-### 4.0.0 (2026-02-13)
-
-- FEAT: #478 Return text with more than one id
-- FEAT: #476 Add math to setstate
-- FIX: Errors reported by sentry
-
-### 3.2.3 (2025-12-12)
-
-- FIX: Errors reported by sentry
-
-  [Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

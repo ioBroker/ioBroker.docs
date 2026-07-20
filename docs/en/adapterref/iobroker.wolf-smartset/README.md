@@ -126,6 +126,7 @@ API Profiling allows you to track the Wolf Smartset API usage of the adapter. if
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (mcm1957) Dependencies have been updated.
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: NSo23ZZJFyEvhcKaN9Y+hI611HavqaS+hfFbhTdWT7w=
+hash: wXIczJacqbskGLq1SulPllz5UnBhihq/qg5LFf8dh8M=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -17,10 +17,14 @@ hash: NSo23ZZJFyEvhcKaN9Y+hI611HavqaS+hfFbhTdWT7w=
 **Tests:** ![Test und Freigabe](https://github.com/MyHomeMyData/ioBroker.e3oncan/workflows/Test%20and%20Release/badge.svg)
 
 ## E3oncan-Adapter für ioBroker
+> **Hinweis:** Die Navigationslinks in diesem Dokument funktionieren am besten, wenn sie auch auf GitHub geöffnet werden.
+
 > Eine deutsche Version dieser Dokumentation ist verfügbar: [README.de.md](README.de.md)
 
 ## Inhaltsverzeichnis
 - [Übersicht](#overview)
+- [Neuerungen in Version 1.1.0](#whats-new-in-v110)
+- [Neuerungen in Version 1.0.3](#whats-new-in-v103)
 - [Neuerungen in Version 1.0.0](#whats-new-in-v100)
 - [Neuerungen in Version 0.11.x](#whats-new-in-v011x)
 - [Schnellstart](#quick-start)
@@ -61,12 +65,47 @@ Eine Python-basierte Implementierung, die ausschließlich Daten sammelt und MQTT
 
 ---
 
+## Was ist neu in Version 1.1.1?
+### Aktualisierte Datenpunktdefinitionen
+Die Definitionen der Datenpunkte wurden auf Version 20260705 (allgemein) und 20260630 (Variante) aktualisiert.
+
+### Neuer O3ESwitch-Codec
+Für Datenpunkte, deren Struktur von einem Gerätetyp-Diskriminatorbyte abhängt, wurde ein neuer Codec `O3ESwitch` hinzugefügt. Das erste Byte wählt die aktive Variante aus einer Menge vordefinierter Codec-Zweige aus. Dies ermöglicht die vollständige strukturierte Dekodierung von ZigBee-Geräteslot-DIDs (2086–2143, 2262), wobei sich die dekodierten Felder je nach Gerätetyp unterscheiden (z. B. Klimasensor, Thermostatventil, Fußbodenthermostat, Aktor).
+
+### Dezimalrundeung für numerische Codecs
+Numerische Codecs (`O3EInt8`, `O3EInt16`, `O3EInt32`, `O3EInt64`, `O3EFloat32`) unterstützen nun den optionalen Parameter `decimals`. Bei einem Wert größer als 0 wird das dekodierte Ergebnis auf die entsprechende Anzahl an Dezimalstellen gerundet. Dies wird beispielsweise für `SignalLevel` (Skalierung 2,55, 2 Dezimalstellen) verwendet, um übermäßig lange Gleitkommawerte zu vermeiden.
+
+### Einheiten und Metadaten werden beim Start festgelegt, wenn sich die Datenpunktstruktur ändert
+Wenn der Adapter beim Start erkennt, dass sich die Struktur eines Datenpunkts geändert hat (neue Version in `didsE3var.json` oder `didsE3.json`), registriert er nun korrekt Einheiten und Beschreibungen für alle Unterzustände des neu erstellten Baums. Zuvor wurden Einheiten nur während eines Datenpunkt-Scans gesetzt; nach einer Strukturaktualisierung war ein nachfolgender Scan erforderlich, um sie zu befüllen.
+
+---
+
+## Was ist neu in Version 1.0.3?
+### Kein erneuter Build nach einem Node.js-Upgrade mehr nötig
+Das native CAN-Modul `socketcan` wurde auf Version 4.2.1 aktualisiert und verwendet nun die stabile **N-API**-Schnittstelle. Das Modul muss bei einem Node.js-Versionswechsel nicht mehr neu kompiliert werden. Nach einem Node.js-Upgrade (z. B. von Version 22 auf 24) ist die Ausführung von `iob rebuild` nicht mehr erforderlich – der Adapter startet ohne weitere Schritte.
+
+### Geplanter Datenpunktfilter auf der Registerkarte „Datenpunkte“
+Durch Klicken auf das grüne Symbol mit der Anzahl der geplanten Datenpunkte auf einer Gerätekarte werden nun **nur noch die geplanten Datenpunkte angezeigt**. So können Sie die Planung für ein bestimmtes Gerät einfach überprüfen oder anpassen. Ein erneutes Klicken auf das Symbol oder die Kartenüberschrift stellt die vollständige Ansicht wieder her.
+
+### Schutz benutzerdefinierter Variantendatenpunktdefinitionen
+Benutzerdefinierte Strukturen in `e3oncan.0.<DEVICE>.info.udsDidsSpecific` können nun durch Hinzufügen von `"protected": true` zum Eintrag **vor automatischen Aktualisierungen geschützt** werden. Ein optionales Feld `"reason"` wird protokolliert, sobald der Schutz wirksam wird. Ohne Schutz werden Variantendatenpunktdefinitionen (die auch in `didsE3var.json` aufgeführt sind) automatisch aktualisiert, sobald eine neuere Definition verfügbar ist – dieses Verhalten bleibt unverändert. Weitere Informationen finden Sie in [Dokumentation](lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific).
+
+### Aktualisierte Datenpunktdefinitionen
+Die Definitionen der Datenpunkte wurden auf Version 20260528 (allgemein) und 20260527 (Variante) aktualisiert. Highlights:
+
+- ZigBee DIDs 2084–2319 vollständig strukturiert (Geräteeigenschaften, aktuelle Werte in 57-Byte- und 68-Byte-Varianten)
+- Raum-DIDs 1884–1943 strukturiert (Name, Typ, Temperaturregelung, Fenstererkennung, min./max. Luftfeuchtigkeit)
+- Neue, von ViGuide abgeleitete DID-Strukturen für Brennstoffzellenmetriken, Energieabdeckung und Batterie-/Wechselrichterabonnements
+- Die Felder `Unknown*` verwenden nun einheitlich `RawCodec`.
+
+---
+
 ## Was ist neu in Version 1.0.0?
 ### Registerkarte „Datenpunkte“
-Eine neue **e3oncan-Datenpunktseite** ist direkt an die Instanzzeile des Adapters in der ioBroker-Instanzansicht angeheftet. Klicken Sie auf die<img src="admin/icon_open_tab.svg" height="20"> Klicken Sie auf die Schaltfläche in der Instanzzeile, um sie zu öffnen. Sie bietet eine eigene Benutzeroberfläche zur Verwaltung von Zeitplänen und Erfassungseinstellungen pro Gerät und Datenpunkt – für alltägliche Änderungen muss nicht der vollständige Adapterkonfigurationsdialog geöffnet werden.
+Eine neue Seite mit **e3oncan-Datenpunkten** ist direkt an die Instanzzeile des Adapters in der ioBroker-Instanzansicht angeheftet. Klicken Sie auf die<img src="admin/icon_open_tab.svg" height="20"> Klicken Sie auf die Schaltfläche in der Instanzzeile, um sie zu öffnen. Sie bietet eine eigene Benutzeroberfläche zur Verwaltung von Zeitplänen und Erfassungseinstellungen pro Gerät und Datenpunkt – für alltägliche Änderungen muss nicht der vollständige Adapterkonfigurationsdialog geöffnet werden.
 
 ### Automatische Erkennung von Energiezählern
-Energiezähler (E380 und E3100CB) werden nun **automatisch** während des Gerätescans durch passives CAN-Abhören auf beiden CAN-Kanälen erkannt. Statusnamen werden automatisch anhand der erkannten CAN-Adresse und des Kanals vergeben. Die Aktivierung/Deaktivierung und die Erfassungsverzögerung für jeden Energiezähler werden ausschließlich im Datenpunkte-Tab konfiguriert.
+Energiezähler (E380 und E3100CB) werden nun während des Gerätescans **automatisch** durch passives CAN-Abhören auf beiden CAN-Kanälen erkannt. Statusnamen werden automatisch anhand der erkannten CAN-Adresse und des Kanals vergeben. Die Aktivierung/Deaktivierung und die Erfassungsverzögerung für jeden Energiezähler werden ausschließlich im Datenpunkte-Tab konfiguriert.
 
 Beim ersten Start nach einem Upgrade von einer früheren Version wird die vorherige Energiezählerkonfiguration automatisch migriert.
 
@@ -81,20 +120,6 @@ Nach dem Scan der Datenpunkte analysiert der Adapter automatisch die während de
 
 - `info.topology` – strukturiertes JSON mit allen gefundenen UDS-zugänglichen Geräten und Topologieelementen (über alle Topologiematrizen hinweg dedupliziert).
 - `info.topologyHtml` – eine gerenderte HTML-Tabelle, farblich nach Bustyp (CanInternal, CanExternal, CanRaw, ModBus, ServiceBus) gekennzeichnet, mit einem UDS-Badge für Geräte, die auch über UDS erreichbar sind. Zur Anzeige in vis, jarvis oder jedem HTML-fähigen Widget geeignet.
-
----
-
-## Was ist neu in Version 0.11.x?
-### Aktualisierte Datenpunktstrukturen (Aktion beim Upgrade erforderlich)
-Version 0.11.0 enthält aktualisierte Definitionen für zahlreiche Datenpunkte – neue Variantentypen, zusätzliche Metadaten (Beschreibung, Einheit, Verknüpfungen) und eine überarbeitete Datenformatverarbeitung. **Wenn Sie von Version 0.10.x aktualisieren, führen Sie bitte einen Gerätescan und anschließend einen vollständigen Datenpunktscan durch,** um die neuen Definitionen und Metadaten auf Ihren ioBroker-Objektbaum anzuwenden.
-
-Eine detaillierte Liste der geänderten Datenpunkte finden Sie im Abschnitt [Änderungsprotokoll für Datenpunkte](lib/data-points.md#changelog-of-data-point-definitions).
-
-### Variantendatenpunkte und Geräteformatkonfiguration
-Der Adapter verarbeitet nun variable Datenpunkte – Datenpunkte, deren Struktur von der Gerätekonfiguration abhängt (z. B. Temperatureinheit °C/°F, Datums-/Zeitformat). Während des Gerätescans wird die entsprechende Formatkonfiguration (Datenpunkt 382) gelesen und gespeichert. Anschließend wird automatisch der passende Codec für jedes Gerät angewendet.
-
-### Metadaten zu Datenpunktobjekten
-Datenpunktobjekte im ioBroker-Objektbaum enthalten nun Metadaten: Beschreibung, physikalische Einheit, Lese-/Schreibzugriffsflag und, falls verfügbar, Links zu weiteren Informationen. Die Metadaten vorhandener Objekte werden bei jedem Datenpunktscan aktualisiert und auch wiederhergestellt, wenn ein Datenpunktobjekt gelöscht und neu erstellt wird (hinzugefügt in Version 0.11.1).
 
 ---
 
@@ -117,8 +142,6 @@ Datenpunktobjekte im ioBroker-Objektbaum enthalten nun Metadaten: Beschreibung, 
 5. Richten Sie auf der Registerkarte **Aufgaben** Lesepläne ein und speichern Sie diese.
 
 Die detaillierten Schritte werden in den nachfolgenden Abschnitten [Konfigurationsleitfaden](#configuration-guide) beschrieben.
-
-**Nach einem Node.js-Upgrade:** Die von diesem Adapter verwendeten nativen Module müssen bei einer Änderung der Node.js-Version neu kompiliert werden. Falls der Adapter nach einem Node.js-Upgrade nicht startet, stoppen Sie ihn, führen Sie in der Kommandozeile den Befehl ``iob rebuild`` aus und starten Sie ihn anschließend erneut.
 
 ---
 
@@ -261,7 +284,7 @@ Der numerische Scanbereich ist derzeit begrenzt (z. B. 256–3338 in Version 0.1
 ## Schreiben von Datenpunkten
 Der Schreibvorgang ist bewusst einfach gehalten: Der Wert des entsprechenden Zustands in ioBroker wird geändert und gespeichert, **ohne** das Kontrollkästchen `Acknowledged` (Bestätigung) zu aktivieren. Der Adapter erkennt den nicht bestätigten Schreibvorgang und sendet ihn an das Gerät.
 
-Etwa 2,5 Sekunden nach dem Schreiben liest der Adapter den Datenpunkt vom Gerät zurück und speichert den bestätigten Wert. Wird der Status danach nicht bestätigt, überprüfen Sie das Adapterprotokoll auf Fehlerdetails.
+Etwa 2,5 Sekunden nach dem Schreiben liest der Adapter den Datenpunkt vom Gerät zurück und speichert den bestätigten Wert. Wird der Status anschließend nicht bestätigt, überprüfen Sie das Adapterprotokoll auf Fehlerdetails.
 
 **Whitelist der beschreibbaren Datenpunkte**
 
@@ -355,7 +378,7 @@ Ja, unter bestimmten Bedingungen. Wenn Sie in diesem Adapter ausschließlich den
 
 **Der Adapter funktioniert nach einem Node.js-Upgrade nicht mehr. Was kann ich tun?**
 
-Dieser Adapter verwendet native Module, die bei einer Änderung der Node.js-Version neu kompiliert werden müssen. Stoppen Sie den Adapter, führen Sie in der Kommandozeile ``iob rebuild`` aus und starten Sie den Adapter anschließend neu. Sollte das Problem weiterhin bestehen, melden Sie es bitte.
+Ab Adapterversion 1.0.3 verwendet das native CAN-Modul (socketcan) die N-API und muss nach einem Node.js-Upgrade nicht mehr neu kompiliert werden. Falls Sie eine ältere Version verwenden, aktualisieren Sie bitte zuerst den Adapter. Sollte das Problem nach dem Upgrade weiterhin bestehen, melden Sie es bitte.
 
 **Was unterscheidet es vom open3e-Projekt?**
 
@@ -379,6 +402,29 @@ Ja. Bearbeiten Sie den Status `e3oncan.0.<DEVICE>.cmnd.udsReadByDid` und geben S
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (MyHomeMyData) Fixed missing update of meta data (unit, description) when user changes device specific data point definition
+
+### 1.1.1 (2026-07-06)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20260705 (common)
+* (MyHomeMyData) Fixed duplicate display of variant data points in data point list of WebUI
+
+### 1.1.0 (2026-07-05)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20260701 (common) and 20260630 (variant)
+* (MyHomeMyData) Added codec `O3ESwitch` for device-dependent data point structures selected by a discriminator byte
+* (MyHomeMyData) Added optional `decimals` parameter to numeric codecs to round decoded values
+* (MyHomeMyData) Added update of meta data during startup, when structure of data point has changed
+
+### 1.0.3 (2026-06-02)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20260528 for common and 20260527 for variant data points; For details see this [changelog](lib/data-points.md#changelog-of-data-point-definitions)
+* (MyHomeMyData) Suppress spurious variant-did warning when common dict covers the length
+* (MyHomeMyData) User-defined variant data point structures in `udsDidsSpecific` can now be protected from automatic updates by adding `"protected": true` (and an optional `"reason"` text) to the entry; see [documentation](lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific)
+* (MyHomeMyData) Updated socketcan dependency to 4.2.1 (N-API) — the native CAN module no longer needs to be rebuilt after a Node.js upgrade
+
+### 1.0.2 (2026-05-17)
+* (MyHomeMyData) Improved error message when native module socketcan fails to load after a Node.js version upgrade — adapter now logs a clear hint to run `iob rebuild`
+
 ### 1.0.1 (2026-05-11)
 * (MyHomeMyData) Clicking the green scheduled badge on a device card filters the view to show only its scheduled data points; clicking the badge again or the card header restores the full view
 * (MyHomeMyData) Fixed: saving from the datapoints tab now preserves inactive schedules (disabled in the old config UI) for full backward compatibility
@@ -387,52 +433,6 @@ Ja. Bearbeiten Sie den Status `e3oncan.0.<DEVICE>.cmnd.udsReadByDid` und geben S
 * (MyHomeMyData) Adapter requires node.js >= 22 now
 * (MyHomeMyData) Improved scan status detection: uses `udsDidsWritable` instead of `didsMetaDict` to reliably detect whether a data point scan has been performed
 * (MyHomeMyData) Added re-scan recommendation hint in datapoints tab when a scan exists but Collect auto-detection has not yet been run
-
-### 1.0.0-beta.2 (2026-05-02)
-* (MyHomeMyData) Fixed: saving schedules in the datapoints tab could leave stale entries under certain conditions
-* (MyHomeMyData) Added Topology button to the datapoints tab; opens the bus topology diagram in a modal dialog
-
-### 1.0.0-beta.1 (2026-04-30)
-* (MyHomeMyData) Bus topology analysis is now generated automatically after the data point scan; results are stored in `info.topology` (JSON) and `info.topologyHtml` (HTML); see Readme for details
-* (MyHomeMyData) Input validation added for interval and delay fields in the datapoints tab — only positive integers are accepted
-
-### 1.0.0-beta.0 (2026-04-26)
-* (MyHomeMyData) Introduced new e3oncan datapoints webUI pinned to the adapter's instance row
-* (MyHomeMyData) Energy meters (E380, E3100CB) are now auto-detected during the device scan by passive CAN listening on both CAN channels
-* (MyHomeMyData) State names for energy meters are assigned automatically based on CAN address and channel; see Readme for details
-* (MyHomeMyData) Energy meter Collect toggle and delay are now configured exclusively in the e3oncan datapoints page; changes take effect after adapter restart
-* (MyHomeMyData) On first run after upgrade, the active setting is automatically migrated from the previous adapter configuration
-* (MyHomeMyData) Collect-capable devices are now auto-detected during the data point scan by passive CAN listening; a pin icon is shown in the device card header for each detected device
-* (MyHomeMyData) Added option to suppress storing of data point values during data point scan
-
-### 0.11.3 (2026-05-03)
-* (MyHomeMyData) The accidentally mentioned data points 1415-1418 have been removed from the changelog of version 0.11.0
-
-### 0.11.2 (2026-05-02)
-* (MyHomeMyData) Added "What's new in v0.11.x" section to Readme with upgrade notes for data point structure changes
-
-### 0.11.1 (2026-04-23)
-* (MyHomeMyData) Improved robustness: Receiving a data point of length zero is treated as a "negative response"
-* (MyHomeMyData) The metadata is now also restored after a data point is deleted
-* (MyHomeMyData) Aligned test cases for German system language
-
-### 0.11.0 (2026-04-14)
-* (MyHomeMyData) To take full advantage of the variant data points and metadata, please perform a device scan followed by a data point scan
-* (MyHomeMyData) Added handling for variant data points and for device's data format configuration, refer to https://github.com/MyHomeMyData/ioBroker.e3oncan/lib/data-points.md for details
-* (MyHomeMyData) Added metadata to several data points, e.g. description, unit, link to further info
-* (MyHomeMyData) During scan of data points now metadata are added to data point objects
-* (MyHomeMyData) Changed handling of writable data points; this info now also is available within definition of data point; however, there is no change to handling of the whitelist of writables
-* (MyHomeMyData) During device scan the information about used data formats (data point 382) is evaluated
-* (MyHomeMyData) Updated structure of many data points; for details see this [changelog](lib/data-points.md#changelog-of-data-point-definitions)
-
-### 0.10.14 (2025-11-03)
-* (MyHomeMyData) Added elements to enums.js based of PR no. 182 of open3e
-* (MyHomeMyData) Simplified configuration of dids scan limits in source code
-* (MyHomeMyData) Extended scan up to did 3338
-* (MyHomeMyData) Added hint regarding scan range in Readme
-* (MyHomeMyData) Fixes for issue #169 (repository checker)
-* (MyHomeMyData) Bugfix: Manual change of device specific dids was not evaluated for collect workers
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20251102
 
 ### Older versions
 

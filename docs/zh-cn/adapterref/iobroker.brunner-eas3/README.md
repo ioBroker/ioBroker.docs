@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.brunner-eas3/README.md
 title: ioBroker.brunner-eas3
-hash: c/OP6XPydI74q7mpQKoD0wzg885HvMTnM6y1yFd+vMA=
+hash: mTxAKD/U4J0HeON8R2zssvtObxFXMlsR47pS/4DOobU=
 ---
 ![标识](../../../en/adapterref/iobroker.brunner-eas3/admin/brunner-eas3.png)
 
@@ -32,13 +32,19 @@ hash: c/OP6XPydI74q7mpQKoD0wzg885HvMTnM6y1yFd+vMA=
 * 7 - 火已烧完。
 
 ### 免责声明
-此适配器并非 Urlich Brunner GmbH 的官方产品，而是由开源社区成员开发和维护。
+此适配器并非 Ulrich Brunner GmbH 的官方产品，而是由开源社区成员开发和维护。
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 1.1.4 (2026-04-14)
+* (JR-HOME) release - some non-functional changes to be compliant to all IOBroker bot checks
+
 ### 1.1.1 (2026-03-26)
 * (JR-HOME) release - updating roles of IOBroker objects, corrected add more wood status
 
@@ -47,6 +53,8 @@ hash: c/OP6XPydI74q7mpQKoD0wzg885HvMTnM6y1yFd+vMA=
 
 ### 1.0.6 (2026-03-01)
 * (JR-HOME) release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: LnYpLc2PjqxRAVTjziuhU4+z2DiVOECzWlTU4I/EcgA=
+hash: 4IfeDNGNIUSDiJ7HI9K5s9nkcnN8Q0H/tUsPwPlPxU0=
 ---
 # Was ist neu
 ## Hinweise für Autoren
@@ -45,7 +45,7 @@ https://github.com/foxriver76/ioBroker.notification-manager
 
 <img src="https://raw.githubusercontent.com/foxriver76/ioBroker.notification-manager/master/admin/notification-manager.png" width="100" height="100" />
 
-Verwalten Sie ioBroker-Benachrichtigungen, z. B. durch Senden als Nachrichten
+Verwalten Sie ioBroker-Benachrichtigungen, z. B. durch Versenden als Nachrichten.
 
 ## Procon-ip (2023-08-24)
 https://github.com/ylabonte/ioBroker.procon-ip
@@ -396,7 +396,7 @@ https://github.com/ioBroker/ioBroker.nmea
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.nmea/main/admin/nmea.png" width="100" height="100" />
 
-Dieser Adapter ermöglicht den Anschluss von ioBroker an den NMEA-2000-Yachtbus. Sie können Geschwindigkeit über Grund (SOG), Kurs über Grund (COG), GPS-Position, Tiefe, Wind, Temperatur und viele weitere Daten vom NMEA-2000-Bus auslesen.
+Dieser Adapter ermöglicht die Verbindung von ioBroker mit dem NMEA-2000-Yachtbus. Sie können Geschwindigkeit über Grund (SOG), Kurs über Grund (COG), GPS-Position, Tiefe, Wind, Temperatur und viele weitere Daten vom NMEA-2000-Bus auslesen.
 
 Und sogar den Raymarine-Autopiloten steuern.
 
@@ -652,7 +652,7 @@ Benutzer können vom Alias-Ziel zum Alias selbst springen.
 ## Admin (28.09.2024) – Neue Funktion
 ![Passwort](../../en/history/media/2024_09_28_admin_password.png)
 
-Der Administrator prüft nun auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert, und fordert gegebenenfalls zur Änderung des Passworts auf.
+Der Administrator prüft nun auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert, und fordert ihn auf, dieses zu ändern, falls ein solcher Benutzer gefunden wird.
 
 Administratoren unterstützen die grafische Benutzeroberfläche für dynamische Benachrichtigungen.
 
@@ -963,7 +963,7 @@ https://github.com/oweitman/ioBroker.pi-hole2
 
 <img src="https://raw.githubusercontent.com/oweitman/ioBroker.pi-hole2/main/admin/pi-hole2.png" width="100" height="100" />
 
-Eine Pi-hole-Installation ab Version 6 verwalten. Informationen von Pi-hole abrufen. Domains blockieren/beenden. (Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
+Eine Pi-hole-Installation ab Version 6 verwalten. Informationen von Pi-hole abrufen. Domains blockieren/stoppen. (Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
 
 ## Energy-tracker (21.8.2025) – Neuer Adapter im stabilen Repository
 https://github.com/energy-tracker/ioBroker.energy-tracker
@@ -1027,7 +1027,7 @@ https://github.com/Scrounger/ioBroker.freeair
 
 Lokale Verbindung zu Ihrem BluMartin FreeAir 100 Lüftungssystem
 
-## Unifi-network (18.10.2025) – Neuer Adapter im stabilen Repository
+## Unifi-netzwerk (18.10.2025) – Neuer Adapter im stabilen Repository
 https://github.com/Scrounger/ioBroker.unifi-network
 
 <img src="https://raw.githubusercontent.com/Scrounger/ioBroker.unifi-network/main/admin/unifi-network.png" width="100" height="100" />
@@ -1242,23 +1242,111 @@ Es ist für Energiemonitoringsysteme wie Photovoltaikanlagen, Batteriespeicher, 
 
 Adapter zum Auslesen von Daten aus dem Brunner-Verbrennungsregelungssystem EAS 3. Die Daten werden über WLAN-Broadcast-Nachrichten veröffentlicht.
 
-## Speedport (3.5.2025) – Neuer Adapter im stabilen Repository https://github.com/hacki11/ioBroker.speedport
+## Speedport (3.5.2026) – Neuer Adapter im stabilen Repository
+https://github.com/hacki11/ioBroker.speedport
+
 <img src="https://raw.githubusercontent.com/hacki11/ioBroker.speedport/master/admin/speedport.png" width="100" height="100" />
 
 Ruft Daten vom Telekom Speedport Router ab
 
-## Life360ng (3.5.2025) – Neuer Adapter im stabilen Repository
+## Life360ng (3.5.2026) – Neuer Adapter im stabilen Repository
 https://github.com/inventwo/ioBroker.life360ng
 
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.life360ng/main/admin/Life360ng.svg" width="100" height="100" />
 
 Dieser Adapter verbindet sich mit den Life360-Cloud-Diensten, um Personen zu verfolgen und ihre Anwesenheit an definierten Orten zu erfassen. Er ruft Daten zu Kreisen, Mitgliedern und Orten ab und speichert diese als ioBroker-Zustände, die in einem konfigurierbaren Intervall aktualisiert werden.
 
-## Enpal (29.4.2025) – Neuer Adapter im stabilen Repository https://github.com/inventwo/ioBroker.enpal
+## Enpal (29.4.2026) – Neuer Adapter im stabilen Repository
+https://github.com/inventwo/ioBroker.enpal
+
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.enpal/main/admin/enpal.svg" width="100" height="100" />
 
 Liest Energiedaten von der lokalen InfluxDB 2.x-Instanz, die von Enpal Solar Systems bereitgestellt wird, und stellt ioBroker-Zustände für die Hausautomation bereit:
 
 Überwachen Sie die Solarstromproduktion, verfolgen Sie den Ladezustand der Batterie (SoC), analysieren Sie den Netzverbrauch und die Einspeisung, automatisieren Sie Prozesse basierend auf der Stromerzeugung und visualisieren Sie die Energieflüsse im ioBroker-Dashboard.
+
+## Parcelapp (6.6.2026) – Neuer Adapter im stabilen Repository
+https://github.com/krobipd/ioBroker.parcelapp
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.parcelapp/main/admin/parcelapp.svg" width="100" height="100" />
+
+ioBroker-Adapter für die parcel.app-API. Unterstützt alle von parcel.app erfassten Versanddienstleister.
+
+## Hueemu (6.6.2025) – Neuer Adapter im stabilen Repository
+https://github.com/krobipd/ioBroker.hueemu
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.hueemu/main/admin/hue-emu-logo.svg" width="100" height="100" />
+
+Emuliert eine Philips Hue Bridge (v2, BSB002), sodass ioBroker-Geräte für Clients, die nur die Hue API unterstützen, als Hue-Lampen erscheinen.
+
+## Linky (6.6.2026) – Neuer Adapter im stabilen Repository
+https://github.com/iobroker-community-adapters/ioBroker.linky
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.linky/blob/admin/linky.png" width="100" height="100" />
+
+Lesen Sie Daten von Linky-Smart-Stromzählern aus, im Prinzip von jedem Zähler, der das französische Teleinfo-Protokoll unterstützt: https://www.enedis.fr/sites/default/files/Enedis-NOI-CPT_54E.pdf
+
+## Beszel (21.6.2026) – Neuer Adapter im stabilen Repository
+https://github.com/krobipd/ioBroker.beszel
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.beszel/main/admin/beszel.svg" width="100" height="100" />
+
+Verbindet sich mit einem Beszel Hub und stellt Serverüberwachungsmetriken für alle registrierten Systeme gemäß ioBroker bereit.
+
+## Homewizard (21.6.2026) – Neuer Adapter im stabilen Repository
+https://github.com/krobipd/ioBroker.homewizard
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.homewizard/main/admin/homewizard.svg" width="100" height="100" />
+
+Echtzeit-Energiemonitoring für HomeWizard Energy-Geräte mit API v2.
+
+## Al-ko (21.6.2026) – Neuer Adapter im stabilen Repository https://github.com/zechnerhubert/ioBroker.al-ko
+<img src="https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/master/admin/al-ko.png" width="100" height="100" />
+
+Der ioBroker.al-ko-Adapter integriert AL-KO Robolinho Mähroboter und andere intelligente Gartengeräte von AL-KO in ioBroker mithilfe der offiziellen AL-KO Cloud API, einschließlich Echtzeit-Updates über WebSocket.
+
+## Google-sharedlocations2 (24.6.2026) – Neuer Adapter im stabilen Repository
+https://github.com/Garfonso/ioBroker.google-sharedlocations2
+
+<img src="https://raw.githubusercontent.com/Garfonso/ioBroker.google-sharedlocations2/main/admin/google-sharedlocations2.png" width="100" height="100" />
+
+Teilen Sie Ihren Standort mit ioBroker über Google Maps. Erstellen Sie hierfür ein separates Google-Konto, also ein Konto speziell für Ihre ioBroker-Installation. Verwenden Sie NICHT Ihr privates Konto.
+
+## Govee-smart (24.6.2026) – Neuer Adapter im stabilen Repository
+https://github.com/krobipd/ioBroker.govee-smart
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.govee-smart/main/admin/govee-smart.svg" width="100" height="100" />
+
+Steuern Sie alle Govee-WLAN-Produkte – Lampen, Sensoren und Haushaltsgeräte – über ioBroker. Geräte, die ausschließlich Bluetooth verwenden, werden nicht unterstützt. Der Adapter nutzt alle verfügbaren Govee-Kanäle (LAN, Cloud REST, AWS IoT MQTT, OpenAPI MQTT, App API) und wählt für jedes Gerät den Kanal mit der schnellsten Antwort aus.
+
+## Vs-2-widgets-tibberlink (30.6.2026) – Neuer Adapter im stabilen Repository
+https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink
+
+<img src="https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/main/admin/vis-2-widgets-tibberlink.png" width="100" height="100" />
+
+VIS-2-Widgets zur Visualisierung dynamischer Stromtarifdaten von Tibber: aktueller Preis, günstigstes Zeitfenster und monatliche Kosten.
+
+## Hassemu (30.6.2026) – Neuer Adapter im stabilen Repository
+https://github.com/krobipd/ioBroker.hassemu
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.hassemu/main/admin/hassemu.svg" width="100" height="100" />
+
+Emuliert einen Home Assistant-Server, sodass Anzeigen, die nur ein HA-Dashboard akzeptieren, stattdessen jede beliebige Web-URL anzeigen.
+
+## Foxesscloud (16.6.2025) – Neuer Adapter im stabilen Repository
+https://github.com/inventwo/ioBroker.foxesscloud
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.foxesscloud/main/admin/foxesscloud.png" width="100" height="100" />
+
+Ruft Daten von der FoxESS Cloud API für Solarwechselrichter (z. B. für Enpal-Systeme) ab und stellt ioBroker-Status für die Hausautomation bereit.
+
+## Vis-2-widgets-sigenergy (16.6.2025) – Neuer Adapter im stabilen Repository
+https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy
+
+<img src="https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/main/admin/vis-2-widgets-sigenergy.png" width="100" height="100" />
+
+VIS-2 Widget-Set für den Sigenergy Energiespeicheradapter (ioBroker.sigenergy). Enthält 8 Widgets zur Visualisierung und Steuerung des Energieflusses, des Batteriestatus, der Echtzeitleistung, der Tagesstatistik, des AC-Ladegeräts, des DC-Ladegeräts, des Wechselrichters und der Übersicht des SigenMicro Mikro-Wechselrichters.
+
+i
 
 <!-- ######################### Diese Zeilen am Ende der Datei als Erinnerung behalten ######################## --> <!-- ##### ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Icons! ### --> <!-- ######################## Diese Zeilen am Ende der Datei als Erinnerung behalten ####################### -->

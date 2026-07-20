@@ -2,21 +2,21 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.parcelapp/README.md
-title: ioBroker.parcelapp
-hash: HMJiV39ELYn9BaDqr4iqCvqkfdmvJWle3gxBYIeasv0=
+title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.parcelapp@main/admin/parcelapp.svg" width="48" align="top" /> ioBroker.parcelapp
+hash: CzzU2EVq7OkXREMnw8rabS8u8RiGKuEC+cHoym2mXxE=
 ---
-# IoBroker.parcelapp
+# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.parcelapp@main/admin/parcelapp.svg" width="48" align="top" /> ioBroker.parcelapp
 
 ![npm версия](https://img.shields.io/npm/v/iobroker.parcelapp)
+![стабильный](https://iobroker.live/badges/parcelapp-stable.svg)
+![Установки](https://iobroker.live/badges/parcelapp-installed.svg)
+![npm downloads](https://img.shields.io/npm/dt/iobroker.parcelapp)
 ![Узел](https://img.shields.io/badge/node-%3E%3D22-brightgreen)
 ![Машинопись](https://img.shields.io/badge/TypeScript-strict-blue)
 ![Лицензия](https://img.shields.io/badge/license-MIT-green)
-![npm downloads](https://img.shields.io/npm/dt/iobroker.parcelapp)
-![Установки](https://iobroker.live/badges/parcelapp-installed.svg)
+![Часовой](https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white)
 ![Ко-фи](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)
 ![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)
-
-<img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.parcelapp@main/admin/parcelapp.svg" width="100" />
 
 Адаптер ioBroker для API [parcel.app](https://parcelapp.net). Поддерживает всех перевозчиков, которых отслеживает parcel.app.
 
@@ -34,9 +34,16 @@ hash: HMJiV39ELYn9BaDqr4iqCvqkfdmvJWle3gxBYIeasv0=
 
 ---
 
+## Система Sentry / Отчет об ошибках
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Сообщение об ошибках отправляется только в том случае, если включена функция отправки сообщений об ошибках в диагностике ioBroker (**Системные настройки → Диагностика и отправка сообщений об ошибках**). Передается только анонимный идентификатор установки — имя, адрес электронной почты или IP-адрес не передаются.
+
+Подробности и инструкции по отключению см. в разделе [документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Для отправки сообщений об ошибках требуется js-controller версии 3.0 или новее.
+
+---
+
 ## Требования
 - **Node.js >= 22**
-- **ioBroker js-controller >= 7.0.7**
+- **ioBroker js-controller >= 7.2.2**
 - **Администратор ioBroker >= 7.8.23**
 - **Премиум-подписка на parcel.app** — необходима для доступа к API.
 
@@ -46,7 +53,7 @@ hash: HMJiV39ELYn9BaDqr4iqCvqkfdmvJWle3gxBYIeasv0=
 | Параметр | Описание | По умолчанию |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------- | ------- |
 | **Ключ API** | Ваш ключ API parcel.app (получите его по адресу [web.parcelapp.net](https://web.parcelapp.net)) | — |
-| **Интервал опроса** | Как часто получать обновления (в минутах) | 10 |
+| **Интервал опроса** | Как часто получать обновления (в минутах). parcel.app предоставляет список из серверного кэша с интервалом ~45–90 минут, поэтому более короткие интервалы, как правило, уменьшают задержку до момента обновления. | 10 |
 | **Автоматическое удаление доставленных** | Автоматическое удаление доставленных посылок из списка статусов. При отключении этой функции они остаются в списке до тех пор, пока не будут удалены в parcel.app. | Да |
 
 Метки статуса (`Delivered`, `In Transit`, …) и предполагаемые сроки доставки (`today`, `tomorrow`, `in X days`) отображаются на языке системы ioBroker.
@@ -65,7 +72,7 @@ parcelapp.0.
     └── {packageId}.             — One device per package
         ├── carrier              — Carrier name (e.g. DHL Express)
         ├── status               — Status text (e.g. In Transit)
-        ├── statusCode           — Status code (0-8)
+        ├── statusCode           — Status code (0-8, -1 = unknown)
         ├── description          — Package description
         ├── trackingNumber       — Tracking number
         ├── extraInfo            — Extra information (postal code, email)
@@ -73,8 +80,18 @@ parcelapp.0.
         ├── deliveryEstimate     — Human-readable estimate (today, tomorrow)
         ├── lastEvent            — Latest tracking event
         ├── lastLocation         — Last known location
-        └── lastUpdated          — Last update timestamp
+        └── lastUpdated          — Timestamp of the last tracking-data change
 ```
+
+**Коды состояния** (`statusCode` — основной показатель для автоматизации):
+
+| Код | Значение | Код | Значение |
+| ---- | --------------- | ---- | ----------------------- |
+| 0 | Доставлено | 5 | Не найдено |
+| 1 | Заморожено | 6 | Попытка доставки не удалась |
+| 2 | В пути | 7 | Исключение |
+| 3 | Ожидается получение | 8 | Информация получена |
+| 4 | В пути | -1 | Неизвестно (неожиданное значение API — пакет остается видимым) |
 
 ---
 
@@ -86,14 +103,18 @@ sendTo("parcelapp.0", "addDelivery", {
   tracking_number: "1234567890",
   carrier_code: "dhl",
   description: "My package",
+  // optional:
+  language: "de", // tracking language as an ISO 639-1 code, default "en"
+  send_push_confirmation: true, // send a push once the delivery is added, default false
 });
 ```
 
-Доставка добавляется в ваш аккаунт parcel.app и сразу же отображается в ioBroker после автоматического запроса.
+`tracking_number`, `carrier_code` и `description` обязательны; `language` и `send_push_confirmation` необязательны. Доставка добавляется в ваш аккаунт parcel.app, и сразу же запускается опрос (не более одного опроса в минуту) — но для недавно добавленных доставок обычно еще нет данных отслеживания (см. примечание ниже).
 
 **Примечания:**
 
 - **Ограничение на количество доставок POST: 20 в день** — неудачные попытки (например, неверный `carrier_code`) также учитываются в этом лимите.
+- **Каждое поле может содержать не более 512 символов**, и адаптер принимает не более **20 вызовов addDelivery в минуту** — при превышении любого из этих ограничений вызов возвращает `success: false` с поясняющим сообщением `error_message` вместо того, чтобы обратиться к parcel.app.
 - Отслеживание новых отправлений обычно прекращается на **45–90 минут** после добавления в базу данных. Это задержка на стороне parcel.app, а не проблема адаптера.
 — **Удаление пакетов возможно только в веб-интерфейсе приложения parcel.app** — API не имеет конечной точки для удаления. При включенной опции `autoRemoveDelivered` адаптер по-прежнему автоматически удаляет доставленные пакеты из состояний ioBroker.
 
@@ -106,7 +127,7 @@ sendTo("parcelapp.0", "addDelivery", {
 — Проверьте, есть ли у вашего экземпляра ioBroker доступ к интернету.
 
 ### Доставка не указана
-— API возвращает кэшированные данные — отображение новых заказов может занять несколько минут.
+- API возвращает кэшированные данные — для отображения новых доставок и новых событий отслеживания может потребоваться **45–90 минут** (кэш на стороне приложения Parcel.app).
 — Проверьте, есть ли у вас активные доставки в приложении parcel.app.
 
 ### Лимит скорости
@@ -125,33 +146,42 @@ sendTo("parcelapp.0", "addDelivery", {
 ---
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.4.4 (2026-05-13)
-- Adapter shuts down cleanly even if the "Test Connection" button was still running — the test request is now aborted at unload along with regular polling.
+### 0.10.0 (2026-07-08)
 
-### 0.4.3 (2026-05-13)
-- Debug log now traces previously silent paths: HTTPS request lifecycle, carrier-list fetch outcome, per-delivery updates, admin-message handling and lifecycle anchors. Default log unchanged.
+- Fixed: the admin "Test Connection" button now reports real failures — before, it always showed "Ok" even with a wrong API key.
+- Fixed: a package's last-updated timestamp no longer jumps to the restart time after an adapter restart — it only changes when tracking data actually changed.
+- Fixed: a stalled API response can no longer freeze polling until a manual restart — every request now has a hard 60-second deadline.
+- Fixed: a failed adapter start now triggers an automatic restart instead of leaving the adapter idle until restarted by hand.
+- Changed: recurring errors such as a wrong API key are logged once instead of every poll cycle, and stopping the adapter no longer leaves a red error line in the log.
+- Changed: short ioBroker database hiccups no longer flip the connection indicator — it now reflects only the parcel.app connection.
+- Changed: the fallback package name ("Package …") is localized like all other texts, and the adapter is listed under a fitting admin category (misc-data).
+- Changed: the automatic poll after adding a delivery now respects the one-minute pacing, so bulk-adds can no longer exhaust the hourly API budget.
 
-### 0.4.2 (2026-05-10)
+### 0.9.0 (2026-06-23) — stable
 
-- Adapter shuts down cleanly even if parcel.app is slow — pending requests are aborted instead of hanging until kill.
-- "Forbidden" responses (e.g. when the Premium subscription is no longer active) now log a clear hint pointing to your parcel.app account, instead of looping reauth as if the API key were just wrong.
-- Two parcels whose tracking numbers differ only in special characters no longer overwrite each other in the state tree — the second one gets a hash suffix.
-- Defensive: bogus poll-interval values can no longer turn into a tight loop hammering the API; rate-limit cooldowns can no longer get stuck near zero.
+- Fixed: tracked packages could disappear from the object tree after a temporary update error or an unexpected API response — a package is now kept until parcel.app actually stops returning it.
+- Changed: multi-day delivery windows now show the date on each side (e.g. `12-06 14:30 - 12-08 18:30`) instead of looking same-day; out-of-range or reversed dates no longer produce a misleading window.
 
-### 0.4.1 (2026-05-09)
+### 0.8.0 (2026-06-19)
 
-- Adapter log messages are now English only, in line with the ioBroker community standard. Localized state names (11 languages) are unchanged.
+- The delivery window is now also shown for carriers that report it only as a date/time range, not just when the API provides a Unix timestamp.
+- When adding a delivery via script, you can now set an optional tracking language and request a push confirmation.
 
-### 0.4.0 (2026-05-06)
+### 0.7.2 (2026-06-12) — stable
 
-- State names now follow your ioBroker system language (11 languages).
-- Minimum requirements: Node.js 22 and ioBroker Admin 7.8.23.
+- Much quieter state updates: a package's last-updated timestamp now only changes when its tracking data actually changed, and device entries are no longer rewritten on every poll
+- Adding a delivery with a malformed request now returns a clear error message instead of failing cryptically
 
-Older entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+### 0.7.1 (2026-06-09)
+
+- Fixed a timezone edge case in delivery estimates: when the API reports only a calendar date, the estimate could be off by a day in time zones west of UTC — now stable everywhere.
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
@@ -179,4 +209,4 @@ SOFTWARE.
 
 ---
 
-*Developed with assistance from Claude.ai*
+_Developed with assistance from Claude.ai_

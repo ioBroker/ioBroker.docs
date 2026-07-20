@@ -39,7 +39,10 @@ You can see all controller information, schedules and sensors. It is also possib
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
+
+- (SentiQ) updated dependencies
 - (copilot) Adapter requires node.js >= 22 now
 
 ### 1.0.5 (2025-12-05)

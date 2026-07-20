@@ -760,10 +760,10 @@ lg-thinq.0.xxx.area must be filled!
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 1.2.0 (2026-05-31)
 
 - (copilot) Adapter requires node.js >= 22 now
-- (Lucky-ESA) Adapter requires admin >= 7.7.22 now
+- (Lucky-ESA) Adapter requires admin >= 7.8.23 now
 - (Lucky-ESA) Added translate for device 201
 
 ### 1.1.6 (2025-12-17)
@@ -787,10 +787,6 @@ lg-thinq.0.xxx.area must be filled!
 - (Lucky-ESA) Delete APP-Login (removed by LG)
 - (Lucky-ESA) Added online icon
 - (Lucky-ESA) Microwave 302 disabled (thinq1)
-
-### 1.1.2 (2025-08-18)
-
-- (Lucky-ESA) Delete expires check
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

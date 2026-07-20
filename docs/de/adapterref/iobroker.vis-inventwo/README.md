@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: 4lGSBouwytw/te6md9v0tJWNonsY572rb8yxgRXNEQE=
+hash: sotg5sV7N0Gwx0N7PPj8XiJ85MpkHvjkBkpJxsCrFk4=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -22,6 +22,8 @@ Schalter, Schieberegler, Tabellen, Bedienelemente, Kontrollkästchen, Optionsfel
 ### <span style="color:red">Wichtiger Hinweis für Vis 2</span>
 Dieser Adapter wurde für VIS 1 entwickelt und getestet. In VIS 2 können Fehler auftreten, die die Nutzung Ihrer Visualisierung verhindern. Eine nahtlose Kompatibilität ist nicht möglich. Einen neuen Adapter für VIS 2 finden Sie hier: https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
 
+**Ab Version 4.1.x sind die Widgets explizit vom Vis 2-Editor ausgeschlossen, und der Adapter funktioniert in Vis 2 überhaupt nicht mehr.** Wenn Sie diesen Adapter weiterhin in Vis 2 verwenden möchten, müssen Sie eine Version vor 4.1.x verwenden.
+
 ## Inhalt des Adapters
 Diverse Widgets zum Umschalten, Navigieren und mehr.
 
@@ -33,7 +35,7 @@ Analoge Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-i
 
 Digitaluhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau auf digitale Uhren](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clock_digital.png)
+![Vorschau Digitaluhren](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clock_digital.png)
 
 Farbauswahl [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
 
@@ -60,41 +62,37 @@ Wenn Ihnen unsere Arbeit gefällt und Sie uns unterstützen möchten, freuen wir
 
 ---
 
-## Changelog
+## Ältere Änderungen
+Kann in [CHANGELOG_OLD.md](CHANGELOG_OLD.md) gefunden werden
 
-### **WORK IN PROGRESS**
-- (iobroker-bot) Adapter requires node.js >= 20 now.
+---
+
+## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.1.1 (2026-06-04)
+- correct z-index layering for popups — date/time picker dropdowns now appear in front of the popup overlay instead of behind it (#583)
+
+### 4.1.0 (2026-05-17)
+- Hide widgets in vis 2 editor
+
+### 4.0.1 (2026-05-15)
+- Fixed widget gif images missing
+
+### 4.0.0 (2026-05-15)
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- Updated dependencies
+- Updated project structure to meet latest ioBroker standards
+- Updated build process to use latest tools and best practices
 
 ### 3.3.5
 - Fixed: [#688](https://github.com/inventwo/ioBroker.vis-inventwo/issues/688) Radio button cannot write a boolean value
 - Fixed: [#736](https://github.com/inventwo/ioBroker.vis-inventwo/issues/736) Adapter checker errors in package.json and io-package.json resolved
 - Fixed: [#678](https://github.com/inventwo/ioBroker.vis-inventwo/issues/678) Mode in io-package changed from daemon to once
-
-### 3.3.4
-- Fixed: [#455](https://github.com/inventwo/ioBroker.vis-inventwo/issues/455) Color picker widget "disappears" when selecting CIE
-- Fixed: [#369](https://github.com/inventwo/ioBroker.vis-inventwo/issues/369) Simple slider step color cannot be changed
-- Fixed: [#361](https://github.com/inventwo/ioBroker.vis-inventwo/issues/361) Image widget always shows the image for true
-- Fixed: [#564](https://github.com/inventwo/ioBroker.vis-inventwo/issues/564) Radio button – image color for true is taken from false
-- Fixed: [#461](https://github.com/inventwo/ioBroker.vis-inventwo/issues/461) Double trigger on button/state and "slider cannot be slid" with Windows Touch
-- Fixed: [#474](https://github.com/inventwo/ioBroker.vis-inventwo/issues/474) JSON table with "Binding" does not work in the editor
-- Fixed: [#580](https://github.com/inventwo/ioBroker.vis-inventwo/issues/580) JSON Table Widget: color change of values via threshold is only visible in the editor, not at runtime
-- Fixed: [#622](https://github.com/inventwo/ioBroker.vis-inventwo/issues/622) Issues found by adapter checker
-
-### 3.3.3
-- Fixed issue with border color on Multi-Widget View in PopUp
-
-### 3.3.2
-- Bugfix
-
-### 3.3.1
-- Bugfix
-
----
 
 ## License
 

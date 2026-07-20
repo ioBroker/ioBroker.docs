@@ -2,35 +2,37 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.airquality/README.md
-title: ioBroker.качество воздуха
-hash: jikrEMuqCpJ/5qloEaSpyaN0sv//2SOzIVI//ESvCo0=
+title: ioBroker.airquality
+hash: VESbSZ3qZ3zRFZAZWez5WMXmfqrmNJI2S98y6dEosT8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.airquality/admin/airquality.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.airquality.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.airquality.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.airquality.svg)
 ![Количество установок](https://iobroker.live/badges/airquality-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/airquality-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/airquality-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.airquality.png?downloads=true)
 
-# IoBroker.качество воздуха
-**Тесты:** ![Тест и выпуск](https://github.com/raschy/ioBroker.airquality/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.airquality
+**Тесты:** ![Тестирование и выпуск](https://github.com/raschy/ioBroker.airquality/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер качества воздуха для ioBroker
-Получить данные из немецкого UBA
+Получение данных от немецкого банка UBA.
 
 ### Начиная
-В этом адаптере в конфигурации необходимо ввести как минимум одну станцию наблюдения за окружающей средой, с которой будут собираться измеренные значения. Названия станций можно выбрать на веб-сайте Федерального агентства по охране окружающей среды по адресу https://www.umweltbundesamt.de/themen/luft/luftqualitaet#luftdaten (затем нажмите «Ближайшая станция»), используя отображаемую карту.
-Станции всегда начинаются с «DE», за которыми следует федеральная земля «BW» и трехзначный серийный номер. Этот идентификатор, например «DEBW052», затем необходимо ввести на странице конфигурации адаптера (подтвердите, нажав Enter). Здесь также можно добавить дополнительные станции.
+В этом адаптере в конфигурации необходимо указать как минимум одну экологическую станцию, с которой будут собираться измеренные значения. Названия станций можно выбрать на веб-сайте Федерального агентства по охране окружающей среды по адресу https://www.umweltbundesamt.de/themen/luft/luftqualitaet#luftdaten (затем нажмите «Ближайшая станция»), используя отображаемую карту.
+Названия станций всегда начинаются с «DE», за которым следует федеральная земля «BW» и трехзначный порядковый номер. Этот идентификатор, например, «DEBW052», необходимо ввести на странице конфигурации адаптера (подтвердите нажатием Enter). Здесь также можно добавить дополнительные станции.
 
-Если координаты сохраняются в основной конфигурации ioBroker, адаптер пытается самостоятельно найти ближайшую станцию при первом запуске.
+В настоящее время API данных о качестве воздуха доступен в версии 4 (v4). Предыдущая версия (v3) будет продолжать параллельно использоваться в настоящее время. Основное различие между версиями заключается в переходе к использованию, как правило, почасовых данных для индекса качества воздуха (AQI) и новой классификации категорий индекса.
+
+Если координаты указаны в основной конфигурации ioBroker, адаптер при первом запуске пытается самостоятельно найти ближайшую станцию.
 
 ## Намекать
-Иногда случается, что измеренные значения не могут быть получены. Это часто происходит в начале часа, поскольку данные, предположительно, сжимаются и обрабатываются внутри. Но даже ночью (около полуночи) часто невозможно получить данные. Затем в качестве предупреждения записывается запись в журнале «Данные не получены». Это не дефект адаптера, а системный дефект.
+Иногда случается, что измеренные значения не удается получить. Чаще всего это происходит в начале часа, поскольку данные, предположительно, сжимаются и обрабатываются внутри устройства. Но даже ночью (около полуночи) получить данные зачастую невозможно. В этом случае в журнал записывается предупреждение «Данные не получены». Это не дефект адаптера, а проблема, связанная с системой.
 
 ### ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ
-Пожалуйста, убедитесь, что вы учитываете авторские права и товарные знаки, когда используете названия или логотипы компании, и добавьте отказ от ответственности в свой README.
-Вы можете проверить другие адаптеры для примеров или спросить в сообществе разработчиков. Использование названия или логотипа компании без разрешения может вызвать у вас юридические проблемы.
+Пожалуйста, убедитесь, что вы учитываете авторские права и товарные знаки при использовании названий или логотипов компаний, и добавьте отказ от ответственности в файл README.
+Вы можете посмотреть примеры в других адаптерах или задать вопрос в сообществе разработчиков. Использование названия или логотипа компании без разрешения может повлечь за собой юридические проблемы.
 
 ## Changelog
 
@@ -38,11 +40,27 @@ hash: jikrEMuqCpJ/5qloEaSpyaN0sv//2SOzIVI//ESvCo0=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
+
+- (raschy) change to version 4
+- (raschy) some dependency updates
+
+### 0.1.7 (2025-08-22)
+
+- (raschy) Station names visible again
+
+### 0.1.6 (2025-08-22)
+
+- (raschy) Removal of an unused state
+- (raschy) improved error messages
+- (raschy) improved retrieval logic
+
+### 0.1.5 (2025-05-03)
 
 - (raschy) Supplementary data points i18n
 - (raschy) Data point type corrected 
-- (raschy) @iobroker/adapter-core 3.2.3 is recommended 
+- (raschy) @iobroker/adapter-core 3.2.3 is recommended
 
 ### 0.1.4 (2024-12-16)
 
@@ -78,11 +96,13 @@ hash: jikrEMuqCpJ/5qloEaSpyaN0sv//2SOzIVI//ESvCo0=
 
 - (raschy) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License
 
-Copyright (c) 2024-2025 raschy <raschy@gmx.de>
+Copyright (c) 2024-2026 raschy <raschy@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

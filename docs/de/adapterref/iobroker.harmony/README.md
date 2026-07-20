@@ -315,6 +315,9 @@ wenn sich der Wert eines anderen Datenpunktes verändert.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.1.0 (2026-04-15)
 - (copilot) Adapter requires admin >= 7.7.22 now
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.midea/README.md
 title: ioBroker.midea
-hash: rN8jfwxs85SLopsq8p9KCqOXt0t8ZLeiXzJA2gUVZQ8=
+hash: 8B0gvezYULYsWVQGevePwpqE8T8Pc9I3vMtt7FxSJo8=
 ---
 ![Logo](../../../en/adapterref/iobroker.midea/admin/midea.png)
 
@@ -83,7 +83,7 @@ Der `capabilities.*`-Baum spiegelt die B5-Funktionsantwort wider, sodass Sie Ihr
 
 ### Bedienelemente (Luftentfeuchter, 0xA1)
 | Steuerung | Typ | Beschreibung |
-| ------------------ | ------- | -------------------------------------------- |
+| ------------------ | ------- | ------------------------------------------------------- |
 | `powerOn` | Boolescher Wert | Gerät ein-/ausschalten |
 | `targetHumidity` | Nummer | 0–100 % Zielfeuchtigkeit |
 | `fanSpeed` | Nummer | 0–127 (40 stumm, 60 niedrig, 80 hoch, 102 automatisch) |
@@ -131,7 +131,7 @@ Schreibgeschützte Metadaten (kein `MessageSet` vorgelagert definiert):
 - `0xB1` Backofen, `0xB3` Dampfgarer, `0xB4` Backofen-Dampfgarer-Kombination.
 - `0xAD` Luftfilterkasten (PM2.5 / VOC-Sensor).
 
-Für jeden steuerbaren Typ werden die beschreibbaren Felder unter `devices.<id>.controls.*` angezeigt; Sensorwerte landen unter `devices.<id>.status.*`.
+Für jeden steuerbaren Typ werden die beschreibbaren Felder unter `<deviceId>.control.*` angezeigt; Sensorwerte landen unter `<deviceId>.status.*`.
 
 ### Steuerung (Lüfter, 0xFA)
 | Steuerung | Typ | Beschreibung |
@@ -192,6 +192,15 @@ Schalten Sie den Adapter auf Debug-Protokollierung um – jeder Protokollschritt
 <!-- 
   Placeholder for next versions. Do NOT remove. 
 -->
+### 1.8.6 (2026-06-29)
+- Improved State parsing
+
+### 1.8.5 (2026-06-13)
+- Improve Device detection
+
+### 1.8.4 (2026-06-01)
+- Minor Bugfixes
+
 ### 1.8.3 (2026-05-25)
 
 -   Adds a NetHome Plus Fallback for ot working devices

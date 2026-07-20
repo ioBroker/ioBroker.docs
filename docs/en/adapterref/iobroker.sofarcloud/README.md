@@ -26,6 +26,14 @@ The received data can also be saved as JSON (sofar_realtime.json).
 
 
 ## Changelog
+### 3.4.3 (2026-06-12)
+
+- changed setTimeout to this.setTimeout
+
+### 3.4.2 (2026-05-29)
+
+- Translation issues resolved
+
 ### 3.4.1 (2026-05-26)
 
 - process.exit() issue resolved
@@ -38,17 +46,10 @@ The received data can also be saved as JSON (sofar_realtime.json).
 
 - Better Admin menu
 
-### 3.2.7 (2025-10-14)
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
-- "Invalid station ID" message as warning instead of info
-- "Start cloud query after..." as info instead of debug
+## License
 
-### 3.2.6 (2025-10-14)
-
-- station_id.length < 9 instead 18
-- delay up to 177s
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
 MIT License
 
 Copyright (c) 2025-2026 Daniel Luginbühl <webmaster@ltspiceusers.ch>

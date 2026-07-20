@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solectrus-influxdb/README.md
 title: ioBroker.solectrus-influxdb
-hash: Ft6MNdsDi/S4yAN52SJfevQ7eH1DOariBM1/5zxBbBk=
+hash: hREJONcmWVlz+RGZBoLlhW69OrWB/0boOuaM9/wpUi8=
 ---
 # IoBroker.solectrus-influxdb
 
@@ -13,7 +13,7 @@ hash: Ft6MNdsDi/S4yAN52SJfevQ7eH1DOariBM1/5zxBbBk=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/solectrus-influxdb-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.solectrus-influxdb.png?downloads=true)
 ![ioBroker](https://img.shields.io/badge/ioBroker-Adapter-blue)
-![Node.js](https://img.shields.io/badge/Node.js-%3E%3D20-green)
+![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22-green)
 ![InfluxDB](https://img.shields.io/badge/InfluxDB-2.x-orange)
 ![Lizenz](https://img.shields.io/badge/License-MIT-lightgrey)
 
@@ -29,11 +29,13 @@ Es ist für Energiemonitoringsysteme wie Photovoltaikanlagen, Batteriespeicher, 
 
 ### Merkmale
 - **Sensor Mapping** -- Ordnen Sie jeden ioBroker-Status einer InfluxDB-Messung/einem Feld mit konfigurierbarem Datentyp (int, float, bool, string) zu.
+- **Interne Sensoren** – Spiegeln und Überwachen von Zuständen, ohne diese in InfluxDB zu schreiben
 - **Zuverlässige Pufferung** – Der persistente Schreibpuffer (bis zu 100.000 Punkte) bleibt auch bei InfluxDB-Ausfällen und Adapterneustarts erhalten.
 - **Data-SOLECTRUS Formel-Engine** (optional) – Berechnet abgeleitete Werte aus mehreren Eingaben mithilfe von Formeln, Quellspiegelung oder regelbasierten Zustandsautomaten
 - **Zustandsautomatenmodus** -- Generiert Zeichenketten-/Boolesche Zustände aus Regelbedingungen (Erster Treffer gewinnt), ideal für Statusbezeichnungen und Betriebsmodi
 - **Formelgenerator** – Visueller Editor mit Drag-and-Drop-Bausteinen, Live-Vorschau, Operator-Tooltips und Beispielmustern
-- **Ordnergruppierung** – Berechnete Werte zur besseren Übersicht in Ordnern organisieren.
+- **Ordnergruppierung** – Ordnen Sie Sensoren und berechnete Werte in Ordnern, um eine bessere Übersicht zu erhalten.
+- **Integrierte Datensicherung** – Lokale Backups der Instanzkonfiguration, Sensoren und Data-SOLECTRUS-Elemente können direkt über die Registerkarte **Datensicherung** erstellt, hochgeladen, wiederhergestellt, heruntergeladen und gelöscht werden. Es ist kein weiterer Adapter erforderlich.
 
 ### Schnellstart
 1. Installieren Sie den Adapter über die ioBroker-Admin-Oberfläche.
@@ -53,7 +55,7 @@ Es ist für Energiemonitoringsysteme wie Photovoltaikanlagen, Batteriespeicher, 
 
 ### Anforderungen
 - ioBroker >= neueste stabile Version
-- Node.js >= 20
+- Node.js >= 22
 - InfluxDB 2.x
 
 ---
@@ -63,23 +65,35 @@ Es ist für Energiemonitoringsysteme wie Photovoltaikanlagen, Batteriespeicher, 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.8.6 (2026-05-25)
-* (copilot) Fixes for Repo Checker
 
-### 1.8.5 (2026-05-23)
-* (copilot) Add Icons in Notification
+### **WORK IN PROGRESS**
+* (patricknitsch) Cleanup i18n
+* (copilot) Fix timeout for Backup Manager
 
-### 1.8.4 (2026-05-23)
-* (patricknitsch) Fix missing unit in Formula-Engine
+### 1.12.0 (2026-07-08)
+* (patricknitsch) Final Release
 
-### 1.8.3 (2026-05-21)
-* (copilot) Modify notification manager to work with instances
-* (copilot) Update Dependencies
+### 1.12.0-beta.1 (2026-07-08)
+* (patricknitsch) Fix `npm run check` (tsc type-checking of the JSDoc-typed JS codebase) so it passes cleanly again
+* (patricknitsch) Improve JSDoc type coverage across `dsProxy.js`, `jsonpath.js`, `stateMachine.js` and `helpers.js`
+* (patricknitsch) Resolve all remaining ESLint JSDoc warnings (`npm run lint` is now warning-free)
 
-### 1.8.2 (2026-05-03)
-* (copilot) Adapter requires node.js >= 22 now
-* (copilot) Fix sensor duplicate: stale draft cache caused wrong sensor data to appear in the detail panel after duplicating or deleting a sensor
-* (copilot) Update Dependencies
+### 1.12.0-beta.0 (2026-07-05)
+* (patricknitsch) Update Dependencies
+* (patricknitsch) Add built-in **Backup** tab: create/upload/restore/download/delete local backups of the instance config, sensors and Data-SOLECTRUS items, with a configurable storage location (InfluxDB token is excluded and must be re-entered after a restore)
+* (patricknitsch) Add **Enable iFrame dashboard** checkbox: gates both the iFrame config tab and the Dashboard tab in the sensor overview (tab.html); reuse **Enable notifications** as the single switch that both activates notifications and reveals the Notifications tab
+
+### 1.11.0 (2026-06-23)
+* (copilot) Remove legacy Forecast Lib
+* (copilot) Migrate old config to new(now no Datapoints will be generated)
+* (copilot) Fix some small possible issues
+* (copilot) Update Docs
+
+### 1.10.0 (2026-06-06)
+* (copilot) Add internal sensors (mirrored/monitored, but not written to InfluxDB) so they can also be used for interval and value checks
+* (copilot) Add sensor folder/group support and document sensor status/group behavior
+
+**Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
 
 ## License
 

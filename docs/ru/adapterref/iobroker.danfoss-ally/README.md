@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.danfoss-ally/README.md
 title: без названия
-hash: x8WosFEER+yJnraUu8Zd7H0Cm9C7yURg4hhJSh9InnQ=
+hash: sbctulZ/na+dm0rPNfffIVn7LK1FOKBA4eCl+gSrvTk=
 ---
-![версия](https://img.shields.io/badge/version-0.2.18-blue)
+![версия](https://img.shields.io/badge/version-0.2.19-blue)
 ![НПМ](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 Облачный адаптер для **Danfoss Ally™** — с использованием **OAuth2 (учетные данные клиента)**.
@@ -261,9 +261,10 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 
 ---
 
-## Пишет
+## Записывает
 - `temp_set` сначала пытается выполнить комбинированную команду `SetpointChangeSource` + `temp_set`.
 - Термостаты Ally TRV также получают значение `manual_mode_fast`, если такая точка данных существует, поскольку некоторые устройства сообщают о заданном вручную значении.
+- Опрос обновляет только `status.*`; `control.*` остается каналом чистой записи, чтобы избежать циклов обратной связи.
 - Режим + температура должны быть указаны отдельно.
 - Значения ограничены допустимыми пределами и масштабированы в 10 раз.
 - `child_lock`: пытается `0/1`, повторяет попытку `true/false` при ошибке 400
@@ -285,6 +286,12 @@ node main.js
 ---
 
 ## Changelog
+
+### 0.2.19
+- Stopped polling from writing cloud values back into `control.*` states to avoid feedback loops with Loxone/scripts
+- Added `state.from` to debug write logs so external write sources can be identified
+- Added direct status fallback for devices that are listed without status values, improving Boiler Relay datapoints
+- Reduced poll debug noise: the initial run still logs all `SET` lines, later polls summarize changed values per device
 
 ### 0.2.18
 - Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
@@ -311,6 +318,8 @@ node main.js
 
 
 ---
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

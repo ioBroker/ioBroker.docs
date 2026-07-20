@@ -31,28 +31,51 @@ Simply enter your WeatherSense account login details (email and password).
 The weather station data is stored in the weathersense data point.
 The data can also be sent via MQTT.
 
+## Handling Multiple Weather Stations (Multi-Instance Support)
+
+The original WeatherSense cloud server has a software limitation/bug: if you register two or more identical weather stations within the same smartphone account, they will overwrite each other and disappear from your device list.
+
+To successfully read data from multiple stations simultaneously without any conflicts, you can leverage ioBroker's native multi-instance architecture.
+
+### Step-by-Step Setup:
+
+1. **Create Separate Cloud Accounts:** Register a unique, free account for **each** of your weather stations inside the WeatherSense mobile app (e.g., *email A* for Station 1 and *email B* for Station 2).
+2. **Bind One Station Per Account:** Pair your first station strictly with Account A and your second station strictly with Account B.
+3. **Add Multiple Instances in ioBroker:**
+   * Go to the `Instances` tab in ioBroker and add a second instance of the WeatherSense adapter (this creates `weathersense.0` and `weathersense.1`).
+4. **Configure the Instances:**
+   * Open the configuration for **`weathersense.0`** and enter the credentials for **Account A**. Set the `Sensor ID` to `1`.
+   * Open the configuration for **`weathersense.1`** and enter the credentials for **Account B**. Set the `Sensor ID` to `2`.
+
+### Benefits of this Setup:
+* **No Data Conflicts:** ioBroker will spin up two completely separate processes.
+* **Separated Objects:** Your data points are neatly separated into `weathersense.0.*` and `weathersense.1.*`.
+* **Clean MQTT Routing:** If you use the integrated MQTT feature, your topics will be cleanly separated by the Sensor ID (e.g., `weathersense/1/...` and `weathersense/2/...`), preventing data from overwriting on your broker.
+
 ## Changelog
-### 4.4.1 (2026-05-26)
+### 5.2.2 (2026-07-09)
 
-- process.exit() issue resolved
+- Typo corrected
 
-### 4.4.0 (2026-04-06)
+### 5.2.1 (2026-07-09)
 
-- node > 20
+- Typo corrected
 
-### 4.3.0 (2026-03-05)
+### 5.2.0 (2026-07-09)
 
-- "Ignore PowerStatus warning" option added
+- Invert PowerStatus flag added
 
-### 4.2.2 (2026-03-04)
+### 5.1.1 (2026-07-05)
 
-- powerStatus:0 message changed from warn to info
+- Bugfix: Unit windDirection km/h → °
 
-### 4.2.1 (2026-02-03)
+### 5.1.0 (2026-07-04)
 
-- "Error during login" message fixed & timeout increased to 3000ms
+- Now filenames of JSON files beginning with weathersense.{sensor_id}...
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
+## License
 
 MIT License
 

@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/ble-devices.md
 title: ioBroker.shelly
-hash: vP5dN0wklx3SyaWL+NApdcrrUKUb2c9mA/ter2kuok8=
+hash: 6JRge0PN3y8ieErjI4l3/SVw0fdGA6c4X42VnXSX540=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
@@ -155,61 +155,33 @@ Shelly.call('Mqtt.GetConfig', '', function (res, err_code, err_msg, ud) {
 });
 ```
 
-## Примеры полезных нагрузок (только для использования в процессе разработки)
+## Протестированные устройства
 **Кнопка Shelly BLU (и Tough 1)**
 
-- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/button
-- Протестировано с прошивкой: `20250314-080633/v1.0.22@cb5ca611`
-
-```json
-{
-  "encryption": false,
-  "BTHome_version": 2,
-  "pid": 6,
-  "battery": 70,
-  "button": 1 // 1 = einzelner Druck, 2 = Doppeldruck, 3 = Dreifachdruck, 4 = langer Druck
-}
-```
+- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/button
+- База знаний: https://kb.shelly.cloud/knowledge-base/shellyblu-button1
+- Протестировано с прошивкой: `20250314-080633/v1.0.22`
 
 **Shelly BLU H&T**
 
-- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/ht
-- Протестировано с прошивкой: `20250314-080647/v1.0.22@cb5ca611`
-
-```json
-
-```
+- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/ht
+- База знаний:
+- Протестировано с прошивкой: `20250314-080647/v1.0.22`
 
 **Дверь/окно Shelly BLU**
 
-- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/dw
-- Протестировано с прошивкой: `20250314-080641/v1.0.22@cb5ca611`
-
-```json
-{
-  "encryption": false,
-  "BTHome_version": 2,
-  "pid": 12,
-  "battery": 100,
-  "illuminance": 13,
-  "window": 0, // 1 = offen, 0 = geschlossen
-  "rotation": 0
-}
-```
+- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/dw
+- База знаний: https://kb.shelly.cloud/knowledge-base/shellyblu-door-window
+- Протестировано с прошивкой: `20250314-080641/v1.0.22`
 
 **Shelly BLU Motion**
 
-- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/motion
-- Протестировано с прошивкой: `20250314-080656/v1.0.22@cb5ca611`
+- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/motion
+- База знаний: https://kb.shelly.cloud/knowledge-base/shellyblu-motion
+- Протестировано с прошивкой: `20250314-080656/v1.0.22`
 
-```json
-{
-  "encryption": false,
-  "BTHome_version": 2,
-  "pid": 182,
-  "battery": 100,
-  "temperature": 25.9,
-  "illuminance": 427,
-  "motion": 1 // 1 = Bewegung, 0 = Bewegung beendet
-}
-```
+**Настенный выключатель Shelly BLU 4**
+
+- Документация: https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/wall_eu
+- База знаний: https://kb.shelly.cloud/knowledge-base/shelly-blu-wall-switch-4
+- Протестировано с прошивкой: `20250824-135711/v1.0.23`

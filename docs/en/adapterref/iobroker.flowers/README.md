@@ -83,6 +83,14 @@ Only one watering cycle runs at a time per plant. Configure the duration in Sett
 
 ## Changelog
 
+### 0.4.1 (2026-06-20)
+- (sadam6752-tech) Fix W5612: add missing i18n keys for Custom Profiles and placeholder fields
+- (sadam6752-tech) Update engines.node to >=22; remove Node.js 20 from test matrix
+- (sadam6752-tech) Add prettier.config.mjs, tsconfig.json, @types/node; update devDependencies
+
+### 0.4.0 (2026-05-14)
+- (sadam6752-tech) Fix object hierarchy: change plants container from `channel` to `folder` type to allow device children
+
 ### 0.3.9 (2026-04-30)
 - (sadam6752-tech) Fix button state roles: set `read=false` for `sendDailyReport` and `sendWeeklyReport` buttons (required by ioBroker role spec)
 

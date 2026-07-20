@@ -3,19 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.chargemaster/README.md
 title: ioBroker.chargemaster
-hash: KfVHMItVNCViMqWmyjqrfNs8LXM7PsnleXNwKMOqs8A=
+hash: kR1RIxIkER7PRGMDoJ0JYXNiXx4h27Tsp1CUxcCMvEg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.chargemaster/admin/chargemaster.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.chargemaster?style=flat-square)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.chargemaster?style=flat-square)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.chargemaster?label=npm%20downloads&style=flat-square)
-![узел-lts](https://img.shields.io/node/v-lts/iobroker.chargemaster?style=flat-square)
-![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.chargemaster?label=npm%20dependencies&style=flat-square)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.chargemaster?style=flat-square)
+![Статус зависимостей Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.chargemaster?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/hombach/iobroker.chargemaster?style=flat-square)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/hombach/iobroker.chargemaster?logo=github&style=flat-square)
-![Активность коммита GitHub](https://img.shields.io/github/commit-activity/m/hombach/iobroker.chargemaster?logo=github&style=flat-square)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/hombach/iobroker.chargemaster?logo=github&style=flat-square)
-![Проблемы с GitHub](https://img.shields.io/github/issues/hombach/iobroker.chargemaster?logo=github&style=flat-square)
+![размер репозитория GitHub](https://img.shields.io/github/repo-size/hombach/iobroker.chargemaster?logo=github&style=flat-square)
+![активность коммитов на GitHub](https://img.shields.io/github/commit-activity/m/hombach/iobroker.chargemaster?logo=github&style=flat-square)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/hombach/iobroker.chargemaster?logo=github&style=flat-square)
+![Проблемы на GitHub](https://img.shields.io/github/issues/hombach/iobroker.chargemaster?logo=github&style=flat-square)
 ![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.chargemaster/test-and-release.yml?branch=main&logo=github&style=flat-square)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.chargemaster?branch=master&svg=true)
 ![Известные уязвимости SNYK](https://snyk.io/test/github/hombach/ioBroker.chargemaster/badge.svg)
@@ -28,142 +28,137 @@ hash: KfVHMItVNCViMqWmyjqrfNs8LXM7PsnleXNwKMOqs8A=
 [![CodeQL](https://github.com/hombach/ioBroker.chargemaster/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.chargemaster/actions/workflows/codeql-analysis.yml)
 
 ## Версии
-## Адаптер для управления одним или несколькими зарядными устройствами для электромобилей с использованием солнечной энергии
-**!!! ЭТОТ АДАПТЕР ВСЕ ЕЩЕ НАХОДИТСЯ В СТАДИИ РАЗРАБОТКИ!!!**
-
-Адаптер для управления одним или несколькими зарядными устройствами для электромобилей (Wallbox) с использованием избыточной энергии фотоэлектрических систем.
-
-## Настройки
-Для подключения к настенным устройствам введите в конфигурацию штаты с необходимыми данными.
-
 ## Часовой
-Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам. Для получения дополнительных сведений и информации о том, как отключить отчеты об ошибках, обратитесь к [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry инициируются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">в документации Sentry-Plugin</a> !
+
+## Адаптер для управления одним или несколькими зарядными устройствами для электромобилей с использованием энергии солнечных батарей
+**!!! Этот адаптер находится в стадии разработки !!!**
+
+ChargeMaster управляет одним или несколькими зарядными устройствами для электромобилей (настенными зарядными станциями) и регулирует ток зарядки в зависимости от доступной избыточной энергии солнечных батарей в вашем доме. Он не зависит от производителя настенных зарядных станций: он не взаимодействует с самим оборудованием, а считывает и записывает данные в состояния ioBroker ваших существующих адаптеров настенных зарядных станций (например, go-e, но подойдет любой адаптер, предоставляющий необходимые состояния).
+
+### Функции
+- Позволяет одновременно управлять несколькими настенными распределительными коробками, соблюдая при этом общий максимальный суммарный ток (например, ограничение, установленное в вашем домашнем подключении или в линии электропитания настенной коробки).
+- Режим **ChargeNOW** для каждого настенного зарядного устройства: мгновенная зарядка заданным пользователем током, независимо от выработки солнечной энергии.
+- Режим **ChargeManager** для каждой настенной зарядной станции: автоматическая зарядка от избытка солнечной энергии с учетом потребления электроэнергии в доме и вашей домашней батареи.
+- Настраиваемый приоритет домашней батареи: зарядка электромобиля начинается только после того, как домашняя батарея достигнет настраиваемого уровня заряда; при превышении этого уровня часть энергии батареи может использоваться для зарядки электромобиля.
+- Плавная регулировка: зарядный ток увеличивается/уменьшается на 1 А за цикл управления, с гистерезисом и задержкой отключения для защиты автомобильного зарядного устройства от резких переключений.
+- Управление на основе событий: мгновенно реагирует на действия пользователя (например, включение ChargeNOW) и получает данные об энергопотреблении через подписки на состояние, а не путем опроса.
+
+### Как это работает
+Адаптер выполняет цикл управления (по умолчанию каждые 10 секунд). Для каждого настроенного настенного блока он планирует целевой ток в зависимости от его режима работы:
+
+1. **ChargeNOW включен** → настенное зарядное устройство планируется использовать с заданным пользователем значением `ChargeCurrent`.
+2. **Менеджер зарядки включен** → если уровень заряда домашней батареи достиг заданного значения (`Settings.Setpoint_HomeBatSoC`), оптимальный ток рассчитывается исходя из избытка солнечной энергии (см. [Алгоритм менеджера зарядки](#charge-manager-algorithm)). В противном случае настенное зарядное устройство остается выключенным до полной зарядки батареи.
+3. **Ни один из режимов не включен** → настенная приставка выключена.
+
+Затем глобальный ограничитель распределяет доступный суммарный ток (настройка `maximum total current`): сначала обслуживаются зарядные устройства в режиме ChargeNOW, оставшийся ток передается зарядным устройствам ChargeManager. Если оставшийся ток для зарядного устройства упадет ниже минимального значения, оно полностью отключается. Наконец, полученные значения тока и команды включения зарядки записываются в сконфигурированные состояния зарядных устройств.
+
+## Требования
+- node.js >= 22.18, js-controller >= 6.0.11, admin >= 7.6.20
+- Адаптер ioBroker для ваших настенных зарядных устройств, предоставляющий информацию о состоянии: установленный зарядный ток, разрешение/запрет зарядки, активная мощность зарядки, активный зарядный ток.
+— ioBroker отображает выработку электроэнергии от солнечных батарей (Вт), потребление электроэнергии в доме (Вт) и — если имеется — уровень заряда домашней батареи (%), например, от адаптера инвертора.
+
+## Конфигурация
+### Основные настройки
+| Настройки | Описание |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `cycle time` | Интервал цикла управления в миллисекундах (по умолчанию 10000). Значения ниже 5000 не рекомендуются. |
+| `state of solar power` | Иностранное государство с текущим объемом производства фотоэлектрической энергии в Вт. |
+| `state of home power consumption` | Зарубежное государство с текущим потреблением электроэнергии в доме в Вт (без учета мощности зарядного устройства Wallbox). |
+| `state of home battery state of charge`| Зарубежное государство с текущим уровнем заряда батареи в %. |
+| `Состояние заряда домашней батареи` | Зарубежное государство с текущим уровнем заряда домашней батареи в %. |
+
+### Список настенных ящиков
+Добавьте по одному ряду на каждый блок:
+
+| Столбец | Описание |
+| ----------------------- | ------------------------------------------------------------------------ |
+| `state charge current` | Иностранное состояние для **записи** заданного значения зарядного тока (А). |
+| `state active power` | Иностранное государство для **считывания** текущей мощности зарядки (Вт). |
+| `state active current` | Иностранное государство для **считывания** текущего зарядного тока (А). |
+| `min current` | Минимальный зарядный ток этого настенного зарядного устройства в А (обычно 6 А). |
+| `max current` | Максимальный зарядный ток этого настенного зарядного устройства в А (например, 16 А). |
+| `максимальный ток` | Максимальный зарядный ток этого настенного зарядного устройства в А (например, 16 А). |
+
+При запуске адаптера проверяются все настроенные состояния — если какое-либо состояние отсутствует, адаптер регистрирует ошибку и останавливается.
+
+## Состояния, созданные адаптером
+| Штат | Описание |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `Settings.Setpoint_HomeBatSoC` | Минимальный уровень заряда домашней батареи в % до начала зарядки от избытка солнечной энергии (можно записывать, по умолчанию 80). |
+| `Settings.WB_<x>.ChargeCurrent` | Ток зарядки в А, используемый в режиме ChargeNOW (с возможностью записи). |
+| `Settings.WB_<x>.ChargeManager` | Включить зарядку избыточной солнечной энергии для настенного зарядного устройства `<x>` (доступно для записи). |
+| `Power.Charge` | Общая измеренная мощность зарядки всех настенных зарядных устройств в Вт. |
+| `info.connection` | Верно, пока проверены все настроенные внешние состояния и адаптер работает. |
+| `info.connection` | True, пока проверены все настроенные внешние состояния и адаптер работает. |
+
+## Алгоритм управления зарядом
+Оптимальный зарядный ток для настенного зарядного устройства в режиме ChargeManager рассчитывается следующим образом:
+
+```
+batteryShare = up to 2000 W, scaling linearly from 0 at Setpoint_HomeBatSoC to 2000 W at 100% SoC
+optimalCurrent = (solarPower - houseConsumption + 100 W reserve + batteryShare) / 230 V
+```
+
+Затем запланированный ток приближается к этому оптимуму на 1 А за цикл. Зарядка включается, как только запланированный ток превышает минимальный ток зарядного устройства плюс гистерезис в 3 А, и отключается только после того, как запланированный ток оставался ниже минимального тока более 15 последовательных циклов (задержка выключения, предотвращает переключение при кратковременных разрядах).
+
+## Примечания и ограничения
+- Преобразование мощности в ток предполагает однофазную зарядку при напряжении 230 В. Для трехфазных зарядных устройств в настоящее время расчетный избыточный ток не делится на количество фаз — возможность настройки количества фаз находится в стадии разработки.
+- Потребление электроэнергии в доме не должно включать в себя мощность самой настенной зарядной станции, иначе контур управления будет колебаться.
+- Адаптер записывает данные в состояние вашего настенного блока каждый цикл - убедитесь, что настроенные значения `state charge current` / `state charge allowed` действительно соответствуют состояниям управления вашего адаптера настенного блока, допускающим запись.
 
 ## Пожертвовать
-<a href="https://www.paypal.com/donate/?hosted_button_id=H5PMQ8JKQL7SL"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a> Если вам понравился этот проект — или вы просто чувствуете щедрость, подумайте о том, чтобы угостить меня пивом. Ура! :beers:
+<a href="https://www.paypal.com/donate/?hosted_button_id=H5PMQ8JKQL7SL"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a> Если вам понравился этот проект — или вы просто чувствуете себя щедрым, — подумайте о том, чтобы угостить меня пивом. За ваше здоровье! :beers:
 
 ## Протестировано с
 - 3 зарядных устройства go-E и Костал ПикоБА
 
 ## Changelog
 
-! Note that missing version entries are typically dependency updates for improved security.
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 0.16.0 (2026-07-05)
 
-### 0.12.5 (2024-12-12)
+- (HombachC) switched data acquisition from polling to event driven foreign state subscriptions, react immediately to user input
+- (HombachC) fixed warnings of adapter checker
+- (HombachC) repository cleanup
+- (HombachC) removed unused chai/sinon-chai/chai-as-promised/proxyquire devDependencies and switch tests to node:assert
+- (HombachC) fixed race condition at first start
+- (HombachC) fixed wrong config default keys in io-package.json and added guard for missing maxAmpTotal
+- (HombachC) moved module-global variables into adapter class to fix possible conflicts in compact mode
+- (HombachC) stop state machine and reset info.connection on adapter unload
+- (HombachC) await wallbox state writes with proper error handling and throttle/switch off boxes exceeding the measured total current limit
+- (HombachC) fixed lost min/max/step value of 0 and duplicated unit handling in projectUtils
+- (HombachC) charge manager: clamp optimal current at zero and fix division by zero with home battery setpoint of 100%
+- (HombachC) validate and clamp Setpoint_HomeBatSoC state changes (NaN guard, 0-100%)
+- (HombachC) improved typing: typed state getters in projectUtils instead of any, fixed wallBoxList tuple type
+- (HombachC) removed yarn devDependency and switched release build hook to npm
+- (HombachC) extracted charge planning and limiting algorithms into testable module and added 18 unit tests
+- (HombachC) improved README with feature overview, configuration, states and algorithm documentation
 
-- (HombachC) switch to i18n translation (#572)
-- (HombachC) implement ioBroker.eslint-config (#580)
-- (HombachC) bump dependencies
+### 0.15.1 (2026-06-04)
 
-### 0.12.4 (2024-11-23)
+- (HombachC) fix warnings of adapter checker
+- (HombachC) upgraded typescript to 6.x.x
+- (HombachC) updated projectUtils
+- (HombachC) updated dependencies
 
-- (HombachC) implement better state change error handling
+### 0.15.0 (2026-05-09)
 
-### 0.12.3 (2024-11-18)
+- (copilot) BREAKING: adapter requires node.js >= 22 now
+- (HombachC) update dependencies
 
-- (HombachC) fix bug in state subscription
-- (HombachC) harmonize project tools
-- (HombachC) bump dependencies
+### 0.14.7 (2026-04-16)
 
-### 0.12.2 (2024-10-27)
+- (HombachC) min admin 7.6.20 as recommended (#762)
+- (HombachC) switch to ES2023 code
+- (HombachC) update dependencies
 
-- (HombachC) migrate eslint to >9.x
-- (HombachC) bumped dependencies
+### 0.14.6 (2026-02-27)
 
-### 0.12.1 (2024-10-22)
-
-- (HombachC) fix error in jsonConfig.json
-
-### 0.12.0 (2024-10-22)
-
-- (HombachC) BREAKING: dropped support for admin < 7 (#544)
-- (HombachC) optimized responsive design (#544)
-- (HombachC) optimized translation handling
-
-### 0.11.1 (2024-09-16)
-
-- (HombachC) add node.js 22 to the adapter testing matrix (#523)
-- (HombachC) Bump @iobroker/testing to 5.0.0
-
-### 0.11.0 (2024-08-29)
-
-- (HombachC) implement variable wallbox amount
-- (HombachC) fix errors in wallbox control
-- (HombachC) complete rework of configuration screen
-- (HombachC) move utils to extra class
-- (HombachC) switch to ECMA 2022 code
-- (HombachC) bumped dependencies
-
-### 0.10.0 (2024-08-18)
-
-- (HombachC) switch to Typescript
-- (HombachC) change adapter type to "energy"
-- (HombachC) replace deprecated setStateAsync
-
-### 0.9.3 (2024-08-18)
-
-- (HombachC) change translation handling
-- (HombachC) code and repository cleanup
-- (HombachC) prepare switch to Typescript
-
-### 0.9.2 (2024-08-16)
-
-- (HombachC) fixed vulnerability in dependency
-- (HombachC) added tests for node 22
-
-### 0.9.1 (2024-08-06)
-
-- (HombachC) fixed issues detected by repository checker (#494)
-- (HombachC) code cleanups
-
-### 0.9.0 (2024-04-20)
-
-- (HombachC) BREAKING: dropped support for node.js 16 (#455)
-- (HombachC) BREAKING: js-controller >= 5 is required (#456)
-
-### 0.8.5 (2024-03-27)
-
-- (HombachC) updated CI definitions, switched to node 20 as main test scenario
-- (HombachC) corrected io-package.json according to new schema
-- (HombachC) bumped dependencies
-
-### 0.8.4 (2023-12-29)
-
-- (HombachC) BREAKING: dropped support for js-controller 3.x
-- (HombachC) Year 2024 changes
-- (HombachC) Bump axios to 1.6.3 because of vulnerability
-
-### 0.8.3 (2023-10-29)
-
-- (HombachC) Bumb adapter core to 3.x
-- (HombachC) Bump axios to 1.6.0 because of vulnerability
-
-### 0.8.2 (2023-10-01)
-
-- (HombachC) Several dependency updates
-- (HombachC) Fixed acknowledging of state changes (#339)
-
-### 0.8.1 (2023-08-29)
-
-- (HombachC) bumped dependencies, added min/max to settings state defaults
-
-### 0.8.0 (2023-06-23)
-
-- (HombachC) changed config screen to admin 5 solution
-
-### 0.7.2 (2023-06-19)
-
-- (HombachC) Removed Travis
-
-### 0.7.1 (2023-06-13)
-
-- (HombachC) Fixed typo in docu, added translations
-
-### 0.7.0 (2023-06-11)
-
-- (HombachC) BREAKING: dropped node.js 14 support
-- (HombachC) Add tests for node.js 20, removed for node.js 14, bumped dependencies
-- (HombachC) BREAKING: dropped ioBroker.admin 4 support
+- (HombachC) update dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
@@ -171,7 +166,7 @@ hash: KfVHMItVNCViMqWmyjqrfNs8LXM7PsnleXNwKMOqs8A=
 
 MIT License
 
-Copyright (c) 2021-2024 Christian Hombach
+Copyright (c) 2021-2026 Christian Hombach
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -189,4 +184,5 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
 SOFTWARE.

@@ -393,6 +393,11 @@ If you like my work, please consider a personal donation
     ### __WORK IN PROGRESS__
     * (DutchmanNL) 
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (arteck) NEW: Reconnect interval, ping interval and ping attempts for device connections are now configurable in the adapter settings (Devices tab)
+- (arteck) fix language translations
+
 ### 0.7.0 (2026-05-17)
 * (@SimonFischer04) **FIXED** copilot hallucinations
 * (@SimonFischer04) **NEW** 'Always last available' for pillow version
@@ -426,6 +431,8 @@ If you like my work, please consider a personal donation
 * (@SimonFischer04) remove unneeded node-fetch dependency
 * (@SimonFischer04) automatic migration from versions prior to ESPHomeDashboardUrl introduction (pre v0.6.1)
 * (@copilot) **FIXED**: Invalid jsonConfig schema - removed unsupported `doNotSave` property from table elements
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

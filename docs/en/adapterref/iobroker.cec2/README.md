@@ -119,15 +119,6 @@ video group for that:
 sudo usermod -a -G video iobroker
 ```
 
-#### Installation
-Execute the following command in the iobroker root directory (e.g. in /opt/iobroker)
-```
-npm install iobroker.cec2
-```
-
-Or install from admin webpage.
-
-
 ## Configuration
 
 * osd name: this name will reported to other devices, for example your TV. You might need to select ioBroker there to receive remote controls in ioBroker.

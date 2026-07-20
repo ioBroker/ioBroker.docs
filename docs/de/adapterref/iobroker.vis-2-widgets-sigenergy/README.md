@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-sigenergy/README.md
 title: ioBroker.vis-2-widgets-sigenergy
-hash: rOh8CIKMyKu6fpFtXuPSVtxHOnNBruhKJu8FB0UP78g=
+hash: zWTx5E4wtU0ZupTB7b3mrRktLhzSHIrS3u9B3POe6+g=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/admin/vis-2-widgets-sigenergy.png)
 
@@ -139,6 +139,29 @@ Die horizontale Hauptlinie und die vertikalen Hilfslinien zeigen animierte Stric
 
 **OIDs (pro Gerät, Präfix sigenergy.0.sigenmicro.<slaveId>):** Modelltyp, Seriennummer, Firmware-Version, Betriebszustand, Ausgangsleistung, Netzfrequenz, Temperatur, MPPT1-Spannung, MPPT1-Strom, MPPT1-Leistung, MPPT2-Spannung, MPPT2-Strom, MPPT2-Leistung, Tagesertrag, Gesamtertrag
 
+### Fahrzeugladestand (EV SOC)
+Zeigt ein konfigurierbares Fahrzeugbild (z. B. Fiat 500e) als zentrales visuelles Element an. Ein farbcodiertes Symbol in der oberen rechten Ecke zeigt einen Blitz, den aktuellen Ladestand in Prozent und die Bezeichnung „LADESTAND“. Ein Fortschrittsbalken am unteren Rand zeigt den aktuellen Ladezustand (SOC) an. Im optionalen Lademodus leuchtet das Symbol pulsierend grün.
+
+#### Farblogik
+| Ladezustand | Farbe |
+|---|---|
+| ≤ 15 % | Rot (#f87171) |
+| ≤ 35 % | Gelb (#fbbf24) |
+| > 35 % | Grün (#4ade80) |
+
+#### Widget-Einstellungen
+| Parameter | Typ | Standardwert | Beschreibung |
+|---|---|---|---|
+| oid_ev_soc | OID | — | Ladezustand 0–100 |
+| oid_charging | OID | — | Ladezustand (optional) — grünes Leuchten bei Aktivität |
+| sig_title | Text | Fahrzeug-Ladestand | Fahrzeugname wird unter dem Bild angezeigt |
+| sig_car_image | image | — | Fahrzeugbild aus dem ioBroker-Dateibrowser (z. B. /vis-2/img/) |
+| sig_darkmode | Kontrollkästchen | wahr | Dunkel-/Hellmodus |
+
+![Fahrzeug-Ladestand-Widget](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-autoLadestand.png)
+
+**OIDs:** `oid_ev_soc`, `oid_charging`
+
 ## Aussehen
 Alle Widgets unterstützen einen **hellen und dunklen Modus**, der über die Widget-Einstellung `Dark mode` umgeschaltet werden kann.
 
@@ -154,8 +177,20 @@ Alle Widgets unterstützen einen **hellen und dunklen Modus**, der über die Wid
 - 🇵🇹 [Português](doc/pt/README.md)
 
 ## Changelog
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 1.8.2 (2026-06-28)
+* (ssbingo) Updated CI actions: actions/checkout to v7.0.0, ioBroker/testing-action-deploy to v1.5.0
+
+### 1.8.1 (2026-06-08)
+* (ssbingo) Fixed JSON syntax error in io-package.json; added widget screenshot to documentation
+
+### 1.8.0 (2026-06-08)
+* (ssbingo) New widget: "Fahrzeug-Ladestand" — shows a configurable EV image with animated SOC bar, color-coded charge level (red/yellow/green), and optional blinking charging badge
+
+### 1.7.9 (2026-05-27)
+* (ssbingo) Removed obsolete .eslintrc.json and .prettierignore
+
+### 1.7.8 (2026-05-27)
+* (ssbingo) Added ESLint linting, updated CI to Node.js 24; adapter requires node.js >= 22
 
 ### 1.7.7 (2026-04-20)
 * (ssbingo) Text no longer distorts under non-uniform scaling — letters keep their proportions while containers continue to fill the widget area

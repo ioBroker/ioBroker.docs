@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.net/#de/blog</link>
-        <lastBuildDate>Mon, 13 Apr 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 10 Jul 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[ioBroker Monatsrückblick – Mai/Juni 2026]]></title>
+            <description><![CDATA[
+                <p>Der Sommer 2026 hält das ioBroker-Ökosystem ordentlich auf Trab!\nSeit dem letzten Rückblick sind gleich **15 neue Adapter** ins Repository gewandert.\nVom MSpa-Whirlpool über den AL-KO-Mähroboter bis hin zum Home-Assistant-Emulator für Wandpanels.\nAuffällig viel tut sich rund um **Energie und Solar** (HomeWizard, FoxESS, SOLECTRUS, Linky, Tibber-Widgets),\naber auch **Ortung, Monitoring und Beleuchtung** sind stark vertreten.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2026_07_10</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2026_07_10</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Fri, 10 Jul 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[ioBroker Monatsrückblick – März/April 2026]]></title>
             <description><![CDATA[

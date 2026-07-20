@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-sigenergy/README.md
 title: ioBroker.vis-2-widgets-sigenergy
-hash: rOh8CIKMyKu6fpFtXuPSVtxHOnNBruhKJu8FB0UP78g=
+hash: zWTx5E4wtU0ZupTB7b3mrRktLhzSHIrS3u9B3POe6+g=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/admin/vis-2-widgets-sigenergy.png)
 
@@ -84,7 +84,7 @@ hash: rOh8CIKMyKu6fpFtXuPSVtxHOnNBruhKJu8FB0UP78g=
 | **Мощность** | Активная мощность, мощность фотоэлектрических панелей, мощность заряда/разряда батареи, ползунок распределения мощности (от -100 % до +100 %) |
 | **Аккумулятор** | Уровень заряда и состояния батареи (в виде полосок), средняя температура/напряжение элементов, максимальная/минимальная температура |
 | **Сеть** | Фазовые напряжения L1/L2/L3, частота сети, коэффициент мощности, внутренняя температура PCS |
-| **Сигналы тревоги** | 5 регистров сигналов тревоги (2 шт., ESS, шлюз, зарядное устройство постоянного тока) с шестнадцатеричным кодом и цветовой маркировкой |
+| **Сигналы тревоги** | 5 регистров сигналов тревоги (2 блока, ESS, шлюз, зарядное устройство постоянного тока) с шестнадцатеричным кодом и цветовой маркировкой |
 | **Информация** | Тип модели, серийный номер, версия прошивки, переключатель Remote-EMS |
 
 ![Инвертор](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-inverter.png)
@@ -140,6 +140,29 @@ hash: rOh8CIKMyKu6fpFtXuPSVtxHOnNBruhKJu8FB0UP78g=
 
 **OID (для каждого устройства, префикс sigenergy.0.sigenmicro.<slaveId>):** modelType, serialNumber, firmwareVersion, runningState, outputPower, gridFrequency, temperature, mppt1Voltage, mppt1Current, mppt1Power, mppt2Voltage, mppt2Current, mppt2Power, dailyYield, totalYield
 
+### Уровень заряда аккумулятора (EV SOC)
+В качестве центрального визуального элемента отображается настраиваемое изображение автомобиля (например, Fiat 500e). В правом верхнем углу расположен цветовой значок с изображением молнии, текущим уровнем заряда в процентах и надписью «LADESTAND». Внизу отображается индикатор выполнения, показывающий текущий уровень заряда батареи. При активации режима зарядки значок мигает зеленым светом.
+
+#### Цветовая логика
+| Уровень заряда | Цвет |
+|---|---|
+| ≤ 15 % | Красный (#f87171) |
+| ≤ 35 % | Желтый (#fbbf24) |
+| > 35 % | Зеленый (#4ade80) |
+
+#### Настройки виджета
+| Параметр | Тип | Значение по умолчанию | Описание |
+|---|---|---|---|
+| oid_ev_soc | OID | — | Состояние заряда 0–100 |
+| oid_charging | OID | — | Состояние зарядки (необязательно) — зеленое свечение при активации |
+| сиг_титул | текст | Фарцойг-Ладестанд | Название автомобиля показано под изображением |
+| sig_car_image | image | — | Изображение автомобиля из файлового браузера ioBroker (например, /vis-2/img/) |
+| sig_darkmode | checkbox | true | Темный / Светлый режим |
+
+![Виджет Fahrzeug-Ladestand](../../../en/adapterref/iobroker.vis-2-widgets-sigenergy/img/widget-autoLadestand.png)
+
+**Идентификаторы OID:** `oid_ev_soc`, `oid_charging`
+
 ## Появление
 Все виджеты поддерживают **светлый и темный режимы**, переключаемые через настройку виджета `Dark mode`.
 
@@ -155,8 +178,20 @@ hash: rOh8CIKMyKu6fpFtXuPSVtxHOnNBruhKJu8FB0UP78g=
 - 🇵🇹 [Португальский](doc/pt/README.md)
 
 ## Changelog
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 1.8.2 (2026-06-28)
+* (ssbingo) Updated CI actions: actions/checkout to v7.0.0, ioBroker/testing-action-deploy to v1.5.0
+
+### 1.8.1 (2026-06-08)
+* (ssbingo) Fixed JSON syntax error in io-package.json; added widget screenshot to documentation
+
+### 1.8.0 (2026-06-08)
+* (ssbingo) New widget: "Fahrzeug-Ladestand" — shows a configurable EV image with animated SOC bar, color-coded charge level (red/yellow/green), and optional blinking charging badge
+
+### 1.7.9 (2026-05-27)
+* (ssbingo) Removed obsolete .eslintrc.json and .prettierignore
+
+### 1.7.8 (2026-05-27)
+* (ssbingo) Added ESLint linting, updated CI to Node.js 24; adapter requires node.js >= 22
 
 ### 1.7.7 (2026-04-20)
 * (ssbingo) Text no longer distorts under non-uniform scaling — letters keep their proportions while containers continue to fill the widget area

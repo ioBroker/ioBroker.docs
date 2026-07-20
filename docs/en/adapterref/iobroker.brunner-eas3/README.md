@@ -28,7 +28,7 @@ Burning states:
 
 ### DISCLAIMER
 
-This adapter is NOT an official product from Urlich Brunner GmbH. It was developed and maintained by members of the open source community.
+This adapter is NOT an official product from Ulrich Brunner GmbH. It was developed and maintained by members of the open source community.
 
 
 ## Changelog

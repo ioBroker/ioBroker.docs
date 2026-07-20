@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/protocol-mqtt.md
 title: ioBroker.shelly
-hash: lOcrMKzHUA8JZxXuYkJnuPjuKJHeTkKErzXD+Vl6piI=
+hash: 4b2wumy82IaKgz88kpC53rUH26Zi6vVsM2wI2ApYQow=
 ---
 ![标识](../../../de/admin/shelly.png)
 
@@ -23,13 +23,15 @@ hash: lOcrMKzHUA8JZxXuYkJnuPjuKJHeTkKErzXD+Vl6piI=
 
 有问题？请先查看[常问问题](faq.md)！
 
+>[!重要] >Shelly 适配器不支持通过 NAT 连接 Shellie（例如，许多 VPN 配置或 Shelly 范围扩展器）。
+
 ＃＃＃ 配置
 1. 在ioBroker中打开Shelly适配器配置
 2. 在“常规设置”中选择“MQTT（和 HTTP）”作为“协议”。
 3. 打开 **MQTT 设置** 选项卡。
 4. 选择用户名和安全密码（此信息必须在所有 Shelly 设备上输入）
 
-Shelly适配器会启动其内部的MQTT代理。所有要连接到此代理的Shelly设备都必须输入已配置的用户名和密码。
+Shelly适配器会启动其内部MQTT代理。所有要连接到此代理的Shelly设备都必须输入已配置的用户名和密码。
 
 ![iobroker_mqtt](../../../de/adapterref/iobroker.shelly/img/iobroker_mqtt.png)
 

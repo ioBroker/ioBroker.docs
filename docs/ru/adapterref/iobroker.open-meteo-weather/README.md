@@ -3,16 +3,16 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.open-meteo-weather/README.md
 title: ioBroker.open-meteo-weather
-hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
+hash: ZDtyYCv3+PZq9GWbyJ9HYdjGqTd6XEDq5f/Mq3OAUIA=
 ---
-![Логотип](../../../en/adapterref/iobroker.open-meteo-weather/admin/open-meteo.png)
-
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.open-meteo-weather.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.open-meteo-weather.svg)
 ![Количество установок](https://iobroker.live/badges/open-meteo-weather-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/open-meteo-weather-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.open-meteo-weather.svg?data=d)
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.open-meteo-weather?style=flat-square)
+
+<img src="admin/open-meteo.png" width=100 >
 
 # IoBroker.open-meteo-weather
 ![Тестирование и выпуск](https://github.com/H5N1v2/iobroker.open-meteo-weather/workflows/Test%20and%20Release/badge.svg)
@@ -39,7 +39,7 @@ hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
 * **Автоматическая очистка:** Адаптер автоматически очищает структуру объекта, если периоды прогнозирования сокращаются или изменяются в конфигурации.
 * **Многоязычная поддержка:** Поддерживает 11 языков (включая английский, немецкий, польский, русский, французский, китайский и др.).
 * **Система единиц измерения:** Плавное переключение между метрической (°C, км/ч) и имперской (°F, миль/ч) системами.
-* **Несколько местоположений:** Добавляйте несколько местоположений.
+* **Несколько местоположений:** Добавьте несколько местоположений.
 * **Ночные значки:** Вы можете выбрать один из двух наборов ночных значков: «Светлый» и «Темный». Это упростит подбор значка под фон вашего помещения.
 
 ### Значки направления ветра
@@ -47,7 +47,7 @@ hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
 
 * Направление ветра (куда дует ветер): Это стандартная настройка. Стрелка указывает направление ветра. (Например: при северном ветре стрелка указывает на юг).
 
-* Источник ветра (откуда дует ветер): В этом стиле используются значки из подпапки direct_2. Стрелка указывает на источник ветра. (Пример: северный ветер обозначается стрелкой, указывающей на север, или конкретным значком «источника»).
+* Источник ветра (место, откуда дует ветер): В этом стиле используются значки из подпапки direct_2. Стрелка указывает на источник ветра. (Пример: северный ветер обозначается стрелкой, указывающей на север, или конкретным значком «источника»).
 
 |Настройки | Путь к значку | Поведение |
 |:---|:---|:---|
@@ -97,7 +97,7 @@ hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
 * Установите свойство "HTML" этого виджета в соответствии с привязкой вашего состояния: `{open-meteo-weather.0.yourLocation.htmlWidget}`.
 * Отрегулируйте ширину и высоту контейнера виджета в соответствии с содержимым.
 
-**Настройка:** Основные параметры, такие как размер шрифта, время и дни прогноза погоды, можно изменять только в настройках адаптера.
+**Настройка:** Основные параметры, такие как размер шрифта, время и дни прогноза погоды, можно изменять только в конфигурации адаптера.
 
 **Идеально подходит для:** Пользователей, которым нужен быстрый, красивый и не требующий обслуживания дисплей.
 
@@ -137,7 +137,7 @@ hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
 #### Если вам не нужны прогнозы погоды, оставьте поле «Местоположение» пустым, штаты вводиться не будут.
 
 ----
-## Функции прогнозирования солнечной активности (если включено)
+## Функции: Прогноз солнечной активности (если включен)
 * **Поддержка нескольких местоположений:** Поддержка нескольких фотоэлектрических систем/мест, например, для восточной/западной ориентации.
 * **Почасовой прогноз:** Подробный прогноз выходной мощности, температуры, облачности и продолжительности солнечного сияния.
 * **Ежедневный прогноз:** Сводка ожидаемого потребления энергии (Вт·ч) на срок до 14 дней.
@@ -159,7 +159,7 @@ hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
 | `pv-forecast` | Папка с данными прогноза PV |
 | `pv-forecast` | Папка с данными прогноза PV |
 
-### 15-минутный прогноз (`15-min-forecast.0 - 95`), (24 часа текущего дня), если включен
+### Прогноз на 15 минут (`15-min-forecast.0 - 95`), (24 часа текущего дня), если включен
 | Точка данных | Единица измерения | Описание |
 | `global_tilted_irradiance` | Вт·ч | Ожидаемое энергопотребление на основе установленной мощности (кВтп). |
 | `pv_temperature` | °C | Расчетная температура фотоэлектрического модуля (расчет Файмана). |
@@ -170,7 +170,7 @@ hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
 
 Информация: для расчета температуры фотоэлектрического модуля необходимы параметры temperature_2m и wind_spread_10m.
 
-При необходимости эту опцию можно выбрать отдельно, в противном случае данные DP включены в прогноз погоды.
+При необходимости эту опцию можно выбрать отдельно, в противном случае данные о погоде уже включены в расчеты.
 
 | Точка данных | Единица измерения | Описание |
 | `cloud_cover` | % | Общая облачность в процентах. |
@@ -207,7 +207,7 @@ hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
 | `sunshine_duration` | мин | Фактическое количество минут солнечного сияния в течение этого часа. |
 | `продолжительность_солнечного_сия` | мин | Фактическое количество минут солнечного сияния в течение этого часа. |
 
-### Sum_peak_locations_15_Minutly (`0-95`) if enbled
+### Sum_peak_locations_15_Minutly (`0-95`) если включено
 | Точка данных | Единица измерения | Описание |
 | `sum_locations` | Wh | Сумма местоположений за 15 минут |
 | `time` | - | Прогнозируемое время (ЧЧ:мм). |
@@ -224,7 +224,7 @@ hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
 | `time` | - | Прогнозируемое время (ЧЧ:мм). |
 | `время` | - | Прогнозируемое время (ЧЧ:мм). |
 
-### Точки данных в формате JSON, если включено
+### Точки данных JSON, если включено
 | Точка данных | Единица измерения | Описание |
 |:---|:---|:---|
 | `sum_peak_15-min-json_chart` | - | Сумма местоположений за 15 минут в формате JSON |
@@ -283,6 +283,26 @@ hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
 * **Данные о погоде:** Все данные о погоде предоставлены сайтом [Open-Meteo.com](https://open-meteo.com/). Пожалуйста, ознакомьтесь с их условиями использования для коммерческих целей.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) upscaled the logo
+* (@GermanBluefox) Updated TS to 6
+* (@GermanBluefox) Corrected image in JsonConfig
+
+### 3.1.3 (2026-06-20)
+* (H5N1v2) Fixed an issue with object creation caused by an accidental change.
+
+### 3.1.2 (2026-06-20)
+* (mcuiobroker) fix: after adapter update, automatically adjust type and role if they have been changed in new versions.
+* (H5N1v2) Update dependencies
+
+### 3.1.1 (2026-06-10)
+* (pk68) fix: `info.lastUpdate_weather`, `info.lastUpdate_PV_Forecast` and `hourly.next_hours.hour*.date` now store a Unix timestamp (`value.time`) instead of a formatted string, preventing incorrect date parsing by ioBroker.
+* (H5N1v2) Update dependencies
+* (H5N1v2) fix: [W5612] Remove unused custom actions configuration from jsonConfig
+* (H5N1v2) fix: [W5063] JSON formatting in "admin/jsonConfig.json" is hard to read (mixed indentation).
+* (H5N1v2) fix type assertion for channel name
+* (H5N1v2) fix some things in README.md
+
 ### 3.1.0 (2026-05-03)
 * (H5N1v2) Changed update routine for weather and PV forecast to fixed fetch times.
 * (H5N1v2) Added a customizable HTML weather widget in the admin area.
@@ -299,18 +319,6 @@ hash: 7Oponsx2ifPSa2kICto7owuADPSEvRPynZfnLf8n/O4=
 * (H5N1) fix: attribute in jsonConfig.
 * (Negalein) fix: yellow help text in admin for pv-forecast extra dp's, poor recognition on white background
 * (H5N1v2) fix: update interval for pv-forecast "once before sunrise" time incorrectly calculated
-
-### 3.0.0 (2026-04-18)
-* (H5N1v2) merged open-meteo-weather and open-meteo-pv-forecast
-* (H5N1v2) adding icon selection tab and animated icons for weather by Bas Milius
-* (H5N1v2) adding solar_noon in daily, freezing_level_height and snowfall_height in hourly
-* (H5N1v2) remove global_tilted_irradiance datapoint from weather.hourly
-
-### 2.6.4 (2026-03-30)
-* (H5N1v2) Update axios dependency to version 1.14.0
-
-### 2.6.3 (2026-03-26)
-* (H5N1v2) add sentry plugin to automatically report errors to developer
 
 ## License
 This project is licensed under the **MIT License** - see the `LICENSE` file for details.

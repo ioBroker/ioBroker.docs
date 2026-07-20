@@ -188,6 +188,9 @@ from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### **WORK IN PROGRESS**
 
 * (Sickboy78) code refactoring
 * (Sickboy78) added unit tests
@@ -431,6 +434,8 @@ from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 ### 1.0.1 (2021-02-19)
 
 * (Sickboy78) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

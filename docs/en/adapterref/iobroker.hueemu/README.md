@@ -1,15 +1,10 @@
-# ioBroker.hueemu
+# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="48" align="top" /> ioBroker.hueemu
 
-[![npm version](https://img.shields.io/npm/v/iobroker.hueemu)](https://www.npmjs.com/package/iobroker.hueemu)
-![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen)
-![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![npm downloads](https://img.shields.io/npm/dt/iobroker.hueemu)](https://www.npmjs.com/package/iobroker.hueemu)
-![Installations](https://iobroker.live/badges/hueemu-installed.svg)
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)](https://ko-fi.com/krobipd)
-[![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/krobipd)
+**Release:** [![npm version](https://img.shields.io/npm/v/iobroker.hueemu)](https://www.npmjs.com/package/iobroker.hueemu) ![stable](https://iobroker.live/badges/hueemu-stable.svg) ![Installations](https://iobroker.live/badges/hueemu-installed.svg) [![npm downloads](https://img.shields.io/npm/dt/iobroker.hueemu)](https://www.npmjs.com/package/iobroker.hueemu)
 
-<img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="100" />
+**Build:** [![Test and Release](https://github.com/krobipd/ioBroker.hueemu/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/krobipd/ioBroker.hueemu/actions/workflows/test-and-release.yml) ![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![Sentry](https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white)](https://github.com/ioBroker/plugin-sentry#plugin-sentry)
+
+**Support:** [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)](https://ko-fi.com/krobipd) [![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/krobipd)
 
 Emulates a [Philips Hue](https://www.philips-hue.com) Bridge (v2, BSB002) so that ioBroker devices appear as Hue lights to clients that only support the Hue API.
 
@@ -30,6 +25,7 @@ Modern voice assistants all support Matter directly. Use the [ioBroker Matter ad
 - **Hue API v1** — Bridge model BSB002 (Hue Bridge v2)
 - **UPnP/SSDP Discovery** — Automatic detection by any Hue-compatible client
 - **Direct state mapping** — Point to any ioBroker state, no bridge scripts
+- **Device assistant** — scan ioBroker for mappable lights and add them automatically, or add and edit each light by hand
 - **Light types** — On/Off, Dimmable, Color Temperature, RGB
 - **Per-device value scale** — pick how brightness and saturation are stored in your source state
 - **Persistent TLS certificate** — clients only trust the bridge once, restarts keep the same identity
@@ -38,10 +34,18 @@ Modern voice assistants all support Matter directly. Use the [ioBroker Matter ad
 
 ---
 
+## Sentry / Error reporting
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** Reporting only happens if you have enabled error reporting in the ioBroker diagnostics (**System settings → Diagnostics and error reporting**). Only an anonymous installation ID is transmitted — no name, e-mail address or IP address.
+
+For details and how to disable it, see the [Sentry plugin documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Error reporting requires js-controller 3.0 or newer.
+
+---
+
 ## Requirements
 
 - **Node.js >= 22**
-- **ioBroker js-controller >= 7.0.7**
+- **ioBroker js-controller >= 7.2.2**
 - **ioBroker Admin >= 7.8.23**
 
 ---
@@ -60,20 +64,23 @@ Modern voice assistants all support Matter directly. Use the [ioBroker Matter ad
 
 ### Network Settings
 
-| Option          | Description                                                   | Default |
-| --------------- | ------------------------------------------------------------- | ------- |
-| **Host**        | IP address of the bridge (must be a real network IP)          | —       |
-| **HTTP Port**   | Port for the Hue API                                          | 8080    |
-| **HTTPS Port**  | Only needed if a client insists on TLS; leave empty otherwise | —       |
-| **MAC Address** | Bridge MAC (auto-generated if empty)                          | —       |
+| Option            | Description                                                                                                     | Default |
+| ----------------- | -------------------------------------------------------------------------------------------------------------- | ------- |
+| **Host**          | Network interface to bind to. Choose `0.0.0.0` to listen on all interfaces (stays reachable if the IP changes) | 0.0.0.0 |
+| **Advertised IP** | The reachable IP announced to clients for discovery. Leave empty to auto-detect the primary interface          | auto    |
+| **HTTP Port**     | Port for the Hue API                                                                                           | 8080    |
+| **HTTPS Port**    | Only needed if a client insists on TLS; leave empty otherwise                                                  | —       |
+| **MAC Address**   | Bridge MAC (auto-generated if empty)                                                                           | —       |
 
 ### Adding Devices
 
-1. Open the **Device Configuration** tab
-2. Click the `+` button
-3. Enter a **Name** (e.g. "Living Room Light")
-4. Select a **Light Type**
-5. Map **States** via the object browser (`...`)
+Open the **Device Configuration** tab. There are two ways to add lights:
+
+**Manually** — click **Add light**, enter a name, choose a light type, and map the ioBroker states with the object browser.
+
+**Automatically** — click **Search lights**. The adapter scans your objects for things that look like lights (on/off, dimmers, colour-temperature and colour lights) and adds the ones it can map. Anything it detects but cannot map (for example RGB-channel devices) is reported so you can add it by hand.
+
+Each light shows as a card — use **Edit** to change its mapping or **Delete** to remove it.
 
 ### Supported Light Types
 
@@ -156,27 +163,37 @@ If you used the old `createLight` JSON state to define lights, your devices are 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.5.1 (2026-05-23)
+### 1.11.0 (2026-07-09)
 
-- Changelog rewritten in user-centric style across all versions.
+- The devices tab can now scan ioBroker for dimmer, colour-temperature and colour lights and add the mappable ones. Manual add still works.
 
-### 1.5.0 (2026-05-22)
+### 1.10.0 (2026-07-09)
 
-- User-modified state names are no longer overwritten on adapter restart
+- Fixed the adapter looking like it was running but ignoring all light changes when UDP port 1900 was already in use (common on Windows); it now recovers cleanly and stays reachable
+- A light's on/off source state holding text such as "off", "no" or "disabled" is now correctly read as off instead of on
+- Closed a brief moment during startup where requests could still be challenged for a password even though authentication was turned off in the configuration
+- Upgrading from the old light setup no longer leaves stray leftover entries behind in the object tree
+- Colour coordinates written as a spaced list such as "0.3, 0.4" are now parsed correctly instead of falling back to white
+- The port fields in the settings now warn you if the chosen port is already in use by another adapter instance
+- Hue and colour-temperature source states can now be given a scale: hue in degrees (0–360) and colour temperature in Kelvin are converted correctly, alongside the native Hue units
 
-### 1.4.9 (2026-05-21)
+### 1.9.0 (2026-06-21) — stable
 
-- Improved error handling and stability.
+- You can now listen on all network interfaces (`0.0.0.0`) and set a separate advertised IP, so discovery keeps working even if the bridge's IP address changes
+- Color lights mapped with only hue or only saturation now report the correct colour instead of falling back to a default white
+- Fixed already-paired clients being wrongly rejected until a restart after a transient error while loading clients at startup
+- A configured source state that no longer exists now produces a one-time warning in the log instead of a silently dead light
 
-### 1.4.8 (2026-05-20)
+### 1.8.1 (2026-06-12) — stable
 
-- Improved security: TLS private key is no longer visible in the admin interface.
+- Number values read from light states are now parsed strictly: text with extra characters after the number falls back to the default instead of being half-parsed
+- Faster bridge config responses for clients that poll every second (such as Echo devices) by reusing the timestamp formatter instead of rebuilding it on every request
 
-### 1.4.7 (2026-05-19)
+### 1.8.0 (2026-06-09)
 
-- TLS private key is now encrypted at rest in the ioBroker object database.
+- Color lights mapped via hue and saturation (without an XY state) now report the correct color mode, so apps that honor it show the actual color instead of a default white.
 
-Older entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Credits
 
@@ -227,4 +244,4 @@ SOFTWARE.
 
 ---
 
-*Developed with assistance from Claude.ai*
+_Developed with assistance from Claude.ai_

@@ -12,8 +12,8 @@
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Philips air purifier adapter for ioBroker
-Connects Philips air purifier with ioBroker.
-**Tested only with AC2729**, but should work with new purifier that communicate via COAP with encryption.
+Connects Philips air purifiers and selected Philips/Versuni fans with ioBroker.
+**Tested with AC2729 and Philips/Versuni CX3550/01**, but should work with newer purifiers that communicate via local CoAP with encryption.
 ![AC2729](img/device.png)
 
 [Link to philips website](https://www.philips.de/c-m-ho/luftreiniger-und-luftbefeuchter/kombi)
@@ -24,15 +24,50 @@ It can happen, that some devices have not all variables, and they will stay unfi
 
 ![Objects](img/objects.png)
 
+## Philips/Versuni CX3550/01 fan
+The CX3550/01 is supported through the local encrypted CoAP connection. No Philips, Versuni or HomeID cloud API is used.
+
+Tested CX3550/01 functions:
+
+- Power on/off
+- Fan speed 1, 2 and 3
+- Sleep mode
+- Natural breeze
+- Oscillation on/off
+- Beep on/off
+- Status reading via local CoAP
+- Timer status reading
+
+Timer control is intentionally not supported for the CX3550/01. Local timer write payloads can make the firmware set `D03102` to `0`, which switches the fan off. The adapter therefore exposes CX3550/01 timer information only as read-only status.
+
+More details are documented in [docs/CX3550.md](docs/CX3550.md).
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.6.1 (2026-07-03)
+- (Holly86) Added support for Philips/Versuni CX3550/01 pedestal fan.
+- (Holly86) Added CX fan modes, oscillation, beep and read-only timer state.
+- (Holly86) Timer control is intentionally not exposed because local timer writes can switch the fan off.
 
-### **WORK IN PROGRESS**
+### 1.5.0 (2026-06-24)
+- (tt-tom17) CoAP connection now stays stable instead of disconnecting every few minutes
+- (tt-tom17) Fixed adapter checker warnings
+
+### 1.4.0 (2026-06-17)
+- (tt-tom17) Connection to CoAP and HTTP devices is much more reliable now: several cases that could crash the adapter, freeze the connection or stop it from reconnecting have been fixed
+- (tt-tom17) Air quality, filter and on/off values are now shown with the correct type and update reliably
+- (tt-tom17) Clearer log messages, including a hint to switch to CoAP when a device does not answer on HTTP
+- (tt-tom17) HTTP mode no longer needs the extra "philips-air" package and its outdated dependencies
+- (tt-tom17) The device address field now accepts an IP address or a hostname and warns about invalid input
+- (tt-tom17) Dependencies updated
+
+### 1.3.0 (2026-06-15)
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+* (mcm1957) Dependencies have been updated
 
 ### 1.2.0 (2025-02-10)
 * (mcm1957) Adapter requires node.js >= 20, js-controller >= 6 and admin >= 6 now.
@@ -41,32 +76,6 @@ It can happen, that some devices have not all variables, and they will stay unfi
 * (mcm1957) jsonConfig responsive design size attributes have been added
 * (mcm1957) Dependencies have been updated
 
-### 1.1.0 (2024-04-25)
-* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-* (mcm1957) Dependencies have been updated
-
-### 1.0.3 (2022-12-23)
-* (Apollon77) Finalized and optimized HTTP communication protocol
-* (Apollon77) Fixed type issues with device.error
-
-### 1.0.2 (2022-11-16)
-* (bluefox) Small fixes done
-* (bluefox) Added HTTP communication protocol (untested!)
-* (mdax82) Added `gentle/GT` for AC2939
-
-### 0.1.7 (2022-05-19)
-* (Apollon77) Upgrade coap library
-
-### 0.1.4 (2022-03-23)
-* (Apollon77) Downgrade coap library to restore functionality for some devices
-* (Apollon77) Prevent crash case and make control more flexible
-* (Apollon77) correctly handle `control.function` state
-
-### 0.1.3 (2022-03-12)
-* (Apollon77) General updates and optimizations
-
-### 0.1.1 (2020-10-14)
-* (bluefox) initial release
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

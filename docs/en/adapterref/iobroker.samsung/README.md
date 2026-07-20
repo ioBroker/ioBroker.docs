@@ -46,6 +46,7 @@ if something does not work, look  in the log.
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 0.7.0 (2026-02-14)

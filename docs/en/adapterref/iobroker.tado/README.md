@@ -73,8 +73,11 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 0.8.5 (2026-06-19)
+* (HGlab01) improve code quality
+* (HGlab01) add attribute adminUserId
+* (HGlab01) use automated translation into several languages
+* (HGlab01) bump axios to 1.8.0
 
 ### 0.8.4 (2026-02-24)
 * (HGlab01) checkExpire for termination-attributes
@@ -101,17 +104,6 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 * (HGlab01) fix issue 'definition missing for holidayMode' [TadoX]
 * (HGlab01) fix issue 'cannot read properties of undefined (reading 'match')'
 * (HGlab01) fix issue openWindow data not up to date #1086
-
-### 0.8.0 (2025-10-07)
-* (HGlab01) new configuration capabilities to manage API usage quota (#1047, #1048)
-* (HGlab01) Implement API debouncing
-* (HGlab01) Refactorings Tado API calls
-* (HGlab01) fix issue 'definition missing for awayMode' [TadoX]
-* (HGlab01) fix issue 'definition missing for preheating' [TadoX]
-* (HGlab01) Additional guidance/log when it comes to RefreshToken issue
-* (HGlab01) fix Object of state "tado.0.xxxxx.Rooms.y.openWindow" is missing the required property "common.type" (#1059)
-* (HGlab01) Bump axios to 1.12.2
-* (HGlab01) Bump iobroker-jsonexplorer to 0.2.0
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

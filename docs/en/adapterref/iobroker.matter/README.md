@@ -138,6 +138,33 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@Apollon77) Optimized Matter data processing by caching repeated cluster/attribute lookups in hot paths
+* (@Apollon77) Only register additional custom attributes when the node supports them
+
+### 1.2.1 (2026-06-29)
+* (@Apollon77) Fix Thermostat and WindowCovering state update errors
+* (@Apollon77) Update to the latest matter.js 0.17.4-alpha including MDNS/CPU usage fixes
+
+### 1.2.0 (2026-06-27)
+* (@Apollon77) Enhanced Thread/WiFi network visualization: OTBR mDNS discovery, device-type and Thread role icons, border-router details and markers, LQI link colors, hide/search options and localized labels
+* (@Apollon77) Ignores invalid min/max/step settings in linked objects
+* (@Apollon77) Improve state detection to respect the selected state id
+* (@Apollon77) Update to matter.js 0.17.4-alpha including many optimizations and fixes
+
+### 1.1.1 (2026-06-22)
+* (@Apollon77) Fixes Update availability flag in UI
+
+### 1.1.0 (2026-06-22)
+* (@GermanBluefox) Update to Device management v3 and more dependencies
+* (@Apollon77) Update to Matter 1.5.1 (matter.js 0.17.3) including many optimizations and fixes
+* (@Apollon77) Parallelizing the  startup of controller and devices and optimize subscription resumptions
+* (@Apollon77) Fixes detection of 0_userdata.0 objects again
+* (@Apollon77) Fixes handling of special attributes (e.g. startupOnOff) when null and add relevant States lists
+* (@Apollon77) Fixes handling if custom attribute states
+* (@Apollon77) Fixes calculation of illuminance when measurements are <=0 (aka fully dark)
+* (@Apollon77) Fixes initialization of HCI IDs when using BLE
+
 ### 1.0.0 (2026-02-25)
 * IMPORTANT: The first start of the controller with this version takes a bit longer to connect all devices because internal data are migrated
 * (@Apollon77) Updated to Matter 1.4.2 (matter.js to 0.16) including many optimizations and fixes

@@ -17,11 +17,29 @@
 
 This adapter allows to control the data points of the devices of a Zigbee2MQTT instance in ioBroker.  
 
+## Troubleshooting
+if you see in Log a message with Caught by controller[1]: /opt/iobroker/node_modules/iobroker.zigbee2mqtt/node_modules/sharp/lib/sharp.js
+check you VM Settings
+
+<img width="619" height="238" alt="grafik" src="https://github.com/user-attachments/assets/83879925-96f8-4c33-a6cd-2b68e4b41780" />
+<img width="618" height="216" alt="grafik" src="https://github.com/user-attachments/assets/30c33952-b055-4d6f-99d9-f7cc49831db3" />
+<img width="711" height="497" alt="grafik" src="https://github.com/user-attachments/assets/803340a6-f000-4e64-b53f-8e80f2a13127" />
+
 ## Adapter Documentation
 
 [Adapter Documentation](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/wiki.md)
 
 ## Changelog
+### 3.2.4 (2026-06-26)
+* (arteck) Dependencies have been updated
+*
+
+### 3.2.3 (2026-06-25)
+* (arteck) typo
+* (arteck) fix some warnings
+* (arteck) fix internal mqtt
+* (arteck) fix languages
+
 ### 3.2.2 (2026-05-26)
 * (arteck) Dependencies have been updated
 
@@ -33,12 +51,6 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 
 ### 3.2.0 (2026-04-26)
 * (arteck) del deprectated setStateAsync
-
-### 3.1.9 (2026-04-26)
-* (arteck) fix WS close
-
-### 3.1.8 (2026-04-26)
-* (arteck) back to old dependency aedes
 
 ## License
 

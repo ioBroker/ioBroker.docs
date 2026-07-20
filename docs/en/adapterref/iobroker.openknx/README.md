@@ -108,8 +108,9 @@ The adapter supports KNX IP Secure tunneling. Configuration in the "KNX Secure" 
 2. **Keyfile (.knxkeys)** -- paste the content of the .knxkeys file into the text field. The file is exported in ETS via Extras > Export KNX Keyring.
 3. **Keyfile password** -- the password set when exporting the keyring in ETS.
 4. **Alternative: Tunnel User Password** -- instead of a keyfile, the tunnel password can be entered directly (from the ETS project configuration of the IP interface).
-5. **Tunnel Interface IA** -- optionally specify the individual address of the tunnel interface (e.g. 1.1.254).
-6. **Tunnel User ID** -- default is 2. Only change if multiple tunneling connections are configured on the same interface.
+5. **Device Authentication Password (Backbone-Key)** -- only required in manual mode (no keyfile). Since knxultimate 6.0 the `SESSION_RESPONSE` MAC is verified during the handshake; without this password the handshake is downgraded (still connects, but logs a warning). When a keyfile is provided, this value is extracted from it automatically.
+6. **Tunnel Interface IA** -- optionally specify the individual address of the tunnel interface (e.g. 1.1.254).
+7. **Tunnel User ID** -- default is 2. Only change if multiple tunneling connections are configured on the same interface.
 
 ### GA Aliases and Migration
 
@@ -335,10 +336,17 @@ Yes. KNX IP Secure tunneling is supported via .knxkeys keyfile or password.
   Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.2.0 (2026-06-25)
+- (copilot) Adapter requires node.js >= 22 now
 
-- feat: improve disconnect handling on high bus load (MDT) — new options "Wait for ACK", "Max Direct Link send rate" (coalescing queue) and per-GA "linkedStateDebounce"; burst log with actionable recommendations on tunnel drop, hint at linkedStateDebounce in TUNNELING_REQUEST ACK errors for Direct Link GAs
-- docs: add hint to switch to Multicast/Routing on persistent TUNNELING_ACK timeouts (network-side unicast filtering)
+### 1.1.14 (2026-06-11)
+- improve reconnect logic
+- improve project import
+
+### 1.1.13 (2026-06-01)
+
+- feat: improve disconnect handling on high bus load for MDT Gateways
+- new options "Wait for ACK", "Max Direct Link send rate" (coalescing queue) and per-GA "linkedStateDebounce"; burst log with, hint at linkedStateDebounce GAs
 
 ### 1.1.12 (2026-05-19)
 - feat: cyclic sending for Direct Links (periodically re-send current value to KNX bus)
@@ -346,20 +354,6 @@ Yes. KNX IP Secure tunneling is supported via .knxkeys keyfile or password.
 
 ### 1.1.11 (2026-05-08)
 - fix for UDP interface connection
-
-### 1.1.10 (2026-05-05)
-- add new DPTs and units
-
-### 1.1.9 (2026-05-04)
-- fix handling of unkown DPT
-
-### 1.1.8 (2026-04-30)
-- add compatiblity mode für raw DPT5.*
-- reduce default delay to 25ms
-
-### initial version
-
--   initial version from https://www.npmjs.com/package/iobroker.knx/v/0.8.3
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

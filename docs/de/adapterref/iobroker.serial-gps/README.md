@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.serial-gps/README.md
 title: ioBroker GPS (seriell/USB) Adapter
-hash: irZI9P1HaevB1JfqsORV18PYiRQa6GtdObs6ErX+dS8=
+hash: c17hLNS45q06fOYPhB0AM8X/5VTf5WRC8vyNVIAt7rY=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/serial-gps-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.serial-gps.svg)
@@ -34,6 +34,9 @@ Normalerweise sollten alle Geräte funktionieren, die NMEA-Daten über die serie
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 1.0.0 (2026-05-29)
+- (@GermanBluefox) Added possibility to select GPS device by name instead of path
+
 ### 0.0.4 (2025-12-03)
 - (@GermanBluefox) Corrected issues for repo checker
 
@@ -44,7 +47,7 @@ Normalerweise sollten alle Geräte funktionieren, die NMEA-Daten über die serie
 
 The MIT License (MIT)
 
-Copyright (c) 2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2025-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

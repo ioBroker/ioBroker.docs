@@ -95,6 +95,18 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 | `tib_darkmode` | `true` | Dark (default) or light theme |
 
 ## Changelog
+### 0.4.11 (2026-07-02)
+* (ssbingo) Sync template PRs: update Dependabot config, add auto-merge workflow, fix VS Code schema link
+
+### 0.4.10 (2026-06-13)
+* (ssbingo) Re-release to ensure widget group label 'Tibberlink' is served correctly
+
+### 0.4.9 (2026-06-13)
+* (ssbingo) Fix widget group name: removed translation prefix so vis-2 editor shows 'Tibberlink' correctly
+
+### 0.4.8 (2026-06-13)
+* (ssbingo) Update release-script to 5.2.1
+
 ### 0.4.7 (2026-05-27)
 * (ssbingo) Add prettier.config.mjs; fix code style to single quotes throughout
 

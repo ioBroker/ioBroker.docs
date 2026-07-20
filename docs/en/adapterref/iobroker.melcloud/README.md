@@ -35,6 +35,7 @@ Discussion:
 -->
 
 ### **WORK IN PROGRESS**
+
 - (copilot) Adapter requires node.js >= 22 now
 
 ### 3.0.4 (2026-04-10)

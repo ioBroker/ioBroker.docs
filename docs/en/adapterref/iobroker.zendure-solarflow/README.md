@@ -81,7 +81,7 @@ These devices are supported via **local** MQTT mode (Zendure Cloud Disconnector)
 
 As a new feature you can disconnect the Zendure device from the Cloud. You can either use the [Solarflow Bluetooth Manager](https://github.com/reinhard-brandstaedter/solarflow-bt-manager) from Reinhard Brandstätter or my own Windows Tool [Zendure Cloud Disconnector](https://github.com/nograx/zendure-cloud-disconnector) to disconnect the device from the cloud. It's also possible to redirect DNS requests with your router from "mq.zen-iot.com" to your own MQTT server!
 
-Both tools connect to the Zendure device via bluetooth and simply sets the internal MQTT url to a new url/ip you have to provide. Currently you are forced to use the default MQTT port 1883 on your server. You are also forced to deactivate authentication on the MQTT server as the Zendure device use a hardcoded password.
+Both tools connect to the Zendure device via bluetooth and simply sets the internal MQTT url to a new url/ip you have to provide. Currently you are forced to use the default MQTT port 1883 (or 8883 with SSL) on your server. You are also forced to deactivate authentication on the MQTT server as the Zendure device use a hardcoded password.
 
 You can use this in combination with your cloud authentication key or use the full local mode.
 
@@ -95,14 +95,25 @@ This adapter will use the Cloud Authorization Code for authentication on the off
 
 <!--
     Placeholder for the next version (at the beginning of the line):
-    ## **WORK IN PROGRESS**
+    ### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 4.1.0 (2026-06-19)
 
-### **WORK IN PROGRESS**
+- Allow local TLS MQTT Server connection on port 8883 (due to new device firmware) in settings
+- Fix batcur calculation
 
-- (copilot) Adapter requires node.js >= 22 now
+### 4.0.6 (2026-06-06)
+
+- Add productKey 'nVyeqM' for Solarflow 800 Pro 2
+
+### 4.0.5 (2026-06-03)
+
+- Add state 'socStatus' (Auto-calibration) for modern devices (SF 800 upwards)
+- Fix adapter start if deviceList is empty
+- Improve logging of errors
+- Adapter requires node.js >= 22 now
 
 ### 4.0.4 (2026-04-14)
 
@@ -113,25 +124,6 @@ This adapter will use the Cloud Authorization Code for authentication on the off
 - Fix missing ip address field in settings for local mode
 - Add retry loop for zenSDK requests (retry 3 times if connection failed)
 - Update battery detection
-
-### 4.0.2 (2026-03-24)
-
-- Re-add new SF devices to local mode settings
-- Add product key '64174u' for Solarflow 1600 AC+
-
-### 4.0.1 (2026-03-20)
-
-- Fix missing smartMode state for Solarflow AC 2400 and Solarflow 800
-
-### 4.0.0 (2026-03-17)
-
-- Add support for zenSDK! All devices can now communicate in the local network (with full cloud support for backup and maintenance)
-- Add possibility to relay local MQTT messages to Zendure cloud!
-- Save device list from Zendure Cloud as a local backup if cloud is unavailable
-- Major refactor and improvements
-- Fix 'packPower' not correctly set (resetting to 0 every new data package)
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

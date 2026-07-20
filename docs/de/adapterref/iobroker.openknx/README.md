@@ -16,7 +16,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: OLamgqmbjWOnyXZ5LhZ+B2tG2TBAluQSOPqDv4tLvmc=
+hash: dJvvvwhbpG0TyhuYMt/pUFNmK0oJwlZTL/nUTTgK3Do=
 ---
 ![Logo](../../../en/admin/openknx.png)
 
@@ -106,8 +106,9 @@ Der Adapter unterstützt KNX IP Secure-Tunneling. Konfiguration im Tab „KNX Se
 2. **Schlüsseldatei (.knxkeys)** – Fügen Sie den Inhalt der .knxkeys-Datei in das Textfeld ein. Die Datei wird in ETS über Extras > KNX-Schlüsselbund exportieren exportiert.
 3. **Schlüsseldatei-Passwort** -- das Passwort, das beim Exportieren des Schlüsselbundes in ETS festgelegt wurde.
 4. **Alternativ: Tunnelbenutzerpasswort** -- Anstelle einer Schlüsseldatei kann das Tunnelpasswort direkt eingegeben werden (aus der ETS-Projektkonfiguration der IP-Schnittstelle).
-5. **Tunnel Interface IA** -- optional die individuelle Adresse der Tunnelschnittstelle angeben (z. B. 1.1.254).
-6. **Tunnel-Benutzer-ID** -- Standardwert ist 2. Nur ändern, wenn mehrere Tunnelverbindungen auf derselben Schnittstelle konfiguriert sind.
+5. **Geräteauthentifizierungspasswort (Backbone-Schlüssel)** – nur im manuellen Modus erforderlich (keine Schlüsseldatei). Seit knxultimate 6.0 wird die MAC-Adresse `SESSION_RESPONSE` während des Handshakes überprüft. Ohne dieses Passwort wird der Handshake herabgestuft (die Verbindung wird zwar hergestellt, aber es wird eine Warnung protokolliert). Wenn eine Schlüsseldatei angegeben wird, wird dieser Wert automatisch daraus extrahiert.
+6. **Tunnel Interface IA** -- optional die individuelle Adresse der Tunnelschnittstelle angeben (z. B. 1.1.254).
+7. **Tunnel-Benutzer-ID** -- Standardwert ist 2. Nur ändern, wenn mehrere Tunnelverbindungen auf derselben Schnittstelle konfiguriert sind.
 
 ### GA-Aliase und Migration
 ![GA-Aliase und Migration](../../../en/adapterref/img/alias.png)
@@ -308,43 +309,26 @@ Openknx verwendet sentry.io zur Fehlerverfolgung (die Daten werden pseudonymisie
   Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.1.6 (2026-04-12)
+### 1.2.0 (2026-06-25)
+- (copilot) Adapter requires node.js >= 22 now
 
-- (TA2k) **breaking:** KNX communication switched to KNXUltimate
-- (TA2k) **breaking:** DPT21 property names changed (outofservice → outOfService, inalarm → inAlarm, alarmeunack → alarmUnAck), values must be boolean
-- (TA2k) **breaking:** DPT237 property names changed to camelCase
-- (TA2k) feature: Native .knxproj import (ETS4/5/6, password-protected) with flags, DPT inference, room assignment
-- (TA2k) feature: KNX Secure support
-- (TA2k) feature: Extended DPT coverage and compatibility (9 additional DPTs, including DPT-22, 213, 222, 235, 242, 249, 251)
-- (TA2k) feature: Improved connection stability
-- (TA2k) feature: Improved role detection (switch, level, value, text, date) based on DPT type
-- (TA2k) feature: Direct Link all iobroker states to a KNX state with a conversion mode
-- (TA2k) feature: GA-Tools: all GA properties editable (DPT, type, role, flags) with compact layout
+### 1.1.14 (2026-06-11)
+- improve reconnect logic
+- improve project import
 
-### 0.9.1 (2026-03-12)
-- bugfix: Fixing increased delay in knx commands after several days
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (copilot) Adapter requires js-controller >= 6.0.11 now
-- (@klein0r) Adapter requires node.js >= 20 and js-controller >= 6 now
+### 1.1.13 (2026-06-01)
 
-### 0.9.0 (2024-04-21)
+- feat: improve disconnect handling on high bus load for MDT Gateways
+- new options "Wait for ACK", "Max Direct Link send rate" (coalescing queue) and per-GA "linkedStateDebounce"; burst log with, hint at linkedStateDebounce GAs
 
-- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-- (mcm1957) Dependencies have been updated
+### 1.1.12 (2026-05-19)
+- feat: cyclic sending for Direct Links (periodically re-send current value to KNX bus)
+- fix: DPT19 accepts numeric timestamps and ISO strings
 
-### 0.8.0 (2024-03-30)
+### 1.1.11 (2026-05-08)
+- fix for UDP interface connection
 
--   feature: put KNX interface name into log
--   bugfix: #419 wait for connection complete before data processing in case of receiving data before
--   bugfix: #457 Ack missing after changing IOB object value
-
-### 0.7.3 (2024-03-05)
-
--   feature: one of the warnings is configurable in the dialog
-
-### initial version
-
--   initial version from https://www.npmjs.com/package/iobroker.knx/v/0.8.3
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
