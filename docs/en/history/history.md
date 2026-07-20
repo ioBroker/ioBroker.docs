@@ -1346,6 +1346,20 @@ https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy
 
 VIS-2 widget set for the Sigenergy energy storage adapter (ioBroker.sigenergy). Contains 8 widgets for visualisation and control of energy flow, battery status, real-time power, daily statistics, AC charger, DC charger, inverter and SigenMicro micro-inverter overview.
 
+## tidy (5.7.2025) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.tidy
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.tidy/main/admin/tidy.svg" width="100" height="100" />
+
+The Tidy adapter helps to find unused objects and states to clean up your system. After years of using ioBroker, your system may accumulate "dead" datapoints from deleted scripts, removed adapters, or abandoned configurations. This adapter helps you identify and clean up such datapoints to keep your system tidy and performant.
+
+## dreame (5.7.2025) – new adapter at stable repository
+https://github.com/TA2k/ioBroker.dreame
+
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.dreame/main/admin/dreame.png" width="100" height="100" />
+
+Adapter for Dreame and MOVA robot vacuums and robot mowers.
+
 ## playstation (11.7.2026) – new adapter at stable repository
 https://github.com/Lucky-ESA/ioBroker.playstation
 
