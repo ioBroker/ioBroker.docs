@@ -2,33 +2,41 @@ name: Publish
 
 on:
   schedule:
-    - cron:  '0 2 */3 * *'
-  # push
+    - cron: "0 2 */3 * *"
+  workflow_dispatch:
 
 jobs:
   translate:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 10
-      - name: Install
+          node-version: 20
+
+      - name: Install Dependencies
         working-directory: engine
-        run: npm i
-      - name: Gulp default
+        run: npm install
+
+      - name: Run Gulp Translation
         working-directory: engine
-        run: gulp
+        run: npx gulp
         env:
-          GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON}}
-      - name: Commit files
+          GOOGLE_APPLICATION_CREDENTIALS_JSON: "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}"
+
+      - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          git status
-          git commit -m "Add changes" -a
+          git diff-index --quiet HEAD || git commit -m "Automated translation update" -a
+
       - name: Push changes
-        uses: ad-m/github-push-action@v0.5.0
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
