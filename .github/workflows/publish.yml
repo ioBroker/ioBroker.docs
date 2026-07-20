@@ -2,14 +2,13 @@ name: Publish
 
 on:
   schedule:
-    - cron: '0 2 */3 * *'
-  
+    - cron: "0 2 */3 * *"
   workflow_dispatch:
 
 jobs:
   translate:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -27,15 +26,13 @@ jobs:
         working-directory: engine
         run: npx gulp
         env:
-          GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
+          GOOGLE_APPLICATION_CREDENTIALS_JSON: "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}"
 
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          
           git add .
-          
           git diff-index --quiet HEAD || git commit -m "Automated translation update" -a
 
       - name: Push changes
