@@ -45,10 +45,10 @@ class MyAdapter extends utils.Adapter {
     constructor(options: Partial<utils.AdapterOptions> = {}) {
         super({ ...options, name: 'my-adapter' });
 
-        this.on('ready', () => this.onReady().catch(e => this.log.error(e.message)));
-        this.on('stateChange', (id, state) => this.onStateChange(id, state));
-        this.on('message', (obj) => this.onMessage(obj));
-        this.on('unload', (callback) => this.onUnload(callback));
+        this.on('ready', this.onReady.bind(this));
+        this.on('stateChange', this.onStateChange.bind(this));
+        this.on('message', this.onMessage.bind(this));
+        this.on('unload', this.onUnload.bind(this));
     }
 }
 
@@ -59,7 +59,7 @@ if (require.main !== module) {
 }
 ```
 
-> **Critical:** Always wrap async handlers with `.catch()`. An unhandled rejection can crash or terminate the adapter, leading to missing stack traces and restart loops.
+> **Critical:** Handle errors inside async handlers with `try`/`catch` at the top level of the handler body. An unhandled rejection can crash or terminate the adapter, leading to missing stack traces and restart loops.
 
 ## Lifecycle Events
 
@@ -69,14 +69,18 @@ Called once when the adapter is initialized and configuration is loaded. This is
 
 ```typescript
 private async onReady(): Promise<void> {
-    // Access configuration from admin UI
-    const host = this.config.host;
-    const port = this.config.port;
+    try {
+        // Access configuration from admin UI
+        const host = this.config.host;
+        const port = this.config.port;
 
-    // Set connection status
-    await this.setState('info.connection', false, true);
+        // Set connection status
+        await this.setState('info.connection', false, true);
 
-    // Create objects, start polling, connect to devices...
+        // Create objects, start polling, connect to devices...
+    } catch (e) {
+        this.log.error(`Startup failed: ${e instanceof Error ? e.message : e}`);
+    }
 }
 ```
 
@@ -97,9 +101,11 @@ private onStateChange(id: string, state: ioBroker.State | null | undefined): voi
 Subscribe to states in `onReady`:
 
 ```typescript
-await this.subscribeStates('*');           // All own states
-await this.subscribeForeignStates('yr.*.forecast.html'); // Other adapters
+this.subscribeStates('*');           // All own states
+this.subscribeForeignStates('yr.*.forecast.html'); // Other adapters
 ```
+
+These register the subscription and return nothing — there is no promise to await. Promise-based variants exist as `subscribeStatesAsync()` / `subscribeForeignStatesAsync()` if you need to await the registration.
 
 ### onUnload
 
@@ -473,11 +479,9 @@ private async onReady(): Promise<void> {
     } catch (e) {
         this.log.error(`Connection failed: ${e instanceof Error ? e.message : e}`);
         await this.setState('info.connection', false, true);
-        // Retry with adapter timer
-        this.setTimeout(() => this.onReady().catch(e =>
-            this.log.error(e instanceof Error ? e.message : String(e))),
-            30_000,
-        );
+        // Retry with adapter timer. onReady catches its own errors, so the
+        // promise cannot reject here — `void` marks that deliberately.
+        this.setTimeout(() => void this.onReady(), 30_000);
     }
 }
 ```
@@ -486,11 +490,13 @@ private async onReady(): Promise<void> {
 
 ## Versioning
 
-Use [Semantic Versioning](https://semver.org/):
+Use [Semantic Versioning](https://semver.org/). A version is `MAJOR.MINOR.PATCH`:
 
-- **Patch** (0.0.x): Bug fixes
-- **Minor** (0.x.0): New features, backwards compatible
-- **Major** (x.0.0): Breaking changes
+- **Patch** — increments the third number, `1.2.3` → `1.2.4`: bug fixes
+- **Minor** — increments the second number and resets patch, `1.2.3` → `1.3.0`: new features, backwards compatible
+- **Major** — increments the first number and resets the rest, `1.2.3` → `2.0.0`: breaking changes
+
+While the major version is still `0`, the adapter counts as initial development and breaking changes may ship in a minor bump.
 
 The `common.news` field in io-package.json shows version history in the admin UI. Keep it to a maximum of 7 entries. Use `NEXT` as placeholder for the upcoming release — the release-script replaces it with the actual version number.
 
@@ -518,36 +524,13 @@ The deploy job uses npm OIDC (trusted publishers) — no npm token needed in sec
 
 ## Adapter Categories
 
-| Category | Description |
-|----------|-------------|
-| `alarm` | Security systems |
-| `climate-control` | Air conditioners, heaters |
-| `communication` | Data provision for other adapters |
-| `date-and-time` | Calendars, clocks |
-| `energy` | Power monitoring, solar, inverters |
-| `metering` | Water, gas, oil meters |
-| `garden` | Lawn mowers, sprinklers |
-| `general` | Admin, Web, Discovery |
-| `geoposition` | Geolocation |
-| `hardware` | Arduino, ESP, Bluetooth |
-| `health` | Blood pressure, heart rate |
-| `household` | Kitchen, vacuum cleaners |
-| `infrastructure` | Network, NAS, printers |
-| `iot-systems` | Other smart home systems |
-| `lighting` | Lighting control |
-| `logic` | Rules, scripts, parsers |
-| `messaging` | Email, Telegram, push |
-| `misc-data` | Data export/import |
-| `multimedia` | TV, speakers, media |
-| `network` | Ping, discovery, UPnP |
-| `protocols` | MQTT, Modbus, KNX |
-| `storage` | Databases, logging |
-| `utility` | Backup, monitoring |
-| `vehicle` | Cars, fleet |
-| `visualization` | VIS, dashboards |
-| `visualization-icons` | Icon packs |
-| `visualization-widgets` | VIS widgets |
-| `weather` | Weather, air quality |
+The `common.type` field in `io-package.json` puts the adapter into a category.
+The authoritative list of valid values, with descriptions, is maintained in
+[ioBroker.repositories/README.md](https://github.com/ioBroker/ioBroker.repositories/blob/master/README.md#types)
+— use that list rather than a copy, so it cannot drift.
+
+To see which category comparable adapters use, sort the
+[adapter list](https://download.iobroker.net/list.html#sortCol=type&sortDir=0) by type.
 
 ## Useful Links
 
