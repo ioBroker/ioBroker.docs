@@ -31,6 +31,8 @@ The archive is parsed entirely in the browser — no files are written to disk d
 - Full-text search across script names, paths and source code
 - View source code (JS/TS/Blockly/Rules)
 - Copy source code to clipboard or download as file
+- **Select multiple scripts** with the ☐ checkbox and download them as a ZIP archive
+- **Import ZIP archives** from the script-restore export or from the JS adapter's own backup (`2026-07-17-scripts.zip`)
 - Fully browser-based parsing — no server roundtrip for uploads
 - **Restore scripts directly into ioBroker** with a configurable suffix (default: `_rcvr`) — existing scripts are never overwritten
 
@@ -59,6 +61,7 @@ The archive is parsed entirely in the browser — no files are written to disk d
 - Click a script in the tree to view its source code
 - Use the **Copy** button to copy the source to the clipboard
 - Use the **Download** button to save the script as a file
+- Click ☐ on the left of a script to select it — select multiple scripts and click **ZIP** to download them all in one archive
 
 ## Supported backup formats
 
@@ -68,39 +71,38 @@ The archive is parsed entirely in the browser — no files are written to disk d
 | `.tar` | Uncompressed tar archive |
 | `.json` | JavaScript adapter script export |
 | `.jsonl` | ioBroker objects export (JSON lines) |
+| `.zip` (scripts.zip) | Script-restore ZIP export (contains `.js`/`.ts` files) |
+| `.zip` (JS adapter backup) | JS adapter internal backup (`YYYY-MM-DD-scripts.zip`, contains `.json` files with script metadata) |
 
 ## Changelog
+### 0.1.13 (2026-07-22)
+* (winnyschuster) fix: correct folder indentation in script tree for deeply nested folders
+* (ipod86) chore: update dev dependencies (@types/tar, @iobroker/testing, @types/node)
 
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
-### 0.1.7 (2026-07-01)
-* (ipod86) fix: translate common.news 0.1.5 entries into all 10 languages (E1144)
-* (ipod86) fix: pin @types/node to ^22, fix dependabot cooldown format (W0066, W8917)
+### 0.1.12 (2026-07-18)
+* (ipod86) fix: add 30s timeout to all WebDAV operations
+* (ipod86) fix: remove redundant variable alias in handleListLocalFiles
 
-### 0.1.6 (2026-06-27)
-* (ipod86) fix: upgrade typescript to ^6.0.3 with explicit mocha types for TypeScript 6 compatibility (W0083)
+### 0.1.11 (2026-07-18)
+* (ipod86) fix: move @types/tar to devDependencies (W0050, W5060)
 
-### 0.1.5 (2026-06-06)
-* (ipod86) fix: update @alcalzone/release-script to ^5.2.1 (E0036)
-* (ipod86) fix: add missing placeholder i18n keys to all 11 language files (W5612)
-* (ipod86) fix: migrate i18n to short format, add npm provenance signing (S5601, S2008)
-* (ipod86) fix: upgrade to @tsconfig/node22, pin @types/node to ^22 (W0086, W0090, W0066)
-* (ipod86) fix: reorganize dependencies — types/eslint/prettier to devDependencies (W5060, W0078, E3031)
-* (ipod86) fix: resolve adapter checker warnings W0069, W8917, S6022
-* (ipod86) chore: bump ioBroker/testing-action-check from v1 to v2, keep deploy action at v1 (W3017)
-* (ipod86) chore: bump typescript-eslint and @types/node
+### 0.1.10 (2026-07-18)
+* (ipod86) fix: replace shell tar command with pure Node.js tar library for Windows compatibility
+* (ipod86) feat: test local backup path button with result feedback
+* (ipod86) feat: suggest backup path button
+* (ipod86) fix: jsonConfig sendTo result format validation
 
-### 0.1.4 (2026-05-24)
-* (ipod86) add syntax highlighting for JS/TS, Blockly (XML) and Rules (JSON) — pure JS, no external deps
-* (ipod86) fix language detection: read ioBroker system language via adapter (system.config) instead of browser/DOM
-* (ipod86) translate all remaining loader texts (reading file/archive, extracting, loading URL)
+### 0.1.9 (2026-07-17)
+* (ipod86) feat: checkbox multi-select for ZIP export — click ☐ to select, main click still views only
+* (ipod86) feat: import scripts.zip (our adapter export) and JS adapter backup ZIP (2026-07-17-scripts.zip)
+* (ipod86) fix: align script list item columns (checkbox, icon, name) with flex layout
 
-### 0.1.3 (2026-05-24)
-* (ipod86) fix language flash: skip socket override when language already detected from admin frame
-* (ipod86) replace all hardcoded status strings with translated t() calls
-* (ipod86) add codeHint translation key in all 11 languages
+### 0.1.8 (2026-07-15)
+* (ipod86) fix: sanitize object IDs from backup paths to prevent invalid ioBroker state IDs
+* (ipod86) fix: add 30s timeout to HTTP URL download
+* (ipod86) fix: bundle jszip locally in admin tab — no CDN dependency
+* (ipod86) fix: zip export now works in all browsers (script tag loading, DOM-append before click)
+* (ipod86) fix: remove postinstall lifecycle script from package.json (E0093)
 
 Older changelogs are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 

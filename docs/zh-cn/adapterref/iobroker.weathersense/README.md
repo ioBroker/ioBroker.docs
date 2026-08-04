@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.weathersense/README.md
 title: ioBroker.weathersense
-hash: KidM5Ba4LU29tLpPps9GkMP8pYa1nrPOuLUfmYmcTjY=
+hash: jdfdsrbSzl3QW4ap190us8J6lcf7j9VjoWbLxB2rsnk=
 ---
 ![标识](../../../en/adapterref/iobroker.weathersense/admin/weathersense.png)
 
@@ -28,6 +28,10 @@ WeatherSense 是一个气象站云平台。此适配器从 WeatherSense 服务�
 ![截屏](https://github.com/ltspicer/WeatherSense/blob/main/wetterstation.png)
 
 ![截屏](https://github.com/ltspicer/WeatherSense/blob/main/casativo_ideoon_weatherstation.png)
+
+ioBroker 数据点：
+
+![截屏](https://github.com/ltspicer/WeatherSense/blob/main/iobroker_dps.png)
 
 ＃＃ 使用：
 只需输入您的 WeatherSense 账户登录信息（邮箱和密码）。
@@ -56,6 +60,10 @@ WeatherSense 是一个气象站云平台。此适配器从 WeatherSense 服务�
 * **清晰的 MQTT 路由：** 如果您使用集成的 MQTT 功能，您的主题将按传感器 ID 清晰地分隔开（例如，`weathersense/1/...` 和 `weathersense/2/...`），防止数据在您的代理上被覆盖。
 
 ## Changelog
+### 5.2.3 (2026-07-26)
+
+- Div error messages moved to warn messages
+
 ### 5.2.2 (2026-07-09)
 
 - Typo corrected
@@ -71,10 +79,6 @@ WeatherSense 是一个气象站云平台。此适配器从 WeatherSense 服务�
 ### 5.1.1 (2026-07-05)
 
 - Bugfix: Unit windDirection km/h → °
-
-### 5.1.0 (2026-07-04)
-
-- Now filenames of JSON files beginning with weathersense.{sensor_id}...
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -73,9 +73,9 @@ cisco-checkpresence.0.presence.leonie.present
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.1.0 (2026-08-03)
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+- Changed: admin UI migrated from the deprecated `@iobroker/adapter-react-v5` to `@iobroker/gui-components`
 
 ### 0.0.7 (2026-06-11)
 - Fixed: Sanitise user-supplied state names to remove characters forbidden in ioBroker object IDs

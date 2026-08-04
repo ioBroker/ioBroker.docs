@@ -107,7 +107,7 @@ This method requires the "FlexCharts" adapter to be installed separately.
 
 - The TibberLink adapter creates a state called `jsonFlexCharts`.
 
-                      <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts State">
+                            <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts State">
 
 - The FlexCharts adapter renders this state via the following URL:
     ```
@@ -217,15 +217,29 @@ The adapter stores the refresh token internally and renews the access token auto
 
 Vehicle data is written to `Vehicles.<VIN>.*`:
 
-| State                 | Description                       |
-| --------------------- | --------------------------------- |
-| `ChargingStatus`      | Current charging status           |
-| `HomeId`              | Associated Tibber home ID         |
-| `LastUpdated`         | Timestamp of the last data update |
-| `PlugStatus`          | Plug connection status            |
-| `Range`               | Remaining range in km             |
-| `StateOfCharge`       | Battery state of charge in %      |
-| `TargetStateOfCharge` | Target state of charge in %       |
+| State                 | Description                                  |
+| --------------------- | -------------------------------------------- |
+| `ChargingStatus`      | Current charging status                      |
+| `HomeId`              | Associated Tibber home ID                    |
+| `LastSeen`            | Timestamp the device was last seen by Tibber |
+| `LastUpdated`         | Timestamp of the last data update            |
+| `PlugStatus`          | Plug connection status                       |
+| `Range`               | Remaining range in km                        |
+| `StateOfCharge`       | Battery state of charge in %                 |
+| `TargetStateOfCharge` | Target state of charge in %                  |
+
+Charger data is written to `Chargers.<id>.*`. Because charger capabilities might differ between brands (e.g. go-e, Wallbox Pulsar Plus), each reported capability is written generically as its own state, named after the Data API capability id (dots replaced by underscores) and labelled with the API-provided description. Typical states include:
+
+| State                              | Description                                      |
+| ---------------------------------- | ------------------------------------------------ |
+| `connector_status`                 | Charger connector status                         |
+| `charging_status`                  | Charger charging status                          |
+| `charging_current_max`             | Maximum allowed charge current (A)               |
+| `charging_current_offlineFallback` | Fallback current if the charger goes offline (A) |
+| `grid_phaseCount`                  | Number of phases used for charging               |
+| `HomeId`                           | Associated Tibber home ID                        |
+| `LastSeen`                         | Timestamp the device was last seen by Tibber     |
+| `LastUpdated`                      | Timestamp of the last data update                |
 
 ### Poll Interval
 
@@ -242,8 +256,20 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
 
+- (HombachC) updated tibber-api to 5.6.0
+
+### 7.2.0 (2026-07-30)
+
+- (HombachC) added polling of charger/wallbox devices from the Tibber Data API, written to `Chargers.<id>.*` (#925)
+- (HombachC) added a `LastSeen` state (device-reported last-seen timestamp) for vehicles and chargers
+
+### 7.1.5 (2026-07-12)
+
+- (HombachC) added a regression test confirming best single hours LTF no longer switches on the wrong day (#631)
+- (HombachC) worked around a Tibber server bug that returns `to` equal to `from` in weekly historical consumption data (#890)
 - (HombachC) removed redundant test devDependencies (chai, chai-as-promised, sinon-chai, proxyquire) and switched unit tests to Node's built-in assert
 
 ### 7.1.4 (2026-07-09)
@@ -265,21 +291,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) updated adapter-core
 - (HombachC) fixed adapter checker warnings
 - (HombachC) updated dependencies
-
-### 7.1.1 (2026-06-07)
-
-- (HombachC) optimized vehicle states
-- (HombachC) fixed adapter checker warnings
-
-### 7.1.0 (2026-06-07)
-
-- (claude) added integration for vehicles(#67)
-- (HombachC) optimized documentation
-- (claude) added code documentation
-- (claude) performance optimization of event listeners
-- (HombachC) added current month consumption docu
-- (HombachC) updated release-script
-- (HombachC) fixed adapter checker warnings
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.miner/README.md
 title: ioBroker.miner
-hash: PbsimuJ+Zj1MI5dpVDFZUulmbYCu1eMtI49nE+li5nk=
+hash: N6VVMr5r7l3q/UR60Pfkh8RpqILAlgq0AO/KxXvGNZ8=
 ---
 ![标识](../../../en/adapterref/iobroker.miner/admin/miner.png)
 
@@ -27,7 +27,6 @@ hash: PbsimuJ+Zj1MI5dpVDFZUulmbYCu1eMtI49nE+li5nk=
 - [ ] 设备发现
 - [ ] 哨兵
 - [ ] 更多信息：请参阅 Todo.md / issues
-- [ ] 修复 .releaseconfig 中的许可证插件
 
 ＃＃ 用法
 在实例设置（或管理员设备管理器选项卡）中添加新设备时，您应该会看到类似这样的对话框：
@@ -35,6 +34,26 @@ hash: PbsimuJ+Zj1MI5dpVDFZUulmbYCu1eMtI49nE+li5nk=
 ![添加设备.png](../../../en/adapterref/iobroker.miner/docs/AddDevice.png)
 
 这些选项应该很容易理解。每个选项都有工具提示，提供更多详细信息。如果还有任何不清楚的地方，请随时在问题、讨论或论坛中提问。
+
+### Brains OS 挖矿类型
+由于 Braiins 在固件迭代过程中更改了 API 堆栈，因此存在两种 Braiins 挖矿程序实现：
+
+- `bos`：用于官方 Braiins OS 固件版本 `>= 23.03`，通常适用于 Antminer S19 系列及更新机型。此实现通过 gRPC 使用 Braiins OS 公共 API (PAPI)。
+- `bosMiner`：用于版本低于 23.03 的旧版 Braiins OS 固件，通常指 S19 之前的设备，例如 Antminer S9 和 S17 系列。它将继续使用旧版的 CGMiner 兼容 API。
+
+`bosMiner` 也支持 `control.powerTarget` 状态。旧版 Braiins OS 未通过 CGMiner 兼容的 API 公开此状态，因此适配器使用 SSH 变通方案：它登录到矿机，更新 `/etc/bosminer.toml` 中 `[autotuning]` 部分的 `power_target` 和 §§SSSSS_6§§ 中 `[format]` 部分的 `timestamp`，在 `/etc/bosminer.toml.iobroker-power-target.bak` 处存储备份，停止 `bosminer`，写入配置，然后重新启动 `bosminer`。为 `bosMiner` 设备配置有效的 SSH 凭据；默认用户名是 `root`，无密码。
+
+警告：在旧款设备上更改 `control.powerTarget`需要执行完整的 `bosminer` 停止/启动循环。请勿频繁更改此值；仅用于有意更改目标值，不可用于快速自动化循环。
+
+如果您不确定该选择哪一个，请先查看固件版本/设备系列：
+
+- S19/S21/T19 及更新的 Braiins OS 镜像已列入当前固件下载流程，通常应使用 `bos` 命令。
+- S17 镜像在 Braiins 下载页面上以 `v 23.01` 版本发布，S9 镜像以 `v 22.08.1` 版本发布，因此这些旧版本应该使用 `bosMiner`。
+
+参考：
+
+- Braiins 操作系统公共 API：https://academy.braiins.com/braiins-os/papi-about
+- Braiins OS 固件下载：https://braiins.com/os-firmware/download
 
 ## 对象模型
 所有对象均在以下环境下创建：
@@ -57,10 +76,20 @@ hash: PbsimuJ+Zj1MI5dpVDFZUulmbYCu1eMtI49nE+li5nk=
 - `hardware.hashboards.<index>...`
 
 ### 示例
+- `miner.0.miner.<minerId>.enabled`
 - `miner.0.miner.<minerId>.control.running`
 - `miner.0.miner.<minerId>.stats.totalHashrate`
 - `miner.0.miner.<minerId>.hardware.gpus.0.stats.temp`
 - `miner.0.miner.<minerId>.raw.stats`
+
+### 启用/禁用挖矿程序
+每个矿机设备都有一个可写的顶层状态 `enabled`：
+
+`miner.<instance>.miner.<minerId>.enabled`
+
+将此状态设置为 `false` 可在运行时禁用适配器中的挖矿程序。禁用的挖矿程序将被卸载，并且不会对其进行任何轮询/控制处理。将其设置回 `true` 可在不重启适配器的情况下重新初始化挖矿程序。
+
+这与 `control.running` 不同：`enabled` 控制适配器是否管理矿工，而 `control.running` 请求受支持的矿工开始或停止挖矿。
 
 ### 示例树
 这只是一个概述/想法/计划。并非所有内容都已实现，但它应该能让您了解预期的结构和命名。实际实现可能会在某些细节上有所不同，但总体结构应该与此类似。
@@ -69,6 +98,7 @@ hash: PbsimuJ+Zj1MI5dpVDFZUulmbYCu1eMtI49nE+li5nk=
 miner.0
   miner
     <minerId>                        (device)
+      enabled                        (boolean)  enable/disable adapter handling for this miner
       info                           (channel)
         minerType                    (string)   e.g. xmRig / teamRedMiner / bosMiner
         host                         (string)
@@ -78,6 +108,7 @@ miner.0
       stats                          (channel)
         totalHashrate                (number)   H/s (maps to feature: totalHashrate)
         power                        (number)   W
+        dynamicPowerTarget           (number)   W, current dynamic target reported by miner
         efficiency                   (number)   H/W
         acceptedShares               (number)
         rejectedShares               (number)
@@ -85,6 +116,7 @@ miner.0
         running                      (boolean)  start/stop (maps to feature: running)
         reboot                       (boolean)  "button"
         profile                      (string)   performance profile (e.g. low/medium/high)
+        powerTarget                  (number)   W, configured target to write to miner
       pools                          (channel)
         0                            (channel)
           info
@@ -123,8 +155,11 @@ miner.0
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.1.0 (2026-07-12)
 - (copilot) Adapter requires node.js >= 22 now
+* (SimonFischer04) **NEW**: Added a new `bos` miner type for newer Braiins OS firmware using the Braiins Public API
+* (SimonFischer04) **ENHANCED**: Extended legacy `bosMiner` devices with writable `control.powerTarget` support for deliberate power target changes
+* (SimonFischer04) **NEW**: Added top-level `enabled` state to dynamically enable or disable miner handling at runtime
 * (SimonFischer04) **FIXED**: Removed example configuration (option1, option2) from native section and code (fixes #126 / E5040)
 
 ### 1.0.4 (2026-04-07)
@@ -139,22 +174,6 @@ miner.0
 
 ### 1.0.1 (2026-04-06)
 * (SimonFischer04) fix release
-
-### 1.0.0 (2026-04-06)
-* (SimonFischer04) **FIXED**: Added missing size attributes (xs, xl) to admin configuration fields
-* (SimonFischer04) **ENHANCED**: Updated dependencies to recommended versions (admin 7.6.17, js-controller 6.0.11)
-* (SimonFischer04) **ENHANCED**: Added copyright notice to README
-* (SimonFischer04) **NEW**: Added support for Avalon (Canaan) devices via CGMiner-compatible socket API (port 4028), including start/stop (softon/softoff) and stats polling
-* (SimonFischer04) **ENHANCED**: Restructured object model with dedicated channels for control, info, stats, and raw data (**breaking change** – legacy state paths are auto-cleaned on startup)
-* (SimonFischer04) **NEW**: Added info states (minerType, host, online, lastSeen) and stats states (power, efficiency, acceptedShares, rejectedShares) to match the documented object model
-* (SimonFischer04) **NEW**: Added reboot control state (button) with wiring in state change handler
-* (SimonFischer04) **NEW**: Added running switch control to Device Manager for devices supporting the running feature
-* (SimonFischer04) **NEW**: Added performance profile feature with control.profile state and Device Manager dropdown (low/medium/high) — initially for Avalon miners via ascset workmode command
-* (SimonFischer04) **ENHANCED**: Renamed SGMiner to CGMiner throughout the codebase to better reflect the underlying API
-* (SimonFischer04) **FIXED**: Fixed copyright formatting in README to satisfy ioBroker repository checker (fixes #95)
-
-### 0.0.1 (2026-02-15)
-* (SimonFischer04) initial release
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

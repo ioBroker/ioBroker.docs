@@ -37,6 +37,7 @@ adapters in the near future.
     - [Very Important Note for use in vis / vis-2](#very-important-note-for-use-in-vis--vis-2)
     - [Curly braces in CSS and JSON](#curly-braces-in-css-and-json)
     - [Use of setInterval](#use-of-setinterval)
+    - [Developing templates with AI](#developing-templates-with-ai)
 - [Tags](#tags)
 - [Example object](#example-object)
 - [Development and Debugging](#development-and-debugging)
@@ -90,6 +91,7 @@ JSONTemplate now supports async calls with await.
 | json_oid         | Selection of the data point with the corresponding JSON data.                                                                                                                                                                                                                     |
 | json_dpCount     | Number of data points to be made available in the template.                                                                                                                                                                                                                       |
 | json_dp          | Datapoint ID to be made available.                                                                                                                                                                                                                                                |
+| json_dp_variable | Optional JavaScript variable name. The variable contains the datapoint ID; the same name with `_value` appended contains its current value.                                                                                                                                       |
 | json_scriptCount | Number of JavaScript URLs to be loaded                                                                                                                                                                                                                                            |
 | json_script[]    | JavaScript URL to be loaded. See example below.                                                                                                                                                                                                                                   |
 | json_cssCount    | Number of CSS URLs to be loaded.                                                                                                                                                                                                                                                  |
@@ -102,6 +104,7 @@ Available data objects in the template:
 | object/variable | description                                                              |
 | --------------- | ------------------------------------------------------------------------ |
 | widgetid        | widgetid of the widget.                                                  |
+| widgetID        | widgetid of the widget.                                                  |
 | data            | JSON object referenced by the datapoint in json_oid.                     |
 | dp              | Array of the datapoint data, referenced by the additional datapoints     |
 | widget          | internal widget data. object with all available widget settings          |
@@ -122,6 +125,15 @@ B) Indexnumber of the datapoint (the number always start with 0)
 <%- dp[Object.keys(dp)[1]] %>
 ```
 
+C) An optional variable name configured for the datapoint. For a datapoint
+`0_userdata.0.selectwrite`, variable name `dpwrite`, and value `abc`:
+
+```javascript
+<%- dpwrite %>          <!-- 0_userdata.0.selectwrite -->
+<%- dpwrite_value %>    <!-- abc -->
+<%- dp[dpwrite] %>      <!-- abc -->
+```
+
 Example output of data, widget and style in the template
 
 ```ejs
@@ -130,6 +142,9 @@ Example output of data, widget and style in the template
     .replace(/\n/g, '<br>')
     .replace(/ /g, '&nbsp;'); %>
 ```
+
+If an error occurs, it is displayed in the widget and output to the
+browser console (F12).
 
 #### Advanced use case
 
@@ -172,6 +187,7 @@ a specific layout. Here is an example:
 - [Use Case public-transport](documentation/usecase-public-transport.md)
 - [Use Case simple gauge](documentation/usecase-simplegauge.md)
 - [Use Case Github Issues and PRs](documentation/usecase-githubissues.md)
+- [Use Case FRITZ!Box call list](documentation/usecase-fritzbox-call-list.md)
 
 ## Templatesystem
 
@@ -188,13 +204,13 @@ the vis widget will be overwritten with `undefined`.
 ##### Example
 
 ```text
-#w_id_<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
+#<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
 ```
 
 must be written as follows:
 
 ```text
-#w_id_<%- widgetid %> {
+#<%- widgetid %> {
     height: 100%; display: flex; flex-direction: column; overflow: hidden;
 }
 ```
@@ -208,6 +224,14 @@ of overlapping `setInterval` calls accumulate over time; this consumes RAM and
 can lead to unpredictable side effects. While reloading the page can resolve
 this issue, the code should not be implemented in this manner.
 As an alternative, such scenarios should be implemented using `setTimeout`.
+
+#### Developing templates with AI
+
+To simplify the process of creating templates for everyone,
+I have prepared detailed documentation including prompts and descriptions:
+
+- [English](documentation/AI-EN.md)
+- [German](documentation/KI-DE.md)
 
 ## Tags
 
@@ -399,80 +423,46 @@ Loop over the attributes of an object
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.6.1 (2026-07-31)
 
-### **WORK IN PROGRESS**
+- Improved error output.
+
+### 4.6.0 (2026-07-30)
+
+- some changes. see readme/below
+
+#### Changes 2026-07-30
+
+- add optional variable names to extra datapoints
+
+### 4.5.0 (2026-07-29)
+
+- some changes. see readme/below
+
+#### Changes 2026-07-29
+
+- repair widget rendering
+- add search and fullscreen to ejs-edit for vis-2 widget
+- improve ki documentation for regex expressions
+- improve vis-2 ejs edit theme for dark mode
+
+### 4.4.5 (2026-07-22)
+
+- fix packages for vis-2
+
+### 4.4.4 (2026-07-22)
+
+- some changes. see readme/below
+
+#### Changes 2026-07.22
 
 - change documentation that in the template the widgetid is available and not widgetID
 - add documentation for the usecase simple gauge
+- add documentation for a responsive FRITZ!Box call list
+- Due to an inconsistency between the vis1 and vis2 widgets,
+  both `widgetid` and `widgetID` are now passed to the template.
 
-### 4.4.3 (2026-04-21)
-
-- revert repochecker warning about fs/node:fs and path/node:path
-  because of error loading ejs
-
-### 4.4.2 (2026-04-13)
-
-- fix runtime
-
-### 4.4.1 (2026-04-13)
-
-- fix regression
-- update packages
-
-### 4.4.0 (2026-03-24)
-
-- optimize lib size
-- The ability to load additional JavaScript and CSS files
-  has been added (also for vis2).
-- Improve react components
-- align translation for vis2 widget
-
-### 4.3.11 (2026-01-25)
-
-- check test release workflow
-
-### 4.3.10 (2026-01-25)
-
-- update test and release script
-
-### 4.3.1 (2026-01-24)
-
-- try again to publish
-
-### 4.3.0 (2026-01-24)
-
-- The ability to load additional JavaScript and CSS files has been added.
-  This is currently only available for vis1 for testing purposes.
-
-### 4.2.0 (2025-11-14)
-
-- Improve documentation for the object notation in a template
-- fix some translations
-- align attribute name to vis1
-- add widget data to the available template objects in vis2
-- add style and widget object to the available template objects in vis1
-- improve documentation
-
-### 4.1.3 (2025-11-03)
-
-- fix race condition if more than one widget use the same datapoint
-- switch to trusted publishing
-
-### 4.1.2 (2025-09-13)
-
-- new try of publish
-
-### 4.1.0 (2025-09-12)
-
-- rename widgetset of the vis2 widget
-
-### 4.0.2 (2025-08-28)
-
-- remove v4.0.0 from io-package
-
-### 4.0.1 (2025-08-28)
-
-- move vis1 and vis2 widgets to vis-jsontemplate adapter
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

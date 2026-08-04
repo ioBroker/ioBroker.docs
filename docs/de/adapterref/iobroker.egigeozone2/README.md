@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.egigeozone2/README.md
-title: ohne Titel
-hash: 2ZAEhIa9/NGXHlAuVANrHY764+g5ZsQRNI85R2/FpyU=
+title: ioBroker.egigeozone2
+hash: Cfr9WnmNeCnurvDgWVRG/lnVVMtpRuuHpUu2hZU/XEY=
 ---
 ![Logo](../../../en/adapterref/iobroker.egigeozone2/admin/egigeozone.png)
 
@@ -12,38 +12,52 @@ hash: 2ZAEhIa9/NGXHlAuVANrHY764+g5ZsQRNI85R2/FpyU=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.egigeozone2.svg)
 ![NPM](https://nodei.co/npm/iobroker.egigeozone2.png?downloads=true)
 
-## IoBroker.egigeozone2
-[![Testen und Freigeben](https://github.com/obakuhl/ioBroker.egigeozone2/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/obakuhl/ioBroker.egigeozone2/actions/workflows/test-and-release.yml) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/egigeozone2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker.egigeozone2
+[![Test und Release](https://github.com/obakuhl/ioBroker.egigeozone2/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/obakuhl/ioBroker.egigeozone2/actions/workflows/test-and-release.yml) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/egigeozone2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Beschreibung
 Dies ist ein ioBroker-Adapter für die Android-Geofencing-App „EgiGeoZone“ ([Webseite](https://egigeozone.de/)). Er kann Geofence-Ereignisse als HTTP-Anfragen empfangen, wenn Sie mit Ihrem Mobilgerät einen definierten Bereich betreten oder verlassen.
 
-## Sicherheitshinweis
-Es wird nicht empfohlen, diesen Adapter dem öffentlichen Internet zugänglich zu machen (z. B. indem Sie den konfigurierten Port in Ihrem Router öffnen). Dies bedeutet, dass jede Anfrage an diesen Port an die ioBroker-Instanz weitergeleitet wird, auf der der Adapter ausgeführt wird. Es gibt mehrere Möglichkeiten, den Zugriff auf diesen Adapter sicherer zu machen:
+## Sicherheitshinweise
+Es wird nicht empfohlen, diesen Adapter dem öffentlichen Internet zugänglich zu machen (z. B. durch Öffnen des konfigurierten Ports in Ihrem Router). Dies bedeutet, dass jede Anfrage an diesen Port an die ioBroker-Instanz weitergeleitet wird, auf der der Adapter ausgeführt wird. Es gibt mehrere Möglichkeiten, die Sicherheit des Zugriffs auf diesen Adapter zu erhöhen:
 
-* Nutzen Sie für Anfragen oder
-* Integrieren Sie einen Proxyserver (z. B. nginx) zum Filtern eingehender Anfragen.
+* Verwenden Sie für Anfragen oder
+* einen Proxy-Server (z. B. nginx) zum Filtern eingehender Anfragen integrieren.
 
 ## Konfiguration
-Innerhalb von EgiGeoZone sollte die URL mit der folgenden Syntax definiert werden:
+Innerhalb von EgiGeoZone sollte die URL mit folgender Syntax definiert werden:
 
 Protokoll://Adresse:Port/Person
 
-* **Protokoll** könnte **http** oder **https** sein.
-* **Adresse** sollte die Adresse sein, unter der die Adapterinstanz zugänglich ist.
-* **Port** sollte der Port sein, auf dem der Adapter lauscht.
-* **Person** ist die Person, die zur Auflistung im atHome-Array verwendet wird.
+* **Das **Protokoll** kann **http** oder **https** sein.
+* **address** sollte die Adresse sein, unter der die Adapterinstanz erreichbar ist.
+* **Port** sollte der Port sein, an dem der Adapter lauscht.
+* **Person** ist die Person, die im atHome-Array aufgelistet wird.
 
 ### Beispiele
 * https://my-domain:7654/John oder
-* http://meine-domain:7654/Paul
+* http://my-domain:7654/Paul
 
 ## Credits
-Die Implementierung basiert größtenteils auf dem [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency) & BasGos [ioBroker.egigeozone](https://github.com/BasGo/ioBroker.egigeozone)-Adapter von dschaedl.
+Die Implementierung basiert größtenteils auf dem [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency) & BasGo's [ioBroker.egigeozone](https://github.com/BasGo/ioBroker.egigeozone)-Adapter von dschaedl.
 
 ## Changelog
+
+### 1.0.10
+* (obakuhl) Updating dependencies
+* (copilot) Adapter requires node.js >= 22 now
+
+### 1.0.9
+* (obakuhl) Updating dependencies
+
+### 1.0.8
+* (obakuhl) Updating dependencies
+
+### 1.0.7
+* (obakuhl) Fully implemented responsive design
+* (obakuhl) Minor adjustments
 
 ### 1.0.6
 * (obakuhl) Improved object definition
@@ -69,10 +83,12 @@ Die Implementierung basiert größtenteils auf dem [ioBroker.geofency](https://g
 * (obakuhl) Refactoring
 * (obakuhl) New name (ioBroker.egigeozone -> ioBroker.egigeozone2) necessary due to npm collaborators settings of [previous adapter ioBroker.egigeozone](https://github.com/BasGo/ioBroker.egigeozone)
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 This adapter is licensed under the [MIT license](../blob/master/LICENSE) which is part of this repository.
 
-Copyright (c) 2024 obakuhl <hello@obakuhl.com>
+Copyright (c) 2025-2026 obakuhl <hello@obakuhl.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

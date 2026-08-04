@@ -139,8 +139,21 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (@Apollon77) Added automatic time synchronization for controller nodes that support the Matter TimeSynchronization cluster (can be disabled in the settings)
+* (@Apollon77) Added Enhanced Thread diagnostics (tries to get data from BRs when credentials are known or REST API is available)
+* (@Apollon77) Added options to store multiple Thread and WiFi credentials to use in commissioning and Visualization
+* (@Apollon77) Optimizations and Improvements for the Thread and WiFi visualizations
+* (@GermanBluefox) Updated GUI to React 19
+
+### 1.3.1 (2026-07-23)
+* (@Apollon77) Fix Attribute Polling
+* (@Apollon77) Fix Commissioning of new nodes
+
+### 1.3.0 (2026-07-19)
+* (@Apollon77) Update to Matter 1.6.0 (matter.js 0.17.7-alpha)
 * (@Apollon77) Optimized Matter data processing by caching repeated cluster/attribute lookups in hot paths
 * (@Apollon77) Only register additional custom attributes when the node supports them
+* (@Apollon77) Prevent errors when controlling paired devices that do not expose On/Off commands
 
 ### 1.2.1 (2026-06-29)
 * (@Apollon77) Fix Thermostat and WindowCovering state update errors

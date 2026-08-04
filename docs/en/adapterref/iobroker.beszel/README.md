@@ -213,6 +213,10 @@ beszel.0.
 ---
 
 ## Changelog
+### 0.10.0 (2026-07-13) — stable
+
+- Container states are no longer deleted when the adapter briefly loses access to the container data — they are kept until the containers are really gone.
+
 ### 0.9.0 (2026-07-07)
 
 - The "Test connection" button now correctly reports a failure when the URL, username or password is wrong — it previously showed a green "Ok" even for bad credentials.
@@ -223,7 +227,7 @@ beszel.0.
 - A user account without permission to read containers no longer freezes all other system states — container data is skipped with a warning instead.
 - The connection settings are reordered and gained help texts explaining that the "Username" is your Beszel web login, plus a hint that polling faster than 60s brings no fresher data.
 
-### 0.8.0 (2026-06-24)
+### 0.8.0 (2026-06-24) — stable
 
 - A brief empty response from the Hub no longer deletes your devices or containers — for example right after a restart — so monitored systems and their history stay intact.
 - Server hardware and OS details now recover on their own after a short network problem, instead of staying empty until the adapter is restarted.
@@ -240,10 +244,6 @@ beszel.0.
 ### 0.7.1 (2026-06-09)
 
 - Improved compact-mode behavior: beszel no longer registers global process error handlers that could interfere with other adapters running in the same process.
-
-### 0.7.0 (2026-06-07)
-
-- Added optional Sentry error reporting: crashes are sent to the developer so issues get fixed faster. Active only with ioBroker diagnostics enabled; anonymous.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

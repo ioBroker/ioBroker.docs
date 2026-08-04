@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.public-holidays/README.md
 title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
-hash: T6oMPK3DnlFoIGGOGos24eOad5mNisShE3ZUiM5om6I=
+hash: 1LNxxnDrKwoDzUsDump+J/CSzNAaTAeRz2lJtTa/aDk=
 ---
 # <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
 
@@ -71,19 +71,19 @@ Wenn das Feld **Land** leer bleibt, wird es automatisch aus Ihren ioBroker-Syste
 public-holidays.0.
 ├── today.
 │   ├── name         string    "Karfreitag" / "Good Friday"
-│   └── boolean      boolean   true / false
+│   └── isHoliday    boolean   true / false
 ├── yesterday.
 │   ├── name         string
-│   └── boolean      boolean
+│   └── isHoliday    boolean
 ├── tomorrow.
 │   ├── name         string
-│   └── boolean      boolean
+│   └── isHoliday    boolean
 ├── dayAfterTomorrow.
 │   ├── name         string
-│   └── boolean      boolean
+│   └── isHoliday    boolean
 └── next.
     ├── name         string    next holiday name (localized)
-    ├── boolean      boolean   true when an upcoming holiday exists
+    ├── isHoliday    boolean   true when an upcoming holiday exists
     ├── date         string    "2026-12-25" (ISO date)
     └── daysUntil    number    days until holiday
 ```
@@ -107,7 +107,7 @@ Brückentage werden im Zustandsbaum mit dem lokalisierten Namen angezeigt, der d
 **Feiertag nicht erkannt** – Einige Feiertage werden als `observance` anstatt als `public` klassifiziert. Aktivieren Sie gegebenenfalls den Feiertagstyp in den Feiertagseinstellungen.
 
 ## Credits
-Das npm-Paket wurde ursprünglich von [Jey Cee](https://github.com/Jey-Cee) registriert. Dieser Adapter ist eine komplette Neuentwicklung ohne gemeinsamen Code.
+Die Idee geht auf den Adapter `feiertage` von pix zurück, der ursprünglich Feiertagsdaten in ioBroker integriert hat. Vielen Dank an [Jey Cee](https://github.com/Jey-Cee) für die Bereitstellung des Paketnamens `public-holidays`. Dieser Adapter ist eine unabhängige Implementierung und teilt keinen Code mit den anderen.
 
 ## Unterstützung
 - [GitHub Issues](https://github.com/krobipd/ioBroker.public-holidays/issues) — Fehlerberichte, Funktionsanfragen
@@ -124,6 +124,11 @@ Dieser Adapter ist kostenlos und Open Source. Wenn er Ihnen nützlich ist, würd
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.11.0 (2026-07-12)
+
+- Breaking change: the states that flag whether each day is a holiday were renamed for clarity — update any scripts or views that read them.
+- Refreshed the built-in holiday data, adding newly recognised regional holidays.
+
 ### 0.10.0 (2026-07-02)
 
 - The "next holiday" date and days-until states now show up correctly as a date and a day count in VIS widgets and scripts (they carry the proper ioBroker role and a "days" unit).
@@ -144,10 +149,6 @@ Dieser Adapter ist kostenlos und Open Source. Wenn er Ihnen nützlich ist, würd
 ### 0.7.1 (2026-06-12)
 
 - Internal refactoring. No user-facing changes.
-
-### 0.7.0 (2026-06-07)
-
-- Added optional Sentry error reporting: crashes are sent to the developer so issues get fixed faster. Active only with ioBroker diagnostics enabled; anonymous.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

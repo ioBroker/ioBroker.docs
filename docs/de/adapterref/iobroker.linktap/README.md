@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.linktap/README.md
 title: ioBroker.LinkTap
-hash: jF+hWbw7bmE0b57AwFFOIqvT0OTnSjQRw+gZY/STN/Q=
+hash: 6o76GxiaHdHP5xQMR9fLD0yWy4bMfsRqxViiLe+mkG0=
 ---
 ![Logo](../../../en/adapterref/iobroker.linktap/admin/Logo_small.png)
 
@@ -13,24 +13,27 @@ hash: jF+hWbw7bmE0b57AwFFOIqvT0OTnSjQRw+gZY/STN/Q=
 
 # IoBroker.LinkTap
 ## IoBroker.linktap
-Steuern Sie Ihre Gartenbewässerung mit dem kabellosen Bewässerungstimer von LinkTap. Hersteller: https://www.link-tap.com/
+Steuern Sie Ihre Gartenbewässerung mit der kabellosen Bewässerungsuhr LinkTap. Hersteller: https://www.link-tap.com/
 
 ## Installation
-Bitte verwenden Sie Node.js 20 oder höher.
+Bitte verwenden Sie Node.js 22 oder höher.
 
 ## Einstellungen
-Erstellen Sie mit Ihren LinkTap-Anmeldeinformationen einen API-Schlüssel unter https://www.link-tap.com/#!/api-for-developers.
+Erstellen Sie einen API-Schlüssel unter https://www.link-tap.com/#!/api-for-developers mit Ihren LinkTap-Zugangsdaten.
 
-Bitte geben Sie den Benutzernamen und den API-Schlüssel in der Konfiguration ein.
-Alle verbundenen Gateways und Taplinker werden nach dem Start des Adapters abgerufen. Der Hersteller ermöglicht eine Abfrage aller Gateways und Geräte alle 5 Minuten. Der Adapter führt die Abfrage automatisch stündlich oder bei jedem Neustart durch.
+Bitte geben Sie Benutzernamen und API-Schlüssel in der Konfiguration ein.
+Alle verbundenen Gateways und Taplinker werden nach dem Start des Adapters abgerufen. Der Hersteller ermöglicht eine Abfrage aller Gateways und Geräte alle 5 Minuten. Der Adapter führt diesen Abruf automatisch stündlich oder nach jedem Neustart durch.
 
-Der Abruf des Bewässerungsstatus kann in der Konfiguration individuell minutengenau eingestellt werden. Es kann bis zu einer Minute dauern, bis der Webservice von LinkTap aktualisierte Bewässerungsinformationen bereitstellt.
+Die Aktualisierung des Bewässerungsstatus kann in den Einstellungen minutengenau festgelegt werden. Es kann bis zu einer Minute dauern, bis der Webdienst von LinkTap aktualisierte Bewässerungsinformationen bereitstellt.
 
-Alle von der API bereitgestellten Bewässerungsfunktionen wurden implementiert.
+Alle über die API bereitgestellten Bewässerungsfunktionen wurden implementiert.
 
-Wichtig: Die gewünschten Zeitpläne müssen vor der Nutzung in der App eingerichtet werden. Diese können dann über den Adapter aktiviert/deaktiviert werden. Dazu müssen zusätzlich die entsprechenden Zustände der Rolle „Argument in“ gesetzt werden.
+Wichtig: Die gewünschten Zeitpläne müssen vor der Verwendung in der App eingerichtet werden. Diese können dann über den Adapter aktiviert/deaktiviert werden. Hierfür müssen zusätzlich die entsprechenden Zustände der Rolle „Argument in“ festgelegt werden.
 
 ## Changelog
+
+### 1.0.7
+- (copilot) Adapter requires node.js >= 22 now / removed node-fetch
 
 ### 1.0.3
 * (Smart-Gang) Update of various dependencies and update to Node 20.
@@ -56,10 +59,12 @@ Wichtig: Die gewünschten Zeitpläne müssen vor der Nutzung in der App eingeric
 ### 0.1.7
 * (Smart-Gang) First public release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2025 Author <gangrulez@gmail.com>
+Copyright (c) 2025-2026 Author <gangrulez@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

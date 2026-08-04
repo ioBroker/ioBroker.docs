@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weathersense/README.md
 title: ioBroker.weathersense
-hash: KidM5Ba4LU29tLpPps9GkMP8pYa1nrPOuLUfmYmcTjY=
+hash: jdfdsrbSzl3QW4ap190us8J6lcf7j9VjoWbLxB2rsnk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.weathersense/admin/weathersense.png)
 
@@ -28,6 +28,10 @@ WeatherSense — это облачная платформа для метеос�
 ![Скриншот](https://github.com/ltspicer/WeatherSense/blob/main/wetterstation.png)
 
 ![Скриншот](https://github.com/ltspicer/WeatherSense/blob/main/casativo_ideoon_weatherstation.png)
+
+Данные ioBroker:
+
+![Скриншот](https://github.com/ltspicer/WeatherSense/blob/main/iobroker_dps.png)
 
 ## Использовать:
 Просто введите данные для входа в свою учетную запись WeatherSense (адрес электронной почты и пароль).
@@ -54,6 +58,10 @@ WeatherSense — это облачная платформа для метеос�
 * **Чистая маршрутизация MQTT:** Если вы используете встроенную функцию MQTT, ваши темы будут четко разделены по идентификатору датчика (например, `weathersense/1/...` и `weathersense/2/...`), что предотвратит перезапись данных на вашем брокере.
 
 ## Changelog
+### 5.2.3 (2026-07-26)
+
+- Div error messages moved to warn messages
+
 ### 5.2.2 (2026-07-09)
 
 - Typo corrected
@@ -69,10 +77,6 @@ WeatherSense — это облачная платформа для метеос�
 ### 5.1.1 (2026-07-05)
 
 - Bugfix: Unit windDirection km/h → °
-
-### 5.1.0 (2026-07-04)
-
-- Now filenames of JSON files beginning with weathersense.{sensor_id}...
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -14,51 +14,59 @@
 
 ## ford adapter for ioBroker
 
-Adapter for FordPass
+Adapter for Ford vehicles using Ford's official FordConnect Query API (EU Data Act).
 
 ## Usage
 
-### OAuth 2.0 Login
+### Prerequisites
 
-The adapter uses OAuth 2.0 authentication. Follow these steps to authenticate:
+Create an app in Ford's developer portal at <https://developer.ford.com/developer-eu>.
+Use the same email address as your FordPass account, set a Redirect URI (e.g.
+`http://localhost:8080/callback`) and note the generated Client ID and Client Secret.
 
-1. Start the adapter - it will display an authentication URL in the log
-2. **IMPORTANT: Open Developer Tools (F12) BEFORE clicking the login URL**
-3. Go to the Network tab in Developer Tools
-4. Copy the OAuth URL from the log and paste it into your browser
-5. Log in with your Ford account credentials
-6. After login, the browser will show "Cannot open page" - this is expected
-7. In the Network tab, find the failed request with the red URL starting with `fordapp://userauthorized/?code=`
-8. Copy the complete URL from the Network tab
-9. Paste it into the "v2 Code URL" field in the adapter settings
-10. Save and restart the adapter
+### Login
 
-### Remote Controls
+1. Enter Client ID, Client Secret and Redirect URI in the adapter settings and save.
+2. Start the adapter - it prints a login URL in the log.
+3. Open the URL in your browser, log in with your FordPass account and authorize the app.
+4. You are redirected to your Redirect URI with a `?code=...` parameter.
+5. Copy the complete redirect URL from the browser address bar.
+6. Paste it into the "Code URL" field in the adapter settings, save and restart the adapter.
 
-The adapter creates remote control buttons for each vehicle under `{VIN}.remote.*`:
+The adapter exchanges the code for tokens, stores the session and refreshes it automatically.
 
-- **engine/start**: Start or stop the engine (true = start, false = stop)
-- **doors/lock**: Lock or unlock doors (true = lock, false = unlock)
-- **status**: Request a fresh status update from the vehicle (sends statusRefresh command)
-- **refresh**: Refresh the cached data without sending a command to the vehicle
+### Data
+
+- `{VIN}.general` - vehicle information from the garage endpoint
+- `{VIN}.telemetry` - telemetry data (SoC, range, odometer, location, tire pressure, etc.)
+- `{VIN}.vehicleHealthAlerts` - vehicle health alerts
+- `{VIN}.wallbox` - wallbox data (EV only, if available)
+- `{VIN}.departureTimes` - electric departure times (EV only, if available)
+- `{VIN}.chargeSchedules` - electric charge schedules (EV only, if available)
+- `{VIN}.remote.refresh` - button to fetch data immediately
+
+Endpoints that are not available for a vehicle are skipped silently.
+The FordConnect Query API is read-only, so there are no engine/lock/charge commands.
 
 ### Configuration Options
 
-- **Update interval**: Time in minutes between automatic data updates (default: 5 minutes)
-- **Location Update**: Enable/disable location updates. Disabling this allows for shorter update intervals and reduces battery drain
-- **Force Update**: Enable automatic statusRefresh command at each interval (WARNING: May drain 12V battery. Only enable if your vehicle supports this command)
-- **Skip 12V Check**: Disable the 12V battery check when using Force Update
+- **Client ID / Client Secret**: Credentials from the Ford developer portal
+- **Redirect URI**: Must match the URI registered in the developer portal
+- **Polling interval**: Time in minutes between automatic telemetry queries (default: 15)
 
-### Battery Protection
+## What is Sentry.io and what is reported to the servers of that company?
 
-The adapter queries cached vehicle data in regular intervals by default. To request fresh data from the vehicle, either:
+Sentry.io is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
 
-- Enable the "Force Update" option (only if your vehicle supports it)
-- Use the `{VIN}.remote.status` button manually
-
-**Note:** Some vehicles may not support the `statusRefresh` command and will return a 404 error - this is normal. In this case, disable "Force Update" and use the `refresh` button instead.
+When the adapter crashes or another Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a random generated unique id without any additional information) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error-free adapters that basically never crash.
 
 ## Changelog
+
+### 2.0.1 (2026-07-25)
+
+- Switch to Ford's official FordConnect Query API (EU Data Act)
+- Remove reverse-engineered FordPass login, Autonomic token and WebSocket to avoid account blocking
+- Read-only telemetry: remote commands removed
 
 ### 1.1.5 (2025-12-29)
 
@@ -125,7 +133,7 @@ The adapter queries cached vehicle data in regular intervals by default. To requ
 
 MIT License
 
-Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

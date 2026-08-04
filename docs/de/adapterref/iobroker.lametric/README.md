@@ -29,8 +29,8 @@ chapters: {"pages":{"de/adapterref/iobroker.lametric/README.md":{"title":{"de":"
 
 - nodejs 20 (oder neuer)
 - js-controller 6.0.0 (oder neuer)
-- Admin Adapter 7.4.10 (oder neuer)
-- _LaMetric Time_ mit Firmware _3.2.4_ (oder neuer)
+- Admin Adapter 7.6.20 (oder neuer)
+- _LaMetric Time_ mit Firmware _3.2.7_ (oder neuer)
     - Firmware _2.3.9_ (oder neuer) auf älteren Modellen (hergestellt vor dem Jahr 2022)
 
 [Firmware-Changelog](https://firmware.lametric.com) [Firmware-Changelog Time2](https://firmware.lametric.com/?product=time2)
@@ -65,6 +65,10 @@ Alle Funktionen sind nur durch die [offizielle API](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 6.0.1 (2026-08-04)
+
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.7)
+
 ### 6.0.0 (2026-05-05)
 
 * (copilot) Adapter requires node.js >= 22 now
@@ -86,11 +90,7 @@ Alle Funktionen sind nur durch die [offizielle API](https://lametric-documentati
 * (@klein0r) Allow icons with placeholders in config (improved validation)
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.3)
 
-### 4.0.0 (2025-04-08)
-
-NodeJS >= 20.x and js-controller >= 6 is required
-
-* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.4)
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

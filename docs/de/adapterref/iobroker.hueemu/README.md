@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hueemu/README.md
 title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="48" align="top" /> ioBroker.hueemu
-hash: PNYFNKNFdn+kQybZ0zLalPuIAizKMhqWXSWjxVNtmT8=
+hash: JNBXCkzhUjAhi4UR0nyqnW+lxfSwThengH/2esj2SNc=
 ---
 # <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="48" align="top" /> ioBroker.hueemu
 
@@ -69,9 +69,8 @@ Einzelheiten und Hinweise zur Deaktivierung finden Sie in Abschnitt [Dokumentati
 ## Konfiguration
 ### Netzwerkeinstellungen
 | Option | Beschreibung | Standard |
-| ----------------- | -------------------------------------------------------------------------------------------------------------- | ------- |
-| **Host** | Netzwerkschnittstelle, an die gebunden werden soll. Wählen Sie `0.0.0.0`, um auf allen Schnittstellen zu lauschen (bleibt erreichbar, auch wenn sich die IP-Adresse ändert) | 0.0.0.0 |
-| **Bekanntgegebene IP-Adresse** | Die erreichbare IP-Adresse, die Clients zur Erkennung mitgeteilt wird. Leer lassen, um die primäre Schnittstelle automatisch zu erkennen. | automatisch |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+| **Host / IP** | Die IP-Adresse, an die die Bridge gebunden ist und die sie Clients (Alexa, Harmony) mitteilt. Wählen Sie `0.0.0.0`, um auf allen Schnittstellen zu lauschen – die angekündigte IP-Adresse wird automatisch erkannt. | 0.0.0.0 |
 | **HTTP-Port** | Port für die Hue-API | 8080 |
 | **HTTPS-Port** | Nur erforderlich, wenn ein Client auf TLS besteht; ansonsten leer lassen | — |
 | **MAC-Adresse** | Bridge-MAC-Adresse (automatisch generiert, falls leer) | — |
@@ -81,7 +80,7 @@ Einzelheiten und Hinweise zur Deaktivierung finden Sie in Abschnitt [Dokumentati
 
 **Manuell** — Klicken Sie auf **Licht hinzufügen**, geben Sie einen Namen ein, wählen Sie einen Lichttyp aus und ordnen Sie die ioBroker-Zustände dem Objektbrowser zu.
 
-**Automatisch** – Klicken Sie auf **Suchscheinwerfer**. Der Adapter scannt Ihre Objekte nach Elementen, die wie Lichter aussehen (Ein/Aus, Dimmer, Farbtemperatur- und Farblampen) und fügt die zuordenbaren hinzu. Alle erkannten, aber nicht zuordenbaren Elemente (z. B. RGB-Kanal-Geräte) werden gemeldet, sodass Sie sie manuell hinzufügen können.
+**Automatisch** – Klicken Sie auf **Suchscheinwerfer**. Der Adapter scannt Ihre Objekte nach Elementen, die wie Lampen aussehen (Ein/Aus, Dimmer, Farbtemperatur- und Farblampen) und zeigt die zuweisbaren Elemente als Checkliste an. Markieren Sie die gewünschten Elemente, und nur diese werden hinzugefügt. Alle erkannten, aber nicht zuweisbaren Elemente (z. B. RGB-Kanal-Geräte) werden gemeldet, sodass Sie sie manuell hinzufügen können.
 
 Jede Leuchte wird als Karte angezeigt – verwenden Sie **Bearbeiten**, um ihre Zuordnung zu ändern, oder **Löschen**, um sie zu entfernen.
 
@@ -135,11 +134,11 @@ Wenn Sie die alte JSON-Zustandsdefinition `createLight` zur Definition von Leuch
 
 ### Brücke nicht gefunden
 - Stellen Sie sicher, dass der UPnP-Port (1900) nicht durch eine Firewall blockiert wird.
-- Die **Host-IP** muss die tatsächliche Netzwerk-IP sein, nicht `0.0.0.0`.
+- Bei einem Host mit mehreren Schnittstellen muss **Host / IP** auf die konkrete LAN-Adresse anstatt auf `0.0.0.0` gesetzt werden, falls die automatisch ermittelte IP-Adresse falsch ist.
 - Überprüfen Sie die Firewall-Regeln auf dem ioBroker-Host.
 
 ### Client findet keine Geräte / Kopplung schlägt fehl
-- Setzen Sie `startPairing` in ioBroker Objects → `hueemu.0` **bevor** Sie die Gerätesuche in Ihrem Client starten – Sie haben 50 Sekunden Zeit.
+- Setzen Sie `startPairing` auf `true` in ioBroker Objects → `hueemu.0` **bevor** Sie die Gerätesuche in Ihrem Client starten – Sie haben 50 Sekunden Zeit.
 - Stellen Sie sicher, dass mindestens ein Gerät konfiguriert ist.
 - Überprüfen Sie die Adapterprotokolle auf Fehler
 
@@ -151,9 +150,7 @@ Wählen Sie im Adminbereich für jedes Gerät die passende Helligkeits-/Sättigu
 ---
 
 ## Credits
-**Originalautor:** Christopher Holomek ([@holomekc](https://github.com/holomekc))
-
-**Modernisierung:** Krobi
+Dieser Adapter gäbe es nicht ohne [Christopher Holomek](https://github.com/holomekc), der 2020 den ursprünglichen Hue-Bridge-Emulator auf GitHub entwickelt hat. Der Code wurde seitdem von Grund auf neu geschrieben – aber die Idee und der Beweis, dass er funktioniert, stammen von ihm.
 
 ---
 
@@ -172,6 +169,17 @@ Dieser Adapter ist kostenlos und Open Source. Wenn er Ihnen nützlich ist, würd
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.12.1 (2026-07-31)
+
+- Leaving the HTTPS port empty in the settings no longer shows an error — an empty value simply means that no HTTPS server is started for the bridge
+- The bridge MAC address that is generated automatically is now always a valid device address; some of the values generated before were not valid MAC addresses
+
+### 1.12.0 (2026-07-12) — stable
+
+- The "Search lights" assistant now actually finds your lights (it scanned the wrong objects before) and lets you pick which ones to add instead of adding them all
+- The two IP fields in the settings are now one Host/IP selector — pick your IP, or "all interfaces" to auto-detect the announced address
+- A logged-in client reading the bridge configuration now receives the full config, matching a real Hue bridge
+
 ### 1.11.0 (2026-07-09)
 
 - The devices tab can now scan ioBroker for dimmer, colour-temperature and colour lights and add the mappable ones. Manual add still works.
@@ -193,22 +201,13 @@ Dieser Adapter ist kostenlos und Open Source. Wenn er Ihnen nützlich ist, würd
 - Fixed already-paired clients being wrongly rejected until a restart after a transient error while loading clients at startup
 - A configured source state that no longer exists now produces a one-time warning in the log instead of a silently dead light
 
-### 1.8.1 (2026-06-12) — stable
-
-- Number values read from light states are now parsed strictly: text with extra characters after the number falls back to the default instead of being half-parsed
-- Faster bridge config responses for clients that poll every second (such as Echo devices) by reusing the timestamp formatter instead of rebuilding it on every request
-
-### 1.8.0 (2026-06-09)
-
-- Color lights mapped via hue and saturation (without an XY state) now report the correct color mode, so apps that honor it show the actual color instead of a default white.
-
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2020-2024 Christopher Holomek <holomekc.github@gmail.com>  
+Copyright (c) 2020-2021 Christopher Holomek <holomekc.github@gmail.com>  
 Copyright (c) 2026 krobi <krobi@power-dreams.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

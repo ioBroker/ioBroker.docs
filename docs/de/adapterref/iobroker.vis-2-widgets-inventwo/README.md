@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 title: inventwo Widgets für ioBroker vis 2.0
-hash: uwt5jMB8uAYM3LrexP18oyBDqY11AhZW2vy3zF+ZR+A=
+hash: eJkKDbHz48dIvZ4Alj0GD4JK50VztJcEv1f07ZxssqY=
 ---
 ![Logo](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/raw/main/admin/vis-2-widgets-inventwo.png)
 
@@ -16,7 +16,7 @@ hash: uwt5jMB8uAYM3LrexP18oyBDqY11AhZW2vy3zF+ZR+A=
 ---
 
 ## Um
-Eine Sammlung hochgradig anpassbarer Widgets für **ioBroker vis 2.0** – entwickelt für Anwender, die die volle Kontrolle über das Erscheinungsbild ihrer Dashboards wünschen. Jedes Widget bietet umfangreiche Gestaltungsoptionen und integriert sich nahtlos in die ioBroker-Datenpunkte.
+Eine Sammlung hochgradig anpassbarer Widgets für **ioBroker vis 2.0** – entwickelt für Anwender, die die volle Kontrolle über das Erscheinungsbild ihrer Dashboards wünschen. Jedes Widget bietet umfangreiche Styling-Optionen und integriert sich nahtlos in die ioBroker-Datenpunkte.
 
 📖 **[Benutzerdokumentation](docs/README.md)** — Ausführliche Anleitungen für alle Widgets, Einstellungen und Beispiele.
 
@@ -33,7 +33,8 @@ Eine Sammlung hochgradig anpassbarer Widgets für **ioBroker vis 2.0** – entwi
 | [Runterfallen](#widget---dropdown) | Dropdown-Auswahl, automatisch aus ioBroker-Objektzuständen befüllt |
 | [Festzelt](#widget---marquee) | Lauftext-Ticker mit einstellbarer Geschwindigkeit, Richtung und Abstand |
 | [Werteliste](#widget---value-list) | Aufzählungspunkte, die aus einem Textwert oder Datenpunkt generiert wurden |
-| [Werteliste](#widget---value-list) | Stichpunktliste, die aus einem Textwert oder Datenpunkt generiert wird |
+| [Kalender](#widget---calendar) | Monatskalenderansicht, verwendbar als Datumsauswahl, schreibgeschützte Anzeige und/oder Heute-Hervorhebung |
+| [Kalender](#widget---calendar) | Monatskalenderansicht, verwendbar als Datumsauswahl, schreibgeschützte Anzeige und/oder Heute-Hervorhebung |
 
 ---
 
@@ -66,7 +67,7 @@ Mehrere Inhaltselemente können pro Bundesland frei kombiniert werden:
 - **Ansicht im Widget** – Eine weitere Vis-Ansicht direkt in das Widget einbetten
 - **Farbauswahl** – vollumfängliche Farbauswahl (HEX, HEX8, RGB, HSL, HSV, CIE) mit konfigurierbarer Komponentensichtbarkeit
 
-![Farbauswahl-Vorschau](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/raw/main/img/preview_colorpicker.png)
+![Vorschau Farbauswahl](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/raw/main/img/preview_colorpicker.png)
 
 - **Analoguhr** – SVG-Analoguhr mit konfigurierbarem Zifferblattdesign, Teilstrichen, Zahlen und Zeigern
 
@@ -240,7 +241,7 @@ Erstellt eine Stichpunktliste aus einem einzelnen Textwert – entweder aus eine
 - Semikolon: `;`
 - Zeilenumbruch: `\n`
 - Tab: `\t`
-- Jede andere benutzerdefinierte Zeichenfolge
+- Jede andere benutzerdefinierte Zeichenkette
 - Entfernen von führenden/nachfolgenden Leerzeichen pro Eintrag
 - Filtern leerer Elemente
 - Aufzählungszeichentypen: `•` Kreis, `○` Kreis, `▪` Quadrat, `–` Strich, `›` Pfeil, `1. 2. 3.` Nummeriert, Keine, Benutzerdefiniertes Zeichen
@@ -249,6 +250,43 @@ Erstellt eine Stichpunktliste aus einem einzelnen Textwert – entweder aus eine
 - Konfigurierbarer Abstand zwischen Aufzählungszeichen und Text
 - Konfigurierbarer Zeilenabstand zwischen Elementen
 - Innenpolsterung
+
+---
+
+## Widget - Kalender
+Monatskalenderansicht, ein einfacher Datumswähler basierend auf dem Datumskalender von MUI (Datumswähler, schreibgeschützte Datumsanzeige und/oder Heute-Hervorhebung – frei kombinierbar über „Schreibgeschützt“ und „Heute hervorheben“).
+
+**Hauptmerkmale:**
+
+- Liest/schreibt ein Datum aus einer Objekt-ID als Zeitstempel (ms) oder ISO-Datumszeichenfolge (`YYYY-MM-DD`)
+- „Nur-Lese“-Modus zur reinen Datumsanzeige ohne Änderungsmöglichkeit
+- „Heute hervorheben“, um den heutigen Tag deutlich zu kennzeichnen
+- Vergangene und/oder zukünftige Daten deaktivieren
+- Optionale Schnellnavigation nach Monat/Jahr über die Kopfzeile
+- Erster Tag der Woche: Montag oder Sonntag
+- Optionale Kalenderwochennummern, ISO-8601- oder „einfache“ (Woche 1 enthält den 1. Januar)-Format
+- Konfigurierbare Tageszellengröße
+- Unabhängige Farbgestaltung für Kopfzeile, Wochentage, reguläre Tage, ausgewählten Tag (inkl. Schatten), Heute-Markierung und Wochennummern
+- Richtet sich bei Monats-/Wochentagsnamen nach der Browsersprache.
+- Wiederverwendung des "From widget"-Stils in mehreren Kalender-Widgets
+
+---
+
+## Widget - Veranstaltungskalender
+Google-Kalender-ähnliche Ansicht für Ereignisse/Termine, basierend auf FullCalendar. Jede Farbe, Schriftgröße und Rahmenform ist konfigurierbar.
+
+**Hauptmerkmale:**
+
+- Verweisen Sie mit „Events (datapoint)“ auf einen Datenpunkt, der eine JSON-Liste von Ereignissen enthält – entweder eine einfache benutzerdefinierte Form oder das native JSON, das vom ioBroker-Adapter „ical“ erzeugt wird.
+- Alle Ansichten aus dem kostenlosen/MIT-lizenzierten FullCalendar-Paket: Monat, Woche, Tag, Mehrmonatsansicht (Jahr) und Liste (Tag/Woche/Monat/Jahr)
+- Optionale Kalenderwochennummern (ISO-8601 oder „einfach“/lokalisierungsabhängig), hauptsächlich für Monats-/Mehrmonatsansichten
+- Die Kopfzeile (Titel + Zurück/Weiter/Heute Navigation) kann ein-/ausgeblendet werden, und die Navigation kann unabhängig deaktiviert werden, während der Titel erhalten bleibt.
+- Verarbeitet mehrtägige/ganztägige Veranstaltungen korrekt (iCal-exklusiv – Abschlussveranstaltung)
+- Benötigt lediglich den Ereignisdatenpunkt – keine separate Objekt-ID erforderlich
+- Konfigurierbare Farbregeln für Ereignisse: Ereignisse anhand des Titels einfärben (Groß-/Kleinschreibung wird nicht beachtet), die Quellfarbe wird überschrieben – dies umgeht die Einschränkung des ioBroker-Adapters „ical“, der nur eine Farbe pro Kalender, nicht aber pro Ereignis bereitstellt.
+- Vollständig konfigurierbarer Header (Titelfarbe/-größe, Schaltflächentext/-hintergrund/-rahmen/-radius inkl. Hover), Wochentage (Farbe/-hintergrund/-größe), Tag (Farbe/-größe, Farbe außerhalb des Monats, Hintergrund am Wochenende), Heute (Hintergrund-/Text-/-rahmenfarbe + -breite, Live-Anzeigelinie), Ereigniskacheln (Hintergrund-/Text-/-rahmen/-radius/-größe, Farbe des „+N weitere“-Links) und Rasterrahmen (anzeigen/ausblenden, Breite, Farbe) – jede Farbgruppe mit unabhängiger „Vom Widget“-Stilwiederverwendung
+- Der Kalender wird live in der Größe angepasst, wenn das Widget im vis-Editor vergrößert oder verkleinert wird (kein Neuladen der Seite erforderlich).
+- Richtet sich bei Monats-/Wochentagsnamen nach der Browsersprache.
 
 ---
 
@@ -262,6 +300,18 @@ Kann in [CHANGELOG_OLD.md](CHANGELOG_OLD.md) gefunden werden
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.9.0 (2026-07-29)
+- Added new Event Calendar Widget: Google-Calendar-style view for events/appointments based on FullCalendar, fed from a datapoint holding a JSON list of events (either a simple custom shape or the native JSON produced by the ioBroker "ical" adapter). Supports all FullCalendar free/MIT views (Month, Week, Day, Multi-month, List day/week/month/year), optional calendar week numbers, optional header bar/navigation, live resizing in the vis editor, and fully configurable header/weekday/day/today/event-tile/border styling (colors, font sizes, border radius/width, hover states, now-indicator), each with independent "From widget" style reuse
+
+### 1.8.1 (2026-07-23)
+- Added preview image for calendar and value list widgets
+
+### 1.8.0 (2026-07-16)
+- Radial Slider Widget: Added "Read only" option to prevent value changes, matching the Slider widget's behavior
+- Table Widget: Added pagination support ("Pagination" / "Rows per page") to split large tables across pages instead of showing all rows at once
+- Table Widget: Added weekday (WD/WDL) and calendar week (KW/K) tokens
+- Added new Calendar Widget: month calendar based on MUI's Date Calendar, usable as a datepicker (read/write a date), a read-only date display, and/or a today-highlighter, with configurable first day of week, ISO/simple calendar week numbers, and full color/size customization
+
 ### 1.7.0 (2026-06-24)
 - Dropdown Widget: Added support for manually defined value/label pairs as an alternative to OID-based state enumeration
 
@@ -269,30 +319,6 @@ Kann in [CHANGELOG_OLD.md](CHANGELOG_OLD.md) gefunden werden
 - Universal Widget: Fixed navigation active state not updating correctly when nav buttons are placed inside a "View in Widget"
 - Table Widget: Empty JSON array now renders a "No data" row regardless of column configuration, instead of an empty or broken table structure
 - Marquee Widget: Added vertical scroll directions "Up" and "Down" in addition to the existing "Left" and "Right"
-
-### 1.5.0 (2026-06-13)
-- Table Widget: Added "URL" column format for clickable links with configurable target
-- Table Widget: Added "Sum row" option to visually separate the last row with a double border
-- Universal Widget: Added "Corner style" – switch between rounded and chamfered (45 degree bevel) corners
-- Table Widget: Added "Formula" field per column to compute values from row fields (e.g. price * qty)
-- Slider Widget: Added "Title" and "Unit" fields
-- Dropdown Widget: Fixed border radius; added "Widget shadow" for the entire widget container
-
-### 1.4.0 (2026-06-04)
-- Universal Widget: Added "RGB (Scaled)" color model for the color picker – supports configurable value ranges (e.g. 0–1023 for 10-bit RGB controllers)
-- Universal Widget: Added optional password/PIN protection for navigation buttons
-- Universal Widget: Added per-state content mirror option (inherit from content style / yes / no)
-- Table Widget: Added configurable decimal and thousand separators for number format columns
-- Table Widget: Added value color to row conditions (in addition to row background color)
-- Table Widget: Added boolean column format displaying a readonly checkbox with optional configurable checked/unchecked colors
-- Table Widget: Added comparison operator selection to row conditions (equal, not equal, greater, less, greater/less equal)
-- Table Widget: Added value color per row condition – applicable to the whole row or to the condition column only
-
-### 1.3.0 (2026-06-03)
-- Slider: Added configurable value label display (always/on drag/never) and step marks position (above/below)
-- Universal: Added "Disable click when active" option per state
-- Universal: Fixed color picker components not updating when toggled in the editor
-- Added links to widget documentation in widget settings
 
 ## License
 The MIT License (MIT)

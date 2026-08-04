@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kecontact/README.md
 title: ioBroker.ke联系方式
-hash: oVufczSonHhlIy89jlBVIxnvpoMLkBWnu01wKPedSKU=
+hash: 0aEogRxeBqh9lLUVyS6N0nMMc5frp5L/MsS+VlG3EsE=
 ---
 ![标识](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -59,7 +59,7 @@ Keba 网站改版后，已不再提供支持。
 为了根据剩余电量（例如通过光伏发电）为车辆充电，您还可以定义代表剩余电量和电网用电量的状态。这些值用于计算可用于充电的电流。您还可以通过附加值来定义
 
 * 用于切换充电相 1p/3p 或使用 Keba Kecontact 的 X2 端口（配合 Keba KeContact S10 或任何其他接触器）的状态
-* 电池储能系统的当前功率状态，因此光伏自动系统将额外利用这些功率为您的车辆充电。
+* 电池储能系统的当前功率状态，光伏自动系统将额外利用该功率为您的车辆充电。
 * 可以选择限制电池存储功率，使其仅以最小功率维持充电。
 * 如果您想使用充电站的 X1 输入来控制充电方式（全功率充电或光伏自动充电），请切换 X1 选项。
 * 最低电流与默认的 6 安培不同（例如，仅适用于雷诺 Zoe 等车型）
@@ -114,6 +114,8 @@ Keba 网站改版后，已不再提供支持。
 
 示例：要以 6A 的恒定电流为您的车辆充电，无论是否有剩余电流，请将光伏发电设置为 false，并将电流限制为 6000。
 
+关于该适配器工作原理的德语说明请参见[这里](kecontact.md)
+
 ＃＃ 合法的
 本项目与 KEBA AG 公司没有任何直接或间接的关联。
 
@@ -124,13 +126,18 @@ KeConnect是KEBA AG的注册商标。
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.8.0 (2026-07-22)
+* (Sneak-L8) possibility to regulate max grid power not only in settings but also dynamically by seperate state
+* (Sneak-L8) fix missing Tests for addPower setting due to label change
+
+### 3.7.0 (2026-07-14)
 * (Sneak-L8) addPower can now also be used to preserve power for other consumers by specifying negative value
 * (@mcm1957) Adapter requires node.js >= 22 now.
 * (Sneak-L8) Minimum time between phase switching has also to be respected when using state for phase switch, thanks to SmartNightly
 * (Sneak-L8) fix errors [E0036], [S0082] and [S5004] found by repository checker
 * (Sneak-L8) fix errors [E6025], [W1130], [W1132], [W1134],  [W5060] and [W6023] found by repository checker
-  
+* (Sneak-L8) fix warning [W0034] found by repository checker
+
 ### 3.6.0 (2026-03-29)
 * (Sneak-L8) information about new firmware also via admin notification (also works for x-series)
 * (Sneak-L8) updated dependencies
@@ -145,16 +152,6 @@ KeConnect是KEBA AG的注册商标。
 * (Sneak-L8) new option to stop charging at a certain SoC
 * (Sneak-L8) raise adapter-dev version from 1.4 to 1.5
 * (Sneak-L8) drop dependencies to chai, sinon and mocha
-
-### 3.3.0 (2025-09-18)
-* (Sneak-L8) new option to always charge with 1p oder 3p
-* (Sneak-L8) new setting for discharging power of storage battery (if not equal to max battery power)
-* (Sneak-L8) updated version requirements (admin 7.6.17 and core 3.3.2)
-
-### 3.2.0 (2025-07-13)
-* (Sneak-L8) new option to always start charging when vehicle is plugged if authorization is required to prevent charging station to block charging
-* (Sneak-L8) optimized strategy for battery charging
-* (Sneak-L8) node.js >= 20 required
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

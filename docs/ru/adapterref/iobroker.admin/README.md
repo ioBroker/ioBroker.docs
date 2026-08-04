@@ -172,9 +172,15 @@ IP-адрес с которого доступен драйвер (поддер�
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 8.0.1 (2026-08-03)
+- (@GermanBluefox) Breaking: React19 + MUI9
+- (@GermanBluefox) Breaking: Node 22 or higher required
+- (@GermanBluefox) Improved charts in tooltip
+
+### 7.9.13 (2026-07-12)
 - (@GermanBluefox) Added AWS and Azure credentials in credentials manager
 - (@GermanBluefox) Allowed to set the log level without expert mode
+- (@GermanBluefox) Correcting sentry reporting for the admin adapter
 
 ### 7.9.12 (2026-07-03)
 - (@GermanBluefox) Added the port (native.port) to the instances table and cards and the possibility to sort instances by port
@@ -192,14 +198,6 @@ IP-адрес с которого доступен драйвер (поддер�
 - (@GermanBluefox) Added a dialog describing how to use the AI assistant without an API key (external MCP client)
 - (@GermanBluefox) Updated device manager
 - (@GermanBluefox) Added possibility to see the prompt and use it outside of assistant
-
-### 7.9.9 (2026-06-21)
-- (@GermanBluefox) Correcting the change of the AI providers
-
-### 7.9.6 (2026-06-20)
-- (@GermanBluefox) Added "between" news rule
-- (@GermanBluefox) Better config-manager layout
-- (@GermanBluefox) Added filtering options for config-manager
 
 ## License
 

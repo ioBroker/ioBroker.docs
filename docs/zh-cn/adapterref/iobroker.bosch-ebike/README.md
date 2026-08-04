@@ -3,33 +3,50 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bosch-ebike/README.md
 title: ioBroker.bosch-ebike
-hash: FFYmulm05/mMJR7iazCpBbpKu3Ara/b79d2BHM6vzW8=
+hash: wzLPuCrHre3fpxHeA6iEYwglR72p8yp95ZWAc7cYAAI=
 ---
 ![标识](../../../en/adapterref/iobroker.bosch-ebike/admin/bosch-ebike.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.bosch-ebike.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.bosch-ebike.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.bosch-ebike.svg)
 ![安装数量](https://iobroker.live/badges/bosch-ebike-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/bosch-ebike-stable.svg)
+![稳定仓库中的当前版本](https://iobroker.live/badges/bosch-ebike-stable.svg)
 ![依赖状态](https://img.shields.io/david/TA2k/iobroker.bosch-ebike.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.bosch-ebike.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.bosch-ebike.png?downloads=true)
 
 # IoBroker.bosch-ebike
 **测试：** ![测试与发布](https://github.com/TA2k/ioBroker.bosch-ebike/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的博世电动自行车适配器
+## 适用于 ioBroker 的 bosch-ebike 适配器
 博世电动自行车适配器
 
-## 登录ablauf
+## 登录
 Die Bosch eBike Mail 和 Passwort eingeben。
 
-## 斯图恩
+## 施托伊恩
 bosch-ebike.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
-## 讨论和讨论
+## 哨兵
+此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
+
+## 讨论和问题
 <https://forum.iobroker.net/topic/55902/test-adapter-bosch-ebik-connect-flow>
 
 ## Changelog
+### 0.1.13 (2026-07-17)
+- battery state added
+
+### 0.1.12 (2025-01-14)
+
+- fix for login use code url instead of captcha
+
+### 0.1.11 (2025-01-03)
+
+- fix for login. Deletion of the instance is necessary if the settings screen is not loading.
+
+### 0.1.9 (2024-11-25)
+
+- fix for login
 
 ### 0.1.5
 
@@ -43,7 +60,7 @@ bosch-ebike.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

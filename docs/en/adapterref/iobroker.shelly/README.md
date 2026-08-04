@@ -35,7 +35,7 @@ This is the English documentation - [🇩🇪 German version](../de/README.md)
 
 1. Node.js 22 (or later)
 2. js-controller 6.0.11 (or later)
-3. Admin Adapter 7.8.20 (or later)
+3. Admin Adapter 7.8.23 (or later)
 
 ## Device generations
 
@@ -71,7 +71,11 @@ Questions? Check the [FAQ](faq.md) section first!
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (@klein0r) Added hold (128) and nothing (0) to BLE states for buttons
+- (@floze-the-genius) Corrected roles for Gen 2+ input states. [#1498]
+- (@klein0r) Updated ble script (v1.4) for Shelly firmware > 2.0
+
+### 12.0.0-alpha.0 (2026-07-16)
+- (@GermanBluefox) Codebase has been migrated to typescript.
 
 ### 11.0.0 (2026-07-03)
 - (@klein0r) Updated ble script (v1.3) for Shelly firmware > 2.0
@@ -105,10 +109,6 @@ Questions? Check the [FAQ](faq.md) section first!
 * (@mcm1957) FrankEver Smart Watervalve (watervalve) has been added. [#1341]
 * (@mcm1957) LinkedGo ST1820 (st1820) has been added. [#1257]
 * (@mcm1957) Dependencies have been updated
-
-### 10.5.2 (2025-12-28)
-* (@mcm1957) Monophase profile support has been fixed for shellypro3em and shellypro3em400.
-
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

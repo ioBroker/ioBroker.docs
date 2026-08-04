@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: iwbspMgdqO0nSwgSwN1TjS7hojgnazbna9VpDYzooIw=
+hash: Nf1qzWZZiTHeahfPb4tUJDxo9WHZScYRunGzwf0Vg64=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -69,7 +69,7 @@ hash: iwbspMgdqO0nSwgSwN1TjS7hojgnazbna9VpDYzooIw=
 - 每个通道的行为由其类型决定：“最佳成本（LTF）”、“最佳单小时（LTF）”、“最佳小时块（LTF）”或“智能电池缓冲”。
 每个通道都会填充一个或两个外部状态作为输出，需要在设置选项卡中选择。例如，该状态可以是“0_userdata.0.example_state”或任何其他可写的外部状态。
 - 如果没有选择外部输出状态，则会在通道的范围内创建一个内部状态。
-- 可以定义要写入输出状态的值，用“值 YES”和“值 NO”表示，例如，“true”表示布尔状态，或者要写入的数字或文本。
+- 可以定义写入输出状态的值，用“值 YES”和“值 NO”表示，例如，“true”表示布尔状态，或者写入数字或文本。
 - 输出：
 - “最佳成本”：以“触发价格”状态作为输入，当当前 Tibber 能源成本低于触发价格时，每小时输出“是”。
 - “最佳单小时数”：在成本最低的小时数内生成“YES”输出，该数字在“AmountHours”状态中定义。
@@ -106,7 +106,7 @@ hash: iwbspMgdqO0nSwgSwN1TjS7hojgnazbna9VpDYzooIw=
 
 - TibberLink 适配器创建一个名为 `jsonFlexCharts` 的状态。
 
-                      <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts 状态">
+                            <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts 状态">
 
 - FlexCharts适配器通过以下URL呈现此状态：
 
@@ -218,14 +218,28 @@ Tibber 运行两个用途不同的独立 API：
 车辆数据写入`Vehicles.<VIN>.*`：
 
 | 状态 | 描述 |
-| --------------------- | --------------------------------- |
+| --------------------- | -------------------------------------------- |
 | `ChargingStatus` | 当前充电状态 |
+| `LastSeen` | Tibber 最后一次看到该设备的时间戳 |
 | `LastUpdated` | 上次数据更新的时间戳 |
 | `PlugStatus` | 插头连接状态 |
 | `Range` | 剩余距离（公里） |
 | `StateOfCharge` | 电池电量百分比 |
 | `TargetStateOfCharge` | 目标荷电状态（%） |
 | `TargetStateOfCharge` | 目标电量百分比 |
+
+充电器数据写入 `Chargers.<id>.*`。由于不同品牌（例如 go-e、Wallbox Pulsar Plus）的充电器功能可能有所不同，因此每项功能都以通用状态的形式写入，并以数据 API 功能 ID 命名（点号替换为下划线），同时附上 API 提供的描述。典型状态包括：
+
+| 状态 | 描述 |
+| ---------------------------------- | ------------------------------------------------ |
+| `connector_status` | 充电器连接器状态 |
+| `charging_current_max` | 最大允许充电电流 (A) |
+| `charging_current_offlineFallback` | 充电器离线时的备用电流 (A) |
+| `grid_phaseCount` | 充电所用相数 |
+| `HomeId` | 关联的 Tibber 住宅 ID |
+| `LastSeen` | Tibber 最后一次看到该设备的时间戳 |
+| `LastUpdated` | 上次数据更新的时间戳 |
+| `LastUpdated` | 上次数据更新的时间戳 |
 
 ### 轮询间隔
 轮询间隔可在“车辆和充电器”选项卡中进行配置（1-60 分钟，默认值：5 分钟）。
@@ -239,8 +253,20 @@ Tibber 运行两个用途不同的独立 API：
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
 
+- (HombachC) updated tibber-api to 5.6.0
+
+### 7.2.0 (2026-07-30)
+
+- (HombachC) added polling of charger/wallbox devices from the Tibber Data API, written to `Chargers.<id>.*` (#925)
+- (HombachC) added a `LastSeen` state (device-reported last-seen timestamp) for vehicles and chargers
+
+### 7.1.5 (2026-07-12)
+
+- (HombachC) added a regression test confirming best single hours LTF no longer switches on the wrong day (#631)
+- (HombachC) worked around a Tibber server bug that returns `to` equal to `from` in weekly historical consumption data (#890)
 - (HombachC) removed redundant test devDependencies (chai, chai-as-promised, sinon-chai, proxyquire) and switched unit tests to Node's built-in assert
 
 ### 7.1.4 (2026-07-09)
@@ -262,21 +288,6 @@ Tibber 运行两个用途不同的独立 API：
 - (HombachC) updated adapter-core
 - (HombachC) fixed adapter checker warnings
 - (HombachC) updated dependencies
-
-### 7.1.1 (2026-06-07)
-
-- (HombachC) optimized vehicle states
-- (HombachC) fixed adapter checker warnings
-
-### 7.1.0 (2026-06-07)
-
-- (claude) added integration for vehicles(#67)
-- (HombachC) optimized documentation
-- (claude) added code documentation
-- (claude) performance optimization of event listeners
-- (HombachC) added current month consumption docu
-- (HombachC) updated release-script
-- (HombachC) fixed adapter checker warnings
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

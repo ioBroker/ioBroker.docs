@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.enpal/README.md
 title: Enpal Solar 的 ioBroker 适配器
-hash: Bh8A0oHG4rVcna8B6lrzEWUvAZCzrobxt4wsJQstvQE=
+hash: l1xdkK4vWXgCC8b5F3cmLLjQkTEG7z1Ot+oiV54Lsf4=
 ---
 ![标识](../../../en/adapterref/iobroker.enpal/admin/enpal_logo.svg)
 
@@ -65,7 +65,7 @@ enpal.0.wallbox_control.<state>
 | 状态 | 类型 | 读取 | 写入 | 描述 |
 |-------|------|------|-------|-------------|
 | `start` | 按钮 | 否 | 是 | 开始充电（设置为 `true` 可触发） |
-| `mode` | 值 | 是 | 是 | 设置充电模式：`eco`、`solar`、`full` 或 `smart` |
+| `mode` | 值 | 是 | 是 | 充电模式控制：`eco`、`solar`、`full` 或 `smart`。当通过 Enpal 应用程序更改模式时，也会从墙盒同步。 |
 | `currentMode` | 文本 | 是 | 否 | 壁挂式充电桩报告的当前充电模式（例如 `Eco`、`Solar`、`Full`） |
 | `connectorStatus` | 文本 | 是 | 否 | 来自墙盒的 OCPP 连接器状态（参见 [连接器状态值](#connector-status-values)） |
 | `automaticChargeStatus` | 文本 | 是 | 否 | 插电自动充电（`On` / `Off`；只读，可通过 Enpal 应用程序更改） |
@@ -74,7 +74,7 @@ enpal.0.wallbox_control.<state>
 工作原理
 
 - **控制**（模式、启动、停止）：适配器通过 Blazor SignalR 连接到 `http://<enpal-box>/wallbox`（与 [Home Assistant Enpal 集成](https://github.com/derolli1976/enpal) 的方法相同），并模拟按钮点击。
-- **状态**（`currentMode`、`connectorStatus`、`automaticChargeStatus`）：从 Enpal Box 页面 `http://<enpal-box>/deviceMessages` 读取（`Mode.Charge.Connector.1`、`Status.Wallbox.Connector.1`、`Wallbox.Settings.AutomaticChargeStatus.Connector.1`）。在每次同步间隔和控制操作后更新。
+- **状态**（`currentMode`、`connectorStatus`、`automaticChargeStatus`）：从 Enpal Box 页面 `http://<enpal-box>/deviceMessages` 读取（`Mode.Charge.Connector.1`、`Status.Wallbox.Connector.1`、`Wallbox.Settings.AutomaticChargeStatus.Connector.1`）。在每次同步间隔和控制操作后更新。可写的 `mode` 状态也会更新（`ack: true`），以便在 ioBroker 外部更改模式时，VIS 下拉菜单保持同步。
 
 #### 连接器状态值
 `connectorStatus` 报告 Enpal/StarCharge 壁挂式充电桩的 [OCPP](https://www.openchargealliance.org/) 连接器状态。值已规范化为标准拼写（例如 `SuspendedEV`，而不是 `Suspendedev`）。
@@ -135,6 +135,8 @@ enpal.0.wallbox_control.<state>
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 0.4.3 (2026-07-21)
+- (skvarel) Sync wallbox_control.mode from status when charge mode is changed via the Enpal app
 
 ### 0.4.2 (2026-06-12)
 - (skvarel) Fixed missing wallbox_help_readme translation in English and German admin UI
@@ -154,12 +156,6 @@ enpal.0.wallbox_control.<state>
 - (skvarel) Added optional wallbox control via Enpal Box web interface (Blazor SignalR)
 - (skvarel) New config option: wallbox_enabled (checkbox); Enpal Box URL is derived automatically from InfluxDB URL
 - (skvarel) New states under wallbox_control: start, stop, mode, currentMode, connectorStatus
-
-### 0.2.2 (2026-06-05)
-- (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
-- (skvarel) Updated @alcalzone/release-script to 5.2.1 to fix repository checker error E0036
-- (skvarel) Updated @tsconfig/node22 to 22.0.5
-- (skvarel) Fixed mixed indentation in admin/jsonConfig.json
 
 ## License
 MIT License

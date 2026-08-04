@@ -63,6 +63,9 @@ Assign the datapoint `parcel.0.dhl.briefe....image` to a "String img src" elemen
 <https://forum.iobroker.net/topic/51795/test-adapter-parcel-paketverfolgung-dhl-v0-0-1>
 
 ## Changelog
+### 0.3.3 (2026-07-18)
+- Fix GLS states
+
 ### 0.3.2 (2026-07-08)
 - Fix for DPD
 - Fix for GLS

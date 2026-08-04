@@ -27,6 +27,8 @@ I use my own Sentry server based on Glitchtip.
 
 This adapter provides precise weather data, forecasts, air quality, pollen & Photovoltaic Forecast information powered by [Open-Meteo.com](https://open-meteo.com/). It is free for non-commercial use (under 10,000 daily API calls) and requires no API key registration, making the setup process extremely simple.
 
+Should the adapter encounter issues such as timeouts or server errors, you can check the [Open-Meteo Server Status](https://status.open-meteo.com/).
+
 ---
 
 ## Features Weather
@@ -275,10 +277,16 @@ The adapter uses the **Faiman model** to estimate the module temperature. This m
 After a new adapter update, it is recommended to delete the entire directory tree and let it be recreated.
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.1.4 (2026-07-18)
 * (@GermanBluefox) upscaled the logo
 * (@GermanBluefox) Updated TS to 6
 * (@GermanBluefox) Corrected image in JsonConfig
+* (H5N1v2) Resize logo to 512x512
+* (pk68) fix: info.lastUpdate_PV_Forecast is no longer updated if all API calls failed or returned empty data.
+* (H5N1v2) fix: PV Forecast sunrise mode now retries automatically after 30 minutes if the API call fails (e.g. HTTP 500 overload). The next day's schedule is only planned after a successful update.
+* (H5N1v2) add open-meteo status link in adapter description and README.
+* (H5N1v2) fix: made OpenStreetMap link clickable in the admin area.
+* (H5N1v2) Update dependencie.
 
 ### 3.1.3 (2026-06-20)
 * (H5N1v2) Fixed an issue with object creation caused by an accidental change.
@@ -304,13 +312,6 @@ After a new adapter update, it is recommended to delete the entire directory tre
 * (H5N1v2) Adapter internal widget adapted, hazards are highlighted in color (currently only in the internal adapter widget).
 * (copilot) Adapter requires node.js >= 22 now.
 * (H5N1v2) Update axios to v.1.16.0.
-
-### 3.0.1 (2026-04-25)
-* (H5N1) update dependencies
-* (H5N1) improve error handling in API calls with detailed messages
-* (H5N1) fix: attribute in jsonConfig.
-* (Negalein) fix: yellow help text in admin for pv-forecast extra dp's, poor recognition on white background
-* (H5N1v2) fix: update interval for pv-forecast "once before sunrise" time incorrectly calculated
 
 ## Older Changelog
 [OLDER CHANGELOG](CHANGELOG_OLD.md)

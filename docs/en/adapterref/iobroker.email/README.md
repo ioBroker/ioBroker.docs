@@ -125,20 +125,18 @@ To send email from another adapter, use `adapter.sendTo` function.
 
 For other services see documentation of **Nodemailer**: `[https://github.com/nodemailer/nodemailer](https://github.com/nodemailer/nodemailer)`
 
-
 ## Changelog
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
-- (iobroker-bot) Adapter requires node.js >= 20 now.
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
-- (@copilot) Set up GitHub Copilot instructions with centralized ioBroker template (v0.5.7) and weekly monitoring workflow
+### 3.0.0 (2026-08-03)
+* (copilot) Adapter requires node.js >= 22 now
+* (copilot) Adapter requires admin >= 8.0.0 now
+* (copilot) Adapter requires js-controller >= 6.0.11 now
+* (@copilot) Set up GitHub Copilot instructions with centralized ioBroker template (v0.5.7) and weekly monitoring workflow
+* (@ipod86) Added configurable number of file attachments to the Blockly email block via plus/minus buttons
+* (@GermanBluefox) Migrated to admin 8
 
 ### 2.0.5-alpha.0 (2025-10-06)
 * (@copilot) Fixed SMTP relay anonymous access by ignoring user and password when empty
@@ -156,25 +154,11 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 * (@GermanBluefox) Renamed `dist` folder to `build`
 * (@GermanBluefox) Fixing pass decoding
 
-### 2.0.0 (2025-03-11)
-* **IMPORTANT:** You may have to enter your credentials once again if you encounter connection problems. 
-* (@GermanBluefox) Breaking change: Structure of configuration was corrected, and it could be they needed to be reconfigured
-* (@GermanBluefox) Made Outlook work again. Requires now to be authenticated via OAuth2
-* (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now
-* (mcm1957) EsLint uses @iobroker/linter-config now
-* (mcm1957) Dependencies have been updated
-* (@GermanBluefox) Migrated to TypeScript
-* (@GermanBluefox) Added "Ignore SSL errors" option
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)
 
-
-Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
-Copyright (c) 2014-2025 bluefox
+Copyright (c) 2014-2026 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

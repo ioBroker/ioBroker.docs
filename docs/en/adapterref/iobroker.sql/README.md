@@ -12,7 +12,7 @@ This adapter saves state history into SQL DB.
 Supports PostgreSQL, mysql, Microsoft SQL Server and sqlite.
 You can leave port 0 if the default port is desired.
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Settings
 
@@ -30,15 +30,15 @@ You can leave port 0 if the default port is desired.
 - **Do not create database**: Activate this option if a database already created (e.g. by administrator) and the ioBroker-user does not have enough rights to create a DB.
 
 ## Default Settings
-- **Debounce Time** - Protection against unstable values to make sure that only stable values are logged when the value did not change in the defined amount of Milliseconds. ATTENTION: If values change more often then this setting effectively no value will be logged (because any value is unstable)
-- **Blocktime** - Defines for how long after storing the last value no further value is stored. When the given time in Milliseconds is over then the next value that fulfills all other checks is logged.
+- **Debounce Time** - Protection against unstable values to make sure that only stable values are logged when the value did not change in the defined amount of Milliseconds. ATTENTION: If values change more often than this setting effectively, no value will be logged (because any value is unstable)
+- **Blocktime** - Defines for how long after storing the last value no further value is stored. When the given time in Milliseconds is over, then the next value that fulfills all other checks is logged.
 - **Record changes only** - This function makes sure that only changed values are logged if they fulfill other checks (see below). Same values will not be logged.
 - **still record the same values (seconds)** - When using "Record changes only" you can set a time interval in seconds here after which also unchanged values will be re-logged into the DB. You can detect the values re-logged by the adapter with the "from" field.
-- **Minimum difference from last value** - When using "Record changes only" you can define the required minimum difference between the new value and the last value. If this is not reached the value is not recorded.
+- **Minimum difference from the last value** - When using "Record changes only" you can define the required minimum difference between the new value and the last value. If this is not reached, the value is not recorded.
 - **ignore 0 or null values (==0)** - You can define if 0 or null values should be ignored.
 - **ignore values below zero (<0)** - You can define if values below zero should be ignored.
 - **Disable charting optimized logging of skipped values** - By default, the adapter tries to record the values for optimized charting. This can mean that additional values (that e.g. not fulfilled all checks above) are logged automatically. If this is not wanted, you can disable this feature.
-- **Alias-ID** - You can define an alias for the ID. This is useful if you have changed a device and want to have continuous data logging. Please consider switching to real alias States in teh future!
+- **Alias-ID** - You can define an alias for the ID. This is useful if you have changed a device and want to have continuous data logging. Please consider switching to real alias States in the future!
 - **Storage retention** - How many values in the past will be stored on disk. Data are deleted when the time is reached as soon as new data should be stored for a datapoint.
 - **Maximal number of stored in RAM values** - Define how many numbers of values will be held in RAM before persisting them on disk. You can control how much I/O is done.
 - **Enable enhanced debug logs for the datapoint** - If you want to see more detailed logs for this datapoint, you can enable this option. You still need to enable "debug" loglevel for these additional values to be visible! This helps in debugging issues or understanding why the adapter is logging a value (or not).
@@ -48,7 +48,7 @@ Most of these values can be pre-defined in the instance settings and are then pr
 ## Database installation tips
 
 ### MS-SQL:
-Use ```localhost\instance``` for the host and check TCP/IP connections enabled.
+Use `localhost\instance` for the host and check TCP/IP connections enabled.
 https://msdn.microsoft.com/en-us/library/bb909712(v=vs.90).aspx
 
 ### SQLite:
@@ -56,19 +56,13 @@ is "file"-DB and cannot manage too many events. If you have a big amount of data
 
 SQLite DB must not be installed extra. It is just a file on disk, but to install it you require build tools on your system. For linux, just write:
 
-```
+```bash
 sudo apt-get install build-essential
 ```
 
-For windows:
+For windows install node.js with "Automatically install the necessary tools..."-option and then reinstall the adapter, e.g:
 
-```
-c:\>npm install --global --production windows-build-tools
-```
-
-and then reinstall the adapter, e.g:
-
-```
+```bash
 cd /opt/iobroker
 iobroker stop sql
 npm install iobroker.sql --production
@@ -78,7 +72,7 @@ iobroker start sql
 ### MySQL:
 You can install mysql on linux systems as following:
 
-```
+```bash
 apt-get install mysql-server mysql-client
 
 mysql -u root -p
@@ -90,7 +84,7 @@ FLUSH PRIVILEGES;
 
 If required, edit */etc/mysql/my.cnf* to set bind to IP-Address for remote connecting.
 
-**Warning**: iobroker user is "admin". If required give limited rights to iobroker user.
+**Warning**: iobroker user is "admin". If required, give limited rights to iobroker user.
 
 On the "windows" it can be easily installed via installer: https://dev.mysql.com/downloads/installer/.
 
@@ -101,7 +95,7 @@ Pay attention to the authentication method. The new encryption algorithm in MySQ
 ## Structure of the DBs
 The default Database name is `iobroker`, but it can be changed in the configuration.
 ### Sources
-This table is a list of adapter's instances, that wrote the entries. (state.from)
+This table is a list of adapter's instances that wrote the entries. (state.from)
 
 | DB         | Name in query        |
 |------------|----------------------|
@@ -142,8 +136,8 @@ Structure:
 ### Numbers
 Values for states with type "number". **ts** means "time series".
 
-| DB         | Name in query           |
-|------------|-------------------------|
+| DB         | Name in query          |
+|------------|------------------------|
 | MS-SQL     | iobroker.dbo.ts_number |
 | MySQL      | iobroker.ts_number     |
 | PostgreSQL | ts_number              |
@@ -151,18 +145,19 @@ Values for states with type "number". **ts** means "time series".
 
 Structure:
 
-| Field  | Type                                       | Description                                     |
-|--------|--------------------------------------------|-------------------------------------------------|
-| id     | INTEGER                                    | ID of state from "Data points" table             |
-| ts     | BIGINT / INTEGER                           | Time in ms till epoch. Can be converted to time with "new Date(ts)" |
-| val    | REAL                                       | Value                                           |
-| ack    | BIT/BOOLEAN                                | Is acknowledged: 0 - not ack, 1 - ack           |
-| _from  | INTEGER                                    | ID of source from "Sources" table               |
+| Field  | Type                                       | Description                                                                                                               |
+|--------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| id     | INTEGER                                    | ID of state from "Data points" table                                                                                      |
+| ts     | BIGINT / INTEGER                           | Time in ms till epoch. Can be converted to time with "new Date(ts)"                                                       |
+| val    | REAL                                       | Value                                                                                                                     |
+| ack    | BIT/BOOLEAN                                | Is acknowledged: 0 - not ack, 1 - ack                                                                                     |
+| _from  | INTEGER                                    | ID of source from "Sources" table                                                                                         |
 | q      | INTEGER                                    | Quality as number. You can find description [here](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *Note:* MS-SQL uses BIT, and others use BOOLEAN. SQLite uses for ts INTEGER and all others BIGINT.
 
 The user can define additional to type `number` the functionality of `counters`. For this purpose, the following table is created:
+
 | DB         | Name in the query       |
 |------------|-------------------------|
 | MS-SQL     | iobroker.dbo.ts_counter |
@@ -172,19 +167,19 @@ The user can define additional to type `number` the functionality of `counters`.
 
 Structure:
 
-| Field  | Type                                       | Description                                     |
-|--------|--------------------------------------------|-------------------------------------------------|
-| id     | INTEGER                                    | ID of state from "Data points" table             |
-| ts     | BIGINT / INTEGER                           | Time in ms till epoch. Can be converted to time with "new Date(ts)" |
-| val    | REAL                                       | Value                                           |
+| Field  | Type             | Description                                                         |
+|--------|------------------|---------------------------------------------------------------------|
+| id     | INTEGER          | ID of state from "Data points" table                                |
+| ts     | BIGINT / INTEGER | Time in ms till epoch. Can be converted to time with "new Date(ts)" |
+| val    | REAL             | Value                                                               |
  
 This table stores the values when the counter was exchanged and the value does not increase, but failed to zero or lower value. 
 
 ### Strings
 Values for states with type `string`.
 
-| DB         | Name in query           |
-|------------|-------------------------|
+| DB         | Name in query          |
+|------------|------------------------|
 | MS-SQL     | iobroker.dbo.ts_string |
 | MySQL      | iobroker.ts_string     |
 | PostgreSQL | ts_string              |
@@ -192,14 +187,14 @@ Values for states with type `string`.
 
 Structure:
 
-| Field  | Type                                       | Description                                     |
-|--------|--------------------------------------------|-------------------------------------------------|
-| id     | INTEGER                                    | ID of state from "Data points" table             |
-| ts     | BIGINT                                     | Time in ms till epoch. Can be converted to time with "new Date(ts)" |
-| val    | TEXT                                       | Value                                           |
-| ack    | BIT/BOOLEAN                                | Is acknowledged: 0 - not ack, 1 - ack           |
-| _from  | INTEGER                                    | ID of source from "Sources" table               |
-| q      | INTEGER                                    | Quality as number. You can find description [here](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+| Field  | Type                  | Description                                                                                                               |
+|--------|-----------------------|---------------------------------------------------------------------------------------------------------------------------|
+| id     | INTEGER               | ID of state from "Data points" table                                                                                      |
+| ts     | BIGINT                | Time in ms till epoch. Can be converted to time with "new Date(ts)"                                                       |
+| val    | TEXT                  | Value                                                                                                                     |
+| ack    | BIT/BOOLEAN           | Is acknowledged: 0 - not ack, 1 - ack                                                                                     |
+| _from  | INTEGER               | ID of source from "Sources" table                                                                                         |
+| q      | INTEGER               | Quality as number. You can find description [here](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *Note:* MS-SQL uses BIT, and others use BOOLEAN. SQLite uses for ts INTEGER and all others BIGINT.
 
@@ -215,22 +210,22 @@ Values for states with type `boolean`.
 
 Structure:
 
-| Field  | Type                                       | Description                                     |
-|--------|--------------------------------------------|-------------------------------------------------|
-| id     | INTEGER                                    | ID of state from "Data points" table             |
-| ts     | BIGINT                                     | Time in ms till epoch. Can be converted to time with "new Date(ts)" |
-| val    | BIT/BOOLEAN                                | Value                                           |
-| ack    | BIT/BOOLEAN                                | Is acknowledged: 0 - not ack, 1 - ack           |
-| _from  | INTEGER                                    | ID of source from "Sources" table               |
-| q      | INTEGER                                    | Quality as number. You can find description [here](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+| Field  | Type        | Description                                                                                                               |
+|--------|-------------|---------------------------------------------------------------------------------------------------------------------------|
+| id     | INTEGER     | ID of state from "Data points" table                                                                                      |
+| ts     | BIGINT      | Time in ms till epoch. Can be converted to time with "new Date(ts)"                                                       |
+| val    | BIT/BOOLEAN | Value                                                                                                                     |
+| ack    | BIT/BOOLEAN | Is acknowledged: 0 - not ack, 1 - ack                                                                                     |
+| _from  | INTEGER     | ID of source from "Sources" table                                                                                         |
+| q      | INTEGER     | Quality as number. You can find description [here](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *Note:* MS-SQL uses BIT, and others use BOOLEAN. SQLite uses for ts INTEGER and all others BIGINT.
 
 ## Access values from Javascript adapter
-The sorted values can be accessed from Javascript adapter.
+The sorted values can be accessed from JavaScript adapter.
 
 * Get 50 last stored events for all IDs
-```
+```js
 sendTo('sql.0', 'getHistory', {
     id: '*',
     options: {
@@ -247,7 +242,7 @@ sendTo('sql.0', 'getHistory', {
 ```
 
 * Get stored values for "system.adapter.admin.0.memRss" in last hour
-```
+```js
 var end = Date.now();
 sendTo('sql.0', 'getHistory', {
     id: 'system.adapter.admin.0.memRss',
@@ -265,8 +260,8 @@ sendTo('sql.0', 'getHistory', {
 ```
 
 Possible options:
-- **start** - (optional) time in ms - *Date.now()*'
-- **end** - (optional) time in ms - *Date.now()*', by default is (now + 5000 seconds)
+- **start** - (optional) time in ms - *Date.now()*
+- **end** - (optional) time in ms - *Date.now()*, by default is `(now + 5000 seconds)`
 - **step** - (optional) used in aggregate (max, min, average, total, ...) step in ms of intervals
 - **count** - number of values if aggregate is 'onchange' or number of intervals if other aggregate method. Count will be ignored if a step is set, else default is 500 if not set
 - **from** - if *from* field should be included in answer
@@ -277,8 +272,8 @@ Possible options:
 - **round** - round result to number of digits after decimal point
 - **ignoreNull** - if null values should be included (false), replaced by last not null value (true) or replaced with 0 (0)
 - **removeBorderValues** - By default, additional border values are returned to optimize charting. Set this option to true if this is not wanted (e.g. for script data processing)
-- **returnNewestEntries** - The returned data are always sorted by timestamp ascending. When using aggregate "none" and also providing "count" or "limit" this means that normally the oldest entries are returned (unless no start data is provided). Set this option to true to get the newest entries instead.
-- **aggregate** - aggregate method (Default: 'average'):
+- **returnNewestEntries** - The returned data are always sorted by timestamp ascending. When using aggregate "none" and also providing "count" or "limit", this means that normally the oldest entries are returned (unless no start data is provided). Set this option to true to get the newest entries instead.
+- **aggregate** - aggregate method (Default: `average`):
     - *minmax* - used special algorithm. Splice the whole time range in small intervals and find for every interval max, min, start and end values.
     - *max* - Splice the whole time range in small intervals and find for every interval max value and use it for this interval (nulls will be ignored).
     - *min* - Same as max, but take minimal value.
@@ -286,7 +281,7 @@ Possible options:
     - *total* - Same as max, but calculate total value.
     - *count* - Same as max, but calculate number of values (nulls will be calculated).
     - *percentile* - Calculate n-th percentile (n is given in `options.percentile` or defaults to 50 if not provided).
-    - *quantile* - Calculate n quantile (n is given in options.quantile or defaults to 0.5 if not provided).
+    - *quantile* - Calculate n quantile (n is given in `options.quantile` or defaults to 0.5 if not provided).
     - *integral* - Calculate integral (additional parameters see below).
     - *none* - No aggregation at all. Only raw values in a given period.
 - **percentile** - (optional) when using aggregate method "percentile" defines the percentile level (0..100)(defaults to 50)
@@ -297,13 +292,13 @@ Possible options:
     - *none* - no/stepwise interpolation
 
 The first and last points will be calculated for aggregations, except aggregation `none`.
-If you manually request some aggregation, you should ignore first and last values, because they are calculated from values outside of a period.
+If you manually request some aggregation, you should ignore first and last values because they are calculated from values outside of a period.
 
 
 ## Get counter
 User can ask the value of some counter (type=number, counter=true) for a specific period.
 
-```
+```js
 var now = Date.now();
 // get consumption value for last 30 days
 sendTo('sql.0', 'getCounter', {
@@ -321,7 +316,7 @@ If the counter-device is replaced, it will be calculated too.
 ## Custom queries
 The user can execute custom queries on tables from javascript adapter:
 
-```
+```js
 sendTo('sql.0', 'query', 'SELECT * FROM datapoints', function (result) {
     if (result.error) {
         console.error(result.error);
@@ -333,7 +328,7 @@ sendTo('sql.0', 'query', 'SELECT * FROM datapoints', function (result) {
 ```
 
 Or get entries for the last hour for ID=system.adapter.admin.0.memRss
-```
+```js
 sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.admin.0.memRss"', function (result) {
     if (result.error) {
         console.error(result.error);
@@ -355,21 +350,20 @@ Depending on the database, the database name or database name + schema must be i
 
 Example if your database is called 'iobroker':
 
-| DB         | Name in query                            |
-|------------|------------------------------------------|
-| MS-SQL     | SELECT * FROM iobroker.dbo.datapoints ...|
-| MySQL      | SELECT * FROM iobroker.datapoints ...    |
+| DB      | Name in query                               |
+|---------|---------------------------------------------|
+| MS-SQL  | `SELECT * FROM iobroker.dbo.datapoints ...` |
+| MySQL   | `SELECT * FROM iobroker.datapoints ...`     |
 
 ## storeState
 
-If you want to write other data into the SQL database you can use the build
+If you want to write other data into the SQL database, you can use the build
 in system function **storeState**. This function can also be used to convert
 data from other History adapters like InfluxDB or SQL.
 
-A successful response do not mean that the data are really written out to
-the disk. It just means that they were processed!
+A successful response does not mean that the data is really written out to the disk. It just means that they were processed!
 
-The given ids are not checked against the ioBroker database and do not need to be set up or enabled there. If own IDs are used without settings then the "rules" parameter is not supported and will result in an error. The default "Maximal number of stored in RAM values" is used for such IDs.
+The given ids are not checked against the ioBroker database and do not need to be set up or enabled there. If own IDs are used without settings, then the "rules" parameter is not supported and will result in an error. The default "Maximal number of stored in RAM values" is used for such IDs.
 
 The Message can have one of the following three formats:
 
@@ -438,42 +432,42 @@ In case of errors, an array with all single error messages is returned and also 
 ## delete state
 If you want to delete entry from the Database, you can use the build in system function **delete**:
 
-```
+```javascript
 sendTo('sql.0', 'delete', [
-    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352}, 
-    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352}}, 
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353}},
 ], result => console.log('deleted'));
 ```
 
 To delete ALL history data for some data point, execute:
 
-```
+```javascript
 sendTo('sql.0', 'deleteAll', [
-    {id: 'mbus.0.counter.xxx'} 
+    {id: 'mbus.0.counter.xxx'}, 
     {id: 'mbus.0.counter.yyy'}
 ], result => console.log('deleted'));
 ``` 
 
 To delete history data for some data point and for some range, execute:
 
-```
+```javascript
 sendTo('sql.0', 'deleteRange', [
     {id: 'mbus.0.counter.xxx', start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'}, 
     {id: 'mbus.0.counter.yyy', start: 1589458809352, end: 1589458809353}
 ], result => console.log('deleted'));
 ``` 
 
-Time could be ms since epoch or ans string, that could be converted by javascript Date object.
+Time could be ms since epoch or ans string, that could be converted by JavaScript Date object.
 
 Values will be deleted including defined limits. `ts >= start AND ts <= end`
 
 ## change state
 If you want to change entry's value, quality or acknowledge flag in the database, you can use the build in system function **update**:
 
-```
+```javascript
 sendTo('sql.0', 'update', [
-    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 15, ack: true, q: 0}, 
-    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 16, ack: true, q: 0}
+    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 15, ack: true, q: 0}}, 
+    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 16, ack: true, q: 0}},
 ], result => console.log('deleted'));
 ```
 
@@ -487,7 +481,7 @@ The adapter supports enabling and disabling of history logging via JavaScript an
 ### enable
 The message requires having the "id" of the data point. Additionally, optional "options" to define the data point specific settings:
 
-```
+```javascript
 sendTo('sql.0', 'enableHistory', {
     id: 'system.adapter.sql.0.memRss',
     options: {
@@ -511,7 +505,7 @@ sendTo('sql.0', 'enableHistory', {
 ### disable
 The message requires having the "id" of the data point.
 
-```
+```javascript
 sendTo('sql.0', 'disableHistory', {
     id: 'system.adapter.sql.0.memRss',
 }, function (result) {
@@ -527,10 +521,10 @@ sendTo('sql.0', 'disableHistory', {
 ### get List
 The message has no parameters.
 
-```
+```javascript
 sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
     //result is object like:
-    {
+    console.log({
         "system.adapter.sql.0.memRss": {
             "changesOnly":true,
             "debounce":0,
@@ -540,9 +534,9 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
             "enabled":true,
             "changesRelogInterval":0,
             "aliasId": ""
-        }
-        ...
-    }
+        },
+        // ...
+    });
 });
 ```
 
@@ -612,17 +606,17 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (Apollon77) Add flag returnNewestEntries for GetHistory to determine which records to return when more entries as "count" are existing for aggregate "none"
 * (Apollon77) Add support for addId getHistory flag for GetHistory
 * (Apollon77) Add new Debug flag to enable/disable debug logging on datapoint level (default is false) to optimize performance
-* (Apollon77) Add aggregate method "percentile" to calculate the percentile (0..100) of the values (requires options.percentile with the percentile level, defaults to 50 if not provided). Basically same as Quantile just different levels are used
-* (Apollon77) Add aggregate method "quantile" to calculate the quantile (0..1) of the values (requires options.quantile with the quantile level, defaults to 0.5 if not provided). Basically same as Percentile just different levels are used
-* (Apollon77) Add (experimental) method "integral" to calculate the integral of the values. Requires options.integralUnit with the time duration of the integral in seconds, defaults to 60s if not provided. Optionally a linear interpolation can be done by setting options.integralInterpolation to "linear"
-* (Apollon77) When request contains flag removeBorderValues: true, the result then cut the additional pre and post border values out of the results
+* (Apollon77) Add aggregate method "percentile" to calculate the percentile (0..100) of the values (requires `options.percentile` with the percentile level, defaults to 50 if not provided). Basically the same as Quantile, just different levels are used
+* (Apollon77) Add aggregate method "quantile" to calculate the quantile (0..1) of the values (requires `options.quantile` with the quantile level, defaults to 0.5 if not provided). Basically the same as Percentile just different levels are used
+* (Apollon77) Add (experimental) method "integral" to calculate the integral of the values. Requires options.integralUnit with the time duration of the integral in seconds, defaults to 60s if not provided. Optionally, a linear interpolation can be done by setting options.integralInterpolation to "linear"
+* (Apollon77) When request contains flag removeBorderValues: true, the result then cut the additional pre- and post-border values out of the results
 * (Apollon77) Enhance the former "Ignore below 0" feature and now allow specifying to ignore below or above specified values. The old setting is converted to the new one
 * (Apollon77) Upgrade MSSQL and MySQL drivers incl. Support for MySQL 8
 * (Apollon77) Make sure that min change delta allows numbers entered with comma (german notation) in all cases
 * (Apollon77) Add support to specify how to round numbers on query per datapoint
 * (Apollon77) Do not log passwords for Postgres connections
-* (Apollon77) Optimize SSL support for database connections including option to allow self signed certificates
-* (Apollon77) Allow to specify custom retention duration in days
+* (Apollon77) Optimize SSL support for database connections including option to allow self-signed certificates
+* (Apollon77) Allows to specify custom retention duration in days
 * (winnyschuster) Fix Insert statement for MSSQL ts_counter
 * (winnyschuster) type of ts in user queries corrected
 
@@ -887,11 +881,13 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### 0.0.1 (2015-11-19)
 * (bluefox) initial commit
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2024 bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2015-2026 bluefox <dogafox@gmail.com>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

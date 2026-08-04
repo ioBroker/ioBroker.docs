@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openmeteo-notify/README.md
 title: ioBroker.openmeteo-notify
-hash: cAhadgK1JDPgDW9wH6wPLzFwUSNqq4a5btCCr9jgYNs=
+hash: om8ADlQ9Qq9//hogzbvG6S0x6mamZ8yKOn76VktPmVE=
 ---
 ![标识](../../../en/adapterref/iobroker.openmeteo-notify/admin/openmeteo-notify.png)
 
@@ -17,9 +17,12 @@ hash: cAhadgK1JDPgDW9wH6wPLzFwUSNqq4a5btCCr9jgYNs=
 **测试：** ![测试与发布](https://github.com/ipod86/ioBroker.openmeteo-notify/workflows/Test%20and%20Release/badge.svg)
 
 ## 用于 OpenMeteo 天气预报的 ioBroker 适配器
-此适配器从免费的[OpenMeteo API](https://open-meteo.com)数据库中检索天气预报数据，并将其作为ioBroker数据点提供。无需API密钥。
+此适配器从免费的 [OpenMeteo API](https://open-meteo.com) 获取天气预报数据，并将其作为 ioBroker 数据点提供。无需 API 密钥。它会针对可配置的天气事件（风暴、雷暴、官方预警）发送单独的通知，并为每个位置提供多个可独立配置的 HTML 小部件。
 
 ## 亮点
+### 通过 ioBroker 通知管理器接收天气通知
+该适配器针对可配置的天气事件发送个性化通知，例如风暴预警、雷暴警报以及来自国家气象局（德国DWD、欧洲MeteoAlarm）的官方预警。所有通知目标（Telegram、电子邮件、Pushover等）均通过**ioBroker通知管理器**集中配置，无需针对每个适配器进行单独设置。
+
 ### 可配置的 HTML 小部件
 该适配器会生成一个可直接嵌入 VIS、vis-2 或任何 ioBroker 控制面板的 HTML 数据点 (`widget`)，无需任何外部工具或手动 CSS 代码。主题（浅色/深色）、背景透明度、卡片透明度、字体大小和卡片颜色均可在适配器设置中直接配置。
 
@@ -196,7 +199,7 @@ amCharts 天气图标 – 动态 SVG 格式（雨/雪/雷：无昼夜变化）
 ### 小时值（`day1.hourly.h00` … `h23`）
 温度、体感温度、降水、雨、雪、积雪深度、积雪高度、降雨概率、云量、湿度、露点、气压、能见度、日期、风速、风向（文本/表情符号/图标）、蒲福风级、紫外线指数、冰点高度、天气代码、图标/图标网址、描述。
 
-可选按小时计费（如果启用 + “也按小时计费”）：
+（可选，按小时计费，如果启用，则需添加“也按小时计费”）：
 
 | 通道 | 数据点 |
 |---------|-------------|
@@ -248,11 +251,20 @@ amCharts 天气图标 – 动态 SVG 格式（雨/雪/雷：无昼夜变化）
 该适配器是一个独立的社区项目，与上述任何服务均无关联，也未获得其认可。
 
 ## Changelog
+### 0.1.15 (2026-07-19)
+* (ipod86) fix: sanitize widget.id through normalizeId before use as ioBroker object ID path
 
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
+### 0.1.14 (2026-07-16)
+* (ipod86) fix: persist warning dedup state across adapter restarts to prevent duplicate notifications on restart
+* (ipod86) fix: deduplicate DWD warnings from combined warnings+vorabInformation API arrays (same event rounded to minute)
+
+### 0.1.13 (2026-07-15)
+* (ipod86) fix: add random jitter to daily and interval update scheduling to spread cloud load
+* (ipod86) fix: validate warnIntervalMinutes — reset to 15 if < 1
+* (ipod86) fix: remove orphaned i18n keys (iconPreviewAnimated, iconPreviewBasmilius, iconPreviewWmo, openmeteo adapter settings) from all 11 language files
+* (ipod86) fix: warnIntervalMinutes default in admin WarningsPanel corrected to 15
+* (ipod86) chore: bump @mui/material and @mui/icons-material to 9.x, TypeScript to 7.x, Vite to 8.1, suncalc to 2.0
+
 ### 0.1.12 (2026-07-01)
 * (ipod86) fix: translate 84 missing admin i18n keys into all 10 languages (W5606)
 
@@ -264,24 +276,6 @@ amCharts 天气图标 – 动态 SVG 格式（雨/雪/雷：无昼夜变化）
 * (ipod86) feat: add moon phase overlay to simple widget (showMoon option)
 * (ipod86) fix: complete and correct i18n translations in all 11 languages (50+ missing keys)
 * (ipod86) ci: remove broken build-admin GitHub Actions workflow
-
-### 0.1.10 (2026-06-23)
-* (ipod86) fix: improve air quality/pollen error log message – distinguish timeout from unsupported region
-
-### 0.1.9 (2026-06-22)
-* (ipod86) fix: increase HTTP request timeout from 10s to 30s
-* (ipod86) fix: remove spurious enableWarnOfficialFetch from native defaults
-* (ipod86) chore: bump @iobroker/adapter-core from 3.3.2 to 3.4.1
-* (ipod86) chore: bump @iobroker/adapter-react-v5, react, @vitejs/plugin-react, vite in src-admin
-* (ipod86) chore: bump ioBroker/testing-action-check from 1 to 2
-
-### 0.1.8 (2026-06-09)
-* (ipod86) fix: add 10s timeout to all HTTP requests (fetchWeather, fetchAirQuality, fetchLocationInfo, fetchMeteoAlarmWarnings, fetchDwdWarnings)
-* (ipod86) fix: translate all remaining German common.name values in processData, processDwdWarnings, processMeteoAlarmWarnings
-* (ipod86) fix: warning time format no longer hardcoded to de-DE locale; uses system locale
-* (ipod86) fix: add interval bounds validation (1–35791 min) for updateInterval and warnIntervalMinutes
-* (ipod86) fix: add missing native defaults (warnOfficialFetch, enableWarnOfficialFetch, widgets) to io-package.json
-* (ipod86) fix: move _locationInfo initialization to constructor
 
 Older changelogs are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 

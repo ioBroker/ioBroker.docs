@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.openmeteo-notify/README.md
 title: ioBroker.openmeteo-notify
-hash: cAhadgK1JDPgDW9wH6wPLzFwUSNqq4a5btCCr9jgYNs=
+hash: om8ADlQ9Qq9//hogzbvG6S0x6mamZ8yKOn76VktPmVE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.openmeteo-notify/admin/openmeteo-notify.png)
 
@@ -17,9 +17,12 @@ hash: cAhadgK1JDPgDW9wH6wPLzFwUSNqq4a5btCCr9jgYNs=
 **Тесты:** ![Тестирование и выпуск](https://github.com/ipod86/ioBroker.openmeteo-notify/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер ioBroker для прогнозов погоды Open-Meteo
-Этот адаптер получает данные прогноза погоды из бесплатного источника [API Open-Meteo](https://open-meteo.com) и предоставляет их в виде точек данных ioBroker. Ключ API не требуется.
+Этот адаптер получает данные прогноза погоды из бесплатного источника [API Open-Meteo](https://open-meteo.com) и предоставляет их в виде точек данных ioBroker. Ключ API не требуется. Он отправляет индивидуальные уведомления о настраиваемых погодных событиях (штормы, грозы, официальные предупреждения) и предоставляет несколько независимо настраиваемых HTML-виджетов для каждого местоположения.
 
 ## Основные моменты
+### Уведомления о погоде через менеджер уведомлений ioBroker
+Адаптер отправляет индивидуальные уведомления о настраиваемых погодных событиях — предупреждениях о штормах, оповещениях о грозах и официальных предупреждениях национальных метеорологических служб (DWD для Германии, MeteoAlarm для Европы). Все адреса уведомлений (Telegram, электронная почта, Pushover и т. д.) настраиваются централизованно через **менеджер уведомлений ioBroker** — отдельная настройка для каждого адаптера не требуется.
+
 ### Настраиваемый HTML-виджет
 Адаптер генерирует готовый к использованию HTML-код (`widget`), который можно встроить непосредственно в VIS, vis-2 или любую панель управления ioBroker — без использования внешних инструментов или ручного CSS. Тема оформления (светлая/темная), прозрачность фона, прозрачность карточки, размер шрифта и цвет карточки настраиваются непосредственно в параметрах адаптера.
 
@@ -50,7 +53,7 @@ hash: cAhadgK1JDPgDW9wH6wPLzFwUSNqq4a5btCCr9jgYNs=
 - **Сила ветра** – шкала Бофорта (0–12) с иконками Бофорта от Meteocons.
 - **`info.lastUpdate`** – метка времени последнего успешного обновления
 
-### Дополнительные группы данных (переключаемые индивидуально, каждая с опцией "также почасовая")
+### Дополнительные группы данных (переключаемые индивидуально, каждая с опцией "также почасово")
 | Группа | По умолчанию | Точки данных |
 |-------|---------|-------------|
 | **Качество воздуха** | on | european_aqi, PM10, PM2.5, NO₂, CO, dust, ozone → `current.air_quality` / `hXX.air_quality` |
@@ -60,7 +63,7 @@ hash: cAhadgK1JDPgDW9wH6wPLzFwUSNqq4a5btCCr9jgYNs=
 | **Предупреждения DWD** | выключен | Официальные предупреждения Deutscher Wetterdienst (только для Германии) → `location.warnings.*` |
 | **Предупреждения DWD** | выключен | Официальные предупреждения Deutscher Wetterdienst (только для Германии) → `location.warnings.*` |
 
-Когда группа отключена, каналы с данными, относящиеся к ней, автоматически удаляются при следующем обновлении.
+Когда группа отключена, ее каналы точек данных автоматически удаляются при следующем обновлении.
 
 ### Официальные предупреждения о погоде
 Адаптер интегрирует официальные предупреждения о погоде от национальных метеорологических служб. Включите их с помощью переключателя «Официальные предупреждения о погоде». Служба выбирается автоматически на основе координат местоположения:
@@ -248,11 +251,20 @@ hash: cAhadgK1JDPgDW9wH6wPLzFwUSNqq4a5btCCr9jgYNs=
 Этот адаптер является независимым проектом сообщества и не связан ни с одним из вышеперечисленных сервисов и не поддерживается ими.
 
 ## Changelog
+### 0.1.15 (2026-07-19)
+* (ipod86) fix: sanitize widget.id through normalizeId before use as ioBroker object ID path
 
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
+### 0.1.14 (2026-07-16)
+* (ipod86) fix: persist warning dedup state across adapter restarts to prevent duplicate notifications on restart
+* (ipod86) fix: deduplicate DWD warnings from combined warnings+vorabInformation API arrays (same event rounded to minute)
+
+### 0.1.13 (2026-07-15)
+* (ipod86) fix: add random jitter to daily and interval update scheduling to spread cloud load
+* (ipod86) fix: validate warnIntervalMinutes — reset to 15 if < 1
+* (ipod86) fix: remove orphaned i18n keys (iconPreviewAnimated, iconPreviewBasmilius, iconPreviewWmo, openmeteo adapter settings) from all 11 language files
+* (ipod86) fix: warnIntervalMinutes default in admin WarningsPanel corrected to 15
+* (ipod86) chore: bump @mui/material and @mui/icons-material to 9.x, TypeScript to 7.x, Vite to 8.1, suncalc to 2.0
+
 ### 0.1.12 (2026-07-01)
 * (ipod86) fix: translate 84 missing admin i18n keys into all 10 languages (W5606)
 
@@ -264,24 +276,6 @@ hash: cAhadgK1JDPgDW9wH6wPLzFwUSNqq4a5btCCr9jgYNs=
 * (ipod86) feat: add moon phase overlay to simple widget (showMoon option)
 * (ipod86) fix: complete and correct i18n translations in all 11 languages (50+ missing keys)
 * (ipod86) ci: remove broken build-admin GitHub Actions workflow
-
-### 0.1.10 (2026-06-23)
-* (ipod86) fix: improve air quality/pollen error log message – distinguish timeout from unsupported region
-
-### 0.1.9 (2026-06-22)
-* (ipod86) fix: increase HTTP request timeout from 10s to 30s
-* (ipod86) fix: remove spurious enableWarnOfficialFetch from native defaults
-* (ipod86) chore: bump @iobroker/adapter-core from 3.3.2 to 3.4.1
-* (ipod86) chore: bump @iobroker/adapter-react-v5, react, @vitejs/plugin-react, vite in src-admin
-* (ipod86) chore: bump ioBroker/testing-action-check from 1 to 2
-
-### 0.1.8 (2026-06-09)
-* (ipod86) fix: add 10s timeout to all HTTP requests (fetchWeather, fetchAirQuality, fetchLocationInfo, fetchMeteoAlarmWarnings, fetchDwdWarnings)
-* (ipod86) fix: translate all remaining German common.name values in processData, processDwdWarnings, processMeteoAlarmWarnings
-* (ipod86) fix: warning time format no longer hardcoded to de-DE locale; uses system locale
-* (ipod86) fix: add interval bounds validation (1–35791 min) for updateInterval and warnIntervalMinutes
-* (ipod86) fix: add missing native defaults (warnOfficialFetch, enableWarnOfficialFetch, widgets) to io-package.json
-* (ipod86) fix: move _locationInfo initialization to constructor
 
 Older changelogs are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 

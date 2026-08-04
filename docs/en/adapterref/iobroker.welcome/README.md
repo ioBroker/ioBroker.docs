@@ -28,6 +28,9 @@ In this case, by opening of http://IP it will be immediately redirected to a spe
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+-   (@GermanBluefox) Migrated admin component to React 19
+
 ### 1.1.1 (2025-11-15)
 -   (@GermanBluefox) Migrated admin component to TypeScript and vite
 
@@ -70,7 +73,7 @@ In this case, by opening of http://IP it will be immediately redirected to a spe
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2025 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2023-2026 Denis Haev <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

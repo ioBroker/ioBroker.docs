@@ -13,25 +13,37 @@
 
 Mercedes me adapter for ioBroker
 
-### Empfehlung: Zweitnutzer erstellen
+### Recommendation: create a secondary user
 
-Es wird empfohlen einen separaten Mercedes me Zweitnutzer fuer ioBroker zu erstellen. Mercedes begrenzt die Anzahl der Verbindungen pro Tag (~100-150). Bei Ueberschreitung wird der Account bis Mitternacht UTC gesperrt (HTTP 429).
+It is recommended to create a separate Mercedes me secondary user for ioBroker. Mercedes limits the number of connections per day (~100-150). If exceeded, the account is blocked until midnight UTC (HTTP 429).
 
-Mit einem Zweitnutzer:
+With a secondary user:
 
-- Wird der Hauptnutzer in der Mercedes me App nicht beeintraechtigt
-- Kann der Adapter unabhaengig arbeiten
-- Bleibt die App auf dem Handy voll funktionsfaehig
+- The main user is not affected in the Mercedes me app
+- The adapter can work independently
+- The app on the phone stays fully functional
 
-Den Zweitnutzer in der Mercedes me App als "Nutzer" (nicht Hauptnutzer) zum Fahrzeug einladen.
+Invite the secondary user in the Mercedes me app as a "user" (not main user) to the vehicle.
 
-### Bedienung
+### Usage
 
-Unter commands das commando auf klappen und den button neben start drücken wenn das command available ist.
+Under commands, expand the command and press the button next to start when the command is available.
 
-Remote sind vorgefertige Remote Befehle
+Remote contains predefined remote commands.
+
+## Sentry
+
+This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+### 0.8.0 (2026-07-27)
+
+- support new VehicleStatusUpdate message format (RIS SDK 4.12)
+
+### 0.7.2 (2026-07-26)
+
+- fix Login
+
 ### 0.7.1 (2026-04-15)
 
 - fix vehicle fetching
@@ -271,7 +283,7 @@ Remote sind vorgefertige Remote Befehle
 
 MIT License
 
-Copyright (c) 2024-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

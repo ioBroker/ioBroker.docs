@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.miner/README.md
 title: ioBroker.miner
-hash: PbsimuJ+Zj1MI5dpVDFZUulmbYCu1eMtI49nE+li5nk=
+hash: N6VVMr5r7l3q/UR60Pfkh8RpqILAlgq0AO/KxXvGNZ8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.miner/admin/miner.png)
 
@@ -27,7 +27,6 @@ hash: PbsimuJ+Zj1MI5dpVDFZUulmbYCu1eMtI49nE+li5nk=
 - [ ] обнаружение устройства
 - [ ] часовой
 - [ ] подробнее: см. Todo.md / issues
-- [ ] Исправить плагин лицензирования в файле .releaseconfig
 
 ## Использование
 При добавлении нового устройства в настройках экземпляра (или на вкладке «Администратор устройств») должно появиться диалоговое окно, подобное этому:
@@ -35,6 +34,26 @@ hash: PbsimuJ+Zj1MI5dpVDFZUulmbYCu1eMtI49nE+li5nk=
 ![AddDevice.png](../../../en/adapterref/iobroker.miner/docs/AddDevice.png)
 
 Все параметры должны быть достаточно понятны. Для каждого из них также есть всплывающие подсказки с более подробной информацией. Если что-то осталось непонятным, не стесняйтесь задавать вопросы в разделе "Проблемы", обсуждении или на форуме.
+
+### Типы майнеров Brains OS
+Существует две реализации майнера Braiins, поскольку компания Braiins изменила стек API при переходе на разные поколения прошивки:
+
+- `bos`: используйте это для официальной прошивки Braiins OS `>= 23.03`, обычно для серии Antminer S19 и более новых моделей. Эта реализация использует публичный API Braiins OS (PAPI) через gRPC.
+- `bosMiner`: используйте это для устаревших версий прошивки Braiins OS (< 23.03), как правило, для устройств до S19, таких как серии Antminer S9 и S17. Это позволяет использовать более старый API, совместимый с CGMiner.
+
+`bosMiner` также поддерживает состояние `control.powerTarget`. Устаревшая ОС Braiins не предоставляет эту возможность через API, совместимый с CGMiner, поэтому адаптер использует обходной путь через SSH: он входит в майнер, обновляет `power_target` в разделе `[autotuning]` и `timestamp` в разделе `[format]` `/etc/bosminer.toml`, сохраняет резервную копию в `/etc/bosminer.toml.iobroker-power-target.bak`, останавливает `bosminer`, записывает конфигурацию и снова запускает `bosminer`. Настройте действительные учетные данные SSH для устройств `bosMiner`; Имя пользователя по умолчанию — `root`, пароль отсутствует.
+
+Предупреждение: изменение `control.powerTarget` на старых устройствах `bosMiner` требует полного цикла остановки/запуска `bosminer`. Не изменяйте это значение часто; используйте его для целенаправленных изменений целевых параметров, а не для быстрых циклов автоматизации.
+
+Если вы не уверены в выборе, сначала проверьте поколение прошивки/семейство устройств:
+
+- Образы ОС Braiins для S19/S21/T19 и более новых моделей указаны в текущем процессе загрузки прошивки и обычно должны использовать `bos`.
+- Образы S17 опубликованы как `v 23.01`, а образы S9 как `v 22.08.1` на странице загрузок Braiins, поэтому для этих устаревших поколений следует использовать `bosMiner`.
+
+Ссылки:
+
+- Публичный API ОС Braiins: https://academy.braiins.com/braiins-os/papi-about
+- Загрузка прошивки Braiins OS: https://braiins.com/os-firmware/download
 
 ## Объектная модель
 Все объекты создаются в рамках:
@@ -57,10 +76,20 @@ hash: PbsimuJ+Zj1MI5dpVDFZUulmbYCu1eMtI49nE+li5nk=
 - `hardware.hashboards.<index>...`
 
 ### Примеры
+- `miner.0.miner.<minerId>.enabled`
 - `miner.0.miner.<minerId>.control.running`
 - `miner.0.miner.<minerId>.stats.totalHashrate`
 - `miner.0.miner.<minerId>.hardware.gpus.0.stats.temp`
 - `miner.0.miner.<minerId>.raw.stats`
+
+### Включение/отключение майнера
+Каждое майнерное устройство имеет доступное для записи состояние верхнего уровня `enabled`:
+
+`miner.<instance>.miner.<minerId>.enabled`
+
+Установите это состояние в `false`, чтобы отключить майнер в адаптере во время выполнения. Отключенные майнеры выгружаются, и для них не активна обработка опроса/управления. Верните его в `true`, чтобы инициализировать майнер снова без перезапуска адаптера.
+
+Это отличается от `control.running`: `enabled` определяет, управляет ли адаптер майнером вообще, а `control.running` запрашивает у поддерживаемого майнера запуск или остановку майнинга.
 
 ### Пример дерева
 Это всего лишь общий обзор/идея/план. Не все пункты еще реализованы, но он должен дать вам представление о предполагаемой структуре и названиях. Фактическая реализация может отличаться в некоторых деталях, но общая структура должна быть похожа на эту.
@@ -69,6 +98,7 @@ hash: PbsimuJ+Zj1MI5dpVDFZUulmbYCu1eMtI49nE+li5nk=
 miner.0
   miner
     <minerId>                        (device)
+      enabled                        (boolean)  enable/disable adapter handling for this miner
       info                           (channel)
         minerType                    (string)   e.g. xmRig / teamRedMiner / bosMiner
         host                         (string)
@@ -78,6 +108,7 @@ miner.0
       stats                          (channel)
         totalHashrate                (number)   H/s (maps to feature: totalHashrate)
         power                        (number)   W
+        dynamicPowerTarget           (number)   W, current dynamic target reported by miner
         efficiency                   (number)   H/W
         acceptedShares               (number)
         rejectedShares               (number)
@@ -85,6 +116,7 @@ miner.0
         running                      (boolean)  start/stop (maps to feature: running)
         reboot                       (boolean)  "button"
         profile                      (string)   performance profile (e.g. low/medium/high)
+        powerTarget                  (number)   W, configured target to write to miner
       pools                          (channel)
         0                            (channel)
           info
@@ -123,8 +155,11 @@ miner.0
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.1.0 (2026-07-12)
 - (copilot) Adapter requires node.js >= 22 now
+* (SimonFischer04) **NEW**: Added a new `bos` miner type for newer Braiins OS firmware using the Braiins Public API
+* (SimonFischer04) **ENHANCED**: Extended legacy `bosMiner` devices with writable `control.powerTarget` support for deliberate power target changes
+* (SimonFischer04) **NEW**: Added top-level `enabled` state to dynamically enable or disable miner handling at runtime
 * (SimonFischer04) **FIXED**: Removed example configuration (option1, option2) from native section and code (fixes #126 / E5040)
 
 ### 1.0.4 (2026-04-07)
@@ -139,22 +174,6 @@ miner.0
 
 ### 1.0.1 (2026-04-06)
 * (SimonFischer04) fix release
-
-### 1.0.0 (2026-04-06)
-* (SimonFischer04) **FIXED**: Added missing size attributes (xs, xl) to admin configuration fields
-* (SimonFischer04) **ENHANCED**: Updated dependencies to recommended versions (admin 7.6.17, js-controller 6.0.11)
-* (SimonFischer04) **ENHANCED**: Added copyright notice to README
-* (SimonFischer04) **NEW**: Added support for Avalon (Canaan) devices via CGMiner-compatible socket API (port 4028), including start/stop (softon/softoff) and stats polling
-* (SimonFischer04) **ENHANCED**: Restructured object model with dedicated channels for control, info, stats, and raw data (**breaking change** – legacy state paths are auto-cleaned on startup)
-* (SimonFischer04) **NEW**: Added info states (minerType, host, online, lastSeen) and stats states (power, efficiency, acceptedShares, rejectedShares) to match the documented object model
-* (SimonFischer04) **NEW**: Added reboot control state (button) with wiring in state change handler
-* (SimonFischer04) **NEW**: Added running switch control to Device Manager for devices supporting the running feature
-* (SimonFischer04) **NEW**: Added performance profile feature with control.profile state and Device Manager dropdown (low/medium/high) — initially for Avalon miners via ascset workmode command
-* (SimonFischer04) **ENHANCED**: Renamed SGMiner to CGMiner throughout the codebase to better reflect the underlying API
-* (SimonFischer04) **FIXED**: Fixed copyright formatting in README to satisfy ioBroker repository checker (fixes #95)
-
-### 0.0.1 (2026-02-15)
-* (SimonFischer04) initial release
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

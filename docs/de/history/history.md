@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: 4IfeDNGNIUSDiJ7HI9K5s9nkcnN8Q0H/tUsPwPlPxU0=
+hash: 60+DRI9D8uSwmuFkq6oAc5lUlKuPsGi/eRb3/J/VJ0E=
 ---
 # Was ist neu
 ## Hinweise für Autoren
@@ -45,7 +45,7 @@ https://github.com/foxriver76/ioBroker.notification-manager
 
 <img src="https://raw.githubusercontent.com/foxriver76/ioBroker.notification-manager/master/admin/notification-manager.png" width="100" height="100" />
 
-Verwalten Sie ioBroker-Benachrichtigungen, z. B. durch Versenden als Nachrichten.
+Verwalten Sie ioBroker-Benachrichtigungen, z. B. durch Senden als Nachrichten
 
 ## Procon-ip (2023-08-24)
 https://github.com/ylabonte/ioBroker.procon-ip
@@ -234,7 +234,7 @@ Für Smart-Home-Fans gibt es eine wichtige Neuigkeit: Die ESPHome-Dokumentation 
 Dieses Update folgt der Annahme eines kürzlich eingereichten Pull Requests und positioniert ioBroker neben Home Assistant als eines der wenigen Smart-Home-Systeme, die die native ESPHome-API für die direkte Client-Kommunikation nutzen.
 
 Die native API, bekannt für ihr hochoptimiertes Netzwerkprotokoll, bietet zahlreiche Vorteile gegenüber herkömmlichen MQTT-Methoden und vereinfacht die Interaktion von Smart-Geräten innerhalb des Ökosystems.
-Mit dieser Anerkennung bekräftigt ESPHome sein Engagement für effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche.
+Mit dieser Auszeichnung bekräftigt ESPHome sein Engagement für effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche.
 
 ## Vis (06.11.2023) - neue Funktion
 Die Lizenz von vis wurde auf MIT geändert. Das bedeutet, dass Sie vis kostenlos in kommerziellen Projekten verwenden können und keine weitere Lizenz erforderlich ist.
@@ -396,7 +396,7 @@ https://github.com/ioBroker/ioBroker.nmea
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.nmea/main/admin/nmea.png" width="100" height="100" />
 
-Dieser Adapter ermöglicht die Verbindung von ioBroker mit dem NMEA-2000-Yachtbus. Sie können Geschwindigkeit über Grund (SOG), Kurs über Grund (COG), GPS-Position, Tiefe, Wind, Temperatur und viele weitere Daten vom NMEA-2000-Bus auslesen.
+Dieser Adapter ermöglicht den Anschluss von ioBroker an den NMEA-2000-Yachtbus. Sie können Geschwindigkeit über Grund (SOG), Kurs über Grund (COG), GPS-Position, Tiefe, Wind, Temperatur und viele weitere Daten vom NMEA-2000-Bus auslesen.
 
 Und sogar den Raymarine-Autopiloten steuern.
 
@@ -652,7 +652,7 @@ Benutzer können vom Alias-Ziel zum Alias selbst springen.
 ## Admin (28.09.2024) – Neue Funktion
 ![Passwort](../../en/history/media/2024_09_28_admin_password.png)
 
-Der Administrator prüft nun auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert, und fordert ihn auf, dieses zu ändern, falls ein solcher Benutzer gefunden wird.
+Der Administrator prüft nun auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert, und fordert gegebenenfalls zur Änderung des Passworts auf.
 
 Administratoren unterstützen die grafische Benutzeroberfläche für dynamische Benachrichtigungen.
 
@@ -812,7 +812,7 @@ https://github.com/DpunktS/ioBroker.seplos-v3-sniffer
 
 <img src="https://raw.githubusercontent.com/DpunktS/ioBroker.seplos-v3-sniffer/main/admin/seplos-v3-sniffer.jpg" width="100" height="100" />
 
-Dieser Adapter wurde entwickelt, um das Seplos V3 BMS in einer Multipack-Konfiguration auszulesen. In der V3-Generation fungiert das erste BMS als Modbus-Master, alle weiteren BMS als Slaves. In dieser Konfiguration ist der Zugriff auf das BMS über Modbus von einem dritten Gerät aus nicht mehr möglich, da in einem RS-485-Modbus-System nicht zwei Master-Geräte gleichzeitig existieren können. Der Adapter erkennt die Kommunikation zwischen den Geräten passiv, sodass die Kommunikation der einzelnen BMS nicht beeinträchtigt wird. Die Kommunikation kann entweder über eine lokale Schnittstelle (z. B. /dec/ttyS0) oder über Ser2Net (tcp://ip:2001) erfolgen.
+Dieser Adapter wurde entwickelt, um das Seplos V3 BMS in einer Multipack-Konfiguration auszulesen. In der V3-Generation fungiert das erste BMS als Modbus-Master, alle weiteren als Slaves. In dieser Konfiguration ist der Zugriff auf das BMS über Modbus von einem dritten Gerät aus nicht mehr möglich, da in einem RS-485-Modbus-System nicht zwei Master-Geräte gleichzeitig existieren können. Der Adapter erkennt die Kommunikation zwischen den Geräten passiv, sodass die Kommunikation der einzelnen BMS nicht beeinträchtigt wird. Die Kommunikation kann entweder über eine lokale Schnittstelle (z. B. /dec/ttyS0) oder über Ser2Net (tcp://ip:2001) erfolgen.
 
 ## Lcn (12.3.2025) – neue Funktion
 https://github.com/ioBroker/ioBroker.lcn
@@ -963,7 +963,7 @@ https://github.com/oweitman/ioBroker.pi-hole2
 
 <img src="https://raw.githubusercontent.com/oweitman/ioBroker.pi-hole2/main/admin/pi-hole2.png" width="100" height="100" />
 
-Eine Pi-hole-Installation ab Version 6 verwalten. Informationen von Pi-hole abrufen. Domains blockieren/stoppen. (Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
+Eine Pi-hole-Installation ab Version 6 verwalten. Informationen von Pi-hole abrufen. Domains blockieren/beenden. (Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
 
 ## Energy-tracker (21.8.2025) – Neuer Adapter im stabilen Repository
 https://github.com/energy-tracker/ioBroker.energy-tracker
@@ -1333,20 +1333,46 @@ https://github.com/krobipd/ioBroker.hassemu
 
 Emuliert einen Home Assistant-Server, sodass Anzeigen, die nur ein HA-Dashboard akzeptieren, stattdessen jede beliebige Web-URL anzeigen.
 
-## Foxesscloud (16.6.2025) – Neuer Adapter im stabilen Repository
+## Foxesscloud (16.6.2026) – Neuer Adapter im stabilen Repository
 https://github.com/inventwo/ioBroker.foxesscloud
 
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.foxesscloud/main/admin/foxesscloud.png" width="100" height="100" />
 
 Ruft Daten von der FoxESS Cloud API für Solarwechselrichter (z. B. für Enpal-Systeme) ab und stellt ioBroker-Status für die Hausautomation bereit.
 
-## Vis-2-widgets-sigenergy (16.6.2025) – Neuer Adapter im stabilen Repository
+## Vis-2-widgets-sigenergy (16.6.2026) – Neuer Adapter im stabilen Repository
 https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy
 
 <img src="https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/main/admin/vis-2-widgets-sigenergy.png" width="100" height="100" />
 
 VIS-2 Widget-Set für den Sigenergy Energiespeicheradapter (ioBroker.sigenergy). Enthält 8 Widgets zur Visualisierung und Steuerung des Energieflusses, des Batteriestatus, der Echtzeitleistung, der Tagesstatistik, des AC-Ladegeräts, des DC-Ladegeräts, des Wechselrichters und der Übersicht des SigenMicro Mikro-Wechselrichters.
 
-i
+## Tidy (5.7.2025) – Neuer Adapter im stabilen Repository
+https://github.com/inventwo/ioBroker.tidy
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.tidy/main/admin/tidy.svg" width="100" height="100" />
+
+Der Tidy-Adapter hilft Ihnen, ungenutzte Objekte und Zustände zu finden und Ihr System zu bereinigen. Nach jahrelanger Nutzung von ioBroker können sich auf Ihrem System „tote“ Datenpunkte ansammeln, die durch gelöschte Skripte, entfernte Adapter oder verwaiste Konfigurationen entstanden sind. Dieser Adapter unterstützt Sie dabei, solche Datenpunkte zu identifizieren und zu entfernen, damit Ihr System übersichtlich und leistungsstark bleibt.
+
+## Dreame (5.7.2025) – Neuer Adapter im stabilen Repository
+https://github.com/TA2k/ioBroker.dreame
+
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.dreame/main/admin/dreame.png" width="100" height="100" />
+
+Adapter für Dreame und MOVA Saugroboter und Mähroboter.
+
+## PlayStation (11.7.2026) – Neuer Adapter im stabilen Repository
+https://github.com/Lucky-ESA/ioBroker.playstation
+
+<img src="https://raw.githubusercontent.com/Lucky-ESA/ioBroker.playstation/main/admin/playstation.png width="100" height="100" />
+
+Sie können die PlayStation aktivieren oder in den Standby-Modus versetzen. Einige Tasten sind ebenfalls nutzbar. Mit dem PSN-Login können Sie Daten anderer Spieler laden.
+
+## Miner (11.7.2026) – Neuer Adapter im stabilen Repository
+https://github.com/SimonFischer04/ioBroker.miner
+
+<img src="https://raw.githubusercontent.com/SimonFischer04/ioBroker.miner/main/admin/miner.png width="100" height="100" />
+
+Interaktion mit verschiedenen Krypto-Miner-APIs
 
 <!-- ######################### Diese Zeilen am Ende der Datei als Erinnerung behalten ######################## --> <!-- ##### ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Icons! ### --> <!-- ######################## Diese Zeilen am Ende der Datei als Erinnerung behalten ####################### -->

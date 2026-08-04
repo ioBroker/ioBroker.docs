@@ -17,6 +17,10 @@ This adapter helps users discover and control UPnP-compatible devices in their n
 ## Changelog
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+### 1.1.13 (2026-08-03)
+* chore(deps-dev): bump fast-uri from 3.1.2 to 3.1.4
+* chore(deps): bump axios from 1.16.0 to 1.18.1
+
 ### 1.1.12 (2026-07-03)
 * chore(deps-dev): bump @alcalzone/release-script from 5.1.1 to 5.2.1
 * chore(deps-dev): bump @alcalzone/release-script-plugin-license

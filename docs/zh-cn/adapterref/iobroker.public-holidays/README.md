@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.public-holidays/README.md
 title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
-hash: T6oMPK3DnlFoIGGOGos24eOad5mNisShE3ZUiM5om6I=
+hash: 1LNxxnDrKwoDzUsDump+J/CSzNAaTAeRz2lJtTa/aDk=
 ---
 # <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
 
@@ -26,7 +26,7 @@ hash: T6oMPK3DnlFoIGGOGos24eOad5mNisShE3ZUiM5om6I=
 
 ＃＃ 特征
 - **206 个国家** 获得州/省和地区支持
-- **完全离线** — 所有假期数据均已打包，无需网络连接
+- **完全离线** — 所有假期流量均已包含在套餐内，无需网络连接
 - **5 种假期类型** — 公共假期、银行假期、学校假期、可选假期、纪念日（可配置）
 - **桥梁日检测** — 检测节假日和周末之间的工作日
 - **排除特定节假日** — 通过下拉菜单选择要排除的节假日
@@ -71,19 +71,19 @@ hash: T6oMPK3DnlFoIGGOGos24eOad5mNisShE3ZUiM5om6I=
 public-holidays.0.
 ├── today.
 │   ├── name         string    "Karfreitag" / "Good Friday"
-│   └── boolean      boolean   true / false
+│   └── isHoliday    boolean   true / false
 ├── yesterday.
 │   ├── name         string
-│   └── boolean      boolean
+│   └── isHoliday    boolean
 ├── tomorrow.
 │   ├── name         string
-│   └── boolean      boolean
+│   └── isHoliday    boolean
 ├── dayAfterTomorrow.
 │   ├── name         string
-│   └── boolean      boolean
+│   └── isHoliday    boolean
 └── next.
     ├── name         string    next holiday name (localized)
-    ├── boolean      boolean   true when an upcoming holiday exists
+    ├── isHoliday    boolean   true when an upcoming holiday exists
     ├── date         string    "2026-12-25" (ISO date)
     └── daysUntil    number    days until holiday
 ```
@@ -107,7 +107,7 @@ public-holidays.0.
 **未检测到节假日** — 部分节假日被归类为 `observance` 而非 `public`。如有需要，请在节假日设置中启用节假日类型。
 
 ## 鸣谢
-此 npm 包最初由 [杰伊·西](https://github.com/Jey-Cee) 注册。此适配器是完全重写的，没有共享任何代码。
+这个想法源于 pix 的 `feiertage` 适配器，正是它最初将节假日数据引入了 ioBroker。感谢 [杰伊·西](https://github.com/Jey-Cee) 提供了 `public-holidays` 包名。此适配器是一个独立的实现，与上述两个适配器均无任何代码共享。
 
 ＃＃ 支持
 - [GitHub Issues](https://github.com/krobipd/ioBroker.public-holidays/issues) — 错误报告、功能请求
@@ -124,6 +124,11 @@ public-holidays.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.11.0 (2026-07-12)
+
+- Breaking change: the states that flag whether each day is a holiday were renamed for clarity — update any scripts or views that read them.
+- Refreshed the built-in holiday data, adding newly recognised regional holidays.
+
 ### 0.10.0 (2026-07-02)
 
 - The "next holiday" date and days-until states now show up correctly as a date and a day count in VIS widgets and scripts (they carry the proper ioBroker role and a "days" unit).
@@ -144,10 +149,6 @@ public-holidays.0.
 ### 0.7.1 (2026-06-12)
 
 - Internal refactoring. No user-facing changes.
-
-### 0.7.0 (2026-06-07)
-
-- Added optional Sentry error reporting: crashes are sent to the developer so issues get fixed faster. Active only with ioBroker diagnostics enabled; anonymous.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

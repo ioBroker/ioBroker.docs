@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 title: inventwo Widgets for ioBroker vis 2.0
-hash: uwt5jMB8uAYM3LrexP18oyBDqY11AhZW2vy3zF+ZR+A=
+hash: eJkKDbHz48dIvZ4Alj0GD4JK50VztJcEv1f07ZxssqY=
 ---
 ![标识](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/raw/main/admin/vis-2-widgets-inventwo.png)
 
@@ -33,7 +33,8 @@ hash: uwt5jMB8uAYM3LrexP18oyBDqY11AhZW2vy3zF+ZR+A=
 | [下拉菜单](#widget---dropdown) | 下拉选择框自动填充 ioBroker 对象状态 |
 | [帐篷](#widget---marquee) | 可配置速度、方向和间距的滚动文本条 |
 | [值列表](#widget---value-list) | 由文本值或数据点生成的项目符号列表 |
-| [值列表](#widget---value-list) | 根据文本值或数据点生成的项目符号列表 |
+| [日历](#widget---calendar) | 月历视图，可用作日期选择器、只读显示和/或今日高亮显示 |
+| [日历](#widget---calendar) | 月视图，可用作日期选择器、只读显示和/或今日高亮显示 |
 
 ---
 
@@ -252,6 +253,43 @@ hash: uwt5jMB8uAYM3LrexP18oyBDqY11AhZW2vy3zF+ZR+A=
 
 ---
 
+## 小部件 - 日历
+月历视图，基于 MUI 的日期日历的简单日期选择器（日期选择器、只读日期显示和/或今日高亮显示——可通过“只读”和“高亮显示今天”自由组合）。
+
+**主要特点：**
+
+- 从对象 ID 读取/写入日期，格式为时间戳（毫秒）或 ISO 日期字符串（`YYYY-MM-DD`）
+- “只读”模式仅显示日期，不允许更改
+- “今日亮点” 以突出今天
+- 禁用过去和/或未来的日期
+- 可通过标题栏选择按月/年快速导航。
+- 一周的第一天：星期一或星期日
+- 可选的日历周数，ISO-8601 或“简单”（第 1 周包含 1 月 1 日）样式
+- 可配置的日单元大小
+- 标题、工作日、普通日期、选定日期（含阴影）、今日标记和周数均可独立设置颜色样式。
+- 遵循浏览器语言设置月份/星期名称
+- 在多个日历小部件中重用“来自小部件”样式
+
+---
+
+## 小部件 - 活动日历
+基于 FullCalendar 的 Google 日历式事件/约会视图。所有颜色、字体大小和边框均可自定义。
+
+**主要特点：**
+
+- 将“事件（数据点）”指向包含事件 JSON 列表的数据点——可以是简单的自定义格式，也可以是 ioBroker “ical” 适配器生成的原生 JSON。
+- FullCalendar 免费/MIT 软件包中的所有视图：月视图、周视图、日视图、多月（年）视图和列表（日/周/月/年）视图
+- 可选的日历周数（ISO-8601 或“简单”/取决于区域设置），主要用于月视图/多月视图
+- 可以显示/隐藏标题栏（标题 + 上一页/下一页/今日导航），并且可以在保留标题的情况下单独禁用导航。
+- 正确处理多日/全天事件（iCal 独占结束日期约定）
+- 仅需事件数据点 - 无需单独的对象 ID
+- 可配置事件颜色规则：根据标题（不区分大小写的子字符串匹配）为事件着色，覆盖源颜色 - 解决了 ioBroker “ical” 适配器每个日历只提供一种颜色，而不是每个事件一种颜色的问题
+- 完全可配置的页眉（标题颜色/大小、按钮文本/背景/边框/圆角，包括悬停效果）、工作日（颜色/背景/大小）、日期（颜色/大小、月份外颜色、周末背景）、今日（背景/文本/边框颜色+宽度、实时指示线）、事件图块（背景/文本/边框/圆角/大小、“+N 更多”链接颜色）和网格边框（显示/隐藏、宽度、颜色）——每个颜色组均可独立复用“来自小部件”样式
+- 当在可视化编辑器中调整小部件大小时，日历也会实时调整大小（无需重新加载页面）。
+- 遵循浏览器语言设置月份/星期名称
+
+---
+
 ## 较早的更改
 可在 [变更日志_旧版.md](CHANGELOG_OLD.md) 中找到
 
@@ -262,6 +300,18 @@ hash: uwt5jMB8uAYM3LrexP18oyBDqY11AhZW2vy3zF+ZR+A=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.9.0 (2026-07-29)
+- Added new Event Calendar Widget: Google-Calendar-style view for events/appointments based on FullCalendar, fed from a datapoint holding a JSON list of events (either a simple custom shape or the native JSON produced by the ioBroker "ical" adapter). Supports all FullCalendar free/MIT views (Month, Week, Day, Multi-month, List day/week/month/year), optional calendar week numbers, optional header bar/navigation, live resizing in the vis editor, and fully configurable header/weekday/day/today/event-tile/border styling (colors, font sizes, border radius/width, hover states, now-indicator), each with independent "From widget" style reuse
+
+### 1.8.1 (2026-07-23)
+- Added preview image for calendar and value list widgets
+
+### 1.8.0 (2026-07-16)
+- Radial Slider Widget: Added "Read only" option to prevent value changes, matching the Slider widget's behavior
+- Table Widget: Added pagination support ("Pagination" / "Rows per page") to split large tables across pages instead of showing all rows at once
+- Table Widget: Added weekday (WD/WDL) and calendar week (KW/K) tokens
+- Added new Calendar Widget: month calendar based on MUI's Date Calendar, usable as a datepicker (read/write a date), a read-only date display, and/or a today-highlighter, with configurable first day of week, ISO/simple calendar week numbers, and full color/size customization
+
 ### 1.7.0 (2026-06-24)
 - Dropdown Widget: Added support for manually defined value/label pairs as an alternative to OID-based state enumeration
 
@@ -269,30 +319,6 @@ hash: uwt5jMB8uAYM3LrexP18oyBDqY11AhZW2vy3zF+ZR+A=
 - Universal Widget: Fixed navigation active state not updating correctly when nav buttons are placed inside a "View in Widget"
 - Table Widget: Empty JSON array now renders a "No data" row regardless of column configuration, instead of an empty or broken table structure
 - Marquee Widget: Added vertical scroll directions "Up" and "Down" in addition to the existing "Left" and "Right"
-
-### 1.5.0 (2026-06-13)
-- Table Widget: Added "URL" column format for clickable links with configurable target
-- Table Widget: Added "Sum row" option to visually separate the last row with a double border
-- Universal Widget: Added "Corner style" – switch between rounded and chamfered (45 degree bevel) corners
-- Table Widget: Added "Formula" field per column to compute values from row fields (e.g. price * qty)
-- Slider Widget: Added "Title" and "Unit" fields
-- Dropdown Widget: Fixed border radius; added "Widget shadow" for the entire widget container
-
-### 1.4.0 (2026-06-04)
-- Universal Widget: Added "RGB (Scaled)" color model for the color picker – supports configurable value ranges (e.g. 0–1023 for 10-bit RGB controllers)
-- Universal Widget: Added optional password/PIN protection for navigation buttons
-- Universal Widget: Added per-state content mirror option (inherit from content style / yes / no)
-- Table Widget: Added configurable decimal and thousand separators for number format columns
-- Table Widget: Added value color to row conditions (in addition to row background color)
-- Table Widget: Added boolean column format displaying a readonly checkbox with optional configurable checked/unchecked colors
-- Table Widget: Added comparison operator selection to row conditions (equal, not equal, greater, less, greater/less equal)
-- Table Widget: Added value color per row condition – applicable to the whole row or to the condition column only
-
-### 1.3.0 (2026-06-03)
-- Slider: Added configurable value label display (always/on drag/never) and step marks position (above/below)
-- Universal: Added "Disable click when active" option per state
-- Universal: Fixed color picker components not updating when toggled in the editor
-- Added links to widget documentation in widget settings
 
 ## License
 The MIT License (MIT)

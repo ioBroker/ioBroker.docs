@@ -76,9 +76,9 @@ in /opt/iobroker/node_modules/iobroker.ebus/lib/scripts you can find a scripts t
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.0.4 (2026-07-11)
 * (copilot) Adapter requires node.js >= 22 now
-* (Rneé) Update dependencies
+* (Rneé) Update dependencies and some additional changes based on adapter checker
 
 ### 4.0.3 (2026-04-12)
 * (René): bug fix see issue #517: avoid crash when using external command
@@ -95,9 +95,6 @@ in /opt/iobroker/node_modules/iobroker.ebus/lib/scripts you can find a scripts t
 * (René): avoid exception, reported by sentry
 * (René) update dependencies + changes based on adapter checker
 * (René) see issue #497: support of ebusd 26.1
-
-### 3.7.0 (2025-11-02)
-* (René) issue #469: telnet connection overworked, promise-socket removed
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

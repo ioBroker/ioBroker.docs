@@ -13,7 +13,9 @@ chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru"
 - [Blockly](blockly.md)
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 10.0.0 (2026-08-04)
+* (@GermanBluefox) Typescript 6 support
+* (@GermanBluefox) GUI was migrated to React 19 and MUI 9
 * (@GermanBluefox) Showed host name in the instance selection dialog
 
 ### 9.3.1 (2026-06-18)
@@ -31,11 +33,6 @@ chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru"
 ### 9.2.3 (2026-05-27)
 * (arteck) Performance optimizations done
 * (@GermanBluefox) Added on mouse over the value of the state
-
-### 9.2.2 (2026-05-07)
-* (Eistee82) Fix: AI chat mode tooltip no longer covers the dropdown options (issue #2201) — moved tooltip to the left of the selector
-* (Eistee82) Clarified the AI chat mode descriptions in the tooltip: Agent is for larger models with tool support and handles both analysis and script creation, Code is for smaller models without tool support (uses two-step plan-then-code) — translations updated in all 11 languages
-* (@GermanBluefox) Added the "is state exists" block to blockly
 
 ## License
 The MIT License (MIT)

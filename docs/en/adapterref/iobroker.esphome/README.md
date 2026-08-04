@@ -24,6 +24,7 @@ Native integration of ESPHome managed device (Including Dashboard) by its native
 ![Logo](admin/img/dashboard.png)
 
 **Quick Links:**
+
 - 📋 [FAQ - Common Questions](#frequently-asked-questions-faq)
 - ⚙️ [Prerequisites & Setup](#prerequisites)
 - 🎛️ [Dashboard Integration](#esphome-dashboard-integration-optional)
@@ -37,6 +38,7 @@ This adapter uses the [esphome-native-api](https://github.com/twocolors/esphome-
 ### What's the difference between the ioBroker ESPHome Adapter and ESPHome Dashboard?
 
 **ioBroker ESPHome Adapter:**
+
 - Integrates your ESPHome devices into ioBroker for home automation control
 - Communicates directly with ESP devices via ESPHome's native API
 - Creates ioBroker states/objects for device control and monitoring
@@ -44,6 +46,7 @@ This adapter uses the [esphome-native-api](https://github.com/twocolors/esphome-
 - Manages device configuration within ioBroker
 
 **ESPHome Dashboard:**
+
 - A web interface for creating, editing, and managing ESPHome device configurations
 - Used for writing YAML configs, compiling firmware, and flashing devices
 - Can be integrated into ioBroker's admin interface as an optional feature
@@ -56,14 +59,16 @@ This adapter uses the [esphome-native-api](https://github.com/twocolors/esphome-
 The Dashboard IP setting in the adapter configuration serves different purposes:
 
 **For Integrated Dashboard Tab in ioBroker Admin:**
+
 1. Enter the IP address and port where your ESPHome Dashboard is running
 2. **Built-in Dashboard:** Use the IP address of your ioBroker host (e.g., `192.168.1.10:6052`)
     - **Important:** Do NOT use `127.0.0.1:6052` (nor `localhost:6052`) if you access ioBroker from other devices - the iframe will try to reach 127.0.0.1 from the client's browser, not the ioBroker server
-   - Only use `127.0.0.1:6052` if you ONLY access ioBroker admin from the same machine where ioBroker is running
+    - Only use `127.0.0.1:6052` if you ONLY access ioBroker admin from the same machine where ioBroker is running
 3. **External Dashboard:** Use the IP:port of your external ESPHome installation (e.g., `192.168.1.100:6052`)
 4. **HTTPS Setup:** For HTTPS environments, see the detailed HTTPS configuration section below
 
 **Dashboard IP Examples:**
+
 - Built-in (accessed from network): `192.168.1.10:6052` (replace with your ioBroker host IP)
 - Built-in (local only): `127.0.0.1:6052` (only if admin accessed on same machine)
 - External Host: `esphome.local:6052` or `192.168.1.100:6052`
@@ -100,6 +105,7 @@ The adapter will establish a connection and create all necessary ioBroker object
 - **Adapter:** Used for controlling devices and synchronizing their state with ioBroker
 
 **To make a dashboard-configured device work with the adapter:**
+
 1. Flash the device with the configuration from the dashboard (ensure ESPHome API is enabled in YAML)
 2. Manually add the device in the adapter settings (device tab). Enter IP/hostname and encryption key (recommended) or password (legacy)
 3. The adapter will then connect to the device via ESPHome's native API
@@ -116,11 +122,13 @@ The adapter will establish a connection and create all necessary ioBroker object
 **If you want the device in the dashboard:**
 
 **Option 1:**
+
 1. The ESPHome Dashboard can discover devices in the same network automatically
 2. In the dashboard, discovered devices will show with an "ADOPT" button
 3. Click "ADOPT" to add them to your dashboard for configuration management
 
 **Option 2:**
+
 - Create a new device in the dashboard and copy your existing yaml into there.
 
 **Note:** You don't need devices in the dashboard if you only want to control them via ioBroker. The dashboard is only needed for creating/modifying device configurations.
@@ -134,32 +142,62 @@ The adapter does not care about your system's python installation. It will insta
 <!--
 ## [Documentation](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
 
-All our adapter documentation can be found at [The DrozmotiX Docu Page](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/) 
+All our adapter documentation can be found at [The DrozmotiX Docu Page](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
 -->
 
 ## Prerequisites
 
-    * NodeJS >= 20.x
+    * NodeJS >= 22.x
     * API is activated in YAML
     * For admin tabs (optional)
         * ESPHome Dashboard IP is provided in instance settings
+
+## Testing pre-releases
+
+Pre-releases are published to npm under the `next` dist-tag and are **not** offered by the
+ioBroker repository - they have to be installed explicitly. Feedback on a beta is very welcome,
+please report anything you find in the [issue tracker](https://github.com/DrozmotiX/ioBroker.esphome/issues).
+
+Install the current pre-release from the ioBroker host:
+
+```bash
+iobroker url iobroker.esphome@next
+```
+
+Or install one specific version:
+
+```bash
+iobroker url iobroker.esphome@1.0.0-beta.1
+```
+
+To go back to the released version afterwards:
+
+```bash
+iobroker url iobroker.esphome
+```
+
+Every pre-release is also listed under
+[Releases](https://github.com/DrozmotiX/ioBroker.esphome/releases) with its changelog.
 
 ## ESPHome Dashboard Integration (Optional)
 
 This adapter can optionally integrate the ESPHome Dashboard into ioBroker's admin interface. You have several options:
 
 **Option 1: Built-in Dashboard (Recommended for beginners)**
+
 - Enable "Native Integration of ESPHome Dashboard" in adapter settings
 - Uses integrated Python environment (no external setup required)
 - Dashboard runs on port 6052 by default
 - Set Dashboard IP to `127.0.0.1:6052` for admin integration
 
 **Option 2: External Dashboard**
+
 - Use existing ESPHome installation (Docker, standalone, etc.)
 - Enter the external dashboard's IP:port in adapter settings
 - Example: `192.168.1.100:6052` for Docker container
 
 **Option 3: No Dashboard Integration**
+
 - Skip dashboard configuration entirely
 - Use external ESPHome tools for device configuration
 - Adapter still controls devices normally
@@ -179,27 +217,29 @@ Using the integrated dashboard when the iobroker is using https currently requir
 1. install - if you don't have it already - web adapter and configure https. see web documentation for further information: [ioBroker.web](https://github.com/ioBroker/ioBroker.web)
 2. install [proxy](https://github.com/ioBroker/ioBroker.proxy) adapter
 3. configure the path in the proxy adapter settings:
-   1. context: `esphome/`
-   2. url: `http://localhost:6052`
-![proxy.png](admin/img/proxy.png)
+    1. context: `esphome/`
+    2. url: `http://localhost:6052`
+       ![proxy.png](admin/img/proxy.png)
 4. configure the full dashboard url in the advanced section of the esphome adapter settings - esphome dashboard:
-   1. like: `https://<iobrokerIP>:<webAdapterPort>/proxy.0/esphome/`
-   2. where `<iobrokerIP>` is the ip of the host where you iobroker is running (same as above)
-   3. and `<webAdapterPort>` is the port of the web adapter (default is 8082)
-   4. it should look something like this:
-   ![ESPHomeDashboardUrl.png](admin/img/ESPHomeDashboardUrl.png)
-   5. if you run the dashboard on an external host, you can also use the url to an external dashboard instance here
+    1. like: `https://<iobrokerIP>:<webAdapterPort>/proxy.0/esphome/`
+    2. where `<iobrokerIP>` is the ip of the host where you iobroker is running (same as above)
+    3. and `<webAdapterPort>` is the port of the web adapter (default is 8082)
+    4. it should look something like this:
+       ![ESPHomeDashboardUrl.png](admin/img/ESPHomeDashboardUrl.png)
+    5. if you run the dashboard on an external host, you can also use the url to an external dashboard instance here
 
 ## How to use this adapter
 
 ### Activate API in YAML
+
 > [!IMPORTANT]
-> ioBroker ESPHome allows to integrate Devices by Encryption Key (recommended) or API-Password (legacy), 
-> you must specify your authentication settings accordingly, 
+> ioBroker ESPHome allows to integrate Devices by Encryption Key (recommended) or API-Password (legacy),
+> you must specify your authentication settings accordingly,
 > see [ESPHome Documentation](https://esphome.io/components/api.html?highlight=api)
 > Please only configure Encryption Key (preferable) or API-Password (legacy)
 
 #### Example Encryption Key configuration entry
+
 ```
 api:
   encryption:
@@ -207,6 +247,7 @@ api:
 ```
 
 #### Example API configuration entry
+
 ```
 api:
   password: 'MyPassword'
@@ -215,11 +256,12 @@ api:
 ## Device Management
 
 ### Add / Modify / Remove ESPHome devices to ioBroker
+
 > [!IMPORTANT]
-> This adapter integrates communication with ESPHome capable devices and 
+> This adapter integrates communication with ESPHome capable devices and
 > (if activated) an integrated version of ESPHome Dashboard.
-> You must configure and upload your ESP configuration by yourself, 
-> either by using the integrated Dashboard or an external alternative 
+> You must configure and upload your ESP configuration by yourself,
+> either by using the integrated Dashboard or an external alternative
 > (like Docker) before they can be integrated to ioBroker
 
 > **💡 See FAQ above** for step-by-step guidance on adding devices to the adapter.
@@ -234,18 +276,19 @@ The device Tab will show all current known devices; you can either wait for Devi
 > You must refresh the device table manually by pressing "Refresh device Overview", all devices and their connection state will be shown
 
 Please enter IP-Address (if a device is already known, you can select it from the dropdown) and choose the proper actions:
+
 - ADD / Modify Devices
-  - Will send IP address and credentials to the backend and try to establish a connection
-  - When an encryption Key is provided, API-Password is ignored, please ensure proper YAML configuration!
+    - Will send IP address and credentials to the backend and try to establish a connection
+    - When an encryption Key is provided, API-Password is ignored, please ensure proper YAML configuration!
 
 - Delete Device
-  - Will send a message to the backend to remove this device
+    - Will send a message to the backend to remove this device
 
 > [!WARNING]
 > This action will remove a selected device and all its related states from ioBroker!
 
 > [!NOTE]
-> After a device has been added, a message will be indicated if successfully or error, 
+> After a device has been added, a message will be indicated if successfully or error,
 > you can refresh the table to show current devices and their connection status
 
 ![DevicesError](admin/img/connectionIssue.png)
@@ -272,27 +315,29 @@ The adapter provides a convenient interface for managing YAML configuration file
 
 1. **Navigate to the "YAML Files" tab** in the adapter configuration
 2. **Upload a new file**:
-   - Enter a filename (must end with .yaml or .yml)
-   - Paste your YAML configuration content
-   - Click "Upload File"
+    - Enter a filename (must end with .yaml or .yml)
+    - Paste your YAML configuration content
+    - Click "Upload File"
 3. **Refresh the file list** to see all available YAML files
 4. **Download or delete files**:
-   - Enter the filename in the "Select file" field
-   - Click "Download File" to view the content or "Delete File" to remove it
+    - Enter the filename in the "Select file" field
+    - Click "Download File" to view the content or "Delete File" to remove it
 
 > [!NOTE]
 > Files are stored in the ESPHome directory: `/opt/iobroker/iobroker-data/esphome.<instance>/`
-> 
+>
 > This is the same directory used by the ESPHome Dashboard, so files uploaded through the adapter
 > are immediately available in the Dashboard and vice versa.
 
 > [!TIP]
 > This feature is particularly useful when:
+>
 > - You want to quickly edit configurations without accessing the server file system
 > - You need to backup or share device configurations
 > - You want to manage YAML files without running the full ESPHome Dashboard
 
 ### Example config
+
 Example config, for more examples see [The DrozmotiX Docu Page](https://DrozmotiX.github.io) or [ESPHome Documentation](https://esphome.io/index.html)
 
 <details><summary>Show example config
@@ -302,22 +347,22 @@ Example config, for more examples see [The DrozmotiX Docu Page](https://Drozmoti
       name: sensor_badkamer
       platform: ESP32
       board: esp-wrover-kit
-    
+
     wifi:
       use_address: 192.168.10.122
       ssid: "xxxxx"
       password: "xxxxxx"
-              
+
     # Enable ESPHome API
     api:
         password: 'MyPassword'
-    # Activate i2c bus  
+    # Activate i2c bus
     i2c:
       sda: 21
       scl: 22
       scan: True
       id: bus_a
-      
+
     # Example configuration for bh1750
     sensor:
       - platform: bh1750
@@ -325,19 +370,20 @@ Example config, for more examples see [The DrozmotiX Docu Page](https://Drozmoti
         address: 0x23
         measurement_time: 69
         update_interval: 10s
-        
-    # Example configuration for an GPIO output    
+
+    # Example configuration for an GPIO output
     output:
       - platform: gpio
         pin: 12
         inverted: true
         id: gpio_12
-        
+
     # Example configuration linking a switch to the previous defined output
     switch:
       - platform: output
         name: "Generic Output"
         output: 'gpio_12'
+
 </details>
 
 ## Controlling RGBW Lights
@@ -348,27 +394,28 @@ Example config, for more examples see [The DrozmotiX Docu Page](https://Drozmoti
 
 ### Available states for a light entity
 
-| State | Description |
-|---|---|
-| `colorHEX` | Writable hex colour string, e.g. `#ff6600`. Writing here updates red/green/blue and sends the command. |
-| `red` / `green` / `blue` | Individual colour channels (0 – 255). |
-| `white` | Dedicated white channel (0 – 255). Only present on RGBW-capable lights. |
-| `brightness` | Overall brightness (0 – 255). |
-| `config.rgbAutoWhite` | **RGBW only** — when set to `true`, writing `#ffffff` to `colorHEX` automatically activates the white channel and sets RGB to zero. Writing any other colour disables the white channel and uses RGB. |
+| State                    | Description                                                                                                                                                                                           |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `colorHEX`               | Writable hex colour string, e.g. `#ff6600`. Writing here updates red/green/blue and sends the command.                                                                                                |
+| `red` / `green` / `blue` | Individual colour channels (0 – 255).                                                                                                                                                                 |
+| `white`                  | Dedicated white channel (0 – 255). Only present on RGBW-capable lights.                                                                                                                               |
+| `brightness`             | Overall brightness (0 – 255).                                                                                                                                                                         |
+| `config.rgbAutoWhite`    | **RGBW only** — when set to `true`, writing `#ffffff` to `colorHEX` automatically activates the white channel and sets RGB to zero. Writing any other colour disables the white channel and uses RGB. |
 
 ### Auto white-channel switching (`rgbAutoWhite`)
 
 When an RGBW-capable light is detected (i.e. it exposes a `white` state), the adapter automatically creates a writable `config.rgbAutoWhite` toggle state for that entity. It defaults to `false` (disabled).
 
 **To enable:**
+
 1. Open the ioBroker **Objects** view and navigate to your light entity, e.g. `esphome.0.MyLight.Light.1.config.rgbAutoWhite`.
 2. Set the value to `true`.
 
 **Behaviour when enabled:**
 
-| `colorHEX` input | Result |
-|---|---|
-| `#ffffff` | `white` → 1 (full), `red` / `green` / `blue` → 0 |
+| `colorHEX` input | Result                                             |
+| ---------------- | -------------------------------------------------- |
+| `#ffffff`        | `white` → 1 (full), `red` / `green` / `blue` → 0   |
 | Any other colour | `white` → 0, RGB channels set to the colour values |
 
 **Behaviour when disabled (default):** the `white` channel is never touched automatically; users control it independently.
@@ -380,8 +427,8 @@ See for more details on our [Docu Page](https://DrozmotiX.github.io/languages/en
 
 **_NOTE:_** Generated yaml files are stored at ```/opt/iobroker/iobroker-data/iobroker.esphome.>instance</>device<.yaml
 
-
 ## Support me
+
 If you like my work, please consider a personal donation  
 (this is a personal Donate link for DutchmanNL, no relation to the ioBroker Project !)  
 [![Donate](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/main/admin/button.png)](http://paypal.me/DutchmanNL)
@@ -391,50 +438,55 @@ If you like my work, please consider a personal donation
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
-    * (DutchmanNL) 
+    * (DutchmanNL)
 -->
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
-- (arteck) NEW: Reconnect interval, ping interval and ping attempts for device connections are now configurable in the adapter settings (Devices tab)
-- (arteck) fix language translations
+
+### 1.0.0-beta.2 (2026-07-30)
+
+- (@SimonFischer04) **FIXED**: ESPHome Dashboard 2026.6.5 and Pillow 12.2.0 are used instead of the latest available release, the 2026.7.x releases currently fail to install (#463)
+- (@SimonFischer04) **FIXED**: Installations still set to "Always last available" are migrated to those versions once, so an update no longer leaves behind a dashboard that cannot be installed (#463)
+- (@SimonFischer04) **NEW**: Selecting "Always last available" again is respected, the migration runs only once and such a setup only gets a warning at startup (#463)
+- (@DutchmanNL) **FIXED**: Falling back to the latest ESPHome or Pillow release no longer aborts the dashboard setup, the requirement was passed to pip without a version specifier
+- (@DutchmanNL) **FIXED**: Added the missing "pingInterval" and "pingAttempts" defaults to io-package.json, they were only defined in the admin configuration
+- (@DutchmanNL) **ENHANCED**: "npm run check" is free of type errors, so type regressions are visible again
+
+### 1.0.0-beta.1 (2026-07-28)
+
+- (@DutchmanNL) **FIXED**: Restored a green CI matrix, the dashboard integration tests no longer hang the test runner
+- (@DutchmanNL) **FIXED**: Corrected the changelog entry in io-package.json so it matches the published version
+- (@DutchmanNL) **FIXED**: Admin configuration is fully translated again, 29 texts were only available in English
+- (@DutchmanNL) **FIXED**: YAML upload field renders as a proper multi-line text area again
+- (@DutchmanNL) **ENHANCED**: Timers are now managed by the adapter, so they are always cleaned up on unload
+- (@DutchmanNL) **ENHANCED**: Pre-releases are published under the npm "beta" tag instead of "latest"
+- (@DutchmanNL) **ENHANCED**: Removed the obsolete admin/words.js and added prettier formatting scripts
+- (@dependabot) **ENHANCED**: Updated @iobroker/testing to 5.3.0 and the GitHub actions used in CI
+
+### 1.0.0-beta.0 - Stable version release candidate
+
+- (@copilot) **NEW**: Promoted ioBroker.esphome to stable **v1.0.0**
+- (@copilot) **NEW**: Brings ESPHome devices into ioBroker with live state updates and direct control
+- (@copilot) **NEW**: Supports a wide range of device types including lights, switches, sensors, fans, covers, locks, and text entities
+- (@copilot) **ENHANCED**: Includes optional ESPHome Dashboard integration plus built-in helpers for discovery and YAML-based device management
+- (@arteck) **FIXED**: Improved disconnect handling and diagnostics so reconnects recover more cleanly when device connections are destroyed
+- (@copilot) **ENHANCED**: Establishes a stable baseline for future ESPHome adapter development in ioBroker
 
 ### 0.7.0 (2026-05-17)
-* (@SimonFischer04) **FIXED** copilot hallucinations
-* (@SimonFischer04) **NEW** 'Always last available' for pillow version
-* (@copilot) **FIXED**: Invalid jsonConfig warning on adapter installation
-* (DutchmanNL) **FIXED**: ESLint errors by code refactoring
+
+- (@SimonFischer04) **FIXED** copilot hallucinations
+- (@SimonFischer04) **NEW** 'Always last available' for pillow version
+- (@copilot) **FIXED**: Invalid jsonConfig warning on adapter installation
+- (DutchmanNL) **FIXED**: ESLint errors by code refactoring
 
 ### 0.7.0-beta.4 (2026-02-21)
-* (DutchmanNL) **FIXED**: ESLint errors by code refactoring
-* (@copilot) **FIXED**: Restore missing `configStates` option in admin UI to allow configuring whether configuration states are shown per entity
-* (@copilot) **NEW**: Per-device `rgbAutoWhite` toggle in the light config channel for automatic white-channel routing on RGBW lights (see [Controlling RGBW Lights](#controlling-rgbw-lights))
 
-### 0.7.0-beta.3 (2026-02-20)
-* (@copilot) **NEW**: Added support for `colorBrightness`, `coldWhite`, `warmWhite`, and `colorMode` states for lights using the new ESPHome color mode API
-* (@copilot) **FIXED**: RGB light control (brightness, color, white, colorTemperature) not working with newer ESPHome firmware that uses `supportedColorModesList` instead of deprecated legacy flags (#338)
-
-### 0.7.0-beta.2 (2026-02-20) - add capability for fans & Lock entity
-* (@SimonFischer04) improve README
-* (@SimonFischer04) fix #394, actually fix #340, #356
-* (DutchmanNL) **FIXED**: Fan component not working #205
-* (@copilot) **NEW**: Allow customization of Pillow version used by ESPHome Dashboard, similar to ESPHome version selector
-* (@copilot) **NEW**: Add "Clear Autopy Cache" button in ESPHome Dashboard configuration tab to resolve dashboard loading issues (#209)
-
-### 0.7.0-beta.1 (2026-02-16) - Add support for Lock entity & improve dashboard testing
-* (@copilot) **NEW**: Add support for Lock entity type - Lock devices now properly display state and control options #353
-* (@copilot) **NEW**: YAML file management interface in admin UI for upload/download/delete operations (#369)
-* (@SimonFischer04) improve dashboard testing
-* (@SimonFischer04) improve logging for #201
-* (@SimonFischer04) update pillow
-* (@SimonFischer04) fix readme link to lib
-* (@SimonFischer04) fix connection status #311
-* (@SimonFischer04) remove unneeded node-fetch dependency
-* (@SimonFischer04) automatic migration from versions prior to ESPHomeDashboardUrl introduction (pre v0.6.1)
-* (@copilot) **FIXED**: Invalid jsonConfig schema - removed unsupported `doNotSave` property from table elements
+- (DutchmanNL) **FIXED**: ESLint errors by code refactoring
+- (@copilot) **FIXED**: Restore missing `configStates` option in admin UI to allow configuring whether configuration states are shown per entity
+- (@copilot) **NEW**: Per-device `rgbAutoWhite` toggle in the light config channel for automatic white-channel routing on RGBW lights (see [Controlling RGBW Lights](#controlling-rgbw-lights))
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
+
 MIT License
 
 Copyright (c) 2023-2026 DutchmanNL <rdrozda86@gmail.com>

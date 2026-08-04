@@ -59,6 +59,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 7.0.6 (2026-07-27)
+
+- (HombachC) fixed misleading HTTP error 200 log message caused by network interruption during response body reading
+- (HombachC) improved connection error handling: added ECONNRESET + ECONNABORTED cases and default fallback for unknown error codes
+- (HombachC) updated dependencies
+
 ### 7.0.5 (2026-07-05)
 
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now
@@ -79,12 +85,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 7.0.2 (2026-05-17)
 
 - (HombachC) fix tsconfig
-
-### 7.0.1 (2026-05-16)
-
-- (HombachC) update typescript from 5.9.3 to 6.0.3
-- (HombachC) fix vulnerability in axios
-- (HombachC) update dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

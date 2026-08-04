@@ -178,6 +178,17 @@ Got scripts that still write to `visUrl`? Update them — write to `manualUrl` i
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.38.0 (2026-07-12) — stable
+
+- Known displays were re-created as new clients after every adapter restart — losing their saved redirect and login, and leaving duplicates. The display list is now restored correctly.
+- The setup screen on the display now explains how to pick a dashboard from the dropdown, or choose Manual URL and enter your own address next to it.
+- The global and per-display redirect datapoints now have descriptions explaining each option, and everything you see consistently says display.
+- The sign-in and error pages shown while a display is onboarding now appear in your ioBroker language instead of English only.
+
+### 1.37.1 (2026-07-11)
+
+- Internal cleanup. No user-facing changes.
+
 ### 1.37.0 (2026-07-09)
 
 - A custom name you give a display now survives even when its network hostname resolves later — the name you set sticks.
@@ -196,15 +207,6 @@ Got scripts that still write to `visUrl`? Update them — write to `manualUrl` i
 ### 1.35.3 (2026-06-15)
 
 - Fixed Home Assistant discovery pointing the display at the wrong address on multi-interface hosts; it now uses the address the adapter actually listens on.
-
-### 1.35.2 (2026-06-12)
-
-- Displays whose registration became stale after an adapter restart now re-register automatically — the server previously answered in a way the companion app did not recognize as "please register again"
-- Removing a display now also clears its leftover app registration, so a re-added display starts with a fresh one
-
-### 1.35.1 (2026-06-09)
-
-- Internal cleanup. No user-facing changes.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

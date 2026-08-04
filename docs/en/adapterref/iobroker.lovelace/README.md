@@ -84,10 +84,15 @@ After that checkout modified version in `./build` folder. Then.
     ### for next frontend update, update of auto entities card will be necessary!
 -->
 ### **WORK IN PROGRESS**
+* (Garfonso/Claude) Fixed auto-generated entity_ids growing longer and longer within a single start for devices sharing a generated display name and having no own readable state (e.g. several buttons named the same): they no longer collapse onto the same internal registry key and overwrite each other's name.
+* (Garfonso/Claude) Fixed the energy dashboard's power graph showing "no data" for the whole day on some history backends: the "5minute" statistics period used a 30-second bucket step instead of 5 minutes, requesting 10x more buckets than needed.
+* (Garfonso/Claude) Fixed the current power missing in the energy dashboard ("Stromquellen" on the summary tab and the "Jetzt" tab) while all other cards showed it: the power sensor picked for a grid/battery source was not passed on to those cards. Existing configurations are fixed automatically on start.
+
+### 6.1.2 (2026-07-20)
 * (Garfonso/Claude) History and logbook no longer show duplicate adjacent entries when the history backend re-logs unchanged values (e.g. InfluxDB "still record the same values"). (#711)
-* (Garfonso/Claude) Docs: added a complete near-default theme example that removes the bell. (#705)
-* (Garfonso/Claude) Energy/statistics graphs no longer draw a phantom line into the future when the requested range ends after now (e.g. InfluxDB carrying the last value forward).
-* (Garfonso/Claude) Use the adapter's own timers (auto-cleaned on stop) and added the missing Russian translation for one setting. (#712)
+* (Garfonso/Claude) Energy/statistics graphs no longer draw a phantom line into the future when the requested range ends after now (e.g. History carrying the last value forward).
+* (Garfonso/Claude) A browser with a broken browser_mod id (e.g. `[object Object]` in its localStorage) no longer spams "Used invalid characters" warnings: the id is sanitized, the client is asked to pick a fresh id, and leftover invalid instance objects are cleaned up on start.
+* (Garfonso/Claude) Fixed simple on/off lights with a separate read-only state (`ON_ACTUAL`): the real device state is subscribed again and pushed to the UI.
 
 ### 6.1.1 (2026-06-25)
 * (Garfonso/Claude) Fixed a crash (adapter restart loop) when a room enum has no name; the area list no longer brings the adapter down.
@@ -123,12 +128,6 @@ After that checkout modified version in `./build` folder. Then.
 * (Garfonso/Claude) Fixed a crash in the map card caused by history updates without attributes.
 * (Garfonso/Claude) Removed the browser tab title setting; set the dashboard title instead.
 * (Garfonso/Claude) Calendar card no longer flickers/reloads in a loop when the calendar source updates frequently.
-
-### 6.0.2 (2026-06-17)
-* (Garfonso/Claude) Reduced object-database load (skip our own internal objects, yield during processing) and removed leftover debug logging.
-* (Garfonso/Claude) browser_mod re-applies its settings (e.g. hidden sidebar) after a browser registers, so it no longer needs an F5 (hopefully).
-* (Garfonso/Claude) Above ~50 referenced states the adapter subscribes to all states at once and filters itself, to reduce database load.
-* (Garfonso/Claude) Statistics history is fetched in pages, so a large energy/history request can no longer overload the states database.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

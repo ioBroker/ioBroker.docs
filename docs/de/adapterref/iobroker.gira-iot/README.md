@@ -54,6 +54,8 @@ NodeJS >= 18.x and js-controller >= 5 is required
 * (klein0r) Url preview in instance configuration
 * (klein0r) Improved error handling
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License

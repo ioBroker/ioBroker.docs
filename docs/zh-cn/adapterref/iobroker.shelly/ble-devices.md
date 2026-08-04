@@ -4,14 +4,12 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/ble-devices.md
 title: ioBroker.shelly
-hash: 6JRge0PN3y8ieErjI4l3/SVw0fdGA6c4X42VnXSX540=
+hash: CUMFwrQoKXCIGLGuAalQ8StBPdrw9s9k8ZyrRj21AvI=
 ---
 ![标识](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
 这是德语文档 - [🇺🇸 英文版](../en/ble-devices.md)
-
-**此功能为实验性功能！**
 
 必须在 Plus 或 Pro 设备（第二代及以上）上创建一个新脚本（见下文），才能以 JSON 格式接收此状态下的事件：`shelly.0.<device>.BLE.Event`。
 
@@ -43,7 +41,8 @@ hash: 6JRge0PN3y8ieErjI4l3/SVw0fdGA6c4X42VnXSX540=
 
 | 适配器版本 | 脚本版本 |
 |-----------------------------------------------------------------------------------------------------------------|----------------|
-| [版本 >= 11.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v11.0.0/docs/en/ble-devices.md) | v1.3 |
+| [版本 >= 12.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v12.0.0/docs/en/ble-devices.md) | v1.4.0 |
+| [版本 >= 10.3.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.3.0/docs/en/ble-devices.md) | v1.2 |
 | [版本 >= 10.2.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.2.0/docs/en/ble-devices.md) | v1.1 |
 | [版本 >= 10.0.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v10.1.0/docs/en/ble-devices.md) | v1.0 |
 | [版本 >= 9.1.0](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/v9.1.0/docs/en/ble-devices.md) | v0.5 |
@@ -72,8 +71,8 @@ hash: 6JRge0PN3y8ieErjI4l3/SVw0fdGA6c4X42VnXSX540=
 在 Shelly Plus 或 Pro 设备（第二代及更高版本）的 Shelly 脚本部分添加并运行此脚本：
 
 ```javascript
-// v1.3
-const SCRIPT_VERSION = '1.3';
+// v1.4.0
+const SCRIPT_VERSION = '1.4.0';
 const BTHOME_SVC_ID_STR = 'fcd2';
 
 let SHELLY_ID = undefined;
@@ -102,19 +101,20 @@ function bleScanCallback(event, result) {
         return;
     }
 
-    // create MQTT-Payload
-    let message = {
-        scriptVersion: SCRIPT_VERSION,
-        src: SHELLY_ID,
-        srcBle: {
-            type: result.local_name,
-            mac: result.addr,
-            rssi: result.rssi
-        },
-        payload: convertToHex(result.service_data[BTHOME_SVC_ID_STR])
-    };
-
     if (MQTT.isConnected()) {
+        let message = {
+            scriptVersion: SCRIPT_VERSION,
+            src: SHELLY_ID,
+            srcScript: {
+                id: Script.id
+            },
+            srcBle: {
+                mac: result.addr,
+                rssi: result.rssi
+            },
+            payload: convertToHex(result.service_data[BTHOME_SVC_ID_STR])
+        };
+
         MQTT.publish(SHELLY_ID + '/events/ble', JSON.stringify(message));
     }
 }
@@ -124,28 +124,21 @@ function init() {
     // get the config of ble component
     let bleConfig = Shelly.getComponentConfig('ble');
 
-    // exit if the BLE isn't enabled
-    if (!bleConfig.rpc.enable) {
-        console.log('Error: The Bluetooth is not enabled, please enable it in the settings');
+    // exit if Bluetooth isn't enabled
+    if (typeof bleConfig.enable !== 'undefined' && bleConfig.enable === false) {
+        console.log('Error: Bluetooth is not enabled, please enable it in the settings');
         return;
     }
 
-    // check if the scanner is already running
-    if (BLE.Scanner.isRunning()) {
-        console.log('Info: The BLE gateway is running, the BLE scan configuration is managed by the device');
-    } else {
-        // start the scanner
-        let bleScanner = BLE.Scanner.Start({
+    BLE.Scanner.Start(
+        {
             duration_ms: BLE.Scanner.INFINITE_SCAN,
-            active: true
-        });
-
-        if (!bleScanner) {
-            console.log('Error: Can not start new scanner');
-        }
-    }
-
-    BLE.Scanner.Subscribe(bleScanCallback);
+            active: false,
+            interval_ms: 240,
+            window_ms: 80
+        },
+        bleScanCallback
+    );
 }
 
 Shelly.call('Mqtt.GetConfig', '', function (res, err_code, err_msg, ud) {
@@ -160,7 +153,7 @@ Shelly.call('Mqtt.GetConfig', '', function (res, err_code, err_msg, ud) {
 
 - 文档：https://shelly-api-docs.shelly.cloud/docs-ble/Devices/BLU/button
 - 知识库：https://kb.shelly.cloud/knowledge-base/shellyblu-button1
-- 已使用固件版本：`20250314-080633/v1.0.22` 进行测试
+- 已使用固件版本：`20250818-045355/v1.0.23` 进行测试
 
 **Shelly BLU H&T**
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: iwbspMgdqO0nSwgSwN1TjS7hojgnazbna9VpDYzooIw=
+hash: Nf1qzWZZiTHeahfPb4tUJDxo9WHZScYRunGzwf0Vg64=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -39,7 +39,7 @@ Falls Sie derzeit kein Tibber-Nutzer sind, würde ich mich sehr freuen, wenn Sie
 ## Standardkonfiguration
 - Beginnen Sie mit dem Erstellen einer neuen Instanz des Adapters.
 Sie benötigen außerdem ein API-Token von Tibber, das Sie hier erhalten können: [Tibber Developer API](https://developer.tibber.com).
-- Geben Sie Ihren Tibber-API-Token in den Standardeinstellungen ein und konfigurieren Sie mindestens eine Zeile für Live-Feed-Einstellungen (wählen Sie „Keine verfügbar“).
+- Geben Sie Ihren Tibber-API-Token in den Standardeinstellungen ein und konfigurieren Sie mindestens eine Zeile für Live-Feed-Einstellungen (wählen Sie "Keine verfügbar").
 - Speichern Sie die Einstellungen und beenden Sie die Konfiguration, um den Adapter neu zu starten; dieser Schritt ermöglicht es, dass Ihre Home-Server zum ersten Mal vom Tibber-Server abgefragt werden.
 Kehren Sie zum Konfigurationsbildschirm zurück und wählen Sie die Haushalte aus, von denen Sie mit Ihrem Tibber Pulse Echtzeitdaten abrufen möchten. Sie können auch Haushalte auswählen und den Datenfeed deaktivieren (Hinweis: Dies funktioniert nur, wenn die Hardware installiert ist und der Tibber-Server die Verbindung zu Pulse bestätigt hat).
 Hinweis: Falls Sie in Ihrem Tibber-Konto mehrere Häuser haben, müssen Sie alle hinzufügen, um Fehlermeldungen durch möglicherweise unnötige Häuser zu vermeiden. Fügen Sie alle Häuser hinzu und deaktivieren Sie die nicht benötigten.
@@ -96,7 +96,7 @@ Der Adapter hilft bei der Visualisierung von Preistrends und Rechnerergebnissen.
 ### 1. **(In Entwicklung) Visualisierung mit dem "E-Charts"-Adapter**
 Bei dieser Methode muss der Adapter „E-Charts“ separat installiert werden.
 
-- Es können JSON-Daten verwendet werden, die im Abschnitt „Rechnerzustände“ (`Output-E-Charts`) generiert werden.
+- Es können JSON-Daten verwendet werden, die im Abschnitt „Rechnerzustände“ (`Output-E-Charts`) generiert wurden.
 - Die Möglichkeiten sind durch die Beschränkungen des E-Charts-Adapters eingeschränkt.
 
 ### 2. **Verwendung des "FlexCharts"- (oder "Fully Featured eCharts")-Adapters mit JSON**
@@ -104,7 +104,7 @@ Diese Methode erfordert die separate Installation des "FlexCharts"-Adapters.
 
 - Der TibberLink-Adapter erzeugt einen Zustand namens `jsonFlexCharts`.
 
-                      <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts-Status">
+                            <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts-Status">
 
 - Der FlexCharts-Adapter rendert diesen Zustand über die folgende URL:
 
@@ -215,14 +215,28 @@ Der Adapter speichert das Aktualisierungstoken intern und erneuert das Zugriffst
 Fahrzeugdaten werden in `Vehicles.<VIN>.*` geschrieben:
 
 | Bundesland | Beschreibung |
-| --------------------- | --------------------------------- |
+| --------------------- | -------------------------------------------- |
 | `ChargingStatus` | Aktueller Ladestatus |
+| `LastSeen` | Zeitstempel, wann das Gerät zuletzt von Tibber gesehen wurde |
 | `LastUpdated` | Zeitstempel der letzten Datenaktualisierung |
 | `PlugStatus` | Steckerverbindungsstatus |
 | `Range` | Verbleibende Reichweite in km |
 | `StateOfCharge` | Ladezustand der Batterie in % |
 | `TargetStateOfCharge` | Zielladezustand in % |
 | `TargetStateOfCharge` | Zielladezustand in % |
+
+Die Daten der Ladegeräte werden in `Chargers.<id>.*` gespeichert. Da sich die Funktionen von Ladegeräten je nach Hersteller unterscheiden können (z. B. go-e, Wallbox Pulsar Plus), wird jede gemeldete Funktion generisch als eigener Zustand gespeichert, benannt nach der Funktions-ID der Daten-API (Punkte werden durch Unterstriche ersetzt) und mit der von der API bereitgestellten Beschreibung versehen. Typische Zustände sind:
+
+| Bundesland | Beschreibung |
+| ---------------------------------- | ------------------------------------------------ |
+| `connector_status` | Status des Ladeanschlusses |
+| `charging_current_max` | Maximal zulässiger Ladestrom (A) |
+| `charging_current_offlineFallback` | Ausweichstrom, falls das Ladegerät offline geht (A) |
+| `grid_phaseCount` | Anzahl der zum Laden verwendeten Phasen |
+| `HomeId` | Zugehörige Tibber-Haus-ID |
+| `LastSeen` | Zeitstempel, wann das Gerät zuletzt von Tibber gesehen wurde |
+| `LastUpdated` | Zeitstempel der letzten Datenaktualisierung |
+| `LastUpdated` | Zeitstempel der letzten Datenaktualisierung |
 
 ### Umfrageintervall
 Das Abfrageintervall kann auf der Registerkarte **Fahrzeuge & Ladegeräte** konfiguriert werden (1–60 Minuten, Standard: 5 Minuten).
@@ -236,8 +250,20 @@ Das Abfrageintervall kann auf der Registerkarte **Fahrzeuge & Ladegeräte** konf
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
 
+- (HombachC) updated tibber-api to 5.6.0
+
+### 7.2.0 (2026-07-30)
+
+- (HombachC) added polling of charger/wallbox devices from the Tibber Data API, written to `Chargers.<id>.*` (#925)
+- (HombachC) added a `LastSeen` state (device-reported last-seen timestamp) for vehicles and chargers
+
+### 7.1.5 (2026-07-12)
+
+- (HombachC) added a regression test confirming best single hours LTF no longer switches on the wrong day (#631)
+- (HombachC) worked around a Tibber server bug that returns `to` equal to `from` in weekly historical consumption data (#890)
 - (HombachC) removed redundant test devDependencies (chai, chai-as-promised, sinon-chai, proxyquire) and switched unit tests to Node's built-in assert
 
 ### 7.1.4 (2026-07-09)
@@ -259,21 +285,6 @@ Das Abfrageintervall kann auf der Registerkarte **Fahrzeuge & Ladegeräte** konf
 - (HombachC) updated adapter-core
 - (HombachC) fixed adapter checker warnings
 - (HombachC) updated dependencies
-
-### 7.1.1 (2026-06-07)
-
-- (HombachC) optimized vehicle states
-- (HombachC) fixed adapter checker warnings
-
-### 7.1.0 (2026-06-07)
-
-- (claude) added integration for vehicles(#67)
-- (HombachC) optimized documentation
-- (claude) added code documentation
-- (claude) performance optimization of event listeners
-- (HombachC) added current month consumption docu
-- (HombachC) updated release-script
-- (HombachC) fixed adapter checker warnings
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

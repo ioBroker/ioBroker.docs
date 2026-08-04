@@ -850,6 +850,12 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.0.2 (2026-08-03)
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 8.0.0 now
+- (@klein0r) admin 8.0.0 and js-controller 6.0.11 (or later) are required
+- (@klein0r) Updated dependencies
+
 ### 5.0.0-alpha.0 (2026-07-10)
 - (@GermanBluefox) Channel posts (from a channel where the bot is an admin) are now received and written to `communicate.request`/`communicate.requestChatId` (previously ignored)
 - (@GermanBluefox) Robustness: all `setState` calls now catch their errors (via a `setStateSafe` helper), so a failing state write can no longer cause an unhandled promise rejection
@@ -879,10 +885,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 - (@GermanBluefox) Fixed: a question timeout could drop other pending questions
 - (@GermanBluefox) Fixed: `communicate.responseSilentJson` acknowledged the wrong state
 - (@GermanBluefox) Fixed: removed a stray empty entry from the generated command keyboard
-- (copilot) Adapter requires node.js >= 22 now
-- (copilot) Adapter requires admin >= 7.7.22 now
-* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
-* (@klein0r) Updated dependencies
 
 ### 4.1.0 (2025-03-19)
 * (bluefox) Admin component was migrated to TypeScript
@@ -895,9 +897,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 
 ### 3.9.0 (2024-07-22)
 * (klein0r) Added option to send venue (with title and address)
-
-### 3.8.2 (2024-07-16)
-* (bluefox) Username can consist of more than one user. The separator is comma, semicolon or space.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

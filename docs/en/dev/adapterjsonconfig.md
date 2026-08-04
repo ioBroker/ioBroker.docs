@@ -1822,6 +1822,32 @@ The schema is used here: https://github.com/SchemaStore/schemastore/blob/6da29cd
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 9.0.16 (2026-08-03)
+- (@GermanBluefox) Updated packages
+
+### 9.0.14 (2026-07-31)
+- (@GermanBluefox) Updated packages
+
+### 9.0.9 (2026-07-30)
+- (@GermanBluefox) Improvement of I18n
+
+### 9.0.7 (2026-07-26)
+- (@GermanBluefox) Breaking: React 19 + MUI 9 + TS 6
+- (@GermanBluefox) Added loading of the new custom components
+
+### 8.5.5 (2026-07-24)
+- (@GermanBluefox) Trying to improve the behaviour of tabs
+
+### 8.5.4 (2026-07-23)
+- (@GermanBluefox) Corrected the displaying of zero number values
+- (@GermanBluefox) Trying to improve the behaviour of tabs
+
+### 8.5.3 (2026-07-20)
+- (@GermanBluefox) Changed the handling of Tabs
+
+### 8.5.0 (2026-07-12)
+- (@GermanBluefox) No functional updates, but only strict types for all components and attributes. This will help to avoid errors in the future.
+
 ### 8.4.15 (2026-07-04)
 - (@GermanBluefox) Extended Credentials Component with AWS and Azure
 

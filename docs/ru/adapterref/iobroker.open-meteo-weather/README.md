@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.open-meteo-weather/README.md
 title: ioBroker.open-meteo-weather
-hash: ZDtyYCv3+PZq9GWbyJ9HYdjGqTd6XEDq5f/Mq3OAUIA=
+hash: P3wB0xD3M87nzl+950W6I48jWGHiXibX2Df6hSxxLlo=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.open-meteo-weather.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.open-meteo-weather.svg)
@@ -30,6 +30,8 @@ hash: ZDtyYCv3+PZq9GWbyJ9HYdjGqTd6XEDq5f/Mq3OAUIA=
 
 Этот адаптер предоставляет точные данные о погоде, прогнозы, информацию о качестве воздуха, содержании пыльцы и прогнозы выработки фотоэлектрической энергии на основе [Open-Meteo.com](https://open-meteo.com/). Он бесплатен для некоммерческого использования (менее 10 000 вызовов API в день) и не требует регистрации ключа API, что делает процесс настройки чрезвычайно простым.
 
+Если адаптер столкнется с такими проблемами, как тайм-ауты или ошибки сервера, вы можете проверить [Статус сервера Open-Meteo](https://status.open-meteo.com/).
+
 ---
 
 ## Особенности Погода
@@ -45,9 +47,9 @@ hash: ZDtyYCv3+PZq9GWbyJ9HYdjGqTd6XEDq5f/Mq3OAUIA=
 ### Значки направления ветра
 В настройках адаптера можно выбрать один из двух стилей отображения направления ветра:
 
-* Направление ветра (куда дует ветер): Это стандартная настройка. Стрелка указывает направление ветра. (Например: при северном ветре стрелка указывает на юг).
+* Направление ветра (куда дует ветер): Это стандартная настройка. Стрелка указывает направление движения ветра. (Например: при северном ветре стрелка указывает на юг).
 
-* Источник ветра (место, откуда дует ветер): В этом стиле используются значки из подпапки direct_2. Стрелка указывает на источник ветра. (Пример: северный ветер обозначается стрелкой, указывающей на север, или конкретным значком «источника»).
+* Источник ветра (откуда дует ветер): В этом стиле используются значки из подпапки direct_2. Стрелка указывает на источник ветра. (Пример: северный ветер обозначается стрелкой, указывающей на север, или конкретным значком «источника»).
 
 |Настройки | Путь к значку | Поведение |
 |:---|:---|:---|
@@ -137,7 +139,7 @@ hash: ZDtyYCv3+PZq9GWbyJ9HYdjGqTd6XEDq5f/Mq3OAUIA=
 #### Если вам не нужны прогнозы погоды, оставьте поле «Местоположение» пустым, штаты вводиться не будут.
 
 ----
-## Функции: Прогноз солнечной активности (если включен)
+## Функции прогнозирования солнечной активности (если включено)
 * **Поддержка нескольких местоположений:** Поддержка нескольких фотоэлектрических систем/мест, например, для восточной/западной ориентации.
 * **Почасовой прогноз:** Подробный прогноз выходной мощности, температуры, облачности и продолжительности солнечного сияния.
 * **Ежедневный прогноз:** Сводка ожидаемого потребления энергии (Вт·ч) на срок до 14 дней.
@@ -170,7 +172,7 @@ hash: ZDtyYCv3+PZq9GWbyJ9HYdjGqTd6XEDq5f/Mq3OAUIA=
 
 Информация: для расчета температуры фотоэлектрического модуля необходимы параметры temperature_2m и wind_spread_10m.
 
-При необходимости эту опцию можно выбрать отдельно, в противном случае данные о погоде уже включены в расчеты.
+При необходимости эту опцию можно выбрать отдельно, в противном случае данные DP включены в прогноз погоды.
 
 | Точка данных | Единица измерения | Описание |
 | `cloud_cover` | % | Общая облачность в процентах. |
@@ -200,7 +202,7 @@ hash: ZDtyYCv3+PZq9GWbyJ9HYdjGqTd6XEDq5f/Mq3OAUIA=
 
 Информация: для расчета температуры фотоэлектрического модуля необходимы параметры temperature_2m и wind_spread_10m.
 
-При необходимости эту опцию можно выбрать отдельно, в противном случае данные о погоде уже включены в расчеты.
+При необходимости эту опцию можно выбрать отдельно, в противном случае данные DP включены в прогноз погоды.
 
 | Точка данных | Единица измерения | Описание |
 | `cloud_cover` | % | Общая облачность в процентах. |
@@ -283,10 +285,16 @@ hash: ZDtyYCv3+PZq9GWbyJ9HYdjGqTd6XEDq5f/Mq3OAUIA=
 * **Данные о погоде:** Все данные о погоде предоставлены сайтом [Open-Meteo.com](https://open-meteo.com/). Пожалуйста, ознакомьтесь с их условиями использования для коммерческих целей.
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.1.4 (2026-07-18)
 * (@GermanBluefox) upscaled the logo
 * (@GermanBluefox) Updated TS to 6
 * (@GermanBluefox) Corrected image in JsonConfig
+* (H5N1v2) Resize logo to 512x512
+* (pk68) fix: info.lastUpdate_PV_Forecast is no longer updated if all API calls failed or returned empty data.
+* (H5N1v2) fix: PV Forecast sunrise mode now retries automatically after 30 minutes if the API call fails (e.g. HTTP 500 overload). The next day's schedule is only planned after a successful update.
+* (H5N1v2) add open-meteo status link in adapter description and README.
+* (H5N1v2) fix: made OpenStreetMap link clickable in the admin area.
+* (H5N1v2) Update dependencie.
 
 ### 3.1.3 (2026-06-20)
 * (H5N1v2) Fixed an issue with object creation caused by an accidental change.
@@ -312,13 +320,6 @@ hash: ZDtyYCv3+PZq9GWbyJ9HYdjGqTd6XEDq5f/Mq3OAUIA=
 * (H5N1v2) Adapter internal widget adapted, hazards are highlighted in color (currently only in the internal adapter widget).
 * (copilot) Adapter requires node.js >= 22 now.
 * (H5N1v2) Update axios to v.1.16.0.
-
-### 3.0.1 (2026-04-25)
-* (H5N1) update dependencies
-* (H5N1) improve error handling in API calls with detailed messages
-* (H5N1) fix: attribute in jsonConfig.
-* (Negalein) fix: yellow help text in admin for pv-forecast extra dp's, poor recognition on white background
-* (H5N1v2) fix: update interval for pv-forecast "once before sunrise" time incorrectly calculated
 
 ## License
 This project is licensed under the **MIT License** - see the `LICENSE` file for details.

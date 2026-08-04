@@ -115,6 +115,9 @@ You can debug view charts locally with:
   -->
 
 ## Changelog
+### 5.0.0 (2026-08-03)
+- (@GermanBluefox) Update to ECharts 6.1.0 and React 19
+
 ### 4.0.0 (2026-06-07)
 - (copilot) Adapter requires node.js >= 22 now
 - (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
@@ -128,10 +131,6 @@ You can debug view charts locally with:
 
 ### 3.1.0 (2026-03-02)
 - (@GermanBluefox) Trying to rebuild the canvas by the start
-
-### 3.0.2 (2026-02-16)
-- (@GermanBluefox) Calculate values in the legend
-- (@GermanBluefox) Added noLoader option to the widget
 
 ## License
 

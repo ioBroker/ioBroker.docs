@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: iwbspMgdqO0nSwgSwN1TjS7hojgnazbna9VpDYzooIw=
+hash: Nf1qzWZZiTHeahfPb4tUJDxo9WHZScYRunGzwf0Vg64=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -50,7 +50,7 @@ hash: iwbspMgdqO0nSwgSwN1TjS7hojgnazbna9VpDYzooIw=
 — Сохраните настройки.
 
 ## Документация по данным о потреблении
-При включении функции ежедневного анализа исторического потребления адаптер предоставляет сводную информацию за текущий месяц:
+При включении функции ежедневного анализа исторического потребления адаптер предоставляет агрегированное состояние за текущий месяц:
 
 - `Homes.<HOME-ID>.Consumption.currentMonthConsumption`
 
@@ -77,7 +77,7 @@ hash: iwbspMgdqO0nSwgSwN1TjS7hojgnazbna9VpDYzooIw=
 Кроме того, средняя общая стоимость в определенном блоке записывается в состояние "AverageTotalCost", расположенное рядом с входными состояниями этого канала. Также в результате вычислений в состояния "BlockStartFullHour" и "BlockEndFullHour" записываются время начала и окончания блока.
 
 - "Лучший процент": Выводит "ДА" в самый дешевый час и в любые другие часы, когда цена попадает в диапазон процентов, указанный в настройках "Процент".
-- «Оптимальная стоимость в рамках ограниченного временного периода»: «Оптимальная стоимость» в рамках ограниченного временного периода.
+- «Оптимальная стоимость в рамках ограниченного временного периода»: «Оптимальная стоимость» в рамках ограниченного временного периода (LTF).
 - «Лучшие отдельные часы в рамках ограниченного временного интервала» (LTF): «Лучшие отдельные часы» в рамках ограниченного временного интервала (LTF).
 - "Блок лучших часов в рамках ограниченного временного интервала (LTF)": "Блок лучших часов" в рамках ограниченного временного интервала (LTF).
 - "Лучший процент в рамках ограниченного временного интервала": "Лучший процент" в рамках ограниченного временного интервала (LTF).
@@ -105,7 +105,7 @@ hash: iwbspMgdqO0nSwgSwN1TjS7hojgnazbna9VpDYzooIw=
 
 - Адаптер TibberLink создает состояние с именем `jsonFlexCharts`.
 
-                      <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts State">
+                            <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts State">
 
 — Адаптер FlexCharts отображает это состояние по следующему URL-адресу:
 
@@ -124,7 +124,7 @@ http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibb
 #### **Использование шаблонов JSON**
 — Состояние `jsonFlexCharts` генерируется на основе шаблона, настроенного через редактор JSON в параметрах адаптера.
 - Встроенный редактор JSON использует режим JSON5, поэтому допускаются комментарии и завершающие запятые.
-— Образец шаблона можно скачать по ссылке: [TemplateFlexChart01.md](docu/TemplateFlexChart01.md).
+— Пример шаблона можно скачать по ссылке: [TemplateFlexChart01.md](docu/TemplateFlexChart01.md).
 — Скопируйте и вставьте шаблон в редактор JSON.
 - Шаблон содержит заполнители:
 - `%%seriesData%%` (заполняется данными о ценах временного ряда во время выполнения).
@@ -216,14 +216,28 @@ Tibber использует два отдельных API, предназнач�
 Данные об автомобиле записываются в `Vehicles.<VIN>.*`:
 
 | Штат | Описание |
-| --------------------- | --------------------------------- |
+| --------------------- | -------------------------------------------- |
 | `ChargingStatus` | Текущий статус зарядки |
+| `LastSeen` | Отметка времени последнего наблюдения устройства пользователем Tibber |
 | `LastUpdated` | Отметка времени последнего обновления данных |
 | `PlugStatus` | Состояние подключения штепсельной вилки |
 | `Range` | Оставшийся запас хода в км |
 | `StateOfCharge` | Уровень заряда батареи в % |
 | `TargetStateOfCharge` | Целевой уровень заряда в % |
 | `Целевое состояние заряда` | Целевой уровень заряда в % |
+
+Данные о зарядном устройстве записываются в `Chargers.<id>.*`. Поскольку возможности зарядных устройств могут различаться у разных производителей (например, go-e, Wallbox Pulsar Plus), каждая сообщаемая возможность записывается в виде отдельного состояния, названного по идентификатору возможности Data API (точки заменены подчеркиваниями) и помеченного описанием, предоставленным API. Типичные состояния включают:
+
+| Штат | Описание |
+| ---------------------------------- | ------------------------------------------------ |
+| `connector_status` | Состояние разъема зарядного устройства |
+| `charging_current_max` | Максимально допустимый зарядный ток (А) |
+| `charging_current_offlineFallback` | Резервный ток при отключении зарядного устройства (А) |
+| `grid_phaseCount` | Количество фаз, используемых для зарядки |
+| `HomeId` | Идентификатор дома в Тиббере |
+| `LastSeen` | Отметка времени последнего наблюдения устройства пользователем Tibber |
+| `LastUpdated` | Отметка времени последнего обновления данных |
+| `ПоследнееОбновление` | Отметка времени последнего обновления данных |
 
 ### Интервал опроса
 Интервал опроса можно настроить на вкладке **Автомобили и зарядные устройства** (от 1 до 60 минут, по умолчанию: 5 минут).
@@ -237,8 +251,20 @@ Tibber использует два отдельных API, предназнач�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
 
+- (HombachC) updated tibber-api to 5.6.0
+
+### 7.2.0 (2026-07-30)
+
+- (HombachC) added polling of charger/wallbox devices from the Tibber Data API, written to `Chargers.<id>.*` (#925)
+- (HombachC) added a `LastSeen` state (device-reported last-seen timestamp) for vehicles and chargers
+
+### 7.1.5 (2026-07-12)
+
+- (HombachC) added a regression test confirming best single hours LTF no longer switches on the wrong day (#631)
+- (HombachC) worked around a Tibber server bug that returns `to` equal to `from` in weekly historical consumption data (#890)
 - (HombachC) removed redundant test devDependencies (chai, chai-as-promised, sinon-chai, proxyquire) and switched unit tests to Node's built-in assert
 
 ### 7.1.4 (2026-07-09)
@@ -260,21 +286,6 @@ Tibber использует два отдельных API, предназнач�
 - (HombachC) updated adapter-core
 - (HombachC) fixed adapter checker warnings
 - (HombachC) updated dependencies
-
-### 7.1.1 (2026-06-07)
-
-- (HombachC) optimized vehicle states
-- (HombachC) fixed adapter checker warnings
-
-### 7.1.0 (2026-06-07)
-
-- (claude) added integration for vehicles(#67)
-- (HombachC) optimized documentation
-- (claude) added code documentation
-- (claude) performance optimization of event listeners
-- (HombachC) added current month consumption docu
-- (HombachC) updated release-script
-- (HombachC) fixed adapter checker warnings
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

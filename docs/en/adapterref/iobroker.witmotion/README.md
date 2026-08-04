@@ -28,6 +28,9 @@ The following data are read and written to ioBroker:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.0.0 (2026-08-03)
+* (@GermanBluefox) Migrated to devices V3
+
 ### 1.0.0 (2026-06-27)
 * (@GermanBluefox) Added selection of the serial device by its stable USB ID (vendor/product/serial), so the connection keeps working even if the OS reassigns the port name
 * (@GermanBluefox) Better widget

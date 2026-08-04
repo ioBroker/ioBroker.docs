@@ -56,6 +56,10 @@ Wait some seconds until the cronjob collects the data for the first time.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) Added missing translations
+
 ### 6.0.1 (2026-05-05)
 
 * (copilot) Adapter requires node.js >= 22 now
@@ -87,6 +91,8 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 * (klein0r) Updated depedency for js-controller to 4.0.15
 * (klein0r) Dropped Admin 5 support
 * (klein0r) Added Ukrainian language
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

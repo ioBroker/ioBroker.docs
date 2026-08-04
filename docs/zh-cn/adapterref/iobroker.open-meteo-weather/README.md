@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.open-meteo-weather/README.md
 title: ioBroker.open-meteo-weather
-hash: ZDtyYCv3+PZq9GWbyJ9HYdjGqTd6XEDq5f/Mq3OAUIA=
+hash: P3wB0xD3M87nzl+950W6I48jWGHiXibX2Df6hSxxLlo=
 ---
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.open-meteo-weather.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.open-meteo-weather.svg)
@@ -28,7 +28,9 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 
 **适用于 ioBroker 的 OpenMeteo 天气和光伏预测服务适配器。**
 
-此适配器提供由[Open-Meteo.com](https://open-meteo.com/)支持的精确天气数据、预报、空气质量、花粉和光伏发电预报信息。它对非商业用途（每日API调用次数低于10,000次）免费，且无需注册API密钥，因此设置过程极其简单。
+此适配器提供由[Open-Meteo.com](https://open-meteo.com/)支持的精确天气数据、预报、空气质量、花粉和光伏发电预报信息。它对非商业用途（每日API调用次数低于10,000次）免费，无需注册API密钥，因此设置过程极其简单。
+
+如果适配器遇到超时或服务器错误等问题，您可以检查 [OpenMeteo 服务器状态](https://status.open-meteo.com/)。
 
 ---
 
@@ -45,7 +47,7 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 ### 风向图标
 在适配器设置中，您可以选择两种不同的风向显示样式：
 
-* 风向（风吹向哪里）：这是默认设置。箭头指向风的移动方向。（例如：北风时，箭头指向南方）。
+* 风向（风吹向的方向）：这是默认设置。箭头指向风的移动方向。（例如：北风时，箭头指向南方）。
 
 * 风向（风的来源方向）：此样式使用 direct_2 子文件夹中的图标。箭头指示风的来源。（例如：北风显示指向北方的箭头或特定的“来源”图标）。
 
@@ -144,7 +146,7 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 * **15分钟预报：** 当前日期未来24小时的15分钟预报。
 * **物理模拟：**
 * **倾斜角和方位角：**根据面板朝向计算辐照度。
-* **光伏组件温度：**考虑环境温度、辐射强度和风速的电池温度估算（Faiman 模型）。
+* **光伏组件温度：**考虑环境温度、辐射强度和风速的电池温度估算（费曼模型）。
 * **日照时长：** 将日照时长转换为每小时分钟数。
 * **汇总：**按日、小时和 15 分钟自动汇总所有地点（总预测）。
 * **系统集成：** 如果未手动设置，则从 ioBroker 系统配置自动获取位置坐标。
@@ -170,7 +172,7 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 
 信息：需要 temperature_2m 和 wind_spread_10m 来计算光伏组件温度。
 
-如有需要，可选择是否启用；否则，DP 将包含在天气信息中。
+可根据需要选择，否则 DP 包含在天气中。
 
 | 数据点 | 单位 | 描述 |
 | `cloud_cover` | % | 总云量百分比。 |
@@ -200,7 +202,7 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 
 信息：需要 temperature_2m 和 wind_spread_10m 来计算光伏组件温度。
 
-如有需要，可选择是否启用；否则，DP 将包含在天气信息中。
+可根据需要选择，否则 DP 包含在天气中。
 
 | 数据点 | 单位 | 描述 |
 | `cloud_cover` | % | 总云量百分比。 |
@@ -283,10 +285,16 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 * **天气数据：**所有天气数据均由[Open-Meteo.com](https://open-meteo.com/)提供。请查看其商业用途使用条款。
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.1.4 (2026-07-18)
 * (@GermanBluefox) upscaled the logo
 * (@GermanBluefox) Updated TS to 6
 * (@GermanBluefox) Corrected image in JsonConfig
+* (H5N1v2) Resize logo to 512x512
+* (pk68) fix: info.lastUpdate_PV_Forecast is no longer updated if all API calls failed or returned empty data.
+* (H5N1v2) fix: PV Forecast sunrise mode now retries automatically after 30 minutes if the API call fails (e.g. HTTP 500 overload). The next day's schedule is only planned after a successful update.
+* (H5N1v2) add open-meteo status link in adapter description and README.
+* (H5N1v2) fix: made OpenStreetMap link clickable in the admin area.
+* (H5N1v2) Update dependencie.
 
 ### 3.1.3 (2026-06-20)
 * (H5N1v2) Fixed an issue with object creation caused by an accidental change.
@@ -312,13 +320,6 @@ Open Meteo Weather 和 Open Meteo PV Forecast 现已合并到此适配器中。O
 * (H5N1v2) Adapter internal widget adapted, hazards are highlighted in color (currently only in the internal adapter widget).
 * (copilot) Adapter requires node.js >= 22 now.
 * (H5N1v2) Update axios to v.1.16.0.
-
-### 3.0.1 (2026-04-25)
-* (H5N1) update dependencies
-* (H5N1) improve error handling in API calls with detailed messages
-* (H5N1) fix: attribute in jsonConfig.
-* (Negalein) fix: yellow help text in admin for pv-forecast extra dp's, poor recognition on white background
-* (H5N1v2) fix: update interval for pv-forecast "once before sunrise" time incorrectly calculated
 
 ## License
 This project is licensed under the **MIT License** - see the `LICENSE` file for details.

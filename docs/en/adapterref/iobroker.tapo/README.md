@@ -377,6 +377,15 @@ Nicht jede Kamera unterstuetzt alle Funktionen. Nicht unterstuetzte Befehle werd
 <https://forum.iobroker.net/topic/57336/test-adapter-tp-link-tapo/>
 
 ## Changelog
+### 0.6.0 (2026-07-30)
+
+- Fix camera login for newer firmware (FW 1.4.3+, e.g. C200 1.4.4)
+- Use the Camera Account credentials (Stream Username/Password) for local camera login
+- Try camera default credentials (admin, LV3 built-in) when the password is rejected
+- TPAP/SPAKE2+ fallback for cameras that no longer use the stok login
+- Stop amplifying device lockouts: no repeated login attempts while a camera is suspended
+- Actionable, rate-limited camera log messages (Camera Account / Third-Party Compatibility hints)
+
 ### 0.5.5 (2026-05-25)
 
 - added udp detection for better device detection

@@ -427,8 +427,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.1.2 (2026-07-16)
 * (MyHomeMyData) Fixed missing update of meta data (unit, description) when user changes device specific data point definition
 
 ### 1.1.1 (2026-07-06)

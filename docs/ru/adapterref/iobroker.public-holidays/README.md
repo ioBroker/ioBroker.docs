@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.public-holidays/README.md
 title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
-hash: T6oMPK3DnlFoIGGOGos24eOad5mNisShE3ZUiM5om6I=
+hash: 1LNxxnDrKwoDzUsDump+J/CSzNAaTAeRz2lJtTa/aDk=
 ---
 # <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
 
@@ -53,7 +53,7 @@ hash: T6oMPK3DnlFoIGGOGos24eOad5mNisShE3ZUiM5om6I=
 | Штат / Провинция | Выпадающее меню — отображается только для стран с штатами (например, Германия, Швейцария, США) |
 | Регион | Выпадающий список — отображается только в том случае, если выбранный штат имеет регионы |
 
-Если поле **Страна** оставить пустым, она будет автоматически определена в системных настройках ioBroker (Системные настройки → Страна). Рекомендуется явно выбрать эту страну.
+Если поле **Страна** оставить пустым, она будет автоматически определена в системных настройках ioBroker (Системные настройки → Страна). Рекомендуется явно выбрать это поле.
 
 ### Вкладка 2 — Праздники
 | Настройки | Описание |
@@ -71,19 +71,19 @@ hash: T6oMPK3DnlFoIGGOGos24eOad5mNisShE3ZUiM5om6I=
 public-holidays.0.
 ├── today.
 │   ├── name         string    "Karfreitag" / "Good Friday"
-│   └── boolean      boolean   true / false
+│   └── isHoliday    boolean   true / false
 ├── yesterday.
 │   ├── name         string
-│   └── boolean      boolean
+│   └── isHoliday    boolean
 ├── tomorrow.
 │   ├── name         string
-│   └── boolean      boolean
+│   └── isHoliday    boolean
 ├── dayAfterTomorrow.
 │   ├── name         string
-│   └── boolean      boolean
+│   └── isHoliday    boolean
 └── next.
     ├── name         string    next holiday name (localized)
-    ├── boolean      boolean   true when an upcoming holiday exists
+    ├── isHoliday    boolean   true when an upcoming holiday exists
     ├── date         string    "2026-12-25" (ISO date)
     └── daysUntil    number    days until holiday
 ```
@@ -107,7 +107,7 @@ public-holidays.0.
 **Праздник не обнаружен** — Некоторые праздники классифицируются как `observance`, а не `public`. При необходимости включите этот тип празднования в настройках праздника.
 
 ## Благодарности
-Пакет npm изначально был зарегистрирован пользователем [Джей Си](https://github.com/Jey-Cee). Этот адаптер полностью переписан и не содержит общего кода.
+Идея восходит к адаптеру `feiertage` от pix, который изначально предоставил данные о праздниках для ioBroker. Спасибо [Джей Си](https://github.com/Jey-Cee) за предоставленное имя пакета `public-holidays`. Этот адаптер является независимой реализацией и не использует общий код ни с одним из них.
 
 ## Поддерживать
 - [Проблемы на GitHub](https://github.com/krobipd/ioBroker.public-holidays/issues) — сообщения об ошибках, запросы на добавление новых функций
@@ -124,6 +124,11 @@ public-holidays.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.11.0 (2026-07-12)
+
+- Breaking change: the states that flag whether each day is a holiday were renamed for clarity — update any scripts or views that read them.
+- Refreshed the built-in holiday data, adding newly recognised regional holidays.
+
 ### 0.10.0 (2026-07-02)
 
 - The "next holiday" date and days-until states now show up correctly as a date and a day count in VIS widgets and scripts (they carry the proper ioBroker role and a "days" unit).
@@ -144,10 +149,6 @@ public-holidays.0.
 ### 0.7.1 (2026-06-12)
 
 - Internal refactoring. No user-facing changes.
-
-### 0.7.0 (2026-06-07)
-
-- Added optional Sentry error reporting: crashes are sent to the developer so issues get fixed faster. Active only with ioBroker diagnostics enabled; anonymous.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

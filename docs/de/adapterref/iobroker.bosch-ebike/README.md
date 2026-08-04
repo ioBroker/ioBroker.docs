@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bosch-ebike/README.md
 title: ioBroker.bosch-ebike
-hash: FFYmulm05/mMJR7iazCpBbpKu3Ara/b79d2BHM6vzW8=
+hash: wzLPuCrHre3fpxHeA6iEYwglR72p8yp95ZWAc7cYAAI=
 ---
 ![Logo](../../../en/adapterref/iobroker.bosch-ebike/admin/bosch-ebike.png)
 
@@ -17,19 +17,36 @@ hash: FFYmulm05/mMJR7iazCpBbpKu3Ara/b79d2BHM6vzW8=
 # IoBroker.bosch-ebike
 **Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.bosch-ebike/workflows/Test%20and%20Release/badge.svg)
 
-## Bosch-Ebike-Adapter für ioBroker
-Adapter für Bosch eBike
+## Bosch-E-Bike-Adapter für ioBroker
+Adapter für Bosch E-Bike
 
-## Loginablauf
+## Anmeldeablauf
 Die Bosch eBike Mail und Passwort eingeben.
 
 ## Steuern
 bosch-ebike.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
+## Wächter
+Dieser Adapter verwendet die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
 ## Diskussion und Fragen
 <https://forum.iobroker.net/topic/55902/test-adapter-bosch-ebik-connect-flow>
 
 ## Changelog
+### 0.1.13 (2026-07-17)
+- battery state added
+
+### 0.1.12 (2025-01-14)
+
+- fix for login use code url instead of captcha
+
+### 0.1.11 (2025-01-03)
+
+- fix for login. Deletion of the instance is necessary if the settings screen is not loading.
+
+### 0.1.9 (2024-11-25)
+
+- fix for login
 
 ### 0.1.5
 
@@ -43,7 +60,7 @@ bosch-ebike.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

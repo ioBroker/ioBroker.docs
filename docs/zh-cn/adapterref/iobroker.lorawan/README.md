@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lorawan/README.md
 title: ioBroker.lorawan
-hash: +2AvOJrUWLBQdvNOzwMRYXj8fqtf7D2p6OcPUqw847k=
+hash: AOaW3UL+UDJqAutbad6mjpv/kwO+s5DpF1/XcI+jx+Q=
 ---
 ![标识](../../../en/adapterref/iobroker.lorawan/admin/lorawan.png)
 
@@ -24,6 +24,15 @@ hash: +2AvOJrUWLBQdvNOzwMRYXj8fqtf7D2p6OcPUqw847k=
 该适配器由 Joerg Froehner（LoraWan@hafenmeister.com）合作开发。
 
 文档 Wiki 在这里：https://github.com/BenAhrdt/ioBroker.lorawan/wiki<br/>目前英文文档可在此处找到：https://wiki.hafenmeister.de
+
+## 免责声明
+商标和公司名称的权利仍归其所有者所有，与本适配器无关。适配器的运营者必须继续遵守合理使用原则。如果此仓库被 fork，则必须注明其为来源。
+
+LoRa® 是 Semtech Corporation 或其关联公司的注册商标或服务标志。
+
+LoRaWAN® 是注册商标。
+
+我与文中提及的品牌及其子公司、标志或商标没有任何关联，也没有得到它们的认可。
 
 ## Changelog
 <!--

@@ -140,6 +140,10 @@ sendTo("parcelapp.0", "addDelivery", {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.10.1 (2026-07-13)
+
+- Internal refactoring. No user-facing changes.
+
 ### 0.10.0 (2026-07-08)
 
 - Fixed: the admin "Test Connection" button now reports real failures — before, it always showed "Ok" even with a wrong API key.
@@ -165,10 +169,6 @@ sendTo("parcelapp.0", "addDelivery", {
 
 - Much quieter state updates: a package's last-updated timestamp now only changes when its tracking data actually changed, and device entries are no longer rewritten on every poll
 - Adding a delivery with a malformed request now returns a clear error message instead of failing cryptically
-
-### 0.7.1 (2026-06-09)
-
-- Fixed a timezone edge case in delivery estimates: when the API reports only a calendar date, the estimate could be off by a day in time zones west of UTC — now stable everywhere.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

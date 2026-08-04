@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solectrus-influxdb/README.md
 title: ioBroker.solectrus-influxdb
-hash: hREJONcmWVlz+RGZBoLlhW69OrWB/0boOuaM9/wpUi8=
+hash: JHPwGaT91ji+0fxuhPS25CONJln74BWFSiV0DKVrAIU=
 ---
 # IoBroker.solectrus-influxdb
 
@@ -55,6 +55,7 @@ Es ist für Energiemonitoringsysteme wie Photovoltaikanlagen, Batteriespeicher, 
 
 ### Anforderungen
 - ioBroker >= neueste stabile Version
+- **ioBroker.admin >= 8.0.0** - **erforderlich seit Version 2.0.0**, die Admin-Oberfläche funktioniert nicht mehr unter Admin 6/7 (siehe Changelog)
 - Node.js >= 22
 - InfluxDB 2.x
 
@@ -65,8 +66,10 @@ Es ist für Energiemonitoringsysteme wie Photovoltaikanlagen, Batteriespeicher, 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.0.0 (2026-08-03)
+* (patricknitsch) **BREAKING CHANGE:** Requires ioBroker.admin 8 (currently Alpha) or newer. Admin 8 introduced a new "GUI API generation" for custom jsonConfig components (React 19 / MUI 9, `@iobroker/gui-components`) with no backward compatibility, so the Sensors, Data Values and Backup tabs no longer load on Admin 6/7. Do **not** update to this version unless ioBroker.admin has already been updated to version 8.
+* (patricknitsch) Rebuild the admin UI (sensors editor, Data-SOLECTRUS items editor, backup panel) as a proper Vite + Module Federation build (`src-admin/`) targeting `@iobroker/gui-components`, replacing the hand-written vanilla-JS Module Federation containers
+* (patricknitsch) Log a clear error and set `info.lastError` at startup if the installed ioBroker.admin is below version 8, so an incompatible setup is immediately visible instead of a silent/confusing failure in the config dialog
 * (patricknitsch) Cleanup i18n
 * (copilot) Fix timeout for Backup Manager
 
@@ -88,10 +91,6 @@ Es ist für Energiemonitoringsysteme wie Photovoltaikanlagen, Batteriespeicher, 
 * (copilot) Migrate old config to new(now no Datapoints will be generated)
 * (copilot) Fix some small possible issues
 * (copilot) Update Docs
-
-### 1.10.0 (2026-06-06)
-* (copilot) Add internal sensors (mirrored/monitored, but not written to InfluxDB) so they can also be used for interval and value checks
-* (copilot) Add sensor folder/group support and document sensor status/group behavior
 
 **Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
 

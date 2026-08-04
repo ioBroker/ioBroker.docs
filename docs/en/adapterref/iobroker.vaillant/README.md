@@ -13,31 +13,33 @@
 
 ## vaillant adapter for ioBroker
 
-Vaillant multiMatic und myVaillant Adapter
+Vaillant multiMatic and myVaillant adapter
 
 ### Getting started
 
-In den Instanzoptionen mail und password der multimatic /senso oder myVaillant app eingeben.
+Enter the mail and password of the multimatic/senso or myVaillant app in the instance options.
 
-Configuration können geändert werde in dem sie unter dem Unterpunkt configuration angepasst werden. Manche configuration werden erst angewendet wenn der Modus auf ON oder MANUAL ist und nicht AUTO oder TIME_CONTROLLED
+The myVAILLANT login is handled automatically, including Vaillant's login protection - you only need your email and password. The session is kept across restarts, so the adapter does not log in from scratch every time.
 
-## **Beispiel Mutlimatic:**
+Configurations can be changed by adjusting them under the configuration sub-item. Some configurations are only applied when the mode is ON or MANUAL and not AUTO or TIME_CONTROLLED.
 
-**Warmwasser**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint
-**Heizung**:
-Erst auf MANUAL
+## **Example multimatic:**
+
+**Hot water**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint
+**Heating**:
+First set to MANUAL
 vaillant.0.serialnummber.systemcontrol/tli.zones03.heating.configuration.operation_mode
 MANUAL
-Dann die Temperatur
+Then the temperature
 vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_temperature_setpoint
-Und am Ende operation_mode auf TIME_CONTROLLED
+And finally set operation_mode to TIME_CONTROLLED
 
-Parameter können über den Punkt parameterValue angepasst werden dabei beachten welche Werte im Objekt definition erlaubt sind.
+Parameters can be adjusted via the parameterValue item. Note which values are allowed in the definition object.
 
-## **Beispiel myVaillant:**
+## **Example myVaillant:**
 
-vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost auf true/false setzen um den Boost zu aktivieren oder deaktivieren
-vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint um die RaumTemperatur zu setzen
+vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost set to true/false to enable or disable the boost
+vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint to set the room temperature
 vaillant.0.id.systemControlState.controlState.zones01.setBackTemperature
 vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode OFF MANUAL TIME_CONTROLLED
 vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode OFF MANUAL TIME_CONTROLLED
@@ -47,6 +49,21 @@ vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode O
 For Refresh and predefined
 `vaillant.0.id.remote`
 
+Predefined remote states under `vaillant.0.id.remote`:
+
+- `Refresh` / `RefreshStats` - trigger a data refresh
+- `boost` - domestic hot water boost (on/off)
+- `quickVeto` + `duration` - quick veto zone temperature (0 to disable)
+- `ventilationBoost` - ventilation boost (on/off)
+- `coolingForDays` - cooling for N days (0 = cancel)
+- `eebusEnabled` - enable/disable the EEBUS interface
+- `holiday` - holiday/away mode as json, e.g. `{"startDateTime":"2024-01-01T00:00:00.000Z","endDateTime":"2024-01-07T23:59:59.999Z","setpoint":10}`. Send an empty value (or `{}`) to cancel. `setpoint` is required for vrc700 controllers and rejected for tli. Malformed json is ignored (no request sent).
+- `ventilationOperationMode` / `ventilationFanStage` - use together with `ventilationIndex` to address the ventilation unit. `ventilationFanStage` also uses `ventilationFanStageType` (DAY or NIGHT).
+- `customCommand` - see below
+
+Read-only extra data (ported from mypyllant) appears under:
+`vaillant.0.id.troubleCodes`, `.rts`, `.mpc`, `.energyManagement`, `.eebus`
+
 ## Custom Command
 
 You can use custom Commmand remote for not predefined remotes
@@ -54,7 +71,7 @@ You can use custom Commmand remote for not predefined remotes
 
 ### Examples:
 
-## Die zone kann von 0 bis X gehen. Bitte zone/0/ oder zone/2/ testen
+## The zone can range from 0 to X. Please test zone/0/ or zone/2/
 
 zone/0/xxxx
 
@@ -133,7 +150,7 @@ zone/2/xxxx
 ```
 
 ```json
-{w
+{
   "url": "ventilation/0/day-fan-stage",
   "data": { "maximumDayFanStage": 3 }
 }
@@ -251,8 +268,25 @@ zone/2/xxxx
 ```
 
 ## Changelog
+### 1.0.3 (2026-07-28)
+ - fix writing hot water (dhw), circuit and ventilation settings from the objects (VRC700)
+ - clearer log message with a customCommand example when a value is not directly writable
 
-<!-- ### **WORK IN PROGRESS** -->
+### 1.0.2 (2026-07-26)
+ - fix changing values like temperature and operation mode from the objects (VRC700). Zone and hot water settings now write to the correct endpoint
+
+### 1.0.1 (2026-07-24)
+ - replaced the deprecated request library with axios
+ - migrated to @iobroker/eslint-config and updated dependencies
+ - require Node.js 22 and various repository fixes
+
+### 1.0.0 (2026-07-24)
+ - fix myVAILLANT login. Please enter your password again
+ - stay logged in after a restart
+ - new settings page - please open the settings and enter your password again
+ - new data: fault codes, energy and EEBUS info
+ - new controls: ventilation, cooling days and holiday mode
+
 ### 0.7.5 (2025-07-09)
  - revert change to fix save issue
 
@@ -304,7 +338,7 @@ zone/2/xxxx
 
 MIT License
 
-Copyright (c) 2020-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2020-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -45,6 +45,11 @@ Examples:
 ## Changelog
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+### 1.7.10 (2026-08-03)
+* chore(deps-dev): bump @iobroker/testing from 5.2.2 to 5.3.0
+* chore(deps-dev): bump @types/node from 25.9.4 to 25.9.5
+* chore(deps-dev): bump axios from 1.16.0 to 1.18.1
+
 ### 1.7.9 (2026-07-03)
 * chore(deps-dev): bump @types/node from 25.9.1 to 25.9.4
 * chore(deps-dev): bump @alcalzone/release-script from 5.2.0 to 5.2.1

@@ -283,6 +283,27 @@ New features are added regularly – please refer to the changelog.
 ---
 
 ## Changelog
+### 1.4.4 (2026-07-31)
+
+- Fixed a race condition in the Auto-PV helper that could occur during rapid updates of PV generation and household power values.
+- Added a short debounce for PV and household power events to ensure calculations always use the latest matching values.
+- Replaced the previous throttle mechanism with a serialized recalculation workflow to prevent overlapping asynchronous recalculations.
+- Added an internal "latest run wins" protection so outdated recalculations can no longer overwrite newer results or trigger outdated pump decisions.
+- The existing Auto-PV holding logic introduced in v1.4.1 remains unchanged.
+- `photovoltaic.power_surplus_w` continues to represent the real remaining PV surplus (`PV generation - household consumption`).
+- Existing Auto-PV features such as afterrun, circulation handling, solar overheating protection and controlHelper priority remain fully compatible.
+
+### 1.4.3 (2026-07-25)
+
+- Fixed restoration of the previous pump mode after maintenance mode and automatic circulation catch-up runs.
+- Maintenance mode now restores the previous valid user mode even after an adapter restart.
+- Maintenance mode and automatic catch-up runs now use separate restore values and can no longer overwrite each other.
+- Invalid values such as `null`, empty values, or internal helper modes are no longer written back to `pump.mode`.
+- Automatic circulation catch-up runs no longer start while maintenance mode is active.
+- Starting maintenance mode during an active catch-up run now stops the catch-up process cleanly before maintenance takes control.
+- Added validation to the pump-mode restoration after backwashing.
+- The existing overload protection remains unchanged and continues to switch `pump.mode` to `off` when an overload is detected.
+
 ### 1.4.2 (2026-07-01)
 
 - Fixed monthly temperature statistics reset scheduling
@@ -309,22 +330,6 @@ New features are added regularly – please refer to the changelog.
 - Added an optional temperature-dependent circulation factor that automatically increases the required daily circulation based on a selectable temperature sensor and configurable threshold.
 - Extended the existing time control with an optional interval mode. Each time window can now operate either continuously or in configurable intervals without introducing a new pump mode.
 - Added new diagnostic states and multilingual status messages to improve transparency and troubleshooting for the new circulation and time control features.
-
-### 1.3.35 (2026-06-29)
-
-- Fixed an inconsistency in the daily circulation calculation.
-- `circulation.daily_remaining` is now recalculated together with `circulation.daily_required`.
-- Changing the pool size or minimum daily circulation now produces consistent values immediately after adapter restart.
-- The remaining daily circulation is no longer blocked by zero flow or a stopped pump.
-
-### 1.3.34 (2026-06-27)
-
-- **Major stability improvement:** Completely redesigned the internal chemistry history (pH, ORP and TDS) to prevent unbounded JSON state growth. This significantly reduces the risk of oversized `states.jsonl` files and potential js-controller startup failures.
-- **New two-stage history architecture:** Chemistry history now uses a compact short-term history for recent measurements together with a dedicated daily history for long-term trends. All existing 24-hour, 7-day and 30-day trend calculations and reports remain fully available.
-- **Protected history storage:** Added strict limits for chemistry history sample count and JSON size. Oversized or invalid history states are now safely detected, validated and handled before being processed.
-- **Daily aggregates introduced:** Added compact daily aggregates for pH, ORP and TDS containing minimum, maximum, average and last measurement together with the number of valid samples. This preserves long-term trend analysis without storing large raw histories.
-- **Additional safeguards:** Added size protection for the solar logbook and debug log to prevent uncontrolled state growth.
-- **Maintenance:** Updated the `@iobroker/adapter-core` dependency to the latest recommended version.
 
 ## Archived Release History
 

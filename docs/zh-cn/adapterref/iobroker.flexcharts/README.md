@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: 76o0DZZcuwEOPU4zsiT6wpiWJ2rU5y77tKq5tDIEEts=
+hash: TquQJMoNTECgGiEbJLwiAnl85fbw3J4Hor0CJIbjvEI=
 ---
 ![标识](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -245,9 +245,10 @@ callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":
 | [模板5](templates/flexchartsTemplate5.js) | 具有动态深色模式切换的自定义主题 |
 | [模板6](templates/flexchartsTemplate6.js) | **适合初学者：** 能源概览 — 堆叠条形图，数据来自历史适配器 |
 | [模板7](templates/flexchartsTemplate7.js) | **适合初学者：** 仪表盘图表显示当前状态值（电池、光伏、热泵、传感器）— 响应式 SSE 更新 |
-| [template7](templates/flexchartsTemplate7.js) | **适合初学者：** 仪表盘图表显示当前状态值（电池、光伏、热泵、传感器）— 响应式 SSE 更新 |
+| [模板8](templates/flexchartsTemplate8.js) | 地图图表 — 使用自定义 GeoJSON 地图，将饼图叠加在地理地图（冰岛）上 |
+| [template8](templates/flexchartsTemplate8.js) | 地图图表 — 使用自定义 GeoJSON 地图，将饼图叠加在地理地图（冰岛）上 |
 
-更多示例和资源
+## 更多示例和资源
 ### 食谱（分步指南）
 刚接触 flexcharts 或 ECharts？**[弹性图表维基](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki)** 提供了一系列循序渐进的教程文章，指导您从静态图表过渡到完全实时、交互式的仪表板：
 

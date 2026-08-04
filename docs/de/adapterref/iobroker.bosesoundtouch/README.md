@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bosesoundtouch/README.md
 title: ioBroker.bosesoundtouch
-hash: UIuNWeecy5izhYdfQFSTQpoFV4kTaU+3tUfHe/ATGTk=
+hash: tRUq1CtamiFkHWUlCmVlUJHHrhkrWRQqGJrM8+mYHvU=
 ---
 ![Logo](../../../en/adapterref/iobroker.bosesoundtouch/admin/bosesoundtouch.png)
 
@@ -12,196 +12,116 @@ hash: UIuNWeecy5izhYdfQFSTQpoFV4kTaU+3tUfHe/ATGTk=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bosesoundtouch.svg)
 
 # IoBroker.bosesoundtouch
-![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.bosesoundtouch/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bosesoundtouch/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.bosesoundtouch/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bosesoundtouch/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-Bose SoundTouch-Adapter für die ioBroker IoT-Plattform
+Bose SoundTouch Adapter für die ioBroker IoT-Plattform
 
-## Steuerzustände
-Um Ihren Lautsprecher zu steuern, können die folgenden Objekte geschrieben werden:
+## Kontrollzustände
+Zur Steuerung Ihres Lautsprechers können folgende Objekte geschrieben werden:
 
-| Zustand | Beschreibung |
+| Bundesland | Beschreibung |
 | :---           | :---        |
-| Schlüssel | Einer der folgenden Schlüssel zum Senden:<br><br> ABSPIELEN<br> PAUSE<br> PAUSE<br> PREV_TRACK<br> NÄCHSTER TITEL<br> DAUMEN HOCH<br> DAUMEN RUNTER<br> LESEZEICHEN<br> ENERGIE<br> STUMM<br> LAUTSTÄRKE_UP<br> LAUTSTÄRKE RUNTER<br> PRESET_1<br> PRESET_2<br> PRESET_3<br> PRESET_4<br> PRESET_5<br> VOREINSTELLUNG_6<br> AUX_INPUT<br> SHUFFLE_OFF<br> SHUFFLE_ON<br> REPEAT_OFF<br> REPEAT_ONE<br> WIEDERHOLE ALLES<br> SPIELPAUSE<br> FAVORIT HINZUFÜGEN<br> REMOVE_FAVORITE<br> UNGÜLTIGER_SCHLÜSSEL |
-| stumm | Schalten Sie das Gerät stumm oder heben Sie die Stummschaltung auf. |
-| auf | Schalten Sie das Gerät ein oder aus. |
-| playEverywhere | Definieren Sie den Lautsprecher als Zonenmaster und spielen Sie seinen Inhalt auf allen anderen Lautsprechern ab. |
-| Volumen | Ändern Sie die Gerätelautstärke zwischen 0 und 100. |
+| Schlüssel | Einer der folgenden Schlüssel zum Senden:<br><br> SPIELEN<br> PAUSE<br> STOPPEN<br> VORHERIGER TRACK<br> NÄCHSTER TRACK<br> DAUMEN HOCH<br> DAUMEN RUNTER<br> LESEZEICHEN<br> LEISTUNG<br> STUMM<br> LAUTSTÄRKE_UP<br> LAUTSTÄRKE_LEISER<br> VOREINSTELLUNG_1<br> VOREINSTELLUNG_2<br> VOREINSTELLUNG_3<br> VOREINSTELLUNG_4<br> VOREINSTELLUNG_5<br> VOREINSTELLUNG_6<br> AUX_INPUT<br> ZUFALLSPASS_AUS<br> ZUFALLSFUNKTION AN<br> WIEDERHOLUNG AUS<br> WIEDERHOLEN_EINS<br> ALLE WIEDERHOLEN<br> Wiedergabe/Pause<br> HINZUFÜGEN_ZU_FAVORITEN<br> FAVORITEN ENTFERNEN<br> UNGÜLTIGER_SCHLÜSSEL |
+| stummgeschaltet | Gerät stummschalten oder Stummschaltung aufheben. |
+| ein | Gerät ein- oder ausschalten. |
+| überall abspielen | Definieren Sie einen Lautsprecher als Zonenmaster und geben Sie dessen Inhalte auf allen anderen Lautsprechern wieder. |
+| Lautstärke | Ändern Sie die Gerätelautstärke zwischen 0 und 100. |
+| Livestream | Spielen Sie direkt einen HTTP/HTTPS-Audio-Livestream ab. Z. B. http://liveradio.swr.de/sw282p3/swr3/play.mp3 |
 
-## Info Staaten
-Die folgenden Informationen werden von Ihrem Lautsprecher erfasst (schreibgeschützte Zustände):
+## Info-Staaten
+Folgende Informationen werden von Ihrem Lautsprecher (schreibgeschützter Zustand) erfasst:
 
 ### Geräteinformationen
-| Zustand | Beschreibung |
+| Bundesland | Beschreibung |
 | :---       | :---        |
-| IP-Adresse | Die IP-Adresse des Geräts, normalerweise dieselbe, die Sie in den Adaptereinstellungen konfiguriert haben. |
-| macAdresse | Die MAC-Adresse des Geräts |
-| Name | Der Name, den Sie mit Ihrer SoundTouch App konfiguriert haben. |
+| ipAddress | Die IP-Adresse des Geräts, normalerweise dieselbe, die Sie in den Adaptereinstellungen konfiguriert haben. |
+| macAddress | Die MAC-Adresse des Geräts |
+| Name | Der Name, den Sie in Ihrer SoundTouch App konfiguriert haben. |
 | Typ | Der Gerätetyp (z. B. SoundTouch 300). |
 
-### Läuft gerade
-| Zustand | Beschreibung |
+### Aktuell läuft
+| Bundesland | Beschreibung |
 | :---       | :---        |
-| Album | Das aktuell wiedergegebene Album. |
-| Kunst | Die URL der Quellgrafik. |
-| Künstler | Der aktuell spielende Interpret. |
-| Gattung | Das Genre des aktuell wiedergegebenen Titels. |
-| Quelle | Der Typ oder Name des wiedergegebenen Dienstes. Um festzustellen, ob sich das Produkt im Standby-Modus befindet, prüfen Sie, ob source == STANDBY. |
-| Bahnhof | Der Name des Senders oder der Wiedergabeliste. |
-| verfolgen | Der aktuell wiedergegebene Titel. |
+| Album | Das aktuell abgespielte Album. |
+| Kunst | Die URL des Quellbildes. |
+| Künstler | Der aktuell spielende Künstler. |
+| Genre | Das Genre des aktuell abgespielten Titels. |
+| Quelle | Die Art oder der Name des wiedergegebenen Dienstes. Um festzustellen, ob sich das Produkt im Standby-Modus befindet, prüfen Sie, ob Quelle == STANDBY. |
+| Sender | Der Name des Senders oder der Playlist. |
+| Titel | Der aktuell abgespielte Titel. |
 
 ### Voreinstellungen
-Die folgenden Zustände sind für jede der 6 verfügbaren Voreinstellungen vorhanden:
+Für jede der 6 verfügbaren Voreinstellungen sind folgende Zustände vorhanden:
 
-| Zustand | Beschreibung |
+| Bundesland | Beschreibung |
 | :---       | :---        |
-| SymbolUrl | Die URL der Quellgrafik. |
-| Name | Der Name des Albums, des Senders, der Wiedergabeliste, des Titels, des Telefons usw. je nach Quelle. |
-| Quelle | Der Typ oder Name des Dienstes. |
+| iconUrl | Die URL des Quellbildes. |
+| Name | Der Name des Albums, Senders, der Playlist, des Liedes, der Telefonnummer usw., abhängig von der Quelle. |
+| Quelle | Die Art oder der Name des Dienstes. |
 
 ### Zonen
-Die folgende Beschreibung hilft Ihnen, Gruppen mit Ihrem Multiroom-System zu erstellen. Die schreibgeschützten Felder werden von den Soundtouch-Geräten automatisch aktualisiert, auch wenn Sie die Gruppen von der Soundtouch-Anwendung selbst ändern.
+Die folgende Beschreibung hilft Ihnen beim Erstellen von Gruppen in Ihrem Multiroom-System. Die schreibgeschützten Felder werden von den SoundTouch-Geräten automatisch aktualisiert, auch wenn Sie die Gruppen über die SoundTouch-App ändern.
 
-| Zustand | Beschreibung |
+| Bundesland | Beschreibung |
 | :---       | :---        |
-| MeisterVon | Anzeige der MAC-Adressen der Slaves eines Lautsprechers (getrennt durch „;“) (schreibgeschützt) |
-| MitgliedVon | Zeigt die MAC-Adresse des Masters dieses Lautsprechers an (schreibgeschützt)|
-| addMasterOf| Fügen Sie die MAC-Adresse des Lautsprechers hinzu, den Sie diesem Master-Lautsprecher hinzufügen möchten. Es ist auch möglich, mehr als einen Lautsprecher zu platzieren (unterteilt durch ";").|
-| entferneMasterOf| Fügen Sie die MAC-Adresse des Lautsprechers hinzu, den Sie von diesem Master-Lautsprecher entfernen möchten. Es ist auch möglich, mehr als einen Lautsprecher zu platzieren (unterteilt durch ";").|
+| masterOf | Zeigt die MAC-Adressen der Slaves eines Lautsprechers an (getrennt durch ";") (schreibgeschützt) |
+| memberOf | Zeigt die MAC-Adresse des Masters dieses Lautsprechers an (schreibgeschützt)|
+| addMasterOf| MAC-Adresse des Lautsprechers hinzufügen, den Sie diesem Master-Lautsprecher hinzufügen möchten. Es ist auch möglich, mehrere Lautsprecher hinzuzufügen (getrennt durch ";").|
+| removeMasterOf| Geben Sie die MAC-Adresse des Lautsprechers ein, den Sie von diesem Master-Lautsprecher entfernen möchten. Es können auch mehrere Lautsprecher angegeben werden (getrennt durch ";").|
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.13.0 (2026-07-11)
+- (JR-home) Control objects have been extended to suppiort playing a livestream directly
+- (mcm1957) Deprecated delete state has been migrated.
+- (mcm1957) Dependencies have been updated
+
+### 0.12.0 (2026-05-09)
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (mcm1957) Dependencies have been updated
+- (copilot) Migrated to ESLint 9 and @iobroker/eslint-config following ioBroker community standards
+
+### 0.11.1 (2024-04-03)
+* (mcm1957) Release workflow has been fixed
+
+### 0.11.0 (2024-04-03)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Testing has been changed to support node 18 and 20
+* (mcm1957) Dependencies have been updated
+
 ### 0.10.3 (2022-06-17)
 * (Apollon77) Fix crash case reported by Sentry
 
-### 0.10.2 (2022-06-12)
-* (Apollon77) Check if adapter is configured properly before trying to connect
-
-### 0.10.1 (2022-06-02)
-* (Apollon77) Add Sentry for crash reporting
-
-### 0.10.0 (2021-07-30)
-* IMPORTANT: The adapter now requires at least js-controller 2.0
-* (Apollon77) Optimize for js-controller 3.3
-
-### 0.9.4 (07.05.2021)
-* fixed vulnerability in NPM
-
-### 0.9.3 (02.02.2021)
-
-* transfer of adapter to iobroker-community-adapters
-
-### 0.9.3 (10.01.2021)
-
-* Added elapsed time, duration, status, keys and roles
-
-### 0.9.2 (09.12.2019)
-
-* We don't use adapter.objects anymore
-
-### 0.9.1 (12.05.2019)
-
-* Support for compact mode.
-* Fixed bugs found by adapter checker.
-
-### 0.9.0 (23.01.2019)
-
-* Added possibility to change the source.  
-  All available sources are listed as states in folder sources and can be used as play buttons.
-
-### 0.2.4 (05.05.2019)
-
-* Core Files/Testing Update and introduce adapter-core
-
-### 0.2.3 (11.11.2018)
-
-* fixed issue #24 "does not start"
-
-### 0.2.2 (03.11.2018)
-
-* Zones: objects moved to sub folder 'zones'
-
-### 0.2.1 (12.10.2018)
-
-* Update now playing info for source Deezer
-
-### 0.2.0 (27.09.2018)
-
-* Add support for zones
-
-### 0.1.9 (07.03.2018)
-
-* Update now playing info for source Amazon
-
-### 0.1.8 (08.02.2018)
-
-* Update now playing info for source Spotify
-* now playing: added state 'genre'
-
-### 0.1.7 (04.02.2018)
-
-* fixed crash if no presets are defined
-
-### 0.1.6 (17.01.2018)
-
-* fixed crash if socket connection fails
-* added setting: time to reconnect in seconds
-
-### 0.1.5 (06.01.2018)
-
-* added 'TUNEIN' to now playing info
-* state playEverywhere falls back to false after activation
-* admin/bose.png renamed to admin/bosesoundtouch.png to be shown correctly in adapter list
-* added short adapter description in io-package.json
-
-### 0.1.4 (30.12.2017)
-
-* playEverywhere: support multi room (zones) to define one speaker as master for all others
-
-### 0.1.3 (22.12.2017)
-
-* revert last change
-
-### 0.1.2 (22.12.2017)
-
-* fixed typo in package.json
-
-### 0.1.1 (20.12.2017)
-
-* now playing: added state 'art' (URL to cover image if available)
-* merged pull request from Apollon77 (basic config files for testing)
-* renamed repository to 'ioBroker.bosesoundtouch'
-
-### 0.1.0 (26.11.2017)
-
-* objectChange/stateChange: log level 'debug'
-* added 'STORED_MUSIC' to now playing info.
-
-### 0.0.9 (22.11.2017)
-
-* Merge pull request #1 from Apollon77/master: Add testing and fix things...
-
-### 0.0.8 (19.11.2017)
-
-* send value to correct instance when having multiple adapters installed
-* first version of README.md
-
-### 0.0.7 (09.11.2017)
-
-* fixed logging in soundtouchsocket.js
-
-### 0.0.6 (09.11.2017)
-
-* renamed main.js to bosesoundtouch.js
-* line ending: LF
-* strings: single quote
-
-### 0.0.5 and earlier (01.11.2017)
-
-* Initial versions
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
-[The MIT License (MIT)](LICENSE)
+MIT License
 
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019-2022 SwedishChef <swedish.chef@gmx.at>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

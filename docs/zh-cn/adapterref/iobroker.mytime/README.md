@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: l33niKl6qt2C6ruGtp2BBhyvWL4WsOO9DDXv3XCXIj0=
+hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
 ---
 ![标识](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -34,7 +34,7 @@ hash: l33niKl6qt2C6ruGtp2BBhyvWL4WsOO9DDXv3XCXIj0=
 倒计时收到停止信号后，倒计时将重置为定时器设定的时间。
 
 ##### 停止零行为
-倒计时收到停止信号后，倒计时仍为 0。
+倒计时收到停止信号后，倒计时仍停留在 0。
 
 ##### 停止行为重运行
 计时器到期后，它将自动重新启动。
@@ -42,7 +42,7 @@ hash: l33niKl6qt2C6ruGtp2BBhyvWL4WsOO9DDXv3XCXIj0=
 #### 时间序列
 在配置对话框的“时间序列”选项卡中，您可以创建包含一个或多个时间规则的新时间序列。您可以为每个时间规则定义不同的参数。每个时间序列都会创建一个单独的数据点，该数据点会在计算出的时间事件发生时触发。
 
-时间事件是实时计算的。但是，所使用的 rrule 库并非在所有参数组合下都完美无缺。
+时间事件是实时计算的。但是，所使用的 rrule 库尚未在所有参数组合下都完美运行。
 
 这表明，在某些组合下，页面会陷入无限循环。
 
@@ -50,7 +50,7 @@ hash: l33niKl6qt2C6ruGtp2BBhyvWL4WsOO9DDXv3XCXIj0=
 
 除了添加时间规则之外，您还可以添加时间规则来排除时间事件、添加单个时间事件以及排除单个时间事件。
 
-除了 rrule 的功能外，现在还可以动态计算各种太阳和月亮相位的时间。
+除了 rrule 的功能外，现在还可以动态计算各种太阳和月亮的相位时间。
 
 此计算仅在时间间隔至少为一天（而非每小时或每分钟）时才会进行。
 
@@ -91,7 +91,7 @@ hash: l33niKl6qt2C6ruGtp2BBhyvWL4WsOO9DDXv3XCXIj0=
 | 数据点 | 描述 |
 | --------- | ------------------------------------------------------------ |
 | 操作 | 此时间序列的实际状态。可能的值包括停止、运行 |
-| 命令 | 目前无功能 |
+| cmd | 目前无功能 |
 
 ##### 可用操作状态
 | 动作 | 描述 |
@@ -107,7 +107,7 @@ hash: l33niKl6qt2C6ruGtp2BBhyvWL4WsOO9DDXv3XCXIj0=
 | --------- | ---------------------------------------------------------------------- |
 | 操作 | 倒计时的实际状态。可选值为停止、运行、暂停、结束 |
 | cmd | 命令数据点。可能的命令如下所述 |
-|配置 |倒计时定时器的配置。              |
+|配置 |倒计时器的配置。              |
 | 开始 | 起始时间（毫秒）数据点 |
 | 结束 | 结束时间（毫秒）的数据点 |
 | 计时器 | 以毫秒为单位的总时间数据点 |
@@ -148,7 +148,7 @@ hash: l33niKl6qt2C6ruGtp2BBhyvWL4WsOO9DDXv3XCXIj0=
 
 数值格式为 [天:[小时:[分钟:[秒]]]]，其中天、小时和分钟是可选的。
 
-如果您想将倒计时设置为一天，则必须同时设置小时、分钟和秒，无需遵循常规的数值范围（例如 0-24 小时）。
+如果您想将计时器设置为一天，则必须同时设置小时、分钟和秒，无需遵循常规数值范围（例如 0-24 小时）。
 
 您也可以设置 48 小时。
 
@@ -208,7 +208,7 @@ hash: l33niKl6qt2C6ruGtp2BBhyvWL4WsOO9DDXv3XCXIj0=
 从 1.2.0 版本开始，这些小部件应该与 vis1 和 vis2 兼容。
 
 #### 小部件倒计时
-![小部件倒计时](../../../en/adapterref/iobroker.mytime/admin/mytime-plain.png)
+![小部件倒计时](../../../en/adapterref/iobroker.mytime/admin/mytime-plain-countdown.png)
 
 一个用于输出纯文本的倒计时组件。
 
@@ -249,7 +249,7 @@ vis1 和 vis2 各有两个不同的版本。
 ```
 
 #### 小部件反向倒计时（普通版）
-![小部件反向倒计时](../../../en/adapterref/iobroker.mytime/admin/mytime-reverse.png)
+![小部件反向倒计时](../../../en/adapterref/iobroker.mytime/admin/mytime-plainreverse-countdown.png)
 
 一个显示从给定时间点开始经过的时间的小部件
 
@@ -262,7 +262,7 @@ vis1 和 vis2 各有两个不同的版本。
 | `HTML-Append` | 此文本或 HTML 代码将附加到小部件的输出中 |
 
 #### 小部件倒计时圆圈
-![小部件倒计时圆圈](../../../en/adapterref/iobroker.mytime/admin/mytime-circle.png)
+![小部件倒计时圆圈](../../../en/adapterref/iobroker.mytime/admin/mytime-circle-countdown.png)
 
 环形/圆形设计的倒计时小部件。
 
@@ -275,7 +275,7 @@ vis1 和 vis2 各有两个不同的版本。
 | `partring` | 选中的最大圆环将按比例显示，而非完整显示。 |
 | `Width` | 圆环或圆的宽度。 |
 | `Ring gap` | 环之间的像素间隙 |
-| `Ring Caps` | 圆环/圆弧末端设置：圆形或直线形 |
+| `Ring Caps` | 圆环/圆的末端设置：圆形或直线 |
 | `background` | 圆环/圆圈的背景颜色 |
 | `foreground` | 圆环/圆圈的前景色 |
 | `countdown_color_second` | 第二个环/圆的前景色 |
@@ -311,7 +311,7 @@ vis1 和 vis2 各有两个不同的版本。
 ```
 
 #### 小部件倒计时翻页时钟
-![小部件倒计时翻页时钟](../../../en/adapterref/iobroker.mytime/admin/mytime-flip.png)
+![小部件倒计时翻页时钟](../../../en/adapterref/iobroker.mytime/admin/mytime-flip-countdown.png)
 
 机场翻页式倒计时小部件。
 
@@ -337,9 +337,7 @@ vis1 和 vis2 各有两个不同的版本。
 
 有效格式：年、月、日 | 小时、分钟、秒；无效格式：年、分钟、秒
 
-**尖端：**
-
-如果您想调整倒计时翻页钟的大小，可以在 vis 的 css 设置中输入以下代码以将其大小减半：Group CSS-Common / transform "scale(0.5)"
+可以通过 CSS `font-size` 设置来控制显示尺寸。
 
 倒计时的实际操作状态（cdstop、cdrun、cdpause、cdend）可通过 CSS 类选择器获取：
 
@@ -353,7 +351,7 @@ vis1 和 vis2 各有两个不同的版本。
 ```
 
 #### 小部件倒计时 NixieClock
-![小部件倒计时 NixieClock](../../../en/adapterref/iobroker.mytime/admin/mytime-nixie.png)
+![小部件倒计时 NixieClock](../../../en/adapterref/iobroker.mytime/admin/mytime-nixie-countdown.png)
 
 一款采用辉光管/LED风格的倒计时小部件
 
@@ -366,7 +364,7 @@ vis1 和 vis2 各有两个不同的版本。
 | countdown_showhrs | 显示小时数。 |
 | countdown_showday | 显示播出时段。 |
 | countdown_showmonth | 显示月份部分。（不与周数一起显示） |
-| countdown_showweek | 显示星期几。（不与月份一起显示） |
+| countdown_showweek | 显示周数。（不与月份一起显示） |
 | countdown_showyear | 显示年份部分。 |
 | countdown_color_active | 倒计时器的颜色 |
 | countdown_color_inactive | 不活跃数字的颜色 |
@@ -393,8 +391,8 @@ vis1 和 vis2 各有两个不同的版本。
 }
 ```
 
-###### 版本 2 之前的组件尺寸
-如果您想调整倒计时辉光管时钟的大小，可以在 vis 的 CSS 设置中输入以下代码以将其大小减半：Group CSS-Common / transform "scale(0.5)"
+小部件尺寸
+可以通过 CSS `font-size` 设置来控制显示尺寸。
 
 ###### 将辉光管时钟居中
 要使时钟居中，需要添加一个额外的 CSS 类，因为相应的设置无法在小部件设置中进行配置：
@@ -405,6 +403,88 @@ vis1 和 vis2 各有两个不同的版本。
     justify-content: center;
 }
 ```
+
+#### 普通小部件时钟
+![小部件时钟](../../../en/adapterref/iobroker.mytime/admin/mytime-plain-clock.png)
+
+一个可配置的小部件，用于以纯文本形式显示当前日期和时间。
+
+时间可以取自浏览器客户端，也可以取自同步的 ioBroker 服务器时间。
+
+##### 时钟组件属性
+| 属性 | 描述 |
+| -------------------- | -------------------------------------------------------------------------------------------- |
+| `clock_time_source` | 选择 `client` 作为浏览器时间，或 `server` 作为同步的 ioBroker 服务器时间。 |
+| `clock_html_prepend` | 格式化日期和时间之前插入的文本或 HTML。 |
+| `clock_html_append` | 格式化日期和时间后附加的文本或 HTML。 |
+| `clock_html_append` | 在格式化的日期和时间后附加文本或 HTML 代码。 |
+
+以下占位符可用于 `clock_format`：
+
+| 占位符 | 描述 |
+| ----------- | ----------------------------------- |
+| `YYYY` | 四位数年份 |
+| `MM` / `M` | 月份带/不带前导零 |
+| `DD` / `D` | 带前导零/不带前导零的日期 |
+| `HH` / `H` | 小时数（带/不带前导零） |
+| `mm` / `m` | 分钟（带/不带前导零） |
+| `ss` / `s` | 带/不带前导零的秒数 |
+| `ss` / `s` | 带/不带前导零的秒数 |
+
+可以通过 CSS `font-size` 设置来控制显示尺寸。
+
+#### 小部件时钟翻页时钟
+![小部件时钟翻页钟](../../../en/adapterref/iobroker.mytime/admin/mytime-flip-clock.png)
+
+机场翻页式日期时间组件，可配置。
+
+日期和时间的每个组成部分均可单独显示或隐藏。
+
+##### 时钟翻转钟组件属性
+| 属性 | 描述 |
+| ------------------------ | -------------------------------------------------------------------------------------------- |
+| `clock_time_source` | 选择 `client` 作为浏览器时间，或 `server` 作为同步的 ioBroker 服务器时间。 |
+| `clock_showyear` | 显示两位数年份部分。 |
+| `clock_showmonth` | 显示月份部分。 |
+| `clock_showday` | 显示日期部分。 |
+| `clock_showhours` | 显示工时部分。 |
+| `clock_showminutes` | 显示分钟部分。 |
+| `clock_showseconds` | 显示秒数分量。 |
+| `clock_color` | 设置数字颜色。 |
+| `clock_background_color` | 设置翻页卡片的背景颜色。 |
+| `clock_dot_color` | 设置组件之间分隔符的颜色。 |
+| `clock_dot_color` | 设置组件之间分隔符的颜色。 |
+
+时间组成部分始终按小时、分钟、秒的顺序显示在选定的日期组成部分之后。
+
+显示大小可通过 CSS 设置 `font-size` 进行控制。
+
+#### 小部件时钟 NixieClock
+![小部件时钟 NixieClock](../../../en/adapterref/iobroker.mytime/admin/mytime-nixie-clock.png)
+
+一款可配置的日期和时间控件，采用辉光管/LED 风格。
+
+日期和时间的每个组成部分都可以单独显示或隐藏。
+
+##### 时钟组件 NixieClock 的属性
+| 属性 | 描述 |
+| ------------------------ | -------------------------------------------------------------------------------------------- |
+| `clock_time_source` | 选择 `client` 作为浏览器时间，或 `server` 作为同步的 ioBroker 服务器时间。 |
+| `clock_showyear` | 显示两位数年份部分。 |
+| `clock_showmonth` | 显示月份部分。 |
+| `clock_showday` | 显示日期部分。 |
+| `clock_showhours` | 显示工时部分。 |
+| `clock_showminutes` | 显示分钟部分。 |
+| `clock_showseconds` | 显示秒数分量。 |
+| `clock_color_active` | 设置激活的辉光管数字的颜色。 |
+| `clock_color_inactive` | 设置非活动辉光管数字的颜色。 |
+| `clock_opacity_inactive` | 设置非活动数字的透明度。 |
+| `clock_glowcolor` | 设置活动数字周围的发光颜色。 |
+| `clock_glowcolor` | 设置活动数字周围的发光颜色。 |
+
+时间组成部分始终按小时、分钟、秒的顺序显示在选定的日期组成部分之后。
+
+显示大小可通过 CSS 设置 `font-size` 进行控制。
 
 #### 小部件文字时钟
 ![小部件 Wordclock](../../../en/adapterref/iobroker.mytime/admin/mytime-wordclock.png)
@@ -460,269 +540,32 @@ vis1 和 vis2 各有两个不同的版本。
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.5.1 (2026-07-24)
+
+- seperate flipclock css classes from timeandweather adapter
+
+### 2.5.0 (2026-07-21)
+
+- Flip clock size is now adjustable via font-size.
+- Defined better initial sizes and defaults for various widgets.
+
+### 2.4.1 (2026-07-20)
+
+- add new clock widgets
+- fix prod and dev build
+- reengineered widgets
+
+### 2.3.5 (2026-07-14)
+
+- fix repochecker
+- update react to 18 and many more packages
+
 ### 2.3.4 (2026-03-30)
 
 - update packages
 - fix repochecker
 
-### 2.3.2 (2026-01-04)
-
-- fix some translations
-
-### 2.3.1 (2026-01-03)
-
-- circle widget: fix reverse selection
-- circle widget: fixed full/partial display of the largest ring.
-  Option added to select behavior.
-
-### 2.3.0 (2025-12-03)
-
-- remove autocomplete function in the browser
-- improve documentation
-- add html prepend and append to the countdown plain widget
-- Revision of the algorithms for parameter takeover and verification.
-- Revision of the calculation of dynamic time differences
-
-### 2.2.1 (2025-12-01)
-
-- add missing files
-
-### 2.2.0 (2025-12-01)
-
-- add calculation of astro dates to timeseries
-- rework of the timeseries caluclation in the backend
-- this version includes extended debug information (map-files).
-  For this reason, the adapter is approximately 13MB in size instead of 2MB.
-
-### 2.1.0 (2025-11-27)
-
-- switch from crao to vite build system
-- New option for countdown timer: rerun - when the timer expires,
-  it will automatically restart.
-
-### 2.0.1 (2025-09-08)
-
-- major release: make nixie clock responsive. the users have to adjust the
-  font-size of the widget to get the old size.
-  if you want the old size try it with 100px font-size.
-
-### 1.4.7 (2025-07-25)
-
-- remove types/request
-- improve documentation format
-
-### 1.4.6 (2025-07-21)
-
-- fix wrong calc of datapoints in some cases
-
-### 1.4.5 (2025-07-21)
-
-- fix widget reverse countdown plain
-
-### 1.4.4 (2025-06-16)
-
-- fix stopbeaviour
-- fix state handling
-- improve validator vor name and setdp in admin
-
-### 1.4.3 (2025-06-06)
-
-- fix validation rule for the setDP button in admin
-
-### 1.4.2 (2025-06-01)
-
-- revert to node 18
-- cleanup files and some details
-- fix server time diff calculations
-
-### 1.4.0 (2025-01-02)
-
-- to update the time from the configuration i added a SetDP Button
-
-### 1.3.0 (2025-01-02)
-
-- switch to iobroker eslint
-- adjust many code to follow the new rules
-- add some jsdoc
-- implement servertimediff calculation and correction
-- fix datapoint names for the vis1 example controls
-- set nogit
-- adjust year in readme and license
-
-### 1.2.2 (2024-11-18)
-
-- improve readme
-- improve widget js
-- remove word test from widgets html, sorry
-
-### 1.2.1 (2024-11-17)
-
-- interprete all commands in lowercase
-
-### 1.2.0 (2024-11-15)
-
-- widgets are now compatible with vis2
-
-### 1.1.1 (2024-11-13)
-
-- fix problem with start of vis2, exclude widgets for vis2
-
-### 1.1.0 (2024-11-12)
-
-- IMPORTANT: Changed Datapoint names and datastructure for the configuration,
-  no migration you have to enter all configurations again
-- add some new commands to restart the countdown time in place
-- repair save command
-- removed vis dependency from io-package.json
-
-### 1.0.15 (2024-11-11)
-
-- repair issues from repochecker
-
-### 1.0.14 (2024-11-11)
-
-- improve test and release process
-- update github workflow
-- remove eslint command from package.json
-- switch back to node 18 for testing due to airbnb error
-- more repair
-- add package-lock.json to git
-- remove unused library
-- add lint and lint
-- remove iobroker eslint
-- general revision
-- updating the configuration dialogs for countdown and timeseries
-  in jsonConfig and custom react
-
-### 0.7.12
-
-- add html_prepend and html_append properties to the widget reverse countdown
-
-### 0.7.10
-
-- add widget reverse countdown
-
-### 0.7.9
-
-- add more wordclock tests
-- fix wordclock matrix swiss
-
-### 0.7.8
-
-- add timezone for wordclock
-
-### 0.7.7
-
-- add timezone for wordclock
-
-### 0.7.6
-
-- add tests for wordclock \* remove admin tab
-
-### 0.7.5
-
-- Remove comments in io-package
-
-### 0.7.4
-
-- fix spanish language pack
-
-### 0.7.3
-
-- add turkish language for wordclock
-
-### 0.7.2
-
-- add russian and espaniol language for wordclock
-
-### 0.7.1
-
-- add margin property for wordclock
-- add italiano and francais for wordclock
-- wordclock remove border
-
-### 0.7.0
-
-- New widget wordclock
-
-### 0.6.1
-
-- remove beta tag from widgets \* m,assive reengeneering of the react classes,
-  add functions für exclusion rules, adding single time events
-  and exclude single time events
-
-### 0.6.0
-
-- Introduction of new functionality timeseries
-
-### 0.5.2
-
-- fix an issue and introduce a new command save to save the configuration
-  defined in datapoints to the iobroker configuration data
-
-### 0.5.1
-
-- Migration of old counters
-
-### 0.5.0
-
-- Change settings dialog to react
-
-### 0.4.2
-
-- performance optimization. mytime now checks the data from internal
-  and did not read the data allways from datapoints | update dependencies
-
-### 0.4.1
-
-- widget cd flipclock: remove dot labels
-
-### 0.4.0
-
-- New widget NixieClock
-
-### 0.3.1
-
-- remove mytime tile in iobroker overview
-- set initial visual countdown value to 0
-- prefix css classes, due css artefacts from other adapters
-  (eg kodi and css class stop)
-
-### 0.3.0
-
-- new command to set only target time without date
-- countdown circle widget now with option to disable countdown text
-- timers are now groupable in subdirectories.
-  you can now enter dots (.) as a groupseperater in the name of a timer
-
-### 0.2.1
-
-- fix timer display in configuration dialog
-- fix default template of countdown plain
-- add icons for countdonw plain and countdown circle widgets
-- fix startangle calculation for countdown circle if time values are 0
-- remove timer intervals in editmode due to interfer with
-  the configuration dialog and didnt save the ne values
-
-### 0.2.0
-
-- extend the countdown circle with more rings for days, hours and minutes
-
-### 0.1.2
-
-- Setting for growing or shrinking the ring/circle
-- Setting for the ends of the ring/circle: round or straight
-- Extend special char filtering with umlauts
-- Fix state request issue in widget countdown circle
-
-### 0.1.1
-
-- Add a countdown name datapoint
-
-### 0.1.0
-
-- Forum release
-- initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

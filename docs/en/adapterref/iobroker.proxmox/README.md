@@ -27,6 +27,13 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.6.3 (2026-07-31)
+* (arteck) fix next node reconnect
+* (arteck) add state info.node for actual node ip
+
+### 2.6.2 (2026-07-15)
+* (arteck) restructure ceph health message
+
 ### 2.6.1 (2026-05-21)
 * (arteck) fix reconnect
 
@@ -37,12 +44,6 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 ### 2.5.5 (2026-05-09)
 * (arteck) fix ceph info
 * (arteck) fix ceph tree limit
-
-### 2.5.4 (2026-04-23)
-* (arteck) fix erro local on storage/pve/local
-
-### 2.5.3 (2026-04-23)
-* (arteck) Dependencies have been updated
 
 ## License
 

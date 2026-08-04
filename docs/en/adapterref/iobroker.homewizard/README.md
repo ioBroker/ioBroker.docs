@@ -179,6 +179,11 @@ homewizard.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.15.0 (2026-07-13) — stable
+
+- A device that rejects the adapter's token now stops retrying and warns you to re-pair it, instead of quietly retrying in the background
+- When pairing a device that connects but cannot be added, the adapter now tells you once so you can try again, instead of silently retrying
+
 ### 0.14.0 (2026-07-07)
 
 - A brief WiFi dropout no longer makes the adapter wrongly treat a device as having a permanently unstable connection after a single outage
@@ -188,7 +193,7 @@ homewizard.0.
 - Security: after an update, an older device is verified by its serial from the very first connection — its access token no longer briefly crosses a not-fully-verified connection
 - Security: device and network-discovery names are cleaned before they reach the log, and pairing now cross-checks the device's serial against its certificate
 
-### 0.13.0 (2026-06-24)
+### 0.13.0 (2026-06-24) — stable
 
 - Security: the adapter now checks each device's certificate, so it only ever talks to your real device
 - Pairing a device by manual IP no longer leaves repeated pairing attempts and throwaway tokens behind on the device
@@ -204,10 +209,6 @@ homewizard.0.
 ### 0.12.1 (2026-06-09)
 
 - Internal refactoring. No user-facing changes.
-
-### 0.12.0 (2026-06-07)
-
-- Added optional Sentry error reporting: crashes are sent to the developer so issues get fixed faster. Active only with ioBroker diagnostics enabled; anonymous.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

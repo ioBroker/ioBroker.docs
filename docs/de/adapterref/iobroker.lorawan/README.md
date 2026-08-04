@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lorawan/README.md
 title: ioBroker.lorawan
-hash: +2AvOJrUWLBQdvNOzwMRYXj8fqtf7D2p6OcPUqw847k=
+hash: AOaW3UL+UDJqAutbad6mjpv/kwO+s5DpF1/XcI+jx+Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.lorawan/admin/lorawan.png)
 
@@ -23,6 +23,15 @@ Der Adapter kommuniziert bidirektional mit LoRaWAN-Geräten über den LoRaWAN Ne
 Der Adapter wurde in Zusammenarbeit mit Jörg Froehner (LoraWan@hafenmeister.com) entwickelt.
 
 Die Dokumentation im Wiki finden Sie hier: https://github.com/BenAhrdt/ioBroker.lorawan/wiki<br/> Aktuell gibt es hier eine Dokumentation auf Englisch: https://wiki.hafenmeister.de
+
+## HAFTUNGSAUSSCHLUSS
+Die Rechte an den Marken und Firmennamen verbleiben bei ihren jeweiligen Inhabern und stehen in keiner Verbindung zu diesem Adapter. Der Betreiber des Adapters muss die Fair-Use-Richtlinien weiterhin einhalten. Wird dieses Repository geforkt, muss es als Quelle angegeben werden.
+
+LoRa® ist eine eingetragene Marke oder Dienstleistungsmarke der Semtech Corporation oder ihrer verbundenen Unternehmen.
+
+LoRaWAN® ist eine eingetragene Marke.
+
+Ich stehe in keiner Verbindung zu den genannten Marken oder deren Tochtergesellschaften, Logos oder Warenzeichen und werde auch nicht von ihnen unterstützt.
 
 ## Changelog
 <!--

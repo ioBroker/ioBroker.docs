@@ -1,5 +1,5 @@
 ![logo](admin/egigeozone.png)
-## ioBroker.egigeozone2
+# ioBroker.egigeozone2
 
 ![Number of Installations](http://iobroker.live/badges/egigeozone2-installed.svg)
 ![Number of Installations](http://iobroker.live/badges/egigeozone2-stable.svg)
@@ -38,8 +38,9 @@ protocol://address:port/person
 
 ## Changelog
 
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 1.0.10
+* (obakuhl) Updating dependencies
+* (copilot) Adapter requires node.js >= 22 now
 
 ### 1.0.9
 * (obakuhl) Updating dependencies
@@ -77,6 +78,9 @@ protocol://address:port/person
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
+## Credits
+The implementation is mostly based on dschaedl's [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency) & BasGo's [ioBroker.egigeozone](https://github.com/BasGo/ioBroker.egigeozone) adapter. 
+
 ## License
 This adapter is licensed under the [MIT license](../blob/master/LICENSE) which is part of this repository.
 
@@ -99,6 +103,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-## Credits
-The implementation is mostly based on dschaedl's [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency) & BasGo's [ioBroker.egigeozone](https://github.com/BasGo/ioBroker.egigeozone) adapter. 

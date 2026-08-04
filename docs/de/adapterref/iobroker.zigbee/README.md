@@ -136,37 +136,25 @@ As the libraries are shared, any device supported in zigbee2mqtt.io will in time
 Other topics related to this adapter are also documented in the associated [wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki).
 
 ## Changelog
-### **WORK IN PROGRESS**
+### **WORK_IN_PROGRESS**
+* (kropipd) Improved handling for device configuration
+* (bueste) Respond to unsolicited OTA messages
+
+### 3.5.4 (2026-07-26)
+* (asgothian) Bugfix on reversed extPanID
+* (krobipd) Bugfix on device query
+* (asgothian) updated documentation
+* Dropping Node 20
+* (kropipd) Device names in messages (#2735)
+* (asgothian) Bugfix - unknown cluster for new devices
 * (krobipd) Bugfix - Shelly gen4 Devices
 * (kropipd) various bugfixes
 * (asgothian) device manager updates
-* (asgothian) ZH 10.6, ZHC 26.79
+* (asgothian) ZH 10.6, ZHC 26.86
 * (asgothian) Additional UI / DevMgr options
+* (asgothian) Option to modify device Datapoint parameters
 
-### 3.4.11 (2026-06-27)
-* Bugfix - boolean in native
-*
-
-### 3.4.10 (2026-06-27)
-* DM-Utils 3.x
-* improved device manager support
-* fixed Developer Tab
-* ZHC 26.73.0
-* ZH 10.5.0
-* default model options for BSD-2
-* additional role definitions
-
-### 3.4.9 (2026-06-22)
-* (asgothian) Removed 'forced configure on start'
-* (krobipd) - various bugfixes
-* (asgothian) - updated versioning for adapter options
-
-### 3.4.8 (2026-06-16)
-* Bugfix - state publishing
-
-### 3.4.7 (2026-06-15)
-* Fix: Controlling groups
-* Fix: Pairing battery powered devices
+Older changelog entries can be found [here](CHANGELOG_OLD.md).
 
 ## License
 The MIT License (MIT)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lorawan/README.md
 title: ioBroker.lorawan
-hash: +2AvOJrUWLBQdvNOzwMRYXj8fqtf7D2p6OcPUqw847k=
+hash: AOaW3UL+UDJqAutbad6mjpv/kwO+s5DpF1/XcI+jx+Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lorawan/admin/lorawan.png)
 
@@ -22,6 +22,15 @@ hash: +2AvOJrUWLBQdvNOzwMRYXj8fqtf7D2p6OcPUqw847k=
 Адаптер создан в сотрудничестве с Йоргом Фрёнером LoraWan@hafenmeister.com
 
 Документация в вики находится здесь: https://github.com/BenAhrdt/ioBroker.lorawan/wiki<br/> На данный момент документация на английском языке доступна здесь: https://wiki.hafenmeister.de
+
+## ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ
+Права на товарные знаки и названия компаний остаются за их владельцами и не имеют отношения к данному адаптеру. Оператор адаптера должен и впредь придерживаться политики добросовестного использования. При создании форка данного репозитория необходимо указывать его в качестве источника.
+
+LoRa® является зарегистрированным товарным знаком или знаком обслуживания корпорации Semtech или ее дочерних компаний.
+
+LoRaWAN® — это лицензированный товарный знак.
+
+Я не имею никакого отношения к упомянутым брендам, их дочерним компаниям, логотипам или товарным знакам, и они меня не поддерживают.
 
 ## Changelog
 <!--

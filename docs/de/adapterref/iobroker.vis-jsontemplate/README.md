@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
-hash: Ff2/8FhheGHxROpeqSFrjF6DG2L258+2E7+X4uX4Qww=
+hash: 7s1xM16/ov++kLeyabOPEYxwmmmrH0q/c1R+KDa8iRI=
 ---
 # JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
 ![Logo](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -39,6 +39,7 @@ Das jsontemplate-Widget war zuvor in den Adaptern rssfeed (für vis1) und vis-2-
 - [Sehr wichtiger Hinweis zur Verwendung in vis / vis-2](#very-important-note-for-use-in-vis--vis-2)
 - [Geschweifte Klammern in CSS und JSON](#curly-braces-in-css-and-json)
 - [Verwendung von setInterval](#use-of-setinterval)
+- [Entwicklung von Vorlagen mit KI](#developing-templates-with-ai)
 - [Tags](#tags)
 - [Beispielobjekt](#example-object)
 - [Entwicklung und Debugging](#development-and-debugging)
@@ -75,10 +76,11 @@ Mit diesem Widget lassen sich beliebige Datenpunkte mit JSON-Daten wie gewünsch
 
 | Schauplatz | Beschreibung |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| json_template | Mit der Vorlage kann das Erscheinungsbild der JSON-Daten bestimmt werden. Alle gültigen HTML-Tags (einschließlich CSS-Attribute in Style-Tags) können in der Vorlage verwendet werden. Es gibt auch spezielle Tags, innerhalb derer die JSON-Daten angezeigt werden und JavaScript-Anweisungen ausgeführt werden können. |
+| json_template | Die Vorlage kann verwendet werden, um das Erscheinungsbild der JSON-Daten festzulegen. Alle gültigen HTML-Tags (einschließlich CSS-Attribute in Style-Tags) können in der Vorlage verwendet werden. Es gibt auch spezielle Tags, innerhalb derer die JSON-Daten angezeigt werden und JavaScript-Anweisungen ausgeführt werden können. |
 | json_oid | Auswahl des Datenpunkts mit den entsprechenden JSON-Daten. |
 | json_dpCount | Anzahl der Datenpunkte, die in der Vorlage verfügbar gemacht werden sollen. |
 | json_dp | Die Datenpunkt-ID soll bereitgestellt werden. |
+| json_dp_variable | Optionaler JavaScript-Variablenname. Die Variable enthält die Datenpunkt-ID; der gleiche Name mit angehängtem `_value` enthält ihren aktuellen Wert. |
 | json_scriptCount | Anzahl der zu ladenden JavaScript-URLs |
 | json_script[] | Zu ladende JavaScript-URL. Siehe Beispiel unten. |
 | json_cssCount | Anzahl der zu ladenden CSS-URLs. |
@@ -91,6 +93,7 @@ Verfügbare Datenobjekte in der Vorlage:
 | Objekt/Variable | Beschreibung |
 | --------------- | ------------------------------------------------------------------------ |
 | widgetid | widgetid des Widgets. |
+| widgetID | widgetid des Widgets. |
 | data | JSON-Objekt, auf das der Datenpunkt in json_oid verweist. |
 | dp | Array der Datenpunktdaten, auf die die zusätzlichen Datenpunkte verweisen |
 | Widget | Interne Widget-Daten. Objekt mit allen verfügbaren Widget-Einstellungen |
@@ -110,6 +113,14 @@ B) Indexnummer des Datenpunkts (die Nummerierung beginnt immer mit 0)
 <%- dp[Object.keys(dp)[1]] %>
 ```
 
+C) Ein optionaler Variablenname, der für den Datenpunkt konfiguriert ist. Für einen Datenpunkt `0_userdata.0.selectwrite`, Variablennamen `dpwrite` und Wert `abc`:
+
+```javascript
+<%- dpwrite %>          <!-- 0_userdata.0.selectwrite -->
+<%- dpwrite_value %>    <!-- abc -->
+<%- dp[dpwrite] %>      <!-- abc -->
+```
+
 Beispielausgabe von Daten, Widgets und Stilen in der Vorlage
 
 ```ejs
@@ -118,6 +129,8 @@ Beispielausgabe von Daten, Widgets und Stilen in der Vorlage
     .replace(/\n/g, '<br>')
     .replace(/ /g, '&nbsp;'); %>
 ```
+
+Im Fehlerfall wird dieser im Widget angezeigt und in der Browserkonsole (F12) ausgegeben.
 
 #### Erweiterter Anwendungsfall
 In den obigen Beispielen wurde nur die reine Ausgabe betrachtet.
@@ -157,6 +170,7 @@ Die Vorlage kann nun auch mit HTML-Tags angereichert werden, um ein bestimmtes L
 - [Anwendungsfall öffentlicher Verkehr](documentation/usecase-public-transport.md)
 - [Anwendungsfall einfaches Messgerät](documentation/usecase-simplegauge.md)
 - [Anwendungsfall-GitHub-Issues und PRs](documentation/usecase-githubissues.md)
+- [Anwendungsfall FRITZ!Box-Aufrufliste](documentation/usecase-fritzbox-call-list.md)
 
 ## Templatesystem
 ### Sehr wichtiger Hinweis zur Verwendung in vis / vis-2
@@ -166,13 +180,13 @@ Daher müssen geschweifte Klammern bei der Angabe von CSS oder JSON immer in sep
 
 ##### Beispiel
 ```text
-#w_id_<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
+#<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
 ```
 
 muss wie folgt geschrieben werden:
 
 ```text
-#w_id_<%- widgetid %> {
+#<%- widgetid %> {
     height: 100%; display: flex; flex-direction: column; overflow: hidden;
 }
 ```
@@ -180,6 +194,12 @@ muss wie folgt geschrieben werden:
 #### Verwendung von setInterval
 Bitte verwenden Sie nicht `setInterval`. Da die Vorlage bei jeder Datenpunktänderung neu aufgerufen wird, können vorhandene `setInterval`-Aufrufe nicht ordnungsgemäß gelöscht werden. Dadurch häufen sich mit der Zeit immer mehr überlappende `setInterval`-Aufrufe an, was RAM verbraucht und zu unvorhersehbaren Nebenwirkungen führen kann. Zwar lässt sich das Problem durch Neuladen der Seite beheben, der Code sollte jedoch nicht auf diese Weise implementiert werden.
 Alternativ sollten solche Szenarien mit `setTimeout` implementiert werden.
+
+#### Entwicklung von Vorlagen mit KI
+Um die Erstellung von Vorlagen für alle zu vereinfachen, habe ich eine detaillierte Dokumentation mit Anleitungen und Beschreibungen vorbereitet:
+
+- [Englisch](documentation/AI-EN.md)
+- [German](documentation/KI-DE.md)
 
 ## Tags
 Das Templatesystem arbeitet mit bestimmten Tags.
@@ -368,80 +388,46 @@ Da Vite Hot Reload unterstützt, ist es manchmal nützlich, Vis2 mit F5 neu zu l
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.6.1 (2026-07-31)
 
-### **WORK IN PROGRESS**
+- Improved error output.
+
+### 4.6.0 (2026-07-30)
+
+- some changes. see readme/below
+
+#### Changes 2026-07-30
+
+- add optional variable names to extra datapoints
+
+### 4.5.0 (2026-07-29)
+
+- some changes. see readme/below
+
+#### Changes 2026-07-29
+
+- repair widget rendering
+- add search and fullscreen to ejs-edit for vis-2 widget
+- improve ki documentation for regex expressions
+- improve vis-2 ejs edit theme for dark mode
+
+### 4.4.5 (2026-07-22)
+
+- fix packages for vis-2
+
+### 4.4.4 (2026-07-22)
+
+- some changes. see readme/below
+
+#### Changes 2026-07.22
 
 - change documentation that in the template the widgetid is available and not widgetID
 - add documentation for the usecase simple gauge
+- add documentation for a responsive FRITZ!Box call list
+- Due to an inconsistency between the vis1 and vis2 widgets,
+  both `widgetid` and `widgetID` are now passed to the template.
 
-### 4.4.3 (2026-04-21)
-
-- revert repochecker warning about fs/node:fs and path/node:path
-  because of error loading ejs
-
-### 4.4.2 (2026-04-13)
-
-- fix runtime
-
-### 4.4.1 (2026-04-13)
-
-- fix regression
-- update packages
-
-### 4.4.0 (2026-03-24)
-
-- optimize lib size
-- The ability to load additional JavaScript and CSS files
-  has been added (also for vis2).
-- Improve react components
-- align translation for vis2 widget
-
-### 4.3.11 (2026-01-25)
-
-- check test release workflow
-
-### 4.3.10 (2026-01-25)
-
-- update test and release script
-
-### 4.3.1 (2026-01-24)
-
-- try again to publish
-
-### 4.3.0 (2026-01-24)
-
-- The ability to load additional JavaScript and CSS files has been added.
-  This is currently only available for vis1 for testing purposes.
-
-### 4.2.0 (2025-11-14)
-
-- Improve documentation for the object notation in a template
-- fix some translations
-- align attribute name to vis1
-- add widget data to the available template objects in vis2
-- add style and widget object to the available template objects in vis1
-- improve documentation
-
-### 4.1.3 (2025-11-03)
-
-- fix race condition if more than one widget use the same datapoint
-- switch to trusted publishing
-
-### 4.1.2 (2025-09-13)
-
-- new try of publish
-
-### 4.1.0 (2025-09-12)
-
-- rename widgetset of the vis2 widget
-
-### 4.0.2 (2025-08-28)
-
-- remove v4.0.0 from io-package
-
-### 4.0.1 (2025-08-28)
-
-- move vis1 and vis2 widgets to vis-jsontemplate adapter
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

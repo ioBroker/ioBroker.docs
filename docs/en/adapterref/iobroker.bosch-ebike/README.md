@@ -24,11 +24,18 @@ Die Bosch eBike Mail und Passwort eingeben.
 
 bosch-ebike.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
+## Sentry
+
+This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## Diskussion und Fragen
 
 <https://forum.iobroker.net/topic/55902/test-adapter-bosch-ebik-connect-flow>
 
 ## Changelog
+### 0.1.13 (2026-07-17)
+- battery state added
+
 ### 0.1.12 (2025-01-14)
 
 - fix for login use code url instead of captcha
@@ -53,7 +60,7 @@ bosch-ebike.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
 MIT License
 
-Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

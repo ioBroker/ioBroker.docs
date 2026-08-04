@@ -24,6 +24,9 @@ Connects your Vallox Air Ventilation system into your ioBroker home automation.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.6.1 (2026-07-18)
+- Use latest vallox-api with AUTOMATIC profile support
+
 ### 1.6.0 (2026-07-06)
 - (copilot) Adapter requires node.js >= 22 now
 - Add support for AUTOMATIC profile on firmware 3.1.4 or newer
@@ -42,13 +45,6 @@ Connects your Vallox Air Ventilation system into your ioBroker home automation.
 ### 1.4.0
 * Maintenance Release
 * Bump engines to NodeJS 20 as minimum version
-
-### 1.3.0
-* Maintenance Release
-* Updated dependencies (iobroker-core & node)
-* Change UI to jsconConfig and fixing issues detected by repository checker
-* Update translation using i18n by iobroker/adapter-dev
-* Update year in license and readme
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -143,17 +143,20 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 4.0.1 (2026-08-03)
+* (@GermanBluefox) Migrated for admin 8
+
 ### 3.1.0 (2026-04-13)
 * (bluefox) Updated dependencies
 * (TA2k) Fixed disabled rules still being polled when sharing an interval
 * (bluefox) Fixed possible problems
-* (bluefox) Added possibility to use CRON as interval
+* (bluefox) Added possibility to use CRON as an interval
 
 ### 3.0.0 (2026-03-03)
 * (bluefox) Migrated the new NPM token
 * (bluefox) Migrated to TypeScript
 * (bluefox) Added parsing of states, ioBroker files and logs
-* (bluefox) Fixing position marking in test dialog
+* (bluefox) Fixing position marking in the test dialog
 * (bluefox) Added mobile view
 * (bluefox) Minimal Node.js version is now 20
 * (bluefox) Added export import via CSV file

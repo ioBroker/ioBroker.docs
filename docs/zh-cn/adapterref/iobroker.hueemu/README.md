@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hueemu/README.md
 title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="48" align="top" /> ioBroker.hueemu
-hash: PNYFNKNFdn+kQybZ0zLalPuIAizKMhqWXSWjxVNtmT8=
+hash: JNBXCkzhUjAhi4UR0nyqnW+lxfSwThengH/2esj2SNc=
 ---
 # <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="48" align="top" /> ioBroker.hueemu
 
@@ -69,9 +69,8 @@ hash: PNYFNKNFdn+kQybZ0zLalPuIAizKMhqWXSWjxVNtmT8=
 ＃＃ 配置
 ### 网络设置
 | 选项 | 描述 | 默认值 |
-| ----------------- | -------------------------------------------------------------------------------------------------------------- | ------- |
-| **主机** | 要绑定的网络接口。选择 `0.0.0.0` 可监听所有接口（即使 IP 地址更改，仍保持可达性） | 0.0.0.0 |
-| **通告 IP 地址** | 向客户端通告以供发现的可达 IP 地址。留空则自动检测主接口 | 自动 |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+| **主机/IP地址** | 网桥绑定并向客户端（Alexa、Harmony）广播的IP地址。选择`0.0.0.0`可监听所有接口——广播的IP地址将自动检测 | 0.0.0.0 |
 | **HTTP 端口** | Hue API 端口 | 8080 |
 | **HTTPS 端口** | 仅当客户端坚持使用 TLS 时才需要；否则留空 | — |
 | **MAC 地址** | 桥接 MAC 地址（如果为空则自动生成） | — |
@@ -81,7 +80,7 @@ hash: PNYFNKNFdn+kQybZ0zLalPuIAizKMhqWXSWjxVNtmT8=
 
 **手动** — 点击 **添加灯光**，输入名称，选择灯光类型，并将 ioBroker 状态映射到对象浏览器。
 
-**自动** — 点击**搜索灯光**。适配器会扫描您的物体，查找类似灯光的物体（开关、调光器、色温和彩色灯光），并添加可以映射的灯光。对于检测到但无法映射的物体（例如 RGB 通道设备），适配器会进行报告，以便您手动添加。
+**自动** — 点击**搜索灯光**。适配器会扫描您的物体，查找类似灯光的物体（开关、调光器、色温和彩色灯光），并将可映射的物体显示为清单 — 勾选您想要的物体，即可仅添加这些物体。任何检测到但无法映射的物体（例如 RGB 通道设备）都会被记录下来，以便您可以手动添加。
 
 每个灯都显示为一张卡片——使用**编辑**更改其映射，或使用**删除**将其移除。
 
@@ -135,7 +134,7 @@ hueemu.0.
 
 ### 未找到桥接器
 - 确保 UPnP 端口 (1900) 未被防火墙阻止
-- **主机** IP 必须是实际的网络 IP，而不是 `0.0.0.0`
+- 在多接口主机上，如果自动检测到的 IP 地址错误，请将 **主机/IP** 设置为具体的 LAN 地址，而不是 `0.0.0.0`。
 - 检查 ioBroker 主机上的防火墙规则
 
 客户端未找到任何设备/配对失败
@@ -151,9 +150,7 @@ hueemu.0.
 ---
 
 ## 鸣谢
-**原作者：** Christopher Holomek ([@holomekc](https://github.com/holomekc))
-
-**现代化：** krobi
+如果没有 [克里斯托弗·霍洛梅克](https://github.com/holomekc)，就不会有这个适配器。他早在 2020 年就在 GitHub 上构建了最初的 Hue 桥接模拟器。虽然代码后来被完全重写了，但这个想法以及它有效的证据都出自他之手。
 
 ---
 
@@ -172,6 +169,17 @@ hueemu.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.12.1 (2026-07-31)
+
+- Leaving the HTTPS port empty in the settings no longer shows an error — an empty value simply means that no HTTPS server is started for the bridge
+- The bridge MAC address that is generated automatically is now always a valid device address; some of the values generated before were not valid MAC addresses
+
+### 1.12.0 (2026-07-12) — stable
+
+- The "Search lights" assistant now actually finds your lights (it scanned the wrong objects before) and lets you pick which ones to add instead of adding them all
+- The two IP fields in the settings are now one Host/IP selector — pick your IP, or "all interfaces" to auto-detect the announced address
+- A logged-in client reading the bridge configuration now receives the full config, matching a real Hue bridge
+
 ### 1.11.0 (2026-07-09)
 
 - The devices tab can now scan ioBroker for dimmer, colour-temperature and colour lights and add the mappable ones. Manual add still works.
@@ -193,22 +201,13 @@ hueemu.0.
 - Fixed already-paired clients being wrongly rejected until a restart after a transient error while loading clients at startup
 - A configured source state that no longer exists now produces a one-time warning in the log instead of a silently dead light
 
-### 1.8.1 (2026-06-12) — stable
-
-- Number values read from light states are now parsed strictly: text with extra characters after the number falls back to the default instead of being half-parsed
-- Faster bridge config responses for clients that poll every second (such as Echo devices) by reusing the timestamp formatter instead of rebuilding it on every request
-
-### 1.8.0 (2026-06-09)
-
-- Color lights mapped via hue and saturation (without an XY state) now report the correct color mode, so apps that honor it show the actual color instead of a default white.
-
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2020-2024 Christopher Holomek <holomekc.github@gmail.com>  
+Copyright (c) 2020-2021 Christopher Holomek <holomekc.github@gmail.com>  
 Copyright (c) 2026 krobi <krobi@power-dreams.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

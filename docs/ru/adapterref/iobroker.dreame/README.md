@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.dreame/README.md
 title: ioBroker.dreame
-hash: naCLadNH5twq/v+MT5/mrkqMaQZI642DviDDAUn+ZI0=
+hash: XcsNMvva6WtXttYYwmYlO7AE9+rTDkV+b9sydyrfgig=
 ---
 ![Логотип](../../../en/adapterref/iobroker.dreame/admin/dreame.png)
 
@@ -17,6 +17,8 @@ hash: naCLadNH5twq/v+MT5/mrkqMaQZI642DviDDAUn+ZI0=
 **Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.dreame/workflows/Test%20and%20Release/badge.svg)
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
+
+![Виджет «Карта в реальном времени»](../../../en/adapterref/iobroker.dreame/docs/Pics/Map-Screen.jpg)
 
 ## Адаптер Dreame для ioBroker
 Адаптер для роботов-пылесосов и роботов-газонокосилок Dreame и MOVA.
@@ -61,8 +63,8 @@ npm link
 | Облачный сервис | Выберите **Dreame** или **MOVA** в зависимости от вашего приложения |
 | Электронная почта приложения | Ваш адрес электронной почты для входа в приложение Dreame/MOVA |
 | Пароль приложения | Ваш пароль от приложения Dreame/MOVA |
-| Получить карту | Включить отрисовку карты (более высокая загрузка ЦП) |
-| Интервал обновления | Интервал опроса в минутах |
+| Получить карту | Загружает карту из облака при запуске адаптера и каждые *интервал обновления* минут; также сохраняет названия помещений и сохраненные изображения карты. Требуется для виджета карты ниже. |
+| Интервал обновления | Цикл (в минутах), в течение которого адаптер активно опрашивает облако — получение карты **и** общее состояние устройства (батарея, состояние очистки и т. д.). Более высокие значения уменьшают количество запросов к облаку, но задерживают оба процесса. |
 
 Устройства MOVA (600, 1000) используют ту же облачную инфраструктуру, что и Dreame, но с другими доменами. Выберите **MOVA**, если вы используете приложение MOVA.
 
@@ -261,7 +263,7 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 
 **b) Установите активную карту**
 
-Запишите идентификатор карты (например, `1`) в `remote.custom-room-cleaning.active-map`. При нажатии кнопки «Старт» роботу будут отправлены только комнаты, относящиеся к этой карте. Указанная на шаге (а) карта поможет вам определить, какой идентификатор соответствует какому этажу.
+Запишите идентификатор карты (например, `1`) в `remote.custom-room-cleaning.active-map`. При нажатии кнопки «Старт» роботу будут отправлены только комнаты, относящиеся к этой карте. Указанная на карте карта из шага (а) поможет вам определить, какой идентификатор соответствует какому этажу.
 
 **c) Выберите номера**
 
@@ -271,11 +273,7 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 
 `remote.suction-level` и `remote.water-volume` применяются ко всем выбранным комнатам. Установите их перед запуском, если хотите использовать значения, отличные от значений по умолчанию. Это те же состояния, которые используются для обычной уборки.
 
-**e) Включите настраиваемый режим очистки**
-
-Перед запуском параметр `remote.customized-cleaning` должен быть равен `true`. Если он не активен, команда запуска отклоняется, и в журнал записывается предупреждение. Это предварительное условие на уровне устройства, и оно не устанавливается автоматически.
-
-**f) Начать цикл уборки**
+**e) Начать цикл уборки**
 
 Установите `remote.custom-room-cleaning.start` в `true`. Адаптер формирует выбор комнаты на основе флажков активной карты, отправляет его роботу и автоматически сбрасывает состояние `start` в `false`.
 
@@ -296,8 +294,85 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 
 #### Известные ограничения
 - **Глобальная регулировка мощности всасывания/объема воды** — уровень всасывания и объем воды устанавливаются одинаково для всех выбранных комнат. Настройки для каждой комнаты отдельно (как показано в `map.cleanset.*`) не поддерживаются этой функцией.
-- **Предварительное условие для `customized-cleaning`** — `remote.customized-cleaning` необходимо включить вручную перед запуском `start`. Адаптер не активирует его автоматически.
 - **Протестировано на нескольких этажах с одной картой** — структура с несколькими картами (одна группа каналов на карту) полностью реализована, но на реальном оборудовании было проведено всестороннее тестирование только работы с одной картой. Многоэтажные дома с двумя и более картами должны работать, но сквозная проверка еще не проведена.
+
+---
+
+### Быстрые команды для пылесоса
+Быстрые команды (созданные в приложении Dreame) анализируются по свойству 4-48 (имена, закодированные в base64). Каждой команде присваивается свой собственный канал в разделе `deviceId.shortcuts.{id}`:
+
+| Штат | Описание |
+| ------- | ------------------------------------------ |
+| имя | Расшифрованное имя ярлыка |
+| запущено | Запущен ли в данный момент ярлык |
+| Старт | Кнопка для запуска ярлыка |
+
+Каналы автоматически перестраиваются при запуске адаптера (а не только при следующем изменении на стороне приложения) и автоматически удаляются при удалении ярлыка в приложении.
+
+---
+
+### Расписания
+Расписания, созданные в приложении Dreame (объект 8-2), распределяются по одному каналу на каждую запись расписания в разделе `deviceId.schedule.{id}`:
+
+| Штат | Описание |
+| ---------- | ------------------------------------------------------------------------------------- |
+| включено | Активно ли расписание — доступно для записи, переключает расписание непосредственно на роботе |
+| время | Время суток, когда срабатывает расписание (`HH:MM`) |
+| будние дни | Расписание на будние дни (в настоящее время всегда на немецком языке, например, `Mo,Mi,Fr` или `täglich`) |
+| тип | Вид расписания: уборка номера, уборка всех номеров или сокращенный вариант |
+| комнаты | *(только расписание уборки комнат)* Массив JSON, одна запись на комнату с собственным режимом/мощностью всасывания/маршрутом/циклами/влажностью и переведенным названием комнаты |
+| параметры | *(только для расписаний всех комнат)* JSON-объект с режимом/мощностью всасывания/маршрутом/циклами/влажностью, применяемыми ко всему этажу |
+| сирота | *(только для расписаний ярлыков)* `true` если связанный ярлык больше не существует (удален в приложении) — `enabled` в этом случае полагаться не следует |
+| сирота | *(только для расписаний ярлыков)* `true`, если связанный ярлык больше не существует (удален в приложении) — в этом случае не следует полагаться на `enabled` |
+
+Каналы расписания автоматически перестраиваются при запуске адаптера и автоматически удаляются при удалении расписания в приложении, аналогично ярлыкам, описанным выше.
+
+---
+
+### Виджет интерактивной карты
+Адаптер включает в себя виджет карты в реальном времени, работающий в браузере: положение робота, маршрут уборки и количество убранных комнат, обновляющийся в режиме реального времени во время уборки. Он предоставляется непосредственно этим адаптером — виджет vis или дополнительный адаптер не требуются, и его можно встроить в качестве iframe в vis, Grafana или пользовательскую панель мониторинга.
+
+#### Настраивать
+Для отображения страницы требуется веб-адаптер ioBroker (любой экземпляр).
+— Откройте его по адресу `%web_protocol%://%ip%:%web_port%/dreame/` — например, `http://<your-iobroker>:8082/dreame/`. Готовая ссылка ("Dreame-Map") находится на стартовой странице ioBroker и рядом с этим экземпляром в списке адаптеров.
+— Функция **Получить карту** должна быть включена (см. [Конфигурация](#configuration)) — без нее виджет не будет содержать данных.
+— Если карта еще не отображается, запустите адаптер один раз, пока робот находится в док-станции, чтобы загрузить первую полную карту.
+- Несколько роботов на одном экземпляре: виджет отображает переключатель устройств в заголовке, если обнаружено более одного устройства, или можно выбрать одно из них напрямую, используя `?did=<did>` в адресе.
+
+> **Роботы с камерой/VSLAM не поддерживаются.** Устройства, использующие камеру вместо лидара для навигации (например, Mijia 1C/1T, Dreame F9), не охватываются виджетом карты — он разработан и протестирован только для роботов с лидаром. Адаптер выдает предупреждение, и карта остается пустой для таких устройств.
+
+#### Появление
+Все настройки внешнего вида находятся в самом виджете — откройте значок шестеренки в правом верхнем углу. Доступны четыре цветовых режима:
+
+| Режим | Описание |
+| --- | --- |
+| Свет | Тема с фиксированным освещением |
+| Темная | Исправлена темная тема (по умолчанию) |
+| Основной цвет | Выберите один базовый цвет; боковая панель, границы и текст будут автоматически определяться на его основе с проверкой контраста, чтобы текст всегда оставался читаемым |
+| Настраиваемый | Пять индивидуально выбираемых цветов (фон, боковая панель, кнопки, границы, текст) для полного контроля |
+
+<table><tr><td width="50%"><img src="docs/Pics/Map-Dark.jpg" alt="Темная тема"></td><td width="50%"><img src="docs/Pics/Map-White.jpg" alt="Светлая тема"></td></tr></table>
+
+#### Функции
+— Переключатель устройств в заголовке для конфигураций с несколькими роботами.
+- Настраиваемая компоновка: боковая панель слева/справа, масштабирование интерфейса, ширина боковой панели, поворот карты.
+— Панели можно отображать или скрывать по отдельности (Уборка, Ярлыки, Станция, Обслуживание, Вода и влажная уборка, Статистика) — некоторые панели дополнительно позволяют скрывать отдельные строки/плитки внутри себя (например, уровень всасывания или влажность на панели «Уборка»).
+— Панель ярлыков: один значок для каждого ярлыка приложения, нажмите, чтобы запустить его непосредственно из виджета.
+— Кнопка «Расписания» открывает таблицу всех расписаний, созданных в приложении Dreame (время, дни недели, тип, настройки для номера или всего этажа), с переключателем включения/выключения для каждого — расписание, указывающее на удаленный ярлык, отображает заблокированный переключатель вместо того, чтобы молча ничего не делать.
+— Интерфейс виджета доступен на немецком и английском языках в соответствии с системным языком ioBroker.
+- Режим киоска (`?gear=0`) скрывает значок шестеренки настроек — для дисплеев только для чтения (настенные планшеты, приборные панели)
+— Текущие настройки внешнего вида и панели можно экспортировать в виде компактной ссылки (`?cfg=<blob>`), что позволяет быстро обмениваться или повторно использовать настройки в нескольких встроенных приложениях без изменения сохраненной конфигурации.
+- Счетчики расхода воды и воды для мытья полов (панель «Вода и вода для мытья полов»)
+- Сброс настроек внешнего вида и панели до значений по умолчанию одним нажатием кнопки, независимо от сохраненной конфигурации адаптера.
+
+#### Пример киоска/iframe
+Объедините `?gear=0` (скрыть настройки) со ссылкой `?cfg=`, сгенерированной на панели настроек, чтобы встроить предварительно настроенное представление только для чтения:
+
+```
+http://<your-iobroker>:8082/dreame/?gear=0&cfg=<blob>
+```
+
+Параметр `<blob>` генерируется разделом «Ссылка» в панели настроек виджета и влияет только на эту вкладку/встроенный элемент браузера — он никогда не перезаписывает настройки, сохраненные для самого виджета.
 
 ---
 
@@ -346,7 +421,7 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 | clean-genius | CleanGenius (AutoSwitch SmartHost): 0=Выкл., 1=Регулярная, 2=Глубокая |
 | маршрут очистки | Маршрут очистки (AutoSwitch CleanRoute): 1=Стандартный, 2=Интенсивный, 3=Глубокий, 4=Быстрый |
 | Более широкий угол | Более широкий угол покрытия (AutoSwitch MeticulousTwist): 0=Выкл., 1=Высокая частота, 7=Низкая частота |
-| Направление движения по полу | Очистка в зависимости от направления движения по полу (AutoSwitch MaterialDirectionClean): 0=выкл, 1=вкл |
+| Направление движения по полу | Очистка в направлении движения по полу (AutoSwitch MaterialDirectionClean): 0=выкл, 1=вкл |
 | ориентирован на домашних животных | Уборка с акцентом на домашних животных (AutoSwitch PetPartClean): 0=выкл, 1=вкл |
 | Автоматическая зарядка | Автоматическая зарядка (AutoSwitch SmartCharge): 0 = выключено, 1 = включено |
 | Высота среза | Высота среза в мм (PRE) |
@@ -376,7 +451,7 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 | dock-position | Положение док-станции/зарядного устройства JSON: `{"x":..., "y":..., "angle":...}` (обновляется при стыковке) |
 | состояние стыковки | НА СТАНЦИИ / ВНЕ СТАНЦИИ / ПРИОСТАНОВКА СТОЙКИ / ЗАВЕРШЕНИЕ СТОЙКИ / СБОЙ СТОЙКИ / СТОЙКА НА БАЗЕ |
 | состояние местоположения | Состояние местоположения (0–3) |
-| Уровень заряда батареи в реальном времени | Уровень заряда батареи (%) в реальном времени по данным бинарной телеметрии |
+| Уровень заряда батареи в реальном времени | Уровень заряда батареи в реальном времени (%) на основе бинарной телеметрии |
 | Зарядка в реальном времени | Зарядка в реальном времени: 0 = Не заряжается, 1 = Заряжается |
 | wifi-rssi | Уровень сигнала WiFi (дБм) |
 | lte-rssi | Уровень сигнала LTE (дБм) |
@@ -391,7 +466,7 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 | ----------------------- | ------------------------------------------------------------------------ |
 | Начать кошение | Начать кошение (кнопка) |
 | Остановить кошение | Остановить кошение (кнопка) |
-| пауза-коса | Приостановить кошение (кнопка) |
+| Пауза-коса | Приостановить кошение (кнопка) |
 | Начало зарядки | Возврат на зарядную станцию (кнопка) |
 | start-mow-ext | Запуск пользовательской стрижки (очистка зон/сегментов с параметрами) |
 | clear-warning | Сбросить состояние предупреждения/ошибки (кнопка) |
@@ -405,7 +480,7 @@ X = mapId (см. `dreame.0.XXXX.status.map-list`)
 | установить низкую скорость | Установить низкую скорость в ночное время: `{"value":1,"time":[1200,480]}` или `{"value":0}` |
 | set-dnd | Установить режим «Не беспокоить»: `{"value":1,"time":[1200,480]}` или `{"value":0}` |
 | set-dnd | Установить режим «Не беспокоить»: `{"value":1,"time":[1200,480]}` или `{"value":0}` |
-| set-child-lock | Установить блокировку для детей: 0=выкл, 1=вкл |
+| установить блокировку для дочерних детей | Установить блокировку для дочерних детей: 0=выкл, 1=вкл |
 | установить громкость | Установить громкость: 0-100 |
 | set-ai-obstacle | Настройка обхода препятствий ИИ: 0=выкл, 1=вкл |
 | установить фары | Установить фары: `{"value":1,"time":[480,1200],"light":[1,1,1,1]}` |
@@ -550,74 +625,44 @@ dreame.0.<did>.remote.mow-change-map = 1   // second map
 
 ---
 
+## Благодарности
+- **TA2k** — владелец репозитория и автор оригинального адаптера.
+- **RicardoHipp** — оригинальный рендерер карт, на основе которого создан рендеринг карты для этого виджета (лицензия MIT)
+- **Сефина-ДС (Дэвид)** — соавтор, переработка виджета, тестирование в реальных условиях.
+- **Сообщество** — krobipd, flapman, volvodani и все остальные, кто сообщает о проблемах и тестирует устройства.
+
 ## Changelog
+### 0.4.1 (2026-08-03)
+- Added Schedules: schedules created in the Dreame app are now parsed into `schedule.<id>.*` states (time, weekdays, type, enabled toggle, per-room or whole-floor settings with translated room names and enum values, linked shortcut for shortcut-type schedules). See [Schedules](#schedules).
+- Widget: added a Schedules panel/button showing all schedules in a table with an on/off switch each; schedules pointing at a deleted shortcut show a locked switch instead of silently failing.
+- Widget: added a Shortcuts panel — one tile per app shortcut, tap to start it directly.
+- Fixed app shortcuts being unavailable on vacuums (previously mower-only); shortcut channels are now rebuilt on adapter restart and cleaned up when deleted in the app.
+- Widget: full German/English translation of every panel (Cleaning, Shortcuts, Schedules, Station, Maintenance, Water & Mop, Statistics, Kopf/Fehler status and error text), following the ioBroker system language.
+- Widget: individual rows/tiles within a panel can now be hidden, not just whole panels (e.g. hide suction level or moisture on the Cleaning panel).
+- Widget: menu width control changed from a slider (which visibly drifted under the pointer while dragging) to a number field with −/+ buttons, matching the existing UI zoom control.
+- Widget: fixed a label/input association bug where clicking the "UI zoom"/"Menu width" caption activated the adjacent minus button instead of focusing the field (#104, thanks RicardoHipp).
+- Widget: the cleaning-mode tile is no longer locked as soon as any room is selected — testing showed the robot does honour the globally set mode for room cleaning except for the combined vacuum+mop mode (#103, thanks RicardoHipp).
+- Widget: removed the unused, never-wired-up Mopp panel placeholder; `configVersion` bumped 5→6 to clean up any leftover `panels.mopp` config entry.
+- Retyped six MIoT settings from `boolean` to `number` (auto-dust-collecting, auto-lds-coverage, clean-carpets-first, silent-drying, hair-compression, mopping-with-detergent) — devices reporting a value outside 0/1 had those silently rejected before. Thanks to krobipd for the analysis.
+- Fixed several `map.*` states logging "has no existing object" on first creation (missing `await` before the object was created).
+- Named 13 previously raw/unnamed status datapoints (mop pad and dirty water tank consumables, firmware/MCU version, cleaning-related flags, camera light, current city, cleaning mode) after cross-checking them against another adapter on the same hardware. Thanks to krobipd.
+- Decoded `status.error` (previously a raw numeric code) into readable, translated text for 98 error codes, cross-checked against two independent sources. Thanks to krobipd.
+- Added a fallback so `status.state`/`status.battery-level` still populate on models whose regular status poll omits them (e.g. Aqua10 Ultra / r95475). Thanks to krobipd.
+- Added `remote.go-to-point` (x/y/use-current-position/start): send the robot to a stored map coordinate to look around, without cleaning on the way. Thanks to krobipd.
+- Added per-device `info.online` reachability state with one log line per online/offline transition, replacing silent timeout logging.
+- Bumped `pako` (map data compression) from 2.x to 3.x.
+
+### 0.4.0 (2026-07-31)
+- Modular widget rebuild: customizable appearance (light/dark/main-color/custom themes), configurable panels, kiosk mode with URL-based configuration sharing, robot switcher for multi-device setups.
+
+### 0.3.26 (2026-07-20)
+- Fixed stream-status (siid 10001 piid 1) type warning: the value is a streaming-session object, not a number - state declaration corrected to type string / role json, matching the convention used for dnd-task, task-info and zone-status (#82). The boolean type mismatch reported by flapman on remote.auto-dust-collecting, mopping-with-detergent, hair-compression, silent-drying, auto-lds-coverage and clean-carpets-first is already covered by the boolean coercion added in 0.3.25 - please update. Thanks to krobipd for reporting the exact device payload and preparing the fix.
+
+### 0.3.25 (2026-07-20)
+- Fixed room-specific cleaning settings being written to the wrong room (cleanset used RoomOrder instead of the real room id) (#95). Fixed boolean switches being rejected by the device - values are now sent as 1/0 (#94). Fixed adapter reboot loop on devices without a generated map, e.g. MOVA Z70 (#83). Fixed multi-room cleaning only cleaning the first selected room on 5th gen devices. Fixed swapped cleaning modes (vacuum/vacuum+mop) on devices with liftable mop pads. Fixed stream-status type warning (#82). German translation: renamed dining hall segment from Speisesaal to Esszimmer. Thanks to RicardoHipp for reporting and analyzing several of these issues.
 
 ### 0.3.24 (2026-07-01)
 - Fixed custom room cleaning bug where switching active-map without touching a checkbox left customCommand holding room IDs from the previously selected map, causing the robot to clean the wrong room (room segment IDs are not unique across maps). customCommand is now rebuilt automatically whenever active-map changes, and is recomputed fresh from the active map's checkboxes immediately before every start as a final safeguard. Start is now aborted with a warning if no room is selected for the active map.
-
-### 0.3.23 (2026-07-01)
-- Added map name synchronization: renaming a map via map.maps.<id>.mapName now automatically updates the corresponding remote.custom-room-cleaning channel name. Changed active-map state to a dropdown (common.states) showing map names with their id instead of requiring the raw numeric id to be typed manually.
-
-### 0.3.22 (2026-06-28)
-- Added custom room cleaning feature under remote.custom-room-cleaning: select rooms per map via checkboxes, bidirectionally synchronized with customCommand, using global suction level and water volume; start triggers a real multi-zone cleaning command. Added editable map name state (map.maps.<id>.mapName) to rename maps directly in ioBroker admin without adapter restart. Fixed I18n initialization order on startup so mapName state is now correctly created on first start. Fixed cleanset channel names to show translated room names instead of raw path strings. Added JSON validation before sending customCommand to device. Fixed multi-language index suffix for rooms with identical types (e.g. Bedroom 2). Fixed German translation for corridor room type (Flur).
-
-### 0.3.21 (2026-06-25)
-- Added lazy-created, translated states for mower position, battery, position/DND, schedule and statistics data (mower SIID 2/3/4/5/8/12). Fixed state ordering bug where settings (rain protection, child lock, etc.) appeared empty on first adapter start. Added translations for all mower config/AutoSwitch/preference states in 11 languages. Fixed boolean states incorrectly storing numeric 0/1 instead of true/false (affects auto-dust-collecting, dnd-enable, resume-cleaning and 15 other states). Improved fallback handling for unknown properties: registered 3 previously-unmapped properties (camera stream status, map object name, robot-cleaner property 2-6) and stopped creating misleading writable states for properties we cannot confirm are writable. Added a one-time cleanup for leftover phantom states from the old fallback mechanism. Updated installation instructions in README (the adapter is now available directly via ioBroker Admin from the Latest repository). Fixed adapter crash (unhandled promise rejection) when a device reports an unmapped property with an undefined value.
-
-### 0.3.20 (2026-06-24)
-- Added lazy-created, translated states for mower position, battery, position/DND, schedule and statistics data (mower SIID 2/3/4/5/8/12). Fixed state ordering bug where settings (rain protection, child lock, etc.) appeared empty on first adapter start. Added translations for all mower config/AutoSwitch/preference states in 11 languages. Fixed boolean states incorrectly storing numeric 0/1 instead of true/false (affects auto-dust-collecting, dnd-enable, resume-cleaning and 15 other states). Improved fallback handling for unknown properties: registered 3 previously-unmapped properties (camera stream status, map object name, robot-cleaner property 2-6) and stopped creating misleading writable states for properties we cannot confirm are writable. Added a one-time cleanup for leftover phantom states from the old fallback mechanism. Updated installation instructions in README (the adapter is now available directly via ioBroker Admin from the Latest repository).
-
-### 0.3.19 (2026-06-23)
-- Documentation fix: 0.3.18 changelog entry was missing from README.md due to a release script bug. No functional changes.
-
-### 0.3.18 (2026-06-23)
-- Vacuum states are now created lazily — only properties actually reported by the device appear in the object tree, filling in gradually after adapter start. All vacuum states now have full translations in 11 languages. Fixed cleaning-mode encoding for L40s Pro Ultra and similar models (mode, area and humidity were previously combined into a single raw value). Action buttons (start, stop, reset, etc.) now display correctly as buttons instead of raw text. Added translated, lazily-created states for mower position/task data (binary protocol). Fixed data loss on first write to rawCompound states (previous compound value was discarded before decoding, causing partial state updates). Added min/max range (1-32) for wetness-level state. BREAKING CHANGE: Action states (start-clean, stop-clean, return-to-base, etc.) changed from type string/text to boolean/button. Scripts or Vis widgets that write string values to these states must be updated to write true instead.
-
-### 0.3.17 (2026-06-21)
-
-- Fix command sent for some states
-- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
-
-### 0.3.7 (2026-04-28)
-
-- Fix mower SETTINGS/SCHEDULE parsing: reassemble chunked data before JSON.parse (fixes warning every 30s)
-- Fix mower actions: remove dangerous start-zone-mow (was sending DOCK), add pause-mow and clear-warning
-- Remove mower stop-mow-ext (no HA equivalent)
-
-### 0.3.6 (2026-04-21)
-
-- Add dedicated vacuum state tree (createVacuumRemotes) with ~85 status, ~32 remote, ~22 AutoSwitch, ~13 action states
-- Add vacuum consumable reset buttons (main brush, side brush, filter, sensor)
-- Add vacuum AutoSwitch parsing (25 features: auto-drying, collision-avoidance, fill-light, clean-genius, cleaning-route, etc.)
-- Add vacuum action buttons (start, pause, stop, return-to-dock, locate, start-washing, start-auto-empty, clear-warning)
-- Add vacuum station status (clean/dirty water tank, dust bag, detergent, hot water)
-- Add vacuum extended settings (wetness, CleanGenius mode, water temperature, silent drying, hair compression)
-- Add 20 new vacuum status enums (draining, dust bag drying, floor maintaining, finding pet, etc.)
-- Fix mower return-to-dock command (was siid:3 aiid:1, now correct siid:5 aiid:3)
-- Fix mower start-zone-mow was sending DOCK command (siid:2 aiid:3 remapped to siid:5 aiid:3) — removed, use start-mow-ext with params instead
-- Fix mower missing pause-mow action — added (siid:5 aiid:4)
-- Fix mower missing clear-warning action — added (siid:4 aiid:3)
-- Remove mower stop-mow-ext (siid:4 aiid:2, no HA equivalent)
-- Fix set_properties method for writable states (was incorrectly sending as action)
-- Fix boolean action commands now send in:[] parameter
-
-### 0.3.5 (2026-04-19)
-
-- Add AutoSwitch properties (4-50): collision avoidance, fill light, CleanGenius, cleaning route, auto charging, etc.
-- Add PRE mowing preferences: cutting height, obstacle distance, mow mode, edge mowing, edge detection, direction change
-- Add shortcuts support (4-48): parsed names, running state, start buttons
-- Add cleaning history via cloud API (last 20 mow sessions with date, duration, area, completion)
-- Fix battery byte parsing (buf[11] & 0x7F + charging bit 7)
-
-### 0.3.4 (2026-04-19)
-
-- Add mower settings states from getCFG (rain protection, frost protection, low speed, DND, battery config, volume, headlight, AI obstacle, camera, anti-theft, etc.)
-- Load all settings on startup and auto-reload on prop.2.51 MQTT trigger
-- Add dedicated remote states for setting CFG values (set-rain-protection, set-frost-protection, set-volume, find-robot, lock-robot, etc.)
-- Split consumables into individual states (blade-hours, brush-hours, robot-maintenance-hours + health %)
-- Add individual consumable reset buttons (reset-blade, reset-brush, reset-robot-maintenance)
-- Correct prop.2.51 as generic settings-update trigger (WRP/FDP/LOW)
-- Remove invalid cleaning-progress (4-63) from mower states
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

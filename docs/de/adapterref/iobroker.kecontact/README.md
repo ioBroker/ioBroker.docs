@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: oVufczSonHhlIy89jlBVIxnvpoMLkBWnu01wKPedSKU=
+hash: 0aEogRxeBqh9lLUVyS6N0nMMc5frp5L/MsS+VlG3EsE=
 ---
 ![Logo](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -34,7 +34,7 @@ Installieren Sie diesen Adapter über ioBroker Admin:
 
 ## Konfiguration
 ### KeContact IP-Adresse
-Dies ist die IP-Adresse Ihrer KEBA KeContact oder BMW i Wallbox. Die Kombination mit Keba KeContact S10 (Phasenumschalter) wird unterstützt.
+Dies ist die IP-Adresse Ihrer KEBA KeContact oder BMW i Wallbox. Die Kombination mit Keba KeContact S10 (Phasenumschaltgerät) wird unterstützt.
 
 ### Firmware-Prüfung
 Wird nicht mehr unterstützt, da die Website von Keba geändert wurde.
@@ -104,6 +104,8 @@ Darüber hinaus gibt es einige Zustände, die das Verhalten von Photovoltaikanla
 
 Beispiel: Um Ihr Fahrzeug unabhängig vom Überschuss mit einer konstanten Stromstärke von 6A zu laden, stellen Sie Photovoltaik auf „false“ und LimitCurrent auf 6000 ein.
 
+Eine deutsche Beschreibung der Funktionsweise des Adapters finden Sie unter [Hier](kecontact.md)
+
 ## Rechtliches
 Dieses Projekt steht in keiner direkten oder indirekten Verbindung zur Firma KEBA AG.
 
@@ -114,13 +116,18 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.8.0 (2026-07-22)
+* (Sneak-L8) possibility to regulate max grid power not only in settings but also dynamically by seperate state
+* (Sneak-L8) fix missing Tests for addPower setting due to label change
+
+### 3.7.0 (2026-07-14)
 * (Sneak-L8) addPower can now also be used to preserve power for other consumers by specifying negative value
 * (@mcm1957) Adapter requires node.js >= 22 now.
 * (Sneak-L8) Minimum time between phase switching has also to be respected when using state for phase switch, thanks to SmartNightly
 * (Sneak-L8) fix errors [E0036], [S0082] and [S5004] found by repository checker
 * (Sneak-L8) fix errors [E6025], [W1130], [W1132], [W1134],  [W5060] and [W6023] found by repository checker
-  
+* (Sneak-L8) fix warning [W0034] found by repository checker
+
 ### 3.6.0 (2026-03-29)
 * (Sneak-L8) information about new firmware also via admin notification (also works for x-series)
 * (Sneak-L8) updated dependencies
@@ -135,16 +142,6 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
 * (Sneak-L8) new option to stop charging at a certain SoC
 * (Sneak-L8) raise adapter-dev version from 1.4 to 1.5
 * (Sneak-L8) drop dependencies to chai, sinon and mocha
-
-### 3.3.0 (2025-09-18)
-* (Sneak-L8) new option to always charge with 1p oder 3p
-* (Sneak-L8) new setting for discharging power of storage battery (if not equal to max battery power)
-* (Sneak-L8) updated version requirements (admin 7.6.17 and core 3.3.2)
-
-### 3.2.0 (2025-07-13)
-* (Sneak-L8) new option to always start charging when vehicle is plugged if authorization is required to prevent charging station to block charging
-* (Sneak-L8) optimized strategy for battery charging
-* (Sneak-L8) node.js >= 20 required
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

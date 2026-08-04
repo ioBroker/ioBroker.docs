@@ -66,19 +66,19 @@ For details and how to disable it, see the [Sentry plugin documentation](https:/
 public-holidays.0.
 ├── today.
 │   ├── name         string    "Karfreitag" / "Good Friday"
-│   └── boolean      boolean   true / false
+│   └── isHoliday    boolean   true / false
 ├── yesterday.
 │   ├── name         string
-│   └── boolean      boolean
+│   └── isHoliday    boolean
 ├── tomorrow.
 │   ├── name         string
-│   └── boolean      boolean
+│   └── isHoliday    boolean
 ├── dayAfterTomorrow.
 │   ├── name         string
-│   └── boolean      boolean
+│   └── isHoliday    boolean
 └── next.
     ├── name         string    next holiday name (localized)
-    ├── boolean      boolean   true when an upcoming holiday exists
+    ├── isHoliday    boolean   true when an upcoming holiday exists
     ├── date         string    "2026-12-25" (ISO date)
     └── daysUntil    number    days until holiday
 ```
@@ -109,6 +109,11 @@ Bridge days appear in the state tree with the localized name matching the system
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.11.0 (2026-07-12)
+
+- Breaking change: the states that flag whether each day is a holiday were renamed for clarity — update any scripts or views that read them.
+- Refreshed the built-in holiday data, adding newly recognised regional holidays.
+
 ### 0.10.0 (2026-07-02)
 
 - The "next holiday" date and days-until states now show up correctly as a date and a day count in VIS widgets and scripts (they carry the proper ioBroker role and a "days" unit).
@@ -130,15 +135,11 @@ Bridge days appear in the state tree with the localized name matching the system
 
 - Internal refactoring. No user-facing changes.
 
-### 0.7.0 (2026-06-07)
-
-- Added optional Sentry error reporting: crashes are sent to the developer so issues get fixed faster. Active only with ioBroker diagnostics enabled; anonymous.
-
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Credits
 
-npm package originally registered by [Jey Cee](https://github.com/Jey-Cee). This adapter is a complete rewrite with no shared code.
+The idea goes back to the `feiertage` adapter by pix, which brought holiday data to ioBroker in the first place. Thanks to [Jey Cee](https://github.com/Jey-Cee) for handing over the `public-holidays` package name. This adapter is an independent implementation and shares no code with either.
 
 ## Support
 

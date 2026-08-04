@@ -72,8 +72,7 @@ this does not work reliably. Therefore, this was rolled back in version 0.7.3.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.7.5 (2026-07-13)
 
 - Fix dynamic state type handling
 - Automatically repair incorrect ioBroker state types
@@ -99,11 +98,6 @@ this does not work reliably. Therefore, this was rolled back in version 0.7.3.
 ### 0.7.1 (2025-04-25)
 
 - (raschy) jsonConfig customized
-
-### 0.7.0 (2025-04-23)
-
-- (raschy) NodeJS >= 20.x and js-controller >= 6 is required
-- (raschy) email and appsecret is now encrypted, please re-enter!
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="ioBroker.cctvql logo">
+  <defs><linearGradient id="g" x1="12" y1="12" x2="84" y2="84" gradientUnits="userSpaceOnUse"><stop stop-color="#F59E0B"/><stop offset="1" stop-color="#111827"/></linearGradient></defs>
+  <rect width="96" height="96" rx="22" fill="url(#g)"/>
+  <path d="M26 31h44v25H26z" fill="#fff"/>
+  <path d="M34 65h28" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="40" cy="44" r="6" fill="#111827"/><circle cx="56" cy="44" r="6" fill="#F59E0B"/>
+</svg>

@@ -56,8 +56,9 @@ Note: Since the boxes have different interfaces, it may be that not all interfac
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 1.0.1 (2026-07-11)
+* (copilot) Adapter requires node.js >= 22 now
+* (René) update dependencies + changes based on adapter checker
 
 ### 1.0.0 (2026-04-25)
 * (René) see issue ##423: parser for ChargeControl overworked, compatibility with new datapoints of v5.33 of wallbox firmware
@@ -70,9 +71,6 @@ Note: Since the boxes have different interfaces, it may be that not all interfac
 * (René) bug fix sentry
 
 ### 0.3.4 (2025-10-21)
-* (René) update dependencies + changes based on adapter checker
-
-### 0.3.3 (2025-10-04)
 * (René) update dependencies + changes based on adapter checker
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)

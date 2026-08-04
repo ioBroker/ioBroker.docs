@@ -40,23 +40,27 @@ Activate WS Server Settings in `zwave-js-ui` we use the Home Assistant Settings 
 
 <img width="1887" height="479" alt="grafik" src="https://github.com/user-attachments/assets/6ed8cf36-2d91-435f-91d7-86e430bb0c6c" />
 
+### **WORK IN PROGRESS**
+* (arteck) fix reconnect ws
 
 ## Changelog
+### 1.0.4 (2026-07-23)
+* (arteck) reconnect optimization
+* (arteck) notification handling
+* (arteck) fix energy values
+
+### 1.0.3 (2026-07-15)
+* (arteck) fix thermostat set point
+
+### 1.0.2 (2026-07-15)
+* (arteck) fix notification messages (check you scripts)
+
+### 1.0.1 (2026-07-15)
+* (arteck) fix bulb set color
+* (arteck) add delete null states button into adapter settings
+
 ### 1.0.0 (2026-07-08)
 * (arteck) add notification
-
-### 0.2.1 (2026-05-25)
-- (copilot) Adapter requires node.js >= 22 now
-* (arteck) fix new event
-
-### 0.2.0 (2026-04-26)
-* (arteck) del deprectated setStateAsync
-
-### 0.1.6 (2026-04-23)
-* (arteck) add test
-
-### 0.1.5 (2026-04-21)
-* (arteck) upd devicemanager
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

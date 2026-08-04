@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.open-meteo-weather/README.md
 title: ioBroker.open-meteo-weather
-hash: ZDtyYCv3+PZq9GWbyJ9HYdjGqTd6XEDq5f/Mq3OAUIA=
+hash: P3wB0xD3M87nzl+950W6I48jWGHiXibX2Df6hSxxLlo=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.open-meteo-weather.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.open-meteo-weather.svg)
@@ -29,6 +29,8 @@ Ich nutze meinen eigenen Sentry-Server, der auf Glitchtip basiert.
 **Der Open-Meteo Wetter- und PV-Vorhersagedienst-Adapter für ioBroker.**
 
 Dieser Adapter liefert präzise Wetterdaten, Vorhersagen, Informationen zur Luftqualität sowie Pollen- und Photovoltaik-Vorhersagen (bereitgestellt von [Open-Meteo.com](https://open-meteo.com/)). Er ist für nicht-kommerzielle Zwecke (bis zu 10.000 API-Aufrufe pro Tag) kostenlos und erfordert keine API-Schlüsselregistrierung, wodurch die Einrichtung extrem einfach ist.
+
+Sollten beim Adapter Probleme wie Timeouts oder Serverfehler auftreten, können Sie [Open-Meteo-Serverstatus](https://status.open-meteo.com/) überprüfen.
 
 ---
 
@@ -72,7 +74,7 @@ Merkmale:
 ## Konfiguration
 Konfigurieren Sie nach der Installation die folgenden Felder in den Instanzeinstellungen:
 
-1. **Ort:** Geben Sie hier Ihren Standort oder einen gewünschten Namen ein.
+1. **Ort:** Geben Sie hier Ihren Ort oder einen gewünschten Namen an.
 2. **Koordinaten (Breitengrad & Längengrad):** Geben Sie Ihre Koordinaten ein. Sie finden diese, indem Sie auf die Schaltfläche „Koordinaten mit OpenStreetMap finden“ klicken, oder lassen Sie die Felder leer, um die Systemkoordinaten zu verwenden.
 3. **Zeitzone:** Stellen Sie die Zeitzone im Dropdown-Menü ein. Standardmäßig ist die Option „Auto“ ausgewählt, die sich automatisch an Ihre Koordinaten anpasst.
 4. **Aktualisierungsintervall:** Zeitintervall in Minuten (Standard: 30 min).
@@ -283,10 +285,16 @@ Die in diesem Adapter enthaltenen statischen Wetter- und Windrichtungssymbole un
 * **Wetterdaten:** Alle Wetterdaten werden von [Open-Meteo.com](https://open-meteo.com/) bereitgestellt. Bitte beachten Sie deren Nutzungsbedingungen für kommerzielle Zwecke.
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.1.4 (2026-07-18)
 * (@GermanBluefox) upscaled the logo
 * (@GermanBluefox) Updated TS to 6
 * (@GermanBluefox) Corrected image in JsonConfig
+* (H5N1v2) Resize logo to 512x512
+* (pk68) fix: info.lastUpdate_PV_Forecast is no longer updated if all API calls failed or returned empty data.
+* (H5N1v2) fix: PV Forecast sunrise mode now retries automatically after 30 minutes if the API call fails (e.g. HTTP 500 overload). The next day's schedule is only planned after a successful update.
+* (H5N1v2) add open-meteo status link in adapter description and README.
+* (H5N1v2) fix: made OpenStreetMap link clickable in the admin area.
+* (H5N1v2) Update dependencie.
 
 ### 3.1.3 (2026-06-20)
 * (H5N1v2) Fixed an issue with object creation caused by an accidental change.
@@ -312,13 +320,6 @@ Die in diesem Adapter enthaltenen statischen Wetter- und Windrichtungssymbole un
 * (H5N1v2) Adapter internal widget adapted, hazards are highlighted in color (currently only in the internal adapter widget).
 * (copilot) Adapter requires node.js >= 22 now.
 * (H5N1v2) Update axios to v.1.16.0.
-
-### 3.0.1 (2026-04-25)
-* (H5N1) update dependencies
-* (H5N1) improve error handling in API calls with detailed messages
-* (H5N1) fix: attribute in jsonConfig.
-* (Negalein) fix: yellow help text in admin for pv-forecast extra dp's, poor recognition on white background
-* (H5N1v2) fix: update interval for pv-forecast "once before sunrise" time incorrectly calculated
 
 ## License
 This project is licensed under the **MIT License** - see the `LICENSE` file for details.

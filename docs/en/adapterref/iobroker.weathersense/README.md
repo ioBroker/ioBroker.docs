@@ -25,6 +25,11 @@ For example, this WiFi weather stations from Ideoon (Pearl):
 
 ![Screenshot](https://github.com/ltspicer/WeatherSense/blob/main/casativo_ideoon_weatherstation.png)
 
+ioBroker data points:
+
+![Screenshot](https://github.com/ltspicer/WeatherSense/blob/main/iobroker_dps.png)
+
+
 ## Use:
 
 Simply enter your WeatherSense account login details (email and password).
@@ -53,6 +58,10 @@ To successfully read data from multiple stations simultaneously without any conf
 * **Clean MQTT Routing:** If you use the integrated MQTT feature, your topics will be cleanly separated by the Sensor ID (e.g., `weathersense/1/...` and `weathersense/2/...`), preventing data from overwriting on your broker.
 
 ## Changelog
+### 5.2.3 (2026-07-26)
+
+- Div error messages moved to warn messages
+
 ### 5.2.2 (2026-07-09)
 
 - Typo corrected
@@ -68,10 +77,6 @@ To successfully read data from multiple stations simultaneously without any conf
 ### 5.1.1 (2026-07-05)
 
 - Bugfix: Unit windDirection km/h → °
-
-### 5.1.0 (2026-07-04)
-
-- Now filenames of JSON files beginning with weathersense.{sensor_id}...
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

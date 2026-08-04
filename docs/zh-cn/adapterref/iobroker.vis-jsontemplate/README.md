@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate - 用于在 Vis/Vis2 中可视化 JSON 数据和其他数据的适配器
-hash: Ff2/8FhheGHxROpeqSFrjF6DG2L258+2E7+X4uX4Qww=
+hash: 7s1xM16/ov++kLeyabOPEYxwmmmrH0q/c1R+KDa8iRI=
 ---
 # JSONTemplate - 用于在 Vis/Vis2 中可视化 JSON 数据和其他数据的适配器
 ![标识](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -43,6 +43,7 @@ jsontemplate 小部件之前可在 rssfeed（适用于 vis1）和 vis-2-widgets-
 - [vis / vis-2 使用的重要提示](#very-important-note-for-use-in-vis--vis-2)
 - [CSS 和 JSON 中的花括号](#curly-braces-in-css-and-json)
 - [setInterval 的使用](#use-of-setinterval)
+- [利用人工智能开发模板](#developing-templates-with-ai)
 - [标签](#tags)
 - [示例对象](#example-object)
 - [开发和调试](#development-and-debugging)
@@ -88,6 +89,7 @@ JSONTemplate 现在支持使用 await 进行异步调用。
 | json_oid | 选择具有对应 JSON 数据的数据点。 |
 | json_dpCount | 模板中可用的数据点数量。 |
 | json_dp | 待提供的数据点 ID。 |
+| json_dp_variable | 可选的 JavaScript 变量名。该变量包含数据点 ID；在其名称后附加 `_value` 则包含其当前值。 |
 | json_scriptCount | 要加载的 JavaScript URL 数量 |
 | json_script[] | 要加载的 JavaScript URL。请参见以下示例。 |
 | json_cssCount | 要加载的 CSS URL 数量。 |
@@ -100,6 +102,7 @@ JSONTemplate 现在支持使用 await 进行异步调用。
 | 对象/变量 | 描述 |
 | --------------- | ------------------------------------------------------------------------ |
 | widgetid | 该小部件的 widgetid。 |
+| widgetID | 该小部件的 widgetid。 |
 | 数据 | json_oid 中数据点引用的 JSON 对象。 |
 | dp | 数据点数组，由附加数据点引用 |
 | 小部件 | 内部小部件数据。包含所有可用小部件设置的对象 |
@@ -119,6 +122,14 @@ B) 数据点的索引号（编号始终从 0 开始）
 <%- dp[Object.keys(dp)[1]] %>
 ```
 
+C) 为数据点配置的可选变量名。例如，对于数据点 `0_userdata.0.selectwrite`，变量名 `dpwrite`，值为 `abc`：
+
+```javascript
+<%- dpwrite %>          <!-- 0_userdata.0.selectwrite -->
+<%- dpwrite_value %>    <!-- abc -->
+<%- dp[dpwrite] %>      <!-- abc -->
+```
+
 模板中数据、小部件和样式的示例输出
 
 ```ejs
@@ -127,6 +138,8 @@ B) 数据点的索引号（编号始终从 0 开始）
     .replace(/\n/g, '<br>')
     .replace(/ /g, '&nbsp;'); %>
 ```
+
+如果发生错误，则会在小部件中显示错误信息，并输出到浏览器控制台 (F12)。
 
 #### 高级用例
 以上示例仅涵盖了纯文本输出。
@@ -167,6 +180,7 @@ B) 数据点的索引号（编号始终从 0 开始）
 - [公共交通用例](documentation/usecase-public-transport.md)
 - [简单仪表用例](documentation/usecase-simplegauge.md)
 - [用例 GitHub Issues 和 PR](documentation/usecase-githubissues.md)
+- [FRITZ!Box 调用列表用例](documentation/usecase-fritzbox-call-list.md)
 
 ## 模板系统
 ### 非常重要的提示（适用于 vis / vis-2）
@@ -177,13 +191,13 @@ vis / vis-2 中的绑定机制使用模式 `{ ... }` 来检测 HTML 中的绑定
 
 ＃＃＃＃＃ 例子
 ```text
-#w_id_<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
+#<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
 ```
 
 必须按如下方式书写：
 
 ```text
-#w_id_<%- widgetid %> {
+#<%- widgetid %> {
     height: 100%; display: flex; flex-direction: column; overflow: hidden;
 }
 ```
@@ -192,6 +206,12 @@ vis / vis-2 中的绑定机制使用模式 `{ ... }` 来检测 HTML 中的绑定
 请勿使用 `setInterval`。由于模板会在每次数据点更改时重新调用，因此任何现有的 `setInterval` 调用都无法被正确清除。结果，随着时间的推移，重叠的 `setInterval` 调用会不断累积；这会消耗内存，并可能导致不可预知的副作用。虽然重新加载页面可以解决此问题，但代码不应以这种方式实现。
 
 作为替代方案，此类场景应使用 `setTimeout` 来实现。
+
+#### 利用人工智能开发模板
+为了简化所有人创建模板的过程，我准备了详细的文档，包括提示和说明：
+
+- [英文]（文档/AI-EN.md）
+- [德语](documentation/KI-DE.md)
 
 ## 标签
 模板系统使用特定的标签。
@@ -300,7 +320,7 @@ vis / vis-2 中的绑定机制使用模式 `{ ... }` 来检测 HTML 中的绑定
 
 方括号表示法也适用于不符合命名规则的属性。
 
-**点记法：**
+**点表示法：**
 
 **模板：**
 
@@ -387,80 +407,46 @@ vis / vis-2 中的绑定机制使用模式 `{ ... }` 来检测 HTML 中的绑定
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.6.1 (2026-07-31)
 
-### **WORK IN PROGRESS**
+- Improved error output.
+
+### 4.6.0 (2026-07-30)
+
+- some changes. see readme/below
+
+#### Changes 2026-07-30
+
+- add optional variable names to extra datapoints
+
+### 4.5.0 (2026-07-29)
+
+- some changes. see readme/below
+
+#### Changes 2026-07-29
+
+- repair widget rendering
+- add search and fullscreen to ejs-edit for vis-2 widget
+- improve ki documentation for regex expressions
+- improve vis-2 ejs edit theme for dark mode
+
+### 4.4.5 (2026-07-22)
+
+- fix packages for vis-2
+
+### 4.4.4 (2026-07-22)
+
+- some changes. see readme/below
+
+#### Changes 2026-07.22
 
 - change documentation that in the template the widgetid is available and not widgetID
 - add documentation for the usecase simple gauge
+- add documentation for a responsive FRITZ!Box call list
+- Due to an inconsistency between the vis1 and vis2 widgets,
+  both `widgetid` and `widgetID` are now passed to the template.
 
-### 4.4.3 (2026-04-21)
-
-- revert repochecker warning about fs/node:fs and path/node:path
-  because of error loading ejs
-
-### 4.4.2 (2026-04-13)
-
-- fix runtime
-
-### 4.4.1 (2026-04-13)
-
-- fix regression
-- update packages
-
-### 4.4.0 (2026-03-24)
-
-- optimize lib size
-- The ability to load additional JavaScript and CSS files
-  has been added (also for vis2).
-- Improve react components
-- align translation for vis2 widget
-
-### 4.3.11 (2026-01-25)
-
-- check test release workflow
-
-### 4.3.10 (2026-01-25)
-
-- update test and release script
-
-### 4.3.1 (2026-01-24)
-
-- try again to publish
-
-### 4.3.0 (2026-01-24)
-
-- The ability to load additional JavaScript and CSS files has been added.
-  This is currently only available for vis1 for testing purposes.
-
-### 4.2.0 (2025-11-14)
-
-- Improve documentation for the object notation in a template
-- fix some translations
-- align attribute name to vis1
-- add widget data to the available template objects in vis2
-- add style and widget object to the available template objects in vis1
-- improve documentation
-
-### 4.1.3 (2025-11-03)
-
-- fix race condition if more than one widget use the same datapoint
-- switch to trusted publishing
-
-### 4.1.2 (2025-09-13)
-
-- new try of publish
-
-### 4.1.0 (2025-09-12)
-
-- rename widgetset of the vis2 widget
-
-### 4.0.2 (2025-08-28)
-
-- remove v4.0.0 from io-package
-
-### 4.0.1 (2025-08-28)
-
-- move vis1 and vis2 widgets to vis-jsontemplate adapter
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

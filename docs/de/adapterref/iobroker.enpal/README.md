@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.enpal/README.md
 title: ioBroker-Adapter für Enpal Solar
-hash: Bh8A0oHG4rVcna8B6lrzEWUvAZCzrobxt4wsJQstvQE=
+hash: l1xdkK4vWXgCC8b5F3cmLLjQkTEG7z1Ot+oiV54Lsf4=
 ---
 ![Logo](../../../en/adapterref/iobroker.enpal/admin/enpal_logo.svg)
 
@@ -65,7 +65,7 @@ enpal.0.wallbox_control.<state>
 | Status | Typ | Lesen | Schreiben | Beschreibung |
 |-------|------|------|-------|-------------|
 | `start` | Taste | nein | ja | Ladevorgang starten (auf `true` einstellen, um den Ladevorgang auszulösen) |
-| `mode` | Wert | ja | ja | Lademodus einstellen: `eco`, `solar`, `full` oder `smart` |
+| `mode` | Wert | ja | ja | Lademodussteuerung: `eco`, `solar`, `full` oder `smart`. Wird auch von der Wanddose synchronisiert, wenn der Modus über die Enpal-App geändert wird. |
 | `currentMode` | Text | Ja | Nein | Aktueller Lademodus, der von der Wallbox gemeldet wird (z. B. `Eco`, `Solar`, `Full`) |
 | `connectorStatus` | Text | Ja | Nein | OCPP-Anschlussstatus von der Wanddose (siehe [Verbindungsstatuswerte](#connector-status-values)) |
 | `automaticChargeStatus` | Text | Ja | Nein | Automatisches Laden beim Einstecken (`On` / `Off`; schreibgeschützt, Änderung über die Enpal-App möglich) |
@@ -74,7 +74,7 @@ enpal.0.wallbox_control.<state>
 **So funktioniert es**
 
 - **Steuerung** (Modus, Start, Stopp): Der Adapter verbindet sich über Blazor SignalR mit `http://<enpal-box>/wallbox` (gleicher Ansatz wie bei der [Home Assistant Enpal-Integration](https://github.com/derolli1976/enpal)) und simuliert Tastendrücke.
-- **Status** (`currentMode`, `connectorStatus`, `automaticChargeStatus`): Wird von der Enpal Box-Seite `http://<enpal-box>/deviceMessages` (`Mode.Charge.Connector.1`, `Status.Wallbox.Connector.1`, `Wallbox.Settings.AutomaticChargeStatus.Connector.1`) gelesen. Wird bei jedem Synchronisierungsintervall und nach jeder Steuerungsaktion aktualisiert.
+- **Status** (`currentMode`, `connectorStatus`, `automaticChargeStatus`): Wird von der Enpal Box-Seite `http://<enpal-box>/deviceMessages` (`Mode.Charge.Connector.1`, `Status.Wallbox.Connector.1`, `Wallbox.Settings.AutomaticChargeStatus.Connector.1`) gelesen. Wird bei jedem Synchronisierungsintervall und nach jeder Steuerungsaktion aktualisiert. Der beschreibbare Status `mode` wird ebenfalls aktualisiert (mit `ack: true`), sodass die VIS-Dropdown-Menüs synchron bleiben, wenn der Modus außerhalb von ioBroker geändert wird.
 
 #### Konnektorstatuswerte
 `connectorStatus` meldet den Verbindungsstatus [OCPP](https://www.openchargealliance.org/) der Enpal/StarCharge-Wandbox. Die Werte sind auf die kanonische Schreibweise normalisiert (z. B. `SuspendedEV`, nicht `Suspendedev`).
@@ -102,10 +102,10 @@ enpal.0.wallbox_control.<state>
 
 **Nicht unterstützt**
 
-- Automatisches Laden über ioBroker ändern (Einstellung bleibt schreibgeschützt; zum Umschalten die Enpal-App verwenden)
+- Automatisches Laden beim Einstecken über ioBroker ändern (Einstellung bleibt schreibgeschützt; zum Umschalten die Enpal-App verwenden)
 
 ## Installation
-1. Installieren Sie den Adapter über die ioBroker-Administrationsoberfläche.
+1. Installieren Sie den Adapter über die ioBroker-Administrationsschnittstelle.
 2. Erstellen Sie eine neue Instanz
 3. Konfigurieren Sie die folgenden Einstellungen (Registerkarte **Einstellungen**):
 - **InfluxDB-URL**: Adresse Ihrer lokalen InfluxDB (z. B. `http://192.168.1.100:8086`)
@@ -135,6 +135,8 @@ Es werden keine externen Server kontaktiert.
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 0.4.3 (2026-07-21)
+- (skvarel) Sync wallbox_control.mode from status when charge mode is changed via the Enpal app
 
 ### 0.4.2 (2026-06-12)
 - (skvarel) Fixed missing wallbox_help_readme translation in English and German admin UI
@@ -154,12 +156,6 @@ Es werden keine externen Server kontaktiert.
 - (skvarel) Added optional wallbox control via Enpal Box web interface (Blazor SignalR)
 - (skvarel) New config option: wallbox_enabled (checkbox); Enpal Box URL is derived automatically from InfluxDB URL
 - (skvarel) New states under wallbox_control: start, stop, mode, currentMode, connectorStatus
-
-### 0.2.2 (2026-06-05)
-- (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
-- (skvarel) Updated @alcalzone/release-script to 5.2.1 to fix repository checker error E0036
-- (skvarel) Updated @tsconfig/node22 to 22.0.5
-- (skvarel) Fixed mixed indentation in admin/jsonConfig.json
 
 ## License
 MIT License

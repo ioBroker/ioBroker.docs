@@ -111,6 +111,9 @@ Use `windDatumDisplay` for visualization and `windDatum` for calculations/automa
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+- (bluefox) Migrated to devices V3
+
 ### 1.0.3 (2026-07-08)
 - (bluefox) Better decoding of motor PGNs
 

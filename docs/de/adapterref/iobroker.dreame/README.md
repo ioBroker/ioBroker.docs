@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dreame/README.md
 title: ioBroker.dreame
-hash: naCLadNH5twq/v+MT5/mrkqMaQZI642DviDDAUn+ZI0=
+hash: XcsNMvva6WtXttYYwmYlO7AE9+rTDkV+b9sydyrfgig=
 ---
 ![Logo](../../../en/adapterref/iobroker.dreame/admin/dreame.png)
 
@@ -17,6 +17,8 @@ hash: naCLadNH5twq/v+MT5/mrkqMaQZI642DviDDAUn+ZI0=
 **Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.dreame/workflows/Test%20and%20Release/badge.svg)
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
+![Live-Karten-Widget](../../../en/adapterref/iobroker.dreame/docs/Pics/Map-Screen.jpg)
 
 ## Dreame-Adapter für ioBroker
 Adapter für Dreame und MOVA Saugroboter und Mähroboter.
@@ -61,8 +63,8 @@ npm link
 | Cloud-Service | Wählen Sie je nach App **Dreame** oder **MOVA** aus |
 | App-E-Mail | Ihre Dreame/MOVA-App-Anmelde-E-Mail |
 | App-Passwort | Ihr Dreame/MOVA-App-Passwort |
-| Karte abrufen | Kartendarstellung aktivieren (höhere CPU-Auslastung) |
-| Aktualisierungsintervall | Abfrageintervall in Minuten |
+| Karte abrufen | Ruft die Karte beim Start des Adapters und alle *Aktualisierungsintervall* Minuten aus der Cloud ab; behält außerdem die Raumnamen und die gespeicherten Kartenbilder bei. Erforderlich für das unten stehende Karten-Widget. |
+| Aktualisierungsintervall | Zyklus (Minuten), in dem der Adapter aktiv die Cloud abfragt – Kartenabruf **und** allgemeiner Gerätestatus (Akku, Reinigungsstatus usw.). Höhere Werte reduzieren die Cloud-Anfragen, verzögern aber beides. |
 
 MOVA-Geräte (600, 1000) nutzen dasselbe Cloud-Backend wie Dreame, jedoch mit unterschiedlichen Domains. Wählen Sie **MOVA**, wenn Sie die MOVA-App verwenden.
 
@@ -272,11 +274,7 @@ Unter `remote.custom-room-cleaning.map-<id>/` wird jeder erkannte Raum als boole
 
 Die Zustände `remote.suction-level` und `remote.water-volume` gelten für alle ausgewählten Räume. Legen Sie diese Werte vor dem Start fest, wenn Sie von den Standardwerten abweichen möchten. Dies sind dieselben Zustände, die auch für die reguläre Reinigung verwendet werden.
 
-**e) Benutzerdefinierten Reinigungsmodus aktivieren**
-
-`remote.customized-cleaning` muss vor dem Start auf `true` gesetzt sein. Andernfalls wird der Startbefehl abgelehnt und eine Warnung protokolliert. Dies ist eine Gerätevoraussetzung und wird nicht automatisch festgelegt.
-
-**f) Starten Sie den Reinigungslauf**
+**e) Starten Sie den Reinigungslauf**
 
 Setzen Sie `remote.custom-room-cleaning.start` auf `true`. Der Adapter erstellt die Raumauswahl anhand der Kontrollkästchen der aktiven Karte, sendet sie an den Roboter und setzt den Zustand `start` automatisch auf `false` zurück.
 
@@ -297,8 +295,85 @@ Die Felder `customCommand` und die Kontrollkästchen für die Räume sind **bidi
 
 #### Bekannte Einschränkungen
 - **Nur globale Saug-/Wasserzufuhr** – Saugstärke und Wassermenge werden für alle ausgewählten Räume identisch eingestellt. Raumspezifische Einstellungen (wie in `map.cleanset.*` angezeigt) werden von dieser Funktion nicht unterstützt.
-- **Voraussetzung für `customized-cleaning`** — `remote.customized-cleaning` muss vor dem Start von `start` manuell aktiviert werden. Der Adapter aktiviert es nicht automatisch.
 **Mehrgeschossige Nutzung mit einer Karte getestet** – Die Mehrkartenstruktur (eine Kanalgruppe pro Karte) ist vollständig implementiert, jedoch wurde bisher nur der Betrieb mit einer einzelnen Karte umfassend auf realer Hardware getestet. Mehrgeschossige Haushalte mit zwei oder mehr Karten sollten funktionieren, wurden aber noch nicht vollständig verifiziert.
+
+---
+
+### Staubsauger-Abkürzungen
+Kurzbefehle (in der Dreame-App erstellte Schnellbefehle) werden aus den Eigenschaften 4-48 (base64-kodierte Namen) extrahiert. Jeder Kurzbefehl erhält einen eigenen Kanal unter `deviceId.shortcuts.{id}`:
+
+| Bundesland | Beschreibung |
+| ------- | ------------------------------------------ |
+| Name | Entschlüsselter Kurzname |
+| läuft | Gibt an, ob die Verknüpfung gerade ausgeführt wird |
+| Start | Schaltfläche zum Starten der Verknüpfung |
+
+Kanäle werden beim Start des Adapters automatisch neu erstellt (nicht erst bei der nächsten Änderung auf App-Seite) und automatisch entfernt, wenn eine Verknüpfung in der App gelöscht wird.
+
+---
+
+### Zeitpläne
+In der Dreame-App erstellte Zeitpläne (Eigenschaft 8-2) werden unter `deviceId.schedule.{id}` in einen Kanal pro Zeitplaneintrag aufgeteilt:
+
+| Bundesland | Beschreibung |
+| ---------- | ------------------------------------------------------------------------------------- |
+| aktiviert | Gibt an, ob der Zeitplan aktiv ist – beschreibbar, schaltet den Zeitplan direkt auf dem Roboter um |
+| Zeit | Zeitpunkt des Tages, zu dem der Zeitplan ausgelöst wird (`HH:MM`) |
+| Wochentage | An welchen Wochentagen der Fahrplan gilt (derzeit immer auf Deutsch, z. B. `Mo,Mi,Fr` oder `täglich`) |
+| Typ | Art des Reinigungsplans: Zimmerreinigung, Reinigung aller Zimmer oder eine Abkürzung |
+| Räume | *(nur Reinigungspläne)* JSON-Array, ein Eintrag pro Raum mit eigenem Modus/Saugkraft/Route/Zyklen/Feuchtigkeit und übersetztem Raumnamen |
+| Parameter | *(nur Zeitpläne für alle Räume)* JSON-Objekt mit Modus/Absaugung/Route/Zyklen/Feuchtigkeit, das für die gesamte Etage gilt |
+| verwaist | *(nur für Verknüpfungszeitpläne)* `true` wenn die verknüpfte Verknüpfung nicht mehr existiert (in der App gelöscht) — `enabled` sollte in diesem Fall nicht berücksichtigt werden |
+| verwaist | *(nur für Kurzbefehl-Zeitpläne)* `true`, wenn der verknüpfte Kurzbefehl nicht mehr existiert (in der App gelöscht) — auf `enabled` sollte man sich in diesem Fall nicht verlassen |
+
+Die Zeitplankanäle werden beim Start des Adapters automatisch neu erstellt und beim Löschen eines Zeitplans in der App automatisch entfernt, genau wie die oben genannten Verknüpfungen.
+
+---
+
+### Live-Karten-Widget
+Der Adapter beinhaltet ein browserbasiertes Live-Karten-Widget: Roboterposition, Reinigungspfad und gereinigte Räume werden in Echtzeit während der Reinigung aktualisiert. Es wird direkt vom Adapter bereitgestellt – ein vis-Widget oder ein zusätzlicher Adapter ist nicht erforderlich – und kann als iFrame in vis, Grafana oder ein benutzerdefiniertes Dashboard eingebunden werden.
+
+#### Aufstellen
+- Erfordert den ioBroker **web**-Adapter (beliebige Instanz) zum Ausliefern der Seite.
+Öffnen Sie es unter `%web_protocol%://%ip%:%web_port%/dreame/` – z. B. `http://<Ihr-iobroker>:8082/dreame/`. Ein vorgefertigter Link („Dreame-Map“) befindet sich auf der ioBroker-Startseite und neben dieser Instanz in der Adapterliste.
+- **Karte abrufen** muss aktiviert sein (siehe [Konfiguration](#configuration)) — ohne diese Option verfügt das Widget über keine Daten.
+- Falls noch keine Karte angezeigt wird, starten Sie den Adapter einmal, während sich der Roboter in seiner Dockingstation befindet, damit die erste vollständige Karte geladen werden kann.
+- Mehrere Roboter auf derselben Instanz: Das Widget zeigt im Header einen Geräteumschalter an, wenn mehr als ein Gerät gefunden wird, oder man kann direkt eines auswählen, indem man `?did=<did>` in die Adresse einfügt.
+
+**Kamera-/VSLAM-Roboter werden nicht unterstützt.** Geräte, die per Kamera statt per Lidar navigieren (z. B. Mijia 1C/1T, Dreame F9), werden vom Karten-Widget nicht erfasst – es wurde ausschließlich für Lidar-Roboter entwickelt und getestet. Der Adapter protokolliert eine Warnung, und die Karte bleibt für diese Geräte leer.
+
+#### Aussehen
+Alle Darstellungseinstellungen befinden sich im Widget selbst – öffnen Sie das Zahnradsymbol in der oberen rechten Ecke. Es stehen vier Farbmodi zur Verfügung:
+
+| Modus | Beschreibung |
+| --- | --- |
+| Licht | Festes helles Design |
+| Dunkel | Festes dunkles Design (Standard) |
+| Hauptfarbe | Wählen Sie eine Basisfarbe; Seitenleiste, Rahmen und Text werden automatisch davon abgeleitet, wobei ein Kontrastcheck erfolgt, damit der Text immer gut lesbar bleibt. |
+| Benutzerdefiniert | Fünf individuell wählbare Farben (Hintergrund, Seitenleiste, Schaltflächen, Rahmen, Text) für volle Kontrolle |
+
+<table><tr><td width="50%"><img src="docs/Pics/Map-Dark.jpg" alt="Dunkles Thema"></td><td width="50%"><img src="docs/Pics/Map-White.jpg" alt="Helles Thema"></td></tr></table>
+
+#### Merkmale
+- Geräteumschalter in der Kopfzeile für Setups mit mehreren Robotern
+- Anpassbares Layout: Seitenleiste links/rechts, UI-Zoom, Seitenleistenbreite, Kartendrehung
+- Die Bedienfelder können einzeln ein- oder ausgeblendet werden (Reinigung, Schnellzugriffe, Station, Wartung, Wasser & Wischen, Statistiken) — bei einigen Bedienfeldern können zusätzlich einzelne Zeilen/Kacheln darin ausgeblendet werden (z. B. Saugstufe oder Feuchtigkeit im Bedienfeld Reinigung)
+- Schnellzugriffsleiste: Eine Kachel pro App-Verknüpfung; tippen Sie darauf, um die App direkt aus dem Widget zu starten.
+Die Schaltfläche „Zeitpläne“ öffnet eine Tabelle aller in der Dreame-App erstellten Zeitpläne (Zeit, Wochentage, Typ, Einstellungen pro Raum oder für die gesamte Etage) mit einem Ein-/Ausschalter für jeden Zeitplan. Ein Zeitplan, der auf eine gelöschte Verknüpfung verweist, zeigt einen gesperrten Schalter an, anstatt stillschweigend keine Aktion auszuführen.
+Die Widget-Benutzeroberfläche ist in Deutsch und Englisch verfügbar, entsprechend der Systemsprache von ioBroker.
+- Kioskmodus (`?gear=0`) blendet das Einstellungs-Zahnrad aus – für schreibgeschützte Displays (Wandtablets, Dashboards)
+- Das aktuelle Erscheinungsbild und die Bedienfeldeinstellungen können als kompakter Link exportiert werden (`?cfg=<blob>`), um eine Konfiguration schnell für mehrere Einbettungen freizugeben oder wiederzuverwenden, ohne die gespeicherte Konfiguration zu verändern.
+- Wasser- und Wischmoppverbrauchszähler (Wasser- und Wischmopp-Bedienfeld)
+- Zurücksetzen auf Standarddarstellung und Bedienfeldeinstellungen mit einem Klick, unabhängig von der gespeicherten Adapterkonfiguration
+
+#### Kiosk-/iFrame-Beispiel
+Kombinieren Sie `?gear=0` (Einstellungen ausblenden) mit einem im Einstellungsfeld generierten Link `?cfg=`, um eine vorkonfigurierte, schreibgeschützte Ansicht einzubetten:
+
+```
+http://<your-iobroker>:8082/dreame/?gear=0&cfg=<blob>
+```
+
+Der Eintrag `<blob>` wird vom Abschnitt „Link“ im Einstellungsfeld des Widgets generiert und betrifft nur diesen Browser-Tab/diese Einbettung – er überschreibt niemals die für das Widget selbst gespeicherten Einstellungen.
 
 ---
 
@@ -403,7 +478,7 @@ Diese Zustände werden aus binären MQTT-Nachrichten befüllt und verzögert ers
 | D&D-Start / D&D-Ende | D&D-Zeitraum |
 | Zeitplan | Mähplan |
 | set-rain-protection | Regenschutz einstellen: `{"value":1,"time":8,"sen":0}` oder `{"value":0}` |
-| set-low-speed | Niedrige Geschwindigkeit für Nacht einstellen: `{"value":1,"time":[1200,480]}` oder `{"value":0}` |
+| set-low-speed | Niedrige Geschwindigkeit nachts einstellen: `{"value":1,"time":[1200,480]}` oder `{"value":0}` |
 | set-dnd | Nicht stören einstellen: `{"value":1,"time":[1200,480]}` oder `{"value":0}` |
 | set-dnd | Nicht stören einstellen: `{"value":1,"time":[1200,480]}` oder `{"value":0}` |
 | set-child-lock | Kindersicherung aktivieren: 0=aus, 1=ein |
@@ -510,7 +585,7 @@ Die Kartendaten werden über die Dreame iotuserdata API abgerufen (nicht über M
 | Bundesland | Beschreibung |
 | -------------- | -------------------------------------- |
 | mapImage | Gerenderte Karte als PNG (base64-Daten-URL) |
-| slot0.zone_X | Zonendaten (Name, Fläche, Mähzeit) |
+| slot0.zone_X | Zonendaten (Name, Bereich, Mähzeit) |
 | Mähpfad | Rohkoordinaten des Mähpfads |
 | Einstellungen | Mäheinstellungen pro Zone |
 | Zeitplan | Mähplan |
@@ -552,74 +627,44 @@ Staatsnamen und -beschreibungen sind in 11 Sprachen verfügbar: Englisch, Deutsc
 
 ---
 
+## Credits
+- **TA2k** – Inhaber des Repositorys und ursprünglicher Entwickler des Adapters
+- **RicardoHipp** — Original-Kartenrenderer, auf dem die Kartendarstellung dieses Widgets basiert (MIT-Lizenz)
+- **Sefina-DS (David)** — Mitentwickler, Widget-Neuentwicklung, Live-Tests
+- **Community** — krobipd, flapman, volvodani und alle anderen, die Probleme melden und Geräte testen
+
 ## Changelog
+### 0.4.1 (2026-08-03)
+- Added Schedules: schedules created in the Dreame app are now parsed into `schedule.<id>.*` states (time, weekdays, type, enabled toggle, per-room or whole-floor settings with translated room names and enum values, linked shortcut for shortcut-type schedules). See [Schedules](#schedules).
+- Widget: added a Schedules panel/button showing all schedules in a table with an on/off switch each; schedules pointing at a deleted shortcut show a locked switch instead of silently failing.
+- Widget: added a Shortcuts panel — one tile per app shortcut, tap to start it directly.
+- Fixed app shortcuts being unavailable on vacuums (previously mower-only); shortcut channels are now rebuilt on adapter restart and cleaned up when deleted in the app.
+- Widget: full German/English translation of every panel (Cleaning, Shortcuts, Schedules, Station, Maintenance, Water & Mop, Statistics, Kopf/Fehler status and error text), following the ioBroker system language.
+- Widget: individual rows/tiles within a panel can now be hidden, not just whole panels (e.g. hide suction level or moisture on the Cleaning panel).
+- Widget: menu width control changed from a slider (which visibly drifted under the pointer while dragging) to a number field with −/+ buttons, matching the existing UI zoom control.
+- Widget: fixed a label/input association bug where clicking the "UI zoom"/"Menu width" caption activated the adjacent minus button instead of focusing the field (#104, thanks RicardoHipp).
+- Widget: the cleaning-mode tile is no longer locked as soon as any room is selected — testing showed the robot does honour the globally set mode for room cleaning except for the combined vacuum+mop mode (#103, thanks RicardoHipp).
+- Widget: removed the unused, never-wired-up Mopp panel placeholder; `configVersion` bumped 5→6 to clean up any leftover `panels.mopp` config entry.
+- Retyped six MIoT settings from `boolean` to `number` (auto-dust-collecting, auto-lds-coverage, clean-carpets-first, silent-drying, hair-compression, mopping-with-detergent) — devices reporting a value outside 0/1 had those silently rejected before. Thanks to krobipd for the analysis.
+- Fixed several `map.*` states logging "has no existing object" on first creation (missing `await` before the object was created).
+- Named 13 previously raw/unnamed status datapoints (mop pad and dirty water tank consumables, firmware/MCU version, cleaning-related flags, camera light, current city, cleaning mode) after cross-checking them against another adapter on the same hardware. Thanks to krobipd.
+- Decoded `status.error` (previously a raw numeric code) into readable, translated text for 98 error codes, cross-checked against two independent sources. Thanks to krobipd.
+- Added a fallback so `status.state`/`status.battery-level` still populate on models whose regular status poll omits them (e.g. Aqua10 Ultra / r95475). Thanks to krobipd.
+- Added `remote.go-to-point` (x/y/use-current-position/start): send the robot to a stored map coordinate to look around, without cleaning on the way. Thanks to krobipd.
+- Added per-device `info.online` reachability state with one log line per online/offline transition, replacing silent timeout logging.
+- Bumped `pako` (map data compression) from 2.x to 3.x.
+
+### 0.4.0 (2026-07-31)
+- Modular widget rebuild: customizable appearance (light/dark/main-color/custom themes), configurable panels, kiosk mode with URL-based configuration sharing, robot switcher for multi-device setups.
+
+### 0.3.26 (2026-07-20)
+- Fixed stream-status (siid 10001 piid 1) type warning: the value is a streaming-session object, not a number - state declaration corrected to type string / role json, matching the convention used for dnd-task, task-info and zone-status (#82). The boolean type mismatch reported by flapman on remote.auto-dust-collecting, mopping-with-detergent, hair-compression, silent-drying, auto-lds-coverage and clean-carpets-first is already covered by the boolean coercion added in 0.3.25 - please update. Thanks to krobipd for reporting the exact device payload and preparing the fix.
+
+### 0.3.25 (2026-07-20)
+- Fixed room-specific cleaning settings being written to the wrong room (cleanset used RoomOrder instead of the real room id) (#95). Fixed boolean switches being rejected by the device - values are now sent as 1/0 (#94). Fixed adapter reboot loop on devices without a generated map, e.g. MOVA Z70 (#83). Fixed multi-room cleaning only cleaning the first selected room on 5th gen devices. Fixed swapped cleaning modes (vacuum/vacuum+mop) on devices with liftable mop pads. Fixed stream-status type warning (#82). German translation: renamed dining hall segment from Speisesaal to Esszimmer. Thanks to RicardoHipp for reporting and analyzing several of these issues.
 
 ### 0.3.24 (2026-07-01)
 - Fixed custom room cleaning bug where switching active-map without touching a checkbox left customCommand holding room IDs from the previously selected map, causing the robot to clean the wrong room (room segment IDs are not unique across maps). customCommand is now rebuilt automatically whenever active-map changes, and is recomputed fresh from the active map's checkboxes immediately before every start as a final safeguard. Start is now aborted with a warning if no room is selected for the active map.
-
-### 0.3.23 (2026-07-01)
-- Added map name synchronization: renaming a map via map.maps.<id>.mapName now automatically updates the corresponding remote.custom-room-cleaning channel name. Changed active-map state to a dropdown (common.states) showing map names with their id instead of requiring the raw numeric id to be typed manually.
-
-### 0.3.22 (2026-06-28)
-- Added custom room cleaning feature under remote.custom-room-cleaning: select rooms per map via checkboxes, bidirectionally synchronized with customCommand, using global suction level and water volume; start triggers a real multi-zone cleaning command. Added editable map name state (map.maps.<id>.mapName) to rename maps directly in ioBroker admin without adapter restart. Fixed I18n initialization order on startup so mapName state is now correctly created on first start. Fixed cleanset channel names to show translated room names instead of raw path strings. Added JSON validation before sending customCommand to device. Fixed multi-language index suffix for rooms with identical types (e.g. Bedroom 2). Fixed German translation for corridor room type (Flur).
-
-### 0.3.21 (2026-06-25)
-- Added lazy-created, translated states for mower position, battery, position/DND, schedule and statistics data (mower SIID 2/3/4/5/8/12). Fixed state ordering bug where settings (rain protection, child lock, etc.) appeared empty on first adapter start. Added translations for all mower config/AutoSwitch/preference states in 11 languages. Fixed boolean states incorrectly storing numeric 0/1 instead of true/false (affects auto-dust-collecting, dnd-enable, resume-cleaning and 15 other states). Improved fallback handling for unknown properties: registered 3 previously-unmapped properties (camera stream status, map object name, robot-cleaner property 2-6) and stopped creating misleading writable states for properties we cannot confirm are writable. Added a one-time cleanup for leftover phantom states from the old fallback mechanism. Updated installation instructions in README (the adapter is now available directly via ioBroker Admin from the Latest repository). Fixed adapter crash (unhandled promise rejection) when a device reports an unmapped property with an undefined value.
-
-### 0.3.20 (2026-06-24)
-- Added lazy-created, translated states for mower position, battery, position/DND, schedule and statistics data (mower SIID 2/3/4/5/8/12). Fixed state ordering bug where settings (rain protection, child lock, etc.) appeared empty on first adapter start. Added translations for all mower config/AutoSwitch/preference states in 11 languages. Fixed boolean states incorrectly storing numeric 0/1 instead of true/false (affects auto-dust-collecting, dnd-enable, resume-cleaning and 15 other states). Improved fallback handling for unknown properties: registered 3 previously-unmapped properties (camera stream status, map object name, robot-cleaner property 2-6) and stopped creating misleading writable states for properties we cannot confirm are writable. Added a one-time cleanup for leftover phantom states from the old fallback mechanism. Updated installation instructions in README (the adapter is now available directly via ioBroker Admin from the Latest repository).
-
-### 0.3.19 (2026-06-23)
-- Documentation fix: 0.3.18 changelog entry was missing from README.md due to a release script bug. No functional changes.
-
-### 0.3.18 (2026-06-23)
-- Vacuum states are now created lazily — only properties actually reported by the device appear in the object tree, filling in gradually after adapter start. All vacuum states now have full translations in 11 languages. Fixed cleaning-mode encoding for L40s Pro Ultra and similar models (mode, area and humidity were previously combined into a single raw value). Action buttons (start, stop, reset, etc.) now display correctly as buttons instead of raw text. Added translated, lazily-created states for mower position/task data (binary protocol). Fixed data loss on first write to rawCompound states (previous compound value was discarded before decoding, causing partial state updates). Added min/max range (1-32) for wetness-level state. BREAKING CHANGE: Action states (start-clean, stop-clean, return-to-base, etc.) changed from type string/text to boolean/button. Scripts or Vis widgets that write string values to these states must be updated to write true instead.
-
-### 0.3.17 (2026-06-21)
-
-- Fix command sent for some states
-- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
-
-### 0.3.7 (2026-04-28)
-
-- Fix mower SETTINGS/SCHEDULE parsing: reassemble chunked data before JSON.parse (fixes warning every 30s)
-- Fix mower actions: remove dangerous start-zone-mow (was sending DOCK), add pause-mow and clear-warning
-- Remove mower stop-mow-ext (no HA equivalent)
-
-### 0.3.6 (2026-04-21)
-
-- Add dedicated vacuum state tree (createVacuumRemotes) with ~85 status, ~32 remote, ~22 AutoSwitch, ~13 action states
-- Add vacuum consumable reset buttons (main brush, side brush, filter, sensor)
-- Add vacuum AutoSwitch parsing (25 features: auto-drying, collision-avoidance, fill-light, clean-genius, cleaning-route, etc.)
-- Add vacuum action buttons (start, pause, stop, return-to-dock, locate, start-washing, start-auto-empty, clear-warning)
-- Add vacuum station status (clean/dirty water tank, dust bag, detergent, hot water)
-- Add vacuum extended settings (wetness, CleanGenius mode, water temperature, silent drying, hair compression)
-- Add 20 new vacuum status enums (draining, dust bag drying, floor maintaining, finding pet, etc.)
-- Fix mower return-to-dock command (was siid:3 aiid:1, now correct siid:5 aiid:3)
-- Fix mower start-zone-mow was sending DOCK command (siid:2 aiid:3 remapped to siid:5 aiid:3) — removed, use start-mow-ext with params instead
-- Fix mower missing pause-mow action — added (siid:5 aiid:4)
-- Fix mower missing clear-warning action — added (siid:4 aiid:3)
-- Remove mower stop-mow-ext (siid:4 aiid:2, no HA equivalent)
-- Fix set_properties method for writable states (was incorrectly sending as action)
-- Fix boolean action commands now send in:[] parameter
-
-### 0.3.5 (2026-04-19)
-
-- Add AutoSwitch properties (4-50): collision avoidance, fill light, CleanGenius, cleaning route, auto charging, etc.
-- Add PRE mowing preferences: cutting height, obstacle distance, mow mode, edge mowing, edge detection, direction change
-- Add shortcuts support (4-48): parsed names, running state, start buttons
-- Add cleaning history via cloud API (last 20 mow sessions with date, duration, area, completion)
-- Fix battery byte parsing (buf[11] & 0x7F + charging bit 7)
-
-### 0.3.4 (2026-04-19)
-
-- Add mower settings states from getCFG (rain protection, frost protection, low speed, DND, battery config, volume, headlight, AI obstacle, camera, anti-theft, etc.)
-- Load all settings on startup and auto-reload on prop.2.51 MQTT trigger
-- Add dedicated remote states for setting CFG values (set-rain-protection, set-frost-protection, set-volume, find-robot, lock-robot, etc.)
-- Split consumables into individual states (blade-hours, brush-hours, robot-maintenance-hours + health %)
-- Add individual consumable reset buttons (reset-blade, reset-brush, reset-robot-maintenance)
-- Correct prop.2.51 as generic settings-update trigger (WRP/FDP/LOW)
-- Remove invalid cleaning-progress (4-63) from mower states
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

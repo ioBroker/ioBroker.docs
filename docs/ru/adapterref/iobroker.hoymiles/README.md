@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hoymiles/README.md
 title: ioBroker.hoymiles
-hash: bzPkVlLsQxO7KBYl6EGif5/PSYkFchixsbRQIHxr6EQ=
+hash: FtJh55Z2gjr0Hh112SdEK6wS2PH9dp+pYzWggw2Pq8s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hoymiles/admin/hoymiles.png)
 
@@ -29,7 +29,7 @@ hash: bzPkVlLsQxO7KBYl6EGif5/PSYkFchixsbRQIHxr6EQ=
 Данный адаптер никоим образом не связан с компанией Hoymiles Power Electronics Inc., не одобрен ею и не имеет к ней никакого отношения.
 
 ## Описание
-Адаптер ioBroker для микроинверторов [**Хоймайлс**](https://www.hoymiles.com/) **HMS-xxxW-xT** со встроенным модулем WiFi DTU (DTUBI).
+Адаптер ioBroker для микроинверторов [**Хоймайлс**](https://www.hoymiles.com/) **HMS-xxxW-xT** и **HMS-xxx-xWB** со встроенным модулем DTU WiFi/Bluetooth (DTUBI).
 
 Два режима подключения (настраиваемые независимо друг от друга):
 
@@ -55,7 +55,7 @@ hash: bzPkVlLsQxO7KBYl6EGif5/PSYkFchixsbRQIHxr6EQ=
 - Расчет дохода на основе цены на электроэнергию (облачные сервисы)
 - Отслеживание сокращения выбросов CO2 (облачное приложение)
 - Команды: ограничение мощности (2-100%), включение/выключение/перезагрузка инвертора, перезагрузка DTU, ограничение коэффициента мощности, ограничение реактивной мощности, проверка предупреждений, проверка неисправности заземления, блокировка/разблокировка инвертора
-- Мониторинг сигналов тревоги и предупреждений (109 кодов DE/EN)
+- Мониторинг сигналов тревоги и предупреждений (223 кода, локализованы на все 11 языков)
 - Качество состояния (`q`): помечает данные как устаревшие при отключении, заменяет резервный вариант в облаке, автоматически сбрасывается при повторном подключении.
 - 5-минутный тайм-аут бездействия с автоматическим переподключением
 - Модуль обнаружения сети для ioBroker.discovery
@@ -86,35 +86,37 @@ hash: bzPkVlLsQxO7KBYl6EGif5/PSYkFchixsbRQIHxr6EQ=
 Оба соединения могут быть включены одновременно. Локальные данные имеют приоритет — облачные данные заполняют данные, когда DTU находится в автономном режиме (например, ночью).
 
 ## Поддерживаемые инверторы
-Этот адаптер предназначен для **микроинверторов Hoymiles HMS со встроенным модулем WiFi DTU** (DTUBI):
+Этот адаптер предназначен для **микроинверторов Hoymiles HMS со встроенным модулем DTU Wi-Fi (или Wi-Fi + Bluetooth)** (DTUBI).
 
-**1 струна (1T):**
+**Локальный** = прямое TCP/Protobuf-соединение на порту 10081. **Облачный** = API S-Miles Cloud — автоматическое обнаружение, данные в реальном времени (быстрый пакетный канал ~1,5–3 с), агрегированные данные об энергопотреблении, профиль сети, включение/выключение инвертора + перезагрузка, перезагрузка DTU.
 
-| Модель | Статус |
-|-------|--------|
-| HMS-300W-1T | Непроверенный |
-| HMS-350W-1T | Непроверенный |
-| HMS-400W-1T | Непроверенный |
-| HMS-450W-1T | Непроверенный |
-| HMS-500W-1T | Не тестировалось |
+| Модель | Строки | Локальный (TCP) | Облако | Статус |
+|-------|:---:|:---:|:---:|--------|
+| HMS-300W-1T | 1 | ✅ | ✅ | Не проверено |
+| HMS-350W-1T | 1 | ✅ | ✅ | Не проверено |
+| HMS-400W-1T | 1 | ✅ | ✅ | Не проверено |
+| HMS-450W-1T | 1 | ✅ | ✅ | Не тестировалось |
+| HMS-500W-1T | 1 | ✅ | ✅ | Не тестировалось |
+| HMS-600W-2T | 2 | ✅ | ✅ | Не проверено |
+| HMS-700W-2T | 2 | ✅ | ✅ | Не проверено |
+| HMS-800W-2T | 2 | ✅ | ✅ | **Протестировано** (локально + в облаке) |
+| HMS-900W-2T | 2 | ✅ | ✅ | Не тестировалось |
+| HMS-1000W-2T | 2 | ✅ | ✅ | **Протестировано** (местно) |
+| HMS-1600DW-4T | 4 | ✅ | ✅ | Не тестировалось |
+| HMS-1800DW-4T | 4 | ✅ | ✅ | Не тестировалось |
+| HMS-2000DW-4T | 4 | ✅ | ✅ | Не проверено |
+| HMS-600-2WB | 2 | ❌¹ | ✅ | Не проверено |
+| HMS-700-2WB | 2 | ❌¹ | ✅ | Не проверено |
+| HMS-800-2WB | 2 | ❌¹ | ✅ | **Протестировано** (Облако: пиковая нагрузка в реальном времени, профиль сети, включение/выключение + перезагрузка, перезагрузка DTU) |
+| HMS-900-2WB | 2 | ❌¹ | ✅ | Не проверено |
+| HMS-1000-2WB | 2 | ❌¹ | ✅ | Не проверено |
+| HMS-1600-4WB | 4 | ❌¹ | ✅ | Не проверено |
+| HMS-1800-4WB | 4 | ❌¹ | ✅ | Не проверено |
+| HMS-2000-4WB | 4 | ❌¹ | ✅ | Не проверено |
 
-**2 струны (2T):**
+¹ Серия **WB** (продается как **"HiFlow Pro"**) не имеет локального TCP-порта — ее единственный локальный канал — Bluetooth LE, и все данные передаются в облако Hoymiles. Поэтому эти инверторы работают **только с облаком**: активируйте облачное соединение, и адаптер считывает данные через API S-Miles (импульс в реальном времени, энергия, профиль сети) и может отправлять команды включения/выключения инвертора, перезагрузки и перезагрузки DTU. Все модели WB используют одну и ту же платформу; пока протестирована только модель HMS-800-2WB.
 
-| Модель | Статус |
-|-------|--------|
-| HMS-600W-2T | Непроверенный |
-| HMS-700W-2T | Непроверенный |
-| HMS-800W-2T | **Протестировано** (локально + в облаке) |
-| HMS-900W-2T | Непроверенный |
-| HMS-1000W-2T | **Протестировано** (в регионе) |
-
-**4 струны (4T) — единственный вариант DW:**
-
-| Модель | Статус |
-|-------|--------|
-| HMS-1600DW-4T | Непроверенный |
-| HMS-1800DW-4T | Непроверенный |
-| HMS-2000DW-4T | Непроверенный |
+**Работа только в облаке:** любой поддерживаемый инвертор в вашей учетной записи S-Miles также работает без локального подключения — адаптер автоматически обнаруживает его и предоставляет данные о мощности в реальном времени (пакет пиковой нагрузки), сводные данные об энергопотреблении, профиль сети, а также команды включения/выключения инвертора, перезагрузки и перезагрузки DTU через облако. Для остальных команд (ограничение мощности, блокировка, предупреждения об очистке и т. д.) требуется локальное TCP-соединение.
 
 > **Важно:** Этот адаптер **работает только** с моделями HMS, имеющими **встроенный Wi-Fi**. Он **НЕ** работает со следующими моделями: > - HMS-1600/1800/2000-4T **без** "DW" (они используют радиочастотный диапазон ниже 1G и требуют внешнего DTU) > - серия HM (без Wi-Fi, только радиочастотный) > - серия MI (без Wi-Fi, только радиочастотный) > - HMS/HMT с внешними модулями DTU-Pro или DTU-WLite > - трехфазные модели HMT
 
@@ -128,6 +130,25 @@ hash: bzPkVlLsQxO7KBYl6EGif5/PSYkFchixsbRQIHxr6EQ=
 Облачные станции создают агрегированные узлы устройств (например, `hoymiles.0.station-12345.*`).
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (@Eistee82) Cloud: inverters whose model name does not end in "T" (e.g. HMS-2000-4WB) no longer lose their extra PV strings — voltage and current were only polled for the first two strings, so strings 3 and 4 showed power but nothing else. The number of PV inputs is now taken from Hoymiles' own rule dictionary, looked up by inverter serial number prefix, which is the same source the S-Miles app uses; the model name and the number of strings seen in the live data remain as fallbacks
+- (@Eistee82) Cloud: support inverters with more than six PV strings (up to 12), matching the port counts the cloud actually publishes
+- (@Eistee82) CI/tests: upgraded the coverage tool (c8 11 → 12) so the unit-test coverage step runs on Node 26 as well, and added Node 26 to the test matrix (now 22 / 24 / 26)
+- (@Eistee82) Security (dev dependencies only): cleared several advisories in the development toolchain — js-yaml and brace-expansion via `npm audit fix`, plus targeted same-major overrides for brace-expansion (1.1.16) and adm-zip (0.6.0). No change to the shipped adapter (these packages are not part of the published npm package)
+- (@Eistee82) Device Manager: inverters and cloud stations now appear on the ioBroker Device Manager tab, each inverter titled after its cloud station (the name given in the S-Miles app) plus its DTU serial, with live status, original per-type device icons (also used for the device objects in the object tree, replacing the generic adapter icon), live values right on the card (current power, today's energy, per-PV-string power and inverter temperature), per-device controls (on/off, power limit, power factor, reactive power, lock, reboot inverter/DTU, clear warnings/grounding fault, persistent power limit, cloud send interval), a settings dialog and a read-only details view. Cloud-only inverters show just the cloud-actuatable controls; instance actions cover network scan and cloud-login test. Controls reuse the existing command path, so no behaviour changes for the underlying states
+
+### 0.4.1 (2026-07-18)
+- (@Eistee82) Packaging: removed the npm `prepare` install script — installs from GitHub now use the committed `build/` output directly, so no dev dependencies are downloaded onto the target system; npm releases are still built freshly via `prepublishOnly`
+- (@Eistee82) CI/test reliability: added a global Mocha timeout and switched the test TLS certificates to fast EC keys, so the adapter-tests no longer time out on loaded CI runners
+
+### 0.4.0 (2026-07-17)
+- (@Eistee82) Cloud-only support for WB inverters ("HiFlow Pro", e.g. HMS-800-2WB): read power and energy over the S-Miles cloud and switch the inverter on/off, reboot it or reboot the DTU — no local connection needed
+- (@Eistee82) Faster live values: new realtime channel updates power every few seconds instead of every ~80 s, like the app's live view
+- (@Eistee82) More local data: inverter grid profile, a persistent power limit, per-string error codes and complete alarm lists
+- (@Eistee82) More reliable and readable: alarm texts in your ioBroker language, fixed offline/online detection, S-Miles Home account support, and better data quality handling
+- (@Eistee82) Maintenance and security: dependency and GitHub Actions updates that close known security advisories, admin translations migrated to the current i18n file format, and connection timers are now managed by ioBroker so they are reliably cleaned up on stop/restart
+
 ### 0.3.5 (2026-05-13)
 - (copilot) Adapter requires node.js >= 22 now
 - (@Eistee82) Stop retry loop on permanent cloud auth errors to prevent Hoymiles account lockout
@@ -148,12 +169,7 @@ hash: bzPkVlLsQxO7KBYl6EGif5/PSYkFchixsbRQIHxr6EQ=
 ### 0.3.3 (2026-04-08)
 - (@Eistee82) Fix jsonConfig schema warnings: button color, remove unsupported table properties
 
-### 0.3.2 (2026-04-03)
-- (@Eistee82) Fix remaining responsive layout issues for repochecker (staticText, header, divider)
-
-### 0.3.1 (2026-04-03)
-- (@Eistee82) Fix admin UI responsive layout (add missing size attributes for repochecker)
-- (@Eistee82) Fix news translations in io-package.json for repochecker E2004
+Older entries: see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 

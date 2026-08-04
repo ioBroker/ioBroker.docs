@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bosesoundtouch/README.md
 title: ioBroker.bosesoundtouch
-hash: UIuNWeecy5izhYdfQFSTQpoFV4kTaU+3tUfHe/ATGTk=
+hash: tRUq1CtamiFkHWUlCmVlUJHHrhkrWRQqGJrM8+mYHvU=
 ---
 ![标识](../../../en/adapterref/iobroker.bosesoundtouch/admin/bosesoundtouch.png)
 
@@ -12,196 +12,116 @@ hash: UIuNWeecy5izhYdfQFSTQpoFV4kTaU+3tUfHe/ATGTk=
 ![下载](https://img.shields.io/npm/dm/iobroker.bosesoundtouch.svg)
 
 # IoBroker.bosesoundtouch
-![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.bosesoundtouch/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/bosesoundtouch/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.bosesoundtouch/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/bosesoundtouch/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
-用于 ioBroker 物联网平台的 Bose SoundTouch 适配器
+适用于 ioBroker 物联网平台的 Bose SoundTouch 适配器
 
 ## 控制状态
-要控制您的扬声器，可以编写以下对象：
+要控制扬声器，可以编写以下对象：
 
-|状态 |说明 |
+| 状态 | 描述 |
 | :---           | :---        |
-|关键 |要发送的以下密钥之一：<br><br>玩<br>暂停<br>停止<br>PREV_TRACK<br> NEXT_TRACK<br>竖起大拇指<br>不看好<br>书签<br>力量<br>沉默的<br>提高音量<br>音量减小<br>PRESET_1<br> PRESET_2<br> PRESET_3<br> PRESET_4<br> PRESET_5<br>预设_6<br>辅助输入<br>随机关闭<br>随机播放<br>REPEAT_OFF<br>重复一次<br>REPEAT_ALL<br> PLAY_PAUSE<br> ADD_FAVORITE<br> REMOVE_FAVORITE<br>无效键 |
-|静音 |使设备静音或取消静音。 |
-|上 |打开或关闭设备。 |
-|到处玩|将扬声器定义为区域主控并在所有其他扬声器上播放其内容。 |
-|体积 |在 0 到 100 之间更改设备音量。 |
+| 密钥 | 要发送的密钥如下：<br><br>玩<br>暂停<br>停止<br>上一曲目<br>下一曲目<br>竖起大拇指<br>差评<br>收藏<br>力量<br>沉默的<br>音量增大<br>音量减小<br>PRESET_1<br> PRESET_2<br> PRESET_3<br>预设_4<br>预设_5<br> PRESET_6<br>辅助输入<br>取消<br>随机播放<br>重复关闭<br>重复一次<br>重复所有<br>播放/暂停<br>添加收藏<br>移除收藏<br>无效密钥 |
+| 已静音 | 将设备静音或取消静音。 |
+| 开 | 打开或关闭设备电源。 |
+| playEverywhere | 将扬声器设置为区域主控，并在所有其他扬声器上播放其内容。 |
+| 音量 | 将设备音量调整至 0 到 100 之间。 |
+| 直播 | 直接播放 http/https 音频直播流。例如：http://liveradio.swr.de/sw282p3/swr3/play.mp3 |
 
 ## 信息状态
-从您的扬声器收集以下信息（只读状态）：
+以下信息来自您的扬声器（只读状态）：
 
-＃＃＃ 设备信息
-|状态 |说明 |
+### 设备信息
+| 状态 | 描述 |
 | :---       | :---        |
-| ip地址 |设备 IP 地址，通常与您在适配器设置中配置的相同。 |
-| mac地址 |设备MAC地址|
-|姓名 |您使用 SoundTouch 应用程序配置的名称。 |
-|类型 |设备类型（例如 SoundTouch 300）。 |
+| ipAddress | 设备 IP 地址，通常与您在适配器设置中配置的地址相同。 |
+| macAddress | 设备 MAC 地址 |
+| 名称 | 您在 SoundTouch 应用中配置的名称。 |
+| 类型 | 设备类型（例如 SoundTouch 300）。 |
 
 ### 正在播放
-|状态 |说明 |
+| 状态 | 描述 |
 | :---       | :---        |
-|专辑 |当前播放的专辑。 |
-|艺术 |源艺术的 URL。 |
-|艺术家 |目前正在演奏的艺人。 |
-|流派 |当前播放曲目的类型。 |
-|来源 |播放服务的类型或名称。要确定产品是否处于待机模式，请检查 source == STANDBY。 |
-|车站 |电台或播放列表名称。 |
-|跟踪 |当前播放的曲目。 |
+| 专辑 | 当前播放的专辑。 |
+| 艺术作品 | 源艺术作品的网址。 |
+| 艺术家 | 当前正在播放的艺术家。 |
+| 类型 | 当前播放曲目的类型。 |
+| 源 | 正在播放的服务类型或名称。要确定产品是否处于待机模式，请检查源是否等于 STANDBY。 |
+| 电台 | 电台或播放列表的名称。 |
+| 曲目 | 当前播放的曲目。 |
 
 ### 预设
-6 个可用预设中的每一个都存在以下状态：
+以下6种预设状态均存在：
 
-|状态 |说明 |
+| 状态 | 描述 |
 | :---       | :---        |
-|图标网址 |源艺术的 URL。 |
-|姓名 |专辑、电台、播放列表、歌曲、电话等名称取决于来源。 |
-|来源 |服务的类型或名称。 |
+| iconUrl | 源图像的 URL。 |
+| 名称 | 根据来源不同，可能指专辑、电台、播放列表、歌曲、电话号码等的名称。 |
+| 来源 | 服务的类型或名称。 |
 
 ### 区域
-以下描述将帮助您使用多房间系统创建组。 soundtouch 设备会自动更新只读字段，如果您通过 Soundtouch 应用程序本身更改组也是如此。
+以下说明将帮助您在多房间系统中创建群组。只读字段由 SoundTouch 设备自动更新，即使您通过 SoundTouch 应用程序更改了群组，也会自动更新。
 
-|状态 |说明 |
+| 状态 | 描述 |
 | :---       | :---        |
-|大师 |显示扬声器从属设备的 MAC 地址（以“;”分隔）（只读） |
-|会员 |显示此音箱主控的MAC地址（只读）|
-| addMasterOf|添加您要添加到此主扬声器的扬声器的 MAC 地址。也可以放置一个以上的扬声器（用“;”分隔）。|
-|删除MasterOf|添加要从此主扬声器中删除的扬声器的 MAC 地址。也可以放置一个以上的扬声器（用“;”分隔）。|
+| masterOf | 显示扬声器的从属设备的 MAC 地址（以“;”）（只读） |
+| memberOf | 显示此扬声器主控设备的 MAC 地址（只读）|
+| addMasterOf| 添加要添加到此主扬声器的扬声器的 MAC 地址。也可以添加多个扬声器（用“;”) 分隔）。 |
+| removeMasterOf| 添加要从此主扬声器中移除的扬声器的 MAC 地址。也可以添加多个扬声器（用“;”) 分隔）。 |
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.13.0 (2026-07-11)
+- (JR-home) Control objects have been extended to suppiort playing a livestream directly
+- (mcm1957) Deprecated delete state has been migrated.
+- (mcm1957) Dependencies have been updated
+
+### 0.12.0 (2026-05-09)
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (mcm1957) Dependencies have been updated
+- (copilot) Migrated to ESLint 9 and @iobroker/eslint-config following ioBroker community standards
+
+### 0.11.1 (2024-04-03)
+* (mcm1957) Release workflow has been fixed
+
+### 0.11.0 (2024-04-03)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Testing has been changed to support node 18 and 20
+* (mcm1957) Dependencies have been updated
+
 ### 0.10.3 (2022-06-17)
 * (Apollon77) Fix crash case reported by Sentry
 
-### 0.10.2 (2022-06-12)
-* (Apollon77) Check if adapter is configured properly before trying to connect
-
-### 0.10.1 (2022-06-02)
-* (Apollon77) Add Sentry for crash reporting
-
-### 0.10.0 (2021-07-30)
-* IMPORTANT: The adapter now requires at least js-controller 2.0
-* (Apollon77) Optimize for js-controller 3.3
-
-### 0.9.4 (07.05.2021)
-* fixed vulnerability in NPM
-
-### 0.9.3 (02.02.2021)
-
-* transfer of adapter to iobroker-community-adapters
-
-### 0.9.3 (10.01.2021)
-
-* Added elapsed time, duration, status, keys and roles
-
-### 0.9.2 (09.12.2019)
-
-* We don't use adapter.objects anymore
-
-### 0.9.1 (12.05.2019)
-
-* Support for compact mode.
-* Fixed bugs found by adapter checker.
-
-### 0.9.0 (23.01.2019)
-
-* Added possibility to change the source.  
-  All available sources are listed as states in folder sources and can be used as play buttons.
-
-### 0.2.4 (05.05.2019)
-
-* Core Files/Testing Update and introduce adapter-core
-
-### 0.2.3 (11.11.2018)
-
-* fixed issue #24 "does not start"
-
-### 0.2.2 (03.11.2018)
-
-* Zones: objects moved to sub folder 'zones'
-
-### 0.2.1 (12.10.2018)
-
-* Update now playing info for source Deezer
-
-### 0.2.0 (27.09.2018)
-
-* Add support for zones
-
-### 0.1.9 (07.03.2018)
-
-* Update now playing info for source Amazon
-
-### 0.1.8 (08.02.2018)
-
-* Update now playing info for source Spotify
-* now playing: added state 'genre'
-
-### 0.1.7 (04.02.2018)
-
-* fixed crash if no presets are defined
-
-### 0.1.6 (17.01.2018)
-
-* fixed crash if socket connection fails
-* added setting: time to reconnect in seconds
-
-### 0.1.5 (06.01.2018)
-
-* added 'TUNEIN' to now playing info
-* state playEverywhere falls back to false after activation
-* admin/bose.png renamed to admin/bosesoundtouch.png to be shown correctly in adapter list
-* added short adapter description in io-package.json
-
-### 0.1.4 (30.12.2017)
-
-* playEverywhere: support multi room (zones) to define one speaker as master for all others
-
-### 0.1.3 (22.12.2017)
-
-* revert last change
-
-### 0.1.2 (22.12.2017)
-
-* fixed typo in package.json
-
-### 0.1.1 (20.12.2017)
-
-* now playing: added state 'art' (URL to cover image if available)
-* merged pull request from Apollon77 (basic config files for testing)
-* renamed repository to 'ioBroker.bosesoundtouch'
-
-### 0.1.0 (26.11.2017)
-
-* objectChange/stateChange: log level 'debug'
-* added 'STORED_MUSIC' to now playing info.
-
-### 0.0.9 (22.11.2017)
-
-* Merge pull request #1 from Apollon77/master: Add testing and fix things...
-
-### 0.0.8 (19.11.2017)
-
-* send value to correct instance when having multiple adapters installed
-* first version of README.md
-
-### 0.0.7 (09.11.2017)
-
-* fixed logging in soundtouchsocket.js
-
-### 0.0.6 (09.11.2017)
-
-* renamed main.js to bosesoundtouch.js
-* line ending: LF
-* strings: single quote
-
-### 0.0.5 and earlier (01.11.2017)
-
-* Initial versions
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
-[The MIT License (MIT)](LICENSE)
+MIT License
 
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019-2022 SwedishChef <swedish.chef@gmx.at>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

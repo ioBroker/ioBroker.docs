@@ -99,10 +99,11 @@ The adapter creates data points under `pwned-check.<instance>`.
 - E-mail addresses are sent to the XposedOrNot API over HTTPS
 
 ## Changelog
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
+### 0.0.10 (2026-07-19)
+* (ipod86) fix: validate checkInterval bounds (clamp to 1–596 h) and switch to setTimeout loop to prevent concurrent check runs
+* (ipod86) fix: remove redundant safeTextColor alias in updateVisualisation
+* (ipod86) fix: correct JSDoc on loadPrevState method
+
 ### 0.0.9 (2026-07-01)
 * (ipod86) fix: update adapter-core to 3.4.1, clarify malware scanner description in README (W0034)
 * (ipod86) fix: update admin dependency to >= 7.8.23 and fix dependabot cooldown format (W8917)
@@ -120,14 +121,6 @@ The adapter creates data points under `pwned-check.<instance>`.
 ### 0.0.6 (2026-06-06)
 * (ipod86) fix: add missing intermediate folder/channel objects for emails, passwords, system, leaks (E3009)
 * (ipod86) fix: update @alcalzone/release-script to >=5.2.1 (E0036)
-
-### 0.0.5 (2026-05-31)
-* (ipod86) fix: use this.setInterval/clearInterval/setTimeout/delay instead of plain JS timers (W5004, W5005, W5051)
-* (ipod86) fix: add missing i18n key "label" to all languages (W5604)
-* (ipod86) fix: engines.node >= 22, @tsconfig/node22, @types/node ^22, deploy node 24 (E0028, E3022)
-* (ipod86) fix: add dependabot ignore block for @types/node major versions (E8917)
-* (ipod86) fix: remove Node 20 from test matrix (W3024)
-* (ipod86) fix: upgrade typescript to 6.0.3, release-script to 5.2.0, @iobroker/eslint-config to 2.3.4
 
 Older changelogs are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 

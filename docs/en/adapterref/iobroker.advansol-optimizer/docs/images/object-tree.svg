@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-label="AdvanSol ioBroker object tree">
+  <rect width="980" height="560" fill="#f6f8fb"/>
+  <rect x="42" y="34" width="896" height="488" rx="8" fill="#fff" stroke="#cfd7e3"/>
+  <text x="72" y="76" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#24384d">Objektbaum</text>
+  <g font-family="Arial, sans-serif" font-size="17" fill="#26384a">
+    <text x="92" y="126">advansol-optimizer.0</text>
+    <text x="132" y="166">info.connection</text>
+    <text x="132" y="196">controller.sn</text>
+    <text x="132" y="226">module_count</text>
+    <text x="132" y="256">last_poll</text>
+    <text x="132" y="286">night_mode</text>
+    <text x="132" y="336">module_1.sn</text>
+    <text x="132" y="366">module_1.switch</text>
+    <text x="132" y="396">module_1.output_voltage / output_current</text>
+    <text x="132" y="426">module_1.input_voltage / input_current</text>
+    <text x="132" y="456">module_1.power / energy / temperature</text>
+    <text x="582" y="336">module_2.*</text>
+    <text x="582" y="366">module_3.*</text>
+    <text x="582" y="396">module_n.*</text>
+  </g>
+  <g stroke="#9aabbc" stroke-width="2" fill="none">
+    <path d="M106 134v326"/>
+    <path d="M110 160h16"/>
+    <path d="M110 190h16"/>
+    <path d="M110 220h16"/>
+    <path d="M110 250h16"/>
+    <path d="M110 280h16"/>
+    <path d="M110 330h16"/>
+    <path d="M110 360h16"/>
+    <path d="M110 390h16"/>
+    <path d="M110 420h16"/>
+    <path d="M110 450h16"/>
+  </g>
+  <rect x="562" y="304" width="250" height="120" rx="6" fill="#eef8f1" stroke="#b9d8c0"/>
+  <text x="590" y="458" font-family="Arial, sans-serif" font-size="15" fill="#506274">Jedes gefundene Modul bekommt denselben Satz Datenpunkte.</text>
+</svg>

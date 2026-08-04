@@ -804,6 +804,10 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+### 7.1.2 (2026-07-26)
+* (@GermanBluefox) Added a "Replace dots in topic names with underscore" setting to keep MQTT topics that contain dots (e.g. Wolf heating via ism7mqtt) as a single object level (#413)
+* (@GermanBluefox) Client mode: added loop protection so a value just received from the broker is not published straight back, plus a new "Do not subscribe to own states" option (#414)
+
 ### 7.1.1 (2026-07-08)
 * (@Marc-Berg) Fixed: Publish only on change issue
 
@@ -822,10 +826,6 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 * (@GermanBluefox) Breaking change: a minimal supported Node.js version is 22
 * (@Marc-Berg) Fixed some errors
 * (@driemekasten) Fixed the reject unresolved topic ids with SUBACK failure
-
-### 6.1.4 (2025-05-07)
-* (@GermanBluefox) Allowed disabling the client objects creation
-* (@GermanBluefox) Create client objects with timeout (1s) to prevent memory leaks
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

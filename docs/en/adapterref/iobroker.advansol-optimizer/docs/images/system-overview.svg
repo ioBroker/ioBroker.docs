@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="430" viewBox="0 0 980 430" role="img" aria-label="AdvanSol ioBroker system overview">
+  <rect width="980" height="430" fill="#f6f8fb"/>
+  <rect x="42" y="48" width="180" height="100" rx="8" fill="#fff" stroke="#c9d4df"/>
+  <text x="82" y="88" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#24384d">ioBroker</text>
+  <text x="64" y="118" font-family="Arial, sans-serif" font-size="15" fill="#506274">AdvanSol Adapter</text>
+  <rect x="300" y="48" width="230" height="100" rx="8" fill="#fff" stroke="#c9d4df"/>
+  <text x="346" y="88" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#24384d">TCP-RS485 Bridge</text>
+  <text x="340" y="118" font-family="Arial, sans-serif" font-size="15" fill="#506274">z. B. Waveshare ETH</text>
+  <rect x="622" y="48" width="300" height="100" rx="8" fill="#fff" stroke="#c9d4df"/>
+  <text x="672" y="88" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#24384d">AdvanSol Controller</text>
+  <text x="676" y="118" font-family="Arial, sans-serif" font-size="15" fill="#506274">DCON-WIFI / MRO/MR Bus</text>
+  <path d="M222 98h78" stroke="#2d7dd2" stroke-width="4"/>
+  <path d="M530 98h92" stroke="#2d7dd2" stroke-width="4"/>
+  <text x="242" y="82" font-family="Arial, sans-serif" font-size="14" fill="#2d7dd2">TCP/IP</text>
+  <text x="548" y="82" font-family="Arial, sans-serif" font-size="14" fill="#2d7dd2">RS485</text>
+  <rect x="108" y="240" width="150" height="76" rx="8" fill="#eef8f1" stroke="#b9d8c0"/>
+  <text x="134" y="272" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#254a32">Modul 1</text>
+  <text x="132" y="296" font-family="Arial, sans-serif" font-size="14" fill="#506274">U / I / P / kWh</text>
+  <rect x="314" y="240" width="150" height="76" rx="8" fill="#eef8f1" stroke="#b9d8c0"/>
+  <text x="340" y="272" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#254a32">Modul 2</text>
+  <text x="338" y="296" font-family="Arial, sans-serif" font-size="14" fill="#506274">MOS Schalter</text>
+  <rect x="520" y="240" width="150" height="76" rx="8" fill="#eef8f1" stroke="#b9d8c0"/>
+  <text x="546" y="272" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#254a32">Modul 3</text>
+  <text x="544" y="296" font-family="Arial, sans-serif" font-size="14" fill="#506274">Temperatur</text>
+  <rect x="726" y="240" width="150" height="76" rx="8" fill="#eef8f1" stroke="#b9d8c0"/>
+  <text x="752" y="272" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#254a32">Modul n</text>
+  <text x="750" y="296" font-family="Arial, sans-serif" font-size="14" fill="#506274">Auto-Erkennung</text>
+  <path d="M772 148v60H183v32" stroke="#7a8b9d" stroke-width="3" fill="none"/>
+  <path d="M389 208v32" stroke="#7a8b9d" stroke-width="3"/>
+  <path d="M595 208v32" stroke="#7a8b9d" stroke-width="3"/>
+  <path d="M801 208v32" stroke="#7a8b9d" stroke-width="3"/>
+  <text x="354" y="384" font-family="Arial, sans-serif" font-size="16" fill="#506274">Der Adapter liest seriell ueber TCP und legt gefundene Optimierer automatisch als ioBroker-Objekte an.</text>
+</svg>

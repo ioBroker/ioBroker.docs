@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.weathersense/README.md
 title: ioBroker.weathersense
-hash: KidM5Ba4LU29tLpPps9GkMP8pYa1nrPOuLUfmYmcTjY=
+hash: jdfdsrbSzl3QW4ap190us8J6lcf7j9VjoWbLxB2rsnk=
 ---
 ![Logo](../../../en/adapterref/iobroker.weathersense/admin/weathersense.png)
 
@@ -28,6 +28,10 @@ Zum Beispiel diese WLAN-Wetterstationen von Ideoon (Pearl):
 ![Screenshot](https://github.com/ltspicer/WeatherSense/blob/main/wetterstation.png)
 
 ![Screenshot](https://github.com/ltspicer/WeatherSense/blob/main/casativo_ideoon_weatherstation.png)
+
+ioBroker-Datenpunkte:
+
+![Screenshot](https://github.com/ltspicer/WeatherSense/blob/main/iobroker_dps.png)
 
 ## Verwenden:
 Geben Sie einfach Ihre Anmeldedaten für Ihr WeatherSense-Konto ein (E-Mail-Adresse und Passwort).
@@ -54,6 +58,10 @@ Um Daten von mehreren Stationen gleichzeitig und konfliktfrei zu lesen, können 
 * **Sauberes MQTT-Routing:** Wenn Sie die integrierte MQTT-Funktion verwenden, werden Ihre Themen sauber durch die Sensor-ID getrennt (z. B. `weathersense/1/...` und `weathersense/2/...`), wodurch verhindert wird, dass Daten auf Ihrem Broker überschrieben werden.
 
 ## Changelog
+### 5.2.3 (2026-07-26)
+
+- Div error messages moved to warn messages
+
 ### 5.2.2 (2026-07-09)
 
 - Typo corrected
@@ -69,10 +77,6 @@ Um Daten von mehreren Stationen gleichzeitig und konfliktfrei zu lesen, können 
 ### 5.1.1 (2026-07-05)
 
 - Bugfix: Unit windDirection km/h → °
-
-### 5.1.0 (2026-07-04)
-
-- Now filenames of JSON files beginning with weathersense.{sensor_id}...
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

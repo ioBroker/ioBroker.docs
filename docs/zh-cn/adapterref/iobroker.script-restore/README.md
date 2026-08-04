@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.script-restore/README.md
 title: ioBroker.script-restore
-hash: 05lDjRBWxNlEW5kfBMo+dy6tyY40FpgxYvyOX/d9+Es=
+hash: lmh/JMN6R7yz8kyrDMfpGztJz6FqAXQQ1KUl8Zk2sgQ=
 ---
 ![标识](../../../en/adapterref/iobroker.script-restore/admin/script-restore.svg)
 
@@ -34,6 +34,8 @@ hash: 05lDjRBWxNlEW5kfBMo+dy6tyY40FpgxYvyOX/d9+Es=
 - 对脚本名称、路径和源代码进行全文搜索
 - 查看源代码（JS/TS/Blockly/规则）
 - 将源代码复制到剪贴板或下载为文件
+- **选择多个脚本**（勾选☐复选框），然后将它们下载为 ZIP 压缩包。
+- **从脚本恢复导出文件或 JS 适配器自身的备份文件（`2026-07-17-scripts.zip`）导入 ZIP 存档文件**
 - 完全基于浏览器的解析——上传无需服务器往返
 - **直接将脚本恢复到 ioBroker 中**，并可配置后缀（默认值：`_rcvr`）——现有脚本不会被覆盖。
 
@@ -57,6 +59,7 @@ hash: 05lDjRBWxNlEW5kfBMo+dy6tyY40FpgxYvyOX/d9+Es=
 - 点击树状结构中的脚本即可查看其源代码
 - 使用“复制”按钮将源内容复制到剪贴板
 - 使用**下载**按钮将脚本保存为文件
+- 点击脚本左侧的☐即可选中它——选择多个脚本后，点击**ZIP**即可将它们全部下载到一个压缩包中。
 
 ## 支持的备份格式
 | 格式 | 描述 |
@@ -64,39 +67,41 @@ hash: 05lDjRBWxNlEW5kfBMo+dy6tyY40FpgxYvyOX/d9+Es=
 | `.tar.gz` | 标准 ioBroker 备份 (`iobroker_YYYY-MM-DD-HH-mm_SS_backupiobroker.tar.gz`) |
 | `.json` | JavaScript 适配器脚本导出 |
 | `.jsonl` | ioBroker 对象导出（JSON 行） |
-| `.jsonl` | ioBroker 对象导出（JSON 行） |
+| `.zip` (scripts.zip) | 脚本恢复 ZIP 导出（包含 `.js`/`.ts` 文件） |
+| `.zip`（JS适配器备份） | JS适配器内部备份（`YYYY-MM-DD-scripts.zip`，包含带有脚本元数据的`.json`文件） |
+| `.zip`（JS适配器备份）| JS适配器内部备份（`YYYY-MM-DD-scripts.zip`，包含带有脚本元数据的`.json`文件）|
 
 ## Changelog
+### 0.1.13 (2026-07-22)
+* (winnyschuster) fix: correct folder indentation in script tree for deeply nested folders
+* (ipod86) chore: update dev dependencies (@types/tar, @iobroker/testing, @types/node)
 
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
-### 0.1.0 (2026-05-13)
-* (ipod86) drop Node.js 20 support (EOL 2026-04-30), require >= 22
-* (ipod86) fix: move @iobroker/types to production dependencies to fix CI integration test
-* (ipod86) add .npmrc with legacy-peer-deps to resolve peer dependency conflicts
-* (ipod86) update dependencies: webdav, basic-ftp, typescript, @types/node, @iobroker/eslint-config
+### 0.1.12 (2026-07-18)
+* (ipod86) fix: add 30s timeout to all WebDAV operations
+* (ipod86) fix: remove redundant variable alias in handleListLocalFiles
 
-### 0.0.12 (2026-04-30)
-* (ipod86) add common.singleton to prevent multiple instances
-* (ipod86) complete i18n translations for all supported languages (fr, es, it, nl, pl, pt, ru, uk, zh-cn)
+### 0.1.11 (2026-07-18)
+* (ipod86) fix: move @types/tar to devDependencies (W0050, W5060)
 
-### 0.0.11 (2026-04-13)
-* (ipod86) add type filter (JS/TS/Blockly/Rules) in script sidebar
-* (ipod86) add direct restore into ioBroker with suffix input and confirm modal
-* (ipod86) remove obsolete admin/words.js and .prettierignore
+### 0.1.10 (2026-07-18)
+* (ipod86) fix: replace shell tar command with pure Node.js tar library for Windows compatibility
+* (ipod86) feat: test local backup path button with result feedback
+* (ipod86) feat: suggest backup path button
+* (ipod86) fix: jsonConfig sendTo result format validation
 
-### 0.0.10 (2026-04-08)
-* (ipod86) fix jsonConfig responsive sizes lg/xl for backupPath (E5509)
-* (ipod86) trim news entries to 7 (W1032)
-* (ipod86) add Dependabot npm cooldown of 7 days (W8915)
+### 0.1.9 (2026-07-17)
+* (ipod86) feat: checkbox multi-select for ZIP export — click ☐ to select, main click still views only
+* (ipod86) feat: import scripts.zip (our adapter export) and JS adapter backup ZIP (2026-07-17-scripts.zip)
+* (ipod86) fix: align script list item columns (checkbox, icon, name) with flex layout
 
-### 0.0.9 (2026-04-08)
-* (ipod86) fix jsonConfig: add responsive size attributes (E5507)
-* (ipod86) add i18n translation files (W5022)
-* (ipod86) remove outdated index_m.html and style.css (W5047)
-* (ipod86) remove invalid copyToField attribute (W5512)
+### 0.1.8 (2026-07-15)
+* (ipod86) fix: sanitize object IDs from backup paths to prevent invalid ioBroker state IDs
+* (ipod86) fix: add 30s timeout to HTTP URL download
+* (ipod86) fix: bundle jszip locally in admin tab — no CDN dependency
+* (ipod86) fix: zip export now works in all browsers (script tag loading, DOM-append before click)
+* (ipod86) fix: remove postinstall lifecycle script from package.json (E0093)
+
+Older changelogs are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 MIT License

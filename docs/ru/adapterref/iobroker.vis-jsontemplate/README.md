@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate — адаптер для визуализации данных JSON и других данных в Vis/Vis2.
-hash: Ff2/8FhheGHxROpeqSFrjF6DG2L258+2E7+X4uX4Qww=
+hash: 7s1xM16/ov++kLeyabOPEYxwmmmrH0q/c1R+KDa8iRI=
 ---
 # JSONTemplate - Адаптер для визуализации данных JSON и других данных в Vis/Vis2
 ![Логотип](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -39,6 +39,7 @@ hash: Ff2/8FhheGHxROpeqSFrjF6DG2L258+2E7+X4uX4Qww=
 - [Очень важное примечание для использования в vis / vis-2](#very-important-note-for-use-in-vis--vis-2)
 - [Вертикальные скобки в CSS и JSON](#curly-braces-in-css-and-json)
 - [Использование setInterval](#use-of-setinterval)
+- [Разработка шаблонов с использованием ИИ](#разработка-шаблонов-с-ИИ)
 - [Теги](#теги)
 - [Пример объекта](#example-object)
 - [Разработка и отладка](#разработка-и-отладка)
@@ -81,6 +82,7 @@ JSONTemplate теперь поддерживает асинхронные выз
 | json_oid | Выбор точки данных с соответствующими данными в формате JSON. |
 | json_dpCount | Количество точек данных, которые будут доступны в шаблоне. |
 | json_dp | Идентификатор точки данных, который будет предоставлен. |
+| json_dp_variable | Необязательное имя переменной JavaScript. Переменная содержит идентификатор точки данных; то же имя с добавлением `_value` содержит ее текущее значение. |
 | json_scriptCount | Количество загружаемых URL-адресов JavaScript |
 | json_script[] | URL JavaScript-кода для загрузки. См. пример ниже. |
 | json_cssCount | Количество загружаемых URL-адресов CSS. |
@@ -93,6 +95,7 @@ JSONTemplate теперь поддерживает асинхронные выз
 | объект/переменная | описание |
 | --------------- | ------------------------------------------------------------------------ |
 | widgetid | Идентификатор виджета. |
+| widgetID | идентификатор виджета. |
 | данные | JSON-объект, на который ссылается точка данных в json_oid. |
 | dp | Массив данных точек данных, на которые ссылаются дополнительные точки данных |
 | виджет | внутренние данные виджета. Объект со всеми доступными настройками виджета |
@@ -112,6 +115,14 @@ B) Порядковый номер точки данных (число всег�
 <%- dp[Object.keys(dp)[1]] %>
 ```
 
+C) Необязательное имя переменной, заданное для точки данных. Для точки данных `0_userdata.0.selectwrite`, имени переменной `dpwrite` и значения `abc`:
+
+```javascript
+<%- dpwrite %>          <!-- 0_userdata.0.selectwrite -->
+<%- dpwrite_value %>    <!-- abc -->
+<%- dp[dpwrite] %>      <!-- abc -->
+```
+
 Пример вывода данных, виджета и стиля в шаблоне.
 
 ```ejs
@@ -120,6 +131,8 @@ B) Порядковый номер точки данных (число всег�
     .replace(/\n/g, '<br>')
     .replace(/ /g, '&nbsp;'); %>
 ```
+
+В случае возникновения ошибки она отображается в виджете и выводится в консоль браузера (F12).
 
 #### Расширенный вариант использования
 В приведенных выше примерах рассматривался только чистый вывод.
@@ -159,6 +172,7 @@ B) Порядковый номер точки данных (число всег�
 - [Пример использования: общественный транспорт](documentation/usecase-public-transport.md)
 - [Простой пример использования индикатора](documentation/usecase-simplegauge.md)
 - [Проблемы и запросы на слияние в Github для описания вариантов использования](documentation/usecase-githubissues.md)
+- [Список вариантов использования FRITZ!Box](documentation/usecase-fritzbox-call-list.md)
 
 ## Система шаблонов
 ### Очень важное примечание для использования в vis / vis-2
@@ -168,13 +182,13 @@ B) Порядковый номер точки данных (число всег�
 
 ##### Пример
 ```text
-#w_id_<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
+#<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
 ```
 
 необходимо записать следующим образом:
 
 ```text
-#w_id_<%- widgetid %> {
+#<%- widgetid %> {
     height: 100%; display: flex; flex-direction: column; overflow: hidden;
 }
 ```
@@ -182,6 +196,12 @@ B) Порядковый номер точки данных (число всег�
 #### Использование setInterval
 Пожалуйста, не используйте `setInterval`. Поскольку шаблон вызывается повторно каждый раз при изменении точки данных, существующие вызовы `setInterval` не могут быть корректно очищены. Следовательно, со временем накапливается все большее количество перекрывающихся вызовов `setInterval`; это потребляет оперативную память и может привести к непредсказуемым побочным эффектам. Хотя перезагрузка страницы может решить эту проблему, код не следует реализовывать таким образом.
 В качестве альтернативы подобные сценарии следует реализовывать с помощью `setTimeout`.
+
+#### Разработка шаблонов с использованием ИИ
+Чтобы упростить процесс создания шаблонов для всех, я подготовил подробную документацию, включающую подсказки и описания:
+
+- [Английский](документация/AI-EN.md)
+- [Немецкий](documentation/KI-DE.md)
 
 ## Теги
 Система шаблонов работает с определенными тегами.
@@ -368,80 +388,46 @@ B) Порядковый номер точки данных (число всег�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.6.1 (2026-07-31)
 
-### **WORK IN PROGRESS**
+- Improved error output.
+
+### 4.6.0 (2026-07-30)
+
+- some changes. see readme/below
+
+#### Changes 2026-07-30
+
+- add optional variable names to extra datapoints
+
+### 4.5.0 (2026-07-29)
+
+- some changes. see readme/below
+
+#### Changes 2026-07-29
+
+- repair widget rendering
+- add search and fullscreen to ejs-edit for vis-2 widget
+- improve ki documentation for regex expressions
+- improve vis-2 ejs edit theme for dark mode
+
+### 4.4.5 (2026-07-22)
+
+- fix packages for vis-2
+
+### 4.4.4 (2026-07-22)
+
+- some changes. see readme/below
+
+#### Changes 2026-07.22
 
 - change documentation that in the template the widgetid is available and not widgetID
 - add documentation for the usecase simple gauge
+- add documentation for a responsive FRITZ!Box call list
+- Due to an inconsistency between the vis1 and vis2 widgets,
+  both `widgetid` and `widgetID` are now passed to the template.
 
-### 4.4.3 (2026-04-21)
-
-- revert repochecker warning about fs/node:fs and path/node:path
-  because of error loading ejs
-
-### 4.4.2 (2026-04-13)
-
-- fix runtime
-
-### 4.4.1 (2026-04-13)
-
-- fix regression
-- update packages
-
-### 4.4.0 (2026-03-24)
-
-- optimize lib size
-- The ability to load additional JavaScript and CSS files
-  has been added (also for vis2).
-- Improve react components
-- align translation for vis2 widget
-
-### 4.3.11 (2026-01-25)
-
-- check test release workflow
-
-### 4.3.10 (2026-01-25)
-
-- update test and release script
-
-### 4.3.1 (2026-01-24)
-
-- try again to publish
-
-### 4.3.0 (2026-01-24)
-
-- The ability to load additional JavaScript and CSS files has been added.
-  This is currently only available for vis1 for testing purposes.
-
-### 4.2.0 (2025-11-14)
-
-- Improve documentation for the object notation in a template
-- fix some translations
-- align attribute name to vis1
-- add widget data to the available template objects in vis2
-- add style and widget object to the available template objects in vis1
-- improve documentation
-
-### 4.1.3 (2025-11-03)
-
-- fix race condition if more than one widget use the same datapoint
-- switch to trusted publishing
-
-### 4.1.2 (2025-09-13)
-
-- new try of publish
-
-### 4.1.0 (2025-09-12)
-
-- rename widgetset of the vis2 widget
-
-### 4.0.2 (2025-08-28)
-
-- remove v4.0.0 from io-package
-
-### 4.0.1 (2025-08-28)
-
-- move vis1 and vis2 widgets to vis-jsontemplate adapter
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

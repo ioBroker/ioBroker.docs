@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sunenergyxt500/README.md
 title: ioBroker.sunenergyxt500
-hash: qNrNH04U1gZ07RGJvsZJUnseMJ7UchU0mY3+gqiBJ/M=
+hash: kF3JfBVBYN4k8sGC/N/lpTaGITIFVZdjZ8ehK869vVc=
 ---
 ![标识](../../../en/adapterref/iobroker.sunenergyxt500/admin/sunenergyxt500.png)
 
@@ -122,7 +122,7 @@ hash: qNrNH04U1gZ07RGJvsZJUnseMJ7UchU0mY3+gqiBJ/M=
 |---|---|
 | `heads.<n>.battery.*` | SoC (`SC`)、电池功率 (`BP`)、单包 SoC (`SC0`–`SC5`)、在线包 (`ON`)、SoC 滞后 (`SI1`/`SA1`) |
 | `heads.<n>.load.*` | 负载功率（`LP`），每日离网负载能量（`LD`） |
-| `heads.<n>.pv.*` | 总光伏发电量 (`PV`) 和每个 MPPT 的功率/电流/电压 (`mppt1`–`mppt4`) |
+| `heads.<n>.pv.*` | 总光伏发电量 (`PV`)、每日光伏发电量 (`PD`) 和每个 MPPT 的功率/电流/电压 (`mppt1`–`mppt4`) |
 | `heads.<n>.system.*` | 总输入/输出功率 (`IW`/`OP`) |
 | `heads.<n>.device.*` | 类型/型号/序列号/状态；`network.*`（IP、端口、Wi-Fi）；`firmware.*`（`ES`/`AS`/`DS` 软件，`EH`/`AH`/`DH` 硬件，`BS0`–`BS5` 电池管理系统） |
 | `heads.<n>.meter.*` | 外部计量表状态 (`MS`) |
@@ -157,7 +157,7 @@ hash: qNrNH04U1gZ07RGJvsZJUnseMJ7UchU0mY3+gqiBJ/M=
 
 提示：在 ioBroker 管理后台，您还可以按 *writable* 标志筛选对象列表，一次性找到所有控件。
 
-`device.PK`源自不再报告`PK`的固件上的`DevType`。保留字段（`PT`、`SI1`、`SA1`）以只读方式公开。制造商已删除的字段（`PD`、`UP`）或仅供文档使用的字段（`WT`、`BN`）未公开；任何未映射的内容仍可在`heads.<n>.info.rawResponse`中找到。
+`device.PK`源自不再报告`PK`的固件上的`DevType`。保留字段（`PT`、`SI1`、`SA1`）以只读方式公开。制造商已删除的字段（`UP`）或仅供文档使用的字段（`WT`、`BN`）未公开；任何未映射的内容仍可在`heads.<n>.info.rawResponse`中找到。
 
 ## 手动计量/模式字段（MM/MD）
 `MM`/`MD` 是每个灯头基于计量表计算的自耗电量。当您选择**控制模式**时，适配器会自动管理这些耗电量（模式 A 会将 `MM=1` + `MD` 设置为单个灯头；模式 B 会强制所有灯头使用 `MM=0`），并且其保护机制会在下次轮询时重新设置与模式对应的 `MM`——因此，任何手动更改控制模式的操作都是暂时的。
@@ -168,7 +168,8 @@ hash: qNrNH04U1gZ07RGJvsZJUnseMJ7UchU0mY3+gqiBJ/M=
 * **每个实例最多可连接三个喷头。** 单喷头操作已在实际硬件上验证；多喷头分割功能已通过单元测试覆盖，但截至撰写本文时，**尚未在实际的 2-3 喷头安装环境中进行测试**——非常欢迎来自多喷头设置的反馈。*设备自调节* 仅适用于单喷头。
 * **电源头必须位于不同的相位上**（操作人员的责任）。适配器调节的是**总电网功率**，而不是每相功率。
 * 每个电池组的均衡由每个电池头自身的 BMS 处理——适配器仅控制电池头的整体功率，并读取 `battery.SC`（总计）进行控制；它不管理单个电池组。
-* 每日能量计数器（`GD1`/`GD2`/`LD`）是原始的**瓦时**，而不是千瓦时。
+* 每日能量计数器（`PD`/`GD1`/`GD2`/`LD`）显示的是原始的**瓦时**，而不是千瓦时。`PD` 需要控制模块固件 `ES 1.1.14`（市场版本号为“1.1.4”——公开版本号与 `ES` 内部版本号不同）；旧版本固件会直接省略该字段，状态保持为空。
+* 设备重启时会重置每日计数器，因此中午的固件更新会将其重置为 0。
 * `MD` 和 `TZ` 会立即生效，但不保证设备会逐字逐句地回放——请根据效果确认，而不是根据回放确认。
 * **光伏输入未经硬件测试**（参考安装未连接光伏组件，因此`PV1–4`始终为0）。集成和控制器与光伏组件无关且功能齐全，但光伏固件的极端情况（例如电池满电+光伏剩余电量、UPS/旁路字段`FP`/`UG`）未经验证——欢迎反馈。
 
@@ -178,15 +179,32 @@ hash: qNrNH04U1gZ07RGJvsZJUnseMJ7UchU0mY3+gqiBJ/M=
 * **设备忽略 `GS` / 电池无响应：** 磁头仅在 `MM=0` 时执行写入的 `GS`。在*适配器控制器*模式下，适配器会强制执行此设置；如果您手动写入 `GS`，请确保未绑定任何计量器（`MM=0`）。如果绑定了计量器（`MM=1`），设备将进行自我调节并忽略 `GS`。
 * **控制器响应速度过慢/无法精确达到 0：** 请参阅“控制行为、精度和限制”——测量链会增加约 1-3 秒的延迟，且仪表本身的精度有限，因此目标值周围 ±10-20 W 的范围内是物理上的最佳设置。为了获得最快的响应速度，请使用“精确”模式（增益 0.8-1.0，死区 0，最小写入间隔 1000 毫秒）；为了避免馈入，请将**目标电网功率**设置为一个较小的正值。
 * **状态时间戳看起来过时 / 质量标志 32：** 适配器仅在状态值发生变化时才写入状态（标准做法——防止状态数据库被数百万次重复写入）。因此，状态的时间戳显示的是上次值*变化*的时间，而不是上次轮询的时间。可通过 `info.lastUpdate`（每次成功轮询后更新）和 `heads.<n>.info.online` 检查数据新鲜度。质量标志 32（“替换初始值”）仅保留在设备从未提供的状态上（例如，未安装的扩展包的 SoC）；每次适配器启动后，所有已提供的值都会被写入一次，因此它们的时间戳至少与启动时一样新。
+* **存储功能完全不起作用——既不充电也不放电：** 在控制器模式下，适配器会关闭设备自身的调节功能（`MM`），因此如果其自身的调节回路从未启动，则不会进行任何调节。读取 `controller.gridPower`：当控制器从未接收到任何值时，该值将保持为空（检查状态 ID，并确保源写入时设置了 `ack=true`——未确认的值会被故意忽略；`controller.status` 会变为 `failsafe`，并且日志会记录该状态的名称）。如果该值显示为**正值**，而房屋实际上正在接入电网，则说明符号约定反转——启用*电网功率反转*。如果该值为负值，并且 `controller.totalTarget` 也为负值，则说明控制器正在请求充电，但设备拒绝充电：检查 `heads.<n>.device.ST`（2 表示正在运行）和 `heads.<n>.battery.ON`。
 * **两个控制器会争用电池：**请只运行一个。适配器会强制在所选模式下使用 `MM` 模式——在使用控制模式之前，请禁用任何外部 `GS` 脚本（或设备自身使用不同计量器的 `MM` 脚本）。
 * **某些状态为空（`0` / `""`）：**设备仅返回其固件/拓扑实际提供的字段（例如，额外的数据包 `SC2`–`SC5`，或仅在发生故障时返回的故障位掩码）。完整的原始响应始终可在 `heads.<n>.info.rawResponse` 中找到。
 * **从单头版本更新后，树看起来不对劲：** 0.2.0 版本中，对象树被重构为 `heads.<n>.*`。适配器会在启动时自动删除过时的对象；如果还有残留，请删除旧对象（或重新添加实例）。
+* **节点间歇性掉线/ping 超时：**节点的 Wi-Fi 模块信号弱，堆叠放置的节点会使金属外壳直接覆盖天线。检查 `heads.<n>.device.network.WR`（信号强度，单位为 dB）——低于 -75 dB 时链路不稳定。将堆叠的节点分开，并将**轮询间隔**提高到 10-15 秒（控制质量几乎不受影响：控制器响应的是电网电源，而不是轮询）。为了排除适配器的问题，停止实例并 ping 节点几分钟——如果掉线仍然存在，则轮询不是原因。适配器本身会在每个节点和间隔内发送一次 `/read` 请求，错开多个节点的运行时间，每次使用后都会关闭连接，并在轮询失败后自动退出。
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.10 (2026-08-03)
+* (Creekhail) **Gentler on the heads' Wi-Fi:** with two or three heads the adapter no longer polls them all in the same instant — each head now runs its own cycle, staggered by up to 1 s. After a failed poll that head is backed off (doubling up to 60 s) instead of being polled at full rate, which only added to the congestion that made it drop out. The other heads keep their own rhythm either way.
+* (Creekhail) **Every HTTP connection is closed after use** (`Connection: close`, a dedicated connection pool per head). Node's default keeps a socket open for 5 s, which at a 5 s poll means permanently — a slot the head's ESP32 cannot reclaim if the close is lost on a weak link. Reads and writes to the same head are now serialized as well, so a control write no longer opens a second parallel connection while a poll is running, and all sockets are closed on unload.
+* (Creekhail) The **request timeout now covers the whole request** instead of only the phase after a socket was assigned.
+* (Creekhail) Admin: the poll interval carries a help text recommending 10–15 s for two or more heads or a weak Wi-Fi signal; new troubleshooting entry for sporadic head drop-outs.
+
+### 0.2.9 (2026-08-02)
+* (Creekhail) The controller now publishes what it actually sees: **`controller.gridPower`** is the house grid power the way the loop understands it (after the *inverted* option, `>0` = draw) and is updated for every accepted value — even while the dead band suppresses any write, so "no value arrives" and "values arrive but nothing happens" are finally distinguishable. **`controller.totalTarget`** shows the total setpoint before it is split across the heads; a negative value means the controller wants to charge, so a storage that stays idle anyway is a device-side problem.
+* (Creekhail) **Fixed a silent standstill:** if the configured grid-power source never delivered a single value (wrong state id, or a state written with `ack=false`), the controller sat at `GS=0` forever without any warning — while control mode had already switched the device's own regulation (`MM`) off. Nothing regulated at all, and the status still read `ok`. The watchdog now escalates to `failsafe` after the configured failsafe time and logs the state id together with what to check.
+* (Creekhail) A grid-power source that is written with `ack=false` is still ignored (an unacknowledged value must not drive the battery), but the adapter now warns once, names the state and points at both remedies instead of dropping every value silently.
+* (Creekhail) Renamed `total.gridPower` to "Storage grid-port power, total" — it sums the *storages'* grid ports and was too easily mistaken for the house connection. The object id is unchanged, so history and existing scripts keep working.
+
+### 0.2.8 (2026-07-29)
+* (Creekhail) Support for control module firmware **`ES 1.1.14`** (marketed by the manufacturer as "1.1.4"): the reinstated field `PD` is now exposed as `heads.<n>.pv.PD` — **today's PV generation energy** in raw Wh. Verified against a 500 PRO before and after the update: no field was removed and no control value was reset, so **older firmware keeps working unchanged** — the state simply stays empty where the device does not deliver `PD`.
+* (Creekhail) Documentation: noted that the device's public firmware numbering differs from the internal one reported in `ES` (public `1.1.4` = internal `1.1.14`) — feature availability is therefore detected by field presence, never by comparing version strings; and that the daily counters (`PD`/`GD1`/`GD2`/`LD`) are reset by the device on reboot, so a firmware update mid-day drops them to 0.
 
 ### 0.2.7 (2026-07-05)
 * (Creekhail) New **adaptive control** (enabled by default): the controller regulates in three manufacturer-proven tiers — small deviations gently (every 7 s, 20 W steps), medium ones every 2.5 s (120 W), large load steps immediately (450 W), with a fixed 5 W dead band. Disable the new checkbox to keep tuning gain, dead band, write interval and step limit manually. **Existing installations are switched to adaptive by this update** (uncheck to return to your manual tuning).

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hueemu/README.md
 title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="48" align="top" /> ioBroker.hueemu
-hash: PNYFNKNFdn+kQybZ0zLalPuIAizKMhqWXSWjxVNtmT8=
+hash: JNBXCkzhUjAhi4UR0nyqnW+lxfSwThengH/2esj2SNc=
 ---
 # <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hueemu@main/admin/hue-emu-logo.svg" width="48" align="top" /> ioBroker.hueemu
 
@@ -69,9 +69,8 @@ hash: PNYFNKNFdn+kQybZ0zLalPuIAizKMhqWXSWjxVNtmT8=
 ## Конфигурация
 ### Сетевые настройки
 | Параметр | Описание | По умолчанию |
-| ----------------- | -------------------------------------------------------------------------------------------------------------- | ------- |
-| **Хост** | Сетевой интерфейс для привязки. Выберите `0.0.0.0`, чтобы прослушивать все интерфейсы (остается доступным при изменении IP-адреса) | 0.0.0.0 |
-| **Объявленный IP-адрес** | Доступный IP-адрес, объявляемый клиентам для обнаружения. Оставьте поле пустым для автоматического определения основного интерфейса | авто |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+| **Хост / IP-адрес** | IP-адрес, к которому подключается мост и который он объявляет клиентам (Alexa, Harmony). Выберите `0.0.0.0`, чтобы прослушивать все интерфейсы — объявленный IP-адрес определяется автоматически. | 0.0.0.0 |
 | **HTTP-порт** | Порт для API Hue | 8080 |
 | **HTTPS-порт** | Требуется только в том случае, если клиент настаивает на TLS; в противном случае оставьте пустым | — |
 | **MAC-адрес** | MAC-адрес моста (сгенерирован автоматически, если пуст) | — |
@@ -81,7 +80,7 @@ hash: PNYFNKNFdn+kQybZ0zLalPuIAizKMhqWXSWjxVNtmT8=
 
 **Вручную** — нажмите **Добавить источник света**, введите имя, выберите тип источника света и сопоставьте состояния ioBroker с обозревателем объектов.
 
-**Автоматически** — нажмите **Поиск источников света**. Адаптер сканирует ваши объекты на наличие элементов, похожих на источники света (включенные/выключенные, диммеры, устройства с регулировкой цветовой температуры и цветные светильники), и добавляет те, которые может сопоставить. Все обнаруженные, но не сопоставленные элементы (например, устройства с RGB-каналами) отображаются в отчете, поэтому вы можете добавить их вручную.
+**Автоматически** — нажмите **Поиск источников света**. Адаптер сканирует ваши объекты на наличие элементов, похожих на источники света (включенные/выключенные, диммеры, устройства с регулировкой цветовой температуры и цветные светильники), и отображает доступные для сопоставления в виде списка — отметьте нужные, и будут добавлены только они. Все обнаруженные, но не сопоставленные элементы (например, устройства с RGB-каналами) будут добавлены вручную.
 
 Каждый индикатор отображается в виде карточки — используйте **Редактировать**, чтобы изменить его назначение, или **Удалить**, чтобы удалить его.
 
@@ -103,7 +102,7 @@ hash: PNYFNKNFdn+kQybZ0zLalPuIAizKMhqWXSWjxVNtmT8=
 ### Подключение к Alexa (старые модели Echo без Matter)
 > Если у вас установлена актуальная версия Echo, используйте вместо неё [адаптер материи](https://github.com/ioBroker/ioBroker.matter).
 
-> **Совет:** Если Alexa не может найти мост, попробуйте изменить HTTP-порт на **80** в настройках адаптера — некоторые версии прошивки Alexa обнаруживают мосты только на порту 80.
+**Совет:** Если Alexa не может найти мост, попробуйте изменить HTTP-порт на **80** в настройках адаптера — некоторые версии прошивки Alexa обнаруживают мосты только на порту 80.
 
 1. Активируйте сопряжение (см. выше)
 2. Приложение Alexa → Устройства → `+` → Philips Hue
@@ -135,7 +134,7 @@ hueemu.0.
 
 ### Мост не найден
 — Убедитесь, что порт UPnP (1900) не заблокирован брандмауэром.
-— IP-адрес **хоста** должен быть фактическим сетевым IP-адресом, а не `0.0.0.0`.
+- На хосте с несколькими интерфейсами установите **Host / IP** на конкретный адрес локальной сети вместо `0.0.0.0`, если автоматически определенный IP-адрес неверен.
 — Проверьте правила брандмауэра на хосте ioBroker.
 
 ### Клиент не обнаруживает устройств / сопряжение не удается
@@ -151,9 +150,7 @@ hueemu.0.
 ---
 
 ## Благодарности
-**Автор оригинала:** Кристофер Холомек ([@holomekc](https://github.com/holomekc))
-
-**Модернизация:** krobi
+Этот адаптер не существовал бы без [Кристофер Холомек](https://github.com/holomekc), который создал оригинальный эмулятор моста Hue на GitHub еще в 2020 году. С тех пор код был переписан с нуля, но идея и доказательство ее работоспособности принадлежат ему.
 
 ---
 
@@ -172,6 +169,17 @@ hueemu.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.12.1 (2026-07-31)
+
+- Leaving the HTTPS port empty in the settings no longer shows an error — an empty value simply means that no HTTPS server is started for the bridge
+- The bridge MAC address that is generated automatically is now always a valid device address; some of the values generated before were not valid MAC addresses
+
+### 1.12.0 (2026-07-12) — stable
+
+- The "Search lights" assistant now actually finds your lights (it scanned the wrong objects before) and lets you pick which ones to add instead of adding them all
+- The two IP fields in the settings are now one Host/IP selector — pick your IP, or "all interfaces" to auto-detect the announced address
+- A logged-in client reading the bridge configuration now receives the full config, matching a real Hue bridge
+
 ### 1.11.0 (2026-07-09)
 
 - The devices tab can now scan ioBroker for dimmer, colour-temperature and colour lights and add the mappable ones. Manual add still works.
@@ -193,22 +201,13 @@ hueemu.0.
 - Fixed already-paired clients being wrongly rejected until a restart after a transient error while loading clients at startup
 - A configured source state that no longer exists now produces a one-time warning in the log instead of a silently dead light
 
-### 1.8.1 (2026-06-12) — stable
-
-- Number values read from light states are now parsed strictly: text with extra characters after the number falls back to the default instead of being half-parsed
-- Faster bridge config responses for clients that poll every second (such as Echo devices) by reusing the timestamp formatter instead of rebuilding it on every request
-
-### 1.8.0 (2026-06-09)
-
-- Color lights mapped via hue and saturation (without an XY state) now report the correct color mode, so apps that honor it show the actual color instead of a default white.
-
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2020-2024 Christopher Holomek <holomekc.github@gmail.com>  
+Copyright (c) 2020-2021 Christopher Holomek <holomekc.github@gmail.com>  
 Copyright (c) 2026 krobi <krobi@power-dreams.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

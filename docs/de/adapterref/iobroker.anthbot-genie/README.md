@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.anthbot-genie/README.md
 title: ioBroker.anthbot-genie
-hash: LN1kkcsY1XXsZrj7mkBHVQwe2PicpZZ0ykmDLyZ8E/c=
+hash: RZf++aYfBhPSkpO9B4y4spJoWHj4aIvbXN0wchv6A/A=
 ---
 # IoBroker.anthbot-genie
 
@@ -26,7 +26,7 @@ Der Adapter verbindet sich mit dem Anthbot-Cloud-Konto, erkennt gebundene Mäher
 
 Es richtet sich an Benutzer, die mehr als eine einfache Online-/Akku-/Statusanzeige wünschen: RTK- und Basisstationsstatus, Firmware- und OTA-Details, Netzwerk- und SIM-Informationen, GPS- und Positionsdaten, Kartenlebenszyklus-Zeitstempel, Mäherfehlerdetails, Lebensdauer von Verbrauchsmaterialien, Regeneinstellungen, Zonenmetadaten und beschreibbare Mähsteuerungen werden als ioBroker-Zustände bereitgestellt.
 
-Dieser Adapter ist im ioBroker-Repository `latest` verfügbar. Bitte melden Sie Feedback und Testergebnisse im Repository [ioBroker-Forumsthread](https://forum.iobroker.net/topic/84392).
+Dieser Adapter ist im ioBroker-Repository `latest` verfügbar. Bitte melden Sie Feedback und Testergebnisse im Repository [ioBroker-Forumsthread](https://forum.iobroker.net/topic/84983).
 
 Ein Beispiel für einen ioBroker Blockly mit Bedingungen für die Mähautomatisierung finden Sie in [Blockly-Automatisierungsbeispiel](https://forum.iobroker.net/topic/84392/2).
 
@@ -43,6 +43,7 @@ Ein Beispiel für einen ioBroker Blockly mit Bedingungen für die Mähautomatisi
 - Beschreibbare Steuerungszustände für das Mähen der gesamten Karte, das Mähen von Zonen, die Schnitthöhe, die Sprachlautstärke, die benutzerdefinierte Mährichtung, die Hindernisvermeidung, die Regeneinstellungen und das Mähen in der Nähe des Ladeplatzes
 - Befehlszustände für Vollmähen, Stopp, Rückkehr zur Ladestation, Pause mit Rückkehr zur Ladestation, Grasauswurf, Scheibenwartungsmodus, Kantenmähen, Mähen in der Nähe des Ladeplatzes, Punktmähen, Aktualisieren, manuelles Zonenmähen und automatisches Zonenmähen
 - Manuelle und automatische Zonenmetadaten als JSON-Zustände, einschließlich aktiver manueller Zonen-IDs
+- Schreibgeschützte PNG-Kartenbilddateien enthalten Angaben zur nativen Karte, zur RTK-Mähflächenmaske und zum historischen Mähpfad.
 - Rohdaten von Eigenschaftsschatten, Dienstschatten, Anthbot-Ereigniscode-Übersetzungen und Bereichsdefinitions-Payloads zur Fehlerbehebung und zum Debuggen der Automatisierung
 
 ## Anforderungen
@@ -112,8 +113,12 @@ Andere Anthbot-Modelle funktionieren möglicherweise auch, wenn sie die gleiche 
 | Anthbot-Kontopasswort | Anthbot-Kontopasswort, verschlüsselt von ioBroker gespeichert | leer |
 | Vorwahl | Telefon- oder Kontovorwahl, z. B. `49` für Deutschland | `49` |
 | Abfrageintervall in Sekunden | Abfrageintervall für Mähdaten. Der Adapter erzwingt mindestens 10 Sekunden. | `60` |
+| Karte abrufen (hohe CPU-Auslastung) | Native Karte, RTK-Maske und historischen Mähpfad herunterladen und rendern | `false` |
+| Karte mit Pfaden generieren (noch höhere CPU-Auslastung) | Historischen Mähpfad herunterladen und in das Kartenbild einfügen. Erfordert das Abrufen der Karte. | `false` |
 | Fehlerbeschreibungssprache | Sprache, die für Anthbot-Cloud-Fehlerbeschreibungen verwendet wird | `English` |
 | Sprache der Fehlerbeschreibung | Sprache, die für Anthbot-Cloud-Fehlerbeschreibungen verwendet wird | `Englisch` |
+
+Wenn eine der beiden Kartenoptionen deaktiviert ist, stellt der Adapter die Anforderung und Darstellung dieser Kartendaten ein und lässt die vorhandenen Kartenstatuswerte unverändert.
 
 Nach dem Speichern der Konfiguration starten oder starten Sie die Adapterinstanz neu.
 
@@ -165,15 +170,78 @@ anthbot-genie.<instance>.<serial>.*
 
 Der Adapter verwendet für alle unterstützten Mähermodelle denselben Zustandsbaum. Bei Modellen, die die M5/M9-spezifischen Nutzdatenfelder nicht bereitstellen, werden die Zustände `metrics.status.modeRaw`, `metrics.mowing.totalTime`, `metrics.mowing.totalArea` und `metrics.map.mappingTaskState` zwar erstellt, bleiben aber leer oder sind `null`.
 
+### Kartenbilder
+| Bundesland | Typ | Beschreibung |
+| --- | --- | --- |
+| `<serial>.map.image` | Zeichenkette | Native Navigationskarte als PNG-Daten-URI |
+| `<serial>.map.imageWithMowedPath` | Zeichenkette | Native Navigationskarte mit dem heruntergeladenen historischen Mähpfad als PNG-Daten-URI |
+| `<serial>.map.mowedPath` | Zeichenkette | JSON-Array mit den exakten historischen Pfadpunkten, die für `map.imageWithMowedPath` verwendet wurden |
+| `<serial>.map.mowedPath` | string | JSON-Array mit den exakten historischen Pfadpunkten, die für `map.imageWithMowedPath` verwendet wurden |
+
+Die drei Bildzustände sind schreibgeschützt und verwenden die Rolle `media.image`. Der Zustand `map.mowedPath` ist ebenfalls schreibgeschützt und verwendet die Rolle `json`. Der Adapter lädt die Kartendatei `multi_maps` von Anthbot herunter, extrahiert `maps/remote_map_navi.map` und rendert das native Raster mit der anwendungskompatiblen Lichtpalette. `map.image` enthält nur die Karte; `map.imageWithRtkMask` fügt das vollständige Raster der gemähten Fläche `maps/rtk_mask_map` hinzu. `map.imageWithMowedPath` fordert `req_history_mapping_path` an, lädt `path_<SN>.txt` herunter, stellt den historischen Pfad blau dar und fügt die aktuelle Mäherposition als gelbes Robotersymbol sowie die darunterliegende Markierung für die Ladestation hinzu. `map.mowedPath` enthält dieselben JSON-Pfadpunkte wie die entsprechende PNG-Datei. Die Werte `x` und `y` verwenden die Zentimeterkoordinaten des historischen Pfads; dividieren Sie diese durch `100`, um sie in die von den Positionszuständen verwendeten Meter der lokalen Karte umzurechnen. Die mitgelieferten App-Assets sind so ausgerichtet, dass die Mähwerksfront nach unten zeigt und mithilfe von `location.pose.yaw - 90°` gedreht wird (beispielsweise zeigt eine Live-Gierbewegung von etwa `-16°` nach rechts); der generierte Fallback verwendet dieselbe Ausrichtung. Die Ladestationsmarkierung und die schreibgeschützten Zustände `location.charger.x`/`location.charger.y` werden aus `charger_point` in `maps/remote_map.json` gelesen; die Zustandskoordinaten werden in Metern angezeigt. Beide Overlay-Bilder stellen konfigurierte Sperrzonen rot dar. Das historische Bild greift niemals auf das kurzlebige `curpath` zurück. Die Bilder und der Pfadstatus werden aktualisiert, wenn sich die native Kartenidentität, der Zeitstempel, der Verlaufspfad, die Mähwerksposition oder der Ladepunkt ändern. Fehlende oder ungültige Kartendaten führen dazu, dass die Zustände leer bleiben, während der Adapter weiterhin abfragt.
+
+Die beiden Karteneinstellungen steuern bewusst unterschiedliche Funktionen:
+
+- `fetchMap = false`: Es wird kein Kartenarchiv, Raster, PNG oder Verlaufspfad angefordert. Die vorhandenen Werte der Karten- und Ladestationskoordinaten bleiben unverändert, sodass eine zuvor generierte Karte und Ladestationsposition weiterhin angezeigt werden können, jedoch nicht aktualisiert werden.
+- `fetchMap = true` und `generateMapWithPaths = false`: Der Zustand der nativen Karte und der RTK-Maske wird aktualisiert. Der historische Pfad wird nicht angefordert, und `map.imageWithMowedPath` und `map.mowedPath` bleiben unverändert. Verwenden Sie `map.image` oder `map.imageWithRtkMask` für die ressourcenschonendere Kartenansicht.
+- Beide Einstellungen `true`: Alle drei Bildzustände und der Zustand `map.mowedPath` werden generiert; `map.imageWithMowedPath` enthält den historischen Pfad und das aktuelle Robotersymbol.
+
+#### VIS: Karte mit integriertem Robotersymbol
+Verwenden Sie diesen direkten Pfad, wenn beide Karteneinstellungen aktiviert sind. Binden Sie das VIS-Bild-Widget an `<serial>.map.imageWithMowedPath`; der Adapter zeichnet bereits den historischen Pfad und das Robotersymbol in der aktuellen Position. Ein zweites VIS-Symbol-Widget ist nicht erforderlich. Behalten Sie das native Seitenverhältnis des PNG-Containers bei (`404:488`).
+
+#### VIS: Karte mit separatem Overlay-Symbol
+Verwenden Sie diesen ressourcenschonenderen Pfad bei `fetchMap = true` und `generateMapWithPaths = false`. Binden Sie das Bild-Widget an `<serial>.map.image` oder `<serial>.map.imageWithRtkMask` und platzieren Sie anschließend ein transparentes Symbol-Widget absolut darüber. Binden oder berechnen Sie dessen Position anhand von `<serial>.location.pose.x` und `<serial>.location.pose.y`. Diese Zustände sind in Metern angegeben; die Kartenmetadaten liefern Ursprung und Auflösung. Platzieren Sie beide Widgets im selben relativ positionierten Container und verwenden Sie dasselbe Seitenverhältnis (`404:488`), da `object-fit: contain` sonst Letterboxing verursachen und das Overlay-Symbol verschieben kann. Bei `fetchMap = false` zeigt das Kartenbild möglicherweise noch einen alten Zustand an, aber weder die Karte noch ihre separate Overlay-Position werden vom Adapter aktualisiert.
+
+Nachdem die Positions-Zustands-Meterkonvertierung durchgeführt wurde, sind `location.pose.x` und `location.pose.y` Meter. Konvertieren Sie diese mithilfe der Kartenkopfdaten aus `maps/remote_map.json` in Kartenpixel:
+
+```js
+const map = {
+    width: 404,
+    height: 488,
+    resolution: 0.05,
+    xMin: -15.353175,
+    yMin: -9.549684,
+};
+
+const pixelX = (poseX - map.xMin) / map.resolution;
+const pixelY = map.height - 1 - (poseY - map.yMin) / map.resolution;
+const poseYaw = Number(poseYawState); // <serial>.location.pose.yaw
+
+icon.style.left = `${(pixelX / map.width) * 100}%`;
+icon.style.top = `${(pixelY / map.height) * 100}%`;
+icon.style.transform = `translate(-50%, -50%) rotate(${poseYaw - 90}deg)`;
+```
+
+Für den aktuellen Snapshot platzieren `pose.x = 0.094` und `pose.y = 0.356` das Symbol ungefähr an Pixel `(309, 289)` bzw. `left: 76.5%` und `top: 59.2%`. Definieren Sie `poseYaw` aus `<serial>.location.pose.yaw`. Bei einem Symbol mit der Vorderseite nach unten wenden Sie `poseYaw - 90` an, sodass eine Live-Gierbewegung um `-16` die Vorderseite nach rechts ausrichtet. Der Adapter veröffentlicht derzeit keine Kartenbreite, -höhe, -auflösung oder -ursprung als Zustände. Daher müssen diese Werte aktualisiert werden, wenn der Mäher eine neue Karte erstellt. Vermischen Sie nicht die Karten-Array-Pixel mit den Meterkoordinaten des Mähers.
+
+#### Gierwinkel: Ursprung und Berechnung
+`<serial>.location.pose.yaw` ist die vom Anthbot als `pose.yaw` gemeldete Mährichtung. Sie wird in Grad angegeben und nicht von Millimetern umgerechnet. Der Adapter wandelt lediglich `pose.x` und `pose.y` von Millimetern in Meter um; der Gierwinkel wird unverändert übernommen. X/Y beschreiben die Position des Mähers, daher darf der Gierwinkel nicht allein aus der aktuellen Position berechnet werden.
+
+Für ein separates VIS-Symbol, dessen Quellbild die Vorderseite des Mähwerks nach unten zeigt, berechnen Sie die Bildrotation mit einem festen Offset `90°`:
+
+```js
+const yawDeg = Number(yawState); // <serial>.location.pose.yaw
+const iconRotationDeg = yawDeg - 90;
+
+icon.style.transform = `translate(-50%, -50%) rotate(${iconRotationDeg}deg)`;
+```
+
+Der Offset `-90°` richtet die Ausrichtungskonvention von Anthbot an der Vorderseite des Objekts aus. Dieselbe Formel wird für das integrierte Kartensymbol und dessen generierte Ausweichoption verwendet. Beispiele: `yaw = 90°` führt zu einer Bildrotation von `0°` (Vorderseite unten), während der Wert `yaw = -16°` zu `-106°` (entspricht `254°`) führt und die Vorderseite nach rechts ausrichtet. Steht keine Gierachse zur Verfügung, behält das Objekt seine standardmäßige Ausrichtung (Vorderseite unten) bei.
+
+#### Quelle des Robotersymbols
+Das untersuchte Anthbot-App-Bundle enthält lokale Kartenmarkierungsressourcen, darunter die Genie-Ressource `pic_device_map`, modellspezifische Varianten für S2/S3/M9Pro und die Ladegerätmarkierung `view_map_battery_position`. Es handelt sich dabei um von der App ausgewählte, verpackte UI-Dateien. Die Cloud-/API-Payload und das heruntergeladene Kartenarchiv liefern weder eine wiederverwendbare Symbol-URL noch einen Symbolstatus. Der Adapter verpackt die passenden, von der App abgeleiteten Markierungsressourcen für bekannte Modelle und verwendet seine eigene, in sich geschlossene Robotermarkierung, falls eine Ressource fehlt, nicht lesbar ist oder das Modell unbekannt ist. Der Adapter ist unabhängig von der Installation der App.
+
 ### Standort
 | Bundesland | Typ | Beschreibung |
 | --- | --- | --- |
 | `<serial>.location.gps.latitude` | Nummer | GPS-Breitengrad aus Anti-Verlust-Positionsdaten |
-| `<serial>.location.pose.x` | Nummer | Lokale Mäherposition X |
-| `<serial>.location.pose.y` | Nummer | Lokale Mäherposition Y |
+| `<serial>.location.pose.x` | Nummer | Lokale Mäherposition X in Metern |
+| `<serial>.location.pose.y` | Nummer | Lokale Mäherposition Y in Metern |
 | `<serial>.location.pose.yaw` | Nummer | Lokale Mäherposition Gierwinkel |
 | `<serial>.location.pose.type` | Zeichenkette | Gemeldeter Pose-Typ |
-| `<serial>.location.pose.type` | string | Gemeldeter Pose-Typ |
+| `<serial>.location.charger.x` | Nummer | Ladepunkt X-Koordinate in Metern aus den Metadaten der nativen Karte |
+| `<serial>.location.charger.y` | Nummer | Y-Koordinate des Ladegeräts in Metern aus den Metadaten der nativen Karte |
+| `<serial>.location.charger.y` | Nummer | Y-Koordinate der Ladestation in Metern aus den Metadaten der nativen Karte |
 
 ### Diagnose
 Der Kanal `diagnostics` stellt schreibgeschützte Fehlerbehebungsdaten bereit, die aus dem Mähwerksschatten abgeleitet werden. Dazu gehören der RTK-Status, der RTK-Basisstatus, Kamera-/Karten-/Netzwerk-Flags, Hindernisvermeidung, Firmware-Versionen, OTA-Fortschritt, WLAN-/SIM-Details, Zeitstempel und der nächste Termin. Bei den Modellen M5/M9 ordnet der Adapter außerdem `net_config.*`, `mode.value`, `error.value`, `map.map_area`, `mapping_task.state`, `mowing_time.value` und `mowing_area.value` dem bestehenden ioBroker-Zustandsbaum zu, sofern die Bedeutungen übereinstimmen.
@@ -230,7 +298,7 @@ Befehlszustände sind beschreibbar. Tastenzustände werden nach der Ausführung 
 | `<serial>.commands.mowing.startAutoZone` | Zeichenkette | Mähen einer oder mehrerer automatischer Zonen starten |
 | `<serial>.commands.mowing.startPoint` | Zeichenkette | Startpunkt für das Mähen mit `x,y` oder `{"x":123,"y":456}` |
 | `<serial>.commands.mowing.startEdge` | boolescher Wert | Kantenmähen starten |
-| `<serial>.commands.mowing.startNearCharger` | boolesch | Beginne mit dem Mähen in der Nähe des Ladestapels |
+| `<serial>.commands.mowing.startNearCharger` | boolesch | Mähen in der Nähe des Ladestapels beginnen |
 | `<serial>.commands.mowing.pause` | boolescher Wert | Mähen pausieren |
 | `<serial>.commands.mowing.resume` | boolescher Wert | Mähen fortsetzen |
 | `<serial>.commands.mowing.stop` | boolescher Wert | Alle Mähvorgänge stoppen |
@@ -330,6 +398,17 @@ Die Namen, Marken und Logos von Anthbot und Genie gehören ihren jeweiligen Eige
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- Add separate read-only PNG map image states for the native map, RTK mowed-area mask, and downloaded historical mowing path.
+- Add an opt-in Admin checkbox for map downloads and rendering because map generation can use significant CPU.
+- Add a second opt-in Admin checkbox for historical path rendering because it uses additional CPU and cloud requests.
+- Expose local mower pose X/Y states in metres for direct map positioning.
+- Expose charger point X/Y states in metres from the native map metadata.
+- Expose the historical mowing path used by the PNG as a JSON state.
+- Rotate the integrated robot map icon according to the mower pose yaw.
+- Render the native charger marker from the map metadata below the mower icon.
+
 ### 0.1.13 (2026-06-08)
 
 - Add M5/M9 payload parity for status, battery, error, network, RTK, map, and total mowing metrics while keeping the existing ioBroker state tree stable.

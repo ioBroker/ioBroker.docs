@@ -10,405 +10,185 @@ BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&logo
 BADGE-Buy Me a Coffee: https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black
 BADGE-GitHub Sponsor: https://img.shields.io/badge/Sponsor-GitHub-181717?logo=github&logoColor=white
 ---
-![Logo](/admin/tesla-wallconnector3.png)
-# ioBroker.tesla-wallconnector3
+# <img src="/admin/tesla-wallconnector3.png" width="36" align="top" alt=""> ioBroker.tesla-wallconnector3
 
 ## Tesla Wall Connector Gen 3 Adapter für ioBroker
-Ausgerichtet auf den Tesla Wall Connector Gen 3.
-Bietet nur Lesezugriff auf API-Daten (Schreiben wird von der API nicht unterstützt).
+
+Liest Live-Daten eines Tesla Wall Connector Gen 3 im lokalen Netzwerk aus. Alle Datenpunkte sind schreibgeschützt (die API der Wallbox unterstützt keinen Schreibzugriff).
 
 ## Konfiguration
 
-### Fenster "Haupteinstellungen"
+### Einstellungen
 ![Main Settings](media/mainSettings.png "Haupteinstellungen")
 
-| Feld         | Beschreibung |                                                                       
-|:-------------|:-------------|
-|Tesla Wall Connector Gen 3    |Hier wird die IP-Adresse des gewünschten Tesla Wall Connector Gen 3 angegeben. Falls im Netzwerk ein funktionierender DNS existiert, kann auch der FQDN angegeben werden.|
-|Abfrageintervall|Hier wird eingegeben, in welchen Zeitintervallen (Millisekunden) die Werte vom Tesla Wall Connector Gen 3 abgerufen werden. (Default: 10 Sekunden)|
-|Request-Timeout|Hier wird eingegeben, nach wievielen Millisekunden eine Anfrage spätestens vom Tesla Wall Connector Gen 3 beantwortet sein muss, bevor die Anfrage abgebrochen wird. (Default: 5000)|
-|Wiederholungsversuche|Hier wird angegeben, wie oft versucht werden soll, den Tesla Wall Connector Gen 3 anzufragen, falls es zu einem Fehler kommt. Dies gilt nicht beim Start des Adapters - sollte das System dabei nicht erreichbar sein, beendet der Adapter seine Arbeit. (Default: 10)|
-|Polling-Wiederholungsfaktor|Mit diesem Wert kann der Abstand zwischen den Wiederholungsversuchen beeinflusst werden. Es gilt: der n'te Wiederholungsversuch erfolgt nach Intervall * Multiplikator * n Sekunden nach Versuch n-1. Beispiel: Mit Standardwerten erfolgt der 1. Wiederholungsversuch 20 Sekunden nach dem initialen Versuch und der 2. Wiederholungsversuch erfolgt 40 Sekunden nach dem 1. Ein erfolgreicher Datenabruf setzt den Zähler für Wiederholungen zurück.|
-
-Nach Abschluss der Konfiguration wird der Konfigurationsdialog mit `SPEICHERN UND SCHLIEßEN` verlassen. 
-Dadurch erfolgt im Anschluß ein Neustart des Adapters.
-
-## Instanzen
-Die Installation des Adapters hat im Bereich `Objekte` eine aktive Instanz des Tesla Wall Connector Gen 3 Adapters angelegt.
-
-Auf einem ioBroker Server können mehrere Tesla Wall Connector Gen 3 Adapter Instanzen angelegt werden. Umgekehrt kann ein Tesla Wall Connector Gen 3 auch mit mehreren ioBroker Servern betrieben werden. Sollen mehrere Geräte von einem ioBroker Server gesteuert werden, sollte je System eine Instanz angelegt werden.
-<br/><br/>
-Ob der Adapter aktiviert und mit dem System verbunden ist, wird mit der Farbe des Status-Feldes der Instanz verdeutlicht. Zeigt der Mauszeiger auf das Symbol, werden weitere Detailinformationen dargestellt. 
-
-## Objekte des Adapters
-Im Bereich `Objekte` werden in einer Baumstruktur alle vom Adapter über die API erkannten Datenpunkte aufgelistet.
+| Feld | Beschreibung |
+|:-----|:-------------|
+| Tesla Wall Connector Gen 3 | IP-Adresse oder Hostname der Wallbox (z. B. `192.168.1.50` oder `wallbox.local`). Nur die reine Adresse eingeben — kein Schema (`http://`), kein Port, kein Pfad, keine Zugangsdaten, kein IPv6 in eckigen Klammern. Ein leeres Feld oder `0.0.0.0` wird als nicht konfiguriert behandelt und verhindert die Abfrage. |
+| Abfrageintervall | Wie oft der Adapter Daten von der Wallbox liest, in Sekunden. Standard: 10. Bereich: 1 - 3600. |
+| Request-Timeout | Maximale Wartezeit auf eine Antwort der Wallbox, in Millisekunden. Standard: 5000. Bereich: 1000 - 10000. |
+| Wiederholungsversuche | Wie oft nach einem fehlgeschlagenen Abruf erneut versucht wird. Der Wert bedeutet Wiederholungen nach dem initialen Fehlversuch. 0 = keine Wiederholungen, 999 = unbegrenzt. Standard: 10. |
+| Polling-Wiederholungsfaktor | Vergrößert den Abstand zwischen Wiederholungen. Der n-te Versuch erfolgt nach Intervall x Faktor x n Sekunden. Beispiel mit Standardwerten: 1. Wiederholung nach 20 s, 2. nach 40 s. Wird nach einem erfolgreichen Abruf zurückgesetzt. Standard: 2. Bereich: 1 - 10. |
+| Split-Phase-Leistungsberechnung | Für nordamerikanische Split-Phase-Installationen aktivieren. Verwendet grid_v x vehicle_current_a anstelle der phasenweisen V x A Summe. Standard: deaktiviert (Dreiphasen-Berechnung). |
+
+Nach dem Speichern startet der Adapter neu und beginnt sofort mit der Abfrage.
+
+## Datenpunkte
+
+Alle Datenpunkte sind schreibgeschützt. Der Adapter fragt die Wallbox-API ab und erstellt für jeden zurückgegebenen Wert einen Datenpunkt.
+
+### info
+
+| Datenpunkt | Typ | Beschreibung |
+|:-----------|:---:|:-------------|
+| info.connection | boolean | `true` wenn der Adapter die Wallbox erreichen kann und gültige Antworten erhält. |
+
+### vitals
+
+Live-Betriebsdaten, bei jedem Abfrageintervall aktualisiert.
+
+| Datenpunkt | Typ | Beschreibung |
+|:-----------|:---:|:-------------|
+| evse_state | number | Ladezustand (siehe Tabelle unten) |
+| vehicle_connected | boolean | Ob ein Fahrzeug angeschlossen ist |
+| vehicle_current_a | number | Vom Fahrzeug gezogener Strom (A) |
+| session_energy_wh | number | In der aktuellen Sitzung gelieferte Energie (Wh) |
+| power_w | number | Ladeleistung (W), vom Adapter berechnet. Dreiphasen-Modus: Summe aus V x A pro Phase. Split-Phase-Modus: grid_v x vehicle_current_a. |
+| session_s | number | Dauer der aktuellen Ladesitzung (s) |
+| contactor_closed | boolean | Ob das Laderelais geschlossen ist |
+| grid_v | number | Netzspannung (V) |
+| grid_hz | number | Netzfrequenz (Hz) |
+| voltageA_v, voltageB_v, voltageC_v | number | Spannung pro Phase (V) |
+| currentA_a, currentB_a, currentC_a, currentN_a | number | Strom pro Phase (A) |
+| pcba_temp_c, mcu_temp_c, handle_temp_c | number | Temperaturwerte (°C) |
+| relay_coil_v | number | Relais-Spulenspannung (V) |
+| relay_k1_v | number | Relais K1 Spannung (V) |
+| relay_k2_v | number | Relais K2 Spannung (V) |
+| prox_v | number | Proximity-Pilot-Spannung (V) |
+| pilot_high_v | number | Control-Pilot High Spannung (V) |
+| pilot_low_v | number | Control-Pilot Low Spannung (V) |
+| input_thermopile_uv | number | Thermopile-Sensorwert |
+| config_status | number | Konfigurationsstatus |
+| uptime_s | number | Betriebszeit der Wallbox (s) |
+| current_alerts | string (JSON) | Aktive Alarme als JSON-Array (z. B. `"[]"`). Numerische Kind-Datenpunkte (`.0`, `.1`, ...) werden aus Kompatibilitätsgründen beibehalten und bei Verkleinerung des Arrays automatisch bereinigt. |
+| evse_not_ready_reasons | string (JSON) | Gründe für Nicht-Bereitschaft als JSON-Array. Kind-Datenpunkte wie bei current_alerts. |
+
+**EVSE-State-Codes:**
+
+| Code | Bedeutung |
+|:----:|:----------|
+| 0 | Wallbox startet |
+| 1 | Idle |
+| 2 | Fahrzeug angeschlossen, aber nicht ladebereit |
+| 4 | Fahrzeug angeschlossen und ladebereit |
+| 6 | Fahrzeug angeschlossen, Handshake läuft |
+| 8 | Laden beendet oder unterbrochen |
+| 9 | Ladebereit, wartet auf Fahrzeug |
+| 10 | Laden mit reduzierter Leistung (< 3 Phasen je 16 Ampere) |
+| 11 | Laden mit voller Leistung (3 Phasen, je 16 A) |
+
+*Die States 3, 5, 7 und 12 sind undokumentiert. Falls Sie deren Bedeutung kennen, sind Pull-Requests willkommen!*
+
+### lifetime
+
+Kumulative Statistiken über die Lebensdauer der Wallbox. Wird maximal alle 60 Sekunden abgefragt.
+
+| Datenpunkt | Typ | Beschreibung |
+|:-----------|:---:|:-------------|
+| energy_wh | number | Gesamte gelieferte Energie (Wh) |
+| charge_starts | number | Anzahl gestarteter Ladevorgänge |
+| charging_time_s | number | Gesamte Ladezeit (s) |
+| uptime_s | number | Gesamte Betriebszeit (s) |
+| contactor_cycles | number | Anzahl der Relais-Schaltzyklen |
+| connector_cycles | number | Anzahl der Ein-/Aussteck-Zyklen |
+| alert_count | number | Gesamtanzahl der Alarme |
+
+### version
+
+Firmware- und Hardware-Identifikation. Wird beim Start, nach Wiederverbindung und maximal einmal pro Stunde abgefragt.
+
+| Datenpunkt | Typ | Beschreibung |
+|:-----------|:---:|:-------------|
+| firmware_version | string | Firmware-Version |
+| serial_number | string | Seriennummer |
+| part_number | string | Teilenummer |
+
+Weitere Datenpunkte wie `git_branch`, `web_service` und IEEE 1547 CRC-Prüfsummen können je nach Firmware-Version vorhanden sein.
+
+### wifi_status
+
+WLAN-Verbindungsdaten. Wird maximal alle 60 Sekunden abgefragt.
+
+| Datenpunkt | Typ | Beschreibung |
+|:-----------|:---:|:-------------|
+| wifi_connected | boolean | Ob die Wallbox mit dem WLAN verbunden ist |
+| internet | boolean | Ob die Wallbox Internetzugang hat |
+| wifi_ssid | string | Verbundene SSID |
+| wifi_infra_ip | string | IP-Adresse im WLAN |
+| wifi_mac | string | MAC-Adresse |
+| wifi_signal_strength | number | Signalstärke (einheitenloser Qualitätswert, höher = besser) |
+| wifi_rssi | number | RSSI-Wert (dBm) |
+| wifi_snr | number | Signal-Rausch-Verhältnis (dB) |
 
-Nachfolgend werden die Objekte in States unterteilt.
-Jeder Datenpunkt ist mit seinem zugehörigen Datentyp sowie seinen Berechtigungen aufgeführt. 
-Berechtigungen können dezeit nur lesend (R) sein. Jeder Datenpunkt kann mindestens gelesen (R) werden.
-Zur Suche nach einem bestimmten Datenpunkt empfiehlt sich die Suche mittels der Tastenkombination "STRG + F".
-Abhängig vom individuellen System können States nicht existieren oder aber auch nicht dokumentierte States auftreten.
-Falls zu einem State keine Dokumentation vorhanden ist, jemand aber weiß, was der State darstellt, bitte ich um einen entspr. Pull-Request (oder Ticket mit der entspr. Information eröffnen).
+*Der Adapter erstellt dynamisch Datenpunkte für alle von der API zurückgegebenen Werte. Je nach Firmware-Version kann Ihre Wallbox weitere, hier nicht aufgeführte Datenpunkte liefern.*
 
-### Bekannte States
-
-#### Channel: info
+## Abfrageverhalten
 
-* info.connection
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Read-only Boolescher Wert, der wahr ist, wenn der Adapter mit dem Tesla Wall Connector Gen 3 verbunden ist.
-   
-#### Channel: lifetime
-   
-* alert_count
+Der Adapter verteilt die Anfragen zeitlich, um den eingebetteten Webserver der Wallbox nicht zu überlasten:
 
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
+| Endpunkt | Häufigkeit |
+|:---------|:-----------|
+| vitals | Bei jedem Abfrageintervall |
+| lifetime | Maximal alle 60 Sekunden |
+| wifi_status | Maximal alle 60 Sekunden |
+| version | Beim Start, nach Wiederverbindung und maximal einmal pro Stunde |
 
-   *Nur-Lese-Zahl, die die Anzahl der Alarme angibt.
-   
-* avg_startup_temp
+Anfragen werden nacheinander (sequentiell) gesendet. Wenn ein einzelner Endpunkt fehlschlägt, werden die anderen Endpunkte trotzdem normal verarbeitet. Fehlgeschlagene Endpunkte werden beim nächsten fälligen Zyklus erneut abgefragt.
 
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |number|R|
+Der Adapter repariert automatisch bekannte Tesla-Firmware-JSON-Fehler (bare `nan`-Werte, fehlende schließende Klammer) vor dem Parsen der Antworten.
 
-   *Nur-Lese-Zahl, die die durchschnittliche Starttemperatur angibt.
-   
-* charge_starts
+## Haftungsausschluss
 
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
+**Alle Produkt- und Firmennamen oder Logos sind Marken™ oder eingetragene® Marken der jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Billigung durch diese oder deren Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und verfolgt kein geschäftliches Ziel.**
 
-   *Nur-Lese-String, der die Anzahl der Ladestarts angibt.*
-   
-* charging_time_s
+**Die Standardeinstellungen sollten für den normalen Betrieb sicher sein.** Ein zu kurzes Abfrageintervall kann den eingebetteten Webserver des Wall Connectors überlasten. Falls die Wallbox nicht mehr reagiert, erhöhen Sie das Intervall oder stoppen Sie den Adapter.
 
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Nur-Lese-Zahl, die die Ladezeit des WC3 in Sekunden angibt*
-   
-* connector_cycles
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur-Lese-Zahl, die die Anzahl der Steckverbinder-Zyklen angibt (das Ein- und Ausstecken wird höchstwahrscheinlich jeweils als 1 gezählt).*
-   
-* contactor_cycles
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Nur-Lese-Zahl, die die Anzahl der bisherigen Zustandsänderungen des Relais angibt.*
-   
-* contactor_cycles_loaded
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Nur-Lese-Zahl, die die Anzahl der Ladezyklen angibt.*
-   
-* energy_wh
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Nur-Lese-Zahl, die die gelieferte Energiemenge in Wh angibt.*
-   
-* thermal_foldbacks
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur-Lese-Zahl, die die Anzahl der Rücksetzer wegen Temperatur angibt.*
-   
-* uptime_s
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Zahl|R|
-
-   *Nur-Lese-Zahl, die die Betriebszeit des WC3 in Sekunden angibt*
-   
-#### Channel: version
-
-* firmware_version
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |string|R|
-
-   *Firmwareversion auf dem Tesla Wall Connector Gen 3*
-   
-* part_number
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |string|R|
-
-   *Teilenummer des Tesla Wall Connectors Gen 3*
-   
-* serial_number
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |string|R|
-
-   *Seriennummer des Tesla Wall Connectors Gen 3*
-   
-#### Kanal: vitals
-
-* current_alerts
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |string|R|
-
-   *Read-Only-String mit Details zu Alarmen.*
-   
-* contactor_closed
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Read-Only Boolescher Wert, der angibt, ob das Relais geschlossen ist.*
-   
-* grid_hz
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-Only Zahl, die die Frequenz des Netzes angibt.*
-   
-* config_status
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-Only Zahl, die den Konfigurationsstatus angibt. Bitte helfen Sie mit Details!*
-   
-* current[A,B,C,N]_a
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Read-Only Zahl, die den Strom der Leitung [A,B,C,N] in Ampere darstellt.*
-   
-* evse_state
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Read-Only Zahl, die den evse-Status darstellt. Bisher scheinen wir zu wissen: 0=Booting, 1=Leerlauf, 2=angeschlossen, aber nicht bereit, 3=???, 4=angeschlossen und bereit, 5=???, 6=Fahrzeug eingesteckt und Handshaking, 7=???, 8=Laden abgeschlossen/unterbrochen, 9=Ladebereit, aber auf Auto wartend, 10=Laden mit reduzierter Leistung (weniger als 3 Phasen, je 16 Ampere), 11=Laden mit voller Leistung (3 Phasen, je 16 Ampere), 12=??? *
-   
-* grid_v
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Read-Only Zahl, die die Spannung des Netzes angibt.*
-   
-* handle_temp_c
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Read-Only Zahl, die die Temperatur des Griffs in °C angibt.*
-   
-* input_thermopile_uv
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Read-Only Zahl, die die Temperatur repräsentiert.*
-   
-* mcu_temp_c
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Read-Only Zahl, die die Temperatur der Hauptsteuereinheit in °C angibt.*
-   
-* pcba_temp_c
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Read-Only Zahl, die die Temperatur der Leiterplatte in °C angibt.*
-   
-* pilot_high_v
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Read-Only Zahl, die die Hochspannung der Pilotleitung angibt.*
-   
-* pilot_low_v
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Nur-Lese-Zahl, die die Niederspannung der Pilotleitung angibt.*
-   
-* prox_v
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Read-Only-Zahl, die die Niederspannung repräsentiert.*
-   
-* relay_coil_v
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Read-Only-Zahl, die die Spannung der Relaisspulen darstellt.*
-   
-* session_s
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Read-Only-Zahl, die die Dauer der aktuellen Ladesitzung in Sekunden angibt.*
-   
-* session_energy_wh
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Read-Only Zahl, die die in der aktuellen Sitzung gelieferte Energie in Wh angibt.*
-   
-* uptime_s
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Read-Only-Zahl, die die Betriebszeit des WC3 in Sekunden angibt.*
-   
-* vehicle_connected
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Read-Only Boolescher Wert, der angibt, ob ein Fahrzeug angeschlossen ist.*
-   
-* vehicle_current_a
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Read-Only Zahl, die den Fahrzeugstrom in Ampere angibt.*
-   
-* Spannung[A,B,C]_v
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Read-Only Zahl, die die Spannung der Leitung [A,B,C] darstellt.*
-   
-#### Kanal: wifi_status
-
-* Internet
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Nur lesbarer boolescher Wert, der angibt, ob der Tesla Wall Connector Gen 3 mit dem Internet verbunden ist.*
-   
-* wifi_connected
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |boolean|R|
-
-   *Nur lesbarer boolescher Wert, der angibt, ob der Tesla Wall Connector Gen 3 mit dem WLAN verbunden ist.*
-   
-* wifi_infra_ip
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |string|R|
-
-   *Read-only-String, der die IP des Tesla Wall Connectors Gen 3 darstellt.*
-   
-* wifi_mac
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |string|R|
-
-   *Read-only-String, der die MAC-Adresse des Tesla Wall Connectors Gen 3 darstellt.*
-   
-* wifi_rssi
-
-    |Datentyp|Erlaubnis|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur-Lese-Zahl, die die rssi des WLANs angibt, mit dem der Tesla Wall Connector Gen 3 verbunden ist.*
-   
-* wifi_signal_strength
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Nur-Lese-Zahl, die die Signalstärke des WLANs angibt, mit dem der Tesla Wall Connector Gen 3 verbunden ist.*
-   
-* wifi_snr
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |Nummer|R|
-
-   *Nur-Lese-Zahl, die die Nummer des WLANs angibt, mit dem der Tesla Wall Connector Gen 3 verbunden ist.*
-     
-* wifi_ssid
-
-    |Datentyp|Berechtigung|                                                                       
-    |:---:|:---:|
-    |string|R|
-
-   *SSID, mit der der Tesla Wall Connector Gen 3 verbunden ist.*
+**Keine Garantie und keine Haftung.** Dieser Adapter ist ein Freizeitprojekt, bereitgestellt unter der MIT-Lizenz. Er liest Daten eines Tesla Wall Connectors über eine lokale, nicht dokumentierte API aus. Der Autor übernimmt keinerlei Haftung für Folgen der Nutzung und kann keine Aussage darüber treffen, ob die Nutzung Ihre Garantie- oder Supportvereinbarungen mit Tesla oder Ihrem Installateur beeinflusst. Wenn das für Sie nicht akzeptabel ist, verwenden Sie diesen Adapter bitte nicht.
 
 ## Changelog
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
 ### **WORK IN PROGRESS**
+- Added North American split-phase power calculation mode (splitPhase setting)
+- Added Tesla firmware JSON defect recovery (bare nan, Infinity, -Infinity, missing closing brace)
+- Added host validation: rejects URLs, paths, credentials, and ports; empty or 0.0.0.0 treated as unconfigured
+- Added 2 MiB response size limit
+- Fixed state type stability: null values no longer cause type oscillation, including after adapter restart
+- Fixed stale array state cleanup: current_alerts and evse_not_ready_reasons publish canonical JSON and clean up obsolete child states
+- Fixed complete data refresh after connection loss: all endpoints polled immediately on reconnect
+- Fixed retry off-by-one: configured retries value now means actual retry attempts after initial failure
+- Fixed unload race condition: prevented post-unload state changes when poll requests are in flight
+- Fixed numeric string coercion: Infinity and NaN values no longer silently converted to numbers
+- Fixed timeout configuration help text to show correct maximum (10000 ms)
+- Corrected wifi signal strength/RSSI metadata
+- Separated persistence errors from communication errors: database write failures no longer trigger connection retry
+- Reduced API load: version polled hourly, lifetime and wifi_status every 60s, sequential requests
+- Enabled TypeScript type checking in CI
+- Expanded and corrected documentation
+
+### 1.2.0 (2026-07-20)
 - (copilot) Adapter requires node.js >= 22 now
+- Added IEEE 1547 CRC state attributes
+- Fixed adapter checker warnings (jsonConfig, pollingTimeout)
+- Replaced plain setTimeout with adapter-managed timers
+- Added calculated charging power state (vitals.power_w)
+- Added specific ioBroker roles for all states
+- Simplified state attribute definitions
+- Fixed startup recovery: adapter now retries if wallbox is unreachable at start
+- Capped retry delay at 1 hour
+- Fixed state attribute typos and placeholder names
+- Updated documentation
 
 ### 1.1.0 (2026-03-30)
 - (iobroker-bot) Adapter requires node.js >= 20 now.
@@ -418,6 +198,8 @@ Falls zu einem State keine Dokumentation vorhanden ist, jemand aber weiß, was d
 
 ### 1.0.6 (NoBl)
 * Maintenance update (dependencies, ...)
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

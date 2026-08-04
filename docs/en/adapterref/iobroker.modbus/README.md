@@ -350,7 +350,11 @@ There are some programs in folder `test` to test the TCP communication:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 9.0.0 (2026-08-04)
+- (@GermanBluefox) Node.js 22 is required or higher
+- (@GermanBluefox) GUI migrated to React 19/MUI9
+
+### 8.3.1 (2026-07-13)
 - (@GermanBluefox) Fixed repeated `Can not set value: The value of "offset" is out of range` errors when a device answers a combined read block with fewer registers than requested (issue #502, via `@iobroker/modbus`): the short response is now reported with a single clear warning and the values that were returned are still stored. Workaround without the update: set "Max address gap to combine" to 0
 - (@GermanBluefox) Added Modbus/UDP support as a master (issue #222): select "UDP (Master)" as the connection type. Requires `@iobroker/modbus` >= 7.6.0
 - (@GermanBluefox) The register table export/import dialog can now use CSV (`;`-separated, quoted) or JSON in addition to TSV, and the data can be saved to / loaded from a file (issue #249): pick the format in the dialog to mass-edit the data points in Excel or a text editor. Empty columns (e.g. an unused "name") are preserved, so a round-trip export→edit→import no longer breaks the format
@@ -373,12 +377,6 @@ There are some programs in folder `test` to test the TCP communication:
 
 ### 8.2.1 (2026-06-27)
 - (@GermanBluefox) Allowed the selection of port by USB path
-
-### 8.2.0 (2026-05-29)
-- (@GermanBluefox) Added selection of the serial device by its stable USB ID (vendor/product/serial), so the connection keeps working even if the OS reassigns the port name
-
-### 8.1.3 (2026-04-13)
-- (@GermanBluefox) Corrected room definition for the first register
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

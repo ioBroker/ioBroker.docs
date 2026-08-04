@@ -64,13 +64,12 @@ For details and how to disable it, see the [Sentry plugin documentation](https:/
 
 ### Network Settings
 
-| Option            | Description                                                                                                     | Default |
-| ----------------- | -------------------------------------------------------------------------------------------------------------- | ------- |
-| **Host**          | Network interface to bind to. Choose `0.0.0.0` to listen on all interfaces (stays reachable if the IP changes) | 0.0.0.0 |
-| **Advertised IP** | The reachable IP announced to clients for discovery. Leave empty to auto-detect the primary interface          | auto    |
-| **HTTP Port**     | Port for the Hue API                                                                                           | 8080    |
-| **HTTPS Port**    | Only needed if a client insists on TLS; leave empty otherwise                                                  | —       |
-| **MAC Address**   | Bridge MAC (auto-generated if empty)                                                                           | —       |
+| Option          | Description                                                                                                                                             | Default |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+| **Host / IP**   | The IP the bridge binds to and announces to clients (Alexa, Harmony). Choose `0.0.0.0` to listen on all interfaces — the announced IP is auto-detected | 0.0.0.0 |
+| **HTTP Port**   | Port for the Hue API                                                                                                                                    | 8080    |
+| **HTTPS Port**  | Only needed if a client insists on TLS; leave empty otherwise                                                                                           | —       |
+| **MAC Address** | Bridge MAC (auto-generated if empty)                                                                                                                    | —       |
 
 ### Adding Devices
 
@@ -78,7 +77,7 @@ Open the **Device Configuration** tab. There are two ways to add lights:
 
 **Manually** — click **Add light**, enter a name, choose a light type, and map the ioBroker states with the object browser.
 
-**Automatically** — click **Search lights**. The adapter scans your objects for things that look like lights (on/off, dimmers, colour-temperature and colour lights) and adds the ones it can map. Anything it detects but cannot map (for example RGB-channel devices) is reported so you can add it by hand.
+**Automatically** — click **Search lights**. The adapter scans your objects for things that look like lights (on/off, dimmers, colour-temperature and colour lights) and shows the mappable ones as a checklist — tick the ones you want and only those are added. Anything it detects but cannot map (for example RGB-channel devices) is reported so you can add it by hand.
 
 Each light shows as a card — use **Edit** to change its mapping or **Delete** to remove it.
 
@@ -140,7 +139,7 @@ If you used the old `createLight` JSON state to define lights, your devices are 
 ### Bridge not found
 
 - Ensure the UPnP port (1900) is not blocked by a firewall
-- The **Host** IP must be the actual network IP, not `0.0.0.0`
+- On a multi-interface host, set the **Host / IP** to the concrete LAN address instead of `0.0.0.0` if the auto-detected IP is wrong
 - Check firewall rules on the ioBroker host
 
 ### Client finds no devices / pairing fails
@@ -163,6 +162,17 @@ If you used the old `createLight` JSON state to define lights, your devices are 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.12.1 (2026-07-31)
+
+- Leaving the HTTPS port empty in the settings no longer shows an error — an empty value simply means that no HTTPS server is started for the bridge
+- The bridge MAC address that is generated automatically is now always a valid device address; some of the values generated before were not valid MAC addresses
+
+### 1.12.0 (2026-07-12) — stable
+
+- The "Search lights" assistant now actually finds your lights (it scanned the wrong objects before) and lets you pick which ones to add instead of adding them all
+- The two IP fields in the settings are now one Host/IP selector — pick your IP, or "all interfaces" to auto-detect the announced address
+- A logged-in client reading the bridge configuration now receives the full config, matching a real Hue bridge
+
 ### 1.11.0 (2026-07-09)
 
 - The devices tab can now scan ioBroker for dimmer, colour-temperature and colour lights and add the mappable ones. Manual add still works.
@@ -184,22 +194,11 @@ If you used the old `createLight` JSON state to define lights, your devices are 
 - Fixed already-paired clients being wrongly rejected until a restart after a transient error while loading clients at startup
 - A configured source state that no longer exists now produces a one-time warning in the log instead of a silently dead light
 
-### 1.8.1 (2026-06-12) — stable
-
-- Number values read from light states are now parsed strictly: text with extra characters after the number falls back to the default instead of being half-parsed
-- Faster bridge config responses for clients that poll every second (such as Echo devices) by reusing the timestamp formatter instead of rebuilding it on every request
-
-### 1.8.0 (2026-06-09)
-
-- Color lights mapped via hue and saturation (without an XY state) now report the correct color mode, so apps that honor it show the actual color instead of a default white.
-
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Credits
 
-**Original Author:** Christopher Holomek ([@holomekc](https://github.com/holomekc))
-
-**Modernization:** krobi
+This adapter would not exist without [Christopher Holomek](https://github.com/holomekc), who built the original Hue bridge emulator on GitHub back in 2020. The code has since been rewritten from the ground up — but the idea, and the proof that it works, are his.
 
 ---
 
@@ -221,7 +220,7 @@ This adapter is free and open source. If you find it useful, consider buying me 
 
 MIT License
 
-Copyright (c) 2020-2024 Christopher Holomek <holomekc.github@gmail.com>  
+Copyright (c) 2020-2021 Christopher Holomek <holomekc.github@gmail.com>  
 Copyright (c) 2026 krobi <krobi@power-dreams.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

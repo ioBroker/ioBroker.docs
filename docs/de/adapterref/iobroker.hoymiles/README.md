@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hoymiles/README.md
 title: ioBroker.hymiles
-hash: bzPkVlLsQxO7KBYl6EGif5/PSYkFchixsbRQIHxr6EQ=
+hash: FtJh55Z2gjr0Hh112SdEK6wS2PH9dp+pYzWggw2Pq8s=
 ---
 ![Logo](../../../en/adapterref/iobroker.hoymiles/admin/hoymiles.png)
 
@@ -29,7 +29,7 @@ Alle Produkt- und Firmennamen sowie Logos sind Marken™ oder eingetragene® Mar
 Dieser Adapter steht in keiner Verbindung zu Hoymiles Power Electronics Inc., wird von diesem Unternehmen weder unterstützt noch empfohlen und ist in keiner Weise mit diesem verbunden.
 
 ## Beschreibung
-ioBroker-Adapter für [**Hoymiles**](https://www.hoymiles.com/) **HMS-xxxW-xT** Mikro-Wechselrichter mit integriertem WiFi DTU (DTUBI).
+ioBroker-Adapter für [**Hoymiles**](https://www.hoymiles.com/) **HMS-xxxW-xT** und **HMS-xxx-xWB** Mikro-Wechselrichter mit integriertem WiFi/Bluetooth DTU (DTUBI).
 
 Zwei Verbindungsmodi (unabhängig konfigurierbar):
 
@@ -55,7 +55,7 @@ Zwei Verbindungsmodi (unabhängig konfigurierbar):
 - Einkommensberechnung auf Basis des Strompreises (Cloud)
 - CO2-Einsparungsverfolgung (Cloud)
 - Befehle: Leistungsbegrenzung (2–100 %), Wechselrichter ein/aus/neu starten, DTU-Neustart, Leistungsfaktorbegrenzung, Blindleistungsbegrenzung, Warnungen bereinigen, Erdschluss beheben, Wechselrichter sperren/entsperren
-- Alarm- und Warnüberwachung (109 Codes DE/EN)
+- Alarm- und Warnüberwachung (223 Codes, lokalisiert in allen 11 Sprachen)
 - Statusqualität (`q`): Markiert Daten bei Verbindungsabbruch als veraltet, dient als Ersatz für Cloud-Fallback und wird bei Wiederherstellung der Verbindung automatisch zurückgesetzt.
 - 5-minütige Leerlaufzeitüberschreitung mit automatischer Wiederverbindung
 - Netzwerkerkennungsmodul für ioBroker.discovery
@@ -86,35 +86,37 @@ Alle Wechselrichter in Ihrem Cloud-Konto werden automatisch erkannt. Eine manuel
 Beide Verbindungen können gleichzeitig aktiviert werden. Lokale Daten haben Priorität – Cloud-Daten werden verwendet, wenn die DTU offline ist (z. B. nachts).
 
 ## Unterstützte Wechselrichter
-Dieser Adapter ist für **Hoymiles HMS Mikro-Wechselrichter mit integriertem WiFi DTU** (DTUBI) konzipiert:
+Dieser Adapter ist für **Hoymiles HMS Mikro-Wechselrichter mit integriertem WiFi (oder WiFi + Bluetooth) DTU** (DTUBI) konzipiert.
 
-**1 Saite (1T):**
+**Lokal** = direkte TCP/Protobuf-Verbindung über Port 10081. **Cloud** = S-Miles Cloud API — automatische Erkennung, Echtzeitdaten (schneller Burst-Kanal ~1,5–3 s), Energieaggregate, Netzprofil, Wechselrichter ein/aus + Neustart, DTU-Neustart.
 
-| Modell | Status |
-|-------|--------|
-| HMS-300W-1T | Ungetestet |
-| HMS-350W-1T | Ungetestet |
-| HMS-400W-1T | Ungetestet |
-| HMS-450W-1T | Ungetestet |
-| HMS-500W-1T | Ungetestet |
+| Modell | Zeichenketten | Lokal (TCP) | Cloud | Status |
+|-------|:---:|:---:|:---:|--------|
+| HMS-300W-1T | 1 | ✅ | ✅ | Ungetestet |
+| HMS-350W-1T | 1 | ✅ | ✅ | Ungetestet |
+| HMS-400W-1T | 1 | ✅ | ✅ | Ungetestet |
+| HMS-450W-1T | 1 | ✅ | ✅ | Ungetestet |
+| HMS-500W-1T | 1 | ✅ | ✅ | Ungetestet |
+| HMS-600W-2T | 2 | ✅ | ✅ | Ungetestet |
+| HMS-700W-2T | 2 | ✅ | ✅ | Ungetestet |
+| HMS-800W-2T | 2 | ✅ | ✅ | **Getestet** (Lokal + Cloud) |
+| HMS-900W-2T | 2 | ✅ | ✅ | Ungetestet |
+| HMS-1000W-2T | 2 | ✅ | ✅ | **Geprüft** (Lokal) |
+| HMS-1600DW-4T | 4 | ✅ | ✅ | Ungetestet |
+| HMS-1800DW-4T | 4 | ✅ | ✅ | Ungetestet |
+| HMS-2000DW-4T | 4 | ✅ | ✅ | Ungetestet |
+| HMS-600-2WB | 2 | ❌¹ | ✅ | Ungetestet |
+| HMS-700-2WB | 2 | ❌¹ | ✅ | Ungetestet |
+| HMS-800-2WB | 2 | ❌¹ | ✅ | **Getestet** (Cloud: Echtzeit-Burst, Grid-Profil, Ein/Aus + Neustart, DTU-Neustart) |
+| HMS-900-2WB | 2 | ❌¹ | ✅ | Ungetestet |
+| HMS-1000-2WB | 2 | ❌¹ | ✅ | Ungetestet |
+| HMS-1600-4WB | 4 | ❌¹ | ✅ | Ungetestet |
+| HMS-1800-4WB | 4 | ❌¹ | ✅ | Ungetestet |
+| HMS-2000-4WB | 4 | ❌¹ | ✅ | Ungetestet |
 
-**2 Saiten (2T):**
+¹ Die **WB-Serie** (verkauft als **"HiFlow Pro"**) verfügt über keinen lokalen TCP-Port – ihr einziger lokaler Kanal ist Bluetooth LE, und alle Daten werden an die Hoymiles-Cloud übertragen. Diese Wechselrichter funktionieren daher **ausschließlich über die Cloud**: Nach Aktivierung der Cloud-Verbindung liest der Adapter die Daten über die S-Miles-API (Echtzeit-Burst, Energie, Netzprofil) und kann Befehle zum Ein-/Ausschalten, Neustarten und Neustarten des DTU senden. Alle WB-Modelle basieren auf derselben Plattform; bisher wurde nur das Modell HMS-800-2WB getestet.
 
-| Modell | Status |
-|-------|--------|
-| HMS-600W-2T | Ungetestet |
-| HMS-700W-2T | Ungetestet |
-| HMS-800W-2T | **Getestet** (Lokal + Cloud) |
-| HMS-900W-2T | Ungetestet |
-| HMS-1000W-2T | **Geprüft** (Lokal) |
-
-**4 Saiten (4T) — nur DW-Variante:**
-
-| Modell | Status |
-|-------|--------|
-| HMS-1600DW-4T | Ungetestet |
-| HMS-1800DW-4T | Ungetestet |
-| HMS-2000DW-4T | Ungetestet |
+**Nur-Cloud-Betrieb:** Jeder unterstützte Wechselrichter in Ihrem S-Miles-Konto funktioniert auch ohne lokale Verbindung. Der Adapter erkennt ihn automatisch und stellt Echtzeit-Leistungsdaten (Burst-Kanal), Energieaggregate, Netzprofil sowie Befehle zum Ein-/Ausschalten und Neustarten des Wechselrichters und der DTU über die Cloud bereit. Die übrigen Befehle (Leistungsbegrenzung, Sperren, Warnungen löschen usw.) erfordern die lokale TCP-Verbindung.
 
 **Wichtig:** Dieser Adapter funktioniert **nur** mit HMS-Modellen, die über **integriertes WLAN** verfügen. Er funktioniert **NICHT** mit: > - HMS-1600/1800/2000-4T **ohne** „DW“ (diese verwenden Sub-1G-Funk und benötigen eine externe DTU) > - HM-Serie (kein WLAN, nur Funk) > - MI-Serie (kein WLAN, nur Funk) > - HMS/HMT mit externen DTU-Pro- oder DTU-WLite-Sticks > - HMT-Drehstrommodelle
 
@@ -127,6 +129,25 @@ Dieser Adapter unterstützt mehrere Wechselrichter in einer einzigen Instanz:
 Jede DTU erstellt einen Geräteknoten anhand ihrer Seriennummer als ID (z. B. `hoymiles.0.4143A01CEDE4.*`). Cloud-Stationen erstellen aggregierte Geräteknoten (z. B. `hoymiles.0.station-12345.*`).
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (@Eistee82) Cloud: inverters whose model name does not end in "T" (e.g. HMS-2000-4WB) no longer lose their extra PV strings — voltage and current were only polled for the first two strings, so strings 3 and 4 showed power but nothing else. The number of PV inputs is now taken from Hoymiles' own rule dictionary, looked up by inverter serial number prefix, which is the same source the S-Miles app uses; the model name and the number of strings seen in the live data remain as fallbacks
+- (@Eistee82) Cloud: support inverters with more than six PV strings (up to 12), matching the port counts the cloud actually publishes
+- (@Eistee82) CI/tests: upgraded the coverage tool (c8 11 → 12) so the unit-test coverage step runs on Node 26 as well, and added Node 26 to the test matrix (now 22 / 24 / 26)
+- (@Eistee82) Security (dev dependencies only): cleared several advisories in the development toolchain — js-yaml and brace-expansion via `npm audit fix`, plus targeted same-major overrides for brace-expansion (1.1.16) and adm-zip (0.6.0). No change to the shipped adapter (these packages are not part of the published npm package)
+- (@Eistee82) Device Manager: inverters and cloud stations now appear on the ioBroker Device Manager tab, each inverter titled after its cloud station (the name given in the S-Miles app) plus its DTU serial, with live status, original per-type device icons (also used for the device objects in the object tree, replacing the generic adapter icon), live values right on the card (current power, today's energy, per-PV-string power and inverter temperature), per-device controls (on/off, power limit, power factor, reactive power, lock, reboot inverter/DTU, clear warnings/grounding fault, persistent power limit, cloud send interval), a settings dialog and a read-only details view. Cloud-only inverters show just the cloud-actuatable controls; instance actions cover network scan and cloud-login test. Controls reuse the existing command path, so no behaviour changes for the underlying states
+
+### 0.4.1 (2026-07-18)
+- (@Eistee82) Packaging: removed the npm `prepare` install script — installs from GitHub now use the committed `build/` output directly, so no dev dependencies are downloaded onto the target system; npm releases are still built freshly via `prepublishOnly`
+- (@Eistee82) CI/test reliability: added a global Mocha timeout and switched the test TLS certificates to fast EC keys, so the adapter-tests no longer time out on loaded CI runners
+
+### 0.4.0 (2026-07-17)
+- (@Eistee82) Cloud-only support for WB inverters ("HiFlow Pro", e.g. HMS-800-2WB): read power and energy over the S-Miles cloud and switch the inverter on/off, reboot it or reboot the DTU — no local connection needed
+- (@Eistee82) Faster live values: new realtime channel updates power every few seconds instead of every ~80 s, like the app's live view
+- (@Eistee82) More local data: inverter grid profile, a persistent power limit, per-string error codes and complete alarm lists
+- (@Eistee82) More reliable and readable: alarm texts in your ioBroker language, fixed offline/online detection, S-Miles Home account support, and better data quality handling
+- (@Eistee82) Maintenance and security: dependency and GitHub Actions updates that close known security advisories, admin translations migrated to the current i18n file format, and connection timers are now managed by ioBroker so they are reliably cleaned up on stop/restart
+
 ### 0.3.5 (2026-05-13)
 - (copilot) Adapter requires node.js >= 22 now
 - (@Eistee82) Stop retry loop on permanent cloud auth errors to prevent Hoymiles account lockout
@@ -147,12 +168,7 @@ Jede DTU erstellt einen Geräteknoten anhand ihrer Seriennummer als ID (z. B. `h
 ### 0.3.3 (2026-04-08)
 - (@Eistee82) Fix jsonConfig schema warnings: button color, remove unsupported table properties
 
-### 0.3.2 (2026-04-03)
-- (@Eistee82) Fix remaining responsive layout issues for repochecker (staticText, header, divider)
-
-### 0.3.1 (2026-04-03)
-- (@Eistee82) Fix admin UI responsive layout (add missing size attributes for repochecker)
-- (@Eistee82) Fix news translations in io-package.json for repochecker E2004
+Older entries: see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 

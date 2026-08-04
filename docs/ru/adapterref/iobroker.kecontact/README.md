@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: oVufczSonHhlIy89jlBVIxnvpoMLkBWnu01wKPedSKU=
+hash: 0aEogRxeBqh9lLUVyS6N0nMMc5frp5L/MsS+VlG3EsE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -30,7 +30,7 @@ hash: oVufczSonHhlIy89jlBVIxnvpoMLkBWnu01wKPedSKU=
 2. Введите IP-адрес вашей настенной приставки KEBA KeContact.
 3. Введите состояния счетчиков энергии для автоматической работы фотоэлектрических систем или ограничения мощности, а также необходимые данные для аккумуляторной батареи.
 4. Сохраните конфигурацию.
-5. Запустите адаптер.
+5. Включите адаптер.
 
 ## Конфигурация
 ### IP-адрес KeContact
@@ -94,7 +94,7 @@ hash: oVufczSonHhlIy89jlBVIxnvpoMLkBWnu01wKPedSKU=
 
 * kecontact.n.automatic.photovoltaics - активирует автоматическую работу фотоэлектрических систем (true) или будет заряжать автомобиль с максимальной мощностью, если установлено значение false.
 * kecontact.n.automatic.calcPhases - определяет текущее количество фаз, используемых для расчета зарядки. Это необходимо для версии Keba Deutschland и может использоваться для начальной сессии зарядки на всех зарядных станциях.
-* kecontact.n.automatic.1p3pSwitch - определяет, должна ли зарядка, независимо от наличия избытка заряда, всегда производиться с 1p или всегда с 3p.
+* kecontact.n.automatic.1p3pSwitch - определяет, должна ли зарядка, независимо от наличия избытка заряда, всегда производиться с использованием 1p или всегда с использованием 3p.
 * kecontact.n.automatic.addPower - определяет количество ватт потребления электроэнергии из сети, разрешенное для зарядки вашего автомобиля (аналогично параметрам в настройках).
 * kecontact.n.automatic.pauseWallbox - немедленно останавливает каждую сессию зарядки, если установлено значение true
 * kecontact.n.automatic.limitCurrent - ограничивает ток зарядки до указанного значения в миллиамперах (0 = без ограничений)
@@ -107,6 +107,8 @@ hash: oVufczSonHhlIy89jlBVIxnvpoMLkBWnu01wKPedSKU=
 
 Пример: Чтобы заряжать автомобиль постоянным током 6 А независимо от наличия избытка тока, установите параметр photovoltaics в значение false и limitCurrent в значение 6000.
 
+Немецкое описание принципа работы адаптера можно найти в разделе [здесь](kecontact.md)
+
 ## Правовые аспекты
 Данный проект не имеет прямой или косвенной связи с компанией KEBA AG.
 
@@ -117,13 +119,18 @@ KeConnect — зарегистрированный товарный знак к�
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.8.0 (2026-07-22)
+* (Sneak-L8) possibility to regulate max grid power not only in settings but also dynamically by seperate state
+* (Sneak-L8) fix missing Tests for addPower setting due to label change
+
+### 3.7.0 (2026-07-14)
 * (Sneak-L8) addPower can now also be used to preserve power for other consumers by specifying negative value
 * (@mcm1957) Adapter requires node.js >= 22 now.
 * (Sneak-L8) Minimum time between phase switching has also to be respected when using state for phase switch, thanks to SmartNightly
 * (Sneak-L8) fix errors [E0036], [S0082] and [S5004] found by repository checker
 * (Sneak-L8) fix errors [E6025], [W1130], [W1132], [W1134],  [W5060] and [W6023] found by repository checker
-  
+* (Sneak-L8) fix warning [W0034] found by repository checker
+
 ### 3.6.0 (2026-03-29)
 * (Sneak-L8) information about new firmware also via admin notification (also works for x-series)
 * (Sneak-L8) updated dependencies
@@ -138,16 +145,6 @@ KeConnect — зарегистрированный товарный знак к�
 * (Sneak-L8) new option to stop charging at a certain SoC
 * (Sneak-L8) raise adapter-dev version from 1.4 to 1.5
 * (Sneak-L8) drop dependencies to chai, sinon and mocha
-
-### 3.3.0 (2025-09-18)
-* (Sneak-L8) new option to always charge with 1p oder 3p
-* (Sneak-L8) new setting for discharging power of storage battery (if not equal to max battery power)
-* (Sneak-L8) updated version requirements (admin 7.6.17 and core 3.3.2)
-
-### 3.2.0 (2025-07-13)
-* (Sneak-L8) new option to always start charging when vehicle is plugged if authorization is required to prevent charging station to block charging
-* (Sneak-L8) optimized strategy for battery charging
-* (Sneak-L8) node.js >= 20 required
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

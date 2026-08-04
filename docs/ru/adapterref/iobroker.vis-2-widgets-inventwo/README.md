@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 title: Виджеты inventwo для ioBroker vis 2.0
-hash: uwt5jMB8uAYM3LrexP18oyBDqY11AhZW2vy3zF+ZR+A=
+hash: eJkKDbHz48dIvZ4Alj0GD4JK50VztJcEv1f07ZxssqY=
 ---
 ![Логотип](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/raw/main/admin/vis-2-widgets-inventwo.png)
 
@@ -27,13 +27,14 @@ hash: uwt5jMB8uAYM3LrexP18oyBDqY11AhZW2vy3zF+ZR+A=
 |---|---|
 | [Универсальный](#widget---universal) | Универсальный виджет: переключатель, кнопка, навигация, дисплей только для чтения, палитра цветов, аналоговые часы и многое другое |
 | [Радиальный ползунок](#widget---radial-slider) | Круговой ползунок с настраиваемыми углами, стилем направляющей и ползунка |
-| [Выключатель](#widget---switch) | Переключатель с настраиваемыми метками и цветами дорожек/ползунков |
+| [Выключатель](#widget---switch) | Переключатель с настраиваемыми метками и цветами дорожек/миниатюр |
 | [Флажок](#widget---checkbox) | Флажок с настраиваемыми значениями true/false и расположением метки |
 | [Стол](#widget---table) | Динамическая таблица данных JSON с сортировкой, фильтрацией и условным изменением цвета строк |
 | [Падать](#widget---dropdown) | Выпадающий список автоматически заполняется из состояний объекта ioBroker |
 | [Шатер](#widget---marquee) | Бегущая строка с настраиваемой скоростью, направлением и интервалом |
 | [Список ценностей](#widget---value-list) | Маркированный список, сгенерированный на основе текстового значения или точки данных |
-| [Список значений](#widget---value-list) | Маркированный список, созданный на основе текстового значения или точки данных |
+| [Календарь](#widget---calendar) | Календарный вид на месяц, который можно использовать как средство выбора даты, в режиме только для чтения и/или для выделения сегодняшнего дня |
+| [Календарь](#виджет---календарь) | Календарный вид на месяц, который можно использовать как средство выбора даты, как окно только для чтения и/или как инструмент для выделения сегодняшнего дня |
 
 ---
 
@@ -95,7 +96,7 @@ hash: uwt5jMB8uAYM3LrexP18oyBDqY11AhZW2vy3zF+ZR+A=
 | Алмаз | Четырехсторонний повернутый квадрат |
 | Пятиугольник | Пятиугольник |
 | Шестиугольник | 6-сторонний многоугольник — идеально подходит для сотовой компоновки |
-| Семиугольник | Семиугольник |
+| Семиугольник | 7-сторонний многоугольник |
 | Восьмиугольник | 8-сторонний многоугольник |
 | Звезда | Пятиконечная звезда |
 | **Пользовательский** | Любой многоугольник — точки контура обрезки вводятся вручную |
@@ -140,7 +141,7 @@ hash: uwt5jMB8uAYM3LrexP18oyBDqY11AhZW2vy3zF+ZR+A=
 **Основные характеристики:**
 
 - Свободно настраиваемые начальный и конечный углы
-- Настраиваемая ширина полосы, цвет полосы и цвет активной полосы
+- Настраиваемая ширина полосы, цвет полосы и активный цвет полосы
 - Дополнительное отображение значения в центре с указанием размера и цвета шрифта.
 — Дополнительная подпись под значением
 - Размер и цвет большого пальца
@@ -252,6 +253,43 @@ hash: uwt5jMB8uAYM3LrexP18oyBDqY11AhZW2vy3zF+ZR+A=
 
 ---
 
+## Виджет - Календарь
+Календарный вид по месяцам, простой выбор даты на основе календаря дат MUI (выбор даты, отображение даты только для чтения и/или выделение сегодняшнего дня — свободно комбинируются с помощью «Только для чтения» и «Выделить сегодня»).
+
+**Основные характеристики:**
+
+- Считывает/записывает дату из идентификатора объекта в виде метки времени (мс) или строки даты в формате ISO (`YYYY-MM-DD`).
+- Режим «Только для чтения» для отображения только даты без возможности внесения изменений.
+— «Выделить сегодняшний день», чтобы четко обозначить текущий день.
+— Отключить отображение прошлых и/или будущих дат
+- Дополнительная функция быстрой навигации по месяцам/годам через заголовок.
+- Первый день недели: понедельник или воскресенье
+- Дополнительная нумерация календарных недель, в формате ISO-8601 или "простая" (неделя 1 включает 1 января).
+- Настраиваемый размер ячейки в дневное время
+- Независимая настройка цвета для заголовка, дней недели, обычных дней, выбранного дня (включая тень), маркера сегодняшнего дня и номеров недель.
+- Применяет язык браузера для отображения названий месяцев и дней недели.
+- Повторное использование стиля "Из виджета" в нескольких виджетах календаря.
+
+---
+
+## Виджет - Календарь событий
+Отображение событий/встреч в стиле Google Calendar, основанное на FullCalendar. Можно настроить каждый цвет, размер шрифта и границы.
+
+**Основные характеристики:**
+
+— Направьте "События (точка данных)" на точку данных, содержащую список событий в формате JSON — либо простую пользовательскую структуру, либо собственный JSON, созданный адаптером ioBroker "ical".
+- Все представления из бесплатного/MIT-пакета FullCalendar: Месяц, Неделя, День, Многомесячный (год) и Список (день/неделя/месяц/год)
+- Дополнительные номера календарных недель (ISO-8601 или "простые"/зависящие от локали), в основном для просмотра по месяцам/нескольким месяцам.
+— Панель заголовка (заголовок + навигация "предыдущая/следующая/сегодня") может отображаться/скрываться, а навигацию можно отключать независимо, сохраняя при этом заголовок.
+- Корректно обрабатывает события, длящиеся несколько дней/целый день (согласно соглашению iCal об исключении окончания события).
+— Требуется только точка данных событий — отдельный идентификатор объекта не требуется.
+- Настраиваемые правила раскрашивания событий: раскрашивание событий по заголовку (совпадение подстроки без учета регистра), переопределяя исходный цвет - обходит проблему с адаптером ioBroker "ical", который предоставляет только один цвет для календаря, а не для события.
+- Полностью настраиваемый заголовок (цвет/размер заголовка, текст кнопки/фон/граница/радиус, включая наведение курсора), дни недели (цвет/фон/размер), день недели (цвет/размер, цвет за пределами месяца, фон выходных), сегодня (цвет фона/текста/границы + ширина, линия индикатора "Сейчас в режиме реального времени"), плитки событий (фон/текст/граница/радиус/размер, цвет ссылки "+N ещё") и границы сетки (показать/скрыть, ширина, цвет) - каждая цветовая группа с независимым повторным использованием стиля "Из виджета".
+- Календарь автоматически изменяет размер при изменении размера виджета в редакторе визуализации (перезагрузка страницы не требуется).
+- Применяет язык браузера для отображения названий месяцев и дней недели.
+
+---
+
 ## Более старые изменения
 Можно найти в [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
 
@@ -262,6 +300,18 @@ hash: uwt5jMB8uAYM3LrexP18oyBDqY11AhZW2vy3zF+ZR+A=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.9.0 (2026-07-29)
+- Added new Event Calendar Widget: Google-Calendar-style view for events/appointments based on FullCalendar, fed from a datapoint holding a JSON list of events (either a simple custom shape or the native JSON produced by the ioBroker "ical" adapter). Supports all FullCalendar free/MIT views (Month, Week, Day, Multi-month, List day/week/month/year), optional calendar week numbers, optional header bar/navigation, live resizing in the vis editor, and fully configurable header/weekday/day/today/event-tile/border styling (colors, font sizes, border radius/width, hover states, now-indicator), each with independent "From widget" style reuse
+
+### 1.8.1 (2026-07-23)
+- Added preview image for calendar and value list widgets
+
+### 1.8.0 (2026-07-16)
+- Radial Slider Widget: Added "Read only" option to prevent value changes, matching the Slider widget's behavior
+- Table Widget: Added pagination support ("Pagination" / "Rows per page") to split large tables across pages instead of showing all rows at once
+- Table Widget: Added weekday (WD/WDL) and calendar week (KW/K) tokens
+- Added new Calendar Widget: month calendar based on MUI's Date Calendar, usable as a datepicker (read/write a date), a read-only date display, and/or a today-highlighter, with configurable first day of week, ISO/simple calendar week numbers, and full color/size customization
+
 ### 1.7.0 (2026-06-24)
 - Dropdown Widget: Added support for manually defined value/label pairs as an alternative to OID-based state enumeration
 
@@ -269,30 +319,6 @@ hash: uwt5jMB8uAYM3LrexP18oyBDqY11AhZW2vy3zF+ZR+A=
 - Universal Widget: Fixed navigation active state not updating correctly when nav buttons are placed inside a "View in Widget"
 - Table Widget: Empty JSON array now renders a "No data" row regardless of column configuration, instead of an empty or broken table structure
 - Marquee Widget: Added vertical scroll directions "Up" and "Down" in addition to the existing "Left" and "Right"
-
-### 1.5.0 (2026-06-13)
-- Table Widget: Added "URL" column format for clickable links with configurable target
-- Table Widget: Added "Sum row" option to visually separate the last row with a double border
-- Universal Widget: Added "Corner style" – switch between rounded and chamfered (45 degree bevel) corners
-- Table Widget: Added "Formula" field per column to compute values from row fields (e.g. price * qty)
-- Slider Widget: Added "Title" and "Unit" fields
-- Dropdown Widget: Fixed border radius; added "Widget shadow" for the entire widget container
-
-### 1.4.0 (2026-06-04)
-- Universal Widget: Added "RGB (Scaled)" color model for the color picker – supports configurable value ranges (e.g. 0–1023 for 10-bit RGB controllers)
-- Universal Widget: Added optional password/PIN protection for navigation buttons
-- Universal Widget: Added per-state content mirror option (inherit from content style / yes / no)
-- Table Widget: Added configurable decimal and thousand separators for number format columns
-- Table Widget: Added value color to row conditions (in addition to row background color)
-- Table Widget: Added boolean column format displaying a readonly checkbox with optional configurable checked/unchecked colors
-- Table Widget: Added comparison operator selection to row conditions (equal, not equal, greater, less, greater/less equal)
-- Table Widget: Added value color per row condition – applicable to the whole row or to the condition column only
-
-### 1.3.0 (2026-06-03)
-- Slider: Added configurable value label display (always/on drag/never) and step marks position (above/below)
-- Universal: Added "Disable click when active" option per state
-- Universal: Fixed color picker components not updating when toggled in the editor
-- Added links to widget documentation in widget settings
 
 ## License
 The MIT License (MIT)

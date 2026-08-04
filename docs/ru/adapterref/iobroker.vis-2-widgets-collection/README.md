@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-collection/README.md
 title: Набор виджетов для ioBroker.vis 2.0
-hash: Y8Lo9wR5KSMyrG33jHITd8GXo1HYHt35d4oZ+9m4QjA=
+hash: EGatommG+RMPyunAI3cMFcnaiTKh5oWdXMMYrnHsp3s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-collection/admin/vis-2-widgets-collection.png)
 
@@ -27,6 +27,9 @@ hash: Y8Lo9wR5KSMyrG33jHITd8GXo1HYHt35d4oZ+9m4QjA=
 ### Ползунок
 <img src="/img/collection-slider.png" height="150">
 
+### Вход
+<img src="/img/collection-input.png" height="150">
+
 ### Выключатель
 <img src="/img/collection-switch.png" height="150">
 
@@ -48,6 +51,9 @@ hash: Y8Lo9wR5KSMyrG33jHITd8GXo1HYHt35d4oZ+9m4QjA=
 ### Свет
 <img src="/img/collection-light.png" height="150">
 
+### JsonTable
+<img src="/img/collection-json-table.png" height="150">
+
 ---
 
 <!-- Заполнитель для следующих версий:
@@ -55,6 +61,71 @@ hash: Y8Lo9wR5KSMyrG33jHITd8GXo1HYHt35d4oZ+9m4QjA=
 ### __РАБОТА В ПРОЦЕССЕ__ -->
 
 ## Changelog
+### 2.6.0 (2026-07-24)
+
+- (steiger04) Input widget added (text/number input with inline editing)
+- (steiger04) noIcon option now correctly hides the widget icon
+
+### 2.5.1 (2026-07-20)
+
+- (steiger04) JSON Table: image column type — render URLs, data-URIs and icon glyphs as avatar cells (auto-detected, XSS-safe)
+
+### 2.5.0 (2026-07-17)
+
+- (steiger04) Theme wizard with presets, live preview, custom fonts and widget sizing
+- (steiger04) Slider marker defaults and label styling fixed
+- (steiger04) Gauge min/max fallback fixed
+- (steiger04) JSON Table quick filtering fixed
+
+### 2.4.2 (2026-07-06)
+- (steiger04) JSON Table: bug fixes and improvements (date handling, table state persistence, refactor)
+- (steiger04) ColorPickerField: debouncing for picker drag events and refactor
+- (steiger04) CheckboxCollection: refactor (helpers, memoization, type safety)
+
+### 2.4.1 (2026-03-11)
+- (steiger04) Add HTML rendering support for table cells of Json Table
+- (steiger04) Bug fixing
+
+### 2.4.0 (2026-03-01)
+- (steiger04) JSON Table added
+- (steiger04) Bug fixing
+
+### 2.3.3 (2026-02-16)
+
+- (steiger04) ignoreCommonStates attribute added. Please read attribut tooltip (i)
+
+### 2.3.2 (2026-02-14)
+
+- (steiger04) Long press for ButtonGroupCollection widget fixed
+
+### 2.3.1 (2026-02-13)
+
+- (steiger04) ButtonGroupCollection widget bug fixing
+
+### 2.3.0 (2026-02-12)
+
+- (steiger04) Widget optimizations
+- (steiger04) Bug fixing
+- (steiger04) User documentation fixed (GitHub Wiki)
+
+### 2.2.1 (2026-01-18)
+
+- (steiger04) Slider widget color for min / max icon optimized
+
+### 2.2.0 (2026-01-18)
+
+- (steiger04) CollectionWidgets optimized and expanded
+
+### 2.1.1 (2026-01-09)
+
+- (steiger04) GradientColorPicker bug fixed
+
+### 2.1.0 (2026-01-09)
+
+- (steiger04) Slider widget optimized
+- (steiger04) RadioButtonGroup widget optimized
+- (steiger04) RadioGroup widget optimized
+
 ### 2.0.11 (2025-12-24)
 
 - (steiger04) sync-wiki.yml for en and de optimized
@@ -255,7 +326,7 @@ hash: Y8Lo9wR5KSMyrG33jHITd8GXo1HYHt35d4oZ+9m4QjA=
 
 The MIT License (MIT)
 
-Copyright (c) 2025 Steiger04 <steiger04@posteo.de>
+Copyright (c) 2026 Steiger04 <steiger04@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

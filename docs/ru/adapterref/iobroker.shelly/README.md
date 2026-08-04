@@ -17,7 +17,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: 6KI7+6aaDkefhAXx3k31J5XYjqmMrsWkAMV0OljbWPc=
+hash: Z+S0u+P1JGtILIgLhTR3vVev8AxCQ1ivBXXWOcQvFN4=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
@@ -37,7 +37,7 @@ hash: 6KI7+6aaDkefhAXx3k31J5XYjqmMrsWkAMV0OljbWPc=
 ## Требования
 1. Node.js 22 (или более новая версия)
 2. js-controller 6.0.11 (или более новая версия)
-3. Административный адаптер 7.8.20 (или более новая версия)
+3. Административный адаптер 7.8.23 (или более новая версия)
 
 ## Поколения устройств
 Для получения дополнительной информации см. [*Поддерживаемые устройства*](../../README.md#supported-devices).
@@ -69,7 +69,11 @@ hash: 6KI7+6aaDkefhAXx3k31J5XYjqmMrsWkAMV0OljbWPc=
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (@klein0r) Added hold (128) and nothing (0) to BLE states for buttons
+- (@floze-the-genius) Corrected roles for Gen 2+ input states. [#1498]
+- (@klein0r) Updated ble script (v1.4) for Shelly firmware > 2.0
+
+### 12.0.0-alpha.0 (2026-07-16)
+- (@GermanBluefox) Codebase has been migrated to typescript.
 
 ### 11.0.0 (2026-07-03)
 - (@klein0r) Updated ble script (v1.3) for Shelly firmware > 2.0
@@ -103,10 +107,6 @@ hash: 6KI7+6aaDkefhAXx3k31J5XYjqmMrsWkAMV0OljbWPc=
 * (@mcm1957) FrankEver Smart Watervalve (watervalve) has been added. [#1341]
 * (@mcm1957) LinkedGo ST1820 (st1820) has been added. [#1257]
 * (@mcm1957) Dependencies have been updated
-
-### 10.5.2 (2025-12-28)
-* (@mcm1957) Monophase profile support has been fixed for shellypro3em and shellypro3em400.
-
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

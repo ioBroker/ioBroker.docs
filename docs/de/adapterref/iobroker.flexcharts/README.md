@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: 76o0DZZcuwEOPU4zsiT6wpiWJ2rU5y77tKq5tDIEEts=
+hash: TquQJMoNTECgGiEbJLwiAnl85fbw3J4Hor0CJIbjvEI=
 ---
 ![Logo](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -244,7 +244,8 @@ callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":
 | [Vorlage 5](templates/flexchartsTemplate5.js) | Benutzerdefinierte Designs mit dynamischer Umschaltung des Dunkelmodus |
 | [Vorlage 6](templates/flexchartsTemplate6.js) | **Anfängerfreundlich:** Energieübersicht — gestapeltes Balkendiagramm mit Daten aus dem Verlaufsadapter |
 | [Vorlage 7](templates/flexchartsTemplate7.js) | **Anfängerfreundlich:** Anzeigediagramm mit aktuellen Statuswerten (Batterie, PV, Wärmepumpe, Sensoren) — reaktive SSE-Aktualisierungen |
-| [template7](templates/flexchartsTemplate7.js) | **Anfängerfreundlich:** Anzeige von aktuellen Statuswerten (Batterie, PV, Wärmepumpe, Sensoren) — reaktive SSE-Aktualisierungen |
+| [Vorlage 8](templates/flexchartsTemplate8.js) | Kartendiagramm — Tortendiagramme, die über eine geografische Karte (Island) gelegt werden, unter Verwendung einer benutzerdefinierten GeoJSON-Karte |
+| [template8](templates/flexchartsTemplate8.js) | Kartendiagramm — Kreisdiagramme, die über eine geografische Karte (Island) gelegt werden, unter Verwendung einer benutzerdefinierten GeoJSON-Karte |
 
 ## Weitere Beispiele und Ressourcen
 ### Kochbuch (Schritt-für-Schritt-Anleitungen)

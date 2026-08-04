@@ -298,6 +298,12 @@ Diagnostic states are available under `tesla-motors.0.info.*`:
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+### 3.2.2 (2026-07-27)
+
+- fix QR Code generation
+
 ### 3.2.1 (2026-06-05)
 
 - (ChrMaass) Update the release tooling dependency to satisfy the ioBroker repository checker.

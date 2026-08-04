@@ -28,6 +28,12 @@ Normaly you can leave the "Auto detect" function on. If this does not work you c
 ## Changelog
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+### 1.1.9 (2026-08-03)
+* chore(deps-dev): bump engine.io from 6.6.6 to 6.6.9
+* chore(deps-dev): bump @iobroker/testing from 5.2.2 to 5.3.0
+* chore(deps-dev): bump fast-uri from 3.1.2 to 3.1.4
+* chore(deps): bump axios from 1.16.0 to 1.18.1
+
 ### 1.1.8 (2026-07-03)
 * chore(deps-dev): bump @alcalzone/release-script from 5.2.0 to 5.2.1
 * Bump js-yaml from 4.1.1 to 4.2.0

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.miner/README.md
 title: ioBroker.miner
-hash: PbsimuJ+Zj1MI5dpVDFZUulmbYCu1eMtI49nE+li5nk=
+hash: N6VVMr5r7l3q/UR60Pfkh8RpqILAlgq0AO/KxXvGNZ8=
 ---
 ![Logo](../../../en/adapterref/iobroker.miner/admin/miner.png)
 
@@ -27,7 +27,6 @@ Interaktion mit verschiedenen Krypto-Miner-APIs
 - [ ] Geräteerkennung
 - [ ] Wache
 - [ ] mehr: siehe Todo.md / issues
-- [ ] Lizenz-Plugin in .releaseconfig korrigieren
 
 ## Verwendung
 Beim Hinzufügen eines neuen Geräts in den Instanzeinstellungen (oder im Admin-Gerätemanager) sollte ein Dialogfeld wie dieses angezeigt werden:
@@ -35,6 +34,26 @@ Beim Hinzufügen eines neuen Geräts in den Instanzeinstellungen (oder im Admin-
 ![AddDevice.png](../../../en/adapterref/iobroker.miner/docs/AddDevice.png)
 
 Die Optionen sollten weitgehend selbsterklärend sein. Alle Optionen verfügen außerdem über Tooltips mit weiteren Details. Sollten dennoch Fragen offen sein, können Sie diese gerne in einem Issue, einer Diskussion oder im Forum stellen.
+
+### Brainins OS Miner-Typen
+Es gibt zwei Implementierungen des Braiins-Miners, da Braiins den API-Stack über die Firmware-Generationen hinweg geändert hat:
+
+- `bos`: Verwenden Sie dies für die offizielle Braiins OS-Firmware ab Version 23.03, typischerweise für Antminer der S19-Serie und neuer. Diese Implementierung nutzt die öffentliche Braiins OS-API (PAPI) über gRPC.
+- `bosMiner`: Verwenden Sie dies für ältere Brains OS-Firmware-Versionen vor 23.03, typischerweise für Geräte vor S19 wie die Antminer-Serien S9 und S17. Dadurch wird weiterhin die ältere, CGMiner-kompatible API verwendet.
+
+`bosMiner` unterstützt auch den Zustand `control.powerTarget`. Da das ältere Brains OS dies nicht über die CGMiner-kompatible API bereitstellt, verwendet der Adapter einen SSH-Workaround: Er meldet sich beim Miner an, aktualisiert `power_target` im Abschnitt `[autotuning]` und `timestamp` im Abschnitt `[format]` von `/etc/bosminer.toml`, speichert ein Backup unter `/etc/bosminer.toml.iobroker-power-target.bak`, stoppt `bosminer`, schreibt die Konfiguration und startet `bosminer` erneut. Konfigurieren Sie gültige SSH-Zugangsdaten für `bosMiner`-Geräte. Der Standardbenutzername lautet `root` und es wird kein Passwort benötigt.
+
+Warnung: Die Änderung von `control.powerTarget` bei älteren `bosMiner`-Geräten erfordert einen vollständigen `bosminer`-Stop/Start-Zyklus. Ändern Sie diesen Wert nicht häufig; verwenden Sie ihn nur für gezielte Zielwertänderungen, nicht für schnelle Automatisierungsschleifen.
+
+Wenn Sie sich nicht sicher sind, welches Gerät Sie wählen sollen, überprüfen Sie zuerst die Firmware-Generation/Gerätefamilie:
+
+- S19/S21/T19 und neuere Brains OS-Images sind im aktuellen Firmware-Download-Ablauf aufgeführt und sollten normalerweise `bos` verwenden.
+- S17-Images werden auf der Braiins-Downloadseite als `v 23.01` und S9-Images als `v 22.08.1` veröffentlicht, daher sollten diese älteren Generationen `bosMiner` verwenden.
+
+Referenzen:
+
+- Öffentliche API von Braiins OS: https://academy.braiins.com/braiins-os/papi-about
+- Braiins OS Firmware-Downloads: https://braiins.com/os-firmware/download
 
 ## Objektmodell
 Alle Objekte werden unter folgendem Pfad erstellt:
@@ -57,10 +76,20 @@ Manche Miner legen Unterentitäten offen. Falls verfügbar, werden diese unterha
 - `hardware.hashboards.<index>...`
 
 ### Beispiele
+- `miner.0.miner.<minerId>.enabled`
 - `miner.0.miner.<minerId>.control.running`
 - `miner.0.miner.<minerId>.stats.totalHashrate`
 - `miner.0.miner.<minerId>.hardware.gpus.0.stats.temp`
 - `miner.0.miner.<minerId>.raw.stats`
+
+### Miner aktivieren/deaktivieren
+Jedes Mining-Gerät verfügt über einen beschreibbaren Top-Level-Zustand `enabled`:
+
+`miner.<instance>.miner.<minerId>.enabled`
+
+Setzen Sie diesen Status auf `false`, um den Miner im Adapter zur Laufzeit zu deaktivieren. Deaktivierte Miner werden entladen und es findet keine Abfrage oder Steuerung für sie statt. Setzen Sie ihn wieder auf `true`, um den Miner ohne Neustart des Adapters erneut zu initialisieren.
+
+Dies unterscheidet sich von `control.running`: `enabled` steuert, ob der Adapter den Miner überhaupt verwaltet, während `control.running` einen unterstützten Miner auffordert, mit dem Mining zu beginnen oder es zu beenden.
 
 ### Beispielbaum
 Dies ist lediglich eine Übersicht/Idee/ein Plan. Noch sind nicht alle Elemente umgesetzt, aber er soll Ihnen eine Vorstellung von der geplanten Struktur und Benennung vermitteln. Die tatsächliche Umsetzung kann in einigen Details abweichen, die allgemeine Struktur sollte jedoch ähnlich sein.
@@ -69,6 +98,7 @@ Dies ist lediglich eine Übersicht/Idee/ein Plan. Noch sind nicht alle Elemente 
 miner.0
   miner
     <minerId>                        (device)
+      enabled                        (boolean)  enable/disable adapter handling for this miner
       info                           (channel)
         minerType                    (string)   e.g. xmRig / teamRedMiner / bosMiner
         host                         (string)
@@ -78,6 +108,7 @@ miner.0
       stats                          (channel)
         totalHashrate                (number)   H/s (maps to feature: totalHashrate)
         power                        (number)   W
+        dynamicPowerTarget           (number)   W, current dynamic target reported by miner
         efficiency                   (number)   H/W
         acceptedShares               (number)
         rejectedShares               (number)
@@ -85,6 +116,7 @@ miner.0
         running                      (boolean)  start/stop (maps to feature: running)
         reboot                       (boolean)  "button"
         profile                      (string)   performance profile (e.g. low/medium/high)
+        powerTarget                  (number)   W, configured target to write to miner
       pools                          (channel)
         0                            (channel)
           info
@@ -123,8 +155,11 @@ miner.0
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.1.0 (2026-07-12)
 - (copilot) Adapter requires node.js >= 22 now
+* (SimonFischer04) **NEW**: Added a new `bos` miner type for newer Braiins OS firmware using the Braiins Public API
+* (SimonFischer04) **ENHANCED**: Extended legacy `bosMiner` devices with writable `control.powerTarget` support for deliberate power target changes
+* (SimonFischer04) **NEW**: Added top-level `enabled` state to dynamically enable or disable miner handling at runtime
 * (SimonFischer04) **FIXED**: Removed example configuration (option1, option2) from native section and code (fixes #126 / E5040)
 
 ### 1.0.4 (2026-04-07)
@@ -139,22 +174,6 @@ miner.0
 
 ### 1.0.1 (2026-04-06)
 * (SimonFischer04) fix release
-
-### 1.0.0 (2026-04-06)
-* (SimonFischer04) **FIXED**: Added missing size attributes (xs, xl) to admin configuration fields
-* (SimonFischer04) **ENHANCED**: Updated dependencies to recommended versions (admin 7.6.17, js-controller 6.0.11)
-* (SimonFischer04) **ENHANCED**: Added copyright notice to README
-* (SimonFischer04) **NEW**: Added support for Avalon (Canaan) devices via CGMiner-compatible socket API (port 4028), including start/stop (softon/softoff) and stats polling
-* (SimonFischer04) **ENHANCED**: Restructured object model with dedicated channels for control, info, stats, and raw data (**breaking change** – legacy state paths are auto-cleaned on startup)
-* (SimonFischer04) **NEW**: Added info states (minerType, host, online, lastSeen) and stats states (power, efficiency, acceptedShares, rejectedShares) to match the documented object model
-* (SimonFischer04) **NEW**: Added reboot control state (button) with wiring in state change handler
-* (SimonFischer04) **NEW**: Added running switch control to Device Manager for devices supporting the running feature
-* (SimonFischer04) **NEW**: Added performance profile feature with control.profile state and Device Manager dropdown (low/medium/high) — initially for Avalon miners via ascset workmode command
-* (SimonFischer04) **ENHANCED**: Renamed SGMiner to CGMiner throughout the codebase to better reflect the underlying API
-* (SimonFischer04) **FIXED**: Fixed copyright formatting in README to satisfy ioBroker repository checker (fixes #95)
-
-### 0.0.1 (2026-02-15)
-* (SimonFischer04) initial release
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

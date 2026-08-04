@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.script-restore/README.md
 title: ioBroker.script-restore
-hash: 05lDjRBWxNlEW5kfBMo+dy6tyY40FpgxYvyOX/d9+Es=
+hash: lmh/JMN6R7yz8kyrDMfpGztJz6FqAXQQ1KUl8Zk2sgQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.script-restore/admin/script-restore.svg)
 
@@ -34,6 +34,8 @@ hash: 05lDjRBWxNlEW5kfBMo+dy6tyY40FpgxYvyOX/d9+Es=
 - Полнотекстовый поиск по именам скриптов, путям и исходному коду.
 - Просмотреть исходный код (JS/TS/Blockly/Rules)
 — Скопировать исходный код в буфер обмена или загрузить как файл
+- **Выберите несколько скриптов** с помощью флажка ☐ и загрузите их в виде ZIP-архива.
+- **Импортировать ZIP-архивы** из экспорта script-restore или из собственной резервной копии JS-адаптера (`2026-07-17-scripts.zip`)
 - Полностью браузерный анализ — без обращения к серверу для загрузки.
 - **Восстанавливайте скрипты непосредственно в ioBroker** с настраиваемым суффиксом (по умолчанию: `_rcvr`) — существующие скрипты никогда не перезаписываются.
 
@@ -57,6 +59,7 @@ hash: 05lDjRBWxNlEW5kfBMo+dy6tyY40FpgxYvyOX/d9+Es=
 — Щелкните по скрипту в дереве, чтобы просмотреть его исходный код.
 — Используйте кнопку **Копировать**, чтобы скопировать исходный текст в буфер обмена.
 — Используйте кнопку **Скачать**, чтобы сохранить скрипт в виде файла.
+— Нажмите ☐ слева от сценария, чтобы выбрать его — выберите несколько сценариев и нажмите **ZIP**, чтобы загрузить их все в один архив.
 
 ## Поддерживаемые форматы резервного копирования
 | Формат | Описание |
@@ -64,39 +67,41 @@ hash: 05lDjRBWxNlEW5kfBMo+dy6tyY40FpgxYvyOX/d9+Es=
 | `.tar.gz` | Стандартная резервная копия ioBroker (`iobroker_YYYY-MM-DD-HH-mm_SS_backupiobroker.tar.gz`) |
 | `.json` | Экспорт скрипта адаптера JavaScript |
 | `.jsonl` | Экспорт объектов ioBroker (строки JSON) |
-| `.jsonl` | Экспорт объектов ioBroker (строки JSON) |
+| `.zip` (scripts.zip) | Экспорт ZIP-архива с восстановлением скрипта (содержит файлы `.js`/`.ts`) |
+| `.zip` (резервная копия адаптера JS) | Внутренняя резервная копия адаптера JS (`YYYY-MM-DD-scripts.zip`, содержит `.json` файлы с метаданными скрипта) |
+| `.zip` (резервная копия JS-адаптера) | Внутренняя резервная копия JS-адаптера (`YYYY-MM-DD-scripts.zip`, содержит файлы `.json` с метаданными скриптов) |
 
 ## Changelog
+### 0.1.13 (2026-07-22)
+* (winnyschuster) fix: correct folder indentation in script tree for deeply nested folders
+* (ipod86) chore: update dev dependencies (@types/tar, @iobroker/testing, @types/node)
 
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
-### 0.1.0 (2026-05-13)
-* (ipod86) drop Node.js 20 support (EOL 2026-04-30), require >= 22
-* (ipod86) fix: move @iobroker/types to production dependencies to fix CI integration test
-* (ipod86) add .npmrc with legacy-peer-deps to resolve peer dependency conflicts
-* (ipod86) update dependencies: webdav, basic-ftp, typescript, @types/node, @iobroker/eslint-config
+### 0.1.12 (2026-07-18)
+* (ipod86) fix: add 30s timeout to all WebDAV operations
+* (ipod86) fix: remove redundant variable alias in handleListLocalFiles
 
-### 0.0.12 (2026-04-30)
-* (ipod86) add common.singleton to prevent multiple instances
-* (ipod86) complete i18n translations for all supported languages (fr, es, it, nl, pl, pt, ru, uk, zh-cn)
+### 0.1.11 (2026-07-18)
+* (ipod86) fix: move @types/tar to devDependencies (W0050, W5060)
 
-### 0.0.11 (2026-04-13)
-* (ipod86) add type filter (JS/TS/Blockly/Rules) in script sidebar
-* (ipod86) add direct restore into ioBroker with suffix input and confirm modal
-* (ipod86) remove obsolete admin/words.js and .prettierignore
+### 0.1.10 (2026-07-18)
+* (ipod86) fix: replace shell tar command with pure Node.js tar library for Windows compatibility
+* (ipod86) feat: test local backup path button with result feedback
+* (ipod86) feat: suggest backup path button
+* (ipod86) fix: jsonConfig sendTo result format validation
 
-### 0.0.10 (2026-04-08)
-* (ipod86) fix jsonConfig responsive sizes lg/xl for backupPath (E5509)
-* (ipod86) trim news entries to 7 (W1032)
-* (ipod86) add Dependabot npm cooldown of 7 days (W8915)
+### 0.1.9 (2026-07-17)
+* (ipod86) feat: checkbox multi-select for ZIP export — click ☐ to select, main click still views only
+* (ipod86) feat: import scripts.zip (our adapter export) and JS adapter backup ZIP (2026-07-17-scripts.zip)
+* (ipod86) fix: align script list item columns (checkbox, icon, name) with flex layout
 
-### 0.0.9 (2026-04-08)
-* (ipod86) fix jsonConfig: add responsive size attributes (E5507)
-* (ipod86) add i18n translation files (W5022)
-* (ipod86) remove outdated index_m.html and style.css (W5047)
-* (ipod86) remove invalid copyToField attribute (W5512)
+### 0.1.8 (2026-07-15)
+* (ipod86) fix: sanitize object IDs from backup paths to prevent invalid ioBroker state IDs
+* (ipod86) fix: add 30s timeout to HTTP URL download
+* (ipod86) fix: bundle jszip locally in admin tab — no CDN dependency
+* (ipod86) fix: zip export now works in all browsers (script tag loading, DOM-append before click)
+* (ipod86) fix: remove postinstall lifecycle script from package.json (E0093)
+
+Older changelogs are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 MIT License

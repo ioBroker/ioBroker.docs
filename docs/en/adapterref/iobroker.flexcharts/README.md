@@ -250,6 +250,7 @@ callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":
 | [template5](templates/flexchartsTemplate5.js) | Custom themes with dynamic dark mode switching |
 | [template6](templates/flexchartsTemplate6.js) | **Beginner-friendly:** Energy overview — stacked bar chart with data from history adapter |
 | [template7](templates/flexchartsTemplate7.js) | **Beginner-friendly:** Gauge chart showing current state values (battery, PV, heat pump, sensors) — reactive SSE updates |
+| [template8](templates/flexchartsTemplate8.js) | Map chart — pie charts overlaid on a geographic map (Iceland), using a custom GeoJSON map |
 
 ## Further Examples and Resources
 

@@ -102,8 +102,12 @@ Requires the **dune-notify** PHP plugin installed on the player (see `dune-notif
 
 ## Changelog
 
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 1.2.5
+- Migrate i18n to short format ({lang}.json)
+- Update adapter-core range to ^3.4.3 in package.json
+
+### 1.2.4
+- Update @iobroker/adapter-core to 3.4.3
 
 ### 1.2.3
 - Fix W0066: downgrade @types/node to >=22 <23

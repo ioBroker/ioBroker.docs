@@ -9,7 +9,7 @@
 [![ioBroker installs](https://iobroker.live/badges/anthbot-genie-installed.svg)](https://www.iobroker.net/)
 ![License](https://img.shields.io/github/license/reloxx13/ioBroker.anthbot-genie)
 ![ioBroker phase](https://img.shields.io/badge/ioBroker%20phase-latest--repo-green)
-[![ioBroker forum](https://img.shields.io/badge/ioBroker-forum-blue)](https://forum.iobroker.net/topic/84392)
+[![ioBroker forum](https://img.shields.io/badge/ioBroker-forum-blue)](https://forum.iobroker.net/topic/84983)
 
 [![NPM](https://nodei.co/npm/iobroker.anthbot-genie.png?downloads=true)](https://nodei.co/npm/iobroker.anthbot-genie/)
 
@@ -19,7 +19,7 @@ The adapter connects to the Anthbot cloud account, discovers bound mowers, reads
 
 It is intended for users who want more than a basic online/battery/status view: RTK and base station state, firmware and OTA details, network and SIM information, GPS and pose data, map lifecycle timestamps, mower error details, consumable lifetimes, rain settings, zone metadata, and writable mowing controls are exposed as ioBroker states.
 
-This adapter is available in the ioBroker `latest` repository. Please report feedback and test results in the [ioBroker forum thread](https://forum.iobroker.net/topic/84392).
+This adapter is available in the ioBroker `latest` repository. Please report feedback and test results in the [ioBroker forum thread](https://forum.iobroker.net/topic/84983).
 
 An example ioBroker Blockly with conditions for mower automation is available in the [Blockly automation example](https://forum.iobroker.net/topic/84392/2).
 
@@ -37,6 +37,7 @@ An example ioBroker Blockly with conditions for mower automation is available in
 - Writable control states for full-map mowing, zone mowing, cutting height, voice volume, custom mowing direction, obstacle avoidance, rain settings, and mowing near the charging pile
 - Command states for full mowing, stop, return to dock, pause return to dock, grass dump, disk maintenance mode, edge mowing, mowing near the charging pile, point mowing, refresh, manual zone mowing, and automatic zone mowing
 - Manual and automatic zone metadata as JSON states, including active manual zone IDs
+- Read-only PNG map image states for the native map, RTK mowed-area mask, and historical mowing path
 - Raw property shadow, service shadow, Anthbot event-code translations, and area definition payloads for troubleshooting and automation debugging
 
 ## Requirements
@@ -115,7 +116,11 @@ Open the adapter instance configuration in ioBroker Admin and set:
 | Area code | Phone or account area code, for example `49` for Germany | `49` |
 | API host | Anthbot cloud API host | `api.anthbot.com` |
 | Poll interval in seconds | Polling interval for mower data. The adapter enforces at least 10 seconds. | `60` |
+| Fetch map (high CPU usage) | Download and render the native map, RTK mask, and historical mowing path | `false` |
+| Generate map with paths (even higher CPU usage) | Download and render the historical mowing path in the map image. Requires map fetching. | `false` |
 | Error description language | Language used for Anthbot cloud error descriptions | `English` |
+
+When either map option is disabled, the adapter stops requesting or rendering that map data and leaves existing map state values unchanged.
 
 After saving the configuration, start or restart the adapter instance.
 
@@ -170,16 +175,84 @@ anthbot-genie.<instance>.<serial>.*
 
 The adapter keeps the same state tree for all supported mower models. On models that do not expose the M5/M9-specific payload fields, the states `metrics.status.modeRaw`, `metrics.mowing.totalTime`, `metrics.mowing.totalArea`, and `metrics.map.mappingTaskState` are still created but remain empty or `null`.
 
+### Map images
+
+| State | Type | Description |
+| --- | --- | --- |
+| `<serial>.map.image` | string | Native navigation map as a PNG data URI |
+| `<serial>.map.imageWithRtkMask` | string | Native navigation map with Anthbot's `rtk_mask_map` as a PNG data URI |
+| `<serial>.map.imageWithMowedPath` | string | Native navigation map with the downloaded historical mowing path as a PNG data URI |
+| `<serial>.map.mowedPath` | string | JSON array with the exact historical path points used for `map.imageWithMowedPath` |
+
+The three image states are read-only and use the `media.image` role. The `map.mowedPath` state is read-only and uses the `json` role. The adapter downloads Anthbot's `multi_maps` map file, extracts `maps/remote_map_navi.map`, and renders the native raster with the app-compatible light palette. `map.image` contains only the map; `map.imageWithRtkMask` adds the complete `maps/rtk_mask_map` mowed-area raster; `map.imageWithMowedPath` requests `req_history_mapping_path`, downloads `path_<SN>.txt`, renders the historical path in blue, and adds the current mower pose as a yellow robot icon plus the native charger marker below it. `map.mowedPath` contains the same JSON path points used by that PNG. Its `x` and `y` values use the native historical-path centimetre coordinates; divide them by `100` to convert them to the local map metres used by the pose states. The bundled app assets are oriented with the mower front pointing down and are rotated using `location.pose.yaw - 90°` (for example, a live yaw of about `-16°` points the front right); the generated fallback uses the same orientation. The charger marker and the read-only `location.charger.x`/`location.charger.y` states are read from `charger_point` in `maps/remote_map.json`; the state coordinates are exposed in metres. Both overlay images render configured forbidden zones in red. The historical image never falls back to the short live `curpath`. The images and path state are refreshed when the native map identity, timestamp, history path, mower pose, or charger point changes. Missing or invalid map data leaves the states empty while the adapter continues polling.
+
+The two map settings deliberately control different work:
+
+- `fetchMap = false`: no map archive, raster, PNG, or history path is requested. Existing values of the map and charger coordinate states remain unchanged, so a previously generated map and charger position can still be displayed, but they are not updated.
+- `fetchMap = true` and `generateMapWithPaths = false`: the native map and RTK-mask states are updated. The historical path is not requested, and `map.imageWithMowedPath` and `map.mowedPath` remain unchanged. Use `map.image` or `map.imageWithRtkMask` for the lower-CPU map view.
+- Both settings `true`: all three image states and the `map.mowedPath` state are generated; `map.imageWithMowedPath` contains the historical path and the current robot icon.
+
+#### VIS: map with the integrated robot icon
+
+Use this direct path when both map settings are enabled. Bind the VIS image widget to `<serial>.map.imageWithMowedPath`; the adapter already draws the historical path and the robot icon at the current pose. No second VIS icon widget is needed. Keep the image container at the PNG's native aspect ratio (`404:488`).
+
+#### VIS: map with a separate overlay icon
+
+Use this lower-CPU path when `fetchMap = true` and `generateMapWithPaths = false`. Bind the image widget to `<serial>.map.image` or `<serial>.map.imageWithRtkMask`, then place a transparent icon widget absolutely above it. Bind or calculate its position from `<serial>.location.pose.x` and `<serial>.location.pose.y`. These states are metres; the map metadata supplies the origin and resolution. Keep both widgets in the same relatively positioned container and use the same aspect ratio (`404:488`), otherwise `object-fit: contain` can introduce letterboxing and offset the overlay icon. If `fetchMap = false`, the map image may still show an old state, but neither the map nor its separate overlay position is refreshed by the adapter.
+
+After the pose-state meter conversion is deployed, `location.pose.x` and `location.pose.y` are metres. Convert them to map pixels with the map header values from `maps/remote_map.json`:
+
+```js
+const map = {
+    width: 404,
+    height: 488,
+    resolution: 0.05,
+    xMin: -15.353175,
+    yMin: -9.549684,
+};
+
+const pixelX = (poseX - map.xMin) / map.resolution;
+const pixelY = map.height - 1 - (poseY - map.yMin) / map.resolution;
+const poseYaw = Number(poseYawState); // <serial>.location.pose.yaw
+
+icon.style.left = `${(pixelX / map.width) * 100}%`;
+icon.style.top = `${(pixelY / map.height) * 100}%`;
+icon.style.transform = `translate(-50%, -50%) rotate(${poseYaw - 90}deg)`;
+```
+
+For the current snapshot, `pose.x = 0.094` and `pose.y = 0.356` place the icon at approximately pixel `(309, 289)`, or `left: 76.5%` and `top: 59.2%`. Define `poseYaw` from `<serial>.location.pose.yaw`; with a front-down icon, apply `poseYaw - 90` so a live yaw around `-16` points the front to the right. The adapter does not currently publish map width, height, resolution, or origin as states, so these values must be refreshed when the mower creates a new map; do not mix map-array pixels with the mower's metre coordinates.
+
+#### Yaw: origin and calculation
+
+`<serial>.location.pose.yaw` is the mower heading reported by Anthbot as `pose.yaw`. It is expressed in degrees and is not converted from millimetres. The adapter converts only `pose.x` and `pose.y` from millimetres to metres; yaw is passed through unchanged. X/Y describe the mower's position, so yaw must not be calculated from the current position alone.
+
+For a separate VIS icon whose source image has the mower front pointing down, calculate the image rotation with a fixed `90°` offset:
+
+```js
+const yawDeg = Number(yawState); // <serial>.location.pose.yaw
+const iconRotationDeg = yawDeg - 90;
+
+icon.style.transform = `translate(-50%, -50%) rotate(${iconRotationDeg}deg)`;
+```
+
+The `-90°` offset aligns Anthbot's heading convention with the front-down asset. The same formula is used for the integrated map icon and its generated fallback. Examples: `yaw = 90°` results in `0°` image rotation (front down), while the live value `yaw = -16°` results in `-106°` (equivalent to `254°`) and points the front to the right. If yaw is unavailable, keep the asset in its default front-down orientation.
+
+#### Robot icon source
+
+The inspected Anthbot app bundle contains local map-marker resources, including the Genie `pic_device_map` asset, model-specific S2/S3/M9Pro variants, and the `view_map_battery_position` charger marker. These are packaged UI files selected by the app; the cloud/API payload and downloaded map archive do not provide a reusable icon URL or icon state. The adapter packages the matching app-derived marker assets for known models and uses its own self-contained robot marker if an asset is missing, unreadable, or the model is unknown. The adapter does not depend on the app being installed.
+
 ### Location
 
 | State | Type | Description |
 | --- | --- | --- |
 | `<serial>.location.gps.latitude` | number | GPS latitude from anti-loss position data |
 | `<serial>.location.gps.longitude` | number | GPS longitude from anti-loss position data |
-| `<serial>.location.pose.x` | number | Local mower pose X |
-| `<serial>.location.pose.y` | number | Local mower pose Y |
+| `<serial>.location.pose.x` | number | Local mower pose X in metres |
+| `<serial>.location.pose.y` | number | Local mower pose Y in metres |
 | `<serial>.location.pose.yaw` | number | Local mower pose yaw |
 | `<serial>.location.pose.type` | string | Reported pose type |
+| `<serial>.location.charger.x` | number | Charger X coordinate in metres from the native map metadata |
+| `<serial>.location.charger.y` | number | Charger Y coordinate in metres from the native map metadata |
 
 ### Diagnostics
 
@@ -330,6 +403,17 @@ For automatic zones, the adapter resolves the selected zone IDs or names to the 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- Add separate read-only PNG map image states for the native map, RTK mowed-area mask, and downloaded historical mowing path.
+- Add an opt-in Admin checkbox for map downloads and rendering because map generation can use significant CPU.
+- Add a second opt-in Admin checkbox for historical path rendering because it uses additional CPU and cloud requests.
+- Expose local mower pose X/Y states in metres for direct map positioning.
+- Expose charger point X/Y states in metres from the native map metadata.
+- Expose the historical mowing path used by the PNG as a JSON state.
+- Rotate the integrated robot map icon according to the mower pose yaw.
+- Render the native charger marker from the map metadata below the mower icon.
+
 ### 0.1.13 (2026-06-08)
 
 - Add M5/M9 payload parity for status, battery, error, network, RTK, map, and total mowing metrics while keeping the existing ioBroker state tree stable.

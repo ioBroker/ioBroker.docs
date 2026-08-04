@@ -112,6 +112,10 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 ```
 
 ## Changelog
+### 2.5.0 (2026-07-16)
+
+- cleanup disabled features (e.g. unused RoomControl rooms) once and skip them server-side via skipDisabled
+
 ### 2.4.5 (2026-05-01)
 
 - remove logbook from objects

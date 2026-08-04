@@ -53,6 +53,7 @@ You will need a local user created in your UniFi OS Console to log in with. Ubiq
 ### **WORK IN PROGRESS**
 - (Scrounger) channel / device name undefined bug fix #116
 - (Scrounger) vpn client handling optimized
+- (Scrounger) event messages improved #122 #115
 
 ### 1.5.0 (2026-06-23)
 

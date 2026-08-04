@@ -308,7 +308,7 @@ Ntfy supports a few variations:
 - Blockly blocks for sending and managing notifications
 - Full i18n support (en, de, ru, pt, nl, fr, it, es, pl, uk, zh-cn)
 
-[Older changes can be found here](CHANGELOG_OLD.md)
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Legal Notice
 

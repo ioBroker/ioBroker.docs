@@ -97,13 +97,17 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
 -->
 
 ## Changelog
+### 4.0.3 (2026-08-03)
+- (@GermanBluefox) Migrated to admin 8
+- (@GermanBluefox) Adapter requires admin >= 8.0.0 now
+
 ### 3.1.0 (2026-05-04)
 - (copilot) Adapter requires node.js >= 22 now
 - (mcm1957) Dependencies have been updated
 
 ### 3.0.2 (2026-03-10)
 - (@GermanBluefox) Correcting configuration dialog
-- (@GermanBluefox) Added tests for GUI component
+- (@GermanBluefox) Added tests for the GUI component
 
 ### 3.0.0 (2026-03-05)
 - (lubepi) BREAKING: DNS-01 credentials are encrypted now. You might have to reenter them once after upgrading the aadapter. 
@@ -115,11 +119,6 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
 - (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
 - (mcm1957) Dependencies have been updated
 - (@GermanBluefox) Adater was migrated to TypeScript and vite
-
-### 1.0.6 (2024-12-27)
-
-- (mcm1957) Missing size attributes for jsonConfig have been added.
-- (mcm1957) Dependencies have been updated
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

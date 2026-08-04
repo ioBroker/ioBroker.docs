@@ -124,7 +124,7 @@ Each head gets its own subtree under **`heads.<n>.*`** (`n` = 1…3), plus combi
 | `heads.<n>.battery.*` | SoC (`SC`), battery power (`BP`), per-pack SoC (`SC0`–`SC5`), online packs (`ON`), SoC hysteresis (`SI1`/`SA1`) |
 | `heads.<n>.grid.*` | grid power (`GP`), daily charge/feed-in energy (`GD1`/`GD2`) |
 | `heads.<n>.load.*` | load power (`LP`), daily off-grid load energy (`LD`) |
-| `heads.<n>.pv.*` | total PV (`PV`) and per-MPPT power/current/voltage (`mppt1`–`mppt4`) |
+| `heads.<n>.pv.*` | total PV (`PV`), daily PV generation energy (`PD`) and per-MPPT power/current/voltage (`mppt1`–`mppt4`) |
 | `heads.<n>.system.*` | total input/output power (`IW`/`OP`) |
 | `heads.<n>.device.*` | type/model/serial/status; `network.*` (IP, port, Wi-Fi); `firmware.*` (`ES`/`AS`/`DS` software, `EH`/`AH`/`DH` hardware, `BS0`–`BS5` BMS) |
 | `heads.<n>.meter.*` | external meter status (`MS`) |
@@ -159,7 +159,7 @@ By ioBroker convention all writable fields live under each head's `control.*`. B
 
 > Tip: in ioBroker admin you can also filter the object list by the *writable* flag to find all controls at once.
 
-`device.PK` is derived from `DevType` on firmware that no longer reports `PK`. Reserved fields (`PT`, `SI1`, `SA1`) are exposed read-only. Fields the manufacturer dropped (`PD`, `UP`) or that are doc-only artefacts (`WT`, `BN`) are not exposed; anything unmapped is still available in `heads.<n>.info.rawResponse`.
+`device.PK` is derived from `DevType` on firmware that no longer reports `PK`. Reserved fields (`PT`, `SI1`, `SA1`) are exposed read-only. Fields the manufacturer dropped (`UP`) or that are doc-only artefacts (`WT`, `BN`) are not exposed; anything unmapped is still available in `heads.<n>.info.rawResponse`.
 
 ## Manual meter / mode fields (MM / MD)
 
@@ -172,7 +172,8 @@ The raw fields stay writable for expert/manual use (e.g. in *Off* mode). They fo
 * **Up to three heads per instance.** Single-head operation is validated on real hardware; the multi-head split is covered by unit tests but, at the time of writing, **untested on a real 2–3 head installation** — feedback from multi-head setups is very welcome. *Device self-regulation* is single-head only.
 * **Heads must be on different phases** (operator's responsibility). The adapter regulates the **net summed** grid power, not per phase.
 * Per-pack balancing is handled by each head's own BMS — the adapter steers the head's overall power only and reads `battery.SC` (total) for control; it does not manage individual packs.
-* Daily energy counters (`GD1`/`GD2`/`LD`) are raw **Wh**, not kWh.
+* Daily energy counters (`PD`/`GD1`/`GD2`/`LD`) are raw **Wh**, not kWh. `PD` requires control module firmware `ES 1.1.14` (marketed as "1.1.4" — the public numbering differs from the internal one in `ES`); older firmware simply omits the field and the state stays empty.
+* Daily counters are reset by the device on reboot, so a firmware update mid-day drops them back to 0.
 * `MD` and `TZ` take effect immediately but are not guaranteed to be echoed back verbatim by the device — confirm by effect, not by echo.
 * **PV inputs are untested with hardware** (the reference installation runs without PV modules, so `PV1–4` are always 0). The integration and controller are PV-agnostic and complete, but PV firmware edge cases (e.g. battery full + PV surplus, UPS/bypass fields `FP`/`UG`) are unverified — feedback welcome.
 
@@ -183,15 +184,32 @@ The raw fields stay writable for expert/manual use (e.g. in *Off* mode). They fo
 * **Device ignores `GS` / battery does not react:** a head only executes a written `GS` when `MM=0`. In *Adapter controller* mode the adapter enforces this; if you write `GS` manually, make sure no meter is bound (`MM=0`). With a meter bound (`MM=1`) the device self-regulates and ignores `GS`.
 * **The controller is too slow / never reaches exactly 0:** see *Control behaviour, accuracy and limits* — the measurement chain adds ~1–3 s of latency and the meter itself has finite accuracy, so a band of ±10–20 W around the target is the physical optimum. For the fastest response use the *Precise* profile (gain 0.8–1.0, dead band 0, min. write interval 1000 ms); to never feed in, set the **target grid power** to a small positive draw.
 * **State timestamps look old / quality flag 32:** the adapter only writes a state when its value changes (standard practice — it protects the states DB from millions of identical writes). A state's timestamp therefore shows the last value *change*, not the last poll. Check data freshness via `info.lastUpdate` (updated on every successful poll) and `heads.<n>.info.online`. Quality 32 ("substitute initial value") only remains on states the device never delivers (e.g. the SoC of expansion packs that are not installed); after every adapter start all delivered values are written once, so their timestamps are at least as fresh as the start.
+* **The storage does nothing at all — it neither charges nor discharges:** in controller mode the adapter switches the device's own regulation (`MM`) off, so if its own loop never actuates, nothing regulates. Read `controller.gridPower`: it stays empty when *no* value ever reached the controller (check the state id, and that the source is written with `ack=true` — unacknowledged values are ignored on purpose; `controller.status` goes to `failsafe` and the log names the state). If it shows a **positive** value while the house is really feeding in, the sign convention is inverted — enable *grid power inverted*. If it is negative and `controller.totalTarget` is negative too, the controller is asking for charge and the device is refusing: check `heads.<n>.device.ST` (2 = running) and `heads.<n>.battery.ON`.
 * **Two controllers fight over the battery:** run only one. The adapter enforces `MM` for the selected mode — disable any external `GS` script (or a device's own `MM` with a different meter) before using a control mode.
 * **Some states stay empty (`0` / `""`):** a device only returns the fields its firmware/topology actually provides (e.g. extra packs `SC2`–`SC5`, or fault bitmasks only during a fault). The complete raw response is always available in `heads.<n>.info.rawResponse`.
 * **After updating from a single-head version the tree looks wrong:** the object tree was restructured to `heads.<n>.*` in 0.2.0. The adapter removes obsolete objects automatically on start; if anything lingers, delete the old objects (or re-add the instance).
+* **Heads drop out sporadically / ping timeouts:** the head's Wi-Fi module is weak, and stacking the units puts a metal case right over the antenna. Check `heads.<n>.device.network.WR` (signal strength in dB) — below −75 dB the link becomes unreliable. Separate stacked units and raise the **poll interval** to 10–15 s (control quality barely suffers: the controller reacts to the grid-power source, not to this poll). To rule the adapter out, stop the instance and ping the head for a few minutes — if the drop-outs continue, polling is not the cause. The adapter itself sends one `/read` per head and interval, staggers multiple heads, closes every connection after use and backs off automatically after failed polls.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.10 (2026-08-03)
+* (Creekhail) **Gentler on the heads' Wi-Fi:** with two or three heads the adapter no longer polls them all in the same instant — each head now runs its own cycle, staggered by up to 1 s. After a failed poll that head is backed off (doubling up to 60 s) instead of being polled at full rate, which only added to the congestion that made it drop out. The other heads keep their own rhythm either way.
+* (Creekhail) **Every HTTP connection is closed after use** (`Connection: close`, a dedicated connection pool per head). Node's default keeps a socket open for 5 s, which at a 5 s poll means permanently — a slot the head's ESP32 cannot reclaim if the close is lost on a weak link. Reads and writes to the same head are now serialized as well, so a control write no longer opens a second parallel connection while a poll is running, and all sockets are closed on unload.
+* (Creekhail) The **request timeout now covers the whole request** instead of only the phase after a socket was assigned.
+* (Creekhail) Admin: the poll interval carries a help text recommending 10–15 s for two or more heads or a weak Wi-Fi signal; new troubleshooting entry for sporadic head drop-outs.
+
+### 0.2.9 (2026-08-02)
+* (Creekhail) The controller now publishes what it actually sees: **`controller.gridPower`** is the house grid power the way the loop understands it (after the *inverted* option, `>0` = draw) and is updated for every accepted value — even while the dead band suppresses any write, so "no value arrives" and "values arrive but nothing happens" are finally distinguishable. **`controller.totalTarget`** shows the total setpoint before it is split across the heads; a negative value means the controller wants to charge, so a storage that stays idle anyway is a device-side problem.
+* (Creekhail) **Fixed a silent standstill:** if the configured grid-power source never delivered a single value (wrong state id, or a state written with `ack=false`), the controller sat at `GS=0` forever without any warning — while control mode had already switched the device's own regulation (`MM`) off. Nothing regulated at all, and the status still read `ok`. The watchdog now escalates to `failsafe` after the configured failsafe time and logs the state id together with what to check.
+* (Creekhail) A grid-power source that is written with `ack=false` is still ignored (an unacknowledged value must not drive the battery), but the adapter now warns once, names the state and points at both remedies instead of dropping every value silently.
+* (Creekhail) Renamed `total.gridPower` to "Storage grid-port power, total" — it sums the *storages'* grid ports and was too easily mistaken for the house connection. The object id is unchanged, so history and existing scripts keep working.
+
+### 0.2.8 (2026-07-29)
+* (Creekhail) Support for control module firmware **`ES 1.1.14`** (marketed by the manufacturer as "1.1.4"): the reinstated field `PD` is now exposed as `heads.<n>.pv.PD` — **today's PV generation energy** in raw Wh. Verified against a 500 PRO before and after the update: no field was removed and no control value was reset, so **older firmware keeps working unchanged** — the state simply stays empty where the device does not deliver `PD`.
+* (Creekhail) Documentation: noted that the device's public firmware numbering differs from the internal one reported in `ES` (public `1.1.4` = internal `1.1.14`) — feature availability is therefore detected by field presence, never by comparing version strings; and that the daily counters (`PD`/`GD1`/`GD2`/`LD`) are reset by the device on reboot, so a firmware update mid-day drops them to 0.
 
 ### 0.2.7 (2026-07-05)
 * (Creekhail) New **adaptive control** (enabled by default): the controller regulates in three manufacturer-proven tiers — small deviations gently (every 7 s, 20 W steps), medium ones every 2.5 s (120 W), large load steps immediately (450 W), with a fixed 5 W dead band. Disable the new checkbox to keep tuning gain, dead band, write interval and step limit manually. **Existing installations are switched to adaptive by this update** (uncheck to return to your manual tuning).

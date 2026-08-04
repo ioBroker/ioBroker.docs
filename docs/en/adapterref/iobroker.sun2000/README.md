@@ -33,6 +33,12 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.6.0 (2026-07-22)
+* (booliy/claude) Optimization of memory usage
+* (bolliy/claude) Added six new EMMA control registers ([#285](https://github.com/bolliy/ioBroker.sun2000/issues/285))
+* (bolliy/claude) Implemented Time-of-Use (TOU)
+* (booliy/claude) modbus-proxy: Direct register reading on cache mismatch
+
 ### 2.5.1 (2026-06-29)
 - (bolliy) fix: update service queue logic ([#283](https://github.com/bolliy/ioBroker.sun2000/discussions/283))
 - (bolliy) statistics fix: adjust reset handling logic to treat significant drops in value as potential resets
@@ -53,12 +59,6 @@ Work in progress
 
 ### 2.4.4 (2026-05-04)
 * statistics fix: add error handling for waitForValue function
-
-### 2.4.3 (2026-04-19)
-* statistics: new state `statistics.jsonToday` — live summary of today's energy values
-* statistics: default chart shows energy flows above/below zero line, SOC (hourly only), self-sufficiency and self-consumption on second Y-axis
-* statistics: computed values `selfSufficiency` and `selfConsumption` calculated automatically in all time-series states
-* statistics: data placeholders (`%%solarYield%%`, `%%selfSufficiency%%` etc.) and negated variants (`%%gridExportNeg%%` etc.) for mirrored chart layouts
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
