@@ -21,10 +21,12 @@ Select **TypeScript** and **jsonConfig** when prompted. This generates a complet
 ioBroker.my-adapter/
   admin/
     jsonConfig.json        # Admin UI configuration
-    my-adapter.png         # Adapter icon (256x256)
+    my-adapter.png         # Adapter icon (256x256, at least 128x128)
   src/
     main.ts                # Adapter entry point
-    lib/                   # Your modules
+    lib/
+      adapter-config.d.ts  # Types for this.config
+      ...                  # Your modules
   test/                    # Integration tests
   io-package.json          # ioBroker metadata
   package.json             # npm metadata
@@ -50,6 +52,8 @@ class MyAdapter extends utils.Adapter {
         this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
     }
+
+    // The handlers themselves are shown under "Lifecycle Events" below
 }
 
 if (require.main !== module) {
@@ -60,6 +64,30 @@ if (require.main !== module) {
 ```
 
 > **Critical:** Handle errors inside async handlers with `try`/`catch` at the top level of the handler body. An unhandled rejection can crash or terminate the adapter, leading to missing stack traces and restart loops.
+
+### Typing this.config
+
+`this.config` is typed through the global `ioBroker.AdapterConfig` interface. `create-adapter` generates
+`src/lib/adapter-config.d.ts` for it — keep it in sync with `admin/jsonConfig.json` and the `native` section of
+`io-package.json`:
+
+```typescript
+// src/lib/adapter-config.d.ts
+declare global {
+    namespace ioBroker {
+        interface AdapterConfig {
+            host: string;
+            port: number;
+            password: string;
+        }
+    }
+}
+
+// required so that TypeScript picks up the declaration above
+export {};
+```
+
+Without this declaration, `this.config` has no usable type and every access goes unchecked.
 
 ## Lifecycle Events
 
@@ -101,15 +129,17 @@ private onStateChange(id: string, state: ioBroker.State | null | undefined): voi
 Subscribe to states in `onReady`:
 
 ```typescript
-this.subscribeStates('*');           // All own states
-this.subscribeForeignStates('yr.*.forecast.html'); // Other adapters
+await this.subscribeStatesAsync('*');                 // All own states
+await this.subscribeForeignStatesAsync('hm-rpc.0.*'); // States of another adapter
 ```
 
-These register the subscription and return nothing — there is no promise to await. Promise-based variants exist as `subscribeStatesAsync()` / `subscribeForeignStatesAsync()` if you need to await the registration.
+The plain `subscribeStates()` / `subscribeForeignStates()` variants register the subscription and return nothing — there is no promise to await. Use the `*Async()` variants shown above if you want to await the registration.
 
 ### onUnload
 
-Called when the adapter shuts down. **Must be synchronous** — no `async`/`await`. Call `callback()` immediately or the process gets killed.
+Called when the adapter shuts down. **Keep it short and always call `callback()`** — on every path, including the
+error path. js-controller waits only a brief grace period (`common.stopTimeout` in `io-package.json`, a few hundred
+milliseconds unless you raise it) and then kills the process.
 
 ```typescript
 private onUnload(callback: () => void): void {
@@ -120,6 +150,9 @@ private onUnload(callback: () => void): void {
     callback();
 }
 ```
+
+The handler may be `async` — the signature is `(callback) => void | Promise<void>` — but only for teardown that
+finishes quickly, such as closing a socket. Never wait for a device to answer here.
 
 > **Important:** Always use `this.setTimeout()` and `this.setInterval()` instead of the native Node.js versions. The adapter automatically clears them on shutdown.
 
@@ -164,6 +197,10 @@ Objects have types: `device`, `channel`, `state`, `folder`, `meta`.
 
 ### Creating Objects
 
+Objects whose structure is already known do not belong into the code. Declare them in
+[`instanceObjects`](#instance-objects) and let js-controller create them. Use `setObjectNotExistsAsync()` only for
+objects that depend on what the adapter finds at runtime — discovered devices, channels reported by an API:
+
 ```typescript
 // Device
 await this.setObjectNotExistsAsync('device1', {
@@ -196,16 +233,30 @@ await this.setObjectNotExistsAsync('device1.info.temperature', {
 
 > **Every parent path needs an object.** If you create `device1.info.temperature`, both `device1` and `device1.info` must exist as objects first.
 
+`setObjectNotExistsAsync()` leaves an existing object untouched. If a later version changes `role`, `unit` or `name`,
+use `extendObject()` so that existing installations pick the change up:
+
+```typescript
+await this.extendObject('device1.info.temperature', {
+    common: { unit: '°F' },
+});
+```
+
 ### Writing States
 
 ```typescript
 await this.setState('device1.info.temperature', 21.5, true);  // ack=true: actual value from device
-await this.setState('device1.power', false, false);             // ack=false: command to device
+await this.setState('device1.power', false, false);           // ack=false: command to device
 ```
 
+### Commands and Statuses
+
 The `ack` flag is critical:
-- `ack: true` — Status update ("the device reports this value")
-- `ack: false` — Command ("please set this value")
+- `ack: true` — Status update, the value comes **from** the device ("the device reports this value")
+- `ack: false` — Command, the value goes **to** the device ("please set this value")
+
+A subscribed state written with `ack: false` arrives in [`onStateChange`](#onstatechange). The adapter forwards it to
+the device and writes the result back with `ack: true` once the device confirms it.
 
 ### Reading States
 
@@ -222,14 +273,14 @@ Every state needs a `role` in its common definition. Roles tell the UI how to re
 
 Common examples:
 
-| Role | Type | Description |
-|------|------|-------------|
-| `value.temperature` | number | Temperature reading |
-| `switch` | boolean | On/off switch |
-| `level.dimmer` | number | Dimmer 0-100% |
-| `button` | boolean | Trigger (set to `true`) |
-| `indicator.connected` | boolean | Connection status |
-| `text` | string | Generic text |
+| Role                  | Type    | Description             |
+|-----------------------|---------|-------------------------|
+| `value.temperature`   | number  | Temperature reading     |
+| `switch`              | boolean | On/off switch           |
+| `level.dimmer`        | number  | Dimmer 0-100%           |
+| `button`              | boolean | Trigger (set to `true`) |
+| `indicator.connected` | boolean | Connection status       |
+| `text`                | string  | Generic text            |
 
 ## Configuration (jsonConfig)
 
@@ -261,6 +312,13 @@ Modern adapters use **jsonConfig** for the admin UI. The configuration is define
 ```
 
 Values are stored in `native` of the adapter instance object and accessible via `this.config` in the adapter.
+
+Two things the example above does not do by itself:
+
+- **Translations** — with `"i18n": true` at the top level of `jsonConfig.json`, all `label` and `help` texts become
+  translation keys that are resolved from `admin/i18n/<lang>.json`. `@iobroker/adapter-dev` manages those files for you.
+- **Encryption** — `"type": "password"` only masks the input field. The value is stored in cleartext unless the field is
+  also listed in [`encryptedNative`](#encrypted-configuration).
 
 Full jsonConfig reference: [jsonConfig Documentation](adapterjsonconfig.md)
 
@@ -300,7 +358,7 @@ Central metadata file. Key fields in `common`:
         ],
         "keywords": ["iot", "smarthome"],
         "icon": "my-adapter.png",
-        "extIcon": "https://cdn.jsdelivr.net/npm/iobroker.my-adapter/admin/my-adapter.png"
+        "extIcon": "https://raw.githubusercontent.com/yourname/ioBroker.my-adapter/master/admin/my-adapter.png"
     },
     "native": {
         "host": "",
@@ -341,20 +399,21 @@ Central metadata file. Key fields in `common`:
 
 ### Key Fields
 
-| Field | Purpose |
-|-------|---------|
-| `mode` | `daemon` (always running), `schedule` (cron-based), `once`, `none` |
-| `type` | Adapter category (see [categories](#adapter-categories) below) |
-| `connectionType` | `local` (direct) or `cloud` (internet required) |
-| `dataSource` | `push`, `poll`, or `assumption` |
-| `adminUI` | `{"config": "json"}` for jsonConfig |
-| `tier` | Resource tier: 1 (low/polling), 2 (medium), 3 (high/always-on) |
-| `compact` | `true` if adapter supports compact mode (shared process) |
-| `messagebox` | `true` if adapter handles `sendTo()` messages |
-| `encryptedNative` | Array of `native` field names that should be encrypted in the database |
-| `protectedNative` | Array of `native` field names that should not be sent to the frontend |
-| `instanceObjects` | Objects created automatically for each adapter instance |
-| `dependencies` | Required js-controller and adapter versions |
+| Field             | Purpose                                                                                                                                                                                      |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `mode`            | `daemon` (always running), `schedule` (cron-based), `subscribe`, `once`, `extension` or `none` — details in the [object schema](objectsschema.md)                                              |
+| `type`            | Adapter category (see [categories](#adapter-categories) below)                                                                                                                                |
+| `connectionType`  | `local` (direct) or `cloud` (internet required). Information for the user only — it does not change any behaviour                                                                              |
+| `dataSource`      | `push`, `poll`, or `assumption`. Information for the user only — it does not change any behaviour                                                                                             |
+| `adminUI`         | `{"config": "json"}` for jsonConfig                                                                                                                                                          |
+| `tier`            | Start order of the instance: `1` starts first (drivers, hardware), `3` starts last (logic, visualization)                                                                                     |
+| `enabled`         | Whether a newly added instance starts immediately. `true` is fine when the defaults fit most users, or when the backend has to run for the config dialog (e.g. browsing devices); else `false` |
+| `compact`         | `true` if adapter supports compact mode (shared process)                                                                                                                                     |
+| `messagebox`      | `true` if adapter handles `sendTo()` messages                                                                                                                                                |
+| `encryptedNative` | Array of `native` field names that should be encrypted in the database                                                                                                                       |
+| `protectedNative` | Array of `native` field names that are not passed to other adapters (except `admin`, `cloud` and `iot`)                                                                                        |
+| `instanceObjects` | Objects created automatically for each adapter instance                                                                                                                                      |
+| `dependencies`    | Required js-controller and adapter versions. The minimum versions expected from new adapters are listed in [ioBroker.repositories](https://github.com/ioBroker/ioBroker.repositories/blob/master/README.md) |
 
 ### Encrypted Configuration
 
@@ -374,13 +433,19 @@ Sensitive values like passwords and API keys should be encrypted:
 > **`encryptedNative` must be at the root level of io-package.json**, not inside `common`.
 
 - `encryptedNative`: Values are stored encrypted in the database. The adapter receives them decrypted at runtime via `this.config`.
-- `protectedNative`: Values are never sent to the admin frontend.
+- `protectedNative`: Values are not handed out to other adapters. The only exceptions are `admin`, `cloud` and `iot` — `admin` needs them so that the user can read and edit the fields in the configuration dialog.
 
-When you add a field to `encryptedNative` in a new version, the js-controller handles encryption automatically when the user saves the configuration. No migration code needed.
+When you add a field to `encryptedNative` in a new version, js-controller encrypts the value the next time the user
+saves the configuration — no migration code needed. Until that save happens, the value in the database is still the
+old cleartext one, so don't rely on the new field already being encrypted.
+
+More on this: [Security related features for adapter developers](adaptersecurity.md).
 
 ### Instance Objects
 
-Objects listed in `instanceObjects` are created automatically when an adapter instance is added. Use them for fixed structures like `info.connection`:
+Objects listed in `instanceObjects` are created automatically when an adapter instance is added — no code and no
+`setObjectNotExistsAsync()` call required. **Prefer them over creating objects in code** whenever the structure is
+static and not discovered at runtime, for example `info.connection`:
 
 ```json
 "instanceObjects": [
@@ -426,7 +491,8 @@ Standard npm package file. Key points:
         "@iobroker/adapter-dev": "^1.5.0",
         "@iobroker/eslint-config": "^2.3.0",
         "@iobroker/testing": "^5.2.0",
-        "typescript": "~5.8.0"
+        "typescript": "~5.8.0",
+        "vitest": "^3.2.0"
     },
     "scripts": {
         "build": "tsc -p tsconfig.build.json",
@@ -471,17 +537,33 @@ This is shown as a green/red indicator in the admin instance list.
 
 ## Error Handling
 
+Put the retry into its own method — never call `onReady()` again. `onReady()` creates objects and subscriptions;
+re-running it repeats all of that and stacks up timers.
+
 ```typescript
+private retryDelay = 30_000;
+
 private async onReady(): Promise<void> {
+    try {
+        await this.connect();
+    } catch (e) {
+        this.log.error(`Startup failed: ${e instanceof Error ? e.message : e}`);
+    }
+}
+
+private async connect(): Promise<void> {
     try {
         await this.connectToDevice();
         await this.setState('info.connection', true, true);
+        this.retryDelay = 30_000;
     } catch (e) {
-        this.log.error(`Connection failed: ${e instanceof Error ? e.message : e}`);
+        this.log.warn(`Connection failed: ${e instanceof Error ? e.message : e}`);
         await this.setState('info.connection', false, true);
-        // Retry with adapter timer. onReady catches its own errors, so the
-        // promise cannot reject here — `void` marks that deliberately.
-        this.setTimeout(() => void this.onReady(), 30_000);
+        // Retry with an adapter timer — it is cleared automatically on unload.
+        // connect() catches its own errors, so the promise cannot reject here —
+        // `void` marks that deliberately.
+        this.setTimeout(() => void this.connect(), this.retryDelay);
+        this.retryDelay = Math.min(this.retryDelay * 2, 300_000);  // back off
     }
 }
 ```
@@ -537,7 +619,9 @@ To see which category comparable adapters use, sort the
 - [jsonConfig Documentation](adapterjsonconfig.md)
 - [Object Schema Reference](objectsschema.md)
 - [State Roles](stateroles.md)
+- [Security Features for Adapter Developers](adaptersecurity.md)
 - [Adapter Checker](https://adapter-check.iobroker.in/)
+- [@iobroker/testing](https://github.com/ioBroker/testing) — unit and integration test harness
 - [Create Adapter CLI](https://github.com/ioBroker/create-adapter)
 - [Adapter Template (TypeScript)](https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript)
 - [Publishing Guide](adapterpublish.md)

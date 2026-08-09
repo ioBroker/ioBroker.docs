@@ -5,8 +5,8 @@ If you need to store a user password or a token that gives users access to the s
 To do so, you can add a field `protectedNative` to your `io-package.json` file. This field has to contain an array of all attributes which are stored in the `native` attribute of the adapter, 
 which will be protected.
 
-Note, that the Admin adapter will always have access to protected attributes, to give users the ability to read attribute in adapters own configuration page and edit protected fields in 
-`system.adapter.<namepsace>.<instance>` manually.
+Note, that the adapters `admin`, `cloud` and `iot` will always have access to protected attributes. `admin` needs this access to give users the ability to read attribute in adapters own configuration page and edit protected fields in 
+`system.adapter.<namespace>.<instance>` manually.
 
 __Example__:
 ```json
@@ -48,7 +48,8 @@ __Example__:
 ## Manually encrypt and decrypt sensitive data
 We also provide adapter methods to encrypt data manually inside your code.
 For this you can use the `adapter.encrypt` and `adapter.decrypt` methods. The key used for encryption and decryption is the 
-systemwide unique secret of the users installation. If you want to use your own key (192 bit Hex) for encryption, you can do so, by passing a second argument to the `encrypt` and `decrypt` methods.
+systemwide unique secret of the users installation. If you want to use your own key instead, pass it as the **first** argument and the value as the second one:
+`encrypt(key, value)` / `decrypt(key, value)`. The key is a 192 bit (24 byte) key, given as a hex string.
 
 __Example__:
 ```javascript
@@ -58,10 +59,10 @@ const encryptedContent = adapter.encrypt('super secret message');
 const decryptedContent = adapter.decrypt(encryptedContent); 
 // decryptedContent === 'super secret message'
 
-// Or use your own key (24 byte Hex) for encryption
+// Or use your own 192 bit (24 byte) key, given as a hex string
 const crypto = require('crypto');
 const key = crypto.randomBytes(24).toString('hex');
-const encryptedContent = adapter.encrypt(key, 'super secret message');
-const decryptedContent = adapter.decrypt(key, encryptedContent);
-// decryptedContent === 'super secret message'
+const encryptedWithOwnKey = adapter.encrypt(key, 'super secret message');
+const decryptedWithOwnKey = adapter.decrypt(key, encryptedWithOwnKey);
+// decryptedWithOwnKey === 'super secret message'
 ```
