@@ -1423,33 +1423,68 @@ https://github.com/hombach/ioBroker.go-e-charger
 
 This adapter integrates one or more go-e Charger wallboxes into your ioBroker home automation. It cyclically polls each wallbox via its local HTTP API, provides all relevant data as ioBroker states, and lets you control charging directly from your smart home.
 
-## openmeteo-notify (9.8.2026) – new adapter
+## simple-proxy-manager (9.8.2026) – new adapter at stable repository
+https://github.com/lubepi/ioBroker.simple-proxy-manager
+
+<img src="https://raw.githubusercontent.com/lubepi/ioBroker.simple-proxy-manager/main/admin/simple-proxy-manager.png" width="100" height="100" />
+
+Simple HTTPS/HTTP reverse proxy manager for ioBroker.
+
+## harvia-fenix (9.8.2026) – new adapter at stable repository
+https://github.com/meistermopper/ioBroker.harvia-fenix
+
+<img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/harvia.png" width="100" height="100" />
+
+An ioBroker adapter to integrate and control your Harvia Fenix sauna control unit via the MyHarvia cloud infrastructure.
+
+## harvia-fenix (9.8.2026) – new adapter at stable repository
+https://github.com/meistermopper/ioBroker.harvia-fenix
+
+<img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/harvia.png" width="100" height="100" />
+
+An ioBroker adapter to integrate and control your Harvia Fenix sauna control unit via the MyHarvia cloud infrastructure.
+
+## openmeteo-notify (9.8.2026) – new adapter at stable repository
 https://github.com/ipod86/ioBroker.openmeteo-notify
 
 <img src="https://raw.githubusercontent.com/ipod86/ioBroker.openmeteo-notify/main/admin/openmeteo-notify.png" width="100" height="100" />
 
-Weather forecasts from the free Open-Meteo API as ioBroker states. The adapter notifies you about configurable weather events like storms, thunderstorms and official warnings, and provides a customizable HTML widget per location.
+This adapter retrieves weather forecast data from the free Open-Meteo API and makes it available as ioBroker data points. No API key is required. It sends individual notifications for configurable weather events (storms, thunderstorms, official warnings) and provides multiple independently configurable HTML widgets per location.
 
-## pwned-check (9.8.2026) – new adapter
-https://github.com/ipod86/ioBroker.pwned-check
+## dune-hd-remote (9.8.2026) – new adapter at stable repository
+https://github.com/sadam6752-tech/ioBroker.dune-hd-remote
 
-<img src="https://raw.githubusercontent.com/ipod86/ioBroker.pwned-check/main/admin/pwned-check.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.dune-hd-remote/main/admin/dune-hd-remote.png" width="100" height="100" />
 
-Checks whether your passwords or e-mail addresses appear in known data breaches. Passwords never leave the system: the SHA-1 hash is calculated locally and only its first five characters are sent to the API (k-anonymity).
+Control Dune HD media players via IP network from ioBroker.
 
-## agent-dvr (9.8.2026) – new adapter
-https://github.com/ipod86/ioBroker.agent-dvr
+## pv-notifications (9.8.2026) – new adapter at stable repository
+https://github.com/sadam6752-tech/ioBroker.pv-notifications
 
-<img src="https://raw.githubusercontent.com/ipod86/ioBroker.agent-dvr/main/admin/agent-dvr.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.pv-notifications/main/admin/pv-notifications.png" width="100" height="100" />
 
-Integrates AgentDVR into ioBroker. Cameras are discovered automatically, their properties are mirrored as states, and recording as well as PTZ commands can be triggered. An HTML gallery widget and a built-in live dashboard with stream selection are included.
+Sends Telegram notifications for PV battery status (full, empty, intermediate levels).
 
-## sevenio (9.8.2026) – new adapter (requested for latest repository)
-https://github.com/ipod86/ioBroker.sevenio
+## flowers (9.8.2026) – new adapter at stable repository
+https://github.com/sadam6752-tech/ioBroker.flowers
 
-<img src="https://raw.githubusercontent.com/ipod86/ioBroker.sevenio/main/admin/sevenio.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.flowers/main/admin/flowers.png" width="100" height="100" />
 
-Send SMS messages and trigger text-to-speech voice calls over the seven.io API directly from your automations, Blockly scripts or JavaScript — including contact management, delivery tracking, polling of inbound SMS and account balance monitoring.
+Monitor indoor plants via soil moisture, temperature and battery sensors with Telegram notifications.
+
+## cisco-checkpresence (9.8.2026) – new adapter at stable repository
+https://github.com/NurPech/ioBroker.cisco-checkpresence
+
+<img src="https://raw.githubusercontent.com/NurPech/ioBroker.cisco-checkpresence/main/admin/cisco-checkpresence.png" width="100" height="100" />
+
+Detects the presence of family members by querying the Cisco Catalyst 9800 Wireless Controller via RESTCONF. Instead of unreliable ping checks, the adapter reads the authenticated client table directly from the WLC — if the controller says a device is associated, it is there.
+
+
+
+
+
+
+
 
 
 
