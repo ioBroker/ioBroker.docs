@@ -56,6 +56,7 @@ If no detailed matching role can be found or the use case is not specific then y
 * `sensor.alarm`          - some common alarm
 * `sensor.alarm.flood`    - water leakage
 * `sensor.alarm.fire`     - fire sensor
+* `sensor.alarm.co`       - carbon monoxide detected
 * `sensor.alarm.secure`   - door opened, window opened or motion detected during alarm is ON.
 * `sensor.alarm.power`    - No power (`voltage = 0`)
 * `sensor.light`          - feedback from the lamp, that it is ON
@@ -118,12 +119,18 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.rn`              - Radon (unit: Bq/m³)
 * `value.tvoc`            - Total volatile organic compounds (unit: µg/m³ or ppb)
 * `value.airquality`      - Air quality index (AQI)
+* `value.so2`             - Sulphur dioxide (unit: µg/m³ or ppm)
+* `value.co.level`, `value.co2.level`, `value.no2.level`, `value.o3.level`, `value.ch2o.level`, `value.pm1.level`, `value.pm25.level`, `value.pm10.level`, `value.rn.level`, `value.tvoc.level`, `value.so2.level` - qualitative level of the concentration of the same name (`common.states={"0": "UNKNOWN", "1": "LOW", "2": "MEDIUM", "3": "HIGH", "4": "CRITICAL"}`)
 * `value.brightness`      - luminance level (unit: lux)
 * `value.min`
 * `value.max`
 * `value.default`
 * `value.battery`         - battery level
 * `value.valve`           - valve level
+* `value.filter`          - remaining condition of a filter (unit: %)
+* `value.filter.carbon`   - remaining condition of an activated carbon filter (unit: %)
+* `value.flow`            - flow rate of a liquid or a gas (unit: m³/h)
+* `value.rssi`            - received signal strength of a radio device (unit: dBm)
 * `value.time`            - getTime() of Date() object
 * `value.timer`           - duration in s (r/o equivalent to `level.timer`)
 * `value.interval`    (common.unit='sec') - Interval in seconds (can be 0.1 or less)
@@ -153,7 +160,7 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.tilt`            - actual tilt position (`max = fully open, min = fully closed`)
 * `value.lock`            - actual position of lock
 * `value.speed`           - wind speed
-* `value.pressure`        - (unit: mbar)
+* `value.pressure`        - (unit: mbar, `hPa` is the same value and is accepted too)
 * `value.distance`
 * `value.distance.visibility`
 * `value.severity`        - some severity (states can be provided), Higher is more important
@@ -174,6 +181,7 @@ So the indicator may not be alone in the channel. It must be some other main sta
 
 * `indicator`
 * `indicator.working`     - indicates that the target system is executing something, like blinds or lock opening.
+* `indicator.working.test` - a self test of the device is in progress
 * `indicator.reachable`   - If a device is online
 * `indicator.connected`   - used only for instances. Use `indicator.reachable` for devices
 * `indicator.direction`   - `true` - up/open, `false` - down/close. Use better `value.direction`
@@ -181,6 +189,7 @@ So the indicator may not be alone in the channel. It must be some other main sta
 * `indicator.maintenance` - indicates system warnings/errors, alarms, service messages, battery empty or stuff like that
 * `indicator.maintenance.lowbat`
 * `indicator.maintenance.unreach`
+* `indicator.maintenance.filter` - the filter of the device has to be changed
 * `indicator.maintenance.alarm`
 * `indicator.lowbat`      - true if low battery
 * `indicator.alarm`       - same as indicator.maintenance.alarm
@@ -188,6 +197,7 @@ So the indicator may not be alone in the channel. It must be some other main sta
 * `indicator.alarm.flood` - flood detected
 * `indicator.alarm.secure` - door or window is opened
 * `indicator.alarm.health` - health problem
+* `indicator.alarm.muted` - the alarm of the device is currently muted
 
 ### Levels (numbers, read-write)
 With **levels**, you can control or set some number value.
@@ -220,6 +230,8 @@ With **levels**, you can control or set some number value.
 * `level.dimmer`          - brightness is dimmer too
 * `level.blind`           - set blind position (max = fully opened, min = fully closed)
 * `level.temperature`     - set desired temperature
+* `level.temperature.heating` - desired temperature for heating, for devices that hold a heating and a cooling setpoint at once
+* `level.temperature.cooling` - desired temperature for cooling, for devices that hold a heating and a cooling setpoint at once
 * `level.valve`           - set point for valve position
 * `level.color.red`
 * `level.color.green`
@@ -240,7 +252,8 @@ With **levels**, you can control or set some number value.
 * `level.volume.group`   - (`min=0, max=100`) - sound volume, for the group of devices
 * `level.curtain`        - set the curtain position
 * `level.tilt`           - set the tilt position of blinds (max = fully opened, min = fully closed)
-* `level.speed`          - speed eg. fan, ventilator, ..
+* `level.speed`          - speed eg. fan, ventilator, .. Also used as the continuous fan speed in % of an air conditioner, fan or air purifier, where the stepped counterpart is `level.mode.fan`
+* `level.pump`           - speed or flow setpoint of a pump (unit: %)
 
 ### Switches (booleans, read-write)
 Switch controls a boolean device (`true = ON, false = OFF`)
@@ -264,12 +277,16 @@ Switch controls a boolean device (`true = ON, false = OFF`)
 * `switch.mode.moonlight` - moon light mode on/off
 * `switch.mode.color`     - color mode on/off
 * `switch.gate`           - closes(false) or opens(true) the gate
+* `switch.pump`           - on/off of a pump. A dedicated role, because a pump has no other mandatory state and could not be told apart from a socket otherwise
 
 ### Air condition or thermostat
 * `level.mode.fan`        - `AUTO, HIGH, LOW, MEDIUM, QUIET, TURBO`
 * `level.mode.swing`      - `AUTO, HORIZONTAL, STATIONARY, VERTICAL`
 * `level.mode.airconditioner` - air conditioner: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, heating thermostat: `AUTO, MANUAL, VACATION`, 
 * `level.mode.thermostat` - thermostat: `AUTO, MANUAL, VACATION`,
+* `level.mode.airflow`    - airflow direction: `FORWARD, REVERSE`
+* `switch.mode.swing`     - boolean variant of `level.mode.swing` for devices that can only switch the swing on and off
+* `value.mode.thermostat` - what the device is actually doing, read-only: `OFF, HEAT, COOL`. The read-only counterpart of `level.mode.thermostat`
 * `value.mode.airconditioner` - current device state: `IDLE`, `HEAT, `COOL`  (0,1,2 in apple home) 
  Additionally to these states normally the `level.temperature` and `switch.power` required to map the air conditioner.
 
