@@ -1363,65 +1363,93 @@ Adapter for Dreame and MOVA robot vacuums and robot mowers.
 ## playstation (11.7.2026) – new adapter at stable repository
 https://github.com/Lucky-ESA/ioBroker.playstation
 
-<img src="https://raw.githubusercontent.com/Lucky-ESA/ioBroker.playstation/main/admin/playstation.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Lucky-ESA/ioBroker.playstation/main/admin/playstation.png" width="100" height="100" />
 
 You can wake up the Playstation or put it into standby mode. Some buttons are also possible. The PSN login can be used to load data from other players.
 
 ## miner (11.7.2026) – new adapter at stable repository
 https://github.com/SimonFischer04/ioBroker.miner
 
-<img src="https://raw.githubusercontent.com/SimonFischer04/ioBroker.miner/main/admin/miner.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/SimonFischer04/ioBroker.miner/main/admin/miner.png" width="100" height="100" />
 
 Interact with different crypto miner apis
 
 ## script-restore (4.8.2026) – new adapter at stable repository
 https://github.com/ipod86/ioBroker.script-restore
 
-<img src="https://raw.githubusercontent.com/ipod86/ioBroker.script-restore/main/admin/script-restore.svg width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.script-restore/main/admin/script-restore.svg" width="100" height="100" />
 
 Browse and recover individual scripts from ioBroker backup archives — without restoring the entire backup.
 
 ## public-holidays (4.8.2026) – new adapter at stable repository
 https://github.com/krobipd/ioBroker.public-holidays
 
-<img src="https://raw.githubusercontent.com/krobipd/ioBroker.public-holidays/main/admin/public-holidays.svg width="100" height="100" />
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.public-holidays/main/admin/public-holidays.svg" width="100" height="100" />
 
 Detects public holidays for 206 countries. Runs completely offline — no cloud, no API calls. Updates daily at midnight.
 
 ## hoymiles (4.8.2026) – new adapter at stable repository
 https://github.com/Eistee82/ioBroker.hoymiles
 
-<img src="https://raw.githubusercontent.com/Eistee82/ioBroker.hoymiles/main/admin/hoymiles.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Eistee82/ioBroker.hoymiles/main/admin/hoymiles.png" width="100" height="100" />
 
 ioBroker adapter for Hoymiles HMS-xxxW-xT and HMS-xxx-xWB microinverters with integrated WiFi/Bluetooth DTU (DTUBI).
 
 ## blink (4.8.2026) – new adapter at stable repository
 https://github.com/Pischleuder1/ioBroker.blink
 
-<img src="https://raw.githubusercontent.com/Pischleuder1/ioBroker.blink/main/admin/blink.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Pischleuder1/ioBroker.blink/main/admin/blink.png" width="100" height="100" />
 
 ioBroker adapter for Blink cameras.
 
 ## tesla-wallconnector3 (4.8.2026) – new adapter at stable repository
 https://github.com/nobl/ioBroker.tesla-wallconnector3
 
-<img src="https://raw.githubusercontent.com/nobl/ioBroker.tesla-wallconnector3/main/admin/tesla-wallconnector3.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/nobl/ioBroker.tesla-wallconnector3/main/admin/tesla-wallconnector3.png" width="100" height="100" />
 
 Reads live data from a Tesla Wall Connector Gen 3 on your local network. The adapter polls the wallbox API and creates ioBroker states for charging status, power, energy, temperatures, WiFi, and more.
 
 ## victron-gx (4.8.2026) – new adapter at stable repository
 https://github.com/Sefina-DS/ioBroker.victron-gx
 
-<img src="https://raw.githubusercontent.com/Sefina-DS/ioBroker.victron-gx/main/admin/victron-gx.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Sefina-DS/ioBroker.victron-gx/main/admin/victron-gx.png" width="100" height="100" />
 
 This adapter connects ioBroker directly and locally to Victron Energy GX devices (Cerbo GX, Venus GX, Ekrano GX) – without any detour through Home Assistant or the VRM Cloud.
 
 ## go-e-charger (4.8.2026) – new adapter at stable repository
 https://github.com/hombach/ioBroker.go-e-charger
 
-<img src="https://raw.githubusercontent.com/hombach/ioBroker.go-e-charger/master/admin/go-eCharger.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/hombach/ioBroker.go-e-charger/master/admin/go-eCharger.png" width="100" height="100" />
 
 This adapter integrates one or more go-e Charger wallboxes into your ioBroker home automation. It cyclically polls each wallbox via its local HTTP API, provides all relevant data as ioBroker states, and lets you control charging directly from your smart home.
+
+## openmeteo-notify (9.8.2026) – new adapter
+https://github.com/ipod86/ioBroker.openmeteo-notify
+
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.openmeteo-notify/main/admin/openmeteo-notify.png" width="100" height="100" />
+
+Weather forecasts from the free Open-Meteo API as ioBroker states. The adapter notifies you about configurable weather events like storms, thunderstorms and official warnings, and provides a customizable HTML widget per location.
+
+## pwned-check (9.8.2026) – new adapter
+https://github.com/ipod86/ioBroker.pwned-check
+
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.pwned-check/main/admin/pwned-check.png" width="100" height="100" />
+
+Checks whether your passwords or e-mail addresses appear in known data breaches. Passwords never leave the system: the SHA-1 hash is calculated locally and only its first five characters are sent to the API (k-anonymity).
+
+## agent-dvr (9.8.2026) – new adapter
+https://github.com/ipod86/ioBroker.agent-dvr
+
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.agent-dvr/main/admin/agent-dvr.png" width="100" height="100" />
+
+Integrates AgentDVR into ioBroker. Cameras are discovered automatically, their properties are mirrored as states, and recording as well as PTZ commands can be triggered. An HTML gallery widget and a built-in live dashboard with stream selection are included.
+
+## sevenio (9.8.2026) – new adapter (requested for latest repository)
+https://github.com/ipod86/ioBroker.sevenio
+
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.sevenio/main/admin/sevenio.png" width="100" height="100" />
+
+Send SMS messages and trigger text-to-speech voice calls over the seven.io API directly from your automations, Blockly scripts or JavaScript — including contact management, delivery tracking, polling of inbound SMS and account balance monitoring.
 
 
 
