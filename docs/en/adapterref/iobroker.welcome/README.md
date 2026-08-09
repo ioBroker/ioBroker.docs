@@ -28,7 +28,7 @@ In this case, by opening of http://IP it will be immediately redirected to a spe
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.0.0 (2026-08-04)
 -   (@GermanBluefox) Migrated admin component to React 19
 
 ### 1.1.1 (2025-11-15)

@@ -278,10 +278,20 @@ The following values for engines are possible:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.2.4 (2026-08-07)
+* (@GermanBluefox) Corrected the upload of the announcement mp3 files and the location of the cache directory
+* (@GermanBluefox) Corrected the splitting of long texts for the google engine
+* (@GermanBluefox) Corrected the detection of sonos devices in the configuration dialog
+* (@GermanBluefox) Cached files will be deleted again if the engine was changed
+* (@GermanBluefox) The queue does not block anymore if an error occurs by processing of a task
+* (@GermanBluefox) Texts with semicolons will not be interpreted as "language;volume;text" anymore
+* (@GermanBluefox) The local engines (PicoTTS, CoquiTTS) and the windows player are called without shell now
+* (@GermanBluefox) Corrected the default settings of a new instance
+
 ### 5.1.0 (2025-09-17)
 * (bluefox) Adapter was rewritten with TypeScript
 * (bluefox) Updated Polly voices list
-* (bluefox) Added option to send sonos device as parameter in sendTo command
+* (bluefox) Added an option to send sonos device as a parameter in sendTo command
 
 ### 5.0.0 (2024-07-16)
 * (mcm1957) Adapter requires admin v7 or newer now
@@ -557,7 +567,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2025, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

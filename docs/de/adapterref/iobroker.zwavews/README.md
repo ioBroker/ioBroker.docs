@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zwavews/README.md
 title: ioBroker.zwavews
-hash: Jzz1xQZ/yZ3i20BwMrCmoH/VqcEeBrAzoBtWjXCGoK8=
+hash: c3DIl7iUjKXS61DgcIgwuMGaiFHGtV8JbOblN/mG93k=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.zwavews.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.zwavews.svg)
@@ -38,6 +38,7 @@ Aktivieren Sie die WS-Servereinstellungen in `zwave-js-ui`. Wir verwenden hierf�
 
 ### **IN BEARBEITUNG**
 * (arteck) fix reconnect ws
+* (arteck) Schaltfläche „Erneutes Vorstellungsgespräch hinzufügen“ hinzufügen
 
 ## Changelog
 ### 1.0.4 (2026-07-23)

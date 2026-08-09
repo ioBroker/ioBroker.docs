@@ -36,9 +36,9 @@ Sie können für S7TIME 4 Zeitversatzmodi verwenden:
 S5 dekodiert wie hier beschrieben: http://www.plccenter.cn/Siemens_Step7/Format_des_Datentyps_S5TIME_Zeitdauer.htm
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 3.0.0 (2026-08-04)
 * IMPORTANT: js-controller 5+ is required to install this version!
+* IMPORTANT: Migrated to TypeScript and Vite for GUI
 
 ### 1.5.0 (2025-08-25)
 * (Apollon77) Dependency updates
@@ -251,7 +251,7 @@ S5 dekodiert wie hier beschrieben: http://www.plccenter.cn/Siemens_Step7/Format_
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2025 bluefox <dogafox@gmail.com>,
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>,
 
 Copyright (c) 2014-2016 smiling_Jack <steffen.schorling@googlemail.com>
 

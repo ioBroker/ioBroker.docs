@@ -1,4 +1,4 @@
-![Logo](admin/xterm.png)
+![Logo](admin/xterm.svg)
 # ioBroker.xterm
 
 ![Number of Installations](http://iobroker.live/badges/xterm-installed.svg)
@@ -25,6 +25,13 @@ If the authentication is enabled, only ioBroker "admin" user can log in.
 The adapter starts cmd.exe (Windows) or bash (Linux) via a real pseudo-terminal (node-pty).
 On Linux, bash runs under the `iobroker` user — you can switch to another user with more privileges via `su USER`.
 
+### Persistent terminals
+The shells run in the adapter and not in the browser. If the connection is lost or the page is reloaded,
+the terminals keep running and are restored including their content — long-running commands are not interrupted.
+
+A terminal is terminated if it is explicitly closed, or if no browser comes back within the configured
+**session timeout** (5 minutes by default; `0` terminates the shells immediately when the browser disconnects).
+
 ## Keyboard shortcuts
 | Shortcut         | Action                                                                              |
 |------------------|-------------------------------------------------------------------------------------|
@@ -39,6 +46,19 @@ On Linux, bash runs under the `iobroker` user — you can switch to another user
 -->
 
 ## Changelog
+### 4.0.1 (2026-08-07)
+* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+* (@GermanBluefox) Dropped support of Node.js 20
+* (@GermanBluefox) Added SVG icon
+* (@GermanBluefox) The terminals now run on the server: they survive a reload or a lost connection and are restored with their content
+* (@GermanBluefox) Added the setting for the session timeout
+* (@GermanBluefox) Fixed the HTTPS mode: the adapter did not start the web server at all if `secure` was enabled
+* (@GermanBluefox) Fixed the shown client IP addresses in `info.connection`
+* (@GermanBluefox) Errors of the web socket connection do not terminate the adapter anymore
+* (@GermanBluefox) A shell that cannot be started is not restarted endlessly anymore
+* (@GermanBluefox) All shells are terminated now if the adapter stops
+* (@GermanBluefox) Fixed the double connections of the GUI after a connection timeout
+
 ### 3.1.0 (2026-06-04)
 * (bluefox) Added the icon in the GUI
 * (bluefox) Added possibility to run under a specified user on Linux
@@ -58,33 +78,7 @@ On Linux, bash runs under the `iobroker` user — you can switch to another user
 * (Apollon77) Updated the xterm library
 * (Apollon77) Prepared for future js-controller versions
 
-### 1.0.0 (2022-08-29)
-* (bluefox) Check only port of the interface and not of all interfaces
-
-### 0.3.2 (2022-03-29)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 0.3.1 (2022-03-18)
-* (Apollon77) Fix a crash case reported by Sentry
-
-### 0.3.0 (2022-03-12)
-* (Apollon77) Prevent some warnings in js-controller 3+
-* (Apollon77) Add Fallback to the simulated shell if bash/cmd.exe is selected by node-pty was not installed correctly!
-* (Apollon77) Rework `info.connection` status to show that server is connected also as green by using "none" to show that no one is connected
-* (Apollon77) Update all dependencies
-* (Apollon77) Add sentry for crash reporting
-
-### 0.2.0 (2021-09-18)
-* (bluefox) Added the real terminal (bash or cmd.exe) to the simulated one
-
-### 0.1.0 (2021-09-18)
-* (bluefox) changed the type of the connection state to "string"
-
-### 0.0.3 (2021-09-16)
-* (ioBroker) first working release
-
-### 0.0.1
-* (ioBroker) initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

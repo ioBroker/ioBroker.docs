@@ -3,21 +3,23 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.harvia-fenix/README.md
 title: ioBroker.harvia-fenix
-hash: 7cyJqmgPzGnilpSuXqM9SNbgyvFeVU6b3uuv6nkaZ7w=
+hash: mtmm4x4GIJZIJxZgCG0m1iMhRl0FJnYenuprTqnUYPE=
 ---
-![Logo](../../../en/adapterref/iobroker.harvia-fenix/admin/harvia.png)
-
 ![Downloads](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![Knoten](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
 ![Lizenz](https://img.shields.io/npm/l/iobroker.harvia-fenix.svg)
 ![GitHub-Probleme](https://img.shields.io/github/issues/meistermopper/ioBroker.harvia-fenix.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/harvia-fenix-installed.svg)
-![Aktuelle Version im neuesten Repository](https://img.shields.io/badge/latest-0.3.0-blue.svg)
+![Aktuelle Version im neuesten Repository](https://iobroker.live/badges/harvia-fenix-latest.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/harvia-fenix-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.harvia-fenix.png?downloads=true)
 
+<p align="center"><img src="admin/harvia.png" alt="Logo" width="100" /></p>
+
 # IoBroker.harvia-fenix
 **[Hier geht es zur deutschen Version der Dokumentation.](README_de.md)**
+
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/harvia-fenix/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/)
 
 ![Test und Freigabe](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
 
@@ -45,7 +47,7 @@ Der Adapter ist im offiziellen ioBroker-Repository `latest` (Beta) verfügbar. S
 5. Klicken Sie auf die drei Punkte und anschließend auf das "+"-Symbol des **Harvia Fenix**-Adapters, um eine Instanz hinzuzufügen.
 
 ### Lokaler Rechner
-Wechseln Sie in Ihren ioBroker-Ordner und führen Sie folgenden Befehl aus:
+Navigieren Sie in Ihren ioBroker-Ordner und führen Sie folgenden Befehl aus:
 
 ```bash
 npm i iobroker.harvia-fenix
@@ -192,6 +194,13 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (dependabot) Bump axios from 1.18.1 to 1.19.0
+* (meistermopper) Center adapter logo in README files
+* (meistermopper) Add Weblate translation status badge to README files
+* (meistermopper) Add npm run translate step to release-before-commit script
+* (meistermopper) Replace static latest badge with dynamic iobroker.live badge
+
 ### 0.3.1 (2026-08-04)
 * (meistermopper) Update GitHub Actions in auto-translate workflow to v7
 * (meistermopper) Add Git commit and push authorization rule to AGENTS.md

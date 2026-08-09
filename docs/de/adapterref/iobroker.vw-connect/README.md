@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: cZy9mvENELEPraB4OeA9M82LjH4f5jvYy2a4xQAigak=
+hash: EMzXZv7pyOL4voHLHNj9IGz4XiGg3On7sZbDTiHycLc=
 ---
 ![Logo](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -60,7 +60,7 @@ Um dies zu aktivieren, müssen Sie **einmalig** eine kontinuierliche Datenanfrag
 ### Datenanfrage einrichten (einmalig, im Browser)
 1. Öffnen Sie <https://eu-data-act.drivesomethinggreater.com/> und **melden Sie sich mit Ihrem markenspezifischen Konto an** (die gleiche E-Mail-Adresse/das gleiche Passwort, die/das Sie in der Volkswagen / myAudi / MyŠKODA / SEAT Connect / MyCUPRA App und in den Einstellungen dieses Adapters verwenden).
 2. Gehen Sie zu **Datencluster → Fahrzeugübersicht**.
-3. Klicken Sie auf **Verbinden Sie Ihr Auto**, falls Ihre Fahrzeugidentifikationsnummer (VIN) noch nicht aufgeführt ist, und folgen Sie den Anweisungen auf dem Bildschirm zur Kopplung/Zustimmung.
+3. Klicken Sie auf **Auto verbinden**, falls Ihre Fahrzeugidentifikationsnummer (VIN) noch nicht aufgeführt ist, und folgen Sie den Anweisungen auf dem Bildschirm zur Kopplung/Zustimmung.
 4. Klicken Sie auf **Benutzerdefinierte Daten anfragen**. Hinweis vom Portal: Es kann immer nur eine benutzerdefinierte Datenanfrage gleichzeitig aktiv sein.
 5. **Vereinbarung gemäß Artikel 4 EU Data Act** ankreuzen („Ich bestätige, dass ich die Vereinbarung gemäß Artikel 4 EU Data Act gelesen und akzeptiert habe.“) → **Weiter**.
 6. **Datencluster auswählen**: **Alle Daten** anhaken („Alle für das EU-Datengesetz relevanten Datenpunkte“). Andere Cluster nur, wenn Sie gezielt einschränken möchten – wenn Sie nur einige auswählen, wird der Inhalt von „<vin>.statuseudata.*“ eingeschränkt.
@@ -110,6 +110,11 @@ Die Klimatisierungstemperatur kann in .climater.settings.targetTemperature.conte
 ```
 
 ```
+
+### **IN BEARBEITUNG**
+### 0.9.7 (2026-08-09)
+- Die Fehlerbehandlung bei Skoda wurde verbessert
+- Audi Wake-up verbessert
 
 ### 0.9.6 (2026-06-27)
 - Verbesserung der EU-Datenanalyse

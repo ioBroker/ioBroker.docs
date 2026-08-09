@@ -17,7 +17,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: NExEYBGFM5k1VqLSHFysT9KH9uzmzXr3VAUAQa8Zf2E=
+hash: a0c1QF8tbLqGb9q+MjWlupcS7nkUqw6A79IAQ2GnYD4=
 ---
 ![标识](../../../de/admin/awtrix-light.png)
 
@@ -28,7 +28,7 @@ hash: NExEYBGFM5k1VqLSHFysT9KH9uzmzXr3VAUAQa8Zf2E=
 - 管理适配器 7.6.20（或更高版本）
 - 固件版本为 0.98（或更高版本）的 Awtrix 3 设备 - 例如 Ulanzi TC001
 
-点击这里购买：[Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) 或此处：[ulanzi.de](ulanzi.de)](https://haus-auto.com/p/ula/UlanziTC001)（联盟链接）
+点击这里购买：[您可以在以下网站购买：速卖通 (Aliexpress.com)（https://haus-auto.com/p/ali/UlanziTC001）、亚马逊德国站 (Amazon.de)（https://haus-auto.com/p/amz/UlanziTC001）或乌兰兹 (ulanzi.de)。](https://haus-auto.com/p/ula/UlanziTC001)（联盟链接）
 
 ## 第一步
 1. 将固件刷入设备并通过 Wi-Fi 将其添加到本地网络 - 请参阅[文档](https://blueforcer.github.io/awtrix3/#/quickstart)

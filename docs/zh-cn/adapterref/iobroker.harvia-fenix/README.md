@@ -3,21 +3,23 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.harvia-fenix/README.md
 title: ioBroker.harvia-fenix
-hash: 7cyJqmgPzGnilpSuXqM9SNbgyvFeVU6b3uuv6nkaZ7w=
+hash: mtmm4x4GIJZIJxZgCG0m1iMhRl0FJnYenuprTqnUYPE=
 ---
-![标识](../../../en/adapterref/iobroker.harvia-fenix/admin/harvia.png)
-
 ![下载](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![节点](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
 ![执照](https://img.shields.io/npm/l/iobroker.harvia-fenix.svg)
 ![GitHub 问题](https://img.shields.io/github/issues/meistermopper/ioBroker.harvia-fenix.svg)
 ![安装数量](https://iobroker.live/badges/harvia-fenix-installed.svg)
-![最新仓库中的当前版本](https://img.shields.io/badge/latest-0.3.0-blue.svg)
+![最新仓库中的当前版本](https://iobroker.live/badges/harvia-fenix-latest.svg)
 ![稳定仓库中的当前版本](https://iobroker.live/badges/harvia-fenix-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.harvia-fenix.png?downloads=true)
 
+<p align="center"><img src="admin/harvia.png" alt="标识" width="100" /></p>
+
 # IoBroker.harvia-fenix
 **[这是文档的德语版本。](README_de.md)**
+
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/harvia-fenix/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/)
 
 ![测试与发布](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
 
@@ -29,7 +31,7 @@ hash: 7cyJqmgPzGnilpSuXqM9SNbgyvFeVU6b3uuv6nkaZ7w=
 ## ⚠️ 重要安全警告和免责声明
 **桑拿加热器的远程操作必须遵守严格的安全规定！** 根据欧洲安全标准**EN 60335-2-53**以及**EN 60335-1**，远程控制装置必须配备防火措施。桑拿房必须配备经认证的门传感器或安全断电系统。这样可以确保，如果易燃物品（例如毛巾）放置在加热器上或附近，加热器将无法通过远程方式或定时器启动。
 
-* **免责声明：**本适配器的开发者对因使用或错误配置本软件而导致的任何损害、火灾、人身伤害或法律问题概不承担任何责任、保证或义务。您需自行承担使用此集成的全部风险。
+* **免责声明：**本适配器的开发者对因使用或错误配置本软件而导致的任何损害、火灾、人身伤害或法律问题概不负责，亦不提供任何保证或法律责任。您需自行承担使用此集成软件的全部风险。
 * **商标：** Harvia 和 MyHarvia 2 是 Harvia 集团的注册商标。本适配器是一个独立的、社区驱动的开源项目，未经 Harvia 官方认可、赞助或支持。
 
 ---
@@ -70,7 +72,7 @@ npm i iobroker.harvia-fenix
 2. 导航至“实例”选项卡，然后单击您的 `harvia-fenix.0` 实例的设置图标。
 3. 输入您的 MyHarvia 帐户的**电子邮件地址**和**密码**。
 4. 如果将“设备 ID”字段留空，适配器将在启动时自动搜索与您的帐户关联的设备。它会将找到的第一个设备用作活动设备。
-5. 调整可选参数：**轮询间隔**（秒）、**最低/最高目标温度限制**（°C）和**最长加热时间**（分钟）。
+5. 调整可选参数：**轮询间隔**（秒）、**最低/最高目标温度限制**（°C）和**最大加热持续时间**（分钟）。
 6. 点击**保存并关闭**。
 
 ### 设备配置和多设备支持
@@ -136,7 +138,7 @@ MyHarvia 云基础设施将设备、用户和应用程序划分到不同的“�
 | `errorMsg` | 字符串 | `text` | 只读 | 加热器当前错误信息或状态文本。 |
 | `heatOn` | 布尔值 | `switch.power` | 读/写 | 主开关，用于打开 (`true`) 或关闭 (`false`) 桑拿加热器。 |
 | `heaterPower` | 数字 | `value.power` | 只读 | *注意：* 此对象由 MyHarvia API 结构提供，但目前以 `0 kW`（未填充）的形式提供。它似乎是为未来的硬件或应用程序更新而保留的。 |
-| `lightOn` | 布尔值 | `switch.light` | 读/写 | 切换开启或关闭集成桑拿照明。 |
+| `lightOn` | 布尔值 | `switch.light` | 读/写 | 切换打开或关闭集成桑拿照明。 |
 | `maxDuration` | 数字 | `level.timer` | 读/写 | 桑拿房使用期间允许的最大加热时间（分钟）（`min`）。 |
 | `panelTemp` | 数字 | `value.temperature` | 只读 | 在物理控制面板单元处测量的温度读数。 |
 | `targetTemp` | 数字 | `level.temperature` | 读/写 | 桑拿房的目标温度设定值（例如，`90 °C`）。 |
@@ -153,7 +155,7 @@ MyHarvia 云基础设施将设备、用户和应用程序划分到不同的“�
 ## 通知与自动化
 该适配器会自动计算加热进度，并提供两个专门设计的指示数据点，用于触发推送通知（例如通过 Telegram、Pushover 或 Alexa）。
 
-您可以使用一个基本的 ioBroker 脚本（JavaScript 或 Blockly），监听这些状态变为 `true` 的情况：
+您可以使用一个简单的 ioBroker 脚本（JavaScript 或 Blockly），监听这些状态变为 `true`：
 
 ```javascript
 // Trigger for the 10-minute pre-warning
@@ -192,6 +194,13 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (dependabot) Bump axios from 1.18.1 to 1.19.0
+* (meistermopper) Center adapter logo in README files
+* (meistermopper) Add Weblate translation status badge to README files
+* (meistermopper) Add npm run translate step to release-before-commit script
+* (meistermopper) Replace static latest badge with dynamic iobroker.live badge
+
 ### 0.3.1 (2026-08-04)
 * (meistermopper) Update GitHub Actions in auto-translate workflow to v7
 * (meistermopper) Add Git commit and push authorization rule to AGENTS.md

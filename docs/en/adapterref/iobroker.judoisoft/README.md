@@ -1,16 +1,15 @@
 ![Logo](admin/judo.png)
+
 # ioBroker.judoisoft
+
 =================
 
 ![Number of Installations](http://iobroker.live/badges/judoisoft-installed.svg) ![Number of Installations](http://iobroker.live/badges/judoisoft-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.judoisoft.svg)](https://www.npmjs.com/package/iobroker.judoisoft)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.judoisoft.svg)](https://www.npmjs.com/package/iobroker.judoisoft)
 
-
 [![NPM](https://nodei.co/npm/iobroker.judoisoft.png?downloads=true)](https://nodei.co/npm/iobroker.judoisoft/)
 
- 
-judoisoft Adapter for ioBroker
-------------------------------------------------------------------------------
+## judoisoft Adapter for ioBroker
 
 A small excerpt just of the command options:
 
@@ -24,9 +23,15 @@ For devices with the new JUDO connectivity module, enable `REST API (connectivit
 This uses the local interface `http://<ip>/api/rest/...` (Basic Auth).
 (default username/password is 'admin' / 'Connectivity')
 
-
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- Add device selection for cloud connection - #194
+- Fix issues detected by repository checker
+
 ### 1.1.3 (2026-07-18)
+
 - (copilot) Adapter requires node.js >= 22 now
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 - (@SimonFischer04) support rest-api (#143). closes #32, closes #82
@@ -35,20 +40,25 @@ This uses the local interface `http://<ip>/api/rest/...` (Basic Auth).
 - (@SimonFischer04) Migrate admin config to ioBroker jsonConfig. Closes #55
 
 ### 1.1.2 (2025-01-04)
-* (arteck) corr some errors
+
+- (arteck) corr some errors
 
 ### 1.1.1 (2024-09-26)
-* (arteck) corr cloud connection
+
+- (arteck) corr cloud connection
 
 ### 1.1.0 (2023-10-27)
-* (arteck) switch to intervall
 
-### 1.0.15 (2022-05-30) 
-* (arteck) new error handling
+- (arteck) switch to intervall
+
+### 1.0.15 (2022-05-30)
+
+- (arteck) new error handling
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
+
 The MIT License (MIT)
 
 Copyright (c) 2018-2026 Arthur Rupp arteck@outlook.com

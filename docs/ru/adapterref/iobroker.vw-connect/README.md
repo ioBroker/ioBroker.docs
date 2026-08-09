@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: cZy9mvENELEPraB4OeA9M82LjH4f5jvYy2a4xQAigak=
+hash: EMzXZv7pyOL4voHLHNj9IGz4XiGg3On7sZbDTiHycLc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -24,8 +24,8 @@ hash: cZy9mvENELEPraB4OeA9M82LjH4f5jvYy2a4xQAigak=
 ## Kurzfassung (стенд, июнь 2026 г.)
 VW Hat Den Klassischen App-Login for **VW ID, CUPRA und SEAT** abgeschaltet. Для работы этой маркировки в любое время суток — на панели конфигурации, нажмите на несколько параллельных строк:
 
-- **Портал EU Data Act** — автоматически активируется в браузере на портале, автоматически включается пакет данных в течение **всех 15 минут** и не используется в практике **unzuverlässig**: автоматическое включение даты в момент активации (по Фаренгейту, загруженному, климату), автопарковка и просмотр наборов данных. Außerdem hat das Portal selbst öfter 5xx-Aussetzer.
-- **Tibber Data API (empfohlen)** — kostenlos, **liefert aktuelle Werte** (SoC, Reichweite, Lade-Status). **Если вам нужен Tibber-Stromkunde **, вы можете добавить Tibber-аккаунт в новом приложении. Beim Anlegen verlangt die App eine deutsche Adresse — die muss **nicht korrekt sein**, irgendeine pausible Straße/PLZ reicht. Включите приложение и зарегистрируйте OAuth-клиент при <https://data-api.tibber.com/clients/manage> (подробности см. в интерфейсе адаптера).
+- **Портал EU Data Act** — автоматически активируется в браузере на портале, позволяет получить подробный пакет данных в течение **всех 15 минут** и в **неактивном режиме**: автоматический сброс даты, когда он активен. (по Фаренгейту, загруженному, Клима), Parkende Autos erzeugen leere Datasets. Außerdem hat das Portal selbst öfter 5xx-Aussetzer.
+- **API данных Tibber (empfohlen)** — kostenlos, **liefert aktuelle Werte** (SoC, Reichweite, Lade-Status). **Если вам нужен Tibber-Stromkunde **, вы можете добавить Tibber-аккаунт в новом приложении. Beim Anlegen verlangt die App eine deutsche Adresse — die muss **nicht korrekt sein**, irgendeine pusible Straße/PLZ reicht. Зарегистрируйте приложение и зарегистрируйте OAuth-клиент при <https://data-api.tibber.com/clients/manage> (подробности см. в интерфейсе адаптера).
 
 Для других марок (Audi, MyŠKODA, Seat Elli, ŠKODA Powerpass, Audi DataPlug, ŠKODA Alt, VW Connect Go) функционирует классический вход в систему.
 
@@ -112,6 +112,11 @@ VW прекратил поддержку классического клиент
 
 ```
 
+### **РАБОТА В ПРОЦЕССЕ**
+### 0.9.7 (2026-08-09)
+- Улучшена обработка ошибок в системе Skoda.
+- Улучшена функция пробуждения Audi
+
 ### 0.9.6 (2026-06-27)
 - Улучшена обработка данных ЕС.
 
@@ -139,7 +144,7 @@ VW прекратил поддержку классического клиент
 - исправить вход в систему Audi
 
 ### 0.8.6 (2026-05-27)
-- исправить вход в систему с использованием ID
+- исправлена ошибка входа в систему с использованием ID
 
 ### 0.8.5 (2026-05-24)
 - исправить Cupra
@@ -223,7 +228,7 @@ VW прекратил поддержку классического клиент
 - исправить обновление статуса идентификатора
 
 ### 0.0.51
-- исправлена ошибка входа в Audi Etron
+- исправлена ошибка входа в систему Audi Etron
 
 ### 0.0.48
 - Исправлена ошибка входа в систему, исправлено обновление аудиосистемы, добавлено ограничение для Wallbox.

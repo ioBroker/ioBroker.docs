@@ -90,6 +90,21 @@ The repositories and security settings can also be set here.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 8.0.4 (2026-08-09)
+- (@GermanBluefox) Better handlling of autocompleteSendTo JsonConfig components
+
+### 8.0.3 (2026-08-08)
+- (@softwarecrash) Corrected the validation state in the custom settings if more than one instance is shown
+- (@softwarecrash) Corrected the disabled save button in the custom settings after an invalid instance was switched off
+
+### 8.0.2 (2026-08-07)
+- (@GermanBluefox) Corrected charts
+- (@GermanBluefox) Corrected the authentication for the OAuth2 callbacks
+- (@GermanBluefox) Disabled the save button in the custom settings as long as a value is invalid
+- (@GermanBluefox) Added the folder selection to the alias creation dialog
+- (@GermanBluefox) Hidden the chart in the value editor in the mobile view
+- (@GermanBluefox) Small GUI improvements
+
 ### 8.0.1 (2026-08-03)
 - (@GermanBluefox) Breaking: React19 + MUI9
 - (@GermanBluefox) Breaking: Node 22 or higher required
@@ -99,23 +114,6 @@ The repositories and security settings can also be set here.
 - (@GermanBluefox) Added AWS and Azure credentials in credentials manager
 - (@GermanBluefox) Allowed to set the log level without expert mode
 - (@GermanBluefox) Correcting sentry reporting for the admin adapter
-
-### 7.9.12 (2026-07-03)
-- (@GermanBluefox) Added the port (native.port) to the instances table and cards and the possibility to sort instances by port
-- (@GermanBluefox) Corrected the intro and instances links for adapters running as web-extension
-- (@GermanBluefox) Improved the error message on unmet global dependencies in multihost setups by listing the hosts that do not fulfill the requirement
-- (@GermanBluefox) Sorted the notification categories by severity (alert, notify, info), so the most important notifications are shown first
-
-### 7.9.11 (2026-06-29)
-- (@GermanBluefox) Allowed creating an AI API key directly from the assistant settings dialog
-- (@GermanBluefox) Added provider logos (incl. DeepSeek) to the AI assistant provider and credential selectors
-- (@GermanBluefox) The adapter-core version will be updated if required by start
-- (@GermanBluefox) Show status of the instance in the web-extension mode
-
-### 7.9.10 (2026-06-22)
-- (@GermanBluefox) Added a dialog describing how to use the AI assistant without an API key (external MCP client)
-- (@GermanBluefox) Updated device manager
-- (@GermanBluefox) Added possibility to see the prompt and use it outside of assistant
 
 ## License
 

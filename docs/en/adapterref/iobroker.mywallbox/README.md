@@ -21,9 +21,6 @@
 
 Connect your My-Wallbox (e.g. Pulsar Plus) with ioBroker via the Cloud-Service of My Wallbox
 
-## Installation
-Installation via Github Symbol (in Testing and Beta-Phase)
-
 ## Control
 All states under "wallbox.[instance].SerialNumber.control" are writeable and can be used to control the Wallbox
 
@@ -37,6 +34,7 @@ If you like the adapter and want to support me, you can do so here:
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - Dependencies updated
 
 ### 1.3.0 (2024-12-10)
@@ -96,6 +94,8 @@ If you like the adapter and want to support me, you can do so here:
 
 ### 0.0.2 (2022-06-29)
 * initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

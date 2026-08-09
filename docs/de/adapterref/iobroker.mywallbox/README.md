@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mywallbox/README.md
 title: ioBroker.mywallbox
-hash: qfkzrmM9EtgbRqU1wSHzDK3wdY58o0dyq6zhuLkz1mA=
+hash: wuUn8dFcVX0NIub+f2jgVe96fIrOUHzy9zV7weUvL5o=
 ---
 ![Logo](../../../en/adapterref/iobroker.mywallbox/admin/wallbox.png)
 
@@ -13,31 +13,35 @@ hash: qfkzrmM9EtgbRqU1wSHzDK3wdY58o0dyq6zhuLkz1mA=
 ![GitHub](https://img.shields.io/github/license/SKB-CGN/iobroker.mywallbox?style=flat-square)
 ![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.mywallbox?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/SKB-CGN/iobroker.mywallbox?logo=github&style=flat-square)
-![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.mywallbox?logo=github&style=flat-square)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.mywallbox?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/SKB-CGN/iobroker.mywallbox?logo=github&style=flat-square)
 ![NPM](https://nodei.co/npm/iobroker.mywallbox.png?downloads=true)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-blue.svg)
 
 # IoBroker.mywallbox
-**Tests:** ![Testen und Freigeben](https://github.com/SKB-CGN/ioBroker.mywallbox/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/SKB-CGN/ioBroker.mywallbox/workflows/Test%20and%20Release/badge.svg)
 
 ## My-Wallbox-Adapter für ioBroker
-Verbinde deine My-Wallbox (z.B. Pulsar Plus) mit ioBroker über den Cloud-Service von My Wallbox
-
-## Installation
-Installation über Github Symbol (in Test- und Beta-Phase)
+Verbinden Sie Ihre My-Wallbox (z. B. Pulsar Plus) über den Cloud-Service von My Wallbox mit ioBroker.
 
 ## Kontrolle
-Alle Zustände unter „wallbox.[instance].SerialNumber.control“ sind beschreibbar und können zur Steuerung der Wallbox verwendet werden
+Alle Zustände unter "wallbox.[instance].SerialNumber.control" sind beschreibbar und können zur Steuerung der Wallbox verwendet werden.
 
 ## Unterstützung
-Wenn dir der Adapter gefällt und du mich unterstützen möchtest, kannst du das hier tun:
+Wenn Ihnen der Adapter gefällt und Sie mich unterstützen möchten, können Sie das hier tun:
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- Dependencies updated
+
+### 1.3.0 (2024-12-10)
+- Added: EsLint 9.x for better code optimization (#135)
+
 ### 1.2.0 (2024-11-12)
 - Added: Migration to jsonConfig in Adapter-settings
 - Added: New state "car_connected", which indicates, that a car is connected
@@ -93,10 +97,12 @@ Wenn dir der Adapter gefällt und du mich unterstützen möchtest, kannst du das
 ### 0.0.2 (2022-06-29)
 * initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2024 SKB <info@skb-web.de>
+Copyright (c) 2024-2026 SKB <info@skb-web.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

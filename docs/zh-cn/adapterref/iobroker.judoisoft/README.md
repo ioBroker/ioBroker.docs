@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.judoisoft/README.md
 title: ioBroker.judoisoft
-hash: 94PTq/GJP0CTD1to4XsTqDKMykjkTvCCcJijxUL63Zs=
+hash: uykMwHEm5KpB3jn5G7+/9O+2lryACy7B0GdbV/Lje4Y=
 ---
 ![标识](../../../en/adapterref/iobroker.judoisoft/admin/judo.png)
 
@@ -15,8 +15,7 @@ hash: 94PTq/GJP0CTD1to4XsTqDKMykjkTvCCcJijxUL63Zs=
 # IoBroker.judoisoft
 =================
 
-judoisoft ioBroker 适配器 ------------------------------------------------------------------------------------------
-
+## Judoisoft ioBroker 适配器
 以下是命令选项的一小段摘录：
 
 ![可能性](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/datenpunkte.png)
@@ -34,6 +33,13 @@ judoisoft ioBroker 适配器 ---------------------------------------------------
 ## Changelog
 
 ### **WORK IN PROGRESS**
+
+- Add device selection for cloud connection - #194
+- Fix issues detected by repository checker
+
+### 1.1.3 (2026-07-18)
+
+- (copilot) Adapter requires node.js >= 22 now
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 - (@SimonFischer04) support rest-api (#143). closes #32, closes #82
 - (@arteck, @SimonFischer04) (dependency) bump / cleanups
@@ -41,48 +47,25 @@ judoisoft ioBroker 适配器 ---------------------------------------------------
 - (@SimonFischer04) Migrate admin config to ioBroker jsonConfig. Closes #55
 
 ### 1.1.2 (2025-01-04)
-* (arteck) corr some errors
+
+- (arteck) corr some errors
 
 ### 1.1.1 (2024-09-26)
-* (arteck) corr cloud connection
+
+- (arteck) corr cloud connection
 
 ### 1.1.0 (2023-10-27)
-* (arteck) switch to intervall
 
-### 1.0.15 (2022-05-30) 
-* (arteck) new error handling
+- (arteck) switch to intervall
 
-### 1.0.11  (2021-11-07)
-* (arteck) performance corr
+### 1.0.15 (2022-05-30)
 
-### 1.0.7  (2021-04-14)
-* (arteck) corr psw save method
+- (arteck) new error handling
 
-### 1.0.6  (2021-04-08)
-* (arteck) add battery 
-           add installationdate
-           add servicedays
-
-### 1.0.5  (2021-03-24)
-* (arteck) add new cloud access
-
-### 1.0.4  (2021-03-18)
-* (arteck) add timeout
-
-### 1.0.3  (2021-02-06)
-* (arteck) the cloud infos are not available for collection, sry 
-*
-
-### 1.0.2  (2021-01-26)
-* (arteck) cloud login added
-
-### 1.0.0  (2021-01-20)
-* (arteck) new js-controller upd
-
-### 0.0.1 (2020-12-26)
-* (arteck) refactoring
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
+
 The MIT License (MIT)
 
 Copyright (c) 2018-2026 Arthur Rupp arteck@outlook.com

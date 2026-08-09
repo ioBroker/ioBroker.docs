@@ -727,7 +727,10 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 ---
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 4.0.1 (2026-08-07)
+* (simatec) Fix Backitup Tab
+
+### 4.0.0 (2026-08-04)
 * (simatec) dependencies updated
 * (simatec) Fix Translation
 * (simatec) small Fixes
@@ -735,6 +738,8 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) Fix Yahka Backup
 * (@GermanBluefox) Updated GUI packages und removed linter errors
 * (simatec) Update Node Engine
+* (@GermanBluefox) Migrated to Admin 8
+* (simatec) Redesign Backitup Tab
 
 ### 3.3.17 (2026-04-14)
 * (simatec) Fix vite Build
@@ -748,14 +753,6 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) Repository cleaned up
 * (simatec) Fix CCU Backup Timeout
 
-### 3.3.14 (2026-02-18)
-* (simatec) License updated
-* (simatec) dependencies updated
-* (simatec) Fix CCU Backup
-* (simatec) added SSL Skip for mysql Backup
-
-### 3.3.13 (2025-12-14)
-* (simatec) Fix Error Log for CCU Backup
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

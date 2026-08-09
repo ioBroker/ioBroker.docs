@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.xterm/README.md
 title: ioBroker.xterm
-hash: KIHNdM8FMczv17rFWpZdDZLTqFOky2QAamKqcdMWbZ0=
+hash: GznI1502Q5gVpQW/SraGp4ufIeDsJ0012p3i7X0xSBs=
 ---
-![Логотип](../../../en/adapterref/iobroker.xterm/admin/xterm.png)
+![Логотип](../../../en/adapterref/iobroker.xterm/admin/xterm.svg)
 
 ![Количество установок](http://iobroker.live/badges/xterm-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.xterm.svg)
@@ -30,6 +30,11 @@ hash: KIHNdM8FMczv17rFWpZdDZLTqFOky2QAamKqcdMWbZ0=
 Адаптер запускает cmd.exe (Windows) или bash (Linux) через настоящий псевдотерминал (node-pty).
 В Linux bash работает под пользователем `iobroker` — вы можете переключиться на другого пользователя с большими привилегиями через `su USER`.
 
+### Постоянные терминалы
+Оболочки работают в сетевом адаптере, а не в браузере. Если соединение обрывается или страница перезагружается, терминалы продолжают работу и восстанавливаются вместе со своим содержимым — длительно выполняющиеся команды не прерываются.
+
+Терминал завершает работу, если он явно закрыт или если браузер не возвращается в течение заданного **тайм-аута сессии** (по умолчанию 5 минут; `0` немедленно завершает работу оболочек при отключении браузера).
+
 ## Сочетания клавиш
 | Ярлык | Действие |
 |------------------|-------------------------------------------------------------------------------------|
@@ -43,9 +48,24 @@ hash: KIHNdM8FMczv17rFWpZdDZLTqFOky2QAamKqcdMWbZ0=
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
-### 3.0.2 (2026-04-13)
+### 4.0.1 (2026-08-07)
+* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+* (@GermanBluefox) Dropped support of Node.js 20
+* (@GermanBluefox) Added SVG icon
+* (@GermanBluefox) The terminals now run on the server: they survive a reload or a lost connection and are restored with their content
+* (@GermanBluefox) Added the setting for the session timeout
+* (@GermanBluefox) Fixed the HTTPS mode: the adapter did not start the web server at all if `secure` was enabled
+* (@GermanBluefox) Fixed the shown client IP addresses in `info.connection`
+* (@GermanBluefox) Errors of the web socket connection do not terminate the adapter anymore
+* (@GermanBluefox) A shell that cannot be started is not restarted endlessly anymore
+* (@GermanBluefox) All shells are terminated now if the adapter stops
+* (@GermanBluefox) Fixed the double connections of the GUI after a connection timeout
+
+### 3.1.0 (2026-06-04)
 * (bluefox) Added the icon in the GUI
-* (bluefox) Added possibility to run under specified user on Linux
+* (bluefox) Added possibility to run under a specified user on Linux
+* (bluefox) Implemented paste on right mouse click
+* (bluefox) Implemented authentication for the terminal
 
 ### 3.0.0 (2026-04-12)
 * (bluefox) Migrated the adapter to Typescript
@@ -60,33 +80,7 @@ hash: KIHNdM8FMczv17rFWpZdDZLTqFOky2QAamKqcdMWbZ0=
 * (Apollon77) Updated the xterm library
 * (Apollon77) Prepared for future js-controller versions
 
-### 1.0.0 (2022-08-29)
-* (bluefox) Check only port of the interface and not of all interfaces
-
-### 0.3.2 (2022-03-29)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 0.3.1 (2022-03-18)
-* (Apollon77) Fix a crash case reported by Sentry
-
-### 0.3.0 (2022-03-12)
-* (Apollon77) Prevent some warnings in js-controller 3+
-* (Apollon77) Add Fallback to the simulated shell if bash/cmd.exe is selected by node-pty was not installed correctly!
-* (Apollon77) Rework `info.connection` status to show that server is connected also as green by using "none" to show that no one is connected
-* (Apollon77) Update all dependencies
-* (Apollon77) Add sentry for crash reporting
-
-### 0.2.0 (2021-09-18)
-* (bluefox) Added the real terminal (bash or cmd.exe) to the simulated one
-
-### 0.1.0 (2021-09-18)
-* (bluefox) changed the type of the connection state to "string"
-
-### 0.0.3 (2021-09-16)
-* (ioBroker) first working release
-
-### 0.0.1
-* (ioBroker) initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.zwavews/README.md
 title: ioBroker.zwavews
-hash: Jzz1xQZ/yZ3i20BwMrCmoH/VqcEeBrAzoBtWjXCGoK8=
+hash: c3DIl7iUjKXS61DgcIgwuMGaiFHGtV8JbOblN/mG93k=
 ---
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.zwavews.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.zwavews.svg)
@@ -38,6 +38,7 @@ hash: Jzz1xQZ/yZ3i20BwMrCmoH/VqcEeBrAzoBtWjXCGoK8=
 
 ### **正在进行中**
 * (arteck) 修复重新连接 ws
+* (arteck) 添加重新面试按钮
 
 ## Changelog
 ### 1.0.4 (2026-07-23)

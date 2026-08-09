@@ -172,6 +172,13 @@ If you enjoyed this project – or are just feeling generous – consider buying
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.3.1 (2026-08-06)
+
+- (hombach) fixed "unlocked by RFID" always 0 on gen 3+ chargers: API V2 uses the "trx" key instead of "uby" (#634)
+- (hombach) live data is now refreshed every cycle in all modes, so read-only monitoring stays up to date
+- (hombach) API V2 not being reachable is now a single warning instead of an error (normal on hardware gen 1/2)
+- (typhosj) use generic go-e brand logo as adapter icon (#843)
+
 ### 1.3.0 (2026-08-04)
 
 - (hombach) added info.accessControlState (go-e access_state: 0 = open, 1 = RFID/App required, 2 = price/automatic) (#634)
@@ -196,18 +203,6 @@ If you enjoyed this project – or are just feeling generous – consider buying
 - (hombach) fixed reading of "unlocked by RFID" (uby) on gen 3+ chargers via API V2
 - (hombach) read-only mode now suppresses all control commands (charge release, charging current, phase switching)
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
-
-### 1.0.4 (2026-07-04)
-
-- (hombach) harmonized i18n files
-- (hombach) improved README and English texts
-- (hombach) reworked translations in all languages
-- (hombach) added 5s timeout to all HTTP requests to chargers
-- (hombach) fixed adapter stop when no charger is reachable at startup; warn per unreachable charger
-- (hombach) fixed German fallback text for RFID card channel names
-- (hombach) added upper bound validation for cycle time
-- (hombach) added link to manufacturer's website
-- (hombach) code optimizations
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.xterm/README.md
 title: ioBroker.xterm
-hash: KIHNdM8FMczv17rFWpZdDZLTqFOky2QAamKqcdMWbZ0=
+hash: GznI1502Q5gVpQW/SraGp4ufIeDsJ0012p3i7X0xSBs=
 ---
-![标识](../../../en/adapterref/iobroker.xterm/admin/xterm.png)
+![标识](../../../en/adapterref/iobroker.xterm/admin/xterm.svg)
 
 ![安装数量](http://iobroker.live/badges/xterm-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.xterm.svg)
@@ -32,6 +32,11 @@ hash: KIHNdM8FMczv17rFWpZdDZLTqFOky2QAamKqcdMWbZ0=
 
 在 Linux 系统中，bash 以 `iobroker` 用户身份运行——您可以通过 `su USER` 切换到具有更高权限的其他用户。
 
+### 持久终端
+这些 shell 程序运行在适配器中，而不是浏览器中。即使连接中断或页面重新加载，终端程序也会继续运行并恢复，包括其内容——长时间运行的命令不会中断。
+
+如果终端被显式关闭，或者在配置的**会话超时**期间（默认为 5 分钟；`0` 会在浏览器断开连接时立即终止 shell），则终端将被终止。
+
 ## 键盘快捷键
 | 快捷方式 | 操作 |
 |------------------|-------------------------------------------------------------------------------------|
@@ -45,9 +50,24 @@ hash: KIHNdM8FMczv17rFWpZdDZLTqFOky2QAamKqcdMWbZ0=
 ### **正在进行中** -->
 
 ## Changelog
-### 3.0.2 (2026-04-13)
+### 4.0.1 (2026-08-07)
+* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+* (@GermanBluefox) Dropped support of Node.js 20
+* (@GermanBluefox) Added SVG icon
+* (@GermanBluefox) The terminals now run on the server: they survive a reload or a lost connection and are restored with their content
+* (@GermanBluefox) Added the setting for the session timeout
+* (@GermanBluefox) Fixed the HTTPS mode: the adapter did not start the web server at all if `secure` was enabled
+* (@GermanBluefox) Fixed the shown client IP addresses in `info.connection`
+* (@GermanBluefox) Errors of the web socket connection do not terminate the adapter anymore
+* (@GermanBluefox) A shell that cannot be started is not restarted endlessly anymore
+* (@GermanBluefox) All shells are terminated now if the adapter stops
+* (@GermanBluefox) Fixed the double connections of the GUI after a connection timeout
+
+### 3.1.0 (2026-06-04)
 * (bluefox) Added the icon in the GUI
-* (bluefox) Added possibility to run under specified user on Linux
+* (bluefox) Added possibility to run under a specified user on Linux
+* (bluefox) Implemented paste on right mouse click
+* (bluefox) Implemented authentication for the terminal
 
 ### 3.0.0 (2026-04-12)
 * (bluefox) Migrated the adapter to Typescript
@@ -62,33 +82,7 @@ hash: KIHNdM8FMczv17rFWpZdDZLTqFOky2QAamKqcdMWbZ0=
 * (Apollon77) Updated the xterm library
 * (Apollon77) Prepared for future js-controller versions
 
-### 1.0.0 (2022-08-29)
-* (bluefox) Check only port of the interface and not of all interfaces
-
-### 0.3.2 (2022-03-29)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 0.3.1 (2022-03-18)
-* (Apollon77) Fix a crash case reported by Sentry
-
-### 0.3.0 (2022-03-12)
-* (Apollon77) Prevent some warnings in js-controller 3+
-* (Apollon77) Add Fallback to the simulated shell if bash/cmd.exe is selected by node-pty was not installed correctly!
-* (Apollon77) Rework `info.connection` status to show that server is connected also as green by using "none" to show that no one is connected
-* (Apollon77) Update all dependencies
-* (Apollon77) Add sentry for crash reporting
-
-### 0.2.0 (2021-09-18)
-* (bluefox) Added the real terminal (bash or cmd.exe) to the simulated one
-
-### 0.1.0 (2021-09-18)
-* (bluefox) changed the type of the connection state to "string"
-
-### 0.0.3 (2021-09-16)
-* (ioBroker) first working release
-
-### 0.0.1
-* (ioBroker) initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mywallbox/README.md
 title: ioBroker.mywallbox
-hash: qfkzrmM9EtgbRqU1wSHzDK3wdY58o0dyq6zhuLkz1mA=
+hash: wuUn8dFcVX0NIub+f2jgVe96fIrOUHzy9zV7weUvL5o=
 ---
 ![标识](../../../en/adapterref/iobroker.mywallbox/admin/wallbox.png)
 
@@ -12,32 +12,36 @@ hash: qfkzrmM9EtgbRqU1wSHzDK3wdY58o0dyq6zhuLkz1mA=
 ![安装数量](https://iobroker.live/badges/mywallbox-installed.svg)
 ![GitHub](https://img.shields.io/github/license/SKB-CGN/iobroker.mywallbox?style=flat-square)
 ![GitHub 仓库大小](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.mywallbox?logo=github&style=flat-square)
-![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/SKB-CGN/iobroker.mywallbox?logo=github&style=flat-square)
-![GitHub 上次提交](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.mywallbox?logo=github&style=flat-square)
+![GitHub提交活动](https://img.shields.io/github/commit-activity/m/SKB-CGN/iobroker.mywallbox?logo=github&style=flat-square)
+![GitHub 最新提交](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.mywallbox?logo=github&style=flat-square)
 ![GitHub 问题](https://img.shields.io/github/issues/SKB-CGN/iobroker.mywallbox?logo=github&style=flat-square)
-![新平台](https://nodei.co/npm/iobroker.mywallbox.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.mywallbox.png?downloads=true)
 ![捐](https://img.shields.io/badge/Donate-PayPal-blue.svg)
 
 # IoBroker.mywallbox
-**测试：**![测试与发布](https://github.com/SKB-CGN/ioBroker.mywallbox/workflows/Test%20and%20Release/badge.svg)
+**测试：** ![测试与发布](https://github.com/SKB-CGN/ioBroker.mywallbox/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的 My-Wallbox 适配器
-通过 My Wallbox 的云服务将您的 My-Wallbox（例如 Pulsar Plus）与 ioBroker 连接
-
-＃＃ 安装
-通过 Github Symbol 安装（处于测试和 Beta 阶段）
+## 适用于 ioBroker 的 My-Wallbox 适配器
+通过 My Wallbox 的云服务将您的 My Wallbox（例如 Pulsar Plus）连接到 ioBroker。
 
 ＃＃ 控制
-“wallbox.[instance].SerialNumber.control”下的所有状态都是可写的，可以用来控制Wallbox
+所有“wallbox.[instance].SerialNumber.control”下的状态都是可写的，可用于控制墙盒。
 
 ＃＃ 支持
-如果您喜欢该适配器并且想要支持我，您可以在这里支持我：
+如果您喜欢这款适配器并想支持我，可以点击这里：
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- Dependencies updated
+
+### 1.3.0 (2024-12-10)
+- Added: EsLint 9.x for better code optimization (#135)
+
 ### 1.2.0 (2024-11-12)
 - Added: Migration to jsonConfig in Adapter-settings
 - Added: New state "car_connected", which indicates, that a car is connected
@@ -93,10 +97,12 @@ hash: qfkzrmM9EtgbRqU1wSHzDK3wdY58o0dyq6zhuLkz1mA=
 ### 0.0.2 (2022-06-29)
 * initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2024 SKB <info@skb-web.de>
+Copyright (c) 2024-2026 SKB <info@skb-web.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

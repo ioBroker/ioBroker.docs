@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: RX5gJmwINYaHb24oUVM7SD+u2tYaXo/mtiJf7P5Zl/4=
+hash: qCymaAIg/cIizv62kvh9HTjRDdFPN5njkso3lD88Nek=
 ---
 ![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -77,7 +77,7 @@ Objekte (einschließlich Muster mit Platzhaltern) können per HTTP-GET-Anfrage g
 
 Standardmäßig enthält jedes zurückgegebene Objekt nur `_id`, `type` und `common`. Verwenden Sie die Abfrageparameter `extended` und/oder `native`, um weitere Daten anzufordern.
 
-Wenn die Abfrage `depth` verwendet wird und sich ein übereinstimmendes Objekt tiefer als die angeforderte Ebene befindet, wird ein synthetischer Platzhalter genau in dieser Tiefe zurückgegeben:
+Wird die Abfrage `depth` verwendet und befindet sich ein übereinstimmendes Objekt tiefer als die angeforderte Ebene, wird ein synthetischer Platzhalter genau in dieser Tiefe zurückgegeben:
 
 ```json
 { "_id": "0_userdata.0", "type": "virtual" }
@@ -155,9 +155,35 @@ Die Antwort lautet etwa so:
 
 Weitere Informationen finden Sie hier: https://github.com/ioBroker/webserver?tab=readme-ov-file#oauth2-support
 
+## Autorisierung von Drittanbieterclients (OAuth)
+Der oben genannte Token-Endpunkt erfordert, dass der Client das ioBroker-Passwort des Benutzers verarbeitet. Clients, die außerhalb Ihrer Kontrolle laufen – MCP-Clients oder Web-Erweiterungen, die diese bereitstellen – dürfen dies nicht tun. Die Aktivierung von **„Drittanbieter-Clients zulassen“** in den Einstellungen bietet zusätzlich den browserbasierten OAuth2-Autorisierungscode-Flow mit PKCE: Der Client wird auf eine Anmelde- und Zustimmungsseite weitergeleitet, der Benutzer bestätigt die Eingabe, und der Client erhält ein Token, das an die angeforderte Ressource gebunden ist.
+
+Diese Funktion ist standardmäßig deaktiviert. Wenn sie aktiviert ist:
+
+Clients finden den Server über `/.well-known/oauth-authorization-server` und registrieren sich.
+
+selbst, es sei denn, die Option „Kundenselbstregistrierung zulassen“ ist deaktiviert.
+
+Nicht authentifizierte Anfragen, die *nicht* nach `text/html` fragen, werden mit `401` und einem a beantwortet.
+
+`WWW-Authenticate`-Herausforderung anstelle einer Weiterleitung zur Anmeldeseite – eine Weiterleitung ist für einen API-Client nutzlos. Browser sind davon nicht betroffen.
+
+- Web-Erweiterungen veröffentlichen ihre eigenen Ressourcenmetadaten unter
+
+`/.well-known/oauth-protected-resource/<path>`; diese Dokumente bleiben auch ohne Zugangsdaten lesbar.
+
+- **Legen Sie die öffentliche URL fest**, wenn der Server hinter einem Reverse-Proxy läuft, und verwenden Sie HTTPS: Remote-Clients
+
+einfachen `http://` verweigern.
+
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **IN BEARBEITUNG** -->
+### 9.1.0 (2026-08-04)
+* (@GermanBluefox) Der OAuth2-Autorisierungscode-Flow wurde mit PKCE hinzugefügt, sodass Drittanbieter-Clients (z. B. MCP-Clients) autorisiert werden können, ohne das Benutzerpasswort einzusehen.
+* (@GermanBluefox) Nicht authentifizierte Nicht-HTML-Anfragen erhalten nun eine `401`-Fehlermeldung anstelle einer Weiterleitung zum Anmeldevorgang, wenn OAuth aktiviert ist.
+* (@GermanBluefox) Aktualisiert `@iobroker/webserver` auf Version 2.0.1
+
 ### 9.0.0 (2026-06-21)
 * (@GermanBluefox) Verwendete Bibliotheken für die Socket-Kommunikation anstelle von Adaptern
 * (@GermanBluefox) Migriert zu TS 6
@@ -166,17 +192,12 @@ Weitere Informationen finden Sie hier: https://github.com/ioBroker/webserver?tab
 * (@SimonFischer04) Option „rootPath“ hinzugefügt, um den Betrieb hinter einem Reverse-Proxy zu unterstützen.
 
 ### 8.2.0 (2026-05-21)
-* (@GermanBluefox) Der GET-Endpunkt `/object/<ID>` wurde mit den Abfrageparametern `type`, `commonType`, `depth`, `extended`, `native` und `system` zum Lesen von Objekten hinzugefügt (Wildcards werden unterstützt). Standardmäßig werden nur `_id`, `type` und `common` zurückgegeben, wobei `type` standardmäßig auf `state` gesetzt ist. Objekte unter `system.*` / `script.*` werden ausgeblendet. Mit dem Parameter `depth` werden bei tieferen Übereinstimmungen synthetische Platzhalter `type: "virtual"` erzeugt, sodass ein Baumbrowser erkennen kann, dass darunter Inhalte vorhanden sind.
+* (@GermanBluefox) Der GET-Endpunkt `/object/<ID>` wurde mit den Abfrageparametern `type`, `commonType`, `depth`, `extended`, `native` und `system` zum Lesen von Objekten hinzugefügt (Wildcards werden unterstützt). Standardmäßig werden nur `_id`, `type` und `common` zurückgegeben, wobei `type` standardmäßig auf `state` gesetzt ist. Objekte unter `system.*` / `script.*` werden ausgeblendet. Mit dem Parameter `depth` werden bei tieferen Übereinstimmungen synthetische Platzhalter vom Typ `type: "virtual"` erzeugt, sodass ein Baumbrowser erkennen kann, dass darunter Inhalte vorhanden sind.
 * (@GermanBluefox) Die Einstellung „Objektzustellung deaktivieren“ wurde hinzugefügt, um den Endpunkt `/object/<ID>` ein- bzw. auszuschalten.
 
 ### 8.1.0 (2026-04-13)
 * (@GermanBluefox) Pakete aktualisiert.
 * (@GermanBluefox) Mögliche Fehler korrigiert
-
-### 8.0.0 (18.02.2026)
-* (@GermanBluefox) Pakete aktualisiert. Die minimale Node.js-Version ist jetzt 20.0.0.
-* (@GermanBluefox) Binärzustände entfernt
-* (@GermanBluefox) Möglichkeit hinzugefügt, Werte über den Endpunkt `/state/` mit `POST` zu schreiben.
 
 [Ältere Änderungsprotokolle finden Sie dort.](CHANGELOG_OLD.md)
 

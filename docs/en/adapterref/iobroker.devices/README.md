@@ -131,7 +131,13 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@SimonFischer04) Added WindowTilt support in the widgets GUI (#609)
+
 ### 4.0.0 (2026-08-03)
+* (@GermanBluefox) Added min/max values (last 24 hours or today) for widgets with history
+* (@GermanBluefox) Fixed the history options (chart, trend, min/max) not being offered in the widget settings
+* (@GermanBluefox) Recreate all missing instance monitoring objects, not only alive/connected
 * (@GermanBluefox) Migrated to react 19 and MUI 9
 
 ### 3.0.2 (2026-06-30)

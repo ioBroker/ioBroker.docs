@@ -159,22 +159,25 @@ Der Adapter repariert automatisch bekannte Tesla-Firmware-JSON-Fehler (bare `nan
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.3.0 (2026-08-04)
 - Added North American split-phase power calculation mode (splitPhase setting)
-- Added Tesla firmware JSON defect recovery (bare nan, Infinity, -Infinity, missing closing brace)
-- Added host validation: rejects URLs, paths, credentials, and ports; empty or 0.0.0.0 treated as unconfigured
+- Added recovery for malformed wallbox responses (bare nan, Infinity, and truncated data)
+- Added address validation: clearer error messages for misconfigured wallbox addresses
 - Added 2 MiB response size limit
-- Fixed state type stability: null values no longer cause type oscillation, including after adapter restart
-- Fixed stale array state cleanup: current_alerts and evse_not_ready_reasons publish canonical JSON and clean up obsolete child states
-- Fixed complete data refresh after connection loss: all endpoints polled immediately on reconnect
-- Fixed retry off-by-one: configured retries value now means actual retry attempts after initial failure
-- Fixed unload race condition: prevented post-unload state changes when poll requests are in flight
-- Fixed numeric string coercion: Infinity and NaN values no longer silently converted to numbers
-- Fixed timeout configuration help text to show correct maximum (10000 ms)
-- Corrected wifi signal strength/RSSI metadata
-- Separated persistence errors from communication errors: database write failures no longer trigger connection retry
-- Reduced API load: version polled hourly, lifetime and wifi_status every 60s, sequential requests
-- Enabled TypeScript type checking in CI
+- Fixed connection status flapping when the wallbox was partially reachable
+- Fixed charging power (power_w) sometimes showing a stale value after charging stops — now always 0 when not charging
+- Fixed handling of additional malformed sensor readings from certain firmware versions
+- Fixed unavailable sensor readings showing as empty instead of 0
+- Fixed state types sometimes changing unexpectedly, including after adapter restart
+- Fixed alerts and not-ready reasons not updating correctly when the list changes
+- Fixed all data refreshing immediately after connection loss recovery
+- Fixed retry count being off by one compared to the configured value
+- Fixed rare state updates still happening briefly after adapter shutdown
+- Fixed timeout help text showing wrong maximum (now correctly shows 10000 ms)
+- Fixed wallbox requests failing on systems with an HTTP proxy configured
+- Corrected WiFi signal strength metadata
+- Fixed database errors no longer triggering unnecessary reconnection attempts
+- Reduced load on wallbox: version data polled hourly, WiFi and lifetime data every 60 seconds
 - Expanded and corrected documentation
 
 ### 1.2.0 (2026-07-20)

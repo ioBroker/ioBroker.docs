@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: RX5gJmwINYaHb24oUVM7SD+u2tYaXo/mtiJf7P5Zl/4=
+hash: qCymaAIg/cIizv62kvh9HTjRDdFPN5njkso3lD88Nek=
 ---
 ![标识](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -31,7 +31,7 @@ hash: RX5gJmwINYaHb24oUVM7SD+u2tYaXo/mtiJf7P5Zl/4=
 ## 扩展
 WebDriver 支持扩展。
 
-扩展是 URL 处理程序，当出现 URL 请求时会被调用。
+扩展是 URL 处理程序，当出现特定 URL 请求时，该处理程序将被调用。
 
 扩展程序看起来与普通适配器类似，但它们没有运行进程，而是由 Web 服务器调用。
 
@@ -166,9 +166,35 @@ http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<passwo
 
 更多信息请访问：https://github.com/ioBroker/webserver?tab=readme-ov-file#oauth2-support
 
+## 授权第三方客户端（OAuth）
+上述令牌端点要求客户端处理用户的 ioBroker 密码。不受您控制的客户端（例如 MCP 客户端或为其提供服务的 Web 扩展）不得执行此操作。在设置中启用“允许第三方客户端”选项，还可以使用基于浏览器的 OAuth2 授权码流程（采用 PKCE）：客户端将被引导至登录和授权页面，用户确认后，客户端将收到一个与其请求的资源绑定的令牌。
+
+此功能默认关闭。启用后：
+
+客户端通过 `/.well-known/oauth-authorization-server` 发现服务器并注册
+
+除非关闭“允许客户自助注册”功能，否则客户将自行注册。
+
+- 未经身份验证且未请求 `text/html` 的请求将返回 `401` 状态码。
+
+`WWW-Authenticate` 发起质询，而不是重定向到登录页面——重定向对 API 客户端来说毫无意义。浏览器不受影响。
+
+Web 扩展程序会在以下位置发布自己的资源元数据：
+
+`/.well-known/oauth-protected-resource/<path>`；这些文档无需凭证即可读取。
+
+- 当服务器运行在反向代理之后时，请设置公共 URL，并使用 HTTPS：远程客户端
+
+拒绝普通 `http://`。
+
 <!-- 下一版本的占位符（位于行首）：
 
 ### **正在进行中** -->
+### 9.1.0 (2026-08-04)
+* (@GermanBluefox) 添加了基于 PKCE 的 OAuth2 授权码流程，因此第三方客户端（例如 MCP 客户端）无需查看用户密码即可获得授权。
+* (@GermanBluefox) 启用 OAuth 后，未经身份验证的非 HTML 请求现在会收到 `401` 错误提示，而不是登录重定向。
+* (@GermanBluefox) 已将 `@iobroker/webserver` 更新至 2.0.1 版本
+
 ### 9.0.0 (2026-06-21)
 * (@GermanBluefox) 使用库进行套接字通信，而不是适配器。
 * (@GermanBluefox) 已迁移至 TS 6
@@ -183,11 +209,6 @@ http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<passwo
 ### 8.1.0 (2026-04-13)
 * (@GermanBluefox) 已更新软件包。
 * (@GermanBluefox) 修正了潜在错误
-
-### 8.0.0 (2026-02-18)
-* (@GermanBluefox) 已更新软件包。最低 Node.js 版本现为 20.0.0。
-* (@GermanBluefox) 移除二进制状态
-* (@GermanBluefox) 添加了通过 `/state/` 端点使用 `POST` 发送值的功能
 
 [更早的更新日志可以在这里找到。](CHANGELOG_OLD.md)
 

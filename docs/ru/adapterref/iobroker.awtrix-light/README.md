@@ -17,7 +17,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: NExEYBGFM5k1VqLSHFysT9KH9uzmzXr3VAUAQa8Zf2E=
+hash: a0c1QF8tbLqGb9q+MjWlupcS7nkUqw6A79IAQ2GnYD4=
 ---
 ![логотип](../../../de/admin/awtrix-light.png)
 
@@ -28,7 +28,7 @@ hash: NExEYBGFM5k1VqLSHFysT9KH9uzmzXr3VAUAQa8Zf2E=
 - Административный адаптер 7.6.20 (или более новая версия)
 - Устройство Awtrix 3 с версией прошивки 0.98 (или новее) - например, Ulanzi TC001
 
-Купить здесь: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) или здесь: [ulanzi.de]](https://haus-auto.com/p/ula/UlanziTC001) (Партнерские ссылки)
+Купить здесь: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001), здесь: [Amazon.de](https://haus-auto.com/p/amz/UlanziTC001) или здесь: [ulanzi.de]](https://haus-auto.com/p/ula/UlanziTC001) (Партнерские ссылки)
 
 ## Первые шаги
 1. Прошейте микропрограмму на устройство и добавьте его в локальную сеть через Wi-Fi — см. [документацию](https://blueforcer.github.io/awtrix3/#/quickstart)
@@ -155,7 +155,7 @@ sendTo('awtrix-light.0', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
 
 ### Пользовательские приложения
 - `%s` — это заполнитель для значения состояния.
-— `%u` — это заполнитель для единицы измерения (например, `°C`).
+— `%u` — это заполнитель для единицы измерения температуры (например, `°C`).
 
 Эти заполнители можно использовать в тексте пользовательских приложений (например, `Außentemperatur: %s %u`).
 

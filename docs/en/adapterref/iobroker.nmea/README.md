@@ -111,7 +111,7 @@ Use `windDatumDisplay` for visualization and `windDatum` for calculations/automa
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.0.0 (2026-08-04)
 - (bluefox) Migrated to devices V3
 
 ### 1.0.3 (2026-07-08)
@@ -130,9 +130,6 @@ Use `windDatumDisplay` for visualization and `windDatum` for calculations/automa
 
 ### 0.4.2 (2026-01-05)
 * (bluefox) Updated packages
-
-### 0.4.0 (2025-11-30)
-* (bluefox) Added support of YDEN-02/03 and YDWG-02/03 gateways
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

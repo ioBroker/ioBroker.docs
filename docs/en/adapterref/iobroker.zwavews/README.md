@@ -42,6 +42,7 @@ Activate WS Server Settings in `zwave-js-ui` we use the Home Assistant Settings 
 
 ### **WORK IN PROGRESS**
 * (arteck) fix reconnect ws
+* (arteck) add re-interview button
 
 ## Changelog
 ### 1.0.4 (2026-07-23)

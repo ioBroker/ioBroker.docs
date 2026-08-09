@@ -27,6 +27,13 @@ This adapter allows you to set up a home alarm system without extensive programm
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.0.1 (2026-08-07)
+* (@misanorot) update
+
+### 5.0.0 (2026-08-06)
+* (@GermanBluefox) Migrated to admin 8
+* (@misanorot) fixed checker #427
+
 ### 4.0.6 (2026-07-07)
 * (@GermanBluefox) Packages were updated
 * (@GermanBluefox) Some compiler errors were fixed
@@ -36,15 +43,6 @@ This adapter allows you to set up a home alarm system without extensive programm
 
 ### 4.0.4 (2026-05-17)
 * (@misanorot) fixed little JSON Ui issues
-
-### 4.0.3 (2026-05-11)
-* (@misanorot) fixed checker issues
-- (copilot) Adapter requires node.js >= 22 now
-* (@GermanBluefox) fixed JSON config issues
-* (@GermanBluefox) packages were updated
-
-### 4.0.2 (2026-04-07)
-* (@GermanBluefox) fixed #368
 
 [Older changes](CHANGELOG_OLD.md)
 

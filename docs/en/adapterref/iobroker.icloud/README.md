@@ -46,6 +46,9 @@ The adapter accesses Apple's iCloud services using the same APIs that are used b
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (ticaki) fixed: the build scripts pointed at a non-existent `tools/build-adapter.cjs`, which broke `npm run build` and the CI
+
 ### 1.0.0 (2026-06-28)
 * (ticaki) **New: FIDO2 / security-key MFA** — sign in with a hardware security key (passkey) straight from the admin panel; the full sign-in ceremony runs in the background with a live, localized status (MFA panel translated into 11 languages)
 * (ticaki) Admin: the security-key button now shows a live "running" state while the background ceremony is in progress

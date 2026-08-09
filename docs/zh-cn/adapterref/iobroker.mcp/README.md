@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mcp/README.md
 title: ioBroker.mcp
-hash: biPH4rPRb+GHsloLOCfhsQ6SiuWpblvywj7w39BIzOU=
+hash: AkXR6G98OnjKZNFtRelEeAz9cW5+KCpcM2Nvt+7o/Gg=
 ---
 <img src="admin/mcp.png" alt="ioBroker.mcp" width="200"/>
 
@@ -52,6 +52,27 @@ ioBroker 的 MCP 服务器
 所有工具执行的对象/状态读取和写入操作均以该用户的名义执行，因此会强制执行该用户的访问控制列表 (ACL)。例如，纯文本名称 `operator` 会自动扩展为 `system.user.operator`。
 
 当作为 Web 扩展运行时，如果未在此处设置用户，则使用主机 `web` 实例的默认用户。
+
+### OAuth
+MCP 客户端（例如 Claude Desktop）通过浏览器登录连接，而不是使用您手动创建的令牌。
+
+客户端会自动发现服务器，用户登录并确认，客户端永远不会看到 ioBroker 密码。
+
+- **启用 OAuth（浏览器登录）**：在独立模式下，这需要启用身份验证。作为**Web 设备**，这需要启用身份验证。
+
+扩展** 选定的 `web` 实例提供登录，因此也必须在那里启用 OAuth（“允许第三方客户端”）——否则 MCP 客户端只会收到重定向到登录页面，而他们无法使用该页面。
+
+- **公共 URL**：此服务器的外部可访问地址，不包含路径，例如：
+
+`https://iobroker.example.com`。反向代理后必需：用于 OAuth 发现的 URL 必须是客户端实际可以访问的 URL。作为 Web 扩展，它必须与 `web` 实例中配置的公共 URL 匹配。
+
+- **允许客户端自助注册**：允许 MCP 客户端自行注册（默认：**开启**）。关闭此选项后，
+
+所有客户端都必须先手动注册。在 Web 扩展模式下，这是 `web` 实例的设置，因此该选项在此处被隐藏。
+
+**除 `localhost` 外，所有流量都必须使用 HTTPS **——流量通过用户的浏览器运行，而 MCP 客户端拒绝远程主机的纯文本 `http://`。
+
+访问令牌绑定到此端点，因此为同一服务器上的其他服务颁发的令牌将被拒绝。客户端可以通过 `POST /oauth/revoke` 再次放弃其令牌。
 
 ### 权限
 - **允许设置状态**：允许 MCP 客户端写入状态值（`set_state` 和 `set_states` 工具）。
@@ -138,6 +159,11 @@ MCP 服务器位于 `POST/GET/DELETE /mcp`，使用 Streamable HTTP 传输协议
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2026-08-04)
+* (@GermanBluefox) Added OAuth: MCP clients can now be connected through a browser login instead of a manually created token
+* (@GermanBluefox) OAuth also works as a web extension, using the host `web` instance as the authorization server (requires OAuth enabled there too)
+* (@GermanBluefox) Updated `@iobroker/mcp-server` and `@iobroker/webserver`
+
 ### 1.0.11 (2026-07-02)
 * (@GermanBluefox) Default port was changed to 8011
 * (@GermanBluefox) Corrected the issue with authentication

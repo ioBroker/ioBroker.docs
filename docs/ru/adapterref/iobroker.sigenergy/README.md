@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sigenergy/README.md
 title: ioBroker Sigenergy Adapter
-hash: F6Nt6sPKMmmrscCaDo0zQj9MCUOGXOTA+qjdkn8pD4g=
+hash: qHdyQoDcMcC7u6XmPVCdEneUhTwcH7iVIXiuZLE9NWE=
 ---
 # IoBroker Sigenergy Adapter
 
@@ -29,7 +29,7 @@ hash: F6Nt6sPKMmmrscCaDo0zQj9MCUOGXOTA+qjdkn8pD4g=
 - 🔌 **Зарядное устройство переменного тока** (Sigen EVAC) — Дополнительно
 - ⚡ **Зарядное устройство постоянного тока** — Дополнительно
 - 🏗️ **PSS** (Power Station Switch) — Опционально, мониторинг распределительных устройств среднего/низкого напряжения и распределительных шкафов.
-- 🔍 **PID** (детектирование изоляции фотоэлектрических элементов) — опционально
+- 🔍 **PID** (Детектор изоляции фотоэлектрических элементов) — Опционально
 - 🌡️ **Предварительный подогрев ESS** — Расписание по времени суток, 30 настраиваемых временных окон (M1-HYA/HYB)
 - 📈 **Расширенные регистры** — Интеллектуальные нагрузки 1–24, суммарная энергия, параметры сетевого кода
 - ☀️ **SigenMicro** — Поддержка микроинверторов (автоматическое сканирование)
@@ -44,6 +44,15 @@ hash: F6Nt6sPKMmmrscCaDo0zQj9MCUOGXOTA+qjdkn8pD4g=
 | **Гибридный вариант** | SigenStor EC SP/TP, Sigen Hybrid SP/TP/TPLV, Sigen PV M1-HYA, контроллер PG |
 | **PV-инв.** | Sigen PV Max SP/TP, Sigen PV M1 |
 | **ЭВАК (AC)** | Sigen EVAC 7/11/22 кВт, PG EVAC |
+
+---
+
+## Требования
+| Компонент | Минимальная версия |
+|-----------|-----------------|
+| **js-контроллер** | >= 6.0.11 |
+| **администратор** | >= 8.0.0 |
+| **Node.js** | >= 22 |
 
 ---
 
@@ -111,7 +120,7 @@ hash: F6Nt6sPKMmmrscCaDo0zQj9MCUOGXOTA+qjdkn8pD4g=
 
 ## Объекты данных
 ### Растение (`plant.*`)
-| Штат | Описание | Подразделение |
+| Штат | Описание | Единица измерения |
 | `plant.gridActivePower` | Мощность сети (>0 импорт, <0 экспорт) | кВт |
 | `plant.pvPower` | Выработка фотоэлектрической энергии | кВт |
 | `plant.essPower` | Мощность батареи (<0 разряда) | кВт |
@@ -249,6 +258,24 @@ hash: F6Nt6sPKMmmrscCaDo0zQj9MCUOGXOTA+qjdkn8pD4g=
 - 🇨🇳 [简体中文文档](doc/zh-cn/README.md)
 
 ## Changelog
+
+### 3.1.2 (2026-08-06)
+- (ssbingo) chore: resolved all 28 npm audit findings (3 critical, 11 high) — development tooling only, the published adapter is unchanged
+- (ssbingo) chore: removed `@iobroker/dev-server`; it was the sole source of the critical findings via the deprecated `request` and `xmldom` packages, for which no fixed release exists. This also removes the `npm start` / `npm run watch` scripts
+- (ssbingo) chore: added `overrides` lifting transitive dev dependencies onto patched versions
+- (ssbingo) chore: removed `main.test.js`, an unused create-adapter template stub
+
+### 3.1.1 (2026-08-05)
+- (ssbingo) chore: security updates for transitive dependencies (brace-expansion 1.1.18, axios 1.19.0, fast-uri 3.1.5, socket.io-parser 4.2.7)
+
+### 3.1.0 (2026-08-05)
+- (MMeinhardt1) feat: statistics module improvements — new states `pvToBatteryPower`, `batteryToHousePower`, `gridImportToday`, `gridExportToday`, `currentSoc`, `currentPvPower` and `h:mm` formatted durations for all time statistics
+- (MMeinhardt1) feat: daily statistics (SOC min/max, coverage time, grid energy, charging time) are restored from persisted states and now survive an adapter restart mid-day
+- (MMeinhardt1) change: `batteryDailyChargeTime` now reports the cumulative time spent charging today instead of the time until the battery was first full
+- (MMeinhardt1) fix: battery coverage time is accumulated incrementally instead of being derived from the capped history buffer, which only spanned ~1 hour
+- (ssbingo) chore: minimum requirements raised — js-controller >= 6.0.11, admin >= 8.0.0, Node.js >= 22
+- (ssbingo) fix: add missing admin i18n translations for the new battery flow power option across all 11 languages
+- (ssbingo) chore: update dependencies (@iobroker/adapter-core 3.4.3, @iobroker/testing 5.3.0, @types/node 22.20.1, ws 8.21.1, actions/setup-node v7, testing-action-deploy 1.5.2)
 
 ### 3.0.10 (2026-06-29)
 - (ssbingo) chore: bump js-yaml from 4.1.1 to 4.3.0

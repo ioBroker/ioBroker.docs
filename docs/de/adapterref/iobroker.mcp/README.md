@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mcp/README.md
 title: ioBroker.mcp
-hash: biPH4rPRb+GHsloLOCfhsQ6SiuWpblvywj7w39BIzOU=
+hash: AkXR6G98OnjKZNFtRelEeAz9cW5+KCpcM2Nvt+7o/Gg=
 ---
 <img src="admin/mcp.png" alt="ioBroker.mcp" width="200"/>
 
@@ -52,6 +52,26 @@ Der Adapter kann über die ioBroker-Admin-Oberfläche mithilfe von JSONConfig ko
 Alle Lese- und Schreibvorgänge von Objekten/Zuständen, die von den Tools durchgeführt werden, erfolgen im Namen dieses Benutzers, sodass dessen Zugriffskontrolllisten (ACLs) durchgesetzt werden. Ein einfacher Name wie `operator` wird automatisch zu `system.user.operator` erweitert.
 Wenn die Anwendung als Web-Erweiterung ausgeführt wird und hier kein Benutzer festgelegt ist, wird der Standardbenutzer der Host-Instanz `web` verwendet.
 
+### OAuth
+MCP-Clients wie Claude Desktop verbinden sich über einen Browser-Login anstatt über ein manuell erstelltes Token.
+Der Client findet den Server selbstständig, der Benutzer meldet sich an und bestätigt die Anmeldung, und der Client sieht niemals das ioBroker-Passwort.
+
+- **OAuth aktivieren (Browser-Login)**: Im Standalone-Modus ist hierfür die *Authentifizierung aktivieren* erforderlich. Als **Web-Anmeldung**
+
+Erweiterung** Die ausgewählte `web`-Instanz stellt die Anmeldung bereit, daher muss OAuth **dort ebenfalls** aktiviert werden (Drittanbieterclients zulassen) – andernfalls erhalten MCP-Clients lediglich eine Weiterleitung zur Anmeldeseite, die sie nicht nutzen können.
+
+- **Öffentliche URL**: Die extern erreichbare Adresse dieses Servers, ohne Pfad, z. B.
+
+`https://iobroker.example.com`. Erforderlich hinter einem Reverse-Proxy: Die für die OAuth-Erkennung veröffentlichten URLs müssen für den Client erreichbar sein. Als Web-Erweiterung muss sie mit der in der `web`-Instanz konfigurierten öffentlichen URL übereinstimmen.
+
+- **Selbstregistrierung von Kunden zulassen**: MCP-Kunden können sich selbst registrieren (Standard: **aktiviert**). Wenn diese Option deaktiviert ist,
+
+Jeder Client muss zunächst manuell registriert werden. Im Web-Extension-Modus ist dies die Einstellung der `web`-Instanz, daher ist die Option hier ausgeblendet.
+
+**HTTPS ist erforderlich** für alles außer `localhost` – der Datenfluss läuft über den Browser des Benutzers, und MCP-Clients verweigern einfache `http://` für entfernte Hosts.
+
+Zugriffstoken sind an diesen Endpunkt gebunden, daher wird ein Token, das für einen anderen Dienst auf demselben Server ausgestellt wurde, abgelehnt. Clients können ihre Token über `POST /oauth/revoke` wieder freigeben.
+
 ### Berechtigungen
 - **Zustände festlegen**: Erlauben Sie MCP-Clients, Zustandswerte zu schreiben (die Tools `set_state` und `set_states`).
 
@@ -95,7 +115,7 @@ Der MCP-Server wird unter `POST/GET/DELETE /mcp` über den Streamable-HTTP-Trans
 | `ping_host` | Diagnose der Konnektivität zu einem Netzwerkgerät: ICMP-Ping an `host` plus optionale TCP-Verbindung zu `port` – nützlich zur Untersuchung von Adapter- `ETIMEDOUT`/Verbindungsfehlern |
 | `set_state` | Den Wert eines Zustands festlegen (Wert wird in den Zustandstyp umgewandelt) — erfordert *Zustände festlegen zulassen* |
 | `set_states` | Mehrere Zustände in einem Aufruf festlegen (für Szenen-/Gruppenaktionen wie "Alle Lichter aus") — erfordert *Zustandsfestlegung zulassen* |
-| `set_object` | Objekt erstellen/aktualisieren (führt gemeinsame/native zusammen) — erfordert *Objekt-/Dateiänderungen zulassen* |
+| `set_object` | Objekt erstellen/aktualisieren (führt gemeinsame/native Objekte zusammen) — erfordert *Objekt-/Dateiänderungen zulassen* |
 | `delete_object` | Ein Objekt löschen, optional mit allen untergeordneten Objekten — erfordert *Objekt-/Dateiänderungen zulassen* |
 | `create_state` | Erstelle ein neues Zustandsobjekt mit Typ/Rolle/Einheit/Min./Max. und optionalem Anfangswert — erfordert *Objekt-/Dateiänderungen zulassen* |
 | `create_scene` | Szene für den ioBroker `scenes` Adapter erstellen oder aktualisieren (Zustands-/Wertpaare werden gemeinsam angewendet) — erfordert *Objekt-/Dateiänderungen zulassen* |
@@ -103,7 +123,7 @@ Der MCP-Server wird unter `POST/GET/DELETE /mcp` über den Streamable-HTTP-Trans
 | `delete_file` | Eine Datei aus dem Adapterdateispeicher löschen — erfordert *Objekt-/Dateiänderungen zulassen* |
 | `rename_file` | Eine Datei innerhalb desselben Adapter-Dateispeichers umbenennen/verschieben — erfordert *Objekt-/Dateiänderungen zulassen* |
 | `mkdir` | Erstelle ein Verzeichnis im Adapterdateispeicher — erfordert *Objekt-/Dateiänderungen zulassen* |
-| `mkdir` | Erstellt ein Verzeichnis im Adapterdateispeicher — erfordert *Objekt-/Dateiänderungen zulassen* |
+| `mkdir` | Erstellt ein Verzeichnis im Adapter-Dateispeicher — erfordert *Objekt-/Dateiänderungen zulassen* |
 
 Der Zugriff auf Objekte/Zustände erfolgt ausschließlich mit den Berechtigungen des konfigurierten **Standardbenutzers**. Die Schreibwerkzeuge werden nur registriert, wenn die entsprechende Berechtigungsoption aktiviert ist.
 
@@ -137,6 +157,11 @@ Abonnements werden pro Sitzung verfolgt und referenzgezählt, sodass der Adapter
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2026-08-04)
+* (@GermanBluefox) Added OAuth: MCP clients can now be connected through a browser login instead of a manually created token
+* (@GermanBluefox) OAuth also works as a web extension, using the host `web` instance as the authorization server (requires OAuth enabled there too)
+* (@GermanBluefox) Updated `@iobroker/mcp-server` and `@iobroker/webserver`
+
 ### 1.0.11 (2026-07-02)
 * (@GermanBluefox) Default port was changed to 8011
 * (@GermanBluefox) Corrected the issue with authentication

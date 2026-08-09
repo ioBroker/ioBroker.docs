@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: Nf1qzWZZiTHeahfPb4tUJDxo9WHZScYRunGzwf0Vg64=
+hash: GmOL+WMpvzGqcMLCwJQovqvNrVCsyF3TCIXkpydehqQ=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -69,7 +69,7 @@ hash: Nf1qzWZZiTHeahfPb4tUJDxo9WHZScYRunGzwf0Vg64=
 - 每个通道的行为由其类型决定：“最佳成本（LTF）”、“最佳单小时（LTF）”、“最佳小时块（LTF）”或“智能电池缓冲”。
 每个通道都会填充一个或两个外部状态作为输出，需要在设置选项卡中选择。例如，该状态可以是“0_userdata.0.example_state”或任何其他可写的外部状态。
 - 如果没有选择外部输出状态，则会在通道的范围内创建一个内部状态。
-- 可以定义写入输出状态的值，用“值 YES”和“值 NO”表示，例如，“true”表示布尔状态，或者写入数字或文本。
+- 可以定义要写入输出状态的值，用“值 YES”和“值 NO”表示，例如，“true”表示布尔状态，或者要写入的数字或文本。
 - 输出：
 - “最佳成本”：以“触发价格”状态作为输入，当当前 Tibber 能源成本低于触发价格时，每小时输出“是”。
 - “最佳单小时数”：在成本最低的小时数内生成“YES”输出，该数字在“AmountHours”状态中定义。
@@ -106,7 +106,7 @@ hash: Nf1qzWZZiTHeahfPb4tUJDxo9WHZScYRunGzwf0Vg64=
 
 - TibberLink 适配器创建一个名为 `jsonFlexCharts` 的状态。
 
-                            <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts 状态">
+                              <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts 状态">
 
 - FlexCharts适配器通过以下URL呈现此状态：
 
@@ -256,7 +256,10 @@ Tibber 运行两个用途不同的独立 API：
 
 ### **WORK IN PROGRESS**
 
+- (HombachC) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts (#927)
+- (HombachC) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
 - (HombachC) updated tibber-api to 5.6.0
+- (HombachC) updated dependencies
 
 ### 7.2.0 (2026-07-30)
 

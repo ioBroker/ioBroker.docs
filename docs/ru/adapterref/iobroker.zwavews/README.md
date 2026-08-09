@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zwavews/README.md
 title: ioBroker.zwavews
-hash: Jzz1xQZ/yZ3i20BwMrCmoH/VqcEeBrAzoBtWjXCGoK8=
+hash: c3DIl7iUjKXS61DgcIgwuMGaiFHGtV8JbOblN/mG93k=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.zwavews.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.zwavews.svg)
@@ -38,6 +38,7 @@ hash: Jzz1xQZ/yZ3i20BwMrCmoH/VqcEeBrAzoBtWjXCGoK8=
 
 ### **РАБОТА В ПРОЦЕССЕ**
 * (arteck) fix reconnect ws
+* (arteck) добавить кнопку повторного интервью
 
 ## Changelog
 ### 1.0.4 (2026-07-23)

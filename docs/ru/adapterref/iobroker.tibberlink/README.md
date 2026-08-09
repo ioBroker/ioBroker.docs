@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: Nf1qzWZZiTHeahfPb4tUJDxo9WHZScYRunGzwf0Vg64=
+hash: GmOL+WMpvzGqcMLCwJQovqvNrVCsyF3TCIXkpydehqQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -77,7 +77,7 @@ hash: Nf1qzWZZiTHeahfPb4tUJDxo9WHZScYRunGzwf0Vg64=
 Кроме того, средняя общая стоимость в определенном блоке записывается в состояние "AverageTotalCost", расположенное рядом с входными состояниями этого канала. Также в результате вычислений в состояния "BlockStartFullHour" и "BlockEndFullHour" записываются время начала и окончания блока.
 
 - "Лучший процент": Выводит "ДА" в самый дешевый час и в любые другие часы, когда цена попадает в диапазон процентов, указанный в настройках "Процент".
-- «Оптимальная стоимость в рамках ограниченного временного периода»: «Оптимальная стоимость» в рамках ограниченного временного периода (LTF).
+- «Оптимальная стоимость в рамках ограниченного временного периода»: «Оптимальная стоимость» в рамках ограниченного временного периода.
 - «Лучшие отдельные часы в рамках ограниченного временного интервала» (LTF): «Лучшие отдельные часы» в рамках ограниченного временного интервала (LTF).
 - "Блок лучших часов в рамках ограниченного временного интервала (LTF)": "Блок лучших часов" в рамках ограниченного временного интервала (LTF).
 - "Лучший процент в рамках ограниченного временного интервала": "Лучший процент" в рамках ограниченного временного интервала (LTF).
@@ -105,7 +105,7 @@ hash: Nf1qzWZZiTHeahfPb4tUJDxo9WHZScYRunGzwf0Vg64=
 
 - Адаптер TibberLink создает состояние с именем `jsonFlexCharts`.
 
-                            <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts State">
+                              <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts State">
 
 — Адаптер FlexCharts отображает это состояние по следующему URL-адресу:
 
@@ -124,7 +124,7 @@ http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibb
 #### **Использование шаблонов JSON**
 — Состояние `jsonFlexCharts` генерируется на основе шаблона, настроенного через редактор JSON в параметрах адаптера.
 - Встроенный редактор JSON использует режим JSON5, поэтому допускаются комментарии и завершающие запятые.
-— Пример шаблона можно скачать по ссылке: [TemplateFlexChart01.md](docu/TemplateFlexChart01.md).
+— Образец шаблона можно скачать по ссылке: [TemplateFlexChart01.md](docu/TemplateFlexChart01.md).
 — Скопируйте и вставьте шаблон в редактор JSON.
 - Шаблон содержит заполнители:
 - `%%seriesData%%` (заполняется данными о ценах временного ряда во время выполнения).
@@ -144,7 +144,7 @@ http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibb
 ### 3. **Использование FlexCharts с пользовательским кодом JavaScript**
 Для максимальной гибкости и возможности индивидуальной настройки адаптер FlexCharts можно использовать с пользовательским JavaScript.
 
-— Адаптеры «FlexCharts» и «JavaScript» необходимо устанавливать отдельно.
+— Адаптеры "FlexCharts" и "JavaScript" необходимо устанавливать отдельно.
 — Такой подход позволяет создавать множество настраиваемых графиков.
 — Для получения более подробной информации обратитесь к [обсуждению адаптера FlexCharts](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67).
 
@@ -254,7 +254,10 @@ Tibber использует два отдельных API, предназнач�
 
 ### **WORK IN PROGRESS**
 
+- (HombachC) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts (#927)
+- (HombachC) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
 - (HombachC) updated tibber-api to 5.6.0
+- (HombachC) updated dependencies
 
 ### 7.2.0 (2026-07-30)
 

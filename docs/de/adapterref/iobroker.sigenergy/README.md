@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sigenergy/README.md
 title: ioBroker Sigenergy Adapter
-hash: F6Nt6sPKMmmrscCaDo0zQj9MCUOGXOTA+qjdkn8pD4g=
+hash: qHdyQoDcMcC7u6XmPVCdEneUhTwcH7iVIXiuZLE9NWE=
 ---
 # IoBroker Sigenergy Adapter
 
@@ -28,7 +28,7 @@ Unterstützt das Sigenergy Modbus-Protokoll V2.9 (veröffentlicht am 13.05.2026)
 - ☀️ **PV-Statistiken** — Eigenverbrauchsquote, Autarkiequote
 - 🔌 **Netzteil** (Sigen EVAC) — Optional
 - ⚡ **Gleichstromladegerät** — Optional
-- 🏗️ **PSS** (Power Station Switch) — Optional, Überwachung von Mittel-/Niederspannungs-Schaltanlagen und Verteilerschränken
+- 🏗️ **PSS** (Power Station Switch) — Optionale Überwachung von Mittel-/Niederspannungs-Schaltanlagen und Verteilerschränken
 - 🔍 **PID** (PV-Isolationserkennung) — Optional
 - 🌡️ **ESS-Vorheizung** — Zeitgesteuerter Zeitplan, 30 konfigurierbare Zeitfenster (M1-HYA/HYB)
 - 📈 **Erweiterte Register** — Intelligente Lasten 1–24, kumulative Energie, Netzanschlussparameter
@@ -44,6 +44,15 @@ Unterstützt das Sigenergy Modbus-Protokoll V2.9 (veröffentlicht am 13.05.2026)
 | **Hybrid-Inv.** | SigenStor EC SP/TP, Sigen Hybrid SP/TP/TPLV, Sigen PV M1-HYA, PG-Controller |
 | **PV-Inv.** | Sigen PV Max SP/TP, Sigen PV M1 |
 | **EVAC (AC)** | Sigen EVAC 7/11/22 kW, PG EVAC |
+
+---
+
+## Anforderungen
+| Komponente | Mindestversion |
+|-----------|-----------------|
+| **js-controller** | >= 6.0.11 |
+| **Admin** | >= 8.0.0 |
+| **Node.js** | >= 22 |
 
 ---
 
@@ -162,7 +171,7 @@ Alle konfigurierten Notfallgeräte werden sofort umgeschaltet.
 **Bei Rückkehr zum Raster** (`onOffGridStatus` = 0):
 
 - Ein konfigurierbarer Stabilitätstimer startet (Standard: 10 Minuten)
-- Wenn das Stromnetz über den gesamten Zeitraum stabil bleibt, werden die Geräte wiederhergestellt.
+Wenn das Stromnetz über den gesamten Zeitraum stabil bleibt, werden die Geräte wiederhergestellt.
 - Sollte das Stromnetz während der Timer-Zeit erneut ausfallen, wird der Timer verworfen und die Geräte bleiben ausgeschaltet.
 - Bei erfolgreicher Wiederherstellung wird eine Telegram-Benachrichtigung versendet (optional).
 
@@ -207,7 +216,7 @@ Das Balkonkraftwerk ist nun automatisch geschützt.
 Zeigt den animierten Energiefluss zwischen PV → Batterie ↔ Netz → Haus.
 
 ### Akku-Status-Widget
-Zeigt den Ladezustandsbalken, den Gesundheitszustandsanzeiger, die verbleibende Zeit bis zum vollständigen/leeren Füllstand und die aktuelle Leistung an.
+Zeigt den Ladezustandsbalken, den Gesundheitszustandsanzeiger, die verbleibende Zeit bis zum vollständigen/leeren Füllen und die aktuelle Leistung an.
 
 ### Leistungsübersichts-Widget
 Live-Lesung aller vier Energieflüsse.
@@ -236,7 +245,7 @@ Status- und Leistungsanzeigen für das Gleichstromladegerät.
 
 ## Dokumentation
 - 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
-- 🇷🇺 [Dokumentation auf Russisch](doc/ru/README.md)
+- 🇷🇺 [Документация на русском](doc/ru/README.md)
 - 🇳🇱 [Niederländische Dokumentation](doc/nl/README.md)
 - 🇫🇷 [Documentation française](doc/fr/README.md)
 - 🇮🇹 [Documentazione Italiana](doc/it/README.md)
@@ -247,6 +256,24 @@ Status- und Leistungsanzeigen für das Gleichstromladegerät.
 - 🇨🇳 [简体中文文档](doc/zh-cn/README.md)
 
 ## Changelog
+
+### 3.1.2 (2026-08-06)
+- (ssbingo) chore: resolved all 28 npm audit findings (3 critical, 11 high) — development tooling only, the published adapter is unchanged
+- (ssbingo) chore: removed `@iobroker/dev-server`; it was the sole source of the critical findings via the deprecated `request` and `xmldom` packages, for which no fixed release exists. This also removes the `npm start` / `npm run watch` scripts
+- (ssbingo) chore: added `overrides` lifting transitive dev dependencies onto patched versions
+- (ssbingo) chore: removed `main.test.js`, an unused create-adapter template stub
+
+### 3.1.1 (2026-08-05)
+- (ssbingo) chore: security updates for transitive dependencies (brace-expansion 1.1.18, axios 1.19.0, fast-uri 3.1.5, socket.io-parser 4.2.7)
+
+### 3.1.0 (2026-08-05)
+- (MMeinhardt1) feat: statistics module improvements — new states `pvToBatteryPower`, `batteryToHousePower`, `gridImportToday`, `gridExportToday`, `currentSoc`, `currentPvPower` and `h:mm` formatted durations for all time statistics
+- (MMeinhardt1) feat: daily statistics (SOC min/max, coverage time, grid energy, charging time) are restored from persisted states and now survive an adapter restart mid-day
+- (MMeinhardt1) change: `batteryDailyChargeTime` now reports the cumulative time spent charging today instead of the time until the battery was first full
+- (MMeinhardt1) fix: battery coverage time is accumulated incrementally instead of being derived from the capped history buffer, which only spanned ~1 hour
+- (ssbingo) chore: minimum requirements raised — js-controller >= 6.0.11, admin >= 8.0.0, Node.js >= 22
+- (ssbingo) fix: add missing admin i18n translations for the new battery flow power option across all 11 languages
+- (ssbingo) chore: update dependencies (@iobroker/adapter-core 3.4.3, @iobroker/testing 5.3.0, @types/node 22.20.1, ws 8.21.1, actions/setup-node v7, testing-action-deploy 1.5.2)
 
 ### 3.0.10 (2026-06-29)
 - (ssbingo) chore: bump js-yaml from 4.1.1 to 4.3.0

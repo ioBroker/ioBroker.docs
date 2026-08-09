@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: 60+DRI9D8uSwmuFkq6oAc5lUlKuPsGi/eRb3/J/VJ0E=
+hash: DzSFuG4UbAWrJLIf0PvlTd50q97IdLPscjyHu9d4QnY=
 ---
 # Was ist neu
 ## Hinweise für Autoren
@@ -169,7 +169,7 @@ Dies ist ein komplettes Visualisierungssystem für ioBroker.
 * WYSIWYG-Editor für die Benutzeroberfläche, aber Sie können auch zur Quelltextansicht oder geteilten Ansicht wechseln.
 * Mehrfenster-Benutzeroberfläche in der Bearbeitungsansicht, wie in Visual Studio
 * Bindungen pro Drag & Drop von ioBroker-Objekten auf UI-Elemente oder Eigenschaften
-* komplexe Bindungen mit JavaScript-Einbindung und Konvertern
+* komplexe Bindungen mit eingebettetem JavaScript und Konvertern
 * eine einfache Skriptsprache, die über die Benutzeroberfläche erstellt werden kann.
 
 ## Heizungssteuerung (4.10.2023) - neuer Adapter
@@ -234,7 +234,7 @@ Für Smart-Home-Fans gibt es eine wichtige Neuigkeit: Die ESPHome-Dokumentation 
 Dieses Update folgt der Annahme eines kürzlich eingereichten Pull Requests und positioniert ioBroker neben Home Assistant als eines der wenigen Smart-Home-Systeme, die die native ESPHome-API für die direkte Client-Kommunikation nutzen.
 
 Die native API, bekannt für ihr hochoptimiertes Netzwerkprotokoll, bietet zahlreiche Vorteile gegenüber herkömmlichen MQTT-Methoden und vereinfacht die Interaktion von Smart-Geräten innerhalb des Ökosystems.
-Mit dieser Auszeichnung bekräftigt ESPHome sein Engagement für effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche.
+Mit dieser Anerkennung bekräftigt ESPHome sein Engagement für effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche.
 
 ## Vis (06.11.2023) - neue Funktion
 Die Lizenz von vis wurde auf MIT geändert. Das bedeutet, dass Sie vis kostenlos in kommerziellen Projekten verwenden können und keine weitere Lizenz erforderlich ist.
@@ -301,7 +301,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Art-Net-Daten in einer Datei speichern, um sie später wiederzugeben
 
-##energiefluss (25.01.2024) – neuer Adapter
+## Energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -396,7 +396,7 @@ https://github.com/ioBroker/ioBroker.nmea
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.nmea/main/admin/nmea.png" width="100" height="100" />
 
-Dieser Adapter ermöglicht den Anschluss von ioBroker an den NMEA-2000-Yachtbus. Sie können Geschwindigkeit über Grund (SOG), Kurs über Grund (COG), GPS-Position, Tiefe, Wind, Temperatur und viele weitere Daten vom NMEA-2000-Bus auslesen.
+Dieser Adapter ermöglicht die Verbindung von ioBroker mit dem NMEA-2000-Yachtbus. Sie können Geschwindigkeit über Grund (SOG), Kurs über Grund (COG), GPS-Position, Tiefe, Wind, Temperatur und viele weitere Daten vom NMEA-2000-Bus auslesen.
 
 Und sogar den Raymarine-Autopiloten steuern.
 
@@ -739,7 +739,7 @@ https://github.com/weberk/ioBroker.ta-blnet
 
 <img src="https://raw.githubusercontent.com/weberk/ioBroker.ta-blnet/main/admin/ta-blnet.png" width="100" height="100" />
 
-Ein ioBroker-Adapter von Technische Alternative zum Auslesen von Daten von einem oder bis zu acht Klimareglern mittels BL-NET. Alternativ kann eine unbegrenzte Anzahl von Klimareglern an CMI angeschlossen werden.
+Ein ioBroker-Adapter von Technische Alternative zum Auslesen von Daten von einem oder bis zu acht Klimareglern über BL-NET. Alternativ kann eine unbegrenzte Anzahl von Klimareglern an CMI angeschlossen werden.
 
 ## Teslafi (11.1.2025) – neuer Adapter
 https://github.com/hombach/ioBroker.teslafi
@@ -812,7 +812,7 @@ https://github.com/DpunktS/ioBroker.seplos-v3-sniffer
 
 <img src="https://raw.githubusercontent.com/DpunktS/ioBroker.seplos-v3-sniffer/main/admin/seplos-v3-sniffer.jpg" width="100" height="100" />
 
-Dieser Adapter wurde entwickelt, um das Seplos V3 BMS in einer Multipack-Konfiguration auszulesen. In der V3-Generation fungiert das erste BMS als Modbus-Master, alle weiteren als Slaves. In dieser Konfiguration ist der Zugriff auf das BMS über Modbus von einem dritten Gerät aus nicht mehr möglich, da in einem RS-485-Modbus-System nicht zwei Master-Geräte gleichzeitig existieren können. Der Adapter erkennt die Kommunikation zwischen den Geräten passiv, sodass die Kommunikation der einzelnen BMS nicht beeinträchtigt wird. Die Kommunikation kann entweder über eine lokale Schnittstelle (z. B. /dec/ttyS0) oder über Ser2Net (tcp://ip:2001) erfolgen.
+Dieser Adapter wurde entwickelt, um das Seplos V3 BMS in einer Multipack-Konfiguration auszulesen. In der V3-Generation fungiert das erste BMS als Modbus-Master, alle weiteren BMS als Slaves. In dieser Konfiguration ist der Zugriff auf das BMS über Modbus von einem dritten Gerät aus nicht mehr möglich, da in einem RS-485-Modbus-System nicht zwei Master-Geräte gleichzeitig existieren können. Der Adapter erkennt die Kommunikation zwischen den Geräten passiv, sodass die Kommunikation der einzelnen BMS nicht beeinträchtigt wird. Die Kommunikation kann entweder über eine lokale Schnittstelle (z. B. /dec/ttyS0) oder über Ser2Net (tcp://ip:2001) erfolgen.
 
 ## Lcn (12.3.2025) – neue Funktion
 https://github.com/ioBroker/ioBroker.lcn
@@ -858,7 +858,7 @@ https://github.com/mcm4iob/ioBroker.shrdzm
 
 <img src="https://raw.githubusercontent.com/mcm4iob/ioBroker.shrdzm/main/admin/shrdzm.png" width="100" height="100" />
 
-Dieser Adapter integriert die von SHRDZM IT Services e.U. bereitgestellte Smartmeter-Schnittstelle von SHRDZM in ioBroker. Eine Beschreibung der Schnittstelle finden Sie unter [Hier](https://cms.shrdzm.com/produkt/smartmeter-modul/).
+Dieser Adapter integriert die von SHRDZM IT Services e.U. bereitgestellte SHRDZM-Smartmeter-Schnittstelle in ioBroker. Eine Beschreibung der Schnittstelle finden Sie unter [Hier](https://cms.shrdzm.com/produkt/smartmeter-modul/).
 
 ## Js-controller (16.4.2025) - neue Funktion
 Der js-Controller 7.0.7 ist jetzt in der neuesten Version verfügbar. Sie enthält Fehlerbehebungen und Verbesserungen. Die wichtigsten Änderungen sind:
@@ -1374,5 +1374,54 @@ https://github.com/SimonFischer04/ioBroker.miner
 <img src="https://raw.githubusercontent.com/SimonFischer04/ioBroker.miner/main/admin/miner.png width="100" height="100" />
 
 Interaktion mit verschiedenen Krypto-Miner-APIs
+
+## Script-restore (4.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/ipod86/ioBroker.script-restore
+
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.script-restore/main/admin/script-restore.svg width="100" height="100" />
+
+Durchsuchen und Wiederherstellen einzelner Skripte aus ioBroker-Backup-Archiven – ohne das gesamte Backup wiederherstellen zu müssen.
+
+## Feiertage (4.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/krobipd/ioBroker.public-holidays
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.public-holidays/main/admin/public-holidays.svg width="100" height="100" />
+
+Erkennt Feiertage in 206 Ländern. Funktioniert komplett offline – keine Cloud, keine API-Aufrufe. Aktualisiert sich täglich um Mitternacht.
+
+## Hoymiles (4.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/Eistee82/ioBroker.hoymiles
+
+<img src="https://raw.githubusercontent.com/Eistee82/ioBroker.hoymiles/main/admin/hoymiles.png width="100" height="100" />
+
+ioBroker-Adapter für Hoymiles HMS-xxxW-xT und HMS-xxx-xWB Mikro-Wechselrichter mit integriertem WiFi/Bluetooth DTU (DTUBI).
+
+## Blink (4.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/Pischleuder1/ioBroker.blink
+
+<img src="https://raw.githubusercontent.com/Pischleuder1/ioBroker.blink/main/admin/blink.png width="100" height="100" />
+
+ioBroker-Adapter für Blink-Kameras.
+
+## Tesla-wallconnector3 (4.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/nobl/ioBroker.tesla-wallconnector3
+
+<img src="https://raw.githubusercontent.com/nobl/ioBroker.tesla-wallconnector3/main/admin/tesla-wallconnector3.png width="100" height="100" />
+
+Liest Live-Daten von einem Tesla Wall Connector Gen 3 in Ihrem lokalen Netzwerk. Der Adapter fragt die Wallbox-API ab und erstellt ioBroker-Zustände für Ladestatus, Leistung, Energie, Temperaturen, WLAN und mehr.
+
+## Victron-gx (4.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/Sefina-DS/ioBroker.victron-gx
+
+<img src="https://raw.githubusercontent.com/Sefina-DS/ioBroker.victron-gx/main/admin/victron-gx.png width="100" height="100" />
+
+Dieser Adapter verbindet ioBroker direkt und lokal mit Victron Energy GX-Geräten (Cerbo GX, Venus GX, Ekrano GX) – ohne Umweg über Home Assistant oder die VRM Cloud.
+
+## Go-e-charger (4.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/hombach/ioBroker.go-e-charger
+
+<img src="https://raw.githubusercontent.com/hombach/ioBroker.go-e-charger/master/admin/go-eCharger.png width="100" height="100" />
+
+Dieser Adapter integriert eine oder mehrere go-e Charger Wallboxen in Ihre ioBroker-Hausautomation. Er fragt jede Wallbox zyklisch über ihre lokale HTTP-API ab, stellt alle relevanten Daten gemäß den ioBroker-Statusmeldungen bereit und ermöglicht Ihnen die direkte Steuerung des Ladevorgangs von Ihrem Smart Home aus.
 
 <!-- ######################### Diese Zeilen am Ende der Datei als Erinnerung behalten ######################## --> <!-- ##### ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Icons! ### --> <!-- ######################## Diese Zeilen am Ende der Datei als Erinnerung behalten ####################### -->

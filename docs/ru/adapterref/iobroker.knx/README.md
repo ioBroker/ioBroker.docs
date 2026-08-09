@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: BG9g9kypy8lgesLpBARqRjzK7oSNIywI9FVi3+zlp6o=
+hash: 446KT1mq24U1sxvwHHLu8Ft523jsf5ainuqeZ2zjeBo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -166,7 +166,7 @@ ru: [Установка и базовая настройка адаптера](d
 | - | - | x | x | - | значение состояния будет обновлено функцией GroupValueResponse |
 | x | - | x | x | x | Отправка любого значения в этом состоянии запускает GroupValueRead |
 
-6. Создание узлов-источников данных (DPP):
+6. Создание узлов-партнеров данных (DPP):
 
 Если GA, GAR и DPT действительны, будет создан DPP. Это те DPP, с которыми работает адаптер.
 Если DPT отсутствует в GA, потому что его не удалось найти, то DPP не будет создан. Это можно сделать с помощью GA-Tool.
@@ -186,7 +186,7 @@ ru: [Установка и базовая настройка адаптера](d
 Это НЕ адрес шлюза локальной сети, и он не должен заканчиваться на 0!!!
 
 * Порт интерфейса локальной сети обычно равен 3671.
-* В связи с возможностью запроса статуса необходимо отметить следующее: следует обеспечить, чтобы количество запросов не превышало 40 в день.
+* В связи с возможностью запроса статуса необходимо отметить следующее: следует убедиться, что количество запросов не превышает 40 в день.
 
 Вторые генерируются ioBroker, поскольку их можно физически сгенерировать, и они больше не могут быть переданы шлюзу адаптером.
 
@@ -248,357 +248,6 @@ ru: [Установка и базовая настройка адаптера](d
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **РАБОТА В ПРОЦЕССЕ** -->
-## Версии
-### 2.0.40 (05.04.2026)
-* Исправлена обработка ответов о состоянии соединения
-
-### 2.0.39 (05.04.2026)
-* Добавлена поддержка ETS 6.4.1
-* исправление ошибок
-* обновления зависимостей
-
-### 2.0.38 (01.03.2026)
-* 0
-
-### 2.0.37 (20.02.2026)
-* обновления зависимостей
-* Исправлена ошибка в конфигурации адаптера
-
-### 2.0.35 (05.02.2026)
-* обновления зависимостей
-* Исправление ошибок в GA-Tools
-* Улучшения функциональности в GA-Tools
-
-### 2.0.33 (22.06.2025)
-* Проблема нестабильного соединения knx решена
-
-### 2.0.31 (22.05.2025)
-* Обновлена схема импорта адаптера для ETS 6.3.1
-* Требуется Node.js >= 22
-
-### 2.0.30 (22.12.2024)
-* Исправлены ошибки графического интерфейса пользователя, начинается перепроектирование GA-Tools
-
-### 2.0.29 (11.12.2024)
-* Обновлена схема импорта адаптера для ETS 6.3.0
-* Требуется Node.js >= 20
-
-### 2.0.28
-* Обновить данные, связанные с лицензией, и исправить версию пакета.
-
-### 2.0.27 (02.05.2024)
-* Обновлена схема импорта адаптера для ETS 6.2.2
-* Исправлена ошибка UTF-8
-
-### 2.0.26 (28.03.2024)
-* Обновлена схема импорта адаптера для ETS 6.2.1
-* Требуется Node.js >= 18
-
-### 2.0.25 (03.03.2024)
-* Обновлена схема импорта адаптера для ETS 6.2.0
-* мелкие исправления ошибок
-
-### 2.0.24 (24.11.2023)
-* Обновлена схема импорта адаптера для ETS 6.1.1
-
-### 2.0.23 (11.10.2023)
-* Исправлена ошибка с неправильным портом шлюза после обновления адаптера
-* Допускается самостоятельное определение значений для минимального и максимального значений.
-* некоторые другие мелкие исправления
-
-### 2.0.22 (04.07.2023)
-* Добавлена спецификация импорта, решены проблемы в GaTools
-
-### 2.0.21 (17.06.2023)
-* исправлена обработка лицензий
-
-### 2.0.20 (16.06.2023)
-* Исправлена обработка лицензий в js-контроллере версии > 5
-
-### 2.0.19 (29.05.2023)
-* Добавлен импорт из ETS V6.1.0
-* Требуемая версия Node: >= 16.13.1
-
-### 2.0.18 (08.04.2023)
-* фиксированная задержка отправки
-* небольшие изменения
-
-### 2.0.17 (14.10.2022)
-* Добавлен импорт ETSv6.0.6
-* Значительные изменения в пользовательском интерфейсе настройки адаптера
-* Исправлено изменение настроек портов для LAN-GW
-
-### 2.0.16 (04.09.2022)
-* Добавлен импорт ETSv6.0.5
-
-### 2.0.15 (02.06.2022)
-* Исправлена ошибка импорта при работе с очень большими файлами каталога KNX.
-* Исправлены нераспознанные обрывы соединения
-
-### 2.0.14 (08.04.2022)
-* Добавлена версия ETSv6.0.4 (переопределение 6.0.3)
-* Небольшие исправления ошибок
-
-### 2.0.13 (12.03.2022)
-* Добавлен импорт ETSv5.7.7
-* Исправлена ошибка "неизвестное значение"
-* некоторые другие мелкие исправления
-
-### 2.0.12 (25.02.2022)
-* Исправлена обработка неопределенных DP
-* Обновлены типы точек данных
-* В будущем будет исправлено предупреждение о несовместимом DPT.
-* Самое главное: меня шокирует война на Украине. Мои мысли с народом Украины.
-
-Мне бесконечно жаль того, что с ними и их страной происходит. Это бесчеловечный позор.
-
-* Я не могу это исправить, но призываю всех: будьте соседями, а не врагами. Уважайте друг друга и не враждуйте.
-
-### 2.0.11
-* Исправлена обработка паролей для проектов из обновленной версии ETS.
-
-### 2.0.10
-* Импорт проектов ETS6.0.2 **ETS6.0.1 невозможен**
-* исправления ошибок
-
-### 2.0.9
-* импорт файлов проекта, защищенных паролем
-* исправления ошибок
-
-### 2.0.8
-* Исправлена ошибка с неподтвержденной записью
-* Исправлена ошибка в linkedState
-
-### 2.0.7
-* Исправлена ошибка, из-за которой не удавалось записывать данные в KNX.
-
-### 2.0.6
-* Исправлена проблема с импортом ETSv6
-* множество мелких исправлений ошибок
-* Реализована функция DirectLink в GA-Tools
-
-### 2.0.5
-* Исправлена проблема с импортом в ETSv4
-* исправлены некоторые сообщения
-* скорректированный диапазон минимальных и максимальных значений DPT14.x
-
-### 2.0.4
-* исправлен расчет DPT9.xxx
-* реализованная дата и время DPT19.00x
-* Исправлена запутывающая ошибка "отсутствие лицензии"
-* Небольшие исправления ошибок
-
-### 2.0.3 (04.12.2021)
-* исправлен подсчет первой точки данных
-* Автоматическое удаление старой лицензии V1, что предотвращает путаницу после обновления с V1 до V2.
-
-### 2.0.1
-* Исправлена проблема с принятием лицензии
-
-### 2.0.0 (15.11.2021) **Крупный релиз**
-* Критические изменения! => Требуется новая лицензия. Лицензии V1 работать не будут. => Бизнес-лицензии V1 можно заменить на V2.
-* Полная рефакторизация knx-admin
-* Добавлен инструмент для управления GA в knx-admin
-* Исправлено множество ошибок (в knx-stack, при импорте проектов ETS, при переподключении и таймаутах).
-* добавлены новые типы точек данных
-* Добавлен импорт до ETS V6
-* изменено управление лицензиями
-
-### 1.0.46 (2021-03-23)
-* Новый графический интерфейс администратора
-
-### 1.0.45 (2021_03_22)
-* импорт проектов ETS v5.7.5
-
-### 1.0.44 (2021_01_22)
-* фиксированная обработка актов и состояний
-* Добавлены новые типы данных
-* Исправлена ошибка распознавания помещений и устройств, а также распределения устройств.
-
-### 1.0.42 (2020_09_03)
-* Исправлена проблема с отсутствующим файлом index_m.html
-
-### 1.0.41
-* Исправлена ошибка в событии GroupValue_Response
-* Исправлено соединение с шлюзом Gira GW
-
-### 1.0.40
-* Исправлены некоторые ошибки импорта для ETS 5.7.x
-* Исправлена ошибка в событии GroupValue_Response
-
-### 1.0.39
-* Исправлена ошибка импорта
-
-### 1.0.38
-* Исправлены некоторые ошибки при импорте
-* Отображать предупреждение, если файл импорта защищен паролем
-
-### 1.0.37 (2010-01-31)
-* Обновление для импорта в ETS 5.7.3
-
-### 1.0.36 (2019-10-16)
-* Исправлены некоторые ошибки
-
-### 1.0.35 (2019-09-15)
-* Исправлена проблема с постоянным переподключением при отсутствии трафика в шине KNX.
-
-### 1.0.34 (2019-09-15)
-* Изменения в импортере для определения идентификатора проекта
-
-### 1.0.33 (2019-09-12)
-* Исправлена ошибка при записи в шину
-* добавлены единицы измерения в штаты
-* Исправлена ошибка "чтение/запись неопределенного значения"
-
-### 1.0.32 (2019-09-03)
-* Обновлен импортер для ETS V5.7.2, внесены некоторые изменения в конечный автомат стека KNX.
-
-### 1.0.31
-* Внесены некоторые исправления в импортер ETS5.7.2
-* Небольшие изменения в конечном автомате стека knx
-* Добавлен (снова) физический адрес в диалоговое окно настроек администратора
-* Исправлена ошибка в генерации deviceTree
-
-### 1.0.30
-* Новый импортер для файлов knxproj в ETS5.7.2
-* расширенный набор принимаемых типов точек данных
-* новое меню конфигурации адаптера
-* Добавлен переключатель, позволяющий пользователю выбирать между значениями «true» и «false» или «0» и «1» для двоичных значений.
-* Исправлена ошибка в функции GroupValue_Read
-* Реализован селектор для интерфейса локальной сети для связи KNX со шлюзом.
-* Расширенный объект состояния для последующих функций
-* Исправлены некоторые мелкие ошибки
-
-### 1.0.20
-* Исправлена ошибка в обработке пакетов данных KNX, вызывающая периодические переподключения.
-* Исправлена ошибка в процедуре загрузки файлов проекта KNX
-
-### 1.0.19
-* Для DPT1.x возвращена обработка значений true/false
-
-### 1.0.18
-* Исправлена проблема с загрузкой файлов проекта ETS5.6.x
-* Изменены значения для "логического" значения с 1 и 0 на true/false
-* Исправлено распознавание набора ролей для DPT1.x при переключении
-* Исправлена ошибка записи DPT16.xxx в шину KNX со значениями < 14 байт
-
-### 1.0.17 (2018-08-16)
-* Улучшенная обработка состояний
-* Добавить настраиваемую стоимость пакета
-* Исправлена ошибка в функции "импортировать только новые объекты"
-
-### 1.0.15 (2018-07-18)
-* изменить ChID при повторном подключении
-* При запуске системы ожидается ответ канала состояния или истечение таймаута при чтении.
-
-### 1.0.13 (2018-07-04)
-* Отмена специальных знаков при импорте
-* мелкие исправления ошибок
-
-### 1.0.12 (19.06.2018)
-* сокращенный и отсортированный вывод логов
-* мелкие исправления ошибок
-* Новая функция: запрос состояния/значения объекта состояния из шины KNX.
-
-### 1.0.11 (2018-05-27)
-* Исправлена проблема с корректирующим значением DPT1
-* Исправлена проблема с переподключением
-* другие небольшие оптимизации и исправления
-
-### 1.0.10 (2018-05-04)
-* Закрытие локального порта в случае неопределенного состояния соединения
-* Добавлен расширенный уровень отладки через adapter-config
-* множество исправлений
-
-### 1.0.9 (2018-04-29)
-* изменено на обработку по штатам
-* исправлен "запрос на отключение"
-* Изменена обработка соединений с использованием knxd
-* множество мелких исправлений
-
-### 1.0.8 (2018-04-04)
-* измененная очередь пакетов
-* Исправлено подтверждение (ACK) при отправке в шину KNX.
-* множество мелких исправлений
-
-### 1.0.7 (2018-03-16)
-* Исправлена блокировка адаптера при загрузке проектов
-
-### 1.0.6 (2018-03-11)
-* Исправлена проблема с подключением
-* исправлен счетчик посылок
-
-### 1.0.5 (01.03.2018)
-* Исправлены пустые объекты, связанные с DPT1 (сообщение об ошибке \[object Object\] неизвестное входное значение)
-* переменная фиксированного пути
-* Исправлена ошибка, из-за которой в имени GA содержался символ "/" (при импорте проекта).
-* Начать реализацию перекрестного обновления свойств в соответствующем DPT (при импорте проекта)
-
-### 1.0.4 (27.02.2018)
-* Обновление схемы для перечисления помещений будет включено в ETS 5.6.
-
-### 1.0.2 (27.02.2018)
-* kleine Fehler beseitigt
-
-### 1.0.1 (2018-02-26)
-* Исправлена ошибка сертификата
-
-### 1.0.0 (2018-02-25)
-* Замена используемого стека KNX на собственный стек, созданный с нуля.
-* Полномасштабная реализация DPT в соответствии с «Системными спецификациями, взаимодействием и типами точек данных» от ассоциации KNX.
-* Усиление обработки соединений для туннельных соединений
-* Обновите интерфейс настройки адаптера, чтобы он был готов к работе с Admin3.
-* Удален параметр "Delay Slider" из-за нового стека knx.
-* множество других мелких изменений
-* фиксированные значения после запятой соответствуют масштабному значению DPT
-* Реализован режим "добавления" для загрузки проекта KNX (существующие объекты остаются без изменений, добавляются только новые).
-
-### 0.8.6 (17.06.2017)
-* Небольшие исправления ошибок
-* Установите ползунок, чтобы задать задержку отправки для медленных шлюзов KNX/LAN и предотвратить потерю соединения.
-
-### 0.8.5 (2017-06-05)
-* Пересборка загрузчика проекта, dpt13-fix
-
-### 0.8.3 (2017-04-24)
-* Добавлено обновление канала действий соответствующего состояния
-* Исправлена ошибка в обновлении state-vis
-* оптимизированная загрузка knxproj
-
-### 0.8.2 (2017-02-26)
-* Реализован анализ конфигурации устройства из knxproj
-* Лучший выбор состояния/значения объектов DP
-
-### 0.8.1 (06.02.2017)
-* Исправлена проблема с переключателем DPT1
-
-### 0.8.0 (2017-02-xx) скоро будет доступна
-### 0.7.3 (2016-12-22)
-* (chefkoch009) Поддерживается больше DPT
-* более быстрый запуск
-* Реализовано создание списка комнат с учетом зависимостей от устройств.
-
-### 0.7.2 (2016-11-20)
-* (chefkoch009) добавил необходимые зависимости
-
-### 0.7.1 (19.11.2016)
-* (chefkoch009) Поддержка стандартных шлюзов KNX/LAN.
-
-### 0.7.0 (2016-10-13)
-* (chefkoch009) Поддержка экспорта проекта
-
-### 0.6.0 (2016-07-20)
-* (chefkoch009) редизайн
-
-### 0.5.0
-* (vegetto) include vis widget
-
-#### 0.4.0
-* (bluefox) исправление ошибок с помощью grunt
-
-#### 0.2.0
-* (bluefox) первый релиз
-
 ## Исключения и ошибки
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
@@ -609,6 +258,441 @@ ru: [Установка и базовая настройка адаптера](d
 * foxriver76
 
 ## Changelog
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
+### 2.0.40 (05.04.2026)
+
+* fixed connection state response handling
+
+### 2.0.39 (05.04.2026)
+
+* added support for ETS 6.4.1
+* bug fixing
+* dependency updates
+
+### 2.0.38 (01.03.2026)
+
+* 0
+
+### 2.0.37 (20.02.2026)
+
+* dependency updates
+* bug fix in adapter configuration
+
+### 2.0.35 (05.02.2026)
+
+* dependency updates
+* bug fixing in GA-Tools
+* feature enhancements in GA-Tools
+
+### 2.0.33 (22.6.2025)
+
+* unstable knx-connection problem solved
+
+### 2.0.31 (22.05.2025)
+
+* updated the adapter import schema for ETS 6.3.1
+* nodejs >= 22 is required
+
+### 2.0.30 (22.12.2024)
+
+* fixed GUI errors, starting redesign GA-Tools
+
+### 2.0.29 (11.12.2024)
+
+* updated the adapter import schema for ETS 6.3.0
+* nodejs >= 20 is required
+
+### 2.0.28
+
+* Update license related data and fix package version
+
+### 2.0.27 (02.05.2024)
+
+* updated the adapter import schema for ETS 6.2.2
+* fixed UTF-8 error
+
+### 2.0.26 (28.03.2024)
+
+* updated the adapter import schema for ETS 6.2.1
+* nodejs >= 18 is required
+
+### 2.0.25 (03.03.2024)
+
+* updated the adapter import schema for ETS 6.2.0
+* small bug-fixes
+
+### 2.0.24 (24.11.2023)
+
+* updated the adapter import schema for ETS 6.1.1
+
+### 2.0.23 (11.10.2023)
+
+* corrected wrong GW Port after adapter upgrade
+* allow self-defined values for min and max
+* some small other fixes
+
+### 2.0.22 (04.07.2023)
+
+* added import specification, solved problems in GaTools
+
+### 2.0.21 (17.06.2023)
+
+* fixed license handling
+
+### 2.0.20 (16.06.2023)
+
+* fixed license handling with js-controller Version > 5
+
+### 2.0.19 (29.05.2023)
+
+* added ETS V6.1.0 import
+* required node version >= 16.13.1
+
+### 2.0.18 (08.04.2023)
+
+* fixed send-delay
+* small changes
+
+### 2.0.17 (14.10.2022)
+
+* added ETSv6.0.6 import
+* major changes in Adapter Config UI
+* fixed change of port settings for LAN-GW
+
+### 2.0.16 (04.09.2022)
+
+* added ETSv6.0.5 import
+
+### 2.0.15 (02.06.2022)
+
+* fixed import error with extrem large KNX catalogue files
+* fixed unrecognized connection breaks
+
+### 2.0.14 (08.04.2022)
+
+* added ETSv6.0.4 (override 6.0.3)
+* small bugfixes
+
+### 2.0.13 (12.03.2022)
+
+* added ETSv5.7.7 import
+* fixed "unknown value" bug
+* some other small fixes
+
+### 2.0.12 (25.02.2022)
+
+* fixed handling of undefined DP
+* updated the data point types
+* fix warning with incompatible DPT in future
+* the biggest issue of all: I get shocked because of the war in Ukraine. My thoughts are with the people of Ukraine, I
+  am infinitely sorry for what is happening to them and their country. It is an inhuman shame.
+* can't fix it, but I appeal to everyone: Be neighbors and not enemies. Respect the other and do not fight yourselves.
+
+### 2.0.11
+
+* fixed password handling for projects from upgraded ETS
+
+### 2.0.10
+
+* import of ETS6.0.2 projects **ETS6.0.1 not possible**
+* bugfixes
+
+### 2.0.9
+
+* import password protected project files
+* bug fixes
+
+### 2.0.8
+
+* fixed bug with unackn write
+* fixed bug in linkedState
+
+### 2.0.7
+
+* fixed bug with unable to write on KNX
+
+### 2.0.6
+
+* fixed problem on ETSv6 import
+* many small bugfixes
+* implemented GA-Tools directLink feature
+
+### 2.0.5
+
+* fixed problem on ETSv4 import
+* corrected some messages
+* corrected DPT14.x min and max range
+
+### 2.0.4
+
+* fixed DPT9.xxx calculation
+* implemented date-and-time DPT19.00x
+* fixed confusing "no license error"
+* small bugfixes
+
+### 2.0.3 (2021-12-04)
+
+* fixed counting 1st Datapoint
+* automaticly remove old V1 license", preventing confusion after upgrade from V1 to V2
+
+### 2.0.1
+
+* fixed problem with license acceptance
+
+### 2.0.0 (2021-11-15) **Major release**
+
+* Breaking change! => new license is neccessary V1 Licenses will not work => V1 business Licenses can changed to V2
+* complete refactoring of knx-admin
+* added Tool for handling GA in knx-admin
+* fixed many bugs (in knx-stack, on importing ETS Projects, reconnect and timeouts)
+* added new datapoint types
+* added import till ETS V6
+* changed license management
+
+### 1.0.46 (2021-03-23)
+
+* New admin GUI
+
+### 1.0.45 (2021_03_22)
+
+* import of ETS v5.7.5 projects
+
+### 1.0.44 (2021_01_22)
+
+* fixed act and state handling
+* added some new datapoint types
+* fix facility and room recognition and device allocation
+
+### 1.0.42 (2020_09_03)
+
+* Fixed problem with missing index_m.html
+
+### 1.0.41
+
+* fixed bug on GroupValue_Response event
+* corrected connection to Gira GW
+
+### 1.0.40
+
+* fixed some import errors for ETS 5.7.x
+* fixed bug on GroupValue_Response event
+
+### 1.0.39
+
+* fixed import error
+
+### 1.0.38
+
+* fixed some bugs on import
+* show warning if import-file is password protected
+
+### 1.0.37 (2010-01-31)
+
+* update for ETS 5.7.3 import
+
+### 1.0.36 (2019-10-16)
+
+* some bugs fixed
+
+### 1.0.35 (2019-09-15)
+
+* fixed permanent reconnects, if no traffic on knx-bus
+
+### 1.0.34 (2019-09-15)
+
+* changes on importer for detecting project-id
+
+### 1.0.33 (2019-09-12)
+
+* fixed bug while writing to bus
+* added units to states
+* fixed "read/write of undefined" error
+
+### 1.0.32 (2019-09-03)
+
+* updated importer for ETS V5.7.2, some changes in KNX-stack state-machine
+
+### 1.0.31
+
+* some fixes on ETS5.7.2 importer
+* small changes in knx-stack statemachine
+* added (again) phys address to admin config dialog
+* fixed bug in deviceTree generation
+
+### 1.0.30
+
+* new Importer for ETS5.7.2 knxproj files
+* extended accepted Data point types
+* new adapter configuration menu
+* implemented a switch for the user to decide to use "true" and "false" or "0" or "1" for binary values
+* fixed bug in GroupValue_Read
+* implemented a selector for local network interface for KNX to Gateway communication
+* extended State Object for later features
+* fixed some small other bugs
+
+### 1.0.20
+
+* fixed bug in handling KNX-data packages, which occurs periodical reconnects
+* fixed bug in KNX-project file upload procedure
+
+### 1.0.19
+
+* reverted to true/false handling for DPT1.x
+
+### 1.0.18
+
+* fixed upload issue with ETS5.6.x project files
+* switched values for "boolean" from 1 and 0 to true false
+* fixed recognition of role set for DPT1.x to switch
+* fixed DPT16.xxx writing to KNX-Bus with values < 14Byte
+
+### 1.0.17 (2018-08-16)
+
+* Better state processing
+* Add configurable package rate
+* corrected Bug in "import only new objects"
+
+### 1.0.15 (2018-07-18)
+
+* change ChID on reconnect
+* on Startup read wait for response of State channel or timeout
+
+### 1.0.13 (2018-07-04)
+
+* elimination of special signs while importing
+* small bug-fixes
+
+### 1.0.12 (2018-06-19)
+
+* reduced and sorted log output
+* small bug-fixes
+* NEW Feature: request State/Val of stateObject from KNX-Bus
+
+### 1.0.11 (2018-05-27)
+
+* fixed DPT1 correcting value problem
+* fixed reconnect problem
+* other small optimizations and fixes
+
+### 1.0.10 (2018-05-04)
+
+* closing local port in case of undefined connection state
+* added advanced debug-level via adapter-config
+* many fixes
+
+### 1.0.9 (2018-04-29)
+
+* changed to state-wise processing
+* fixed "disconnect-request"
+* changed connection handling with knxd
+* many small fixes
+
+### 1.0.8 (2018-04-04)
+
+* modified package queue
+* fixed ACK if sending to KNX-Bus
+* many small fixes
+
+### 1.0.7 (2018-03-16)
+
+* fixed Adapter-lock while uploading projects
+
+### 1.0.6 (2018-03-11)
+
+* fixed connection problem
+* corrected package counter
+
+### 1.0.5 (2018-03-01)
+
+* fixed empty objects, related to DPT1 (error message \[object Object\] unknown Input value)
+* fixed path variable
+* fixed bug with GA's containing a "/" in the name (on proj-import)
+* start implementing crosswise property update on corresponding DPT (on proj-import)
+
+### 1.0.4 (2018-02-27)
+
+* schema update for room enumeration coming up with ETS 5.6
+
+### 1.0.2 (2018-02-27)
+
+* kleine Fehler beseitigt
+
+### 1.0.1 (2018-02-26)
+
+* fixed certificate error
+
+### 1.0.0 (2018-02-25)
+
+* substitution of used KNX-stack with own from scratch build stack
+* implemented full scale of DPT according to "System Specifications, Interworking, Datapointtypes" from KNX Association
+* hardening connection handling for tunneling connections
+* upgrade Adapter-configuration Interface to be ready with Admin3
+* removed "Delay Slider" because of the new knx-stack
+* many other small changes
+* fixed post-comma values to scale-value of DPT
+* implemented "add" mode for knx project upload (existing Objects stay as they are, only new Objects where added)
+
+### 0.8.6 (2017-06-17)
+
+* some small bug-fixes
+* insert slider to set a sendDelay for slow KNX/LAN Gateways to prevent connection loss
+
+### 0.8.5 (2017-06-05)
+
+* project loader rebuild, dpt13-fix
+
+### 0.8.3 (2017-04-24)
+
+* added act channel update of corresponding state
+* fix bug in state-vis update
+* optimized knxproj upload
+
+### 0.8.2 (2017-02-26)
+
+* implemented device-config parsing from knxproj
+* better choice of state/val of DP objects
+
+### 0.8.1 (2017-02-06)
+
+* fixed DPT1 switch problem
+
+### 0.8.0 (2017-02-xx) comming soon
+
+### 0.7.3 (2016-12-22)
+
+* (chefkoch009) more DPT's are supported
+* faster Startup
+* implemented generation of room list with device dependencies
+
+### 0.7.2 (2016-11-20)
+
+* (chefkoch009) added necessary dependencies
+
+### 0.7.1 (2016-11-19)
+
+* (chefkoch009) Support standard KNX/LAN Gateways.
+
+### 0.7.0 (2016-10-13)
+
+* (chefkoch009) Support of project export
+
+### 0.6.0 (2016-07-20)
+
+* (chefkoch009) redesign
+
+### 0.5.0
+
+* (vegetto) include vis widget
+
+#### 0.4.0
+
+* (bluefox) fix errors with grunt
+
+#### 0.2.0
+
+* (bluefox) initial release
 
 ## License
 

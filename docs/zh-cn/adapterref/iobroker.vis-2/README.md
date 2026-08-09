@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2/README.md
 title: ioBroker 的下一代可视化：vis-2
-hash: 1Ugs+/dAC+QCDrMmK9srniiwW67hSuEbquT1reaKj8g=
+hash: Y3QSjtg1+5Q+H8MjCynPjleENPJdb3JvcGW2BZYukeA=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -19,7 +19,7 @@ ioBroker平台的WEB可视化。
 - [许可证要求](#license-requirements)
 - [安装与文档](#installation--documentation)
 - [对象绑定](#bindings-of-objects)
-- [筛选条件](#filters)
+- [筛选条件](#筛选条件)
 - [控制接口](#control-interface)
 - [默认视图](#default-view)
 - [权限系统](#permissions-system)
@@ -77,9 +77,9 @@ value = await (async function () {
 
 - `*` - 表示乘法。参数必须用方括号括起来，例如“*(4)”。在本例中，我们将该值乘以 4。
 - `+` - 表示加法。参数必须用方括号括起来，例如“+(4.5)”。在这个例子中，我们将值 4.5 加上一个数。
-- `-` - 表示减法。参数必须用方括号括起来，例如“-(-674.5)”。在本例中，我们从值 -674.5 中减去。
+- `-` - 减法。参数必须用方括号括起来，例如“-(-674.5)”。在本例中，我们从值 -674.5 中减去。
 - `/` - 表示除法。参数必须用方括号括起来，例如“/(0.5)”。在本例中，我们将该值除以 0.5。
-- `%` - 取模。参数必须用方括号括起来，例如 "%(5)"。在本例中，我们对 5 取模。
+- `%` - 取模。参数必须用方括号括起来，例如“%(5)”。在本例中，我们对 5 取模。
 - `round` - 将数值四舍五入。
 - `round(N)` - 将数值小数点后保留 N 位，例如，34.678;round(1) => 34.7
 - `hex` - 将值转换为十六进制值。所有字母均为小写。
@@ -149,6 +149,14 @@ Last change: {objectRed.lc;date(hh:mm)}
 为了在一个视图中可视化所有控件，您可以使用过滤器来减少视图中同时显示控件的数量。
 
 每个小部件都有一个字段`filter`。如果您将其设置为某个值，例如`light`，则可以使用其他小部件`(bars - filters, filter - dropdown)`来控制哪个过滤器实际处于活动状态。
+
+`filter - dropdown` 小部件（按钮和下拉列表项）的条目具有 CSS 类 `vis-filter-item`，当前激活的条目还具有 `vis-filter-item-active`，因此可以在项目 CSS 中设置它们的样式，例如：
+
+```css
+.vis-filter-item-active {
+    background-color: #ff0000;
+}
+```
 
 ## 控制接口
 Vis 创建了 3 个变量：
@@ -235,7 +243,7 @@ setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: '
 
 ＃＃ 设置
 ### 如果睡眠时间超过一定时长，请重新加载
-有一条规则，当连接断开一段时间后，整个 VIS 页面将自动重新加载以同步项目。
+系统设置了一条规则：断开连接一段时间后，整个 VIS 页面将自动重新加载以同步项目。
 
 您可以在“设置...”菜单中进行配置。如果您将间隔设置为“从不”，则页面将永远不会重新加载。
 
@@ -279,7 +287,7 @@ CSS 中的 currentColor 关键字允许元素继承其父元素的当前文本�
 git clone https://github.com/<your profile name>/ioBroker.vis-2.git
 ```
 
-3. 使用你的 IDE 打开下载的仓库。
+3. 使用你的 IDE 打开下载的存储库。
 
 4. 要安装和下载所有必要的库，请在仓库根目录下的终端中运行以下命令。
 
@@ -304,22 +312,29 @@ npm run start
 ### **正在进行中** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@typhosj) Fixed the user permissions being ignored for widgets inside a group
+* (@typhosj) Added the CSS classes `vis-filter-item` and `vis-filter-item-active` to the `filter - dropdown` widget
+* (@GermanBluefox) Fixed `exist`/`not exist` of signals evaluating the comparison value instead of the state value
+* (@GermanBluefox) Fixed the signal condition if the state value is `null`
+* (@typhosj) Fixed the URL attributes of the `iFrame 8` widget being subscribed as object IDs
+* (@typhosj) Fixed the visibility condition if the state value is `null`
+
+### 2.14.3 (2026-06-09)
+* (@GermanBluefox) Applied the user-defined style to tplValueInput
+
+### 2.14.0 (2026-05-29)
+* (@GermanBluefox) Refactoring of the build process
+
+### 2.13.19 (2026-04-27)
+* (@GermanBluefox) Refactoring
+
 ### 2.13.17 (2026-03-29)
 * (@GermanBluefox) Removed debug code for theme
 
 ### 2.13.16 (2026-03-26)
 * (@GermanBluefox) Fixing the usage of umlauts in patterns
 * (@GermanBluefox) Fixing commands via control interface when sent as JSON
-
-### 2.13.8 (2025-11-15)
-* (@GermanBluefox) Updated packages
-
-### 2.13.7 (2025-11-09)
-* (@GermanBluefox) Updated packages
-* (@GermanBluefox) Corrected the basic image refreshing
-
-### 2.13.6 (2025-10-10)
-* (@GermanBluefox) Prevent error by the icon selection dialog
 
 ## License
 To use this adapter in `ioBroker` you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.

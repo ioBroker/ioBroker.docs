@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2/README.md
 title: Визуализация нового поколения для ioBroker: vis-2
-hash: 1Ugs+/dAC+QCDrMmK9srniiwW67hSuEbquT1reaKj8g=
+hash: Y3QSjtg1+5Q+H8MjCynPjleENPJdb3JvcGW2BZYukeA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -147,6 +147,14 @@ Last change: {objectRed.lc;date(hh:mm)}
 Чтобы отобразить все виджеты на одном экране, можно использовать фильтры для уменьшения количества виджетов, одновременно отображаемых на экране.
 
 Каждый виджет имеет поле `filter`. Если вы зададите ему какое-либо значение, например, `light`, то сможете использовать другой виджет `(bars - filters, filter - dropdown)` для управления тем, какой фильтр будет активен.
+
+Элементы виджета `filter - dropdown` (кнопки, а также выпадающие списки) имеют CSS-класс `vis-filter-item`, а активные в данный момент элементы дополнительно — `vis-filter-item-active`, поэтому их можно стилизовать в CSS проекта, например:
+
+```css
+.vis-filter-item-active {
+    background-color: #ff0000;
+}
+```
 
 ## Интерфейс управления
 Vis создает 3 переменные:
@@ -296,22 +304,29 @@ npm run start
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@typhosj) Fixed the user permissions being ignored for widgets inside a group
+* (@typhosj) Added the CSS classes `vis-filter-item` and `vis-filter-item-active` to the `filter - dropdown` widget
+* (@GermanBluefox) Fixed `exist`/`not exist` of signals evaluating the comparison value instead of the state value
+* (@GermanBluefox) Fixed the signal condition if the state value is `null`
+* (@typhosj) Fixed the URL attributes of the `iFrame 8` widget being subscribed as object IDs
+* (@typhosj) Fixed the visibility condition if the state value is `null`
+
+### 2.14.3 (2026-06-09)
+* (@GermanBluefox) Applied the user-defined style to tplValueInput
+
+### 2.14.0 (2026-05-29)
+* (@GermanBluefox) Refactoring of the build process
+
+### 2.13.19 (2026-04-27)
+* (@GermanBluefox) Refactoring
+
 ### 2.13.17 (2026-03-29)
 * (@GermanBluefox) Removed debug code for theme
 
 ### 2.13.16 (2026-03-26)
 * (@GermanBluefox) Fixing the usage of umlauts in patterns
 * (@GermanBluefox) Fixing commands via control interface when sent as JSON
-
-### 2.13.8 (2025-11-15)
-* (@GermanBluefox) Updated packages
-
-### 2.13.7 (2025-11-09)
-* (@GermanBluefox) Updated packages
-* (@GermanBluefox) Corrected the basic image refreshing
-
-### 2.13.6 (2025-10-10)
-* (@GermanBluefox) Prevent error by the icon selection dialog
 
 ## License
 To use this adapter in `ioBroker` you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.

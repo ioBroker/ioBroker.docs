@@ -150,10 +150,35 @@ The answer is like:
 ```         
 More info can be found here: https://github.com/ioBroker/webserver?tab=readme-ov-file#oauth2-support
 
+## Authorizing third-party clients (OAuth)
+
+The token endpoint above requires the client to handle the user's ioBroker password. Clients that run
+outside your control — MCP clients, or web extensions serving them — must not do that. Enabling
+**"Allow third-party clients"** in the settings additionally offers the browser-based OAuth2
+authorization code flow with PKCE: the client is pointed at a login and consent page, the user
+confirms, and the client receives a token bound to the resource it asked for.
+
+This is off by default. When enabled:
+
+- Clients discover the server through `/.well-known/oauth-authorization-server` and register
+  themselves, unless **"Allow client self-registration"** is switched off.
+- Unauthenticated requests that do *not* ask for `text/html` are answered with `401` and a
+  `WWW-Authenticate` challenge instead of a redirect to the login page — a redirect is useless to an
+  API client. Browsers are unaffected.
+- Web extensions publish their own resource metadata under
+  `/.well-known/oauth-protected-resource/<path>`; those documents stay readable without credentials.
+- **Set the public URL** when the server runs behind a reverse proxy, and use HTTPS: remote clients
+  refuse plain `http://`.
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 9.1.0 (2026-08-04)
+* (@GermanBluefox) Added the OAuth2 authorization code flow with PKCE, so third-party clients (e.g. MCP clients) can be authorized without seeing the user's password
+* (@GermanBluefox) Unauthenticated non-HTML requests now get a `401` challenge instead of a login redirect when OAuth is enabled
+* (@GermanBluefox) Updated `@iobroker/webserver` to 2.0.1
+
 ### 9.0.0 (2026-06-21)
 * (@GermanBluefox) Used libraries for socket communication instead of adapters
 * (@GermanBluefox) Migrated to TS 6
@@ -168,11 +193,6 @@ More info can be found here: https://github.com/ioBroker/webserver?tab=readme-ov
 ### 8.1.0 (2026-04-13)
 * (@GermanBluefox) Updated packages.
 * (@GermanBluefox) Corrected potential errors
-
-### 8.0.0 (2026-02-18)
-* (@GermanBluefox) Updated packages. The minimal Node.js version is now 20.0.0
-* (@GermanBluefox) Removed binary states
-* (@GermanBluefox) Added possibility to write values via `/state/` endpoint with `POST`
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

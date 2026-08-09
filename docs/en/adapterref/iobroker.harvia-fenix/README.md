@@ -1,4 +1,7 @@
-![Logo](admin/harvia.png)
+<p align="center">
+  <img src="admin/harvia.png" alt="Logo" width="100" />
+</p>
+
 # ioBroker.harvia-fenix
 
 **[Hier geht es zur deutschen Version der Dokumentation.](README_de.md)**
@@ -8,8 +11,9 @@
 [![License](https://img.shields.io/npm/l/iobroker.harvia-fenix.svg)](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/meistermopper/ioBroker.harvia-fenix.svg)](https://github.com/meistermopper/ioBroker.harvia-fenix/issues)
 ![Number of Installations](https://iobroker.live/badges/harvia-fenix-installed.svg)
-![Current version in latest repository](https://img.shields.io/badge/latest-0.3.0-blue.svg)
+![Current version in latest repository](https://iobroker.live/badges/harvia-fenix-latest.svg)
 ![Current version in stable repository](https://iobroker.live/badges/harvia-fenix-stable.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/harvia-fenix/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/)
 
 [![NPM](https://nodei.co/npm/iobroker.harvia-fenix.png?downloads=true)](https://nodei.co/npm/iobroker.harvia-fenix/)
 ![Test and Release](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
@@ -185,6 +189,13 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (dependabot) Bump axios from 1.18.1 to 1.19.0
+* (meistermopper) Center adapter logo in README files
+* (meistermopper) Add Weblate translation status badge to README files
+* (meistermopper) Add npm run translate step to release-before-commit script
+* (meistermopper) Replace static latest badge with dynamic iobroker.live badge
+
 ### 0.3.1 (2026-08-04)
 * (meistermopper) Update GitHub Actions in auto-translate workflow to v7
 * (meistermopper) Add Git commit and push authorization rule to AGENTS.md

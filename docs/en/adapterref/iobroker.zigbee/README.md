@@ -136,9 +136,10 @@ As the libraries are shared, any device supported in zigbee2mqtt.io will in time
 Other topics related to this adapter are also documented in the associated [wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki).
 
 ## Changelog
-### **WORK_IN_PROGRESS**
+### 3.5.5 (2026-08-06)
 * (kropipd) Improved handling for device configuration
 * (bueste) Respond to unsolicited OTA messages
+* (asgothian) ZH 10.8, ZHC 26.92.0 or newer
 
 ### 3.5.4 (2026-07-26)
 * (asgothian) Bugfix on reversed extPanID
@@ -153,6 +154,24 @@ Other topics related to this adapter are also documented in the associated [wiki
 * (asgothian) ZH 10.6, ZHC 26.86
 * (asgothian) Additional UI / DevMgr options
 * (asgothian) Option to modify device Datapoint parameters
+
+### 3.4.11 (2026-06-27)
+* Bugfix - boolean in native
+*
+
+### 3.4.10 (2026-06-27)
+* DM-Utils 3.x
+* improved device manager support
+* fixed Developer Tab
+* ZHC 26.73.0
+* ZH 10.5.0
+* default model options for BSD-2
+* additional role definitions
+
+### 3.4.9 (2026-06-22)
+* (asgothian) Removed 'forced configure on start'
+* (krobipd) - various bugfixes
+* (asgothian) - updated versioning for adapter options
 
 Older changelog entries can be found [here](CHANGELOG_OLD.md).
 

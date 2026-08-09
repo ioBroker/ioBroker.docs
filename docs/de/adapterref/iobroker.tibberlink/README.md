@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: Nf1qzWZZiTHeahfPb4tUJDxo9WHZScYRunGzwf0Vg64=
+hash: GmOL+WMpvzGqcMLCwJQovqvNrVCsyF3TCIXkpydehqQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -39,7 +39,7 @@ Falls Sie derzeit kein Tibber-Nutzer sind, würde ich mich sehr freuen, wenn Sie
 ## Standardkonfiguration
 - Beginnen Sie mit dem Erstellen einer neuen Instanz des Adapters.
 Sie benötigen außerdem ein API-Token von Tibber, das Sie hier erhalten können: [Tibber Developer API](https://developer.tibber.com).
-- Geben Sie Ihren Tibber-API-Token in den Standardeinstellungen ein und konfigurieren Sie mindestens eine Zeile für Live-Feed-Einstellungen (wählen Sie "Keine verfügbar").
+- Geben Sie Ihren Tibber-API-Token in den Standardeinstellungen ein und konfigurieren Sie mindestens eine Zeile für Live-Feed-Einstellungen (wählen Sie „Keine verfügbar“).
 - Speichern Sie die Einstellungen und beenden Sie die Konfiguration, um den Adapter neu zu starten; dieser Schritt ermöglicht es, dass Ihre Home-Server zum ersten Mal vom Tibber-Server abgefragt werden.
 Kehren Sie zum Konfigurationsbildschirm zurück und wählen Sie die Haushalte aus, von denen Sie mit Ihrem Tibber Pulse Echtzeitdaten abrufen möchten. Sie können auch Haushalte auswählen und den Datenfeed deaktivieren (Hinweis: Dies funktioniert nur, wenn die Hardware installiert ist und der Tibber-Server die Verbindung zu Pulse bestätigt hat).
 Hinweis: Falls Sie in Ihrem Tibber-Konto mehrere Häuser haben, müssen Sie alle hinzufügen, um Fehlermeldungen durch möglicherweise unnötige Häuser zu vermeiden. Fügen Sie alle Häuser hinzu und deaktivieren Sie die nicht benötigten.
@@ -104,7 +104,7 @@ Diese Methode erfordert die separate Installation des "FlexCharts"-Adapters.
 
 - Der TibberLink-Adapter erzeugt einen Zustand namens `jsonFlexCharts`.
 
-                            <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts-Status">
+                              <img src="docu/jsonFlexChartsState.png" width="938" alt="jsonFlexCharts-Status">
 
 - Der FlexCharts-Adapter rendert diesen Zustand über die folgende URL:
 
@@ -253,7 +253,10 @@ Das Abfrageintervall kann auf der Registerkarte **Fahrzeuge & Ladegeräte** konf
 
 ### **WORK IN PROGRESS**
 
+- (HombachC) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts (#927)
+- (HombachC) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
 - (HombachC) updated tibber-api to 5.6.0
+- (HombachC) updated dependencies
 
 ### 7.2.0 (2026-07-30)
 

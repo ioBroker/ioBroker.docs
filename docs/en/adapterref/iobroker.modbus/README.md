@@ -350,7 +350,7 @@ There are some programs in folder `test` to test the TCP communication:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 9.0.0 (2026-08-04)
+### 9.0.1 (2026-08-06)
 - (@GermanBluefox) Node.js 22 is required or higher
 - (@GermanBluefox) GUI migrated to React 19/MUI9
 

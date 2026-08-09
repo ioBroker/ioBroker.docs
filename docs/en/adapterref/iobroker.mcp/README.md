@@ -48,6 +48,30 @@ The adapter can be configured through the ioBroker admin interface using JSONCon
   user's ACLs are enforced. A plain name like `operator` is automatically expanded to `system.user.operator`.
   When running as a web extension and no user is set here, the host `web` instance's default user is used.
 
+### OAuth
+
+MCP clients such as Claude Desktop connect through a browser login instead of a token you create by hand.
+The client discovers the server on its own, the user logs in and confirms, and the client never sees the
+ioBroker password.
+
+- **Enable OAuth (browser login)**: In standalone mode this requires *Enable Authentication*. As a **web
+  extension** the selected `web` instance provides the login, so OAuth has to be enabled **there as well**
+  ("Allow third-party clients") — otherwise MCP clients only receive a redirect to the login page, which
+  they cannot use.
+- **Public URL**: The externally reachable address of this server, without a path, e.g.
+  `https://iobroker.example.com`. Required behind a reverse proxy: the URLs published for OAuth discovery
+  must be the ones the client can actually reach. As a web extension it must match the public URL
+  configured in the `web` instance.
+- **Allow client self-registration**: Let MCP clients register themselves (default: **on**). With this off,
+  every client has to be registered by hand first. In web-extension mode this is the `web` instance's
+  setting, so the option is hidden here.
+
+**HTTPS is required** for anything but `localhost` — the flow runs through the user's browser, and MCP
+clients refuse plain `http://` for remote hosts.
+
+Access tokens are bound to this endpoint, so a token issued for another service on the same server is
+rejected. Clients can drop their tokens again via `POST /oauth/revoke`.
+
 ### Permissions
 - **Allow setting states**: Allow MCP clients to write state values (the `set_state` and `set_states` tools).
   Default: **on**.
@@ -137,6 +161,11 @@ tools rather than as subscribable resources.)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2026-08-04)
+* (@GermanBluefox) Added OAuth: MCP clients can now be connected through a browser login instead of a manually created token
+* (@GermanBluefox) OAuth also works as a web extension, using the host `web` instance as the authorization server (requires OAuth enabled there too)
+* (@GermanBluefox) Updated `@iobroker/mcp-server` and `@iobroker/webserver`
+
 ### 1.0.11 (2026-07-02)
 * (@GermanBluefox) Default port was changed to 8011
 * (@GermanBluefox) Corrected the issue with authentication
