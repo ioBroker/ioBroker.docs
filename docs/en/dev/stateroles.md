@@ -97,7 +97,7 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `button.press`
 
 ### Values (numbers, read-only)
-`common.type=number, common.write=false`
+`common.type=number, common.write=false` (`common.type=string, common.write=false` where specified explicitly)
 
 * `value`
 * `value.window`      (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) It is important to have (`CLOSED/TILTED/OPEN`). Values can differ.
@@ -132,7 +132,7 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.gps.longitude`   - gps longitude coordinates
 * `value.gps.latitude`    - gps latitude
 * `value.gps.elevation`   - gps elevation
-* `value.gps`             - longitude and latitude together like '5.56;43.45'
+* `value.gps`             - longitude and latitude together like '5.56;43.45'  (`common.type=string`)
 * `value.gps.accuracy`    - accuracy of current gps measurement
 * `value.gps.radius`      - radius of current gps measurement
 * ~~`value.power.consumption` - energy consumption (unit=Wh or KWh)~~
@@ -190,9 +190,9 @@ So the indicator may not be alone in the channel. It must be some other main sta
 * `indicator.alarm.health` - health problem
 
 ### Levels (numbers, read-write)
-With **levels**, you can control or set some number value.
+`common.type=number, common.write=true`(`common.type=string, common.write=true` where specified explicitly)
 
-`common.type=number, common.write=true`
+With **levels**, you can control or set some number value.
 
 * `level`
 * `level.humidity`        - humidity as a setpoint, i.e., for humidifiers / climate controls
