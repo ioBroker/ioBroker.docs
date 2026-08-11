@@ -251,6 +251,7 @@ Mit **Levels** können Sie einen Zahlenwert steuern oder festlegen.
 * `level.effect` - Effekt, üblicherweise für Lichter. Sollte eine Liste möglicher Effekte in `common.states` enthalten. (`common.type=string`).
 * `level.timer`
 * `level.timer.sleep` – Schlaftimer. 0 – aus, oder in Minuten.
+* `level.timer.off` - Zeit in Sekunden, nach der sich das Gerät wieder ausschaltet, z. B. die Einschaltdauer einer Lampe oder einer Steckdose
 * ...
 * `level.volume` - (`min=0, max=100`) - Lautstärke, wobei min und max unterschiedlich sein können. min < max
 * `level.volume.group` - (`min=0, max=100`) - Lautstärke für die Gerätegruppe
