@@ -247,6 +247,7 @@ With **levels**, you can control or set some number value.
 * `level.effect`          - effect, usually for lights. Should have list of possible effects in `common.states`. (`common.type=string`).
 * `level.timer`
 * `level.timer.sleep`    - sleep timer. 0 - off, or in minutes
+* `level.timer.off`      - time in seconds after which the device switches itself off again, e.g. the on-time of a lamp or a socket
 * ...
 * `level.volume`         - (`min=0, max=100`) - sound volume, but min, max can differ. min < max
 * `level.volume.group`   - (`min=0, max=100`) - sound volume, for the group of devices
