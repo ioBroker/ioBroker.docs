@@ -299,6 +299,10 @@ TODO: Think about ionization` and oscillation.
 * `value.waste`           - 0-100% waste bin level. (0% - empty, 100% - full)
 * `indicator.maintenance.waste` - Waste bin is fool.
 * `value.state`           - `HOME, CLEANING, PAUSE` and so on.
+* `level.mode.vacuum`     - run mode of a robotic vacuum: `IDLE, CLEANING, MAPPING` and vendor modes. The cleaning intensity is `level.mode.cleanup`
+* `button.home`           - send the device back to its dock
+* `value.progress`        - progress of the running job (unit: %)
+* `value.vacuum.phase`    - current phase reported by the device (`common.type=string`)
 
 Additionally, to these states normally the `switch.power` required to map the vacuum cleaner. `switch.power` in this case works as: `true` - clean, `false` - back to home.
 Optionally `value.battery` and  
@@ -308,6 +312,8 @@ Optionally `value.battery` and
 * `value.position`        - position of the gate in percent (100% opened, 0% - closed)
 * `value.gate`            - same as `value.position`
 * `button.stop`           - stop the motion of the gate
+* `indicator.opened`      - end contact: the gate is fully opened
+* `indicator.closed`      - end contact: the gate is fully closed. Both contacts exist separately, because a gate can also stand between fully opened and fully closed
 
 ### Media
 Special roles for media players

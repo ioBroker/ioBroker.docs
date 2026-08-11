@@ -304,6 +304,10 @@ TODO: Über Ionisation und Oszillation nachdenken.
 * `value.waste` - Füllstand des Abfallbehälters (0-100%). (0% - leer, 100% - voll)
 * `indicator.maintenance.waste` - Der Papierkorb ist ein Idiot.
 * `value.state` - `HOME, CLEANING, PAUSE` und so weiter.
+* `level.mode.vacuum` - Betriebsart eines Saugroboters: `IDLE, CLEANING, MAPPING` sowie herstellereigene Modi. Die Reinigungsstärke ist `level.mode.cleanup`
+* `button.home` - schickt das Gerät zurück zur Ladestation
+* `value.progress` - Fortschritt des laufenden Auftrags (Einheit: %)
+* `value.vacuum.phase` - aktuelle Phase, die das Gerät meldet (`common.type=string`)
 
 Zusätzlich zu diesen Zuständen ist normalerweise `switch.power` erforderlich, um den Staubsauger zu lokalisieren. `switch.power` funktioniert in diesem Fall wie folgt: `true` – Reinigen, `false` – Zurück zum Startpunkt.
 Optional `value.battery` und
@@ -313,6 +317,8 @@ Optional `value.battery` und
 * `value.position` - Position des Tores in Prozent (100 % geöffnet, 0 % geschlossen)
 * `value.gate` - entspricht `value.position`
 * `button.stop` - Stoppt die Bewegung des Tores
+* `indicator.opened` - Endkontakt: das Tor ist vollständig geöffnet
+* `indicator.closed` - Endkontakt: das Tor ist vollständig geschlossen. Beide Kontakte gibt es getrennt, weil ein Tor auch zwischen vollständig geöffnet und vollständig geschlossen stehen kann
 
 ### Medien
 Besondere Rollen für Medienschaffende
