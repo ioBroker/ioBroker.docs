@@ -60,6 +60,7 @@ Falls keine passende Rolle gefunden werden kann oder der Anwendungsfall nicht sp
 * `sensor.alarm` - einige gängige Alarme
 * `sensor.alarm.flood` - Wasserleckage
 * `sensor.alarm.fire` - Feuermelder
+* `sensor.alarm.co` - Kohlenmonoxid erkannt
 * `sensor.alarm.secure` - Tür geöffnet, Fenster geöffnet oder Bewegung erkannt, während der Alarm aktiv ist.
 * `sensor.alarm.power` - Keine Stromversorgung (`voltage = 0`)
 * `sensor.light` - Rückmeldung der Lampe, dass sie eingeschaltet ist
@@ -121,12 +122,18 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `value.rn`              - Radon (unit: Bq/m³)
 * `value.tvoc`            - Total volatile organic compounds (unit: µg/m³ or ppb)
 * `value.airquality`      - Air quality index (AQI)
+* `value.so2`             - Schwefeldioxid (Einheit: µg/m³ oder ppm)
+* `value.co.level`, `value.co2.level`, `value.no2.level`, `value.o3.level`, `value.ch2o.level`, `value.pm1.level`, `value.pm25.level`, `value.pm10.level`, `value.rn.level`, `value.tvoc.level`, `value.so2.level` - qualitative Stufe der gleichnamigen Konzentration (`common.states={"0": "UNKNOWN", "1": "LOW", "2": "MEDIUM", "3": "HIGH", "4": "CRITICAL"}`)
 * `value.brightness` - Leuchtdichtewert (Einheit: Lux)
 * `value.min`
 * `value.max`
 * `value.default`
 * `value.battery` - Akkuladestand
 * `value.valve` - Ventilpegel
+* `value.filter` - verbleibender Zustand eines Filters (Einheit: %)
+* `value.filter.carbon` - verbleibender Zustand eines Aktivkohlefilters (Einheit: %)
+* `value.flow` - Durchfluss einer Flüssigkeit oder eines Gases (Einheit: m³/h)
+* `value.rssi` - Empfangsfeldstärke eines Funkgerätes (Einheit: dBm)
 * `value.time` - getTime() des Date()-Objekts
 * `value.timer` - Dauer in Sekunden (entspricht im Lese-/Schreibmodus `level.timer`)
 * `value.interval` (common.unit='sec') - Intervall in Sekunden (kann 0,1 oder weniger sein)
@@ -156,7 +163,7 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `value.tilt` - tatsächliche Neigungsposition (`max = vollständig geöffnet, min = vollständig geschlossen`)
 * `value.lock` - tatsächliche Position der Sperre
 * `value.speed` - Windgeschwindigkeit
-* `value.pressure` - (Einheit: mbar)
+* `value.pressure` - (Einheit: mbar, `hPa` ist derselbe Wert und wird ebenfalls akzeptiert)
 * `value.distance`
 * `value.distance.visibility`
 * `value.severity` – eine Angabe zum Schweregrad (Zustände können angegeben werden), je höher, desto wichtiger
@@ -178,6 +185,7 @@ Daher kann ein Indikator nicht allein im Kanal vorkommen. Er muss Teil eines and
 
 * `Indikator`
 * `indicator.working` - zeigt an, dass das Zielsystem gerade eine Aktion ausführt, z. B. das Öffnen von Jalousien oder Schlössern.
+* `indicator.working.test` - ein Selbsttest des Gerätes läuft
 * `indicator.reachable` - Gibt an, ob ein Gerät online ist
 * `indicator.connected` – wird nur für Instanzen verwendet. Verwenden Sie `indicator.reachable` für Geräte.
 * `indicator.direction` - `true` - Aufwärts/Eröffnung, `false` - Abwärts/Schluss. Verwenden Sie besser `value.direction`.
@@ -185,6 +193,7 @@ Daher kann ein Indikator nicht allein im Kanal vorkommen. Er muss Teil eines and
 * `indicator.maintenance` - zeigt Systemwarnungen/-fehler, Alarme, Servicemeldungen, leeren Akku oder ähnliches an
 * `indicator.maintenance.lowbat`
 * `indicator.maintenance.unreach`
+* `indicator.maintenance.filter` - der Filter des Gerätes muss gewechselt werden
 * `indicator.maintenance.alarm`
 * `indicator.lowbat` - wahr, wenn der Akku schwach ist
 * `indicator.alarm` - entspricht indicator.maintenance.alarm
@@ -192,6 +201,7 @@ Daher kann ein Indikator nicht allein im Kanal vorkommen. Er muss Teil eines and
 * `indicator.alarm.flood` - Überschwemmung erkannt
 * `indicator.alarm.secure` - Tür oder Fenster ist geöffnet
 * `indicator.alarm.health` - Gesundheitsproblem
+* `indicator.alarm.muted` - der Alarm des Gerätes ist gerade stummgeschaltet
 
 ### Stufen (Zahlen, Lesen/Schreiben)
 Mit **Levels** können Sie einen Zahlenwert steuern oder festlegen.
@@ -224,6 +234,8 @@ Mit **Levels** können Sie einen Zahlenwert steuern oder festlegen.
 * `level.dimmer` - Die Helligkeit ist ebenfalls geringer.
 * `level.blind` - Jalousieposition festlegen (max = vollständig geöffnet, min = vollständig geschlossen)
 * `level.temperature` - gewünschte Temperatur einstellen
+* `level.temperature.heating` - gewünschte Temperatur für das Heizen, für Geräte mit getrenntem Heiz- und Kühlsollwert
+* `level.temperature.cooling` - gewünschte Temperatur für das Kühlen, für Geräte mit getrenntem Heiz- und Kühlsollwert
 * `level.valve` - Sollwert für die Ventilposition
 * `level.color.red`
 * `level.color.green`
@@ -244,7 +256,8 @@ Mit **Levels** können Sie einen Zahlenwert steuern oder festlegen.
 * `level.volume.group` - (`min=0, max=100`) - Lautstärke für die Gerätegruppe
 * `level.curtain` - legt die Vorhangposition fest
 * `level.tilt` - Legt die Neigungsposition der Jalousien fest (max = vollständig geöffnet, min = vollständig geschlossen)
-* `level.speed` - Geschwindigkeit, z. B. Lüfter, Ventilator, ..
+* `level.speed` - Geschwindigkeit, z. B. Lüfter, Ventilator, .. Wird auch als stufenlose Lüfterdrehzahl in % einer Klimaanlage, eines Ventilators oder eines Luftreinigers verwendet, deren gestuftes Gegenstück `level.mode.fan` ist
+* `level.pump` - Sollwert für Drehzahl oder Durchfluss einer Pumpe (Einheit: %)
 
 ### Schalter (Boolesche Werte, Lese-/Schreibzugriff)
 Der Schalter steuert ein boolesches Gerät (`true = ON, false = OFF`)
@@ -268,12 +281,16 @@ Der Schalter steuert ein boolesches Gerät (`true = ON, false = OFF`)
 * `switch.mode.moonlight` - Mondlichtmodus ein-/ausschalten
 * `switch.mode.color` - Farbmodus ein/aus
 * `switch.gate` - schließt (false) oder öffnet (true) das Tor
+* `switch.pump` - Ein/Aus einer Pumpe. Eine eigene Rolle, weil eine Pumpe sonst keinen verpflichtenden Zustand hat und nicht von einer Steckdose zu unterscheiden wäre
 
 ### Klimaanlage oder Thermostat
 * `level.mode.fan` - `AUTO, HIGH, LOW, MEDIUM, QUIET, TURBO`
 * `level.mode.swing` - `AUTO, HORIZONTAL, STATIONARY, VERTICAL`
 * `level.mode.airconditioner` - Klimaanlage: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, Heizungsthermostat: `AUTO, MANUAL, VACATION`,
 * `level.mode.thermostat` - Thermostat: `AUTO, MANUAL, VACATION`,
+* `level.mode.airflow` - Richtung des Luftstroms: `FORWARD, REVERSE`
+* `switch.mode.swing` - boolesche Variante von `level.mode.swing` für Geräte, die das Schwenken nur ein- und ausschalten können
+* `value.mode.thermostat` - was das Gerät tatsächlich tut, nur lesbar: `OFF, HEAT, COOL`. Das nur lesbare Gegenstück zu `level.mode.thermostat`
 * `value.mode.airconditioner` - aktueller Gerätestatus: `IDLE`, `HEAT`, `COOL` (0,1,2 in Apple Home)
 
 Zusätzlich zu diesen Staaten sind normalerweise die `level.temperature` und `switch.power` erforderlich, um die Klimaanlage zu kartieren.
