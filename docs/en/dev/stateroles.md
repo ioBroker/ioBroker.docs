@@ -76,6 +76,7 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `button`
 * `button.long`
 * `button.stop`           - e.g. rollo stop,
+* `button.stop.blind`     - stop the motion of a blind (device types `blind`, `blindButtons`)
 * `button.stop.tilt`
 * `button.start`
 * `button.resume`
@@ -122,6 +123,9 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.so2`             - Sulphur dioxide (unit: µg/m³ or ppm)
 * `value.co.level`, `value.co2.level`, `value.no2.level`, `value.o3.level`, `value.ch2o.level`, `value.pm1.level`, `value.pm25.level`, `value.pm10.level`, `value.rn.level`, `value.tvoc.level`, `value.so2.level` - qualitative level of the concentration of the same name (`common.states={"0": "UNKNOWN", "1": "LOW", "2": "MEDIUM", "3": "HIGH", "4": "CRITICAL"}`)
 * `value.brightness`      - luminance level (unit: lux)
+* `value.dimmer`          - actual dimming level in % (device type `dimmer`)
+* `value.volume`          - actual sound volume in % (device types `media`, `volume`)
+* `value.volume.group`    - actual sound volume of a group of devices in % (device type `volumeGroup`)
 * `value.min`
 * `value.max`
 * `value.default`
@@ -266,6 +270,7 @@ Switch controls a boolean device (`true = ON, false = OFF`)
 * `switch.lock.door`      - door lock
 * `switch.lock.window`    - window lock
 * `switch.mode.boost`     - start/stop boost mode of thermostat
+* `switch.boost`          - start/stop boost mode. Older variant of `switch.mode.boost`, still accepted (device type `airCondition`)
 * `switch.mode.party`     - start/stop party mode of thermostat
 * `switch.power`          - on/off power, thermostat or air conditioner
 * `switch.light`
@@ -300,6 +305,12 @@ TODO: Think about ionization` and oscillation.
 * `value.waste`           - 0-100% waste bin level. (0% - empty, 100% - full)
 * `indicator.maintenance.waste` - Waste bin is fool.
 * `value.state`           - `HOME, CLEANING, PAUSE` and so on.
+* `vacuum.map.base64`     - map of the cleaned area as a base64 encoded image (`common.type=string`)
+* `value.usage.filter`    - remaining life of the filter in %
+* `value.usage.brush`     - remaining life of the main brush in %
+* `value.usage.brush.side` - remaining life of the side brush in %
+* `value.usage.sensors`   - remaining time in % until the sensors have to be cleaned
+* `indicator.maintenance.water` - the water tank has to be filled
 * `level.mode.vacuum`     - run mode of a robotic vacuum: `IDLE, CLEANING, MAPPING` and vendor modes. The cleaning intensity is `level.mode.cleanup`
 * `button.home`           - send the device back to its dock
 * `value.progress`        - progress of the running job (unit: %)
@@ -348,6 +359,8 @@ Special roles for media players
 * `media.elapsed`         - (`common.type=number`) seconds
 * `media.broadcastDate`   - (`common.type=string`) Broadcast date
 * `media.mute`            - (`common.type=boolean`) true is muted
+* `media.player.name`     - name of the player (`common.type=string`)
+* `media.player.type`     - type of the player, e.g. the model (`common.type=string`)
 * `media.season`          - (`common.type=string`) season number (important the type is really "string" to be able to indicate absence of season with "")
 * `media.episode`         - (`common.type=string`) episode number (important the type is really "string" to be able to indicate absence of episode with "")
 * `media.mute.group`      - (`common.type=boolean`) mute of a group of devices
@@ -415,6 +428,8 @@ Special roles for media players
 ### Weather
 * `date`                        - actual date or date of last-read information
 * `date.forecast.1`                 - tomorrow date
+* `date.forecast.0`                 - today date
+* `dayofweek.forecast.0`            - day of week of today as text
 * `date.sunrise`                - Sunrise for today
 * `date.sunset`                 - Sunset for today
 * `dayofweek`                   - day of week as text
@@ -427,6 +442,11 @@ Special roles for media players
 * `value.direction.wind.forecast.1` - wind direction forecast for tomorrow in degrees
 * `value.humidity`              - actual or average humidity
 * `value.humidity.max`          - actual humidity
+* `value.humidity.forecast.0`   - humidity forecast for today
+* `value.temperature.forecast.0` - temperature forecast for today
+* `value.temperature.feelslike.forecast.0` - felt temperature forecast for today
+* `value.temperature.windchill.forecast.0` - wind chill forecast for today
+* `value.pressure.tendency`     - tendency of the air pressure as text, e.g. `up`, `down`, `stable` (`common.type=string`)
 * `value.humidity.min`          - actual humidity
 * `value.precipitation`         - (`type: number, unit: mm`) precipitation for last 24 hours rain/snow (Niederschlag heute für Schnee oder Regen / осадки сегодня снега или дождя)
 * `value.precipitation.chance`  - Actual precipitation chance for today
@@ -472,6 +492,8 @@ Special roles for media players
 * `weather.direction.wind.forecast.0` - wind direction forecast for today as text
 * `weather.html`                - HTML object with weather description
 * `weather.icon`                - Actual state icon URL for now
+* `weather.icon.forecast.0`     - state icon URL of the forecast for today
+* `weather.icon.wind.forecast.0` - wind icon URL of the forecast for today
 * `weather.icon.forecast.1`         - tomorrow icon
 * `weather.icon.name`           - Actual state icon name for now
 * `weather.icon.wind`           - Actual wind icon URL for now
@@ -511,6 +533,19 @@ Special roles for media players
 * `value.health.bpm`      - heart beats per minute
 
 ### Others
+
+Roles of a camera (device type `camera`):
+
+* `link.camera`           - URL of the camera image (`common.type=string`)
+* `level.camera.position` - pan, tilt and zoom position of the camera
+* `switch.camera.autofocus` - autofocus on/off
+* `switch.camera.autowhitebalance` - automatic white balance on/off
+* `switch.camera.brightness` - brightness correction on/off
+* `switch.camera.nightmode` - night mode on/off
+
+Role of an image (device type `image`):
+
+* `icon`                  - URL of an image or an icon (`common.type=string`)
 * `url`
 * `url.icon`               - icon (additionally every object can have `common.icon`)
 * `url.cam`                - web camera url

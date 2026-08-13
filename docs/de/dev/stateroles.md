@@ -79,6 +79,7 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `button`
 * `button.long`
 * `button.stop` - z.B. rollo stop,
+* `button.stop.blind` - stoppt die Bewegung einer Jalousie (Gerätetypen `blind`, `blindButtons`)
 * `button.stop.tilt`
 * `button.start`
 * `button.resume`
@@ -103,7 +104,7 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 ### Werte (Zahlen, schreibgeschützt)
 `common.type=number, common.write=false`
 
-* `Wert`
+* `value`
 * `value.window` (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) Es ist wichtig, dass (`CLOSED/TILTED/OPEN`) vorhanden ist. Die Werte können unterschiedlich sein.
 * `value.temperature` (`common.unit='°C' or '°F' or 'K'`)
 * `value.temperature.dewpoint` (`common.unit='°C' or '°F')
@@ -125,6 +126,9 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `value.so2`             - Schwefeldioxid (Einheit: µg/m³ oder ppm)
 * `value.co.level`, `value.co2.level`, `value.no2.level`, `value.o3.level`, `value.ch2o.level`, `value.pm1.level`, `value.pm25.level`, `value.pm10.level`, `value.rn.level`, `value.tvoc.level`, `value.so2.level` - qualitative Stufe der gleichnamigen Konzentration (`common.states={"0": "UNKNOWN", "1": "LOW", "2": "MEDIUM", "3": "HIGH", "4": "CRITICAL"}`)
 * `value.brightness` - Leuchtdichtewert (Einheit: Lux)
+* `value.dimmer` - aktuelle Helligkeit in % (Gerätetyp `dimmer`)
+* `value.volume` - aktuelle Lautstärke in % (Gerätetypen `media`, `volume`)
+* `value.volume.group` - aktuelle Lautstärke einer Gerätegruppe in % (Gerätetyp `volumeGroup`)
 * `value.min`
 * `value.max`
 * `value.default`
@@ -270,6 +274,7 @@ Der Schalter steuert ein boolesches Gerät (`true = ON, false = OFF`)
 * `switch.lock.door` - Türschloss
 * `switch.lock.window` - Fenstersperre
 * `switch.mode.boost` - Start/Stopp des Boost-Modus des Thermostats
+* `switch.boost` - Start/Stopp des Boost-Modus. Ältere Variante von `switch.mode.boost`, wird weiterhin akzeptiert (Gerätetyp `airCondition`)
 * `switch.mode.party` - Startet/Stoppt den Partymodus des Thermostats
 * `switch.power` - Ein-/Ausschalten von Strom, Thermostat oder Klimaanlage
 * `switch.light`
@@ -305,6 +310,12 @@ TODO: Über Ionisation und Oszillation nachdenken.
 * `value.waste` - Füllstand des Abfallbehälters (0-100%). (0% - leer, 100% - voll)
 * `indicator.maintenance.waste` - Der Papierkorb ist ein Idiot.
 * `value.state` - `HOME, CLEANING, PAUSE` und so weiter.
+* `vacuum.map.base64` - Karte der gereinigten Fläche als base64 kodiertes Bild (`common.type=string`)
+* `value.usage.filter` - verbleibende Lebensdauer des Filters in %
+* `value.usage.brush` - verbleibende Lebensdauer der Hauptbürste in %
+* `value.usage.brush.side` - verbleibende Lebensdauer der Seitenbürste in %
+* `value.usage.sensors` - verbleibende Zeit in %, bis die Sensoren gereinigt werden müssen
+* `indicator.maintenance.water` - der Wassertank muss gefüllt werden
 * `level.mode.vacuum` - Betriebsart eines Saugroboters: `IDLE, CLEANING, MAPPING` sowie herstellereigene Modi. Die Reinigungsstärke ist `level.mode.cleanup`
 * `button.home` - schickt das Gerät zurück zur Ladestation
 * `value.progress` - Fortschritt des laufenden Auftrags (Einheit: %)
@@ -353,6 +364,8 @@ Besondere Rollen für Medienschaffende
 * `media.elapsed` - (`common.type=number`) Sekunden
 * `media.broadcastDate` - (`common.type=string`) Sendedatum
 * `media.mute` - (`common.type=boolean`) true bedeutet stummgeschaltet
+* `media.player.name` - Name des Players (`common.type=string`)
+* `media.player.type` - Typ des Players, z. B. das Modell (`common.type=string`)
 * `media.season` - (`common.type=string`) Saisonnummer (wichtig: Der Typ ist tatsächlich "string", um das Fehlen einer Saison mit "") angeben zu können.
 * `media.episode` - (`common.type=string`) Episodennummer (wichtig: Der Typ ist tatsächlich "string", um das Fehlen einer Episode mit "") anzeigen zu können.
 * `media.mute.group` - (`common.type=boolean`) Stummschaltung einer Gruppe von Geräten
@@ -420,6 +433,8 @@ Besondere Rollen für Medienschaffende
 ### Wetter
 * `Datum` - tatsächliches Datum oder Datum der letzten gelesenen Informationen
 * `date.forecast.1` - Datum von morgen
+* `date.forecast.0` - Datum von heute
+* `dayofweek.forecast.0` - Wochentag von heute als Text
 * `date.sunrise` - Sonnenaufgang für heute
 * `date.sunset` - Sonnenuntergang für heute
 * `dayofweek` - Wochentag als Text
@@ -432,6 +447,11 @@ Besondere Rollen für Medienschaffende
 * `value.direction.wind.forecast.1` - Windrichtungsvorhersage für morgen in Grad
 * `value.humidity` - tatsächliche oder durchschnittliche Luftfeuchtigkeit
 * `value.humidity.max` - tatsächliche Luftfeuchtigkeit
+* `value.humidity.forecast.0` - Vorhersage der Luftfeuchtigkeit für heute
+* `value.temperature.forecast.0` - Vorhersage der Temperatur für heute
+* `value.temperature.feelslike.forecast.0` - Vorhersage der gefühlten Temperatur für heute
+* `value.temperature.windchill.forecast.0` - Vorhersage des Windchill für heute
+* `value.pressure.tendency` - Tendenz des Luftdrucks als Text, z. B. `up`, `down`, `stable` (`common.type=string`)
 * `value.humidity.min` - tatsächliche Luftfeuchtigkeit
 * `value.precipitation` - (`Typ: Zahl, Einheit: mm`) Niederschlag für die letzten 24 Stunden Regen/Schnee (Niederschlag heute für Schnee oder Regen / осадки сегодня снега или дождя)
 * `value.precipitation.chance` - Tatsächliche Niederschlagswahrscheinlichkeit für heute
@@ -477,6 +497,8 @@ Besondere Rollen für Medienschaffende
 * `weather.direction.wind.forecast.0` - Windrichtungsvorhersage für heute als Text
 * `weather.html` - HTML-Objekt mit Wetterbeschreibung
 * `weather.icon` - Aktuelle URL des Status-Symbols
+* `weather.icon.forecast.0` - URL des Status-Symbols der Vorhersage für heute
+* `weather.icon.wind.forecast.0` - URL des Wind-Symbols der Vorhersage für heute
 * `weather.icon.forecast.1` - Symbol für morgen
 * `weather.icon.name` - Aktueller Name des Status-Symbols
 * `weather.icon.wind` - Aktuelle URL des Windsymbols
@@ -516,6 +538,19 @@ Besondere Rollen für Medienschaffende
 * `value.health.bpm` - Herzschläge pro Minute
 
 ### Andere
+
+Rollen einer Kamera (Gerätetyp `camera`):
+
+* `link.camera` - URL des Kamerabildes (`common.type=string`)
+* `level.camera.position` - Schwenk-, Neige- und Zoomposition der Kamera
+* `switch.camera.autofocus` - Autofokus ein/aus
+* `switch.camera.autowhitebalance` - automatischer Weißabgleich ein/aus
+* `switch.camera.brightness` - Helligkeitskorrektur ein/aus
+* `switch.camera.nightmode` - Nachtmodus ein/aus
+
+Rolle eines Bildes (Gerätetyp `image`):
+
+* `icon` - URL eines Bildes oder eines Symbols (`common.type=string`)
 * `url`
 * `url.icon` - Symbol (zusätzlich kann jedes Objekt ein `common.icon` haben)
 * `url.cam` - URL der Webcam
