@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2/README.md
 title: ioBroker 的下一代可视化：vis-2
-hash: Y3QSjtg1+5Q+H8MjCynPjleENPJdb3JvcGW2BZYukeA=
+hash: SmcvBQNmBAOAAqrMmwG1RdqdfA9Ra8l/zGxrmrcnMho=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -19,7 +19,7 @@ ioBroker平台的WEB可视化。
 - [许可证要求](#license-requirements)
 - [安装与文档](#installation--documentation)
 - [对象绑定](#bindings-of-objects)
-- [筛选条件](#筛选条件)
+- [筛选条件](#filters)
 - [控制接口](#control-interface)
 - [默认视图](#default-view)
 - [权限系统](#permissions-system)
@@ -77,9 +77,9 @@ value = await (async function () {
 
 - `*` - 表示乘法。参数必须用方括号括起来，例如“*(4)”。在本例中，我们将该值乘以 4。
 - `+` - 表示加法。参数必须用方括号括起来，例如“+(4.5)”。在这个例子中，我们将值 4.5 加上一个数。
-- `-` - 减法。参数必须用方括号括起来，例如“-(-674.5)”。在本例中，我们从值 -674.5 中减去。
+- `-` - 表示减法。参数必须用方括号括起来，例如“-(-674.5)”。在本例中，我们从值 -674.5 中减去。
 - `/` - 表示除法。参数必须用方括号括起来，例如“/(0.5)”。在本例中，我们将该值除以 0.5。
-- `%` - 取模。参数必须用方括号括起来，例如“%(5)”。在本例中，我们对 5 取模。
+- `%` - 取模。参数必须用方括号括起来，例如 "%(5)"。在本例中，我们对 5 取模。
 - `round` - 将数值四舍五入。
 - `round(N)` - 将数值小数点后保留 N 位，例如，34.678;round(1) => 34.7
 - `hex` - 将值转换为十六进制值。所有字母均为小写。
@@ -153,10 +153,23 @@ Last change: {objectRed.lc;date(hh:mm)}
 `filter - dropdown` 小部件（按钮和下拉列表项）的条目具有 CSS 类 `vis-filter-item`，当前激活的条目还具有 `vis-filter-item-active`，因此可以在项目 CSS 中设置它们的样式，例如：
 
 ```css
+/* buttons (horizontal / vertical) */
 .vis-filter-item-active {
     background-color: #ff0000;
 }
+
+/* entries of the dropdown */
+.vis-filter-item-active.Mui-selected {
+    background-color: #ff0000;
+}
 ```
+
+需要两条规则，因为下拉列表的活动条目还具有类 `Mui-selected`，并且它自己的背景颜色比单独的 `.vis-filter-item-active` 更具体。
+
+请注意：
+
+* 如果组件本身已为某个条目配置了颜色，则该颜色将作为内联样式写入，无法通过项目 CSS 中的 `color` 属性覆盖。如果您想通过 CSS 设置颜色，请将条目的颜色留空。
+下拉菜单的选项在组件外部（页面级别的弹出窗口中）渲染，因此只能全局访问，而不能使用单个组件的选择器，例如 `#w00001 .vis-filter-item-active`。按钮是组件的一部分，可以通过这种方式访问。
 
 ## 控制接口
 Vis 创建了 3 个变量：
@@ -243,7 +256,7 @@ setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: '
 
 ＃＃ 设置
 ### 如果睡眠时间超过一定时长，请重新加载
-系统设置了一条规则：断开连接一段时间后，整个 VIS 页面将自动重新加载以同步项目。
+有一条规则，当连接断开一段时间后，整个 VIS 页面将自动重新加载以同步项目。
 
 您可以在“设置...”菜单中进行配置。如果您将间隔设置为“从不”，则页面将永远不会重新加载。
 
@@ -287,7 +300,7 @@ CSS 中的 currentColor 关键字允许元素继承其父元素的当前文本�
 git clone https://github.com/<your profile name>/ioBroker.vis-2.git
 ```
 
-3. 使用你的 IDE 打开下载的存储库。
+3. 使用你的 IDE 打开下载的仓库。
 
 4. 要安装和下载所有必要的库，请在仓库根目录下的终端中运行以下命令。
 
@@ -312,7 +325,20 @@ npm run start
 ### **正在进行中** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.14.4 (2026-08-10)
+* (@typhosj) The entries of the horizontal navigation menu can be scrolled now instead of being cut off in a narrow window
+* (@typhosj) Fixed the invalid HTML element IDs of the widgets shown in multiple views. Their IDs changed from `<view>_<widget>` to `v<view>_<widget>`, so a user script or CSS that addresses such a copy must be adapted
+* (@typhosj) Fixed the double click on a widget shown in multiple views jumping to a wrong view
+* (@typhosj) Show the text of the button widgets as entered and not upper cased
+* (@GermanBluefox) Fixed the ignored "small" option of the `filter - dropdown` widget
+* (@typhosj) Subscribed to object IDs that are the result of a binding
+* (@typhosj) Fixed the ignored read-only option of the Bool SVG widget
+* (@GermanBluefox) Fixed the position of a new group created inside another group
+* (@typhosj) Fixed the position of the members when a nested group is dissolved
+* (@GermanBluefox) Fixed "same width"/"same height" applying the sizes of a previously selected widget
+* (@GermanBluefox) Fixed the widget selection when a stored selected widget does not exist anymore
+* (@typhosj) Fixed dissolving a group deleting a member widget instead of the group
+* (@GermanBluefox) The user permissions are now applied to widgets embedded via `getWidgetInWidget`, which can return `null` now
 * (@typhosj) Fixed the user permissions being ignored for widgets inside a group
 * (@typhosj) Added the CSS classes `vis-filter-item` and `vis-filter-item-active` to the `filter - dropdown` widget
 * (@GermanBluefox) Fixed `exist`/`not exist` of signals evaluating the comparison value instead of the state value
@@ -331,10 +357,6 @@ npm run start
 
 ### 2.13.17 (2026-03-29)
 * (@GermanBluefox) Removed debug code for theme
-
-### 2.13.16 (2026-03-26)
-* (@GermanBluefox) Fixing the usage of umlauts in patterns
-* (@GermanBluefox) Fixing commands via control interface when sent as JSON
 
 ## License
 To use this adapter in `ioBroker` you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.

@@ -86,9 +86,13 @@ The data is as follows Provided:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.2.1 (2026-08-10)
 - (ticaki) Fixed: radar `max_precipitation_forecast.*_sum` cumulative values were inflated because precipitation was summed across whole grid columns and scaled with `radarDistance`; the cumulative forecast now accumulates each grid cell over time and reports the maximum single location
 - (ticaki) Changed: radar precipitation forecasts now report `null` instead of `-1` when no radar data is available
+- (ticaki) Fixed: temporary API failures are retried automatically, so short Bright Sky outages no longer leave the data stale
+- (ticaki) Changed: temporary API problems (e.g. `500 Internal Server Error`) are logged as warnings instead of errors with a stack trace
+- (ticaki) Changed: more precise sunrise/sunset times and solar yield estimate (suncalc 2.x)
+- (ticaki) Fixed: days without sunrise or sunset (polar day/night) are handled correctly
 
 ### 1.2.0 (2026-06-02)
 - (ticaki) Added `conditionUI` (translated condition text) to `current` and `hourly.NN`, matching the existing `daily.NN.conditionUI` [#110](https://github.com/ticaki/ioBroker.brightsky/issues/110)
@@ -109,33 +113,3 @@ The data is as follows Provided:
 - (ticaki) fixed: states/timezone/translation
 - (ticaki) Customisable update interval for Daily (expert)
 - (ticaki) BREAKING: remove forHomoran states
-
-### 0.6.7 (2025-10-26)
-- (ticaki) Corrected some roles for Lovelance
-- (ticaki) Added conditionUI
-- (ticaki) Air pressure and humidity are now integers
-- (ticaki) Added air pressure to daily data
-- (ticaki) Improved error logging
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
-MIT License
-
-Copyright (c) 2025-2026 ticaki <github@renopoint.de>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

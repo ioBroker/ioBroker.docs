@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.danfoss-ally/README.md
 title: без названия
-hash: sbctulZ/na+dm0rPNfffIVn7LK1FOKBA4eCl+gSrvTk=
+hash: AeSHE6cHLosGEK29j/UXJ/U80stRftqtZVzxC7l3n6U=
 ---
-![версия](https://img.shields.io/badge/version-0.2.19-blue)
+![версия](https://img.shields.io/badge/version-0.2.20-blue)
 ![НПМ](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 Облачный адаптер для **Danfoss Ally™** — с использованием **OAuth2 (учетные данные клиента)**.
@@ -119,7 +119,7 @@ Polling:      300
 
 ### Примеры чтения
 | Штат | Описание | Единица измерения |
-| -------------------------------------- | --------------------------------------------- | ---- |
+| ----------------------------------------------------------- | --------------------------------------------- | ---- |
 | `status.temp_current` | Текущая температура | °C |
 | `status.battery_percentage` | Уровень заряда батареи | % |
 | `status.mode` | Текущий режим (`auto`, `manual`, `at_home`, …) | – |
@@ -136,7 +136,7 @@ Polling:      300
 Это дает вам полный контроль в Blockly, JavaScript или в пользовательских логических скриптах.
 
 | Доступное для записи состояние | Ожидаемое значение / поведение |
-| ----------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
 | `control.temp_set` | Целевая температура (°C, шаг 0,5; отправлено ×10) |
 | `control.at_home_setting`, `control.leaving_home_setting`, `control.pause_setting`, `control.holiday_setting` | Заданные температуры |
 | `control.mode` | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
@@ -198,17 +198,18 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 ## Ведение журнала
 Адаптер предоставляет подробную информацию на уровне отладки для диагностики, но при нормальной работе остается бесшумным.
 
-- Обновления `ack=true` отображаются только в режиме отладки (debug).
+- Обновления с параметром `ack=true` игнорируются без уведомления.
 - `HOLD`, `MATCH`, `SUPPRESS` → отладочная, безвредная диагностика
+— После первоначального запуска инвентаризации в журналах отладки отображаются только изменения реальных значений.
 - Ошибки API (`HTTP 400/401`) автоматически повторяются (регистрируются в режиме отладки)
-- Подробный информационный отчет после каждого опроса:
+- После каждого опроса очищается сводка уровня отладки:
 
 **Пример сводки результатов опроса**
 
 ```
-✅ Updated 13 devices. Changed=2, Skipped=253, Held=1
-📡 Found devices, updating states...
-⏸️ Skipping poll (anti-race 5000ms)
+CHANGES bf0a...: temp_set: 25 -> 30, manual_mode_fast: 25 -> 30
+Updated 13 devices. Mode=poll, Changed=2, Skipped=253, Held=0, AckFixed=0
+Skipping poll (anti-race pause 5000ms)
 ```
 
 ## Пример вывода в лог
@@ -261,7 +262,7 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 
 ---
 
-## Записывает
+## Пишет
 - `temp_set` сначала пытается выполнить комбинированную команду `SetpointChangeSource` + `temp_set`.
 - Термостаты Ally TRV также получают значение `manual_mode_fast`, если такая точка данных существует, поскольку некоторые устройства сообщают о заданном вручную значении.
 - Опрос обновляет только `status.*`; `control.*` остается каналом чистой записи, чтобы избежать циклов обратной связи.
@@ -287,18 +288,30 @@ node main.js
 
 ## Changelog
 
+### 0.2.20
+
+- Reduced debug log noise after startup: repeated polls now log only real value changes
+- Removed repeated per-device debug inventory lines after the first poll
+- Avoided object-valued status writes from fallback responses
+- Added Boiler Relay fallback objects when the Danfoss API lists the relay but returns no status entries
+- Resolved ioBroker repository checker warnings for Prettier config, ESLint devDependency, translated news entries, workflow concurrency, and tracked ignored tool files
+- Updated GitHub Actions workflow dependencies from the open Dependabot PRs
+
 ### 0.2.19
+
 - Stopped polling from writing cloud values back into `control.*` states to avoid feedback loops with Loxone/scripts
 - Added `state.from` to debug write logs so external write sources can be identified
 - Added direct status fallback for devices that are listed without status values, improving Boiler Relay datapoints
 - Reduced poll debug noise: the initial run still logs all `SET` lines, later polls summarize changed values per device
 
 ### 0.2.18
+
 - Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
 - Added explicit warnings when the Danfoss Cloud does not confirm the requested setpoint
 - Improved device naming/detection for relay-like devices so the Boiler Relay is easier to identify
 
 ### 0.2.17
+
 - Improved Ally TRV `temp_set` writes by trying `SetpointChangeSource=Externally` and `temp_set` as one combined command first
 - Falls back to `temp_set` only if Danfoss rejects the combined command
 - Fixed `control.switch` subscriptions for Icon2 / Boiler Relay writes
@@ -306,6 +319,7 @@ node main.js
 - Fixed jsonConfig header validation warning
 
 ### 0.2.16
+
 - Fixed `temp_set` for Ally TRVs (`SetpointChangeSource=Externally` auto-sent)
 - Fixed wrong path for `lower_temp`/`upper_temp` clamp
 - Fixed `OccupiedSetpoint` scaling (÷100 instead of ÷10)
@@ -315,7 +329,6 @@ node main.js
 - Added Boiler Relay to supported devices
 
 [Older changes](CHANGELOG_OLD.md)
-
 
 ---
 

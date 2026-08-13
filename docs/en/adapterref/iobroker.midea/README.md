@@ -202,6 +202,13 @@ device ids so the implementation can be diagnosed from logs alone.
 <!-- 
   Placeholder for next versions. Do NOT remove. 
 -->
+### 1.9.0 (2026-08-09)
+- Neu: Selbstreinigung der Klimaanlage lässt sich per Adapter starten (Datenpunkt `selfClean`, entspricht "Selbstreinigung" in der MSmartHome App). Ein laufender Reinigungszyklus wird unter `selfCleanActive` angezeigt.
+- Neu: Weitere Klima-Schalter nutzbar gemacht: Ionisator (`anion`), Signalton (`sound`), Jet-/Flash-Kühlung (`jetCool`), Wind-Rundum (`cascade`), iECO-Sparmodus (`presetIeco`) und Lüfterstufen-Feinwahl (`rateSelect`).
+- Neu: Energiesparen/"Quiet Sleep" (`save`) ist jetzt schaltbar.
+- Neu: Ist-Winkel der Lamellen werden angezeigt (`horizontalLouverAngle`, `verticalLouverAngle`), sofern das Gerät sie meldet.
+- Verbessert: Korrekte Temperaturanzeige für Modelle, die diese über das neue Protokoll melden.
+
 ### 1.8.6 (2026-06-29)
 - Improved State parsing
 

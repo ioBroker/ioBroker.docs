@@ -153,10 +153,22 @@ Every widget has a field `filter`. If you set it to some value, e.g. `light`, so
 The entries of the `filter - dropdown` widget (buttons as well as dropdown items) have the CSS class `vis-filter-item`, and the currently active entries additionally `vis-filter-item-active`, so they can be styled in the project CSS, e.g.:
 
 ```css
+/* buttons (horizontal / vertical) */
 .vis-filter-item-active {
     background-color: #ff0000;
 }
+
+/* entries of the dropdown */
+.vis-filter-item-active.Mui-selected {
+    background-color: #ff0000;
+}
 ```
+
+Two rules are required, because the active entry of the dropdown additionally has the class `Mui-selected`, and its own background color is more specific than `.vis-filter-item-active` alone.
+
+Please note:
+* If a color is configured for an entry in the widget itself, it is written as an inline style and cannot be overwritten with the `color` property from the project CSS. Leave the color of the entry empty if you want to set it via CSS.
+* The entries of the dropdown are rendered outside the widget (in a popup on page level), so they can only be addressed globally and not with a selector for a single widget, like `#w00001 .vis-filter-item-active`. The buttons are a part of the widget and can be addressed this way.
 
 ## Control interface
 Vis creates 3 variables:
@@ -300,7 +312,20 @@ npm run start
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.14.4 (2026-08-10)
+* (@typhosj) The entries of the horizontal navigation menu can be scrolled now instead of being cut off in a narrow window
+* (@typhosj) Fixed the invalid HTML element IDs of the widgets shown in multiple views. Their IDs changed from `<view>_<widget>` to `v<view>_<widget>`, so a user script or CSS that addresses such a copy must be adapted
+* (@typhosj) Fixed the double click on a widget shown in multiple views jumping to a wrong view
+* (@typhosj) Show the text of the button widgets as entered and not upper cased
+* (@GermanBluefox) Fixed the ignored "small" option of the `filter - dropdown` widget
+* (@typhosj) Subscribed to object IDs that are the result of a binding
+* (@typhosj) Fixed the ignored read-only option of the Bool SVG widget
+* (@GermanBluefox) Fixed the position of a new group created inside another group
+* (@typhosj) Fixed the position of the members when a nested group is dissolved
+* (@GermanBluefox) Fixed "same width"/"same height" applying the sizes of a previously selected widget
+* (@GermanBluefox) Fixed the widget selection when a stored selected widget does not exist anymore
+* (@typhosj) Fixed dissolving a group deleting a member widget instead of the group
+* (@GermanBluefox) The user permissions are now applied to widgets embedded via `getWidgetInWidget`, which can return `null` now
 * (@typhosj) Fixed the user permissions being ignored for widgets inside a group
 * (@typhosj) Added the CSS classes `vis-filter-item` and `vis-filter-item-active` to the `filter - dropdown` widget
 * (@GermanBluefox) Fixed `exist`/`not exist` of signals evaluating the comparison value instead of the state value
@@ -319,10 +344,6 @@ npm run start
 
 ### 2.13.17 (2026-03-29)
 * (@GermanBluefox) Removed debug code for theme
-
-### 2.13.16 (2026-03-26)
-* (@GermanBluefox) Fixing the usage of umlauts in patterns
-* (@GermanBluefox) Fixing commands via control interface when sent as JSON
 
 ## License
  Copyright (c) 2021-2026 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,

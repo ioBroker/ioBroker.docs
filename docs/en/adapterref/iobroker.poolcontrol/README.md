@@ -283,6 +283,14 @@ New features are added regularly – please refer to the changelog.
 ---
 
 ## Changelog
+### 1.4.5 (2026-08-11)
+
+- Fixed a conflict between Auto-PV and Extended Solar control.
+- Extended Solar could incorrectly switch off the main pump while the pump was being controlled by Auto-PV and sufficient PV surplus was still available.
+- Extended Solar now only writes to the main pump switch when `pump.mode = auto`.
+- Auto-PV operation is no longer interrupted by the Extended Solar control cycle.
+- Existing Extended Solar pump control in normal `auto` mode remains unchanged.
+
 ### 1.4.4 (2026-07-31)
 
 - Fixed a race condition in the Auto-PV helper that could occur during rapid updates of PV generation and household power values.
@@ -322,14 +330,6 @@ New features are added regularly – please refer to the changelog.
 - When Auto-PV already controls the pump, the current pump power is now considered for the holding decision.
 - This prevents a running pump from triggering its own Auto-PV afterrun/stop cycle after startup.
 - The displayed PV surplus (`photovoltaic.power_surplus_w`) remains the real remaining surplus and is not artificially adjusted.
-
-### 1.4.0 (2026-06-29)
-
-- Added a reset button for pump learning to quickly clear learned values after a pump replacement or incorrect learning while keeping user settings intact.
-- Made the daily circulation factor writable and persistent. The adapter configuration is now only used as the initial value, allowing adjustments directly via states (e.g. VIS or HomePanel).
-- Added an optional temperature-dependent circulation factor that automatically increases the required daily circulation based on a selectable temperature sensor and configurable threshold.
-- Extended the existing time control with an optional interval mode. Each time window can now operate either continuously or in configurable intervals without introducing a new pump mode.
-- Added new diagnostic states and multilingual status messages to improve transparency and troubleshooting for the new circulation and time control features.
 
 ## Archived Release History
 

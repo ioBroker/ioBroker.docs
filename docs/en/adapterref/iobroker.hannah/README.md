@@ -77,7 +77,7 @@ The adapter expects `HannahService.AgentConnect` to be available on the configur
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.2 (2026-08-09)
 - Changed: updated to hannah-proto 3.2.0 — the gRPC connection now also sends a per-message compatibility marker alongside the existing protocol-version check, so future breaking changes elsewhere in the protocol won't unnecessarily disconnect this adapter
 - Fixed: satellite-related types (`Satellite`, `GetSatellitesResponse`, `SetSatelliteDisplayNameRequest`) moved to their own module in a prior hannah-proto release — this adapter hadn't picked that up yet, which would have broken the build against any hannah-proto newer than 2.x
 

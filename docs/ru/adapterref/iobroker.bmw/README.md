@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: wXG9jNeA0kjQfS9C2uI1GqkbLX4/AyELs56eCubif4A=
+hash: q+ZGCsk6DvtS36dPreQZtnC923ftbH4GTWKBKN1egUU=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bmw.svg)
@@ -75,10 +75,9 @@ hash: wXG9jNeA0kjQfS9C2uI1GqkbLX4/AyELs56eCubif4A=
 
 ### 3. Настройка адаптера
 1. Введите свой **идентификатор клиента** в настройках адаптера.
-2. Введите ваше **имя пользователя для потоковой передачи CarData** (его можно найти на портале BMW в разделе CarData > Потоковая передача).
-3. Выберите марку вашего автомобиля (BMW, Mini, Toyota Supra).
-4. Установите **интервал обновления** (минимум 10 минут из-за квоты API).
-5. При необходимости настройте **список игнорирования VIN-кода**.
+2. Выберите марку вашего автомобиля (BMW, Mini, Toyota Supra)
+3. Установите **интервал обновления** (минимум 10 минут из-за квоты API).
+4. При необходимости настройте **список игнорирования VIN-кода**.
 
 ### 4. Процесс аутентификации
 1. Включите адаптер.
@@ -196,9 +195,13 @@ API BMW CarData доступен только для чтения, поэтом�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.1 (2026-08-10)
 
-### **WORK IN PROGRESS**
-
+- (TA2k) fixed CU-103 "token-scope is not CarData" by requesting the cardata:api:read scope explicitly in the device code flow
+- (TA2k) fixed MQTT streaming: use the token gcid as username and topic prefix (matching BMW's broker ACL), fixing the "Unspecified error" subscribe failure
+- (TA2k) fixed container cleanup deleting with an undefined containerId (CU-121)
+- (TA2k) removed the CarData Streaming Username setting - the gcid is now taken automatically from the token
+- (TA2k) added an option to create a reduced telematic container (workaround for CU-403 on container creation)
 - (hombach) updated adapter-core
 - (hombach) fixed adapterchecker errors: downgraded @types/node to ^22, added Sentry notice to README, added @iobroker/adapter-dev
 - (hombach) replaced native setInterval/setTimeout with adapter-managed equivalents in main.js
@@ -230,11 +233,6 @@ API BMW CarData доступен только для чтения, поэтом�
 
 - (hombach) year 2026 changes
 - (hombach) update dependencies
-
-### 4.3.2 (2025-12-15)
-
-- update telemetry ids for container creation
-- optimize dependabot config (#209)
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

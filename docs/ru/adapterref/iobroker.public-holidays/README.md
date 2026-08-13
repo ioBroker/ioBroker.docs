@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.public-holidays/README.md
 title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
-hash: 1LNxxnDrKwoDzUsDump+J/CSzNAaTAeRz2lJtTa/aDk=
+hash: rCtPqJCmRXvi87lkuWpn0a8M3l16vLe25sy1raAErWY=
 ---
 # <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
 
@@ -46,25 +46,17 @@ hash: 1LNxxnDrKwoDzUsDump+J/CSzNAaTAeRz2lJtTa/aDk=
 - Node.js >= 22
 
 ## Конфигурация
-### Вкладка 1 — Регион
-| Настройки | Описание |
-| ---------------- | ----------------------------------------------------------------- |
-| Страна | Выберите из 206 стран |
-| Штат / Провинция | Выпадающее меню — отображается только для стран с штатами (например, Германия, Швейцария, США) |
-| Регион | Выпадающий список — отображается только в том случае, если выбранный штат имеет регионы |
+Все настройки находятся на одной карточке с пошаговыми инструкциями. Пройдите весь процесс сверху вниз:
 
-Если поле **Страна** оставить пустым, она будет автоматически определена в системных настройках ioBroker (Системные настройки → Страна). Рекомендуется явно выбрать это поле.
+| Шаг | Описание |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Местоположение | Страна (доступно 206); штат/провинция и регион отображаются только для стран, в которых они есть. Если поле «Страна» оставлено пустым, она автоматически определяется из настроек вашей системы ioBroker. |
+| Типы праздников | Государственные (по умолчанию включены), банковские, школьные, необязательные и памятные дни. |
+| Переходные дни | Добавляет переходные дни между праздником и выходными. |
+| Исключенные праздники | Выберите отдельные праздники, которые следует исключить из проверки. |
+| Обнаруженные праздники | Предварительный просмотр праздников, которые адаптер обнаружит для текущего выбора. |
 
-### Вкладка 2 — Праздники
-| Настройки | Описание |
-| ------------------ | ----------------------------------------------- |
-| Государственные праздники | Официальные государственные/национальные праздники (по умолчанию: включены) |
-| Банковские праздники | Банковские праздники |
-| Школьные каникулы | Школьные каникулы |
-| Дополнительные выходные | Дополнительные/обязательные выходные |
-| Памятные дни | Памятные дни |
-| Обнаружение переходных дней | Добавляет переходные дни между праздниками и выходными |
-| Исключенные праздники | Выберите праздники, которые не будут учитываться |
+> Карточка настроек является компонентом Admin-8, поэтому для работы этого адаптера требуется Admin 8.
 
 ## Государственное дерево
 ```
@@ -124,6 +116,14 @@ public-holidays.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.13.0 (2026-08-13)
+
+- The adapter settings are now a single guided card — country, region, holiday types and exclusions on one page, with a live preview of the holidays that will be detected.
+
+### 0.12.0 (2026-08-10)
+
+- The holiday exclusion selector in the settings now works on Admin 8 — it was blank there since Admin 8.0.1, so this version requires Admin 8.
+
 ### 0.11.0 (2026-07-12)
 
 - Breaking change: the states that flag whether each day is a holiday were renamed for clarity — update any scripts or views that read them.
@@ -138,17 +138,6 @@ public-holidays.0.
 
 - The holiday exclude list now shows only your selected region's holidays, in your admin language and sorted by date — no longer every region of a country mixed alphabetically.
 - The false "excluded holidays no longer match" warning at startup is fixed; it now fires only for a holiday that genuinely no longer exists.
-
-### 0.8.0 (2026-06-25)
-
-- A misconfigured region/state is now reported instead of silently using country-level holidays.
-- A holiday exclude that no longer matches after a data update is now reported.
-- On a day with two holidays, the more important one is now shown.
-- Adds an optional bridge day between two midweek holidays.
-
-### 0.7.1 (2026-06-12)
-
-- Internal refactoring. No user-facing changes.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

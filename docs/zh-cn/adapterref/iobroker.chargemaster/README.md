@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.chargemaster/README.md
 title: ioBroker.chargemaster
-hash: kR1RIxIkER7PRGMDoJ0JYXNiXx4h27Tsp1CUxcCMvEg=
+hash: +tJslZDsgX/pHcqOcHEELL3GryWP23KhM+IwY9aQH6Q=
 ---
 ![标识](../../../en/adapterref/iobroker.chargemaster/admin/chargemaster.png)
 
@@ -61,18 +61,18 @@ ChargeMaster 管理一个或多个电动汽车充电器（壁挂式充电桩）�
 ＃＃ 配置
 ### 基本设置
 | 设置 | 描述 |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | `cycle time` | 控制周期间隔，单位为毫秒（默认值为 10000）。不建议使用低于 5000 的值。 |
 | `state of solar power` | 当前光伏发电量（单位：瓦特）的外国 |
 | `state of home power consumption` | 当前家庭用电量（不含壁挂式充电桩功率）的国外州/省。 |
-| `state of home battery state of charge`| 当前家用电池 SoC 的国外状态（以百分比表示） |
-| `家庭电池电量状态`| 当前家庭电池电量（SoC）的外部状态（以百分比表示）|
+| `state of home battery state of charge` | 当前家用电池 SoC 的国外状态（以百分比表示） |
+| `家庭电池电量状态` | 当前家庭电池电量（SoC）百分比的外部状态 |
 
 ### Wallbox 列表
 每个墙盒增加一行：
 
 | 栏目 | 描述 |
-| ----------------------- | ------------------------------------------------------------------------ |
+| ---------------------- | ----------------------------------------------------------------------- |
 | `state charge current` | 外部状态，用于**写入**充电电流设定值（A）。 |
 | `state active power` | 读取当前充电功率（瓦）。 |
 | `state active current` | 外部状态，**读取**当前充电电流（A）。 |
@@ -84,7 +84,7 @@ ChargeMaster 管理一个或多个电动汽车充电器（壁挂式充电桩）�
 
 ## 适配器创建的状态
 | 状态 | 描述 |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------- |
+| ------------------------------- | --------------------------------------------------------------------------------------- |
 | `Settings.Setpoint_HomeBatSoC` | 光伏剩余电量开始充电前的最低家用电池荷电状态百分比（可写，默认值 80）。 |
 | `Settings.WB_<x>.ChargeCurrent` | ChargeNOW 模式下的充电电流（单位：安培，可写）。 |
 | `Settings.WB_<x>.ChargeManager` | 启用壁挂式充电桩 `<x>`（可写）的光伏剩余电量充电功能。 |
@@ -119,6 +119,11 @@ optimalCurrent = (solarPower - houseConsumption + 100 W reserve + batteryShare) 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.16.1 (2026-08-10)
+
+- (HombachC) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
+- (HombachC) updated dependencies
+
 ### 0.16.0 (2026-07-05)
 
 - (HombachC) switched data acquisition from polling to event driven foreign state subscriptions, react immediately to user input
@@ -154,10 +159,6 @@ optimalCurrent = (solarPower - houseConsumption + 100 W reserve + batteryShare) 
 
 - (HombachC) min admin 7.6.20 as recommended (#762)
 - (HombachC) switch to ES2023 code
-- (HombachC) update dependencies
-
-### 0.14.6 (2026-02-27)
-
 - (HombachC) update dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)

@@ -79,6 +79,11 @@ Bug reports, compatibility notes for specific firmware versions, or feature requ
 ## Changelog
 
 // ### **WORK IN PROGRESS**
+
+### **WORK IN PROGRESS**
+
+- review / fix findings reported by claude based checker.
+
 ### 0.6.5 (2026-08-07)
 
 - review / fix findings reported by claude based checker.

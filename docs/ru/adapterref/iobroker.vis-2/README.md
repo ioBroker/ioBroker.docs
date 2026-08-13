@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2/README.md
 title: Визуализация нового поколения для ioBroker: vis-2
-hash: Y3QSjtg1+5Q+H8MjCynPjleENPJdb3JvcGW2BZYukeA=
+hash: SmcvBQNmBAOAAqrMmwG1RdqdfA9Ra8l/zGxrmrcnMho=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -151,10 +151,23 @@ Last change: {objectRed.lc;date(hh:mm)}
 Элементы виджета `filter - dropdown` (кнопки, а также выпадающие списки) имеют CSS-класс `vis-filter-item`, а активные в данный момент элементы дополнительно — `vis-filter-item-active`, поэтому их можно стилизовать в CSS проекта, например:
 
 ```css
+/* buttons (horizontal / vertical) */
 .vis-filter-item-active {
     background-color: #ff0000;
 }
+
+/* entries of the dropdown */
+.vis-filter-item-active.Mui-selected {
+    background-color: #ff0000;
+}
 ```
+
+Необходимо соблюдение двух правил, поскольку активный элемент выпадающего списка дополнительно имеет класс `Mui-selected`, а его собственный цвет фона более специфичен, чем просто `.vis-filter-item-active`.
+
+Пожалуйста, обрати внимание:
+
+* Если цвет для элемента задан непосредственно в виджете, он записывается как встроенный стиль и не может быть переопределен свойством `color` из CSS проекта. Оставьте поле цвета элемента пустым, если хотите задать его через CSS.
+* Элементы выпадающего списка отображаются вне виджета (во всплывающем окне на уровне страницы), поэтому к ним можно обращаться только глобально, а не с помощью селектора для отдельного виджета, например, `#w00001 .vis-filter-item-active`. Кнопки являются частью виджета и могут быть адресованы таким образом.
 
 ## Интерфейс управления
 Vis создает 3 переменные:
@@ -304,7 +317,20 @@ npm run start
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.14.4 (2026-08-10)
+* (@typhosj) The entries of the horizontal navigation menu can be scrolled now instead of being cut off in a narrow window
+* (@typhosj) Fixed the invalid HTML element IDs of the widgets shown in multiple views. Their IDs changed from `<view>_<widget>` to `v<view>_<widget>`, so a user script or CSS that addresses such a copy must be adapted
+* (@typhosj) Fixed the double click on a widget shown in multiple views jumping to a wrong view
+* (@typhosj) Show the text of the button widgets as entered and not upper cased
+* (@GermanBluefox) Fixed the ignored "small" option of the `filter - dropdown` widget
+* (@typhosj) Subscribed to object IDs that are the result of a binding
+* (@typhosj) Fixed the ignored read-only option of the Bool SVG widget
+* (@GermanBluefox) Fixed the position of a new group created inside another group
+* (@typhosj) Fixed the position of the members when a nested group is dissolved
+* (@GermanBluefox) Fixed "same width"/"same height" applying the sizes of a previously selected widget
+* (@GermanBluefox) Fixed the widget selection when a stored selected widget does not exist anymore
+* (@typhosj) Fixed dissolving a group deleting a member widget instead of the group
+* (@GermanBluefox) The user permissions are now applied to widgets embedded via `getWidgetInWidget`, which can return `null` now
 * (@typhosj) Fixed the user permissions being ignored for widgets inside a group
 * (@typhosj) Added the CSS classes `vis-filter-item` and `vis-filter-item-active` to the `filter - dropdown` widget
 * (@GermanBluefox) Fixed `exist`/`not exist` of signals evaluating the comparison value instead of the state value
@@ -323,10 +349,6 @@ npm run start
 
 ### 2.13.17 (2026-03-29)
 * (@GermanBluefox) Removed debug code for theme
-
-### 2.13.16 (2026-03-26)
-* (@GermanBluefox) Fixing the usage of umlauts in patterns
-* (@GermanBluefox) Fixing commands via control interface when sent as JSON
 
 ## License
 To use this adapter in `ioBroker` you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.

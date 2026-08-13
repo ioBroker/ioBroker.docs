@@ -3,23 +3,20 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.harvia-fenix/README.md
 title: ioBroker.harvia-fenix
-hash: mtmm4x4GIJZIJxZgCG0m1iMhRl0FJnYenuprTqnUYPE=
+hash: jEMlySiE0Wma0PxeDul3GrIPE76sFjebGAPMZoV+jX0=
 ---
 ![下载](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![节点](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
 ![执照](https://img.shields.io/npm/l/iobroker.harvia-fenix.svg)
 ![GitHub 问题](https://img.shields.io/github/issues/meistermopper/ioBroker.harvia-fenix.svg)
 ![安装数量](https://iobroker.live/badges/harvia-fenix-installed.svg)
-![最新仓库中的当前版本](https://iobroker.live/badges/harvia-fenix-latest.svg)
 ![稳定仓库中的当前版本](https://iobroker.live/badges/harvia-fenix-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.harvia-fenix.png?downloads=true)
 
 <p align="center"><img src="admin/harvia.png" alt="标识" width="100" /></p>
 
 # IoBroker.harvia-fenix
-**[这是文档的德语版本。](README_de.md)**
-
-[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/harvia-fenix/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/)
+**[这是文档的德语版本。](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/README_de.md)**
 
 ![测试与发布](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
 
@@ -37,21 +34,13 @@ hash: mtmm4x4GIJZIJxZgCG0m1iMhRl0FJnYenuprTqnUYPE=
 ---
 
 ＃＃ 安装
-该适配器可在官方 ioBroker `latest` (beta) 仓库中找到。您可以直接通过 ioBroker 网页界面安装，也可以通过 npm 在本地计算机上安装。
+该适配器可在 ioBroker 官方软件仓库中找到。您可以直接通过 ioBroker 管理后台的 Web 界面进行安装。
 
-### 基于浏览器（通过 ioBroker Admin）
+### 通过 ioBroker 管理员
 1. 在浏览器中打开 ioBroker Web 界面（例如 `192.168.1.33:8081`）。
-2. 确保您的 ioBroker 存储库设置已设置为 **`latest`**（beta）。
-3. 点击**适配器**选项卡。
-4. 在筛选器中输入“harvia-fenix”。
-5. 点击三个点，然后点击 **Harvia Fenix** 适配器的“+”符号，添加实例。
-
-### 本地机器
-进入 ioBroker 文件夹并执行以下命令：
-
-```bash
-npm i iobroker.harvia-fenix
-```
+2. 点击**适配器**选项卡。
+3. 在筛选器中输入“harvia-fenix”。
+4. 点击三个点，然后点击 **Harvia Fenix** 适配器的“+”符号，添加实例。
 
 ---
 
@@ -72,7 +61,7 @@ npm i iobroker.harvia-fenix
 2. 导航至“实例”选项卡，然后单击您的 `harvia-fenix.0` 实例的设置图标。
 3. 输入您的 MyHarvia 帐户的**电子邮件地址**和**密码**。
 4. 如果将“设备 ID”字段留空，适配器将在启动时自动搜索与您的帐户关联的设备。它会将找到的第一个设备用作活动设备。
-5. 调整可选参数：**轮询间隔**（秒）、**最低/最高目标温度限制**（°C）和**最大加热持续时间**（分钟）。
+5. 调整可选参数：**轮询间隔**（秒）、**最低/最高目标温度限制**（°C）和**最长加热时间**（分钟）。
 6. 点击**保存并关闭**。
 
 ### 设备配置和多设备支持
@@ -135,10 +124,10 @@ MyHarvia 云基础设施将设备、用户和应用程序划分到不同的“�
 | `online` | 布尔值 | `indicator.reachable` | 只读 | 控制单元与云端的连接状态。 |
 | `doorSafety` | 布尔值 | `indicator.safety` | 只读 | 安全回路状态（例如，`true`表示门已锁定/可以安全运行）。 |
 | `remoteControl` | 布尔值 | `indicator` | 只读 | 远程启动就绪状态。如果为 `false`，则阻止远程启动加热器（通过适配器）。 |
-| `errorMsg` | 字符串 | `text` | 只读 | 加热器当前错误信息或状态文本。 |
+| `errorMsg` | 字符串 | `text` | 只读 | 来自加热器的当前错误消息或状态文本。 |
 | `heatOn` | 布尔值 | `switch.power` | 读/写 | 主开关，用于打开 (`true`) 或关闭 (`false`) 桑拿加热器。 |
 | `heaterPower` | 数字 | `value.power` | 只读 | *注意：* 此对象由 MyHarvia API 结构提供，但目前以 `0 kW`（未填充）的形式提供。它似乎是为未来的硬件或应用程序更新而保留的。 |
-| `lightOn` | 布尔值 | `switch.light` | 读/写 | 切换打开或关闭集成桑拿照明。 |
+| `lightOn` | 布尔值 | `switch.light` | 读/写 | 切换开启或关闭集成桑拿照明。 |
 | `maxDuration` | 数字 | `level.timer` | 读/写 | 桑拿房使用期间允许的最大加热时间（分钟）（`min`）。 |
 | `panelTemp` | 数字 | `value.temperature` | 只读 | 在物理控制面板单元处测量的温度读数。 |
 | `targetTemp` | 数字 | `level.temperature` | 读/写 | 桑拿房的目标温度设定值（例如，`90 °C`）。 |
@@ -189,12 +178,16 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 待办事项
 * [ ] 等待 Harvia 官方许可才能使用其原有标志
 * [x] 将适配器添加到官方 ioBroker `latest` 仓库
-* [ ] 将适配器添加到官方 ioBroker `stable` 仓库
+* [x] 将适配器添加到官方 ioBroker `stable` 仓库
 
 ---
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.3.2 (2026-08-11)
+* (meistermopper) Use absolute GitHub URLs for language switching links in README files
+* (meistermopper) Remove latest repository and translation badges from README files
+* (meistermopper) Mark stable repository addition as completed in To-Do list
+* (meistermopper) Remove direct npm installation instructions from README files
 * (dependabot) Bump axios from 1.18.1 to 1.19.0
 * (meistermopper) Center adapter logo in README files
 * (meistermopper) Add Weblate translation status badge to README files
@@ -227,11 +220,6 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 * (meistermopper) Remove redundant ==== underlines from header in README files
 * (meistermopper) Remove duplicate changelog link and format it consistently in README files
 * (meistermopper) Update Biome schema version to 2.5.3 to match CLI version
-
-### 0.2.6 (2026-07-16)
-* (meistermopper) Change doorSafety role to indicator.safety to prevent semantic role mismatch
-* (meistermopper) Redesign README and README_de.md layout to match Denon adapter presentation
-* (meistermopper) Update AI commit hook prompt to generate messages entirely in English
 
 [Older changelog entries](CHANGELOG_OLD.md)
 

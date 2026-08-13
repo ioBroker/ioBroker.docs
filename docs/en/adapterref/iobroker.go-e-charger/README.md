@@ -172,6 +172,13 @@ If you enjoyed this project – or are just feeling generous – consider buying
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.4.0 (2026-08-10)
+
+- (hombach) added info.unlockedByRFIDName with the name of the current session's RFID card, in parallel to unlockedByRFIDNo (#634)
+- (hombach) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
+- (hombach) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
+- (hombach) updated dependencies
+
 ### 1.3.1 (2026-08-06)
 
 - (hombach) fixed "unlocked by RFID" always 0 on gen 3+ chargers: API V2 uses the "trx" key instead of "uby" (#634)
@@ -197,12 +204,6 @@ If you enjoyed this project – or are just feeling generous – consider buying
 
 - (hombach) added statisticsGlobal.chargePower state with the current total charging power of all chargers
 - (hombach) removed chai-based unit test dependencies; modernized test harness to Node.js assert (fixes Appveyor, #836)
-
-### 1.1.0 (2026-07-05)
-
-- (hombach) fixed reading of "unlocked by RFID" (uby) on gen 3+ chargers via API V2
-- (hombach) read-only mode now suppresses all control commands (charge release, charging current, phase switching)
-- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -159,6 +159,9 @@ The adapter automatically repairs known Tesla firmware JSON defects (bare `nan` 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Dependency updates
+
 ### 1.3.0 (2026-08-04)
 - Added North American split-phase power calculation mode (splitPhase setting)
 - Added recovery for malformed wallbox responses (bare nan, Infinity, and truncated data)

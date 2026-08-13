@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/stateroles.md
 title: Staatliche Rollen
-hash: 3Qz3vEfztTOu2Yz2dy9AydYSHZKs/lyh1rXLtFz+cAU=
+hash: tNZjIMAgQHny21XCbnnrRrv1DEufBhxQ3AnRnwNYUw4=
 ---
 # Rollen der Bundesstaaten
 Objekte des Typs `state` benötigen eine Eigenschaft `common.role`, die auf eine der unten definierten Rollen gesetzt ist.
@@ -79,7 +79,7 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `button`
 * `button.long`
 * `button.stop` - z.B. rollo stop,
-* `button.stop.blind` - stoppt die Bewegung einer Jalousie (Gerätetypen `blind`, `blindButtons`)
+* `button.stop.blind` - Stoppt die Bewegung einer Jalousie (Gerätetypen `blind`, `blindButtons`)
 * `button.stop.tilt`
 * `button.start`
 * `button.resume`
@@ -89,6 +89,8 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `button.open.tilt`
 * `button.close.blind`
 * `button.close.tilt`
+* `button.open` – Öffnet eine Jalousie. Der Typdetektor akzeptiert es als Äquivalent von `button.open.blind`, die detailliertere Rolle wird jedoch bevorzugt.
+* `button.close` – Jalousie schließen. Der Typdetektor akzeptiert es als Äquivalent von `button.close.blind`, die detailliertere Rolle wird jedoch bevorzugt.
 * `button.mode.`*
 * `button.mode.auto`
 * `button.mode.manual`
@@ -102,42 +104,42 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `button.press`
 
 ### Werte (Zahlen, schreibgeschützt)
-`common.type=number, common.write=false`
+`common.type=number, common.write=false` (`common.type=string, common.write=false`, sofern explizit angegeben)
 
-* `value`
+* `Wert`
 * `value.window` (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) Es ist wichtig, dass (`CLOSED/TILTED/OPEN`) vorhanden ist. Die Werte können unterschiedlich sein.
 * `value.temperature` (`common.unit='°C' or '°F' or 'K'`)
 * `value.temperature.dewpoint` (`common.unit='°C' or '°F')
-* `value.humidity` relative Luftfeuchtigkeit, gleiches wie `value.humidity.relative` (unit: %)
-* `value.humidity.relative` - (unit: %)
-* `value.humidity.absolute` - (unit: g/m³, mg/m³)
-* `value.co`              - Carbon monoxide (unit: ppm)
-* `value.co2`             - Carbon dioxide (unit: ppm)
-* `value.no`              - Nitrogen monoxide (unit: µg/m³ or ppm)
-* `value.no2`             - Nitrogen dioxide (unit: µg/m³ or ppm)
-* `value.o3`              - Ozone (unit: µg/m³ or ppm)
-* `value.ch2o`            - Formaldehyde (unit: µg/m³)
-* `value.pm1`             - Particulate matter PM1 (unit: µg/m³)
-* `value.pm25`            - Particulate matter PM2.5 (unit: µg/m³)
-* `value.pm10`            - Particulate matter PM10 (unit: µg/m³)
-* `value.rn`              - Radon (unit: Bq/m³)
-* `value.tvoc`            - Total volatile organic compounds (unit: µg/m³ or ppb)
-* `value.airquality`      - Air quality index (AQI)
-* `value.so2`             - Schwefeldioxid (Einheit: µg/m³ oder ppm)
-* `value.co.level`, `value.co2.level`, `value.no2.level`, `value.o3.level`, `value.ch2o.level`, `value.pm1.level`, `value.pm25.level`, `value.pm10.level`, `value.rn.level`, `value.tvoc.level`, `value.so2.level` - qualitative Stufe der gleichnamigen Konzentration (`common.states={"0": "UNKNOWN", "1": "LOW", "2": "MEDIUM", "3": "HIGH", "4": "CRITICAL"}`)
+* `value.humidity` relative Luftfeuchtigkeit, entspricht `value.humidity.relative` (Einheit: %)
+* `value.humidity.relative` - (Einheit: %)
+* `value.humidity.absolute` - (Einheit: g/m³, mg/m³)
+* `value.co` - Kohlenmonoxid (Einheit: ppm)
+* `value.co2` - Kohlendioxid (Einheit: ppm)
+* `value.no` - Stickstoffmonoxid (Einheit: µg/m³ oder ppm)
+* `value.no2` - Stickstoffdioxid (Einheit: µg/m³ oder ppm)
+* `value.o3` - Ozon (Einheit: µg/m³ oder ppm)
+* `value.ch2o` - Formaldehyd (Einheit: µg/m³)
+* `value.pm1` - Feinstaub PM1 (Einheit: µg/m³)
+* `value.pm25` - Feinstaub PM2,5 (Einheit: µg/m³)
+* `value.pm10` - Feinstaub PM10 (Einheit: µg/m³)
+* `value.rn` - Radon (Einheit: Bq/m³)
+* `value.tvoc` - Gesamtgehalt an flüchtigen organischen Verbindungen (Einheit: µg/m³ oder ppb)
+* `value.airquality` - Luftqualitätsindex (AQI)
+* `value.so2` - Schwefeldioxid (Einheit: µg/m³ oder ppm)
+* `value.co.level`, `value.co2.level`, `value.no2.level`, `value.o3.level`, `value.ch2o.level`, `value.pm1.level`, `value.pm25.level`, `value.pm10.level`, `value.rn.level`, `value.tvoc.level`, `value.so2.level` - qualitative Konzentrationsstufe des gleichnamigen Stoffes (`common.states={"0": "UNKNOWN", "1": "LOW", "2": "MEDIUM", "3": "HIGH", "4": "CRITICAL"}`)
 * `value.brightness` - Leuchtdichtewert (Einheit: Lux)
-* `value.dimmer` - aktuelle Helligkeit in % (Gerätetyp `dimmer`)
-* `value.volume` - aktuelle Lautstärke in % (Gerätetypen `media`, `volume`)
-* `value.volume.group` - aktuelle Lautstärke einer Gerätegruppe in % (Gerätetyp `volumeGroup`)
+* `value.dimmer` - tatsächlicher Dimmgrad in % (Gerätetyp `dimmer`)
+* `value.volume` - tatsächliche Lautstärke in % (Gerätetypen `media`, `volume`)
+* `value.volume.group` - tatsächliche Lautstärke einer Gruppe von Geräten in % (Gerätetyp `volumeGroup`)
 * `value.min`
 * `value.max`
 * `value.default`
 * `value.battery` - Akkuladestand
 * `value.valve` - Ventilpegel
 * `value.filter` - verbleibender Zustand eines Filters (Einheit: %)
-* `value.filter.carbon` - verbleibender Zustand eines Aktivkohlefilters (Einheit: %)
-* `value.flow` - Durchfluss einer Flüssigkeit oder eines Gases (Einheit: m³/h)
-* `value.rssi` - Empfangsfeldstärke eines Funkgerätes (Einheit: dBm)
+* `value.filter.carbon` - Restzustand eines Aktivkohlefilters (Einheit: %)
+* `value.flow` - Durchflussrate einer Flüssigkeit oder eines Gases (Einheit: m³/h)
+* `value.rssi` - Empfangssignalstärke eines Funkgeräts (Einheit: dBm)
 * `value.time` - getTime() des Date()-Objekts
 * `value.timer` - Dauer in Sekunden (entspricht im Lese-/Schreibmodus `level.timer`)
 * `value.interval` (common.unit='sec') - Intervall in Sekunden (kann 0,1 oder weniger sein)
@@ -146,7 +148,7 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `value.gps.longitude` - GPS-Längenkoordinaten
 * `value.gps.latitude` - GPS-Breitengrad
 * `value.gps.elevation` - GPS-Höhen
-* `value.gps` - Längen- und Breitengrad zusammen, z. B. '5.56;43.45'
+* `value.gps` - Längen- und Breitengrad zusammen, z. B. '5.56;43.45' (`common.type=string`)
 * `value.gps.accuracy` - Genauigkeit der aktuellen GPS-Messung
 * `value.gps.radius` - Radius der aktuellen GPS-Messung
 * ~~`value.power.consumption` - Energieverbrauch (Einheit=Wh oder kWh)~~
@@ -165,9 +167,10 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `value.curtain` - tatsächliche Position des Vorhangs
 * `value.blind` - tatsächliche Position der Jalousie (`max = vollständig geöffnet, min = vollständig geschlossen`)
 * `value.tilt` - tatsächliche Neigungsposition (`max = vollständig geöffnet, min = vollständig geschlossen`)
+* `value.open.tilt` – akzeptierte Variante von `value.tilt`. Für neue Adapter ist `value.tilt` vorzuziehen.
 * `value.lock` - tatsächliche Position der Sperre
 * `value.speed` - Windgeschwindigkeit
-* `value.pressure` - (Einheit: mbar, `hPa` ist derselbe Wert und wird ebenfalls akzeptiert)
+* `value.pressure` - (Einheit: mbar, `hPa` ist der gleiche Wert und wird ebenfalls akzeptiert)
 * `value.distance`
 * `value.distance.visibility`
 * `value.severity` – eine Angabe zum Schweregrad (Zustände können angegeben werden), je höher, desto wichtiger
@@ -189,7 +192,7 @@ Daher kann ein Indikator nicht allein im Kanal vorkommen. Er muss Teil eines and
 
 * `Indikator`
 * `indicator.working` - zeigt an, dass das Zielsystem gerade eine Aktion ausführt, z. B. das Öffnen von Jalousien oder Schlössern.
-* `indicator.working.test` - ein Selbsttest des Gerätes läuft
+* `indicator.working.test` – Ein Selbsttest des Geräts wird durchgeführt
 * `indicator.reachable` - Gibt an, ob ein Gerät online ist
 * `indicator.connected` – wird nur für Instanzen verwendet. Verwenden Sie `indicator.reachable` für Geräte.
 * `indicator.direction` - `true` - Aufwärts/Eröffnung, `false` - Abwärts/Schluss. Verwenden Sie besser `value.direction`.
@@ -197,7 +200,7 @@ Daher kann ein Indikator nicht allein im Kanal vorkommen. Er muss Teil eines and
 * `indicator.maintenance` - zeigt Systemwarnungen/-fehler, Alarme, Servicemeldungen, leeren Akku oder ähnliches an
 * `indicator.maintenance.lowbat`
 * `indicator.maintenance.unreach`
-* `indicator.maintenance.filter` - der Filter des Gerätes muss gewechselt werden
+* `indicator.maintenance.filter` - Der Filter des Geräts muss geändert werden
 * `indicator.maintenance.alarm`
 * `indicator.lowbat` - wahr, wenn der Akku schwach ist
 * `indicator.alarm` - entspricht indicator.maintenance.alarm
@@ -205,12 +208,12 @@ Daher kann ein Indikator nicht allein im Kanal vorkommen. Er muss Teil eines and
 * `indicator.alarm.flood` - Überschwemmung erkannt
 * `indicator.alarm.secure` - Tür oder Fenster ist geöffnet
 * `indicator.alarm.health` - Gesundheitsproblem
-* `indicator.alarm.muted` - der Alarm des Gerätes ist gerade stummgeschaltet
+* `indicator.alarm.muted` - Der Alarm des Geräts ist derzeit stummgeschaltet.
 
 ### Stufen (Zahlen, Lesen/Schreiben)
-Mit **Levels** können Sie einen Zahlenwert steuern oder festlegen.
+`common.type=number, common.write=true`(`common.type=string, common.write=true` sofern explizit angegeben)
 
-`common.type=number, common.write=true`
+Mit **Levels** können Sie einen Zahlenwert steuern oder festlegen.
 
 * `level`
 * `level.humidity` – Luftfeuchtigkeit als Sollwert, z. B. für Luftbefeuchter/Klimageräte.
@@ -238,8 +241,8 @@ Mit **Levels** können Sie einen Zahlenwert steuern oder festlegen.
 * `level.dimmer` - Die Helligkeit ist ebenfalls geringer.
 * `level.blind` - Jalousieposition festlegen (max = vollständig geöffnet, min = vollständig geschlossen)
 * `level.temperature` - gewünschte Temperatur einstellen
-* `level.temperature.heating` - gewünschte Temperatur für das Heizen, für Geräte mit getrenntem Heiz- und Kühlsollwert
-* `level.temperature.cooling` - gewünschte Temperatur für das Kühlen, für Geräte mit getrenntem Heiz- und Kühlsollwert
+* `level.temperature.heating` - gewünschte Heiztemperatur für Geräte, die gleichzeitig einen Heiz- und einen Kühlsollwert halten.
+* `level.temperature.cooling` - gewünschte Kühltemperatur für Geräte, die gleichzeitig einen Heiz- und einen Kühlsollwert halten.
 * `level.valve` - Sollwert für die Ventilposition
 * `level.color.red`
 * `level.color.green`
@@ -255,14 +258,15 @@ Mit **Levels** können Sie einen Zahlenwert steuern oder festlegen.
 * `level.effect` - Effekt, üblicherweise für Lichter. Sollte eine Liste möglicher Effekte in `common.states` enthalten. (`common.type=string`).
 * `level.timer`
 * `level.timer.sleep` – Schlaftimer. 0 – aus, oder in Minuten.
-* `level.timer.off` - Zeit in Sekunden, nach der sich das Gerät wieder ausschaltet, z. B. die Einschaltdauer einer Lampe oder einer Steckdose
+* `level.timer.off` – Zeit in Sekunden, nach der sich das Gerät wieder ausschaltet, z. B. die Einschaltdauer einer Lampe oder einer Steckdose.
 * ...
 * `level.volume` - (`min=0, max=100`) - Lautstärke, wobei min und max unterschiedlich sein können. min < max
 * `level.volume.group` - (`min=0, max=100`) - Lautstärke für die Gerätegruppe
 * `level.curtain` - legt die Vorhangposition fest
 * `level.tilt` - Legt die Neigungsposition der Jalousien fest (max = vollständig geöffnet, min = vollständig geschlossen)
-* `level.speed` - Geschwindigkeit, z. B. Lüfter, Ventilator, .. Wird auch als stufenlose Lüfterdrehzahl in % einer Klimaanlage, eines Ventilators oder eines Luftreinigers verwendet, deren gestuftes Gegenstück `level.mode.fan` ist
-* `level.pump` - Sollwert für Drehzahl oder Durchfluss einer Pumpe (Einheit: %)
+* `level.open.tilt` – akzeptierte Variante von `level.tilt`. Für neue Adapter ist `level.tilt` vorzuziehen.
+* `level.speed` - Geschwindigkeit, z. B. von Ventilatoren, Lüftern usw. Wird auch als kontinuierliche Lüfterdrehzahl in % eines Klimageräts, Ventilators oder Luftreinigers verwendet, wobei das stufenweise Gegenstück `level.mode.fan` ist.
+* `level.pump` - Sollwert für Drehzahl oder Fördermenge einer Pumpe (Einheit: %)
 
 ### Schalter (Boolesche Werte, Lese-/Schreibzugriff)
 Der Schalter steuert ein boolesches Gerät (`true = ON, false = OFF`)
@@ -274,7 +278,7 @@ Der Schalter steuert ein boolesches Gerät (`true = ON, false = OFF`)
 * `switch.lock.door` - Türschloss
 * `switch.lock.window` - Fenstersperre
 * `switch.mode.boost` - Start/Stopp des Boost-Modus des Thermostats
-* `switch.boost` - Start/Stopp des Boost-Modus. Ältere Variante von `switch.mode.boost`, wird weiterhin akzeptiert (Gerätetyp `airCondition`)
+* `switch.boost` – Boost-Modus starten/stoppen. Ältere Variante von `switch.mode.boost`, weiterhin akzeptiert (Gerätetyp `airCondition`).
 * `switch.mode.party` - Startet/Stoppt den Partymodus des Thermostats
 * `switch.power` - Ein-/Ausschalten von Strom, Thermostat oder Klimaanlage
 * `switch.light`
@@ -287,16 +291,16 @@ Der Schalter steuert ein boolesches Gerät (`true = ON, false = OFF`)
 * `switch.mode.moonlight` - Mondlichtmodus ein-/ausschalten
 * `switch.mode.color` - Farbmodus ein/aus
 * `switch.gate` - schließt (false) oder öffnet (true) das Tor
-* `switch.pump` - Ein/Aus einer Pumpe. Eine eigene Rolle, weil eine Pumpe sonst keinen verpflichtenden Zustand hat und nicht von einer Steckdose zu unterscheiden wäre
+* `switch.pump` – Ein-/Ausschalten einer Pumpe. Eine spezielle Funktion, da eine Pumpe keinen anderen obligatorischen Zustand hat und andernfalls nicht von einer Steckdose unterschieden werden könnte.
 
 ### Klimaanlage oder Thermostat
 * `level.mode.fan` - `AUTO, HIGH, LOW, MEDIUM, QUIET, TURBO`
 * `level.mode.swing` - `AUTO, HORIZONTAL, STATIONARY, VERTICAL`
 * `level.mode.airconditioner` - Klimaanlage: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, Heizungsthermostat: `AUTO, MANUAL, VACATION`,
 * `level.mode.thermostat` - Thermostat: `AUTO, MANUAL, VACATION`,
-* `level.mode.airflow` - Richtung des Luftstroms: `FORWARD, REVERSE`
-* `switch.mode.swing` - boolesche Variante von `level.mode.swing` für Geräte, die das Schwenken nur ein- und ausschalten können
-* `value.mode.thermostat` - was das Gerät tatsächlich tut, nur lesbar: `OFF, HEAT, COOL`. Das nur lesbare Gegenstück zu `level.mode.thermostat`
+* `level.mode.airflow` - Luftstromrichtung: `VORWÄRTS, RÜCKWÄRTS`
+* `switch.mode.swing` – boolesche Variante von `level.mode.swing` für Geräte, die die Schwingfunktion nur ein- und ausschalten können.
+* `value.mode.thermostat` – der aktuelle Zustand des Geräts (schreibgeschützt): `AUS, HEIZUNG, KÜHLUNG`. Das schreibgeschützte Gegenstück zu `level.mode.thermostat`.
 * `value.mode.airconditioner` - aktueller Gerätestatus: `IDLE`, `HEAT`, `COOL` (0,1,2 in Apple Home)
 
 Zusätzlich zu diesen Staaten sind normalerweise die `level.temperature` und `switch.power` erforderlich, um die Klimaanlage zu kartieren.
@@ -310,16 +314,16 @@ TODO: Über Ionisation und Oszillation nachdenken.
 * `value.waste` - Füllstand des Abfallbehälters (0-100%). (0% - leer, 100% - voll)
 * `indicator.maintenance.waste` - Der Papierkorb ist ein Idiot.
 * `value.state` - `HOME, CLEANING, PAUSE` und so weiter.
-* `vacuum.map.base64` - Karte der gereinigten Fläche als base64 kodiertes Bild (`common.type=string`)
+* `vacuum.map.base64` - Karte des gereinigten Bereichs als Base64-kodiertes Bild (`common.type=string`)
 * `value.usage.filter` - verbleibende Lebensdauer des Filters in %
-* `value.usage.brush` - verbleibende Lebensdauer der Hauptbürste in %
+* `value.usage.brush` - verbleibende Lebensdauer des Hauptpinsels in %
 * `value.usage.brush.side` - verbleibende Lebensdauer der Seitenbürste in %
-* `value.usage.sensors` - verbleibende Zeit in %, bis die Sensoren gereinigt werden müssen
-* `indicator.maintenance.water` - der Wassertank muss gefüllt werden
-* `level.mode.vacuum` - Betriebsart eines Saugroboters: `IDLE, CLEANING, MAPPING` sowie herstellereigene Modi. Die Reinigungsstärke ist `level.mode.cleanup`
-* `button.home` - schickt das Gerät zurück zur Ladestation
-* `value.progress` - Fortschritt des laufenden Auftrags (Einheit: %)
-* `value.vacuum.phase` - aktuelle Phase, die das Gerät meldet (`common.type=string`)
+* `value.usage.sensors` - verbleibende Zeit in Prozent, bis die Sensoren bereinigt werden müssen.
+* `indicator.maintenance.water` - Der Wassertank muss gefüllt werden
+* `level.mode.vacuum` – Betriebsmodus eines Saugroboters: `IDLE, CLEANING, MAPPING` und herstellerspezifische Modi. Die Reinigungsintensität entspricht `level.mode.cleanup`.
+* `button.home` – Gerät zurück in die Dockingstation senden.
+* `value.progress` - Fortschritt des laufenden Jobs (Einheit: %)
+* `value.vacuum.phase` - die vom Gerät gemeldete aktuelle Phase (`common.type=string`)
 
 Zusätzlich zu diesen Zuständen ist normalerweise `switch.power` erforderlich, um den Staubsauger zu lokalisieren. `switch.power` funktioniert in diesem Fall wie folgt: `true` – Reinigen, `false` – Zurück zum Startpunkt.
 Optional `value.battery` und
@@ -329,8 +333,8 @@ Optional `value.battery` und
 * `value.position` - Position des Tores in Prozent (100 % geöffnet, 0 % geschlossen)
 * `value.gate` - entspricht `value.position`
 * `button.stop` - Stoppt die Bewegung des Tores
-* `indicator.opened` - Endkontakt: das Tor ist vollständig geöffnet
-* `indicator.closed` - Endkontakt: das Tor ist vollständig geschlossen. Beide Kontakte gibt es getrennt, weil ein Tor auch zwischen vollständig geöffnet und vollständig geschlossen stehen kann
+* `indicator.opened` - Endkontakt: Das Tor ist vollständig geöffnet
+* `indicator.closed` – Endkontakt: Das Tor ist vollständig geschlossen. Beide Kontakte existieren separat, da ein Tor auch zwischen vollständig geöffnet und vollständig geschlossen stehen kann.
 
 ### Medien
 Besondere Rollen für Medienschaffende
@@ -433,10 +437,13 @@ Besondere Rollen für Medienschaffende
 ### Wetter
 * `Datum` - tatsächliches Datum oder Datum der letzten gelesenen Informationen
 * `date.forecast.1` - Datum von morgen
-* `date.forecast.0` - Datum von heute
-* `dayofweek.forecast.0` - Wochentag von heute als Text
+* `date.forecast.0` - heutiges Datum
+* `dayofweek.forecast.0` - Wochentag des heutigen Tages als Text
 * `date.sunrise` - Sonnenaufgang für heute
 * `date.sunset` - Sonnenuntergang für heute
+* `date.sunrise.forecast.0` - Sonnenaufgangsvorhersage für heute. `date.sunrise.forecast.1` für morgen usw.
+* `date.sunset.forecast.0` - Sonnenuntergangsvorhersage für heute. `date.sunset.forecast.1` für morgen usw.
+* `time.sunrise`, `time.sunset` – akzeptierte Varianten von `date.sunrise` / `date.sunset`, einschließlich der `.forecast.<n>`-Formen. Für neue Adapter sollten die `date.*`-Rollen bevorzugt werden.
 * `dayofweek` - Wochentag als Text
 * `location` - Textbeschreibung des Standorts (z. B. Adresse)
 * `value.clouds` - Wolken am Himmel. 0% - keine Wolken, 100% - viele Wolken.
@@ -447,10 +454,11 @@ Besondere Rollen für Medienschaffende
 * `value.direction.wind.forecast.1` - Windrichtungsvorhersage für morgen in Grad
 * `value.humidity` - tatsächliche oder durchschnittliche Luftfeuchtigkeit
 * `value.humidity.max` - tatsächliche Luftfeuchtigkeit
-* `value.humidity.forecast.0` - Vorhersage der Luftfeuchtigkeit für heute
-* `value.temperature.forecast.0` - Vorhersage der Temperatur für heute
-* `value.temperature.feelslike.forecast.0` - Vorhersage der gefühlten Temperatur für heute
-* `value.temperature.windchill.forecast.0` - Vorhersage des Windchill für heute
+* `value.humidity.forecast.0` – Luftfeuchtigkeitsvorhersage für heute. `value.humidity.forecast.1` für morgen usw.
+* `value.humidity.max.forecast.0` – maximale Luftfeuchtigkeitsprognose für heute. `value.humidity.max.forecast.1` für morgen usw.
+* `value.temperature.forecast.0` - Temperaturvorhersage für heute
+* `value.temperature.feelslike.forecast.0` - gefühlte Temperaturvorhersage für heute
+* `value.temperature.windchill.forecast.0` - Windchill-Vorhersage für heute
 * `value.pressure.tendency` - Tendenz des Luftdrucks als Text, z. B. `up`, `down`, `stable` (`common.type=string`)
 * `value.humidity.min` - tatsächliche Luftfeuchtigkeit
 * `value.precipitation` - (`Typ: Zahl, Einheit: mm`) Niederschlag für die letzten 24 Stunden Regen/Schnee (Niederschlag heute für Schnee oder Regen / осадки сегодня снега или дождя)
@@ -497,8 +505,8 @@ Besondere Rollen für Medienschaffende
 * `weather.direction.wind.forecast.0` - Windrichtungsvorhersage für heute als Text
 * `weather.html` - HTML-Objekt mit Wetterbeschreibung
 * `weather.icon` - Aktuelle URL des Status-Symbols
-* `weather.icon.forecast.0` - URL des Status-Symbols der Vorhersage für heute
-* `weather.icon.wind.forecast.0` - URL des Wind-Symbols der Vorhersage für heute
+* `weather.icon.forecast.0` - Status-Symbol URL der heutigen Vorhersage
+* `weather.icon.wind.forecast.0` - Windsymbol URL der heutigen Vorhersage
 * `weather.icon.forecast.1` - Symbol für morgen
 * `weather.icon.name` - Aktueller Name des Status-Symbols
 * `weather.icon.wind` - Aktuelle URL des Windsymbols
@@ -538,15 +546,14 @@ Besondere Rollen für Medienschaffende
 * `value.health.bpm` - Herzschläge pro Minute
 
 ### Andere
-
 Rollen einer Kamera (Gerätetyp `camera`):
 
 * `link.camera` - URL des Kamerabildes (`common.type=string`)
 * `level.camera.position` - Schwenk-, Neige- und Zoomposition der Kamera
 * `switch.camera.autofocus` - Autofokus ein/aus
-* `switch.camera.autowhitebalance` - automatischer Weißabgleich ein/aus
+* `switch.camera.autowhitebalance` - Automatischen Weißabgleich ein-/ausschalten
 * `switch.camera.brightness` - Helligkeitskorrektur ein/aus
-* `switch.camera.nightmode` - Nachtmodus ein/aus
+* `switch.camera.nightmode` - Nachtmodus ein-/ausschalten
 
 Rolle eines Bildes (Gerätetyp `image`):
 
@@ -563,5 +570,62 @@ Rolle eines Bildes (Gerätetyp `image`):
 * `time.timeout` - Timeout-Wert in Millisekunden (common.type=number), d. h. Timeouts für Kommunikationsanfragen
 * `chart` - JSON-Array mit Diagrammdaten, z. B. `[{ts: 1678575600000, val: 1}, {ts: 1678579200000, val: 2}]`
 
-* `adapter.messagebox` (`common.type=object, common.write=true`) wird verwendet, um Nachrichten an E-Mail, Pushover und andere Adapter zu senden.
+* `adapter.messagebox` (`common.type=object, common.write=true`) wird verwendet, um Nachrichten an E-Mail-, Pushover- und andere Adapter zu senden.
 * `adapter.wakeup` (`common.type=boolean, common.write=true`) Adapter aus dem Ruhezustand aufwecken
+
+## Veraltete Rollenaliase
+Der [Detektortyp](https://github.com/ioBroker/ioBroker.type-detector) akzeptiert weiterhin die unten aufgeführten Rollen, damit bestehende Adapter weiterhin funktionieren. Diese Rollen sind jedoch **veraltet**. Verwenden Sie sie nicht in neuen Adaptern und migrieren Sie sie, wenn Sie einen alten Adapter ändern. Für jeden Alias gibt es eine dokumentierte Alternative in den folgenden Tabellen.
+
+### Schaltflächen: der `action.*`-Namensraum
+Der gesamte Namensraum `action.*` ist eine alte Schreibweise von `button.*`. Der Detektor erkennt `button` und `action` gleichermaßen.
+
+| Veraltet | Verwenden Sie stattdessen |
+|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| `action.play`, `action.pause`, `action.stop`, `action.next`, `action.prev` | `button.play`, `button.pause`, `button.stop`, `button.next`, `button.prev` |
+| `action.open`, `action.open.blind` | `button.open.blind` |
+| `action.close`, `action.close.blind` | `button.close.blind` |
+| `action.open.tilt`, `action.close.tilt`, `action.stop.tilt` | `button.open.tilt`, `button.close.tilt`, `button.stop.tilt` |
+| `action.stop.blind` | `button.stop.blind` |
+| `action.stop.blind` | `button.stop.blind` |
+
+### Sensoren und Alarme mit dem Präfix `state.` oder ohne `.alarm`
+| Veraltet | Verwenden Sie stattdessen |
+|-----------------------------------------------------------------------|-----------------------------------------------------------|
+| `state.window` | `sensor.window` |
+| `state.fire`, `state.alarm.fire`, `sensor.fire`, `indicator.fire` | `sensor.alarm.fire` |
+| `state.flood`, `state.alarm.flood`, `sensor.flood`, `indicator.flood` | `sensor.alarm.flood` |
+| `state.co`, `state.alarm.co`, `sensor.co` | `sensor.alarm.co` |
+| `motion`, `state.motion` | `sensor.motion` |
+| `state.light` | `sensor.light` (nur lesbar) oder `switch.light` (lesen/schreiben) |
+| `state.active` | `sensor.switch` |
+| `state.active` | `sensor.switch` |
+
+### Indikatoren
+| Veraltet | Verwenden Sie stattdessen |
+|------------------------------------------------------|---------------------------------|
+| `indicator.battery`, `indicator.maintenance.battery` | `indicator.maintenance.lowbat` |
+| `indicator.unreach` | `indicator.maintenance.unreach` |
+
+### Schalter
+| Veraltet | Verwenden Sie stattdessen |
+|---------------------------|----------------------------------|
+| `switch.active` | `switch` |
+| `switch.boost` | `switch.mode.boost` |
+| `switch.autofocus` | `switch.camera.autofocus` |
+| `switch.autowhitebalance` | `switch.camera.autowhitebalance` |
+| `switch.brightness` | `switch.camera.brightness` |
+| `switch.nightmode` | `switch.camera.nightmode` |
+| `switch.nightmode` | `switch.camera.nightmode` |
+
+### Ebenen und Werte
+| Veraltet | Verwenden Sie stattdessen |
+|--------------------------------------------------------|----------------------------------------------------------------------|
+| `level.thermostat` | `level.mode.thermostat` |
+| `value.radius`, `value.accuracy` | `value.gps.radius`, `value.gps.accuracy` |
+| `value.brush`, `value.brush.side`, `value.sensors` | `value.usage.brush`, `value.usage.brush.side`, `value.usage.sensors` |
+| `value.brush`, `value.brush.side`, `value.sensors` | `value.usage.brush`, `value.usage.brush.side`, `value.usage.sensors` |
+
+### Medien
+| Veraltet | Verwenden Sie stattdessen |
+|------------|--------------|
+| `media` | `media.mute` |

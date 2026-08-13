@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.matter/README.md
 title: ioBroker Matter Adapter
-hash: gAGo4u9VkNP6GkNvjV/3q+mv3vRzTuzoI+k6CrBXrj0=
+hash: hiv06qoh7i3qa6ChTpoFywijBL/m9ayMOMTfGzkpjjA=
 ---
 ![Logo](../../../en/adapterref/iobroker.matter/admin/matter.svg)
 
@@ -77,7 +77,6 @@ Zum Testen von Vorabversionen oder Community-Firmware:
 * Objekte beim Entfernen von Geräten/Zuständen bereinigen
 * ioBroker-Gerätetypen
 * (6) Staubsauger
-* (5+/8) Klimaanlage
 * (7) Feueralarm
 * (5) MediaPlayer
 * Warnung – wie?
@@ -92,7 +91,6 @@ Zum Testen von Vorabversionen oder Community-Firmware:
 * (6) Drucksensor -> ??? DEF
 * (6) Saugroboter -> Staubsauger
 * (4) Durchflusssensor -> ??? DEF
-* (5+) Raumklimaanlage -> Klimaanlage
 * (5+) Geschirrspüler-> ???
 * (4+) Einfacher Videoplayer -> MediaPlayer
 * (4+) Waschmaschine -> ???
@@ -112,6 +110,16 @@ Zum Testen von Vorabversionen oder Community-Firmware:
 * (1+) Solarenergie -> ???
 * (1+) Batteriespeicher -> ???
 * (1+) Wärmepumpe -> ???
+
+## Hinweise zur Gerätezuordnung
+### Klimaanlage (ioBroker `airCondition` ⇄ Matter Room Klimaanlage)
+Einige Klimaanlagenfunktionen von ioBroker haben kein direktes Äquivalent in Matter. Bei der Einbindung eines ioBroker-Geräts in Matter werden diese wie folgt abgebildet:
+
+* `MODE` `ECO` → Matter verfügt über keinen Eco-Systemmodus, der als `Auto` gesteuert wird.
+* `SPEED` `QUIET` → Matter verfügt über keinen leisen Lüftermodus, der als `Low` gesteuert wird.
+* `SPEED` `TURBO` → Matter verfügt über keinen Turbo-Lüftermodus, der als `High` gesteuert wird.
+* `SWING` `AUTO` → Matter hat keine automatische Schwingfunktion, sondern ist auf „Wippen“ eingestellt.
+* `BOOST` → Matter Room Air Conditioner verfügt über keinen Boost-Cluster, der als zusätzlicher Ein/Aus-Endpunkt bereitgestellt wird.
 
 ## Entwicklung
 ### Abhängigkeiten aktualisieren
@@ -137,6 +145,54 @@ Die Tests befinden sich im Verzeichnis `test/` und verwenden ts-node für die di
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@Apollon77) Add support for the Room Air Conditioner device type (controller and bridge/device mode) mapped to the ioBroker airCondition type
+* (@Apollon77) Fix Thermostat cooling setpoint changes from Matter being applied as heating setpoint
+* (@Apollon77) Add a request timeout to the license verification API calls
+* (@Apollon77) Ensure Matter hundredths values are integer-encoded and fix Boost on/off coercion and initial sync for Thermostat/Air Conditioner devices
+* (@Apollon77) Added Battery Saver Mode (Matter LIT ICD) management for controller nodes: a status indicator on the device card and a dialog to switch modes, with a resync option for a device stuck offline
+* (@Apollon77) Long Idle Time devices no longer delay periodic processing of the other nodes
+* (@Apollon77) Thread topology data is refreshed periodically, so the network visualization no longer drifts on a long running adapter
+* (@Apollon77) Added automatic time synchronization for controller nodes that support the Matter TimeSynchronization cluster (can be disabled in the settings)
+* (@Apollon77) Added Enhanced Thread diagnostics (tries to get data from BRs when credentials are known or REST API is available)
+* (@Apollon77) Added options to store multiple Thread and WiFi credentials to use in commissioning and Visualization
+* (@Apollon77) Optimizations and Improvements for the Thread and WiFi visualizations
+* (@Apollon77) Updated matter.js to 0.17.9 
+* (@GermanBluefox) Updated GUI to React 19
+
+### 1.3.1 (2026-07-23)
+* (@Apollon77) Fix Attribute Polling
+* (@Apollon77) Fix Commissioning of new nodes
+
+### 1.3.0 (2026-07-19)
+* (@Apollon77) Update to Matter 1.6.0 (matter.js 0.17.7-alpha)
+* (@Apollon77) Optimized Matter data processing by caching repeated cluster/attribute lookups in hot paths
+* (@Apollon77) Only register additional custom attributes when the node supports them
+* (@Apollon77) Prevent errors when controlling paired devices that do not expose On/Off commands
+
+### 1.2.1 (2026-06-29)
+* (@Apollon77) Fix Thermostat and WindowCovering state update errors
+* (@Apollon77) Update to the latest matter.js 0.17.4-alpha including MDNS/CPU usage fixes
+
+### 1.2.0 (2026-06-27)
+* (@Apollon77) Enhanced Thread/WiFi network visualization: OTBR mDNS discovery, device-type and Thread role icons, border-router details and markers, LQI link colors, hide/search options and localized labels
+* (@Apollon77) Ignores invalid min/max/step settings in linked objects
+* (@Apollon77) Improve state detection to respect the selected state id
+* (@Apollon77) Update to matter.js 0.17.4-alpha including many optimizations and fixes
+
+### 1.1.1 (2026-06-22)
+* (@Apollon77) Fixes Update availability flag in UI
+
+### 1.1.0 (2026-06-22)
+* (@GermanBluefox) Update to Device management v3 and more dependencies
+* (@Apollon77) Update to Matter 1.5.1 (matter.js 0.17.3) including many optimizations and fixes
+* (@Apollon77) Parallelizing the  startup of controller and devices and optimize subscription resumptions
+* (@Apollon77) Fixes detection of 0_userdata.0 objects again
+* (@Apollon77) Fixes handling of special attributes (e.g. startupOnOff) when null and add relevant States lists
+* (@Apollon77) Fixes handling if custom attribute states
+* (@Apollon77) Fixes calculation of illuminance when measurements are <=0 (aka fully dark)
+* (@Apollon77) Fixes initialization of HCI IDs when using BLE
+
 ### 1.0.0 (2026-02-25)
 * IMPORTANT: The first start of the controller with this version takes a bit longer to connect all devices because internal data are migrated
 * (@Apollon77) Updated to Matter 1.4.2 (matter.js to 0.16) including many optimizations and fixes

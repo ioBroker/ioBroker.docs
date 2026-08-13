@@ -76,10 +76,11 @@ Poll interval should be **60–180 s** (same recommendation as HA). Site list is
 
 - ioBroker **js-controller >= 6**, **admin >= 7.6**
 - **Node.js >= 22**
-- **Python 3.12+** on the ioBroker host:
+- **Python 3.12+** on the ioBroker host (recommended / upstream requirement):
   - **Linux:** `python3-venv` + `python3-pip` (Debian/Ubuntu) — primary production target
   - **Windows:** Python 3.12+ from python.org or `py -3.12`; adapter installer handles venv and **`tzdata`**
   - **macOS:** **not supported** (automatic Python install not verified)
+  - **Exception (best-effort):** Linux **Docker containers** based on **Debian 12 Bookworm** (e.g. `buanet/iobroker:latest-v11`) may use system **Python 3.11** when 3.12 is not available via apt. Bare-metal Bookworm, other distros, and non-Bookworm containers still require **3.12+**. Prefer installing Python 3.12+ into a persistent path and setting **pythonPath** when possible.
 
 Python dependencies install into the adapter folder (`python/.venv` or `python/site-packages`). Since v0.2.0: automatic on start (**Options** → `autoInstallPython`) or button **Install Python dependencies**.
 
@@ -344,6 +345,10 @@ Tab **Abregelungsvermeidung** / **Curtailment avoidance**: requires the [ioBroke
 ---
 
 ## Changelog
+
+### 0.10.87
+
+- **Python:** Debian 12 Bookworm Docker containers (e.g. buanet v11) accept system Python **3.11** as best-effort; all other hosts still require **3.12+**
 
 ### 0.10.86
 

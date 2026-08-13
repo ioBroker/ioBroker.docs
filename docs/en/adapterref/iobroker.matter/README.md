@@ -74,7 +74,6 @@ For testing pre-release or community firmware:
 * Cleanup objects when devices/states are removed
 * ioBroker device types
   * (6) vacuumCleaner
-  * (5+/8) airCondition
   * (7) fireAlarm
   * (5) mediaPlayer
   * warning - how?
@@ -89,7 +88,6 @@ For testing pre-release or community firmware:
   * (6) Pressure Sensor -> ??? DEF
   * (6) Robot Vacuum cleaner -> vacuumCleaner
   * (4) Flow Sensor -> ??? DEF
-  * (5+) Room Air Conditioner -> airCondition
   * (5+) Dishwasher-> ???
   * (4+) Basic Video Player -> mediaPlayer
   * (4+) Laundry Washer -> ???
@@ -109,6 +107,18 @@ For testing pre-release or community firmware:
   * (1+) Solar Power -> ???
   * (1+) Battery Storage -> ???
   * (1+) Heat Pump -> ???
+
+## Device Mapping Notes
+
+### Air Conditioner (ioBroker `airCondition` ⇄ Matter Room Air Conditioner)
+
+Some ioBroker air conditioner capabilities have no direct Matter equivalent. When exposing an ioBroker device to Matter these are mapped as follows:
+
+* `MODE` `ECO` → Matter has no Eco system mode, controlled as `Auto`.
+* `SPEED` `QUIET` → Matter has no Quiet fan mode, controlled as `Low`.
+* `SPEED` `TURBO` → Matter has no Turbo fan mode, controlled as `High`.
+* `SWING` `AUTO` → Matter has no Auto swing, mapped to rocking enabled.
+* `BOOST` → Matter Room Air Conditioner has no boost cluster, exposed as an additional On/Off endpoint.
 
 ## Development
 
@@ -139,10 +149,18 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (@Apollon77) Add support for the Room Air Conditioner device type (controller and bridge/device mode) mapped to the ioBroker airCondition type
+* (@Apollon77) Fix Thermostat cooling setpoint changes from Matter being applied as heating setpoint
+* (@Apollon77) Add a request timeout to the license verification API calls
+* (@Apollon77) Ensure Matter hundredths values are integer-encoded and fix Boost on/off coercion and initial sync for Thermostat/Air Conditioner devices
+* (@Apollon77) Added Battery Saver Mode (Matter LIT ICD) management for controller nodes: a status indicator on the device card and a dialog to switch modes, with a resync option for a device stuck offline
+* (@Apollon77) Long Idle Time devices no longer delay periodic processing of the other nodes
+* (@Apollon77) Thread topology data is refreshed periodically, so the network visualization no longer drifts on a long running adapter
 * (@Apollon77) Added automatic time synchronization for controller nodes that support the Matter TimeSynchronization cluster (can be disabled in the settings)
 * (@Apollon77) Added Enhanced Thread diagnostics (tries to get data from BRs when credentials are known or REST API is available)
 * (@Apollon77) Added options to store multiple Thread and WiFi credentials to use in commissioning and Visualization
 * (@Apollon77) Optimizations and Improvements for the Thread and WiFi visualizations
+* (@Apollon77) Updated matter.js to 0.17.9 
 * (@GermanBluefox) Updated GUI to React 19
 
 ### 1.3.1 (2026-07-23)

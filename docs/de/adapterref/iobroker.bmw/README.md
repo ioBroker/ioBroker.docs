@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: wXG9jNeA0kjQfS9C2uI1GqkbLX4/AyELs56eCubif4A=
+hash: q+ZGCsk6DvtS36dPreQZtnC923ftbH4GTWKBKN1egUU=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bmw.svg)
@@ -75,10 +75,9 @@ Nachdem Sie Ihre Client-ID erstellt haben, konfigurieren Sie das Streaming:
 
 ### 3. Adapterkonfiguration
 1. Geben Sie Ihre **Client-ID** in den Adaptereinstellungen ein.
-2. Geben Sie Ihren **CarData Streaming-Benutzernamen** ein (zu finden im BMW Portal unter CarData > Streaming).
-3. Wählen Sie Ihre Fahrzeugmarke (BMW, Mini, Toyota Supra)
-4. **Aktualisierungsintervall** festlegen (mindestens 10 Minuten aufgrund des API-Kontingents)
-5. Konfigurieren Sie bei Bedarf die **VIN-Ignorierliste**.
+2. Wählen Sie Ihre Fahrzeugmarke (BMW, Mini, Toyota Supra)
+3. **Aktualisierungsintervall** festlegen (mindestens 10 Minuten aufgrund des API-Kontingents)
+4. Konfigurieren Sie bei Bedarf die **VIN-Ignorierliste**.
 
 ### 4. Authentifizierungsprozess
 1. Schalten Sie den Adapter ein.
@@ -196,9 +195,13 @@ Dieser Adapter ist erhältlich unter: [https://github.com/TA2k/ioBroker.bmw](htt
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.1 (2026-08-10)
 
-### **WORK IN PROGRESS**
-
+- (TA2k) fixed CU-103 "token-scope is not CarData" by requesting the cardata:api:read scope explicitly in the device code flow
+- (TA2k) fixed MQTT streaming: use the token gcid as username and topic prefix (matching BMW's broker ACL), fixing the "Unspecified error" subscribe failure
+- (TA2k) fixed container cleanup deleting with an undefined containerId (CU-121)
+- (TA2k) removed the CarData Streaming Username setting - the gcid is now taken automatically from the token
+- (TA2k) added an option to create a reduced telematic container (workaround for CU-403 on container creation)
 - (hombach) updated adapter-core
 - (hombach) fixed adapterchecker errors: downgraded @types/node to ^22, added Sentry notice to README, added @iobroker/adapter-dev
 - (hombach) replaced native setInterval/setTimeout with adapter-managed equivalents in main.js
@@ -230,11 +233,6 @@ Dieser Adapter ist erhältlich unter: [https://github.com/TA2k/ioBroker.bmw](htt
 
 - (hombach) year 2026 changes
 - (hombach) update dependencies
-
-### 4.3.2 (2025-12-15)
-
-- update telemetry ids for container creation
-- optimize dependabot config (#209)
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

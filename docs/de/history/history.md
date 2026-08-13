@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: DzSFuG4UbAWrJLIf0PvlTd50q97IdLPscjyHu9d4QnY=
+hash: hECSt1XUJdFzPy05x876AIdEbkKO0r9CFDPHJ2LyK3w=
 ---
 # Was ist neu
 ## Hinweise für Autoren
@@ -45,7 +45,7 @@ https://github.com/foxriver76/ioBroker.notification-manager
 
 <img src="https://raw.githubusercontent.com/foxriver76/ioBroker.notification-manager/master/admin/notification-manager.png" width="100" height="100" />
 
-Verwalten Sie ioBroker-Benachrichtigungen, z. B. durch Senden als Nachrichten
+Verwalten Sie ioBroker-Benachrichtigungen, z. B. durch Versenden als Nachrichten.
 
 ## Procon-ip (2023-08-24)
 https://github.com/ylabonte/ioBroker.procon-ip
@@ -169,7 +169,7 @@ Dies ist ein komplettes Visualisierungssystem für ioBroker.
 * WYSIWYG-Editor für die Benutzeroberfläche, aber Sie können auch zur Quelltextansicht oder geteilten Ansicht wechseln.
 * Mehrfenster-Benutzeroberfläche in der Bearbeitungsansicht, wie in Visual Studio
 * Bindungen pro Drag & Drop von ioBroker-Objekten auf UI-Elemente oder Eigenschaften
-* komplexe Bindungen mit eingebettetem JavaScript und Konvertern
+* komplexe Bindungen mit JavaScript-Einbindung und Konvertern
 * eine einfache Skriptsprache, die über die Benutzeroberfläche erstellt werden kann.
 
 ## Heizungssteuerung (4.10.2023) - neuer Adapter
@@ -301,7 +301,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Art-Net-Daten in einer Datei speichern, um sie später wiederzugeben
 
-## Energiefluss (25.01.2024) – neuer Adapter
+##energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -596,7 +596,7 @@ https://github.com/Bannsaenger/ioBroker.extron
 
 <img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.extron/master/admin/extron.png" width="100" height="100" />
 
-Steuergeräte von Extron. Dieser Adapter dient zur Steuerung einiger Extron-Audio-/Videoprodukte über das Simple Instruction Set Protocol (SIPS). Der Funktionsumfang der Geräte ist enorm. Nicht alle Funktionen lassen sich mit diesem Adapter und der Interaktion mit ioBroker sinnvoll unterstützen.
+Steuergeräte von Extron. Dieser Adapter dient zur Steuerung einiger Extron-Audio-/Videoprodukte über das Simple Instruction Set Protocol (SISP). Der Funktionsumfang der Geräte ist enorm. Nicht alle Funktionen lassen sich mit diesem Adapter und der Interaktion mit ioBroker sinnvoll unterstützen.
 
 ## Ping (23.08.2024) – neue Funktion
 Der Ping-Adapter kann den IP-Adressbereich erkennen, sofern dieser weniger als 4096 Adressen umfasst.
@@ -739,7 +739,7 @@ https://github.com/weberk/ioBroker.ta-blnet
 
 <img src="https://raw.githubusercontent.com/weberk/ioBroker.ta-blnet/main/admin/ta-blnet.png" width="100" height="100" />
 
-Ein ioBroker-Adapter von Technische Alternative zum Auslesen von Daten von einem oder bis zu acht Klimareglern über BL-NET. Alternativ kann eine unbegrenzte Anzahl von Klimareglern an CMI angeschlossen werden.
+Ein ioBroker-Adapter von Technische Alternative zum Auslesen von Daten von einem oder bis zu acht Klimareglern mittels BL-NET. Alternativ kann eine unbegrenzte Anzahl von Klimareglern an CMI angeschlossen werden.
 
 ## Teslafi (11.1.2025) – neuer Adapter
 https://github.com/hombach/ioBroker.teslafi
@@ -1364,64 +1364,120 @@ Adapter für Dreame und MOVA Saugroboter und Mähroboter.
 ## PlayStation (11.7.2026) – Neuer Adapter im stabilen Repository
 https://github.com/Lucky-ESA/ioBroker.playstation
 
-<img src="https://raw.githubusercontent.com/Lucky-ESA/ioBroker.playstation/main/admin/playstation.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Lucky-ESA/ioBroker.playstation/main/admin/playstation.png" width="100" height="100" />
 
 Sie können die PlayStation aktivieren oder in den Standby-Modus versetzen. Einige Tasten sind ebenfalls nutzbar. Mit dem PSN-Login können Sie Daten anderer Spieler laden.
 
 ## Miner (11.7.2026) – Neuer Adapter im stabilen Repository
 https://github.com/SimonFischer04/ioBroker.miner
 
-<img src="https://raw.githubusercontent.com/SimonFischer04/ioBroker.miner/main/admin/miner.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/SimonFischer04/ioBroker.miner/main/admin/miner.png" width="100" height="100" />
 
 Interaktion mit verschiedenen Krypto-Miner-APIs
 
 ## Script-restore (4.8.2026) – Neuer Adapter im stabilen Repository
 https://github.com/ipod86/ioBroker.script-restore
 
-<img src="https://raw.githubusercontent.com/ipod86/ioBroker.script-restore/main/admin/script-restore.svg width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.script-restore/main/admin/script-restore.svg" width="100" height="100" />
 
 Durchsuchen und Wiederherstellen einzelner Skripte aus ioBroker-Backup-Archiven – ohne das gesamte Backup wiederherstellen zu müssen.
 
 ## Feiertage (4.8.2026) – Neuer Adapter im stabilen Repository
 https://github.com/krobipd/ioBroker.public-holidays
 
-<img src="https://raw.githubusercontent.com/krobipd/ioBroker.public-holidays/main/admin/public-holidays.svg width="100" height="100" />
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.public-holidays/main/admin/public-holidays.svg" width="100" height="100" />
 
 Erkennt Feiertage in 206 Ländern. Funktioniert komplett offline – keine Cloud, keine API-Aufrufe. Aktualisiert sich täglich um Mitternacht.
 
 ## Hoymiles (4.8.2026) – Neuer Adapter im stabilen Repository
 https://github.com/Eistee82/ioBroker.hoymiles
 
-<img src="https://raw.githubusercontent.com/Eistee82/ioBroker.hoymiles/main/admin/hoymiles.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Eistee82/ioBroker.hoymiles/main/admin/hoymiles.png" width="100" height="100" />
 
 ioBroker-Adapter für Hoymiles HMS-xxxW-xT und HMS-xxx-xWB Mikro-Wechselrichter mit integriertem WiFi/Bluetooth DTU (DTUBI).
 
 ## Blink (4.8.2026) – Neuer Adapter im stabilen Repository
 https://github.com/Pischleuder1/ioBroker.blink
 
-<img src="https://raw.githubusercontent.com/Pischleuder1/ioBroker.blink/main/admin/blink.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Pischleuder1/ioBroker.blink/main/admin/blink.png" width="100" height="100" />
 
 ioBroker-Adapter für Blink-Kameras.
 
 ## Tesla-wallconnector3 (4.8.2026) – Neuer Adapter im stabilen Repository
 https://github.com/nobl/ioBroker.tesla-wallconnector3
 
-<img src="https://raw.githubusercontent.com/nobl/ioBroker.tesla-wallconnector3/main/admin/tesla-wallconnector3.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/nobl/ioBroker.tesla-wallconnector3/main/admin/tesla-wallconnector3.png" width="100" height="100" />
 
 Liest Live-Daten von einem Tesla Wall Connector Gen 3 in Ihrem lokalen Netzwerk. Der Adapter fragt die Wallbox-API ab und erstellt ioBroker-Zustände für Ladestatus, Leistung, Energie, Temperaturen, WLAN und mehr.
 
 ## Victron-gx (4.8.2026) – Neuer Adapter im stabilen Repository
 https://github.com/Sefina-DS/ioBroker.victron-gx
 
-<img src="https://raw.githubusercontent.com/Sefina-DS/ioBroker.victron-gx/main/admin/victron-gx.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Sefina-DS/ioBroker.victron-gx/main/admin/victron-gx.png" width="100" height="100" />
 
 Dieser Adapter verbindet ioBroker direkt und lokal mit Victron Energy GX-Geräten (Cerbo GX, Venus GX, Ekrano GX) – ohne Umweg über Home Assistant oder die VRM Cloud.
 
 ## Go-e-charger (4.8.2026) – Neuer Adapter im stabilen Repository
 https://github.com/hombach/ioBroker.go-e-charger
 
-<img src="https://raw.githubusercontent.com/hombach/ioBroker.go-e-charger/master/admin/go-eCharger.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/hombach/ioBroker.go-e-charger/master/admin/go-eCharger.png" width="100" height="100" />
 
 Dieser Adapter integriert eine oder mehrere go-e Charger Wallboxen in Ihre ioBroker-Hausautomation. Er fragt jede Wallbox zyklisch über ihre lokale HTTP-API ab, stellt alle relevanten Daten gemäß den ioBroker-Statusmeldungen bereit und ermöglicht Ihnen die direkte Steuerung des Ladevorgangs von Ihrem Smart Home aus.
+
+## Simple-proxy-manager (9.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/lubepi/ioBroker.simple-proxy-manager
+
+<img src="https://raw.githubusercontent.com/lubepi/ioBroker.simple-proxy-manager/main/admin/simple-proxy-manager.png" width="100" height="100" />
+
+Einfacher HTTPS/HTTP-Reverse-Proxy-Manager für ioBroker.
+
+## Harvia-fenix (9.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/meistermopper/ioBroker.harvia-fenix
+
+<img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/harvia.png" width="100" height="100" />
+
+Ein ioBroker-Adapter zur Integration und Steuerung Ihrer Harvia Fenix Sauna-Steuereinheit über die MyHarvia Cloud-Infrastruktur.
+
+## Harvia-fenix (9.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/meistermopper/ioBroker.harvia-fenix
+
+<img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/harvia.png" width="100" height="100" />
+
+Ein ioBroker-Adapter zur Integration und Steuerung Ihrer Harvia Fenix Sauna-Steuereinheit über die MyHarvia Cloud-Infrastruktur.
+
+## Openmeteo-notify (9.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/ipod86/ioBroker.openmeteo-notify
+
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.openmeteo-notify/main/admin/openmeteo-notify.png" width="100" height="100" />
+
+Dieser Adapter ruft Wettervorhersagedaten von der kostenlosen OpenMeteo-API ab und stellt sie als ioBroker-Datenpunkte bereit. Es ist kein API-Schlüssel erforderlich. Er versendet individuelle Benachrichtigungen für konfigurierbare Wetterereignisse (Stürme, Gewitter, offizielle Warnungen) und bietet mehrere unabhängig konfigurierbare HTML-Widgets pro Standort.
+
+## Dune-hd-remote (9.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/sadam6752-tech/ioBroker.dune-hd-remote
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.dune-hd-remote/main/admin/dune-hd-remote.png" width="100" height="100" />
+
+Steuern Sie Dune HD Mediaplayer über das IP-Netzwerk mit ioBroker.
+
+## Pv-notifications (9.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/sadam6752-tech/ioBroker.pv-notifications
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.pv-notifications/main/admin/pv-notifications.png" width="100" height="100" />
+
+Sendet Telegram-Benachrichtigungen zum Status der PV-Batterie (voll, leer, Zwischenstände).
+
+## Flowers (9.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/sadam6752-tech/ioBroker.flowers
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.flowers/main/admin/flowers.png" width="100" height="100" />
+
+Überwachen Sie Ihre Zimmerpflanzen mithilfe von Bodenfeuchtigkeits-, Temperatur- und Batteriesensoren und nutzen Sie Telegram-Benachrichtigungen.
+
+## Cisco-checkpresence (9.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/NurPech/ioBroker.cisco-checkpresence
+
+<img src="https://raw.githubusercontent.com/NurPech/ioBroker.cisco-checkpresence/main/admin/cisco-checkpresence.png" width="100" height="100" />
+
+Die Anwesenheit von Familienmitgliedern wird durch Abfrage des Cisco Catalyst 9800 Wireless Controllers via RESTCONF erkannt. Anstelle unzuverlässiger Ping-Prüfungen liest der Adapter die Tabelle der authentifizierten Clients direkt vom WLC – wenn der Controller meldet, dass ein Gerät verbunden ist, ist es vorhanden.
 
 <!-- ######################### Diese Zeilen am Ende der Datei als Erinnerung behalten ######################## --> <!-- ##### ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Icons! ### --> <!-- ######################## Diese Zeilen am Ende der Datei als Erinnerung behalten ####################### -->

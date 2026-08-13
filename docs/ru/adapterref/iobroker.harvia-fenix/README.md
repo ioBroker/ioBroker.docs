@@ -3,23 +3,20 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.harvia-fenix/README.md
 title: ioBroker.harvia-fenix
-hash: mtmm4x4GIJZIJxZgCG0m1iMhRl0FJnYenuprTqnUYPE=
+hash: jEMlySiE0Wma0PxeDul3GrIPE76sFjebGAPMZoV+jX0=
 ---
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![узел](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
 ![Лицензия](https://img.shields.io/npm/l/iobroker.harvia-fenix.svg)
 ![Проблемы на GitHub](https://img.shields.io/github/issues/meistermopper/ioBroker.harvia-fenix.svg)
 ![Количество установок](https://iobroker.live/badges/harvia-fenix-installed.svg)
-![Текущая версия в последнем репозитории](https://iobroker.live/badges/harvia-fenix-latest.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/harvia-fenix-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.harvia-fenix.png?downloads=true)
 
 <p align="center"><img src="admin/harvia.png" alt="Логотип" width="100" /></p>
 
 # IoBroker.harvia-fenix
-**[Hier geht es zur deutschen Version der Dokumentation.](README_de.md)**
-
-[![[Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/harvia-fenix/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/)
+**[Hier geht es zur deutschen Version der Dokumentation.](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/README_de.md)**
 
 ![Тестирование и выпуск](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
 
@@ -37,21 +34,13 @@ hash: mtmm4x4GIJZIJxZgCG0m1iMhRl0FJnYenuprTqnUYPE=
 ---
 
 ## Установка
-Адаптер доступен в официальном репозитории ioBroker `latest` (бета-версия). Вы можете установить его напрямую через веб-интерфейс ioBroker или на свой локальный компьютер через npm.
+Адаптер доступен в официальном репозитории ioBroker. Вы можете установить его непосредственно через веб-интерфейс администратора ioBroker.
 
-### На основе браузера (через административную панель ioBroker)
+### Через административную панель ioBroker
 1. Откройте веб-интерфейс ioBroker в браузере (например, `192.168.1.33:8081`).
-2. Убедитесь, что в настройках репозитория ioBroker установлено значение **`latest`** (бета-версия).
-3. Перейдите на вкладку **Адаптеры**.
-4. Введите "harvia-fenix" в фильтр.
-5. Щелкните по трем точкам, а затем по символу «+» адаптера **Harvia Fenix**, чтобы добавить экземпляр.
-
-### Локальная машина
-Перейдите в папку ioBroker и выполните следующую команду:
-
-```bash
-npm i iobroker.harvia-fenix
-```
+2. Перейдите на вкладку **Адаптеры**.
+3. Введите "harvia-fenix" в фильтр.
+4. Щелкните по трем точкам, а затем по символу «+» адаптера **Harvia Fenix**, чтобы добавить экземпляр.
 
 ---
 
@@ -189,12 +178,16 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 ## Задачи
 * [ ] Дождитесь официального разрешения от Harvia на использование их оригинального логотипа.
 * [x] Добавить адаптер в официальный репозиторий `latest` ioBroker
-* [ ] Добавить адаптер в официальный репозиторий `stable` ioBroker
+* [x] Добавить адаптер в официальный репозиторий `stable` ioBroker
 
 ---
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.3.2 (2026-08-11)
+* (meistermopper) Use absolute GitHub URLs for language switching links in README files
+* (meistermopper) Remove latest repository and translation badges from README files
+* (meistermopper) Mark stable repository addition as completed in To-Do list
+* (meistermopper) Remove direct npm installation instructions from README files
 * (dependabot) Bump axios from 1.18.1 to 1.19.0
 * (meistermopper) Center adapter logo in README files
 * (meistermopper) Add Weblate translation status badge to README files
@@ -227,11 +220,6 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 * (meistermopper) Remove redundant ==== underlines from header in README files
 * (meistermopper) Remove duplicate changelog link and format it consistently in README files
 * (meistermopper) Update Biome schema version to 2.5.3 to match CLI version
-
-### 0.2.6 (2026-07-16)
-* (meistermopper) Change doorSafety role to indicator.safety to prevent semantic role mismatch
-* (meistermopper) Redesign README and README_de.md layout to match Denon adapter presentation
-* (meistermopper) Update AI commit hook prompt to generate messages entirely in English
 
 [Older changelog entries](CHANGELOG_OLD.md)
 

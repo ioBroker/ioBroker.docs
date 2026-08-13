@@ -86,6 +86,8 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `button.open.tilt`
 * `button.close.blind`
 * `button.close.tilt`
+* `button.open`            - open a blind. The type detector accepts it as an equivalent of `button.open.blind`, but the more detailed role is preferred
+* `button.close`          - close a blind. The type detector accepts it as an equivalent of `button.close.blind`, but the more detailed role is preferred
 * `button.mode.`*
 * `button.mode.auto`
 * `button.mode.manual`
@@ -162,6 +164,7 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.curtain`         - actual position of curtain
 * `value.blind`           - actual position of the blind (`max = fully open, min = fully closed`)
 * `value.tilt`            - actual tilt position (`max = fully open, min = fully closed`)
+* `value.open.tilt`       - accepted variant of `value.tilt`. Prefer `value.tilt` for new adapters
 * `value.lock`            - actual position of lock
 * `value.speed`           - wind speed
 * `value.pressure`        - (unit: mbar, `hPa` is the same value and is accepted too)
@@ -257,6 +260,7 @@ With **levels**, you can control or set some number value.
 * `level.volume.group`   - (`min=0, max=100`) - sound volume, for the group of devices
 * `level.curtain`        - set the curtain position
 * `level.tilt`           - set the tilt position of blinds (max = fully opened, min = fully closed)
+* `level.open.tilt`      - accepted variant of `level.tilt`. Prefer `level.tilt` for new adapters
 * `level.speed`          - speed eg. fan, ventilator, .. Also used as the continuous fan speed in % of an air conditioner, fan or air purifier, where the stepped counterpart is `level.mode.fan`
 * `level.pump`           - speed or flow setpoint of a pump (unit: %)
 
@@ -432,6 +436,9 @@ Special roles for media players
 * `dayofweek.forecast.0`            - day of week of today as text
 * `date.sunrise`                - Sunrise for today
 * `date.sunset`                 - Sunset for today
+* `date.sunrise.forecast.0`     - Sunrise of the forecast for today. `date.sunrise.forecast.1` for tomorrow and so on
+* `date.sunset.forecast.0`      - Sunset of the forecast for today. `date.sunset.forecast.1` for tomorrow and so on
+* `time.sunrise`, `time.sunset` - accepted variants of `date.sunrise` / `date.sunset`, including the `.forecast.<n>` forms. Prefer the `date.*` roles for new adapters
 * `dayofweek`                   - day of week as text
 * `location`                    - Text description of location (e.g., address)
 * `value.clouds`                - Clouds on the sky. 0% - no clouds, 100% - many clouds.
@@ -442,7 +449,8 @@ Special roles for media players
 * `value.direction.wind.forecast.1` - wind direction forecast for tomorrow in degrees
 * `value.humidity`              - actual or average humidity
 * `value.humidity.max`          - actual humidity
-* `value.humidity.forecast.0`   - humidity forecast for today
+* `value.humidity.forecast.0`   - humidity forecast for today. `value.humidity.forecast.1` for tomorrow and so on
+* `value.humidity.max.forecast.0` - maximum humidity forecast for today. `value.humidity.max.forecast.1` for tomorrow and so on
 * `value.temperature.forecast.0` - temperature forecast for today
 * `value.temperature.feelslike.forecast.0` - felt temperature forecast for today
 * `value.temperature.windchill.forecast.0` - wind chill forecast for today
@@ -560,3 +568,69 @@ Role of an image (device type `image`):
 
 * `adapter.messagebox`     (`common.type=object, common.write=true`) used to send messages to email, pushover and other adapters
 * `adapter.wakeup`         (`common.type=boolean, common.write=true`) wake up adapter from suspended mode
+
+## Deprecated role aliases
+
+The [type detector](https://github.com/ioBroker/ioBroker.type-detector) still accepts the roles listed below so that
+existing adapters keep working, but they are **deprecated**. Do not use them in new adapters, and migrate them when you
+touch an old adapter. Every alias has a documented replacement in the tables below.
+
+### Buttons: the `action.*` namespace
+
+The whole `action.*` namespace is an old spelling of `button.*`. The detector matches `button` and `action` alike.
+
+| Deprecated                                                                 | Use instead                                                                |
+|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| `action.play`, `action.pause`, `action.stop`, `action.next`, `action.prev` | `button.play`, `button.pause`, `button.stop`, `button.next`, `button.prev` |
+| `action.home`                                                              | `button.home`                                                              |
+| `action.open`, `action.open.blind`                                         | `button.open.blind`                                                        |
+| `action.close`, `action.close.blind`                                       | `button.close.blind`                                                       |
+| `action.open.tilt`, `action.close.tilt`, `action.stop.tilt`                | `button.open.tilt`, `button.close.tilt`, `button.stop.tilt`                |
+| `action.stop.blind`                                                        | `button.stop.blind`                                                        |
+
+### Sensors and alarms with a `state.` prefix or without `.alarm`
+
+| Deprecated                                                            | Use instead                                               |
+|-----------------------------------------------------------------------|-----------------------------------------------------------|
+| `state.window`                                                        | `sensor.window`                                           |
+| `state.door`                                                          | `sensor.door`                                             |
+| `state.fire`, `state.alarm.fire`, `sensor.fire`, `indicator.fire`     | `sensor.alarm.fire`                                       |
+| `state.flood`, `state.alarm.flood`, `sensor.flood`, `indicator.flood` | `sensor.alarm.flood`                                      |
+| `state.co`, `state.alarm.co`, `sensor.co`                             | `sensor.alarm.co`                                         |
+| `motion`, `state.motion`                                              | `sensor.motion`                                           |
+| `state.light`                                                         | `sensor.light` (read-only) or `switch.light` (read-write) |
+| `state.active`                                                        | `sensor.switch`                                           |
+
+### Indicators
+
+| Deprecated                                           | Use instead                     |
+|------------------------------------------------------|---------------------------------|
+| `indicator.battery`, `indicator.maintenance.battery` | `indicator.maintenance.lowbat`  |
+| `indicator.unreach`                                  | `indicator.maintenance.unreach` |
+
+### Switches
+
+| Deprecated                | Use instead                      |
+|---------------------------|----------------------------------|
+| `switch.active`           | `switch`                         |
+| `switch.party`            | `switch.mode.party`              |
+| `switch.boost`            | `switch.mode.boost`              |
+| `switch.autofocus`        | `switch.camera.autofocus`        |
+| `switch.autowhitebalance` | `switch.camera.autowhitebalance` |
+| `switch.brightness`       | `switch.camera.brightness`       |
+| `switch.nightmode`        | `switch.camera.nightmode`        |
+
+### Levels and values
+
+| Deprecated                                             | Use instead                                                          |
+|--------------------------------------------------------|----------------------------------------------------------------------|
+| `level.thermostat`                                     | `level.mode.thermostat`                                              |
+| `value.latitude`, `value.longitude`, `value.elevation` | `value.gps.latitude`, `value.gps.longitude`, `value.gps.elevation`   |
+| `value.radius`, `value.accuracy`                       | `value.gps.radius`, `value.gps.accuracy`                             |
+| `value.brush`, `value.brush.side`, `value.sensors`     | `value.usage.brush`, `value.usage.brush.side`, `value.usage.sensors` |
+
+### Media
+
+| Deprecated | Use instead  |
+|------------|--------------|
+| `media`    | `media.mute` |

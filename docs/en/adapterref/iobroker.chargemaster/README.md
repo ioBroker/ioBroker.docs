@@ -65,39 +65,39 @@ Afterwards a global limiter distributes the available total current (`maximum to
 
 ### Basic settings
 
-| Setting                                | Description                                                                                    |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `cycle time`                           | Control cycle interval in milliseconds (default 10000). Values below 5000 are not recommended. |
-| `maximum total current`                | Global current limit in A over all wallboxes together (e.g. supply line limit).                |
-| `state of solar power`                 | Foreign state with the current PV production in W.                                             |
-| `state of home power consumption`      | Foreign state with the current house consumption in W (without wallbox charging power).        |
-| `state of home battery state of charge`| Foreign state with the current home battery SoC in %.                                          |
+| Setting                                 | Description                                                                                    |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `cycle time`                            | Control cycle interval in milliseconds (default 10000). Values below 5000 are not recommended. |
+| `maximum total current`                 | Global current limit in A over all wallboxes together (e.g. supply line limit).                |
+| `state of solar power`                  | Foreign state with the current PV production in W.                                             |
+| `state of home power consumption`       | Foreign state with the current house consumption in W (without wallbox charging power).        |
+| `state of home battery state of charge` | Foreign state with the current home battery SoC in %.                                          |
 
 ### Wallbox list
 
 Add one row per wallbox:
 
-| Column                  | Description                                                              |
-| ----------------------- | ------------------------------------------------------------------------ |
-| `state charge current`  | Foreign state to **write** the charging current setpoint (A).            |
-| `state charge allowed`  | Foreign state to **write** the charge enable/disable command (boolean).  |
-| `state active power`    | Foreign state to **read** the current charging power (W).                |
-| `state active current`  | Foreign state to **read** the current charging current (A).              |
-| `min current`           | Minimum charging current of this wallbox in A (typically 6 A).           |
-| `max current`           | Maximum charging current of this wallbox in A (e.g. 16 A).               |
+| Column                 | Description                                                             |
+| ---------------------- | ----------------------------------------------------------------------- |
+| `state charge current` | Foreign state to **write** the charging current setpoint (A).           |
+| `state charge allowed` | Foreign state to **write** the charge enable/disable command (boolean). |
+| `state active power`   | Foreign state to **read** the current charging power (W).               |
+| `state active current` | Foreign state to **read** the current charging current (A).             |
+| `min current`          | Minimum charging current of this wallbox in A (typically 6 A).          |
+| `max current`          | Maximum charging current of this wallbox in A (e.g. 16 A).              |
 
 All configured states are verified at adapter startup - if a state does not exist, the adapter logs an error and stops.
 
 ## States created by the adapter
 
-| State                              | Description                                                                                     |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `Settings.Setpoint_HomeBatSoC`     | Minimum home battery SoC in % before PV surplus charging starts (writable, default 80).          |
-| `Settings.WB_<x>.ChargeNOW`        | Enable immediate charging for wallbox `<x>` (writable).                                          |
-| `Settings.WB_<x>.ChargeCurrent`    | Charging current in A used in ChargeNOW mode (writable).                                         |
-| `Settings.WB_<x>.ChargeManager`    | Enable PV surplus charging for wallbox `<x>` (writable).                                         |
-| `Power.Charge`                     | Total measured charging power of all wallboxes in W.                                             |
-| `info.connection`                  | True while all configured foreign states were verified and the adapter is running.               |
+| State                           | Description                                                                             |
+| ------------------------------- | --------------------------------------------------------------------------------------- |
+| `Settings.Setpoint_HomeBatSoC`  | Minimum home battery SoC in % before PV surplus charging starts (writable, default 80). |
+| `Settings.WB_<x>.ChargeNOW`     | Enable immediate charging for wallbox `<x>` (writable).                                 |
+| `Settings.WB_<x>.ChargeCurrent` | Charging current in A used in ChargeNOW mode (writable).                                |
+| `Settings.WB_<x>.ChargeManager` | Enable PV surplus charging for wallbox `<x>` (writable).                                |
+| `Power.Charge`                  | Total measured charging power of all wallboxes in W.                                    |
+| `info.connection`               | True while all configured foreign states were verified and the adapter is running.      |
 
 ## Charge manager algorithm
 
@@ -127,6 +127,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.16.1 (2026-08-10)
+
+- (HombachC) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
+- (HombachC) updated dependencies
+
 ### 0.16.0 (2026-07-05)
 
 - (HombachC) switched data acquisition from polling to event driven foreign state subscriptions, react immediately to user input
@@ -162,10 +167,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (HombachC) min admin 7.6.20 as recommended (#762)
 - (HombachC) switch to ES2023 code
-- (HombachC) update dependencies
-
-### 0.14.6 (2026-02-27)
-
 - (HombachC) update dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)

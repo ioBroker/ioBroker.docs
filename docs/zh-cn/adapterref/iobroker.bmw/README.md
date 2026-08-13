@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: wXG9jNeA0kjQfS9C2uI1GqkbLX4/AyELs56eCubif4A=
+hash: q+ZGCsk6DvtS36dPreQZtnC923ftbH4GTWKBKN1egUU=
 ---
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.bmw.svg)
@@ -75,10 +75,9 @@ hash: wXG9jNeA0kjQfS9C2uI1GqkbLX4/AyELs56eCubif4A=
 
 ### 3. 适配器配置
 1. 在适配器设置中输入您的**客户端 ID**
-2. 输入您的**CarData Streaming 用户名**（可在 BMW 门户网站的 CarData > Streaming 部分找到）
-3. 选择您的车辆品牌（宝马、Mini、丰田Supra）
-4. 设置**更新间隔**（由于 API 配额限制，最小间隔为 10 分钟）
-5. 如有需要，配置**车辆识别码忽略列表**
+2. 选择您的车辆品牌（宝马、Mini、丰田Supra）
+3. 设置**更新间隔**（由于 API 配额限制，最小间隔为 10 分钟）
+4. 如有需要，配置**车辆识别码忽略列表**
 
 ### 4. 身份验证过程
 1. 启动适配器
@@ -196,9 +195,13 @@ BMW CarData API 为只读接口，因此此适配器不提供车辆控制功能�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.1 (2026-08-10)
 
-### **WORK IN PROGRESS**
-
+- (TA2k) fixed CU-103 "token-scope is not CarData" by requesting the cardata:api:read scope explicitly in the device code flow
+- (TA2k) fixed MQTT streaming: use the token gcid as username and topic prefix (matching BMW's broker ACL), fixing the "Unspecified error" subscribe failure
+- (TA2k) fixed container cleanup deleting with an undefined containerId (CU-121)
+- (TA2k) removed the CarData Streaming Username setting - the gcid is now taken automatically from the token
+- (TA2k) added an option to create a reduced telematic container (workaround for CU-403 on container creation)
 - (hombach) updated adapter-core
 - (hombach) fixed adapterchecker errors: downgraded @types/node to ^22, added Sentry notice to README, added @iobroker/adapter-dev
 - (hombach) replaced native setInterval/setTimeout with adapter-managed equivalents in main.js
@@ -230,11 +233,6 @@ BMW CarData API 为只读接口，因此此适配器不提供车辆控制功能�
 
 - (hombach) year 2026 changes
 - (hombach) update dependencies
-
-### 4.3.2 (2025-12-15)
-
-- update telemetry ids for container creation
-- optimize dependabot config (#209)
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

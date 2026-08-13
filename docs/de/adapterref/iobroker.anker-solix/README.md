@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.anker-solix/README.md
 title: ioBroker.anker-solix
-hash: AHcAyfPuwFJaONU3Oaj4bvkYMSuVnLhAmixGluKBJC8=
+hash: Mj1W28yEMaxpGycVa4ogkK1MbN2Gsy68Xek9xPdydS4=
 ---
 # IoBroker.anker-solix
 
@@ -70,7 +70,7 @@ Der Adapter verwendet eine **inoffizielle** Python-Bibliothek zur Kommunikation 
 | **Node.js-Adapter** | Instanzkonfiguration, Zeitplanung, ioBroker-Zustände, Steuerung der Warteschlange |
 | **Python-Bridge** (`python/bridge.py`) | Langlebige Sitzung: API + optionales MQTT (HA-Stil) |
 | **Auth-Cache** | `iobroker-data/<instance>/authcache/<email>.json` — wird nach erfolgreicher API-Anmeldung wiederverwendet |
-| **Auth-Cache** | `iobroker-data/<instance>/authcache/<email>.json` — wird nach erfolgreicher API-Anmeldung wiederverwendet |
+| **authcache** | `iobroker-data/<instance>/authcache/<email>.json` — wird nach erfolgreicher API-Anmeldung wiederverwendet |
 
 Das Abfrageintervall sollte **60–180 s** betragen (gleiche Empfehlung wie bei HA). Die Standortliste wird in jedem Zyklus aktualisiert; Geräte-/Standortdetails und Energiedaten werden in einem langsameren Intervall abgerufen (`deviceDetailMultiplier`, standardmäßig bei jeder 10. Abfrage).
 
@@ -81,10 +81,11 @@ Das Abfrageintervall sollte **60–180 s** betragen (gleiche Empfehlung wie bei 
 ## Anforderungen & Installation
 - ioBroker **js-controller >= 6**, **admin >= 7.6**
 - **Node.js >= 22**
-- **Python 3.12+** auf dem ioBroker-Host:
+- **Python 3.12+** auf dem ioBroker-Host (empfohlen / Upstream-Anforderung):
 - **Linux:** `python3-venv` + `python3-pip` (Debian/Ubuntu) — primäres Produktionsziel
 - **Windows:** Python 3.12+ von python.org oder `py -3.12`; der Adapter-Installer kümmert sich um venv und **`tzdata`**
 - **macOS:** **nicht unterstützt** (automatische Python-Installation nicht verifiziert)
+**Ausnahme (nach bestem Bemühen):** Linux-Docker-Container, die auf **Debian 12 Bookworm** basieren (z. B. `buanet/iobroker:latest-v11`), verwenden möglicherweise System-Python 3.11, wenn Version 3.12 nicht über apt verfügbar ist. Bare-Metal-Bookworm-Systeme, andere Distributionen und Nicht-Bookworm-Container benötigen weiterhin Python 3.12 oder höher. Installieren Sie Python 3.12 oder höher nach Möglichkeit in einem permanenten Pfad und setzen Sie die Umgebungsvariable **pythonPath** entsprechend.
 
 Die Python-Abhängigkeiten werden im Adapterordner (`python/.venv` oder `python/site-packages`) installiert. Seit Version 0.2.0: automatisch beim Start (**Optionen** → `autoInstallPython`) oder über die Schaltfläche **Python-Abhängigkeiten installieren**.
 
@@ -179,7 +180,7 @@ Gleiche Geräteabdeckung wie [ha-anker-solix](https://github.com/thomluther/ha-a
 |-------------|------------------|
 | **System / Site** | Stromversorgungssystem aus der Anker-App (= API „Site“) |
 | **Solarbank** | E1600 (Gen1), SB2 Pro/Plus/AC, SB3 E2700 — API + MQTT |
-| **combiner_box** | Power Dock (Multisystem) — Zusammenführung der Steuerelemente in ioBroker, sofern zutreffend |
+| **combiner_box** | Power Dock (Multisystem) — Steuerelemente in ioBroker zusammengeführt, sofern zutreffend |
 | **Smartmeter** | Anker 3-Phasen-Zähler, US-Zähler, Shelly 3EM / 3EM Pro |
 | **Wechselrichter** | MI80 Standalone (virtueller Standort in der API) |
 | **Smartplug** | Smartplug 2500 W |
@@ -226,7 +227,7 @@ Neue Modelle dekodieren: [MQTT-Richtlinien](https://github.com/thomluther/anker-
 Zusammenfassung von [HA-Integrations-README](https://github.com/thomluther/ha-anker-solix); Verhalten ist über solixapi identisch.
 
 ### Standalone-Wechselrichter (MI80)
-Es handelt sich nicht um eine vollständige App für das Stromversorgungssystem, aber die Cloud erfasst die Erträge. Die API erstellt einen **virtuellen Standort**. Der WLAN-Status des Wechselrichters in der API ist oft fehlerhaft; der Status der Cloud-Verbindung ist zuverlässiger. **Ändern Sie die** Wechselrichtergrenzen nicht dauerhaft (Hardware-Schreibzyklen).
+Es handelt sich nicht um eine vollständige App für das Stromversorgungssystem, aber die Cloud erfasst die Erträge. Die API erstellt einen **virtuellen Standort**. Der WLAN-Status des Wechselrichters in der API ist oft fehlerhaft; der Cloud-Verbindungsstatus ist zuverlässiger. **Ändern Sie die** Wechselrichtergrenzen nicht dauerhaft (Hardware-Schreibzyklen).
 
 ### Solarbank 1 (E1600)
 Cloud-Aktualisierungen erfolgen während der Produktion/Entladung etwa alle **60 Sekunden**; im Standby-Modus etwa stündlich. **Planungsfehler:** Ein einzelner ganztägiger API-Slot kann die Exportleistung auf **0 W** setzen – verwenden Sie in der App mindestens 2 Slots, wenn Sie eine voreingestellte Ausgabeleistung nutzen. Die tägliche Entladestatistik seit Mitte 2024 beinhaltet umgangene PV-Anlagen (auch in der App fehlerhaft). MQTT-Überwachung/-Steuerung ab HA v3.4+/3.5+.
@@ -334,6 +335,10 @@ Registerkarte **Abregelungsvermeidung** / **Abschaltvermeidung**: Erfordert [ioB
 ---
 
 ## Changelog
+
+### 0.10.87
+
+- **Python:** Debian 12 Bookworm Docker containers (e.g. buanet v11) accept system Python **3.11** as best-effort; all other hosts still require **3.12+**
 
 ### 0.10.86
 

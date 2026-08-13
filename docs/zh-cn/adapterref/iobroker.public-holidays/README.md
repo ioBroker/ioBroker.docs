@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.public-holidays/README.md
 title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
-hash: 1LNxxnDrKwoDzUsDump+J/CSzNAaTAeRz2lJtTa/aDk=
+hash: rCtPqJCmRXvi87lkuWpn0a8M3l16vLe25sy1raAErWY=
 ---
 # <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
 
@@ -46,25 +46,17 @@ hash: 1LNxxnDrKwoDzUsDump+J/CSzNAaTAeRz2lJtTa/aDk=
 - Node.js 版本 >= 22
 
 ＃＃ 配置
-### 选项卡 1 — 区域
-| 设置 | 描述 |
-| ---------------- | ----------------------------------------------------------------- |
-| 国家/地区 | 从 206 个国家/地区中选择 |
-| 州/省 | 下拉菜单 — 仅对设有州的国家/地区显示（例如德国、瑞士、美国） |
-| 区域 | 下拉菜单 — 仅当所选州包含区域时显示 |
+所有设置都集中在一张引导卡上。请从上到下依次操作：
 
-如果“国家/地区”留空，系统会根据您的 ioBroker 系统设置（系统设置 → 国家/地区）自动检测。建议您手动选择。
+| 步骤 | 说明 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 位置 | 国家/地区（共 206 个）；州/省和地区仅在设有此项的国家/地区中显示。如果国家/地区留空，系统将从您的 ioBroker 系统设置中自动检测。 |
+| 假期类型 | 公共假期（默认开启）、银行假日、学校假期、可选假期和纪念日。 |
+| 过渡日 | 在节假日和周末之间增加过渡日。 |
+| 排除的节假日 | 选择要从检测范围中排除的特定节假日。 |
+| 已检测到的节假日 | 实时预览适配器将针对当前选择检测到的节假日。 |
 
-### 标签页 2 — 节假日
-| 设置 | 描述 |
-| ------------------ | ----------------------------------------------- |
-| 公共假日 | 官方公共/国家假日（默认：开启） |
-| 银行假日 | 银行假日 |
-| 学校假期 | 学校假期 |
-| 自选假期 | 可选/酌情安排的假期 |
-| 纪念日 | 纪念/缅怀日 |
-| 检测过渡日 | 在节假日和周末之间添加过渡日 |
-| 排除的节假日 | 选择要从检测范围中排除的节假日 |
+> 设置卡是 Admin-8 组件，因此该适配器需要 Admin 8。
 
 ## 州树
 ```
@@ -124,6 +116,14 @@ public-holidays.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.13.0 (2026-08-13)
+
+- The adapter settings are now a single guided card — country, region, holiday types and exclusions on one page, with a live preview of the holidays that will be detected.
+
+### 0.12.0 (2026-08-10)
+
+- The holiday exclusion selector in the settings now works on Admin 8 — it was blank there since Admin 8.0.1, so this version requires Admin 8.
+
 ### 0.11.0 (2026-07-12)
 
 - Breaking change: the states that flag whether each day is a holiday were renamed for clarity — update any scripts or views that read them.
@@ -138,17 +138,6 @@ public-holidays.0.
 
 - The holiday exclude list now shows only your selected region's holidays, in your admin language and sorted by date — no longer every region of a country mixed alphabetically.
 - The false "excluded holidays no longer match" warning at startup is fixed; it now fires only for a holiday that genuinely no longer exists.
-
-### 0.8.0 (2026-06-25)
-
-- A misconfigured region/state is now reported instead of silently using country-level holidays.
-- A holiday exclude that no longer matches after a data update is now reported.
-- On a day with two holidays, the more important one is now shown.
-- Adds an optional bridge day between two midweek holidays.
-
-### 0.7.1 (2026-06-12)
-
-- Internal refactoring. No user-facing changes.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

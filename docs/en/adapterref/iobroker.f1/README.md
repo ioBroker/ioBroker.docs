@@ -122,8 +122,9 @@ Data is cached and updated on a schedule. If data appears outdated:
 
 ## Changelog
 
+### 0.1.12 (2026-08-09)
 
-### **WORK IN PROGRESS**
+- (bloop) Repository checker maintenance: updated dependency requirements and cleaned package metadata for current ioBroker compatibility expectations
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
 ### 0.1.11 (2026-06-10)

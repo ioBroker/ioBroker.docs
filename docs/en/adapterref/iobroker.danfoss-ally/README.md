@@ -1,4 +1,4 @@
-# ioBroker.danfoss-ally ![version](https://img.shields.io/badge/version-0.2.19-blue) [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=shields)](https://nodei.co/npm/iobroker.danfoss-ally/)
+# ioBroker.danfoss-ally ![version](https://img.shields.io/badge/version-0.2.20-blue) [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=shields)](https://nodei.co/npm/iobroker.danfoss-ally/)
 
 [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=flat&data=d&color=blue)](https://nodei.co/npm/iobroker.danfoss-ally/)
 
@@ -82,6 +82,7 @@ Each discovered device creates a device tree:
 The adapter separates **read-only status values** from **writeable control values**.
 
 ### Status channel
+
 `danfoss-ally.0.<deviceId>.status.*`
 
 These states mirror values received from the Danfoss Cloud API.
@@ -102,6 +103,7 @@ Examples:
 - `status.battery_percentage`
 
 ### Control channel
+
 `danfoss-ally.0.<deviceId>.control.*`
 
 These states are intended for **user interaction** and can be written from scripts or Blockly.
@@ -122,14 +124,14 @@ The adapter automatically sends commands to the Danfoss Cloud and updates the co
 
 ### Reading examples
 
-| State                                  | Description                                   | Unit |
-| -------------------------------------- | --------------------------------------------- | ---- |
-| `status.temp_current`                         | Current temperature                           | °C   |
-| `status.humidity_value`                       | Relative humidity                             | %    |
-| `status.battery_percentage`                   | Battery level                                 | %    |
-| `status.mode`                                 | Current mode (`auto`, `manual`, `at_home`, …) | –    |
+| State                                                       | Description                                   | Unit |
+| ----------------------------------------------------------- | --------------------------------------------- | ---- |
+| `status.temp_current`                                       | Current temperature                           | °C   |
+| `status.humidity_value`                                     | Relative humidity                             | %    |
+| `status.battery_percentage`                                 | Battery level                                 | %    |
+| `status.mode`                                               | Current mode (`auto`, `manual`, `at_home`, …) | –    |
 | `status.work_state`, `status.output_status`, `status.fault` | Status or error                               | –    |
-| `status.upper_temp` / `status.lower_temp`            | Temperature limits                            | °C   |
+| `status.upper_temp` / `status.lower_temp`                   | Temperature limits                            | °C   |
 
 > All numeric values are scaled from ×0.1 → °C/% automatically.
 
@@ -140,14 +142,14 @@ The adapter automatically sends commands to the Danfoss Cloud and updates the co
 The adapter supports **targeted writes** to each controllable state without automatic mode changes.  
 This gives you full control in Blockly, JavaScript, or custom logic scripts.
 
-| Writable state                                                                | Expected value / behavior                                       |
-| ----------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| `control.temp_set`                                                            | Target temperature (°C, 0.5steps; sent ×10)                     |
-| `control.manual_mode_fast`                                                    | Fast manual setpoint command / fallback for Ally TRVs           |
+| Writable state                                                                                                | Expected value / behavior                                       |
+| ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `control.temp_set`                                                                                            | Target temperature (°C, 0.5steps; sent ×10)                     |
+| `control.manual_mode_fast`                                                                                    | Fast manual setpoint command / fallback for Ally TRVs           |
 | `control.at_home_setting`, `control.leaving_home_setting`, `control.pause_setting`, `control.holiday_setting` | Preset temperatures                                             |
-| `control.mode`                                                                | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
-| `control.child_lock`                                                          | `true` / `false`                                                |
-| `control.SetpointChangeSource`                                                | `Externally` or `schedule`                                      |
+| `control.mode`                                                                                                | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
+| `control.child_lock`                                                                                          | `true` / `false`                                                |
+| `control.SetpointChangeSource`                                                                                | `Externally` or `schedule`                                      |
 
 > Adapter does **not** auto-switch modes when writing setpoints — you decide in your logic.
 
@@ -205,17 +207,18 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 
 The adapter provides detailed **debug-level** information for diagnostics but remains quiet during normal operation.
 
-- `ack=true` updates appear only in **debug**
+- `ack=true` updates are ignored silently
 - `HOLD`, `MATCH`, `SUPPRESS` → debug-level, harmless diagnostics
+- After the initial inventory run, poll debug logs only list real value changes
 - API errors (`HTTP 400/401`) retried automatically (logged at debug)
-- Clean info-level summary after every poll:
+- Clean debug-level summary after every poll:
 
 **Poll Summary Example**
 
 ```
-✅ Updated 13 devices. Changed=2, Skipped=253, Held=1
-📡 Found devices, updating states...
-⏸️ Skipping poll (anti-race 5000ms)
+CHANGES bf0a...: temp_set: 25 -> 30, manual_mode_fast: 25 -> 30
+Updated 13 devices. Mode=poll, Changed=2, Skipped=253, Held=0, AckFixed=0
+Skipping poll (anti-race pause 5000ms)
 ```
 
 ## Example Log Output
@@ -292,18 +295,30 @@ All send, retry, and confirm logs appear at debug level.
 
 ## Changelog
 
+### 0.2.20
+
+- Reduced debug log noise after startup: repeated polls now log only real value changes
+- Removed repeated per-device debug inventory lines after the first poll
+- Avoided object-valued status writes from fallback responses
+- Added Boiler Relay fallback objects when the Danfoss API lists the relay but returns no status entries
+- Resolved ioBroker repository checker warnings for Prettier config, ESLint devDependency, translated news entries, workflow concurrency, and tracked ignored tool files
+- Updated GitHub Actions workflow dependencies from the open Dependabot PRs
+
 ### 0.2.19
+
 - Stopped polling from writing cloud values back into `control.*` states to avoid feedback loops with Loxone/scripts
 - Added `state.from` to debug write logs so external write sources can be identified
 - Added direct status fallback for devices that are listed without status values, improving Boiler Relay datapoints
 - Reduced poll debug noise: the initial run still logs all `SET` lines, later polls summarize changed values per device
 
 ### 0.2.18
+
 - Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
 - Added explicit warnings when the Danfoss Cloud does not confirm the requested setpoint
 - Improved device naming/detection for relay-like devices so the Boiler Relay is easier to identify
 
 ### 0.2.17
+
 - Improved Ally TRV `temp_set` writes by trying `SetpointChangeSource=Externally` and `temp_set` as one combined command first
 - Falls back to `temp_set` only if Danfoss rejects the combined command
 - Fixed `control.switch` subscriptions for Icon2 / Boiler Relay writes
@@ -311,6 +326,7 @@ All send, retry, and confirm logs appear at debug level.
 - Fixed jsonConfig header validation warning
 
 ### 0.2.16
+
 - Fixed `temp_set` for Ally TRVs (`SetpointChangeSource=Externally` auto-sent)
 - Fixed wrong path for `lower_temp`/`upper_temp` clamp
 - Fixed `OccupiedSetpoint` scaling (÷100 instead of ÷10)
@@ -320,7 +336,6 @@ All send, retry, and confirm logs appear at debug level.
 - Added Boiler Relay to supported devices
 
 [Older changes](CHANGELOG_OLD.md)
-
 
 ---
 

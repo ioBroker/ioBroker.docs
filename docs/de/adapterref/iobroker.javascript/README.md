@@ -162,6 +162,10 @@ Wenn der API-Endpunkt nicht erreichbar ist oder einen Fehler zurückgibt, werden
 Bei fehlgeschlagenem Modellabruf wird ein **Erneut versuchen**-Button angezeigt, sodass ein erneuter Versuch ohne Schließen des Dialogs möglich ist.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Turned `strict` off again for the scripts, as TypeScript 6 enables it by default
+* (@GermanBluefox) Added the tab "TypeScript" to the settings, where the compiler options for the scripts can be configured
+
 ### 10.0.0 (2026-08-04)
 * (@GermanBluefox) Typescript 6 support
 * (@GermanBluefox) GUI was migrated to React 19 and MUI 9

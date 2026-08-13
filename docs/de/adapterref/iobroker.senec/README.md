@@ -515,6 +515,8 @@ Sieht es nach einem Fehler aus, bitte ein Issue auf [GitHub](https://github.com/
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+
+### 2.14.2 (2026-08-13)
 - Dependency updates
 
 ### 2.14.1 (2026-08-02)
@@ -574,12 +576,6 @@ Sieht es nach einem Fehler aus, bitte ein Issue auf [GitHub](https://github.com/
 - Fix: Measurement queries against the SENEC App API used the same 10 second timeout as the small dashboard calls, so the heavy year and month aggregations — which the server computes on request — could time out and lose a whole poll cycle. They now get their own timeout, configurable in the API settings and defaulting to 60 seconds.
 - Documentation: Reworked readme and documentation. Two-factor authentication, collecting a debug log and reporting an issue are now explained, and so is polling additional systems on the same mein-senec.de account — a feature that had states and a control switch but no documentation at all. The supported system list moved to its own file and now uses the appliance's own naming. Issue reports go through a form asking for the model, connectors and log, and questions are pointed at the adapter thread in the ioBroker forum.
 - Special thanks to everyone supporting this project — see [SUPPORTERS.md](SUPPORTERS.md).
-
-### 2.12.0 (2026-07-23)
-- Live chart: Drag to pan through history, scroll to zoom (5min–30 days). Lazy-loads history data on demand as you pan. Per-line downsampling preserves all metrics at any zoom level. Midnight date markers. View clamped to available data with progressive loading. Loading indicator and buffer stats.
-- Security: Multi-layer TLS certificate validation for local SENEC connections — user-uploaded CA, cached CA (auto-downloaded from mein-senec.de), TOFU fingerprint pinning. Dashboard upload for CA certificate (.pem/.zip). TLS state values stored encrypted. Eliminates blind certificate bypass.
-- Security: Fix polynomial ReDoS in formula regex, escape DOM-sourced values in log viewer, remove no-op string replace in charts.
-- Dashboard: Multi-instance namespace support.
 
 ### [Former Updates](CHANGELOG_OLD.md)
 

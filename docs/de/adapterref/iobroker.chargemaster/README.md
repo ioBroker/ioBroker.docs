@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.chargemaster/README.md
 title: ioBroker.chargemaster
-hash: kR1RIxIkER7PRGMDoJ0JYXNiXx4h27Tsp1CUxcCMvEg=
+hash: +tJslZDsgX/pHcqOcHEELL3GryWP23KhM+IwY9aQH6Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.chargemaster/admin/chargemaster.png)
 
@@ -61,18 +61,18 @@ ioBroker zeigt Ihre PV-Produktion (W), Ihren Stromverbrauch im Haus (W) und – 
 ## Konfiguration
 ### Grundeinstellungen
 | Schauplatz | Beschreibung |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | `cycle time` | Kontrollzyklusintervall in Millisekunden (Standardwert 10000). Werte unter 5000 werden nicht empfohlen. |
 | `state of solar power` | Ausländischer Staat mit der aktuellen PV-Produktion in W. |
 | `state of home power consumption` | Ausländischer Staat mit dem aktuellen Haushaltsverbrauch in W (ohne Wallbox-Ladeleistung). |
-| `state of home battery state of charge`| Fremdzustand mit dem aktuellen SoC der Heimbatterie in %. |
-| `Ladezustand der Heimbatterie`| Fremder Status mit dem aktuellen SoC der Heimbatterie in %. |
+| `state of home battery state of charge` | Fremdzustand mit aktuellem SoC der Heimbatterie in %. |
+| `Ladezustand der Heimbatterie` | Fremder Status mit dem aktuellen SoC der Heimbatterie in %. |
 
 ### Wallbox-Liste
 Füge pro Wandkasten eine Zeile hinzu:
 
 | Spalte | Beschreibung |
-| ----------------------- | ------------------------------------------------------------------------ |
+| ---------------------- | ----------------------------------------------------------------------- |
 | `state charge current` | Fremder Zustand, der den Sollwert des Ladestroms (A) **schreiben** soll. |
 | `state active power` | Ausländischer Staat, der die aktuelle Ladeleistung (W) **liest**. |
 | `state active current` | Fremdstaat, der den aktuellen Ladestrom (A) **liest**. |
@@ -84,7 +84,7 @@ Alle konfigurierten Zustände werden beim Start des Adapters überprüft – fal
 
 ## Vom Adapter erstellte Zustände
 | Bundesland | Beschreibung |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------- |
+| ------------------------------- | --------------------------------------------------------------------------------------- |
 | `Settings.Setpoint_HomeBatSoC` | Minimaler Ladezustand der Hausbatterie in % vor Beginn der PV-Überschussladung (beschreibbar, Standardwert 80). |
 | `Settings.WB_<x>.ChargeCurrent` | Ladestrom in A im ChargeNOW-Modus (beschreibbar). |
 | `Settings.WB_<x>.ChargeManager` | PV-Überschussladung für Wallbox `<x>` aktivieren (beschreibbar). |
@@ -119,6 +119,11 @@ Die Leistungs-Strom-Umwandlung geht von einphasigem Laden mit 230 V aus. Bei dre
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.16.1 (2026-08-10)
+
+- (HombachC) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
+- (HombachC) updated dependencies
+
 ### 0.16.0 (2026-07-05)
 
 - (HombachC) switched data acquisition from polling to event driven foreign state subscriptions, react immediately to user input
@@ -154,10 +159,6 @@ Die Leistungs-Strom-Umwandlung geht von einphasigem Laden mit 230 V aus. Bei dre
 
 - (HombachC) min admin 7.6.20 as recommended (#762)
 - (HombachC) switch to ES2023 code
-- (HombachC) update dependencies
-
-### 0.14.6 (2026-02-27)
-
 - (HombachC) update dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)

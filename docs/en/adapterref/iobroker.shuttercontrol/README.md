@@ -1447,6 +1447,8 @@ _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 *************************************************************************************************************************************
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 

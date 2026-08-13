@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.danfoss-ally/README.md
 title: kein Titel
-hash: sbctulZ/na+dm0rPNfffIVn7LK1FOKBA4eCl+gSrvTk=
+hash: AeSHE6cHLosGEK29j/UXJ/U80stRftqtZVzxC7l3n6U=
 ---
-![Version](https://img.shields.io/badge/version-0.2.19-blue)
+![Version](https://img.shields.io/badge/version-0.2.20-blue)
 ![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 Cloud-Adapter für **Danfoss Ally™** – mit **OAuth2 (Client-Anmeldeinformationen)**. Liest Temperatur-, Feuchtigkeits-, Ventilpositions- und Akkudaten aller Geräte in Ihrem Ally-Konto und ermöglicht gezielte Einzelzugriffe ohne erzwungene Modusänderungen oder verkettete Sequenzen.
@@ -27,8 +27,8 @@ Cloud-Adapter für **Danfoss Ally™** – mit **OAuth2 (Client-Anmeldeinformati
 - **Einzelne Schreibvorgänge** — jeder Zustand wird unabhängig gesendet (keine automatische Modusumschaltung)
 - **Reibungslose Synchronisierungslogik**
 - Anti-Race (5s): Überspringe eine Umfrage direkt nach einem lokalen Schreibvorgang.
-- Haltefenster (1 Minute): Schützt kürzlich festgelegte lokale Werte vor dem Überschreiben
-- Lag Suppress (15s): Ignoriert vorübergehend veraltete Cloud-Daten
+- Haltezeitfenster (1 Minute): Schützt kürzlich gespeicherte lokale Werte vor dem Überschreiben
+- Verzögerungsunterdrückung (15s): Vorübergehend veraltete Cloud-Daten ignorieren
 - Soft Refresh (~1,5 s): Nach jedem Schreibvorgang werden nur die betroffenen Zustände neu abgerufen.
 - **Stille Protokollierung** – Info-Level für reibungslosen Betrieb, Debug-Level für Diagnosezwecke
 - **Automatische Skalierung** – Temperaturen/Luftfeuchtigkeit werden automatisch in °C / % umgerechnet
@@ -118,7 +118,7 @@ Der Adapter sendet automatisch Befehle an die Danfoss Cloud und aktualisiert die
 
 ### Lesebeispiele
 | Bundesland | Beschreibung | Einheit |
-| -------------------------------------- | --------------------------------------------- | ---- |
+| ----------------------------------------------------------- | --------------------------------------------- | ---- |
 | `status.temp_current` | Aktuelle Temperatur | °C |
 | `status.battery_percentage` | Akkustand | % |
 | `status.mode` | Aktueller Modus (`auto`, `manual`, `at_home`, …) | – |
@@ -135,7 +135,7 @@ Der Adapter unterstützt **gezielte Schreibvorgänge** in jeden steuerbaren Zust
 Dadurch haben Sie die volle Kontrolle in Blockly, JavaScript oder benutzerdefinierten Logikskripten.
 
 | Schreibbarer Zustand | Erwarteter Wert / Verhalten |
-| ----------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
 | `control.temp_set` | Zieltemperatur (°C, 0,5 Schritte; gesendet ×10) |
 | `control.at_home_setting`, `control.leaving_home_setting`, `control.pause_setting`, `control.holiday_setting` | Voreingestellte Temperaturen |
 | `control.mode` | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
@@ -197,17 +197,18 @@ Diese Mechanismen gewährleisten eine reibungslose Synchronisierung zwischen ioB
 ## Protokollierung
 Der Adapter liefert detaillierte **Debug-Informationen** für Diagnosezwecke, bleibt aber im Normalbetrieb geräuschlos.
 
-- `ack=true`-Aktualisierungen werden nur im **Debug-Modus** angezeigt.
+- `ack=true`-Aktualisierungen werden stillschweigend ignoriert
 - `HOLD`, `MATCH`, `SUPPRESS` → Debug-Level, harmlose Diagnosefunktionen
+Nach dem ersten Inventarisierungslauf listen die Abfrage-Debug-Protokolle nur noch tatsächliche Wertänderungen auf.
 - API-Fehler (`HTTP 400/401`) wurden automatisch wiederholt (protokolliert im Debug-Modus)
-- Bereinigter Informationsstand nach jeder Umfrage:
+- Bereinigen Sie die Zusammenfassung auf Debug-Ebene nach jeder Abfrage:
 
 **Beispiel für eine Umfragezusammenfassung**
 
 ```
-✅ Updated 13 devices. Changed=2, Skipped=253, Held=1
-📡 Found devices, updating states...
-⏸️ Skipping poll (anti-race 5000ms)
+CHANGES bf0a...: temp_set: 25 -> 30, manual_mode_fast: 25 -> 30
+Updated 13 devices. Mode=poll, Changed=2, Skipped=253, Held=0, AckFixed=0
+Skipping poll (anti-race pause 5000ms)
 ```
 
 ## Beispiel für eine Log-Ausgabe
@@ -286,18 +287,30 @@ oder über die ioBroker-Entwicklungstools installieren.
 
 ## Changelog
 
+### 0.2.20
+
+- Reduced debug log noise after startup: repeated polls now log only real value changes
+- Removed repeated per-device debug inventory lines after the first poll
+- Avoided object-valued status writes from fallback responses
+- Added Boiler Relay fallback objects when the Danfoss API lists the relay but returns no status entries
+- Resolved ioBroker repository checker warnings for Prettier config, ESLint devDependency, translated news entries, workflow concurrency, and tracked ignored tool files
+- Updated GitHub Actions workflow dependencies from the open Dependabot PRs
+
 ### 0.2.19
+
 - Stopped polling from writing cloud values back into `control.*` states to avoid feedback loops with Loxone/scripts
 - Added `state.from` to debug write logs so external write sources can be identified
 - Added direct status fallback for devices that are listed without status values, improving Boiler Relay datapoints
 - Reduced poll debug noise: the initial run still logs all `SET` lines, later polls summarize changed values per device
 
 ### 0.2.18
+
 - Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
 - Added explicit warnings when the Danfoss Cloud does not confirm the requested setpoint
 - Improved device naming/detection for relay-like devices so the Boiler Relay is easier to identify
 
 ### 0.2.17
+
 - Improved Ally TRV `temp_set` writes by trying `SetpointChangeSource=Externally` and `temp_set` as one combined command first
 - Falls back to `temp_set` only if Danfoss rejects the combined command
 - Fixed `control.switch` subscriptions for Icon2 / Boiler Relay writes
@@ -305,6 +318,7 @@ oder über die ioBroker-Entwicklungstools installieren.
 - Fixed jsonConfig header validation warning
 
 ### 0.2.16
+
 - Fixed `temp_set` for Ally TRVs (`SetpointChangeSource=Externally` auto-sent)
 - Fixed wrong path for `lower_temp`/`upper_temp` clamp
 - Fixed `OccupiedSetpoint` scaling (÷100 instead of ÷10)
@@ -314,7 +328,6 @@ oder über die ioBroker-Entwicklungstools installieren.
 - Added Boiler Relay to supported devices
 
 [Older changes](CHANGELOG_OLD.md)
-
 
 ---
 

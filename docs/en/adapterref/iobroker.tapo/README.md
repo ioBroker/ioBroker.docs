@@ -377,6 +377,50 @@ Nicht jede Kamera unterstuetzt alle Funktionen. Nicht unterstuetzte Befehle werd
 <https://forum.iobroker.net/topic/57336/test-adapter-tp-link-tapo/>
 
 ## Changelog
+### 0.6.9 (2026-08-11)
+
+- Publish the configured PTZ presets as a state (`presets`: id -> name), refreshed after save/delete, so you can see which names/ids `moveToPreset` accepts
+
+### 0.6.8 (2026-08-11)
+
+- PTZ move-to-preset now accepts the preset name (not just the numeric id) and reports success correctly
+- Camera connect/reconnect log messages now show the IP instead of `undefined`
+
+### 0.6.7 (2026-08-11)
+
+- Doorbell ring now also works for hub-paired battery doorbells (e.g. D210 + H200): the ring UDP packet (port 20005) is sent from the hub IP, so any packet on the doorbell port now triggers the `ringEvent` (matches Home Assistant)
+
+### 0.6.6 (2026-08-11)
+
+- Fix: an unreachable camera/doorbell (ONVIF/EHOSTUNREACH) no longer aborts init, so the `ringEvent` state and doorbell UDP listener are set up even for battery/hub-paired doorbells (D210)
+
+### 0.6.5 (2026-08-11)
+
+- Log all incoming doorbell UDP (port 20005) packets at debug level to help diagnose hub-paired doorbells (e.g. D210 + H200)
+
+### 0.6.4 (2026-08-11)
+
+- Camera ONVIF port (2020) unreachable is now an info hint, not an error (EHOSTUNREACH/ETIMEDOUT)
+- Capture onvif socket errors so they no longer surface as uncaught errors
+
+### 0.6.3 (2026-08-10)
+
+- Camera line crossing detection (on/off toggle + status), ported from python-kasa
+- List dynamic light effects (`getLightEffects`) for L530/L630
+- Battery status exposed for battery-powered cameras via device info
+
+### 0.6.2 (2026-08-10)
+
+- Fix camera PTZ move-to-preset (the request was missing the `preset` wrapper)
+- Support for Tapo smart chime D100C (play/stop chime, volume, ring type) - uses the plug/TPAP protocol
+
+### 0.6.1 (2026-08-09)
+
+- Support for Tapo video doorbells (D-series, e.g. D235) - initialized as camera devices
+- Fetch SMART.TAPODOORBELL / SMART.TAPOCHIME device types from the cloud (doorbells were missing from the device list)
+- Also fetch SMART.TAPOLOCK / SMART.TAPOROBOVAC / SMART.TAPONVR device types
+- Doorbell ring event (`ringEvent` state) via UDP broadcast (port 20005) and alarm polling fallback
+
 ### 0.6.0 (2026-07-30)
 
 - Fix camera login for newer firmware (FW 1.4.3+, e.g. C200 1.4.4)

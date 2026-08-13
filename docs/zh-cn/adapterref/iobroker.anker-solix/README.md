@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.anker-solix/README.md
 title: ioBroker.anker-solix
-hash: AHcAyfPuwFJaONU3Oaj4bvkYMSuVnLhAmixGluKBJC8=
+hash: Mj1W28yEMaxpGycVa4ogkK1MbN2Gsy68Xek9xPdydS4=
 ---
 # IoBroker.anker-solix
 
@@ -17,7 +17,7 @@ ioBroker 适配器，适用于 **Anker Solix** 电源系统（太阳能充电宝
 
 > | **Linux** | 主要生产目标 — **已通过持续集成测试**（Docker、NAS、Raspberry Pi 等） |
 
-> | **Windows** | **已在 Windows 版 ioBroker (Python 3.12+) 上进行支持和测试** |
+> | **Windows** | **已在 Windows 版 ioBroker (Python 3.12+) 上进行**支持和测试** |
 
 > | **macOS** | **不支持** — 未验证自动 Python/虚拟环境安装 |
 
@@ -46,7 +46,7 @@ ioBroker 适配器，适用于 **Anker Solix** 电源系统（太阳能充电宝
 ---
 
 ## 免责声明和使用条款
-此适配器与Anker公司**无**任何关联。商标和产品名称均属于其各自所有者。
+此适配器与Anker公司**无**任何关联。商标和产品名称归其各自所有者所有。
 
 该适配器使用非官方的 Python 库与 Anker Power 的云 API（与移动应用相同）通信。该 API 可能随时更改或出现故障。不正确的设置可能会影响设备；用户在启用实例时（“帐户”选项卡）即表示接受这些风险。未来的适配器更新可能会扩展监控或控制功能。
 
@@ -80,10 +80,11 @@ Linux 仍然是 ioBroker 部署的主要目标平台。Windows 系统在代码�
 ## 要求和安装
 - ioBroker **js-controller >= 6**，**admin >= 7.6**
 - **Node.js >= 22**
-- ioBroker 主机上的 Python 版本需为 3.12 或更高版本：
+- ioBroker 主机上需要 Python 3.12 或更高版本（推荐/上游要求）：
 - **Linux：** `python3-venv` + `python3-pip`（Debian/Ubuntu）— 主要生产目标
 - **Windows：** Python 3.12+（可从 python.org 下载）或使用 `py -3.12`；适配器安装程序会处理虚拟环境和 **`tzdata`**。
 - **macOS：** **不支持**（未验证自动安装 Python 的功能）
+- **例外情况（尽力而为）：**基于 Debian 12 Bookworm 的 Linux **Docker 容器**（例如 `buanet/iobroker:latest-v11`）在无法通过 apt 安装 Python 3.12 时，可能会使用系统自带的 **Python 3.11**。裸机 Bookworm、其他发行版以及非 Bookworm 容器仍然需要 **Python 3.12 或更高版本**。建议尽可能将 Python 3.12 或更高版本安装到持久路径中，并设置 **pythonPath**。
 
 Python 依赖项安装到适配器文件夹（`python/.venv` 或 `python/site-packages`）。自 v0.2.0 起：启动时自动安装（**选项** → `autoInstallPython`）或点击“安装 Python 依赖项”按钮。
 
@@ -119,7 +120,7 @@ Home Assistant OS 上的官方 **ioBroker** 应用通常包含 `python3`，但**
 
 在实例管理界面：**选项** → **安装 Python 依赖项**，或者启用 **autoInstallPython** 并重新启动实例。
 
-如果日志仍然显示 `No module named pip`，请在主机上打开 ioBroker/SSH 终端并运行：
+如果日志仍然显示`No module named pip`，请在主机上打开ioBroker/SSH终端并运行：
 
 ```bash
 cd /data/iobroker/node_modules/iobroker.anker-solix
@@ -143,7 +144,7 @@ iobroker restart anker-solix.0
 
 ---
 
-## Anker 账号和登录缓存
+## Anker 账号及登录缓存
 首次成功登录 API 后，适配器会将令牌存储在：
 
 `iobroker-data/anker-solix.0/authcache/<your-email>.json`
@@ -164,7 +165,7 @@ iobroker restart anker-solix.0
 - 如果设备 Wi-Fi 离线，则**云数据已过期**；启用后，请使用云/MQTT 连接指示器。
 - **MQTT** 更新取决于设备的发布周期；某些值仅在**实时触发**时生效（如果 24/7 全天候运行，则流量会很高）。
 - **独立设备**（PPS、充电器、不在电源系统中的冷却器）**几乎没有或根本没有 API 能源数据** — 可能需要 MQTT（[HA 限制](https://github.com/thomluther/ha-anker-solix#limitations)）。
-- **动态关税**（Nordpool 除外）：预测/价格实体可能错误或为只读。
+- **动态关税** Nordpool 以外的：预测/价格实体可能错误或只读。
 - **验证码 (100032)** 在通过 VPS/VPN/数据中心直接登录 API 时出现问题 — 请参阅[故障排除](#troubleshooting-login--poll)。如果 ioBroker 无法登录，请从 HA 或其他可用的配置中复制 `authcache`。
 
 为了帮助添加设备：通过 HA [导出系统](https://github.com/thomluther/ha-anker-solix/blob/main/INFO.md#export-systems-action) 或 [anker-solix-api export_system.py]](https://github.com/thomluther/anker-solix-api#export_systempy)导出匿名数据。
@@ -293,7 +294,7 @@ Anker 会屏蔽部分服务器/VPN API 登录。该库无法解决验证码。
 
 - `get_schedule`、`clear_schedule`、`export_systems`、`get_system_info`、`refresh_devices`
 
-使用 config 中的 `selectedDeviceId` / `selectedSiteId`。请参阅“管理**对象**”选项卡（服务提示）。
+使用 config 中的 `selectedDeviceId` / `selectedSiteId`。请参阅管理 **对象** 选项卡（服务提示）。
 
 ---
 
@@ -325,7 +326,7 @@ Anker 会屏蔽部分服务器/VPN API 登录。该库无法解决验证码。
 
 1. 更新 `package.json` 和 `io-package.json` 中的 `version`（必须匹配）。
 2. 在此 README 变更日志中添加 `### x.y.z` 部分 (E6006)。
-3. 为该版本添加**一条**新的`common.news`条目；保留**最多7条**新闻键——仅包含已在npm上的版本（即将发布的版本除外）。将删除的文本移至[CHANGELOG_OLD.md](CHANGELOG_OLD.md)。
+3. 为该版本添加**一条**新的`common.news`条目；保留**最多7条**新闻键——仅限已在npm上的版本（即将发布的版本除外）。将删除的文本移至[CHANGELOG_OLD.md](CHANGELOG_OLD.md)。
 4. 管理员 `jsonConfig.json`：标题 `size` 必须 **≤ 5**（使用 `5` 表示最小标题）。
 5. 除非必要，否则不要将根文件添加到 npm `files` 中（`CHANGELOG_OLD.md` 不会包含在包中）。
 6. `package.json` `os` 必须与 `test-and-release.yml` 中的操作系统矩阵匹配 (E3027)。保持管理员 `i18n/*.json` 与 `en.json` 同步 (W5604/W5605)。
@@ -333,6 +334,10 @@ Anker 会屏蔽部分服务器/VPN API 登录。该库无法解决验证码。
 ---
 
 ## Changelog
+
+### 0.10.87
+
+- **Python:** Debian 12 Bookworm Docker containers (e.g. buanet v11) accept system Python **3.11** as best-effort; all other hosts still require **3.12+**
 
 ### 0.10.86
 

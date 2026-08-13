@@ -74,6 +74,9 @@ None
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.29 (2026-08-10)
+- (Andreas Ruttkamp) Update dependencies
+
 ### 1.2.28 (2026-06-18)
 Improve Logging Consistency and Debug Handling
 #320
@@ -89,11 +92,6 @@ Improve Logging Consistency and Debug Handling
 ### 1.2.25 (2025-10-16)
 * (Andreas Ruttkamp) repro checker issues resolved
 * (Andreas Ruttkamp) npm trusted publishing integrated
-
-### 1.2.24 (2025-09-01)
-* (Andreas Ruttkamp) dev dependencies updated
-* (Andreas Ruttkamp) minimum version for admin now 7.6.17
-* (Andreas Ruttkamp) minimum version for js controller now 6.0.11
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

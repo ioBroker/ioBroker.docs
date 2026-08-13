@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: Y3QSjtg1+5Q+H8MjCynPjleENPJdb3JvcGW2BZYukeA=
+hash: SmcvBQNmBAOAAqrMmwG1RdqdfA9Ra8l/zGxrmrcnMho=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -151,10 +151,23 @@ Jedes Widget verfügt über ein Feld `filter`. Wenn Sie diesem einen Wert zuweis
 Die Einträge des Widgets `filter - dropdown` (Schaltflächen und Dropdown-Elemente) haben die CSS-Klasse `vis-filter-item`, und die aktuell aktiven Einträge zusätzlich `vis-filter-item-active`, sodass sie im Projekt-CSS formatiert werden können, z. B.:
 
 ```css
+/* buttons (horizontal / vertical) */
 .vis-filter-item-active {
     background-color: #ff0000;
 }
+
+/* entries of the dropdown */
+.vis-filter-item-active.Mui-selected {
+    background-color: #ff0000;
+}
 ```
+
+Es sind zwei Regeln erforderlich, da der aktive Eintrag des Dropdown-Menüs zusätzlich die Klasse `Mui-selected` besitzt und seine eigene Hintergrundfarbe spezifischer ist als `.vis-filter-item-active` allein.
+
+Bitte beachten Sie:
+
+Wenn für einen Eintrag im Widget selbst eine Farbe konfiguriert ist, wird diese als Inline-Style festgelegt und kann nicht mit der `color`-Eigenschaft des Projekt-CSS überschrieben werden. Lassen Sie das Feld für die Farbe des Eintrags leer, wenn Sie sie per CSS festlegen möchten.
+Die Einträge des Dropdown-Menüs werden außerhalb des Widgets (in einem Popup auf Seitenebene) gerendert und können daher nur global und nicht über einen Selektor für ein einzelnes Widget, wie z. B. `#w00001 .vis-filter-item-active`, angesprochen werden. Die Schaltflächen sind Teil des Widgets und können auf diese Weise angesprochen werden.
 
 ## Steuerungsschnittstelle
 Vis erstellt 3 Variablen:
@@ -208,7 +221,7 @@ Wenn Sie das JSON als Zeichenkette schreiben, stellen Sie sicher, dass es analys
 Sie können für jede Ansicht die gewünschte Auflösung festlegen (Menü → Werkzeuge → Auflösung).
 Dies ist lediglich der visuelle Rahmen im Bearbeitungsmodus, der Ihnen die Bildschirmgröße auf einem bestimmten Gerät anzeigt. Im Echtzeitmodus ist er nicht sichtbar, und alle Widgets außerhalb des Rahmens sind sichtbar.
 
-Darüber hinaus können Sie festlegen, ob diese Ansicht für diese Auflösung als Standard verwendet werden soll.
+Zusätzlich können Sie festlegen, ob diese Ansicht für diese Auflösung als Standard verwendet werden soll.
 
 Jedes Mal, wenn `index.html` (ohne `#viewName`) aufgerufen wird, wird die für diese Auflösung am besten geeignete Ansicht geöffnet.
 Wenn nur eine Ansicht das Flag *"Standard"* besitzt, wird diese Ansicht unabhängig von Bildschirmauflösung und -ausrichtung geöffnet.
@@ -303,7 +316,20 @@ npm run start
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.14.4 (2026-08-10)
+* (@typhosj) The entries of the horizontal navigation menu can be scrolled now instead of being cut off in a narrow window
+* (@typhosj) Fixed the invalid HTML element IDs of the widgets shown in multiple views. Their IDs changed from `<view>_<widget>` to `v<view>_<widget>`, so a user script or CSS that addresses such a copy must be adapted
+* (@typhosj) Fixed the double click on a widget shown in multiple views jumping to a wrong view
+* (@typhosj) Show the text of the button widgets as entered and not upper cased
+* (@GermanBluefox) Fixed the ignored "small" option of the `filter - dropdown` widget
+* (@typhosj) Subscribed to object IDs that are the result of a binding
+* (@typhosj) Fixed the ignored read-only option of the Bool SVG widget
+* (@GermanBluefox) Fixed the position of a new group created inside another group
+* (@typhosj) Fixed the position of the members when a nested group is dissolved
+* (@GermanBluefox) Fixed "same width"/"same height" applying the sizes of a previously selected widget
+* (@GermanBluefox) Fixed the widget selection when a stored selected widget does not exist anymore
+* (@typhosj) Fixed dissolving a group deleting a member widget instead of the group
+* (@GermanBluefox) The user permissions are now applied to widgets embedded via `getWidgetInWidget`, which can return `null` now
 * (@typhosj) Fixed the user permissions being ignored for widgets inside a group
 * (@typhosj) Added the CSS classes `vis-filter-item` and `vis-filter-item-active` to the `filter - dropdown` widget
 * (@GermanBluefox) Fixed `exist`/`not exist` of signals evaluating the comparison value instead of the state value
@@ -322,10 +348,6 @@ npm run start
 
 ### 2.13.17 (2026-03-29)
 * (@GermanBluefox) Removed debug code for theme
-
-### 2.13.16 (2026-03-26)
-* (@GermanBluefox) Fixing the usage of umlauts in patterns
-* (@GermanBluefox) Fixing commands via control interface when sent as JSON
 
 ## License
 To use this adapter in `ioBroker` you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.

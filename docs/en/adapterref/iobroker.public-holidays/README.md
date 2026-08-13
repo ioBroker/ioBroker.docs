@@ -38,27 +38,17 @@ For details and how to disable it, see the [Sentry plugin documentation](https:/
 
 ## Configuration
 
-### Tab 1 — Region
+All settings live on a single guided card. Work through it from top to bottom:
 
-| Setting          | Description                                                       |
-| ---------------- | ----------------------------------------------------------------- |
-| Country          | Select from 206 countries                                         |
-| State / Province | Dropdown — only shown for countries with states (e.g. DE, CH, US) |
-| Region           | Dropdown — only shown when the selected state has regions         |
+| Step              | Description                                                                                                                                              |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Location          | Country (206 available); state/province and region appear only for countries that have them. If country is left empty it is auto-detected from your ioBroker system settings. |
+| Holiday types     | Public (default on), bank, school, optional and observance days.                                                                                        |
+| Bridge days       | Adds bridge days between a holiday and the weekend.                                                                                                      |
+| Excluded holidays | Pick individual holidays to exclude from detection.                                                                                                      |
+| Detected holidays | A live preview of the holidays the adapter will detect for the current selection.                                                                        |
 
-> If **Country** is left empty, it is auto-detected from your ioBroker system settings (System settings → Country). Selecting it explicitly is recommended.
-
-### Tab 2 — Holidays
-
-| Setting            | Description                                     |
-| ------------------ | ----------------------------------------------- |
-| Public holidays    | Official public/national holidays (default: on) |
-| Bank holidays      | Bank holidays                                   |
-| School holidays    | School holidays                                 |
-| Optional holidays  | Optional/discretionary holidays                 |
-| Observance days    | Observance/memorial days                        |
-| Detect bridge days | Adds bridge days between holidays and weekends  |
-| Excluded holidays  | Select holidays to exclude from detection       |
+> The settings card is an Admin-8 component, so this adapter requires Admin 8.
 
 ## State Tree
 
@@ -109,6 +99,14 @@ Bridge days appear in the state tree with the localized name matching the system
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.13.0 (2026-08-13)
+
+- The adapter settings are now a single guided card — country, region, holiday types and exclusions on one page, with a live preview of the holidays that will be detected.
+
+### 0.12.0 (2026-08-10)
+
+- The holiday exclusion selector in the settings now works on Admin 8 — it was blank there since Admin 8.0.1, so this version requires Admin 8.
+
 ### 0.11.0 (2026-07-12)
 
 - Breaking change: the states that flag whether each day is a holiday were renamed for clarity — update any scripts or views that read them.
@@ -123,17 +121,6 @@ Bridge days appear in the state tree with the localized name matching the system
 
 - The holiday exclude list now shows only your selected region's holidays, in your admin language and sorted by date — no longer every region of a country mixed alphabetically.
 - The false "excluded holidays no longer match" warning at startup is fixed; it now fires only for a holiday that genuinely no longer exists.
-
-### 0.8.0 (2026-06-25)
-
-- A misconfigured region/state is now reported instead of silently using country-level holidays.
-- A holiday exclude that no longer matches after a data update is now reported.
-- On a day with two holidays, the more important one is now shown.
-- Adds an optional bridge day between two midweek holidays.
-
-### 0.7.1 (2026-06-12)
-
-- Internal refactoring. No user-facing changes.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -79,6 +79,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.0.4 (2026-08-10)
+
+- (hombach) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
+- (hombach) updated dependencies
+
 ### 3.0.3 (2026-07-05)
 
 - (hombach) removed unneeded test devDependencies (chai, sinon-chai, proxyquire) and switched tests to Node.js assert
@@ -97,12 +102,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 3.0.0 (2026-05-05)
 
 - (copilot) BREAKING: adapter requires node.js >= 22 now
-- (hombach) update dependencies
-
-### 2.0.7 (2026-04-12)
-
-- (hombach) switch to ES2023 code
-- (hombach) fix vulnerability in axios
 - (hombach) update dependencies
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)

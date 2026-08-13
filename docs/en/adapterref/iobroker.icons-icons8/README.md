@@ -21,4 +21,4 @@ It is about 4 300 icons in this set.
 ### 0.1.0 (2016-04-29)
 * (bluefox) initial commit
 
-
+[Older changelogs can be found there](CHANGELOG_OLD.md)

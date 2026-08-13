@@ -83,10 +83,9 @@ After creating your Client ID, configure streaming:
 ### 3. Adapter Configuration
 
 1. Enter your **Client ID** in the adapter settings
-2. Enter your **CarData Streaming Username** (found in BMW portal under CarData > Streaming section)
-3. Select your vehicle **brand** (BMW, Mini, Toyota Supra)
-4. Set **update interval** (minimum 10 minutes due to API quota)
-5. Configure **VIN ignore list** if needed
+2. Select your vehicle **brand** (BMW, Mini, Toyota Supra)
+3. Set **update interval** (minimum 10 minutes due to API quota)
+4. Configure **VIN ignore list** if needed
 
 ### 4. Authentication Process
 
@@ -218,9 +217,13 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.1 (2026-08-10)
 
-### **WORK IN PROGRESS**
-
+- (TA2k) fixed CU-103 "token-scope is not CarData" by requesting the cardata:api:read scope explicitly in the device code flow
+- (TA2k) fixed MQTT streaming: use the token gcid as username and topic prefix (matching BMW's broker ACL), fixing the "Unspecified error" subscribe failure
+- (TA2k) fixed container cleanup deleting with an undefined containerId (CU-121)
+- (TA2k) removed the CarData Streaming Username setting - the gcid is now taken automatically from the token
+- (TA2k) added an option to create a reduced telematic container (workaround for CU-403 on container creation)
 - (hombach) updated adapter-core
 - (hombach) fixed adapterchecker errors: downgraded @types/node to ^22, added Sentry notice to README, added @iobroker/adapter-dev
 - (hombach) replaced native setInterval/setTimeout with adapter-managed equivalents in main.js
@@ -252,11 +255,6 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
 
 - (hombach) year 2026 changes
 - (hombach) update dependencies
-
-### 4.3.2 (2025-12-15)
-
-- update telemetry ids for container creation
-- optimize dependabot config (#209)
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

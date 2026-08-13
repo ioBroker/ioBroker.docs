@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.public-holidays/README.md
 title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
-hash: 1LNxxnDrKwoDzUsDump+J/CSzNAaTAeRz2lJtTa/aDk=
+hash: rCtPqJCmRXvi87lkuWpn0a8M3l16vLe25sy1raAErWY=
 ---
 # <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
 
@@ -46,25 +46,17 @@ Einzelheiten und Hinweise zur Deaktivierung finden Sie in Abschnitt [Dokumentati
 - Node.js >= 22
 
 ## Konfiguration
-### Registerkarte 1 — Region
-| Schauplatz | Beschreibung |
-| ---------------- | ----------------------------------------------------------------- |
-| Land | Wählen Sie aus 206 Ländern |
-| Bundesland/Provinz | Dropdown-Menü — wird nur für Länder mit Bundesländern/Provinzen angezeigt (z. B. DE, CH, US) |
-| Region | Dropdown-Menü — wird nur angezeigt, wenn das ausgewählte Bundesland Regionen hat |
+Alle Einstellungen befinden sich auf einer einzigen Übersichtskarte. Arbeiten Sie diese von oben nach unten durch:
 
-Wenn das Feld **Land** leer bleibt, wird es automatisch aus Ihren ioBroker-Systemeinstellungen ermittelt (Systemeinstellungen → Land). Es wird jedoch empfohlen, es explizit auszuwählen.
+| Schritt | Beschreibung |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Standort | Land (206 verfügbar); Bundesland/Provinz und Region werden nur für Länder angezeigt, die diese Angaben enthalten. Wenn das Landfeld leer bleibt, wird es automatisch aus Ihren ioBroker-Systemeinstellungen ermittelt. |
+| Feiertagsarten | Öffentliche Feiertage (standardmäßig aktiviert), Bankfeiertage, Schulfeiertage, optionale Feiertage und Gedenktage. |
+| Brückentage | Fügt Brückentage zwischen einem Feiertag und dem Wochenende ein. |
+| Ausgeschlossene Feiertage | Wählen Sie einzelne Feiertage aus, die von der Erkennung ausgeschlossen werden sollen. |
+| Erkannte Feiertage | Eine Live-Vorschau der Feiertage, die der Adapter für die aktuelle Auswahl erkennt. |
 
-### Registerkarte 2 — Feiertage
-| Schauplatz | Beschreibung |
-| ------------------ | ----------------------------------------------- |
-| Feiertage | Offizielle Feiertage (Standard: aktiviert) |
-| Feiertage | Feiertage |
-| Schulferien | Schulferien |
-| Optionale Feiertage | Optionale/freiwillige Feiertage |
-| Gedenktage | Gedenktage |
-| Brückentage erkennen | Fügt Brückentage zwischen Feiertagen und Wochenenden hinzu |
-| Ausgeschlossene Feiertage | Feiertage auswählen, die von der Erkennung ausgeschlossen werden sollen |
+Die Einstellungskarte ist eine Admin-8-Komponente, daher benötigt dieser Adapter Admin 8.
 
 ## Staatsbaum
 ```
@@ -90,7 +82,7 @@ public-holidays.0.
 
 Wenn kein Feiertag vorliegt (z. B. ist heute kein Feiertag), sind die Kanalzustände leere Zeichenketten / false / 0.
 
-## Bridge Day Algorithmus
+## Bridge-Day-Algorithmus
 Ein Brückentag ist ein Werktag (Montag bis Freitag) zwischen einem Feiertag und einem Wochenende:
 
 - Feiertag am **Donnerstag** → Freitag ist ein Brückentag
@@ -100,7 +92,7 @@ Ein Brückentag ist ein Werktag (Montag bis Freitag) zwischen einem Feiertag und
 Brückentage werden im Zustandsbaum mit dem lokalisierten Namen angezeigt, der der Systemsprache entspricht.
 
 ## Fehlerbehebung
-**Keine Statusangaben nach dem ersten Start** — Öffnen Sie die Adaptereinstellungen und wählen Sie ein Land aus.
+**Keine Zustände nach dem ersten Start** — Öffnen Sie die Adaptereinstellungen und wählen Sie ein Land aus.
 
 **Falsche Feiertage / Fehlende regionale Feiertage** – Prüfen Sie, ob das richtige Bundesland/die richtige Provinz ausgewählt ist. Stellen Sie den Protokollierungsgrad auf „Debug“, um alle erkannten Feiertage anzuzeigen.
 
@@ -124,6 +116,14 @@ Dieser Adapter ist kostenlos und Open Source. Wenn er Ihnen nützlich ist, würd
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.13.0 (2026-08-13)
+
+- The adapter settings are now a single guided card — country, region, holiday types and exclusions on one page, with a live preview of the holidays that will be detected.
+
+### 0.12.0 (2026-08-10)
+
+- The holiday exclusion selector in the settings now works on Admin 8 — it was blank there since Admin 8.0.1, so this version requires Admin 8.
+
 ### 0.11.0 (2026-07-12)
 
 - Breaking change: the states that flag whether each day is a holiday were renamed for clarity — update any scripts or views that read them.
@@ -138,17 +138,6 @@ Dieser Adapter ist kostenlos und Open Source. Wenn er Ihnen nützlich ist, würd
 
 - The holiday exclude list now shows only your selected region's holidays, in your admin language and sorted by date — no longer every region of a country mixed alphabetically.
 - The false "excluded holidays no longer match" warning at startup is fixed; it now fires only for a holiday that genuinely no longer exists.
-
-### 0.8.0 (2026-06-25)
-
-- A misconfigured region/state is now reported instead of silently using country-level holidays.
-- A holiday exclude that no longer matches after a data update is now reported.
-- On a day with two holidays, the more important one is now shown.
-- Adds an optional bridge day between two midweek holidays.
-
-### 0.7.1 (2026-06-12)
-
-- Internal refactoring. No user-facing changes.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

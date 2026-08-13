@@ -115,6 +115,10 @@ You can debug view charts locally with:
   -->
 
 ## Changelog
+### 5.0.2 (2026-08-10)
+- (@GermanBluefox) Show a state under every history instance that logs it and not only under the first one
+- (@GermanBluefox) Fixed the line break in the X-axis labels for the time formats like `HH:MM / dd.mm.yy`
+
 ### 5.0.1 (2026-08-08)
 - (@Brainbug01) Fixed server-side rendering hanging until the caller timed out (preview showed "timeout" for every preset)
 - (@GermanBluefox) Aligned the GUI of the editor, the preview and the chart with the admin 8 design
@@ -129,10 +133,6 @@ You can debug view charts locally with:
 
 ### 3.1.2 (2026-05-28)
 - (@GermanBluefox) Corrected the devices widget
-
-### 3.1.1 (2026-05-27)
-- (@Brainbug01) Added yAxisOffset to separate multiple Y-axes visually
-- (@GermanBluefox) Added the devices widget
 
 ## License
 

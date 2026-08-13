@@ -4,16 +4,14 @@
 
 # ioBroker.harvia-fenix
 
-**[Hier geht es zur deutschen Version der Dokumentation.](README_de.md)**
+**[Hier geht es zur deutschen Version der Dokumentation.](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/README_de.md)**
 
 [![Downloads](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)](https://www.npmjs.com/package/iobroker.harvia-fenix)
 [![node](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)](https://www.npmjs.com/package/iobroker.harvia-fenix)
 [![License](https://img.shields.io/npm/l/iobroker.harvia-fenix.svg)](https://github.com/meistermopper/ioBroker.harvia-fenix/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/meistermopper/ioBroker.harvia-fenix.svg)](https://github.com/meistermopper/ioBroker.harvia-fenix/issues)
 ![Number of Installations](https://iobroker.live/badges/harvia-fenix-installed.svg)
-![Current version in latest repository](https://iobroker.live/badges/harvia-fenix-latest.svg)
 ![Current version in stable repository](https://iobroker.live/badges/harvia-fenix-stable.svg)
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/harvia-fenix/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/)
 
 [![NPM](https://nodei.co/npm/iobroker.harvia-fenix.png?downloads=true)](https://nodei.co/npm/iobroker.harvia-fenix/)
 ![Test and Release](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
@@ -33,20 +31,13 @@ For more information about Harvia and their sauna control units, please visit th
 ---
 
 ## Installation
-The adapter is available in the official ioBroker `latest` (beta) repository. You can install it directly via the ioBroker web interface or on your local machine via npm.
+The adapter is available in the official ioBroker repository. You can install it directly via the ioBroker Admin web interface.
 
-### Browser-based (via ioBroker Admin)
+### Via ioBroker Admin
 1. Open your ioBroker web interface in a browser (e.g. `192.168.1.33:8081`).
-2. Ensure that your ioBroker repository setting is set to **`latest`** (beta).
-3. Click on the **Adapters** tab.
-4. Type "harvia-fenix" in the filter.
-5. Click on the three dots and then on the "+" symbol of the **Harvia Fenix** adapter to add an instance.
-
-### Local machine
-Navigate into your ioBroker folder and execute the following command: 
-```bash
-npm i iobroker.harvia-fenix
-```
+2. Click on the **Adapters** tab.
+3. Type "harvia-fenix" in the filter.
+4. Click on the three dots and then on the "+" symbol of the **Harvia Fenix** adapter to add an instance.
 
 ---
 
@@ -184,12 +175,16 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 ## To-Do
 * [ ] Await official permission from Harvia to use their original logo
 * [x] Add adapter to the official ioBroker `latest` repository
-* [ ] Add adapter to the official ioBroker `stable` repository
+* [x] Add adapter to the official ioBroker `stable` repository
 
 ---
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.3.2 (2026-08-11)
+* (meistermopper) Use absolute GitHub URLs for language switching links in README files
+* (meistermopper) Remove latest repository and translation badges from README files
+* (meistermopper) Mark stable repository addition as completed in To-Do list
+* (meistermopper) Remove direct npm installation instructions from README files
 * (dependabot) Bump axios from 1.18.1 to 1.19.0
 * (meistermopper) Center adapter logo in README files
 * (meistermopper) Add Weblate translation status badge to README files
@@ -222,11 +217,6 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 * (meistermopper) Remove redundant ==== underlines from header in README files
 * (meistermopper) Remove duplicate changelog link and format it consistently in README files
 * (meistermopper) Update Biome schema version to 2.5.3 to match CLI version
-
-### 0.2.6 (2026-07-16)
-* (meistermopper) Change doorSafety role to indicator.safety to prevent semantic role mismatch
-* (meistermopper) Redesign README and README_de.md layout to match Denon adapter presentation
-* (meistermopper) Update AI commit hook prompt to generate messages entirely in English
 
 [Older changelog entries](CHANGELOG_OLD.md)
 

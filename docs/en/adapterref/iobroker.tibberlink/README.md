@@ -256,9 +256,9 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 7.2.1 (2026-08-10)
 
-### **WORK IN PROGRESS**
-
+- (HombachC) fixed charger devices with an empty externalId (e.g. Wallbox Pulsar Plus) producing an invalid state id; a single bad device no longer aborts the whole Data API poll (#925)
 - (HombachC) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts (#927)
 - (HombachC) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
 - (HombachC) updated tibber-api to 5.6.0
@@ -284,16 +284,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) updated axios
 - (HombachC) fixed local SML parsing for EMH meters reporting meter_mode 4 but sending binary SML data (#912)
 - (HombachC) fixed false warn log for SBB when no price slot matches current quarter (#912)
-
-### 7.1.2 (2026-06-19)
-
-- (HombachC) fixed adapter crash on null liveMeasurement from Tibber feed (#910)
-- (HombachC) improved vehicles & chargers OAuth2 setup documentation
-- (HombachC) fixed setInterval/clearInterval to use adapter-managed variants
-- (HombachC) removed yarn dependency, replaced with npm in release script
-- (HombachC) updated adapter-core
-- (HombachC) fixed adapter checker warnings
-- (HombachC) updated dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

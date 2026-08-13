@@ -56,7 +56,7 @@ Warte einige Sekunden, bis die Daten das erste Mal vom Sensor abgeholt werden.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 6.0.2 (2026-08-10)
 
 * (@klein0r) Added missing translations
 
@@ -81,16 +81,6 @@ NodeJS 16.x is required
 * (klein0r) Added link to sensor map to intro tab
 * (klein0r) Create timestamps if location is not available
 * (klein0r) Added admin icons
-
-### 3.0.0 (2023-05-01)
-
-NodeJS 14.x is required (NodeJS 12.x is EOL)
-
-* (klein0r) Added link to sensor map to instance configuration
-* (klein0r) Updated dependencies
-* (klein0r) Updated depedency for js-controller to 4.0.15
-* (klein0r) Dropped Admin 5 support
-* (klein0r) Added Ukrainian language
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -94,6 +94,11 @@ This adapter's MQTT authentication and BLE-over-LAN (ptReal) protocol implementa
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.25.0 (2026-08-12)
+
+- Redesigned connection setup: one card for the Cloud API key, account login and 2FA, with live connection status and a guided verification-code step.
+- Fixed light strips that showed too many segments with impossible brightness values (e.g. Govee H6076 showed 15 instead of 7); they now use the strip's real segment count.
+
 ### 2.24.0 (2026-08-04)
 
 - This version needs ioBroker Admin 8. The segment detection wizard is built for Admin 8 and no longer runs on Admin 7, so this update is not offered there.
@@ -111,10 +116,6 @@ This adapter's MQTT authentication and BLE-over-LAN (ptReal) protocol implementa
 - A Govee app device group of the "same mode" type no longer appears as a phantom, uncontrollable device in the object tree.
 - Seven more Govee models join the catalog, from Edison bulbs to a ceiling fan. They start as experimental — enable them in the adapter settings to try them.
 - Sensors that reach the cloud through a Govee gateway now show which gateway they are connected through, instead of an empty IP field.
-
-### 2.21.0 (2026-07-12) — stable
-
-- The segment-detection wizard for cut LED strips now has a visual admin interface: a live map of the strip that fills in as you measure each segment and can be corrected before you apply it.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

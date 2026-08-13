@@ -546,6 +546,16 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 4.0.4 (2026-08-11)
+* (@GermanBluefox) Fixed that nothing was stored for datapoints with an `aliasId`: the adapter subscribed to the alias name instead of the real state ID, so no state change ever arrived
+
+### 4.0.3 (2026-08-11)
+* (@GermanBluefox) Corrected small configuration error
+
+### 4.0.2 (2026-08-10)
+* (@GermanBluefox) Fixed empty charts for the aggregation `onchange` ("raw" in e-charts): it was run through the interval aggregation and returned only `null` values
+* (@GermanBluefox) The MySQL and phpMyAdmin docker containers are no longer enabled by default: instances without the docker settings in their config (e.g. after an update from 3.x) reported "Docker is not installed"
+
 ### 4.0.1 (2026-08-07)
 * (@GermanBluefox) Fixed MySQL error "Can't create more than max_prepared_stmt_count statements": every query allocated a server-side prepared statement
 * (@GermanBluefox) Batches of more than 500 values are no longer sent as one multi-statement query
@@ -553,19 +563,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### 4.0.0 (2026-08-04)
 * (@GermanBluefox) Migrated to TypeScript
 * (@GermanBluefox) Node.js 22 is now needed at a minimum!
-
-### 3.0.1 (2024-06-13)
-* (foxriver76) upgraded dependencies
-
-### 3.0.0 (2023-09-13)
-* IMPORTANT: Node.js 16.x is now needed at a minimum!
-* (bluefox) Allowed setting port 0 as default
-* (bluefox) Checked if a string is written into the number table
-* (bluefox) Added support for `count` aggregate type on getHistory
-
-### 2.2.0 (2022-09-19)
-* IMPORTANT: Node.js 14.x is now needed at a minimum!
-* (Apollon77) Fix potential crash cases with upcoming js-controller versions
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

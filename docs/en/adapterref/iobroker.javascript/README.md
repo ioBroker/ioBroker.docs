@@ -161,6 +161,10 @@ If the API endpoint is unreachable or returns an error, user-friendly messages a
 A **Retry** button is shown when model loading fails, allowing you to retry without closing the dialog.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Turned `strict` off again for the scripts, as TypeScript 6 enables it by default
+* (@GermanBluefox) Added the tab "TypeScript" to the settings, where the compiler options for the scripts can be configured
+
 ### 10.0.0 (2026-08-04)
 * (@GermanBluefox) Typescript 6 support
 * (@GermanBluefox) GUI was migrated to React 19 and MUI 9
