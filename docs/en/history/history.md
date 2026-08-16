@@ -1479,13 +1479,19 @@ https://github.com/NurPech/ioBroker.cisco-checkpresence
 
 Detects the presence of family members by querying the Cisco Catalyst 9800 Wireless Controller via RESTCONF. Instead of unreliable ping checks, the adapter reads the authenticated client table directly from the WLC — if the controller says a device is associated, it is there.
 
+## f1 (16.8.2026) – new adapter at stable repository
+https://github.com/bloop16/ioBroker.f1
 
+<img src="https://raw.githubusercontent.com/bloop16/ioBroker.f1/main/admin/f1.png" width="100" height="100" />
 
+Formula 1 live data integration for ioBroker — provides race calendar, championship standings, session results, and real-time live session data via the official F1 Live Timing feed and Jolpica API.
 
+## jetframe (16.8.2026) – new adapter at stable repository
+https://github.com/backfisch88/ioBroker.jetframe
 
+<img src="https://raw.githubusercontent.com/backfisch88/ioBroker.jetframe/main/admin/jetframe.png" width="100" height="100" />
 
-
-
+JetFrame is an ioBroker adapter for live flight tracking and visualization based on ADS-B data. It detects aircraft flying past your window and displays them in a modern web app with photo, flight information and statistics.
 
 
 
