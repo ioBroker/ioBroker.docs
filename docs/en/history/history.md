@@ -1493,6 +1493,13 @@ https://github.com/backfisch88/ioBroker.jetframe
 
 JetFrame is an ioBroker adapter for live flight tracking and visualization based on ADS-B data. It detects aircraft flying past your window and displays them in a modern web app with photo, flight information and statistics.
 
+## bosch-smart-home-camera (17.8.2026) – stable release
+https://github.com/mosandlt/ioBroker.bosch-smart-home-camera
+
+<img src="https://raw.githubusercontent.com/mosandlt/ioBroker.bosch-smart-home-camera/main/admin/bosch-camera.png" width="100" height="100" />
+
+ioBroker adapter for Bosch Smart Home Cameras (Eyes Outdoor, 360 Indoor, Gen2 Eyes Indoor II + Outdoor II).
+
 
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
