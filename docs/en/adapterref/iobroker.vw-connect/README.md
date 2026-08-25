@@ -121,6 +121,15 @@ You can set climatisaton temperature in
 
 ```
 ### **WORK IN PROGRESS**
+### 0.9.10 (2026-08-18)
+- VW ID (type=id): classic BFF device-flow login disabled — VW removed the device_code grant. EU Data Act is now the only VW ID data source (device-flow code kept commented for later re-enable)
+### 0.9.9 (2026-08-17)
+- VW ID (type=id) classic BFF data source revived via device-flow login, running parallel to EU Data Act
+- EU Data Act: login-failure error now includes HTTP status and page text for easier diagnosis
+### 0.9.8 (2026-08-13)
+- Audi (audietron) lock/unlock enabled
+- Fixed remote.access orphaned-state warning (issue #441)
+- Skoda: stop polling connection-status/readiness on persistent 500 (log spam)
 ### 0.9.7 (2026-08-09)
 - Skoda error handling improved
 - Audi wakeup improved

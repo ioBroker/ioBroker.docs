@@ -177,8 +177,7 @@ When there are issues with the Tuya App Cloud synchronisation then additional lo
 Send the log with reference to the generated GitHub issue to iobroker@fischer-ka.de
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 3.18.1 (2026-08-24)
 * (@Apollon77) Fixed initial setting and value correction for special Temp values
 * (@Apollon77) Updating Tuyapi to latest version to prevent parsing issues
 * (@Apollon77) Adjust timestamps from MQTT
@@ -553,7 +552,7 @@ Send the log with reference to the generated GitHub issue to iobroker@fischer-ka
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2025 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2026 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

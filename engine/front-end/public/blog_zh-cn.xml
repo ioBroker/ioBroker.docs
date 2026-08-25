@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[有关ioBroker的新闻，公告和想法]]></description>
         <link>https://www.iobroker.net/#zh-cn/blog</link>
-        <lastBuildDate>Fri, 10 Jul 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 25 Aug 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[ioBroker 月度回顾 – 2026 年 7 月/8 月]]></title>
+            <description><![CDATA[
+                <p># IoBroker 月度回顾 – 2026 年 7 月/8 月\n2026 年盛夏可谓热闹非凡！自上次盘点以来，我们新增了多达 23 款适配器，数量之多前所未有。重点依然是能源和电动出行领域（例如 Hoymiles、Victron GX、Solakon ONE、特斯拉壁挂式充电器和 go-e 充电器），但摄像头、多媒体和系统工具等也占有一席之地。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2026_08_25</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2026_08_25</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 25 Aug 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[ioBroker 月度回顾 – 2026 年 5 月/6 月]]></title>
             <description><![CDATA[

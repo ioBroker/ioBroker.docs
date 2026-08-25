@@ -64,7 +64,7 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 | tado.[x].[yyyyyy].meterReadings | JSON-Object with {"date":"YYYY-MM-DD","reading": 1234} can be used to upload meter-readings to Energy IQ |
 
 ## Requires
-* Node.js 20 or higher
+* Node.js 22 or higher
 * ioBroker host (js-controller) 7.0.6 or higher
 * iorBroker.admin 7.7.2 or higher
 
@@ -73,6 +73,9 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+
 ### 0.8.5 (2026-06-19)
 * (HGlab01) improve code quality
 * (HGlab01) add attribute adminUserId

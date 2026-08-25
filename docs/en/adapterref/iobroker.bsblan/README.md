@@ -98,6 +98,8 @@ The BSB_LAN Interface brings the BSB (Boiler System Bus) to LAN. This adapter co
 ### 0.0.1
 * (hacki11) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 

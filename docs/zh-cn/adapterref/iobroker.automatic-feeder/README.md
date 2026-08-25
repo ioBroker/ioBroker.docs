@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.automatic-feeder/README.md
 title: ioBroker.自动馈送器
-hash: 4zYYV48p9P/TSfvM+Gnfat/sE2s+3g5iYzBG+KrsNys=
+hash: Vy6oiPmc6yas87SqGBsQuUem6XbaepVVBpg+v1+cKGI=
 ---
 ![标识](../../../en/adapterref/iobroker.automatic-feeder/admin/automatic-feeder.png)
 
@@ -19,6 +19,12 @@ hash: 4zYYV48p9P/TSfvM+Gnfat/sE2s+3g5iYzBG+KrsNys=
 ---
 
 <p align="center"> <a href="https://www.buymeacoffee.com/ssbingo"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=ssbingo&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a> </p>
+
+---
+
+> ### 🔌 配套硬件 — **喂料继电器**定时器板 > > 正在搭建喂料器，但不想自己接线继电器，而是想直接使用现成的定时器板？不妨看看 **[Feeder-Relais（定时器替代品）](https://github.com/ssbingo/timer-ersatzplatine)** — 一个自研的 ESP32 定时器板，可与此适配器完美搭配（[在线概述]](https://ssbingo.github.io/timer-ersatzplatine/))。
+
+> > **这是一个独立的项目，与适配器无关。** 定时器板和适配器相互对应，但两者完全独立：适配器无需定时器板即可正常工作，定时器板也无需适配器即可正常工作。
 
 ---
 
@@ -82,7 +88,7 @@ Telegram 会在活动开始和结束时发送提醒；
 
 每次拨动开关，都会显示一条 **Telegram** 消息，直到你再次将其关闭。
 
-您也可以随时**手动**触发喂食——从适配器的设置页面（带有可自由选择持续时间的按钮）或从数据点（例如 VIS 视图中的按钮）触发。
+您也可以随时**手动**触发喂食——从适配器的设置页面（带有可自由选择持续时间的按钮）或从数据点（例如 VIS 视图中的按钮）。
 
 该适配器可选配**自动喂食继电器板**（一个带有三个定时按钮和独立网页界面的ESP32芯片）。您可以**针对每个开关**单独决定是否使用该继电器板；在常规设置中为某个开关启用该继电器板后，该开关将新增一个**继电器**选项卡，您可以在其中设置继电器板的网络地址、测试连接，并直接通过适配器配置其三个定时按钮（S1-S3）的喂食时间。
 
@@ -93,7 +99,7 @@ Telegram 会在活动开始和结束时发送提醒；
 2. 要求
 | 您需要 | 详情 |
 |----------|---------|
-| **ioBroker**，需满足以下最低版本要求：**admin 版本 ≥ 8.0.0**、**js-controller 版本 ≥ 6.0.11** 和 **Node.js 版本 ≥ 22**。配置页面使用 React 19 构建，与 admin 8 使用的版本相同。 |
+| **ioBroker**，**admin 版本 ≥ 7.8.23**，**js-controller 版本 ≥ 6.0.11**，**Node.js 版本 ≥ 22** | 最低版本要求。配置页面使用 React 19 构建。 |
 | **开关对象** | 任何可写入的 ioBroker 状态，用于打开/关闭您的馈线——例如智能插头（`shelly.0.…`、`sonoff.0.…`、`zigbee.0.…`）、继电器、脚本变量。 |
 | *（可选）* **地理坐标** | 用于计算每个交换机的**天文窗口**的日出/日落时间。仅当交换机使用该窗口时才需要；取自 ioBroker 系统设置、共享位置或为每个交换机单独配置。 |
 | *（可选）* 温度对象 | 包含空气和/或水温度的现有状态，用于温度锁定或动态供水。在开关选项卡上为每个开关分配。 |
@@ -104,7 +110,7 @@ Telegram 会在活动开始和结束时发送提醒；
 ---
 
 3. 安装
-1. 在 ioBroker **管理后台**，打开**适配器**选项卡。
+1. 在 ioBroker **管理后台**，打开 **适配器** 选项卡。
 2. 在列表中找到**自动喂食器**，然后点击**安装**。
 3. 创建适配器的**实例**。
 4. 打开实例设置（齿轮图标）——您应该会看到配置页面，其中包含：
@@ -146,7 +152,7 @@ Telegram 会在活动开始和结束时发送提醒；
 
 ### 5.1 常规设置选项卡
 #### 位置（天文窗口）
-该位置信息用于计算每个开关可启用的**天文喂食窗口**的日出/日落时间（请参阅开关选项卡上的“限制”）。仅当至少有一个开关使用该窗口时才需要此信息。共有三个选项：
+该位置信息用于计算每个开关可启用的**天文喂食窗口**的日出/日落时间（请参阅开关选项卡上的*限制*）。仅当至少有一个开关使用该窗口时才需要此信息。共有三个选项：
 
 * **所有交换机均使用系统设置** – 从 ioBroker 系统获取经纬度。
 
@@ -182,7 +188,7 @@ Telegram 会在活动开始和结束时发送提醒；
 
 * **此开关使用自动喂料继电器板**（每个开关单独拨动）——仅打开此开关
 
-对于使用可选自动喂料继电器板 (ESP32) 的喂料站的开关，开启后，该开关会获得一个额外的 **继电器** 选项卡（参见 [5.3](#53-relay-board-tab-optional)）。
+对于使用可选自动喂料继电器板 (ESP32) 的喂料站的开关，启用后，该开关将获得一个额外的 **继电器** 选项卡（参见 [5.3](#53-relay-board-tab-optional)）。
 
 ### 5.2 切换标签页
 每个已配置的交换机都有自己的选项卡，选项卡标题为其名称。选项卡包含以下几个部分。
@@ -273,7 +279,7 @@ Telegram 会在活动开始和结束时发送提醒；
 * **启用冬季暂停功能** – 打开暂停功能。
 * **冬季开始/冬季结束** – 从日历中选择日期和月份（显示为 dd.mm），例如 01.11 至 15.03。
 * **模式** – 在暂停期间，可以**暂停喂食**，**缩短**喂食间隔**，或在设定的时间**每天喂食一次**；**冬季喂食持续时间**另行规定。
-* **提醒（Telegram）** – 每日提醒会在开始前几天和结束前几天发送（最后一次会在当天发送），时间由您设置。需要一个 Telegram 实例（见下文）。
+* **提醒（Telegram）** – 每日提醒会在开始前几天和结束前几天发送（最后一次会在当天发送），时间由您设置。需要 Telegram 实例（见下文）。
 
 当前状态显示在 `status.winterActive` 数据点中。暂停结束后，进料将自动恢复。
 
@@ -384,7 +390,7 @@ Sayit 实例自身的默认值。
 
 （1-600 秒）。由于这些设置**也可以在开发板自身的网页界面上进行编辑**，因此请务必先*获取*这些设置，然后再进行调整。
 
-* **节省写板时间** – 将三个值写到写板。
+* **节省写板时间** – 将三个值写到写板上。
 * **重启开发板** – 通过 ESP32 的 API (`POST /api/reboot`) 重启 ESP32。确认后即可执行。
 
 提示板卡重启，离线几秒钟后自动恢复。
@@ -470,14 +476,14 @@ Sayit 实例自身的默认值。
 
 传感器；然后 *按水温阻止* → *低于以下温度阻止* `8` °C（冷时不进食）。
 
-在“限制”设置下，启用“将喂食限制在天文日窗口内”，这样就不会有任何影响。
+在“限制”设置下，启用“限制喂食时间至天文日窗口”，这样就不会有任何影响。
 
 天黑后喂食。
 
 **鸟舍，仅在白天（天文观测窗口期）开放**
 
 * 模式 *时间窗口内的间隔* → 间隔 `90` 分钟；持续时间 `3` 秒。
-* 在*限制条件*下，启用天文窗口，偏移量为`30` / `30` 分钟 → 馈送
+* 在*限制*下，启用天文窗口，偏移量为`30` / `30` 分钟 → 馈送
 
 运行时间为日出后 30 分钟至日落前 30 分钟，并根据季节自动调整。
 
@@ -544,7 +550,7 @@ Sayit 实例自身的默认值。
 
 4. **冬季暂停提醒**使用同一个 Telegram 实例和收件人。它们是
 
-在“冬季暂停”部分进行控制（开始/结束前的天数和提醒时间），并且**不需要**监督即可启用。
+在“冬季暂停”部分进行控制（开始/结束前的天数和提醒时间），并且**不需要**启用监督。
 
 ---
 
@@ -625,6 +631,13 @@ Sayit 实例自身的默认值。
 	### **WORK IN PROGRESS**
 -->
 
+### 1.10.2 (2026-08-14)
+* (ssbingo) Documentation: the READMEs (all 11 languages) and the German PDF handbook now carry a prominent notice **right at the top** pointing to the matching **[Feeder-Relais (Timer-Ersatzplatine)](https://github.com/ssbingo/timer-ersatzplatine)** — a standalone ESP32 timer-board project that pairs with this adapter but is fully independent of it. No functional changes
+
+### 1.10.1 (2026-08-14)
+* (ssbingo) Fix: lowered the minimum **admin** requirement to **7.8.23** (the current stable version) so the adapter stays installable from the stable ioBroker repository — this clears repochecker **E4033** (`admin >=8.0.0` is not in the stable repository yet). The admin UI still runs on **React 19**
+* (ssbingo) Merged upstream adapter-template updates: Dependabot configuration / auto-merge workflow refresh and the `node:` import prefix in the handbook generator (S5043)
+
 ### 1.10.0 (2026-08-05)
 * (ssbingo) **Admin UI now runs on React 19** — the configuration page uses the same React version that ioBroker **admin 8** ships; `@iobroker/adapter-react-v5` updated to 8.3.2
 * (ssbingo) **Raised the minimum requirements**: **admin ≥ 8.0.0**, **js-controller ≥ 6.0.11** and **Node.js ≥ 22**
@@ -654,13 +667,6 @@ Sayit 实例自身的默认值。
 
 ### 1.9.3 (2026-07-15)
 * (ssbingo) Fix: the **Sayit volume** is now written to the instance's own `tts.volume` state (only if it exists) instead of a `tts.text` prefix — the volume actually takes effect now, and the announcement **test no longer hangs** when a volume is set. An empty volume keeps the Sayit instance's own volume
-
-### 1.9.2 (2026-07-15)
-* (ssbingo) New **Test announcement** button next to the Sayit instance selection — speaks a short test text through the selected instance so you can check the audio output without waiting for a feeding
-* (ssbingo) The feeding announcement now uses the **correct singular/plural** form of "minutes" for each language (e.g. "1 minute" vs "5 minutes"; Russian/Polish/Ukrainian 1 / 2–4 / 5+ forms), via the language's CLDR plural rules
-
-### 1.9.1 (2026-07-15)
-* (ssbingo) The feeding announcement now uses the final text **"The next feeding starts in X minutes"** (localized in the switch's selected message language; `X` = the configured lead time)
 
 ---
 

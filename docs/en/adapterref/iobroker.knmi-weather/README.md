@@ -9,6 +9,8 @@
 [![NPM](https://nodei.co/npm/ioBroker.knmi-weather.png?downloads=true)](https://nodei.co/npm/ioBroker.knmi-weather/)  
 ![Test and Release](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg)   
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## KNMI-Weather data and alarms for ioBroker
 
 KNMI provides an API which data is updated every 10 minutes based on all sensor data the institute collects.
@@ -38,6 +40,9 @@ If you like my work, please feel free to provide a personal donation
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+
 ### 1.0.2 (2021-08-30) - Optimize error message in case API limit is reached
 * (DutchmanNL) Optimize error message in case API limit is reached
 
@@ -67,7 +72,7 @@ If you like my work, please feel free to provide a personal donation
 ## License
 MIT License
 
-Copyright (c) 2020 DutchmanNL <rdrozda86@gmail.com>
+Copyright (c) 2020-2026 DutchmanNL <rdrozda@hotmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

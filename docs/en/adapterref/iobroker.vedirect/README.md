@@ -18,11 +18,18 @@ Read VE.direct data from a Victron device with vedirect connector over USB <-> s
 
 Set the proper device (example /dev/ttyUSB0) in adapter config.
 
+## Sentry
+This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+* (DutchmanNL) Admin configuration page uses responsive column classes (s/m/l) for mobile devices
+* (DutchmanNL) Added prettier.config.mjs matching @iobroker/eslint-config and reformatted the sources accordingly
 
 ### 0.3.3 (2024-09-10)
 * (DutchmanNL) Repository checker compliance updates

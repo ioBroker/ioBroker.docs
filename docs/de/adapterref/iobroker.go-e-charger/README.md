@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.go-e-charger/README.md
 title: ioBroker.go-eCharger
-hash: ye01FjJSX+juUaBBqJEERHk6cX7y96JK60ntBUWzK14=
+hash: 9PuITMsoXTFS4BOV2w2tpaoS6tl9WVTtDZoW+DmH5Yk=
 ---
 ![Logo](../../../en/adapterref/iobroker.go-e-charger/admin/go-eCharger.png)
 
@@ -74,7 +74,7 @@ Konfigurieren Sie die Objekt-IDs der folgenden Zustände:
 | Stromverbrauch im Haushalt | Aktueller Gesamtstrombedarf des Haushalts | W | Positiver Verbrauch |
 | Ladezustand der Heimbatterie | Aktueller Ladezustand der Batterie | % | 0 bis 100 |
 
-Alle drei Zustände müssen numerische Werte enthalten. Leistungswerte in kW müssen vor der Auswahl in W umgerechnet werden. Ein Netzimport-/Netzexportzustand kann nicht direkt verwendet werden, da ChargeManager derzeit separate Erzeugungs- und Verbrauchswerte erwartet.
+Alle konfigurierten Zustände müssen numerische Werte enthalten. Leistungswerte in kW müssen vor der Auswahl in W umgerechnet werden. Ein Netzimport-/Netzexportzustand kann nicht direkt verwendet werden, da ChargeManager derzeit separate Erzeugungs- und Verbrauchswerte erwartet.
 
 Ist kein Heimspeicher installiert, erstellen Sie einen numerischen Hilfszustand und wählen Sie diesen als Ladezustand des Speichers aus. Setzen Sie diesen Hilfszustand auf **denselben konstanten Wert** wie `Settings.Setpoint_HomeBatSoC` (z. B. `70` für beide). Dadurch bleibt der Speicher-Offset bei Null, sodass ChargeManager ausschließlich mit dem verfügbaren PV-Überschuss lädt.
 
@@ -91,15 +91,22 @@ available power =
     solar power
   - home power consumption
   + wallbox power, if it is included in home power consumption
-  - 100 W reserve
+  - grid reserve
   + battery SoC offset
 
 target current = floor(available power / 230 V / active phases)
 ```
 
-Der Batterie-Offset ist null, wenn sich die Batterie exakt im konfigurierten minimalen Ladezustand befindet, und steigt auf bis zu 2000 W an, wenn sich die Batterie 100 % nähert. Unterhalb von `Settings.Setpoint_HomeBatSoC` ist das Laden von Elektrofahrzeugen deaktiviert, sodass die Heimbatterie Priorität hat.
+Vier Einstellungen auf der Standardkonfigurationsseite beeinflussen diese Berechnung:
 
-Der berechnete Strom ist auf maximal 16 A begrenzt. Der interne Stromzielwert ändert sich um höchstens 1 A pro Poll-Zyklus, um plötzliche Änderungen zu vermeiden.
+- **Netzreserveleistung** [W] (Standard 100) – Leistung, die im Netzanschluss freigehalten wird, anstatt dem Fahrzeug zugewiesen zu werden. Erhöhen Sie den Wert, um mehr Sicherheitsreserve zu gewährleisten; setzen Sie ihn auf „0“, um die gesamte überschüssige Leistung dem Fahrzeug zur Verfügung zu stellen.
+- **Maximaler Batteriebonus** [W] (Standardwert 2000) – Wie viel zusätzliche Leistung über den reinen Solarstromüberschuss hinaus genutzt werden kann, solange die Hausbatterie über ihrem Mindestladezustand liegt. Der Bonus beträgt „0“, wenn die Batterie den Mindestladezustand erreicht hat, und steigt linear bis zu diesem Maximalwert an, wenn sich die Batterie 100 % nähert. Eine vollere Batterie ermöglicht somit ein schnelleres Laden des Fahrzeugs. Stellen Sie den Wert auf „0“, um ausschließlich mit dem gemessenen Solarstromüberschuss zu laden, ohne die Hausbatterie jemals in das Fahrzeug zu entladen.
+- **Mindestladestrom des ChargeManagers** [A] (Standardwert 6) – der Überschussladestrom, unterhalb dessen das Ladegerät nach kurzer Verzögerung abgeschaltet wird. Dies gilt nur für das Laden von PV-Überschussstrom.
+- **Maximaler Ladestrom** [A] (Standard 16, maximal 32) – der höchste Strom, den das Netzteil jemals zuweist. Er begrenzt sowohl **ChargeManager** (PV-Überschuss) **als auch** ChargeNOW.
+
+**⚠️ Stellen Sie den maximalen Ladestrom nicht höher ein, als es Ihr go-e Charger und Ihre Elektroinstallation zulassen.** go-e Charger-Modelle sind für unterschiedliche Maximalströme ausgelegt (z. B. 16 A oder 32 A). Die tatsächliche Grenze hängt auch von Ihrem Kabel, Stecker und der Verkabelung ab. Ein Wert über der zulässigen Belastbarkeit der Hardware/Installation kann Schutzvorrichtungen auslösen oder Geräte beschädigen. Im Zweifelsfall verwenden Sie den Standardwert von 16 A.
+
+Unterhalb von `Settings.Setpoint_HomeBatSoC` ist das Laden von Elektrofahrzeugen deaktiviert, um der Heimbatterie Priorität einzuräumen. Der Ladevorgang beginnt, sobald der interne Zielwert 10 A erreicht (oder der Mindeststrom, falls dieser höher eingestellt ist). Der berechnete Strom ist auf den konfigurierten Maximalwert begrenzt, und der interne Stromzielwert ändert sich um maximal 1 A pro Abfragezyklus, um plötzliche Änderungen zu vermeiden.
 
 #### ChargeManager aktivieren
 Nach dem Start des Adapters verwenden Sie die unten aufgeführten beschreibbaren Zustände. Ersetzen Sie gegebenenfalls die Instanz `0` und die Wallbox-Nummer `0`.
@@ -143,7 +150,7 @@ Bevor Sie sich auf die automatische Abrechnung verlassen, überprüfen Sie die a
 6. `Wallbox_0.info.connection` ist `true`.
 7. `Wallbox_0.Power.Charge`, `Wallbox_0.Power.GridPhases` und, auf unterstützter Hardware, `Wallbox_0.Power.EnabledPhases` enthalten plausible Werte.
 
-Der Ladevorgang kann mehrere Abfragezyklen benötigen, da der interne Zielwert pro Zyklus nur um 1 A ansteigt. Bei einem standardmäßigen 10-Sekunden-Zyklus und einem anfänglichen Zielwert von 0 A kann es etwa 100 Sekunden dauern, bis der Startwert von 10 A erreicht ist.
+Der Ladevorgang kann mehrere Abfragezyklen benötigen, da der interne Zielwert pro Zyklus nur um 1 A ansteigt. Bei einem standardmäßigen Zyklus von 10 Sekunden und einem anfänglichen Zielwert von 0 A kann es etwa 100 Sekunden dauern, bis der standardmäßige Startwert von 10 A erreicht ist.
 
 ChargeManager ist derzeit für die Steuerung eines einzelnen Ladegeräts vorgesehen. Die gleichzeitige Aktivierung für mehrere Ladegeräte führt dazu, dass jedes Ladegerät unabhängig voneinander denselben Überschuss nutzt und eine fehlerhafte Zuweisung verursachen kann.
 
@@ -159,6 +166,35 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (hombach) ChargeManager: grid reserve power and maximum battery bonus are now configurable (defaults 100 W / 2000 W) (#852)
+- (hombach) ChargeManager: minimum and maximum surplus charging current are now configurable, with the maximum raised to up to 32 A (#852)
+- (hombach) the configurable maximum charging current now caps ChargeNOW as well
+- (hombach) admin: moved the ChargeManager settings into their own configuration tab, separate from the standard settings
+- (hombach) updated dependencies
+
+### 1.4.1 (2026-08-23)
+
+- (typhosj) refactored the ChargeManager control decision into a deterministic, unit-tested function (#846); behavior unchanged
+- (hombach) fixed vulnerabilities
+- (hombach) updated dependencies
+
+### 1.4.0 (2026-08-10)
+
+- (hombach) added info.unlockedByRFIDName with the name of the current session's RFID card, in parallel to unlockedByRFIDNo (#634)
+- (hombach) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
+- (hombach) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
+- (hombach) updated dependencies
+
+### 1.3.1 (2026-08-06)
+
+- (hombach) fixed "unlocked by RFID" always 0 on gen 3+ chargers: API V2 uses the "trx" key instead of "uby" (#634)
+- (hombach) live data is now refreshed every cycle in all modes, so read-only monitoring stays up to date
+- (hombach) API V2 not being reachable is now a single warning instead of an error (normal on hardware gen 1/2)
+- (typhosj) use generic go-e brand logo as adapter icon (#843)
+
 ### 1.3.0 (2026-08-04)
 
 - (hombach) added info.accessControlState (go-e access_state: 0 = open, 1 = RFID/App required, 2 = price/automatic) (#634)
@@ -172,29 +208,6 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 - (typhosj) added ChargeManager PV surplus configuration guide (#842)
 - (hombach) corrected no-battery helper-state recommendation for ChargeManager
 - (hombach) updated dependencies
-
-### 1.2.0 (2026-07-12)
-
-- (hombach) added statisticsGlobal.chargePower state with the current total charging power of all chargers
-- (hombach) removed chai-based unit test dependencies; modernized test harness to Node.js assert (fixes Appveyor, #836)
-
-### 1.1.0 (2026-07-05)
-
-- (hombach) fixed reading of "unlocked by RFID" (uby) on gen 3+ chargers via API V2
-- (hombach) read-only mode now suppresses all control commands (charge release, charging current, phase switching)
-- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
-
-### 1.0.4 (2026-07-04)
-
-- (hombach) harmonized i18n files
-- (hombach) improved README and English texts
-- (hombach) reworked translations in all languages
-- (hombach) added 5s timeout to all HTTP requests to chargers
-- (hombach) fixed adapter stop when no charger is reachable at startup; warn per unreachable charger
-- (hombach) fixed German fallback text for RFID card channel names
-- (hombach) added upper bound validation for cycle time
-- (hombach) added link to manufacturer's website
-- (hombach) code optimizations
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

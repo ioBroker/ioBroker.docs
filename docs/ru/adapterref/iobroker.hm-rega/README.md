@@ -112,6 +112,12 @@ IP-адрес CCU можно выбрать в раскрывающемся ме
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 6.0.0 (2026-08-15)
+* (bluefox) migrated the adapter to TypeScript
+* (bluefox) migrated the configuration dialog to JSON config (requires admin 6.17.14 or newer)
+* (bluefox) the ports of the ReGaHSS API and of the web interface can now be configured in the expert mode
+* (bluefox) required js-controller 5.0.19
+
 ### 5.1.0 (2024-08-29)
 * (@foxriver76) added notification if devices are low on battery
 
@@ -574,7 +580,7 @@ or non existent if no rpc instance existed
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>
 
 Copyright (c) 2014 hobbyquaker
 

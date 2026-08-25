@@ -12,6 +12,8 @@
 
 ![Test and Release](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg)
 [![Dependency Status](https://img.shields.io/david/DrozmotiX/ioBroker.coronavirus-statistics.svg)](https://david-dm.org/DrozmotiX/ioBroker.coronavirus-statistics)
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## Coronavirus Live Statistics adapter for ioBroker
 
 Adapter to show Global Coronavirus information and current reports
@@ -53,9 +55,13 @@ Generic Source : https://coronavirus-19-api.herokuapp.com
 ## Changelog
 
 <!--
+	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
-	* (DutchmanNL) 
 -->
+### __WORK IN PROGRESS__
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+* (DutchmanNL) Update axios to 1.x
+
 ### 0.9.0 (2023-11-16) - Remove unsupported APIs
 * (DutchmanNL) Remove specific data regarding germany as APIs are not available anymore
 * (DutchmanNL) Data source dedicated for https://coronavirus-19-api.herokuapp.com, we are unable to support more APIs due to changes, complexity and available development capacity. But please feel free to provide PR's!
@@ -72,6 +78,8 @@ Generic Source : https://coronavirus-19-api.herokuapp.com
 
 ### 0.8.5 (2021-10-29)
 * (jlssmt) Error handling for bundesländer api implemented
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

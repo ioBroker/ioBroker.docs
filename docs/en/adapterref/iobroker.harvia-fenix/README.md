@@ -77,28 +77,25 @@ This allows you to monitor and control both saunas independently with their own 
 
 ### Shared / Guest Accounts & The Partner ID
 
-#### What is the Partner ID?
-The MyHarvia cloud infrastructure separates devices, users, and apps into different "partner organizations". For instance, the official **MyHarvia 2** smartphone application maps to the partner ID `ORG/prod:0:6656:0`. 
+#### 🟢 Default Scenario (Primary Account / Sauna Owner)
+If you configure the adapter using the primary MyHarvia account (the account that initially registered the sauna in the mobile app):
+* Leave both **Device ID** and **Partner ID** **empty** in the configuration.
+* The adapter will automatically discover and connect to your sauna on startup.
 
-Normally, when a user logs in, the adapter decodes their JSON Web Token (JWT) payload and automatically extracts the Partner ID from the `custom:org` field. It then queries the Harvia cloud API using this ID to discover connected devices.
+#### 🟡 Shared / Guest Account Scenario (e.g. Dedicated ioBroker Account)
+If the sauna was shared from the owner's account to a secondary guest account via the MyHarvia 2 app, Harvia's automatic discovery endpoint returns an empty device list (`{"devices":[]}`) for guest tokens.
 
-#### The Shared/Guest Account Issue
-If another user (the owner/primary user) has shared their sauna with you in the MyHarvia 2 app:
-1. Your account token is associated with a different guest Partner ID (e.g. `ORG/prod:0:6749` or a custom ID).
-2. If the adapter queries the devices list under your guest Partner ID, the Harvia Cloud API will return an empty list (`{"devices":[]}`), and you will not see the sauna.
-3. To discover and control the shared sauna, the API requests **must be made using the Owner's Partner ID** instead.
+In this scenario, you **must manually specify** both the **Device ID** and the **Owner's Partner ID** in the adapter settings:
 
-#### How to find the Owner's Partner ID?
-There are two ways to determine the owner's Partner ID:
-1. **Standard App:** If the owner is using the official, standard **MyHarvia 2** mobile application, the Partner ID is **`ORG/prod:0:6656:0`**.
-2. **From the ioBroker Log:** If the owner already runs the `harvia-fenix` adapter, they can check their ioBroker startup log. Upon startup, the adapter prints a line like:
-   `Using partner ID from user token: ORG/prod:0:XXXX`
-   The owner can simply copy this ID and share it with the guest user.
+**The 60-Second Method to Obtain Both IDs:**
+1. In the adapter configuration, temporarily enter the login credentials of the **Primary/Owner Account** and click **Save**.
+2. Open the ioBroker log. The adapter connects immediately and prints lines containing both IDs:
+   * `Found device: ... (ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)` ➡️ This is your **Device ID**.
+   * `Using partner ID from user token: ORG/prod:0:6656` ➡️ This is your **Partner ID** (typically `ORG/prod:0:6656` or `ORG/prod:0:6656:0`).
+3. Copy both values.
+4. Re-open the configuration, switch back to your **Guest Account** credentials, paste the copied **Device ID** and **Partner ID** into their respective optional fields, and click **Save & Close**.
 
-#### How to configure a Shared/Guest Account
-1. Enter your **own Username / Email** and **Password** (the guest credentials) in the adapter settings.
-2. Enter the **owner's Partner ID** in the **Partner ID (Optional)** field.
-3. If you leave the **Device ID** field empty, the adapter will search for the shared device using the owner's Partner ID and find it automatically.
+The guest account can now control the shared sauna directly and reliably!
 
 ---
 
@@ -117,6 +114,9 @@ The adapter maps your sauna's cloud states into structured ioBroker datapoints u
 | `info.connection` | boolean | `indicator` | Read-only | Connection state of the adapter to the MyHarvia Cloud. |
 | `info.minTemp` | number | `value.temperature` | Read-only | Minimum target temperature limit (`40 °C`). |
 | `info.maxTemp` | number | `value.temperature` | Read-only | Maximum target temperature limit (`110 °C`). |
+| `info.avgHeatingRate` | number | `value` | Read-only | Learned historical average heating rate in °C per minute (`°C/min`). |
+| `info.heatingAnomaly` | boolean | `indicator` | Read-only | Turns `true` if live heating performance drops significantly below historical average. |
+| `estimatedHeatingTimeRemaining` | number | `value.interval` | Read-only | Estimated remaining heating time in minutes until target temperature is reached (`min`). |
 | `online` | boolean | `indicator.reachable` | Read-only | Connection state of the control unit to the cloud. |
 | `doorSafety` | boolean | `indicator.safety` | Read-only | Safety loop status (e.g., `true` if the door is secure / safe to run). |
 | `remoteControl` | boolean | `indicator` | Read-only | Remote start readiness status. If `false`, starting the heater remotely (via the adapter) is blocked. |
@@ -136,10 +136,16 @@ The adapter maps your sauna's cloud states into structured ioBroker datapoints u
 
 ---
 
-## Notifications & Automations
-The adapter automatically calculates the heating progress and provides two indicator datapoints specifically designed for triggering push notifications (e.g. via Telegram, Pushover, or Alexa).
+## Intelligent Features & Automations
 
-You can simply use a basic ioBroker script (JavaScript or Blockly) that listens to these states changing to `true`:
+### 1. Adaptive Heating Prognosis & Anomaly Detection
+* **Learned Heating Duration (`estimatedHeatingTimeRemaining` & `info.avgHeatingRate`):**  
+  The adapter learns the heating rate of your cabin (°C per minute). During an active session, it blends historical performance with live temperature progression to calculate an accurate remaining heating time.
+* **Anomaly Detection (`info.heatingAnomaly`):**  
+  If the live heating rate drops below 50% of the historical average after at least 10 minutes of active heating (e.g., sauna door ajar or heater element failure), `info.heatingAnomaly` turns `true` and logs a warning.
+
+### 2. Notifications (Push Triggers)
+The adapter automatically calculates the heating progress and provides indicator datapoints specifically designed for triggering push notifications (e.g. via Telegram, Pushover, or Alexa):
 
 ```javascript
 // Trigger for the 10-minute pre-warning
@@ -152,6 +158,11 @@ on({ id: 'harvia-fenix.0.readyNotified10Min', change: 'ne', val: true }, functio
 on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, function () {
     const targetTemp = getState('harvia-fenix.0.targetTemp').val;
     sendTo('telegram.0', 'send', { text: `♨️ The sauna has reached the target temperature of ${targetTemp}°C and is ready!` });
+});
+
+// Trigger on heating anomaly (e.g. door open)
+on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, function () {
+    sendTo('telegram.0', 'send', { text: '⚠️ Warning: Sauna is heating unusually slowly! Please check door and heater.' });
 });
 ```
 
@@ -174,12 +185,23 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 
 ## To-Do
 * [ ] Await official permission from Harvia to use their original logo
-* [x] Add adapter to the official ioBroker `latest` repository
-* [x] Add adapter to the official ioBroker `stable` repository
+* [ ] Program automatic cold beverage reminder timed for the post-sauna cooldown 🍺❄️
+* [ ] Design AI-powered robotic towel-waving assistant for the ultimate Aufguss 🧖‍♂️🪣
 
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (meistermopper) Update @alcalzone/release-script-plugin-license to 5.2.2
+
+### 0.4.0 (2026-08-13)
+* (meistermopper) Add adaptive heating duration prognosis and anomaly detection
+* (meistermopper) Add dev script shortcut for dev-server watch in package.json
+* (meistermopper) Clarify Partner ID and guest account setup instructions
+* (meistermopper) Document adaptive heating prognosis and anomaly detection
+* (meistermopper) Add strict privacy and anonymization rule to AGENTS.md
+* (meistermopper) Clean up To-Do list and add fun future wishlist items
+
 ### 0.3.2 (2026-08-11)
 * (meistermopper) Use absolute GitHub URLs for language switching links in README files
 * (meistermopper) Remove latest repository and translation badges from README files
@@ -208,15 +230,6 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 * (meistermopper) Fix doorSafety role to sensor.door for repochecker compliance
 * (meistermopper) Add missing CHANGELOG_OLD link to README.md (repochecker S6022)
 * (meistermopper) Fix changelog rotation in README_de.md to enforce 5 entries limit
-
-### 0.2.7 (2026-07-17)
-* (meistermopper) Implement retry for "Device unavailable" and proactive token refresh
-* (meistermopper) Restore clean datapoint table and safety warnings in README files
-* (meistermopper) Mark latest repository item as completed in To-Do list
-* (meistermopper) Clarify remoteControl description in README files
-* (meistermopper) Remove redundant ==== underlines from header in README files
-* (meistermopper) Remove duplicate changelog link and format it consistently in README files
-* (meistermopper) Update Biome schema version to 2.5.3 to match CLI version
 
 [Older changelog entries](CHANGELOG_OLD.md)
 

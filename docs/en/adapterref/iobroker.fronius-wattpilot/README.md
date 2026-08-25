@@ -135,7 +135,7 @@ The adapter connects to the Wattpilot's WebSocket interface and converts incomin
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+- (Miro1310 / tim2zg) Fix authentication with wallbox (PBKDF2 by default, automatic retry with fallback method, support fullStatus/deltaStatus messages)
 
 ### 4.8.0 (2025-11-29)
 - Integrated working bcrypt algorithm

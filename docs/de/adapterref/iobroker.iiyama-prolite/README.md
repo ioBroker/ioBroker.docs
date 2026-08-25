@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iiyama-prolite/README.md
 title: ioBroker.iiyama-prolite
-hash: k6h+d0a3i9I2E0LHdbljni/mjDFLHUSnsnIungXtl5w=
+hash: 7p2aNZZ3K2GVKo9GOfLKshGS72R20I7QZ8XUiCDQzN4=
 ---
 ![Logo](../../../en/adapterref/iobroker.iiyama-prolite/admin/iiyama-prolite.png)
 
@@ -67,7 +67,7 @@ Die TCP-Verbindung wird unterbrochen, wenn der Bildschirm ausgeschaltet ist.
 - Zum Aufwecken muss eine Infrarot-Fernbedienung oder eine Taste an der Vorderseite verwendet werden.
 - **Modus 2**: WOL aus, Signalquelle aktiviert, Hintergrundbeleuchtung aus
 Die TCP-Verbindung wird unterbrochen, wenn der Bildschirm ausgeschaltet ist.
-- Kann nicht über das Netzwerk aufgeweckt werden (WOL deaktiviert)
+- Kann nicht über das Netzwerk aufwecken (WOL deaktiviert)
 - Kann automatisch aufwachen, sobald ein HDMI-Quellsignal erkannt wird
 - **Modus 3**: WOL ein, Weckfunktion durch Quelleneingang aus
 - Kann per Wake-on-LAN aufgeweckt werden (erfordert MAC-Adressenkonfiguration)
@@ -173,11 +173,34 @@ Dieser Adapter implementiert das iiyama RS232-Seriell-Schnittstellenkommunikatio
 ## Haftungsausschluss
 iiyama und ProLite sind Marken ihrer jeweiligen Inhaber. Dieser Adapter ist ein Community-Projekt und steht in keiner Verbindung zu iiyama, wird nicht von iiyama unterstützt oder empfohlen.
 
+## Marken
+iiyama und ProLite sind Marken der iiyama Corporation. Dieser Adapter ist ein unabhängiges Community-Projekt und steht in keiner Verbindung zur iiyama Corporation. Er wird weder von ihr unterstützt noch empfohlen.
+Das Adaptersymbol verwendet die offizielle iiyama-Wortmarke aus [iiyama Pressematerialien](http://www.iiyama.com/gl_en/press-materials/), die gemeinfrei ist (da sie die Schöpfungshöhe unterschreitet).
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 0.1.6 (2026-08-19)
+* (Alan Paris) Fixed `protectedNative` being placed inside `common` in io-package.json, where js-controller ignored it and the schema rejected it (repochecker E1105) - the MAC address is now genuinely protected
+
+### 0.1.5 (2026-08-19)
+* (Alan Paris) Replaced the create-adapter placeholder icon with the official iiyama wordmark
+* (Alan Paris) Fixed polling stopping permanently when a Wake-on-LAN power command was not answered
+* (Alan Paris) Fixed the command queue hanging forever when the connection dropped mid-command
+* (Alan Paris) Status replies are now matched to the command that asked for them, so a timed-out poll can no longer write another command's value into a state
+* (Alan Paris) Repeated command failures are now logged once instead of on every poll cycle, and clear `info.connection` after three consecutive failures
+* (Alan Paris) Controls now snap back to the last confirmed value when a command is refused or cannot be delivered
+* (Alan Paris) State metadata is now applied with `extendObject`, so corrected roles reach existing installations on upgrade and not just new ones
+* (Alan Paris) Added `macAddress` to `protectedNative` so it is not readable by non-admin users
+* (Alan Paris) Fixed the connection status staying `true` after a reconnect to a display that answers nothing
+* (Alan Paris) Fixed overlapping reconnect attempts while a display was in standby, which could leave an unclosed socket behind
+* (Alan Paris) Power Save Mode 1/2 no longer reports the display as off when it is already on and reachable
+* (Alan Paris) The "display appears to be off" notice is now logged once per standby period instead of every 30 seconds
+* (Alan Paris) Serial connections now retry after a failed port open, so a dongle plugged in later (or a permissions fix) no longer needs an instance restart
+* (Alan Paris) Repeated connection errors are now logged once instead of on every retry
+
 ### 0.1.4 (2026-07-16)
 * (Alan Paris) Removed the manufacturer protocol PDF from the repository and its git history
 * (Alan Paris) Added a 10 s TCP connection timeout so an unreachable display no longer hangs the connect

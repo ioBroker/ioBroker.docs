@@ -13,28 +13,40 @@ BADGE-Beta: https://img.shields.io/npm/v/iobroker.node-red.svg?color=red&label=b
 BADGE-Stable: http://iobroker.live/badges/node-red-stable.svg
 BADGE-Installed: http://iobroker.live/badges/node-red-installed.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.node-red/README.md
-title: ioBroker.node-красный
-hash: lQJqoLOtGuM3IgvqdSc/Ax1wJh+46YQzM5L56qCawrU=
+title: ioBroker.node-red
+hash: m7OAyT9HiOPniI4y9Ns0yLlvYBonwYxwyHnxWfm5+ps=
 ---
 ![Логотип](../../../en/admin/node-red.png)
 
 # IoBroker.node-red
-**Примечание.** Если вы не можете найти свое состояние в диалоговом окне выбора идентификатора узлов ioBroker, нажмите кнопку обновления в настройках экземпляра или перезапустите экземпляр node-red. При перезапуске будет создан новый список объектов.
+**Примечание:** Если вы не можете найти свой штат в диалоговом окне выбора ID узлов ioBroker, нажмите кнопку обновления в настройках экземпляра или перезапустите экземпляр Node-RED. После перезапуска будет создан новый список объектов.
 
 ## Настройки
 ![Общие настройки](../../../en/adapterref/iobroker.node-red/img/instance-settings-general.png)
 
-### Максимальный объем оперативной памяти
-В конфигурации адаптера/экземпляра вы можете настроить максимальный объем ОЗУ/кучи для процесса node-red. Значения по умолчанию достаточно для небольших установок с красным узлом. Если у вас много узлов или вы испытываете проблемы с производительностью или сбои процесса node.red в журналах, обновите настройку максимального объема оперативной памяти! В зависимости от доступной оперативной памяти (см., например, использование `free -m` в поле «доступно») увеличьте ее до 1024 (= 1 ГБ) или даже выше.
+### Максимальный размер оперативной памяти
+В конфигурации адаптера/экземпляра можно настроить максимальный объем ОЗУ/кучи для процесса Node-RED. Значение по умолчанию достаточно для небольших установок Node-RED. Если у вас много узлов или вы наблюдаете проблемы с производительностью или сбои процесса Node.RED в логах, пожалуйста, увеличьте значение максимального объема ОЗУ! В зависимости от доступного объема ОЗУ (см., например, использование `free -m` в параметре "avail") увеличьте его до 1024 (=1 ГБ) или даже больше.
 
 ### Безопасный режим
-Потоки не будут запущены, и вы можете редактировать потоки, чтобы устранить некоторые проблемы с перегрузкой.
+Запуск потоков не будет осуществлен, и вы можете отредактировать потоки, чтобы устранить проблемы с перегрузкой.
+
+### Хранилище контекста
+Node-RED может хранить контекст узла (`context`, `flow` и `global`) в разных [контекстные хранилища](https://nodered.org/docs/user-guide/context). Этот адаптер настраивает два из них:
+
+| Магазин | Постоянный | Описание |
+| ------------ | ---------- | ------------------------------------------------------------------------------------------------------- |
+| `file` | да | Хранилище по умолчанию. Контекст записывается в каталог данных ioBroker и сохраняется после перезапуска адаптера |
+| `memoryOnly` | нет | Контекст хранится только в оперативной памяти и теряется сразу после перезагрузки адаптера |
+
+Хранилище можно выбрать в диалоговом окне конфигурации каждого узла, использующего контекст. Если хранилище не выбрано, используется `file`.
+
+**Примечание:** До версии 6.0.8 файловое хранилище называлось `default`. Если вы явно выбрали хранилище в узле, откройте узел и снова выберите `file`, иначе Node-RED выдаст предупреждение о неизвестном контекстном хранилище.
 
 ## Аутентификация
 ### Никто
-![Нет аутентификации](../../../en/adapterref/iobroker.node-red/img/instance-settings-auth-none.png)
+![Без аутентификации](../../../en/adapterref/iobroker.node-red/img/instance-settings-auth-none.png)
 
 ### Простой
 ![Простая аутентификация](../../../en/adapterref/iobroker.node-red/img/instance-settings-auth-simple.png)
@@ -44,46 +56,44 @@ hash: lQJqoLOtGuM3IgvqdSc/Ax1wJh+46YQzM5L56qCawrU=
 
 ## Узлы
 ### IoBroker в
-### IoBroker вышел
-### IoBroker получить
-### IoBroker получает объект
+### IoBroker out
+### IoBroker get
+### IoBroker получить объект
 ### Список ioBroker
 ### IoBroker sendTo
 
 ## Changelog
-### 5.0.0 (2023-11-26)
+### 7.0.2 (2026-08-15)
+-   (@GermanBluefox) Allowed to use admin instance with authentication (Admin 7.6.4 is required)
+-   (@thiloms) Added an additional memory based context storage (`memoryOnly`)
+-   (@thiloms) The file based context storage was renamed from `default` to `file`. Existing data is kept, but nodes with an explicitly selected store must be re-selected in the editor
+-   (@GermanBluefox) The adapter backend was rewritten in TypeScript. The sources are now located in `src` and are compiled into `build`
+-   (@GermanBluefox) Disabled the node-red notification about a new node-red version, as node-red is updated together with the adapter
+-   (@GermanBluefox) Updated nore-red to 5
 
-**NodeJS 16.4.x is required**
-**Please check instance configuration and re-enter your passwords (encryption has changed).**
+### 6.0.8 (2025-03-24)
+-   (@GermanBluefox) Do not try to connect to unsecure admin from secure page and vice versa
 
-- (klein0r) Updated Node-RED to 3.1.0. Please check your nodes for compatibility!
-- (klein0r) Admin 5/6 JSON config for instance configuration
-- (klein0r) Added sendTo node with callback
-- (klein0r) Allow custom attribute name for "ioBroker in" node
-- (klein0r) Added option to select editor (monaco, ace)
-- (klein0r) Added table for custom env vars to instance configuration
+### 6.0.7 (2025-03-24)
+-   (@GermanBluefox) Replace Select-ID dialog with a library
+-   (@GermanBluefox) Packages were updated
 
-### 4.0.3 (2023-03-24)
+### 6.0.5 (2024-12-30)
 
-- (Apollon77) Optimized path handling
+-   (@GermanBluefox) Restart node-red if admin settings changed
+-   (@GermanBluefox) Node-red updated to 4.0.8
 
-### 4.0.2 (2023-03-24)
+### 6.0.1 (2024-09-30)
 
-- (Apollon77) Fix broken data directory when using multiple instances
+-   (@GermanBluefox) Corrected the case if `envVars` settings is undefined
+-   (@GermanBluefox) Used common `@iobroker/eslint-config`
+-   (@GermanBluefox) Node-red updated to 4.0.3
 
-### 4.0.1 (2023-03-22)
-
-- (Apollon77) Prepare for js-controller 5.0
-
-### 4.0.0 (2022-08-14)
-
-- IMPORTANT: Node.js 14.x now needed at least
-- (Apollon77) Upgrade to node-red 3.0.2, enable runtime-state features and switch editor to monaco-editor
-- (Apollon77) Correctly escape backslashes when writing setting file on Windows
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
-Copyright 2014-2023 bluefox <dogafox@gmail.com>.
+Copyright 2014-2026 bluefox <dogafox@gmail.com>.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

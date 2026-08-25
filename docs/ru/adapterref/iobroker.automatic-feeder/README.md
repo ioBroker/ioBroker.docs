@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.automatic-feeder/README.md
 title: ioBroker.automatic-feeder
-hash: 4zYYV48p9P/TSfvM+Gnfat/sE2s+3g5iYzBG+KrsNys=
+hash: Vy6oiPmc6yas87SqGBsQuUem6XbaepVVBpg+v1+cKGI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.automatic-feeder/admin/automatic-feeder.png)
 
@@ -19,6 +19,11 @@ hash: 4zYYV48p9P/TSfvM+Gnfat/sE2s+3g5iYzBG+KrsNys=
 ---
 
 <p align="center"> <a href="https://www.buymeacoffee.com/ssbingo"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=ssbingo&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a> </p>
+
+---
+
+> ### 🔌 Соответствующее оборудование — плата таймера **Feeder-Relais** > > Собираете фидер и предпочитаете использовать готовую плату таймера, а не самостоятельно подключать реле? Обратите внимание на **[Feeder-Relais (Timer-Ersatzplatine)](https://github.com/ssbingo/timer-ersatzplatine)** — самодельная плата таймера для ESP32, идеально сочетающаяся с этим адаптером ([онлайн-обзор]](https://ssbingo.github.io/timer-ersatzplatine/)).
+> > **Это отдельный, автономный проект — независимый от адаптера.** Плата и этот адаптер соответствуют друг другу, но они полностью независимы: адаптер полностью работает без платы, а плата работает без адаптера.
 
 ---
 
@@ -49,7 +54,7 @@ hash: 4zYYV48p9P/TSfvM+Gnfat/sE2s+3g5iYzBG+KrsNys=
 ## 1. Для чего нужен адаптер
 Процесс "кормления" прост: **включить выход → подождать заданное количество секунд → снова выключить**. В случае переоборудованной кормушки работающий двигатель в течение этих секунд выдает корм.
 
-Адаптер может управлять **до 5 коммутаторами**, каждый из которых полностью независим и имеет собственную вкладку конфигурации, названную в честь коммутатора. Для каждого коммутатора вы сами выбираете конфигурацию:
+Адаптер может управлять **до 5 коммутаторами**, каждый из которых полностью независим и имеет собственную вкладку конфигурации, названную в честь коммутатора. Для каждого коммутатора вы сами определяете конфигурацию:
 
 * **когда** его кормят – либо в **фиксированное время** (например, с 08:00 до 18:00), либо с **интервалом**.
 
@@ -74,7 +79,7 @@ hash: 4zYYV48p9P/TSfvM+Gnfat/sE2s+3g5iYzBG+KrsNys=
 (динамическая подача корма, модель Q10);
 
 * **следует ли блокировать** кормление, если содержание растворенного **кислорода** (O₂) слишком низкое;
-* **до 3 разовых перерывов в кормлении** (абсолютные временные рамки, например, карантин после
+* **до 3 разовых перерывов в кормлении** (абсолютные временные промежутки, например, карантин после
 
 пополнение запасов) с сообщением в **Telegram** в начале и в конце каждого;
 
@@ -93,7 +98,7 @@ hash: 4zYYV48p9P/TSfvM+Gnfat/sE2s+3g5iYzBG+KrsNys=
 ## 2. Требования
 | Вам необходимо | Подробности |
 |----------|---------|
-| **ioBroker** с **admin ≥ 8.0.0**, **js-controller ≥ 6.0.11** и **Node.js ≥ 22** | Требуемые минимальные версии. Страница конфигурации построена на React 19, используемом в admin 8. |
+| **ioBroker** с **admin ≥ 7.8.23**, **js-controller ≥ 6.0.11** и **Node.js ≥ 22** | Требуемые минимальные версии. Страница конфигурации построена на React 19. |
 | **Объект переключателя** | Любое записываемое состояние ioBroker, которое включает/выключает ваш фидер — например, умная розетка (`shelly.0.…`, `sonoff.0.…`, `zigbee.0.…`), реле, переменная скрипта. |
 | *(необязательно)* **Геокоординаты** | Используются для расчета времени восхода/захода солнца для **астрономического окна** каждого коммутатора. Требуются только в том случае, если коммутатор использует это окно; берутся из системных настроек ioBroker, одной общей позиции или настраиваются для каждого коммутатора отдельно. |
 | *(необязательно)* Температурные объекты | Существующие состояния с температурой воздуха и/или воды для блокировки температуры или динамической подачи. Назначаются **для каждого переключателя** на вкладке переключателей. |
@@ -438,7 +443,7 @@ hash: 4zYYV48p9P/TSfvM+Gnfat/sE2s+3g5iYzBG+KrsNys=
 | `status.winterLastStartReminder` | строка (ro) | Дата последнего отправленного напоминания о начале зимы. |
 | `status.winterLastEndReminder` | строка (ro) | Дата последнего отправленного напоминания о "конце зимы". |
 | `status.pauseManual` | логическое значение (ro) | Ручная пауза (*Приостановить подачу сейчас* / `settings.pauseNow`) включена. |
-| `status.pauseActive` | логическое значение (ro) | В данный момент действует однократная пауза в кормлении. |
+| `status.pauseActive` | логическое значение (ro) | В данный момент действует однократная пауза в подаче корма. |
 | `status.pauseActiveUntil` | строка (ro) | Конец текущей активной паузы подачи (пусто, если паузы нет). |
 | `status.pauseActiveUntilTs` | номер (ro) | Конец активной паузы кормления в миллисекундах по времени Unix (`0` = none). |
 | `status.dynamicAvgTemperature` | номер (ro) | Средняя температура, используемая при динамической подаче. |
@@ -625,6 +630,13 @@ hash: 4zYYV48p9P/TSfvM+Gnfat/sE2s+3g5iYzBG+KrsNys=
 	### **WORK IN PROGRESS**
 -->
 
+### 1.10.2 (2026-08-14)
+* (ssbingo) Documentation: the READMEs (all 11 languages) and the German PDF handbook now carry a prominent notice **right at the top** pointing to the matching **[Feeder-Relais (Timer-Ersatzplatine)](https://github.com/ssbingo/timer-ersatzplatine)** — a standalone ESP32 timer-board project that pairs with this adapter but is fully independent of it. No functional changes
+
+### 1.10.1 (2026-08-14)
+* (ssbingo) Fix: lowered the minimum **admin** requirement to **7.8.23** (the current stable version) so the adapter stays installable from the stable ioBroker repository — this clears repochecker **E4033** (`admin >=8.0.0` is not in the stable repository yet). The admin UI still runs on **React 19**
+* (ssbingo) Merged upstream adapter-template updates: Dependabot configuration / auto-merge workflow refresh and the `node:` import prefix in the handbook generator (S5043)
+
 ### 1.10.0 (2026-08-05)
 * (ssbingo) **Admin UI now runs on React 19** — the configuration page uses the same React version that ioBroker **admin 8** ships; `@iobroker/adapter-react-v5` updated to 8.3.2
 * (ssbingo) **Raised the minimum requirements**: **admin ≥ 8.0.0**, **js-controller ≥ 6.0.11** and **Node.js ≥ 22**
@@ -654,13 +666,6 @@ hash: 4zYYV48p9P/TSfvM+Gnfat/sE2s+3g5iYzBG+KrsNys=
 
 ### 1.9.3 (2026-07-15)
 * (ssbingo) Fix: the **Sayit volume** is now written to the instance's own `tts.volume` state (only if it exists) instead of a `tts.text` prefix — the volume actually takes effect now, and the announcement **test no longer hangs** when a volume is set. An empty volume keeps the Sayit instance's own volume
-
-### 1.9.2 (2026-07-15)
-* (ssbingo) New **Test announcement** button next to the Sayit instance selection — speaks a short test text through the selected instance so you can check the audio output without waiting for a feeding
-* (ssbingo) The feeding announcement now uses the **correct singular/plural** form of "minutes" for each language (e.g. "1 minute" vs "5 minutes"; Russian/Polish/Ukrainian 1 / 2–4 / 5+ forms), via the language's CLDR plural rules
-
-### 1.9.1 (2026-07-15)
-* (ssbingo) The feeding announcement now uses the final text **"The next feeding starts in X minutes"** (localized in the switch's selected message language; `X` = the configured lead time)
 
 ---
 

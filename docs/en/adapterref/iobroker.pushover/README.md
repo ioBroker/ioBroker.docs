@@ -91,6 +91,10 @@ sendTo('pushover', 'glances', {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 6.0.1 (2026-08-18)
+* (@GermanBluefox) Blockly migrated to TypeScript
+* (@GermanBluefox) Dropped support for Node.js lower than 22
+
 ### 5.0.0 (2026-03-12)
 * (@GermanBluefox) Updated packages
 * (@GermanBluefox) Dropped support for node 18
@@ -111,9 +115,6 @@ sendTo('pushover', 'glances', {
 * (@klein0r) Updated dependencies
 * (@klein0r) Fixed blockly definitions
 * (@klein0r) Updated translations
-
-### 3.0.6 (2023-11-06)
-* (ticaki) Caught the error by sending of sendToAsync if no configuration exists
 
 ## License
 

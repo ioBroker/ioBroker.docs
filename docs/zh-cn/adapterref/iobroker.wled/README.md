@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wled/README.md
 title: ioBroker.wled
-hash: ZGr8DVFCltNzqXCLqZuyQfAjFjsiLxvJkqe5kEdcfqo=
+hash: eIOBSsKQXgVe6KThjmQ4Y7KPgIUHKWZBoRRNnI4fjyo=
 ---
 ![标识](../../../en/adapterref/iobroker.wled/admin/wled_logo_akemi.png)
 
@@ -17,12 +17,12 @@ hash: ZGr8DVFCltNzqXCLqZuyQfAjFjsiLxvJkqe5kEdcfqo=
 # IoBroker.wled
 **测试：** ![测试与发布](https://github.com/DrozmotiX/iobroker.wled/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用服务 [Sentry.io](https://sentry.io) 自动向我（开发者）报告异常、代码错误和新的设备架构。** 更多详情请见下文！
+**此适配器使用服务 `Sentry.io` 自动向我（开发者）报告异常、代码错误和新的设备架构。** 更多详情请见下文！
 
 ## IoBroker 的 wled 适配器
 一个快速且功能丰富的 ESP8266/ESP32 网络服务器实现，用于控制 NeoPixel（WS2812B、WS2811、SK6812、APA102）LED 或基于 SPI 的芯片组，如 WS2801！
 
-[WLED - Github 项目](https://github.com/Aircoookie/WLED) 作者：@Aircoookie
+[WLED - GitHub 项目](https://github.com/Aircoookie/WLED) 作者：@Aircoookie
 
 ＃＃ 指示
 该适配器会自动尝试使用 Bonjour 服务在您的网络中查找 WLED 设备。
@@ -152,8 +152,12 @@ Sentry.io 是一项面向开发者的服务，用于概览其应用程序中的�
     ### __WORK IN PROGRESS__
 -->
 ### __WORK IN PROGRESS__
+* (DutchmanNL) Maintenance: use adapter timer API (this.setTimeout/this.clearTimeout) so all timers are cleared on unload
+* (DutchmanNL) Maintenance: translated the delete device confirmation message into all supported languages
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
 * (DutchmanNL) **CI/CD**: Fixed deployment failure by adding missing sentry-version-prefix parameter to GitHub Actions workflow
 * (DutchmanNL) **CI/CD**: Updated GitHub Copilot instructions template from v0.4.2 to v0.5.6 - adds ESLint configuration, translation management, lint-first CI/CD workflow guidance
+* (DutchmanNL) Dependencies updated to current versions
 
 ### 0.9.2 (2026-02-16)
 * (DutchmanNL) solve auto deployment issues
@@ -183,6 +187,8 @@ Sentry.io 是一项面向开发者的服务，用于概览其应用程序中的�
 * (DutchmanNL) Show online state of device in object tree
 * (DutchmanNL) Bugfix: Update online state correctly in situation connection is lost, fixes #611
 * (DutchmanNL) Reset brightness to 0 and on to false during adapter start and if a device disconnects, fixes #565
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

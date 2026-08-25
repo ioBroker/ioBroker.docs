@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: EMzXZv7pyOL4voHLHNj9IGz4XiGg3On7sZbDTiHycLc=
+hash: KxSpl5oJMC/6gbSEy8xOwCtNR4qYuH5v7ZC/PxSMeVg=
 ---
 ![Logo](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -92,7 +92,7 @@ Objektbaum pro Fahrzeugidentifikationsnummer (VIN), sobald die EU-Datenschutzges
 ### Fehlerbehebung (nur EU-Datenschutzgesetz – diese blockieren niemals den klassischen Datenfluss)
 - **`EU-Datenschutzgesetz ... keine Datenanfrage konfiguriert`: Sie haben die oben beschriebenen portalseitigen Einstellungen nicht vorgenommen. Die klassische Anmeldung funktioniert vorerst weiterhin.
 - **Das Portal hat N Datensätze, aber alle sind '_no_content_found':** Das Fahrzeug befand sich während jedes Messzeitpunkts im Ruhemodus. Synchronisieren Sie das Fahrzeug über die VW-App oder fahren Sie einfach einmal.
-- **`<vin>.statuseudata` Kanal fehlt**: Das Portal verfügt noch über keine Inhaltsdatensätze — gleiche Lösung wie oben.
+- **`<vin>.statuseudata`-Kanal fehlt**: Das Portal verfügt noch über keine Inhaltsdatensätze – gleiche Lösung wie oben.
 - **HTTP 400 direkt nach der Aktivierung**: Das Portal verarbeitet noch Ihre Datenanfrage. Das Problem behebt sich nach einigen Stunden von selbst.
 - **Veraltete Werte**: Das Portal führt mehrere Berichts-Snapshots pro Datensatz zu einem flachen Array zusammen. Wenn dasselbe Feld mehrfach mit unterschiedlichen Werten vorkommt, wählt der Adapter deterministisch den Eintrag mit der kleinsten UUID aus (stabil über Aktualisierungen hinweg – gleiches Vorgehen wie bei der Home Assistant-Integration).
 - **Referenzimplementierung** (Home Assistant, Python): <https://github.com/mikrohard/hass-vw-eu-data-act>
@@ -112,6 +112,18 @@ Die Klimatisierungstemperatur kann in .climater.settings.targetTemperature.conte
 ```
 
 ### **IN BEARBEITUNG**
+### 0.9.10 (2026-08-18)
+VW-ID (Typ=ID): Klassische BFF-Geräteablaufanmeldung deaktiviert – VW hat die Gerätecode-Berechtigung entfernt. EU-Datenschutzgesetz ist nun die einzige Datenquelle für die VW-ID (Geräteablaufcode bleibt auskommentiert, um später wieder aktiviert werden zu können).
+
+### 0.9.9 (2026-08-17)
+- VW ID (Typ=ID) klassische BFF-Datenquelle über Geräte-Flow-Login wiederhergestellt, parallel zum EU-Datenschutzgesetz
+- EU-Datenschutzgesetz: Die Fehlermeldung bei Anmeldefehlern enthält nun den HTTP-Status und den Seitentext zur einfacheren Diagnose.
+
+### 0.9.8 (2026-08-13)
+- Audi (audietron) Verriegelung/Entriegelung aktiviert
+- Behoben: Warnung bezüglich verwaisten Remote-Access-Zustands (Problem #441)
+- Skoda: Stoppt die Abfrage des Verbindungsstatus/der Bereitschaft bei anhaltendem 500-Fehler (Protokollierungs-Spam)
+
 ### 0.9.7 (2026-08-09)
 - Die Fehlerbehandlung bei Skoda wurde verbessert
 - Audi Wake-up verbessert
@@ -186,7 +198,7 @@ Die Klimatisierungstemperatur kann in .climater.settings.targetTemperature.conte
 
 ### 0.7.6 (2025-02-28)
 - Behebung des Problems, dass der Ladestatus nur beim Start aktualisiert wird
-- Behebung des Problems mit dem Zustand "Skoda bewegt sich"
+- Behebung des Problems mit dem sich bewegenden Zustand von Skoda
 
 ### 0.7.3 (2025-02-26)
 - Fehlerbehebung für set setTemperature
@@ -221,7 +233,7 @@ Die Zustandsstruktur wurde vollständig geändert. Bitte löschen Sie die alten 
 - ID-Anmeldung reparieren
 
 ### 0.0.60
-Kleinere Verbesserungen. Das minimale Ladeintervall von WeCharge beträgt jetzt 15 Minuten.
+– Kleinere Verbesserungen. Das minimale Ladeintervall von WeCharge beträgt jetzt 15 Minuten.
 
 ### 0.0.55
 - Fehlerbehebung bei der Aktualisierung des ID-Status
@@ -272,7 +284,7 @@ Kleinere Verbesserungen. Das minimale Ladeintervall von WeCharge beträgt jetzt 
 - Wir berechnen zusätzlich Gebühren
 
 ### 0.0.24
-- Hinzufügen einer Remote-Statusaktualisierung
+- Remote-Statusaktualisierung hinzufügen
 
 ### 0.0.23
 - Sitz hinzugefügt und neue Klimatisierung v2

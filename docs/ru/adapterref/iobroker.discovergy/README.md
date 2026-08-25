@@ -3,39 +3,42 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discovergy/README.md
 title: ioBroker.discovergy
-hash: JrTgb6QHbY0ilsnijYvzoCe9QUeb4wCl0Zi3TKn78kc=
+hash: roGuB5x3KGimTK00m/5ItkGhDBupE5vGzTG4diF/2kw=
 ---
 ![альтернативный текст](https://raw.githubusercontent.com/DrozmotiX/ioBroker.discovergy/master/admin/Discovergy_logo.png)
 
 ![альтернативный текст](https://travis-ci.org/DrozmotiX/ioBroker.discovergy.svg?branch=master)
 ![Количество установок](http://iobroker.live/badges/discovergy-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.discovergy.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.discovergy.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.discovergy.svg)
 
 # IoBroker.discovergy
-Это адаптер ioBroker для вашего счётчика электроэнергии Discovery Power.
-Он использует API Discovergy для считывания данных с ваших счётчиков и синхронизации их текущих значений с ioBroker.
+Это адаптер ioBroker для вашего измерителя мощности Discovergy.
+Он использует API Discovergy для чтения данных с ваших измерителей и синхронизации их текущих значений с ioBroker.
 
 https://api.discovergy.com/docs/
 
-Не стесняйтесь добавлять описание желаемой вами функциональности или проблем, которые вы видите, чтобы я мог их рассмотреть!
+## Часовой
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
-Примечание: У меня нет всех возможных устройств, и демо-аккаунт не предоставляет все существующие значения, которые могут предоставить устройства.
+Пожалуйста, не стесняйтесь добавлять сообщения о проблемах или неполадках, которые вы обнаружили, чтобы я мог их рассмотреть!
+
+Примечание: У меня нет всех возможных устройств, а также демонстрационный аккаунт не предоставляет всех существующих значений, которые могут предоставлять устройства.
 Если вы получили следующую ошибку:
 
-Информация, полученная от Discovery, которая пока не является частью этого адаптера. «Отправить эту информацию разработчику: xxxxx
+Информация, полученная от Discovergy, которая еще не является частью этого адаптера. "Отправить эту информацию разработчику: xxxxx"
 
-Пожалуйста, перейдите к своему лог-файлу и скачайте его, создайте issue здесь на GitHub с предоставленными значениями.
-Не копируйте и не вставляйте данные из веб-интерфейса администратора, здесь отсутствует необходимая мне информация!
+Пожалуйста, откройте и скачайте свой лог-файл, создайте здесь проблему на GitHub, указав предоставленные значения.
+Не копируйте и не вставляйте текст из веб-интерфейса администратора, здесь отсутствует необходимая мне информация!
 
-Вы можете протестировать этот адаптер, используя демонстрационные учетные данные discoverygy (или свои собственные :-)): имя пользователя = demo@inexogy.com пароль = demo
+Вы можете протестировать этот адаптер, используя демонстрационные учетные данные Discovery (или свои собственные :-)): имя пользователя = demo@inexogy.com пароль = demo
 
-## Поддержи меня
-Если вам понравилась моя работа, не стесняйтесь сделать личное пожертвование (это персональная ссылка для пожертвований для DutchmanNL, не имеющая никакого отношения к проекту ioBroker!) [![Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
+## Поддержите меня
+Если вам нравится моя работа, пожалуйста, не стесняйтесь сделать личное пожертвование (это личная ссылка для пожертвований DutchmanNL, не имеющая отношения к проекту ioBroker!). [![[Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Участники
 * АльКальцоне
-* зоернерт
+* zoernert
 
 ## Changelog
 
@@ -44,14 +47,12 @@ https://api.discovergy.com/docs/
     ### __WORK IN PROGRESS__
 -->
 ### __WORK IN PROGRESS__
-* (DutchmanNL) **ENHANCED**: Updated GitHub Copilot instructions to latest template version 0.4.0 with comprehensive testing framework patterns and enhanced development guidelines. Fixes #287
-* (DutchmanNL) **FIXED**: Repository checker issues - deprecated methods replaced and VSCode configuration improved
-* (DutchmanNL) **ENHANCED**: VSCode IntelliSense support for io-package.json and package.json validation
-* (DutchmanNL) **NEW**: Added comprehensive API testing with demo credentials to ensure adapter reliability
-* (DutchmanNL) **FIXED**: Critical bug where adapter would always show "credentials missing" even with valid credentials - now properly validates user login
-* (DutchmanNL) **ENHANCED**: Demo testing now includes proper password encryption matching ioBroker admin interface behavior
-* (DutchmanNL) **TESTING**: New `npm run test:integration-demo` command validates full API connectivity with working demo credentials (`demo@inexogy.com` / `demo`)
-* (DutchmanNL) **CI/CD**: Automated testing ensures adapter connects properly to Discovergy/Inexogy API and initializes meters successfully
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+* (DutchmanNL) **FIXED**: Removed non-existent version 0.6.1 from changelog to comply with ioBroker repository checker requirements (E2004)
+* (DutchmanNL) **ENHANCED**: Cleaned up common.news entries in io-package.json to maintain only published versions
+
+### 0.7.0 (2026-02-15)
+* (DutchmanNL) release fixes and improvements in 0.7.0, resolved #316 #313
 
 ### 0.6.0 (2024-12-04) - API change to Inexogy
 * (DutchmanNL) Bugfix: API change to Inexogy. Fixes #249
@@ -63,17 +64,12 @@ https://api.discovergy.com/docs/
 ### 0.5.12 (2023-10-29)
 * (DutchmanNL) Ignore meters not providing any data (like removed devices) fixes #84
 
-### 0.5.11 (2023-10-27) - Bugfixes
-* (DutchmanNL) Error handling improved in cases data processing fails
-* (DutchmanNL) Fixes #214 #215 #200 #219 #220 #224 #229 #235 #236 #237 #238 #506 #507
-
-### 0.5.8 (2021-08-17)
-* (DutchmanNL) Minor dependency & configuration updates, stable release candidate
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2025 DutchmanNL
+Copyright (c) 2025-2026 DutchmanNL
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

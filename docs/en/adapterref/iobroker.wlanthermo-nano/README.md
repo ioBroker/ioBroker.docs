@@ -15,6 +15,9 @@
 
 [WLANThermo Nano](https://github.com/WLANThermo-nano/WLANThermo_nano_Software/wiki "WLANThermo Nano"), the digital advantage for your barbecue sport
 
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## Configuration
 
 The adapter can be installed and configured within the admin interface.
@@ -35,6 +38,16 @@ If you like my work, please feel free to provide a personal donation
 [![Donate](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Changelog
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+### __WORK IN PROGRESS__
+* (DutchmanNL) Dependencies updated to current versions
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+* (DutchmanNL) Admin settings are translated again: added the missing admin/i18n files for all 11 supported languages, including Ukrainian, and the device table column headers are now translated too
+
 ### 0.2.1 (2022-06-08) - Initialization error for Nano V1 solved
 * (DutchmanNL) Initialization error for Nano V1 solved
 * (DutchmanNL) Error logging and reporting improved
@@ -96,7 +109,7 @@ If you like my work, please feel free to provide a personal donation
 ## License
 MIT License
 
-Copyright (c) 2019 DutchmanNL <rdrozda86@gmail.com>
+Copyright (c) 2019-2026 DutchmanNL <oss@DrozmotiX.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

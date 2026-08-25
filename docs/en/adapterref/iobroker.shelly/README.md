@@ -71,10 +71,21 @@ Questions? Check the [FAQ](faq.md) section first!
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (@mcm1957) Added the missing translations for all datapoint names in all supported languages.
+- (@mcm1957) Added tests to validate that all datapoint names and descriptions are translated and that all i18n language files are consistent.
+- (@mcm1957) Added support for Shelly Duo Bulb E27 Gen 3 (shellyduobulbg3). [#1385]
+
+### 12.0.0-alpha.2 (2026-08-19)
+- (@mcm1957) The transition time can now be written for Shelly Dimmer1/Dimmer2 and for Gen2+ dimmers/lights (incl. Dimmer Gen3 and Dimmer Gen4). [#1214][#1224]
+- (@mcm1957) Added support for Top AC Portable EV Charger (topacportableevcharger) - **EXPERIMENTAL ONLY** [#1401]
+- (@mcm1957) Added support for Shelly Flood S Gen 4 (shellyfloodsg4). [#1380]
+- (@mcm1957) Added monophase mode support for Shelly 3EM G3 (shelly3em63g3). [#1540]
+
+### 12.0.0-alpha.1 (2026-08-19)
+- (@GermanBluefox) Added option to ignore the timezone mismatch message (device timezone differs from the ioBroker host timezone).
+- (@GermanBluefox) Fixed MQTT errors ("Cannot read properties of undefined") if a device closes the connection while it is still being initialized (e.g. battery powered devices).
 - (@floze-the-genius) Corrected roles for Gen 2+ input states. [#1498]
 - (@klein0r) Updated ble script (v1.4) for Shelly firmware > 2.0
-
-### 12.0.0-alpha.0 (2026-07-16)
 - (@GermanBluefox) Codebase has been migrated to typescript.
 
 ### 11.0.0 (2026-07-03)
@@ -99,16 +110,6 @@ Questions? Check the [FAQ](faq.md) section first!
 ### 10.6.1 (2026-02-23)
 - (HGlab01) OnUnload handling has been improved. [#1279]
 - (@mcm1957) shellypill: missing input 202 has been added, nonexisting analog input has been removed.
-
-### 10.6.0 (2026-02-08)
-* (@mcm1957) The-Pill-By-Shelly (shellypill) has been added. [#1232]
-* (@mcm1957) Shelly EM mini Gen 4 (shellyemminimg4) and Plug M Gen 3 (shellyplugmg3) have been added. [#1327,#1332]
-* (@mcm1957) Shelly BLU H&T Display ZB support for light attribute has been added. [#1230]
-* (@mcm1957) Support for favorites for Gen 2+ devices with cover support has been added. [#1001]
-* (@mcm1957) Power metering support has been added to RGB and RGBW components. [#1339]
-* (@mcm1957) FrankEver Smart Watervalve (watervalve) has been added. [#1341]
-* (@mcm1957) LinkedGo ST1820 (st1820) has been added. [#1257]
-* (@mcm1957) Dependencies have been updated
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

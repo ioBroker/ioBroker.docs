@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: GdX3TNsSwVEKYkD9qSjM0NWi0uKyNbjn7rQEqsV5qbU=
+hash: sgMi8ip7i3DD0KjdinO2R2DLWqJ/4yUuHcXVFqzmFYs=
 ---
 # IoBroker.tado
 
@@ -53,7 +53,7 @@ Tado ioBroker 适配器新增了一项功能，提供了新的配置选项来管
 | tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow | 当检测到窗户打开时关闭恒温器（仅当恒温器检测到窗户打开时才有效） |
 | tado.[x].[yyyyyy].Rooms.[z].setting.mode | 交流电模式（仅限交流电设备） |
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | 风扇速度（仅限 V3 及更早版本的空调设备） |
-| tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | 风扇标签（仅限 V3+ 版本的空调设备） |
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | 风扇标签（仅限 V3+ 版本的 AC 设备） |
 | tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | 垂直摆动（仅限 V3+ 版本的空调设备） |
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | 水平摆动（仅限 V3 及更早版本的空调设备） |
 | tado.[x].[yyyyyy].Home.state.presence | 设置 HOME、AWAY 或 AUTO 模式 |
@@ -76,7 +76,7 @@ Tado ioBroker 适配器新增了一项功能，提供了新的配置选项来管
 | tado.[x].[yyyyyy].meterReadings | JSON 对象，包含 {"date":"YYYY-MM-DD","reading": 1234}，可用于将电表读数上传到 Energy IQ |
 
 ## 需要
-* Node.js 20 或更高版本
+* Node.js 22 或更高版本
 * ioBroker 主机（js-controller）7.0.6 或更高版本
 * iorBroker.admin 7.7.2 或更高版本
 
@@ -85,6 +85,15 @@ Tado ioBroker 适配器新增了一项功能，提供了新的配置选项来管
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+
+### 0.8.5 (2026-06-19)
+* (HGlab01) improve code quality
+* (HGlab01) add attribute adminUserId
+* (HGlab01) use automated translation into several languages
+* (HGlab01) bump axios to 1.8.0
+
 ### 0.8.4 (2026-02-24)
 * (HGlab01) checkExpire for termination-attributes
 * (HGlab01) add attributes 'smartReminders' & 'smartRemindersInAppEnabled'
@@ -111,16 +120,7 @@ Tado ioBroker 适配器新增了一项功能，提供了新的配置选项来管
 * (HGlab01) fix issue 'cannot read properties of undefined (reading 'match')'
 * (HGlab01) fix issue openWindow data not up to date #1086
 
-### 0.8.0 (2025-10-07)
-* (HGlab01) new configuration capabilities to manage API usage quota (#1047, #1048)
-* (HGlab01) Implement API debouncing
-* (HGlab01) Refactorings Tado API calls
-* (HGlab01) fix issue 'definition missing for awayMode' [TadoX]
-* (HGlab01) fix issue 'definition missing for preheating' [TadoX]
-* (HGlab01) Additional guidance/log when it comes to RefreshToken issue
-* (HGlab01) fix Object of state "tado.0.xxxxx.Rooms.y.openWindow" is missing the required property "common.type" (#1059)
-* (HGlab01) Bump axios to 1.12.2
-* (HGlab01) Bump iobroker-jsonexplorer to 0.2.0
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -260,6 +260,10 @@ This adapter uses data from the following third-party services:
 This adapter is an independent community project and is not affiliated with or endorsed by any of the above services.
 
 ## Changelog
+### 0.1.16 (2026-08-17)
+* (ipod86) fix: variable shadowing in fetchDwdWarnings caused every DWD official warning request to fail with "Cannot access 'raw' before initialization", silently freezing the affected warning states
+* (ipod86) fix: guard the official warning update against a single hung request permanently stalling the recurring schedule
+
 ### 0.1.15 (2026-07-19)
 * (ipod86) fix: sanitize widget.id through normalizeId before use as ioBroker object ID path
 
@@ -276,15 +280,6 @@ This adapter is an independent community project and is not affiliated with or e
 
 ### 0.1.12 (2026-07-01)
 * (ipod86) fix: translate 84 missing admin i18n keys into all 10 languages (W5606)
-
-### 0.1.11 (2026-06-24)
-- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
-* (ipod86) fix: skip hourly slots without icon data in detailed widget (missing icons at 00h/02h/04h)
-* (ipod86) feat: grey out hourlyRange options that exceed configured hourly days; add explanatory hint
-* (ipod86) fix: reposition moon badge in simple and detailed widget header
-* (ipod86) feat: add moon phase overlay to simple widget (showMoon option)
-* (ipod86) fix: complete and correct i18n translations in all 11 languages (50+ missing keys)
-* (ipod86) ci: remove broken build-admin GitHub Actions workflow
 
 Older changelogs are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 

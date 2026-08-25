@@ -103,6 +103,11 @@ Wer gerne weitere Umrichter integriert haben möchte, sollte die Datenauswertung
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.0.0 (2026-08-18)
+(simatec) dependencies updated
+(simatec) many small fixes
+(simatec) End of Life for Node20
+
 ### 0.9.23 (2026-03-29)
 * (simatec) dependencies updated
 
@@ -351,6 +356,8 @@ Wer gerne weitere Umrichter integriert haben möchte, sollte die Datenauswertung
 
 ### 0.1.0 (02.06.2021)
 * (simatec) first beta
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.weishaupt-wem/README.md
 title: ioBroker.weishaupt-wem
-hash: ATGAU8nFMXrrTeMrhr8gtanC/XhO5h+L4OnWCDODo7E=
+hash: F4866vNCXSe9t1AP1tmbJAaUgg1hot1aVMVXlIKMERQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.weishaupt-wem/admin/weishaupt-wem.png)
 
@@ -15,8 +15,11 @@ hash: ATGAU8nFMXrrTeMrhr8gtanC/XhO5h+L4OnWCDODo7E=
 ![Travis-CI](http://img.shields.io/travis/ta2k/ioBroker.weishaupt-wem/master.svg)
 
 # IoBroker.weishaupt-wem
-## Weishaupt-wem Adapter für ioBroker
+## Weishaupt-wem-Adapter für ioBroker
 Adapter für weishaupt WEM Portal
+
+## WEM-Portaldomäne
+Das WEM Portal wird je nach Region unter unterschiedlichen Domains ausgeliefert (`www.wemportal.com` oder `www.wemportal.de`). Wenn der manuelle Login im Browser auf `www.wemportal.de` landet oder der Adapter beim ersten Login-Schritt ein `403 Forbidden` (Azure Application Gateway) erhält, wählen Sie in den Adapter-Einstellungen die passende Domain unter „WEM Portal Domain“ aus. Standard ist `www.wemportal.com`.
 
 ## Benutzerdefinierter Befehl
 Für einen benutzerdefinierten Befehl benötigen Sie die URL und den gewünschten Wert. Für die URL einfach die Option im WEM Portal mit Chrome aufrufen und dann rechte Mausstate Untersuchen dann unter Elements/Elemente mit STRG+F nach iframe suchen mit dem name=&quot;RDWWriteParameter&quot; die URL nach src mit rechts Klick Link kopieren raus kopieren. Für den Wert nach <option suchen und den gewünschten Wert unter value kopieren und als state Wert eintragen.
@@ -25,12 +28,35 @@ z.B.: <https://www.wemportal.com/Web/UControls...,>208557
 ## App-Unterstützung
 Der Adapter liest auch die Daten aus der App aus.
 
-**weishaupt-wem.0.20999** "Name per App"
+**weishaupt-wem.0.20999** „Name per App“
 
 **weishaupt-wem.0.20999.1-3.parameters** Hier findest du den aktuellen Status und kann via **NumericValue** oder **StringValue** geändert werden. Du findest dort auch die Min Max Werte und unter **EnumValues** findet man die Beschreibung für NumericValue
 
 ## Changelog
 
+### 0.0.20
+
+* (ta2k) Abgeschaltete Leistungs-/Prozentwerte (Aus/off/--) werden als numerische 0 gespeichert (kWh-Zähler bleiben unberührt)
+
+### 0.0.19
+
+* (ta2k) Fix Absturz "Canvas.Image is not a constructor" mit jsdom 30 / Node 24 (Canvas-Stub meldet sich jetzt als nicht installiert)
+
+### 0.0.18
+
+* (ta2k) Backoff bei 403 vom Azure Gateway (Rate-Limit / Bot-Schutz) statt Relogin-Sturm
+* (ta2k) Anfragen entzerrt (Throttling zwischen App-Requests) analog hass-WEM-Portal
+* (ta2k) Zentrale App-API-Anfrage mit einmaligem Relogin-Retry und Session-Ablauf-Erkennung
+* (ta2k) Neue App-Daten: Geräte-Status/Fehler (DeviceStatus), Energiestatistik (Statistics, stündlich), Heizzeiten (CircuitTimes)
+* (ta2k) Heizzeiten schreibbar über `circuitTimes.PARAMETERID.setSchedule` (CircuitTimes/Write)
+* (ta2k) App-Header und Login gegen die App-APK v3.0.1 verifiziert (X-Api-Version 2.0.0.0, AppVersion 3.0.1, Android)
+* (ta2k) Auswählbare Portal-Domain (.com / .de)
+* (ta2k) Login/Status-Fehler beenden nicht mehr die Instanz (kein Crash bei fehlenden Parametern oder Status)
+
+### 0.0.16
+
+* (ta2k) Improve error and login handling
+  
 ### 0.0.15
 
 * (ta2k) add app support

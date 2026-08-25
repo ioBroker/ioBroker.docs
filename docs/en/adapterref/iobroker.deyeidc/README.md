@@ -56,8 +56,7 @@ All product and company names or logos are trademarks™ or registered® tradema
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.4.0 (2026-08-17)
 
 - (raschy) Compute module redesigned and expanded (PR XHunter74)
 
@@ -83,11 +82,6 @@ All product and company names or logos are trademarks™ or registered® tradema
 ### 0.2.0 (2025-02-06)
 
 - (raschy) Dependabot run tracked manually
-
-### 0.1.4 (2025-01-11)
-
-- (raschy) Error message corrected
-- (raschy) Function nullable repaired
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

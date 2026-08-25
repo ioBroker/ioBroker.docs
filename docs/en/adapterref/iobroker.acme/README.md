@@ -97,6 +97,13 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Added support for IONOS DNS-01 challenge
+- (@GermanBluefox) BREAKING: Migrated from the abandoned ACME.js to acme-client. The saved ACME account is registered once anew on first run after the update.
+- (chris299) Added support for eDNS.de DNS-01 challenge
+- (chris299) Fixed certificate issuance failing against current Let's Encrypt with 409 / "Unhandled status '403'"
+- (chris299) Fixed certificate renewal failing with "Cannot read properties of undefined (reading '0')"
+
 ### 4.0.3 (2026-08-03)
 - (@GermanBluefox) Migrated to admin 8
 - (@GermanBluefox) Adapter requires admin >= 8.0.0 now

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: hECSt1XUJdFzPy05x876AIdEbkKO0r9CFDPHJ2LyK3w=
+hash: VeTO5Eehwk7VQUiUo7FDBmyfnDhEJxt6yzQPvFU4W3E=
 ---
 # Was ist neu
 ## Hinweise für Autoren
@@ -45,7 +45,7 @@ https://github.com/foxriver76/ioBroker.notification-manager
 
 <img src="https://raw.githubusercontent.com/foxriver76/ioBroker.notification-manager/master/admin/notification-manager.png" width="100" height="100" />
 
-Verwalten Sie ioBroker-Benachrichtigungen, z. B. durch Versenden als Nachrichten.
+Verwalten Sie ioBroker-Benachrichtigungen, z. B. durch Senden als Nachrichten
 
 ## Procon-ip (2023-08-24)
 https://github.com/ylabonte/ioBroker.procon-ip
@@ -234,7 +234,7 @@ Für Smart-Home-Fans gibt es eine wichtige Neuigkeit: Die ESPHome-Dokumentation 
 Dieses Update folgt der Annahme eines kürzlich eingereichten Pull Requests und positioniert ioBroker neben Home Assistant als eines der wenigen Smart-Home-Systeme, die die native ESPHome-API für die direkte Client-Kommunikation nutzen.
 
 Die native API, bekannt für ihr hochoptimiertes Netzwerkprotokoll, bietet zahlreiche Vorteile gegenüber herkömmlichen MQTT-Methoden und vereinfacht die Interaktion von Smart-Geräten innerhalb des Ökosystems.
-Mit dieser Anerkennung bekräftigt ESPHome sein Engagement für effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche.
+Mit dieser Auszeichnung bekräftigt ESPHome sein Engagement für effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche.
 
 ## Vis (06.11.2023) - neue Funktion
 Die Lizenz von vis wurde auf MIT geändert. Das bedeutet, dass Sie vis kostenlos in kommerziellen Projekten verwenden können und keine weitere Lizenz erforderlich ist.
@@ -493,7 +493,7 @@ Es ist eine neue Version des Windows-Installationsprogramms verfügbar: 3.1.0 Ne
 - Aktualisierung/Upgrade des JS-Controllers implementiert
 - Einige Fehlerbehebungen
 
-## Radar-trap (29.05.2024) – neuer Adapter in stabil
+## Radar-trap (29.5.2024) – neuer Adapter in stabil
 https://github.com/Steiger04/ioBroker.radar-trap
 
 <img src="https://raw.githubusercontent.com/Steiger04/ioBroker.radar-trap/main/admin/radar-trap.png" width="100" height="100" />
@@ -589,7 +589,7 @@ https://github.com/moba15/ioBroker.hiob
 
 <img src="https://raw.githubusercontent.com/moba15/ioBroker.hiob/main/admin/hiob.png" width="100" height="100" />
 
-Mit dieser App können Sie Ihr ioBroker Smarthome-System über die hiob-App steuern. Sie ist eine einfachere und schnellere Alternative zu vergleichbaren Lösungen mit weniger Konfigurationsmöglichkeiten. Die App ist primär für Android-Geräte gedacht, funktioniert aber auch auf Windows- und Linux-Desktop-Computern.
+Mit dieser App können Sie Ihr ioBroker Smarthome-System über die hiob-App steuern. Sie ist eine einfachere und schnellere Alternative zu vergleichbaren Projekten mit weniger Konfigurationsmöglichkeiten. Die App ist primär für Android-Geräte gedacht, funktioniert aber auch auf Windows- und Linux-Desktop-Computern.
 
 ## Extron (17.8.2024) – neuer Adapter bei stabil
 https://github.com/Bannsaenger/ioBroker.extron
@@ -620,7 +620,7 @@ https://github.com/simatec/ioBroker.gotify-ws
 
 Gotify-WS ist ein Adapter, der eine WebSocket-Verbindung zu einem Gotify-Server herstellt und somit alle Nachrichten vom Server empfangen und verarbeiten kann.
 
-## Wifilight (05.09.2024) - neue Funktion
+## Wifilight (05.09.2024) – neue Funktion
 Der wifilight-Adapter wurde komplett neu geschrieben und unterstützt nun den Kompaktmodus und die JSON-Konfiguration.
 
 ## Rainbird (17.9.2024) – neuer Adapter im stabilen Zustand
@@ -858,7 +858,7 @@ https://github.com/mcm4iob/ioBroker.shrdzm
 
 <img src="https://raw.githubusercontent.com/mcm4iob/ioBroker.shrdzm/main/admin/shrdzm.png" width="100" height="100" />
 
-Dieser Adapter integriert die von SHRDZM IT Services e.U. bereitgestellte SHRDZM-Smartmeter-Schnittstelle in ioBroker. Eine Beschreibung der Schnittstelle finden Sie unter [Hier](https://cms.shrdzm.com/produkt/smartmeter-modul/).
+Dieser Adapter integriert die von SHRDZM IT Services e.U. bereitgestellte Smartmeter-Schnittstelle von SHRDZM in ioBroker. Eine Beschreibung der Schnittstelle finden Sie unter [Hier](https://cms.shrdzm.com/produkt/smartmeter-modul/).
 
 ## Js-controller (16.4.2025) - neue Funktion
 Der js-Controller 7.0.7 ist jetzt in der neuesten Version verfügbar. Sie enthält Fehlerbehebungen und Verbesserungen. Die wichtigsten Änderungen sind:
@@ -871,7 +871,7 @@ https://github.com/ronny130286/ioBroker.ankersolix2
 
 <img src="https://raw.githubusercontent.com/ronny130286/ioBroker.ankersolix2/main/admin/ankersolix2.png" width="100" height="100" />
 
-Integration von Anker Solix 2. Dieses Projekt basiert auf https://github.com/tomquist/solix2mqtt und bringt Informationen von der Anker-API direkt in ioBroker.
+Integrieren Sie Anker Solix 2. Dieses Projekt basiert auf https://github.com/tomquist/solix2mqtt und bringt Informationen von der Anker-API direkt in ioBroker.
 
 ## Geräte (20.4.2025) – neue Funktion
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.devices/master/admin/devices.png" width="100" height="100" />
@@ -963,7 +963,7 @@ https://github.com/oweitman/ioBroker.pi-hole2
 
 <img src="https://raw.githubusercontent.com/oweitman/ioBroker.pi-hole2/main/admin/pi-hole2.png" width="100" height="100" />
 
-Eine Pi-hole-Installation ab Version 6 verwalten. Informationen von Pi-hole abrufen. Domains blockieren/beenden. (Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
+Eine Pi-hole-Installation ab Version 6 verwalten. Informationen von Pi-hole abrufen. Domains blockieren/stoppen. (Für Pi-hole-Versionen unter 6 verwenden Sie bitte den Adapter ioBroker.pi-hole.)
 
 ## Energy-tracker (21.8.2025) – Neuer Adapter im stabilen Repository
 https://github.com/energy-tracker/ioBroker.energy-tracker
@@ -1027,7 +1027,7 @@ https://github.com/Scrounger/ioBroker.freeair
 
 Lokale Verbindung zu Ihrem BluMartin FreeAir 100 Lüftungssystem
 
-## Unifi-netzwerk (18.10.2025) – Neuer Adapter im stabilen Repository
+## Unifi-network (18.10.2025) – Neuer Adapter im stabilen Repository
 https://github.com/Scrounger/ioBroker.unifi-network
 
 <img src="https://raw.githubusercontent.com/Scrounger/ioBroker.unifi-network/main/admin/unifi-network.png" width="100" height="100" />
@@ -1479,5 +1479,47 @@ https://github.com/NurPech/ioBroker.cisco-checkpresence
 <img src="https://raw.githubusercontent.com/NurPech/ioBroker.cisco-checkpresence/main/admin/cisco-checkpresence.png" width="100" height="100" />
 
 Die Anwesenheit von Familienmitgliedern wird durch Abfrage des Cisco Catalyst 9800 Wireless Controllers via RESTCONF erkannt. Anstelle unzuverlässiger Ping-Prüfungen liest der Adapter die Tabelle der authentifizierten Clients direkt vom WLC – wenn der Controller meldet, dass ein Gerät verbunden ist, ist es vorhanden.
+
+## F1 (16.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/bloop16/ioBroker.f1
+
+<img src="https://raw.githubusercontent.com/bloop16/ioBroker.f1/main/admin/f1.png" width="100" height="100" />
+
+Formel-1-Live-Datenintegration für ioBroker – bietet Rennkalender, Meisterschaftsstand, Session-Ergebnisse und Echtzeit-Live-Session-Daten über den offiziellen F1 Live Timing-Feed und die Jolpica-API.
+
+## Jetframe (16.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/backfisch88/ioBroker.jetframe
+
+<img src="https://raw.githubusercontent.com/backfisch88/ioBroker.jetframe/main/admin/jetframe.png" width="100" height="100" />
+
+JetFrame ist ein ioBroker-Adapter für die Live-Flugverfolgung und -Visualisierung auf Basis von ADS-B-Daten. Er erkennt Flugzeuge, die an Ihrem Fenster vorbeifliegen, und zeigt sie in einer modernen Webanwendung mit Foto, Fluginformationen und Statistiken an.
+
+## Leapmotor (17.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/backfisch88/ioBroker.leapmotor
+
+<img src="https://raw.githubusercontent.com/backfisch88/ioBroker.leapmotor/main/admin/leapmotor.png" width="100" height="100" />
+
+Inoffizielle Integration von Leapmotor-Elektrofahrzeugen für ioBroker. Getestet auf T03.
+
+## Bosch-smart-home-camera (17.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/mosandlt/ioBroker.bosch-smart-home-camera
+
+<img src="https://raw.githubusercontent.com/mosandlt/ioBroker.bosch-smart-home-camera/main/admin/bosch-camera.png" width="100" height="100" />
+
+ioBroker-Adapter für Bosch Smart Home Kameras (Eyes Outdoor, 360 Indoor, Gen2 Eyes Indoor II + Outdoor II). Der gesamte Funktionsumfang ist durchgängig nutzbar und wurde live mit realer Hardware getestet.
+
+## Solakon-one (20.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/berto-1974/ioBroker.solakon-one
+
+<img src="https://raw.githubusercontent.com/berto-1974/ioBroker.solakon-one/main/admin/solakon.png" width="100" height="100" />
+
+Überwacht und steuert den Solakon ONE Hybrid-Solarwechselrichter (www.solakon.de) mit Batteriespeicher über das lokale Netzwerk via Modbus TCP (Port 502).
+
+## Harvia-fenix (20.8.2026) – Neuer Adapter im stabilen Repository
+https://github.com/meistermopper/ioBroker.harvia-fenix
+
+<img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/harvia.png" width="100" height="100" />
+
+Ein ioBroker-Adapter zur Integration und Steuerung Ihrer Harvia Fenix Sauna-Steuereinheit über die MyHarvia Cloud-Infrastruktur.
 
 <!-- ######################### Diese Zeilen am Ende der Datei als Erinnerung behalten ######################## --> <!-- ##### ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Icons! ### --> <!-- ######################## Diese Zeilen am Ende der Datei als Erinnerung behalten ####################### -->

@@ -30,6 +30,9 @@ check you VM Settings
 [Adapter Documentation](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/wiki.md)
 
 ## Changelog
+### 3.2.6 (2026-08-20)
+* (arteck) add wait time for internal mqtt server into settings
+
 ### 3.2.5 (2026-08-04)
 * (arteck) State updates lag issue https://github.com/arteck/ioBroker.zigbee2mqtt/issues/662
 
@@ -44,12 +47,6 @@ check you VM Settings
 
 ### 3.2.2 (2026-05-26)
 * (arteck) Dependencies have been updated
-
-### 3.2.1 (2026-05-05)
-* (copilot) Adapter requires node.js >= 22 now
-* (arteck) upd device manager
-* (arteck) fix aedes-persistence
-* (arteck) fix illuminance
 
 ## License
 

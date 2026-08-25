@@ -107,7 +107,21 @@ Station does not answer to scheduler commands, so only listener mode is supporte
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.2.8 (2026-08-20)
+- Fix #317 last_update type to string (you might need to delete the state manually)
+
+### 1.2.7 (2026-08-20)
+- Fix superscript unit and degress for better display (you need to set the temperature unit again in the config screen)
+
+### 1.2.6 (2026-08-20)
+- Fix #337 Adapter disabled cased by bootloop - part 2
+
+### 1.2.5 (2026-08-20)
+- Fix #337 Adapter disabled cased by bootloop
+- Fix #317 last_update type to string (you might need to delete the state manually)
+- Fixed some lint warinings
+
+### 1.2.4 (2026-08-17)
 - [S5601] translation format changed
 - [S5004] Change setInterval()
 - [S9508] CHANGELOG_OLD.md removed from package.json
@@ -116,36 +130,6 @@ Station does not answer to scheduler commands, so only listener mode is supporte
 - [W1132] wrong roles fixed
 - [S9508] CHANGELOG_OLD.md removed from publishing
 - [S5004] Removed plain setInterval()
-
-### 1.2.3 (2026-06-04)
-- [W5612] Updated labels
-- [E0036] Update release scripts to 5.2.1
-
-### 1.2.2 (2026-06-04)
-- (copilot) Adapter requires node.js >= 22 now
-- [E0036] Update release scripts to 5.2.0
-- [E3022] Update test and release to node 24
-- [W0066] Downgrade to node.js 22.x.x to avoid wrong typing is recommended.
-- [W1126] common.role updated
-- [W5039] Removed admin/words.js
-- [W5612] Updated labels
-- #292 windheading changed to read only
-
-### 1.2.1 (2026-04-07)
-Issue #229: Adding additional parameters for humidity sensors, up to 20 now
-Issue #277: Display conversion issue fix (thanks to ManuelBu96)
-npm updates
-Adapter Checker updates
-
-### 1.2.0 (2026-03-22)
-
-npm dependency updates
-automatic dependency updates added
-
-### 1.1.2 (2026-01-19)
-
-npm dependency updates
-fix admin page: scheduler reported interval in minutes instead of seconds
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

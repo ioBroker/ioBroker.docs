@@ -178,6 +178,10 @@ Got scripts that still write to `visUrl`? Update them — write to `manualUrl` i
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.38.1 (2026-08-22)
+
+- Changed: Internal cleanup. No user-facing changes.
+
 ### 1.38.0 (2026-07-12) — stable
 
 - Known displays were re-created as new clients after every adapter restart — losing their saved redirect and login, and leaving duplicates. The display list is now restored correctly.
@@ -203,10 +207,6 @@ Got scripts that still write to `visUrl`? Update them — write to `manualUrl` i
 - A custom name you give a display (its channel name) is no longer overwritten with the device's IP address when that IP changes.
 - With authentication enabled, a display again reloads automatically after you change its target URL.
 - With authentication enabled, a password is now required — the settings can no longer be saved with an empty password.
-
-### 1.35.3 (2026-06-15)
-
-- Fixed Home Assistant discovery pointing the display at the wrong address on multi-interface hosts; it now uses the address the adapter actually listens on.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

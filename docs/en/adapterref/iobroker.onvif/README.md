@@ -297,6 +297,16 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.8 (2026-08-21)
+
+- (TA2k) Fixed reconnect loop: the watchdog now only rebuilds on non-retryable event errors, so cameras that periodically reset the event socket ("socket hang up") are left to the onvif library's own retry instead of reconnecting every 30s
+- (TA2k) Retryable event errors are logged at debug instead of warn and no longer flip the connection state
+- (TA2k) Updated onvif to 0.8.2 and dev dependencies
+
+### 1.1.7 (2026-08-20)
+
+- (mcm1957) clean release built to fix missing tagging and github release
+
 ### 1.1.6 (2026-08-08)
 
 - (TA2k) Faster reconnect after a camera reboot (detection in ~30-50s instead of ~4min)
@@ -317,10 +327,6 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
 ### 1.1.3 (2024-03-15)
 
 - Allow non number PTZ presets
-
-### 1.1.2 (2023-12-29)
-
-- (TA2k) Catch callback error
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

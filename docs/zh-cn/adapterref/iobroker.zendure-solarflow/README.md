@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: FOzwWSvFOpUsK0/fB2iZjiSBxwNWuvJfzIvLcGuKsN8=
+hash: MboBOEsU/uDglPvAQaGdZj4qjHkQhgloJ7SZnHxywVQ=
 ---
 ![标识](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -69,11 +69,13 @@ hash: FOzwWSvFOpUsK0/fB2iZjiSBxwNWuvJfzIvLcGuKsN8=
 - **可靠性**：直接本地 MQTT 通信
 - **速度**：响应速度更快，无云延迟
 - **灵活性**：可根据需要将消息转发到云端
-- **控制**：完全本地自动化，无需互联网依赖
+- **控制**：完全本地自动化，无需依赖互联网
 - **更新**：您仍然可以通过蓝牙使用官方 Zendure 应用程序进行固件更新。
 
 ## 离线模式（断开与 Zendure 云的连接）
 作为一项新功能，您可以将 Zendure 设备与云端断开连接。您可以使用 [Reinhard Brandstätter 的 Solarflow Bluetooth Manager（https://github.com/reinhard-brandstaedter/solarflow-bt-manager）或我自己的 Windows 工具 [Zendure Cloud Disconnector](https://github.com/reinhard-brandstaedter/solarflow-bt-manager)。](https://github.com/nograx/zendure-cloud-disconnector) 断开设备与云端的连接。此外，您还可以通过路由器将来自“mq.zen-iot.com”的 DNS 请求重定向到您自己的 MQTT 服务器！
+
+**注意：** Solarflow 蓝牙管理器和 Zendure 云断开器仅适用于**旧版设备**。对于**zenSDK**设备，您必须改用 DNS 重定向，因为这些设备不会通过蓝牙公开 MQTT 服务器设置。
 
 这两个工具都通过蓝牙连接到 Zendure 设备，并将内部 MQTT URL 设置为您需要提供的新 URL/IP 地址。目前，您只能在服务器上使用默认的 MQTT 端口 1883（或启用 SSL 后的 8883）。此外，由于 Zendure 设备使用硬编码密码，您还必须禁用 MQTT 服务器上的身份验证。
 
@@ -90,31 +92,29 @@ hash: FOzwWSvFOpUsK0/fB2iZjiSBxwNWuvJfzIvLcGuKsN8=
 ### **正在进行中** -->
 
 ## Changelog
-### 4.1.0 (2026-06-19)
+### 5.1.0 (2026-08-20)
 
-- Allow local TLS MQTT Server connection on port 8883 (due to new device firmware) in settings
-- Fix batcur calculation
+- Fix batCur Reading
+- Add control state for inverseMaxPower and gridOffMode (Control AC outlet on 'Plus' Devices)
 
-### 4.0.6 (2026-06-06)
+### 5.0.4 (2026-08-19)
 
-- Add productKey 'nVyeqM' for Solarflow 800 Pro 2
+- Fix flickering Save button in Settings.
+- Add function to detect zenSDK devices with mDNS and fill missing IP-address if found.
 
-### 4.0.5 (2026-06-03)
+### 5.0.3 (2026-08-18)
 
-- Add state 'socStatus' (Auto-calibration) for modern devices (SF 800 upwards)
-- Fix adapter start if deviceList is empty
-- Improve logging of errors
-- Adapter requires node.js >= 22 now
+- Fix `wifiState` not being created/updated correctly for devices using local zenSDK polling (Solarflow 2400 AC/AC Plus/Pro, 1600 AC Plus), as their local status payload does not report a `wifiState` property
 
-### 4.0.4 (2026-04-14)
+### 5.0.2 (2026-08-18)
 
-- Update dependencies
+- Fix Wifistate type/value mismatch
 
-### 4.0.3 (2026-03-31)
+### 5.0.1 (2026-08-18)
 
-- Fix missing ip address field in settings for local mode
-- Add retry loop for zenSDK requests (retry 3 times if connection failed)
-- Update battery detection
+- Fix state type/value mismatch
+
+For older changes see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 

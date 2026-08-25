@@ -90,6 +90,34 @@ This adapter uses the official Volumio APIs:
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.11.0 (2026-08-18)
+#### 🔧 Improvements
+* Timers are now registered via the adapter (`this.setInterval`/`this.setTimeout`) instead of the global functions, so js-controller can track and clean them up automatically (unload, compact mode)
+* `@types/node` downgraded to `^22.20.1` to match the adapter's actual Node 22 minimum (avoids incorrect typings for newer Node APIs)
+* Migrated `admin/i18n` translation files from the long directory format (`{lang}/translations.json`) to the short format (`{lang}.json`)
+* CI: `adapter-tests` now runs after `check-and-lint` instead of in parallel
+* Dependabot: npm dependency checks now run on a randomized monthly schedule instead of all on the same day, and the open-PR limit was raised from 5 to 15
+
+### 0.10.0 (2026-08-18)
+#### 🐛 Bug Fixes
+* **Critical**: fixed a crash (`RangeError: Maximum call stack size exceeded`) that took down the whole adapter whenever the WebSocket connection to Volumio failed or was lost (e.g. Volumio restarting, a network hiccup). Cause: the bundled `engine.io-client` v3 (required by `socket.io-client` v2 for Volumio's Socket.IO v2 server) unconditionally prefers Node's native `WebSocket` global over the `ws` package if present, but predates it and cannot handle its error/close events correctly under modern Node.js (>= 21). Fixed by making socket.io-client's module load lazily while briefly hiding the native global, forcing the working `ws` transport. Verified by killing a live Volumio instance mid-connection: the adapter now reconnects/retries cleanly instead of crashing.
+* Fixed WebSocket client sending wrong Volumio command names for playback options (`random`/`repeat`/`repeatSingle` instead of `setRandom`/`setRepeat`/`setRepeatSingle`), which silently made shuffle/repeat toggles a no-op in WebSocket mode. Found via a new live test against a real Volumio instance.
+* Removed `process.exit()` from `test-client.js` (incompatible with ioBroker compact mode)
+* Corrected `read`/`write` role flags in `io-package.json` for `queue.repeatTrack`, `playbackInfo.random`, `queue.shuffle`
+* `playbackInfo.mute`/`player.muted` (role `media.mute`) and `playbackInfo.status` (role `media.state`) were declared writable but had no handler, so writes were silently ignored; both now actually control playback/mute, matching the official ioBroker `media.*` role spec
+
+#### 🔧 Improvements
+* Dependencies updated (axios, body-parser, rimraf, @types/node, @typescript-eslint/*, @alcalzone/release-script and plugins, @iobroker/adapter-core)
+* Reverted an attempted `socket.io-client` v2→v4 upgrade: Volumio bundles a Socket.IO v2 server, which is fundamentally incompatible with v3/v4 clients (verified against a real Volumio 4 instance); added a dependabot ignore rule to prevent this from recurring
+* CI/`engines.node` raised to Node.js 22.x (Node 20 is EOL); test matrix now `[22.x, 24.x]`
+* Set up automated Dependabot PR auto-merging (`automerge-dependabot.yml`), replacing the previously broken workflow
+* Added `prettier.config.mjs` and reformatted the whole `src/` tree to the shared ioBroker style; removed redundant ESLint devDependencies (already provided via `@iobroker/eslint-config`)
+* Added missing English admin UI translation keys (`apiMode`, `pollInterval`, `reconnectAttempts`, `reconnectDelay`, host field)
+* Bumped `@iobroker/adapter-core` and the required `admin` version
+
+#### ✅ Testing
+* Added `npm run test:live`: an automated integration test (`test/live.volumio.test.ts`) exercising both REST and WebSocket clients against a real, reachable Volumio instance (connect, ping, system info, state shape, a reversible random-playback round-trip, clean disconnect)
+
 ### 0.9.0 (2025-12-22)
 **Major Release - Milestone before 1.0.0**
 
@@ -145,16 +173,7 @@ This adapter uses the official Volumio APIs:
 ### 0.1.3
 * (André Iske) Security patches
 
-### 0.1.2
-* (André Iske) Minor bug fixes
-
-### 0.1.0
-* (André Iske) Complete reworked adapter
-    * Switched codebase to typescript
-    * Changed License to MIT
-
-### 0.0.1
-* (André Iske) initial release
+Older changes can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 MIT License

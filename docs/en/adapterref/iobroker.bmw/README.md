@@ -217,6 +217,13 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.2 (2026-08-11)
+
+- (TA2k) added a staged telematic container fallback on CU-403: full catalogue (294) -> without endpoint-bound keys (290) -> all streaming-capable keys plus extras (252) -> curated reduced set (75), keeping as much coverage as BMW accepts instead of failing
+- (TA2k) expanded the reduced/fallback container to a curated 75-key set covering EV charging/HV battery, range/mileage/fuel, location, doors, windows, tyres, service and status for both EV and combustion vehicles
+- (TA2k) log the active container's state, version and name for diagnostics
+- (TA2k) auto-upgrade an outdated reduced container via a version marker in the container purpose, while never deleting a working full container
+
 ### 5.0.1 (2026-08-10)
 
 - (TA2k) fixed CU-103 "token-scope is not CarData" by requesting the cardata:api:read scope explicitly in the device code flow

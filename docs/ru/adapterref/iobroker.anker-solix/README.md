@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.anker-solix/README.md
 title: ioBroker.anker-solix
-hash: Mj1W28yEMaxpGycVa4ogkK1MbN2Gsy68Xek9xPdydS4=
+hash: i6gAsX9TYDWDa1IiFS7MSiyI/L6srpjTxy1mujZKOis=
 ---
 # IoBroker.anker-solix
 
@@ -69,7 +69,7 @@ hash: Mj1W28yEMaxpGycVa4ogkK1MbN2Gsy68Xek9xPdydS4=
 
 Интервал опроса должен составлять **60–180 с** (та же рекомендация, что и для HA). Список сайтов обновляется каждый цикл; данные об устройствах/сайтах и данные об энергопотреблении обновляются с более медленным интервалом (`deviceDetailMultiplier`, по умолчанию каждые 10 опросов).
 
-> **Важно:** Использование облачного API **обязательно**. Одного MQTT недостаточно для получения полных системных данных. Этот адаптер **не** заменяет локальные интеграции BLE или Modbus — см. [Дополнительные ресурсы](#credits--further-reading).
+> **Важно:** Для облачных устройств API Anker **обязательно** (одного MQTT недостаточно для получения полных системных данных). Исключение: режим **только Modbus** использует локальный TCP и не требует облачных учетных данных. Этот адаптер **не** заменяет локальную интеграцию BLE — см. [Дополнительные ресурсы](#credits--further-reading).
 
 ---
 
@@ -114,7 +114,7 @@ python3 -m venv python/.venv && python/.venv/bin/pip install -r python/requireme
 2. Используйте `get-pip.py` с параметром `--break-system-packages`, если системный Python соответствует PEP 668.
 3. В качестве запасного варианта используйте `pip install --target python/site-packages`.
 
-В панели администратора экземпляра: **Параметры** → **Установить зависимости Python** или перезапустите экземпляр с включенной опцией **autoInstallPython**.
+В административной панели экземпляра: **Параметры** → **Установить зависимости Python** или перезапустите экземпляр с включенной опцией **autoInstallPython**.
 
 Если в логах по-прежнему отображается `No module named pip`, откройте терминал ioBroker/SSH на хосте и выполните следующую команду:
 
@@ -126,6 +126,23 @@ iobroker restart anker-solix.0
 
 Скопируйте **`authcache/<email>.json`** из работающей конфигурации Anker (например, ha-anker-solix) в `iobroker-data/anker-solix.0/authcache/`, чтобы избежать капчи при первом входе в систему.
 
+### Локальный Modbus (опционально)
+Более новые устройства Anker (Solarbank 4 / Max AC / Max, Smart Meter Gen 2, Smart Plug Gen 2) можно опрашивать **локально через Modbus TCP** (порт 502). Это отдельный канал от облачного моста Python (регистрируйте карты из [ha-anker-solix-official](https://github.com/anker-charging/ha-anker-solix-official)).
+
+1. Включите протокол **Modbus TCP** в приложении Anker (система / управление сторонними сервисами).
+2. Администрирование адаптера → **Modbus (локальный)** → включить канал, добавить IP-адреса каждого устройства.
+3. Дополнительно: включите **только Modbus (без облака)**, если вы не хотите использовать вход в облако Anker. В этом случае Python, учетные данные и условия использования не требуются; экземпляр будет **зеленым**, если подключено хотя бы одно устройство Modbus (в противном случае — желтым).
+4. Датчики: `anker-solix.0.modbus.<name>.sensors.*` (SOC, PV, grid, battery, SN, …).
+5. Элементы управления: `anker-solix.0.modbus.<name>.control.*`
+- Solarbank: `operating_mode`, ограничения SOC, `backup_soc_enable`, `battery_power_direction` + `battery_power_setpoint` (установка значения происходит только в **third_party_control**; сначала установите направление; заряд записывается в отрицательных ваттах).
+- Умная розетка второго поколения: `power_switch`.
+- Умный счетчик второго поколения: только для чтения.
+
+Без **только Modbus** для старых устройств и MQTT по-прежнему используется облачный вход. Solarbank 3 **не** включен в официальные карты Modbus Anker. Если другой клиент Modbus только что запросил устройство, первый запрос может получить **отказ в соединении** до истечения времени ожидания этого клиента; следующий интервал запроса будет повторен.
+
+### Docker (`buanet/iobroker`)
+Официальный образ поставляется с **Python 3.11**. Начиная с **0.10.87**, адаптер принимает его как **наилучший вариант** в контейнерах Bookworm на Debian 12 — пользовательский образ не требуется. **3.12+** по-прежнему рекомендуется (используется разработчиками из основного репозитория) и по-прежнему требуется на физических серверах и хостах без Bookworm. Руководство: **[docs/docker-buanet.md](docs/docker-buanet.md)** (дополнительные файлы 3.12 в папке [`docs/docker/`](docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf)](docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
+
 ---
 
 ## Конфигурация
@@ -133,7 +150,7 @@ iobroker restart anker-solix.0
 2. **Учетная запись:** Электронная почта Anker, пароль, код страны (например, `DE`) — **сохраните после ввода пароля**
 3. **Учетная запись:** разрешить использование неофициального API (флажок внизу вкладки)
 4. **Параметры:** интервал опроса 60–180 с, **MQTT** при необходимости, `deviceDetailMultiplier` (по умолчанию в Home Assistant: 10)
-5. **Устройства:** **Загрузка устройств**, дополнительный фильтр по идентификатору сайта / серийному номеру устройства.
+5. **Устройства:** **Загрузка устройств**, дополнительный фильтр идентификатора сайта / серийного номера устройства.
 6. **Объекты** (v0.9.0+): включить необязательные группы; по умолчанию включен только **Ядро** → **перезапустить адаптер** после внесения изменений
 
 Не используйте функцию **Очистка кэша входа в Anker**, если вам не требуется преднамеренный повторный вход (неверная учетная запись, поврежденный файл). Очистка принудительно выполняет новый вход в облако и часто запускает капчу на серверах — см. [Поиск неисправностей](#troubleshooting-login--poll).
@@ -169,24 +186,26 @@ iobroker restart anker-solix.0
 ---
 
 ## Поддерживаемые устройства
-Покрытие устройств такое же, как в [ха-анкер-соликс](https://github.com/thomluther/ha-anker-solix#supported-sensors-and-devices) (через solixapi). В ioBroker данные отображаются по идентификаторам состояний в зависимости от типа устройства (`solarbank`, `smartmeter`, `combiner_box`, `system`, …).
+Производитель: [Anker SOLIX](https://www.anker.com/anker-solix) ([поддержка / загрузки](https://support.ankersolix.com/)). Облачное покрытие соответствует [ha-anker-solix](https://github.com/thomluther/ha-anker-solix#supported-sensors-and-devices) (через solixapi). В ioBroker данные отображаются по идентификаторам состояния в зависимости от типа устройства (`solarbank`, `smartmeter`, `combiner_box`, `system`, `modbus`, …).
 
-| Тип устройства | Примеры / примечания |
-|-------------|------------------|
-| **система / сайт** | Система электропитания из приложения Anker (= API “сайт”) |
-| **солнечная батарея** | E1600 (Gen1), SB2 Pro/Plus/AC, SB3 E2700 — API + MQTT |
-| **combiner_box** | Power Dock (мультисистемный) — объединенные элементы управления в ioBroker, если применимо |
-| **умный счетчик** | Трехфазный счетчик Anker, США, Shelly 3EM / 3EM Pro |
-| **инвертор** | Автономный MI80 (виртуальный сайт в API) |
-| **Умная розетка** | Умная розетка 2500 Вт |
-| **pps** / **solarbank_pps** | Портативные электростанции — в основном MQTT |
-| **ev_charger** | Интеллектуальное зарядное устройство для электромобилей V1 — в основном использует MQTT |
-| **транспортное средство** | Виртуальные электромобили для учетных записей зарядных устройств — ориентированы на чтение в ioBroker |
-| **PowerPanel** / **HES** | US Power Panel, X1 HES — ограниченный API, интенсивное использование опроса статистики |
-| **зарядное устройство** | Prime / зарядные станции — MQTT |
-| **home_backup** | E10, AX170 — очень ограниченный API |
+| Тип устройства | Примеры | Облачное / MQTT | Локальный Modbus |
+|-------------|----------|--------------|--------------|
+| **система / сайт** | Система электропитания из приложения Anker (= API “сайт”) | да | — |
+| **солнечная батарея** | E1600 (Gen1), SB2 Pro/Plus/AC, SB3 E2700, **SB4 E5000 Pro**, **Solarbank Max / Max AC** (XE) | API + MQTT | **SB4, Max, Max AC** (порт 502) |
+| **combiner_box** | Power Dock (мультисистемный) — объединенные элементы управления, если применимо | да | — |
+| **умный счетчик** | Трехфазный счетчик Anker, США, Shelly 3EM / 3EM Pro, **умный счетчик второго поколения** (AE1X0) | да | **второго поколения** (только для чтения) |
+| **инвертор** | Автономный MI80 (виртуальный сайт в API) | да | — |
+| **умная розетка** | Умная розетка 2500 Вт, **Умная розетка второго поколения** | да | **2-е поколение** (`power_switch`) |
+| **pps** / **solarbank_pps** | Портативные электростанции | в основном MQTT | — |
+| **ev_charger** | Интеллектуальное зарядное устройство для электромобилей V1 | в основном MQTT | — |
+| **транспортное средство** | Виртуальные электромобили для зарядных устройств | ориентирован на чтение | — |
+| **PowerPanel** / **HES** | Американский Power Panel, X1 HES | Ограниченный API | X1 использует другую спецификацию Anker Modbus (не этот адаптер) |
+| **зарядное устройство** | Prime / зарядные станции | MQTT | — |
+| **home_backup** | E10, AX170 | очень ограниченный API | — |
 
-Иерархия устройств (как HA структурирует сущности): [обсуждение № 239](https://github.com/thomluther/ha-anker-solix/discussions/239).
+В адаптере **Solarbank 3** есть поддержка облачных сервисов/MQTT, но он **не** включен в официальные карты регистров Modbus от Anker.
+
+Иерархия устройств (как HA структурирует сущности): [[Обсуждение #239](https://github.com/thomluther/ha-anker-solix/discussions/239). Настройка локального Modbus: [Локальный Modbus (необязательно)](#local-modbus-optional).
 
 ---
 
@@ -209,7 +228,7 @@ iobroker restart anker-solix.0
 ## Устройства, управляемые по протоколу MQTT
 Включите **MQTT** в **Настройках**, если вам нужны данные в реальном времени или элементы управления, которые не предоставляются облачным API (многие функции PPS/EV/зарядных устройств).
 
-- Дополнительные датчики/элементы управления загружаются из MQTT-карт в solixapi (декодируются сообществом для каждой модели).
+- Дополнительные датчики/элементы управления получаются из MQTT-карт в solixapi (декодируются сообществом для каждой модели).
 - **Триггер в реальном времени** и **запрос статуса** работают как кнопки Home Assistant — автоматизация их круглосуточного использования увеличивает трафик и поддерживает устройства в активном состоянии ([раздел Home Assistant MQTT](https://github.com/thomluther/ha-anker-solix#mqtt-managed-devices)).
 - Для **гибридного управления** (резерв SOC станции, ограничения переменного тока, экспорт электроэнергии из сети в многосистемном режиме) требуется MQTT + API, как в Home Assistant.
 - Устройства в режиме локального подключения MQTT (например, E10 за Power Dock) подключаются через центральный блок управления — см. [ИНФОРМАЦИЯ О HA – Локальный режим MQTT](https://github.com/thomluther/ha-anker-solix/blob/main/INFO.md#devices-in-mqtt-local-mode).
@@ -219,7 +238,15 @@ iobroker restart anker-solix.0
 ---
 
 ## Специальные примечания к устройству
-Сокращенная версия из [README интеграции HA](https://github.com/thomluther/ha-anker-solix); поведение аналогично при использовании solixapi.
+Сокращенная версия из [README интеграции HA](https://github.com/thomluther/ha-anker-solix); поведение облачной/MQTT-системы одинаково при использовании solixapi. Локальные примечания Modbus зависят от адаптера.
+
+### Solarbank 4 E5000 Pro / Solarbank Max / Max AC
+Облачный режим: тот же путь опроса, что и у других солнечных батарей (API + опционально MQTT). **Локальный Modbus TCP** (официальные карты): включите Modbus в приложении Anker (система / управление сторонними сервисами), затем Администрирование → **Modbus (локальный)**. Типичные коды моделей включают AE103 (SB4). Состояния: `anker-solix.0.modbus.<name>.sensors.*` и `.control.*` (режим работы, ограничения уровня заряда батареи, заданное значение заряда батареи в **управлении сторонним сервисом**). **Только Modbus** пропускает облачный режим/Python; светодиод экземпляра горит зеленым, когда подключено хотя бы одно устройство Modbus.
+
+Если другой Modbus-клиент только что запросил устройство, первый запрос может завершиться ошибкой **соединение отклонено**, пока не истечет время ожидания этого клиента — в следующем интервале запроса будет предпринята повторная попытка.
+
+### Умный счетчик второго поколения / Умная розетка второго поколения
+Облачные сущности аналогичны другим счетчикам/розеткам. **Локальный Modbus:** Счетчик Gen 2 **только для чтения** (мощность/напряжение/ток на фазу). Интеллектуальная розетка Gen 2 предоставляет доступ к `power_switch`. Каждому устройству требуется собственный IP-адрес (порт 502).
 
 ### Автономные инверторы (МИ80)
 Это не полноценная «энергетическая система» в виде приложения, а данные, отслеживаемые облаком. API создает **виртуальный объект**. Состояние Wi-Fi инвертора в API часто бывает неверным; состояние подключения к облаку более надежно. **Не** изменяйте ограничения инвертора навсегда (циклы записи на оборудование).
@@ -255,7 +282,7 @@ iobroker restart anker-solix.0
 Виртуальные устройства на учетную запись EV; создание через адаптер не требуется — обнаружено при обновлении.
 
 ### Панель питания и HES (X1)
-Ограниченные возможности API; обходное решение использует **~5-минутные средние значения** из статистики энергопотребления (**~80 МБ/день** дополнительного трафика на систему, если включено). При необходимости отключите категории с высокой нагрузкой в **объектах**. X1: рассмотрите локальный **Modbus** ([Спецификация Анкер](https://support.ankersolix.com/de/s/download-preview?urlname=Anker-SOLIX-X1-Series-Modbus-Protocol)) — не является частью этого адаптера.
+Ограниченные возможности API; обходное решение использует **~5-минутные средние значения** из статистики энергопотребления (**~80 МБ/день** дополнительного трафика на систему, если включено). При необходимости отключите категории с высокой нагрузкой в **объектах**. Локальный Modbus X1 использует [отдельный протокол Anker](https://support.ankersolix.com/de/s/download-preview?urlname=Anker-SOLIX-X1-Series-Modbus-Protocol) — **не** реализован в этом адаптере (только официальные карты Solarbank 4 / Max / счетчик / розетка Gen 2).
 
 ### Резервное копирование домашней сети (E10, AX170)
 Практически отсутствует облачный API для управления энергопотреблением системы; E10 часто работает в локальном режиме MQTT через док-станцию.
@@ -315,6 +342,23 @@ Anker блокирует некоторые входы через API **серв
 
 ---
 
+## Панель мониторинга VIS / VIS-2 (Энергоэффективность дома)
+Набор виджетов **anker-solix** → **Energy Home** (фотореалистичный фон дома, наложения в реальном времени для солнечных батарей / дома / сети / батареи / электромобиля). Все состояния привязаны вручную в настройках виджета (выбор объекта).
+
+**Важно:** Виджеты поставляются только с **основной версией GitHub / 0.10.100+**. npm **0.10.90** их **не** включает. После установки или обновления:
+
+```bash
+iobroker upload anker-solix
+```
+
+Затем перезапустите **vis** и/или **vis-2** (или перезагрузите редактор с помощью клавиши F5). В окне выбора виджетов найдите набор **anker-solix** → **Energy Home**. В настройках виджета назначьте каждому состоянию: **Привязки состояний** (PV, home, EV, footer), **Потоки в сеть** (импорт в сеть, экспорт в сеть), **Аккумулятор** (SOC, зарядка, разрядка).
+
+Дополнительный импорт представления VIS-2: `widgets/anker-solix/views/energy-home.vis2.json`.
+
+Включите отображение **потоков мощности** и **статистики энергопотребления** в **объектах** адаптера для значений в нижнем колонтитуле (самопотребление, сегодняшняя солнечная энергия).
+
+---
+
 ## Публикации (каталог npm и ioBroker)
 **npm:** Выпуск через git-тег (`v*`) и развертывание в CI после [Проверка адаптера прошла успешно (https://adaptercheck.iobroker.in/). Публикация осуществляется с использованием **доверенной публикации npm** (OIDC из GitHub Actions — без долгосрочного токена npm). Классические токены автоматизации устарели в npm с **января 2027 года**; этот адаптер уже использует доверенную публикацию. Зарегистрируйтесь в [ioBroker.repositories]](https://github.com/ioBroker/ioBroker.repositories), как только пакет появится в npm.
 
@@ -330,6 +374,61 @@ Anker блокирует некоторые входы через API **серв
 ---
 
 ## Changelog
+
+### 0.10.100
+
+- **VIS Energy Home:** duplicate grid-to-home flow line fixed — remove legacy `grid` SVG paths, show only import or export line at a time (GitHub-only)
+
+### 0.10.99
+
+- **VIS Energy Home:** VIS-1 duplicate grid/battery cards fixed — widget destroy/cleanup on re-render, legacy card removal, cache-busted CSS/JS (GitHub-only)
+
+### 0.10.98
+
+- **VIS Energy Home:** single always-visible grid and battery power cards; label and value switch between import/export and charge/discharge while flow lines show direction (GitHub-only)
+
+### 0.10.97
+
+- **VIS Energy Home:** grid and battery power cards share one slot each and toggle by active flow — Grid → Home vs PV → Grid, Entladen vs Laden (GitHub-only)
+
+### 0.10.96
+
+- **VIS Energy Home:** energy flow lines realigned to the Home hub (PV, grid import/export, battery charge/discharge, EV); SVG coordinates now match card positions (GitHub-only)
+
+### 0.10.95
+
+- **VIS Energy Home:** separate cards for Grid → Home, PV → Grid, SOC, charge, and discharge; dedicated flow lines per direction; widget settings grouped into Grid flows and Battery (GitHub-only)
+
+### 0.10.94
+
+- **VIS Energy Home:** removed auto-discovery and card hiding; all states (PV, home, grid import/export, SOC, battery charge/discharge, EV, footer) are assigned manually in widget settings (GitHub-only)
+
+### 0.10.93
+
+- **VIS Energy Home:** grid uses `grid_to_home_power` (import) vs `photovoltaic_to_grid_power` (export); battery uses `bat_charge_power` vs `bat_discharge_power`; energy line animation direction matches flow (GitHub-only)
+
+### 0.10.92
+
+- **VIS / VIS-2 Energy Home:** clean house background (no baked-in UI); slim animated SVG energy lines and cards as overlays; broader auto-discovery (system, combiner, smartmeter, solarbank, modbus, ev_charger); all cards always visible; live view subscribes discovered states (GitHub-only until next npm release)
+
+### 0.10.91
+
+- **VIS / VIS-2:** first **Energy Home** widget (auto state discovery, combiner/modbus aware); `restartAdapters` vis + vis-2; requires `iobroker upload anker-solix` after install (GitHub-only until next npm release)
+
+### 0.10.90
+
+- **Modbus only:** skip Anker cloud/Python when the checkbox is enabled; no credentials or usage terms required; instance LED is green when at least one local Modbus device is connected
+- **Docs:** README supported devices + special notes for SB4 / Max / Modbus Gen 2; valid state roles for usage-mode and EV-charger lists; Modbus admin i18n
+
+### 0.10.89
+
+- **Admin:** fix GUI error when opening **Modbus (local)** (`hidden` must use `data.enableModbus`; table `items` as array with `attr`)
+- **Docker:** buanet guide uses stock Python **3.11** as default (0.10.87 best-effort); 3.12 image/userscript optional
+
+### 0.10.88
+
+- **Modbus (optional):** local TCP poll and control for official devices (Solarbank 4 / Max AC / Max, Smart Meter Gen 2, Smart Plug Gen 2); cloud Python bridge unchanged
+- **Docker:** buanet/iobroker Python guide (`docs/docker-buanet.md`)
 
 ### 0.10.87
 

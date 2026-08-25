@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: FOzwWSvFOpUsK0/fB2iZjiSBxwNWuvJfzIvLcGuKsN8=
+hash: MboBOEsU/uDglPvAQaGdZj4qjHkQhgloJ7SZnHxywVQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -26,7 +26,7 @@ hash: FOzwWSvFOpUsK0/fB2iZjiSBxwNWuvJfzIvLcGuKsN8=
 ## Функции
 — Получайте все телеметрические данные с ваших устройств Solarflow, включая те, которые не отображаются в официальном приложении, например, напряжение батареи.
 — Управляйте устройствами Solarflow так же, как и в официальном приложении. Большинство настроек доступны.
-— Контролируйте ограничения на вход и выход — вы не ограничены использованием Shelly Pro EM для реализации нулевой подачи сигнала. Вы также можете проектировать более сложные сценарии с помощью скриптов или Blockly в ioBroker.
+— Контролируйте ограничения на входе и выходе — вы не ограничены использованием Shelly Pro EM для реализации нулевой подачи сигнала. Вы также можете проектировать более сложные сценарии с помощью скриптов или Blockly в ioBroker.
 - Отключение входного сигнала при низком напряжении одной из батарей (защита батареи). Работает только при установке ограничения выходного напряжения через адаптер.
 — Управляйте несколькими устройствами Solarflow одновременно!
 — Получите более точные расчеты!
@@ -75,6 +75,8 @@ hash: FOzwWSvFOpUsK0/fB2iZjiSBxwNWuvJfzIvLcGuKsN8=
 ## Автономный режим (отключение от Zendure Cloud)
 В качестве новой функции вы можете отключить устройство Zendure от облака. Для этого можно использовать [Solarflow Bluetooth Manager от Райнхарда Брандштеттера (https://github.com/reinhard-brandstaedter/solarflow-bt-manager) или мой собственный инструмент для Windows [Zendure Cloud Disconnector].](https://github.com/nograx/zendure-cloud-disconnector). Также можно перенаправлять DNS-запросы с вашего маршрутизатора с "mq.zen-iot.com" на ваш собственный MQTT-сервер!
 
+**Примечание:** Solarflow Bluetooth Manager и Zendure Cloud Disconnector работают только с **устаревшими устройствами**. Для устройств **zenSDK** необходимо использовать перенаправление DNS, поскольку эти устройства не предоставляют доступ к настройкам MQTT-сервера через Bluetooth.
+
 Оба инструмента подключаются к устройству Zendure через Bluetooth и просто устанавливают внутренний URL-адрес MQTT на новый URL/IP-адрес, который вам необходимо указать. В настоящее время вы вынуждены использовать порт MQTT по умолчанию 1883 (или 8883 с SSL) на вашем сервере. Вам также необходимо отключить аутентификацию на сервере MQTT, поскольку устройство Zendure использует жестко закодированный пароль.
 
 Вы можете использовать это в сочетании с ключом облачной аутентификации или в полном локальном режиме.
@@ -90,31 +92,29 @@ hash: FOzwWSvFOpUsK0/fB2iZjiSBxwNWuvJfzIvLcGuKsN8=
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
-### 4.1.0 (2026-06-19)
+### 5.1.0 (2026-08-20)
 
-- Allow local TLS MQTT Server connection on port 8883 (due to new device firmware) in settings
-- Fix batcur calculation
+- Fix batCur Reading
+- Add control state for inverseMaxPower and gridOffMode (Control AC outlet on 'Plus' Devices)
 
-### 4.0.6 (2026-06-06)
+### 5.0.4 (2026-08-19)
 
-- Add productKey 'nVyeqM' for Solarflow 800 Pro 2
+- Fix flickering Save button in Settings.
+- Add function to detect zenSDK devices with mDNS and fill missing IP-address if found.
 
-### 4.0.5 (2026-06-03)
+### 5.0.3 (2026-08-18)
 
-- Add state 'socStatus' (Auto-calibration) for modern devices (SF 800 upwards)
-- Fix adapter start if deviceList is empty
-- Improve logging of errors
-- Adapter requires node.js >= 22 now
+- Fix `wifiState` not being created/updated correctly for devices using local zenSDK polling (Solarflow 2400 AC/AC Plus/Pro, 1600 AC Plus), as their local status payload does not report a `wifiState` property
 
-### 4.0.4 (2026-04-14)
+### 5.0.2 (2026-08-18)
 
-- Update dependencies
+- Fix Wifistate type/value mismatch
 
-### 4.0.3 (2026-03-31)
+### 5.0.1 (2026-08-18)
 
-- Fix missing ip address field in settings for local mode
-- Add retry loop for zenSDK requests (retry 3 times if connection failed)
-- Update battery detection
+- Fix state type/value mismatch
+
+For older changes see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 

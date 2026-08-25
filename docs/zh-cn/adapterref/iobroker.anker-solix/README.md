@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.anker-solix/README.md
 title: ioBroker.anker-solix
-hash: Mj1W28yEMaxpGycVa4ogkK1MbN2Gsy68Xek9xPdydS4=
+hash: i6gAsX9TYDWDa1IiFS7MSiyI/L6srpjTxy1mujZKOis=
 ---
 # IoBroker.anker-solix
 
@@ -73,14 +73,14 @@ Linux 仍然是 ioBroker 部署的主要目标平台。Windows 系统在代码�
 
 轮询间隔应为 **60–180 秒**（与 HA 建议相同）。站点列表每个周期更新；设备/站点详细信息和能源数据以较慢的间隔运行（`deviceDetailMultiplier`，默认每 10 次轮询一次）。
 
-> **重要提示：**云 API 是**必需的**。仅靠 MQTT 不足以获取完整的系统数据。此适配器**不能**替代本地 BLE 或 Modbus 集成——参见 [更多资源](#credits--further-reading)。
+> **重要提示：**对于云设备，Anker API 是**必需的**（仅使用 MQTT 不足以获取完整的系统数据）。例外情况：**仅限 Modbus 模式**使用本地 TCP，无需云凭据。此适配器**不能**替代本地 BLE 集成——请参阅 [更多资源](#credits--further-reading)。
 
 ---
 
 ## 要求和安装
 - ioBroker **js-controller >= 6**，**admin >= 7.6**
 - **Node.js >= 22**
-- ioBroker 主机上需要 Python 3.12 或更高版本（推荐/上游要求）：
+- ioBroker 主机上需要 Python 3.12+ 版本（推荐/上游要求）：
 - **Linux：** `python3-venv` + `python3-pip`（Debian/Ubuntu）— 主要生产目标
 - **Windows：** Python 3.12+（可从 python.org 下载）或使用 `py -3.12`；适配器安装程序会处理虚拟环境和 **`tzdata`**。
 - **macOS：** **不支持**（未验证自动安装 Python 的功能）
@@ -130,6 +130,23 @@ iobroker restart anker-solix.0
 
 将 **`authcache/<email>.json`** 从正在运行的 Anker 设置（例如 ha-anker-solix）复制到 `iobroker-data/anker-solix.0/authcache/`，以避免首次登录时出现验证码。
 
+### 本地 Modbus（可选）
+较新的 Anker 设备（Solarbank 4 / Max AC / Max、第二代智能电表、第二代智能插头）可以通过 Modbus TCP（端口 502）在本地进行轮询。这与云端 Python 桥接器（从 [ha-anker-solix-official](https://github.com/anker-charging/ha-anker-solix-official) 注册映射）是不同的通道。
+
+1. 在 Anker 应用程序（系统/第三方控制）中启用 **Modbus TCP**。
+2. 适配器管理 → **Modbus（本地）** → 启用通道，添加每个设备的 IP 地址。
+3. 可选：如果您不想使用 Anker 云登录，请启用“仅 Modbus（无云）”选项。启用后，无需 Python、凭据和使用条款；当至少连接一个 Modbus 设备时，实例状态为“绿色”（否则为“黄色”）。
+4. 传感器：`anker-solix.0.modbus.<name>.sensors.*`（SOC、PV、grid、battery、SN、…）。
+5. 控制：`anker-solix.0.modbus.<name>.control.*`
+- Solarbank：`operating_mode`、SOC limits、`backup_soc_enable`、`battery_power_direction` + `battery_power_setpoint`（setpoint 仅在 **third_party_control** 中；先设置方向；充电以负瓦特表示）。
+- 第二代智能插头：`power_switch`。
+- 第二代智能电表：只读。
+
+如果不支持**Modbus 协议**，旧设备和 MQTT 协议仍使用云登录。Solarbank 3 不在 Anker 官方的 Modbus 设备列表中。如果另一个 Modbus 客户端刚刚查询过该设备，则第一次轮询可能会被**连接拒绝**，直到该客户端的冷却时间结束；下一次轮询间隔将重试。
+
+### Docker (`buanet/iobroker`)
+官方镜像自带**Python 3.11**。从**0.10.87**版本开始，该适配器在Debian 12 Bookworm容器上以**尽力而为**的方式支持Python 3.11，无需自定义镜像。**3.12+**版本仍然是推荐版本（上游推荐），并且在裸机和非Bookworm主机上仍然是必需的。指南：**[docs/docker-buanet.md](docs/docker-buanet.md)**（[`docs/docker/`](docs/docker/)下的可选3.12文件，PDF：[docs/Anker-Solix-buanet-Docker-Anleitung.pdf](docs/Anker-Solix-buanet-Docker-Anleitung.pdf))。
+
 ---
 
 ＃＃ 配置
@@ -160,7 +177,7 @@ iobroker restart anker-solix.0
 ---
 
 ## 局限性
-- **非官方 API** — 无文档；端点随时可能更改。
+- **非官方 API** — 无文档；接口随时可能更改。
 - **欧盟云与加拿大云** — 配置中国家/地区错误 → 登录成功，但**没有系统/设备连接**。设备配对后请勿切换国家/地区。
 - 如果设备 Wi-Fi 离线，则**云数据已过期**；启用后，请使用云/MQTT 连接指示器。
 - **MQTT** 更新取决于设备的发布周期；某些值仅在**实时触发**时生效（如果 24/7 全天候运行，则流量会很高）。
@@ -173,24 +190,26 @@ iobroker restart anker-solix.0
 ---
 
 ## 支持的设备
-与 [哈安克索利克斯](https://github.com/thomluther/ha-anker-solix#supported-sensors-and-devices)（通过 solixapi）相同的设备覆盖范围。在 ioBroker 中，数据按设备类型显示在状态 ID 下（`solarbank`、`smartmeter`、`combiner_box`、`system`、…）。
+制造商：[Anker SOLIX（[支持/下载](https://support.ankersolix.com/)）。云覆盖范围与 [ha-anker-solix](https://www.anker.com/anker-solix) 相符。](https://github.com/thomluther/ha-anker-solix#supported-sensors-and-devices)（通过 solixapi）。在 ioBroker 中，数据按设备类型显示在状态 ID 下（`solarbank`、`smartmeter`、`combiner_box`、`system`、`modbus`、…）。
 
-| 设备类型 | 示例/说明 |
-|-------------|------------------|
-| **系统/站点** | 来自 Anker 应用的电源系统（= API “站点”） |
-| **太阳能充电宝** | E1600（第一代）、SB2 Pro/Plus/AC、SB3 E2700 — API + MQTT |
-| **combiner_box** | 电源扩展坞（多系统）— 适用时在 ioBroker 中合并控件 |
-| **智能电表** | Anker 三相电表，美国电表，Shelly 3EM / 3EM Pro |
-| **逆变器** | MI80 独立式（API 中的虚拟站点） |
-| **智能插座** | 2500瓦智能插座 |
-| **pps** / **solarbank_pps** | 便携式电源站 — 主要基于 MQTT |
-| **ev_charger** | V1 智能电动汽车充电器 — 主要支持 MQTT 协议 |
-| **车辆** | ioBroker 中面向充电账户的虚拟电动汽车 |
-| **powerpanel** / **hes** | 美国电源面板，X1 HES — API 功能有限，统计数据轮询频繁 |
-| **充电器** | Prime / 充电站 — MQTT |
-| **home_backup** | E10、AX170 — API 功能非常有限 |
+| 设备类型 | 示例 | 云端/MQTT | 本地 Modbus |
+|-------------|----------|--------------|--------------|
+| **系统/站点** | 来自 Anker 应用的电源系统（= API “站点”） | 是 | — |
+| **太阳能充电宝** | E1600（第一代）、SB2 Pro/Plus/AC、SB3 E2700、**SB4 E5000 Pro**、**太阳能充电宝 Max / Max AC** (XE) | API + MQTT | **SB4、Max、Max AC**（端口 502） |
+| **combiner_box** | 电源扩展坞（多系统）— 合并控件（如适用） | 是 | — |
+| **智能电表** | Anker 三相电表，美国电表，Shelly 3EM / 3EM Pro，**第二代智能电表** (AE1X0) | 是 | **第二代**（只读） |
+| **逆变器** | MI80 独立式（API 中的虚拟站点） | 是 | — |
+| **智能插座** | 2500 瓦智能插座，**第二代智能插座** | 是 | **第二代** (`power_switch`) |
+| **pps** / **solarbank_pps** | 便携式电源站 | 主要基于 MQTT | — |
+| **ev_charger** | V1 智能电动汽车充电器 | 主要支持 MQTT | — |
+| **车辆** | 充电账户的虚拟电动汽车 | 面向阅读者 | — |
+| **电源面板** / **HES** | 美国电源面板，X1 HES | API 有限 | X1 使用不同的 Anker Modbus 规范（与此适配器不兼容） |
+| **充电器** | Prime / 充电站 | MQTT | — |
+| **home_backup** | E10、AX170 | API 非常有限 | — |
 
-设备层次结构（HA 如何构建实体）：[讨论 #239](https://github.com/thomluther/ha-anker-solix/discussions/239)。
+Solarbank 3 适配器内置云/MQTT 功能，但并未列入 Anker 官方 Modbus 寄存器映射表中。
+
+设备层次结构（HA 如何构建实体）：[讨论 #239](https://github.com/thomluther/ha-anker-solix/discussions/239)。本地 Modbus 设置：[本地 Modbus（可选）](#local-modbus-optional)。
 
 ---
 
@@ -223,10 +242,18 @@ iobroker restart anker-solix.0
 ---
 
 ## 特殊设备说明
-摘自 [HA集成README](https://github.com/thomluther/ha-anker-solix)；通过 solixapi 的行为相同。
+摘自[HA集成README](https://github.com/thomluther/ha-anker-solix)；通过 solixapi，云/MQTT 的行为相同。本地 Modbus 注释与适配器有关。
+
+### Solarbank 4 E5000 Pro / Solarbank Max / Max AC
+云端：与其他太阳能充电宝相同的轮询路径（API + 可选 MQTT）。**本地 Modbus TCP**（官方地图）：在 Anker App 中启用 Modbus（系统/第三方控制），然后依次点击“管理”→“本地 Modbus”。典型型号代码包括 AE103 (SB4)。状态：`anker-solix.0.modbus.<name>.sensors.*` 和 `.control.*`（运行模式、SOC 限制、**第三方控制**中的电池设定点）。**仅 Modbus** 模式跳过云端/Python；当至少连接一个 Modbus 设备时，实例 LED 指示灯为绿色。
+
+如果另一个 Modbus 客户端刚刚查询了该设备，则第一次轮询可能会被**连接拒绝**，直到该客户端的冷却时间到期——下一个轮询间隔会重试。
+
+### 第二代智能电表/第二代智能插座
+云端实体与其他电表/插座相同。**本地 Modbus：**第二代电表为**只读**（每相功率/电压/电流）。第二代智能插座公开 `power_switch`。每个设备都需要自己的 IP 地址（端口 502）。
 
 ### 独立式逆变器 (MI80)
-虽然它不是一个完整的“电力系统”应用程序，但云端会跟踪发电量。API 会创建一个**虚拟站点**。API 中显示的逆变器 Wi-Fi 状态通常不准确；云端连接状态更可靠。**切勿**永久更改逆变器的限制（硬件写入周期）。
+这并非一个完整的应用程序“电力系统”，但云端会跟踪发电量。API 会创建一个**虚拟站点**。API 中显示的逆变器 Wi-Fi 状态通常不准确；云端连接状态更可靠。**切勿**永久更改逆变器的限制（硬件写入周期）。
 
 ### Solarbank 1 (E1600)
 云端更新频率在发电/放电期间约为每 **60 秒** 次；待机状态下约为每小时一次。**调度错误：**单个全天 API 槽位可能会将输出功率设置为 **0 瓦**——如果使用输出预设值，请在应用程序中使用 ≥ 2 个槽位。自 2024 年年中以来的每日放电统计数据包含旁路光伏发电（应用程序中的数据也不正确）。可通过 HA v3.4+/3.5+ 进行 MQTT 监控/控制。
@@ -235,7 +262,7 @@ iobroker restart anker-solix.0
 云端更新间隔通常约为 5 分钟；控制更改可能需要长达约 6 分钟才能显示在传感器中。共享帐户历史上存在实体不可用的情况（Anker 方面已修复）。部分输出限制 API 路径仍然未知。
 
 ### Solarbank 2 AC
-在支持的地区，可通过控件实现按使用时间计费计划；大量使用应用程序后，云更新可能会停滞（[HA #211](https://github.com/thomluther/ha-anker-solix/issues/211)）。
+在支持的地区，可通过控件实现按使用时间计费计划；应用程序大量使用后，云更新可能会停止（[HA #211](https://github.com/thomluther/ha-anker-solix/issues/211)）。
 
 ### 组合式 SB2 + 级联式 SB1
 Anker 云端的总计/统计数据仅反映 SB2 的数据；SB1 部分处于“黑盒”状态。当 SB2 设置为手动模式时，SB1 会强制执行最低充电计划——部分 ioBroker/HA 控制项会故意显示为“不可用”。为了正确计算充放电能量，请将每个设备的电池电量相加，而不仅仅是系统净电量 ([HA详情](https://github.com/thomluther/ha-anker-solix#combined-solarbank-2-systems-containing-cascaded-solarbank-1-devices))。
@@ -259,7 +286,7 @@ SOC储备、光伏/交流限制、并网输出通常需要**API+MQTT**（混合�
 每个帐户的虚拟设备 EV；不通过适配器创建 — 刷新时发现。
 
 ### 配电盘和热交换器 (X1)
-API 功能有限；替代方案是使用能源统计信息中的**约 5 分钟平均值**（如果启用，每个系统每天将额外消耗约 80 MB 流量）。如有需要，请在**对象**中禁用高负载类别。X1：请考虑使用本地**Modbus**（[Anker 规格](https://support.ankersolix.com/de/s/download-preview?urlname=Anker-SOLIX-X1-Series-Modbus-Protocol)）——不属于此适配器。
+API 功能有限；解决方法是使用能源统计数据中的**约 5 分钟平均值**（如果启用，每个系统每天将额外消耗约 80 MB 流量）。如有需要，请在**对象**中禁用高负载类别。X1 本地**Modbus**使用 [独立的 Anker 协议](https://support.ankersolix.com/de/s/download-preview?urlname=Anker-SOLIX-X1-Series-Modbus-Protocol) — 此适配器**未**实现（仅适用于官方 Solarbank 4 / Max / meter / plug Gen 2 映射）。
 
 ### 家庭备份（E10、AX170）
 几乎没有系统能源方面的云端 API；E10 通常通过底座以 MQTT 本地模式运行。
@@ -294,7 +321,7 @@ Anker 会屏蔽部分服务器/VPN API 登录。该库无法解决验证码。
 
 - `get_schedule`、`clear_schedule`、`export_systems`、`get_system_info`、`refresh_devices`
 
-使用 config 中的 `selectedDeviceId` / `selectedSiteId`。请参阅管理 **对象** 选项卡（服务提示）。
+使用 config 中的 `selectedDeviceId` / `selectedSiteId`。请参阅“管理**对象**”选项卡（服务提示）。
 
 ---
 
@@ -312,10 +339,27 @@ Anker 会屏蔽部分服务器/VPN API 登录。该库无法解决验证码。
 
 ---
 
-## 避免减产（可选）
+## 避免裁员（可选）
 **限电避免**选项卡：需要 [ioBroker.pvforecast](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md) 适配器。（之前基于 [ioBroker.solarprognose](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md)](https://www.iobroker.net/#en/adapters/adapterref/iobroker.solarprognose/README.md) / solarprognose.de — 已切换，因为 **solarprognose.de 即将关闭**，该数据源不再可用。）设置**电站路径**（例如 `pvforecast.0.plants.pv`）；功率值从 `{path}.power.hoursToday.*` 读取。**预测分辨率**（60 / 30 / 15 分钟，默认 **60**）必须与 pvforecast 中配置的间隔匹配。**仅控制：** **手动** 模式 + **`ac_output_limit`**（交流输出/出口）。**不**更改电站基本设置（电网出口上限、`allow_grid_export`、本地负载预设、交流充电限制）。**之前：** `ac_output_limit` = 运行中的光伏系统。 **激活状态：** `missing_charge_wh`, `max_charge_w` = `missing_charge_wh` ÷ `remaining_hours`, `export_w` = `live_pv_w` − `max_charge_w`, `ac_output_limit` = `export_w`。**恢复状态：** 恢复选定模式。状态：`curtailment.live_pv_w`, `missing_charge_wh`, `max_charge_w`, `export_w`, `remaining_hours`。
 
 **管理员：**勾选“组合器”复选框——无组合器：设备 ID + 太阳能板类型 + 电池容量（瓦时）；有组合器：组合器 ID + 最多 4 个太阳能板插槽（每个插槽可以为空）。**组合器：**总交流功率限制 = 各单元功率限制之和（SB2 为 1000 瓦，SB3 Pro 为 1200 瓦，SB4 Pro 为 2500 瓦）。**独立运行：**始终为 800 瓦。
+
+---
+
+## VIS / VIS-2 仪表盘（能源之家）
+小部件集 **anker-solix** → **能源之家**（逼真的房屋背景，实时光伏/房屋/电网/电池/电动汽车叠加层）。所有状态均可在小部件设置（对象选择器）中手动绑定。
+
+**重要提示：**小部件仅随 **GitHub 主版本 / 0.10.100+** 一起提供。npm **0.10.90** **不包含它们。安装或更新后：
+
+```bash
+iobroker upload anker-solix
+```
+
+然后重启 **vis** 和/或 **vis-2**（或按 F5 重新加载编辑器）。在组件选择器中，搜索设置 **anker-solix** → **Energy Home**。在组件设置中，为每个状态分配：**状态绑定**（光伏、家庭、电动汽车、页脚）、**电网流量**（电网导入、电网导出）、**电池**（SOC、充电、放电）。
+
+可选的 VIS-2 视图导入：`widgets/anker-solix/views/energy-home.vis2.json`。
+
+在适配器**对象**中启用**功率流**和**能源统计**，以显示页脚值（自用电量、今日光伏发电量）。
 
 ---
 
@@ -326,7 +370,7 @@ Anker 会屏蔽部分服务器/VPN API 登录。该库无法解决验证码。
 
 1. 更新 `package.json` 和 `io-package.json` 中的 `version`（必须匹配）。
 2. 在此 README 变更日志中添加 `### x.y.z` 部分 (E6006)。
-3. 为该版本添加**一条**新的`common.news`条目；保留**最多7条**新闻键——仅限已在npm上的版本（即将发布的版本除外）。将删除的文本移至[CHANGELOG_OLD.md](CHANGELOG_OLD.md)。
+3. 为该版本添加**一条**新的`common.news`条目；保留**最多7条**新闻键——仅包含已在npm上的版本（即将发布的版本除外）。将删除的文本移至[CHANGELOG_OLD.md](CHANGELOG_OLD.md)。
 4. 管理员 `jsonConfig.json`：标题 `size` 必须 **≤ 5**（使用 `5` 表示最小标题）。
 5. 除非必要，否则不要将根文件添加到 npm `files` 中（`CHANGELOG_OLD.md` 不会包含在包中）。
 6. `package.json` `os` 必须与 `test-and-release.yml` 中的操作系统矩阵匹配 (E3027)。保持管理员 `i18n/*.json` 与 `en.json` 同步 (W5604/W5605)。
@@ -334,6 +378,61 @@ Anker 会屏蔽部分服务器/VPN API 登录。该库无法解决验证码。
 ---
 
 ## Changelog
+
+### 0.10.100
+
+- **VIS Energy Home:** duplicate grid-to-home flow line fixed — remove legacy `grid` SVG paths, show only import or export line at a time (GitHub-only)
+
+### 0.10.99
+
+- **VIS Energy Home:** VIS-1 duplicate grid/battery cards fixed — widget destroy/cleanup on re-render, legacy card removal, cache-busted CSS/JS (GitHub-only)
+
+### 0.10.98
+
+- **VIS Energy Home:** single always-visible grid and battery power cards; label and value switch between import/export and charge/discharge while flow lines show direction (GitHub-only)
+
+### 0.10.97
+
+- **VIS Energy Home:** grid and battery power cards share one slot each and toggle by active flow — Grid → Home vs PV → Grid, Entladen vs Laden (GitHub-only)
+
+### 0.10.96
+
+- **VIS Energy Home:** energy flow lines realigned to the Home hub (PV, grid import/export, battery charge/discharge, EV); SVG coordinates now match card positions (GitHub-only)
+
+### 0.10.95
+
+- **VIS Energy Home:** separate cards for Grid → Home, PV → Grid, SOC, charge, and discharge; dedicated flow lines per direction; widget settings grouped into Grid flows and Battery (GitHub-only)
+
+### 0.10.94
+
+- **VIS Energy Home:** removed auto-discovery and card hiding; all states (PV, home, grid import/export, SOC, battery charge/discharge, EV, footer) are assigned manually in widget settings (GitHub-only)
+
+### 0.10.93
+
+- **VIS Energy Home:** grid uses `grid_to_home_power` (import) vs `photovoltaic_to_grid_power` (export); battery uses `bat_charge_power` vs `bat_discharge_power`; energy line animation direction matches flow (GitHub-only)
+
+### 0.10.92
+
+- **VIS / VIS-2 Energy Home:** clean house background (no baked-in UI); slim animated SVG energy lines and cards as overlays; broader auto-discovery (system, combiner, smartmeter, solarbank, modbus, ev_charger); all cards always visible; live view subscribes discovered states (GitHub-only until next npm release)
+
+### 0.10.91
+
+- **VIS / VIS-2:** first **Energy Home** widget (auto state discovery, combiner/modbus aware); `restartAdapters` vis + vis-2; requires `iobroker upload anker-solix` after install (GitHub-only until next npm release)
+
+### 0.10.90
+
+- **Modbus only:** skip Anker cloud/Python when the checkbox is enabled; no credentials or usage terms required; instance LED is green when at least one local Modbus device is connected
+- **Docs:** README supported devices + special notes for SB4 / Max / Modbus Gen 2; valid state roles for usage-mode and EV-charger lists; Modbus admin i18n
+
+### 0.10.89
+
+- **Admin:** fix GUI error when opening **Modbus (local)** (`hidden` must use `data.enableModbus`; table `items` as array with `attr`)
+- **Docker:** buanet guide uses stock Python **3.11** as default (0.10.87 best-effort); 3.12 image/userscript optional
+
+### 0.10.88
+
+- **Modbus (optional):** local TCP poll and control for official devices (Solarbank 4 / Max AC / Max, Smart Meter Gen 2, Smart Plug Gen 2); cloud Python bridge unchanged
+- **Docker:** buanet/iobroker Python guide (`docs/docker-buanet.md`)
 
 ### 0.10.87
 

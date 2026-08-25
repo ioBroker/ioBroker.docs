@@ -33,6 +33,15 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.6.2 (2026-08-23)
+* (bolliy) update devDependencies to latest versions
+* (bolliy) fix: update day-start baseline handling of consumption breakdown
+
+### 2.6.1 (2026-08-16)
+* (bolliy/claude) Fix: consumption breakdown entries (`statistics.dataDef.consumptionBreakdown`) the correct **daily** value in statistics.jsonToday` 
+* (bolliy) fix: enhance error handling and validation in device initialization
+* (bolliy) Added: `consumption.baseValue` field in `statistics.json*` — holds the unreduced total house consumption before breakdown entries are subtracted.
+
 ### 2.6.0 (2026-07-22)
 * (booliy/claude) Optimization of memory usage
 * (bolliy/claude) Added six new EMMA control registers ([#285](https://github.com/bolliy/ioBroker.sun2000/issues/285))
@@ -51,14 +60,6 @@ Work in progress
 * (bolliy) statistics: if no battery is present, the charts are generated without battery information (SOC, charge, discharge).
 * (bolliy) fix emma: update register addresses of meter.activePowerL1-L3 ([#282](https://github.com/bolliy/ioBroker.sun2000/issues/282))
 * (bolliy) requires node.js >= 22
-
-### 2.4.5 (2026-05-14)
-* statistics fix: return weekly range up to current Monday
-* statistics: added support for generating statistics templates directly from built-in charts
-* statistics: improved tooltip formatter - tooltip units are now provided explicitly via tooltip.valueFormatter
-
-### 2.4.4 (2026-05-04)
-* statistics fix: add error handling for waitForValue function
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

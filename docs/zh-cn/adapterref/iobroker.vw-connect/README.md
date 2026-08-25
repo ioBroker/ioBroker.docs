@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: EMzXZv7pyOL4voHLHNj9IGz4XiGg3On7sZbDTiHycLc=
+hash: KxSpl5oJMC/6gbSEy8xOwCtNR4qYuH5v7ZC/PxSMeVg=
 ---
 ![标识](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -23,9 +23,9 @@ hash: EMzXZv7pyOL4voHLHNj9IGz4XiGg3On7sZbDTiHycLc=
 <https://forum.iobroker.net/topic/22867/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten>
 
 ## Kurzfassung（2026 年六月展位）
-VW hat den klassischen App-Login for **VW ID、CUPRA 和 SEAT** abgeschaltet。 Für diese Marken funktionieren nur noch zwei Wege — beide unten konfigurierbar, lassen sich auch parallel laufen:
+VW hat den klassischen App-Login for **VW ID、CUPRA 和 SEAT** abgeschaltet。 Für diese Marken funktionieren nur noch zwei Wege — beide unten konfigurierbar, lassen sich auchparallel laufen:
 
-- **欧盟数据法案门户** — kostenlos，läuft automatisch nach einmaliger Browser-Aktivierung im Portal，liefert ein详细信息 Datenpaket aber **nur alle** und ist in der Praxis **unzuverlässig**：das Auto liefert nur Daten wenn es gerade aktiv ist（fahren、laden、 Klima），parkende Autos erzeugen leere 数据集。 5xx-Aussetzer 后的 Portal 本身就已关闭。
+- **欧盟数据法案门户** — kostenlos，läuft automatisch nach einmaliger Browser-Aktivierung im Portal，liefert einDetailliertes Datenpaket aber **nur alle** und ist in der Praxis **unzuverlässig**：das Auto liefert nur Daten wenn es gerade aktiv ist（fahren、laden、 Klima），parkende Autos erzeugen leere 数据集。 5xx-Aussetzer 后的 Portal 本身就已关闭。
 - **Tibber 数据 API (empfohlen)** — kostenlos、**liefert aktuelle Werte**（SoC、Reichweite、Lade-Status）。 **Man muss kein Tibber-Stromkunde sein**，nur einen Tibber-Account in der App anlegen。 Beim Anlegen verlangt die App eine deutsche Adresse — die muss **nicht korrekt sein**, irgendeine plausible Straße/PLZ reicht.在 <https://data-api.tibber.com/clients/manage> registrieren 下应用程序和 einen OAuth-Client 中的 Dann das Fahrzeug（详细信息请参见 Adapter-UI）。
 
 Für die anderen Marken（奥迪、MyŠKODA、Seat Elli、ŠKODA Powerpass、Audi DataPlug、ŠKODA Alt、VW Connect Go）经典登录功能。
@@ -45,7 +45,7 @@ Play 完整性令牌由 **Google Play 服务在真实的 Android 设备上使用
 ## 可选：欧盟数据法案门户网站作为附加数据源（自 v0.9.0 起）
 对于大众集团旗下所有品牌（大众、奥迪、斯柯达、西雅特、Cupra），该适配器**还可以**使用大众通过欧盟数据法案门户网站（<https://eu-data-act.drivesomethinggreater.com>）发布的连续15分钟数据集。这是**可选的**——传统的品牌专属登录方式才是主要数据源，无需额外设置即可正常工作。欧盟数据法案路径会在每个数据集中添加数百个额外的数据点（主要为诊断、配置和报告字段），这些数据点位于`<vin>.statuseudata.*`（蛇形命名法，以点号分隔，例如`battery_state_report.soc`、`mileage.value`、`parking_brake`、`charging_state_report.current_charge_state`）。
 
-同一个门户网站服务所有品牌——只有 OIDC 品牌密钥不同。适配器会根据您配置的 `type` 选择正确的密钥：
+同一个门户网站服务于所有品牌——只有 OIDC 品牌密钥不同。适配器会根据您配置的 `type` 选择正确的密钥：
 
 | 适配器 `type` | 欧盟数据法案品牌 |
 | `VW ID / Volkswagen App` | `VOLKSWAGEN_PASSENGER_CARS` |
@@ -61,7 +61,7 @@ Play 完整性令牌由 **Google Play 服务在真实的 Android 设备上使用
 1. 打开 <https://eu-data-act.drivesomethinggreater.com/> 并**使用您的品牌专属帐户登录**（您在 Volkswagen / myAudi / MyŠKODA / SEAT Connect / MyCUPRA 应用程序和此适配器的设置中使用的电子邮件/密码相同）。
 2. 转到**数据集群→车辆概览**。
 3. 如果您的车辆识别码 (VIN) 尚未列出，请点击“连接您的车辆”，然后按照屏幕上的配对/同意步骤进行操作。
-4. Klicke **Benutzerdefinierte Daten anfragen**（“获取定制数据”）。门户网站的注释：您可以将数据设置为活动状态。
+4. Klicke **Benutzerdefinierte Daten anfragen**（“获取定制数据”）。门户网站的说明：您可以将数据设置为活动状态。
 5. **Vereinbarung gemäß Artikel 4 EU Data Act** ankreuzen（“Ich bestätige, dass ich die Vereinbarung gemäß Artikel 4 EU Data Act gelesen und akzeptiert habe。”）→ **Weiter**。
 6. **数据集群 auswählen**：**所有数据** anhaken（“所有欧盟数据法相关数据点”）。 Andere Cluster nur wenn du gezielt einschränken willst - 仅选择一些限制“<vin>.statuseudata.*”将包含的内容。
 7. **数据包名称** vergeben (frei wählbar, z.B.“ioBroker”)。 Erscheint später als `_dataset_name`-den 文件名中的前缀。
@@ -91,7 +91,7 @@ Play 完整性令牌由 **Google Play 服务在真实的 Android 设备上使用
 
 ### 故障排除（仅限欧盟数据法案——这些不会阻碍常规流程）
 - **“欧盟数据保护法……未配置数据请求”**：您尚未完成上述门户端设置。在此期间，传统登录方式仍然有效。
-- **`门户网站有 N 个数据集，但全部显示为“_no_content_found”**：车辆在每个采样时段都处于休眠状态。请通过大众汽车应用程序强制同步车辆，或者行驶一次。
+- **`portal 有 N 个数据集，但全部显示为“_no_content_found”**：车辆在每个采样时段都处于休眠状态。请通过大众汽车应用程序强制同步车辆，或者行驶一次。
 - **`<vin>.statuseudata` 通道缺失**：门户网站尚无内容数据集 — 解决方法与上述相同。
 - **激活后立即出现 HTTP 400 错误**：门户网站仍在处理您的数据请求。几个小时后会自动恢复。
 - **过时值**：门户网站会将多个报告快照合并成每个数据集的一个扁平数组。如果同一字段多次出现且值不同，适配器会确定性地选择 UUID 最小的条目（刷新后仍然稳定——与 Home Assistant 集成采用的方法相同）。
@@ -116,6 +116,18 @@ Play 完整性令牌由 **Google Play 服务在真实的 Android 设备上使用
 ```
 
 ### **正在进行中**
+### 0.9.10 (2026-08-18)
+- VW ID（类型=id）：经典 BFF 设备流程登录已禁用 — VW 已移除 device_code 授权。欧盟数据法案现在是 VW ID 的唯一数据源（设备流程代码已注释，以便日后重新启用）。
+
+### 0.9.9 (2026-08-17)
+- VW ID（类型=id）经典BFF数据源通过设备流登录恢复，与欧盟数据法案并行运行
+- 欧盟数据法案：登录失败错误现在包含 HTTP 状态和页面文本，以便于诊断
+
+### 0.9.8 (2026-08-13)
+- 奥迪（Audietron）锁定/解锁功能已启用
+- 修复了 remote.access 孤立状态警告（问题 #441）
+- 斯柯达：停止轮询持续出现的 500 错误连接状态/就绪状态（日志垃圾信息）
+
 ### 0.9.7 (2026-08-09)
 - 斯柯达故障处理能力提升
 - 奥迪唤醒功能改进
@@ -147,7 +159,7 @@ Play 完整性令牌由 **Google Play 服务在真实的 Android 设备上使用
 - 修复奥迪登录问题
 
 ### 0.8.6 (2026-05-27)
-- 修复登录ID
+- 修复登录 ID
 
 ### 0.8.5 (2026-05-24)
 - 修复 Cupra
@@ -246,7 +258,7 @@ Play 完整性令牌由 **Google Play 服务在真实的 Android 设备上使用
 - 为新款车型添加气候控制v3功能。添加Powerpass和Seat Elli功能。
 
 ### 0.0.39
-- 修复登录ID
+- 修复登录 ID
 
 ### 0.0.36
 - 添加对斯柯达 Enyaq 的支持
@@ -270,7 +282,7 @@ Play 完整性令牌由 **Google Play 服务在真实的 Android 设备上使用
 - 修复斯柯达 refreshToken 问题，以及其他一些小改进
 
 ### 0.0.26
-- 修复错误
+- 修复了一些错误
 
 ### 0.0.25
 - 另加费用

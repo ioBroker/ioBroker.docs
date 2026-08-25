@@ -16,7 +16,7 @@
 
 [![NPM](https://nodei.co/npm/ioBroker.multicast.png?downloads=true)](https://nodei.co/npm/ioBroker.multicast/)
 
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/DrozmotiX/ioBroker.multicast/master.svg)](https://travis-ci.org/DrozmotiX/iobroker.multicast)
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 # Multicast-APi adapter for ioBroker
   
@@ -88,6 +88,11 @@ The adapter is build to send up to 5-times a retry to ensure all state changes a
 -->
 
 ### __WORK IN PROGRESS__
+* (DutchmanNL) Dependencies updated to current versions
+* (DutchmanNL) Resolved remaining repository checker findings
+
+### 0.2.0-ALpha.1
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
 * ([Andiling](https://github.com/andiling)) Expire value by API implemented
 * (DutchmanNL) Rebuild retry functionality
 

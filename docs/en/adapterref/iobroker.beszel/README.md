@@ -213,6 +213,15 @@ beszel.0.
 ---
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.10.1 (2026-08-22)
+
+- Changed: Internal cleanup. No user-facing changes.
+
 ### 0.10.0 (2026-07-13) — stable
 
 - Container states are no longer deleted when the adapter briefly loses access to the container data — they are kept until the containers are really gone.
@@ -240,10 +249,6 @@ beszel.0.
 - Much lighter polling: the adapter no longer pages through hours of stats history on every poll and only rewrites device objects when something actually changed
 - Disappeared sensors, network interfaces, GPUs, filesystems and CPU cores are now cleaned up automatically instead of keeping frozen values forever
 - Turning off "GPU details" now removes the package-power and engine states it created
-
-### 0.7.1 (2026-06-09)
-
-- Improved compact-mode behavior: beszel no longer registers global process error handlers that could interfere with other adapters running in the same process.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -102,6 +102,9 @@ or if you have a VM on proxmox check your CPU settings
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (arteck) async fix
+
 ### 0.6.4 (2026-06-22)
 * (arteck) Dependencies have been updated
 

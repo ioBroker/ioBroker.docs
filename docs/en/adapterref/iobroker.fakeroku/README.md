@@ -81,7 +81,7 @@ becomes `true`, or watch `.command` for the last button as text.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.1.0 (2026-08-10)
+### 1.1.0 (2026-08-10) — stable
 - (krobipd) Several emulated Rokus are now independent at start-up: if one is set to a port already in use, the others still start instead of the whole instance failing.
 - (krobipd) The adapter keeps serving already-paired remotes, and reports its status correctly, even when network discovery cannot start or later drops out.
 - (krobipd) Discovery now covers every network interface on a host that has more than one, so a remote on any of your local networks can find the emulated Rokus.

@@ -3,38 +3,52 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wlanthermo-nano/README.md
 title: ioBroker.wlanthermo-nano
-hash: jWLdLB/tLzY994bhB0XsoX69BINKX6GfxcsXqGA0BIo=
+hash: gJy3Z+rgb/y/LqQmb0n4KdAw1EUKTL/gj6rhMy9D3+I=
 ---
 ![标识](../../../en/adapterref/iobroker.wlanthermo-nano/admin/wlanthermo-nano.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.wlanthermo-nano.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.wlanthermo-nano.svg)
 ![安装数量](https://iobroker.live/badges/wlanthermo-nano-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/wlanthermo-nano-stable.svg)
+![稳定仓库中的当前版本](https://iobroker.live/badges/wlanthermo-nano-stable.svg)
 ![依赖状态](https://img.shields.io/david/DrozmotiX/iobroker.wlanthermo-nano.svg)
-![新PM](https://nodei.co/npm/iobroker.wlanthermo-nano.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.wlanthermo-nano.png?downloads=true)
 
 # IoBroker.wlanthermo-nano
-**测试：** ![测试和发布](https://github.com/DrozmotiX/iobroker.wlanthermo-nano/workflows/Test%20and%20Release/badge.svg)
+**测试：** ![测试与发布](https://github.com/DrozmotiX/iobroker.wlanthermo-nano/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的 wlanthermo-nano 适配器
-[WLANThermo Nano](https://github.com/WLANThermo-nano/WLANThermo_nano_Software/wiki "WLANThermo Nano")，烧烤运动的数字优势
+## 适用于 ioBroker 的 wlanthermo-nano 适配器
+[WLANThermo Nano](https://github.com/WLANThermo-nano/WLANThermo_nano_Software/wiki "WLANThermo Nano")，为您的烧烤运动带来数字化优势
+
+## 哨兵
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
 ＃＃ 配置
-适配器可以在管理界面中安装和配置。
+适配器可在管理界面中安装和配置。
+
 请在实例配置中输入 IP 地址、用户名和密码。
 
-＃＃ 去做
+## 待办事项
 * [ ] 实现自动设备检测
-* [ ] 优化pitmaster设置，使状态在相关模式下只能写，否则只读
+* [ ] 优化烤肉大师设置，使状态仅在相关模式下可写，否则为只读。
 
-## 加入 Discord 服务器，讨论有关 ioBroker-WlanThermo 集成的一切！
+加入 Discord 服务器，讨论有关 ioBroker-WlanThermo 集成的一切！
 <a href="https://discord.gg/cNAeGjJ"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
-＃＃ 支持我
-如果您喜欢我的工作，请随时提供个人捐赠（这是 DutchmanNL 的个人捐赠链接，与 ioBroker 项目无关！）[![捐赠](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
+## 支持我
+如果您喜欢我的作品，欢迎您进行个人捐赠（这是 DutchmanNL 的个人捐赠链接，与 ioBroker 项目无关！）[![捐赠](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Changelog
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+### __WORK IN PROGRESS__
+* (DutchmanNL) Dependencies updated to current versions
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+* (DutchmanNL) Admin settings are translated again: added the missing admin/i18n files for all 11 supported languages, including Ukrainian, and the device table column headers are now translated too
+
 ### 0.2.1 (2022-06-08) - Initialization error for Nano V1 solved
 * (DutchmanNL) Initialization error for Nano V1 solved
 * (DutchmanNL) Error logging and reporting improved
@@ -96,7 +110,7 @@ hash: jWLdLB/tLzY994bhB0XsoX69BINKX6GfxcsXqGA0BIo=
 ## License
 MIT License
 
-Copyright (c) 2019 DutchmanNL <rdrozda86@gmail.com>
+Copyright (c) 2019-2026 DutchmanNL <oss@DrozmotiX.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

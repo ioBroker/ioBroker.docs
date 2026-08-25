@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：新手指南
-hash: VCMZaxdbPUcO10dU2pTGiNkplzi+Uv6n/R6PFmvucPA=
+hash: tpds4QIGqn9ndziymXbcF0sq1yDBGmMlPu/BfT8PzaM=
 ---
 # IoBroker JSON 配置：新手指南
 本指南解释了如何使用 JSON 为 ioBroker 适配器定义配置选项。这种方法提供了一种更友好、更灵活的方式，可以在 ioBroker 管理界面中管理适配器设置。
@@ -109,7 +109,7 @@ jsonConfig 会自动确保收集到的数据作为适配器的配置数据记录
 更多示例可以在 GitHub 上相应管理目录中的其他适配器中找到。
 
 ## 支持开发工具
-### VS Code
+### VS代码
 要在 VS Code 中启用 jsonConfig 的验证，必须将以下部分添加到文件“.vscode/settings.json”中。
 
 ```json5
@@ -126,7 +126,7 @@ jsonConfig 由多个按层级结构组织的元素组成。每个元素可以是
 
 如果您测试此适配器，可以看到几乎所有组件都在运行：[jsonconfig-demo](https://github.com/mcm4iob/ioBroker.jsonconfig-demo).\ 您可以通过在 npm 选项卡上输入 `iobroker.jsonconfig-demo`，在管理界面中的 GitHub 图标上安装它。
 
-- [**`accordion`:**](#accordion) 用于可折叠内容的折叠面板元素（Admin 6.6.0 或更高版本）
+- [**`accordion`:**](#accordion) 用于折叠内容的折叠面板元素（Admin 6.6.0 或更高版本）
 - [**`alive`:**](#alive) 显示实例是否正在运行（只读）
 - [**`autocomplete`:**](#autocomplete) 带有自动完成建议的输入字段
 - [**`autocompleteSendTo`:**](#autocompletesendto) 用于发送数据的带有实例值的自动完成控件
@@ -243,7 +243,7 @@ admin/i18n/de.json
 admin/i18n/en.json
 ```
 
-此外，用户可以提供 `i18n` 文件、`i18n` 和 `customI18n` 文件的路径，并在管理后台提供文件：
+此外，用户可以提供 `i18n` 文件、`i18n` 和 `customI18n` 文件的路径，并在管理员权限中提供文件：
 
 ```json5
   "i18n": "customI18n",
@@ -434,6 +434,9 @@ admin/customI18n/en.json
 | `label` | 选项标签（可以是字符串或可翻译对象） |
 | `color` | 选项文本颜色 |
 | `hidden` | 用于显示或隐藏选项的公式或布尔值 |
+| `os` | 仅在主机的这些操作系统上显示此选项 |
+| `notOs` | 不在主机的这些操作系统上显示此选项 |
+| `docker` | 仅当 ioBroker 在 Docker 中运行 (`true`) 或不运行 (`false`) 时才显示此选项 |
 | `description` | 选项标签下方显示的描述（可翻译） |
 | `icon` | 要显示在选项旁边的图标 URL 或 base64 字符串（自 v8.3.3 起） |
 | `icon` | 要显示在选项旁边的图标 URL 或 base64 字符串（自 v8.3.3 起） |
@@ -523,7 +526,7 @@ admin/customI18n/en.json
 | `refreshLabel` | 刷新令牌的可选按钮标签 |
 | `ownClientId` | 可选属性名称，用于存储用户的 OAuth 客户端 ID。如果设置，则会显示客户端 ID 输入字段。 |
 | `ownClientSecret` | 可选属性名称，用于存储用户的 OAuth 客户端密钥。如果设置，则会显示客户端密钥输入字段。 |
-| `ownClientSecret` | 可选属性名称，用于存储用户的 OAuth 客户端密钥。如果设置，则会显示客户端密钥输入字段。 |
+| `ownClientSecret` | 可选属性名称，用于存储用户自己的 OAuth 客户端密钥。如果设置，则会显示客户端密钥输入字段。 |
 
 #### `oauth2`示例
 ```json
@@ -712,7 +715,7 @@ admin/customI18n/en.json
 | 房产 | 描述 |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | `items` | `[{"type": see above, "width": px or %, "title": {"en": "header"}, "attr": "name", "filter": false, "sort": true, "default": ""}]` |
-| `objKeyName` | （旧版设置，请勿使用！） - `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}` 中的键名 |
+| `objKeyName` | （旧设置，请勿使用！） - `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}` 中的键名 |
 | `objValueName` | （旧设置，请勿使用！） - `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` 中的值名称 |
 | `allowAddByFilter` | 即使设置了过滤器，如果允许添加 |
 | `showSecondAddAt` | 表格底部第二个“添加”按钮将显示的行数。默认值为 5 |
@@ -892,7 +895,7 @@ const cred = await Credentials.getCredentials<Credentials.LoginPasswordCredentia
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pattern` | 文件扩展名模式。允许使用 `**/*.ext` 显示所有子文件夹中的文件，`*.ext` 显示根文件夹中的文件，或 `folderName/*.ext` 显示子文件夹 `folderName` 中的所有文件。默认值为 `**/*.*`。 |
 | `objectID` | 类型为 `meta` 的对象 ID。您可以使用特殊占位符 `%INSTANCE%`，例如 `myAdapter.%INSTANCE%.files` |
-| `upload` | 上传文件的存储路径。与 `folderName` 类似。如果未定义，则不会显示上传字段。要上传到根目录，请将此字段设置为 `/`。 |
+| `upload` | 上传文件的存储路径。类似于 `folderName`。如果未定义，则不会显示上传字段。要上传到根目录，请将此字段设置为 `/`。 |
 | `refresh` | 在选择框附近显示刷新按钮。 |
 | `maxSize` | 最大文件大小（默认 2MB） |
 | `withFolder` | 即使所有文件都在同一文件夹中，也显示文件夹名称 |
@@ -962,7 +965,7 @@ adapter.on("message", (obj) => {
 | `bgColor` | 背景颜色（默认值：`"#ffffff"`） |
 | `level` | 纠错级别：`L`、`M`、`Q` 或 `H`（默认值：`L`） |
 | `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
-| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 #### `qrCodeSendTo`后端代码示例
 ```js
@@ -1043,7 +1046,7 @@ adapter.on("message", (obj) => {
 | `noTranslation` | 不翻译下拉列表的标签。要使用此选项，您的适配器必须实现消息处理程序。命令的结果必须是 `[{"value": 1, "label": "one"}, ...]` | 形式的数组。 |
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
 | `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
-| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 后端处理程序可以返回带有可选字段 `description` 或 `[{"value": 1, "label": "one", "description": "Some hint"}, ...]` 的项目。描述显示在下拉列表标签下方。
 
@@ -1111,7 +1114,7 @@ adapter.on("message", (obj) => {
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
 | `maxLength` | 字段中文本的最大长度 |
 | `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
-| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 要使用此选项，您的适配器必须实现消息处理程序：
 
@@ -1128,7 +1131,7 @@ adapter.on("message", (obj) => {
 | `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。如果未定义 jsonData，则会将此数据发送到后端。 |
 | `instance` | 请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
-| `instance` | 请求要发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
+| `instance` | 要将请求发送到的实例（例如 `"admin.0"`）。覆盖 `oContext.instance`。如果未定义，则请求将发送到当前适配器实例。您可以在文本中使用 `${data.number}` 模式。 |
 
 要使用此选项，您的适配器必须实现消息处理程序：命令的结果必须是字符串或包含以下参数的对象：
 
@@ -1194,7 +1197,7 @@ adapter.on("message", (obj) => {
 | `useSystemName` | 如果已定义，则会显示“使用系统设置”复选框，并从 `system.config` 读取纬度、经度，并将布尔值保存到给定的名称中 |
 
 ### `interface`
-选择实例运行所在主机的接口
+选择实例运行所在的主机接口。
 
 | 房产 | 描述 |
 |------------------|----------------------------------------------------------------|
@@ -1351,11 +1354,11 @@ adapter.on("message", (obj) => {
 
 ## 控件的共同属性
 ### 布局选项 `xl`,`lg`,`md`,`sm`,`xs`
-这些选项用于定义元素在不同屏幕尺寸上的宽度，从而确保在各种设备上实现响应式和适应性布局。
+这些选项用于定义元素在不同屏幕尺寸上的宽度，确保在各种设备上实现响应式和适应性布局。
 
 有效数字为1至12。
 
-如果您指定一个数字，例如 6，则元素的宽度将是屏幕宽度的 6/12（50%）；例如，如果您指定 3，则元素的宽度将是屏幕宽度的 3/12（25%）。
+如果您指定一个数字，例如 6，则元素的宽度将是屏幕宽度的 6/12（50%）；例如，如果您指定数字 3，则元素的宽度将是屏幕宽度的 3/12（25%）。
 
 为不同的布局选项分配数字，即可指定元素在不同屏幕尺寸下的宽度。
 
@@ -1399,6 +1402,9 @@ adapter.on("message", (obj) => {
 | `label` | 字符串或对象，例如 {en: 'Name', ru: 'Имя'} |
 | `hidden` | 可使用 `native.attribute` 进行计算的 JS 函数 |
 | `hideOnlyControl` | 如果隐藏，则会显示该位置，但没有控制选项 |
+| `os` | 仅在运行实例的主机的以下操作系统上显示此元素：`"win32"` 或 `["linux", "darwin"]` |
+| `notOs` | 请勿在运行实例的主机的以下操作系统上显示此元素：`"win32"` 或 `["linux", "darwin"]` |
+| `docker` | 仅当 ioBroker 在 Docker 容器中运行 (`true`) 或未运行 (`false`) 时才显示此元素 |
 | `disabled` | 可使用 `native.attribute` 进行计算的 JS 函数 |
 | `help` | 帮助文本（多语言） |
 | `helpLink` | 帮助链接（只能与 `help` 一起使用） |
@@ -1406,7 +1412,7 @@ adapter.on("message", (obj) => {
 | `darkStyle` | 深色模式的 CSS 样式 |
 | `validator` | JS 函数：true 无错误，false 出错 |
 | `validatorErrorText` | 验证失败时显示的文本 |
-| `validatorNoSaveOnError` | 如果出错，禁用保存按钮 |
+| `validatorNoSaveOnError` | 如果出错则禁用保存按钮 |
 | `tooltip` | 可选工具提示 |
 | `default` | 默认值 |
 | `defaultFunc` | 用于计算默认值的 JS 函数 |
@@ -1417,6 +1423,69 @@ adapter.on("message", (obj) => {
 | `noMultiEdit` | 如果此标志设置为 true，则当用户选择多个对象进行编辑时，此字段将不会显示。 |
 | `expertMode` | 如果此标志设置为 true，则仅当专家模式为 true 时才会显示此字段（从 Admin 7.4.3 开始） |
 | `expertMode` | 如果此标志设置为 true，则仅当专家模式为 true 时才会显示此字段（自 Admin 7.4.3 起） |
+
+### 根据操作系统显示元素
+每个元素（包括 `panel`、`tabs`、表格列和单个 `select` 选项）都可以限定为 ioBroker 主机的操作系统，**配置的实例在该主机上运行**。它不是浏览器的操作系统。
+
+```json5
+{
+    "comPort":  { "type": "text", "label": "COM port", "os": "win32" },
+    "ttyPort":  { "type": "text", "label": "Serial device", "os": ["linux", "darwin"] },
+    "sudoHint": { "type": "staticText", "text": "The service must be started with sudo", "notOs": "win32" }
+}
+```
+
+允许的值是 node.js `process.platform` 的值（例如 `common.os` 或 `io-package.json`）：`aix`、`android`、`cygwin`、`darwin`、`freebsd`、`haiku`、`linux`、`netbsd`、`openbsd`、`sunos`、`win32`。
+
+- 如果定义了 `os`，则该元素将**仅**在指定的操作系统上显示。
+- 如果定义了 `notOs`，则该元素将显示在除指定操作系统之外的所有操作系统上。
+- 如果无法检测到主机操作系统（例如，主机对象不可读），则该元素
+
+将会显示。宁可多显示一个元素，也不要隐藏一个必要的元素。
+
+- 未显示的元素不会被删除：其值在配置中保持不变，就像通过 `hidden` 设置一样。
+
+但是，该元素的 `default` 值不会被写入配置中。
+
+对于更复杂的情况，变量 `_os`、`_arch` 和 `_host` 可以用于每个 JS 函数（`hidden`、`disabled`、`validator`、`defaultFunc`、`onChange.calculateFunc`、`confirm.condition`）以及文本模式 `label`、`help` 等等：
+
+```json5
+{
+    "type": "text",
+    "label": "Path to the executable file",
+    "disabled": "_os === 'win32'",
+    "defaultFunc": "_os === 'win32' ? 'C:\\\\Program Files\\\\app.exe' : '/usr/bin/app'",
+    "help": "Host ${_host.id} runs ${_os} on ${_arch}"
+}
+```
+
+**注意：**旧版后台管理程序无法识别 `_os`，会将 `"hidden": "_os !== 'linux'"` 到 `true` 解析为隐藏元素。因此，建议使用 `os`/`notOs`，因为旧版后台管理程序会忽略它们（元素会显示出来）。如果必须使用 JavaScript 函数，请编写防御性代码：`"hidden": "!!_os && _os !== 'linux'"`。
+
+#### Docker
+如果某个元素依赖于 ioBroker 本身是否在 Docker 容器中运行，则可以使用属性 `docker`：
+
+```json5
+{
+    "service":    { "type": "checkbox", "label": "Install as service", "docker": false },
+    "volumeHint": { "type": "staticText", "text": "The directory must be mapped as volume", "docker": true }
+}
+```
+
+- `"docker": true` - 仅当 ioBroker 在 docker 容器中运行时才会显示该元素。
+- `"docker": false` - 仅当 ioBroker 未在 docker 容器中运行时才会显示该元素。
+- 无法从对象中读取 Docker 状态，必须从正在运行的主机请求。如果主机
+
+如果未收到回复，则状态保持未知，并显示该元素。
+
+只有当配置确实使用了 `docker` 或 `_host.docker` 时，才会发送请求；其他情况则不会发送。
+
+配置操作不会导致任何额外的流量。
+
+- 在JS函数中，状态可以通过`_host.docker`获取（如果未知，则为`true`、`false`或`undefined`）。
+
+官方 ioBroker docker 镜像的版本为 `_host.dockerVersion`。
+
+不要将其与 [`checkDocker`](#checkdocker) 控制混淆：该控制检查主机上是否有 docker 安装可用于控制容器，而不是 ioBroker 本身是否在 docker 中运行。
 
 ### 详细配置选项
 #### `defaultSendTo`
@@ -1511,7 +1580,7 @@ adapter.on("message", (obj) => {
 ## 待办事项
 以下章节摘自原始 SCHEMA.MD 文件。
 
-我最初对内容理解不够透彻，因此需要 bluefox 进行润色。
+我最初对内容理解不够透彻，需要 bluefox 进行润色。
 
 ## JS 函数
 ### 配置对话框
@@ -1534,6 +1603,9 @@ const func = new Function(
   '_changed',      // indicator if some data was changed and must be saved
   '_href',         // Current browser href
   'getObject',     // You can call `await getObject(data.id)`in hidden, disabled, pattern functions
+  '_os',           // Operating system of the host, where the instance runs: 'win32', 'linux', 'darwin', ...
+  '_arch',         // Architecture of the host, where the instance runs: 'x64', 'arm64', ...
+  '_host',         // Information about the host: {id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}
   myValidator.includes('return') ? myValidator : 'return ' + myValidator); // e.g. "_alive === true"
 
 const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, this.props.socket);
@@ -1551,6 +1623,9 @@ const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, t
 - `_instance` - 实例编号
 - `arrayIndex` - 仅用于表格，表示数组中的当前行
 - `globalData` - 仅用于表格中的所有设置，而不仅仅是表格中的一行。
+- `_os` - 实例运行所在主机的操作系统（`process.platform`），例如 `linux`、`win32`、`darwin`。如果未知，则为空字符串。
+- `_arch` - 实例运行所在主机的架构，例如 `x64`、`arm64`
+- `_host` - 主机信息：`{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`。如果未请求 Docker 状态或主机未响应，则 `docker` 为 `undefined`。
 
 ### 自定义设置对话框
 JS 函数是：
@@ -1567,6 +1642,9 @@ const func = new Function(
   "customObj",
   "_socket",
   arrayIndex,
+  "_os",
+  "_arch",
+  "_host",
   myValidator.includes("return") ? myValidator : "return " + myValidator
 ); // e.g. "_alive === true"
 
@@ -1580,7 +1658,7 @@ const isValid = func(
 );
 ```
 
-以下变量可在自定义设置中的JS函数中使用：
+以下变量可在自定义设置中的 JS 函数中使用：
 
 - `data` - 当前自定义设置或表中的当前行（要访问所有设置，请使用 globalData）
 - `originalData` - 未更改的数据
@@ -1590,6 +1668,9 @@ const isValid = func(
 - `_socket` - 套接字
 - `arrayIndex` - 仅用于表格，表示数组中的当前行
 - `globalData` - 仅用于表格中的所有设置，而不仅仅是表格中的一行。
+- `_os` - 实例运行所在主机的操作系统（`process.platform`），例如 `linux`、`win32`、`darwin`。如果未知，则为空字符串。
+- `_arch` - 实例运行所在主机的架构，例如 `x64`、`arm64`
+- `_host` - 主机信息：`{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`。如果未请求 Docker 状态或主机未响应，则 `docker` 为 `undefined`。
 
 ```json5
 {
@@ -1727,6 +1808,45 @@ onMessage = (obj: ioBroker.Message): void => {
 ### **正在进行中** -->
 
 ## Changelog
+### 9.0.22 (2026-08-21)
+- (@GermanBluefox) Corrected layout of Config view
+
+### 9.0.21 (2026-08-19)
+- (@GermanBluefox) Added the possibility to show or hide elements depending on the operating system of the host: `os`, `notOs` and the JS variables `_os`, `_arch`, `_host`
+- (@GermanBluefox) Added the possibility to show or hide elements depending on the docker installation: `docker` and `_host.docker`
+
+### 9.0.20 (2026-08-13)
+- (@GermanBluefox) Correcting ConfigSelect component
+
+### 9.0.19 (2026-08-09)
+- (@GermanBluefox) Correcting autocompleteSendTo component
+
+### 9.0.18 (2026-08-07)
+- (@GermanBluefox) Updated packages
+
+### 9.0.14 (2026-07-31)
+- (@GermanBluefox) Updated packages
+
+### 9.0.9 (2026-07-30)
+- (@GermanBluefox) Improvement of I18n
+
+### 9.0.7 (2026-07-26)
+- (@GermanBluefox) Breaking: React 19 + MUI 9 + TS 6
+- (@GermanBluefox) Added loading of the new custom components
+
+### 8.5.5 (2026-07-24)
+- (@GermanBluefox) Trying to improve the behaviour of tabs
+
+### 8.5.4 (2026-07-23)
+- (@GermanBluefox) Corrected the displaying of zero number values
+- (@GermanBluefox) Trying to improve the behaviour of tabs
+
+### 8.5.3 (2026-07-20)
+- (@GermanBluefox) Changed the handling of Tabs
+
+### 8.5.0 (2026-07-12)
+- (@GermanBluefox) No functional updates, but only strict types for all components and attributes. This will help to avoid errors in the future.
+
 ### 8.4.15 (2026-07-04)
 - (@GermanBluefox) Extended Credentials Component with AWS and Azure
 

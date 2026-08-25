@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.javascript/javascript.md
 title: kein Titel
-hash: UmK1HZKtWaP8R5sBrmHDlBd/X2rcN/ZpM8kys6G6zfM=
+hash: NogBCyMp5BYHsfx/fMVZjU5d8QeI/rlWmvGLGoaJw6w=
 ---
 ## Inhalt
 - [Hinweis](#Hinweis)
@@ -83,6 +83,7 @@ hash: UmK1HZKtWaP8R5sBrmHDlBd/X2rcN/ZpM8kys6G6zfM=
 - [isScriptActive](#isscriptactive)
 - [Name](#scriptName)
 - [instance](#instance)
+- [GEHEIMNISSE](#secrets)
 - [messageTo](#messageto)
 - [messageToAsync](#messagetoasync)
 - [onMessage](#onmessage)
@@ -477,7 +478,7 @@ schedule('*/3 * * * * *', () => {
 });
 ```
 
-Das Muster kann auch ein Objekt sein; dies wird insbesondere dann verwendet, wenn Sekunden benötigt werden:
+Das Muster kann auch ein Objekt sein; es wird insbesondere dann verwendet, wenn Sekunden benötigt werden:
 
 Das Objekt könnte folgende Eigenschaften haben:
 
@@ -1091,6 +1092,17 @@ Es ist eine mögliche Kurzform von createState:
 - `createState('myDatapoint', { name: 'Mein eigener Datenpunkt', unit: '°C' }, () => { log('erstellt'); });`
 - `createState('myDatapoint', 1, { name: 'Mein eigener Datenpunkt', unit: '°C' })` - Erstellt einen Datenpunkt mit dem angegebenen Namen und den angegebenen Einheiten, falls dieser noch nicht existiert.
 
+#### Ein Objekt an der zweiten Position ist immer `common`
+Diese Kurzformen sind der Grund dafür, dass ein Objekt an der zweiten Position **niemals** als Anfangswert gelesen wird. `createState('myDatapoint', {}, { type: 'object' })` verhält sich daher nicht wie erwartet: Aus `{}` wird `common`, und aus `{ type: 'object' }` wird `native`.
+
+Um einem Zustand einen Anfangswert zuzuweisen, der kein primitiver Wert ist, fügen Sie ihn in `common.def` ein:
+
+```js
+createState('0_userdata.0.myObject', { name: 'My object', type: 'object', read: true, write: true, def: {} });
+```
+
+Ein Zustand vom Typ `object`, `json` oder `array` speichert seinen Wert als JSON. Der obige Zustand beginnt also mit der Zeichenkette `'{}'` – genau wie `setState('0_userdata.0.myObject', {})` ihn speichern würde. Die Standardeinstellung wird automatisch in eine Zeichenkette umgewandelt; Sie können `def: '{}'` aber auch selbst schreiben.
+
 ### CreateStateAsync
 ```js
 await createStateAsync(name, initialValue, forceCreation, common, native);
@@ -1309,7 +1321,7 @@ formatDate(millisecondsOrDate, format);
 * s, c (kyrillisch) – kurze Sekunden, z. B. 5
 * sss, ссс(kyrillisch) - Millisekunden
 * WW, НН (kyrillisch) - vollständiger Wochentag als Text
-* W, H (kyrillisch) – Kurzer Wochentag als Text
+* W, Н (kyrillisch) – Kurzer Wochentag als Text
 * OO, ОО (kyrillisch) - vollständiger Monat als Text
 * OOO, ООО (kyrillisch) - vollständiger Monat als Text im Genitiv
 * O, O (kyrillisch) - Kurzmonat als Text
@@ -1584,7 +1596,7 @@ offFile(id, fileName);
 onFile(id, fileName);
 ```
 
-Benachrichtigungen über Dateiänderungen abbestellen:
+Abmeldung von Dateiänderungen:
 
 - `id` ist die ID eines Objekts vom Typ `meta`, wie z. B. `vis.0`.
 - `fileName` ist ein Dateiname oder ein Dateimuster, z. B. `main/*` oder `main/vis-view.json`
@@ -2113,6 +2125,60 @@ if (verbose) {
     log('...');
 }
 ```
+
+### GEHEIMNISSE
+`SECRETS` - Die Anmeldeinformationen des zentralen ioBroker-Anmeldeinformationsspeichers.
+
+Die Zugangsdaten werden in der Admin-Oberfläche unter **Grundeinstellungen** → **Zugangsdaten** verwaltet. Jede Zugangsberechtigung hat eine ID (z. B. `CameraPassword`) und enthält entweder einen einzelnen **Schlüssel** (z. B. einen API-Schlüssel oder ein Passwort) oder ein **Benutzername**/**Passwort**-Paar. Die geheimen Felder werden mit dem Systemgeheimnis verschlüsselt gespeichert und den Skripten bereits entschlüsselt übergeben.
+
+```js
+// credential of the type "key"
+httpGet(`http://camera.local/snapshot?password=${SECRETS.CameraPassword.key}`, (err, result) => {
+    // ...
+});
+
+// credential of the type "login"
+log(`Mail account: ${SECRETS.MyMailAccount.login} / ${SECRETS.MyMailAccount.password}`);
+
+// credential IDs that are no valid variable names
+log(SECRETS['My camera'].key);
+```
+
+`SECRETS` ist schreibgeschützt und immer aktuell: Wenn in der Admin-UI Anmeldeinformationen hinzugefügt, geändert oder gelöscht werden, wird der neue Wert sofort verwendet – weder der Adapter noch das Skript müssen neu gestartet werden.
+
+Falls keine Anmeldeinformationen vorhanden sind, wird `undefined` zurückgegeben:
+
+```js
+if (SECRETS.CameraPassword) {
+    log('The camera password is defined');
+}
+```
+
+#### Welche Felder enthält ein Anmeldeinformationsblatt?
+Jede Anmeldeinformation enthält entweder ein einzelnes `key` oder ein `login`/`password`-Paar. Drei Möglichkeiten, dies herauszufinden:
+
+- In den Instanzeinstellungen des JavaScript-Adapters listet der Abschnitt **Verfügbare Anmeldeinformationen** alle auf.
+
+Anmeldeinformationen mit ihren Feldern und dem zum Kopieren bereiten Ausdruck.
+
+Im Editor bietet die Autovervollständigung nach `SECRETS.` die vorhandenen Zugangsdaten an, und nach dem
+
+Als nächstes sollten Sie genau die Felder angeben, die diese Anmeldeinformation enthält.
+
+- In einem Skript:
+
+```js
+log(JSON.stringify(Object.keys(SECRETS.CameraPassword))); // ["key"]
+log(JSON.stringify(Object.keys(SECRETS.MyMailAccount))); // ["login","password"]
+```
+
+Blockly verfügt über einen **Anmeldeinformationsblock** für denselben Zweck - siehe [Blockly-Dokumentation](blockly.md#credential).
+
+Der Zugriff kann mit der Instanzoption **Skripten das Lesen der Anmeldeinformationen erlauben** deaktiviert werden.
+
+`SECRETS` ist dann leer, und es wird eine Warnung im Protokoll ausgegeben.
+
+**Hinweis:** Hierfür wird js-controller 7.2 oder neuer benötigt.
 
 ## Option - "Nicht alle Staaten beim Start abonnieren"
 Es gibt zwei Möglichkeiten, Staaten zu abonnieren:

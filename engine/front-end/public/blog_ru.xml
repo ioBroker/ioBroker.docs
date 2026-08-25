@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Новости, объявления и идеи о ioBroker]]></description>
         <link>https://www.iobroker.net/#ru/blog</link>
-        <lastBuildDate>Fri, 10 Jul 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 25 Aug 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Ежемесячный обзор ioBroker – июль/август 2026 г.]]></title>
+            <description><![CDATA[
+                <p># Ежемесячный обзор ioBroker – июль/август 2026 г.\nПик лета 2026 года был отнюдь не периодом затишья! С момента последнего обзора в репозиторий было добавлено целых **23 новых адаптера** – больше, чем за долгое время. В центре внимания снова **энергетика и электромобильность** (Hoymiles, Victron GX, Solakon ONE, Tesla Wall Connector, go-e Charger), но **камеры, мультимедиа и системные инструменты** также хорошо представлены.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#ru/blog/2026_08_25</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2026_08_25</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 25 Aug 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Ежемесячный обзор ioBroker – май/июнь 2026 г.]]></title>
             <description><![CDATA[

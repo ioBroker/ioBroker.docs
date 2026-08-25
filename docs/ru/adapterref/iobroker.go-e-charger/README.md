@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.go-e-charger/README.md
 title: ioBroker.go-eCharger
-hash: ye01FjJSX+juUaBBqJEERHk6cX7y96JK60ntBUWzK14=
+hash: 9PuITMsoXTFS4BOV2w2tpaoS6tl9WVTtDZoW+DmH5Yk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.go-e-charger/admin/go-eCharger.png)
 
@@ -74,7 +74,7 @@ ChargeManager вычисляет зарядный ток на основе чи�
 | Потребление электроэнергии в домохозяйстве | Общий текущий спрос домохозяйства | Вт | Положительное потребление |
 | Состояние заряда домашней батареи | Текущий уровень заряда батареи | % | От 0 до 100 |
 
-Все три состояния должны содержать числовые значения. Значения мощности в кВт необходимо преобразовать в Вт перед их выбором. Состояние импорта/экспорта в сеть нельзя использовать напрямую, поскольку ChargeManager в настоящее время ожидает отдельные значения генерации и потребления.
+Все настроенные состояния должны содержать числовые значения. Значения мощности в кВт необходимо преобразовать в Вт перед их выбором. Состояние импорта/экспорта в сеть нельзя использовать напрямую, поскольку ChargeManager в настоящее время ожидает отдельные значения генерации и потребления.
 
 Если домашняя батарея не установлена, создайте числовое вспомогательное состояние и выберите его в качестве состояния заряда батареи. Установите для этого вспомогательного состояния **то же постоянное значение**, что и для `Settings.Setpoint_HomeBatSoC` (например, `70` для обоих случаев). Это позволит поддерживать смещение батареи на нулевом уровне, поэтому ChargeManager будет заряжать батарею исключительно за счет доступного избытка солнечной энергии.
 
@@ -91,15 +91,22 @@ available power =
     solar power
   - home power consumption
   + wallbox power, if it is included in home power consumption
-  - 100 W reserve
+  - grid reserve
   + battery SoC offset
 
 target current = floor(available power / 230 V / active phases)
 ```
 
-Смещение заряда батареи равно нулю, когда батарея находится точно на заданном минимальном уровне заряда, и увеличивается до 2000 Вт по мере приближения батареи к 100%. Ниже `Settings.Setpoint_HomeBatSoC` зарядка электромобиля отключается, так что приоритет отдается домашней батарее.
+Четыре параметра на стандартной странице конфигурации позволяют настроить этот расчет:
 
-Расчетный ток ограничен максимум 16 А. Внутреннее целевое значение тока изменяется не более чем на 1 А за цикл опроса, чтобы уменьшить резкие изменения.
+- **Резервная мощность сети** [Вт] (по умолчанию 100) – мощность, которая остается свободной при подключении к сети, а не выделяется автомобилю. Увеличьте ее, чтобы обеспечить больший запас мощности; установите значение «0», чтобы передать весь избыток автомобилю.
+- **Максимальный бонус батареи** [Вт] (по умолчанию 2000) – сколько дополнительной энергии, помимо чисто солнечного избытка, может потребляться, пока домашняя батарея находится выше минимального уровня заряда. Бонус равен «0», когда батарея находится точно на минимальном уровне заряда, и линейно возрастает до этого максимума по мере приближения батареи к 100%, поэтому более полная батарея позволяет автомобилю заряжаться быстрее. Установите значение «0», чтобы заряжать автомобиль исключительно за счет измеренного солнечного избытка, не разряжая домашнюю батарею в автомобиле.
+- **Минимальный ток ChargeManager** [А] (по умолчанию 6) – избыточный зарядный ток, ниже которого зарядное устройство отключается после небольшой задержки. Это относится только к зарядке избыточного тока от солнечных батарей.
+- **Максимальный зарядный ток** [А] (по умолчанию 16, до 32) – максимальный ток, который когда-либо сможет назначить адаптер. Он ограничивает **как** ChargeManager (избыток солнечной энергии), **так и** ChargeNOW.
+
+> **⚠️ Не устанавливайте максимальный зарядный ток выше, чем позволяет ваше зарядное устройство go-e и особенности вашей электропроводки.** Модели зарядных устройств go-e рассчитаны на разные максимальные токи (например, 16 А или 32 А), и фактическое ограничение также зависит от вашего кабеля, вилки и проводки. Установка значения выше номинального значения оборудования/установки может привести к срабатыванию защитных устройств или повреждению оборудования. В случае сомнений, оставьте значение по умолчанию — 16 А.
+
+Ниже значения `Settings.Setpoint_HomeBatSoC` зарядка электромобиля отключается, так что приоритет отдается домашней батарее. Зарядка начинается, как только внутренний целевой ток достигает 10 А (или минимального тока, если он установлен выше). Расчетный ток ограничивается заданным максимальным значением, а внутренний целевой ток изменяется не более чем на 1 А за цикл опроса, чтобы уменьшить резкие изменения.
 
 #### Включение ChargeManager
 После запуска адаптера используйте указанные ниже состояния записи. При необходимости замените экземпляр `0` и номер настенного блока `0`.
@@ -143,7 +150,7 @@ ChargeManager не переключается автоматически меж�
 6. `Wallbox_0.info.connection` имеет значение `true`.
 7. `Wallbox_0.Power.Charge`, `Wallbox_0.Power.GridPhases` и, на поддерживаемом оборудовании, `Wallbox_0.Power.EnabledPhases` содержат допустимые значения.
 
-Для начала зарядки может потребоваться несколько циклов опроса, поскольку внутреннее целевое значение увеличивается всего на 1 А за цикл. При стандартном 10-секундном цикле и начальном целевом значении 0 А достижение начальной точки 10 А может занять приблизительно 100 секунд.
+Для начала зарядки может потребоваться несколько циклов опроса, поскольку внутреннее целевое значение увеличивается всего на 1 А за цикл. При стандартном 10-секундном цикле и начальном целевом значении 0 А достижение стандартного начального значения 10 А может занять приблизительно 100 секунд.
 
 В настоящее время ChargeManager предназначен для управления одним зарядным устройством. Включение его для нескольких зарядных устройств одновременно приводит к тому, что каждое зарядное устройство независимо использует один и тот же избыток энергии, что может вызвать некорректное распределение ресурсов.
 
@@ -159,6 +166,35 @@ ChargeManager не переключается автоматически меж�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (hombach) ChargeManager: grid reserve power and maximum battery bonus are now configurable (defaults 100 W / 2000 W) (#852)
+- (hombach) ChargeManager: minimum and maximum surplus charging current are now configurable, with the maximum raised to up to 32 A (#852)
+- (hombach) the configurable maximum charging current now caps ChargeNOW as well
+- (hombach) admin: moved the ChargeManager settings into their own configuration tab, separate from the standard settings
+- (hombach) updated dependencies
+
+### 1.4.1 (2026-08-23)
+
+- (typhosj) refactored the ChargeManager control decision into a deterministic, unit-tested function (#846); behavior unchanged
+- (hombach) fixed vulnerabilities
+- (hombach) updated dependencies
+
+### 1.4.0 (2026-08-10)
+
+- (hombach) added info.unlockedByRFIDName with the name of the current session's RFID card, in parallel to unlockedByRFIDNo (#634)
+- (hombach) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
+- (hombach) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
+- (hombach) updated dependencies
+
+### 1.3.1 (2026-08-06)
+
+- (hombach) fixed "unlocked by RFID" always 0 on gen 3+ chargers: API V2 uses the "trx" key instead of "uby" (#634)
+- (hombach) live data is now refreshed every cycle in all modes, so read-only monitoring stays up to date
+- (hombach) API V2 not being reachable is now a single warning instead of an error (normal on hardware gen 1/2)
+- (typhosj) use generic go-e brand logo as adapter icon (#843)
+
 ### 1.3.0 (2026-08-04)
 
 - (hombach) added info.accessControlState (go-e access_state: 0 = open, 1 = RFID/App required, 2 = price/automatic) (#634)
@@ -172,29 +208,6 @@ ChargeManager не переключается автоматически меж�
 - (typhosj) added ChargeManager PV surplus configuration guide (#842)
 - (hombach) corrected no-battery helper-state recommendation for ChargeManager
 - (hombach) updated dependencies
-
-### 1.2.0 (2026-07-12)
-
-- (hombach) added statisticsGlobal.chargePower state with the current total charging power of all chargers
-- (hombach) removed chai-based unit test dependencies; modernized test harness to Node.js assert (fixes Appveyor, #836)
-
-### 1.1.0 (2026-07-05)
-
-- (hombach) fixed reading of "unlocked by RFID" (uby) on gen 3+ chargers via API V2
-- (hombach) read-only mode now suppresses all control commands (charge release, charging current, phase switching)
-- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
-
-### 1.0.4 (2026-07-04)
-
-- (hombach) harmonized i18n files
-- (hombach) improved README and English texts
-- (hombach) reworked translations in all languages
-- (hombach) added 5s timeout to all HTTP requests to chargers
-- (hombach) fixed adapter stop when no charger is reachable at startup; warn per unreachable charger
-- (hombach) fixed German fallback text for RFID card channel names
-- (hombach) added upper bound validation for cycle time
-- (hombach) added link to manufacturer's website
-- (hombach) code optimizations
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -20,6 +20,8 @@ You can check all icons [here](ICONLIST.md).
 ### 0.1.0 (2016-11-28)
 * (bluefox) initial commit
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 Free FatCow-Farm Fresh Icons
 http://www.fatcow.com/free-icons

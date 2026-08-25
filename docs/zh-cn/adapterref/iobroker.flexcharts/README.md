@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: TquQJMoNTECgGiEbJLwiAnl85fbw3J4Hor0CJIbjvEI=
+hash: dKq2kDcAtExXvcnbZsKtU7eYqX+KeUxsXZO6gG+aABE=
 ---
 ![标识](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -25,6 +25,12 @@ hash: TquQJMoNTECgGiEbJLwiAnl85fbw3J4Hor0CJIbjvEI=
 
 备注：该适配器尚未在MacOS上进行测试。
 
+## V0.7.3 版本新增内容
+**可配置 `source=script` 小部件的超时时间** — 避免计算密集型或协调/串行图表设置中出现错误的超时错误：
+
+- 新增可选参数 `&requestTimeout=<ms>`，用于覆盖脚本 `onMessage()` 响应的默认 2000 毫秒等待时间
+- 默认行为不变——仅当您实际遇到超时时才相关
+
 ## V0.7.2 版本新增内容
 **面向初学者的友好模板和分步指南**——让 ECharts 新手用户更容易上手使用 flexcharts：
 
@@ -38,17 +44,6 @@ hash: TquQJMoNTECgGiEbJLwiAnl85fbw3J4Hor0CJIbjvEI=
 - ECharts动画在每次数据更新时都能流畅运行
 - 刷新时无闪烁或图表重建
 - 对所有现有的 `&sse` URL 都透明生效——无需任何更改
-
-## V0.7.0 版本新增内容
-**通过 SSE 实现事件触发图表刷新** — 现在，当源数据发生变化时，图表会自动更新，无需任何轮询：
-
-- 在图表 URL 中添加 `&sse` 以激活 [服务器发送事件](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)
-- 使用 `source=state` 时：图表会在 `&id=` 指定的州发生变化时更新
-- 如果使用 `source=script`，则添加 `&triggerid=<state_id>` 以指定哪个状态触发更新
-
-示例：`http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userdata.0.echarts.chart1&sse`
-
-详情请参见[事件触发图表刷新 (SSE)](#event-triggered-chart-refresh-sse)。
 
 ## 工作原理
 其他 ioBroker 图表适配器使用用户界面来配置图表内容和选项——这通常会限制您可以表达的内容。flexcharts 采用了不同的方法：
@@ -155,7 +150,7 @@ function chart1(callback) {
 > **安全提示：** `javascript-stringify` 允许向浏览器传递任意代码。使用此模块时，请勿将 ioBroker 暴露于互联网。
 
 ### 事件驱动型动态图表
-ECharts 支持可根据用户操作进行更新的交互式图表。请参阅此 [ECharts 示例](https://echarts.apache.org/examples/en/editor.html?c=dataset-link) 和 [使用 flexcharts 的屏幕录像]](dynamic_charts_with_flexcharts.mkv)。
+ECharts 支持交互式图表，可根据用户操作进行更新。请参阅 [ECharts 示例](https://echarts.apache.org/examples/en/editor.html?c=dataset-link) 和 [使用 flexcharts 的屏幕录像]](dynamic_charts_with_flexcharts.mkv)。
 
 使用**脚本作为源**，并将图表定义和事件处理程序作为数组传递。[模板 4](templates/flexchartsTemplate4.js) 对此进行了演示。关键规则：
 
@@ -279,7 +274,8 @@ callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":
 | `triggerid=<state_id>` | | 当 `source=script` 与 `&sse` 一起使用时，要监视状态 ID 的变化。 |
 | `themev5` | | 请使用 Apache ECharts v5 的默认主题和深色主题，而不是 v6 的默认主题。 |
 | `<custom>=<value>` | | 任何其他参数都将传递给 `httpParams` 中的脚本。 |
-| `<custom>=<value>` | | 任何其他参数都会通过 `httpParams` 传递给脚本。 |
+| `requestTimeout=<n>` | 毫秒，默认值 2000 | `source=script` 等待脚本响应的超时时间。如果脚本的计算（或共享/串行队列）经常花费的时间超过默认值，则增加此值。 |
+| `requestTimeout=<n>` | 毫秒，默认值 2000 | `source=script` 等待脚本响应的超时时间。如果脚本的计算（或共享/串行队列）经常耗时超过默认值，则应增加此值。 |
 
 捐赠
 <a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/bluePayPal.svg" height="40"></a>如果你喜欢这个项目——或者只是想慷慨解囊，不妨请我喝杯啤酒。干杯！🍻
@@ -289,6 +285,9 @@ callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.3 (2026-08-24)
+* (MyHomeMyData) Added optional `requestTimeout` parameter for `source=script` widgets to configure the timeout waiting on the script's response (default 2000 ms, unchanged). Ref. issue #205
+
 ### 0.7.2 (2026-05-07)
 * (MyHomeMyData) Added beginner-friendly templates 6 (energy stacked bar chart with history adapter) and 7 (reactive gauge chart with SSE auto-update)
 * (MyHomeMyData) Improved comments and STEP markers in templates 1–5
@@ -304,20 +303,6 @@ callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":
 ### 0.6.2 (2026-04-13)
 * (MyHomeMyData) Restructuring of code for better readability and improved performance.
 * (MyHomeMyData) Restructuring of Readme for better readability.
-
-### 0.6.1 (2025-11-01)
-* (MyHomeMyData) Added support for dark mode theme of ECharts version 5.6.0 (when using paramter themev5). Based on Apache ECharts 6.
-
-### 0.6.0 (2025-10-19)
-* (MyHomeMyData) Updated Apache ECharts to version 6.0.0 using brand new default theme - please take a look to Readme! Ref. issue #125
-* (MyHomeMyData) Added option to dynamically switch dark mode by listening to the system's setting. Based on Apache ECharts 6.
-* (MyHomeMyData) Added possibility to add self defined themes. Based on Apache ECharts 6.
-* (MyHomeMyData) Extended support for definition of onEvent functions. Now an unlimited number of functions can be defined instead of just one.
-* (MyHomeMyData) Fixes for issue #132 (repository checker)
-
-### 0.5.0 (2025-09-17)
-* (MyHomeMyData) Changed internal naming of chart's options from 'jsopts' to 'option'. If you're using event driven functions within your charts, you may need to adapt the naming accordingly. Pls. refer to Readme.
-* (MyHomeMyData) Migration to ESLint 9. Fixes issues #107 (Migration to ESLint 9) and #114 (findings of repository checker)
 
 ### Older versions
 

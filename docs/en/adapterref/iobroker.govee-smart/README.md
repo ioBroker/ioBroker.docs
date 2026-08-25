@@ -94,6 +94,10 @@ This adapter's MQTT authentication and BLE-over-LAN (ptReal) protocol implementa
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.26.0 (2026-08-22)
+
+- Fixed: Stopping or restarting the instance now really ends the cloud connection; the adapter no longer keeps updating datapoints for a moment after it has shut down.
+
 ### 2.25.0 (2026-08-12)
 
 - Redesigned connection setup: one card for the Cloud API key, account login and 2FA, with live connection status and a guided verification-code step.
@@ -110,12 +114,6 @@ This adapter's MQTT authentication and BLE-over-LAN (ptReal) protocol implementa
 ### 2.23.0 (2026-08-04)
 
 - Test release during the move to ioBroker Admin 8.
-
-### 2.22.0 (2026-07-23)
-
-- A Govee app device group of the "same mode" type no longer appears as a phantom, uncontrollable device in the object tree.
-- Seven more Govee models join the catalog, from Edison bulbs to a ceiling fan. They start as experimental — enable them in the adapter settings to try them.
-- Sensors that reach the cloud through a Govee gateway now show which gateway they are connected through, instead of an empty IP field.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

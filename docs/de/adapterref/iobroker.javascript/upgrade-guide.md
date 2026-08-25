@@ -4,33 +4,32 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.javascript/upgrade-guide.md
 title: Upgrade-Anleitung
-hash: 419X0Zch8gHqehaZE1IsqpfUeQSR8YCsQdZ4zzqWFaE=
+hash: o2Eb9G64jS09GCXeuuf0Re3XwktoidGHb+SLICVLxHk=
 ---
 # Upgrade-Anleitung
-## Verbotene Verzeichnisse für die Skript-Dateisystemspiegelung
-**Seit v5.5.0 des JavaScript-Adapters** dürfen die folgenden Speicherorte (relativ zum ioBroker-Basisverzeichnis, normalerweise `/opt/iobroker`) nicht verwendet werden:
+## Verbotene Verzeichnisse für die Spiegelung des Skript-Dateisystems
+**Seit Version 5.5.0 des JavaScript-Adapters** dürfen die folgenden Verzeichnisse (relativ zum ioBroker-Basisverzeichnis, üblicherweise `/opt/iobroker`) nicht mehr verwendet werden:
 
 * Das ioBroker-Basisverzeichnis selbst und alle darüber liegenden Pfade!
-* `./iobroker-data` selbst, benutzerdefiniertes Unterverzeichnis (wählen Sie einen Namen, der sich mit keinem Adapter überschneidet!)
-* `./iobroker-data/backup-objects` oder irgendetwas darunter
-* `./iobroker-data/files` oder irgendetwas darunter
+* `./iobroker-data` selbst, benutzerdefiniertes Unterverzeichnis (wählen Sie einen Namen, der sich nicht mit einem Adapter überschneidet!)
+* `./iobroker-data/backup-objects` oder alles darunter
+* `./iobroker-data/files` oder alles darunter
 * `./iobroker-data/backitup` oder irgendetwas darunter
-* `./backups` oder irgendetwas darunter
-* `./node_modules` oder irgendetwas darunter
-* `./log` oder irgendetwas darunter
+* `./backups` oder alles darunter
+* `./node_modules` oder alles darunter
+* `./log` oder alles darunter
 
-Die Skript-Dateisystemspiegelung speichert alle Quelldateien der Skripte in Ihrem Dateisystem und ermöglicht Ihnen die Bearbeitung der Dateien in Ihrem bevorzugten Skript-Editor neben dem Web-Editor. Alle Änderungen werden in beide Richtungen synchronisiert.
+Die Spiegelung des Skript-Dateisystems speichert alle Quelldateien der Skripte in Ihrem Dateisystem und ermöglicht Ihnen, die Dateien neben dem Web-Editor auch in Ihrem bevorzugten Skripteditor zu bearbeiten. Alle Änderungen werden in beide Richtungen synchronisiert.
 
-Wenn Sie die Systemspiegelung für Skriptdateien aktivieren, erstellen Sie bitte ein **eigenes neues Verzeichnis** und verwenden Sie **kein** vorhandenes Verzeichnis mit anderen Inhalten.
+Wenn Sie die Spiegelung des Skriptdateisystems aktivieren, erstellen Sie bitte ein **separates neues Verzeichnis** und **verwenden Sie kein** bereits vorhandenes Verzeichnis mit anderen Inhalten.
+Stellen Sie außerdem sicher, dass kein anderes Skript oder Prozess Dateien im angegebenen Verzeichnis ändert, um Zugriffsprobleme zu vermeiden. Jeder Speicherort muss für den Benutzer „iobroker“ beschreibbar sein!
 
-Stellen Sie außerdem sicher, dass keine anderen Skripte oder Prozesse Dateien im angegebenen Verzeichnis ändern, um Zugriffsprobleme zu vermeiden.
-
-Alle Speicherorte müssen für den Benutzer „iobroker“ beschreibbar sein!
+Die Synchronisierung erfolgt in beide Richtungen, einschließlich Löschungen: **Wenn ein Ordner aus dem Spiegelverzeichnis verschwindet, werden die darin enthaltenen Skripte aus der ioBroker-Datenbank gelöscht.** Daher kann jede andere Operation, die in dieses Verzeichnis schreibt – beispielsweise ein Backup-Job, eine Bereinigungsaufgabe oder eine Bereitstellung – Ihre Skripte entfernen. Nur wenn das gesamte Spiegelverzeichnis nicht mehr erreichbar ist, z. B. weil eine Freigabe nicht eingebunden ist, bleiben die Skripte erhalten und das Verzeichnis wird beim nächsten Start neu beschrieben.
 
 ## Anfrage an httpGet
-**Seit Version 8.0.0 des JavaScript-Adapters** ist das Paket `request` veraltet. Die Verwendung in Ihren Skripten führt zu einer Warnung.
-Der JavaScript-Adapter muss das Paket irgendwann entfernen.
-Um die Migration so einfach wie möglich zu gestalten, bietet die Sandbox eine neue Funktion zum Anfordern von HTTP-Ressourcen.
+**Seit Version 8.0.0 des JavaScript-Adapters** ist das Paket `request` veraltet und seine Verwendung in Ihren Skripten führt zu einer Warnung.
+Der JavaScript-Adapter muss dieses Paket zu einem späteren Zeitpunkt entfernen.
+Um die Migration so einfach wie möglich zu gestalten, stellt die Sandbox eine neue Funktion zum Anfordern von HTTP-Ressourcen bereit.
 
 ### JavaScript
 Beispielcode:
@@ -53,10 +52,10 @@ schedule('*/30 * * * *', () => {
 
 Migration:
 
-1. Entfernen Sie den Import des `request`-Pakets
-2. Verwenden Sie die native Methode „httpGet“ (Details finden Sie in der Dokumentation).
-3. Aktualisieren Sie die Parameter der Rückruffunktion
-4. Ersetzen Sie `body` durch `response.data`
+1. Entfernen Sie den Import des `request`-Pakets.
+2. Verwenden Sie die native Methode `httpGet` (siehe Dokumentation für Details).
+3. Aktualisieren Sie die Parameter der Callback-Funktion.
+4. Ersetzen Sie `body` durch `response.data`.
 
 ```js
 schedule('*/30 * * * *', () => {
@@ -74,6 +73,6 @@ schedule('*/30 * * * *', () => {
 
 ### Blockly
 - Der `request`-Block unterstützte nur HTTP GET (andere Methoden wurden nicht unterstützt) - ersetzen Sie den Block durch `http (GET)`
-- Um die Antwort zu verwenden, musste eine benutzerdefinierte Variable namens „result“ erstellt werden. Dies ist nicht mehr erforderlich. Löschen Sie die Variable und verwenden Sie den dedizierten Block, um mit den Ergebnisparametern zu arbeiten (wie in Triggerblöcken).
+Um die Antwort zu verwenden, musste eine benutzerdefinierte Variable namens `result` erstellt werden. Dies ist nun nicht mehr erforderlich. Löschen Sie die Variable und verwenden Sie stattdessen den entsprechenden Block, um mit den Ergebnisparametern zu arbeiten (ähnlich wie in Triggerblöcken).
 
 ![Blockly-Anfrage an httpGet](../../../en/adapterref/iobroker.javascript/img/upgrade-guide/request-httpGet.png)

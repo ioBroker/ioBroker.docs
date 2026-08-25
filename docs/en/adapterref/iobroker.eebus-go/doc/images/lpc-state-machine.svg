@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" font-family="Arial, sans-serif" font-size="11">
+  <rect width="700" height="500" fill="#1e1e1e"/>
+
+  <defs>
+    <marker id="arr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <polygon points="0 0, 7 2.5, 0 5" fill="#aaa"/>
+    </marker>
+  </defs>
+
+  <!-- States arranged in a clean layout to minimize crossings -->
+  <!-- Row 1: init (top center) -->
+  <rect x="280" y="20" width="140" height="40" rx="8" fill="#4A90D9" stroke="#6AB0FF" stroke-width="1.5"/>
+  <text x="350" y="45" text-anchor="middle" fill="#fff" font-weight="bold" font-size="12">init</text>
+
+  <!-- Row 2: unlimitedControlled (left), limited (right) -->
+  <rect x="60" y="150" width="190" height="40" rx="8" fill="#4CAF50" stroke="#66CC6A" stroke-width="1.5"/>
+  <text x="155" y="175" text-anchor="middle" fill="#fff" font-weight="bold" font-size="12">unlimitedControlled</text>
+
+  <rect x="450" y="150" width="140" height="40" rx="8" fill="#F9A825" stroke="#FFC107" stroke-width="1.5"/>
+  <text x="520" y="175" text-anchor="middle" fill="#000" font-weight="bold" font-size="12">limited</text>
+
+  <!-- Row 3: failsafe (center) -->
+  <rect x="270" y="290" width="140" height="40" rx="8" fill="#E57373" stroke="#FF8A80" stroke-width="1.5"/>
+  <text x="340" y="315" text-anchor="middle" fill="#fff" font-weight="bold" font-size="12">failsafe</text>
+
+  <!-- Row 4: unlimitedAutonomous (center bottom) -->
+  <rect x="235" y="420" width="210" height="40" rx="8" fill="#AB47BC" stroke="#CE93D8" stroke-width="1.5"/>
+  <text x="340" y="445" text-anchor="middle" fill="#fff" font-weight="bold" font-size="12">unlimitedAutonomous</text>
+
+  <!-- Start marker -->
+  <circle cx="350" cy="8" r="5" fill="#fff"/>
+  <line x1="350" y1="13" x2="350" y2="20" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- T1: init → unlimitedControlled (left side) -->
+  <path d="M 280 45 L 250 150" fill="none" stroke="#aaa" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="225" y="95" fill="#888" font-size="9">T1</text>
+
+  <!-- T2: init → limited (right side) -->
+  <path d="M 420 45 L 470 150" fill="none" stroke="#aaa" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="455" y="95" fill="#888" font-size="9">T2</text>
+
+  <!-- T3: init → unlimitedAutonomous (far right curve) -->
+  <path d="M 420 40 Q 660 250 445 435" fill="none" stroke="#aaa" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="590" y="200" fill="#888" font-size="9">T3: timeout 120s</text>
+
+  <!-- T4: unlimitedControlled → limited (top, left to right) -->
+  <path d="M 250 155 L 450 155" fill="none" stroke="#aaa" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="340" y="148" fill="#888" font-size="9" text-anchor="middle">T4</text>
+
+  <!-- T5: unlimitedControlled → failsafe -->
+  <path d="M 155 190 L 290 290" fill="none" stroke="#aaa" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="180" y="245" fill="#888" font-size="9">T5</text>
+
+  <!-- T6: limited → unlimitedControlled (bottom, right to left) -->
+  <path d="M 450 185 L 250 185" fill="none" stroke="#aaa" stroke-width="1.2" stroke-dasharray="3 2" marker-end="url(#arr)"/>
+  <text x="340" y="200" fill="#888" font-size="9" text-anchor="middle">T6</text>
+
+  <!-- T7: limited → failsafe -->
+  <path d="M 520 190 L 390 290" fill="none" stroke="#aaa" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="475" y="245" fill="#888" font-size="9">T7</text>
+
+  <!-- T8: failsafe → unlimitedControlled (left curve) -->
+  <path d="M 270 300 Q 60 270 120 190" fill="none" stroke="#aaa" stroke-width="1.2" stroke-dasharray="3 2" marker-end="url(#arr)"/>
+  <text x="60" y="265" fill="#888" font-size="9">T8</text>
+
+  <!-- T9: failsafe → limited (right curve) -->
+  <path d="M 410 300 Q 620 270 570 190" fill="none" stroke="#aaa" stroke-width="1.2" stroke-dasharray="3 2" marker-end="url(#arr)"/>
+  <text x="590" y="265" fill="#888" font-size="9">T9</text>
+
+  <!-- T10: failsafe → unlimitedAutonomous -->
+  <path d="M 340 330 L 340 420" fill="none" stroke="#aaa" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="350" y="380" fill="#888" font-size="9">T10</text>
+
+  <!-- T11: unlimitedAutonomous → unlimitedControlled (left curve) -->
+  <path d="M 235 440 Q 20 380 80 190" fill="none" stroke="#aaa" stroke-width="1.2" stroke-dasharray="3 2" marker-end="url(#arr)"/>
+  <text x="25" y="370" fill="#888" font-size="9">T11</text>
+
+  <!-- T12: unlimitedAutonomous → limited (right curve) -->
+  <path d="M 445 430 Q 660 380 590 190" fill="none" stroke="#aaa" stroke-width="1.2" stroke-dasharray="3 2" marker-end="url(#arr)"/>
+  <text x="630" y="370" fill="#888" font-size="9">T12</text>
+
+  <!-- Legend -->
+  <line x1="20" y1="485" x2="45" y2="485" stroke="#aaa" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="50" y="488" fill="#888" font-size="9">forward</text>
+  <line x1="120" y1="485" x2="145" y2="485" stroke="#aaa" stroke-width="1.2" stroke-dasharray="3 2" marker-end="url(#arr)"/>
+  <text x="150" y="488" fill="#888" font-size="9">recovery</text>
+  <text x="350" y="488" text-anchor="middle" fill="#666" font-size="9">CS-LPC State Machine (EEBus UC TS §2.3.2)</text>
+</svg>

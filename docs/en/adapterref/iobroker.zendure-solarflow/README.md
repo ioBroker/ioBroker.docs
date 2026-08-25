@@ -81,6 +81,8 @@ These devices are supported via **local** MQTT mode (Zendure Cloud Disconnector)
 
 As a new feature you can disconnect the Zendure device from the Cloud. You can either use the [Solarflow Bluetooth Manager](https://github.com/reinhard-brandstaedter/solarflow-bt-manager) from Reinhard Brandstätter or my own Windows Tool [Zendure Cloud Disconnector](https://github.com/nograx/zendure-cloud-disconnector) to disconnect the device from the cloud. It's also possible to redirect DNS requests with your router from "mq.zen-iot.com" to your own MQTT server!
 
+**Note:** The Solarflow Bluetooth Manager and the Zendure Cloud Disconnector only work for **Legacy Devices**. For **zenSDK** devices you have to use the DNS redirect instead, as these devices don't expose the MQTT server setting via bluetooth.
+
 Both tools connect to the Zendure device via bluetooth and simply sets the internal MQTT url to a new url/ip you have to provide. Currently you are forced to use the default MQTT port 1883 (or 8883 with SSL) on your server. You are also forced to deactivate authentication on the MQTT server as the Zendure device use a hardcoded password.
 
 You can use this in combination with your cloud authentication key or use the full local mode.
@@ -99,32 +101,29 @@ This adapter will use the Cloud Authorization Code for authentication on the off
 -->
 
 ## Changelog
-### 4.1.2 (2026-07-15)
+### 5.1.0 (2026-08-20)
 
-- Fixed batcur reading
-- Add missing translations
-- Add dependencies
+- Fix batCur Reading
+- Add control state for inverseMaxPower and gridOffMode (Control AC outlet on 'Plus' Devices)
 
-### 4.1.1 (2026-07-14)
+### 5.0.4 (2026-08-19)
 
-- Send MQTT commands with QOS=1
-- If zenSDK device is not reachable, stop polling device after 5 retries. Try again after 10 minutes.
+- Fix flickering Save button in Settings.
+- Add function to detect zenSDK devices with mDNS and fill missing IP-address if found.
 
-### 4.1.0 (2026-06-19)
+### 5.0.3 (2026-08-18)
 
-- Allow local TLS MQTT Server connection on port 8883 (due to new device firmware) in settings
-- Fix batcur calculation
+- Fix `wifiState` not being created/updated correctly for devices using local zenSDK polling (Solarflow 2400 AC/AC Plus/Pro, 1600 AC Plus), as their local status payload does not report a `wifiState` property
 
-### 4.0.6 (2026-06-06)
+### 5.0.2 (2026-08-18)
 
-- Add productKey 'nVyeqM' for Solarflow 800 Pro 2
+- Fix Wifistate type/value mismatch
 
-### 4.0.5 (2026-06-03)
+### 5.0.1 (2026-08-18)
 
-- Add state 'socStatus' (Auto-calibration) for modern devices (SF 800 upwards)
-- Fix adapter start if deviceList is empty
-- Improve logging of errors
-- Adapter requires node.js >= 22 now
+- Fix state type/value mismatch
+
+For older changes see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 

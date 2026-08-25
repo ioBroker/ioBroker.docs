@@ -26,6 +26,12 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 ------------------------------------------------------------------------------------
 ## Changelog
+### 3.1.33 (2026-08-22)
+* (ipod86) Fix EU Hyundai/Kia login
+
+### 3.1.32 (2026-08-20)
+* (ipod86) Fix EU Hyundai/Kia login
+
 ### 3.1.31 (2026-08-11)
 * (arteck) Dependencies have been updated
 
@@ -37,14 +43,6 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 ### 3.1.29 (2026-08-05)
 * (copilot) Adapter requires node.js >= 22 now
 * (ipod86) add Tokenmanager
-
-### 3.1.28 (2026-04-08)
-* (arteck) Dependencies have been updated
-* (arteck) better LOG
-
-### 3.1.27 (2026-04-06)
-* (arteck) fix position_text 
-* (arteck) Dependencies have been updated
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

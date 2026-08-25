@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zwavews/README.md
 title: ioBroker.zwavews
-hash: c3DIl7iUjKXS61DgcIgwuMGaiFHGtV8JbOblN/mG93k=
+hash: 3849JeEjwxoDHr8oL6mWsUMsez4bzuHhHFgLb90+6sY=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.zwavews.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.zwavews.svg)
@@ -20,12 +20,12 @@ hash: c3DIl7iUjKXS61DgcIgwuMGaiFHGtV8JbOblN/mG93k=
 Der Adapter `zwavews` verbindet ein [`zwave-js-ui`](https://zwave-js.github.io/zwave-js-ui/#/) mit ioBroker und erstellt entsprechende Datenpunkte für Geräte, Werte und Status. Dadurch lassen sich Z-Wave-Geräte komfortabel in Visualisierungen, Logik und Automatisierungen einsetzen.
 
 ### Merkmale
-* **Echtzeitkommunikation**: Empfängt sofort Aktualisierungen von Gerätewerten und -status über WebSocket oder MQTT.
+* **Echtzeitkommunikation**: Empfängt umgehend Aktualisierungen von Gerätewerten und -status über WebSocket.
 * **Automatische Erkennung**: Erstellt und aktualisiert automatisch die Geräte- und Statusstruktur in ioBroker anhand der `zwave-js-ui`-Knoten.
 * **Geräteverwaltung**: Akkustand, Verbindungsstatus und detaillierte Gerätemetriken können direkt über die ioBroker-Oberfläche eingesehen werden.
 * **Firmware-Updates**: Verfolgen Sie den Fortschritt von Firmware-Updates direkt über die Protokolle und Statusanzeigen des Adapters.
 * **Zustandssteuerung**: Befehle senden und Werte nativ über den ioBroker-Objektbaum aktualisieren.
-* **Unterstützung für mehrere Protokolle**: Sie können sich über WebSocket, externen MQTT-Server oder einen internen Dummy-MQTT-Server mit `zwave-js-ui` verbinden.
+* **Unterstützung für WebSocket**: Sie können über WebSocket eine Verbindung zu `zwave-js-ui` herstellen.
 
 ## Adapterdokumentation
 Es ist erforderlich, zwave-js-ui zu installieren (es ist möglich, die zwave2-Geräte auf zwave-js-ui zu migrieren. Kopieren Sie die JSON-Cache-Datei von /opt/iobroker/iobroker-data/zwave2/ in das Speicherverzeichnis der Z-Wave JS UI. Starten Sie anschließend zwave-js-ui) und die WS-Kommunikation zu aktivieren.<br> Der Wechsel vom Z-Wave2-Adapter ist einfach, da alle Informationen auf dem Koordinator gespeichert sind.<br> Sie müssen die batteriebetriebenen Geräte nur einmal aufwecken, damit zwave-js-ui sie wieder lesen kann, oder Sie migrieren von zwave2.<br>
@@ -36,11 +36,12 @@ Aktivieren Sie die WS-Servereinstellungen in `zwave-js-ui`. Wir verwenden hierf�
 
 <img width="1887" height="479" alt="Grafik" src="https://github.com/user-attachments/assets/6ed8cf36-2d91-435f-91d7-86e430bb0c6c" />
 
-### **IN BEARBEITUNG**
-* (arteck) fix reconnect ws
-* (arteck) Schaltfläche „Erneutes Vorstellungsgespräch hinzufügen“ hinzufügen
-
 ## Changelog
+### 1.1.0 (2026-08-20)
+* (arteck) fix reconnect ws
+* (arteck) add re-interview button
+* (arteck) fix admin
+
 ### 1.0.4 (2026-07-23)
 * (arteck) reconnect optimization
 * (arteck) notification handling
@@ -55,9 +56,6 @@ Aktivieren Sie die WS-Servereinstellungen in `zwave-js-ui`. Wir verwenden hierf�
 ### 1.0.1 (2026-07-15)
 * (arteck) fix bulb set color
 * (arteck) add delete null states button into adapter settings
-
-### 1.0.0 (2026-07-08)
-* (arteck) add notification
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

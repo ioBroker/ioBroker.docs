@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: TquQJMoNTECgGiEbJLwiAnl85fbw3J4Hor0CJIbjvEI=
+hash: dKq2kDcAtExXvcnbZsKtU7eYqX+KeUxsXZO6gG+aABE=
 ---
 ![Logo](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -25,6 +25,12 @@ Werfen Sie einen Blick auf [ECharts-Demogalerie](https://echarts.apache.org/exam
 
 Anmerkung: Der Adapter wurde noch nicht unter MacOS getestet.
 
+## Was ist neu in Version 0.7.3?
+**Konfigurierbares Timeout für `source=script`-Widgets** — vermeidet falsche Timeout-Fehler bei rechenintensiven oder koordinierten/seriellen Diagrammkonfigurationen:
+
+- Der neue optionale Parameter `&requestTimeout=<ms>` überschreibt die standardmäßige Wartezeit von 2000 ms für die Antwort des Skripts auf `onMessage()`.
+Das Standardverhalten bleibt unverändert – dies ist nur relevant, wenn tatsächlich ein Timeout auftritt.
+
 ## Was ist neu in Version 0.7.2?
 **Anfängerfreundliche Vorlagen und Schritt-für-Schritt-Anleitung** – so werden Flexcharts auch für ECharts-Neulinge zugänglicher:
 
@@ -38,17 +44,6 @@ Anmerkung: Der Adapter wurde noch nicht unter MacOS getestet.
 Die ECharts-Animationen laufen bei jeder Datenaktualisierung reibungslos.
 - Kein Flackern oder Neuaufbau des Diagramms beim Aktualisieren
 - Funktioniert transparent für alle bestehenden `&sse`-URLs – keine Änderungen erforderlich
-
-## Was ist neu in Version 0.7.0?
-**Ereignisgesteuerte Diagrammaktualisierung über SSE** – Diagramme werden nun automatisch aktualisiert, wenn sich ihre Quelldaten ändern, ohne dass ein Polling erforderlich ist:
-
-- Fügen Sie `&sse` zu einer Diagramm-URL hinzu, um [Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) zu aktivieren.
-- Mit `source=state`: Das Diagramm wird immer dann aktualisiert, wenn sich der durch `&id=` angegebene Zustand ändert.
-- Bei `source=script`: Fügen Sie `&triggerid=<state_id>` hinzu, um anzugeben, welcher Staat die Aktualisierung auslöst.
-
-Beispiel: `http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userdata.0.echarts.chart1&sse`
-
-Die vollständigen Details finden Sie in [Ereignisgesteuerte Diagrammaktualisierung (SSE)](#event-triggered-chart-refresh-sse).
 
 ## So funktioniert es
 Andere ioBroker-Chartadapter verwenden eine Benutzeroberfläche zur Konfiguration von Chartinhalten und -optionen – was die Ausdrucksmöglichkeiten in der Regel einschränkt. flexcharts verfolgt einen anderen Ansatz:
@@ -131,7 +126,7 @@ function chart1(callback) {
 
 Starten Sie das Skript und öffnen Sie anschließend: `http://localhost:8082/flexcharts/echarts.html?source=script`
 
-Der Standardnachrichtenname lautet `flexcharts`. Um einen anderen Namen zu verwenden, fügen Sie `&message=mycharts` hinzu und passen Sie `onMessage('mycharts', ...)` entsprechend an.
+Der Standardname der Nachricht lautet `flexcharts`. Um einen anderen Namen zu verwenden, fügen Sie `&message=mycharts` hinzu und passen Sie `onMessage('mycharts', ...)` entsprechend an.
 
 Zusätzliche URL-Parameter werden in `httpParams` an das Skript übergeben:
 
@@ -278,7 +273,8 @@ Basis-URL: `http://localhost:8082/flexcharts/echarts.html`
 | `triggerid=<state_id>` | | Status-ID, die bei der Verwendung von `source=script` mit `&sse` auf Änderungen überwacht werden soll. |
 | `themev5` | | Verwende die Standard- und Dunkel-Themes von Apache ECharts v5 anstelle der Standard-Themes von v6. |
 | `<custom>=<value>` | | Alle weiteren Parameter werden an das Skript in `httpParams` weitergeleitet. |
-| `<custom>=<value>` | | Alle zusätzlichen Parameter werden in `httpParams` an das Skript weitergeleitet. |
+| `requestTimeout=<n>` | ms, Standardwert 2000 | Timeout für `source=script` beim Warten auf die Antwort des Skripts. Erhöhen Sie den Wert, wenn die Berechnung des Skripts (oder eine gemeinsam genutzte/serielle Warteschlange) regelmäßig länger als der Standardwert dauert. |
+| `requestTimeout=<n>` | ms, Standardwert 2000 | Timeout für `source=script`, das auf die Antwort des Skripts wartet. Erhöhen Sie den Wert, wenn die Berechnung des Skripts (oder eine gemeinsam genutzte/serielle Warteschlange) regelmäßig länger als der Standardwert dauert. |
 
 ## Spenden
 <a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/bluePayPal.svg" height="40"></a> Wenn dir dieses Projekt gefallen hat – oder du einfach nur großzügig sein möchtest –, spendiere mir doch ein Bier. Prost! 😉
@@ -288,6 +284,9 @@ Basis-URL: `http://localhost:8082/flexcharts/echarts.html`
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.3 (2026-08-24)
+* (MyHomeMyData) Added optional `requestTimeout` parameter for `source=script` widgets to configure the timeout waiting on the script's response (default 2000 ms, unchanged). Ref. issue #205
+
 ### 0.7.2 (2026-05-07)
 * (MyHomeMyData) Added beginner-friendly templates 6 (energy stacked bar chart with history adapter) and 7 (reactive gauge chart with SSE auto-update)
 * (MyHomeMyData) Improved comments and STEP markers in templates 1–5
@@ -303,20 +302,6 @@ Basis-URL: `http://localhost:8082/flexcharts/echarts.html`
 ### 0.6.2 (2026-04-13)
 * (MyHomeMyData) Restructuring of code for better readability and improved performance.
 * (MyHomeMyData) Restructuring of Readme for better readability.
-
-### 0.6.1 (2025-11-01)
-* (MyHomeMyData) Added support for dark mode theme of ECharts version 5.6.0 (when using paramter themev5). Based on Apache ECharts 6.
-
-### 0.6.0 (2025-10-19)
-* (MyHomeMyData) Updated Apache ECharts to version 6.0.0 using brand new default theme - please take a look to Readme! Ref. issue #125
-* (MyHomeMyData) Added option to dynamically switch dark mode by listening to the system's setting. Based on Apache ECharts 6.
-* (MyHomeMyData) Added possibility to add self defined themes. Based on Apache ECharts 6.
-* (MyHomeMyData) Extended support for definition of onEvent functions. Now an unlimited number of functions can be defined instead of just one.
-* (MyHomeMyData) Fixes for issue #132 (repository checker)
-
-### 0.5.0 (2025-09-17)
-* (MyHomeMyData) Changed internal naming of chart's options from 'jsopts' to 'option'. If you're using event driven functions within your charts, you may need to adapt the naming accordingly. Pls. refer to Readme.
-* (MyHomeMyData) Migration to ESLint 9. Fixes issues #107 (Migration to ESLint 9) and #114 (findings of repository checker)
 
 ### Older versions
 

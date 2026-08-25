@@ -59,6 +59,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (HombachC) fixed vulnearbility
+- (HombachC) updated dependencies
+
 ### 7.0.6 (2026-07-27)
 
 - (HombachC) fixed misleading HTTP error 200 log message caused by network interruption during response body reading

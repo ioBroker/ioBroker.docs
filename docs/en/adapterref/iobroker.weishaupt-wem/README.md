@@ -15,6 +15,10 @@
 
 Adapter for weishaupt WEM Portal
 
+## WEM Portal Domain
+
+Das WEM Portal wird je nach Region unter unterschiedlichen Domains ausgeliefert (`www.wemportal.com` oder `www.wemportal.de`). Wenn der manuelle Login im Browser auf `www.wemportal.de` landet oder der Adapter beim ersten Login-Schritt ein `403 Forbidden` (Azure Application Gateway) bekommt, in den Adapter-Einstellungen die passende Domain unter "WEM Portal Domain" auswählen. Standard ist `www.wemportal.com`.
+
 ## Custom Befehl
 
 Für ein Custom Befehl benötigst du die URL und den gewünschten Wert.
@@ -31,6 +35,25 @@ Der Adapter liest auch die Daten aus der App aus.
 
 
 ## Changelog
+
+### 0.0.20
+
+* (ta2k) Abgeschaltete Leistungs-/Prozentwerte (Aus/off/--) werden als numerische 0 gespeichert (kWh-Zähler bleiben unberührt)
+
+### 0.0.19
+
+* (ta2k) Fix Absturz "Canvas.Image is not a constructor" mit jsdom 30 / Node 24 (Canvas-Stub meldet sich jetzt als nicht installiert)
+
+### 0.0.18
+
+* (ta2k) Backoff bei 403 vom Azure Gateway (Rate-Limit / Bot-Schutz) statt Relogin-Sturm
+* (ta2k) Anfragen entzerrt (Throttling zwischen App-Requests) analog hass-WEM-Portal
+* (ta2k) Zentrale App-API-Anfrage mit einmaligem Relogin-Retry und Session-Ablauf-Erkennung
+* (ta2k) Neue App-Daten: Geräte-Status/Fehler (DeviceStatus), Energiestatistik (Statistics, stündlich), Heizzeiten (CircuitTimes)
+* (ta2k) Heizzeiten schreibbar über `circuitTimes.PARAMETERID.setSchedule` (CircuitTimes/Write)
+* (ta2k) App-Header und Login gegen die App-APK v3.0.1 verifiziert (X-Api-Version 2.0.0.0, AppVersion 3.0.1, Android)
+* (ta2k) Auswählbare Portal-Domain (.com / .de)
+* (ta2k) Login/Status-Fehler beenden nicht mehr die Instanz (kein Crash bei fehlenden Parametern oder Status)
 
 ### 0.0.16
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.harvia-fenix/README.md
 title: ioBroker.harvia-fenix
-hash: jEMlySiE0Wma0PxeDul3GrIPE76sFjebGAPMZoV+jX0=
+hash: 3RkffmBtNMTrvcFbrdmEzKSKgkJHDo3PjWxBm0u7et0=
 ---
 ![下载](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![节点](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -80,30 +80,27 @@ hash: jEMlySiE0Wma0PxeDul3GrIPE76sFjebGAPMZoV+jX0=
 这样，您就可以使用各自的数据点独立地监控和控制两个桑拿房。
 
 ### 共享/访客帐户和合作伙伴 ID
-合作伙伴 ID 是什么？
-MyHarvia 云基础设施将设备、用户和应用程序划分到不同的“合作伙伴组织”中。例如，官方的 **MyHarvia 2** 智能手机应用程序映射到合作伙伴 ID `ORG/prod:0:6656:0`。
+#### 🟢 默认场景（主账号/桑拿房所有者）
+如果您使用主 MyHarvia 帐户（最初在移动应用程序中注册桑拿房的帐户）配置适配器：
 
-通常情况下，当用户登录时，适配器会解码其 JSON Web Token (JWT) 有效负载，并自动从 `custom:org` 字段中提取合作伙伴 ID。然后，它使用此 ID 查询 Harvia 云 API 以发现已连接的设备。
+* 配置中，**设备 ID** 和 **合作伙伴 ID** 都**留空**。
+* 启动时，适配器将自动发现并连接到您的桑拿房。
 
-#### 共享/访客帐户问题
-如果其他用户（所有者/主要用户）已在 MyHarvia 2 应用中与您共享了他们的桑拿房：
+#### 🟡 共享/访客账户场景（例如：专用 ioBroker 账户）
+如果桑拿房通过 MyHarvia 2 应用从所有者帐户共享给辅助访客帐户，则 Harvia 的自动发现端点会为访客令牌返回一个空的设备列表 (`{"devices":[]}`)。
 
-1. 您的帐户令牌与不同的访客合作伙伴 ID 相关联（例如 `ORG/prod:0:6749` 或自定义 ID）。
-2. 如果适配器查询您的访客合作伙伴 ID 下的设备列表，Harvia Cloud API 将返回一个空列表 (`{"devices":[]}`)，您将看不到桑拿房。
-3. 要发现和控制共享桑拿房，API 请求**必须使用所有者的合作伙伴 ID**。
+在这种情况下，您必须在适配器设置中手动指定设备 ID 和所有者合作伙伴 ID：
 
-如何查找所有者的合作伙伴 ID？
-有两种方法可以确定所有者的合作伙伴 ID：
+**60秒内获取两个ID的方法：**
 
-1. **标准应用程序：** 如果所有者使用的是官方的标准 **MyHarvia 2** 移动应用程序，则合作伙伴 ID 为 **`ORG/prod:0:6656:0`**。
-2. **从 ioBroker 日志中获取信息：** 如果所有者已经运行了 `harvia-fenix` 适配器，他们可以查看 ioBroker 启动日志。启动时，适配器会打印类似这样的行：
+1. 在适配器配置中，临时输入**主/所有者帐户**的登录凭据，然后单击**保存**。
+2. 打开 ioBroker 日志。适配器会立即连接，并打印包含两个 ID 的行：
+* `找到设备：...（ID：xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx）` ➡️ 这是您的**设备 ID**。
+* `使用用户令牌中的合作伙伴 ID：ORG/prod:0:6656` ➡️ 这是您的**合作伙伴 ID**（通常为 `ORG/prod:0:6656` 或 `ORG/prod:0:6656:0`）。
+3. 复制这两个值。
+4. 重新打开配置，切换回您的**访客帐户**凭据，将复制的**设备 ID**和**合作伙伴 ID**粘贴到各自的可选字段中，然后单击**保存并关闭**。
 
-`Using partner ID from user token: ORG/prod:0:XXXX` 所有者可以简单地复制此 ID 并将其与访客用户共享。
-
-#### 如何配置共享/访客帐户
-1. 在适配器设置中输入您自己的**用户名/电子邮件**和**密码**（访客凭据）。
-2. 在“合伙人 ID（可选）”字段中输入**所有者的合伙人 ID**。
-3. 如果将 **设备 ID** 字段留空，适配器将使用所有者的合作伙伴 ID 搜索共享设备并自动找到它。
+现在，访客账户可以直接可靠地控制共享桑拿房！
 
 ---
 
@@ -121,13 +118,16 @@ MyHarvia 云基础设施将设备、用户和应用程序划分到不同的“�
 |---|---|---|---|---|
 | `info.connection` | 布尔值 | `indicator` | 只读 | 适配器与 MyHarvia 云的连接状态。 |
 | `info.maxTemp` | 编号 | `value.temperature` | 只读 | 最大目标温度限制 (`110 °C`)。 |
+| `info.avgHeatingRate` | 数字 | `value` | 只读 | 已学习的历史平均升温速率（单位：摄氏度/分钟）（`°C/min`）。 |
+| `info.heatingAnomaly` | 布尔值 | `indicator` | 只读 | 如果实时供暖性能显著低于历史平均水平，则将 `true` 置为真。 |
+| `estimatedHeatingTimeRemaining` | 数字 | `value.interval` | 只读 | 达到目标温度（`min`）前预计剩余加热时间（分钟）。 |
 | `online` | 布尔值 | `indicator.reachable` | 只读 | 控制单元与云端的连接状态。 |
 | `doorSafety` | 布尔值 | `indicator.safety` | 只读 | 安全回路状态（例如，`true`表示门已锁定/可以安全运行）。 |
 | `remoteControl` | 布尔值 | `indicator` | 只读 | 远程启动就绪状态。如果为 `false`，则阻止远程启动加热器（通过适配器）。 |
-| `errorMsg` | 字符串 | `text` | 只读 | 来自加热器的当前错误消息或状态文本。 |
+| `errorMsg` | 字符串 | `text` | 只读 | 加热器当前错误信息或状态文本。 |
 | `heatOn` | 布尔值 | `switch.power` | 读/写 | 主开关，用于打开 (`true`) 或关闭 (`false`) 桑拿加热器。 |
 | `heaterPower` | 数字 | `value.power` | 只读 | *注意：* 此对象由 MyHarvia API 结构提供，但目前以 `0 kW`（未填充）的形式提供。它似乎是为未来的硬件或应用程序更新而保留的。 |
-| `lightOn` | 布尔值 | `switch.light` | 读/写 | 切换开启或关闭集成桑拿照明。 |
+| `lightOn` | 布尔值 | `switch.light` | 读/写 | 切换打开或关闭集成桑拿照明。 |
 | `maxDuration` | 数字 | `level.timer` | 读/写 | 桑拿房使用期间允许的最大加热时间（分钟）（`min`）。 |
 | `panelTemp` | 数字 | `value.temperature` | 只读 | 在物理控制面板单元处测量的温度读数。 |
 | `targetTemp` | 数字 | `level.temperature` | 读/写 | 桑拿房的目标温度设定值（例如，`90 °C`）。 |
@@ -141,10 +141,18 @@ MyHarvia 云基础设施将设备、用户和应用程序划分到不同的“�
 
 ---
 
-## 通知与自动化
-该适配器会自动计算加热进度，并提供两个专门设计的指示数据点，用于触发推送通知（例如通过 Telegram、Pushover 或 Alexa）。
+## 智能功能与自动化
+### 1. 自适应加热预测与异常检测
+* **已学习的供暖持续时间（`estimatedHeatingTimeRemaining` 和 `info.avgHeatingRate`）：**
 
-您可以使用一个简单的 ioBroker 脚本（JavaScript 或 Blockly），监听这些状态变为 `true`：
+该适配器会学习您舱室的加热速率（摄氏度/分钟）。在运行过程中，它会将历史性能与实时温度变化相结合，以计算出准确的剩余加热时间。
+
+* **异常检测（`info.heatingAnomaly`）：**
+
+如果在至少 10 分钟的积极加热后，实时加热率低于历史平均值的 50%（例如，桑拿房门未关好或加热元件故障），则 `info.heatingAnomaly` 会启动 `true` 并记录警告。
+
+### 2. 通知（推送触发器）
+该适配器会自动计算加热进度，并提供专门设计的指示数据点，用于触发推送通知（例如通过 Telegram、Pushover 或 Alexa）：
 
 ```javascript
 // Trigger for the 10-minute pre-warning
@@ -157,6 +165,11 @@ on({ id: 'harvia-fenix.0.readyNotified10Min', change: 'ne', val: true }, functio
 on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, function () {
     const targetTemp = getState('harvia-fenix.0.targetTemp').val;
     sendTo('telegram.0', 'send', { text: `♨️ The sauna has reached the target temperature of ${targetTemp}°C and is ready!` });
+});
+
+// Trigger on heating anomaly (e.g. door open)
+on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, function () {
+    sendTo('telegram.0', 'send', { text: '⚠️ Warning: Sauna is heating unusually slowly! Please check door and heater.' });
 });
 ```
 
@@ -177,12 +190,23 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 
 待办事项
 * [ ] 等待 Harvia 官方许可才能使用其原有标志
-* [x] 将适配器添加到官方 ioBroker `latest` 仓库
-* [x] 将适配器添加到官方 ioBroker `stable` 仓库
+* [ ] 设置桑拿后自动冷饮提醒，帮助您在桑拿后放松身心🍺❄️
+* [ ] 设计一款人工智能驱动的机器人毛巾挥动助手，打造极致的 Aufguss 体验 🧖‍♂️🪣
 
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (meistermopper) Update @alcalzone/release-script-plugin-license to 5.2.2
+
+### 0.4.0 (2026-08-13)
+* (meistermopper) Add adaptive heating duration prognosis and anomaly detection
+* (meistermopper) Add dev script shortcut for dev-server watch in package.json
+* (meistermopper) Clarify Partner ID and guest account setup instructions
+* (meistermopper) Document adaptive heating prognosis and anomaly detection
+* (meistermopper) Add strict privacy and anonymization rule to AGENTS.md
+* (meistermopper) Clean up To-Do list and add fun future wishlist items
+
 ### 0.3.2 (2026-08-11)
 * (meistermopper) Use absolute GitHub URLs for language switching links in README files
 * (meistermopper) Remove latest repository and translation badges from README files
@@ -211,15 +235,6 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 * (meistermopper) Fix doorSafety role to sensor.door for repochecker compliance
 * (meistermopper) Add missing CHANGELOG_OLD link to README.md (repochecker S6022)
 * (meistermopper) Fix changelog rotation in README_de.md to enforce 5 entries limit
-
-### 0.2.7 (2026-07-17)
-* (meistermopper) Implement retry for "Device unavailable" and proactive token refresh
-* (meistermopper) Restore clean datapoint table and safety warnings in README files
-* (meistermopper) Mark latest repository item as completed in To-Do list
-* (meistermopper) Clarify remoteControl description in README files
-* (meistermopper) Remove redundant ==== underlines from header in README files
-* (meistermopper) Remove duplicate changelog link and format it consistently in README files
-* (meistermopper) Update Biome schema version to 2.5.3 to match CLI version
 
 [Older changelog entries](CHANGELOG_OLD.md)
 

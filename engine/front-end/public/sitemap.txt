@@ -60,6 +60,7 @@ https://www.iobroker.net/#de/blog/2025_12_29
 https://www.iobroker.net/#de/blog/2026_03_04
 https://www.iobroker.net/#de/blog/2026_04_13
 https://www.iobroker.net/#de/blog/2026_07_10
+https://www.iobroker.net/#de/blog/2026_08_25
 https://www.iobroker.net/#en/blog/2018_03_17
 https://www.iobroker.net/#en/blog/2019_02_22
 https://www.iobroker.net/#en/blog/2019_02_25
@@ -94,6 +95,7 @@ https://www.iobroker.net/#en/blog/2025_12_29
 https://www.iobroker.net/#en/blog/2026_03_04
 https://www.iobroker.net/#en/blog/2026_04_13
 https://www.iobroker.net/#en/blog/2026_07_10
+https://www.iobroker.net/#en/blog/2026_08_25
 https://www.iobroker.net/#ru/blog/2018_03_17
 https://www.iobroker.net/#ru/blog/2019_02_22
 https://www.iobroker.net/#ru/blog/2019_02_25
@@ -128,6 +130,7 @@ https://www.iobroker.net/#ru/blog/2025_12_29
 https://www.iobroker.net/#ru/blog/2026_03_04
 https://www.iobroker.net/#ru/blog/2026_04_13
 https://www.iobroker.net/#ru/blog/2026_07_10
+https://www.iobroker.net/#ru/blog/2026_08_25
 https://www.iobroker.net/#zh-cn/blog/2018_03_17
 https://www.iobroker.net/#zh-cn/blog/2019_02_22
 https://www.iobroker.net/#zh-cn/blog/2019_02_25
@@ -162,6 +165,7 @@ https://www.iobroker.net/#zh-cn/blog/2025_12_29
 https://www.iobroker.net/#zh-cn/blog/2026_03_04
 https://www.iobroker.net/#zh-cn/blog/2026_04_13
 https://www.iobroker.net/#zh-cn/blog/2026_07_10
+https://www.iobroker.net/#zh-cn/blog/2026_08_25
 https://www.iobroker.net/#de/documentation/admin/adapter.md
 https://www.iobroker.net/#de/documentation/admin/enums.md
 https://www.iobroker.net/#de/documentation/admin/files.md
@@ -805,6 +809,8 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.apg-info/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.apsystems-ez1/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.artnet/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.artnet-recorder/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.assistant/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.assistant-satellite/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.asterisk/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.asuswrt/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.atlas-scientific-ezo-i2c/README.md
@@ -877,6 +883,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.controme/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.coronavirus-statistics/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.corrently/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.countdown/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.creality/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.cul/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.daikin/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.daikin-cloud/README.md
@@ -913,6 +920,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.ecoflow/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ecoflow-mqtt/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ecovacs-deebot/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.eebus-go/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.egigeozone2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ekey/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.electrolux-aeg/README.md
@@ -980,6 +988,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.go-e/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.go-e-charger/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.goodwe/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.goodwe-pv/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.goodwe-sems/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.google-sharedlocations2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.google-spreadsheet/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.googleauth/README.md
@@ -1069,6 +1078,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.innogy-smarthome/READM
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.innoxel/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.intesishome/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.intex/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.iometer/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.iopooleco/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.iot/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.iqontrol/README.md
@@ -1148,6 +1158,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.meross/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.message-queue/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.meteoalarm/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.meteoswiss/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.metermaster/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.mhi-wfrac/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.micronova/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.midas-aquatemp/README.md
@@ -1209,6 +1220,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.ntfy-client/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.nuki/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.nuki-extended/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.nut/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.nut2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.oasecontrol/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ocpp/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.octoprint/README.md
@@ -1217,6 +1229,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.odl/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.oekofen-json/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.oilfox/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.omnicomm-lls/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.omoda/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.omron-fins/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.onkyo/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.onlycat/README.md
@@ -1268,6 +1281,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.plenticore-g3/README.m
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.plex/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.plexconnect/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.pollenflug/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.pondpump/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.poolcontrol/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.porsche/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.powerfox2/README.md
@@ -1314,6 +1328,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.sainlogic/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.samsung/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.samsung_tizen/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.sanext/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.sax-power/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.sayit/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.sbfspot/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.sbms/README.md
@@ -1352,6 +1367,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.siku/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.simple-api/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.simple-proxy-manager/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.skiinfo/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.sky-remote/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.slideshow/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.sma-em/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.smappee/README.md
@@ -1508,6 +1524,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-plumb/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-rgraph/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-timeandweather/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-weather/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis2-materialdesign/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vivitek/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vofo-speedtest/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.voltoplus/README.md
@@ -1565,11 +1582,13 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.youtube/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.yr/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.zehnder-cloud/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.zendure-solarflow/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.zeptrion/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.zigbee/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.zigbee2mqtt/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.zoe2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.zoneminder/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.zont/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.zte-mc888/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.zwavews/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.zwift/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.absaar/README.md
@@ -1630,6 +1649,8 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.apg-info/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.apsystems-ez1/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.artnet/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.artnet-recorder/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.assistant/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.assistant-satellite/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.asterisk/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.asuswrt/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.atlas-scientific-ezo-i2c/README.md
@@ -1702,6 +1723,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.controme/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.coronavirus-statistics/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.corrently/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.countdown/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.creality/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.cul/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.daikin/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.daikin-cloud/README.md
@@ -1738,6 +1760,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.ecoflow/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ecoflow-mqtt/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ecovacs-deebot/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.eebus-go/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.egigeozone2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ekey/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.electrolux-aeg/README.md
@@ -1805,6 +1828,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.go-e/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.go-e-charger/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.goodwe/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.goodwe-pv/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.goodwe-sems/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.google-sharedlocations2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.google-spreadsheet/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.googleauth/README.md
@@ -1894,6 +1918,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.innogy-smarthome/READM
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.innoxel/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.intesishome/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.intex/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.iometer/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.iopooleco/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.iot/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.iqontrol/README.md
@@ -1973,6 +1998,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.meross/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.message-queue/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.meteoalarm/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.meteoswiss/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.metermaster/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.mhi-wfrac/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.micronova/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.midas-aquatemp/README.md
@@ -2034,6 +2060,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.ntfy-client/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.nuki/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.nuki-extended/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.nut/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.nut2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.oasecontrol/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ocpp/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.octoprint/README.md
@@ -2042,6 +2069,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.odl/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.oekofen-json/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.oilfox/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.omnicomm-lls/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.omoda/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.omron-fins/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.onkyo/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.onlycat/README.md
@@ -2093,6 +2121,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.plenticore-g3/README.m
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.plex/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.plexconnect/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.pollenflug/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.pondpump/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.poolcontrol/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.porsche/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.powerfox2/README.md
@@ -2139,6 +2168,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.sainlogic/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.samsung/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.samsung_tizen/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.sanext/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.sax-power/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.sayit/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.sbfspot/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.sbms/README.md
@@ -2177,6 +2207,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.siku/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.simple-api/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.simple-proxy-manager/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.skiinfo/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.sky-remote/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.slideshow/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.sma-em/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.smappee/README.md
@@ -2333,6 +2364,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-plumb/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-rgraph/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-timeandweather/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-weather/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis2-materialdesign/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vivitek/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vofo-speedtest/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.voltoplus/README.md
@@ -2390,11 +2422,13 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.youtube/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.yr/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.zehnder-cloud/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.zendure-solarflow/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.zeptrion/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.zigbee/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.zigbee2mqtt/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.zoe2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.zoneminder/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.zont/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.zte-mc888/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.zwavews/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.zwift/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.absaar/README.md
@@ -2455,6 +2489,8 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.apg-info/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.apsystems-ez1/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.artnet/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.artnet-recorder/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.assistant/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.assistant-satellite/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.asterisk/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.asuswrt/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.atlas-scientific-ezo-i2c/README.md
@@ -2527,6 +2563,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.controme/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.coronavirus-statistics/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.corrently/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.countdown/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.creality/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.cul/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.daikin/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.daikin-cloud/README.md
@@ -2563,6 +2600,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ecoflow/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ecoflow-mqtt/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ecovacs-deebot/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.eebus-go/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.egigeozone2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ekey/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.electrolux-aeg/README.md
@@ -2630,6 +2668,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.go-e/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.go-e-charger/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.goodwe/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.goodwe-pv/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.goodwe-sems/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.google-sharedlocations2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.google-spreadsheet/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.googleauth/README.md
@@ -2719,6 +2758,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.innogy-smarthome/READM
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.innoxel/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.intesishome/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.intex/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.iometer/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.iopooleco/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.iot/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.iqontrol/README.md
@@ -2798,6 +2838,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.meross/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.message-queue/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.meteoalarm/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.meteoswiss/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.metermaster/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.mhi-wfrac/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.micronova/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.midas-aquatemp/README.md
@@ -2859,6 +2900,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ntfy-client/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nuki/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nuki-extended/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nut/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nut2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.oasecontrol/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ocpp/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.octoprint/README.md
@@ -2867,6 +2909,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.odl/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.oekofen-json/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.oilfox/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.omnicomm-lls/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.omoda/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.omron-fins/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.onkyo/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.onlycat/README.md
@@ -2918,6 +2961,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.plenticore-g3/README.m
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.plex/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.plexconnect/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.pollenflug/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.pondpump/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.poolcontrol/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.porsche/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.powerfox2/README.md
@@ -2964,6 +3008,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sainlogic/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.samsung/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.samsung_tizen/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sanext/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sax-power/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sayit/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sbfspot/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sbms/README.md
@@ -3002,6 +3047,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.siku/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.simple-api/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.simple-proxy-manager/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.skiinfo/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sky-remote/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.slideshow/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sma-em/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.smappee/README.md
@@ -3158,6 +3204,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-plumb/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-rgraph/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-timeandweather/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-weather/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis2-materialdesign/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vivitek/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vofo-speedtest/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.voltoplus/README.md
@@ -3215,11 +3262,13 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.youtube/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.yr/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zehnder-cloud/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zendure-solarflow/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zeptrion/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zigbee/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zigbee2mqtt/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zoe2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zoneminder/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zont/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zte-mc888/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zwavews/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zwift/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.absaar/README.md
@@ -3280,6 +3329,8 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.apg-info/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.apsystems-ez1/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.artnet/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.artnet-recorder/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.assistant/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.assistant-satellite/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.asterisk/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.asuswrt/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.atlas-scientific-ezo-i2c/README.md
@@ -3352,6 +3403,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.controme/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.coronavirus-statistics/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.corrently/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.countdown/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.creality/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cul/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.daikin/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.daikin-cloud/README.md
@@ -3388,6 +3440,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ecoflow/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ecoflow-mqtt/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ecovacs-deebot/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.eebus-go/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.egigeozone2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ekey/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.electrolux-aeg/README.md
@@ -3455,6 +3508,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.go-e/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.go-e-charger/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.goodwe/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.goodwe-pv/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.goodwe-sems/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.google-sharedlocations2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.google-spreadsheet/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.googleauth/README.md
@@ -3544,6 +3598,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.innogy-smarthome/RE
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.innoxel/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.intesishome/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.intex/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iometer/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iopooleco/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iot/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iqontrol/README.md
@@ -3623,6 +3678,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.meross/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.message-queue/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.meteoalarm/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.meteoswiss/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.metermaster/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.mhi-wfrac/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.micronova/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.midas-aquatemp/README.md
@@ -3684,6 +3740,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ntfy-client/README.
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nuki/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nuki-extended/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nut/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nut2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.oasecontrol/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ocpp/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.octoprint/README.md
@@ -3692,6 +3749,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.odl/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.oekofen-json/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.oilfox/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.omnicomm-lls/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.omoda/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.omron-fins/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.onkyo/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.onlycat/README.md
@@ -3743,6 +3801,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.plenticore-g3/READM
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.plex/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.plexconnect/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pollenflug/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pondpump/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.poolcontrol/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.porsche/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.powerfox2/README.md
@@ -3789,6 +3848,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sainlogic/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.samsung/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.samsung_tizen/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sanext/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sax-power/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sayit/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sbfspot/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sbms/README.md
@@ -3827,6 +3887,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.siku/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.simple-api/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.simple-proxy-manager/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.skiinfo/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sky-remote/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.slideshow/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sma-em/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.smappee/README.md
@@ -3983,6 +4044,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-plumb/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-rgraph/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-timeandweather/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-weather/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis2-materialdesign/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vivitek/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vofo-speedtest/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.voltoplus/README.md
@@ -4040,10 +4102,12 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.youtube/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.yr/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zehnder-cloud/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zendure-solarflow/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zeptrion/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zigbee/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zigbee2mqtt/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zoe2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zoneminder/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zont/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zte-mc888/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zwavews/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zwift/README.md

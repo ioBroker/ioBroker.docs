@@ -1,126 +1,166 @@
-![Logo](admin/yamaha.png)
-## ioBroker.yamaha
+# <img src="https://cdn.jsdelivr.net/gh/iobroker-community-adapters/ioBroker.yamaha@master/admin/yamaha.svg" width="48" align="top" /> ioBroker.yamaha
 
-![Number of Installations](http://iobroker.live/badges/yamaha-installed.svg)
-![Number of Installations](http://iobroker.live/badges/yamaha-stable.svg)
-[![NPM version](http://img.shields.io/npm/v/iobroker.yamaha.svg)](https://www.npmjs.com/package/iobroker.yamaha)
+**Release:** [![npm version](https://img.shields.io/npm/v/iobroker.yamaha)](https://www.npmjs.com/package/iobroker.yamaha) ![stable](https://iobroker.live/badges/yamaha-stable.svg) ![Installations](https://iobroker.live/badges/yamaha-installed.svg) [![npm downloads](https://img.shields.io/npm/dt/iobroker.yamaha)](https://www.npmjs.com/package/iobroker.yamaha)
 
-![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.yamaha/workflows/Test%20and%20Release/badge.svg)
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/yamaha/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.yamaha.svg)](https://www.npmjs.com/package/iobroker.yamaha)
+**Build:** [![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.yamaha/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.yamaha/actions/workflows/test-and-release.yml) ![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**Support:** [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)](https://ko-fi.com/krobipd) [![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/krobipd)
 
-#### Description
+Controls [Yamaha](https://www.yamaha.com/) AV receivers and MusicCast devices from
+ioBroker over the local network. It unites the three protocols Yamaha speaks —
+YNCA (the text control protocol of the networked receivers), MusicCast / Yamaha
+Extended Control (the richer JSON protocol of the MusicCast generation), and the
+legacy XML protocol of the oldest pre-2010 models — behind one object tree.
 
-Adapter for Yamaha AV receivers
+## Features
 
-Discussion please at github or at https://forum.iobroker.net/topic/53174/weiterentwicklung-yamaha-adapter
+- **Three protocols, one adapter** — YNCA, MusicCast (Yamaha Extended Control) and the legacy XML protocol of the pre-2010 models
+- **Protocols run in parallel** — a MusicCast receiver combines YNCA amplifier control with MusicCast multiroom, equalizer and media on one object tree
+- **Instant updates** — MusicCast pushes its changes, YNCA reports over its live connection
+- **Self-healing connections** — an offline receiver joins once it answers; a single protocol reconnects on its own while the others keep running
+- **Typed datapoints** — booleans, dropdowns and numbers with unit and range instead of raw text
+- **Presets and favourites** — recall tuner presets and stored network/USB favourites by number, step through presets, and read the stored lists with their names (MusicCast); recently-played recall on MusicCast devices
+- **Clock & alarm view** — MusicCast desk-audio devices show their clock and alarm settings
+- **Capability-driven** — states are generated from what each device reports, no hardcoded model list
+- **Automatic discovery** — an empty device list finds and sets up MusicCast devices at startup
+- **Device manager** — receivers as admin cards with model, address, live protocol indicators and a device-type icon (receiver, stereo, speaker, soundbar, CD)
 
-### Initial Creation
-This adapter was initialy created by @soef at https://github.com/soef/ioBroker.yamaha but not maintained any more, so we moved it to iobroker-community so that bugs could be fixed. thanks @soef for his work.
+## Requirements
 
-#### Configuration
-Currently without autodiscover, you have to enter the IP of your receiver
+- Node.js >= 22
+- js-controller >= 7.2.2
+- admin >= 7.8.23
 
-#### Installation
-via ioBroker Admin.
+## Ports
 
-Otherweise execute the following command in the iobroker root directory (e.g. in /opt/iobroker)
-``
-npm install iobroker.yamaha 
-iobroker upload yamaha
-``
+- **UDP 41100 (listening)** — MusicCast devices push their change events to this port on the ioBroker host.
+- **UDP 1900 (multicast, outgoing)** — the SSDP discovery search at startup.
+- **TCP 50000 (outgoing)** — the YNCA control connection to each receiver.
+- **TCP 80 (outgoing)** — the MusicCast and XML protocol requests to each device.
 
-#### Realtime
-The states will be created, when they occur. I.e. use your ir-remote and change something and you will see the new states. 
-Only one connection is accepted by yamaha devices.
+## Configuration
 
-#### Requirements
-Yamaha Receiver
+Devices are managed in the admin as cards. **Leave the list empty** and the adapter finds MusicCast devices on the network by itself at startup, or add devices by IP via the **"+" dialog** to run only those. Discovery searches on every network interface by default; the optional **network interface** selector confines it to one.
 
-You have to enable "network standby" function in the configuration of your receiver
+Older Yamaha receivers (before ~2010, the XML protocol) do not announce themselves on the network and must be added manually. The **XML query interval** sets how often they are polled (default 60 seconds).
 
+The **Data points** section switches whole groups of datapoints on or off — **Playback**, **Tuner**, **Multiroom**, **HDMI**, **Scenes**, **Sound**, **Advanced** and **Clock & alarm**. A switched-off group is removed from the tree and not even queried, which also speeds up the startup; the amplifier core (power, volume, mute, input, sound program, sleep) always stays on.
+
+## State Tree
+
+Each receiver becomes one device node with themed groups — the same groups the
+**Data points** switches control. Only what your device reports is created.
+
+- **Amplifier core** (always on) — power, volume, mute, input, sound program, sleep, plus the device info with model, firmware and connection.
+- **`player`** — one channel per playback source (Spotify, USB, server, net radio, CD, …) with playback state, artist, album, track, cover art and the transport buttons.
+- **`tuner`** — AM/FM and DAB radio including RDS texts and frequency.
+- **`multiroom`** — zones 2–4, Zone B, the all-zones switches (master power, party mode) and the MusicCast device group in its own `multiroom.group` folder.
+- **`hdmi`** — the HDMI outputs and lip sync.
+- **`scene`** — the receiver's scene names and a scene recall.
+- **`sound`** — tone and sound processing: bass/treble, DSP modes, enhancer, equalizer, ….
+- **`advanced`** — setup-level datapoints: maximum/initial volume, speaker configuration, input names.
+- **`clock`** — the clock and alarm settings of MusicCast desk-audio devices (read-only).
+
+## Troubleshooting
+
+### Upgrading from 0.5.x
+
+Version 1.0.0 is a complete rebuild. On the first start after the update the old datapoints (`volume`, `power`, `Commands.*`, `Realtime.*`, …) are removed and your receiver is recreated as a device; its IP address is carried over automatically. Point scripts and visualizations at the new paths — for example `yamaha.0.<device>.power` instead of `yamaha.0.power`.
+
+### Receiver is not found automatically
+
+Only MusicCast devices announce themselves on the network — older receivers must be added manually via the **"+" dialog**. If discovery comes up empty on a host with several network interfaces, check the **network interface** setting.
+
+### Datapoints are missing
+
+Check the group's toggle in the **Data points** settings, and remember the tree only carries what your device reports. Zone datapoints sit under `multiroom`, not at the top level.
+
+### Values update slowly
+
+If MusicCast changes only refresh every few minutes, another application is occupying UDP port 41100 and the adapter fell back to polling — the startup log notes this.
+
+### First start takes a while
+
+On the first connect the adapter asks the receiver which functions it supports — up to half a minute per YNCA device. The result is remembered, later starts are faster.
 
 ## Changelog
 
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
-- (iobroker-bot) Adapter requires node.js >= 20 now.
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (copilot) Adapter requires js-controller >= 6.0.11 now
-- (mcm1957) dependencies have been updated
-
-### 0.5.4 (2024-06-14)
-* (foxriver76) updated packages
-
-### 0.5.3 (2022-06-17)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 0.5.2 (2022-04-23)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 0.5.1 (2022-03-29)
-* (Apollon77) Fix crash cases reported by Sentry
-* (Sneak-L8) fix type of pureDirect
-
-### 0.5.0 (2022-03-08)
-* IMPORTANT: js-controller 2.0 is needed at least
-* (Apollon77) Add Sentry for crash reporting
-
-### 0.4.1
-* (Sneak-L8) "toggleMute" now toggle mute state (instead of always muting)
-
-### 0.4.0
-* (Garfonso) added admin 3 compatibility and more meta-data stuff.
-* (Garfonso) added compact mode support.
-
-### 0.3.20
-* (Garfonso) adjusted local copy of soef.js to js-controller 3.0
-* (Garfonso) updated meta information (links etc) to iobroker-community-adapters
-
-### 0.3.19
-* (soef) Changelog added to readme
-
-### 0.3.18
-* (Apollon77) Update utils.js and usage, CI Testing and deps
-
-### 0.3.17
-* (Apollon77) update basic package-file testing
-
-### 0.3.16
-* (soef) node 0.12 removed from testing
-
-### 0.3.15
-* (soef) Enhance CI testing
-
-### 0.3.14
-* (soef) Possible exception in reconnect fixed
-
-### 0.3.12
-* (soef) Version incr. for npm
-
-### 0.3.11
-* (soef) reconnect overworked
-
-### 0.3.10
-* (soef) realtime Ping now configurable
-
-### 0.3.8
-* (soef) realtime states optimized
-
-### 0.3.7
-* (soef) fix typo in creating realtime states
-
-### 0.3.6
-* (soef) timeout to connect reduced
-
 <!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.2.0 (2026-08-25)
 
-### License
+- (krobipd) Fixed: volume writes work again — a written -38 dB reached the receiver as -3.8 dB, so most values were ignored; all numeric controls now send the proper wire format (#612)
+- (krobipd) Fixed: the FM frequency datapoint now shows MHz (it was mislabelled kHz) and accepts direct frequency writes in the form the tuner expects.
+- (krobipd) New: preset selection — recall tuner presets by number with up/down stepping, and recall stored network or USB favourites per source on YNCA receivers (#613)
+- (krobipd) New: MusicCast selection lists — stored favourites and tuner presets with names, a recently-played list with recall by number, and the device's own allowed values as dropdowns.
+- (krobipd) New: more device detail — CD track and drive info, DAB and RDS station data, and a read-only clock and alarm view with its own datapoint group switch in the admin settings.
+
+### 1.1.1 (2026-08-22)
+
+- (krobipd) Changed: Internal cleanup. No user-facing changes.
+
+### 1.1.0 (2026-08-22)
+
+- (krobipd) Fixed: a device carried over from the old adapter is no longer called by its IP — the object folder and the admin card now show the name the device reports, or its model.
+- (krobipd) Improved: a device that has not reported a model yet already carries its device-class symbol instead of none.
+
+### 1.0.1 (2026-08-22)
+
+- (krobipd) Complete rebuild: one adapter now speaks YNCA, MusicCast and the legacy XML protocol — every protocol a device answers runs in parallel on one object tree.
+- (krobipd) New object tree with typed datapoints built from what your device reports. Old datapoints are removed automatically, the address is carried over — point scripts at the new paths.
+- (krobipd) Instant updates: MusicCast push events and the live YNCA connection replace polling; connections heal themselves, and one protocol's hiccup reconnects just that protocol.
+- (krobipd) Auto-discovery sets up MusicCast devices by itself when the device list is empty, and the admin shows every receiver as a card with model, address and protocol indicators.
+- (krobipd) Whole datapoint groups such as playback sources, tuner, multiroom or scenes can be switched off in the admin — and are then not even queried from the device.
+- (krobipd) The multiroom folder tells the scope at a glance: switches that affect all zones say so in their name, and the MusicCast device group has its own `multiroom.group` folder.
+- (krobipd) Every device shows a type icon — receiver, stereo receiver, speaker, soundbar or CD system, detected from the reported model — in the object tree and on its admin card; the adapter logo now stays readable in light and dark mode.
+- (krobipd) Upgrading from 0.5.x shows a one-time notice explaining the new object tree before the update installs.
+- (mcm1957) version has been rebuilt due to deploy problems
+
+### 0.5.4 (2024-06-14) — stable
+
+- (foxriver76) updated packages
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
+## History
+
+The yamaha adapter has a long lineage on ioBroker, and this version continues it —
+for existing users it is simply a new version of the same adapter:
+
+- **[soef](https://github.com/soef)** created the adapter in 2015 and built the
+  original control over Yamaha's XML network protocol, with realtime state updates
+  and multi-zone support.
+- **[Garfonso](https://github.com/Garfonso)**, **[Sneak-L8](https://github.com/Sneak-L8)**
+  and **[Apollon77](https://github.com/Apollon77)** contributed over the following
+  years — admin compatibility, fixes and Sentry crash reporting.
+- The **[ioBroker Community Adapters](https://github.com/iobroker-community-adapters)**
+  team — notably [foxriver76](https://github.com/foxriver76) and
+  [mcm1957](https://github.com/mcm1957) — maintained the adapter from 2020 to 2026,
+  releasing versions up to 0.5.4.
+- Since 2026, [krobi](https://github.com/krobipd) maintains the adapter in the community
+  organisation and rebuilt it from the ground up, uniting the YNCA, MusicCast (YXC)
+  and legacy XML protocols behind one object tree.
+
+## Support
+
+- [ioBroker Forum](https://forum.iobroker.net/)
+- [GitHub Issues](https://github.com/iobroker-community-adapters/ioBroker.yamaha/issues)
+
+### Support Development
+
+This adapter is free and open source. If you find it useful, consider buying me a coffee:
+
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20me-ff5e5b?logo=ko-fi)](https://ko-fi.com/krobipd) [![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/krobipd)
+
+## License
+
 The MIT License (MIT)
 
-Copyright (c) 2015-2024 soef <soef@gmx.net>
+Copyright (c) 2015-2024 soef <soef@gmx.net>  
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2026 krobi <krobi@power-dreams.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -139,6 +179,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
--->
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+---
+
+_Developed with assistance from Claude.ai_

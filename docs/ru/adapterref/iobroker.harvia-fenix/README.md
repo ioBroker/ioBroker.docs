@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.harvia-fenix/README.md
 title: ioBroker.harvia-fenix
-hash: jEMlySiE0Wma0PxeDul3GrIPE76sFjebGAPMZoV+jX0=
+hash: 3RkffmBtNMTrvcFbrdmEzKSKgkJHDo3PjWxBm0u7et0=
 ---
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![узел](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -21,7 +21,7 @@ hash: jEMlySiE0Wma0PxeDul3GrIPE76sFjebGAPMZoV+jX0=
 ![Тестирование и выпуск](https://github.com/meistermopper/ioBroker.harvia-fenix/workflows/Test%20and%20Release/badge.svg)
 
 ### Адаптер ioBroker для интеграции и управления блоком управления сауны **Harvia Fenix** через облачную инфраструктуру MyHarvia.
-Для получения дополнительной информации о компании Harvia и их блоках управления сауной, пожалуйста, посетите [официальный сайт Harvia](https://www.harvia.com).
+Для получения дополнительной информации о компании Harvia и их блоках управления сауной, пожалуйста, посетите раздел [официальный сайт Harvia](https://www.harvia.com).
 
 ---
 
@@ -80,30 +80,27 @@ hash: jEMlySiE0Wma0PxeDul3GrIPE76sFjebGAPMZoV+jX0=
 Это позволяет отслеживать и контролировать обе сауны независимо друг от друга, используя собственный набор данных.
 
 ### Общие/Гостевые учетные записи и идентификатор партнера
-#### Что такое идентификатор партнера?
-Облачная инфраструктура MyHarvia разделяет устройства, пользователей и приложения на различные «партнерские организации». Например, официальное приложение для смартфонов **MyHarvia 2** соответствует идентификатору партнера `ORG/prod:0:6656:0`.
+#### 🟢 Сценарий по умолчанию (Основной аккаунт / Владелец сауны)
+Если вы настраиваете адаптер, используя основную учетную запись MyHarvia (учетную запись, которая изначально зарегистрировала сауну в мобильном приложении):
 
-Обычно, когда пользователь входит в систему, адаптер декодирует его JSON Web Token (JWT) и автоматически извлекает идентификатор партнера из поля `custom:org`. Затем он запрашивает API облака Harvia, используя этот идентификатор, для обнаружения подключенных устройств.
+* Оставьте поля **Идентификатор устройства** и **Идентификатор партнера** пустыми в конфигурации.
+* Адаптер автоматически обнаружит вашу сауну и подключится к ней при запуске.
 
-#### Проблема с общими/гостевыми учетными записями
-Если другой пользователь (владелец/основной пользователь) поделился с вами своей сауной в приложении MyHarvia 2:
+#### 🟡 Сценарий использования общего/гостевого аккаунта (например, выделенный аккаунт ioBroker)
+Если доступ к сауне был предоставлен с учетной записи владельца на дополнительную гостевую учетную запись через приложение MyHarvia 2, то точка автоматического обнаружения Harvia возвращает пустой список устройств (`{"devices":[]}`) для гостевых токенов.
 
-1. Ваш токен учетной записи связан с другим идентификатором партнера-гостя (например, `ORG/prod:0:6749` или пользовательским идентификатором).
-2. Если адаптер запросит список устройств под вашим гостевым идентификатором партнера, API Harvia Cloud вернет пустой список (`{"devices":[]}`), и вы не увидите сауну.
-3. Для обнаружения и управления общей сауной запросы к API **необходимо отправлять, используя идентификатор партнера владельца**.
+В этом случае вам **необходимо вручную указать** как **идентификатор устройства**, так и **идентификатор партнера владельца** в настройках адаптера:
 
-#### Как найти идентификатор партнера владельца?
-Существует два способа определить партнерский идентификатор владельца:
+**Способ получения обоих идентификаторов за 60 секунд:**
 
-1. **Стандартное приложение:** Если владелец использует официальное стандартное мобильное приложение **MyHarvia 2**, идентификатор партнера — **`ORG/prod:0:6656:0`**.
-2. **Из лога ioBroker:** Если владелец уже использует адаптер `harvia-fenix`, он может проверить лог запуска ioBroker. При запуске адаптер выводит строку следующего вида:
+1. В настройках адаптера временно введите учетные данные для входа в **Основную/Владельческую учетную запись** и нажмите **Сохранить**.
+2. Откройте лог ioBroker. Адаптер мгновенно подключается и выводит строки, содержащие оба идентификатора:
+* `Обнаружено устройство: ... (ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)` ➡️ Это ваш **ID устройства**.
+* `Используя идентификатор партнера из пользовательского токена: ORG/prod:0:6656` ➡️ Это ваш **идентификатор партнера** (обычно `ORG/prod:0:6656` или `ORG/prod:0:6656:0`).
+3. Скопируйте оба значения.
+4. Снова откройте настройки, вернитесь к учетным данным вашей **гостевой учетной записи**, вставьте скопированные **идентификатор устройства** и **идентификатор партнера** в соответствующие необязательные поля и нажмите **Сохранить и закрыть**.
 
-`Using partner ID from user token: ORG/prod:0:XXXX` Владелец может просто скопировать этот идентификатор и поделиться им с гостевым пользователем.
-
-#### Как настроить общий/гостевой аккаунт
-1. Введите свое **имя пользователя/адрес электронной почты** и **пароль** (гостевые учетные данные) в настройках адаптера.
-2. Введите **идентификатор партнера владельца** в поле **Идентификатор партнера (необязательно)**.
-3. Если оставить поле **Идентификатор устройства** пустым, адаптер выполнит поиск общего устройства, используя идентификатор партнера владельца, и найдет его автоматически.
+Теперь гостевой аккаунт может напрямую и надёжно управлять общей сауной!
 
 ---
 
@@ -121,6 +118,9 @@ hash: jEMlySiE0Wma0PxeDul3GrIPE76sFjebGAPMZoV+jX0=
 |---|---|---|---|---|
 | `info.connection` | логическое значение | `indicator` | Только для чтения | Состояние подключения адаптера к облаку MyHarvia. |
 | `info.maxTemp` | номер | `value.temperature` | Только для чтения | Максимально допустимая целевая температура (`110 °C`). |
+| `info.avgHeatingRate` | число | `value` | Только для чтения | Узнанная средняя скорость нагрева в °C в минуту (`°C/min`). |
+| `info.heatingAnomaly` | логическое значение | `indicator` | Только для чтения | Переключается на `true`, если производительность системы отопления значительно снижается ниже исторического среднего значения. |
+| `estimatedHeatingTimeRemaining` | номер | `value.interval` | Только для чтения | Примерное оставшееся время нагрева в минутах до достижения целевой температуры (`min`). |
 | `online` | логическое значение | `indicator.reachable` | Только для чтения | Состояние подключения блока управления к облаку. |
 | `doorSafety` | логическое значение | `indicator.safety` | Только для чтения | Состояние контура безопасности (например, `true`, если дверь надежно закрыта / безопасна для использования). |
 | `remoteControl` | логическое значение | `indicator` | Только для чтения | Состояние готовности к дистанционному запуску. Если `false`, дистанционный запуск обогревателя (через адаптер) блокируется. |
@@ -141,10 +141,18 @@ hash: jEMlySiE0Wma0PxeDul3GrIPE76sFjebGAPMZoV+jX0=
 
 ---
 
-## Уведомления и автоматизация
-Адаптер автоматически рассчитывает степень нагрева и предоставляет два индикатора, специально разработанных для запуска push-уведомлений (например, через Telegram, Pushover или Alexa).
+## Интеллектуальные функции и автоматизация
+### 1. Адаптивное прогнозирование нагрева и обнаружение аномалий
+* **Рассчитанная продолжительность нагрева (`estimatedHeatingTimeRemaining` и `info.avgHeatingRate`):**
 
-Вы можете просто использовать базовый скрипт ioBroker (JavaScript или Blockly), который будет отслеживать изменение этих состояний на `true`:
+Адаптер запоминает скорость нагрева салона (°C в минуту). Во время активной сессии он объединяет исторические данные с динамикой изменения температуры в реальном времени, чтобы точно рассчитать оставшееся время обогрева.
+
+* **Обнаружение аномалий (`info.heatingAnomaly`):**
+
+Если после как минимум 10 минут активного нагрева интенсивность нагрева падает ниже 50% от исторического среднего значения (например, из-за приоткрытой двери сауны или неисправности нагревательного элемента), `info.heatingAnomaly` переключается на `true` и регистрируется предупреждение.
+
+### 2. Уведомления (Push-триггеры)
+Адаптер автоматически рассчитывает степень нагрева и предоставляет индикаторные данные, специально разработанные для запуска push-уведомлений (например, через Telegram, Pushover или Alexa):
 
 ```javascript
 // Trigger for the 10-minute pre-warning
@@ -157,6 +165,11 @@ on({ id: 'harvia-fenix.0.readyNotified10Min', change: 'ne', val: true }, functio
 on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, function () {
     const targetTemp = getState('harvia-fenix.0.targetTemp').val;
     sendTo('telegram.0', 'send', { text: `♨️ The sauna has reached the target temperature of ${targetTemp}°C and is ready!` });
+});
+
+// Trigger on heating anomaly (e.g. door open)
+on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, function () {
+    sendTo('telegram.0', 'send', { text: '⚠️ Warning: Sauna is heating unusually slowly! Please check door and heater.' });
 });
 ```
 
@@ -177,12 +190,23 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 
 ## Задачи
 * [ ] Дождитесь официального разрешения от Harvia на использование их оригинального логотипа.
-* [x] Добавить адаптер в официальный репозиторий `latest` ioBroker
-* [x] Добавить адаптер в официальный репозиторий `stable` ioBroker
+* [ ] Программа автоматического напоминания о холодных напитках, с таймером для охлаждения после сауны 🍺❄️
+* [ ] Разработайте роботизированного помощника для размахивания полотенцем с поддержкой ИИ для идеального Aufguss 🧖‍♂️🪣
 
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (meistermopper) Update @alcalzone/release-script-plugin-license to 5.2.2
+
+### 0.4.0 (2026-08-13)
+* (meistermopper) Add adaptive heating duration prognosis and anomaly detection
+* (meistermopper) Add dev script shortcut for dev-server watch in package.json
+* (meistermopper) Clarify Partner ID and guest account setup instructions
+* (meistermopper) Document adaptive heating prognosis and anomaly detection
+* (meistermopper) Add strict privacy and anonymization rule to AGENTS.md
+* (meistermopper) Clean up To-Do list and add fun future wishlist items
+
 ### 0.3.2 (2026-08-11)
 * (meistermopper) Use absolute GitHub URLs for language switching links in README files
 * (meistermopper) Remove latest repository and translation badges from README files
@@ -211,15 +235,6 @@ on({ id: 'harvia-fenix.0.targetReachedNotified', change: 'ne', val: true }, func
 * (meistermopper) Fix doorSafety role to sensor.door for repochecker compliance
 * (meistermopper) Add missing CHANGELOG_OLD link to README.md (repochecker S6022)
 * (meistermopper) Fix changelog rotation in README_de.md to enforce 5 entries limit
-
-### 0.2.7 (2026-07-17)
-* (meistermopper) Implement retry for "Device unavailable" and proactive token refresh
-* (meistermopper) Restore clean datapoint table and safety warnings in README files
-* (meistermopper) Mark latest repository item as completed in To-Do list
-* (meistermopper) Clarify remoteControl description in README files
-* (meistermopper) Remove redundant ==== underlines from header in README files
-* (meistermopper) Remove duplicate changelog link and format it consistently in README files
-* (meistermopper) Update Biome schema version to 2.5.3 to match CLI version
 
 [Older changelog entries](CHANGELOG_OLD.md)
 

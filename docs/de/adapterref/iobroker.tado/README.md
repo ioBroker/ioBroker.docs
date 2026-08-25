@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: GdX3TNsSwVEKYkD9qSjM0NWi0uKyNbjn7rQEqsV5qbU=
+hash: sgMi8ip7i3DD0KjdinO2R2DLWqJ/4yUuHcXVFqzmFYs=
 ---
 # IoBroker.tado
 
@@ -27,7 +27,7 @@ Tado° (https://www.tado.com) ist Ihr Experte für intelligentes Heizen und Ener
 Tado hat die Anzahl der API-Aufrufe begrenzt. Nutzer ohne Auto-Assist-Abonnement können maximal 100 Aufrufe pro Tag tätigen.
 
 Weitere Informationen finden Sie im Artikel [Das](https://support.tado.com/en/articles/12165739-limitation-for-rest-api-usage).
-Der Tado ioBroker-Adapter wurde um eine neue Funktion erweitert, die neue Konfigurationsmöglichkeiten zur Verwaltung der API-Nutzung bietet. Die tägliche Begrenzung auf 100 Aufrufe bedeutet jedoch, dass der Adapter ohne Auto-Assist-Abonnement nicht nutzbar ist. Dies entspricht nur etwa vier Anfragen pro Stunde, was die Funktionalität des Adapters erheblich einschränkt.
+Der Tado ioBroker-Adapter wurde um eine neue Funktion erweitert, die erweiterte Konfigurationsmöglichkeiten zur Verwaltung der API-Nutzung bietet. Aufgrund der täglichen Beschränkung auf 100 Aufrufe ist der Adapter jedoch ohne Auto-Assist-Abonnement nicht nutzbar. Dies entspricht lediglich etwa vier Anfragen pro Stunde, was die Funktionalität des Adapters erheblich einschränkt.
 Wenn Sie mit Tados Entscheidung nicht einverstanden sind, sollten Sie ihnen das mitteilen! [wissen](https://support.tado.com/de/articles/3590239-wie-kann-ich-den-kundensupport-von-tado-kontaktieren)
 
 ## Tado° X
@@ -49,7 +49,7 @@ Falls Ihre Konfiguration nicht funktioniert, melden Sie bitte ein Problem mit de
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds | Timeout, nach dem Thermostate bei Erkennung eines offenen Fensters ausgeschaltet bleiben |
 | tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow | Thermostate ausschalten, wenn ein offenes Fenster erkannt wird (funktioniert nur, wenn der Thermostat ein offenes Fenster erkennt) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC-Modus (nur AC-Geräte) |
-| tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Lüftergeschwindigkeit (nur AC-Geräte mit V3 und älteren Versionen) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Lüftergeschwindigkeit (nur AC-Geräte mit Version V3 und älter) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel (nur AC-Geräte ab Version V3) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Vertikale Schwenkfunktion (nur AC-Geräte ab Version V3) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontale Schwenkfunktion (nur AC-Geräte mit V3 und älteren Versionen) |
@@ -73,7 +73,7 @@ Falls Ihre Konfiguration nicht funktioniert, melden Sie bitte ein Problem mit de
 | tado.[x].[yyyyyy].meterReadings | Ein JSON-Objekt mit {"date":"YYYY-MM-DD","reading": 1234} kann verwendet werden, um Zählerstände zu Energy IQ hochzuladen |
 
 ## Erfordert
-* Node.js 20 oder höher
+* Node.js 22 oder höher
 * ioBroker-Host (js-Controller) Version 7.0.6 oder höher
 * iorBroker.admin 7.7.2 oder höher
 
@@ -82,6 +82,15 @@ Falls Ihre Konfiguration nicht funktioniert, melden Sie bitte ein Problem mit de
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+
+### 0.8.5 (2026-06-19)
+* (HGlab01) improve code quality
+* (HGlab01) add attribute adminUserId
+* (HGlab01) use automated translation into several languages
+* (HGlab01) bump axios to 1.8.0
+
 ### 0.8.4 (2026-02-24)
 * (HGlab01) checkExpire for termination-attributes
 * (HGlab01) add attributes 'smartReminders' & 'smartRemindersInAppEnabled'
@@ -108,16 +117,7 @@ Falls Ihre Konfiguration nicht funktioniert, melden Sie bitte ein Problem mit de
 * (HGlab01) fix issue 'cannot read properties of undefined (reading 'match')'
 * (HGlab01) fix issue openWindow data not up to date #1086
 
-### 0.8.0 (2025-10-07)
-* (HGlab01) new configuration capabilities to manage API usage quota (#1047, #1048)
-* (HGlab01) Implement API debouncing
-* (HGlab01) Refactorings Tado API calls
-* (HGlab01) fix issue 'definition missing for awayMode' [TadoX]
-* (HGlab01) fix issue 'definition missing for preheating' [TadoX]
-* (HGlab01) Additional guidance/log when it comes to RefreshToken issue
-* (HGlab01) fix Object of state "tado.0.xxxxx.Rooms.y.openWindow" is missing the required property "common.type" (#1059)
-* (HGlab01) Bump axios to 1.12.2
-* (HGlab01) Bump iobroker-jsonexplorer to 0.2.0
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

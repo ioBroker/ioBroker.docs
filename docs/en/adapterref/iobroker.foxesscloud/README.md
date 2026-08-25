@@ -227,6 +227,9 @@ Baselines are persisted in `report._baselines` so they survive adapter restarts.
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 0.6.5 (2026-08-20)
+- (skvarel) Fixed repository checker warnings W9008 by aligning .gitignore with tracked test, .env.example and .vscode/settings.json files
+
 ### 0.6.4 (2026-06-10)
 - (skvarel) Added meta object types for adapter and instance namespace
 
@@ -239,15 +242,6 @@ Baselines are persisted in `report._baselines` so they survive adapter restarts.
 
 ### 0.6.1 (2026-05-29)
 - (skvarel) Revised config and i18n
-
-### 0.6.0 (2026-05-27)
-- (StephanBeutel) Added support for up to 24 PV strings with dynamic state creation on first occurrence
-- (StephanBeutel) Added report states for daily, weekly, monthly, and yearly energy totals derived from lifetime API values
-- (StephanBeutel) Fixed null value handling for inverter and battery temperature states
-- (StephanBeutel) Extracted reusable makeApiRequest() method for cleaner API communication
-- (StephanBeutel) Centralized all state name translations into a single STATE_NAMES constant
-- (skvarel) Fixed report states not updating during current period (values were only written at period rollover)
-- (skvarel) Made energy reporting configurable via a new Reporting tab in the admin UI
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

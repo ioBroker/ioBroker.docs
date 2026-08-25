@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lorawan/README.md
 title: ioBroker.lorawan
-hash: AOaW3UL+UDJqAutbad6mjpv/kwO+s5DpF1/XcI+jx+Q=
+hash: oaqoou6vvpehAbAq3LqCQlfGuultuiw9HVLcvogU/Sg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lorawan/admin/lorawan.png)
 
@@ -23,6 +23,9 @@ hash: AOaW3UL+UDJqAutbad6mjpv/kwO+s5DpF1/XcI+jx+Q=
 
 Документация в вики находится здесь: https://github.com/BenAhrdt/ioBroker.lorawan/wiki<br/> На данный момент документация на английском языке доступна здесь: https://wiki.hafenmeister.de
 
+### Обнаружение датчиков Home Assistant
+Для числовых сенсорных устройств мост назначает атрибуты Home Assistant `device_class` и `state_class` в соответствии с соглашением адаптера о приоритете счетчика. Для текущих измерений используется `measurement`. Для состояний направления ветра с ролью ioBroker `value.direction.wind` используется класс устройства `wind_direction` и класс состояния `measurement_angle`; существующая единица измерения сохраняется, а `°` добавляется, если единица измерения не определена. Значения энергии в `Wh`, `kWh` или `MWh`, а также значения, идентифицированные ролью ioBroker в отношении энергии или потребления, рассматриваются как счетчики потребления и используют `total_increasing` для статистики энергопотребления Home Assistant. Если величину невозможно надежно отличить от показаний потребления, мост предпочитает семантику счетчиков: `m³` и `ft³` публикуются как `gas` с `total_increasing`, а `L` как `water` с `total_increasing`. `mL` и `gal` остаются общими значениями `volume`. Неоднозначные единицы концентрации, такие как `ppm`, `ppb` или `µg/m³`, не указывают на конкретное вещество. `L/min`, `L/s` и `m³/h` используют `volume_flow_rate`.
+
 ## ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ
 Права на товарные знаки и названия компаний остаются за их владельцами и не имеют отношения к данному адаптеру. Оператор адаптера должен и впредь придерживаться политики добросовестного использования. При создании форка данного репозитория необходимо указывать его в качестве источника.
 
@@ -37,6 +40,12 @@ LoRaWAN® — это лицензированный товарный знак.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.22.33 (2026-08-19)
+- (BenAhrdt) Add Home Assistant wind direction and angle measurement classification
+
+### 1.22.32 (2026-08-19)
+- (BenAhrdt) Align Home Assistant sensor device classes, state classes, and units with the current specification
+
 ### 1.22.31 (2026-07-09)
 - (BenAhrdt) Add selection of ToIob source id
 
@@ -46,13 +55,6 @@ LoRaWAN® — это лицензированный товарный знак.
 
 ### 1.22.29 (2026-07-06)
 - (BenAhrdt) Add some roles and units to assignhandler
-
-### 1.22.28 (2026-07-05)
-- (BenAhrdt) Add DewPointTemperature to assignhandler
-
-### 1.22.27 (2026-07-04)
-- (BenAhrdt) Bugfix warning for wrong id
-- (BenAhrdt) Add Profile to downloadconfig
 
 [Older changes can be found there](CHANGELOG_OLD.md)
 

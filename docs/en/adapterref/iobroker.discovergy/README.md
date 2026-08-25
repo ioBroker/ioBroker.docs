@@ -11,6 +11,9 @@ It uses the Discovergy API to read data of your meters and synchronise it's curr
 
 https://api.discovergy.com/docs/
 
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 Please feel free to add issue for your wanted functionality or problems you see so i can take a look at it !
 
 Remark : I don't have all possible devices and also the demo-account does not provide all existing values devices can provide.
@@ -38,6 +41,7 @@ If you like my work, please feel free to provide a personal donation
     ### __WORK IN PROGRESS__
 -->
 ### __WORK IN PROGRESS__
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
 * (DutchmanNL) **FIXED**: Removed non-existent version 0.6.1 from changelog to comply with ioBroker repository checker requirements (E2004)
 * (DutchmanNL) **ENHANCED**: Cleaned up common.news entries in io-package.json to maintain only published versions
 
@@ -53,6 +57,8 @@ If you like my work, please feel free to provide a personal donation
 
 ### 0.5.12 (2023-10-29)
 * (DutchmanNL) Ignore meters not providing any data (like removed devices) fixes #84
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Contributors
 * AlCalzone

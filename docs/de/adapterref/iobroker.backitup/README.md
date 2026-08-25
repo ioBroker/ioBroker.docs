@@ -727,6 +727,15 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 ---
 
 ## Changelog
+### 4.0.3 (2026-08-22)
+* (simatec) Fix signed FTP Certificates
+* (simatec) Fix Backup Timeout
+* (simatec) Fix lint check
+
+### 4.0.2 (2026-08-18)
+* (simatec) Fix Backitup Tab
+* (simatec) dependencies updated
+
 ### 4.0.1 (2026-08-07)
 * (simatec) Fix Backitup Tab
 
@@ -743,16 +752,6 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ### 3.3.17 (2026-04-14)
 * (simatec) Fix vite Build
-
-### 3.3.16 (2026-04-14)
-* (simatec) Fix Tab Admin
-
-### 3.3.15 (2026-04-10)
-* (simatec) dependencies updated
-* (simatec) Changelog old added
-* (simatec) Repository cleaned up
-* (simatec) Fix CCU Backup Timeout
-
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

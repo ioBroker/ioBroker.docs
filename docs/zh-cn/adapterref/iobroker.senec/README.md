@@ -13,7 +13,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.senec/README.md
 title: <img src="../../admin/senec.png" width="36" align="top" alt="">ioBroker.senec
-hash: +8eXbOkkEcBkbYAts3CFoEbG1x1i/rneLTW2/tyQWiM=
+hash: JVe38En/cj1cuV9Pok3slNcCbKu7BxLVI0GN0H1RqNY=
 ---
 #<img src="../../admin/senec.png" width="36" align="top" alt=""> ioBroker.senec
 ## IoBroker 的 SENEC 适配器
@@ -159,8 +159,9 @@ API 连接器可以完整重建历史测量数据（总和）。可根据需要�
 |-------------|-------------|----------|
 | 使用 SENEC.Connect | 启用 Azure API 查询 | 关闭 |
 | 查询间隔 | 查询频率（秒） | 300 |
+| 请求超时 | 等待响应时间（毫秒） | 30000 |
 | 订阅密钥 | Azure API 订阅密钥 | — |
-| 包含区域 | 查询哪些数据区域 | 电池、电表 |
+| 包含区域 | 查询哪些数据区域 | 电池、电表、电动汽车充电桩、电池铭牌 |
 
 ### 外部资源
 ![外部资源](../../../de/adapterref/iobroker.senec/media/admin-external.png)
@@ -177,7 +178,7 @@ API 连接器可以完整重建历史测量数据（总和）。可根据需要�
 | 模式 | **集成** = 添加到 SENEC 总数（一个节点）。**分离** = 在能量流中显示为单独的节点 |
 | SOC 状态 | （仅限电池）电量状态 (%) 的状态 ID |
 | 容量 | （仅限电池）电池容量（千瓦时）— 用于估算使用时间 |
-| 标签 | 在能量流图中的显示名称 |
+| 标签 | 在能量流图中显示的名称 |
 
 公式支持 `+ - * / ( )` 运算符。如果状态 ID 不包含花括号，且其中包含算术运算符，系统会自动检测。我们计划为复杂公式开发一个基于仪表盘的配置器，并提供交互式状态选择功能。
 
@@ -223,7 +224,7 @@ API 连接器可以完整重建历史测量数据（总和）。可根据需要�
 #### 报告错误
 请通过 [GitHub](https://github.com/nobl/ioBroker.senec/issues) 提交报告。以下措施可加快报告处理速度：
 
-- **哪个系统** — 型号，以及（如果知道）固件版本（如果本地连接器正在运行，则 `_local.FACTORY` 和 `_local.SYS_UPDATE` 包含这两项信息）。
+- **哪个系统** — 型号以及（如果知道）固件版本（如果本地连接器正在运行，则 `_local.FACTORY` 和 `_local.SYS_UPDATE` 包含这两项信息）
 - **哪些连接器**处于活动状态，因为同样的症状在本地和云端有不同的原因。
 - **适配器和 ioBroker 版本** 以及 Node.js 版本
 - **预期结果与实际结果** — “电池电量缺失”可以编辑，“无法工作”需要先提出后续问题。
@@ -232,7 +233,7 @@ API 连接器可以完整重建历史测量数据（总和）。可根据需要�
 开始之前：不合理的数值通常来自设备本身，而非适配器。适配器主要负责传递数值，因此仪表盘上显示不正确的温度或电量信息，在设备的网页界面上通常也会显示错误。快速查看一下网页界面通常就能解决问题——如果问题仍然存在，那么上述对比信息就是该消息中最有用的信息。
 
 ## 集成仪表盘
-该适配器包含一个完整的 Web 控制面板，可通过 `http://<iobroker-ip>:8082/senec/` 访问。它需要 ioBroker.web 适配器，并显示在 ioBroker.web 主页上。
+该适配器包含一个完整的 Web 控制面板，可通过 `http://<iobroker-ip>:8082/senec/` 访问。它需要 ioBroker.web 适配器，并出现在 ioBroker.web 起始页上。
 
 特征：
 
@@ -247,7 +248,7 @@ API 连接器可以完整重建历史测量数据（总和）。可根据需要�
 
 **能量流图** — 实时 SVG 可视化显示光伏、电池、电网、房屋和壁挂式储能罐之间的能量流动。动画流路径，粗细与功率成正比。显示电池荷电状态 (SOC) 和电量。显示运行模式标识。预估剩余时间（直至电量耗尽/充满）。显示周期总计（今日/本月/本年）及自给率百分比。可选择数据源（自动/本地/API/Web）。
 
-**实时功率曲线** — 实时折线图，显示所有五项指标（光伏、家庭、电网、电池、壁挂式充电桩）的功率随时间的变化。数据点之间采用平滑的单调三次插值。时间窗口预设范围为 10 分钟至 24 小时，并支持鼠标滚轮缩放（5 分钟至 30 天，为提升性能已进行降采样）。拖动即可滚动浏览历史记录，支持延迟加载和午夜日期标记。可以显示/隐藏单条曲线，包括一条可选的充电状态曲线（默认关闭），位于独立的 0-100% 坐标轴右侧。设有暂停/禁用开关。“实时”按钮可返回实时状态。当功率状态启用历史适配器（InfluxDB、SQL 或 History）时，图表会在加载时预先填充历史数据。每个状态单独解析——状态可以由不同的历史适配器记录，未记录的状态只会影响其对应的曲线。ⓘ 按钮会列出每条曲线背后的状态以及记录历史数据的适配器——这有助于了解为什么某条曲线没有历史数据。
+**实时功率曲线** — 实时折线图，显示所有五项指标（光伏、家庭、电网、电池、壁挂式充电桩）的功率随时间的变化。数据点之间采用平滑的单调三次插值。时间窗口预设范围为 10 分钟至 24 小时，并支持鼠标滚轮缩放（5 分钟至 30 天，为提升性能已进行降采样）。拖动即可滚动浏览历史记录，支持延迟加载和午夜日期标记。可以显示/隐藏单条曲线，包括一条可选的充电状态曲线（默认关闭），该曲线位于独立的 0-100% 坐标轴右侧。设有暂停/禁用开关。“实时”按钮可返回实时状态。当功率状态启用历史适配器（InfluxDB、SQL 或 History）时，图表会在加载时预先填充历史数据。每个状态单独解析——状态可以由不同的历史适配器记录，未记录的状态只会影响其对应的曲线。ⓘ 按钮会列出每条曲线背后的状态以及记录历史数据的适配器——这有助于了解为什么某条曲线没有历史数据。
 
 ![现场表现曲线](../../../de/adapterref/iobroker.senec/media/dashboard-live-chart.png)
 
@@ -322,12 +323,12 @@ mein-senec.de 提供每周一次的 CSV 导出服务，数据精度为 5 分钟�
 
 - 设备选择，同时列出该帐户之前使用过的设备（如果只有一个设备，则不适用）。此实例查询的设备已预先选定。
 - 选择每周的日期范围
-- 每日筛选——将一周内约 2000 行的记录限制为一天。
+- 每日筛选——将一周内约 2000 行的数据限制为一天。
 - 分辨率 — 每小时平均值或 5 分钟原始值
 - 十列出口列的列开关，包括电池电压、电流和液位
 - 可排序的列标题；第三次单击可恢复时间顺序
 - 汇总行显示所显示行的最小值、平均值和最大值
-- 表格或图表视图；在图表中，功率列共享左侧 kW 轴，百分比值有自己的右侧 0-100% 轴，并且行中的空白会断开线条而不是连接起来。
+- 表格或图表视图；在图表中，功率列共享左侧 kW 轴，百分比值有自己的右侧 0-100% 轴，行中的空白会断开线条而不是连接起来。
 - 将当前选择下载为 CSV 文件
 
 需要已激活并连接的 mein-senec.de 连接器。
@@ -422,7 +423,17 @@ mein-senec.de 数据存储在 `_meinsenec.*` 下：
 - `Sockets.*` — 可切换套接字的状态
 
 ### 连接状态 (`_connect.*`)
-SENEC.Connect 数据存储在 `_connect.Systems.{n}.*` 下，包含电池和电表子区域。
+SENEC.Connect 数据存储在 `_connect.Systems.{system_id}.*` 下，包含电池和电表子区域。一个账户可以包含多个系统；每个系统都有自己的通道，通道名称根据系统型号命名，并通过 `bessNameplate` 中报告的系统 ID 进行寻址——这确保即使 API 返回的系统顺序不同，系统也能保留其状态。`_connect.info.systemCount` 报告 API 检测到的系统数量。
+
+无论配置了哪些部分，都会始终查询部分 `bessNameplate`，因为它包含此 ID。
+
+Wallbox 的存储方式相同，分别位于相应的报告 `id`: `_connect.Systems.{system_id}.evse.{wallbox_id}.*` 下。如果 Wallbox 从响应中消失，则其状态将被删除，而不是保留最后的值。
+
+如果系统未报告 `system_id`，则使用其序列号代替。系统可通过其报告过的所有标识符进行识别——因此，缺少这些标识符的响应不会导致系统跳转到新的路径。如果响应中完全不包含任何标识符，系统将使用其在响应中的位置，就像 2.15.0 版本之前一样，并且在此期间清理工作将暂停。
+
+不再向 API 报告的系统状态将被移除。2.15.0 版本之前的适配器会根据系统在响应中的位置对其进行编号（`_connect.Systems.0.*`）；这些状态会在更新后的第一次轮询期间删除，届时系统已被识别。
+
+**对于使用历史适配器（History、InfluxDB、SQL）记录 SENEC.Connect 状态的用户：此设置与状态本身绑定，旧状态更新后将丢失此设置。日志记录不会自动继续——请在更新后为新路径下的状态重新启用日志记录。
 
 ### 外部国家（`_external.*`）
 来自外部来源的数据存储在`_external.{typ}.{index}.*`下：
@@ -468,7 +479,7 @@ SENEC.Connect 数据存储在 `_connect.Systems.{n}.*` 下，包含电池和电�
 **本地连接出现 TLS 证书错误**：适配器会自动处理证书验证。请检查 `_local.tls.mode` 以查看当前激活的验证方法。如果 TOFU 模式已激活，并且您想要升级到 CA 验证，请启用 mein-senec.de 连接器——适配器将尝试自动下载 CA 证书。如果之前的下载失败，请将 `_local.tls.certFetchFailed` 更改为 `false` 以重试。
 
 ## 帮助和交流
-对于问题、配置和与其他用户交换信息，可以使用 [在 ioBroker 论坛上另开一个帖子](https://forum.iobroker.net/topic/30620/neuer-adapter-senec-home-adapter) — 通常是获得答案的最快方式。
+对于问题、配置和与其他用户交换信息，可以使用 [在 ioBroker 论坛上另开一个帖子](https://forum.iobroker.net/topic/30620/neuer-adapter-senec-home-adapter)——通常是获得答案的最快方式。
 
 如果看起来像是一个错误，请按照上述说明在 [在 GitHub 上创建 issue（https://github.com/nobl/ioBroker.senec/issues）。了解如何创建调试日志（#debug-log-creation）以及如何使消息可编辑。](#fehler-melden) 中创建一个问题。
 
@@ -478,7 +489,35 @@ SENEC.Connect 数据存储在 `_connect.Systems.{n}.*` 下，包含电池和电�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.15.1 (2026-08-23)
+- Dependency Updates
+
+### 2.15.0 (2026-08-14)
+- 🔎 **Wanted: testers for the SENEC.Connect connector.** I cannot see what your subscription returns, and real responses are what this connector is missing — especially from accounts holding more than one system, and from responses containing more than `battery` and `meter` (`evse`, `bessNameplate`). If SENEC.Connect reports anything at all for your account, please get in touch in the [ioBroker forum thread](https://forum.iobroker.net/topic/30620/neuer-adapter-senec-home-adapter) or via a [GitHub issue](https://github.com/nobl/ioBroker.senec/issues).
+- **Breaking (SENEC.Connect only):** The systems of a SENEC.Connect account were stored by their position in the API response, as `_connect.Systems.0.*`, `_connect.Systems.1.*` and so on. The API does not promise an order, so on an account with more than one system that position can change from one poll to the next — two systems then swap their states inside the same history, with nothing in the values to show it happened. Each system is now stored under the system id from its `bessNameplate` section instead, for example `_connect.Systems.P4H1-1234567.*`, and gets a channel named after its model. A system is remembered by every identifier it has ever reported, so a response that omits one of them does not move it; a system that reports no identity at all keeps its old position-based path and is left alone. The old numbered states are deleted on the first poll after the update; scripts, charts and visualisations that refer to them have to be pointed at the new paths, and the history recorded under the old paths ends there. **If you log these states with a history adapter, that setting is stored on the state and does not survive the move — switch logging back on for the new paths, or recording stops silently.** Accounts with a single system are affected the same way, but nothing else changes for them.
+- **Breaking (SENEC.Connect only):** Wallboxes are stored under the `id` they report rather than their position in the response, for the same reason and with the same consequence — `_connect.Systems.{system_id}.evse.{wallbox_id}.*`. A wallbox that disappears from the response now has its states removed instead of leaving them frozen at their last values, looking current.
+- New: `_connect.info.systemCount` reports how many systems SENEC.Connect returns, and the states of a system the API stops reporting are removed.
+- New: SENEC.Connect has its own request timeout, adjustable between 5 and 120 seconds and 30 seconds by default. It previously borrowed the local appliance's timeout, which is capped at ten seconds and is not even shown unless the local connection is switched on — so a slow cloud response failed every poll with no reachable setting to change.
+- Fix: A SENEC.Connect reply that arrived with a success code but did not contain the expected data — an error page or a captive portal, for instance — left the connector reporting itself as connected indefinitely while nothing was being read.
+- Fix: A SENEC.Connect polling interval outside the permitted range is corrected on start-up, as the other intervals already were. Only a value written directly into the instance settings could get there, but a negative one made the adapter poll a request-metered API in a tight loop.
+- Fix: A SENEC.Connect request in progress is now cancelled when the adapter stops, instead of running on and writing during shutdown, and it identifies itself with the same user agent as the adapter's other requests.
+- Fix: Clearing the SENEC.Connect section list in the settings fell back to fewer sections than the field's own default, silently dropping wallbox data.
+- Change: The `bessNameplate` section is now always requested from SENEC.Connect regardless of the configured sections, because it carries the id the states are stored under. The API is billed per request, not per section, so this costs nothing.
+- Fix: When mein-senec.de measurement detail states were cleared at the daily rollover and written again in the same cycle, they came back as bare values — the name, unit and role were gone, because the adapter still believed the deleted definitions existed.
+- Fix: On appliances not set to German, `ENERGY.STAT_STATE_Text` was never created at all. It puts the numeric system state into plain language — "Laden", "Akku voll", "Fernabschaltung" — but the English and Italian tables were stored under a name the adapter never looked them up by, so nothing was written and no error appeared. English is also what the adapter falls back to when it cannot read the appliance's language, so this affected most installations. The state now appears; on an affected system it shows up as a new datapoint after the update. `FACTORY.COUNTRY_Text` was missing on Italian appliances for the same reason.
+- Fix: System state 41 was labelled "Schlafmodus" / "Sleeping mode". The appliance itself calls it "Abschaltung Lithium" / "Lithium shutdown", which is a different condition; the Italian text already said so. State 74 also carried a spelling mistake.
+- New: Three more numeric datapoints are translated into text — `BMS.MANUFACTURER_Text` names the battery module generation (BMZ or Ampace / LFP), `PWR_UNIT.ENFLURI_Text` says which meter a power unit is measured by, and `CASC.STATE_Text` gives the cascade state.
+- **Change: A datapoint your appliance does not have no longer gets a state, and an existing one says so.** The adapter asks every appliance for the same set of datapoints and no model provides all of them, so the answer "I do not have that one" is normal rather than a fault. Until now that answer was stored as the value, so the state read `VARIABLE_NOT_FOUND`. No state is created for it any more, and one that already exists is set to "not provided by appliance" so it is obvious at a glance instead of sitting there with a stale number that still looks current. Nothing is deleted, nothing is reported as a problem, and nothing is required of you. A datapoint that merely failed to be read this once is left untouched, because the real reading is expected back. A whole section your appliance does not have is handled the same way; it previously left behind a state called `<SECTION>.OBJECT_NOT_FOUND` holding nothing. This covers what the adapter asks for by name and the sections it requests — a field that quietly vanishes from a section still being provided cannot be detected this way, because the appliance simply omits it rather than saying anything about it.
+- Fix: An unreadable datapoint could be published as a real-looking measurement. The appliance answers with a word where a number was expected, and that word slipped into the conversions for flags, factors, dates and IP addresses: a flag was stored as `true`, a scaled value as `NaN`, a timestamp as "Invalid Date" and an address as garbage. Nothing is stored for such an answer any more, so a state either holds a real reading or does not exist. A datapoint answering with an empty value no longer becomes `0` either, and a few value formats the appliance uses were decoded wrongly — text beginning with "u" could be read as a number, so a state could show 14 where the appliance had sent no reading at all.
+- Change: `ENERGY.GUI_BAT_DATA_OA_CHARGING` is no longer polled every few seconds. A SENEC.Home V3 does not have it, it is absent from every field that appliance reports for this section, and the appliance's own web interface never asks for it. It remains defined, so an older appliance that still provides it keeps the state from the slower poll.
+- Fix: The appliance's display language was read once at start-up, in a race with the first poll of the datapoint that carries it. On a fresh installation the adapter could therefore stay on English for the whole session, and changing the language on the appliance never took effect until the adapter was restarted. It is now picked up as soon as the appliance reports it, and a language the adapter has no texts for falls back to English instead of silently leaving every translated state empty.
+- Fix: A code that is not in a translation table was shown as "(unknown)", which discarded the very number needed to identify it. It now reads "(unknown 7)". If you see one, the number is worth reporting.
+- Change: Translated `_Text` states are no longer marked writable — writing to them never did anything — and are declared as text rather than as a measurement. Existing ones are corrected on the first poll after the update.
+- Fix: The operating-mode text on the web dashboard now comes from the appliance's own system state on English and Italian systems as well. It previously fell back to the cloud status text there, because the local text did not exist.
+- Fix: Several labels in the English and Italian system-state lists were misspelled, one Italian entry contained a stray fragment of an untranslated string, and some Italian entries were missing their accents.
+- Change: The adapter warns when the datapoints configured for high-priority polling make a request large enough to approach the size the appliance can still answer. Beyond that size the appliance replies with a truncated body, which used to surface only as a connection error.
+
+### 2.14.2 (2026-08-13)
 - Dependency updates
 
 ### 2.14.1 (2026-08-02)
@@ -503,47 +542,6 @@ SENEC.Connect 数据存储在 `_connect.Systems.{n}.*` 下，包含电池和电�
 - Fix: Sections the appliance did not list during discovery are no longer dropped from polling. A restricted or partial answer could previously reduce the adapter to polling almost nothing, including the live values.
 - Fix: A failing poll step is now counted, so a system that is only partly readable is reported instead of passing as healthy.
 - Fix: External energy sources sharing one foreign state now all update. Previously only the last one configured for a given state received changes, and a state used both directly and in a formula drove only one of the two. Values are also read once at startup instead of showing 0 until the source next changes, and a formula that divides by zero no longer writes Infinity.
-
-### 2.13.1 (2026-08-01)
-- Fix: A failed API read is now retried instead of being dropped until the next poll cycle. Retries apply to transient failures only — timeout, rate limiting, server error, dropped connection. Control commands are never retried, so none can reach the appliance twice.
-- API: A poll tier that could not complete now says so in the log, along with the fact that it is picked up again on the next cycle. Previously only the failure was logged, which read as if the data were lost.
-- Fix: Rate limiting by mein-senec.de went unnoticed. Its responses are read directly rather than raised as errors, so a "too many requests" reply counted as a success and the adapter kept its request rate up instead of easing off. It now backs off, honours the server's own retry delay, logs the event, and reports it under the connector's rate-limit diagnostics. Most noticeable when stepping through statistics weeks quickly. The same applies to a request repeated after a session expired, which previously skipped this handling altogether.
-- Fix: Downloading a statistics week ran into the short timeout meant for the portal's small JSON replies. A week at 5-minute resolution now gets a timeout that fits it.
-- Fix: A statistics week the server refused to send was displayed as an empty week rather than as an error.
-- Fix: A dashboard label could briefly show its key name (`stats_title`) instead of its text. Translation dictionaries are now revalidated on every load, views wait for them before drawing, and a label whose key cannot be resolved keeps its English text instead of being overwritten with the key.
-
-### 2.13.0 (2026-08-01)
-- Fix: Scaling factors defined in the state definitions were never applied to any state that also carries a unit — which is every state that defines one — so 14 local states were reported unscaled. Most visibly `BMS.SYSTEM_SOH`, which read 1000 instead of 100.0 %. Other states involved:
-  - `BMS.SYSTEM_SOC`, `BAT1OBJ1.BMS_SYSTEM_SOC` — were 10× too high (%)
-  - `BMS.MAX_TEMP`, `BMS.MIN_TEMP`, `BAT1OBJ1.BMS_MAX_TEMP`, `BAT1OBJ1.BMS_MIN_TEMP`, `AMPACE.MODULE_MAX_TEMP`, `AMPACE.MODULE_MIN_TEMP`, `AMPACE.CELL_TEMPERATURES_MODULE_A`, `AMPACE.CELL_TEMPERATURES_MODULE_B` — were 10× too high (°C)
-  - `BMS.MAX_CELL_VOLTAGE`, `BMS.MIN_CELL_VOLTAGE` — were 100× too high (V)
-  - `FACTORY.DESIGN_CAPACITY` — was 1000× too high (kWh)
-
-  These now report their true values. History recorded before this change keeps the old scale, so logged series will step at the moment of the update.
-- Live chart: Canvas renderer replaces SVG — enables touch drag and pinch-to-zoom on tablets/mobile. Hover tooltips. requestAnimationFrame throttling for smooth interaction.
-- Fix: External battery and consumer energy flow direction now reflects actual power sign (charge vs discharge, feed-in vs consumption).
-- Admin UI: Clarified column headers in external sources table to indicate which fields apply to which source types.
-- Fix: API and web connector polling now auto-recovers after transient failures (timeout, server error) instead of permanently stopping. Connection status indicators flip correctly on failure and recovery.
-- Log proxy: Reuse pooled HTTPS connections to the device (keep-alive) instead of a new TLS handshake per request — noticeably lighter in log live mode. Connections are closed on TLS re-negotiation and on unload.
-- SENEC.Connect: Failed requests now log the reason reported by the server instead of only the HTTP status code — in particular when the monthly request quota is exhausted.
-- Admin UI: Clarified the SENEC.Connect polling interval help — explains why 60 seconds is the lowest quota-safe value, and that the request quota belongs to the subscription key, so running the same key in another system requires a longer interval.
-- Live chart: History backfill now resolves the recording adapter per state instead of deriving one adapter from a single probe state. States may be recorded by different history adapters, and a state that is not recorded (or whose query fails) only costs its own line — previously it could silently disable backfill for the whole chart.
-- Live chart: New ⓘ panel lists the states behind each line and whether a history adapter records them, so a line without past data can be traced to the state that is missing. Reopening the panel re-checks, so enabling logging on a state takes effect without reloading the page.
-- Fix: Live chart no longer queries the history adapter every 200 ms without end. Whenever the selected time window reached further back than the recorded data (a fresh install, a newly enabled history adapter, or any window longer than the available history), the "load older data" check re-armed itself indefinitely for as long as the dashboard was open. Delta loading now tracks the range already requested instead of the oldest data received.
-- Live chart: The loading indicator and the buffer statistics line are now translated instead of English-only.
-- Fix: The TLS certificate upload error message showed a literal placeholder instead of the actual error in French, Italian, Dutch, Polish, Russian, Ukrainian and Chinese.
-- Charts: Battery level overlay now also works with the mein-senec.de connector, not only the App API. The portal offers no charge-level history, so the adapter samples the live value into hourly averages for the day view; the daily figures behind the month view are the portal's own daily average. Hourly values only exist for the time the adapter was running, and cannot be filled in afterwards.
-- Live chart: Optional battery level line, off by default. It uses its own right-hand 0–100 % axis so it can share the chart with the power curves, and it is backfilled from a history adapter like every other line.
-- Dashboard: New Statistics tab. mein-senec.de offers a weekly CSV export at 5-minute resolution reaching back years — far more than belongs in ioBroker states, so nothing is stored: the adapter keeps only the index of available weeks (refreshed daily) and fetches a single week on request. Pick a plant and week, filter to one day, switch between hourly means and 5-minute rows, show or hide columns, sort by any column, read min/mean/max of what is shown, switch between table and chart, and download the filtered result as CSV. Previous appliances on the same account are listed too, so their history is reachable as well.
-- Fix: Measurement queries against the SENEC App API used the same 10 second timeout as the small dashboard calls, so the heavy year and month aggregations — which the server computes on request — could time out and lose a whole poll cycle. They now get their own timeout, configurable in the API settings and defaulting to 60 seconds.
-- Documentation: Reworked readme and documentation. Two-factor authentication, collecting a debug log and reporting an issue are now explained, and so is polling additional systems on the same mein-senec.de account — a feature that had states and a control switch but no documentation at all. The supported system list moved to its own file and now uses the appliance's own naming. Issue reports go through a form asking for the model, connectors and log, and questions are pointed at the adapter thread in the ioBroker forum.
-- Special thanks to everyone supporting this project — see [SUPPORTERS.md](SUPPORTERS.md).
-
-### 2.12.0 (2026-07-23)
-- Live chart: Drag to pan through history, scroll to zoom (5min–30 days). Lazy-loads history data on demand as you pan. Per-line downsampling preserves all metrics at any zoom level. Midnight date markers. View clamped to available data with progressive loading. Loading indicator and buffer stats.
-- Security: Multi-layer TLS certificate validation for local SENEC connections — user-uploaded CA, cached CA (auto-downloaded from mein-senec.de), TOFU fingerprint pinning. Dashboard upload for CA certificate (.pem/.zip). TLS state values stored encrypted. Eliminates blind certificate bypass.
-- Security: Fix polynomial ReDoS in formula regex, escape DOM-sourced values in log viewer, remove no-op string replace in charts.
-- Dashboard: Multi-instance namespace support.
 
 ### [Former Updates](CHANGELOG_OLD.md)
 

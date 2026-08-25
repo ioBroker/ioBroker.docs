@@ -78,6 +78,7 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [isScriptActive](#isscriptactive)
     - [name](#scriptName)
     - [instance](#instance)
+    - [SECRETS](#secrets)
     - [messageTo](#messageto)
     - [messageToAsync](#messagetoasync)
     - [onMessage](#onmessage)
@@ -1050,6 +1051,22 @@ It is possible short type of createState:
 - `createState('myDatapoint', { type: 'string', role: 'json', read: true, write: false }, () => { log('created'); });` - with common definitions like type, read, write and role
 - `createState('myDatapoint', { name: 'My own datapoint', unit: '°C' }, () => { log('created'); });`
 - `createState('myDatapoint', 1, { name: 'My own datapoint', unit: '°C' })` - create datapoint if it does not exist with specific name and units
+
+#### An object in the second position is always the `common`
+
+These short forms are the reason why an object in the second position is **never** read as an initial
+value. `createState('myDatapoint', {}, { type: 'object' })` therefore does not do what it looks like:
+the `{}` becomes the `common`, and `{ type: 'object' }` moves on to the `native`.
+
+To give a state an initial value that is not a primitive, put it into `common.def`:
+
+```js
+createState('0_userdata.0.myObject', { name: 'My object', type: 'object', read: true, write: true, def: {} });
+```
+
+A state of type `object`, `json` or `array` keeps its value as JSON, so the state above starts out
+with the string `'{}'` - just as `setState('0_userdata.0.myObject', {})` would store it. The default
+is stringified for you; writing `def: '{}'` yourself works as well.
 
 ### createStateAsync
 ```js
@@ -2066,6 +2083,61 @@ if (verbose) {
     log('...');
 }
 ```
+
+### SECRETS
+`SECRETS` - The credentials of the central ioBroker credential storage.
+
+The credentials are managed in the admin UI under **Basic settings** -> **Credentials**. Every credential
+has an ID (like `CameraPassword`) and holds either a single **key** (e.g. an API key or a password) or a
+**login**/**password** pair. The secret fields are stored encrypted with the system secret and are handed
+to the scripts already decrypted:
+
+```js
+// credential of the type "key"
+httpGet(`http://camera.local/snapshot?password=${SECRETS.CameraPassword.key}`, (err, result) => {
+    // ...
+});
+
+// credential of the type "login"
+log(`Mail account: ${SECRETS.MyMailAccount.login} / ${SECRETS.MyMailAccount.password}`);
+
+// credential IDs that are no valid variable names
+log(SECRETS['My camera'].key);
+```
+
+`SECRETS` is read-only and always up to date: if a credential is added, changed or deleted in the admin UI,
+the new value is used immediately - neither the adapter nor the script must be restarted.
+
+If a credential does not exist, `undefined` is returned:
+
+```js
+if (SECRETS.CameraPassword) {
+    log('The camera password is defined');
+}
+```
+
+#### Which fields does a credential have?
+
+Every credential has either a single `key` or a `login`/`password` pair. Three ways to find out which:
+
+- In the instance settings of the JavaScript adapter, the section **Available credentials** lists every
+  credential with its fields and the ready-to-copy expression.
+- In the editor, the auto-completion after `SECRETS.` offers the credentials that exist, and after the
+  next dot exactly the fields that credential has.
+- In a script:
+
+```js
+log(JSON.stringify(Object.keys(SECRETS.CameraPassword))); // ["key"]
+log(JSON.stringify(Object.keys(SECRETS.MyMailAccount))); // ["login","password"]
+```
+
+Blockly has a **credential** block for the same purpose - see the
+[Blockly documentation](blockly.md#credential).
+
+The access can be switched off with the instance option **Allow scripts to read the credentials**.
+`SECRETS` is then empty and a warning is written to the log.
+
+**Note:** this requires js-controller 7.2 or newer.
 
 ## Option - "Do not subscribe all states on start"
 There are two modes of subscribing to states:

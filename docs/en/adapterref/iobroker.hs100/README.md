@@ -22,6 +22,9 @@ bulb LBxxx
 
 ------------------------------------------------------------------------------
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 3.0.6 (2026-04-14)
 * (arteck) Dependencies have been updated
 
@@ -51,6 +54,8 @@ bulb LBxxx
 
 ### 2.2.0 (2023-10-27)
 * switch to intervall
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: VCMZaxdbPUcO10dU2pTGiNkplzi+Uv6n/R6PFmvucPA=
+hash: tpds4QIGqn9ndziymXbcF0sq1yDBGmMlPu/BfT8PzaM=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -431,6 +431,9 @@ Jede Option in `options` kann Folgendes enthalten:
 | `label` | Bezeichnung der Option (kann eine Zeichenkette oder ein übersetzbares Objekt sein) |
 | `color` | Farbe des Optionstextes |
 | `hidden` | Formel oder boolescher Wert zum Ein- oder Ausblenden der Option |
+| `os` | Diese Option soll nur auf diesen Betriebssystemen des Hosts angezeigt werden |
+| `notOs` | Diese Option soll auf folgenden Betriebssystemen des Hosts nicht angezeigt werden |
+| `docker` | Die Option nur anzeigen, wenn der ioBroker in Docker ausgeführt wird (`true`) oder nicht (`false`) |
 | `description` | Beschreibung unterhalb der Optionsbezeichnung (kann übersetzbar sein) |
 | `icon` | Symbol-URL oder Base64-Zeichenkette, die neben der Option angezeigt werden soll (ab Version 8.3.3) |
 | `icon` | URL oder Base64-String des Symbols, das neben der Option angezeigt werden soll (ab Version 8.3.3) |
@@ -515,7 +518,7 @@ Um dies nutzen zu können, müssen Sie zunächst die OAuth2-Daten (Client-ID, Ge
 
 | Objekt | Beschreibung |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `identifier` | OAuth2-Kennung, z. B. `spotify`, `google`, `dropbox`, `microsoft` |
+| `identifier` | OAuth2-Kennung, wie z. B. `spotify`, `google`, `dropbox`, `microsoft` |
 | `scope` | Optionale Bereiche, durch Leerzeichen getrennt, z. B. `user-read-private user-read-email` |
 | `refreshLabel` | Optionale Schaltflächenbeschriftung zum Aktualisieren des Tokens |
 | `ownClientId` | Optionaler Attributname, unter dem die OAuth-Client-ID des Benutzers gespeichert wird. Falls gesetzt, wird ein Eingabefeld für die Client-ID angezeigt. |
@@ -595,7 +598,7 @@ Zusätzlich können Sie verhindern, dass diese Eigenschaft an andere Adapter als
 | `adapter` | Name des Adapters. Mit dem speziellen Namen `_dataSources` erhalten Sie alle Adapter mit dem Flag `common.getHistory`. |
 | `allowDeactivate` | falls wahr. Die zusätzliche Option "Deaktivieren" wird angezeigt. |
 | `onlyEnabled` | falls wahr. Nur aktivierte Instanzen werden angezeigt. |
-| `long` | Der Wert sieht eher aus wie `system.adapter.ADAPTER.0` und nicht wie `ADAPTER.0` |
+| `long` | Der Wert sieht aus wie `system.adapter.ADAPTER.0` und nicht wie `ADAPTER.0` |
 | `short` | Der Wert sieht aus wie `0` und nicht wie `ADAPTER.0` |
 | `all` | Füge der Option "all" den Wert `*` hinzu |
 | `all` | Füge der Optionsliste die Option "all" mit dem Wert `*` hinzu. |
@@ -1370,7 +1373,7 @@ Die folgenden Optionen sind die empfohlenen Voreinstellungen, die für die meist
 #### Es wird empfohlen, das Layout zu überprüfen.
 Das jeweilige Layout sollte für jeden Adapter überprüft werden, um festzustellen, ob das Layout in allen Auflösungen angezeigt und verwendet werden kann.
 
-Dies kann beispielsweise mit den Web Developer Tools getestet werden, die in jeden Chromium-basierten Browser integriert sind.
+Dies lässt sich beispielsweise mit den Web Developer Tools testen, die in jeden Chromium-basierten Browser integriert sind.
 
 Schritt 1: Öffnen Sie die Webentwicklertools mit F12
 
@@ -1389,6 +1392,9 @@ In den Einstellungen der Webentwicklertools können Sie bei Bedarf eigene Gerät
 | `label` | Zeichenkette oder Objekt wie {en: 'Name', ru: 'Имя'} |
 | `hidden` | JS-Funktion, die `native.attribute` für Berechnungen verwenden könnte |
 | `hideOnlyControl` | Wenn der Ort ausgeblendet ist, wird er angezeigt, aber es gibt keine Steuerungsmöglichkeiten. |
+| `os` | Dieses Element soll nur auf den folgenden Betriebssystemen des Hosts angezeigt werden, auf denen die Instanz ausgeführt wird: `"win32"` oder `["linux", "darwin"]` |
+| `notOs` | Dieses Element soll auf folgenden Betriebssystemen des Hosts, auf dem die Instanz ausgeführt wird, nicht angezeigt werden: `"win32"` oder `["linux", "darwin"]` |
+| `docker` | Dieses Element nur anzeigen, wenn der ioBroker in einem Docker-Container ausgeführt wird (`true`) oder nicht ausgeführt wird (`false`) |
 | `disabled` | JS-Funktion, die `native.attribute` für Berechnungen verwenden könnte |
 | `help` | Hilfetext (mehrsprachig) |
 | `helpLink` | href to help (could be used only together with `help`) |
@@ -1407,6 +1413,69 @@ In den Einstellungen der Webentwicklertools können Sie bei Bedarf eigene Gerät
 | `noMultiEdit` | Wenn dieses Flag auf „true“ gesetzt ist, wird dieses Feld nicht angezeigt, wenn der Benutzer mehr als ein Objekt zur Bearbeitung ausgewählt hat. |
 | `expertMode` | Wenn dieses Flag auf „true“ gesetzt ist, wird dieses Feld nur angezeigt, wenn der Expertenmodus aktiviert ist (ab Admin 7.4.3) |
 | `expertMode` | Wenn dieses Flag auf „true“ gesetzt ist, wird dieses Feld nur angezeigt, wenn der Expertenmodus aktiviert ist (ab Admin 7.4.3) |
+
+### Elemente abhängig vom Betriebssystem anzeigen
+Jedes Element (einschließlich `panel`, `tabs`, Tabellenspalten und einzelne `select`-Optionen) kann auf das Betriebssystem des ioBroker-Hosts beschränkt werden, **auf dem die konfigurierte Instanz ausgeführt wird**. Es ist nicht das Betriebssystem des Browsers.
+
+```json5
+{
+    "comPort":  { "type": "text", "label": "COM port", "os": "win32" },
+    "ttyPort":  { "type": "text", "label": "Serial device", "os": ["linux", "darwin"] },
+    "sudoHint": { "type": "staticText", "text": "The service must be started with sudo", "notOs": "win32" }
+}
+```
+
+Zulässige Werte sind die Werte von node.js `process.platform` (wie in `common.os` oder `io-package.json`): `aix`, `android`, `cygwin`, `darwin`, `freebsd`, `haiku`, `linux`, `netbsd`, `openbsd`, `sunos`, `win32`.
+
+- Wenn `os` definiert ist, wird das Element **nur** auf den angegebenen Betriebssystemen angezeigt.
+- Wenn `notOs` definiert ist, wird das Element auf allen Betriebssystemen **außer** den angegebenen angezeigt.
+- Wenn das Betriebssystem des Hosts nicht erkannt werden kann (z. B. wenn das Hostobjekt nicht lesbar ist), das Element
+
+wird angezeigt. Es ist besser, ein Element zu viel anzuzeigen, als ein notwendiges zu verbergen.
+
+- Ein nicht angezeigtes Element wird nicht gelöscht: Der Wert bleibt in der Konfiguration unverändert, genau wie bei `hidden`.
+
+Der Wert `default` eines solchen Elements wird jedoch nicht in die Konfiguration geschrieben.
+
+Für komplexere Bedingungen können die Variablen `_os`, `_arch` und `_host` in jeder JS-Funktion (`hidden`, `disabled`, `validator`, `defaultFunc`, `onChange.calculateFunc`, `confirm.condition`) und in den Textmustern `label`, `help` usw. verwendet werden:
+
+```json5
+{
+    "type": "text",
+    "label": "Path to the executable file",
+    "disabled": "_os === 'win32'",
+    "defaultFunc": "_os === 'win32' ? 'C:\\\\Program Files\\\\app.exe' : '/usr/bin/app'",
+    "help": "Host ${_host.id} runs ${_os} on ${_arch}"
+}
+```
+
+**Hinweis:** Ältere Admin-Versionen kennen `_os` nicht und würden `"hidden": "_os !== 'linux'"` zu `true` auswerten, wodurch das Element überall ausgeblendet würde. Daher sollten `os`/`notOs` bevorzugt werden, da diese von älteren Admin-Versionen einfach ignoriert werden (das Element wird angezeigt). Falls eine JavaScript-Funktion verwendet werden muss, sollte diese defensiv implementiert werden: `"hidden": "!!_os && _os !== 'linux'"`.
+
+#### Docker
+Wenn ein Element davon abhängt, ob der ioBroker selbst in einem Docker-Container läuft, kann das Attribut `docker` verwendet werden:
+
+```json5
+{
+    "service":    { "type": "checkbox", "label": "Install as service", "docker": false },
+    "volumeHint": { "type": "staticText", "text": "The directory must be mapped as volume", "docker": true }
+}
+```
+
+- `"docker": true` - Das Element wird nur angezeigt, wenn der ioBroker in einem Docker-Container ausgeführt wird.
+- `"docker": false` - Das Element wird nur angezeigt, wenn der ioBroker nicht in einem Docker-Container ausgeführt wird.
+Der Docker-Status kann nicht aus den Objekten gelesen werden, er muss von einem **laufenden** Host angefordert werden.
+
+Wenn keine Antwort erfolgt, bleibt der Status unbekannt und das Element wird angezeigt.
+
+Die Anfrage wird nur gesendet, wenn die Konfiguration tatsächlich `docker` oder `_host.docker` verwendet; alle anderen Anfragen werden ignoriert.
+
+Die Konfigurationen verursachen keinen zusätzlichen Datenverkehr.
+
+- In den JS-Funktionen ist der Status als `_host.docker` verfügbar (`true`, `false` oder `undefined`, falls unbekannt) und
+
+die Version des offiziellen ioBroker Docker-Images als `_host.dockerVersion`.
+
+Verwechseln Sie dies nicht mit der [`checkDocker`](#checkdocker)-Kontrolle: Diese prüft, ob **auf dem Host** eine Docker-Installation zur Steuerung von Containern verfügbar ist, und nicht, ob der ioBroker selbst in Docker läuft.
 
 ### Optionen mit detaillierter Konfiguration
 #### `defaultSendTo`
@@ -1521,6 +1590,9 @@ const func = new Function(
   '_changed',      // indicator if some data was changed and must be saved
   '_href',         // Current browser href
   'getObject',     // You can call `await getObject(data.id)`in hidden, disabled, pattern functions
+  '_os',           // Operating system of the host, where the instance runs: 'win32', 'linux', 'darwin', ...
+  '_arch',         // Architecture of the host, where the instance runs: 'x64', 'arm64', ...
+  '_host',         // Information about the host: {id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}
   myValidator.includes('return') ? myValidator : 'return ' + myValidator); // e.g. "_alive === true"
 
 const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, this.props.socket);
@@ -1538,6 +1610,9 @@ Folgende Variablen stehen in der JS-Funktion in den Adaptereinstellungen zur Ver
 - `_instance` - Instanznummer
 - `arrayIndex` - wird nur in Tabellen verwendet und repräsentiert die aktuelle Zeile in einem Array
 - `globalData` - wird nur in der Tabelle für alle Einstellungen verwendet und nicht nur in einer einzelnen Tabellenzeile
+- `_os` – Betriebssystem des Hosts, auf dem die Instanz ausgeführt wird (`process.platform`), z. B. `linux`, `win32`, `darwin`. Leerer String, falls unbekannt.
+- `_arch` - Architektur des Hosts, auf dem die Instanz ausgeführt wird, z. B. `x64`, `arm64`
+- `_host` – Informationen über den Host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` ist `undefined`, wenn der Docker-Status nicht angefordert wurde oder der Host nicht geantwortet hat.
 
 ### Dialog für benutzerdefinierte Einstellungen
 Die JS-Funktion lautet:
@@ -1554,6 +1629,9 @@ const func = new Function(
   "customObj",
   "_socket",
   arrayIndex,
+  "_os",
+  "_arch",
+  "_host",
   myValidator.includes("return") ? myValidator : "return " + myValidator
 ); // e.g. "_alive === true"
 
@@ -1577,6 +1655,9 @@ Folgende Variablen stehen in der JS-Funktion in den benutzerdefinierten Einstell
 - `_socket` - Socket
 - `arrayIndex` - wird nur in Tabellen verwendet und repräsentiert die aktuelle Zeile in einem Array
 - `globalData` - wird nur in der Tabelle für alle Einstellungen verwendet und nicht nur in einer einzelnen Tabellenzeile
+- `_os` – Betriebssystem des Hosts, auf dem die Instanz ausgeführt wird (`process.platform`), z. B. `linux`, `win32`, `darwin`. Leerer String, falls unbekannt.
+- `_arch` - Architektur des Hosts, auf dem die Instanz ausgeführt wird, z. B. `x64`, `arm64`
+- `_host` – Informationen über den Host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` ist `undefined`, wenn der Docker-Status nicht angefordert wurde oder der Host nicht geantwortet hat.
 
 ```json5
 {
@@ -1714,6 +1795,45 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 9.0.22 (2026-08-21)
+- (@GermanBluefox) Corrected layout of Config view
+
+### 9.0.21 (2026-08-19)
+- (@GermanBluefox) Added the possibility to show or hide elements depending on the operating system of the host: `os`, `notOs` and the JS variables `_os`, `_arch`, `_host`
+- (@GermanBluefox) Added the possibility to show or hide elements depending on the docker installation: `docker` and `_host.docker`
+
+### 9.0.20 (2026-08-13)
+- (@GermanBluefox) Correcting ConfigSelect component
+
+### 9.0.19 (2026-08-09)
+- (@GermanBluefox) Correcting autocompleteSendTo component
+
+### 9.0.18 (2026-08-07)
+- (@GermanBluefox) Updated packages
+
+### 9.0.14 (2026-07-31)
+- (@GermanBluefox) Updated packages
+
+### 9.0.9 (2026-07-30)
+- (@GermanBluefox) Improvement of I18n
+
+### 9.0.7 (2026-07-26)
+- (@GermanBluefox) Breaking: React 19 + MUI 9 + TS 6
+- (@GermanBluefox) Added loading of the new custom components
+
+### 8.5.5 (2026-07-24)
+- (@GermanBluefox) Trying to improve the behaviour of tabs
+
+### 8.5.4 (2026-07-23)
+- (@GermanBluefox) Corrected the displaying of zero number values
+- (@GermanBluefox) Trying to improve the behaviour of tabs
+
+### 8.5.3 (2026-07-20)
+- (@GermanBluefox) Changed the handling of Tabs
+
+### 8.5.0 (2026-07-12)
+- (@GermanBluefox) No functional updates, but only strict types for all components and attributes. This will help to avoid errors in the future.
+
 ### 8.4.15 (2026-07-04)
 - (@GermanBluefox) Extended Credentials Component with AWS and Azure
 

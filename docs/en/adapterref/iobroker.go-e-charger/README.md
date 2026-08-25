@@ -78,7 +78,7 @@ Configure the object IDs of the following states:
 | Home power consumption       | Total current household demand | W    | Positive consumption |
 | Home battery state of charge | Current battery charge level   | %    | 0 to 100             |
 
-All three states must contain numeric values. Power values in kW must be converted to W before they are selected. A grid import/export state cannot be used directly because ChargeManager currently expects separate generation and consumption values.
+All configured states must contain numeric values. Power values in kW must be converted to W before they are selected. A grid import/export state cannot be used directly because ChargeManager currently expects separate generation and consumption values.
 
 If no home battery is installed, create a numeric helper state and select it as the battery state of charge. Set this helper to the **same constant value** as `Settings.Setpoint_HomeBatSoC` (for example `70` for both). This keeps the battery offset at zero, so ChargeManager charges purely from the available PV surplus.
 
@@ -97,15 +97,22 @@ available power =
     solar power
   - home power consumption
   + wallbox power, if it is included in home power consumption
-  - 100 W reserve
+  - grid reserve
   + battery SoC offset
 
 target current = floor(available power / 230 V / active phases)
 ```
 
-The battery offset is zero when the battery is exactly at the configured minimum state of charge and increases up to 2,000 W as the battery approaches 100%. Below `Settings.Setpoint_HomeBatSoC`, EV charging is disabled so that the home battery has priority.
+Four settings on the standard configuration page tune this calculation:
 
-The calculated current is limited to a maximum of 16 A. The internal current target changes by at most 1 A per poll cycle to reduce sudden changes.
+- **Grid reserve power** [W] (default 100) – power kept free on the grid connection instead of being assigned to the car. Increase it to keep more safety headroom; set it to `0` to hand the full surplus to the car.
+- **Maximum battery bonus** [W] (default 2000) – how much extra power, on top of the pure solar surplus, may be drawn while the home battery is above its minimum state of charge. The bonus is `0` when the battery is exactly at the minimum SoC and grows linearly to this maximum as the battery approaches 100 %, so a fuller battery lets the car charge faster. Set it to `0` to charge purely from the measured solar surplus without ever discharging the home battery into the car.
+- **Minimum ChargeManager current** [A] (default 6) – the surplus charging current below which the charger is switched off after a short delay. This applies to PV surplus charging only.
+- **Maximum charging current** [A] (default 16, up to 32) – the highest current the adapter will ever assign. It caps **both** ChargeManager (PV surplus) **and** ChargeNOW.
+
+> **⚠️ Do not set the maximum charging current higher than your go-e Charger hardware and your electrical installation support.** go-e Charger models are rated for different maximum currents (e.g. 16 A or 32 A), and the actual limit also depends on your cable, plug and wiring. Setting a value above the hardware/installation rating can trip protection devices or damage equipment. When in doubt, keep the default of 16 A.
+
+Below `Settings.Setpoint_HomeBatSoC`, EV charging is disabled so that the home battery has priority. Charging starts once the internal target reaches 10 A (or the minimum current if it is set higher). The calculated current is limited to the configured maximum, and the internal current target changes by at most 1 A per poll cycle to reduce sudden changes.
 
 #### Enabling ChargeManager
 
@@ -153,7 +160,7 @@ Before relying on automatic charging, verify the selected input states in the io
 6. `Wallbox_0.info.connection` is `true`.
 7. `Wallbox_0.Power.Charge`, `Wallbox_0.Power.GridPhases`, and, on supported hardware, `Wallbox_0.Power.EnabledPhases` contain plausible values.
 
-Charging may take several poll cycles to start because the internal target increases by only 1 A per cycle. With the default 10-second cycle and an initial target of 0 A, reaching the 10 A starting point can take approximately 100 seconds.
+Charging may take several poll cycles to start because the internal target increases by only 1 A per cycle. With the default 10-second cycle and an initial target of 0 A, reaching the default 10 A starting point can take approximately 100 seconds.
 
 ChargeManager is currently intended to control one charger. Enabling it for multiple chargers at the same time results in each charger independently using the same surplus and can cause incorrect allocation.
 
@@ -172,6 +179,21 @@ If you enjoyed this project – or are just feeling generous – consider buying
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (hombach) ChargeManager: grid reserve power and maximum battery bonus are now configurable (defaults 100 W / 2000 W) (#852)
+- (hombach) ChargeManager: minimum and maximum surplus charging current are now configurable, with the maximum raised to up to 32 A (#852)
+- (hombach) the configurable maximum charging current now caps ChargeNOW as well
+- (hombach) admin: moved the ChargeManager settings into their own configuration tab, separate from the standard settings
+- (hombach) updated dependencies
+
+### 1.4.1 (2026-08-23)
+
+- (typhosj) refactored the ChargeManager control decision into a deterministic, unit-tested function (#846); behavior unchanged
+- (hombach) fixed vulnerabilities
+- (hombach) updated dependencies
+
 ### 1.4.0 (2026-08-10)
 
 - (hombach) added info.unlockedByRFIDName with the name of the current session's RFID card, in parallel to unlockedByRFIDNo (#634)
@@ -199,11 +221,6 @@ If you enjoyed this project – or are just feeling generous – consider buying
 - (typhosj) added ChargeManager PV surplus configuration guide (#842)
 - (hombach) corrected no-battery helper-state recommendation for ChargeManager
 - (hombach) updated dependencies
-
-### 1.2.0 (2026-07-12)
-
-- (hombach) added statisticsGlobal.chargePower state with the current total charging power of all chargers
-- (hombach) removed chai-based unit test dependencies; modernized test harness to Node.js assert (fixes Appveyor, #836)
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

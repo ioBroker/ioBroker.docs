@@ -139,6 +139,12 @@ CCU / Homematic поддерживает различные типы устро�
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.0.0 (2026-08-15)
+* (bluefox) Device icons are now delivered as theme-adaptive SVGs and stay visible on the dark admin theme
+* (krobipd) Generated the device icon set and the device type map from the OCCU device database
+* (krobipd) The device icon is re-applied on start to devices that were created before their type had an icon
+* (bluefox) Removed support of Node.js 20
+
 ### 3.0.2 (2026-05-07)
 * (bluefox) Updated packages
 * (bluefox) Migrated to TypeScript 6
@@ -155,12 +161,10 @@ CCU / Homematic поддерживает различные типы устро�
 ### 2.0.2 (2024-08-26)
 * (bluefox) Updated packages
 
-### 2.0.0 (2024-07-18)
-* (bluefox) Updated packages
-* (bluefox) Removed support of Node.js 16
-
 ### Older entries
 [here](OLD_CHANGELOG.md)
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

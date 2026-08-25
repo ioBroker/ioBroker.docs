@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mcdu/README.md
 title: ioBroker.mcdu
-hash: skBMZ7Xjrw0He+SOKteKaIqxPU+i19hQ4jS2ccLMZ+U=
+hash: 39FC3nD5tZBd84cNEwMZPwHgjRITO7fdbmRqLVQXIfY=
 ---
 ![Logo](../../../en/adapterref/iobroker.mcdu/admin/mcdu.png)
 
@@ -26,6 +26,20 @@ Vielen Dank an die großartige Open-Source-Community, insbesondere an https://gi
 
 Dies ist die erste Version des Adapters und Clients. Ich muss sie noch gründlich testen und einige Verbesserungen vornehmen. Beiträge sind herzlich willkommen.
 
+### Projektstatus: Mitwirkende willkommen
+Seit August 2026 nutzt der ursprüngliche Autor für sein Smart Home Home Home Assistant und pflegt dort weiterhin eine ähnliche Integration: **[homeassistant-mcdu](https://github.com/Flixhummel/homeassistant-mcdu)**.
+
+Dieser ioBroker-Adapter wird **nicht aufgegeben** – er funktioniert und ist weiterhin verfügbar –, die aktive Entwicklung findet jedoch nicht mehr statt. Beiträge und Mitentwickler sind herzlich willkommen.
+
+Beide Projekte verwenden denselben Raspberry-Pi-Client und dasselbe MQTT-Protokoll, das nun als versionierter Vertrag in **[docs/PROTOCOL.md](docs/PROTOCOL.md)** dokumentiert und eingefroren ist.
+
+Bitte implementieren Sie gemäß dieser Spezifikation, damit der Client weiterhin in beiden Umgebungen funktioniert.
+Die Gründe für die Aufteilung sind in [docs/HOME-ASSISTANT-CONCEPT.md](docs/HOME-ASSISTANT-CONCEPT.md) beschrieben.
+
+**Hinweis:** Nur ein „Steuergerät“ kann jeweils eine MCDU ansteuern. Die Anzeigethemen bleiben erhalten – wenn dieser Adapter und die Home Assistant-Integration gleichzeitig auf demselben Gerät veröffentlichen, flackert die Anzeige.
+
+**Bekannter offener Fehler:** `lib/mqtt/ButtonSubscriber.js` verarbeitet `PREV_PAGE` / `NEXT_PAGE`, der Client sendet jedoch ausschließlich `SLEW_LEFT` / `SLEW_RIGHT` / `SLEW_UP` / `SLEW_DOWN` (siehe `mcdu-client/lib/button-map.json`). Die SLEW-Navigation scheint daher in diesem Adapter nicht zu funktionieren. Ein guter erster Beitrag.
+
 ### Architektur
 ```
 ioBroker Adapter (main.js)  <-->  MQTT Broker  <-->  RasPi Client (mcdu-client/)  <-->  USB HID Hardware
@@ -40,7 +54,7 @@ Der ioBroker-Adapter führt die gesamte Geschäftslogik aus (Seitenrendering, Ei
 - **Zeilenspezifische Farbsteuerung**: Unabhängige Farben für Spaltenbeschriftung und Spaltendaten, Statusleistenfarbe pro Seite
 - **Eingabe im Luftfahrtstil**: Notizblock in Zeile 14, LSK-basierte Feldauswahl, OVFY-Bestätigung
 - **Seitensystem**: Konfigurierbare Seiten mit Unterüberschriften, automatische Paginierung, Layouttypen (Menü/Daten/Liste)
-- **Funktionstasten**: 11 konfigurierbare Tasten (MENÜ, INIT, DIR, FPLN, PERF usw.) mit gerätespezifischer Belegung
+- **Funktionstasten**: 11 konfigurierbare Tasten (MENÜ, INIT, DIR, FPLN, PERF usw.) mit gerätespezifischer Zuordnung
 - **Navigation**: übergeordnete Hierarchie, Breadcrumb-Statusleiste, kreisförmige SLEW-Navigation, CLR-zu-übergeordnetes Element
 - **Validierungsmodul**: Validierungsebenen für Tastatureingaben, Format, Bereich und Geschäftslogik
 - **Bestätigungsdialoge**: weiche (LSK oder OVFY) und harte (nur OVFY) für kritische Aktionen

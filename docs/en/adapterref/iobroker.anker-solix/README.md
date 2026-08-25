@@ -68,7 +68,7 @@ The adapter uses an **unofficial** Python library to talk to the Anker Power **c
 
 Poll interval should be **60–180 s** (same recommendation as HA). Site list is updated every cycle; device/site details and energy data run on a slower interval (`deviceDetailMultiplier`, default every 10th poll).
 
-> **Important:** The cloud API is **mandatory**. MQTT alone is not enough for full system data. This adapter does **not** replace local BLE or Modbus integrations — see [Additional resources](#credits--further-reading).
+> **Important:** For cloud devices the Anker API is **mandatory** (MQTT alone is not enough for full system data). Exception: **Modbus only** mode uses local TCP and does not need cloud credentials. This adapter does **not** replace local BLE integrations — see [Additional resources](#credits--further-reading).
 
 ---
 
@@ -127,6 +127,25 @@ iobroker restart anker-solix.0
 
 Copy **`authcache/<email>.json`** from a working Anker setup (e.g. ha-anker-solix) into `iobroker-data/anker-solix.0/authcache/` to avoid captcha on first login.
 
+### Local Modbus (optional)
+
+Newer Anker devices (Solarbank 4 / Max AC / Max, Smart Meter Gen 2, Smart Plug Gen 2) can be polled **locally via Modbus TCP** (port 502). This is a separate channel from the cloud Python bridge (register maps from [ha-anker-solix-official](https://github.com/anker-charging/ha-anker-solix-official)).
+
+1. Enable **Modbus TCP** in the Anker app (system / Three-Party Control).
+2. Adapter Admin → **Modbus (local)** → enable the channel, add each device IP.
+3. Optional: enable **Modbus only (no cloud)** if you do not want Anker cloud login. Then Python, credentials and usage terms are not required; the instance is **green** when at least one Modbus device is connected (otherwise yellow).
+4. Sensors: `anker-solix.0.modbus.<name>.sensors.*` (SOC, PV, grid, battery, SN, …).
+5. Controls: `anker-solix.0.modbus.<name>.control.*`
+   - Solarbank: `operating_mode`, SOC limits, `backup_soc_enable`, `battery_power_direction` + `battery_power_setpoint` (setpoint only in **third_party_control**; set direction first; charge is written as negative watts).
+   - Smart Plug Gen 2: `power_switch`.
+   - Smart Meter Gen 2: read-only.
+
+Without **Modbus only**, cloud login is still used for older devices and MQTT. Solarbank 3 is **not** in Anker’s official Modbus maps. If another Modbus client just queried the device, the first poll may get **connection refused** until that client’s cooldown expires; the next poll interval retries.
+
+### Docker (`buanet/iobroker`)
+
+The official image ships **Python 3.11**. From **0.10.87** the adapter accepts that as **best-effort** on Debian 12 Bookworm containers — no custom image required. **3.12+** remains recommended (upstream) and is still required on bare metal and non-Bookworm hosts. Guide: **[docs/docker-buanet.md](docs/docker-buanet.md)** (optional 3.12 files under [`docs/docker/`](docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf](docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
+
 ---
 
 ## Configuration
@@ -174,24 +193,26 @@ To help add devices: export anonymized data via HA [export systems](https://gith
 
 ## Supported devices
 
-Same device coverage as [ha-anker-solix](https://github.com/thomluther/ha-anker-solix#supported-sensors-and-devices) (via solixapi). In ioBroker, data appears under state IDs by device type (`solarbank`, `smartmeter`, `combiner_box`, `system`, …).
+Manufacturer: [Anker SOLIX](https://www.anker.com/anker-solix) ([support / downloads](https://support.ankersolix.com/)). Cloud coverage matches [ha-anker-solix](https://github.com/thomluther/ha-anker-solix#supported-sensors-and-devices) (via solixapi). In ioBroker, data appears under state IDs by device type (`solarbank`, `smartmeter`, `combiner_box`, `system`, `modbus`, …).
 
-| Device type | Examples / notes |
-|-------------|------------------|
-| **system / site** | Power system from the Anker app (= API “site”) |
-| **solarbank** | E1600 (Gen1), SB2 Pro/Plus/AC, SB3 E2700 — API + MQTT |
-| **combiner_box** | Power Dock (multisystem) — merged controls in ioBroker when applicable |
-| **smartmeter** | Anker 3-phase, US meter, Shelly 3EM / 3EM Pro |
-| **inverter** | MI80 standalone (virtual site in API) |
-| **smartplug** | Smart Plug 2500 W |
-| **pps** / **solarbank_pps** | Portable power stations — mostly MQTT |
-| **ev_charger** | V1 Smart EV Charger — mostly MQTT |
-| **vehicle** | Virtual EVs for charger accounts — read-oriented in ioBroker |
-| **powerpanel** / **hes** | US Power Panel, X1 HES — limited API, heavy stats polling |
-| **charger** | Prime / charging stations — MQTT |
-| **home_backup** | E10, AX170 — very limited API |
+| Device type | Examples | Cloud / MQTT | Local Modbus |
+|-------------|----------|--------------|--------------|
+| **system / site** | Power system from the Anker app (= API “site”) | yes | — |
+| **solarbank** | E1600 (Gen1), SB2 Pro/Plus/AC, SB3 E2700, **SB4 E5000 Pro**, **Solarbank Max / Max AC** (XE) | API + MQTT | **SB4, Max, Max AC** (port 502) |
+| **combiner_box** | Power Dock (multisystem) — merged controls when applicable | yes | — |
+| **smartmeter** | Anker 3-phase, US meter, Shelly 3EM / 3EM Pro, **Smart Meter Gen 2** (AE1X0) | yes | **Gen 2** (read-only) |
+| **inverter** | MI80 standalone (virtual site in API) | yes | — |
+| **smartplug** | Smart Plug 2500 W, **Smart Plug Gen 2** | yes | **Gen 2** (`power_switch`) |
+| **pps** / **solarbank_pps** | Portable power stations | mostly MQTT | — |
+| **ev_charger** | V1 Smart EV Charger | mostly MQTT | — |
+| **vehicle** | Virtual EVs for charger accounts | read-oriented | — |
+| **powerpanel** / **hes** | US Power Panel, X1 HES | limited API | X1 uses a different Anker Modbus spec (not this adapter) |
+| **charger** | Prime / charging stations | MQTT | — |
+| **home_backup** | E10, AX170 | very limited API | — |
 
-Device hierarchy (how HA structures entities): [discussion #239](https://github.com/thomluther/ha-anker-solix/discussions/239).
+**Solarbank 3** has cloud/MQTT in this adapter but is **not** in Anker’s official Modbus register maps.
+
+Device hierarchy (how HA structures entities): [discussion #239](https://github.com/thomluther/ha-anker-solix/discussions/239). Local Modbus setup: [Local Modbus (optional)](#local-modbus-optional).
 
 ---
 
@@ -227,7 +248,17 @@ Decoding new models: [MQTT guidelines](https://github.com/thomluther/anker-solix
 
 ## Special device notes
 
-Condensed from the [HA integration README](https://github.com/thomluther/ha-anker-solix); behavior is the same via solixapi.
+Condensed from the [HA integration README](https://github.com/thomluther/ha-anker-solix); cloud/MQTT behavior is the same via solixapi. Local Modbus notes are adapter-specific.
+
+### Solarbank 4 E5000 Pro / Solarbank Max / Max AC
+
+Cloud: same poll path as other solarbanks (API + optional MQTT). **Local Modbus TCP** (official maps): enable Modbus in the Anker app (system / Three-Party Control), then Admin → **Modbus (local)**. Typical model codes include AE103 (SB4). States: `anker-solix.0.modbus.<name>.sensors.*` and `.control.*` (operating mode, SOC limits, battery setpoint in **third_party_control**). **Modbus only** skips cloud/Python; the instance LED is green when at least one Modbus device is connected.
+
+If another Modbus client just queried the device, the first poll may get **connection refused** until that client’s cooldown expires — the next poll interval retries.
+
+### Smart Meter Gen 2 / Smart Plug Gen 2
+
+Cloud entities as for other meters/plugs. **Local Modbus:** Gen 2 meter is **read-only** (power/voltage/current per phase). Smart Plug Gen 2 exposes `power_switch`. Each device needs its own IP (port 502).
 
 ### Standalone inverters (MI80)
 
@@ -275,7 +306,7 @@ Virtual devices per account EV; no creation via adapter — discovered on refres
 
 ### Power Panel & HES (X1)
 
-Limited API power; workaround uses **~5 min averages** from energy stats (**~80 MB/day** extra traffic per system if enabled). Disable heavy categories in **Objects** if needed. X1: consider local **Modbus** ([Anker spec](https://support.ankersolix.com/de/s/download-preview?urlname=Anker-SOLIX-X1-Series-Modbus-Protocol)) — not part of this adapter.
+Limited API power; workaround uses **~5 min averages** from energy stats (**~80 MB/day** extra traffic per system if enabled). Disable heavy categories in **Objects** if needed. X1 local **Modbus** uses a [separate Anker protocol](https://support.ankersolix.com/de/s/download-preview?urlname=Anker-SOLIX-X1-Series-Modbus-Protocol) — **not** implemented in this adapter (only official Solarbank 4 / Max / meter / plug Gen 2 maps).
 
 ### Home Backup (E10, AX170)
 
@@ -344,7 +375,80 @@ Tab **Abregelungsvermeidung** / **Curtailment avoidance**: requires the [ioBroke
 
 ---
 
+## VIS / VIS-2 dashboard (Energy Home)
+
+Widget set **anker-solix** → **Energy Home** (photoreal house background, live PV / home / grid / battery / EV overlays). All states are bound manually in the widget settings (object picker).
+
+**Important:** Widgets ship with **GitHub main / 0.10.100+** only. npm **0.10.90** does **not** include them. After install or update:
+
+```bash
+iobroker upload anker-solix
+```
+
+Then restart **vis** and/or **vis-2** (or reload the editor with F5). In the widget picker, search for set **anker-solix** → **Energy Home**. In widget settings, assign each state: **State bindings** (PV, home, EV, footer), **Grid flows** (grid import, grid export), **Battery** (SOC, charge, discharge).
+
+Optional VIS-2 view import: `widgets/anker-solix/views/energy-home.vis2.json`.
+
+Enable **Power flows** and **Energy statistics** in adapter **Objects** for footer values (self-consumption, today PV).
+
+---
+
 ## Changelog
+
+### 0.10.100
+
+- **VIS Energy Home:** duplicate grid-to-home flow line fixed — remove legacy `grid` SVG paths, show only import or export line at a time (GitHub-only)
+
+### 0.10.99
+
+- **VIS Energy Home:** VIS-1 duplicate grid/battery cards fixed — widget destroy/cleanup on re-render, legacy card removal, cache-busted CSS/JS (GitHub-only)
+
+### 0.10.98
+
+- **VIS Energy Home:** single always-visible grid and battery power cards; label and value switch between import/export and charge/discharge while flow lines show direction (GitHub-only)
+
+### 0.10.97
+
+- **VIS Energy Home:** grid and battery power cards share one slot each and toggle by active flow — Grid → Home vs PV → Grid, Entladen vs Laden (GitHub-only)
+
+### 0.10.96
+
+- **VIS Energy Home:** energy flow lines realigned to the Home hub (PV, grid import/export, battery charge/discharge, EV); SVG coordinates now match card positions (GitHub-only)
+
+### 0.10.95
+
+- **VIS Energy Home:** separate cards for Grid → Home, PV → Grid, SOC, charge, and discharge; dedicated flow lines per direction; widget settings grouped into Grid flows and Battery (GitHub-only)
+
+### 0.10.94
+
+- **VIS Energy Home:** removed auto-discovery and card hiding; all states (PV, home, grid import/export, SOC, battery charge/discharge, EV, footer) are assigned manually in widget settings (GitHub-only)
+
+### 0.10.93
+
+- **VIS Energy Home:** grid uses `grid_to_home_power` (import) vs `photovoltaic_to_grid_power` (export); battery uses `bat_charge_power` vs `bat_discharge_power`; energy line animation direction matches flow (GitHub-only)
+
+### 0.10.92
+
+- **VIS / VIS-2 Energy Home:** clean house background (no baked-in UI); slim animated SVG energy lines and cards as overlays; broader auto-discovery (system, combiner, smartmeter, solarbank, modbus, ev_charger); all cards always visible; live view subscribes discovered states (GitHub-only until next npm release)
+
+### 0.10.91
+
+- **VIS / VIS-2:** first **Energy Home** widget (auto state discovery, combiner/modbus aware); `restartAdapters` vis + vis-2; requires `iobroker upload anker-solix` after install (GitHub-only until next npm release)
+
+### 0.10.90
+
+- **Modbus only:** skip Anker cloud/Python when the checkbox is enabled; no credentials or usage terms required; instance LED is green when at least one local Modbus device is connected
+- **Docs:** README supported devices + special notes for SB4 / Max / Modbus Gen 2; valid state roles for usage-mode and EV-charger lists; Modbus admin i18n
+
+### 0.10.89
+
+- **Admin:** fix GUI error when opening **Modbus (local)** (`hidden` must use `data.enableModbus`; table `items` as array with `attr`)
+- **Docker:** buanet guide uses stock Python **3.11** as default (0.10.87 best-effort); 3.12 image/userscript optional
+
+### 0.10.88
+
+- **Modbus (optional):** local TCP poll and control for official devices (Solarbank 4 / Max AC / Max, Smart Meter Gen 2, Smart Plug Gen 2); cloud Python bridge unchanged
+- **Docker:** buanet/iobroker Python guide (`docs/docker-buanet.md`)
 
 ### 0.10.87
 

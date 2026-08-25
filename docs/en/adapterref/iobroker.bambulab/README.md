@@ -91,11 +91,12 @@ All of this helps me to provide error-free adapters that basically never crash.
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+	### __WORK IN PROGRESS__
 -->
-### **WORK IN PROGRESS**
+### __WORK IN PROGRESS__
 * (DutchmanNL & Copilot) Update all dependencies to latest versions, consolidating 17 Dependabot PRs
 * (DutchmanNL & Copilot) Synchronize admin translations with jsonConfig.json - add missing translations and remove orphaned keys (#202)
+* (DutchmanNL) Raise minimum Node.js to 22, modernise CI (Node 24, testing-action-check v2) and release tooling, and resolve repository checker findings
 
 ### 0.4.3 (2025-09-16)
 * (DutchmanNL) Improve error messages if printer is offline or not reachable.
@@ -121,6 +122,8 @@ All of this helps me to provide error-free adapters that basically never crash.
 * (DutchmanNL & Copilot) Fix several type mismatches #143 #139 #130
 * (DutchmanNL) Updated missing definitions for full MQTT API incl H2D
 * (DutchmanNL & Copilot) Fix repository checker issues and improve admin UI compatibility
+
+Older changes can be found at [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 MIT License

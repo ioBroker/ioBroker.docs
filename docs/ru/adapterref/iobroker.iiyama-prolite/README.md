@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iiyama-prolite/README.md
 title: ioBroker.iiyama-prolite
-hash: k6h+d0a3i9I2E0LHdbljni/mjDFLHUSnsnIungXtl5w=
+hash: 7p2aNZZ3K2GVKo9GOfLKshGS72R20I7QZ8XUiCDQzN4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iiyama-prolite/admin/iiyama-prolite.png)
 
@@ -138,7 +138,7 @@ setState('iiyama-prolite.0.video.brightness', 75);
 
 ## Технические характеристики
 ### Реализация протокола
-Данный адаптер реализует протокол последовательной связи iiyama RS232, описанный в официальном примечании к применению. Протокол использует:
+Данный адаптер реализует протокол последовательной связи RS232 iiyama, описанный в официальном примечании к применению. Протокол использует:
 
 - **Формат пакета**: Заголовок (0xA6), Идентификатор монитора, Категория, Страница, Код функции, Длина, Управление данными, Данные, Контрольная сумма
 - **Контрольная сумма**: XOR всех байтов, кроме контрольной суммы.
@@ -173,11 +173,34 @@ setState('iiyama-prolite.0.video.brightness', 75);
 ## Отказ от ответственности
 iiyama и ProLite являются товарными знаками соответствующих владельцев. Этот адаптер является проектом сообщества и не связан с компанией iiyama, не одобрен ею и не поддерживается ею.
 
+## Торговые марки
+iiyama и ProLite являются товарными знаками корпорации iiyama. Этот адаптер — независимый проект сообщества и не связан с корпорацией iiyama, не одобрен ею и не поддерживается ею.
+В иконке адаптера используется официальный товарный знак iiyama, опубликованный в [пресс-материалы Ииямы](http://www.iiyama.com/gl_en/press-materials/), который находится в общественном достоянии (ниже порога оригинальности).
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 0.1.6 (2026-08-19)
+* (Alan Paris) Fixed `protectedNative` being placed inside `common` in io-package.json, where js-controller ignored it and the schema rejected it (repochecker E1105) - the MAC address is now genuinely protected
+
+### 0.1.5 (2026-08-19)
+* (Alan Paris) Replaced the create-adapter placeholder icon with the official iiyama wordmark
+* (Alan Paris) Fixed polling stopping permanently when a Wake-on-LAN power command was not answered
+* (Alan Paris) Fixed the command queue hanging forever when the connection dropped mid-command
+* (Alan Paris) Status replies are now matched to the command that asked for them, so a timed-out poll can no longer write another command's value into a state
+* (Alan Paris) Repeated command failures are now logged once instead of on every poll cycle, and clear `info.connection` after three consecutive failures
+* (Alan Paris) Controls now snap back to the last confirmed value when a command is refused or cannot be delivered
+* (Alan Paris) State metadata is now applied with `extendObject`, so corrected roles reach existing installations on upgrade and not just new ones
+* (Alan Paris) Added `macAddress` to `protectedNative` so it is not readable by non-admin users
+* (Alan Paris) Fixed the connection status staying `true` after a reconnect to a display that answers nothing
+* (Alan Paris) Fixed overlapping reconnect attempts while a display was in standby, which could leave an unclosed socket behind
+* (Alan Paris) Power Save Mode 1/2 no longer reports the display as off when it is already on and reachable
+* (Alan Paris) The "display appears to be off" notice is now logged once per standby period instead of every 30 seconds
+* (Alan Paris) Serial connections now retry after a failed port open, so a dongle plugged in later (or a permissions fix) no longer needs an instance restart
+* (Alan Paris) Repeated connection errors are now logged once instead of on every retry
+
 ### 0.1.4 (2026-07-16)
 * (Alan Paris) Removed the manufacturer protocol PDF from the repository and its git history
 * (Alan Paris) Added a 10 s TCP connection timeout so an unreachable display no longer hangs the connect

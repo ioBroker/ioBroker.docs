@@ -172,8 +172,18 @@ IP-адрес с которого доступен драйвер (поддер�
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (SimonFischer04) Admin can now run behind a reverse-proxy sub-path (e.g. `/admin/`)
+- (@GermanBluefox) Corrected layout of Config view
+
+### 8.0.5 (2026-08-19)
+- (@GermanBluefox) Corrected the doubled tiles in the quick access if more than one web instance is running
+- (@GermanBluefox) Reworked the initial setup wizard: modern layout, navigation backwards and many corrections
+- (@GermanBluefox) Rounded the options toolbar in the adapter update dialog
+- (@GermanBluefox) Removed warning about not installed docker.
+
 ### 8.0.4 (2026-08-09)
-- (@GermanBluefox) Better handlling of autocompleteSendTo JsonConfig components
+- (@GermanBluefox) Better handling of autocompleteSendTo JsonConfig components
 
 ### 8.0.3 (2026-08-08)
 - (@softwarecrash) Corrected the validation state in the custom settings if more than one instance is shown
@@ -191,11 +201,6 @@ IP-адрес с которого доступен драйвер (поддер�
 - (@GermanBluefox) Breaking: React19 + MUI9
 - (@GermanBluefox) Breaking: Node 22 or higher required
 - (@GermanBluefox) Improved charts in tooltip
-
-### 7.9.13 (2026-07-12)
-- (@GermanBluefox) Added AWS and Azure credentials in credentials manager
-- (@GermanBluefox) Allowed to set the log level without expert mode
-- (@GermanBluefox) Correcting sentry reporting for the admin adapter
 
 ## License
 

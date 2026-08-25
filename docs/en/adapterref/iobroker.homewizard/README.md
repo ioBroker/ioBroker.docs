@@ -179,6 +179,10 @@ homewizard.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.15.1 (2026-08-22)
+
+- Improved: The adapter needs noticeably less processing power on installations whose devices send a new reading every second.
+
 ### 0.15.0 (2026-07-13) — stable
 
 - A device that rejects the adapter's token now stops retrying and warns you to re-pair it, instead of quietly retrying in the background
@@ -205,10 +209,6 @@ homewizard.0.
 
 - Reboot and identify buttons reset themselves after the action, so they stay clickable in the admin UI
 - Re-pairing a removed device no longer inherits the old device's log cooldown — its first connection warning shows up immediately again
-
-### 0.12.1 (2026-06-09)
-
-- Internal refactoring. No user-facing changes.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

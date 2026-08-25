@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iiyama-prolite/README.md
 title: ioBroker.iiyama-prolite
-hash: k6h+d0a3i9I2E0LHdbljni/mjDFLHUSnsnIungXtl5w=
+hash: 7p2aNZZ3K2GVKo9GOfLKshGS72R20I7QZ8XUiCDQzN4=
 ---
 ![标识](../../../en/adapterref/iobroker.iiyama-prolite/admin/iiyama-prolite.png)
 
@@ -45,7 +45,7 @@ hash: k6h+d0a3i9I2E0LHdbljni/mjDFLHUSnsnIungXtl5w=
 
 ＃＃ 配置
 ### 连接设置
-**连接类型**：选择 TCP/IP（局域网）或串口（RS232）连接方式。
+**连接类型**：选择 TCP/IP（局域网）或串口（RS232）
 
 #### TCP/IP 连接
 - **IP 地址**：显示器的 IP 地址
@@ -71,10 +71,10 @@ hash: k6h+d0a3i9I2E0LHdbljni/mjDFLHUSnsnIungXtl5w=
 - 检测到HDMI信号源时可自动唤醒
 - **模式 3**：WOL 开启，源输入唤醒关闭
 - 可通过网络唤醒 (Wake-on-LAN) 唤醒（需要配置 MAC 地址）
-- 适配器发送 WOL 魔术包，然后发送开机命令
+- 适配器发送一个 WOL 魔术数据包，然后发送上电命令
 - **模式 4**：WOL 开启，源输入唤醒开启（**推荐用于网络控制**）
 - 可通过网络唤醒 (Wake-on-LAN) 唤醒（需要配置 MAC 地址）
-适配器发送 WOL 魔术包，然后发送开机命令
+- 适配器发送一个 WOL 魔术数据包，然后发送上电命令
 - 当检测到 HDMI 源信号时，也可以自动唤醒。
 - **MAC 地址**（模式 3 和模式 4 必需）：显示器网络接口的 MAC 地址，用于网络唤醒 (Wake-on-LAN)。
 - **WOL 广播地址**（可选）：WOL 数据包的子网广播地址。如果为空，则从主机 IP 派生而来（例如 `192.168.1.100` → `192.168.1.255`）。
@@ -173,11 +173,35 @@ setState('iiyama-prolite.0.video.brightness', 75);
 ## 免责声明
 iiyama 和 ProLite 是其各自所有者的商标。此适配器为社区项目，与 iiyama 无任何关联，亦未获得 iiyama 的认可或支持。
 
+## 商标
+iiyama 和 ProLite 是 iiyama 公司的商标。本适配器是一个独立的社区项目，与 iiyama 公司没有任何关联，也未获得其认可或支持。
+
+适配器图标使用了 iiyama 官方文字商标，该商标已发布在 [iiyama出版社资料](http://www.iiyama.com/gl_en/press-materials/) 中，属于公共领域（未达到原创性阈值）。
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 0.1.6 (2026-08-19)
+* (Alan Paris) Fixed `protectedNative` being placed inside `common` in io-package.json, where js-controller ignored it and the schema rejected it (repochecker E1105) - the MAC address is now genuinely protected
+
+### 0.1.5 (2026-08-19)
+* (Alan Paris) Replaced the create-adapter placeholder icon with the official iiyama wordmark
+* (Alan Paris) Fixed polling stopping permanently when a Wake-on-LAN power command was not answered
+* (Alan Paris) Fixed the command queue hanging forever when the connection dropped mid-command
+* (Alan Paris) Status replies are now matched to the command that asked for them, so a timed-out poll can no longer write another command's value into a state
+* (Alan Paris) Repeated command failures are now logged once instead of on every poll cycle, and clear `info.connection` after three consecutive failures
+* (Alan Paris) Controls now snap back to the last confirmed value when a command is refused or cannot be delivered
+* (Alan Paris) State metadata is now applied with `extendObject`, so corrected roles reach existing installations on upgrade and not just new ones
+* (Alan Paris) Added `macAddress` to `protectedNative` so it is not readable by non-admin users
+* (Alan Paris) Fixed the connection status staying `true` after a reconnect to a display that answers nothing
+* (Alan Paris) Fixed overlapping reconnect attempts while a display was in standby, which could leave an unclosed socket behind
+* (Alan Paris) Power Save Mode 1/2 no longer reports the display as off when it is already on and reachable
+* (Alan Paris) The "display appears to be off" notice is now logged once per standby period instead of every 30 seconds
+* (Alan Paris) Serial connections now retry after a failed port open, so a dongle plugged in later (or a permissions fix) no longer needs an instance restart
+* (Alan Paris) Repeated connection errors are now logged once instead of on every retry
+
 ### 0.1.4 (2026-07-16)
 * (Alan Paris) Removed the manufacturer protocol PDF from the repository and its git history
 * (Alan Paris) Added a 10 s TCP connection timeout so an unreachable display no longer hangs the connect

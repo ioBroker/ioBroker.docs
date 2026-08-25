@@ -4,31 +4,37 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.javascript/upgrade-guide.md
 title: 升级指南
-hash: 419X0Zch8gHqehaZE1IsqpfUeQSR8YCsQdZ4zzqWFaE=
+hash: o2Eb9G64jS09GCXeuuf0Re3XwktoidGHb+SLICVLxHk=
 ---
 # 升级指南
 ## 脚本文件系统镜像的禁止目录
-**自 JavaScript 适配器 v5.5.0 起**，以下位置（相对于 ioBroker 基目录，通常为 `/opt/iobroker`）不允许使用：
+**自 JavaScript 适配器 v5.5.0 版本起**，以下位置（相对于 ioBroker 基本目录，通常为 `/opt/iobroker`）不再允许使用：
 
-* ioBroker 基目录本身和上面的任何路径！
-* `./iobroker-data` 本身，自定义子目录（选择不与任何适配器重叠的名称！）
+* ioBroker 基本目录本身及其上级目录！
+* `./iobroker-data` 本身，自定义子目录（选择一个与任何适配器都不重叠的名称！）
 * `./iobroker-data/backup-objects` 或以下任何内容
 * `./iobroker-data/files` 或以下任何内容
 * `./iobroker-data/backitup` 或以下任何内容
-* `./backups` 或下面的任何内容
-* `./node_modules` 或下面的任何内容
-* `./log` 或下面的任何内容
+* `./backups` 或以下任何内容
+* `./node_modules` 或以下任何内容
+* `./log` 或以下任何内容
 
-脚本文件系统镜像会将所有脚本的源文件存储在您的文件系统中，并允许您在 Web 编辑器之外，使用您常用的脚本编辑器编辑这些文件。所有更改均双向同步。
+脚本文件系统镜像功能会将脚本的所有源文件存储在您的文件系统中，并允许您在网页编辑器之外，使用您喜欢的脚本编辑器编辑这些文件。所有更改都会双向同步。
 
-启用脚本文件系统镜像时，请务必创建一个**专用的新目录**，并且**不要**使用包含其他内容的现有目录。
-此外，请确保没有其他脚本或进程更改所提供目录中的文件，以防止出现访问问题。
-任何位置都需要对“iobroker”用户具有写入权限！
+启用脚本文件系统镜像时，请务必创建一个**专用的新目录**，**切勿**使用包含其他内容的现有目录。
 
-## 请求 httpGet
-**自 JavaScript 适配器 v8.0.0 版本起**，`request` 软件包已被弃用，在脚本中使用它会引发警告。
-JavaScript 适配器需要在某个时间点删除该软件包。
-为了尽可能简化迁移，沙盒提供了一个请求 HTTP 资源的新功能。
+另请确保没有其他脚本或进程会修改所提供目录中的文件，以避免访问问题。
+
+所有位置都必须对“iobroker”用户具有写入权限！
+
+同步是双向的，包括删除操作：**当一个文件夹从镜像目录中消失时，其中的脚本也会从 ioBroker 数据库中删除。** 因此，任何其他写入该目录的操作——例如备份作业、清理任务或部署——都可能删除您的脚本。只有当整个镜像目录无法访问时（例如，由于共享未挂载），脚本才会被保留，并在下次启动时重新写入该目录。
+
+## 向 httpGet 发送请求
+**自 JavaScript 适配器 v8.0.0 版本起**，`request` 包已被弃用，在脚本中使用该包会引发警告。
+
+JavaScript 适配器需要在某个版本中移除该包。
+
+为了尽可能简化迁移过程，沙箱提供了一个新的函数来请求 HTTP 资源。
 
 ### JavaScript
 示例代码：
@@ -51,9 +57,9 @@ schedule('*/30 * * * *', () => {
 
 迁移：
 
-1. 删除 `request` 包的导入
-2. 使用原生方法 `httpGet`（详情请见文档）
-3.更新回调函数参数
+1. 移除对 `request` 包的导入
+2. 使用原生方法 `httpGet`（详情请参阅文档）
+3. 更新回调函数的参数
 4. 将 `body` 替换为 `response.data`
 
 ```js
@@ -71,7 +77,7 @@ schedule('*/30 * * * *', () => {
 ```
 
 ### Blockly
-- `request` 块仅支持 HTTP GET（不支持其他方法）- 用 `http (GET)` 替换该块
-- 之前需要创建一个名为“result”的自定义变量来使用响应。现在无需再创建该变量。请删除该变量，并使用专用块来处理结果参数（例如在触发器块中）。
+- `request` 代码块仅支持 HTTP GET 请求（不支持其他请求方法） - 请将该代码块替换为 `http (GET)`
+- 之前需要创建一个名为 `result` 的自定义变量来使用响应结果。现在不再需要这样做了。请删除该变量，并使用专用代码块来处理结果参数（例如在触发器代码块中）。
 
-![Blockly 请求 httpGet](../../../en/adapterref/iobroker.javascript/img/upgrade-guide/request-httpGet.png)
+![Blockly 向 httpGet 发送请求](../../../en/adapterref/iobroker.javascript/img/upgrade-guide/request-httpGet.png)

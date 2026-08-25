@@ -3,46 +3,57 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.opentherm/README.md
 title: ioBroker.opentherm
-hash: Sjm4VAMYNXS2QPK+JpDO9nQ8pvG/bi3sGQO+cnpFNr8=
+hash: xyaAR0EcyhfwHF8DPjo7OLZrmtVmYd5wn1qiTCLt7vM=
 ---
 ![Logo](../../../en/adapterref/iobroker.opentherm/admin/opentherm.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.opentherm.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.opentherm.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/opentherm-installed.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/opentherm-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/opentherm-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/DrozmotiX/ioBroker.opentherm.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/DrozmotiX/ioBroker.opentherm/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/DrozmotiX/ioBroker.opentherm/badge.svg)
 ![NPM](https://nodei.co/npm/ioBroker.opentherm.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/DrozmotiX/iobroker.opentherm/master.svg)
 
 # IoBroker.opentherm
-Dieser Adapter integriert alle Funktionen des opentherm-Gateways in ioBroker.
-Opentherm ist ein Gateway-Protokoll, das von mehreren modernen Heizsystemen wie Remeha verwendet wird.
+Dieser Adapter integriert alle Funktionen des OpenTherm-Gateways in ioBroker. OpenTherm ist ein Gateway-Protokoll, das von verschiedenen modernen Heizsystemen wie Remeha verwendet wird.
 
-Weitere Informationen finden Sie unter http://otgw.tclcode.com/index.html#intro mit allen Credits an die Entwickler.
+## Wächter
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-### Empfohlene Funktionalität im Endzustand:
-* Stellen Sie einen TCP / IP-Relay-Server bereit, um die Verbindung anderer OpenTherm-Überwachungssoftware durch diese Instanz zu ermöglichen (wenn eine direkte USB-Verbindung verwendet wird).
-* Passen Sie nach Möglichkeit die Werte in ioBroker an und senden Sie den Befehl an Opentherm
-* Sie können gerne Funktionsanfragen hinzufügen
+Weitere Informationen finden Sie unter http://otgw.tclcode.com/index.html#intro. Alle Rechte liegen bei den Entwicklern.
 
-### Derzeit implementiert
-* Stellen Sie über TCP / IP eine Verbindung zum OpenTherm Gateway her
-* Stellen Sie eine direkte Verbindung zum OpenTherm Gateway über eine USB-Verbindung her
+### Ausgewählte Funktionen im Endzustand:
+* Bereitstellung eines TCP/IP-Relay-Servers, um anderen OpenTherm-Monitor-Software-Verbindungen über diese Instanz zu ermöglichen (bei Verwendung einer direkten USB-Verbindung)
+* Passen Sie nach Möglichkeit die Werte in ioBroker an und senden Sie einen Befehl an Opentherm.
+* Gerne können Sie Funktionswünsche hinzufügen.
 
-## Machen
-* Stellen Sie eine direkte Verbindung zum OpenTherm Gateway über eine USB-Verbindung her
-* Stellen Sie einen TCP / IP-Relay-Server bereit, um die Verbindung anderer OpenTherm-Überwachungssoftware durch diese Instanz zu ermöglichen (wenn eine direkte USB-Verbindung verwendet wird).
+### Aktuell implementiert
+* Verbindung zum OpenTherm Gateway über TCP/IP
+* Direkte Verbindung zum OpenTherm Gateway über USB-Anschluss
+
+## Aufgaben
+* Direkte Verbindung zum OpenTherm Gateway über USB
+* Bereitstellung eines TCP/IP-Relay-Servers, um anderen OpenTherm-Monitor-Software-Verbindungen über diese Instanz zu ermöglichen (bei Verwendung einer direkten USB-Verbindung)
 * Wo
 
-## Unterstütze mich
-Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende leisten (dies ist ein persönlicher Spendenlink für DutchmanNL, keine Beziehung zum ioBroker-Projekt!) [![Spenden] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
+## Unterstützt mich
+Wenn Ihnen meine Arbeit gefällt, freue ich mich über eine persönliche Spende (dies ist ein persönlicher Spendenlink für DutchmanNL, er steht in keiner Verbindung zum ioBroker-Projekt!). [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Changelog
 
+### __WORK IN PROGRESS__
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+
+### 0.2.5 (2022-07-23) - Message library updated
+* (DutchmanNL) Message library updated
+
+### 0.2.4 (2022-07-23) - Installation issues solved
+* (DutchmanNL) Update dependency's & SerialPort compatibility
+
 ### 0.2.3
-* Adapter fully rebuilded
+* Adapter fully rebuild
 
 ### 0.2.2
 * Fix read TCP/IP data (svenp)
@@ -79,7 +90,7 @@ Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende lei
 ## License
 MIT License
 
-Copyright (c) 2020 DutchmanNL <rdrozda86@gmail.com>
+Copyright (c) 2025 DutchmanNL <rdrozda86@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

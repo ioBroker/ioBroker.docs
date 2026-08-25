@@ -1,5 +1,23 @@
 {
   "pages": {
+    "2026_08_25": {
+      "date": "2026.08.25",
+      "title": {
+        "de": "ioBroker Monatsrückblick – Juli/August 2026",
+        "en": "ioBroker Monthly Review – July/August 2026",
+        "ru": "Ежемесячный обзор ioBroker – июль/август 2026 г.",
+        "zh-cn": "ioBroker 月度回顾 – 2026 年 7 月/8 月"
+      },
+      "logo": "de/blog/images/2026_08_25.png",
+      "type": "news",
+      "originalName": "2026_08_25.md",
+      "desc": {
+        "de": "Der Hochsommer 2026 war alles andere als eine Sauregurkenzeit!\\nSeit dem letzten Rückblick sind sage und schreibe **23 neue Adapter** ins Repository gekommen,\\nso viele wie schon lange nicht mehr. Der Schwerpunkt liegt erneut bei **Energie und E-Mobilität**\\n(Hoymiles, Victron GX, Solakon ONE, Tesla Wall Connector, go-e Charger),\\naber auch **Kameras, Multimedia und Systemwerkzeuge** sind stark vertreten.\\nUnd ein paar echte Exoten sind dabei: Formel-1-Livedaten, Flugverfolgung am eigenen Fenster\\nund eine Saunasteuerung mit lernender Aufheizprognose.",
+        "en": "# IoBroker Monthly Review – July/August 2026\\nThe height of summer 2026 was anything but a slow period! Since the last review, a whopping **23 new adapters** have been added to the repository – more than in a long time. The focus is once again on **energy and e-mobility** (Hoymiles, Victron GX, Solakon ONE, Tesla Wall Connector, go-e Charger), but **cameras, multimedia, and system tools** are also well represented.",
+        "ru": "# Ежемесячный обзор ioBroker – июль/август 2026 г.\\nПик лета 2026 года был отнюдь не периодом затишья! С момента последнего обзора в репозиторий было добавлено целых **23 новых адаптера** – больше, чем за долгое время. В центре внимания снова **энергетика и электромобильность** (Hoymiles, Victron GX, Solakon ONE, Tesla Wall Connector, go-e Charger), но **камеры, мультимедиа и системные инструменты** также хорошо представлены.",
+        "zh-cn": "# IoBroker 月度回顾 – 2026 年 7 月/8 月\\n2026 年盛夏可谓热闹非凡！自上次盘点以来，我们新增了多达 23 款适配器，数量之多前所未有。重点依然是能源和电动出行领域（例如 Hoymiles、Victron GX、Solakon ONE、特斯拉壁挂式充电器和 go-e 充电器），但摄像头、多媒体和系统工具等也占有一席之地。"
+      }
+    },
     "2026_07_10": {
       "date": "2026.07.10",
       "title": {

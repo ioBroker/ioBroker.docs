@@ -159,7 +159,7 @@ Der Adapter repariert automatisch bekannte Tesla-Firmware-JSON-Fehler (bare `nan
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.3.1 (2026-08-14)
 - Dependency updates
 
 ### 1.3.0 (2026-08-04)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.automatic-feeder/README.md
 title: ioBroker.automatic-feeder
-hash: 4zYYV48p9P/TSfvM+Gnfat/sE2s+3g5iYzBG+KrsNys=
+hash: Vy6oiPmc6yas87SqGBsQuUem6XbaepVVBpg+v1+cKGI=
 ---
 ![Logo](../../../en/adapterref/iobroker.automatic-feeder/admin/automatic-feeder.png)
 
@@ -19,6 +19,12 @@ hash: 4zYYV48p9P/TSfvM+Gnfat/sE2s+3g5iYzBG+KrsNys=
 ---
 
 <p align="center"> <a href="https://www.buymeacoffee.com/ssbingo"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=ssbingo&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a> </p>
+
+---
+
+> ### 🔌 Passende Hardware – die **Feeder-Relais**-Zeitschaltplatine > > Sie bauen eine Einspeisung und möchten lieber eine fertige Zeitschaltplatine verwenden, anstatt Ihr eigenes Relais zu verdrahten? Dann sehen Sie sich die **[Feeder-Relais (Timer-Ersatzplatine)](https://github.com/ssbingo/timer-ersatzplatine)** — eine selbstgebaute ESP32-Timerplatine, die perfekt mit diesem Adapter harmoniert ([Online-Übersicht]).](https://ssbingo.github.io/timer-ersatzplatine/)** an.
+
+> **Es handelt sich um ein separates, eigenständiges Projekt – unabhängig vom Adapter.** Die Platine und dieser Adapter sind zwar aufeinander abgestimmt, aber völlig unabhängig voneinander: Der Adapter funktioniert auch ohne die Platine und umgekehrt.
 
 ---
 
@@ -69,14 +75,14 @@ Sende eine **Telegram**-Nachricht über das Ergebnis;
 
 Telegram-Erinnerungen vor Beginn und Ende;
 
-* **ob das Intervall und die Portion automatisch an die Wasser-/Lufttemperatur angepasst werden sollen**
+* **ob** Intervall und Portion automatisch an die Wasser-/Lufttemperatur angepasst werden sollen
 
 (**dynamische Zuführung**, Q10-Modell);
 
 * ob die Zufuhr blockiert werden soll, wenn der gelöste Sauerstoffgehalt (O₂) zu niedrig ist;
 * **Bis zu 3 einmalige Fütterungspausen** (absolute Datums- und Zeiträume, z. B. eine Quarantäne nach
 
-(Auffüllung) mit einer **Telegram**-Nachricht am Anfang und Ende jeder Nachricht;
+(Auffüllung) mit einer **Telegram**-Nachricht am Anfang und Ende jeder Zeile;
 
 * ein **Haupt-Pauseschalter** („Fütterung jetzt unterbrechen“), der **jegliche** Fütterung sofort unterbricht.
 
@@ -93,7 +99,7 @@ Wichtig: Der Adapter erstellt den Switch niemals selbst. Er steuert ein Objekt, 
 ## 2. Anforderungen
 | Sie benötigen | Details |
 |----------|---------|
-| **ioBroker** mit **admin ≥ 8.0.0**, **js-controller ≥ 6.0.11** und **Node.js ≥ 22** | Erforderliche Mindestversionen. Die Konfigurationsseite basiert auf React 19, wie es auch von admin 8 verwendet wird. |
+| **ioBroker** mit **admin ≥ 7.8.23**, **js-controller ≥ 6.0.11** und **Node.js ≥ 22** | Erforderliche Mindestversionen. Die Konfigurationsseite basiert auf React 19. |
 | **Ein Schalterobjekt** | Jeder beschreibbare ioBroker-Zustand, der Ihren Feeder ein-/ausschaltet – z. B. eine intelligente Steckdose (`shelly.0.…`, `sonoff.0.…`, `zigbee.0.…`), ein Relais, eine Skriptvariable. |
 | *(optional)* **Geokoordinaten** | Wird verwendet, um Sonnenaufgang/Sonnenuntergang für das **astronomische Fenster** pro Switch zu berechnen. Nur erforderlich, wenn ein Switch dieses Fenster verwendet; wird aus den ioBroker-Systemeinstellungen, einer gemeinsamen Position oder pro Switch konfiguriert. |
 | *(optional)* Temperaturobjekte | Vorhandene Zustände mit Luft- und/oder Wassertemperatur zur Temperaturblockierung oder dynamischen Zufuhr. Zuweisung **pro Schalter** auf der Registerkarte „Schalter“. |
@@ -202,7 +208,7 @@ Wählen Sie **einen** Modus:
 
 an jedem von ihnen jeden Tag. Beispiel: `08:00` und `18:00`.
 
-* **Intervall innerhalb eines Zeitfensters** – wiederholte Zufuhr innerhalb eines Fensters:
+* **Intervall innerhalb eines Zeitfensters** – wiederholte Fütterung innerhalb eines Fensters:
 * **Fensterbeginn** / **Fensterende** – z. B. 08:00 bis 18:00 Uhr.
 * **Intervall (Minuten)** – z. B. 60 → Fütterung um 08:00, 09:00, …, bis zum Ende des Zeitfensters,
 
@@ -319,7 +325,7 @@ Sende die Überwachungsmeldungen an Telegram – konfiguriert **pro Switch**:
 
 * **Telegram-Instanz** – Wählen Sie eine der installierten `telegram.*`-Instanzen (oder *Keine*) aus.
 
-Telegram für diesen Schalter deaktivieren). Falls kein Telegram installiert ist, wird dies im entsprechenden Feld angezeigt.
+(Telegram für diesen Schalter deaktivieren). Falls kein Telegram installiert ist, wird dies im entsprechenden Feld angezeigt.
 
 * **Telegram-Empfänger (optional)** – ein bestimmter Benutzer-/Chatname, wie in Telegram konfiguriert.
 
@@ -359,7 +365,7 @@ Kündige eine bevorstehende Fütterung zu einem konfigurierbaren Zeitpunkt im Vo
 
 * **Fütterung im Voraus ankündigen** – schaltet die Ankündigung ein.
 * **Vorlaufzeit (Minuten)** – wie lange vor dem Versand der Ankündigung (z. B. `5`).
-* **Ankündigung per Telegram** / **Ankündigung über Sayit** – der/die Kanal(e), der/die für die Ankündigung verwendet werden
+* **Ankündigung per Telegram** / **Ankündigung über Sayit** – der/die Kanal(e), die für die Ankündigung verwendet werden
 
 (Jede Instanz muss wie oben konfiguriert werden).
 
@@ -511,7 +517,7 @@ Läuft von 30 Minuten nach Sonnenaufgang bis 30 Minuten vor Sonnenuntergang und 
 
 `automatic-feeder.0.switches.sw-0.settings.pauseNow` von einem VIS-Schalter.
 
-* Die gesamte Nahrungszufuhr wird sofort gestoppt (und setzt damit alle Modi außer Kraft), bis Sie das Gerät wieder ausschalten; jeder Schalter
+* Die gesamte Nahrungszufuhr wird sofort gestoppt (und überschreibt damit alle Modi), bis Sie das Gerät wieder ausschalten; jeder Schalter
 
 Sendet eine Telegram-Nachricht. `status.pauseManual` zeigt den Live-Status an.
 
@@ -609,7 +615,7 @@ Diese Werte dienen als allgemeine Richtlinie für Koi/Teichfische und ersetzen n
 
 ## Dokumentation
 - 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
-- 🇷🇺 [Документация на русском](doc/ru/README.md)
+- 🇷🇺 [Dokumentation auf Russisch](doc/ru/README.md)
 - 🇳🇱 [Niederländische Dokumentation](doc/nl/README.md)
 - 🇫🇷 [Documentation française](doc/fr/README.md)
 - 🇮🇹 [Documentazione Italiana](doc/it/README.md)
@@ -624,6 +630,13 @@ Diese Werte dienen als allgemeine Richtlinie für Koi/Teichfische und ersetzen n
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 1.10.2 (2026-08-14)
+* (ssbingo) Documentation: the READMEs (all 11 languages) and the German PDF handbook now carry a prominent notice **right at the top** pointing to the matching **[Feeder-Relais (Timer-Ersatzplatine)](https://github.com/ssbingo/timer-ersatzplatine)** — a standalone ESP32 timer-board project that pairs with this adapter but is fully independent of it. No functional changes
+
+### 1.10.1 (2026-08-14)
+* (ssbingo) Fix: lowered the minimum **admin** requirement to **7.8.23** (the current stable version) so the adapter stays installable from the stable ioBroker repository — this clears repochecker **E4033** (`admin >=8.0.0` is not in the stable repository yet). The admin UI still runs on **React 19**
+* (ssbingo) Merged upstream adapter-template updates: Dependabot configuration / auto-merge workflow refresh and the `node:` import prefix in the handbook generator (S5043)
 
 ### 1.10.0 (2026-08-05)
 * (ssbingo) **Admin UI now runs on React 19** — the configuration page uses the same React version that ioBroker **admin 8** ships; `@iobroker/adapter-react-v5` updated to 8.3.2
@@ -654,13 +667,6 @@ Diese Werte dienen als allgemeine Richtlinie für Koi/Teichfische und ersetzen n
 
 ### 1.9.3 (2026-07-15)
 * (ssbingo) Fix: the **Sayit volume** is now written to the instance's own `tts.volume` state (only if it exists) instead of a `tts.text` prefix — the volume actually takes effect now, and the announcement **test no longer hangs** when a volume is set. An empty volume keeps the Sayit instance's own volume
-
-### 1.9.2 (2026-07-15)
-* (ssbingo) New **Test announcement** button next to the Sayit instance selection — speaks a short test text through the selected instance so you can check the audio output without waiting for a feeding
-* (ssbingo) The feeding announcement now uses the **correct singular/plural** form of "minutes" for each language (e.g. "1 minute" vs "5 minutes"; Russian/Polish/Ukrainian 1 / 2–4 / 5+ forms), via the language's CLDR plural rules
-
-### 1.9.1 (2026-07-15)
-* (ssbingo) The feeding announcement now uses the final text **"The next feeding starts in X minutes"** (localized in the switch's selected message language; `X` = the configured lead time)
 
 ---
 

@@ -51,6 +51,10 @@ sudo /opt/iobroker/node_modules/iobroker.wireless-settings/wlan_rights.sh
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 1.2.2 (2026-04-19)
 
 - Detect docker
@@ -86,6 +90,8 @@ sudo /opt/iobroker/node_modules/iobroker.wireless-settings/wlan_rights.sh
 ### 0.0.1 (2021-01-18)
 
 - (ioBroker) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

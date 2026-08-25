@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.go-e-charger/README.md
 title: ioBroker.go-eCharger
-hash: ye01FjJSX+juUaBBqJEERHk6cX7y96JK60ntBUWzK14=
+hash: 9PuITMsoXTFS4BOV2w2tpaoS6tl9WVTtDZoW+DmH5Yk=
 ---
 ![标识](../../../en/adapterref/iobroker.go-e-charger/admin/go-eCharger.png)
 
@@ -37,7 +37,7 @@ hash: ye01FjJSX+juUaBBqJEERHk6cX7y96JK60ntBUWzK14=
 - 支持在单个适配器实例中使用多个 go-e 充电器
 - 监测车辆状态、充电功率、充电电流、电网相位和能量统计数据
 - **ChargeNOW** – 立即以可配置的电流开始充电
-- **充电管理器** – 自动光伏剩余电量充电：充电电流会根据可用的太阳能功率持续调整，同时考虑家庭用电量和家用电池的电量。电动汽车的充电可以延迟，直到家用电池达到可设置的最低电量。
+- **充电管理器** – 自动光伏发电盈余充电：充电电流会根据可用的太阳能功率持续调整，同时考虑家庭用电量和家用电池的电量。电动汽车的充电可以延迟，直到家用电池达到可设置的最低电量。
 
 > **注意：** 光伏剩余充电功能目前仅设计用于控制**单个**充电器。当多个充电器同时启用 ChargeManager 时，它们之间的充电电流无法协调，导致太阳能剩余电量的计算结果不准确。我们将很快推出支持多充电器负载协调管理的扩展功能。
 
@@ -74,14 +74,14 @@ ChargeManager 根据能源管理系统、逆变器、电表或用户创建的数
 | 家庭用电量 | 家庭总用电量 | 瓦 | 正耗电量 |
 | 家用电池电量状态 | 当前电池电量 | % | 0 至 100 |
 
-这三种状态都必须包含数值。功率值（单位为千瓦 (kW)）必须先转换为瓦 (W) 才能被选中。电网导入/导出状态不能直接使用，因为 ChargeManager 目前需要单独的发电量和用电量值。
+所有配置的状态必须包含数值。功率值（单位为千瓦 (kW)）必须先转换为瓦 (W) 才能被选中。电网导入/导出状态不能直接使用，因为 ChargeManager 目前需要单独的发电量和用电量值。
 
 如果没有安装家用电池，请创建一个数值辅助状态并将其设置为电池充电状态。将此辅助状态设置为与 `Settings.Setpoint_HomeBatSoC` 相同的常量值（例如，两者都设置为 `70`）。这样可以保持电池偏移量为零，从而使 ChargeManager 完全使用可用的光伏剩余电量进行充电。
 
 #### 壁挂式充电桩在家庭消费价值中的消耗量
 启用“充电器耗电量计入家庭耗电量”功能后，当选定的家庭耗电量状态在充电开始后上升的功率大致等于充电功率时，ChargeManager 会将测得的充电桩功率加回家庭耗电量，然后再计算可用剩余电量。这样可以防止控制器将自身的充电负载误判为额外的家庭用电需求。
 
-如果所选状态已排除墙装式电源消耗，则保持此选项禁用状态。
+如果所选状态已排除墙盒消耗，则保持此选项禁用状态。
 
 ＃＃＃＃ 计算
 ChargeManager 每个轮询周期使用以下计算：
@@ -91,18 +91,25 @@ available power =
     solar power
   - home power consumption
   + wallbox power, if it is included in home power consumption
-  - 100 W reserve
+  - grid reserve
   + battery SoC offset
 
 target current = floor(available power / 230 V / active phases)
 ```
 
-当电池电量正好处于设定的最小充电状态时，电池偏移量为零；随着电池电量接近 100%，偏移量会增加到 2,000 瓦。在 `Settings.Setpoint_HomeBatSoC` 以下，电动汽车充电功能被禁用，以便优先使用家用电池。
+标准配置页面上的四个设置可以调整此计算：
 
-计算出的电流最大限制为 16 A。内部电流目标值在每个轮询周期内最多变化 1 A，以减少突变。
+- **电网备用功率** [W]（默认值 100）– 保留在电网连接上的功率，而不是分配给车辆。增加此值可保留更多安全余量；将其设置为“0”可将全部剩余功率分配给车辆。
+- **最大电池额外电量** [W]（默认值 2000）– 当家用电池电量高于最低充电状态时，除了纯太阳能盈余电量外，还可以额外提取多少电量。当电池电量恰好处于最低状态时，额外电量为“0”，随着电池电量接近 100%，额外电量线性增长至最大值，因此电池电量越高，汽车充电速度越快。将其设置为“0”可完全利用测得的太阳能盈余进行充电，而不会将家用电池的电量释放到汽车中。
+- **最小充电电流** [A]（默认值 6）– 低于此值的剩余充电电流，充电器将在短暂延迟后关闭。此设置仅适用于光伏剩余充电。
+- **最大充电电流** [A]（默认值 16，最高可达 32）– 适配器所能分配的最大电流。它限制了 ChargeManager（光伏剩余电量）和 ChargeNOW 的充电电流。
+
+> **⚠️ 请勿将最大充电电流设置得高于您的 go-e 充电器硬件和电气安装的额定值。** go-e 充电器型号的额定最大电流各不相同（例如 16 A 或 32 A），实际限制还取决于您的电缆、插头和线路。设置的值高于硬件/安装的额定值可能会导致保护装置跳闸或损坏设备。如有疑问，请保持默认值 16 A。
+
+在 `Settings.Setpoint_HomeBatSoC` 以下，电动汽车充电功能被禁用，家用电池优先充电。当内部目标电流达到 10 A（或设置更高的最小电流）时，充电才会开始。计算出的电流限制在配置的最大值范围内，并且内部电流目标值在每个轮询周期内最多变化 1 A，以减少电流的突变。
 
 #### 启用 ChargeManager
-适配器启动后，请使用以下可写状态。必要时，请替换实例 `0` 和墙盒编号 `0`。
+适配器启动后，使用以下可写状态。必要时替换实例 `0` 和墙盒编号 `0`。
 
 | 状态 | 目的 |
 | ------------------------------------------------- | --------------------------------------------------------------- |
@@ -112,7 +119,7 @@ target current = floor(available power / 230 V / active phases)
 | `go-e-charger.0.Wallbox_0.Settings.Charge3Phase` | 在支持的硬件上选择单相或三相充电 |
 | `go-e-charger.0.Wallbox_0.Settings.Charge3Phase` | 在支持的硬件上选择单相或三相充电 |
 
-对于剩余电量充电，请将 `ChargeNOW` 设置为 `false`，将 `ChargeManager` 设置为 `true`。当两者都启用时，ChargeNOW 将优先使用配置的 `ChargeCurrent`，而不考虑可用剩余电量。
+对于剩余电量充电，请将`ChargeNOW`设置为`false`，将`ChargeManager`设置为`true`。当两者都启用时，ChargeNOW优先，并使用配置的`ChargeCurrent`，而不考虑可用剩余电量。
 
 单相和三相充电
 ChargeManager 不会根据可用剩余电量自动在单相和三相之间切换。在第三代及更新的硬件上，`Charge3Phase` 用于选择相模式：
@@ -143,7 +150,7 @@ ChargeManager 不会根据可用剩余电量自动在单相和三相之间切换
 6. `Wallbox_0.info.connection` 为 `true`。
 7. `Wallbox_0.Power.Charge`、`Wallbox_0.Power.GridPhases` 以及在支持的硬件上，`Wallbox_0.Power.EnabledPhases` 包含合理的值。
 
-充电可能需要几个轮询周期才能开始，因为内部目标电流每个周期仅增加 1 安培。默认的 10 秒周期和初始目标电流为 0 安培时，达到 10 安培的起始电流大约需要 100 秒。
+充电可能需要几个轮询周期才能开始，因为内部目标电流每个周期仅增加 1 安培。默认的 10 秒轮询周期和 0 安培的初始目标电流，大约需要 100 秒才能达到默认的 10 安培起始电流。
 
 ChargeManager 目前仅设计用于控制单个充电器。如果同时将其用于多个充电器，则每个充电器都会独立使用相同的剩余电量，从而可能导致电量分配错误。
 
@@ -159,6 +166,35 @@ ChargeManager 目前仅设计用于控制单个充电器。如果同时将其用
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (hombach) ChargeManager: grid reserve power and maximum battery bonus are now configurable (defaults 100 W / 2000 W) (#852)
+- (hombach) ChargeManager: minimum and maximum surplus charging current are now configurable, with the maximum raised to up to 32 A (#852)
+- (hombach) the configurable maximum charging current now caps ChargeNOW as well
+- (hombach) admin: moved the ChargeManager settings into their own configuration tab, separate from the standard settings
+- (hombach) updated dependencies
+
+### 1.4.1 (2026-08-23)
+
+- (typhosj) refactored the ChargeManager control decision into a deterministic, unit-tested function (#846); behavior unchanged
+- (hombach) fixed vulnerabilities
+- (hombach) updated dependencies
+
+### 1.4.0 (2026-08-10)
+
+- (hombach) added info.unlockedByRFIDName with the name of the current session's RFID card, in parallel to unlockedByRFIDNo (#634)
+- (hombach) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
+- (hombach) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
+- (hombach) updated dependencies
+
+### 1.3.1 (2026-08-06)
+
+- (hombach) fixed "unlocked by RFID" always 0 on gen 3+ chargers: API V2 uses the "trx" key instead of "uby" (#634)
+- (hombach) live data is now refreshed every cycle in all modes, so read-only monitoring stays up to date
+- (hombach) API V2 not being reachable is now a single warning instead of an error (normal on hardware gen 1/2)
+- (typhosj) use generic go-e brand logo as adapter icon (#843)
+
 ### 1.3.0 (2026-08-04)
 
 - (hombach) added info.accessControlState (go-e access_state: 0 = open, 1 = RFID/App required, 2 = price/automatic) (#634)
@@ -172,29 +208,6 @@ ChargeManager 目前仅设计用于控制单个充电器。如果同时将其用
 - (typhosj) added ChargeManager PV surplus configuration guide (#842)
 - (hombach) corrected no-battery helper-state recommendation for ChargeManager
 - (hombach) updated dependencies
-
-### 1.2.0 (2026-07-12)
-
-- (hombach) added statisticsGlobal.chargePower state with the current total charging power of all chargers
-- (hombach) removed chai-based unit test dependencies; modernized test harness to Node.js assert (fixes Appveyor, #836)
-
-### 1.1.0 (2026-07-05)
-
-- (hombach) fixed reading of "unlocked by RFID" (uby) on gen 3+ chargers via API V2
-- (hombach) read-only mode now suppresses all control commands (charge release, charging current, phase switching)
-- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
-
-### 1.0.4 (2026-07-04)
-
-- (hombach) harmonized i18n files
-- (hombach) improved README and English texts
-- (hombach) reworked translations in all languages
-- (hombach) added 5s timeout to all HTTP requests to chargers
-- (hombach) fixed adapter stop when no charger is reachable at startup; warn per unreachable charger
-- (hombach) fixed German fallback text for RFID card channel names
-- (hombach) added upper bound validation for cycle time
-- (hombach) added link to manufacturer's website
-- (hombach) code optimizations
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

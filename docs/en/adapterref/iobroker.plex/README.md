@@ -131,6 +131,10 @@ This adapter would not have been possible without the great work of @Zefau (http
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.0.0 (2026-08-16)
+- (bluefox) Breaking: Admin 8 or newer is now required — the configuration UI no longer runs under Admin 7.
+- (bluefox) Dependencies have been updated.
+
 ### 2.1.1 (2026-06-21)
 - (mcm1957) some issues reported by repository checker have been fixed
 - (mcm1957) dependencies have been updated
@@ -159,9 +163,6 @@ This adapter would not have been possible without the great work of @Zefau (http
 - (ticaki) State _playing.*.Metadata.viewOffset is created.
 - (ticaki) Dependencies updated
 - (mcm1957) Adapter requires nodejs >= 18 now
-
-### 1.1.4 (2023-11-06)
-- (ticaki) move logmessage into debug
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

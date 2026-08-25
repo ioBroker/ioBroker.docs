@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mcdu/README.md
 title: ioBroker.mcdu
-hash: skBMZ7Xjrw0He+SOKteKaIqxPU+i19hQ4jS2ccLMZ+U=
+hash: 39FC3nD5tZBd84cNEwMZPwHgjRITO7fdbmRqLVQXIfY=
 ---
 ![标识](../../../en/adapterref/iobroker.mcdu/admin/mcdu.png)
 
@@ -29,6 +29,21 @@ hash: skBMZ7Xjrw0He+SOKteKaIqxPU+i19hQ4jS2ccLMZ+U=
 
 这是适配器和客户端的第一个版本。我还需要进行全面的测试并做一些改进。欢迎大家贡献代码。
 
+项目状态：欢迎贡献者
+截至 2026 年 8 月，原作者已将其智能家居系统迁移至 Home Assistant，并在 Home Assistant 上维护着一个同级集成：**[家助手-mcdu](https://github.com/Flixhummel/homeassistant-mcdu)**。
+
+此 ioBroker 适配器**并未停止维护**——它仍然可用且功能正常——但积极的开发工作已转移。我们非常欢迎贡献者和共同维护者。
+
+这两个项目共享同一个 Raspberry Pi 客户端和同一个 MQTT 协议，该协议现已冻结，并以版本化契约的形式记录在 **[docs/PROTOCOL.md](docs/PROTOCOL.md)** 中。
+
+请根据该规范进行实现，以确保客户端在两个平台上都能正常工作。
+
+拆分的原因已在 [docs/HOME-ASSISTANT-CONCEPT.md](docs/HOME-ASSISTANT-CONCEPT.md) 中详细说明。
+
+> **注意：**同一时间只能有一个“大脑”驱动一个 MCDU。显示主题会被保留——如果此适配器和 Home Assistant 集成同时向同一设备发布内容，则显示屏会闪烁。
+
+**已知未解决的错误：** `lib/mqtt/ButtonSubscriber.js` 处理 `PREV_PAGE` / `NEXT_PAGE`，但客户端始终只发送 `SLEW_LEFT` / `SLEW_RIGHT` / `SLEW_UP` / `SLEW_DOWN`（参见 `mcdu-client/lib/button-map.json`）。因此，此适配器中的 SLEW 导航似乎已失效。这是一个很好的初步贡献。
+
 ＃＃＃ 建筑学
 ```
 ioBroker Adapter (main.js)  <-->  MQTT Broker  <-->  RasPi Client (mcdu-client/)  <-->  USB HID Hardware
@@ -42,9 +57,9 @@ ioBroker适配器运行所有业务逻辑（页面渲染、输入处理、验证
 - **11 个 LED 灯**（9 个指示灯 + 2 个背光灯，带 BRT/DIM 亮度控制）
 - **逐行颜色控制**：独立的 colLabel 和 colData 颜色，以及每页的状态栏颜色
 - **航空风格输入**：第 14 行草稿纸，基于 LSK 的字段选择，OVFY 确认
-- **页面系统**：可配置页面，带有子标签、自动分页、布局类型（菜单/数据/列表）
+- **页面系统**：可配置页面，带子标签，自动分页，布局类型（菜单/数据/列表）
 - **功能键**：11 个可配置按键（菜单、初始化、方向、功能列表、性能等），每个设备均可单独映射。
-- **导航**：父级层级结构、面包屑导航状态栏、圆形 SLEW、CLR 到父级
+- **导航**：父级层级结构、面包屑导航状态栏、圆形滚动、CLR 到父级
 - **验证引擎**：按键验证、格式验证、范围验证和业务逻辑验证级别
 - **确认对话框**：软确认对话框（LSK 或 OVFY）和硬确认对话框（仅限 OVFY），用于关键操作
 - **多设备支持**：通过每个设备的MQTT主题命名空间支持多个MCDU

@@ -27,6 +27,11 @@ BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-insta
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (arteck) Dependencies have been updated
+- (arteck) fix message ([main] Pending rescan detected – Schleife wird wiederholt)
+
 ### 2.15.17 (2026-06-19)
 - (mcm1957) Release of 2.15.16 has failed and has been restarted
 - (arteck) i/o minimized

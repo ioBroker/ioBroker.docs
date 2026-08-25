@@ -536,14 +536,22 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
-
-<!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
--->
-### **WORK IN PROGRESS**
+### 1.4.5 (2026-08-17)
 
 (git-kick)
+* Fixed issues reported by the ioBroker Check and Service Bot:
+  * 👀 [W0066] "@types/node":"^25.9.5" at package.json allows major version greater than 22. Downgrade to node.js 22.x.x to avoid wrong typing is recommended.
+  * 👀 [W1116] Sentry plugin is configured in io-package.json but "@sentry/" packages (@sentry/node, @sentry/tracing) are listed as dependencies in package.json. When using the sentry plugin, explicit @sentry/ dependencies should not be added.
+  * 👀 [W5060] Package "@sentry/node" is listed in dependencies of package.json but not imported or required by any scanned source file. Dependency might be unused.
+  * 👀 [W5060] Package "@sentry/tracing" is listed in dependencies of package.json but not imported or required by any scanned source file. Dependency might be unused.
+  * 👀 [W5060] Package "audit" is listed in dependencies of package.json but not imported or required by any scanned source file. Dependency might be unused.
+  * 👀 [W5060] Package "html-to-text" is listed in dependencies of package.json but not imported or required by any scanned source file. Dependency might be unused.
+  * 👀 [W5060] Package "net" is listed in dependencies of package.json but not imported or required by any scanned source file. Dependency might be unused.
+  * 👀 [W5060] Package "source-map-resolve" is listed in dependencies of package.json but not imported or required by any scanned source file. Dependency might be unused.
+  * 👀 [W9008] file lib/RscpTagsRefreshPeriod.ps1 is tracked but covered by .gitignore. Remove from git if generated, or remove the ignore rule if intentionally tracked.
+  *  📌 [S5004] Plain setInterval() found in source files (main.js). Please use this.setInterval() or adapter.setInterval() instead.
+  * 📌 [S5005] Plain setTimeout() found in source files (main.js). Please use this.setTimeout() or adapter.setTimeout() instead.
+  * 📌 [S5601] i18n directory "admin/i18n" uses long format ({lang}/translations.json). Consider migrating to short format ({lang}.json) using "npm run translate convert".
 * "@iobroker/testing": "^5.2.2" - [Issue #301](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/301)
 * Added JSDoc - [Issue #300](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/300)
 * Updated dependencies in package.json - [Issue #305](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/305)
@@ -559,22 +567,16 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
   * Bump html-to-text from 9.0.5 to 10.0.0 - [PR #327](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/327)
   * Bump @types/node from 25.5.0 to 25.6.0 - [PR #328](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/328)
   * Bump @sentry/node from 10.43.0 to 10.51.0 - [PR #329](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/329)
+  * ... and some more created in 1H2026
 * Fixed errors reported by the ioBroker Check and Service Bot - [Issue #317](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/317)
   * \[E0036\] now "@iobroker/adapter-dev": "^1.5.0" at package.json
   * \[E0036\] now "@iobroker/testing": "^5.2.2" at package.json
-
-### 1.4.5-alpha.1 (2026-01-26)
-
-(git-kick)
 * Added EMS.DPP_PRICE_LIMIT_WALLBOX - [Issue #284](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/284)
 * Fixed EMS.DPP_SOC_BATTERY setter - [Issue #295](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/295)
 * Settings: 
   * name space WB defaults to false (not everybody has an attached wallbox)
   * name space DCDC defaults to true (everybody has a DCDC converter)
-
-### 1.4.5-alpha.0 (2026-01-09)
-
-- Include [AlCalzone/release-script](https://github.com/AlCalzone/release-script)
+* Include [AlCalzone/release-script](https://github.com/AlCalzone/release-script)
 
 ### 1.4.4
 
@@ -611,6 +613,20 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
   * \[W444\] added schema for JSON5 config files in settings.json
   * \[S532\] removed unused lib/tools.js
   * \[S906\] added ".commitinfo§ to .gitignore
+
+### 1.4.2
+
+(git-kick)
+* introduced config value maxindex_wb - before, maxIndex["WB"] remained undefined in some cases - [Issue #262](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/262)
+* restored EP_RESERVE is writable - [Issue #263](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/263)
+* fixed errors reported by the ioBroker Check and Service Bot:
+  * \[E160\]\[E190\] "peerDependencies.iobroker.admin"  in package.json
+  * \[605\] updated (c) 2025.
+  * \[254\] removed v1.3.2 which was never released.
+* removed duplicate queueWbRequestData() definition from main.js - the relevant one is in wallbox.js
+* removed obsolete initialisation of maxIndex for BAT and PVI from constructor(). Both values are now initialized from config during initChannel().
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License  
 Copyright (c) 2026 Ulrich Kick <iobroker@kick-web.de>  

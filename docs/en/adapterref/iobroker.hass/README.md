@@ -136,6 +136,9 @@ An empty pattern list leaves the adapter behaviour identical to previous version
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.1.0 (2026-05-16)
 * (mokusone) Added optional entity exclude filter with glob patterns, configurable via the admin UI, plus a verbose-logging toggle for inspecting matches
 * (@klein0r) Use `/core/` instead of `/api/` when connecting to supervisor directly (e.g., in ha app)

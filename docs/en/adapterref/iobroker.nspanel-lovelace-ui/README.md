@@ -157,9 +157,12 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (ticaki) cardPower admin: drag & drop between slots now works (missing dataTransfer.setData prevented Firefox/Safari from starting the drag)
-- (copilot) Adapter requires node.js >= 22 now
+### 1.0.0 (2026-08-18)
+- (copilot) **BREAKING:** Adapter requires node.js >= 22 now
+- (GermanBluefox) **BREAKING:** Admin UI migrated to React 19 / MUI 9 / `@iobroker/gui-components` – requires admin 8.0.0 or newer
+- (ticaki) cardPower configuration migrated to the new react based page config tab
+- (ticaki) admin: previous/next buttons in the navigation assignment panel were swapped
+- (ticaki) berry driver generation 11 added (beta), the automatic berry driver update was removed
 
 ### 0.17.8 (2026-04-25)
 - (ticaki) fixed: Cannot read properties of undefined (reading 'trim')

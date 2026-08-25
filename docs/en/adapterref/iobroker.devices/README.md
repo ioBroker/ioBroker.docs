@@ -131,6 +131,16 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.1.1 (2026-08-17)
+* (@GermanBluefox) Fixed states being written without `common.read` and `common.write`, which every state object must carry: the "add state" dialog left both out for the deprecated `file` type, and dropped them from any state it edited that did not have them yet (#535, #533, #463)
+* (@GermanBluefox) States written by earlier versions have the two attributes added once when the device list is loaded. What is missing is taken from the device type and from the aliased source, so a state the device really can write does not turn read-only
+
+### 4.1.0 (2026-08-16)
+* (@Apollon77) Added support of new device types
+* (@GermanBluefox) Datapoints added to an alias device by hand now reach the widget GUI, so a tank can show the litres it has left next to its fill level
+* (@GermanBluefox) The tank tile shows that second reading where it used to print its fill level a second time
+* (@GermanBluefox) Fixed the settings button of a 2x0.5 tank tile sitting in the middle of the tile instead of in its top-right corner
+
 ### 4.0.2 (2026-08-10)
 * (@SimonFischer04) Added WindowTilt support in the widgets GUI (#609)
 * (@GermanBluefox) Added min/max values (last 24 hours or today) for widgets with history (#610)
@@ -165,17 +175,6 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 
 ### 3.0.2 (2026-06-30)
 * (@GermanBluefox) Added support for widget icons
-
-### 3.0.1 (2026-06-29)
-- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
-- (krobipd) Reduced Safari rendering lag of the device list
-- (patricknitsch) Added consumption values to the categories
-- (patricknitsch) Fixed the data loss by the folder renaming
-
-### 3.0.0 (2026-06-26)
-* (@GermanBluefox) Corrected universal widget
-* (@GermanBluefox) Added open-meteo-weather adapter support
-* (@GermanBluefox) Read all states anew after the reconnection
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

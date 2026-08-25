@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.philips-air/README.md
 title: ioBroker.philips-air
-hash: czNXaH7IM55KRCCAIKNzjIkKYChgIu2vKeJGUh2E1Rw=
+hash: +tbCESlGG5fdNULnJ0UmXUthVpC4zt2f2QJ+qUltyKA=
 ---
 ![Logo](../../../en/adapterref/iobroker.philips-air/admin/philips-air.png)
 
@@ -19,15 +19,31 @@ hash: czNXaH7IM55KRCCAIKNzjIkKYChgIu2vKeJGUh2E1Rw=
 ## Philips Luftreiniger-Adapter für ioBroker
 Verbindet Philips Luftreiniger und ausgewählte Philips/Versuni Ventilatoren mit ioBroker.
 
-**Getestet mit AC2729 und Philips/Versuni CX3550/01**, sollte aber auch mit neueren Luftreinigern funktionieren, die über lokales CoAP mit Verschlüsselung kommunizieren.
+**Getestet mit AC2729 und den Philips/Versuni Ventilatoren CX3550/01 und CX7550/01**, sollte aber auch mit neueren Luftreinigern funktionieren, die über lokales CoAP mit Verschlüsselung kommunizieren.
 
 ![AC2729](../../../en/adapterref/iobroker.philips-air/img/device.png)
 
 [Link zur Philips-Website](https://www.philips.de/c-m-ho/luftreiniger-und-luftbefeuchter/kombi)
 
 ## Verwendung
-Es wird lediglich die IP-Adresse des Geräts benötigt. Sie finden diese in Ihrem Router (z. B. `MiCO`).
-Es kann vorkommen, dass einige Geräte nicht über alle Variablen verfügen und daher im Objektbaum leer bleiben.
+Geben Sie die IP-Adresse oder den Hostnamen Ihres Geräts ein. Sie finden diese Informationen in Ihrem Router, wo das Gerät häufig als `MiCO` angezeigt wird.
+Die meisten Geräte sind über CoAP erreichbar, was die Standardeinstellung ist. Einige ältere Geräte, wie z. B. der AC2729 und der AC3829, antworten ausschließlich über HTTP. Sollte keine Verbindung hergestellt werden, ändern Sie das Protokoll in den Instanzeinstellungen.
+
+Wählen Sie anschließend Ihr Gerätemodell aus, damit der Adapter die passenden Steuerelemente für Ihr Gerät erstellt. Falls Ihr Modell nicht in der Liste enthalten ist, wählen Sie `Generic`: Sie erhalten weiterhin alle schreibgeschützten Werte, jedoch keine modellspezifischen Steuerelemente.
+Es kann vorkommen, dass ein Gerät nicht alle Variablen meldet; diese bleiben im Objektbaum leer. Rohwerte, die der Adapter nicht erkennt, werden unter `unknownStates` erfasst.
+
+### Welches Gerätemodell soll ich auswählen?
+| Ihr Gerät | Modell auswählen |
+| --- | --- |
+| AC2889 und die anderen klassischen Luftreiniger, zum Beispiel AC1214, AC2729, AC2939, AC3059 oder AC3829 | `AC2889` |
+| Standventilator CX3550/01 | `CX3550` |
+| Turmventilator CX7550/01 | `CX7550` |
+| Alles andere, oder wenn Sie sich unsicher sind | `Generic` |
+| Sonstiges oder falls Sie sich unsicher sind | `Generisch` |
+
+Die klassischen Filter melden alle dieselben Klartextschlüssel (`pwr`, `om`, `mode` usw.), weshalb ein Eintrag die gesamte Familie abdeckt. Bisher auf folgenden Geräten bestätigt: AC2729, AC2889, AC3221, AC3829, CX3550/01 und CX7550/01.
+
+Wenn Sie sich nicht sicher sind, verbinden Sie sich zuerst mit `Generic` und prüfen Sie die Rohschlüssel unter `unknownStates`: Einfache Namen wie `pwr` oder `pm25` bedeuten ein klassisches Gerät, Schlüssel wie `D03102` bedeuten ein Gerät der nächsten Generation. Falls sich Ihr Gerät als Modell der nächsten Generation herausstellt, das nicht in der Liste enthalten ist, erstellen Sie bitte ein Ticket mit einem Debug-Log – so wurden beispielsweise der CX7550/01 und der AC3221 hinzugefügt.
 
 ![Objekte](../../../en/adapterref/iobroker.philips-air/img/objects.png)
 
@@ -49,11 +65,40 @@ Die Timersteuerung wird für den CX3550/01 absichtlich nicht unterstützt. Lokal
 
 Weitere Einzelheiten sind in [docs/CX3550.md](docs/CX3550.md) dokumentiert.
 
+## Philips/Versuni CX7550/01 Turmventilator
+Der CX7550/01 ("Smart Tower Fan 7000 series") verwendet die gleiche lokale verschlüsselte CoAP-Verbindung, jedoch andere Rohwerte als der CX3550/01 - wählen Sie `CX7550` als Gerätemodell aus.
+
+Getestete Funktionen des CX7550/01:
+
+- Ein-/Ausschalten
+- Lüfterstufen 1 bis 12 und AutoAdapt
+- Schlafmodus
+- Natürliche Brise
+- Oszillation ein/aus
+- Timer (aus, 1 bis 12 Stunden) - auf diesem Modell beschreibbar
+- Piepton ein/aus
+- Bildschirmhelligkeit, Farbtemperaturanzeige und was das Display permanent anzeigt
+- Raumtemperatur
+
+Weitere Einzelheiten sind in [docs/CX7550.md](docs/CX7550.md) dokumentiert.
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2026-08-23)
+
+- (tt-tom17) New "Device model" setting: pick your model so the adapter shows the correct controls for your device
+- (tt-tom17) Added support for the AC3221 next-generation purifier (MatthiasBosch)
+- (tt-tom17) Added support for the CX7550/01 tower fan (DrBakterius)
+- (tt-tom17) The adapter now warns in the log when the selected model does not seem to match the connected device
+- (tt-tom17) Values the adapter does not recognise are collected under "unknownStates"
+- (tt-tom17) IMPORTANT: all state IDs starting with "cx" were renamed to generic names (for example "fanMode" instead of "cxFanMode"). Please select your device model once in the settings; the old "cx*" objects can be deleted manually
+- (tt-tom17) Fixed switches that did nothing when a script or visualisation wrote them as the text "true"/"false" instead of a real on/off value
+- (tt-tom17) Fixed devices connected via HTTP logging "Cannot parse: undefined" every time a command was sent; the device answer is now read correctly
+- (tt-tom17) Fixed devices using the HTTP protocol (for example the AC3829 and AC2729) that stopped connecting in version 1.4.0 and only logged "fetch failed (UND_ERR_SOCKET)"; requests are sent the way these devices expect again
+
 ### 1.6.1 (2026-07-03)
 - (Holly86) Added support for Philips/Versuni CX3550/01 pedestal fan.
 - (Holly86) Added CX fan modes, oscillation, beep and read-only timer state.
@@ -75,14 +120,6 @@ Weitere Einzelheiten sind in [docs/CX3550.md](docs/CX3550.md) dokumentiert.
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 * (mcm1957) Dependencies have been updated
-
-### 1.2.0 (2025-02-10)
-* (mcm1957) Adapter requires node.js >= 20, js-controller >= 6 and admin >= 6 now.
-* (mcm1957) Adapter migrated to eslint 9 / @iobroker/eslint-config
-* (mcm1957) Materialize UI support has been removed
-* (mcm1957) jsonConfig responsive design size attributes have been added
-* (mcm1957) Dependencies have been updated
-
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
