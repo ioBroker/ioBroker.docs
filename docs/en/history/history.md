@@ -1493,6 +1493,19 @@ https://github.com/backfisch88/ioBroker.jetframe
 
 JetFrame is an ioBroker adapter for live flight tracking and visualization based on ADS-B data. It detects aircraft flying past your window and displays them in a modern web app with photo, flight information and statistics.
 
+## solakon-one (20.8.2026) – new adapter at stable repository
+https://github.com/berto-1974/ioBroker.solakon-one
+
+<img src="https://raw.githubusercontent.com/berto-1974/ioBroker.solakon-one/main/admin/solakon.png" width="100" height="100" />
+
+Monitors and controls the Solakon ONE hybrid solar inverter (www.solakon.de) with battery storage over the local network via Modbus TCP (Port 502).
+
+## harvia-fenix (20.8.2026) – new adapter at stable repository
+https://github.com/meistermopper/ioBroker.harvia-fenix
+
+<img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/harvia.png" width="100" height="100" />
+
+An ioBroker adapter to integrate and control your Harvia Fenix sauna control unit via the MyHarvia cloud infrastructure.
 
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
