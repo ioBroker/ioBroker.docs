@@ -1493,6 +1493,20 @@ https://github.com/backfisch88/ioBroker.jetframe
 
 JetFrame is an ioBroker adapter for live flight tracking and visualization based on ADS-B data. It detects aircraft flying past your window and displays them in a modern web app with photo, flight information and statistics.
 
+## leapmotor (17.8.2026) – new adapter at stable repository
+https://github.com/backfisch88/ioBroker.leapmotor
+
+<img src="https://raw.githubusercontent.com/backfisch88/ioBroker.leapmotor/main/admin/leapmotor.png" width="100" height="100" />
+
+Unofficial Leapmotor electric vehicle integration for ioBroker. Tested on T03.
+
+## bosch-smart-home-camera (17.8.2026) – new adapter at stable repository
+https://github.com/mosandlt/ioBroker.bosch-smart-home-camera
+
+<img src="https://raw.githubusercontent.com/mosandlt/ioBroker.bosch-smart-home-camera/main/admin/bosch-camera.png" width="100" height="100" />
+
+ioBroker adapter for Bosch Smart Home Cameras (Eyes Outdoor, 360 Indoor, Gen2 Eyes Indoor II + Outdoor II). The full core feature set is functional end-to-end and verified live against real hardware.
+
 ## solakon-one (20.8.2026) – new adapter at stable repository
 https://github.com/berto-1974/ioBroker.solakon-one
 
