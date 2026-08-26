@@ -211,11 +211,52 @@ diffen — sie muss identisch sein.
 
 ---
 
-## 9. Nach der Veröffentlichung
+## 9. Ankündigung in Forum, Facebook und Co.
 
-Ankündigung im Forum, Kategorie 8 — Aufbau wie bei den vorherigen Ausgaben: Header-Bild, kurzer
-Aufhänger mit Adapterzahl, Link auf `https://www.iobroker.net/#de/blog/JJJJ_MM_TT`, „Wichtige
-Updates" mit Emoji-Bullets, neue Adapter als Einzeiler, Dank an die Community, Spendenlink.
+Vorlage (Wortlaut der festen Bausteine unverändert übernehmen):
+
+```
+Hallo Liebe ioBroker-Community!
+
+Der neue ioBroker-Monatsrückblick für MONAT und MONAT JAHR ist online!
+
+Auch in den vergangenen beiden Monaten hat sich im ioBroker-Ökosystem wieder viel getan.
+Neben wichtigen Aktualisierungen für zentrale Komponenten stehen diesmal N neue Adapter aus
+den Bereichen A, B und C bereit.
+
+Blog lesen:
+https://www.iobroker.net/#de/blog/JJJJ_MM_TT
+
+Wichtige Updates
+🔐 Name – ein bis zwei ganze Sätze, was die Neuerung dem Nutzer bringt.
+…
+
+Neue Adapter in latest – Tester gesucht!
+⚡ ioBroker.name (Bereich / Unterbereich) – ein Satz, was sich damit machen lässt.
+…
+
+Ein großes Dankeschön geht an alle Entwicklerinnen und Entwickler, Tester und
+Community-Mitglieder, die mit neuen Adaptern, Updates, Fehlerberichten und
+Verbesserungsvorschlägen zur Weiterentwicklung von ioBroker beitragen.
+
+Unterstützung für das Open-Source-Projekt:
+https://www.paypal.com/donate?campaign_id=MJBDJ9TGBQ7GN
+
+#ioBroker #smarthome #homeautomation #opensource #adapter #iot
+```
+
+Stilregeln:
+
+- Jede Zeile beginnt mit einem passenden Emoji.
+- **Nutzen statt Technik.** Im Blog stehen Protokolle und Registergruppen, hier steht, was man
+  davon hat („Verbrauchsdaten lokal erfassen und in Dashboards darstellen").
+- Ganze Sätze, keine Stichpunktfragmente. Keine Versionsnummern in den Adapterzeilen.
+- Kategorie immer als „(Bereich / Unterbereich)" hinter dem Adapternamen.
+- ⚠️ **Adapternamen exakt so schreiben wie im Repository.** In einer früheren Ausgabe standen
+  `ioBroker.parcel`, `ioBroker.alko`, `ioBroker.life360` und `ioBroker.ha-wallpanel` — richtig
+  heißen sie `parcelapp`, `al-ko`, `life360ng` und `hassemu`. Unter dem falschen Namen findet
+  niemand den Adapter im Katalog.
+- Bei sehr vielen Adaptern zusätzlich eine Kurzfassung für Kanäle mit Zeichenlimit anbieten.
 
 ---
 
