@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: NmU0r2sDJmUk2A/Q96w7S3HIJkgbEE1Jx7x36i2ylHQ=
+hash: NXEEIlPo6cH0fn2HCE2go9SbdI2baq1kA5EZpGrZRfU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -44,7 +44,7 @@ hash: NmU0r2sDJmUk2A/Q96w7S3HIJkgbEE1Jx7x36i2ylHQ=
 - **игнорировать значения 0 или null (==0)** - Вы можете указать, следует ли игнорировать значения 0 или null.
 - **игнорировать значения меньше нуля (<0)** - Вы можете указать, следует ли игнорировать значения меньше нуля.
 - **Отключить оптимизированное для построения графиков логирование пропущенных значений** - По умолчанию адаптер пытается записывать значения для оптимизированного построения графиков. Это может означать, что дополнительные значения (например, не прошедшие все проверки выше) автоматически регистрируются. Если это не требуется, вы можете отключить эту функцию.
-- **Идентификатор-псевдоним** - Вы можете задать псевдоним для идентификатора. Это полезно, если вы сменили устройство и хотите вести непрерывную запись данных. В будущем, пожалуйста, рассмотрите возможность перехода на реальные состояния псевдонимов!
+- **Идентификатор-псевдоним** - Вы можете задать псевдоним для идентификатора. Это полезно, если вы сменили устройство и хотите вести непрерывную запись данных. В будущем, пожалуйста, рассмотрите возможность перехода на использование реальных состояний псевдонимов!
 - **Срок хранения** - Сколько значений из прошлого будет сохранено на диске. Данные удаляются по истечении указанного времени, как только для точки данных потребуется сохранить новые данные.
 - **Максимальное количество значений, хранящихся в оперативной памяти** - Определите, сколько значений будет храниться в оперативной памяти перед сохранением на диск. Вы можете контролировать объем операций ввода-вывода.
 - **Включить расширенные отладочные журналы для точки данных** - Если вы хотите видеть более подробные журналы для этой точки данных, вы можете включить эту опцию. Вам все равно необходимо включить уровень логирования "debug", чтобы эти дополнительные значения были видны! Это помогает в отладке проблем или понимании того, почему адаптер регистрирует значение (или нет).
@@ -364,6 +364,62 @@ sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.a
 | MS-SQL | `SELECT * FROM iobroker.dbo.datapoints ...` |
 | MySQL | `SELECT * FROM iobroker.datapoints ...` |
 
+## Браузер данных
+В настройках экземпляра есть вкладка **Обозреватель данных**: слева — все точки данных, имеющие данные в базе данных, справа — сохраненные значения выбранной точки. Значения можно просматривать постранично, редактировать, удалять и вставлять новые. Для работы этой вкладки необходим запущенный экземпляр.
+
+Данный компонент представляет собой компонент JSON-Config `custom`. Его исходный код находится в `src-admin`, а собранный пакет в `admin/custom` уже добавлен в репозиторий:
+
+```bash
+npm run npm:admin      # install the dependencies of the component (only once)
+npm run build:admin    # clean, build and copy into admin/custom
+cd src-admin && npm start   # development server on http://localhost:4173
+```
+
+Список точек данных берется из сообщения **getDatapoints**, которое также можно использовать в скриптах:
+
+```js
+sendTo('sql.0', 'getDatapoints', {}, result => {
+    // [{id: 'system.adapter.admin.0.memRss', index: 1, type: 'Number'}, ...]
+    console.log(JSON.stringify(result.result));
+});
+```
+
+Он возвращает все точки данных из таблицы `datapoints`, включая те, для которых отключено логирование, отсортированные по ID. В отличие от `getDpOverview`, он не определяет первую метку времени для каждой точки данных и отвечает немедленно.
+
+## Чтение исходных значений
+`getHistory` предназначен для построения диаграмм: он агрегирует, интерполирует, округляет и суммирует значения непосредственно до и после запрошенного диапазона. Чтобы просмотреть и пролистать сохраненные строки точно так же, как они находятся в базе данных, используйте **getRawEntries**:
+
+```js
+sendTo(
+    'sql.0',
+    'getRawEntries',
+    {
+        id: 'system.adapter.admin.0.memRss',
+        start: Date.now() - 3600000, // optional, inclusive
+        end: Date.now(),             // optional, inclusive
+        limit: 100,                  // optional, default 100, maximum 2000
+        offset: 0,                   // optional, default 0
+        sort: 'desc',                // optional, 'desc' (newest first, default) or 'asc'
+    },
+    result => {
+        if (result.error) {
+            console.error(result.error);
+        } else {
+            // total = number of all entries matching start/end, so a table can page through them
+            console.log(`${result.result.length} of ${result.total} entries`);
+            // [{ts: 1589458809352, val: 51.5, ack: 1, q: 0, from: 'system.adapter.admin.0'}, ...]
+            console.log(JSON.stringify(result.result));
+        }
+    },
+);
+```
+
+В ответе дополнительно содержатся `id`, `index` (идентификатор в таблице `datapoints`), `type` (`Number`, `String` или `Boolean`), `table` (`ts_number`, `ts_string` или `ts_bool`) и используемые `limit`, `offset` и `sort`.
+
+Значения возвращаются в том виде, в котором они поступают из базы данных, и **не** преобразуются: значения `ack` и логические значения в большинстве баз данных соответствуют `0`/`1`, а `val` строкового значения представляет собой сохраненную строку. `from` соответствует `null`, если источник не был сохранен.
+
+Подобно `update`, `delete` и `storeState`, это работает и для точек данных, для которых также отключено логирование, при условии, что у них все еще есть записи в базе данных. Если точка данных неизвестна, ответ содержит `error`.
+
 ## StoreState
 Если вы хотите записать другие данные в базу данных SQL, вы можете использовать встроенную системную функцию **storeState**. Эта функция также может использоваться для преобразования данных из других адаптеров истории, таких как InfluxDB или SQL.
 
@@ -555,13 +611,18 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 4.1.0 (2026-08-26)
 * (@ipod86) Added a button to the datapoint settings to delete all logged values of this datapoint
 * (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` now report errors back to the caller instead of always answering with success
 * (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` work now also for datapoints whose logging is disabled
 * (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` delete the counter values of a numeric datapoint (table `ts_counter`) too
 * (@GermanBluefox) Fixed `NaN` as a result of the aggregation `percentile` with 100 or `quantile` with 1
 * (@GermanBluefox) Fixed the last value of the `integralTotal` aggregation: it was interpolated onto the start instead of the end of the requested range
+* (@GermanBluefox) Added the message `getRawEntries` to read the stored values of one datapoint page by page (with the total number of entries) for tools that show or edit the raw data
+* (@GermanBluefox) The message `update` works now also for datapoints whose logging is disabled and reports errors back to the caller
+* (@GermanBluefox) `storeState` uses the data type stored in the database for known datapoints instead of deriving it from the value
+* (@GermanBluefox) Added the tab `Data browser` to the instance settings: show, edit, delete and insert the stored values of a datapoint
+* (@GermanBluefox) Added the message `getDatapoints` that returns all datapoints of the database immediately
 
 ### 4.0.4 (2026-08-11)
 * (@GermanBluefox) Fixed that nothing was stored for datapoints with an `aliasId`: the adapter subscribed to the alias name instead of the real state ID, so no state change ever arrived
@@ -576,10 +637,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### 4.0.1 (2026-08-07)
 * (@GermanBluefox) Fixed MySQL error "Can't create more than max_prepared_stmt_count statements": every query allocated a server-side prepared statement
 * (@GermanBluefox) Batches of more than 500 values are no longer sent as one multi-statement query
-
-### 4.0.0 (2026-08-04)
-* (@GermanBluefox) Migrated to TypeScript
-* (@GermanBluefox) Node.js 22 is now needed at a minimum!
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

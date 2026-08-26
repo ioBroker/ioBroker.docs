@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.assistant/README.md
 title: ioBroker.assistant
-hash: +M9xvebDrMe2+Ds0BqWbBqY1vbMJvQIbDm0E9QFgDDc=
+hash: uUunrOqtOwrG1ZS+AgF5S3TlKMQCBAwb1RrBw8qcTyk=
 ---
 <img src="admin/assistant.svg" alt="ioBroker.assistant" width="200"/>
 
@@ -59,10 +59,10 @@ Voice server listening on UDP 7775
 Hannah 卫星通过 MQTT 发现功能定位服务器，因此需要一个可访问的代理服务器和一个保留的发现消息。请将 `--host` 显式指向 ioBroker 主机：
 
 ```bash
-# 1. publish the adapter address once (retained) so the satellite finds it:
+ # 1. publish the adapter address once (retained) so the satellite finds it:
 mosquitto_pub -h <broker-ip> -t hannah/server -r -m '{"host":"<iobroker-ip>","port":7775}'
 
-# 2. start the satellite (venv), --broker = MQTT broker, --host = this adapter:
+ # 2. start the satellite (venv), --broker = MQTT broker, --host = this adapter:
 /opt/Hannah/satellite-pi/venv/bin/python3 /opt/Hannah/satellite-pi/satellite.py \
   --device wohnzimmer --room Wohnzimmer \
   --broker <broker-ip> --host <iobroker-ip> --port 7775 \
@@ -122,6 +122,13 @@ npx @iobroker/assistant-satellite config.json
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.6 (2026-08-26)
+* (@GermanBluefox) The offline rule engine now understands combined commands: "switch the light on and set the blind to 30 %", and one verb for several devices ("switch the light and the lamp on")
+* (@GermanBluefox) Fixed: "50 percent" was not recognised as a level in English
+* (@GermanBluefox) The selected weather adapter is now fed to the LLM as context (current conditions plus today/tomorrow), so weather questions are answered without an extra tool round-trip
+* (@GermanBluefox) The local LLM receives the weather context too, so it no longer invents a forecast
+* (@GermanBluefox) Documented the weather source selection in the user documentation
+
 ### 0.1.5 (2026-08-19)
 * (@GermanBluefox) Corrected credentials
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.assistant/README.md
 title: ioBroker.assistant
-hash: +M9xvebDrMe2+Ds0BqWbBqY1vbMJvQIbDm0E9QFgDDc=
+hash: uUunrOqtOwrG1ZS+AgF5S3TlKMQCBAwb1RrBw8qcTyk=
 ---
 <img src="admin/assistant.svg" alt="ioBroker.assistant" width="200"/>
 
@@ -58,10 +58,10 @@ Voice server listening on UDP 7775
 Стандартный спутник Hannah определяет местоположение сервера через **MQTT-обнаружение**, поэтому ему необходим доступный брокер и одно сохраненное сообщение обнаружения. Укажите `--host` на хост ioBroker явным образом:
 
 ```bash
-# 1. publish the adapter address once (retained) so the satellite finds it:
+ # 1. publish the adapter address once (retained) so the satellite finds it:
 mosquitto_pub -h <broker-ip> -t hannah/server -r -m '{"host":"<iobroker-ip>","port":7775}'
 
-# 2. start the satellite (venv), --broker = MQTT broker, --host = this adapter:
+ # 2. start the satellite (venv), --broker = MQTT broker, --host = this adapter:
 /opt/Hannah/satellite-pi/venv/bin/python3 /opt/Hannah/satellite-pi/satellite.py \
   --device wohnzimmer --room Wohnzimmer \
   --broker <broker-ip> --host <iobroker-ip> --port 7775 \
@@ -90,7 +90,7 @@ else:
   --mic 0 --speaker 0 --sample-rate 16000 --tts-rate 48000
 ```
 
-### Нативный Node.js сателлит
+### Нативный спутник Node.js
 Доступен автономный **спутник Node.js** — ioBroker и MQTT-брокер не требуются. Работает на Raspberry Pi (или любом другом компьютере с Linux/Windows/macOS) с микрофоном и динамиком:
 
 ```bash
@@ -120,6 +120,13 @@ npx @iobroker/assistant-satellite config.json
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.6 (2026-08-26)
+* (@GermanBluefox) The offline rule engine now understands combined commands: "switch the light on and set the blind to 30 %", and one verb for several devices ("switch the light and the lamp on")
+* (@GermanBluefox) Fixed: "50 percent" was not recognised as a level in English
+* (@GermanBluefox) The selected weather adapter is now fed to the LLM as context (current conditions plus today/tomorrow), so weather questions are answered without an extra tool round-trip
+* (@GermanBluefox) The local LLM receives the weather context too, so it no longer invents a forecast
+* (@GermanBluefox) Documented the weather source selection in the user documentation
+
 ### 0.1.5 (2026-08-19)
 * (@GermanBluefox) Corrected credentials
 

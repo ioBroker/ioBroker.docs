@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: NmU0r2sDJmUk2A/Q96w7S3HIJkgbEE1Jx7x36i2ylHQ=
+hash: NXEEIlPo6cH0fn2HCE2go9SbdI2baq1kA5EZpGrZRfU=
 ---
 ![标识](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -47,7 +47,7 @@ hash: NmU0r2sDJmUk2A/Q96w7S3HIJkgbEE1Jx7x36i2ylHQ=
 - **禁用图表优化日志记录跳过值** - 默认情况下，适配器会尝试记录用于优化图表的值。这意味着一些额外的值（例如，未满足上述所有检查的值）可能会被自动记录。如果您不希望这样做，可以禁用此功能。
 - **别名 ID** - 您可以为 ID 定义别名。如果您更换了设备并希望持续记录数据，这将非常有用。请考虑将来切换到真正的别名状态！
 - **存储保留期限** - 磁盘上将存储多少个历史数据值。当达到设定的时间点，需要存储新数据时，数据将被删除。
-- **RAM中存储的最大值数量** - 定义在将值持久化到磁盘之前，RAM中将保存多少个值。您可以控制I/O操作的数量。
+- **RAM 中存储值的最大数量** - 定义在将值持久化到磁盘之前，RAM 中将保存多少个值。您可以控制 I/O 操作的数量。
 - **启用数据点的增强型调试日志** - 如果您想查看此数据点的更详细日志，可以启用此选项。您仍然需要启用“debug”日志级别才能看到这些附加值！这有助于调试问题或了解适配器记录（或不记录）某个值的原因。
 
 这些值大多可以在实例设置中预先定义，然后预先填充或用于数据点。
@@ -95,14 +95,14 @@ FLUSH PRIVILEGES;
 
 在“windows”系统上，可以通过安装程序轻松安装：https://dev.mysql.com/downloads/installer/。
 
-请注意身份验证方法。MySQL 8.0 中的新加密算法尚不受 `node.js` 支持，您必须选择旧版身份验证方法。
+请注意身份验证方法。MySQL 8.0 中的新加密算法尚不支持 `node.js`，您必须选择旧版身份验证方法。
 
 ![视窗](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
 
 数据库结构
 默认数据库名称为`iobroker`，但可以在配置中更改。
 
-### 数据源 此表列出了写入条目的适配器实例。(state.from)
+### 数据源 此表列出了写入这些条目的适配器实例。(state.from)
 | 数据库 | 查询中的名称 |
 |------------|----------------------|
 | MS-SQL | iobroker.dbo.sources |
@@ -176,7 +176,7 @@ FLUSH PRIVILEGES;
 | 字段 | 类型 | 描述 |
 |--------|------------------|---------------------------------------------------------------------|
 | id | 整数 | 来自“数据点”表的州 ID |
-| ts | BIGINT / INTEGER | 截至 Unix 纪元的毫秒数。可以使用“new Date(ts)”转换为时间。 |
+| ts | BIGINT / INTEGER | 截至 Unix 纪元的毫秒数。可以使用“new Date(ts)”转换为日期格式。 |
 | 值 | 实数 | 值 |
 
 该表存储计数器交换时的值，但该值没有增加，而是未能变为零或更低的值。
@@ -200,7 +200,7 @@ FLUSH PRIVILEGES;
 | 值 | 文本 | 值 |
 | ack | BIT/BOOLEAN | 是否已确认：0 - 未确认，1 - 已确认 |
 | _from | 整数 | 来自“Sources”表的源 ID |
-| q | 整数 | 质量值以数字表示。您可以在描述 [这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) | 中找到 |
+| q | 整数 | 质量值以数字表示。您可以在描述中找到 [这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *注意：* MS-SQL 使用 BIT 类型，其他数据库使用 BOOLEAN 类型。SQLite 对 ts 类型使用 INTEGER 类型，对所有其他类型使用 BIGINT 类型。
 
@@ -223,7 +223,7 @@ FLUSH PRIVILEGES;
 | 值 | 位/布尔值 | 值 |
 | ack | BIT/BOOLEAN | 是否已确认：0 - 未确认，1 - 已确认 |
 | _from | 整数 | 来自“Sources”表的源 ID |
-| q | 整数 | 质量值以数字表示。您可以在描述 [这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) | 中找到 |
+| q | 整数 | 质量值以数字表示。您可以在描述中找到 [这里](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *注意：* MS-SQL 使用 BIT 类型，其他数据库使用 BOOLEAN 类型。SQLite 对 ts 类型使用 INTEGER 类型，对所有其他类型使用 BIGINT 类型。
 
@@ -292,7 +292,7 @@ sendTo('sql.0', 'getHistory', {
 - *百分位数* - 计算第 n 个百分位数（n 在 `options.percentile` 中给出，如果未提供则默认为 50）。
 - *quantile* - 计算 n 分位数（n 在 `options.quantile` 中给出，如果未提供则默认为 0.5）。
 - *积分* - 计算积分（附加参数见下文）。
-- *无* - 完全不进行任何聚合。仅提供给定时间段内的原始值。
+- *无* - 完全不进行任何聚合。仅包含给定时间段内的原始值。
 - **百分位数** - （可选）在使用聚合方法时，“百分位数”定义百分位数级别（0..100）（默认为 50）
 - **quantile** - （可选）在使用聚合方法时，“quantile”定义分位数级别（0..1）（默认为0.5）
 - **integralUnit** - （可选）当使用聚合方法“integral”时，以秒为单位定义单位（默认为 60 秒）。例如，要获取 Wh 等的小时积分值，请设置为 3600。
@@ -337,7 +337,7 @@ sendTo('sql.0', 'query', 'SELECT * FROM datapoints', function (result) {
 });
 ```
 
-或者获取 ID=system.adapter.admin.0.memRss 的最新一小时记录。
+或者获取 ID=system.adapter.admin.0.memRss 的最近一小时的条目。
 
 ```js
 sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.admin.0.memRss"', function (result) {
@@ -365,6 +365,62 @@ sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.a
 |---------|---------------------------------------------|
 | MS-SQL | `SELECT * FROM iobroker.dbo.datapoints ...` |
 | MySQL | `SELECT * FROM iobroker.datapoints ...` |
+
+## 数据浏览器
+实例设置中包含一个“数据浏览器”选项卡：左侧显示数据库中所有有数据的数据点，右侧显示所选数据点的存储值。您可以翻页浏览、编辑、删除数据点，也可以插入新数据。该选项卡需要实例正在运行才能使用。
+
+该组件是一个 JSON 配置组件（`custom`）。其源代码位于 `src-admin`，构建好的包位于 `admin/custom`，已提交：
+
+```bash
+npm run npm:admin      # install the dependencies of the component (only once)
+npm run build:admin    # clean, build and copy into admin/custom
+cd src-admin && npm start   # development server on http://localhost:4173
+```
+
+数据点列表来自消息 **getDatapoints**，该消息也可以在脚本中使用：
+
+```js
+sendTo('sql.0', 'getDatapoints', {}, result => {
+    // [{id: 'system.adapter.admin.0.memRss', index: 1, type: 'Number'}, ...]
+    console.log(JSON.stringify(result.result));
+});
+```
+
+它会返回 `datapoints` 表中的每个数据点（包括那些已禁用日志记录的数据点），并按 ID 排序。与 `getDpOverview` 表不同，它不会确定每个数据点的首次时间戳，而是立即返回结果。
+
+## 读取原始值
+`getHistory` 专为图表设计：它会对请求范围前后的值进行聚合、插值、舍入和加法运算。要查看和翻阅数据库中存储的行，请使用 **getRawEntries**：
+
+```js
+sendTo(
+    'sql.0',
+    'getRawEntries',
+    {
+        id: 'system.adapter.admin.0.memRss',
+        start: Date.now() - 3600000, // optional, inclusive
+        end: Date.now(),             // optional, inclusive
+        limit: 100,                  // optional, default 100, maximum 2000
+        offset: 0,                   // optional, default 0
+        sort: 'desc',                // optional, 'desc' (newest first, default) or 'asc'
+    },
+    result => {
+        if (result.error) {
+            console.error(result.error);
+        } else {
+            // total = number of all entries matching start/end, so a table can page through them
+            console.log(`${result.result.length} of ${result.total} entries`);
+            // [{ts: 1589458809352, val: 51.5, ack: 1, q: 0, from: 'system.adapter.admin.0'}, ...]
+            console.log(JSON.stringify(result.result));
+        }
+    },
+);
+```
+
+答案还包含 `id`、`index`（`datapoints` 表中的 ID）、`type`（`Number`、`String` 或 `Boolean`）、`table`（`ts_number`、`ts_string` 或 `ts_bool`）以及所使用的 `limit`、`offset` 和 `sort`。
+
+返回的值与数据库中的原始值完全一致，**未**进行转换：`ack` 和布尔值在大多数数据库中为 `0`/`1`，字符串数据点的 `val` 为存储的字符串。如果没有存储任何源数据，则 `from` 为 `null`。
+
+与 `update`、`delete` 和 `storeState` 类似，即使日志记录被禁用，只要数据库中仍有相关条目，此方法也适用。如果数据点未知，则答案包含 `error`。
 
 ## 存储状态
 如果要将其他数据写入 SQL 数据库，可以使用内置系统函数 **storeState**。此函数还可以用于转换来自其他 History 适配器（例如 InfluxDB 或 SQL）的数据。
@@ -559,13 +615,18 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### **正在进行中** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 4.1.0 (2026-08-26)
 * (@ipod86) Added a button to the datapoint settings to delete all logged values of this datapoint
 * (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` now report errors back to the caller instead of always answering with success
 * (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` work now also for datapoints whose logging is disabled
 * (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` delete the counter values of a numeric datapoint (table `ts_counter`) too
 * (@GermanBluefox) Fixed `NaN` as a result of the aggregation `percentile` with 100 or `quantile` with 1
 * (@GermanBluefox) Fixed the last value of the `integralTotal` aggregation: it was interpolated onto the start instead of the end of the requested range
+* (@GermanBluefox) Added the message `getRawEntries` to read the stored values of one datapoint page by page (with the total number of entries) for tools that show or edit the raw data
+* (@GermanBluefox) The message `update` works now also for datapoints whose logging is disabled and reports errors back to the caller
+* (@GermanBluefox) `storeState` uses the data type stored in the database for known datapoints instead of deriving it from the value
+* (@GermanBluefox) Added the tab `Data browser` to the instance settings: show, edit, delete and insert the stored values of a datapoint
+* (@GermanBluefox) Added the message `getDatapoints` that returns all datapoints of the database immediately
 
 ### 4.0.4 (2026-08-11)
 * (@GermanBluefox) Fixed that nothing was stored for datapoints with an `aliasId`: the adapter subscribed to the alias name instead of the real state ID, so no state change ever arrived
@@ -580,10 +641,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### 4.0.1 (2026-08-07)
 * (@GermanBluefox) Fixed MySQL error "Can't create more than max_prepared_stmt_count statements": every query allocated a server-side prepared statement
 * (@GermanBluefox) Batches of more than 500 values are no longer sent as one multi-statement query
-
-### 4.0.0 (2026-08-04)
-* (@GermanBluefox) Migrated to TypeScript
-* (@GermanBluefox) Node.js 22 is now needed at a minimum!
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

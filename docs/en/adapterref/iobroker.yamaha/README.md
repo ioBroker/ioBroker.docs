@@ -90,7 +90,7 @@ On the first connect the adapter asks the receiver which functions it supports �
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.4.0 (2026-08-26)
 
 - (krobipd) Fixed: commands sent in quick succession all arrive — a scene switching power, input and volume in one go used to lose everything after the first command
 - (krobipd) Fixed: a command the device rejects is now reported instead of counting as success, so a MusicCast device that stops answering is reconnected rather than silently freezing
@@ -100,6 +100,7 @@ On the first connect the adapter asks the receiver which functions it supports �
 - (krobipd) Improved: startup with automatic discovery is much faster on networks with many devices, and a reconnect no longer re-asks what the device already told us
 - (krobipd) Fixed: recalling a favourite, a recently played item or a tuner preset now goes to the zone that is actually listening instead of always switching the main zone
 - (krobipd) Improved: stopping or restarting the adapter no longer leaves requests running that write to datapoints afterwards
+
 ### 1.3.0 (2026-08-26)
 
 - (krobipd) New: menu browsing — page through the Net Radio, server and USB menus like with the remote: visible lines as datapoints, select-by-line, and a path datapoint for one-write navigation (#613)
@@ -122,18 +123,6 @@ On the first connect the adapter asks the receiver which functions it supports �
 
 - (krobipd) Fixed: a device carried over from the old adapter is no longer called by its IP — the object folder and the admin card now show the name the device reports, or its model.
 - (krobipd) Improved: a device that has not reported a model yet already carries its device-class symbol instead of none.
-
-### 1.0.1 (2026-08-22)
-
-- (krobipd) Complete rebuild: one adapter now speaks YNCA, MusicCast and the legacy XML protocol — every protocol a device answers runs in parallel on one object tree.
-- (krobipd) New object tree with typed datapoints built from what your device reports. Old datapoints are removed automatically, the address is carried over — point scripts at the new paths.
-- (krobipd) Instant updates: MusicCast push events and the live YNCA connection replace polling; connections heal themselves, and one protocol's hiccup reconnects just that protocol.
-- (krobipd) Auto-discovery sets up MusicCast devices by itself when the device list is empty, and the admin shows every receiver as a card with model, address and protocol indicators.
-- (krobipd) Whole datapoint groups such as playback sources, tuner, multiroom or scenes can be switched off in the admin — and are then not even queried from the device.
-- (krobipd) The multiroom folder tells the scope at a glance: switches that affect all zones say so in their name, and the MusicCast device group has its own `multiroom.group` folder.
-- (krobipd) Every device shows a type icon — receiver, stereo receiver, speaker, soundbar or CD system, detected from the reported model — in the object tree and on its admin card; the adapter logo now stays readable in light and dark mode.
-- (krobipd) Upgrading from 0.5.x shows a one-time notice explaining the new object tree before the update installs.
-- (mcm1957) version has been rebuilt due to deploy problems
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

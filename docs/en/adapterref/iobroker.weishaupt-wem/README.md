@@ -36,6 +36,10 @@ Der Adapter liest auch die Daten aus der App aus.
 
 ## Changelog
 
+### 0.0.22
+
+* (ta2k) App-Statistics an APK v3.0.1 angeglichen: Statistics/Read ohne JobID, Type als Zeitbereich (1 Tag, 2 Monat, 3 Jahr), Energie für Tag/Monat/Jahr; Debug-Ausgabe zur Diagnose
+
 ### 0.0.21
 
 * (ta2k) Fix Statistics/Read 400 "Mindestens ein Parameter ist ungültig" (JobID aus Statistics/Refresh wird jetzt mitgesendet, verifiziert gegen APK v3.0.1)

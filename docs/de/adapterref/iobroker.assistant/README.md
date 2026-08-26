@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.assistant/README.md
 title: ioBroker.assistant
-hash: +M9xvebDrMe2+Ds0BqWbBqY1vbMJvQIbDm0E9QFgDDc=
+hash: uUunrOqtOwrG1ZS+AgF5S3TlKMQCBAwb1RrBw8qcTyk=
 ---
 <img src="admin/assistant.svg" alt="ioBroker.assistant" width="200"/>
 
 # IoBroker.assistant
 Ein LLM-basierter Assistent für ioBroker. Stellen Sie Fragen in natürlicher Sprache und lassen Sie den Assistenten **beliebigen ioBroker-Status** lesen oder steuern – er verwendet ein LLM mit **Tool-Aufrufen** über die native ioBroker-API, sodass es keine starre Regel-Engine und keinen virtuellen Gerätebaum gibt.
 
-Status: **Früher Machbarkeitsnachweis.** Texteingabe → Antwortausgabe. Audio (Satelliten, STT/TTS) und geräteinternes Aktivierungswort sind als Nächstes geplant (siehe Roadmap).
+Status: **Früher Machbarkeitsnachweis.** Texteingabe → Antwortausgabe. Audio (Satelliten, STT/TTS) und geräteinterne Aktivierungswörter sind als Nächstes geplant (siehe Roadmap).
 
 ## Was heute funktioniert
 - Anbieter: **OpenAI** (und OpenAI-kompatible Endpunkte über die Basis-URL) oder **Anthropic (Claude)**.
@@ -19,13 +19,13 @@ Status: **Früher Machbarkeitsnachweis.** Texteingabe → Antwortausgabe. Audio 
 - `find_states({ room?, func?, query? })` — Zustände und aktuelle Werte finden
 - `get_state({ id })` — einen Wert lesen
 - `set_state({ id, value })` — ein Gerät steuern (kann in den Einstellungen deaktiviert werden)
-- Textschnittstelle mit zwei Zuständen:
+- Textschnittstelle über zwei Zustände:
 - Schreiben Sie Ihre Frage an `assistant.0.text.request`
 - Lies die Antwort von `assistant.0.text.response`
 - Oder aus einem Skript: `sendTo('assistant.0', 'ask', { text: 'Wie warm ist es im Wohnzimmer?' }, cb)`
 
 ## Konfiguration
-Im Adapter-Adminbereich (Instanzen → Assistent → ⚙):
+In der Adapterverwaltung (Instanzen → Assistent → ⚙):
 
 | Schauplatz | Bedeutung |
 |--------------------------|---------------------------------------------------|
@@ -59,10 +59,10 @@ Passen Sie die Audioraten an Ihr Gerät an (`--sample-rate` = Mikrofon, `--tts-r
 Der Standard-Hannah-Satellit findet den Server über **MQTT-Discovery**, benötigt also einen erreichbaren Broker und eine gespeicherte Discovery-Nachricht. Verweisen Sie `--host` explizit auf den ioBroker-Host:
 
 ```bash
-# 1. publish the adapter address once (retained) so the satellite finds it:
+ # 1. publish the adapter address once (retained) so the satellite finds it:
 mosquitto_pub -h <broker-ip> -t hannah/server -r -m '{"host":"<iobroker-ip>","port":7775}'
 
-# 2. start the satellite (venv), --broker = MQTT broker, --host = this adapter:
+ # 2. start the satellite (venv), --broker = MQTT broker, --host = this adapter:
 /opt/Hannah/satellite-pi/venv/bin/python3 /opt/Hannah/satellite-pi/satellite.py \
   --device wohnzimmer --room Wohnzimmer \
   --broker <broker-ip> --host <iobroker-ip> --port 7775 \
@@ -122,6 +122,13 @@ Das Protokoll ist unit-getestet, die Interoperabilität mit realen HA Voice PE /
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.6 (2026-08-26)
+* (@GermanBluefox) The offline rule engine now understands combined commands: "switch the light on and set the blind to 30 %", and one verb for several devices ("switch the light and the lamp on")
+* (@GermanBluefox) Fixed: "50 percent" was not recognised as a level in English
+* (@GermanBluefox) The selected weather adapter is now fed to the LLM as context (current conditions plus today/tomorrow), so weather questions are answered without an extra tool round-trip
+* (@GermanBluefox) The local LLM receives the weather context too, so it no longer invents a forecast
+* (@GermanBluefox) Documented the weather source selection in the user documentation
+
 ### 0.1.5 (2026-08-19)
 * (@GermanBluefox) Corrected credentials
 

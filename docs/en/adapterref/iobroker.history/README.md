@@ -598,10 +598,13 @@ Possible options and parameters:
 ### **WORK IN PROGRESS**
 * (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
 * (simatec) Responsive Design added
+* (@GermanBluefox) Adapter requires node.js >= 22 now.
+* (@GermanBluefox) Added the data browser to the configuration, so the stored values can be viewed, edited and deleted.
+* (@GermanBluefox) The aggregation is used now from `@iobroker/aggregate` and is shared with the SQL and InfluxDB adapters.
 
 ### 4.0.0 (2026-03-10)
 * (iobroker-bot) Adapter requires node.js >= 20 now.
-* (@GermanBluefox) Migrated to Typescript
+* (@GermanBluefox) Migrated to TypeScript
 
 ### 3.0.1 (2023-10-24)
 * (tuxyme) activated the round option when averaging

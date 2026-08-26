@@ -12,10 +12,10 @@
       "type": "news",
       "originalName": "2026_08_25.md",
       "desc": {
-        "de": "Der Hochsommer 2026 war alles andere als eine Sauregurkenzeit und diese Ausgabe fällt\\nentsprechend üppig aus: **72 Adapter** haben wir für euch zusammengetragen.\\n**22** davon sind neu im `stable`-Repository und sofort einsatzbereit, die übrigen **50**\\nstehen in `latest` und freuen sich über Tester.\\nDer Schwerpunkt liegt erneut bei **Energie und E-Mobilität**\\n(Hoymiles, Victron GX, Solakon ONE, Tesla Wall Connector, go-e Charger),\\naber auch **Kameras, Multimedia und Systemwerkzeuge** sind stark vertreten.\\nUnd ein paar echte Exoten sind dabei: Formel-1-Livedaten, Flugverfolgung am eigenen Fenster\\nund eine Saunasteuerung mit lernender Aufheizprognose.",
-        "en": "The height of summer 2026 was anything but a slow season, and this edition reflects that: we've compiled **72 adapters** for you.",
-        "ru": "Лето 2026 года, в разгар сезона, никак нельзя назвать затишьем, и это отражается в данном выпуске: мы собрали для вас **72 адаптера**.",
-        "zh-cn": "2026 年盛夏并非淡季，本期内容也印证了这一点：我们为您精心挑选了 **72 款适配器**。"
+        "de": "Der Hochsommer 2026 war alles andere als eine Sauregurkenzeit und diese Ausgabe fällt\\nentsprechend üppig aus: 72 Adapter haben wir für euch zusammengetragen.\\n22 davon sind neu im stable-Repository und sofort einsatzbereit, die übrigen 50\\nstehen in latest und freuen sich über Tester.\\nDer Schwerpunkt liegt erneut bei Energie und E-Mobilität\\n(Hoymiles, Victron GX, Solakon ONE, Tesla Wall Connector, go-e Charger),\\naber auch Kameras, Multimedia und Systemwerkzeuge sind stark vertreten.\\nUnd ein paar echte Exoten sind dabei: Formel-1-Livedaten, Flugverfolgung am eigenen Fenster\\nund eine Saunasteuerung mit lernender Aufheizprognose.",
+        "en": "# IoBroker Monthly Review – July/August 2026\\nThe summer of 2026 was anything but dull, and this edition reflects that: we've compiled 72 adapters for you.",
+        "ru": "# Ежемесячный обзор ioBroker – июль/август 2026 г.\\nЛето 2026 года было отнюдь не скучным, и это отражается в данном выпуске: мы собрали для вас 72 адаптера.",
+        "zh-cn": "# IoBroker 月度回顾 – 2026 年 7 月/8 月\\n2026 年的夏天精彩纷呈，本期内容也充分体现了这一点：我们为您精心挑选了 72 款适配器。"
       }
     },
     "2026_07_10": {

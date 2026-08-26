@@ -69,10 +69,10 @@ The stock Hannah satellite locates the server via **MQTT discovery**, so it need
 and one retained discovery message. Point `--host` at the ioBroker host explicitly:
 
 ```bash
-# 1. publish the adapter address once (retained) so the satellite finds it:
+ # 1. publish the adapter address once (retained) so the satellite finds it:
 mosquitto_pub -h <broker-ip> -t hannah/server -r -m '{"host":"<iobroker-ip>","port":7775}'
 
-# 2. start the satellite (venv), --broker = MQTT broker, --host = this adapter:
+ # 2. start the satellite (venv), --broker = MQTT broker, --host = this adapter:
 /opt/Hannah/satellite-pi/venv/bin/python3 /opt/Hannah/satellite-pi/satellite.py \
   --device wohnzimmer --room Wohnzimmer \
   --broker <broker-ip> --host <iobroker-ip> --port 7775 \
@@ -148,6 +148,13 @@ STT → answer → TTS streamed back as `audio-*` (plus a `transcript` event); `
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.6 (2026-08-26)
+* (@GermanBluefox) The offline rule engine now understands combined commands: "switch the light on and set the blind to 30 %", and one verb for several devices ("switch the light and the lamp on")
+* (@GermanBluefox) Fixed: "50 percent" was not recognised as a level in English
+* (@GermanBluefox) The selected weather adapter is now fed to the LLM as context (current conditions plus today/tomorrow), so weather questions are answered without an extra tool round-trip
+* (@GermanBluefox) The local LLM receives the weather context too, so it no longer invents a forecast
+* (@GermanBluefox) Documented the weather source selection in the user documentation
+
 ### 0.1.5 (2026-08-19)
 * (@GermanBluefox) Corrected credentials
 

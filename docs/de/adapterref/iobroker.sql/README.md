@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: NmU0r2sDJmUk2A/Q96w7S3HIJkgbEE1Jx7x36i2ylHQ=
+hash: NXEEIlPo6cH0fn2HCE2go9SbdI2baq1kA5EZpGrZRfU=
 ---
 ![Logo](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -270,7 +270,7 @@ Mögliche Optionen:
 
 - **Start** - (optional) Zeit in Millisekunden - *Date.now()*
 - **Ende** - (optional) Zeit in Millisekunden - *Date.now()*, standardmäßig `(jetzt + 5000 Sekunden)`
-- **Schritt** - (optional) wird in aggregierten Werten (Maximum, Minimum, Durchschnitt, Gesamt, ...) verwendet. Schrittweite in Millisekunden für Intervalle.
+- **Schritt** - (optional) wird in aggregierten Werten (Maximum, Minimum, Durchschnitt, Gesamt, ...) verwendet; Schrittweite in Millisekunden der Intervalle
 - **Anzahl** - Anzahl der Werte, wenn die Aggregation auf „onchange“ eingestellt ist, oder Anzahl der Intervalle bei anderen Aggregationsmethoden. Die Anzahl wird ignoriert, wenn eine Schrittweite festgelegt ist; andernfalls ist der Standardwert 500.
 - **von** - falls das Feld *von* in die Antwort aufgenommen werden soll
 - **ack** - falls das Feld *ack* in die Antwort aufgenommen werden soll
@@ -363,6 +363,62 @@ Beispiel, wenn Ihre Datenbank den Namen „iobroker“ trägt:
 |---------|---------------------------------------------|
 | MS-SQL | `SELECT * FROM iobroker.dbo.datapoints ...` |
 | MySQL | `SELECT * FROM iobroker.datapoints ...` |
+
+## Datenbrowser
+Die Instanzeinstellungen enthalten den Tab „Datenbrowser“: Links werden alle Datenpunkte angezeigt, die Daten in der Datenbank enthalten, rechts die gespeicherten Werte des ausgewählten Datenpunkts. Die Werte können durchgeblättert, bearbeitet, gelöscht und durch neue ergänzt werden. Für diesen Tab ist eine laufende Instanz erforderlich.
+
+Die Komponente ist eine JSON-Config `custom`-Komponente. Ihre Quellen befinden sich in `src-admin`, das erstellte Bundle in `admin/custom` ist eingecheckt:
+
+```bash
+npm run npm:admin      # install the dependencies of the component (only once)
+npm run build:admin    # clean, build and copy into admin/custom
+cd src-admin && npm start   # development server on http://localhost:4173
+```
+
+Die Datenpunktliste stammt aus der Nachricht **getDatapoints**, die auch in Skripten verwendet werden kann:
+
+```js
+sendTo('sql.0', 'getDatapoints', {}, result => {
+    // [{id: 'system.adapter.admin.0.memRss', index: 1, type: 'Number'}, ...]
+    console.log(JSON.stringify(result.result));
+});
+```
+
+Es gibt alle Datenpunkte der Tabelle `datapoints` zurück – einschließlich derer, deren Protokollierung deaktiviert ist – sortiert nach ID. Im Gegensatz zu `getDpOverview` ermittelt es nicht den ersten Zeitstempel jedes Datenpunkts und antwortet sofort.
+
+## Rohwerte lesen
+`getHistory` ist für Diagramme gedacht: Es aggregiert, interpoliert, rundet und addiert die Werte direkt vor und nach dem angeforderten Bereich. Um die gespeicherten Zeilen genau so anzuzeigen und durchzublättern, wie sie in der Datenbank vorliegen, verwenden Sie **getRawEntries**.
+
+```js
+sendTo(
+    'sql.0',
+    'getRawEntries',
+    {
+        id: 'system.adapter.admin.0.memRss',
+        start: Date.now() - 3600000, // optional, inclusive
+        end: Date.now(),             // optional, inclusive
+        limit: 100,                  // optional, default 100, maximum 2000
+        offset: 0,                   // optional, default 0
+        sort: 'desc',                // optional, 'desc' (newest first, default) or 'asc'
+    },
+    result => {
+        if (result.error) {
+            console.error(result.error);
+        } else {
+            // total = number of all entries matching start/end, so a table can page through them
+            console.log(`${result.result.length} of ${result.total} entries`);
+            // [{ts: 1589458809352, val: 51.5, ack: 1, q: 0, from: 'system.adapter.admin.0'}, ...]
+            console.log(JSON.stringify(result.result));
+        }
+    },
+);
+```
+
+Die Antwort enthält zusätzlich `id`, `index` (die ID in der Tabelle `datapoints`), `type` (`Number`, `String` oder `Boolean`), `table` (`ts_number`, `ts_string` oder `ts_bool`) sowie die verwendeten `limit`, `offset` und `sort`.
+
+Die Werte werden unverändert aus der Datenbank zurückgegeben und **nicht** konvertiert: `ack` und boolesche Werte entsprechen in den meisten Datenbanken `0`/`1`, und `val` eines String-Datenpunkts ist der gespeicherte String. `from` entspricht `null`, falls keine Quelle gespeichert wurde.
+
+Wie bei `update`, `delete` und `storeState` funktioniert dies auch für Datenpunkte, deren Protokollierung deaktiviert ist, solange noch Einträge in der Datenbank vorhanden sind. Ist der Datenpunkt unbekannt, enthält die Antwort ein `error`.
 
 ## StoreState
 Um andere Daten in die SQL-Datenbank zu schreiben, können Sie die integrierte Systemfunktion **storeState** verwenden. Diese Funktion kann auch zur Konvertierung von Daten aus anderen History-Adaptern wie InfluxDB oder SQL verwendet werden.
@@ -556,13 +612,18 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 4.1.0 (2026-08-26)
 * (@ipod86) Added a button to the datapoint settings to delete all logged values of this datapoint
 * (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` now report errors back to the caller instead of always answering with success
 * (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` work now also for datapoints whose logging is disabled
 * (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` delete the counter values of a numeric datapoint (table `ts_counter`) too
 * (@GermanBluefox) Fixed `NaN` as a result of the aggregation `percentile` with 100 or `quantile` with 1
 * (@GermanBluefox) Fixed the last value of the `integralTotal` aggregation: it was interpolated onto the start instead of the end of the requested range
+* (@GermanBluefox) Added the message `getRawEntries` to read the stored values of one datapoint page by page (with the total number of entries) for tools that show or edit the raw data
+* (@GermanBluefox) The message `update` works now also for datapoints whose logging is disabled and reports errors back to the caller
+* (@GermanBluefox) `storeState` uses the data type stored in the database for known datapoints instead of deriving it from the value
+* (@GermanBluefox) Added the tab `Data browser` to the instance settings: show, edit, delete and insert the stored values of a datapoint
+* (@GermanBluefox) Added the message `getDatapoints` that returns all datapoints of the database immediately
 
 ### 4.0.4 (2026-08-11)
 * (@GermanBluefox) Fixed that nothing was stored for datapoints with an `aliasId`: the adapter subscribed to the alias name instead of the real state ID, so no state change ever arrived
@@ -577,10 +638,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### 4.0.1 (2026-08-07)
 * (@GermanBluefox) Fixed MySQL error "Can't create more than max_prepared_stmt_count statements": every query allocated a server-side prepared statement
 * (@GermanBluefox) Batches of more than 500 values are no longer sent as one multi-statement query
-
-### 4.0.0 (2026-08-04)
-* (@GermanBluefox) Migrated to TypeScript
-* (@GermanBluefox) Node.js 22 is now needed at a minimum!
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
