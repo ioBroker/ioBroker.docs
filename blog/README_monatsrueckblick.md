@@ -141,6 +141,12 @@ logo: de/blog/images/JJJJ_MM_TT.png
 
 1. **Intro** — Adapterzahl, Aufteilung latest/stable, Schwerpunkt, ein bis zwei Exoten als
    Aufhänger, dann das wichtigste Kern-Thema
+
+   ⚠️ **Der erste Absatz muss reiner Fließtext ohne jede Formatierung sein.** In der
+   Blog-Übersicht auf iobroker.net wird er als Anrisstext angezeigt, dort aber **nicht** als
+   Markdown gerendert — Sternchen und Backticks stehen dann sichtbar im Text. Also keine
+   Fettschrift, keine Code-Auszeichnung, keine Links im ersten Absatz. Ab dem zweiten Absatz
+   ist Formatierung wieder unproblematisch.
 2. **Kern-Updates** — js-controller, Admin, vis-2
 3. **Wichtige Adapter-Updates** — javascript, devices, iot …
 4. **Neue Adapter in `latest` – Tester gesucht!** — ab etwa 20 Adaptern thematisch gruppieren
