@@ -148,9 +148,8 @@ logo: de/blog/images/JJJJ_MM_TT.png
 5. **Neue Adapter in `stable`**
 6. **Alte Bekannte, neu in `stable`** — mit Link auf den Beitrag, in dem sie vorgestellt wurden
 7. **Forumdiskussionen & spannende Test-Threads**
-8. **Ihr wollt beim nächsten Mal dabei sein?** — Hinweis auf `docs/en/history/history.md`
-9. **Community** — Discord, Stammtisch, Entwickler-Meeting, Forum, Facebook
-10. **Danke für eure Unterstützung** — Fazit, Update-Hinweise, Spendenlink
+8. **Community** — Discord, Stammtisch, Entwickler-Meeting, Forum, Facebook
+9. **Danke für eure Unterstützung** — Fazit, Update-Hinweise, Spendenlink
 
 ### Adapterblock
 
