@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.yamaha/README.md
 title: <img src="https://cdn.jsdelivr.net/gh/iobroker-community-adapters/ioBroker.yamaha@master/admin/yamaha.svg" width="48" align="top" /> ioBroker.yamaha
-hash: +YtGbtXS8CaTUQ5dtzvxBO6kEZY+AWsc+vnYjGT3q4I=
+hash: k47k9S3ioDSalfpoxnNpgo0MGMDWe312emY4++ZQ7jc=
 ---
 # <img src="https://cdn.jsdelivr.net/gh/iobroker-community-adapters/ioBroker.yamaha@master/admin/yamaha.svg" width="48" align="top" /> ioBroker.yamaha
 
@@ -24,12 +24,13 @@ hash: +YtGbtXS8CaTUQ5dtzvxBO6kEZY+AWsc+vnYjGT3q4I=
 - **协议并行运行** — MusicCast 接收器将 YNCA 功放控制与 MusicCast 多房间功能、均衡器和媒体功能集成在一个对象树中。
 - **即时更新** — MusicCast推送了更改，YNCA通过其实时连接进行了报道
 - **自愈连接** — 离线接收器在应答后自动加入；单个协议可自行重新连接，而其他协议则继续运行。
-- **类型化数据点** — 布尔值、下拉列表和带单位和范围的数字，而不是纯文本
-- **预设和收藏夹** — 按编号调用调谐器预设和已存储的网络/USB收藏夹，逐个切换预设，并读取已存储的列表及其名称（MusicCast）；在MusicCast设备上调用最近播放的曲目
+- **类型化数据点** — 布尔值、下拉列表和带单位和范围的数字，而不是纯文本。
+- **预设和收藏夹** — 按编号调用调谐器预设和已存储的网络/USB收藏夹，逐个浏览预设，将当前电台保存到预设槽位或添加书签，并按名称读取已存储的列表（MusicCast）；在MusicCast设备上调用最近播放的电台
+- **菜单浏览** — 像使用遥控器一样翻阅网络电台、媒体服务器和 USB 菜单：将可见的菜单行作为数据点，逐行选择，以及一个路径数据点，可一次性导航到收藏夹。
 - **时钟和闹钟视图** — MusicCast 桌面音频设备会显示其时钟和闹钟设置
 - **基于功能** — 状态根据每个设备报告的信息生成，没有硬编码的型号列表
 - **自动发现** — 设备列表为空时，系统会在启动时查找并设置 MusicCast 设备
-- **设备管理器** — 接收器作为管理卡，包含型号、地址、实时协议指示器和设备类型图标（接收器、立体声、扬声器、条形音箱、CD）
+- **设备管理器** — 接收器作为管理卡，带有型号、地址、实时协议指示器和设备类型图标（接收器、立体声、扬声器、条形音箱、CD）
 
 ＃＃ 要求
 - Node.js 版本 >= 22
@@ -47,13 +48,13 @@ hash: +YtGbtXS8CaTUQ5dtzvxBO6kEZY+AWsc+vnYjGT3q4I=
 
 较老的雅马哈接收机（2010 年左右之前，使用 XML 协议）不会在网络上自动广播自身信息，必须手动添加。**XML 查询间隔** 设置了轮询接收机的频率（默认为 60 秒）。
 
-“数据点”部分用于开启或关闭整组数据点，包括“播放”、“调谐器”、“多房间”、“HDMI”、“场景”、“声音”、“高级”和“时钟与闹钟”。关闭的数据点组会从树状结构中移除，甚至不会被查询，这也能加快启动速度；放大器核心（电源、音量、静音、输入、声音程序、睡眠）始终保持开启状态。
+“数据点”部分用于开启或关闭整组数据点，包括“播放与浏览”、“调谐器”、“多房间”、“HDMI”、“场景”、“声音”、“高级”和“时钟与闹钟”。关闭的数据点组会从树状结构中移除，甚至不会被查询，这也能加快启动速度；放大器核心（电源、音量、静音、输入、声音程序、睡眠）始终保持开启状态。
 
 ## 州树
 每个接收器都会成为一个设备节点，并被划分为不同的主题组——这些主题组与**数据点**开关控制的组相同。系统只会创建设备报告的数据。
 
 - **放大器核心**（始终开启）— 电源、音量、静音、输入、声音程序、睡眠，以及设备信息，包括型号、固件和连接。
-- **`播放器`** — 每个播放源（Spotify、USB、服务器、网络电台、CD 等）一个通道，显示播放状态、艺术家、专辑、曲目、封面和传输按钮。
+- **`player`** — 每个播放源（Spotify、USB、服务器、网络电台、CD 等）对应一个通道，包含播放状态、艺术家、专辑、曲目、封面以及播放控制按钮。`player.browse` 文件夹镜像了设备的媒体菜单：可见的八行（文件夹和标题以符号标记）、`selectLine` 按钮（功能类似于遥控器上的“确定”按钮）、翻页/后退/根目录按钮、用于控件的 `rows` JSON 数据以及一个 `path` 数据点（例如，一次写入即可遍历 `Bookmarks>Radio Paradise`）。
 - **`调谐器`** — AM/FM 和 DAB 收音机，包括 RDS 文本和频率。
 - **`多房间`** — 区域 2–4、B 区、所有区域的开关（主电源、派对模式）以及 MusicCast 设备组，位于其自己的 `multiroom.group` 文件夹中。
 - **`hdmi`** — HDMI 输出和唇音同步。
@@ -110,6 +111,22 @@ hash: +YtGbtXS8CaTUQ5dtzvxBO6kEZY+AWsc+vnYjGT3q4I=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (krobipd) Fixed: commands sent in quick succession all arrive — a scene switching power, input and volume in one go used to lose everything after the first command
+- (krobipd) Fixed: a command the device rejects is now reported instead of counting as success, so a MusicCast device that stops answering is reconnected rather than silently freezing
+- (krobipd) Fixed: names and menu entries containing "&" or other special characters now read and write correctly on the older XML protocol
+- (krobipd) Fixed: writing one equalizer band no longer resets the other two when the device has not reported its bands yet
+- (krobipd) Fixed: switching the tuner band and setting a frequency right after each other now applies the frequency to the new band
+- (krobipd) Improved: startup with automatic discovery is much faster on networks with many devices, and a reconnect no longer re-asks what the device already told us
+- (krobipd) Fixed: recalling a favourite, a recently played item or a tuner preset now goes to the zone that is actually listening instead of always switching the main zone
+- (krobipd) Improved: stopping or restarting the adapter no longer leaves requests running that write to datapoints afterwards
+### 1.3.0 (2026-08-26)
+
+- (krobipd) New: menu browsing — page through the Net Radio, server and USB menus like with the remote: visible lines as datapoints, select-by-line, and a path datapoint for one-write navigation (#613)
+- (krobipd) New: save presets from ioBroker — store the current tuner or network station to a preset slot and bookmark the playing Net Radio station on YNCA receivers.
+- (krobipd) New: Bluetooth pairing and connect controls, FM mono mode and tuning indicators on YNCA receivers.
+
 ### 1.2.0 (2026-08-25)
 
 - (krobipd) Fixed: volume writes work again — a written -38 dB reached the receiver as -3.8 dB, so most values were ignored; all numeric controls now send the proper wire format (#612)
@@ -138,10 +155,6 @@ hash: +YtGbtXS8CaTUQ5dtzvxBO6kEZY+AWsc+vnYjGT3q4I=
 - (krobipd) Every device shows a type icon — receiver, stereo receiver, speaker, soundbar or CD system, detected from the reported model — in the object tree and on its admin card; the adapter logo now stays readable in light and dark mode.
 - (krobipd) Upgrading from 0.5.x shows a one-time notice explaining the new object tree before the update installs.
 - (mcm1957) version has been rebuilt due to deploy problems
-
-### 0.5.4 (2024-06-14) — stable
-
-- (foxriver76) updated packages
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

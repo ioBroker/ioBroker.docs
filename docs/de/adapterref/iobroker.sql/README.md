@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: vCUUobTRDjs/C7vZq8bjyKmn9wxtrcbJAgqfq05Hymc=
+hash: NmU0r2sDJmUk2A/Q96w7S3HIJkgbEE1Jx7x36i2ylHQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -66,7 +66,7 @@ Die SQLite-Datenbank muss nicht separat installiert werden. Sie ist lediglich ei
 sudo apt-get install build-essential
 ```
 
-Installieren Sie unter Windows Node.js mit der Option „Die erforderlichen Tools automatisch installieren…“ und installieren Sie anschließend den Adapter neu, z. B.:
+Installieren Sie unter Windows Node.js mit der Option „Die notwendigen Tools automatisch installieren…“ und installieren Sie anschließend den Adapter neu, z. B.:
 
 ```bash
 cd /opt/iobroker
@@ -224,7 +224,7 @@ Struktur:
 | _from | INTEGER | ID der Quelle aus der Tabelle "Sources" |
 | q | INTEGER | Qualität als Zahl. Die Beschreibung finden Sie unter [Hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
-*Hinweis:* MS-SQL verwendet BIT, andere SQL-Datenbanken verwenden BOOLEAN. SQLite verwendet für ts INTEGER und für alle anderen Datenbanken BIGINT.
+*Hinweis:* MS-SQL verwendet BIT, andere SQL-Datenbanken verwenden BOOLEAN. SQLite verwendet für ts INTEGER und für alle anderen BIGINT.
 
 ## Zugriff auf Werte über den JavaScript-Adapter
 Auf die sortierten Werte kann über den JavaScript-Adapter zugegriffen werden.
@@ -467,6 +467,11 @@ Die Zeitangabe kann in Millisekunden seit der Unix-Epoche oder als Zeichenkette 
 
 Werte einschließlich definierter Grenzwerte werden gelöscht. `ts >= start AND ts <= end`
 
+Alle drei Befehle akzeptieren auch einzelne Datenpunkte als Objekt, z. B. `sendTo('sql.0', 'deleteAll', {id: 'mbus.0.counter.xxx'}, result => ...)`.
+
+In diesem Fall wird die Antwort nach der Ausführung des Löschvorgangs gesendet und lautet entweder `{success: true}` oder `{error: "..."}`.
+Bei einem Array wird die Antwort sofort gesendet und enthält keine Informationen über die einzelnen Löschvorgänge.
+
 ## Zustand ändern
 Wenn Sie den Wert, die Qualität oder das Bestätigungsflag eines Eintrags in der Datenbank ändern möchten, können Sie die integrierte Systemfunktion **update** verwenden:
 
@@ -551,6 +556,24 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@ipod86) Added a button to the datapoint settings to delete all logged values of this datapoint
+* (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` now report errors back to the caller instead of always answering with success
+* (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` work now also for datapoints whose logging is disabled
+* (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` delete the counter values of a numeric datapoint (table `ts_counter`) too
+* (@GermanBluefox) Fixed `NaN` as a result of the aggregation `percentile` with 100 or `quantile` with 1
+* (@GermanBluefox) Fixed the last value of the `integralTotal` aggregation: it was interpolated onto the start instead of the end of the requested range
+
+### 4.0.4 (2026-08-11)
+* (@GermanBluefox) Fixed that nothing was stored for datapoints with an `aliasId`: the adapter subscribed to the alias name instead of the real state ID, so no state change ever arrived
+
+### 4.0.3 (2026-08-11)
+* (@GermanBluefox) Corrected a small configuration error
+
+### 4.0.2 (2026-08-10)
+* (@GermanBluefox) Fixed empty charts for the aggregation `onchange` ("raw" in e-charts): it was run through the interval aggregation and returned only `null` values
+* (@GermanBluefox) The MySQL and phpMyAdmin docker containers are no longer enabled by default: instances without the docker settings in their config (e.g. after an update from 3.x) reported "Docker is not installed"
+
 ### 4.0.1 (2026-08-07)
 * (@GermanBluefox) Fixed MySQL error "Can't create more than max_prepared_stmt_count statements": every query allocated a server-side prepared statement
 * (@GermanBluefox) Batches of more than 500 values are no longer sent as one multi-statement query
@@ -558,19 +581,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### 4.0.0 (2026-08-04)
 * (@GermanBluefox) Migrated to TypeScript
 * (@GermanBluefox) Node.js 22 is now needed at a minimum!
-
-### 3.0.1 (2024-06-13)
-* (foxriver76) upgraded dependencies
-
-### 3.0.0 (2023-09-13)
-* IMPORTANT: Node.js 16.x is now needed at a minimum!
-* (bluefox) Allowed setting port 0 as default
-* (bluefox) Checked if a string is written into the number table
-* (bluefox) Added support for `count` aggregate type on getHistory
-
-### 2.2.0 (2022-09-19)
-* IMPORTANT: Node.js 14.x is now needed at a minimum!
-* (Apollon77) Fix potential crash cases with upcoming js-controller versions
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

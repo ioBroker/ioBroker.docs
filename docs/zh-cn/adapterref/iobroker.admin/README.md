@@ -90,8 +90,10 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 8.0.7 (2026-08-26)
+- (@GermanBluefox) The JSON tabs (`common.adminTab.link`) are now validated against the JsonConfig schema too
 - (SimonFischer04) Admin can now run behind a reverse-proxy sub-path (e.g. `/admin/`)
+- (SimonFischer04) Prefix legacy jQuery adapter-icon URLs and inject `info.js` into `<HEAD>` as well
 - (@GermanBluefox) Corrected layout of Config view
 
 ### 8.0.5 (2026-08-19)
@@ -114,11 +116,6 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 - (@GermanBluefox) Added the folder selection to the alias creation dialog
 - (@GermanBluefox) Hidden the chart in the value editor in the mobile view
 - (@GermanBluefox) Small GUI improvements
-
-### 8.0.1 (2026-08-03)
-- (@GermanBluefox) Breaking: React19 + MUI9
-- (@GermanBluefox) Breaking: Node 22 or higher required
-- (@GermanBluefox) Improved charts in tooltip
 
 ## License
 

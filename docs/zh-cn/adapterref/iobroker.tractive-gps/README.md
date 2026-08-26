@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tractive-gps/README.md
 title: ioBroker.tractive-gps
-hash: MteWBrTibzitkSIjOvWT36omfScaaB0vj3YuA+WrA90=
+hash: g8VrbNDoLmYPA1H3vfwazDDbJcw04EbwgBpnmQO0HsA=
 ---
 ![标识](../../../en/adapterref/iobroker.tractive-gps/admin/tractive-gps.png)
 
@@ -26,10 +26,8 @@ hash: MteWBrTibzitkSIjOvWT36omfScaaB0vj3YuA+WrA90=
 ## 免责声明
 本项目中提及的所有产品和公司名称、标识和商标均属于其各自所有者。Tractive及其相关名称、标识和商标均为Tractive GmbH或其各自所有者的财产。其使用仅用于识别目的，并不暗示与Tractive GmbH或其关联公司存在任何关联、赞助或认可关系。本项目为私人非商业项目，仅供娱乐用途。
 
-## 使用 Sentry 进行错误报告
-此适配器使用 ioBroker 提供的 Sentry 集成，自动向开发人员报告意外异常和代码错误。自 3.0 版本起，js-controller 就已提供错误报告功能，有助于识别和解决那些可能被忽略的缺陷。
-
-有关传输信息的详细信息以及禁用错误报告的说明，请参阅 [ioBroker Sentry 官方文档](https://github.com/ioBroker/ioBroker.js-controller#error-reporting-via-iobroker-sentry)。
+## 哨兵
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 有关禁用错误报告的更多详细信息和说明，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
 ＃＃ 描述
 该适配器将 ioBroker 连接到 Tractive 账户，并使 ioBroker 能够提供宠物和 GPS 追踪器的当前信息。这样，位置、电池电量、连接状态、宠物信息以及支持的追踪器功能就可以用于自动化和可视化操作。
@@ -41,8 +39,8 @@ hash: MteWBrTibzitkSIjOvWT36omfScaaB0vj3YuA+WrA90=
 ＃＃ 要求
 - Node.js 22.13 或更高版本
 - js-controller 7.2.2 或更高版本
-- 管理员版本 8 或更高版本
-- 使用内置小部件时，需要 VIS 2 版本 2.12.8 或更高版本。
+- 管理员版本 7.8.23 或更高版本
+- 使用内置小部件时，需要 VIS 1 或 VIS 2 版本 2.12.8 或更高版本。
 - 一个至少关联了一个跟踪器的 Tractive 帐户
 
 ＃＃ 特征
@@ -53,7 +51,7 @@ hash: MteWBrTibzitkSIjOvWT36omfScaaB0vj3YuA+WrA90=
 - 提供型号、固件、硬件版本、功能、性别、生日、身高、体重和其他可用信息。
 - 当追踪器报告具备相应功能时，支持实时追踪、LED 和蜂鸣器命令。
 - 将所有检索到的帐户、订阅、共享、宠物、跟踪器、位置和硬件数据存储为逻辑本地状态树和一个完整的 JSON 快照。
-- 包含一张响应式 VIS 2 卡，带有宠物图像、交互式地图、范围显示和跟踪器状态。
+- 包括 VIS 1 和 VIS 2 的响应式卡片，带有宠物图像、交互式地图、范围显示、跟踪器状态和命令控制。
 - 支持 Tractive 提供的图像或上传到 ioBroker 的自定义图像。
 - 检测缺失或过时的跟踪器数据，而不会自动删除现有对象。
 
@@ -77,7 +75,7 @@ hash: MteWBrTibzitkSIjOvWT36omfScaaB0vj3YuA+WrA90=
 - 宠物档案、图片和其他静态细节会在每日完全同步期间刷新。
 - 适配器启动后还会执行完全同步。
 
-Tractive 可能会暂时限制请求，并返回 HTTP 429 错误。适配器会间隔请求，在收到此类限制时暂停所有请求，并自动重试。成功更新将显示在 `info.lastSuccessfulSync` 和 `info.dataFresh` 中。
+Tractive 可能会暂时限制请求，并返回 HTTP 429 错误。适配器会间隔请求，并在收到此类限制时暂停所有请求，然后自动重试。成功更新将显示在 `info.lastSuccessfulSync` 和 `info.dataFresh` 中。
 
 ## 对象和状态
 最重要的对象按以下方式分组：
@@ -133,8 +131,8 @@ tractive-gps.0
 
 将所需状态设置为`true`或`false`。Tractive接受命令后，状态即被确认。
 
-## VIS 2 小部件
-该适配器包含 VIS 2 的 `PetTrackerCard` 小部件。为每个宠物或追踪器添加一个小部件，并在小部件设置中分配请求的状态。
+## VIS 小部件
+该适配器包含一个用于 VIS 1 的经典 `PetTrackerCard` 和一个用于 VIS 2 的原生 React `PetTrackerCard`。为每个宠物或追踪器添加一个组件，并在组件设置中分配请求的状态。
 
 该卡片可以显示：
 
@@ -154,7 +152,7 @@ tractive-gps.0
 要使用命令开关，请在控件的“命令”部分中分配相应的 `trackers.<tracker-id>.commands.*` 状态。在编辑 VIS 视图时，命令将被禁用；在运行时模式下，命令将变为可用状态。
 
 ## 隐私和安全
-- 密码使用ioBroker的加密配置机制进行存储。
+- 密码采用 ioBroker 的加密配置机制进行存储。
 - 访问令牌保存在内存中，并自动刷新。
 - 选定的账户和订阅信息存储在逻辑对象树中。检索到的完整 API 数据存储在本地的 `info.currentApi` 中。请相应地保护对 ioBroker 对象树的访问。
 - 密码和访问令牌永远不会添加到 API 状态树中，而是通过加密配置或内存进行保护。
@@ -179,6 +177,11 @@ tractive-gps.0
 最初由 [xXBJXx](https://github.com/xXBJXx) 创建，并由 ioBroker 社区适配器组织维护。
 
 ## Changelog
+### 3.1.0 (2026-08-25)
+
+- (xXBJXx) Addressed repository-checker findings for dependencies, metadata, documentation, and adapter-managed timers (#319).
+- (xXBJXx) Added and correctly registered a classic VIS 1 pet tracker card alongside the native VIS 2 widget, including the pet image, Leaflet map, location and tracker details, automatic theme colors, and tracker command controls.
+
 ### 3.0.0 (2026-08-24)
 
 - (xXBJXx) BREAKING: rewritten for Node.js 22, js-controller 7.2.2, and Admin 8.
@@ -231,11 +234,11 @@ tractive-gps.0
 - (bluefox) Removed old code and rewrote the GUI.
 - (bluefox) Updated dependencies.
 
-### 1.2.0 (2024-04-28)
-
-- (mcm1957) Adapter requires Node.js 18 and js-controller 5 or newer.
-- (mcm1957) Updated dependencies.
+Earlier changes are documented in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
+
+Copyright (c) 2023-2026 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023 xXBJXx <issi.dev.iobroker@gmail.com>
 
 MIT License. See [LICENSE](LICENSE).

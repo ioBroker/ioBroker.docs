@@ -127,6 +127,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (HombachC) fixed vulnerability
+- (HombachC) updated dependencies
+
 ### 0.16.1 (2026-08-10)
 
 - (HombachC) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts

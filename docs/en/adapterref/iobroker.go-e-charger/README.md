@@ -179,8 +179,7 @@ If you enjoyed this project – or are just feeling generous – consider buying
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.5.0 (2026-08-25)
 
 - (hombach) ChargeManager: grid reserve power and maximum battery bonus are now configurable (defaults 100 W / 2000 W) (#852)
 - (hombach) ChargeManager: minimum and maximum surplus charging current are now configurable, with the maximum raised to up to 32 A (#852)
@@ -212,14 +211,6 @@ If you enjoyed this project – or are just feeling generous – consider buying
 
 - (hombach) added info.accessControlState (go-e access_state: 0 = open, 1 = RFID/App required, 2 = price/automatic) (#634)
 - (hombach) tightened TypeScript types for go-e API response fields (removed any)
-- (hombach) updated dependencies
-
-### 1.2.1 (2026-07-31)
-
-- (typhosj) made ChargeManager surplus control more fail-safe: input validation, current clamped to 0-16 A, resilience of state-machine loop (#841)
-- (hombach) added support for firmware V60.5 (#800) and V60.6 (#844)
-- (typhosj) added ChargeManager PV surplus configuration guide (#842)
-- (hombach) corrected no-battery helper-state recommendation for ChargeManager
 - (hombach) updated dependencies
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)

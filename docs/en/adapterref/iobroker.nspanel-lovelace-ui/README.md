@@ -157,6 +157,9 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (tt-tom17) admin: the trash page now shows a status line after an .ics upload, including the number of appointments found
+
 ### 1.0.0 (2026-08-18)
 - (copilot) **BREAKING:** Adapter requires node.js >= 22 now
 - (GermanBluefox) **BREAKING:** Admin UI migrated to React 19 / MUI 9 / `@iobroker/gui-components` – requires admin 8.0.0 or newer

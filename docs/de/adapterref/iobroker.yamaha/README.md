@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.yamaha/README.md
 title: <img src="https://cdn.jsdelivr.net/gh/iobroker-community-adapters/ioBroker.yamaha@master/admin/yamaha.svg" width="48" align="top" /> ioBroker.yamaha
-hash: +YtGbtXS8CaTUQ5dtzvxBO6kEZY+AWsc+vnYjGT3q4I=
+hash: k47k9S3ioDSalfpoxnNpgo0MGMDWe312emY4++ZQ7jc=
 ---
 # <img src="https://cdn.jsdelivr.net/gh/iobroker-community-adapters/ioBroker.yamaha@master/admin/yamaha.svg" width="48" align="top" /> ioBroker.yamaha
 
@@ -25,7 +25,8 @@ Steuert AV-Receiver und MusicCast-Geräte von ioBroker über das lokale Netzwerk
 - **Sofortige Aktualisierungen** – MusicCast überträgt seine Änderungen, YNCA meldet dies über seine Live-Verbindung.
 - **Selbstheilende Verbindungen** – ein Offline-Empfänger verbindet sich, sobald er antwortet; ein einzelnes Protokoll verbindet sich selbstständig wieder, während die anderen weiterlaufen.
 - **Typisierte Datenpunkte** – Boolesche Werte, Dropdown-Listen und Zahlen mit Einheit und Bereich anstelle von reinem Text
-- **Voreinstellungen und Favoriten** – Tuner-Voreinstellungen und gespeicherte Netzwerk-/USB-Favoriten anhand der Nummer aufrufen, Voreinstellungen durchblättern und die gespeicherten Listen mit ihren Namen anzeigen (MusicCast); zuletzt abgespielte Titel auf MusicCast-Geräten abrufen
+- **Voreinstellungen und Favoriten** – Tuner-Voreinstellungen und gespeicherte Netzwerk-/USB-Favoriten anhand der Nummer aufrufen, durch die Voreinstellungen navigieren, den aktuellen Sender in einem Speicherplatz speichern oder als Lesezeichen markieren und die gespeicherten Listen mit ihren Namen anzeigen (MusicCast); zuletzt gespielte Titel auf MusicCast-Geräten abrufen
+- **Menünavigation** – Blättern Sie wie mit der Fernbedienung durch die Menüs für Internetradio, Medienserver und USB: Die sichtbaren Menüzeilen werden als Datenpunkte dargestellt, eine zeilenweise Auswahl ist möglich, und ein Pfad-Datenpunkt ermöglicht die Navigation zu einem Favoriten mit nur einem Klick.
 - **Uhr- und Weckeransicht** – MusicCast-Tisch-Audiogeräte zeigen ihre Uhr- und Weckereinstellungen an
 - **Fähigkeitsgesteuert** – Zustände werden aus den Meldungen der einzelnen Geräte generiert, keine fest codierte Modellliste
 - **Automatische Erkennung** – eine leere Geräteliste findet und richtet MusicCast-Geräte beim Start automatisch ein.
@@ -47,13 +48,13 @@ Geräte werden in der Administration als Karten verwaltet. **Lassen Sie die List
 
 Ältere Yamaha-Receiver (vor ca. 2010, XML-Protokoll) melden sich nicht automatisch im Netzwerk an und müssen manuell hinzugefügt werden. Das **XML-Abfrageintervall** legt fest, wie oft sie abgefragt werden (Standard: 60 Sekunden).
 
-Im Abschnitt **Datenpunkte** lassen sich ganze Gruppen von Datenpunkten aktivieren oder deaktivieren – **Wiedergabe**, **Tuner**, **Multiroom**, **HDMI**, **Szenen**, **Ton**, **Erweitert** und **Uhr & Wecker**. Eine deaktivierte Gruppe wird aus der Baumstruktur entfernt und nicht mehr abgefragt, was den Startvorgang beschleunigt. Die Verstärkerfunktionen (Ein/Aus, Lautstärke, Stummschaltung, Eingang, Klangprogramm, Standby) bleiben stets aktiv.
+Im Bereich **Datenpunkte** lassen sich ganze Gruppen von Datenpunkten aktivieren oder deaktivieren – **Wiedergabe & Durchsuchen**, **Tuner**, **Multiroom**, **HDMI**, **Szenen**, **Ton**, **Erweitert** und **Uhr & Wecker**. Eine deaktivierte Gruppe wird aus der Baumstruktur entfernt und nicht mehr abgefragt, was den Startvorgang beschleunigt. Die Verstärkerfunktionen (Ein/Aus, Lautstärke, Stummschaltung, Eingang, Klangprogramm, Standby) bleiben stets aktiv.
 
 ## Staatsbaum
 Jeder Empfänger wird zu einem Geräteknoten mit thematischen Gruppen – denselben Gruppen, die die **Datenpunkte**-Schalter steuern. Es werden nur die von Ihrem Gerät gemeldeten Daten erstellt.
 
 - **Verstärkerkern** (immer eingeschaltet) — Ein-/Ausschalten, Lautstärke, Stummschaltung, Eingang, Klangprogramm, Schlafmodus sowie Geräteinformationen mit Modell, Firmware und Verbindung.
-- **`player`** — ein Kanal pro Wiedergabequelle (Spotify, USB, Server, Internetradio, CD, …) mit Wiedergabestatus, Interpret, Album, Titel, Coverbild und den Transporttasten.
+- **`player`** – ein Kanal pro Wiedergabequelle (Spotify, USB, Server, Internetradio, CD usw.) mit Wiedergabestatus, Interpret, Album, Titel, Coverbild und den Transporttasten. Der Ordner `player.browse` spiegelt das Medienmenü des Geräts wider: die acht sichtbaren Zeilen (Ordner und Titel, gekennzeichnet durch ein Symbol), `selectLine` fungiert wie die OK-Taste auf der Fernbedienung, Seiten-/Zurück-/Root-Tasten, ein `rows`-JSON für Widgets und ein `path`-Datenpunkt, der z. B. mit einem Schreibvorgang von `Bookmarks>Radio Paradise` zu einem Verzeichnis führt.
 - **`tuner`** — AM/FM- und DAB-Radio inklusive RDS-Texten und Frequenz.
 - **`multiroom`** — Zonen 2–4, Zone B, die All-Zones-Schalter (Master Power, Party-Modus) und die MusicCast-Gerätegruppe in ihrem eigenen Ordner `multiroom.group`.
 - **`hdmi`** — die HDMI-Ausgänge und die Lippensynchronisation.
@@ -110,6 +111,22 @@ Dieser Adapter ist kostenlos und Open Source. Wenn er Ihnen nützlich ist, würd
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (krobipd) Fixed: commands sent in quick succession all arrive — a scene switching power, input and volume in one go used to lose everything after the first command
+- (krobipd) Fixed: a command the device rejects is now reported instead of counting as success, so a MusicCast device that stops answering is reconnected rather than silently freezing
+- (krobipd) Fixed: names and menu entries containing "&" or other special characters now read and write correctly on the older XML protocol
+- (krobipd) Fixed: writing one equalizer band no longer resets the other two when the device has not reported its bands yet
+- (krobipd) Fixed: switching the tuner band and setting a frequency right after each other now applies the frequency to the new band
+- (krobipd) Improved: startup with automatic discovery is much faster on networks with many devices, and a reconnect no longer re-asks what the device already told us
+- (krobipd) Fixed: recalling a favourite, a recently played item or a tuner preset now goes to the zone that is actually listening instead of always switching the main zone
+- (krobipd) Improved: stopping or restarting the adapter no longer leaves requests running that write to datapoints afterwards
+### 1.3.0 (2026-08-26)
+
+- (krobipd) New: menu browsing — page through the Net Radio, server and USB menus like with the remote: visible lines as datapoints, select-by-line, and a path datapoint for one-write navigation (#613)
+- (krobipd) New: save presets from ioBroker — store the current tuner or network station to a preset slot and bookmark the playing Net Radio station on YNCA receivers.
+- (krobipd) New: Bluetooth pairing and connect controls, FM mono mode and tuning indicators on YNCA receivers.
+
 ### 1.2.0 (2026-08-25)
 
 - (krobipd) Fixed: volume writes work again — a written -38 dB reached the receiver as -3.8 dB, so most values were ignored; all numeric controls now send the proper wire format (#612)
@@ -138,10 +155,6 @@ Dieser Adapter ist kostenlos und Open Source. Wenn er Ihnen nützlich ist, würd
 - (krobipd) Every device shows a type icon — receiver, stereo receiver, speaker, soundbar or CD system, detected from the reported model — in the object tree and on its admin card; the adapter logo now stays readable in light and dark mode.
 - (krobipd) Upgrading from 0.5.x shows a one-time notice explaining the new object tree before the update installs.
 - (mcm1957) version has been rebuilt due to deploy problems
-
-### 0.5.4 (2024-06-14) — stable
-
-- (foxriver76) updated packages
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

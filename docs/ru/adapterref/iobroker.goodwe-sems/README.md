@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.goodwe-sems/README.md
 title: ioBroker.goodwe-sems
-hash: DSAtIgJpgbtZtdv9oQBZimiH0ETxPNUrKRjChidK/a0=
+hash: MlCH7nZyW47tswu+Z/QBJgqqK91CEhQAUdG6M3MVUbs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.goodwe-sems/admin/goodwe-sems.png)
 
@@ -35,7 +35,7 @@ hash: DSAtIgJpgbtZtdv9oQBZimiH0ETxPNUrKRjChidK/a0=
 - [Лицензия](#лицензия)
 
 ## Зачем нужен этот адаптер?
-Считывание данных с инверторов GoodWe ET/EH/BH/BT обычно осуществляется локально через Modbus/UDP (см. [Если нет доступа к инвертору по локальной сети (например, потому что к порталу SEMS подключен только адаптер WLAN/LTE, а целевая сеть недоступна иным способом), единственным оставшимся вариантом является обходной путь через облачный портал **[SEMS Portal](https://www.semsportal.com)** ([GoodWe](https://www.goodwe.com)), что и так уже используется для мониторинга установки.
+Считывание данных с инверторов GoodWe ET/EH/BH/BT обычно осуществляется локально через Modbus/UDP (см. [Если нет доступа к инвертору по локальной сети (например, потому что к порталу SEMS подключен только адаптер WLAN/LTE, а целевая сеть недоступна иным способом), единственным оставшимся вариантом является обходной путь через облачный портал **[SEMS Portal](https://www.semsportal.com)** ([GoodWe](https://www.goodwe.com)), что и так обеспечивает мониторинг установки.
 
 ## Происхождение и ограничения API (пожалуйста, ознакомьтесь)
 Компания GoodWe официально предлагает три API (см. [Техническая документация GoodWe API](https://community.goodwe.com/solution/API)):
@@ -57,7 +57,11 @@ hash: DSAtIgJpgbtZtdv9oQBZimiH0ETxPNUrKRjChidK/a0=
 - Обнаружен **код ограничения скорости запросов (`GY0429`)** (задокументирован, среди прочего, в интеграции с Home Assistant). Адаптер распознает этот код и автоматически приостанавливает работу (по умолчанию 5-минутная задержка), вместо того чтобы подвергать учетную запись опасности повторными запросами.
 — Используйте на свой страх и риск, см. [ЛИЦЕНЗИЯ](ЛИЦЕНЗИЯ) (MIT, без гарантий).
 
-**Поля, не возвращаемые этой конечной точкой:** при сравнении с ответом в режиме реального времени в дневное время, ответ шлюза `GetMonitorDetailByPowerstationId`, используемый этим адаптером, не содержит метку времени станции (`info.time`), а также поля генерации/дохода/валюты за текущий месяц (`kpi.month_generation`, `kpi.day_income`, `kpi.total_income`, `kpi.currency`). Соответствующие состояния (`Station.PortalTimestamp`, `KPI.MonthGeneration`, `KPI.TodayIncome`, `KPI.TotalIncome`, `KPI.Currency`) никогда не создаются ни для одной учетной записи/времени суток — это постоянный пробел в самом API шлюза, а не временное отсутствие в часы низкой выработки электроэнергии. Состояния `Battery.*` и `PowerFlow.*` создаются только тогда, когда портал фактически возвращает данные о батарее/потоке энергии для электростанции (например, ключ `powerflow` вообще отсутствует для электростанций без батареи).
+**Поля, не возвращаемые этой конечной точкой:** при сравнении с ответом в режиме реального времени в дневное время, ответ шлюза `GetMonitorDetailByPowerstationId`, используемый этим адаптером, не содержит метку времени станции (`info.time`), а также поля генерации/дохода/валюты за текущий месяц (`kpi.month_generation`, `kpi.day_income`, `kpi.total_income`, `kpi.currency`). Соответствующие состояния (`Station.PortalTimestamp`, `KPI.MonthGeneration`, `KPI.TodayIncome`, `KPI.TotalIncome`, `KPI.Currency`) никогда не создаются ни для одной учетной записи/времени суток — это постоянный пробел в самом API шлюза, а не временное отсутствие в часы низкой выработки электроэнергии. Состояния `PowerFlow.*` создаются только тогда, когда портал фактически возвращает данные о потоке электроэнергии для электростанции.
+
+**Данные о состоянии батареи (по желанию, экспериментальные):** указанная выше конечная точка шлюза не включает информацию о состоянии заряда/мощности/напряжении батареи и т. д., даже для предприятий, имеющих батарею. Собственный веб-портал GoodWe (`semsplus.goodwe.com`) получает эти данные через *отдельный*, совершенно другой, недокументированный API (сессия получена через `cross-login`, обнаружение устройства через `relatedDevices`, данные через собственную конечную точку `telemetry` устройства с типом `BAT_SYS`). Это было проверено и подтверждено по каждому полю на основе реального трафика браузера (HAR), захваченного системой GW8K-ET + LX с батареей. Если вы включите опцию **"Получить данные о батарее"** в конфигурации экземпляра, адаптер дополнительно вызовет этот второй API для каждого инвертора, который сообщает о подключенном устройстве `BAT_SYS`, используя *те же* учетные данные SEMS, которые уже настроены (отдельный вход в систему не требуется), и создаст `Inverters.<sn>.Battery.SOC/Power/Voltage/Current/Temperature/MaxChargeCurrent/MaxDischargeCurrent`.
+
+Этот API **более ненадежный и менее надежный, чем остальная часть адаптера**: это второй, независимо аутентифицированный, недокументированный, подписанный API, который GoodWe может изменять, ограничивать скорость запросов или блокировать без предварительного уведомления, совершенно отдельно от основного API мониторинга, указанного выше. Поэтому он отключен по умолчанию. Если он перестанет работать, остальная часть адаптера (генерация фотоэлектрической энергии, KPI, телеметрия инвертора) останется нетронутой — сбой телеметрии батареи будет обнаружен и зарегистрирован на уровне отладки для каждого инвертора, никогда не возникнет ошибки.
 
 ## Установка
 После того, как этот адаптер появится в официальном репозитории адаптеров ioBroker, установите его обычным способом: **Администрирование -> Адаптеры -> найдите "goodwe-sems" -> установить**.
@@ -89,14 +93,14 @@ goodwe-sems.0.info.rawResponse             Raw JSON response (only when the debu
 goodwe-sems.0.Station.Name / .Capacity / .Address / .Latitude / .Longitude / .PortalTimestamp / .Status / .StationId
 goodwe-sems.0.KPI.CurrentPower / .TodayGeneration / .MonthGeneration / .TotalGeneration / .TodayIncome / .TotalIncome / .Currency
 goodwe-sems.0.PowerFlow.PV / .Load / .Grid / .Battery / .LoadStatus / .GridStatus / .PvStatus / .BatteryStatus
-goodwe-sems.0.Battery.SOC / .Status
 goodwe-sems.0.EVCharger.*                  (only if reported by the portal)
 
 goodwe-sems.0.Inverters.<serial>.Name / .Model / .Status / .WarningCode
 goodwe-sems.0.Inverters.<serial>.CurrentPower / .TodayGeneration / .TotalGeneration / .Temperature
 goodwe-sems.0.Inverters.<serial>.PV1..4.Voltage / .Current
 goodwe-sems.0.Inverters.<serial>.AC_L1..3.Voltage / .Current / .Frequency
-goodwe-sems.0.Inverters.<serial>.Battery.SOC / .Voltage / .Current
+goodwe-sems.0.Inverters.<serial>.Battery.SOC / .Power / .Voltage / .Current / .Temperature / .MaxChargeCurrent / .MaxDischargeCurrent
+                                            (only with the "Fetch battery data" option enabled AND an attached battery)
 ```
 
 При наличии двух инверторов (как и предполагалось изначально при создании этого адаптера) автоматически создаются две ветви `Inverters.<serial>.*` — их количество не задано жестко, оно определяется исключительно данными, которые портал возвращает для настроенной учетной записи.
@@ -149,6 +153,10 @@ npx @iobroker/repochecker@latest .
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 1.0.8 (2026-08-25)
+
+- New (opt-in, experimental): battery telemetry via GoodWe's separate, undocumented web-portal API (own login/session, device discovery via relatedDevices(), data via a BAT_SYS device's telemetry() endpoint). Reverse-engineered and verified field-by-field against real captured browser traffic (thanks to a tester's HAR capture!) from a GW8K-ET + LX battery system, including the gateway's SHA-256 signature scheme. Enable "Fetch battery data" to create Inverters.<sn>.Battery.SOC/Power/Voltage/Current/Temperature/MaxChargeCurrent/MaxDischargeCurrent - uses the same SEMS credentials already configured. Off by default, fully isolated from core monitoring. Also fixed the previous always-empty top-level Battery.SOC/Status states and the guessed-but-wrong per-inverter field names - no migration needed since these states were never actually created.
 
 ### 1.0.7 (2026-08-11)
 

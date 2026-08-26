@@ -36,6 +36,11 @@ Der Adapter liest auch die Daten aus der App aus.
 
 ## Changelog
 
+### 0.0.21
+
+* (ta2k) Fix Statistics/Read 400 "Mindestens ein Parameter ist ungültig" (JobID aus Statistics/Refresh wird jetzt mitgesendet, verifiziert gegen APK v3.0.1)
+* (ta2k) Optionale App-Endpunkte (Statistics) loggen Fehler nur noch als debug statt error
+
 ### 0.0.20
 
 * (ta2k) Abgeschaltete Leistungs-/Prozentwerte (Aus/off/--) werden als numerische 0 gespeichert (kWh-Zähler bleiben unberührt)

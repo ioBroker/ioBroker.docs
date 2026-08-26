@@ -21,11 +21,9 @@
 
 All product and company names, logos, and trademarks mentioned in this project belong to their respective owners. Tractive and its associated names, logos, and trademarks are the property of Tractive GmbH or their respective owners. Their use is solely for identification and does not imply any affiliation with, sponsorship by, or endorsement from Tractive GmbH or its associated companies. This is a private, non-commercial project developed for recreational purposes.
 
-## Error reporting with Sentry
+## Sentry
 
-This adapter uses the Sentry integration provided by ioBroker to automatically report unexpected exceptions and code errors to the developers. Error reporting has been available through js-controller since version 3.0 and helps identify and resolve defects that might otherwise go unnoticed.
-
-For details about the transmitted information and instructions for disabling error reporting, see the [official ioBroker Sentry documentation](https://github.com/ioBroker/ioBroker.js-controller#error-reporting-via-iobroker-sentry).
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and instructions on disabling error reporting, please refer to the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Use of Sentry reporting starts with js-controller 3.0.
 
 ## Description
 
@@ -39,8 +37,8 @@ The adapter uses an unofficial Tractive service interface. A working Tractive ac
 
 - Node.js 22.13 or newer
 - js-controller 7.2.2 or newer
-- Admin 8 or newer
-- VIS 2 version 2.12.8 or newer when using the included widget
+- Admin 7.8.23 or newer
+- VIS 1, or VIS 2 version 2.12.8 or newer, when using an included widget
 - A Tractive account with at least one associated tracker
 
 ## Features
@@ -52,7 +50,7 @@ The adapter uses an unofficial Tractive service interface. A working Tractive ac
 - Provides model, firmware, hardware version, capabilities, gender, birthday, height, weight, and other available information.
 - Supports live tracking, LED, and buzzer commands when the tracker reports the corresponding capability.
 - Stores all retrieved account, subscription, share, pet, tracker, position, and hardware data as a logical local state tree and as one complete JSON snapshot.
-- Includes a responsive VIS 2 card with pet image, interactive map, range display, and tracker status.
+- Includes responsive cards for VIS 1 and VIS 2 with a pet image, interactive map, range display, tracker status, and command controls.
 - Supports an image supplied by Tractive or a custom image uploaded to ioBroker.
 - Detects missing or stale tracker data without automatically deleting existing objects.
 
@@ -140,9 +138,9 @@ The following writable states are created only when supported by the selected tr
 
 Set the desired state to `true` or `false`. The state is acknowledged after Tractive accepts the command.
 
-## VIS 2 widget
+## VIS widgets
 
-The adapter includes the `PetTrackerCard` widget for VIS 2. Add one widget for each pet or tracker and assign the requested states in the widget settings.
+The adapter includes a classic `PetTrackerCard` for VIS 1 and a native React `PetTrackerCard` for VIS 2. Add one widget for each pet or tracker and assign the requested states in the widget settings.
 
 The card can display:
 
@@ -187,6 +185,11 @@ To use the command switches, assign the corresponding `trackers.<tracker-id>.com
 Information for contributors is available in [Developer documentation](docs/DEVELOPMENT.md).
 
 ## Changelog
+### 3.1.0 (2026-08-25)
+
+- (xXBJXx) Addressed repository-checker findings for dependencies, metadata, documentation, and adapter-managed timers (#319).
+- (xXBJXx) Added and correctly registered a classic VIS 1 pet tracker card alongside the native VIS 2 widget, including the pet image, Leaflet map, location and tracker details, automatic theme colors, and tracker command controls.
+
 ### 3.0.0 (2026-08-24)
 
 - (xXBJXx) BREAKING: rewritten for Node.js 22, js-controller 7.2.2, and Admin 8.
@@ -239,15 +242,15 @@ Information for contributors is available in [Developer documentation](docs/DEVE
 - (bluefox) Removed old code and rewrote the GUI.
 - (bluefox) Updated dependencies.
 
-### 1.2.0 (2024-04-28)
-
-- (mcm1957) Adapter requires Node.js 18 and js-controller 5 or newer.
-- (mcm1957) Updated dependencies.
+Earlier changes are documented in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## Credits
 
 Originally created by [xXBJXx](https://github.com/xXBJXx) and maintained by the ioBroker community adapters organization.
 
 ## License
+
+Copyright (c) 2023-2026 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023 xXBJXx <issi.dev.iobroker@gmail.com>
 
 MIT License. See [LICENSE](LICENSE).

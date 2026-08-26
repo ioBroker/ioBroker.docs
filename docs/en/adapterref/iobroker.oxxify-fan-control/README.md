@@ -66,8 +66,7 @@ This channel contains system data about the hardware and firmware as well as run
 -->
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 0.0.17 (2026-08-25)
 
 - Security vulnerabilities fixed
 - Dependencies updated
@@ -92,14 +91,6 @@ This channel contains system data about the hardware and firmware as well as run
 
 - Auto PRs merged
 - Fixing other deployment issues...
-
-### 0.0.12 (2026-04-06)
-
-- Deploy workflow changed from "npm install" to "npm ci"
-
-### 0.0.11 and older
-
-[Link](/CHANGELOG_OLD.md)
 
 ## License
 

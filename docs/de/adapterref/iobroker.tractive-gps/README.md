@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tractive-gps/README.md
 title: ioBroker.tractive-gps
-hash: MteWBrTibzitkSIjOvWT36omfScaaB0vj3YuA+WrA90=
+hash: g8VrbNDoLmYPA1H3vfwazDDbJcw04EbwgBpnmQO0HsA=
 ---
 ![Logo](../../../en/adapterref/iobroker.tractive-gps/admin/tractive-gps.png)
 
@@ -26,10 +26,8 @@ hash: MteWBrTibzitkSIjOvWT36omfScaaB0vj3YuA+WrA90=
 ## Haftungsausschluss
 Alle in diesem Projekt erwähnten Produkt- und Firmennamen, Logos und Marken gehören ihren jeweiligen Eigentümern. Tractive und die zugehörigen Namen, Logos und Marken sind Eigentum der Tractive GmbH oder ihrer jeweiligen Eigentümer. Ihre Verwendung dient ausschließlich der Identifizierung und impliziert keine Zugehörigkeit zu, Unterstützung durch oder Empfehlung seitens der Tractive GmbH oder ihrer verbundenen Unternehmen. Dies ist ein privates, nicht-kommerzielles Projekt, das zu Freizeitzwecken entwickelt wurde.
 
-## Fehlerberichterstattung mit Sentry
-Dieser Adapter nutzt die von ioBroker bereitgestellte Sentry-Integration, um unerwartete Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Die Fehlerberichterstattung ist seit Version 3.0 über js-controller verfügbar und hilft dabei, Fehler zu identifizieren und zu beheben, die sonst unbemerkt bleiben würden.
-
-Einzelheiten zu den übermittelten Informationen und Anweisungen zum Deaktivieren der Fehlerberichterstattung finden Sie in [offizielle ioBroker Sentry-Dokumentation](https://github.com/ioBroker/ioBroker.js-controller#error-reporting-via-iobroker-sentry).
+## Wächter
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Anweisungen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Verwendung der Sentry-Berichterstattung beginnt mit js-controller 3.0.
 
 ## Beschreibung
 Der Adapter verbindet ioBroker mit einem Tractive-Konto und stellt aktuelle Informationen zu Haustieren und GPS-Trackern als ioBroker-Status bereit. Dadurch können Standorte, Akkustände, Verbindungsstatus, Haustierinformationen und unterstützte Tracker-Funktionen in Automatisierungen und Visualisierungen genutzt werden.
@@ -41,8 +39,8 @@ Der Adapter nutzt eine inoffizielle Schnittstelle zum Tractive-Dienst. Ein funkt
 ## Anforderungen
 - Node.js 22.13 oder neuer
 - js-controller 7.2.2 oder neuer
-- Admin 8 oder neuer
-- VIS 2 Version 2.12.8 oder neuer bei Verwendung des enthaltenen Widgets
+- Admin 7.8.23 oder neuer
+- VIS 1 oder VIS 2 Version 2.12.8 oder neuer, bei Verwendung eines enthaltenen Widgets
 - Ein Tractive-Konto mit mindestens einem zugehörigen Tracker
 
 ## Merkmale
@@ -53,7 +51,7 @@ Der Adapter nutzt eine inoffizielle Schnittstelle zum Tractive-Dienst. Ein funkt
 - Liefert Modell, Firmware, Hardwareversion, Funktionen, Geschlecht, Geburtsdatum, Größe, Gewicht und weitere verfügbare Informationen.
 - Unterstützt Live-Tracking, LED- und Summerbefehle, wenn der Tracker die entsprechende Fähigkeit meldet.
 - Speichert alle abgerufenen Konto-, Abonnement-, Anteils-, Haustier-, Tracker-, Positions- und Hardwaredaten als logischen lokalen Zustandsbaum und als einen vollständigen JSON-Snapshot.
-- Enthält eine responsive VIS 2-Karte mit Haustierbild, interaktiver Karte, Reichweitenanzeige und Tracker-Status.
+- Enthält responsive Karten für VIS 1 und VIS 2 mit einem Haustierbild, einer interaktiven Karte, einer Reichweitenanzeige, dem Tracker-Status und Bedienelementen.
 - Unterstützt ein von Tractive bereitgestelltes Bild oder ein benutzerdefiniertes Bild, das auf ioBroker hochgeladen wurde.
 - Erkennt fehlende oder veraltete Trackerdaten, ohne vorhandene Objekte automatisch zu löschen.
 
@@ -133,8 +131,8 @@ Die folgenden beschreibbaren Zustände werden nur dann erstellt, wenn sie vom au
 
 Setzen Sie den gewünschten Zustand auf `true` oder `false`. Der Zustand wird bestätigt, nachdem Tractive den Befehl angenommen hat.
 
-## VIS 2-Widget
-Der Adapter beinhaltet das Widget `PetTrackerCard` für VIS 2. Fügen Sie für jedes Haustier oder jeden Tracker ein Widget hinzu und weisen Sie in den Widget-Einstellungen die gewünschten Zustände zu.
+## VIS-Widgets
+Der Adapter enthält ein klassisches `PetTrackerCard` für VIS 1 und ein natives React `PetTrackerCard` für VIS 2. Fügen Sie für jedes Haustier oder jeden Tracker ein Widget hinzu und weisen Sie die gewünschten Zustände in den Widget-Einstellungen zu.
 
 Die Karte kann Folgendes anzeigen:
 
@@ -179,6 +177,11 @@ Informationen für Mitwirkende finden Sie in [Entwicklerdokumentation](docs/DEVE
 Ursprünglich erstellt von [xXBJXx](https://github.com/xXBJXx) und gepflegt von der ioBroker Community Adapters Organisation.
 
 ## Changelog
+### 3.1.0 (2026-08-25)
+
+- (xXBJXx) Addressed repository-checker findings for dependencies, metadata, documentation, and adapter-managed timers (#319).
+- (xXBJXx) Added and correctly registered a classic VIS 1 pet tracker card alongside the native VIS 2 widget, including the pet image, Leaflet map, location and tracker details, automatic theme colors, and tracker command controls.
+
 ### 3.0.0 (2026-08-24)
 
 - (xXBJXx) BREAKING: rewritten for Node.js 22, js-controller 7.2.2, and Admin 8.
@@ -231,11 +234,11 @@ Ursprünglich erstellt von [xXBJXx](https://github.com/xXBJXx) und gepflegt von 
 - (bluefox) Removed old code and rewrote the GUI.
 - (bluefox) Updated dependencies.
 
-### 1.2.0 (2024-04-28)
-
-- (mcm1957) Adapter requires Node.js 18 and js-controller 5 or newer.
-- (mcm1957) Updated dependencies.
+Earlier changes are documented in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
+
+Copyright (c) 2023-2026 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023 xXBJXx <issi.dev.iobroker@gmail.com>
 
 MIT License. See [LICENSE](LICENSE).

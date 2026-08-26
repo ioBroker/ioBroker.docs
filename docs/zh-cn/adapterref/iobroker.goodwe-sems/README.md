@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.goodwe-sems/README.md
 title: ioBroker.goodwe-sems
-hash: DSAtIgJpgbtZtdv9oQBZimiH0ETxPNUrKRjChidK/a0=
+hash: MlCH7nZyW47tswu+Z/QBJgqqK91CEhQAUdG6M3MVUbs=
 ---
 ![标识](../../../en/adapterref/iobroker.goodwe-sems/admin/goodwe-sems.png)
 
@@ -17,7 +17,7 @@ hash: DSAtIgJpgbtZtdv9oQBZimiH0ETxPNUrKRjChidK/a0=
 # IoBroker.goodwe-sems
 ![测试与发布](https://github.com/bueste/ioBroker.goodwe-sems/actions/workflows/test-and-release.yml/badge.svg)
 
-从 **[GoodWe](https://www.goodwe.com) [SEMS Portal](https://www.semsportal.com)（云端）** - 适用于（例如，由于逆变器无法通过 LAN 访问）**无法**使用本地 [ioBroker.goodwe](https://www.goodwe) 进行轮询的安装。](https://github.com/FossyTom/ioBroker.goodwe) 适配器（Modbus/UDP，端口 8899）读取逆变器、电池和功率流数据。
+从 **[GoodWe](https://www.goodwe.com) [SEMS Portal](https://www.semsportal.com)（云端）** - 适用于那些（例如，由于逆变器无法通过 LAN 访问）**无法**使用本地 [ioBroker.goodwe](https://www.goodwe) 进行轮询的安装。](https://github.com/FossyTom/ioBroker.goodwe) 适配器（Modbus/UDP，端口 8899）读取逆变器、电池和功率流数据。
 
 登录使用您的**常规 SEMS Portal 帐户**（与您在 semsportal.com 或 SEMS 应用中使用的帐户相同）。**无需** GoodWe“组织”/OpenAPI 帐户。
 
@@ -52,12 +52,16 @@ GoodWe 正式提供三个 API（参见 [GoodWe API 技术文档](https://communi
 
 **结果：**
 
-- 好消息！我们可以随时更改 API，恕不另行通知 - 因此适配器可能会（暂时）损坏。
-- 目前**没有已记录的第三方实时/推送机制**（WebSocket/SignalR）。一些较早的登录响应中会出现 `msgSocketAdr` 字段，但上述任何参考项目实际上都没有使用它——使用它纯粹是逆向工程，缺乏可靠的文档，风险也显著更高（账户锁定、连接不稳定）。因此，此适配器特意通过 HTTPS 以可配置的间隔（默认 5 分钟）进行轮询，而不是伪造未经测试的 WebSocket 连接。
+- 好消息：我们可以随时更改 API，恕不另行通知 - 因此适配器可能会（暂时）损坏。
+- 目前**没有已记录的实时/推送机制**（WebSocket/SignalR），可供第三方使用。一些较早的登录响应中会出现 `msgSocketAdr` 字段，但上述任何参考项目实际上都没有使用它——使用它纯粹是逆向工程，缺乏可靠的文档，风险也显著更高（账户锁定、连接不稳定）。因此，此适配器特意通过 HTTPS 以可配置的间隔（默认 5 分钟）进行轮询，而不是伪造未经测试的 WebSocket 连接。
 - 检测到速率限制代码（`GY0429`），该代码已在 Home Assistant 集成文档中记录。适配器会识别此代码并自动暂停（默认冷却时间为 5 分钟），以避免因重复请求而导致账户被强制关闭。
 - 使用风险自负，请参阅[LICENSE](LICENSE)（MIT，无担保）。
 
-**此端点未返回的字段：**经与实时日间响应验证，此适配器使用的网关响应 `GetMonitorDetailByPowerstationId` 不包含站点时间戳 (`info.time`)，也不包含当月至今的发电量/收入/货币字段 (`kpi.month_generation`、`kpi.day_income`、`kpi.total_income`、`kpi.currency`)。因此，对于任何帐户/时间段，相应的状态 (`Station.PortalTimestamp`、`KPI.MonthGeneration`、`KPI.TodayIncome`、`KPI.TotalIncome`、`KPI.Currency`) 都不会创建——这是网关 API 本身的永久性缺陷，而非低发电时段的暂时缺失。只有当门户网站实际返回电厂的电池/潮流数据时，才会创建 `Battery.*` 和 `PowerFlow.*` 状态（例如，对于没有电池的电厂，根本不存在 `powerflow` 键）。
+**此端点未返回的字段：**经与实时日间响应验证，此适配器使用的网关响应 `GetMonitorDetailByPowerstationId` 不包含站点时间戳 (`info.time`)，也不包含当月至今的发电量/收入/货币字段 (`kpi.month_generation`、`kpi.day_income`、`kpi.total_income`、`kpi.currency`)。因此，对于任何账户/时间段，相应的状态 (`Station.PortalTimestamp`、`KPI.MonthGeneration`、`KPI.TodayIncome`、`KPI.TotalIncome`、`KPI.Currency`) 都不会创建——这是网关 API 本身的永久性缺陷，而非低发电时段的暂时缺失。`PowerFlow.*` 状态仅在门户实际返回电厂潮流数据时才会创建。
+
+**电池数据（可选，实验性功能）：**上述网关端点也不包含电池的充电状态/功率/电压等信息，即使对于配备电池的工厂也是如此——固特异自身的门户网站（`semsplus.goodwe.com`）通过一个*独立*的、完全不同的、未公开的 API 获取这些信息（会话通过 `cross-login` 获取，设备通过 `relatedDevices` 发现，数据通过 `BAT_SYS` 类型设备的自身 `telemetry` 端点获取）。该 API 经过逆向工程，并逐字段地与从 GW8K-ET + LX 电池系统捕获的真实浏览器流量（HAR）进行验证。如果在实例配置中启用“获取电池数据”选项，适配器还会对每个报告已连接的 `BAT_SYS` 设备的逆变器调用此第二个 API，使用已配置的 *相同* SEMS 凭证（无需单独登录）- 并创建 `Inverters.<sn>.Battery.SOC/Power/Voltage/Current/Temperature/MaxChargeCurrent/MaxDischargeCurrent`。
+
+这部分**比适配器的其他部分更脆弱、更不稳定**：它是一个独立的、经过独立认证的、未公开文档的、已签名的 API，GoodWe 可以随时更改、限制速率或阻止它，而无需事先通知，并且完全独立于上述主监控 API。因此，它默认处于关闭状态。如果它停止工作，适配器的其他部分（光伏发电量、KPI、逆变器遥测数据）不受影响——电池遥测故障会被捕获并以调试级别记录在每个逆变器的日志中，而不会被抛出异常。
 
 ＃＃ 安装
 一旦该适配器被列入官方 ioBroker 适配器存储库，即可按正常方式安装：**管理 -> 适配器 -> 搜索“goodwe-sems” -> 安装**。
@@ -89,14 +93,14 @@ goodwe-sems.0.info.rawResponse             Raw JSON response (only when the debu
 goodwe-sems.0.Station.Name / .Capacity / .Address / .Latitude / .Longitude / .PortalTimestamp / .Status / .StationId
 goodwe-sems.0.KPI.CurrentPower / .TodayGeneration / .MonthGeneration / .TotalGeneration / .TodayIncome / .TotalIncome / .Currency
 goodwe-sems.0.PowerFlow.PV / .Load / .Grid / .Battery / .LoadStatus / .GridStatus / .PvStatus / .BatteryStatus
-goodwe-sems.0.Battery.SOC / .Status
 goodwe-sems.0.EVCharger.*                  (only if reported by the portal)
 
 goodwe-sems.0.Inverters.<serial>.Name / .Model / .Status / .WarningCode
 goodwe-sems.0.Inverters.<serial>.CurrentPower / .TodayGeneration / .TotalGeneration / .Temperature
 goodwe-sems.0.Inverters.<serial>.PV1..4.Voltage / .Current
 goodwe-sems.0.Inverters.<serial>.AC_L1..3.Voltage / .Current / .Frequency
-goodwe-sems.0.Inverters.<serial>.Battery.SOC / .Voltage / .Current
+goodwe-sems.0.Inverters.<serial>.Battery.SOC / .Power / .Voltage / .Current / .Temperature / .MaxChargeCurrent / .MaxDischargeCurrent
+                                            (only with the "Fetch battery data" option enabled AND an attached battery)
 ```
 
 如果有两个逆变器（就像最初设计此适配器时所要求的那样），则会自动创建两个 `Inverters.<serial>.*` 分支 - 该数字不是硬编码的，而是完全由门户网站为配置帐户返回的内容驱动的。
@@ -110,7 +114,7 @@ goodwe-sems.0.Inverters.<serial>.Battery.SOC / .Voltage / .Current
 - **登录失败** -> 指数退避（上限为 1 小时），以避免错误的凭据给帐户带来额外的压力。
 - **网络/协议错误** -> 适度退避。
 - 在连续发生一定次数的故障（默认为 3 次）后，工厂将被视为“离线”，如果启用此功能，则会触发 Pushover 通知。
-- 所有内容还会以结构化的方式写入 ioBroker 日志（根据严重程度，分别标记为 `error`/`warn`/`debug`）。
+- 所有内容还会以结构化的方式写入 ioBroker 日志（根据严重程度，日志会以 `error`/`warn`/`debug` 的形式显示）。
 
 ## Pushover 通知
 可配置为三种模式：
@@ -149,6 +153,10 @@ npx @iobroker/repochecker@latest .
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 1.0.8 (2026-08-25)
+
+- New (opt-in, experimental): battery telemetry via GoodWe's separate, undocumented web-portal API (own login/session, device discovery via relatedDevices(), data via a BAT_SYS device's telemetry() endpoint). Reverse-engineered and verified field-by-field against real captured browser traffic (thanks to a tester's HAR capture!) from a GW8K-ET + LX battery system, including the gateway's SHA-256 signature scheme. Enable "Fetch battery data" to create Inverters.<sn>.Battery.SOC/Power/Voltage/Current/Temperature/MaxChargeCurrent/MaxDischargeCurrent - uses the same SEMS credentials already configured. Off by default, fully isolated from core monitoring. Also fixed the previous always-empty top-level Battery.SOC/Status states and the guessed-but-wrong per-inverter field names - no migration needed since these states were never actually created.
 
 ### 1.0.7 (2026-08-11)
 

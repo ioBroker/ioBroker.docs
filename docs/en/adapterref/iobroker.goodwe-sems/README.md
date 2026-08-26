@@ -53,7 +53,11 @@ None of these are accessible with a **normal** SEMS Portal account (the kind mos
 - A **rate-limit code (`GY0429`)** has been observed (documented, among others, in the Home Assistant integration). The adapter recognizes this code and automatically pauses (default 5-minute cool-down) instead of endangering the account with repeated requests.
 - Use at your own risk, see [LICENSE](LICENSE) (MIT, no warranty).
 
-**Fields not returned by this endpoint:** verified against a live daytime response, the `GetMonitorDetailByPowerstationId` gateway response used by this adapter does not include a station timestamp (`info.time`), nor month-to-date generation/income/currency fields (`kpi.month_generation`, `kpi.day_income`, `kpi.total_income`, `kpi.currency`). The corresponding states (`Station.PortalTimestamp`, `KPI.MonthGeneration`, `KPI.TodayIncome`, `KPI.TotalIncome`, `KPI.Currency`) are therefore never created for any account/time of day - this is a permanent gap in the gateway API itself, not a temporary absence during low-generation hours. `Battery.*` and `PowerFlow.*` states are created only when the portal actually returns battery/power-flow data for the plant (e.g. no `powerflow` key at all is present for plants without a battery).
+**Fields not returned by this endpoint:** verified against a live daytime response, the `GetMonitorDetailByPowerstationId` gateway response used by this adapter does not include a station timestamp (`info.time`), nor month-to-date generation/income/currency fields (`kpi.month_generation`, `kpi.day_income`, `kpi.total_income`, `kpi.currency`). The corresponding states (`Station.PortalTimestamp`, `KPI.MonthGeneration`, `KPI.TodayIncome`, `KPI.TotalIncome`, `KPI.Currency`) are therefore never created for any account/time of day - this is a permanent gap in the gateway API itself, not a temporary absence during low-generation hours. `PowerFlow.*` states are created only when the portal actually returns power-flow data for the plant.
+
+**Battery data (opt-in, experimental):** the gateway endpoint above does not include battery state of charge/power/voltage/etc. either, even for plants that do have a battery - GoodWe's own web portal (`semsplus.goodwe.com`) retrieves this via a *separate*, entirely different, undocumented API (session obtained via `cross-login`, device discovery via `relatedDevices`, data via a `BAT_SYS`-typed device's own `telemetry` endpoint). This was reverse-engineered and verified field-by-field against real captured browser traffic (HAR) from a GW8K-ET + LX battery system. If you enable the **"Fetch battery data"** option in the instance configuration, the adapter additionally calls this second API for every inverter that reports an attached `BAT_SYS` device, using the *same* SEMS credentials already configured (no separate login needed) - and creates `Inverters.<sn>.Battery.SOC/Power/Voltage/Current/Temperature/MaxChargeCurrent/MaxDischargeCurrent`.
+
+This is **more fragile and less certain than the rest of the adapter**: it is a second, independently-authenticated, undocumented, signed API that GoodWe could change, rate-limit, or block without notice, entirely separately from the main monitoring API above. It is therefore off by default. If it stops working, the rest of the adapter (PV generation, KPIs, inverter telemetry) is unaffected - a battery-telemetry failure is caught and logged at debug level per inverter, never thrown.
 
 ## Installation
 
@@ -88,14 +92,14 @@ goodwe-sems.0.info.rawResponse             Raw JSON response (only when the debu
 goodwe-sems.0.Station.Name / .Capacity / .Address / .Latitude / .Longitude / .PortalTimestamp / .Status / .StationId
 goodwe-sems.0.KPI.CurrentPower / .TodayGeneration / .MonthGeneration / .TotalGeneration / .TodayIncome / .TotalIncome / .Currency
 goodwe-sems.0.PowerFlow.PV / .Load / .Grid / .Battery / .LoadStatus / .GridStatus / .PvStatus / .BatteryStatus
-goodwe-sems.0.Battery.SOC / .Status
 goodwe-sems.0.EVCharger.*                  (only if reported by the portal)
 
 goodwe-sems.0.Inverters.<serial>.Name / .Model / .Status / .WarningCode
 goodwe-sems.0.Inverters.<serial>.CurrentPower / .TodayGeneration / .TotalGeneration / .Temperature
 goodwe-sems.0.Inverters.<serial>.PV1..4.Voltage / .Current
 goodwe-sems.0.Inverters.<serial>.AC_L1..3.Voltage / .Current / .Frequency
-goodwe-sems.0.Inverters.<serial>.Battery.SOC / .Voltage / .Current
+goodwe-sems.0.Inverters.<serial>.Battery.SOC / .Power / .Voltage / .Current / .Temperature / .MaxChargeCurrent / .MaxDischargeCurrent
+                                            (only with the "Fetch battery data" option enabled AND an attached battery)
 ```
 
 With two inverters (as in the original requirement this adapter was built for), two `Inverters.<serial>.*` branches are created automatically - the number is not hardcoded, it is driven entirely by what the portal returns for the configured account.
@@ -152,6 +156,10 @@ Pull requests are welcome, especially to add further fields delivered by the por
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 1.0.8 (2026-08-25)
+
+- New (opt-in, experimental): battery telemetry via GoodWe's separate, undocumented web-portal API (own login/session, device discovery via relatedDevices(), data via a BAT_SYS device's telemetry() endpoint). Reverse-engineered and verified field-by-field against real captured browser traffic (thanks to a tester's HAR capture!) from a GW8K-ET + LX battery system, including the gateway's SHA-256 signature scheme. Enable "Fetch battery data" to create Inverters.<sn>.Battery.SOC/Power/Voltage/Current/Temperature/MaxChargeCurrent/MaxDischargeCurrent - uses the same SEMS credentials already configured. Off by default, fully isolated from core monitoring. Also fixed the previous always-empty top-level Battery.SOC/Status states and the guessed-but-wrong per-inverter field names - no migration needed since these states were never actually created.
 
 ### 1.0.7 (2026-08-11)
 
