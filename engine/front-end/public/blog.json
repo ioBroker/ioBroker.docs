@@ -12,10 +12,10 @@
       "type": "news",
       "originalName": "2026_08_25.md",
       "desc": {
-        "de": "Der Hochsommer 2026 war alles andere als eine Sauregurkenzeit!\\nSeit dem letzten Rückblick sind sage und schreibe **21 neue Adapter** ins Repository gekommen,\\nso viele wie schon lange nicht mehr. Der Schwerpunkt liegt erneut bei **Energie und E-Mobilität**\\n(Hoymiles, Victron GX, Solakon ONE, Tesla Wall Connector, go-e Charger),\\naber auch **Kameras, Multimedia und Systemwerkzeuge** sind stark vertreten.\\nUnd ein paar echte Exoten sind dabei: Formel-1-Livedaten, Flugverfolgung am eigenen Fenster\\nund eine Saunasteuerung mit lernender Aufheizprognose.",
-        "en": "# IoBroker Monthly Review – July/August 2026\\nThe height of summer 2026 was anything but a slow period! Since the last review, a whopping **21 new adapters** have been added to the repository – more than in a long time. The focus is once again on **energy and e-mobility** (Hoymiles, Victron GX, Solakon ONE, Tesla Wall Connector, go-e Charger), but **cameras, multimedia, and system tools** are also well represented.",
-        "ru": "# Ежемесячный обзор ioBroker – июль/август 2026 г.\\nЛето 2026 года стало пиком активности, и это был отнюдь не затишье! С момента последнего обзора в репозиторий было добавлено целых **21 новый адаптер** – больше, чем за долгое время. В центре внимания снова **энергетика и электромобильность** (Hoymiles, Victron GX, Solakon ONE, Tesla Wall Connector, go-e Charger), но также хорошо представлены **камеры, мультимедиа и системные инструменты**.",
-        "zh-cn": "# IoBroker 月度回顾 – 2026 年 7 月/8 月\\n2026 年盛夏可谓热闹非凡！自上次盘点以来，我们新增了多达 21 款适配器，数量之多前所未有。重点依然是能源和电动出行领域（例如 Hoymiles、Victron GX、Solakon ONE、特斯拉壁挂式充电器和 go-e 充电器），但摄像头、多媒体和系统工具等也占据了相当大的比例。"
+        "de": "Der Hochsommer 2026 war alles andere als eine Sauregurkenzeit und diese Ausgabe fällt\\nentsprechend üppig aus: **72 Adapter** haben wir für euch zusammengetragen.\\n**22** davon sind neu im `stable`-Repository und sofort einsatzbereit, die übrigen **50**\\nstehen in `latest` und freuen sich über Tester.\\nDer Schwerpunkt liegt erneut bei **Energie und E-Mobilität**\\n(Hoymiles, Victron GX, Solakon ONE, Tesla Wall Connector, go-e Charger),\\naber auch **Kameras, Multimedia und Systemwerkzeuge** sind stark vertreten.\\nUnd ein paar echte Exoten sind dabei: Formel-1-Livedaten, Flugverfolgung am eigenen Fenster\\nund eine Saunasteuerung mit lernender Aufheizprognose.",
+        "en": "The height of summer 2026 was anything but a slow season, and this edition reflects that: we've compiled **72 adapters** for you.",
+        "ru": "Лето 2026 года, в разгар сезона, никак нельзя назвать затишьем, и это отражается в данном выпуске: мы собрали для вас **72 адаптера**.",
+        "zh-cn": "2026 年盛夏并非淡季，本期内容也印证了这一点：我们为您精心挑选了 **72 款适配器**。"
       }
     },
     "2026_07_10": {
