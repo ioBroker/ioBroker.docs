@@ -301,23 +301,6 @@ Between **12:00 and 15:00** (configurable), **all** notifications are suppressed
 
 **Note:** Quiet mode suppresses all notifications including 0% battery. Use it for times when you don't want to be disturbed at all (e.g. nap time, meetings).
 
-## License
-
-MIT License
-
-Copyright (c) 2025-2026 Alex1808 via LLM: Qwen sadam6752@gmail.com
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 ## Author
 
 Alex1808 via LLM: Qwen
@@ -330,6 +313,27 @@ sadam6752@gmail.com
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 1.2.29
+* (FIX) Corrupted UTF-8 separator lines in the monthly stats message (showed as question marks in Telegram)
+* (FIX) Corrupted Russian translations for "Current charge level" and "Own consumption"
+* (FIX) Weather today in daily stats now shows the temperature as "(currently: X°C)" instead of implying a daily value
+
+### 1.2.28
+* (FIX) Migrate i18n to short format ({lang}.json); trim news to 7 entries
+
+### 1.2.27
+* (FIX) CI: update package-lock.json to include all eslint peer dependencies
+
+### 1.2.26 (2026-08-01)
+* (FIX) W5604: add missing i18n keys for sunset stats in 8 languages (es, fr, it, nl, pl, pt, uk, zh-cn)
+* (FIX) W6019: move old changelog entries to CHANGELOG_OLD.md
+* (FIX) W6021: move License section to end of README
+* (FIX) W6030: add 1.2.25 changelog entry to README
+
+### 1.2.25 (2026-08-01)
+* (FIX) Update @iobroker/adapter-core to 3.4.3
+* (FIX) Remove old news entry 1.2.18 (max 7 entries allowed)
 
 ### 1.2.24 (2026-03-17)
 * (FIX) Added missing uk translations to news entries, fixed prettier formatting in main.js
@@ -352,125 +356,27 @@ sadam6752@gmail.com
 ### 1.2.18 (2026-03-16)
 * (FIX) Missing await in onBatterySOCChange, null-check in buildTestMessage, safe intermediateSteps parsing, remove dead code
 
-### 1.2.17 (2026-03-15)
-* (FIX) Removed old versions from common.news to comply with W1032 (maximum 7 versions)
-
-### 1.2.16 (2026-03-14)
-* (FIX) Removed empty line in battery full message for improved formatting
-
-### 1.2.15 (2026-03-08)
-* (ADD) Added separator lines to battery full/empty and intermediate messages for improved readability
-
-### 1.2.14 (2026-03-06)
-* (FIX) Fixed intermediate message formatting: Removed extra line break before weather data (weather today appears directly below separator)
-
-### 1.2.13 (2026-03-03)
-* (ADD) Added current production (W) to test message, daily statistics and intermediate messages with improved layout
-* (FIX) README.md Changelog updated for repository checker (E6006 fix)
-
-### 1.2.11 (2026-03-02)
-
-* (FIX) Daily statistics: Self-consumption cannot be negative (Math.max(0, totalProd - feedIn))
-* (FIX) Daily statistics: Added weather today to message (in addition to weather tomorrow)
-* (FIX) Weather error logging improved (warn instead of debug for better visibility)
-
-### 1.2.10 (2026-03-02)
-
-* (FIX) Fixed duplicate news entry in io-package.json (E1036/E2005 fix)
-* (FIX) Added full translations for common.news (pt, nl, fr, it, es, pl, uk, zh-cn)
-* (FIX) Reduced news entries to 7 versions (W1032 fix)
-
-### 1.2.7 (2026-03-02)
-
-* (FIX) Fixed io-package.json JSON syntax error (invalid duplicate news section removed)
-
-### 1.2.6 (2026-03-02)
-
-* (FIX) Added size attributes (xs, xl) for monthlyStatsDay, monthlyStatsTime, weatherEnabled, weatherInIntermediate, weatherInDailyStats, highProduction, highConsumption fields (E5507 fix)
-
-### 1.2.5 (2026-03-02)
-
-* (FIX) Added size attributes (xs, xl) for monthlyStatsEnabled, minIntervalIntermediate, statsDayTime, statsWeekDay, statsWeekTime fields (E5507 fix)
-
-* (FIX) Added LICENSE file (E190 fix)
-* (FIX) Copyright formatting: Added two trailing spaces to copyright lines in README.md, doc/de/README.md, doc/ru/README.md (W6009/W6011/W7004 fix)
-
-### 1.2.3 (2026-03-02)
-
-* (FIX) Added size attributes (xs, xl) for minIntervalFull, minIntervalEmpty, intermediateSteps, quietModeStart, quietModeEnd fields (E5507 fix)
-
-### 1.2.2 (2026-03-02)
-
-* (FIX) Weekly statistics: Now uses weeklyProduction/weeklyConsumption/weeklyFeedIn/weeklyGridPower fields instead of daily values
-
-### 1.2.1 (2026-03-01)
-
-* (FIX) Added size attributes (xs, xl) for night mode and quiet mode fields in admin UI (E5507 fix)
-
-### 1.2.0 (2026-03-01)
-
-* (ADD) common.news section added to io-package.json for repository checker (E136 fix)
-
-### 1.1.1 (2026-03-01)
-
-* (FIX) Intermediate messages: Flag reset condition changed from `> 2` to `>= 2` for proper 2% tolerance
-
-### 1.0.93 (2026-02-27)
-
-* (FIX) size attributes (xs, xl) added for number fields in jsonConfig.json (E5507)
-* (FIX) VSCode schema definitions updated for io-package.json and jsonConfig.json (W4040, W4042)
-
-### 1.0.92 (2026-02-27)
-
-* (ADD) VSCode settings added with JSON schema definitions (S4036)
-
-### 1.0.91 (2026-02-27)
-
-* (FIX) Old news removed from io-package.json (E2004, W1032)
-* (FIX) size attributes (xs, xl) added for all objectId fields in jsonConfig.json (E5507)
-* (FIX) .commitinfo added to .gitignore (S9006)
-
-### 1.0.90 (2026-02-27)
-
-* (FIX) JSDoc parameter descriptions added for all functions
-
-### 1.0.89 (2026-02-27)
-
-* (FIX) createState replaced with setObjectNotExists (W5034)
-* (FIX) size attributes (xs, xl) added to jsonConfig.json (E5507)
-* (FIX) Dependencies updated (@iobroker/adapter-core ^3.3.2, @alcalzone/release-script ^5.1.1)
-* (FIX) admin dependency updated to >=7.6.20 (W1056)
-* (FIX) Translations added for titleLang, desc, news (W1027, W1034, W1054)
-
-### 1.0.85 (2026-02-26)
-* (FIX) Deprecated common.main removed from io-package.json (W1084)
-
-### 1.0.84 (2026-02-26)
-* (FIX) Node.js version updated to >=18
-* (FIX) Dependencies updated (@iobroker/adapter-core to 3.2.3, @iobroker/testing to 5.2.2)
-* (FIX) io-package.json schema fixed (licenseInformation added, deprecated fields removed)
-* (FIX) setInterval with clearInterval added for proper cleanup
-* (FIX) js-controller dependency updated to >=6.0.11
-* (FIX) admin dependency updated to >=7.6.17
-
-### 1.0.83 (2026-02-26)
-* (FIX) createState deprecated fixed (setObjectNotExists)
-* (FIX) All log messages translated to English
-* (FIX) README.md translated (EN + doc/de/ + doc/ru/ structure)
-* (FIX) Node.js 24 added to test matrix
-* (FIX) Manual installation guide removed
-
-### 1.0.82 (2026-02-25)
-* (FIX) Copilot infrastructure and AI assistant guidelines added
-
-### 1.0.81 (2026-02-25)
-* (FIX) create-adapter infrastructure added (GitHub Actions, Dependabot, ESLint, Tests)
-
-### 1.0.80 (2026-02-25)
-* (FIX) Unified intermediate notifications format (all levels show charging/discharging status)
+> For older changelog entries see [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
 
 ## Documentation in Other Languages
 
 - [🇬🇧 English](README.md)
 - [🇩🇪 Deutsch](doc/de/README.md)
 - [🇷🇺 Русский](doc/ru/README.md)
+
+## License
+
+MIT License
+
+Copyright (c) 2025-2026 Alex1808 via LLM: Qwen sadam6752@gmail.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

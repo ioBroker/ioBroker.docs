@@ -24,6 +24,29 @@ The jsontemplate widget was previously available in the rssfeed (for vis1) and
 vis-2-widgets-ovarious adapters. The widgets will be removed from these
 adapters in the near future.
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [vis and widgets](#vis-and-widgets)
+    - [JSON Template](#json-template)
+    - [Advanced use case](#advanced-use-case)
+    - [More Use Cases](#more-use-cases)
+- [Templatesystem](#templatesystem)
+    - [Very Important Note for use in vis / vis-2](#very-important-note-for-use-in-vis--vis-2)
+    - [Curly braces in CSS and JSON](#curly-braces-in-css-and-json)
+    - [Use of setInterval](#use-of-setinterval)
+    - [Developing templates with AI](#developing-templates-with-ai)
+- [Tags](#tags)
+- [Example object](#example-object)
+- [Development and Debugging](#development-and-debugging)
+    - [Vis1 Widgets](#vis1-widgets)
+    - [Vis2 Widgets](#vis2-widgets)
+- [Todo](#todo)
+- [Changelog](#changelog)
+- [License](#license)
+
 ## Installation
 
 Install the adapter as normal from the stable repository.
@@ -68,6 +91,7 @@ JSONTemplate now supports async calls with await.
 | json_oid         | Selection of the data point with the corresponding JSON data.                                                                                                                                                                                                                     |
 | json_dpCount     | Number of data points to be made available in the template.                                                                                                                                                                                                                       |
 | json_dp          | Datapoint ID to be made available.                                                                                                                                                                                                                                                |
+| json_dp_variable | Optional JavaScript variable name. The variable contains the datapoint ID; the same name with `_value` appended contains its current value.                                                                                                                                       |
 | json_scriptCount | Number of JavaScript URLs to be loaded                                                                                                                                                                                                                                            |
 | json_script[]    | JavaScript URL to be loaded. See example below.                                                                                                                                                                                                                                   |
 | json_cssCount    | Number of CSS URLs to be loaded.                                                                                                                                                                                                                                                  |
@@ -79,7 +103,8 @@ Available data objects in the template:
 
 | object/variable | description                                                              |
 | --------------- | ------------------------------------------------------------------------ |
-| widgetID        | widgetID of the widget.                                                  |
+| widgetid        | widgetid of the widget.                                                  |
+| widgetID        | widgetid of the widget.                                                  |
 | data            | JSON object referenced by the datapoint in json_oid.                     |
 | dp              | Array of the datapoint data, referenced by the additional datapoints     |
 | widget          | internal widget data. object with all available widget settings          |
@@ -100,6 +125,15 @@ B) Indexnumber of the datapoint (the number always start with 0)
 <%- dp[Object.keys(dp)[1]] %>
 ```
 
+C) An optional variable name configured for the datapoint. For a datapoint
+`0_userdata.0.selectwrite`, variable name `dpwrite`, and value `abc`:
+
+```javascript
+<%- dpwrite %>          <!-- 0_userdata.0.selectwrite -->
+<%- dpwrite_value %>    <!-- abc -->
+<%- dp[dpwrite] %>      <!-- abc -->
+```
+
 Example output of data, widget and style in the template
 
 ```ejs
@@ -108,6 +142,9 @@ Example output of data, widget and style in the template
     .replace(/\n/g, '<br>')
     .replace(/ /g, '&nbsp;'); %>
 ```
+
+If an error occurs, it is displayed in the widget and output to the
+browser console (F12).
 
 #### Advanced use case
 
@@ -147,31 +184,54 @@ a specific layout. Here is an example:
 - [Use Case Async calls](documentation/usecase-asynccall.md)
 - [Use Case loading scripts](documentation/usecase-loadingscripts.md)
 - [Use Case Tasklist](documentation/usecase-tasklist.md)
+- [Use Case public-transport](documentation/usecase-public-transport.md)
+- [Use Case simple gauge](documentation/usecase-simplegauge.md)
+- [Use Case Github Issues and PRs](documentation/usecase-githubissues.md)
+- [Use Case FRITZ!Box call list](documentation/usecase-fritzbox-call-list.md)
 
 ## Templatesystem
 
-## Important note for the template system in vis
+### Very Important Note for use in vis / vis-2
 
-In vis, all object notations in the following form are recognized
-and replaced as bindings.
+#### Curly braces in CSS and JSON
 
-Therefore, the opening and closing brackets of all object notations must
-be placed on separate lines:
+The binding mechanism in vis / vis-2 uses the pattern `{ ... }`
+to detect binding expressions within HTML.
+For this reason, when specifying CSS or JSON, the curly braces must
+always be placed on separate lines. Otherwise, the content of
+the vis widget will be overwritten with `undefined`.
 
-Incorrect:
+##### Example
 
-```json
-{ "a": 1, "b": 2 }
+```text
+#<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
 ```
 
-Correct
+must be written as follows:
 
-```json
-{
-    "a": 1,
-    "b": 2
+```text
+#<%- widgetid %> {
+    height: 100%; display: flex; flex-direction: column; overflow: hidden;
 }
 ```
+
+#### Use of setInterval
+
+Please do not use `setInterval`. Since the template is re-invoked
+every time a data point changes, any existing `setInterval` calls
+cannot be properly cleared. Consequently, an increasing number
+of overlapping `setInterval` calls accumulate over time; this consumes RAM and
+can lead to unpredictable side effects. While reloading the page can resolve
+this issue, the code should not be implemented in this manner.
+As an alternative, such scenarios should be implemented using `setTimeout`.
+
+#### Developing templates with AI
+
+To simplify the process of creating templates for everyone,
+I have prepared detailed documentation including prompts and descriptions:
+
+- [English](documentation/AI-EN.md)
+- [German](documentation/KI-DE.md)
 
 ## Tags
 
@@ -363,61 +423,46 @@ Loop over the attributes of an object
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.6.1 (2026-07-31)
 
-### 4.4.0 (2026-03-24)
+- Improved error output.
 
-- optimize lib size
-- The ability to load additional JavaScript and CSS files
-  has been added (also for vis2).
-- Improve react components
-- align translation for vis2 widget
+### 4.6.0 (2026-07-30)
 
-### 4.3.11 (2026-01-25)
+- some changes. see readme/below
 
-- check test release workflow
+#### Changes 2026-07-30
 
-### 4.3.10 (2026-01-25)
+- add optional variable names to extra datapoints
 
-- update test and release script
+### 4.5.0 (2026-07-29)
 
-### 4.3.1 (2026-01-24)
+- some changes. see readme/below
 
-- try again to publish
+#### Changes 2026-07-29
 
-### 4.3.0 (2026-01-24)
+- repair widget rendering
+- add search and fullscreen to ejs-edit for vis-2 widget
+- improve ki documentation for regex expressions
+- improve vis-2 ejs edit theme for dark mode
 
-- The ability to load additional JavaScript and CSS files has been added.
-  This is currently only available for vis1 for testing purposes.
+### 4.4.5 (2026-07-22)
 
-### 4.2.0 (2025-11-14)
+- fix packages for vis-2
 
-- Improve documentation for the object notation in a template
-- fix some translations
-- align attribute name to vis1
-- add widget data to the available template objects in vis2
-- add style and widget object to the available template objects in vis1
-- improve documentation
+### 4.4.4 (2026-07-22)
 
-### 4.1.3 (2025-11-03)
+- some changes. see readme/below
 
-- fix race condition if more than one widget use the same datapoint
-- switch to trusted publishing
+#### Changes 2026-07.22
 
-### 4.1.2 (2025-09-13)
+- change documentation that in the template the widgetid is available and not widgetID
+- add documentation for the usecase simple gauge
+- add documentation for a responsive FRITZ!Box call list
+- Due to an inconsistency between the vis1 and vis2 widgets,
+  both `widgetid` and `widgetID` are now passed to the template.
 
-- new try of publish
-
-### 4.1.0 (2025-09-12)
-
-- rename widgetset of the vis2 widget
-
-### 4.0.2 (2025-08-28)
-
-- remove v4.0.0 from io-package
-
-### 4.0.1 (2025-08-28)
-
-- move vis1 and vis2 widgets to vis-jsontemplate adapter
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

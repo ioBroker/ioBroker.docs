@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.serial-gps/README.md
 title: GPS-адаптер ioBroker (последовательный/USB)
-hash: irZI9P1HaevB1JfqsORV18PYiRQa6GtdObs6ErX+dS8=
+hash: c17hLNS45q06fOYPhB0AM8X/5VTf5WRC8vyNVIAt7rY=
 ---
 ![Количество установок](http://iobroker.live/badges/serial-gps-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.serial-gps.svg)
@@ -34,6 +34,9 @@ hash: irZI9P1HaevB1JfqsORV18PYiRQa6GtdObs6ErX+dS8=
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
+### 1.0.0 (2026-05-29)
+- (@GermanBluefox) Added possibility to select GPS device by name instead of path
+
 ### 0.0.4 (2025-12-03)
 - (@GermanBluefox) Corrected issues for repo checker
 
@@ -44,7 +47,7 @@ hash: irZI9P1HaevB1JfqsORV18PYiRQa6GtdObs6ErX+dS8=
 
 The MIT License (MIT)
 
-Copyright (c) 2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2025-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

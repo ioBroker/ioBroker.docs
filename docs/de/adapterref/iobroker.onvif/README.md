@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.onvif/README.md
 title: ioBroker.onvif
-hash: 2k4Xao5mfl0FBgg5tIX2HIL+SO6SWLQkGKdqmPNSrnQ=
+hash: zq9DV1BOr3VI3pXcPtQRTJUyRJslFvIWQbwrUyf01cs=
 ---
 ![Logo](../../../en/adapterref/iobroker.onvif/admin/onvif.png)
 
@@ -14,59 +14,59 @@ hash: 2k4Xao5mfl0FBgg5tIX2HIL+SO6SWLQkGKdqmPNSrnQ=
 ![NPM](https://nodei.co/npm/iobroker.onvif.png?downloads=true)
 
 # IoBroker.onvif
-**Tests:** ![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.onvif/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.onvif/workflows/Test%20and%20Release/badge.svg)
 
 ## ONVIF-Adapter für ioBroker
 **Adapter für ONVIF-Kameras**
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 [zur deutschen Dokumentation](README-de.md)
 
 ## Kameras hinzufügen
 ### Entdeckung:
-Bei jedem Start des Adapters wird eine Erkennung mit dem in den Einstellungen eingetragenen Benutzernamen und Passwort durchgeführt und versucht, sich bei der Kamera anzumelden. Sofern die Kamera noch nicht unter Objekte hinzugefügt wurde.
+Bei jedem Start des Adapters wird eine Erkennung mit dem in den Einstellungen hinterlegten Benutzernamen und Passwort durchgeführt und versucht, sich bei der Kamera anzumelden, sofern die Kamera noch nicht unter „Objekte“ hinzugefügt wurde.
 
-Du kannst die Erkennung manuell in den Einstellungen durchführen. Wenn die Kameras unterschiedliche Anmeldeinformationen haben, musst du diese eingeben und eine Erkennung durchführen. Im Protokoll kannst du die Details des Vorgangs sehen.
+Die Erkennung kann in den Einstellungen manuell durchgeführt werden. Falls die Kameras unterschiedliche Zugangsdaten verwenden, müssen diese eingegeben und die Erkennung erneut durchgeführt werden. Die Details des Vorgangs sind im Protokoll einsehbar.
 
-Damit eine Kamera wieder erkannt wird, muss diese lediglich unter Objekte gelöscht werden.
+Damit eine Kamera wieder erkannt wird, muss sie einfach unter Objekte gelöscht werden.
 
 ### Manuelle Suche
-Falls Discovery nicht funktioniert, kann manuell nach Kameras gesucht werden. Hierzu muss ein IP-Bereich und Ports eingetragen und manuell ausgeführt werden. Im Log sind Details zum Vorgang ersichtlich.
+Falls die automatische Erkennung nicht funktioniert, können Kameras manuell gesucht werden. Dazu müssen ein IP-Bereich und die Ports manuell eingegeben und die Suche ausgeführt werden. Details zum Vorgang finden Sie im Protokoll.
 
-## Zustände
-onvif.0.IP_PORT.events Ereignisse der Kamera wie z.B. Bewegungserkennung. Manchmal muss man das Ereignis auslösen, um es zu sehen.
+## Staaten
+onvif.0.IP_PORT.events Ereignisse der Kamera, z. B. Bewegungserkennung. Manchmal muss das Ereignis ausgelöst werden, um es anzuzeigen.
 
 onvif.0.IP_PORT.general Allgemeine Informationen zu den Kameras
 
-onvif.0.IP_PORT.infos Informationen zur Kamera werden nur beim Adapterstart oder bei remote.refresh aktualisiert
+Die Informationen zur Kamera in onvif.0.IP_PORT.infos werden nur beim Start des Adapters oder bei remote.refresh aktualisiert.
 
-Video- und Snapshot-URL:
+Video- und Screenshot-URL:
 
 onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
 
-onvif.0.IP_PORT.remote Steuerung der Kamera
+onvif.0.IP_PORT.Fernsteuerung der Kamera
 
-onvif.0.IP_PORT.remote.refresh Aktualisierung der Infodaten
+onvif.0.IP_PORT.remote.refresh Aktualisiere die Informationsdaten
 
-onvif.0.IP_PORT.remote.gotoHomePosition PTZ-Kamera auf Home-Position einstellen
+onvif.0.IP_PORT.remote.gotoHomePosition PTZ-Kamera in die Ausgangsposition bringen
 
 onvif.0.IP_PORT.remote.gotoPreset PTZ-Kamera-Voreinstellungsnummer auswählen
 
-onvif.0.IP_PORT.remote.snapshot Schnappschuss speichern in onvif.0.IP_PORT.snapshot
+onvif.0.IP_PORT.remote.snapshot Speichert Snapshot unter onvif.0.IP_PORT.snapshot
 
 ## Nachricht
-Adapter empfängt Nachricht „Snapshot“ und gibt Bild zurück
+Der Adapter empfängt die Nachricht „Snapshot“ und gibt das Bild zurück.
 
 ```javascript
-sendTo("onvif.0", "snapshot", "192_168_178_100_80", (result) => {
+sendTo('onvif.0', 'snapshot', '192_168_178_100_80', (result) => {
   if (result) {
-    sendTo("telegram.0", {
+    sendTo('telegram.0', {
       text: result,
 
-      type: "photo",
+      type: 'photo',
 
-      caption: "camera2",
+      caption: 'camera2',
     });
   }
 });
@@ -74,16 +74,16 @@ sendTo("onvif.0", "snapshot", "192_168_178_100_80", (result) => {
 
 ## Bewegungsnachricht an Telegram
 ```javascript
-on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (obj) => {
+on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (obj) => {
   if (obj.state.val === true) {
-    sendTo("onvif.0", "snapshot", "192_168_178_100_80", (result) => {
+    sendTo('onvif.0', 'snapshot', '192_168_178_100_80', (result) => {
       if (result) {
-        sendTo("telegram.0", {
+        sendTo('telegram.0', {
           text: result,
 
-          type: "photo",
+          type: 'photo',
 
-          caption: "Camera 2",
+          caption: 'Camera 2',
         });
       }
     });
@@ -91,11 +91,12 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
 });
 ```
 
-# Stream in vis einbinden
-Wenn der Stream in Apple Homekit angezeigt werden soll, erstellen Sie bitte direkt in Yahka eine Kamera. Wenn das nicht funktioniert oder hksv benötigt wird, installieren Sie scrypted in einem Docker und fügen Sie die Kamera mit Onvif und Homekit-Plugin hinzu
+## Stream in die Visualisierung einbinden
+Soll der Stream in Apple HomeKit angezeigt werden, erstellen Sie bitte eine Kamera direkt in Yahka. Falls das nicht funktioniert oder HKSV benötigt wird, installieren Sie Scrypted in einem Docker-Container und fügen Sie die Kamera mit dem ONVIF- und HomeKit-Plugin hinzu.
 
 ## Go2rtsp Docker
-Ein Stream wird im Normalfall per RTSP Stream bereitgestellt. Eine Konvertierung per Motion Eye ist sehr ressourcenintensiv und hat eine Verzögerung. Eine Konvertierung nach WebRTC ist schneller und ressourcensparender. Meine Empfehlung ist ein [go2rtsp](https://github.com/AlexxIT/go2rtc). Hierzu muss ein Docker von alexxit/go2rtc erstellt werden.
+Ein Stream wird üblicherweise über RTSP bereitgestellt. Eine Konvertierung mit MotionEye ist sehr ressourcenintensiv und führt zu Verzögerungen. Eine Konvertierung zu WebRTC ist schneller und ressourcenschonender. Ich empfehle daher die Verwendung von [go2rtsp](https://github.com/AlexxIT/go2rtc). Hierfür muss ein Docker-Container von alexxit/go2rtc erstellt werden.
+
 https://hub.docker.com/r/alexxit/go2rtc
 
 ```
@@ -109,27 +110,26 @@ https://hub.docker.com/r/alexxit/go2rtc
       - "~/go2rtc:/config" # folder for go2rtc.yaml file (edit from WebUI)
 ```
 
-Als Pfad /config muss ein Volume und als Host das Netzwerk angegeben werden.
+Für den Pfad /config und das Netzwerk als Host muss ein Volume festgelegt werden.
 
-Dann ist go2rtsp erreichbar über
+Dann ist go2rtsp über
 
 ```
 http://IP:1984
 ```
 
-Anschließend kannst du einen Stream hinzufügen. Die Stream-URL findest du z.B. unter `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+Anschließend können Sie einen Stream hinzufügen. Die Stream-URL finden Sie beispielsweise unter `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
 
 <img src="addgo.png" height="300">
 
 ### Stream als iFrame einfügen
-Füge das Widget `iFrame` im Vis hinzu und verwende den Stream-Link von go2rtsp als Quelle
+Fügen Sie das Widget `iFrame` in die Vis-Ansicht ein und verwenden Sie den Stream-Link von go2rtsp als Quelle.
 
 `http://192.168.178.1:1984/stream.html?src=camera&mode=webrtc`
 
 ## Rtsp2Web Docker
-Eine Alternative ist ein [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb) Docker. Dieser ist allerdings aufwändiger einzurichten.
-
-Ein Docker muss von ghcr.io/deepch/rtsptoweb:latest erstellt werden.
+Alternativ kann ein [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb)-Docker-Container verwendet werden. Dessen Einrichtung ist jedoch komplizierter.
+Ein Docker-Container muss von ghcr.io/deepch/rtsptoweb:latest erstellt werden.
 
 <details>
 
@@ -137,27 +137,27 @@ Ein Docker muss von ghcr.io/deepch/rtsptoweb:latest erstellt werden.
 docker run --name rtsp-to-web -v /YOURPATHFORCONFIG:/config --network host ghcr.io/deepch/rtsptoweb:latest
 ```
 
-Für den Pfad /config muss ein Volume angegeben werden und als Host muss das Netzwerk eingetragen sein.
+Für den Pfad /config muss ein Volume festgelegt werden und das Netzwerk muss auf Host eingestellt sein.
 
-Dann erreichen Sie rtsptoweb über
+Dann kann rtsptoweb über folgendes erreicht werden:
 
 ```
 http://IP:8083
 ```
 
-Anschließend kannst du einen Stream hinzufügen. Die Stream-URL findest du z.B. unter `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+Anschließend können Sie einen Stream hinzufügen. Die Stream-URL finden Sie beispielsweise unter `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
 
 <img src="addstream.png" height="600">
 
-### Dann brauchen wir noch die Stream-ID. Dazu den Stream bearbeiten und die ID in der URL rauskopieren
+Als Nächstes benötigen wir die Stream-ID. Dazu bearbeiten Sie den Stream und kopieren die ID aus der URL.
 `http://192.168.178.2:8083/pages/stream/edit/ddbdb583-9f80-4b61-bafa-613aa7a5daa5`
 
-## Einzelnen Stream in das Vis einfügen
-Anschließend wählt man im vis ein HTML Objekt aus. Anschließend trägt man im Widget unter HTML den rtsp2web Server mit Stream ID ein:
+## Einzelnen Stream in die Visualisierung einfügen
+Wählen Sie anschließend ein HTML-Objekt in der Ansicht aus. Geben Sie dann im Widget unter HTML den rtsp2web-Server mit der Stream-ID ein:
 
 <img src="html.png" height="150">
 
-## **Wenn mehrere Streams hinzugefügt werden sollen, müssen `webrtc-url` und `webrtc-video` in HTML und Skript durch eine neue ID ersetzt werden, z. B. `webrtc-url2` und `webrtc-video2`**
+## **Sollten mehrere Streams hinzugefügt werden, müssen `webrtc-url` und `webrtc-video` im HTML- und Skriptcode durch eine neue ID ersetzt werden, z. B. `webrtc-url2` und `webrtc-video2`.**
 ```html
 <input
   type="hidden"
@@ -177,40 +177,40 @@ setTimeout(function () {
     const webrtc = new RTCPeerConnection({
       iceServers: [
         {
-          urls: ["stun:stun.l.google.com:19302"],
+          urls: ['stun:stun.l.google.com:19302'],
         },
       ],
-      sdpSemantics: "unified-plan",
+      sdpSemantics: 'unified-plan',
     });
     webrtc.ontrack = function (event) {
-      console.log(event.streams.length + " track is delivered");
+      console.log(event.streams.length + ' track is delivered');
       videoEl.srcObject = event.streams[0];
       videoEl.play();
     };
-    webrtc.addTransceiver("video", { direction: "sendrecv" });
+    webrtc.addTransceiver('video', { direction: 'sendrecv' });
     webrtc.onnegotiationneeded = async function handleNegotiationNeeded() {
       const offer = await webrtc.createOffer();
 
       await webrtc.setLocalDescription(offer);
 
       fetch(url, {
-        method: "POST",
+        method: 'POST',
         body: new URLSearchParams({ data: btoa(webrtc.localDescription.sdp) }),
       })
         .then((response) => response.text())
         .then((data) => {
           try {
-            webrtc.setRemoteDescription(new RTCSessionDescription({ type: "answer", sdp: atob(data) }));
+            webrtc.setRemoteDescription(new RTCSessionDescription({ type: 'answer', sdp: atob(data) }));
           } catch (e) {
             console.warn(e);
           }
         });
     };
 
-    const webrtcSendChannel = webrtc.createDataChannel("rtsptowebSendChannel");
+    const webrtcSendChannel = webrtc.createDataChannel('rtsptowebSendChannel');
     webrtcSendChannel.onopen = (event) => {
       console.log(`${webrtcSendChannel.label} has opened`);
-      webrtcSendChannel.send("ping");
+      webrtcSendChannel.send('ping');
     };
     webrtcSendChannel.onclose = (_event) => {
       console.log(`${webrtcSendChannel.label} has closed`);
@@ -219,8 +219,8 @@ setTimeout(function () {
     webrtcSendChannel.onmessage = (event) => console.log(event.data);
   }
 
-  const videoEl = document.querySelector("#webrtc-video");
-  const webrtcUrl = document.querySelector("#webrtc-url").value;
+  const videoEl = document.querySelector('#webrtc-video');
+  const webrtcUrl = document.querySelector('#webrtc-url').value;
 
   startPlay(videoEl, webrtcUrl);
 }, 1000);
@@ -229,48 +229,48 @@ setTimeout(function () {
 <img src="widgetskript.png" height="200">
 
 ## Alle Streams als iFrame
-Alternativ könntest du die Kameraübersicht auch als iframe einfügen: Füge das Widget `iFrame` ein und trage als Quelle den rtsp2web-Server ein:
+Alternativ können Sie die Kameraübersicht auch als iFrame einfügen: Fügen Sie das Widget `iFrame` hinzu und geben Sie den rtsp2web-Server als Quelle an:
 
 `http://192.168.0.2:8083/pages/multiview/full?controls`
 
 </details>
 
 ## FFMpeg-Unterstützung
-Wenn die Kamera keine Snapshot-Unterstützung hat, erstellt ffmpeg einen Snapshot aus dem RTSP-Stream.
+Falls die Kamera keine Snapshot-Funktion besitzt, erstellt ffmpeg einen Snapshot aus dem RTSP-Stream.
 
-## Snapshot-Server in Vis einbinden
-Der Adapter bietet einen Snapshot-Server ohne Passwort. Aktiviere den Server in den Instanzeinstellungen und dann kannst du den aktuellen Snapshot abrufen http://iobrokerIp:8095/CAMERAIP_PORT z.B. http://192.168.0.1:8095/192_168_0_1_80.
+## Snapshot-Server in die Visualisierung einbeziehen
+Der Adapter bietet einen Snapshot-Server ohne Passwort. Aktivieren Sie den Server in den Instanzeinstellungen, um den aktuellen Snapshot unter http://iobrokerIp:8095/CAMERAIP_PORT abzurufen, z. B. http://192.168.0.1:8095/192_168_0_1_80.
 
-Fügen Sie ein Bild-Widget in das Vis ein, geben Sie die URL als Quelle an und wählen Sie eine Aktualisierungszeit
+Fügen Sie ein Bild-Widget in die Ansicht ein, geben Sie die URL als Quelle an und wählen Sie eine Aktualisierungszeit aus.
 
-## Schnappschuss in Vis einbinden
-Verwenden Sie nach Möglichkeit z. B. den SnapshotUri.
+## Snapshot in die Visualisierung einbeziehen
+Wenn möglich, verwenden Sie die snapshotUri, z. B.
 
 onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
 
-### _Verwenden Sie den Status nicht als Stream, da sonst die Datenträgerlast zu hoch wird._
-#### Aktualisieren Sie den Status über onvif.0.IP_PORT.remote.snapshot
-Weisen Sie dem Status onvif.0.IP_PORT.snapshot ein Element `String img src` zu.
+### _Verwenden Sie den Zustand nicht als Datenstrom, da sonst die Festplattenlast zu hoch wird._
+#### Aktualisiere den Status über onvif.0.IP_PORT.remote.snapshot
+Weisen Sie dem Zustand onvif.0.IP_PORT.snapshot ein `String img src`-Element zu.
 
-Oder als Alternative, wenn `String img src` nicht funktioniert
+Oder alternativ, falls `String img src` nicht funktioniert
 
-Fügen Sie den Status onvif.0.IP_PORT.snapshot als `HTML`-Element in das Vis mit folgendem Inhalt ein
+Fügen Sie den Status onvif.0.IP_PORT.snapshot als `HTML`-Element mit folgendem Inhalt in die vis ein
 
 ```javascript
 <img src="{onvif.0.IP_PORT.snapshot}" width="500px" />
 ```
 
-Neuen Snapshot zum Ereignis erstellen:
+Neuen Snapshot bei Ereignis erstellen:
 
 ```javascript
-on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (obj) => {
+on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (obj) => {
   if (obj.state.val === true) {
-    setState("onvif.0.192_168_178_100_80.remote.snapshot", true, false);
+    setState('onvif.0.192_168_178_100_80.remote.snapshot', true, false);
   }
 });
 ```
 
-## Diskussion
+## Diskussion (deutsch)
 <https://forum.iobroker.net/topic/63145/test-adapter-onvif-camera-v1-0-0>
 
 ## Changelog
@@ -279,6 +279,18 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.6 (2026-08-08)
+
+- (TA2k) Faster reconnect after a camera reboot (detection in ~30-50s instead of ~4min)
+- (TA2k) Connection state now reflects the real reconnect instead of flipping back to true too early
+- (TA2k) Throttled the repeated event error log messages during a reboot
+
+### 1.1.5 (2026-08-06)
+
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+
 ### 1.1.4 (2024-05-27)
 
 - update onvif lib to support newer TAPO cameras
@@ -292,39 +304,13 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
 
 - (TA2k) Catch callback error
 
-### 1.1.1 (2023-10-18)
-
-- (mcm1957) Standard iobroker release environment has been added.
-- (mcm1957) Some dependencies have been updated.
-
-### 1.1.0
-
-- (TA2k) Bugfixes
-
-### 1.0.5
-
-- Improve event handling
-
-### 1.0.4
-
-- (TA2k) Minor bugfixes and readme update for livestream in vis
-
-### 1.0.3
-
-- (TA2k) Minor bugfixes
-
-### 1.0.2
-
-- (TA2k) Fixed a reonnect and empty event bug
-
-### 1.0.1
-
-- (TA2k) initial new release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023-2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

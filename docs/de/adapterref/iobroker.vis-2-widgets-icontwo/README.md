@@ -2,20 +2,23 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-icontwo/README.md
-title: inventwo Icons für ioBroker.vis 2.0
-hash: lndJJOs6Q01o4Jdv03uaLHlcyKTQ8adfJxARvr+mPAk=
+title: ioBroker-Adapter für ioBroker.vis 2.0
+hash: b+WyQSn3+j5Qln9MBEgrP0V6tN3sEGb+Es9DGRbt6zw=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/vis-2-widgets-icontwo.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/vis-2-widgets-icontwo-stable.svg)
 ![NPM-Version](https://nodei.co/npm/iobroker.vis-2-widgets-icontwo.svg?style=shields&data=v,u,d&color=orange)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-icontwo.svg)
-![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/inventwo/iobroker.vis-2-widgets-icontwo)
+![GEMEINSCHAFT](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)
+![WARTUNGSKRAFT](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)
 ![PayPal-Spende](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
-# Inventwo Icons für ioBroker.vis 2.0
-## Symboladapter für den ioBroker.vis-Adapter (nur für VIS-2)
-### **Bitte beachten Sie:** Diese Symbole funktionieren nur mit Version 2.13.x (oder höher) des ioBroker.vis-2-Adapters!
+# IoBroker-Adapter für ioBroker.vis 2.0
+---
+
+## Inventtwo icons for the ioBroker.vis adapter (only for VIS-2)
+### **Bitte beachten Sie:** Diese Symbole funktionieren nur mit Version 2.13.5 (oder höher) des ioBroker.vis-2-Adapters!
 Weitere Informationen folgen.
 
 ![Vorschau](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/solid.png)
@@ -30,23 +33,22 @@ Weitere Informationen folgen.
 
 ## Changelog
 <!--
-	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.22.2 (2026-01-06)
-- Added: CHANGELOG_OLD.md
+### 1.41.0 (2026-05-24)
+- (skvarel) Added: New icons (star and gear filled)
 
-### 1.22.1 (2026-01-03)
-- Fix Copyright Year
+### 1.40.1 (2026-05-24)
+- (skvarel) Fixed: Issue repo-checker [W8917]
 
-### 1.22.0 (2025-12-31)
-- new icons added (TV amazon & echo)
+### 1.40.0 (2026-05-12)
+- (skvarel) Added: New Icons (people filled)
 
-### 1.21.2 (2025-12-31)
-- bugfix
+### 1.39.0 (2026-05-10)
+- (skvarel) Added: New Icons (people & map filled)
 
-### 1.21.1 (2025-12-31)
-- bugfix
+### 1.38.1 (2026-04-09)
+- (skvarel) Fixed: Added Dependabot cooldown configuration (7 days) to reduce supply chain risk
 
 ## License
 

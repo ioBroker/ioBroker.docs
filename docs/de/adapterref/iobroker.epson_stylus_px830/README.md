@@ -61,6 +61,9 @@ VIS Widget Beispiel
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.4.0 (2026-03-06)
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
@@ -79,6 +82,8 @@ VIS Widget Beispiel
 
 ### 0.1.4 (2018-04-23)
 * (pix) settings window design
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

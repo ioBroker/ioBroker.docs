@@ -37,10 +37,22 @@ Javascript/Node.js based `Busware CUL USB / culfw` adapter
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.0.1 (2026-08-25)
+* (bluefox) The serial port can be entered manually now, so a symlink below `/dev/serial/by-id` can be used (#150)
+* (bluefox) The port list offers the `/dev/serial/by-id` symlinks in addition to the `/dev/ttyUSBx` devices on Linux. They are not hidden behind the experimental option any more and do not replace the device paths any more
 
-## Changelog
+### 3.0.0 (2026-08-25)
+* (bluefox) BREAKING: The adapter requires node.js >= 22, js-controller >= 6.0.11 and admin >= 7.0.0 now
+* (bluefox) The adapter was rewritten in TypeScript. The sources are in `src/`, the published code in `build/`
+* (bluefox) Updated the `cul` package to 1.0.0. It uses serialport 13, so no build tools are required for the installation any more
+* (bluefox) BREAKING: `cul` 1.0.0 renamed some datapoints: `battery` is now `batteryLow`/`batteryState`, `window`/`isopen` is now `open`, `valveposition` is now `valvePosition`. The old states are not written any more and can be deleted
+* (bluefox) Fixed the swapped `Mode` and `Type` labels in the configuration dialog
+* (bluefox) Fixed the port list in experimental mode: the `/dev/serial/by-id` entries were built from an undefined value
+* (bluefox) The HTML configuration dialog and the gulpfile were removed
+* (bluefox) The debug driver, that replayed `lib/rawData.txt` when the environment variable `DEBUG` was set, was removed
+
 ### 2.2.0 (2023-04-17)
-* (jpk) Select port by ID instead of name as option
+* (jpk) Select port by ID instead of name as an option
 * (bluefox) Updated GUI for admin 6
 
 ### 2.0.2 (2022-05-11)
@@ -51,64 +63,8 @@ Javascript/Node.js based `Busware CUL USB / culfw` adapter
 ### 1.3.5 (2021-04-12)
 * (Apollon77) Make sure that cul is connected before accepting state changes (Sentry IOBROKER-CUL-R)
 
-### 1.3.4 (2020-12-02)
-* (Apollon77) prevent crash case (Sentry IOBROKER-CUL-D)
-
-### 1.3.3 (2020-09-25)
-* (EvilEls) Added raw command support with cul.write()
-
-### 1.3.2 (2020-08-23)
-* (Apollon77) check that all needed objects are existing on start (Sentry IOBROKER-CUL-C)
-* (Apollon77) fix Moritz device crash case (Sentry IOBROKER-CUL-7)
-
-### 1.3.1 (2020-07-26)
-* (Apollon77) make sure connection check do not crash adapter (Sentry IOBROKER-CUL-3)
-* (Apollon77) crashes prevented (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)
-
-### 1.3.0 (2020-07-20)
-* (Apollon77) Really update dependencies and Serialport
-
-### 1.2.2 (2020-04-30)
-* (Apollon77) Update dependencies/Serialport
-
-### 1.2.1 (2020-03-18)
-* (bluefox) Changed license from non SPDX conform 
-    "GPL-2.0" to "GPL-2.0-or-later"
-
-### 1.2.0 (2020-02-10)
-* (MK-2001) Sending of FS20 cmdRAW possible or via sendTo as described in the readme
-* (Bluefox) Refactoring
-
-### 1.1.0 (2020-01-04)
-* (foxriver76) removed usage of adapter.objects
-
-### 1.0.0 (2019-05-15)
-* (Apollon77) Support for nodejs 12 added, nodejs 4 is no longer supported!
-
-### 0.4.0 (2018-03-07)
-* (Apollon77/Michael Lorenz) Optimizations for nanoCul, Support for ESA devices
-
-### 0.3.0 (2018-01-23)
-* (Apollon77) Upgrade Serialport Library
-
-### 0.2.2 (2017-01-23)
-* (bluefox) use new npm cul module
-
-### 0.2.0 (2017-01-21)
-* (bluefox) Add raw data state
-
-### 0.1.1 (2017-01-14)
-* (bluefox) Use newer version of cul module
-
-### 0.1.0 (2016-11-01)
-* (bluefox) Update cul package
-
-### 0.0.4 (2015-04-16)
-* (bluefox) update package.json
-
-### 0.0.3 (2015-03-03)
-* (bluefox) try to bring the adapter to state of the art
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
-[Licensed under GPLv2](LICENSE) Copyright (c) 2014-2023 hobbyquaker
+[Licensed under GPLv2](LICENSE) Copyright (c) 2014-2026 hobbyquaker

@@ -51,6 +51,10 @@ iobroker ALL=(ALL) NOPASSWD: /usr/bin/docker
 -->
 
 ## Changelog
+### 3.0.1 (2026-08-08)
+-   (@GermanBluefox) Updated some GUIs to React 19
+-   (@GermanBluefox) Minimal supported Node.js version is 22
+
 ### 1.3.3 (2025-12-17)
 -   (@GermanBluefox) Stop any cloud communication after 21.12.2025
 
@@ -192,7 +196,7 @@ iobroker ALL=(ALL) NOPASSWD: /usr/bin/docker
 
 The MIT License (MIT)
 
-Copyright (c) 2025 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2025-2026 Denis Haev <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

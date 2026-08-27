@@ -47,6 +47,9 @@ Der Adapter löscht generell keine Objekt, damit es nicht zu Datenverlust kommt,
 Der Adapter hat auch keinen Einfluss darauf, welche Parameter von myUplink gesendet werden.
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.8.6 (2025-12-26)
 
 - Dependencies have been updated #134
@@ -141,6 +144,8 @@ Der Adapter hat auch keinen Einfluss darauf, welche Parameter von myUplink gesen
 ### 0.1.0 (2023-12-25)
 
 - Initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

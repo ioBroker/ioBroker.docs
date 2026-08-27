@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.maxcul/README.md
 title: ioBroker.maxcul
-hash: pIVFK6JHsxSuDkbtitePPG0bEpWGiXhgfr1cnYhEQI0=
+hash: EcdEsDmLFDTrbUWEx3Iu+S5kSFQwwzE9BSuDcaVl+TI=
 ---
 ![Logo](../../../en/adapterref/iobroker.maxcul/admin/maxcul.png)
 
@@ -14,71 +14,70 @@ hash: pIVFK6JHsxSuDkbtitePPG0bEpWGiXhgfr1cnYhEQI0=
 ![NPM](https://nodei.co/npm/iobroker.maxcul.png?downloads=true)
 
 # IoBroker.maxcul
-ioBroker Adapter zur Steuerung von Max! über [CUL](http://busware.de/tiki-index.php?page=CUL)
+ioBroker-Adapter zur Steuerung von Max! über [CUL](http://busware.de/tiki-index.php?page=CUL)
 
-Adapter ist abgeleitet von [pimatic-maxcul](https://github.com/fbeek/pimatic-maxcul)
+Der Adapter wird von [pimatic-maxcul](https://github.com/fbeek/pimatic-maxcul) abgeleitet.
 
 ## Unterstützte Geräte
 - Thermostat
-- Tür- / Fenstersensor
+- Tür-/Fenstersensor
 - Druckknopf
 - Wandthermostat
 
 ## Verwendung
-Vor der Verwendung müssen Sie zuerst die Abweichungen mit ioBroker koppeln.
-Z.B. Bei Thermostaten die Taste "Boost" länger drücken, bis der Countdown startet.
+Vor der Verwendung müssen Sie die Geräte mit ioBroker koppeln.
+Beispiel: Bei Thermostaten halten Sie die „Boost“-Taste so lange gedrückt, bis der Countdown startet.
+
+## Verbindung
+Der Adapter kommuniziert mit einem CUL, auf dem [culfw](http://culfw.de/) läuft, entweder über eine serielle Schnittstelle oder über das Netzwerk:
+
+- **CUL-Stick (serielle Schnittstelle)** – ein über USB angeschlossener CUL/COC-Stick. Wählen Sie die serielle Schnittstelle und die Baudrate.
+- **CUN/CUNO (Netzwerk)** - ein CUN, CUNO oder ein anderes culfw-Gerät, das über TCP erreichbar ist,
+
+z. B. ein mit culfw neu geflashter MAX! Cube oder eine ESP8266/CC1101-Bridge. Geben Sie den Hostnamen oder die IP-Adresse und den TCP-Port ein, auf dem culfw lauscht (standardmäßig 2323).
+Ein Workaround mit `ser2net`/`socat` ist nicht mehr erforderlich.
+
+Sind mehrere serielle Geräte angeschlossen, wird einer der Einträge `/dev/serial/by-id/...` in der Portliste bevorzugt. Welches Gerät `/dev/ttyUSB0` und welches `/dev/ttyUSB1` wird, hängt von der Reihenfolge ihrer Erkennung ab und kann sich nach einem Neustart ändern. Der Name `by-id` verweist hingegen immer auf denselben Stick. Jeder andere Pfad kann manuell eingegeben werden.
+
+Bei Verbindungsverlust stellt der Adapter die Verbindung alle 10 Sekunden automatisch wieder her. Befehle, die in der Zwischenzeit nicht gesendet werden konnten, bleiben in der Warteschlange und werden übertragen, sobald die Verbindung wiederhergestellt ist.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 2.1.0 (2026-08-13)
+* (@GermanBluefox) Added support for CUN/CUNO devices which are connected over the network (TCP)
+* (@GermanBluefox) The connection is now re-established automatically if it was lost
+* (@GermanBluefox) Fixed the crash on a communication error and the missing cause in the connection error message
+* (@GermanBluefox) The serial port list now also offers the stable device links below `/dev/serial`, so a stick can be selected by a name which does not change after a reboot
+* (@GermanBluefox) Fixed the CI workflow, which was not triggered by pushes to the master branch
+* (@GermanBluefox) Fixed the issues reported by the repository checker
+
+### 2.0.1 (2026-08-06)
+* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+* (9Mad-Max5) Updating serialport to version 12.0.0 to support Node.js 20
+* (9Mad-Max5) Updating serialport to version 13.0.0 to stop support for Node.js 20
+* (@GermanBluefox) Migrated the sources to TypeScript
+* (@GermanBluefox) Fixed the message counter, which was sent as `01` for every packet
+* (@GermanBluefox) Refactoring and code cleanup
+
+### 1.3.1 (2020-07-26)
+* (bowao) Fix unhandled exception
+* (bowao) Fix serial port selection
+* (Apollon77) Update dependencies
+
+### 1.3.0 (2020-05-12)
+* (Apollon77) Support nodejs 12+14
+* (Apollon77) Prevent warnings in js-controller 3
+
 ### 1.2.0 (2020-01-23)
 * (bluefox) Refactoring
 
-### 1.1.2 (2019-08-28)
-* (Arne Stenmanns) user enabled paringmode
-* (bowao) fixes for measured value of the wallthermostat
-
-### 1.1.1 (2019-07-05)
-* (bowao) fixes and optimizations
-
-### 1.1.0 (2019-07-04)
-* (bowao) support nodejs 10 and 12
-* (bowao) add thermostat week profile
-* (bowao) add thermostat vacation config
-* (bowao) add new thermostat modes: manual eco; manual comfort; manual window
-* (bowao) add poll timeout after 5 minutes of no response from thermostat
-* (bowao) optimize error handling for incomplete packages
-
-### 1.0.0 (2018-10-20)
-* (Arne Stenmanns) Wall thermostat was added
-
-### 0.5.3 (2018-03-25)
-* (skraw.iobroker) Optimize logic to send commands and scanning
-
-### 0.5.1 (2018-03-07)
-* (Apollon77) Further fixes
-
-### 0.5.0 (2018-02-25)
-* (Apollon77) Fix Serial data parsing
-* (bluefox) Admin3 ready
-
-### 0.4.1 (2018-02-15)
-* (Apollon77) Upgrade dependencies
-
-### 0.4.0 (2018-01-24)
-* (Apollon77) Upgrade Serialport and cul library
-
-### 0.3.0 (2017-06-21)
-* (bowao) Fix control of thermostates
-
-### 0.2.3 (2017-04-11)
-* (bluefox) Fix calculation of serial number
-* (bluefox) Add valve configuration
-
-### 0.2.0 (2017-04-11)
-* (bluefox) Activate thermostat scanner
-
-### 0.1.1 (2017-04-10)
-* (bluefox) intial commit
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
-[Licensed under GPLv2](LICENSE) Copyright (c) 2017-2020 bluefox <dogafox@gmail.com>
+[Licensed under GPLv2](LICENSE)
+
+Copyright (c) 2017-2026 bluefox <dogafox@gmail.com>

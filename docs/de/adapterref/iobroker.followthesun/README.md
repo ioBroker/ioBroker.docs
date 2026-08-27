@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.followthesun/README.md
 title: ioBroker.followthesun
-hash: UOxhXOT3u0A6RX/RgeUZbAxPeZjT/i/smo8FYZrnU5c=
+hash: BRQNdNMRwJEA1EaojOqvqVyctslhVlZaVBvCg6iH6Ko=
 ---
 ![Logo](../../../en/adapterref/iobroker.followthesun/admin/followthesun.png)
 
@@ -12,28 +12,32 @@ hash: UOxhXOT3u0A6RX/RgeUZbAxPeZjT/i/smo8FYZrnU5c=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.followthesun.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/followthesun-installed.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/librariesio/release/npm/iobroker.followthesun)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/HGlab01/ioBroker.followthesun/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/HGlab01/ioBroker.followthesun/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.followthesun.png?downloads=true)
 
 # IoBroker.followthesun
-[![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun?ref=badge_shield) ![Testen und Freigeben](https://github.com/HGlab01/ioBroker.followthesun/workflows/Test%20and%20Release/badge.svg)
+[![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun?ref=badge_shield) ![Test und Freigabe](https://github.com/HGlab01/ioBroker.followthesun/workflows/Test%20and%20Release/badge.svg)
 
 ## Followthesun-Adapter für ioBroker
-Dieser Adapter berechnet die aktuelle Höhe und den Azimut der Sonne basierend auf der Geoposition. Zusätzlich werden die Himmelsrichtung und die Bewegung (Sonnenaufgang oder -untergang) der Sonne gespeichert.
+Dieser Adapter berechnet die aktuelle Höhe und den Azimut der Sonne anhand der Geoposition. Zusätzlich werden die Kompassrichtung und der Sonnenstand (Sonnenaufgang oder Sonnenuntergang) gespeichert.
 Er verwendet die in der Konfiguration definierte Geoposition. Das Berechnungsintervall kann in den Instanzeinstellungen festgelegt werden.
-Die Sonnenmittagswerte für bestimmte Tage wie heute, morgen oder den Beginn von Frühling, Sommer, Herbst oder Winter werden ebenfalls gespeichert.
+Die Sonnenhöchstwerte für bestimmte Tage wie heute, morgen oder den Beginn von Frühling, Sommer, Herbst oder Winter werden ebenfalls gespeichert.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Erfordert
-* Node.js 20 oder höher
-* ioBroker-Host (js-Controller) 5.0 oder höher
+* Node.js 22 oder höher
+* ioBroker-Host (js-Controller) 6.0.11 oder höher
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.3 (2026-06-16)
+* (HGlab01) code quality improvements
+* (HGlab01) dependecy updates
+
 ### 0.5.2 (2025-03-12)
 * (HGlab01) Bump axios to 1.8.3
 
@@ -50,13 +54,12 @@ Die Sonnenmittagswerte für bestimmte Tage wie heute, morgen oder den Beginn von
 ### 0.4.2 (2023-08-10)
 * (HGlab01) Improve admin5 UI usage
 
-### 0.4.1 (2023-02-05)
-* (HGlab01) Improve error log if coordinates are not set
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2020-2026 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

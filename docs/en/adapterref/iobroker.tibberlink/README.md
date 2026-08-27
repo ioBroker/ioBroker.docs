@@ -26,138 +26,69 @@
 
 [![NPM](https://nodei.co/npm/iobroker.tibberlink.png?downloads=true)](https://nodei.co/npm/iobroker.tibberlink/)
 
-## Adapter for Utilizing TIBBER energy data in ioBroker
+## Sentry
 
-This adapter facilitates the connection of data from your Tibber account's API to be used within ioBroker, whether for a single home or multiple residences.
-New Feature: The adapter now supports direct local reading of the Tibber Pulse Sensor through your home network, allowing for real-time monitoring and data collection without relying solely on the cloud API.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable error reporting, see <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">Sentry-Plugin Documentation</a>!
+
+## Adapter for Utilizing Tibber Energy Data in ioBroker
+
+This adapter connects your Tibber account's API data to ioBroker, whether for a single home or multiple residences.
+It also supports direct local reading of the Tibber Pulse sensor via your home network, enabling real-time monitoring and data collection without relying solely on the cloud API.
 
 If you're not currently a Tibber user, I would greatly appreciate it if you could use my referral link: [Tibber Referral Link](https://invite.tibber.com/mu8c82n5).
+
+## Documentation
+
+- [Standard Configuration](#standard-configuration) — first setup, API token, homes, historical data
+- [Calculator Configuration](docu/CalculatorConfiguration.md) — price-based automation channels & Smart Battery Buffer
+- [Graph Output Configuration](docu/GraphOutput.md) — visualizing prices with E-Charts / FlexCharts
+- [Vehicles & Chargers Configuration](docu/VehiclesAndChargers.md) — Tibber Data API setup for cars & wallboxes
+- [Direct local poll of Pulse data](docu/LocalPulse.md) — reading the Pulse locally, supported meter modes
 
 ## Standard Configuration
 
 - Begin by creating a new instance of the adapter.
 - You'll also require an API token from Tibber, which you can obtain here: [Tibber Developer API](https://developer.tibber.com).
 - Enter your Tibber API token in the standard settings and configure at least one line for live feed settings (select "None available").
-- Save the settings and exit the configuration to restart the adapter; this step allows your home(s) to be queried the first time from the Tibber server.
+- Save the settings and exit the configuration to restart the adapter; this step allows your home(s) to be queried for the first time from the Tibber server.
 - Return to the configuration screen and select the homes from which you wish to fetch real-time data using your Tibber Pulse. You can also select homes and disable the feed (Note: This works only if the hardware is installed and the Tibber server has verified the connection to Pulse).
-- Note: If you have more than one home actively in your Tibber account you have to add all of them to get rid of error message caused by potentially not needed homes. Add them all and disable the options.
-- You have the option to deactivate the retrieval of price data for today and tomorrow, for instance, if you only intend to utilize Pulse live feeds
+- Note: If you have more than one home in your Tibber account, you must add all of them to avoid error messages caused by homes that may not be needed. Add them all and disable the unwanted ones.
+- You have the option to deactivate the retrieval of price data for today and tomorrow, for instance, if you only intend to use the Pulse live feed.
 - Optionally, you can enable the retrieval of historical consumption data. Please specify the number of datasets for hours, days, weeks, months, and years. You can use "0" to disable one or more of these intervals based on your preferences.
-- Note: It's essential to be mindful of the dataset size, as excessively large requests may result in a lack of response from the Tibber Server. We recommend experimenting with the dataset size to ensure optimal functionality. Adjusting the intervals and dataset numbers can help strike the right balance between obtaining insightful data and maintaining server responsiveness. E.g. 48 is a quite good amount for hours.
+- Note: It's essential to be mindful of the dataset size, as excessively large requests may result in no response from the Tibber Server. We recommend experimenting with the dataset size to ensure optimal functionality. Adjusting the intervals and dataset numbers can help strike the right balance between obtaining insightful data and maintaining server responsiveness. For example, 48 is a recommended value for hours.
 - Save the settings.
+
+## Consumption Data Documentation
+
+When daily historical consumption is enabled, the adapter provides an aggregated state for the current month:
+
+- `Homes.<HOME-ID>.Consumption.currentMonthConsumption`
+
+This state is the total consumption for the current calendar month in `kWh`, calculated from the daily consumption data returned by Tibber. If too few days are configured, the value will only reflect that number of days — not a complete month.
 
 ## Calculator Configuration
 
-- Now that the Tibber connection is up and running, you can also leverage the Calculator to incorporate additional automation features into the TibberLink adapter.
-- The Calculator operates using channels, with each channel linked to a selected home.
-- These states are designed to serve as external, dynamic inputs for TibberLink, allowing you to, for example, adjust the marginal cost ("TriggerPrice") from an external source or enable the calculator channel ("Active").
-- These channels have to be activated or deactivated based on corresponding states.
-- The states of a calculator channel are positioned adjacent to the home states and named according to the channel number. Hereby the channelname choosen in admin screen is shown here to better identify your configurations.  
-  ![Calculator States](docu/calculatorStates.png)
-- The behavior of each channel is determined by its type: "best cost (LTF)", "best single hours (LTF)", "best hours block (LTF)" or "smart battery buffer".
-- Each channel populates one or two external states as output, which has to be selected in the settings tab. For instance, this state might be "0_userdata.0.example_state" or any other writeable external state.
-- If no external output state is selected, an internal state within the channel's range will be created.
-- The values to be written to the output state can be defined in "value YES" and "value NO," e.g., "true" for boolean states or a number or text to be written.
-- Outputs:
-    - "Best cost": Utilizes the "TriggerPrice" state as input, producing a "YES" output every hour when the current Tibber energy cost is below the trigger price.
-    - "Best single hours": Generates a "YES" output during the least expensive hours, with the number defined in the "AmountHours" state.
-    - "Best hours block": Outputs "YES" during the most cost-effective block of hours, with the number of hours specified in the "AmountHours" state.  
-      Additionally, the average total cost in the determined block is written to a state "AverageTotalCost" nearby the input states of this channel. Also start and end hour of the block is written to "BlockStartFullHour" and "BlockEndFullHour" as a result of the calculation.
-    - "Best percentage": Outputs "YES" during the least expensive hour and any other hours where the price falls within the percentage range specified in the "Percentage" settings state.
-    - "Best cost LTF": "Best cost" within a Limited Time Frame (LTF).
-    - "Best single hours LTF": "Best single hours" within a Limited Time Frame (LTF).
-    - "Best hours block LTF": "Best hours block" within a Limited Time Frame (LTF).
-    - "Best percentage LTF": "Best percentage" within a Limited Time Frame (LTF).
-    - "Smart Battery Buffer":
-        - The "EfficiencyLoss" parameter defines the efficiency loss of the battery system. Its value ranges from 0 to 1, where 0 means no efficiency loss and 1 represents complete energy loss. For example, a value of 0.25 indicates a 25% efficiency loss per charge/discharge cycle.
-        - The "AmountHours" parameter specifies the maximum number of hours the system may use for battery charging, rounded to quarter hours. Important: this is an upper limit, not a guaranteed number of hours. The actual number of charging timeslots is determined dynamically based on energy prices and the efficiency loss. Only timeslots where charging is economically worthwhile (i.e., price is sufficiently below the most expensive slot, considering EfficiencyLoss) will be selected.
-        - The calculator works as follows:
-            - Cheap timeslots: Battery charging is enabled (value YES) and feed into the home energy system is disabled (value 2 NO). These are the slots with the lowest prices that pass the efficiency filter, up to AmountHours.
-            - Expensive timeslots: Battery charging is disabled (value NO) and feed into the home energy system is enabled (value 2 YES). These slots have the highest prices, above the dynamically calculated threshold based on the cheapest timeslot prices and efficiency loss.
-            - Normal timeslots: Where charging is not economically viable, both outputs are disabled.
-        - This approach ensures that the battery is only used when it is economically beneficial, rather than strictly adhering to a fixed number of hours.
-- LTF channels: These operate similarly to standard channels but are active only within a time frame defined by the 'StartTime' and 'StopTime' state objects. After 'StopTime,' the channel automatically deactivates. 'StartTime' and 'StopTime' can span two calendar days, as Tibber does not provide data beyond a 48-hour window. Both states require a date-time string in ISO-8601 format with a timezone offset, e.g., '2024-12-24T18:00:00.000+01:00'." Additionally, the LTF channels feature a new state parameter called 'RepeatDays,' which defaults to 0. When 'RepeatDays' is set to a positive integer, the channel will repeat its cycle by incrementing both 'StartTime' and 'StopTime' by the specified number of days after 'StopTime' is reached. For example, set 'RepeatDays' to 1 for daily repetition.
+The Calculator adds price-based automation on top of the Tibber connection: per-home channels that switch external states based on the cheapest/most expensive hours, price thresholds, best-hour blocks, percentage ranges, Limited Time Frames (LTF), and a Smart Battery Buffer mode.
+
+📖 **Full guide: [docu/CalculatorConfiguration.md](docu/CalculatorConfiguration.md)**
 
 ## Graph Output Configuration
 
-The adapter helps visualize price trends and calculator results. It provides three levels of complexity, each offering different options.
-These three methods provide various options for visualizing price trends and calculator results. Depending on your requirements, you can choose from a simple JSON-based approach to a fully customized JavaScript solution.
+The adapter helps visualize price trends and calculator results — from a simple JSON-based approach via the "E-Charts" / "FlexCharts" adapters to a fully customized JavaScript solution.
 
-### 1. **(Under Development) Visualization using the "E-Charts" Adapter**
-
-This method requires the "E-Charts" adapter to be installed separately.
-
-- JSON data can be used, generated in the Calculator States section as `Output-E-Charts`.
-- The capabilities are limited by the constraints of the E-Charts adapter.
-
-### 2. **Using the "FlexCharts" (or "Fully Featured eCharts") Adapter with JSON**
-
-This method requires the "FlexCharts" adapter to be installed separately.
-
-- The TibberLink adapter creates a state called `jsonFlexCharts`.
-
-    ![jsonFlexChartsState.png](docu/jsonFlexChartsState.png)
-
-- The FlexCharts adapter renders this state via the following URL:
-    ```
-    http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibberlink.0.Homes.[TIBBER-HOME-ID].PricesTotal.jsonFlexCharts
-    ```
-- Refer to the [FlexCharts adapter documentation](https://github.com/MyHomeMyData/ioBroker.flexcharts) for more details.
-
-#### **JSON Template Usage**
-
-- The `jsonFlexCharts` state is generated based on a template configured via the JSON editor in the adapter settings.
-- **Important:** The built-in JSON editor in ioBroker.Admin does not support JSON5, which may cause false error messages.
-- A sample template can be downloaded from: [TemplateFlexChart01.md](docu/TemplateFlexChart01.md).
-- Copy and paste the template into the JSON editor.
-- The template contains the placeholders:
-    - `%%xAxisData%%` and `%%yAxisData%%` (populated with price information at runtime).
-    - `%%CalcChannelsData%%` (populated with selected calculator channel data).
-- The rest of the template follows the Apache ECharts configuration. For reference, see [Apache ECharts Examples](https://echarts.apache.org/examples/en/index.html).
-- **Recommendation:** Test the TibberLink adapter without a real template using the default string:
-    ```
-    %%xAxisData%%\n\n%%yAxisData%%\n\n%%CalcChannelsData%%
-    ```
-    This helps understand its functionality.
-- Template adjustments can be tested on Apache ECharts examples pages using the "Output-E-Charts" state data.
-- Good templates will be shared within the TibberLink adapter community.
-
-### 3. **Using "FlexCharts" with Custom JavaScript Code**
-
-For maximum flexibility and customization, the FlexCharts adapter can be used with custom JavaScript.
-
-- Both the "FlexCharts" and "JavaScript" adapters need to be installed separately.
-- This approach allows the creation of multiple customized graphs.
-- For more details, refer to the [FlexCharts Adapter Discussion](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67).
-
-## Hints
-
-### Inverse Usage
-
-To obtain, for example, peak hours instead of optimal hours, simply invert the usage and parameters:
-![Calculator States Inverse](docu/calculatorStatesInverse.png)
-By swapping true <-> false, you will receive a true at a low cost in the first line and a true at a high cost in the second line (Channel names are not triggers and are still free to choose).
-
-Attention: For peak single hours, such as in the example, you also need to adjust the number of hours. Original: 5 -> Inverse (24-5) = 19 -> You will obtain a true result during the 5 peak hours.
-
-### LTF channels
-
-The calculation is performed for "multiday" data. As we only have information for "today" and "tomorrow" (available after approximately 13:00), the time scope is effectively limited to a maximum of 35 hours. However, it's crucial to be mindful of this behavior because the calculated result may/will change around 13:00 when new data for tomorrow's prices becomes available.
-
-To observe this dynamic change in the time scope for a standard channel, you may opt for a Limited Time Frame (LTF) spanning several years. This is particularly useful for the "Best Single Hours LTF" scenario.
+📖 **Full guide: [docu/GraphOutput.md](docu/GraphOutput.md)**
 
 ## Direct local poll of Pulse data
 
-To make it work, you need to modify the web interface of the Bridge to remain permanently enabled.
-marq24 has described how to do this excellently for his HomeAssistant integration here:
+The adapter can read the Tibber Pulse locally over your home network (via the Tibber Bridge) instead of relying solely on the cloud feed, writing meter data to ioBroker states every 2 seconds. Both binary SML and plain OBIS text meters are supported.
 
-https://github.com/marq24/ha-tibber-pulse-local
+📖 **Full guide (bridge setup, supported meter modes): [docu/LocalPulse.md](docu/LocalPulse.md)**
 
-If everything works correctly, the meter data will be written to IoBroker states every 2 seconds.
+## Vehicles & Chargers Configuration
 
-## Sentry
+In addition to the main API token, the adapter can read IoT device data (vehicles, chargers) from the separate **Tibber Data API** (`data-api.tibber.com`), which needs its own OAuth2 client registration and one-time authorization. Vehicle data is written to `Vehicles.<VIN>.*`, charger data to `Chargers.<id>.*`.
 
-This adapter employs Sentry libraries to automatically report exceptions and code errors to the developers. For more details and information on how to disable error reporting, please consult the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is initiated starting with js-controller 3.0.
+📖 **Full setup guide (client registration, authorization, available states): [docu/VehiclesAndChargers.md](docu/VehiclesAndChargers.md)**
 
 ## Donate
 
@@ -170,45 +101,35 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 6.2.1 (2026-03-30)
+### 7.2.2 (2026-08-22)
 
-- (HombachC) optimize pull of consumption data (#860)
-- (HombachC) switch to ES2023 code
-- (HombachC) update dependencies
+- (HombachC) fixed local Pulse meter mode 5 (plain OBIS text, e.g. eBZ meters) not being parsed, leaving states frozen (#931)
+- (HombachC) documented the supported Pulse meter modes (README + Info/PulseMeterModes.md)
+- (HombachC) restructured the README: moved the Calculator, Graph Output, Local Pulse and Vehicles & Chargers guides into separate files under docu/
+- (HombachC) updated dependencies
 
-### 6.2.0 (2026-03-07)
+### 7.2.1 (2026-08-10)
 
-- (HombachC) enable umlauts to calculation channel names (#844)
-- (HombachC) enhance resolution of pulse meter data (#840)
-- (HombachC) fix wrong end block state calculation (#841)
-- (HombachC) setup auto-merge for dependabot (#834)
-- (HombachC) update dependencies
+- (HombachC) fixed charger devices with an empty externalId (e.g. Wallbox Pulsar Plus) producing an invalid state id; a single bad device no longer aborts the whole Data API poll (#925)
+- (HombachC) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts (#927)
+- (HombachC) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
+- (HombachC) updated tibber-api to 5.6.0
+- (HombachC) updated dependencies
 
-### 6.1.1 (2026-02-05)
+### 7.2.0 (2026-07-30)
 
-- (HombachC) fix LTF shifting for frames greater 24h
-- (HombachC) update dependencies
+- (HombachC) added polling of charger/wallbox devices from the Tibber Data API, written to `Chargers.<id>.*` (#925)
+- (HombachC) added a `LastSeen` state (device-reported last-seen timestamp) for vehicles and chargers
 
-### 6.1.0 (2026-01-03)
+### 7.1.5 (2026-07-12)
 
-- (HombachC) BREAKING: change flexcharts x-axis type
-- (HombachC) introduce FlexChart output for SBB channels second output
-- (HombachC) introduce second name for FlexChart output of SBB channels
-- (HombachC) introduce color for FlexChart output of calculator results
-- (HombachC) introduce more statistics for yesterdays prices
-- (HombachC) clean code for 15min time slots
-- (HombachC) fix schema links (#822)
-- (HombachC) fix CurrentPrice after midnight (#812)
-- (HombachC) update cron
-- (HombachC) year 2026 changes
-- (HombachC) update dependencies
+- (HombachC) added a regression test confirming best single hours LTF no longer switches on the wrong day (#631)
+- (HombachC) worked around a Tibber server bug that returns `to` equal to `from` in weekly historical consumption data (#890)
+- (HombachC) removed redundant test devDependencies (chai, chai-as-promised, sinon-chai, proxyquire) and switched unit tests to Node's built-in assert
 
-### 6.0.3 (2025-11-16)
+### 7.1.4 (2026-07-09)
 
-- (HombachC) optimize sentry
-- (HombachC) optimize dependabot config (#805)
-- (HombachC) update axios and cron
-- (HombachC) update FlexChart template
+- (HombachC) fixed regression where smart battery buffer ignored the EfficiencyLoss parameter (#918)
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

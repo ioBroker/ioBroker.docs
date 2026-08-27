@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.danfoss-ally/README.md
 title: 无标题
-hash: hVcdlLVwHoiSco0XdVcLcghYreoDPRMJlT6VJXj++xQ=
+hash: AeSHE6cHLosGEK29j/UXJ/U80stRftqtZVzxC7l3n6U=
 ---
-![版本](https://img.shields.io/badge/version-0.2.15-blue)
+![版本](https://img.shields.io/badge/version-0.2.20-blue)
 ![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 适用于 **丹佛斯 Ally™** 的云适配器 — 使用 **OAuth2（客户端凭证）**。
@@ -40,8 +40,10 @@ hash: hVcdlLVwHoiSco0XdVcLcghYreoDPRMJlT6VJXj++xQ=
 ---
 
 支持的设备
+- 丹佛斯 Ally™ TRV（散热器恒温器）
 - 丹佛斯 Icon2 RT（房间温控器）
 - 丹佛斯 Icon2 控制器
+- 丹佛斯 Ally™ 锅炉继电器
 - 丹佛斯 Ally™ 网关
 
 （自动发现其他丹佛斯设备）
@@ -118,7 +120,7 @@ Polling:      300
 
 ### 阅读示例
 | 状态 | 描述 | 单位 |
-| -------------------------------------- | --------------------------------------------- | ---- |
+| ----------------------------------------------------------- | --------------------------------------------- | ---- |
 | `status.temp_current` | 当前温度 | °C |
 | `status.battery_percentage` | 电池电量 | % |
 | `status.mode` | 当前模式（`auto`, `manual`, `at_home`, …） | – |
@@ -130,13 +132,13 @@ Polling:      300
 
 ---
 
-## 编写（单条命令）
-该适配器支持对每个可控状态进行**精确的单次写入**，无需链式调用或自动模式切换。
+## 写作
+该适配器支持对每个可控状态进行**定向写入**，而无需自动切换模式。
 
-这使您可以在 Blockly、JavaScript 或自定义逻辑脚本中完全控制这些状态。
+这使您可以在 Blockly、JavaScript 或自定义逻辑脚本中完全控制这些操作。
 
 | 可写状态 | 预期值/行为 |
-| ----------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
 | `control.temp_set` | 目标温度（°C，0.5步；发送10次） |
 | `control.at_home_setting`, `control.leaving_home_setting`, `control.pause_setting`, `control.holiday_setting` | 预设温度 |
 | `control.mode` | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
@@ -198,17 +200,18 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 ## 日志记录
 该适配器提供详细的**调试级别**信息用于诊断，但在正常运行期间保持静默。
 
-- `ack=true` 更新仅在**调试**模式下显示
+- `ack=true` 的更新会被静默忽略
 - `HOLD`、`MATCH`、`SUPPRESS` → 调试级别、无害的诊断信息
+- 初始盘点运行后，轮询调试日志仅列出实际值的变化
 - API 错误（`HTTP 400/401`）会自动重试（已记录在调试日志中）
-- 每次投票后提供清晰的信息级摘要：
+- 每次轮询后清除调试级别的摘要：
 
 **民意调查结果示例**
 
 ```
-✅ Updated 13 devices. Changed=2, Skipped=253, Held=1
-📡 Found devices, updating states...
-⏸️ Skipping poll (anti-race 5000ms)
+CHANGES bf0a...: temp_set: 25 -> 30, manual_mode_fast: 25 -> 30
+Updated 13 devices. Mode=poll, Changed=2, Skipped=253, Held=0, AckFixed=0
+Skipping poll (anti-race pause 5000ms)
 ```
 
 ## 示例日志输出
@@ -262,11 +265,14 @@ setState("danfoss-ally.0.<id>.control.SetpointChangeSource", "Externally"); // o
 ---
 
 ## 写入
-每个状态只能执行一条命令（不支持模式链式调用）
+- `temp_set` 首先尝试使用 `SetpointChangeSource` + `temp_set` 命令的组合。
+- 当数据点存在时，Ally TRV 也会获得 `manual_mode_fast`，因为某些设备会在那里报告手动设定点。
+- 仅轮询更新 `status.*`；`control.*` 保持纯写入通道，以避免反馈循环。
 - 模式和温度必须分开填写。
 - 数值被限制在允许的范围内，并缩放 10 倍
 - `child_lock`：尝试 `0/1` 次，在 400 错误时重试 `true/false`
-- `SetpointChangeSource`：可选；手动模式激活时默认为 `"Externally"`
+- `SetpointChangeSource`：可选；`temp_set` 尝试从外部获取 Ally TRV。
+- 如果云端稍后再次报告了旧的设定值，适配器会记录一条警告信息，而不是默默地接受它。
 
 所有发送、重试和确认日志均以调试级别显示。
 
@@ -284,26 +290,51 @@ node main.js
 
 ## Changelog
 
+### 0.2.20
 
-### 0.2.15
-- Fixed invalid `io-package.json` (JSON syntax error)
-- No functional changes
+- Reduced debug log noise after startup: repeated polls now log only real value changes
+- Removed repeated per-device debug inventory lines after the first poll
+- Avoided object-valued status writes from fallback responses
+- Added Boiler Relay fallback objects when the Danfoss API lists the relay but returns no status entries
+- Resolved ioBroker repository checker warnings for Prettier config, ESLint devDependency, translated news entries, workflow concurrency, and tracked ignored tool files
+- Updated GitHub Actions workflow dependencies from the open Dependabot PRs
 
-### 0.2.14
-- Introduced `control` channel for writable states
-- `status` channel is now strictly read-only
-- Improved write detection and state handling
-- Prevented writes to channels or non-state objects
-- Improved adapter stability
+### 0.2.19
 
-### 0.2.13
-- Updated CI & deploy workflow
-- Fixed npm publishing process
-- Improved code formatting (Prettier / ESLint)
-- No functional changes for end users
+- Stopped polling from writing cloud values back into `control.*` states to avoid feedback loops with Loxone/scripts
+- Added `state.from` to debug write logs so external write sources can be identified
+- Added direct status fallback for devices that are listed without status values, improving Boiler Relay datapoints
+- Reduced poll debug noise: the initial run still logs all `SET` lines, later polls summarize changed values per device
 
+### 0.2.18
+
+- Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
+- Added explicit warnings when the Danfoss Cloud does not confirm the requested setpoint
+- Improved device naming/detection for relay-like devices so the Boiler Relay is easier to identify
+
+### 0.2.17
+
+- Improved Ally TRV `temp_set` writes by trying `SetpointChangeSource=Externally` and `temp_set` as one combined command first
+- Falls back to `temp_set` only if Danfoss rejects the combined command
+- Fixed `control.switch` subscriptions for Icon2 / Boiler Relay writes
+- Added alias handling for `Occupied_Setpoint`
+- Fixed jsonConfig header validation warning
+
+### 0.2.16
+
+- Fixed `temp_set` for Ally TRVs (`SetpointChangeSource=Externally` auto-sent)
+- Fixed wrong path for `lower_temp`/`upper_temp` clamp
+- Fixed `OccupiedSetpoint` scaling (÷100 instead of ÷10)
+- Added type hints for 16 new data points (`MeasuredValue`, `pi_heating_demand`, `window_state`, etc.)
+- `Icon2 switch` state is now writable
+- Fixed jsonConfig admin validation warning (missing `size` property)
+- Added Boiler Relay to supported devices
+
+[Older changes](CHANGELOG_OLD.md)
 
 ---
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

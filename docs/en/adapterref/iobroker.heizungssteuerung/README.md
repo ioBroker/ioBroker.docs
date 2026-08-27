@@ -213,6 +213,9 @@ Enable debug logging in adapter settings to see detailed information about:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.1.2 (2025-12-10)
 - (jbeenenga) fix invalid state roles according to ioBroker documentation
 - (jbeenenga) fix repository checker issues (#237)
@@ -282,6 +285,16 @@ Enable debug logging in adapter settings to see detailed information about:
 - (jbeenenga) add config for temperature offset
 - (jbeenenga) add boost and pause function
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
+## Credits
+
+Icon created by Freepik ([https://www.flaticon.com/de/kostenloses-icon/heizung_1295221](https://www.flaticon.com/de/kostenloses-icon/heizung_1295221))
+
+---
+
+**Support this project** ⭐ Star this repository if you find it helpful!
+
 ## License
 
 MIT License
@@ -293,11 +306,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-## Credits
-
-Icon created by Freepik ([https://www.flaticon.com/de/kostenloses-icon/heizung_1295221](https://www.flaticon.com/de/kostenloses-icon/heizung_1295221))
-
----
-
-**Support this project** ⭐ Star this repository if you find it helpful!

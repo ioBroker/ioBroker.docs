@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lorawan/README.md
 title: ioBroker.lorawan
-hash: sMZfwV8TUXXWa4qLliB0sgdbz+aEsEcCI6vT/aASaxo=
+hash: oaqoou6vvpehAbAq3LqCQlfGuultuiw9HVLcvogU/Sg=
 ---
 ![标识](../../../en/adapterref/iobroker.lorawan/admin/lorawan.png)
 
@@ -25,81 +25,40 @@ hash: sMZfwV8TUXXWa4qLliB0sgdbz+aEsEcCI6vT/aASaxo=
 
 文档 Wiki 在这里：https://github.com/BenAhrdt/ioBroker.lorawan/wiki<br/>目前英文文档可在此处找到：https://wiki.hafenmeister.de
 
-## 免责声明
-商标和公司名称的权利仍归其所有者所有，与本适配器无关。
+### 家庭助手传感器发现
+对于数值型传感器实体，桥接器会根据适配器的计数器优先约定，为 Home Assistant 分配 `device_class` 和 `state_class` 属性。当前测量值使用 `measurement`。具有 ioBroker 角色 `value.direction.wind` 的风向状态使用设备类 `wind_direction` 和状态类 `measurement_angle`；保留现有单位，如果未定义单位，则添加 `°`。位于 `Wh`、`kWh` 或 `MWh` 中的能量值，以及由 ioBroker 能量或消耗角色标识的值，均被视为消耗计数器，并使用 `total_increasing` 进行 Home Assistant 能量统计。如果无法可靠地区分某个数量与消耗量，则桥牌倾向于使用反向语义：`m³` 和 `ft³` 分别发布为 `gas` 和 `total_increasing`，`L` 分别发布为 `water` 和 `total_increasing`。`mL` 和 `gal` 仍为通用值 `volume`。诸如 `ppm`、`ppb` 或 `µg/m³` 等含义模糊的浓度单位并不指代特定物质。 `L/min`、`L/s` 和 `m³/h` 使用 `volume_flow_rate`。
 
-适配器的运营者必须继续遵守合理使用原则。
-
-如果此仓库被 fork，则必须注明其为来源。
+免责声明
+商标和公司名称的权利仍归其所有者所有，与本适配器无关。适配器的运营者必须继续遵守合理使用原则。如果此仓库被 fork，则必须注明其为来源。
 
 LoRa® 是 Semtech Corporation 或其关联公司的注册商标或服务标志。
 
 LoRaWAN® 是注册商标。
+
+我与文中提及的品牌及其子公司、标志或商标没有任何关联，也没有得到它们的认可。
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.21.8 (2026-03-04)
-* (BenAhrdt) update icons
+### 1.22.33 (2026-08-19)
+- (BenAhrdt) Add Home Assistant wind direction and angle measurement classification
 
-### 1.21.7 (2026-03-04)
-* (BenAhrdt) update logic for icons and link building
+### 1.22.32 (2026-08-19)
+- (BenAhrdt) Align Home Assistant sensor device classes, state classes, and units with the current specification
 
-### 1.21.6 (2026-03-04)
-* (BenAhrdt) change logic for TTN link and change base ip handling
-* (BenAhrdt) set more devices at default
+### 1.22.31 (2026-07-09)
+- (BenAhrdt) Add selection of ToIob source id
 
-### 1.21.5 (2026-03-04)
-* (BenAhrdt) implements link to Chirpstack / TTN
+### 1.22.30 (2026-07-07)
+- (BenAhrdt) Add PIR Mini device Profile
+- (BenAhrdt) Add possibillity to ad states to downlink numbers
 
-### 1.21.4 (2026-03-03)
-* (BenAhrdt) update the updateBridge function in objectStore
-* (BenAhrdt) improve LoraWAN and ToIob funkction (init / update)
+### 1.22.29 (2026-07-06)
+- (BenAhrdt) Add some roles and units to assignhandler
 
-### 1.21.3 (2026-03-02)
-* (BenAhrdt) add Link to ToIoB Devices
-
-### 1.21.2 (2026-03-02)
-* (BenAhrdt) update icon for device link
-
-### 1.21.1 (2026-03-02)
-* (BenAhrdt) bring possibility for editing base ip in devce Manager
-
-### 1.21.0 (2026-03-02)
-* (BenAhrdt) update deviceManager (dm-utils) to 3.0.0
-* (BenAhrdt) add Links for Bridge devices
-
-### 1.20.57 (2026-03-02)
-* (BenAhrdt) bugfix query for null
-
-### 1.20.56 (2026-03-02)
-* (BenAhrdt) implement deviceId Handling from bridge
-
-### 1.20.55 (2026-03-02)
-* (BenAhrdt) catch publishing value (null) and log warning for this id
-
-### 1.20.54 (2026-02-27)
-* (BenAhrdt) update dependencies
-* (BenAhrdt) bugfix button press
-
-### 1.20.53 (2026-02-21)
-* (BenAhrdt) errorhandling in case of aggregat error with mqtt connection
-
-### 1.20.52 (2026-02-20)
-* (BenAhrdt) bugfix show ToIob always in device Manager
-* (BenAhrdt) correction of wording in downlink Profil Vicki
-* (BenAhrdt) add role button.mode.startMotorcalibration
-
-### 1.20.51 (2026-02-14)
-* (BenAhrdt) including of more entites in ToIob functionality (light, climate, hummidifier, lock, cover)
-
-### 1.20.50 (2026-02-10)
-* (BenAhrdt) implements light to ToIoB function
-
-### Older entries
-[here](OLD_CHANGELOG.md)
+[Older changes can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

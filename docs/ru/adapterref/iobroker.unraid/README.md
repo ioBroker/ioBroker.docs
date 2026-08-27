@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.unraid/README.md
 title: ioBroker.unraid
-hash: Klz4BrytXGLfoSSr+r2o3NOepVL0kjcr7g4bE06sAZo=
+hash: sbDuaOIOyKGmg4EXxm+ElxkCvKwe2keY4gQCpA+ASGU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.unraid/admin/unraid.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.unraid.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.unraid.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.unraid.svg)
 ![Количество установок](https://iobroker.live/badges/unraid-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/unraid-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/unraid-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.unraid.png?downloads=true)
 
 # IoBroker.unraid
@@ -23,8 +23,10 @@ hash: Klz4BrytXGLfoSSr+r2o3NOepVL0kjcr7g4bE06sAZo=
 
 ## Функции
 - Мониторинг использования ЦП и памяти (включая статистику по каждому ядру)
+- Мониторинг датчиков температуры материнской платы (чипсет, температура окружающей среды и т. д.) — требуется Unraid 7.2+
 - Отслеживание состояния сервера и сетевой информации.
-- Мониторинг и управление контейнерами Docker (запуск/остановка).
+- Мониторинг и управление контейнерами Docker (запуск/остановка/пауза/возобновление/обновление) — для паузы/возобновления/обновления требуется Unraid 7.2+
+— Обнаружение обновлений Docker для каждого контейнера и в сводном виде — требуется Unraid 7.2+
 - Просмотр состояния дисков массива (данные, четность, кэш) с информацией о их работоспособности.
 - Мониторинг сетевых ресурсов (использование, конфигурация, сведения о файловой системе)
 - Мониторинг и управление виртуальными машинами (запуск/остановка/пауза/возобновление/перезагрузка)
@@ -60,7 +62,7 @@ hash: Klz4BrytXGLfoSSr+r2o3NOepVL0kjcr7g4bE06sAZo=
 
 ### Настройки адаптера
 1. **Базовый URL**: Введите адрес вашего сервера Unraid (например, `https://192.168.1.10` или `https://tower.local`)
-2. **API-токен**: Вставьте сгенерированный вами в Unraid токен администратора.
+2. **Токен API**: Вставьте сгенерированный вами в Unraid токен администратора.
 3. **Интервал опроса**: Установите частоту получения данных (по умолчанию: 60 секунд, минимум: 10 секунд)
 4. **Самоподписанные сертификаты**: Включите эту опцию, если ваш сервер Unraid использует самоподписанный HTTPS-сертификат.
 5. **Области данных**: Выберите категории данных для мониторинга (Информация о системе, Состояние сервера, Метрики и т. д.)
@@ -80,7 +82,7 @@ hash: Klz4BrytXGLfoSSr+r2o3NOepVL0kjcr7g4bE06sAZo=
 ## Требования
 - Сервер Unraid (рекомендуется версия 7.0.0+)
 - Для версий до 7.2: установите плагин "Unraid Connect" из раздела "Приложения сообщества".
-- Для версии 7.2 и выше: поддержка API встроена.
+- Для версий 7.2 и выше: поддержка API встроена.
 - API-токен с ролью "Просмотрщик" (плюс Docker/VM Manager для управления функциями)
 - Сетевой доступ от ioBroker к серверу Unraid
 
@@ -90,6 +92,24 @@ hash: Klz4BrytXGLfoSSr+r2o3NOepVL0kjcr7g4bE06sAZo=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.9.0 (2026-05-03)
+
+- (ingel81) New mainboard temperature sensors (chipset, ambient, ...) as an optional data domain
+- (ingel81) New update indicator per Docker container plus a summary (`docker.updates.hasUpdates` / `availableCount`)
+- (ingel81) New Pause, Resume and Update buttons for Docker containers
+- (ingel81) Requires Unraid 7.2 or newer for the new features (tested on 7.2.4). Older Unraid versions keep working as before — new states are silently omitted and existing data is preserved.
+
+### 0.8.0 (2026-04-19)
+
+- (ingel81) **Node.js 22 or higher is now required** (Node 20 reached end-of-life on 2026-03-24)
+- (ingel81) Requires ioBroker admin 7.6.20 or newer
+- (ingel81) Updated runtime dependencies (graphql, undici, ws, @apollo/client)
+- (ingel81) Internal: CI migrated to Node 22/24, dev dependencies refreshed
+
+### 0.7.2 (2026-01-04)
+
+- (ingel81) Updated dependencies and admin UI (React 19)
+
 ### 0.7.1 (2025-11-30)
 
 - (ingel81) Minor pipeline issues fixed
@@ -164,7 +184,7 @@ hash: Klz4BrytXGLfoSSr+r2o3NOepVL0kjcr7g4bE06sAZo=
 
 MIT License
 
-Copyright (c) 2025 ingel81 <ingel81@sgeht.net>
+Copyright (c) 2025-2026 ingel81 <ingel81@sgeht.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

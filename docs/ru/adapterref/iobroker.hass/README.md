@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hass/README.md
 title: ioBroker.hass
-hash: DTMrMvmhDjW3snxD6Sxstww2gJf/X7BwdV54R2ogU0M=
+hash: M+nm+izoaISjlBc/GvVPcDabI3Tm57D4yI8ZBmSYd5I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hass/admin/hass.png)
 
@@ -98,17 +98,51 @@ Allowed field keys are: temperature, target_temp_high, target_temp_low, hvac_mod
 ```
 
 ## Конфигурация
-Есть хорошая статья о связях.
+Есть хорошая статья об этой связи.
 
 Пожалуйста, проверьте это: https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen/
 
 **К сожалению, только на немецком языке, но [Google Переводчик работает довольно хорошо.](https://translate.google.com/translate?hl=en&sl=de&tl=en&u=https%3A%2F%2Fwww.smarthomejetzt.de%2Fmit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen%2F)**
+
+## Фильтр исключения сущностей
+При желании можно ограничить список объектов Home Assistant, синхронизируемых с ioBroker.
+
+Каждая непустая строка, не содержащая комментариев, в поле **Исключить шаблоны** представляет собой шаблон (только `*` является подстановочным знаком и соответствует любой последовательности символов, включая `.`).
+Сопоставление шаблонов осуществляется с учетом регистра по отношению к полному `entity_id` (например,
+`switch.living_room`). Сущность, соответствующая любому шаблону, это:
+
+- Пропускается при создании или обновлении объектов (начальная синхронизация и повторная синхронизация)
+- игнорируется при изменении состояния в HASS (в ioBroker не запускаются операции записи состояния).
+
+Строки, начинающиеся с `#`, рассматриваются как комментарии.
+
+Примеры:
+
+```
+# Drop every entity whose name starts with `iob_`, regardless of domain:
+*.iob_*
+
+# Drop sensors only:
+sensor.iob_*
+```
+
+Установите флажок **Подробное логирование фильтра**, чтобы при первой синхронизации регистрировать каждое исключенное `entity_id` по отдельности (требуется уровень логирования адаптера `info` или `debug`). При последующих повторных синхронизациях будет выводиться только суммарное количество, чтобы журнал оставался чистым.
+
+Пустой список шаблонов оставляет поведение адаптера идентичным предыдущим версиям.
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
+### 2.1.0 (2026-05-16)
+* (mokusone) Added optional entity exclude filter with glob patterns, configurable via the admin UI, plus a verbose-logging toggle for inspecting matches
+* (@klein0r) Use `/core/` instead of `/api/` when connecting to supervisor directly (e.g., in ha app)
+* (@klein0r) Use ENV var SUPERVISOR_TOKEN as fallback for password
+
+### 2.0.4 (2026-05-05)
+* (@GermanBluefox) Tried to keep the custom settings of the objects when updating them with new data from HASS
+
 ### 2.0.3 (2026-04-02)
 * (@GermanBluefox) Adapter was updated and migrated to TypeScript
 * (@Titanium177) Added roles for states and added debouncing for reading states from hass
@@ -120,33 +154,6 @@ Allowed field keys are: temperature, target_temp_high, target_temp_low, hvac_mod
 
 ### 1.3.0 (2022-07-01)
 * (Apollon77) Further optimize sending data to HASS and allow setting values like numbers as normal states if the service has one attribute and it can be mapped
-
-### 1.2.0 (2022-06-17)
-* (Apollon77) IMPORTANT: Replace special characters in entity attribute names with an underscore! Object IDs might change!
-* (Apollon77) make sure a "null" value in state changes is not crashing
-
-### 1.1.2 (2022-03-29)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 1.1.1 (2022-03-25)
-* (Apollon77) Show password fields masked again in config
-
-### 1.1.0 (2022-03-24)
-* IMPORTANT: You need to re-enter the password once after installing this version!
-* (Apollon77) Implement Service triggers to use any value to trigger or stringified JSON to call with fields
-* (Apollon77) Optimize unload handling
-* (Apollon7) Add Sentry for crash reporting
-
-### 1.0.1 (2021-09-04)
-* IMPORTANT: js-controller 2.0 is needed at least!
-* (Apollon77) Fix start issue
-* (Apollon77/Garfonso) Fix issue where value could not be set in hass
-
-### 1.0.0 (2020-12-13)
-* (bluefox) added the support of compact mode
-
-### 0.1.0
-* (bluefox) initial release
 
 ## License
 The MIT License (MIT)

@@ -1,147 +1,58 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alarm/README.md
 title: ioBroker.alarm
-hash: 2JdV6+BF9GW97A5BkCpAcKU4T9GqLI2jCYFrDipyc5c=
+hash: A7EFoEodD4sa1G3hTwHnBhNGO9xRkNYfb5k4n4lxhy0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alarm/admin/alarm.png)
 
 ![Количество установок](http://iobroker.live/badges/alarm-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.alarm.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.alarm.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.alarm.svg)
 ![Известные уязвимости](https://snyk.io/test/github/misanorot/ioBroker.alarm/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.alarm.png?downloads=true)
 
 # IoBroker.alarm
-**Действия на гитхабе**:
+**Github Actions**:
 
-![Действия на GitHub](https://github.com/misanorot/ioBroker.alarm/workflows/Test%20and%20Release/badge.svg)
+![GitHub Actions](https://github.com/misanorot/ioBroker.alarm/workflows/Test%20and%20Release/badge.svg)
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYHW84XXF5REJ&source=url)
+[![[paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYHW84XXF5REJ&source=url)
 
-## Сигнализация для ioBroker
-**[Deutsche Beschreibung](docs/de/alarm.md)**
+## Система сигнализации для ioBroker
+**[Описание на английском языке](docs/en/alarm_en.md)** **[Deutsche Beschreibung](docs/de/alarm.md)**
 
-## Сигнализация для ioBroker
-**[английское описание](docs/en/alarm_en.md)**
-
-******************************************************************************************
+Этот адаптер позволяет настроить домашнюю систему сигнализации без обширных знаний в области программирования. Он предоставляет возможность настроить 3 цепи безопасности и контролировать их в ночное время, при включении или выключении. Кроме того, внутренние состояния адаптера могут быть напрямую связаны с внешними состояниями. Эти связи настраиваются на вкладке «Ярлыки». Для повышения защиты от взломщиков можно легко настроить простую имитацию присутствия. Также возможны уведомления о различных событиях, которые могут отправляться по различным каналам, таким как Telegram или электронная почта (при условии установки соответствующего адаптера!).
 
 ## Changelog
 
-#### 3.2.0 (15.10.2022)
-* (misanorot) fixed enableable
-* (misanorot) added presence simulation
-* (misanorot) added zones
-* (misanorot) fixed set number states
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 4.0.6 (2026-07-07)
+* (@GermanBluefox) Packages were updated
+* (@GermanBluefox) Some compiler errors were fixed
 
-#### 3.1.1 (29.06.2022)
-* (MK-2001) added speech delay
+### 4.0.5 (2026-06-23)
+* (@misanorot) fixed checker issues
 
-#### 3.1.0 (26.04.2022)
-* (misanorot) added speech delay
+### 4.0.4 (2026-05-17)
+* (@misanorot) fixed little JSON Ui issues
 
-#### 3.0.3 (31.01.2022)
-* (misanorot) changed burgle concept, added silent alarm at sharp inside, fixed little issues
+### 4.0.3 (2026-05-11)
+* (@misanorot) fixed checker issues
+- (copilot) Adapter requires node.js >= 22 now
+* (@GermanBluefox) fixed JSON config issues
+* (@GermanBluefox) packages were updated
 
-#### 2.2.1 (20.01.2022)
-* (misanorot) added notification when warnings at beginning night rest
+### 4.0.2 (2026-04-07)
+* (@GermanBluefox) fixed #368
 
-#### 2.2.0 (16.01.2022)
-* (misanorot) added telegram special parameters
-
-#### 2.1.1 (07.11.2021)
-* (misanorot) added countdown state for silent alarm
-
-#### 2.1.0 (11.10.2021)
-* (misanorot) extend list states and speech output, added leave option
-
-#### 2.0.2 (08.08.2021)
-* (misanorot) fixed password issues
-
-#### 2.0.1 (04.05.2021)
-* (misanorot) fixed ack issues
-
-#### 2.0.0 (22.03.2021)
-* (misanorot) added other alarms
-
-#### 1.9.0 (08.01.2021)
-* (misanorot) added html states and fixed little issues
-
-#### 1.8.0 (26.11.2020)
-* (misanorot) added status.state_list to shortcuts
-
-#### 1.7.0 (20.11.2020)
-* (misanorot) changed notifications and fixed little issues
-
-#### 1.6.0 (08.11.2020)
-* (misanorot) changed time inputs to numbers
-
-#### 1.5.0 (08.11.2020)
-* (misanorot) added stop inside alarm with disable
-
-#### 1.4.0 (05.11.2020)
-* (misanorot) added silent alarm selection for every state
-
-#### 1.3.0 (01.11.2020)
-* (misanorot) added diffrent time options
-
-#### 1.2.0 (09.07.2020)
-* (misanorot) added countdown speech output
-
-#### 1.1.0 (05.07.2020)
-* (misanorot) Added input shortcuts
-
-#### 1.0.0 (01.07.2020)
-* (misanorot) added alarm and silent flash light
-
-#### 0.9.0 (28.06.2020)
-* (misanorot) Homekit integrated, set shortcuts only when changed
-
-#### 0.8.0 (18.06.2020)
-#### (misanorot) !!! Changed circuits dramatacly !!! Please do a new installation when you come from less versions
-
-#### 0.7.5 (14.06.2020)
-* (misanorot) fixed a few little issues
-
-#### 0.7.0 (07.06.2020)
-* (misanorot) edit notification sentences in admin
-
-#### 0.6.0 (31.05.2020)
-* (misanorot) changed speech output
-
-#### 0.5.0 (14.05.2020)
-* (misanorot) added use.list state
-
-#### 0.4.0 (14.05.2020)
-* (misanorot) added warn circuit monitoring
-
-#### 0.3.0 (04.05.2020)
-* (misanorot) expaned speech output
-
-#### 0.2.2 (30.04.2020)
-* (misanorot) added alexa2 speak output
-
-#### 0.2.0 (22.04.2020)
-* (misanorot) added more states
-
-#### 0.1.2 (19.04.2020)
-* (misanorot) status.state  activated
-
-#### 0.1.1 (28.03.2020)
-* (misanorot) added states and lists - fixed issues - translation
-
-#### 0.1.0 ()
-* (misanorot) add password for de/activation -- better logging
-
-#### 0.0.9 (19.02.2020)
-* (misanorot) add sayit
-
-#### 0.0.8 (03.02.2020)
-* (misanorot) initial release
+[Older changes](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2019-2022 misanorot <audi16v@gmx.de>
+Copyright (c) 2019-2026 misanorot <audi16v@gmx.de>

@@ -157,6 +157,63 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (tt-tom17) admin: the trash page now shows a status line after an .ics upload, including the number of appointments found
+
+### 1.0.0 (2026-08-18)
+- (copilot) **BREAKING:** Adapter requires node.js >= 22 now
+- (GermanBluefox) **BREAKING:** Admin UI migrated to React 19 / MUI 9 / `@iobroker/gui-components` – requires admin 8.0.0 or newer
+- (ticaki) cardPower configuration migrated to the new react based page config tab
+- (ticaki) admin: previous/next buttons in the navigation assignment panel were swapped
+- (ticaki) berry driver generation 11 added (beta), the automatic berry driver update was removed
+
+### 0.17.8 (2026-04-25)
+- (ticaki) fixed: Cannot read properties of undefined (reading 'trim')
+
+### 0.17.7 (2026-04-24)
+- (ticaki) Added `panels.{id}.cmd.activated` state to enable/disable a panel; toggle visible in TabMaintain and TabPanelinfo admin UI
+- (ticaki) Fixed `textSize`/`fontSize` value `0` being rejected by the admin and ignored in some cases
+
+### 0.17.6 (2026-04-22)
+- (ticaki) Added `useValueConditions` to `pageItem`. This can be used to set conditions for when the value and when the icon should be displayed.
+- (ticaki) textSize=0 was rejected by the admin
+
+### 0.17.5 (2026-04-18)
+- (ticaki) When the panel was restarted by the script, the model was set to ‘eu’
+
+### 0.17.4 (2026-04-16)
+- (ticaki) The admin navigation has been assembled incorrectly.
+- (ticaki) Improved selection of custom button IDs
+- (tt-tom17) fixed: ChannelConfigDialog bottom cut off on small laptop screens (save/color buttons not reachable)
+
+### 0.17.3 (2026-04-14)
+- (ticaki) fixed: textSize/fontSize 0-5 and tooltip, us-p admin layout, not update emu berry, textSize for custom item, activate trigger for custom id
+
+### 0.17.2 (2026-04-13)
+- (ticaki) bugfix: pageitem name / icon as id for most roles / textSize
+
+### 0.17.1 (2026-04-12)
+- (ticaki) bugfix: longpress
+
+### 0.17.0 (2026-04-12)
+- (tt-tom17) added: ChannelColorDialog
+- (ticaki) added: customItem, longPress, targetPageLongPress, icons as id, div.
+
+### 0.16.2 (2026-04-09)
+- (ticaki) fixed: channel duplicate error
+- (tt-tom17) fixed: ChannelConfigDialog – error messages (datapointErrors, datapointDuplicates, checkResult) are now properly reset when reopening the dialog
+
+### 0.16.1 (2026-04-09)
+- (ticaki) The native configuration in pageitems is available to everyone. It corresponds exactly to the script configuration for a page item.
+
+### 0.16.0 (2026-04-09)
+- (ticaki) feat: new visual page editor in the admin UI – configure cardGrid, cardGrid2, cardGrid3, cardEntities and cardSchedule pages including their items directly in the admin.
+
+### 0.15.4 (2026-04-04)
+- (tt-tom17) fixed: iCal / trash page – date display year format (2-digit vs. 4-digit) was swapped for short and long item lists
+- (ticaki) fixed: panel rule timer increased from 120 s to 140 s to reduce false "panel disconnected" events after startup
+- (ticaki) fixed: `setPopupNotification` now returns `{ error: 'No Panels Online' }` via callback when no panel is online instead of silently ignoring the call
+
 ### 0.15.2 (2026-03-26)
 - (tt-tom17) added: message dialog when berry installation fails due to missing internet access on the panel
 - (ticaki) added: improved offline detection for panels
@@ -230,6 +287,8 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
 - (ticaki) pagePopup added
 - (ticaki) color for brightsky favorit/bottom day fixed
 - (ticaki) unlock pin fail fixed
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

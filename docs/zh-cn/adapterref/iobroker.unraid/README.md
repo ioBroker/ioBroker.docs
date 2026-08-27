@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.unraid/README.md
 title: ioBroker.unraid
-hash: Klz4BrytXGLfoSSr+r2o3NOepVL0kjcr7g4bE06sAZo=
+hash: sbDuaOIOyKGmg4EXxm+ElxkCvKwe2keY4gQCpA+ASGU=
 ---
 ![标识](../../../en/adapterref/iobroker.unraid/admin/unraid.png)
 
@@ -23,8 +23,10 @@ hash: Klz4BrytXGLfoSSr+r2o3NOepVL0kjcr7g4bE06sAZo=
 
 ＃＃ 特征
 - 监控 CPU 和内存使用情况（包括每个核心的统计数据）
+- 监控主板温度传感器（芯片组、环境温度等）— 需要 Unraid 7.2 或更高版本
 - 跟踪服务器状态和网络信息
-- 监控和控制 Docker 容器（启动/停止）
+- 监控和控制 Docker 容器（启动/停止/暂停/恢复/更新）——暂停/恢复/更新功能需要 Unraid 7.2 或更高版本。
+- 检测每个容器的 Docker 更新，并提供汇总信息 — 需要 Unraid 7.2 或更高版本
 - 查看阵列磁盘（数据盘、奇偶校验盘、缓存盘）的健康状况信息
 - 监控网络共享（使用情况、配置、文件系统详情）
 - 监控和控制虚拟机（启动/停止/暂停/恢复/重启）
@@ -90,6 +92,24 @@ API 功能已内置，请直接前往：**设置 → 管理访问权限 → API 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.9.0 (2026-05-03)
+
+- (ingel81) New mainboard temperature sensors (chipset, ambient, ...) as an optional data domain
+- (ingel81) New update indicator per Docker container plus a summary (`docker.updates.hasUpdates` / `availableCount`)
+- (ingel81) New Pause, Resume and Update buttons for Docker containers
+- (ingel81) Requires Unraid 7.2 or newer for the new features (tested on 7.2.4). Older Unraid versions keep working as before — new states are silently omitted and existing data is preserved.
+
+### 0.8.0 (2026-04-19)
+
+- (ingel81) **Node.js 22 or higher is now required** (Node 20 reached end-of-life on 2026-03-24)
+- (ingel81) Requires ioBroker admin 7.6.20 or newer
+- (ingel81) Updated runtime dependencies (graphql, undici, ws, @apollo/client)
+- (ingel81) Internal: CI migrated to Node 22/24, dev dependencies refreshed
+
+### 0.7.2 (2026-01-04)
+
+- (ingel81) Updated dependencies and admin UI (React 19)
+
 ### 0.7.1 (2025-11-30)
 
 - (ingel81) Minor pipeline issues fixed
@@ -164,7 +184,7 @@ API 功能已内置，请直接前往：**设置 → 管理访问权限 → API 
 
 MIT License
 
-Copyright (c) 2025 ingel81 <ingel81@sgeht.net>
+Copyright (c) 2025-2026 ingel81 <ingel81@sgeht.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

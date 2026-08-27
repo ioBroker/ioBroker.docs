@@ -36,9 +36,10 @@ Connect your Zehnder ComfoAirQ over ComfoConnect LAN C
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.6.0 (2026-05-19)
 
-* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+* (copilot) Adapter requires node.js >= 22 now
+* (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
 * (@klein0r) Updated dependencies
 
 ### 0.5.1 (2025-04-14)
@@ -68,15 +69,7 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 * (klein0r) Dropped Admin 5 support
 * (klein0r) Added Ukrainian language
 
-### 0.2.0 (2022-02-25)
-
-* (klein0r) Translated all objects
-* (klein0r) Updated dependencies
-* (klein0r) Added hint for Admin 4 configuration
-* (klein0r) Updated state roles
-* (klein0r) Updated dependencies
-
-## Credits
+[Older changelogs can be found there](CHANGELOG_OLD.md)## Credits
 
 Development of this ioBroker Adapter was possible on the work performed by:
 
@@ -88,7 +81,7 @@ Development of this ioBroker Adapter was possible on the work performed by:
 
 MIT License
 
-Copyright (c) 2025-2026 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2026 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.socketio/README.md
 title: ioBroker socket.io
-hash: ADSCIlqm9U+gK84+3fU1fEF8ZdlgfkilsN3ozaWAukA=
+hash: RbQP2f3iyXDvJRRqZZug9sdL97bR2n6atxTbDD2nxfs=
 ---
 ![Logo](../../../en/adapterref/iobroker.socketio/admin/socketio.png)
 
@@ -13,33 +13,31 @@ hash: ADSCIlqm9U+gK84+3fU1fEF8ZdlgfkilsN3ozaWAukA=
 ![NPM](https://nodei.co/npm/iobroker.socketio.png?downloads=true)
 
 # IoBroker socket.io
-Dieser Adapter wird von WEB-Anwendungen und -Adaptern verwendet, um über WebSockets und das Socket.io-Protokoll mit ioBroker zu kommunizieren.
+Dieser Adapter wird von Webanwendungen und Adaptern verwendet, um mit ioBroker über WebSockets und das Socket.io-Protokoll zu kommunizieren.
 
-**Wichtiger Hinweis: Seit Version 4.0 dieses Adapters werden ausschließlich reine WebSockets verwendet! Socket.io wird nicht mehr über die socket.io-Bibliothek implementiert, sondern über reine WebSockets simuliert!**
+**Wichtiger Hinweis: Seit Version 4.0 dieses Adapters werden ausschließlich reine WebSockets verwendet! Socket.io wird nicht mehr durch die Socket.io-Bibliothek implementiert, sondern über reine WebSockets simuliert!**
 
-Benutzer können diesen Adapter verwenden, um ihre Produkte über WebSockets mit ioBroker zu verbinden.
+Mit diesem Adapter können Nutzer ihre Produkte über WebSockets mit ioBroker verbinden.
+Tatsächlich kann dieser Adapter auch von ECharts, Vis und vielen anderen Anbietern verwendet werden, um Daten von ioBroker abzurufen.
 
-Tatsächlich kann dieser Adapter von echarts, vis und vielen anderen Adaptern verwendet werden, um Daten aus ioBroker zu extrahieren.
+Wenn möglich, verwenden Sie bitte [`iobroker.ws`](https://github.com/ioBroker/ioBroker.ws) anstelle dieses Adapters.
 
-Verwenden Sie nach Möglichkeit [`iobroker.ws`](https://github.com/ioBroker/ioBroker.ws) anstelle dieses Adapters.
-
-Im Beispiel [Verzeichnis](https://github.com/ioBroker/ioBroker.socketio/tree/master/example) finden Sie eine einfache Anwendung, die diese Schnittstelle verwendet, um einige Daten anzuzeigen.
+Im Beispiel [Verzeichnis](https://github.com/ioBroker/ioBroker.socketio/tree/master/example) finden Sie eine einfache Anwendung, die diese Schnittstelle nutzt, um einige Daten anzuzeigen.
 
 Durch die Verwendung der socket.io-Schnittstelle sollte der Benutzer die [Grundlagen und Konzept](https://github.com/ioBroker/ioBroker) des Systems verstehen.
 
-Es ist auch nützlich, etwas über [Struktur der Objekte](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md) zu lesen.
+Es ist auch nützlich, über [Struktur der Objekte](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md) zu lesen.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Kurze Beschreibung des Konzepts
 ### Objekt
-Objekt ist die Beschreibung eines Datenpunkts oder einer Gruppe. Die Gruppe kann weitere Datenpunkte enthalten und wird in diesem Fall als Kanal bezeichnet.
-Besteht eine Gruppe aus weiteren Kanälen, wird sie als Gerät bezeichnet.
+Ein Objekt beschreibt einen Datenpunkt oder eine Gruppe. Die Gruppe kann weitere Datenpunkte enthalten; in diesem Fall wird sie als Kanal bezeichnet. Besteht eine Gruppe aus mehreren Kanälen, wird sie als Gerät bezeichnet.
 
-Das Objekt ist eine Metainformation, die den Datenpunkt beschreibt und folgenden Inhalt haben könnte: Max.-/Min.-Wert, Einheit, Name, Standardwert, Werttyp, Informationen zum Adapter für die Kommunikation (z. B. IP-Adresse) usw.
+Ein Objekt ist eine Metainformation, die einen Datenpunkt beschreibt und folgenden Inhalt haben kann: Maximal-/Minimalwert, Einheit, Name, Standardwert, Datentyp, Informationen für den Kommunikationsadapter (z. B. IP-Adresse) usw.
 
 ### Zustand
-Der Status ist der tatsächliche Wert des Datenpunkts und wird durch ein JavaScript-Objekt dargestellt:
+Der Zustand ist der tatsächliche Wert des Datenpunkts und wird durch ein JavaScript-Objekt dargestellt:
 
 ```
 {
@@ -52,41 +50,47 @@ Der Status ist der tatsächliche Wert des Datenpunkts und wird durch ein JavaScr
 }
 ```
 
-Zustände ändern sich im Vergleich zu Objekten sehr häufig. (Normalerweise sollten Objekte einmal bei der Erstellung geändert werden, und das ist alles.)
+Zustände ändern sich im Vergleich zu Objekten sehr häufig. (Normalerweise sollten Objekte nur einmal bei ihrer Erstellung geändert werden, und das war's.)
 
-### Bestätigung
+### Danksagung
 Jeder Zustand besitzt das Attribut `ack`. Es zeigt die Befehlsrichtung an.
 
-- Wenn ack=false, bedeutet dies, dass ein anderer Adapter diese Variable steuern (schreiben) möchte, sodass der Befehl ausgeführt wird (z. B. das Licht eingeschaltet wird).
-- Wenn ack=true, bedeutet dies, dass das Gerät über einen neuen Wert informiert. (z.B. Licht wurde manuell eingeschaltet oder Bewegung wurde erkannt)
+- Wenn ack=false, bedeutet dies, dass ein anderer Adapter diese Variable steuern (schreiben) möchte, sodass dieser Befehl ausgeführt wird (z. B. wird das Licht eingeschaltet).
+- Wenn ack=true, bedeutet dies, dass das Gerät einen neuen Wert meldet. (z. B. wurde das Licht manuell eingeschaltet oder eine Bewegung erkannt)
 
-**Beispiel**: Wir haben einen Heimautomatisierungsadapter (HAA), an den eine Lampe unter der Adresse `haa.0.lamp1` angeschlossen ist.
+**Beispiel**: Wir haben einen Hausautomatisierungsadapter (HAA), an den eine Lampe unter der Adresse `haa.0.lamp1` angeschlossen ist.
 
-- Die Lampe kann manuell mit einem physischen Schalter oder mithilfe von HAA über WLAN eingeschaltet werden.
-- Wenn vis die Lampe über WLAN einschalten möchte, sollte es den neuen Wert mit `{value: true, ack: false}` setzen.
-- Wenn die Lampe eingeschaltet wird, informiert sie HAA normalerweise über den neuen Status und der Wert sollte sofort mit „{value: true, ack: true}“ überschrieben werden.
-- Wenn die Lampe manuell über einen physischen Schalter ausgeschaltet wird, informiert sie HAA mit „{value: false, ack: true}“ über den neuen Status.
+Die Lampe kann manuell über einen physischen Schalter oder per WLAN mit Hilfe von HAA eingeschaltet werden.
+- Wenn vis die Lampe über Wi-Fi einschalten möchte, sollte es den neuen Wert mit `{value: true, ack: false}` setzen.
+- Wenn die Lampe eingeschaltet wird, informiert sie normalerweise HAA über den neuen Zustand, und der Wert sollte sofort mit `{value: true, ack: true}` überschrieben werden.
+- Wenn die Lampe manuell über einen physischen Schalter ausgeschaltet wird, informiert HAA über den neuen Zustand mit `{value: false, ack: true}`.
 
 ### Qualität
-Jeder Datenpunkt hat ein Attribut `q` – *Qualität*.
+Jeder Datenpunkt besitzt das Attribut `q` - *Qualität*.
 
 ## Verwendung
-Die Beschreibung aller unterstützten Methoden finden Sie unter [Hier](https://github.com/ioBroker/ioBroker.socket-classes#web-methods).
+Die Beschreibung jeder unterstützten Methode finden Sie unter [Hier](https://github.com/ioBroker/ioBroker.socket-classes#web-methods).
 
-Es wird empfohlen, für die Kommunikation [Socket-Klasse](https://github.com/ioBroker/socket-client) zu verwenden.
+Für die Kommunikation wird die Verwendung von [Socket-Klasse](https://github.com/ioBroker/socket-client) empfohlen.
 
-## Web-Sockets optimieren
-Bei einigen Web-Sockets-Clients kommt es zu Leistungsproblemen bei der Kommunikation.
-
-Manchmal liegt dieses Problem daran, dass die socket.io-Kommunikation auf einen langen Polling-Mechanismus zurückgreift.
-
-Sie können die Option „Web-Sockets erzwingen“ aktivieren, um die ausschließliche Verwendung von Web-Sockets-Transport zu erzwingen.
+## WebSockets optimieren
+Bei einigen WebSocket-Clients kann es zu Leistungsproblemen bei der Kommunikation kommen.
+Dieses Problem wird mitunter durch die Verwendung eines Long-Polling-Mechanismus anstelle der Socket.IO-Kommunikation verursacht. Sie können die Option „WebSockets erzwingen“ aktivieren, um die ausschließliche Verwendung von WebSockets zu erzwingen.
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 8.0.1 (2026-06-20)
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Moved socketio server classes to a separate package
+* (@GermanBluefox) A minimal node.js version is 20
+
+### 7.1.3 (2026-04-13)
+* (@GermanBluefox) Fixed possible problems
+* (@GermanBluefox) Updated packages
+
 ### 7.0.8 (2025-03-04)
 * (@GermanBluefox) Removed the frequent debug output
 
@@ -155,4 +159,4 @@ Sie können die Option „Web-Sockets erzwingen“ aktivieren, um die ausschlie�
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2025 @GermanBluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026 @GermanBluefox <dogafox@gmail.com>

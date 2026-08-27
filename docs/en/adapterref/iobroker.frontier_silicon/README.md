@@ -41,6 +41,7 @@ Other FSAPI documents
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 
 - (pdbjjens) **New**: navigation functions (up/down/select/back/home/search) for all modes (#342)
 - (pdbjjens) **New**: functions to set presets and to navigate presets up/down
@@ -81,6 +82,8 @@ Other FSAPI documents
 ### 0.2.0 (2024-01-28)
 
 - (pdbjjens) Change: Increase minor version number
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

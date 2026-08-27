@@ -24,6 +24,9 @@ The format should be e.g.: /dev/ttyUSBx on Linux- or COMx on Windows-based ioBro
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.2.3 (2026-03-04) - 2026H1 maintenance release
 
 * (pdbjjens) **Changed**: node>=20, js-controller>=7.0.7 and admin>=7.7.22 required
@@ -48,6 +51,8 @@ The format should be e.g.: /dev/ttyUSBx on Linux- or COMx on Windows-based ioBro
 * (pdbjjens) New: Tested with node.js 22
 * (pdbjjens) Fix: Responsive Design tweaks
 * (pdbjjens) New: Updated dependencies
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Legal Notices
 

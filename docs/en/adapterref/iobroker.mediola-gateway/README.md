@@ -58,10 +58,14 @@ DISCLAIMER All product and company names or logos are Trademarks™ or Registere
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.3.0 (2026-06-05)
 
 -   BK with self qualified direction (2 digits)
 -   updates from deps
+-   bumps
+-   node 22 or higher is needed now
+-   js-controller >= 6.0.11
+-   admin >= 7.6.20
 
 ### 1.2.0 (2025-02-15)
 
@@ -90,37 +94,13 @@ DISCLAIMER All product and company names or logos are Trademarks™ or Registere
 -   pull data added for not pushed states
 -   sysvars are now in a folder (breaking change)
 
-### 0.1.4 (2023-05-20)
-
--   axios with log error on error
--   ack true for readonly objects
--   ack check on state change
--   invalid chars checked
-
-### 0.1.3 (2023-05-18)
-
--   test and release script corrected
-
-### 0.1.2 (2023-05-18)
-
--   npm deploy activated
--   Readme improved
-
-### 0.1.1 (2023-05-11)
-
--   dependencies update
-
-### 0.1.0 (2023-05-03)
-
--   initial release
--   send ir (only IR_ID 01 front IR)
--   reveive ir
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2025 oelison <iobrokermediola@sciphy.de> (bots could use the mail, humans add a "2" before the @)
+Copyright (c) 2026 oelison <iobrokermediola@sciphy.de> (bots could use the mail, humans add a "2" before the @)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -20,12 +20,12 @@ chapters: {"pages":{"en/adapterref/iobroker.awtrix-light/README.md":{"title":{"e
 
 ## Requirements
 
-- nodejs 20 (or later)
-- js-controller 6.0.0 (or later)
-- Admin Adapter 7.4.10 (or later)
+- nodejs 22 (or later)
+- js-controller 6.0.11 (or later)
+- Admin Adapter 7.6.20 (or later)
 - _Awtrix 3_ device with firmware _0.98_ (or later) - e.g. Ulanzi TC001
 
-Buy here: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) or here: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
+Buy here: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001), here: [Amazon.de](https://haus-auto.com/p/amz/UlanziTC001) or here: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
 ## Getting started
 
@@ -211,6 +211,14 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.0.0 (2026-07-30)
+
+* (@Brainbug01) Added option/setting for global overlay
+* (copilot) Adapter requires node.js >= 22 now
+* (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
+* (@klein0r) Acknowledge new values of buttons (for admin ui)
+* (@klein0r) Fixed state object role definitions
+
 ### 3.0.0 (2025-10-21)
 
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
@@ -232,17 +240,13 @@ Updated recommended firmware version to 0.98
 
 * (@klein0r) Updated dependencies
 
-### 1.5.0 (2025-01-07)
-
-Updated recommended firmware version to 0.97
-
-* (@klein0r) Updated dependencies
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2025-2026 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2026 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

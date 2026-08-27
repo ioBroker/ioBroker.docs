@@ -107,30 +107,31 @@ Station does not answer to scheduler commands, so only listener mode is supporte
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.2.1 (2026-04-07)
-Issue #229: Adding additional parameters for humidity sensors, up to 20 now
-Issue #277: Display conversion issue fix (thanks to ManuelBu96)
-npm updates
-Adapter Checker updates
+### 1.2.8 (2026-08-20)
+- Fix #317 last_update type to string (you might need to delete the state manually)
 
-### 1.2.0 (2026-03-22)
+### 1.2.7 (2026-08-20)
+- Fix superscript unit and degress for better display (you need to set the temperature unit again in the config screen)
 
-npm dependency updates
-automatic dependency updates added
+### 1.2.6 (2026-08-20)
+- Fix #337 Adapter disabled cased by bootloop - part 2
 
-### 1.1.2 (2026-01-19)
+### 1.2.5 (2026-08-20)
+- Fix #337 Adapter disabled cased by bootloop
+- Fix #317 last_update type to string (you might need to delete the state manually)
+- Fixed some lint warinings
 
-npm dependency updates
-fix admin page: scheduler reported interval in minutes instead of seconds
+### 1.2.4 (2026-08-17)
+- [S5601] translation format changed
+- [S5004] Change setInterval()
+- [S9508] CHANGELOG_OLD.md removed from package.json
+- [#277] Fix unit_config for UVRaw
+- [#314] Reject out of bounds values based on min/max
+- [W1132] wrong roles fixed
+- [S9508] CHANGELOG_OLD.md removed from publishing
+- [S5004] Removed plain setInterval()
 
-### 1.1.1 (2025-12-29)
-
-Changed max values for distance sensore (#262)
-
-### 1.1.0 (2025-12-24)
-
-Added deploy job for release script
-Changed to Admin UI to jsonConfig
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Credits
 

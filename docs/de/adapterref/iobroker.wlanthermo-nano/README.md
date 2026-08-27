@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wlanthermo-nano/README.md
 title: ioBroker.wlanthermo-nano
-hash: jWLdLB/tLzY994bhB0XsoX69BINKX6GfxcsXqGA0BIo=
+hash: gJy3Z+rgb/y/LqQmb0n4KdAw1EUKTL/gj6rhMy9D3+I=
 ---
 ![Logo](../../../en/adapterref/iobroker.wlanthermo-nano/admin/wlanthermo-nano.png)
 
@@ -15,26 +15,39 @@ hash: jWLdLB/tLzY994bhB0XsoX69BINKX6GfxcsXqGA0BIo=
 ![NPM](https://nodei.co/npm/iobroker.wlanthermo-nano.png?downloads=true)
 
 # IoBroker.wlanthermo-nano
-**Tests:** ![Testen und freigeben](https://github.com/DrozmotiX/iobroker.wlanthermo-nano/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/DrozmotiX/iobroker.wlanthermo-nano/workflows/Test%20and%20Release/badge.svg)
 
-## Wlanthermo-nano-Adapter für ioBroker
-[WLANThermo Nano](https://github.com/WLANThermo-nano/WLANThermo_nano_Software/wiki "WLANThermo Nano"), der digitale Vorteil für deinen Grillsport
+## Wlanthermo-nano Adapter für ioBroker
+[WLANThermo Nano](https://github.com/WLANThermo-nano/WLANThermo_nano_Software/wiki "WLANThermo Nano"), der digitale Vorteil für Ihren Grillsport
 
-## Aufbau
-Der Adapter kann innerhalb der Admin-Oberfläche installiert und konfiguriert werden.
+## Wächter
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
+## Konfiguration
+Der Adapter kann über die Administrationsoberfläche installiert und konfiguriert werden.
 Bitte geben Sie IP-Adresse, Benutzername und Passwort in der Instanzkonfiguration ein.
 
-## Machen
+## Aufgaben
 * [ ] Automatische Geräteerkennung implementieren
-* [ ] Pitmaster-Einstellungen optimieren, Zustände im zugehörigen Modus nur schreibbar machen, sonst nur lesbar
+* [ ] Pitmaster-Einstellungen optimieren, Zustände nur im zugehörigen Modus beschreibbar machen, ansonsten schreibgeschützt
 
 ## Tritt dem Discord-Server bei, um alles über die ioBroker-WlanThermo-Integration zu diskutieren!
 <a href="https://discord.gg/cNAeGjJ"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
-## Unterstütze mich
-Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende machen (dies ist ein persönlicher Spendenlink für DutchmanNL, keine Verbindung zum ioBroker-Projekt!) [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
+## Unterstützt mich
+Wenn Ihnen meine Arbeit gefällt, freue ich mich über eine persönliche Spende (dies ist ein persönlicher Spendenlink für DutchmanNL, er steht in keiner Verbindung zum ioBroker-Projekt!). [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Changelog
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+### __WORK IN PROGRESS__
+* (DutchmanNL) Dependencies updated to current versions
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+* (DutchmanNL) Admin settings are translated again: added the missing admin/i18n files for all 11 supported languages, including Ukrainian, and the device table column headers are now translated too
+
 ### 0.2.1 (2022-06-08) - Initialization error for Nano V1 solved
 * (DutchmanNL) Initialization error for Nano V1 solved
 * (DutchmanNL) Error logging and reporting improved
@@ -96,7 +109,7 @@ Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende mac
 ## License
 MIT License
 
-Copyright (c) 2019 DutchmanNL <rdrozda86@gmail.com>
+Copyright (c) 2019-2026 DutchmanNL <oss@DrozmotiX.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

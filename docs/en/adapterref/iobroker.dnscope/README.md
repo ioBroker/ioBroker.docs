@@ -42,6 +42,19 @@ The following DynDNS providers are currently supported:
 
 When selecting `Custom`, it is possible to specify a direct update URL in order to integrate any provider that supports this.
 
+The following placeholders can be used in the custom URL and will be replaced with the current IP address at runtime:
+
+| Placeholder | Description |
+|---|---|
+| `{{ipv4}}` | Current public IPv4 address |
+| `{{ipv6}}` | Current public IPv6 address |
+| `{{ip}}` | Current IP address (IPv4 in the IPv4 update, IPv6 in the IPv6 update) |
+
+**Example:**
+```
+https://dynupdate.example.com/update?hostname=myhome.example.com&myip={{ipv4}}&token=abc123
+```
+
 ---
 
 ## Adapter configuration
@@ -56,6 +69,20 @@ If you have several domains that are to be updated, you need one instance per do
 ---
 <!-- ### **WORK IN PROGRESS** -->
 ## Changelog
+### 0.3.0 (2026-08-20)
+* (simatec) Adapter requires node.js >= 22 now
+* (simatec) dependencies updated
+* (simatec) Source code cleaned up
+* (HJS72) Add detailed debug diagnostics for failed update requests (HTTP status, body, and headers)
+* (HJS72) Ship compiled build output with the latest logging changes
+* (HJS72) Fix HTTP 400 error when IP address could not be determined (skip update instead)
+* (HJS72) Add debug log output for the full update request URL
+* (HJS72) Add IP placeholder support for custom update URL (`{{ipv4}}`, `{{ipv6}}`, `{{ip}}`)
+
+### 0.2.9 (2026-04-26)
+* (simatec) dependencies updated
+* (simatec) Source code cleaned up
+
 ### 0.2.8 (2026-03-29)
 * (simatec) Fix License
 * (simatec) dependencies updated
@@ -67,33 +94,7 @@ If you have several domains that are to be updated, you need one instance per do
 * (simatec) dependencies updated
 * (simatec) Fix npm publish
 
-### 0.2.5 (2025-08-31)
-* (simatec) Dependencies updated
-
-### 0.2.4 (2025-06-25)
-* (simatec) dependencies updated
-* (simatec) Ready for NodeJS 24.x
-
-### 0.2.3 (2025-05-04)
-* (simatec) Fix Config
-* (foxriver76) Fix Instance terminate
-
-### 0.2.2 (2025-05-02)
-* (simatec) dependencies updated
-
-### 0.2.1 (2025-04-06)
-* (simatec) small fix
-* (simatec) dependencies updated
-
-### 0.2.0 (2025-03-23)
-* (simatec) Fix Delay
-* (simatec) Fix States
-* (simatec) dependencies updated
-
-### 0.1.0 (2025-03-16)
-* (simatec) First Beta
-
----
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

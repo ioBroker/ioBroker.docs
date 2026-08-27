@@ -106,6 +106,11 @@ $('youtube.0.groups.*.json').on(async (obj) => {
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 7.0.0 (2026-05-05)
+
+* (copilot) Adapter requires node.js >= 22 now
+* (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
+
 ### 6.1.0 (2025-12-11)
 
 * (@klein0r) Update channel icons every week
@@ -125,17 +130,13 @@ NodeJS >= 20.x and js-controller >= 6 is required
 * (klein0r) Added groups
 * (klein0r) Added icons of channels to object list
 
-### 5.0.0 (2024-04-03)
-
-NodeJS >= 18.x and js-controller >= 5 is required
-
-* (klein0r) Better way to get channel id by alias
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2025-2026 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2026 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

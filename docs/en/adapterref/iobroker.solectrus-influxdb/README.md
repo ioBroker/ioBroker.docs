@@ -9,10 +9,10 @@
 
 **Tests:** ![Test and Release](https://github.com/patricknitsch/ioBroker.solectrus-influxdb/workflows/Test%20and%20Release/badge.svg)
 
-# 🌞 SOLECTRUS InfluxDB Adapter for ioBroker
+## 🌞 SOLECTRUS InfluxDB Adapter for ioBroker
 
 ![ioBroker](https://img.shields.io/badge/ioBroker-Adapter-blue)
-![Node.js](https://img.shields.io/badge/Node.js-%3E%3D20-green)
+![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22-green)
 ![InfluxDB](https://img.shields.io/badge/InfluxDB-2.x-orange)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
@@ -26,11 +26,13 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 ### Features
 
 - **Sensor Mapping** -- Map any ioBroker state to an InfluxDB measurement/field with configurable data type (int, float, bool, string)
+- **Internal Sensors** -- Mirror and monitor states without writing them to InfluxDB
 - **Reliable Buffering** -- Persistent write buffer (up to 100k points) survives InfluxDB outages and adapter restarts
 - **Data-SOLECTRUS Formula Engine** (optional) -- Compute derived values from multiple inputs using formulas, source mirroring, or rule-based state machines
 - **State Machine Mode** -- Generate string/boolean states from rule conditions (first-match-wins), ideal for status labels and operating modes
 - **Formula Builder** -- Visual editor with drag-and-drop building blocks, live preview, operator tooltips, and example patterns
-- **Folder Grouping** -- Organize computed values into folders for better overview
+- **Folder Grouping** -- Organize sensors and computed values into folders for better overview
+- **Built-in Backup** -- Create, upload, restore, download and delete local backups of the instance config, sensors and Data-SOLECTRUS items right from the **Backup** tab, no other adapter required
 
 ### Quick Start
 
@@ -52,7 +54,8 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 
 ### Requirements
 - ioBroker >= latest stable
-- Node.js >= 20
+- **ioBroker.admin >= 8.0.0** - **required since v2.0.0**, the admin UI no longer works on Admin 6/7 (see Changelog)
+- Node.js >= 22
 - InfluxDB 2.x
 
 ---
@@ -62,144 +65,34 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.7.0 (2026-04-10)
+### 2.0.1 (2026-08-04)
+* (patricknitsch) **BREAKING CHANGE:** Requires ioBroker.admin 8 (currently Alpha) or newer. Admin 8 introduced a new "GUI API generation" for custom jsonConfig components (React 19 / MUI 9, `@iobroker/gui-components`) with no backward compatibility, so the Sensors, Data Values and Backup tabs no longer load on Admin 6/7. Do **not** update to this version unless ioBroker.admin has already been updated to version 8.
+* (patricknitsch) Fix Sensor Overview Format
+* (patricknitsch) Fix missing unit in Formula Engine
+* (patricknitsch) Split internal and external Sensors in Overview
+* (patricknitsch) Update Doc
 
-* (patricknitsch) Increased max value from 10.000W to 15.000W
-* (copilot) Zero-value alive monitoring: when a sensor timeout fires and the current value is 0, log info instead of warn and retry after 60 minutes
-* (copilot) Sensor overview: numeric value row shows current value with unit (W) left-aligned and max value with unit (W) right-aligned
-* (copilot) Sensor overview: timestamp row shows last timestamp left-aligned and auto-computed next expected update timestamp right-aligned (no manual input needed)
-* (copilot) Sensor overview: change Format
+### 2.0.0 (2026-08-03)
+* (patricknitsch) **BREAKING CHANGE:** Requires ioBroker.admin 8 (currently Alpha) or newer. Admin 8 introduced a new "GUI API generation" for custom jsonConfig components (React 19 / MUI 9, `@iobroker/gui-components`) with no backward compatibility, so the Sensors, Data Values and Backup tabs no longer load on Admin 6/7. Do **not** update to this version unless ioBroker.admin has already been updated to version 8.
+* (patricknitsch) Rebuild the admin UI (sensors editor, Data-SOLECTRUS items editor, backup panel) as a proper Vite + Module Federation build (`src-admin/`) targeting `@iobroker/gui-components`, replacing the hand-written vanilla-JS Module Federation containers
+* (patricknitsch) Log a clear error and set `info.lastError` at startup if the installed ioBroker.admin is below version 8, so an incompatible setup is immediately visible instead of a silent/confusing failure in the config dialog
+* (patricknitsch) Cleanup i18n
+* (copilot) Fix timeout for Backup Manager
 
-### 1.6.0 (2026-04-06)
+### 1.12.0 (2026-07-08)
+* (patricknitsch) Final Release
 
-* (patricknitsch) Catch max. Values - settable in Config
-* (patricknitsch) Increase Version from 20 to 24 becauso of deploy error
-* (copilot) Add Alive monitoring: configurable timeout warns when sensor values are not updated
+### 1.12.0-beta.1 (2026-07-08)
+* (patricknitsch) Fix `npm run check` (tsc type-checking of the JSDoc-typed JS codebase) so it passes cleanly again
+* (patricknitsch) Improve JSDoc type coverage across `dsProxy.js`, `jsonpath.js`, `stateMachine.js` and `helpers.js`
+* (patricknitsch) Resolve all remaining ESLint JSDoc warnings (`npm run lint` is now warning-free)
 
-### 1.5.0 (2026-03-21)
+### 1.12.0-beta.0 (2026-07-05)
+* (patricknitsch) Update Dependencies
+* (patricknitsch) Add built-in **Backup** tab: create/upload/restore/download/delete local backups of the instance config, sensors and Data-SOLECTRUS items, with a configurable storage location (InfluxDB token is excluded and must be re-entered after a restore)
+* (patricknitsch) Add **Enable iFrame dashboard** checkbox: gates both the iFrame config tab and the Dashboard tab in the sensor overview (tab.html); reuse **Enable notifications** as the single switch that both activates notifications and reveals the Notifications tab
 
-* (patricknitsch) Fix Issues RepoChecker
-* (copilot) Add Tab for SOLECTRUS iFrame
-
-### 1.4.1 (2026-03-18)
-
-* (copilot) Update Tab Format
-* (copilot) Update Readme
-* (patricknitsch) Update Packages
-
-### 1.4.0 (2026-03-16)
-
-* (copilot) Fix String Handling in Formula Engine
-* (copilot) Fix Formula Engine when using state formulas
-* (copilot) New Page for smart Sensor Overview
-* (patricknitsch) Update Readme and Doc
-
-### 1.3.1 (2026-03-06)
-
-* (claude) Fix DS Tick time budget
-
-### 1.3.0 (2026-03-04)
-
-* (claude) Fix DS Tick time budget
-* (patricknitsch) Update Admin Package
-* (claude) Change Admin to easy and expert mode
-* (claude) Add information in easy mode 
-* (claude) Add type json for sending json, i.e. forecast
-* (claude) Update Readme
-
-### 1.2.2 (2026-02-24)
-
-* (claude) Synchronize Formal Engine with Repo from Felliglanz
-* (claude) Add Warning after first start, if value is negative
-* (claude) Add Comment on first page, that SOLECTRUS doesn't accept negative values
-* (claude) Update Readme and Translations
-
-### 1.2.1 (2026-02-13)
-
-* (patricknitsch) Fix wrong package
-
-### 1.2.0 (2026-02-13)
-
-* (claude) Concurrent collect and flush without delay of 5s
-
-### 1.1.2 (2026-02-13)
-
-* (patricknitsch) Fix Eslint-Warnings
-
-### 1.1.1 (2026-02-12)
-
-* (patricknitsch) Fix Eslint-Errors
-
-### 1.1.0 (2026-02-12)
-
-* (claude) Add Formula Engine to build own sensors
-
-### 1.0.0 (2026-01-31)
-
-* (patricknitsch) change Config for Encryption -> Credentials must be re-entered
-
-### 0.3.5 (2026-01-30)
-
-* (patricknitsch) Using node:package format
-* (patricknitsch) encrypt sensitive information -> Token must be re-entered
-* (patricknitsch) onStateChange ignores ack flag
-* (patricknitsch) creation of intermediate objects missing
-* (patricknitsch) using this.setTimeout
-* (patricknitsch) check and limit configurable timeouts/intervals
-* (patricknitsch) Extend Readme
-
-### 0.3.4 (2026-01-19)
-
-* (patricknitsch) Update Readme and split it in two own docs
-
-### 0.3.3 (2026-01-19)
-
-* (patricknitsch) Try fixing automatic npm release
-
-### 0.3.2 (2026-01-19)
-
-* (patricknitsch) change Repo from ssh to https
-
-### 0.3.1 (2026-01-19)
-
-* (Felliglanz) Fix some issues in UI
-
-### 0.3.0 (2026-01-18)
-
-* (patricknitsch) Better handling of Influx Connection, also if no sensor is active
-* (Felliglanz) Rebuild of UI with actual status of each sensor
-
-### 0.2.0 (2026-01-18)
-
-* (patricknitsch) Refactoring code and improve readability
-* (patricknitsch) Buffer values and send to Influx if Influx is online
-* (patricknitsch) Save max. 100000 values and send all to Influx if Influx is online again
-* (patricknitsch) Split Data Collecting and Influx writing
-* (patricknitsch) Updated Translations
-
-### 0.1.5 (2026-01-17)
-
-* (Felliglanz) Improve sensor configuration UI (accordion)
-
-### 0.1.4 (2026-01-15)
-
-* (patricknitsch) Bugfix with Icon
-
-### 0.1.3 (2026-01-15)
-
-* (patricknitsch) Bugfix for License
-* (patricknitsch) Bugfix for Interval
-* (patricknitsch) Synchronize Names, Measurements and Fields to SOLECTRUS Documentation
-
-### 0.1.2 (2026-01-14)
-* (patricknitsch) change UI to look for Source in Tree
-
-### 0.1.1 (2026-01-14)
-* (patricknitsch) add more Debugging
-* (patricknitsch) optimize translation
-
-### 0.1.0 (2026-01-14)
-* (patricknitsch) initial release
+**Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
 
 ## License
 

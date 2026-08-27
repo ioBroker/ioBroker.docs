@@ -26,7 +26,11 @@
 
 [![NPM](https://nodei.co/npm/iobroker.teslafi.png?downloads=true)](https://nodei.co/npm/iobroker.teslafi/)
 
-# ioBroker TeslaFi Adapter – Seamless Tesla Data Integration for Your Smart Home
+## Sentry
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable error reporting, see <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">Sentry-Plugin Documentation</a>!
+
+## ioBroker TeslaFi Adapter – Seamless Tesla Data Integration for Your Smart Home
 
 The TeslaFi adapter enables effortless integration of vehicle data from your TeslaFi account into the ioBroker system. Leverage this data to enhance your Tesla experience and optimize home automation workflows.
 
@@ -64,10 +68,6 @@ The adapter is compatible with all Tesla models supported by TeslaFi. A valid Te
 
 The TeslaFi adapter is actively maintained, and additional features or data categories can be added based on user requests. Feel free to submit your ideas and help improve the adapter for the entire community!
 
-## Sentry
-
-This adapter employs Sentry libraries to automatically report exceptions and code errors to the developers. For more details and information on how to disable error reporting, please consult the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is initiated starting with js-controller 3.0.
-
 ## Donate
 
 <a href="https://www.paypal.com/donate/?hosted_button_id=6EE4YUJRK7UWC"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.teslafi/master/docu/bluePayPal.svg" height="40"></a>
@@ -79,54 +79,32 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.0.4 (2026-08-10)
 
-### **WORK IN PROGRESS**
+- (hombach) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
+- (hombach) updated dependencies
 
-- (HombachC) switch to ES2023 code
+### 3.0.3 (2026-07-05)
 
-### 2.0.6 (2026-02-27)
+- (hombach) removed unneeded test devDependencies (chai, sinon-chai, proxyquire) and switched tests to Node.js assert
+- (hombach) updated axios
 
-- (hombach) admin 7.6.20 needed by adapter checker
-- (hombach) update axios
+### 3.0.2 (2026-06-19)
+
+- (hombach) fixed warnings by adapter checker
+
+### 3.0.1 (2026-06-05)
+
+- (hombach) upgraded TypeScript to 6.x
+- (hombach) fixed warnings by adapter checker
+- (hombach) updated dependencies
+
+### 3.0.0 (2026-05-05)
+
+- (copilot) BREAKING: adapter requires node.js >= 22 now
 - (hombach) update dependencies
 
-### 2.0.5 (2026-01-01)
-
-- (hombach) optimize dependabot config (#209)
-- (hombach) year 2026 changes
-- (hombach) update axios
-- (hombach) update dependencies
-
-### 2.0.4 (2025-10-22)
-
-- (hombach) upgrade NPM deployment system
-- (hombach) bump dependencies
-
-### 2.0.3 (2025-09-27)
-
-- (hombach) remove allowInit (#181)
-- (hombach) fix schema URL for jsonConfig (#181)
-- (hombach) update chai system
-- (hombach) bump dependencies
-
-### 2.0.2 (2025-08-24)
-
-- (hombach) admin 7.6.17 recommended by ioBroker (#166)
-- (hombach) bumb adapter-core to 3.3.2 (#166)
-- (hombach) fix vulnerability
-- (hombach) bump dependencies
-
-### 2.0.1 (2025-06-08)
-
-- (hombach) add node.js 24 tests (#144)
-- (hombach) bump dependencies
-
-### 2.0.0 (2025-05-04)
-
-- (hombach) BREAKING: Dropped support for Node.js 18 (#135)
-- (hombach) BREAKING: Dropped support for js-controller 5 (#135)
-
-### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

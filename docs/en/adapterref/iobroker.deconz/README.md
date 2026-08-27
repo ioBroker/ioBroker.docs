@@ -43,6 +43,40 @@ Examples:
 ## [Sponsors](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+### 1.7.10 (2026-08-03)
+* chore(deps-dev): bump @iobroker/testing from 5.2.2 to 5.3.0
+* chore(deps-dev): bump @types/node from 25.9.4 to 25.9.5
+* chore(deps-dev): bump axios from 1.16.0 to 1.18.1
+
+### 1.7.9 (2026-07-03)
+* chore(deps-dev): bump @types/node from 25.9.1 to 25.9.4
+* chore(deps-dev): bump @alcalzone/release-script from 5.2.0 to 5.2.1
+* chore(deps-dev): bump js-yaml from 4.1.1 to 4.3.0
+
+### 1.7.8 (2026-06-03)
+* chore(deps-dev): bump @alcalzone/release-script-plugin-license
+* chore(deps-dev): bump @types/node from 25.6.0 to 25.9.1
+* chore(deps-dev): bump @alcalzone/release-script from 5.1.1 to 5.2.0
+* chore(deps-dev): bump @alcalzone/release-script-plugin-iobroker
+* chore(deps-dev): bump @alcalzone/release-script-plugin-manual-review
+* chore(deps-dev): bump @iobroker/eslint-config from 2.2.0 to 2.3.4
+* chore(deps): bump ws from 8.20.0 to 8.20.1
+* chore(deps-dev): bump protobufjs from 7.5.5 to 7.5.8
+* chore(deps-dev): bump @protobufjs/utf8 from 1.1.0 to 1.1.1
+* chore(deps-dev): bump axios from 1.15.0 to 1.16.0
+* Update from template: S6020-addChangelogOld
+* Update from template: X0000-dropNode20
+* Update from template: W8917-dependabot-addIgnoreTypesNode
+* chore(deps-dev): bump @types/node from 20.19.37 to 25.6.0
+
+### 1.7.7 (2026-05-03)
+* chore(deps-dev): bump protobufjs from 7.5.4 to 7.5.5
+* chore(deps-dev): bump follow-redirects from 1.15.11 to 1.16.0
+* chore(deps-dev): bump axios from 1.14.0 to 1.15.0
+* Update from template: X0000-updateNodeJsAtTestAndRelease
+
 ### 1.7.6 (2026-04-02)f
 * migrate from request to fetch
 
@@ -365,6 +399,8 @@ Examples:
 ### 0.1.0
 
 * (Jey-Cee) first release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 Apache-2.0

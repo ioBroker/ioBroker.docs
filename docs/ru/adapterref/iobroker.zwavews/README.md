@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zwavews/README.md
 title: ioBroker.zwavews
-hash: zpQOuWRa/PVC4Q3tAUfv6sFysg3YF58DjzTKdCNdv7I=
+hash: 3849JeEjwxoDHr8oL6mWsUMsez4bzuHhHFgLb90+6sY=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.zwavews.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.zwavews.svg)
@@ -19,6 +19,14 @@ hash: zpQOuWRa/PVC4Q3tAUfv6sFysg3YF58DjzTKdCNdv7I=
 ## Адаптер zwave-WS для ioBroker
 Адаптер `zwavews` подключает [`zwave-js-ui`](https://zwave-js.github.io/zwave-js-ui/#/) к ioBroker и создает соответствующие точки данных для устройств, значений и статусов. Это позволяет удобно использовать устройства Z-Wave в визуализациях, логике и автоматизации.
 
+### Функции
+* **Обмен данными в режиме реального времени**: Мгновенно получает обновления значений и статусов устройства через WebSocket.
+* **Автоматическое обнаружение**: Автоматически создает и обновляет структуру устройства и состояния в ioBroker из узлов `zwave-js-ui`.
+* **Управление устройством**: Просматривайте уровень заряда батареи, состояние подключения и подробные показатели устройства прямо из интерфейса ioBroker.
+* **Обновление прошивки**: Отслеживайте ход обновления прошивки непосредственно через журналы и состояния адаптера.
+* **Управление состоянием**: Отправляйте команды и обновляйте значения непосредственно через дерево объектов ioBroker.
+* **Поддержка WebSocket**: Вы можете подключиться к `zwave-js-ui` с помощью WebSocket.
+
 ## Документация по адаптеру
 Необходимо установить zwave-js-ui (возможно перенести устройства zwave2 в zwave-js-ui. Скопируйте файл кэша JSON из /opt/iobroker/iobroker-data/zwave2/ в каталог хранилища Z-Wave JS UI, затем запустите zwave-js-ui) и активировать связь WS.<br> Переключиться с адаптера Z-Wave 2 очень просто, поскольку вся информация хранится на координаторе.<br> Для повторного считывания данных с устройств с батарейным питанием достаточно один раз активировать zwave-js-ui или выполнить миграцию с zwave2.<br>
 
@@ -29,64 +37,27 @@ hash: zpQOuWRa/PVC4Q3tAUfv6sFysg3YF58DjzTKdCNdv7I=
 <img width="1887" height="479" alt="графика" src="https://github.com/user-attachments/assets/6ed8cf36-2d91-435f-91d7-86e430bb0c6c" />
 
 ## Changelog
-### **WORK IN PROGRESS**
-* (arteck) add deviceManager
+### 1.1.0 (2026-08-20)
+* (arteck) fix reconnect ws
+* (arteck) add re-interview button
+* (arteck) fix admin
 
-### 0.0.18 (2026-02-28)
-* (arteck) add info.sendMessageAllowed object to allow sending the message to zwave-ui-js
-* (arteck) add new checkbox to set info.sendMessageAllowed immediately after starting the adapter
+### 1.0.4 (2026-07-23)
+* (arteck) reconnect optimization
+* (arteck) notification handling
+* (arteck) fix energy values
 
-### 0.0.17 (2026-02-20)
-* (arteck) fix adapter start
-* (arteck) Dependencies have been updated
+### 1.0.3 (2026-07-15)
+* (arteck) fix thermostat set point
 
-### 0.0.16 (2026-02-09)
-* (arteck) fix warning message
+### 1.0.2 (2026-07-15)
+* (arteck) fix notification messages (check you scripts)
 
-### 0.0.15 (2026-02-09)
-* (arteck) typo
-* (arteck) fix ready status if status is dead
+### 1.0.1 (2026-07-15)
+* (arteck) fix bulb set color
+* (arteck) add delete null states button into adapter settings
 
-### 0.0.14 (2026-02-09)
-* (arteck) add event ready
-
-### 0.0.13 (2026-02-07)
-* (arteck) add event type "value notification"
-
-### 0.0.12 (2026-02-01)
-* (arteck) typo
-* (arteck) fix dp channel name
-* (arteck) add endpoint > 0 to value if exists
-
-### 0.0.11 (2026-01-23)
-* (arteck) fix dp types
-
-### 0.0.10 (2026-01-17)
-* (arteck) event value added
-
-### 0.0.9 (2026-01-08)
-* (arteck) convert status to lower case
-
-### 0.0.8 (2026-01-06)
-* (arteck) add warning message for inteview states
-
-### 0.0.7 (2026-01-06)
-* (arteck) add name if not in device info tree
-
-### 0.0.6 (2026-01-06)
-* (arteck) update title
-
-### 0.0.5 (2026-01-06)
-* (arteck) add online status
-
-### 0.0.4 (2026-01-06)
-* (arteck) fix overrideState
-
-### 0.0.3 (2026-01-06)
-* (arteck) fix title
-
-### 0.0.2 (2026-01-06)
-- (arteck) first release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

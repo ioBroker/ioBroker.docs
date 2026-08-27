@@ -100,6 +100,9 @@ Here you can:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.1.0 (2026-02-12)
 - (copilot) Adapter requires node.js >= 20 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
@@ -122,6 +125,8 @@ Here you can:
 
 ### 1.2.4 (2021-08-25)
 * (sbormann) Fixed autocreate not working after renaming destination id.
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

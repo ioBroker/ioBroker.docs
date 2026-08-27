@@ -46,7 +46,7 @@ If your hardware supports it, you can also enable the read-out of the four analo
 
 ## Sentry
 
-This adapter employs Sentry libraries to automatically report exceptions and code errors to the developers. For more details and information on how to disable error reporting, please consult the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is initiated starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable error reporting, see <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">Sentry-Plugin Documentation</a>!
 
 ## Donate
 
@@ -62,37 +62,35 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
-- (HombachC) switch to ES2023 code
+- (HombachC) fixed vulnearbility
+- (HombachC) updated dependencies
 
-### 6.0.6 (2026-02-28)
+### 7.0.6 (2026-07-27)
 
-- (HombachC) fix vulnerability
-- (HombachC) update dependencies
+- (HombachC) fixed misleading HTTP error 200 log message caused by network interruption during response body reading
+- (HombachC) improved connection error handling: added ECONNRESET + ECONNABORTED cases and default fallback for unknown error codes
+- (HombachC) updated dependencies
 
-### 6.0.5 (2026-01-01)
+### 7.0.5 (2026-07-05)
 
-- (HombachC) Fix schema links (#868)
-- (HombachC) year 2026 changes
-- (HombachC) update dependencies
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now
+- (HombachC) removed chai-based unit test dependencies; modernized test harness to Node.js assert
+- (HombachC) updated dependencies
 
-### 6.0.4 (2025-11-25)
+### 7.0.4 (2026-06-19)
 
-- (HombachC) optimize dependabot config (#856)
-- (HombachC) update axios
-- (HombachC) update dependencies, fix vulnerability
+- (HombachC) fixed adapterchecker warnings
+- (HombachC) updated dependencies
 
-### 6.0.3 (2025-10-19)
+### 7.0.3 (2026-06-03)
 
-- (HombachC) update NPM deployment
-- (HombachC) fixing issues detected by repository checker (#839)
-- (HombachC) update chai system
-- (HombachC) bump dependencies
+- (HombachC) fixed instanceObject roles
+- (HombachC) fixed warnings of adapter checker
+- (HombachC) updated dependencies
 
-### 6.0.2 (2025-09-14)
+### 7.0.2 (2026-05-17)
 
-- (HombachC) update axios (#829)
-- (HombachC) min admin 7.6.17 as recommended (#817)
-- (HombachC) bump dependencies
+- (HombachC) fix tsconfig
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

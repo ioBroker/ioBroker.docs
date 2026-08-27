@@ -85,6 +85,7 @@ The name must be equal to DeviceID in OwnTracks app.
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 
@@ -143,6 +144,8 @@ The name must be equal to DeviceID in OwnTracks app.
 
 ### 0.1.0 (2016-09-04)
 * (bluefox) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

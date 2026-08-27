@@ -3,15 +3,15 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.loxone/README.md
 title: ioBroker.loxone
-hash: YkjvNYRdWtmjOVjVA795TpNxsCDUbmN6c3+fCVavieY=
+hash: 6ALvZ0v/X5Va8nqWzqQdhiBIgPCARe+f+RnKef1cY3c=
 ---
-![标识](../../../en/adapterref/iobroker.loxone/admin/loxone.png)
-
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.loxone.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.loxone.svg)
 ![安装数量](https://iobroker.live/badges/loxone-installed.svg)
 ![稳定仓库中的当前版本](https://iobroker.live/badges/loxone-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.loxone.png?downloads=true)
+
+<img src="admin/loxone.png" width="128" alt="Loxone 标志" />
 
 # IoBroker.loxone
 [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/loxone/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
@@ -194,7 +194,7 @@ hash: YkjvNYRdWtmjOVjVA795TpNxsCDUbmN6c3+fCVavieY=
 - `isAlarmActive` (ro) 布尔值 (true / false) 表示闹钟当前是否正在响铃
 - `confirmationNeeded` (ro) 布尔值 (true / false) 用户是否需要确认警报
 - `ringingTime` (ro) 倒计时，以秒为单位，表示闹钟响铃到再次进入贪睡状态前会响多久。
-- `ringDuration` (rw) 闹钟响铃的持续时间（秒）。
+- `ringDuration`（读写）闹钟响铃的持续时间（秒）。
 - `prepareDuration` (rw) 准备时间（秒）
 - `snoozeTime` (ro) 指小睡结束前的秒数
 - `snoozeDuration` (rw) 打盹持续时间（秒）
@@ -307,7 +307,7 @@ hash: YkjvNYRdWtmjOVjVA795TpNxsCDUbmN6c3+fCVavieY=
 - `prodCurrMonth` (ro) 本月所有能源产量
 - `prodCurrYear` (ro) 本年度所有能源产量
 - 自成立以来的 `prodTotal` (ro) 能源产量
-- `consCurr` (ro) 当前消耗功率
+- `consCurr` (ro) 当前功耗
 - `consCurrDay` (ro) 当日消耗的能量
 - 自设置以来消耗的 `consTotal` (ro) 能量
 - `deliveryDay` (ro) 未知
@@ -638,7 +638,7 @@ hash: YkjvNYRdWtmjOVjVA795TpNxsCDUbmN6c3+fCVavieY=
 - `dewPoint-formatted`：格式化的露点值，带单位
 - `perceivedTemperature`：感知温度的数值值
 - `perceivedTemperature-formatted`：格式化的感知温度值，带单位
-- `precipitation`：数值降水量
+- `precipitation`：降水量的数值
 - `precipitation-formatted`：格式化的降水量值，带单位
 - `relativeHumidity`：相对湿度数值
 - `relativeHumidity-formatted`：格式化的相对湿度值，带单位
@@ -687,6 +687,17 @@ Loxone 和 Miniserver 是 Loxone Electronics GmbH 的注册商标。
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 4.0.2 (2026-03-25)
+
+- (raintonr) Better handling of ack timeouts from Loxone (#751)
+- (raintonr) Default ackTimeoutMs is now configurable (#522)
+- (UncleSamSwiss) Updated icon to match the latest Loxone logo
+
+### 4.0.1 (2026-01-07)
+
+- (UncleSamSwiss) Remove all special Sentry handling
+
 ### 4.0.0 (2025-12-11)
 
 - (raintonr) Set correct min/max target on IRCv2 when in override (#528)
@@ -823,7 +834,7 @@ Loxone 和 Miniserver 是 Loxone Electronics GmbH 的注册商标。
 
 ## License
 
-Copyright 2025 UncleSamSwiss
+Copyright 2026 UncleSamSwiss
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

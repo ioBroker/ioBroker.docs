@@ -16,6 +16,10 @@
 
 Adapter for Smart EQ and Hello Smart
 
+## Sentry
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## Loginablauf
 
 Die smart eq control/hello smart Mail und Passwort eingeben.
@@ -29,6 +33,10 @@ smart-eq.0.vin.remote auf true setzen steuert den jeweiligen Befehl
 <https://forum.iobroker.net/topic/49548/test-adapter-smart-eq-v0-0-x>
 
 ## Changelog
+
+### 0.1.1
+
+- (TA2k) Bugfixes
 
 ### 0.1.0
 
@@ -46,7 +54,7 @@ hello smart support
 
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

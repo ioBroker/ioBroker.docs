@@ -60,14 +60,14 @@ onvif.0.IP_PORT.remote.snapshot Save snapshot to onvif.0.IP_PORT.snapshot
 Adapter receives message "snapshot" and returns image
 
 ```javascript
-sendTo("onvif.0", "snapshot", "192_168_178_100_80", (result) => {
+sendTo('onvif.0', 'snapshot', '192_168_178_100_80', (result) => {
   if (result) {
-    sendTo("telegram.0", {
+    sendTo('telegram.0', {
       text: result,
 
-      type: "photo",
+      type: 'photo',
 
-      caption: "camera2",
+      caption: 'camera2',
     });
   }
 });
@@ -76,16 +76,16 @@ sendTo("onvif.0", "snapshot", "192_168_178_100_80", (result) => {
 ## Motion message to Telegram
 
 ```javascript
-on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (obj) => {
+on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (obj) => {
   if (obj.state.val === true) {
-    sendTo("onvif.0", "snapshot", "192_168_178_100_80", (result) => {
+    sendTo('onvif.0', 'snapshot', '192_168_178_100_80', (result) => {
       if (result) {
-        sendTo("telegram.0", {
+        sendTo('telegram.0', {
           text: result,
 
-          type: "photo",
+          type: 'photo',
 
-          caption: "Camera 2",
+          caption: 'Camera 2',
         });
       }
     });
@@ -93,7 +93,7 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
 });
 ```
 
-# Include stream into vis
+## Include stream into vis
 
 If stream should be displayed in Apple Homekit then please create a camera directly in yahka. If that doesn't work or hksv is needed then install scrypted in a docker and add the camera with onvif and homekit plugin
 
@@ -187,40 +187,40 @@ setTimeout(function () {
     const webrtc = new RTCPeerConnection({
       iceServers: [
         {
-          urls: ["stun:stun.l.google.com:19302"],
+          urls: ['stun:stun.l.google.com:19302'],
         },
       ],
-      sdpSemantics: "unified-plan",
+      sdpSemantics: 'unified-plan',
     });
     webrtc.ontrack = function (event) {
-      console.log(event.streams.length + " track is delivered");
+      console.log(event.streams.length + ' track is delivered');
       videoEl.srcObject = event.streams[0];
       videoEl.play();
     };
-    webrtc.addTransceiver("video", { direction: "sendrecv" });
+    webrtc.addTransceiver('video', { direction: 'sendrecv' });
     webrtc.onnegotiationneeded = async function handleNegotiationNeeded() {
       const offer = await webrtc.createOffer();
 
       await webrtc.setLocalDescription(offer);
 
       fetch(url, {
-        method: "POST",
+        method: 'POST',
         body: new URLSearchParams({ data: btoa(webrtc.localDescription.sdp) }),
       })
         .then((response) => response.text())
         .then((data) => {
           try {
-            webrtc.setRemoteDescription(new RTCSessionDescription({ type: "answer", sdp: atob(data) }));
+            webrtc.setRemoteDescription(new RTCSessionDescription({ type: 'answer', sdp: atob(data) }));
           } catch (e) {
             console.warn(e);
           }
         });
     };
 
-    const webrtcSendChannel = webrtc.createDataChannel("rtsptowebSendChannel");
+    const webrtcSendChannel = webrtc.createDataChannel('rtsptowebSendChannel');
     webrtcSendChannel.onopen = (event) => {
       console.log(`${webrtcSendChannel.label} has opened`);
-      webrtcSendChannel.send("ping");
+      webrtcSendChannel.send('ping');
     };
     webrtcSendChannel.onclose = (_event) => {
       console.log(`${webrtcSendChannel.label} has closed`);
@@ -229,8 +229,8 @@ setTimeout(function () {
     webrtcSendChannel.onmessage = (event) => console.log(event.data);
   }
 
-  const videoEl = document.querySelector("#webrtc-video");
-  const webrtcUrl = document.querySelector("#webrtc-url").value;
+  const videoEl = document.querySelector('#webrtc-video');
+  const webrtcUrl = document.querySelector('#webrtc-url').value;
 
   startPlay(videoEl, webrtcUrl);
 }, 1000);
@@ -280,9 +280,9 @@ Insert the state onvif.0.IP_PORT.snapshot as `HTML` element into the vis with th
 Create new snapshot on event:
 
 ```javascript
-on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (obj) => {
+on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (obj) => {
   if (obj.state.val === true) {
-    setState("onvif.0.192_168_178_100_80.remote.snapshot", true, false);
+    setState('onvif.0.192_168_178_100_80.remote.snapshot', true, false);
   }
 });
 ```
@@ -297,11 +297,27 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.8 (2026-08-21)
 
-### **WORK IN PROGRESS**
+- (TA2k) Fixed reconnect loop: the watchdog now only rebuilds on non-retryable event errors, so cameras that periodically reset the event socket ("socket hang up") are left to the onvif library's own retry instead of reconnecting every 30s
+- (TA2k) Retryable event errors are logged at debug instead of warn and no longer flip the connection state
+- (TA2k) Updated onvif to 0.8.2 and dev dependencies
+
+### 1.1.7 (2026-08-20)
+
+- (mcm1957) clean release built to fix missing tagging and github release
+
+### 1.1.6 (2026-08-08)
+
+- (TA2k) Faster reconnect after a camera reboot (detection in ~30-50s instead of ~4min)
+- (TA2k) Connection state now reflects the real reconnect instead of flipping back to true too early
+- (TA2k) Throttled the repeated event error log messages during a reboot
+
+### 1.1.5 (2026-08-06)
+
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
 
 ### 1.1.4 (2024-05-27)
 
@@ -312,43 +328,11 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
 
 - Allow non number PTZ presets
 
-### 1.1.2 (2023-12-29)
-
-- (TA2k) Catch callback error
-
-### 1.1.1 (2023-10-18)
-
-- (mcm1957) Standard iobroker release environment has been added.
-- (mcm1957) Some dependencies have been updated.
-
-### 1.1.0
-
-- (TA2k) Bugfixes
-
-### 1.0.5
-
-- Improve event handling
-
-### 1.0.4
-
-- (TA2k) Minor bugfixes and readme update for livestream in vis
-
-### 1.0.3
-
-- (TA2k) Minor bugfixes
-
-### 1.0.2
-
-- (TA2k) Fixed a reonnect and empty event bug
-
-### 1.0.1
-
-- (TA2k) initial new release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023-2024 TA2k <tombox2020@gmail.com>

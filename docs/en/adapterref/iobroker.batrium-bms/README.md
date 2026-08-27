@@ -23,10 +23,13 @@ https://github.com/Batrium/WatchMonUdpListener
 Message Support is still limited and will be increased in further versions.
 
 ## Changelog
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+### 0.8.1 (2026-06-12)
+* Various Cleanups suggested by iobroker-bot
+
+### 0.8.0 (2026-06-11)
+* Adapter requires node.js >= 22 now
+* Various Package Updates
+
 ### 0.7.0 (2025-11-15)
 * Drop of Node18 and adding of Node24 support
 * Various Package Updates
@@ -45,33 +48,12 @@ Message Support is still limited and will be increased in further versions.
 * Fixed wrong Naming of Object 5732.ShuntStatus
 * Reworked Object Roles to better match their meaning (where meaning was known)
 
-### 0.4.0 (2023-03-22)
-* Added Message Type 4232 (Cell Status Full)
-
-### 0.3.0 (2023-03-05)
-* Added Message Type 415a (Cell Status Small)
-* Added Configuration per Message Type
-* Added Rate Limit function per Message Type to reduce load on ioBroker DB
-
-### 0.2.1 (2023-02-04)
-* Readded build folder
-
-### 0.2.0 (2023-02-04)
-* Minor Type Fixes
-* Added Message Type 6831
-
-### 0.1.0 (2023-02-03)
-* Optimized Parser Structure
-* Finished up Message Type 5732
-* Finished up Message Type 3233
-
-### 0.0.2 (2023-01-31)
-* Initial Test Release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2025 Bembelstemmer <kontakt[at]it-amm[dot]de>
+Copyright (c) 2025-2026 Bembelstemmer <kontakt[at]it-amm[dot]de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

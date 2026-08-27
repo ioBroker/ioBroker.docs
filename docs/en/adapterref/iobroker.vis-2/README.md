@@ -150,6 +150,26 @@ To visualize on the one view the whole number of widgets, you can use filters to
  
 Every widget has a field `filter`. If you set it to some value, e.g. `light`, so you can use other widget `(bars - filters, filter - dropdown)` to control which filter is actually active.
 
+The entries of the `filter - dropdown` widget (buttons as well as dropdown items) have the CSS class `vis-filter-item`, and the currently active entries additionally `vis-filter-item-active`, so they can be styled in the project CSS, e.g.:
+
+```css
+/* buttons (horizontal / vertical) */
+.vis-filter-item-active {
+    background-color: #ff0000;
+}
+
+/* entries of the dropdown */
+.vis-filter-item-active.Mui-selected {
+    background-color: #ff0000;
+}
+```
+
+Two rules are required, because the active entry of the dropdown additionally has the class `Mui-selected`, and its own background color is more specific than `.vis-filter-item-active` alone.
+
+Please note:
+* If a color is configured for an entry in the widget itself, it is written as an inline style and cannot be overwritten with the `color` property from the project CSS. Leave the color of the entry empty if you want to set it via CSS.
+* The entries of the dropdown are rendered outside the widget (in a popup on page level), so they can only be addressed globally and not with a selector for a single widget, like `#w00001 .vis-filter-item-active`. The buttons are a part of the widget and can be addressed this way.
+
 ## Control interface
 Vis creates 3 variables:
 
@@ -292,22 +312,88 @@ npm run start
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+* (@typhosj) An `iFrame` or `echarts` widget is transparent again in the dark mode. The CSS variables put `color-scheme: dark` on `:root`, and a browser paints an opaque canvas behind an iframe whose document declares itself transparent (#661)
+* (@typhosj, @GermanBluefox) The content of a widget is not cut off anymore: `CssBaseline` is gone. It switched the whole document to `border-box` and painted the body, while the widgets - the built-in ones and those of other adapters alike - are laid out for the default `content-box` (#661)
+* (@typhosj) The text of a `Fab` button is readable again in the dark mode. MUI writes `text.primary` into it as soon as the CSS variables are generated, which is white, although the background of the button stays light grey in both themes (#661)
+* (@GermanBluefox) vis-2 uses MUI 9 and `@iobroker/gui-components` now, the successor of `@iobroker/adapter-react-v5`
+* (@GermanBluefox) `@mui/styles` is gone: it does not exist beyond MUI 6 and vis-2 never used it. It stays in the shared modules of the module federation so that a widget set built against MUI 6 keeps its own copy
+* (@GermanBluefox) Replaced the unmaintained `mui-nested-menu`, whose peer range ends at MUI 7, with an own sub menu entry built from MUI components
+* (@GermanBluefox) Followed the MUI props that were consolidated into `slotProps` (`TransitionProps`, `TabIndicatorProps`, `InputLabelProps`, `PaperProps`) and the renamed `HelpOutline` icon
+* (@GermanBluefox) vis-2 runs on React 19 now
+* (@GermanBluefox) Replaced the unmaintained `react-beautiful-dnd` with its api-compatible fork `@hello-pangea/dnd`, which is the only one of the two that supports React 19
+* (@GermanBluefox) Fixed the connectors of react-dnd being passed as a `ref`: React 19 takes what a ref callback returns as its cleanup function, and those connectors return a React element, so React would have tried to call an element on unmount
+* (@GermanBluefox) Fixed the type of `window.VisMaterialIconSelector`, which named the state of the component instead of its properties
+* (@GermanBluefox) A widget set that was built for an older React is recognized by its federation manifest and skipped with a readable message, instead of dying somewhere inside the module federation loader where no error boundary can catch it. As long as vis-2 itself runs on react 18 nothing is skipped
+* (@GermanBluefox) Widget sets that were skipped are named in a dialog in the editor and in the runtime, so a view with missing widgets does not leave the user guessing. It is shown once per affected set
+
+### 2.15.0 (2026-08-16)
+* (@GermanBluefox) Reworked the name plate of a widget in the editor: it is only as wide as its content, its buttons sit next to the name instead of on fixed positions that left a gap whenever a button was hidden, and the plate of a selected widget is drawn in the same blue as its frame
+* (@GermanBluefox) The three buttons of the name plate have a tooltip now and no longer turn red and double their size when the cursor is over them
+* (@GermanBluefox) The widget under the cursor is highlighted in blue instead of olive in the editor, in both themes
+* (@GermanBluefox) Several selected widgets are marked with the same frame as a single one, only without the handles to resize them. They carried no mark at all before, as the frame is drawn by those handles
+* (@GermanBluefox) Relative widgets can be reordered by dragging them again: a half transparent copy follows the cursor and a placeholder shows the slot the widget will land in. Dragging one never reordered anything before, because the gesture was not started for relative widgets at all
+* (@GermanBluefox) Removed the arrow buttons and the re-order menu of the relative widgets, as dragging replaces them
+* (@GermanBluefox) Moving and resizing a widget is rendered from the widget state now instead of being written into the DOM, which removes the duplicated geometry of the service and the can.js element
+* (@GermanBluefox) Removed the dead `calculateRelativeWidgetPosition` callback from `onMove` and `WidgetReference`: it has been `null` since 2022 and was never called
+* (@typhosj) The `view in widget 8` and `image 8` widgets show the view/image with the number of the value again
+* (@typhosj) `vis.updateStates` does not write the states back to ioBroker anymore, like in vis-1
+* (@typhosj) The `iFrame 8` widget shows the frame with the number of the value, also for a boolean object
+* (@typhosj) Every copy of a group gets its own member widgets if several widgets are pasted at once
+* (@typhosj) A binding can be used as the comparison value of the visibility condition
+* (@typhosj) The application bar is not wider than the window anymore
+* (@typhosj) Fixed the invisible content of the `tabs` widget if the tabs are placed vertically
+* (@typhosj) The tabs of the `tabs` widget are as wide as their title now and can be scrolled on a touch device
+* (@GermanBluefox) Shortened the values that a failing binding writes to the console: a widget with braces in its HTML produced hundreds of failing bindings, each printing the complete HTML, which buried every other error
+* (@typhosj) Fixed the position of the vis-1 widgets in a view with a limited screen size
+* (@typhosj) The `bulb on/off` widget writes numeric min/max values as a number and not as a string
+* (@typhosj) Fixed `min`, `max` and `step` of the vis-1 widget attributes: they are optional and may be fractional
+* (@typhosj) Fixed the doubled border of the jQui widgets: the border is drawn by the button only and not by the widget too
+* (@typhosj) Fixed the missing attributes of a group: the sections could not be opened and the group attributes were not editable
+* (@typhosj) Made the background color and the text color of the selected entry editable for the horizontal navigation menu. The new background color takes precedence over the color of the application bar, which the horizontal menu borrowed before, so a view that was switched from the vertical to the horizontal navigation can change its color once
+* (@typhosj) Fixed the enumerable widget groups and fields that start at the index 0 and were not expanded
+* (@typhosj) Added the MUI CSS variables (`--mui-palette-*`), so the theme colors can be adjusted with CSS
+* (@typhosj) Fixed the overlapping entries of the horizontal navigation menu in a narrow window
+* (@typhosj) Fixed the invalid HTML element IDs of the widgets shown in multiple views
+* (@GermanBluefox) A widget that crashes while rendering does not take the whole view down anymore, but is replaced by a placeholder
+* (@GermanBluefox) Added `react/jsx-runtime` and `react/jsx-dev-runtime` to the shared modules of the module federation, so a widget set uses the JSX runtime of vis-2 instead of bundling its own
+* (@GermanBluefox) Fixed the shared modules `react-dom/client` and the i18n files of `adapter-react-v5` being dropped if a widget set passes its `package.json` to `moduleFederationShared()`
+* (@GermanBluefox) `@mui/material`, `@mui/system`, `@mui/icons-material` and `@mui/styles` are shared per version now instead of as a singleton. A widget set that is rebuilt keeps its own MUI copy if it was built against another MUI major than vis-2, instead of being given the one of vis-2
+* (@GermanBluefox) Added `@mui/private-theming` to the shared modules, so the theme of vis-2 also reaches a widget set that uses its own MUI major
+* (@GermanBluefox) The widgeteria is not shown in the GUI anymore
+
+### 2.14.4 (2026-08-10)
+* (@typhosj) The entries of the horizontal navigation menu can be scrolled now instead of being cut off in a narrow window
+* (@typhosj) Fixed the invalid HTML element IDs of the widgets shown in multiple views. Their IDs changed from `<view>_<widget>` to `v<view>_<widget>`, so a user script or CSS that addresses such a copy must be adapted
+* (@typhosj) Fixed the double click on a widget shown in multiple views jumping to a wrong view
+* (@typhosj) Show the text of the button widgets as entered and not upper cased
+* (@GermanBluefox) Fixed the ignored "small" option of the `filter - dropdown` widget
+* (@typhosj) Subscribed to object IDs that are the result of a binding
+* (@typhosj) Fixed the ignored read-only option of the Bool SVG widget
+* (@GermanBluefox) Fixed the position of a new group created inside another group
+* (@typhosj) Fixed the position of the members when a nested group is dissolved
+* (@GermanBluefox) Fixed "same width"/"same height" applying the sizes of a previously selected widget
+* (@GermanBluefox) Fixed the widget selection when a stored selected widget does not exist anymore
+* (@typhosj) Fixed dissolving a group deleting a member widget instead of the group
+* (@GermanBluefox) The user permissions are now applied to widgets embedded via `getWidgetInWidget`, which can return `null` now
+* (@typhosj) Fixed the user permissions being ignored for widgets inside a group
+* (@typhosj) Added the CSS classes `vis-filter-item` and `vis-filter-item-active` to the `filter - dropdown` widget
+* (@GermanBluefox) Fixed `exist`/`not exist` of signals evaluating the comparison value instead of the state value
+* (@GermanBluefox) Fixed the signal condition if the state value is `null`
+* (@typhosj) Fixed the URL attributes of the `iFrame 8` widget being subscribed as object IDs
+* (@typhosj) Fixed the visibility condition if the state value is `null`
+
+### 2.14.3 (2026-06-09)
+* (@GermanBluefox) Applied the user-defined style to tplValueInput
+
+### 2.14.0 (2026-05-29)
+* (@GermanBluefox) Refactoring of the build process
+
+### 2.13.19 (2026-04-27)
+* (@GermanBluefox) Refactoring
+
 ### 2.13.17 (2026-03-29)
 * (@GermanBluefox) Removed debug code for theme
-
-### 2.13.16 (2026-03-26)
-* (@GermanBluefox) Fixing the usage of umlauts in patterns
-* (@GermanBluefox) Fixing commands via control interface when sent as JSON
-
-### 2.13.8 (2025-11-15)
-* (@GermanBluefox) Updated packages
-
-### 2.13.7 (2025-11-09)
-* (@GermanBluefox) Updated packages
-* (@GermanBluefox) Corrected the basic image refreshing
-
-### 2.13.6 (2025-10-10)
-* (@GermanBluefox) Prevent error by the icon selection dialog
 
 ## License
  Copyright (c) 2021-2026 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,

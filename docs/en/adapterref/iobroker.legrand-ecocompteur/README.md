@@ -57,6 +57,7 @@ The following configuration is required:
 
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -73,6 +74,8 @@ The following configuration is required:
 
 ### 0.0.3
 * (Robin Rainton) initial clean release.
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

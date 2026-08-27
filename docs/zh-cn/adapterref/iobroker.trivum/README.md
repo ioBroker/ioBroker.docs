@@ -3,81 +3,59 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.trivum/README.md
 title: ioBroker.trivum
-hash: OPUUq+XSk/V6xvZboFDmtK4R9e9OgPnZxtJRc9Tor10=
+hash: bD8IPCX1XoUvSvVSiOAA5siHu2+WKbLK/W1qbydFlgA=
 ---
-![商标](../../../en/adapterref/iobroker.trivum/admin/trivum.png)
+![标识](../../../en/adapterref/iobroker.trivum/admin/trivum.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.trivum.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.trivum.svg)
-![安装数量（最新）](http://iobroker.live/badges/trivum-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/trivum-stable.svg)
-![依赖状态](https://img.shields.io/david/TheBam1990/iobroker.trivum.svg)
-![已知漏洞](https://snyk.io/test/github/TheBam1990/ioBroker.trivum/badge.svg)
-![新产品管理](https://nodei.co/npm/iobroker.trivum.png?downloads=true)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.trivum.svg)
 
 # IoBroker.trivum
-**测试：** ![测试和发布](https://github.com/TheBam1990/ioBroker.trivum/workflows/Test%20and%20Release/badge.svg)
+[![测试和发布](https://github.com/TheBam1990/ioBroker.trivum/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/TheBam1990/ioBroker.trivum/actions/workflows/test-and-release.yml)
 
-## IoBroker 的 trivum 适配器
-Trivum 多房间系统
+通过 ioBroker 的本地 XML API 控制 trivum 多房间音频系统。
 
-＃＃ 用户手册
-在主设置选项卡中输入设备的 IP 地址。
-然后适配器自动搜索可用区域并将它们与对象列表中的关联对象一起写入。
+德语文档：[README.md](READMEde.md)
 
-以下创建为通用变量（全局）：
+＃＃ 配置
+输入 trivum MusicCenter 的 IPv4 地址。区域和控件将自动发现。轮询间隔和 HTTP 超时时间可配置；现有安装将保留历史配置键 `adresse` 和 `option3`。
 
-- 关掉一切
+`Number of paging presets` 从 ID 0 开始创建全局分页按钮。
 
-- 活动区域（当前有多少个区域）
+## 州
+全局控制：
 
-然后是各个区域下的相应控制元素：
+- `Global.ALLOFF`：关闭所有区域
+- `Global.Aktive_zonen`：trivum 报告的活动区域
+- `Global.PagingN`: 开始分页预设 N
 
--Mute（静音并重新激活）
+每个检测到的区域提供：
 
--Defoult-Stream（使用标准网络流激活区域）
+- `Muten`：静音/取消静音
+- `DEFAULT_STREAMING`：启动默认流
+- `ZONECMD_DEFAULT_TUNER`：启动默认调谐器
+- `VOLUME`：读取或设置音量，范围从 0% 到 100%
+- `ZONECMD_POWER_OFF`：关闭区域
+- `状态`：当前区域状态
 
--Defoult 调谐器（使用标准调谐器激活区域）
-
--Volume（显示音量并改变它）
-
--Zone-Off（关闭区域）
-
-- 区域状态（显示区域是打开还是关闭）
+按钮状态在请求成功后自动重置。`info.connection` 仅在收到成功的 trivum 响应后变为真，而 `info.lastError` 存储最新的通信错误。
 
 ## Changelog
 
-### 0.0.4 (2021-06-12)
-* (TheBam) Paging added and info.connection fixed for admin 5
+### 0.1.0
 
-### 0.0.3 (2021-04-29)
-* (TheBam) Cleaning the code
+- Migrated to the current ioBroker adapter template and responsive JSON Config
+- Added Node.js 22/24 and js-controller 6 compatibility
+- Updated adapter-core, dependencies, linting, tests and release workflows
+- Reworked zone discovery, polling, connection state and error handling
+- Fixed zone commands to use discovered zone IDs
+- Changed volume to a numeric percentage state and prevented overlapping polls
 
-### 0.0.2
-* (TheBam) Cleaning the code
+### 0.0.5
 
-### 0.0.1
-* (TheBam) First version to control your Trivum Multiroom Systems
+- Updated adapter core
 
 ## License
-MIT License
 
-Copyright (c) 2021 TheBam <elektrobam@gmx.de>
+Copyright (c) 2021-2026 TheBam <elektrobam@gmx.de>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE."# ioBroker.trivum"
+MIT License. See [LICENSE](LICENSE).

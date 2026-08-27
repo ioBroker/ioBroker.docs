@@ -80,6 +80,17 @@ ttd:
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (copilot) Adapter requires node.js >= 22 now
+* (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
+
+### 5.3.0 (2026-04-22)
+
+* (@Jailobeam) Fixed filtering of Lobbe.app address selections in the admin UI
+* (@Jailobeam) Added Lobbe.app as a new data source
+* (@Jailobeam) Added German labels for the Lobbe address selection
+
 ### 5.2.1 (2026-01-08)
 
 * (@klein0r) Fixed responsive config layout on xl screens
@@ -96,16 +107,13 @@ ttd:
 
 * (@klein0r) Increased timeout of api calls
 
-### 5.0.0 (2025-11-16)
-
-* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
-* (@klein0r) Updated dependencies
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2025-2026 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2026 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

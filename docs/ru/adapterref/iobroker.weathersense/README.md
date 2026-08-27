@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weathersense/README.md
 title: ioBroker.weathersense
-hash: R9W0fq0+0n0bk9WmcAT2HZ4T+O732ZgL0df6q6YXULQ=
+hash: jdfdsrbSzl3QW4ap190us8J6lcf7j9VjoWbLxB2rsnk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.weathersense/admin/weathersense.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.weathersense.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.weathersense.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.weathersense.svg)
 ![Количество установок](https://iobroker.live/badges/weathersense-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/weathersense-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/weathersense-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.weathersense.png?downloads=true)
 
 # IoBroker.weathersense
@@ -29,58 +29,62 @@ WeatherSense — это облачная платформа для метеос�
 
 ![Скриншот](https://github.com/ltspicer/WeatherSense/blob/main/casativo_ideoon_weatherstation.png)
 
+Данные ioBroker:
+
+![Скриншот](https://github.com/ltspicer/WeatherSense/blob/main/iobroker_dps.png)
+
 ## Использовать:
 Просто введите данные для входа в свою учетную запись WeatherSense (адрес электронной почты и пароль).
 Данные метеостанции сохраняются в точке данных WeatherSense.
 Данные также могут передаваться через MQTT.
 
+## Работа с несколькими метеостанциями (поддержка нескольких экземпляров)
+Оригинальный облачный сервер WeatherSense имеет программное ограничение/ошибку: если вы зарегистрируете две или более одинаковых метеостанции в одной учетной записи смартфона, они перезапишут друг друга и исчезнут из списка ваших устройств.
+
+Для успешного одновременного чтения данных с нескольких станций без конфликтов можно использовать встроенную многоэкземплярную архитектуру ioBroker.
+
+### Пошаговая настройка:
+1. **Создайте отдельные облачные учетные записи:** Зарегистрируйте уникальную бесплатную учетную запись для **каждой** из ваших метеостанций в мобильном приложении WeatherSense (например, *адрес электронной почты A* для станции 1 и *адрес электронной почты B* для станции 2).
+2. **Привяжите одну станцию к одной учетной записи:** Привяжите первую станцию исключительно к учетной записи A, а вторую — исключительно к учетной записи B.
+3. **Добавьте несколько экземпляров в ioBroker:**
+* Перейдите на вкладку «Экземпляры» в ioBroker и добавьте второй экземпляр адаптера WeatherSense (это создаст `weathersense.0` и `weathersense.1`).
+4. **Настройте экземпляры:**
+* Откройте конфигурацию для **`weathersense.0`** и введите учетные данные для **учетной записи A**. Установите `идентификатор датчика` равным `1`.
+* Откройте конфигурацию для **`weathersense.1`** и введите учетные данные для **учетной записи B**. Установите `идентификатор датчика` равным `2`.
+
+### Преимущества данной конфигурации:
+* **Отсутствие конфликтов данных:** ioBroker запустит два совершенно отдельных процесса.
+* **Разделенные объекты:** Ваши точки данных аккуратно разделены на `weathersense.0.*` и `weathersense.1.*`.
+* **Чистая маршрутизация MQTT:** Если вы используете встроенную функцию MQTT, ваши темы будут четко разделены по идентификатору датчика (например, `weathersense/1/...` и `weathersense/2/...`), что предотвратит перезапись данных на вашем брокере.
+
 ## Changelog
-### 3.0.3 (2025-09-14)
+### 5.2.3 (2026-07-26)
 
-- eslint-config & testing version updated
+- Div error messages moved to warn messages
 
-### 3.0.2 (2025-08-29)
+### 5.2.2 (2026-07-09)
 
-- Passwords protected, clean convert string > number
+- Typo corrected
 
-### 3.0.1 (2025-08-18)
+### 5.2.1 (2026-07-09)
 
-- Delay 0-117s added
+- Typo corrected
 
-### 3.0.0 (2025-08-18)
+### 5.2.0 (2026-07-09)
 
-- Type and channel position swapped for more meaningful sorting
+- Invert PowerStatus flag added
 
-### 2.0.2 (2025-08-17)
+### 5.1.1 (2026-07-05)
 
-- Unit hPa added
+- Bugfix: Unit windDirection km/h → °
 
-### 2.0.1 (2025-08-17)
-
-- More data output
-- Cleaner type & channel output
-
-### 1.0.3 (2025-07-03)
-
-- Delay with different syntax
-
-### 1.0.2 (2025-07-02)
-
-- New release because SSH troubles in dev portal
-
-### 1.0.1 (2025-07-02)
-
-- Code cleanups
-
-### 1.0.0 (2025-07-01)
-
-- Initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2025 Daniel Luginbühl <webmaster@ltspiceusers.ch>
+Copyright (c) 2025-2026 Daniel Luginbühl <webmaster@ltspiceusers.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

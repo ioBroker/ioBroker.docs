@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mercedesme/README.md
 title: ioBroker.mercedesme
-hash: FNiMh4veJEDS9m5/XywGQO4IafBpnx8U2q/1/UxGJ+k=
+hash: x+Q36fKqcoITqzyAQPtNw/EosXADxAWHTJTeycQ0GDs=
 ---
 ![标识](../../../en/adapterref/iobroker.mercedesme/admin/mercedesme.png)
 
@@ -17,40 +17,61 @@ hash: FNiMh4veJEDS9m5/XywGQO4IafBpnx8U2q/1/UxGJ+k=
 ## 适用于 ioBroker 的 Mercedesme 适配器
 适用于 ioBroker 的 Mercedes me 适配器
 
-### 使用：Zweitnutzer erstellen
-梅赛德斯与 ioBroker 是分开的。 Mercedes begrenzt die Anzahl der Verbindungen pro Tag (~100-150)。帐户是 Mitternacht UTC 版本 (HTTP 429) 的 Ueberschreitung。
+### 建议：创建辅助用户
+建议为 ioBroker 创建一个单独的 Mercedes me 辅助用户。Mercedes 对每日连接数有限制（约 100-150 个）。如果超出限制，账户将被封禁至 UTC 时间午夜（HTTP 429 错误）。
 
-Mit einem Zweitnutzer:
+使用辅助用户：
 
-- Mercedes me 应用程序中的 Wird der Hauptnutzer
-- Kann der 适配器 unabhaengig arbeiten
-- 使用方便的应用程序来完成所有功能
+- Mercedes me 应用程序中的主用户不受影响
+- 该适配器可以独立工作
+手机上的应用程序功能完好。
 
-Mercedes me 应用程序中的 Zweitnutzer 称为“Nutzer”(nicht Hauptnutzer) zum Fahrzeug einladen。
+在 Mercedes me 应用程序中邀请辅助用户作为“用户”（而非主用户）加入车辆。
 
-### 指令
-在命令下，突击队会击打并按下按钮，然后启动即可使用该命令。
+＃＃＃ 用法
+在命令下，展开命令，然后在命令可用时按下旁边的按钮开始。
 
-远程 sind vorgefertige 远程 Befehle
+远程控制包含预定义的远程命令。
+
+## 哨兵
+此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
 ## Changelog
-### 0.7.0-beta.0 (2026-03-03)
-- make api only mode default
+### 0.8.0 (2026-07-27)
+
+- support new VehicleStatusUpdate message format (RIS SDK 4.12)
+
+### 0.7.2 (2026-07-26)
+
+- fix Login
+
+### 0.7.1 (2026-04-15)
+
+- fix vehicle fetching
+
+### 0.7.0 (2026-03-16)
+
+- make api only mode default. use websocket for remote controls only
 
 ### 0.6.3 (2026-02-16)
+
 - add api refresh every 3 min after websocked block
 - add api only update mode
 
 ### 0.5.5 (2026-02-09)
+
 - fix parsing and command sending
 
 ### 0.4.2 (2026-02-07)
+
 - improve event parsing
 
 ### 0.4.0 (2026-02-03)
+
 - fix remote command sending
 
 ### 0.3.9 (2025-11-12)
+
 - fix login flow
 
 ### 0.3.8 (2025-07-11)
@@ -263,7 +284,7 @@ Mercedes me 应用程序中的 Zweitnutzer 称为“Nutzer”(nicht Hauptnutzer)
 
 MIT License
 
-Copyright (c) 2024-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1151,11 +1151,6 @@ https://github.com/strulli85/ioBroker.smartm
 
 This Adapter reads Data of Photovoltaik SLEnergy Plats out of their Cloud named SmartM.
 
-
-
-<!--  ######################## keep these lines at end of file as a reminder ######################## -->
-<!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
-<!--  ######################## keep these lines at end of file as a reminder ######################## -->
 ## pjlink (31.3.2026) – new adapter at stable repository
 https://github.com/Bannsaenger/ioBroker.pjlink
 
@@ -1163,13 +1158,370 @@ https://github.com/Bannsaenger/ioBroker.pjlink
 
 PJLink Projector controll
 
-<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
-
-## heos (15.03.2025) – new adapter at stable repository
+## heos (15.03.2026) – new adapter at stable repository
 https://github.com/withstu/ioBroker.heos
 
 <img src="https://raw.githubusercontent.com/withstu/ioBroker.heos/main/admin/heos.png" width="100" height="100" />
 
 The adapter lets control HEOS from ioBroker.
 
-<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
+## open-meteo-weather (14.4.2026) – new adapter at stable repository
+https://github.com/H5N1v2/ioBroker.open-meteo-weather
+
+<img src="https://raw.githubusercontent.com/H5N1v2/ioBroker.open-meteo-weather/main/admin/open-meteo.png" width="100" height="100" />
+
+This adapter provides precise weather data, forecasts, air quality, and pollen information powered by Open-Meteo.com. It is free for non-commercial use (under 10,000 daily API calls) and requires no API key registration, making the setup process extremely simple.
+
+## nextcloud-monitoring (14.4.2026) – new adapter at stable repository
+https://github.com/H5N1v2/ioBroker.nextcloud-monitoringr
+
+<img src="https://raw.githubusercontent.com/H5N1v2/ioBroker.nextcloud-monitoring/main/admin/nextcloud_monitoring.png" width="100" height="100" />
+
+This adapter allows for detailed monitoring of your Nextcloud instance via the official OCS API (serverinfo). It provides numerous system data, user statistics, shares, as well as performance values from PHP (OPcache/FPM) and the database directly in ioBroker.
+
+## aurora-nowcastg (14.4.2026) – new adapter at stable repository
+https://github.com/chrmenne/ioBroker.aurora-nowcast
+
+<img src="https://raw.githubusercontent.com/chrmenne/ioBroker.aurora-nowcast/main/admin/aurora-nowcast.png" width="100" height="100" />
+
+Provides current (nowcast) data on aurora activity (northern and southern lights) for a given location, based on publicly available data from the NOAA Space Weather Prediction Center (SWPC).
+
+## grohe-smarthome (2026-02-09) - new adapter at stable repository
+https://github.com/patricknitsch/ioBroker.grohe-smarthome
+   
+<img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.grohe-smarthome/main/admin/grohe-smarthome.png" width="100" height="100" />
+
+This adapter connects ioBroker to the Grohe Smarthome / Ondus cloud and exposes Grohe devices as states (and some controls) inside ioBroker.
+It supports:
+
+Grohe Sense (type 101)
+Grohe Sense Guard (type 103)
+Grohe Blue Home (type 104)
+Grohe Blue Professional (type 105)
+
+The adapter logs in via Grohe’s OIDC/Keycloak flow, stores a refresh token encrypted in a state, and polls the Grohe cloud API on a configurable interval. Important Messages can be send via included notification manager.
+
+## schlueter-thermostat (2026-01-28) - new adapter at stable repository
+https://github.com/patricknitsch/ioBroker.schlueter-thermostat
+   
+<img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.schlueter-thermostat/main/admin/schlueter-thermostat.png" width="100" height="100" />
+
+This adapter integrates Schlüter / OJ Microline OWD5 thermostats into ioBroker via the official cloud APIs.
+## nextcloudtalk (15.5.2026) – new adapter at stable repository
+https://github.com/Rello/ioBroker.nextcloudtalk
+
+<img src="https://raw.githubusercontent.com/Rello/ioBroker.nextcloudtalk/main/admin/nextcloud.png" width="100" height="100" />
+
+This adapter allows sending notifications to Nextcloud Talk rooms.
+## mspa (15.5.2026) – new adapter at stable repository
+https://github.com/arteck/ioBroker.mspa
+
+<img src="https://raw.githubusercontent.com/arteck/ioBroker.mspa/main/admin/mspa.png" width="100" height="100" />
+
+Controls MSpa hot tubs via the MSpa Cloud API.
+Supports heating, filter, UVC, bubble and jet control with full automation via time windows, PV surplus and frost protection.
+
+## solectrus-influxdb (15.5.2026) – new adapter at stable repository
+https://github.com/patricknitsch/ioBroker.solectrus-influxdb
+
+<img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.solectrus-influxdb/main/admin/solectrus-influxdb.png" width="100" height="100" />
+
+The SOLECTRUS InfluxDB Adapter stores selected ioBroker states into an InfluxDB 2.x database and optionally computes derived values using a built-in formula engine.
+
+It is designed for energy monitoring systems such as photovoltaic installations, battery storage, heat pumps, wallboxes, grid import/export monitoring, and custom sensors.
+## brunner-eas3 (21.5.2026) – new adapter at stable repository
+https://github.com/JR-Home/ioBroker.brunner-eas3
+
+<img src="https://raw.githubusercontent.com/JR-Home/ioBroker.brunner-eas3/main/admin/brunner-eas3.png" width="100" height="100" />
+
+Adapter for reading data from Brunner combustion control system EAS 3. The data is published via WLAN broadcast messages.
+
+## speedport (3.5.2026) – new adapter at stable repository
+https://github.com/hacki11/ioBroker.speedport
+
+<img src="https://raw.githubusercontent.com/hacki11/ioBroker.speedport/master/admin/speedport.png" width="100" height="100" />
+
+Fetches data from Telekom Speedport Router
+
+## life360ng (3.5.2026) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.life360ng
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.life360ng/main/admin/Life360ng.svg" width="100" height="100" />
+
+This adapter connects to the Life360 cloud services to track people and detect presence at defined places. It retrieves circles, members and places data and persists it as ioBroker states, updated at a configurable interval.
+
+## enpal (29.4.2026) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.enpal
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.enpal/main/admin/enpal.svg" width="100" height="100" />
+
+Reads energy data from the local InfluxDB 2.x instance provided by Enpal solar systems and exposes ioBroker states for home automation:
+
+Monitor solar power production
+Track battery state of charge (SoC)
+Analyze grid consumption and feed-in power
+Automate based on power generation
+Visualize energy flows in ioBroker dashboard
+
+## parcelapp (6.6.2026) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.parcelapp
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.parcelapp/main/admin/parcelapp.svg" width="100" height="100" />
+
+ioBroker adapter for the parcel.app API. Supports all carriers that parcel.app tracks.
+
+## hueemu (6.6.2025) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.hueemu
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.hueemu/main/admin/hue-emu-logo.svg" width="100" height="100" />
+
+Emulates a Philips Hue Bridge (v2, BSB002) so that ioBroker devices appear as Hue lights to clients that only support the Hue API.
+
+## linky (6.6.2026) – new adapter at stable repository
+https://github.com/iobroker-community-adapters/ioBroker.linky
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.linky/blob/admin/linky.png" width="100" height="100" />
+
+Read data from Linky smart electricity meters, in fact any meter supporting the French Teleinfo protocol: https://www.enedis.fr/sites/default/files/Enedis-NOI-CPT_54E.pdf
+
+## beszel (21.6.2026) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.beszel
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.beszel/main/admin/beszel.svg" width="100" height="100" />
+
+Connects to a Beszel Hub and exposes server monitoring metrics for all registered systems as ioBroker states.
+
+## homewizard (21.6.2026) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.homewizard
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.homewizard/main/admin/homewizard.svg" width="100" height="100" />
+
+Real-time energy monitoring for HomeWizard Energy devices with API v2.
+## al-ko (21.6.2026) – new adapter at stable repository
+https://github.com/zechnerhubert/ioBroker.al-ko
+
+<img src="https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/master/admin/al-ko.png" width="100" height="100" />
+
+The ioBroker.al-ko adapter integrates AL-KO Robolinho robotic lawnmowers and other AL-KO smart garden devices into ioBroker using the official AL-KO Cloud API, including real-time updates via WebSocket.
+
+## google-sharedlocations2 (24.6.2026) – new adapter at stable repository
+https://github.com/Garfonso/ioBroker.google-sharedlocations2
+
+<img src="https://raw.githubusercontent.com/Garfonso/ioBroker.google-sharedlocations2/main/admin/google-sharedlocations2.png" width="100" height="100" />
+
+Share your location with ioBroker via Google Maps. You should create a separate Google account for this purpose, i.e. an account for your ioBroker installation. Do NOT use your personal account.
+
+## govee-smart (24.6.2026) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.govee-smart
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.govee-smart/main/admin/govee-smart.svg" width="100" height="100" />
+
+Control all Govee WiFi products from ioBroker — lights, sensors and appliances. Bluetooth-only devices are not supported. The adapter uses every available Govee channel (LAN, Cloud REST, AWS IoT MQTT, OpenAPI MQTT, App API) and picks whichever delivers the fastest answer for each device
+
+## vs-2-widgets-tibberlink (30.6.2026) – new adapter at stable repository
+https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink
+
+<img src="https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/main/admin/vis-2-widgets-tibberlink.png" width="100" height="100" />
+
+VIS-2 widgets for visualizing Tibber dynamic electricity tariff data: current price, cheapest time window and monthly cost.
+
+## hassemu (30.6.2026) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.hassemu
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.hassemu/main/admin/hassemu.svg" width="100" height="100" />
+
+Emulates a Home Assistant server so displays that only accept an HA dashboard show any web URL instead.
+
+## foxesscloud (16.6.2026) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.foxesscloud
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.foxesscloud/main/admin/foxesscloud.png" width="100" height="100" />
+
+Retrieves data from FoxESS Cloud API for solar inverters (e.g., used in Enpal systems) and exposes ioBroker states for home automation
+
+## vis-2-widgets-sigenergy (16.6.2026) – new adapter at stable repository
+https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy
+
+<img src="https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/main/admin/vis-2-widgets-sigenergy.png" width="100" height="100" />
+
+VIS-2 widget set for the Sigenergy energy storage adapter (ioBroker.sigenergy). Contains 8 widgets for visualisation and control of energy flow, battery status, real-time power, daily statistics, AC charger, DC charger, inverter and SigenMicro micro-inverter overview.
+
+## tidy (5.7.2025) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.tidy
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.tidy/main/admin/tidy.svg" width="100" height="100" />
+
+The Tidy adapter helps to find unused objects and states to clean up your system. After years of using ioBroker, your system may accumulate "dead" datapoints from deleted scripts, removed adapters, or abandoned configurations. This adapter helps you identify and clean up such datapoints to keep your system tidy and performant.
+
+## dreame (5.7.2025) – new adapter at stable repository
+https://github.com/TA2k/ioBroker.dreame
+
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.dreame/main/admin/dreame.png" width="100" height="100" />
+
+Adapter for Dreame and MOVA robot vacuums and robot mowers.
+
+## playstation (11.7.2026) – new adapter at stable repository
+https://github.com/Lucky-ESA/ioBroker.playstation
+
+<img src="https://raw.githubusercontent.com/Lucky-ESA/ioBroker.playstation/main/admin/playstation.png" width="100" height="100" />
+
+You can wake up the Playstation or put it into standby mode. Some buttons are also possible. The PSN login can be used to load data from other players.
+
+## miner (11.7.2026) – new adapter at stable repository
+https://github.com/SimonFischer04/ioBroker.miner
+
+<img src="https://raw.githubusercontent.com/SimonFischer04/ioBroker.miner/main/admin/miner.png" width="100" height="100" />
+
+Interact with different crypto miner apis
+
+## script-restore (4.8.2026) – new adapter at stable repository
+https://github.com/ipod86/ioBroker.script-restore
+
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.script-restore/main/admin/script-restore.svg" width="100" height="100" />
+
+Browse and recover individual scripts from ioBroker backup archives — without restoring the entire backup.
+
+## public-holidays (4.8.2026) – new adapter at stable repository
+https://github.com/krobipd/ioBroker.public-holidays
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.public-holidays/main/admin/public-holidays.svg" width="100" height="100" />
+
+Detects public holidays for 206 countries. Runs completely offline — no cloud, no API calls. Updates daily at midnight.
+
+## hoymiles (4.8.2026) – new adapter at stable repository
+https://github.com/Eistee82/ioBroker.hoymiles
+
+<img src="https://raw.githubusercontent.com/Eistee82/ioBroker.hoymiles/main/admin/hoymiles.png" width="100" height="100" />
+
+ioBroker adapter for Hoymiles HMS-xxxW-xT and HMS-xxx-xWB microinverters with integrated WiFi/Bluetooth DTU (DTUBI).
+
+## blink (4.8.2026) – new adapter at stable repository
+https://github.com/Pischleuder1/ioBroker.blink
+
+<img src="https://raw.githubusercontent.com/Pischleuder1/ioBroker.blink/main/admin/blink.png" width="100" height="100" />
+
+ioBroker adapter for Blink cameras.
+
+## tesla-wallconnector3 (4.8.2026) – new adapter at stable repository
+https://github.com/nobl/ioBroker.tesla-wallconnector3
+
+<img src="https://raw.githubusercontent.com/nobl/ioBroker.tesla-wallconnector3/main/admin/tesla-wallconnector3.png" width="100" height="100" />
+
+Reads live data from a Tesla Wall Connector Gen 3 on your local network. The adapter polls the wallbox API and creates ioBroker states for charging status, power, energy, temperatures, WiFi, and more.
+
+## victron-gx (4.8.2026) – new adapter at stable repository
+https://github.com/Sefina-DS/ioBroker.victron-gx
+
+<img src="https://raw.githubusercontent.com/Sefina-DS/ioBroker.victron-gx/main/admin/victron-gx.png" width="100" height="100" />
+
+This adapter connects ioBroker directly and locally to Victron Energy GX devices (Cerbo GX, Venus GX, Ekrano GX) – without any detour through Home Assistant or the VRM Cloud.
+
+## go-e-charger (4.8.2026) – new adapter at stable repository
+https://github.com/hombach/ioBroker.go-e-charger
+
+<img src="https://raw.githubusercontent.com/hombach/ioBroker.go-e-charger/master/admin/go-eCharger.png" width="100" height="100" />
+
+This adapter integrates one or more go-e Charger wallboxes into your ioBroker home automation. It cyclically polls each wallbox via its local HTTP API, provides all relevant data as ioBroker states, and lets you control charging directly from your smart home.
+
+## simple-proxy-manager (9.8.2026) – new adapter at stable repository
+https://github.com/lubepi/ioBroker.simple-proxy-manager
+
+<img src="https://raw.githubusercontent.com/lubepi/ioBroker.simple-proxy-manager/main/admin/simple-proxy-manager.png" width="100" height="100" />
+
+Simple HTTPS/HTTP reverse proxy manager for ioBroker.
+
+## harvia-fenix (9.8.2026) – new adapter at stable repository
+https://github.com/meistermopper/ioBroker.harvia-fenix
+
+<img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/harvia.png" width="100" height="100" />
+
+An ioBroker adapter to integrate and control your Harvia Fenix sauna control unit via the MyHarvia cloud infrastructure.
+
+## harvia-fenix (9.8.2026) – new adapter at stable repository
+https://github.com/meistermopper/ioBroker.harvia-fenix
+
+<img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/harvia.png" width="100" height="100" />
+
+An ioBroker adapter to integrate and control your Harvia Fenix sauna control unit via the MyHarvia cloud infrastructure.
+
+## openmeteo-notify (9.8.2026) – new adapter at stable repository
+https://github.com/ipod86/ioBroker.openmeteo-notify
+
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.openmeteo-notify/main/admin/openmeteo-notify.png" width="100" height="100" />
+
+This adapter retrieves weather forecast data from the free Open-Meteo API and makes it available as ioBroker data points. No API key is required. It sends individual notifications for configurable weather events (storms, thunderstorms, official warnings) and provides multiple independently configurable HTML widgets per location.
+
+## dune-hd-remote (9.8.2026) – new adapter at stable repository
+https://github.com/sadam6752-tech/ioBroker.dune-hd-remote
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.dune-hd-remote/main/admin/dune-hd-remote.png" width="100" height="100" />
+
+Control Dune HD media players via IP network from ioBroker.
+
+## pv-notifications (9.8.2026) – new adapter at stable repository
+https://github.com/sadam6752-tech/ioBroker.pv-notifications
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.pv-notifications/main/admin/pv-notifications.png" width="100" height="100" />
+
+Sends Telegram notifications for PV battery status (full, empty, intermediate levels).
+
+## flowers (9.8.2026) – new adapter at stable repository
+https://github.com/sadam6752-tech/ioBroker.flowers
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.flowers/main/admin/flowers.png" width="100" height="100" />
+
+Monitor indoor plants via soil moisture, temperature and battery sensors with Telegram notifications.
+
+## cisco-checkpresence (9.8.2026) – new adapter at stable repository
+https://github.com/NurPech/ioBroker.cisco-checkpresence
+
+<img src="https://raw.githubusercontent.com/NurPech/ioBroker.cisco-checkpresence/main/admin/cisco-checkpresence.png" width="100" height="100" />
+
+Detects the presence of family members by querying the Cisco Catalyst 9800 Wireless Controller via RESTCONF. Instead of unreliable ping checks, the adapter reads the authenticated client table directly from the WLC — if the controller says a device is associated, it is there.
+
+## f1 (16.8.2026) – new adapter at stable repository
+https://github.com/bloop16/ioBroker.f1
+
+<img src="https://raw.githubusercontent.com/bloop16/ioBroker.f1/main/admin/f1.png" width="100" height="100" />
+
+Formula 1 live data integration for ioBroker — provides race calendar, championship standings, session results, and real-time live session data via the official F1 Live Timing feed and Jolpica API.
+
+## jetframe (16.8.2026) – new adapter at stable repository
+https://github.com/backfisch88/ioBroker.jetframe
+
+<img src="https://raw.githubusercontent.com/backfisch88/ioBroker.jetframe/main/admin/jetframe.png" width="100" height="100" />
+
+JetFrame is an ioBroker adapter for live flight tracking and visualization based on ADS-B data. It detects aircraft flying past your window and displays them in a modern web app with photo, flight information and statistics.
+
+## leapmotor (17.8.2026) – new adapter at stable repository
+https://github.com/backfisch88/ioBroker.leapmotor
+
+<img src="https://raw.githubusercontent.com/backfisch88/ioBroker.leapmotor/main/admin/leapmotor.png" width="100" height="100" />
+
+Unofficial Leapmotor electric vehicle integration for ioBroker. Tested on T03.
+
+## bosch-smart-home-camera (17.8.2026) – new adapter at stable repository
+https://github.com/mosandlt/ioBroker.bosch-smart-home-camera
+
+<img src="https://raw.githubusercontent.com/mosandlt/ioBroker.bosch-smart-home-camera/main/admin/bosch-camera.png" width="100" height="100" />
+
+ioBroker adapter for Bosch Smart Home Cameras (Eyes Outdoor, 360 Indoor, Gen2 Eyes Indoor II + Outdoor II). The full core feature set is functional end-to-end and verified live against real hardware.
+
+## solakon-one (20.8.2026) – new adapter at stable repository
+https://github.com/berto-1974/ioBroker.solakon-one
+
+<img src="https://raw.githubusercontent.com/berto-1974/ioBroker.solakon-one/main/admin/solakon.png" width="100" height="100" />
+
+Monitors and controls the Solakon ONE hybrid solar inverter (www.solakon.de) with battery storage over the local network via Modbus TCP (Port 502).
+
+## harvia-fenix (20.8.2026) – new adapter at stable repository
+https://github.com/meistermopper/ioBroker.harvia-fenix
+
+<img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/harvia.png" width="100" height="100" />
+
+An ioBroker adapter to integrate and control your Harvia Fenix sauna control unit via the MyHarvia cloud infrastructure.
+
+
+<!--  ######################## keep these lines at end of file as a reminder ######################## -->
+<!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
+<!--  ######################## keep these lines at end of file as a reminder ######################## -->

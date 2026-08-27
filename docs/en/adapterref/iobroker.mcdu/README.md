@@ -22,6 +22,27 @@ Thanks and shout outs to the great open source community, especially https://git
 
 this is the first version of the adapter and client. I still have to test it properly and make some improvements. Feel free to contribute to it.
 
+### Project status: contributors welcome
+
+As of August 2026 the original author has moved his own smart home to Home Assistant and
+maintains a sibling integration there: **[homeassistant-mcdu](https://github.com/Flixhummel/homeassistant-mcdu)**.
+This ioBroker adapter is **not abandoned** — it works and stays available — but active
+development has moved. Contributions and co-maintainers are very welcome.
+
+Both projects share the same Raspberry Pi client and the same MQTT protocol, which is now
+frozen and documented as a versioned contract in **[docs/PROTOCOL.md](docs/PROTOCOL.md)**.
+Please implement against that specification so the client keeps working for both worlds.
+The reasoning behind the split is written up in [docs/HOME-ASSISTANT-CONCEPT.md](docs/HOME-ASSISTANT-CONCEPT.md).
+
+> **Note:** only one "brain" may drive a given MCDU at a time. Display topics are retained —
+> if this adapter and the Home Assistant integration publish to the same device
+> simultaneously, the display will flicker.
+
+**Known open bug:** `lib/mqtt/ButtonSubscriber.js` handles `PREV_PAGE` / `NEXT_PAGE`, but the
+client only ever sends `SLEW_LEFT` / `SLEW_RIGHT` / `SLEW_UP` / `SLEW_DOWN` (see
+`mcdu-client/lib/button-map.json`). SLEW navigation therefore appears to be dead in this
+adapter. A good first contribution.
+
 ### Architecture
 
 ```

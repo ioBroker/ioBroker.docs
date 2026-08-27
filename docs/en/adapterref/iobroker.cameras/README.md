@@ -15,6 +15,15 @@ You can integrate your web/ip cameras into vis and other visualizations.
 If you configure a camera with name `cam1` it will be available on 
 web server under `http(s)://iobroker-IP:8082/cameras.0/cam1`.
 
+**Use exactly that URL - without a file extension.** Every request to it grabs a new frame from the
+camera, so a periodic reload gives you a live picture.
+
+The adapter additionally stores the last frame as a file under `cameras.0/cam1.jpg`, which the web
+server also happens to serve under `http(s)://iobroker-IP:8082/cameras.0/cam1.jpg`. That file is only
+rewritten when the adapter starts and whenever an `image` message is processed - it is **not** updated
+by requesting it. Pointing a widget at the `.jpg` therefore shows a picture that never refreshes, no
+matter which refresh interval is configured.
+
 Additionally, the image could be requested via a message:
 ```js
 sendTo('cameras.0', 'image', {
@@ -71,13 +80,45 @@ For some reason, EZVIZ decided to disable RTSP for their cameras:
 - Enable RTSP
 
 ## How to add a new camera (For developers)
-To add a new camera, you must create a Pull Request on GitHub with the following changes:
-- Add a new file into `cameras` folder. This is a backend to read the single image from the camera. 
-- Add a GUI file in the `src/src/Types/` folder. This is the configuration dialog for the camera
-- Add this dialog in `src/src/Tabs/Cameras.js` file analogical as other cameras are added. Only two lines should be added:
-  - Import new configuration dialog like `import RTSPMyCamConfig from '../Types/RTSPMyCam';`
-  - Extend `TYPES` structure with the new camera like `mycam: { Config: RTSPMyCamConfig, name: 'MyCam' },`
-    The attribute name must be the same as the name of the file in the `cameras` folder.
+
+### The easy way: a new manufacturer for the universal type
+Most cameras do not need any code. The `universal` type is driven by the data files in
+`src-admin/public/data/`, which are generated from ispyconnect.com:
+
+1. Add the manufacturer to the `MANUFACTURERS` map at the top of `tools/parser.js`
+2. Run `node tools/parser.js <manufacturer>` — this writes `src-admin/public/data/<manufacturer>.json`
+   and updates `manufacturers.json`
+3. Run `node tools/logos.js` to add a logo. It uses the brand mark from `simple-icons` when that
+   collection carries the manufacturer, otherwise it generates a monogram. To use the real logo
+   instead, simply place `<manufacturer>.svg`, `.png` or `.jpg` in `src-admin/public/data/` —
+   existing files are never overwritten (unless `--force` is given)
+
+The new manufacturer then appears in the dropdown of the "By manufacturer" camera type.
+
+### A dedicated camera type
+Only needed when the camera requires its own logic. Create a Pull Request with:
+- `src/types.d.ts` — add the key to the `CameraType` union, add a `CameraConfigMyCam extends CameraConfig`
+  interface and add it to the `CameraConfigAny` union
+- `src/cameras/MyCamCamera.ts` — extend `GenericCamera` for a plain HTTP snapshot, or `GenericRtspCamera`
+  for RTSP (fill `this.settings` and `this.decodedPassword` in `init()` before calling `super.init()`)
+- `src/cameras/Factory.ts` — add the `case` for the new type
+- `src-admin/src/Types/MyCam.tsx` — the configuration dialog, extending `ConfigGeneric`
+- `src-admin/src/Tabs/Cameras.tsx` — import the dialog and add it to the `TYPES` structure, e.g.
+  `mycam: { Config: MyCamConfig as unknown as IConfigGeneric, name: 'MyCam' },`. The key must be
+  identical to the `type` used in the backend.
+- Add the new labels to all files in `src-admin/src/i18n/`
+
+### go2rtc (optional)
+If `go2rtc` is enabled in the settings, a local [go2rtc](https://github.com/AlexxIT/go2rtc) process
+replaces the `ffmpeg` processes: one per snapshot in the adapter, and one per camera in the web
+extension. go2rtc holds a single connection per camera and serves all consumers from it.
+
+go2rtc binds its API to `127.0.0.1` and is never reachable by the browser directly. All access goes
+through the `web` adapter, so it uses the same authentication and the same http/https scheme as the
+rest of ioBroker — no additional port has to be opened. Besides the existing web socket, each camera
+also offers `/<instance>/<camera>/stream.mjpeg`, which can be used in a plain `<img src="...">`.
+
+If the binary cannot be found or does not start, the adapter transparently falls back to `ffmpeg`.
 
 ## Todo
 - [ ] Send new subscribe requests for RTSP cameras if the dialog is opened or closed 
@@ -87,9 +128,31 @@ To add a new camera, you must create a Pull Request on GitHub with the following
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.0.2 (2026-08-17)
+* (@GermanBluefox) The web extension can now request snapshots via messages instead of the private HTTP server, which is used automatically when the cameras adapter runs on a different host than the web instance
+* (@GermanBluefox) Fixed: a failed snapshot request answered with an empty `{}` instead of the error message
+
+### 3.0.1 (2026-08-16)
 * (@GermanBluefox) Completely rewritten in TypeScript
 * (@GermanBluefox) Added Ezviz cameras
+* (@GermanBluefox) Snapshot requests are answered with `Cache-Control: no-store` so browsers cannot show a stale frame
+* (@GermanBluefox) Fixed: a list of allowed IPs was never split correctly, so any list with more than one address rejected every request
+* (@GermanBluefox) Fixed: connections from the IPv6 loopback address were not recognized as local
+* (@GermanBluefox) Fixed: a failed image request could terminate the adapter with `ERR_HTTP_HEADERS_SENT`
+* (@GermanBluefox) The cameras are reachable immediately after start instead of only after the first frame of every camera was grabbed
+* (@GermanBluefox) The web extension picks up a changed key by itself, without restarting ioBroker.web
+* (@paul179) Added Steinel cameras (as manufacturer of the universal camera type)
+* (@GermanBluefox) The universal camera type now offers ~50 manufacturers with ~13000 models, each with a logo
+* (ioBroker-Bot) Removed the deprecated `common.materialize` from io-package.json
+* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now
+* (ioBroker-Bot) Adapter requires node.js >= 22 now
+* (@GermanBluefox) Added Instar cameras
+* (@GermanBluefox) Added optional go2rtc support for snapshots and live streams, proxied via the web adapter
+* (@GermanBluefox) Fixed: the second viewer of the same camera did not receive any picture
+* (@GermanBluefox) Added two widgets for ioBroker.devices: RTSP camera and snapshot camera
+* (@GermanBluefox) Fixed: the `.running` state did not start or stop the stream
+* (@GermanBluefox) Fixed: width/height/angle of the `image` message were ignored
+* (@GermanBluefox) Fixed: a camera in the dialog of the snapshot widget was never used
 
 ### 2.1.2 (2024-07-15)
 * (bluefox) Updated packages
@@ -101,66 +164,12 @@ To add a new camera, you must create a Pull Request on GitHub with the following
 * (bluefox) Packages updated
 * (bluefox) Allowed selecting another source (with bigger resolution) for URL cameras
 
-### 2.0.5 (2023-12-19)
-* (bluefox) Minimal supported Node.js version is 18
-* (bluefox) Corrected widgets
-
-### 1.4.0 (2023-12-04)
-* (bluefox) Changed widget set name
-* (bluefox) Added the caching of images with time, size and rotation
-* (bluefox) Added timeout for RTSP cameras
-
-### 1.3.0 (2023-09-28)
-* (bluefox) Utilized the new js-controller feature: sendToUI. RTSP Streaming works only with js-controller 5.0.13 or higher
-* (bluefox) Implemented a second widget for simple cameras
-
-### 1.2.3 (2023-09-27)
-* (bluefox) Added WiWiCam MW1 and HiKam cameras
-
-### 1.2.2 (2023-07-07)
-* (bluefox) Corrected passwords with exclamation mark
-
-### 1.2.1 (2023-07-06)
-* (bluefox) Added eufy camera
-
-### 1.1.1 (2023-03-15)
-* (bluefox) Added Reolink E1 camera
-
-### 1.0.3 (2023-01-11)
-* (bluefox) Corrected GUI config error
-
-### 1.0.2 (2023-01-07)
-* (bluefox) added RTSP camera
-* (bluefox) added cache of snapshots
-
-### 0.2.0 (2022-09-27)
-* (bluefox) GUI updated to MUIv5
-
-### 0.1.8 (2022-02-13)
-* (bluefox) replaced the deprecated package `request` with `axios`
-
-### 0.1.5 (2022-02-13)
-* (bluefox) Preparations for js-controller@4.x are made
-
-### 0.1.4 (2021-07-13)
-* (bluefox) Add a role for states
-
-### 0.1.3 (2020-08-08)
-* (Hirsch-DE) Parameters were applied
-
-### 0.1.2 (2020-06-03)
-* (bluefox) implemented get image by message
-
-### 0.1.0
-* (bluefox) URL and URL with basic authentication were implemented
-
-### 0.0.1
-* (bluefox) initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2020-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2020-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

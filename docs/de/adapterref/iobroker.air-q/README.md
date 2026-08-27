@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.air-q/README.md
 title: ioBroker.air-q
-hash: /mRC28Db6zteKQ26qsHwEGoBQpAsc98CHy0AbKPJ7ns=
+hash: n8TAgcFn4LhWTlqTjxNW1MkZ003SePBMmj9nOZmqgXo=
 ---
 # IoBroker.air-q
 
@@ -53,15 +53,23 @@ iobroker install air-q
 Weitere Informationen finden Sie in der ioBroker CLI-Dokumentation unter https://github.com/ioBroker/ioBroker/wiki/Console-commands.
 
 ## Konfiguration
-### Erforderlich
-Um Ihre Instanz zu konfigurieren, wählen Sie einfach aus, ob Sie die Verbindung über die IP-Adresse oder die Kurz-ID Ihres Geräts herstellen möchten.
+![Konfiguration](../../../en/adapterref/iobroker.air-q/docs/screenshot-config.png)
 
-<img width="1263" height="953" alt="2025-12-10T17:57:57,025532652+01:00" src="https://github.com/user-attachments/assets/93ff4c76-bdf5-4336-bb5a-1a0aa844ec0d" />
+### Ihr air-Q-Gerät finden
+Der Adapter erkennt air-Q-Geräte in Ihrem lokalen Netzwerk automatisch mithilfe von mDNS (Bonjour). Wenn Sie die Instanzeinstellungen öffnen, sucht das Dropdown-Menü **Netzwerk scannen** nach Geräten (ca. 10 Sekunden) und listet alle gefundenen air-Q-Geräte nach Namen auf. Wählen Sie Ihr Gerät aus; die Kurz-ID und die IP-Adresse werden automatisch ausgefüllt.
 
-Bitte stellen Sie sicher, dass Sie die korrekte IP-Adresse/Benutzerkennung und das korrekte Passwort eingeben.
+**Wenn keine Geräte gefunden werden**, blockiert Ihr Router möglicherweise den mDNS-Verkehr zwischen Geräten (häufig bei Mesh-Netzwerken, Gastnetzwerken oder Unternehmensnetzwerken). Aktivieren Sie in diesem Fall das Kontrollkästchen **Mit IP verbinden** und geben Sie die IP-Adresse des Geräts manuell ein. Sie finden die IP-Adresse in der air-Q Smartphone-App oder in der Geräteliste Ihres Routers.
+
+Sie können den Adapter auch über **ioBroker.discovery** konfigurieren: Führen Sie einen Netzwerkscan vom Discovery-Adapter aus durch, und air-Q-Geräte werden automatisch über DNS oder HTTP erkannt.
+
+### Verbindungsoptionen
+- **Netzwerk scannen**: Erkennt air-Q-Geräte automatisch über mDNS. Wählen Sie ein Gerät aus, um die Kurz-ID und die IP-Adresse automatisch ausfüllen zu lassen.
+- **Verbindung über IP**: Stellen Sie die Verbindung direkt über die IP-Adresse des Geräts her. Verwenden Sie diese Option, wenn die mDNS-Erkennung in Ihrem Netzwerk nicht funktioniert.
+- **Kurz-ID**: Die ersten 5 Zeichen der Seriennummer Ihres Geräts. Wird für die mDNS-Abfrage verwendet, wenn „Mit IP verbinden“ deaktiviert ist.
+- **Gerätepasswort**: Das Passwort Ihres air-Q-Geräts.
 
 ### Optional
-- **Nachtmodus des Geräts berücksichtigen**. Standard: `ein`. Wenn auf Ihrem air-Q-Gerät der Nachtmodus aktiviert und WLAN nachts deaktiviert ist, kann der Adapter Abfrageversuche während dieser Stunden automatisch überspringen. Dadurch werden unnötige Verbindungsfehler in Ihren Protokollen vermieden. ⚠️ Wenn Sie die Einstellungen für den Nachtmodus Ihres Geräts ändern (Start-/Endzeit, Aktivieren/Deaktivieren), haben Sie zwei Möglichkeiten:
+- **Nachtmodus des Geräts berücksichtigen**. Standard: „Ein“. Wenn auf Ihrem air-Q-Gerät der Nachtmodus aktiviert und WLAN nachts deaktiviert ist, kann der Adapter Abfrageversuche während dieser Stunden automatisch überspringen. Dadurch werden unnötige Verbindungsfehler in Ihren Protokollen vermieden. ⚠️ Wenn Sie die Nachtmoduseinstellungen Ihres Geräts ändern (Start-/Endzeit, Aktivieren/Deaktivieren), haben Sie zwei Möglichkeiten:
 1. (Empfohlen): Starten Sie den Adapter neu, um die neue Konfiguration sofort zu laden.
 2. (Automatisch): Warten Sie bis zu 1 Stunde, bis der Adapter die Konfiguration automatisch aktualisiert (funktioniert nur außerhalb der Nachtmoduszeiten).
 
@@ -81,6 +89,20 @@ Die Daten werden abgerufen und gemäß Ihrer Konfiguration im Objekt-Tab angezei
 ***Aktuell sind alle Sensoren für den air-Q Pro enthalten. Optionale Sensoren werden in einem zukünftigen Patch hinzugefügt.***
 
 ## Changelog
+
+### 1.2.0
+* **Network discovery**: air-Q devices on the local network are now automatically discovered via mDNS. Select a device from the dropdown and the Short ID and IP are filled in automatically.
+* **Admin UI modernized**: Migrated from Materialize HTML to jsonConfig (declarative JSON). Settings are now organized in two tabs: Connection and Data Retrieval.
+* **ioBroker.discovery integration**: Fixed the detection file to correctly populate adapter config fields, call the discovery callback, and distinguish multiple air-Q devices. Added HTTP `/ping` fallback for networks without reverse DNS.
+* **Troubleshooting guidance**: The admin UI now explains what to do when mDNS doesn't work (router blocking, how to find the device IP).
+
+### 1.1.0
+* Added support for 19 new sensors: acetaldehyde (C₂H₄O), arsine (AsH₃), bromine (Br₂), methanethiol (CH₄S), chlorine dioxide (ClO₂), carbon disulfide (CS₂), ethylene (C₂H₄), fluorine (F₂), temperature in Farenheit, hydrochloric acid (HCl), hydrogen cyanide (HCN), hydrogen fluoride (HF), hydrogen peroxide (H₂O₂), mold protection, phosphine (PH₃), refrigerant R-32, refrigerant R-454B, refrigerant R-454C, silane (SiH₄)
+
+### 1.0.7
+* Missing (e.g. warming up) sensors are skipped gracefully
+* Fixed incorrect translations
+* Refactor redundant methods
 
 ### 1.0.6
 * The adapter can automatically respect your air-Q device's night mode configuration
@@ -130,7 +152,7 @@ Die Daten werden abgerufen und gemäß Ihrer Konfiguration im Objekt-Tab angezei
 
 MIT License
 
-Copyright (c) 2024 Corant GmbH
+Copyright (c) 2024-2026 Corant GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

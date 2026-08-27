@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.seq/README.md
 title: ioBroker.seq
-hash: 4lYcnQYfG6avpQQzmubo56sJld4ntQ7Z6tPM3BcNKrQ=
+hash: 66jrUwtyG6WxMEGt6bHtlPIxcfM73LuOq5eoGooGyaQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.seq/admin/seq.png)
 
@@ -14,28 +14,28 @@ hash: 4lYcnQYfG6avpQQzmubo56sJld4ntQ7Z6tPM3BcNKrQ=
 ![NPM](https://nodei.co/npm/iobroker.seq.png?downloads=true)
 
 # IoBroker.seq
-[![Abhängigkeitsstatus](https://status.david-dm.org/gh/arteck/iobroker.seq.svg)](https://david-dm.org/arteck/iobroker.seq) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Seq-Adapter für ioBroker
-Mit diesem Adapter können Sie Ihr ioBroker-Protokoll in das System von [Sequenz](https://datalust.co/seq) übertragen.
-Es ist auch möglich, einen Filter auf die Protokollebenen und auch auf die Adapter anzuwenden.
+Dieser Adapter ermöglicht es Ihnen, Ihre ioBroker-Protokolle in das System [Seq](https://datalust.co/seq) zu übertragen.
+Es ist außerdem möglich, einen Filter auf die Protokollebenen und die Adapter anzuwenden.
 
 ## Konfiguration
-1. Erstellen Sie eine neue Instanz des Adapters
-2. Füllen Sie die URL/IP und den Port der [Seq](https://datalust.co/seq)-Instanz aus
+1. Erstellen Sie eine neue Instanz des Adapters.
+2. Geben Sie die URL/IP-Adresse und den Port der [Seq](https://datalust.co/seq)-Instanz ein.
 3. Geben Sie an, welche Protokollereignisse Sie an [Seq](https://datalust.co/seq) senden möchten.
-4. Speichern Sie die Einstellungen
+4. Einstellungen speichern
 
 ## Changelog
+### 1.0.2 (2026-04-06)
+* (arteck) back to seq-logging 2.2.0
 
-<!--
- https://github.com/AlCalzone/release-script#usage
-    npm run release minor -- --all 0.9.8 -> 0.10.0
-    npm run release patch -- --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
-	Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
--->
+### 1.0.1 (2026-04-06)
+* (arteck) Dependencies have been updated
+
+### 1.0.0 (2026-04-05)
+* (arteck) new admin
+
 ### 0.4.2 (2025-10-20)
 * (arteck) fixes
 
@@ -136,7 +136,7 @@ Es ist auch möglich, einen Filter auf die Protokollebenen und auch auf die Adap
 
 MIT License
 
-Copyright (c) 2025 Arthur Rupp <arteck@outlook.com>,
+Copyright (c) 2026 Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

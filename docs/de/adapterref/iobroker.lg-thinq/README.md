@@ -759,9 +759,18 @@ lg-thinq.0.xxx.area muss gefüllt sein!
     ![weather.png](img/weather.png)
 
 ## Changelog
+### 1.2.2 (2026-08-22)
 
-### **WORK IN PROGRESS**
+- (Lucky-ESA) Added default header for login
 
+### 1.2.1 (2026-08-14)
+
+- (Lucky-ESA) Issue missing privKey fixed
+
+### 1.2.0 (2026-05-31)
+
+- (copilot) Adapter requires node.js >= 22 now
+- (Lucky-ESA) Adapter requires admin >= 7.8.23 now
 - (Lucky-ESA) Added translate for device 201
 
 ### 1.1.6 (2025-12-17)
@@ -773,22 +782,7 @@ lg-thinq.0.xxx.area muss gefüllt sein!
 - (Lucky-ESA) Fixed adapter crash (thinq1 only)
 - (Lucky-ESA) Fixed: Address Root-CA certificate has changed
 
-### 1.1.4 (2025-12-14)
-
-- (Lucky-ESA) Attribute max of object limitMax and limitMin changed (device 401)
-- (Lucky-ESA) Fixed deviceType error
-- (Lucky-ESA) JSONbig loglevel changed
-
-### 1.1.3 (2025-10-03)
-
-- (Lucky-ESA) Added translate for device 201
-- (Lucky-ESA) Delete APP-Login (removed by LG)
-- (Lucky-ESA) Added online icon
-- (Lucky-ESA) Microwave 302 disabled (thinq1)
-
-### 1.1.2 (2025-08-18)
-
-- (Lucky-ESA) Delete expires check
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

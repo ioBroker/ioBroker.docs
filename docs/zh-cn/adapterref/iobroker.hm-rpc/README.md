@@ -139,6 +139,17 @@ CCU / Homematic支持不同的设备类型（有线，无线，HMIP，CUxD）。
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.0.0 (2026-08-15)
+* (bluefox) Device icons are now delivered as theme-adaptive SVGs and stay visible on the dark admin theme
+* (krobipd) Generated the device icon set and the device type map from the OCCU device database
+* (krobipd) The device icon is re-applied on start to devices that were created before their type had an icon
+* (bluefox) Removed support of Node.js 20
+
+### 3.0.2 (2026-05-07)
+* (bluefox) Updated packages
+* (bluefox) Migrated to TypeScript 6
+* (bluefox) Corrected device manager
+
 ### 3.0.1 (2025-10-22)
 * (bluefox) Renamed role of `STICKY_UNREACH` to `indicator.unreach.sticky` for the better typing detection
 
@@ -150,21 +161,16 @@ CCU / Homematic支持不同的设备类型（有线，无线，HMIP，CUxD）。
 ### 2.0.2 (2024-08-26)
 * (bluefox) Updated packages
 
-### 2.0.0 (2024-07-18)
-* (bluefox) Updated packages
-* (bluefox) Removed support of Node.js 16
-
-### 1.17.0 (2024-03-18)
-* (klein0r) Fixed encrypted configuration
-
 ### Older entries
 [here](OLD_CHANGELOG.md)
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>
 
 Copyright (c) 2014 hobbyquaker
 

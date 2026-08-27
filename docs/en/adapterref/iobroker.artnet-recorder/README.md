@@ -30,6 +30,7 @@ The interval or the stepping to send the data is set by the configuartion.
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 * (Bannsaenger) updated dependencies and issues from repository checker
 
 ### 0.1.5 (2025-10-24)
@@ -47,6 +48,8 @@ The interval or the stepping to send the data is set by the configuartion.
 
 ### 0.1.1 (2025-01-21)
 * (Bannsaenger) removed script build on deploy
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

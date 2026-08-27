@@ -121,6 +121,10 @@ for your great documentation and work.
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 0.2.12 (2025-08-17)
 - Fixes bug ChargeStartOrCancel
 
@@ -222,10 +226,12 @@ for your great documentation and work.
 - code taken 1:1 from iobroker.zoe
 - small adjustments, first access to the new renault api
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 RenePilz <rene@pilz.cc>
+Copyright (c) 2024-2026 RenePilz <rene@pilz.cc>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

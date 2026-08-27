@@ -3,37 +3,36 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pegelalarm/README.md
 title: ioBroker.pegelalarm
-hash: gpgOAXloS3MWETkfQ01J/pUhdJfwJGU/vF1SRGt1Nd0=
+hash: 2KA/JKk8adnZ3p0DzgD9A3PEuTC/MS42dx9UM9L3Hms=
 ---
 ![Logo](../../../en/adapterref/iobroker.pegelalarm/admin/pegelalarm.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.pegelalarm.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.pegelalarm.svg)
-![Anzahl der Installationen (neueste)](http://iobroker.live/badges/pegelalarm-installed.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/pegelalarm-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/pegelalarm-stable.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.pegelalarm/badge.svg)
 ![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.pegelalarm?style=flat)
 ![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.pegelalarm
-![Testen und freigeben](https://github.com/simatec/ioBroker.pegelalarm/workflows/Test%20and%20Release/badge.svg)
+![Test und Freigabe](https://github.com/simatec/ioBroker.pegelalarm/workflows/Test%20and%20Release/badge.svg)
 
 ## Pegelalarm-Adapter für ioBroker
-Liefert Daten von Pegelalarm-API (v1.0)
+Stellt Daten von Pegelalarm-API (v1.0) bereit
 
-API-Dokumentation für API 1.1 finden Sie hier https://github.com/SOBOS-GmbH/pegelalarm_public_pas_doc/wiki/Download-current-water-data
-
-**************************************************************************************************************
-
-### Was ist Sentry.io und was wird an die Server dieser Firma gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler in ihren Anwendungen zu verschaffen. Und genau das ist in diesem Adapter umgesetzt.
-
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+Die API-Dokumentation für API 1.1 finden Sie hier: https://github.com/SOBOS-GmbH/pegelalarm_public_pas_doc/wiki/Download-current-water-data
 
 **************************************************************************************************************
 
-**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
+### Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
+Sentry.io ist ein Dienst, der Entwicklern einen Überblick über Fehler in ihren Anwendungen bietet. Genau dies wird in diesem Adapter implementiert.
+
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH die Erlaubnis erteilt haben, Diagnosedaten zu erfassen, wird auch Ihre Installations-ID (eine eindeutige ID **ohne** weitere Informationen zu Ihrer Person wie E-Mail-Adresse, Name usw.) übermittelt. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abstürzen.
+
+**************************************************************************************************************
+
+**Wenn es Ihnen gefällt, erwägen Sie bitte eine Spende:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
@@ -41,6 +40,71 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 ## Changelog
 <!--### __WORK IN PROGRESS__-->
+### 1.4.0 (2026-04-22)
+* (simatec) dependencies updated
+* (simatec) Request Fix
+* (simatec) Timeout Fix
+* (simatec) Source code rewritten,
+* (simatec) Source code improved
+* (simatec) Station names fixed
+* (simatec) Header added
+
+### 1.3.13 (2026-03-29)
+* (simatec) Fix License
+* (simatec) dependencies updated
+
+### 1.3.12 (2025-11-23)
+* (simatec) dependencies updated
+
+### 1.3.11 (2025-11-02)
+* (simatec) dependencies updated
+* (simatec) Fix npm publish
+
+### 1.3.10 (2025-08-31)
+* (simatec) Dependencies updated
+
+### 1.3.9 (2025-06-28)
+* (simatec) smal Code fix
+* (simatec) Dependencies updated
+
+### 1.3.8 (2025-02-22)
+* (simatec) Dependencies updated
+* (simatec) small Fix
+
+### 1.3.7 (2025-01-09)
+* (simatec) eslint-config fix
+* (simatec) Dependencies updated
+* (simatec) Update License
+
+### 1.3.6 (2024-11-25)
+* (simatec) Dependencies updated
+* (simatec) Issue Action added
+* (simatec) eslint-config added
+
+### 1.3.5 (2024-09-21)
+* (simatec) small fix
+
+### 1.3.4 (2024-09-20)
+* (simatec) Dependencies updated
+* (simatec) dev-server added
+* (simatec) small fix
+* (simatec) Responsive Design added
+
+### 1.3.3 (2024-02-08)
+* (simatec) Dependencies updated
+* (simatec) Design Fix
+* (simatec) gulp deleted
+* (simatec) adapter-dev added
+* (simatec) Translation updated
+
+### 1.3.2 (2023-11-20)
+* (simatec) Dependencies updated
+
+### 1.3.1 (2023-09-04)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+* (simatec) Translation updated
+
 ### 1.3.0 (2023-03-18)
 * (simatec) Dependencies updated
 * (simatec) Repo updated
@@ -141,7 +205,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ## License
 MIT License
 
-Copyright (c) 2020 - 2023 simatec
+Copyright (c) 2020 - 2026 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,40 +1,53 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wlanthermo-nano/README.md
 title: ioBroker.wlanthermo-nano
-hash: jWLdLB/tLzY994bhB0XsoX69BINKX6GfxcsXqGA0BIo=
+hash: gJy3Z+rgb/y/LqQmb0n4KdAw1EUKTL/gj6rhMy9D3+I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wlanthermo-nano/admin/wlanthermo-nano.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.wlanthermo-nano.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.wlanthermo-nano.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.wlanthermo-nano.svg)
 ![Количество установок](https://iobroker.live/badges/wlanthermo-nano-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/wlanthermo-nano-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/wlanthermo-nano-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/DrozmotiX/iobroker.wlanthermo-nano.svg)
 ![НПМ](https://nodei.co/npm/iobroker.wlanthermo-nano.png?downloads=true)
 
 # IoBroker.wlanthermo-nano
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/DrozmotiX/iobroker.wlanthermo-nano/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/DrozmotiX/iobroker.wlanthermo-nano/workflows/Test%20and%20Release/badge.svg)
 
-## Wlanthermo-nano адаптер для ioBroker
-[WLANТермо Нано](https://github.com/WLANThermo-nano/WLANThermo_nano_Software/wiki "WLANThermo Nano"), цифровое преимущество для любителей барбекю
+## Адаптер wlanthermo-nano для ioBroker
+[WLANThermo Nano](https://github.com/WLANThermo-nano/WLANThermo_nano_Software/wiki "WLANThermo Nano"), цифровое преимущество для вашего барбекю.
+
+## Часовой
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
 ## Конфигурация
-Адаптер можно установить и настроить в интерфейсе администратора.
-Пожалуйста, введите IP-адрес, имя пользователя и пароль в конфигурации инстанса.
+Адаптер можно установить и настроить через административный интерфейс.
+Пожалуйста, введите IP-адрес, имя пользователя и пароль в конфигурации экземпляра.
 
-## Сделать
-* [ ] Реализовать автоматическое определение устройства
-* [ ] Оптимизированы настройки питмастера, сделать состояния доступными только для записи в соответствующем режиме, в противном случае только для чтения
+## Задачи
+* [ ] Реализовать автоматическое обнаружение устройств
+* [ ] Оптимизировать настройки питмастера, сделать состояния доступными для записи только в соответствующем режиме, в противном случае — только для чтения.
 
-## Присоединяйтесь к серверу Discord, чтобы обсудить все об интеграции ioBroker-WlanThermo!
+## Присоединяйтесь к серверу Discord, чтобы обсудить все аспекты интеграции ioBroker и WlanThermo!
 <a href="https://discord.gg/cNAeGjJ"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
 ## Поддержите меня
-Если вам нравится моя работа, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвования для DutchmanNL, не имеющая отношения к проекту ioBroker!) [![Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
+Если вам нравится моя работа, пожалуйста, не стесняйтесь сделать личное пожертвование (это личная ссылка для пожертвований DutchmanNL, не имеющая отношения к проекту ioBroker!). [![[Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Changelog
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+### __WORK IN PROGRESS__
+* (DutchmanNL) Dependencies updated to current versions
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+* (DutchmanNL) Admin settings are translated again: added the missing admin/i18n files for all 11 supported languages, including Ukrainian, and the device table column headers are now translated too
+
 ### 0.2.1 (2022-06-08) - Initialization error for Nano V1 solved
 * (DutchmanNL) Initialization error for Nano V1 solved
 * (DutchmanNL) Error logging and reporting improved
@@ -96,7 +109,7 @@ hash: jWLdLB/tLzY994bhB0XsoX69BINKX6GfxcsXqGA0BIo=
 ## License
 MIT License
 
-Copyright (c) 2019 DutchmanNL <rdrozda86@gmail.com>
+Copyright (c) 2019-2026 DutchmanNL <oss@DrozmotiX.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -23,8 +23,8 @@ You must activate and allow SSH Connections in your Router Settings
 
 You need at least:
 * js-controller >= 6.0.11
-* admin >= 7.6.17
-* Node.js >= 18.x
+* admin >= 7.6.20
+* Node.js >= 22
 
 For older ioBroker versions, install version 0.3.1
 
@@ -54,6 +54,38 @@ For older ioBroker versions, install version 0.3.1
     * Don´t forget to set the Checkbox to activate the monitoring
 
 ## Changelog
+
+### 1.0.7 (2026-07-07)
+* (mcdhrts) Resolve all remaining repository checker issues (#106)
+* (mcdhrts) Update dependencies: @iobroker/adapter-core ^3.4.1, @alcalzone/release-script ^5.2.1, @types/node ~22
+* (mcdhrts) Add explicit "i18n": true to admin/jsonConfig.json5
+* (mcdhrts) Translate remaining untranslated ru i18n keys
+* (mcdhrts) Add 1.0.6 changelog entry to README
+* (mcdhrts) Add dependency overrides to reduce transitive dev-dependency security vulnerabilities
+* (mcdhrts) Merge form-data security update
+
+### 1.0.6 (2026-05-30)
+* (mcdhrts) Resolve repository checker issues, deprecated methods and improve CI (#95, #97)
+* (mcdhrts) Translate i18n files into native languages and restore missing language files (#95)
+* (mcdhrts) Resolve all remaining repository checker issues (#99)
+* (mcdhrts) Update tsconfig node target from template (#98)
+
+### 1.0.5 (2026-05-28)
+* (mcdhrts) Fix deprecated method usage: use delObject with recursive flag (Issue #97)
+* (mcdhrts) Fix eslint.config.mjs to properly use @iobroker/eslint-config (E0077)
+* (mcdhrts) Add missing xs/xl size attributes to admin jsonConfig fields (E5507)
+* (mcdhrts) Update workflow node.js version to 24 for deploy and lint jobs (E3022, S3021)
+* (mcdhrts) Add needs dependency between adapter-tests and check-and-lint jobs (S3014)
+* (mcdhrts) Add prettier.config.mjs for @iobroker/eslint-config compatibility (W0076)
+* (mcdhrts) Remove obsolete eslint devDependency (W0078)
+* (mcdhrts) Fix @types/node version constraint to ~22 (W0066)
+* (mcdhrts) Trim common.news to 7 entries (W1032)
+* (mcdhrts) Fix dependabot: add cooldown, ignore @types/node major, increase PR limit (W8915, W8917, S8908)
+* (mcdhrts) Improve ip neigh parsing to handle multiple spaces
+* (mcdhrts) Modernize code style, fix line endings, add CHANGELOG_OLD.md
+
+### 1.0.4 (2026-04-01)
+* (mcdhrts) Improve parsing of ip neigh output to handle multiple spaces, update dependencies
 
 ### 1.0.3 (2025-10-11)
 * (mcdhrts) Migrated to modern i18n format with separate translation files in admin/i18n/ directory
@@ -108,6 +140,8 @@ For older ioBroker versions, install version 0.3.1
 
 ### 0.0.1 (2018-12-09)
 * (mcdhrts) first official beta version
+
+[Older changes](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

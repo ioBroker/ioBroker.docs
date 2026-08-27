@@ -920,9 +920,13 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.1 (2026-07-09)
 
-**WORK IN PROGRESS**
+- (Lucky-ESA) Fixed refresh astrotime
 
+### 0.2.0 (2026-05-30)
+
+- (copilot) Adapter requires node.js >= 22 now
 - (Lucky-ESA) Code optimized
 - (Lucky-ESA) Adapter requires admin >= 7.7.22 now
 
@@ -943,19 +947,7 @@ app-on-off-schedules-widget {
 - (Lucky-ESA) Admin 7.6.17 required
 - (Lucky-ESA) Node 20 required
 
-### 0.0.10 (2025-02-11)
-
-- (Lucky-ESA) Dependencies updated
-- (Lucky-ESA) Fixed: In the HTML overview, enabled / disabled does not work
-- (Lucky-ESA) Fixed: Astrotime incorrectly
-- (Lucky-ESA) Added: Current day in font weight bold
-
-### 0.0.9 (2024-12-20)
-
-- (Lucky-ESA) Fixed: Reading files from Redis database
-- (Lucky-ESA) Added: Automatic deactivation control
-- (Lucky-ESA) Fixed: Visibility
-- (Lucky-ESA) Fixed: Bug in type check
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

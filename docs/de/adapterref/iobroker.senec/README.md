@@ -10,293 +10,514 @@ BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&logo
 BADGE-Buy Me a Coffee: https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black
 BADGE-GitHub Sponsor: https://img.shields.io/badge/Sponsor-GitHub-181717?logo=github&logoColor=white
 ---
-![Logo](/admin/senec.png)
-# ioBroker.senec
+# <img src="../../admin/senec.png" width="36" align="top" alt=""> ioBroker.senec
 
 ## SENEC Adapter für ioBroker
-Der Adapter wurde initial für Senec Home V2.1 Systeme entwickelt.
-Im Senec.Home System können nur ausgewählte Werte durch den Adapter verändert werden. Die Nutzung dieser Funktionalität geschieht auf eigenes Risiko und muss vorher manuell in der Konfiguration aktiviert werden.
-Senec stellt derzeit über die Webschnittstelle auch keine zuverlässige Möglichkeit mehr zur Verfügung, das Peak Shaving zu beeinflussen. Hierzu muss mein-senec.de bemüht werden.
-Ob andere Systeme (z.B. V3) ebenfalls damit funktionieren, ist davon abhängig, ob diese ebenfalls auf lala.cgi basieren und die gleichen JSON Informationen zur Verfügung stellen.
-Auch bei Einbindung in die Senec.Clound ist nicht gewährleistet, dass die Daten weiterhin über die Webschnittstelle abgerufen werden können (hierzu bitte Erfahrungsberichte).
 
-Der Adapter unterstützt lokales Polling via lala.cgi als auch via Web API.
+Überwachen und steuern Sie Ihr SENEC Heimspeichersystem. Der Adapter unterstützt vier unabhängige Konnektoren, die einzeln oder kombiniert genutzt werden können:
 
-Systeme, die funktionieren dürften, da sie die gleiche Schnittstelle nutzen sind nachfolgend gelistet. Allerdings können die Datenpunkte unterschiedlich sein (fehlen, zusätzlich, geändert).
-* Senec Home 4.0,  6.0, 8.0, 10.0 / Blei
-* Senec Home 5.0, 7.5, 10.0, 15.0 / Lithium
-* Senec Home V2 5.0, 7.5, 10.0
-* Senec Home V2.1
-* Senec.Home V3
-* Senec.Home V4
-* Senec Business 30.0 / Blei
-* Senec Business V2 30.0 / Blei
-* Senec Business 25.0 / Lithium
-* Senec Business V2_2ph / Lithium
-* Senec Business V2 3ph / Lithium
-* ADS Tec
-* OEM LG
-* Solarinvert Storage 10.0 / Blei
+- **Lokal** (lala.cgi) — Direkte LAN-Abfrage mit 10-Sekunden-Echtzeitdaten. Liefert vollständige BMS-Daten, Netzzähler, Wallbox-Daten und Gerätesteuerung.
+- **SENEC App API** — Cloud-basierte Abfrage über die SENEC App API. Dashboard-Daten, Messverlauf, Systemdetails und Wallbox-Informationen.
+- **mein-senec.de** — Web-Portal-Abfrage. Statusübersicht, Messverlauf, Autarkie, Notstrom, Peak Shaving, SG-Ready und Steuerung schaltbarer Steckdosen.
+- **SENEC.Connect** — Azure-basierte API. Batterie- und Zählerdaten über Subscription-Key.
 
-Senec Systeme, die über kein lokales Webinterface verfügen, können möglicherweise über die API Option dennoch überwacht werden. Rückmeldungen jeglicher Art diesbezüglich sind gerne gesehen.
+Es müssen nicht alle Konnektoren aktiviert werden. Wählen Sie je nach Bedarf — rein lokale Setups funktionieren ebenso wie reine Cloud-Konfigurationen für Systeme ohne lokales Webinterface.
+
+### Unterstützte Systeme
+
+Praktisch jedes SENEC-Speichersystem funktioniert: die Home-Reihe von den frühen Blei- und
+Lithium-Modellen über V2, V2.1 und V3 bis zur aktuellen Generation V4 | P4 | E4, die
+Business-Modelle sowie die Partnervarianten ADS Tec, OEM LG und Solarinvert.
+
+Systeme mit lokalem Webinterface können alle vier Konnektoren nutzen. Systeme ohne — darunter die
+V4-Generation — laufen über die SENEC App API, mein-senec.de und SENEC.Connect. Welche Datenpunkte
+verfügbar sind, hängt vom Modell ab.
+
+Die [vollständige Modellliste](../SUPPORTED_SYSTEMS.md) hilft beim Wiederfinden des eigenen Systems.
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen oder -logos sind Warenzeichen™ oder eingetragene® Warenzeichen der jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit oder Befürwortung durch diese oder zugehörige Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein geschäftliches Ziel.
+**Alle Produkt- und Firmennamen oder -logos sind Warenzeichen™ oder eingetragene® Warenzeichen der jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit oder Befürwortung durch diese oder zugehörige Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein geschäftliches Ziel.**
 
-### SENEC.Home
-Es handelt sich um ein System, dessen Herzstück ein Lithium-Ionen-Akku ist, der Strom speichert und wieder abgibt, der von der Solaranlage auf dem Dach erzeugt wird. Das funktioniert genau wie beim Akku im Smartphone, Notebook oder dem Akkuschrauber. Es steckt im Prinzip auch die gleiche bewährte Technologie drin. Wenn du mehr Strom auf dem Dach erzeugst, als du selbst im Haus verbrauchen kannst, fließt der Strom nicht ins Netz, sondern in deinen Speicher. Du kannst ihn dann nutzen, wenn es dunkel wird oder Wolken aufziehen und du weniger oder keinen Strom mehr erzeugst. Dann kannst du auch abends mit deinem eigenen Solarstrom den Fernseher betreiben oder das Essen kochen. 
+**Keine Gewährleistung und keine Haftung.** Dieser Adapter ist ein Freizeitprojekt und wird wie besehen unter der MIT-Lizenz bereitgestellt. Er spricht mit einem teuren Gerät über Schnittstellen, die SENEC weder dokumentiert noch unterstützt, und er kann Befehle senden, die das Verhalten dieses Geräts verändern. Alles, was Sie damit tun, geschieht auf eigene Verantwortung. Der Autor haftet nicht für Schäden an Ihrer Anlage, für verlorene oder falsche Daten, entgangene Einspeisung oder sonstige Folgen der Nutzung — und kann Ihnen auch nicht sagen, ob die Nutzung Auswirkungen auf Gewährleistung oder Support durch SENEC oder Ihren Installateur hat. Wer das nicht akzeptieren möchte, sollte diesen Adapter nicht einsetzen.
 
-## Voraussetzungen vor der Installation
-Voraussetzungen für den Betrieb eines Senec.Home Speichersystems mit ioBroker, ist die erfolgreiche Einrichtung des Systems durch einen Elektriker. Ebenfalls muss sich das System im gleichen Netzwerk wie der ioBroker befinden.
+## Voraussetzungen
+
+- ioBroker mit Node.js >= 22
+- SENEC Speichersystem im lokalen Netzwerk (für lokalen Konnektor)
+- mein-senec.de Konto (für API- und Web-Konnektor)
+- ioBroker.web Adapter installiert (für das integrierte Dashboard)
+
+## Installation
+
+Installieren Sie den Adapter über das ioBroker Adapter-Repository. Nach der Installation erstellen Sie eine Adapter-Instanz und konfigurieren mindestens einen Konnektor.
 
 ## Konfiguration
 
-### Fenster "Allgemeine Einstellungen"
-![Main Settings](media/mainSettings.png "Allgemeine Einstellungen")
+Die Adaptereinstellungen sind in Tabs organisiert — je einer pro Konnektor sowie allgemeine Einstellungen und Debug-Optionen.
 
-| Feld         | Beschreibung |                                                                       
-|:-------------|:-------------|
-|SENEC System    |Hier wird die IP-Adresse des gewünschten Senec.Home Systems angegeben werden. Falls im Netzwerk ein funktionierender DNS existiert, kann auch der FQDN angegeben werden.|
-|https verwenden?|Sollte das SENEC System bereits auf https umgestellt worden sein, so muss diese Option aktiviert werden.|
-|Abfrageintervall hohe Priorität|Hier wird eingegeben, in welchen Zeitintervallen (Millisekunden) die Werde hoher Priorität vom Senec.Home Systems abgerufen werden. (Default: 10 Sekunden)|
-|Abfrageintervall niedrige Priorität|Hier wird eingegeben, in welchen Zeitintervallen (Millisekunden) die Werde niedriger Priorität vom Senec.Home Systems abgerufen werden. (Default: 60 Minuten)<br>
-Achtung! Wird das SENEC System mit zu hoher Frequenz abgefragt, kann dies dazu führen, dass keine Daten mehr an die SENEC Server übermittelt werden können! (z.B. keine aktuellen Werte in der App oder auf mein-senec.de)|
-|Request-Timeout|Hier wird eingegeben, nach wievielen Millisekunden eine Anfrage spätestens vom Senec.Home System beantwortet sein muss, bevor die Anfrage abgebrochen wird. (Default: 5000)|
-|Wiederholungsversuche|Hier wird angegeben, wie oft versucht werden soll, das Senec System anzufragen, falls es zu einem Fehler kommt. Dies gilt nicht beim Start des Adapters - sollte das System dabei nicht erreichbar sein, beendet der Adapter seine Arbeit. (Default: 10)|
-|Polling-Wiederholungsfaktor|Mit diesem Wert kann der Abstand zwischen den Wiederholungsversuchen beeinflusst werden. Es gilt: der n'te Wiederholungsversuch erfolgt nach Intervall * Multiplikator * n Sekunden nach Versuch n-1. Beispiel: Mit Standardwerten erfolgt der 1. Wiederholungsversuch 20 Sekunden nach dem initialen Versuch und der 2. Wiederholungsversuch erfolgt 40 Sekunden nach dem 1. Ein erfolgreicher Datenabruf setzt den Zähler für Wiederholungen zurück.|
+### SENEC Konto
 
-Nach Abschluss der Konfiguration wird der Konfigurationsdialog mit `SPEICHERN UND SCHLIEßEN` verlassen. 
-Dadurch erfolgt im Anschluß ein Neustart des Adapters.
+![SENEC Konto](media/admin-account.png)
 
-### Fenster "Zusätzliche HighPrio Polling Datenpunkte"
-![Polling Settings](media/pollingSettings.png "Zusätzliche HighPrio Polling Datenpunkte")
+Geben Sie hier Ihre mein-senec.de Zugangsdaten ein. Diese werden von der SENEC App API und mein-senec.de gemeinsam genutzt. Hier lässt sich auch der User-Agent-Modus für ausgehende HTTP-Anfragen konfigurieren.
 
-| Feld         | Beschreibung |                                                                       
-|:-------------|:-------------|
-|Disclaimer    |Um Änderungen am Polling-Verhalten des Adapters vorzunehmen, muss bestätigt werden, dass Sie möglicher Risiken gewahr sind und diese willentlich und wissentlich akzeptieren. Der Entwickler des Adapters trägt keine Verantwortung.|
-|Datenpunkte für unterschiedliche Bereiche|Hier können zusätzliche Datenpunkte angegeben werden, die mit hoher Priorität abgerufen werden sollen. Es dürfen nur Zeichen A-Z und Ziffern 0-9 sowie , zur Trennung genutzt werden.|
-|Datapoints zum Abruf hinzufügen?|Bestätigen Sie hier nochmals, dass sie die von Ihnen angegebenen Datenpunkte tatsächlich dem Polling mit hoher Priorität hinzufügen möchten.|
+#### Zwei-Faktor-Authentifizierung (2FA)
 
-Achtung! Wird das SENEC System mit zu hoher Frequenz und/oder zuvielen Datenpunkten abgefragt, kann dies dazu führen, dass keine Daten mehr an die SENEC Server übermittelt werden können (z.B. keine aktuellen Werte in der App oder auf mein-senec.de)! Auch kann das SENEC-System unmotiviert neu starten und/oder auf Anfragen nicht mehr reagieren. In diesem Fall hilft ein Stopp des Adapters und anschließende Korrektur der Einstellungen.
+Ist für das mein-senec.de-Konto eine Zwei-Faktor-Authentifizierung aktiv, kann sich der Adapter trotzdem selbstständig anmelden — es muss niemand danebensitzen und einen Code eintippen.
 
-Nach Abschluss der Konfiguration wird der Konfigurationsdialog mit `SPEICHERN UND SCHLIEßEN` verlassen. 
-Dadurch erfolgt im Anschluß ein Neustart des Adapters.
+Bei der Einrichtung wird ein QR-Code für die Authenticator-App angezeigt und daneben dasselbe Geheimnis als Text. Dieser Text gehört in das Feld **TOTP-Secret**. Notieren Sie ihn, solange die Einrichtungsseite offen ist: Nach dem Aktivieren wird das Geheimnis nicht erneut angezeigt, ein neues gibt es nur durch erneutes Einrichten. Leer- und Bindestriche darin spielen keine Rolle.
 
-## Instanzen
-Die Installation des Adapters hat im Bereich `Objekte` eine aktive Instanz des Senec Adapters angelegt.
+Gemeint ist das dauerhafte Geheimnis, nicht der sechsstellige Code aus der App — der wechselt alle dreißig Sekunden und wäre längst abgelaufen, bevor der Adapter ihn verwenden könnte.
 
-Auf einem ioBroker Server können mehrere Senec Adapter Instanzen angelegt werden. Umgekehrt kann ein Senec.Home System auch mit mehreren ioBroker Servern betrieben werden. Sollen mehrere Geräte von einem ioBroker Server gesteuert werden, sollte je System eine Instanz angelegt werden.
-<br/><br/>
-Ob der Adapter aktiviert und mit dem System verbunden ist, wird mit der Farbe des Status-Feldes der Instanz verdeutlicht. Zeigt der Mauszeiger auf das Symbol, werden weitere Detailinformationen dargestellt. 
+Ein Geheimnis genügt für beide Cloud-Konnektoren, da sich beide am selben Konto anmelden. Fehlt der Eintrag, obwohl 2FA verlangt wird, weist der Adapter im Log ausdrücklich darauf hin, statt nur einen fehlgeschlagenen Login zu melden.
 
-## Objekte des Adapters
-Im Bereich `Objekte` werden in einer Baumstruktur alle vom Adapter im Hub erkannten Geräte und Aktivitäten aufgelistet.
+### Lokale Verbindung (lala.cgi)
 
-Nachfolgend werden die Objekte in States unterteilt.
-Jeder Datenpunkt ist mit seinem zugehörigen Datentyp sowie seinen Berechtigungen aufgeführt. 
-Berechtigungen können dezeit nur lesend (R) sein. Jeder Datenpunkt kann mindestens gelesen (R) werden.
-Zur Suche nach einem bestimmten Datenpunkt empfiehlt sich die Suche mittels der Tastenkombination "STRG + F".
-Abhängig vom individuellen System können States nicht existieren oder aber auch nicht dokumentierte States auftreten.
-Falls zu einem State keine Dokumentation vorhanden ist, jemand aber weiß, was der State darstellt, bitte ich um einen entspr. Pull-Request (oder Ticket mit der entspr. Information eröffnen).
+![Lokale Verbindung](media/admin-local.png)
 
-### Beispiel States (verfügbare States sind abhängig von System und Softwarestand, die Liste ist grundsätzlich unvollständig)
+| Einstellung | Beschreibung | Standard |
+|-------------|-------------|----------|
+| Über lala.cgi verbinden | Lokale Abfrage aktivieren | Ein |
+| SENEC System IP | IP-Adresse oder FQDN des SENEC Geräts | — |
+| HTTPS verwenden | Aktivieren wenn das Gerät HTTPS nutzt | Aus |
 
-#### Channel: info
+**Abfrage-Einstellungen** aufklappen für Timing-Optionen:
 
-* info.connection
+| Einstellung | Beschreibung | Standard |
+|-------------|-------------|----------|
+| Abfrageintervall (hohe Priorität) | Intervall für Echtzeitdaten (Sekunden) | 10 |
+| Abfrageintervall (niedrige Priorität) | Intervall für selten geänderte Daten (Minuten) | 60 |
+| Abfrage-Timeout | Zeitlimit für HTTP-Anfragen (ms) | 5000 |
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
+Der Adapter wiederholt automatisch mit exponentiellem Backoff bei Verbindungsfehlern — keine manuelle Konfiguration nötig. Wenn das SENEC Gerät vorübergehend nicht erreichbar ist (Neustart, Firmware-Update), wird die Abfrage automatisch fortgesetzt, sobald das Gerät wieder online ist.
 
-   *Nur lesbarer boolscher Wert, welcher true ist, wenn die Verbindung zwischen ioBroker und Senec.Home hergestellt ist.*
+#### TLS-Zertifikatsvalidierung
 
-#### Channel: _api
-Werte, die von der Web API abgerufen werden
-   
-#### Channel: BMS
-   
-* MODULES_CONFIGURED
+Der Adapter validiert das HTTPS-Zertifikat des SENEC Geräts mit einem mehrstufigen Verfahren:
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
+1. **Benutzer-CA** — Laden Sie das SenecGui-Root CA-Zertifikat über das Dashboard hoch (System-Tab → TLS-Zertifikat). Herunterladen von mein-senec.de (Dokumente / Allgemeine Dokumente / SenecGui-Root), dann die .pem- oder .zip-Datei hochladen. SENEC verteilt dieses Zertifikat hinter einem Login, daher kann der Adapter es nicht mitliefern.
+2. **Zwischengespeichertes CA-Zertifikat** — Falls kein Benutzer-Zertifikat vorhanden ist, kann der Adapter das CA-Zertifikat automatisch von mein-senec.de herunterladen (setzt voraus, dass der mein-senec.de-Connector aktiviert ist). Das heruntergeladene Zertifikat wird im Adapter-State gespeichert und bleibt über Neustarts erhalten.
+3. **TOFU (Trust On First Use)** — Falls kein CA-Zertifikat validiert, merkt sich der Adapter den Fingerabdruck des Gerätezertifikats beim ersten Kontakt und vergleicht jede weitere Verbindung damit. Bei einer Änderung (z.B. nach einem Firmware-Update) wird eine Warnung protokolliert und der neue Fingerabdruck anschließend automatisch übernommen.
 
-   *Nur lesbare Zahl, die angibt, wieviele Module im System konfiguriert sind.*
-   
-* MODULE_COUNT
+Der Adapter probiert jede Stufe der Reihe nach und verwendet die erste, die validiert.
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
+TOFU ist eine Kontinuitätsprüfung, kein Certificate Pinning: Es meldet Ihnen, dass sich das Zertifikat des Geräts geändert hat, weist das neue aber nicht zurück und prüft auch die Zertifikatskette nicht. Das ist eine bewusste Abwägung für ein Gerät im eigenen Netz — eine legitime Zertifikatsänderung darf den Adapter nicht so lange abkoppeln, bis jemand eine Logzeile bemerkt. Für die vollständige Prüfung hinterlegen Sie die CA: Der Upload ist optional, aber die stärkere Variante.
 
-   *Nur lesbare Zahl, die angibt, wieviele Module im System angeschlossen sind (inkl. nicht konfigurierter).*
+Falls der automatische CA-Download fehlgeschlagen ist und Sie es erneut versuchen möchten, setzen Sie `_local.tls.certFetchFailed` auf `false` — der Adapter versucht den Download beim nächsten Neustart oder sofort, falls er läuft.
 
-#### Channel: ENERGY
+**Wichtig**: Zu häufige Abfragen oder zu viele Datenpunkte können das SENEC Gerät überlasten. Dies kann zu Neustarts, Nicht-Erreichbarkeit oder fehlender Cloud-Synchronisation führen. Bei Problemen die Abfragefrequenz reduzieren oder den Adapter stoppen.
 
-* GUI_BAT_DATA_CURRENT
+#### Zusätzliche HighPrio-Polling-Datenpunkte
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
+![HighPrio Polling](media/admin-highprio.png)
 
-   *Nur lesbare Zahl, die den aktuellen Batteriestrom in Ampere angibt.*
-   
-* GUI_BAT_DATA_FUEL_CHARGE
+Sie können zusätzliche Datenbereiche (z.B. BMS, PV1, WALLBOX) zum hochprioritären Polling hinzufügen. Dies erfordert die Bestätigung eines Haftungsausschlusses. Es sind nur Zeichen A-Z, Ziffern 0-9 und Kommas erlaubt.
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
+### SENEC App API
 
-   *Nur lesbare Zahl, die den Füllstand in % des Systems angibt.*
-   
-* GUI_BAT_DATA_VOLTAGE
+![SENEC App API](media/admin-api.png)
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
+| Einstellung | Beschreibung | Standard |
+|-------------|-------------|----------|
+| SENEC App API nutzen | Cloud-API-Abfrage aktivieren | Aus |
+| Dashboard-Intervall | Abfrageintervall für Dashboard/aktuelle Daten (Minuten) | 6 |
+| Detail-Intervall | Abfrageintervall für Tagesmesswerte (Minuten) | 60 |
+| Heavy-Intervall | Abfrageintervall für Monats-/Jahresmesswerte (Minuten) | 1440 (24h) |
+| Parallelität / Max. Parallelität | Limits für parallele API-Anfragen | 1 / 1 |
+| Min. Anfrageintervall | Mindestzeit zwischen API-Anfragen (ms) | 400 |
+| Zeitlimit für API-Anfragen | Wie lange auf eine normale API-Anfrage gewartet wird — Dashboard, Systemstatus, Details (ms). Erhöhen, wenn diese Abfragen im Log in Timeouts laufen | 30000 |
+| Zeitlimit für Messwertabfragen | Wie lange auf eine Messwert-Aggregation gewartet wird (ms). Erhöhen, wenn im Log Heavy-Polls in Timeouts laufen | 60000 |
 
-   *Nur lesbare Zahl, die die derzeitige Batteriespannung in Volt angibt*
-   
-* GUI_BAT_DATA_POWER
+#### History Rebuild
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
 
-   *Nur lesbare Zahl, die angibt, wieviel Watt gerade in die Batterie eingespeist werden oder aus ihr entnommen (negativer Wert) werden.*
-   
-* GUI_CHARGING_INFO
+Der API-Konnektor kann historische Messdaten (AllTime-Summen) komplett neu aufbauen. Konfigurieren Sie bei Bedarf den Rebuild-Modus und das Startjahr. Dies läuft als Hintergrundprozess während des Heavy-Polling-Zyklus.
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
+### mein-senec.de
 
-   *Nur lesbarer boolscher Wert, der angibt, ob die Batterie gerade geladen wird.*
-   
-* GUI_GRID_POW
+![mein-senec.de](media/admin-web.png)
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
+| Einstellung | Beschreibung | Standard |
+|-------------|-------------|----------|
+| mein-senec.de nutzen | Web-Portal-Abfrage aktivieren | Aus |
+| Status-Intervall | Abfrageintervall für Statusdaten (Minuten) | 6 |
+| Medium-Intervall | Abfrageintervall für Gestern/Autarkie/Reservekapazität (Minuten) | 360 (6h) |
+| Slow-Intervall | Abfrageintervall für Monats-/Jahres-/AllTime-Daten (Minuten) | 1440 (24h) |
+| Messverlauf abfragen | Messdatenabfrage aktivieren | Aus |
+| 5-Min-Detaildaten einbeziehen | Feingranulare Detaildaten abfragen (~3.500 zusätzliche States) | Aus |
+| Parallelität / Max. Parallelität | Limits für parallele Anfragen | 1 / 2 |
+| Min. Anfrageintervall | Mindestzeit zwischen Anfragen (ms) | 500 |
 
-   *Nur lesbare Zahl, die angibt, wieviel Watt gerade aus dem Netz gezogen oder ins Netz eingespeist (negativer Wert) werden.*
-   
-* GUI_HOUSE_POW
+### Weitere Anlagen des Kontos
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
+Sind dem mein-senec.de-Konto mehrere Anlagen zugeordnet — ein ersetztes Gerät bleibt neben seinem Nachfolger sichtbar —, erkennt der Adapter beim Start alle und legt jede unter `_meinsenec.Plants.{steuereinheitnummer}.` an.
 
-   *Nur lesbare Zahl, die angibt, wieviel Watt gerade vom Haus verbraucht werden.*
-   
-* GUI_INVERTER_POWER
+Abgefragt wird standardmäßig nur die erste Anlage. Jede weitere erhält einen eigenen Schalter unter `control.Plants.{steuereinheitnummer}.poll`, der zunächst aus ist. Wird er gesetzt, nimmt die langsame Abfrage-Ebene diese Anlage mit auf und füllt dieselbe Messwertstruktur wie bei der Hauptanlage:
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
+| State | Inhalt |
+|-------|--------|
+| `_meinsenec.Plants.{sn}.System.*` | Produktname, Gerätenummer, Anlagennummer |
+| `_meinsenec.Plants.{sn}.Measurements.Daily.today` / `.yesterday` | Stundenwerte |
+| `_meinsenec.Plants.{sn}.Measurements.Monthly.*` | Tageswerte je Monat |
+| `_meinsenec.Plants.{sn}.Measurements.Yearly.*` | Monatswerte je Jahr |
+| `_meinsenec.Plants.{sn}.Measurements.AllTime.*` | Gesamtsummen |
+| `_meinsenec.Plants.{sn}.Autarky.*` | Autarkie je Zeitraum |
 
-   *Nur lesbare Zahl, die angibt, wieviel Watt vom PV System gerade erzeugt werden.*
-   
-* STAT_HOURS_OF_OPERATION
+Die Gesamtsummen werden einmal beim ersten Erkennen einer Anlage geholt, auch bei ausgeschaltetem Schalter — so liegen die Endwerte eines stillgelegten Geräts vor, ohne es dauerhaft abzufragen.
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
+Beachten Sie, dass jede zusätzlich aktivierte Anlage die Anzahl der Portal-Anfragen erhöht. Wer nur die historischen Summen eines Altgeräts braucht, lässt den Schalter am besten aus.
 
-   *Nur lesbare Zahl, die die Betriebsstunden des Systems angibt.*
-   
-* STAT_STATE
+### SENEC.Connect
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
+![SENEC.Connect](media/admin-connect.png)
 
-   *Nur lesbare Zahl, die den Zustand des Systems repräsentiert.*
-   
-* STAT_STATE_Text
+| Einstellung | Beschreibung | Standard |
+|-------------|-------------|----------|
+| SENEC.Connect nutzen | Azure-API-Abfrage aktivieren | Aus |
+| Abfrageintervall | Abfragefrequenz (Sekunden) | 300 |
+| Anfrage-Timeout | Wartezeit auf eine Antwort (ms) | 30000 |
+| Subscription Key | Azure API Subscription Key | — |
+| Enthaltene Bereiche | Welche Datenbereiche abgefragt werden | battery,meter,evse,bessNameplate |
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |string|R|
+### Externe Quellen
 
-   *Nur lesbare Zeichenkette, die den Zustand des Systems in Klartext angibt. Leider liegen uns nur die original Senec-Texte in Deutsch vor.*
-   
+![Externe Quellen](media/admin-external.png)
 
-#### Channel: SYS_UPDATE
+Fügen Sie externe Energiequellen aus anderen ioBroker-Adaptern hinzu — z.B. Balkon-PV, zusätzliche Wechselrichter, eigenständige Wallboxen, Wärmepumpen oder externe Batteriespeicher. Werte werden auf Watt normalisiert und im Dashboard-Energieflussdiagramm und der Live-Leistungskurve angezeigt.
 
-* NPU_IMAGE_VERSION
+Verwenden Sie die **State-ID Suche** um die State-ID des gewünschten Datenpunkts zu finden und fügen Sie sie in die Tabelle ein.
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
+| Spalte | Beschreibung |
+|--------|-------------|
+| State-ID / Formel | Einzelne State-ID (z.B. `solar.0.power`) oder Formel mit `{stateId}`-Referenzen (z.B. `{wallbox.0.l1_amps} * {wallbox.0.l1_volts}`) |
+| Typ | PV, Verbraucher (Wallbox, Wärmepumpe, etc.) oder Batterie |
+| Einheit | W oder kW — wird auf den Endwert angewendet |
+| Modus | **Integrieren** = zum SENEC-Gesamtwert addieren (ein Knoten). **Separat** = als eigener Knoten im Energiefluss anzeigen |
+| SOC-State | (Nur Batterie) State-ID für den Ladezustand (%) |
+| Kapazität | (Nur Batterie) Batteriekapazität in kWh — ermöglicht Zeitschätzungen |
+| Bezeichnung | Anzeigename im Energieflussdiagramm |
 
-   *Nur lesbare Zahl, mit dem Wert für Revision NPU-IMAGE (*
+Formeln unterstützen `+ - * / ( )` Operatoren. State-IDs ohne geschweifte Klammern werden automatisch erkannt wenn sie Rechenoperatoren enthalten. Für komplexe Formeln ist ein Dashboard-basierter Konfigurator mit interaktiver State-Auswahl geplant.
 
-* NPU_VER
+### Gerätesteuerung
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
+![Gerätesteuerung](media/admin-control.png)
 
-   *Nur lesbare Zahl, die mit dem Wert für Revision NPU-REGS*
+Steuerungsfunktionen ermöglichen das Ändern von Einstellungen am SENEC Gerät. Jede Steuerung ist über bestimmte Konnektoren verfügbar:
 
-* UPDATE_AVAILABLE
+| Steuerung | Lokal | API | Web |
+|-----------|:-----:|:---:|:---:|
+| Akku-Zwangsladung | x | | |
+| Entladung blockieren | x | | |
+| Gerät neustarten | x | | |
+| Notstromreserve | | | x |
+| Peak Shaving | | | x |
+| SG-Ready | | | x |
+| Schaltbare Steckdosen | x | | x |
+| Wallbox-Steuerung | x | x | |
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
+**Nutzung auf eigenes Risiko.** Steuerungsfunktionen müssen in den Einstellungen explizit mit Haftungsausschluss aktiviert werden. Der Adapter schützt nicht vor widersprüchlichen Befehlen von mehreren Konnektoren.
 
-   *Nur lesbarer boolscher Wert, der angibt, ob ein Update vorhanden ist (diese werden allerdings von Senec zur Verfügung gestellt und auch automatisiert eingespielt).*
-   
-   
-#### Channel: WIZARD
+### Debug & Logging
 
-* APPLICATION_VERSION
+![Debug & Logging](media/admin-debug.png)
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |string|R|
+Konfigurierbar pro Konnektor (Lokal, API, mein-senec.de, Connect):
 
-   *Nur lesbarer Text, mit dem Wert für Revision MCU.*
+- **Polling im Info-Log anzeigen** — Zeigt Polling-Statusmeldungen im Info-Log statt nur im Debug-Log
+- **Requests & Responses loggen** — Loggt HTTP-Details auf Debug-Ebene (kann sensible Daten enthalten)
+- **Queue-Diagnose ins Info-Log** — Zeigt Queue-Statistiken im Info-Log (nur API + Web)
+- **Diagnose in States schreiben** — Schreibt Queue-Daten in dedizierte ioBroker-States (nur API + Web)
 
-* CONFIG_LOADED
+#### Debug-Log erstellen
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |boolean|R|
+Die meisten Probleme lassen sich aus einem Log ablesen, und fast keines ohne.
 
-   *Nur lesbarer boolscher Wert, der angibt, ob die Konfiguration geladen wurde (dieser Wert sollte nicht dauerhaft auf falsch stehen).*
-   
-* INTERFACE_VERSION
+1. Log-Level der Instanz auf **debug** setzen: ioBroker-Admin → Instanzen → senec-Instanz → Auswahlfeld für den Log-Level. `silly` gibt es auch, bringt aber selten mehr Erkenntnis und erzeugt sehr viel Rauschen.
+2. Im Adapter-Tab **Debug & Protokollierung** für den betroffenen Konnektor *Anfragen & Antworten protokollieren* aktivieren. Diese Einstellung macht aus „eine Anfrage ist fehlgeschlagen" ein „diese URL hat mit diesem Status geantwortet".
+3. Lange genug laufen lassen, damit das Problem mindestens einmal auftritt. Bei den langsamen Abfrage-Ebenen — Messwerte, Monats- oder Jahresdaten — kann das bedeuten, auf den nächsten Zyklus zu warten statt neu zu starten.
+4. Das Log aus dem ioBroker-Log-Tab kopieren oder die Datei aus `/opt/iobroker/log/` verwenden.
+5. Anschließend wieder auf **info** zurückstellen. Debug-Logging ist umfangreich und füllt über Wochen die Festplatte.
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |string|R|
+**Vor dem Weitergeben bitte durchsehen.** Die Anfrage-Protokollierung enthält URLs und Antworten, darin können Anlagen-ID, Anlagennummer und Seriennummer stehen. Passwörter sind nicht dabei, aber es sind Ihre Daten. Ersetzen Sie, was nicht öffentlich werden soll.
 
-   *Nur lesbarer Text, mit dem Wert für Revision GUI.*
-   
-* SETUP_NUMBER_WALLBOXES
+#### Fehler melden
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
+Meldungen bitte über [GitHub](https://github.com/nobl/ioBroker.senec/issues). Was eine Meldung schnell bearbeitbar macht:
 
-   *Nur lesbare Zahl, die angibt, wieviele Wallboxen im System konfiguriert sind.*
-   
-* SETUP_WALLBOX_SERIAL[0..3]
+- **Welches System** — Modell und, falls bekannt, die Firmware-Version (`_local.FACTORY` und `_local.SYS_UPDATE` enthalten beides, sofern der lokale Konnektor läuft)
+- **Welche Konnektoren** aktiv sind, denn dasselbe Symptom hat lokal und in der Cloud unterschiedliche Ursachen
+- **Adapter- und ioBroker-Version** sowie die Node.js-Version
+- **Was erwartet wurde und was stattdessen passiert ist** — „der Batteriestand fehlt" lässt sich bearbeiten, „geht nicht" erfordert erst eine Rückfrage
+- **Der passende Log-Ausschnitt** auf Debug-Level, mit ein paar Zeilen vor und nach dem Fehler statt nur der Fehlerzeile
 
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |string|R|
+Vorab noch: Unplausible Werte stammen meist vom Gerät und nicht vom Adapter. Er reicht Werte weitgehend durch, eine im Dashboard falsch wirkende Temperatur oder ein falscher Ladezustand sieht deshalb in der Weboberfläche des Geräts in der Regel genauso falsch aus. Ein Blick dorthin klärt die Frage oft schon — und wenn nicht, ist genau dieser Vergleich die nützlichste Angabe in der Meldung.
 
-   *Nur lesbarer Text, die die Seriennummern der evtl. vorhandenen Wallboxen 0-3 angibt.*
+## Integriertes Dashboard
 
-### Nicht mehr vorhanden, bzw. entfernt
-* STATISTIC
-* Display
-* _calc (mit Wegfall von STATISTIC nicht mehr relevant)
-* BAT1OBJ[2-4]
+Der Adapter enthält ein vollständiges Web-Dashboard, erreichbar unter `http://<iobroker-ip>:8082/senec/`. Es benötigt den ioBroker.web Adapter und erscheint auf der ioBroker.web Startseite.
+
+Funktionen:
+- Dunkles und helles Design (umschaltbar in der Titelleiste)
+- Internationalisierung — 11 Sprachen, folgt der Browser-Spracheinstellung
+- Echtzeit-Updates über socket.io State-Subscriptions
+- Daten von allen Konnektoren mit Quell-Badges
+- Tastaturzugänglich (Tab-Navigation, ARIA-Labels)
+
+### Übersicht-Tab
+
+![Dashboard Übersicht](media/dashboard-overview.png)
+
+**Energiefluss-Diagramm** — Live-SVG-Visualisierung der Energieflüsse zwischen PV, Batterie, Netz, Haus und Wallbox. Animierte Flusspfade mit leistungsproportionaler Dicke. Batterie-SOC-Anzeige mit Füllstand. Betriebsmodus-Badge. Zeitschätzungen (bis leer/voll). Periodensummen (Heute/Monat/Jahr) mit Autarkie-Prozent. Datenquellen-Auswahl (Auto/Lokal/API/Web).
+
+
+**Live-Leistungskurve** — Echtzeit-Liniendiagramm der Leistung über die Zeit für alle fünf Messwerte (PV, Haus, Netz, Batterie, Wallbox). Glatte monotone kubische Interpolation zwischen Datenpunkten. Zeitfenster-Voreinstellungen von 10 Minuten bis 24 Stunden, plus Mausrad-Zoom (5min–30 Tage, heruntergesampelt für Performance). Ziehen zum Blättern durch die Historie mit Lazy-Loading und Mitternachts-Datumsmarkern. Einzelne Linien ein-/ausblendbar, inklusive einer optionalen Ladezustandslinie (standardmäßig aus) auf einer eigenen rechten 0–100-%-Achse. Pause-/Deaktivierungsschalter. „Live"-Button zum Zurückspringen zur Echtzeit. Bei aktiviertem History-Adapter (InfluxDB, SQL oder History) auf den Leistungs-States wird das Diagramm beim Laden mit historischen Daten vorbefüllt. Jeder State wird einzeln aufgelöst — States können also von unterschiedlichen History-Adaptern aufgezeichnet werden, und ein nicht aufgezeichneter State betrifft nur seine eigene Linie. Der ⓘ-Button listet die States hinter jeder Linie zusammen mit dem aufzeichnenden History-Adapter auf — damit lässt sich nachvollziehen, warum eine Linie keine Vergangenheitsdaten hat.
+
+![Live-Leistungskurve](media/dashboard-live-chart.png)
+
+**Ereignis-Timeline** — Kompakter 24-Stunden-Streifen mit heutigen Warnungen (orange), Fehlern (rot) und Panics (lila) aus dem Geräte-Log. Hover für Details. Automatische Aktualisierung alle 10 Minuten. Erfordert eine konfigurierte Geräte-IP.
+
+![Ereignis-Timeline](media/dashboard-timeline.png)
+
+### Batterie-Tab
+
+![Batterie-Tab](media/dashboard-battery.png)
+
+- **Zustandsbericht (SOH)** — System- und pro-Pack-SOH mit farbkodierten Indikatoren (grün > 80%, orange > 60%, rot)
+- **Modulstatus** — Anzahl aktiver/ladender/entladender Module
+- **Ladezyklen** — Pro-Pack Zyklenanzahl und Lebensdauer-Energie (geladen/entladen)
+- **Zellspannungs-Heatmap** — Farbkodiertes Raster der einzelnen Zellspannungen über alle Module. Rot = niedrigste, Grün = höchste. Pro-Modul-Delta-Indikatoren. Macht Zellimbalancen sofort sichtbar.
+- **Temperaturen** — Gesamt, pro Modul und pro Zelle
+- **Pack-Elektrik** — Pro-Pack Spannung und Strom
+
+Daten aus Lokal (BMS) und/oder API (SystemDetails) mit Quell-Badges.
+
+![Zellspannungs-Heatmap](media/dashboard-heatmap.png)
+
+### Diagramme-Tab
+
+![Diagramme - Heute](media/dashboard-charts-today.png)
+
+Balkendiagramme für Energiemessdaten:
+- **Heute** — Stundenbalken (automatisch auf Stunden mit Daten beschränkt)
+- **Dieser Monat** — Tagesbalken
+- **Dieses Jahr** — Monatsbalken
+
+Funktionen:
+- Einzelne Messtypen ein-/ausblendbar (PV, Verbrauch, Netzbezug/-einspeisung, Batterieladung/-entladung)
+- Gestapelte Ansicht (Erzeugung vs. Verbrauch)
+- Vergleichsmodus (Gestern, Vormonat, wählbares Jahr)
+- Batteriestand (%) Linienoverlay. Der API-Konnektor liest ihn aus der Messwert-Historie. mein-senec.de bietet keine solche Historie, daher tastet der Web-Konnektor stattdessen den Live-Ladezustand ab: Stundenmittel für die Tagesansicht, Tagesmittel für die Monatsansicht. Diese Werte beginnen folglich erst mit dem Adapterbetrieb — für einen Tag, an dem der Adapter über Mitternacht nicht lief, existiert kein Tagesmittel, und es lässt sich auch nicht nachträglich abrufen. Die Jahresansicht hat beim Web-Konnektor keinen Batteriestand.
+- Datenquellen-Auswahl (Auto/API/Web)
+- Datentabelle
+- PNG-Bildexport
+- Auto-Update-Modus
+
+![Diagramme - Jahr](media/dashboard-charts-year.png)
+
+### System-Tab
+
+![System-Tab](media/dashboard-system.png)
+
+- **Netzqualität** — Frequenz, Gesamtleistung, pro-Phase Spannung/Leistung/Strom. Unterstützt EnFluRi 1 und EnFluRi 2 (automatische Erkennung).
+- **PV-Strings** — Pro-Tracker MPP-Leistung, Spannung und Strom
+- **Wallbox** — EV-Verbindungsstatus, Smart Charge, pro-Phase Ladestrom
+- **Feature-Flags** — Aktive Funktionen pro Konnektor mit Abweichungserkennung
+- **Systemdetails** — Produkt, Firmware, GUI/NPU-Version, Wechselrichter-Status, Temperaturen (Gehäuse, MCU, Batterie, Wechselrichter), Betriebsstunden, Installationsdatum, Installateurskontakt
+
+Quell-Badges zeigen an, welcher Konnektor den jeweiligen Wert liefert.
+
+### Steuerung-Tab
+
+![Steuerung-Tab](media/dashboard-control.png)
+
+Interaktive Steuerung passend zu den Steuerungsfähigkeiten des Adapters:
+- Akku-Zwangsladung (Schalter)
+- Gerät neustarten (mit Bestätigungsdialog)
+- Notstromreserve (Prozenteinstellung)
+- Peak Shaving (modusabhängige Felder)
+- SG-Ready (Aktivierung + Schwellwerte)
+- Schaltbare Steckdosen (pro Steckdose Modus, Schwellwerte, Namensbearbeitung)
+- Wallbox (Smart Charge, Stromgrenze)
+
+Steuerungen prüfen die Konnektor-Verfügbarkeit und zeigen Warnungen wenn der benötigte Konnektor nicht aktiv ist. Die Übernehmen-Schaltfläche gibt "Gesendet"-Feedback.
+
+### Statistik-Tab
+
+mein-senec.de bietet einen wöchentlichen CSV-Export mit 5-Minuten-Auflösung, der Jahre zurückreicht — weit mehr Daten, als in ioBroker-States gehören. Daher wird nichts dauerhaft gespeichert: Der Adapter hält nur die einmal täglich aktualisierte Liste der verfügbaren Wochen vor und lädt eine einzelne Woche erst auf Anforderung. Die Daten bestehen nur, solange der Tab geöffnet ist.
+
+- Anlagenauswahl, die auch frühere Geräte des Kontos aufführt (entfällt bei nur einer Anlage). Die von dieser Instanz abgefragte Anlage ist vorausgewählt.
+- Wochenauswahl mit Datumsbereich je Woche
+- Tagesfilter — grenzt eine Woche mit ~2.000 Zeilen auf einen Tag ein
+- Auflösung — Stundenmittel oder 5-Minuten-Rohwerte
+- Spaltenschalter für die zehn exportierten Spalten, inklusive Akkuspannung, -strom und -füllstand
+- Sortierbare Spaltenköpfe; ein dritter Klick stellt die chronologische Reihenfolge wieder her
+- Zusammenfassungszeile mit Minimum, Mittelwert und Maximum der angezeigten Zeilen
+- Tabellen- oder Diagrammansicht; im Diagramm teilen sich die Leistungsspalten eine linke kW-Achse, Prozentwerte erhalten eine eigene rechte 0–100-%-Achse, und Lücken in einer Reihe unterbrechen die Linie, statt überbrückt zu werden
+- Download der aktuellen Auswahl als CSV
+
+Erfordert einen aktivierten und verbundenen mein-senec.de-Konnektor.
+
+### Protokolle-Tab
+
+![Protokolle-Tab](media/dashboard-logs.png)
+
+Durchsuchen der SENEC Geräteprotokolle nach Datum:
+- Filterbare Tabelle (Zeit, Stufe, Kategorie, Nachricht)
+- Stufenfilter: Info, Warnung, Fehler, Panik
+- Kategoriefilter (automatisch aus Logeinträgen befüllt)
+- Freitextsuche
+- Farbkodierte Zeilenhervorhebung nach Schweregrad
+- Neueste Einträge zuerst
+- Live-Modus — aktualisiert automatisch das heutige Log (UTC-berücksichtigt)
+- Download der rohen Logdateien
+
+Erfordert eine konfigurierte Geräte-IP (auch wenn der lokale Konnektor nicht aktiviert ist).
+
+## State-Referenz
+
+Der Adapter erstellt States, organisiert nach Konnektor und Datenbereich. Alle States sind schreibgeschützt, sofern nicht explizit als Steuerungs-States gekennzeichnet.
+
+### Verbindung & Status (`info.*`)
+
+| State | Beschreibung |
+|-------|-------------|
+| `info.connection` | Gesamtverbindungsstatus (true wenn ein Konnektor aktiv) |
+| `info.connectionStatus` | Detaillierter Verbindungsstatus: `all` (alle konfigurierten Konnektoren verbunden), `partial` (teilweise verbunden), `none` |
+| `info.localConnected` | Lokal (lala.cgi) Verbindungsstatus |
+| `info.apiConnected` | SENEC App API Verbindungsstatus |
+| `info.webConnected` | mein-senec.de Verbindungsstatus |
+| `info.connectConnected` | SENEC.Connect Verbindungsstatus |
+| `info.lastPoll.HighPrio` | Zeitstempel der letzten hochprioritären lokalen Abfrage |
+| `info.lastPoll.LowPrio` | Zeitstempel der letzten niedrigprioritären lokalen Abfrage |
+
+### TLS States (`_local.tls.*`)
+
+| State | Typ | Schreiben | Beschreibung |
+|-------|-----|:---------:|-------------|
+| `_local.tls.mode` | string | nein | Aktiver TLS-Validierungsmodus: `user`, `cached`, `tofu` oder `none` |
+| `_local.tls.fingerprint` | string | nein | SHA-256-Fingerabdruck des akzeptierten Gerätezertifikats (TOFU-Modus, verschlüsselt) |
+| `_local.tls.userCaPem` | string | ja | Vom Benutzer hochgeladenes CA-Zertifikat (PEM, verschlüsselt) |
+| `_local.tls.cachedCaPem` | string | nein | Von mein-senec.de heruntergeladenes CA-Zertifikat (PEM, verschlüsselt) |
+| `_local.tls.certFetchFailed` | boolean | ja | Auf `false` setzen um einen neuen CA-Download-Versuch auszulösen |
+
+### Lokale States
+
+Daten aus der lala.cgi-Abfrage werden direkt unter dem Bereichsnamen gespeichert (z.B. `ENERGY.*`, `BMS.*`, `PV1.*`, `WIZARD.*`).
+
+**Wichtige ENERGY-States:**
+
+| State | Typ | Beschreibung |
+|-------|-----|-------------|
+| `ENERGY.GUI_INVERTER_POWER` | Zahl (W) | Aktuelle PV-Erzeugung |
+| `ENERGY.GUI_BAT_DATA_POWER` | Zahl (W) | Batterieleistung (positiv = Laden, negativ = Entladen) |
+| `ENERGY.GUI_GRID_POW` | Zahl (W) | Netzleistung (positiv = Bezug, negativ = Einspeisung) |
+| `ENERGY.GUI_HOUSE_POW` | Zahl (W) | Aktueller Hausverbrauch |
+| `ENERGY.GUI_BAT_DATA_FUEL_CHARGE` | Zahl (%) | Batterie-Ladezustand |
+| `ENERGY.STAT_STATE` | Zahl | Betriebszustandscode |
+| `ENERGY.STAT_STATE_Text` | Text | Betriebszustand in Klartext |
+| `ENERGY.STAT_HOURS_OF_OPERATION` | Zahl (h) | Betriebsstunden |
+
+**Wichtige BMS-States:**
+
+| State | Typ | Beschreibung |
+|-------|-----|-------------|
+| `BMS.MODULE_COUNT` | Zahl | Anzahl der Batteriemodule |
+| `BMS.SOH.{n}` | Zahl (%) | Gesundheitszustand pro Modul |
+| `BMS.CYCLES.{n}` | Zahl | Ladezyklen pro Modul |
+| `BMS.CELL_VOLTAGES_MODULE_{A-D}.{n}` | Zahl (mV) | Einzelne Zellspannungen |
+| `BMS.TEMP_MIN.{n}` / `BMS.TEMP_MAX.{n}` | Zahl (°C) | Modul-Temperaturbereich |
+| `BMS.VOLTAGE.{n}` / `BMS.CURRENT.{n}` | Zahl (V/A) | Pack-Spannung und -Strom |
+
+### API-States (`_api.*`)
+
+Cloud-API-Daten werden unter `_api.Anlagen.{systemId}.*` gespeichert:
+
+- `Dashboard.currently.*` — Echtzeit-Leistungswerte (W)
+- `Measurements.Daily.*` — Stündliche Messdaten (kWh)
+- `Measurements.Monthly.*` — Tägliche Messdaten (kWh)
+- `Measurements.Yearly.*` — Monatliche Messdaten (kWh)
+- `Measurements.AllTime.*` — Lebensdauer-Summen (kWh)
+- `SystemDetails.*` — Batteriedetails, Temperaturen, Firmware
+- `SystemStatus.*` — Betriebszustand, Feature-Flags
+
+### Web-States (`_meinsenec.*`)
+
+mein-senec.de Daten werden unter `_meinsenec.*` gespeichert:
+
+- `Status.*` — Aktuelle Leistungswerte (kW), Betriebszustand
+- `Measurements.*` — Historische Messdaten (kWh)
+- `Autarky.*` — Autarkie-Prozentsätze (Tag/Woche/Monat/Jahr/Gesamt)
+- `EmergencyPower.*` — Notstromreserve-Einstellungen
+- `PeakShaving.*` — Peak-Shaving-Konfiguration
+- `SGReady.*` — SG-Ready-Einstellungen
+- `Sockets.*` — States der schaltbaren Steckdosen
+
+### Connect-States (`_connect.*`)
+
+SENEC.Connect Daten werden unter `_connect.Systems.{system_id}.*` mit Batterie- und Zähler-Unterbereichen gespeichert. Ein Konto kann mehrere Systeme umfassen; jedes erhält einen eigenen Kanal, benannt nach seinem Modell und adressiert über die in `bessNameplate` gemeldete System-ID — dadurch behält ein System seine States auch dann, wenn die API die Systeme in anderer Reihenfolge zurückgibt. `_connect.info.systemCount` meldet, wie viele Systeme die API sieht.
+
+Der Abschnitt `bessNameplate` wird unabhängig von den konfigurierten Abschnitten immer abgefragt, weil er diese ID enthält.
+
+Wallboxen werden genauso abgelegt, unter der jeweils gemeldeten `id`: `_connect.Systems.{system_id}.evse.{wallbox_id}.*`. Verschwindet eine Wallbox aus der Antwort, werden ihre States entfernt, statt mit den letzten Werten stehen zu bleiben.
+
+Meldet ein System keine `system_id`, wird stattdessen seine Seriennummer verwendet. Ein System wird über jede jemals gemeldete Kennung wiedererkannt — eine Antwort, in der eine davon fehlt, verschiebt das System also nicht auf einen neuen Pfad. Enthält eine Antwort überhaupt keine Kennung, greift für dieses System die Position in der Antwort, genau wie vor 2.15.0, und die Bereinigung wird währenddessen ausgesetzt.
+
+States eines Systems, das die API nicht mehr meldet, werden entfernt. Adapter vor 2.15.0 nummerierten die Systeme nach ihrer Position in der Antwort (`_connect.Systems.0.*`); diese States werden beim ersten Poll nach dem Update gelöscht, sobald die Systeme identifiziert sind.
+
+**Wer SENEC.Connect-States mit einem History-Adapter aufzeichnet** (History, InfluxDB, SQL): Diese Einstellung hängt am State selbst und geht mit dem alten State verloren. Die Aufzeichnung läuft nicht von allein weiter — bitte das Logging nach dem Update für die States unter den neuen Pfaden wieder einschalten.
+
+### Externe States (`_external.*`)
+
+Daten externer Quellen werden unter `_external.{typ}.{index}.*` gespeichert:
+
+| State | Beschreibung |
+|-------|-------------|
+| `_external.pv.{n}.power` | Externe PV-Leistung (W) |
+| `_external.consumer.{n}.power` | Externer Verbraucher (W) |
+| `_external.battery.{n}.power` | Externe Batterieleistung (W, vorzeichenbehaftet) |
+| `_external.battery.{n}.soc` | Externer Batterie-Ladezustand (%) |
+| `_external.battery.{n}.capacity` | Externe Batterie-Kapazität (kWh) |
+| `_external.{typ}.{n}.label` | Benutzerdefinierte Bezeichnung |
+| `_external.{typ}.{n}.mode` | Anzeigemodus (integrate/separate) |
+| `_external.{typ}.{n}.sourceId` | Fremde State-ID oder Formel |
+
+### Steuerungs-States (`control.*`)
+
+Schreibbare States zur Gerätesteuerung:
+
+| State | Typ | Beschreibung |
+|-------|-----|-------------|
+| `control.ForceCharge` | Boolean | Akku-Zwangsladung ein/aus |
+| `control.BlockDischarge` | Boolean | Entladung blockieren ein/aus |
+| `control.RebootAppliance` | Boolean | Gerät neustarten auslösen |
+| `control.EmergencyPower.ReserveInPercent` | Zahl | Notstromreserve (%) |
+| `control.PeakShaving.*` | Diverse | Peak-Shaving-Einstellungen |
+| `control.SGReady.*` | Diverse | SG-Ready-Einstellungen |
+| `control.Sockets.{n}.*` | Diverse | Pro-Steckdose Steuerung |
+| `control.Wallbox.{n}.*` | Diverse | Wallbox-Steuerung |
+
+Steuerungs-States werden nur erstellt, wenn die entsprechende Funktion aktiviert und über den konfigurierten Konnektor verfügbar ist.
+
+## Fehlerbehebung
+
+**Gerät reagiert nicht / häufige Neustarts**: Reduzieren Sie das hochprioritäre Abfrageintervall oder entfernen Sie benutzerdefinierte HighPrio-Datenpunkte. Das SENEC Gerät hat begrenzte Ressourcen.
+
+**Keine Daten von API/Web**: Prüfen Sie Ihre mein-senec.de Zugangsdaten im SENEC Konto Tab. Der Adapter protokolliert Authentifizierungsfehler auf Warnungsstufe.
+
+**Dashboard lädt nicht**: Stellen Sie sicher, dass ioBroker.web auf Port 8082 läuft. Das Dashboard wird als Web-Extension unter `/senec/` bereitgestellt.
+
+**Fehlende States**: Die verfügbaren States hängen von Ihrem SENEC Modell, der Firmware-Version und den konfigurierten Konnektoren ab. Nicht alle States sind auf allen Systemen verfügbar.
+
+**Steuerungs-States erscheinen nicht**: Steuerungsfunktionen müssen in den Gerätesteuerungseinstellungen explizit aktiviert werden. Jede Steuerung erfordert einen bestimmten aktiven Konnektor.
+
+**TLS-Zertifikatsfehler bei lokaler Verbindung**: Der Adapter übernimmt die Zertifikatsvalidierung automatisch. Prüfen Sie `_local.tls.mode` um zu sehen, welche Validierungsmethode aktiv ist. Wenn TOFU-Modus aktiv ist und Sie auf CA-Validierung upgraden möchten, aktivieren Sie den mein-senec.de-Connector — der Adapter versucht das CA-Zertifikat automatisch herunterzuladen. Falls ein früherer Download fehlgeschlagen ist, setzen Sie `_local.tls.certFetchFailed` auf `false` um es erneut zu versuchen.
+
+## Hilfe und Austausch
+
+Für Fragen, Konfigurationen und den Austausch mit anderen Nutzern gibt es einen [eigenen Thread im ioBroker-Forum](https://forum.iobroker.net/topic/30620/neuer-adapter-senec-home-adapter) — meist der schnellste Weg zu einer Antwort.
+
+Sieht es nach einem Fehler aus, bitte ein Issue auf [GitHub](https://github.com/nobl/ioBroker.senec/issues) anlegen. Wie ein [Debug-Log erstellt](#debug-log-erstellen) wird und was eine [Meldung bearbeitbar macht](#fehler-melden), steht weiter oben.
 
 ## Changelog
 
@@ -304,118 +525,61 @@ Werte, die von der Web API abgerufen werden
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- Increased default API poll interval to 6 minutes. This appears to be causing less issues with the server than 5 minutes.
-
-### 2.5.0 (2026-03-28)
-- Added control.RebootAppliance to initiate appliance reboot. Only works if local lala.cgi is available and connected. Function requires extra permission via adapter settings. Please use responsible!
-- We are now revealing that an ioBroker integration is accessing the API per default (UserAgent is set to 'integration'). Please consider leaving that to 'integration' so SENEC knows there are many users using the ioBroker integration. If you don't want this or experience issues with 'integration' UserAgent, check settings and revert UserAgent to 'Browser' or define your 'custom' UserAgent.
-- Fixed incremential back-off for local polling.
-- Moved local appliance control settings into own tab.
-- Concurrency for API requests can now be controlled via settings. Please be cautious! Senec API is fragile. Go with 1 concurrent request if you experience issues.
-- You can now enable diagnostics for api-request-queue. You can log them to 'info' log or have them in _api.diagnostics.queue.*
-- Reduced local polling interval for lowPrio to 5 minutes.
-- UI now hides unavailable options.
-- Added option to remove API log spam. If you don't need to know every few minutes we are refreshing tokens or polling the API: Deactivate it.
-- Partial code rewrite (you can now safely have several instances of adapter - if you ever wanted)
-- Dependency updates
-
-### 2.4.8 (2026-03-14)
- - Connection type now is "cloud" (ioBroker internal setting) - although we still support local interaction (if possible per individual appliance)
- - Dependency updates
-
-### 2.4.7 (2026-03-14)
-- Clearly indicating that initial API login busted and adapter will turn off API polling until restart
-- Certain warnings moved to debug (as they are pretty much for debug purposes only)
-- Made usage of axios-cookiejar-support ESM compatible (dynamic import). Solves issues with node 22.
-- RND made node22+ safe.
-- Code optimizations
-
-### 2.4.6 (2026-03-09)
-- Optimizations in Token Refesh Szenarios
-- Optimizations in case of authentication issues
-- Persisted RefreshToken across adapter restarts (less logins)
-- Reworded errors/warning messages
-- Dependency updates
-
-### 2.4.5 (2026-03-03)
-- fixed typo that made today/hourly today/horly. You can safely delete the horly branch Measurements/Daily/horly
-- Updated delay for token refresh (it can be up to 2 min now).
-
-### 2.4.4 (2026-03-03)
-- Exponential backoff, if all systems cannot get polled. If at least 1 system can be polled we resume normal action. Now - if all systems fail polling (like 1 if you only have 1) this would be example backoff times for a 5min base interval: 1 Failure -> 0-10 min, 2 Failure -> 0-20 min, 3 Failures -> 0-40 min, 4+ Failures -> 0-40 min. Once polling works again we will resume normal operations.
-
-### 2.4.3 (2026-03-03)
-- API uses its own backoff settings when polling. You can only configure delay between polls. Instead we are using strategy used by: AWS SDK, Google Cloud SDK, Stripe API client, Kubernetes controllers or Distributed message brokers to prevent: retry storms, thundering herd, burst collapse after outage recovery, adapter lockups or permanent dead loops. This leads to: IF (SENEC API down for 2 hours, or Token refresh fails 20 times, or 429 rate limiting kicks in, or Internet drops temporarily) ? (Never dies, never overlaps, never floods API, always recovers)
-- API polling no longer honors retries-setting. It will just keep backing off exponentially if errors persist -> we keep trying until you stop the adapter.
-- Using Token-Refresh strategy. No unnecessary logins anymore.
-- 401 won't throw warning anymore
-- ReAuth shouldn't stop polling anymore
-
-### 2.4.2 (2026-03-03)
-- AuthToken in _api is no longer used. You can safely delete it.
-- Decoupled frequencies to lower API load. Every poll: Dashboard and today values; Once per day: Yesterday, Monthly, Yearly values (we reduce load by about 65% compared to polling everything every time)
-- AccessToken logic centralized
-- True Single Flight Token refresh (avoiding duplicate logins, duplicate login storms)
-- Avoiding overlapping Polls
-- exponential backoff on auth failure
-- retry backoff
-- proper lifecycle safety
-- Automatic 401 retry
-
-### 2.4.1 (2026-03-01)
-- Fixing issues with polling from senec api when token expires
-- Old entries in changelog moved to old.
-
-### 2.4.0 (2026-02-28)
-- Senec changed login procedure (again). Adapter now also works with 2-stage login where senec asks for username/email first and password second.
-- Dependency updates
-
-### 2.3.0 (2026-02-17)
-- Measurements for today and yesterday are also available by the hour
-- Measurements for month and previous month are also available by day
-- Measurements for year are also available by month
-- Unit calculation fixed if we don't know the unit yet per state_attr.js
-- Added definitions for cascadeDevicesCount and mode
-- Dependency update
-
-### 2.2.2 (2026-02-06)
-- Migrated to i18n
-- Update handling of "new" states that are just an "extra" to an existing state like state and state.1 or state.42
+### 2.15.1 (2026-08-23)
 - Dependency Updates
 
-### 2.2.1 (2026-02-06)
-- Fixed: History rebuild will only run once now when requested (remember: To force rebuild you need to configure this in settings)
+### 2.15.0 (2026-08-14)
+- 🔎 **Wanted: testers for the SENEC.Connect connector.** I cannot see what your subscription returns, and real responses are what this connector is missing — especially from accounts holding more than one system, and from responses containing more than `battery` and `meter` (`evse`, `bessNameplate`). If SENEC.Connect reports anything at all for your account, please get in touch in the [ioBroker forum thread](https://forum.iobroker.net/topic/30620/neuer-adapter-senec-home-adapter) or via a [GitHub issue](https://github.com/nobl/ioBroker.senec/issues).
+- **Breaking (SENEC.Connect only):** The systems of a SENEC.Connect account were stored by their position in the API response, as `_connect.Systems.0.*`, `_connect.Systems.1.*` and so on. The API does not promise an order, so on an account with more than one system that position can change from one poll to the next — two systems then swap their states inside the same history, with nothing in the values to show it happened. Each system is now stored under the system id from its `bessNameplate` section instead, for example `_connect.Systems.P4H1-1234567.*`, and gets a channel named after its model. A system is remembered by every identifier it has ever reported, so a response that omits one of them does not move it; a system that reports no identity at all keeps its old position-based path and is left alone. The old numbered states are deleted on the first poll after the update; scripts, charts and visualisations that refer to them have to be pointed at the new paths, and the history recorded under the old paths ends there. **If you log these states with a history adapter, that setting is stored on the state and does not survive the move — switch logging back on for the new paths, or recording stops silently.** Accounts with a single system are affected the same way, but nothing else changes for them.
+- **Breaking (SENEC.Connect only):** Wallboxes are stored under the `id` they report rather than their position in the response, for the same reason and with the same consequence — `_connect.Systems.{system_id}.evse.{wallbox_id}.*`. A wallbox that disappears from the response now has its states removed instead of leaving them frozen at their last values, looking current.
+- New: `_connect.info.systemCount` reports how many systems SENEC.Connect returns, and the states of a system the API stops reporting are removed.
+- New: SENEC.Connect has its own request timeout, adjustable between 5 and 120 seconds and 30 seconds by default. It previously borrowed the local appliance's timeout, which is capped at ten seconds and is not even shown unless the local connection is switched on — so a slow cloud response failed every poll with no reachable setting to change.
+- Fix: A SENEC.Connect reply that arrived with a success code but did not contain the expected data — an error page or a captive portal, for instance — left the connector reporting itself as connected indefinitely while nothing was being read.
+- Fix: A SENEC.Connect polling interval outside the permitted range is corrected on start-up, as the other intervals already were. Only a value written directly into the instance settings could get there, but a negative one made the adapter poll a request-metered API in a tight loop.
+- Fix: A SENEC.Connect request in progress is now cancelled when the adapter stops, instead of running on and writing during shutdown, and it identifies itself with the same user agent as the adapter's other requests.
+- Fix: Clearing the SENEC.Connect section list in the settings fell back to fewer sections than the field's own default, silently dropping wallbox data.
+- Change: The `bessNameplate` section is now always requested from SENEC.Connect regardless of the configured sections, because it carries the id the states are stored under. The API is billed per request, not per section, so this costs nothing.
+- Fix: When mein-senec.de measurement detail states were cleared at the daily rollover and written again in the same cycle, they came back as bare values — the name, unit and role were gone, because the adapter still believed the deleted definitions existed.
+- Fix: On appliances not set to German, `ENERGY.STAT_STATE_Text` was never created at all. It puts the numeric system state into plain language — "Laden", "Akku voll", "Fernabschaltung" — but the English and Italian tables were stored under a name the adapter never looked them up by, so nothing was written and no error appeared. English is also what the adapter falls back to when it cannot read the appliance's language, so this affected most installations. The state now appears; on an affected system it shows up as a new datapoint after the update. `FACTORY.COUNTRY_Text` was missing on Italian appliances for the same reason.
+- Fix: System state 41 was labelled "Schlafmodus" / "Sleeping mode". The appliance itself calls it "Abschaltung Lithium" / "Lithium shutdown", which is a different condition; the Italian text already said so. State 74 also carried a spelling mistake.
+- New: Three more numeric datapoints are translated into text — `BMS.MANUFACTURER_Text` names the battery module generation (BMZ or Ampace / LFP), `PWR_UNIT.ENFLURI_Text` says which meter a power unit is measured by, and `CASC.STATE_Text` gives the cascade state.
+- **Change: A datapoint your appliance does not have no longer gets a state, and an existing one says so.** The adapter asks every appliance for the same set of datapoints and no model provides all of them, so the answer "I do not have that one" is normal rather than a fault. Until now that answer was stored as the value, so the state read `VARIABLE_NOT_FOUND`. No state is created for it any more, and one that already exists is set to "not provided by appliance" so it is obvious at a glance instead of sitting there with a stale number that still looks current. Nothing is deleted, nothing is reported as a problem, and nothing is required of you. A datapoint that merely failed to be read this once is left untouched, because the real reading is expected back. A whole section your appliance does not have is handled the same way; it previously left behind a state called `<SECTION>.OBJECT_NOT_FOUND` holding nothing. This covers what the adapter asks for by name and the sections it requests — a field that quietly vanishes from a section still being provided cannot be detected this way, because the appliance simply omits it rather than saying anything about it.
+- Fix: An unreadable datapoint could be published as a real-looking measurement. The appliance answers with a word where a number was expected, and that word slipped into the conversions for flags, factors, dates and IP addresses: a flag was stored as `true`, a scaled value as `NaN`, a timestamp as "Invalid Date" and an address as garbage. Nothing is stored for such an answer any more, so a state either holds a real reading or does not exist. A datapoint answering with an empty value no longer becomes `0` either, and a few value formats the appliance uses were decoded wrongly — text beginning with "u" could be read as a number, so a state could show 14 where the appliance had sent no reading at all.
+- Change: `ENERGY.GUI_BAT_DATA_OA_CHARGING` is no longer polled every few seconds. A SENEC.Home V3 does not have it, it is absent from every field that appliance reports for this section, and the appliance's own web interface never asks for it. It remains defined, so an older appliance that still provides it keeps the state from the slower poll.
+- Fix: The appliance's display language was read once at start-up, in a race with the first poll of the datapoint that carries it. On a fresh installation the adapter could therefore stay on English for the whole session, and changing the language on the appliance never took effect until the adapter was restarted. It is now picked up as soon as the appliance reports it, and a language the adapter has no texts for falls back to English instead of silently leaving every translated state empty.
+- Fix: A code that is not in a translation table was shown as "(unknown)", which discarded the very number needed to identify it. It now reads "(unknown 7)". If you see one, the number is worth reporting.
+- Change: Translated `_Text` states are no longer marked writable — writing to them never did anything — and are declared as text rather than as a measurement. Existing ones are corrected on the first poll after the update.
+- Fix: The operating-mode text on the web dashboard now comes from the appliance's own system state on English and Italian systems as well. It previously fell back to the cloud status text there, because the local text did not exist.
+- Fix: Several labels in the English and Italian system-state lists were misspelled, one Italian entry contained a stray fragment of an untranslated string, and some Italian entries were missing their accents.
+- Change: The adapter warns when the datapoints configured for high-priority polling make a request large enough to approach the size the appliance can still answer. Beyond that size the appliance replies with a truncated body, which used to surface only as a connection error.
 
-### 2.2.0 (2026-02-05)
-- Polling yearly measurements as year from API - not months (and summing them up)
-- Added back AllTimeHistory with BATTERY_LEVEL_IN_PERCENT averaged and AUTARKY_IN_PERCENT calculated
-- Removed selection to use https or http for lala.cgi. https is enforced now.
+### 2.14.2 (2026-08-13)
+- Dependency updates
 
-### 2.1.3 (2026-02-04)
-- reading all previous years (up to inception of SENEC) added again (to make this happen: activate recalculation of full history via settings)
-- added today / yesterday again
-- optimizations for measurements handling
-- less log noise
+### 2.14.1 (2026-08-02)
+- Fix: Emptying one of the additional high-priority datapoint fields left its "add datapoints to polling" box ticked, and the adapter then reported a faulty configuration on every start although nothing was configured at all. Such a field is no longer treated as an error, which also settles it for instances that are already in this state; clearing the field now unticks the box as well. Two related problems are fixed with it: a blank after a comma discarded the whole entry instead of being read as the separator it is, and a trailing comma sent a nameless datapoint to the appliance. An entry containing an invalid name is still ignored as a whole, but the warning now names the part that caused it.
 
-### 2.1.2 (2026-02-04)
-- more silencing log messages
-- housekeeping
+### 2.14.0 (2026-08-01)
+- Fix: With the local connection switched on but no IP address entered, the adapter repeatedly tried to reach 0.0.0.0 and logged a connection error on every attempt. It now says once that no address is configured and waits for one.
+- Change: A new instance now starts with no connector preselected — pick the ones you want in the settings. The local connection is no longer switched on in advance, and its address field starts empty instead of showing 0.0.0.0. Existing instances keep their settings unchanged.
+- Fix: When the SENEC sign-in service rejected the stored token and was itself unreachable, the adapter attempted a full login twice and then kept two recovery loops running side by side, doubling every request. It now makes one attempt and retries on a single schedule.
+- Fix: If the appliance was unreachable at start-up and only answered on a later attempt, sections found during that attempt were not actually polled until the adapter was restarted.
+- Fix: Four of the six mein-senec.de queue diagnostic states were always empty. They now report real values and count finished requests rather than started ones, so the success rate is no longer dragged down by work still in progress.
+- Fix: The two mein-senec.de debug settings only took effect when measurement history polling happened to be switched on as well. They now work on their own.
+- Fix: An external source using a formula with several references was recalculated once per reference at start-up, reading every referenced state repeatedly. It is now calculated once.
+- Fix: A battery level of infinity from an external source, and a kilowatt reading too large to express in watts, are no longer written to states.
+- Fix: When mein-senec.de asks the adapter to wait before retrying, a wait expressed as a date is now understood as well as one expressed in seconds. An implausibly long wait is capped at an hour so the connector always recovers on its own.
+- New: The timeout for ordinary SENEC API requests is configurable, and its default is raised from 10 to 30 seconds. The API is regularly slow enough that dashboard and system status requests were timing out, which loses the whole reading until the next poll cycle. Measurement history keeps its own, longer limit.
+- Fix: An error reply from mein-senec.de was treated as if it were data. A failed request could write an error page into the status states, advance the "last poll" timestamp and leave the connector reporting itself as connected. Responses are now checked centrally, so a failure is a failure everywhere.
+- Fix: The adapter no longer keeps its request rate up when mein-senec.de is struggling. A server error now pauses the whole queue briefly, exactly as rate limiting already did, and the server's own requested delay is honoured. Control commands are still never repeated automatically.
+- Fix: If the SENEC login had to be renewed and that renewal failed, the adapter could end up with no token, no scheduled retry and no error — silently stuck until restarted. It now retries with a growing delay, so it recovers on its own.
+- Fix: Measurements for "today" and "yesterday" could be fetched for the wrong day between midnight and the UTC changeover — up to two hours every night in Central European time, and any part of the night in other time zones.
+- Fix: The battery level recorded from mein-senec.de lost a full day twice a year, at the daylight-saving changeovers, because two adjacent days were not recognised as adjacent.
+- Fix: Sections the appliance did not list during discovery are no longer dropped from polling. A restricted or partial answer could previously reduce the adapter to polling almost nothing, including the live values.
+- Fix: A failing poll step is now counted, so a system that is only partly readable is reported instead of passing as healthy.
+- Fix: External energy sources sharing one foreign state now all update. Previously only the last one configured for a given state received changes, and a state used both directly and in a formula drove only one of the two. Values are also read once at startup instead of showing 0 until the source next changes, and a formula that divides by zero no longer writes Infinity.
 
-### 2.1.1 (2026-02-04)
-- fixed datatype for WIZARD.SG_READY_CURR_MODE
-- less logging (moved some info to debug again)
-
-### 2.1.0 (2026-02-04) - the API returns - finally finally hopefully finally
-- Complete rewrite of the Senec API functionality. Thanks to @timfxtones for pointing me in the right direction
-- No longer using the web-interface at mein-senec.de - it didn't work properly on the long run ...
-- Still missing some datapoints so far. They will be implemented in the future.
-
-### 2.0.0 (maett81, NoBl)
-* Updated to use new SENEC API via mein-senec.de - Thanks to @maett81
-* Some code and dependency housekeeping
-
-### [Former Updates](CHANGELOG_old.md)
+### [Former Updates](CHANGELOG_OLD.md)
 
 ## License
 MIT License

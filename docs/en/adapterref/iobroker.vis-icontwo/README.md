@@ -1,17 +1,23 @@
 ![Logo](admin/icontwo.png)
-# ioBroker.vis-icontwo
+
+# ioBroker adapter for ioBroker.vis (VIS-1 and VIS-2)
 
 ![Number of Installations (latest)](http://iobroker.live/badges/vis-icontwo-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/vis-icontwo-stable.svg)
 [![NPM Version](https://nodei.co/npm/iobroker.vis-icontwo.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.vis-icontwo)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-icontwo.svg?)](https://www.npmjs.com/package/iobroker.vis-icontwo)
 
+[![COMMUNITY](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)](https://forum.iobroker.net/)
+[![MAINTAINER](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)](https://github.com/skvarel)
+
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
+---
 
-## Icon adapter for the ioBroker.vis adapter (for VIS-1 and VIS-2)
+## inventwo icons for the ioBroker.vis adapter (VIS-1 and VIS-2)
 
 A simple icon adapter for your visualization.
+
 
 All icons can be found in the vis-icontwo folder via the file manager (at the top level).
 
@@ -56,6 +62,15 @@ A complete overview of all icons can be found here (the folder structure is the 
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Fixed repo checker issue #825
+
+### 2.11.6 (2026-06-07)
+- (skvarel) Fixed repo checker issue #820
+
+### 2.11.5 (2026-05-25)
+- (skvarel) Fixed repo checker issue #818
+
 ### 2.11.3 (2026-03-17)
 - (skvarel) Translated: Readme in english
 
@@ -64,12 +79,6 @@ A complete overview of all icons can be found here (the folder structure is the 
 
 ### 2.11.1 (2026-02-28)
 - (skvarel) Fixed: Issue detected by repository checker.
-
-### 2.11.0 (2026-02-26)
-- (skvarel) Added: New 3D-Icons (poolrobot)
-
-### 2.10.0 (2026-02-26)
-- (skvarel) Added: New 3D-Icons (beach)
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

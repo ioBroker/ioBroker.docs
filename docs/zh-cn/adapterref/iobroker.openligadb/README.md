@@ -2,277 +2,291 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openligadb/README.md
-title: ioBroker 适配器从 OpenLigaDB 获取足球比赛结果
-hash: hg3XI6pnogJ4TCFV92FGjS6mePxT99QxVlLybvBM2JU=
+title: ioBroker适配器，用于从OpenLigaDB获取足球比赛结果
+hash: YrfbY729Ff6oXcaEvK7MjRVrj55++kWS04OdlNVuy74=
 ---
 ![标识](../../../en/adapterref/iobroker.openligadb/admin/openligadb_n.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.openligadb.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.openligadb.svg)
 ![安装数量](https://iobroker.live/badges/openligadb-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/openligadb-stable.svg)
-![新平台](https://nodei.co/npm/iobroker.openligadb.png?downloads=true)
+![稳定仓库中的当前版本](https://iobroker.live/badges/openligadb-stable.svg)
+![GitHub 上的 nycrc 配置](https://img.shields.io/nycrc/oweitman/iobroker.openligadb?preferredThreshold=functions)
+![NPM](https://nodei.co/npm/iobroker.openligadb.png?downloads=true)
 
-# IoBroker 适配器从 OpenLigaDB 获取足球比赛结果
+# IoBroker 适配器，用于从 OpenLigaDB 获取足球比赛结果
 ＃＃ 概述
-用于从 `openligadb.de` 请求足球或其他游戏比赛数据的适配器
+用于请求足球或其他游戏的数据的适配器，格式为`openligadb.de`
 
 ＃＃ 配置
-添加适配器的实例并单击扳手符号。在表单中，您可以添加来自联赛和赛季的快捷方式。
-请访问`openligadb.de`了解可用的联赛、赛季和快捷方式。如果一个赛季跨越两年，请仅输入开始年份。
+添加适配器实例，然后点击扳手图标。在表单中，您可以添加联赛和赛季的快捷方式。
 
-1. 德国联赛的示例数据为`shortcut = bl1 season = 2023`
+请访问 `openligadb.de` 查看可用的联赛、赛季和快捷方式。如果一个赛季跨越两年，请仅输入起始年份。
 
-如果您保存并关闭了配置，不久之后就一定会出现您的联赛和赛季的新数据点。
+示例数据：1. 德国足球甲级联赛为 `shortcut = bl1 season = 2023`
+
+如果您保存并关闭了配置，那么不久之后，您的联赛和赛季应该就会有新的数据点。
 
 ## 小部件
-实际上有 5 个小部件可用。请在小部件过滤器中输入 openligadb
+实际上有 5 个可用的组件。请在组件筛选器中输入 openligadb。
 
-###表 4
+表4
 ![小部件表 4](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/table.png)
 
-Das ist die klassische Tabellenansicht.\ Die Tabelle enthält verschiedene Spalten。
+这是经典的表格视图。该表格包含多个列。
 
-- Sp=Anzahl gespielter 游戏
-- S=围攻
-- U=未显示
-- N=下拉根
-- Tore=Torverhältnis
-- 点数=点数标准
+- MP = 游戏场次
+- W = 胜场
+- D = 绘制
+- L = 损失
+- 进球数 = 净胜球
+- 积分 = 排名积分
+- T = 趋势
 
-属性表
-|属性|集团 |说明 |
-| ----------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|百搭|                          | Hier muss ein Datenpunkt mit der Bezeichnung allmatches (Achtung im alten widget musste hier noch table ausgewählt werden) ausgewählt werden。联赛/赛季配置中的数据点，落入了安加本的罪孽之中。 Der Datenpunkt enthält alle Spieldaten einer Liga/Season im JSON 格式。我们的日期是根据该方式的基础而制定的。 |
-|当前游戏日 |                          | Hier ist ein Datenpunk zu wählen, der mit curgameday benannt ist.联赛/赛季配置中的数据点，落入了安加本的罪孽之中。适配器是当前基准数据的基础。游戏标签将在未来游戏标签的游戏时间和未来游戏标签的时间间隔内进行。                           |
-|模式 |                          | Listenauswahl 在 welchem Modus die Tabelle angezeigt werden soll zur Auswahl steht Gesamt(1total)、Heim (2home) 或 Auswärts (3away)、Hinrunde (4round1) 或 Rückrunde (5round2)。                                                                                                                                                                                                                                                        |
-|模式绑定 |                          |属性在属性模式下有效。 Es wurde ergänzend eingeführ, so das der Tabellenmodus ebenfalls per Binding gesteuert werden kann.在 Textfeld 中，我们将使用该模式。当您使用属性模式时，该属性将被更改为属性模式。 Ein Normalanwender sollte er nichts eintragen。                                       |
-|马克西康 |                          | Maxmale Größe des Manschaftsicons in x oder y-Richtung。                                                                                                                                                                                                                                                                                                                                                                                   |
-|简称 |                          | Anstatt des Manschaftsnamens wrd der Kurzname angezeigt，落在 den vorliegenden Daten gepflegt wurde 中。                                                                                                                                                                                                                                                                                                                           |
-|索特伦德 |                          | Auswahl，wenn Trendicons angezeigt werden solen。 Der Trend wird im Vergleich zum vorherigen Spieltag berechnet。                                                                                                                                                                                                                                                                                                                           |
-|突出|                          | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden die hervorgehoben werden sollen。 Die Suche erfolgt nur in den Mannschaftsnamen。带有 HTML 标签的珠宝名称`<b>` 是最伟大的。详细格式可以参见 css-Klasse“最喜欢的”erfolgen。 Ausserdem 可以突出显示单个 CSS-Klasse angegeben werden。 Vgl。待办事项 |
-|过滤器|                          | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden and deren die Tabelle gefiltert dargestellt wird。                                                                                                                                                                                                                                                                                                    |
-| iconup、icondn、iconst |属性组图标| Trendicons 定义了我们的特征。                                                                                                                                                                                                                                                                                                                                                                                            |
-| Showgameday 在 der Attributgruppe |警告 |您可以查看游戏中的游戏标签 | 游戏标签 |
-|属性组中的lastgamecount |警告 | Wenn hier eine Zahl eingegeben wird, dann wird die Tabelle nur für die Anzahl von Spieltagen bis zum aktuell angezeigten Spieltag (in Abhängigkeit von currgameday und showgameday) berechnet Beispiel: Eingabe bei showgameday = 10 und bei lastgamecount=5: Die Tabelle wird nur für die Spieltage 6-10 berechnet (5 Spieltage) | für die Spieltage 6-10 berechnet (5 Spieltage) |
+#### 属性表
+|属性|集团|描述 |
+| ----------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 所有比赛 | | 选择数据点 `allmatches`。（注意：在旧版组件中，使用的是 `table`。）此数据点在联赛/赛季成功设置后，于配置过程中创建。它包含所选联赛/赛季的所有比赛数据，格式为 JSON。所有表格视图（模式）均源自此数据集。 |
+| 模式 | | 定义表格视图模式。可用选项：总计 (`1total`)、主场 (`2home`)、客场 (`3away`)、上半场 (`4round1`)、下半场 (`5round2`)。 |
+| mode_binding | | `mode` 的替代方案，用于通过绑定进行动态控制。接受与 `mode` 相同的值。如果提供了有效值，则会覆盖 `mode` 属性。通常，此字段可以留空。 |
+| mode_binding | | `mode` 的替代方案，旨在通过绑定实现动态控制。接受与 `mode` 相同的值。如果提供了有效值，则会覆盖 `mode` 属性。通常，此字段可以留空。 |
+| maxicon | | 球队图标的最大尺寸（宽度和高度均适用）。 |
+| 简称 | | 如果数据集中包含团队简称，则显示团队简称而不是完整名称。 |
+| 高亮显示 | | 高亮显示名称与指定词语匹配的球队。多个词语之间可以用分号分隔（`;`）。匹配项会用 `<b>` 标签包裹。可以通过 CSS 类 `favorite` 或为每个高亮显示定义自定义类来应用其他样式（请参阅相应的文档部分）。 |
+| 筛选 | | 按球队名称筛选表格。多个筛选条件可以用分号分隔（`;`）。 |
+| 筛选 | | 按球队名称筛选表格。多个筛选条件之间用分号 (`;`) 分隔。 |
+| iconup,icondn,iconst | 属性组图标 | 定义趋势指标（上涨、下跌、稳定）的自定义图标。 |
+| 属性组中的 lastgamecount | 高级设置 | 将表格计算限制为相对于当前显示的比赛日（`currgameday` 或 `showgameday`）的特定数量的最近比赛日。例如：`showgameday` = 10 且 `lastgamecount` = 5 → 仅考虑第 6 至 10 个比赛日。 |
+| 属性组中的 lastgamecount | 高级设置 | 将表格计算限制为相对于当前比赛日（`currgameday` 或 `showgameday`）的特定数量的最近比赛日。例如：`showgameday` = 10 且 `lastgamecount` = 5 → 仅考虑第 6 至 10 个比赛日。 |
 
-### Gameday v2 的游戏
+### 比赛日游戏 v2
 ![小部件比赛日](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/gameday.png)
 
-Dieses Widget zeigt den Spieltag 和。我无法理解当前的情况，相对于当前的情况或最佳的游戏情况。
-游戏中的游戏元素非常丰富。
-Bestimmte Elemente der Anzeige wurden mit **CSS-Klassen** versehen，für die dann beliebig eine bestimmte Formatierung festgelegt werden kann：
+此小部件显示比赛日信息。根据设置，它可以始终显示当前比赛日、相对于当前比赛日的比赛日，或显示特定比赛日。
 
-| CSS 类 |元素的格式 |安梅尔宫 |
-| --------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|最喜欢 | im Anzeigekopf eines Spieltages (Datum/Uhrzeit) | Hier kann Datum und Uhrzeit formatiert werden, wenn die Lieblingsmannschaft am Spieltag spielt. ggfs。可以看到CSS-Klasse“todaygameheader”的含义。 |
-|最喜欢 |曼斯查夫特斯名称 | Hier kann der Mannschaftsname entsprechend formatiert werden。                                                                                                             |
-|今日游戏 |游戏的完整内容 | Wird markiert，wenn das Spiel am heutigen Tag statt findet。                                                                                                               |
-|今日游戏标题 | im Anzeigekopf eines Spieltages (Datum/Uhrzeit) | Wird markiert，wenn das Spieltagsdatum am heutigen 标签 ist |
+此外，还可以设置显示的比赛日数量。
 
-#### CSS Klassen 的说明
-##### Beispiel Anzeigekopf eines Spieltages (Datum generic)
+显示中的某些元素已标记了**CSS类**，可以根据需要定义其特定格式：
+
+| CSS 类 | 影响哪个元素 | 备注 |
+| --------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 收藏 | 比赛日标题（日期/时间） | 允许在收藏球队比赛日显示日期和时间。可选择性地与 CSS 类 `todaygameheader` 结合使用。 |
+| 收藏 | 球队名称 | 允许自定义球队名称格式。 |
+| 今日比赛 | 整场比赛 | 适用于当天进行的比赛。 |
+| todaygameheader | 比赛日标题（日期/时间） | 当比赛日日期与当天一致时应用。 |
+
+#### CSS 类示例
+##### 示例：比赛日（一般日期）显示标题
 ```css
 .oldb-tt tr.favorite {
-  color: yellow;
+    color: yellow;
 }
 ```
 
-##### Beispiel Mannschaftsname
+##### 示例团队名称
 ```css
 .oldb-tt b.favorite {
-  color: blue;
+    color: blue;
 }
 ```
 
-##### Beispiel Zeile eines Spiels
+##### 游戏示例行
 ```css
 .oldb-tt .todaygame {
-  color: red;
+    color: red;
 }
 ```
 
-##### Beispiel Anzeigekopf eines Spieltages (Datum heute)
+##### 比赛日（今天的日期）示例显示标题
 ```css
 .oldb-tt .todaygameheader {
-  color: lightgreen;
+    color: lightgreen;
 }
 ```
 
-#### Gamedays 的属性游戏
-|属性|集团 |说明 |
-| ---------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|百搭|                          | Hier muss ein Datenpunkt mit der Bezeichnung allmatches ausgewählt werden。联赛/赛季配置中的数据点，落入了安加本的罪孽之中。 Der Datenpunkt enthält alle Spiele and Ergebnisse einer Liga/Season im JSON-Format Wenn der Spieltag am heutigen Tag statt findet, dann wird das Datum (todaygameheader) and das jeweilige Spiel (todaygame) mit CSS-Klassen versehen. |
-|当前游戏日 |                          | Hier ist ein Datenpunk zu wählen, der mit curgameday benannt ist.联赛/赛季配置中的数据点，落入了安加本的罪孽之中。适配器是当前基准数据的基础。游戏标签是指在游戏中的游戏标签和未来的游戏标签之间的时间间隔。                      |
-|马克西康 |                          | Maxmale Größe des Manschaftsicons in x oder y-Richtung。                                                                                                                                                                                                                                                                                                                                                                               |
-|简称 |                          | Anstatt des Manschaftsnamens wrd der Kurzname angezeigt，落在 den vorliegenden Daten gepflegt wurde 中。                                                                                                                                                                                                                                                                                                                       |
-|展示目标 |                          |有关 Torschützen 的信息。                                                                                                                                                                                                                                                                                                                                                                                       |
-|突出|                          |您可以使用分号 (;) 来表示所有内容，然后使用分号 (;) 来表示。 Die Suche erfolgt nur in den Mannschaftsnamen。带有 HTML 标签的珠宝名称`<b>` 是最伟大的。详细的格式可以参考 css-Klasse“最喜欢的”erfolgen。 Ausserdem 可以突出显示单个 CSS-Klasse angegeben werden。 Vgl。卡皮特尔待办事项 |
-|秀游戏日 |警告 | Wenn dieses Feld leer bleibt, wird immer der aktuelle Spieltag angezeigt.Trägt man eine Positive Zahl ein, dann wird, Falls vorhanden, der ausgewählte Spieltag angezeigt.Trägt man eine negative Zahl ein, dann wird relativ aktuellen Spieltag dieser angezeigt (bspw -1 entspricht dem vorherigen Spieltag) | (bspw -1 entspricht dem vorherigen Spieltag) |
-|显示游戏天数 |警告 | 1. 游戏中的游戏内容。一切都已经结束，但安扎尔·冯·斯皮尔塔根 (Anzahl von Spieltagen)，在 showgameday 的比赛中也将出现。                                                                                                                                                                                                |
-|每周演出 |警告 | Zeigt vor dem Datum wahlweise den Wochentag 和。                                                                                                                                                                                                                                                                                                                                                                                        |
+#### 属性比赛日
+| 属性 | 组 | 描述 |
+| ---------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 所有比赛 | | 此处必须选择名为 **allmatches** 的数据点。此数据点在配置联赛/赛季后创建（前提是配置有效）。它包含联赛/赛季的所有比赛和结果，格式为 JSON。如果今天有比赛日，则会为日期（**todaygameheader**）和相应的比赛（**todaygame**）分配 CSS 类。 |
+| 当前比赛日 | | 此处必须选择名为 **当前比赛日** 的数据点。此数据点在配置联赛/赛季后创建（前提是配置有效）。其值由适配器根据当前日期计算。当前比赛日在上一个比赛日的最后一场比赛和下一个比赛日的第一场比赛之间切换。 |
+| maxicon | | 球队图标在 x 或 y 方向上的最大尺寸。 |
+| 简称 | | 如果提供的数据中包含简称，则显示简称而不是团队名称。 |
+| 显示进球信息 | | 显示进球球员信息。 |
+| 高亮显示 | | 您可以在此处输入一个或多个要高亮显示的词语，用分号 (;) 分隔。搜索仅在团队名称内进行。匹配的名称将用 HTML `<b>` 标签包裹。您可以使用 CSS 类 **"favorite"** 应用更详细的格式设置。此外，还可以为每个高亮显示定义自定义 CSS 类。请参阅“待办事项”章节。 |
+| 显示比赛日 | 高级设置 | 如果此字段为空，则始终显示当前比赛日。如果输入正数，则显示指定的比赛日（如有）。如果输入负数，则显示相对于当前比赛日的比赛日（例如，-1 对应于上一个比赛日）。 |
+| 显示比赛日计数 | 高级设置 | 通常情况下，此字段为空或包含 1，表示仅显示一个比赛日。如果输入其他数字，则会显示相应数量的比赛日，从 **显示比赛日** 中定义的设置开始。 |
+| 显示星期几 | 高级设置 | （可选）在日期前显示星期几。 |
 
 ##### 示例
-###### Showgameday 属性中的绑定说明
-ggfs。可以将其视为 vis-bound rechnet 和 gefüllt werden。
-相关游戏标签： |
+###### Showgameday 属性中的绑定示例
+如有必要，也可以使用 vis-binding 计算并填充此字段。
+
+相对计算的比赛日示例：|
 
 ```text
-    Vorheriger Spieltag
-    {a:openligadb.0.bl1.2019.currgameday;a-1} oder
-    Nachfolgender Spieltag
+    Previous matchday
+    {a:openligadb.0.bl1.2019.currgameday;a-1} or
+    Next matchday
     {a:openligadb.0.bl1.2019.currgameday;a+1}
 ```
 
-绑定不是在编辑模式下进行的，绑定在编辑模式中是在当前的游戏标签中进行的。
+由于在可视化编辑模式下不会计算绑定，
 
-### 最喜爱的俱乐部的比赛 2
-![最喜欢的游戏](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/favgames.png) Diese Widget zeigt die nächsten Spiele deiner Lieblingsmannschaften aus ein oder mehrerer Ligen and.在 Ligen 的 Auswahl der Anzahl der anzuzeigenden Ligen 中，我们将 Liga 与单独的配置组管理，以在 der die folgenden Einstellungen vorgenommen werden können 中进行。
-Wenn das Spiel am heutigen Tag statt findet，dann wird das jeweilige Spiel (todaygame) mit CSS-Klassen versehen。
+在编辑模式下使用绑定时，始终显示当前比赛日。
 
-#### 示例
+### 最喜欢的俱乐部比赛 2
+![最喜欢的游戏](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/favgames.png) 此小部件显示您喜爱的球队在一个或多个联赛中的即将进行的比赛。选择要显示的联赛数量后，每个联赛将显示一个单独的配置组，您可以在其中配置以下设置。
+
+如果比赛在今天举行，则相应的比赛（todaygame）将被标记上 CSS 类。
+
+＃＃＃＃ 例子
 ```css
 .todaygame {
-  color: red;
+    color: red;
 }
 
 .todaygameheader {
-  color: yellow;
+    color: yellow;
 }
 ```
 
 ＃＃＃＃ 属性
-|属性|集团 |说明 |
-| ---------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|安扎尔联赛|概要 |您可以通过以下方式进行安全检查。 Für jede Liga 是独立的配置组。                                                                                                                                                                                                                                                                                           |
-|马克西康 |全部 | Maxmale Größe des Manschaftsicons in x oder y-Richtung。                                                                                                                                                                                                                                                                                                                                                                   |
-|显示结果 |概要 | Auswahl，ob die Spielergebnisse，sofern bekannt，angezeigt werden sollen |
-|显示缩写 |概要 | Um die Spiele der einzelnen Ligen unterscheiden zu können, kann man eine eigene Kürzung in der jeweiligen Configuration eintragen.您可以将其打开，然后将其打开。                                                                                                                                                                                                                            |
-|每周演出 |概要 | Zeigt vor dem Datum wahlweise den Wochentag 和。 Die folgenden der Gruppe Liga können sich in Abhängigkeit der Eingabe bei **Anzahl Liga** mehrfach wiederholen。                                                                                                                                                                                                                                               |
-|百搭|联赛 | Hier muss ein Datenpunkt mit der Bezeichnung allmatches ausgewählt werden。联赛/赛季配置中的数据点，落入了安加本的罪孽之中。以 JSON 格式查看联赛/赛季的所有比赛和比赛 |
-|当前游戏日 |联赛 |今日游戏当天请注意以下事项。联赛/赛季配置中的数据点，落入了安加本的罪孽之中。适配器是当前基准数据的基础。游戏标签是指在游戏中的游戏标签和未来的游戏标签之间的时间间隔。 |
-|秀游戏日 |联赛|温恩 (Wenn) 看着镜头，立即沉浸在游戏中。 Trägt man eine Positive Zahl ein，dann wird，falls vorhanden，vom ausgewählte Spieltag ausgegangen。 Trägt man eine negative Zahl ein，dann wird relativ aktuellen spieltag ausgegangen (bspw -1 entspricht dem vorherigen Spieltag) |
-|显示游戏天数 |联赛 |您可以在索伦的游戏中进行游戏。请注意，请在所有剩余的 Spieltage 操作（最大 9999 Spieltage）中进行操作，然后在所有 Spiele 中进行 Anzahl von Spieltagen，然后在 showgameday 操作中进行操作。                                                                             |
-|简称 |联赛 | Anstatt des Manschaftsnamens wrd der Kurzname angezeigt，落在 den vorliegenden Daten gepflegt wurde 中。                                                                                                                                                                                                                                                                                                           |
-|缩写|联赛| Abkürzung die für diese Liga angezeigt werden soll, sofern showabbreviation ausgewählt wurde.                                                                                                                                                                                                                                                                                                                              |
-|突出|联赛 | Hier können ein oder mehrere Begriffe mit mit Colon (;) getrennt eingegeben werden, um die Lieblingsmanschaften zu finden。 Die Suche erfolgt nur in den Mannschaftsnamen。您可以在其他小部件中找到它。                                                                                                                                                                      |
+| 属性 | 组 | 描述 |
+| ---------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| leaguecount | 常规 | 指定要查询的联赛数量。每个联赛都会显示一个单独的配置组。 |
+| maxicon | 常规 | 球队图标在 x 轴或 y 轴方向上的最大尺寸。 |
+| 显示结果 | 常规 | 确定是否显示比赛结果（如有）。 |
+| 显示缩写 | 常规 | 为了区分不同联赛的比赛，可以为每个配置定义自定义缩写。此选项控制是否显示该缩写。 |
+| 显示星期几 | 常规 | （可选）显示日期前的星期几。**联赛** 组中的以下属性可能会根据 **联赛数量** 的值重复出现。 |
+| 所有比赛 | 联赛 | 此处必须选择名为 **allmatches** 的数据点。配置联赛/赛季后，如果配置有效，则会创建此数据点。它包含联赛/赛季的所有比赛和结果，格式为 JSON。 |
+| 当前比赛日 | 联赛 | 此处必须选择名为 **当前比赛日** 的数据点。此数据点在配置联赛/赛季后创建（前提是配置有效）。其值由适配器根据当前日期计算。当前比赛日在上一个比赛日的最后一场比赛和下一个比赛日的第一场比赛之间切换。 |
+| 显示比赛日 | 联赛 | 如果此字段为空，则使用当前比赛日。如果输入正数，则使用指定的比赛日（如有）。如果输入负数，则比赛日相对于当前比赛日确定（例如，-1 对应于上一个比赛日）。 |
+| showgamedaycount | 联赛 | 定义要显示的比赛日数量。如果留空，则显示所有剩余的比赛日（最多 9999 个比赛日）。如果输入一个数字，则显示该数字范围内的比赛日，从 **showgameday** 中定义的设置开始。 |
+| 简称 | 联赛 | 如果提供的数据中包含简称，则显示简称而不是球队名称。 |
+| 缩写 | 联赛 | 如果启用了 **showabbreviation** 功能，则显示此联赛的缩写。 |
+| 高亮显示 | 联赛 | 您可以在此处输入一个或多个关键词，用分号 (;) 分隔，以识别您喜欢的球队。搜索仅限于球队名称。与其他组件不同，此处不会应用任何特殊的视觉高亮显示。 |
 
-#### Beispiele 最喜爱俱乐部游戏
-##### Beispiele für das Binding im Attribut showgameday 最喜欢的俱乐部游戏
-ggfs。可以将其视为 vis-bound rechnet 和 gefüllt werden。
-相关游戏标签：
+#### 最喜欢的俱乐部游戏示例
+##### 最喜欢的俱乐部游戏中 `showgameday` 属性的绑定示例
+也可以使用 `vis-binding` 计算并填充此字段。
+
+相对而言，精心安排的比赛日示例：
 
 ```css
-    Vorheriger Spieltag
-    {a:openligadb.0.bl1.2019.currgameday;a-1} oder
-    Nachfolgender Spieltag
-    {a:openligadb.0.bl1.2019.currgameday;a+1}
+Previous matchday
+{a:openligadb.0.bl1.2019.currgameday;a-1} or
+Next matchday
+{a:openligadb.0.bl1.2019.currgameday;a+1}
 ```
 
-绑定不是在编辑模式下进行的，绑定在编辑模式中是在当前的游戏标签中进行的。
+由于在 vis 编辑模式下不会计算绑定，因此在编辑模式下使用绑定时，始终会显示当前比赛日。
 
 ### 数据透视表 2
-Diese Widget zeigt die alle Spiele 和 Ergebnisse als Pivottabelle 和
+此小部件以数据透视表的形式显示所有比赛和结果。
 
-| CSS 类 |元素的格式|贝斯皮尔 |
-| ---------- | ---------------------------------------------- | -------- |
-|最喜欢 |曼斯查夫特名称 | 亮点 |          |
+| CSS 类 | 影响哪个元素 | 示例 |
+| --------- | ------------------------------------- | ------- |
+| 收藏 | 通过**高亮显示**选择的球队名称 | |
 
-#### 示例数据透视表
-##### Beispiel Der 每个亮点 ausgewählte Mannschaftsnamen
+#### 数据透视表示例
+##### 示例：通过高亮选择团队名称
 ```css
 .oldb-tt .favorite {
-  color: yellow;
+    color: yellow;
 }
 ```
 
-#### 属性数据透视表
-|属性|集团 |说明 |
-| ------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|百搭|概要 | Hier muss ein Datenpunkt mit der Bezeichnung allmatches ausgewählt werden。联赛/赛季配置中的数据点，落入了安加本的罪孽之中。以 JSON 格式查看联赛/赛季的所有比赛和比赛 |
-|当前游戏日 |概要 |今日游戏当天请注意以下事项。联赛/赛季配置中的数据点，落入了安加本的罪孽之中。适配器是当前基准数据的基础。游戏标签是指在游戏中的游戏标签和未来的游戏标签之间的时间间隔。 |
-|马克西康 |           | Maxmale Größe des Manschaftsicons in x oder y-Richtung。                                                                                                                                                                                                                                                                                                                                                                   |
-|排序4e |           | Einstellung nachdem sortiert werden soll。                                                                                                                                                                                                                                                                                                                                                                                  |
-|简称 |           | Anstatt des Manschaftsnamens wrd der Kurzname angezeigt，落在 den vorliegenden Daten gepflegt wurde 中。                                                                                                                                                                                                                                                                                                           |
-|亮点是安芳|           |这是突出显示的Anfang der Tabelle angezeigt。                                                                                                                                                                                                                                                                                                                                                                        |
-|突出|           |您可以使用分号 (;) 来表示所有内容，然后使用分号 (;) 来表示。 Die Suche erfolgt nur in den Mannschaftsnamen。带有 HTML 标签的珠宝名称`<b>` 是最伟大的。详细格式可以参见 css-Klasse“最喜欢的”erfolgen。                                                                                                                |
+#### 属性透视表
+| 属性 | 组 | 描述 |
+| ------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 所有比赛 | 常规 | 此处必须选择名为 **allmatches** 的数据点。配置联赛/赛季后，如果配置有效，则会创建此数据点。它包含联赛/赛季的所有比赛和结果，格式为 JSON。 |
+| 当前比赛日 | 常规 | 此处必须选择名为 **当前比赛日** 的数据点。此数据点在配置联赛/赛季后创建（前提是配置有效）。其值由适配器根据当前日期计算。当前比赛日在上一个比赛日的最后一场比赛和下一个比赛日的第一场比赛之间切换。 |
+| maxicon | | 球队图标在 x 或 y 方向上的最大尺寸。 |
+| sort4e | | 定义要应用的排序标准。 |
+| 简称 | | 如果提供的数据中包含简称，则显示简称而不是团队名称。 |
+| 开场高亮显示 | | 在表格开头显示高亮显示的球队。 |
+| 高亮显示 | | 您可以在此处输入一个或多个要高亮显示的词语，用分号 (;) 分隔。搜索仅在团队名称内进行。匹配的名称将用 HTML `<b>` 标签包裹。您可以使用 CSS 类 **"favorite"** 应用更详细的格式设置。 |
 
-### 进球者 2
-Widget zeigt die alle Torjäger 和
+### 得分手 2
+此小部件显示所有得分最高的选手。
 
 #### 属性目标获取器
-|属性|集团 |说明 |
-| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|守门员 |概要 |守门员在比赛中的表现非常出色。联赛/赛季配置中的数据点，落入了安加本的罪孽之中。 Der Datenpunkt enthält alle Torjäger der aktuellen Saison。                                             |
-|马克西玛拉·安扎尔 |           | Nur die angegebene Anzahl an Torjäger wird angezeigt。                                                                                                                                                                                                                                                   |
-|排序|           | Auswahl der Sortierreihenfolge。                                                                                                                                                                                                                                                                         |
-|努尔亮点|           | Nur die Einträge zum Higlightfilter werden angezeigt。                                                                                                                                                                                                                                                   |
-|突出|           |您可以使用分号 (;) 来表示所有内容，然后使用分号 (;) 来表示。 Die Suche erfolgt nur in den Spielernamen。带有 HTML 标签的珠宝名称`<b>` 是最伟大的。详细格式可以参见 css-Klasse“最喜欢的”erfolgen。 |
+| 属性 | 组 | 描述 |
+| ------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 进球者 | 常规 | 此处必须选择名为“进球者”的数据点。此数据点在配置联赛/赛季后创建（前提是配置有效）。它包含当前赛季的所有最佳射手。 |
+| maxcount | | 限制显示的进球球员数量。 |
+| sortorder | | 定义排序顺序。 |
+| onlyhighlight | | 仅显示符合高亮筛选条件的条目。 |
+| 高亮显示 | | 您可以在此处输入一个或多个要高亮显示的词语，用分号 (;) 分隔。搜索仅在玩家名称内进行。匹配的名称将用 HTML `<b>` 标签包裹。您可以使用 CSS 类 **"favorite"** 应用更详细的格式设置。 |
 
-## Rezepte zur Wiederverwendung
-### 超过 Knöpfe 的 Tabellenmodus 管理
-1. Ein Widgets 表 v2 anlegen。并在 der Hilfe beschrieben konfigurieren 中查看
-2. 数据点中的组件设置
+## 可重复利用的食谱
+### 通过按钮控制桌子模式
+1. 创建一个 **table v2** 小部件，并按照本文档中的说明进行配置。
+2. 在小部件设置的“可见性”组中，分配您创建的数据点。
+3. 复制此小部件，并将副本并排放置，以便
 
-   日期朋克
+该视图中总共存在**三个实例**。
 
-3. Dieses Widget kopieren und nebeneinander einfügen, so das es insgesamt
+4. 在每个组件的**可见性**设置中，设置**“条件值”**
 
-3 观点不合
+取以下值之一（每个小部件一个值）：`total`、`home`、`away`
 
-4. Bei Widgeteinstellungen in der Gruppe Sichtbarkeit den “Wert für die”
+5. 创建一个新的控件：**单选按钮值列表**
 
-Bedingung dann bei jedem der 3 Widgets jeweils nur einen der folgenden Werte eintragen Total,home,away
+（包含在默认的 vis 安装中）。
 
-5. Dann ein neues Widget anlegen：Radiobuttons ValueList（位于 der
+6. 在此小部件的“常规”组下，选择您创建的对象 ID。
+7. 在“值”字段中，输入：
 
-   标准安装 von vis schon enthalten
+`total;home;away`（此值必须与小部件可见性设置中使用的值匹配）
 
-6. 在 Gruppe Allgemein deinenangelegten ObjectID auswählen 中的 diesem Widget 中
-7. Bei Werte das folgende eintragen：total;home;away（dies muss mit dem was）
+8. 在“文本”栏中输入：
 
-   du unter sichtbarkeit bei den widgets eingetragen hast zusammenpassen
+`Total;Home;Away`
 
-8. Bei Texte das folgende eintragen: Gesamt;Heim;Auswärts
-9. Dann in den vis running gehen und ausprobieren
-10. Wenn alles funktioniert zum Schluss noch die widgets exakt übereinander
+9. 打开 vis 运行时并测试设置。
+10. 一切就绪后，将小部件精确地叠放在一起。
 
-    传奇，所以是澳大利亚人
+这样它们就会显示为一个单独的组件。
 
-### Laufschrift einer Widgetzeile
-sieht nur schön aus，wenn nur eine oder wenige Zeilen angezeigt werden bspw bei dem FavGame-widget
+### 控件行的滚动（跑马灯）效果
+当只显示一行或几行时，例如在 **FavGame 小部件** 中，效果最佳。
 
-`#w00000` 是小部件的 ID，是一个动画。
+`#w00000` 是要进行动画处理的控件的 ID。
 
 扩张
 
 ```css
 #w00000 .oldb-tt {
-  max-width: 100vw; /* iOS braucht das */
-  overflow: hidden;
+    max-width: 100vw; /* iOS needs this */
+    overflow: hidden;
 }
 
 #w00000 .oldb-tt tbody {
-  display: inline-block;
-  padding-left: 100%;
-  animation: marquee 10s linear infinite;
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 10s linear infinite;
 }
 
 /* Make it move */
 @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 ```
 
 ### Spieltag über +/- Buttons steuern, sowie direkte Auswahl per Listbox
-![控制按钮](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/controlbuttons.png) Dazu ist für die Steuerung ein zusätzlicher Datenpunkt mit Typ Zahl/number anzulegen。
-在 javascript.0.bl1.spieltag genannt 中。
-Danke an bommel_030 Die 4 Steuerelemente zum importieren findet ihr hier:
+![控制按钮](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/controlbuttons.png)
+
+对于此控件，必须创建一个额外的数字类型数据点。
+
+在本例中，它被命名为 javascript.0.bl1.spieltag。
+
+感谢 bommel_030，导入的 4 个控件可以在这里找到：
 
 扩张
 
@@ -280,9 +294,10 @@ Danke an bommel_030 Die 4 Steuerelemente zum importieren findet ihr hier:
     [{"tpl":"_tplGroup","data":{"members":["w00065","w00066","g00001"],"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","attrCount":"1","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0},"widgetSet":null,"style":{"top":38.28125,"left":"663px","width":"141px","height":"37px"}},{"tpl":"tplIconInc","data":{"oid":"javascript.0.bl1.spieltag","repeat_delay":"800","repeat_interval":"800","src":"","step":"-1","minmax":"1","text":"-","g_last_change":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"name":"spieltag_minus","g_visibility":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","g_gestures":false,"g_signals":false,"signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false},"style":{"left":"0%","top":"16.22%","background":"#303030","width":"17.73%","height":"67.57%","z-index":"50","font-family":"","background-color":"#303030","font-weight":"bolder","border-width":"2px","border-radius":"10px","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","color":"white","border-style":"solid","border-color":"white","font-size":""},"widgetSet":"jqui","grouped":true,"groupName":"w00065"},{"tpl":"tplIconInc","data":{"oid":"javascript.0.bl1.spieltag","repeat_delay":"800","repeat_interval":"800","src":"","step":"+1","minmax":"34","text":"+","gestures-offsetX":0,"gestures-offsetY":"-1","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis.0/VIS/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis.0/VIS/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis.0/VIS/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"g_last_change":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"name":"spieltag_plus","g_visibility":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide"},"style":{"left":"82.27%","top":"16.22%","background":"#303030","width":"17.73%","height":"67.57%","z-index":"50","font-family":"","background-color":"#303030","font-weight":"bolder","border-width":"2px","border-radius":"10px","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","color":"white","border-style":"solid","border-color":"white"},"widgetSet":"jqui","grouped":true,"groupName":"w00066"},{"tpl":"_tplGroup","data":{"members":["w00064","w00059"],"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","attrCount":"1","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0},"widgetSet":null,"style":{"top":"0%","left":"21.99%","width":"56.74%","height":"100%"},"grouped":true,"groupName":"g00001"},{"tpl":"tplJquiSelectList","data":{"oid":"javascript.0.bl1.spieltag","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"values":"1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34","texts":"1. Spieltag;2. Spieltag;3. Spieltag;4. Spieltag;5. Spieltag;6. Spieltag;7. Spieltag;8. Spieltag;9. Spieltag;10. Spieltag;11. Spieltag;12. Spieltag;13. Spieltag;14. Spieltag;15. Spieltag;16. Spieltag;17. Spieltag;18. Spieltag;19. Spieltag;20. Spieltag;21. Spieltag;22. Spieltag;23. Spieltag;24. Spieltag;25. Spieltag;26. Spieltag;27. Spieltag;28. Spieltag;29. Spieltag;30. Spieltag;31. Spieltag;32. Spieltag;33. Spieltag;34. Spieltag","height":"150","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"no_style":true,"class":"","lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"open":false,"name":"spieltag_liste","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide"},"style":{"left":"0%","top":"54.77%","height":"45.95%","width":"100%","background":"","box-shadow":"","border-radius":"5px","padding-left":"","padding-right":"","margin-right":"","color":"","font-weight":"bolder","border-width":"2px","border-style":"solid","border-color":"white","background-color":""},"widgetSet":"jqui","grouped":true,"groupName":"w00064"},{"tpl":"tplIconState","data":{"oid":"javascript.0.bl1.spieltag","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":false,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"text":"Heute","invert_icon":false,"value":"{openligadb.0.bl1.2019.currgameday}"},"style":{"left":"0%","top":"0%","color":"white","background":"#303030","font-size":"small","font-weight":"normal","height":"45.95%","border-width":"2px","border-style":"solid","border-color":"white","width":"100%"},"widgetSet":"jqui","grouped":true,"groupName":"w00059"}]
 ```
 
-### Anzeige von bestimmten Eigenschaften，falls eine der Lieblingsmannschaften am heutigen Tag spielen
-**Beipiel 1** HTML-Widget 是一个简单的背景，来自拜仁现在的主题。
-Der Bindungsausdruck 位于 das Field 背景色中，是 Reiter CSS Hintergrund gesetzt 中的。
+### 如果您喜欢的球队今天有比赛，则显示特定属性
+**示例 1** 如果拜仁慕尼黑今天有比赛，则 HTML 小部件的背景会变为绿色。
+
+绑定表达式放置在此处 CSS 背景选项卡的 background-color 字段中。
 
 ```text
     {a:openligadb.0.bl1.2019.currgameday;vis.binds["openligadb"].checkTodayFavorite('openligadb.0.bl1.2019.allmatches','bayern')?'red':'green'}
@@ -294,19 +309,20 @@ Der Bindungsausdruck 位于 das Field 背景色中，是 Reiter CSS Hintergrund 
     [{"tpl":"tplHtml","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":true,"g_css_shadow_padding":false,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","refreshInterval":"0","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0},"style":{"left":"445px","top":"589px","background":"{a:openligadb.0.bl1.2019.currgameday;vis.binds[\"openligadb\"].checkTodayFavorite('openligadb.0.bl1.2019.allmatches','bayer')?'red':'green'}","width":"70px","height":"70px","border-radius":"10px"},"widgetSet":"basic"}]
 ```
 
-### 表格小部件的 Auswahl des Tabellenmodus
-![表格模式](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/tableselect.png) 将 HTML 小部件设置为 Tabellen 小部件的模式。
-Der im folgenden widget verwendete Datenpunkt lautet：
+### 选择表格控件的表格模式
+![表格模式](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/tableselect.png) 此 HTML 小部件控制表格小部件的模式。
 
-`javascript.0.tabellemodus`
+以下小部件中使用的数据点为：
 
-Dieser ist als Bindung in das attribut mode_binding im tabellen widget wie folgt zuhinterlegen:
+`javascript.0.tablemode`
+
+这必须绑定到表格小部件中的 `mode_binding` 属性，如下所示：
 
 ```text
     {javascript.0.tabellemodus}
 ```
 
-Hier der widget code zum importieren.
+以下是导入所需的组件代码。
 
 扩张
 
@@ -316,79 +332,84 @@ Hier der widget code zum importieren.
 
 ## 特殊功能
 ### Vis.binds\["openligadb"\].checkTodayFavorite(ObjectID,Favorites)
-Javascript-Funktion zur Überprüfung, ob am heutigen Tag for ein oder mehrere Mannschaften ein Spiel statt findet.该功能可以与绑定版本一起使用。绑定的安装方式将在海滩上进行。
+此 JavaScript 函数用于检查今天是否有一个或多个球队的比赛。该函数可通过 vis 绑定使用。
 
-Diese Funktion 可以通过 Binding bspw 来实现。 wie folgt verwendet werden。
-Zum Test 可以使用 HTML-widget eingetragen werden 中的符号。
-Als Ergebnis dann entweder ja oder nein ausgegeben, je nachdem ob am heutigen Tag der Suchbegriff in den Mannschaftsnamen gefunden wurde。
-Alle Anführungszeichen (einfache und doppelte) müssen exakt so eingegeben werden。
+由于绑定要求，需要考虑以下几点。
 
-架构
+这个函数可以在绑定中使用，例如，如下所示。
+
+为了进行测试，可以将以下符号输入到 HTML 小部件中。
+
+结果将为“是”或“否”，具体取决于搜索词今天是否出现在球队名称中。
+
+所有引号（单引号和双引号）必须与所示完全一致。
+
+#### 模式
 ```text
     {a:oid;vis.binds["openligadb"].checkTodayFavorite('oid_allmatches','clubsuche1,clubsuche2')?'ja':'nein'}
 ```
 
-现实生活中的例子
+#### 真实案例
 ```text
     {a:openligadb.0.bl1.2024.currgameday;vis.binds["openligadb"].checkTodayFavorite('openligadb.0.bl1.2024.allmatches','bayern')?'ja':'nein'}
 ```
 
-#### 参数意义
+#### 参数的含义
 ```text
-<table><tbody><tr><td>oid</td><td>ein beliebiger Datenpunkt, der die Aktualisierung triggert. Es empfiehlt sich bspw. currgameday zu wählen,<br>da dies gleichzeitig mit allmatches aktualisiert wird.</td></tr><tr><td>oid_allmatches</td><td>Bezeichnung eines Datenpunktes allmatches der jeweiligen Liga/Saison.</td></tr><tr><td>clubsuche</td><td>ein oder mehrere Bezeichnungen (können auch Teilbezeichnungen sein), mit Komma (,) getrennt. Bitte beachten.<br>Diese Feld entspricht in den Widgets dem Feldt highlight. Mehrere Suchbegriffe müssen hier nur mit Komma getrennt werden und nicht mit Semikolon wie in den Widgets.</td></tr></tbody></table>
+<table><tbody><tr><td>oid</td><td>An arbitrary data point that triggers the update. It is recommended to choose, for example, currgameday,<br>as this is updated simultaneously with allmatches.</td></tr><tr><td>oid_allmatches</td><td>Name of an allmatches data point for the respective league/season.</td></tr><tr><td>clubsuche</td><td>One or more names (can also be partial names), separated by commas (,). Please note:<br>This field corresponds to the highlight field in the widgets. Multiple search terms only need to be separated by commas here, not by semicolons as in the widgets.</td></tr></tbody></table>
 ```
 
-vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.openligadb/blob/master/widgets/openligadb/doc.html) 中找到
+vis 小部件的文档可在 vis 或 [小部件文档/德语](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.openligadb/blob/master/widgets/openligadb/doc.html) 中找到
 
 ## `sendTo` 命令
-###`getMatchData`
-按联盟、赛季和时间范围从 OpenLigaDB 请求数据。
+### `getMatchData`
+按联赛、赛季和时间范围从 OpenLigaDB 请求数据。
 
-#### 强制参数
+#### 必填参数
 | `Parameter` | `Example` | `Type` | `Description` |
 | `league` | `bl1` | `string` | `identifier of the league, see openlogadb` |
 | `season` | `2024` | `string` | `name of the season, see openlogadb` |
 | `datefrom` | `2024-09-01T00:00` | `string` | `date in ISO notation` |
 | `datetill` | `2024-09-10T00:00` | `string` | `date in ISO notation` |
-| `datetill` | `2024-09-10T00:00` | `string` | `ISO 符号中的日期` |
+| `datetill` | `2024-09-10T00:00` | `字符串` | `ISO 表示法的日期` |
 
-＃＃＃＃ 例子
+#### 示例 sendTo
 ```javascript
 sendTo(
-  "openligadb.0",
-  "getMatchData",
-  {
-    league: "bl1",
-    season: "2024",
-    datefrom: "2024-09-01T00:00",
-    datetill: "2024-09-10T00:00",
-  },
-  function (matches) {
-    console.log(matches);
-  }
+    'openligadb.0',
+    'getMatchData',
+    {
+        league: 'bl1',
+        season: '2024',
+        datefrom: '2024-09-01T00:00',
+        datetill: '2024-09-10T00:00',
+    },
+    function (matches) {
+        console.log(matches);
+    },
 );
 ```
 
-待办事项
-- 如果用户没有选择正确的数据点，则在小部件中进行验证
-- ~~翻译~~
-- ~~新小部件数据透视表和 goalgetters 的文档~~
-- ~~扩展桌面模式，增加第一轮、第二轮~~
-- ~~已玩过的游戏的新小部件数据透视表~~
-- ~~新的小部件目标获取器排名，具有排序功能~~
-- ~~用趋势符号扩展表格（向上/向下箭头，指向无变化）~~
-- ~~扩展表格以计算最后 x 场比赛~~
-- ~~扩展表格以计算特定比赛日的排名~~
+## 待办事项
+- 如果用户未选择正确的数据点，则在小部件中进行验证
+翻译
+- ~~新增透视表和目标获取器组件的文档~~
+- ~~扩展表格模式，包含第一轮、第二轮~~
+- ~~新的游戏记录透视表组件~~
+- ~~新增带有排序功能的组件目标获取排名~~
+- ~~扩展表格，添加趋势符号（向上/向下箭头，箭头表示不变）~~
+- ~~扩展表格以计算最近 x 场比赛的结果~~
+- ~~扩展表格以计算指定比赛日的排名~~
 - ~~文档适配器/小部件~~
-- ~~修复俱乐部栏目动态问题~~
-- ~~新小部件：俱乐部的下 x 场比赛~~
-- ~~widget gameday 设置开始比赛日的长度 (-1,3 = 显示上一个
+修复俱乐部列动态化的问题
+- ~~新组件：俱乐部接下来的 x 场比赛~~
+- ~~小部件游戏日设置，用于开始游戏日并设置长度（-1,3 = 显示上一个游戏日）
 
-比赛日和之后的 3 个比赛日）~~
+比赛日及之后的3个比赛日）~~
 
-- ~~如果 showgameday 设置了绑定，则替换编辑模式的值~~
-- ~~突出显示最喜欢的俱乐部~~
-- ~~在比赛日小部件中可控制比赛日~~
+- ~~如果绑定了 showgameday，则此值为编辑模式的替代值~~
+- ~~重点推荐俱乐部~~
+- ~~游戏日小部件中的可控游戏日~~
 
 ## Changelog
 
@@ -396,6 +417,28 @@ sendTo(
   Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
+### 1.9.3 (2026-03-29)
+
+- translate widgets
+- translate readme
+- move widgetscript to dist folder
+- remove unused scripts
+- release
+- fix workflow
+
+### 1.9.1 (2025-08-26)
+
+- test remove node 18,extend to node 24
+- fix calcCurrentGameDay if games array is empty
+
+### 1.9.0 (2025-08-04)
+
+- revert to node 18
+- move to axios
+- use ioUtils
+- move to class
+- improve currgameday calc if the season didnt start
+
 ### 1.8.1 (2025-01-23)
 
 - adjust breakpoints in jsonConfig as a workaround for the new table/card-elements
@@ -659,7 +702,7 @@ sendTo(
 
 MIT License
 
-Copyright (c) 2025 oweitman
+Copyright (c) 2025-2026 oweitman
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

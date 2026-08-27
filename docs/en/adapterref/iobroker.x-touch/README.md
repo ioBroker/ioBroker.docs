@@ -28,7 +28,15 @@ There a two acepted commands:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.9.1 (2026-08-22)
+* (Bannsaenger) updated dependencies and issues from repository checker
+* (Bannsaenger) preserve names while database creation
+* (Bannsaenger) restructured main.js and completed JsDoc requirements
+* (Bannsaenger) fixed update the buttons from the desk when blanked/unblanked or new connected
+
+### 0.9.0 (2026-05-15)
+* (Bannsaenger) added additional path checking on importing files
+* (copilot) Adapter requires node.js >= 22 now
 * (Bannsaenger) updated dependencies and issues from repository checker
 * (Bannsaenger) preserve names while database creation
 * (Bannsaenger) restructured main.js and completed JsDoc requirements
@@ -45,12 +53,7 @@ There a two acepted commands:
 * (Bannsaenger) node 22 in deploy script
 * (Bannsaenger) do not send updates when lock feature is in blank mode
 
-### 0.8.0 (2025-05-15)
-* (Bannsaenger) updated dependencies, node 24 compatibility
-* (Bannsaenger) refactored lock feature
-
-### 0.7.1 (2025-02-25)
-* (Bannsaenger) updated admin dependency
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

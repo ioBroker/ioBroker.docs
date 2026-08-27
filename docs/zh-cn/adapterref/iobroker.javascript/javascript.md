@@ -4,12 +4,12 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.javascript/javascript.md
 title: 无标题
-hash: UmK1HZKtWaP8R5sBrmHDlBd/X2rcN/ZpM8kys6G6zfM=
+hash: NogBCyMp5BYHsfx/fMVZjU5d8QeI/rlWmvGLGoaJw6w=
 ---
 ＃＃ 内容
 - [注](#note)
 - [全局函数](#global-functions)
-- [最佳实践](#best-practice)
+- [最佳实践](#最佳实践)
 
 - [函数](#以下函数可在脚本中使用)
 - [require - 加载一些模块](#require---load-some-module)
@@ -83,6 +83,7 @@ hash: UmK1HZKtWaP8R5sBrmHDlBd/X2rcN/ZpM8kys6G6zfM=
 - [isScriptActive](#isscriptactive)
 - [名称](#脚本名称)
 - [实例](#实例)
+- [秘密](#secrets)
 - [messageTo](#messageto)
 - [messageToAsync](#messagetoasync)
 - [onMessage](#onmessage)
@@ -244,7 +245,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 | valLt | mixed | 新值必须小于给定值 |
 | valLe | mixed | 新值必须小于或等于给定值 |
 |             |            |                                                                                                                                                     |
-| ack | 布尔值 | 确认新值的状态是否等于给定值 |
+| ack | 布尔值 | 新值的确认状态是否等于给定值 |
 | q | 数字 | 新值的质量代码状态与给定值相等。您可以使用“*”匹配任何代码。**如果未提供，则 q = 0 设置为模式！** |
 |             |            |                                                                                                                                                     |
 | oldVal | mixed | 先前的值必须等于给定的值 |
@@ -276,7 +277,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 | lcLe | 字符串 | 最后更改时间戳必须小于给定时间戳 (state.lc < lc) |
 |             |            |                                                                                                                                                     |
 | oldLc | 字符串 | 上一次最后更改时间戳必须等于给定的时间戳 (oldState.lc == lc) |
-| oldLcGt | 字符串 | 上一次最后更改时间戳必须与给定的时间戳不相等 (oldState.lc != lc) |
+| oldLcGt | 字符串 | 上一次最后更改时间戳必须与给定时间戳不相等 (oldState.lc != lc) |
 | oldLcGe | 字符串 | 上次更改时间戳必须大于给定值 (oldState.lc > lc) |
 | oldLcLt | 字符串 | 上一次最后更改时间戳必须大于或等于给定值 (oldState.lc >= lc) |
 | oldLcLe | 字符串 | 上一次最后更改时间戳必须小于给定的时间戳 (oldState.lc < lc) |
@@ -557,13 +558,13 @@ schedule({ astro: 'sunset', shift: 10 }, () => {
 - “黄金时段”：傍晚黄金时段开始
 - `"sunsetStart"`：日落开始（太阳的下边缘触及地平线）
 - `"日落"`：日落（太阳消失在地平线以下，傍晚民用曙暮光开始）
-- `"dusk"`：黄昏（傍晚航海曙暮光开始）
+- `"dusk"`：黄昏（傍晚航海曙光开始）
 - `"nauticalDusk"`：航海黄昏（傍晚天文曙暮光开始）
 - `"night"`：夜晚开始（足够黑暗，可以进行天文观测）
 - `"nightEnd"`：夜晚结束（晨曦天文曙光开始）
 - `"nauticalDawn"`：航海黎明（早晨航海曙光开始）
 - `"dawn"`：黎明（航海晨昏蒙影结束，民用晨昏蒙影开始）
-- `"nadir"`：夜空最低点（夜晚最黑暗的时刻，太阳位于最低位置）
+- `"nadir"`：nadir（夜晚最黑暗的时刻，太阳位于最低点）
 
 **注意：**要使用“astro”功能，必须在javascript适配器设置中定义“纬度”和“经度”。
 
@@ -684,7 +685,7 @@ let tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() +
 let tomorrowNight = getAstroDate('night', tomorrow);
 ```
 
-**注意：根据您的地理位置，某些时间段内可能不存在“夜晚”/“夜晚结束”等概念（例如，每年五月/六月北方地区！）。**
+**注意：根据您的地理位置，某些时间段可能不存在“夜晚”/“夜晚结束”之类的概念（例如，每年五月/六月北方地区！）。**
 
 您可以使用类似 [suncalc.net](http://suncalc.net) 的网页来检查时间点是否正确。
 
@@ -1059,7 +1060,7 @@ createState(name, initialValue, forceCreation, common, native, callback);
 
 如果 javascript 空间中不存在状态和对象，则创建它们，例如 `javascript.0.mystate`。
 
-!! 建议使用完整 ID `0_userdata.0.mystate` 创建自己的数据点！！！
+!! 建议使用完整 ID `0_userdata.0.mystate` 创建自己的数据点 !!!
 
 ＃＃＃＃ 参数：
 - `name`：不带命名空间的州名称，例如 `mystate`
@@ -1103,6 +1104,17 @@ createState 的一种可能简写形式：
 - `createState('myDatapoint', { name: '我自己的数据点', unit: '°C' }, () => { log('已创建'); });`
 - `createState('myDatapoint', 1, { name: '我的数据点', unit: '°C' })` - 如果数据点不存在，则创建具有指定名称和单位的数据点
 
+#### 第二个位置的对象始终是 `common`
+这些简写形式正是第二个位置的对象**永远**不会被读取为初始值的原因。因此，`createState('myDatapoint', {}, { type: 'object' })` 的实际作用与它看起来的并不相同：`{}` 会变成 `common`，而 `{ type: 'object' }` 则会变成 `native`。
+
+要给状态赋予一个非原始值的初始值，请将其放入 `common.def` 中：
+
+```js
+createState('0_userdata.0.myObject', { name: 'My object', type: 'object', read: true, write: true, def: {} });
+```
+
+类型为 `object`、`json` 或 `array` 的状态会以 JSON 格式保存其值，因此上述状态的初始字符串为 `'{}'`，与 `setState('0_userdata.0.myObject', {})` 存储的值相同。默认情况下，状态会被转换为字符串；您也可以自行输入 `def: '{}'`。
+
 ### 创建状态异步
 ```js
 await createStateAsync(name, initialValue, forceCreation, common, native);
@@ -1141,7 +1153,7 @@ createAlias(name, alias, forceCreation, common, native, callback);
 
 ＃＃＃＃ 参数：
 - `name`：新别名状态的 ID（可以不带别名命名空间），例如 `test.mystate`（将添加命名空间 `alias.0.` = `alias.0.test.mystate`）
-- `alias`：可以是现有状态 ID 的字符串，也可以是包含完整别名定义的对象，包括读/写 ID 和读/写函数。注意：别名定义不能作为通用参数的一部分进行设置！
+- `alias`：可以是现有状态 ID 的字符串，也可以是包含完整别名定义的对象，其中应包含读/写 ID 和读/写函数。注意：别名定义不能作为通用参数的一部分进行设置！
 - `forceCreation`：创建/覆盖别名，无论状态是否存在。
 - `common`：别名对象的通用描述，请参阅[此处](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state)的描述。此处提供的值将优先于读取别名 ID 对象的通用定义。注意：别名定义不能作为此通用参数的一部分进行设置，请参阅别名参数！
 - `native`：对象的原生描述。任何具体信息。
@@ -2141,6 +2153,60 @@ if (verbose) {
     log('...');
 }
 ```
+
+### 秘密
+`SECRETS` - 中央 ioBroker 凭证存储的凭证。
+
+凭据在管理界面的“基本设置”->“凭据”下进行管理。每个凭据都有一个 ID（例如 `CameraPassword`），并包含单个密钥（例如 API 密钥或密码）或登录名/密码对。密钥字段使用系统密钥加密存储，并以解密后的形式传递给脚本。
+
+```js
+// credential of the type "key"
+httpGet(`http://camera.local/snapshot?password=${SECRETS.CameraPassword.key}`, (err, result) => {
+    // ...
+});
+
+// credential of the type "login"
+log(`Mail account: ${SECRETS.MyMailAccount.login} / ${SECRETS.MyMailAccount.password}`);
+
+// credential IDs that are no valid variable names
+log(SECRETS['My camera'].key);
+```
+
+`SECRETS` 是只读的，并且始终保持最新状态：如果在管理 UI 中添加、更改或删除凭据，则会立即使用新值 - 适配器和脚本都不需要重新启动。
+
+如果凭证不存在，则返回`undefined`：
+
+```js
+if (SECRETS.CameraPassword) {
+    log('The camera password is defined');
+}
+```
+
+凭证包含哪些字段？
+每个凭证要么只有一个`key`，要么是`login`/`password`组合。有三种方法可以确定是哪种：
+
+- 在 JavaScript 适配器的实例设置中，“可用凭据”部分列出了所有凭据。
+
+包含字段和可复制表达式的凭证。
+
+- 在编辑器中，`SECRETS.` 后的自动补全功能会提供已存在的凭据，而`SECRETS.` 之后则提供已存在的凭据。
+
+接下来，准确地列出该凭证所包含的字段。
+
+- 在脚本中：
+
+```js
+log(JSON.stringify(Object.keys(SECRETS.CameraPassword))); // ["key"]
+log(JSON.stringify(Object.keys(SECRETS.MyMailAccount))); // ["login","password"]
+```
+
+Blockly 有一个用于相同目的的**凭证**块 - 请参阅 [Blockly 文档](blockly.md#credential)。
+
+可以通过实例选项“**允许脚本读取凭据**”关闭访问权限。
+
+此时，`SECRETS` 为空，并且会在日志中写入一条警告信息。
+
+**注意：**这需要 js-controller 7.2 或更高版本。
 
 ## 选项 - “启动时不订阅所有状态”
 订阅状态有两种方式：

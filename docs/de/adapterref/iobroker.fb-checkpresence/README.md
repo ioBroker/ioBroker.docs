@@ -3,57 +3,56 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fb-checkpresence/README.md
 title: ioBroker.fb-checkpresence
-hash: jVJtLk82Puyn88CD0bxI5wf5ZncRx8sjThGlLTYDTi0=
+hash: hg7iuPPe4NXcmnQfrvXCrazfTU4pd774cCmOJKkuGuA=
 ---
 ![Logo](../../../en/adapterref/iobroker.fb-checkpresence/admin/fb-checkpresence.png)
 
 ![GitHub-Lizenz](https://img.shields.io/github/license/afuerhoff/iobroker.fb-checkpresence)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/afuerhoff/iobroker.fb-checkpresence)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/afuerhoff/iobroker.fb-checkpresence)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/afuerhoff/iobroker.fb-checkpresence)
 ![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/afuerhoff/iobroker.fb-checkpresence/latest)
-![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/afuerhoff/iobroker.fb-checkpresence)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/afuerhoff/iobroker.fb-checkpresence)
 ![GitHub-Probleme](https://img.shields.io/github/issues/afuerhoff/iobroker.fb-checkpresence)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/fb-checkpresence-installed.svg)
 ![Stabile Version](https://iobroker.live/badges/fb-checkpresence-stable.svg)
 ![Neueste NPM-Version](https://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
 
 # IoBroker.fb-checkpresence
-**Tests:** ![Testen und Freigeben](https://github.com/afuerhoff/ioBroker.fb-checkpresence/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/afuerhoff/ioBroker.fb-checkpresence/workflows/Test%20and%20Release/badge.svg)
 
 ## Fb-checkpresence-Adapter für ioBroker
-Der Adapter prüft die Anwesenheit von Familienmitgliedern über die Fritzbox.
-Sie müssen den Namen des Familienmitglieds und die MAC-Adresse (oder IP-Adresse) des verwendeten Geräts eingeben.
-Der Kommentar ist optional und Sie können das Familienmitglied aktivieren oder deaktivieren.
-Der Datenpunkt basiert auf dem Mitgliedsnamen.
+Der Adapter prüft, ob Familienmitglieder über die Fritzbox verbunden sind.
+Sie müssen den Namen des Familienmitglieds und die MAC-Adresse (oder IP-Adresse) des verwendeten Geräts angeben.
+Der Kommentar ist optional; Sie können das Familienmitglied aktivieren oder deaktivieren.
+Der Datenpunkt basiert auf dem Namen des Mitglieds.
 
 ### Verwendeter Open-Source-Code
 #### Npm dateformat v4.5.3
-(c) 2007-2009 Steven Levithan <stevenlevithan.com> npm: https://www.npmjs.com/package/dateformat github: https://github.com/felixge/node-dateformat Lizenz: MIT
+© 2007–2009 Steven Levithan <stevenlevithan.com> npm: https://www.npmjs.com/package/dateformat github: https://github.com/felixge/node-dateformat Lizenz: MIT
 
-### Adaptervoraussetzungen
-Für die korrekte Funktion ist die Installation eines History-Adapters erforderlich. Zur Auswahl stehen folgende Adapter:
+### Adapter-Vorbedingungen
+Für die korrekte Funktion müssen Sie einen Verlaufsadapter installieren. Sie können einen der folgenden Adapter auswählen:
 
 * Geschichte
 * SQL
 * InfluxDB
 
-## Gebrauchtes Gerät
+## Verwendetes Gerät
 Für diesen Adapter wird die AVM Fritzbox verwendet. Informationen zur Fritzbox finden Sie hier: https://avm.de/produkte/fritzbox/.
 Die Fritzbox-Dienste werden über das TR-064-Protokoll genutzt.
 
 ### Fritzbox-Bedingungen
-Die verwendete TR-064-Schnittstelle der Fritzbox ist hier beschrieben: https://avm.de/service/schnittstellen/.
-Folgende TR-064-Dienste und -Aktionen werden verwendet:
+Die verwendete TR-064-Schnittstelle der Fritzbox wird hier beschrieben: https://avm.de/service/schnittstellen/. Folgende TR-064-Dienste und -Aktionen werden genutzt:
 
-* Hosts:1 - X_AVM-DE_GetHostListPath (unterstützt seit 09.01.2017)
+* Hosts:1 - X_AVM-DE_GetHostListPath (unterstützt seit 2017-01-09)
 * Hosts:1 - X_AVM-DE_GetMeshListPath
 * Hosts:1 - GetSpecificHostEntry
 * Hosts:1 - X_AVM-DE_GetSpecificHostEntryByIP (unterstützt seit 18.05.2016)
-* Geräteinfo:1 - GetSecurityPort
-* Geräteinfo:1 - Informationen abrufen
+* DeviceInfo:1 - GetSecurityPort
+* DeviceInfo:1 - GetInfo
 * WANPPPConnection:1 - GetInfo
 * WANIPConnection:1 - GetInfo
 * WLANConfiguration3 - SetEnable
@@ -64,143 +63,172 @@ Folgende TR-064-Dienste und -Aktionen werden verwendet:
 * DeviceConfig:1 - Neustart
 * LANConfigSecurity1 - X_AVM-DE_GetCurrentUser
 
-Standardmäßig ist die TR-064-Schnittstelle nicht aktiviert. Dies lässt sich jedoch ganz einfach über die Weboberfläche der FritzBox ändern. Loggen Sie sich dazu in Ihre FritzBox ein und stellen Sie sicher, dass die Expertenansicht aktiviert ist. Anschließend finden Sie unter „Heimnetz » Heimnetzübersicht » Netzwerkeinstellungen“ den Punkt „Zugriff für Anwendungen erlauben“. Aktivieren Sie dort das Kontrollkästchen und starten Sie die FritzBox anschließend einmal neu.
+Die TR-064-Schnittstelle ist standardmäßig deaktiviert. Dies lässt sich jedoch ganz einfach über die FritzBox-Weboberfläche ändern. Melden Sie sich dazu an Ihrer FritzBox an und stellen Sie sicher, dass die Expertenansicht aktiviert ist.
+Anschließend finden Sie unter „Heimnetzwerk » Heimnetzwerk-Übersicht » Netzwerkeinstellungen“ den Punkt „Zugriff für Anwendungen erlauben“. Aktivieren Sie dort das Kontrollkästchen und starten Sie die FritzBox anschließend neu.
 
-Hinweis: Nach dem Ändern der Optionen den Neustart der Fritzbox nicht vergessen!<img src="doc/access_settings_network.JPG"/>
+Hinweis: Vergessen Sie nicht, die Fritzbox nach dem Ändern der Optionen neu zu starten!<img src="doc/access_settings_network.JPG"/>
 
 ## Konfigurationsdialog
 ### Allgemein
-Die Konfigurationswerte werden validiert und nur korrekte Werte können gespeichert werden. Andernfalls ist die Schaltfläche „Speichern“ deaktiviert.
+Die Konfigurationswerte werden überprüft und nur korrekte Werte können gespeichert werden. Andernfalls ist die Schaltfläche „Speichern“ deaktiviert.
 
-### Fritzbox IP-Adresse, Benutzer und Passwort
-Die Konfiguration von IP-Adresse, Benutzer und Passwort ist notwendig, um die Gerätedaten von der Fritzbox abzurufen.
-Dazu muss in der Fritzbox ein Benutzer angelegt werden. Dies ist ab einer neueren Firmware-Version (>= 7.25) der Fritzbox erforderlich. Weitere Informationen finden Sie hier: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%21Box_v1.1.pdf Das Passwort ist verschlüsselt und wird nicht im Klartext gespeichert. Benutzername und Passwort dürfen maximal 32 Zeichen lang sein. Weitere Informationen finden Sie unter: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf%20nicht%20leer%20sein.
-Hinweis: In manchen Fällen kann die Fritzbox den Benutzer gesperrt haben, wenn das Passwort nicht korrekt eingegeben wurde.
-Oft erscheint eine Timeout-Meldung im Protokoll. Bitte überprüfen Sie anschließend, ob Sie den korrekten Benutzernamen und das korrekte Passwort eingegeben haben. Starten Sie die Fritzbox anschließend neu.
+### Fritzbox IP-Adresse, Benutzername und Passwort
+Die Konfiguration von IP-Adresse, Benutzername und Passwort ist erforderlich, um die Gerätedaten von der Fritzbox abzurufen.
+Daher muss ein Benutzer in der Fritzbox angelegt werden. Dies ist ab der Firmware-Version 7.25 der Fritzbox erforderlich. Weitere Informationen finden Sie hier: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%21Box_v1.1.pdf Das Passwort ist verschlüsselt und wurde nicht im Klartext gespeichert. Benutzername und Passwort dürfen maximal 32 Zeichen lang sein. Weitere Informationen finden Sie unter: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf%20nicht%20leer%20sein.
+
+Hinweis: In manchen Fällen kann es vorkommen, dass die Fritz!Box den Benutzer gesperrt hat, weil das Passwort nicht korrekt eingegeben wurde. Häufig findet sich im Protokoll eine Timeout-Meldung. Bitte überprüfen Sie anschließend, ob Sie den korrekten Benutzernamen und das korrekte Passwort eingegeben haben. Starten Sie die Fritz!Box dann neu.
 
 ### SSL-Option
-In manchen Fällen konnte der Adapter keine Verbindung zur Fritzbox herstellen. Es kann hilfreich sein, diese Option zu deaktivieren.
+In einigen Fällen konnte der Adapter keine Verbindung zur Fritzbox herstellen. Es kann helfen, diese Option zu deaktivieren.
 In diesem Fall versucht der Adapter, eine Verbindung ohne HTTPS herzustellen.
 
 ### Intervall
-Für Familienmitglieder und Fritzbox-Geräte stehen separate Intervalle zur Verfügung.
-Das Intervall für Fritzbox-Geräte kann zwischen 10 und 3600 Sekunden eingestellt werden. Ein optimaler Wert zum Auslesen der Fritzbox-Daten ist normalerweise ein Wert zwischen 60 und 300 Sekunden. Für Familienmitglieder können Intervalle zwischen 10 und 600 Sekunden eingestellt werden. Jeder neue Zyklus startet, sobald der vorherige abgeschlossen ist.
+Sie können separate Intervalle für Familienmitglieder und Fritzbox-Geräte festlegen.
+Das Intervall für Fritzbox-Geräte lässt sich von 10 Sekunden bis 3600 Sekunden konfigurieren. Normalerweise ist ein Wert zwischen 60 und 300 Sekunden optimal, um die Fritzbox-Daten auszulesen. Für Familienmitglieder können Intervalle von 10 Sekunden bis 600 Sekunden eingestellt werden. Jeder neue Zyklus beginnt, sobald der vorherige abgeschlossen ist.
 
 ### Filterzeit
-Wenn die Filterzeit größer als 0s ist, wird der Status eines Familienmitglieds zweimal (nach der Filterzeit) überprüft, ob der Status auf „false“ wechselt. Wenn der Status „true“ ist, wird der Status sofort gesetzt.
+Ist die Filterzeit größer als 0 Sekunden, wird der Status eines Familienmitglieds zweimal (nach Ablauf der Filterzeit) überprüft, falls er sich auf „falsch“ ändert. Ist der Status „wahr“, wird er sofort gesetzt.
 
 ### Verlaufsadapter
-Über den Verlaufsadapter werden einige Werte berechnet. Sie können wählen, ob der Verlaufs-, SQL- oder InfluxDB-Adapter für diese Berechnungen verwendet werden soll. Der Verlaufsadapter muss vorab installiert werden und kann anschließend im Konfigurationsdialog ausgewählt werden.
-
-Ist die Verlaufskonfiguration deaktiviert, können einige Werte nicht berechnet werden.
+Über den History-Adapter werden einige Werte berechnet. Sie können auswählen, ob für diese Berechnungen der History-, der SQL- oder der InfluxDB-Adapter verwendet werden soll. Der History-Adapter muss zuvor installiert werden und kann anschließend im Konfigurationsdialog ausgewählt werden.
+Wenn die History-Konfiguration deaktiviert ist, können einige Werte nicht berechnet werden.
 
 ### Datumsformat
-Die Optionen der Datumsformatmaske werden auf dieser Webseite beschrieben: https://www.npmjs.com/package/dateformat.
-Die Formatmaske wird zum Formatieren der HTML- und JSON-Tabellenobjekte verwendet.
+Die Optionen für die Datumsformatmaske werden auf dieser Webseite beschrieben: https://www.npmjs.com/package/dateformat.
+Die Formatmaske dient zur Formatierung von HTML- und JSON-Tabellenobjekten.
 
 ### Erstellung von FB-Geräten
-Ist diese Option aktiviert, werden die Objekte für jedes Gerät in der Fritzbox-Geräteliste erstellt.
-Ist diese Option deaktiviert, werden auch die Mesh-Informationen deaktiviert.
+Wenn diese Option aktiviert ist, werden Objekte für jedes Gerät in der Fritzbox-Geräteliste erstellt.
+Wenn diese Option deaktiviert ist, werden auch die Mesh-Informationen deaktiviert.
 
-### Resynchronisierung von FB-Geräteobjekten
-Wenn diese Option aktiviert ist, wird das FB-Geräteobjekt erneut mit der Geräteliste der Fritzbox synchronisiert.
+### Resynchronisierung von FB-Geräteobjekten (einmalig)
+Wenn diese Option aktiviert ist, werden die FB-Geräteobjekte einmalig mit der Geräteliste von Fritzbox neu synchronisiert.
 
-### Erstellung von Mesh-Informationen
-Diese Option kann aktiviert werden, wenn die Erstellung von FB-Geräten erlaubt ist. Ist diese Option aktiviert, werden die Mesh-Objekte für jedes Gerät in der Fritzbox-Geräteliste erstellt.
+### Automatische Resynchronisierung von FB-Geräteobjekten
+Wenn diese Option aktiviert ist, werden die FB-Geräteobjekte alle x Tage mit der Geräteliste von Fritzbox neu synchronisiert.
+
+### Erstellung von Netzinformationen
+Diese Option kann aktiviert werden, wenn die Erstellung von FB-Geräten erlaubt ist. Wenn diese Option aktiviert ist, werden die Mesh-Objekte für jedes Gerät in der Fritzbox-Geräteliste erstellt.
 
 ### Gästeinformationen
 Wenn diese Option aktiviert ist, werden die Zustände für Gäste erstellt.
 
 ### QR-Code-Generierung
-Wenn diese Option aktiviert ist, wird der QR-Code vom Gäste-WLAN generiert. Sie können diesen QR-Code mit dem Widget &quot;Basic Boolesches SVG&quot; in Ihrem VIS anzeigen. Bitte verwenden Sie folgende Einstellungen:<img src="doc/QRCode.png"/>
+Wenn diese Option aktiviert ist, wird der QR-Code des Gast-WLANs generiert. Sie können diesen QR-Code in Ihrem VIS mit dem Widget „Basic Boolesches SVG“ anzeigen. Bitte verwenden Sie die folgenden Einstellungen:<img src="doc/QRCode.png"/>
 
 ### Einstellungen für Familienmitglieder
-Für ein konfiguriertes Familienmitglied geben Sie den Namen, den Hostnamen, die MAC- und IP-Adresse sowie einen Kommentar ein. Anschließend können Sie das Mitglied aktivieren oder deaktivieren. Die Angabe einer Gruppe ist optional.
+Für ein konfiguriertes Familienmitglied geben Sie den Mitgliedsnamen, den Hostnamen, die MAC- und IP-Adresse sowie einen Kommentar ein. Anschließend können Sie das Mitglied aktivieren oder deaktivieren. Eine Gruppe ist optional.
 
-Wenn Sie die Gruppe leer lassen und das Kompatibilitätsflag auf „true“ setzen, verhält sich der Adapter wie eine ältere Version. Sie können den Anwesenheitsstatus des Familienmitglieds oder den direkt dem Namen des Familienmitglieds zugeordneten Status verwenden. In zukünftigen Versionen müssen Sie den Anwesenheitsstatus verwenden. Dieses Verhalten kann über das Kontrollkästchen „Kompatibilität“ ein- und ausgeschaltet werden: -> Kompatibilität = „true“: Verhalten wie eine ältere Version mit leerer Gruppe.
--> Kompatibilität = „true“ und nicht leere Gruppe: neues Verhalten. Alle Status befinden sich im Ordner „Familienmitglieder“.
--> Kompatibilität = „false“: neues Verhalten. Alle Status befinden sich im Ordner „Familienmitglieder“.
+Wenn Sie die Gruppe leer lassen und das Kompatibilitätsflag auf „true“ setzen, verhält sich der Adapter wie eine ältere Version. Sie können den Anwesenheitsstatus des Familienmitglieds oder den direkt dem Familienmitgliedsnamen zugeordneten Status verwenden. In einer zukünftigen Version müssen Sie den Anwesenheitsstatus verwenden. Dieses Verhalten lässt sich über das Kompatibilitäts-Kontrollkästchen aktivieren/deaktivieren: -> Kompatibilität = true: Verhalten wie in der älteren Version mit leerer Gruppe.
 
-Der Adapter erstellt für jedes Mitglied einen Anwesenheitsstatus und prüft, ob das Mitglied anwesend oder abwesend ist. Der Status wurde geändert, wenn sich der Anwesenheitsstatus geändert hat.
-Sie können die Filterung für ein Mitglied aktivieren. Ist der Status „true“, ändert er sich sofort. Ist er „false“, wird der Wert nach der Filterzeit erneut geprüft.
-Ist der Status in beiden Fällen „false“, ändert er sich ebenfalls auf „false“. Andernfalls ändert er sich nicht.
+> Kompatibilität = true und Gruppe nicht leer: Neues Verhalten. Alle Status im Ordner „Familienmitglieder“.
 
-Um die Geschwindigkeitsinformationen in den Objekten zu erhalten, müssen Sie die Option „fb-devices“ auswählen.
+> Kompatibilität = false: Neues Verhalten. Alle Status im Ordner „Familienmitglieder“.
+
+Für jedes Mitglied erstellt der Adapter einen Anwesenheitsstatus und prüft, ob das Mitglied vorhanden oder abwesend ist. Der Status ändert sich, wenn sich der Anwesenheitsstatus ändert.
+
+Sie können die Filterung für ein Mitglied auch aktivieren. Ist der Status „wahr“, ändert sich der Status sofort auf „wahr“. Ist er „falsch“, wird der Wert nach der Filterzeit erneut geprüft.
+Ist der Status in beiden Fällen „falsch“, ändert er sich auf „falsch“. Andernfalls bleibt er unverändert.
+
+Um die Geschwindigkeitsinformationen in den Objekten zu erhalten, müssen Sie die Option fb-devices auswählen.
 
 ### Anwesenheit manuell auslösen
-In JavaScript können Sie die Anwesenheit manuell auslösen. Wenn Sie die Nachricht an den Adapter senden, wird jede neue Nachricht 10 Sekunden lang blockiert. Sie erhalten ein negatives Ergebnis (false), wenn die Nachricht blockiert wird.
-True, wenn die Nachricht vom Adapter empfangen wird.
+In JavaScript können Sie die Anwesenheitserkennung manuell auslösen. Wenn Sie die Nachricht an den Adapter senden, werden alle neuen Nachrichten für 10 Sekunden blockiert. Sie erhalten ein negatives Ergebnis (false), wenn die Nachricht blockiert wird.
+
+Sie erhalten „true“, wenn die Nachricht vom Adapter empfangen wird.
+
 ` sendTo('fb-checkpresence.0', 'triggerPresence', {} , function (result) { log(result, 'info'); }); `
 
 ### Whitelist-Einstellungen
-In die Whitelist können Sie alle bekannten Geräte eintragen. Unbekannte Geräte werden in der Blacklist aufgeführt.
+In die Positivliste können Sie alle bekannten Geräte eintragen. Unbekannte Geräte werden in der Negativliste aufgeführt.
 Wenn Sie das Kontrollkästchen in der Tabellenüberschrift aktivieren, werden alle Geräte ausgewählt.
 
-Per Javascript können Sie einen Eintrag an die Whitelist senden.
-Die gesendeten Daten (Hostname, MAC-Adresse) werden mit der Geräteliste der Fritzbox verglichen. Ist der Eintrag vorhanden, wird geprüft, ob er bereits in der Whitelist gespeichert ist. Ist dies nicht der Fall, wird er in der Whitelist-Konfigurationstabelle gespeichert.
+In JavaScript können Sie einen Eintrag zur Whitelist hinzufügen.
+Die gesendeten Daten (Hostname, MAC-Adresse) werden mit der Geräteliste der Fritzbox verglichen. Ist der Eintrag vorhanden, wird geprüft, ob er bereits in der Whitelist gespeichert ist. Falls nicht, wird der Eintrag in der Whitelist-Konfigurationstabelle gespeichert.
 
-sendTo('fb-checkpresence.0', 'addDeviceToWhitelist', { Hostname: 'Gerätename', Mac: '00:00:00:00:00:00' } , Funktion (Ergebnis) { log(Ergebnis, 'Info'); });
+sendTo('fb-checkpresence.0', 'addDeviceToWhitelist', { hostname: 'devicename', mac: '00:00:00:00:00:00' } , function (result) { log(result, 'info'); });
 
 ## Merkmale
-### AVM-Support-Check
-Die Funktion prüft die Verfügbarkeit der genutzten Fritzbox-Funktionen. Die Verfügbarkeit wird als Info protokolliert. Bei Problemen prüfen Sie, ob alle Funktionen auf „true“ gesetzt sind. Außerdem werden die Zugriffsrechte des Benutzers geprüft und die Funktion bei fehlerhaften Zugriffsrechten auf „false“ gesetzt.
+### AVM-Unterstützungsprüfung
+Die Funktion prüft die Verfügbarkeit der verwendeten Fritzbox-Funktionen. Die Verfügbarkeit wird als Information protokolliert. Bei Problemen prüfen Sie, ob alle Funktionen auf „true“ gesetzt sind. Außerdem werden die Zugriffsrechte des Benutzers geprüft und die Funktion auf „false“ gesetzt, falls die Zugriffsrechte nicht korrekt sind.
 
 ### Gast-WLAN ein-/ausschalten
-Unter dem Ordner guest kann man den state wlan auf true oder false setzen und dann das Gast-WLAN ein- bzw. ausschalten.
+Im Ordner „Gast“ können Sie den Status „wlan“ auf „true“ oder „false“ setzen, wodurch das WLAN des Gastes ein- oder ausgeschaltet wird.
 
-### QR-Code des Gäste-WLAN
-Der QR-Code des Gast-WLANs wird im Status wlanQR im Gastordner gespeichert. Der QR-Code kann im Basic-Bool-SVG-Widget angezeigt werden.
+### QR-Code des Gast-WLANs
+Der QR-Code des Gast-WLANs wird im Ordner „gast“ unter dem Status „wlanQR“ gespeichert. Der QR-Code kann im SVG-Widget „basic - Bool“ angezeigt werden.
 
-### Internetzugang von Fritzbox-Geräten ein-/ausschalten
-Unter dem Ordner FB-Geräte können Sie den deaktivierten Status auf „true“ oder „false“ setzen und der Internetzugang dieses Geräts in der Fritzbox wird blockiert.
+### Internetzugriff von Fritzbox-Geräten ein-/ausschalten
+Im Ordner FB-Geräte können Sie den deaktivierten Status auf wahr oder falsch setzen, und der Internetzugriff dieses Geräts wird in der Fritzbox gesperrt.
 
-### Gäste holen, schwarze Liste
-In dieser Funktion wird geprüft, ob ein Benutzer als Gast angemeldet ist. Außerdem wird geprüft, ob ein Gerät nicht auf der Whitelist steht. Diese Geräte werden der Blacklist hinzugefügt.
+### Gäste abrufen, Blacklist
+Diese Funktion prüft, ob ein Benutzer als Gast angemeldet ist. Außerdem wird geprüft, ob sich ein Gerät nicht auf der Whitelist befindet.
+Diese Geräte werden der Blacklist hinzugefügt.
 
 ### Werde aktiv
-Für jedes Familienmitglied werden die Anwesenheit, die Kommen- und Gehendaten und verschiedene andere Informationen berechnet und im Mitgliedsobjekt gespeichert, wenn ein Verlaufsadapter ausgewählt ist.
+Wenn ein Verlaufsadapter ausgewählt ist, werden für jedes Familienmitglied die Anwesenheit, die Ankunfts- und Abreisedaten sowie verschiedene andere Informationen berechnet und im Mitgliedsobjekt gespeichert.
 
 ### Hostnummer, aktive Geräte
-Die Anzahl der Geräte und deren Aktivität werden von der Fritzbox ermittelt.
+Die Anzahl der Geräte und wie viele davon aktiv sind, werden von der Fritzbox abgerufen.
 
 ## Objekte
 ### ObjektpräsenzAlle
-Wenn alle Familienmitglieder anwesend sind, ist das Objekt wahr.
+Wenn alle Familienmitglieder anwesend sind, dann ist die Aussage wahr.
 
 ### Objektpräsenz
-Wenn ein Familienmitglied anwesend ist, ist das Objekt wahr.
+Wenn ein Familienmitglied anwesend ist, dann ist die Aussage wahr.
 
 ### Objektgeräte
-Dies sind alle aufgelisteten Geräte in der Fritzbox
+Dies sind alle in der Fritzbox aufgeführten Geräte.
 
 ### Objekt activeDevices
-Dies ist die Anzahl aller aktiven Geräte in der Fritzbox
+Dies ist die Anzahl aller aktiven Geräte in der Fritzbox.
 
 ### Objekt html, json
-Bei diesen Objekten handelt es sich um Tabellen (JSON und HTML), die die Kommen- und Gehen-Informationen aller Familienmitglieder enthalten.
+Bei diesen Objekten handelt es sich um Tabellen (JSON und HTML), die die Ankunfts- und Abgangsinformationen aller Familienmitglieder enthalten.
 
-### Objektinfo
-Hier werden Informationen zum letzten Update und dem Verbindungsstatus des Adapters aufgelistet.
+### Objektinformationen
+Hier finden Sie Informationen zum letzten Update und zum Verbindungsstatus des Adapters.
 
 ### Objekt Gast
-Hier sind Informationen über die Anzahl der aktiven Gäste und Tabellenobjekte mit den darin enthaltenen Geräteinformationen aufgelistet.
+Hier finden Sie Informationen über die Anzahl der aktiven Gäste und Tischobjekte mit den dazugehörigen Geräteinformationen.
 
 ### Objekt-Blacklist
-Hier sind Informationen über die Anzahl der unbekannten Geräte und Tabellenobjekte mit den darin enthaltenen Informationen zu unbekannten Geräten aufgeführt.
+Hier sind Informationen über die Anzahl unbekannter Geräte und Tabellenobjekte aufgelistet, die Informationen über unbekannte Geräte enthalten.
 
-### Objektmitglied.vorhanden
-Hier finden Sie Informationen zur Anwesenheit eines Mitglieds am aktuellen Tag und wie lange das Mitglied seit der letzten Änderung den Status „true“ innehatte.
+### Objekt member.present
+Hier finden Sie Informationen über die Anwesenheit eines Mitglieds am aktuellen Tag und darüber, wie lange der Status des Mitglieds seit der letzten Änderung bereits „wahr“ ist.
 
-### Objektmitglied.abwesend
-Hier finden Sie Informationen zur Abwesenheit eines Mitglieds am aktuellen Tag und wie lange sich das Mitglied seit der letzten Änderung im Status „false“ befand.
+### Objektmitglied fehlt
+Hier finden Sie Informationen über die Abwesenheit eines Mitglieds am aktuellen Tag und darüber, wie lange der Status des Mitglieds seit der letzten Änderung „falsch“ ist.
 
-### Objekt Mitglied.kommen, Mitglied.gehen
-Hier finden Sie Informationen zur Ankunft bzw. Abreise des Familienmitglieds.
+### Objekt member.comming, member.going
+Hier finden Sie Informationen zur Ankunft und Abreise des Familienmitglieds.
 
 ### Objekt member.history, member.historyHtml
-Hier finden Sie Informationen zur Geschichte des aktuellen Tages.
+Hier finden Sie Informationen zur Geschichte des heutigen Tages.
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+* (afuerhoff) dependencies updated
+* (afuerhoff) dependabot.yml fixed [#358](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/358)
+* (afuerhoff) new fb-devices sync option integrated
+* (afuerhoff) readme updated
+* (softwarecrash) PR398 fixes a crash in newfilter mode
+
+### 1.4.2 (2025-10-30)
+* (afuerhoff) dependencies updated
+* (afuerhoff) package.json issues fixed [#350](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/350)
+* (afuerhoff) npm security changes
+* (afuerhoff) filter time extended to 300s
+* (afuerhoff) guest wlan bug fixed [#353](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/353)
+* (afuerhoff) deprecated functions changed
+
+### 1.4.1 (2025-09-19)
+* (afuerhoff) dependencies updated
+* (afuerhoff) repository checker & code scanning issues fixed
+
 ### 1.4.0 (2025-05-28)
 * (afuerhoff) dependencies updated
 * (afuerhoff) error handling optimized
@@ -218,17 +246,12 @@ Hier finden Sie Informationen zur Geschichte des aktuellen Tages.
 * (afuerhoff) eslint setup changed
 * (afuerhoff) ipv6 ip-address and prefix added
 
-### 1.2.8 (2024-11-20)
-* (afuerhoff) bugfix configuration
-* (afuerhoff) dependencies updated
-
-### 1.2.7 (2024-11-18)
-* (afuerhoff) bugfix [#319](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/319)
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2019-2025 Achim Fürhoff <achim.fuerhoff@outlook.de>
+Copyright (c) 2019-2026 Achim Fürhoff <achim.fuerhoff@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

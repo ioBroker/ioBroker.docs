@@ -21,6 +21,9 @@ Fill the IP and have fun :)
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+
 <!--
  https://github.com/AlCalzone/release-script#usage
     npm run release major -- -p iobroker license --all 0.9.8 -> 1.0.0
@@ -107,11 +110,13 @@ Fill the IP and have fun :)
 
 -   (o0shojo0o) initial push
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License
 
-Copyright (c) 2024-2025 Dennis Rathjen <dennis.rathjen@outlook.de>
+Copyright (c) 2024-2026 Dennis Rathjen <dennis.rathjen@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -13,28 +13,31 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.telegram/README.md
 title: ioBroker.telegram
-hash: 4bqUvopK6VJFk9nKbkT2Fn54ZPPfbBbWrcZEDwLwAJw=
+hash: LIH4I86GIbO4wPtQSMlDymm3ec/3Yr+mpvSGK9W66kw=
 ---
 ![标识](../../../en/admin/telegram.png)
 
 # IoBroker.telegram
 ＃＃ 配置
-请求[@BotFather](https://telegram.me/botfather) 创建新的机器人`/newbot`。
+请[@BotFather](https://telegram.me/botfather)创建新机器人`/newbot`。
 
-系统将要求您输入机器人的名称，然后输入用户名。 之后，您将获得令牌。
+您将被要求输入机器人名称，然后是用户名。
+
+之后，您将获得令牌。
 
 ![截屏](../../../en/adapterref/iobroker.telegram/img/chat.png)
 
-您应该在配置对话框中设置通信密码。然后启动适配器。
+您应该在配置对话框中设置通信密码。之后启动适配器。
 
-要与您的机器人开始对话，您需要使用`/password phrase`对用户进行身份验证，其中**`phrase`**是您配置的密码。因此，在 Telegram 中与您生成的机器人打开一个新对话，然后您需要输入密码作为第一个命令。
+要与您的机器人开始对话，您需要使用 `/password phrase` 进行用户身份验证，其中 **`phrase`** 是您配置的密码。因此，请在 Telegram 中与您创建的机器人新建对话，然后在第一个命令中输入密码。
 
 **注意：**您可以使用缩写形式`/p phrase`。
 
-要添加漂亮的头像图片，请在**BotFather**聊天中输入`/setuserpic`并上传他想要的图片（512x512像素），比如这张[标识](img/logo.png)。
+要添加漂亮的头像图片，请在 **BotFather** 聊天中输入 `/setuserpic`，然后上传所需的图片（512x512 像素），例如这张 [标识](img/logo.png)。
 
-您可以通过 messageBox `sendTo('telegram', 'Test message')` 将消息发送给所有经过身份验证的用户，或者发送给特定用户`sendTo('telegram', '@userName Test message')`。
-用户必须先进行身份验证。
+您可以通过消息框 `sendTo('telegram', 'Test message')` 向所有已认证用户发送消息，也可以向特定用户 `sendTo('telegram', '@userName Test message')` 发送消息。
+
+用户必须事先通过身份验证。
 
 您也可以通过这种方式指定用户：
 
@@ -44,12 +47,13 @@ sendTo('telegram', {user: 'UserName', text: 'Test message'}, function (res) {
 });
 ```
 
-如果您使用上述示例，请注意您必须将“用户名”替换为您要向其发送消息的用户的名字或公共电报用户名。（取决于适配器设置中的“存储用户名而不是名字”设置是否启用）如果设置了该选项并且用户未在其电报帐户中指定公共用户名，则适配器将继续使用用户的名字。请记住，如果用户稍后（在向您的机器人验证身份后）设置公共用户名，则下次用户向机器人发送消息时，保存的名字将被用户名替换。
+如果您使用上述示例，请注意，您必须将“UserName”替换为您要发送消息的用户的名字或 Telegram 公开用户名。（这取决于适配器设置中的“存储用户名而非名字”选项是否已启用。）如果此选项已启用，且用户未在其 Telegram 帐户中指定公开用户名，则适配器将继续使用用户的名字。请记住，如果用户稍后（在验证您的机器人身份后）设置了公开用户名，则下次用户向机器人发送消息时，已保存的名字将被用户名替换。
 
-可以指定多个收件人（只需用逗号分隔用户名即可）。
+您可以指定多个收件人（只需用逗号分隔用户名）。
+
 例如，收件人：“User1,User4,User5”
 
-您也可以通过状态发送消息，只需将状态 *“telegram.INSTANCE.communicate.response”* 设置为值 *“@userName Test message”* 或使用 JSON 对象：
+您也可以通过状态发送消息，只需将状态 *"telegram.INSTANCE.communicate.response"* 的值设置为 *"@userName Test message"* 或使用 JSON 对象即可：
 
 ```json
 {
@@ -57,7 +61,7 @@ sendTo('telegram', {user: 'UserName', text: 'Test message'}, function (res) {
 }
 ```
 
-JSON 语法还允许从 [电报机器人 API](https://core.telegram.org/bots/api) 添加选项，以及设置用户或 chatId：
+JSON 语法还允许从 [Telegram 机器人 API](https://core.telegram.org/bots/api) 添加选项，以及设置用户或聊天 ID：
 
 ```json
 {
@@ -68,7 +72,7 @@ JSON 语法还允许从 [电报机器人 API](https://core.telegram.org/bots/api
 }
 ```
 
-您也可以在文本中设置`parse_mode`：
+您也可以在文本中设置 `parse_mode`：
 
 ```
 sendTo('telegram', {user: 'UserName', text: '<MarkdownV2>Test message, but with *bold*</MarkdownV2>'}, function (res) {
@@ -82,20 +86,24 @@ sendTo('telegram', {user: 'UserName', text: '<MarkdownV2>Test message, but with 
 setState('telegram.0.communicate.response', '<MarkdownV2>Test message, but with *bold*</MarkdownV2>');
 ```
 
-为了向群组发送消息，您必须邀请机器人加入您希望机器人发帖的群组。
-通过向 JSON 消息负载提供`chat_id`，您实际上可以向这些群组发送消息。
+要向群组发送消息，您必须先邀请机器人加入您希望它发帖的群组。
 
-为了找出`chat_id`，您必须将适配器的日志级别设置为`debug`。
-然后，您只需在希望机器人发送消息的组中 ping 您的机器人即可。
-确保在消息前面放置`/`，以便机器人可以看到该消息（[如果机器人隐私已打开](#How-to-receive-messages-in-group-chats-using-telegram-adapter)）。
-然后，iobroker 日志将在日志中显示聊天 ID。
+通过在 JSON 消息负载中提供 `chat_id`，您实际上可以向这些群组发送消息。
+
+要查找 `chat_id`，您需要将适配器的日志级别设置为 `debug`。
+
+然后，您只需在您希望机器人发送消息的群组中 ping 您的机器人即可。
+
+请确保在消息前面添加 `/`，以便机器人能够看到该消息 ([如果开启了机器人隐私设置](#How-to-receive-messages-in-group-chats-using-telegram-adapter))。
+
+iobroker 日志随后将显示聊天 ID。
 
 ＃＃ 用法
-您可以使用带有[文本到命令](https://github.com/ioBroker/ioBroker.text2command)适配器的电报。有一个预定义的通信模式，您可以以文本形式向您的家发出命令。
+您可以使用带有 [text2command](https://github.com/ioBroker/ioBroker.text2command) 适配器的 Telegram。它预定义了通信模式，您可以以文本形式向您的服务器发送命令。
 
 要发送照片，只需发送文件路径而不是文本或 URL：`sendTo('telegram', 'absolute/path/file.png')` 或 `sendTo('telegram', 'https://telegram.org/img/t_logo.png')`。
 
-如何将屏幕截图从网络摄像头发送到电报的示例：
+如何将网络摄像头截图发送到 Telegram：
 
 ```javascript
 function sendImage() {
@@ -125,20 +133,20 @@ on('0_userdata.0.someState', (obj) => {
 });
 ```
 
-以下消息保留用于操作：
+以下消息仅用于执行操作：
 
-- *输入* - 用于发送短信，
-- *upload_photo* - 用于照片，
-- *upload_video* - 对于视频，
-- *record_video* - 用于视频，
-- *record_audio* - 用于音频，
-- *upload_audio* - 对于音频，
-- *upload_document* - 对于文件，
-- *find_location* - 获取位置数据
+- *打字* - 用于发送短信，
+- *upload_photo* - 用于上传照片，
+- *upload_video* - 用于视频，
+- *record_video* - 用于视频录制，
+- *record_audio* - 用于音频录制，
+- *upload_audio* - 用于音频，
+- *upload_document* - 用于上传文档，
+- *find_location* - 用于查找位置数据
 
 在这种情况下，将会发送操作命令。
 
-电报 API 的描述可以在 [这里](https://core.telegram.org/bots/api) 中找到，您可以使用此 API 中定义的所有选项，只需将其包含在发送对象中即可。例如：
+Telegram API 的描述位于 [这里](https://core.telegram.org/bots/api) 中，您可以通过将其包含在发送对象中来使用此 API 中定义的所有选项。例如：
 
 ```javascript
 sendTo('telegram.0', 'send', {
@@ -150,17 +158,17 @@ sendTo('telegram.0', 'send', {
 
 **可能的选择**：
 
-- *disable_notification*：静默发送消息。iOS 用户不会收到通知，Android 用户将收到无声音的通知。（所有类型）
-- *parse_mode*：如果您希望 Telegram 应用在机器人消息中显示粗体、斜体、固定宽度文本或内联 URL，则发送 Markdown 或 HTML。可能的值：“Markdown”、“MarkdownV2”、“HTML”（消息）
-- *disable_web_page_preview*：禁用此消息（消息）中链接的链接预览
-- *caption*：文档、照片或视频的标题，0-200 个字符（视频、音频、照片、文档）
-- *持续时间*：发送视频或音频的持续时间（秒）（音频，视频）
-- *表演者*：音频文件的表演者（音频）
-- *title*：音频文件的曲目名称（音频）
+- *disable_notification*：静默发送消息。iOS 用户将不会收到通知，Android 用户将收到无声通知。（所有类型）
+- *parse_mode*：发送 Markdown 或 HTML，如果您希望 Telegram 应用在您的机器人消息中显示粗体、斜体、等宽文本或内联 URL。可选值：“Markdown”、“MarkdownV2”、“HTML”（消息）
+- *disable_web_page_preview*: 禁用此消息（message）中链接的预览。
+- *标题*：文档、照片或视频的标题，0-200 个字符（视频、音频、照片、文档）
+- *持续时间*：发送的视频或音频的持续时间（以秒为单位）（音频、视频）
+- *表演者*：音频文件（音频）的表演者
+- *标题*：音频文件的曲目名称（音频）
 - *宽度*：视频宽度（视频）
 - *高度*：视频高度（视频）
 
-适配器尝试根据消息中的文本检测消息的类型（照片、视频、音频、文档、贴纸、动作、位置），如果文本是现有文件的路径，则将根据类型发送。
+适配器会尝试根据消息中的文本来检测消息类型（照片、视频、音频、文档、贴纸、操作、位置）。如果文本是现有文件的路径，则会根据该类型发送消息。
 
 将根据纬度和经度属性检测位置：
 
@@ -172,7 +180,7 @@ sendTo('telegram.0', 'send', {
 });
 ```
 
-将根据属性纬度、经度、标题和地址检测场地：
+将根据纬度、经度、名称和地址属性检测场所：
 
 ```javascript
 sendTo('telegram.0', 'send', {
@@ -184,9 +192,9 @@ sendTo('telegram.0', 'send', {
 ```
 
 ### 明确的消息类型
-如果您想将数据作为缓冲区发送，您可以额外定义消息的类型。
+如果您想将数据作为缓冲区发送，则可以额外定义消息类型。
 
-可能的类型如下：*贴纸*、*视频*、*文档*、*音频*、*照片*。
+可上传的类型有：*贴纸*、*视频*、*文档*、*音频*、*照片*。
 
 ```javascript
 sendTo('telegram.0', 'send', {
@@ -195,8 +203,45 @@ sendTo('telegram.0', 'send', {
 });
 ```
 
+### 从 ioBroker 文件存储或状态（iob:// URI）发送文件
+除了本地文件路径或网页 URL 之外，`text` 还可以是 **ioBroker URI**。适配器会解析该 URI，读取内容，并使用自动检测的媒体类型（照片、视频、音频、文档等）发送。当文件存储在 Redis/jsonl 后端的 ioBroker 文件存储中时，此功能尤其有用，因为该文件**并不**存在于本地文件系统中，所以使用普通路径是行不通的。
+
+支持以下方案：
+
+- `iobfile://<adapter.instance>/<path>` — 来自 ioBroker 文件存储的文件。
+- `iobstate://<state.id>` — 状态的值（请参阅下文了解如何解释该值）。
+- `iobobject://<object.id> /<path> ` — 嵌套在 ioBroker 对象中的值（`path` 通过 `/` 导航到对象内部）。
+
+```javascript
+// send a snapshot that another adapter has written into the file storage
+sendTo('telegram.0', 'send', {
+    user: 'UserName',
+    text: 'iobfile://cameras.0/snapshots/front_door.jpg',
+    caption: 'Someone is at the front door',
+});
+
+// send a file whose full path is stored in a state
+sendTo('telegram.0', 'send', {
+    text: 'iobstate://0_userdata.0.lastReport',
+});
+
+// take a value out of an object
+sendTo('telegram.0', 'send', {
+    text: 'iobobject://0_userdata.0.myObject/native/document',
+});
+```
+
+媒体类型由文件扩展名决定（`.jpg`/`.png` → 照片，`.mp4` → 视频，`.mp3`/`.ogg`/`.wav` → 音频，`.gif` → 动画，`.webp` → 贴纸，`.pdf`/`.csv`/`.docx`/... → 文档）。如果扩展名未知，则类型取自存储的 MIME 类型；作为备用方案，内容将以文档形式发送。您仍然可以使用 `type` 选项显式地覆盖此设置。
+
+**状态/对象值的解释方式**（`iobstate://` 和 `iobobject://`）：
+
+- 将**数据 URL**（`data:image/png;base64,...`）解码并以相应的媒体类型发送；
+- 如果值本身是 `iob*://` URI 或 `http(s)://` URL，则会进一步解析（最多 5 层嵌套）；
+- 任何其他字符串都被视为文件路径/URL；
+- 数字、布尔值和对象以文本形式发送（对象被 JSON 字符串化）。
+
 ＃＃＃ 键盘
-您可以在客户端显示键盘**ReplyKeyboardMarkup**：
+您可以在客户端显示键盘**回复键盘标记**：
 
 ```javascript
 sendTo('telegram.0', 'send', {
@@ -212,9 +257,9 @@ sendTo('telegram.0', 'send', {
 });
 ```
 
-您可以阅读更多[这里](https://core.telegram.org/bots/api#replykeyboardmarkup) 和 [这里](https://core.telegram.org/bots#keyboards)。
+您可以阅读更多 [这里](https://core.telegram.org/bots/api#replykeyboardmarkup)和[这里](https://core.telegram.org/bots#keyboards)。
 
-您可以在客户端显示键盘**InlineKeyboardMarkup**：
+您可以在客户端显示键盘**内联键盘标记**：
 
 ```javascript
 sendTo('telegram', 'send', {
@@ -229,12 +274,12 @@ sendTo('telegram', 'send', {
 });
 ```
 
-您可以阅读更多[这里](https://core.telegram.org/bots/api#inlinekeyboardmarkup) 和 [这里](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating)。
+您可以阅读更多 [这里](https://core.telegram.org/bots/api#inlinekeyboardmarkup)和[这里](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating)。
 
-**注意：** *用户按下回调按钮后，Telegram 客户端将显示进度条，直到您调用 answerCallbackQuery。因此，即使不需要通知用户（例如，不指定任何可选参数），也必须通过调用 answerCallbackQuery 做出反应。*
+**注意：** *用户按下回调按钮后，Telegram 客户端会显示进度条，直到您调用 answerCallbackQuery 函数。因此，即使不需要通知用户（例如，不指定任何可选参数），也必须调用 answerCallbackQuery 函数。*
 
 ### 答案回调查询
-使用此方法发送来自内联键盘的回调查询的答案。答案将以通知的形式显示在聊天屏幕顶部或以警报的形式显示给用户。成功时，将返回 *True*。
+使用此方法可以回复通过内联键盘发送的回调查询。回复将以通知或提示的形式显示在聊天屏幕顶部。成功时，返回 *True*。
 
 ```javascript
 if (command === '1_2') {
@@ -248,11 +293,12 @@ if (command === '1_2') {
 }
 ```
 
-您可以阅读更多[这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegrambotanswercallbackquerycallbackqueryid-text-showalert-options--promise)。
+您可以阅读更多 [这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegrambotanswercallbackquerycallbackqueryid-text-showalert-options--promise)。
 
 ＃＃＃ 问题
-您可以向电报发送消息，下一个答案将在回调中返回。
-可以在实例配置中设置超时（默认为 60 秒）。
+您可以向 Telegram 发送消息，下一个回复将在回调中返回。
+
+回复超时时间可在实例配置中设置（默认为 60 秒）。如果用户未及时回复，回调将返回字符串 `'__timeout__'`（因此 `msg.data` 为 `undefined`）。
 
 ```javascript
 sendTo('telegram.0', 'ask', {
@@ -266,12 +312,29 @@ sendTo('telegram.0', 'ask', {
         ]
     }
 }, msg => {
-    console.log('user says ' + msg.data);
+    if (msg === '__timeout__') {
+        console.log('no answer within the configured timeout');
+    } else if (msg.data === '1') {
+        console.log('user pressed Yes');
+    } else {
+        console.log('user pressed No');
+    }
 });
 ```
 
-## 聊天 ID
-从 0.4.0 版本开始，您可以使用聊天 ID 发送消息进行聊天。
+**重要提示 – 调用方有自己的超时时间 `sendTo`：** 发送 `ask` 的适配器（例如 JavaScript 适配器）会对其 `sendTo` 回调应用**自己的**超时时间，在 JavaScript 适配器中，此超时时间默认约为 **20 秒**。如果您配置的应答超时时间超过此值，则*调用方*会提前触发回调，并返回超时结果——这看起来像是用户回答了“否”。请增加调用方的超时时间，使其**大于**应答超时时间，例如，在 JavaScript 适配器中，将其作为最后一个参数传递：
+
+```javascript
+sendTo('telegram.0', 'ask', {
+    text: 'Are you sure?',
+    reply_markup: { inline_keyboard: [[{ text: 'Yes!', callback_data: '1' }], [{ text: 'No...', callback_data: '0' }]] }
+}, msg => {
+    // ... handle msg (see above)
+}, { timeout: 65000 }); // must be > the configured answer timeout (here 60 s)
+```
+
+聊天 ID
+从 0.4.0 版本开始，您可以使用聊天 ID 向聊天室发送消息。
 
 ```javascript
 sendTo('telegram.0', 'send', {
@@ -281,7 +344,7 @@ sendTo('telegram.0', 'send', {
 ```
 
 ## 线程 ID
-您还可以为超级组设置一个线程 ID。
+您还可以为超级组设置线程 ID。
 
 ```javascript
 sendTo('telegram.0', 'send', {
@@ -291,11 +354,42 @@ sendTo('telegram.0', 'send', {
 });
 ```
 
+接收位置信息
+当用户与机器人分享位置（回形针 → 位置）或发送场所时，坐标会以字符串 `latitude;longitude` 的形式写入状态 `telegram.INSTANCE.communicate.requestLocation`（角色 `value.gps`）。元数据状态（`requestChatId`、`requestMessageId`、`requestUserId`）也会更新，以便您知道是谁发送的。
+
+```javascript
+on({ id: 'telegram.0.communicate.requestLocation', change: 'any' }, obj => {
+    const [latitude, longitude] = obj.state.val.split(';').map(parseFloat);
+    const user = getState('telegram.0.communicate.requestUserId').val;
+    console.log(`User ${user} is at ${latitude}, ${longitude}`);
+    // e.g. forward the coordinates to a map widget
+});
+```
+
+## 接收频道帖子
+如果机器人是某个频道的管理员，则该频道中发布的帖子也会被接收，并以 `[channel title]text` 的形式写入 `telegram.INSTANCE.communicate.request`（与 `communicate.requestChatId` 和 `communicate.requestMessageId` 一起）。频道帖子是匿名的（没有发送者用户），因此身份验证/命令处理不适用于它们——它们仅作为请求公开。任何附加的媒体都会像普通消息一样保存，并且该频道会被添加到 `communicate.chats` 中。
+
+## 已知的聊天和群组
+机器人收到的每个聊天或群组消息都会以 JSON 对象 `id => { title, type }` 的形式存储在状态 `telegram.INSTANCE.communicate.chats` 中（其中 `type` 为 `private`、`group`、`supergroup` 或 `channel` 之一）。这便于查找群组的聊天 ID（例如，让其他适配器选择要发送消息的群组）。将机器人添加到群组并发送一条消息，即可使该群组显示出来。
+
+```json
+{
+    "1234567": { "title": "John Doe", "type": "private" },
+    "-1001234567890": { "title": "My smart home group", "type": "supergroup" }
+}
+```
+
+列表会被持久化保存，因此即使适配器重启后仍然有效。发送时请使用聊天 ID 作为 `chatId`：
+
+```javascript
+sendTo('telegram.0', 'send', { text: 'Hello group', chatId: '-1001234567890' });
+```
+
 ## 更新消息
-以下方法允许您更改消息历史记录中的现有消息，而不是发送带有操作结果的新消息。这对于使用回调查询的*内联键盘*消息最有用，但也有助于减少与常规聊天机器人对话中的混乱。
+以下方法允许您修改消息历史记录中的现有消息，而不是发送包含操作结果的新消息。这对于使用回调查询的*内联键盘*消息最为有用，但也有助于减少与普通聊天机器人对话中的冗余信息。
 
 ### 编辑消息文本
-使用此方法编辑由机器人或通过机器人发送的文本（适用于内联机器人）。成功时，如果机器人发送了编辑的消息，则返回编辑的消息；否则返回 *True*。
+使用此方法可以编辑机器人发送或通过机器人发送的文本（适用于内联机器人）。成功后，如果机器人发送了编辑后的消息，则返回编辑后的消息；否则返回 *True*。
 
 ```javascript
 if (command === '1_2') {
@@ -335,11 +429,12 @@ if (command === '1_2') {
 }
 ```
 
-您可以阅读更多[这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise)。
+您可以阅读更多 [这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise)。
 
 ### 编辑消息标题
-使用此方法编辑机器人或通过机器人（对于内联机器人）发送的消息的标题。
-成功时，如果机器人发送了已编辑的消息，则返回已编辑的消息；否则返回 *True*。
+使用此方法可以编辑机器人发送或通过机器人发送的消息标题（适用于内联机器人）。
+
+成功后，如果机器人发送了编辑后的消息，则返回编辑后的消息；否则返回 *True*。
 
 ```javascript
 if (command === '1_2') {
@@ -356,11 +451,12 @@ if (command === '1_2') {
 }
 ```
 
-您可以阅读更多[这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise)。
+您可以阅读更多 [这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise)。
 
 ### 编辑消息媒体
-使用此方法编辑机器人发送的消息或通过机器人发送的消息的图片（适用于内联机器人）。
-成功时，如果机器人发送了已编辑的消息，则返回已编辑的消息；否则返回 *True*。
+使用此方法可以编辑机器人发送或通过机器人发送的消息图片（适用于内联机器人）。
+
+成功后，如果机器人发送了编辑后的消息，则返回编辑后的消息；否则返回 *True*。
 
 ```javascript
 if (command === '1_2') {
@@ -379,10 +475,10 @@ if (command === '1_2') {
 
 支持以下媒体类型：`photo`、`animation`、`audio`、`document`、`video`。
 
-您可以阅读更多[这里](https://core.telegram.org/bots/api#editmessagemedia)。
+您可以阅读更多 [这里](https://core.telegram.org/bots/api#editmessagemedia)。
 
 ### 编辑消息回复标记
-使用此方法仅编辑由机器人或通过机器人发送的消息的回复标记（对于内联机器人）。成功时，如果机器人发送了已编辑的消息，则返回已编辑的消息；否则返回 *True*。
+使用此方法仅编辑机器人发送或通过机器人发送的消息的回复标记（适用于内联机器人）。成功后，如果机器人发送了编辑后的消息，则返回编辑后的消息；否则返回 *True*。
 
 ```javascript
 if (command === '1_2') {
@@ -405,14 +501,14 @@ if (command === '1_2') {
 }
 ```
 
-您可以阅读更多[这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagereplymarkupreplymarkup-options--promise)。
+您可以阅读更多 [这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagereplymarkupreplymarkup-options--promise)。
 
 ### 删除消息
-使用此方法删除消息（包括服务消息），但有以下限制：
+使用此方法可以删除邮件（包括服务邮件），但存在以下限制：
 
-- 仅可删除发送时间不超过 48 小时的消息。
+- 只有在发送时间不超过 48 小时的消息才能删除。
 
-成功时返回 *True*。
+成功时返回*True*。
 
 ```javascript
 if (command === 'delete') {
@@ -428,17 +524,20 @@ if (command === 'delete') {
 }
 ```
 
-您可以阅读更多[这里](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md#TelegramBot+deleteMessage)。
+您可以阅读更多 [这里](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md#TelegramBot+deleteMessage)。
 
 ## 对用户回复/消息做出反应
-假设您只使用 JavaScript，而不使用 `text2command`。
-您已经使用 `sendTo()` 向用户发送了一条消息/问题，如上所述。
-用户通过按下按钮或写消息来回复。
-您可以提取命令并向用户提供反馈，执行命令或在 iobroker 中切换状态。
+假设您仅使用 JavaScript，未使用 `text2command`。
 
-- telegram.0 是您想要使用的 iobroker Telegram 实例
-- 用户是向您注册的发送消息的 TelegramBot 用户
-- 命令是你的 TelegramBot 收到的命令
+您已使用 `sendTo()` 向用户发送了一条消息/问题，如上所述。
+
+用户通过点击按钮或输入消息进行回复。
+
+您可以提取该命令并向用户提供反馈，执行命令或在 iobroker 中切换状态。
+
+- telegram.0 是您要使用的 iobroker Telegram 实例。
+用户是指已在您的 TelegramBot 注册并发送消息的用户
+- 命令是您的 TelegramBot 收到的命令。
 
 ```javascript
 on({id: 'telegram.0.communicate.request', change: 'any'}, function (obj) {
@@ -461,7 +560,7 @@ on({id: 'telegram.0.communicate.request', change: 'any'}, function (obj) {
 
 ## 特殊命令
 ### /state stateName - 读取状态值
-如果你知道 ID，则可以请求状态值：
+如果您知道 ID，则可以请求获取状态的值：
 
 ```
 /state system.adapter.admin.0.memHeapTotal
@@ -469,7 +568,7 @@ on({id: 'telegram.0.communicate.request', change: 'any'}, function (obj) {
 ```
 
 ### /state stateName value - 设置状态值
-如果您知道 ID，则可以设置状态的值：
+如果您知道 ID，则可以设置状态值：
 
 ```
 /state hm-rpc.0.JEQ0ABCDE.3.STOP true
@@ -477,37 +576,37 @@ on({id: 'telegram.0.communicate.request', change: 'any'}, function (obj) {
 ```
 
 ## 轮询或服务器模式
-如果使用轮询模式，适配器默认每 300 毫秒轮询一次电报服务器以获取更新。它使用流量，并且消息最多可以延迟轮询间隔。轮询间隔可以在适配器配置中定义。
+如果使用轮询模式，适配器默认每 300 毫秒轮询一次 Telegram 服务器以获取更新。这会消耗流量，并且消息可能会延迟最多 300 毫秒。轮询间隔可以在适配器配置中定义。
 
-要使用服务器模式，您的 ioBroker 实例必须可以通过互联网访问（例如，使用`noip.com` 动态 DNS 服务）。
+要使用服务器模式，您的 ioBroker 实例必须可从互联网访问（例如，使用 `noip.com` 动态 DNS 服务）。
 
-Telegram 只能与 HTTPS 服务器一起工作，但您可以使用 **let's encrypt** 证书。
+Telegram 只能与 HTTPS 服务器配合使用，但您可以使用 **let's encrypt** 证书。
 
-必须为服务器模式提供以下设置：
+服务器模式需要提供以下设置：
 
 - URL - 格式为 https://yourdomain.com:8443。
-- IP - 服务器绑定的 IP 地址。默认为 0.0.0.0。如果不确定，请不要更改。
-- 端口 - 实际上电报仅支持 443、80、88、8443 端口，但您可以通过路由器将端口转发给任何人。
-- 公共证书 - 如果**let's encrypt**被禁用，则需要。
-- 私钥 - 如果 **let's encrypt** 被禁用，则需要。
-- 链证书（可选）
-- Let's encrypt 选项 - 设置 **let's encrypt** 证书非常简单。请阅读[此处](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates) 了解详情。
+- IP 地址 - 服务器将绑定到的 IP 地址。默认值为 0.0.0.0。如果您不确定，请勿更改。
+- 端口 - 实际上 Telegram 只支持 443、80、88、8443 端口，但您可以通过路由器将端口转发给任何人。
+- 公钥证书 - 如果 **let's encrypt** 被禁用，则需要此证书。
+- 私钥 - 如果 **let's encrypt** 已禁用，则需要此密钥。
+- 链式证书（可选）
+- Let's Encrypt 选项 - 设置 Let's Encrypt 证书非常简单。请阅读[此处](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)了解更多信息。
 
-## 高级安全性
-用户身份验证可能会被禁用。这样新用户就无法进行身份验证。
+高级安全
+可以禁用用户身份验证。这样一来，任何新用户都无法进行身份验证。
 
-要创建可信用户列表，首先禁用“不验证新用户”选项，然后通过发送`/password <PASSWORD>` 消息来验证应该在可信列表中的所有用户。
+要创建受信任用户列表，首先禁用“不验证新用户”选项，然后通过发送 `/password <PASSWORD>` 消息来验证所有应该在受信任列表中的用户。
 
-发送有效密码的用户将被存储在受信任列表中。
+发送有效密码的用户将被添加到信任列表中。
 
-此后，可以激活“不验证新用户”选项，并且没有新用户能够进行验证。
+之后，可以启用“不验证新用户身份”选项，这样就不会有新用户能够通过身份验证。
 
-要使用此选项，必须激活“记住已经验证的用户”选项。
+要使用此选项，必须启用“记住已验证用户”选项。
 
-## 通过电报呼叫
-感谢[呼叫机器人](https://www.callmebot.com/)api，您可以拨打您的电报账户，并且一些文本将通过TTS引擎读取。
+## 通过 Telegram 通话
+借助 [callmebot](https://www.callmebot.com/) api，您可以调用您的 Telegram 帐户，并通过 TTS 引擎朗读一些文本。
 
-要从 javascript 适配器执行此操作，只需调用：
+要通过 JavaScript 适配器实现这一点，只需调用：
 
 ```javascript
 sendTo('telegram.0', 'call', 'Some text');
@@ -542,16 +641,16 @@ sendTo('telegram.0', 'call', {
 });
 ```
 
-语言的可能值：
+语言选项的可能值：
 
 - `ar-XA-Standard-A` - 阿拉伯语（女声）
 - `ar-XA-Standard-B` - 阿拉伯语（男声）
-- `ar-XA-Standard-C` - 阿拉伯语 (男 2 声)
+- `ar-XA-Standard-C` - 阿拉伯语（男声 2）
 - `cs-CZ-Standard-A` - 捷克语（捷克共和国）（女声）
 - `da-DK-Standard-A` - 丹麦语（丹麦）（女声）
-- `nl-NL-Standard-A` - 荷兰语（荷兰）（女声 - 如果系统语言为 NL 且未提供任何语言则使用）
-- `nl-NL-Standard-B` - 荷兰语（荷兰）（男声）
-- `nl-NL-Standard-C` - 荷兰语（荷兰）（男 2 声）
+- `nl-NL-Standard-A` - 荷兰语（荷兰）（女声 - 如果系统语言为荷兰语且未提供语言，则使用此语音）
+- `nl-NL-Standard-B` - 荷兰语（男声）
+- `nl-NL-Standard-C` - 荷兰语（男声 2）
 - `nl-NL-Standard-D` - 荷兰语（荷兰）（女声 2）
 - `nl-NL-Standard-E` - 荷兰语（荷兰）（女声 3）
 - `en-AU-Standard-A` - 英语（澳大利亚）（女声）
@@ -560,8 +659,8 @@ sendTo('telegram.0', 'call', {
 - `en-AU-Standard-D` - 英语（澳大利亚）（男声 2 声）
 - `en-IN-Standard-A` - 英语（印度）（女声）
 - `en-IN-Standard-B` - 英语（印度）（男声）
-- `en-IN-Standard-C` - 英语（印度）（男 2 声）
-- `en-GB-Standard-A` - 英语（英国）（如果系统语言为 EN 且未提供语言，则将使用女声）
+- `en-IN-Standard-C` - 英语（印度）（男声 2）
+- `en-GB-Standard-A` - 英语（英国）（女声 - 如果系统语言为英语且未指定语言，则使用此语音）
 - `en-GB-Standard-B` - 英语（英国）（男声）
 - `en-GB-Standard-C` - 英语（英国）（女声 2）
 - `en-GB-Standard-D` - 英语（英国）（男声 2）
@@ -574,143 +673,153 @@ sendTo('telegram.0', 'call', {
 - `fr-CA-Standard-A` - 法语（加拿大）（女声）
 - `fr-CA-Standard-B` - 法语（加拿大）（男声）
 - `fr-CA-Standard-C` - 法语（加拿大）（女声 2）
-- `fr-CA-Standard-D` - 法语（加拿大）（男 2 声）
-- `fr-FR-Standard-A` - 法语（法国）（女声 - 如果系统语言为 FR 且未提供语言则使用）
+- `fr-CA-Standard-D` - 法语（加拿大）（男声 2）
+- `fr-FR-Standard-A` - 法语（法国）（女声 - 如果系统语言为法语且未指定语言，则使用此语音）
 - `fr-FR-Standard-B` - 法语（法国）（男声）
 - `fr-FR-Standard-C` - 法语（法国）（女声 2）
-- `fr-FR-Standard-D` - 法语（法国）（男 2 声）
-- `de-DE-Standard-A` - 德语（德国）（女声 - 如果系统语言为 DE 且未提供任何语言则使用）
+- `fr-FR-Standard-D` - 法语（法国）（男声 2）
+- `de-DE-Standard-A` - 德语（德国）（女声 - 如果系统语言为德语且未指定语言，则使用此语音）
 - `de-DE-Standard-B` - 德语（德国）（男声）
 - `el-GR-Standard-A` - 希腊语（希腊）（女声）
 - `hi-IN-Standard-A` - 印地语（印度）（女声）
 - `hi-IN-Standard-B` - 印地语（印度）（男声）
-- `hi-IN-Standard-C` - 印地语（印度）（男 2 声）
+- `hi-IN-Standard-C` - 印地语（印度）（男声 2）
 - `hu-HU-Standard-A` - 匈牙利语（匈牙利）（女声）
 - `id-ID-Standard-A` - 印尼语（印度尼西亚）（女声）
 - `id-ID-Standard-B` - 印尼语（印度尼西亚）（男声）
-- `id-ID-Standard-C` - 印尼语（印度尼西亚）（男 2 声）
-- `it-IT-Standard-A` - 意大利语（意大利）（女声 - 如果系统语言为 IT 且未提供语言则使用女声）
+- `id-ID-Standard-C` - 印尼语（印度尼西亚）（男声 2）
+- `it-IT-Standard-A` - 意大利语（意大利）（女声 - 如果系统语言为 IT 且未提供语言，则将使用此语音）
 - `it-IT-Standard-B` - 意大利语（意大利）（女声 2）
 - `it-IT-Standard-C` - 意大利语（意大利）（男声）
-- `it-IT-Standard-D` - 意大利语（意大利）（男 2 声）
+- `it-IT-Standard-D` - 意大利语（意大利）（男声 2）
 - `ja-JP-Standard-A` - 日语（日本）（女声）
 - `ja-JP-Standard-B` - 日语（日本）（女声 2）
 - `ja-JP-Standard-C` - 日语（日本）（男声）
-- `ja-JP-Standard-D` - 日语（日本）（男 2 声）
+- `ja-JP-Standard-D` - 日语（日本）（男声 2）
 - `ko-KR-Standard-A` - 韩语（韩国）（女声）
 - `ko-KR-Standard-B` - 韩语（韩国）（女声 2）
 - `ko-KR-Standard-C` - 韩语（韩国）（男声）
-- `ko-KR-Standard-D` - 韩语（韩国）（男 2 声）
+- `ko-KR-Standard-D` - 韩语（韩国）（男声 2 声）
 - `cmn-CN-Standard-A` - 普通话（女声）
 - `cmn-CN-Standard-B` - 普通话（男声）
-- `cmn-CN-Standard-C` - 普通话 (男 2 声)
+- `cmn-CN-Standard-C` - 普通话（男声 2）
 - `nb-NO-Standard-A` - 挪威语（挪威）（女声）
 - `nb-NO-Standard-B` - 挪威语（挪威）（男声）
-- `nb-NO-Standard-C` - 挪威语（挪威）（女声 2）
-- `nb-NO-Standard-D` - 挪威语（挪威）（男 2 声）
-- `nb-no-Standard-E` - 挪威语（挪威）（女声 3）
-- `pl-PL-Standard-A` - 波兰语（波兰）（女声 - 如果系统语言是波兰语并且未提供任何语言则将使用女声）
-- `pl-PL-Standard-B` - 波兰语（波兰）（男声）
-- `pl-PL-Standard-C` - 波兰语（波兰）（男 2 声）
+- `nb-NO-Standard-C` - 挪威语（挪威）（女声 2 声部）
+- `nb-NO-Standard-D` - 挪威语（挪威）（男声 2）
+- `nb-no-Standard-E` - 挪威语（挪威）（女声 3 声部）
+- `pl-PL-Standard-A` - 波兰语（波兰）（女声 - 如果系统语言为波兰语且未指定语言，则使用此语音）
+- `pl-PL-Standard-B` - 波兰语（男声）
+- `pl-PL-Standard-C` - 波兰语（男声 2）
 - `pl-PL-Standard-D` - 波兰语（波兰）（女声 2）
-- `pl-PL-Standard-E` - 波兰语（波兰）（女声 3 声）
-- `pt-BR-Standard-A` - 葡萄牙语（巴西）（女声 - 如果系统语言为 PT 且未提供任何语言则使用）
+- `pl-PL-Standard-E` - 波兰语（波兰）（女声 3 声部）
+- `pt-BR-Standard-A` - 葡萄牙语（巴西）（女声 - 如果系统语言为葡萄牙语且未指定语言，则使用此语音）
 - `pt-PT-Standard-A` - 葡萄牙语（葡萄牙）（女声）
 - `pt-PT-Standard-B` - 葡萄牙语（葡萄牙）（男声）
-- `pt-PT-Standard-C` - 葡萄牙语（葡萄牙）（男 2 声）
+- `pt-PT-Standard-C` - 葡萄牙语（葡萄牙）（男声 2）
 - `pt-PT-Standard-D` - 葡萄牙语（葡萄牙）（女声 2）
-- `ru-RU-Standard-A` - 俄语（俄罗斯）（女声 - 如果系统语言为 RU 且未提供语言则使用）
+- `ru-RU-Standard-A` - 俄语（俄罗斯）（女声 - 如果系统语言为俄语且未指定语言，则使用此语音）
 - `ru-RU-Standard-B` - 俄语（俄罗斯）（男声）
 - `ru-RU-Standard-C` - 俄语（俄罗斯）（女声 2）
-- `ru-RU-Standard-D` - 俄语（俄罗斯）（男 2 声）
+- `ru-RU-Standard-D` - 俄语（俄罗斯）（男声 2）
 - `sk-SK-Standard-A` - 斯洛伐克语（斯洛伐克）（女声）
-- `es-ES-Standard-A` - 西班牙语（西班牙）（女声 - 如果系统语言为 ES 且未提供任何语言则使用）
+- `es-ES-Standard-A` - 西班牙语（西班牙）（女声 - 如果系统语言为 ES 且未指定语言，则使用此语音）
 - `sv-SE-Standard-A` - 瑞典语（瑞典）（女声）
 - `tr-TR-Standard-A` - 土耳其语（土耳其）（女声）
 - `tr-TR-Standard-B` - 土耳其语（土耳其）（男声）
 - `tr-TR-Standard-C` - 土耳其语（土耳其）（女声 2）
-- `tr-TR-Standard-D` - 土耳其语（土耳其）（女声 3）
+- `tr-TR-Standard-D` - 土耳其语（土耳其）（女声 3 音）
 - `tr-TR-Standard-E` - 土耳其语（土耳其）（男声）
 - `uk-UA-Standard-A` - 乌克兰语（乌克兰）（女声）
 - `vi-VN-Standard-A` - 越南语（越南）（女声）
 - `vi-VN-Standard-B` - 越南语（越南）（男声）
 - `vi-VN-Standard-C` - 越南语（越南）（女声 2）
-- `vi-VN-Standard-D` - 越南语（越南）（男 2 声）
+- `vi-VN-Standard-D` - 越南语（越南）（男声 2）
 
 待办事项：
 
-- 地点
+场地
 
-## 根据管理员设置自动内联键盘（Easy-Keyboard）
-对于每个状态，可以启用附加设置：
+## 根据管理员设置自动插入键盘（简易键盘）
+每个州都可以启用其他设置：
 
 ![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings.png)
 
-输入`/cmds`后，电报中将显示以下键盘：
+输入`/cmds`后，Telegram 中将显示以下键盘：
 
 ![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings1.png)
 
-在电报适配器的配置对话框中，`/cmds` 可以被任何文本（例如“？”）替换。
+在 Telegram 适配器的配置对话框中，`/cmds` 可以替换为任何文本（例如“？”）。
 
-如果在电报适配器的配置对话框中启用了**在键盘命令中使用房间**选项，那么在第一步中将显示房间列表。***尚未实现***
+如果在 Telegram 适配器的配置对话框中启用了“使用键盘命令访问房间”选项，则第一步将显示房间列表。***尚未实现***
 
-### 状态中的设置
-首先，必须启用配置。
+### 状态设置
+首先，必须启用该配置。
 
-别名
+#### 别名
 设备名称。如果名称为空，则名称将从对象中获取。
+
 输入“门灯”后，将显示以下布尔状态菜单。
+
 ![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings2.png)
 
-您可以打开设备、关闭设备或请求状态。
-如果您单击`Door lamp ?`，您将获得`Door lamp  => switched off`。
+您可以打开设备、关闭设备或查询设备状态。
+
+如果您点击 `Door lamp ?`，您将获得 `Door lamp  => switched off`。
 
 ### 只读
-如果激活，则不会显示开/关按钮，只显示`Door lamp ?`。
+如果激活，将不会显示 ON/OFF 按钮，只会显示 `Door lamp ?`。
 
 ### 报告变更
-如果设备状态发生变化（例如，有人物理打开了灯），新状态将传送到电报。
-例如`Door lamp  => switched on`。
+如果设备状态发生变化（例如，有人手动打开了灯），新的状态将发送到 Telegram。
 
-### 按钮在一行中
-一个设备一行中必须显示多少个按钮。
-由于名称较长，可能最好一行中只显示 2 个（甚至只有一个）按钮。
+例如：`Door lamp  => switched on`。
+
+### 一字排开的按钮
+一个设备一行中应该显示多少个按钮？
+
+由于名称较长，或许一行中只显示 2 个（甚至 1 个）按钮会更好。
 
 ![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
 
 ### 只写
-如果激活，状态查询（`Door lamp ?`）按钮将不会显示。
+如果启用，状态查询（`Door lamp ?`）按钮将不会显示。
+
 ![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings4.png)
 
-### ON 命令
-哪些文本将显示在`ON`按钮上。
+### 开启命令
+按钮 `ON` 上将显示哪些文本？
+
 例如：![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings5.png)
 
-将产生以下键盘：![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings6.png)
+将生成以下键盘：![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings6.png)
 
 ### 开启文本
-状态报告将显示的文本。
-例如，如果设备状态变为 true，则显示 `Door lamp => activated`，并且 **ON Text** 为 `activated`
+状态报告中将显示的文本。
 
-仅当激活**报告更改**时才会显示开/关文本。
+例如，如果设备状态变为真，则显示 `Door lamp => activated`，且**开启文本**为 `activated`。
+
+只有当“报告更改”功能启用时，才会显示开/关文本。
 
 ### 关闭命令
-与**ON 命令**相同，但用于 OFF。
+与 **ON 命令** 相同，但用于 OFF。
 
 ### 关闭文本
-与**ON Text**相同，但用于关闭。
-例如，如果设备状态变为 false，则为`Door lamp => deactivated`，而**OFF Text**为`deactivated`
+与“开启文本”相同，但用于“关闭”状态。
 
-### 仅正确
-例如，按钮没有关闭状态。在这种情况下，关闭按钮将不会显示。
+例如，如果设备状态变为 false，则文本为 `Door lamp => deactivated`，而“关闭文本”为 `deactivated`。
+
+### 仅此而已
+例如，对于按钮而言，它们没有“关闭”状态。在这种情况下，“关闭”按钮将不会显示。
 
 ![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings7.png)
 
-## 如何使用电报适配器在群聊中接收消息
-如果电报机器人在私人聊天中收到用户发送给机器人的消息，但没有收到用户在群聊中发送的消息。
-在这种情况下，您必须与`@botfather`交谈并禁用隐私模式。
+## 如何使用 Telegram 适配器在群聊中接收消息
+如果 Telegram 机器人能够接收用户在私聊中发送的消息，但无法接收用户在群聊中发送的消息，
 
-BotFather 聊天：
+在这种情况下，您需要联系 `@botfather` 并禁用隐私模式。
+
+BotFather聊天：
 
 ```
 You: /setprivacy
@@ -730,8 +839,8 @@ You: Disable
 BotFather: Success! The new status is: DISABLED. /help
 ```
 
-## 如何通过 node-red 发送消息
-对于向所有用户发送简单的文本消息，只需将文本放在消息的有效负载内并将其发送到 ioBroker 状态`telegram.INSTANCE.communicate.response`。
+## 如何通过 Node-RED 发送消息
+对于向所有用户发送简单的文本消息，只需将文本放在消息的有效负载中，并将其发送到 ioBroker 状态 `telegram.INSTANCE.communicate.response`。
 
 如果要设置其他选项，请使用 JSON 对象填充有效负载，例如：
 
@@ -746,34 +855,69 @@ msg.payload = {
 }
 ```
 
-在发送至`telegram.INSTANCE.communicate.responseJson you need to stringify the object!`之前
+在将其发送至 `telegram.INSTANCE.communicate.responseJson you need to stringify the object!` 之前
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.0.0-alpha.0 (2026-07-10)
+- (@GermanBluefox) Channel posts (from a channel where the bot is an admin) are now received and written to `communicate.request`/`communicate.requestChatId` (previously ignored)
+- (@GermanBluefox) Robustness: all `setState` calls now catch their errors (via a `setStateSafe` helper), so a failing state write can no longer cause an unhandled promise rejection
+- (@GermanBluefox) Added the state `communicate.chats`: every chat/group the bot receives a message from is remembered as JSON (`id => {title, type}`), so other adapters can offer a chat/group picker
+- (@GermanBluefox) Outgoing messages that fail because telegram is unreachable are now queued in memory and resent automatically once the connection is back (bounded queue, permanent errors like "chat not found" are not retried)
+- (@GermanBluefox) Documented that an unanswered `ask` returns the string `'__timeout__'`, and that the calling adapter's own `sendTo` timeout (JavaScript adapter defaults to ~20 s) must be larger than the configured answer timeout - otherwise the callback fires early (looks like a "No" answer)
+- (@GermanBluefox) A received location or venue is now written to the new state `communicate.requestLocation` as `latitude;longitude` (role `value.gps`), so it can be shown e.g. on a map
+- (@GermanBluefox) Fixed: recipients can now be mixed by username and first name in one list - a recipient without a public telegram username is matched by first name even when "store username" is active
+- (@GermanBluefox) Added the missing translations for the configuration labels (API URL, port, certificates, media quality, ...) in all languages
+- (@GermanBluefox) Robustness: all telegram API calls now catch their errors, so a failing call can no longer terminate the adapter with an unhandled promise rejection
+- (@GermanBluefox) The inline keyboard of a broadcast `ask` question is now removed for the user who answered (taken from the pressed callback message)
+- (@GermanBluefox) Fixed: the adapter no longer crashes (unhandled promise rejection) when the inline keyboard of an answered/timed-out `ask` question cannot be removed (e.g. "message to edit not found")
+- (@GermanBluefox) Fixed: `deleteMessage`/`editMessage*` without an explicit `user`/`chatId` is now executed once for the chat given in its options instead of being broadcast to every user (which made the other users fail)
+- (@GermanBluefox) The caption of a received photo/video/document is now written to `communicate.request` (like a normal text message), so image captions are no longer lost
+- (@GermanBluefox) Added a "Parsemode" option to the "ask via Telegram" Blockly block, so questions can be formatted with HTML/MarkdownV2
+- (@GermanBluefox) Added support for sending files directly from the ioBroker file storage via `iobfile://`, `iobobject://` and `iobstate://` URIs (works with Redis/jsonl where the file is not on the local filesystem)
+- (@GermanBluefox) The `/password` message is now deleted from the chat after a successful authentication
+- (@GermanBluefox) Fixed: `requestChatId`/`requestMessageId`/`requestUserId` are now set when receiving a photo, document or other media
+- (@GermanBluefox) Fixed: sending to a recipient by numeric user id (`{ user: "12345" }`) now works
+- (@GermanBluefox) Fixed: no longer crashes when a system notification contains an empty messages list
+- (@GermanBluefox) Added an optional `ioBroker.assistant` instance: messages that no internal rule/command matched are forwarded to it and its answer is sent back to the chat
+- (@GermanBluefox) Migrated the adapter backend to TypeScript; texts are now provided as `i18n` JSON files loaded via `I18n`
+- (@GermanBluefox) The target instance is now checked to be alive before a message is forwarded (text2command/assistant)
+- (@GermanBluefox) States without a value are now reported as "uncertain" instead of showing an unset boolean as "ON"
+- (@GermanBluefox) Timers are now managed by the adapter and cleared on unload (including pending question timeouts)
+- (@GermanBluefox) Fixed: the "allow states" option could not be disabled
+- (@GermanBluefox) Fixed: a question timeout could drop other pending questions
+- (@GermanBluefox) Fixed: `communicate.responseSilentJson` acknowledged the wrong state
+- (@GermanBluefox) Fixed: removed a stray empty entry from the generated command keyboard
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+* (@klein0r) Updated dependencies
+
+### 4.1.0 (2025-03-19)
+* (bluefox) Admin component was migrated to TypeScript
+* (bluefox) Node.js >= 20.x and js-controller >= 6 and admin >= 7 are required now.
+
+### 4.0.0 (2025-01-13)
+* NodeJS >= 20.x and js-controller >= 6 are required
+* (simatec) Responsive Design added
+* (klein0r) Allow async function calls in ask callback function
+
 ### 3.9.0 (2024-07-22)
 * (klein0r) Added option to send venue (with title and address)
 
 ### 3.8.2 (2024-07-16)
 * (bluefox) Username can consist of more than one user. The separator is comma, semicolon or space.
 
-### 3.8.0 (2024-07-14)
-* (bluefox) Migrated GUI for Admin 7
-
-### 3.7.1 (2024-07-03)
-* (klein0r) Restored translations for messages
-
-### 3.7.0 (2024-07-03)
-* (klein0r) Removed default / shadow fiel from Blockly block ask
-* (klein0r) Added state to answer last request (same chat)
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2016-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -46,6 +46,7 @@ if something does not work, look  in the log.
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 0.7.0 (2026-02-14)
@@ -70,6 +71,8 @@ if something does not work, look  in the log.
 
 ### 0.5.10 (2022-05-27)
 * (Apollon77) Fix crash cases reported by Sentry
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: PiZ4XJCJshjXGglMy02J8onIWW6Y8nsFhwDZoBad/jU=
+hash: knZKs6Tj3pEJd9A9RBG+KAsygbWTgTF5sc+bomF5aTg=
 ---
 ![логотип](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -37,7 +37,6 @@ hash: PiZ4XJCJshjXGglMy02J8onIWW6Y8nsFhwDZoBad/jU=
 Адаптер взаимодействует с облачным сервером XSense и обеспечивает простой способ интеграции устройств XSense в существующие системы ioBroker.
 Требуется XSense Bridge SBS50.
 
-## The [Исходный код на Python (https://github.com/theosnel/python-xsense) взят из [theosnel].](https://github.com/theosnel) .. большое спасибо за
 ---
 
 ## ❗ ПРЕДУПРЕЖДЕНИЕ
@@ -76,41 +75,7 @@ hash: PiZ4XJCJshjXGglMy02J8onIWW6Y8nsFhwDZoBad/jU=
 
 ---
 
-## 🚀 Установка Python (если он еще не установлен)
-Это должна быть официальная и общедоступная версия Python.
-
-💻 **Windows**
-
-1. **Установите Python**
-- Скачать: [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/)
-— Во время установки **включите опцию «Добавить Python в PATH»**.
-Затем проверьте:
-
-```powershell
-python --version
-pip --version
-```
-
-— Затем в объектах в разделе `xsense.0.info.callPython` введите `python` (значение по умолчанию — `python3`).
-
-🐧 **Linux / Docker**
-
-— Это происходит автоматически — просто выберите предпочтительную версию в настройках адаптера.
-
----
-
 ## ❗ Устранение неполадок
-Если установлена правильная версия, но адаптер уже загрузил неправильную, сначала удалите среду:
-
-```
-  rm -Rf /home/iobroker/.cache/autopy/venv/xsense-env
- ```
-
-Затем перезапустите адаптер.
-Если это по-прежнему не работает, проверьте файл /home/iobroker/.cache/autopy/venv/xsense-env/pyvenv.cfg.
-В нем указаны версии Python, соответствующие вашей среде — при необходимости внесите корректировки.
-Если файл отсутствует, значит, вы не дождались запуска адаптера достаточно долго.
-
 Сообщение об ошибке после установки
 
 [XSense] Не удалось найти пакет '@mongodb-js/zstd'
@@ -132,9 +97,43 @@ pip --version
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 0.6.1 (2026-05-03)
+* (arteck) fix deviceManager
+
+### 0.6.0 (2026-05-03)
+* (arteck) fix battery info
+* (arteck) add deviceManager
+
+### 0.5.1 (2026-05-02)
+* (arteck) fix battery info
+* (arteck) mqtt message as info in log
+
+### 0.5.0 (2026-04-26)
+* (arteck) fix translations
+* (arteck) del deprectated setStateAsync
+
+### 0.4.2 (2026-04-23)
+* (arteck) add retry logic
+
+### 0.4.1 (2026-04-23)
+* (arteck) fix type blank 
+* (arteck) fix network error
+
+### 0.4.0 (2026-04-22)
+*    BREAKING CHANGES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+* (arteck) python code changed to js
+* (arteck) battery state now in percentage
+* (arteck) new structure for home, del all DP and restart the adapter
+* <img width="1745" height="225" alt="grafik" src="https://github.com/user-attachments/assets/2d784ff7-677a-44f2-8712-f0d81e42ec4b" />
+
+### 0.3.7 (2026-04-13)
+* (arteck) add XS0B-MR
+
 ### 0.3.6 (2026-01-26)
 * (arteck) typo
-*
 
 ### 0.3.5 (2026-01-26)
 * (arteck) check object isLifeEnd
@@ -243,6 +242,8 @@ pip --version
 
 ### 0.0.1 (2025-07-27)
 * (arteck) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

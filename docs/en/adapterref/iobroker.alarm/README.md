@@ -14,39 +14,37 @@
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYHW84XXF5REJ&source=url)
 
-## Alarmanlage für ioBroker
-
-**[Deutsche Beschreibung](docs/de/alarm.md)**
-
 ## Alarmsystem for ioBroker
 
-**[English description](docs/en/alarm_en.md)**
+**[English description](docs/en/alarm_en.md)**  
+**[Deutsche Beschreibung](docs/de/alarm.md)**
 
-******************************************************************************************
+This adapter allows you to set up a home alarm system without extensive programming knowledge. It offers the ability to configure 3 security circuits and monitor them during night rest, activation, or deactivation. Additionally, internal adapter states can be directly linked to external states. These links are configured in the Shortcuts tab. A simple presence simulation can be easily configured to enhance protection against burglars. Notifications about various events are also possible and can be sent via various channels such as Telegram or Email. (Provided the corresponding adapter is installed!)
+
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 4.0.0 (2026-03-22)
-* (@GermanBluefox) Adapter was migrated to TypeScript
-* (@GermanBluefox) GUI was migrated to JsonConfig
-* (@GermanBluefox) Refactor code and remove duplicated methods
-* (@GermanBluefox) Added option repeat writing of state values
-* (@GermanBluefox) Added option to retrigger the alarm if already triggered
+### 5.0.1 (2026-08-07)
+* (@misanorot) update
 
-### 3.7.7 (2026-03-15)
-* (misanorot) update packages
+### 5.0.0 (2026-08-06)
+* (@GermanBluefox) Migrated to admin 8
+* (@misanorot) fixed checker #427
 
-### 3.7.6 (2025-10-26)
-* (misanorot) update npm progress
+### 4.0.6 (2026-07-07)
+* (@GermanBluefox) Packages were updated
+* (@GermanBluefox) Some compiler errors were fixed
 
-### 3.7.5 (2025-10-12)
-* (misanorot) update packages
+### 4.0.5 (2026-06-23)
+* (@misanorot) fixed checker issues
 
-### 3.7.4 (2025-08-17)
-* (misanorot) update packages
+### 4.0.4 (2026-05-17)
+* (@misanorot) fixed little JSON Ui issues
+
+[Older changes](CHANGELOG_OLD.md)
 
 ## License
 MIT License

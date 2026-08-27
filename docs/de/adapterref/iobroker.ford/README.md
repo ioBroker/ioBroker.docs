@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ford/README.md
 title: ioBroker.ford
-hash: SwGh8ZuY/WUsnCeKE3ij6c8GDYf4Vseu3KQ/2C5ivuE=
+hash: oqlZLeXYRDuTAUgs++9W9xJncNE80NKLRBmsWfBtE/8=
 ---
 ![Logo](../../../en/adapterref/iobroker.ford/admin/ford.png)
 
@@ -18,46 +18,54 @@ hash: SwGh8ZuY/WUsnCeKE3ij6c8GDYf4Vseu3KQ/2C5ivuE=
 **Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.ford/workflows/Test%20and%20Release/badge.svg)
 
 ## Ford-Adapter für ioBroker
-Adapter für FordPass
+Adapter für Ford-Fahrzeuge unter Verwendung der offiziellen FordConnect Query API von Ford (EU-Datenschutzgesetz).
 
 ## Verwendung
-### OAuth 2.0-Anmeldung
-Der Adapter verwendet OAuth 2.0-Authentifizierung. Führen Sie die folgenden Schritte zur Authentifizierung aus:
+### Voraussetzungen
+Erstellen Sie eine App im Ford-Entwicklerportal unter <https://developer.ford.com/developer-eu>.
 
-1. Starten Sie den Adapter – er zeigt eine Authentifizierungs-URL im Protokoll an.
-2. **WICHTIG: Öffnen Sie die Entwicklertools (F12), BEVOR Sie auf die Anmelde-URL klicken.**
-3. Wechseln Sie in den Entwicklertools zum Tab „Netzwerk“.
-4. Kopieren Sie die OAuth-URL aus dem Protokoll und fügen Sie sie in Ihren Browser ein.
-5. Melden Sie sich mit Ihren Ford-Kontodaten an.
-6. Nach dem Login zeigt der Browser die Meldung „Seite kann nicht geöffnet werden“ an – das ist normal.
-7. Suchen Sie auf der Registerkarte „Netzwerk“ die fehlgeschlagene Anfrage mit der roten URL, die mit `fordapp://userauthorized/?code=` beginnt.
-8. Kopieren Sie die vollständige URL aus der Registerkarte „Netzwerk“.
-9. Fügen Sie die URL in das Feld „v2 Code URL“ in den Adaptereinstellungen ein.
-10. Speichern und Adapter neu starten
+Verwenden Sie dieselbe E-Mail-Adresse wie für Ihr FordPass-Konto, legen Sie eine Umleitungs-URI fest (z. B.
+`http://localhost:8080/callback`) und notieren Sie sich die generierte Client-ID und das Client-Geheimnis.
 
-### Fernbedienungen
-Der Adapter erzeugt Fernbedienungstasten für jedes Fahrzeug unter `{VIN}.remote.*`:
+### Anmelden
+1. Geben Sie Client-ID, Client-Geheimnis und Umleitungs-URI in den Adaptereinstellungen ein und speichern Sie die Einstellungen.
+2. Starten Sie den Adapter – er gibt eine Anmelde-URL im Protokoll aus.
+3. Öffnen Sie die URL in Ihrem Browser, melden Sie sich mit Ihrem FordPass-Konto an und autorisieren Sie die App.
+4. Sie werden mit dem Parameter `?code=...` zu Ihrer Redirect-URI weitergeleitet.
+5. Kopieren Sie die vollständige Weiterleitungs-URL aus der Adressleiste Ihres Browsers.
+6. Fügen Sie die URL in das Feld „Code-URL“ in den Adaptereinstellungen ein, speichern Sie die Einstellungen und starten Sie den Adapter neu.
 
-- **engine/start**: Motor starten oder stoppen (true = starten, false = stoppen)
-- **Türen/Schloss**: Türen verriegeln oder entriegeln (true = verriegeln, false = entriegeln)
-- **Status**: Fordert eine aktuelle Statusaktualisierung vom Fahrzeug an (sendet den Befehl statusRefresh)
-- **Aktualisieren**: Aktualisiert die zwischengespeicherten Daten, ohne einen Befehl an das Fahrzeug zu senden.
+Der Adapter tauscht den Code gegen Tokens, speichert die Sitzung und aktualisiert sie automatisch.
+
+### Daten
+- `{VIN}.general` - Fahrzeuginformationen vom Werkstatt-Endpunkt
+- `{VIN}.telemetry` - Telemetriedaten (SoC, Reichweite, Kilometerzähler, Standort, Reifendruck usw.)
+- `{VIN}.vehicleHealthAlerts` - Fahrzeugzustandswarnungen
+- `{VIN}.wallbox` - Wallbox-Daten (nur für Elektrofahrzeuge, falls verfügbar)
+- `{VIN}.departureTimes` - Abfahrtszeiten für Elektrofahrzeuge (nur für Elektrofahrzeuge, falls verfügbar)
+- `{VIN}.chargeSchedules` - Ladepläne für Elektrofahrzeuge (nur für Elektrofahrzeuge, falls verfügbar)
+- `{VIN}.remote.refresh` - Schaltfläche zum sofortigen Abrufen der Daten
+
+Endpunkte, die für ein Fahrzeug nicht verfügbar sind, werden stillschweigend übersprungen.
+Die FordConnect-Abfrage-API ist schreibgeschützt, daher sind keine Befehle für Motor, Verriegelung oder Ladevorgang verfügbar.
 
 ### Konfigurationsoptionen
-- **Aktualisierungsintervall**: Zeit in Minuten zwischen automatischen Datenaktualisierungen (Standard: 5 Minuten)
-- **Standortaktualisierung**: Standortaktualisierungen aktivieren/deaktivieren. Durch Deaktivieren werden kürzere Aktualisierungsintervalle ermöglicht und der Akkuverbrauch reduziert.
-- **Aktualisierung erzwingen**: Automatische Statusaktualisierung in jedem Intervall aktivieren (WARNUNG: Kann die 12-V-Batterie entladen. Nur aktivieren, wenn Ihr Fahrzeug diesen Befehl unterstützt).
-- **12-V-Prüfung überspringen**: Deaktivieren Sie die 12-V-Batterieprüfung bei Verwendung von „Update erzwingen“.
+- **Client-ID / Client-Geheimnis**: Anmeldeinformationen aus dem Ford-Entwicklerportal
+- **Umleitungs-URI**: Muss mit der im Entwicklerportal registrierten URI übereinstimmen.
+- **Abfrageintervall**: Zeit in Minuten zwischen automatischen Telemetrieabfragen (Standard: 15)
 
-### Batterieschutz
-Der Adapter fragt standardmäßig in regelmäßigen Abständen zwischengespeicherte Fahrzeugdaten ab. Um aktuelle Daten vom Fahrzeug anzufordern, haben Sie folgende Möglichkeiten:
+Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
+Sentry.io ist ein Dienst, der Entwicklern einen Überblick über Fehler in ihren Anwendungen bietet. Genau dies wird in diesem Adapter implementiert.
 
-- Aktivieren Sie die Option "Update erzwingen" (nur wenn Ihr Fahrzeug dies unterstützt)
-- Verwenden Sie die Schaltfläche `{VIN}.remote.status` manuell
-
-**Hinweis:** Einige Fahrzeuge unterstützen den Befehl `statusRefresh` möglicherweise nicht und geben einen 404-Fehler zurück – dies ist normal. Deaktivieren Sie in diesem Fall „Aktualisierung erzwingen“ und verwenden Sie stattdessen die Schaltfläche `refresh`.
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH die Erlaubnis erteilt haben, Diagnosedaten zu erfassen, wird auch Ihre Installations-ID (eine zufällig generierte, eindeutige ID ohne weitere Informationen) übermittelt. Dadurch kann Sentry Fehler gruppieren und die Anzahl der betroffenen Benutzer anzeigen. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abstürzen.
 
 ## Changelog
+
+### 2.0.1 (2026-07-25)
+
+- Switch to Ford's official FordConnect Query API (EU Data Act)
+- Remove reverse-engineered FordPass login, Autonomic token and WebSocket to avoid account blocking
+- Read-only telemetry: remote commands removed
 
 ### 1.1.5 (2025-12-29)
 
@@ -124,7 +132,7 @@ Der Adapter fragt standardmäßig in regelmäßigen Abständen zwischengespeiche
 
 MIT License
 
-Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

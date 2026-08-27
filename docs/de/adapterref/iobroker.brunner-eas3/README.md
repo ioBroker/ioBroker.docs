@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.brunner-eas3/README.md
 title: ioBroker.brunner-eas3
-hash: c/OP6XPydI74q7mpQKoD0wzg885HvMTnM6y1yFd+vMA=
+hash: mTxAKD/U4J0HeON8R2zssvtObxFXMlsR47pS/4DOobU=
 ---
 ![Logo](../../../en/adapterref/iobroker.brunner-eas3/admin/brunner-eas3.png)
 
@@ -32,13 +32,19 @@ Brennende Zustände:
 * 7 - Feuer gelöscht.
 
 ### HAFTUNGSAUSSCHLUSS
-Dieser Adapter ist KEIN offizielles Produkt der Urlich Brunner GmbH. Er wurde von Mitgliedern der Open-Source-Community entwickelt und wird von ihnen gepflegt.
+Dieser Adapter ist KEIN offizielles Produkt der Ulrich Brunner GmbH. Er wurde von Mitgliedern der Open-Source-Community entwickelt und wird von ihnen gepflegt.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 1.1.4 (2026-04-14)
+* (JR-HOME) release - some non-functional changes to be compliant to all IOBroker bot checks
+
 ### 1.1.1 (2026-03-26)
 * (JR-HOME) release - updating roles of IOBroker objects, corrected add more wood status
 
@@ -47,6 +53,8 @@ Dieser Adapter ist KEIN offizielles Produkt der Urlich Brunner GmbH. Er wurde vo
 
 ### 1.0.6 (2026-03-01)
 * (JR-HOME) release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

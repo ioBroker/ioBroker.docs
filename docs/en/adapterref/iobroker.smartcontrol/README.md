@@ -81,6 +81,8 @@ We welcome contributions and collaboration from the community to continue enhanc
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -360,6 +362,8 @@ Change Log for 0.2.0:
 
 ### 0.0.3
 * (Mic-M) release for very early testers
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

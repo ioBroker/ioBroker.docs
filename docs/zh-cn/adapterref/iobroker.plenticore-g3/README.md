@@ -3,45 +3,64 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.plenticore-g3/README.md
 title: ioBroker.plenticore-g3
-hash: B0UYuVEGJli+1hMjS9GTkZerCB7REb/xhVWqz2I5zaQ=
+hash: 5Njb1uuifzufH0XN64J4An6cNiJoHI77lwTIuQgVna0=
 ---
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.plenticore-g3.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.plenticore-g3.svg)
 ![安装数量](https://iobroker.live/badges/plenticore-g3-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/plenticore-g3-stable.svg)
-![新公共管理](https://nodei.co/npm/iobroker.plenticore-g3.png?downloads=true)
+![稳定仓库中的当前版本](https://iobroker.live/badges/plenticore-g3-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.plenticore-g3.png?downloads=true)
 
 <p align="left"> <img src="admin/plenticore-g3.png" width="30%"> </p>
 
 # IoBroker.plenticore-g3
-**测试：**![测试和发布](https://github.com/fernetmenta/ioBroker.plenticore-g3/workflows/Test%20and%20Release/badge.svg)
+**测试：** ![测试与发布](https://github.com/fernetmenta/ioBroker.plenticore-g3/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的 plenticore-g3 适配器
-此适配器可通过 REST API 与 KOSTAL Plenticore（多种型号，请参阅下文）进行通信。此 API 比 Modbus 强大得多。它允许访问大约 200 个称为“过程数据”的只读数据点和大约 250 个可写设置。此 API 的文档位于以下 URL：
+## 适用于 ioBroker 的 plenticore-g3 适配器
+用于通过 REST API 与 KOSTAL Plenticore（多种型号，详见下文）通信的适配器。此 API 比 Modbus 功能强大得多。它提供对大约 200 个只读数据点（称为“过程数据”）和大约 250 个可写设置点的访问。此 API 的文档位于以下 URL：
 
-http://\<plenticore 主机>/api/v1
+http://<plenticore 主机>/api/v1
 
 <p align="center"> <img src="images/rest1.png" width="50%"> <img src="images/rest2.png" width="50%"> </p>
 
-此适配器使用 REST API 的“流程数据”和“设置”。由于用户不需要所有可用数据，因此该适配器仅预设了极少量的流程数据和设置，但用户可以从所有可用流程数据和设置的列表中选择其他数据点。
+此适配器使用 REST API 的“过程数据”和“设置”。由于用户不需要所有可用数据，因此适配器仅预设了少量过程数据和设置，但允许用户从所有可用过程数据和设置的列表中选择其他数据点。
 
 <p align="center"> <img src="images/processdata.png" width="50%"> </p>
 
-您还可以为可选数据点添加您自己的描述，这些数据点将以描述的形式显示在 iobroker 的对象树中。大多数情况下，数据点的用途可以通过其名称推断出来。例如，“devices:local/HomeBat_P”表示家庭使用的电池电量。
+您还可以为可选数据点添加自定义描述，这些描述将显示在 iobroker 的对象树中。大多数情况下，数据点的用途可以从其名称推断出来。例如，“devices:local/HomeBat_P”表示家庭从电池消耗的电量。
 
 ### 命名
-原生对象由模块 ID 和数据 ID 组成，例如“scb:statistic:EnergyFlow/Statistic:Yield:Day”。斜杠前的部分是模块 ID。在本例中为“scb:statistic:EnergyFlow”。在 iobroker 的对象树中，将根据模块 ID 创建文件夹结构：<br>瑞士信贷集团<br>统计数据<br>能量流<br>
+原生对象由模块 ID 和数据 ID 组成，例如“scb:statistic:EnergyFlow/Statistic:Yield:Day”。斜杠前的部分是模块 ID，在本例中为“scb:statistic:EnergyFlow”。在 iobroker 的对象树中，会为模块 ID 创建一个文件夹结构：<br>渣打<br>统计数据<br>能量流<br>
 
-数据 ID 中的冒号被下划线替换：<br> “Statistic:Yield:Day”将变为“Statistic_Yield_Day”
+数据 ID 中的冒号会被替换为下划线：<br> &#39;Statistic:Yield:Day&#39; 将变为 &#39;Statistic_Yield_Day&#39;
 
-## 支持/测试过的 Plenticore 模型
-尽管适配器名称可能暗示仅支持 G3 型号，但实际上也支持其他型号。API 似乎相同，只是可用的数据点可能有所不同。以下是用户成功测试的型号列表。
+## 已支持/已测试的Plenticore型号
+尽管适配器的名称可能暗示仅支持 G3 型号，但实际上也支持其他型号。API 似乎相同，只是可用的数据点可能有所不同。以下是用户成功测试过的型号列表。
 
--Plenticore G3
+- Plenticore G3
 - Plenticore plus 10 (G1) - 固件版本 01.30.12092
 - Plenticore BI 10/26 (G2) - 固件版本 02.15.19562
 
 ## Changelog
+### 0.5.3 (2026-04-02)
+- update dependencies
+- fix notification, only send notification about firmware updates every 14 days
+
+### 0.5.2 (2026-01-04)
+- fix skipping optionals that have become preselected
+- fix not showing settings for battery when present
+- update dependencies
+
+### 0.5.1 (2025-11-20)
+- bump some packages
+- split react bundle
+- fix unhandled exception when polling inverter state
+- fix missing description of preselected values (former optionals)
+
+### 0.5.0 (2025-10-29)
+- make API-Call timeout configurable
+- update translations
+
 ### 0.4.1 (2025-10-17)
 - move to npm trusted publishing
 
@@ -134,7 +153,7 @@ Initial release
 ## License
 MIT License
 
-Copyright (c) 2025 fernetmenta <fernetmenta@online.de>
+Copyright (c) 2025-2026 fernetmenta <fernetmenta@online.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

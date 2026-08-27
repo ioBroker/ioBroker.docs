@@ -24,6 +24,8 @@ This adapter allows getting data from the Oilfox sensor via the Oilfox Website.
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -98,6 +100,8 @@ This adapter allows getting data from the Oilfox sensor via the Oilfox Website.
 
 ### 0.0.1
 * (jk) initial version
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

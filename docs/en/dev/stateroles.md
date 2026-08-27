@@ -56,6 +56,7 @@ If no detailed matching role can be found or the use case is not specific then y
 * `sensor.alarm`          - some common alarm
 * `sensor.alarm.flood`    - water leakage
 * `sensor.alarm.fire`     - fire sensor
+* `sensor.alarm.co`       - carbon monoxide detected
 * `sensor.alarm.secure`   - door opened, window opened or motion detected during alarm is ON.
 * `sensor.alarm.power`    - No power (`voltage = 0`)
 * `sensor.light`          - feedback from the lamp, that it is ON
@@ -75,6 +76,7 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `button`
 * `button.long`
 * `button.stop`           - e.g. rollo stop,
+* `button.stop.blind`     - stop the motion of a blind (device types `blind`, `blindButtons`)
 * `button.stop.tilt`
 * `button.start`
 * `button.resume`
@@ -84,6 +86,8 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `button.open.tilt`
 * `button.close.blind`
 * `button.close.tilt`
+* `button.open`            - open a blind. The type detector accepts it as an equivalent of `button.open.blind`, but the more detailed role is preferred
+* `button.close`          - close a blind. The type detector accepts it as an equivalent of `button.close.blind`, but the more detailed role is preferred
 * `button.mode.`*
 * `button.mode.auto`
 * `button.mode.manual`
@@ -97,19 +101,42 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `button.press`
 
 ### Values (numbers, read-only)
-`common.type=number, common.write=false`
+`common.type=number, common.write=false` (`common.type=string, common.write=false` where specified explicitly)
 
 * `value`
 * `value.window`      (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) It is important to have (`CLOSED/TILTED/OPEN`). Values can differ.
 * `value.temperature` (`common.unit='°C' or '°F' or 'K'`)
-* `value.humidity`
-* `value.co2`             - CO2 (unit: ppm)
+* `value.temperature.dewpoint` (`common.unit='°C' or '°F')
+* `value.humidity` relative humidity, same as `value.humidity.relative` (unit: %)
+* `value.humidity.relative` - (unit: %)
+* `value.humidity.absolute` - (unit: g/m³, mg/m³)
+* `value.co`              - Carbon monoxide (unit: ppm)
+* `value.co2`             - Carbon dioxide (unit: ppm)
+* `value.no`              - Nitrogen monoxide (unit: µg/m³ or ppm)
+* `value.no2`             - Nitrogen dioxide (unit: µg/m³ or ppm)
+* `value.o3`              - Ozone (unit: µg/m³ or ppm)
+* `value.ch2o`            - Formaldehyde (unit: µg/m³)
+* `value.pm1`             - Particulate matter PM1 (unit: µg/m³)
+* `value.pm25`            - Particulate matter PM2.5 (unit: µg/m³)
+* `value.pm10`            - Particulate matter PM10 (unit: µg/m³)
+* `value.rn`              - Radon (unit: Bq/m³)
+* `value.tvoc`            - Total volatile organic compounds (unit: µg/m³ or ppb)
+* `value.airquality`      - Air quality index (AQI)
+* `value.so2`             - Sulphur dioxide (unit: µg/m³ or ppm)
+* `value.co.level`, `value.co2.level`, `value.no2.level`, `value.o3.level`, `value.ch2o.level`, `value.pm1.level`, `value.pm25.level`, `value.pm10.level`, `value.rn.level`, `value.tvoc.level`, `value.so2.level` - qualitative level of the concentration of the same name (`common.states={"0": "UNKNOWN", "1": "LOW", "2": "MEDIUM", "3": "HIGH", "4": "CRITICAL"}`)
 * `value.brightness`      - luminance level (unit: lux)
+* `value.dimmer`          - actual dimming level in % (device type `dimmer`)
+* `value.volume`          - actual sound volume in % (device types `media`, `volume`)
+* `value.volume.group`    - actual sound volume of a group of devices in % (device type `volumeGroup`)
 * `value.min`
 * `value.max`
 * `value.default`
 * `value.battery`         - battery level
 * `value.valve`           - valve level
+* `value.filter`          - remaining condition of a filter (unit: %)
+* `value.filter.carbon`   - remaining condition of an activated carbon filter (unit: %)
+* `value.flow`            - flow rate of a liquid or a gas (unit: m³/h)
+* `value.rssi`            - received signal strength of a radio device (unit: dBm)
 * `value.time`            - getTime() of Date() object
 * `value.timer`           - duration in s (r/o equivalent to `level.timer`)
 * `value.interval`    (common.unit='sec') - Interval in seconds (can be 0.1 or less)
@@ -118,7 +145,7 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.gps.longitude`   - gps longitude coordinates
 * `value.gps.latitude`    - gps latitude
 * `value.gps.elevation`   - gps elevation
-* `value.gps`             - longitude and latitude together like '5.56;43.45'
+* `value.gps`             - longitude and latitude together like '5.56;43.45'  (`common.type=string`)
 * `value.gps.accuracy`    - accuracy of current gps measurement
 * `value.gps.radius`      - radius of current gps measurement
 * ~~`value.power.consumption` - energy consumption (unit=Wh or KWh)~~
@@ -137,9 +164,10 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.curtain`         - actual position of curtain
 * `value.blind`           - actual position of the blind (`max = fully open, min = fully closed`)
 * `value.tilt`            - actual tilt position (`max = fully open, min = fully closed`)
+* `value.open.tilt`       - accepted variant of `value.tilt`. Prefer `value.tilt` for new adapters
 * `value.lock`            - actual position of lock
 * `value.speed`           - wind speed
-* `value.pressure`        - (unit: mbar)
+* `value.pressure`        - (unit: mbar, `hPa` is the same value and is accepted too)
 * `value.distance`
 * `value.distance.visibility`
 * `value.severity`        - some severity (states can be provided), Higher is more important
@@ -160,6 +188,7 @@ So the indicator may not be alone in the channel. It must be some other main sta
 
 * `indicator`
 * `indicator.working`     - indicates that the target system is executing something, like blinds or lock opening.
+* `indicator.working.test` - a self test of the device is in progress
 * `indicator.reachable`   - If a device is online
 * `indicator.connected`   - used only for instances. Use `indicator.reachable` for devices
 * `indicator.direction`   - `true` - up/open, `false` - down/close. Use better `value.direction`
@@ -167,6 +196,7 @@ So the indicator may not be alone in the channel. It must be some other main sta
 * `indicator.maintenance` - indicates system warnings/errors, alarms, service messages, battery empty or stuff like that
 * `indicator.maintenance.lowbat`
 * `indicator.maintenance.unreach`
+* `indicator.maintenance.filter` - the filter of the device has to be changed
 * `indicator.maintenance.alarm`
 * `indicator.lowbat`      - true if low battery
 * `indicator.alarm`       - same as indicator.maintenance.alarm
@@ -174,11 +204,12 @@ So the indicator may not be alone in the channel. It must be some other main sta
 * `indicator.alarm.flood` - flood detected
 * `indicator.alarm.secure` - door or window is opened
 * `indicator.alarm.health` - health problem
+* `indicator.alarm.muted` - the alarm of the device is currently muted
 
 ### Levels (numbers, read-write)
-With **levels**, you can control or set some number value.
+`common.type=number, common.write=true`(`common.type=string, common.write=true` where specified explicitly)
 
-`common.type=number, common.write=true`
+With **levels**, you can control or set some number value.
 
 * `level`
 * `level.humidity`        - humidity as a setpoint, i.e., for humidifiers / climate controls
@@ -206,6 +237,8 @@ With **levels**, you can control or set some number value.
 * `level.dimmer`          - brightness is dimmer too
 * `level.blind`           - set blind position (max = fully opened, min = fully closed)
 * `level.temperature`     - set desired temperature
+* `level.temperature.heating` - desired temperature for heating, for devices that hold a heating and a cooling setpoint at once
+* `level.temperature.cooling` - desired temperature for cooling, for devices that hold a heating and a cooling setpoint at once
 * `level.valve`           - set point for valve position
 * `level.color.red`
 * `level.color.green`
@@ -221,12 +254,15 @@ With **levels**, you can control or set some number value.
 * `level.effect`          - effect, usually for lights. Should have list of possible effects in `common.states`. (`common.type=string`).
 * `level.timer`
 * `level.timer.sleep`    - sleep timer. 0 - off, or in minutes
+* `level.timer.off`      - time in seconds after which the device switches itself off again, e.g. the on-time of a lamp or a socket
 * ...
 * `level.volume`         - (`min=0, max=100`) - sound volume, but min, max can differ. min < max
 * `level.volume.group`   - (`min=0, max=100`) - sound volume, for the group of devices
 * `level.curtain`        - set the curtain position
 * `level.tilt`           - set the tilt position of blinds (max = fully opened, min = fully closed)
-* `level.speed`          - speed eg. fan, ventilator, ..
+* `level.open.tilt`      - accepted variant of `level.tilt`. Prefer `level.tilt` for new adapters
+* `level.speed`          - speed eg. fan, ventilator, .. Also used as the continuous fan speed in % of an air conditioner, fan or air purifier, where the stepped counterpart is `level.mode.fan`
+* `level.pump`           - speed or flow setpoint of a pump (unit: %)
 
 ### Switches (booleans, read-write)
 Switch controls a boolean device (`true = ON, false = OFF`)
@@ -238,6 +274,7 @@ Switch controls a boolean device (`true = ON, false = OFF`)
 * `switch.lock.door`      - door lock
 * `switch.lock.window`    - window lock
 * `switch.mode.boost`     - start/stop boost mode of thermostat
+* `switch.boost`          - start/stop boost mode. Older variant of `switch.mode.boost`, still accepted (device type `airCondition`)
 * `switch.mode.party`     - start/stop party mode of thermostat
 * `switch.power`          - on/off power, thermostat or air conditioner
 * `switch.light`
@@ -250,12 +287,16 @@ Switch controls a boolean device (`true = ON, false = OFF`)
 * `switch.mode.moonlight` - moon light mode on/off
 * `switch.mode.color`     - color mode on/off
 * `switch.gate`           - closes(false) or opens(true) the gate
+* `switch.pump`           - on/off of a pump. A dedicated role, because a pump has no other mandatory state and could not be told apart from a socket otherwise
 
 ### Air condition or thermostat
 * `level.mode.fan`        - `AUTO, HIGH, LOW, MEDIUM, QUIET, TURBO`
 * `level.mode.swing`      - `AUTO, HORIZONTAL, STATIONARY, VERTICAL`
 * `level.mode.airconditioner` - air conditioner: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, heating thermostat: `AUTO, MANUAL, VACATION`, 
 * `level.mode.thermostat` - thermostat: `AUTO, MANUAL, VACATION`,
+* `level.mode.airflow`    - airflow direction: `FORWARD, REVERSE`
+* `switch.mode.swing`     - boolean variant of `level.mode.swing` for devices that can only switch the swing on and off
+* `value.mode.thermostat` - what the device is actually doing, read-only: `OFF, HEAT, COOL`. The read-only counterpart of `level.mode.thermostat`
 * `value.mode.airconditioner` - current device state: `IDLE`, `HEAT, `COOL`  (0,1,2 in apple home) 
  Additionally to these states normally the `level.temperature` and `switch.power` required to map the air conditioner.
 
@@ -268,6 +309,16 @@ TODO: Think about ionization` and oscillation.
 * `value.waste`           - 0-100% waste bin level. (0% - empty, 100% - full)
 * `indicator.maintenance.waste` - Waste bin is fool.
 * `value.state`           - `HOME, CLEANING, PAUSE` and so on.
+* `vacuum.map.base64`     - map of the cleaned area as a base64 encoded image (`common.type=string`)
+* `value.usage.filter`    - remaining life of the filter in %
+* `value.usage.brush`     - remaining life of the main brush in %
+* `value.usage.brush.side` - remaining life of the side brush in %
+* `value.usage.sensors`   - remaining time in % until the sensors have to be cleaned
+* `indicator.maintenance.water` - the water tank has to be filled
+* `level.mode.vacuum`     - run mode of a robotic vacuum: `IDLE, CLEANING, MAPPING` and vendor modes. The cleaning intensity is `level.mode.cleanup`
+* `button.home`           - send the device back to its dock
+* `value.progress`        - progress of the running job (unit: %)
+* `value.vacuum.phase`    - current phase reported by the device (`common.type=string`)
 
 Additionally, to these states normally the `switch.power` required to map the vacuum cleaner. `switch.power` in this case works as: `true` - clean, `false` - back to home.
 Optionally `value.battery` and  
@@ -277,6 +328,8 @@ Optionally `value.battery` and
 * `value.position`        - position of the gate in percent (100% opened, 0% - closed)
 * `value.gate`            - same as `value.position`
 * `button.stop`           - stop the motion of the gate
+* `indicator.opened`      - end contact: the gate is fully opened
+* `indicator.closed`      - end contact: the gate is fully closed. Both contacts exist separately, because a gate can also stand between fully opened and fully closed
 
 ### Media
 Special roles for media players
@@ -310,6 +363,8 @@ Special roles for media players
 * `media.elapsed`         - (`common.type=number`) seconds
 * `media.broadcastDate`   - (`common.type=string`) Broadcast date
 * `media.mute`            - (`common.type=boolean`) true is muted
+* `media.player.name`     - name of the player (`common.type=string`)
+* `media.player.type`     - type of the player, e.g. the model (`common.type=string`)
 * `media.season`          - (`common.type=string`) season number (important the type is really "string" to be able to indicate absence of season with "")
 * `media.episode`         - (`common.type=string`) episode number (important the type is really "string" to be able to indicate absence of episode with "")
 * `media.mute.group`      - (`common.type=boolean`) mute of a group of devices
@@ -377,8 +432,13 @@ Special roles for media players
 ### Weather
 * `date`                        - actual date or date of last-read information
 * `date.forecast.1`                 - tomorrow date
+* `date.forecast.0`                 - today date
+* `dayofweek.forecast.0`            - day of week of today as text
 * `date.sunrise`                - Sunrise for today
 * `date.sunset`                 - Sunset for today
+* `date.sunrise.forecast.0`     - Sunrise of the forecast for today. `date.sunrise.forecast.1` for tomorrow and so on
+* `date.sunset.forecast.0`      - Sunset of the forecast for today. `date.sunset.forecast.1` for tomorrow and so on
+* `time.sunrise`, `time.sunset` - accepted variants of `date.sunrise` / `date.sunset`, including the `.forecast.<n>` forms. Prefer the `date.*` roles for new adapters
 * `dayofweek`                   - day of week as text
 * `location`                    - Text description of location (e.g., address)
 * `value.clouds`                - Clouds on the sky. 0% - no clouds, 100% - many clouds.
@@ -389,6 +449,12 @@ Special roles for media players
 * `value.direction.wind.forecast.1` - wind direction forecast for tomorrow in degrees
 * `value.humidity`              - actual or average humidity
 * `value.humidity.max`          - actual humidity
+* `value.humidity.forecast.0`   - humidity forecast for today. `value.humidity.forecast.1` for tomorrow and so on
+* `value.humidity.max.forecast.0` - maximum humidity forecast for today. `value.humidity.max.forecast.1` for tomorrow and so on
+* `value.temperature.forecast.0` - temperature forecast for today
+* `value.temperature.feelslike.forecast.0` - felt temperature forecast for today
+* `value.temperature.windchill.forecast.0` - wind chill forecast for today
+* `value.pressure.tendency`     - tendency of the air pressure as text, e.g. `up`, `down`, `stable` (`common.type=string`)
 * `value.humidity.min`          - actual humidity
 * `value.precipitation`         - (`type: number, unit: mm`) precipitation for last 24 hours rain/snow (Niederschlag heute für Schnee oder Regen / осадки сегодня снега или дождя)
 * `value.precipitation.chance`  - Actual precipitation chance for today
@@ -434,6 +500,8 @@ Special roles for media players
 * `weather.direction.wind.forecast.0` - wind direction forecast for today as text
 * `weather.html`                - HTML object with weather description
 * `weather.icon`                - Actual state icon URL for now
+* `weather.icon.forecast.0`     - state icon URL of the forecast for today
+* `weather.icon.wind.forecast.0` - wind icon URL of the forecast for today
 * `weather.icon.forecast.1`         - tomorrow icon
 * `weather.icon.name`           - Actual state icon name for now
 * `weather.icon.wind`           - Actual wind icon URL for now
@@ -473,6 +541,19 @@ Special roles for media players
 * `value.health.bpm`      - heart beats per minute
 
 ### Others
+
+Roles of a camera (device type `camera`):
+
+* `link.camera`           - URL of the camera image (`common.type=string`)
+* `level.camera.position` - pan, tilt and zoom position of the camera
+* `switch.camera.autofocus` - autofocus on/off
+* `switch.camera.autowhitebalance` - automatic white balance on/off
+* `switch.camera.brightness` - brightness correction on/off
+* `switch.camera.nightmode` - night mode on/off
+
+Role of an image (device type `image`):
+
+* `icon`                  - URL of an image or an icon (`common.type=string`)
 * `url`
 * `url.icon`               - icon (additionally every object can have `common.icon`)
 * `url.cam`                - web camera url
@@ -487,3 +568,69 @@ Special roles for media players
 
 * `adapter.messagebox`     (`common.type=object, common.write=true`) used to send messages to email, pushover and other adapters
 * `adapter.wakeup`         (`common.type=boolean, common.write=true`) wake up adapter from suspended mode
+
+## Deprecated role aliases
+
+The [type detector](https://github.com/ioBroker/ioBroker.type-detector) still accepts the roles listed below so that
+existing adapters keep working, but they are **deprecated**. Do not use them in new adapters, and migrate them when you
+touch an old adapter. Every alias has a documented replacement in the tables below.
+
+### Buttons: the `action.*` namespace
+
+The whole `action.*` namespace is an old spelling of `button.*`. The detector matches `button` and `action` alike.
+
+| Deprecated                                                                 | Use instead                                                                |
+|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| `action.play`, `action.pause`, `action.stop`, `action.next`, `action.prev` | `button.play`, `button.pause`, `button.stop`, `button.next`, `button.prev` |
+| `action.home`                                                              | `button.home`                                                              |
+| `action.open`, `action.open.blind`                                         | `button.open.blind`                                                        |
+| `action.close`, `action.close.blind`                                       | `button.close.blind`                                                       |
+| `action.open.tilt`, `action.close.tilt`, `action.stop.tilt`                | `button.open.tilt`, `button.close.tilt`, `button.stop.tilt`                |
+| `action.stop.blind`                                                        | `button.stop.blind`                                                        |
+
+### Sensors and alarms with a `state.` prefix or without `.alarm`
+
+| Deprecated                                                            | Use instead                                               |
+|-----------------------------------------------------------------------|-----------------------------------------------------------|
+| `state.window`                                                        | `sensor.window`                                           |
+| `state.door`                                                          | `sensor.door`                                             |
+| `state.fire`, `state.alarm.fire`, `sensor.fire`, `indicator.fire`     | `sensor.alarm.fire`                                       |
+| `state.flood`, `state.alarm.flood`, `sensor.flood`, `indicator.flood` | `sensor.alarm.flood`                                      |
+| `state.co`, `state.alarm.co`, `sensor.co`                             | `sensor.alarm.co`                                         |
+| `motion`, `state.motion`                                              | `sensor.motion`                                           |
+| `state.light`                                                         | `sensor.light` (read-only) or `switch.light` (read-write) |
+| `state.active`                                                        | `sensor.switch`                                           |
+
+### Indicators
+
+| Deprecated                                           | Use instead                     |
+|------------------------------------------------------|---------------------------------|
+| `indicator.battery`, `indicator.maintenance.battery` | `indicator.maintenance.lowbat`  |
+| `indicator.unreach`                                  | `indicator.maintenance.unreach` |
+
+### Switches
+
+| Deprecated                | Use instead                      |
+|---------------------------|----------------------------------|
+| `switch.active`           | `switch`                         |
+| `switch.party`            | `switch.mode.party`              |
+| `switch.boost`            | `switch.mode.boost`              |
+| `switch.autofocus`        | `switch.camera.autofocus`        |
+| `switch.autowhitebalance` | `switch.camera.autowhitebalance` |
+| `switch.brightness`       | `switch.camera.brightness`       |
+| `switch.nightmode`        | `switch.camera.nightmode`        |
+
+### Levels and values
+
+| Deprecated                                             | Use instead                                                          |
+|--------------------------------------------------------|----------------------------------------------------------------------|
+| `level.thermostat`                                     | `level.mode.thermostat`                                              |
+| `value.latitude`, `value.longitude`, `value.elevation` | `value.gps.latitude`, `value.gps.longitude`, `value.gps.elevation`   |
+| `value.radius`, `value.accuracy`                       | `value.gps.radius`, `value.gps.accuracy`                             |
+| `value.brush`, `value.brush.side`, `value.sensors`     | `value.usage.brush`, `value.usage.brush.side`, `value.usage.sensors` |
+
+### Media
+
+| Deprecated | Use instead  |
+|------------|--------------|
+| `media`    | `media.mute` |

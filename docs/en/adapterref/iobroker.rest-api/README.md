@@ -7,7 +7,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.rest-api.png?downloads=true)](https://nodei.co/npm/iobroker.rest-api/)
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information on how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 This is a RESTFul interface to read the objects and states from ioBroker and to write/control the states over HTTP Get/Post requests.
 
@@ -30,7 +30,7 @@ Some request examples:
 To enable the authentication, you must set the `Authentication` option in the configuration dialog.
 
 There are three types of authentication supported:
-- Credentials in query
+- Credentials in a query
 - Basic authentication
 - OAuth2 (Bearer)
 
@@ -67,9 +67,9 @@ For that, your application must provide an HTTP(S) end-point to accept the updat
 Example in node.js see here [demoNodeClient.js](examples/demoNodeClient.js)
 
 ## Long polling
-This adapter supports a subscribing on data changes via long polling. 
+This adapter supports subscribing on data changes via long polling. 
 
-Example for browser could be found here: [demoNodeClient.js](examples/demoBrowserClient.html)  
+Example for the browser could be found here: [demoNodeClient.js](examples/demoBrowserClient.html)  
 
 ## Web extension
 This adapter can run as a web extension. In this case, the path is available under `http://ipaddress:8082/rest-api/`
@@ -80,7 +80,7 @@ This adapter can run as a web extension. In this case, the path is available und
 - `PATCH` is always for updating a resource
 
 ## Commands
-Additionally, you can execute many socket commands via special interface:
+Additionally, you can execute many socket commands via a special interface:
 
 `http://ipaddress:8093/v1/command/<commandName>?arg1=Value2&arg2=Value2`
 
@@ -90,7 +90,7 @@ E.g.
 - `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png?binary` - to read the file `admin.admin/admin.png` as file
 - `http://ipaddress:8093/v1/command/extendObject?id=system.adapter.admin.0?obj={"common":{"enabled":true}}` - to restart admin
 
-You can request all commands with POST method too. As body must be an object with parameters. E.g.:
+You can request all commands with the POST method too. As body must be an object with parameters. E.g.:
 ```bash
 curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 --header 'Content-Type: application/json' \
@@ -101,11 +101,11 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 }'
 ```
 
-You cannot send POST request to commands via GUI.
+You cannot send a POST request to commands via GUI.
 
 <!-- START -->
 ### States
-- `getStates(pattern)` - get the list of states for pattern (e.g. for system.adapter.admin.0.*). GUI can have problems by visualization of answer.
+- `getStates(pattern)` - get the list of states for a pattern (e.g. for system.adapter.admin.0.*). GUI can have problems with visualization of the answer.
 - `getForeignStates(pattern)` - same as getStates
 - `getState(id)` - get state value by ID
 - `setState(id, state)` - set state value with JSON object (e.g. `{"val": 1, "ack": true}`)
@@ -114,14 +114,14 @@ You cannot send POST request to commands via GUI.
 
 ### Objects
 - `getObject(id)` - get object by ID
-- `getObjects(list)` - get all states and rooms. GUI can have problems by visualization of answer.
+- `getObjects(list)` - get all states and rooms. GUI can have problems with visualization of the answer.
 - `getObjectView(design, search, params)` - get specific objects, e.g. design=system, search=state, params=`{"startkey": "system.adapter.admin.", "endkey": "system.adapter.admin.\u9999"}`
 - `setObject(id, obj)` - set object with JSON object (e.g. `{"common": {"type": "boolean"}, "native": {}, "type": "state"}`)
-- `delObject(id, options)` - delete object by ID
+- `delObject(id, options)` - delete an object by ID
 
 ### Files
-- `readFile(adapter, fileName)` - read file, e.g. adapter=vis.0, fileName=main/vis-views.json. Additionally, you can set option in query binary=true to get answer as file and not as json
-- `readFile64(adapter, fileName)` - read file as base64 string, e.g. adapter=vis.0, fileName=main/vis-views.json. Additionally, you can set option in query binary=true to get answer as file and not as json
+- `readFile(adapter, fileName)` - read file, e.g. adapter=vis.0, fileName=main/vis-views.json. Additionally, you can set an option in query binary=true to get the answer as a file and not as JSON
+- `readFile64(adapter, fileName)` - read file as base64 string, e.g. adapter=vis.0, fileName=main/vis-views.json. Additionally, you can set an option in query binary=true to get the answer as a file and not as JSON
 - `writeFile64(adapter, fileName, data64, options)` - write file, e.g. adapter=vis.0, fileName=main/vis-test.json, data64=eyJhIjogMX0=
 - `unlink(adapter, name)` - delete file or folder
 - `deleteFile(adapter, name)` - delete file
@@ -132,7 +132,7 @@ You cannot send POST request to commands via GUI.
 - `readDir(adapter, dirName, options)` - read content of folder
 - `chmodFile(adapter, fileName, options)` - change file mode. E.g. adapter=vis.0, fileName=main/*, options = `{"mode": 0x644}`
 - `chownFile(adapter, fileName, options)` - change file owner. E.g. adapter=vis.0, fileName=main/*, options = `{"owner": "newOwner", "ownerGroup": "newgroup"}`
-- `fileExists(adapter, fileName)` - check if file exists
+- `fileExists(adapter, fileName)` - check if a file exists
 
 ### Admins
 - `getHostByIp(ip)` - read host information by IP. e.g. by localhost
@@ -142,7 +142,7 @@ You cannot send POST request to commands via GUI.
 - `getCurrentInstance()` - read adapter namespace (always rest-api.0)
 - `decrypt(encryptedText)` - decrypt string with system secret
 - `encrypt(plainText)` - encrypt string with system secret
-- `getAdapters(adapterName)` - get objects of type "adapter". You can define optionally adapterName
+- `getAdapters(adapterName)` - get objects of type "adapter". You can optionally define adapterName
 - `updateLicenses(login, password)` - read licenses from ioBroker.net portal
 - `getCompactInstances()` - read list of instances with short information
 - `getCompactAdapters()` - read list of installed adapters with short information
@@ -153,11 +153,11 @@ You cannot send POST request to commands via GUI.
 - `getCompactHosts()` - get short information about hosts
 - `addUser(user, pass)` - add new user
 - `delUser(user)` - delete user
-- `addGroup(group, desc, acl)` - create new group
+- `addGroup(group, desc, acl)` - create a new group
 - `delGroup(group)` - delete group
 - `changePassword(user, pass)` - change user password
-- `getAllObjects()` - read all objects as list. GUI can have problems by visualization of answer.
-- `extendObject(id, obj)` - modify object by ID with JSON. (.e.g. `{"common":{"enabled": true}}`) 
+- `getAllObjects()` - read all objects as a list. GUI can have problems with visualization of the answer.
+- `extendObject(id, obj)` - modify an object by ID with JSON. (.e.g. `{"common":{"enabled": true}}`) 
 - `getForeignObjects(pattern, type)` - same as getObjects
 - `delObjects(id, options)` - delete objects by pattern
 
@@ -166,14 +166,14 @@ You cannot send POST request to commands via GUI.
 - `log(text, level[info])` - no answer - add log entry to ioBroker log
 - `checkFeatureSupported(feature)` - check if feature is supported by js-controller.
 - `getHistory(id, options)` - read history. See for options: https://github.com/ioBroker/ioBroker.history/blob/master/docs/en/README.md#access-values-from-javascript-adapter
-- `httpGet(url)` - read URL from server. You can set binary=true to get answer as file
+- `httpGet(url)` - read URL from server. You can set binary=true to get an answer as a file
 - `sendTo(adapterInstance, command, message)` - send command to instance. E.g. adapterInstance=history.0, command=getHistory, message=`{"id": "system.adapter.admin.0.memRss","options": {"aggregate": "onchange", "addId": true}}`
 - `listPermissions()` - read static information with function permissions
 - `getUserPermissions()` - read object with user permissions
 - `getVersion()` - read adapter name and version
 - `getAdapterName()` - read adapter name (always rest-api)
 - `clientSubscribe(targetInstance, messageType, data)`
-- `getAdapterInstances(adapterName)` - get objects of type "instance". You can define optionally adapterName
+- `getAdapterInstances(adapterName)` - get objects of type "instance". You can optionally define adapterName
 
 <!-- END -->
 
@@ -183,6 +183,11 @@ You cannot send POST request to commands via GUI.
 -->
 
 ## Changelog
+### 4.0.2 (2026-06-14)
+* (@GermanBluefox) Packages were updated
+* (@GermanBluefox) Allowed to define the response content type by sendTo queries
+* (@GermanBluefox) Corrected some minor issues
+
 ### 4.0.1 (2026-02-17)
 * (@GermanBluefox) Corrected some minor issues
 
@@ -191,10 +196,10 @@ You cannot send POST request to commands via GUI.
 * (@GermanBluefox) Drop Node.js 18 support
 
 ### 3.1.3 (2026-01-19)
-* (@GermanBluefox) Cought a seldom race condition on the connection close
+* (@GermanBluefox) Caught a seldom race condition on the connection close
 
 ### 3.1.1 (2025-10-09)
-* (@GermanBluefox) corrected web extension path
+* (@GermanBluefox) corrected a web extension path
 
 ### 3.1.0 (2025-10-05)
 * (@copilot, @SimonFischer04) Fix running as web extension, own implementation of unmaintained swagger-node-runner-fork, 
@@ -251,7 +256,7 @@ You cannot send POST request to commands via GUI.
 * (bluefox) Added socket commands
 
 ### 0.3.6 (2022-04-22)
-* (bluefox) Added object creation and enumerations reading
+* (bluefox) Added object creation and enumeration reading
 
 ### 0.3.5 (2022-04-22)
 * (bluefox) Allowed the reading of current subscriptions

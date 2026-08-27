@@ -41,16 +41,25 @@ Based on the python library "pyrainbird" from https://github.com/jbarrancos/pyra
 
 This adapter would not have been possible without the great work of Marius Burkard <m.burkard@pixcept.de>, who previous releases of this adapter.
 
+## IQ4 Cloud devices
+
+Because the LNK device has a limit of one connection simultaniously you need to disconnet it from the IQ4 cloud to respond properly. To accomplish that
+you need a firewall which will drop for example the whole traffic to the Internet only for you LNK IP address. After that you can connect with this adapter
+as expected.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.2 (2026-06-04)
+- (mobster80) Fixed default protocol handling (default to http) if configuration setting is missing
 
-### **WORK IN PROGRESS**
+### 2.1.1 (2026-05-10)
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+- (mobster80) Https support for Rainbird LNK added. Migrated LNK devices to IQ4 cloud, please see additional information in section "IQ4 Cloud devices".
 
 ### 2.0.2 (2024-12-27)
 * (Feuersturm) @strathcole/iob-lib has been migrated to local repository (#27)
@@ -66,15 +75,7 @@ This adapter would not have been possible without the great work of Marius Burka
 * (Feuersturm) switch adapter config to jsonconfig
 * (mcm1957) Dependencies have been updated
 
-### 1.0.1 (2024-06-06)
-* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
-* (mcm1957) Adapter has been move to iobroker-community-adapters organization
-* (mcm1957) Adapter-core has been adapter, adapter supports js-controller 6 now.
-* (mcm1957) Dependencies have been updated
-
-### 0.2.3
--   Fixed problem with sensor data
--   Added seasonal water budget adjust information
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

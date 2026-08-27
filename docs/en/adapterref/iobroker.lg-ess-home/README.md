@@ -44,6 +44,9 @@ This should give you the password and a status in return.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.4.1 (2024-12-23)
 * (Morluktom) Bugfix lg-ess-home.0.user.essinfo.common not updated
 * (Morluktom) Responsive Design added
@@ -108,6 +111,8 @@ This should give you the password and a status in return.
 
 ### 0.0.1
 * (Morluktom) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

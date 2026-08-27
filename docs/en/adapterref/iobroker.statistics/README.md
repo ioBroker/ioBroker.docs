@@ -50,12 +50,9 @@ The structure of the state is: `statistics.0.{save|temp}.{kind of stat}.{origina
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires admin >= 7.7.22 now
-
-### __WORK IN PROGRESS__
-
+### 5.0.0 (2026-06-02)
+* (copilot) Adapter requires node.js >= 22 now
+* (copilot) Adapter requires admin >= 7.7.22 now
 * (@klein0r) Added option to use a weighted average (based on time delta between changes)
 * (@klein0r) Optimized avg calculation (without using a sum)
 * (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
@@ -79,16 +76,14 @@ NodeJS 16.x is required
 * (klein0r) Fixed cron expressions for quarter and year
 * (klein0r) Added indicators for startup and working
 
-### 2.3.1 (2023-01-11)
-* (klein0r) Added Ukrainian language
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
-Copyright (c) 2018-2025 foxthefox <foxthefox@wysiwis.net>,
+Copyright (c) 2018-2026 foxthefox <foxthefox@wysiwis.net>,
                         bluefox <dogafox@gmail.com> and
                         Matthias Kleine <info@haus-automatisierung.com>
 

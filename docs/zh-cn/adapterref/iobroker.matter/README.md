@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.matter/README.md
 title: ioBroker Matter 适配器
-hash: gAGo4u9VkNP6GkNvjV/3q+mv3vRzTuzoI+k6CrBXrj0=
+hash: hiv06qoh7i3qa6ChTpoFywijBL/m9ayMOMTfGzkpjjA=
 ---
 ![标识](../../../en/adapterref/iobroker.matter/admin/matter.svg)
 
@@ -77,7 +77,6 @@ Matter 适配器支持通过 Controller 连接的设备的固件更新，允许�
 * 设备/状态移除时清理对象
 * ioBroker 设备类型
 * (6) 吸尘器
-* (5+/8) 空调
 * (7) 火警
 * (5) 媒体播放器
 * 警告 - 如何？
@@ -92,7 +91,6 @@ Matter 适配器支持通过 Controller 连接的设备的固件更新，允许�
 * (6) 压力传感器 -> ??? DEF
 * (6) 机器人吸尘器 -> vacuumCleaner
 * (4) 流量传感器 -> ??? DEF
-* (5+) 房间空调 -> 空调
 * (5+) 洗碗机-> ???
 * (4+) 基本视频播放器 -> 媒体播放器
 * (4+) 洗衣机 -> ???
@@ -112,6 +110,16 @@ Matter 适配器支持通过 Controller 连接的设备的固件更新，允许�
 * (1+) 太阳能 -> ???
 * (1+) 电池存储 -> ???
 * (1+) 热泵 -> ???
+
+## 设备映射说明
+### 空调（ioBroker `airCondition` ⇄ Matter Room 空调）
+ioBroker 的某些空调功能在 Matter 中没有直接对应的功能。当将 ioBroker 设备暴露给 Matter 时，这些功能会按如下方式映射：
+
+* `MODE` `ECO` → Matter 没有生态系统模式，控制方式为 `Auto`。
+* `SPEED` `QUIET` → Matter 没有静音风扇模式，控制方式为 `Low`。
+* `SPEED` `TURBO` → Matter 没有 Turbo 风扇模式，控制方式为 `High`。
+* `SWING` `AUTO` → Matter 没有自动摆动功能，映射到已启用的摇摆功能。
+* `BOOST` → Matter Room 空调没有 boost 集群，作为额外的开/关端点公开。
 
 ＃＃ 发展
 ### 更新依赖项
@@ -137,6 +145,54 @@ npm test
 ### **正在进行中** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@Apollon77) Add support for the Room Air Conditioner device type (controller and bridge/device mode) mapped to the ioBroker airCondition type
+* (@Apollon77) Fix Thermostat cooling setpoint changes from Matter being applied as heating setpoint
+* (@Apollon77) Add a request timeout to the license verification API calls
+* (@Apollon77) Ensure Matter hundredths values are integer-encoded and fix Boost on/off coercion and initial sync for Thermostat/Air Conditioner devices
+* (@Apollon77) Added Battery Saver Mode (Matter LIT ICD) management for controller nodes: a status indicator on the device card and a dialog to switch modes, with a resync option for a device stuck offline
+* (@Apollon77) Long Idle Time devices no longer delay periodic processing of the other nodes
+* (@Apollon77) Thread topology data is refreshed periodically, so the network visualization no longer drifts on a long running adapter
+* (@Apollon77) Added automatic time synchronization for controller nodes that support the Matter TimeSynchronization cluster (can be disabled in the settings)
+* (@Apollon77) Added Enhanced Thread diagnostics (tries to get data from BRs when credentials are known or REST API is available)
+* (@Apollon77) Added options to store multiple Thread and WiFi credentials to use in commissioning and Visualization
+* (@Apollon77) Optimizations and Improvements for the Thread and WiFi visualizations
+* (@Apollon77) Updated matter.js to 0.17.9 
+* (@GermanBluefox) Updated GUI to React 19
+
+### 1.3.1 (2026-07-23)
+* (@Apollon77) Fix Attribute Polling
+* (@Apollon77) Fix Commissioning of new nodes
+
+### 1.3.0 (2026-07-19)
+* (@Apollon77) Update to Matter 1.6.0 (matter.js 0.17.7-alpha)
+* (@Apollon77) Optimized Matter data processing by caching repeated cluster/attribute lookups in hot paths
+* (@Apollon77) Only register additional custom attributes when the node supports them
+* (@Apollon77) Prevent errors when controlling paired devices that do not expose On/Off commands
+
+### 1.2.1 (2026-06-29)
+* (@Apollon77) Fix Thermostat and WindowCovering state update errors
+* (@Apollon77) Update to the latest matter.js 0.17.4-alpha including MDNS/CPU usage fixes
+
+### 1.2.0 (2026-06-27)
+* (@Apollon77) Enhanced Thread/WiFi network visualization: OTBR mDNS discovery, device-type and Thread role icons, border-router details and markers, LQI link colors, hide/search options and localized labels
+* (@Apollon77) Ignores invalid min/max/step settings in linked objects
+* (@Apollon77) Improve state detection to respect the selected state id
+* (@Apollon77) Update to matter.js 0.17.4-alpha including many optimizations and fixes
+
+### 1.1.1 (2026-06-22)
+* (@Apollon77) Fixes Update availability flag in UI
+
+### 1.1.0 (2026-06-22)
+* (@GermanBluefox) Update to Device management v3 and more dependencies
+* (@Apollon77) Update to Matter 1.5.1 (matter.js 0.17.3) including many optimizations and fixes
+* (@Apollon77) Parallelizing the  startup of controller and devices and optimize subscription resumptions
+* (@Apollon77) Fixes detection of 0_userdata.0 objects again
+* (@Apollon77) Fixes handling of special attributes (e.g. startupOnOff) when null and add relevant States lists
+* (@Apollon77) Fixes handling if custom attribute states
+* (@Apollon77) Fixes calculation of illuminance when measurements are <=0 (aka fully dark)
+* (@Apollon77) Fixes initialization of HCI IDs when using BLE
+
 ### 1.0.0 (2026-02-25)
 * IMPORTANT: The first start of the controller with this version takes a bit longer to connect all devices because internal data are migrated
 * (@Apollon77) Updated to Matter 1.4.2 (matter.js to 0.16) including many optimizations and fixes

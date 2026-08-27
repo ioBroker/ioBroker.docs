@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.maveo.svg)](https://www.npmjs.com/package/iobroker.maveo)
 ![Number of Installations](https://iobroker.live/badges/maveo-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/maveo-stable.svg)
-[![Dependency Status](https://img.shields.io/david/TA2k/iobroker.maveo.svg)](https://david-dm.org/TA2k/iobroker.maveo)
 
 [![NPM](https://nodei.co/npm/iobroker.maveo.png?downloads=true)](https://nodei.co/npm/iobroker.maveo/)
 
@@ -13,28 +12,105 @@
 
 ## maveo adapter for ioBroker
 
-Adapter for maveo garagedoor app
+Adapter for the maveo garage door systems by Marantec. Two operating modes:
 
+- **Cloud mode (default)** — login against the Marantec cloud (Amazon Cognito),
+  control through the Nymea tunnel `wss://remoteproxy.nymea.io`.
+  Requires the box to be paired **via Bluetooth onboarding** in the maveo app
+  (the app writes the Cognito Identity ID into the box during onboarding).
+  If the box was only added locally, the cloud device list is empty; in that
+  case the adapter tells you so in the log and you can switch to LAN mode.
+- **LAN mode** — direct JSON-RPC connection to the box (`<boxIp>:2222` over
+  TLS by default). On first start push-button authentication is performed:
+  press the yellow button on the back of the maveo box within 60 s. The
+  resulting token is stored in the adapter. Works independently of the
+  Cognito account and is the reliable option when the box is reachable on
+  the local network.
 
-## Loginablauf:
-Die maveo App Mail und Passwort eingeben.
+State updates (position, movement, sensors) arrive as push notifications in
+both modes via `Integrations.StateChanged`; open/close is issued via
+`Integrations.ExecuteAction`.
 
-## Steuern
-maveo.0.id.remote auf true setzen steuert den jeweiligen Befehl
+## Configuration
 
-## Diskussion und Fragen:
+| Field | Meaning | Default |
+|---|---|---|
+| `App Email` / `App Password` | Credentials of the maveo app (cloud mode only) | — |
+| `Region` | `eu` (Europe) or `us` (USA) | `eu` |
+| `IoT wake topic` | Optional AWS IoT topic used to wake the box | empty |
+| `Maveo box IP` | Enables LAN mode when set | empty |
+| `Port` | JSON-RPC port | 2222 |
+| `TLS` | SSL for the JSON-RPC socket | on |
+
+The Cognito pool/client IDs and IoT endpoints are hard-coded from the maveo
+app 2.6.1 and region-dependent. The local push-button token is stored
+encrypted in `native.localToken`.
+
+## Control
+
+For each thing the adapter creates writable states under
+`maveo.<inst>.<thingId>.remote.<action>` (for example `open`, `close`).
+Writing any value to such a state issues `Integrations.ExecuteAction`.
+State changes come in automatically as push updates in
+`maveo.<inst>.<thingId>.<stateTypeId>`.
+
+## Discussion
+
 https://forum.iobroker.net/topic/48101/test-adapter-maveo-v-0-0-x
 
 ## Changelog
+
+### 0.1.2
+
+* Garage door position and movement are now also published as simple boolean
+  states in the `status` channel — `isOpen`, `isClosed`, `isOpening`,
+  `isClosing` and `isMoving`. These are much easier to use in logic blocks and
+  visualizations than the original text value (`open`/`closing`/…) and arrow
+  glyph (`↑`/`↓`/`-`), which remain available unchanged.
+
+### 0.1.1
+
+* **Local (LAN) control added — this is the easy, recommended way and needs no
+  cloud account:**
+  1. Find the IP address of your maveo box (check your router's device list).
+  2. In the adapter settings enter it under **Maveo box IP** and save.
+  3. On the first start the adapter asks you to press the **yellow button on
+    the maveo box**. You have 5 minutes — just walk over and press it once.
+  4. Done. The token is stored, future restarts connect on their own.
+* Cloud login (maveo app e-mail/password) still works as an alternative.
+* Your garage door, light and sensors show up as ready-to-use data points
+  under `maveo.0.<device>` — with an `open`/`close`/`light` control section
+  and a `status` section.
+
+### 0.1.0
+
+* First working version against the current Marantec/nymea backend: cloud
+  login, device discovery and remote control.
+
+### 0.0.5
+
+* (TA2k) update login keys
+
 ### 0.0.4
+
 * (TA2k) fix status
+
 ### 0.0.1
+
 * (TA2k) initial release
-  
+
+## Sentry
+
+This adapter uses the Sentry libraries to automatically report exceptions and
+code errors to the developer. For more details and for information on how to
+disable the error reporting see
+[Sentry Plugin Documentation](https://github.com/ioBroker/plugin-sentry).
+
 ## License
+
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

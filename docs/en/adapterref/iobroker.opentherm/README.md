@@ -15,6 +15,9 @@
 This adapter integrates all features of the opentherm gateway into ioBroker.
 Opentherm is an gateway protocol used by several modern heating systems like Remeha.
 
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 For more information http://otgw.tclcode.com/index.html#intro with all credits to the developers.
 
 ### Featured Functionality in final state :
@@ -38,6 +41,9 @@ If you like my work, please feel free to provide a personal donation
 [![Donate](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
 
 ### 0.2.5 (2022-07-23) - Message library updated
 * (DutchmanNL) Message library updated

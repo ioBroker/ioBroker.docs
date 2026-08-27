@@ -41,6 +41,7 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 
 
 ### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -150,11 +151,13 @@ Values in the 'control' - channel have to be set with ack=false to trigger an ac
 
 -   In development stage
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <mailto:iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <mailto:iobroker-community-adapters@gmx.de>
 Copyright (c) 2018-2023 forelleblau marceladam@gmx.ch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -26,25 +26,46 @@ More useful information about apcupsd config for Ubuntu you can find on https://
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 ## Changelog
-### 5.0.5 (2025-12-25)
-  - Fixed admin layout
-  - Updated dependencies
-### 5.0.3 (2025-10-16)
-  - Migration to Trusted Publishing
-### 5.0.2 (2025-10-10) 
- - Updated dependencies
-### 5.0.0 (2025-05-01)
- - BREAKING! Changed the minimal version of nodejs to 20. Updated dependencies.
-### 4.0.5 (2025-03-01) 
- - Updated dependencies
-### 4.0.2 (2024-10-16) 
- - Updated dependencies
- - Adjusted admin layout
-### 4.0.0 (2024-05-10)
- - BREAKING! 
-1. Added support of multiple UPS so states structure was changed. All existed states will be deleted. Please do backup before upgrade the adapter! Also existed configuration will be lost. Please re-configure the adapter and add one or more devices to it.
-2. Minimal js-controller version is 5.0.19
-3. Minimal admin version is 6.13.16
+### 6.0.3 (2026-05-31)
+- Fixed ESLint configuration
+- Removed obsolete devDependencies
+- Refactored connection timeout to use native socket timeout
+- Updated npm configuration
+
+### 6.0.2 (2026-05-30)
+- Fixed CI/CD deploy workflow to use Trusted Publishing
+- Fixed setTimeout usage in connection handler
+- Updated dependencies
+
+### 6.0.1 (2026-05-29)
+- Fixed adapter startup on invalid configuration
+- Fixed CI workflow for TypeScript build
+- Updated dependencies
+
+### 6.0.0 (2026-05-28)
+- Migrated adapter source code to TypeScript
+- Added TypeScript build pipeline
+- CI now tests on all branches
+- Updated dependencies
+
+### 5.0.9 (2026-05-28)
+- Migrated i18n to short format (`{lang}.json`)
+- Migrated ESLint config to `@iobroker/eslint-config`
+- Deploy workflow now publishes to Sentry before npm
+- Updated `@alcalzone/release-script` to 5.2.0
+- Updated dependencies
+
+### 5.0.8 (2026-05-25)
+- Fixed float regex to correctly match whole-number values (e.g. BCHARGE at 100%)
+- Fixed integer fields incorrectly stored as floats (parseFloat → parseInt)
+- Fixed state object mutation that could corrupt subsequent state definitions
+- Fixed null dereference crash in availability check on first run
+- Fixed connection log messages showing `undefined:undefined`
+- Added 5-second TCP connection timeout to prevent polling hangs on unreachable hosts
+- Updated CI workflow to use ioBroker testing actions
+- Updated dependencies
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

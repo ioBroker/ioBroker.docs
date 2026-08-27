@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: l33niKl6qt2C6ruGtp2BBhyvWL4WsOO9DDXv3XCXIj0=
+hash: 4Mu8KDFuLs2kkZws2uBzckf1zjGQjECngtEa+mYUjWs=
 ---
 ![Logo](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -202,7 +202,7 @@ Alle folgenden Beispiele mit Countdown-Timer 1:2:3:4
 Ab Version 1.2.0 sollten die Widgets mit vis1 und vis2 kompatibel sein.
 
 #### Widget Countdown (einfach)
-![Widget-Countdown (einfach)](../../../en/adapterref/iobroker.mytime/admin/mytime-plain.png)
+![Widget-Countdown (einfach)](../../../en/adapterref/iobroker.mytime/admin/mytime-plain-countdown.png)
 
 Ein Countdown-Widget für eine einfache Textausgabe.
 Die Ausgabe kann detailliert konfiguriert werden.
@@ -241,7 +241,7 @@ Es gibt zwei separate Versionen für vis1 und vis2.
 ```
 
 #### Widget Rückwärts-Countdown (einfach)
-![Widget Rückwärts-Countdown](../../../en/adapterref/iobroker.mytime/admin/mytime-reverse.png)
+![Widget Rückwärts-Countdown](../../../en/adapterref/iobroker.mytime/admin/mytime-plainreverse-countdown.png)
 
 Ein Widget, das die seit einem bestimmten Zeitpunkt verstrichene Zeit anzeigt.
 
@@ -254,7 +254,7 @@ Ein Widget, das die seit einem bestimmten Zeitpunkt verstrichene Zeit anzeigt.
 | `HTML-Anhängen` | Dieser Text oder HTML-Code wird an die Ausgabe des Widgets angehängt. |
 
 #### Widget Countdown-Kreis
-![Widget-Countdown-Kreis](../../../en/adapterref/iobroker.mytime/admin/mytime-circle.png)
+![Widget-Countdown-Kreis](../../../en/adapterref/iobroker.mytime/admin/mytime-circle-countdown.png)
 
 Ein Countdown-Widget in Ring-/Kreisform.
 
@@ -303,7 +303,7 @@ Gültig: Jahr, Monat, Tag | Stunde, Minute, Sekunde | Ungültig: Jahr, Minute, S
 ```
 
 #### Widget Countdown FlipClock
-![Widget Countdown FlipClock](../../../en/adapterref/iobroker.mytime/admin/mytime-flip.png)
+![Widget Countdown FlipClock](../../../en/adapterref/iobroker.mytime/admin/mytime-flip-countdown.png)
 
 Ein Countdown-Widget im Stil einer Flughafen-Anzeigetafel.
 Unterstützt werden nur Zeiträume von 100 Tagen bis 1 Sekunde.
@@ -327,9 +327,7 @@ Beispiel:
 
 Gültig: Jahr, Monat, Tag | Stunde, Minute, Sekunde | Ungültig: Jahr, Minute, Sekunde
 
-**Tipps:**
-
-Wenn Sie die Größe der Countdown-Flipclock anpassen möchten, können Sie unter den CSS-Einstellungen in vis für die halbe Größe Folgendes eingeben: Gruppe CSS-Common / transform "scale(0.5)"
+Die Anzeigegröße kann über die CSS-Einstellung `font-size` gesteuert werden.
 
 **Der tatsächliche Aktionsstatus (cdstop,cdrun,cdpause,cdend) des Countdowns ist als CSS-Klassenselektor verfügbar:**
 
@@ -343,7 +341,7 @@ Wenn Sie die Größe der Countdown-Flipclock anpassen möchten, können Sie unte
 ```
 
 #### Widget Countdown NixieClock
-![Widget-Countdown NixieClock](../../../en/adapterref/iobroker.mytime/admin/mytime-nixie.png)
+![Widget-Countdown NixieClock](../../../en/adapterref/iobroker.mytime/admin/mytime-nixie-countdown.png)
 
 Ein Countdown-Widget im Nixie-Röhren-/LED-Stil
 
@@ -382,8 +380,8 @@ Für den negativen Rand muss eine CSS-Klasse erstellt werden.
 }
 ```
 
-###### Widget-Größe vor Version 2
-Wenn Sie die Größe des Countdown-Nixieclocks anpassen möchten, können Sie unter den CSS-Einstellungen in vis für die halbe Größe Folgendes eingeben: Gruppe CSS-Common / transform "scale(0.5)"
+###### Widgetgröße
+Die Anzeigegröße kann über die CSS-Einstellung `font-size` gesteuert werden.
 
 ###### Zentrieren der Nixie-Uhr
 Um die Uhr zu zentrieren, ist eine zusätzliche CSS-Klasse erforderlich, da die entsprechenden Einstellungen nicht in den Widget-Einstellungen konfiguriert werden können:
@@ -394,6 +392,83 @@ Um die Uhr zu zentrieren, ist eine zusätzliche CSS-Klasse erforderlich, da die 
     justify-content: center;
 }
 ```
+
+#### Widget Uhr einfach
+![Widget-Uhr (einfach)](../../../en/adapterref/iobroker.mytime/admin/mytime-plain-clock.png)
+
+Ein konfigurierbares Widget zur Anzeige von Datum und Uhrzeit als Klartext.
+Die Uhrzeit kann entweder vom Browser-Client oder vom synchronisierten ioBroker-Server übernommen werden.
+
+##### Widget-Eigenschaften der Uhr (einfach)
+| Attribut | Beschreibung |
+| -------------------- | -------------------------------------------------------------------------------------------- |
+| `clock_time_source` | Wählt `client` für die Browserzeit oder `server` für die synchronisierte ioBroker-Serverzeit aus. |
+| `clock_html_prepend` | Text oder HTML, der vor dem formatierten Datum und der Uhrzeit eingefügt wird. |
+| `clock_html_append` | Text oder HTML, der nach dem formatierten Datum und der Uhrzeit angehängt wird. |
+| `clock_html_append` | Text oder HTML, der nach dem formatierten Datum und der Uhrzeit angehängt wird. |
+
+Folgende Platzhalter können in `clock_format` verwendet werden:
+
+| Platzhalter | Beschreibung |
+| ----------- | ----------------------------------- |
+| `YYYY` | Vierstellige Jahreszahl |
+| `MM` / `M` | Monat mit / ohne führende Null |
+| `DD` / `D` | Tag mit / ohne führende Null |
+| `HH` / `H` | Stunden mit / ohne führende Null |
+| `mm` / `m` | Minuten mit / ohne führende Null |
+| `ss` / `s` | Sekunden mit / ohne führende Null |
+| `ss` / `s` | Sekunden mit / ohne führende Null |
+
+Die Anzeigegröße kann über die CSS-Einstellung `font-size` gesteuert werden.
+
+#### Widget Uhr FlipClock
+![Widget-Uhr FlipClock](../../../en/adapterref/iobroker.mytime/admin/mytime-flip-clock.png)
+
+Ein konfigurierbares Datums- und Zeit-Widget im Stil einer Flughafen-Anzeigetafel.
+Jede Datums- und Zeitkomponente kann einzeln ein- oder ausgeblendet werden.
+
+##### Widget-Eigenschaften der FlipClock-Uhr
+| Attribut | Beschreibung |
+| ------------------------ | -------------------------------------------------------------------------------------------- |
+| `clock_time_source` | Wählt `client` für die Browserzeit oder `server` für die synchronisierte ioBroker-Serverzeit aus. |
+| `clock_showyear` | Zeigt die zweistellige Jahreskomponente an. |
+| `clock_showmonth` | Zeigt die Monatskomponente an. |
+| `clock_showday` | Zeigt die Tageskomponente an. |
+| `clock_showhours` | Zeigt die Stundenkomponente an. |
+| `clock_showminutes` | Zeigt die Minutenkomponente an. |
+| `clock_showseconds` | Zeigt die Sekundenkomponente an. |
+| `clock_color` | Legt die Farbe der Ziffern fest. |
+| `clock_background_color` | Legt die Hintergrundfarbe der Flip-Karten fest. |
+| `clock_dot_color` | Legt die Farbe der Trennlinien zwischen den Komponenten fest. |
+| `clock_dot_color` | Legt die Farbe der Trennlinien zwischen den Komponenten fest. |
+
+Die Zeitkomponenten werden stets nach den ausgewählten Datumskomponenten in der Reihenfolge Stunden, Minuten, Sekunden angezeigt.
+Die Anzeigegröße kann über die CSS-Einstellung `font-size` gesteuert werden.
+
+#### Widget-Uhr NixieClock
+![Widget-Uhr NixieClock](../../../en/adapterref/iobroker.mytime/admin/mytime-nixie-clock.png)
+
+Ein konfigurierbares Datums- und Zeit-Widget im Nixie-Röhren-/LED-Stil.
+Jede Datums- und Zeitkomponente kann einzeln ein- oder ausgeblendet werden.
+
+##### Widget-Eigenschaften der Uhr NixieClock
+| Attribut | Beschreibung |
+| ------------------------ | -------------------------------------------------------------------------------------------- |
+| `clock_time_source` | Wählt `client` für die Browserzeit oder `server` für die synchronisierte ioBroker-Serverzeit aus. |
+| `clock_showyear` | Zeigt die zweistellige Jahreskomponente an. |
+| `clock_showmonth` | Zeigt die Monatskomponente an. |
+| `clock_showday` | Zeigt die Tageskomponente an. |
+| `clock_showhours` | Zeigt die Stundenkomponente an. |
+| `clock_showminutes` | Zeigt die Minutenkomponente an. |
+| `clock_showseconds` | Zeigt die Sekundenkomponente an. |
+| `clock_color_active` | Legt die Farbe der aktiven Nixie-Ziffern fest. |
+| `clock_color_inactive` | Legt die Farbe der inaktiven Nixie-Ziffern fest. |
+| `clock_opacity_inactive` | Legt die Deckkraft der inaktiven Ziffern fest. |
+| `clock_glowcolor` | Legt die Farbe des Leuchtens um die aktiven Ziffern fest. |
+| `clock_glowcolor` | Legt die Farbe des Leuchtens um die aktiven Ziffern fest. |
+
+Die Zeitkomponenten werden stets nach den ausgewählten Datumskomponenten in der Reihenfolge Stunden, Minuten, Sekunden angezeigt.
+Die Anzeigegröße kann über die CSS-Einstellung `font-size` gesteuert werden.
 
 #### Widget Wortuhr
 ![Widget-Wortuhr](../../../en/adapterref/iobroker.mytime/admin/mytime-wordclock.png)
@@ -449,269 +524,32 @@ Ein Widget zur Anzeige einer Wortuhr mit vielen Optionen
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.5.1 (2026-07-24)
+
+- seperate flipclock css classes from timeandweather adapter
+
+### 2.5.0 (2026-07-21)
+
+- Flip clock size is now adjustable via font-size.
+- Defined better initial sizes and defaults for various widgets.
+
+### 2.4.1 (2026-07-20)
+
+- add new clock widgets
+- fix prod and dev build
+- reengineered widgets
+
+### 2.3.5 (2026-07-14)
+
+- fix repochecker
+- update react to 18 and many more packages
+
 ### 2.3.4 (2026-03-30)
 
 - update packages
 - fix repochecker
 
-### 2.3.2 (2026-01-04)
-
-- fix some translations
-
-### 2.3.1 (2026-01-03)
-
-- circle widget: fix reverse selection
-- circle widget: fixed full/partial display of the largest ring.
-  Option added to select behavior.
-
-### 2.3.0 (2025-12-03)
-
-- remove autocomplete function in the browser
-- improve documentation
-- add html prepend and append to the countdown plain widget
-- Revision of the algorithms for parameter takeover and verification.
-- Revision of the calculation of dynamic time differences
-
-### 2.2.1 (2025-12-01)
-
-- add missing files
-
-### 2.2.0 (2025-12-01)
-
-- add calculation of astro dates to timeseries
-- rework of the timeseries caluclation in the backend
-- this version includes extended debug information (map-files).
-  For this reason, the adapter is approximately 13MB in size instead of 2MB.
-
-### 2.1.0 (2025-11-27)
-
-- switch from crao to vite build system
-- New option for countdown timer: rerun - when the timer expires,
-  it will automatically restart.
-
-### 2.0.1 (2025-09-08)
-
-- major release: make nixie clock responsive. the users have to adjust the
-  font-size of the widget to get the old size.
-  if you want the old size try it with 100px font-size.
-
-### 1.4.7 (2025-07-25)
-
-- remove types/request
-- improve documentation format
-
-### 1.4.6 (2025-07-21)
-
-- fix wrong calc of datapoints in some cases
-
-### 1.4.5 (2025-07-21)
-
-- fix widget reverse countdown plain
-
-### 1.4.4 (2025-06-16)
-
-- fix stopbeaviour
-- fix state handling
-- improve validator vor name and setdp in admin
-
-### 1.4.3 (2025-06-06)
-
-- fix validation rule for the setDP button in admin
-
-### 1.4.2 (2025-06-01)
-
-- revert to node 18
-- cleanup files and some details
-- fix server time diff calculations
-
-### 1.4.0 (2025-01-02)
-
-- to update the time from the configuration i added a SetDP Button
-
-### 1.3.0 (2025-01-02)
-
-- switch to iobroker eslint
-- adjust many code to follow the new rules
-- add some jsdoc
-- implement servertimediff calculation and correction
-- fix datapoint names for the vis1 example controls
-- set nogit
-- adjust year in readme and license
-
-### 1.2.2 (2024-11-18)
-
-- improve readme
-- improve widget js
-- remove word test from widgets html, sorry
-
-### 1.2.1 (2024-11-17)
-
-- interprete all commands in lowercase
-
-### 1.2.0 (2024-11-15)
-
-- widgets are now compatible with vis2
-
-### 1.1.1 (2024-11-13)
-
-- fix problem with start of vis2, exclude widgets for vis2
-
-### 1.1.0 (2024-11-12)
-
-- IMPORTANT: Changed Datapoint names and datastructure for the configuration,
-  no migration you have to enter all configurations again
-- add some new commands to restart the countdown time in place
-- repair save command
-- removed vis dependency from io-package.json
-
-### 1.0.15 (2024-11-11)
-
-- repair issues from repochecker
-
-### 1.0.14 (2024-11-11)
-
-- improve test and release process
-- update github workflow
-- remove eslint command from package.json
-- switch back to node 18 for testing due to airbnb error
-- more repair
-- add package-lock.json to git
-- remove unused library
-- add lint and lint
-- remove iobroker eslint
-- general revision
-- updating the configuration dialogs for countdown and timeseries
-  in jsonConfig and custom react
-
-### 0.7.12
-
-- add html_prepend and html_append properties to the widget reverse countdown
-
-### 0.7.10
-
-- add widget reverse countdown
-
-### 0.7.9
-
-- add more wordclock tests
-- fix wordclock matrix swiss
-
-### 0.7.8
-
-- add timezone for wordclock
-
-### 0.7.7
-
-- add timezone for wordclock
-
-### 0.7.6
-
-- add tests for wordclock \* remove admin tab
-
-### 0.7.5
-
-- Remove comments in io-package
-
-### 0.7.4
-
-- fix spanish language pack
-
-### 0.7.3
-
-- add turkish language for wordclock
-
-### 0.7.2
-
-- add russian and espaniol language for wordclock
-
-### 0.7.1
-
-- add margin property for wordclock
-- add italiano and francais for wordclock
-- wordclock remove border
-
-### 0.7.0
-
-- New widget wordclock
-
-### 0.6.1
-
-- remove beta tag from widgets \* m,assive reengeneering of the react classes,
-  add functions für exclusion rules, adding single time events
-  and exclude single time events
-
-### 0.6.0
-
-- Introduction of new functionality timeseries
-
-### 0.5.2
-
-- fix an issue and introduce a new command save to save the configuration
-  defined in datapoints to the iobroker configuration data
-
-### 0.5.1
-
-- Migration of old counters
-
-### 0.5.0
-
-- Change settings dialog to react
-
-### 0.4.2
-
-- performance optimization. mytime now checks the data from internal
-  and did not read the data allways from datapoints | update dependencies
-
-### 0.4.1
-
-- widget cd flipclock: remove dot labels
-
-### 0.4.0
-
-- New widget NixieClock
-
-### 0.3.1
-
-- remove mytime tile in iobroker overview
-- set initial visual countdown value to 0
-- prefix css classes, due css artefacts from other adapters
-  (eg kodi and css class stop)
-
-### 0.3.0
-
-- new command to set only target time without date
-- countdown circle widget now with option to disable countdown text
-- timers are now groupable in subdirectories.
-  you can now enter dots (.) as a groupseperater in the name of a timer
-
-### 0.2.1
-
-- fix timer display in configuration dialog
-- fix default template of countdown plain
-- add icons for countdonw plain and countdown circle widgets
-- fix startangle calculation for countdown circle if time values are 0
-- remove timer intervals in editmode due to interfer with
-  the configuration dialog and didnt save the ne values
-
-### 0.2.0
-
-- extend the countdown circle with more rings for days, hours and minutes
-
-### 0.1.2
-
-- Setting for growing or shrinking the ring/circle
-- Setting for the ends of the ring/circle: round or straight
-- Extend special char filtering with umlauts
-- Fix state request issue in widget countdown circle
-
-### 0.1.1
-
-- Add a countdown name datapoint
-
-### 0.1.0
-
-- Forum release
-- initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

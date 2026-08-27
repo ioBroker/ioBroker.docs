@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-label="AdvanSol ioBroker adapter settings">
+  <rect width="980" height="540" fill="#f6f8fb"/>
+  <rect x="42" y="34" width="896" height="470" rx="8" fill="#fff" stroke="#cfd7e3"/>
+  <text x="72" y="76" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#24384d">AdvanSol Optimierer - Adapter Einstellungen</text>
+  <text x="72" y="116" font-family="Arial, sans-serif" font-size="15" fill="#506274">TCP-Verbindung zur RS485-Bridge und Polling-Verhalten</text>
+  <text x="82" y="168" font-family="Arial, sans-serif" font-size="15" fill="#4e5f70">Host / IP der Bridge</text>
+  <rect x="82" y="182" width="330" height="40" rx="4" fill="#fff" stroke="#b9c6d3"/>
+  <text x="102" y="208" font-family="Arial, sans-serif" font-size="16" fill="#24384d">bridge.local</text>
+  <text x="458" y="168" font-family="Arial, sans-serif" font-size="15" fill="#4e5f70">TCP-Port</text>
+  <rect x="458" y="182" width="160" height="40" rx="4" fill="#fff" stroke="#b9c6d3"/>
+  <text x="478" y="208" font-family="Arial, sans-serif" font-size="16" fill="#24384d">502</text>
+  <text x="82" y="262" font-family="Arial, sans-serif" font-size="15" fill="#4e5f70">Abfrageintervall</text>
+  <rect x="82" y="276" width="250" height="40" rx="4" fill="#fff" stroke="#b9c6d3"/>
+  <text x="102" y="302" font-family="Arial, sans-serif" font-size="16" fill="#24384d">10000 ms</text>
+  <text x="378" y="262" font-family="Arial, sans-serif" font-size="15" fill="#4e5f70">Anfrage-Timeout</text>
+  <rect x="378" y="276" width="250" height="40" rx="4" fill="#fff" stroke="#b9c6d3"/>
+  <text x="398" y="302" font-family="Arial, sans-serif" font-size="16" fill="#24384d">5000 ms</text>
+  <text x="82" y="356" font-family="Arial, sans-serif" font-size="15" fill="#4e5f70">Schaltversuche</text>
+  <rect x="82" y="370" width="250" height="40" rx="4" fill="#fff" stroke="#b9c6d3"/>
+  <text x="102" y="396" font-family="Arial, sans-serif" font-size="16" fill="#24384d">3</text>
+  <text x="378" y="356" font-family="Arial, sans-serif" font-size="15" fill="#4e5f70">Pause zwischen Schaltversuchen</text>
+  <rect x="378" y="370" width="250" height="40" rx="4" fill="#fff" stroke="#b9c6d3"/>
+  <text x="398" y="396" font-family="Arial, sans-serif" font-size="16" fill="#24384d">4100 ms</text>
+  <text x="690" y="262" font-family="Arial, sans-serif" font-size="15" fill="#4e5f70">Nachtmodus</text>
+  <rect x="690" y="276" width="160" height="40" rx="4" fill="#fff" stroke="#b9c6d3"/>
+  <text x="710" y="302" font-family="Arial, sans-serif" font-size="16" fill="#24384d">22 bis 5 Uhr</text>
+  <rect x="690" y="370" width="180" height="40" rx="4" fill="#2d7dd2"/>
+  <text x="735" y="396" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">Speichern</text>
+</svg>

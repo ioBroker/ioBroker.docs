@@ -254,9 +254,9 @@ Drag& drop a switch widget on your view, connect it to the Object ID of a switch
 Important: The user is in charge of connecting the correct data points to the widgets. You can connect a real value to a binary status (e.g. light bulb), so the light bulb will show “on” once the real value is >1.0. That’s all, folks, pretty easy and straight forward, huh?
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 3.0.0 (2026-08-04)
 * IMPORTANT: js-controller 5+ is required to install this version!
+* IMPORTANT: Migrated to TypeScript and Vite for GUI
 
 ### 1.5.0 (2025-08-25)
 * (Apollon77) Dependency updates
@@ -469,7 +469,7 @@ Important: The user is in charge of connecting the correct data points to the wi
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2025 bluefox <dogafox@gmail.com>,
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>,
 
 Copyright (c) 2014-2016 smiling_Jack <steffen.schorling@googlemail.com>
 

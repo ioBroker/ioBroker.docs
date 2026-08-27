@@ -18,15 +18,16 @@ Der Adapter ist außerdem so konzipiert, dass er _in Zukunft_ ein ausgeklügelte
 ## Konfiguration
 
 ## Changelog
-
 ### **WORK IN PROGRESS**
-- (iobroker-bot) Adapter requires node.js >= 20 now.
-### 1.0.0 (2024-08-24) - 2024 Maintenance Release
+- (copilot) Adapter requires node.js >= 22 now
 
--   (jpawlowski) Set minimum Node version to 18.x
--   (jpawlowski) Set minimum JS-Controller version to 5.0.19
--   (jpawlowski) Update package dependencies
--   (jpawlowski) Some minor internal housekeeping
+### 1.1.1 (2026-04-25)
+
+-   (jpawlowski) Fix missing admin build in the published package
+-   (jpawlowski) Verify package contents before release
+-   (jpawlowski) Prevent incompatible MUI major updates from Dependabot
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

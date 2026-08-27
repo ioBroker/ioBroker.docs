@@ -172,6 +172,7 @@ Neueinsteigern wird empfohlen, den [TR-064-Adapter](https://github.com/ioBroker/
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) **ENHANCED**: Translated README documentation from German to English
 
 ### 0.7.0 (2026-03-07)
@@ -198,6 +199,8 @@ Neueinsteigern wird empfohlen, den [TR-064-Adapter](https://github.com/ioBroker/
 ### 0.3.1 (2016-07-24)
 * (BasGo) enhanced TR-064 configuration
 * (BasGo) added rudimentary phonebook download into object store
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

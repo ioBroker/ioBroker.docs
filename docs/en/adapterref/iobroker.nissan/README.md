@@ -30,6 +30,9 @@ Feel free to follow the discussions in the german [iobroker forum](https://forum
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.18 (2026-05-03)
+- (bolliy) add NissanConnect EV app service end notice
+
 ### 0.1.17 (2026-03-14)
 - (bolliy) dependency and configuration updates
 
@@ -86,6 +89,8 @@ Feel free to follow the discussions in the german [iobroker forum](https://forum
 ### 0.0.2
 
 - (TA2k) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

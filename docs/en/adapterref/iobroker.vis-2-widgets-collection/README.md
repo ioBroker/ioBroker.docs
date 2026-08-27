@@ -25,6 +25,10 @@
 
 <img src="/img/collection-slider.png" height="150">
 
+### Input
+
+<img src="/img/collection-input.png" height="150">
+
 ### Switch
 
 <img src="/img/collection-switch.png" height="150">
@@ -53,6 +57,10 @@
 
 <img src="/img/collection-light.png" height="150">
 
+### JsonTable
+
+<img src="/img/collection-json-table.png" height="150">
+
 ---
 
 <!--
@@ -61,6 +69,27 @@
 -->
 
 ## Changelog
+### 2.6.0 (2026-07-24)
+
+- (steiger04) Input widget added (text/number input with inline editing)
+- (steiger04) noIcon option now correctly hides the widget icon
+
+### 2.5.1 (2026-07-20)
+
+- (steiger04) JSON Table: image column type — render URLs, data-URIs and icon glyphs as avatar cells (auto-detected, XSS-safe)
+
+### 2.5.0 (2026-07-17)
+
+- (steiger04) Theme wizard with presets, live preview, custom fonts and widget sizing
+- (steiger04) Slider marker defaults and label styling fixed
+- (steiger04) Gauge min/max fallback fixed
+- (steiger04) JSON Table quick filtering fixed
+
+### 2.4.2 (2026-07-06)
+- (steiger04) JSON Table: bug fixes and improvements (date handling, table state persistence, refactor)
+- (steiger04) ColorPickerField: debouncing for picker drag events and refactor
+- (steiger04) CheckboxCollection: refactor (helpers, memoization, type safety)
+
 ### 2.4.1 (2026-03-11)
 - (steiger04) Add HTML rendering support for table cells of Json Table
 - (steiger04) Bug fixing

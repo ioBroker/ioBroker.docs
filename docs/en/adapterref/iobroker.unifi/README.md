@@ -83,9 +83,9 @@ The adapter uses [node-unifi](https://github.com/jens-maus/node-unifi) to connec
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
 
 ### 0.7.0 (2024-04-13)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
@@ -208,6 +208,8 @@ The adapter uses [node-unifi](https://github.com/jens-maus/node-unifi) to connec
 ### 0.0.1
 * (jens-maus) initial checkin of non-working development version
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## References
 This adapter uses functionality from the following third-party nodejs modules:
 
@@ -217,7 +219,7 @@ This adapter uses functionality from the following third-party nodejs modules:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2016-2023 Jens Maus &lt;mail@jens-maus.de&gt;
 Copyright (c) 2020 braindead1 &lt;os.braindead1@gmail.com&gt;
 

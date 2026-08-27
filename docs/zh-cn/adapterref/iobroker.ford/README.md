@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ford/README.md
 title: ioBroker.ford
-hash: SwGh8ZuY/WUsnCeKE3ij6c8GDYf4Vseu3KQ/2C5ivuE=
+hash: oqlZLeXYRDuTAUgs++9W9xJncNE80NKLRBmsWfBtE/8=
 ---
 ![标识](../../../en/adapterref/iobroker.ford/admin/ford.png)
 
@@ -18,46 +18,56 @@ hash: SwGh8ZuY/WUsnCeKE3ij6c8GDYf4Vseu3KQ/2C5ivuE=
 **测试：** ![测试与发布](https://github.com/TA2k/ioBroker.ford/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的福特适配器
-FordPass适配器
+适用于福特车辆的适配器，使用福特官方的 FordConnect 查询 API（欧盟数据法案）。
 
 ＃＃ 用法
-### OAuth 2.0 登录
-该适配器使用 OAuth 2.0 身份验证。请按照以下步骤进行身份验证：
+### 先决条件
+在福特开发者门户网站 <https://developer.ford.com/developer-eu> 上创建一个应用。
 
-1. 启动适配器 - 日志中将显示身份验证 URL
-2. **重要提示：请在点击登录链接前打开开发者工具（F12）**
-3. 转到开发者工具中的“网络”选项卡。
-4. 从日志中复制 OAuth URL 并将其粘贴到浏览器中。
-5. 使用您的福特账户凭据登录
-6. 登录后，浏览器会显示“无法打开页面”——这是正常现象。
-7. 在“网络”选项卡中，找到 URL 以 `fordapp://userauthorized/?code=` 开头的红色失败请求。
-8. 从“网络”选项卡复制完整的 URL。
-9. 将其粘贴到适配器设置中的“v2 代码 URL”字段中
-10. 保存并重启适配器
+使用与您的 FordPass 帐户相同的电子邮件地址，设置重定向 URI（例如：
 
-### 遥控器
-该适配器为 `{VIN}.remote.*` 下的每辆车创建遥控按钮：
+`http://localhost:8080/callback`），并记下生成的客户端 ID 和客户端密钥。
 
-- **engine/start**：启动或停止发动机（true = 启动，false = 停止）
-- **门/锁**：锁定或解锁门（true = 锁定，false = 解锁）
-- **状态**：请求车辆的最新状态更新（发送 statusRefresh 命令）
-- **刷新**：无需向车辆发送指令即可刷新缓存数据
+＃＃＃ 登录
+1. 在适配器设置中输入客户端 ID、客户端密钥和重定向 URI 并保存。
+2. 启动适配器 - 它会在日志中打印登录 URL。
+3. 在浏览器中打开 URL，使用您的 FordPass 帐户登录并授权该应用程序。
+4. 您将被重定向到带有 `?code=...` 参数的重定向 URI。
+5. 从浏览器地址栏复制完整的重定向 URL。
+6. 将其粘贴到适配器设置中的“代码 URL”字段中，保存并重新启动适配器。
+
+适配器将代码与令牌交换，存储会话并自动刷新会话。
+
+＃＃＃ 数据
+- `{VIN}.general` - 来自车库端点的车辆信息
+- `{VIN}.telemetry` - 遥测数据（SoC、续航里程、里程表读数、位置、轮胎压力等）
+- `{VIN}.vehicleHealthAlerts` - 车辆健康警报
+- `{VIN}.wallbox` - 壁挂式显示器数据（仅限电动汽车，如有）
+- `{VIN}.departureTimes` - 电动车辆出发时间（仅限电动车辆，如有）
+- `{VIN}.chargeSchedules` - 电动汽车充电计划（仅限电动汽车，如有）
+- `{VIN}.remote.refresh` - 用于立即获取数据的按钮
+
+对于车辆不可用的端点，系统会静默跳过。
+
+FordConnect 查询 API 为只读，因此不存在发动机/锁止/充电命令。
 
 ### 配置选项
-- **更新间隔**：自动数据更新之间的时间间隔（以分钟为单位）（默认值：5 分钟）
-- **位置更新**：启用/禁用位置更新。禁用此功能可缩短更新间隔并减少电池消耗。
-- **强制更新**：启用自动状态刷新命令，按固定时间间隔刷新状态（警告：可能会耗尽 12V 电池电量。仅当您的车辆支持此命令时才启用）。
-- **跳过 12V 检查**：使用强制更新时禁用 12V 电池检查
+- **客户端 ID / 客户端密钥**：来自福特开发者门户的凭据
+- **重定向 URI**：必须与开发者门户中注册的 URI 匹配。
+- **轮询间隔**：自动遥测查询之间的时间间隔（以分钟为单位）（默认值：15）
 
-### 电池保护
-默认情况下，适配器会定期查询缓存的车辆数据。要从车辆请求最新数据，可以：
+## Sentry.io 是什么？它会向该公司的服务器报告哪些信息？
+Sentry.io 是一项面向开发者的服务，用于概览其应用程序中的错误。而这个适配器正是实现了这一功能。
 
-- 启用“强制更新”选项（仅当您的车辆支持此功能时）
-- 手动使用 `{VIN}.remote.status` 按钮
-
-**注意：**部分车辆可能不支持`statusRefresh`命令，并会返回404错误——这是正常现象。在这种情况下，请禁用“强制更新”，并改用`refresh`按钮。
+当适配器崩溃或发生其他代码错误时，此错误消息（也会出现在 ioBroker 日志中）会提交给 Sentry。如果您允许 iobroker GmbH 收集诊断数据，则还会包含您的安装 ID（这只是一个随机生成的唯一 ID，不包含任何其他信息）。这使得 Sentry 可以对错误进行分组，并显示有多少个独立用户受到此类错误的影响。所有这些都有助于我提供几乎不会崩溃的无错误适配器。
 
 ## Changelog
+
+### 2.0.1 (2026-07-25)
+
+- Switch to Ford's official FordConnect Query API (EU Data Act)
+- Remove reverse-engineered FordPass login, Autonomic token and WebSocket to avoid account blocking
+- Read-only telemetry: remote commands removed
 
 ### 1.1.5 (2025-12-29)
 
@@ -124,7 +134,7 @@ FordPass适配器
 
 MIT License
 
-Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nmea/README.md
 title: ioBroker.nmea
-hash: vCBjYK3WCOWWlFgakL8tYFBe3C7h7qjsD8NUn2FuIoI=
+hash: brMDTUVo2fZ0JwY7pf+WQjH3ADkepYbMj2CQ1i4IvzY=
 ---
 ![Logo](../../../en/adapterref/iobroker.nmea/admin/nmea.png)
 
@@ -100,40 +100,51 @@ Tatsächlich wird nur ein Autopilot unterstützt: Raymarine.
 
 Die Entwicklung von Simrad/navico/B&G ist noch nicht abgeschlossen.
 
+### Winddatumsanzeige
+Bei Raymarine-Geräten, die das "Pilot Wind Datum" (PGN 65345) veröffentlichen, speichert der Adapter den Rohwinkel in Radiant unter `seatalkPilotWindDatum.windDatum` (dies ist der kanonische Wert, den der Autopilot beim Ändern des Windwinkels zurückliest, daher muss er in Radiant bleiben).
+
+Zusätzlich wird ein schreibgeschützter Hilfszustand `seatalkPilotWindDatum.windDatumDisplay` erstellt.
+
+Er zeigt den Winkel genau so an wie der Raymarine-Pilotenkopf:
+
+- `0…180°` → Steuerbord, `180…360°` → Backbord,
+- jeweils als ein Wert `≤180°` plus ein sprachabhängiger Zusatzbuchstabe (z. B. ein Datum von `230°`).
+
+wird im Englischen als `130°P` und im Deutschen als `130°B` angezeigt. `0°` (direkt voraus) und `180°` (direkt achtern) haben keinen Seitenbuchstaben.
+
+Verwenden Sie `windDatumDisplay` für die Visualisierung und `windDatum` für Berechnungen/Automatisierung.
+
 <!--
 
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 1.0.3 (2026-07-08)
+- (bluefox) Better decoding of motor PGNs
+
+### 1.0.2 (2026-06-30)
+- (copilot) Adapter requires node.js >= 22 now
+- (bluefox) Added `seatalkPilotWindDatum.windDatumDisplay` state with the Raymarine-style port/starboard wind-angle display
+- (bluefox) The autopilot device-manager widget now shows the wind datum the Raymarine way (e.g. `130°P`) with a language-dependent port/starboard letter
+- (bluefox) Added the custom icon set
+
+### 1.0.1 (2026-06-26)
+* (bluefox) Implemented Raymarine autopilot support
+* (bluefox) Corrected values simulation for yacht devices gateways
+* (bluefox) Added support of Fusion player
+
+### 0.4.2 (2026-01-05)
+* (bluefox) Updated packages
+
 ### 0.4.0 (2025-11-30)
 * (bluefox) Added support of YDEN-02/03 and YDWG-02/03 gateways
 
-### 0.3.0 (2025-08-16)
-* (bluefox) Widgets were rewritten on TypeScript
-* (bluefox) Corrected errors in the widgets and in the calculations
-* (bluefox) Small fix for ais data
-
-### 0.2.2 (2024-06-20)
-* (bluefox) Backend was rewritten on TypeScript
-* (bluefox) Support for AIS added
-* (bluefox) Valid processing of temperature, pressure and humidity
-
-### 0.1.8 (2024-03-20)
-* (bluefox) Corrected vis-2 widgets
-
-### 0.1.1 (2024-03-19)
-* (bluefox) Corrected vis-2 widgets
-
-### 0.0.4 (2024-03-12)
-* (bluefox) Fixed CI tests
-
-### 0.0.3 (2024-03-12)
-* (bluefox) Initial commit
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2024-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

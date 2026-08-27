@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.esphome/README.md
 title: ioBroker.esphome
-hash: 9IKJHjKeI/jq5MGXwoOR2Z5ON05NUxGKYRoqcQKWzyU=
+hash: 67kMxs7vLB12NAJ+FI1Zke+dyqFWnB0CvUO4d73ddFw=
 ---
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.esphome.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.esphome.svg)
@@ -35,7 +35,7 @@ Steuern Sie Ihren ESP8266/ESP32 mit einfachen, aber leistungsstarken Konfigurati
 - 📱 [Geräteverwaltung](#device-management)
 - 🔧 [Konfigurationsbeispiele](#example-config)
 
-Dieser Adapter verwendet [esphome-native-api](https://github.com/twocolors/esphome-native-api#readme) mit allen Credits an @twocolors zur Interaktion mit der [ESPHome API](https://esphome.io/components/api.html?highlight=api)!
+Dieser Adapter verwendet [esphome-native-api](https://github.com/twocolors/esphome-native-api#readme) – alle Rechte liegen bei @twocolors – zur Interaktion mit der ESPHome API.](https://esphome.io/components/api.html?highlight=api)!
 
 ## Häufig gestellte Fragen (FAQ)
 ### Worin besteht der Unterschied zwischen dem ioBroker ESPHome Adapter und dem ESPHome Dashboard?
@@ -86,7 +86,7 @@ Die Dashboard-IP-Einstellung in der Adapterkonfiguration dient verschiedenen Zwe
 2. **Adapter + Externes Dashboard:** Nutzen Sie Ihre bestehende ESPHome-Installation (Docker, Standalone) und integrieren Sie diese optional in die ioBroker-Oberfläche.
 3. **Adapter + Integriertes Dashboard:** Aktivieren Sie die integrierte ESPHome-Dashboard-Funktion für eine Komplettlösung.
 
-Der Adapter funktioniert unabhängig und benötigt nur Geräte, bei denen die ESPHome API in der Konfiguration aktiviert ist.
+Der Adapter funktioniert unabhängig und benötigt nur Geräte, bei denen die ESPHome-API in der Konfiguration aktiviert ist.
 
 ### Wie füge ich Geräte zum Adapter hinzu?
 1. **Stellen Sie sicher, dass die ESPHome-API in der YAML-Konfiguration Ihres Geräts aktiviert ist** (siehe Abschnitt Voraussetzungen).
@@ -141,13 +141,36 @@ Der Adapter kümmert sich nicht um die Python-Installation Ihres Systems. Er ins
 Unsere gesamte Adapterdokumentation finden Sie unter [Die DrozmotiX-Dokumentationsseite](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/) -->
 
 ## Voraussetzungen
-* NodeJS >= 20.x
+* NodeJS >= 22.x
 * Die API ist in YAML aktiviert.
 * Für Admin-Registerkarten (optional)
 Die IP-Adresse des ESPHome-Dashboards wird in den Instanzeinstellungen angegeben.
 
+## Testen von Vorabversionen
+Vorabversionen werden auf npm unter dem Dist-Tag `next` veröffentlicht und sind **nicht** im ioBroker-Repository enthalten – sie müssen explizit installiert werden. Feedback zu einer Betaversion ist sehr willkommen. Bitte melden Sie alle Fehler, die Sie im Dist-Tag [Problemverfolgung](https://github.com/DrozmotiX/ioBroker.esphome/issues) finden.
+
+Installieren Sie die aktuelle Vorabversion vom ioBroker-Host:
+
+```bash
+iobroker url iobroker.esphome@next
+```
+
+Oder installieren Sie eine bestimmte Version:
+
+```bash
+iobroker url iobroker.esphome@1.0.0-beta.1
+```
+
+Um anschließend zur veröffentlichten Version zurückzukehren:
+
+```bash
+iobroker url iobroker.esphome
+```
+
+Jede Vorabversion ist außerdem unter [Veröffentlichungen](https://github.com/DrozmotiX/ioBroker.esphome/releases) mit ihrem Änderungsprotokoll aufgeführt.
+
 ## ESPHome Dashboard-Integration (optional)
-Dieser Adapter ermöglicht optional die Integration des ESPHome-Dashboards in die Administrationsoberfläche von ioBroker. Sie haben mehrere Möglichkeiten:
+Dieser Adapter ermöglicht optional die Integration des ESPHome-Dashboards in die Administrationsoberfläche von ioBroker. Sie haben mehrere Optionen:
 
 **Option 1: Integriertes Dashboard (Empfohlen für Anfänger)**
 
@@ -185,7 +208,7 @@ Die Nutzung des integrierten Dashboards erfordert derzeit einige zusätzliche Sc
 1. Kontext: `esphome/`
 2. URL: `http://localhost:6052`
 
-![proxy.png](../../../en/adapterref/iobroker.esphome/admin/img/proxy.png)
+       ![proxy.png](../../../en/adapterref/iobroker.esphome/admin/img/proxy.png)
 
 4. Konfigurieren Sie die vollständige Dashboard-URL im erweiterten Abschnitt der ESPHome-Adaptereinstellungen – ESPHome-Dashboard:
 1. Beispiel: `https://<iobrokerIP>:<webAdapterPort>/proxy.0/esphome/`
@@ -193,7 +216,7 @@ Die Nutzung des integrierten Dashboards erfordert derzeit einige zusätzliche Sc
 3. und `<webAdapterPort>` ist der Port des Webadapters (Standardwert ist 8082).
 4. Es sollte ungefähr so aussehen:
 
-   ![ESPHomeDashboardUrl.png](../../../en/adapterref/iobroker.esphome/admin/img/ESPHomeDashboardUrl.png)
+       ![ESPHomeDashboardUrl.png](../../../en/adapterref/iobroker.esphome/admin/img/ESPHomeDashboardUrl.png)
 
 5. Wenn Sie das Dashboard auf einem externen Host ausführen, können Sie hier auch die URL zu einer externen Dashboard-Instanz verwenden.
 
@@ -226,7 +249,7 @@ Im Geräte-Tab werden alle aktuell bekannten Geräte angezeigt. Sie können entw
 
 ![Geräte-Registerkarte](../../../en/adapterref/iobroker.esphome/admin/img/deviceTabEmpty.png)
 
-[!HINWEIS] Die Schaltflächen zum Hinzufügen, Ändern und Entfernen von Geräten sowie zum Laden der Gerätetabelle sind nur verfügbar, wenn der Adapter läuft! Sie müssen die Gerätetabelle manuell aktualisieren, indem Sie auf „Geräteübersicht aktualisieren“ klicken. Anschließend werden alle Geräte und deren Verbindungsstatus angezeigt.
+[!HINWEIS] Die Schaltflächen zum Hinzufügen, Ändern und Entfernen von Geräten sowie zum Laden der Gerätetabelle sind nur verfügbar, wenn der Adapter aktiv ist! Sie müssen die Gerätetabelle manuell aktualisieren, indem Sie auf „Geräteübersicht aktualisieren“ klicken. Anschließend werden alle Geräte und deren Verbindungsstatus angezeigt.
 
 Bitte geben Sie die IP-Adresse ein (falls das Gerät bereits bekannt ist, können Sie es aus der Dropdown-Liste auswählen) und wählen Sie die gewünschten Aktionen aus:
 
@@ -270,7 +293,7 @@ Klicken Sie auf „Datei herunterladen“, um den Inhalt anzuzeigen, oder auf �
 
 > [!NOTE] > Dateien werden im ESPHome-Verzeichnis gespeichert: `/opt/iobroker/iobroker-data/esphome.<instance>/` > > Dies ist dasselbe Verzeichnis, das vom ESPHome-Dashboard verwendet wird, sodass über den Adapter hochgeladene Dateien sofort im Dashboard verfügbar sind und umgekehrt.
 
-> [!TIPP] > Diese Funktion ist besonders nützlich, wenn: > - Sie Konfigurationen schnell bearbeiten möchten, ohne auf das Server-Dateisystem zuzugreifen > - Sie Gerätekonfigurationen sichern oder freigeben müssen > - Sie YAML-Dateien verwalten möchten, ohne das vollständige ESPHome-Dashboard auszuführen
+> [!TIPP] > Diese Funktion ist besonders nützlich, wenn: > > - Sie Konfigurationen schnell bearbeiten möchten, ohne auf das Server-Dateisystem zuzugreifen > - Sie Gerätekonfigurationen sichern oder freigeben müssen > - Sie YAML-Dateien verwalten möchten, ohne das vollständige ESPHome-Dashboard auszuführen
 
 ### Beispielkonfiguration
 Beispielkonfiguration, weitere Beispiele finden Sie in [Die DrozmotiX-Dokumentationsseite (https://DrozmotiX.github.io) oder die ESPHome-Dokumentation](https://esphome.io/index.html)
@@ -304,7 +327,9 @@ Pin: 12 invertiert: true ID: gpio_12
 
 - Plattform: Ausgabe
 
-Name: "Generische Ausgabe" Ausgabe: 'gpio_12' </details>
+Name: "Generische Ausgabe" Ausgabe: 'gpio_12'
+
+</details>
 
 ## RGBW-Beleuchtung steuern
 ### RGB vs RGBW — Was ist der Unterschied?
@@ -312,7 +337,7 @@ Name: "Generische Ausgabe" Ausgabe: 'gpio_12' </details>
 
 ### Verfügbare Zustände für eine Lichtwesenheit
 | Bundesland | Beschreibung |
-|---|---|
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `colorHEX` | Beschreibbare Hexadezimal-Farbzeichenkette, z. B. `#ff6600`. Durch Schreiben hier werden Rot/Grün/Blau aktualisiert und der Befehl gesendet. |
 | `white` | Dedizierter Weißkanal (0 – 255). Nur bei RGBW-fähigen Leuchten vorhanden. |
 | `brightness` | Gesamthelligkeit (0 – 255). |
@@ -351,49 +376,55 @@ Wenn Ihnen meine Arbeit gefällt, erwägen Sie bitte eine persönliche Spende (d
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
-    * (DutchmanNL) 
+    * (DutchmanNL)
 -->
-### __WORK IN PROGRESS__
-* (@copilot) **NEW**: Add `lib/dashboardApi.js` module exposing all ESPHome Dashboard API endpoints (`getDevices`, `getConfig`, `getEncryptionKey`, `compile`, `upload`) for tighter dashboard integration
-* (@copilot) **FIXED**: Invalid jsonConfig warning on adapter install caused by `multiline` property not being allowed on `text` type; changed `uploadContent` to use `textarea` type (fixes #426)
+
+### 1.0.0-beta.2 (2026-07-30)
+
+- (@SimonFischer04) **FIXED**: ESPHome Dashboard 2026.6.5 and Pillow 12.2.0 are used instead of the latest available release, the 2026.7.x releases currently fail to install (#463)
+- (@SimonFischer04) **FIXED**: Installations still set to "Always last available" are migrated to those versions once, so an update no longer leaves behind a dashboard that cannot be installed (#463)
+- (@SimonFischer04) **NEW**: Selecting "Always last available" again is respected, the migration runs only once and such a setup only gets a warning at startup (#463)
+- (@DutchmanNL) **FIXED**: Falling back to the latest ESPHome or Pillow release no longer aborts the dashboard setup, the requirement was passed to pip without a version specifier
+- (@DutchmanNL) **FIXED**: Added the missing "pingInterval" and "pingAttempts" defaults to io-package.json, they were only defined in the admin configuration
+- (@DutchmanNL) **ENHANCED**: "npm run check" is free of type errors, so type regressions are visible again
+
+### 1.0.0-beta.1 (2026-07-28)
+
+- (@DutchmanNL) **FIXED**: Restored a green CI matrix, the dashboard integration tests no longer hang the test runner
+- (@DutchmanNL) **FIXED**: Corrected the changelog entry in io-package.json so it matches the published version
+- (@DutchmanNL) **FIXED**: Admin configuration is fully translated again, 29 texts were only available in English
+- (@DutchmanNL) **FIXED**: YAML upload field renders as a proper multi-line text area again
+- (@DutchmanNL) **ENHANCED**: Timers are now managed by the adapter, so they are always cleaned up on unload
+- (@DutchmanNL) **ENHANCED**: Pre-releases are published under the npm "beta" tag instead of "latest"
+- (@DutchmanNL) **ENHANCED**: Removed the obsolete admin/words.js and added prettier formatting scripts
+- (@dependabot) **ENHANCED**: Updated @iobroker/testing to 5.3.0 and the GitHub actions used in CI
+
+### 1.0.0-beta.0 - Stable version release candidate
+
+- (@copilot) **NEW**: Promoted ioBroker.esphome to stable **v1.0.0**
+- (@copilot) **NEW**: Brings ESPHome devices into ioBroker with live state updates and direct control
+- (@copilot) **NEW**: Supports a wide range of device types including lights, switches, sensors, fans, covers, locks, and text entities
+- (@copilot) **ENHANCED**: Includes optional ESPHome Dashboard integration plus built-in helpers for discovery and YAML-based device management
+- (@arteck) **FIXED**: Improved disconnect handling and diagnostics so reconnects recover more cleanly when device connections are destroyed
+- (@copilot) **ENHANCED**: Establishes a stable baseline for future ESPHome adapter development in ioBroker
+
+### 0.7.0 (2026-05-17)
+
+- (@SimonFischer04) **FIXED** copilot hallucinations
+- (@SimonFischer04) **NEW** 'Always last available' for pillow version
+- (@copilot) **FIXED**: Invalid jsonConfig warning on adapter installation
+- (DutchmanNL) **FIXED**: ESLint errors by code refactoring
 
 ### 0.7.0-beta.4 (2026-02-21)
-* (DutchmanNL) **FIXED**: ESLint errors by code refactoring
-* (@copilot) **FIXED**: Restore missing `configStates` option in admin UI to allow configuring whether configuration states are shown per entity
-* (@copilot) **NEW**: Per-device `rgbAutoWhite` toggle in the light config channel for automatic white-channel routing on RGBW lights (see [Controlling RGBW Lights](#controlling-rgbw-lights))
 
-### 0.7.0-beta.3 (2026-02-20)
-* (@copilot) **NEW**: Added support for `colorBrightness`, `coldWhite`, `warmWhite`, and `colorMode` states for lights using the new ESPHome color mode API
-* (@copilot) **FIXED**: RGB light control (brightness, color, white, colorTemperature) not working with newer ESPHome firmware that uses `supportedColorModesList` instead of deprecated legacy flags (#338)
+- (DutchmanNL) **FIXED**: ESLint errors by code refactoring
+- (@copilot) **FIXED**: Restore missing `configStates` option in admin UI to allow configuring whether configuration states are shown per entity
+- (@copilot) **NEW**: Per-device `rgbAutoWhite` toggle in the light config channel for automatic white-channel routing on RGBW lights (see [Controlling RGBW Lights](#controlling-rgbw-lights))
 
-### 0.7.0-beta.2 (2026-02-20) - add capability for fans & Lock entity
-* (@SimonFischer04) improve README
-* (@SimonFischer04) fix #394, actually fix #340, #356
-* (DutchmanNL) **FIXED**: Fan component not working #205
-* (@copilot) **NEW**: Allow customization of Pillow version used by ESPHome Dashboard, similar to ESPHome version selector
-* (@copilot) **NEW**: Add "Clear Autopy Cache" button in ESPHome Dashboard configuration tab to resolve dashboard loading issues (#209)
-
-### 0.7.0-beta.1 (2026-02-16) - Add support for Lock entity & improve dashboard testing
-* (@copilot) **NEW**: Add support for Lock entity type - Lock devices now properly display state and control options #353
-* (@copilot) **NEW**: YAML file management interface in admin UI for upload/download/delete operations (#369)
-* (@SimonFischer04) improve dashboard testing
-* (@SimonFischer04) improve logging for #201
-* (@SimonFischer04) update pillow
-* (@SimonFischer04) fix readme link to lib
-* (@SimonFischer04) fix connection status #311
-* (@SimonFischer04) remove unneeded node-fetch dependency
-* (@SimonFischer04) automatic migration from versions prior to ESPHomeDashboardUrl introduction (pre v0.6.1)
-* (@copilot) **FIXED**: Invalid jsonConfig schema - removed unsupported `doNotSave` property from table elements
-
-### 0.6.3 (2025-09-16)
-* (@DutchmanNL) Fixed an admin error related to `jsonConfig` validation. #287
-* (@DutchmanNL) Various general fixes and dependency updates to improve stability.
-* (@DutchmanNL) Improved responsive design for better usability across devices. #284
-* (@DutchmanNL) Introduced GitHub Actions to automatically verify the ESPHome Dashboard. #290
-* (@DutchmanNL) Added a comprehensive FAQ section to the README to help users with common questions. #286
-* (@DutchmanNL) Updated the `esphome-native-api` library to V1.3.3, which may resolve connection issues. #201
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
+
 MIT License
 
 Copyright (c) 2023-2026 DutchmanNL <rdrozda86@gmail.com>

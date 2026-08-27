@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: AQ/3a7xDK2/rrtNmPB2gNDgGO4EowKXQ5mSoKfV2lKQ=
+hash: J5A2Cfv4U16cR36FdZJGX5Qc4Oee1XLNczGVa1VrIJ4=
 ---
 ![标识](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -32,6 +32,20 @@ hash: AQ/3a7xDK2/rrtNmPB2gNDgGO4EowKXQ5mSoKfV2lKQ=
 ## 捐赠 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 3.1.28 (2026-04-08)
+* (arteck) Dependencies have been updated
+* (arteck) better LOG
+
+### 3.1.27 (2026-04-06)
+* (arteck) fix position_text 
+* (arteck) Dependencies have been updated
+
+### 3.1.26 (2026-01-17)
+* (arteck) Dependencies have been updated
+
 ### 3.1.25 (2025-12-28)
 * (arteck) Dependencies have been updated
 * (arteck) adds documentation on the token generation process for HYUNDAI and KIA
@@ -221,10 +235,12 @@ hash: AQ/3a7xDK2/rrtNmPB2gNDgGO4EowKXQ5mSoKfV2lKQ=
 ### 1.0.0
 * (Newan) First stable version
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2025 Newan <info@newan.de>
+Copyright (c) 2025-2026 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

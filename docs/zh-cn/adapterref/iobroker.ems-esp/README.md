@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: SS4a8MhtcqW1At1jk/AVAfXYhz+pqtNLFoFZKSy57Ms=
+hash: lKGiezjOoJXiCCR7Lh7hs3Om8sJBs/GZ76i6tRg04/s=
 ---
 ![标识](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -44,43 +44,38 @@ ioBroker ems-esp 适配器可以读写两个网关的数据，从而控制所有
 
 德国 ioBroker 论坛：https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
 
-* ems-esp 模块新版本：现在无需通过复选框选择即可读取所有实体类型：
-
-温度和模拟传感器、自定义实体和调度器实体
-
 * 适配器版本 >= 7.0.0 仅支持 ems-esp 固件版本 >= 7.2.0
-
-# Iobroker.ems-esp
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+### **WORK IN PROGRESS**
 -->
-### 7.0.0 (2025-12-09)
-* ems-esp: rework of coding --> this adapter version only supports firmware >= 3.7.2 !!!
-* ems-esp: All entity types are now read without being selected by checkboxes
+### 7.0.8 (2026-07-05)
+* fixing issues detected by repository checker
 
-### 6.0.5 (2025-12-04)
-* ems-esp: reduce read timeout error messages
-
-### 6.0.4 (2025-12-03)
-* ems-esp: return to version 6.0.2 for error handling
-
-### 6.0.3 (2025-12-01)
-* dependabot updates 
-* update error message for ems-esp gateway
-
-### 6.0.2 (2025-11-01)
-* increase axios timeout for km200 reads
+### 7.0.7 (2026-06-29)
 * dependabot updates
-* updating pdf docu in respect to energy statistics for ems-esp gateways
-* Migrate to NPM Trusted Publishing
+* fixing issues detected by repository checker
+
+### 7.0.6 (2026-06-20)
+* dependabot updates 
+* fixing errors while restarting adapter
+
+### 7.0.4 (2026-06-20)
+* fixing issue on main
+
+### 7.0.3 (2026-05-30)
+* dependabot updates
+* fixing issues detected by repository checker
+
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2025 Thomas Petrick (tp1de)
+Copyright (c) 2025-2026 Thomas Petrick (tp1de)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

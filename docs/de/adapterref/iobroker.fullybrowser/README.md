@@ -74,6 +74,19 @@ Fully-Browser-Gerät(e), also die Tablets, auf denen der Fully-Browser läuft, e
 * [fully-kiosk.com MQTT Integration](https://www.fully-kiosk.com/en/#mqtt)
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 3.1.5 (2026-04-21)
+* (arteck) fix aedes
+
+### 3.1.4 (2026-04-21)
+* (arteck) refactoring
+* (arteck) fix aedes
+
+### 3.1.3 (2026-04-12)
+* (arteck) Dependencies have been updated
+
 ### 3.1.2 (2025-07-20)
 * (arteck) add device name into the warning message
 * (arteck) dependency update
@@ -154,6 +167,8 @@ Fully-Browser-Gerät(e), also die Tablets, auf denen der Fully-Browser läuft, e
 
 ### 1.0.1 (2019-06-20)
 * (arteck) encodeURL
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

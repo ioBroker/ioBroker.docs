@@ -177,37 +177,30 @@ is true when TV is on and false if TV is off
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.7.4 (2026-06-18)
+- (mcm1957) Compact mode has been disabled due to usage of process.env
+- (mcm1957) Dependencies have been updated
 
-### **WORK IN PROGRESS**
+### 2.7.3 (2026-06-03)
+ - (arteck) fix uncaught exception: Parameter "timeout"
+ - (krobipd) Removed the eyeComfortMode boolean-migration
+
+### 2.7.2 (2026-05-11)
+- (krobipd) Reconnect watchdog no longer warns and recreates the LGTV instance while the TV is simply switched off. [#419]
+
+### 2.7.1 (2026-05-10)
+- (krobipd) Handling of online state has been improved.
+- (krobipd) Support for picture settings has been added.
+- (krobipd) Timerhandling has been cleaned up.
+- (mcm1957) Dependencies have been updated
+
+### 2.6.0 (2026-04-20)
+- (mcm1957) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (krobipd) External_speaker option to soundOutput state list added.
+- (mcm1957) Dependencies have been updated
 
-### 2.5.0 (2025-09-30)
-
-* (schoebelh) A crash when used with webOS update 25 has been fixed. [#336,#337]
-* (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
-* (mcm1957) Dependencies have been updated
-
-### 2.4.0 (2024-12-27)
-
-* (uKL) Ability to unicast the WOL packet has been added. This is needed if sender and TV are on different subnets.
-* (mcm1957) Dependencies have been updated
-
-### 2.3.2 (2024-12-21)
-
-* (mcm1957) Poll-interval limited to 5s minimum.
-* (mcm1957) Compact mode has been disabled due to outdated timer handling.
-* (mcm1957) Dependencies have been updated
-
-### 2.3.1 (2024-12-03)
-
-* (Feuer-Sturm) Some default values and limits of paramaters have been corrected.
-
-### 2.3.0 (2024-12-02)
-
-* (mcm1957) Adapter requires node.js 20 now.
-* (mcm1957) Adapter requires js-controller 5 and admin 6 now.
-* (Jey-Cee) Adapter has been migrated to jsonConfig and responsive design rules have been applied.
-* (mcm1957) Dependencies have been updated.
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

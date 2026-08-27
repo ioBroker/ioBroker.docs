@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="ioBroker.cctvql product cover">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#292524"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#64748B" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="950" cy="100" r="280" fill="url(#glow)"/>
+  <circle cx="1100" cy="500" r="150" fill="#64748B" fill-opacity="0.08"/>
+  <circle cx="80" cy="550" r="200" fill="#F59E0B" fill-opacity="0.06"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="white" stroke-opacity="0.04" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="white" stroke-opacity="0.04" stroke-width="1"/>
+  <line x1="400" y1="0" x2="400" y2="630" stroke="white" stroke-opacity="0.04" stroke-width="1"/>
+  <line x1="800" y1="0" x2="800" y2="630" stroke="white" stroke-opacity="0.04" stroke-width="1"/>
+  <image href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NiA5NiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJpb0Jyb2tlci5jY3R2cWwgbG9nbyI+CiAgPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMTIiIHkxPSIxMiIgeDI9Ijg0IiB5Mj0iODQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBzdG9wLWNvbG9yPSIjRjU5RTBCIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMTExODI3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgPHJlY3Qgd2lkdGg9Ijk2IiBoZWlnaHQ9Ijk2IiByeD0iMjIiIGZpbGw9InVybCgjZykiLz4KICA8cGF0aCBkPSJNMjYgMzFoNDR2MjVIMjZ6IiBmaWxsPSIjZmZmIi8+CiAgPHBhdGggZD0iTTM0IDY1aDI4IiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGNpcmNsZSBjeD0iNDAiIGN5PSI0NCIgcj0iNiIgZmlsbD0iIzExMTgyNyIvPjxjaXJjbGUgY3g9IjU2IiBjeT0iNDQiIHI9IjYiIGZpbGw9IiNGNTlFMEIiLz4KPC9zdmc+Cg==" x="92" y="240" width="150" height="150" filter="url(#shadow)"/>
+  <rect x="260" y="155" width="207" height="34" rx="17" fill="#F59E0B" fill-opacity="0.5" stroke="#F59E0B" stroke-width="1"/>
+  <text x="363.5" y="178" font-size="15" font-family="Inter,system-ui,-apple-system,Segoe UI,sans-serif" font-weight="600" fill="#FEF3C7" text-anchor="middle">Home Automation</text>
+  <text x="260" y="270" font-size="68" font-family="Inter,system-ui,-apple-system,Segoe UI,sans-serif" font-weight="800" fill="white" letter-spacing="-3">ioBroker.cctvql</text>
+  <text x="262" y="330" font-size="28" font-family="Inter,system-ui,-apple-system,Segoe UI,sans-serif" font-weight="400" fill="#FEF3C7">CCTVQL adapter for ioBroker smart home dashboards</text>
+  <line x1="262" y1="370" x2="980" y2="370" stroke="white" stroke-opacity="0.12" stroke-width="1"/>
+  <rect x="262" y="390" width="135" height="36" rx="8" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="329.5" y="413" font-size="15" font-family="Inter,system-ui,-apple-system,Segoe UI,sans-serif" fill="white" fill-opacity="0.8" text-anchor="middle">Vis widgets</text>
+  <rect x="411" y="390" width="116" height="36" rx="8" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="469" y="413" font-size="15" font-family="Inter,system-ui,-apple-system,Segoe UI,sans-serif" fill="white" fill-opacity="0.8" text-anchor="middle">Blockly</text>
+  <rect x="541" y="390" width="116" height="36" rx="8" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="599" y="413" font-size="15" font-family="Inter,system-ui,-apple-system,Segoe UI,sans-serif" fill="white" fill-opacity="0.8" text-anchor="middle">States</text>
+  <rect x="262" y="450" width="162" height="44" rx="10" fill="#F59E0B"/>
+  <text x="343" y="477" font-size="22" font-family="Inter,system-ui,-apple-system,Segoe UI,sans-serif" font-weight="700" fill="white" text-anchor="middle">Open source</text>
+  <text x="1140" y="600" font-size="18" font-family="Inter,system-ui,-apple-system,Segoe UI,sans-serif" fill="white" fill-opacity="0.35" text-anchor="end">hub.arunrajiah.com</text>
+</svg>

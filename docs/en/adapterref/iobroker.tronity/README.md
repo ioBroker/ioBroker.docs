@@ -36,6 +36,14 @@ the adapter.
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+### 1.2.2 (2026-06-12)
+
+- updated dependencies
+- fixed GitHub and security issues
+- adapter requires node.js >= 22
+
 ### 1.2.1 (2025-04-07)
 
 - small bugfixes
@@ -60,7 +68,7 @@ the adapter.
 
 MIT License
 
-Copyright (c) 2025 TRONITY <support@tronity.io>
+Copyright (c) 2025-2026 TRONITY <support@tronity.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

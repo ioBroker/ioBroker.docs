@@ -33,9 +33,10 @@ Es können natürlich weitere Instanzen des Adapters mit abweichenden Feiertagsa
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.4.0 (2026-05-04)
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (mcm1957) Dependencies have been updated
 
 ### 1.3.0 (2026-02-16)
 - (mcm1957) Adapter requires node.js >= 20 now
@@ -54,13 +55,7 @@ Es können natürlich weitere Instanzen des Adapters mit abweichenden Feiertagsa
 ### 1.1.4 (2023-09-07)
 * (Quarkmax) Fixed description for Saxony from SA to SN
 
-### 1.1.3 (2023-08-13)
-* (mcm1957) changed: missing translations have been added
-* (mcm1957) changed: Swiss national holiday has been corrected (# 164)
-* (mcm1957) changed: Adapter required node 16 now
-* (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
-* (mcm1957) changed: Dependencies have been updated
-* (klein0r) Dependencies updated
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

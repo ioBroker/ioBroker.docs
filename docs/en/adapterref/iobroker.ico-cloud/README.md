@@ -33,6 +33,7 @@ Icon and name of ICO and Ondilo are property of Ondilo.
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 2.0.3 (2025-05-12)
@@ -76,6 +77,8 @@ Icon and name of ICO and Ondilo are property of Ondilo.
 
 ### 0.0.2 (2021-07-20)
 * (Garfonso) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

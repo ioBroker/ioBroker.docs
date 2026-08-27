@@ -3,34 +3,37 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.linktap/README.md
 title: ioBroker.LinkTap
-hash: jF+hWbw7bmE0b57AwFFOIqvT0OTnSjQRw+gZY/STN/Q=
+hash: 6o76GxiaHdHP5xQMR9fLD0yWy4bMfsRqxViiLe+mkG0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.linktap/admin/Logo_small.png)
 
-![версия НПМ](http://img.shields.io/npm/v/iobroker.linktap.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.linktap.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.linktap.svg)
 ![НПМ](https://nodei.co/npm/iobroker.linktap.png?downloads=true)
 
 # IoBroker.LinkTap
 ## IoBroker.linktap
-Управляйте поливом вашего сада с помощью беспроводного таймера подачи воды LinkTap Производитель: https://www.link-tap.com/
+Управляйте поливом вашего сада с помощью беспроводного таймера для воды LinkTap. Производитель: https://www.link-tap.com/
 
 ## Установка
-Используйте Node.js 20 или выше.
+Пожалуйста, используйте Node.js версии 22 или выше.
 
 ## Настройки
-Создайте ключ API на сайте https://www.link-tap.com/#!/api-for-developers, используя ваши учетные данные LinkTap.
+Создайте ключ API на сайте https://www.link-tap.com/#!/api-for-developers, используя свои учетные данные LinkTap.
 
-Введите имя пользователя и ключ API в конфигурации.
-Все подключенные шлюзы и таплинкеры будут извлечены после запуска адаптера. Производитель разрешает опрос всех шлюзов и устройств каждые 5 минут. Адаптер выполняет извлечение автоматически каждый час или каждый раз при перезапуске адаптера.
+Пожалуйста, введите имя пользователя и ключ API в конфигурации.
+Все подключенные шлюзы и устройства Taplinker будут получены после запуска адаптера. Производитель разрешает опрос всех шлюзов и устройств каждые 5 минут. Адаптер выполняет получение данных автоматически каждый час или при каждом перезапуске.
 
-Получение статуса полива можно настроить индивидуально в конфигурации на основе минут. Веб-сервису LinkTap может потребоваться до одной минуты, чтобы предоставить обновленную информацию о поливе.
+Время получения информации о состоянии полива можно настроить индивидуально в параметрах системы в минутах. Для предоставления обновленной информации о поливе веб-сервисом LinkTap может потребоваться до одной минуты.
 
-Реализованы все функции орошения, предусмотренные API.
+Все функции орошения, предоставляемые API, реализованы.
 
-Важно: Перед использованием необходимо настроить в приложении нужные расписания. Затем их можно включить/выключить через адаптер. Для этого необходимо дополнительно настроить соответствующие состояния роли «Аргумент в».
+Важно: Желаемые расписания необходимо настроить в приложении до начала использования. Затем их можно включать/отключать через адаптер. Для этого необходимо дополнительно установить соответствующие состояния роли "Аргумент в".
 
 ## Changelog
+
+### 1.0.7
+- (copilot) Adapter requires node.js >= 22 now / removed node-fetch
 
 ### 1.0.3
 * (Smart-Gang) Update of various dependencies and update to Node 20.
@@ -56,10 +59,12 @@ hash: jF+hWbw7bmE0b57AwFFOIqvT0OTnSjQRw+gZY/STN/Q=
 ### 0.1.7
 * (Smart-Gang) First public release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2025 Author <gangrulez@gmail.com>
+Copyright (c) 2025-2026 Author <gangrulez@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

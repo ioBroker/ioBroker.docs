@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mercedesme/README.md
 title: ioBroker.mercedesme
-hash: FNiMh4veJEDS9m5/XywGQO4IafBpnx8U2q/1/UxGJ+k=
+hash: x+Q36fKqcoITqzyAQPtNw/EosXADxAWHTJTeycQ0GDs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mercedesme/admin/mercedesme.png)
 
@@ -17,40 +17,61 @@ hash: FNiMh4veJEDS9m5/XywGQO4IafBpnx8U2q/1/UxGJ+k=
 ## Адаптер Mercedes-Benz для ioBroker
 Адаптер Mercedes me для ioBroker
 
-### Эмпфелунг: Zweitnutzer erstellen
-Es wird empfohlen einen отделяет Mercedes от Zweitnutzer fuer ioBroker zu erstellen. Mercedes begrenzt die Anzahl der Verbindungen pro Tag (~100-150). Bei Ueberschreitung wird der Account bis Mitternacht UTC Gesperrt (HTTP 429).
+### Рекомендация: создайте дополнительного пользователя
+Рекомендуется создать отдельную учетную запись Mercedes me для ioBroker. Mercedes ограничивает количество подключений в день (~100-150). При превышении этого лимита учетная запись блокируется до полуночи по UTC (HTTP 429).
 
-Mit einem Zweitnutzer:
+При наличии дополнительного пользователя:
 
-- Wird der Hauptnutzer в der Mercedes me App nicht beeintraechtigt
-- Канн-дер-адаптер не работает
-- Используйте приложение с удобными функциями
+- Приложение Mercedes me не затрагивает основного пользователя.
+- Адаптер может работать автономно.
+- Приложение на телефоне остается полностью работоспособным.
 
-Den Zweitnutzer в Mercedes me App как «Nutzer» (nicht Hauptnutzer) zum Fahrzeug einladen.
+Пригласите дополнительного пользователя в приложении Mercedes me в качестве "пользователя" (а не основного пользователя) в автомобиль.
 
-### Bedienung
-Если команда не доступна, нажмите кнопку «Начать» и нажмите кнопку «Пуск».
+### Использование
+В разделе «Команды» разверните команду и нажмите кнопку рядом с ней, чтобы запустить команду, когда она станет доступна.
 
-Дистанционное управление и удаленное управление Remote Befehle
+В разделе Remote содержатся предопределенные команды дистанционного управления.
+
+## Часовой
+Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде. Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. в разделе [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
 ## Changelog
-### 0.7.0-beta.0 (2026-03-03)
-- make api only mode default
+### 0.8.0 (2026-07-27)
+
+- support new VehicleStatusUpdate message format (RIS SDK 4.12)
+
+### 0.7.2 (2026-07-26)
+
+- fix Login
+
+### 0.7.1 (2026-04-15)
+
+- fix vehicle fetching
+
+### 0.7.0 (2026-03-16)
+
+- make api only mode default. use websocket for remote controls only
 
 ### 0.6.3 (2026-02-16)
+
 - add api refresh every 3 min after websocked block
 - add api only update mode
 
 ### 0.5.5 (2026-02-09)
+
 - fix parsing and command sending
 
 ### 0.4.2 (2026-02-07)
+
 - improve event parsing
 
 ### 0.4.0 (2026-02-03)
+
 - fix remote command sending
 
 ### 0.3.9 (2025-11-12)
+
 - fix login flow
 
 ### 0.3.8 (2025-07-11)
@@ -263,7 +284,7 @@ Den Zweitnutzer в Mercedes me App как «Nutzer» (nicht Hauptnutzer) zum Fah
 
 MIT License
 
-Copyright (c) 2024-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

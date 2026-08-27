@@ -82,6 +82,8 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
      ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -260,6 +262,8 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 
 ### 0.0.3 (2018-01-03)
 * (instalator) initial
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

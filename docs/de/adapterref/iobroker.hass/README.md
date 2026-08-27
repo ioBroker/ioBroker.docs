@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hass/README.md
 title: ioBroker.hass
-hash: DTMrMvmhDjW3snxD6Sxstww2gJf/X7BwdV54R2ogU0M=
+hash: M+nm+izoaISjlBc/GvVPcDabI3Tm57D4yI8ZBmSYd5I=
 ---
 ![Logo](../../../en/adapterref/iobroker.hass/admin/hass.png)
 
@@ -98,17 +98,51 @@ Für einige Dienste wie set_speed ist es erforderlich, ein JSON-Objekt wie beisp
 ```
 
 ## Konfiguration
-Es gibt einen guten Artikel über Verbindung.
+Es gibt einen guten Artikel über diesen Zusammenhang.
 
 Bitte schauen Sie hier nach: https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen/
 
 **Leider nur auf Deutsch, aber die [Google Translate funktioniert recht gut.](https://translate.google.com/translate?hl=en&sl=de&tl=en&u=https%3A%2F%2Fwww.smarthomejetzt.de%2Fmit-iobroker-auf-eine-home-assistant-hass-io-installation-und-die-geraete-zugreifen%2F)**
+
+## Entitätsausschlussfilter
+Optional kann eingeschränkt werden, welche Home Assistant-Entitäten mit ioBroker synchronisiert werden.
+
+Jede nicht leere Zeile ohne Kommentar im Feld **Ausschlussmuster** ist ein Glob-Zeichen (nur `*` ist ein Platzhalter und entspricht jeder beliebigen Zeichenfolge, einschließlich `.`).
+Die Muster werden unter Berücksichtigung der Groß-/Kleinschreibung mit dem vollständigen `entity_id` abgeglichen (z. B.
+`switch.living_room`). Eine Entität, die einem Muster entspricht, ist:
+
+- wird übersprungen, wenn Objekte erstellt oder aktualisiert werden (erste Synchronisierung und erneute Synchronisierungen)
+- wird ignoriert, wenn sich der Zustand in HASS ändert (es werden keine Zustandsschreibvorgänge in ioBroker ausgelöst)
+
+Zeilen, die mit `#` beginnen, werden als Kommentare behandelt.
+
+Beispiele:
+
+```
+# Drop every entity whose name starts with `iob_`, regardless of domain:
+*.iob_*
+
+# Drop sensors only:
+sensor.iob_*
+```
+
+Aktivieren Sie **Ausführliche Filterprotokollierung**, um jedes ausgeschlossene `entity_id` während der ersten Synchronisierung einzeln zu protokollieren (erfordert Adapter-Protokollierungsstufe `info` oder `debug`). Bei nachfolgenden erneuten Synchronisierungen wird nur die Gesamtzahl ausgegeben, um das Protokoll übersichtlich zu halten.
+
+Eine leere Musterliste führt dazu, dass sich der Adapter genauso verhält wie in früheren Versionen.
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 2.1.0 (2026-05-16)
+* (mokusone) Added optional entity exclude filter with glob patterns, configurable via the admin UI, plus a verbose-logging toggle for inspecting matches
+* (@klein0r) Use `/core/` instead of `/api/` when connecting to supervisor directly (e.g., in ha app)
+* (@klein0r) Use ENV var SUPERVISOR_TOKEN as fallback for password
+
+### 2.0.4 (2026-05-05)
+* (@GermanBluefox) Tried to keep the custom settings of the objects when updating them with new data from HASS
+
 ### 2.0.3 (2026-04-02)
 * (@GermanBluefox) Adapter was updated and migrated to TypeScript
 * (@Titanium177) Added roles for states and added debouncing for reading states from hass
@@ -120,33 +154,6 @@ Bitte schauen Sie hier nach: https://www.smarthomejetzt.de/mit-iobroker-auf-eine
 
 ### 1.3.0 (2022-07-01)
 * (Apollon77) Further optimize sending data to HASS and allow setting values like numbers as normal states if the service has one attribute and it can be mapped
-
-### 1.2.0 (2022-06-17)
-* (Apollon77) IMPORTANT: Replace special characters in entity attribute names with an underscore! Object IDs might change!
-* (Apollon77) make sure a "null" value in state changes is not crashing
-
-### 1.1.2 (2022-03-29)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 1.1.1 (2022-03-25)
-* (Apollon77) Show password fields masked again in config
-
-### 1.1.0 (2022-03-24)
-* IMPORTANT: You need to re-enter the password once after installing this version!
-* (Apollon77) Implement Service triggers to use any value to trigger or stringified JSON to call with fields
-* (Apollon77) Optimize unload handling
-* (Apollon7) Add Sentry for crash reporting
-
-### 1.0.1 (2021-09-04)
-* IMPORTANT: js-controller 2.0 is needed at least!
-* (Apollon77) Fix start issue
-* (Apollon77/Garfonso) Fix issue where value could not be set in hass
-
-### 1.0.0 (2020-12-13)
-* (bluefox) added the support of compact mode
-
-### 0.1.0
-* (bluefox) initial release
 
 ## License
 The MIT License (MIT)

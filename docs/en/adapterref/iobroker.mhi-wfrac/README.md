@@ -29,6 +29,11 @@ Thank you very much for your work - It really helped me a lot.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.3.0 (2026-07-07)
+- (copilot) Adapter requires node.js >= 22 now
+- (hacki11) Add support for WF-RAC firmware v200
+- (hacki11) Maintenance work for repo checker warnings and project housekeeping
+
 ### 2.2.0 (2026-02-28)
 * (hacki11) Update dependencies
 * (hacki11) Update minimum node version
@@ -44,34 +49,7 @@ Thank you very much for your work - It really helped me a lot.
 * (hacki11) Fix: Errorhandler used undefined aircon channel
 * (hacki11) Increased retry count to workaround hourly aircon resets
 
-### 2.1.4 (2025-04-27)
-* (hacki11) Use sanitized ID to check if online state can be modified
-
-### 2.1.3 (2025-04-10)
-* (hacki11) Add Dev Container
-* (hacki11) Fix: Use only enabled devices for adapter connection indicator
-
-### 2.1.2 (2025-03-31)
-* (hacki11) Fix review findings
-
-### 2.1.1 (2025-03-13)
-* (hacki11) Migrate to eslint9
-
-### 2.1.0 (2025-03-11)
-* (hacki11) Add `online` datapoint representing the reachability of each device
-* (hacki11) Workaround the built-in hourly reboot of the WF-RAC module
-
-### 2.0.0 (2025-03-09)
-* (hacki11) Bring Adapter Stable
-* (hacki11) Support multiple devices
-* (hacki11) Fix Read Operation Mode 'Auto'
-* (hacki11) Set `info.connection` to `false` when adpater is unloading
-
-### 1.0.2
-* (wolkeSoftware) made Entrust (3D Auto) changeable
-
-### 1.0.1
-* (wolkeSoftware) initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

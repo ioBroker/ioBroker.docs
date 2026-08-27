@@ -22,14 +22,18 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Requires
-* Node.js 20 or higher
-* ioBroker host (js-controller) 5.0 or higher
+* Node.js 22 or higher
+* ioBroker host (js-controller) 6.0.11 or higher
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.3 (2026-06-16)
+* (HGlab01) code quality improvements
+* (HGlab01) dependecy updates
+
 ### 0.5.2 (2025-03-12)
 * (HGlab01) Bump axios to 1.8.3
 
@@ -46,8 +50,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 ### 0.4.2 (2023-08-10)
 * (HGlab01) Improve admin5 UI usage
 
-### 0.4.1 (2023-02-05)
-* (HGlab01) Improve error log if coordinates are not set
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
@@ -74,4 +77,3 @@ SOFTWARE.
 
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.followthesun?ref=badge_large)
-

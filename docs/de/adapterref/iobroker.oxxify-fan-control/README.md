@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.oxxify-fan-control/README.md
 title: ioBroker.oxxify-fan-control
-hash: VknOEdw6EEXBDF8eU0ziSbKrp02cPIJP3E2G2IVt8XY=
+hash: 2k/jKLDycTp3mwUAN4g6BhXFjPT5glD8iybdDBgPLgc=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.oxxify-fan-control.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.oxxify-fan-control.svg)
@@ -54,7 +54,6 @@ Dieser Kanal enthält Systemdaten zur Hardware und Firmware sowie Laufzeitdaten,
 
 ## Aufgaben
 - Weitere Tests implementieren
-- Dokumentation verbessern
 - Fehlende Datenpunkte implementieren (wie Zeitplan, Schreiben von Netzwerkdaten und Cloud-Steuerung)
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
@@ -62,64 +61,33 @@ Dieser Kanal enthält Systemdaten zur Hardware und Firmware sowie Laufzeitdaten,
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 0.0.15 (2026-05-05)
 
-### **WORK IN PROGRESS**
+- Security vulnerabilities fixed (#141)
 
+### 0.0.14 (2026-05-05)
+
+- Added missing JSDoc comments
+- (copilot) Adapter requires node.js >= 22 now
+- Warning [W5039] fixed
+
+### 0.0.13 (2026-04-08)
+
+- Auto PRs merged
+- Fixing other deployment issues...
+
+### 0.0.12 (2026-04-06)
+
+- Deploy workflow changed from "npm install" to "npm ci"
+
+### 0.0.11 (2026-04-06)
+
+- TypeScript updated to 6.0
 - Some dependency work
-- Avoid warning messages, if the received protocol does not contain values to update the ioBroker states (Issue #91)
-
-### 0.0.8 (2025-10-16)
-
-- Some dependency work
-- Issues from adapter checker fixed
-
-### 0.0.7 (2025-07-01)
-
-- Some dependency work
-- Code documentation extended
-- Added Node.js 24 to test and release pipeline
-- Resending interval of not overtaken values changed from 1,5 seconds to 2,5 seconds
-- Changed writable mixed numerical/string values for enums into selectable values, to show available configurations (**breaking change** if already used to remote control fans)
-- Rewrite mechanism allows now manual changes within the buttons of the fan, which were overridden by the internal stored value before
-
-### 0.0.6 (2025-04-17)
-
-- Vulnerable dependency updated
-
-### 0.0.5 (2025-03-21)
-
-- Added automatic write retry mechanism for writing values within the fan, as writing with UDP is not very reliable in connection with poor network conditions
-- Adapter checker issues fixed
-
-### 0.0.4 (2025-01-31)
-
-- Updated ESLint to 9.x.x
-- Fixed copyright issue from adapter checker
-- Replaced deletion of all objects with deletion of missing devices from config only
-- Avoided illegal characters from user input for fan id within code
-- Changed state subscription to all states below the devices folder
-- Added restart logic of UDP server in case of an error
-- Added adapter terminiation if multiple udp server errors occured
-- Replaced cyclic checking of the send quene with a timeout approach instead of interval
-- Missing intermediate objects created
-- Roles updated according to the read/write definitions
-- Polling interval limited in JSON config and code
-- ioBroker unit in object tree for RTC date & time removed
-
-### 0.0.3 (2025-01-11)
-
-- Added states for objects with high byte 0x03 with reading and writing
-- Recreate device objects on adapter restart
-- Simplified methods for writing fan data based on subscribed states
-- Added a first unit test for the parsing of numbers.
-
-### 0.0.2 (2025-01-06)
-
-- (N-b-dy) initial release
 
 ## License
 
-Copyright (c) 2025 N-b-dy <daten4me@gmx.de>
+Copyright (c) 2025-2026 N-b-dy <daten4me@gmx.de>
 
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007

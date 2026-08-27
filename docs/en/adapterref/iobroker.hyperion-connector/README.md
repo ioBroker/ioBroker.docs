@@ -27,6 +27,16 @@ If you require additional commands, please post in the forum or here.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+* (ticaki) feat: controls/effect/* — start hyperion effects (name dropdown is auto-populated from serverinfo)
+* (ticaki) feat: multi-instance support — per-instance channels under instances/<id>/, instances.json metadata, controls/instance/{setinstance,start,stop} lifecycle commands
+* (ticaki) feat: convenience light role — light/{power,brightness,color} as a VIS/Alexa/Google-friendly projection over componentstate LEDDEVICE / adjustment.brightness / color
+* (ticaki) feat: writable controls/videomode/mode, controls/processing/mappingType, controls/leddevice/identify
+* (ticaki) chore: replaced silent catch blocks with debug logging so failures stop being invisible
+* (ticaki) test: added a reusable mock hyperion server (test/mock-hyperion-server.ts) and protocol-level specs (npm run test:hyperion-mock); the existing smoke test (test/integration.js) is unchanged
+* (ticaki) docs: added CLAUDE.md with project conventions, architecture map and Hyperion-API quick reference
+
 ### 0.2.1 (2025-11-11)
 * (ticaki) first latest release
 * (ticaki) Clean termination of the adapter
@@ -51,6 +61,8 @@ If you require additional commands, please post in the forum or here.
 * (ticaki) add info.connection for adapter and device
 * (ticaki) initial release
 * (ticaki) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

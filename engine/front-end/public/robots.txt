@@ -4,6 +4,10 @@ User-agent: bingbot
 User-agent: yandex
 User-agent: yandexbot
 User-agent: DuckDuckBot
+User-agent: facebookexternalhit
+User-agent: Facebot
+User-agent: meta-externalagent
+User-agent: meta-externalfetcher
 Crawl-delay: 1
 Allow: /
 Disallow: /docu/

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.judoisoft/README.md
 title: ioBroker.judoisoft
-hash: ZxOGXDTDfqXFZ3X3m2u9JkcSLtq+rzgfSuVnFZnfARA=
+hash: uykMwHEm5KpB3jn5G7+/9O+2lryACy7B0GdbV/Lje4Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.judoisoft/admin/judo.png)
 
@@ -15,9 +15,8 @@ hash: ZxOGXDTDfqXFZ3X3m2u9JkcSLtq+rzgfSuVnFZnfARA=
 # IoBroker.judoisoft
 =================
 
-judoisoft-Adapter für ioBroker ------------------------------- --------------------------------
-
-Ein kleiner Auszug nur der Befehlsoptionen:
+## Judoisoft-Adapter für ioBroker
+Ein kleiner Auszug aus den Befehlsoptionen:
 
 ![Möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/datenpunkte.png)
 
@@ -25,47 +24,50 @@ Verfügbare Einstellungen:
 
 ![Möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/settings.png)
 
+Bei Geräten mit dem neuen JUDO-Konnektivitätsmodul aktivieren Sie `REST API (connectivity module)` in den Instanzeinstellungen.
+Dadurch wird die lokale Schnittstelle `http://<ip>/api/rest/...` (Basisauthentifizierung) verwendet.
+
+(Standardbenutzername/-passwort: „admin“ / „Connectivity“)
+
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- Add device selection for cloud connection - #194
+- Fix issues detected by repository checker
+
+### 1.1.3 (2026-07-18)
+
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (@SimonFischer04) support rest-api (#143). closes #32, closes #82
+- (@arteck, @SimonFischer04) (dependency) bump / cleanups
+- (@SimonFischer04) Migration to ESLint 9 and @iobroker/eslint-config. #114
+- (@SimonFischer04) Migrate admin config to ioBroker jsonConfig. Closes #55
+
+### 1.1.2 (2025-01-04)
+
+- (arteck) corr some errors
+
+### 1.1.1 (2024-09-26)
+
+- (arteck) corr cloud connection
+
 ### 1.1.0 (2023-10-27)
-* (arteck) switch to intervall
 
-### 1.0.15 (2022-05-30) 
-* (arteck) new error handling
+- (arteck) switch to intervall
 
-### 1.0.11  (2021-11-07)
-* (arteck) performance corr
+### 1.0.15 (2022-05-30)
 
-### 1.0.7  (2021-04-14)
-* (arteck) corr psw save method
+- (arteck) new error handling
 
-### 1.0.6  (2021-04-08)
-* (arteck) add battery 
-           add installationdate
-           add servicedays
-
-### 1.0.5  (2021-03-24)
-* (arteck) add new cloud access
-
-### 1.0.4  (2021-03-18)
-* (arteck) add timeout
-
-### 1.0.3  (2021-02-06)
-* (arteck) the cloud infos are not available for collection, sry 
-*
-
-### 1.0.2  (2021-01-26)
-* (arteck) cloud login added
-
-### 1.0.0  (2021-01-20)
-* (arteck) new js-controller upd
-
-### 0.0.1 (2020-12-26)
-* (arteck) refactoring
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
+
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 Arthur Rupp arteck@outlook.com
+Copyright (c) 2018-2026 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

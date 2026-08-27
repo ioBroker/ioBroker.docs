@@ -3,33 +3,63 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fiat/README.md
 title: ioBroker.fiat
-hash: t3EC4vKfUA3gL+sci5y5WUXeiwmhW34DMxIoTPKJDgk=
+hash: n21nQeX3lRWpDJAGybHkB3B7vtiKW6IVn8Ltgn8qqyo=
 ---
 ![Logo](../../../en/adapterref/iobroker.fiat/admin/fiat.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.fiat.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.fiat.svg)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/fiat-installed.svg)
-![Anzahl Installationen (stabil)](https://iobroker.live/badges/fiat-stable.svg)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/fiat-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.fiat.svg)
 ![NPM](https://nodei.co/npm/iobroker.fiat.png?downloads=true)
 
 # IoBroker.fiat
-**Tests:** ![Testen und Freigeben](https://github.com/TA2k/ioBroker.fiat/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.fiat/workflows/Test%20and%20Release/badge.svg)
 
-## Fiat Jeep-Adapter für ioBroker
+## Fiat Jeep Adapter für ioBroker
 Adapter für Fiat und Jeep
 
-## Loginablauf:
-Geben Sie die E-Mail-Adresse und das Passwort der Fiat- oder Jeep-App ein.
+## Anmeldeablauf:
+Die Fiat oder Jeep App Mail und Passwort eingeben.
 
 ## Steuern
-fiat.0.id.remote auf true setzen steuert den jeweiligen Befehl
+fiat.0.id.remote auf true setzt steuert den jeweiligen Befehl
+
+### Ladeplan (remote.CPPLUS)
+Der State `<VIN>.remote.CPPLUS` erwartet ein Array von Schedule-Objekten (auch ein einzelnes Objekt wird akzeptiert und automatisch in ein Array verpackt). Der Adapter baut daraus den Wrapper-Body wie die offizielle My-Uconnect-App:
+
+```json
+{
+  "command": "CPPLUS",
+  "pinAuth": "…",
+  "schedules": [
+    {
+      "cabinPriority": false,
+      "chargeToFull": false,
+      "enableScheduleType": true,
+      "endTime": "13:05",
+      "repeatSchedule": true,
+      "scheduleType": "CHARGE",
+      "scheduledDays": {
+        "friday": true, "monday": true, "saturday": true, "sunday": true,
+        "thursday": true, "tuesday": true, "wednesday": true
+      },
+      "startTime": "13:00"
+    }
+  ]
+}
+```
+
+Gesendet wird an `/v2/accounts/{UID}/vehicles/{VIN}/ev/schedule/` — das Body-Format ist aus `ScheduleV2Model$Post$Request` der offiziellen App (APK 1.99.701).
 
 ## Diskussion und Fragen:
 https://forum.iobroker.net/topic/46378/test-adapter-fiat-v0-0-x
 
 ## Changelog
+### 0.0.11 (2026-06-28)
+- Updated Dependencies and latest API changes
+
 ### 0.0.10 (2024-06-10)
 
 - added schedule edit via remote.CPPLUS

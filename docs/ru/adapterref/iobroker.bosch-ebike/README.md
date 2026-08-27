@@ -1,35 +1,52 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bosch-ebike/README.md
 title: ioBroker.bosch-ebike
-hash: FFYmulm05/mMJR7iazCpBbpKu3Ara/b79d2BHM6vzW8=
+hash: wzLPuCrHre3fpxHeA6iEYwglR72p8yp95ZWAc7cYAAI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bosch-ebike/admin/bosch-ebike.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.bosch-ebike.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.bosch-ebike.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bosch-ebike.svg)
 ![Количество установок](https://iobroker.live/badges/bosch-ebike-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/bosch-ebike-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/bosch-ebike-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.bosch-ebike.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bosch-ebike.png?downloads=true)
 
 # IoBroker.bosch-ebike
 **Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.bosch-ebike/workflows/Test%20and%20Release/badge.svg)
 
-##адаптер bosch-ebike для ioBroker
-Адаптер для электронного велосипеда Bosch
+## Адаптер bosch-ebike для ioBroker
+Адаптер для электровелосипеда Bosch
 
 ## Логинаблауф
 Используйте Bosch eBike Mail и Passwort.
 
-## Стойерн
-bosch-ebike.0.id.remote с правдой/ложью setzen steuert den jeweiligen Befehl
+## Steuern
+bosch-ebike.0.id.remote в режиме true/false setzen steuert den jeweiligen Befehl
 
-## Обсуждение и Fragen
+## Часовой
+Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде. Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. в разделе [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
+
+## Обсуждение и вопросы
 <https://forum.iobroker.net/topic/55902/test-adapter-bosch-ebik-connect-flow>
 
 ## Changelog
+### 0.1.13 (2026-07-17)
+- battery state added
+
+### 0.1.12 (2025-01-14)
+
+- fix for login use code url instead of captcha
+
+### 0.1.11 (2025-01-03)
+
+- fix for login. Deletion of the instance is necessary if the settings screen is not loading.
+
+### 0.1.9 (2024-11-25)
+
+- fix for login
 
 ### 0.1.5
 
@@ -43,7 +60,7 @@ bosch-ebike.0.id.remote с правдой/ложью setzen steuert den jeweilig
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

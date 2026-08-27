@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.serial-gps/README.md
 title: ioBroker GPS（串口/USB）适配器
-hash: irZI9P1HaevB1JfqsORV18PYiRQa6GtdObs6ErX+dS8=
+hash: c17hLNS45q06fOYPhB0AM8X/5VTf5WRC8vyNVIAt7rY=
 ---
 ![安装数量](http://iobroker.live/badges/serial-gps-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.serial-gps.svg)
@@ -16,7 +16,7 @@ hash: irZI9P1HaevB1JfqsORV18PYiRQa6GtdObs6ErX+dS8=
 
 该适配器可从串行或 USB GPS 设备读取 GPS 数据，并将其提供给 ioBroker 使用。
 
-**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告的信息，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
 ＃＃ 入门
 将 USB 或串口 GPS 接收器插入 ioBroker 主机系统。确保操作系统能够识别该设备，并记下分配的串口（例如 Windows 系统上的 COM3 或 Linux 系统上的 /dev/ttyUSB0）。
@@ -35,6 +35,9 @@ G72 G-Mouse USB
 ### **正在进行中** -->
 
 ## Changelog
+### 1.0.0 (2026-05-29)
+- (@GermanBluefox) Added possibility to select GPS device by name instead of path
+
 ### 0.0.4 (2025-12-03)
 - (@GermanBluefox) Corrected issues for repo checker
 
@@ -45,7 +48,7 @@ G72 G-Mouse USB
 
 The MIT License (MIT)
 
-Copyright (c) 2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2025-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

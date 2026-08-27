@@ -116,6 +116,8 @@ This adapter would not have been possible without the great work of schmupu (htt
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
@@ -159,6 +161,8 @@ This adapter would not have been possible without the great work of schmupu (htt
 
 ### 0.1.6 (20.02.2019)
 * (Stübi) First Version of pollen index adapter
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

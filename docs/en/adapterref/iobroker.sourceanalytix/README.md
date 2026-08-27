@@ -1,293 +1,367 @@
 # SourceAnalytix
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.sourceanalytix.svg)](https://www.npmjs.com/package/iobroker.sourceanalytix)
+[![NPM version](https://img.shields.io/npm/v/iobroker.sourceanalytix.svg)](https://www.npmjs.com/package/iobroker.sourceanalytix)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.sourceanalytix.svg)](https://www.npmjs.com/package/iobroker.sourceanalytix)
-![Number of Installations (latest)](http://iobroker.live/badges/sourceanalytix-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/sourceanalytix-stable.svg)
-[![Dependency Status](https://img.shields.io/david/DrozmotiX/iobroker.sourceanalytix.svg)](https://david-dm.org/DrozmotiX/iobroker.sourceanalytix)
+[![Number of Installations (latest)](https://iobroker.live/badges/sourceanalytix-installed.svg)](https://iobroker.live)
+[![Number of Installations (stable)](https://iobroker.live/badges/sourceanalytix-stable.svg)](https://iobroker.live)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/sourceanalytix/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-[![NPM](https://nodei.co/npm/iobroker.sourceanalytix.png?downloads=true)](https://nodei.co/npm/iobroker.sourceanalytix/)  
-![Test and Release](https://github.com/DrozmotiX/ioBroker.coronavirus-statistics/workflows/Test%20and%20Release/badge.svg)   
+[![Test and Release](https://github.com/DrozmotiX/ioBroker.sourceanalytix/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/DrozmotiX/ioBroker.sourceanalytix/actions/workflows/test-and-release.yml)
 
-**This adapter uses the service [Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
+SourceAnalytix turns cumulative meter readings or regularly updated power values into consumption, delivery, cost and earnings statistics. It supports fixed prices, scheduled price changes, dynamic tariffs from ioBroker states and selector-controlled tariffs.
 
-Detailed analysis of your Energy, gas and liquid consumptions
-Any source (kWh, Wh, Watt, l/h or m3) can be used for data analyses:
+The adapter requires **Admin 7.6.20 or newer**, **js-controller 6.0.11 or newer** and **Node.js 22 or newer**.
+
+## What is Sentry.io and what is reported to the servers of that company?
+
+This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
+When the adapter crashes or another code error occurs, the error message which also appears in the ioBroker log is submitted to Sentry. If you allowed ioBroker GmbH to collect diagnostic data, your installation ID is included. This is an anonymous identifier without personal information such as your name or email address. It allows errors to be grouped and shows how many installations are affected.
 
 ## Features
 
-#### Basic features
-| state | functionality | Description |
-|--|--|--|
-| >device<.cumulativeReading |  [accumulate values](#cumulativereading) | Calculate cumulated values <br/> including [transformation](#valuetransformation) <br/>cumulated value can be change by following [these steps](#cumulativereading-reset) |
-| >Device<.>Year<.>Year statistics< | [Yearly statistics](#year-statistics) | Store statistic information of the Year at level <br/> >device.>thisYear<.>selected period< |
-| >Device<.>Year<.>currentYear | [Current Year statistics](#current-period)  | Store statistic information of the current Year at level <br/> >device.>currentYear<.>selected period< |
-| >Year<.>currentYear.>Consumption type < | [Consumption](#consumptioncalculation) | Root folder to store consumption data <br/> (current value - previous value). <br/> Can be consumption or delivery |
-| >Year<.>currentYear.>Cost type < | [Costs](#costcalculation) | Root folder to store cost data. <br/> current value * cost + basic price <br/> Can be consumption or delivery |
+- Current day, week, month, quarter and year totals
+- Optional previous-period values and current-year weekday, week, month and quarter collections
+- Optional archived week, month and quarter statistics below each calendar year
+- Consumption and delivery calculations
+- Cost and earnings calculations with an optional monthly basic price
+- Fixed, scheduled, state-provided and selector-controlled unit prices
+- Timestamped price history which preserves already calculated costs
+- Automatic conversion between compatible energy, volume, mass and metric length units
+- Integration of power readings over their actual update intervals, optionally ignoring negative readings
+- Recovery of missed calendar rollovers after a restart, on request or by an hourly check
+- Handling of meter resets, meter replacements and small backwards fluctuations
+- One compact, automatically updated statistics JSON state per active source
 
-All state locations are grouped by state name and separated in period and [Category](#categories) structures. <br/> 
-Calculations will be automatically handled and values transformed to the proper unit  as defined in [Price-Definitions](#price-definitionsprice-definitions).
+## Setup
 
-If you have any issues, please read the **[Troubleshooting](#troubleshooting)** first!
+### 1. Configure the adapter instance
 
-## How-To
+The **General settings** tab controls which detailed statistics are created. Disabling an option removes the corresponding optional states while retaining the normal current-period totals and existing archived years.
 
-### State-Activation 
+![General settings](admin/readmeDocu/mainSettings.png)
 
-![Main Settings](admin/readmeDocu/settingKey.png)
+| Setting | Result |
+| --- | --- |
+| Year statistics: Weeks / Months / Quarters | Stores completed values below `<source>.<year>` for historical comparison. |
+| Current year: Weekday | Stores the current week's values by weekday. |
+| Current year: Weeks / Months / Quarters | Stores values for each period below `<source>.currentYear`. |
+| Current year: Previous period | Stores the completed day, week, month, quarter and year, plus the previous week's weekday values. |
+| Rounding: Decimals for consumption values | Decimals for calculated quantities and meter readings, `3` by default. |
+| Rounding: Decimals for cost values | Decimals for calculated costs and earnings, `2` by default. |
 
-![Main Settings](admin/readmeDocu/stateSettings.png)
+Both rounding settings accept `-1` to store the exact calculated value without rounding. A single source can deviate from them: its **Decimals for consumption values** and **Decimals for cost values** fields override the global setting and use it whenever they are left empty. Rounding only affects the values written to states; internal calculations, the cumulative reading and the persisted memories always keep full precision, so no accuracy is lost over time.
 
-| Configuration Item | Description |
-|--|--|
-| enabled | Activate state for SourceAnalytix | 
-| Alias | default: name of state, Name of device as shown in SA|
-| Select Type | mandatory, choose you calculation type to calculate according [Price-Definitions](#price-definitions) |
-| Select Unit | default: automatically, choose manually if needed (see logs) |
-| Costs       | Cost calculation |
-| with(out) basic charge  | incl;ude basic charge in cost calculation |
-| consumption | calculate consumption data |
-| counter values | store current counter values |
-| Meter reading at <br/> 
-  beginning of x : | Start value of counter for specific period to handle <br/> calculation current - startValue|
+SourceAnalytix remembers the last successfully processed calendar periods. If the adapter or ioBroker is not running at midnight, missed day, week, month, quarter and year changes are processed once at the next start.
 
-### Basic configuration (adapter instance)
-![Main Settings](admin/readmeDocu/mainSettings.png)
+A rollover can also be triggered without restarting the instance, which is useful when the instance is noticed to be down shortly after midnight:
 
-#### cumulativeReading
-*ToDo : Describe logic*
+- Set `sourceanalytix.<instance>.info.recoverPeriods` to `true`. The button resets itself when the run is finished.
+- Or send a message from a script: `sendTo('sourceanalytix.<instance>', 'recoverPeriods', {}, result => log(result.recovered))`. The reply contains the number of sources whose rollover was processed.
 
-#### consumptionCalculation
-*ToDo : Describe logic*
+An hourly check performs the same recovery on its own, so a rollover missed while the adapter kept running - after a host suspend or a system time correction - is corrected automatically. Every route is idempotent: sources whose periods are already up to date are skipped.
 
-#### costCalculation
-*ToDo : Describe logic*
- 
-#### valueTransformation
-*ToDo : Document link to library (document lib also !)*<br/>
-*ToDo : Document watt to kWh transformation*<br/>
-*ToDo : Document unit transformation (like Watt, to Wh to KWh)*
+### 2. Create price definitions
 
-#### Year-Statistics
-Store statistic information of consumption/prices and/or costs/earnings at the Year level <br/> 
-> >device.>thisYear<.>category<.>selected period
+Open **Price definitions** and add the categories that source states should use.
 
-This information is typically used for data storage and historical comparisons. <br/>
-States are grouped by specified period
-(like year 2020 vs 2021, ore february 2019 vs february ect)
+![Price definitions](admin/readmeDocu/priceSettings.png)
 
->#### *Weeks* <br/>
-  >Device<.>Year<.>costs/earnings <br/> 
-> consumption/delivery<.weeks.**weekNr**<
->#### *Months* <br/>
-  >Device<.>Year<.>costs/earnings <br/> 
-> consumption/delivery<.months.**Month**<
->#### *Quarters* <br/>
-  >Device<.>Year<.>costs/earnings <br/> 
-> consumption/delivery<.quarters.**Qx**<
+| Field | Description |
+| --- | --- |
+| Category | Unique identifier shown in the source state's **Select price definition** field. |
+| Description | Free-text description of the tariff. |
+| Cost type | Selects the `costs`/`consumed` or `earnings`/`delivered` result categories. |
+| Unit | Target unit for consumption and the denominator of the unit price. |
+| Price source | Fixed price, numeric ioBroker state or tariff selector. |
+| Price per unit | Unit price for a fixed tariff, or the inactive/base price for a selector. |
+| Price state | Full ID of the numeric price state or tariff selector state. |
+| Active tariff price | Price used while a selector is active. |
+| Active selector value | Optional exact value which activates the alternate tariff. |
+| Valid from | Optional date from which the tariff, including its monthly basic price, applies. |
+| Price per month | Monthly basic price, applied only to sources with **Including basic rate** enabled. |
 
-#### Current-Period
-Store statistic information of the current Year at level :
->device.>currentYear<.>selected period
+#### Fixed and scheduled prices
 
->#### *Weeks* <br/>
-  >Device<.>Year<.>costs/earnings <br/> 
-> consumption/delivery<.weeks.**weekNr**<
->#### *Months* <br/>
-  >Device<.>Year<.>costs/earnings <br/> 
-> consumption/delivery<.months.**Month**<
->#### *Quarters* <br/>
-  >Device<.>Year<.>costs/earnings 
-  > consumption/delivery<.quarters.**Qx**<
+Select **Fixed price** and enter **Price per unit**. When changing a tariff, set **Valid from** to the date on which the new price becomes effective. The previous price remains in the history and is not applied retroactively.
 
-This information is typically used for daily/weekly/monthly calculation of <br/> 
-costs/earnings and/or consumption/delivery grouped by specified period
+#### Dynamic price state
 
->ToDo : Add screenshots<
+Select **State value** and choose the state containing the current numeric unit price. SourceAnalytix subscribes to that state and records every change with the state's timestamp. Both numbers and numeric strings with a dot or comma decimal separator are accepted.
 
-#### Categories
-| category | type | Description |
-|--|--|--|
-| costs | financial | Result of calculation value * cost price + basic price |
-| earnings | financial | Result of calculation value * earning price + basic price |
-| consumption | calculations | Result of calculation value as cost - start value <br/>  of Year/Month/Quarter  etc |
-| delivery | calculations | Result of calculation value as delivery - start value <br/>  of Year/Month/Quarter  etc |
+The state value must represent the system currency per selected target unit, for example currency/kWh when the price definition uses `kWh`. Convert values such as cents per kWh in the source adapter or a script before using them.
 
-### Troubleshooting
+#### Tariff selector
 
-Before we start troubleshooting, it's important to understand how source analytix initialises as here errors may occur, see issue section.
-The following sequence will be handled :
+Select **Tariff selector** for day/night, relay, contact or other two-price tariffs:
 
-1) Start SourceAnalytix
-2) List all states activated for SourceAnalytix
-3) Initiate states, for each state :
-    * Read current cumulatedReading <br/>
-      (if present) and memory values from state
-    * Check if unit can be handled {Issue 1}
-    * Check if cost type is chosen {Issue 2}
-    * Verify if valid price definition is present for cost type {Issue 3}
-    * Check if previous init value > current cumulated value {Issue 4}
-    * Check if valid known of previous device reset > current cumulated value {Issue 5}
-    * Store all data to memory
-4) Initialise states for each state :
-    * create state cumulativeReading (to store results  of calculation, can also be used for W to kWh only) {Issue 6}
-    * create states as chosen in state configuration {Issue 7}
-    * start calculation
-5) On state change/update
-    * Verify if information is correct 
-    * transform value to proper unit (unit of state to unit chosen in state configuration)
-    * check if value input is correct ( current value **>** previousInit value) {See **7 At device reset** Issue 8}
-    * calculate {Issue 9}
-      * For Watt : calculate Watt to kWh ,calculate cumulatedReading = currentReading + cumulatedReading
-      * For other : calculate cumulatedReading = currentReading + previousDeviceReset (if present)
-6) At night (00.00)
-    * List all SourceAnalytix enabled states
-    * Reset start (Day/Week/Year/Month) values
-7) At device reset
-    * Store current value as previousDeviceReset and previousInit value <br/>
-      If the device wil be reset again (detected by previousInit value),<br/> 
-      currentReading + previousDeviceReset is stored as to previousDeviceReset.
+- **Price per unit** is the inactive/base price.
+- **Active tariff price** is used while the selector is active.
+- Without **Active selector value**, `true`, non-zero numbers and common truthy strings activate the alternate tariff.
+- With **Active selector value**, only an exact string representation match activates the alternate tariff.
 
-**Issue 1** No unit defined for ....., cannot execute calculations<br/>
-    Please select correct unit in state settings
+#### Writable current price
 
-**Issue 2** No cost type defined for ....., please Select Type of calculation at state setting<br/>
-    Please selected wanted cost-type for to understand what amount should be used to handle calculations
+Each category exposes `sourceanalytix.<instance>.priceDefinitions.<category>.currentPrice`. Scripts and visualizations can write a numeric value to this state to apply a new price immediately. The value is also appended to the timestamped price history.
 
-**Issue 3** Selected Type ... does not exist in Price Definitions<br/>
-    Now Price definitions are found for the chosen cost type, please verify your price setting (adapte config)
+#### Historical price calculation
 
-**Issue 4** Check settings for ..... ! Known init value : ..... > known cumulative value ..... cannot proceed<br/>
-    The known init value > known cumulated values, this can be solved by removing or modifying these objects in the state raw object
-    ```"valueAtDeviceInit": xxxx```
+Prices are time-dependent. A new price only applies from its change timestamp onward and never changes costs already accumulated for earlier consumption.
 
-**Issue 5** Check settings for ..... ! Known valueAtDeviceReset : ..... > known cumulative value ..... cannot procee<br/>
-    The known init value > known cumulated values, this can be solved<br/>
-removing or modifying these objects in the state raw object
-    ```valueAtDeviceReset": xxxx```
+For a cumulative meter, SourceAnalytix knows the consumption delta between two readings. If one or more price changes occurred inside that interval, the delta is distributed proportionally across the elapsed time segments and each share is charged at the price valid for that segment. A price change exactly at the timestamp of the later meter reading applies to the following interval.
 
-**Issue 6** State for cumulativeReading is not created<br/>
-    Initialisation of state did fail, see issue 1 to 5
+The precise cost accumulator and price history survive adapter restarts. Explicit recalculation of old historical data is not currently implemented.
 
-**Issue 7** States for costs readings ae not created<br/>
-    Type of calculation is not enabled in state settings
-![Main Settings](admin/readmeDocu/stateSettings.png)
+#### Monthly basic price
 
-### Price-Definitions
-![Main Settings](admin/readmeDocu/priceSettings.png)
+Enable **Including basic rate** on a source to add the configured monthly price. **Valid from** also defines the first month for this charge. The full basic price is booked once when the tariff first becomes valid and then at the beginning of every following calendar month. A price change during a month applies to the next monthly booking, while previous months remain unchanged. Existing tariffs without a validity date retain the previous behavior by starting at the beginning of the current calendar year.
 
-**Issue 8** current value **<** previousInit<br/>
-A device reset is detected, see function 7
+Day and week totals include the full monthly charge only when its booking date falls into that period. Month, quarter and year totals contain the full charges booked in their respective calendar periods.
 
-**Issue 9** My calculations are incorrect<br/>
-#### cumulativeReading-Reset
-  1) Verify if the correct unit is chosen (of not selected, SA will  try to autodetect)
-  2) Verify if the cumulatedReading reflects the correct total value of your value reading, if not<br/>
-        - Stop SA
-        - Go to tab objects
-          ![Main Settings](admin/readmeDocu/cumulativeReading-Reset.png)
-        - Enter expert mode
-        - Change the cumulatedReading
-        - Exit expert mode
-        - Ensure the start values are set correctly
-        - Start SA <br/>
-          
-  3) Ensure the start values are set correctly<br/>
-        SA handles calculations by cumulatedReading - known cumulatedReading at period start.<b/>
-        These start values are defined at the state settings and should be < than **currentReading**<br/>
-        Please ensure cumulativeReading >= DayStart >= WeekStart >= MonthStart >= QuarterStart >= YearStart
-     ![Main Settings](admin/readmeDocu/stateStartValues.png)
-     
-4) Verify these values in state raw object :
-   ```valueAtDeviceReset": xxx```
-   ```"valueAtDeviceInit": xxx```
+### 3. Activate a source state
 
-<!--
-**Issue 6** Setting - Cannot deactivate state for SourceAnalytix
+SourceAnalytix is configured through the ioBroker custom settings of each source state. Open **Objects**, click the wrench/configuration icon of the desired state and expand the SourceAnalytix instance.
 
-Im RAW NUR "consumption":false umgestellt, gespeichert. Das wurde behalten (wo ggf. noch nicht false, auch bei "enabled": false und bei "costs": false )
-In der Objekt-Übersicht ist der Schraubenschlüssel nachwievor blau. Dann mit dem Schraubenschlüssel in das Objekt, SA war nicht der Haken bei aktiviert drin. Dort einmal auf aktiviert, nicht speichern, wieder auf deaktiviert, speichern.
-Kontrolle im RAW, ob SA-EIntrag nun weg => jup, is nun fott
--->
+![Custom settings icon](admin/readmeDocu/settingKey.png)
 
-<!--
-* Trace consumption daily, weekly, monthly, quarterly, yearly
-* calculate costs (current price is configurable)
-* Can be used for Power Consumption, liquids, and GAS
-* Input values can be wh/kWh/Watt/m3/l
--->
+![Source state settings](admin/readmeDocu/stateSettings.png)
 
-This adapter has is roots with thanks to pix back in 2016 
-https://forum.iobroker.net/viewtopic.php?f=21&t=2262
+| Setting | Description |
+| --- | --- |
+| Enabled | Activates this source for the selected SourceAnalytix instance. |
+| Alias | Optional display name for the generated device. It does not change the generated state ID. |
+| Select price definition | Mandatory category from the adapter's price definitions. |
+| Select Unit | Source unit. Leave on automatic detection when the source object has a correct supported unit. |
+| Calculate costs | Creates and updates cost or earnings states. |
+| Including basic rate | Adds the price definition's monthly basic price. |
+| Calculate consumption | Creates and updates consumption or delivery states. |
+| Average power values between updates | Optional calculation mode for power states; see [Power states](#power-states). |
+| Ignore negative power values | Counts negative power readings as `0 W`; see [Power states](#power-states). |
+| Store Meter Values | Stores meter readings in the enabled period collections. |
+| Device value reset detection | Continues a cumulative total after a meter reset or replacement. |
+| Threshold | Largest backwards fluctuation ignored as measurement jitter, expressed in the target unit. |
 
-Which has been improved by `@hadering` and published on github
-https://github.com/hdering/homematic_verbrauchszaehler
+The source state ID is converted to the generated SourceAnalytix device ID by replacing dots with double underscores.
 
-## To-Do
-* [ ] Documentation!
-* [ ] Period calculation selectable but not yet implemented
-* [ ] monthly cost price not yet implemented in calculation
-* [ ] recalculation based on meter values (configurable by date)
-* [ ] add object states for previous [x]day, [x]week, [x]month, [x]quarter, [x]year configurable in adapter settings
+## Source Values And Units
+
+### Cumulative source states
+
+Use a cumulative total which normally only increases, for example Tasmota `ENERGY_Total` or a smart meter's total consumption. Do not use a value such as `ENERGY_Today` that intentionally resets every day. If no cumulative total is available, create one in an upstream adapter or script.
+
+For cumulative sources, consumption is calculated as:
+
+```text
+current cumulative reading - reading at the beginning of the period
+```
+
+On first activation, SourceAnalytix initializes empty or zero day, week, month, quarter and year start values with the current normalized meter reading. This prevents the existing lifetime meter total from appearing as new consumption. The values remain editable and are not overwritten on later starts.
+
+![Period start values](admin/readmeDocu/stateStartValues.png)
+
+Enter manual start values in the **target unit** selected by the price definition. Each value must represent the meter reading at the beginning of that period, not the consumption during the period.
+
+### Power states
+
+Power values such as `W` or `kW` are integrated over the actual time between state updates to produce energy. The first reading establishes the baseline and does not create consumption.
+
+By default, the previous power value is treated as valid for the complete interval. Enable **Average power values between updates** for sensors which report regularly and change gradually; SourceAnalytix then uses the average of the previous and current values. Leave it disabled for devices that switch abruptly when the update marks the switch event.
+
+Some inverters report a strongly negative power while they are switched off, which would otherwise be integrated as negative energy and reduce the accumulated yield. Enable **Ignore negative power values** to count such readings as `0 W`. The reading is clamped rather than discarded, so the interval still advances; discarding it would keep the last positive power as the baseline and integrate it across the whole downtime.
+
+### Supported units
+
+SourceAnalytix automatically converts values only between compatible quantities:
+
+| Quantity | Supported units |
+| --- | --- |
+| Power | `GW`, `MW`, `kW`, `W`, `mW` |
+| Energy | `GWh`, `MWh`, `kWh`, `Wh`, `mWh` |
+| Cubic volume | `km³`, `m³`, `dm³`, `cm³`, `mm³` |
+| Liquid volume | `hl`, `l`, `dl`, `cl`, `ml` |
+| Mass | `t`, `kg`, `g` |
+| Metric length | `km`, `m`, `dm`, `cm`, `mm`, `µm`, `nm` |
+
+Liter and cubic-meter units can be converted into each other. Incompatible conversions, such as kilograms to kWh or meters to liters, are rejected instead of producing misleading results.
+
+## Generated States
+
+For every source, SourceAnalytix creates a `cumulativeReading` and the enabled result trees:
+
+| Path | Content |
+| --- | --- |
+| `<source>.currentYear.consumed` | Current consumption totals for cost categories. |
+| `<source>.currentYear.delivered` | Current delivery totals for earnings categories. |
+| `<source>.currentYear.costs` | Current cost totals. |
+| `<source>.currentYear.earnings` | Current earnings totals. |
+| `<source>.currentYear.meterReadings` | Optional meter readings by enabled periods. |
+| `<source>.<year>` | Optional archived week, month and quarter statistics. |
+| `<source>.statisticsJson` | Compact current-year statistics for VIS, scripts and other adapters. |
+
+The basic current and optional previous states use names such as `01_currentDay`, `02_currentWeek`, `03_currentMonth`, `04_currentQuarter`, `05_currentYear` and their `previous` equivalents.
+
+Previous values are written with the timestamp of the period they belong to, `23:59:59` on its last day, instead of the moment the rollover happens. History adapters therefore log a completed day, week, month, quarter or year inside that period, which is what visualizations such as Flot expect.
+
+### Statistics JSON
+
+Every active source automatically exposes a read-only `statisticsJson` state with role `json`; no additional setting is required. It contains the same calculated values as the individual states and does not perform a separate calculation.
+
+```json
+{
+  "schemaVersion": 1,
+  "year": 2026,
+  "source": {
+    "id": "smartmeter.0.total",
+    "name": "Electricity meter",
+    "unit": "kWh"
+  },
+  "quantity": {
+    "type": "consumed",
+    "current": {
+      "day": 4.21,
+      "week": 28.65,
+      "month": 114.32,
+      "quarter": 301.77,
+      "year": 894.15
+    },
+    "previous": null,
+    "periods": {
+      "weekdays": null,
+      "previousWeekdays": null,
+      "weeks": {},
+      "months": {},
+      "quarters": {}
+    }
+  },
+  "financial": {
+    "type": "costs",
+    "currency": "EUR",
+    "current": {
+      "day": 1.24,
+      "week": 8.47,
+      "month": 34.19,
+      "quarter": 89.51,
+      "year": 261.42
+    },
+    "previous": null,
+    "periods": {
+      "weekdays": null,
+      "previousWeekdays": null,
+      "weeks": {},
+      "months": {},
+      "quarters": {}
+    }
+  },
+  "meterReadings": null
+}
+```
+
+`quantity` represents either `consumed` or `delivered` values. `financial` represents either `costs` or `earnings`. `meterReadings` is populated when meter-value storage is enabled. Disabled calculations and period collections are represented by `null`, so the schema remains predictable.
+
+Weekdays use `1` for Monday through `7` for Sunday. Week and month keys are zero-padded, and quarter keys use `1` through `4`. Only current-year collections and the optional previous-period values are included, preventing the state from growing indefinitely. The ioBroker state timestamp indicates when the JSON was last changed.
+
+The state is rebuilt from existing statistics when the adapter starts and its writes are bundled during normal calculations. If a source is disabled or deleted, the last JSON value is retained together with the other calculated history and is no longer updated.
+
+## Meter Resets And Corrections
+
+With reset detection enabled, a decrease larger than **Threshold** is treated as a real meter reset or replacement. SourceAnalytix stores an offset and continues its cumulative reading without losing earlier consumption. A smaller backwards change is treated as jitter and ignored. A threshold of `0` treats every decrease as a reset.
+
+If reset detection is disabled, decreasing source readings are accepted and can reduce calculated totals. This mode is intended only for sources where that behavior is expected.
+
+To correct an already wrong `cumulativeReading`:
+
+1. Stop the SourceAnalytix instance.
+2. Open **Objects** and enable expert mode.
+3. Correct `<source>.cumulativeReading`.
+4. Open the source state's SourceAnalytix custom settings and correct the affected period start values in the same target unit.
+5. Start the adapter again and verify the current-period results.
+
+![Correcting a cumulative reading](admin/readmeDocu/cumulativeReading-Reset.png)
+
+Changing the current unit price does not recalculate historical costs. There is currently no user-triggered historical recalculation.
+
+## Troubleshooting
+
+### Source is not initialized
+
+- Verify that the custom configuration is enabled for the correct SourceAnalytix instance.
+- Select an existing price definition. A price definition is required even when only consumption is enabled.
+- Ensure the source unit can be detected from the object or select it manually.
+- Check that the source and target units represent compatible quantities.
+- Review the adapter log for the exact rejected state or configuration value.
+
+### Consumption starts with the complete lifetime meter reading
+
+This normally indicates old or manually entered period start values. Set the day, week, month, quarter and year starts to the corresponding historical meter readings. For today's value, this is usually:
+
+```text
+current cumulative reading - consumption since the beginning of today
+```
+
+### Dynamic prices appear incorrect
+
+- Verify that the price state uses currency per target unit, not cents unless the value was converted.
+- Check the timestamp of the price state and the source meter readings.
+- Remember that a meter delta spanning price changes is divided by elapsed time because no finer consumption profile is available.
+- Inspect `priceDefinitions.<category>.currentPrice` for the active price.
+
+## Known Limitations
+
+- Automatic historical recalculation is intentionally disabled, and no explicit recalculation action is available yet.
+- User-configurable rolling periods are not implemented.
+- Unitless counters, time units and digital-size units are not supported.
+
+## Credits
+
+The adapter's roots go back to work by pix in 2016:
+[ioBroker forum thread](https://forum.iobroker.net/viewtopic.php?f=21&t=2262)
+
+It was later improved by `@hadering` and published as
+[homematic_verbrauchszaehler](https://github.com/hdering/homematic_verbrauchszaehler).
 
 ## Support me
-If you like my work, please consider a personal donation  
-(this is a personal Donate link for DutchmanNL, no relation to the ioBroker Project !)  
-[![Donate](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/master/admin/button.png)](http://paypal.me/DutchmanNL)
+If you like my work, please consider a personal donation.
 
-## What is Sentry.io and what is reported to the servers of that company?
-Sentry.io is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
+This is a personal donation link for DutchmanNL and is not related to the ioBroker project.
 
-When the adapter crashes or any other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.
+[![Donate](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/main/admin/button.png)](https://paypal.me/DutchmanNL)
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
 ## Changelog
-
 ### __WORK IN PROGRESS__
-* (DutchmanNL) Solved issues reported by sentry
-* (DutchmanNL) Improved some logging, code polishing
-* (DutchmanNL) Bugfix: "is missing required property common.type" fixes #883
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
 
-### 0.4.15-alpha.1 (2025-09-10) Repository checker fixes and dependency updates
-* (DutchmanNL) Update dependencies to latest versions
-* (DutchmanNL) Fix repository checker issues
-* (DutchmanNL) Update @iobroker/adapter-core to ^3.3.2
-* (DutchmanNL) Update @alcalzone/release-script to ^3.8.0
-* (DutchmanNL) Update @iobroker/testing to ^5.0.4
-* (DutchmanNL) Add Node.js version requirement
-* (DutchmanNL) Add .releaseconfig.json for release script
-* (DutchmanNL) Remove deprecated admin configurations
+### 0.5.6 (2026-08-02)
+* The monthly basic price is booked as a full charge when the tariff first becomes valid and at the beginning of every following calendar month, instead of being spread over the days of a month ([#1193](https://github.com/DrozmotiX/ioBroker.sourceanalytix/pull/1193)).
+* **Valid from** now also defines the first month the monthly basic price is charged, while tariffs without a validity date keep starting at the beginning of the current calendar year ([#1193](https://github.com/DrozmotiX/ioBroker.sourceanalytix/pull/1193)).
+* Monthly basic prices are recorded in their own `basicPriceHistory` state, so a price change during a month only applies to the next monthly booking and already booked months stay unchanged ([#1193](https://github.com/DrozmotiX/ioBroker.sourceanalytix/pull/1193)).
+* **Valid from** is available for every price source, not only for fixed prices, and a selected date becomes effective at local midnight ([#1193](https://github.com/DrozmotiX/ioBroker.sourceanalytix/pull/1193)).
 
-### 0.4.14 (2022-02-23) Optimize Device reset handling
-* (DutchmanNL) Small code updates, lifecycle patches
-* (DutchmanNL) Option to disable device reset feature added
-* (DutchmanNL) Bugfix: Cannot read property 'name' of undefined solved
+### 0.5.5 (2026-08-01)
+* Previous day, week, month, quarter and year values are written with the timestamp of the period they belong to (23:59:59 on its last day), so history adapters and Flot plot them in the correct period ([#497](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/497)).
+* The number of decimals for consumption and cost values is configurable globally and per source, including an option to store the exact value without rounding ([#934](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/934)).
+* A missed calendar rollover can be processed without restarting the instance, through the new `info.recoverPeriods` button or a `recoverPeriods` message, and an hourly check recovers a rollover the scheduler missed while the adapter kept running ([#905](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/905)).
+* The midnight scheduler can no longer raise an unhandled rejection, and its cron job and timers are stopped when the instance shuts down ([#904](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/904)).
 
-### 0.4.12 (2021-11-15) - requires JS-Controller >= 3.2!
-* (DutchmanNL) Add logging to analyse error caught by sentry
-* (DutchmanNL) "Cannot set property 'date' of undefined" solved
-* (DutchmanNL) Major : New version requires JS-Controller >= 3.2!
-* (DutchmanNL) Add possibility to use an alternative name (alias)
-* (DutchmanNL) Avoid writing source state causing incorrect calculations at day reset #470
+### 0.5.4 (2026-08-01)
+* Each active source automatically exposes a compact `statisticsJson` state containing its current-year quantity, financial and optional meter-reading statistics ([#361](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/361), [#967](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/967)).
+* Monthly basic prices are no longer imported into the variable-cost accumulator and added a second time after a restart ([#1188](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1188)).
 
-### 0.4.11 (2021-08-16)
-* (DutchmanNL) Improve log/error messages at adapter start
-* (DutchmanNL) Bugfix : Cannot read property 'calcValues' of null & related issues found by Sentry
+### 0.5.3 (2026-07-28)
+* Power states can optionally ignore negative readings, so inverters which report a negative power while switched off no longer reduce the accumulated yield ([#466](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/466)).
 
-### 0.4.10 (2021-08-10)
-* (DutchmanNL) Bugfix : Avoid adapter crash during night for incorrect configured states [#460](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/460)
+### 0.5.2 (2026-07-28)
+* The npm release workflow no longer fails at the Sentry step: commit association is disabled because the previous release commit is not reachable in the shallow, squash-merged history ([#1179](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1179)).
+* README now carries the standard Sentry notice required by the ioBroker repository checker ([#1179](https://github.com/DrozmotiX/ioBroker.sourceanalytix/issues/1179)).
 
-### 0.4.9 (2021-05-31)
-* (DutchmanNL) Added support for Admin 5 (Requires Admin >= 5.1.2)
-* (Bluefox) Fix error in admin
+[Older changelog entries](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2022 DrozmotiX Services B.V.
+Copyright (c) 2022-2026 DrozmotiX Services B.V.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

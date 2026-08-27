@@ -104,6 +104,9 @@ The following request are sent to the API. But the availlable datapoints strongl
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.2.0 (2026-03-07)
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
@@ -126,6 +129,8 @@ The following request are sent to the API. But the availlable datapoints strongl
 ### 2.0.1 (2023-06-04)
 
 -   (mcm1957) Deploy mechanism at github has been reactivated.
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

@@ -169,28 +169,35 @@ IP-адрес с которого доступен драйвер (поддер�
 
 ## Changelog
 <!--
-	### **WORK IN PROGRESS**
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (@GermanBluefox) Copy common.states by alias creation
+### 8.0.7 (2026-08-26)
+- (@GermanBluefox) The JSON tabs (`common.adminTab.link`) are now validated against the JsonConfig schema too
+- (SimonFischer04) Admin can now run behind a reverse-proxy sub-path (e.g. `/admin/`)
+- (SimonFischer04) Prefix legacy jQuery adapter-icon URLs and inject `info.js` into `<HEAD>` as well
+- (@GermanBluefox) Corrected layout of Config view
 
-### 7.8.20 (2026-03-30)
-- (@GermanBluefox) Improved the device manager
+### 8.0.5 (2026-08-19)
+- (@GermanBluefox) Corrected the doubled tiles in the quick access if more than one web instance is running
+- (@GermanBluefox) Reworked the initial setup wizard: modern layout, navigation backwards and many corrections
+- (@GermanBluefox) Rounded the options toolbar in the adapter update dialog
+- (@GermanBluefox) Removed warning about not installed docker.
 
-### 7.8.9 (2026-03-25)
-- (@GermanBluefox) Added in JsonConfig OAuth2 process for spotify
+### 8.0.4 (2026-08-09)
+- (@GermanBluefox) Better handling of autocompleteSendTo JsonConfig components
 
-### 7.8.8 (2026-03-24)
-- (@GermanBluefox) Implemented the possibility to upload adapter from the file (useful for development and testing)
+### 8.0.3 (2026-08-08)
+- (@softwarecrash) Corrected the validation state in the custom settings if more than one instance is shown
+- (@softwarecrash) Corrected the disabled save button in the custom settings after an invalid instance was switched off
 
-### 7.8.6 (2026-03-20)
-- (@GermanBluefox) Added the possibility to use the Object properties in JsonConfig
-
-### 7.8.5 (2026-03-18)
-- (@GermanBluefox) Custom editor could be limited to specific instances or specific states by regex expression
-- (@GermanBluefox) Added some options to JSON Config
-- (@copilot) Added `Cache-Control: no-cache` header to `index.html` to prevent browser from using stale cached HTML after admin updates
-- (@copilot) Handle Vite dynamic import failures (ERR_CACHE_READ_FAILURE) by triggering page reload instead of showing white screen
+### 8.0.2 (2026-08-07)
+- (@GermanBluefox) Corrected charts
+- (@GermanBluefox) Corrected the authentication for the OAuth2 callbacks
+- (@GermanBluefox) Disabled the save button in the custom settings as long as a value is invalid
+- (@GermanBluefox) Added the folder selection to the alias creation dialog
+- (@GermanBluefox) Hidden the chart in the value editor in the mobile view
+- (@GermanBluefox) Small GUI improvements
 
 ## License
 

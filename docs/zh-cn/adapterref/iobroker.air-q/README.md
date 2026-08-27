@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.air-q/README.md
 title: ioBroker.air-q
-hash: /mRC28Db6zteKQ26qsHwEGoBQpAsc98CHy0AbKPJ7ns=
+hash: n8TAgcFn4LhWTlqTjxNW1MkZ003SePBMmj9nOZmqgXo=
 ---
 # IoBroker.air-q
 
@@ -53,12 +53,20 @@ iobroker install air-q
 有关更多信息，请访问 ioBroker CLI 文档，网址为 https://github.com/ioBroker/ioBroker/wiki/Console-commands。
 
 ＃＃ 配置
-＃＃＃ 必需的
-要配置您的实例，您只需选择是通过设备的 IP 地址还是短 ID 进行连接即可。
+![配置](../../../en/adapterref/iobroker.air-q/docs/screenshot-config.png)
 
-<img width="1263" height="953" alt="2025-12-10T17:57:57,025532652+01:00" src="https://github.com/user-attachments/assets/93ff4c76-bdf5-4336-bb5a-1a0aa844ec0d" />
+### 查找您的 Air-Q 设备
+该适配器可使用 mDNS（Bonjour）自动发现本地网络上的 air-Q 设备。打开实例设置后，“扫描网络”下拉菜单将搜索设备（约 10 秒），并按名称列出所有找到的 air-Q 设备。选择您的设备后，系统将自动填写短 ID 和 IP 地址。
 
-请确保您输入的IP地址/ID和密码正确。
+**如果未找到任何设备**，可能是您的路由器阻止了设备间的 mDNS 通信（常见于网状网络、访客网络或企业级网络）。在这种情况下，请勾选“使用 IP 连接”复选框，然后手动输入设备的 IP 地址。您可以在 air-Q 智能手机应用或路由器的设备列表中找到该 IP 地址。
+
+您还可以通过 **ioBroker.discovery** 配置适配器：从发现适配器运行网络扫描，air-Q 设备将通过 DNS 或 HTTP 自动检测到。
+
+### 连接选项
+- **网络扫描**：通过 mDNS 自动发现 air-Q 设备。选择设备即可自动填充短 ID 和 IP 地址。
+- **使用 IP 地址连接**：直接使用设备的 IP 地址连接。当您的网络无法通过 mDNS 发现功能连接时，请使用此方法。
+- **短 ID**：设备序列号的前 5 个字符。当“使用 IP 连接”未选中时，用于 mDNS 查询。
+- **设备密码**：您的 air-Q 设备的密码。
 
 ＃＃＃ 选修的
 - **尊重设备夜间模式**。默认：`开启`。当您的 air-Q 设备启用夜间模式并在夜间关闭 WiFi 时，适配器可以自动跳过夜间的轮询尝试。这可以避免日志中出现不必要的连接错误。⚠️ 如果您更改了设备的夜间模式设置（开始/结束时间、启用/禁用），您有两种选择：
@@ -81,6 +89,20 @@ iobroker install air-q
 ***目前我们已包含 air-Q Pro 的所有传感器。可选传感器将在未来的补丁中添加。***
 
 ## Changelog
+
+### 1.2.0
+* **Network discovery**: air-Q devices on the local network are now automatically discovered via mDNS. Select a device from the dropdown and the Short ID and IP are filled in automatically.
+* **Admin UI modernized**: Migrated from Materialize HTML to jsonConfig (declarative JSON). Settings are now organized in two tabs: Connection and Data Retrieval.
+* **ioBroker.discovery integration**: Fixed the detection file to correctly populate adapter config fields, call the discovery callback, and distinguish multiple air-Q devices. Added HTTP `/ping` fallback for networks without reverse DNS.
+* **Troubleshooting guidance**: The admin UI now explains what to do when mDNS doesn't work (router blocking, how to find the device IP).
+
+### 1.1.0
+* Added support for 19 new sensors: acetaldehyde (C₂H₄O), arsine (AsH₃), bromine (Br₂), methanethiol (CH₄S), chlorine dioxide (ClO₂), carbon disulfide (CS₂), ethylene (C₂H₄), fluorine (F₂), temperature in Farenheit, hydrochloric acid (HCl), hydrogen cyanide (HCN), hydrogen fluoride (HF), hydrogen peroxide (H₂O₂), mold protection, phosphine (PH₃), refrigerant R-32, refrigerant R-454B, refrigerant R-454C, silane (SiH₄)
+
+### 1.0.7
+* Missing (e.g. warming up) sensors are skipped gracefully
+* Fixed incorrect translations
+* Refactor redundant methods
 
 ### 1.0.6
 * The adapter can automatically respect your air-Q device's night mode configuration
@@ -130,7 +152,7 @@ iobroker install air-q
 
 MIT License
 
-Copyright (c) 2024 Corant GmbH
+Copyright (c) 2024-2026 Corant GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

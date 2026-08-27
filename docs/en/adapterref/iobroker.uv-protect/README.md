@@ -34,6 +34,12 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.7.1 (2026-08-22)
+* (simatec) small Bugfixes
+
+### 0.7.0 (2026-08-22)
+* (simatec) Source code cleaned up
+
 ### 0.6.12 (2026-03-29)
 * (simatec) Fix License
 * (simatec) dependencies updated
@@ -165,6 +171,8 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ### 0.0.1
 * (simatec) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

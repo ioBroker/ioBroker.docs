@@ -19,108 +19,42 @@ The documentation Wiki is here: https://github.com/BenAhrdt/ioBroker.lorawan/wik
 <br/>
 For now there is documentation in English here: https://wiki.hafenmeister.de
 
+### Home Assistant sensor discovery
+
+For numeric sensor entities, the bridge assigns Home Assistant `device_class` and `state_class` attributes according to the adapter's counter-first convention. Current measurements use `measurement`. Wind direction states with the ioBroker role `value.direction.wind` use the device class `wind_direction` and state class `measurement_angle`; an existing unit is retained, while `°` is added if no unit is defined. Energy values in `Wh`, `kWh`, or `MWh`, as well as values identified by an ioBroker energy or consumption role, are treated as consumption counters and use `total_increasing` for Home Assistant energy statistics. If a quantity cannot be distinguished reliably from a consumption reading, the bridge prefers counter semantics: `m³` and `ft³` are published as `gas` with `total_increasing`, and `L` as `water` with `total_increasing`. `mL` and `gal` remain generic `volume` values. Ambiguous concentration units such as `ppm`, `ppb`, or `µg/m³` do not imply a specific substance. `L/min`, `L/s`, and `m³/h` use `volume_flow_rate`.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.21.20 (2026-03-30)
-* (BenAhrdt) add more role definitions and logic to card roles
+### 1.22.33 (2026-08-19)
+- (BenAhrdt) Add Home Assistant wind direction and angle measurement classification
 
-### 1.21.19 (2026-03-30)
-* (BenAhrdt) add value.power.active to cardRoles and possibility for Name (label? Name? ID)
+### 1.22.32 (2026-08-19)
+- (BenAhrdt) Align Home Assistant sensor device classes, state classes, and units with the current specification
 
-### 1.21.18 (2026-03-30)
-* (BenAhrdt) bugfix display states for bridged devices in dM
+### 1.22.31 (2026-07-09)
+- (BenAhrdt) Add selection of ToIob source id
 
-### 1.21.17 (2026-03-30)
-* (BenAhrdt) change display of sensor.contact in dM card
+### 1.22.30 (2026-07-07)
+- (BenAhrdt) Add PIR Mini device Profile
+- (BenAhrdt) Add possibillity to ad states to downlink numbers
 
-### 1.21.16 (2026-03-30)
-* (BenAhrdt) implements cardRoles state to define displayed Roles in card
-* (BenAhrdt) First try of custom Info at dM
+### 1.22.29 (2026-07-06)
+- (BenAhrdt) Add some roles and units to assignhandler
 
-### 1.21.15 (2026-03-28)
-* (BenAhrdt) implement TTI tenant to download to TTI
+[Older changes can be found there](CHANGELOG_OLD.md)
 
-### 1.21.14 (2026-03-27)
-* (BenAhrdt) change userdata and alias query for bridge
+## DISCLAIMER
+The rights of the trademarks and company names, remain with their owners and have no relation to this adapter. The fairuse policy must continue to be adhered to by the operator of the adapter. If this repository is forked, it must be cited as the source.
 
-### 1.21.13 (2026-03-23)
-* (BenAhrdt) improve displaying devEUI in actual Values
+LoRa® is a registered trademark or service mark of Semtech Corporation or its affilantes.
 
-### 1.21.12 (2026-03-19)
-* (BenAhrdt) bugfix display devices in case of bridge is not selected
+LoRaWAN® is a licensed mark.
 
-### 1.21.11 (2026-03-15)
-* (BenAhrdt) improve nameing of actual values
-* (BenAhrdt) imlpement digits to actual values
+I have no affiliation with the mentioned brands or their subsidiaries, logos, or trademarks, nor am I endorsed by them.
 
-### 1.21.10 (2026-03-12)
-* (BenAhrdt) change Testing and change standard value of lorawan origin to off
-
-### 1.21.9 (2026-03-06)
-* (BenAhrdt) persistant Bride DeviceIds
-
-### 1.21.8 (2026-03-04)
-* (BenAhrdt) update icons
-
-### 1.21.7 (2026-03-04)
-* (BenAhrdt) update logic for icons and link building
-
-### 1.21.6 (2026-03-04)
-* (BenAhrdt) change logic for TTN link and change base ip handling
-* (BenAhrdt) set more devices at default
-
-### 1.21.5 (2026-03-04)
-* (BenAhrdt) implements link to Chirpstack / TTN
-
-### 1.21.4 (2026-03-03)
-* (BenAhrdt) update the updateBridge function in objectStore
-* (BenAhrdt) improve LoraWAN and ToIob funkction (init / update)
-
-### 1.21.3 (2026-03-02)
-* (BenAhrdt) add Link to ToIoB Devices
-
-### 1.21.2 (2026-03-02)
-* (BenAhrdt) update icon for device link
-
-### 1.21.1 (2026-03-02)
-* (BenAhrdt) bring possibility for editing base ip in devce Manager
-
-### 1.21.0 (2026-03-02)
-* (BenAhrdt) update deviceManager (dm-utils) to 3.0.0
-* (BenAhrdt) add Links for Bridge devices
-
-### 1.20.57 (2026-03-02)
-* (BenAhrdt) bugfix query for null
-
-### 1.20.56 (2026-03-02)
-* (BenAhrdt) implement deviceId Handling from bridge
-
-### 1.20.55 (2026-03-02)
-* (BenAhrdt) catch publishing value (null) and log warning for this id
-
-### 1.20.54 (2026-02-27)
-* (BenAhrdt) update dependencies
-* (BenAhrdt) bugfix button press
-
-### 1.20.53 (2026-02-21)
-* (BenAhrdt) errorhandling in case of aggregat error with mqtt connection
-
-### 1.20.52 (2026-02-20)
-* (BenAhrdt) bugfix show ToIob always in device Manager
-* (BenAhrdt) correction of wording in downlink Profil Vicki
-* (BenAhrdt) add role button.mode.startMotorcalibration
-
-### 1.20.51 (2026-02-14)
-* (BenAhrdt) including of more entites in ToIob functionality (light, climate, hummidifier, lock, cover)
-
-### 1.20.50 (2026-02-10)
-* (BenAhrdt) implements light to ToIoB function
-
-### Older entries
-[here](OLD_CHANGELOG.md)
 
 ## License
 MIT License
@@ -145,14 +79,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-## DISCLAIMER
-The rights of the trademarks and company names,
-remain with their owners and have no relation to this adapter.
-The fairuse policy must continue to be adhered to by the operator of the adapter.
-If this repository is forked, it must be cited as the source.
-
-LoRa® is a registered trademark or service
-mark of Semtech Corporation or its affilantes.
-
-LoRaWAN® is a licensed mark.

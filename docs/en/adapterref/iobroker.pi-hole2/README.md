@@ -50,6 +50,41 @@ Some data from Version is extracted into data points in Data.Version.
 This can be enabled/disabled in the configuration.
 The data points are highlighted green/red when the feature is enabled/disabled.
 
+### Current-day domains per client
+
+The optional per-client domain statistics read the Pi-hole query log for the current local calendar day. By default,
+they are refreshed once per hour. Client requests are distributed over 10 percent of this refresh interval to reduce
+load on Pi-hole. The percentage is configurable from 0 to 90. The adapter calculates the individual pause from the
+current number of clients, so the sum of all pauses can never exceed the refresh interval.
+
+For every named Pi-hole client, the adapter creates two JSON states:
+
+```text
+pi-hole2.0.Clients.<clientName>.permitted
+pi-hole2.0.Clients.<clientName>.blocked
+pi-hole2.0.Clients.<clientName>.QueriesTotal
+pi-hole2.0.Clients.<clientName>.QueriesBlocked
+```
+
+Each value is a JSON array such as `[{"domain":"example.org","count":12}]`. A domain occurs only once in each
+array, and entries are sorted by descending count. Characters not safe in an ioBroker object ID (including `.` and
+`#`) are replaced with `_`. If two client names result in the same ID, a numeric suffix keeps their states separate.
+`QueriesTotal` contains the absolute number of all queries read for the client, while `QueriesBlocked` contains the
+absolute number of blocked queries. The names follow the same convention as the detailed summary datapoints.
+
+Pi-hole client names are matched with their IP addresses using the client information returned with the queries. A
+client with a hostname keeps the sanitized hostname as its ioBroker object ID, while the channel object's display name
+contains its IP address. If Pi-hole reports only an IP address, the sanitized IP address is used as the object ID as
+well as the display name.
+
+Pi-hole privacy levels and the Pi-hole `excludeClients`/`excludeDomains` settings also apply to this data. The adapter
+only reads the query log; it does not modify allowlists or denylists.
+
+The optional inactive-client cleanup runs once per local day after 00:05. It recursively deletes a client channel only
+when its channel object has not been updated since the start of the previous local calendar day and its `QueriesTotal`
+state is `0`. This means that no write occurred during the complete previous day. Timestamps in the future are not
+treated as activity. New client channels are created only after at least one query was found for the current day.
+
 ### General SendTo Function
 
 The sendTo function is used to send commands to the pi-hole device.
@@ -194,10 +229,36 @@ You have restarted the adapter too often and each time a new session is requeste
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.5.0 (2026-08-23)
 
-### **WORK IN PROGRESS**
+- Optional cleanup of clients if no update took place the previous day and QueriesTotal is 0.
+- Unnamed clients with IP addresses have been added. Only clients that have performed at least one DNS query
+  during the day are added.
 
+### 1.4.2 (2026-08-22)
+
+- fix pihole session handling
+
+### 1.4.1 (2026-08-21)
+
+- An issue with the Pi-hole API prevented all data from being retrieved; this has been fixed.
+
+### 1.4.0 (2026-08-21)
+
+- Added QueriesTotal and QueriesBlocked as counts per client.
+- move coverage dir to docs/coverage.
+- fix setTimeout and setObject
+
+### 1.3.0 (2026-08-20)
+
+- Added configurable per-client daily domain statistics for permitted and blocked queries, including safe request distribution and JSON datapoints
+  sorted by query count.
+
+### 1.2.0 (2026-06-10)
+
+- fix errors
 - add test and coverage
+- improve and harden error handling
 
 ### 1.1.1 (2025-07-25)
 
@@ -258,6 +319,8 @@ You have restarted the adapter too often and each time a new session is requeste
 ### 0.2.0 (2025-06-24)
 
 - (oweitman) first npm release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

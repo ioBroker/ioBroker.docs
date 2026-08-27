@@ -47,6 +47,7 @@ Polls the Zwift API for live workout data and makes it available as ioBroker sta
 | `distance` | km | Distance covered in current activity |
 | `altitude` | m | Current altitude |
 | `climbing` | m | Total elevation gain in current activity |
+| `gradient` | % | Current gradient/slope (positive = uphill, negative = downhill) |
 | `calories` | kJ | Calories burned (matches Zwift in-game display) |
 | `time` | s | Elapsed ride time |
 | `laps` | — | Laps completed |
@@ -168,7 +169,8 @@ With your Zwift data available as ioBroker states, you can create automations th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.3 (2026-04-19)
+* Add `gradient` state (current slope in %, computed from altitude/distance deltas with a 5 m threshold, clamped to ±50 %)
 
 ### 0.1.2 (2026-03-03)
 * Set up trusted publishing via OIDC for GitHub Actions deploy

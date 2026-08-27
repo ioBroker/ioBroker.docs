@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discovery/README.md
 title: ioBroker Discover Adapter
-hash: D/72x86GmJCeDJxyqlcj3Bp2mAh8a6fxHgt7E6LOgpM=
+hash: YjmkWHc1kkblPb4RxsgHETczR4LdcFjjuou9+GOvXyY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -103,6 +103,7 @@ hash: D/72x86GmJCeDJxyqlcj3Bp2mAh8a6fxHgt7E6LOgpM=
 - Традфри
 - UPnP
 - ValloxMV
+- VictronCerbo
 - Wifilight
 - WLED
 - Yamaha
@@ -149,10 +150,13 @@ hash: D/72x86GmJCeDJxyqlcj3Bp2mAh8a6fxHgt7E6LOgpM=
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 5.0.1 (2026-07-03)
+* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+* (Eistee82) Fix Hoymiles HMS discovery: correct a require path and align native config with hoymiles 0.3.4 device-array schema
 * (iobroker-bot) Adapter requires node.js >= 20 now.
 * (UncleSamSwiss) Remove obsolete squeezebox adapter
 * (GermanBluefox) Packages were updated
+* (GermanBluefox) Added victron-cerbo
 
 ### 5.0.0 (2024-07-21)
 * (bluefox) Packages updated
@@ -170,8 +174,7 @@ hash: D/72x86GmJCeDJxyqlcj3Bp2mAh8a6fxHgt7E6LOgpM=
 ### 4.3.0 (2024-02-21)
 * (bluefox) Replaced vis with vis-2
 
-### 4.2.0 (2023-10-09)
-* (pdbjjens) Changed detection of myvbus and resol
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

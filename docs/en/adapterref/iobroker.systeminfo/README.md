@@ -109,6 +109,7 @@ It handles text, HTML, json and XML data types wizh special query mechanisms.
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 
@@ -137,6 +138,8 @@ It handles text, HTML, json and XML data types wizh special query mechanisms.
 ### 0.3.0
 
 -   Added save and load config in admin screen
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

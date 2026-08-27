@@ -315,8 +315,21 @@ wenn sich der Wert eines anderen Datenpunktes verändert.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.0.0 (2026-08-06)
+- (copilot) Adapter requires node.js >= 22 now
+- (krobipd) State ID sanitisation hardened — tab/newline and other whitespace in hub-supplied device names no longer crash subscribe (#98). Dots are also collapsed so labels cannot split the ID path. Empty results fall back to `unnamed`.
+- (krobipd) Async event handlers (`stateChange`, hub discovery, client online/offline/state) now have proper error handling — a single failing await no longer terminates the adapter with an unhandled promise rejection.
+- (krobipd) Existing activities are now correctly recognised on every restart — the inverted `if` in `initHub` left the bookkeeping empty and made every activity log as `Added new activity` after each adapter start. As a side effect, activities deleted on the hub are now also pruned from the state tree, and the per-activity `-control` state is no longer falsely flagged as stale during the cleanup pass.
+- (GermanBluefox) **Breaking:** the `Discovery-Subnets` setting was replaced by a network interface selector plus a manual hub list. Existing instances are migrated automatically on first start — a directed broadcast address selects the matching interface, any other address is carried over as a manual hub IP. The conversion is written to the log and runs exactly once.
+- (GermanBluefox) **Breaking:** dots in hub, activity, device and command names are now replaced by `_` throughout, not just the first one. States whose name contained a dot are recreated under the new ID and the outdated objects are removed on the next hub sync. Adapt scripts, VIS views and aliases that referenced such states.
+- (GermanBluefox) Discovery now restarts by itself after a socket error, with a delay growing from 30 s to at most 5 min, instead of staying silently dead until the adapter is restarted.
+- (GermanBluefox) A single unreachable address no longer stops discovery for every other hub — send failures are logged per address.
+- (GermanBluefox) A broadcast address entered in the manual hub list works again instead of failing with `EACCES` on every ping.
+- (GermanBluefox) Dependencies updated: TypeScript 6, `@tsconfig/node22`, `@iobroker/adapter-core` 3.4.3, `@iobroker/testing` 5.3.0. The unused `sinon-chai` and `chai-as-promised` test helpers are gone.
+- (GermanBluefox) `npm run build` and `npm run check` compile without errors again. The sources carried 26 strict-mode violations — unguarded `null` accesses on hub clients and discovery sockets, `Array.pop()` results used as strings, and `delete` on properties typed as required — none of which were caught because the scripts had been failing for a while.
+- (GermanBluefox) `npm run lint` works again. It reported nothing but parse errors on every file (`project` and `projectService` were both enabled), and `allowDefaultProject` sat outside `projectService`, so no rule ever ran. An unused `tsconfig.json` left over from the vendored discovery library was shadowing the real one for everything under `src/discover/` and hid the Node.js types from the linter.
 
-### **WORK IN PROGRESS**
+### 2.1.0 (2026-04-15)
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 2.0.5 (2026-02-06)
@@ -327,17 +340,6 @@ wenn sich der Wert eines anderen Datenpunktes verändert.
 
 ### 2.0.3 (2025-11-04)
 * (@GermanBluefox) Corrected the table in the configuration
-
-### 2.0.2 (2025-11-03)
-* (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now.
-* (@GermanBluefox) Added state "switch" to switch activities on/off with Alexa
-* (@GermanBluefox) Adapter has been rewritten with TypeScript
-* (mcm1957) Dependencies have been updated.
-
-### 1.5.0 (2024-06-02)
-* (WolfspiritM) Multiple subnets can be entered as a comma-separated list now. (#147)
-* (mcm1957) Testing for node.js 22 has been added.
-* (mcm1957) Dependencies have been updated.
 
 ## License
 The MIT License (MIT)
@@ -362,3 +364,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)

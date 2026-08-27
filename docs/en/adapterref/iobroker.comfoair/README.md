@@ -70,6 +70,9 @@ Tested on comfoair CA350.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.3.0 (2026-02-23)
 - (mcm1957) Adapter requires node.js >=20 now
 - (copilot) Adapter requires admin >= 7.7.22 now
@@ -95,6 +98,8 @@ Tested on comfoair CA350.
 ### 1.1.8
 
 -   boost-error fixed (sentry)
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

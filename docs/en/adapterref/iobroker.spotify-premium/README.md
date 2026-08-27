@@ -105,7 +105,20 @@ Click for the widget source.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 2.0.0 (2026-03-30)
+### 3.0.1 (2026-06-21)
+- (mcm1957) Linter issues fixed blocking release process
+- (mcm1957) Dependencies have been updated
+
+### 3.0.0 (2026-05-17)
+- (copilot) Adapter requires node.js >= 22 now
+- (@GermanBluefox) Updated packages
+
+### 2.0.3 (2026-04-06)
+- (mcm1957) Adapter requires admin >= 7.8.9 now
+- (mcm1957) adapter requires js-controller >= 6.0.11 now
+- (mcm1957) Dependencies have been updated
+
+### 2.0.1 (2026-03-31)
 - (@GermanBluefox) Rewrite adapter to TypeScript
 - (@GermanBluefox) An Authorization process was changed and user must authenticate anew
 
@@ -113,25 +126,14 @@ Click for the widget source.
 - (mcm1957) Issues reported by repository checker have been fixed
 - (mightymurphy) stabilized token refresh and improved widget behavior
 - (copilot) Adapter requires admin >= 7.7.22 now
-- (aruttkamp) Merge pull request 522 from mightymurphy and 521 from michiproep>
+- (aruttkamp) Merge pull request 522 from mightymurphy and 521 from michiproep
 - (copilot) Improved error handling and logging for token refresh
 - (copilot) Device polling now continues during temporary authentication issues (401) instead of stopping.
 - (copilot) Next Track button widget name corrected
 - (copilot) Widget image paths fixed to use `/vis/widgets/` instead of a relative path for proper display in VIS
 - (mcm1957) Dependencies have been updated
 
-### 1.5.6 (2025-12-08)
-- (aruttkamp) dev dependencies aktualisiert
-- (mcm1957) adapter requires node.js 20 now
-- (aruttkamp) dev dependencies aktualisiert
-- (aruttkamp) correct issues detected by repository checker [#421]
-- (aruttkamp) changes redirect URI and docu
-
-### 1.5.3 (2025-04-15)
-- (aruttkamp) redirect URI changed [#429]
-
-### 1.5.2 (2024-12-16)
-- (aruttkamp) ESLint 9 implemented
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

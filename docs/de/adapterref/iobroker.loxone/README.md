@@ -3,15 +3,15 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.loxone/README.md
 title: ioBroker.loxone
-hash: YkjvNYRdWtmjOVjVA795TpNxsCDUbmN6c3+fCVavieY=
+hash: 6ALvZ0v/X5Va8nqWzqQdhiBIgPCARe+f+RnKef1cY3c=
 ---
-![Logo](../../../en/adapterref/iobroker.loxone/admin/loxone.png)
-
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.loxone.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.loxone.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/loxone-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/loxone-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.loxone.png?downloads=true)
+
+<img src="admin/loxone.png" width="128" alt="Loxone-Logo" />
 
 # IoBroker.loxone
 [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/loxone/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
@@ -99,7 +99,7 @@ Um sicherzustellen, dass alle Ihre Statusangaben korrekt an ioBroker gemeldet we
 ### Diagnoseeingänge anzeigen
 Um Diagnoseeingaben anzuzeigen (z. B. den Akkustand von Air-Geräten), überprüfen Sie bitte, ob die Option „Diagnoseeingaben anzeigen“ am Gerät aktiviert ist:
 
-![Einstellungen für Diagnoseeingänge anzeigen](../../../en/adapterref/iobroker.loxone/doc/loxone-config-display-diagnostics.png)
+![Einstellungen für die Anzeige der Diagnoseeingänge](../../../en/adapterref/iobroker.loxone/doc/loxone-config-display-diagnostics.png)
 
 ## Globale Staaten
 Folgende globale Zustände werden derzeit von diesem Adapter bereitgestellt:
@@ -307,7 +307,7 @@ Bereitgestellt vom Energiemonitor.
 - `consCurrDay` (ro) Energieverbrauch im Laufe des aktuellen Tages
 - `consTotal` (ro) Energieverbrauch seit der Einrichtung
 - `deliveryDay` (ro) unbekannt
-- `earningsDay` (ro) wie viel Geld im Laufe des Tages verdient wurde, indem entweder der erzeugte Strom selbst verbraucht statt aus dem Netz bezogen wurde oder indem nicht verbrauchter Strom ins Netz eingespeist wurde.
+- `earningsDay` (ro) wie viel Geld im Laufe des Tages verdient wurde, indem entweder der erzeugte Strom selbst verbraucht statt aus dem Netz bezogen wurde oder überschüssiger erzeugter Strom ins Netz eingespeist wurde.
 - `earningsMonth` (ro) Wie viel Geld wurde im laufenden Monat verdient?
 - `earningsYear` (ro) wie viel Geld im laufenden Jahr verdient wurde
 - `earningsTotal` (ro) Wie viel Geld wurde seit der Gründung verdient?
@@ -322,7 +322,7 @@ Bereitgestellt durch Torsteuerungen.
 
 - `position` (ro) die Position von 1 = oben bis 0 = unten
 - `aktiv` (rw) aktuelle Richtung der Torbewegung
--1 = schließen
+- -1 = schließen
 -0 = bewegt sich nicht
 - 1 = offen
 - `preventOpen` (ro) Gibt an, ob das Öffnen der Tür verhindert werden soll.
@@ -388,7 +388,7 @@ Versionen
 
 Dieser Kanaltyp kann weitere Geräte enthalten. Weitere Informationen finden Sie im entsprechenden Kapitel.
 
-### Intelligenter Raumcontroller V2
+### Intelligenter Raumregler V2
 Bereitgestellt vom intelligenten Raumcontroller V2 seit Miniserver 10.0.
 
 TODO: Dokumentation fehlt derzeit
@@ -400,8 +400,8 @@ Bereitgestellt durch verschiedene Arten von Jalousien (automatische und manuelle
 - `down` (rw) ob sich Jalousie nach unten bewegt
 - `position` (ro) Position der Jalousie, eine Zahl von 0 bis 1
     - Jalousie-Oberstellung = 0
-    - Untere Jalousie-Position = 1
-- `shadePosition` (ro) Position des Jalousierollos, eine Zahl von 0 bis 1
+    - Jalousie untere Position = 1
+- `shadePosition` (ro) Position der Jalousie (Rollos), eine Zahl von 0 bis 1
 - Jalousien sind nicht beschattet = 0
 - Jalousien sind abgedunkelt = 1
 - `safetyActive` (ro) wird nur von Fahrzeugen mit Autopilot verwendet und stellt die Sicherheitsabschaltung dar.
@@ -436,7 +436,7 @@ Szenen können nur in den Loxone-Anwendungen geändert, aber in ioBroker ausgew�
 Dieser Kanaltyp kann weitere Geräte enthalten. Weitere Informationen finden Sie im entsprechenden Kapitel.
 
 ### Lichtsteuerung V2
-Bereitgestellt von (Hotel-)Lichtsteuerungen in Loxone Software Version 9 und höher. Stimmungen können nur in den Loxone-Anwendungen geändert, aber in ioBroker ausgewählt und kombiniert werden.
+Bereitgestellt von (Hotel-)Lichtsteuerungen in Loxone-Softwareversion 9 und höher. Stimmungen können nur in den Loxone-Anwendungen geändert, aber in ioBroker ausgewählt und kombiniert werden.
 
 - `moodList` (ro) Liste aller konfigurierten Stimmungsnamen
 - `activeMoods` (rw) aktuell aktive Liste der Stimmungsnamen
@@ -510,7 +510,7 @@ Bereitgestellt durch Stromzähler.
 
 - `nextLevel` (ro) die ID der nächsten Alarmstufe
 - 1 = Stumm
-- 2 = Akustik
+- 2 = Akustisch
 - 3 = Optisch
 - 4 = Intern
 - 5 = Extern
@@ -519,7 +519,7 @@ Bereitgestellt durch Stromzähler.
 - `nextLevelDelayTotal` (ro) Gesamtverzögerung des nächsten Levels in Sekunden
 - `level` (ro) die ID des aktuellen Alarmlevels
 - 1 = Stumm
-- 2 = Akustisch
+- 2 = Akustik
 - 3 = Optisch
 - 4 = Intern
 - 5 = Extern
@@ -559,7 +559,7 @@ Bereitgestellt durch Treppenhaus- und Multifunktionsschalter.
 -1 = Der Ausgang ist dauerhaft eingeschaltet.
 Andernfalls zählt der Zähler von „deactivationDelayTotal“ herunter.
 - `on` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand aktiviert den Schalter dauerhaft ohne Deaktivierungsverzögerung.
-- `off` (wo) Durch Schreiben eines beliebigen Wertes in diesen Zustand wird der Schalter deaktiviert.
+- `off` (wo): Durch Schreiben eines beliebigen Wertes in diesen Zustand wird der Schalter deaktiviert.
 - `pulse` (wo) betätigt den Schalter:
 - Deaktivierungsverzögerung = 0
 - Der Countdown startet von DeaktivierungsverzögerungGesamt bis 0
@@ -678,6 +678,17 @@ Loxone und Miniserver sind eingetragene Warenzeichen der Loxone Electronics GmbH
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 4.0.2 (2026-03-25)
+
+- (raintonr) Better handling of ack timeouts from Loxone (#751)
+- (raintonr) Default ackTimeoutMs is now configurable (#522)
+- (UncleSamSwiss) Updated icon to match the latest Loxone logo
+
+### 4.0.1 (2026-01-07)
+
+- (UncleSamSwiss) Remove all special Sentry handling
+
 ### 4.0.0 (2025-12-11)
 
 - (raintonr) Set correct min/max target on IRCv2 when in override (#528)
@@ -814,7 +825,7 @@ Loxone und Miniserver sind eingetragene Warenzeichen der Loxone Electronics GmbH
 
 ## License
 
-Copyright 2025 UncleSamSwiss
+Copyright 2026 UncleSamSwiss
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

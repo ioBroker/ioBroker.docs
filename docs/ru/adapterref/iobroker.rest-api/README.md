@@ -2,32 +2,32 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rest-api/README.md
-title: Адаптер REST-API
-hash: xn86ZLFPgffbxoD8CgqI2CSXHvCth7G1XqTBbf7NWy8=
+title: REST-API адаптер
+hash: aZTpIyHqZGywFxHCoJmimrd4rKY2IKlQ8RVf+NBUF1I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
 ![Количество установок](http://iobroker.live/badges/rest-api-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.rest-api.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.rest-api.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rest-api.svg)
 ![Тесты](https://travis-ci.org/ioBroker/ioBroker.rest-api.svg?branch=master)
 ![НПМ](https://nodei.co/npm/iobroker.rest-api.png?downloads=true)
 
 # Адаптер REST-API
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Подробнее об отключении сообщений об ошибках см. в разделе [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сообщения Sentry используются, начиная с версии js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
 
-Это интерфейс RESTFul для чтения объектов и состояний из ioBroker, а также для записи/контроля состояний с помощью HTTP-запросов Get/Post.
+Это RESTful-интерфейс для чтения объектов и состояний из ioBroker, а также для записи/управления состояниями посредством HTTP-запросов Get/Post.
 
-Назначение этого адаптера аналогично simple-api. Но он поддерживает длинные опросы и URL-хуки для подписки.
+Назначение этого адаптера аналогично simple-api. Но этот адаптер поддерживает длительное опросное время (long-polling) и URL-хуки для подписки.
 
-Имеет удобный веб-интерфейс для работы с запросами:
+Он имеет удобный веб-интерфейс для работы с запросами:
 
 ![Скриншот](../../../en/adapterref/iobroker.rest-api/img/screen.png)
 
 ## Использование
 Вызовите в браузере `http://ipaddress:8093/` и используйте Swagger UI для запроса и изменения состояний и объектов.
 
-Некоторые примеры запросов:
+Примеры запросов:
 
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - чтение состояния в формате JSON
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - чтение состояния как строки (только значение)
@@ -35,15 +35,15 @@ hash: xn86ZLFPgffbxoD8CgqI2CSXHvCth7G1XqTBbf7NWy8=
 - `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - отправить сообщение на `javascript.0` в скрипте `scriptName`
 
 ### Аутентификация
-Чтобы включить аутентификацию, необходимо установить опцию `Authentication` в диалоговом окне конфигурации.
+Для включения аутентификации необходимо установить параметр `Authentication` в диалоговом окне конфигурации.
 
 Поддерживаются три типа аутентификации:
 
 - Учетные данные в запросе
-- Базовая аутентификация
-- OAuth2 (носитель)
+— Базовая аутентификация
+- OAuth2 (Bearer)
 
-Для аутентификации в запросе необходимо установить `user` и `pass` в запросе следующим образом:
+Для аутентификации в запросе необходимо установить параметры `user` и `pass` следующим образом:
 
 ```http
 http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?user=admin&pass=admin
@@ -51,7 +51,7 @@ http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?user=admin
 
 Для базовой аутентификации необходимо установить заголовок `Authorization` со значением `Basic base64(user:pass)`.
 
-Для аутентификации Oauth2 необходимо установить заголовок `Authorization` со значением `Bearer <AccessToken>`.
+Для аутентификации OAuth2 необходимо установить заголовок `Authorization` со значением `Bearer <AccessToken>`.
 
 Токен доступа можно получить с помощью HTTP-запроса следующего вида:
 
@@ -59,7 +59,7 @@ http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?user=admin
 http://ipaddress:8093/oauth/token?grant_type=password&username=<user>&password=<password>&client_id=ioBroker
 ```
 
-Ответ такой:
+Ответ выглядит так:
 
 ```json
 {
@@ -71,25 +71,25 @@ http://ipaddress:8093/oauth/token?grant_type=password&username=<user>&password=<
 }
 ```
 
-## Подписаться на изменения состояния или объекта
-Ваше приложение может получать уведомления при каждом изменении состояния или объекта.
+## Подписка на изменения состояния или объекта
+Ваше приложение может получать уведомления о каждом изменении состояния или объекта.
 
-Для этого ваше приложение должно предоставить конечную точку HTTP(S) для принятия обновлений.
+Для этого ваше приложение должно предоставлять конечную точку HTTP(S) для приема обновлений.
 
-Пример в node.js см. здесь [demoNodeClient.js](examples/demoNodeClient.js)
+Пример на Node.js см. здесь [demoNodeClient.js](examples/demoNodeClient.js)
 
-## Длительный опрос
-Данный адаптер поддерживает подписку на изменения данных посредством длинного опроса.
+## Долгосрочный опрос
+Этот адаптер поддерживает подписку на изменения данных посредством длительного опроса (long polling).
 
 Пример для браузера можно найти здесь: [demoNodeClient.js](examples/demoBrowserClient.html)
 
 ## Веб-расширение
-Этот адаптер может работать как веб-расширение. В этом случае путь к нему доступен в разделе `http://ipaddress:8082/rest-api/`
+Этот адаптер может работать как веб-расширение. В этом случае путь к нему доступен по адресу `http://ipaddress:8082/rest-api/`
 
 ## Уведомление
-- `POST` всегда используется для создания ресурса (неважно, был ли он продублирован)
-- `PUT` — для проверки существования ресурса, затем обновления, в противном случае создания нового ресурса
-- `PATCH` всегда предназначен для обновления ресурса
+— Метод `POST` всегда используется для создания ресурса (неважно, был ли он продублирован).
+— Параметр `PUT` используется для проверки существования ресурса: если ресурс существует, то обновить его, в противном случае создать новый ресурс.
+— `PATCH` всегда используется для обновления ресурса.
 
 ## Команды
 Кроме того, вы можете выполнять множество команд сокета через специальный интерфейс:
@@ -99,11 +99,11 @@ http://ipaddress:8093/oauth/token?grant_type=password&username=<user>&password=<
 Например.
 
 - `http://ipaddress:8093/v1/command/getState?id=system.adapter.admin.0.alive` - для чтения состояния `system.adapter.admin.0.alive`
-- `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png` - для чтения файла `admin.admin/admin.png` как результата JSON
+- `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png` - для чтения файла `admin.admin/admin.png` в формате JSON.
 - `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png?binary` - для чтения файла `admin.admin/admin.png` как файла
-- `http://ipaddress:8093/v1/command/extendObject?id=system.adapter.admin.0?obj={"common":{"enabled":true}}` - для перезапуска администратора
+- `http://ipaddress:8093/v1/command/extendObject?id=system.adapter.admin.0?obj={"common":{"enabled":true}}` - для перезапуска административной панели
 
-Вы также можете запросить все команды методом POST. Тело запроса должно быть объектом с параметрами. Например:
+Вы также можете отправлять все команды методом POST. Тело запроса должно быть объектом с параметрами. Например:
 
 ```bash
 curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
@@ -117,26 +117,26 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 
 Вы не можете отправлять POST-запросы командам через графический интерфейс.
 
-<!-- СТАРТ -->
+<!-- НАЧАЛО -->
 
 ### Штаты
-- `getStates(pattern)` - получить список состояний для шаблона (например, для system.adapter.admin.0.*). В графическом интерфейсе могут возникнуть проблемы с визуализацией ответа.
-- `getForeignStates(pattern)` - то же, что и getStates
-- `getState(id)` - получить значение состояния по идентификатору
-- `setState(id, state)` - установить значение состояния с помощью объекта JSON (например, `{"val": 1, "ack": true}`)
-- `getBinaryState(id)` - получить двоичное состояние по идентификатору
-- `setBinaryState(id, base64)` - установить двоичное состояние по идентификатору
+- `getStates(pattern)` - получить список состояний для заданного шаблона (например, для system.adapter.admin.0.*). Визуализация результата в графическом интерфейсе может вызывать проблемы.
+- `getForeignStates(pattern)` - то же самое, что и getStates
+- `getState(id)` - получить значение состояния по ID
+- `setState(id, state)` - устанавливает значение состояния с помощью объекта JSON (например, `{"val": 1, "ack": true}`)
+- `getBinaryState(id)` - получить двоичное состояние по ID
+- `setBinaryState(id, base64)` - установка бинарного состояния по ID
 
 ### Объекты
-- `getObject(id)` - получить объект по идентификатору
-- `getObjects(list)` - получить все состояния и комнаты. В графическом интерфейсе могут возникнуть проблемы с визуализацией ответа.
-- `getObjectView(design, search, params)` - получить определенные объекты, например design=system, search=state, params=`{"startkey": "system.adapter.admin.", "endkey": "system.adapter.admin.\u9999"}`
-- `setObject(id, obj)` - установить объект с помощью объекта JSON (например, `{"common": {"type": "boolean"}, "native": {}, "type": "state"}`)
+- `getObject(id)` - получить объект по ID
+- `getObjects(list)` - получить все состояния и комнаты. Визуализация результата в графическом интерфейсе может вызвать проблемы.
+- `getObjectView(design, search, params)` - получить конкретные объекты, например, design=system, search=state, params=`{"startkey": "system.adapter.admin.", "endkey": "system.adapter.admin.\u9999"}`
+- `setObject(id, obj)` - устанавливает объект с помощью JSON-объекта (например, `{"common": {"type": "boolean"}, "native": {}, "type": "state"}`)
 - `delObject(id, options)` - удалить объект по ID
 
 ### Файлы
-- `readFile(adapter, fileName)` - чтение файла, например, adapter=vis.0, fileName=main/vis-views.json. Кроме того, можно указать в запросе опцию binary=true, чтобы получить ответ в виде файла, а не в формате JSON.
-- `readFile64(adapter, fileName)` - чтение файла как строки в формате base64, например, adapter=vis.0, fileName=main/vis-views.json. Кроме того, можно указать в запросе опцию binary=true, чтобы получить ответ в виде файла, а не в формате JSON.
+- `readFile(adapter, fileName)` - чтение файла, например, adapter=vis.0, fileName=main/vis-views.json. Кроме того, вы можете установить параметр binary=true в запросе, чтобы получить ответ в виде файла, а не в формате JSON.
+- `readFile64(adapter, fileName)` - чтение файла как строки base64, например, adapter=vis.0, fileName=main/vis-views.json. Кроме того, вы можете установить параметр binary=true в запросе, чтобы получить ответ в виде файла, а не в формате JSON.
 - `writeFile64(adapter, fileName, data64, options)` - запись файла, например, adapter=vis.0, fileName=main/vis-test.json, data64=eyJhIjogMX0=
 - `unlink(adapter, name)` - удалить файл или папку
 - `deleteFile(adapter, name)` - удалить файл
@@ -145,60 +145,75 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `rename(adapter, oldName, newName)` - переименовать файл или папку
 - `mkdir(adapter, dirName)` - создать папку
 - `readDir(adapter, dirName, options)` - чтение содержимого папки
-- `chmodFile(adapter, fileName, options)` — изменить режим файла. Например, adapter=vis.0, fileName=main/*, options = `{"mode": 0x644}`
-- `chownFile(adapter, fileName, options)` — сменить владельца файла. Например, adapter=vis.0, fileName=main/*, options = `{"owner": "newOwner", "ownerGroup": "newgroup"}`
+- `chmodFile(adapter, fileName, options)` - изменить режим доступа к файлу. Например: adapter=vis.0, fileName=main/*, options = `{"mode": 0x644}`
+- `chownFile(adapter, fileName, options)` - изменить владельца файла. Например: adapter=vis.0, fileName=main/*, options = `{"owner": "newOwner", "ownerGroup": "newgroup"}`
 - `fileExists(adapter, fileName)` - проверка существования файла
 
 ### Администраторы
-- `getHostByIp(ip)` - чтение информации о хосте по IP, например по localhost
-- `readLogs(host)` - чтение имени и размера файла журнала. Вы можете прочитать их по адресу http://ipaddress:8093/<имя_файла>
-- `delState(id)` — удалить состояние и объект. То же, что и delObject.
-- `getRatings(update)` - чтение рейтингов адаптера (как в admin)
+- `getHostByIp(ip)` - считывает информацию о хосте по IP-адресу. Например, по localhost
+- `readLogs(host)` - чтение имени файла и размера файлов журналов. Вы можете прочитать их по адресу http://ipaddress:8093/<fileName>
+- `delState(id)` - удаляет состояние и объект. Аналогично delObject.
+- `getRatings(update)` - чтение рейтингов адаптера (как в административной панели)
 - `getCurrentInstance()` - чтение пространства имен адаптера (всегда rest-api.0)
-- `decrypt(encryptedText)` - расшифровать строку с системным секретом
-- `encrypt(plainText)` - шифровать строку системным секретом
-- `getAdapters(adapterName)` - получить объекты типа "adapter". Можно указать дополнительное имя адаптера.
-- `updateLicenses(логин, пароль)` - чтение лицензий с портала ioBroker.net
-- `getCompactInstances()` - чтение списка экземпляров с краткой информацией
-- `getCompactAdapters()` - чтение списка установленных адаптеров с краткой информацией
-- `getCompactInstalled(host)` - прочитать краткую информацию об установленных адаптерах
-- `getCompactSystemConfig()` - чтение краткой конфигурации системы
+- `decrypt(encryptedText)` - расшифровка строки с использованием системного секрета
+- `encrypt(plainText)` - шифрует строку с помощью системного секрета
+- `getAdapters(adapterName)` - получает объекты типа "adapter". При желании можно указать adapterName.
+- `updateLicenses(login, password)` - чтение лицензий с портала ioBroker.net
+- `getCompactInstances()` - считывает список экземпляров с краткой информацией.
+- `getCompactAdapters()` - считывает список установленных адаптеров с краткой информацией.
+- `getCompactInstalled(host)` - считывает краткую информацию об установленных адаптерах
+- `getCompactSystemConfig()` - краткое описание конфигурации системы
 - `getCompactSystemRepositories()`
-- `getCompactRepository(host)` - прочитать краткий репозиторий
+- `getCompactRepository(host)` - прочитать краткое описание репозитория
 - `getCompactHosts()` - получить краткую информацию о хостах
 - `addUser(user, pass)` - добавить нового пользователя
 - `delUser(user)` - удалить пользователя
 - `addGroup(group, desc, acl)` - создать новую группу
 - `delGroup(group)` - удалить группу
 - `changePassword(user, pass)` - изменить пароль пользователя
-- `getAllObjects()` - прочитать все объекты как список. В графическом интерфейсе могут возникнуть проблемы с визуализацией ответа.
-- `extendObject(id, obj)` - изменение объекта по ID с помощью JSON. (например, `{"common":{"enabled": true}}`)
-- `getForeignObjects(pattern, type)` - то же, что и getObjects
+- `getAllObjects()` - считывает все объекты как список. В графическом интерфейсе пользователя могут возникнуть проблемы с визуализацией результата.
+- `extendObject(id, obj)` - изменение объекта по ID с использованием JSON. (например, `{"common":{"enabled": true}}`)
+- `getForeignObjects(pattern, type)` - то же самое, что и getObjects
 - `delObjects(id, options)` - удаление объектов по шаблону
 
-### Другие
+Другие
 - `updateTokenExpiration(accessToken)`
-- `log(text, level[info])` - нет ответа - добавить запись в журнал ioBroker
-- `checkFeatureSupported(feature)` - проверка, поддерживается ли функция js-controller.
-- `getHistory(id, options)` - чтение истории. Подробнее о параметрах: https://github.com/ioBroker/ioBroker.history/blob/master/docs/en/README.md#access-values-from-javascript-adapter
-- `httpGet(url)` - чтение URL с сервера. Можно установить binary=true, чтобы получить ответ в виде файла.
-- `sendTo(adapterInstance, command, message)` — отправить команду экземпляру. Например, adapterInstance=history.0, command=getHistory, message=`{"id": "system.adapter.admin.0.memRss","options": {"aggregate": "onchange", "addId": true}}`
-- `listPermissions()` - чтение статической информации с разрешениями функции
-- `getUserPermissions()` - чтение объекта с разрешениями пользователя
+- `log(text, level[info])` - нет ответа - добавить запись в лог ioBroker
+- `checkFeatureSupported(feature)` - проверяет, поддерживается ли функция контроллером js.
+- `getHistory(id, options)` - чтение истории. См. информацию о параметрах: https://github.com/ioBroker/ioBroker.history/blob/master/docs/en/README.md#access-values-from-javascript-adapter
+- `httpGet(url)` - чтение URL-адреса с сервера. Вы можете установить binary=true, чтобы получить ответ в виде файла.
+- `sendTo(adapterInstance, command, message)` - отправить команду экземпляру. Например: adapterInstance=history.0, command=getHistory, message=`{"id": "system.adapter.admin.0.memRss","options": {"aggregate": "onchange", "addId": true}}`
+- `listPermissions()` - чтение статической информации с правами доступа функции.
+- `getUserPermissions()` - чтение объекта с правами пользователя.
 - `getVersion()` - чтение имени и версии адаптера
-- `getAdapterName()` - чтение имени адаптера (всегда rest-api)
+- `getAdapterName()` - чтение имени адаптера (всегда REST API)
 - `clientSubscribe(targetInstance, messageType, data)`
-- `getAdapterInstances(adapterName)` — получение объектов типа «экземпляр». Можно указать дополнительное имя адаптера.
+- `getAdapterInstances(adapterName)` - получает объекты типа "instance". При желании можно указать adapterName.
 
 <!-- КОНЕЦ -->
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **РАБОТА В ХОДЕ** -->
+### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
+### 4.0.2 (2026-06-14)
+* (@GermanBluefox) Packages were updated
+* (@GermanBluefox) Allowed to define the response content type by sendTo queries
+* (@GermanBluefox) Corrected some minor issues
+
+### 4.0.1 (2026-02-17)
+* (@GermanBluefox) Corrected some minor issues
+
+### 4.0.0 (2026-02-17)
+* (@GermanBluefox) Packages were updated
+* (@GermanBluefox) Drop Node.js 18 support
+
+### 3.1.3 (2026-01-19)
+* (@GermanBluefox) Caught a seldom race condition on the connection close
+
 ### 3.1.1 (2025-10-09)
-* (@GermanBluefox) corrected web extension path
+* (@GermanBluefox) corrected a web extension path
 
 ### 3.1.0 (2025-10-05)
 * (@copilot, @SimonFischer04) Fix running as web extension, own implementation of unmaintained swagger-node-runner-fork, 
@@ -255,7 +270,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 * (bluefox) Added socket commands
 
 ### 0.3.6 (2022-04-22)
-* (bluefox) Added object creation and enumerations reading
+* (bluefox) Added object creation and enumeration reading
 
 ### 0.3.5 (2022-04-22)
 * (bluefox) Allowed the reading of current subscriptions
@@ -272,4 +287,4 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 ## License
 Apache 2.0
 
-Copyright (c) 2017-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2026 bluefox <dogafox@gmail.com>

@@ -31,6 +31,19 @@ In the adapter/instance configuration you can adjust the maximum RAM/Heap for th
 
 Flows will not be started, and you can edit the flows to fix some overload problem.
 
+### Context Storage
+
+Node-RED can store the context of a node (`context`, `flow` and `global`) in different [context stores](https://nodered.org/docs/user-guide/context). This adapter configures two of them:
+
+| Store        | Persistent | Description                                                                                             |
+| ------------ | ---------- | ------------------------------------------------------------------------------------------------------- |
+| `file`       | yes        | Default store. The context is written to the ioBroker data directory and survives a restart of the adapter |
+| `memoryOnly` | no         | The context is only kept in RAM and is lost as soon as the adapter restarts                              |
+
+The store can be selected in the configuration dialog of every node that uses the context. If no store is selected, `file` is used.
+
+**Note:** Up to version 6.0.8 the file based store was named `default`. If you selected the store explicitly in a node, open the node and select `file` again, otherwise node-red logs a warning about an unknown context store.
+
 ## Authentication
 
 ### None
@@ -60,8 +73,13 @@ Flows will not be started, and you can edit the flows to fix some overload probl
 ### ioBroker sendTo
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 7.0.2 (2026-08-15)
 -   (@GermanBluefox) Allowed to use admin instance with authentication (Admin 7.6.4 is required)
+-   (@thiloms) Added an additional memory based context storage (`memoryOnly`)
+-   (@thiloms) The file based context storage was renamed from `default` to `file`. Existing data is kept, but nodes with an explicitly selected store must be re-selected in the editor
+-   (@GermanBluefox) The adapter backend was rewritten in TypeScript. The sources are now located in `src` and are compiled into `build`
+-   (@GermanBluefox) Disabled the node-red notification about a new node-red version, as node-red is updated together with the adapter
+-   (@GermanBluefox) Updated nore-red to 5
 
 ### 6.0.8 (2025-03-24)
 -   (@GermanBluefox) Do not try to connect to unsecure admin from secure page and vice versa
@@ -81,14 +99,11 @@ Flows will not be started, and you can edit the flows to fix some overload probl
 -   (@GermanBluefox) Used common `@iobroker/eslint-config`
 -   (@GermanBluefox) Node-red updated to 4.0.3
 
-### 5.2.1 (2024-04-27)
-
--   (Apollon77) Update node-red to 3.1.9 to fix execution on windows
--   (Apollon77) Restore log behavior as it was in till 5.0.x
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
-Copyright 2014-2025 bluefox <dogafox@gmail.com>.
+Copyright 2014-2026 bluefox <dogafox@gmail.com>.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

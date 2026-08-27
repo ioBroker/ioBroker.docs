@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Adapter icon: stylized pond feeder on a light grey ground.
+       Source artwork: feeder-stylized.svg (own work, 383x478), centered on a 512x512 tile. -->
+  <defs>
+    <linearGradient id="lidTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a3e44"/>
+      <stop offset="0.55" stop-color="#26292e"/>
+      <stop offset="1" stop-color="#1b1d21"/>
+    </linearGradient>
+    <linearGradient id="lidRim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#17191c"/>
+      <stop offset="0.5" stop-color="#2e3238"/>
+      <stop offset="1" stop-color="#131518"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d9dbdd"/>
+      <stop offset="0.18" stop-color="#f4f5f6"/>
+      <stop offset="0.45" stop-color="#ffffff"/>
+      <stop offset="0.75" stop-color="#eceeef"/>
+      <stop offset="1" stop-color="#cfd2d5"/>
+    </linearGradient>
+    <linearGradient id="bodyShade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#000000" stop-opacity="0.10"/>
+      <stop offset="0.25" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#33373d"/>
+      <stop offset="0.5" stop-color="#212429"/>
+      <stop offset="1" stop-color="#101215"/>
+    </linearGradient>
+    <linearGradient id="outlet" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0e1013"/>
+      <stop offset="0.5" stop-color="#2b2f35"/>
+      <stop offset="1" stop-color="#0e1013"/>
+    </linearGradient>
+  </defs>
+
+  <!-- light grey tile -->
+  <rect x="0" y="0" width="512" height="512" rx="52" fill="#e9eaec"/>
+
+  <g transform="translate(83,40) scale(0.904)">
+    <!-- mounting arm (behind the container) -->
+    <g>
+      <rect x="250" y="352" width="96" height="30" rx="10" fill="url(#ring)"/>
+      <rect x="336" y="340" width="14" height="54" rx="5" fill="#1b1e22"/>
+      <rect x="338" y="344" width="4" height="46" rx="2" fill="#33373d" opacity="0.8"/>
+    </g>
+
+    <!-- container (conical hopper) -->
+    <g>
+      <path d="M 73 118 L 309 118 L 253 392 L 129 392 Z" fill="url(#body)" opacity="0.96"/>
+      <path d="M 73 118 L 309 118 L 253 392 L 129 392 Z" fill="url(#bodyShade)"/>
+      <ellipse cx="191" cy="392" rx="62" ry="12" fill="#e4e6e8"/>
+      <ellipse cx="191" cy="392" rx="62" ry="12" fill="url(#bodyShade)"/>
+      <path d="M 92 130 L 138 380" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity="0.55"/>
+      <path d="M 84 172 Q 191 190 298 172" fill="none" stroke="#c6c9cc" stroke-width="2" opacity="0.7"/>
+    </g>
+
+    <!-- lid -->
+    <g>
+      <ellipse cx="191" cy="102" rx="152" ry="30" fill="url(#lidRim)"/>
+      <path d="M 39 98 Q 39 66 191 66 Q 343 66 343 98 Q 343 122 191 126 Q 39 122 39 98 Z" fill="url(#lidTop)"/>
+      <ellipse cx="150" cy="84" rx="80" ry="10" fill="#ffffff" opacity="0.08"/>
+      <rect x="176" y="34" width="30" height="34" rx="9" fill="url(#lidRim)"/>
+      <path d="M 158 46 Q 191 30 224 46" fill="none" stroke="#26292e" stroke-width="12" stroke-linecap="round"/>
+      <rect x="182" y="38" width="6" height="24" rx="3" fill="#3f444b" opacity="0.7"/>
+    </g>
+
+    <!-- clamp ring -->
+    <g>
+      <path d="M 118 358 Q 191 344 264 358 L 264 396 Q 191 412 118 396 Z" fill="url(#ring)"/>
+      <path d="M 118 358 Q 191 344 264 358" fill="none" stroke="#454a52" stroke-width="3" opacity="0.9"/>
+      <circle cx="256" cy="378" r="5" fill="#0c0e10"/>
+      <circle cx="256" cy="378" r="2" fill="#3a3f46"/>
+    </g>
+
+    <!-- outlet cylinder -->
+    <g>
+      <path d="M 158 400 L 224 400 L 216 446 L 166 446 Z" fill="url(#outlet)"/>
+      <ellipse cx="191" cy="446" rx="25" ry="7" fill="#050607"/>
+      <ellipse cx="191" cy="446" rx="17" ry="4.5" fill="#000000"/>
+      <path d="M 170 404 L 176 442" stroke="#4a4f57" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+    </g>
+  </g>
+</svg>

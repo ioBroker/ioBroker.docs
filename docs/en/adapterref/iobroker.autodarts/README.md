@@ -1,12 +1,18 @@
 ![Logo](admin/autodarts.svg)
-## Adapter for Autodarts Integration
+
+# ioBroker adapter for AUTODARTS
 
 ![Number of Installations](https://iobroker.live/badges/autodarts-installed.svg) ![Current version in stable repository](https://iobroker.live/badges/autodarts-stable.svg)
 [![NPM Version](https://nodei.co/npm/iobroker.autodarts.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.autodarts)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.autodarts.svg)](https://www.npmjs.com/package/iobroker.autodarts)
 
+[![COMMUNITY](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)](https://forum.iobroker.net/)
+[![MAINTAINER](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)](https://github.com/skvarel)
+[![AI](https://img.shields.io/badge/ai%20assisted-cursor-blue.svg)](https://github.com/inventwo/ioBroker.autodarts/blob/main/.cursor/iobroker-adapter.mdc)
+
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
+---
 
 ## What this adapter does
 
@@ -132,22 +138,25 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### 1.0.7 (2026-03-01)
-- (skvarel) CI/CD: Updated GitHub Copilot instructions template to version 0.5.7 with latest ioBroker best practices (fixes #21, #25)
+### 1.0.12 (2026-06-28)
+- (skvarel) Fixed admin i18n labels flagged as untranslated by the repository checker (fixes #67)
 
-### 1.0.6 (2026-02-28)
-- (skvarel) TESTING: Fixed test cleanup issues - added settled flag to httpHelper for proper Promise handling and --exit flag to test script to prevent hanging tests
+### 1.0.11 (2026-06-10)
+- (skvarel) Added meta object types for adapter and instance namespace
 
-### 1.0.5 (2026-02-28)
-- (skvarel) FIXED: Updated outdated dependencies - release-script packages to v5.1.x and admin globalDependency to v7.6.20 (fixes #23)
+### 1.0.10 (2026-06-05)
+- (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
+- (skvarel) Updated @alcalzone/release-script to 5.2.1 (fixes #59)
+- (skvarel) Replaced plain setInterval() and setTimeout() with adapter-managed this.setInterval(), adapter.setTimeout() and corresponding clear methods (fixes #59)
 
-### 1.0.4 (2026-01-24)
-- (skvarel) FIXED: Reverted to setState() from deprecated setStateAsync()
+### 1.0.9 (2026-05-25)
+- (skvarel) Adapter requires node.js >= 22 now
+- (skvarel) Updated @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)
+- (skvarel) Downgraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)
 
-### 1.0.3 (2026-01-21)
-- (copilot) FIXED: Use setStateAsync() instead of setState() for trigger resets in throw.js to ensure database reliability
-- (copilot) ENHANCED: Corrected API endpoints in copilot-instructions.md - now documents /api/state, /api/config, /api/host, /api/version correctly
-- (copilot) TESTING: Added comprehensive unit tests for core modules (throw, visit, config, trafficLight, httpHelper)
+### 1.0.8 (2026-04-13)
+- (skvarel) Removed react and mui
+- (skvarel) Removed admin/style.css
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

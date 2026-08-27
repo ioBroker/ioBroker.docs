@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.poolcontrol/README.md
 title: ioBroker.poolcontrol
-hash: eIqeTqHW3nUxOeSsKahRRpawR5LYEU09UCdSTpXrdSw=
+hash: fvwFfs4ZipzQ1yq3AF5UcGKRPl2iRj9HGabHVEobors=
 ---
 # IoBroker.poolcontrol
 ![测试与发布](https://github.com/DasBo1975/ioBroker.poolcontrol/actions/workflows/test-and-release.yml/badge.svg)
@@ -17,148 +17,233 @@ hash: eIqeTqHW3nUxOeSsKahRRpawR5LYEU09UCdSTpXrdSw=
 ---
 
 ＃＃ 描述
-ioBroker.poolcontrol 适配器用于控制和监控泳池系统。
+适配器 ioBroker.poolcontrol 用于控制、监控和分析池系统。
 
-它支持水泵、温度和太阳能控制的自动化，并可进行能耗分析。
+它提供泵、加热、太阳能和光伏控制的自动化，以及监测、诊断、化学分析和能源评估。
 
 ---
 
 ＃＃ 特征
+### 控制与自动化
 - **泵控制**
 - 操作模式：自动、自动（PV）、手动、定时控制、关闭
-- 自动（PV）控制泵的运行取决于光伏发电盈余。
-- 错误检测（无功耗、即使“关闭”状态仍有功耗、过载）
+- 错误检测（无功耗、关机后仍耗电、过载）
 - 安全功能（防冻保护、过热保护）
+- 优先所有权和协助协调
 - 变速泵的泵功率建议
-
-- **温度管理**
-- 最多可连接 6 个传感器（表面、底部、流量、回流、收集器、外部温度）
-- 每日最低/最高
-- 每小时变化
-- 差异（例如，集热器 - 空气集热器、表面集热器 - 底部集热器、流动集热器 - 回流集热器）
-
-- **太阳能控制**
-- 具有滞后特性的开/关阈值
-- 集线器警告（低于阈值 10% 时自动复位）
-- 警告时可选择语音输出
-
-- **供暖/热泵控制（新增，测试阶段）**
-- 根据泳池温度自动控制加热棒或热泵
-- 目标温度和最高安全温度可配置
-- 仅在以下情况下有效：
-泳池开放时间已到。
-- 水泵模式**自动**
-维护模式未激活
-- 优先级逻辑：
-- 维护模式完全禁用加热控制
-- 加热功能不会干扰手动或定时泵模式
-- 加热结束后可配置泵的超负荷运转时间
-所有权保护：
-只有当水泵之前是由 heatHelper 本身开启时，水泵才会关闭。
-- 支持：
-- 可切换插座 **或**
-- 外部供暖系统的布尔控制状态
-- `heat.*` 下的内部状态和诊断部分
-纯粹的控制，**不涉及化学或太阳能逻辑**
-
-**注意：**此功能目前处于**测试阶段**。
-
-逻辑已完全实现，但初期仅供感兴趣的测试用户使用。
-
-- **光伏控制（自 v0.6.0 版本起）**
-- 基于光伏发电量和家庭用电量的自动水泵控制
-- 启动逻辑：盈余 ≥（泵额定功率 + 安全裕度）
-- 阴天期间可选择延时
-- 如果已达到每日发行量目标，则忽略此规则
-- 通过两个外部对象 ID（power_generated_id、power_house_id）进行配置
-- 新增泵模式“自动（PV）”
+- 学习功率和流量行为的功能（`pump.learning.*`）
 
 - **时间控制**
-- 每周最多可设置 3 个可自由配置的时间窗口
+- 最多可设置 3 个可自由配置的每周时间窗口
+- 持久配置值
+- 防止更新过程中被覆盖
+
+- **太阳能控制**
+- 带滞后特性的集电极开/关阈值
+- 用于仪表盘和脚本的实时收集器表面增量
+- 收集器警告阈值
+- 可选语音输出，用于发出警告
+自动复位逻辑
+
+- **太阳能扩展**
+- 外部太阳能执行器的独立控制
+- Delta 开/关阈值
+- 用于仪表板和脚本的实时收集池参考增量
+- 最高泳池温度限制
+- 诊断和原因状态
+- 优先级和阻塞逻辑
+- `solar.extended.*` 下的状态部分
+- 对 `solar.extended.pool_temperature_source` 的运行时更改会自动应用；因为 Solar Extended 使用循环检查间隔，计算、控制逻辑和 `solar.extended.collector_pool_reference_delta` 的更新可能需要长达大约 60 秒。
+
+- **光伏控制**
+- 基于光伏盈余和家庭用电量的水泵控制
+- 开始使用可配置盈余边际的逻辑
+- 阴天期间可选择延时
+- 当达到流通目标时忽略模式
+- 支持外部能源对象 ID
+- 水泵模式：`自动（PV）`
+
+- **供暖/热泵控制**
+- 加热棒或热泵的自动控制
+- 可配置的目标温度和安全温度
+- 可选泵预运行和超运行
+所有权保护
+- 维护阻塞逻辑
+- 支持可切换输出和布尔状态
+- 在 `heat.*` 下的内部状态和诊断
+- 不涉及化学或太阳能逻辑
+
+- **附加执行器**
+- 照明控制
+- 额外的泵
+- 随泵装置
+- 根据泵的运行情况自动开启/关闭
+- 外部目标状态的验证
+适用于紫外线系统、水景和辅助系统
+
+### 监测与诊断
+- **温度管理**
+- 最多可连接 6 个传感器：
+    - 表面
+- 地面/底部
+    - 流动
+    - 返回
+收藏家
+室外温度
+- 每日最小值/最大值
+- 每小时变化
+- 温度差异
+- 最后有效值跟踪
+- 源监测和诊断
+- 缺失更新的恢复逻辑
+- 来源状态评估
 
 - **放映时间和发行量**
-- 统计运行时间（今天，总计）
-- 计算每日循环量和剩余容量
-- 反冲洗提醒，间隔可配置（例如，每7天一次）
-- 显示上次反冲洗的日期
+- 运行时间计数器（今日/总计）
+- 循环计算和剩余容量
+- 运行时自愈
+反冲洗提醒系统
+- 最后一次反冲跟踪
 反冲洗完成后自动复位
-- PV 模式考虑循环状态（例如，“达到循环状态时忽略”）
+- 光伏发电集成以实现循环目标
 
-- **消耗量与成本**
-- 外部千瓦时表的评估
-- 每日、每周、每月和每年的消耗量
-- 基于可配置价格的电力成本计算
+- **压力传感器集成**
+- 实时压力测量
+趋势分析
+- 学习平均值
+- 自学习最小/最大范围
+- 诊断状态
+- 压力历史和评估
+- 支持外部传感器和 PoolControl PressureBox
+仅供参考（无自动控制）
 
-**注意：**有关能耗和成本值的变化详情（例如，重启后或更换电表时）请点击此处查看：
+- **系统检查**
+- 诊断和调试区域
+- 对选定的子系统进行监控
+- 内部调试日志
+- 手动清除日志
+- 用于分析和故障排除
 
-- [文档（英文）](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/en/help.md)
-- [文档（德语）](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/de/help.md)
-
+### 分析与洞察
 - **统计系统**
-- 包含每日、每周和每月值的 `analytics.statistics.*` 部分
-- 自动计算最小值、最大值、平均值和运行时间值
-- 完全持久化的数据点（安装后保护）
-- 每个传感器的 HTML 和 JSON 摘要以及总体概览
+- 每日/每周/每月统计数据
+- 最小值/最大值/平均值计算
+- 运行时评估
+- 持久状态
+- HTML 和 JSON 摘要
 
-- **压力传感器集成（自 v0.7.x 版本起）**
-- 实时过滤器压力测量
-趋势分析：上升/下降/稳定
-- 移动学习平均值（avg_bar）
-- 自学习最小/最大压力值
-- 诊断文本 + 最新更新
-- 无自动控制 - 纯粹信息提供
-- 用户可配置正常压力范围
+- **太阳能洞察**
+- 太阳能运行时间分析
+- 效率计算
+- 诊断输出
+- 每日日志
+- HTML / JSON / 文本输出
+仅供参考（无控制权）
 
-- **人工智能系统（自 v0.8.0 版本起）**
-- 模块：天气提示（OpenMeteo）、泳池小贴士、每日天气概览、周末天气预报
-- 自动文本输出，可选语音输出
-- 每小时更新天气信息，持续刷新
-- 反垃圾邮件系统，避免重复提示
+- **光伏洞察**
+- 运行时分析
+- 能源评估
+- 储蓄计算
+- 启动和运行统计数据
+- HTML/JSON摘要
 
-- **明日天气预报（aiForecastHelper，版本 0.8.0 及更高版本）**
-- 自动生成第二天的每日天气预报
-- 分析温度、天气状况、降雨概率和风力
-- 生成第二天泳池使用建议（例如，关闭盖子，预计太阳辐射热量较少）
-- 完全基于事件，仅需来自 ioBroker 地理数据的 Open-Meteo 数据
-- 在 `ai.weather.switches.*` 下设置单独的开关，用于启用/禁用各个预报功能
-- 结果存储在 `ai.weather.outputs.forecast_text` 下
+- **泳池洞察**
+- 基于规则的整体池分析，位于 analytics.insights.pool.*
+- 仅读取现有的 PoolControl 数据
+- 无自动控制、计量、泵切换或执行器切换
+- 默认禁用
+- 可选地将摘要移交给 speech.queue
+- HTML / JSON / 文本输出
 
-- **化学帮助（aiChemistryHelpHelper，版本 0.8.x 及更高版本）**
-- 用于水化学的交互式、纯粹信息型人工智能助手
-- 通过选择字段选择典型的泳池问题（例如，pH 值过高/过低、氯气无效、水变绿/浑浊）
-- 以文本形式清晰描述原因和解决方案
+- **支持可视化输出**
+- 结构化文本输出
+- HTML 输出
+- JSON 摘要
+- 适用于 VIS / VIS2 / 仪表盘
+
+### 化学与人工智能
+- **水质化学分析**
+
+**pH值**
+
+- 手动或外部来源
+- 测量位置逻辑
+- 稳定逻辑
+- 手动混合运行支持
 - 无自动加药
-- 无产品推荐
-- 无设备控制
-- 无语音输出（纯视觉信息）
-目标：了解原因并系统地进行处理（测量→纠正→过滤→再次测量）
-- `ai.chemistry_help.*` 下的数据点
 
-- **信息系统（自 v0.7.x 版本起）**
-- 适配器信息系统
-- 节日问候（圣诞节、新年、复活节）
-- 显示已安装的适配器版本
+**TDS**
+
+- 手动或外部来源
+- 趋势评估（24小时/7天/30天）
+- 参考值
+- 测量位置逻辑
+- HTML / JSON / 文本输出
+
+**氧化还原电位/氧化还原反应**
+
+- ORP评估
+- pH 参考支持
+仅供参考
+- 无氯控制
+- 无自动加药
+
+**双层边界化学史**
+
+- 现有的 samples_json 数据状态仍然是 7 天、每 15 分钟的短期历史记录：最多 672 个样本，每个样本 64 KB。
+- 新的内部 daily_json 状态以紧凑的方式保存本地日历日期聚合数据，包含最小值/最大值/平均值/最后更新日期/计数：最多 32 条记录，每条记录 8 KB。
+- 24 小时和 7 天趋势使用 samples_json；30 天趋势使用匹配的每日汇总数据的最后一个值。
+- 现有的 24 小时、7 天和 30 天趋势状态以及文本/HTML/JSON 报告保留其 API 和含义
+- 每日汇总数据是对原始历史数据的补充，但不会取代它们；有效的历史数据在迁移过程中会被规范化，过大的 JSON 数据会在解析前被拒绝。
+- 原始的长期历史数据应存储在专门的 ioBroker 历史/时间序列数据库中。
+- 如果过大的 states.jsonl 文件已经阻止了 js-controller 启动，则必须先从外部修复它，PoolControl 才能运行。
+
+化学工具
+
+- pH Plus 计算器
+- pH 减号计算器
+- 盐计算器
+- 手动计算辅助工具
+- 泳池容积预填充支持
+- 可选的手动值覆盖
+- 结果文本带有验证和错误处理功能
+
+-无自动化学药剂添加
+
+仅供参考
+
+- **人工智能系统**
+- 天气提示（Open-Meteo）
+泳池推荐
+- 每日摘要
+- 周末报道
+- 明日天气预报
+- 可选语音输出
+- 重复上下文跟踪
+
+- **化学帮助**
+- 互动式化学辅助
+- 典型的泳池问题选择
+原因和解决方案的解释
+- 无自动加药
+- 无设备控制
 
 - **语音输出**
-- 通过 Alexa 或 Telegram 输出
-- 关于水泵启动/停止、错误或温度阈值的公告
+- 支持 Alexa
+- Telegram 支持
+- 水泵、警告和温度通知
 
-- **系统检查（诊断部分）**
-- 用于调试和监控功能的内部诊断部分
-- 选择要监测的区域（例如，水泵、太阳能、温度）
-- 持续记录最新变更
-- 可手动清除日志
-
-本部分仅用于分析和故障排除。
-
-正常运行时，监控功能应保持禁用状态。
+### 信息系统
+- 适配器信息系统
+- 节日问候
+版本信息
 
 ---
 
 ＃＃ 配置
 配置是通过管理界面中的选项卡完成的：
 
-- **常规信息** → 泳池名称、泳池尺寸、最小循环水量
+- **常规信息** → 泳池名称、泳池尺寸、最小循环次数
 - **水泵** → 水泵功率、功率限制、安全功能
 - **温度** → 传感器选择和对象 ID
 - **太阳能管理** → 开/关阈值、滞后、警告阈值
@@ -173,7 +258,7 @@ ioBroker.poolcontrol 适配器用于控制和监控泳池系统。
 - 统计数据导出功能（CSV/Excel）
 - 用于自动系统检查的诊断助手
 - VIS/VIS2（图形化泳池和太阳能可视化）的自有小部件
-- 控制泳池照明、阀门和逆流系统
+- 阀门和逆流系统的专用控制模块
 - 集成其他传感器盒（例如，温度盒、压力盒、液位盒）
 - AI 和语音助手扩展（每日报告、提示、语音命令）
 
@@ -187,269 +272,20 @@ ioBroker.poolcontrol 适配器用于控制和监控泳池系统。
 ---
 
 ## 文档
-- [help.md（详细说明和注释）](./help.md)
+＃＃＃ 英语
+- [文档/帮助](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/en/help.md)
+- [函数概述](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/en/function_overview.md)
+
+### 德语
+- [文档/Hilfe](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/de/help.md)
+- [Funktionsübersicht](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/docs/de/funktionsuebersicht.md)
 
 ---
 
-## 1.2.19 (2026-04-10)
-- 修复了 `photovoltaicHelper` 和 `controlHelper` 之间的交互问题，该问题会导致自动后续泵送意外停止。
-- photovoltaicHelper 现在会遵循 controlHelper 的优先级，并且在自动后续泵送运行时不再停止水泵。
-- 修复了当泵从外部停止时，`controlHelper` 可能仍处于“nachpumpen”状态的问题
-- `photovoltaic.threshold_w` 现在已与实例配置正确同步
-- 适配器设置中光伏剩余阈值的更改现在可以可靠地反映在相应的只读数据点中。
+## 已存档的发布历史记录
+有关旧版本和存档版本历史记录，请参阅：
 
-### 2018年1月2日
-发布日期：2026年4月7日
-
-- 修复了 `status.season_active` 的持久性问题（适配器启动时不再被覆盖）
-- 提高了防冻设置的持久性
-
-### 2017年1月2日
-发布日期：2026年4月7日
-
-- 修复：解决了压力学习重置按钮无法可靠触发的问题。pumpHelper4 现在会显式订阅其相关的内部状态，以确保事件得到正确处理。
-
-### 2015年1月2日
-发布日期：2026年3月22日
-
-- 修复 i18n 使用问题（将 I18n.t 替换为 I18n.translate），以解决某些系统上的适配器启动崩溃和重启循环问题。
-
-### 2014年1月2日
-发布日期：2026年3月22日
-
-- ### 为化学帮助文本添加国际化支持
-
-### 2013年1月2日
-发布日期：2026年3月22日
-
-- 添加了多语言的州名和描述（德语/英语）
-- 提高了所有州文本的一致性
-- 对文本和结构进行了一些细微的修改
-
-### 1.2.12
-发布日期：2026年3月21日
-
-- 清理和修复 ioBroker 仓库检查器的问题
-- 已在 io-package.json 中恢复所需的本地对象
-- 删除了无效属性和过时的条目
-- 更新了 README 文件
-
-### 1.2.11
-- 代码库清理（已解决 ioBroker 检查器问题）
-- 从 io-package.json 中移除无效属性
-- README 文件已更新
-
-### 1.2.10 (2026-03-20)
-- 改进了管理界面（jsonConfig）中的德语翻译
-- 修正了不正确和误导性的术语（例如，流量传感器与温度传感器）
-- 改进了所有配置选项的一致性和措辞
-
-### 1.2.9
-发布日期：2026年3月19日
-
-- 修复：更正运行时通道中无效的公共对象。
-
-### 1.2.7
-发布日期：2026年3月16日
-
-- 根据 ioBroker 指南修正了可写状态的角色定义
-- 多个内部学习和诊断状态设置为只读
-- 从存储库中删除了过时的文件
-
-### 1.2.6
-发布日期：2026年3月12日
-
-- 修复了剩余的适配器检查器问题
-- 将发布脚本插件更新到最新版本
-- 将剩余的日志消息转换为英文
-- 更新了 Dependabot 配置（添加了 GitHub Actions 生态系统）
-- 减少了 io-package.json 中的 `common.news` 条目，以符合仓库要求
-
-### 1.2.5
-发布日期：2026年3月7日
-
-- 修复了 `actuatorsHelper` 中某些情况下状态更改处理不正确的问题
-- 进行了一些内部小改进和稳定性修复
-
-### 1.2.4
-发布日期：2026年3月7日
-
-- 修复：actuatorsHelper 未将实例配置与内部状态（活动/名称）同步。导致无法激活其他执行器。
-
-### 1.2.3
-发布日期：2026年3月6日
-
-- 将原生定时器（setTimeout / setInterval）替换为适配器定时器（adapter.setTimeout / adapter.setInterval）
-- 增加了适配器卸载时定时器的正确清理功能
-- 内部代码清理和维护改进
-
-### 1.2.2
-发布日期：2026年3月6日
-
-- 将所需的管理员版本提高到 >=7.6.20
-- jsonConfig i18n 重构后更新了翻译
-- 维护性更新（无功能变更）
-
-### 1.2.1
-发布日期：2026年3月6日
-
-- 将管理员配置迁移到 i18n 翻译环境
-- jsonConfig 现在使用英文标签，翻译在 admin/i18n 中进行管理。
-- 使用 `npm run translate` 生成的翻译
-
-### 1.2.0
-发布日期：2026年2月15日
-
-- 在 jsonConfig 中激活多语言支持 (i18n)。
-- 实例配置的双语标签（德语/英语）
-- 适配器功能未做任何更改
-
-## V1.1.0 水泵功率建议（2026年1月23日）
-- **泵功率建议（自 v1.1.0 起）**
-- 新增被动部分 `pump.speed`
-- 得出运行中水泵的清晰逻辑性能状态：
-- `off`、`frost`、`low`、`normal`、`high`、`boost`
-- 性能状态完全取决于：
-- 现有泵逻辑
-- 主动助手（例如，防霜、太阳能、维护）
-- 当前泵状态
-此外，还提供**推荐泵功率百分比（0-100%）**
-百分比值**可自由配置**，并且**防止过度安装**。
-- **无主动速度控制**
-- **不干扰现有泵的控制**
-- 旨在连接外部系统，例如：
-- Shelly 0–10 V
-- 变频器
-- Blockly / 脚本
-
-## V1.0.0 附加执行器（照明和辅助泵）（2026年2月1日）
-- 控制可选泳池执行器：
-- 泳池照明（最多 3 个通道）
-- 辅助水泵/游乐设施（最多 3 个通道）
-- 通过管理界面进行完整配置：
-- 通过复选框激活每个执行器
-- 分配**外部对象 ID**
-
-（例如，可切换的套接字或布尔控制状态）
-
-- 支持的操作模式：
-- 开/关
-- 定时运行（运行时间，以分钟为单位）
-- 连续运行
-- 内部状态和控制状态：
-- 当前运行状态
-剩余运行时间
-- 切换状态和操作模式
-- 清晰的系统分离：
-- 附加执行器**不**
-
-影响水泵、太阳能、供暖或人工智能逻辑
-
-- 纯可选的系统扩展
-
-## V0.9.0
-- 引入供暖/热泵控制（“heatHelper”）
-- 根据泳池温度自动发出加热请求
-- 目标温度和最高温度可配置
-- 支持：
-可切换插座
-- 布尔控制状态
-加热结束后泵的超负荷运转时间
-- 优先级系统：
-- 维护模式会阻止加热控制
-- 仅在自动模式下有效
-- 考虑赛季状态
-- 泵控制的所有权保护
-- 新增内部状态 `heat.heating_request`，用于外部评估
-
-## V0.8.2 (2025-12-25)
-- 新增人工智能模块**化学助手**（`aiChemistryHelpHelper`）
-- 纯粹提供泳池水化学信息的支持系统
-- 常见泳池问题示例（例如，pH值过高/过低、氯气消毒效果不佳、水体变绿/浑浊）
-- 以文本输出形式提供清晰的原因和解决方案提示
-- 无自动加药
-- 无产品推荐
-- 无设备或泵控制
-- 无语音输出（纯视觉信息）
-- `ai.chemistry_help.*` 下新增数据点
-
-## V0.8.0 (2025-12-08)
-- 模块：天气提示（OpenMeteo）、泳池小贴士、每日天气概览、周末天气预报
-- 自动文本输出，可选语音输出
-- 每小时更新天气信息，持续刷新
-- 反垃圾邮件系统，避免重复提示
-- 集成了新的AI预测系统`aiForecastHelper`
-- 每日自动生成“明日预测”，内容包括：
-温度范围
-天气描述
-降雨概率
-- 风力分析（微风/中风/强风）
-- 第二天泳池推荐
-- `ai.weather.*` 下新增开关、日程安排和输出
-- 实例启动后立即执行
-- “帮助与信息”下的扩展管理员概览，包含重要的 AI 说明
-- 改进了人工智能系统的内部结构（aiHelper + aiForecastHelper）
-
-## V0.7.4 (2025-12-03)
-- 修复了 ControlHelper 中的一个错误。为 control.circulation.mode 提供持久保护
-
-## V0.7.0 (2025-11-29)
-- 在 `pump.pressure.*` 下引入新的压力传感器系统
-- 支持外部压力传感器对象 ID（来自 ioBroker 的 bar 值）
-- 趋势检测（上升/下降/稳定）和移动压力平均值
-- 具有手动重置状态的自学习最小/最大压力值
-- 新增诊断文本（`status_text_diagnostic`），包含扩展分析信息
-- 扩展泵监测功能，不具备自动控制逻辑（纯信息功能）
-
-## V0.6.2 (2025-11-07)
-- 修改实例概览，采用新的标题结构，使操作更清晰
-- 新的起始页图片“Egon in Workwear”已集成到管理界面中
-- 扩展语音系统，可配置 Alexa 输出时间
-- 对 jsonConfig、speechHelper 和 speechStates 进行调整和清理
-
-## V0.6.0 (2025-11-03)
-- 引入带自动泵逻辑的全光伏控制
-
-（新泵模式 `Automatic (PV)`，位于 `pump.mode` 下）
-
-- 适配器根据可配置的家庭用电量和发电量对光伏发电盈余做出反应
-- 启动逻辑：当过剩功率≥（额定功率+阈值）时，泵开启
-- 考虑季节状态、超时时间和可选的“已达到发行量”保护措施
-- 自动迁移功能在现有安装中添加了新的模式 `auto_pv`。
-- 改进了内部逻辑、持久性和调试日志记录
-
-## V0.5.5 (2025-11-01)
-- 修复了周统计和月统计中的无限循环问题
-
-## V0.5.3 (2025-10-30)
-- 新增 Telegram 用户选择
-
-## V0.5.2 (2025-10-30)
-## V0.5.0 (2025-10-28)
-### **0.4.0 (2025年10月26日)**
-**新增功能**
-
-- 引入了新的统计系统，位于 `analytics.statistics.temperature.today` 下
-自动采集所有活动温度传感器的**最小值、最大值和平均值**
-- 每个传感器：持续更新的 JSON 和 HTML 摘要
-- 所有传感器的总输出（表格）
-
-`analytics.statistics.temperature.today.outputs.summary_all_html`
-
-- 完全**持久化数据点**，并具有覆盖安装保护功能
-- **每日重置自动午夜重置**，包含时间戳
-- 为未来的每周、每月和季节性统计数据做准备
-
-改进之处
-
-- 通过新的主文件夹“analytics”实现统一的结构
-- 无永久循环或定时器负载——纯事件处理
-- 提升了性能和内存稳定性
-- 修改了启动时所有统计状态的初始化方式
-
-**注意** 此版本构成了所有后续统计和分析功能的稳定基础（例如，每周和每月统计、历史记录和效率评估）。
-
-*（旧版本请参见[io-package.json](./io-package.json)）*
+[变更日志_旧版.md](./CHANGELOG_OLD.md)
 
 ---
 
@@ -475,23 +311,64 @@ ioBroker.poolcontrol 适配器用于控制和监控泳池系统。
 
 ---
 
-## Changelog
+## 法律声明
+PoolControl 是由 D. Bertin (DasBo1975) 开发的开源项目。
 
-## License
+- PoolControl 名称和相关徽标均为原创作品，可在开源出版物（适配器、GitHub 存储库、wiki、文档、可视化）范围内自由使用。
 
-PoolControl is an open-source project developed by D. Bertin (DasBo1975).
+- 商业用途、再分发或以修改形式出版（尤其是作为商业产品或服务的一部分）需要获得作者的明确许可。
 
-- The name PoolControl and the associated logo are original developments and may be freely used within the scope of the open-source publication (adapter, GitHub repository, wiki, documentation, visualizations).
+- 所有已开发的传感器、硬件和外壳结构（例如温度、压力、液位、电子元件或控制箱），包括设计、原理图、3D 模型和内部结构，均受 D. Bertin (DasBo1975) 的版权保护。
 
-- Commercial use, redistribution or publication in modified form (especially as part of a commercial product or service) requires the explicit permission of the author.
+- 未经作者书面授权，不得出版、复制用于转售或商业用途。
 
-- All developed sensor, hardware and enclosure constructions (e.g., temperature, pressure, level, electronics or control boxes) including designs, schematics, 3D models and internal constructions are subject to the copyright of D. Bertin (DasBo1975).
-
-- Publication, reproduction for resale or commercial use of these hardware designs is only permitted with written authorization from the author.
-
-The software source code of this project is licensed under the MIT License. See LICENSE for details.
+本项目的软件源代码采用 MIT 许可证授权。详情请参阅 LICENSE 文件。
 
 ---
+
+## Changelog
+### 1.4.2 (2026-07-01)
+
+- Fixed monthly temperature statistics reset scheduling
+  - Monthly reset no longer uses long timeouts above the Node.js/ioBroker limit
+  - Added persistent monthly period tracking
+  - Missed month changes after adapter downtime are detected safely
+  - Monthly reset is now checked daily and executed only once per period
+
+- Improved solar logbook logging
+  - Oversized solar logbook entries are now logged as debug instead of warning
+  - This avoids unnecessary warning noise for non-critical diagnostic information
+
+### 1.4.1 (2026-06-30)
+
+- Fixed Auto-PV holding logic for already running pumps.
+- When Auto-PV already controls the pump, the current pump power is now considered for the holding decision.
+- This prevents a running pump from triggering its own Auto-PV afterrun/stop cycle after startup.
+- The displayed PV surplus (`photovoltaic.power_surplus_w`) remains the real remaining surplus and is not artificially adjusted.
+
+### 1.4.0 (2026-06-29)
+
+- Added a reset button for pump learning to quickly clear learned values after a pump replacement or incorrect learning while keeping user settings intact.
+- Made the daily circulation factor writable and persistent. The adapter configuration is now only used as the initial value, allowing adjustments directly via states (e.g. VIS or HomePanel).
+- Added an optional temperature-dependent circulation factor that automatically increases the required daily circulation based on a selectable temperature sensor and configurable threshold.
+- Extended the existing time control with an optional interval mode. Each time window can now operate either continuously or in configurable intervals without introducing a new pump mode.
+- Added new diagnostic states and multilingual status messages to improve transparency and troubleshooting for the new circulation and time control features.
+
+### 1.3.35 (2026-06-29)
+
+- Fixed an inconsistency in the daily circulation calculation.
+- `circulation.daily_remaining` is now recalculated together with `circulation.daily_required`.
+- Changing the pool size or minimum daily circulation now produces consistent values immediately after adapter restart.
+- The remaining daily circulation is no longer blocked by zero flow or a stopped pump.
+
+### 1.3.34 (2026-06-27)
+
+- **Major stability improvement:** Completely redesigned the internal chemistry history (pH, ORP and TDS) to prevent unbounded JSON state growth. This significantly reduces the risk of oversized `states.jsonl` files and potential js-controller startup failures.
+- **New two-stage history architecture:** Chemistry history now uses a compact short-term history for recent measurements together with a dedicated daily history for long-term trends. All existing 24-hour, 7-day and 30-day trend calculations and reports remain fully available.
+- **Protected history storage:** Added strict limits for chemistry history sample count and JSON size. Oversized or invalid history states are now safely detected, validated and handled before being processed.
+- **Daily aggregates introduced:** Added compact daily aggregates for pH, ORP and TDS containing minimum, maximum, average and last measurement together with the number of valid samples. This preserves long-term trend analysis without storing large raw histories.
+- **Additional safeguards:** Added size protection for the solar logbook and debug log to prevent uncontrolled state growth.
+- **Maintenance:** Updated the `@iobroker/adapter-core` dependency to the latest recommended version.
 
 ## License
 Copyright (c) 2026 D. Bertin (DasBo1975) <dasbo1975@outlook.de>  

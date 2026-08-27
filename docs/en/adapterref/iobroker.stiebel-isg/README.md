@@ -47,6 +47,9 @@ If you update this adapter from a previous version instead of a new installation
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.0.3 (2026-03-04) - 2026H1 maintenance release
 
 * (copilot) Adapter requires admin >= 7.7.22 now
@@ -75,6 +78,8 @@ If you update this adapter from a previous version instead of a new installation
 ### 1.7.7
 
 * security- and compatibility update
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Legal Notices
 

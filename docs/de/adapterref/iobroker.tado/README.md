@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: 7yLbgbElOKGLdbPXvmA+mjat20QDtzBYxvZoOhg61A4=
+hash: sgMi8ip7i3DD0KjdinO2R2DLWqJ/4yUuHcXVFqzmFYs=
 ---
 # IoBroker.tado
 
@@ -23,11 +23,11 @@ Tado° (https://www.tado.com) ist Ihr Experte für intelligentes Heizen und Ener
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## !WICHTIG! Tado° wird API-Aufrufbeschränkungen einführen.
-Tado führt ein Limit für API-Aufrufe ein. Nutzer ohne Auto-Assist-Abonnement sind auf 100 Aufrufe pro Tag beschränkt, mit einem Abonnement sind es bis zu 20.000 Aufrufe.
+## !WICHTIG! Tado° hat API-Aufrufbeschränkungen eingeführt.
+Tado hat die Anzahl der API-Aufrufe begrenzt. Nutzer ohne Auto-Assist-Abonnement können maximal 100 Aufrufe pro Tag tätigen.
 
 Weitere Informationen finden Sie im Artikel [Das](https://support.tado.com/en/articles/12165739-limitation-for-rest-api-usage).
-Der Tado ioBroker-Adapter wurde um eine neue Funktion erweitert, die neue Konfigurationsmöglichkeiten zur Verwaltung der API-Nutzung bietet. Das tägliche Limit von 100 Aufrufen bedeutet jedoch, dass der Adapter ohne Auto-Assist-Abonnement nicht nutzbar ist. Dies entspricht nur etwa vier Anfragen pro Stunde, was die Funktionalität des Adapters erheblich einschränkt.
+Der Tado ioBroker-Adapter wurde um eine neue Funktion erweitert, die erweiterte Konfigurationsmöglichkeiten zur Verwaltung der API-Nutzung bietet. Aufgrund der täglichen Beschränkung auf 100 Aufrufe ist der Adapter jedoch ohne Auto-Assist-Abonnement nicht nutzbar. Dies entspricht lediglich etwa vier Anfragen pro Stunde, was die Funktionalität des Adapters erheblich einschränkt.
 Wenn Sie mit Tados Entscheidung nicht einverstanden sind, sollten Sie ihnen das mitteilen! [wissen](https://support.tado.com/de/articles/3590239-wie-kann-ich-den-kundensupport-von-tado-kontaktieren)
 
 ## Tado° X
@@ -73,7 +73,7 @@ Falls Ihre Konfiguration nicht funktioniert, melden Sie bitte ein Problem mit de
 | tado.[x].[yyyyyy].meterReadings | Ein JSON-Objekt mit {"date":"YYYY-MM-DD","reading": 1234} kann verwendet werden, um Zählerstände zu Energy IQ hochzuladen |
 
 ## Erfordert
-* Node.js 20 oder höher
+* Node.js 22 oder höher
 * ioBroker-Host (js-Controller) Version 7.0.6 oder höher
 * iorBroker.admin 7.7.2 oder höher
 
@@ -82,6 +82,22 @@ Falls Ihre Konfiguration nicht funktioniert, melden Sie bitte ein Problem mit de
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+
+### 0.8.5 (2026-06-19)
+* (HGlab01) improve code quality
+* (HGlab01) add attribute adminUserId
+* (HGlab01) use automated translation into several languages
+* (HGlab01) bump axios to 1.8.0
+
+### 0.8.4 (2026-02-24)
+* (HGlab01) checkExpire for termination-attributes
+* (HGlab01) add attributes 'smartReminders' & 'smartRemindersInAppEnabled'
+* (HGlab01) fix #1107 masterswitch turning OFF does not work any longer
+* (HGlab01) fix #1117 Request failed with status code 400 with response "Unsupported content type"
+* (HGlab01) bump axios to 1.13.5
+
 ### 0.8.3 (2025-11-13)
 * (HGlab01) add capability to set OffSet [TadoX]
 * (HGlab01) Implement deboucing also for TadoX
@@ -101,24 +117,12 @@ Falls Ihre Konfiguration nicht funktioniert, melden Sie bitte ein Problem mit de
 * (HGlab01) fix issue 'cannot read properties of undefined (reading 'match')'
 * (HGlab01) fix issue openWindow data not up to date #1086
 
-### 0.8.0 (2025-10-07)
-* (HGlab01) new configuration capabilities to manage API usage quota (#1047, #1048)
-* (HGlab01) Implement API debouncing
-* (HGlab01) Refactorings Tado API calls
-* (HGlab01) fix issue 'definition missing for awayMode' [TadoX]
-* (HGlab01) fix issue 'definition missing for preheating' [TadoX]
-* (HGlab01) Additional guidance/log when it comes to RefreshToken issue
-* (HGlab01) fix Object of state "tado.0.xxxxx.Rooms.y.openWindow" is missing the required property "common.type" (#1059)
-* (HGlab01) Bump axios to 1.12.2
-* (HGlab01) Bump iobroker-jsonexplorer to 0.2.0
-
-### 0.7.10 (2025-04-25)
-* (HGlab01) further token refresh optimizations
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com> & DutchmanNL <oss@drozmotix.eu>
+Copyright (c) 2020-2026 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -136,5 +140,6 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
 
 SOFTWARE.

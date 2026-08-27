@@ -139,11 +139,12 @@ You can install it via GitHub icon in admin by entering `iobroker.jsonconfig-dem
 - [**`certificateCollection`:**](#certificatecollection) Selects a collection for Let's Encrypt certificates
 - [**`certificates`:**](#certificates) Universal type for managing different certificate types (from Admin 6.4.0)
 - [**`checkbox`:**](#checkbox) Checkbox for boolean values
-- [**`checkDocker`:**](#checkdocker) Special component to check if the docker available and if yes, you can activate a checkbox (from Admin 7.8.0)
+- [**`checkDocker`:**](#checkdocker) Special component to check if the docker is available and if yes, you can activate a checkbox (from Admin 7.8.0)
 - [**`checkLicense`:**](#checklicense) Very special component to check the license online
 - [**`chips`:**](#chips) User can enter words that are added to an array
 - [**`color`:**](#color) Color picker
 - [**`coordinates`:**](#coordinates) Determines current location and used `system.config` coordinates if not possible in form `latitude,longitude`
+- [**`credential`:**](#credential) Selects a credential from the central credential storage (managed in admin settings)
 - [**`cron`:**](#cron) Configures cron expressions for scheduling tasks
 - [**`custom`:**](#custom) Integrates custom components for specific functionalities (Admin 6 only)
 - [**`datePicker`:**](#datepicker) Allows users to select a date
@@ -442,11 +443,27 @@ Select function from `enum.func` (With color and icon) - (only Admin6)
 
 ### `select`
 
-| Property        | Description                                                               |
-|-----------------|---------------------------------------------------------------------------|
-| `options`       | object with labels, optional translations, optional grouping and values   |
-| `multiple`      | Multiple choice select (From 7.6.5)                                       |
-| `showAllValues` | show item even if no label was found for it (by multiple), default=`true` |
+| Property        | Description                                                                                                    |
+|-----------------|----------------------------------------------------------------------------------------------------------------|
+| `options`       | object with labels, optional translations, optional grouping and values                                        |
+| `multiple`      | Multiple choice select (From 7.6.5)                                                                            |
+| `showAllValues` | show item even if no label was found for it (by multiple), default=`true`                                      |
+| `format`        | Render format: `"dropdown"` (default) or `"radio"` to display options as radio buttons instead of a dropdown   |
+| `horizontal`    | If `true`, radio buttons are shown horizontally (only applies when `format` is `"radio"`) (from v8.3.3)        |
+
+Each option in `options` can have:
+
+| Property      | Description                                                           |
+|---------------|-----------------------------------------------------------------------|
+| `label`       | Label of the option (can be a string or translatable object)          |
+| `value`       | Value of the option                                                   |
+| `color`       | Color of the option text                                              |
+| `hidden`      | Formula or boolean value to show or hide the option                   |
+| `os`          | Show the option only on these operating systems of the host           |
+| `notOs`       | Do not show the option on these operating systems of the host         |
+| `docker`      | Show the option only if the ioBroker runs (`true`) or not (`false`) in docker |
+| `description` | Description shown below the option label (can be translatable)        |
+| `icon`        | Icon URL or base64 string to display next to the option (from v8.3.3) |
 
 #### Example for `select options`
 
@@ -530,10 +547,12 @@ To use this, you must first provide the OAuth2 data (client ID, secret, etc.) to
 
 | Property       | Description                                                                                                                                                   |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `identifier`   | Oauth2 identifier, like `spotify`, `google`, `dropbox`, `microsoft`                                                                                           |                                                                      
-| `saveTokenIn`  | Optional state name where the token will be saved. Default is `oauth2Tokens`. The path is relative to the adapter instance, like `adapterName.X.oauth2Tokens` |
-| `scope`        | Optional scopes divided by space, e.g. `user-read-private user-read-email`                                                                                    |
-| `refreshLabel` | Optional button label for refreshing the token                                                                                                                |
+| `identifier`      | Oauth2 identifier, like `spotify`, `google`, `dropbox`, `microsoft`                                                                                           |
+| `saveTokenIn`     | Optional state name where the token will be saved. Default is `oauth2Tokens`. The path is relative to the adapter instance, like `adapterName.X.oauth2Tokens` |
+| `scope`           | Optional scopes divided by space, e.g. `user-read-private user-read-email`                                                                                    |
+| `refreshLabel`    | Optional button label for refreshing the token                                                                                                                |
+| `ownClientId`     | Optional attribute name where the user's own OAuth Client ID will be stored. If set, an input field for Client ID is shown                                    |
+| `ownClientSecret` | Optional attribute name where the user's own OAuth Client Secret will be stored. If set, an input field for Client Secret is shown                             |
 
 #### Example for `oauth2`
 
@@ -552,12 +571,13 @@ See also [OAUTH2.md](OAUTH2.md) for more information.
 
 object ID: show it with name, color and icon
 
-| Property       | Description                                                                                                                                                                           |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `types`        | Desired type: `channel`, `device`, ... (has only `state` by default). It is plural, because `type` is already occupied.                                                               |
-| `root`         | [optional] Show only this root object and its children                                                                                                                                |
-| `customFilter` | [optional] Cannot be used together with `type` settings. It is an object and not a JSON string.                                                                                       |
-| `filterFunc`   | [optional] Cannot be used together with `type` settings. It is a function that will be called for every object and must return true or false. Example: `obj.common.type === 'number'` |
+| Property       | Description                                                                                                                                                                                                                                                                                                              |
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `types`        | Desired type: `channel`, `device`, ... (has only `state` by default). It is plural, because `type` is already occupied.                                                                                                                                                                                                  |
+| `root`         | [optional] Show only this root object and its children                                                                                                                                                                                                                                                                   |
+| `customFilter` | [optional] Cannot be used together with `types` settings. It is an object and not a JSON string.                                                                                                                                                                                                                         |
+| `filterFunc`   | [optional] Cannot be used together with `types` settings. It is a function that will be called for every object and must return true or false. Example: `obj.common.type === 'number'`                                                                                                                                   |
+| `fillOnSelect` | [optional] Fill other config fields when an object ID is selected. Format: `pathInObject1=>attr1,pathInObject2=>attr2(X)`. Append `(X)` to overwrite non-empty fields. Example: `common.name=>name,common.color=>color(X)` fills the `name` field with the object's name and overwrites `color` with the object's color. |
 
 #### Examples for `customFilter`
 
@@ -678,6 +698,7 @@ Button that sends a request to the current instance (<https://github.com/iobroke
 | `timeout`       | timeout for request in ms. Default: none.                                                                                                                                                                                                    |
 | `onLoaded`      | execute the button logic once initially                                                                                                                                                                                                      |
 | `controlStyle`  | Styles for the button.                                                                                                                                                                                                                       |
+| `instance`      | Instance where to send the request to (e.g. `"admin.0"`). Overrides `oContext.instance`. If not defined, the request is sent to the current adapter instance. You can use `${data.number}` pattern in the text.                              |
 
 ### `setState`
 
@@ -693,34 +714,48 @@ button that sets instance's state
 
 ### `staticText`
 
-static text like description
+Static text like description
 
-| Property | Description         |
-|----------|---------------------|
-| `label`  | multi-language text |
-| `text`   | same as label       |
+| Property       | Description                                                                                                                                                                                                                                                                     |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `label`        | multi-language text                                                                                                                                                                                                                                                             |
+| `text`         | same as label                                                                                                                                                                                                                                                                   |
+| `format`       | `text` (default), `html`, `json` (from admin version 7.8.4)                                                                                                                                                                                                                    |
+| `href`         | link. Link could be dynamic like `#tab-objects/customs/${data.parentId}`                                                                                                                                                                                                        |
+| `target`       | `_blank` or `_self` or window name. For relative links the default is `_self` and for absolute - `_blank`                                                                                                                                                                       |
+| `close`        | if true, the GUI will be closed (used not for JsonConfig in admin, but for dynamic GUI, only if the target is `_self`)                                                                                                                                                          |
+| `button`       | show a link as a button                                                                                                                                                                                                                                                         |
+| `variant`      | type of button (`outlined`, `contained`, `text`)                                                                                                                                                                                                                                |
+| `color`        | color of button (e.g. `primary`)                                                                                                                                                                                                                                                |
+| `icon`         | if icon should be shown: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. You can use `base64` icons (it starts with `data:image/svg+xml;base64,...`) or `jpg/png` images (ends with `.png`) . (Request via issue if you need more icons) |
+| `controlStyle` | CSS Styles in React format for the button or control itself                                                                                                                                                                                                                     |
 
 exactly one of `label` or `text` must be specified - not both
 
 ### `staticLink`
 
-| Property  | Description                                                                                                                                                                                                                                                                     |
-|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `label`   | multi-language text                                                                                                                                                                                                                                                             |
-| `href`    | link. Link could be dynamic like `#tab-objects/customs/${data.parentId}`                                                                                                                                                                                                        |
-| `target`  | `_blank` or `_self` or window name                                                                                                                                                                                                                                              |
-| `close`   | if true, the GUI will be closed (used not for JsonConfig in admin, but for dynamic GUI)                                                                                                                                                                                         |
-| `button`  | show a link as button                                                                                                                                                                                                                                                           |
-| `variant` | type of button (`outlined`, `contained`, `text`)                                                                                                                                                                                                                                |
-| `color`   | color of button (e.g. `primary`)                                                                                                                                                                                                                                                |
-| `icon`    | if icon should be shown: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. You can use `base64` icons (it starts with `data:image/svg+xml;base64,...`) or `jpg/png` images (ends with `.png`) . (Request via issue if you need more icons) |
+| Property       | Description                                                                                                                                                                                                                                                                     |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `label`        | multi-language text                                                                                                                                                                                                                                                             |
+| `href`         | link. Link could be dynamic like `#tab-objects/customs/${data.parentId}`                                                                                                                                                                                                        |
+| `target`       | `_blank` or `_self` or window name. For relative links the default is `_self` and for absolute - `_blank`                                                                                                                                                                       |
+| `close`        | if true, the GUI will be closed (used not for JsonConfig in admin, but for dynamic GUI, only if the target is `_self`)                                                                                                                                                          |
+| `button`       | show a link as button                                                                                                                                                                                                                                                           |
+| `variant`      | type of button (`outlined`, `contained`, `text`)                                                                                                                                                                                                                                |
+| `color`        | color of button (e.g. `primary`)                                                                                                                                                                                                                                                |
+| `icon`         | if icon should be shown: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. You can use `base64` icons (it starts with `data:image/svg+xml;base64,...`) or `jpg/png` images (ends with `.png`) . (Request via issue if you need more icons) |
+| `controlStyle` | CSS Styles in React format for the button or control itself                                                                                                                                                                                                                     |
+| `format`       | `text` (default), `html`, `json`                                                                                                                                                                                                                                                |
 
 ### `staticImage`
 
-| Property | Description                            |
-|----------|----------------------------------------|
-| `href`   | optional HTTP link                     |
-| `src`    | name of picture (from admin directory) |
+| Property                   | Description                                                                                  |
+|----------------------------|----------------------------------------------------------------------------------------------|
+| `href`                     | optional HTTP link                                                                           |
+| `src`                      | name of picture (from admin directory)                                                       |
+| `showInDialog`             | if true, a small thumbnail is shown and clicking it opens a dialog with the full-size image  |
+| `showInDialogButtonLabel`  | if `showInDialog`, an optional label for a button that also opens the dialog                 |
+| `showInDialogSmallSize`    | if `showInDialog`, the height of the small thumbnail in pixels (default 100)                 |
 
 ### `table`
 
@@ -815,6 +850,50 @@ select a certificate collection or just use all collections or don't use let's e
 | Property           | Description                        |
 |--------------------|------------------------------------|
 | `leCollectionName` | name of the certificate collection |
+
+### `credential`
+
+select a credential from the central credential storage. The credentials can be managed in the admin settings
+(Settings → Credentials), and the adapter configuration only stores the ID of the selected credential
+(like `system.credentials.anthropic`) in the given attribute.
+
+Unless `disableCreation` is set, a **➕ button** is shown next to the selector that opens a small "Add credential"
+dialog right there — similar to the admin dialog. It offers templates (with icons) filtered by `credentialType`
+(e.g. Anthropic / ChatGPT / Google Gemini for `ai`, plus the generic "Login & password" and "Key" templates).
+The chosen template defines the form, a proposed name and the icon; the secret fields are encrypted with the
+system secret on save. The newly created credential is stored as `system.credentials.<name>` and is selected
+immediately.
+
+| Property          | Description                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------------------|
+| `credentialType`  | show only credentials of this type: `email`, `cloud`, `ai` or `custom`. If not defined, all credentials are listed   |
+| `disableCreation` | if `true`, hide the ➕ button so the user can only pick an existing credential (no creation at this place)            |
+
+Example:
+
+```json
+{
+  "credentialId": {
+    "type": "credential",
+    "credentialType": "email",
+    "label": "E-Mail account",
+    "disableCreation": false,
+    "sm": 6
+  }
+}
+```
+
+Every credential has one of two forms: `login` (a `login` and a `password` field) or `key`
+(a single `key` field, e.g. an API key). In the adapter, read and decrypt the credential
+with `@iobroker/adapter-core`:
+
+```typescript
+import { Credentials } from '@iobroker/adapter-core';
+
+const cred = await Credentials.getCredentials<Credentials.LoginPasswordCredentials>(this, this.config.credentialId);
+// cred.values.login, cred.values.password (already decrypted)
+// or for the key form: Credentials.KeyCredentials -> cred.values.key
+```
 
 ### `custom`
 
@@ -915,14 +994,15 @@ only Admin6.
 
 shows the image received from the backend as base64 string
 
-| Property           | Description                                                                                                                                                 |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `width`            | width of QR code in px                                                                                                                                      |
-| `height`           | height of QR code in px                                                                                                                                     |
-| `command`          | sendTo command                                                                                                                                              |
-| `jsonData`         | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to backend                                         |
-| `data`             | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to backend if jsonData is not defined. |
-| `sendFirstByClick` | show image first when clicked. `true` - standard text (Click to show) or specific text                                                                      |
+| Property           | Description                                                                                                                                                                                                     |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `width`            | width of QR code in px                                                                                                                                                                                          |
+| `height`           | height of QR code in px                                                                                                                                                                                         |
+| `command`          | sendTo command                                                                                                                                                                                                  |
+| `jsonData`         | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to backend                                                                                             |
+| `data`             | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to backend if jsonData is not defined.                                                     |
+| `sendFirstByClick` | show image first when clicked. `true` - standard text (Click to show) or specific text                                                                                                                          |
+| `instance`         | Instance where to send the request to (e.g. `"admin.0"`). Overrides `oContext.instance`. If not defined, the request is sent to the current adapter instance. You can use `${data.number}` pattern in the text. |
 
 #### Example of code in back-end for `imageSendTo`
 
@@ -944,17 +1024,18 @@ adapter.on("message", (obj) => {
 Sends a command to the adapter instance and displays the response string as a QR code.
 The backend must return a plain string (the data to encode).
 
-| Property           | Description                                                                                                                                                 |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `command`          | sendTo command (default: `"send"`)                                                                                                                          |
-| `alsoDependsOn`    | array of attribute names — the QR code is refreshed whenever any of these attributes change                                                                 |
-| `jsonData`         | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to backend                                         |
-| `data`             | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to backend if jsonData is not defined. |
-| `sendFirstByClick` | load QR code only after a click. `true` — standard text ("Click to show") or a custom string/translation object used as the button label                    |
-| `size`             | size of the QR code in px                                                                                                                                   |
-| `fgColor`          | foreground color (default: `"#000000"`)                                                                                                                     |
-| `bgColor`          | background color (default: `"#ffffff"`)                                                                                                                     |
-| `level`            | error correction level: `L`, `M`, `Q`, or `H` (default: `L`)                                                                                                |
+| Property           | Description                                                                                                                                                                                                      |
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `command`          | sendTo command (default: `"send"`)                                                                                                                                                                               |
+| `alsoDependsOn`    | array of attribute names — the QR code is refreshed whenever any of these attributes change                                                                                                                      |
+| `jsonData`         | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to backend                                                                                              |
+| `data`             | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to backend if jsonData is not defined.                                                      |
+| `sendFirstByClick` | load QR code only after a click. `true` — standard text ("Click to show") or a custom string/translation object used as the button label                                                                         |
+| `size`             | size of the QR code in px                                                                                                                                                                                        |
+| `fgColor`          | foreground color (default: `"#000000"`)                                                                                                                                                                          |
+| `bgColor`          | background color (default: `"#ffffff"`)                                                                                                                                                                          |
+| `level`            | error correction level: `L`, `M`, `Q`, or `H` (default: `L`)                                                                                                                                                     |
+| `instance`         | Instance where to send the request to (e.g. `"admin.0"`). Overrides `oContext.instance`. If not defined, the request is sent to the current adapter instance. You can use `${data.number}` pattern in the text.  |
 
 #### Example of code in back-end for `qrCodeSendTo`
 
@@ -997,11 +1078,12 @@ Shows an iframe with the specified URL. (from Admin 7.7.28)
 
 Shows an iframe with a URL received from the backend. (from Admin 7.7.28)
 
-| Property   | Description                                                                                                                                                 |
-|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `command`  | sendTo command                                                                                                                                              |
-| `jsonData` | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to backend                                         |
-| `data`     | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to backend if jsonData is not defined. |
+| Property   | Description                                                                                                                                                                                                      |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `command`  | sendTo command                                                                                                                                                                                                   |
+| `jsonData` | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to backend                                                                                              |
+| `data`     | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to backend if jsonData is not defined.                                                      |
+| `instance` | Instance where to send the request to (e.g. `"admin.0"`). Overrides `oContext.instance`. If not defined, the request is sent to the current adapter instance. You can use `${data.number}` pattern in the text.  |
 
 The backend must return a URL as a string.
 
@@ -1031,16 +1113,19 @@ adapter.on("message", (obj) => {
 
 Shows the drop-down menu with the given from the instance values.
 
-| Property        | Description                                                                                                                                                                             |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `command`       | sendTo command                                                                                                                                                                          |
-| `jsonData`      | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to the backend                                                                 |
-| `data`          | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to the backend if jsonData is not defined.                         |
-| `manual`        | allow manual editing. Without drop-down menu (if instance is offline). Default `true`.                                                                                                  |
-| `multiple`      | Multiple choice select                                                                                                                                                                  |
-| `showAllValues` | show item even if no label was found for it (by multiple), default=`true`                                                                                                               |
-| `noTranslation` | do not translate label of selects. To use this option, your adapter must implement message handler.The result of command must be an array in form `[{"value": 1, "label": "one"}, ...]` |
-| `alsoDependsOn` | by change of which attributes, the command must be resent                                                                                                                               |
+| Property        | Description                                                                                                                                                                                                      |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `command`       | sendTo command                                                                                                                                                                                                   |
+| `jsonData`      | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to the backend                                                                                          |
+| `data`          | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to the backend if jsonData is not defined.                                                  |
+| `manual`        | allow manual editing. Without drop-down menu (if instance is offline). Default `true`.                                                                                                                           |
+| `multiple`      | Multiple choice select                                                                                                                                                                                           |
+| `showAllValues` | show item even if no label was found for it (by multiple), default=`true`                                                                                                                                        |
+| `noTranslation` | do not translate label of selects. To use this option, your adapter must implement message handler.The result of command must be an array in form `[{"value": 1, "label": "one"}, ...]`                          |
+| `alsoDependsOn` | by change of which attributes, the command must be resent                                                                                                                                                        |
+| `instance`      | Instance where to send the request to (e.g. `"admin.0"`). Overrides `oContext.instance`. If not defined, the request is sent to the current adapter instance. You can use `${data.number}` pattern in the text.  |
+
+The backend handler can return items with an optional `description` field: `[{"value": 1, "label": "one", "description": "Some hint"}, ...]`. The description is shown below the label in the dropdown.
 
 #### Example of code in back-end for `selectSendTo`
 
@@ -1100,14 +1185,15 @@ adapter.on("message", (obj) => {
 
 Shows autocomplete control with the given from the instance values.
 
-| Property        | Description                                                                                                                                                     |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `command`       | sendTo command                                                                                                                                                  |
-| `jsonData`      | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to the backend                                         |
-| `data`          | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to the backend if jsonData is not defined. |
-| `freeSolo`      | Set `freeSolo` to `true`, so the textbox can contain any arbitrary value.                                                                                       |
-| `alsoDependsOn` | by change of which attributes, the command must be resent                                                                                                       |
-| `maxLength`     | max length of the text in field                                                                                                                                 |
+| Property        | Description                                                                                                                                                                                                     |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `command`       | sendTo command                                                                                                                                                                                                  |
+| `jsonData`      | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to the backend                                                                                         |
+| `data`          | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to the backend if jsonData is not defined.                                                 |
+| `freeSolo`      | Set `freeSolo` to `true`, so the textbox can contain any arbitrary value.                                                                                                                                       |
+| `alsoDependsOn` | by change of which attributes, the command must be resent                                                                                                                                                       |
+| `maxLength`     | max length of the text in field                                                                                                                                                                                 |
+| `instance`      | Instance where to send the request to (e.g. `"admin.0"`). Overrides `oContext.instance`. If not defined, the request is sent to the current adapter instance. You can use `${data.number}` pattern in the text. |
 
 To use this option, your adapter must implement a message handler:
 
@@ -1118,14 +1204,15 @@ See `selectSendTo` for handler example
 
 Shows readonly control with the given from the instance values.
 
-| Property          | Description                                                                                                                                                     |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `container`       | `div`, `text`, `html`                                                                                                                                           |
-| `copyToClipboard` | if true - show button                                                                                                                                           |
-| `alsoDependsOn`   | by change of which attributes, the command must be resent                                                                                                       |
-| `command`         | sendTo command                                                                                                                                                  |
-| `jsonData`        | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to the backend                                         |
-| `data`            | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to the backend if jsonData is not defined. |
+| Property          | Description                                                                                                                                                                                                      |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `container`       | `div`, `text`, `html`                                                                                                                                                                                            |
+| `copyToClipboard` | if true - show button                                                                                                                                                                                            |
+| `alsoDependsOn`   | by change of which attributes, the command must be resent                                                                                                                                                        |
+| `command`         | sendTo command                                                                                                                                                                                                   |
+| `jsonData`        | string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to the backend                                                                                          |
+| `data`            | object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to the backend if jsonData is not defined.                                                  |
+| `instance`        | Instance where to send the request to (e.g. `"admin.0"`). Overrides `oContext.instance`. If not defined, the request is sent to the current adapter instance. You can use `${data.number}` pattern in the text.  |
 
 To use this option, your adapter must implement a message handler:
 The result of command must be a string or object with the following parameters:
@@ -1321,6 +1408,10 @@ Shows closable static text with optional title and icon. (From admin >= 7.6.19)
 
 show device manager. For that, the adapter must support device manager protocol. See iobroker/dm-utils.
 
+| Property     | Description                                                    |
+|--------------|----------------------------------------------------------------|
+| `smallCards` | (optional) Show small device cards in the device manager       |
+
 Here is an example of how to show the device manager in a tab:
 
 ```json5
@@ -1408,6 +1499,9 @@ In the Settings of the Web developer tools, you can create your own devices with
 | `label`                  | String or object like {en: 'Name', ru: 'Имя'}                                                                                                                                         |
 | `hidden`                 | JS function that could use `native.attribute` for calculation                                                                                                                         |
 | `hideOnlyControl`        | if hidden the place will be shown, but no control                                                                                                                                     |
+| `os`                     | Show this element only on these operating systems of the host, on which the instance runs: `"win32"` or `["linux", "darwin"]`                                                         |
+| `notOs`                  | Do not show this element on these operating systems of the host, on which the instance runs: `"win32"` or `["linux", "darwin"]`                                                       |
+| `docker`                 | Show this element only if the ioBroker runs (`true`) or does not run (`false`) in a docker container                                                                                  |
 | `disabled`               | JS function that could use `native.attribute` for calculation                                                                                                                         |
 | `help`                   | help text (multi-language)                                                                                                                                                            |
 | `helpLink`               | href to help (could be used only together with `help`)                                                                                                                                |
@@ -1425,6 +1519,73 @@ In the Settings of the Web developer tools, you can create your own devices with
 | `doNotSave`              | Do not save this attribute as used only for internal calculations                                                                                                                     |
 | `noMultiEdit`            | if this flag set to true, this field will not be shown if user selected more than one object for edit.                                                                                |
 | `expertMode`             | if this flag set to true, this field will be shown only if the expert mode is true  (from Admin 7.4.3)                                                                                |
+
+### Show elements depending on the operating system
+
+Every element (also `panel`, `tabs`, table columns and single `select` options) can be limited to the
+operating system of the ioBroker host, **on which the configured instance runs**. It is not the operating
+system of the browser.
+
+```json5
+{
+    "comPort":  { "type": "text", "label": "COM port", "os": "win32" },
+    "ttyPort":  { "type": "text", "label": "Serial device", "os": ["linux", "darwin"] },
+    "sudoHint": { "type": "staticText", "text": "The service must be started with sudo", "notOs": "win32" }
+}
+```
+
+Allowed values are the values of the node.js `process.platform` (like in `common.os` of `io-package.json`):
+`aix`, `android`, `cygwin`, `darwin`, `freebsd`, `haiku`, `linux`, `netbsd`, `openbsd`, `sunos`, `win32`.
+
+- If `os` is defined, the element will be shown **only** on the given operating systems.
+- If `notOs` is defined, the element will be shown on all operating systems **except** the given ones.
+- If the operating system of the host cannot be detected (e.g., the host object is not readable), the element
+  will be shown. It is better to show one element too much than to hide a required one.
+- A not shown element is not deleted: the value stays unchanged in the configuration, exactly like by `hidden`.
+  But the `default` value of such an element will not be written into the configuration.
+
+For more complex conditions, the variables `_os`, `_arch` and `_host` can be used in every JS function
+(`hidden`, `disabled`, `validator`, `defaultFunc`, `onChange.calculateFunc`, `confirm.condition`) and in
+the text patterns of `label`, `help` and so on:
+
+```json5
+{
+    "type": "text",
+    "label": "Path to the executable file",
+    "disabled": "_os === 'win32'",
+    "defaultFunc": "_os === 'win32' ? 'C:\\\\Program Files\\\\app.exe' : '/usr/bin/app'",
+    "help": "Host ${_host.id} runs ${_os} on ${_arch}"
+}
+```
+
+**Note:** old admin versions do not know `_os` and would evaluate `"hidden": "_os !== 'linux'"` to `true`
+and so hide the element everywhere. Because of that, `os`/`notOs` should be preferred, as they are simply
+ignored by old admin versions (the element will be shown). If a JS function must be used, write it
+defensively: `"hidden": "!!_os && _os !== 'linux'"`.
+
+#### Docker
+
+If an element depends on whether the ioBroker itself runs in a docker container, the attribute `docker`
+can be used:
+
+```json5
+{
+    "service":    { "type": "checkbox", "label": "Install as service", "docker": false },
+    "volumeHint": { "type": "staticText", "text": "The directory must be mapped as volume", "docker": true }
+}
+```
+
+- `"docker": true` - the element will be shown only if the ioBroker runs in a docker container.
+- `"docker": false` - the element will be shown only if the ioBroker does not run in a docker container.
+- The docker state cannot be read from the objects, it must be requested from a **running** host. If the host
+  does not answer, the state stays unknown and the element will be shown.
+- The request will only be sent if the configuration really uses `docker` or `_host.docker`, so all other
+  configurations do not cause any additional traffic.
+- In the JS functions the state is available as `_host.docker` (`true`, `false` or `undefined` if unknown) and
+  the version of the official ioBroker docker image as `_host.dockerVersion`.
+
+Do not mix it up with the [`checkDocker`](#checkdocker) control: that one checks if a docker installation is
+available **on the host** to control containers, and not if the ioBroker itself runs in docker.
 
 ### Options with detailed configuration
 
@@ -1542,6 +1703,11 @@ const func = new Function(
   'arrayIndex',    // filled only by table and represents the row index
   'globalData',    // filled only by table and represents the obj.native or obj.common.custom['adapter.X'] object
   '_changed',      // indicator if some data was changed and must be saved
+  '_href',         // Current browser href
+  'getObject',     // You can call `await getObject(data.id)`in hidden, disabled, pattern functions
+  '_os',           // Operating system of the host, where the instance runs: 'win32', 'linux', 'darwin', ...
+  '_arch',         // Architecture of the host, where the instance runs: 'x64', 'arm64', ...
+  '_host',         // Information about the host: {id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}
   myValidator.includes('return') ? myValidator : 'return ' + myValidator); // e.g. "_alive === true"
 
 const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, this.props.socket);
@@ -1559,6 +1725,9 @@ The following variables are available in JS function in adapter settings:
 - `_instance` - instance number
 - `arrayIndex` - used only in table and represent current line in an array
 - `globalData` - used only in table for all settings and not only one table line
+- `_os` - operating system of the host, on which the instance runs (`process.platform`), e.g. `linux`, `win32`, `darwin`. Empty string if unknown
+- `_arch` - architecture of the host, on which the instance runs, e.g. `x64`, `arm64`
+- `_host` - information about the host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` is `undefined` if the docker state was not requested or the host did not answer
 
 ### Custom settings dialog
 
@@ -1576,6 +1745,9 @@ const func = new Function(
   "customObj",
   "_socket",
   arrayIndex,
+  "_os",
+  "_arch",
+  "_host",
   myValidator.includes("return") ? myValidator : "return " + myValidator
 ); // e.g. "_alive === true"
 
@@ -1599,6 +1771,33 @@ The following variables are available in JS function in custom settings:
 - `_socket` - socket
 - `arrayIndex` - used only in table and represent current line in an array
 - `globalData` - used only in table for all settings and not only one table line
+- `_os` - operating system of the host, on which the instance runs (`process.platform`), e.g. `linux`, `win32`, `darwin`. Empty string if unknown
+- `_arch` - architecture of the host, on which the instance runs, e.g. `x64`, `arm64`
+- `_host` - information about the host: `{id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}`. `docker` is `undefined` if the docker state was not requested or the host did not answer
+
+```json5
+{
+   "general": {
+      // ....
+      "customSettingsValidator": "customObj.common.type === 'boolean' && data.options.myType == 2",
+      // ....
+   }
+}
+```
+
+You can limit the application of the custom settings only to specific states by defining the `statesFilter` on the root (`panel` or `tabs`) element of the custom settings:
+
+`jsonCustom.json`:
+```json5
+{
+   "i18n": true,
+   "type": "panel",
+   "statesFilter": true, // or "^hm-rpc\\.\\d\\..*\\.STATE$" - apply on "hm-rpc.X.*.STATE" states only
+   "items": {
+        // ...
+   }
+}
+```
 
 ## Custom component
 
@@ -1708,12 +1907,135 @@ The schema is used here: https://github.com/SchemaStore/schemastore/blob/6da29cd
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 9.0.22 (2026-08-21)
+- (@GermanBluefox) Corrected layout of Config view
+
+### 9.0.21 (2026-08-19)
+- (@GermanBluefox) Added the possibility to show or hide elements depending on the operating system of the host: `os`, `notOs` and the JS variables `_os`, `_arch`, `_host`
+- (@GermanBluefox) Added the possibility to show or hide elements depending on the docker installation: `docker` and `_host.docker`
+
+### 9.0.20 (2026-08-13)
+- (@GermanBluefox) Correcting ConfigSelect component
+
+### 9.0.19 (2026-08-09)
+- (@GermanBluefox) Correcting autocompleteSendTo component
+
+### 9.0.18 (2026-08-07)
+- (@GermanBluefox) Updated packages
+
+### 9.0.14 (2026-07-31)
+- (@GermanBluefox) Updated packages
+
+### 9.0.9 (2026-07-30)
+- (@GermanBluefox) Improvement of I18n
+
+### 9.0.7 (2026-07-26)
+- (@GermanBluefox) Breaking: React 19 + MUI 9 + TS 6
+- (@GermanBluefox) Added loading of the new custom components
+
+### 8.5.5 (2026-07-24)
+- (@GermanBluefox) Trying to improve the behaviour of tabs
+
+### 8.5.4 (2026-07-23)
+- (@GermanBluefox) Corrected the displaying of zero number values
+- (@GermanBluefox) Trying to improve the behaviour of tabs
+
+### 8.5.3 (2026-07-20)
+- (@GermanBluefox) Changed the handling of Tabs
+
+### 8.5.0 (2026-07-12)
+- (@GermanBluefox) No functional updates, but only strict types for all components and attributes. This will help to avoid errors in the future.
+
+### 8.4.15 (2026-07-04)
+- (@GermanBluefox) Extended Credentials Component with AWS and Azure
+
+### 8.4.13 (2026-06-29)
+- (@GermanBluefox) Corrected the file selector component
+- (@GermanBluefox) Implemented no translation for the select component
+- (@GermanBluefox) Implemented debug mode for components to analyze JS functions
+- (@ThomasPohl) Corrected rendering of the link in the static text component
+
+### 8.4.11 (2026-06-21)
+- (@GermanBluefox) Added missing translations
+
+### 8.4.10 (2026-06-20)
+- (@GermanBluefox) Fixed state component
+
+### 8.4.9 (2026-06-19)
+- (@GermanBluefox) Moved translations from adapter-react to this repository
+
+### 8.4.8 (2026-06-18)
+- (@GermanBluefox) Allowed creating credentials directly in the `credential` component (templates with icons, filtered by `credentialType`; can be disabled with `disableCreation`)
+
+### 8.4.7 (2026-06-07)
+- (@GermanBluefox) Added a credential component
+
+### 8.4.5 (2026-05-30)
+- (@GermanBluefox) Fixing help rendering
+
+### 8.4.4 (2026-05-29)
+- (@GermanBluefox) Corrected groups in the select component
+
+### 8.4.3 (2026-05-24)
+- (@GermanBluefox) Optimization of interfaces
+
+### 8.4.1 (2026-05-19)
+- (@GermanBluefox) Allowed to use `await getObject(data.oid)?.common?.type === 'boolean'` in hidden, pattern or disabled
+
+### 8.3.13 (2026-05-16)
+- (@GermanBluefox) Added `_href` to `jsonData`
+
+### 8.3.11 (2026-04-29)
+- (@GermanBluefox) Added `instance` option for all `sendTo` components to override the target adapter instance
+
+### 8.3.9 (2026-04-17)
+- (@GermanBluefox) Updated packages
+
+### 8.3.8 (2026-04-13)
+- (@GermanBluefox) Adjust a path to images
+
+### 8.3.5 (2026-04-11)
+- (@GermanBluefox) Extend schema for staticLink and staticImage components
+
+### 8.3.4 (2026-04-09)
+- (@GermanBluefox) Added `horizontal` option for `select` component with `format: "radio"` to display radio buttons in a row
+- (@GermanBluefox) Added `icon` option for `select` component options to display icons next to labels
+
+### 8.3.2 (2026-03-31)
+- (@GermanBluefox) Added possibility to provide custom components
+
+### 8.2.22 (2026-03-29)
+- (@GermanBluefox) Corrected error for "state" component
+
+### 8.2.19 (2026-03-27)
+- (@GermanBluefox) Added option "small cards" for device manager
+
+### 8.2.18 (2026-03-25)
+- (@GermanBluefox) Added the possibility to use own Client ID for oauth authentication
+- (@GermanBluefox) Added the possibility to show a small image and open it in full size by clicking on it
+
+### 8.2.11 (2026-03-20)
+- (@GermanBluefox) Correcting unit in schema
+- (@GermanBluefox) Fill other config fields when an object ID is selected
+
+### 8.2.8 (2026-03-15)
+- (@GermanBluefox) Added radio button control for the state component ('select')
+
+### 8.2.7 (2026-03-14)
+- (@GermanBluefox) Made the secondary text in 'select' and 'selectSendTo' smaller, italic and semi-transparent
+
+### 8.2.6 (2026-03-14)
+- (@GermanBluefox) Added description for options in 'select' or 'selectSendTo' component
+
+### 8.2.5 (2026-03-12)
+- (@GermanBluefox) Extended the staticText component with HTML and JSON visualization
+
 ### 8.2.3 (2026-03-04)
 - (@GermanBluefox) Increased the QR code padding
 
 ### 8.2.2 (2026-03-03)
 - (@GermanBluefox) Added option `sendFirstByClick` to `imageSendTo`
-- (@GermanBluefox) Added new component: `qrCodeSendTo`
+- (@GermanBluefox) Added a new component: `qrCodeSendTo`
 - (@GermanBluefox) Added option `digits` to `state` component
 - (@GermanBluefox) Trying to fix indication of the problems in the table
 

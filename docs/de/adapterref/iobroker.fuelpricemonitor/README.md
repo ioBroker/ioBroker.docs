@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fuelpricemonitor/README.md
 title: ioBroker.fuelpricemonitor
-hash: c+X/wg0U7oxrINeN70nH9NmF7hYhCvfagFm3qVfFqYE=
+hash: OW2kXkPdM7QRdo8hr+ljEZZ/aoxPDF+3DtX3fpOLNsc=
 ---
 ![Logo](../../../en/adapterref/iobroker.fuelpricemonitor/admin/fuelpricemonitor.png)
 
@@ -12,30 +12,29 @@ hash: c+X/wg0U7oxrINeN70nH9NmF7hYhCvfagFm3qVfFqYE=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.fuelpricemonitor.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/fuelpricemonitor-installed.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/librariesio/release/npm/iobroker.fuelpricemonitor)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/HGlab01/ioBroker.fuelpricemonitor/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/HGlab01/ioBroker.fuelpricemonitor/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.fuelpricemonitor.png?downloads=true)
 
 # IoBroker.fuelpricemonitor
-[![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.fuelpricemonitor.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.fuelpricemonitor?ref=badge_shield) ![Testen und Freigeben](https://github.com/HGlab01/ioBroker.fuelpricemonitor/workflows/Test%20and%20Release/badge.svg)
+[![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.fuelpricemonitor.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.fuelpricemonitor?ref=badge_shield) ![Test und Freigabe](https://github.com/HGlab01/ioBroker.fuelpricemonitor/workflows/Test%20and%20Release/badge.svg)
 
 ## Fuelpricemonitor-Adapter für ioBroker
-Dieser Adapter ruft die Kraftstoffpreise (Diesel, Super95 und CNG) aus der offiziellen österreichischen Datenbank basierend auf Ihrer konfigurierten Geoposition ab. Die API liefert die Preise nur für die ersten fünf Tankstellen. Für die anderen fünf Tankstellen sind die Preise nicht verfügbar. Weitere Standorte können hinzugefügt werden.
+Dieser Adapter ruft die Kraftstoffpreise (Diesel, Super 95 und CNG) aus der offiziellen österreichischen Datenbank anhand Ihrer konfigurierten Geoposition ab. Die API liefert die Preise nur für die ersten fünf Tankstellen. Für die übrigen fünf Tankstellen sind keine Preise verfügbar. Weitere Standorte können hinzugefügt werden. Der Standardzeitplan sieht eine Aktualisierung alle 20 Minuten per Cronjob im Instanz-Tab vor.
 
-Der Standardzeitplan wird alle 20 Minuten als Cron-Job im Instanz-Tab ausgeführt.
-
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Erfordert
-* Node.js 20 oder höher
-* ioBroker-Host (js-Controller) 5.0 oder höher
+* Node.js 22 oder höher
+* ioBroker-Host (js-Controller) 6.0.11 oder höher
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 0.4.3 (2026-06-16)
 * (HGlab01) some small improvements
+* (HGlab01) Bump axios to 1.18.0
 
 ### 0.4.2 (2025-03-12)
 * (HGlab01) Bump axios to 1.8.3
@@ -54,14 +53,12 @@ Der Standardzeitplan wird alle 20 Minuten als Cron-Job im Instanz-Tab ausgeführ
 ### 0.3.6 (2023-08-10)
 * (HGlab01) switch to Admin5 UI for configuration
 
-### 0.3.5 (2023-07-07)
-* (HGlab01) Spread API calls
-* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.12
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2021-2026 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

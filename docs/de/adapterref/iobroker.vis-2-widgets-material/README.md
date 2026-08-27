@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Material-Widgets für ioBroker.vis 2.0
-hash: A/LUw2OF9kxJI2ckvXSi8c0DcJINowASCGR9R9TSL98=
+hash: eg0asaXUh8jpfpnLW9SfiV1420WHVv/HOambFcpKpME=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -22,17 +22,17 @@ hash: A/LUw2OF9kxJI2ckvXSi8c0DcJINowASCGR9R9TSL98=
 ![Schalter](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-switches-buttons-2.png)
 
 ### Uhr
-Analog
+- Analog
 
-![Uhr Analog](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-analog-1.png)
+![Uhr analog](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-analog-1.png)
 
 - Analoge Variante
 
 ![Uhr Analog 2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-analog-2.png)
 
-Digital
+- Digital
 
-![Digitales](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-digital-1.png)
+![Digital](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-digital-1.png)
 
 - Digital2 (SVG-Text)
 
@@ -52,30 +52,30 @@ Mit diesem Widget können Sie ein Gerät steuern. Boolescher Wert oder Zahl.
 ### Im Widget anzeigen
 ![Im Widget anzeigen](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-1.png)
 
-Nicht als Schaltfläche: Die Ansicht kann in voller Größe angezeigt werden und Sie können Elemente in der Ansicht steuern.
+Nicht als Schaltfläche: Die Ansicht kann in voller Größe angezeigt werden, und Sie können die Elemente in der Ansicht steuern.
 
 ![Im Widget anzeigen – Schaltfläche](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-2.png)
 
-Als Schaltfläche: Sie können eine kleine Miniaturansicht der Ansicht anzeigen und durch Drücken darauf diese in voller Größe anzeigen.
+Als Schaltfläche: Sie können eine kleine Miniaturansicht anzeigen lassen, die durch Anklicken in voller Größe angezeigt wird.
 
 ### Thermostat
 ![Thermostat](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-thermostat-1.png)
 
-Darüber hinaus kann ein Verlauf angezeigt werden, wenn Sie ihn aktiviert haben.
+Zusätzlich kann, falls aktiviert, ein Verlauf angezeigt werden.
 
 ### Tatsächlicher Wert mit Diagramm
 ![Tatsächlicher Wert](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-actual-value-1.png)
 
-![Ist-Wert mit Diagramm](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-actual-value-2.png)
+![Tatsächlicher Wert mit Diagramm](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-actual-value-2.png)
 
 ### Sicherheitskontrolle
 ![Sicherheitskontrolle](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-security-0.png)
 
 ![Sicherheitskontrolle](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-security-1.png)
 
-Sie können die Verzögerung in Sekunden festlegen.
+Sie können die Verzögerung in Sekunden angeben.
 
-Bei Aktivierung wird die definierte ID mit der Anzahl der Verzögerungssekunden beschrieben und nach Ablauf der Verzögerung wird die definierte ID auf 0 und die Alarm-ID auf True gesetzt.
+Bei Aktivierung wird die definierte ID mit der Anzahl der Verzögerungssekunden beschrieben. Nach Ablauf der Verzögerung wird die definierte ID auf 0 gesetzt und die Alarm-ID auf „true“ gesetzt.
 
 ![Sicherheitskontrolle](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-security-2.png)
 
@@ -83,38 +83,38 @@ Bei Aktivierung wird die definierte ID mit der Anzahl der Verzögerungssekunden 
 ![Spieler](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-player.png)
 
 ### Karte
-![Spieler](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-map-1.png)
+![Karte](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-map-1.png)
 
-Die Position kann als kombinierter Zustand definiert werden, wie `9.2344;41.374652` - (Längengrad;Breitengrad), oder als zwei separate Zustände.
+Die Position kann als kombinierter Zustand, wie `9.2344;41.374652` - `longitude;latitude`, oder als zwei separate Zustände definiert werden.
 
 ### Kamera
-![Spieler](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-camera-1.png)
+![Kamera](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-camera-1.png)
 
 ### HTML-Vorlage
-![Spieler](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-html-1.png)
+![HTML](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-html-1.png)
 
-Mit der HTML-Vorlage können Sie beliebigen HTML-Code anzeigen.
-Zusätzlich können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
+Mit der HTML-Vorlage kann beliebiger HTML-Code angezeigt werden.
+Zusätzlich können Sie mit diesem Widget auch ein Bild oder einen iFrame einbinden.
 
 ### Jalousien
 ![Jalousie](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-1.png)
 
-![Spieler](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-2.png)
+![Jalousie](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-2.png)
 
-### Farbe Lampe
-Mit dem RGB-Lampen-Widget können Sie verschiedene Arten von RGB-Lampen steuern. Hier sind einige Beispiele:
+### Farblampe
+Mit dem RGB-Lampen-Widget können Sie verschiedene Arten von RGB-Lampen steuern. Hier einige Beispiele:
 
-- RGB-Farben werden in einem Zustand wie „#RRGGBB“ eingestellt.
-- R/G/B-Farben können in verschiedenen Zuständen von 0 bis 255 eingestellt werden
-- RGBW als eine Variable wie „#RRGGBWW“
-- R/G/B/W-Farben können in verschiedenen Zuständen von 0 bis 255 eingestellt werden
+- RGB-Farben werden in einem Zustand wie '#RRGGBB' festgelegt.
+- Die R/G/B-Farben werden in verschiedenen Zuständen von 0 bis 255 eingestellt.
+- RGBW als eine Variable wie '#RRGGBBWW'
+- Die R/G/B/W-Farben werden in verschiedenen Zuständen von 0 bis 255 eingestellt.
 - Farbton/Sättigung/Helligkeit als 3 verschiedene Zustände
-- Farbtemperatur als ein Zustand von 2700 bis 6500 oder definiert durch Min/Max des Objekts
-- Der Weißmodus kann über einen speziellen Status zum Umschalten zwischen RGB- und Weißmodus verwendet werden
+- Farbtemperatur als ein Zustand von 2700 bis 6500 oder definiert durch Minimum/Maximum des Objekts
+- Der Weißmodus kann über einen speziellen Zustand verwendet werden, um zwischen RGB- und Weißmodus umzuschalten.
 
 ![RGB-Lampe 1](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-1.png)
 
-![RGB Lampe 2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-2.png)
+![RGB-Lampe 2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-2.png)
 
 ### Türschloss
 ![Türschloss](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-lock.png)
@@ -122,23 +122,43 @@ Mit dem RGB-Lampen-Widget können Sie verschiedene Arten von RGB-Lampen steuern.
 ### Staubsauger
 Dieses Widget ist primär für Xiaomi-Staubsauger gedacht. Es kann aber auch für jeden anderen Staubsauger verwendet werden.
 
-Der einzige Unterschied besteht darin, dass Xiaomi die Raumreinigung unterstützt.
+Der einzige Unterschied besteht darin, dass Xiaomi die Zimmerreinigung unterstützt.
 
 ![Staubsauger](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-vacuum.png)
 
 ### Zeitauswahl
-## Aufgaben
-- Jalousien mit Rollladen ausfahren
+## Todo
+- Jalousien mit Rollladen erweitern
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 1.6.6 (2026-05-06)
 
-### **WORK IN PROGRESS**
+-   (@GermanBluefox) Corrected error with button and alarm widget
+
+### 1.6.1 (2026-03-14)
+
+-   (@GermanBluefox) Corrected error with select value widget
+
+### 1.6.0 (2025-09-03)
+
+-   (@GermanBluefox) Corrected "Actual" widget
+
+### 1.5.3 (2025-08-27)
+-   (@GermanBluefox) Added support for older Android devices
+
+### 1.5.0 (2025-05-19)
 
 -   (bluefox) Corrected thermostat slider
+-   (bluefox) Rewritten with TypeScript and vite
+-   (bluefox) Corrected blinds control
+-   (bluefox) Added disabled mode additionally to hidden mode in the 'switches and buttons' widget
+-   (bluefox) Added `_ts=Date.now()` to camera URL to disable the browser cache
+-   (bluefox) Simple state has a new option - step
+-   (bluefox) Added new navigation widget: jump to view, url or list of views
 
 ### 1.4.10 (2024-08-09)
 
@@ -195,7 +215,7 @@ Der einzige Unterschied besteht darin, dass Xiaomi die Raumreinigung unterstütz
 
 ### 1.3.23 (2024-03-05)
 
--   (bluefox) Added possibility to change the icon size in simple widget
+-   (bluefox) Added possibility to change the icon size in a simple widget
 
 ### 1.3.21 (2024-02-22)
 
@@ -208,15 +228,15 @@ Der einzige Unterschied besteht darin, dass Xiaomi die Raumreinigung unterstütz
 
 ### 1.3.17 (2023-12-19)
 
--   (bluefox) Added option to hide the line in switches widget
+-   (bluefox) Added an option to hide the line in the switches widget
 
 ### 1.3.15 (2023-12-17)
 
--   (foxriver76) Added option to rotate video
+-   (foxriver76) Added an option to rotate video
 
 ### 1.3.14 (2023-12-05)
 
--   (bluefox) Allowed with on click on the widget toggling the ON/OFF state of RGB widget
+-   (bluefox) Allowed with on click on the widget toggling the ON/OFF state of the RGB widget
 -   (bluefox) Added class names to ON/OFF widgets to allow styling
 
 ### 1.3.11 (2023-11-17)
@@ -235,7 +255,7 @@ Der einzige Unterschied besteht darin, dass Xiaomi die Raumreinigung unterstütz
 
 -   (bluefox) Corrected layout of RGB widget
 -   (bluefox) Added option for RGB widget to hide brightness control
--   (bluefox) Added option for white mode in RGB widget
+-   (bluefox) Added option for white mode in the RGB widget
 
 ### 1.3.3 (2023-10-26)
 
@@ -302,7 +322,7 @@ Der einzige Unterschied besteht darin, dass Xiaomi die Raumreinigung unterstütz
 
 ### 0.5.3 (2023-06-21)
 
--   (bluefox) Corrected errors with view in widget
+-   (bluefox) Corrected errors with view in the widget
 
 ### 0.5.1 (2023-06-20)
 
@@ -312,7 +332,7 @@ Der einzige Unterschied besteht darin, dass Xiaomi die Raumreinigung unterstütz
 ### 0.4.0 (2023-06-16)
 
 -   (bluefox) Added button texts for switches widget
--   (bluefox) Removed static widget, as it was replaced by switches widget
+-   (bluefox) Removed static widget, as it was replaced by the switches widget
 
 ### 0.3.1 (2023-06-14)
 
@@ -343,11 +363,13 @@ Der einzige Unterschied besteht darin, dass Xiaomi die Raumreinigung unterstütz
 
 -   (bluefox) initial commit
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2022-2024 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2022-2026 Denis Haev <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

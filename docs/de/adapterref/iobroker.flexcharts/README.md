@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: B0rBGSntv+Ju2U5qKM7ggjfK+HoJx55myfnP3C/Ghc4=
+hash: dKq2kDcAtExXvcnbZsKtU7eYqX+KeUxsXZO6gG+aABE=
 ---
 ![Logo](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -17,96 +17,91 @@ hash: B0rBGSntv+Ju2U5qKM7ggjfK+HoJx55myfnP3C/Ghc4=
 **Tests:** ![Test und Freigabe](https://github.com/MyHomeMyData/ioBroker.flexcharts/workflows/Test%20and%20Release/badge.svg)
 
 ## Flexcharts-Adapter für ioBroker
-# Eilmeldung
-Apache ECharts wurde in Version 6.0.0 mit 12 wichtigen Aktualisierungen veröffentlicht. Weitere Informationen finden Sie unter https://echarts.apache.org/handbook/en/basics/release-note/v6-feature.
+Nutzen Sie die volle Leistungsfähigkeit von [Apache ECharts](https://echarts.apache.org/en/index.html) für ioBroker – ohne die Einschränkungen einer grafischen Konfigurationsoberfläche.
 
-Flexcharts v0.6.0 basiert auf dieser neuen Version und bietet neue Funktionen:
+**Dieser Adapter richtet sich an erfahrene Benutzer.** Es gibt keine Benutzeroberfläche zur Konfiguration von Diagrammen. Diagramme werden vollständig im Code (JavaScript oder Blockly) oder als JSON-Daten definiert, die in einem ioBroker-Status gespeichert sind.
 
-* brandneues Standarddesign
-* Möglichkeit, eine unbegrenzte Anzahl eigener Designs zu übergeben
-* Dynamischer Themenwechsel, ein typisches Szenario ist das Abhören des Dunkelmodus des Systems und die dynamische Anpassung des Diagrammthemas (fügen Sie den HTTP-Parameter `&darkmode=auto` hinzu, um ihn zu aktivieren).
-* neue Diagrammtypen
-* Möglichkeit, eine unbegrenzte Anzahl ereignisgesteuerter Funktionen zu übergeben
-
-**Hinweis:** Sie können die **ECharts v5-Themes** (Standard und Dunkel) beibehalten, indem Sie einfach den HTTP-Parameter `&themev5` hinzufügen, z. B. `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1&themev5`. Apache bietet zwar ein helles v5-Theme an, aber kein dunkles – ich habe das Problem bereits gemeldet. Ich habe daher vorerst selbst ein dunkles v5-Theme basierend auf dem dunklen Apache-Theme für Version 5.6.0 erstellt. Sollten Sie Unterschiede zwischen den v5-Themes feststellen, melden Sie bitte ein Problem für Flexcharts.
-
-# Grundkonzept
-Es gibt verschiedene Adapter zur Anzeige von Charts in ioBroker. Soweit ich weiß, verwenden alle eine Benutzeroberfläche zur Konfiguration von Chartinhalten und -optionen. Typischerweise lassen sich nicht alle Funktionen des verwendeten Grafiksystems auf diese Weise nutzen. Beispielsweise ist es mit dem eChart-Adapter nicht möglich, vollumfängliche gestapelte Charts anzuzeigen.
-
-Dieser Adapter verfolgt einen anderen Ansatz. Er bietet nahezu den gesamten Funktionsumfang von [Apache ECharts](https://echarts.apache.org/en/index.html) zu ioBroker. Schauen Sie sich die [Demo-Charts] an.](https://echarts.apache.org/examples/en/index.html).
+Werfen Sie einen Blick auf [ECharts-Demogalerie](https://echarts.apache.org/examples/en/index.html), um eine Vorstellung davon zu bekommen, was möglich ist.
 
 Anmerkung: Der Adapter wurde noch nicht unter MacOS getestet.
 
-**Es gibt keine Benutzeroberfläche zur Konfiguration von Diagrammen.** Sie müssen das Diagramm selbst definieren; die Visualisierung übernimmt der Adapter. Sie müssen die Definition und den Inhalt des Diagramms als JSON-Objekt angeben – in den eCharts-Beispielen entspricht dies dem Inhalt der Variablen `option`. Hier ist ein Beispiel zur Verdeutlichung. Um ein gestapeltes Diagramm zu erstellen, speichern Sie dessen Definition in einem ioBroker-Status (im JSON-Format):
+## Was ist neu in Version 0.7.3?
+**Konfigurierbares Timeout für `source=script`-Widgets** — vermeidet falsche Timeout-Fehler bei rechenintensiven oder koordinierten/seriellen Diagrammkonfigurationen:
 
-```
+- Der neue optionale Parameter `&requestTimeout=<ms>` überschreibt die standardmäßige Wartezeit von 2000 ms für die Antwort des Skripts auf `onMessage()`.
+Das Standardverhalten bleibt unverändert – dies ist nur relevant, wenn tatsächlich ein Timeout auftritt.
+
+## Was ist neu in Version 0.7.2?
+**Anfängerfreundliche Vorlagen und Schritt-für-Schritt-Anleitung** – so werden Flexcharts auch für ECharts-Neulinge zugänglicher:
+
+- Zwei neue, anfängerfreundliche Vorlagen: [template6](templates/flexchartsTemplate6.js) (Energie-Stapelbalken mit Verlaufsadapterdaten) und [template7](templates/flexchartsTemplate7.js) (reaktives Tachometerdiagramm mit SSE-Auto-Update)
+- Verbesserte Kommentare und STEP-Markierungen in allen bestehenden Vorlagen (1–5)
+- Neues [Wiki mit Kochbuch](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki): Schritt-für-Schritt-Anleitungen zum Erstellen von Live-Charts von Grund auf — siehe [Weitere Beispiele und Ressourcen](#further-examples-and-resources)
+
+## Was ist neu in Version 0.7.1?
+**SSE-Diagrammaktualisierungen ohne Seitenneuladung** — Bei Verwendung von `&sse` wird das Diagramm nun direkt aktualisiert, anstatt die gesamte Seite neu zu laden:
+
+Die ECharts-Animationen laufen bei jeder Datenaktualisierung reibungslos.
+- Kein Flackern oder Neuaufbau des Diagramms beim Aktualisieren
+- Funktioniert transparent für alle bestehenden `&sse`-URLs – keine Änderungen erforderlich
+
+## So funktioniert es
+Andere ioBroker-Chartadapter verwenden eine Benutzeroberfläche zur Konfiguration von Chartinhalten und -optionen – was die Ausdrucksmöglichkeiten in der Regel einschränkt. flexcharts verfolgt einen anderen Ansatz:
+
+1. Sie definieren das Diagramm als JSON-Objekt (die ECharts-Variable `option`) – entweder gespeichert in einem ioBroker-Status oder zurückgegeben von einem JavaScript-Skript.
+2. Flexcharts übergibt diese Definition an Apache ECharts im Browser und rendert sie.
+
+Beispiel – ein als Zustandswert gespeichertes gestapeltes Balkendiagramm:
+
+```json
 { "tooltip": {"trigger": "axis","axisPointer": {"type": "shadow"}},
   "legend": {},
   "xAxis": [{"type": "category","data": ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]}],
   "yAxis": [{"type": "value"}],
   "dataZoom": [{"show": true,"start": 0, "end": 100}],
   "series": [
-    { "name": "Grid", "type": "bar", "color": "#a30000", "stack": "Supply",
-      "data": [8,19,21,50,26,0,36]},
-    { "name": "PV", "type": "bar", "color": "#00a300", "stack": "Supply",
-      "data": [30,32,20,8,33,21,36]},
-    { "name": "Household", "type": "bar", "color": "#0000a3", "stack": "Consumption",
-      "data": [16,12,11,13,14,9,12]},
-    { "name": "Heat pump", "type": "bar", "color": "#0000ff", "stack": "Consumption",
-      "data": [22,24,30,20,22,12,25]},
-    { "name": "Wallbox", "type": "bar", "color": "#00a3a3", "stack": "Consumption",
-      "data": [0,15,0,25,23,0,35]}
+    { "name": "Grid",      "type": "bar", "color": "#a30000", "stack": "Supply",      "data": [8,19,21,50,26,0,36]},
+    { "name": "PV",        "type": "bar", "color": "#00a300", "stack": "Supply",      "data": [30,32,20,8,33,21,36]},
+    { "name": "Household", "type": "bar", "color": "#0000a3", "stack": "Consumption", "data": [16,12,11,13,14,9,12]},
+    { "name": "Heat pump", "type": "bar", "color": "#0000ff", "stack": "Consumption", "data": [22,24,30,20,22,12,25]},
+    { "name": "Wallbox",   "type": "bar", "color": "#00a3a3", "stack": "Consumption", "data": [0,15,0,25,23,0,35]}
   ]
 }
 ```
 
-Der Flexchart-Adapter zeigt dann dieses Diagramm an:
+Ergebnis:
 
 ![flexcharts_stacked1](https://github.com/user-attachments/assets/7cf6dfab-ddad-4b2f-a1e1-20fa4b876b4c)
 
-Normalerweise verwendet man Blockly oder JavaScript, um Inhalte dieses Zustands zu erstellen und zu aktualisieren.
+## Voraussetzungen
+Flexcharts läuft als Web-Erweiterung. Die Bibliothek [Webadapter](https://www.iobroker.net/#en/adapters/adapterref/iobroker.ws/README.md) (`web.0`) muss installiert sein und ausgeführt werden. Die folgenden Beispiele gehen vom Standardport 8082 aus.
 
-Es besteht noch eine weitere Möglichkeit, eCharts-Daten direkt über eine Callback-Funktion in JavaScript zu übergeben. Details dazu finden Sie weiter unten.
+## Erste Schritte
+### Installation überprüfen
+Öffnen Sie diese URL in einem Browser (ersetzen Sie `localhost` durch Ihre ioBroker-Serveradresse):
 
-Um es klarzustellen: Diese Methode ist nicht dafür gedacht, schnell ein einfaches Diagramm zu erstellen.
-Wenn Sie jedoch eine konkrete Idee für ein komplexeres Diagramm haben, bietet Ihnen flexcharts die Möglichkeit, diese umzusetzen.
+`http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1`
 
-# Erste Schritte
-### Verwendung des Adapters
-Dieser Adapter stellt seine Funktionalität als Web-Erweiterung bereit. Daher ist es zwingend erforderlich, dass [Webadapter](https://www.iobroker.net/#en/adapters/adapterref/iobroker.ws/README.md) (`web.0`) installiert und ausgeführt wird. In dieser Readme-Datei wird davon ausgegangen, dass Sie den Standardport 8082 für den Web-Adapter verwenden.
+Es sollte ein Demo-Diagramm erscheinen. Wenn dies der Fall ist, funktioniert der Adapter ordnungsgemäß.
 
-Wenn der Flexcharts-Adapter aktiv ist, können Sie ihn über http://localhost:8082/flexcharts/echarts.html aufrufen (ersetzen Sie `localhost` durch die Adresse Ihres ioBroker-Servers).
+### Quelloption 1 — ioBroker-Status
+`http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userdata.0.echarts.chart1`
 
-Sie können diese Adresse in iFrame-Widgets von vis oder jarvis oder anderen Visualisierungen verwenden. Selbstverständlich können Sie sie auch direkt in einem Browsertab verwenden.
+Flexcharts liest den Status `0_userdata.0.echarts.chart1` und stellt ihn als EChart dar. Erstellen Sie diesen Status, fügen Sie das obige JSON-Beispiel als Wert ein und öffnen Sie anschließend die URL.
 
-Damit dies funktioniert, müssen Sie zusätzliche Parameter angeben, um dem Adapter die Datenquelle mitzuteilen. Zwei Optionen stehen zur Verfügung:
+**Hinweis:** Folgende Zeichen sind in Staatskennungen nicht zulässig: `: / ? # [ ] @ ! $ & ' ( ) * + , ; = %`
 
-* `source=state` => Sie stellen Chartdaten in einem ioBroker-Status (JSON) bereit
-* `source=script` => Sie stellen Diagrammdaten über ein Skript (JavaScript oder Blockly) bereit
+### Quelloption 2 — JavaScript-Skript
+Dies bietet mehr Flexibilität. Flexcharts ruft Ihr Skript bei jeder Anfrage auf, und Ihr Skript gibt die Diagrammdefinition zurück. Zusätzliche URL-Parameter werden an das Skript weitergeleitet.
 
-Es stehen weitere Optionen zur Verfügung, siehe [Referenzabschnitt](#reference)
+Es wird ausschließlich **javascript.0** (die erste JS-Adapterinstanz) unterstützt.
 
-Um die korrekte Installation des Adapters zu überprüfen, verwenden Sie das integrierte Demo-Diagramm: http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1
+Erstelle ein Skript:
 
-### IoBroker-Status als Quelle für ein eChart verwenden
-Beispiel: `http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userdata.0.echarts.chart1`
-
-<!-- Would this be better to read: Example: http://localhost:8082/flexcharts/echarts.html?<mark style="background-color: #ffff00">source=state</mark>&<mark style="background-color: #00c000">&id=0_userdata.0.echarts.chart1</mark> -->
-
-Flexcharts wertet den Zustand `0_userdata.0.echarts.chart1` als Daten für eChart aus. Probieren Sie es aus: Erstellen Sie einen solchen Zustand und kopieren Sie die JSON-Daten des oben gezeigten Beispiels (`{ "tooltip": { ...`) als Zustandsinhalt. Rufen Sie anschließend die angegebene Adresse mit einem Browser auf.
-
-Folgende Zeichen dürfen in der Statuskennung nicht verwendet werden: `: / ? # [ ] @ ! $ & ' ( ) * + , ; = %`
-
-### JavaScript als Quelle für ein eChart verwenden
-Dies ist etwas komplexer, aber deutlich effizienter und flexibler. Die Diagrammdaten werden direkt über Ihr JavaScript-Skript bereitgestellt, das dynamisch vom Flexcharts-Adapter aufgerufen wird. Sie können Ihrem Skript zusätzliche Parameter übergeben, indem Sie diese der HTTP-Adresse hinzufügen, z. B. `&chart=chart1`. Alle HTTP-Parameter sind innerhalb des Skripts im Objekt `httpParams` verfügbar (siehe Beispiel unten).
-
-Auch hier ist es am besten, dies anhand eines Beispiels zu erklären. Erstellen Sie ein Skript mit folgendem Inhalt (nur die erste JS-Instanz (**javascript.0**) wird unterstützt, der Name des Skripts ist irrelevant):
-
-```
+```javascript
 onMessage('flexcharts', (httpParams, callback) => {
-    const myJsonParams  = (httpParams.myjsonparams ? JSON.parse(httpParams.myjsonparams) : {} );
+    const myJsonParams = (httpParams.myjsonparams ? JSON.parse(httpParams.myjsonparams) : {});
     console.log(`httpParams = ${JSON.stringify(httpParams)}`);
-    console.log(`myJsonParams = ${JSON.stringify(myJsonParams)}`);
     chart1(result => callback(result));
 });
 
@@ -118,159 +113,168 @@ function chart1(callback) {
         yAxis: [{type: "value"}],
         dataZoom: [{show: true, start: 0, end: 100}],
         series: [
-            { name: "Grid", type: "bar", color: "#a30000", stack: "Supply",
-              data: [8,19,21,50,26,0,36]},
-            { name: "PV", type: "bar", color: "#00a300", stack: "Supply",
-            data: [30,32,20,8,33,21,36]},
-            { name: "Household", type: "bar", color: "#0000a3", stack: "Consumption",
-            data: [16,12,11,13,14,9,12]},
-            { name: "Heat pump", type: "bar", color: "#0000ff", stack: "Consumption",
-            data: [22,24,30,20,22,12,25]},
-            { name: "Wallbox", type: "bar", color: "#00a3a3", stack: "Consumption",
-            data: [0,15,0,25,23,0,35]}
+            {name: "Grid",      type: "bar", color: "#a30000", stack: "Supply",      data: [8,19,21,50,26,0,36]},
+            {name: "PV",        type: "bar", color: "#00a300", stack: "Supply",      data: [30,32,20,8,33,21,36]},
+            {name: "Household", type: "bar", color: "#0000a3", stack: "Consumption", data: [16,12,11,13,14,9,12]},
+            {name: "Heat pump", type: "bar", color: "#0000ff", stack: "Consumption", data: [22,24,30,20,22,12,25]},
+            {name: "Wallbox",   type: "bar", color: "#00a3a3", stack: "Consumption", data: [0,15,0,25,23,0,35]}
         ]
     };
     callback(option);
 }
 ```
 
-Starten Sie das Skript und rufen Sie diese Adresse in einem Browser auf: `http://localhost:8082/flexcharts/echarts.html?source=script`
+Starten Sie das Skript und öffnen Sie anschließend: `http://localhost:8082/flexcharts/echarts.html?source=script`
 
-<!-- Would this be better to read: Start the script and access this in a browser: http://localhost:8082/flexcharts/echarts.html?<mark style="background-color: #ffff00">source=script</mark> -->
+Der Standardname der Nachricht lautet `flexcharts`. Um einen anderen Namen zu verwenden, fügen Sie `&message=mycharts` hinzu und passen Sie `onMessage('mycharts', ...)` entsprechend an.
 
-Es sollte dasselbe Diagramm wie im vorherigen Beispiel angezeigt werden.
+Zusätzliche URL-Parameter werden in `httpParams` an das Skript übergeben:
 
-Sie sollten zwei Logeinträge des Beispielskripts erhalten:
+`http://localhost:8082/flexcharts/echarts.html?source=script&chart=chart1&myjsonparams={"period":"daily"}`
+
+## Erweiterte Funktionen
+### JavaScript-Funktionen innerhalb von Diagrammdefinitionen
+Standardmäßig werden Funktionen aus Diagrammdefinitionen entfernt. Um Funktionen (z. B. benutzerdefinierte Formatierer) einzuschließen, verwenden Sie das npm-Modul `javascript-stringify`:
+
+1. Fügen Sie `javascript-stringify` zu "Zusätzlichen npm-Modulen" in der JavaScript-Adapterkonfiguration hinzu:
+
+   ![Füge npm-Module hinzu](../../../en/adapterref/iobroker.flexcharts/add_npm_modules.png)
+
+2. In Ihrem Skript: `var strify = require('javascript-stringify');`
+3. Ersetzen Sie `callback(option)` durch `callback(strify.stringify(option))`
+
+— oder für einen Staat: `setState('my_chart_id', strify.stringify(option), true)`
+
+Siehe [Vorlage 3](templates/flexchartsTemplate3.js) für ein funktionierendes Beispiel mit einem Tooltip-Formatter.
+
+**Sicherheitshinweis:** `javascript-stringify` ermöglicht die Übermittlung beliebigen Codes an den Browser. Setzen Sie ioBroker bei Verwendung dieses Moduls nicht dem Internet aus.
+
+### Ereignisgesteuerte dynamische Diagramme
+ECharts unterstützt interaktive Diagramme, die sich als Reaktion auf Benutzeraktionen aktualisieren. Siehe dazu [ECharts-Beispiel](https://echarts.apache.org/examples/en/editor.html?c=dataset-link) und eine Bildschirmaufnahme mit Flexcharts](dynamic_charts_with_flexcharts.mkv).
+
+Verwenden Sie ein **Skript als Quelle** und übergeben Sie die Diagrammdefinition und die Ereignisbehandler als Array. [Vorlage 4](templates/flexchartsTemplate4.js) veranschaulicht dies. Wichtige Regeln:
+
+- Ereignisbehandler müssen `myChart.on("event", function(e){ ... })` verwenden.
+- Der Handler muss ein JavaScript-String sein (verwenden Sie konsistente Anführungszeichen oder minimieren Sie ihn mit einem [JS-Minifier](https://www.toptal.com/developers/javascript-minifier)).
+- Übergeben Sie alles als Array: `callback([strify.stringify(option), onEvent1, onEvent2])`
+
+Bei Verwendung eines **Zustands als Quelle** muss der Zustand ein JSON-Array von Zeichenketten sein. Sowohl die Diagrammdefinition als auch die Handler-Zeichenketten müssen gültige JSON-Zeichenketten sein (keine Zeilenumbrüche, nur maskierte Anführungszeichen innerhalb der Zeichenkette). Beispiel: `flexcharts.0.info.chart3`.
+
+**Hinweis für Benutzer, die von Version 0.4.x aktualisieren:** Die Variable für die Diagrammoptionen wurde in Version 0.5.0 von `jsopts` in `option` umbenannt. Passen Sie Ihre Ereignisbehandlungsfunktionen entsprechend an.
+
+> **Sicherheitshinweis:** Wie oben – setzen Sie ioBroker nicht dem Internet aus, wenn Sie `javascript-stringify` verwenden.
+
+### Ereignisgesteuerte Diagrammaktualisierung (SSE)
+Fügen Sie `&sse` zu einer beliebigen Diagramm-URL hinzu, um automatische Diagrammaktualisierungen über [Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) zu aktivieren. Der Browser hält eine dauerhafte Verbindung zum Server aufrecht und aktualisiert das Diagramm sofort, sobald sich die Quelldaten ändern – kein Neuladen der Seite, kein Abfrageintervall erforderlich. ECharts-Animationen laufen bei jeder Aktualisierung flüssig.
+
+**Mit `source=state`:**
+
+Das Diagramm wird automatisch aktualisiert, sobald sich der durch `&id=` angegebene Zustand ändert.
 
 ```
-httpParams = {"message":"mylinechart","source":"script"}
-myJsonParams = {}
+http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userdata.0.echarts.chart1&sse
 ```
 
-Weitere Parameter können an das Skript übergeben werden und stehen innerhalb des Skripts in der Variablen `httpParams` zur Verfügung. Versuchen Sie folgenden Befehl: `http://localhost:8082/flexcharts/echarts.html?source=script&chart=chart1&myjsonparams={"period":"daily"}`
+**Mit `source=script`:**
 
-Die Logeinträge sollten nun folgendermaßen aussehen:
+Das Skript steuert den Diagramminhalt, daher kann Flexcharts nicht erkennen, welcher Zustand eine Aktualisierung auslöst. Geben Sie ihn explizit mit `&triggerid=<state_id>` an:
 
 ```
-httpParams = {"source":"script","chart":"chart1","myjsonparams":"{\"period\":\"daily\"}"}`
-myJsonParams = {"period":"daily"}
+http://localhost:8082/flexcharts/echarts.html?source=script&message=mycharts&triggerid=0_userdata.0.echarts.trigger&sse
 ```
 
-Bitte beachten Sie: **Sie müssen die Funktionalität `onMessage()` verwenden, um den Trigger vom Adapter zu empfangen.** Der Standardwert für die Nachricht ist `flexcharts`, wie im obigen Beispiel gezeigt. Sie können andere Nachrichten verwenden, indem Sie einen zusätzlichen Parameter angeben. Um beispielsweise die Nachricht `mycharts` zu verwenden, fügen Sie `&message=mycharts` zur HTTP-Adresse hinzu: `http://localhost:8082/flexcharts/echarts.html?source=script&message=mycharts`
+Das Diagramm wird aktualisiert, sobald sich `0_userdata.0.echarts.trigger` ändert. Ihr ioBroker-Skript kann diesen Status aktualisieren, um Diagrammaktualisierungen an den Browser zu senden.
 
-### Verwendung von Funktionen innerhalb der Definition eines Diagramms
-Leider funktionieren Funktionsdefinitionen innerhalb der Diagrammdefinition in der Regel nicht, da sie bei Verwendung von `JSON.stringify(option)` oder `callback(option)` gefiltert werden.
+**Drossel- und Bestätigungsfilter:**
 
-Seit Version 0.3.0 von flexcharts ist dies jedoch möglich. Es ist etwas mehr Aufwand erforderlich:
+Standardmäßig (`&sse` ohne Wert) wird das Diagramm höchstens einmal alle 5 Sekunden aktualisiert (Minimum). Geben Sie eine Zahl an, um ein längeres Mindestintervall festzulegen:
 
-* Fügen Sie das npm-Modul `javascript-stringify` zur Instanz 0 des JavaScript-Adapters hinzu. Fügen Sie dazu `javascript-stringify` in der Konfiguration des Adapters unter „Zusätzliche npm-Module“ hinzu:
+```
+...&sse=30    → update at most once every 30 seconds
+```
 
-![Füge npm-Module hinzu](../../../en/adapterref/iobroker.flexcharts/add_npm_modules.png)
+Für eine detaillierte Steuerung verwenden Sie ein JSON-Objekt (URL-codiert):
 
-* Fügen Sie in Ihrem Skript am Anfang `var strify = require('javascript-stringify');` hinzu.
-* Bei Verwendung eines Skripts als Datenquelle: Ersetzen Sie innerhalb Ihrer `onMessage()`-Funktionalität `callback(option);` durch `callback(strify.stringify(option));` (vorausgesetzt, `option` enthält Ihre Diagrammdefinition).
-* Dann verwenden Sie einen Zustand als Datenquelle: Ersetzen Sie beim Erstellen des Zustands `setState('my_chart_id', JSON.stringify(option), true);` durch `setState('my_chart_id', strify.stringify(option), true);`
-Das war's. Funktionen innerhalb von Diagrammdefinitionen werden nun korrekt an Flexcharts weitergeleitet.
+```
+...&sse={"refresh":10,"ack":true}   → update only on acknowledged state changes, at most every 10 s
+...&sse={"ack":false}               → update only on unacknowledged changes (set by script), default interval
+```
 
-Probieren Sie es einfach mit [Vorlage 3](templates/flexchartsTemplate3.js). Eine Funktion wird verwendet, um die Daten des Tooltips mit 2 Dezimalstellen anzuzeigen: `tooltip: {trigger: "axis", valueFormatter: (value) => '. + value.toFixed(2)}`.
+Zustandsänderungen während des Drosselungsintervalls gehen nicht verloren – die Aktualisierung wird auf den nächsten zulässigen Zeitpunkt verschoben.
 
-Ein Beispiel für die Verwendung der Diagrammdefinition über den Zustand finden Sie in `flexcharts.0.info.chart2`. Dieses Diagramm entspricht dem von Vorlage 3.
+> **Hinweis:** `&sse` und `&refresh` können kombiniert werden — SSE löst bei Zustandsänderung eine Aktualisierung direkt vor Ort aus, `&refresh` bietet einen Fallback mit periodischem Seitenneuladen.
 
-Hinweis: Wenn das npm-Modul `javascript-stringify` installiert ist, kann dessen Funktionalität auch von Schadcode missbraucht werden (Cross-Site-Scripting). Daher sollte ioBroker bei Verwendung dieses Moduls nicht über das Internet erreichbar sein.
+### Designs (ECharts v6)
+Verwenden Sie Apache ECharts [Theme-Builder](https://echarts.apache.org/en/theme-builder.html), um Designs zu erstellen oder zu ändern.
 
-### Verwendung ereignisgesteuerter Funktionen zur Erstellung dynamisch veränderlicher Diagramme
-Apache ECharts unterstützt dynamisch anpassbare Diagramme. Sehen Sie sich dieses Beispiel an: [Beispiel](https://echarts.apache.org/examples/en/editor.html?c=dataset-link). Wenn Sie den Mauszeiger über einen Datenpunkt im Liniendiagramm bewegen, wird das Kreisdiagramm entsprechend aktualisiert.
-Hier ist eine Bildschirmaufnahme dieses Diagramms, dargestellt mit Flexcharts: [dynamisch veränderliches Diagramm](dynamic_charts_with_flexcharts.mkv)
+**Verwendung eines Skripts als Quelle:**
 
-**Wichtiger Hinweis** für das Update auf Version **0.5.0** von Flexcharts: Wenn Sie diese Funktion nutzen und Diagrammoptionen innerhalb Ihrer ereignisgesteuerten Funktion dynamisch ändern möchten, mussten Sie die Option bisher über die Variable `jsopts` ansprechen. Ab Version 0.5.0 heißt diese nun `option`. Bitte passen Sie die Benennung in Ihrer Funktion entsprechend an, d. h. ersetzen Sie `jsopts` durch `option`.
+1. Laden Sie das Design über den Theme Builder herunter → Registerkarte „JSON-Version“ → Kopieren
+2. In Ihrem Skript: `const myThemeDefault = <hier einfügen>`
+3. Übergeben Sie es als Teil des Callback-Arrays:
 
-Um ereignisgesteuerte Funktionen für Ihre eigenen Diagramme zu verwenden, empfehle ich die Verwendung eines **Skripts als Quelle**. [Vorlage 4](templates/flexchartsTemplate4.js) veranschaulicht die Implementierung. Bitte beachten Sie Folgendes:
+`callback([JSON.stringify(option), ['default', JSON.stringify(myThemeDefault)]])`
 
-Um das Diagramm dynamisch zu gestalten, müssen Sie Funktionen definieren, die Ereignisse innerhalb des Diagramms verarbeiten. Dies geschieht durch die Definition von Funktionen wie `myChart.on("event",function(e){ ... });`
-* Es ist zwingend erforderlich, jede dieser Funktionen mit `myChart.on()` zu benennen.
-Um die Funktionsdefinition an Flexcharts zu übergeben, muss sie in einen **JavaScript-String** umgewandelt werden. Dies kann durch die Verwendung von Anführungszeichen (`"`) innerhalb der Funktion und anschließendes Einschließen in Apostrophe (`'`) – oder umgekehrt – erfolgen. Zur Reduzierung des benötigten Speicherplatzes können Sie einen Komprimierungsdienst wie beispielsweise [diesen hier](https://www.toptal.com/developers/javascript-minifier) verwenden.
-Abschließend müssen Sie alle Bestandteile – die Diagrammdefinition und die Definition der Ereignisfunktion(en) – als **Array von JavaScript-Strings** über den Callback bereitstellen. In Template 4 geschieht dies mit `callback([strify.stringify(option), onEvent]);`, wobei `option` die Diagrammdefinition und `onEvent` die Definition der Ereignisfunktion als JavaScript-String enthält. Falls Sie mehrere Funktionen definieren, können Sie diese entweder dem String `onEvent` hinzufügen oder als zusätzliches Array-Element einfügen, z. B. `callback([strify.stringify(option), onEvent1, onEvent2, onEvent3]);`. Die Anzahl der Funktionsdefinitionen ist unbegrenzt.
-* Um die Definition des Diagramms (`option`) in einen String umzuwandeln, müssen Sie `javascript-stringify` verwenden, wie im vorherigen Kapitel beschrieben.
+[Vorlage 5](templates/flexchartsTemplate5.js) zeigt die vollständige Themenumschaltung einschließlich des Dunkelmodus an.
 
-Hinweis: Wenn das npm-Modul `javascript-stringify` installiert ist, kann dessen Funktionalität auch von Schadcode missbraucht werden (Cross-Site-Scripting). Daher sollte ioBroker bei Verwendung dieses Moduls nicht über das Internet erreichbar sein.
+**Verwendung eines Bundesstaates als Quelle:**
 
-Diese Funktion kann auch mit einem **Bundesland als Datenquelle** verwendet werden. Das ist allerdings noch komplizierter:
+Der Statuswert muss ein Array sein: `[<stringified chart>, ['default', <stringified theme>]]`.
+Ein funktionierendes Beispiel finden Sie unter `flexcharts.0.info.chart4`.
 
-Der Zustand muss als **Array von JSON-Strings** erstellt werden. Die beiden Elemente des Arrays bestehen aus der Definition des Diagramms und der Definition der Ereignisfunktion(en).
-* Nun müssen jedoch beide Strings gültige **JSON-Strings** sein. Dies unterscheidet sich von JavaScript-Strings und bringt zusätzliche Einschränkungen mit sich:
-* Um eine Zeichenkette einzuschließen, müssen Anführungszeichen verwendet werden. Daher sind innerhalb der Zeichenkette nur Apostrophe oder maskierte Anführungszeichen (`\"`) zulässig.
-* Innerhalb eines Strings sind keine Zeilenumbrüche erlaubt.
-* Es empfiehlt sich, die Gültigkeit des Arrays mithilfe eines JSON-Validators zu überprüfen, z. B. [diesem hier](https://jsonformatter.curiousconcept.com/#).
-Natürlich möchten Sie die Daten des Diagramms bearbeiten. Da die Daten jedoch Teil der Diagrammdefinition sind, müssen Sie das Array von JSON-Strings mithilfe von JavaScript lesen und schreiben. Daher empfehle ich, wie oben beschrieben, ein Skript als Datenquelle zu verwenden.
-Ein Beispiel ist jedoch im Info-Bereich von Flexcharts verfügbar: `flexcharts.0.info.chart3`. Zur Anzeige im Browser verwenden Sie `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart3`.
+Andere Themen als `default` und `dark` erfordern eine explizite Aktivierung über `myChart.setTheme(<name>)` innerhalb einer ereignisgesteuerten Funktion.
 
-### Arbeiten mit Apache EChart-Themes (v6-Funktion)
-ECharts bietet verschiedene Möglichkeiten zur Diagrammanpassung. Eine leistungsstarke Methode ist die Verwendung von Designs. Standardmäßig wird im Normalmodus das Design „default“ und im Dunkelmodus das Design „dark“ verwendet. Diese Designs sind vordefiniert, können aber angepasst werden. Flexcharts Version 0.6.0 und höher unterstützt die Definition von Designs. In Kombination mit der Definition ereignisgesteuerter Funktionen (siehe vorheriges Kapitel) ist es zudem möglich, dynamisch zwischen Designs zu wechseln. Designs lassen sich am besten mit Apache ECharts [Theme-Builder](https://echarts.apache.org/en/theme-builder.html) erstellen oder bearbeiten.
+**Schnell ausprobieren:**
 
-Um ein Design mithilfe eines **Skripts als Quelle** an Flexcharts zu übergeben, befolgen Sie diese Schritte:
-
-* Wählen Sie auf der Website im „Theme Builder“ ein Design aus oder bearbeiten Sie es, und klicken Sie anschließend auf die Schaltfläche „Herunterladen“.
-* Wählen Sie den Tab „JSON-Version“ aus und kopieren Sie den Inhalt durch Drücken der Schaltfläche „Kopieren“ in die Zwischenablage.
-* Füge etwas wie `const myThemeDefault = ` zu deinem Skript hinzu und füge den Inhalt der Zwischenablage dahinter ein.
-* Übergeben Sie das Theme an Flexcharts mithilfe eines Arrays, wie für ereignisgesteuerte Funktionen gezeigt: `callback([JSON.stringify(option), ['default', JSON.stringify(myThemeDefault)]]);`
-* Hinweis: Sie müssen das Theme als String-Array `[<Name des Themes>, <String-Definition des Themes>]` übergeben.
-
-[Vorlage 5](templates/flexchartsTemplate5.js) demonstriert die Implementierung der Übergabe neuer Designs für den Standardmodus (Design „default“) und den Dunkelmodus (Design „dark“). Das dynamische Umschalten zwischen beiden Designs basierend auf den Systemeinstellungen ist aktiviert.
-
-Um einen **Zustand als Quelle** für die Übergabe von Themen zu verwenden:
-
-* Erstelle den Zustand im Format 'Array'
-* Füge die Diagrammdefinition als erstes Element des Arrays hinzu.
-* Bereiten Sie das/die Thema(en) als JSON-String vor. Verwenden Sie dazu einen JSON-Formatter, z. B. https://jsonformatter.curiousconcept.com/ mit der Vorlage „compact“, um das JSON-Objekt in einen String zu komprimieren.
-* Füge das Theme als zweites Element als Array zum Zustand hinzu (siehe oben): `[<Name des Themes>, <Definition des Themes>]`
-* Schließlich sollte der Zustand wie folgt aussehen: `[<stringified definition of chart>,['default', <stringified definition of default theme>]]`.
-* Ein Beispiel ist unter `flexcharts.0.info.chart4` verfügbar (nur auf neu installierten Instanzen).
-
-Die Anzahl der Designdefinitionen ist unbegrenzt. Um jedoch Designs mit anderen Namen als „Standard“ oder „Dunkel“ zu aktivieren, müssen Sie eine eigene Funktionalität definieren, die den Ausdruck `myChart.setTheme(<name of theme>);` enthält, sowie Code, der diese unter bestimmten Bedingungen aufruft.
-
-**Probieren Sie es aus:**
-
-* Erstellen Sie ein einfaches Diagramm basierend auf [diesem Beispiel](https://echarts.apache.org/examples/en/editor.html?c=area-stack)
-* Um Daten an Flexcharts zu übergeben, verwenden Sie `callback(JSON.stringify(option));`
-Nehmen Sie nun einige Änderungen am Standarddesign vor. Ersetzen Sie die Callback-Funktion durch diese Version:
-
-`callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":["#ff715e","#ffaf51","#ffee51","#8c6ac4","#715c87"],"backgroundColor":"rgba(64,64,64,0.5)"}']]);`
-
-* Sie sollten einen linksbündigen Titel und geänderte Farben für die Daten und den Hintergrund sehen.
+```
+callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":["#ff715e","#ffaf51","#ffee51","#8c6ac4","#715c87"],"backgroundColor":"rgba(64,64,64,0.5)"}']]);
+```
 
 ## Vorlagen
-Für einige Anwendungsfälle stehen JavaScript-Vorlagen zur Verfügung:
+| Vorlage | Beschreibung |
+|----------|-------------|
+| [Vorlage 1](templates/flexchartsTemplate1.js) | Diagramm mit Daten aus dem Verlaufsadapter |
+| [Vorlage 3](templates/flexchartsTemplate3.js) | Gestapeltes Balkendiagramm mit Funktion in der Diagrammdefinition |
+| [Vorlage 4](templates/flexchartsTemplate4.js) | Ereignisgesteuertes dynamisches Diagramm |
+| [Vorlage 5](templates/flexchartsTemplate5.js) | Benutzerdefinierte Designs mit dynamischer Umschaltung des Dunkelmodus |
+| [Vorlage 6](templates/flexchartsTemplate6.js) | **Anfängerfreundlich:** Energieübersicht — gestapeltes Balkendiagramm mit Daten aus dem Verlaufsadapter |
+| [Vorlage 7](templates/flexchartsTemplate7.js) | **Anfängerfreundlich:** Anzeigediagramm mit aktuellen Statuswerten (Batterie, PV, Wärmepumpe, Sensoren) — reaktive SSE-Aktualisierungen |
+| [Vorlage 8](templates/flexchartsTemplate8.js) | Kartendiagramm — Tortendiagramme, die über eine geografische Karte (Island) gelegt werden, unter Verwendung einer benutzerdefinierten GeoJSON-Karte |
+| [template8](templates/flexchartsTemplate8.js) | Kartendiagramm — Kreisdiagramme, die über eine geografische Karte (Island) gelegt werden, unter Verwendung einer benutzerdefinierten GeoJSON-Karte |
 
-* Diagramm mit Daten aus dem Verlaufsadapter: [template1](templates/flexchartsTemplate1.js)
-* Einfaches Diagramm für eine Wärmekurve: [template2](templates/flexchartsTemplate2.js)
-* Einfaches gestapeltes Balkendiagramm unter Verwendung einer Funktion innerhalb der Diagrammdefinition: [template3](templates/flexchartsTemplate3.js)
-* Diagramm für Daten des **tibberLink-Adapters**: siehe Diskussionen [hier](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) und [hier](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66)
-* Für Viessmann-Geräte der E3-Serie, z. B. die Wärmepumpe Vitocal 250, gibt es einen sehr spezifischen Anwendungsfall. Siehe https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
-* Implementierung dynamisch veränderlicher Diagramme: [template4](templates/flexchartsTemplate4.js)
-* Eigene Designs für den Standard- und Dunkelmodus implementieren und dynamisches Umschalten basierend auf den Systemeinstellungen verwenden: [template5](templates/flexchartsTemplate5.js)
-Der Adapter [tibberLink](https://github.com/hombach/ioBroker.tibberlink) nutzt Flexcharts zur grafischen Datenverarbeitung. Er ist derzeit im Beta-Repository von ioBroker verfügbar. Weitere Informationen finden Sie in der [Dokumentation](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json).
+## Weitere Beispiele und Ressourcen
+### Kochbuch (Schritt-für-Schritt-Anleitungen)
+Neu bei Flexcharts oder ECharts? Die **[Flexcharts Wiki](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki)** bietet Ihnen Schritt-für-Schritt-Anleitungen, die Sie von einem statischen Diagramm zu einem vollständig interaktiven Dashboard führen:
+
+| Artikel | Was Sie lernen |
+|---------|---------------|
+| [A1 — Gestapeltes Flächendiagramm](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki/Cookbook-A1-Stacked-Area-Chart) | Erstellen Sie ein Live-Diagramm mit SSE-Auto-Update; verbinden Sie Echtzeitdatenzustände über ein Skript |
+| [A3 – Interaktive Diagramme](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki/Cookbook-A3-Interactive-Charts) | Ereignisgesteuerte Diagramme: Kreisdiagramm reagiert auf Hover; gemeinsam genutzte Datensätze, Ereignisbehandler-Zeichenketten |
+| [A3 — Interaktive Diagramme](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki/Cookbook-A3-Interactive-Charts) | Ereignisgesteuerte Diagramme: Kreisdiagramme reagieren auf Hover; gemeinsam genutzte Datensätze, Ereignisbehandler-Zeichenketten |
+
+Weitere Kochbuchartikel sind geplant.
+
+### Beispiele für Adapter von Drittanbietern
+- **tibberLink-Adapter:** Siehe Diskussionen [hier](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) und [hier](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66) — tibberLink verwendet auch flexcharts nativ, siehe die [Dokumentation](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json)
+- **sun2000-Adapter:** Native [Integration von Flexcharts](https://github.com/bolliy/ioBroker.sun2000/wiki/Statistk-(statistics)) ist verfügbar
+- **Viessmann E3-Serie** (z. B. Wärmepumpe Vitocal 250): [ioBroker.e3oncan-Diskussion](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35)
 
 ## Referenz
-Verwenden Sie den **ioBroker-Status** als Datenquelle: `http://localhost:8082/flexcharts/echarts.html?source=state&id=my_state_id`
+Basis-URL: `http://localhost:8082/flexcharts/echarts.html`
 
-Verwenden Sie **JavaScript** als Datenquelle: `http://localhost:8082/flexcharts/echarts.html?source=script`
-
-### Optionale Argumente
-* `&message=my_message` sendet "my_message" an JavaScript. Verwenden Sie `onMessage('my_message', (httpParams, callback) => { callback(mychart); })`, um Diagrammdaten bereitzustellen. Standardmäßig wird `flexcharts` verwendet.
-* `&darkmode[=on|off|auto]` - legt die Dunkelmodus-Visualisierung von ECharts fest: 'off' => Dunkelmodus dauerhaft deaktiviert; 'on' oder kein Wert => Dunkelmodus dauerhaft aktiviert; 'auto' => Berücksichtigung der Dunkelmodus-Einstellung des Systems.
-* `&refresh=number` – Aktualisiert das Diagramm alle „number“ Sekunden. Standardwert: 60 Sekunden. Der Mindestwert beträgt 5 Sekunden.
-* `&themev5` – Legt das Standarddesign des Diagramms auf das Apache ECharts-Design „v5“ fest – siehe https://echarts.apache.org/handbook/en/basics/release-note/v6-upgrade-guide/ Kapitel „Standarddesign“
-* `&user_defined_arguments` – Fügen Sie nach Bedarf weitere Parameter hinzu. Alle Argumente sind in der Funktion `onMessage()` im Objekt `httpParams` verfügbar. Weitere Details finden Sie in den obigen Beispielen und Vorlagen.
-
-### Verwendung von Funktionen innerhalb der Definition von Diagrammen
-Verfügbar ab Version 0.3.0. Siehe vorheriger Abschnitt [Kapitel](#using-functions-within-definition-of-chart)
-
-### Eingebautes Demo-Diagramm
-Es ist ein integriertes Demo-Diagramm verfügbar: http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1
-
-Dies sollte ein Demo-Diagramm anzeigen, wenn flexcharts- und web-adapter ausgeführt werden.
-
-**Hinweis:** Ersetzen Sie `localhost` durch die Adresse Ihres ioBroker-Servers. Ersetzen Sie `8082` durch die Portnummer Ihres Web-Adapters.
+| Parameter | Werte | Beschreibung |
+|-----------|--------|-------------|
+| `source=state` | | Liest die Chartdefinition aus einem ioBroker-Status. Erfordert `id`. |
+| `id=<state_id>` | | Zu lesende Staats-ID (erforderlich für `source=state`). |
+| `message=<name>` | Standard: `flexcharts` | Nachrichtenname für `onMessage()` im Skript. |
+| `darkmode` | `on` \| `off` \| `auto` | Dunkelmodus: `on`/kein Wert = immer dunkel, `off` = immer hell, `auto` = Systemeinstellungen folgen. |
+| `refresh=<n>` | Sekunden, min. 5, Standard 60 | Automatisches Neuladeintervall. Nur aktiv, wenn der Parameter vorhanden ist. |
+| `sse` | kein Wert \| `<n>` \| `<json>` | Aktiviert ereignisgesteuerte Diagrammaktualisierungen über Server-Sent Events. Kein Wert oder `&sse=5`: Aktualisierung maximal alle 5 Sekunden (Minimum). `&sse=<n>`: Mindestintervall zwischen Aktualisierungen. `&sse={"refresh":<n>,"ack":true\|false}`: Zusätzlich Filterung nach Bestätigungsstatus. |
+| `triggerid=<state_id>` | | Status-ID, die bei der Verwendung von `source=script` mit `&sse` auf Änderungen überwacht werden soll. |
+| `themev5` | | Verwende die Standard- und Dunkel-Themes von Apache ECharts v5 anstelle der Standard-Themes von v6. |
+| `<custom>=<value>` | | Alle weiteren Parameter werden an das Skript in `httpParams` weitergeleitet. |
+| `requestTimeout=<n>` | ms, Standardwert 2000 | Timeout für `source=script` beim Warten auf die Antwort des Skripts. Erhöhen Sie den Wert, wenn die Berechnung des Skripts (oder eine gemeinsam genutzte/serielle Warteschlange) regelmäßig länger als der Standardwert dauert. |
+| `requestTimeout=<n>` | ms, Standardwert 2000 | Timeout für `source=script`, das auf die Antwort des Skripts wartet. Erhöhen Sie den Wert, wenn die Berechnung des Skripts (oder eine gemeinsam genutzte/serielle Warteschlange) regelmäßig länger als der Standardwert dauert. |
 
 ## Spenden
 <a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/bluePayPal.svg" height="40"></a> Wenn dir dieses Projekt gefallen hat – oder du einfach nur großzügig sein möchtest –, spendiere mir doch ein Bier. Prost! 😉
@@ -280,86 +284,33 @@ Dies sollte ein Demo-Diagramm anzeigen, wenn flexcharts- und web-adapter ausgef�
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.6.1 (2025-11-01)
-* (MyHomeMyData) Added support for dark mode theme of ECharts version 5.6.0 (when using paramter themev5). Based on Apache ECharts 6.
+### 0.7.3 (2026-08-24)
+* (MyHomeMyData) Added optional `requestTimeout` parameter for `source=script` widgets to configure the timeout waiting on the script's response (default 2000 ms, unchanged). Ref. issue #205
 
-### 0.6.0 (2025-10-19)
-* (MyHomeMyData) Updated Apache ECharts to version 6.0.0 using brand new default theme - please take a look to Readme! Ref. issue #125
-* (MyHomeMyData) Added option to dynamically switch dark mode by listening to the system's setting. Based on Apache ECharts 6.
-* (MyHomeMyData) Added possibility to add self defined themes. Based on Apache ECharts 6.
-* (MyHomeMyData) Extended support for definition of onEvent functions. Now an unlimited number of functions can be defined instead of just one.
-* (MyHomeMyData) Fixes for issue #132 (repository checker)
+### 0.7.2 (2026-05-07)
+* (MyHomeMyData) Added beginner-friendly templates 6 (energy stacked bar chart with history adapter) and 7 (reactive gauge chart with SSE auto-update)
+* (MyHomeMyData) Improved comments and STEP markers in templates 1–5
+* (MyHomeMyData) Added Wiki with Cookbook articles A1–A3 (step-by-step guides for building live charts)
 
-### 0.5.0 (2025-09-17)
-* (MyHomeMyData) Changed internal naming of chart's options from 'jsopts' to 'option'. If you're using event driven functions within your charts, you may need to adapt the naming accordingly. Pls. refer to Readme.
-* (MyHomeMyData) Migration to ESLint 9. Fixes issues #107 (Migration to ESLint 9) and #114 (findings of repository checker)
+### 0.7.1 (2026-05-05)
+* (MyHomeMyData) Adapter requires node.js >= 22 now
+* (MyHomeMyData) SSE now updates chart in place via setOption instead of reloading the page — ECharts animations work correctly on data updates
 
-### 0.4.1 (2025-05-22)
-* (MyHomeMyData) Fix for issue #96 (findings of repository checker)
+### 0.7.0 (2026-04-15)
+* (MyHomeMyData) Implemented SSE (Server-Sent Events) to support event driven updating of chart
 
-### 0.4.0 (2025-03-24)
-* (MyHomeMyData) Added functionality to support event driven functions within charts, ref. issue #85
-* (MyHomeMyData) Added timeout for script as source
-* (MyHomeMyData) Added test cases for integration testing
+### 0.6.2 (2026-04-13)
+* (MyHomeMyData) Restructuring of code for better readability and improved performance.
+* (MyHomeMyData) Restructuring of Readme for better readability.
 
-### 0.3.2 (2025-02-09)
-* (MyHomeMyData) Added hint for use of flexcharts by adapter tibberLink
+### Older versions
 
-### 0.3.1 (2025-02-02)
-* (MyHomeMyData) Updated Apache ECharts to version 5.6.0
-* (MyHomeMyData) Added support for 3D charts using extension echarts-gl, see issue #68
-* (MyHomeMyData) Added templates for tibberLink Adapter
-
-### 0.3.0 (2025-01-08)
-* (MyHomeMyData) Enhancement for usage of functions within echart definitions.
-* (MyHomeMyData) Fix for issue #56 (findings of repository checker)
-
-### 0.2.0 (2024-11-06)
-* (MyHomeMyData) Updated readme. Added sections Templates and Reference.
-* (MyHomeMyData) Fix for issue #41 (findings of repository checker)
-* (MyHomeMyData) Updated ECharts to version 5.5.1, see issue #40
-* (MyHomeMyData) Fix for issue #39 (html warnings)
-* (MyHomeMyData) Added option 'refresh' to enable auto update of chart
-
-### 0.1.6 (2024-10-19)
-* (MyHomeMyData) Fix for issue #37
-
-### 0.1.5 (2024-10-11)
-* (MyHomeMyData) Fixes for issue #36
-
-### 0.1.4 (2024-10-06)
-* (MyHomeMyData) Fixes for issue #34
-* (MyHomeMyData) Fixes for issue #33
-
-### 0.1.3 (2024-10-05)
-* (MyHomeMyData) Fixed issue on windows systems (handling of file path)
-
-### 0.1.2 (2024-10-01)
-* (MyHomeMyData) Adapted adapter configurations
-
-### 0.1.1 (2024-10-01)
-* (MyHomeMyData) Removed main.js from package.json since it's obsolete
-
-### 0.1.0 (2024-10-01)
-* (MyHomeMyData) Use web extension instead of creating own web server. Use http://localhost:8082/flexcharts/echarts.html instead of http://localhost:3100/echarts.html
-
-### 0.0.4 (2024-09-13)
-* (MyHomeMyData) Changed default port to 3100 to avoid conflict with camera adapter
-* (MyHomeMyData) Check for conflicting port usage during start of instance
-* (MyHomeMyData) Added option to select dark mode
-* (MyHomeMyData) Fixed missing 404-page
-
-### 0.0.3 (2024-08-25)
-* (MyHomeMyData) Disabled sinon should interface
-* (MyHomeMyData) Update of npm dependencies
-
-### 0.0.2 (2024-08-05)
-* (MyHomeMyData) initial release
+Older changelog entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 MIT License
 
-Copyright (c) 2025 MyHomeMyData <juergen.bonfert@gmail.com>
+Copyright (c) 2024-2026 MyHomeMyData <juergen.bonfert@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

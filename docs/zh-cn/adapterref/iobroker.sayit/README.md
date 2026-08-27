@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sayit/README.md
 title: ioBroker sayit 适配器
-hash: CA2pWU0DOob+HMkxIHUAojmfwU4Bf5w+nb0qDp/Vxs0=
+hash: +ihpuczRngjRxTmffEJbUT5jR1VuwSqI598CSYm6N90=
 ---
 ![标识](../../../en/adapterref/iobroker.sayit/admin/sayit.png)
 
@@ -12,117 +12,137 @@ hash: CA2pWU0DOob+HMkxIHUAojmfwU4Bf5w+nb0qDp/Vxs0=
 ![下载](https://img.shields.io/npm/dm/iobroker.sayit.svg)
 
 # IoBroker sayit 适配器
-![测试和发布](https://github.com/ioBroker/iobroker.sayit/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/sayit/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试与发布](https://github.com/ioBroker/iobroker.sayit/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/sayit/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
 SayIt Adapter 可以将文本转换为语音并在某些设备上播放。
 
 ＃＃ 配置
 实际上，支持以下输出：
 
-- *浏览器* - 浏览器将在打开的“iobroker.vis”页面中播放文本。几乎所有桌面浏览器和少数移动浏览器都支持此功能。
+- *浏览器* - 浏览器将在打开的 `iobroker.vis` 页面中播放文本。几乎所有桌面浏览器都支持此功能，少数移动浏览器也支持。
 
-- *[Home24- MediaPlayer](http://www.home-24.net/index.php?app=media)* - 文本将被发送并播放到安装了 Home24 - MediaPlayer 的 Android 设备上。为此，我们将使用内置的 Android 文本转语音引擎。端口不可更改，请设置为 50000。
+- *[Home24- MediaPlayer](http://www.home-24.net/index.php?app=media)* - 文本将发送到安装了 Home24- MediaPlayer 的 Android 设备并播放。这将使用 Android 内置的文本转语音引擎。端口不可更改，请设置为 50000。
 
-- *Home24 - MediaPlayer 和 [FTP 服务器](https://play.google.com/store/apps/details?id=lutey.FTPServer)* - 文本将发送至安装了 Home24 - MediaPlayer 的安卓设备并播放。为此，我们将使用 Google 文本转语音引擎。生成的 mp3 文件将通过 FTP 复制到安卓设备，并使用 Home24 - MediaPlayer 播放。
+- *Home24 - 媒体播放器和 [FTP 服务器](https://play.google.com/store/apps/details?id=lutey.FTPServer)* - 文本将发送到安装了 Home24 - 媒体播放器的 Android 设备并播放。此过程将使用 Google 的文本转语音引擎。生成的 mp3 文件将通过 FTP 复制到 Android 设备，并使用 Home24 - 媒体播放器播放。
 
-两个应用程序必须具有相同的主目录。（例如，“sd 卡”的根目录）。
+两个应用程序必须具有相同的主目录。（例如，SD 卡的根目录）。
 
-- *系统* - 文本将由运行 ioBroker 适配器的操作系统播放。支持以下操作系统：Windows、Linux、Mac OSx。
+- *系统* - 文本将由运行 ioBroker 适配器的操作系统播放。支持的操作系统包括：Windows、Linux 和 Mac OS X。
 
-- *Windows 引擎* - 文本将由 sayIt 适配器运行的 Windows 系统播放。为此，将使用 Windows 文本转语音引擎，该引擎应由用户预先配置。您可以[此处](http://windows.microsoft.com/en-us/windows/setting-speech-options#1TC=windows-7)查看如何设置。
+- *Windows 引擎* - 文本将由 Windows 系统播放，sayIt 适配器在 Windows 系统中运行。为此，系统将使用 Windows 自带的文本转语音引擎，该引擎需要用户预先配置。您可以[点击此处](http://windows.microsoft.com/en-us/windows/setting-speech-options#1TC=windows-7)查看设置方法。
 
-- *Sonos* - 在 Sonos 设备上播放文本。请确保 Web 适配器已启用。启用 Web 适配器是 SONOS 读取生成的 mp3 文件所必需的。
+- *Sonos* - 在 Sonos 设备上播放文本。请确保已启用 Web Adapter。这是 Sonos 读取生成的 mp3 文件所必需的。
 
-- *Heos* - 在 HEOS 设备上播放文本。请确保 Web 适配器已启用。启用 Web 适配器是启用 HEOS 读取生成的 mp3 文件所必需的。
+- *Heos* - 在 HEOS 设备上播放文本。请确保已启用 Web Adapter。这是 HEOS 读取生成的 mp3 文件所必需的。
 
 - *Chromecast* - 在 Chromecast 设备上播放文本。
 
-- *MPD* - 在音乐播放器守护进程上播放文本。仅使用 **http** 作为网络适配器，不要使用 https。
+- *MPD* - 在音乐播放器守护进程中播放文本。Web 适配器仅使用 **http**，不要使用 https。
 
-要在 RaspberryPI 或 Linux 系统上启用文本转语音功能，请按照命令 `sudo apt-get -y install mpg321` 调用一次以安装 mpg321。
+要在 RaspberryPI 或 linux 系统上启用文本转语音功能，请调用以下命令 `sudo apt-get -y install mpg321` 安装 mpg321。
 
-可以通过将其名称写入对象来播放 mp3/wav 文件。（例如 `/vis.0/main/img/door-bell.mp3`）
+可以通过将文件名写入对象来播放mp3/wav文件。（例如：`/vis.0/main/img/door-bell.mp3`）
 
 必须先加载该文件。
 
-### TTS 引擎
+### TTS发动机
 在线的：
 
 - Google：英语、德语、俄语、意大利语、西班牙语、法语；
-- Yandex：俄语
+Yandex：俄罗斯
 
-要使用 Yandex 语音，您必须在此处申请 API 密钥：[https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/)。[此服务将于 2019 年 1 月 1 日停用，并由 Yandex.cloud 取代] 要使用 Yandex.cloud，您必须在此处注册：[https://cloud.yandex.ru/]，在云端安装 SpeechKIT API，并按照 API 说明获取授权令牌和文件夹 ID。
+要使用 Yandex 语音服务，您必须在此处申请 API 密钥：[https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/)。[此服务将于 2019 年 1 月 1 日停用，并由 Yandex.cloud 取代] 要使用 Yandex.cloud，您应该在此处注册：[https://cloud.yandex.ru/]，在云端安装 SpeechKIT API，并按照 API 说明获取身份验证令牌和文件夹 ID。
 
-- 云：要使用云语音，您需要配置并运行“云”适配器，或直接在设置中输入应用密钥
-- 亚马逊网络服务 Polly：
+- FreeTTS：由 [https://freetts.org](https://freetts.org) 提供，包含 75 多种语言的 400 多种语音。
 
-要使用 AWS Polly 语音，您需要创建访问密钥和密钥[这里](https://console.aws.amazon.com/iam/home)。Amazon 文档可以在这里找到](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)。
+语言并非由引擎选择，而是由语音选择，例如 `de-DE-KatjaNeural`。
+
+需要 [定价页面](https://freetts.org/pricing) 中的 API 密钥。该服务的免费层级会在每段文本后附加“使用 freeTTS.org 生成”的语音，因此不能用于公告。
+
+- 云端：要使用云端语音，您需要配置并运行“云”适配器，或者直接在设置中输入应用密钥。
+- Amazon Web Services Polly：
+
+要使用 AWS Polly 语音，您需要创建访问密钥和秘密密钥 [您可以在这里找到亚马逊的文档：[https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home)。](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)。
 
 离线：
 
 - PicoTTS（仅限 Linux）：英语、德语、意大利语、西班牙语、法语；
 
-对于 PicoTTS，需要安装以下软件包：`libttspico-utils` 和 lame。
+要使用 PicoTTS，需要安装以下软件包：`libttspico-utils` 和 lame。
+
 安装命令：`sudo apt-get install libttspico-utils lame`
 
 - Coqui TTS：英语、德语、西班牙语、法语、荷兰语、日语、中文；
 
-有关如何使用的说明，请转到[官方文档](https://tts.readthedocs.io/en/latest/index.html)
+使用方法请转至[官方文件](https://tts.readthedocs.io/en/latest/index.html)
 
-### 云和 Amazon Web Services Polly 文本格式
-您可以使用[语音合成标记语言](http://docs.aws.amazon.com/polly/latest/dg/ssml.html)来格式化您的文本。
+### 文本生成测试
+通过选项卡 `Engine` 上的按钮 `Test text generation`，您可以检查所选引擎是否配置正确。
 
-最有用的功能：
+字段 `Test text` 已预先填充所选引擎语言的测试语句，可根据需要进行更改。如果该字段为空，则将使用相同的语句。文本将根据对话框的设置生成，因此在测试之前不得保存这些设置。
+
+文本仅生成，不会播放，因此即使没有播放器，测试也能正常运行。
+
+对话框会显示生成文件的大小和时长，并尝试在新浏览器标签页中打开该文件，以便您收听。为此，ioBroker 管理员必须允许浏览器弹出窗口。
+
+要同时测试生成和播放，请使用选项卡 `Player` 上的按钮 `Test`。
+
+### 云计算和亚马逊网络服务 Polly 文本格式
+您可以使用 [语音合成标记语言](http://docs.aws.amazon.com/polly/latest/dg/ssml.html) 格式化文本。
+
+最实用的功能：
 
 - `<break time="3s"/>`- 暂停 x 秒（最多 10 秒）。
-- `<emphasis>big</emphasis>` - 强调某些词。
+- `<emphasis>大</emphasis>` - 强调某个词。
 - `<prosody volume="+6dB" rate="90%">我正在说这个</prosody>` - 控制速度和音量参数。
-- `<say-as interpret-as="digits">12345</say-as>` - 分别读出每个数字。
+- `<say-as interpret-as="digits">12345</say-as>` - 逐个读出每个数字。
 
-更多[信息](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference)。
+更多 [信息](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference)。
 
 ### 系统命令
-如果您有一些可以在本地或其他地方播放音频文件的程序，您可以在此处写入此命令。例如
+如果您有可以播放本地或其他位置音频文件的程序，您可以在这里输入该命令。例如：
 
 `myCustomPlayer --option`
 
-如果选择**系统**输出，`sayit` 适配器将在本地系统上执行以下命令：
+如果选择**系统**输出，则`sayit`适配器将在本地系统上执行以下命令：
 
 `myCustomPlayer --option /opt/iobroker/node_modules/iobroker.sayit/say.mp3`
 
-如果文件名必须位于中间某处，则可以使用 *%s* 来指定文件名必须放置的位置：
+如果文件名必须位于文件中间的某个位置，可以使用 *%s* 来指定文件名必须放置的位置：
 
 `myCustomPlayer --option "%s" > /dev/null`
 
-sayIt 将从中得出`myCustomPlayer --option "/opt/iobroker/node_modules/iobroker.sayit/say.mp3" > /dev/null`。
+sayIt 将从中生成 `myCustomPlayer --option "/opt/iobroker/node_modules/iobroker.sayit/say.mp3" > /dev/null`。
 
 ＃＃ 用法
-SayIt 适配器不能单独使用。必须通过 JavaScript 适配器或通过特定控件的“vis”进行控制。
+SayIt 适配器不能单独使用。它必须通过 JavaScript 适配器或带有特定控件的“vis”界面进行控制。
+
 创建适配器实例后，您可以找到以下对象：
 
-- `sayit.N.tts.text`: 要说的短语。
-- `sayit.N.tts.volume`：播放短语时使用的音量。
-- `sayit.N.tts.playing`：如果文本正在播放，则返回 true；否则返回 false。仅支持“windows”和“system”播放模式。
-- `sayit.N.tts.cachetext`: 需要缓存的短语，这样即使没有网络也可以使用。
+- `sayit.N.tts.text`：要说的短语。
+- `sayit.N.tts.volume`: 播放该短语时将使用的音量。
+- `sayit.N.tts.playing`：如果文本正在播放，则为 true；否则为 false。仅支持“windows”和“system”播放模式。
+- `sayit.N.tts.cachetext`：要缓存的短语，之后无需联网即可使用。
 
-例如，您可以在此处手动输入“无互联网”，如果 ping google.com 的结果为负数，则将“无互联网”写入“tts.text”，即可将其读出。当然，必须启用缓存。
+例如，您可以手动输入“无网络连接”，如果 ping 通 google.com 的结果为否定，则将“无网络连接”写入“tts.text”，系统就会朗读出来。当然，必须启用缓存。
 
-状态 `tts.text` 支持扩展语法，因此语言/引擎和音量可以与文本一起定义。它用于启用多语言文本转语音引擎。
-例如，如果适配器具有引擎 `Google-english`，则可以使用短语 `de:Sag es` 强制使用 Google-Deutsch 语音引擎。
+状态 `tts.text` 支持扩展语法，因此可以同时定义语言/引擎和音量以及文本。它用于启用多语言文本转语音引擎。
 
-使用`ru;75;Погода хорошая`我们可以强制使用俄语并将音量调至 75%。
+例如，如果适配器具有引擎 `Google-english`，则可以使用短语 `de:Sag es` 强制使用 Google Deutsch 语音引擎。
 
-您可以指定公告音量相对于当前音量或指定音量（而非最大音量）的百分比。例如，如果命令为`de;75;Gutes Wetter`，且“公告音量”为 50%，则公告将以 38% 的音量（最大音量为 100%）播放。
+使用 `ru;75;Погода хорошая` 可以强制使用俄语，音量设置为 75%。
 
-您还可以指定播放 mp3 文件的系统命令。如果留空，则使用默认设置：windows - `cmdmp3.exe`、OSX - `/usr/bin/afplay`、linux - `mpg321` 或 `omxplayer`（推荐）。
+您可以指定公告音量的百分比，该百分比基于当前音量或给定音量（而非最大音量）。例如，如果命令为 `de;75;Gutes Wetter`且“公告音量”为 50%，则公告将以 100% 最大音量的 38% 播放。
 
-要安装 omxplayer，请写入 `sudo apt-get install omxplayer` 或写入 `sudo apt-get install mpg321` 来安装 mpg321。
+也可以指定播放 mp3 文件的系统命令。如果留空，则将使用默认设置：windows - `cmdmp3.exe`，OSX - `/usr/bin/afplay`，linux - `mpg321` 或 `omxplayer`（推荐）。
 
-**注意：**只有在实例启动后才可以进行默认公告选择。
+要安装 omxplayer，请输入 `sudo apt-get install omxplayer`；要安装 mpg321，请输入 `sudo apt-get install mpg321`。
 
-使用`sendTo`，您可以发送更多不同的参数，例如`sonosDevice`或`browserInstance`：
+**注意：** 默认公告选择仅在实例启动后才可进行。
+
+使用 `sendTo`，您可以发送更多不同的参数，例如 `sonosDevice` 或 `browserInstance`：
 
 ```javascript
 sendTo('sayit.0', 'say', {
@@ -134,33 +154,40 @@ sendTo('sayit.0', 'say', {
 });
 ```
 
-### 优先级
-要想在文本排队的情况下立即读出文本，您有两种选择：
+### 优先事项
+即使队列中已有文本，您仍想立即朗读文本，有两种方法：
 
-- 将“！”作为文本中的第一个字符，因此该文本将在当前文本之后立即发音。
-- 将 true 写入“tts.clearQueue”状态，队列将被清除。之后，您可以将新文本写入“tts.text”，但所有排队的文本都会被丢弃。
+- 将“!”放在文本的第一个字符，这样该文本就会在当前文本之后立即被读出。
+将 `tts.clearQueue` 状态值设置为 true，队列将被清空。之后，您可以向 `tts.text` 写入新文本，但所有已排队的文本都将被丢弃。
 
-### 引擎
-引擎可能具有以下值：
+### 发动机
+发动机的可能取值如下：
 
 ＃＃＃＃ 谷歌
 - **en** - 英语
-- **de** - 德语
+- **de** - Deutsch
 - **pl** - 波兰语
-- **ru** - 俄语
+- **ru** - Русский
 - **英国** - український
 - **它** - 意大利语
 - **es** - 西班牙语
 - **fr** - 法语
 - **nl** - 荷兰语
 - **zh-CN** - 简体中文
-- **pt** - 葡萄牙语
+- **pt** - Português
 
-Yandex
+#### 免费TTS
+- **freeTTS** - 语音、语速和音调均取自实例配置。
+
+语言是语音的一部分，因此只有一个引擎名称。语音（例如 `de-DE-KatjaNeural`）在配置对话框中选择，系统会从服务中读取所有可用语音的列表。
+
+请求长度限制为 10000 个字符，因此较长的文本会被分割并逐段朗读。
+
+#### Yandex
 - **ru_YA:Yandex** - Русский
-- **ru_YA_CLOUD:Yandex Cloud** - 俄语 [Yandex.Cloud API 生成 OGG 格式的文件。要在 Linux 上播放 OGG 文件，需要安装 mplayer 并将其选为系统播放器]
+- **ru_YA_CLOUD:Yandex Cloud** - Русский [Yandex.Cloud API 生成 OGG 格式的文件。要在 Linux 上播放 OGG 文件，需要安装 mplayer 并将其设置为系统播放器。]
 
-#### 通过云端的 Amazon polly
+#### Amazon Polly 通过云
 - **ru-RU_CLOUD_Female** - Русский - Татьяна
 - **ru-RU_CLOUD_Male** - Русский - Максим
 - **de-DE_CLOUD_Female** - 德语 - Marlene
@@ -168,8 +195,8 @@ Yandex
 - **de-DE_CLOUD_Female_Vicki** - 德语 - Vicki
 - **de-DE_CLOUD_Male_Daniel** - 德语 - 丹尼尔
 - **de-AT_CLOUD_Female_Hannah** - 奥地利 - 汉娜
-- **en-US_CLOUD_Female** - en-US - 女 - Salli
-- **en-US_CLOUD_Male** - en-US - 男 - Joey
+- **en-US_CLOUD_Female** - en-US - 女性 - 萨莉
+- **en-US_CLOUD_Male** - en-US - Male - Joey
 - **da-DK_CLOUD_Female** - da-DK - 女 - Naja
 - **da-DK_CLOUD_Male** - da-DK - 男 - Mads
 - **en-AU_CLOUD_Female** - en-AU - 女 - Nicole
@@ -177,53 +204,53 @@ Yandex
 - **en-GB_CLOUD_Female_Amy** - en-GB - 女 - Amy
 - **en-GB_CLOUD_Male** - en-GB - 男 - Brian
 - **en-GB_CLOUD_Female_Emma** - en-GB - 女 - 艾玛
-- **en-GB-WLS_CLOUD_Female** - en-GB-WLS - 女 - 格温妮丝
+- **en-GB-WLS_CLOUD_Female** - en-GB-WLS - 女性 - 格温妮丝
 - **en-GB-WLS_CLOUD_Male** - en-GB-WLS - 男 - Geraint
-- **cy-GB_CLOUD_Female** - cy-GB - 女 - 格温妮丝
+- **cy-GB_CLOUD_Female** - cy-GB - 女性 - 格温妮丝
 - **cy-GB_CLOUD_Male** - cy-GB - 男 - Geraint
-- **en-IN_CLOUD_Female** - en-IN - 女 - Raveena
-- **en-US_CLOUD_Male_Chipmunk** - en-US - 男 - 花栗鼠
-- **en-US_CLOUD_Male_Eric** - en-US - 男 - Eric
-- **en-US_CLOUD_Female_Ivy** - en-US - 女 - Ivy
-- **en-US_CLOUD_Female_Jennifer** - en-US - 女 - Jennifer
+- **en-IN_CLOUD_Female** - en-IN - 女性 - Raveena
+- **en-US_CLOUD_Male_Chipmunk** - en-US - Male - Chipmunk
+- **en-US_CLOUD_Male_Eric** - en-US - Male - Eric
+- **en-US_CLOUD_Female_Ivy** - en-US - Female - Ivy
+- **en-US_CLOUD_Female_Jennifer** - en-US - 女性 - Jennifer
 - **en-US_CLOUD_Male_Justin** - en-US - 男 - Justin
-- **en-US_CLOUD_Female_Kendra** - en-US - 女 - Kendra
-- **en-US_CLOUD_Female_Kimberly** - en-US - 女 - 金伯利
+- **en-US_CLOUD_Female_Kendra** - en-US - 女性 - Kendra
+- **en-US_CLOUD_Female_Kimberly** - en-US - Female - Kimberly
 - **es-ES_CLOUD_Female** - es-ES - 女性 - Conchita
 - **es-ES_CLOUD_Male** - es-ES - 男 - 恩里克
-- **es-US_CLOUD_Female** - es-US - 女 - 佩内洛普
+- **es-US_CLOUD_Female** - es-US - 女性 - 佩内洛普
 - **es-US_CLOUD_Male** - es-US - 男 - 米格尔
-- **fr-CA_CLOUD_Female** - fr-CA - 女 - Chantal
-- **fr-FR_CLOUD_Female** - fr-FR - 女 - Celine
+- **fr-CA_CLOUD_Female** - fr-CA - 女性 - Chantal
+- **fr-FR_CLOUD_Female** - fr-FR - 女性 - Celine
 - **fr-FR_CLOUD_Male** - fr-FR - 男 - Mathieu
-- **is-IS_CLOUD_Female** - is-IS - 女 - Dora
-- **is-IS_CLOUD_Male** - is-IS - 男 - Karl
-- **it-IT_CLOUD_Female** - it-IT - 女 - Carla
-- **it-IT_CLOUD_Male** - it-IT - 男 - 乔治奥
-- **nb-NO_CLOUD_Female** - no-NO - 女 - Liv
-- **no-NO_CLOUD_Female** - no-NO - 女性 - Ida
-- **nl-NL_CLOUD_Female** - nl-NL - 女 - 乐天
-- **nl-NL_CLOUD_Male** - nl-NL - 男 - 鲁本
-- **pl-PL_CLOUD_Female_Agnieszka** - pl-PL - 女 - Agnieszka
+- **is-IS_CLOUD_Female** - is-IS - Female - Dora
+- **is-IS_CLOUD_Male** - is-IS - Male - Karl
+- **it-IT_CLOUD_Female** - it-IT - 女性 - 卡拉
+- **it-IT_CLOUD_Male** - it-IT - 男 - Giorgio
+- **nb-NO_CLOUD_Female** - no-NO - Female - Liv
+- **no-NO_CLOUD_Female** - no-NO - Female - Ida
+- **nl-NL_CLOUD_Female** - nl-NL - 女性 - 乐天
+- **nl-NL_CLOUD_Male** - nl-NL - 男 - Ruben
+- **pl-PL_CLOUD_Female_Agnieszka** - pl-PL - 女性 - Agnieszka
 - **pl-PL_CLOUD_Male_Jacek** - pl-PL - 男 - Jacek
-- **pl-PL_CLOUD_Female_Ewa** - pl-PL - 女 - Ewa
-- **pl-PL_CLOUD_Male_Jan** - pl-PL - 男 - Jan
-- **pl-PL_CLOUD_Female** - pl-PL - 女 - Maja
-- **pt-BR_CLOUD_Female** - pt-BR - 女 - 维多利亚
-- **pt-BR_CLOUD_Female_Camila** - pt-BR - 女 - 卡米拉
-- **pt-BR_CLOUD_Male** - pt-BR - 男 - 里卡多
+- **pl-PL_CLOUD_Female_Ewa** - pl-PL - 女性 - Ewa
+- **pl-PL_CLOUD_Male_Jan** - pl-PL - 男 - 一月
+- **pl-PL_CLOUD_Female** - pl-PL - 女性 - Maja
+- **pt-BR_CLOUD_Female** - pt-BR - 女性 - 维多利亚
+- **pt-BR_CLOUD_Female_Camila** - pt-BR - 女性 - 卡米拉
+- **pt-BR_CLOUD_Male** - pt-BR - 男 - Ricardo
 - **pt-PT_CLOUD_Male** - pt-PT - 男 - 克里斯蒂亚诺
-- **pt-PT_CLOUD_Female** - pt-PT - 女 - Ines
-- **ro-RO_CLOUD_Female** - ro-RO - 女 - 卡门
-- **sv-SE_CLOUD_Female** - sv-SE - 女 - 阿斯特丽德
-- **tr-TR_CLOUD_Female** - tr-TR - 女 - Filiz
-- **pt-BR_CLOUD_Female_Camila** - pt-BR - 女 - 卡米拉
+- **pt-PT_CLOUD_Female** - pt-PT - 女性 - Ines
+- **ro-RO_CLOUD_Female** - ro-RO - 女性 - 卡门
+- **sv-SE_CLOUD_Female** - sv-SE - 女性 - 阿斯特丽德
+- **tr-TR_CLOUD_Female** - tr-TR - Female - Filiz
+- **pt-BR_CLOUD_Female_Camila** - pt-BR - 女性 - 卡米拉
 
-#### Pico 语音合成
+#### Pico TTS
 - **en-US** - 美国英语
-- **en-GB** - 英国英语
+- **en-GB** - Englisch GB
 - **de-DE** - 德语
-- **it-IT** - 意大利语
+- **it-IT** - Italiano
 - **es-ES** - 西班牙语
 - **fr-FR** - 法语
 
@@ -235,13 +262,13 @@ Yandex
 - 荷兰语
 - 日本
 
-#### 亚马逊 polly 直销
+#### 亚马逊 Polly Direct
 - **ru-RU_AP_Female** - Русский - Татьяна
 - **ru-RU_AP_Male** - Русский - Максим
 - **de-DE_AP_Female** - 德语 - Marlene
 - **de-DE_AP_Female_Vicki** - 德语 - Vicki
 - **de-DE_AP_Male** - 德语 - 汉斯
-- **en-US_AP_Female** - en-US - 女 - Salli
+- **en-US_AP_Female** - en-US - 女性 - 萨莉
 - **en-US_AP_Male** - en-US - 男 - Joey
 - **da-DK_AP_女性** - da-DK - 女性 - Naja
 - **da-DK_AP_Male** - da-DK - 男 - Mads
@@ -252,329 +279,89 @@ Yandex
 - **en-GB_AP_Female_Emma** - en-GB - 女 - 艾玛
 - **en-GB-WLS_AP_Female** - en-GB-WLS - 女 - Gwyneth
 - **en-GB-WLS_AP_Male** - en-GB-WLS - 男 - Geraint
-- **cy-GB_AP_Female** - cy-GB - 女 - 格温妮丝
+- **cy-GB_AP_Female** - cy-GB - 女性 - 格温妮丝
 - **cy-GB_AP_Male** - cy-GB - 男 - Geraint
 - **en-IN_AP_Female** - en-IN - 女 - Raveena
 - **en-US_AP_Male_Chipmunk** - en-US - 男性 - 花栗鼠
-- **en-US_AP_Male_Eric** - en-US - 男 - Eric
-- **en-US_AP_Female_Ivy** - en-US - 女性 - Ivy
-- **en-US_AP_Female_Jennifer** - en-US - 女 - Jennifer
+- **en-US_AP_Male_Eric** - en-US - Male - Eric
+- **en-US_AP_Female_Ivy** - en-US - Female - Ivy
+- **en-US_AP_Female_Jennifer** - en-US - 女性 - Jennifer
 - **en-US_AP_Male_Justin** - en-US - 男 - 贾斯汀
 - **en-US_AP_Female_Kendra** - en-US - 女性 - Kendra
-- **en-US_AP_Female_Kimberly** - en-US - 女 - 金伯利
+- **en-US_AP_Female_Kimberly** - en-US - 女性 - Kimberly
 - **es-ES_AP_Female** - es-ES - 女性 - Conchita
 - **es-ES_AP_Male** - es-ES - 男 - 恩里克
-- **es-US_AP_Female** - es-US - 女 - 佩内洛普
+- **es-US_AP_Female** - es-US - 女性 - 佩内洛普
 - **es-US_AP_Male** - es-US - 男 - Miguel
-- **fr-CA_AP_Female** - fr-CA - 女 - Chantal
-- **fr-FR_AP_Female** - fr-FR - 女 - Celine
+- **fr-CA_AP_Female** - fr-CA - 女性 - Chantal
+- **fr-FR_AP_Female** - fr-FR - 女性 - Celine
 - **fr-FR_AP_Male** - fr-FR - 男 - Mathieu
-- **is-IS_AP_Female** - is-IS - 女性 - Dora
-- **is-IS_AP_Male** - is-IS - 男 - Karl
-- **it-IT_AP_Female** - it-IT - 女 - 卡拉
-- **it-IT_AP_Male** - it-IT - 男 - 乔治奥
-- **nb-NO_AP_Female** - nb-NO - 女 - Liv
-- **nl-NL_AP_Female** - nl-NL - 女 - 乐天
+- **is-IS_AP_Female** - is-IS - Female - Dora
+- **is-IS_AP_Male** - is-IS - Male - Karl
+- **it-IT_AP_Female** - it-IT - 女性 - 卡拉
+- **it-IT_AP_Male** - it-IT - 男 - Giorgio
+- **nb-NO_AP_Female** - nb-NO - 女性 - 莉芙
+- **nl-NL_AP_Female** - nl-NL - 女性 - 乐天
 - **nl-NL_AP_Male** - nl-NL - 男 - 鲁本
 - **pl-PL_AP_Female_Agnieszka** - pl-PL - 女 - Agnieszka
 - **pl-PL_AP_Male_Jacek** - pl-PL - 男 - Jacek
-- **pl-PL_AP_Female_Ewa** - pl-PL - 女 - Ewa
+- **pl-PL_AP_Female_Ewa** - pl-PL - 女性 - Ewa
 - **pl-PL_AP_Male_Jan** - pl-PL - 男 - 一月
-- **pl-PL_AP_Female** - pl-PL - 女 - Maja
-- **pt-BR_AP_Female** - pt-BR - 女 - 维多利亚
-- **pt-BR_AP_Male** - pt-BR - 男 - 里卡多
+- **pl-PL_AP_Female** - pl-PL - 女性 - Maja
+- **pt-BR_AP_Female** - pt-BR - 女性 - 维多利亚
+- **pt-BR_AP_Male** - pt-BR - 男 - Ricardo
 - **pt-PT_AP_Male** - pt-PT - 男 - 克里斯蒂亚诺
-- **pt-PT_AP_Female** - pt-PT - 女 - Ines
-- **ro-RO_AP_Female** - ro-RO - 女 - 卡门
+- **pt-PT_AP_Female** - pt-PT - 女性 - Ines
+- **ro-RO_AP_Female** - ro-RO - 女性 - 卡门
 - **sv-SE_AP_女性** - sv-SE - 女性 - 阿斯特丽德
-- **tr-TR_AP_Female** - tr-TR - 女 - Filiz
+- **tr-TR_AP_Female** - tr-TR - 女性 - Filiz
 - **ko-KR_AP_女性** - ko-KR - 女性 - Seoyeon
 
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一版本的占位符（位于行首）：
 
-### **工作正在进行** -->
+### **正在进行中** -->
 
 ## Changelog
+### 5.3.1 (2026-08-13)
+* (@GermanBluefox) Added the button "Test text generation" to the "Engine" tab, so the selected engine can be tested with an own text
+* (@GermanBluefox) Test generations do not overwrite the cached files anymore
+* (@GermanBluefox) Adapter requires node.js >= 22 and js-controller >= 6.0.11 now
+* (@GermanBluefox) Older changelog entries were moved to CHANGELOG_OLD.md
+* (@GermanBluefox) Updated the dependabot and auto-merge configuration
+
+### 5.3.0 (2026-08-13)
+* (@GermanBluefox) Added freetts.org as a new TTS engine with more than 400 voices. An API key is required
+* (@GermanBluefox) The engine is selected in two steps now: first the provider and then the voice
+* (@GermanBluefox) The words of the Blockly block are translated into all 11 languages now
+* (@GermanBluefox) Blockly block migrated to TypeScript and the generated code is unchanged
+
+### 5.2.4 (2026-08-07)
+* (@GermanBluefox) Corrected the upload of the announcement mp3 files and the location of the cache directory
+* (@GermanBluefox) Corrected the splitting of long texts for the Google engine
+* (@GermanBluefox) Corrected the detection of sonos devices in the configuration dialog
+* (@GermanBluefox) Cached files will be deleted again if the engine was changed
+* (@GermanBluefox) The queue does not block anymore if an error occurs by processing of a task
+* (@GermanBluefox) Texts with semicolons will not be interpreted as "language;volume;text" anymore
+* (@GermanBluefox) The local engines (PicoTTS, CoquiTTS) and the windows player are called without shell now
+* (@GermanBluefox) Corrected the default settings of a new instance
+
 ### 5.1.0 (2025-09-17)
 * (bluefox) Adapter was rewritten with TypeScript
 * (bluefox) Updated Polly voices list
-* (bluefox) Added option to send sonos device as parameter in sendTo command
+* (bluefox) Added an option to send sonos device as a parameter in sendTo command
 
 ### 5.0.0 (2024-07-16)
 * (mcm1957) Adapter requires admin v7 or newer now
 * (mcm1957) Adapter requires jas-controller 5 or newer now
 * (bluefox) Added possibility to play directly from states: `sayit.0/tts.userfiles/gong.mp3`
 
-### 4.0.5 (2024-07-12)
-* (bluefox) Packages updated
-* (bluefox) Corrected playing in vis
-* (bluefox) Corrected blockly
-* (bluefox) Corrected upload of files
-
-### 4.0.1 (2024-05-25)
-* (bluefox) Packages updated
-* (neopholus) Using the pre-calculated duration of the mp3 to wait long enough even for longer announcements
-
-### 4.0.0 (2023-10-31)
-* (bluefox) Breaking changes: A minimal node.js version is 16
-* (bluefox) Browser outputs now to vis(1) and vis-2
-
-### 3.0.5 (2023-04-17)
-* (bluefox) Corrected error with System player
-* (bluefox) Do not allow for chromecast to cache files.
-* (bluefox) Allowed to add cloud App-Key without running cloud adapter
-* (bluefox) Added austrian language
-* (bluefox) Added norwegian language
-* (klein0r) Used sendTo instead of setState in blockly
-
-### 3.0.0 (2023-04-03)
-* (bluefox) Restored cloud engines. Warning: update cloud adapter to at least 4.4.0
-* (bluefox) Breaking changes: A minimal node.js version is 14
-
-### 2.1.2 (2023-03-27)
-* (bluefox) Corrected engines with web-link
-
-### 2.1.1 (2023-03-24)
-* (Jey-Cee) Added support for Coqui TTS
-* (bluefox) Renamed all configuration attributes
-
-### 2.0.0 (2023-03-23)
-* (bluefox) Adapter was completely rewritten with async/await
-* (bluefox) Could be buggy
-
-### 1.13.0 (2023-03-22)
-* (bluefox) Made compatible with future js-controller
-
-### 1.12.6 (2022-02-09)
-* (bluefox) used setForeignBinaryState if possible
-
-### 1.12.5 (2022-02-09)
-* (bluefox) Fixed errors in io-package.json
-
-### 1.12.3 (2021-06-25)
-* (bluefox) corrected the Google engine
-* (bluefox) Added new voices: german, korean, brasil, Dutch
-
-### 1.12.2 (2020-11-07)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SAYIT-Q, IOBROKER-SAYIT-S, IOBROKER-SAYIT-T)
-
-### 1.12.0 (2020-10-19)
-* (withstu) Support for HEOS was added
-
-### 1.11.5 (2020-09-24)
-* (Apollon77) prevent scheduled restart problems
-
-### 1.11.3 (2020-09-17)
-* (Apollon77) make sure initialize errors do not crash adapter (Sentry IOBROKER-SAYIT-N)
-
-### 1.11.2 (2020-08-08)
-* (Apollon77) catch errors in MDNS discovery (Sentry IOBROKER-SAYIT-E)
-
-### 1.11.1 (2020-08-06)
-* (Apollon77) handle errors from process spawn better (Sentry IOBROKER-SAYIT-D)
-
-### 1.11.0 (2020-08-02)
-* (Apollon77) Move the generated mp3 file to an own directory in iobroker-data instead of inside node_modules (Hopefully not breaking)
-* (Apollon77) Change the file writing to use Sync methods to make sure they cannot run in parallel
-
-### 1.10.2 (2020-07-19)
-* (Apollon77) Crash case prevented (Sentry IOBROKER-SAYIT-8)
-
-### 1.10.1 (2020-07-16)
-* (Apollon77) Handle edge cases and prevent crashes (Sentry IOBROKER-SAYIT-4, IOBROKER-SAYIT-6)
-* (Apollon77) try to get caching working again for Yandex
-
-### 1.10.0 (2020-07-07)
-* (algar42) GUI updated to fill drop-downs correctly. Premium voices added to Yandex.Cloud engine
-
-### 1.9.8 (2020-06-11)
-* (Apollon77) fixed error handling on file copy
-
-### 1.9.7 (2020-06-11)
-* (algar42) tts.ogg state added for ogg file type
-
-### 1.9.6 (2020-05-24)
-* (bluefox) Showed names of SONOS devices
-
-### 1.9.4 (2020-05-11)
-* (Apollon77) Fix Blockly
-* (Apollon77) Update dependencies
-
-### 1.9.3 (2020-04-24)
-* (bluefox) Fixed blockly with missing languages
-
-### 1.9.2 (2020-04-21)
-Changed type of top-level object to "meta" in order to comply with js-controller v3
-
-### 1.9.1 (2020-03-12)
-* (foxriver76) removed usage of adapter.getMessage
-
-### 1.9.0 (2019-11-06)
-* (algar42) Output file extension is changed dynamically based on the engine selected
-
-### 1.8.2 (2019-07-11)
-* (bluefox) Web server URL will be updated if web server was updated
-
-### 1.8.1
-* Add Ukrainian Google Language
-
-### 1.8.0 (2018-12-04)
-* (bluefox) Priority for the text was added
-
-### 1.7.1 (2018-09-19)
-* (BuZZy1337) fixed error in Blockly-Block
-
-### 1.7.0 (2018-06-08)
-* (bluefox) Ivona removed
-* (bluefox) Error was fixed by upload of file to FTP
-* (bluefox) admin3
-
-### 1.6.8 (2018-04-11)
-* (BuZZy1337) Generate separate mp3 files for each instance.
-* Fixes [Issue#34](https://github.com/ioBroker/ioBroker.sayit/issues/34)
-* (BuZZy1337) Always upload mp3 files to the state sayit.X.tts.mp3
-
-### 1.6.7 (2018-02-05)
-* (Apollon77) Remove unneeded logging
-* (bondrogeen) Admin3 Fixes
-
-### 1.6.6 (2017-11-27)
-* (angelnu) Wait for a Google Home announcement to complete
-
-### 1.6.5 (2017-11-04)
-* (bluefox) Fix cloud .pro
-
-### 1.6.4 (2017-10-18)
-* (bluefox) Fix system commands
-
-### 1.6.3 (2017-10-04)
-* (bluefox) Code refactoring
-* (bluefox) Add Google Home as output
-* (bluefox) Remove ivona because not more supported
-
-### 1.5.2 (2017-03-09)
-* (bluefox) Catch error if some directory in mp3 folder
-
-### 1.5.1 (2017-02-15)
-* (bluefox) Fix blockly language
-
-### 1.5.0 (2017-01-27)
-* (DarkChaos) Add AWS Polly as source
-* (bluefox) Add cloud as a source
-
-### 1.4.0 (2017-01-16)
-* (bluefox) fixed install problem
-* (bluefox) add PicoTTS as a source
-
-### 1.3.3 (2017-01-13)
-* (bluefox) show only installed instances in blockly
-
-### 1.3.2 (2017-01-10)
-* (angelnu) changes for new chromecast tts
-
-### 1.3.1 (2016-12-27)
-* (bluefox) small fixed of config dialog
-* (AirKing555) Fix Volume change
-
-### 1.3.0 (2016-12-20)
-* (instalator) add mpd
-
-### 1.2.1 (2016-10-31)
-* (bluefox) Fix cache
-
-### 1.2.0 (2016-10-28)
-* (bluefox) Finish sayit
-
-### 1.1.3 (2016-10-24)
-* (bluefox) Fix changing of engine
-
-### 1.1.2 (2016-10-20)
-* (bluefox) Add omxplayer option
-
-### 1.0.1 (2016-10-12)
-* (bluefox) support for blockly
-
-### 1.0.0 (2016-05-14)
-* (bluefox) Make the type of mp3 as file
-
-### 0.3.16 (2015-12-26)
-* (Vegetto) Support for Chromecast devices
-
-### 0.3.16 (2015-12-26)
-* (bluefox) enable play of mp3 files from disk
-
-### 0.3.15 (2015-11-10)
-* (bluefox) fill default settings by first start
-
-### 0.3.14 (2015-11-01)
-* (bluefox) fixed error with sayItWindows
-
-### 0.3.13 (2015-10-27)
-* (bluefox) fixed error with sayItSystem
-
-### 0.3.12 (2015-10-06)
-* (bluefox) fixed error if received mp3 file is too short
-* (bluefox) try to implement cache datapoint (you can use `sayit.0.tts.cachetext` to create cache for phrases and use sayit without internet)
-
-### 0.3.11 (2015-08-03)
-* (bluefox) change google requests from http to https
-
-### 0.3.10 (2015-07-26)
-* (bluefox) add new voice Russian-Maxim
-* (bluefox) fixed error with mp24ftp
-
-### 0.3.9 (2015-07-09)
-* (bluefox) fixed error by mediaplayer24
-
-### 0.3.8 (2015-06-09)
-* (bluefox) make the volume for announcement configurable
-* (bluefox) make the command for "system" configurable
-
-### 0.3.7 (2015-05-28)
-* (bluefox) fixed volume for an announcement
-* (bluefox) support for play files from internal filesystem, like `/sayit.0/tts.userfiles/myGong.mp3`
-
-### 0.3.6 (2015-03-24)
-* (bluefox) fixed error with volume by sonos
-
-### 0.3.5 (2015-03-22)
-* (bluefox) fixed error in an announcement
-
-### 0.3.4 (2015-03-20)
-* (bluefox) fixed error in an announcement
-
-### 0.3.3 (2015-03-20)
-* (bluefox) enable announcement
-
-### 0.3.2 (2015-03-16)
-* (bluefox) clear cache if engine changed
-
-### 0.3.1 (2015-03-15)
-* (bluefox) fixed small error with log
-
-### 0.3.0 (2015-03-08)
-* (bluefox) add ivona/Amazon voices
-
-### 0.2.2 (2015-03-08)
-* (bluefox) fixed error by buffering of non-generated texts.
-
-### 0.2.1 (2015-03-07)
-* (bluefox) fixed error by buffering of non-generated texts.
-
-### 0.2.0 (2015-03-02)
-* (bluefox) add yandex-russian support
-
-### 0.1.0 (2015-03-02)
-* (bluefox) queue texts
-
-### 0.0.1 (2015-02-06)
-* (bluefox) initial commit
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2025, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

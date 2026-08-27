@@ -3,53 +3,55 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.deyeidc/README.md
 title: ioBroker.deyeidc
-hash: 0ZcS+L2l6rWq/BTpl4sDy6dZEdwFIlHLGQPkO1XWA0k=
+hash: Ds4rrNpll3XuGMXCxAEp43eyEX8PyN6yEyqSPFCovFA=
 ---
 ![标识](../../../en/adapterref/iobroker.deyeidc/admin/deyeidc.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.deyeidc.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.deyeidc.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.deyeidc.svg)
 ![安装数量](https://iobroker.live/badges/deyeidc-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/deyeidc-stable.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.deyeidc.png?downloads=true)
+![稳定仓库中的当前版本](https://iobroker.live/badges/deyeidc-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.deyeidc.png?downloads=true)
 
 # IoBroker.deyeidc
 **测试：** ![测试与发布](https://github.com/rasyxh/ioBroker.deyeidc/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 deyeidc 适配器
-数据采集器或 Deye 兼容逆变器
+数据采集器 vor Deye 兼容逆变器
 
 ＃＃＃ 入门
-该适配器可以从本地网络中的逆变器读取数据。为此，只需输入逆变器的 IP 和记录器的序列号。如果端口与默认值不同，也可以进行调整。 60秒被预设为采样率的实用值。
+此适配器可用于读取本地网络中逆变器的数据。为此，只需输入逆变器的 IP 地址和数据记录器的序列号即可。如果端口与默认值不同，也可以进行调整。采样率预设为 60 秒，这是一个实用值。
 
-数据本身通过已知的 Modbus 寄存器检索并存储在数据点中。这是在“Deye 兼容”逆变器上开发和测试的。因此，对于其他型号，要查询的寄存器可能有所不同。
+数据本身通过已知的 Modbus 寄存器检索并存储在数据点中。该功能已在“Deye 兼容”逆变器上开发和测试。因此，其他型号的逆变器需要查询的寄存器可能有所不同。
 
 ＃＃ 用法
-要调试适配器，还必须在后续页面的 GUI 中输入寄存器区域和线圈。同时，github 上已经有各种类型的示例条目（例如 https://github.com/raschy/ioBroker.deyeidc/blob/main/deyeidc.MI600.json）。
-基本上，寄存器必须根据相应的文档来确定。根据内容的类型，解码是通过“规则”完成的。
+要调试适配器，还需要在后续页面的图形用户界面 (GUI) 中输入寄存器区域和线圈信息。同时，GitHub 上已有各种类型的示例条目（例如 https://github.com/raschy/ioBroker.deyeidc/blob/main/deyeidc.MI600.json）。
 
-以下内容适用于此：
+基本上，寄存器信息必须根据相应的文档确定。解码则根据内容类型通过“规则”完成。
 
-|规则|描述 |
+以下情况适用于此：
+
+| 规则 | 说明 |
 | ----- | ------------ |
-| 0 |原始签名 |
-| 1 |对于 16 位无符号值 |
-| 2 |对于 16 位有符号值 |
-| 3 |对于 32 位无符号值 |
-| 4 |对于 32 位有符号值 |
-| 5 |获取序列号 |
-| 6 |对于温度 |
-| 7 |版本号 |
-| 8 |对于单字节 (MSB) |
-| 9 |对于单字节 (LSB) |
+| 0 | 原始符号 |
+| 1 | 表示 16 位无符号值 |
+| 2 | 用于 16 位有符号值 |
+| 3 | 适用于 32 位无符号值 |
+| 4 | 适用于 32 位有符号值 |
+| 5 | 用于序列号 |
+| 6 | 温度 |
+| 7 | 版本号 |
+| 8 | 代表单字节（最高有效位） |
+| 9 | 表示单字节 (LSB) |
 
-该文档还显示小数点是否必须移动一位或两位数字。条目“因素”就是为了这个目的。因此无法进行进一步有意义的计算。
+文档还会显示小数点需要移动一位还是两位。“因子”条目用于此目的。除此之外，无法进行任何其他有意义的计算。
 
-某些值不是由逆变器提供的，必须单独计算。为此，可以在表“计算”中输入每行两个值，然后计算这些值。
-一个典型的例子是“DV1 \* DC1”，然后将结果与数据树中相应的单元一起存储在“Key”中。请注意，每行只能处理一种基本计算类型。因此，括号规则是不可能的并且不受支持。
+某些值并非由逆变器提供，必须单独计算。在 0.3.2 版本之前，此处仅支持两个值。从 0.4.0 版本开始，可以在每个目标对象的“计算”表中输入包含多个操作数和运算符的表达式，例如“A + B – C _ D”，然后进行计算。当然，运算顺序遵循标准规则（_ 和 / 优先于 + 和 – 计算）（感谢 XHunter74）。目前仍不支持括号规则。
+
+一个典型的例子是太阳能组件的输出功率。这必须使用“DV1 * DC1”的值进行计算，然后将结果（“PV1”）及其对应的单位存储在数据树的“Key”项下。
 
 ### 免责声明
-所有产品和公司名称或徽标均为其各自所有者的商标™或注册®商标。使用它们并不意味着与它们或任何关联子公司有任何隶属关系或认可！这个个人项目是在业余时间维护的，没有商业目标。 DEYE 是版权所有 © 2023 宁波德业科技有限公司（地址：浙江省宁波市北仑甬江南路 26 号，邮编：315806 VR China）的商标。
+所有产品和公司名称或标识均为其各自所有者的商标™或注册商标®。使用这些名称或标识并不意味着与上述所有者或其任何关联子公司有任何关联或得到其认可！此个人项目为业余时间维护，不以盈利为目的。DEYE是宁波德业科技有限公司的商标。版权所有© 2023，地址：中国浙江省宁波市北仑区永江南路26号，邮编：315806。
 
 ## Changelog
 
@@ -57,53 +59,46 @@ hash: 0ZcS+L2l6rWq/BTpl4sDy6dZEdwFIlHLGQPkO1XWA0k=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.11 (2023-08-26)
 
--   (raschy) wrong implementation msb/lsb of 32-bit values recorrected
+### **WORK IN PROGRESS**
 
-### 0.0.10 (2023-08-25)
+- (raschy) Compute module redesigned and expanded (PR XHunter74)
 
--   (raschy) Calculation of 32-bit values corrected
--   (raschy) Ready for launch into the stable repository
+### 0.3.2 (2026-05-31)
 
-### 0.0.9 (2023-07-10)
+- (raschy) Less restrictive serial number check
+- (raschy) NodeJS >= 22.x is required
+- (raschy) Any necessary adjustments for nodeJS 22.x
+- (raschy) translations i18n-short
 
--   (raschy) minor bugs fixed
+### 0.3.1 (2025-10-01)
 
-### 0.0.8 (2023-07-10)
+- (raschy) Reduction of info-log output
 
--   (raschy) Day reset for offline operation
+### 0.3.0 (2025-08-29)
 
-### 0.0.7 (2023-05-27)
+- (raschy) Reduction of devDependencies
+- (raschy) The auxiliary functions chai and chai-as-promised have been tacked onto the executable version
+- (raschy) Control codes have been added for Modbus RTU requests
+- (raschy) Extended Debugging can be switched
+- (raschy) Modified method for offlineReset
 
--   (raschy) release for npm and ioBroker latest
+### 0.2.0 (2025-02-06)
 
-### 0.0.6 (2023-05-27)
+- (raschy) Dependabot run tracked manually
 
--   (raschy) Some processes optimized
+### 0.1.4 (2025-01-11)
 
-### 0.0.5 (2023-04-27)
+- (raschy) Error message corrected
+- (raschy) Function nullable repaired
 
--   (raschy) Calculations modified with formulas
--   (raschy) Error messages in English
-
-### 0.0.4 (2023-03-21)
-
--   (raschy) release for npm
-
-### 0.0.3 (2023-03-21)
-
--   (raschy) release
-
-### 0.0.2 (2023-03-21)
-
--   (raschy) initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 MIT License
 
-Copyright (c) 2023 raschy <raschy@gmx.de>
+Copyright (c) 2023-2026 raschy <raschy@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

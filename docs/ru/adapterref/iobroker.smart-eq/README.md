@@ -1,16 +1,16 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smart-eq/README.md
 title: ioBroker.smart-eq
-hash: IMKMAznd7VIK+W8PdyvoG77wKUfkOSxYpFliP5VOIC4=
+hash: OOwlPZa+7RFUfeZjKGu/UfnlSQZTzq4dHF0oj/Kx6Hg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smart-eq/admin/smart-eq.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.smart-eq.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.smart-eq.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.smart-eq.svg)
 ![Количество установок](https://iobroker.live/badges/smart-eq-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/smart-eq-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/smart-eq-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.smart-eq.svg)
 ![НПМ](https://nodei.co/npm/iobroker.smart-eq.png?downloads=true)
 
@@ -20,16 +20,23 @@ hash: IMKMAznd7VIK+W8PdyvoG77wKUfkOSxYpFliP5VOIC4=
 ## Адаптер smart-eq для ioBroker
 Адаптер для Smart EQ и Hello Smart
 
+## Часовой
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
+
 ## Логинаблауф
 Умное управление эквалайзером/hello smart Mail и пароль.
 
-## Стойерн
-smart-eq.0.vin.remote на истинном уровне сложности ювелирных изделий Befehl
+## Steuern
+smart-eq.0.vin.remote на истинном уровне управления ювелирными изделиями Befehl
 
-## Обсуждение и Fragen
+## Обсуждение и вопросы
 <https://forum.iobroker.net/topic/49548/test-adapter-smart-eq-v0-0-x>
 
 ## Changelog
+
+### 0.1.1
+
+- (TA2k) Bugfixes
 
 ### 0.1.0
 
@@ -47,7 +54,7 @@ hello smart support
 
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

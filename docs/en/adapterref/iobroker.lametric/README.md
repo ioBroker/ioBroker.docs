@@ -29,8 +29,8 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 
 - nodejs 20 (or later)
 - js-controller 6.0.0 (or later)
-- Admin Adapter 7.4.10 (or later)
-- _LaMetric Time_ with firmware _3.2.4_ (or later)
+- Admin Adapter 7.6.20 (or later)
+- _LaMetric Time_ with firmware _3.2.7_ (or later)
     - firmware _2.3.9_ (or later) on older models (produced before year 2022)
 
 [Firmware-Changelog](https://firmware.lametric.com) [Firmware-Changelog Time2](https://firmware.lametric.com/?product=time2)
@@ -65,8 +65,14 @@ Features are limited by the [official API features](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 6.0.1 (2026-08-04)
 
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.7)
+
+### 6.0.0 (2026-05-05)
+
+* (copilot) Adapter requires node.js >= 22 now
+* (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
 * (@klein0r) Updated dependencies
 
 ### 5.0.0 (2025-10-22)
@@ -84,21 +90,13 @@ Features are limited by the [official API features](https://lametric-documentati
 * (@klein0r) Allow icons with placeholders in config (improved validation)
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.3)
 
-### 4.0.0 (2025-04-08)
-
-NodeJS >= 20.x and js-controller >= 6 is required
-
-* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.4)
-
-### 3.4.1 (2024-10-29)
-
-* (@klein0r) Limit frame duration to 10 seconds (limited by LaMetric)
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2025-2026 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2026 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

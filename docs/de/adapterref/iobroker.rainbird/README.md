@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rainbird/README.md
 title: ioBroker.rainbird
-hash: +qMuoJ9cJl8fernes/WFBPpFPj1qQ90BKryXso+Tzjs=
+hash: 7AXCQlCf4CrfwWtJqg/Wx7fNVwGuYvBwdeVZa2VjcgQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.rainbird/admin/rainbird.png)
 
@@ -16,36 +16,53 @@ hash: +qMuoJ9cJl8fernes/WFBPpFPj1qQ90BKryXso+Tzjs=
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 
 # IoBroker.rainbird
-Ein ioBroker-Adapter für Rain Bird mit LNK-WiFi-Adapter. Dieses Projekt hat keine Verbindung zu Rain Bird.
+Ein ioBroker-Adapter für Rain Bird mit LNK-WLAN-Adapter. Dieses Projekt steht in keiner Verbindung zu Rain Bird.
 
-Basierend auf der Python-Bibliothek „pyrainbird“ von https://github.com/jbarrancos/pyrainbird und vollständig auf NodeJS portiert. Der Adapter stellt über eine WLAN-Verbindung eine direkte Verbindung zum Gerät her und verwendet nicht den Rain Bird-Cloud-Dienst.
+Basierend auf der Python-Bibliothek „pyrainbird“ von https://github.com/jbarrancos/pyrainbird und vollständig nach NodeJS portiert. Der Adapter stellt eine direkte Verbindung zum Gerät über WLAN her und nutzt nicht den Rain Bird Cloud-Dienst.
 
 ## Staaten
-`rainbird.X.device.commands.advanceZone` - Wenn das aktuelle Programm läuft, gehe zur nächsten Bewässerungszone und stoppe die aktuelle.
-`rainbird.X.device.commands.runProgram` - Führe das angegebene Programm manuell aus (1 bis X), wie zuvor im Gerät konfiguriert.
-`rainbird.X.device.commands.stopIrrigation` - Stoppe die Bewässerung in allen Zonen sofort.
+`rainbird.X.device.commands.advanceZone` – Während das aktuelle Programm läuft, wird zur nächsten Bewässerungszone gewechselt und die aktuelle gestoppt.
 
-`rainbird.X.device.irrigation.active` - Die Bewässerung ist derzeit aktiv. Wenn false, kann dies bedeuten, dass Sie den Schalter am Gerät auf „Stop“ gestellt haben.
-`rainbird.X.device.irrigation.station` - Nummer der Zone, die derzeit bewässert wird.
+`rainbird.X.device.commands.runProgram` – Das angegebene Programm (1 bis X) wird manuell ausgeführt, wie zuvor im Gerät konfiguriert.
 
-`rainbird.X.device.sensors.rain` – Wahr, wenn ein Regensensor angeschlossen ist und Regen erkannt wird.
+`rainbird.X.device.commands.stopIrrigation` – Die Bewässerung in allen Zonen wird sofort gestoppt.
+
+`rainbird.X.device.irrigation.active` – Die Bewässerung ist aktuell aktiv. Der Wert „false“ bedeutet, dass der Schalter am Gerät auf „Stopp“ steht.
+
+`rainbird.X.device.irrigation.station` – Nummer der aktuell bewässerten Zone.
+
+`rainbird.X.device.sensors.rain` - Wahr, wenn ein Regensensor angeschlossen ist und Regen erkannt wird.
 
 `rainbird.X.device.settings.rainDelay` – Die aktuell für das Gerät eingestellte Bewässerungsverzögerung (in Tagen).
+
 `rainbird.X.device.settings.seasonalAdjust` – Die aktuelle saisonale Anpassung des Wasserhaushalts.
 
 `rainbird.X.device.stations.Y.available` – Wahr, wenn Zone Y im Gerät verfügbar ist.
+
 `rainbird.X.device.stations.Y.irrigation` – Wahr, wenn Zone Y aktuell bewässert wird.
-`rainbird.X.device.stations.Y.remaining` – Verbleibende Bewässerungszeit in Sekunden. `rainbird.X.device.stations.Y.runZone` – Bewässerung in Zone Y manuell für die angegebene Anzahl von Minuten ausführen.
+
+`rainbird.X.device.stations.Y.remaining` – Verbleibende Bewässerungszeit in Sekunden.
+`rainbird.X.device.stations.Y.runZone` – Manuelle Bewässerung von Zone Y für die angegebene Minutenanzahl.
+
 `rainbird.X.device.stations.Y.testZone` – Zone Y testen.
 
 ## Credits
 Dieser Adapter wäre ohne die großartige Arbeit von Marius Burkard <m.burkard@pixcept.de>, der frühere Versionen dieses Adapters entwickelt hat, nicht möglich gewesen.
+
+## IQ4 Cloud-Geräte
+Da das LNK-Gerät nur eine gleichzeitige Verbindung zulässt, müssen Sie es von der IQ4-Cloud trennen, damit es ordnungsgemäß funktioniert. Dazu benötigen Sie eine Firewall, die beispielsweise den gesamten Internetverkehr nur für Ihre LNK-IP-Adresse blockiert. Anschließend können Sie sich wie erwartet mit diesem Adapter verbinden.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.1 (2026-05-10)
+- (copilot) Adapter requires node.js >= 22 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (mobster80) Https support for Rainbird LNK added. Migrated LNK devices to IQ4 cloud, please see additional information in section "IQ4 Cloud devices".
+
 ### 2.0.2 (2024-12-27)
 * (Feuersturm) @strathcole/iob-lib has been migrated to local repository (#27)
 * (mcm1957) Dependencies have been updated
@@ -66,15 +83,11 @@ Dieser Adapter wäre ohne die großartige Arbeit von Marius Burkard <m.burkard@p
 * (mcm1957) Adapter-core has been adapter, adapter supports js-controller 6 now.
 * (mcm1957) Dependencies have been updated
 
-### 0.2.3
--   Fixed problem with sensor data
--   Added seasonal water budget adjust information
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024-2025, iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 Marius Burkard m.burkard@pixcept.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

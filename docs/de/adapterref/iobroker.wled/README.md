@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wled/README.md
 title: ioBroker.wled
-hash: ZGr8DVFCltNzqXCLqZuyQfAjFjsiLxvJkqe5kEdcfqo=
+hash: eIOBSsKQXgVe6KThjmQ4Y7KPgIUHKWZBoRRNnI4fjyo=
 ---
 ![Logo](../../../en/adapterref/iobroker.wled/admin/wled_logo_akemi.png)
 
@@ -17,7 +17,7 @@ hash: ZGr8DVFCltNzqXCLqZuyQfAjFjsiLxvJkqe5kEdcfqo=
 # IoBroker.wled
 **Tests:** ![Test und Freigabe](https://github.com/DrozmotiX/iobroker.wled/workflows/Test%20and%20Release/badge.svg)
 
-**Dieser Adapter nutzt den Dienst [Sentry.io](https://sentry.io), um mir als Entwickler automatisch Ausnahmen, Codefehler und neue Geräteschemas zu melden.** Weitere Details finden Sie unten!
+**Dieser Adapter nutzt den Dienst `Sentry.io`, um mir als Entwickler automatisch Ausnahmen, Codefehler und neue Geräteschemas zu melden.** Weitere Details finden Sie unten!
 
 ## WLED-Adapter für ioBroker
 Eine schnelle und funktionsreiche Implementierung eines ESP8266/ESP32-Webservers zur Steuerung von NeoPixel (WS2812B, WS2811, SK6812, APA102)-LEDs oder auch SPI-basierten Chipsätzen wie dem WS2801!
@@ -150,8 +150,12 @@ Für Wartungsteams, die Bereitstellungsprobleme beheben, siehe [docs/DEPLOYMENT_
     ### __WORK IN PROGRESS__
 -->
 ### __WORK IN PROGRESS__
+* (DutchmanNL) Maintenance: use adapter timer API (this.setTimeout/this.clearTimeout) so all timers are cleared on unload
+* (DutchmanNL) Maintenance: translated the delete device confirmation message into all supported languages
+* (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
 * (DutchmanNL) **CI/CD**: Fixed deployment failure by adding missing sentry-version-prefix parameter to GitHub Actions workflow
 * (DutchmanNL) **CI/CD**: Updated GitHub Copilot instructions template from v0.4.2 to v0.5.6 - adds ESLint configuration, translation management, lint-first CI/CD workflow guidance
+* (DutchmanNL) Dependencies updated to current versions
 
 ### 0.9.2 (2026-02-16)
 * (DutchmanNL) solve auto deployment issues
@@ -181,6 +185,8 @@ Für Wartungsteams, die Bereitstellungsprobleme beheben, siehe [docs/DEPLOYMENT_
 * (DutchmanNL) Show online state of device in object tree
 * (DutchmanNL) Bugfix: Update online state correctly in situation connection is lost, fixes #611
 * (DutchmanNL) Reset brightness to 0 and on to false during adapter start and if a device disconnects, fixes #565
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

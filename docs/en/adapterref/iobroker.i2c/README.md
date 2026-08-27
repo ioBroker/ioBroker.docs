@@ -2,448 +2,419 @@
 
 # ioBroker.i2c
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.i2c.svg)](https://www.npmjs.com/package/iobroker.i2c)
+[![NPM version](https://img.shields.io/npm/v/iobroker.i2c.svg)](https://www.npmjs.com/package/iobroker.i2c)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.i2c.svg)](https://www.npmjs.com/package/iobroker.i2c)
-![Number of Installations (latest)](http://iobroker.live/badges/i2c-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/i2c-stable.svg)
-[![Dependency Status](https://img.shields.io/david/UncleSamSwiss/iobroker.i2c.svg)](https://david-dm.org/UncleSamSwiss/iobroker.i2c)
-[![Known Vulnerabilities](https://snyk.io/test/github/UncleSamSwiss/ioBroker.i2c/badge.svg)](https://snyk.io/test/github/UncleSamSwiss/ioBroker.i2c)
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/i2c/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Number of Installations](https://iobroker.live/badges/i2c-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/i2c-stable.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.i2c.png?downloads=true)](https://nodei.co/npm/iobroker.i2c/)
 
 **Tests:** ![Test and Release](https://github.com/UncleSamSwiss/ioBroker.i2c/workflows/Test%20and%20Release/badge.svg)
 
-## I2C adapter for ioBroker
+## i2c adapter for ioBroker
 
-Communicates with devices connected to the local system using the I2C bus.
+Communicates with devices over I2C bus.
 
-This adapter should work on Linux boards like the Raspberry Pi, C.H.I.P., BeagleBone or Intel Edison.
+## Developer manual
 
-## Install
+This section is intended for the developer. It can be deleted later.
 
-Before installing, please read the [installation guide of the i2c-bus module](https://www.npmjs.com/package/i2c-bus#installation).
+### DISCLAIMER
 
-Especially make sure, that you have properly configured and enabled I2C on your system (if needed):
+Please make sure that you consider copyrights and trademarks when you use names or logos of a company and add a disclaimer to your README.
+You can check other adapters for examples or ask in the developer community. Using a name or logo of a company without permission may cause legal problems for you.
 
--   [Configuring I2C on the Raspberry Pi](https://github.com/fivdi/i2c-bus/blob/master/doc/raspberry-pi-i2c.md)
--   [Configuring I2C on the Intel Edison Arduino Base Board](https://github.com/fivdi/i2c-bus/blob/master/doc/edison-adruino-base-board-i2c.md)
+### Getting started
 
-After you have enabled and configured I2C, you can install this adapter via ioBroker Admin:
+You are almost done, only a few steps left:
 
-1. Start the adapter (it must run for the discovery to work)
-2. Open instance config dialog
-3. Press the "Search Devices" button to discover all connected I2C devices - this will take some time, be patient!
-4. Configure all found devices in their respective tabs.
-5. Save the configuration (this will restart the adapter)
+1. Create a new repository on GitHub with the name `ioBroker.i2c`
+1. Initialize the current folder as a new git repository:
+    ```bash
+    git init -b master
+    git add .
+    git commit -m "Initial commit"
+    ```
+1. Link your local repository with the one on GitHub:
 
-### Access Right Issue
+    ```bash
+    git remote add origin https://github.com/UncleSamSwiss/ioBroker.i2c
+    ```
 
-Depending on the age of your ioBroker installation, the `iobroker` user (or under whatever user ioBroker is running) might not have the proper rights to access I2C.
+1. Push all files to the GitHub repo:
+    ```bash
+    git push origin master
+    ```
+1. Add a new secret under https://github.com/UncleSamSwiss/ioBroker.i2c/settings/secrets. It must be named `AUTO_MERGE_TOKEN` and contain a personal access token with push access to the repository, e.g. yours. You can create a new token under https://github.com/settings/tokens.
 
-If you have connected a device and it is not showing up in the configuration screen, please make sure the user is added to the `i2c` group:
+1. Head over to [main.js](main.js) and start programming!
 
-```sh
-sudo usermod -aG i2c iobroker
+### Best Practices
+
+We've collected some [best practices](https://github.com/ioBroker/ioBroker.repositories#development-and-coding-best-practices) regarding ioBroker development and coding in general. If you're new to ioBroker or Node.js, you should
+check them out. If you're already experienced, you should also take a look at them - you might learn something new :)
+
+### State Roles
+
+When creating state objects, it is important to use the correct role for the state. The role defines how the state should be interpreted by visualizations and other adapters. For a list of available roles and their meanings, please refer to the [state roles documentation](https://www.iobroker.net/#en/documentation/dev/stateroles.md).
+
+**Important:** Do not invent your own custom role names. If you need a role that is not part of the official list, please contact the ioBroker developer community for guidance and discussion about adding new roles.
+
+### Scripts in `package.json`
+
+Several npm scripts are predefined for your convenience. You can run them using `npm run <scriptname>`
+| Script name | Description |
+|-------------|-------------|
+| `check` | Performs a type-check on your code (without compiling anything). |
+| `test:ts` | Executes the tests you defined in `*.test.ts` files. |
+| `test:package` | Ensures your `package.json` and `io-package.json` are valid. |
+| `test:integration` | Tests the adapter startup with an actual instance of ioBroker. |
+| `test` | Performs a minimal test run on package files and your tests. |
+| `lint` | Runs `ESLint` to check your code for formatting errors and potential bugs. |
+| `translate` | Translates texts in your adapter to all required languages, see [`@iobroker/adapter-dev`](https://github.com/ioBroker/adapter-dev#manage-translations) for more details. |
+| `release` | Creates a new release, see [`@alcalzone/release-script`](https://github.com/AlCalzone/release-script#usage) for more details. |
+
+### Writing tests
+
+When done right, testing code is invaluable, because it gives you the
+confidence to change your code while knowing exactly if and when
+something breaks. A good read on the topic of test-driven development
+is https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92.
+Although writing tests before the code might seem strange at first, but it has very
+clear upsides.
+
+The template provides you with basic tests for the adapter startup and package files.
+It is recommended that you add your own tests into the mix.
+
+### Publishing the adapter
+
+Using GitHub Actions, you can enable automatic releases on npm whenever you push a new git tag that matches the form
+`v<major>.<minor>.<patch>`. We **strongly recommend** that you do. The necessary steps are described in `.github/workflows/test-and-release.yml`.
+
+Since you installed the release script, you can create a new
+release simply by calling:
+
+```bash
+npm run release
 ```
 
-Note: if don't have a standard installation, replace `iobroker` in the above command with the user running your ioBroker installation (check with `ps`).
-
-## Configuration
-
-### Bus Number
-
-This is the number of the I2C bus/adapter to open, 0 for /dev/i2c-0, 1 for /dev/i2c-1, ...
-
-On Raspberry Pi 3 and 4B, this is "1".
-
-## Supported Devices
-
-The following devices are currently supported. The numbers in parenthesis are the known addresses of the device in hexadecimal format (without the read bit).
-
-### Adafruit STEMMA Soil Sensor (36)
-
-Adafruit STEMMA Soil Sensor - I2C Capacitive Moisture Sensor using the ATSAMD10 chip.
-
-### ADS1015 16-Bit 4-Channel ADC (48-4B)
-
-Texas Instruments 4x 3.3-kSPS, 12-Bit ADCs with Internal Reference.
-
-### ADS1115 16-Bit 4-Channel ADC (48-4B)
-
-Texas Instruments 4x 860-SPS, 16-Bit ADCs with Internal Reference.
-
-### BME280 (76, 77)
-
-Bosch Digital Humidity, Pressure and Temperature Sensor.
-
-### GY-US42 Sonar Rangefinder (70)
-
-MaxSonar GY-US42 Sonar Rangefinder 20 - 720cm.
-
-### HMC5883L 3-Axis Digital Compass (1E)
-
-Honeywell 3-Axis Digital Compass IC.
-
-### INA219 Current/Power Monitor (40-4F)
-
-Texas Instruments Zero-Drift, Bidirectional Current/Power Monitor.
-
-### MCP23008 8-Bit I/O Expander (20-27)
-
-Microchip 8-Bit I/O Expander with Serial Interface.
-
-### MCP23017 16-Bit I/O Expander (20-27)
-
-Microchip 16-Bit I/O Expander with Serial Interface.
-
-### MCP3422 18-Bit 2-Channel ADC (68)
-
-Microchip 18-Bit, 2-Channel Analog-to-Digital Converter with On-Board Reference.
-
-### MCP3423 18-Bit 2-Channel ADC (68-6F)
-
-Microchip 18-Bit, 2-Channel Analog-to-Digital Converter with On-Board Reference.
-
-### MCP3424 18-Bit 4-Channel ADC (68-6F)
-
-Microchip 18-Bit, 4-Channel Analog-to-Digital Converter with On-Board Reference.
-
-### MCP3426 16-Bit 2-Channel ADC (68)
-
-Microchip 16-Bit, 2-Channel Analog-to-Digital Converter with On-Board Reference.
-
-### MCP3427 16-Bit 2-Channel ADC (68-6F)
-
-Microchip 16-Bit, 2-Channel Analog-to-Digital Converter with On-Board Reference.
-
-### MCP3428 16-Bit 4-Channel ADC (68-6F)
-
-Microchip 16-Bit, 4-Channel Analog-to-Digital Converter with On-Board Reference.
-
-### MCP4725 12-Bit Digital-to-Analog Converter (60-67)
-
-Microchip 12-Bit Digital-to-Analog Converter with EEPROM Memory.
-
-### PCF8574 8-Bit I/O Expander (20-27)
-
-Texas Instruments Remote 8-Bit I/O Expander for I2C Bus.
-
-### PCF8574A 8-Bit I/O Expander (38-3F)
-
-Texas Instruments Remote 8-Bit I/O Expander for I2C Bus.
-
-### PCA9685 16-channel 12 bit PWM Servo/LED driver (40-7F)
-
-Adafruit PCA9685 breakout board for 16-channel 12 bit PWM. Adapter focused on using the 16 channels from 0..4095 as LED dimmer.
-Can drive many LEDs when PWM (and GND) is attached to a N-channel Mosfet module e.g. based on D4184. Connect LED GND to the MOSFET and +12/24/n V to PSU.
-
-### QMC5883L 3-Axis Magnetic Sensor (0D)
-
-QST 3-Axis Magnetic Sensor.
-
-### SHT3x Humidity and Temperature Sensor (44-45)
-
-Sensirion SHT3x Humidity and Temperature Sensor.
-
-### SRF02 Ultrasonic Ranger Finder (70)
-
-Devantech Ultrasonic Ranger Finder 16 - 600cm.
-
-### SX1507 4 Channel Level Shifting GPIO with LED Driver (3E, 3F, 70, 71)
-
-Semtech World’s Lowest Voltage Level Shifting GPIO with LED Driver for 4 channels.
-
-### SX1508 8 Channel Level Shifting GPIO with LED Driver and Keypad Engine (20-23)
-
-Semtech World’s Lowest Voltage Level Shifting GPIO with LED Driver and Keypad Engine for 8 channels.
-
-### SX1509 16 Channel Level Shifting GPIO with LED Driver and Keypad Engine (3E, 3F, 70, 71)
-
-Semtech World’s Lowest Voltage Level Shifting GPIO with LED Driver and Keypad Engine for 16 channels.
-
-### Generic device (03-77)
-
-Generic I2C device. Registers can be configured depending on the hardware.
-
-## Usage in scripts
-
-Supported commands for `sendTo` in scripts are `search`, `read` and `write`.
-
-`search` takes as message the bus number and returns a JSON string of an array of found addresses on the bus.
-
-`read` takes as message an object containing the address and optional the register and number of bytes to read. It returns a buffer with the read data.
-
-`write` takes as message an object containing the address, the data as buffer and optional the register to write. It returns the written buffer on success.
-
-### Examples for script usage
-
-```js
-sendTo('i2c.0', 'search', 1, (ret) => {
-    log('Ret: ' + ret, 'info');
-});
-
-sendTo(
-    'i2c.0',
-    'read',
-    {
-        address: 0x40,
-        register: 0x02,
-        bytes: 2,
-    },
-    (ret) => {
-        log('Ret: ' + ret.inspect(), 'info');
-    },
-);
-
-sendTo(
-    'i2c.0',
-    'write',
-    {
-        address: 0x40,
-        register: 0x00,
-        data: Buffer.from([0x44, 0x27]),
-    },
-    (ret) => {
-        log('Ret: ' + ret.inspect(), 'info');
-    },
-);
-```
-
-## Compatibility
-
-Compatibility has been tested with Raspberry Pi 3 and 4B.
-
-## Bug Reports and Feature Requests
-
-Please use the GitHub repository to report any bugs or request new features.
-
-If you require a missing devcies, please provide the type of IC (brand, model, ...) and its address(es) as reported in the adapter configuration.
-
-## Development
-
-### VS Code & Devcontainer
-
-This repository is set up so development can be done using VS Code and Devcontainer. Simply open the root folder of this repository with VS Code and and acknowledge to switch to Devcontainer.
-
-### Remote I2C
-
-If you are developing on a desktop PC and want to test I2C on a SBC (e.g. a Raspberry Pi), you can do the following:
-
--   Install ioBroker on the SBC with I2C
--   Install this adapter on the SBC
--   Configure the adapter instance on the SBC manually to contain the `"serverPort"` setting in `"native"`:
-
-```json
-  "native": {
-    "busNumber": 1,
-    "serverPort": 5555
-  }
-```
-
--   You don't need to configure any I2C devices here
--   Add an adapter instance to your desktop ioBroker (or use Devcontainer as described above)
--   Configure the adapter instance on your desktop PC manually to contain the `"clientAddress"` setting in `"native"`:
-
-```json
-  "native": {
-    "busNumber": 1,
-    "clientAddress": "http://<your-ip-address>:5555/rpc"
-  }
-```
-
--   Ensure you use the right IP address and port (the one configured on the device)
--   Restart the adapter instance on your desktop PC
--   The adapter will now execute all I2C commands on the configured SBC instead of locally
--   You can open the adapter instance settings on your desktop PC and scan for I2C devices like you would on the real SBC
-
-Keep in mind that the RPC server is completely unsecured, so this should only be used for development inside a secure network!
+Additional command line options for the release script are explained in the
+[release-script documentation](https://github.com/AlCalzone/release-script#command-line).
+
+To get your adapter released in ioBroker, please refer to the documentation
+of [ioBroker.repositories](https://github.com/ioBroker/ioBroker.repositories#requirements-for-adapter-to-get-added-to-the-latest-repository).
+
+### Test the adapter manually on a local ioBroker installation
+
+In order to install the adapter locally without publishing, the following steps are recommended:
+
+1. Create a GitHub repository for your adapter if you haven't already
+1. Push your code to the GitHub repository
+1. Use the ioBroker Admin interface or command line to install the adapter from GitHub:
+    - **Via Admin UI**: Go to the "Adapters" tab, click on "Custom Install" (GitHub icon), and enter your repository URL:
+        ```
+        https://github.com/UncleSamSwiss/ioBroker.i2c
+        ```
+        You can also install from a specific branch by adding `#branchname` at the end:
+        ```
+        https://github.com/UncleSamSwiss/ioBroker.i2c#dev
+        ```
+    - **Via Command Line**: Install using the `iob` command:
+        ```bash
+        iob url https://github.com/UncleSamSwiss/ioBroker.i2c
+        ```
+        Or from a specific branch:
+        ```bash
+        iob url https://github.com/UncleSamSwiss/ioBroker.i2c#dev
+        ```
+
+For later updates:
+
+1. Push your changes to GitHub
+1. Repeat the installation steps above (via Admin UI or `iob url` command) to update the adapter
 
 ## Changelog
+
 <!--
-	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
 -->
+
+### 2.0.0 (2026-04-01)
+
+- (UncleSamSwiss) Allow to add/remove devices without restarting the adapter
+- (UncleSamSwiss) Add support for Device Manager
+- (UncleSamSwiss) Change to JSON Config
+- (UncleSamSwiss) Minimum required Node.js version is now 20
 
 ### 1.2.1 (2021-10-13)
 
--   (UncleSamSwiss) Reading multiple values from I2C into states is now faster. This should increase the polling frequency for most devices.
+- (UncleSamSwiss) Reading multiple values from I2C into states is now faster. This should increase the polling frequency for most devices.
 
 ### 1.2.0 (2021-03-02)
 
--   (UncleSamSwiss) Added support for MCP342x family (#44).
--   (UncleSamSwiss) Added proper error handling on all periodic I2C operations (#112).
+- (UncleSamSwiss) Added support for MCP342x family (#44).
+- (UncleSamSwiss) Added proper error handling on all periodic I2C operations (#112).
 
 ### 1.1.1 (2020-11-29)
 
--   (UncleSamSwiss) Fixed issue with device search not working (#53).
+- (UncleSamSwiss) Fixed issue with device search not working (#53).
 
 ### 1.1.0 (2020-11-05)
 
--   (UncleSamSwiss) Added support for SX1507, SX1508 and SX1509.
--   (UncleSamSwiss) Added support for MCP4725.
--   (UncleSamSwiss) Added support for HMC5883L and QMC5883L.
--   (UncleSamSwiss) Added support for Adafruit STEMMA Soil Sensor.
--   (UncleSamSwiss) Added support for INA219.
--   (UncleSamSwiss) Changed polling interval of ADS1x15 to milliseconds.
--   (UncleSamSwiss) Fixed several bugs.
+- (UncleSamSwiss) Added support for SX1507, SX1508 and SX1509.
+- (UncleSamSwiss) Added support for MCP4725.
+- (UncleSamSwiss) Added support for HMC5883L and QMC5883L.
+- (UncleSamSwiss) Added support for Adafruit STEMMA Soil Sensor.
+- (UncleSamSwiss) Added support for INA219.
+- (UncleSamSwiss) Changed polling interval of ADS1x15 to milliseconds.
+- (UncleSamSwiss) Fixed several bugs.
 
 ### 1.0.1 (2020-10-27)
 
--   (UncleSamSwiss) Removed unneeded files in NPM package
+- (UncleSamSwiss) Removed unneeded files in NPM package
 
 ### 1.0.0 (2020-10-27)
 
--   (UncleSamSwiss) Updated to the latest development tools and changed to the TypeScript language
--   (UncleSamSwiss) Rewrote entire UI in React with TypeScript
+- (UncleSamSwiss) Updated to the latest development tools and changed to the TypeScript language
+- (UncleSamSwiss) Rewrote entire UI in React with TypeScript
 
 ### 0.0.8 (2020-05-26)
 
--   (Peter Müller) Added support for Generic device.
--   (Peter Müller) Added support for `read` and `write` commands in scripts using `sendTo`.
--   (Peter Müller) Added support for interrupts on PCF8574, MCP23008, MCP23017 devices.
+- (Peter Müller) Added support for Generic device.
+- (Peter Müller) Added support for `read` and `write` commands in scripts using `sendTo`.
+- (Peter Müller) Added support for interrupts on PCF8574, MCP23008, MCP23017 devices.
 
 ### 0.0.7 (2020-01-19)
 
--   (CC1337) Added support for PCA9685.
+- (CC1337) Added support for PCA9685.
 
 ### 0.0.6 (2019-03-17)
 
--   (UncleSamSwiss) Added support for BME280.
--   (UncleSamSwiss) Added support for ADS1015 / ADS1115.
+- (UncleSamSwiss) Added support for BME280.
+- (UncleSamSwiss) Added support for ADS1015 / ADS1115.
 
 ### 0.0.5 (2019-01-12)
 
--   (UncleSamSwiss) Added support for MCP23008.
+- (UncleSamSwiss) Added support for MCP23008.
 
 ### 0.0.4 (2018-07-23)
 
--   (UncleSamSwiss) Improved stability of MCP23017.
--   (Apollon77) Latest ioBroker utils and testing including node 10.
+- (UncleSamSwiss) Improved stability of MCP23017.
+- (Apollon77) Latest ioBroker utils and testing including node 10.
 
 ### 0.0.3 (2017-11-12)
 
--   (UncleSamSwiss) Added support for MCP23017.
+- (UncleSamSwiss) Added support for MCP23017.
 
 ### 0.0.2 (2017-07-30)
 
--   (UncleSamSwiss) Added support for inverting PCF8574 inputs and outputs.
+- (UncleSamSwiss) Added support for inverting PCF8574 inputs and outputs.
 
 ### 0.0.1 (2017-07-27)
 
--   (UncleSamSwiss) Initial version
-
-## Thanks
-
-This project is based on the [i2c-bus](https://www.npmjs.com/package/i2c-bus) NPM module. Thanks to fivdi for his great module!
+- (UncleSamSwiss) Initial version
 
 ## License
 
-Copyright 2021 UncleSamSwiss
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+1. Definitions.
+
+    "License" shall mean the terms and conditions for use, reproduction,
+    and distribution as defined by Sections 1 through 9 of this document.
+
+    "Licensor" shall mean the copyright owner or entity authorized by
+    the copyright owner that is granting the License.
+
+    "Legal Entity" shall mean the union of the acting entity and all
+    other entities that control, are controlled by, or are under common
+    control with that entity. For the purposes of this definition,
+    "control" means (i) the power, direct or indirect, to cause the
+    direction or management of such entity, whether by contract or
+    otherwise, or (ii) ownership of fifty percent (50%) or more of the
+    outstanding shares, or (iii) beneficial ownership of such entity.
+
+    "You" (or "Your") shall mean an individual or Legal Entity
+    exercising permissions granted by this License.
+
+    "Source" form shall mean the preferred form for making modifications,
+    including but not limited to software source code, documentation
+    source, and configuration files.
+
+    "Object" form shall mean any form resulting from mechanical
+    transformation or translation of a Source form, including but
+    not limited to compiled object code, generated documentation,
+    and conversions to other media types.
+
+    "Work" shall mean the work of authorship, whether in Source or
+    Object form, made available under the License, as indicated by a
+    copyright notice that is included in or attached to the work
+    (an example is provided in the Appendix below).
+
+    "Derivative Works" shall mean any work, whether in Source or Object
+    form, that is based on (or derived from) the Work and for which the
+    editorial revisions, annotations, elaborations, or other modifications
+    represent, as a whole, an original work of authorship. For the purposes
+    of this License, Derivative Works shall not include works that remain
+    separable from, or merely link (or bind by name) to the interfaces of,
+    the Work and Derivative Works thereof.
+
+    "Contribution" shall mean any work of authorship, including
+    the original version of the Work and any modifications or additions
+    to that Work or Derivative Works thereof, that is intentionally
+    submitted to Licensor for inclusion in the Work by the copyright owner
+    or by an individual or Legal Entity authorized to submit on behalf of
+    the copyright owner. For the purposes of this definition, "submitted"
+    means any form of electronic, verbal, or written communication sent
+    to the Licensor or its representatives, including but not limited to
+    communication on electronic mailing lists, source code control systems,
+    and issue tracking systems that are managed by, or on behalf of, the
+    Licensor for the purpose of discussing and improving the Work, but
+    excluding communication that is conspicuously marked or otherwise
+    designated in writing by the copyright owner as "Not a Contribution."
+
+    "Contributor" shall mean Licensor and any individual or Legal Entity
+    on behalf of whom a Contribution has been received by Licensor and
+    subsequently incorporated within the Work.
+
+2. Grant of Copyright License. Subject to the terms and conditions of
+   this License, each Contributor hereby grants to You a perpetual,
+   worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+   copyright license to reproduce, prepare Derivative Works of,
+   publicly display, publicly perform, sublicense, and distribute the
+   Work and such Derivative Works in Source or Object form.
+
+3. Grant of Patent License. Subject to the terms and conditions of
+   this License, each Contributor hereby grants to You a perpetual,
+   worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+   (except as stated in this section) patent license to make, have made,
+   use, offer to sell, sell, import, and otherwise transfer the Work,
+   where such license applies only to those patent claims licensable
+   by such Contributor that are necessarily infringed by their
+   Contribution(s) alone or by combination of their Contribution(s)
+   with the Work to which such Contribution(s) was submitted. If You
+   institute patent litigation against any entity (including a
+   cross-claim or counterclaim in a lawsuit) alleging that the Work
+   or a Contribution incorporated within the Work constitutes direct
+   or contributory patent infringement, then any patent licenses
+   granted to You under this License for that Work shall terminate
+   as of the date such litigation is filed.
+
+4. Redistribution. You may reproduce and distribute copies of the
+   Work or Derivative Works thereof in any medium, with or without
+   modifications, and in Source or Object form, provided that You
+   meet the following conditions:
+
+    (a) You must give any other recipients of the Work or
+    Derivative Works a copy of this License; and
+
+    (b) You must cause any modified files to carry prominent notices
+    stating that You changed the files; and
+
+    (c) You must retain, in the Source form of any Derivative Works
+    that You distribute, all copyright, patent, trademark, and
+    attribution notices from the Source form of the Work,
+    excluding those notices that do not pertain to any part of
+    the Derivative Works; and
+
+    (d) If the Work includes a "NOTICE" text file as part of its
+    distribution, then any Derivative Works that You distribute must
+    include a readable copy of the attribution notices contained
+    within such NOTICE file, excluding those notices that do not
+    pertain to any part of the Derivative Works, in at least one
+    of the following places: within a NOTICE text file distributed
+    as part of the Derivative Works; within the Source form or
+    documentation, if provided along with the Derivative Works; or,
+    within a display generated by the Derivative Works, if and
+    wherever such third-party notices normally appear. The contents
+    of the NOTICE file are for informational purposes only and
+    do not modify the License. You may add Your own attribution
+    notices within Derivative Works that You distribute, alongside
+    or as an addendum to the NOTICE text from the Work, provided
+    that such additional attribution notices cannot be construed
+    as modifying the License.
+
+    You may add Your own copyright statement to Your modifications and
+    may provide additional or different license terms and conditions
+    for use, reproduction, or distribution of Your modifications, or
+    for any such Derivative Works as a whole, provided Your use,
+    reproduction, and distribution of the Work otherwise complies with
+    the conditions stated in this License.
+
+5. Submission of Contributions. Unless You explicitly state otherwise,
+   any Contribution intentionally submitted for inclusion in the Work
+   by You to the Licensor shall be under the terms and conditions of
+   this License, without any additional terms or conditions.
+   Notwithstanding the above, nothing herein shall supersede or modify
+   the terms of any separate license agreement you may have executed
+   with Licensor regarding such Contributions.
+
+6. Trademarks. This License does not grant permission to use the trade
+   names, trademarks, service marks, or product names of the Licensor,
+   except as required for reasonable and customary use in describing the
+   origin of the Work and reproducing the content of the NOTICE file.
+
+7. Disclaimer of Warranty. Unless required by applicable law or
+   agreed to in writing, Licensor provides the Work (and each
+   Contributor provides its Contributions) on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+   implied, including, without limitation, any warranties or conditions
+   of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+   PARTICULAR PURPOSE. You are solely responsible for determining the
+   appropriateness of using or redistributing the Work and assume any
+   risks associated with Your exercise of permissions under this License.
+
+8. Limitation of Liability. In no event and under no legal theory,
+   whether in tort (including negligence), contract, or otherwise,
+   unless required by applicable law (such as deliberate and grossly
+   negligent acts) or agreed to in writing, shall any Contributor be
+   liable to You for damages, including any direct, indirect, special,
+   incidental, or consequential damages of any character arising as a
+   result of this License or out of the use or inability to use the
+   Work (including but not limited to damages for loss of goodwill,
+   work stoppage, computer failure or malfunction, or any and all
+   other commercial damages or losses), even if such Contributor
+   has been advised of the possibility of such damages.
+
+9. Accepting Warranty or Additional Liability. While redistributing
+   the Work or Derivative Works thereof, You may choose to offer,
+   and charge a fee for, acceptance of support, warranty, indemnity,
+   or other liability obligations and/or rights consistent with this
+   License. However, in accepting such obligations, You may act only
+   on Your own behalf and on Your sole responsibility, not on behalf
+   of any other Contributor, and only if You agree to indemnify,
+   defend, and hold each Contributor harmless for any liability
+   incurred by, or claims asserted against, such Contributor by reason
+   of your accepting any such warranty or additional liability.
+
+END OF TERMS AND CONDITIONS
+
+APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+Copyright 2026 UncleSamSwiss
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-http://www.apache.org/licenses/LICENSE-2.0
+       http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-
 See the License for the specific language governing permissions and
 limitations under the License.
-
-## Third Party Licenses
-
-### BME280
-
-The BME280 code is based on https://github.com/skylarstein/bme280-sensor:
-
-MIT License
-
-Copyright (c) 2016 Skylar Stein
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-### ADS1x15
-
-The ADS1x15 code is based on https://github.com/alphacharlie/node-ads1x15/blob/master/index.js
-
-node-ads1x15 itself is based on https://github.com/adafruit/Adafruit_Python_ADS1x15
-
-The MIT License (MIT)
-
-Copyright (c) 2016 Adafruit Industries
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-### PCA9685
-
-The PCA9685 code is based on https://github.com/adafruit/Adafruit_Python_PCA9685/blob/master/Adafruit_PCA968/PCA9685.py
-
-The MIT License (MIT)
-
-Copyright (c) 2016 Adafruit Industries
-Author: Tony DiCola
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-Also based on: https://github.com/tessel/servo-pca9685/blob/master/index.js
-
-Copyright 2014 Technical Machine, Inc. See the COPYRIGHT
-file at the top-level directory of this distribution.
-
-Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
-http://www.apache.org/licenses/LICENSE-2.0> or the MIT license
-<LICENSE-MIT or http://opensource.org/licenses/MIT>, at your
-option. This file may not be copied, modified, or distributed
-except according to those terms.

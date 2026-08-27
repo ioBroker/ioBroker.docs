@@ -2,25 +2,25 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.govee-local/README.md
-title: 无题
-hash: 0+ORttMM0E5A5h+aitNGmGMC97RYQQ4WFXIfEaZsbJY=
+title: govee-local 适配器（适用于 ioBroker）
+hash: 3ibYBYJmTuzhHsl0CoLxNWhbnFCYtSGaWOnxdtg8Gmk=
 ---
 ![标识](../../../en/adapterref/iobroker.govee-local/admin/govee-local.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.govee-local.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.govee-local.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.govee-local.svg)
 ![安装数量](https://iobroker.live/badges/govee-local-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/govee-local-stable.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.govee-local.png?downloads=true)
+![稳定仓库中的当前版本](https://iobroker.live/badges/govee-local-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.govee-local.png?downloads=true)
 
-## IoBroker 的 govee 本地适配器
+# IoBroker 的 govee-local 适配器
 **测试：** ![测试与发布](https://github.com/boergegrunicke/ioBroker.govee-local/workflows/Test%20and%20Release/badge.svg)
 
-通过本地访问控制 Govee 设备（无云）
+通过本地访问控制 Govee 设备（无需云端）
 
-为了能够在本地控制 govee 设备，需要在 govve 应用程序设置中明确打开该功能，如其 [文档](<https://app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20(continually%20updated)> 中所述），因为我目前只有 H6051 灯，这是唯一的设备我可以测试一下。
+要能够本地控制 govee 设备，需要按照其 [文档](<https://app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20(continually%20updated)> 中的描述，在 gove 应用程序设置中明确启用该功能。由于我目前只有 H6051 灯，因此这是我唯一可以用来测试的设备。
 
-对于 **Windows** 用户：请转到设置并确保选择正确的网络接口，否则适配器将不会收到来自 Govee Devices 的任何响应。
+对于 **Windows** 用户：请进入设置并确保选择正确的网络接口，否则适配器将无法收到 Govee 设备的任何响应。
 
 ## Changelog
 
@@ -28,72 +28,45 @@ hash: 0+ORttMM0E5A5h+aitNGmGMC97RYQQ4WFXIfEaZsbJY=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.2.5 (2024-01-13)
 
--   create only one socket, as the second seems not to be necessary
--   refactoring the code for better structure
--   possibility to choose listen interface in settings
+### 0.4.6 (2026-05-18)
 
-### 0.2.4 (2024-01-05)
+- Adapter requires node.js >= 22 now
+- Fixed multiple security vulnerabilities in dev dependencies:
+  - Updated `@iobroker/testing` to resolve axios, esbuild, and mocha-related CVEs
+  - Added npm overrides for `mocha` subdependencies: `diff` (^8.0.3) and `serialize-javascript` (^7.0.5)
+  - All npm audit checks now pass with zero vulnerabilities
 
--   fix access
+- update dependencies: @types/node (25.5.0), eslint (10.1.0), @alcalzone/release-script (5.1.1), admin (7.6.20)
+- update dependencies: @alcalzone/release-script (5.2.0), @alcalzone/release-script-plugin-iobroker (5.2.0), @alcalzone/release-script-plugin-license (5.2.0), @alcalzone/release-script-plugin-manual-review (5.2.0), @iobroker/eslint-config (2.3.4), @types/node (25.6.2), eslint (10.3.0), prettier (3.8.3), typescript (6.0.3)
 
-### 0.2.2 (2024-01-05)
+### 0.4.5 (2025-11-16)
 
--   fix color temperature messsage
+- fix scan mode inconsistency
+  enhance log output behavior
 
-### 0.2.1 (2023-12-24)
+### 0.4.4 (2025-11-13)
 
--   repair onOff / all other actions Fixes: [#65](https://github.com/boergegrunicke/ioBroker.govee-local/issues/65)
--   fix log spamming because of wildcard
+- add option to run auto discovery once on startup, in interval or completly disable it
 
-### 0.2.0 (2023-12-17)
+### 0.4.3 (2025-11-11)
 
--   support controlling the color
--   extended logging mode
+- fix responsive design in the settings
+- revert forbidden characters checking
+- update dependencies
 
-### 0.1.2 (2023-09-06)
+### 0.4.2 (2025-11-08)
 
--   change icon path and resolution
+- update dependencies
+- fix device name / model identifier in the objects
 
-### 0.1.1 (2023-08-21)
-
--   fix image
-
-### 0.1.0 (2023-08-09)
-
--   make search intervals configurable
--   clear all timeouts, when adapter is stopped
--   replace forbidden characters in names
--   update translations
--   update dependecies
-
-### 0.0.6 (2023-05-18)
-
--   update dependencies
-
-### 0.0.5 (2023-04-02)
-
--   make pipeline run
-
-### 0.0.4 (2023-04-02)
-
--   make device status refresh invertal indepentent from device search interval
-
-### 0.0.3 (2023-04-01)
-
--   update dependecies
-
-### 0.0.2
-
--   frequently searching for devices and requesting their specific state
--   on / off state, brightness and and color temperature can be controlled
+Older entries are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 
 MIT License
 
-Copyright (c) 2024 Børge Grunicke
+Copyright (c) 2025-2026 Børge Grunicke
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

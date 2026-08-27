@@ -29,23 +29,28 @@ BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-insta
 -->
 
 ### **WORK IN PROGRESS**
-- (copilot) Adapter requires admin >= 7.7.22 now
+- (arteck) Dependencies have been updated
+- (arteck) fix message ([main] Pending rescan detected – Schleife wird wiederholt)
 
-### 2.15.5 (2026-01-12)
-* (arteck) fix admin
+### 2.15.17 (2026-06-19)
+- (mcm1957) Release of 2.15.16 has failed and has been restarted
+- (arteck) i/o minimized
+- (mcm1957) Dependencies have been updated
 
-### 2.15.4 (2026-01-11)
-* (arteck) define subscribe rules new
+### 2.15.15 (2026-05-13)
+* (arteck) fix adapter device mix
 
-### 2.15.3 (2026-01-10)
-* (arteck) fix ping adapter, fritzdec
+### 2.15.14 (2026-05-13)
+* (arteck) fix high i/o
 
-### 2.15.2 (2026-01-10)
-* (arteck) fix cronjob response
+### 2.15.13 (2026-05-13)
+* (arteck) fix new devices
 
-### 2.15.1 (2026-01-10)
-* (arteck) fix instance check
-* (arteck) fix admin json
+### 2.15.12 (2026-05-06)
+* (arteck) fix hueExtended battery check
+
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

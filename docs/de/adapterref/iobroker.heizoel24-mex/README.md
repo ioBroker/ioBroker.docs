@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heizoel24-mex/README.md
 title: ioBroker.heizoel24-mex
-hash: eiLDLxzEp5ZZdD+z7glNxntKsqg5jT+R/FB9/3wobx0=
+hash: CzYN8HTeTVyfkIUXiwxe5VPHqfyFg25XnDuFVq5bpiE=
 ---
 ![Logo](../../../en/adapterref/iobroker.heizoel24-mex/admin/heizoel24-mex.png)
 
@@ -14,89 +14,44 @@ hash: eiLDLxzEp5ZZdD+z7glNxntKsqg5jT+R/FB9/3wobx0=
 ![NPM](https://nodei.co/npm/iobroker.heizoel24-mex.png?downloads=true)
 
 # IoBroker.heizoel24-mex
-**Tests:** ![Testen und Freigeben](https://github.com/ltspicer/ioBroker.heizoel24-mex/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/ltspicer/ioBroker.heizoel24-mex/workflows/Test%20and%20Release/badge.svg)
 
-## Heizoel24-mex Adapter für ioBroker
-Der MEX ist ein Heizöl-Füllstandsmessgerät. Dieser Adapter liest die MEX-Daten vom Heizoel24-Server aus.
+## Heizoel24-MEX-Adapter für ioBroker
+Das MEX ist ein Heizöl-Füllstandsmessgerät. Dieser Adapter liest die MEX-Daten vom Heizoel24-Server aus.
 
 Siehe: https://www.heizoel24.de/mex
 
 ## Verwenden:
-Geben Sie einfach die Zugangsdaten Ihres Heizoel24-Kontos (E-Mail und Passwort) ein.
-Die MEX-Daten werden im Datenpunkt heizoel24-mex gespeichert.
-Der Adapter startet standardmäßig alle 3 Stunden. Dies ist völlig ausreichend, da der MEX nur einmal täglich Daten sendet.
-Die Datenpunkte CalculatedRemaining/JsonForEcharts (berechnete Restmenge) und OilUsage/JsonForEcharts können direkt mit eCharts verwendet werden.
+Geben Sie einfach die Anmeldedaten Ihres Heizoel24-Kontos (E-Mail-Adresse und Passwort) ein.<br> Die MEX-Daten sind im Datenpunkt heizoel24-mex gespeichert.<br> Der Adapter startet standardmäßig alle 3 Stunden. Das ist völlig ausreichend, da der MEX nur einmal täglich Daten sendet.<br> Die Datenpunkte CalculatedRemaining/JsonForEcharts (berechnete Restmenge) und OilUsage/JsonForEcharts können direkt mit eCharts verwendet werden.<br> Der Adapter kann Daten via MQTT senden.<br> Die Original-App berechnet die jährliche Nutzung immer zum 31. Dezember.<br> Das ist unpraktisch, da dies mitten in der Heizperiode geschieht.<br> Dieser Adapter kann den Jahresverbrauch auf Basis eines bestimmten Monats berechnen.<br>
 
 ## Changelog
-### 1.4.5 (2025-08-29)
+### 1.10.1 (2026-06-12)
 
-- Depends updated
+- allowScripts esbuild and protobufjs
 
-### 1.4.4 (2025-06-21)
+### 1.10.0 (2026-05-29)
 
-- README.md & README-de.md corrected
+- More translations added
 
-### 1.4.3 (2025-06-21)
+### 1.9.3 (2026-05-29)
 
-- io-package.json > admin set to >=7.4.10
+- Translation issues resolved
 
-### 1.4.2 (2025-06-17)
+### 1.9.2 (2026-05-26)
 
-- Bug fix jsonConfig.json : xs,sm, md, ...
+- Fix: Prevent crash on network errors by safely handling axios exceptions…
+- Issues E0036 & E5050 resolved
 
-### 1.4.1 (2025-06-17)
+### 1.9.1 (2026-05-22)
 
-- Bug fix jsonConfig.json : size removed
+- Fix: Prevent crash on network errors by safely handling axios exceptions & Remove unused main1.js backup file
 
-### 1.4.0 (2025-06-17)
-
-- OilUsage (Oil consumption per month) added
-
-### 1.3.5 (2024-08-08)
-
-js-controller dependency updated
-
-### 1.3.3 (2024-06-04)
-
-Fix: no error if CalculatedRemaining is empty and mqtt is active
-
-### 1.3.2 (2024-06-04)
-
-Error intercepted for:
-- RemainsUntilCombined no data found
-- CalculatedRemaining is empty
-
-### 1.3.1 (2024-03-24)
-
-- CalculatedRemaining json data point for eCharts added
-
-### 1.3.0 (2024-03-24)
-
-- New README.md
-- CalculatedRemaining data points removed
-
-### 1.2.0 (2024-03-16)
-
-- CalculatedRemaining data points renamed to "Today+XXXX Days"
-- Limited to 52 data points
-- Option for save CalculatedRemaining json
-
-### 1.1.0 (2024-03-09)
-
-- Superfluous logging function removed
-
-### 1.0.1-alpha.0 (2024-03-08)
-
-- Repo new triggering
-
-### 1.0.0 (2024-03-08)
-
-- Initial release for tests
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2025 Daniel Luginbühl <webmaster@ltspiceusers.ch>
+Copyright (c) 2025-2026 Daniel Luginbühl <webmaster@ltspiceusers.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

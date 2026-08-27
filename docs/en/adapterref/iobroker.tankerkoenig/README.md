@@ -124,6 +124,7 @@ The value of the datapoint `combined` deliveres a css class. These classes are `
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 * (@klein0r) Adapter requires node.js 20 and js-controller >= 6 now
 
@@ -147,6 +148,8 @@ The value of the datapoint `combined` deliveres a css class. These classes are `
 
 ### 3.3.4 (2023-01-03)
 * (xXBJXx) Fixed an issue where a postal code starting with 0 was not displayed correctly [Issue #113](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/113)
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

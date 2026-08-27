@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-jsontemplate/README.md
 title: JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
-hash: 3qI1R14HZeXdNTbXjv2UmguTzNHwrVruYa0GYJZZgCs=
+hash: 7s1xM16/ov++kLeyabOPEYxwmmmrH0q/c1R+KDa8iRI=
 ---
 # JSONTemplate – Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2
 ![Logo](../../../en/adapterref/iobroker.vis-jsontemplate/admin/vis-jsontemplate.png)
@@ -18,10 +18,36 @@ hash: 3qI1R14HZeXdNTbXjv2UmguTzNHwrVruYa0GYJZZgCs=
 
 ## Übersicht
 Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2.
-Sie können die Datenausgabe mithilfe eines Vorlagensystems anpassen.
-In den Vorlagen können Sie HTML, CSS und JavaScript einbinden.
+Sie können die Datenausgabe mithilfe eines Templatesystems anpassen.
+In den Templates können Sie HTML, CSS und JavaScript einbinden.
+Das verwendete Templatesystem war `ejs`.
+Sie können die grundlegenden Funktionen hier im Online-Spielplatz ausprobieren.
+
+<https://ionicabizau.github.io/ejs-playground>
 
 Das jsontemplate-Widget war zuvor in den Adaptern rssfeed (für vis1) und vis-2-widgets-ovarious verfügbar. Die Widgets werden in Kürze aus diesen Adaptern entfernt.
+
+## Inhaltsverzeichnis
+- [Übersicht](#overview)
+- [Installation](#installation)
+- [Konfiguration](#configuration)
+- [vis and widgets](#vis-and-widgets)
+- [JSON-Vorlage](#json-template)
+- [Erweiterter Anwendungsfall](#advanced-use-case)
+- [Weitere Anwendungsfälle](#more-use-cases)
+- [Templatesystem](#templatesystem)
+- [Sehr wichtiger Hinweis zur Verwendung in vis / vis-2](#very-important-note-for-use-in-vis--vis-2)
+- [Geschweifte Klammern in CSS und JSON](#curly-braces-in-css-and-json)
+- [Verwendung von setInterval](#use-of-setinterval)
+- [Entwicklung von Vorlagen mit KI](#developing-templates-with-ai)
+- [Tags](#tags)
+- [Beispielobjekt](#example-object)
+- [Entwicklung und Debugging](#development-and-debugging)
+- [Vis1 Widgets](#vis1-widgets)
+- [Vis2 Widgets](#vis2-widgets)
+- [Todo](#todo)
+- [Änderungsprotokoll](#changelog)
+- [Lizenz](#Lizenz)
 
 ## Installation
 Installieren Sie den Adapter wie gewohnt aus dem stabilen Repository.
@@ -54,6 +80,7 @@ Mit diesem Widget lassen sich beliebige Datenpunkte mit JSON-Daten wie gewünsch
 | json_oid | Auswahl des Datenpunkts mit den entsprechenden JSON-Daten. |
 | json_dpCount | Anzahl der Datenpunkte, die in der Vorlage verfügbar gemacht werden sollen. |
 | json_dp | Die Datenpunkt-ID soll bereitgestellt werden. |
+| json_dp_variable | Optionaler JavaScript-Variablenname. Die Variable enthält die Datenpunkt-ID; der gleiche Name mit angehängtem `_value` enthält ihren aktuellen Wert. |
 | json_scriptCount | Anzahl der zu ladenden JavaScript-URLs |
 | json_script[] | Zu ladende JavaScript-URL. Siehe Beispiel unten. |
 | json_cssCount | Anzahl der zu ladenden CSS-URLs. |
@@ -65,7 +92,8 @@ Verfügbare Datenobjekte in der Vorlage:
 
 | Objekt/Variable | Beschreibung |
 | --------------- | ------------------------------------------------------------------------ |
-| widgetID | widgetID des Widgets. |
+| widgetid | widgetid des Widgets. |
+| widgetID | widgetid des Widgets. |
 | data | JSON-Objekt, auf das der Datenpunkt in json_oid verweist. |
 | dp | Array der Datenpunktdaten, auf die die zusätzlichen Datenpunkte verweisen |
 | Widget | Interne Widget-Daten. Objekt mit allen verfügbaren Widget-Einstellungen |
@@ -85,6 +113,14 @@ B) Indexnummer des Datenpunkts (die Nummerierung beginnt immer mit 0)
 <%- dp[Object.keys(dp)[1]] %>
 ```
 
+C) Ein optionaler Variablenname, der für den Datenpunkt konfiguriert ist. Für einen Datenpunkt `0_userdata.0.selectwrite`, Variablennamen `dpwrite` und Wert `abc`:
+
+```javascript
+<%- dpwrite %>          <!-- 0_userdata.0.selectwrite -->
+<%- dpwrite_value %>    <!-- abc -->
+<%- dp[dpwrite] %>      <!-- abc -->
+```
+
 Beispielausgabe von Daten, Widgets und Stilen in der Vorlage
 
 ```ejs
@@ -93,6 +129,8 @@ Beispielausgabe von Daten, Widgets und Stilen in der Vorlage
     .replace(/\n/g, '<br>')
     .replace(/ /g, '&nbsp;'); %>
 ```
+
+Im Fehlerfall wird dieser im Widget angezeigt und in der Browserkonsole (F12) ausgegeben.
 
 #### Erweiterter Anwendungsfall
 In den obigen Beispielen wurde nur die reine Ausgabe betrachtet.
@@ -125,277 +163,43 @@ Die Vorlage kann nun auch mit HTML-Tags angereichert werden, um ein bestimmtes L
 
 (In Markdown sind Farben nicht sichtbar)
 
-#### Anwendungsfall für asynchrone Aufrufe
-**Block 1:**
-
-Die Funktion `sendToAsync` wird mit `await` aufgerufen. Dieses Beispiel ruft eine Testfunktion im Admin-Adapter auf.
-
-**Block 2:**
-
-Das Ergebnis in einen String umwandeln und als HTML ausgeben.
-
-**Block 3:**
-
-Definition der Funktion sendToAsync
-
-```ejs
-<% req = await sendToAsync("admin.0","selectSendTo",{test:"test"}); %>
-<%- JSON.stringify(req) %>
-<% async function sendToAsync(instance, command, sendData) {
-    console.log(`sendToAsync ${command} ${sendData}`);
-    return new Promise((resolve, reject) => {
-        try {
-            vis.conn.sendTo(instance, command, sendData, function (receiveData) {
-                resolve(receiveData);
-            });
-        } catch (error) {
-            reject(error);
-        }
-    });
-} %>
-```
-
-**Ergebnis:**
-
-```text
-[{"label":"Afghanistan","value":"AF"},{"label":"Åland Islands","value":"AX"},{"label":"Albania","value":"AL"}]
-```
-
-#### Anwendungsfall für das Laden zusätzlicher Skripte
-Zusätzliche Felder ermöglichen das Laden von JavaScript-Bibliotheken (z. B. von CDNs wie jsDelivr oder cdnjs). Das folgende Beispiel veranschaulicht dies am Beispiel der ChartJS-Bibliothek.
-
-**Schritt 1:**
-
-Erstellen Sie einen neuen Datenpunkt vom Typ String oder JSON mit dem Namen `0_userdata.0.chartData` und dem folgenden Inhalt
-
-```json
-[12, 19, 3, 5, 2, 3]
-```
-
-**Schritt 2:**
-
-Geben Sie die folgende URL in das Feld json_script[1] ein:
-
-```text
-https://cdn.jsdelivr.net/npm/chart.js
-```
-
-**Schritt 3:**
-
-Geben Sie den Namen des erstellten Datenpunkts im Feld „JSON-Datenpunkt“ ein.
-Geben Sie die folgende Vorlage im Feld „JSON-Vorlage“ ein.
-
-Bis auf eine Zeile handelt es sich um Standard-HTML + JavaScript.
-
-```html
-data: <%- JSON.stringify(data) %>,
-```
-
-Die vom Datenpunkt gelesenen Daten sind in der JavaScript-Variablen `data` verfügbar und werden innerhalb der Template-Anweisungen <%- ... %> ausgegeben.
-
-Sobald das Template kompiliert und in das HTML-Dokument eingebunden ist, wird es vom Browser ausgeführt, sodass das Diagramm über JavaScript angezeigt wird.
-
-```ejs
-<div>
-  <canvas id="myChart"></canvas>
-</div>
-
-<script>
-  const ctx = document.getElementById('myChart');
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: <%- JSON.stringify(data) %>,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-</script>
-```
-
-![Beispiel](../../../en/adapterref/iobroker.vis-jsontemplate/img/example_extscripts.png)
-
-#### Anwendungsfall für eine datenbankgestützte Aufgabenliste
-##### **Einführung**
-Dieser Anwendungsfall beschreibt, wie eine Aufgabenliste aus einer MySQL-Datenbank in `ioBroker` visualisiert und interaktiv bearbeitet werden kann. Der Fokus liegt auf der Implementierung einer einfachen Statusänderung per Knopfdruck. Dieses Konzept dient als **Proof of Concept (PoC)** und kann in zukünftige Dokumentationen aufgenommen werden.
-
----
-
-##### **Datenbankstruktur (MySQL)**
-Zunächst wird eine MySQL-Datenbank mit dem Namen `test` erstellt.
-
-Sie enthält eine Tabelle `test` mit den folgenden Feldern:
-
-- `id`: Eindeutige ID für jeden Eintrag
-- `todo`: Titel des Aufgabeneintrags
-- `action`: Status des Eintrags (0 = in Bearbeitung, 1 = abgeschlossen)
-
-###### **SQL-Code zur Tabellenerstellung**
-<details><summary>Details</summary><pre><code>
-
-```sql
-
-CREATE TABLE `test` (
-`id` int(11) NOT NULL,
-`todo` varchar(100) NOT NULL,
-`action` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `test` (`id`, `todo`, `action`) VALUES
-(1, 'Todo 1', 0),
-(2, 'Todo 2', 1),
-(3, 'Todo 3', 1),
-(4, 'Todo 4', 0);
-
-ALTER TABLE `test`
-ADD PRIMARY KEY (`id`),
-ADD UNIQUE KEY `id` (`id`),
-ADD KEY `idx` (`id`);
-
-ALTER TABLE `test`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-COMMIT;
-
-```
-
-</code></pre>
-
-</details>
-
----
-
-##### **Integration in ioBroker**
-###### **SQL-Adapter**
-Für die Interaktion mit der Datenbank wird der Adapter `ioBroker.sql` benötigt.
-Dieser ist entsprechend konfiguriert, um eine Verbindung zur MySQL-Datenbank `test` herzustellen.
-Beachten Sie, dass `ioBroker` automatisch eigene Strukturen in der Datenbank erstellt, um Verlaufsdaten zu speichern.
-
-###### **JSONTemplate-Widget**
-Zur Visualisierung verwenden wir das Widget `JSONTemplate`.
-
-##### **Integration in VIS**
-Wir platzieren das Widget `JSONTemplate` und füllen die folgenden Felder aus:
-
-###### **Vorlagencode**
-<details><summary>Details</summary><pre><code>
-
-```html
-<style>
-    .btn {
-        width: 100%;
-    }
-</style>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Todo</th>
-        <th>Action</th>
-    </tr>
-    <% let todos = await getTodo(); for (let i = 0; i < todos.length; i++) { let todo = todos[i]; %>
-    <tr>
-        <td><%- todo.id %></td>
-        <td><%- todo.todo %></td>
-        <td><%- getButton(todo.id, todo.action) %></td>
-    </tr>
-    <% } %>
-</table>
-
-<script>
-    window.vis-jsontemplate = { clicktodo: clicktodo };
-
-    function getButton(id, action) {
-        let text = action === 0 ? 'In Progress' : 'Completed';
-        return `<button class="btn" onclick="window.vis-jsontemplate.clicktodo(this)" data-id="${id}" data-action="${action}">${text}</button>`;
-    }
-
-    function clicktodo(el) {
-        let id = el.dataset.id;
-        let action = el.dataset.action;
-        let nextAction = action == 0 ? 1 : 0;
-        setAction(id, nextAction);
-    }
-
-    async function getTodo() {
-        let req = await sendToAsync('sql.0', 'query', 'SELECT * FROM test.test');
-        return req.result;
-    }
-
-    async function setAction(id, action) {
-        await sendToAsync('sql.0', 'query', `UPDATE test.test SET action = ${action} WHERE id = ${id}`);
-        vis.setValue('local_trigger', Math.random());
-    }
-
-    async function sendToAsync(instance, command, sendData) {
-        return new Promise((resolve, reject) => {
-            try {
-                vis.conn.sendTo(instance, command, sendData, receiveData => resolve(receiveData));
-            } catch (error) {
-                reject(error);
-            }
-        });
-    }
-</script>
-```
-
-</code></pre>
-
-</details>
-
-###### **Datenpunkt für die Aktualisierung von Inhalten**
-Um sicherzustellen, dass Aktualisierungen nach einer Statusänderung wirksam werden, fügen wir den folgenden lokalen Datenpunkt hinzu:
-
-```text
-local_trigger
-```
-
-Dieser Datenpunkt **muss nicht explizit erstellt werden**, da `local_?`-Datenpunkte intern innerhalb von VIS verarbeitet werden (siehe `vis`-Dokumentation).
-
-##### **Code-Erklärung**
-###### **Vorlagenstruktur**
-| Zeile | Inhalt |
-| ----- | ---------------------------------------------------------------------- |
-| 1-5 | CSS-Stile für das Aussehen von Schaltflächen |
-| 6-11 | Tabellenkopf mit Spalten ID, Todo, Aktion |
-| 12-16 | Daten aus der MySQL-Datenbank mit `getTodo()` abrufen |
-| 23-28 | Globale Referenz der Funktion `clicktodo()` |
-| 30-37 | `getButton()` Funktion zum Erstellen einer Schaltfläche mit dem aktuellen Status |
-| 38-44 | `clicktodo()` Funktion zum Ändern des Status per Knopfdruck |
-| 45-48 | `getTodo()` Funktion zum Abrufen von Daten über den SQL-Adapter |
-| 49-52 | `setAction()` Funktion zum Aktualisieren des Datenbankeintrags |
-| 53-58 | `sendToAsync()` Funktion zur Verwendung von `async/await` mit `vis.conn.sendTo()` |
-| 53-58 | Die Funktion `sendToAsync()` zur Verwendung von `async/await` mit `vis.conn.sendTo()` |
+#### Weitere Anwendungsfälle
+- [Anwendungsfall Asynchrone Aufrufe](documentation/usecase-asynccall.md)
+- [Anwendungsfall-Ladeskripte](documentation/usecase-loadingscripts.md)
+- [Anwendungsfall-Aufgabenliste](documentation/usecase-tasklist.md)
+- [Anwendungsfall öffentlicher Verkehr](documentation/usecase-public-transport.md)
+- [Anwendungsfall einfaches Messgerät](documentation/usecase-simplegauge.md)
+- [Anwendungsfall-GitHub-Issues und PRs](documentation/usecase-githubissues.md)
+- [Anwendungsfall FRITZ!Box-Aufrufliste](documentation/usecase-fritzbox-call-list.md)
 
 ## Templatesystem
-## Wichtiger Hinweis zum Templatesystem in vis
-In vis werden alle Objektnotationen der folgenden Form als Bindungen erkannt und ersetzt.
+### Sehr wichtiger Hinweis zur Verwendung in vis / vis-2
+#### Geschweifte Klammern in CSS und JSON
+Der Bindungsmechanismus in vis / vis-2 verwendet das Muster `{ ... }`, um Bindungsausdrücke in HTML zu erkennen.
+Daher müssen geschweifte Klammern bei der Angabe von CSS oder JSON immer in separaten Zeilen stehen. Andernfalls wird der Inhalt des vis-Widgets mit `undefined` überschrieben.
 
-Daher müssen die öffnenden und schließenden Klammern aller Objektbezeichnungen in getrennten Zeilen stehen:
-
-Falsch:
-
-```json
-{ "a": 1, "b": 2 }
+##### Beispiel
+```text
+#<%- widgetid %> { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
 ```
 
-Richtig
+muss wie folgt geschrieben werden:
 
-```json
-{
-    "a": 1,
-    "b": 2
+```text
+#<%- widgetid %> {
+    height: 100%; display: flex; flex-direction: column; overflow: hidden;
 }
 ```
+
+#### Verwendung von setInterval
+Bitte verwenden Sie nicht `setInterval`. Da die Vorlage bei jeder Datenpunktänderung neu aufgerufen wird, können vorhandene `setInterval`-Aufrufe nicht ordnungsgemäß gelöscht werden. Dadurch häufen sich mit der Zeit immer mehr überlappende `setInterval`-Aufrufe an, was RAM verbraucht und zu unvorhersehbaren Nebenwirkungen führen kann. Zwar lässt sich das Problem durch Neuladen der Seite beheben, der Code sollte jedoch nicht auf diese Weise implementiert werden.
+Alternativ sollten solche Szenarien mit `setTimeout` implementiert werden.
+
+#### Entwicklung von Vorlagen mit KI
+Um die Erstellung von Vorlagen für alle zu vereinfachen, habe ich eine detaillierte Dokumentation mit Anleitungen und Beschreibungen vorbereitet:
+
+- [Englisch](documentation/AI-EN.md)
+- [German](documentation/KI-DE.md)
 
 ## Tags
 Das Templatesystem arbeitet mit bestimmten Tags.
@@ -584,52 +388,46 @@ Da Vite Hot Reload unterstützt, ist es manchmal nützlich, Vis2 mit F5 neu zu l
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 4.3.11 (2026-01-25)
+### 4.6.1 (2026-07-31)
 
-- check test release workflow
+- Improved error output.
 
-### 4.3.10 (2026-01-25)
+### 4.6.0 (2026-07-30)
 
-- update test and release script
+- some changes. see readme/below
 
-### 4.3.1 (2026-01-24)
+#### Changes 2026-07-30
 
-- try again to publish
+- add optional variable names to extra datapoints
 
-### 4.3.0 (2026-01-24)
+### 4.5.0 (2026-07-29)
 
-- The ability to load additional JavaScript and CSS files has been added.
-  This is currently only available for vis1 for testing purposes.
+- some changes. see readme/below
 
-### 4.2.0 (2025-11-14)
+#### Changes 2026-07-29
 
-- Improve documentation for the object notation in a template
-- fix some translations
-- align attribute name to vis1
-- add widget data to the available template objects in vis2
-- add style and widget object to the available template objects in vis1
-- improve documentation
+- repair widget rendering
+- add search and fullscreen to ejs-edit for vis-2 widget
+- improve ki documentation for regex expressions
+- improve vis-2 ejs edit theme for dark mode
 
-### 4.1.3 (2025-11-03)
+### 4.4.5 (2026-07-22)
 
-- fix race condition if more than one widget use the same datapoint
-- switch to trusted publishing
+- fix packages for vis-2
 
-### 4.1.2 (2025-09-13)
+### 4.4.4 (2026-07-22)
 
-- new try of publish
+- some changes. see readme/below
 
-### 4.1.0 (2025-09-12)
+#### Changes 2026-07.22
 
-- rename widgetset of the vis2 widget
+- change documentation that in the template the widgetid is available and not widgetID
+- add documentation for the usecase simple gauge
+- add documentation for a responsive FRITZ!Box call list
+- Due to an inconsistency between the vis1 and vis2 widgets,
+  both `widgetid` and `widgetID` are now passed to the template.
 
-### 4.0.2 (2025-08-28)
-
-- remove v4.0.0 from io-package
-
-### 4.0.1 (2025-08-28)
-
-- move vis1 and vis2 widgets to vis-jsontemplate adapter
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

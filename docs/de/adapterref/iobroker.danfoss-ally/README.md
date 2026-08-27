@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.danfoss-ally/README.md
 title: kein Titel
-hash: hVcdlLVwHoiSco0XdVcLcghYreoDPRMJlT6VJXj++xQ=
+hash: AeSHE6cHLosGEK29j/UXJ/U80stRftqtZVzxC7l3n6U=
 ---
-![Version](https://img.shields.io/badge/version-0.2.15-blue)
+![Version](https://img.shields.io/badge/version-0.2.20-blue)
 ![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg)
 
 Cloud-Adapter für **Danfoss Ally™** – mit **OAuth2 (Client-Anmeldeinformationen)**. Liest Temperatur-, Feuchtigkeits-, Ventilpositions- und Akkudaten aller Geräte in Ihrem Ally-Konto und ermöglicht gezielte Einzelzugriffe ohne erzwungene Modusänderungen oder verkettete Sequenzen.
@@ -38,8 +38,10 @@ Cloud-Adapter für **Danfoss Ally™** – mit **OAuth2 (Client-Anmeldeinformati
 ---
 
 ## Unterstützte Geräte
+- Danfoss Ally™ TRV (Heizkörperthermostate)
 - Danfoss Icon2 RT (Raumthermostate)
 - Danfoss Icon2 Controller
+- Danfoss Ally™ Kesselrelais
 - Danfoss Ally™ Gateway
 
 (Weitere Danfoss-Geräte wurden automatisch erkannt)
@@ -116,7 +118,7 @@ Der Adapter sendet automatisch Befehle an die Danfoss Cloud und aktualisiert die
 
 ### Lesebeispiele
 | Bundesland | Beschreibung | Einheit |
-| -------------------------------------- | --------------------------------------------- | ---- |
+| ----------------------------------------------------------- | --------------------------------------------- | ---- |
 | `status.temp_current` | Aktuelle Temperatur | °C |
 | `status.battery_percentage` | Akkustand | % |
 | `status.mode` | Aktueller Modus (`auto`, `manual`, `at_home`, …) | – |
@@ -128,13 +130,12 @@ Alle numerischen Werte werden automatisch von ×0,1 → °C/ %s kaliert.
 
 ---
 
-## Schreiben (Einzelbefehle)
-Der Adapter unterstützt **präzise Einzelschreibvorgänge** in jeden steuerbaren Zustand ohne Verkettung oder automatische Moduswechsel.
-
+## Schreiben
+Der Adapter unterstützt **gezielte Schreibvorgänge** in jeden steuerbaren Zustand ohne automatische Moduswechsel.
 Dadurch haben Sie die volle Kontrolle in Blockly, JavaScript oder benutzerdefinierten Logikskripten.
 
 | Schreibbarer Zustand | Erwarteter Wert / Verhalten |
-| ----------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
 | `control.temp_set` | Zieltemperatur (°C, 0,5 Schritte; gesendet ×10) |
 | `control.at_home_setting`, `control.leaving_home_setting`, `control.pause_setting`, `control.holiday_setting` | Voreingestellte Temperaturen |
 | `control.mode` | `manual`, `at_home`, `leaving_home`, `pause`, `holiday`, `auto` |
@@ -196,17 +197,18 @@ Diese Mechanismen gewährleisten eine reibungslose Synchronisierung zwischen ioB
 ## Protokollierung
 Der Adapter liefert detaillierte **Debug-Informationen** für Diagnosezwecke, bleibt aber im Normalbetrieb geräuschlos.
 
-- `ack=true`-Aktualisierungen werden nur im **Debug-Modus** angezeigt.
+- `ack=true`-Aktualisierungen werden stillschweigend ignoriert
 - `HOLD`, `MATCH`, `SUPPRESS` → Debug-Level, harmlose Diagnosefunktionen
+Nach dem ersten Inventarisierungslauf listen die Abfrage-Debug-Protokolle nur noch tatsächliche Wertänderungen auf.
 - API-Fehler (`HTTP 400/401`) wurden automatisch wiederholt (protokolliert im Debug-Modus)
-- Bereinigter Informationsstand nach jeder Umfrage:
+- Bereinigen Sie die Zusammenfassung auf Debug-Ebene nach jeder Abfrage:
 
 **Beispiel für eine Umfragezusammenfassung**
 
 ```
-✅ Updated 13 devices. Changed=2, Skipped=253, Held=1
-📡 Found devices, updating states...
-⏸️ Skipping poll (anti-race 5000ms)
+CHANGES bf0a...: temp_set: 25 -> 30, manual_mode_fast: 25 -> 30
+Updated 13 devices. Mode=poll, Changed=2, Skipped=253, Held=0, AckFixed=0
+Skipping poll (anti-race pause 5000ms)
 ```
 
 ## Beispiel für eine Log-Ausgabe
@@ -260,11 +262,14 @@ Der Adapter kommuniziert mit der Danfoss Ally Cloud API (Basis-URL konfigurierba
 ---
 
 ## Schreibt
-- Ein Befehl pro Zustand (keine Modusverkettung)
+- `temp_set` versucht zunächst einen kombinierten Befehl `SetpointChangeSource` + `temp_set` auszuführen.
+- Auch Ally-TRVs erhalten `manual_mode_fast`, wenn der Datenpunkt vorhanden ist, da einige Geräte dort den manuellen Sollwert melden.
+- Das Polling aktualisiert nur `status.*`; `control.*` bleibt ein reiner Schreibkanal, um Rückkopplungsschleifen zu vermeiden.
 - Modus + Temperatur müssen separat angegeben werden
 Die Werte sind auf zulässige Grenzwerte begrenzt und mit ×10 skaliert.
 - `child_lock`: versucht `0/1`, wiederholt `true/false` bei Fehler 400
-- `SetpointChangeSource`: optional; standardmäßig auf `"Extern"` gesetzt, wenn manuelle Modi aktiv sind
+- `SetpointChangeSource`: optional; `temp_set` versucht, Ally-Thermometerventile extern zu setzen.
+- Meldet die Cloud später erneut den alten Sollwert, protokolliert der Adapter eine Warnung, anstatt ihn stillschweigend zu akzeptieren.
 
 Alle Sende-, Wiederholungs- und Bestätigungsprotokolle werden auf Debug-Ebene angezeigt.
 
@@ -282,26 +287,51 @@ oder über die ioBroker-Entwicklungstools installieren.
 
 ## Changelog
 
+### 0.2.20
 
-### 0.2.15
-- Fixed invalid `io-package.json` (JSON syntax error)
-- No functional changes
+- Reduced debug log noise after startup: repeated polls now log only real value changes
+- Removed repeated per-device debug inventory lines after the first poll
+- Avoided object-valued status writes from fallback responses
+- Added Boiler Relay fallback objects when the Danfoss API lists the relay but returns no status entries
+- Resolved ioBroker repository checker warnings for Prettier config, ESLint devDependency, translated news entries, workflow concurrency, and tracked ignored tool files
+- Updated GitHub Actions workflow dependencies from the open Dependabot PRs
 
-### 0.2.14
-- Introduced `control` channel for writable states
-- `status` channel is now strictly read-only
-- Improved write detection and state handling
-- Prevented writes to channels or non-state objects
-- Improved adapter stability
+### 0.2.19
 
-### 0.2.13
-- Updated CI & deploy workflow
-- Fixed npm publishing process
-- Improved code formatting (Prettier / ESLint)
-- No functional changes for end users
+- Stopped polling from writing cloud values back into `control.*` states to avoid feedback loops with Loxone/scripts
+- Added `state.from` to debug write logs so external write sources can be identified
+- Added direct status fallback for devices that are listed without status values, improving Boiler Relay datapoints
+- Reduced poll debug noise: the initial run still logs all `SET` lines, later polls summarize changed values per device
 
+### 0.2.18
+
+- Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
+- Added explicit warnings when the Danfoss Cloud does not confirm the requested setpoint
+- Improved device naming/detection for relay-like devices so the Boiler Relay is easier to identify
+
+### 0.2.17
+
+- Improved Ally TRV `temp_set` writes by trying `SetpointChangeSource=Externally` and `temp_set` as one combined command first
+- Falls back to `temp_set` only if Danfoss rejects the combined command
+- Fixed `control.switch` subscriptions for Icon2 / Boiler Relay writes
+- Added alias handling for `Occupied_Setpoint`
+- Fixed jsonConfig header validation warning
+
+### 0.2.16
+
+- Fixed `temp_set` for Ally TRVs (`SetpointChangeSource=Externally` auto-sent)
+- Fixed wrong path for `lower_temp`/`upper_temp` clamp
+- Fixed `OccupiedSetpoint` scaling (÷100 instead of ÷10)
+- Added type hints for 16 new data points (`MeasuredValue`, `pi_heating_demand`, `window_state`, etc.)
+- `Icon2 switch` state is now writable
+- Fixed jsonConfig admin validation warning (missing `size` property)
+- Added Boiler Relay to supported devices
+
+[Older changes](CHANGELOG_OLD.md)
 
 ---
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

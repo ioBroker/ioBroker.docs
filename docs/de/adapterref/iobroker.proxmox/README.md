@@ -123,25 +123,23 @@ zum Beispiel
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.6.3 (2026-07-31)
+* (arteck) fix next node reconnect
+* (arteck) add state info.node for actual node ip
 
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires admin >= 7.7.22 now
+### 2.6.2 (2026-07-15)
+* (arteck) restructure ceph health message
 
-### 2.4.10 (2026-01-28)
-* (arteck) fix node action
+### 2.6.1 (2026-05-21)
+* (arteck) fix reconnect
 
-### 2.4.9 (2026-01-09)
-* (arteck) fix webhookNotification array DP
+### 2.6.0 (2026-05-13)
+* (arteck) fix high i/o
+* (copilot) Adapter requires node.js >= 22 now
 
-### 2.4.8 (2025-12-27)
-* (arteck) add DP webhookNotification as string and as array
-
-### 2.4.7 (2025-12-27)
-* (arteck) fix refresh vm/lxc
-
-### 2.4.6 (2025-12-23)
-* (arteck) fix start request
-* (arteck) fix Cannot send request
+### 2.5.5 (2026-05-09)
+* (arteck) fix ceph info
+* (arteck) fix ceph tree limit
 
 ## License
 

@@ -41,6 +41,7 @@ Also a big thanks to the company Bayernluft for their great support
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 3.1.1 (2026-02-11)
@@ -72,6 +73,8 @@ Also a big thanks to the company Bayernluft for their great support
 * (boriswerner) Corrected the ACK-handling in onStateChange
 * (mcm1957) Adapter has been move to iobroker-community-adapters organization
 * (mcm1957) Dependencies have been updated
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

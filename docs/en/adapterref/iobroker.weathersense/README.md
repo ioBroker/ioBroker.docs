@@ -25,94 +25,60 @@ For example, this WiFi weather stations from Ideoon (Pearl):
 
 ![Screenshot](https://github.com/ltspicer/WeatherSense/blob/main/casativo_ideoon_weatherstation.png)
 
+ioBroker data points:
+
+![Screenshot](https://github.com/ltspicer/WeatherSense/blob/main/iobroker_dps.png)
+
+
 ## Use:
 
 Simply enter your WeatherSense account login details (email and password).
 The weather station data is stored in the weathersense data point.
 The data can also be sent via MQTT.
 
+## Handling Multiple Weather Stations (Multi-Instance Support)
+
+The original WeatherSense cloud server has a software limitation/bug: if you register two or more identical weather stations within the same smartphone account, they will overwrite each other and disappear from your device list.
+
+To successfully read data from multiple stations simultaneously without any conflicts, you can leverage ioBroker's native multi-instance architecture.
+
+### Step-by-Step Setup:
+
+1. **Create Separate Cloud Accounts:** Register a unique, free account for **each** of your weather stations inside the WeatherSense mobile app (e.g., *email A* for Station 1 and *email B* for Station 2).
+2. **Bind One Station Per Account:** Pair your first station strictly with Account A and your second station strictly with Account B.
+3. **Add Multiple Instances in ioBroker:**
+   * Go to the `Instances` tab in ioBroker and add a second instance of the WeatherSense adapter (this creates `weathersense.0` and `weathersense.1`).
+4. **Configure the Instances:**
+   * Open the configuration for **`weathersense.0`** and enter the credentials for **Account A**. Set the `Sensor ID` to `1`.
+   * Open the configuration for **`weathersense.1`** and enter the credentials for **Account B**. Set the `Sensor ID` to `2`.
+
+### Benefits of this Setup:
+* **No Data Conflicts:** ioBroker will spin up two completely separate processes.
+* **Separated Objects:** Your data points are neatly separated into `weathersense.0.*` and `weathersense.1.*`.
+* **Clean MQTT Routing:** If you use the integrated MQTT feature, your topics will be cleanly separated by the Sensor ID (e.g., `weathersense/1/...` and `weathersense/2/...`), preventing data from overwriting on your broker.
+
 ## Changelog
-### 4.4.0 (2026-04-06)
+### 5.2.3 (2026-07-26)
 
-- node > 20
+- Div error messages moved to warn messages
 
-### 4.3.0 (2026-03-05)
+### 5.2.2 (2026-07-09)
 
-- "Ignore PowerStatus warning" option added
+- Typo corrected
 
-### 4.2.2 (2026-03-04)
+### 5.2.1 (2026-07-09)
 
-- powerStatus:0 message changed from warn to info
+- Typo corrected
 
-### 4.2.1 (2026-02-03)
+### 5.2.0 (2026-07-09)
 
-- "Error during login" message fixed & timeout increased to 3000ms
+- Invert PowerStatus flag added
 
-### 4.2.0 (2026-01-29)
+### 5.1.1 (2026-07-05)
 
-- Better log info
+- Bugfix: Unit windDirection km/h → °
 
-### 4.1.0 (2026-01-28)
-
-- Better Admin menu
-
-### 4.0.3 (2026-01-24)
-
-- Ignore set of allStatesOk if state is undefined
-
-### 4.0.2 (2026-01-24)
-
-- DP renamed from allStatesOk to AllStatesOk
-
-### 4.0.1 (2026-01-23)
-
-- Removed duplicate call to isSuccess()
-
-### 4.0.0 (2026-01-23)
-
-- "All status OK" flag added
-- MQTT topic changed from WEATHERSENSE to WeatherSense
-
-### 3.0.3 (2025-09-14)
-
-- eslint-config & testing version updated
-
-### 3.0.2 (2025-08-29)
-
-- Passwords protected, clean convert string > number
-
-### 3.0.1 (2025-08-18)
-
-- Delay 0-117s added
-
-### 3.0.0 (2025-08-18)
-
-- Type and channel position swapped for more meaningful sorting
-
-### 2.0.2 (2025-08-17)
-
-- Unit hPa added
-
-### 2.0.1 (2025-08-17)
-
-- More data output
-- Cleaner type & channel output
-
-### 1.0.3 (2025-07-03)
-
-- Delay with different syntax
-
-### 1.0.2 (2025-07-02)
-
-- New release because SSH troubles in dev portal
-
-### 1.0.1 (2025-07-02)
-
-- Code cleanups
-
-### 1.0.0 (2025-07-01)
-
-- Initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

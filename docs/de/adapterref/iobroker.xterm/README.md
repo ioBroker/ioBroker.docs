@@ -3,83 +3,89 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.xterm/README.md
 title: ioBroker.xterm
-hash: Yd+XjBxXX/gFGwzCrttfIJrU0k9so6ikCV9JwSCDE1M=
+hash: GznI1502Q5gVpQW/SraGp4ufIeDsJ0012p3i7X0xSBs=
 ---
-![Logo](../../../en/adapterref/iobroker.xterm/admin/xterm.png)
+![Logo](../../../en/adapterref/iobroker.xterm/admin/xterm.svg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/xterm-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.xterm.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.xterm.svg)
 
 # IoBroker.xterm
-![Testen und freigeben](https://github.com/ioBroker/ioBroker.xterm/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/xterm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.xterm/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/xterm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Xterm-Adapter für ioBroker
 Dieser Adapter ermöglicht die Ausführung von Shell-Befehlen auf dem ioBroker-Host. Er ersetzt den Adapter `ioBroker.terminal`.
 
 Terminalserver zum Öffnen der Befehlszeilenschnittstelle.
-Bitte verwenden Sie es nur zu Verwaltungszwecken.
+Bitte verwenden Sie ihn nur für administrative Zwecke.
 
-Basierend auf xterm.js- und node-pty-Paketen.
+Basierend auf den Paketen xterm.js und node-pty.
 
-Wenn die Authentifizierung aktiviert ist, kann sich nur der ioBroker „admin“-Benutzer anmelden.
+Wenn die Authentifizierung aktiviert ist, kann sich nur der ioBroker-Benutzer "admin" anmelden.
 
-## Verwendungszweck
-Adapter unterstützt 2 Modi:
+## Verwendung
+Der Adapter startet cmd.exe (Windows) oder bash (Linux) über ein echtes Pseudo-Terminal (node-pty).
+Unter Linux läuft bash unter dem Benutzer `iobroker`. Über `su USER` können Sie zu einem anderen Benutzer mit mehr Berechtigungen wechseln.
 
-- Startet cmd.exe (Windows) oder bash (Linux). Unter Linux läuft die Bash unter dem Benutzer „iobroker“, und vielleicht sollten Sie zu einem anderen Benutzer mit mehr Rechten wechseln (über „su USER“).
-- Oder Shell mit node.js simulieren (Sie können diese Option aktivieren, wenn die erste Option nicht funktioniert)
+### Persistente Terminals
+Die Shells laufen im Adapter und nicht im Browser. Bei Verbindungsverlust oder Seitenneuladung bleiben die Terminals aktiv und werden inklusive ihres Inhalts wiederhergestellt – auch langlaufende Befehle werden nicht unterbrochen.
 
-Hinweis: Einige Terminalbefehle mit Interaktivität funktionieren nicht. Z.B. `nano` und einige andere.
+Ein Terminal wird beendet, wenn es explizit geschlossen wird oder wenn innerhalb des konfigurierten **Sitzungs-Timeouts** (standardmäßig 5 Minuten; `0` beendet die Shells sofort, wenn die Browserverbindung getrennt wird) kein Browser zurückkehrt.
 
-## MACHEN
-- Simulation: Strg + R (Verlauf)
-- Simulation: Mehr Kodierungsseiten. Wenn Sie eine Codepage finden, die zu Ihrem System passt, erstellen Sie bitte ein Problem. Mögliche Codierungsseiten finden Sie [hier](https://github.com/ashtuchkin/iconv-lite/wiki/Supported-Encodings).
-- Unterstützung von mehr als einer Sitzung (Tabs)
+## Tastenkombinationen
+| Verknüpfung | Aktion |
+|------------------|-------------------------------------------------------------------------------------|
+| **Strg+Umschalt+V** | Öffnet den Einfügedialog (nützlich bei HTTP-Verbindungen, bei denen die Zwischenablage-API nicht verfügbar ist) |
+| **Strg+Umschalt+F** | Im Terminal-Scrollback suchen |
+| **Rechtsklick** | Aus der Zwischenablage einfügen (HTTPS) oder Einfügedialog öffnen (HTTP) |
+| Text auswählen | Automatisches Kopieren in die Zwischenablage (PuTTY-Stil) |
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 4.0.1 (2026-08-07)
+* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+* (@GermanBluefox) Dropped support of Node.js 20
+* (@GermanBluefox) Added SVG icon
+* (@GermanBluefox) The terminals now run on the server: they survive a reload or a lost connection and are restored with their content
+* (@GermanBluefox) Added the setting for the session timeout
+* (@GermanBluefox) Fixed the HTTPS mode: the adapter did not start the web server at all if `secure` was enabled
+* (@GermanBluefox) Fixed the shown client IP addresses in `info.connection`
+* (@GermanBluefox) Errors of the web socket connection do not terminate the adapter anymore
+* (@GermanBluefox) A shell that cannot be started is not restarted endlessly anymore
+* (@GermanBluefox) All shells are terminated now if the adapter stops
+* (@GermanBluefox) Fixed the double connections of the GUI after a connection timeout
+
+### 3.1.0 (2026-06-04)
+* (bluefox) Added the icon in the GUI
+* (bluefox) Added possibility to run under a specified user on Linux
+* (bluefox) Implemented paste on right mouse click
+* (bluefox) Implemented authentication for the terminal
+
+### 3.0.0 (2026-04-12)
+* (bluefox) Migrated the adapter to Typescript
+* (bluefox) Added multiple terminal sessions
+
+### 2.0.1 (2023-09-18)
+* (bluefox) xterm library updated
+* (bluefox) Move Lets encrypt settings to acme adapter
+* (bluefox) Minimal supported node.js version is 16
+
 ### 1.1.0 (2022-10-08)
-* (Apollon77) Update xterm library
-* (Apollon77) Prepare for future js-controller versions
+* (Apollon77) Updated the xterm library
+* (Apollon77) Prepared for future js-controller versions
 
-### 1.0.0 (2022-08-29)
-* (bluefox) Check only port of the interface and not of all interfaces
-
-### 0.3.2 (2022-03-29)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 0.3.1 (2022-03-18)
-* (Apollon77) Fix a crash case reported by Sentry
-
-### 0.3.0 (2022-03-12)
-* (Apollon77) Prevent some warnings in js-controller 3+
-* (Apollon77) Add Fallback to simulated shell if bash/cmd.exe is selected by node-pty was not installed correctly!
-* (Apollon77) Rework info.connection status to show that server is connected also as green by using "none" to show that no one is connected
-* (Apollon77) Update all dependencies
-* (Apollon77) Add sentry for crash reporting
-
-### 0.2.0 (2021-09-18)
-* (bluefox) Added the real terminal (bash or cmd.exe) to simulated one
-
-### 0.1.0 (2021-09-18)
-* (bluefox) changed type of the connection state to "string"
-
-### 0.0.3 (2021-09-16)
-* (ioBroker) first working release
-
-### 0.0.1
-* (ioBroker) initial release
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2021-2022 ioBroker <dogafox@gmail.com>
+Copyright (c) 2021-2026 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mercedesme/README.md
 title: ioBroker.mercedesme
-hash: FNiMh4veJEDS9m5/XywGQO4IafBpnx8U2q/1/UxGJ+k=
+hash: x+Q36fKqcoITqzyAQPtNw/EosXADxAWHTJTeycQ0GDs=
 ---
 ![Logo](../../../en/adapterref/iobroker.mercedesme/admin/mercedesme.png)
 
@@ -17,40 +17,61 @@ hash: FNiMh4veJEDS9m5/XywGQO4IafBpnx8U2q/1/UxGJ+k=
 ## Mercedes-Adapter für ioBroker
 Mercedes me Adapter für ioBroker
 
-### Empfehlung: Zweitnutzer erstellen
-Es wird empfohlen, einen separaten Mercedes me Zweitnutzer für ioBroker zu erstellen. Mercedes begrenzt die Anzahl der Verbindungen pro Tag (~100-150). Bei Überschreitung wird der Account bis Mitternacht UTC gesperrt (HTTP 429).
+### Empfehlung: Erstellen Sie einen Zweitbenutzer
+Es wird empfohlen, für ioBroker einen separaten Mercedes me Zweitbenutzer anzulegen. Mercedes begrenzt die Anzahl der Verbindungen pro Tag (ca. 100–150). Bei Überschreitung dieses Limits wird das Konto bis Mitternacht UTC (HTTP 429) gesperrt.
 
-Mit einem Zweitnutzer:
+Mit einem zweiten Benutzer:
 
-- Wird der Hauptnutzer in der Mercedes me App nicht eingeschränkt
-- Kann der Adapter uneingeschränkt funktionieren
-- Bleibt die App auf dem Handy voll funktionsfähig
+Der Hauptnutzer ist in der Mercedes me App nicht betroffen.
+Der Adapter kann unabhängig funktionieren.
+Die App auf dem Telefon bleibt voll funktionsfähig.
 
-Den Zweitnutzer in der Mercedes me App als „Nutzer“ (nicht Hauptnutzer) zum Fahrzeug einladen.
+Laden Sie den Zweitbenutzer in der Mercedes me App als „Benutzer“ (nicht Hauptbenutzer) zum Fahrzeug ein.
 
-### Bedienung
-Unter commands das commando auf klappen und den button neben start drücken, wenn das command verfügbar ist.
+### Verwendung
+Erweitern Sie unter „Befehle“ den gewünschten Befehl und drücken Sie die Schaltfläche daneben, um ihn zu starten, sobald er verfügbar ist.
 
-Remote sind vorgefertigte Remote-Befehle
+Remote enthält vordefinierte Remote-Befehle.
+
+## Wächter
+Dieser Adapter verwendet die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Changelog
-### 0.7.0-beta.0 (2026-03-03)
-- make api only mode default
+### 0.8.0 (2026-07-27)
+
+- support new VehicleStatusUpdate message format (RIS SDK 4.12)
+
+### 0.7.2 (2026-07-26)
+
+- fix Login
+
+### 0.7.1 (2026-04-15)
+
+- fix vehicle fetching
+
+### 0.7.0 (2026-03-16)
+
+- make api only mode default. use websocket for remote controls only
 
 ### 0.6.3 (2026-02-16)
+
 - add api refresh every 3 min after websocked block
 - add api only update mode
 
 ### 0.5.5 (2026-02-09)
+
 - fix parsing and command sending
 
 ### 0.4.2 (2026-02-07)
+
 - improve event parsing
 
 ### 0.4.0 (2026-02-03)
+
 - fix remote command sending
 
 ### 0.3.9 (2025-11-12)
+
 - fix login flow
 
 ### 0.3.8 (2025-07-11)
@@ -263,7 +284,7 @@ Remote sind vorgefertigte Remote-Befehle
 
 MIT License
 
-Copyright (c) 2024-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024-2026 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

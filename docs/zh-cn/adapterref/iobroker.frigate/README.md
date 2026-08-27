@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.frigate/README.md
 title: ioBroker.frigate
-hash: 3WrCVv9K/OwVM2kqsLUcAYh8lE3u7uYbapGYnDpFkZ4=
+hash: kHkgO7G392lMJPKHrRDhZLomeee2FUuj/KuHNQfXAGc=
 ---
 ![标识](../../../en/adapterref/iobroker.frigate/admin/frigate.png)
 
@@ -19,93 +19,12 @@ hash: 3WrCVv9K/OwVM2kqsLUcAYh8lE3u7uYbapGYnDpFkZ4=
 **此适配器使用 Sentry 库自动向开发者报告异常和代码错误。** 更多详情以及如何禁用错误报告的信息，请参阅 [Sentry插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告功能从 js-controller 3.0 开始使用。
 
 ## IoBroker 的护卫舰适配器
-护卫舰工具适配器 [护卫舰视频](https://frigate.video/)
+[护卫舰NVR](https://frigate.video/) 的适配器 — 一个开源的、自托管的视频监控系统，具有 AI 驱动的目标检测功能。
 
-＃＃ 设置
-- 输入护卫舰服务器的 URL，例如 `localhost:5000` 或 `192.168.178.2:5000`
-- 从护卫舰配置中输入 MQTT 端口：1883
-- 在护卫舰配置中输入 iobroker 系统的主机名或 IP 地址
+## 文档
+[🇺🇸 文档](./docs/en/README.md)
 
-```yaml
-mqtt:
-    host: ioBrokerIP
-    port: ioBrokerPort
-```
-
-启动 Frigate 和适配器后，您应该会在日志中看到一个新的客户端已连接。
-
-＃＃ 用法
-### 统计数据
-系统和摄像头的一般信息。
-
-### 遥控器
-`frigate.0.remote.pauseNotifications` - 暂停所有摄像头的通知。
-
-### 事件
-上次活动，包含活动前后对比信息。
-
-`frigate.0.events.history` - 最近 X 个事件的历史记录。
-
-历史事件包含事件缩略图以及快照和剪辑的 URL。
-
-### 相机名称
-相机的状态和设置。
-
-更改状态以更改相机设置。
-
-[所有州的详细信息](https://docs.frigate.video/integrations/mqtt/)
-
-* `frigate.0.camera_name.motion` - 摄像头名称当前是否正在检测运动。预期值为 ON 和 OFF。注意：首次检测到运动后，该值将设置为 ON，直到 mqtt_off_delay 秒（默认为 30 秒）内未检测到任何运动为止。
-* `frigate.0.camera_name.person_snapshot` - 发布检测到的物体类型的 JPEG 编码帧。当不再检测到该物体时，发布置信度最高的图像，或者重新发布原始图像。
-
-快照的高度和裁剪方式可以在配置中进行设置。
-
-* `frigate.0.camera_name.history` - 摄像机的事件历史记录。
-* `frigate.0.camera_name.remote.notificationText` - 摄像头的自定义通知文本。
-* `frigate.0.camera_name.remote.notificationMinScore` - 摄像头的自定义通知最低分数。
-* `frigate.0.camera_name.remote.pauseNotifications` - 摄像头的暂停通知。
-* `frigate.0.camera_name.remote.ptz` - 发送云台控制命令 https://docs.frigate.video/integrations/mqtt/#frigatecamera_nameptz
-
-## 通知
-适配器可以将事件和对象检测的快照和剪辑发送到 `telegram`、`pushover` 和 `signal-cbm` 等实例。
-
-您可以指定多个实例或用户来发送快照或剪辑。
-
-在设置中启用通知，即可接收快照或视频片段。
-
-活动提交前可设置最低分数。0 = 禁用。
-
-事件结束后 5 秒（实例设置），视频片段将被发送。
-
-您可以输入自定义通知文本，占位符为`{{source}} {{type}} erkannt {{status}} {{score}} {{state}}`。
-
-## 集成到可视化中
-您可以在可视化界面中集成快照和剪辑：
-
-快照：
-
-- 添加一个 `String img src` 并将其用作对象 ID：`frigate.0.camera_name.person_snapshot`
-- 添加一个 `String img src` 并将其用作对象 ID：`frigate.0.events.history.01.thumbnail`
-
-片段：
-
-- 添加 `HTML` 添加为 HTML：
-
-```html
-<video width="100%" height="auto" src="{frigate.0.events.history.01.webclip}" autoplay muted>
-</video>
-```
-
-人数：
-
-- `frigate.0.camera.person`
-
-与人相关的事件：
-
-- `frigate.0.events.after.label` = 人
-
-## 在不同的主机上运行 frigate docker
-如果您想通过 Telegram 等工具将剪辑和快照发送到 iobroker 主机，则 frigate 实例和 Telegram（或其他）实例必须运行在同一主机上，因为 frigate 使用磁盘来存储剪辑和快照。
+[🇩🇪 文献](./docs/de/README.md)
 
 ## 讨论和提问
 [https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker](https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker)
@@ -116,37 +35,52 @@ mqtt:
     Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (@GermanBluefox) Code optimizations and refactoring
+### 2.3.1 (2026-03-29)
+- (Eistee82) Added Frigate API authentication support for port 8971 (username/password login with JWT)
+- (Eistee82) Automatic token refresh on 401 responses
 
-### 2.0.2 (2026-02-16)
-- (@GermanBluefox) Removed gpu_usages
+### 2.3.0 (2026-03-29)
+- (Eistee82) Many new features, improvements, and bug fixes in development for the next major release (see 2.2.2)
 
-### 2.0.0 (2026-02-16)
-- (@GermanBluefox) Adapter was migrated to TypeScript
-- (@GermanBluefox) Breaking change: All states with value ON/OFF were changed to boolean true/false
-- (@GermanBluefox) Better handling of complex objects and arrays
-- (@GermanBluefox) `path_data` is not parsed anymore
-- (@GermanBluefox) Added еру possibility to start and manage docker with frigate from the adapter
+### 2.2.2 (2026-03-29)
 
-### 1.4.0 (2026-01-26)
+**New Features:**
+- (Eistee82) Added per-camera motion threshold control (`remote.motionThreshold`)
+- (Eistee82) Added per-camera motion contour area control (`remote.motionContourArea`)
+- (Eistee82) Added per-camera birdseye mode control (`remote.birdseyeMode`)
+- (Eistee82) Added per-camera improve contrast toggle (`remote.improveContrast`)
+- (Eistee82) Added Frigate notification control via MQTT (`notifications.enabled`, `notifications.suspend`)
+- (Eistee82) Added automatic zone device creation from Frigate config
+- (Eistee82) Audio details (dBFS, RMS, transcription, audio types) now automatically available
+- (Eistee82) Camera health status (detect/audio/record role status) now automatically available
+- (Eistee82) Classification states and review status now automatically available
 
-- (mcm1957) Adapter requires node.js 20 as minimum now.
-- (TA2k) Remove path_data objects to prevent too many objects generated by the adapter
+**Modernization:**
+- (Eistee82) Migrated adapter to ESM (ECMAScript Modules) — requires js-controller >= 6.0.5
+- (Eistee82) Upgraded aedes MQTT broker from 0.51 to 1.x
+- (Eistee82) Replaced uuid dependency with built-in `crypto.randomUUID()`
+- (Eistee82) Replaced json-bigint dependency with native `JSON.parse`
+- (Eistee82) Refactored monolithic main.ts into focused modules
+- (Eistee82) Include build directory in repository for direct GitHub installation
 
-### 1.3.3 (2026-01-26)
+**Bug Fixes:**
+- (Eistee82) Fixed critical bug: motion ON was always parsed as false due to operator precedence
+- (Eistee82) Fixed snapshot notification missing image parameter
+- (Eistee82) Fixed duplicate MQTT message processing in built-in broker mode
+- (Eistee82) Fixed tmp directory cleanup deleting files from other programs
+- (Eistee82) Converted synchronous filesystem operations to async
+- (Eistee82) Debounced event history fetching to prevent excessive API calls
+- (Eistee82) Improved error logging consistency across all catch blocks
 
-- (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
+### 2.2.1 (2026-03-29)
+- (Eistee82) Added support for connecting to an external MQTT broker (e.g. Mosquitto) as an alternative to the built-in broker
+- (Eistee82) Added configurable MQTT topic prefix
+- (Eistee82) Added i18n translations for new MQTT configuration fields
+- (mcm1957) dependencies have been updated
 
-- (mcm1957) Adapter requires admin 6.17.14 as minimum now.
-
-### 1.3.2 (2025-05-06)
-
-- (TA2k) remove path_data from v0.16
-- (TA2k) move clip url from mp4 to m3u8
-- (mcm1957) Adapter requires js-controller 5.0.19 as minimum now.
-- (mcm1957) Several issues reported by the adapter checker have been fixed.
+### 2.1.3 (2026-03-19)
+- (@GermanBluefox) Remove wrong log message about missing docker
+- (@GermanBluefox) Send on connection the topic onConnect to receive camera_activity topic
 
 ## License
 

@@ -35,6 +35,7 @@
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 2.3.1 (2026-02-17)
@@ -61,6 +62,8 @@
 ### 2.0.2 (2023-12-23)
 - (ar7bd) SpotWidth and spotHeight are now allowed to be zero. [#29]
 - (mcm1957) Dependencies have been updated.
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: Q563Dth9hJZtJntiWYmZrKhRrVqsc6Ay5TzTIfrva+4=
+hash: sGnFtCBDpgdN3WGj6ueeyAWmWF44erkKKjDegciqKKg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -19,37 +19,59 @@ hash: Q563Dth9hJZtJntiWYmZrKhRrVqsc6Ay5TzTIfrva+4=
 [![Статус FOSSA](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_shield) ![Тестирование и выпуск](https://github.com/HGlab01/ioBroker.apg-info/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер apg-info для ioBroker
-Этот адаптер предоставляет данные о пиковых периодах потребления электроэнергии в австрийской энергосистеме (только австрийские значения!), когда потребление электроэнергии следует избегать. Кроме того, адаптер предоставляет спотовые цены PHELIX на следующий день (EPEX Spot) для Австрии, Швейцарии и Германии (настраивается в параметрах адаптера). Плата за услуги провайдера, налоги и стоимость электроэнергии в сети могут быть добавлены по желанию в конфигурации (вкладка «Расчет»).
-`[..].marketprice.today.jsonChart` и `[..].marketprice.tomorrow.jsonChart` можно использовать с https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart.
-При стандартной конфигурации адаптер работает в 00:00, 13:00 и 15:00. Настоятельно рекомендуется не отключать работу в 00:00, иначе смена дня (завтра --> сегодня) не будет работать должным образом.
+Этот адаптер предоставляет информацию о пиковых периодах в австрийской энергосистеме (только австрийские значения!), когда потребление электроэнергии следует избегать. Кроме того, адаптер предоставляет спотовые цены PHELIX на следующий день (EPEX Spot) для Австрии, Швейцарии и Германии (настраивается в параметрах адаптера). Плата за услуги провайдера, налоги и стоимость электроэнергии из сети могут быть добавлены по желанию в конфигурации (вкладка «Расчет»).
+
+В стандартной конфигурации адаптер работает в 00:00, 13:00 и 15:00. Настоятельно рекомендуется не отключать работу в 00:00, иначе смена дня (завтра --> сегодня) не будет работать должным образом.
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Требует
-* Node.js 20 или выше
-* ioBroker host (js-controller) 5.0 или выше
+* Node.js 22 или выше
+* ioBroker host (js-controller) 6.0.11 или выше
 
 ## Рыночные цены с интервалом в четверть часа
-Эти рыночные цены собираются компанией Exaa, а в качестве резервной копии используются компанией Entsoe. Поэтому рекомендуется *запросить токен Entsoe*, если настроены цены с интервалом в четверть часа.
+Эти рыночные цены собираются компанией Exaa, а в качестве резервных данных используются Entsoe и Energy Charts. Поэтому рекомендуется *запросить токен Entsoe*, если настроены цены с интервалом в четверть часа.
 
 ## Швейцарский рынок
-Для швейцарского рынка необходим токен с сайта entsoe.eu. Пожалуйста, добавьте свой токен в конфигурацию адаптера на вкладке "ENTSOE TOKEN".
+Для швейцарского рынка необходим токен с сайта entsoe.eu.
 
 ## Как получить токен Entsoe
 Зарегистрируйтесь на странице https://transparency.entsoe.eu/ и затем отправьте электронное письмо на адрес transparency@entsoe.eu с просьбой предоставить доступ к RESTFUL API для указанного вами адреса электронной почты.<br> Более подробную информацию можно найти по ссылке: https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
 
-## Расчет стоимости электроэнергии по времени (НОВИНКА)
+## Расчет стоимости сети на основе времени
 На рынках (например, в Австрии), характеризующихся переменными во времени тарифами на электроэнергию (например, сниженными тарифами в полдень летом), параметры теперь можно настраивать с помощью таблицы. В справочной таблице показан необходимый формат ввода данных. Эта функция находится в настройках адаптера на вкладке «Расчеты».
 
 **Важно:** Табличный вид работает с Admin 7.7.23 и более поздними версиями. В более старых версиях поле даты отображается некорректно (https://github.com/ioBroker/ioBroker.admin/issues/3344).
+
+## Диаграммы
+С помощью этого адаптера легко создавать диаграммы на основе предоставленных данных. В зависимости от используемого адаптера визуализации у вас есть несколько вариантов. Ниже приведены несколько распространенных примеров:
+
+### Vis-1 `[..].marketprice.today.jsonChart` и `[..].marketprice.tomorrow.jsonChart` можно использовать с https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart.
+К сожалению, vis-materialdesign не поддерживается адаптером vis-2 (см.: https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/227, https://github.com/Scrounger/ioBroker.vis-materialdesign/pull/224).
+А в новом адаптере vis-2-widgets-material больше нет "jsonChart".
+### Vis-2 В качестве альтернативы вы можете использовать [адаптер echarts](https://github.com/ioBroker/ioBroker.echarts) с источником данных в формате "JSON" (https://github.com/ioBroker/ioBroker.echarts#data-from-json). Для этого адаптер apg-info также предоставляет полные данные в других объектах:
+- `[..].marketprice.today.jsonChartData` и `[..].marketprice.tomorrow.jsonChartData` содержат только массив данных диаграммы.
+- `[..].marketprice.jsonChartData` объединяет данные графика за сегодняшний и завтрашний день в один массив.
+- `[..].marketprice_quarter_hourly.jsonChartData` предоставляет те же объединенные данные для графика цен с почасовой разностью.
+
+С помощью этого можно создавать красивые диаграммы, подобные этой (созданной с использованием адаптера echarts и объединенных данных поквартально): <img src="doc/echarts.svg" alt="Данные диаграммы в формате JSON" width="50%" />
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.33-alpha.0 (2026-05-17)
+* (HGlab01) Bump axios to 1.16.0
+* (SimonFischer04) support echarts (vis-2)
+
+### 0.1.32 (2026-05-02)
+* (HGlab01) Adapter requires node.js >= 22 now
+* (HGlab01) fix 'DE' is not the code for an available bidding zone
+* (HGlab01) Bump axios to 1.15.2
+
 ### 0.1.30 (2026-02-24)
-* (@HGlab01) finetune timeout management
+* (HGlab01) finetune timeout management
 
 ### 0.1.29 (2026-02-14)
 * (HGlab01) add time based grid costs calculation (see above)
@@ -57,15 +79,6 @@ hash: Q563Dth9hJZtJntiWYmZrKhRrVqsc6Ay5TzTIfrva+4=
 
 ### 0.1.28 (2025-12-11)
 * (HGlab01) add Energy-Charts as third data provider
-
-### 0.1.27 (2025-11-19)
-* (HGlab01) disable data provider Epex (not a stable option)
-
-### 0.1.26 (2025-11-15)
-* (HGlab01) optimize handling for source Entsoe
-* (HGlab01) optimize handling when data provider runs in timeout
-* (HGlab01) market price details can be switched on/off
-* (HGlab01) enhanced logs when it comes to retries
 
 ## License
 MIT License
@@ -94,12 +107,11 @@ SOFTWARE.
 More about the security of supply & all data, facts and figures regarding the world of electricity and the energy transition can be found at www.apg-powermonitor.at.
 
 #### Disclaimer data providers
-Three data providers are used for this adapter
+Four data providers are used for this adapter
 * Exaa (https://www.exaa.at/)
 * Entso-e (https://www.entsoe.eu/data/transparency-platform/)
 * Energy Charts (https://api.energy-charts.info/) licensed under the CC BY 4.0 license
-
-
+* aWATTar (https://www.awattar.at/services/api and https://www.awattar.de/services/api)
 
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_large)

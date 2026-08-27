@@ -47,6 +47,9 @@ The adapter generally does not delete any objects so that data is not lost if my
 The adapter also has no influence on which parameters are sent by myUplink.
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.8.6 (2025-12-26)
 
 - Dependencies have been updated #134
@@ -141,6 +144,8 @@ The adapter also has no influence on which parameters are sent by myUplink.
 ### 0.1.0 (2023-12-25)
 
 - Initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

@@ -261,6 +261,10 @@ If activated so by every command (no matter if the request came via state or sen
 -->
 
 ## Changelog
+### 5.0.0 (2026-08-07)
+* (@GermanBluefox) Minimal nodejs version is 22.x
+* (@GermanBluefox) Migrated to React 19
+
 ### 4.0.0 (2025-11-03)
 * (bluefox) GUI was updated to vite
 * (bluefox) Minimal nodejs version is 20.x
@@ -427,7 +431,7 @@ If activated so by every command (no matter if the request came via state or sen
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2025, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -23,23 +23,39 @@ All devices which can be controlled via EWPE Smart app should be supported, incl
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+### 3.0.3 (2026-06-01)
+ - Fixed adapter runtime dependencies and updated CI workflow
+
+### 3.0.2 (2026-05-28)
+ - Filtered network-related errors from Sentry reporting
+
+### 3.0.1 (2026-05-28)
+ - Fixed i18n translation files
+
+### 3.0.0 (2026-05-25)
+ - Migrated adapter source code to TypeScript
+ - Updated build pipeline to use `build-adapter ts` (esbuild + tsc)
+ - Updated CI/CD workflow to run on all branches with explicit build steps
+
+### 2.0.9 (2026-05-21)
+ - Adapter requires node.js >= 22 now
+ - Fixed connection status indicator incorrectly showing connected when no devices are bound
+ - Fixed fan speed cycling button skipping the maximum speed level
+ - Fixed memory leak: UDP event listener not removed on request timeout
+ - Fixed maintain-room-temperature (StHt) state never being polled from the device
+ - Fixed potential null reference errors when reading adapter states
+ - Closed UDP sockets on adapter shutdown
+
 ### 2.0.8 (2026-02-14)
  - Updated properties mapping
-### 2.0.7 (2025-12-25)
- - Updated dependencies
-### 2.0.6 (2025-11-07)
- - Added request timeout property
-### 2.0.4 (2025-10-16)
- - Migration to Trusted Publishing
-### 2.0.3 (2025-10-10)
- - Updated dependencies
-### 2.0.0 (2025-05-01)
- - BREAKING! Changed the minimal version of nodejs to 20. Updated dependencies.
-### 1.1.5 (2025-03-01)
- - Updated dependencies
-### 1.1.2 (2024-10-16)
- - Updated dependencies
- - Adjusted admin layout
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
+## Acknowledgments
+- [tomikaa87](https://github.com/tomikaa87) for reverse-engineering the Gree protocol
+- [stas-demydiuk](https://github.com/stas-demydiuk) for code of DeviceManager
+- Sizenko Alexander for Digital-7 fonts
+- [cont1nuity] for adding AES-GCM encryption
 
 ## License
 MIT License
@@ -63,9 +79,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-## Acknowledgments
-- [tomikaa87](https://github.com/tomikaa87) for reverse-engineering the Gree protocol
-- [stas-demydiuk](https://github.com/stas-demydiuk) for code of DeviceManager
-- Sizenko Alexander for Digital-7 fonts
-- [cont1nuity] for adding AES-GCM encryption
