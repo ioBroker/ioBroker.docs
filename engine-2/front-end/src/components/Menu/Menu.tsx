@@ -52,9 +52,9 @@ function Link(props: {
                                 : '#006bbc'
                             : undefined,
                 },
-                fontSize: props.big ? 28 : 20,
+                fontSize: props.big ? 22 : 17,
                 '@media (max-width: 800px)': {
-                    fontSize: 20,
+                    fontSize: 17,
                 },
                 '@media (min-width: 800px)': {
                     display: props.noDesktop ? 'none' : undefined,
@@ -190,7 +190,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                     backgroundColor: 'transparent',
                     margin: 0,
                     maxHeight: 'unset',
-                    maxWidth: 1200,
+                    maxWidth: 960,
                     boxShadow: 'none',
                     width: '90%',
                     '@media (max-width: 800px)': {
@@ -211,8 +211,8 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                 sx={theme => ({
                     fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
                     backgroundColor: theme.palette.mode === 'dark' ? '#080B1CE0' : '#FFFFFFE0',
-                    borderRadius: '20px',
-                    border: '1px solid #1D90CA',
+                    borderRadius: `${theme.custom.radius.card}px`,
+                    boxShadow: `inset 0 0 0 1px ${theme.custom.hairlineStrong}, ${theme.custom.elevation.overlay}`,
                 })}
             >
                 <Box
@@ -220,10 +220,11 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                         display: 'flex',
                         flexDirection: 'column',
                         color: theme.palette.text.primary,
-                        padding: '40px 50px 40px 60px',
-                        gap: '120px',
+                        padding: '28px 32px 32px 40px',
+                        gap: '56px',
                         '@media (max-width: 800px)': {
-                            padding: '20px 30px 20px 30px',
+                            padding: '16px 20px 24px 24px',
+                            gap: '32px',
                         },
                     })}
                 >
@@ -247,11 +248,11 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                 <img
                                     src={logo}
                                     style={{
-                                        marginLeft: -8,
-                                        width: 70,
-                                        height: 70,
+                                        marginLeft: -2,
+                                        width: 36,
+                                        height: 36,
                                         cursor: 'pointer',
-                                        marginBottom: 40,
+                                        marginBottom: 20,
                                         marginRight: 20,
                                     }}
                                     alt="logo"
@@ -289,7 +290,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                 onClose={props.onClose}
                                 location={props.location}
                             />
-                            <Box style={{ marginTop: 16, fontSize: 24, gap: 8, display: 'flex' }}>{languages}</Box>
+                            <Box style={{ marginTop: 16, fontSize: 18, gap: 8, display: 'flex' }}>{languages}</Box>
                         </Box>
                         <Box
                             sx={{
@@ -306,9 +307,9 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                     color: '#1D90CA',
                                 }}
                                 sx={{
-                                    fontSize: 64,
+                                    fontSize: 44,
                                     '@media (max-width: 800px)': {
-                                        fontSize: 32,
+                                        fontSize: 28,
                                     },
                                 }}
                             >
@@ -364,7 +365,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                 onClose={props.onClose}
                             />
                             <Box
-                                style={{ marginTop: 16, fontSize: 24, gap: 8 }}
+                                style={{ marginTop: 16, fontSize: 18, gap: 8 }}
                                 sx={{ display: 'flex', '@media (min-width: 800px)': { display: 'none' } }}
                             >
                                 {languages}
@@ -376,19 +377,23 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                     cursor: 'pointer',
                                 }}
                                 sx={theme => ({
-                                    width: 40,
-                                    height: 40,
-                                    marginTop: '24px',
-                                    marginBottom: '46px',
-                                    color: theme.palette.text.primary,
+                                    width: theme.custom.control.compactHeight,
+                                    height: theme.custom.control.compactHeight,
+                                    padding: '8px',
+                                    boxSizing: 'border-box',
+                                    borderRadius: `${theme.custom.radius.control}px`,
+                                    marginBottom: '20px',
+                                    color: theme.custom.textMuted,
+                                    transition: 'background-color 0.2s ease, color 0.2s ease',
                                     '@media (max-width: 800px)': {
-                                        width: 28,
-                                        height: 28,
-                                        marginTop: '8px',
-                                        marginBottom: '24px',
+                                        width: 32,
+                                        height: 32,
+                                        padding: '7px',
+                                        marginBottom: '16px',
                                     },
                                     '&:hover': {
-                                        color: theme.palette.mode === 'dark' ? '#7ec3f3' : '#006bbc',
+                                        backgroundColor: theme.custom.surfaces.raised,
+                                        color: theme.palette.text.primary,
                                     },
                                 })}
                                 onClick={() => props.onClose()}

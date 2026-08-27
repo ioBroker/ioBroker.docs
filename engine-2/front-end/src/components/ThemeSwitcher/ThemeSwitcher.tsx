@@ -48,18 +48,28 @@ export function ThemeSwitcher(): React.JSX.Element {
 
     return (
         <Box
-            sx={{
+            sx={theme => ({
                 cursor: 'pointer',
+                // same hit area as the header icon buttons, glyph 20 px
+                width: theme.custom.control.compactHeight,
+                height: theme.custom.control.compactHeight,
+                // 24 px glyph - the thin sun/moon strokes need a bit more room
+                // than the solid cross next to it
+                padding: '6px',
+                boxSizing: 'border-box',
+                borderRadius: `${theme.custom.radius.control}px`,
+                color: theme.custom.textMuted,
+                transition: 'background-color 0.2s ease, color 0.2s ease',
                 '&:hover': {
-                    color: 'var(--textColorHover)',
+                    backgroundColor: theme.custom.surfaces.raised,
+                    color: theme.palette.text.primary,
                 },
-                width: 44,
-                height: 44,
                 '@media (max-width: 800px)': {
-                    width: 36,
-                    height: 36,
+                    width: 32,
+                    height: 32,
+                    padding: '5px',
                 },
-            }}
+            })}
             onClick={toggleTheme}
         >
             {mode === 'dark' ? <DarkIcon /> : <LightIcon />}
