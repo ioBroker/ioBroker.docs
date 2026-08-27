@@ -1,7 +1,7 @@
 {
     "secure": false,
     "port": 5001,
-    "host": "0.0.0.0",
+    "bind": "0.0.0.0",
     "secret": "123",
     "public": "front-end/build/",
     "certs": {

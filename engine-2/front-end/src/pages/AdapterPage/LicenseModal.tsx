@@ -20,8 +20,10 @@ const LicenseModal = ({ open, onClose, paragraphs = [] }: LicenseModalProps): Re
                 container: classes.licenseDialogContainer,
                 paper: classes.licenseDialogPaper,
             }}
-            BackdropProps={{
-                style: { backgroundColor: 'transparent' },
+            slotProps={{
+                backdrop: {
+                    style: { backgroundColor: 'transparent' },
+                },
             }}
         >
             <DialogContent className={classes.licenseTitle}>

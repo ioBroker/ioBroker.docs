@@ -26,8 +26,10 @@ export const SupportModal: React.FC<SupportModalProps> = ({ open, onClose }) => 
             maxWidth="md"
             fullWidth
             scroll="body"
-            PaperProps={{
-                className: classes.dialogPaper,
+            slotProps={{
+                paper: {
+                    className: classes.dialogPaper,
+                },
             }}
         >
             <Box className={classes.container}>

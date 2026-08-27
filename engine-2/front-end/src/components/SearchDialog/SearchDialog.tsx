@@ -7,9 +7,11 @@ export default function SearchDialog(props: { onClose: () => void; open: boolean
             open={props.open}
             onClose={() => props.onClose()}
             scroll="body"
-            PaperProps={{
-                sx: {
-                    overflow: 'hidden',
+            slotProps={{
+                paper: {
+                    sx: {
+                        overflow: 'hidden',
+                    },
                 },
             }}
         >

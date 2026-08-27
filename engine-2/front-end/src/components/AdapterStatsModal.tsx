@@ -163,9 +163,11 @@ export const AdapterStatsModal: React.FC<AdapterStatsModalProps> = ({ open, onCl
             open={open}
             onClose={onClose}
             maxWidth="md"
-            PaperProps={{
-                className: classes.dialogPaper,
-                onClick: (event: React.MouseEvent<HTMLDivElement>) => event.stopPropagation(),
+            slotProps={{
+                paper: {
+                    className: classes.dialogPaper,
+                    onClick: (event: React.MouseEvent<HTMLDivElement>) => event.stopPropagation(),
+                },
             }}
         >
             <Box

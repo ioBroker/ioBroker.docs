@@ -7,7 +7,7 @@ import httpsModule from 'node:https';
 import express, { Express, Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import ExpressBruteConstructor from 'express-brute';
+import { rateLimit } from 'express-rate-limit';
 
 import Logger from './logger';
 import { AppConfig } from '../types';
@@ -16,11 +16,18 @@ import { AppConfig } from '../types';
 
 const logger = new Logger();
 
-const ExpressBrute: any = (ExpressBruteConstructor as any).default || (ExpressBruteConstructor as any);
-
 // Bruteforce\-Schutz
-const bruteforce = new ExpressBrute(new ExpressBrute.MemoryStore(), {
-    freeRetries: 5,
+// \`skipSuccessfulRequests\` ersetzt das frühere \`req.brute.reset()\`: nur Antworten >= 400 zählen.
+const bruteforce = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 5,
+    skipSuccessfulRequests: true,
+    standardHeaders: 'draft-8',
+    legacyHeaders: false,
+    message: { error: { text: 'Too many requests in this time frame.' } },
+    // Server laeuft ohne Reverse\-Proxy direkt auf 443, daher ist \`trust proxy\` bewusst aus.
+    // Ein \`X\-Forwarded\-For\` kann hier nur vom Client gefaelscht sein \- die Warnung waere ein Fehlalarm.
+    validate: { xForwardedForHeader: false },
 });
 
 // App\-Container
@@ -38,13 +45,6 @@ const app: {
 type SiteConfig = AppConfig['sites'][number];
 
 type RedirectsMap = Record<string, string>;
-
-// \`req.brute\` kommt von express\-brute, daher \`any\`
-interface BruteRequest extends Request {
-    brute: {
-        reset: (cb: (() => void) | undefined) => void;
-    };
-}
 
 // Port normalisieren
 function normalizePort(val: string | number): number | string | false {
@@ -119,8 +119,8 @@ export default function init(config: AppConfig): {
         });
 
     // CORS für adapterref
-    app.app.options('/*/adapterref/*', cors());
-    app.app.use('/*/adapterref/*', cors());
+    app.app.options('/{*splat}/adapterref/{*rest}', cors());
+    app.app.use('/{*splat}/adapterref/{*rest}', cors());
 
     // Statisches Verzeichnis
     console.log(`Serving ${path.join(__dirname, '../..', config.public)}`);
@@ -134,8 +134,7 @@ export default function init(config: AppConfig): {
     app.app.get('/diag.sh', (req: Request, res: Response) => res.redirect(301, 'https://iobroker.net/diag.sh'));
 
     // Upload\-Endpoint
-    // @ts-expect-error
-    app.app.post('/', bruteforce.prevent, (req: BruteRequest, res: Response): void => {
+    app.app.post('/', bruteforce, (req: Request, res: Response): void => {
         const file = (req.query as any).file as string | undefined;
         const secret = (req.query as any).secret as string | undefined;
 
@@ -149,23 +148,21 @@ export default function init(config: AppConfig): {
             return;
         }
 
-        req.brute.reset(() => {
-            const dataDir = path.join(config.public, 'data');
-            if (!fs.existsSync(dataDir)) {
-                fs.mkdirSync(dataDir);
-            }
+        const dataDir = path.join(config.public, 'data');
+        if (!fs.existsSync(dataDir)) {
+            fs.mkdirSync(dataDir);
+        }
 
-            const safeName = file.replace(/[^.\w]/g, '_');
-            const target = path.join(dataDir, safeName);
+        const safeName = file.replace(/[^.\w]/g, '_');
+        const target = path.join(dataDir, safeName);
 
-            console.log(`upload ${target}`);
-            if ((req.body as any).html) {
-                fs.writeFileSync(target, (req.body as any).html);
-            } else {
-                fs.writeFileSync(target, typeof req.body === 'object' ? JSON.stringify(req.body) : (req.body as any));
-            }
-            res.json({ result: 'ok' });
-        });
+        console.log(`upload ${target}`);
+        if ((req.body as any).html) {
+            fs.writeFileSync(target, (req.body as any).html);
+        } else {
+            fs.writeFileSync(target, typeof req.body === 'object' ? JSON.stringify(req.body) : (req.body as any));
+        }
+        res.json({ result: 'ok' });
     });
 
     if (!config.secure) {

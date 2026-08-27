@@ -13,27 +13,27 @@
     "dependencies": {
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.1",
-        "@mui/icons-material": "^7.3.9",
-        "@mui/material": "^7.3.9",
-        "@mui/styles": "^6.5.0",
-        "@tanstack/react-query": "^5.95.2",
-        "echarts": "^6.0.0",
+        "@mui/icons-material": "^9.3.1",
+        "@mui/material": "^9.3.1",
+        "@mui/styles": "^6.4.8",
+        "@tanstack/react-query": "^5.102.7",
+        "echarts": "^6.1.0",
         "echarts-for-react": "^3.0.6",
-        "react": "^19.2.4",
-        "react-dom": "^19.2.4",
+        "react": "^19.2.8",
+        "react-dom": "^19.2.8",
         "react-markdown": "^10.1.0",
-        "react-router-dom": "^7.13.2",
+        "react-router-dom": "^7.18.2",
         "rehype-raw": "^7.0.0",
         "remark-gfm": "^4.0.1",
-        "tss-react": "^4.9.20"
+        "tss-react": "^4.9.21"
     },
     "devDependencies": {
-        "@iobroker/eslint-config": "^2.2.0",
-        "@types/react": "^19.2.14",
-        "@types/react-dom": "^19.2.3",
-        "@vitejs/plugin-react": "^5.2.0",
-        "globals": "^17.4.0",
-        "typescript": "~5.9.3",
-        "vite": "^7.2.4"
+        "@iobroker/eslint-config": "^2.3.4",
+        "@types/react": "^19.2.18",
+        "@types/react-dom": "^19.2.5",
+        "@vitejs/plugin-react": "^6.1.0",
+        "globals": "^17.11.0",
+        "typescript": "~6.0.3",
+        "vite": "^8.2.2"
     }
 }

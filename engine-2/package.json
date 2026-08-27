@@ -6,23 +6,22 @@
         "x509": "^0.3.4"
     },
     "dependencies": {
-        "body-parser": "^2.2.2",
+        "body-parser": "^2.3.0",
         "cors": "^2.8.6",
-        "express": "^4.22.1",
-        "express-brute": "^1.0.1",
+        "express": "^5.2.1",
+        "express-rate-limit": "^8.6.2",
         "minisearch": "^7.2.0"
     },
     "main": "build/main.js",
     "devDependencies": {
-        "@google-cloud/translate": "^9.3.0",
+        "@google-cloud/translate": "^10.0.1",
         "@iobroker/build-tools": "^3.0.1",
-        "@iobroker/eslint-config": "^2.2.0",
+        "@iobroker/eslint-config": "^2.3.4",
         "@types/body-parser": "^1.19.6",
         "@types/cors": "^2.8.19",
-        "@types/express": "^4.17.25",
-        "@types/express-brute": "^1.0.6",
-        "axios": "^1.14.0",
-        "typescript": "^5.9.3"
+        "@types/express": "^5.0.6",
+        "axios": "^1.20.0",
+        "typescript": "^6.0.3"
     },
     "scripts": {
         "start": "node main",

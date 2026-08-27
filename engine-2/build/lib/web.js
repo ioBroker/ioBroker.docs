@@ -11,14 +11,22 @@ const node_https_1 = __importDefault(require("node:https"));
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const cors_1 = __importDefault(require("cors"));
-const express_brute_1 = __importDefault(require("express-brute"));
+const express_rate_limit_1 = require("express-rate-limit");
 const logger_1 = __importDefault(require("./logger"));
 // HTTP(S) Modul je nach `secure`
 const logger = new logger_1.default();
-const ExpressBrute = express_brute_1.default.default || express_brute_1.default;
 // Bruteforce\-Schutz
-const bruteforce = new ExpressBrute(new ExpressBrute.MemoryStore(), {
-    freeRetries: 5,
+// \`skipSuccessfulRequests\` ersetzt das frühere \`req.brute.reset()\`: nur Antworten >= 400 zählen.
+const bruteforce = (0, express_rate_limit_1.rateLimit)({
+    windowMs: 15 * 60 * 1000,
+    limit: 5,
+    skipSuccessfulRequests: true,
+    standardHeaders: 'draft-8',
+    legacyHeaders: false,
+    message: { error: { text: 'Too many requests in this time frame.' } },
+    // Server laeuft ohne Reverse\-Proxy direkt auf 443, daher ist \`trust proxy\` bewusst aus.
+    // Ein \`X\-Forwarded\-For\` kann hier nur vom Client gefaelscht sein \- die Warnung waere ein Fehlalarm.
+    validate: { xForwardedForHeader: false },
 });
 const app = {
     app: (0, express_1.default)(),
@@ -54,43 +62,41 @@ function init(config) {
         res.set('X-Frame-Options', 'SAMEORIGIN');
         next();
     });
-    if (config.sites) {
-        config.sites.forEach((site) => {
-            console.log(`Install path ${site.route} => ${site.path}`);
-            let redirects;
-            if (site.redirects && node_fs_1.default.existsSync(site.redirects)) {
-                try {
-                    redirects = require(site.redirects);
-                }
-                catch (e) {
-                    console.error(`Cannot read ${site.redirects}: ${e}`);
+    config.sites?.forEach((site) => {
+        console.log(`Install path ${site.route} => ${site.path}`);
+        let redirects;
+        if (site.redirects && node_fs_1.default.existsSync(site.redirects)) {
+            try {
+                redirects = require(site.redirects);
+            }
+            catch (e) {
+                console.error(`Cannot read ${site.redirects}: ${e}`);
+            }
+        }
+        app.app.use(site.route, (req, res, next) => {
+            if (req.url.endsWith('.html')) {
+                req.url = req.url.replace(/\.html$/, '.htm');
+            }
+            else if (req.url.endsWith('/')) {
+                req.url += 'index.htm';
+            }
+            if (redirects) {
+                const name = req.url.split('?')[0].replace(/^\//, '');
+                if (redirects[name]) {
+                    return res.redirect(redirects[name]);
                 }
             }
-            app.app.use(site.route, (req, res, next) => {
-                if (req.url.endsWith('.html')) {
-                    req.url = req.url.replace(/\.html$/, '.htm');
-                }
-                else if (req.url.endsWith('/')) {
-                    req.url += 'index.htm';
-                }
-                if (redirects) {
-                    const name = req.url.split('?')[0].replace(/^\//, '');
-                    if (redirects[name]) {
-                        return res.redirect(redirects[name]);
-                    }
-                }
-                if (req.url.startsWith('/.git')) {
-                    res.status(404).send('not found');
-                }
-                else {
-                    express_1.default.static(site.path)(req, res, next);
-                }
-            });
+            if (req.url.startsWith('/.git')) {
+                res.status(404).send('not found');
+            }
+            else {
+                express_1.default.static(site.path)(req, res, next);
+            }
         });
-    }
+    });
     // CORS für adapterref
-    app.app.options('/*/adapterref/*', (0, cors_1.default)());
-    app.app.use('/*/adapterref/*', (0, cors_1.default)());
+    app.app.options('/{*splat}/adapterref/{*rest}', (0, cors_1.default)());
+    app.app.use('/{*splat}/adapterref/{*rest}', (0, cors_1.default)());
     // Statisches Verzeichnis
     console.log(`Serving ${node_path_1.default.join(__dirname, '../..', config.public)}`);
     app.app.use(express_1.default.static(node_path_1.default.join(__dirname, '../..', config.public)));
@@ -100,8 +106,7 @@ function init(config) {
     app.app.get('/install.sh', (req, res) => res.redirect(301, 'https://iobroker.net/install.sh'));
     app.app.get('/diag.sh', (req, res) => res.redirect(301, 'https://iobroker.net/diag.sh'));
     // Upload\-Endpoint
-    // @ts-expect-error
-    app.app.post('/', bruteforce.prevent, (req, res) => {
+    app.app.post('/', bruteforce, (req, res) => {
         const file = req.query.file;
         const secret = req.query.secret;
         if (!file) {
@@ -113,22 +118,20 @@ function init(config) {
             res.status(401).json({ error: 'invalid secret' });
             return;
         }
-        req.brute.reset(() => {
-            const dataDir = node_path_1.default.join(config.public, 'data');
-            if (!node_fs_1.default.existsSync(dataDir)) {
-                node_fs_1.default.mkdirSync(dataDir);
-            }
-            const safeName = file.replace(/[^.\w]/g, '_');
-            const target = node_path_1.default.join(dataDir, safeName);
-            console.log(`upload ${target}`);
-            if (req.body.html) {
-                node_fs_1.default.writeFileSync(target, req.body.html);
-            }
-            else {
-                node_fs_1.default.writeFileSync(target, typeof req.body === 'object' ? JSON.stringify(req.body) : req.body);
-            }
-            res.json({ result: 'ok' });
-        });
+        const dataDir = node_path_1.default.join(config.public, 'data');
+        if (!node_fs_1.default.existsSync(dataDir)) {
+            node_fs_1.default.mkdirSync(dataDir);
+        }
+        const safeName = file.replace(/[^.\w]/g, '_');
+        const target = node_path_1.default.join(dataDir, safeName);
+        console.log(`upload ${target}`);
+        if (req.body.html) {
+            node_fs_1.default.writeFileSync(target, req.body.html);
+        }
+        else {
+            node_fs_1.default.writeFileSync(target, typeof req.body === 'object' ? JSON.stringify(req.body) : req.body);
+        }
+        res.json({ result: 'ok' });
     });
     if (!config.secure) {
         app.app.use((req, res, next) => {

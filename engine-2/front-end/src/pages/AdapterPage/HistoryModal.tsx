@@ -20,8 +20,14 @@ const HistoryModal: React.FC<HistoryModalProps> = ({ open, onClose, items = [] }
                 container: classes.licenseDialogContainer,
                 paper: classes.historyDialogPaper,
             }}
-            PaperProps={{ elevation: 0 }}
-            BackdropProps={{ style: { backgroundColor: 'transparent' } }}
+            slotProps={{
+                paper: {
+                    elevation: 0,
+                },
+                backdrop: {
+                    style: { backgroundColor: 'transparent' },
+                },
+            }}
         >
             <DialogTitle className={classes.historyTitle}>
                 HISTORY
