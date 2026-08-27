@@ -22,6 +22,7 @@ import { useHeaderStyles } from './Header.styles';
 import SearchDialog from '../SearchDialog/SearchDialog';
 import MenuModal, { type MenuItems, type MenuItemsSmall } from '../Menu/Menu';
 import { I18n, type Language } from '../../utils/i18n';
+import { BLOG_LINK } from '../../config/api';
 
 export interface HeaderProps {
     selected: string;
@@ -214,7 +215,7 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: Heade
                 </Box>
                 <Box
                     component="a"
-                    href="https://www.iobroker.net/blog"
+                    href={BLOG_LINK}
                     className={`${classes.link} ${selected === 'blog' ? classes.linkSelected : ''}`}
                 >
                     {tt('menu-blog', 'Blog')}

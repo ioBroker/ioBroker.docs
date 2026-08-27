@@ -11,6 +11,7 @@ import ArrowIcon from '../icons/ArrowIcon';
 import logo from '../../assets/img/logo_net.svg';
 import { useFooterStyles } from './Footer.styles';
 import { I18n } from '../../utils/i18n';
+import { BLOG_LINK } from '../../config/api';
 //import CookiesHint from '../CookiesHint/CookiesHint';
 
 export interface FooterProps {
@@ -184,7 +185,7 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                     <Link
                                         classes={classes}
                                         name="blog"
-                                        url="https://www.iobroker.net/blog"
+                                        url={BLOG_LINK}
                                     />
                                     <Link
                                         classes={classes}

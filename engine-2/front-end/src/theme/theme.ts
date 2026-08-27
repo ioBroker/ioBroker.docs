@@ -55,8 +55,8 @@ export const darkTheme = createTheme({
         divider: 'rgba(255, 255, 255, 0.12)',
     },
     typography: {
-        fontFamily: ['Saira', 'Roboto', 'Arial', 'sans-serif'].join(','),
-        fontWeightLight: 200,
+        fontFamily: ['Roboto', 'Saira', 'Arial', 'sans-serif'].join(','),
+        fontWeightLight: 400,
         h1: {
             fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
             fontSize: '36px',
@@ -109,7 +109,7 @@ export const darkTheme = createTheme({
             fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
         },
         body1: {
-            fontWeight: 200,
+            fontWeight: 400,
             fontSize: '18px',
             lineHeight: 1.4,
             letterSpacing: '0.01em',
@@ -119,7 +119,7 @@ export const darkTheme = createTheme({
             },
         },
         body2: {
-            fontWeight: 200,
+            fontWeight: 400,
             fontSize: '18px',
             lineHeight: 1.4,
             letterSpacing: '0.01em',
@@ -171,7 +171,7 @@ export const lightTheme = createTheme({
         divider: secondary,
     },
     typography: {
-        fontFamily: ['Saira', 'Roboto', 'Arial', 'sans-serif'].join(','),
+        fontFamily: ['Roboto', 'Saira', 'Arial', 'sans-serif'].join(','),
         h1: {
             fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
             fontSize: '36px',

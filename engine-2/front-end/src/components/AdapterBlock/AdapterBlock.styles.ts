@@ -15,7 +15,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     title: {
-        fontFamily: "'Saira'",
+        fontFamily: "'Roboto'",
         fontStyle: 'normal',
         fontWeight: '500',
         fontSize: '20px',
@@ -93,7 +93,7 @@ export const useStyles = makeStyles()(theme => ({
         textOverflow: 'ellipsis',
     },
     description: {
-        fontFamily: "'Saira'",
+        fontFamily: "'Roboto'",
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: '14px',

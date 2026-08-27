@@ -61,7 +61,7 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         cursor: 'pointer',
         color: theme.palette.mode === 'dark' ? 'white' : theme.palette.primary.main,
         fontSize: '14px',
-        fontFamily: "'Saira'",
+        fontFamily: "'Roboto'",
         transition: 'all 0.2s',
         borderRadius: '4px',
         justifyContent: isCollapsed ? 'center' : 'flex-start',
@@ -110,7 +110,7 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         flex: 1,
         fontSize: '18px',
         color: theme.palette.mode === 'dark' ? 'white' : theme.palette.secondary.main,
-        fontFamily: "'Saira', sans-serif",
+        fontFamily: "'Roboto', sans-serif",
         fontWeight: 200,
     },
     firstItemText: {

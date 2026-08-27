@@ -12,7 +12,7 @@ export const useStyles = makeStyles()(theme => ({
             borderBottom: 'none',
             padding: '16px',
             color: theme.palette.mode === 'dark' ? 'white' : theme.palette.secondary.main,
-            fontFamily: "'Saira'",
+            fontFamily: "'Roboto'",
         },
     },
     tableHead: {

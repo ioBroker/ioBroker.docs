@@ -4,6 +4,8 @@ import InstallationPage from '../../../pages/InstallationPage/InstallationPage';
 import AdaptersPage from '../../../pages/AdaptersPage/AdaptersPage';
 import DocsPage from '../../../pages/DocsPage/DocsPage';
 import AdapterPage from '../../../pages/AdapterPage/AdapterPage';
+import BlogPage from '../../../pages/BlogPage/BlogPage';
+import BlogPostPage from '../../../pages/BlogPage/BlogPostPage';
 
 export const useRoutes = (): React.ReactElement => {
     return (
@@ -23,6 +25,14 @@ export const useRoutes = (): React.ReactElement => {
             <Route
                 path="/adapters/:adapterId"
                 element={<AdapterPage />}
+            />
+            <Route
+                path="/blog"
+                element={<BlogPage />}
+            />
+            <Route
+                path="/blog/:pageId"
+                element={<BlogPostPage />}
             />
             <Route
                 path="/docs"

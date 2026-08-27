@@ -34,6 +34,17 @@
     },
     "Support us": "Unterstütze uns",
     "Support us (mobile)": "Unterstütze uns:",
+    "blog": {
+        "title": "Blog",
+        "read": "Lesen",
+        "postedOn": "gepostet am %s",
+        "backToOverview": "Zurück zur Übersicht",
+        "editOnGithub": "Auf GitHub bearbeiten",
+        "translatedFrom": "Übersetzt aus %s",
+        "loading": "Wird geladen …",
+        "loadError": "Die Blog-Beiträge konnten nicht geladen werden.",
+        "notFound": "Der Blog-Beitrag wurde nicht gefunden."
+    },
     "header": {
         "logout": "Abmelden",
         "profile": "Profil",

@@ -63,7 +63,7 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
         padding: '10px 0px 0px 0px',
         color: theme.palette.primary.main,
         fontSize: '18px',
-        fontFamily: "'Saira', sans-serif",
+        fontFamily: "'Roboto', sans-serif",
         fontWeight: 500,
     },
     headerIcon: {
@@ -108,7 +108,7 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
         gap: '8px',
         color: theme.palette.mode === 'dark' ? 'white' : theme.palette.secondary.main,
         fontSize: '18px',
-        fontFamily: "'Saira', sans-serif",
+        fontFamily: "'Roboto', sans-serif",
         fontWeight: 300,
         cursor: 'pointer',
         [theme.breakpoints.down(769)]: {
@@ -154,7 +154,7 @@ export const useDocsMenuStyles = makeStyles()(theme => ({
             color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.7)' : theme.palette.secondary.main,
             textDecoration: 'none',
             fontSize: '16px',
-            fontFamily: "'Saira', sans-serif",
+            fontFamily: "'Roboto', sans-serif",
             fontWeight: 300,
             '&::before': {
                 content: '""',

@@ -1,25 +1,5 @@
 import { makeStyles } from '../../theme';
 
-// Debug helper: adds a colored border + label to a block
-const debugBlock = (color: string, name: string) => ({
-    border: `2px solid ${color}`,
-    position: 'relative' as const,
-    '&::before': {
-        content: `"${name}"`,
-        position: 'absolute' as const,
-        top: 0,
-        left: 0,
-        background: color,
-        color: '#000',
-        fontSize: '11px',
-        fontFamily: 'monospace',
-        padding: '1px 6px',
-        zIndex: 9999,
-        pointerEvents: 'none' as const,
-        lineHeight: '16px',
-    },
-});
-
 export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { isMenuCollapsed }) => ({
     // Root wrapper: full height, no scroll on body
     pageRoot: {
@@ -27,7 +7,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         flexDirection: 'column',
         height: 'calc(100vh - 64px)', // viewport minus fixed header
         overflow: 'hidden',
-        ...debugBlock('#fff', 'pageRoot'),
     },
     // Title/Breadcrumb bar: fixed height, not scrollable
     titleContainer: {
@@ -53,7 +32,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         [theme.breakpoints.down(481)]: {
             paddingTop: '20px',
         },
-        ...debugBlock('#0ff', 'titleContainer'),
     },
     // Container: takes all remaining height, splits into left + right
     container: {
@@ -76,7 +54,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             paddingLeft: '10px',
             gap: '10px',
         },
-        ...debugBlock('#f00', 'container'),
     },
     // Left column: MenuToggle (fixed) + menuBlock (scrollable)
     leftColumn: {
@@ -90,7 +67,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             left: !isMenuCollapsed ? 0 : 'auto',
             top: !isMenuCollapsed ? 0 : 'auto',
         },
-        ...debugBlock('#0f0', 'leftColumn'),
     },
     // Fixed MenuToggle wrapper — covers scrolling menu items
     menuToggleWrapper: {
@@ -99,7 +75,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         width: '100%',
         paddingBottom: '10px',
         backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
-        ...debugBlock('#9cf', 'menuToggleWrapper'),
     },
     // Scrollable menu list
     menuBlock: {
@@ -130,7 +105,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
                 display: 'none',
             },
         },
-        ...debugBlock('#3c3', 'menuBlock'),
     },
     // Right column: topBar (fixed) + mainBlock (scrollable)
     rightColumn: {
@@ -140,7 +114,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         minHeight: 0,
         minWidth: 0,
         overflow: 'hidden',
-        ...debugBlock('#fa0', 'rightColumn'),
     },
     // Scrollable content area with cards + footer
     mainBlock: {
@@ -175,7 +148,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             paddingRight: '0px',
             marginRight: '0px',
         },
-        ...debugBlock('#a6f', 'mainBlock'),
     },
     // Search + view toggle above mainBlock
     topBar: {
@@ -188,7 +160,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         [theme.breakpoints.down(1280)]: {
             paddingRight: '24px', // align with cards: 6px + 10px marginRight + 8px scrollbar
         },
-        ...debugBlock('#ff0', 'topBar'),
     },
     // Breadcrumbs
     breadcrumbsContainer: {
@@ -209,7 +180,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             marginLeft: '10px',
             marginBottom: '10px',
         },
-        ...debugBlock('#f0f', 'breadcrumbsContainer'),
     },
     breadcrumbInactive: {
         fontSize: '20px',
@@ -279,7 +249,6 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
                     ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
                     : 'brightness(0) invert(100%)',
         },
-        ...debugBlock('#f66', 'adaptersButton'),
     },
     // Cards grid
     adaptersGrid: {
@@ -297,6 +266,5 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             gridTemplateColumns: '1fr',
             gap: '16px',
         },
-        ...debugBlock('#66f', 'adaptersGrid'),
     },
 }));

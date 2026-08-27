@@ -34,6 +34,17 @@
     },
     "Support us": "Support us",
     "Support us (mobile)": "Support us:",
+    "blog": {
+        "title": "Blog",
+        "read": "Read",
+        "postedOn": "posted on %s",
+        "backToOverview": "Back to overview",
+        "editOnGithub": "Edit on GitHub",
+        "translatedFrom": "Translated from %s",
+        "loading": "Loading …",
+        "loadError": "The blog entries could not be loaded.",
+        "notFound": "The blog entry was not found."
+    },
     "header": {
         "logout": "Logout",
         "profile": "Profile",

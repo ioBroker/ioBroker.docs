@@ -279,7 +279,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     imageTextHeader: {
-        fontFamily: 'Saira',
+        fontFamily: 'Roboto',
         fontWeight: 600,
         fontSize: 24,
         letterSpacing: '-0.03em',
@@ -289,7 +289,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     imageText: {
-        fontFamily: 'Saira',
+        fontFamily: 'Roboto',
         fontWeight: 400,
         color: theme.palette.text.primary,
         fontSize: 18,
