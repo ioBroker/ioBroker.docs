@@ -43,17 +43,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
                                 className={classes.smallHousesImage}
                             />
                         </Box>
-                        <Typography className={classes.heroPlatformText}>
-                            <Box className={classes.platformTextComment}>// {I18n.t('home.hero.platform')} </Box>
-                            {I18n.t('home.hero.platformSubtitle')}
-                        </Typography>
-                        <CustomButton
-                            variant="primary"
-                            onClick={() => navigate('/installation')}
-                            className={classes.installButton}
-                        >
-                            {I18n.t('home.hero.install')}
-                        </CustomButton>
+                        <Box className={classes.heroClaim}>
+                            <Typography
+                                component="p"
+                                className={classes.heroPlatformText}
+                            >
+                                {`// ${I18n.t('home.hero.platform')}`}
+                                <br />
+                                {I18n.t('home.hero.platformSubtitle')}
+                            </Typography>
+                            <CustomButton
+                                variant="primary"
+                                onClick={() => navigate('/installation')}
+                                className={classes.installButton}
+                            >
+                                {I18n.t('home.hero.install')}
+                            </CustomButton>
+                        </Box>
                     </Box>
 
                     <Box className={classes.heroRight}>

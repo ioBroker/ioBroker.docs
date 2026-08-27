@@ -151,6 +151,7 @@ export const AboutSection: React.FC = () => {
                     return (
                         <StyledButton
                             key={item.title}
+                            variant="surface"
                             onClick={() => handleExpandClick(index)}
                             sx={{
                                 width: '100%',
@@ -161,7 +162,7 @@ export const AboutSection: React.FC = () => {
                                 justifyContent: 'space-between',
                                 alignItems: isExpanded ? 'stretch' : 'flex-end',
                                 transition: 'all 0.3s ease',
-                                borderRadius: { xs: '16px', sm: '16px', md: '24px' },
+                                borderRadius: '16px',
                             }}
                             textSx={{
                                 width: '100%',
@@ -207,12 +208,14 @@ export const AboutSection: React.FC = () => {
                             onClick={handleShowMore}
                             sx={{
                                 marginTop: { xs: '0px', md: '4px' },
-                                height: { xs: '50px', sm: '60px', md: '80px' },
+                                minHeight: { xs: '50px', md: '60px' },
                                 width: '100%',
-                                padding: { xs: '10px 20px', sm: '12px 24px', md: '20px 39px' },
+                                padding: { xs: '10px 20px', sm: '12px 24px', md: '16px 39px' },
                                 position: 'relative',
                                 zIndex: 1,
-                                borderRadius: { xs: '8px', sm: '8px', md: '16px' },
+                                borderRadius: '10px',
+                                justifyContent: 'center',
+                                gap: '10px',
                             }}
                             iconSx={{
                                 alignSelf: 'flex-end',

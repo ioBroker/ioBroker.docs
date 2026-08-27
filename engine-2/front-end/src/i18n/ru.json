@@ -35,15 +35,23 @@
     "Support us": "Поддержите нас",
     "Support us (mobile)": "Поддержите нас:",
     "blog": {
-        "title": "Блог",
-        "read": "Читать",
-        "postedOn": "опубликовано %s",
         "backToOverview": "Назад к обзору",
         "editOnGithub": "Редактировать на GitHub",
-        "translatedFrom": "Переведено с %s",
-        "loading": "Загрузка …",
         "loadError": "Не удалось загрузить записи блога.",
-        "notFound": "Запись блога не найдена."
+        "loading": "Загрузка …",
+        "notFound": "Запись блога не найдена.",
+        "postedOn": "опубликовано %s",
+        "read": "Читать",
+        "rss": "RSS-лента",
+        "subtitle": "Новости, анонсы и ежемесячные обзоры из мира ioBroker.",
+        "title": "Блог",
+        "translatedFrom": "Переведено с %s",
+        "type": {
+            "all": "Все",
+            "announcement": "Анонс",
+            "news": "Новости",
+            "review": "Обзор"
+        }
     },
     "header": {
         "logout": "Выход",

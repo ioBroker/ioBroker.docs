@@ -2,9 +2,9 @@ import { makeStyles } from '../../../../theme';
 
 export const useStyles = makeStyles()(theme => ({
     container: {
-        maxWidth: 1393,
+        maxWidth: 1376,
         margin: '0 auto',
-        padding: '0 40px',
+        padding: '0 32px',
         [theme.breakpoints.down('md')]: {
             padding: '0 16px 0 16px',
         },
@@ -25,15 +25,15 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     section: {
-        padding: '156px 0 100px 0',
         position: 'relative',
         overflow: 'visible',
         zIndex: 1,
+        padding: '96px 0',
         [theme.breakpoints.down('md')]: {
-            padding: '100px 0 100px 0',
+            padding: '64px 0',
         },
-        [theme.breakpoints.down('md')]: {
-            padding: '100px 0 50px 0',
+        [theme.breakpoints.down('sm')]: {
+            padding: '48px 0',
         },
     },
     historySection: {

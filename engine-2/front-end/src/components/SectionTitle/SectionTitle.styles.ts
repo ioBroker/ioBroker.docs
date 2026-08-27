@@ -4,18 +4,19 @@ export const useStyles = makeStyles()(theme => ({
     sectionTitle: {
         fontFamily: 'Audiowide, sans-serif',
         color: theme.palette.primary.main,
-        letterSpacing: '0.03em',
+        letterSpacing: '-0.02em',
         fontWeight: '400',
         marginBottom: theme.spacing(4),
         whiteSpace: 'nowrap',
         wordBreak: 'keep-all',
         overflowWrap: 'normal',
-        fontSize: '36px',
+        fontSize: '40px',
+        lineHeight: 1.1,
         [theme.breakpoints.down('md')]: {
-            fontSize: '36px',
+            fontSize: '32px',
         },
         [theme.breakpoints.down('sm')]: {
-            fontSize: '28px',
+            fontSize: '26px',
             marginBottom: theme.spacing(3),
         },
     },

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './AdaptersSection.styles';
 import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
@@ -38,6 +39,7 @@ interface AdapterIcon {
 
 export const AdaptersSection: React.FC = () => {
     const { classes } = useStyles();
+    const navigate = useNavigate();
     const { data: adapters } = useAdapters();
 
     const totalAdapters = React.useMemo(() => {
@@ -137,6 +139,8 @@ export const AdaptersSection: React.FC = () => {
                         </Typography>
                         <Box className={classes.buttonWrapperDesktop}>
                             <StyledButton
+                                arrow="right"
+                                onClick={() => void navigate('/adapters')}
                                 sx={{
                                     height: '60px',
                                     width: '100%',
@@ -158,6 +162,8 @@ export const AdaptersSection: React.FC = () => {
                     <Box className={classes.buttonWrapperMobile}>
                         <Box className={classes.buttonGlow} />
                         <StyledButton
+                            arrow="right"
+                            onClick={() => void navigate('/adapters')}
                             sx={{
                                 height: { sm: '44px', xs: '44px' },
                                 width: { sm: '500px', xs: '100%' },

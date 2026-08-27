@@ -15,7 +15,7 @@ export const useHeaderStyles = makeStyles()(theme => ({
         alignItems: 'center',
         backgroundColor: theme.palette.background.paper,
         color: theme.palette.text.primary,
-        // boxShadow: '0 1px 3px rgba(0, 0, 0, 0.3)',
+        boxShadow: `inset 0 -1px 0 ${theme.custom.hairline}`,
         boxSizing: 'border-box' as const,
         [theme.breakpoints.down(1280)]: {
             paddingLeft: '24px',
@@ -46,23 +46,32 @@ export const useHeaderStyles = makeStyles()(theme => ({
         opacity: 0,
         transition: 'width 0.3s ease, opacity 0.3s ease',
         fontFamily: theme.typography.fontFamily,
+        fontSize: 15,
         marginRight: 0,
         color: theme.palette.text.primary,
         '& .MuiInputBase-input': {
-            padding: 0,
+            padding: '0 14px',
         },
         '&.visible': {
             marginRight: theme.spacing(2),
-            width: 200,
+            width: 220,
             opacity: 1,
         },
         '&.MuiInputBase-root': {
-            height: 32,
+            height: theme.custom.control.compactHeight,
+            borderRadius: theme.custom.radius.control,
+            backgroundColor: theme.custom.surfaces.surface,
             '&:hover::before': {
-                borderBottom: `1px solid ${theme.palette.text.disabled}`,
+                borderBottom: 'none',
             },
             '&::before': {
-                borderBottom: `1px solid ${theme.palette.text.disabled}`,
+                borderBottom: 'none',
+            },
+            '&::after': {
+                borderBottom: 'none',
+            },
+            '&.Mui-focused': {
+                boxShadow: theme.custom.focusRing,
             },
         },
         '& .MuiButtonBase-root': {
@@ -72,7 +81,7 @@ export const useHeaderStyles = makeStyles()(theme => ({
     languageSelect: {
         marginRight: theme.spacing(2),
         fontFamily: theme.typography.fontFamily,
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: 400,
         color: theme.palette.text.primary,
         '& .MuiSelect-select': {
@@ -92,22 +101,37 @@ export const useHeaderStyles = makeStyles()(theme => ({
         flexGrow: 1,
     },
     navBox: {
-        gap: theme.spacing(3),
+        gap: theme.spacing(0.5),
         display: 'flex',
         alignItems: 'center',
+        // the icon buttons get their own breathing room next to the nav links
+        '& > .MuiIconButton-root': {
+            marginLeft: theme.spacing(1),
+        },
         [theme.breakpoints.down('md')]: {
-            gap: theme.spacing(2),
+            gap: theme.spacing(0.5),
         },
     },
     link: {
-        fontSize: 18,
+        height: theme.custom.control.compactHeight,
+        padding: '0 14px',
+        borderRadius: theme.custom.radius.control,
+        display: 'flex',
+        alignItems: 'center',
+        fontSize: 15,
         fontWeight: 400,
+        whiteSpace: 'nowrap' as const,
         textDecoration: 'none',
-        color: theme.palette.text.primary,
-        transition: 'color 0.2s ease',
+        color: theme.custom.textMuted,
+        transition: 'color 0.2s ease, background-color 0.2s ease',
         cursor: 'pointer',
         '&:hover': {
-            color: theme.palette.text.secondary,
+            color: theme.palette.text.primary,
+            backgroundColor: theme.custom.surfaces.surface,
+        },
+        '&:focus-visible': {
+            outline: 'none',
+            boxShadow: theme.custom.focusRing,
         },
         [theme.breakpoints.down('md')]: {
             display: 'none',
@@ -115,34 +139,41 @@ export const useHeaderStyles = makeStyles()(theme => ({
     },
     linkSelected: {
         color: theme.palette.text.primary,
+        backgroundColor: theme.custom.surfaces.raised,
         cursor: 'default',
     },
     iconButton: {
         padding: theme.spacing(0.5),
-        color: theme.palette.text.primary,
+        borderRadius: theme.custom.radius.control,
+        color: theme.custom.textMuted,
         '&:hover': {
-            backgroundColor: 'rgba(255, 255, 255, 0.08)',
-            color: theme.palette.text.secondary,
+            backgroundColor: theme.custom.surfaces.surface,
+            color: theme.palette.text.primary,
         },
-        width: 44,
-        height: 44,
+        '&:focus-visible': {
+            boxShadow: theme.custom.focusRing,
+        },
+        width: theme.custom.control.compactHeight,
+        height: theme.custom.control.compactHeight,
     },
     profileMenu: {
         '& .MuiPaper-root': {
             fontFamily: theme.typography.h1.fontFamily,
-            backgroundColor: theme.custom?.backgroundColorOpacity || theme.palette.background.paper,
-            border: `1px solid ${theme.palette.primary.main}`,
-            color: theme.custom.textColorHover,
+            backgroundColor: theme.custom.surfaces.overlay,
+            backgroundImage: 'none',
+            borderRadius: theme.custom.radius.group,
+            boxShadow: theme.custom.elevation.overlay,
+            color: theme.palette.text.primary,
         },
         '& .MuiButtonBase-root:hover': {
-            backgroundColor: 'rgba(255, 255, 255, 0.08)',
+            backgroundColor: theme.custom.surfaces.raised,
             color: theme.palette.text.primary,
         },
     },
     menuItem: {
         fontFamily: theme.typography.fontFamily,
         '&.Mui-selected': {
-            backgroundColor: 'rgba(255, 255, 255, 0.08)',
+            backgroundColor: theme.custom.surfaces.raised,
             color: theme.palette.text.primary,
         },
     },

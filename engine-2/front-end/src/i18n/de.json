@@ -35,15 +35,23 @@
     "Support us": "Unterstütze uns",
     "Support us (mobile)": "Unterstütze uns:",
     "blog": {
-        "title": "Blog",
-        "read": "Lesen",
-        "postedOn": "gepostet am %s",
         "backToOverview": "Zurück zur Übersicht",
         "editOnGithub": "Auf GitHub bearbeiten",
-        "translatedFrom": "Übersetzt aus %s",
-        "loading": "Wird geladen …",
         "loadError": "Die Blog-Beiträge konnten nicht geladen werden.",
-        "notFound": "Der Blog-Beitrag wurde nicht gefunden."
+        "loading": "Wird geladen …",
+        "notFound": "Der Blog-Beitrag wurde nicht gefunden.",
+        "postedOn": "gepostet am %s",
+        "read": "Lesen",
+        "rss": "RSS-Feed",
+        "subtitle": "Neuigkeiten, Ankündigungen und Monatsrückblicke aus der ioBroker-Welt.",
+        "title": "Blog",
+        "translatedFrom": "Übersetzt aus %s",
+        "type": {
+            "all": "Alle",
+            "announcement": "Ankündigung",
+            "news": "News",
+            "review": "Rückblick"
+        }
     },
     "header": {
         "logout": "Abmelden",

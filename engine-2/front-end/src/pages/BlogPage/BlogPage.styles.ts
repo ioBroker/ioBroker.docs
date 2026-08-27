@@ -1,7 +1,5 @@
 import { makeStyles } from '../../theme';
 
-const CARD_BORDER_DARK = '#356D9A';
-
 export const useStyles = makeStyles()(theme => ({
     pageWrapper: {
         width: '100%',
@@ -9,59 +7,109 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
     },
     pageContainer: {
-        width: '1312px',
+        // content column is layout.contentMaxWidth, the gutters come on top
+        width: theme.custom.layout.contentMaxWidth + 2 * theme.custom.layout.gutter.lg,
         maxWidth: '100%',
         margin: '0 auto',
-        padding: '78px 24px 120px 24px',
+        padding: `${theme.custom.layout.section.md}px ${theme.custom.layout.gutter.lg}px ${theme.custom.layout.section.lg}px`,
         boxSizing: 'border-box',
-        position: 'relative',
+        [theme.breakpoints.down('md')]: {
+            padding: `${theme.custom.layout.section.sm}px ${theme.custom.layout.gutter.md}px ${theme.custom.layout.section.md}px`,
+        },
         [theme.breakpoints.down('sm')]: {
-            padding: '48px 16px 80px 16px',
-        },
-        // spotlight behind the headline (top right)
-        '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '-40px',
-            left: '58%',
-            transform: 'translateX(-50%)',
-            width: '1100px',
-            height: '440px',
-            maxWidth: '150%',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.45) 0%, rgba(255, 255, 255, 0) 60%)'
-                    : 'none',
-            pointerEvents: 'none',
-            zIndex: -1,
-        },
-        // spotlight on the left side of the list
-        '&::after': {
-            content: '""',
-            position: 'absolute',
-            top: '28%',
-            left: '-180px',
-            width: '760px',
-            height: '560px',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.35) 0%, rgba(255, 255, 255, 0) 60%)'
-                    : 'none',
-            pointerEvents: 'none',
-            zIndex: -1,
+            padding: `${theme.custom.layout.section.sm}px ${theme.custom.layout.gutter.sm}px ${theme.custom.layout.section.md}px`,
         },
     },
-    title: {
-        width: '100%',
-        textAlign: 'left',
+    header: {
+        display: 'flex',
+        alignItems: 'flex-end',
+        justifyContent: 'space-between',
+        gap: '32px',
+        marginBottom: '40px',
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            gap: '16px',
+            marginBottom: '32px',
+        },
+    },
+    headerText: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    subtitle: {
+        maxWidth: '620px',
+        color: theme.custom.textMuted,
+    },
+    filterRow: {
+        display: 'flex',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: '8px',
+        [theme.breakpoints.down('sm')]: {
+            gap: '6px',
+        },
+    },
+    filterChip: {
+        height: '32px',
+        padding: '0 14px',
+        border: 'none',
+        borderRadius: theme.custom.radius.pill,
+        cursor: 'pointer',
+        display: 'inline-flex',
+        alignItems: 'center',
+        fontFamily: theme.typography.fontFamily,
+        fontSize: '12px',
+        fontWeight: 700,
+        letterSpacing: '0.09em',
         textTransform: 'uppercase',
+        whiteSpace: 'nowrap',
+        color: theme.custom.textMuted,
+        backgroundColor: theme.custom.surfaces.surface,
+        transition: 'background-color 0.2s ease, color 0.2s ease',
+        '&:hover': {
+            backgroundColor: theme.custom.surfaces.raised,
+            color: theme.palette.text.primary,
+        },
+        '&:focus-visible': {
+            outline: 'none',
+            boxShadow: theme.custom.focusRing,
+        },
+    },
+    filterChipActive: {
+        backgroundColor: theme.palette.secondary.main,
+        color: '#FFFFFF',
+        '&:hover': {
+            backgroundColor: theme.palette.secondary.main,
+            color: '#FFFFFF',
+        },
+    },
+    rssLink: {
+        flexShrink: 0,
+        height: '32px',
+        width: '32px',
+        borderRadius: theme.custom.radius.pill,
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textDecoration: 'none',
+        color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.secondary.main,
+        backgroundColor: theme.custom.surfaces.surface,
+        transition: 'background-color 0.2s ease',
+        '&:hover': {
+            backgroundColor: theme.custom.surfaces.raised,
+        },
+        '&:focus-visible': {
+            outline: 'none',
+            boxShadow: theme.custom.focusRing,
+        },
     },
     grid: {
         display: 'grid',
         gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-        gap: '30px',
+        gap: `${theme.custom.layout.grid}px`,
         alignItems: 'stretch',
-        [theme.breakpoints.down(900)]: {
+        [theme.breakpoints.down(1024)]: {
             gridTemplateColumns: 'minmax(0, 1fr)',
             gap: '20px',
         },
@@ -70,15 +118,16 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
-        borderRadius: '12px',
-        border: `1px solid ${theme.palette.mode === 'dark' ? CARD_BORDER_DARK : theme.palette.secondary.main}`,
-        backgroundColor: 'transparent',
+        borderRadius: `${theme.custom.radius.card}px`,
+        border: 'none',
+        backgroundColor: theme.custom.surfaces.surface,
         backgroundImage: 'none',
         overflow: 'hidden',
-        boxShadow: 'none',
-        transition: 'border-color 0.2s ease, transform 0.2s ease',
+        boxShadow: theme.custom.elevation.card,
+        transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
         '&:hover': {
-            borderColor: theme.palette.primary.main,
+            backgroundColor: theme.custom.surfaces.raised,
+            boxShadow: theme.custom.elevation.raised,
         },
     },
     cardImage: {
@@ -94,29 +143,49 @@ export const useStyles = makeStyles()(theme => ({
     cardImagePlaceholder: {
         width: '100%',
         aspectRatio: '1280 / 250',
-        background:
-            theme.palette.mode === 'dark'
-                ? 'linear-gradient(90deg, rgba(0, 88, 148, 0.9) 0%, rgba(29, 144, 202, 0.5) 100%)'
-                : 'linear-gradient(90deg, rgba(0, 88, 148, 0.2) 0%, rgba(29, 144, 202, 0.1) 100%)',
+        backgroundColor: theme.custom.surfaces.raised,
     },
     cardBody: {
         flex: 1,
         display: 'flex',
         flexDirection: 'column',
-        padding: '28px 20px 20px 20px',
+        gap: '12px',
+        padding: '24px',
         [theme.breakpoints.down('sm')]: {
-            padding: '20px 16px 16px 16px',
+            padding: '20px 16px',
         },
     },
-    cardTitle: {
-        fontFamily: "'Roboto', sans-serif",
-        fontSize: '16px',
+    cardMeta: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '10px',
+    },
+    cardType: {
+        display: 'inline-flex',
+        alignItems: 'center',
+        padding: '5px 10px',
+        borderRadius: theme.custom.radius.pill,
+        fontSize: '12px',
         fontWeight: 700,
-        lineHeight: 1.35,
-        letterSpacing: '0.01em',
+        letterSpacing: '0.09em',
+        textTransform: 'uppercase',
+        whiteSpace: 'nowrap',
+        backgroundColor: theme.custom.surfaces.raised,
+        color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.secondary.main,
+    },
+    cardDate: {
+        fontSize: '13px',
+        lineHeight: 1.4,
+        color: theme.custom.textSubtle,
+    },
+    cardTitle: {
+        fontFamily: 'Audiowide, sans-serif',
+        fontWeight: 400,
+        fontSize: '20px',
+        lineHeight: '26px',
+        letterSpacing: '-0.02em',
         color: theme.palette.text.primary,
         cursor: 'pointer',
-        marginBottom: '12px',
         display: '-webkit-box',
         WebkitLineClamp: 2,
         WebkitBoxOrient: 'vertical',
@@ -125,74 +194,76 @@ export const useStyles = makeStyles()(theme => ({
             color: theme.palette.primary.main,
         },
         [theme.breakpoints.down('sm')]: {
-            fontSize: '15px',
+            fontSize: '18px',
+            lineHeight: '24px',
         },
     },
     cardDesc: {
-        fontFamily: "'Roboto', sans-serif",
         fontSize: '16px',
         fontWeight: 400,
-        lineHeight: 1.35,
+        lineHeight: '26px',
         letterSpacing: '0.01em',
-        color: theme.palette.text.primary,
-        whiteSpace: 'pre-line',
+        color: theme.custom.textMuted,
         display: '-webkit-box',
-        WebkitLineClamp: 6,
+        WebkitLineClamp: 4,
         WebkitBoxOrient: 'vertical',
         overflow: 'hidden',
         [theme.breakpoints.down('sm')]: {
             fontSize: '15px',
+            lineHeight: '24px',
         },
     },
-    cardFooter: {
+    cardDivider: {
+        height: '1px',
+        backgroundColor: theme.custom.hairline,
         marginTop: 'auto',
-        paddingTop: '28px',
+    },
+    cardFooter: {
         display: 'flex',
-        alignItems: 'flex-end',
+        alignItems: 'center',
         justifyContent: 'space-between',
         gap: '12px',
     },
     readButton: {
-        width: '286px',
-        maxWidth: '100%',
-        height: '38px',
-        flexShrink: 1,
+        flexShrink: 0,
+        height: theme.custom.control.height,
+        padding: '0 24px',
         border: 'none',
-        borderRadius: '8px',
+        borderRadius: theme.custom.radius.control,
         cursor: 'pointer',
         fontFamily: 'Audiowide, sans-serif',
-        fontSize: '16px',
+        fontSize: '15px',
         fontWeight: 400,
         letterSpacing: '0.02em',
         textTransform: 'uppercase',
         color: '#FFFFFF',
-        backgroundColor: theme.palette.mode === 'dark' ? '#245790' : theme.palette.secondary.main,
+        backgroundColor: theme.palette.secondary.main,
         transition: 'background-color 0.2s ease',
         '&:hover': {
-            backgroundColor: theme.palette.primary.main,
+            backgroundColor: theme.palette.secondary.light,
+        },
+        '&:active': {
+            backgroundColor: theme.palette.secondary.dark,
+        },
+        '&:focus-visible': {
+            outline: 'none',
+            boxShadow: theme.custom.focusRing,
         },
         [theme.breakpoints.down('sm')]: {
-            width: '100%',
             fontSize: '14px',
+            padding: '0 18px',
         },
     },
-    cardDate: {
+    cardAuthor: {
         flexShrink: 0,
-        fontFamily: "'Roboto', sans-serif",
-        fontSize: '13px',
+        fontSize: '14px',
         fontWeight: 400,
-        lineHeight: 1,
-        paddingBottom: '4px',
         whiteSpace: 'nowrap',
-        color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.75)' : 'rgba(0, 0, 0, 0.6)',
-        [theme.breakpoints.down('sm')]: {
-            fontSize: '11px',
-        },
+        color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.secondary.main,
     },
     message: {
-        fontFamily: "'Roboto', sans-serif",
         fontSize: '18px',
         fontWeight: 400,
-        color: theme.palette.text.primary,
+        color: theme.custom.textMuted,
     },
 }));

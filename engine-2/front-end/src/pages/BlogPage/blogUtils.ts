@@ -42,8 +42,12 @@ export const pickText = (texts: LocalizedText | undefined, language: Language): 
         return '';
     }
     const text = texts[language] || texts.en || texts.de || Object.values(texts).find(t => !!t) || '';
-    // the descriptions contain escaped line breaks
-    return stripMarkdown(text.replace(/\\n/g, '\n')).trim();
+    // the descriptions carry the line breaks of the source file - those are
+    // wrapping artefacts, not part of the text, so they become spaces
+    return stripMarkdown(text.replace(/\\n/g, ' '))
+        .replace(/\s*\n\s*/g, ' ')
+        .replace(/[ \t]{2,}/g, ' ')
+        .trim();
 };
 
 export const getAuthor = (entry: BlogPageEntry): string => entry.author || entry.Author || '';

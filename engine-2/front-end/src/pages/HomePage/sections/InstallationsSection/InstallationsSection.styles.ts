@@ -4,32 +4,6 @@ import BacklightImage from '../../../../assets/img/Backlight2.png';
 export const useStyles = makeStyles()(theme => ({
     sectionWrapper: {
         position: 'relative',
-        '&::before': {
-            content: '""',
-            position: 'absolute',
-            zIndex: 1,
-            top: '-30%',
-            left: '12%',
-            transform: 'translate(-50%, -50%)',
-            width: '1200px',
-            height: '1200px',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(circle, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)'
-                    : 'none',
-            pointerEvents: 'none',
-            [theme.breakpoints.down('md')]: {
-                width: '600px',
-                height: '600px',
-                left: '30%',
-            },
-            [theme.breakpoints.down('sm')]: {
-                left: '90%',
-                top: '10%',
-                width: '400px',
-                height: '400px',
-            },
-        },
     },
     container: {
         maxWidth: 1260,

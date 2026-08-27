@@ -3,57 +3,28 @@ import { makeStyles } from '../../../../theme';
 export const useStyles = makeStyles()(theme => ({
     platformSection: {
         position: 'relative',
-        // marginTop: '70px',
-        paddingTop: '140px',
         height: '100%',
         background: `url(/image-code.png) no-repeat center center`,
         backgroundPosition: 'top',
         backgroundColor: theme.palette.background.default,
         backgroundSize: 'contain',
         overflow: 'hidden',
-        paddingBottom: '60px',
+        padding: '96px 0',
         [theme.breakpoints.down('md')]: {
-            paddingTop: '40px',
-            marginTop: '60px',
+            padding: '64px 0',
         },
         [theme.breakpoints.down('sm')]: {
-            paddingBottom: '40px',
-            height: 'auto',
+            padding: '48px 0',
         },
-        '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '40%',
-            left: '5%',
-            transform: 'translate(-50%, -50%)',
-            width: '1200px',
-            height: '1200px',
-            opacity: 0.5,
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(circle, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)'
-                    : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
-            [theme.breakpoints.down('md')]: {
-                width: '600px',
-                height: '600px',
-            },
-            [theme.breakpoints.down('sm')]: {
-                // background: 'radial-gradient(ellipse, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)',
-                background:
-                    theme.palette.mode === 'dark'
-                        ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.5) 0%, rgba(255, 255, 255, 0) 55%)'
-                        : 'none',
-                left: '50%',
-                top: '95%',
-                width: '400px',
-                height: '150px',
-            },
+        [theme.breakpoints.down('sm')]: {
+            padding: '48px 0',
+            height: 'auto',
         },
     },
     container: {
-        maxWidth: 1400,
+        maxWidth: 1376,
         margin: '0 auto',
-        padding: '0 40px',
+        padding: '0 32px',
         position: 'relative',
         zIndex: 1,
         [theme.breakpoints.down('md')]: {
@@ -75,7 +46,7 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '56px',
         lineHeight: '110%',
         fontWeight: '400',
-        letterSpacing: '-3%',
+        letterSpacing: '-0.03em',
         color: theme.palette.text.primary,
         [theme.breakpoints.down('md')]: {
             fontSize: '36px',
@@ -90,7 +61,7 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: 56,
         lineHeight: '110%',
         fontWeight: '400',
-        letterSpacing: '-3%',
+        letterSpacing: '-0.03em',
         color: theme.palette.text.secondary,
         marginBottom: theme.spacing(8),
         [theme.breakpoints.down('md')]: {

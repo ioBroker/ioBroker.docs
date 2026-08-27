@@ -16,6 +16,8 @@ interface MarkdownViewProps {
     classNames: {
         head: string;
         heading: string;
+        /** h4 only - h5/h6 keep the browser default on purpose */
+        subheading?: string;
         paragraph: string;
         list: string;
         listItem: string;
@@ -31,7 +33,8 @@ interface MarkdownViewProps {
         inlineCode: string;
         blockquote: string;
     };
-    linkImage: string;
+    /** anchor icon next to a heading - omit it and the headings carry no anchor link */
+    linkImage?: string;
 }
 
 export const MarkdownView = ({
@@ -160,6 +163,22 @@ export const MarkdownView = ({
         return getUniqueId(text);
     };
 
+    const renderAnchorLink = (id: string, text: string): React.ReactNode =>
+        linkImage ? (
+            <a
+                href={buildAnchorHref(id)}
+                aria-label={`Link to ${text}`}
+                style={{ display: 'inline-flex' }}
+                onClick={scrollToHeading(id)}
+            >
+                <img
+                    src={linkImage}
+                    alt="link"
+                    className={classNames.linkIcon}
+                />
+            </a>
+        ) : null;
+
     return markdownForRender ? (
         <ReactMarkdown
             remarkPlugins={[remarkGfm]}
@@ -175,18 +194,7 @@ export const MarkdownView = ({
                             className={classNames.head}
                         >
                             <div>{children}</div>
-                            <a
-                                href={buildAnchorHref(id)}
-                                aria-label={`Link to ${text}`}
-                                style={{ display: 'inline-flex' }}
-                                onClick={scrollToHeading(id)}
-                            >
-                                <img
-                                    src={linkImage}
-                                    alt="link"
-                                    className={classNames.linkIcon}
-                                />
-                            </a>
+                            {renderAnchorLink(id, text)}
                         </Box>
                     );
                 },
@@ -200,18 +208,7 @@ export const MarkdownView = ({
                             className={classNames.head}
                         >
                             <div>{children}</div>
-                            <a
-                                href={buildAnchorHref(id)}
-                                aria-label={`Link to ${text}`}
-                                style={{ display: 'inline-flex' }}
-                                onClick={scrollToHeading(id)}
-                            >
-                                <img
-                                    src={linkImage}
-                                    alt="link"
-                                    className={classNames.linkIcon}
-                                />
-                            </a>
+                            {renderAnchorLink(id, text)}
                         </Box>
                     );
                 },
@@ -225,21 +222,18 @@ export const MarkdownView = ({
                             className={classNames.heading}
                         >
                             <div>{children}</div>
-                            <a
-                                href={buildAnchorHref(id)}
-                                aria-label={`Link to ${text}`}
-                                style={{ display: 'inline-flex' }}
-                                onClick={scrollToHeading(id)}
-                            >
-                                <img
-                                    src={linkImage}
-                                    alt="link"
-                                    className={classNames.linkIcon}
-                                />
-                            </a>
+                            {renderAnchorLink(id, text)}
                         </Box>
                     );
                 },
+                h4: ({ children }) => (
+                    <Box
+                        component="h4"
+                        className={classNames.subheading}
+                    >
+                        {children}
+                    </Box>
+                ),
                 p: ({ children }) => <Box className={classNames.paragraph}>{children}</Box>,
                 ul: ({ children }) => (
                     <Box
@@ -265,15 +259,22 @@ export const MarkdownView = ({
                         {children}
                     </Box>
                 ),
-                img: ({ src, alt }) => (
-                    <Box className={classNames.image}>
-                        <img
-                            src={resolveMarkdownUrl(src, baseUrl, origin)}
-                            alt={alt ?? ''}
-                            style={{ width: '100%', maxWidth: '600px' }}
-                        />
-                    </Box>
-                ),
+                img: ({ src, alt, width }) => {
+                    const declaredWidth = typeof width === 'string' ? parseInt(width, 10) : width;
+                    const maxWidth =
+                        typeof declaredWidth === 'number' && Number.isFinite(declaredWidth) && declaredWidth > 0
+                            ? `${declaredWidth}px`
+                            : '600px';
+                    return (
+                        <Box className={classNames.image}>
+                            <img
+                                src={resolveMarkdownUrl(src, baseUrl, origin)}
+                                alt={alt ?? ''}
+                                style={{ width: '100%', maxWidth }}
+                            />
+                        </Box>
+                    );
+                },
                 table: ({ children }) => (
                     <Box
                         component="table"

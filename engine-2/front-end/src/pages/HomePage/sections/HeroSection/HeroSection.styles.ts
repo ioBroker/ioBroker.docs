@@ -8,7 +8,7 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
         height: '100%',
         [theme.breakpoints.down('md')]: {
-            padding: '0 40px',
+            padding: '0 32px',
         },
         [theme.breakpoints.down('sm')]: {
             padding: '0 20px',
@@ -85,20 +85,25 @@ export const useStyles = makeStyles()(theme => ({
     },
     heroLeft: {
         textAlign: 'left',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        // logo at the top, claim and button at the bottom - no hard coded gap
+        minHeight: '560px',
         [theme.breakpoints.down('md')]: {
             textAlign: 'center',
-            display: 'flex',
-            flexDirection: 'column',
             alignItems: 'center',
+            justifyContent: 'flex-start',
+            minHeight: 0,
         },
     },
     heroLogo: {
         width: '100%',
         maxWidth: '470px',
-        marginBottom: '334px',
         marginTop: '36px',
         [theme.breakpoints.down('md')]: {
-            marginBottom: '72px',
+            marginBottom: '56px',
             marginTop: theme.spacing(2),
             maxWidth: '400px',
         },
@@ -106,26 +111,37 @@ export const useStyles = makeStyles()(theme => ({
             maxWidth: '80%',
         },
     },
+    // the claim sets the width, the button below picks it up exactly
+    heroClaim: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'stretch',
+        width: 'fit-content',
+        maxWidth: '100%',
+        gap: '36px',
+        [theme.breakpoints.down('md')]: {
+            gap: '28px',
+        },
+    },
     heroPlatformText: {
         fontSize: '24px',
-        marginBottom: '63px',
-        color: 'rgba(255, 255, 255, 0.9)',
-        textAlign: 'right',
-        lineHeight: '130%',
+        fontWeight: 400,
+        lineHeight: 1.2,
+        letterSpacing: '-0.01em',
+        textAlign: 'left',
+        color: theme.palette.text.primary,
         [theme.breakpoints.down('md')]: {
+            fontSize: '20px',
+        },
+        [theme.breakpoints.down('sm')]: {
             fontSize: '18px',
-            textAlign: 'right',
-            width: '290px',
-            marginBottom: '66px',
-            textIndent: '2em',
         },
     },
     installButton: {
+        width: '100%',
+        minWidth: 0,
         [theme.breakpoints.down('md')]: {
-            marginBottom: '56px',
-        },
-        [theme.breakpoints.down('sm')]: {
-            fontSize: '12px',
+            marginBottom: '40px',
         },
     },
     heroRight: {
@@ -192,8 +208,8 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: 16,
         textAlign: 'left',
         lineHeight: '24px',
-        letterSpacing: '-3%',
-        fontWeight: 200,
+        letterSpacing: '-0.03em',
+        fontWeight: 400,
         marginBottom: '10px',
         width: 222,
         color: '#FFFFFF',
@@ -256,12 +272,6 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('md')]: {
             width: '56px',
             height: '46px',
-        },
-    },
-    platformTextComment: {
-        paddingLeft: '114px',
-        [theme.breakpoints.down('md')]: {
-            paddingLeft: '0',
         },
     },
     paypalIconImage: {

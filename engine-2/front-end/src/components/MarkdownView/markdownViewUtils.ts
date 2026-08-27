@@ -149,9 +149,16 @@ export const normalizeImageTags = (markdown: string): string => {
         const altMatch = tag.match(/alt=["']([^"']*)["']/i);
         const src = srcMatch[1];
         const alt = altMatch ? altMatch[1] : '';
+        // Keep an explicitly declared width - adapter icons are 100 px wide and
+        // must not be blown up to the default display size.
+        const widthMatch = tag.match(/\bwidth=["']?(\d+)/i) || tag.match(/style=["'][^"']*\bwidth:\s*(\d+)px/i);
+        if (widthMatch) {
+            return `<img src="${src}" alt="${alt}" width="${widthMatch[1]}" />`;
+        }
         return `![${alt}](${src})`;
     });
-    result = result.replace(/\bimg\s+[^\\r\\n]*?src=["']([^"']+)["'][^\\r\\n]*/gi, (_match, src) => {
+    // only mangled "img src=..." text without a tag - a real <img> was handled above
+    result = result.replace(/(?<!<)\bimg\s+[^\\r\\n]*?src=["']([^"']+)["'][^\\r\\n]*/gi, (_match, src) => {
         return `![](${src})`;
     });
     result = result.replace(/!\(\s*([^)\\s]+)\s*\)/g, (_match, src) => `![](${src})`);

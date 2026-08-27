@@ -6,7 +6,6 @@ import { I18n } from '../../utils/i18n';
 import { API_CONFIG, buildIoBrokerUrl } from '../../config/api';
 import { useBlogContent, useBlogMarkdown } from '../../api/hooks/useBlog';
 import { MarkdownView } from '../../components/MarkdownView/MarkdownView';
-import linkImage from '../../assets/img/docsIcons/blueLink.svg';
 import { extractHeader, formatBlogDate, getAuthor, pickText, sortBlogPages } from './blogUtils';
 import { useStyles } from './BlogPostPage.styles';
 
@@ -97,6 +96,7 @@ const BlogPostPage = (): React.ReactNode => {
                                         classNames={{
                                             head: classes.head,
                                             heading: classes.heading,
+                                            subheading: classes.subheading,
                                             paragraph: classes.paragraph,
                                             list: classes.list,
                                             listItem: classes.listItem,
@@ -112,7 +112,6 @@ const BlogPostPage = (): React.ReactNode => {
                                             inlineCode: classes.inlineCode,
                                             blockquote: classes.blockquote,
                                         }}
-                                        linkImage={linkImage}
                                     />
                                 </Box>
 

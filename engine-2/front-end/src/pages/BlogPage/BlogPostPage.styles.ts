@@ -1,5 +1,9 @@
 import { makeStyles } from '../../theme';
 
+// The article is wider than the standard content column of the kit - blog posts
+// carry wide screenshots and tables that were cramped at 980 px.
+const ARTICLE_MAX_WIDTH = 1400;
+
 export const useStyles = makeStyles()(theme => ({
     pageWrapper: {
         width: '100%',
@@ -7,30 +11,16 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
     },
     pageContainer: {
-        width: '1312px',
+        width: ARTICLE_MAX_WIDTH + 2 * theme.custom.layout.gutter.lg,
         maxWidth: '100%',
         margin: '0 auto',
-        padding: '78px 24px 120px 24px',
+        padding: `${theme.custom.layout.section.md}px ${theme.custom.layout.gutter.lg}px ${theme.custom.layout.section.lg}px`,
         boxSizing: 'border-box',
-        position: 'relative',
-        [theme.breakpoints.down('sm')]: {
-            padding: '48px 16px 80px 16px',
+        [theme.breakpoints.down('md')]: {
+            padding: `${theme.custom.layout.section.sm}px ${theme.custom.layout.gutter.md}px ${theme.custom.layout.section.md}px`,
         },
-        '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '-40px',
-            left: '58%',
-            transform: 'translateX(-50%)',
-            width: '1100px',
-            height: '440px',
-            maxWidth: '150%',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.45) 0%, rgba(255, 255, 255, 0) 60%)'
-                    : 'none',
-            pointerEvents: 'none',
-            zIndex: -1,
+        [theme.breakpoints.down('sm')]: {
+            padding: `${theme.custom.layout.section.sm}px ${theme.custom.layout.gutter.sm}px ${theme.custom.layout.section.md}px`,
         },
     },
     backLink: {
@@ -39,29 +29,37 @@ export const useStyles = makeStyles()(theme => ({
         justifyContent: 'flex-start',
         gap: '8px',
         width: '100%',
-        maxWidth: '980px',
+        maxWidth: `${ARTICLE_MAX_WIDTH}px`,
         margin: '0 auto 24px auto',
+        height: theme.custom.control.compactHeight,
+        padding: '0 14px 0 10px',
         border: 'none',
-        background: 'none',
-        padding: 0,
+        borderRadius: theme.custom.radius.control,
+        background: 'transparent',
         cursor: 'pointer',
-        fontFamily: "'Roboto', sans-serif",
-        fontSize: '16px',
+        fontFamily: theme.typography.fontFamily,
+        fontSize: '15px',
         fontWeight: 400,
-        color: theme.palette.primary.main,
+        color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.secondary.main,
+        transition: 'background-color 0.2s ease, color 0.2s ease',
         '&:hover': {
-            color: theme.palette.mode === 'dark' ? '#7ec3f3' : '#006bbc',
+            backgroundColor: theme.custom.surfaces.surface,
+            color: theme.palette.text.primary,
+        },
+        '&:focus-visible': {
+            outline: 'none',
+            boxShadow: theme.custom.focusRing,
         },
     },
     article: {
         width: '100%',
-        maxWidth: '980px',
+        maxWidth: `${ARTICLE_MAX_WIDTH}px`,
         margin: '0 auto',
-        borderRadius: '12px',
-        border: `1px solid ${theme.palette.mode === 'dark' ? '#356D9A' : theme.palette.secondary.main}`,
-        backgroundColor: 'transparent',
+        borderRadius: `${theme.custom.radius.card}px`,
+        border: 'none',
+        backgroundColor: theme.custom.surfaces.surface,
         backgroundImage: 'none',
-        boxShadow: 'none',
+        boxShadow: theme.custom.elevation.card,
         overflow: 'hidden',
     },
     heroImage: {
@@ -72,49 +70,52 @@ export const useStyles = makeStyles()(theme => ({
         objectFit: 'cover',
     },
     articleBody: {
-        padding: '32px 32px 40px 32px',
+        padding: '40px 40px 48px 40px',
+        [theme.breakpoints.down('md')]: {
+            padding: '32px 24px 40px 24px',
+        },
         [theme.breakpoints.down('sm')]: {
-            padding: '20px 16px 28px 16px',
+            padding: '24px 16px 32px 16px',
         },
     },
     postTitle: {
         fontFamily: 'Audiowide, sans-serif',
-        fontSize: '28px',
+        fontSize: '32px',
         fontWeight: 400,
-        lineHeight: 1.3,
-        letterSpacing: '-0.03em',
-        color: theme.palette.primary.main,
+        lineHeight: 1.2,
+        letterSpacing: '-0.02em',
+        color: theme.palette.text.primary,
         marginBottom: '12px',
         [theme.breakpoints.down(769)]: {
-            fontSize: '22px',
+            fontSize: '26px',
         },
         [theme.breakpoints.down(481)]: {
-            fontSize: '18px',
+            fontSize: '22px',
         },
     },
     postMeta: {
         display: 'flex',
         flexWrap: 'wrap',
+        alignItems: 'center',
         gap: '12px',
-        fontFamily: "'Roboto', sans-serif",
         fontSize: '14px',
         fontWeight: 400,
-        color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.75)' : 'rgba(0, 0, 0, 0.6)',
-        marginBottom: '28px',
+        color: theme.custom.textSubtle,
+        paddingBottom: '24px',
+        marginBottom: '32px',
+        borderBottom: `1px solid ${theme.custom.hairline}`,
     },
     postAuthor: {
         fontWeight: 700,
-        color: theme.palette.text.primary,
+        color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.secondary.main,
     },
     translatedHint: {
         margin: '0 0 24px 0',
-        padding: '10px 16px',
-        borderLeft: `4px solid ${theme.palette.secondary.main}`,
-        borderRadius: '6px',
-        fontFamily: "'Roboto', sans-serif",
+        padding: '12px 16px',
+        borderRadius: `${theme.custom.radius.control}px`,
         fontSize: '14px',
         fontWeight: 400,
-        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(35, 86, 174, 0.12)' : 'rgba(35, 86, 174, 0.06)',
+        backgroundColor: theme.custom.surfaces.raised,
         color: theme.palette.text.primary,
     },
     markdownBody: {
@@ -123,7 +124,9 @@ export const useStyles = makeStyles()(theme => ({
         overflowWrap: 'anywhere',
     },
     editLinkRow: {
-        marginTop: '32px',
+        marginTop: '40px',
+        paddingTop: '24px',
+        borderTop: `1px solid ${theme.custom.hairline}`,
         display: 'flex',
         justifyContent: 'flex-end',
     },
@@ -131,18 +134,17 @@ export const useStyles = makeStyles()(theme => ({
         display: 'inline-flex',
         alignItems: 'center',
         gap: '6px',
-        fontFamily: "'Roboto', sans-serif",
         fontSize: '14px',
         fontWeight: 400,
         textDecoration: 'none',
-        color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)',
+        color: theme.custom.textSubtle,
         '&:hover': {
             color: theme.palette.primary.main,
         },
     },
     pagination: {
         width: '100%',
-        maxWidth: '980px',
+        maxWidth: `${ARTICLE_MAX_WIDTH}px`,
         margin: '24px auto 0 auto',
         display: 'flex',
         justifyContent: 'space-between',
@@ -150,22 +152,28 @@ export const useStyles = makeStyles()(theme => ({
     },
     navButton: {
         maxWidth: '48%',
-        minHeight: '38px',
+        minHeight: theme.custom.control.height,
         padding: '8px 20px',
         border: 'none',
-        borderRadius: '8px',
+        boxShadow: `inset 0 0 0 1px ${theme.custom.hairlineStrong}`,
+        borderRadius: theme.custom.radius.control,
         cursor: 'pointer',
         textAlign: 'left',
-        fontFamily: "'Roboto', sans-serif",
-        fontSize: '14px',
+        fontFamily: theme.typography.fontFamily,
+        fontSize: '15px',
         fontWeight: 400,
-        color: '#FFFFFF',
-        backgroundColor: theme.palette.mode === 'dark' ? '#245790' : theme.palette.secondary.main,
+        backgroundColor: 'transparent',
+        color: theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.secondary.main,
         transition: 'background-color 0.2s ease',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         '&:hover': {
-            backgroundColor: theme.palette.primary.main,
+            backgroundColor: theme.custom.surfaces.raised,
+            color: theme.palette.text.primary,
+        },
+        '&:focus-visible': {
+            outline: 'none',
+            boxShadow: theme.custom.focusRing,
         },
     },
     navButtonNext: {
@@ -173,19 +181,20 @@ export const useStyles = makeStyles()(theme => ({
         marginLeft: 'auto',
     },
     message: {
-        fontFamily: "'Roboto', sans-serif",
         fontSize: '18px',
         fontWeight: 400,
-        color: theme.palette.text.primary,
+        color: theme.custom.textMuted,
     },
 
     // ---- markdown ----
     head: {
         color: theme.palette.primary.main,
-        fontSize: '24px',
+        fontSize: '26px',
         fontFamily: 'Audiowide',
         fontWeight: 400,
         textTransform: 'uppercase',
+        // a heading belongs to what follows it, so the gap above is the larger one
+        marginTop: '48px',
         marginBottom: '20px',
         scrollMarginTop: '100px',
         letterSpacing: '-0.03em',
@@ -205,7 +214,8 @@ export const useStyles = makeStyles()(theme => ({
         fontFamily: 'Audiowide',
         fontWeight: 400,
         textTransform: 'uppercase',
-        marginBottom: '20px',
+        marginTop: '40px',
+        marginBottom: '16px',
         scrollMarginTop: '100px',
         letterSpacing: '-0.03em',
         display: 'inline-flex',
@@ -218,6 +228,19 @@ export const useStyles = makeStyles()(theme => ({
         },
         [theme.breakpoints.down(481)]: {
             fontSize: '16px',
+        },
+    },
+    // adapter names (h4) - one step above the body text, in the original spelling
+    subheading: {
+        fontFamily: theme.typography.fontFamily,
+        fontSize: '20px',
+        fontWeight: 700,
+        lineHeight: 1.4,
+        letterSpacing: '0.01em',
+        color: theme.palette.text.primary,
+        margin: '32px 0 12px 0',
+        [theme.breakpoints.down(481)]: {
+            fontSize: '18px',
         },
     },
     linkIcon: {
@@ -246,7 +269,7 @@ export const useStyles = makeStyles()(theme => ({
         maxWidth: '100%',
         height: 'auto',
         margin: '24px 0',
-        borderRadius: '8px',
+        borderRadius: `${theme.custom.radius.control}px`,
     },
     table: {
         width: '100%',
@@ -271,7 +294,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     tableHead: {
-        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(35, 86, 174, 0.1)' : 'rgba(35, 86, 174, 0.05)',
+        backgroundColor: theme.custom.surfaces.raised,
     },
     tableRow: {
         borderBottom: `1px solid ${theme.palette.divider}`,
@@ -311,8 +334,8 @@ export const useStyles = makeStyles()(theme => ({
     },
     codeBlockContainer: {
         backgroundColor: theme.palette.secondary.main,
-        borderRadius: '8px',
-        border: `1px solid ${theme.palette.secondary.main}`,
+        borderRadius: `${theme.custom.radius.control}px`,
+        border: 'none',
         margin: '16px 0 24px 0',
         overflow: 'hidden',
     },
@@ -339,17 +362,17 @@ export const useStyles = makeStyles()(theme => ({
     inlineCode: {
         fontFamily: 'monospace',
         fontSize: '0.95em',
-        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(35, 86, 174, 0.25)' : 'rgba(35, 86, 174, 0.12)',
+        backgroundColor: theme.custom.surfaces.raised,
         padding: '2px 6px',
         borderRadius: '4px',
         color: theme.palette.text.primary,
     },
     blockquote: {
-        margin: '12px 0 16px 0',
-        padding: '10px 16px',
-        borderLeft: `4px solid ${theme.palette.secondary.main}`,
-        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(35, 86, 174, 0.12)' : 'rgba(35, 86, 174, 0.06)',
-        borderRadius: '6px',
+        margin: '12px 0 20px 0',
+        padding: '14px 20px',
+        border: 'none',
+        backgroundColor: theme.custom.surfaces.raised,
+        borderRadius: `${theme.custom.radius.control}px`,
         color: theme.palette.text.primary,
         '& p': {
             margin: 0,

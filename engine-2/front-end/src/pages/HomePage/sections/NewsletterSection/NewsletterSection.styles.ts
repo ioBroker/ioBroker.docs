@@ -2,19 +2,22 @@ import { makeStyles } from '../../../../theme';
 
 export const useStyles = makeStyles()(theme => ({
     container: {
-        maxWidth: 1392,
+        maxWidth: 1376,
         margin: '0 auto',
-        padding: '0 40px',
+        padding: '0 32px',
         [theme.breakpoints.down('sm')]: {
             padding: '0 20px',
         },
     },
     newsletterSection: {
-        padding: '245px 0 246px 0',
         position: 'relative',
         zIndex: 2,
+        padding: '96px 0',
         [theme.breakpoints.down('md')]: {
-            padding: '108px 0',
+            padding: '64px 0',
+        },
+        [theme.breakpoints.down('sm')]: {
+            padding: '48px 0',
         },
     },
     newsletterContent: {

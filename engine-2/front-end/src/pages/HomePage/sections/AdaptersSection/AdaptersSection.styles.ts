@@ -4,11 +4,11 @@ export const useStyles = makeStyles()(theme => ({
     container: {
         position: 'relative',
         zIndex: 1,
-        maxWidth: 1400,
+        maxWidth: 1376,
         margin: '0 auto',
         paddingLeft: '64px',
         [theme.breakpoints.down('md')]: {
-            padding: '0 40px',
+            padding: '0 32px',
         },
         [theme.breakpoints.down('sm')]: {
             padding: '0 20px',
@@ -16,16 +16,13 @@ export const useStyles = makeStyles()(theme => ({
     },
     adaptersSection: {
         position: 'relative',
-        marginTop: '37px',
-        padding: '80px 0',
         height: '100%',
+        padding: '96px 0',
         [theme.breakpoints.down('md')]: {
-            marginTop: '100px',
-            padding: '0 0 60px 0',
+            padding: '64px 0',
         },
         [theme.breakpoints.down('sm')]: {
-            marginTop: '0',
-            padding: '40px 0',
+            padding: '48px 0',
         },
     },
     adaptersContent: {
@@ -76,21 +73,6 @@ export const useStyles = makeStyles()(theme => ({
     buttonWrapperDesktop: {
         position: 'relative',
         display: 'inline-block',
-        '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '50%',
-            left: '45%',
-            transform: 'translate(-50%, -50%)',
-            width: '600px',
-            height: '300px',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse, rgba(12, 36, 137, 0.3) 0%, rgba(255, 255, 255, 0) 70%)'
-                    : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
-            pointerEvents: 'none',
-            zIndex: 0,
-        },
         [theme.breakpoints.down('md')]: {
             display: 'none',
         },
@@ -126,29 +108,6 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
         display: 'flex',
         justifyContent: 'center',
-        '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '1200px',
-            height: '1200px',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(circle, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 55%)'
-                    : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
-            pointerEvents: 'none',
-            zIndex: 0,
-            [theme.breakpoints.down('md')]: {
-                width: '800px',
-                height: '800px',
-            },
-            [theme.breakpoints.down('sm')]: {
-                width: '600px',
-                height: '600px',
-            },
-        },
         [theme.breakpoints.down('md')]: {
             order: 2,
         },

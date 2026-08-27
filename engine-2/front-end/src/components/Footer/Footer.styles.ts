@@ -53,7 +53,7 @@ export const useFooterStyles = makeStyles()(theme => ({
     sectionsRow: {
         gap: '93px',
         display: 'flex',
-        fontSize: '18px',
+        fontSize: '16px',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -125,7 +125,7 @@ export const useFooterStyles = makeStyles()(theme => ({
         alignItems: 'start',
     },
     link: {
-        color: theme.palette.text.primary,
+        color: theme.custom.textMuted,
         textDecoration: 'none',
         // wordBreak: 'break-word',
         // whiteSpace: 'normal',
@@ -137,7 +137,7 @@ export const useFooterStyles = makeStyles()(theme => ({
     },
     socialButton: {
         display: 'block',
-        color: theme.palette.text.primary,
+        color: theme.custom.textMuted,
         textDecoration: 'none',
         textAlign: 'center',
         fontSize: '10px',
