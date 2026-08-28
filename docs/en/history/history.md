@@ -1521,6 +1521,13 @@ https://github.com/meistermopper/ioBroker.harvia-fenix
 
 An ioBroker adapter to integrate and control your Harvia Fenix sauna control unit via the MyHarvia cloud infrastructure.
 
+## metermaster (28.8.2026) – new adapter at stable repository
+https://github.com/MPunktBPunkt/ioBroker.metermaster
+
+<img src="https://raw.githubusercontent.com/MPunktBPunkt/ioBroker.metermaster/main/admin/metermaster.svg" width="100" height="100" />
+
+Receives meter readings from the MeterMaster Android app, stores them as ioBroker data points, and manages ESP32 display nodes for showing meter values on OLED displays.
+
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
