@@ -1,68 +1,77 @@
 import { makeStyles } from '../../theme';
 
 export const useDocsTableOfContentsStyles = makeStyles()(theme => ({
+    // a quiet surface card, no frame
+    // the panel is a drop-down under its switch - it overlays the text instead of
+    // taking a column of its own
     container: {
-        top: '1px',
-        width: '222px',
-        padding: '10px',
-        alignSelf: 'flex-start',
-        border: `1px solid ${theme.palette.primary.main}`,
-        borderRadius: '8px',
-        backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
-        flexShrink: 0,
-    },
-    title: {
-        fontSize: '18px',
-        fontWeight: 400,
-        color: theme.palette.primary.main,
-        marginBottom: '16px',
-        letterSpacing: '0.1em',
+        width: '100%',
+        padding: '16px',
+        borderRadius: `${theme.custom.radius.card}px`,
+        backgroundColor: theme.custom.surfaces.surface,
+        boxShadow: theme.custom.elevation.overlay,
+        maxHeight: 'min(60vh, 520px)',
+        overflowY: 'auto',
+        '&::-webkit-scrollbar': {
+            width: '6px',
+        },
+        '&::-webkit-scrollbar-track': {
+            background: 'transparent',
+        },
+        '&::-webkit-scrollbar-thumb': {
+            background: theme.custom.hairlineStrong,
+            borderRadius: `${theme.custom.radius.pill}px`,
+        },
     },
     subTitle: {
-        fontSize: '16px',
-        fontWeight: 400,
+        display: 'block',
+        textDecoration: 'none',
+        fontSize: '15px',
+        fontWeight: 700,
         color: theme.palette.text.primary,
         marginBottom: '4px',
-        letterSpacing: '0em',
         cursor: 'pointer',
     },
     list: {
         display: 'flex',
         flexDirection: 'column',
-        gap: '4px',
+        gap: '6px',
     },
     item: {
         fontSize: '14px',
-        fontWeight: 300,
-        color: theme.palette.mode === 'dark' ? 'white' : theme.palette.secondary.main,
+        lineHeight: 1.4,
+        fontWeight: 400,
+        color: theme.custom.textMuted,
         cursor: 'pointer',
         transition: 'color 0.2s',
         '&:hover': {
-            color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.7)' : theme.palette.primary.main,
+            color: theme.palette.primary.main,
         },
     },
     subtitlesList: {
         display: 'flex',
         flexDirection: 'column',
-        gap: '0px',
-        marginTop: '8px',
+        gap: '4px',
+        marginTop: '6px',
         marginLeft: '8px',
     },
     subItem: {
         display: 'flex',
-        alignItems: 'center',
+        textDecoration: 'none',
+        alignItems: 'baseline',
         gap: '8px',
-        fontSize: '14px',
-        fontWeight: 300,
-        color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 88, 148, 0.8)',
+        fontSize: '13px',
+        lineHeight: 1.4,
+        fontWeight: 400,
+        color: theme.custom.textSubtle,
         cursor: 'pointer',
         transition: 'color 0.2s',
         '&:hover': {
-            color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 88, 148)',
+            color: theme.palette.primary.main,
         },
     },
     bullet: {
-        fontSize: '16px',
+        fontSize: '14px',
         lineHeight: 1,
     },
 }));

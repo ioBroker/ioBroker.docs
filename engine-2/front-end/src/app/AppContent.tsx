@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 import { makeStyles } from '../theme';
 import { useRoutes } from './providers/router';
 import { Header, Footer } from '../components';
+import CookiesHint from '../components/CookiesHint/CookiesHint';
 import Divider from '../components/Divider/Divider';
 import { usePageScrollProgress } from '../hooks/usePageScrollProgress';
 import { useReducer } from 'react';
@@ -40,8 +41,10 @@ const AppContent = (): React.ReactNode => {
     const [, forceUpdate] = useReducer((x: number) => x + 1, 0);
     const location = useLocation();
 
-    const hideGlobalFooter = PAGES_WITH_INLINE_FOOTER.some(p => location.pathname === p)
-        || location.pathname.startsWith('/adapters/');
+    // sub pages count too: /docs/README.md and /adapters/alarm carry their own footer
+    const hideGlobalFooter = PAGES_WITH_INLINE_FOOTER.some(
+        p => location.pathname === p || location.pathname.startsWith(`${p}/`),
+    );
 
     return (
         <Box className={classes.root}>
@@ -50,6 +53,7 @@ const AppContent = (): React.ReactNode => {
                     selected=""
                     noSearch={false}
                     onLanguageUpdate={() => forceUpdate()}
+                    dark={location.pathname === '/'}
                 />
             </Box>
             <Box
@@ -67,6 +71,7 @@ const AppContent = (): React.ReactNode => {
                     <Footer />
                 </>
             )}
+            <CookiesHint />
         </Box>
     );
 };

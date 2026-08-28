@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { memo, useState } from 'react';
 import type { AdapterItem } from '../AdapterItem/AdapterItem';
-import { Box } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
 import { I18n } from '../../utils/i18n';
 import { useStyles } from './AdapterBlock.styles';
 import StackIcon from '../../assets/img/whiteStack.svg';
@@ -43,7 +43,7 @@ export const AdapterBlock = memo((props: { adapter: AdapterItem }): ReactNode =>
         String(props.adapter.version ?? '').length > 5 ||
         String(props.adapter.stars ?? '').length > 5 ||
         String(props.adapter.installs ?? '').length > 5
-            ? '11px'
+            ? '12px'
             : '14px';
     const handleNavigate = (): void => {
         if (slug) {
@@ -66,62 +66,39 @@ export const AdapterBlock = memo((props: { adapter: AdapterItem }): ReactNode =>
     };
     return (
         <Box className={classes.card}>
-            <Box className={classes.title}>
-                <Link
-                    to={`/adapters/${slug}`}
-                    className={classes.titleLink}
-                >
-                    {title}
-                </Link>
-            </Box>
-            <Box className={classes.topIcons}>
-                <Box
-                    className={classes.icon}
-                    onClick={handleNavigate}
-                >
-                    <img
-                        src={`https://www.iobroker.net/en/${props.adapter.icon}`}
-                        alt={title}
-                    />
-                </Box>
-                <Box className={classes.statsBlocks}>
-                    <Box className={classes.statsBlock}>
-                        <Box className={classes.statsIcon}>
-                            <img
-                                alt="Stack Icon"
-                                src={StackIcon}
-                            />
-                        </Box>
-                        <Box className={classes.statsNumber} sx={{ fontSize: statsFontSize }}>{props.adapter.version}</Box>
+            <Box className={classes.header}>
+                <Tooltip title={I18n.t('adapters.tooltip.open_adapter')}>
+                    <Box
+                        className={classes.icon}
+                        onClick={handleNavigate}
+                    >
+                        <img
+                            src={`https://www.iobroker.net/en/${props.adapter.icon}`}
+                            alt={title}
+                        />
                     </Box>
-                    <Box className={classes.statsBlock}>
-                        <Box className={classes.statsIcon}>
-                            <img
-                                alt="Star Icon"
-                                src={StarIcon}
-                            />
-                        </Box>
-                        <Box className={classes.statsNumber} sx={{ fontSize: statsFontSize }}>{props.adapter.stars}</Box>
+                </Tooltip>
+                <Box className={classes.headerText}>
+                    <Box className={classes.title}>
+                        <Link
+                            to={`/adapters/${slug}`}
+                            className={classes.titleLink}
+                        >
+                            {title}
+                        </Link>
                     </Box>
-                    <Box className={classes.statsBlock}>
-                        <Box className={classes.statsIcon}>
-                            <img
-                                alt="Download Icon"
-                                src={DownloadIcon}
-                            />
+                    <Tooltip title={I18n.t('adapters.tooltip.developer')}>
+                        <Box className={classes.authorBlock}>
+                            <Box className={classes.authorIcon}>
+                                <img
+                                    alt="Author Icon"
+                                    src={AuthorIcon}
+                                />
+                            </Box>
+                            <Box className={classes.authorName}>{stripEmails(props.adapter.authors || '')}</Box>
                         </Box>
-                        <Box className={classes.statsNumber} sx={{ fontSize: statsFontSize }}>{props.adapter.installs}</Box>
-                    </Box>
+                    </Tooltip>
                 </Box>
-            </Box>
-            <Box className={classes.authorBlock}>
-                <Box className={classes.authorIcon}>
-                    <img
-                        alt="Author Icon"
-                        src={AuthorIcon}
-                    />
-                </Box>
-                <Box className={classes.authorName}>{stripEmails(props.adapter.authors || '')}</Box>
             </Box>
             <Box
                 className={classes.description}
@@ -129,34 +106,91 @@ export const AdapterBlock = memo((props: { adapter: AdapterItem }): ReactNode =>
             >
                 {description}
             </Box>
+            <Box className={classes.statsBlocks}>
+                <Tooltip title={I18n.t('adapters.tooltip.version')}>
+                    <Box className={classes.statsBlock}>
+                        <Box className={classes.statsIcon}>
+                            <img
+                                alt="Stack Icon"
+                                src={StackIcon}
+                            />
+                        </Box>
+                        <Box
+                            className={classes.statsNumber}
+                            sx={{ fontSize: statsFontSize }}
+                        >
+                            {props.adapter.version}
+                        </Box>
+                    </Box>
+                </Tooltip>
+                <Tooltip title={I18n.t('adapters.tooltip.stars')}>
+                    <Box className={classes.statsBlock}>
+                        <Box className={classes.statsIcon}>
+                            <img
+                                alt="Star Icon"
+                                src={StarIcon}
+                            />
+                        </Box>
+                        <Box
+                            className={classes.statsNumber}
+                            sx={{ fontSize: statsFontSize }}
+                        >
+                            {props.adapter.stars}
+                        </Box>
+                    </Box>
+                </Tooltip>
+                <Tooltip title={I18n.t('adapters.tooltip.installs')}>
+                    <Box className={classes.statsBlock}>
+                        <Box className={classes.statsIcon}>
+                            <img
+                                alt="Download Icon"
+                                src={DownloadIcon}
+                            />
+                        </Box>
+                        <Box
+                            className={classes.statsNumber}
+                            sx={{ fontSize: statsFontSize }}
+                        >
+                            {props.adapter.installs}
+                        </Box>
+                    </Box>
+                </Tooltip>
+            </Box>
+            <Box className={classes.divider} />
             <Box className={classes.bottomIcons}>
-                <Box
-                    className={classes.bottomIcon}
-                    onClick={handleGitHubClick}
-                >
-                    <img
-                        alt="GitHub Icon"
-                        src={GitHubIcon}
-                    />
-                </Box>
-                <Box
-                    className={classes.bottomIcon}
-                    onClick={handleStatsClick}
-                >
-                    <img
-                        alt="Diagram Icon"
-                        src={DiagramIcon}
-                    />
-                </Box>
-                <Box
-                    className={classes.bottomIcon}
-                    onClick={handleBookClick}
-                >
-                    <img
-                        alt="Book Icon"
-                        src={BookIcon}
-                    />
-                </Box>
+                <Tooltip title={I18n.t('adapters.tooltip.github')}>
+                    <Box
+                        className={classes.bottomIcon}
+                        onClick={handleGitHubClick}
+                    >
+                        <img
+                            alt="GitHub Icon"
+                            src={GitHubIcon}
+                        />
+                    </Box>
+                </Tooltip>
+                <Tooltip title={I18n.t('adapters.tooltip.statistics')}>
+                    <Box
+                        className={classes.bottomIcon}
+                        onClick={handleStatsClick}
+                    >
+                        <img
+                            alt="Diagram Icon"
+                            src={DiagramIcon}
+                        />
+                    </Box>
+                </Tooltip>
+                <Tooltip title={I18n.t('adapters.tooltip.documentation')}>
+                    <Box
+                        className={classes.bottomIcon}
+                        onClick={handleBookClick}
+                    >
+                        <img
+                            alt="Book Icon"
+                            src={BookIcon}
+                        />
+                    </Box>
+                </Tooltip>
             </Box>
             <AdapterStatsModal
                 open={isStatsOpen}

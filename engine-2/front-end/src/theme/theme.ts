@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles';
+import type { ThemeOptions } from '@mui/material/styles';
 
 const secondary = '#005894';
 const primary = '#1D90CA';
@@ -176,6 +177,38 @@ const typography = (): Record<string, unknown> => ({
 });
 
 // Темная тема
+/** small, quiet label on the overlay surface - same in both themes */
+const tooltipComponents = (
+    surfaces: { overlay: string },
+    color: string,
+    shadow: string,
+): ThemeOptions['components'] => ({
+    MuiTooltip: {
+        defaultProps: {
+            arrow: true,
+            enterDelay: 350,
+            enterNextDelay: 150,
+        },
+        styleOverrides: {
+            tooltip: {
+                backgroundColor: surfaces.overlay,
+                color,
+                fontFamily: ['Roboto', 'Arial', 'sans-serif'].join(','),
+                fontSize: '13px',
+                lineHeight: 1.4,
+                fontWeight: 400,
+                padding: '6px 10px',
+                borderRadius: `${radius.chip}px`,
+                boxShadow: shadow,
+                maxWidth: '240px',
+            },
+            arrow: {
+                color: surfaces.overlay,
+            },
+        },
+    },
+});
+
 export const darkTheme = createTheme({
     palette: {
         mode: 'dark',
@@ -232,6 +265,11 @@ export const darkTheme = createTheme({
         control,
         layout,
     },
+    components: tooltipComponents(
+        darkSurfaces,
+        '#FFFFFF',
+        'inset 0 0 0 1px rgba(126, 195, 243, 0.18), 0 8px 20px -8px rgba(0, 0, 0, 0.8)',
+    ),
 });
 
 // Светлая тема
@@ -288,6 +326,11 @@ export const lightTheme = createTheme({
         control,
         layout,
     },
+    components: tooltipComponents(
+        lightSurfaces,
+        secondary,
+        '0 1px 2px rgba(0, 88, 148, 0.12), 0 8px 20px -8px rgba(0, 88, 148, 0.4)',
+    ),
 });
 
 export const theme = darkTheme;

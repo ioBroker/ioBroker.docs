@@ -10,6 +10,7 @@ import {
     Menu,
     ListItemIcon,
     ListItemText,
+    Tooltip,
 } from '@mui/material';
 import { Close } from '@mui/icons-material';
 
@@ -21,7 +22,7 @@ import LogoutIcon from '../icons/LogoutIcon';
 import { useHeaderStyles } from './Header.styles';
 import SearchDialog from '../SearchDialog/SearchDialog';
 import MenuModal, { type MenuItems, type MenuItemsSmall } from '../Menu/Menu';
-import { I18n, type Language } from '../../utils/i18n';
+import { I18n } from '../../utils/i18n';
 import { BLOG_LINK } from '../../config/api';
 
 export interface HeaderProps {
@@ -29,6 +30,8 @@ export interface HeaderProps {
     noSearch?: boolean;
     onLanguageUpdate?: () => void;
     forceTheme?: 'dark' | 'light';
+    /** keep the bar on the dark palette even in the light theme */
+    dark?: boolean;
     loggedIn?: string;
     backgroundOpacity?: boolean;
     location?: string;
@@ -38,12 +41,12 @@ function NoIcon(): React.JSX.Element | null {
     return null;
 }
 
-export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: HeaderProps): React.ReactNode => {
+export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }: HeaderProps): React.ReactNode => {
     const tt = (menuKey: string, fallbackKey: string): string => {
         const v = I18n.t(menuKey);
         return v === menuKey ? I18n.t(fallbackKey) : v;
     };
-    const { classes } = useHeaderStyles();
+    const { classes } = useHeaderStyles({ dark: !!dark });
     const navigate = useNavigate();
     const searchRef = useRef<HTMLInputElement | null>(null);
 
@@ -123,17 +126,19 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: Heade
 
             {!noSearch && (
                 <Box className={classes.searchBox}>
-                    <IconButton
-                        className={classes.iconButton}
-                        onClick={() => {
-                            setSearchOpened(!searchOpened);
-                            if (!searchOpened) {
-                                setTimeout(() => searchRef.current?.focus(), 100);
-                            }
-                        }}
-                    >
-                        <SearchIcon />
-                    </IconButton>
+                    <Tooltip title={I18n.t('tooltip.search')}>
+                        <IconButton
+                            className={classes.iconButton}
+                            onClick={() => {
+                                setSearchOpened(!searchOpened);
+                                if (!searchOpened) {
+                                    setTimeout(() => searchRef.current?.focus(), 100);
+                                }
+                            }}
+                        >
+                            <SearchIcon />
+                        </IconButton>
+                    </Tooltip>
                     <Input
                         inputRef={searchRef}
                         placeholder={tt('menu-search', 'Search')}
@@ -171,7 +176,7 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: Heade
                     value={language}
                     IconComponent={NoIcon}
                     onChange={e => {
-                        I18n.setLanguage(e.target.value as Language);
+                        I18n.setLanguage(e.target.value);
                         onLanguageUpdate?.();
                     }}
                 >
@@ -228,28 +233,32 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn }: Heade
                     {tt('menu-licenses', 'Licenses')}
                 </Box>
 
-                {loggedIn ? (
-                    <IconButton
-                        className={`${classes.iconButton} ${selected === 'profile' ? classes.linkSelected : ''}`}
-                        onClick={e => setShowProfileMenu(e.currentTarget as HTMLElement)}
-                    >
-                        <PersonIcon />
-                    </IconButton>
-                ) : (
+                <Tooltip title={I18n.t('tooltip.profile')}>
+                    {loggedIn ? (
+                        <IconButton
+                            className={`${classes.iconButton} ${selected === 'profile' ? classes.linkSelected : ''}`}
+                            onClick={e => setShowProfileMenu(e.currentTarget)}
+                        >
+                            <PersonIcon />
+                        </IconButton>
+                    ) : (
+                        <IconButton
+                            className={classes.iconButton}
+                            onClick={() => navigate('/profile')}
+                        >
+                            <PersonIcon />
+                        </IconButton>
+                    )}
+                </Tooltip>
+
+                <Tooltip title={I18n.t('tooltip.menu')}>
                     <IconButton
                         className={classes.iconButton}
-                        onClick={() => navigate('/profile')}
+                        onClick={() => setMenuOpen(true)}
                     >
-                        <PersonIcon />
+                        <MenuIcon />
                     </IconButton>
-                )}
-
-                <IconButton
-                    className={classes.iconButton}
-                    onClick={() => setMenuOpen(true)}
-                >
-                    <MenuIcon />
-                </IconButton>
+                </Tooltip>
             </Box>
         </Box>
     );

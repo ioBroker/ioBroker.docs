@@ -1,6 +1,7 @@
-import { Box, ToggleButton, ToggleButtonGroup, type BoxProps } from '@mui/material';
+import { Box, ToggleButton, ToggleButtonGroup, Tooltip, type BoxProps } from '@mui/material';
 import ArrowUpIcon from '../../assets/img/docsIcons/whiteArrowUp.svg';
 import ArrowDownIcon from '../../assets/img/docsIcons/whiteArrowDown.svg';
+import { I18n } from '../../utils/i18n';
 import { useStyles } from './MenuArrowsToggle.styles';
 import { useState } from 'react';
 
@@ -49,19 +50,23 @@ export const MenuArrowsToggle = ({
                     value="expand"
                     onClick={handleExpandAll}
                 >
-                    <img
-                        alt="ArrowDownIcon"
-                        src={ArrowDownIcon}
-                    />
+                    <Tooltip title={I18n.t('docs.tooltip.expand_all')}>
+                        <img
+                            alt="ArrowDownIcon"
+                            src={ArrowDownIcon}
+                        />
+                    </Tooltip>
                 </ToggleButton>
                 <ToggleButton
                     value="collapse"
                     onClick={handleCollapseAll}
                 >
-                    <img
-                        alt="ArrowUpIcon"
-                        src={ArrowUpIcon}
-                    />
+                    <Tooltip title={I18n.t('docs.tooltip.collapse_all')}>
+                        <img
+                            alt="ArrowUpIcon"
+                            src={ArrowUpIcon}
+                        />
+                    </Tooltip>
                 </ToggleButton>
             </ToggleButtonGroup>
         </Box>

@@ -22,7 +22,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     itemTitle: {
-        color: theme.palette.primary.contrastText,
+        color: theme.palette.text.primary,
         fontSize: '24px',
         fontWeight: '400',
         fontFamily: 'Audiowide, sans-serif',
@@ -38,10 +38,9 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     itemDescription: {
-        color: theme.palette.primary.contrastText,
+        color: theme.custom.textMuted,
         fontSize: '18px',
         fontWeight: 400,
-        letterSpacing: '-0.03em',
         lineHeight: '150%',
         [theme.breakpoints.down('md')]: {
             fontSize: '18px',
@@ -49,7 +48,6 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('sm')]: {
             fontSize: '16px',
         },
-        opacity: 0.7,
         paddingRight: '16px',
     },
     buttonWrapper: {

@@ -1,9 +1,9 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, useMediaQuery, useTheme } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Box, useMediaQuery } from '@mui/material';
 import type React from 'react';
 import { useEffect, useMemo, useState, type Dispatch, type SetStateAction } from 'react';
 import type { Docs } from '../DocsItem/DocsItem';
 import { useDocsMenuStyles } from './DocsMenu.styles';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import openedFolder from '../../assets/img/docsIcons/opened_folder.svg';
 import closedFolder from '../../assets/img/docsIcons/closed_folder.svg';
 import blueFolder from '../../assets/img/docsIcons/blueFolder.svg';
@@ -35,7 +35,7 @@ export const DocsMenu = ({
     search = '',
 }: DocsMenuProps): React.ReactNode => {
     const { classes } = useDocsMenuStyles();
-    const theme = useTheme();
+    const { pathname } = useLocation();
     const isMobile = useMediaQuery('(max-width:768px)');
     const [language, setLanguage] = useState(I18n.getLanguage());
     useEffect(() => I18n.subscribe(setLanguage), []);
@@ -121,11 +121,7 @@ export const DocsMenu = ({
                         onChange={() => handleSectionToggle(fullKey)}
                         classes={{ root: classes.mainLevel }}
                     >
-                        <AccordionSummary
-                            sx={{
-                                backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
-                            }}
-                        >
+                        <AccordionSummary>
                             <Box className={classes.sectionTitle}>
                                 <Box className={classes.sectionIcon}>
                                     <img
@@ -144,10 +140,7 @@ export const DocsMenu = ({
                         </AccordionSummary>
                         <AccordionDetails
                             className={classes.childrenLevel}
-                            sx={{
-                                backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
-                                paddingLeft: getChildrenPaddingLeft(level),
-                            }}
+                            sx={{ paddingLeft: getChildrenPaddingLeft(level) }}
                         >
                             {renderPages(page.pages!, level + 1, fullKey)}
                         </AccordionDetails>
@@ -155,13 +148,24 @@ export const DocsMenu = ({
                 );
             }
 
+            const target = `/docs/${page.content ?? ''}`;
+            const isCurrent = decodeURIComponent(pathname) === target;
+
             return (
-                <Box key={fullKey}>
-                    <Link to={`/docs/${page.content ?? ''}`}>{page.title[language] ?? page.title.en ?? key}</Link>
+                <Box
+                    key={fullKey}
+                    className={`${classes.leaf} ${isCurrent ? classes.activeLink : ''}`}
+                >
+                    <Link to={target}>{page.title[language] ?? page.title.en ?? key}</Link>
                 </Box>
             );
         });
     };
+
+    const rootContent = firstKeyOriginal ? (data.pages[firstKeyOriginal].content ?? '') : '';
+    const rootTarget = `/docs/${rootContent}`;
+    const currentPath = decodeURIComponent(pathname).replace(/\/$/, '');
+    const isRootCurrent = currentPath === rootTarget.replace(/\/$/, '') || currentPath === '/docs';
 
     const headerTitle = firstKeyOriginal
         ? (data.pages[firstKeyOriginal].title[language] ?? data.pages[firstKeyOriginal].title.en ?? firstKeyOriginal)
@@ -187,18 +191,14 @@ export const DocsMenu = ({
                 </Box>
             )}
             <Box className={classes.menuInner}>
-                <Box className={classes.header}>
+                <Box className={`${classes.header} ${isRootCurrent ? classes.headerActive : ''}`}>
                     <Box className={classes.headerIcon}>
                         <img
                             src={blueFolder}
                             alt="Documentation"
                         />
                     </Box>
-                    {firstKeyOriginal ? (
-                        <Link to={`/docs/${data.pages[firstKeyOriginal].content ?? ''}`}>{headerTitle}</Link>
-                    ) : (
-                        headerTitle
-                    )}
+                    {firstKeyOriginal ? <Link to={rootTarget}>{headerTitle}</Link> : headerTitle}
                 </Box>
 
                 {renderPages(filteredPages, 0, '')}

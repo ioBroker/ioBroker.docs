@@ -30,10 +30,36 @@
         "version": "Version",
         "developer": "Developer",
         "first_release": "First Release",
-        "current_release": "Current Release"
+        "current_release": "Current Release",
+        "tooltip": {
+            "version": "Current version",
+            "stars": "Stars on GitHub",
+            "installs": "Installations",
+            "downloads": "Downloads per week",
+            "developer": "Developer",
+            "github": "Open on GitHub",
+            "statistics": "Show installation statistics",
+            "documentation": "Open documentation",
+            "open_adapter": "Open adapter",
+            "view_grid": "Card view",
+            "view_table": "List view",
+            "menu_expand": "Show menu",
+            "menu_collapse": "Hide menu"
+        }
     },
     "Support us": "Support us",
     "Support us (mobile)": "Support us:",
+    "cookies": {
+        "title": "Cookie time!",
+        "text": "Our website uses cookies – not the ones with chocolate, but the ones with data. They keep everything running smoothly, save you from clicking twice and help us understand a little better what you like (or don't).",
+        "customize": "Customise cookies",
+        "required": "Necessary cookies",
+        "marketing": "Marketing cookies",
+        "statistics": "Statistics cookies",
+        "saveSelection": "Save selection",
+        "acceptRequired": "Accept only necessary",
+        "acceptAll": "Accept all"
+    },
     "blog": {
         "backToOverview": "Back to overview",
         "editOnGithub": "Edit on GitHub",
@@ -51,6 +77,14 @@
             "announcement": "Announcement",
             "news": "News",
             "review": "Review"
+        }
+    },
+    "docs": {
+        "tooltip": {
+            "expand_all": "Expand all sections",
+            "collapse_all": "Collapse all sections",
+            "toc_collapse": "Collapse table of contents",
+            "toc_expand": "Expand table of contents"
         }
     },
     "header": {
@@ -200,6 +234,10 @@
             "title": "WINDOWS"
         }
     },
+    "legal": {
+        "loadError": "The text could not be loaded.",
+        "lastChanged": "Last changed: %s"
+    },
     "languages.de": "DE",
     "languages.en": "EN",
     "languages.ru": "RU",
@@ -237,5 +275,22 @@
     "support.paypal.button": "DONATE NOW",
     "support.paypal.text": "Whether a small amount or a big boost – every donation goes directly into the further development of ioBroker.",
     "support.subtitle": "ioBroker is free – and it should stay that way!",
-    "support.title": "SUPPORT US!"
+    "support.title": "SUPPORT US!",
+    "tooltip": {
+        "search": "Search",
+        "profile": "Profile",
+        "menu": "Menu",
+        "close": "Close",
+        "theme_light": "Switch to light theme",
+        "theme_dark": "Switch to dark theme",
+        "github": "ioBroker on GitHub",
+        "github_community": "Community adapters on GitHub",
+        "facebook_page": "ioBroker on Facebook",
+        "facebook_group": "Facebook group",
+        "discord": "Discord server",
+        "instagram": "ioBroker on Instagram",
+        "forum": "ioBroker forum",
+        "paypal": "Donate via PayPal",
+        "amazon": "Shop via our Amazon link"
+    }
 }

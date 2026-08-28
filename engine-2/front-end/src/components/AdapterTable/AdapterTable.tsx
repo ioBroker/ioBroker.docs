@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo } from 'react';
 import type { AdapterItem, Lang } from '../AdapterItem/AdapterItem';
-import { Box, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { Box, Table, TableBody, TableCell, TableHead, TableRow, Tooltip } from '@mui/material';
 import { I18n } from '../../utils/i18n';
 import { Link } from 'react-router-dom';
 import { useStyles } from './AdapterTable.styles';
@@ -90,28 +90,34 @@ export const AdapterTable = memo((props: { adapters: AdapterItem[] }): React.Rea
                         <TableCell className={classes.descriptionCell}>Beschreibung</TableCell>
                         <TableCell className={classes.authorCell}>Entwickler</TableCell>
                         <TableCell className={classes.statsCell}>
-                            <Box className={classes.headerIcon}>
-                                <img
-                                    src={DownloadIcon}
-                                    alt="Downloads"
-                                />
-                            </Box>
+                            <Tooltip title={I18n.t('adapters.tooltip.installs')}>
+                                <Box className={classes.headerIcon}>
+                                    <img
+                                        src={DownloadIcon}
+                                        alt="Downloads"
+                                    />
+                                </Box>
+                            </Tooltip>
                         </TableCell>
                         <TableCell className={classes.statsCell}>
-                            <Box className={classes.headerIcon}>
-                                <img
-                                    src={StackIcon}
-                                    alt="Version"
-                                />
-                            </Box>
+                            <Tooltip title={I18n.t('adapters.tooltip.version')}>
+                                <Box className={classes.headerIcon}>
+                                    <img
+                                        src={StackIcon}
+                                        alt="Version"
+                                    />
+                                </Box>
+                            </Tooltip>
                         </TableCell>
                         <TableCell className={`${classes.statsCell} ${classes.lastCell}`}>
-                            <Box className={classes.headerIcon}>
-                                <img
-                                    src={StarIcon}
-                                    alt="Stars"
-                                />
-                            </Box>
+                            <Tooltip title={I18n.t('adapters.tooltip.stars')}>
+                                <Box className={classes.headerIcon}>
+                                    <img
+                                        src={StarIcon}
+                                        alt="Stars"
+                                    />
+                                </Box>
+                            </Tooltip>
                         </TableCell>
                     </TableRow>
                 </TableHead>

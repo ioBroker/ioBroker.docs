@@ -7,6 +7,7 @@ import AmazonWhiteIcon from '../../assets/img/amazonWhite.svg';
 import PayPalBlueIcon from '../../assets/img/PayPal-visa-mastercardB.svg';
 import AmazonBlueIcon from '../../assets/img/amazonBlue.svg';
 import { I18n } from '../../utils/i18n';
+import { EXTERNAL_LINKS } from '../../config/links';
 
 interface SupportModalProps {
     open: boolean;
@@ -69,7 +70,7 @@ export const SupportModal: React.FC<SupportModalProps> = ({ open, onClose }) => 
 
                         <CustomButton
                             className={classes.button}
-                            href="https://www.paypal.com/donate"
+                            href={EXTERNAL_LINKS.PAYPAL_DONATE}
                             target="_blank"
                             variant="primary"
                         >
@@ -90,7 +91,7 @@ export const SupportModal: React.FC<SupportModalProps> = ({ open, onClose }) => 
 
                         <CustomButton
                             className={classes.button}
-                            href="https://www.amazon.de"
+                            href={EXTERNAL_LINKS.AMAZON}
                             target="_blank"
                             variant="primary"
                         >

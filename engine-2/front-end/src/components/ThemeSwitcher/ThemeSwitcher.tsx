@@ -1,6 +1,7 @@
-import { Box } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
 import React from 'react';
 import { useThemeMode } from '../../theme';
+import { I18n } from '../../utils/i18n';
 
 function LightIcon(): React.JSX.Element {
     return (
@@ -47,32 +48,34 @@ export function ThemeSwitcher(): React.JSX.Element {
     const { mode, toggleTheme } = useThemeMode();
 
     return (
-        <Box
-            sx={theme => ({
-                cursor: 'pointer',
-                // same hit area as the header icon buttons, glyph 20 px
-                width: theme.custom.control.compactHeight,
-                height: theme.custom.control.compactHeight,
-                // 24 px glyph - the thin sun/moon strokes need a bit more room
-                // than the solid cross next to it
-                padding: '6px',
-                boxSizing: 'border-box',
-                borderRadius: `${theme.custom.radius.control}px`,
-                color: theme.custom.textMuted,
-                transition: 'background-color 0.2s ease, color 0.2s ease',
-                '&:hover': {
-                    backgroundColor: theme.custom.surfaces.raised,
-                    color: theme.palette.text.primary,
-                },
-                '@media (max-width: 800px)': {
-                    width: 32,
-                    height: 32,
-                    padding: '5px',
-                },
-            })}
-            onClick={toggleTheme}
-        >
-            {mode === 'dark' ? <DarkIcon /> : <LightIcon />}
-        </Box>
+        <Tooltip title={I18n.t(mode === 'dark' ? 'tooltip.theme_light' : 'tooltip.theme_dark')}>
+            <Box
+                sx={theme => ({
+                    cursor: 'pointer',
+                    // same hit area as the header icon buttons, glyph 20 px
+                    width: theme.custom.control.compactHeight,
+                    height: theme.custom.control.compactHeight,
+                    // 24 px glyph - the thin sun/moon strokes need a bit more room
+                    // than the solid cross next to it
+                    padding: '6px',
+                    boxSizing: 'border-box',
+                    borderRadius: `${theme.custom.radius.control}px`,
+                    color: theme.custom.textMuted,
+                    transition: 'background-color 0.2s ease, color 0.2s ease',
+                    '&:hover': {
+                        backgroundColor: theme.custom.surfaces.raised,
+                        color: theme.palette.text.primary,
+                    },
+                    '@media (max-width: 800px)': {
+                        width: 32,
+                        height: 32,
+                        padding: '5px',
+                    },
+                })}
+                onClick={toggleTheme}
+            >
+                {mode === 'dark' ? <DarkIcon /> : <LightIcon />}
+            </Box>
+        </Tooltip>
     );
 }

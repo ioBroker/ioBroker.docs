@@ -1,4 +1,5 @@
-import { Box, useMediaQuery } from '@mui/material';
+import { Box, ClickAwayListener, Tooltip, useMediaQuery } from '@mui/material';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { I18n } from '../../utils/i18n';
 import { DocsMenu } from '../../components/DocsMenu/DocsMenu';
@@ -17,23 +18,26 @@ import { useDocsMarkdown } from '../../api/hooks/useDocsMarkdown';
 import { API_CONFIG } from '../../config/api';
 import { MarkdownView } from '../../components/MarkdownView/MarkdownView';
 import { buildTocItems, makeSlug } from '../../utils/markdown';
+import { getAnchorFromHash } from '../../utils/anchor';
 import { normalizeImageTags } from '../../components/MarkdownView/markdownViewUtils';
 
 const DocsPage = (): React.ReactNode => {
     const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
+    const [isTocOpen, setIsTocOpen] = useState(false);
+    const tocButtonRef = useRef<HTMLButtonElement>(null);
     const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
     const [isAllExpanded, setIsAllExpanded] = useState(false);
     const [expandAllSignal, setExpandAllSignal] = useState(0);
     const [collapseAllSignal, setCollapseAllSignal] = useState(0);
-    const isTablet = useMediaQuery('(max-width:1181px)');
     const isMobile = useMediaQuery('(max-width:768px)');
-    const isMini = useMediaQuery('(max-width:480px)');
     const [search, setSearch] = useState('');
     const mainBlockRef = useRef<HTMLDivElement>(null);
     const [scrollProgress, setScrollProgress] = useState(0);
     const handleMainBlockScroll = useCallback(() => {
         const el = mainBlockRef.current;
-        if (!el) return;
+        if (!el) {
+            return;
+        }
         const scrollHeight = el.scrollHeight - el.clientHeight;
         const percent = scrollHeight > 0 ? Math.round((el.scrollTop / scrollHeight) * 100) : 0;
         setScrollProgress(Math.min(100, Math.max(0, percent)));
@@ -55,6 +59,16 @@ const DocsPage = (): React.ReactNode => {
             setIsMenuCollapsed(true);
         }
     }, [isMobile]);
+
+    // a different document starts at its beginning - without this the column keeps
+    // the scroll position of the previous page and you land in its footer
+    useEffect(() => {
+        if (getAnchorFromHash()) {
+            return;
+        }
+        mainBlockRef.current?.scrollTo({ top: 0 });
+        setScrollProgress(0);
+    }, [docPath]);
 
     const tableOfContentsItems = useMemo(() => {
         if (!markdown) {
@@ -92,6 +106,30 @@ const DocsPage = (): React.ReactNode => {
         return map;
     }, [tableOfContentsItems]);
 
+    const markdownClassNames = useMemo(
+        () => ({
+            head: classes.head,
+            heading: classes.heading,
+            paragraph: classes.paragraph,
+            list: classes.list,
+            listItem: classes.listItem,
+            image: classes.image,
+            linkIcon: classes.linkIcon,
+            table: classes.table,
+            tableHead: classes.tableHead,
+            tableRow: classes.tableRow,
+            tableHeaderCell: classes.tableHeaderCell,
+            tableCell: classes.tableCell,
+            codeBlockContainer: classes.codeBlockContainer,
+            codeBlockContent: classes.codeBlockContent,
+            inlineCode: classes.inlineCode,
+            blockquote: classes.blockquote,
+        }),
+        [classes],
+    );
+
+    const toggleToc = (): void => setIsTocOpen(previous => !previous);
+
     const expandAllSections = (): void => {
         setIsAllExpanded(true);
         setExpandAllSignal(v => v + 1);
@@ -105,10 +143,8 @@ const DocsPage = (): React.ReactNode => {
         <Box className={classes.pageRoot}>
             <SectionTitle
                 sx={{
-                    marginTop: '30px',
-                    marginLeft: '31px',
-                    letterSpacing: '-0.03em !important',
-                    fontSize: isMini ? '20px !important' : isMobile ? '28px !important' : '36px',
+                    marginLeft: { xs: '16px', sm: '24px', lg: '32px' },
+                    marginBottom: '20px',
                     flexShrink: 0,
                 }}
             >
@@ -128,27 +164,15 @@ const DocsPage = (): React.ReactNode => {
                         />
                     </Box>
                 )}
-                <Box
-                    className={classes.root}
-                    data-docs-scroll="true"
-                >
+                <Box className={classes.root}>
                     <Box className={classes.menuBlock}>
                         <Box className={classes.menuToggleContainer}>
                             <MenuToggle
-                                sx={{
-                                    width: isMini ? '55px !important' : isMobile ? '70px !important' : '55px',
-                                    height: isMini ? '32px !important' : isMobile ? '40px !important' : '32px',
-                                    '& img': {
-                                        width: isMini ? '15px !important' : isMobile ? '18px' : '15px',
-                                        height: isMini ? '7px !important' : isMobile ? '10px' : '7px',
-                                    },
-                                }}
-                                buttonSx={{ minWidth: isMini ? '27px !important' : isMobile ? '35px !important' : '27px' }}
                                 value={menuMode}
                                 onChange={setMenuMode}
                                 onCollapse={setIsMenuCollapsed}
                             />
-                            {!isMobile && (
+                            {!isMobile && !isMenuCollapsed && (
                                 <MenuArrowsToggle
                                     value={isAllExpanded ? 'expand' : 'collapse'}
                                     onExpandAll={expandAllSections}
@@ -156,61 +180,89 @@ const DocsPage = (): React.ReactNode => {
                                 />
                             )}
                         </Box>
-                        <DocsMenu
-                            expandAllSignal={expandAllSignal}
-                            collapseAllSignal={collapseAllSignal}
-                            onAllExpandedChange={setIsAllExpanded}
-                            onExpandAll={expandAllSections}
-                            onCollapseAll={collapseAllSections}
-                            search={search}
-                        />
+                        {!isMenuCollapsed && (
+                            <DocsMenu
+                                expandAllSignal={expandAllSignal}
+                                collapseAllSignal={collapseAllSignal}
+                                onAllExpandedChange={setIsAllExpanded}
+                                onExpandAll={expandAllSections}
+                                onCollapseAll={collapseAllSections}
+                                search={search}
+                            />
+                        )}
                     </Box>
-                    <Box className={classes.mainBlock} ref={mainBlockRef} onScroll={handleMainBlockScroll}>
+                    <Box className={classes.rightColumn}>
                         <Box className={classes.topBar}>
                             <TopBarSearch
                                 isFluid={isMobile}
-                                sx={{
-                                    '& .MuiOutlinedInput-root': {
-                                        height: isMini ? '32px !important' : isMobile ? '40px !important' : '32px',
-                                    },
-                                }}
                                 value={search}
                                 onChange={setSearch}
                             />
+                            {!isMobile && tableOfContentsItems.length > 0 && (
+                                <ClickAwayListener
+                                    onClickAway={event => {
+                                        if (tocButtonRef.current?.contains(event.target as Node)) {
+                                            return;
+                                        }
+                                        setIsTocOpen(false);
+                                    }}
+                                >
+                                    <Box className={classes.tocAnchor}>
+                                        <Tooltip
+                                            title={I18n.t(
+                                                isTocOpen ? 'docs.tooltip.toc_collapse' : 'docs.tooltip.toc_expand',
+                                            )}
+                                        >
+                                            <Box
+                                                component="button"
+                                                type="button"
+                                                ref={tocButtonRef}
+                                                className={`${classes.tocToggle} ${isTocOpen ? classes.tocToggleOpen : ''}`}
+                                                onClick={toggleToc}
+                                                aria-expanded={isTocOpen}
+                                            >
+                                                <Box component="span">{I18n.t('home.docs.tableOfContents')}</Box>
+                                                <KeyboardArrowDownIcon
+                                                    className={`${classes.tocChevron} ${isTocOpen ? classes.tocChevronOpen : ''}`}
+                                                />
+                                            </Box>
+                                        </Tooltip>
+                                        {isTocOpen && (
+                                            <Box className={classes.tocDropdown}>
+                                                <DocsTableOfContents
+                                                    items={tableOfContentsItems}
+                                                    onSelect={() => setIsTocOpen(false)}
+                                                />
+                                            </Box>
+                                        )}
+                                    </Box>
+                                </ClickAwayListener>
+                            )}
                         </Box>
-                        <Box className={classes.content}>
-                            <MarkdownView
-                                markdown={markdown}
-                                baseUrl={markdownBaseUrl}
-                                origin={baseOrigin}
-                                headingIds={headingIds}
-                                headingIdMap={headingIdMap}
-                                classNames={{
-                                    head: classes.head,
-                                    heading: classes.heading,
-                                    paragraph: classes.paragraph,
-                                    list: classes.list,
-                                    listItem: classes.listItem,
-                                    image: classes.image,
-                                    linkIcon: classes.linkIcon,
-                                    table: classes.table,
-                                    tableHead: classes.tableHead,
-                                    tableRow: classes.tableRow,
-                                    tableHeaderCell: classes.tableHeaderCell,
-                                    tableCell: classes.tableCell,
-                                    codeBlockContainer: classes.codeBlockContainer,
-                                    codeBlockContent: classes.codeBlockContent,
-                                    inlineCode: classes.inlineCode,
-                                    blockquote: classes.blockquote,
-                                }}
-                                linkImage={linkImage}
+                        <Box
+                            className={classes.mainBlock}
+                            ref={mainBlockRef}
+                            onScroll={handleMainBlockScroll}
+                            data-docs-scroll="true"
+                        >
+                            <Box className={classes.content}>
+                                <MarkdownView
+                                    markdown={markdown}
+                                    baseUrl={markdownBaseUrl}
+                                    origin={baseOrigin}
+                                    headingIds={headingIds}
+                                    headingIdMap={headingIdMap}
+                                    classNames={markdownClassNames}
+                                    linkImage={linkImage}
+                                />
+                            </Box>
+                            <Divider
+                                position={scrollProgress}
+                                parentWidth={mainBlockRef.current?.clientWidth || window.innerWidth}
                             />
+                            <Footer />
                         </Box>
-                        <Divider position={scrollProgress} parentWidth={mainBlockRef.current?.clientWidth || window.innerWidth} />
-                        <Footer />
                     </Box>
-
-                    {!isTablet && <DocsTableOfContents items={tableOfContentsItems} />}
                 </Box>
             </Box>
         </Box>

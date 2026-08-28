@@ -1,172 +1,265 @@
 import { makeStyles } from '../../theme';
 
-export const useDocsMenuStyles = makeStyles()(theme => ({
-    container: {
-        paddingRight: '12px',
-        backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
-        [theme.breakpoints.down(769)]: {
-            borderRadius: '12px',
-            border: `2px solid ${theme.palette.primary.main}`,
-            padding: '16px 16px',
-        },
-    },
-    menuInner: {
-        maxHeight: 'calc(100vh - 125px)',
-        maxWidth: '300px',
-        overflowY: 'scroll',
-        overflowX: 'hidden',
-        paddingRight: '16px',
-        backgroundColor: theme.palette.mode === 'dark' ? '#080B1C' : '#FFFFFF',
-        '&::-webkit-scrollbar': {
-            width: '8px',
-        },
-        '&::-webkit-scrollbar-track': {
-            background: 'rgba(255, 255, 255, 0.05)',
-            borderRadius: '8px',
-            border: `1px solid ${theme.palette.primary.main}`,
-        },
-        '&::-webkit-scrollbar-thumb': {
-            background: theme.palette.secondary.main,
-            borderRadius: '20px',
-            borderLeft: '0px solid transparent',
-            borderRight: '0px solid transparent',
-            backgroundClip: 'padding-box',
-        },
-        '&::-webkit-scrollbar-thumb:hover': {
-            background: theme.palette.secondary.main,
-            borderLeft: '0px solid transparent',
-            borderRight: '0px solid transparent',
-            backgroundClip: 'padding-box',
-        },
-        [theme.breakpoints.down(769)]: {
-            maxHeight: '100%',
-            maxWidth: '360px',
-            overflowY: 'hidden',
-            paddingRight: '0px',
-        },
-    },
-    menuTopBar: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        '& img': {
-            filter:
-                theme.palette.mode === 'light'
-                    ? 'brightness(0) saturate(100%) invert(21%) sepia(96%) saturate(1992%) hue-rotate(190deg) brightness(95%) contrast(91%)'
-                    : 'none',
-        },
-    },
-    header: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-        padding: '10px 0px 0px 0px',
-        color: theme.palette.primary.main,
-        fontSize: '18px',
-        fontFamily: "'Roboto', sans-serif",
-        fontWeight: 500,
-    },
-    headerIcon: {
-        width: '24px',
-        height: '24px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    mainLevel: {
-        fontSize: 18,
-        borderWidth: 0,
-        boxShadow: 'none',
-        backgroundColor: 'transparent',
-        '&:before': {
+const LIGHT_ICON_FILTER =
+    'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)';
+
+export const useDocsMenuStyles = makeStyles()(theme => {
+    const isDark = theme.palette.mode === 'dark';
+
+    return {
+        container: {
+            paddingRight: '12px',
             backgroundColor: 'transparent',
-        },
-        '& .MuiAccordionSummary-root': {
-            padding: '10px 0px',
-            minHeight: 'auto',
-            '&.Mui-expanded': {
-                minHeight: 'auto',
+            // fills the column below the fixed tool row, the list inside scrolls
+            flex: 1,
+            minHeight: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            // on small screens the menu is an overlay panel - there it becomes a surface
+            [theme.breakpoints.down(769)]: {
+                borderRadius: `${theme.custom.radius.card}px`,
+                backgroundColor: theme.custom.surfaces.surface,
+                boxShadow: theme.custom.elevation.overlay,
+                padding: '16px',
             },
         },
-        '& .MuiAccordionSummary-content': {
-            margin: 0,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            '&.Mui-expanded': {
-                margin: 0,
+        menuInner: {
+            flex: 1,
+            minHeight: 0,
+            maxWidth: '300px',
+            overflowY: 'auto',
+            overflowX: 'hidden',
+            paddingRight: '12px',
+            backgroundColor: 'transparent',
+            '&::-webkit-scrollbar': {
+                width: '8px',
+            },
+            '&::-webkit-scrollbar-track': {
+                background: 'transparent',
+            },
+            '&::-webkit-scrollbar-thumb': {
+                background: theme.custom.hairlineStrong,
+                borderRadius: `${theme.custom.radius.pill}px`,
+            },
+            '&::-webkit-scrollbar-thumb:hover': {
+                background: theme.palette.primary.main,
+            },
+            [theme.breakpoints.down(769)]: {
+                maxHeight: '100%',
+                maxWidth: '360px',
+                overflowY: 'hidden',
+                paddingRight: '0px',
             },
         },
-        '& .MuiAccordionSummary-expandIconWrapper': {
-            display: 'none',
+        menuTopBar: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '12px',
+            '& img': {
+                filter: isDark ? 'none' : LIGHT_ICON_FILTER,
+            },
         },
-    },
-    sectionTitle: {
-        display: 'flex',
-        alignItems: 'center',
-        width: '272px',
-        gap: '8px',
-        color: theme.palette.mode === 'dark' ? 'white' : theme.palette.secondary.main,
-        fontSize: '18px',
-        fontFamily: "'Roboto', sans-serif",
-        fontWeight: 300,
-        cursor: 'pointer',
-        [theme.breakpoints.down(769)]: {
-            width: '318px',
-        },
-        [theme.breakpoints.down(481)]: {
-            width: 'calc(100%)',
-        },
-    },
-    sectionIcon: {
-        width: '24px',
-        height: '24px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        '& img': {
-            filter:
-                theme.palette.mode !== 'dark'
-                    ? 'brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1247%) hue-rotate(175deg) brightness(95%) contrast(101%)'
-                    : 'none',
-        },
-    },
-    arrowIcon: {
-        width: '16px',
-        height: '16px',
-        marginLeft: 'auto',
-        textAlign: 'center',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    childrenLevel: {
-        paddingLeft: 32,
-        fontSize: 16,
-        fontWeight: 300,
-        paddingTop: 0,
-        paddingBottom: 0,
-        '& a': {
+        // the documentation root sits above the tree, a little heavier - but it is
+        // only coloured when it is the page you are actually on
+        header: {
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
-            padding: 0,
-            color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.7)' : theme.palette.secondary.main,
-            textDecoration: 'none',
+            gap: '10px',
+            padding: '8px 12px',
+            marginBottom: '4px',
+            borderRadius: `${theme.custom.radius.control}px`,
+            color: theme.palette.text.primary,
             fontSize: '16px',
             fontFamily: "'Roboto', sans-serif",
-            fontWeight: 300,
-            '&::before': {
-                content: '""',
-                width: '6px',
-                height: '6px',
-                borderRadius: '50%',
-                backgroundColor: 'currentColor',
-                flexShrink: 0,
+            fontWeight: 700,
+            '& a': {
+                color: 'inherit',
+                textDecoration: 'none',
             },
             '&:hover': {
-                color: theme.palette.primary.main,
+                background: theme.custom.surfaces.surface,
             },
         },
-    },
-}));
+        headerActive: {
+            color: theme.palette.primary.main,
+            background: theme.custom.surfaces.raised,
+            '&:hover': {
+                background: theme.custom.surfaces.raised,
+            },
+        },
+        headerIcon: {
+            width: '22px',
+            height: '22px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+        },
+        mainLevel: {
+            fontSize: 16,
+            borderWidth: 0,
+            boxShadow: 'none',
+            backgroundColor: 'transparent',
+            backgroundImage: 'none',
+            '&:before': {
+                backgroundColor: 'transparent',
+            },
+            '& .MuiAccordionSummary-root': {
+                padding: '0px',
+                minHeight: 'auto',
+                borderRadius: `${theme.custom.radius.control}px`,
+                transition: 'background 0.2s ease',
+                '&:hover': {
+                    background: theme.custom.surfaces.surface,
+                },
+                '&.Mui-expanded': {
+                    minHeight: 'auto',
+                },
+            },
+            '& .MuiAccordionSummary-content': {
+                margin: 0,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                '&.Mui-expanded': {
+                    margin: 0,
+                },
+            },
+            '& .MuiAccordionSummary-expandIconWrapper': {
+                display: 'none',
+            },
+            '& .MuiAccordionDetails-root': {
+                paddingTop: '2px',
+                paddingBottom: '2px',
+            },
+        },
+        sectionTitle: {
+            display: 'flex',
+            alignItems: 'center',
+            width: '272px',
+            gap: '10px',
+            padding: '8px 12px',
+            boxSizing: 'border-box',
+            color: theme.palette.text.primary,
+            fontSize: '16px',
+            lineHeight: 1.35,
+            fontFamily: "'Roboto', sans-serif",
+            fontWeight: 400,
+            cursor: 'pointer',
+            [theme.breakpoints.down(769)]: {
+                width: '318px',
+            },
+            [theme.breakpoints.down(481)]: {
+                width: '100%',
+            },
+        },
+        sectionIcon: {
+            width: '22px',
+            height: '22px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+            '& img': {
+                width: '20px',
+                height: '20px',
+                opacity: isDark ? 0.85 : 1,
+                filter: isDark ? 'none' : LIGHT_ICON_FILTER,
+            },
+        },
+        arrowIcon: {
+            width: '14px',
+            height: '14px',
+            marginLeft: 'auto',
+            flexShrink: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            opacity: 0.6,
+            '& img': {
+                width: '12px',
+                height: '12px',
+                filter: isDark ? 'none' : LIGHT_ICON_FILTER,
+            },
+        },
+        // leaf pages: a dot instead of a folder, hover fills the row
+        leaf: {
+            '& a': {
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '7px 12px',
+                borderRadius: `${theme.custom.radius.control}px`,
+                color: theme.custom.textMuted,
+                textDecoration: 'none',
+                fontSize: '15px',
+                lineHeight: 1.35,
+                fontFamily: "'Roboto', sans-serif",
+                fontWeight: 400,
+                transition: 'background 0.2s ease, color 0.2s ease',
+                '&::before': {
+                    content: '""',
+                    width: '5px',
+                    height: '5px',
+                    borderRadius: '50%',
+                    backgroundColor: 'currentColor',
+                    flexShrink: 0,
+                    opacity: 0.6,
+                },
+                '&:hover': {
+                    color: theme.palette.text.primary,
+                    background: theme.custom.surfaces.surface,
+                },
+            },
+        },
+        childrenLevel: {
+            paddingLeft: 32,
+            fontSize: 15,
+            paddingTop: 0,
+            paddingBottom: 0,
+            '& a': {
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '7px 12px',
+                borderRadius: `${theme.custom.radius.control}px`,
+                color: theme.custom.textMuted,
+                textDecoration: 'none',
+                fontSize: '15px',
+                lineHeight: 1.35,
+                fontFamily: "'Roboto', sans-serif",
+                fontWeight: 400,
+                transition: 'background 0.2s ease, color 0.2s ease',
+                '&::before': {
+                    content: '""',
+                    width: '5px',
+                    height: '5px',
+                    borderRadius: '50%',
+                    backgroundColor: 'currentColor',
+                    flexShrink: 0,
+                    opacity: 0.6,
+                },
+                '&:hover': {
+                    color: theme.palette.text.primary,
+                    background: theme.custom.surfaces.surface,
+                },
+            },
+        },
+        // current page
+        activeLink: {
+            '& a': {
+                color: theme.palette.primary.main,
+                fontWeight: 700,
+                background: theme.custom.surfaces.raised,
+                '&::before': {
+                    opacity: 1,
+                },
+                '&:hover': {
+                    color: theme.palette.primary.main,
+                    background: theme.custom.surfaces.raised,
+                },
+            },
+        },
+    };
+});

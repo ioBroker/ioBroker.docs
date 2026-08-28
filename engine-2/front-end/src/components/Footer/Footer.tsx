@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, useMediaQuery } from '@mui/material';
+import { Box, useMediaQuery, Tooltip } from '@mui/material';
 import ForumIcon from '../icons/ForumIcon';
 import GitHubIcon from '../icons/GitHubIcon';
 import FacebookIcon from '../icons/FacebookIcon';
@@ -11,8 +11,9 @@ import ArrowIcon from '../icons/ArrowIcon';
 import logo from '../../assets/img/logo_net.svg';
 import { useFooterStyles } from './Footer.styles';
 import { I18n } from '../../utils/i18n';
-import { BLOG_LINK } from '../../config/api';
-//import CookiesHint from '../CookiesHint/CookiesHint';
+import { BLOG_LINK, IMPRINT_LINK, PRIVACY_LINK } from '../../config/api';
+import { EXTERNAL_LINKS } from '../../config/links';
+import { openCookieSettings } from '../CookiesHint/CookiesHint';
 
 export interface FooterProps {
     scrollTop?: () => void;
@@ -25,9 +26,10 @@ function OwnButton(props: {
     icon: React.JSX.Element;
     textOffset?: number;
     noText?: boolean;
+    tooltip?: string;
     classes: any;
 }): React.JSX.Element {
-    return (
+    const button = (
         <Box
             component="a"
             className={props.classes.socialButton}
@@ -49,6 +51,8 @@ function OwnButton(props: {
             ) : null}
         </Box>
     );
+
+    return props.tooltip ? <Tooltip title={props.tooltip}>{button}</Tooltip> : button;
 }
 
 function Braces(props: {
@@ -103,7 +107,6 @@ function Link(props: { name: string; url?: string; classes: any }): React.JSX.El
 
 export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
     const { classes } = useFooterStyles();
-    const [, setShowCookies] = useState(false);
     const [lng, setLng] = useState(I18n.getLanguage());
     useEffect(() => I18n.subscribe(setLng), []);
     const isSmallScreen = useMediaQuery('(max-width:500px)');
@@ -141,13 +144,15 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                         <OwnButton
                                             noText
                                             classes={classes}
-                                            href="https://www.paypal.com/donate?token=J1zM6AXCz_P6OnZLIK971kfv4cD7mWjxhTGmD1R9sQGYbVEF0EftIrcY2eqo7VbEAT9ekhVU_UxGBxgf"
+                                            href={EXTERNAL_LINKS.PAYPAL_DONATE}
+                                            tooltip={I18n.t('tooltip.paypal')}
                                             icon={<PayPalIcon />}
                                         />
                                         <OwnButton
                                             noText
                                             classes={classes}
-                                            href="https://www.amazon.de/s?k=homematic&tag=httpwwwiobron-21"
+                                            href={EXTERNAL_LINKS.AMAZON}
+                                            tooltip={I18n.t('tooltip.amazon')}
                                             icon={<AmazonIcon />}
                                         />
                                     </div>
@@ -209,19 +214,19 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                     <div className={classes.linksColumn}>
                                         <Box
                                             className={classes.link}
-                                            onClick={() => setShowCookies(true)}
+                                            onClick={() => openCookieSettings()}
                                         >
                                             {I18n.t('Cookies')}
                                         </Box>
                                         <Link
                                             classes={classes}
                                             name="imprint"
-                                            url="/imprint"
+                                            url={IMPRINT_LINK}
                                         />
                                         <Link
                                             classes={classes}
                                             name="policy"
-                                            url="/policy"
+                                            url={PRIVACY_LINK}
                                         />
                                     </div>
                                 </Braces>
@@ -242,18 +247,21 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                         <OwnButton
                                             classes={classes}
                                             href="https://forum.iobroker.net"
+                                            tooltip={I18n.t('tooltip.forum')}
                                             icon={<ForumIcon />}
                                         />
                                     </Box>
                                     <OwnButton
                                         classes={classes}
                                         href="https://github.com/ioBroker"
+                                        tooltip={I18n.t('tooltip.github')}
                                         icon={<GitHubIcon />}
                                     />
                                     <OwnButton
                                         classes={classes}
                                         name="community"
                                         href="https://github.com/iobroker-community-adapters"
+                                        tooltip={I18n.t('tooltip.github_community')}
                                         icon={<GitHubIcon />}
                                     />
                                     <OwnButton
@@ -261,22 +269,26 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                         name="group"
                                         textOffset={-8}
                                         href="https://www.facebook.com/groups/440499112958264"
+                                        tooltip={I18n.t('tooltip.facebook_group')}
                                         icon={<FacebookIcon />}
                                     />
                                     <OwnButton
                                         classes={classes}
                                         href="https://www.facebook.com/iobroker1/"
+                                        tooltip={I18n.t('tooltip.facebook_page')}
                                         textOffset={-8}
                                         icon={<FacebookIcon />}
                                     />
                                     <OwnButton
                                         classes={classes}
                                         href="https://discord.gg/HwUCwsH"
+                                        tooltip={I18n.t('tooltip.discord')}
                                         icon={<DiscordIcon />}
                                     />
                                     <OwnButton
                                         classes={classes}
                                         href="https://www.instagram.com/iobroker.gmbh/"
+                                        tooltip={I18n.t('tooltip.instagram')}
                                         icon={<InstagramIcon />}
                                     />
                                 </div>
@@ -292,21 +304,21 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                     <div className={classes.flexGrow} />
                     <Box
                         className={`${classes.link} ${classes.legalLinksDesktop}`}
-                        onClick={() => setShowCookies(true)}
+                        onClick={() => openCookieSettings()}
                     >
                         {I18n.t('Cookies')}
                     </Box>
                     <Box
                         component="a"
                         className={`${classes.link} ${classes.legalLinksDesktop}`}
-                        href="/imprint"
+                        href={IMPRINT_LINK}
                     >
                         {I18n.t('Imprint')}
                     </Box>
                     <Box
                         component="a"
                         className={`${classes.link} ${classes.legalLinksDesktop}`}
-                        href="/policy"
+                        href={PRIVACY_LINK}
                     >
                         {I18n.t('Privacy')}
                     </Box>
@@ -321,7 +333,6 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                     </div>
                 </Box>
             </Box>
-            {/* <CookiesHint force={showCookies} onClose={() => setShowCookies(false)} /> */}
         </Box>
     );
 };

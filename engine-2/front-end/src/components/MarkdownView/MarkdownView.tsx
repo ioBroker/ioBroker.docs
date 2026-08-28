@@ -1,10 +1,11 @@
 import { Box } from '@mui/material';
 import type React from 'react';
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { createSlugger, makeSlug } from '../../utils/markdown';
+import { buildAnchorHref, getAnchorFromHash, scrollToAnchor, updateAnchorInUrl } from '../../utils/anchor';
 import { normalizeImageTags, normalizeText, resolveMarkdownUrl } from './markdownViewUtils';
 
 interface MarkdownViewProps {
@@ -37,7 +38,7 @@ interface MarkdownViewProps {
     linkImage?: string;
 }
 
-export const MarkdownView = ({
+export const MarkdownView = memo(function MarkdownView({
     markdown,
     baseUrl,
     origin,
@@ -45,85 +46,12 @@ export const MarkdownView = ({
     headingIdMap,
     classNames,
     linkImage,
-}: MarkdownViewProps): React.ReactNode => {
+}: MarkdownViewProps): React.ReactNode {
     const markdownForRender = markdown ? normalizeImageTags(markdown) : '';
-    const isHashRouter = (): boolean => window.location.hash.startsWith('#/');
-    const getAnchorFromHash = (): string | null => {
-        const hash = window.location.hash;
-        if (!hash) {
-            return null;
-        }
-        if (hash.startsWith('#/')) {
-            const withoutHash = hash.slice(1);
-            const queryIndex = withoutHash.indexOf('?');
-            if (queryIndex === -1) {
-                return null;
-            }
-            const query = withoutHash.slice(queryIndex + 1);
-            const params = new URLSearchParams(query);
-            return params.get('anchor');
-        }
-        return hash.length > 1 ? decodeURIComponent(hash.slice(1)) : null;
-    };
-    const buildAnchorHref = (id: string): string => {
-        if (!isHashRouter()) {
-            return `#${id}`;
-        }
-        const hash = window.location.hash;
-        const withoutHash = hash.startsWith('#') ? hash.slice(1) : hash;
-        const queryIndex = withoutHash.indexOf('?');
-        const path = queryIndex === -1 ? withoutHash : withoutHash.slice(0, queryIndex);
-        const query = queryIndex === -1 ? '' : withoutHash.slice(queryIndex + 1);
-        const params = new URLSearchParams(query);
-        params.set('anchor', id);
-        const nextHash = `${path}?${params.toString()}`;
-        return `#${nextHash}`;
-    };
-    const getScrollParent = (element: HTMLElement | null): HTMLElement | Window => {
-        let node = element?.parentElement ?? null;
-        while (node) {
-            const style = window.getComputedStyle(node);
-            const canScroll = /(auto|scroll)/.test(style.overflowY || '') && node.scrollHeight > node.clientHeight;
-            if (canScroll) {
-                return node;
-            }
-            node = node.parentElement;
-        }
-        return window;
-    };
-    const scrollToId = (id: string): void => {
-        const target = document.getElementById(id);
-        if (!target) {
-            return;
-        }
-        const scrollParent = getScrollParent(target);
-        if (scrollParent === window) {
-            target.scrollIntoView({ block: 'start' });
-            return;
-        }
-        const parent = scrollParent as HTMLElement;
-        const parentRect = parent.getBoundingClientRect();
-        const targetRect = target.getBoundingClientRect();
-        const scrollMarginTop = parseFloat(window.getComputedStyle(target).scrollMarginTop || '0') || 0;
-        const top = targetRect.top - parentRect.top + parent.scrollTop - scrollMarginTop;
-        parent.scrollTo({ top, behavior: 'auto' });
-    };
     const scrollToHeading = (id: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault();
-        scrollToId(id);
-        if (!isHashRouter()) {
-            const url = new URL(window.location.href);
-            url.hash = `#${id}`;
-            const nextUrl = url.toString();
-            if (window.location.hash !== `#${id}`) {
-                window.history.replaceState(null, '', nextUrl);
-            }
-            return;
-        }
-        const href = buildAnchorHref(id);
-        if (window.location.hash !== href) {
-            window.history.replaceState(null, '', href);
-        }
+        scrollToAnchor(id);
+        updateAnchorInUrl(id);
     };
 
     useEffect(() => {
@@ -135,11 +63,17 @@ export const MarkdownView = ({
             if (!id) {
                 return;
             }
-            scrollToId(id);
+            scrollToAnchor(id);
         };
+        // on a deep link the markdown is there but images and tables are not sized
+        // yet - repeat the jump until the layout has settled
+        const timers = [250, 700, 1400].map(delay => window.setTimeout(handleHash, delay));
         requestAnimationFrame(() => requestAnimationFrame(handleHash));
         window.addEventListener('hashchange', handleHash);
-        return () => window.removeEventListener('hashchange', handleHash);
+        return () => {
+            timers.forEach(timer => window.clearTimeout(timer));
+            window.removeEventListener('hashchange', handleHash);
+        };
     }, [markdownForRender]);
 
     const getUniqueId = createSlugger();
@@ -353,4 +287,4 @@ export const MarkdownView = ({
             {markdownForRender}
         </ReactMarkdown>
     ) : null;
-};
+});

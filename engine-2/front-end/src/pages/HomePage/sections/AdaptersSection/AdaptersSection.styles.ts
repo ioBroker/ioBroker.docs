@@ -108,6 +108,23 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
         display: 'flex',
         justifyContent: 'center',
+        // soft light behind the tiles, same family as the glow in the banner
+        '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '125%',
+            height: '115%',
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse at center, rgba(29, 144, 202, 0.55) 0%, rgba(29, 144, 202, 0.26) 42%, rgba(29, 144, 202, 0) 70%)'
+                    : 'radial-gradient(ellipse at center, rgba(29, 144, 202, 0.22) 0%, rgba(29, 144, 202, 0.10) 42%, rgba(29, 144, 202, 0) 70%)',
+            filter: 'blur(32px)',
+            pointerEvents: 'none',
+            zIndex: 0,
+        },
         [theme.breakpoints.down('md')]: {
             order: 2,
         },

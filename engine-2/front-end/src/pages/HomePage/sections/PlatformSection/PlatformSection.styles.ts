@@ -10,6 +10,23 @@ export const useStyles = makeStyles()(theme => ({
         backgroundSize: 'contain',
         overflow: 'hidden',
         padding: '96px 0',
+        // a quiet light over the code background, so it stays readable behind the claim
+        '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: '48%',
+            left: '16%',
+            transform: 'translate(-50%, -50%)',
+            width: 'min(780px, 60%)',
+            height: '62%',
+            background:
+                theme.palette.mode === 'dark'
+                    ? 'radial-gradient(ellipse at center, rgba(35, 86, 174, 0.10) 0%, rgba(29, 144, 202, 0.05) 30%, rgba(29, 144, 202, 0.02) 58%, rgba(29, 144, 202, 0) 85%)'
+                    : 'none',
+            filter: 'blur(70px)',
+            pointerEvents: 'none',
+            zIndex: 0,
+        },
         [theme.breakpoints.down('md')]: {
             padding: '64px 0',
         },

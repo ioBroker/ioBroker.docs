@@ -30,10 +30,36 @@
         "version": "Версия",
         "developer": "Разработчик",
         "first_release": "Первый релиз",
-        "current_release": "Текущий релиз"
+        "current_release": "Текущий релиз",
+        "tooltip": {
+            "version": "Текущая версия",
+            "stars": "Звёзды на GitHub",
+            "installs": "Установки",
+            "downloads": "Загрузки за неделю",
+            "developer": "Разработчик",
+            "github": "Открыть на GitHub",
+            "statistics": "Показать статистику установок",
+            "documentation": "Открыть документацию",
+            "open_adapter": "Открыть адаптер",
+            "view_grid": "Плитка",
+            "view_table": "Список",
+            "menu_expand": "Показать меню",
+            "menu_collapse": "Скрыть меню"
+        }
     },
     "Support us": "Поддержите нас",
     "Support us (mobile)": "Поддержите нас:",
+    "cookies": {
+        "title": "Время печенья!",
+        "text": "Наш сайт использует cookie — не те, что с шоколадом, а те, что с данными. Они помогают сайту работать без сбоев, избавляют вас от лишних кликов и позволяют нам чуть лучше понимать, что вам нравится (а что нет).",
+        "customize": "Настроить cookie",
+        "required": "Необходимые cookie",
+        "marketing": "Маркетинговые cookie",
+        "statistics": "Статистические cookie",
+        "saveSelection": "Сохранить выбор",
+        "acceptRequired": "Только необходимые",
+        "acceptAll": "Принять все"
+    },
     "blog": {
         "backToOverview": "Назад к обзору",
         "editOnGithub": "Редактировать на GitHub",
@@ -51,6 +77,14 @@
             "announcement": "Анонс",
             "news": "Новости",
             "review": "Обзор"
+        }
+    },
+    "docs": {
+        "tooltip": {
+            "expand_all": "Развернуть все разделы",
+            "collapse_all": "Свернуть все разделы",
+            "toc_collapse": "Свернуть оглавление",
+            "toc_expand": "Развернуть оглавление"
         }
     },
     "header": {
@@ -201,6 +235,10 @@
             "title": "WINDOWS"
         }
     },
+    "legal": {
+        "loadError": "Не удалось загрузить текст.",
+        "lastChanged": "Изменено: %s"
+    },
     "languages.de": "DE",
     "languages.en": "EN",
     "languages.ru": "РУ",
@@ -238,5 +276,22 @@
     "support.paypal.button": "ПОЖЕРТВУЙТЕ СЕЙЧАС",
     "support.paypal.text": "Будь то небольшая сумма или крупное пожертвование — каждое пожертвование напрямую направляется на дальнейшее развитие ioBroker.",
     "support.subtitle": "ioBroker бесплатен — и так должно оставаться!",
-    "support.title": "ПОДДЕРЖИТЕ НАС!"
+    "support.title": "ПОДДЕРЖИТЕ НАС!",
+    "tooltip": {
+        "search": "Поиск",
+        "profile": "Профиль",
+        "menu": "Меню",
+        "close": "Закрыть",
+        "theme_light": "Переключить на светлую тему",
+        "theme_dark": "Переключить на тёмную тему",
+        "github": "ioBroker на GitHub",
+        "github_community": "Адаптеры сообщества на GitHub",
+        "facebook_page": "ioBroker в Facebook",
+        "facebook_group": "Группа в Facebook",
+        "discord": "Сервер Discord",
+        "instagram": "ioBroker в Instagram",
+        "forum": "Форум ioBroker",
+        "paypal": "Пожертвовать через PayPal",
+        "amazon": "Покупки по нашей ссылке на Amazon"
+    }
 }

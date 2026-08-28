@@ -7,10 +7,12 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
     },
     pageContainer: {
-        // content column is layout.contentMaxWidth, the gutters come on top
-        width: theme.custom.layout.contentMaxWidth + 2 * theme.custom.layout.gutter.lg,
-        maxWidth: '100%',
-        margin: '0 auto',
+        // left aligned on the page gutter - same start as the adapter and docs pages.
+        // The column may grow well past the standard content width on wide screens,
+        // it just stops before the page sprawls across a 4K desktop.
+        width: '100%',
+        maxWidth: 2560,
+        margin: 0,
         padding: `${theme.custom.layout.section.md}px ${theme.custom.layout.gutter.lg}px ${theme.custom.layout.section.lg}px`,
         boxSizing: 'border-box',
         [theme.breakpoints.down('md')]: {
@@ -106,7 +108,9 @@ export const useStyles = makeStyles()(theme => ({
     },
     grid: {
         display: 'grid',
-        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+        // the card width leads: ~600 px each, so the number of columns follows the
+        // window - two on a laptop, three from ~1900 px, four on a very wide desktop
+        gridTemplateColumns: 'repeat(auto-fill, minmax(560px, 1fr))',
         gap: `${theme.custom.layout.grid}px`,
         alignItems: 'stretch',
         [theme.breakpoints.down(1024)]: {

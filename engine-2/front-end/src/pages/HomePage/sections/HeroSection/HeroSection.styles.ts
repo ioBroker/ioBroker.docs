@@ -31,7 +31,7 @@ export const useStyles = makeStyles()(theme => ({
     },
     heroBackgroundImage: {
         position: 'absolute',
-        top: '50%',
+        top: '62%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: '100%',
@@ -46,12 +46,12 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('md')]: {
             backgroundSize: '210%',
             backgroundPosition: 'center',
-            top: '50%',
+            top: '62%',
         },
     },
     heroBackgroundImageOverlay: {
         position: 'absolute',
-        top: '50%',
+        top: '62%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: '100%',
@@ -61,7 +61,7 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('md')]: {
             backgroundSize: '210%',
             backgroundPosition: 'center',
-            top: '50%',
+            top: '62%',
         },
     },
     heroContentWrapper: {
@@ -101,7 +101,7 @@ export const useStyles = makeStyles()(theme => ({
     heroLogo: {
         width: '100%',
         maxWidth: '470px',
-        marginTop: '36px',
+        marginTop: '-12px',
         [theme.breakpoints.down('md')]: {
             marginBottom: '56px',
             marginTop: theme.spacing(2),
@@ -129,7 +129,8 @@ export const useStyles = makeStyles()(theme => ({
         lineHeight: 1.2,
         letterSpacing: '-0.01em',
         textAlign: 'left',
-        color: theme.palette.text.primary,
+        // the banner image is dark in both themes, so the claim stays white
+        color: '#FFFFFF',
         [theme.breakpoints.down('md')]: {
             fontSize: '20px',
         },
@@ -168,7 +169,8 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     housesImageWrapper: {
-        marginBottom: '184px',
+        marginTop: '80px',
+        marginBottom: '104px',
         marginRight: 32,
         [theme.breakpoints.down('md')]: {
             marginBottom: '24px',

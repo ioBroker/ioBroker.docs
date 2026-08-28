@@ -6,6 +6,7 @@ import DocsPage from '../../../pages/DocsPage/DocsPage';
 import AdapterPage from '../../../pages/AdapterPage/AdapterPage';
 import BlogPage from '../../../pages/BlogPage/BlogPage';
 import BlogPostPage from '../../../pages/BlogPage/BlogPostPage';
+import LegalPage from '../../../pages/LegalPage/LegalPage';
 
 export const useRoutes = (): React.ReactElement => {
     return (
@@ -41,6 +42,14 @@ export const useRoutes = (): React.ReactElement => {
             <Route
                 path="/docs/*"
                 element={<DocsPage />}
+            />
+            <Route
+                path="/imprint"
+                element={<LegalPage document="imprint" />}
+            />
+            <Route
+                path="/policy"
+                element={<LegalPage document="privacy" />}
             />
         </Routes>
     );

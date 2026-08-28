@@ -11,9 +11,10 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
     },
     pageContainer: {
-        width: ARTICLE_MAX_WIDTH + 2 * theme.custom.layout.gutter.lg,
+        // left aligned on the page gutter; the article keeps its own max width
+        width: '100%',
         maxWidth: '100%',
-        margin: '0 auto',
+        margin: 0,
         padding: `${theme.custom.layout.section.md}px ${theme.custom.layout.gutter.lg}px ${theme.custom.layout.section.lg}px`,
         boxSizing: 'border-box',
         [theme.breakpoints.down('md')]: {
@@ -30,7 +31,7 @@ export const useStyles = makeStyles()(theme => ({
         gap: '8px',
         width: '100%',
         maxWidth: `${ARTICLE_MAX_WIDTH}px`,
-        margin: '0 auto 24px auto',
+        margin: '0 0 24px 0',
         height: theme.custom.control.compactHeight,
         padding: '0 14px 0 10px',
         border: 'none',
@@ -54,7 +55,7 @@ export const useStyles = makeStyles()(theme => ({
     article: {
         width: '100%',
         maxWidth: `${ARTICLE_MAX_WIDTH}px`,
-        margin: '0 auto',
+        margin: 0,
         borderRadius: `${theme.custom.radius.card}px`,
         border: 'none',
         backgroundColor: theme.custom.surfaces.surface,
@@ -145,7 +146,7 @@ export const useStyles = makeStyles()(theme => ({
     pagination: {
         width: '100%',
         maxWidth: `${ARTICLE_MAX_WIDTH}px`,
-        margin: '24px auto 0 auto',
+        margin: '24px 0 0 0',
         display: 'flex',
         justifyContent: 'space-between',
         gap: '16px',

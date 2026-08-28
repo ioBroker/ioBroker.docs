@@ -6,97 +6,48 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         flexDirection: 'column',
         height: 'calc(100vh - 64px)',
         overflow: 'hidden',
+        background: theme.custom.surfaces.canvas,
+        // breathing room below the fixed header - same as the adapter pages
+        paddingTop: '40px',
+        [theme.breakpoints.down(1280)]: {
+            paddingTop: '32px',
+        },
         [theme.breakpoints.down(481)]: {
-            paddingTop: '20px',
+            paddingTop: '24px',
         },
     },
     pageWrapper: {
         flex: 1,
         minHeight: 0,
         position: 'relative',
-        '&::after': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            right: '15%',
-            transform: 'translate(40%, -40%)',
-            width: '520px',
-            height: '320px',
-            opacity: 0.5,
-            pointerEvents: 'none',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.35) 0%, rgba(255, 255, 255, 0) 60%)'
-                    : 'none',
-            [theme.breakpoints.down(1278)]: {
-                display: 'none',
-            },
-        },
         [theme.breakpoints.down(768)]: {
             overflow: 'visible',
         },
     },
     root: {
         display: 'flex',
-        gap: '30px',
-        margin: '0 32px',
+        gap: '32px',
+        margin: `0 ${theme.custom.layout.gutter.lg}px`,
         paddingBottom: '20px',
         position: 'relative',
         height: '100%',
         overflowX: 'hidden',
-        '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '150%',
-            left: '13%',
-            transform: 'translate(-50%, -50%)',
-            width: '600px',
-            height: '1000px',
-            opacity: 0.5,
-            pointerEvents: 'none',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.35) 0%, rgba(255, 255, 255, 0) 60%)'
-                    : 'none',
-            [theme.breakpoints.down(1278)]: {
-                display: 'none',
-            },
-        },
-        '&::after': {
-            content: '""',
-            position: 'absolute',
-            top: '120%',
-            right: '10%',
-            transform: 'translate(50%, -50%)',
-            width: '400px',
-            height: '900px',
-            opacity: 0.5,
-            pointerEvents: 'none',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse, rgba(35, 86, 174, 0.3) 0%, rgba(255, 255, 255, 0) 60%)'
-                    : 'none',
-            [theme.breakpoints.down(1278)]: {
-                display: 'none',
-            },
-        },
         '&::-webkit-scrollbar': {
             width: '8px',
         },
         '&::-webkit-scrollbar-track': {
-            background: 'rgba(255, 255, 255, 0.05)',
-            borderRadius: '8px',
-            border: `1px solid ${theme.palette.primary.main}`,
+            background: 'transparent',
         },
         '&::-webkit-scrollbar-thumb': {
-            background: theme.palette.secondary.main,
-            borderRadius: '8px',
+            background: theme.custom.hairlineStrong,
+            borderRadius: `${theme.custom.radius.pill}px`,
         },
         '&::-webkit-scrollbar-thumb:hover': {
-            background: theme.palette.secondary.main,
+            background: theme.palette.primary.main,
         },
         [theme.breakpoints.down(1280)]: {
-            margin: '0 24px',
+            margin: `0 ${theme.custom.layout.gutter.md}px`,
+            gap: '24px',
         },
         [theme.breakpoints.down(768)]: {
             position: !isMenuCollapsed ? 'relative' : 'static',
@@ -107,20 +58,89 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         },
         [theme.breakpoints.down(481)]: {
             margin: '0',
-            paddingLeft: '10px',
+            paddingLeft: `${theme.custom.layout.gutter.sm}px`,
             paddingRight: '0px',
         },
     },
+    // right hand column: fixed tool row on top, the scrolling document below - so
+    // the scrollbar starts under the row instead of running past it
+    rightColumn: {
+        flex: 1,
+        minWidth: 0,
+        minHeight: 0,
+        display: 'flex',
+        flexDirection: 'column',
+    },
     topBar: {
+        flexShrink: 0,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginBottom: '20px',
+        gap: '16px',
+        paddingBottom: '20px',
+        background: theme.custom.surfaces.canvas,
+    },
+    // switch for the table of contents - it lives in the tool row, so the panel
+    // itself only takes width while it is open
+    tocToggle: {
+        flexShrink: 0,
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '8px',
+        height: `${theme.custom.control.compactHeight}px`,
+        padding: '0 10px 0 14px',
+        border: 'none',
+        borderRadius: `${theme.custom.radius.control}px`,
+        background: theme.custom.surfaces.surface,
+        boxShadow: `inset 0 0 0 1px ${theme.custom.hairline}`,
+        cursor: 'pointer',
+        fontFamily: theme.typography.fontFamily,
+        fontSize: '15px',
+        fontWeight: 400,
+        whiteSpace: 'nowrap',
+        color: theme.custom.textMuted,
+        transition: 'background 0.2s ease, color 0.2s ease',
+        '&:hover': {
+            background: theme.custom.surfaces.raised,
+            color: theme.palette.text.primary,
+        },
+        '&:focus-visible': {
+            outline: 'none',
+            boxShadow: theme.custom.focusRing,
+        },
+    },
+    tocAnchor: {
+        position: 'relative',
+        flexShrink: 0,
+        display: 'inline-flex',
+    },
+    // drops down under its switch and lies over the text
+    tocDropdown: {
+        position: 'absolute',
+        top: 'calc(100% + 8px)',
+        right: 0,
+        width: '320px',
+        maxWidth: 'calc(100vw - 48px)',
+        zIndex: 1200,
+    },
+    tocToggleOpen: {
+        background: theme.custom.surfaces.raised,
+        color: theme.palette.text.primary,
+    },
+    tocChevron: {
+        fontSize: '18px',
+        flexShrink: 0,
+        transition: 'transform 0.2s ease',
+    },
+    tocChevronOpen: {
+        transform: 'rotate(180deg)',
     },
     menuToggleContainer: {
+        flexShrink: 0,
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        gap: '12px',
         marginBottom: '16px',
         [theme.breakpoints.down(769)]: {
             width: 'auto',
@@ -129,29 +149,29 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     mainBlock: {
         flex: 1,
         minWidth: 0,
+        minHeight: 0,
         overflowY: 'scroll',
         overflowX: 'hidden',
         '&::-webkit-scrollbar': {
             width: '8px',
         },
         '&::-webkit-scrollbar-track': {
-            background: 'rgba(255, 255, 255, 0.05)',
-            borderRadius: '8px',
-            border: `1px solid ${theme.palette.primary.main}`,
+            background: 'transparent',
         },
         '&::-webkit-scrollbar-thumb': {
-            background: theme.palette.secondary.main,
-            borderRadius: '8px',
+            background: theme.custom.hairlineStrong,
+            borderRadius: `${theme.custom.radius.pill}px`,
         },
         '&::-webkit-scrollbar-thumb:hover': {
-            background: theme.palette.secondary.main,
+            background: theme.palette.primary.main,
         },
     },
     content: {
         color: theme.palette.text.primary,
-        lineHeight: 1.8,
-        fontSize: '16px',
+        lineHeight: 1.6,
+        fontSize: '17px',
         paddingBottom: '20px',
+        maxWidth: '1100px',
     },
     head: {
         color: theme.palette.primary.main,
@@ -159,7 +179,13 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         fontFamily: 'Audiowide',
         fontWeight: 400,
         textTransform: 'uppercase',
-        marginBottom: '20px',
+        marginTop: '48px',
+        marginBottom: '16px',
+        paddingBottom: '10px',
+        borderBottom: `1px solid ${theme.custom.hairline}`,
+        '&:first-of-type': {
+            marginTop: 0,
+        },
         scrollMarginTop: '100px',
         letterSpacing: '-0.03em',
         display: 'inline-flex',
@@ -178,7 +204,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         fontFamily: 'Audiowide',
         fontWeight: 400,
         textTransform: 'uppercase',
-        marginBottom: '20px',
+        marginTop: '40px',
+        marginBottom: '16px',
         scrollMarginTop: '100px',
         letterSpacing: '-0.03em',
         display: 'inline-flex',
@@ -201,9 +228,10 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     },
     paragraph: {
         marginBottom: '16px',
-        fontSize: '18px',
-        fontWeight: 300,
-        letterSpacing: '0.01em',
+        fontSize: '17px',
+        fontWeight: 400,
+        lineHeight: 1.6,
+        color: theme.custom.textMuted,
         [theme.breakpoints.down(481)]: {
             fontSize: '16px',
         },
@@ -211,6 +239,9 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     list: {
         marginLeft: '24px',
         marginBottom: '16px',
+        fontSize: '16px',
+        lineHeight: 1.6,
+        color: theme.custom.textMuted,
     },
     listItem: {
         marginBottom: '8px',
@@ -219,7 +250,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         maxWidth: '100%',
         height: 'auto',
         margin: '24px 0',
-        borderRadius: '8px',
+        borderRadius: `${theme.custom.radius.chip}px`,
     },
     table: {
         width: '100%',
@@ -227,8 +258,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         borderCollapse: 'collapse',
         margin: '15px 0',
         fontSize: '16px',
-        border: `1px solid ${theme.palette.divider}`,
-        borderRadius: '8px',
+        border: `1px solid ${theme.custom.hairline}`,
+        borderRadius: `${theme.custom.radius.chip}px`,
         overflow: 'hidden',
         tableLayout: 'fixed',
         wordBreak: 'break-word',
@@ -247,10 +278,10 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         },
     },
     tableHead: {
-        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(35, 86, 174, 0.1)' : 'rgba(35, 86, 174, 0.05)',
+        backgroundColor: theme.custom.surfaces.surface,
     },
     tableRow: {
-        borderBottom: `1px solid ${theme.palette.divider}`,
+        borderBottom: `1px solid ${theme.custom.hairline}`,
         '&:last-child': {
             borderBottom: 'none',
         },
@@ -260,7 +291,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         fontWeight: 600,
         textAlign: 'left',
         color: theme.palette.primary.main,
-        borderRight: `1px solid ${theme.palette.divider}`,
+        borderRight: `1px solid ${theme.custom.hairline}`,
         wordBreak: 'break-word',
         overflowWrap: 'anywhere',
         '&:last-child': {
@@ -280,7 +311,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     },
     tableCell: {
         padding: '12px 16px',
-        borderRight: `1px solid ${theme.palette.divider}`,
+        borderRight: `1px solid ${theme.custom.hairline}`,
         wordBreak: 'break-word',
         overflowWrap: 'anywhere',
         display: 'table-cell',
@@ -300,9 +331,9 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         },
     },
     codeBlockContainer: {
-        backgroundColor: theme.palette.secondary.main,
-        borderRadius: '8px',
-        border: `1px solid ${theme.palette.secondary.main}`,
+        backgroundColor: theme.custom.surfaces.surface,
+        borderRadius: `${theme.custom.radius.card}px`,
+        boxShadow: `inset 0 0 0 1px ${theme.custom.hairline}`,
         margin: '16px 0 24px 0',
         overflow: 'hidden',
     },
@@ -310,13 +341,13 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         padding: '10px 16px 10px 16px',
         margin: 0,
         fontFamily: 'monospace',
-        fontSize: '16px',
-        color: '#FFF',
+        fontSize: '15px',
+        color: theme.palette.text.primary,
         overflowX: 'hidden',
         overflowY: 'hidden',
         whiteSpace: 'pre-wrap',
         wordBreak: 'break-word',
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: 'transparent',
         '& code': {
             fontFamily: 'inherit',
             fontSize: 'inherit',
@@ -326,17 +357,15 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             height: '7px',
         },
         '&::-webkit-scrollbar-track': {
-            background: 'rgba(255, 255, 255, 0.05)',
-            borderRadius: '4px',
-            margin: '0 31px',
-            border: `1px solid white`,
+            background: 'transparent',
+            margin: '0 16px',
         },
         '&::-webkit-scrollbar-thumb': {
-            background: 'white',
-            borderRadius: '4px',
+            background: theme.custom.hairlineStrong,
+            borderRadius: `${theme.custom.radius.pill}px`,
         },
         '&::-webkit-scrollbar-thumb:hover': {
-            background: '#FFF',
+            background: theme.palette.primary.main,
         },
         [theme.breakpoints.down(769)]: {
             fontSize: '10px',
@@ -345,25 +374,29 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     inlineCode: {
         fontFamily: 'monospace',
         fontSize: '0.95em',
-        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(35, 86, 174, 0.25)' : 'rgba(35, 86, 174, 0.12)',
+        backgroundColor: theme.custom.surfaces.raised,
         padding: '2px 6px',
-        borderRadius: '4px',
+        borderRadius: '6px',
         color: theme.palette.text.primary,
     },
     blockquote: {
         margin: '12px 0 16px 0',
-        padding: '10px 16px',
-        borderLeft: `4px solid ${theme.palette.secondary.main}`,
-        backgroundColor: theme.palette.mode === 'dark' ? 'rgba(35, 86, 174, 0.12)' : 'rgba(35, 86, 174, 0.06)',
-        borderRadius: '6px',
-        color: theme.palette.text.primary,
+        padding: '12px 16px',
+        borderLeft: `3px solid ${theme.palette.primary.main}`,
+        backgroundColor: theme.custom.surfaces.surface,
+        borderRadius: `0 ${theme.custom.radius.chip}px ${theme.custom.radius.chip}px 0`,
+        color: theme.custom.textMuted,
         '& p': {
             margin: 0,
         },
     },
+    // the tool row stays, only the tree below it scrolls
     menuBlock: {
         flexShrink: 0,
-        overflowY: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: 0,
+        overflow: 'hidden',
         [theme.breakpoints.down(769)]: {
             display: 'none',
         },
@@ -389,7 +422,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
                 left: '-16px',
                 right: '-16px',
                 height: '100%',
-                background: '#080B1C',
+                background: theme.custom.surfaces.canvas,
                 zIndex: -1,
                 pointerEvents: 'none',
             },

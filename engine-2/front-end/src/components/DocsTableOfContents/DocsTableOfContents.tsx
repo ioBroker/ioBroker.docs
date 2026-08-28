@@ -1,8 +1,7 @@
 import { Box } from '@mui/material';
 import type React from 'react';
-import { I18n } from '../../utils/i18n';
 import { useDocsTableOfContentsStyles } from './DocsTableOfContents.styles';
-import { makeSlug } from '../../utils/markdown';
+import { buildAnchorHref, findHeadingElement, scrollToElement, updateAnchorInUrl } from '../../utils/anchor';
 
 interface TableOfContentsItem {
     id: string;
@@ -12,79 +11,39 @@ interface TableOfContentsItem {
 
 interface DocsTableOfContentsProps {
     items: TableOfContentsItem[];
+    /** called after a jump, so the panel can close itself */
+    onSelect?: () => void;
 }
 
-export const DocsTableOfContents = ({ items }: DocsTableOfContentsProps): React.ReactNode => {
+export const DocsTableOfContents = ({ items, onSelect }: DocsTableOfContentsProps): React.ReactNode => {
     const { classes } = useDocsTableOfContentsStyles();
 
-    const getExplicitScrollContainer = (): HTMLElement | null => {
-        return document.querySelector('[data-docs-scroll="true"]');
-    };
-
-    const getScrollParent = (element: HTMLElement | null): HTMLElement | Window => {
-        let node = element?.parentElement ?? null;
-        while (node) {
-            const style = window.getComputedStyle(node);
-            const canScroll = /(auto|scroll)/.test(style.overflowY || '') && node.scrollHeight > node.clientHeight;
-            if (canScroll) {
-                return node;
+    // The entries are the same anchors the link icons next to the headings carry:
+    // a real link, so it can be copied and opened in a new tab, and the address
+    // bar shows the section after the jump.
+    const handleClick =
+        (id: string, title: string) =>
+        (event: React.MouseEvent<HTMLAnchorElement>): void => {
+            const element = findHeadingElement(id, title);
+            if (!element) {
+                return;
             }
-            node = node.parentElement;
-        }
-        return window;
-    };
-
-    const scrollToElement = (element: HTMLElement): void => {
-        const explicitContainer = getExplicitScrollContainer();
-        if (explicitContainer) {
-            const scrollMarginTop = parseFloat(window.getComputedStyle(element).scrollMarginTop || '0') || 0;
-            const containerRect = explicitContainer.getBoundingClientRect();
-            const targetRect = element.getBoundingClientRect();
-            const top = explicitContainer.scrollTop + (targetRect.top - containerRect.top) - scrollMarginTop;
-            explicitContainer.scrollTo({ top, behavior: 'smooth' });
-            window.setTimeout(() => {
-                const freshContainerRect = explicitContainer.getBoundingClientRect();
-                const freshTargetRect = element.getBoundingClientRect();
-                const correctedTop =
-                    explicitContainer.scrollTop + (freshTargetRect.top - freshContainerRect.top) - scrollMarginTop;
-                explicitContainer.scrollTo({ top: correctedTop, behavior: 'auto' });
-            }, 200);
-            return;
-        }
-
-        const scrollParent = getScrollParent(element);
-        if (scrollParent === window) {
-            element.scrollIntoView({ block: 'start', behavior: 'smooth' });
-            return;
-        }
-        const parent = scrollParent as HTMLElement;
-        const parentRect = parent.getBoundingClientRect();
-        const targetRect = element.getBoundingClientRect();
-        const scrollMarginTop = parseFloat(window.getComputedStyle(element).scrollMarginTop || '0') || 0;
-        const top = targetRect.top - parentRect.top + parent.scrollTop - scrollMarginTop;
-        parent.scrollTo({ top, behavior: 'smooth' });
-    };
-
-    const handleClick = (id: string, title: string): void => {
-        let element = document.getElementById(id);
-        if (!element) {
-            const slug = makeSlug(title);
-            element = document.querySelector(`[data-md-heading="${slug}"]`);
-        }
-        if (element) {
+            event.preventDefault();
             scrollToElement(element);
-        }
-    };
+            updateAnchorInUrl(element.id || id);
+            onSelect?.();
+        };
 
     return (
         <Box className={classes.container}>
-            <Box className={classes.title}>{I18n.t('home.docs.tableOfContents')}</Box>
             <Box className={classes.list}>
                 {items.map(item => (
                     <Box key={item.id}>
                         <Box
+                            component="a"
+                            href={buildAnchorHref(item.id)}
                             className={classes.subTitle}
-                            onClick={() => handleClick(item.id, item.title)}
+                            onClick={handleClick(item.id, item.title)}
                         >
                             {item.title}
                         </Box>
@@ -92,12 +51,14 @@ export const DocsTableOfContents = ({ items }: DocsTableOfContentsProps): React.
                             <Box className={classes.subtitlesList}>
                                 {item.subtitles.map(subtitle => (
                                     <Box
+                                        component="a"
                                         key={subtitle.id}
+                                        href={buildAnchorHref(subtitle.id)}
                                         className={classes.subItem}
-                                        onClick={() => handleClick(subtitle.id, subtitle.title)}
+                                        onClick={handleClick(subtitle.id, subtitle.title)}
                                     >
                                         <Box className={classes.bullet}>•</Box>
-                                        <Box className={classes.subItem}>{subtitle.title}</Box>
+                                        <Box component="span">{subtitle.title}</Box>
                                     </Box>
                                 ))}
                             </Box>

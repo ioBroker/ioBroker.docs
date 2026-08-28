@@ -1,4 +1,4 @@
-import { Box, ToggleButton, ToggleButtonGroup, useMediaQuery } from '@mui/material';
+import { Box, ToggleButton, ToggleButtonGroup, Tooltip, useMediaQuery } from '@mui/material';
 import { AdapterBlock } from '../../components/AdapterBlock/AdapterBlock';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { I18n } from '../../utils/i18n';
@@ -22,8 +22,12 @@ const STORAGE_KEY = 'adaptersPageState';
 const loadSavedState = () => {
     try {
         const saved = sessionStorage.getItem(STORAGE_KEY);
-        if (saved) return JSON.parse(saved);
-    } catch { /* ignore */ }
+        if (saved) {
+            return JSON.parse(saved);
+        }
+    } catch {
+        /* ignore */
+    }
     return null;
 };
 
@@ -45,9 +49,17 @@ const AdaptersPage = (): React.ReactNode => {
 
     // Persist page state to sessionStorage so it survives navigation
     useEffect(() => {
-        sessionStorage.setItem(STORAGE_KEY, JSON.stringify({
-            mode, search, menuMode, isMenuCollapsed, selectedMenuItem, selectedCategoryKey,
-        }));
+        sessionStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify({
+                mode,
+                search,
+                menuMode,
+                isMenuCollapsed,
+                selectedMenuItem,
+                selectedCategoryKey,
+            }),
+        );
     }, [mode, search, menuMode, isMenuCollapsed, selectedMenuItem, selectedCategoryKey]);
 
     const mainBlockRef = useRef<HTMLDivElement>(null);
@@ -55,7 +67,9 @@ const AdaptersPage = (): React.ReactNode => {
 
     const handleMainBlockScroll = useCallback(() => {
         const el = mainBlockRef.current;
-        if (!el) return;
+        if (!el) {
+            return;
+        }
         const scrollHeight = el.scrollHeight - el.clientHeight;
         const percent = scrollHeight > 0 ? Math.round((el.scrollTop / scrollHeight) * 100) : 0;
         setScrollProgress(Math.min(100, Math.max(0, percent)));
@@ -183,18 +197,13 @@ const AdaptersPage = (): React.ReactNode => {
                             // {I18n.t('home.adapters.title').toUpperCase()}
                         </span>
                         <span className={classes.breadcrumbSlash}> / </span>
-                        <span className={classes.breadcrumbActive}>
-                            {selectedMenuItem.toUpperCase()}
-                        </span>
+                        <span className={classes.breadcrumbActive}>{selectedMenuItem.toUpperCase()}</span>
                     </Box>
                 ) : (
                     <SectionTitle
                         sx={{
-                            marginLeft: '32px',
-                            fontSize: {
-                                '@media (max-width:1279px)': { fontSize: '28px !important' },
-                                '@media (max-width:480px)': { fontSize: '20px !important' },
-                            },
+                            marginLeft: { xs: '16px', sm: '24px', lg: '32px' },
+                            marginBottom: '20px',
                         }}
                     >
                         {I18n.t('home.adapters.title')}
@@ -241,29 +250,38 @@ const AdaptersPage = (): React.ReactNode => {
                                 }}
                             >
                                 <ToggleButton value="block">
-                                    <img
-                                        alt="Grid Icon"
-                                        src={GridIcon}
-                                    />
+                                    <Tooltip title={I18n.t('adapters.tooltip.view_grid')}>
+                                        <img
+                                            alt="Grid Icon"
+                                            src={GridIcon}
+                                        />
+                                    </Tooltip>
                                 </ToggleButton>
                                 <ToggleButton value="table">
-                                    <img
-                                        alt="AdaptersList Icon"
-                                        src={AdaptersListIcon}
-                                    />
+                                    <Tooltip title={I18n.t('adapters.tooltip.view_table')}>
+                                        <img
+                                            alt="AdaptersList Icon"
+                                            src={AdaptersListIcon}
+                                        />
+                                    </Tooltip>
                                 </ToggleButton>
                             </ToggleButtonGroup>
                         </Box>
                     </Box>
-                    <Box className={classes.mainBlock} ref={mainBlockRef} onScroll={handleMainBlockScroll}>
+                    <Box
+                        className={classes.mainBlock}
+                        ref={mainBlockRef}
+                        onScroll={handleMainBlockScroll}
+                    >
                         {mode === 'block' ? (
-                            <Box className={classes.adaptersGrid}>
-                                {adaptersGridContent}
-                            </Box>
+                            <Box className={classes.adaptersGrid}>{adaptersGridContent}</Box>
                         ) : (
                             adaptersTableContent
                         )}
-                        <Divider position={scrollProgress} parentWidth={mainBlockRef.current?.clientWidth || window.innerWidth} />
+                        <Divider
+                            position={scrollProgress}
+                            parentWidth={mainBlockRef.current?.clientWidth || window.innerWidth}
+                        />
                         <Footer />
                     </Box>
                 </Box>

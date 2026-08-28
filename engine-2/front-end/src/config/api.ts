@@ -24,3 +24,11 @@ export const API_ENDPOINTS = {
  * in production it still points to the existing page on iobroker.net.
  */
 export const BLOG_LINK = isDev ? '/#/blog' : 'https://www.iobroker.net/blog';
+
+/**
+ * Imprint and privacy policy.
+ * The dev server renders them inside this SPA (short hash URL), in production
+ * they still point to the pages that are served today.
+ */
+export const IMPRINT_LINK = isDev ? '/#/imprint' : '/imprint';
+export const PRIVACY_LINK = isDev ? '/#/policy' : '/policy';

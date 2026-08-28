@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
 import { useMemo } from 'react';
 import { useStyles } from './AdapterMenu.styles';
 import type { AdapterItem } from '../AdapterItem/AdapterItem';
@@ -211,32 +211,38 @@ export const AdapterMenu = ({
                     const isActive = !isFirstItem && (selectedCategoryKeyProp ? item.key === selectedCategoryKeyProp : item.label === selectedItem);
 
                     return (
-                        <Box
+                        // collapsed the label is gone - the tooltip carries the category name
+                        <Tooltip
                             key={index}
-                            className={`${classes.menuItem} ${isActive ? classes.menuItemActive : ''}`}
-                            onClick={() => handleItemClick(item.label, item.key)}
+                            title={isCollapsed ? `${item.label} (${item.count})` : ''}
+                            placement="right"
                         >
-                            <Box className={classes.menuIcon}>
-                                <img
-                                    src={item.icon}
-                                    alt={item.label}
-                                />
+                            <Box
+                                className={`${classes.menuItem} ${isActive ? classes.menuItemActive : ''}`}
+                                onClick={() => handleItemClick(item.label, item.key)}
+                            >
+                                <Box className={classes.menuIcon}>
+                                    <img
+                                        src={item.icon}
+                                        alt={item.label}
+                                    />
+                                </Box>
+                                {!isCollapsed && (
+                                    <>
+                                        <Box
+                                            className={`${classes.menuText} ${isFirstItem ? classes.firstItemText : ''} ${isActive ? classes.activeText : ''}`}
+                                        >
+                                            {item.label}
+                                        </Box>
+                                        <Box
+                                            className={`${classes.menuCount} ${isFirstItem ? classes.firstItemCount : ''} ${isActive ? classes.activeCount : ''}`}
+                                        >
+                                            {item.count}
+                                        </Box>
+                                    </>
+                                )}
                             </Box>
-                            {!isCollapsed && (
-                                <>
-                                    <Box
-                                        className={`${classes.menuText} ${isFirstItem ? classes.firstItemText : ''} ${isActive ? classes.activeText : ''}`}
-                                    >
-                                        {item.label}
-                                    </Box>
-                                    <Box
-                                        className={`${classes.menuCount} ${isFirstItem ? classes.firstItemCount : ''} ${isActive ? classes.activeCount : ''}`}
-                                    >
-                                        {item.count}
-                                    </Box>
-                                </>
-                            )}
-                        </Box>
+                        </Tooltip>
                     );
                 })}
             </Box>
