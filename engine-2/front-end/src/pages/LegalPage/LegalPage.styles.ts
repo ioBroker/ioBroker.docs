@@ -7,7 +7,9 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
     },
     pageContainer: {
-        // left aligned on the page gutter, like the other pages
+        // left aligned on the page gutter, like the other pages - the explicit
+        // textAlign matters where the page sits in a centred container
+        textAlign: 'left',
         width: '100%',
         maxWidth: theme.custom.layout.contentMaxWidth + 2 * theme.custom.layout.gutter.lg,
         margin: 0,

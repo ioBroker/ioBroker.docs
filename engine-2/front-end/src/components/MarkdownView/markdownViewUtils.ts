@@ -1,14 +1,13 @@
-import type React from 'react';
-import { Children, isValidElement } from 'react';
+import { Children, isValidElement, type ReactNode } from 'react';
 import { removeFrontmatter } from '../../utils/markdown';
 
-export const normalizeText = (node: React.ReactNode): string => {
+export const normalizeText = (node: ReactNode): string => {
     return Children.toArray(node)
         .map(child => {
             if (typeof child === 'string' || typeof child === 'number') {
                 return String(child);
             }
-            if (isValidElement<{ children?: React.ReactNode }>(child)) {
+            if (isValidElement<{ children?: ReactNode }>(child)) {
                 return normalizeText(child.props.children);
             }
             return '';

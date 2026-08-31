@@ -8,4 +8,11 @@ export const EXTERNAL_LINKS = {
         'https://www.paypal.com/donate?token=StbKXfs33nrQEu7hpBfFwl6Tf2YI1oxO-D5DVABgfo89uOULEu_UIqKvGiUuXObuThS3GvFTeseNjg4m',
     /** search link with the ioBroker affiliate tag */
     AMAZON: 'https://www.amazon.de/s?k=homematic&tag=httpwwwiobron-21',
+    FORUM: 'https://forum.iobroker.net/',
+    GITHUB: 'https://github.com/ioBroker',
+    GITHUB_COMMUNITY: 'https://github.com/iobroker-community-adapters',
+    FACEBOOK_GROUP: 'https://www.facebook.com/groups/440499112958264',
+    FACEBOOK_PAGE: 'https://www.facebook.com/iobroker1/',
+    DISCORD: 'https://discord.gg/HwUCwsH',
+    INSTAGRAM: 'https://www.instagram.com/iobroker.gmbh/',
 } as const;

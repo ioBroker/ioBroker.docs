@@ -33,11 +33,15 @@ export const useHeaderStyles = makeStyles<{ dark: boolean }>()((theme, { dark })
                 paddingRight: '10px',
             },
         },
+        logoLink: {
+            display: 'flex',
+            alignItems: 'center',
+            marginRight: theme.spacing(3),
+        },
         logo: {
             width: 32,
             height: 32,
             cursor: 'pointer',
-            marginRight: theme.spacing(3),
         },
         searchBox: {
             display: 'flex',

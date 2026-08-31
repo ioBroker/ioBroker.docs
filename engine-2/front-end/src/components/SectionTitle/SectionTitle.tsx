@@ -1,6 +1,5 @@
 import React from 'react';
-import { Typography } from '@mui/material';
-import type { SxProps, Theme } from '@mui/material';
+import { Typography, type SxProps, type Theme } from '@mui/material';
 import { useStyles } from './SectionTitle.styles';
 
 interface SectionTitleProps {
@@ -16,7 +15,7 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({ children, sx }) => {
             className={classes.sectionTitle}
             sx={sx}
         >
-            // {children}
+            {'//'} {children}
         </Typography>
     );
 };

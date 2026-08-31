@@ -1,6 +1,5 @@
 import { Box } from '@mui/material';
-import type React from 'react';
-import { memo, useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';

@@ -1,5 +1,4 @@
-import { createTheme } from '@mui/material/styles';
-import type { ThemeOptions } from '@mui/material/styles';
+import { createTheme, type ThemeOptions } from '@mui/material/styles';
 
 const secondary = '#005894';
 const primary = '#1D90CA';

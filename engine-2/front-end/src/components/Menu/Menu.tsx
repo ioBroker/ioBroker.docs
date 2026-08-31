@@ -5,7 +5,18 @@ import { Close } from '@mui/icons-material';
 
 import logo from '../../assets/img/logo_net_small.svg';
 import { I18n, type Language } from '../../utils/i18n';
-import { IMPRINT_LINK, PRIVACY_LINK } from '../../config/api';
+import {
+    ADAPTERS_LINK,
+    BLOG_LINK,
+    DOCS_LINK,
+    HOME_LINK,
+    IMPRINT_LINK,
+    INSTALLATION_LINK,
+    LICENSES_LINK,
+    PRIVACY_LINK,
+    STATISTICS_LINK,
+} from '../../config/api';
+import { EXTERNAL_LINKS } from '../../config/links';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import SearchDialog from '../SearchDialog/SearchDialog';
 import SearchIcon from '../icons/SearchIcon';
@@ -248,7 +259,7 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                             }}
                             style={{ flexDirection: 'column', gap: 12 }}
                         >
-                            <a href="/#/">
+                            <a href={HOME_LINK}>
                                 <img
                                     src={logo}
                                     style={{
@@ -265,19 +276,19 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                             <Link
                                 name="Blog"
                                 selected={props.selected}
-                                url="https://www.iobroker.net/#/blog"
+                                url={BLOG_LINK}
                                 onClose={props.onClose}
                             />
                             <Link
                                 name="Forum"
                                 selected={props.selected}
-                                url="https://forum.iobroker.net/"
+                                url={EXTERNAL_LINKS.FORUM}
                                 onClose={props.onClose}
                             />
                             <Link
                                 name="Statistik"
                                 selected={props.selected}
-                                url="https://www.iobroker.net/#/statistics"
+                                url={STATISTICS_LINK}
                                 onClose={props.onClose}
                             />
                             <Link
@@ -325,49 +336,49 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                 name="Docs"
                                 selected={props.selected}
                                 big
-                                url="/#/docs"
+                                url={DOCS_LINK}
                                 onClose={props.onClose}
                             />
                             <Link
                                 name="Adapters"
                                 selected={props.selected}
                                 big
-                                url="/#/adapters"
+                                url={ADAPTERS_LINK}
                                 onClose={props.onClose}
                             />
                             <Link
                                 name="Licenses"
                                 selected={props.selected}
                                 big
-                                url="/#/licenses"
+                                url={LICENSES_LINK}
                                 onClose={props.onClose}
                             />
                             <Link
                                 name="Installation"
                                 selected={props.selected}
                                 big
-                                url="/#/installation"
+                                url={INSTALLATION_LINK}
                                 onClose={props.onClose}
                             />
                             <Link
                                 noDesktop
                                 name="Blog"
                                 selected={props.selected}
-                                url="/#/blog"
+                                url={BLOG_LINK}
                                 onClose={props.onClose}
                             />
                             <Link
                                 noDesktop
                                 name="Forum"
                                 selected={props.selected}
-                                url="https://forum.iobroker.net/"
+                                url={EXTERNAL_LINKS.FORUM}
                                 onClose={props.onClose}
                             />
                             <Link
                                 noDesktop
                                 name="Statistik"
                                 selected={props.selected}
-                                url="/#/statistics"
+                                url={STATISTICS_LINK}
                                 onClose={props.onClose}
                             />
                             <Box
@@ -505,35 +516,35 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                             }}
                         >
                             <OwnButton
-                                href="https://github.com/ioBroker"
+                                href={EXTERNAL_LINKS.GITHUB}
                                 tooltip={I18n.t('tooltip.github')}
                                 icon={<GitHubIcon />}
                             />
                             <OwnButton
                                 name={'community'}
-                                href="https://github.com/iobroker-community-adapters"
+                                href={EXTERNAL_LINKS.GITHUB_COMMUNITY}
                                 tooltip={I18n.t('tooltip.github_community')}
                                 icon={<GitHubIcon />}
                             />
                             <OwnButton
                                 name={'group'}
                                 textOffset={-8}
-                                href="https://www.facebook.com/groups/440499112958264"
+                                href={EXTERNAL_LINKS.FACEBOOK_GROUP}
                                 tooltip={I18n.t('tooltip.facebook_group')}
                                 icon={<FacebookIcon />}
                             />
                             <OwnButton
-                                href="https://www.facebook.com/iobroker1/"
+                                href={EXTERNAL_LINKS.FACEBOOK_PAGE}
                                 tooltip={I18n.t('tooltip.facebook_page')}
                                 icon={<FacebookIcon />}
                             />
                             <OwnButton
-                                href="https://discord.gg/HwUCwsH"
+                                href={EXTERNAL_LINKS.DISCORD}
                                 tooltip={I18n.t('tooltip.discord')}
                                 icon={<DiscordIcon />}
                             />
                             <OwnButton
-                                href="https://www.instagram.com/iobroker.gmbh/"
+                                href={EXTERNAL_LINKS.INSTAGRAM}
                                 tooltip={I18n.t('tooltip.instagram')}
                                 icon={<InstagramIcon />}
                             />

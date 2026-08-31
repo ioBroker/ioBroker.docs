@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function CheckIcon(): React.JSX.Element {
+export default function CheckIcon(props?: { style?: React.CSSProperties }): React.JSX.Element {
     return (
         <svg
             viewBox="0 0 33 24"
-            style={{ width: 33, height: 24 }}
+            style={{ width: 33, height: 24, ...props?.style }}
         >
             <path
                 fillRule="evenodd"

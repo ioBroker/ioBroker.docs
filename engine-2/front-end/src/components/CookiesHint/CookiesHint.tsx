@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { Box, Switch } from '@mui/material';
 
@@ -26,33 +25,30 @@ const isLegalPage = (): boolean => {
     return location.includes('/imprint') || location.includes('/policy');
 };
 
+/** the three pieces of state the banner keeps, as they are stored in the browser */
+const readStoredSettings = (): { acknowledged: PossibleSettings; commercial: boolean; statistics: boolean } => {
+    const settings: PossibleSettings = (window.localStorage.getItem(STORAGE_KEY) as PossibleSettings) || '';
+    // legacy value of the old website
+    if ((settings as string) === 'acknowledged') {
+        return { acknowledged: '', commercial: false, statistics: false };
+    }
+    return { acknowledged: settings, commercial: settings.includes('c'), statistics: settings.includes('s') };
+};
+
 export default function CookiesHint(props: { force?: boolean; onClose?: () => void }): React.JSX.Element | null {
     const { classes, cx } = useStyles();
-    const navigate = useNavigate();
     const [full, setFull] = useState<boolean>(false);
     const [reopened, setReopened] = useState<boolean>(false);
-    const [commercial, setCommercial] = useState<boolean>(false);
-    const [statistics, setStatistics] = useState<boolean>(false);
-    const [acknowledged, setAcknowledged] = useState<PossibleSettings>(
-        (window.localStorage.getItem(STORAGE_KEY) as PossibleSettings) || '',
-    );
+    const [commercial, setCommercial] = useState<boolean>(() => readStoredSettings().commercial);
+    const [statistics, setStatistics] = useState<boolean>(() => readStoredSettings().statistics);
+    const [acknowledged, setAcknowledged] = useState<PossibleSettings>(() => readStoredSettings().acknowledged);
 
     const readSettings = useCallback((): void => {
-        const settings: PossibleSettings = (window.localStorage.getItem(STORAGE_KEY) as PossibleSettings) || '';
-        // legacy value of the old website
-        if (settings === 'acknowledged') {
-            setAcknowledged('');
-            return;
-        }
-        setStatistics(settings.includes('s'));
-        setCommercial(settings.includes('c'));
+        const stored = readStoredSettings();
+        setAcknowledged(stored.acknowledged);
+        setCommercial(stored.commercial);
+        setStatistics(stored.statistics);
     }, []);
-
-    useEffect(() => {
-        if (props.force || !acknowledged) {
-            readSettings();
-        }
-    }, [props.force, acknowledged, readSettings]);
 
     useEffect(() => {
         const onOpen = (): void => {
@@ -174,9 +170,6 @@ export default function CookiesHint(props: { force?: boolean; onClose?: () => vo
                         component="a"
                         className={classes.link}
                         href={PRIVACY_LINK}
-                        onClick={() => {
-                            void navigate('/policy');
-                        }}
                     >
                         {I18n.t('menu-policy')}
                     </Box>
@@ -184,9 +177,6 @@ export default function CookiesHint(props: { force?: boolean; onClose?: () => vo
                         component="a"
                         className={classes.link}
                         href={IMPRINT_LINK}
-                        onClick={() => {
-                            void navigate('/imprint');
-                        }}
                     >
                         {I18n.t('menu-imprint')}
                     </Box>

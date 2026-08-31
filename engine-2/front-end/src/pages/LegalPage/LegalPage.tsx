@@ -1,11 +1,10 @@
 import { Box, Typography } from '@mui/material';
-import type React from 'react';
-import { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { I18n } from '../../utils/i18n';
 import { API_CONFIG, buildIoBrokerUrl } from '../../config/api';
 import { useDocsMarkdown } from '../../api/hooks/useDocsMarkdown';
 import { MarkdownView } from '../../components/MarkdownView/MarkdownView';
-import { extractHeader } from '../BlogPage/blogUtils';
+import { extractHeader } from '../../utils/markdownHeader';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { useStyles } from './LegalPage.styles';
 

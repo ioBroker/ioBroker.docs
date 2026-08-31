@@ -11,7 +11,16 @@ import ArrowIcon from '../icons/ArrowIcon';
 import logo from '../../assets/img/logo_net.svg';
 import { useFooterStyles } from './Footer.styles';
 import { I18n } from '../../utils/i18n';
-import { BLOG_LINK, IMPRINT_LINK, PRIVACY_LINK } from '../../config/api';
+import {
+    ADAPTERS_LINK,
+    BLOG_LINK,
+    DOCS_LINK,
+    IMPRINT_LINK,
+    INSTALLATION_LINK,
+    LICENSES_LINK,
+    PRIVACY_LINK,
+    STATISTICS_LINK,
+} from '../../config/api';
 import { EXTERNAL_LINKS } from '../../config/links';
 import { openCookieSettings } from '../CookiesHint/CookiesHint';
 
@@ -167,17 +176,17 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                     <Link
                                         classes={classes}
                                         name="adapters"
-                                        url="https://www.iobroker.net/adapters"
+                                        url={ADAPTERS_LINK}
                                     />
                                     <Link
                                         classes={classes}
                                         name="licenses"
-                                        url="https://www.iobroker.net/licenses"
+                                        url={LICENSES_LINK}
                                     />
                                     <Link
                                         classes={classes}
                                         name="installation"
-                                        url="https://www.iobroker.net/installation"
+                                        url={INSTALLATION_LINK}
                                     />
                                 </div>
                             </Braces>
@@ -195,12 +204,12 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                     <Link
                                         classes={classes}
                                         name="docs"
-                                        url="https://www.iobroker.net/docs"
+                                        url={DOCS_LINK}
                                     />
                                     <Link
                                         classes={classes}
                                         name="statistics"
-                                        url="https://www.iobroker.net/statistics"
+                                        url={STATISTICS_LINK}
                                     />
                                 </div>
                             </Braces>
@@ -246,21 +255,21 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                     <Box className={classes.hideOnSmall}>
                                         <OwnButton
                                             classes={classes}
-                                            href="https://forum.iobroker.net"
+                                            href={EXTERNAL_LINKS.FORUM}
                                             tooltip={I18n.t('tooltip.forum')}
                                             icon={<ForumIcon />}
                                         />
                                     </Box>
                                     <OwnButton
                                         classes={classes}
-                                        href="https://github.com/ioBroker"
+                                        href={EXTERNAL_LINKS.GITHUB}
                                         tooltip={I18n.t('tooltip.github')}
                                         icon={<GitHubIcon />}
                                     />
                                     <OwnButton
                                         classes={classes}
                                         name="community"
-                                        href="https://github.com/iobroker-community-adapters"
+                                        href={EXTERNAL_LINKS.GITHUB_COMMUNITY}
                                         tooltip={I18n.t('tooltip.github_community')}
                                         icon={<GitHubIcon />}
                                     />
@@ -268,26 +277,26 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                         classes={classes}
                                         name="group"
                                         textOffset={-8}
-                                        href="https://www.facebook.com/groups/440499112958264"
+                                        href={EXTERNAL_LINKS.FACEBOOK_GROUP}
                                         tooltip={I18n.t('tooltip.facebook_group')}
                                         icon={<FacebookIcon />}
                                     />
                                     <OwnButton
                                         classes={classes}
-                                        href="https://www.facebook.com/iobroker1/"
+                                        href={EXTERNAL_LINKS.FACEBOOK_PAGE}
                                         tooltip={I18n.t('tooltip.facebook_page')}
                                         textOffset={-8}
                                         icon={<FacebookIcon />}
                                     />
                                     <OwnButton
                                         classes={classes}
-                                        href="https://discord.gg/HwUCwsH"
+                                        href={EXTERNAL_LINKS.DISCORD}
                                         tooltip={I18n.t('tooltip.discord')}
                                         icon={<DiscordIcon />}
                                     />
                                     <OwnButton
                                         classes={classes}
-                                        href="https://www.instagram.com/iobroker.gmbh/"
+                                        href={EXTERNAL_LINKS.INSTAGRAM}
                                         tooltip={I18n.t('tooltip.instagram')}
                                         icon={<InstagramIcon />}
                                     />

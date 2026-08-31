@@ -32,3 +32,17 @@ export const BLOG_LINK = isDev ? '/#/blog' : 'https://www.iobroker.net/blog';
  */
 export const IMPRINT_LINK = isDev ? '/#/imprint' : '/imprint';
 export const PRIVACY_LINK = isDev ? '/#/policy' : '/policy';
+
+/**
+ * Destinations of the top navigation.
+ * The header component itself is identical in all ioBroker web apps (it is kept in
+ * sync by copy&paste until the shared library exists) - only this block differs,
+ * because every app links to the pages it does not host itself.
+ */
+export const HOME_LINK = '/#/';
+export const ADAPTERS_LINK = '/#/adapters';
+export const DOCS_LINK = '/#/docs';
+export const LICENSES_LINK = 'https://www.iobroker.net/licenses';
+export const PROFILE_LINK = '/#/profile';
+export const INSTALLATION_LINK = '/#/installation';
+export const STATISTICS_LINK = 'https://www.iobroker.net/#/statistics';

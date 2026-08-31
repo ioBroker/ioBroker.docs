@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
     Select,
     MenuItem,
@@ -23,7 +22,8 @@ import { useHeaderStyles } from './Header.styles';
 import SearchDialog from '../SearchDialog/SearchDialog';
 import MenuModal, { type MenuItems, type MenuItemsSmall } from '../Menu/Menu';
 import { I18n } from '../../utils/i18n';
-import { BLOG_LINK } from '../../config/api';
+import { ADAPTERS_LINK, BLOG_LINK, DOCS_LINK, HOME_LINK, LICENSES_LINK, PROFILE_LINK } from '../../config/api';
+import { logout } from '../../config/auth';
 
 export interface HeaderProps {
     selected: string;
@@ -47,7 +47,6 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
         return v === menuKey ? I18n.t(fallbackKey) : v;
     };
     const { classes } = useHeaderStyles({ dark: !!dark });
-    const navigate = useNavigate();
     const searchRef = useRef<HTMLInputElement | null>(null);
 
     const [searchOpened, setSearchOpened] = useState(false);
@@ -77,17 +76,16 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
                 className={classes.profileMenu}
             >
                 <MenuItem
-                    onClick={() => {
-                        setShowProfileMenu(null);
-                        void navigate('/profile');
-                    }}
+                    component="a"
+                    href={PROFILE_LINK}
+                    onClick={() => setShowProfileMenu(null)}
                 >
                     <ListItemIcon sx={{ color: 'inherit' }}>
                         <PersonIcon />
                     </ListItemIcon>
                     <ListItemText>{tt('menu-profile', 'Profile')}</ListItemText>
                 </MenuItem>
-                <MenuItem onClick={() => console.log('logout')}>
+                <MenuItem onClick={() => logout()}>
                     <ListItemIcon sx={{ color: 'inherit' }}>
                         <LogoutIcon />
                     </ListItemIcon>
@@ -114,15 +112,17 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
                 onClose={() => setSearchDialogOpen(false)}
             />
 
-            <img
-                src={logo}
-                className={classes.logo}
-                alt="logo"
-                onClick={e => {
-                    e.preventDefault();
-                    void navigate('/');
-                }}
-            />
+            <Box
+                component="a"
+                href={HOME_LINK}
+                className={classes.logoLink}
+            >
+                <img
+                    src={logo}
+                    className={classes.logo}
+                    alt="logo"
+                />
+            </Box>
 
             {!noSearch && (
                 <Box className={classes.searchBox}>
@@ -206,14 +206,14 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
             <Box className={classes.navBox}>
                 <Box
                     component="a"
-                    href="/#/adapters"
+                    href={ADAPTERS_LINK}
                     className={`${classes.link} ${selected === 'adapters' ? classes.linkSelected : ''}`}
                 >
                     {tt('menu-adapters', 'Adapters')}
                 </Box>
                 <Box
                     component="a"
-                    href="/#/docs"
+                    href={DOCS_LINK}
                     className={`${classes.link} ${selected === 'docs' ? classes.linkSelected : ''}`}
                 >
                     {tt('menu-docs', 'Docs')}
@@ -227,7 +227,7 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
                 </Box>
                 <Box
                     component="a"
-                    href="https://www.iobroker.net/licenses"
+                    href={LICENSES_LINK}
                     className={`${classes.link} ${selected === 'licenses' ? classes.linkSelected : ''}`}
                 >
                     {tt('menu-licenses', 'Licenses')}
@@ -244,7 +244,8 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
                     ) : (
                         <IconButton
                             className={classes.iconButton}
-                            onClick={() => navigate('/profile')}
+                            component="a"
+                            href={PROFILE_LINK}
                         >
                             <PersonIcon />
                         </IconButton>

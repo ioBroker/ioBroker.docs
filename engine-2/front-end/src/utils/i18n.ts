@@ -130,7 +130,7 @@ export class I18n {
     static addTranslations(words: Record<Language, Record<string, string>>): void {
         (Object.keys(words) as Language[]).forEach((l: Language): void => {
             if (!languages[l]) {
-                languages[l] = {} as Record<string, string>;
+                languages[l] = {};
             }
             Object.assign(languages[l], words[l]);
         });

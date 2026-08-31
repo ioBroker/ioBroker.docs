@@ -21,7 +21,7 @@ export const useStyles = makeStyles()(theme => ({
             height: '62%',
             background:
                 theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse at center, rgba(35, 86, 174, 0.10) 0%, rgba(29, 144, 202, 0.05) 30%, rgba(29, 144, 202, 0.02) 58%, rgba(29, 144, 202, 0) 85%)'
+                    ? 'radial-gradient(ellipse at center, rgba(35, 86, 174, 0.2) 0%, rgba(29, 144, 202, 0.1) 30%, rgba(29, 144, 202, 0.04) 58%, rgba(29, 144, 202, 0) 85%)'
                     : 'none',
             filter: 'blur(70px)',
             pointerEvents: 'none',
