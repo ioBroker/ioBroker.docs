@@ -1528,6 +1528,13 @@ https://github.com/MPunktBPunkt/ioBroker.metermaster
 
 Receives meter readings from the MeterMaster Android app, stores them as ioBroker data points, and manages ESP32 display nodes for showing meter values on OLED displays.
 
+## eebus-go (1.9.2026) – new adapter at stable repository
+https://github.com/FernetMenta/ioBroker.eebus-go
+
+<img src="https://raw.githubusercontent.com/FernetMenta/ioBroker.eebus-go/main/admin/eebus-go.png" width="100" height="100" />
+
+This adapter enables iobroker to become a custom energy manager in the context of §14a EnWG and §9 EEG. §14a EnWG is a German law that requires controllable systems like wallboxes or heatpumps to be dimmable if they can consume more than 4.2kW. §9 EEG requires production systems (e.g. PV inverters) to be curtailable by the grid operator. These laws are enforced by controlboxes that run on or are connected to smart meter gateways. A controlbox signals a limitation event directly to a controllable system or to a custom energy manager.
+
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
