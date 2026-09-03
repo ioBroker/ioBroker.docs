@@ -292,5 +292,347 @@
         "forum": "ioBroker forum",
         "paypal": "Donate via PayPal",
         "amazon": "Shop via our Amazon link"
-    }
+    },
+    "productOverview": {
+        "title": "Adapter and access licenses",
+        "welcome": "Welcome to the ioBroker cloud and license area!",
+        "intro": "Here you get the extra options that make your smart home more powerful and more flexible. At the bottom of the page we answer the most frequent questions.",
+        "quickSelect": "Quick selection",
+        "categories": {
+            "voice": {
+                "title": "Voice control",
+                "text": "Control your smart home by voice with Alexa, Google Home or Yandex Alisa"
+            },
+            "remote": {
+                "title": "Remote access",
+                "text": "Reach your smart home securely from anywhere, by app or browser"
+            },
+            "vis": {
+                "title": "Visualisation",
+                "text": "Use the dashboards you built yourself even without an internet connection"
+            },
+            "services": {
+                "title": "Services",
+                "text": "Connect ioBroker to platforms such as Geofency, Tasker or URL service"
+            },
+            "licenses": {
+                "title": "Licenses",
+                "text": "Licenses for certain adapters such as KNX, Jaeger-Design widgets or vis-2"
+            }
+        },
+        "order": "Order",
+        "free": "Free",
+        "inclVat": "incl. VAT",
+        "perMonth": "only %s per month",
+        "duration": "Duration",
+        "datapoints": "Data points",
+        "unlimited": "Unlimited",
+        "docsCta": "Detailed description in the documentation",
+        "close": "Close",
+        "loading": "Loading products …",
+        "loadError": "The product list could not be loaded. Please reload the page.",
+        "assistant": {
+            "title": "Smart assistant and services",
+            "features": {
+                "voice": {
+                    "title": "Voice control",
+                    "text": "Amazon Alexa / Google Home / Yandex Alisa"
+                },
+                "services": {
+                    "title": "Services",
+                    "text": "Geoposition / Tasker / URL services"
+                },
+                "matter": {
+                    "title": "Matter",
+                    "text": "Connecting Matter-capable devices"
+                }
+            },
+            "cardTitle": "Assistant",
+            "setup": {
+                "step1": "Register at iobroker.pro",
+                "step2": "Install the ioBroker.iot adapter on your ioBroker instance",
+                "step3": "Sign in to the adapter with your iobroker.pro credentials",
+                "step4": "Activate the voice service you want:",
+                "alexa": "Amazon Alexa:",
+                "alexa1": "Activate the ioBroker.iot skill in the Alexa app",
+                "alexa2": "Individual control and status queries: additionally activate the ioBroker.custom skill",
+                "google": "Google Home:",
+                "google1": "Connect ioBroker through ioBroker Actions in the Google Home app",
+                "title": "How to set it up"
+            },
+            "card": {
+                "f1": "3000 commands or service calls per day",
+                "f2": "35,000 commands per month",
+                "f3": "Integrate unlimited ioBroker devices into Matter via bridge"
+            },
+            "freeCard": {
+                "f1": "50 voice commands or service calls per day",
+                "f2": "Integrate 5 ioBroker devices into Matter via bridge",
+                "f3": "Registration at ioBroker.pro required",
+                "f4": "7-day trial period with the full range on first registration"
+            },
+            "what": {
+                "title": "What can the assistant do?",
+                "text": "You control your devices and scenes by voice and ask for their state, through Amazon Alexa, Google Home or Yandex Alisa. It takes an account at iobroker.pro and the ioBroker.iot adapter on your instance. Which devices the assistant knows, and what they are called, you set in the adapter."
+            },
+            "services": {
+                "title": "What are services?",
+                "text": "Services are calls from outside: through a personal service URL you send data to your system and trigger actions you defined beforehand: the position of your phone for geofencing, readings from other systems, or webhooks from IFTTT and Tasker. You create the actions in the ioBroker.iot adapter. Every call counts like a voice command."
+            },
+            "matter": {
+                "title": "What does Matter have to do with it?",
+                "text": "The Matter adapter itself is free: you can connect and control as many Matter devices in ioBroker as you like. Only the other direction is limited: passing your own ioBroker devices on to Apple Home, Google Home or Alexa through the Matter bridge. Without a license that is five devices, with the license as many as you want."
+            }
+        },
+        "remote": {
+            "title": "Remote access to ioBroker",
+            "features": {
+                "access": {
+                    "title": "Access to visualisation and settings",
+                    "text": "by app and/or browser, vis-2 incl. editing, Admin, JavaScript, e-charts"
+                },
+                "assistant": {
+                    "title": "Smart assistant license included",
+                    "text": "all functions included"
+                }
+            },
+            "cardTitle": "Remote access",
+            "setup": {
+                "step1": "Register for free access at iobroker.net, or for the Pro version at iobroker.pro",
+                "step2": "Install the ioBroker.cloud adapter on your ioBroker instance",
+                "step3": "Sign in to the adapter with your iobroker.net or iobroker.pro credentials",
+                "title": "How to set it up"
+            },
+            "card": {
+                "f1": "Admin, Lovelace, e-charts and more …",
+                "f2": "vis-2 incl. editing",
+                "f3": "via browser and app",
+                "f4": "incl. all functions of the smart assistant"
+            },
+            "freeCard": {
+                "f1": "vis-2 without editing",
+                "f2": "browser only (without app)",
+                "f3": "Registration at iobroker.net required"
+            },
+            "security": {
+                "title": "Why is this safe?",
+                "text": "Your ioBroker opens the connection outwards by itself. You do not have to open a port in your router or run a DynDNS service. Your system is not directly reachable from outside."
+            },
+            "accounts": {
+                "title": "iobroker.net or iobroker.pro?",
+                "text": "iobroker.net is the free access: there you manage your adapter licenses, for vis-2, KNX or the Jaeger-Design widgets, and use the free remote access.\n\niobroker.pro is the paid access: extended remote access with vis-2 for editing as well, plus Admin, JavaScript and e-charts, the smart assistants and the services."
+            },
+            "expiry": {
+                "title": "What happens when it runs out?",
+                "text": "The license does not renew automatically. You receive a reminder before it expires. If you do not renew, remote access ends."
+            }
+        },
+        "vis": {
+            "title": "vis-2",
+            "features": {
+                "tool": {
+                    "title": "Visualisation tool",
+                    "text": "for private and commercial use"
+                },
+                "offline": {
+                    "title": "Offline version available",
+                    "text": "use without an internet connection"
+                },
+                "lifetime": {
+                    "title": "Lifetime license",
+                    "text": ""
+                }
+            },
+            "which": {
+                "title": "Which vis-2 license do you need?",
+                "text": "vis-2 is an ioBroker adapter that requires a license. The license is valid on one ioBroker server and is bound to its serial number (UUID). It can be moved to new hardware up to three times. Write to info@iobroker.net for that.\n\nWith the free version the license is checked every time ioBroker restarts. Without an internet connection the adapter cannot start, so the free version should have one available.\n\nDo you want to run several servers, or your visualisation without an internet connection? Then the offline license is the right choice."
+            },
+            "commercial": {
+                "title": "Commercial license for vis-2",
+                "text": "The commercial license is required when ioBroker vis-2 is used as part of a commercial or business activity, for example by a legal entity (company, association, organisation), or in scenarios where a monetary benefit arises.\n\nThat includes, among others:",
+                "item1": "use in customer projects",
+                "item2": "use as part of services or paid systems",
+                "item3": "operation by companies, public authorities or other institutions",
+                "footer": "For private, non-commercial use the free license remains available."
+            },
+            "offline": {
+                "title": "What does the vis-2 offline license give you?",
+                "text": "A free vis-2 license needs an internet connection to verify the license in the cloud. The offline license lets you use the smart home dashboards you built locally, without an internet connection.\n\nThat is particularly useful if you:",
+                "item1": "work in an environment with an unstable or limited internet connection: your control stays reachable locally and reliably usable at all times",
+                "item2": "want maximum control and privacy: all visualisations and data stay on your own system and are not processed through external servers",
+                "footer": "With the offline license your visualisation runs on its own, secure and independent of the cloud, for demanding or security-critical environments."
+            },
+            "private": "Private",
+            "commercialLabel": "Commercially",
+            "offlineLabel": "Offline",
+            "privateCard": {
+                "f1": "For private use only",
+                "f2": "Lifetime license",
+                "f3": "Bound to UUID",
+                "f4": "Internet connection required",
+                "f5": "Registration at iobroker.net required"
+            },
+            "commercialCard": {
+                "f1": "For commercial use",
+                "f2": "Lifetime license",
+                "f3": "Bound to UUID",
+                "f4": "Including offline version"
+            },
+            "offlineCard": {
+                "f1": "For private use only",
+                "f2": "Lifetime license",
+                "f3": "Bound to UUID"
+            }
+        },
+        "jaeger": {
+            "title": "Jaeger-Design widgets",
+            "cardTitle": "Jaeger-Design",
+            "cardSubtitle": "Widgets",
+            "card": {
+                "f1": "Lifetime license",
+                "f2": "Bound to UUID"
+            },
+            "features": {
+                "widgets": {
+                    "title": "Widgets for vis-2",
+                    "text": "sorted by rooms and functions such as light, blinds and heating"
+                },
+                "license": {
+                    "title": "Lifetime license",
+                    "text": "bound to a UUID, transferable up to three times"
+                },
+                "test": {
+                    "title": "Try before you buy",
+                    "text": "in the vis-2 editor without a license, in the runtime with one"
+                }
+            },
+            "what": {
+                "title": "What are the Jaeger-Design widgets?",
+                "text": "Jaeger-Design widgets offer customisable elements for the ioBroker vis-2 visualisation. Alongside the many free widgets ioBroker provides, they make dashboards simple and intuitive to design, sorted by rooms and functions such as light, blinds and heating. The design is clear and easy to use."
+            },
+            "origin": {
+                "title": "Where do they come from?",
+                "text": "The widgets were originally developed together with a design studio for a luxury villa in Baden-Württemberg. Now they are available to everyone."
+            },
+            "license": {
+                "title": "What applies to the license?",
+                "text": "The lifetime license is bound to a UUID but can be transferred up to three times. To change a license, write to info@iobroker.net.\n\nYou can try the widgets without a license: in the vis-2 editor you can place them and look at them. In the running visualisation, the runtime, they are only shown with a license."
+            }
+        },
+        "knx": {
+            "title": "KNX",
+            "features": {
+                "import": {
+                    "title": "ETS project import",
+                    "text": "read the knxproj file directly, action and status addresses are matched automatically"
+                },
+                "gaTools": {
+                    "title": "GA tools",
+                    "text": "view and adjust group addresses"
+                },
+                "directLink": {
+                    "title": "directLink",
+                    "text": "link KNX components directly with non-KNX components"
+                }
+            },
+            "text": "The KNX adapter imports the KNX project file directly and assigns action and status addresses automatically while doing so. The GA tools let you reach and adjust the KNX group addresses easily. The directLink function connects KNX components directly with non-KNX components. The adapter is tested against the current KNX hardware, and matching updates follow ETS releases promptly. It is backwards compatible: project versions from ETS releases 4, 5 and 6 can all be imported.\n\nThe ETS licenses and the necessary KNX components are bought by the developer. Part of those costs is therefore recovered through the licenses.\n\nThe openKNX adapter is a fork of the very early KNX adapter. It also connects to the KNX bus, but the functions listed above are missing there.",
+            "cardTitle": "ioBroker KNX",
+            "card": {
+                "f1": "Bound to UUID"
+            },
+            "license": {
+                "title": "Do I need a license?",
+                "text": "Not up to 500 data points. Up to that size the KNX adapter runs without registration and without a license key. Only beyond it do you need a license, for one year or unlimited."
+            },
+            "point": {
+                "title": "What is a data point?",
+                "text": "A data point corresponds to a group address from your ETS project. The adapter imports your knxproj file and builds the object structure in ioBroker from it, the way you know it from ETS."
+            },
+            "count": {
+                "title": "How many data points do I have?",
+                "text": "You do not have to guess. After importing the knxproj file the adapter shows the number of imported objects. That is the number your license has to cover.\n\nYour system ID is in the adapter configuration as well. From there you can fetch a purchased license directly with your iobroker.net credentials."
+            },
+            "adapter": {
+                "title": "What the adapter can do"
+            }
+        },
+        "faq": {
+            "title": "Frequently asked questions",
+            "purchase": {
+                "title": "Purchase and payment",
+                "payment": {
+                    "q": "How can I pay?",
+                    "a": "You can pay with PayPal or buy on account. Purchase on account is possible for licenses with a term of one year or more."
+                },
+                "invoice": {
+                    "q": "Do I get an invoice?",
+                    "a": "Yes. You receive an electronic invoice at the e-mail address stored in your ioBroker account."
+                },
+                "activation": {
+                    "q": "When can I start using my license?",
+                    "a": "The license is activated once the payment arrives. Please note that activation can take up to three hours."
+                },
+                "price": {
+                    "q": "Is the price the same in every country?",
+                    "a": "Yes. The price shown is a gross price and is the same everywhere. Only the tax share it contains follows your country."
+                },
+                "country": {
+                    "q": "Why can I not order in my country?",
+                    "a": "In some countries we cannot sell because of the VAT handling. The country list in the order page shows whether yours is among them."
+                }
+            },
+            "license": {
+                "title": "License and device",
+                "uuid": {
+                    "q": "Where do I find my serial number (UUID)?",
+                    "a": "On the vis-2 configuration page in the ioBroker admin, or by entering “iob uuid” on the command line."
+                },
+                "servers": {
+                    "q": "Is a license valid for several ioBroker servers?",
+                    "a": "No. A license is bound to the serial number of one server and cannot be used on several servers at the same time."
+                },
+                "transfer": {
+                    "q": "Can I move my license to new hardware?",
+                    "a": "Yes, up to three times. Write to info@iobroker.net and we will do it for you."
+                }
+            },
+            "term": {
+                "title": "Term",
+                "renewal": {
+                    "q": "Does an access license renew automatically?",
+                    "a": "No. It runs for the period you unlocked and does not renew by itself."
+                }
+            },
+            "account": {
+                "title": "Account and free use",
+                "registration": {
+                    "q": "Do I need an account for the free version?",
+                    "a": "Yes. Free remote access needs an account at iobroker.net, the free assistant functions one at ioBroker.pro."
+                },
+                "included": {
+                    "q": "What is included in the free access?",
+                    "a": "Remote access: vis-2 without editing, browser only. Assistants: 50 voice commands or service calls per day and five ioBroker devices via the Matter bridge. The free cards above show the details."
+                }
+            },
+            "help": {
+                "title": "Help",
+                "support": {
+                    "q": "Where do I turn if something does not work?",
+                    "a": "Write to info@iobroker.net."
+                }
+            }
+        },
+        "support": {
+            "lead": "ioBroker is free. And stays free.",
+            "text": "The software and all basic functions cost nothing. On top of that there are extensions that make more possible: remote access while you are out, control by voice, visualisation even without an internet connection.",
+            "accent": "Unlocking one of them funds the further development of ioBroker as an open-source project and keeps it free for everyone else.",
+            "thanks": "We appreciate your support!"
+        },
+        "docsLink": "To the documentation",
+        "faqLink": "To the answer in the FAQ"
+    },
+    "1 month": "1 month",
+    "6 month": "6 months",
+    "1 year": "1 year",
+    "Unlimited": "Unlimited"
 }

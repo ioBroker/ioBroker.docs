@@ -41,7 +41,8 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: '400',
         fontFamily: theme.typography.fontFamily,
         letterSpacing: '0.01em',
-        color: theme.palette.mode === 'light' ? theme.palette.secondary.main : theme.palette.primary.light,
+        // primary.light reads too pale on the dark canvas - the kit's primary carries better
+        color: theme.palette.mode === 'light' ? theme.palette.secondary.main : theme.palette.primary.main,
         [theme.breakpoints.down('md')]: {
             fontSize: '15px',
         },

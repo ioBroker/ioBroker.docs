@@ -13,16 +13,16 @@ const primary = '#1D90CA';
 // card is clearly readable against the page ground without needing a border.
 const darkSurfaces = {
     canvas: '#080B1C',
-    surface: '#141A31',
-    raised: '#1C2440',
-    overlay: '#232C4E',
+    surface: '#031D38',
+    raised: '#052E57',
+    overlay: '#06386B',
 };
 
 const lightSurfaces = {
     canvas: '#FFFFFF',
-    surface: '#F4F8FC',
-    raised: '#E8F1F9',
-    overlay: '#DCEAF6',
+    surface: '#ECF2F9',
+    raised: '#DEE9F5',
+    overlay: '#D2E2F1',
 };
 
 const radius = {
@@ -90,37 +90,37 @@ const typography = (): Record<string, unknown> => ({
     // Audiowide stays the signature - but only for H1-H3 and the section title
     h1: {
         fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
-        fontSize: '40px',
+        fontSize: '36px',
         fontWeight: 400,
         lineHeight: 1.1,
         letterSpacing: '-0.02em',
         '@media (max-width:1279px)': {
-            fontSize: '32px',
+            fontSize: '28px',
         },
         '@media (max-width:480px)': {
-            fontSize: '26px',
+            fontSize: '22px',
             lineHeight: 1.2,
         },
     },
     h2: {
         fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
-        fontSize: '26px',
+        fontSize: '22px',
         fontWeight: 400,
         lineHeight: 1.23,
         letterSpacing: '-0.02em',
         '@media (max-width:480px)': {
-            fontSize: '22px',
+            fontSize: '18px',
             lineHeight: 1.3,
         },
     },
     h3: {
         fontFamily: 'Audiowide, Roboto, Arial, sans-serif',
-        fontSize: '20px',
+        fontSize: '16px',
         fontWeight: 400,
         lineHeight: 1.3,
         letterSpacing: '-0.02em',
         '@media (max-width:480px)': {
-            fontSize: '18px',
+            fontSize: '16px',
         },
     },
     h4: {
@@ -177,11 +177,27 @@ const typography = (): Record<string, unknown> => ({
 
 // Темная тема
 /** small, quiet label on the overlay surface - same in both themes */
-const tooltipComponents = (
-    surfaces: { overlay: string },
+const baseComponents = (
+    surfaces: { overlay: string; surface: string },
     color: string,
     shadow: string,
+    textColor: string,
 ): ThemeOptions['components'] => ({
+    MuiInputBase: {
+        styleOverrides: {
+            input: {
+                // the browser paints autofilled fields white - repaint them in the theme's colours
+                '&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active': {
+                    WebkitBoxShadow: `0 0 0 1000px ${surfaces.surface} inset`,
+                    WebkitTextFillColor: textColor,
+                    caretColor: textColor,
+                    borderRadius: 'inherit',
+                    // Chrome re-applies its own colour on a transition end, so never let it finish
+                    transition: 'background-color 100000s ease-in-out 0s',
+                },
+            },
+        },
+    },
     MuiTooltip: {
         defaultProps: {
             arrow: true,
@@ -264,10 +280,11 @@ export const darkTheme = createTheme({
         control,
         layout,
     },
-    components: tooltipComponents(
+    components: baseComponents(
         darkSurfaces,
         '#FFFFFF',
         'inset 0 0 0 1px rgba(126, 195, 243, 0.18), 0 8px 20px -8px rgba(0, 0, 0, 0.8)',
+        '#FFFFFF',
     ),
 });
 
@@ -325,10 +342,11 @@ export const lightTheme = createTheme({
         control,
         layout,
     },
-    components: tooltipComponents(
+    components: baseComponents(
         lightSurfaces,
         secondary,
         '0 1px 2px rgba(0, 88, 148, 0.12), 0 8px 20px -8px rgba(0, 88, 148, 0.4)',
+        secondary,
     ),
 });
 

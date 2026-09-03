@@ -14,6 +14,7 @@ import {
 import { Close } from '@mui/icons-material';
 
 import logo from '../../assets/img/logo_net_small.svg';
+import GitHubIcon from '../icons/GitHubIcon';
 import MenuIcon from '../icons/MenuIcon';
 import PersonIcon from '../icons/PersonIcon';
 import SearchIcon from '../icons/SearchIcon';
@@ -24,6 +25,7 @@ import MenuModal, { type MenuItems, type MenuItemsSmall } from '../Menu/Menu';
 import { I18n } from '../../utils/i18n';
 import { ADAPTERS_LINK, BLOG_LINK, DOCS_LINK, HOME_LINK, LICENSES_LINK, PROFILE_LINK } from '../../config/api';
 import { logout } from '../../config/auth';
+import { EXTERNAL_LINKS } from '../../config/links';
 
 export interface HeaderProps {
     selected: string;
@@ -80,14 +82,15 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
                     href={PROFILE_LINK}
                     onClick={() => setShowProfileMenu(null)}
                 >
-                    <ListItemIcon sx={{ color: 'inherit' }}>
+                    <ListItemIcon className={classes.profileMenuIcon}>
                         <PersonIcon />
                     </ListItemIcon>
                     <ListItemText>{tt('menu-profile', 'Profile')}</ListItemText>
                 </MenuItem>
                 <MenuItem onClick={() => logout()}>
-                    <ListItemIcon sx={{ color: 'inherit' }}>
-                        <LogoutIcon />
+                    <ListItemIcon className={classes.profileMenuIcon}>
+                        {/* the logout glyph is 42 px by default - here it follows its box */}
+                        <LogoutIcon style={{ width: '100%', height: '100%' }} />
                     </ListItemIcon>
                     <ListItemText>{tt('menu-logout', 'Logout')}</ListItemText>
                 </MenuItem>
@@ -232,6 +235,21 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
                 >
                     {tt('menu-licenses', 'Licenses')}
                 </Box>
+
+                <Tooltip title={I18n.t('tooltip.github')}>
+                    <IconButton
+                        className={classes.iconButton}
+                        component="a"
+                        href={EXTERNAL_LINKS.GITHUB}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                    >
+                        {/* the cat glyph fills its whole viewBox, so it needs a little air to
+                            read at the same size as the person and burger icons */}
+                        <GitHubIcon style={{ width: '80%', height: '80%' }} />
+                    </IconButton>
+                </Tooltip>
 
                 <Tooltip title={I18n.t('tooltip.profile')}>
                     {loggedIn ? (

@@ -7,6 +7,7 @@ import AdapterPage from '../../../pages/AdapterPage/AdapterPage';
 import BlogPage from '../../../pages/BlogPage/BlogPage';
 import BlogPostPage from '../../../pages/BlogPage/BlogPostPage';
 import LegalPage from '../../../pages/LegalPage/LegalPage';
+import ProductOverviewPage from '../../../pages/ProductOverviewPage/ProductOverviewPage';
 
 export const useRoutes = (): React.ReactElement => {
     return (
@@ -42,6 +43,10 @@ export const useRoutes = (): React.ReactElement => {
             <Route
                 path="/docs/*"
                 element={<DocsPage />}
+            />
+            <Route
+                path="/productoverview"
+                element={<ProductOverviewPage />}
             />
             <Route
                 path="/imprint"

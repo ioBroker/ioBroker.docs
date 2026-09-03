@@ -10,13 +10,13 @@ export const useStyles = makeStyles()(theme => ({
         whiteSpace: 'nowrap',
         wordBreak: 'keep-all',
         overflowWrap: 'normal',
-        fontSize: '40px',
+        fontSize: '36px',
         lineHeight: 1.1,
         [theme.breakpoints.down('md')]: {
-            fontSize: '32px',
+            fontSize: '28px',
         },
         [theme.breakpoints.down('sm')]: {
-            fontSize: '26px',
+            fontSize: '22px',
             marginBottom: theme.spacing(3),
         },
     },

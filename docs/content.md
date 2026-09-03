@@ -81,6 +81,7 @@
   * [IoT](cloud/iot)
   * [Visualisations](cloud/viz)
   * [Editors](cloud/editor)
+  * [Services](cloud/services)
   * [Alexa Smarthome-Skill](cloud/alexasmart)
   * [Alexa Custom-Skill](cloud/alexacustom)
   * [App](cloud/app)

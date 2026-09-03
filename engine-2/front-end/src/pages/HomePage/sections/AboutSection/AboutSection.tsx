@@ -15,9 +15,9 @@ const ALL_ITEMS: ItemData[] = [
     {
         title: 'ENORME FLEXIBILITÄT',
         description:
-            'Mit ioBroker sind deiner Kreativität keine Grenzen gesetzt. Die Plattform unterstützt eine Vielzahl von Automatisierungsansätzen, von einfachen "Wenn-dies-dann-das"-Szenarien bis hin zu komplexen, mehrstufigen Logiken. Dank der Unterstützung von Blocky, JavaScript, TypeScript und Node.js können sowohl Einsteiger als auch erfahrene Entwickler ihre Smart-Home-Umgebung individuell gestalten und erweitern.',
+            'Mit ioBroker sind Ihrer Kreativität keine Grenzen gesetzt. Die Plattform unterstützt eine Vielzahl von Automatisierungsansätzen, von einfachen "Wenn-dies-dann-das"-Szenarien bis hin zu komplexen, mehrstufigen Logiken. Dank der Unterstützung von Blocky, JavaScript, TypeScript und Node.js können sowohl Einsteiger als auch erfahrene Entwickler ihre Smart-Home-Umgebung individuell gestalten und erweitern.',
         details:
-            'Ob zeitgesteuerte Abläufe, Sensorwerte als Auslöser oder die intelligente Verknüpfung mehrerer Geräte: ioBroker bietet maximale Freiheit bei der Umsetzung deiner Automatisierungsideen. Dabei ist das System so offen gestaltet, dass nahezu jede Hardware und jedes Protokoll integriert werden kann – egal ob Zigbee, Z-Wave, MQTT, KNX oder cloudbasierte Dienste wie Alexa, Google Assistant oder HomeKit. Mit ioBroker automatisierst du nicht nur Abläufe, sondern schaffst ein vollständig vernetztes, intelligentes Zuhause . Ganz nach deinen Regeln.',
+            'Ob zeitgesteuerte Abläufe, Sensorwerte als Auslöser oder die intelligente Verknüpfung mehrerer Geräte: ioBroker bietet maximale Freiheit bei der Umsetzung Ihrer Automatisierungsideen. Dabei ist das System so offen gestaltet, dass nahezu jede Hardware und jedes Protokoll integriert werden kann – egal ob Zigbee, Z-Wave, MQTT, KNX oder cloudbasierte Dienste wie Alexa, Google Assistant oder HomeKit. Mit ioBroker automatisieren Sie nicht nur Abläufe, sondern schaffen ein vollständig vernetztes, intelligentes Zuhause. Ganz nach Ihren Regeln.',
     },
     {
         title: 'OPEN-SOURCE',
@@ -36,16 +36,16 @@ const ALL_ITEMS: ItemData[] = [
     {
         title: 'ALLES ÜBER GUI',
         description:
-            'Vergiss komplizierte Konfigurationsdateien!  Alles bequem über eine grafische Benutzeroberfläche (GUI) konfigurieren, was die Nutzung besonders einfach macht.',
+            'Vergessen Sie komplizierte Konfigurationsdateien!  Alles bequem über eine grafische Benutzeroberfläche (GUI) konfigurieren, was die Nutzung besonders einfach macht.',
         details:
-            'Vergiss komplizierte Konfigurationsdateien!  Alles bequem über eine grafische Benutzeroberfläche (GUI) konfigurieren, was die Nutzung besonders einfach macht.',
+            'Vergessen Sie komplizierte Konfigurationsdateien!  Alles bequem über eine grafische Benutzeroberfläche (GUI) konfigurieren, was die Nutzung besonders einfach macht.',
     },
     {
         title: 'DEUTSCHE COMMUNITY',
         description:
-            'Die ioBroker-Community ist stark und aktiv, besonders im deutschsprachigen Raum. Hier findest du schnellen Support und hilfreiche Tipps.',
+            'Die ioBroker-Community ist stark und aktiv, besonders im deutschsprachigen Raum. Hier finden Sie schnellen Support und hilfreiche Tipps.',
         details:
-            'Die ioBroker-Community ist stark und aktiv, besonders im deutschsprachigen Raum. Hier findest du schnellen Support und hilfreiche Tipps.',
+            'Die ioBroker-Community ist stark und aktiv, besonders im deutschsprachigen Raum. Hier finden Sie schnellen Support und hilfreiche Tipps.',
     },
     {
         title: 'OFFENE ARCHITEKTUR',
@@ -83,9 +83,9 @@ const ALL_ITEMS: ItemData[] = [
     {
         title: 'SKALIERBARKEIT',
         description:
-            'ioBroker wächst mit deinen Anforderungen – vom kleinen Smart-Home-Setup bis hin zu komplexen Multi-Host-Systemen. Neue Geräte und Funktionen lassen sich jederzeit hinzufügen. ',
+            'ioBroker wächst mit Ihren Anforderungen – vom kleinen Smart-Home-Setup bis hin zu komplexen Multi-Host-Systemen. Neue Geräte und Funktionen lassen sich jederzeit hinzufügen. ',
         details:
-            'ioBroker wächst mit deinen Anforderungen – vom kleinen Smart-Home-Setup bis hin zu komplexen Multi-Host-Systemen. Neue Geräte und Funktionen lassen sich jederzeit hinzufügen. ',
+            'ioBroker wächst mit Ihren Anforderungen – vom kleinen Smart-Home-Setup bis hin zu komplexen Multi-Host-Systemen. Neue Geräte und Funktionen lassen sich jederzeit hinzufügen. ',
     },
     {
         title: 'JS-CONTROLLER ',
@@ -95,9 +95,9 @@ const ALL_ITEMS: ItemData[] = [
     {
         title: 'SICHERHEIT',
         description:
-            'Daten bleiben lokal und unter deiner Kontrolle. Der Fernzugriff funktioniert ohne externe Cloud-Dienste, was maximale Privatsphäre garantiert.',
+            'Daten bleiben lokal und unter Ihrer Kontrolle. Der Fernzugriff funktioniert ohne externe Cloud-Dienste, was maximale Privatsphäre garantiert.',
         details:
-            'Daten bleiben lokal und unter deiner Kontrolle. Der Fernzugriff funktioniert ohne externe Cloud-Dienste, was maximale Privatsphäre garantiert.',
+            'Daten bleiben lokal und unter Ihrer Kontrolle. Der Fernzugriff funktioniert ohne externe Cloud-Dienste, was maximale Privatsphäre garantiert.',
     },
     {
         title: 'MULTI-HOST',

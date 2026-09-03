@@ -426,6 +426,15 @@ export const docsData: Docs = {
                     },
                     content: 'cloud/editor.md',
                 },
+                Services: {
+                    title: {
+                        en: 'Services (cloud service URL)',
+                        de: 'Dienste (Cloud-Service-URL)',
+                        ru: 'Сервисы (облачный сервисный URL)',
+                        'zh-cn': '服务（云服务 URL）',
+                    },
+                    content: 'cloud/services.md',
+                },
                 'Alexa Custom-Skill': {
                     title: {
                         en: 'Alexa Custom-Skill',

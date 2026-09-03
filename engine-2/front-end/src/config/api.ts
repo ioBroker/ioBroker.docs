@@ -42,7 +42,20 @@ export const PRIVACY_LINK = isDev ? '/#/policy' : '/policy';
 export const HOME_LINK = '/#/';
 export const ADAPTERS_LINK = '/#/adapters';
 export const DOCS_LINK = '/#/docs';
-export const LICENSES_LINK = 'https://www.iobroker.net/licenses';
+export const LICENSES_LINK = isDev ? '/#/productoverview' : 'https://www.iobroker.net/#/productoverview';
+
+/**
+ * The two product catalogues. iobroker.net carries the adapter licenses,
+ * iobroker.pro the access licenses. Neither host sends CORS headers, so in
+ * development both go through the dev-server proxy (see vite.config.ts).
+ */
+export const PRODUCTS_NET_URL = isDev ? '/api/products/net' : 'https://iobroker.net/api/v1/public/products';
+export const PRODUCTS_PRO_URL = isDev ? '/api/products/pro' : 'https://iobroker.pro/api/v1/public/products';
+
+/** "Order" on the product overview hands over to the marketplace in the profile app */
+export const LICENSES_MARKETPLACE_LINK = isDev
+    ? 'http://localhost:3002/www/licenses-marketplace'
+    : 'https://www.iobroker.net/www/licenses-marketplace';
 export const PROFILE_LINK = '/#/profile';
 export const INSTALLATION_LINK = '/#/installation';
 export const STATISTICS_LINK = 'https://www.iobroker.net/#/statistics';

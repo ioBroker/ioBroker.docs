@@ -181,6 +181,20 @@ export const useHeaderStyles = makeStyles<{ dark: boolean }>()((theme, { dark })
                 color: theme.palette.text.primary,
             },
         },
+        /**
+         * The icons of the profile menu carry their size from the outside - the
+         * glyphs themselves are drawn at 100 % of their box.
+         */
+        profileMenuIcon: {
+            // the glyphs are drawn at 100 % of their box via an inline style, and an
+            // inline style beats every class - so the box itself has to carry the size
+            minWidth: 20,
+            width: 20,
+            height: 20,
+            marginRight: '12px',
+            flexShrink: 0,
+            color: 'inherit',
+        },
         menuItem: {
             fontFamily: theme.typography.fontFamily,
             '&.Mui-selected': {
