@@ -36,7 +36,10 @@ export const useHeaderStyles = makeStyles<{ dark: boolean }>()((theme, { dark })
         logoLink: {
             display: 'flex',
             alignItems: 'center',
+            justifyContent: 'center',
             marginRight: theme.spacing(3),
+            // the 32 px mark alone was a small target on a phone
+            [theme.breakpoints.down(768)]: { minWidth: 44, minHeight: 44 },
         },
         logo: {
             width: 32,
@@ -97,6 +100,13 @@ export const useHeaderStyles = makeStyles<{ dark: boolean }>()((theme, { dark })
             color: bar.palette.text.primary,
             '& .MuiSelect-select': {
                 paddingRight: '0 !important',
+                // a finger needs about 44 px - the two letters alone were 20 x 35
+                [theme.breakpoints.down(768)]: {
+                    display: 'flex',
+                    alignItems: 'center',
+                    minWidth: 32,
+                    minHeight: 44,
+                },
             },
             '&.MuiInput-root:before': {
                 borderBottom: 'none',
@@ -166,6 +176,11 @@ export const useHeaderStyles = makeStyles<{ dark: boolean }>()((theme, { dark })
             },
             width: theme.custom.control.compactHeight,
             height: theme.custom.control.compactHeight,
+            // a finger needs about 44 px, and the header strip is what gets tapped most
+            [theme.breakpoints.down(768)]: {
+                width: 44,
+                height: 44,
+            },
         },
         profileMenu: {
             '& .MuiPaper-root': {

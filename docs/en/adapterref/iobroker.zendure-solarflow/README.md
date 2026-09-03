@@ -40,11 +40,24 @@ Currently all Zendure Solarflow devices are supported via cloud.
 
 ## Modes
 
-- **Authentication Cloud Key** Official method supported by Zendure. Obtain a Cloud key from the official app. By default the zenSDK is used (the device has to be on the same network as the ioBroker instance). You can opt out to use only cloud mode. For older devices with mqtt set to a local server, it's now possible to relay data to the cloud without any disadvantages!
+- **Authentication Cloud Key** Official method supported by Zendure. Obtain a Cloud key from the official app. By default the zenSDK is used (the device has to be on the same network as the ioBroker instance). **This is the recommended way to control "new" (zenSDK compatible) devices, as it is the method officially recommended by Zendure themselves** - it gives you full local control while still relaying data to the cloud. You can opt out to use only cloud mode. For older devices with mqtt set to a local server, it's now possible to relay data to the cloud without any disadvantages!
 
 - **Local MQTT** It's also possible to use the local only mode. Currently there is no known way for the new Solarflow devices to set the MQTT server directly on the device, so for these you have to use a DNS relay.
 
+### mDNS Discovery
+
+When zenSDK is enabled, the adapter also briefly browses the local network via mDNS/Bonjour after startup to discover Zendure devices announcing themselves as `Zendure-<model>-<serialNumber>`. This is used to:
+
+- **Fill in or correct IP addresses**: If a device known from the cloud device list has no IP address, or the IP address in the cloud device list no longer matches the address the device actually announces on the network, it is corrected automatically.
+- **Auto-create zenSDK-only accessories**: The Mix series devices and both Smart Meters (see below) have no known cloud productKey and can't be created from the cloud device list at all. The adapter creates them directly from their mDNS announcement instead, using their serial number as the internal device key.
+
+Devices are always matched by their full serial number (parsed from the mDNS service name), not by IP address or a shortened suffix, since some Zendure serial numbers only differ in their first few characters.
+
+This behavior can be disabled with the "Add devices found via mDNS discovery" setting.
+
 ### zenSDK Compatible Devices ✅
+
+> **Recommended by Zendure:** For all "new" devices listed below, using the zenSDK (via the Authentication Cloud Key mode above) is the way officially recommended by Zendure themselves to control your devices. It gives you full local control over http while the cloud connection is kept for convenience - there is no need to disconnect these devices from the cloud.
 
 These devices support the advanced zenSDK automation features with full **local** control over http:
 
@@ -55,6 +68,16 @@ These devices support the advanced zenSDK automation features with full **local*
 - **Solarflow 800** - Full zenSDK support
 - **Solarflow 800 Plus** - Full zenSDK support
 - **Solarflow 800 Pro** - Full zenSDK support
+- **Solarflow 3000 Mix AC+** - Full zenSDK support (no cloud productKey known yet, added via [mDNS discovery](#mdns-discovery) only)
+- **Solarflow 4000 Mix AC+** - Full zenSDK support (no cloud productKey known yet, added via [mDNS discovery](#mdns-discovery) only)
+- **Solarflow 4000 Mix Pro** - Full zenSDK support (no cloud productKey known yet, added via [mDNS discovery](#mdns-discovery) only)
+
+### Smart Meter Accessories 📊
+
+These are read-only zenSDK accessories with no control states and no battery packs - they only ever report live measurements. Like the Mix series, they have no known cloud productKey and are added via [mDNS discovery](#mdns-discovery) only:
+
+- **Smart Meter 3CT** - Reports apparent power per phase (A/B/C) and total, measured via three current transformers
+- **Smart Meter D0** - Reports live measurements read from the utility meter via its IEC 62056-21 optical interface
 
 ### Legacy Devices 🔄
 
@@ -101,10 +124,23 @@ This adapter will use the Cloud Authorization Code for authentication on the off
 -->
 
 ## Changelog
-### 5.2.0-alpha.0 (2026-08-25)
+### 5.3.0 (2026-09-02)
 
-- This version changes the function 'setDeviceAutomationInOutLimit' of Hyper 2000 to use 'hemsEP' function instead of 'deviceAutomation'. It's the same commands sent from the HEMS cloud to the device if using the cloud HEMS. Big thanks to **FireSon** from the team of the Home Assistant Integration for Zendure for clarification and details!
-- Fix setting of 0-values to battery states
+- Add folder "settings" for zenSDK devices. Here you can turn device polling on/off and control the polling interval for individual devices.
+- Round hyperTmp to nearest int.
+- Adjust checkVoltage function to take account of the 24V architecture of the new Mix series.
+- Start mDNS discovery start after fetching deviceList from Zendure cloud.
+- Fix lower case bug in comparing product keys for new mDNS device creation
+
+### 5.2.1 (2026-08-30)
+
+- BREAKING: `setDeviceAutomationInOutLimit` on Hyper 2000 uses simulated HEMS now and requires `hemsState = 1` and `autoModel = 0` to control the device (automatically set by the adapter). Please check your control parameters (e.g. inverseMaxPower) after updating if you use setDeviceAutomationInOutLimit.
+- Add support for Solarflow 3000/4000 Mix AC+ and 4000 Mix Pro via mDNS auto-discovery
+- Add support for Smart Meter 3CT and Smart Meter D0 (read-only zenSDK accessories, with proper power state names/units and no control or packData states)
+- Correct a device's IP via mDNS if it no longer matches the (stale or wrong) IP from the cloud device list
+- Process zenSDK measurements reported directly on the response instead of nested under "properties" (affects Smart Meter 3CT/D0)
+- Enable "mDNS discovery" by default, including for existing instances that never had this setting saved - you must disable this option in settings if not desired
+
 
 ### 5.1.0 (2026-08-20)
 
@@ -119,10 +155,6 @@ This adapter will use the Cloud Authorization Code for authentication on the off
 ### 5.0.3 (2026-08-18)
 
 - Fix `wifiState` not being created/updated correctly for devices using local zenSDK polling (Solarflow 2400 AC/AC Plus/Pro, 1600 AC Plus), as their local status payload does not report a `wifiState` property
-
-### 5.0.2 (2026-08-18)
-
-- Fix Wifistate type/value mismatch
 
 For older changes see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 

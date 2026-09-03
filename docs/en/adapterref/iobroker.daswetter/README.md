@@ -79,17 +79,21 @@ A [widget for Vis-2](https://github.com/rg-engineering/ioBroker.vis-2-widgets-we
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (René) dependency updates
+ 
 ### 4.5.9 (2026-07-05)
 * (René) dependency updates and translations
 
 ### 4.5.6 (2026-06-17)
-- (René) see issue #574 and #571: state roles adapted
+* (René) see issue #574 and #571: state roles adapted
 
 ### 4.5.4 (2026-05-31)
-- (copilot) Adapter requires node.js >= 22 now
-- (René) see issue 534: bug fix for current hour: time ends at forecast period
-- (René) see issue 515: decimal places for temperature adjusable between 0 and 2 in admin
-- (René) see issue 515: add a datapoint to show last time when data was downloaded from server
+* (copilot) Adapter requires node.js >= 22 now
+* (René) see issue 534: bug fix for current hour: time ends at forecast period
+* (René) see issue 515: decimal places for temperature adjusable between 0 and 2 in admin
+* (René) see issue 515: add a datapoint to show last time when data was downloaded from server
 
 ### 4.5.3 (2026-03-08)
 * (René) solved lint errors and warnings based on adapter checker

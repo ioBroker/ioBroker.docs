@@ -131,12 +131,29 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.2.0 (2026-08-28)
+* (@GermanBluefox) The devices of this adapter are now reachable in the ioBroker Device Manager: each one appears as a card with its name, icon, battery and reachability. Readings are shown on the card itself, and only states that can actually be operated become controls (switch, slider, select), so a read-only device has no control button at all. A control writes to the command state but reads from its feedback partner where the device has one, so a switch shows what the device reports rather than what it was last told. The instance already advertised Device Manager support, but answered none of its requests
+* (@GermanBluefox) Added the "Clean Light" theme: white cards on a light grey page with coloured icons, where a tile stays white when its device is on and only the label and the toggle turn blue
+* (@GermanBluefox) Added the "Tech Blue" theme: near-black tiles set apart by a lit blue outline, with monochrome blue icons and toggles
+* (@krobipd) Fixed "Create new folder" only showing a white screen since 4.0.0 (#679)
+* (@krobipd) Fixed the room column filter emptying the device list: it showed the function filter's value and wrote the picked room into the function filter (#680)
+* (@krobipd) Fixed an added state being deleted when it was edited without renaming it (#360)
+* (@krobipd) Moving, renaming or copying a device no longer deletes the original when the copy failed halfway through (#151, #513)
+* (@GermanBluefox) A failed copy is only cleaned up when its target path was free beforehand, so renaming a device onto an existing name cannot delete that device's objects
+* (@krobipd) Manually added states are now deleted together with their device, instead of staying behind as ghost objects after a move, rename or delete (#684)
+* (@krobipd) Cancel in the device editor now really cancels: deleting a state and picking a device icon are applied on Save instead of the moment they are clicked
+* (@krobipd) The read/write function preview shows boolean results and reports an invalid formula, instead of staying empty in both cases (#683)
+* (@krobipd) A string-typed alias no longer inherits `min`/`max`/`step` from its source, which made js-controller warn about an invalid object on every check (#682)
+* (@GermanBluefox) An alias or linked state now takes its type from the source wherever the device type allows more than one, so a thermostat or air conditioner that spells its modes out instead of numbering them is no longer written back as a number (#614). Needs the matching `@iobroker/type-detector` release
+* (@krobipd) A linkeddevices state now inherits the real range of its source instead of a hard 0...100, so a linked thermostat no longer shows 0...100 instead of e.g. 5...35
+* (@krobipd) `TreeView.getDerivedStateFromProps` returns its derived state instead of mutating the state it was handed, which React 19 does not guarantee to keep
+
 ### 4.1.1 (2026-08-17)
 * (@GermanBluefox) Fixed states being written without `common.read` and `common.write`, which every state object must carry: the "add state" dialog left both out for the deprecated `file` type, and dropped them from any state it edited that did not have them yet (#535, #533, #463)
 * (@GermanBluefox) States written by earlier versions have the two attributes added once when the device list is loaded. What is missing is taken from the device type and from the aliased source, so a state the device really can write does not turn read-only
 
 ### 4.1.0 (2026-08-16)
-* (@Apollon77) Added support of new device types
+* (@Apollon77) Added support for new device types
 * (@GermanBluefox) Datapoints added to an alias device by hand now reach the widget GUI, so a tank can show the litres it has left next to its fill level
 * (@GermanBluefox) The tank tile shows that second reading where it used to print its fill level a second time
 * (@GermanBluefox) Fixed the settings button of a 2x0.5 tank tile sitting in the middle of the tile instead of in its top-right corner
@@ -172,9 +189,6 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 * (@GermanBluefox) Fixed the history options (chart, trend, min/max) not being offered in the widget settings
 * (@GermanBluefox) Recreate all missing instance monitoring objects, not only alive/connected
 * (@GermanBluefox) Migrated to react 19 and MUI 9
-
-### 3.0.2 (2026-06-30)
-* (@GermanBluefox) Added support for widget icons
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

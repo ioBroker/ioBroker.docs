@@ -15,6 +15,7 @@ WEB visualization for ioBroker platform.
 - [Filters](#filters)
 - [Control interface](#control-interface)
 - [Default view](#default-view)
+- [Navigation](#navigation)
 - [Permissions System](#permissions-system)
 - [Settings](#settings)
 - [SVG and curentColor](#svg-and-currentcolor)
@@ -228,6 +229,17 @@ E.g., you can create two views "Landscape-Mobile" and "Portrait-Mobile" and thes
 
 There is a helper widget "basic - Screen Resolution" that shows actual screen resolution and the best suitable default view for this resolution. 
 
+## Navigation
+Every widget that leads to a view - the `Go to view` option of the jQui widgets, `basic - HTML navigation`, … - gets
+the CSS class `vis-nav-active` as long as the view it points to is the view that is shown. So the entry of the current
+view can be highlighted in the CSS of the project:
+
+```css
+.vis-nav-active button {
+    border: 1px solid #0d72b8;
+}
+```
+
 ## Permissions System
 ### Project
 In the project management dialog, you can configure `read` and `write` permissions for each ioBroker user.
@@ -313,6 +325,17 @@ npm run start
 -->
 ## Changelog
 ### **WORK IN PROGRESS**
+* (@typhosj) `licenseInformation.link` points at the license editions now. For a non-free license that link is meant to name validity, shop and seller, which the source license file does not
+* (@typhosj) A timestamp that arrives as a string is shown as a date again instead of `NaN:NaN:NaN`, and a value that cannot be parsed at all is shown as it is
+* (@typhosj) A widget that leads to the view that is shown gets the CSS class `vis-nav-active`, so the current entry of a self-built navigation can be highlighted. The jQui buttons mark themselves by the active view now instead of the address of the browser, which they never noticed changing
+* (@typhosj) The project setting `States Debounce Time` is applied again: the commands for one object ID are collected during that period. It had no effect at all, as the value was never read from the project
+* (@typhosj) The switch of the `binary control` widget shows the state of the object again if no text and no icon are defined
+* (@typhosj) `widgetOid` delivers the object ID of a widget inside a group again instead of the name of the group attribute
+* (@typhosj) A view can show the navigation menu without being an entry of it: the new view setting `Hide this view in the menu`
+* (@typhosj) A resize of the window does not leave the opened view anymore, unless that view offers itself for a resolution
+* (@typhosj) Fixed the widget attributes keeping the groups of the previously selected widget after a view change
+* (@typhosj) The view of a jQui dialog is drawn inside the dialog again and no longer over its title
+* (@typhosj) Fixed the crash of the `bulb on/off` widget if the value of its object is `null`
 * (@typhosj) An `iFrame` or `echarts` widget is transparent again in the dark mode. The CSS variables put `color-scheme: dark` on `:root`, and a browser paints an opaque canvas behind an iframe whose document declares itself transparent (#661)
 * (@typhosj, @GermanBluefox) The content of a widget is not cut off anymore: `CssBaseline` is gone. It switched the whole document to `border-box` and painted the body, while the widgets - the built-in ones and those of other adapters alike - are laid out for the default `content-box` (#661)
 * (@typhosj) The text of a `Fab` button is readable again in the dark mode. MUI writes `text.primary` into it as soon as the CSS variables are generated, which is white, although the background of the button stays light grey in both themes (#661)
@@ -326,6 +349,15 @@ npm run start
 * (@GermanBluefox) Fixed the type of `window.VisMaterialIconSelector`, which named the state of the component instead of its properties
 * (@GermanBluefox) A widget set that was built for an older React is recognized by its federation manifest and skipped with a readable message, instead of dying somewhere inside the module federation loader where no error boundary can catch it. As long as vis-2 itself runs on react 18 nothing is skipped
 * (@GermanBluefox) Widget sets that were skipped are named in a dialog in the editor and in the runtime, so a view with missing widgets does not leave the user guessing. It is shown once per affected set
+* (@GermanBluefox) Dropped the `mime` dependency; copied widget files are compared byte for byte instead of by type
+* (@GermanBluefox) `@iobroker/types-vis-2`: `@iobroker/vis-2-widgets-react-dev` left the list of shared modules. vis-2 never provided it anyway, and bundled as a share it dragged its undeclared `@iobroker/adapter-react-v5` into the host build
+* (@GermanBluefox) The check that skips widget sets built for an older React works on a real installation too: it asked for the federation manifest under `/vis-2/vis-2/...`, was always answered 404 and let every set through
+* (@GermanBluefox) The build declares one placeholder remote (`vis2-dynamic-remotes.js`), which makes `@module-federation/vite` 1.21 treat vis-2 as the host it is. Without it the plugin deferred every shared module to the federation bootstrap and vis-2 died on `jsx is not a function` / `createCssVarsProvider is not a function`
+* (@GermanBluefox) `@iobroker/types-vis-2`: `@mui/icons-material` and the i18n JSONs of `@iobroker/gui-components` are not shared modules anymore, and `moment` is one now. Since a shared entry is bundled as a whole namespace, the icons alone put all ~10700 of them into every vis-2 delivery although vis-2 uses 83 - the build shrinks from 11 MB to 5.9 MB. A widget set bundles the icons it really uses instead, which is what already happened for every set of an older MUI major
+* (@GermanBluefox) Dropped the unused `echarts` and `echarts-for-react` dependencies of the editor
+* (@GermanBluefox) A widget could not be dropped on a view anymore: the workspace wrapper carried no height, so the `height: 100%` of the canvas resolved to `auto` and the drop area collapsed to zero pixels. The workspace is a flex column now - the tabs take their height, the canvas takes the rest
+* (@GermanBluefox) `@iobroker/types-vis-2`: `@mui/material` and `@mui/system` are singletons now instead of being versioned by the range of the consumer. A widget set built against 9.1.0 while vis-2 ships 9.1.2 used to carry its own copy; it renders with the MUI of vis-2 now, whatever patch or minor it was built against. Widget sets of an older MUI major are react 18 builds and are skipped before they are evaluated anyway
+* (@GermanBluefox) The federation host uses the `loaded-first` share strategy, so a widget set cannot replace the shared react, MUI or gui-components of vis-2 with its own copy
 
 ### 2.15.0 (2026-08-16)
 * (@GermanBluefox) Reworked the name plate of a widget in the editor: it is only as wide as its content, its buttons sit next to the name instead of on fixed positions that left a gap whenever a button was hidden, and the plate of a selected widget is drawn in the same blue as its frame

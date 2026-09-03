@@ -124,6 +124,9 @@ export const useStyles = makeStyles()(theme => ({
     },
     listItem: {
         marginBottom: '8px',
+        // markdown can carry link texts without a space in them - without this one of them
+        // pushes the whole content column past the screen
+        overflowWrap: 'anywhere',
     },
     image: {
         maxWidth: '100%',

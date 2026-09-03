@@ -100,15 +100,19 @@ export const useFooterStyles = makeStyles()(theme => ({
     },
     supportText: {
         textAlign: 'center',
-        [theme.breakpoints.down('sm')]: {
+        // the short variant takes over below 736 - both were visible between 600 and 736
+        [theme.breakpoints.down(736)]: {
             display: 'none',
         },
     },
     supportTextMobile: {
         display: 'none',
         [theme.breakpoints.down(736)]: {
-            display: 'inline-block',
+            display: 'block',
             fontSize: '12px',
+            textAlign: 'center',
+            // two even lines instead of a single word hanging below
+            textWrap: 'balance',
         },
     },
     donateButtons: {
@@ -123,6 +127,8 @@ export const useFooterStyles = makeStyles()(theme => ({
         height: '100%',
         gap: 6,
         alignItems: 'start',
+        // the rows carry their own hit area on a phone, so the gap between them can go
+        [theme.breakpoints.down(736)]: { gap: 0 },
     },
     link: {
         color: theme.custom.textMuted,
@@ -133,6 +139,13 @@ export const useFooterStyles = makeStyles()(theme => ({
         '&:hover': {
             color: theme.palette.primary.light,
             textDecoration: 'underline',
+        },
+        // a finger needs about 44 px - the links were 26 px high. The padding grows the
+        // hit area without moving the text, because the column loses its gap for it.
+        [theme.breakpoints.down(736)]: {
+            display: 'flex',
+            alignItems: 'center',
+            minHeight: 40,
         },
     },
     socialButton: {
@@ -154,8 +167,12 @@ export const useFooterStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('md')]: {
             gap: 16,
         },
+        // on a phone the label stands above the icons - next to them it left the icons
+        // two columns with a wide gap between them
         [theme.breakpoints.down('sm')]: {
-            alignItems: 'start',
+            flexDirection: 'column',
+            alignItems: 'stretch',
+            gap: 12,
         },
     },
     followUsText: {
@@ -174,8 +191,9 @@ export const useFooterStyles = makeStyles()(theme => ({
         flexWrap: 'wrap',
         marginLeft: 16,
         [theme.breakpoints.down('sm')]: {
-            rowGap: 32,
-            columnGap: 60,
+            rowGap: 24,
+            columnGap: 8,
+            justifyContent: 'space-between',
             flex: 1,
             marginLeft: 0,
         },

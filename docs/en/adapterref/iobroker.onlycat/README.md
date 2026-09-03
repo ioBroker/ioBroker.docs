@@ -45,9 +45,9 @@ OnlyCat® is a registered trademarks of [VirtualV Trading Ltd.](https://www.only
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.6.2 (2026-08-29)
 
-### **WORK IN PROGRESS**
-
+* (Sickboy78) dependency updates
 * (copilot) Adapter requires node.js >= 22 now
 
 ### 0.6.1 (2026-05-10)
@@ -70,11 +70,6 @@ OnlyCat® is a registered trademarks of [VirtualV Trading Ltd.](https://www.only
 
 * (Sickboy78) dependency updates
 * (Sickboy78) add AlCalzone's Release Script
-
-### 0.5.2 (2025-10-22)
-
-* (Sickboy78) dependency updates
-* (Sickboy78) migration to npm trusted publishing
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -157,8 +157,10 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.1 (2026-09-01)
+- (tt-tom17) cardChart (line): the x-axis no longer uses a fixed 24 h window, it now follows the configured hours range
 - (tt-tom17) admin: the trash page now shows a status line after an .ics upload, including the number of appointments found
+- (ticaki) admin: fixed the target page selection in the page item dialog – the dropdown stayed empty and could crash the page config tab (`null is not an object (evaluating 'x.current.removeAttribute')`)
 
 ### 1.0.0 (2026-08-18)
 - (copilot) **BREAKING:** Adapter requires node.js >= 22 now

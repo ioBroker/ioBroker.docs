@@ -6,7 +6,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tesla-motors.svg)](https://www.npmjs.com/package/iobroker.tesla-motors)
 ![Number of Installations (latest)](https://iobroker.live/badges/tesla-motors-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/tesla-motors-stable.svg)
-[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.tesla-motors.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.tesla-motors)
 
 [![NPM](https://nodei.co/npm/iobroker.tesla-motors.png?downloads=true)](https://nodei.co/npm/iobroker.tesla-motors/)
 
@@ -302,7 +301,7 @@ Diagnostic states are available under `tesla-motors.0.info.*`:
 
 ### 3.2.2 (2026-07-27)
 
-- fix QR Code generation
+- (TA2k) fix QR Code generation
 
 ### 3.2.1 (2026-06-05)
 

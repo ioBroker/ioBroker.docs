@@ -746,28 +746,27 @@ void loop() {
 получать от нее данные через облачный сервис!
 
 ## Changelog
+### 8.0.1 (2026-08-28)
+* (@GermanBluefox) The Blockly block is now built from TypeScript sources in `src-blockly/` into `admin/blockly.js`, with the translations in `src-blockly/i18n/`
+* (@GermanBluefox) Fixed: the Blockly block produced no code at all in newer Blockly editors. Since Blockly 10 a generator has to be registered in `Blockly.JavaScript.forBlock`, and the editor migrates its own generators there before it loads an adapter's block
+
+### 8.0.0 (2026-08-28)
+* (@GermanBluefox) Added MQTT 5.0 support. In server mode every client is answered with the protocol level it announced, so MQTT 5 and MQTT 3.1.1 clients can share one instance. Includes Reason codes, topic aliases, the subscription options "No Local", "Retain Handling" and "Retain As Published", subscription identifiers, message expiry, will delay, maximum packet size, receive maximum, shared subscriptions and the session expiry interval. MQTT 3.1.1 clients are not affected by the new rules
+* (@GermanBluefox) Client mode: the MQTT version (3.1 / 3.1.1 / 5.0) can now be selected. If the broker refuses it, the adapter falls back to MQTT 3.1.1
+* (@GermanBluefox) Added MQTT 5 enhanced authentication with SCRAM-SHA-256 (RFC 7677) in server mode. The password is no longer sent over the connection; both sides prove that they know it. It uses the configured user name and password, needs no configuration and does not change anything for clients that log in the usual way
+* (@GermanBluefox) Fixed: a rejected login could lose its CONNACK, because the socket was torn down before the answer had left it. The client saw a closed connection instead of the reason
+* (@GermanBluefox) Replaced the unmaintained `mqtt-connection` package with an own connection layer on `mqtt-packet`, which removes a second, outdated copy of `mqtt-packet` from the dependency tree
+
+### 7.1.3 (2026-08-28)
+* (@Tarvion) Fixed: a value received for a topic that was published from a state ID containing "#", "+" or a space (e.g. the Shelly IDs like `shelly.0.SHCB-1#3494546B9BEC#1`) is now written back to that state instead of creating a new state in the adapter's own namespace
+* (@GermanBluefox) Fixed: the resolution above now also corrects an instance that already carries the wrongly created `mqtt.<n>.*` state from an earlier version. Such a state was published at the start and claimed the topic before any message arrived. It is logged once as a leftover and can be deleted
+
 ### 7.1.2 (2026-07-26)
 * (@GermanBluefox) Added a "Replace dots in topic names with underscore" setting to keep MQTT topics that contain dots (e.g. Wolf heating via ism7mqtt) as a single object level (#413)
 * (@GermanBluefox) Client mode: added loop protection so a value just received from the broker is not published straight back, plus a new "Do not subscribe to own states" option (#414)
 
 ### 7.1.1 (2026-07-08)
 * (@Marc-Berg) Fixed: Publish only on change issue
-
-### 7.1.0 (2026-07-03)
-* (@GermanBluefox) Added a "Binary topics" setting to store raw binary payloads (e.g. Valetudo map, camera images) as files instead of corrupting them as UTF-8 strings (#573)
-
-### 7.0.2 (2026-07-02)
-* (@Apollon77) Added an optional "Parse comma-separated numbers as character codes" setting (disabled by default) to prevent garbled values from devices like NUKI locks
-* (@GermanBluefox) Migrated the test suite to TypeScript
-
-### 7.0.1 (2026-07-01)
-* (@Apollon77) Optimized client state generation logic to prevent load issues
-* (@Apollon77) Optimized detection of incoming data as ioBroker states 
-* (@GermanBluefox) Breaking change: removed binary states
-* (@GermanBluefox) Migrated to TypeScript
-* (@GermanBluefox) Breaking change: a minimal supported Node.js version is 22
-* (@Marc-Berg) Fixed some errors
-* (@driemekasten) Fixed the reject unresolved topic ids with SUBACK failure
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

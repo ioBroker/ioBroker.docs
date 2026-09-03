@@ -1,4 +1,7 @@
-![Logo](admin/omoda.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="admin/omoda-lockup-dark.png">
+  <img src="admin/omoda-lockup.png" alt="OMODA | JAECOO" width="300">
+</picture>
 # ioBroker.omoda
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.omoda.svg)](https://www.npmjs.com/package/iobroker.omoda)
@@ -112,6 +115,8 @@ upstream project. All bugs in this ioBroker port are mine, not theirs.
 
 ### 0.1.0 (2026-07-18)
 * (Alan Paris) initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

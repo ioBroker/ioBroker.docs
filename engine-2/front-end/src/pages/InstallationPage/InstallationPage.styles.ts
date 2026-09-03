@@ -83,6 +83,11 @@ export const useStyles = makeStyles()(theme => ({
             margin: '0 auto',
             marginBottom: 40,
         },
+        // the fixed 364 was wider than a 320 px phone - the title above already had
+        // this escape, the sub-line did not
+        [theme.breakpoints.down(400)]: {
+            width: '100%',
+        },
     },
     cardContainer: {
         display: 'flex',

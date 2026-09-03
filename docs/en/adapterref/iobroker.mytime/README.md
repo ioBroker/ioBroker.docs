@@ -596,6 +596,24 @@ of the countdown is available as CSS-Class selector:**
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.0.5 (2026-09-01)
+
+- prepare for stable release
+
+### 3.0.1 (2026-08-10)
+
+- improve and fix jsonConfig
+- switch from build to dist directory
+- extend log output for onMessage error
+- improve getServerTime timer in widget
+- rename subsubdirectory widgets to widgetTypes
+- improve race condition with states
+
+### 3.0.0 (2026-08-09)
+
+- update to react 19
+- fix repochecker
+
 ### 2.5.1 (2026-07-24)
 
 - seperate flipclock css classes from timeandweather adapter
@@ -604,22 +622,6 @@ of the countdown is available as CSS-Class selector:**
 
 - Flip clock size is now adjustable via font-size.
 - Defined better initial sizes and defaults for various widgets.
-
-### 2.4.1 (2026-07-20)
-
-- add new clock widgets
-- fix prod and dev build
-- reengineered widgets
-
-### 2.3.5 (2026-07-14)
-
-- fix repochecker
-- update react to 18 and many more packages
-
-### 2.3.4 (2026-03-30)
-
-- update packages
-- fix repochecker
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

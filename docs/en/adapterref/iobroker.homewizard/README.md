@@ -33,7 +33,7 @@ For details and how to disable it, see the [Sentry plugin documentation](https:/
 
 - **Node.js >= 22**
 - **ioBroker js-controller >= 7.2.2**
-- **ioBroker Admin >= 7.8.23**
+- **ioBroker Admin >= 8.0.11**
 - **HomeWizard device with API v2 support** (firmware 4.x+ with local API enabled)
 
 ---
@@ -89,6 +89,9 @@ All paired devices are listed in the **Objects** tab under `homewizard.0`. Each 
 ```
 homewizard.0.
 ├── info.connection              — Overall connection status (bool)
+├── info.devicesTotal            — How many devices are set up (number)
+├── info.devicesOnline           — How many of them are answering right now (number)
+├── info.devicesAllOnline        — True only while every device answers (bool)
 ├── startPairing                 — Activate pairing mode (button)
 ├── pairingIp                    — Device IP for manual pairing (string)
 └── {productType}_{serial}/      — e.g. hwe-p1_5c2fafaabbcc
@@ -96,7 +99,7 @@ homewizard.0.
     │   ├── productName          — Device name (string)
     │   ├── productType          — Product type (string)
     │   ├── firmware             — Firmware version (string)
-    │   ├── connected            — WebSocket connection status (bool)
+    │   ├── connected            — Device reachable (bool) — drives the green/grey icon on the device
     │   ├── wifi_ssid            — WiFi network name / SSID (string)
     │   ├── wifi_rssi_db         — WiFi signal strength (number, dBm)
     │   └── uptime_s             — Device uptime (number, s)
@@ -152,6 +155,18 @@ homewizard.0.
 
 ---
 
+### Knowing when something dropped out
+
+`info.devicesOnline` and `info.devicesAllOnline` save you from opening every device
+folder to see whether one has dropped out, and give an automation a single datapoint
+to watch. They are recalculated at the same moment a device connects or disconnects,
+so the summary can never disagree with the individual `connected` markers.
+
+`info.devicesTotal` deliberately keeps its value when the adapter is stopped — how
+many devices you have set up does not change because the adapter is off. Only
+`devicesOnline` drops to `0` and `devicesAllOnline` to false, together with every
+device's own `connected`, so a stopped adapter no longer leaves the tree looking green.
+
 ## Troubleshooting
 
 ### Device not found during pairing
@@ -179,6 +194,21 @@ homewizard.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.17.0 (2026-09-02)
+
+- Fixed: the connection status is now reset on every stop, even when the adapter is stopped right after it started — before, such a stop could leave it showing as connected.
+- Fixed: a device that repeats the same error after reconnecting is warned about again, instead of staying silent for the rest of the adapter's run.
+- Fixed: switching cloud access, the legacy v1 API or charge-to-full from a script now confirms the actual on or off value, not the raw text that was written.
+- Fixed: two rare cases where a log line could show undefined or an object instead of the error now show the real text, and a malformed device error keeps a readable code.
+- Fixed: an external gas or water meter whose reported type contains unusual characters now gets a clean name in the object tree instead of a broken one.
+- Changed: ioBroker Admin 8.0.11 or newer is now required — the same minimum version that the current ioBroker stable repository ships with.
+
+### 0.16.0 (2026-08-27) — stable
+
+- Fixed: stopping the adapter no longer leaves every device showing as connected — the device markers and the connection status are now reset before the adapter goes down.
+- Fixed: after a crash, a power cut or a restart, a device that was reachable before no longer stays green until it reconnects — every device starts out as not connected.
+- New: three data points show at a glance how many devices are set up, how many are answering right now, and whether all of them are.
+
 ### 0.15.1 (2026-08-22)
 
 - Improved: The adapter needs noticeably less processing power on installations whose devices send a new reading every second.
@@ -196,19 +226,6 @@ homewizard.0.
 - Corrected state roles (grid frequency, reactive power) and 0–100 bounds (LED brightness, charge level); existing devices pick these up automatically on the next start and keep any names you changed
 - Security: after an update, an older device is verified by its serial from the very first connection — its access token no longer briefly crosses a not-fully-verified connection
 - Security: device and network-discovery names are cleaned before they reach the log, and pairing now cross-checks the device's serial against its certificate
-
-### 0.13.0 (2026-06-24) — stable
-
-- Security: the adapter now checks each device's certificate, so it only ever talks to your real device
-- Pairing a device by manual IP no longer leaves repeated pairing attempts and throwaway tokens behind on the device
-- The manual pairing IP field now rejects addresses that are not on your home network
-- Fixed a rare crash while a device was connecting or disconnecting
-- Meter identifier and protocol version are now available as states
-
-### 0.12.2 (2026-06-11) — stable
-
-- Reboot and identify buttons reset themselves after the action, so they stay clickable in the admin UI
-- Re-pairing a removed device no longer inherits the old device's log cooldown — its first connection warning shows up immediately again
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

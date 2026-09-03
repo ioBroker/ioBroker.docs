@@ -846,8 +846,9 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 2.1.2 (2026-08-29)
 * (simatec) Update dependabot
+* (simatec) Fix jsonTab
 
 ### 2.1.1 (2026-08-21)
 * (simatec) small Bugfix
@@ -865,9 +866,6 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ### 2.0.11 (2025-12-21)
 * (simatec) Update dependabot
-
-### 2.0.10 (2025-12-21)
-* (simatec) Fix JSON Tab
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

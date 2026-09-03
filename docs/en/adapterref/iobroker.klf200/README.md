@@ -231,14 +231,15 @@ To use the functional parameters you have to set the values according to your ne
 you change the targetPosition state.
 
 The values of the state provide multiple manipulation modes:
-| Access method | Description | Range (Decimal) | Range (Hex) | Notes |
-|-|-|-|-|-|
-| Relative | 0% - 100% | 0 - 51200 | 0x0000 - 0xC800 | Each percent step equals 512. The product moves to that relative value, e.g. 50% open. |
-| +/- | -100% - +100% | 51456 - 53456 | ß0xC900 - 0xD0D0 | Each percent step equals 10. The product advances its position by the provided value, e.g. open the window for additional 10%. Not every product supports this method. |
-| Target | The target value for the parameter. | 53504 | 0xD100 | In case of an already running command the target value could be different to the current value. |
-| Current | The current value of the parameter. | 53760 | 0xD200 | You can use this value to stop a movement if applicable. |
-| Default | The default value for the parameter. | 54016 | 0xD300 | Sets the parameter to its default value. |
-| Ignore | The parameter won't be provided. | 54272 | 0xD400 | The parameter won't be set for the command. |
+
+| Access method | Description                          | Range (Decimal) | Range (Hex)      | Notes                                                                                                                                                                  |
+| ------------- | ------------------------------------ | --------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Relative      | 0% - 100%                            | 0 - 51200       | 0x0000 - 0xC800  | Each percent step equals 512. The product moves to that relative value, e.g. 50% open.                                                                                 |
+| +/-           | -100% - +100%                        | 51456 - 53456   | ß0xC900 - 0xD0D0 | Each percent step equals 10. The product advances its position by the provided value, e.g. open the window for additional 10%. Not every product supports this method. |
+| Target        | The target value for the parameter.  | 53504           | 0xD100           | In case of an already running command the target value could be different to the current value.                                                                        |
+| Current       | The current value of the parameter.  | 53760           | 0xD200           | You can use this value to stop a movement if applicable.                                                                                                               |
+| Default       | The default value for the parameter. | 54016           | 0xD300           | Sets the parameter to its default value.                                                                                                                               |
+| Ignore        | The parameter won't be provided.     | 54272           | 0xD400           | The parameter won't be set for the command.                                                                                                                            |
 
 > **Note:** This tables is valid for the targetPositionRaw, too.
 
@@ -260,8 +261,9 @@ The values of the state provide multiple manipulation modes:
 	### __WORK IN PROGRESS__
 -->
 <!-- prettier-ignore -->
-### __WORK IN PROGRESS__
+### 1.4.0 (2026-09-02)
 
+- (Michael Schroeder) [#498](https://github.com/MiSchroe/ioBroker.klf200/issues/498) Handle the outdated certificate in the connection test button.
 - (Michael Schroeder) [#130](https://github.com/MiSchroe/ioBroker.klf200/issues/130) Added a connection test button to help identify connection problems.
 - (Michael Schroeder) [#278](https://github.com/MiSchroe/ioBroker.klf200/issues/278) Split the limitation originator state for min and max into separate ones.
 - (Michael Schroeder) [#268](https://github.com/MiSchroe/ioBroker.klf200/issues/268) Migrated to ESLint v9.
@@ -271,6 +273,19 @@ The values of the state provide multiple manipulation modes:
 - (Michael Schroeder) [#310](https://github.com/MiSchroe/ioBroker.klf200/issues/310) Upgrade dependencies.
 - (Michael Schroeder) [#317](https://github.com/MiSchroe/ioBroker.klf200/issues/317) Switch using ping instead of net-ping for compatibility with Node v24.
 - (Michael Schroeder) [#309](https://github.com/MiSchroe/ioBroker.klf200/issues/309), [#316](https://github.com/MiSchroe/ioBroker.klf200/issues/316) Support Node V24.
+- (@GermanBluefox) Migrated the admin configuration UI to React 19: replaced @iobroker/adapter-react-v5 by @iobroker/gui-components and upgraded to MUI 9 and Vite 8, so that the connection test component matches the current GUI API generation of the Admin adapter.
+- (@GermanBluefox) Migrated the device management to @iobroker/dm-utils v3.
+- (@GermanBluefox) Switched the unit tests from chai to node:assert.
+- (@GermanBluefox) Raised the timeout of the setupProducts test suite, which could abort the test run under load.
+- (Michael Schroeder) [#478](https://github.com/MiSchroe/ioBroker.klf200/issues/478) Fixed findings from Adapter Checker and lint errors.
+
+### 1.3.7 (2026-08-14)
+
+- (Michael Schroeder) Fix findings by adapter checker.
+
+### 1.3.6 (2026-08-14)
+
+- (Michael Schroeder) [#479](https://github.com/MiSchroe/ioBroker.klf200/issues/479) The outdated certificate of the KLF-200 will be accepted if its fingerprint matches.
 
 ### 1.3.5 (2024-11-20)
 
@@ -280,83 +295,6 @@ The values of the state provide multiple manipulation modes:
 
 - (Michael Schroeder) [#259](https://github.com/MiSchroe/ioBroker.klf200/issues/259) Fixed issues found by the adapter checker.
 - (Michael Schroeder) [#262](https://github.com/MiSchroe/ioBroker.klf200/issues/262) Fixed an issue during startup of the adapter if more than 20 nodes are present.
-
-### 1.3.3 (2024-11-01)
-
-- (Michael Schroeder) [#250](https://github.com/MiSchroe/ioBroker.klf200/issues/250) Fixed an issue that the adapter didn't start when the product nodes weren't numbered from 0 onwards.
-
-### 1.3.2 (2024-10-01)
-
-- (Michael Schroeder) [#224](https://github.com/MiSchroe/ioBroker.klf200/issues/224) Fixed timeout error during adapter start in some special cases.
-- (Michael Schroeder) [#246](https://github.com/MiSchroe/ioBroker.klf200/issues/246) Fixed an issue that logged the same log entry multiple times.
-- (Michael Schroeder) [#210](https://github.com/MiSchroe/ioBroker.klf200/issues/210) Run integration tests against a virtual mock version of an KLF-200.
-- (Michael Schroeder) [#233](https://github.com/MiSchroe/ioBroker.klf200/issues/233) Fixed findings of Adapter Checker.
-- (Michael Schroeder) Upgrade dependencies
-
-### 1.3.1 (2024-07-17)
-
-- (Michael Schroeder) [#214](https://github.com/MiSchroe/ioBroker.klf200/issues/214) Fixed error while retrieving the version number of the klf-200-api package.
-- (Michael Schroeder) [#215](https://github.com/MiSchroe/ioBroker.klf200/issues/215) Added a device manager tab to the settings dialog for managing devices, groups and scenes.
-- (Michael Schroeder) [#217](https://github.com/MiSchroe/ioBroker.klf200/issues/217) Refresh statusReply after reading the limitations to show correct values.
-- (Michael Schroeder) [#218](https://github.com/MiSchroe/ioBroker.klf200/issues/218) Refresh runStatus after reading the limitations to show correct values.
-
-### 1.3.0 (2024-07-15)
-
-- (Michael Schroeder) [#180](https://github.com/MiSchroe/ioBroker.klf200/issues/180) Fixed handling new product detection.
-- (Michael Schroeder) [#47](https://github.com/MiSchroe/ioBroker.klf200/issues/47), [#113](https://github.com/MiSchroe/ioBroker.klf200/issues/113) Support limitations (e.g. rain sensor)
-- (Michael Schroeder) [#209](https://github.com/MiSchroe/ioBroker.klf200/issues/209) Support of [ioBroker.device-manager](https://www.npmjs.com/package/iobroker.device-manager) for managing products, groups and scenes.
-- (Michael Schroeder) Fix missing removal of event handlers.
-- (Michael Schroeder) Upgrade dependencies, min. Node version 18.x, min. js-controller 5.x.
-- (Michael Schroeder) Added stricter linting rules and fixed findings.
-
-### 1.2.0 (2024-02-09)
-
-- (Michael Schroeder) [#126](https://github.com/MiSchroe/ioBroker.klf200/issues/126) Fixed Adapter-Checker warning.
-- (Michael Schroeder) [#124](https://github.com/MiSchroe/ioBroker.klf200/issues/124) Added help message for password in configuration dialog.
-- (Michael Schroeder) [#106](https://github.com/MiSchroe/ioBroker.klf200/issues/106) Fixed an unhandled rejection exception.
-- (Michael Schroeder) [#135](https://github.com/MiSchroe/ioBroker.klf200/issues/135) Fixed warning for Admin settings.
-- (Michael Schroeder) [#137](https://github.com/MiSchroe/ioBroker.klf200/issues/137) Fixed Github Workflows.
-- (Michael Schroeder) [#40](https://github.com/MiSchroe/ioBroker.klf200/issues/40) The scene list can be refreshed.
-- (Michael Schroeder) [#129](https://github.com/MiSchroe/ioBroker.klf200/issues/129) The state targetPositionRaw is writable to support additional scenarios.
-- (Michael Schroeder) [#133](https://github.com/MiSchroe/ioBroker.klf200/issues/133) Added a refreshProduct state to manually refresh the state of a product.
-
-### 1.1.2 (2023-10-19)
-
-- (Michael Schroeder) Bumped version number
-
-### 1.1.1 (2023-10-18)
-
-- (Michael Schroeder) Upgrade dependencies, switch to Typescript 4.6, compatibility check with js-controller 4.x
-- (Michael Schroeder) [#12](https://github.com/MiSchroe/ioBroker.klf200/issues/12) Support silent mode in scenes
-- (Michael Schroeder) [#44](https://github.com/MiSchroe/ioBroker.klf200/issues/44) Add advanced SSL configuration settings
-- (Michael Schroeder) [#98](https://github.com/MiSchroe/ioBroker.klf200/issues/98) Fix default values
-- (Michael Schroeder) [#77](https://github.com/MiSchroe/ioBroker.klf200/issues/77) Add silent mode to products using functional parameters
-- (Michael Schroeder) Upgrade dependencies
-- (Michael Schroeder) [#55](https://github.com/MiSchroe/ioBroker.klf200/issues/55) Support functional parameters FP1-4
-
-### 1.0.1 (2020-07-20)
-
-- (Michael Schroeder) Fix [#49](https://github.com/MiSchroe/ioBroker.klf200/issues/49) Set multiple states at once, e.g. in Blockly
-
-### 1.0.0
-
-- (Michael Schroeder) Support of firmware 2.0.0.71
-
-### 0.9.5
-
-- (Michael Schroeder) Bug fixes
-
-### 0.9.4
-
-- (Michael Schroeder) Compatible to Admin 3, add documentation
-
-### 0.9.0
-
-- (Michael Schroeder) Initial public beta release
-
-### 0.0.1
-
-- (Michael Schroeder) Initial developer release
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

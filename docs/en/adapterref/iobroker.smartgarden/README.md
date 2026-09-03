@@ -844,7 +844,7 @@ smartgarden logo: http://www.freepik.com Designed by Freepik
 
 ## License
 
-Copyright (c) 2020 - 2024 jpgorganizer, https://github.com/jpgorganizer 
+Copyright (c) 2020 - 2026 jpgorganizer, https://github.com/jpgorganizer 
 
 smartgarden by jpgorganizer is licensed under a 
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License 

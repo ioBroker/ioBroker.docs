@@ -22,6 +22,13 @@ You can set the option *Force Web-Sockets* to force using only web-sockets trans
 ## Let's Encrypt Certificates
 Read [here](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
+A certificate authority validates an HTTP-01 challenge on port 80, so on a host with one public IP that
+request lands on whatever adapter holds that port. With **Answer ACME HTTP-01 challenges** enabled
+(`acmeChallenge`, the default) this instance serves the tokens the `acme` adapter published under
+`/.well-known/acme-challenge/`, and the `acme` adapter does not have to stop it to get at the port.
+Only a request for a published token is answered here, everything else is passed on untouched. Switch
+the option off to keep that path entirely to the web application.
+
 ## Extensions
 Web driver supports extensions. 
 The extension is URL handler, that will be called if such URL request appears.
@@ -174,25 +181,23 @@ This is off by default. When enabled:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 9.1.4 (2026-08-31)
+* (@GermanBluefox) Updated packages
+
+### 9.1.3 (2026-08-28)
+* (@GermanBluefox) Updated packages
+
+### 9.1.2 (2026-08-27)
+* (@GermanBluefox) Added the setting `acmeChallenge` (enabled by default): the web server answers the ACME HTTP-01 challenges published by the acme adapter, so the acme adapter no longer has to stop this instance to get at port 80
+
+### 9.1.1 (2026-08-26)
+* (@GermanBluefox) Fixed the CORS headers missing on every route that answers without passing the request on - the whole OAuth2 server among them. Retrieving a token from a browser on another origin failed with `No Access-Control-Allow-Origin header is present`. The CORS middleware is now registered in front of all routes instead of behind them
+* (@GermanBluefox) A reflected origin is now sent together with `Vary: Origin`, and an unset origin, method or header list no longer ends up as the literal string `undefined` in the response
+
 ### 9.1.0 (2026-08-04)
 * (@GermanBluefox) Added the OAuth2 authorization code flow with PKCE, so third-party clients (e.g. MCP clients) can be authorized without seeing the user's password
 * (@GermanBluefox) Unauthenticated non-HTML requests now get a `401` challenge instead of a login redirect when OAuth is enabled
 * (@GermanBluefox) Updated `@iobroker/webserver` to 2.0.1
-
-### 9.0.0 (2026-06-21)
-* (@GermanBluefox) Used libraries for socket communication instead of adapters
-* (@GermanBluefox) Migrated to TS 6
-
-### 8.3.0 (2026-06-12)
-* (@SimonFischer04) Added rootPath option to support the running behind a reverse proxy
-
-### 8.2.0 (2026-05-21)
-* (@GermanBluefox) Added `/object/<ID>` GET endpoint with `type`, `commonType`, `depth`, `extended`, `native` and `system` query parameters to read objects (wildcards supported). By default, only `_id`, `type` and `common` are returned, type defaults to `state`, and objects under `system.*` / `script.*` are hidden. With `depth`, deeper matches yield synthetic `type: "virtual"` placeholders so a tree browser can see content exists below.
-* (@GermanBluefox) Added `Disable objects delivery` setting to turn the `/object/<ID>` endpoint on/off
-
-### 8.1.0 (2026-04-13)
-* (@GermanBluefox) Updated packages.
-* (@GermanBluefox) Corrected potential errors
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

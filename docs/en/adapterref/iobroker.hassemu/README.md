@@ -56,7 +56,7 @@ Want to add a URL the adapter doesn't auto-detect? Set `manual` and paste it.
 
 - Node.js ≥ 22
 - ioBroker js-controller ≥ 7.2.2
-- ioBroker Admin ≥ 7.8.23
+- ioBroker Admin ≥ 8.0.11
 
 ---
 
@@ -96,6 +96,8 @@ Want the same URL on every display? Set `global.mode` (plus `global.manualUrl` f
 | Auth                | Login required (guards the HA API on the LAN; credentials travel in plain HTTP)   | off       |
 | Username / Password | When Auth is on                                                                   | admin / — |
 | Trust Proxy         | Only behind a trusted reverse proxy that terminates TLS and strips X-Forwarded-*  | off       |
+
+Leave _Trust Proxy_ off unless that proxy really exists: without it any client can fake its address on every request. Since 1.40.0 a global per-hour ceiling on new display entries limits the damage, but it does not make the setting safe.
 
 ---
 
@@ -144,6 +146,8 @@ After adding or renaming a VIS-2 project or view, set `info.refreshUrls` to `tru
 
 If hassemu goes offline while a display is running, the display switches to a clear offline page with a reload button after ~1.5 minutes and returns to your dashboard automatically once hassemu is back. Limitation: a display that cold-boots _while_ hassemu is down can't load that page and shows a connection error until the adapter is running again.
 
+If the redirect **target** (your VIS/Aura/manual URL) stops answering while hassemu keeps running, the display shows a "Redirect target not reachable" card with the target URL instead of a black screen — after about a minute, or immediately when the display opens while the target is already down. Any HTTP answer counts as reachable (a login page or an error page is still a running server); only connection failures and timeouts trigger the card. Once the target answers again, the display reloads its dashboard automatically.
+
 ---
 
 ## Troubleshooting
@@ -155,6 +159,8 @@ Set the instance log level to `debug` first — since v1.31.1 the adapter traces
 **Display shows the wrong URL or the landing page** — open Object Browser, check `clients.<id>.mode` (and `manualUrl` if mode is `manual`). At `mode='global'`, also check `global.mode` / `global.manualUrl`. The device id is shown on the landing page and stored at `clients.<id>.ip`. The debug log shows the full resolver chain (`chain=global→manual→…`) per request.
 
 **Display lost its identity (new id on every visit)** — the display is not persisting the cookie. Common causes: aggressive privacy mode, factory reset, browser cache flush. The old `clients.<id>`-channels can be removed via their `remove` button, but the root cause is on the display side, not in hassemu.
+
+**Log warns "More than 100 new clients within an hour across all IPs"** — something is creating display entries far faster than any real setup does. Typical cause: _Trust Proxy_ is on without a sanitising reverse proxy in front, so a device can fake a different address on every request and slips past the per-address limit. Turn _Trust Proxy_ off (or put a real proxy in front). Displays keep working meanwhile; the adapter just stops persisting new entries until the burst is over.
 
 **HA Companion App says "Server is not Home Assistant"** — point the app at `http://<ioBroker-IP>:8123`, not at the ioBroker Admin port. If a reverse proxy is in front of hassemu, make sure `/manifest.json` is passed through unmodified — the App parses `name === "Home Assistant"` to verify the server.
 
@@ -178,6 +184,20 @@ Got scripts that still write to `visUrl`? Update them — write to `manualUrl` i
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 1.40.0 (2026-09-02)
+
+- Fixed: with trustProxy enabled but no sanitising reverse proxy in front, a single device could create unlimited display entries — a global ceiling now caps this
+
+### 1.39.0 (2026-09-01)
+
+- New: Displays show a "Redirect target not reachable" card with the target URL instead of a black screen when the configured dashboard is down — also right when the display starts
+- New: Once the target answers again, the display reloads its dashboard automatically — no manual reload or display restart needed
+
+### 1.38.2 (2026-08-27) — stable
+
+- Fixed: Stopping or restarting the adapter was cut short — the instance stayed marked as connected and displays kept looking for a server that was already gone.
+
 ### 1.38.1 (2026-08-22)
 
 - Changed: Internal cleanup. No user-facing changes.
@@ -188,25 +208,6 @@ Got scripts that still write to `visUrl`? Update them — write to `manualUrl` i
 - The setup screen on the display now explains how to pick a dashboard from the dropdown, or choose Manual URL and enter your own address next to it.
 - The global and per-display redirect datapoints now have descriptions explaining each option, and everything you see consistently says display.
 - The sign-in and error pages shown while a display is onboarding now appear in your ioBroker language instead of English only.
-
-### 1.37.1 (2026-07-11)
-
-- Internal cleanup. No user-facing changes.
-
-### 1.37.0 (2026-07-09)
-
-- A custom name you give a display now survives even when its network hostname resolves later — the name you set sticks.
-- A display that keeps losing its identity no longer fills ioBroker with unused entries over time.
-- A display connection that simply goes away (a panel powered off) is now cleaned up instead of lingering until the adapter restarts.
-- The manual URL-refresh datapoint is now `info.refreshUrls` (was `info.refresh_urls`); the old one is removed automatically on upgrade — update any script that wrote to the old name.
-- Corrected the configuration help texts and the README to match the current setup, documented the offline behaviour, and added a first-steps guide.
-
-### 1.36.0 (2026-06-22) — stable
-
-- Fixed a rare adapter crash and restart loop that a malformed connection message could trigger — it briefly took all connected displays offline until the adapter recovered.
-- A custom name you give a display (its channel name) is no longer overwritten with the device's IP address when that IP changes.
-- With authentication enabled, a display again reloads automatically after you change its target URL.
-- With authentication enabled, a password is now required — the settings can no longer be saved with an empty password.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

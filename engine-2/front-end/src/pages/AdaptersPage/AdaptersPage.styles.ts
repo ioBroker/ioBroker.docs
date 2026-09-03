@@ -251,11 +251,16 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             [theme.breakpoints.down(661)]: {
                 marginLeft: !isMenuCollapsed ? '32px' : '0',
             },
+            // `1fr` keeps the min-content width of the cards as a lower bound, so one long
+            // adapter name pushed the whole column past the screen. `minmax(0, 1fr)` lets
+            // the track shrink and the card wraps its text instead.
             [theme.breakpoints.down(769)]: {
-                gridTemplateColumns: !isMenuCollapsed ? '1fr' : 'repeat(auto-fit, minmax(251px, 1fr))',
+                gridTemplateColumns: !isMenuCollapsed
+                    ? 'minmax(0, 1fr)'
+                    : 'repeat(auto-fit, minmax(min(251px, 100%), 1fr))',
             },
             [theme.breakpoints.down(481)]: {
-                gridTemplateColumns: '1fr',
+                gridTemplateColumns: 'minmax(0, 1fr)',
                 gap: '16px',
             },
         },

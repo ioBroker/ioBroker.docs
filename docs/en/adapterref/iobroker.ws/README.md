@@ -69,6 +69,12 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 -->
 
 ## Changelog
+### 5.0.2 (2026-08-31)
+* (@GermanBluefox) Updated packages
+
+### 5.0.1 (2026-08-28)
+* (@GermanBluefox) Updated packages
+
 ### 5.0.0 (2026-06-20)
 * (@GermanBluefox) Updated packages
 * (@GermanBluefox) Migrated to TypeScript 6.0
@@ -81,14 +87,3 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 ### 4.0.0 (2026-02-17)
 * (@GermanBluefox) Updated packages
 * (@GermanBluefox) Removed support for node.js 18
-
-### 3.0.19 (2025-03-04)
-* (@GermanBluefox) Removed the frequent debug output
-
-### 3.0.18 (2025-03-03)
-* (@GermanBluefox) Corrected the problem with the user rights
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)## License
-The MIT License (MIT)
-
-Copyright (c) 2014-2026 @GermanBluefox <dogafox@gmail.com>

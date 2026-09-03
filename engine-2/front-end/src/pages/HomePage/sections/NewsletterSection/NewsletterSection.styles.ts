@@ -86,8 +86,12 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('sm')]: {
             width: '250px',
         },
+        // 230 px field plus the two braces and the arrow button were 337 px - wider than
+        // a 320 px phone. Below this the field takes what the row has left instead.
         [theme.breakpoints.down(400)]: {
-            width: '230px',
+            width: 'auto',
+            flex: '1 1 auto',
+            minWidth: 0,
         },
     },
     bracesLeft: {

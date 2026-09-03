@@ -3,7 +3,7 @@
     "Blog": "Blog",
     "Cookies": "Cookies",
     "Docs": "Doku",
-    "Follow us:": "Folge uns:",
+    "Follow us:": "Folgen Sie uns:",
     "HomePage": {
         "title": "Startseite"
     },
@@ -26,7 +26,7 @@
         "history": "History",
         "license": "Lizenz",
         "feedback_title": "Ihre Meinung zählt!",
-        "feedback_text": "Hilf uns, diese Dokumentation zu\nverbessern – gib Feedback oder\nschlage eine Änderung vor.",
+        "feedback_text": "Helfen Sie uns, diese Dokumentation\nzu verbessern – geben Sie Feedback\noder schlagen Sie eine Änderung vor.",
         "version": "Version",
         "developer": "Entwickler",
         "first_release": "Erster Release",
@@ -47,8 +47,8 @@
             "menu_collapse": "Menü ausblenden"
         }
     },
-    "Support us": "Unterstütze uns",
-    "Support us (mobile)": "Unterstütze uns:",
+    "Support us": "Unterstützen Sie uns",
+    "Support us (mobile)": "Unterstützen Sie uns:",
     "cookies": {
         "title": "Cookie-Zeit!",
         "text": "Unsere Website benutzt Cookies – nicht die mit Schokolade, sondern die mit Daten. Sie sorgen dafür, dass hier alles rund läuft, Sie nicht jedes Mal neu klicken müssen und wir ein bisschen besser verstehen, was Sie mögen (oder nicht).",
@@ -156,7 +156,7 @@
             "forum": "Forum",
             "join": "BEITRETEN",
             "mainText": "Die Community war von Anfang an ein zentraler Bestandteil der Entwicklung von ioBroker. Obwohl das Projekt ursprünglich sprachneutral konzipiert war, hat es sich im Laufe der Zeit ergeben, dass die deutschsprachige Community am aktivsten geworden ist - vermutlich, weil ioBroker seinen Ursprung in Deutschland. Heute ist das ioBroker-Forum die erste Anlaufstelle für Fragen, Problemlösungen und den Austausch mit anderen Nutzern. Hier finden Sie eine Vielzahl an Tutorials, Skripten und Best Practices, die Ihnen helfen, das Beste aus ioBroker herauszuholen. Neben dem Forum gibt es auch eine sehr aktive Community auf Facebook und Discord, wo täglich diskutiert, geholfen und neue Ideen geteilt werden. Egal ob Einsteiger oder Profi - hier finden Sie immer Unterstützung und können selbst Ihr Wissen einbringen, um anderen zu helfen.",
-            "secondary": "Werde Teil der Community und gestalte die Zukunft von ioBroker mit!",
+            "secondary": "Werden Sie Teil der Community und gestalten Sie die Zukunft von ioBroker mit!",
             "title": "COMMUNITY",
             "users": "Nutzer"
         },
@@ -165,7 +165,7 @@
             "install": "Installieren",
             "platform": "Open-Source-Plattform",
             "platformSubtitle": "für Smart-Home-Automatisierung",
-            "support": "Unterstütze uns!"
+            "support": "Unterstützen Sie uns!"
         },
         "history": {
             "button": "IOBROKER GESCHICHTE",
@@ -180,7 +180,7 @@
         },
         "newsletter": {
             "headline": "Keine Werbung, nur News!",
-            "placeholder": "deineemail@email.com",
+            "placeholder": "ihreemail@email.com",
             "sub": "Unser Newsletter informiert Sie ausschließlich über neue Blogbeiträge und besondere Aktionen – garantiert ohne Spam!",
             "title": "NEWSLETTER"
         },
@@ -249,7 +249,7 @@
     "menu-community": "Community",
     "menu-copyright": "Copyright © 2014-%s von ioBroker GmbH und ioBroker Community",
     "menu-docs": "Doku",
-    "menu-follow-us": "Folge uns:",
+    "menu-follow-us": "Folgen Sie uns:",
     "menu-forum": "Forum",
     "menu-group": "Gruppe",
     "menu-imprint": "Impressum",
@@ -261,7 +261,7 @@
     "menu-profile": "Profil",
     "menu-search": "Suche",
     "menu-statistics": "Statistik",
-    "menu-support-us": "Unterstütze uns:",
+    "menu-support-us": "Unterstützen Sie uns:",
     "nav": {
         "adapters": "Adapter",
         "blog": "Blog",
@@ -593,7 +593,7 @@
                 },
                 "transfer": {
                     "q": "Kann ich meine Lizenz auf neue Hardware übertragen?",
-                    "a": "Ja, bis zu dreimal. Schreib uns dafür an info@iobroker.net."
+                    "a": "Ja, bis zu dreimal. Schreiben Sie uns dafür an info@iobroker.net."
                 }
             },
             "term": {
@@ -618,7 +618,7 @@
                 "title": "Hilfe",
                 "support": {
                     "q": "Wo melde ich mich, wenn etwas nicht funktioniert?",
-                    "a": "Schreib uns an info@iobroker.net."
+                    "a": "Schreiben Sie uns an info@iobroker.net."
                 }
             }
         },

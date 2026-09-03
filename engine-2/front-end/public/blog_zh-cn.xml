@@ -8,7 +8,7 @@
         <item>
             <title><![CDATA[ioBroker 月度回顾 – 2026 年 7 月/8 月]]></title>
             <description><![CDATA[
-                <p>2026 年的夏天精彩纷呈，本期内容也充分体现了这一点：我们为您精心挑选了 72 款适配器。</p>
+                <p># IoBroker 月度回顾 – 2026 年 7 月/8 月\n2026 年的夏天精彩纷呈，本期内容也充分体现了这一点：我们为您精心挑选了 72 款适配器。</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2026_08_25</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2026_08_25</guid>
@@ -18,7 +18,7 @@
         <item>
             <title><![CDATA[ioBroker 月度回顾 – 2026 年 5 月/6 月]]></title>
             <description><![CDATA[
-                <p>2026 年夏季，ioBroker 生态系统异常活跃！自上次更新以来，我们已在代码库中新增了 15 个适配器。</p>
+                <p># IoBroker 月度回顾 – 2026 年 5 月/6 月\n2026 年夏季，ioBroker 生态系统异常活跃！自上次更新以来，我们已在代码库中新增了 15 个适配器。</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2026_07_10</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2026_07_10</guid>
@@ -28,7 +28,7 @@
         <item>
             <title><![CDATA[ioBroker月度回顾 – 2026年3月/4月]]></title>
             <description><![CDATA[
-                <p>春天为 ioBroker 生态系统带来了一股清新的气息！2026 年 3 月和 4 月，**13 个全新适配器**被添加到 `latest` 版本库中，涵盖了从地暖、极光预报到智能家居飞行模拟器硬件等各种应用。</p>
+                <p># IoBroker 月度回顾 – 2026 年 3 月/4 月\n春天为 ioBroker 生态系统带来了一股清新的气息！2026 年 3 月和 4 月，**13 个全新适配器**被添加到 `latest` 版本库中，涵盖了从地暖、极光预报到智能家居飞行模拟器硬件等各种应用。</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2026_04_13</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2026_04_13</guid>
@@ -38,7 +38,7 @@
         <item>
             <title><![CDATA[ioBroker月度回顾 – 2026年1月/2月]]></title>
             <description><![CDATA[
-                <p>ioBroker 的新年伊始就迎来了重大更新！在 2026 年的前两个月里，我们向 `latest` 仓库添加了众多新的适配器，其中一些已经升级到 `stable` 版本。</p>
+                <p># IoBroker 月度回顾 – 2026 年 1 月/2 月\nioBroker 的新年伊始就迎来了重大更新！在 2026 年的前两个月里，我们向 `latest` 仓库添加了众多新的适配器，其中一些已经升级到 `stable` 版本。</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2026_03_04</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2026_03_04</guid>
@@ -58,7 +58,7 @@
         <item>
             <title><![CDATA[ioBroker 月度回顾 – 2025 年 12 月]]></title>
             <description><![CDATA[
-                <p>一年即将结束，但 ioBroker 生态系统在过去几个月里一直在积极进行开发、集成和优化。</p>
+                <p># IoBroker 月度回顾 – 2025 年 12 月 🎄\n一年即将结束，但 ioBroker 生态系统在过去几个月里一直在积极进行开发、集成和优化。</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2025_12_21</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2025_12_21</guid>
@@ -106,9 +106,9 @@
             <pubDate>Fri, 04 Apr 2025 06:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[ioBroker 新闻 – 2025 年春季 🌼]]></title>
+            <title><![CDATA[ioBroker 新闻 – 2025 年春季刊 🌼]]></title>
             <description><![CDATA[
-                <p>欢迎来到 ioBroker 2025 年春季更新！过去几周，ioBroker 领域发生了很多事情。\n新的适配器通过令人兴奋的集成扩展了平台，现有组件已通过有用的功能得到改进 - 并且社区仍然活跃且富有创造力。</p>
+                <p>#ioBroker 新闻 – 2025 年春季 🌼\n欢迎来到 ioBroker 2025 年春季更新！近几周来，ioBroker 世界发生了许多变化。</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2025_03_29</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2025_03_29</guid>

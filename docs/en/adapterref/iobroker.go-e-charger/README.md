@@ -60,6 +60,16 @@ Enable **read-only mode** for a charger if the adapter should only read its data
 
 The poll cycle time defines how often the adapter reads data from the chargers and adjusts the charging current (minimum 3 seconds, default 10 seconds).
 
+#### Per-wallbox current limits
+
+Each wallbox can optionally be given its own **minimum** and **maximum charging current** [A]. These apply to **both** ChargeManager (PV surplus) and ChargeNOW, for example to throttle a single charger or to balance the load between several boxes on a shared supply.
+
+- A value of `0` means "not set": the minimum falls back to the technical minimum of 6 A, and the maximum falls back to the installation-wide maximum charging current from the standard settings.
+- A per-box maximum can only lower a charger below the installation limit, never raise it above.
+- If the configured minimum ends up higher than the maximum, the minimum is clamped down to the maximum and a warning is logged.
+
+The adapter also reads the current caps reported by each charger – the absolute maximum current, the cable current limit and (via API v2) the minimum charging current – and folds them into the effective limits, so a charger is never driven beyond what its hardware or the plugged cable allows. The detected caps are published as `Wallbox_X.info.hardwareMaxChargeCurrent` and `Wallbox_X.info.hardwareMinChargeCurrent` to help you choose sensible per-box values.
+
 ### PV surplus charging with ChargeManager
 
 ChargeManager calculates the charging current from numeric ioBroker states supplied by an energy-management, inverter, meter, or user-created data source. It does not depend on a particular vendor, but the selected states must represent the quantities described below.
@@ -68,7 +78,7 @@ Configure the object IDs of the following states:
 
 - currently available solar power [W]
 - current home power consumption [W]
-- current state of charge of your home battery [%]
+- current state of charge of your home battery [%] (only required in the battery-aware modes, see _Home battery mode_ below)
 
 #### Input requirements
 
@@ -80,7 +90,7 @@ Configure the object IDs of the following states:
 
 All configured states must contain numeric values. Power values in kW must be converted to W before they are selected. A grid import/export state cannot be used directly because ChargeManager currently expects separate generation and consumption values.
 
-If no home battery is installed, create a numeric helper state and select it as the battery state of charge. Set this helper to the **same constant value** as `Settings.Setpoint_HomeBatSoC` (for example `70` for both). This keeps the battery offset at zero, so ChargeManager charges purely from the available PV surplus.
+If no home battery is installed, set the **Home battery mode** to _Disabled_ (see below). No battery state of charge has to be configured, and ChargeManager charges purely from the available PV surplus. The former helper-state workaround (a constant state set to `Settings.Setpoint_HomeBatSoC`) is no longer needed.
 
 #### Wallbox consumption in the home-consumption value
 
@@ -98,21 +108,28 @@ available power =
   - home power consumption
   + wallbox power, if it is included in home power consumption
   - grid reserve
-  + battery SoC offset
+  + battery bonus (Battery priority mode only)
 
 target current = floor(available power / 230 V / active phases)
 ```
 
-Four settings on the standard configuration page tune this calculation:
+Six settings on the ChargeManager configuration page tune this calculation:
 
+- **Home battery mode** (default _Battery priority_) – how the home battery is taken into account:
+    - _Disabled_ – no home battery is used. No SoC state has to be configured, and no battery power is ever assigned to the car.
+    - _Minimum SOC_ – EV charging is blocked below `Settings.Setpoint_HomeBatSoC`, but the battery never contributes power to the car.
+    - _Battery priority_ – as above, plus the battery bonus described below.
+- **Battery SoC hysteresis** [%] (default 0) – how far the SoC may fall below the minimum before a _running_ controller stops. It keeps a battery hovering around its minimum from toggling the charge release every cycle; starting still requires the full minimum SoC.
+- **Maximum battery SoC age** [s] (default 0 = off) – surplus control stops when the SoC state has not been updated within this time, so a dead helper state cannot silently keep the car charging.
 - **Grid reserve power** [W] (default 100) – power kept free on the grid connection instead of being assigned to the car. Increase it to keep more safety headroom; set it to `0` to hand the full surplus to the car.
 - **Maximum battery bonus** [W] (default 2000) – how much extra power, on top of the pure solar surplus, may be drawn while the home battery is above its minimum state of charge. The bonus is `0` when the battery is exactly at the minimum SoC and grows linearly to this maximum as the battery approaches 100 %, so a fuller battery lets the car charge faster. Set it to `0` to charge purely from the measured solar surplus without ever discharging the home battery into the car.
 - **Minimum ChargeManager current** [A] (default 6) – the surplus charging current below which the charger is switched off after a short delay. This applies to PV surplus charging only.
-- **Maximum charging current** [A] (default 16, up to 32) – the highest current the adapter will ever assign. It caps **both** ChargeManager (PV surplus) **and** ChargeNOW.
+
+The **maximum charging current** [A] (default 16, up to 32) is configured on the **standard settings page**, not here: it is an installation-wide limit of the shared power supply (main breaker / circuit protection) rather than a ChargeManager tuning value. It caps the current the adapter will ever assign to **any** wallbox, in **both** ChargeManager (PV surplus) **and** ChargeNOW.
 
 > **⚠️ Do not set the maximum charging current higher than your go-e Charger hardware and your electrical installation support.** go-e Charger models are rated for different maximum currents (e.g. 16 A or 32 A), and the actual limit also depends on your cable, plug and wiring. Setting a value above the hardware/installation rating can trip protection devices or damage equipment. When in doubt, keep the default of 16 A.
 
-Below `Settings.Setpoint_HomeBatSoC`, EV charging is disabled so that the home battery has priority. Charging starts once the internal target reaches 10 A (or the minimum current if it is set higher). The calculated current is limited to the configured maximum, and the internal current target changes by at most 1 A per poll cycle to reduce sudden changes.
+In the battery-aware modes, EV charging is disabled below `Settings.Setpoint_HomeBatSoC` so that the home battery has priority. Charging starts once the internal target reaches 10 A (or the minimum current if it is set higher). The calculated current is limited to the configured maximum, and the internal current target changes by at most 1 A per poll cycle to reduce sudden changes.
 
 #### Enabling ChargeManager
 
@@ -179,6 +196,14 @@ If you enjoyed this project – or are just feeling generous – consider buying
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.6.0 (2026-08-29)
+
+- (hombach) added optional per-wallbox minimum and maximum charging current, applied to both ChargeManager and ChargeNOW and always kept within the installation-wide maximum
+- (hombach) the per-wallbox current limits now also respect the charger's reported hardware caps (absolute max, cable limit, minimum charging current), published as `info.hardwareMaxChargeCurrent` / `info.hardwareMinChargeCurrent`
+- (typhosj) ChargeManager: added home-battery modes (disabled, minimum SoC, battery priority); installations without a home battery no longer need a constant helper state
+- (typhosj) ChargeManager: added a battery SoC hysteresis and an optional maximum SoC age so surplus control stops on stale battery data
+- (hombach) admin: moved the maximum charging current to the standard settings tab and clarified that it is an installation-wide limit of the shared power supply, valid for all wallboxes and both charging modes
+
 ### 1.5.0 (2026-08-25)
 
 - (hombach) ChargeManager: grid reserve power and maximum battery bonus are now configurable (defaults 100 W / 2000 W) (#852)
@@ -206,12 +231,6 @@ If you enjoyed this project – or are just feeling generous – consider buying
 - (hombach) live data is now refreshed every cycle in all modes, so read-only monitoring stays up to date
 - (hombach) API V2 not being reachable is now a single warning instead of an error (normal on hardware gen 1/2)
 - (typhosj) use generic go-e brand logo as adapter icon (#843)
-
-### 1.3.0 (2026-08-04)
-
-- (hombach) added info.accessControlState (go-e access_state: 0 = open, 1 = RFID/App required, 2 = price/automatic) (#634)
-- (hombach) tightened TypeScript types for go-e API response fields (removed any)
-- (hombach) updated dependencies
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

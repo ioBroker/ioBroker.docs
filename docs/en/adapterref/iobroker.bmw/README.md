@@ -217,6 +217,13 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (hombach) fixed repochecker error
+- (hombach) fixed translations
+- (hombach) updated dependencies
+
 ### 5.0.2 (2026-08-11)
 
 - (TA2k) added a staged telematic container fallback on CU-403: full catalogue (294) -> without endpoint-bound keys (290) -> all streaming-capable keys plus extras (252) -> curated reduced set (75), keeping as much coverage as BMW accepts instead of failing

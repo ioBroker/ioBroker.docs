@@ -14,8 +14,11 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean | undefined; isFl
         [theme.breakpoints.down(451)]: {
             width: isMenuCollapsed ? '311px' : '281px',
         },
-        [theme.breakpoints.down(429)]: {
-            width: '281px',
+        // Below this the field takes what the row has left instead of a hand set width -
+        // the 281 px step was still 33 px wider than the row on a 375 px phone.
+        [theme.breakpoints.down(768)]: {
+            width: '100%',
+            minWidth: 0,
         },
     };
 
@@ -23,6 +26,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean | undefined; isFl
         // filled field on the first surface step - the hairline replaces the border
         topBarSearch: {
             width: isFluid ? '100%' : '460px',
+            // a flex item only shrinks below its content when its automatic minimum is lifted
+            minWidth: 0,
             '& img': {
                 width: '18px',
                 height: '18px',

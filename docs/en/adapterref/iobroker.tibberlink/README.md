@@ -101,6 +101,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 7.2.3 (2026-08-29)
+
+- (HombachC) fixed local Pulse boolean states (e.g. usb_power, autolevel_enable) being created as type number, causing recurring log errors (#935)
+- (HombachC) SmartBatteryBuffer: EfficiencyLoss is now validated to the range 0…1; out-of-range values (e.g. 25 instead of 0.25) are clamped with a warning instead of corrupting the calculation, and the state now carries min/max/step (#934)
+- (HombachC) updated dependencies
+
 ### 7.2.2 (2026-08-22)
 
 - (HombachC) fixed local Pulse meter mode 5 (plain OBIS text, e.g. eBZ meters) not being parsed, leaving states frozen (#931)
@@ -126,10 +132,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) added a regression test confirming best single hours LTF no longer switches on the wrong day (#631)
 - (HombachC) worked around a Tibber server bug that returns `to` equal to `from` in weekly historical consumption data (#890)
 - (HombachC) removed redundant test devDependencies (chai, chai-as-promised, sinon-chai, proxyquire) and switched unit tests to Node's built-in assert
-
-### 7.1.4 (2026-07-09)
-
-- (HombachC) fixed regression where smart battery buffer ignored the EfficiencyLoss parameter (#918)
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

@@ -55,7 +55,8 @@ I accept no liability if the place burns down.
 
 ### ⚠️ Requirements
 - An XSense account with registered devices  
-- Internet connection for cloud communication  
+- Internet connection for cloud communication
+- MQTT Server for messages
 
 
 ---
@@ -91,8 +92,8 @@ or if you have a VM on proxmox check your CPU settings
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 
+<img width="1425" height="768" alt="grafik" src="https://github.com/user-attachments/assets/fd52869a-48f3-403a-a97c-dfef587e02bf" />
 
-<img width="1029" height="438" alt="grafik" src="https://github.com/user-attachments/assets/86e4fd1c-1d4e-4234-a2ad-48b8dd9f418e" />
 
 <img width="2028" height="577" alt="grafik" src="https://github.com/user-attachments/assets/65cc5c71-4cd3-4502-b4bd-a4c7241d7708" />
 
@@ -102,8 +103,10 @@ or if you have a VM on proxmox check your CPU settings
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.6.5 (2026-08-27)
 * (arteck) async fix
+* (arteck) fix battery info
+* (arteck) fix orphaned states without house folder from MQTT messages for stations not yet known (startup race and newly added devices)
 
 ### 0.6.4 (2026-06-22)
 * (arteck) Dependencies have been updated
@@ -117,10 +120,6 @@ or if you have a VM on proxmox check your CPU settings
 
 ### 0.6.1 (2026-05-03)
 * (arteck) fix deviceManager
-
-### 0.6.0 (2026-05-03)
-* (arteck) fix battery info
-* (arteck) add deviceManager
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

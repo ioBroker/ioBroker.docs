@@ -14,7 +14,7 @@ Connects to a [Beszel](https://github.com/henrygd/beszel) Hub and exposes server
 
 - Fetches metrics from all systems registered in your Beszel Hub
 - Per-system states: CPU, memory, disk, network, temperature, load average
-- Optional detail: per-core CPU, peak values, disk I/O load, per-interface traffic, GPU details, hardware/OS info, Docker/Podman containers, battery, extra filesystems, CPU breakdown, systemd services
+- Optional detail: per-core CPU, peak values, disk I/O load, per-interface traffic, fan speeds, GPU details, hardware/OS info, Docker/Podman containers, battery (incl. per-battery level), extra filesystems, CPU breakdown, systemd services
 - Each option has a help text explaining the states it creates; detail options stay greyed out until their category is enabled
 - Configurable poll interval (10–300 seconds)
 - Automatic re-authentication when the token expires (including mid-poll)
@@ -35,7 +35,7 @@ For details and how to disable it, see the [Sentry plugin documentation](https:/
 
 - **Node.js >= 22**
 - **ioBroker js-controller >= 7.2.2**
-- **ioBroker Admin >= 7.8.23**
+- **ioBroker Admin >= 8.0.11**
 - A running [Beszel Hub](https://github.com/henrygd/beszel) with at least one registered system
 
 ---
@@ -84,10 +84,11 @@ Detail options stay greyed out until their category's main metric is enabled, an
 |                 | Peak values                                           | off     |
 | **Temperature** | Temperature (hottest sensors avg + hottest single)    | on      |
 |                 | Individual Temperature Sensors                        | off     |
+| **Fans**        | Fan Speeds (rpm, Beszel 0.18.8+, Linux hosts)         | off     |
 | **GPU**         | GPU Metrics (Usage, Memory, Power)                    | off     |
 |                 | GPU details (engines, package power)                  | off     |
 | **Containers**  | Container Monitoring incl. network (Docker / Podman)  | off     |
-| **Battery**     | Battery Status                                        | off     |
+| **Battery**     | Battery Status (incl. level per battery)              | off     |
 
 ---
 
@@ -98,11 +99,14 @@ States are organized into channels per metric group. Optional channels (marked \
 ```
 beszel.0.
 ├── info.connection                   — Connection status (bool)
+├── info.systemsTotal                 — Systems registered on the Hub (number)
+├── info.systemsOnline                — Systems currently reporting "up" (number)
+├── info.systemsAllUp                 — All systems up? (bool)
 └── systems.
     └── {system_name}/                — Device (sanitized name)
         ├── info/                     — System info
         │   ├── online               — Is system up? (bool, used as device indicator)
-        │   ├── status               — Status string (up/down/paused/pending)
+        │   ├── status               — Status string (up/down/paused/pending, or unknown while the adapter is not reading)
         │   ├── uptime               — Uptime in seconds
         │   ├── uptime_text          — Human-readable uptime (e.g. "14d 6h")
         │   ├── agent_version *      — Beszel agent version
@@ -159,9 +163,11 @@ beszel.0.
         │   ├── average              — Avg of top 3 sensors (°C)
         │   ├── max                  — Hottest single sensor (°C)
         │   └── sensors/ *           — Individual sensor readings
+        ├── fans/ *                   — Fan speeds (rpm), one state per fan
         ├── battery/ *                — Battery metrics
         │   ├── percent              — Battery level (%)
-        │   └── charging             — Is charging? (bool)
+        │   ├── charging             — Is charging? (bool)
+        │   └── batteries/ *         — Level per battery (%), on multi-battery systems
         ├── gpu/ *                    — GPU metrics (per GPU)
         │   └── {gpu_name}/
         │       ├── usage            — GPU usage (%)
@@ -218,37 +224,33 @@ beszel.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.10.1 (2026-08-22)
+### 0.13.0 (2026-09-02)
 
-- Changed: Internal cleanup. No user-facing changes.
+- Fixed: a Beszel Hub configured by IPv6 address can now be reached — the connection used to fail with a name lookup error because the address kept its square brackets
+- Fixed: stopping the adapter while a poll was still running no longer writes a false "Poll failed" error line to the log, and no longer sends that false error to the error reporting
+- Fixed: when the adapter cannot start — credentials to re-enter after an upgrade, or an invalid Hub URL — every system is now marked offline instead of keeping the previous run's green dot
+- Changed: the three fleet summary states for systems total, online and all-up now exist from the installation on — a fresh install with an unreachable Hub shows 0 and false instead of nothing
+- Changed: ioBroker Admin 8.0.11 or newer is required, in line with the current ioBroker stable repository — older Admin installations must be updated before installing this version
 
-### 0.10.0 (2026-07-13) — stable
+### 0.12.2 (2026-08-27) — stable
 
-- Container states are no longer deleted when the adapter briefly loses access to the container data — they are kept until the containers are really gone.
+- Fixed: the first start after an update no longer puts warnings and an error into the log while the instance corrects itself and restarts.
 
-### 0.9.0 (2026-07-07)
+### 0.12.1 (2026-08-27)
 
-- The "Test connection" button now correctly reports a failure when the URL, username or password is wrong — it previously showed a green "Ok" even for bad credentials.
-- States for a sensor, GPU, filesystem or network interface that disappears from a system are now removed instead of freezing at their last value forever.
-- Battery, GPU-power and status states now carry proper roles so VIS widgets and the type detector recognize them correctly; existing states are upgraded on the next start.
-- New fleet-overview states (systems total, systems online, all-systems-online) for building a multi-server dashboard at a glance.
-- Per-interface network speeds are now shown in MB/s (and totals in GB), matching the overall network values instead of raw bytes.
-- A user account without permission to read containers no longer freezes all other system states — container data is skipped with a warning instead.
-- The connection settings are reordered and gained help texts explaining that the "Username" is your Beszel web login, plus a hint that polling faster than 60s brings no fresher data.
+- Fixed: on an installation that was updated rather than freshly installed, the systems kept showing as online when the adapter was stopped — they now go offline there as well.
+- Fixed: the count of systems currently online no longer keeps its last value while the adapter is stopped — it drops to zero along with the individual systems.
 
-### 0.8.0 (2026-06-24) — stable
+### 0.12.0 (2026-08-27)
 
-- A brief empty response from the Hub no longer deletes your devices or containers — for example right after a restart — so monitored systems and their history stay intact.
-- Server hardware and OS details now recover on their own after a short network problem, instead of staying empty until the adapter is restarted.
-- Two systems, filesystems, network interfaces or containers whose names shorten to the same id no longer overwrite each other's values.
-- A malformed or oversized response from the Hub can no longer exhaust memory and crash the adapter.
-- The adapter now warns when the Hub is reached over an unencrypted http connection to another machine, so you can switch to https.
+- Fixed: a system no longer shows as online while the adapter is stopped or cannot reach the Hub — its status then reads "Unknown" instead of keeping the last value it had.
+- Fixed: systems or containers could stay missing from the object tree when the Hub sent a record the adapter could not read — everything the Hub reports now shows up again.
 
-### 0.7.2 (2026-06-12) — stable
+### 0.11.0 (2026-08-26)
 
-- Much lighter polling: the adapter no longer pages through hours of stats history on every poll and only rewrites device objects when something actually changed
-- Disappeared sensors, network interfaces, GPUs, filesystems and CPU cores are now cleaned up automatically instead of keeping frozen values forever
-- Turning off "GPU details" now removes the package-power and engine states it created
+- New: Fan speeds — a new "Fans" switch creates one datapoint per fan, in rpm (needs Beszel 0.18.8 or newer, Linux hosts).
+- New: Systems with several batteries now show the level of each battery separately (needs Beszel 0.18.8 or newer).
+- New: After switching metrics on or off you can see straight away how many datapoints appeared or disappeared, instead of searching the object tree.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

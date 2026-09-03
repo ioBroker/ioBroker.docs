@@ -23,6 +23,13 @@ All devices which can be controlled via EWPE Smart app should be supported, incl
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+### 4.0.0 (2026-08-28)
+ - Migrated the admin tab from jQuery/Materialize to React (MUI 6 / @iobroker/adapter-react-v5)
+ - The admin tab is now translated into all 11 adapter languages
+ - Errors reported by the adapter are shown in the tab instead of only in the browser console
+ - The admin tab now detects the running adapter instance instead of always using instance 0
+ - The admin tab now follows the light/dark theme of the admin UI
+
 ### 3.0.3 (2026-06-01)
  - Fixed adapter runtime dependencies and updated CI workflow
 
@@ -45,9 +52,6 @@ All devices which can be controlled via EWPE Smart app should be supported, incl
  - Fixed maintain-room-temperature (StHt) state never being polled from the device
  - Fixed potential null reference errors when reading adapter states
  - Closed UDP sockets on adapter shutdown
-
-### 2.0.8 (2026-02-14)
- - Updated properties mapping
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

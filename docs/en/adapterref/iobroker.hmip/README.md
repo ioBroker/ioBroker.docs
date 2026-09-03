@@ -35,7 +35,9 @@ I may also need a JSON of a state change.
 
 Thank you!
 
-If you are looking for the information, if the alarm settings are active, you have to check the active status of the group INTERNAL and EXTERNAL, they represent in combination the three alarm states. INTERNAL and EXTERNAL actives means Away, only EXTERNAL active means only Perimeter active.
+If you are looking for the information whether the alarm system is armed, read `homes.<homeId>.functionalHomes.securityAndAlarm.securityZonesArmedMode`. It reports the armed zones in the vocabulary of the dashboard the home uses: `OFF`, `PRESENCE` (perimeter only) or `ABSENCE` (away) on the request-based dashboard, and `OFF`, `INTERNAL`, `EXTERNAL` or `INTERNAL_AND_EXTERNAL` on the classic one. `internalZoneArmed` and `externalZoneArmed` beside it carry the same information as the classic pair of booleans on either dashboard. To arm or disarm, write a mode to `activateSecurityZones`.
+
+Note that `functionalHomes.securityAndAlarm.active` is not the armed state - it reports whether the home has the security solution at all.
 
 ## Important Info what can be done with this adapter
 !!! You can only trigger events with this adapter that can be triggered through the original Homematic IP app. 
@@ -69,6 +71,12 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.1.1 (2026-08-29)
+- (@Apollon77) Added functionalHomes.securityAndAlarm.securityZonesArmedMode, internalZoneArmed and externalZoneArmed, so the armed state of the alarm system is readable on the home instead of only on the security zone group
+- (@Apollon77) Added functionalHomes.securityAndAlarm.activateSecurityZones: write OFF, PRESENCE, ABSENCE, INTERNAL, EXTERNAL or INTERNAL_AND_EXTERNAL to arm or disarm. Every mode works on both the classic and the request-based dashboard
+- (@Apollon77) Fixed a home with both INTERNAL/EXTERNAL and ABSENCE/PRESENCE zones reading as disarmed while one of the families was armed
+- (@Apollon77) A security journal event that carries no home now reads the configuration at most once every five minutes instead of once per event; some homes raise that event every few minutes
+
 ### 3.0.0 (2026-08-24)
 - (@Apollon77) **Breaking:** shutterLevel, slatsLevel, dimLevel, primaryShadingLevel, secondaryShadingLevel and minimumFloorHeatingValvePosition now report 0..100 on the channels that declare that range, matching the ioBroker convention and the range the datapoint has always advertised. They previously advertised 0..100 but reported the cloud's 0..1 fraction. Writing is unchanged: a value above 1 is read as a percentage, anything else as a fraction
 - (@Apollon77) Fixed arming/disarming the alarm system on the new request-based security dashboard (ABSENCE/PRESENCE security zones)
@@ -132,8 +140,6 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 ### 1.26.5 (2025-01-27)
 * (@Apollon77) Fixed Websocket disconnect cases
 
-### 1.26.4 (2025-01-03)
-* (@Apollon77) Optimized Websocket disconnect cases
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -51,13 +51,19 @@ Full user documentation lives in the **[Wiki](https://github.com/krobipd/ioBroke
 
 For details and how to disable it, see the [Sentry plugin documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Error reporting requires js-controller 3.0 or newer.
 
+## Network connections
+
+Besides your devices on the LAN and the Govee servers (`openapi.api.govee.com`, `app2.govee.com`, `mqtt.openapi.govee.com` and Govee's AWS IoT endpoint), the adapter makes one more outbound call: once a day it looks up the current version of the Govee Home app in Apple's App Store directory (`itunes.apple.com`). Govee's undocumented endpoints reject requests that announce a stale app version, so the adapter keeps that version current on its own. The lookup carries no account data, no device data and no identifier of your installation.
+
+The per-device diagnostics export (`diag.export` → `diag.result`) is meant to be attached to a public GitHub issue. It contains the device's model, its Govee device id, its LAN address, the name you gave it in the Govee Home app, recent adapter log lines and the last API responses for that device. Credentials, tokens and gateway secrets are masked before the export is written.
+
 ---
 
 ## Requirements
 
 - Node.js >= 22
 - ioBroker js-controller >= 7.2.2
-- ioBroker Admin >= 8.0.1
+- ioBroker Admin >= 8.0.11
 - A Govee account and at least one Govee WiFi device. LAN control needs a light with LAN mode enabled in the Govee Home app — see Govee's [LAN-supported device list](https://app-h5.govee.com/user-manual/wlan-guide).
 
 ---
@@ -78,7 +84,7 @@ Each device shows its test status under `diag.tier`. The [Devices page](https://
 
 Common issues (no devices discovered, empty scenes dropdown, segment colors not changing, limited group commands, delayed status updates) are covered on the Wiki [Behavior](https://github.com/krobipd/ioBroker.govee-smart/wiki/Behavior) / [Verhalten](https://github.com/krobipd/ioBroker.govee-smart/wiki/Verhalten) page.
 
-For anything else, set **`diag.export`** to `true` on the affected device, copy the JSON from `diag.result`, and open a [GitHub Issue](https://github.com/krobipd/ioBroker.govee-smart/issues).
+For anything else, set **`diag.export`** to `true` on the affected device, save the JSON from `diag.result` as a file and attach it to a [GitHub Issue](https://github.com/krobipd/ioBroker.govee-smart/issues/new/choose) — the export is too long to paste into an issue.
 
 ---
 
@@ -94,26 +100,45 @@ This adapter's MQTT authentication and BLE-over-LAN (ptReal) protocol implementa
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 2.26.0 (2026-08-22)
+### 2.29.3 (2026-09-03)
 
-- Fixed: Stopping or restarting the instance now really ends the cloud connection; the adapter no longer keeps updating datapoints for a moment after it has shut down.
+- Fixed: Cloud-controlled datapoints such as brightness or the gradient switch are translated instead of carrying Govee's English wording
+- Fixed: A stray datapoint left behind by an early version 2 release disappears from the object tree on the next start
+- Fixed: After a restart the list of unreachable group members is rebuilt right away instead of keeping the value from before the restart
 
-### 2.25.0 (2026-08-12)
+### 2.29.2 (2026-09-03)
 
-- Redesigned connection setup: one card for the Cloud API key, account login and 2FA, with live connection status and a guided verification-code step.
-- Fixed light strips that showed too many segments with impossible brightness values (e.g. Govee H6076 showed 15 instead of 7); they now use the strip's real segment count.
+- Fixed: Datapoint and channel names stayed in their old wording on installations that already existed — only fresh ones got the new text
 
-### 2.24.0 (2026-08-04)
+### 2.29.1 (2026-09-03)
 
-- This version needs ioBroker Admin 8. The segment detection wizard is built for Admin 8 and no longer runs on Admin 7, so this update is not offered there.
+- Fixed: A device that is switched off or unplugged is shown as not reachable again — 2.29.0 reported it as reachable whenever the Cloud was up
+- Fixed: A device without the local API is now shown as reachable when Govee itself reports it — that information always arrived and was discarded
+- Fixed: The diagnostics export failed with an internal error and wrote no file; the button in the object tree and the Diagnostics tab both work now
 
-### 2.23.1 (2026-08-04)
+### 2.29.0 (2026-09-03)
 
-- Test release during the move to ioBroker Admin 8.
+- Fixed: A device without the local API enabled no longer shows as unreachable after a restart while it still controls fine
+- Fixed: Datapoint names and descriptions now also reach installations that already exist — until now only new ones got them
+- Fixed: The segment channels are translated instead of always being named in English
+- Fixed: One appliance can no longer use up the whole account's daily Cloud budget — Govee grants an appliance only 100 calls a day
+- Changed: BREAKING — the diagnostics report is a file. `diag.result` is gone; download the file in the new Diagnostics tab and attach it to an issue
+- Improved: The report is anonymised and carries far more: your ioBroker versions, the device's real datapoints and what your last commands did
+- Improved: User documentation ships with the adapter, so the ioBroker doc portal shows it instead of the developer README
 
-### 2.23.0 (2026-08-04)
+### 2.28.0 (2026-09-02)
 
-- Test release during the move to ioBroker Admin 8.
+- Fixed: The "Sync devices manually" button in the object tree works again — it had no effect since 2.17.0. It is now `info.manualSyncDevices`; the old `info.manual_sync_devices` is removed on start
+- Fixed: A Govee maintenance page could permanently stop the Cloud reconnect with a misleading "check your API key" hint — only real authentication failures stop the retry now
+- Fixed: Sensor and event datapoints from the Govee app, such as temperature or battery, are no longer deleted and re-created on every Cloud refresh, so their history stays continuous
+- Fixed: Group commands now reach Cloud-only members even while their Cloud online marker briefly flickers — only LAN lights that are really unreachable are skipped
+- Fixed: An account e-mail with a trailing space no longer fails the account login at start-up, matching the behaviour of the login test in the settings
+- Fixed: An implausible segment count from the cache, the Cloud or the app can no longer create thousands of segment channels — the count is capped at the protocol limit of 56
+- Fixed: With several instances running in compact mode, the experimental-models switch of one instance no longer applies to all of them
+- Changed: BREAKING — sensor and event datapoints have one name: `sensor.temperature` instead of `sensor.sensor_temperature`, `events.lack_water` instead of `events.lackWater`. Adjust your scripts
+- Improved: Stopping the adapter no longer scans the whole object tree — the offline markers are written from memory, so shutdown stays well inside the host's time limit even with many devices
+- Improved: Diagnostics buffers are now bounded by size, so a chatty device can no longer let the adapter's memory grow without limit
+- Improved: The device cache is written without blocking the adapter — large installations no longer stall for a moment on every cache update
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

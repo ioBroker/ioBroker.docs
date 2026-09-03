@@ -80,7 +80,9 @@ export const useStyles = makeStyles()(theme => ({
         maxWidth: '520px',
     },
     quickSelect: {
-        minWidth: 340,
+        // a min-width beats the max-width next to it - on a 320 px phone the 340 pushed
+        // the field out of the page
+        minWidth: 'min(340px, 100%)',
         maxWidth: '100%',
         '& .MuiOutlinedInput-notchedOutline': {
             borderColor: theme.palette.primary.main,
@@ -255,10 +257,10 @@ export const useStyles = makeStyles()(theme => ({
         // the same distance the setup block keeps before the cards, so every section breathes alike
         marginBottom: '80px',
         [theme.breakpoints.down('lg')]: {
-            gridTemplateColumns: '1fr 1fr',
+            gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
         },
         [theme.breakpoints.down('md')]: {
-            gridTemplateColumns: '1fr',
+            gridTemplateColumns: 'minmax(0, 1fr)',
             gap: '32px',
         },
     },
@@ -268,8 +270,11 @@ export const useStyles = makeStyles()(theme => ({
         gap: '48px',
         alignItems: 'start',
         marginTop: '8px',
+        // `1fr` keeps the min-content width of its items as a lower bound, and the product
+        // card is 368 px wide - that pushed the whole column past a 375 px phone screen.
+        // `minmax(0, 1fr)` lets the track shrink, the card follows with its own max-width.
         [theme.breakpoints.down('md')]: {
-            gridTemplateColumns: '1fr',
+            gridTemplateColumns: 'minmax(0, 1fr)',
         },
     },
     /* the "i" beside a line that has a page in the documentation */

@@ -14,6 +14,10 @@ export const useStyles = makeStyles()(theme => {
             width: '100%',
             height: '100%',
             minHeight: '244px',
+            // without this a long adapter name sets the card's minimum width and the card
+            // grows out of its grid column
+            minWidth: 0,
+            overflowWrap: 'anywhere',
             boxSizing: 'border-box',
             borderRadius: `${theme.custom.radius.card}px`,
             padding: '16px',

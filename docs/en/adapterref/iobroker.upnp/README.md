@@ -17,6 +17,21 @@ This adapter helps users discover and control UPnP-compatible devices in their n
 ## Changelog
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+### 1.1.14 (2026-09-03)
+* chore(deps-dev): bump @humanfs/node from 0.16.7 to 0.16.8
+* chore(deps-dev): bump browserslist from 4.28.4 to 4.28.8
+* chore(deps-dev): bump fast-uri from 3.1.5 to 3.1.7
+* chore(deps-dev): bump @iobroker/testing from 5.2.2 to 5.3.0
+* chore(deps-dev): bump @types/node from 25.9.4 to 25.9.5
+* chore(deps-dev): bump @alcalzone/release-script-plugin-license
+* chore(deps-dev): bump @tsconfig/node22 from 22.0.5 to 22.0.6
+* chore(deps): bump @xmldom/xmldom from 0.9.10 to 0.9.12
+* chore(deps-dev): bump brace-expansion from 1.1.13 to 1.1.18
+* chore(deps-dev): bump engine.io from 6.6.6 to 6.6.9
+* chore(deps-dev): bump js-yaml from 4.2.0 to 4.3.1
+* chore(deps-dev): bump fast-uri from 3.1.4 to 3.1.5
+* chore(deps-dev): bump socket.io-parser from 4.2.6 to 4.2.7
+
 ### 1.1.13 (2026-08-03)
 * chore(deps-dev): bump fast-uri from 3.1.2 to 3.1.4
 * chore(deps): bump axios from 1.16.0 to 1.18.1
@@ -82,9 +97,6 @@ This adapter helps users discover and control UPnP-compatible devices in their n
 * (Jey Cee) Update dependencies
 * (Jey Cee) GH actions
 * (Jey Cee) replace packet xml2js, request and ip
-
-### **WORK IN PROGRESS**
-- (iobroker-bot) Adapter requires node.js >= 20 now.
 
 ### 1.1.0 (2024-09-30)
 * (Jey Cee) Migrate config to JSONConfig 

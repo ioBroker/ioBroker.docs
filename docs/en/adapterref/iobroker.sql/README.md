@@ -60,7 +60,7 @@ SQLite DB must not be installed extra. It is just a file on disk, but to install
 sudo apt-get install build-essential
 ```
 
-For windows install node.js with "Automatically install the necessary tools..."-option and then reinstall the adapter, e.g:
+For windows install node.js with the "Automatically install the necessary tools..."-option and then reinstall the adapter, e.g:
 
 ```bash
 cd /opt/iobroker
@@ -618,6 +618,21 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 4.1.5 (2026-08-28)
+* (@GermanBluefox) Updated packages
+
+### 4.1.4 (2026-08-27)
+* (@GermanBluefox) Connection errors no longer start with the useless class name `AggregateError`: the log now shows only the real reason, e.g. `connect ECONNREFUSED 127.0.0.1:3306; connect ECONNREFUSED ::1:3306`
+
+### 4.1.3 (2026-08-27)
+* (@GermanBluefox) Connection errors are logged with the real reason again: Node reports a failed TCP connect as an `AggregateError` whose own message is empty, so the log only showed the word `AggregateError` instead of e.g. `connect ECONNREFUSED 127.0.0.1:3306`
+* (@GermanBluefox) The reconnection loop no longer repeats the same connection error every 30 seconds: the first occurrence is logged as error, repetitions go to debug and once an hour a reminder is logged
+
+### 4.1.2 (2026-08-27)
+* (@GermanBluefox) Fixed `enableHistory` being answered with `success: true` but silently doing nothing when it arrived while the adapter was still starting up: the adapter subscribed to object changes only after it had read the logging settings, so a message that landed in that gap activated no logging
+* (@joltcoke) Fixed average and total returning null for every interval that contains a null value: parseFloat(null) is NaN and poisoned the sum of the whole interval (thanks to @joltcoke, ioBroker/ioBroker.sql#526). As the result was NaN and not null, ignoreNull could not act on it either
+* (@joltcoke) Fixed min returning a wrong value if the interval contains a null, minmax losing the minimum if the interval starts with a null, and percentile/quantile counting a null as 0
+
 ### 4.1.0 (2026-08-26)
 * (@ipod86) Added a button to the datapoint settings to delete all logged values of this datapoint
 * (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` now report errors back to the caller instead of always answering with success
@@ -630,20 +645,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (@GermanBluefox) `storeState` uses the data type stored in the database for known datapoints instead of deriving it from the value
 * (@GermanBluefox) Added the tab `Data browser` to the instance settings: show, edit, delete and insert the stored values of a datapoint
 * (@GermanBluefox) Added the message `getDatapoints` that returns all datapoints of the database immediately
-
-### 4.0.4 (2026-08-11)
-* (@GermanBluefox) Fixed that nothing was stored for datapoints with an `aliasId`: the adapter subscribed to the alias name instead of the real state ID, so no state change ever arrived
-
-### 4.0.3 (2026-08-11)
-* (@GermanBluefox) Corrected a small configuration error
-
-### 4.0.2 (2026-08-10)
-* (@GermanBluefox) Fixed empty charts for the aggregation `onchange` ("raw" in e-charts): it was run through the interval aggregation and returned only `null` values
-* (@GermanBluefox) The MySQL and phpMyAdmin docker containers are no longer enabled by default: instances without the docker settings in their config (e.g. after an update from 3.x) reported "Docker is not installed"
-
-### 4.0.1 (2026-08-07)
-* (@GermanBluefox) Fixed MySQL error "Can't create more than max_prepared_stmt_count statements": every query allocated a server-side prepared statement
-* (@GermanBluefox) Batches of more than 500 values are no longer sent as one multi-statement query
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

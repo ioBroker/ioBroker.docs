@@ -198,12 +198,20 @@ export const useStyles = makeStyles()(theme => ({
             display: 'block',
             marginBottom: '15px',
             marginLeft: '30px',
+            maxWidth: '100%',
+        },
+        // the picture is 361 px wide and the offset added 30 more - together wider than
+        // a 375 px phone, which cut the claim above it off on both sides
+        [theme.breakpoints.down(440)]: {
+            marginLeft: 0,
         },
     },
     smallHousesImage: {
         display: 'none',
         [theme.breakpoints.down('md')]: {
             display: 'block',
+            maxWidth: '100%',
+            height: 'auto',
         },
     },
     supportText: {

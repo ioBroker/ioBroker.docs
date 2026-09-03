@@ -62,7 +62,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
-- (HombachC) fixed vulnearbility
+- (HombachC) fixed vulnerability
 - (HombachC) updated dependencies
 
 ### 7.0.6 (2026-07-27)

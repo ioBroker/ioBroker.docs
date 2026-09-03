@@ -35,6 +35,10 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- CHORE: Update dependencies
+
 ### 4.2.3 (2026-07-08)
 
 - FIX: #575 Submenu cannot set 0 as value

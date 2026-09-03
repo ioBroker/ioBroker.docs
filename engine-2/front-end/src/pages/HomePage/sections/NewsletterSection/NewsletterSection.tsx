@@ -39,6 +39,9 @@ export const NewsletterSection: React.FC = () => {
                     <Box
                         sx={{
                             display: 'flex',
+                            // the column above centres its items instead of stretching them, so
+                            // the row has to keep itself inside the page on its own
+                            maxWidth: '100%',
                             gap: {
                                 lg: '55px',
                                 md: '30px',
@@ -50,7 +53,7 @@ export const NewsletterSection: React.FC = () => {
                             },
                         }}
                     >
-                        <Box sx={{ display: 'flex' }}>
+                        <Box sx={{ display: 'flex', minWidth: 0, flex: '1 1 auto' }}>
                             <div className={classes.bracesLeft} />
                             <Box className={classes.newsletterInputContainer}>
                                 <input

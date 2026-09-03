@@ -58,12 +58,19 @@ The ioBroker adapter was tested sucessfully with:
 | V01.10        | V02.26   | [Parameterliste_Modbus_TCP_03.2020](https://schwoerer-service.com/storage/files/Community/2020/Parameterliste_Modbus_TCP_032020.pdf) |
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 See [Changelog](https://github.com/Excodibur/ioBroker.schwoerer-ventcube/blob/master/CHANGELOG.md) for a list of all changes.
 
 <!--
 	Placeholder for the next version (add instead of version-number-headline below):
 	## __WORK IN PROGRESS__
 -->
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 1.4.2 (2021-08-08)
 * Removed test configuration from default adapter values
 
@@ -92,7 +99,7 @@ See [Changelog](https://github.com/Excodibur/ioBroker.schwoerer-ventcube/blob/ma
 ## License
 MIT License
 
-Copyright (c) 2020-2024 Excodibur
+Copyright (c) 2020-2026 Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

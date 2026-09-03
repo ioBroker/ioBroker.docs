@@ -191,9 +191,24 @@ switch also deletes its data points.
 
 * **This switch uses the Automatic-Feeder relay board** (per-switch toggle) – turn this on only
   for a switch whose feeding station uses the optional Automatic-Feeder relay board (ESP32). When
-  on, that switch gets an additional **Relay** tab (see [5.3](#53-relay-board-tab-optional)).
+  on, that switch gets an additional **Relay** tab (see [5.4](#54-relay-board-tab-optional)).
 
-### 5.2 Switch tabs
+### 5.2 Feed list tab
+
+A central, **user-maintained list of your food types**, shared by all switches. For each feed you enter:
+
+* **Feed name** and **vendor / dealer**,
+* **pellet size (mm)**,
+* the four standard **nutritional values** from the manufacturer's *analytical constituents* — **crude
+  protein / fat / fibre / ash (%)**,
+* an optional **offer / purchase link** (a hidden field, revealed with the link button) for re-ordering online.
+
+Add as many feeds as you like with **Add feed** and remove them with the bin icon. The list is stored
+centrally and is also published as JSON in `info.feeds` for VIS/widgets. In each **switch tab** you then
+pick, under **Currently loaded feed**, which of these feeds is currently filled into that feeder — its
+name, size and nutrition are exposed as `status.activeFeed*` and can be switched from the VIS widget too.
+
+### 5.3 Switch tabs
 
 Each configured switch gets its own tab, titled with its name. It contains the following
 sections.
@@ -259,6 +274,22 @@ Only shown for the temperature sources you enabled above (*Temperature & oxygen 
 If the current temperature is outside the allowed range, the feeding is skipped and the reason
 is written to `status.blockReason`. (If a temperature value is unknown, that source does not block.)
 
+#### Water quality (ammonia / nitrite)
+
+Optionally the switch watches the **ammonia** (NH₃/NH₄) and/or **nitrite** (NO₂) of the water –
+"if these values rise, feed less" (from the feeder manual). Assign an existing state for each and
+enable **Block/reduce feeding on poor water quality**. For each substance you set two thresholds:
+
+* **Reduce above** – when the value is **at or above** this warn threshold, the **daily amount is
+  reduced** to a configurable percentage (*Reduce daily amount to (%)*). This only takes effect in
+  the **feeding-amount control mode** (there is no amount to reduce in the fixed/dynamic modes).
+* **Block above** – when the value is **above** this maximum, feeding is **blocked entirely** in
+  every mode (like the temperature/oxygen blocks); the reason is written to `status.blockReason`.
+
+Leave a threshold empty to switch that tier off. The live values are mirrored in `status.ammonia`
+and `status.nitrite`. There are no universal safe limits (they depend on pH and temperature) – as a
+guide, keep ammonia and nitrite close to zero and set the thresholds from your own test kit.
+
 #### Restrictions
 
 * **Restrict feeding to the astronomical day window (sunrise/sunset + offsets)** – when on,
@@ -285,6 +316,39 @@ Optional: adapt the feeding **interval and duration to temperature** using the Q
 The current values are exposed in `status.dynamicAvgTemperature`, `status.dynamicRate`, `status.dynamicIntervalMin` and `status.dynamicDurationSec`. An optional **oxygen (O₂)** source can block feeding when the dissolved oxygen drops below a threshold. The winter pause takes precedence over dynamic feeding.
 
 > If dynamic feeding is enabled but no valid interval can be computed (base or max interval is 0, or an invalid time window), nothing is scheduled: `status.nextFeeding` stays empty and `status.blockReason` shows a hint. Set a base interval and a max interval greater than 0.
+
+#### Feeding-amount model (advisory)
+
+Optionally the adapter estimates the **recommended daily food amount** for a switch from the **fish
+stock** and the **water temperature**, following the original feeder manual:
+`daily amount [g] = total fish weight × percentage(water temperature)`. You only enter the **number
+of fish per size class** (15/20/30/40/50/60 cm) in a small table with a fish icon per size; the
+**weight per size is a fixed estimate from the manual** (60/125/350/1000/2000/4000 g). You also set
+the **feeding percentage per temperature band** (defaults 0 % below 15 °C, 1 % at 15–18 °C, 1.5 % at
+18–21 °C, 2 % at 21–23 °C, 3 % at 23–28 °C, then **throttled again in the heat**: 1.5 % at 28–30 °C
+and 0.5 % above 30 °C – the temperature response peaks around 24–26 °C and falls off above it). It
+needs a **water-temperature source** for the switch.
+
+By itself this is a **calculator** – it computes and shows the recommendation. The results are
+published in `status.fishTotalWeight` (g), `status.feedPercentToday` (%) and
+`status.feedTargetGramsToday` (g); the switch tab additionally shows the estimated total weight and
+an example.
+
+Optionally you can let this amount **control feeding**: enable **Control feeding with this amount**
+and the recommended daily grams are converted into motor run-time and split across the day's
+feedings. For that you calibrate the **dispense rate** (g/s) — a small helper runs the motor for a
+few seconds so you can weigh the dispensed food and let the adapter compute the rate — and may set
+an optional **daily maximum (g)** as an overfeeding safeguard. This mode is **mutually exclusive
+with dynamic (Q10) feeding**; the **"when"** (fixed times / interval / astronomical window) and all
+blocks (night, temperature, O₂, pauses, winter) stay unchanged and keep priority. The resulting
+run-time is published in `status.feedTargetSecondsToday` (s per day) and
+`status.feedEffectiveDurationSec` (s per feeding); the per-feeding duration is capped for safety.
+
+The **feed** currently filled into the feeder is chosen per switch under **Currently loaded feed**,
+from the central **Feed list** (see [5.2](#52-feed-list-tab)). Its name, pellet size and nutrition are
+published in `status.activeFeed*` and it can also be switched from the VIS widget via the writable
+`settings.activeFeed` state (the feed's id). The **dispense rate (g/s)** is calibrated **per switch**
+(it depends on the feeder's mechanics), independent of which feed is loaded.
 
 #### Winter pause
 
@@ -385,14 +449,16 @@ would be **blocked or paused** (night, temperature, oxygen or a feeding pause), 
 is skipped, so it never promises a feeding that will not happen. Manual feedings (the *Feed now*
 button / `feedFor`) have no lead time and are not announced.
 
-### 5.3 Relay board tab (optional)
+### 5.4 Relay board tab (optional)
 
 This tab only appears when the switch's **This switch uses the Automatic-Feeder relay board**
 toggle is enabled in the general settings (see [5.1](#switches)). One relay board belongs to one
 switch (feeding station). The
 board is an ESP32 with three timer buttons (S1–S3) and its own web interface, reached over your
-network on **port 80**. The adapter only **configures** the board and **shows its status** – it
-does not trigger feeding through the board (the buttons are operated on the board itself).
+network on **port 80**. The adapter **configures** the board, **shows its status** and – by
+default – **triggers the feeding through the board** (see *Feed primarily through the relay
+board* below), so the board runs its own countdown, shows it on its display and switches its
+relay off again itself.
 
 > **Note:** The Automatic-Feeder relay board is developed in parallel as a **separate project**.
 > The adapter works fully without it – the board is an optional, convenient add-on. Because it
@@ -401,9 +467,21 @@ does not trigger feeding through the board (the buttons are operated on the boar
 * **Board address (IP or mDNS host)** – e.g. `192.168.1.50` or `feeder.local`. A fixed IP is the
   most reliable; mDNS (`.local`) only works if your host system can resolve it. A `:port` suffix
   is allowed but usually not needed (default `80`).
+* **Feed primarily through the relay board (fallback: Shelly directly)** – on by default. When on,
+  a feeding is triggered through the board's web interface (`POST /api/trigger`) for exactly the
+  computed duration, so the **board itself** runs the countdown, shows it on its OLED and switches
+  its relay off again. Only when the board **cannot be reached** does the adapter fall back to
+  switching the target (Shelly) object directly – the same way non-board switches work. This way
+  the board's display and log always reflect the real feeding. Turn it off to always switch the
+  Shelly directly (the old behaviour). The path actually used is written to `relay.lastTriggerPath`
+  (`board`/`direct`), added to the success message and the log. Both the board **and** the target
+  are checked before a feeding counts as done, and a safety back-stop forces the board off should
+  it ever fail to switch off on its own.
 * **Test connection & fetch times** – contacts the board once. A green *Connected* chip and the
   board's host/IP/firmware confirm a working connection; the three button feeding times are then
-  read from the board into the fields below. A red *Not connected* chip shows the error.
+  read from the board into the fields below. A red *Not connected* chip shows the error. This also
+  runs **automatically when you open the tab** (if an address is configured), so the status,
+  system overview and button times load without a click.
 * **Button feeding times (seconds)** – the feeding time of each button **S1**, **S2** and **S3**
   (1–600 s). Because these are **also editable on the board's own web interface**, always
   *fetch* them first, then adjust them.
@@ -433,6 +511,7 @@ The adapter creates the following states under its namespace
 | Data point | Type | Meaning |
 |------------|------|---------|
 | `info.connection` | boolean (ro) | Adapter is running and the configuration is valid. |
+| `info.feeds` | string (ro) | The central **feed list** as JSON (each food type with name, vendor, pellet size, nutrition and offer link) — for VIS/widgets to render the list without reading the instance config. |
 
 **Per switch, under `switches.<id>.`** (`<id>` is an internal id like `sw-0`)
 
@@ -478,12 +557,31 @@ Directly under the switch there is the manual trigger and two sub-channels:
 | `status.waterTemperatureDeep` | number (ro) | This switch's optional deep water-temperature sensor value. |
 | `status.waterStratification` | number (ro) | Temperature difference shallow − deep (only with two water sensors). |
 | `status.oxygen` | number (ro) | This switch's own dissolved-oxygen source value. |
+| `status.ammonia` | number (ro) | This switch's own ammonia (NH₃/NH₄) source value. |
+| `status.nitrite` | number (ro) | This switch's own nitrite (NO₂) source value. |
+| `status.fishTotalWeight` | number (ro) | Feeding-amount model: estimated total fish weight (g). |
+| `status.feedPercentToday` | number (ro) | Feeding-amount model: feeding percentage for the current water temperature (%). |
+| `status.feedTargetGramsToday` | number (ro) | Feeding-amount model: recommended food amount per day (g). |
+| `status.feedingsPerDayToday` | number (ro) | Feeding-amount model: number of feedings planned for today. |
+| `status.feedTargetPortionGrams` | number (ro) | Feeding-amount model: recommended amount per single feeding (g) = daily amount ÷ feedings (after cap / water-quality reduction). |
+| `status.feedTargetSecondsToday` | number (ro) | Feeding-amount model (control mode): total motor run-time per day (s) to dispense the amount. 0 when control is off. |
+| `status.feedEffectiveDurationSec` | number (ro) | Feeding-amount model (control mode): duration per feeding it currently drives (s). 0 when control is off. |
+| `status.dispenseRate` | number (ro) | Feeding-amount model: this switch's calibrated dispense rate (g/s). |
+| `status.activeFeedName` | string (ro) | Currently loaded feed: name (empty when none selected). |
+| `status.activeFeedVendor` | string (ro) | Currently loaded feed: vendor / dealer. |
+| `status.activeFeedSize` | number (ro) | Currently loaded feed: pellet size (mm). |
+| `status.activeFeedProtein` | number (ro) | Currently loaded feed: crude protein (%). |
+| `status.activeFeedFat` | number (ro) | Currently loaded feed: crude fat (%). |
+| `status.activeFeedFibre` | number (ro) | Currently loaded feed: crude fibre (%). |
+| `status.activeFeedAsh` | number (ro) | Currently loaded feed: crude ash (%). |
+| `status.activeFeedUrl` | string (ro) | Currently loaded feed: offer / purchase link (optional). |
 | `status.sunrise` / `status.sunset` | string (ro) | Calculated sunrise/sunset for this switch's location (astronomical window). |
 | `status.sunriseTs` / `status.sunsetTs` | number (ro) | Sunrise/sunset as Unix time in ms — e.g. for a day-progress bar in VIS. |
 | `relay.connected` | boolean (ro) | The relay board configured for this switch is reachable (only when this switch uses a relay board). |
 | `relay.info` | string (ro) | Relay board identity (host / IP / firmware) from the last successful poll. |
 | `relay.active` | boolean (ro) | The relay board's timer is currently running. |
 | `relay.remaining` | number (ro) | Seconds remaining on the relay board's running timer. |
+| `relay.lastTriggerPath` | string (ro) | How the last feeding was triggered for this switch: `board` (through the relay board) or `direct` (Shelly switched directly, e.g. board unreachable). |
 
 You can use these in VIS, scripts or other adapters – for example show `status.nextFeeding` on a
 dashboard, or react on `status.error = true` to send your own alarm.
@@ -650,42 +748,51 @@ stratification visible (`status.waterStratification`). For most ponds it is opti
 	### **WORK IN PROGRESS**
 -->
 
-### 1.10.2 (2026-08-14)
-* (ssbingo) Documentation: the READMEs (all 11 languages) and the German PDF handbook now carry a prominent notice **right at the top** pointing to the matching **[Feeder-Relais (Timer-Ersatzplatine)](https://github.com/ssbingo/timer-ersatzplatine)** — a standalone ESP32 timer-board project that pairs with this adapter but is fully independent of it. No functional changes
+### 1.18.0 (2026-09-01)
+* (ssbingo) **Central feed list** with its own **Feed list** tab (issue #26). Maintain your food types centrally — **name, vendor/dealer, pellet size (mm)** and the four standard **nutritional values** (crude protein / fat / fibre / ash %), plus an optional **offer/purchase link**. In each switch tab you pick, under **Currently loaded feed**, which feed is currently filled into that feeder
+* (ssbingo) This **replaces the per-switch feed profiles** from 1.17.0 (issue #25): existing profiles are automatically merged into the central list, each switch's calibrated **dispense rate stays per switch** (`dispenseGramsPerSec`), and its `activeFeed` now references a feed by **id**
+* (ssbingo) New states: **`info.feeds`** (the list as JSON, for VIS/widgets) and per switch **`status.activeFeedName` / `activeFeedVendor` / `activeFeedSize` / `activeFeedProtein` / `activeFeedFat` / `activeFeedFibre` / `activeFeedAsh` / `activeFeedUrl`**. The active feed is selectable from VIS via the writable `settings.activeFeed` (feed id)
+* (ssbingo) Documentation updated in all 11 languages and in the German PDF handbook
 
-### 1.10.1 (2026-08-14)
-* (ssbingo) Fix: lowered the minimum **admin** requirement to **7.8.23** (the current stable version) so the adapter stays installable from the stable ioBroker repository — this clears repochecker **E4033** (`admin >=8.0.0` is not in the stable repository yet). The admin UI still runs on **React 19**
-* (ssbingo) Merged upstream adapter-template updates: Dependabot configuration / auto-merge workflow refresh and the `node:` import prefix in the handbook generator (S5043)
+### 1.17.0 (2026-09-01)
+* (ssbingo) **Feed profiles for the feeding-amount model.** Instead of a single rate you can define several **named feed types** per switch, each with its own calibrated **dispense rate (g/s)** (e.g. a 3 mm all-round and a 6 mm summer pellet); the **active** profile's rate drives Phase B. Manage the list in the admin (the calibration helper fills the active profile), switch the active feed from the VIS widget via the writable `settings.activeFeed` state
+* (ssbingo) New states **`status.dispenseRate`** (effective g/s) and **`status.activeFeedName`**. Backward compatible — with no profile defined, the single dispense rate is used
+* (ssbingo) Documentation updated in all 11 languages and in the German PDF handbook
 
-### 1.10.0 (2026-08-05)
-* (ssbingo) **Admin UI now runs on React 19** — the configuration page uses the same React version that ioBroker **admin 8** ships; `@iobroker/adapter-react-v5` updated to 8.3.2
-* (ssbingo) **Raised the minimum requirements**: **admin ≥ 8.0.0**, **js-controller ≥ 6.0.11** and **Node.js ≥ 22**
-* (ssbingo) `@mui/material` and `@mui/icons-material` are now explicit direct dependencies. They stay on **MUI 6** for now because `adapter-react-v5` still requires it (it imports `Grid2`, removed in MUI 7+); the move to **MUI 9** follows automatically once the library supports it
-* (ssbingo) No changes to feeding, notifications or data points — this release only modernizes the admin build and baseline versions
+### 1.16.0 (2026-08-31)
+* (ssbingo) **Feeding-amount model – high-temperature throttling** (issue #23). The percentage table no longer stays at 3 % above 23 °C: the top band now ends at 28 °C and two new editable bands throttle the amount in the heat – **1.5 % at 28–30 °C** and **0.5 % above 30 °C** (the temperature response peaks around 24–26 °C and falls off above it). Behaviour up to 28 °C is unchanged; existing switches get the new bands with sensible defaults
+* (ssbingo) **Feeding-amount settings are now editable from VIS/scripts** (issue #24): the model's config (`amountModelEnabled`, fish counts, temperature percentages, `amountControlEnabled`, `dispenseGramsPerSec`, `feedDailyMaxGrams`) is mirrored as writable `switches.<id>.settings.*` states, so a VIS widget can edit them
+* (ssbingo) New states **`status.feedingsPerDayToday`** and **`status.feedTargetPortionGrams`** (recommended grams per single feeding = daily amount ÷ feedings, after cap / water-quality reduction)
+* (ssbingo) Documentation updated in all 11 languages and in the German PDF handbook
 
-### 1.9.9 (2026-07-17)
-* (ssbingo) The relay tab's **System overview** now also shows the **firmware release version** (`ver`, e.g. `0.0.15`) in addition to the firmware build date
-* (ssbingo) The **last reset reason** is now spelled out in plain, localized words — the board sends a short code (`sw`, `poweron`, `wdt`, `brownout`, `deepsleep`, `panic`, …), which the adapter shows as e.g. “Software”, “Power-on”, “Watchdog”
+### 1.15.1 (2026-08-31)
+* (ssbingo) Fix (relay board): a **false "did not switch off" fault** could be reported for a board-fed switch even though it fed and switched off correctly. The **target object (e.g. the Shelly) is now authoritative** for the off check — a fault (and the Telegram/Sayit notification) is only raised when the target is genuinely still on. If the target is off but the board's `/api/status` cannot confirm its relay off in time (a brief hiccup, or its countdown ending a moment later), the adapter now logs a **warning** instead of a fault; the safety back-stop still forces the board off
 
-### 1.9.8 (2026-07-17)
-* (ssbingo) Fix (state role): `switches.<id>.relay.connected` now uses the role **`indicator.reachable`** instead of `indicator.connected` — the relay board is a physical LAN device (ESP32), not an adapter instance, and the ioBroker stateroles spec reserves `indicator.connected` for instances. Objects created by older versions are corrected automatically on start
+### 1.15.0 (2026-08-31)
+* (ssbingo) **Water-quality limits (Phase C).** New optional per-switch **ammonia (NH₃/NH₄)** and **nitrite (NO₂)** sources – "if these values rise, feed less" (from the feeder manual). Each has a **warn threshold** that **reduces the daily amount** (only in the feeding-amount control mode) and a **max threshold** that **blocks feeding entirely** in every mode
+* (ssbingo) New states **`status.ammonia`** and **`status.nitrite`** mirror the source values; when a max threshold is exceeded the block reason (`blockAmmoniaHigh` / `blockNitriteHigh`) appears in `status.blockReason`. There are no universal safe limits – set the thresholds from your own test kit
+* (ssbingo) Documentation updated in all 11 languages and in the German PDF handbook
 
-### 1.9.7 (2026-07-15)
-* (ssbingo) Maintenance: re-aligns the published version with the current GitHub state (which contained a CI-only change keeping the deploy action on the floating `@v1` major tag, per repochecker S3044). No functional or shipped-code changes
+### 1.14.2 (2026-08-31)
+* (ssbingo) Fix (admin UI, **dark mode**): the configuration page is now wrapped in the theme the admin has already resolved, so the **tab labels are visible immediately in dark mode**. Previously they rendered as dark text on a dark background (only revealed on hover or after opening a tab), because the tabs inherited the outer theme that is fixed at page-load time. Applies on first open and when you toggle the theme
 
-### 1.9.6 (2026-07-15)
-* (ssbingo) Maintenance: updated a development dependency (`@types/node` → 22.20.1) and pinned the CI deploy action to a fixed version (`ioBroker/testing-action-deploy@v1.5.1`); Dependabot now keeps `pdfmake` on the 0.2.x line (0.3.x has an incompatible server API). No functional changes
+### 1.14.1 (2026-08-29)
+* (ssbingo) UI: opening a switch's **Relay** tab now runs the **connection test and reads the board data automatically** (once, when a board address is configured) — the connection status, system overview and S1–S3 button times load without clicking *Test connection*. A plain read no longer marks the configuration as changed
 
-### 1.9.5 (2026-07-15)
-* (ssbingo) New comprehensive **German PDF handbook** ([doc/de/Handbuch.pdf](doc/de/Handbuch.pdf)) with a modern, colourful design — generated from `tools/build-handbook.js` (`npm run doc:handbook`) and linked from the German documentation
-* (ssbingo) Added a note in the relay-board section (all 11 languages) that the **Automatic-Feeder relay board is developed in parallel as a separate project**
+### 1.14.0 (2026-08-29)
+* (ssbingo) **The feeding-amount model can now control feeding (opt-in).** Enable **Control feeding with this amount** on a switch and the recommended daily grams are converted to motor run-time — via a calibrated **dispense rate** (g/s) — and split across the day's feedings. The amount model becomes the "how much" driver, **mutually exclusive with dynamic (Q10)**
+* (ssbingo) **Calibration helper** on the switch tab: run the motor for a few seconds, weigh the dispensed food, and the adapter computes the g/s rate. An optional **daily maximum (g)** guards against overfeeding, and the per-feeding duration is capped
+* (ssbingo) New states **`status.feedTargetSecondsToday`** (s per day) and **`status.feedEffectiveDurationSec`** (s per feeding). The **"when"** (fixed times / interval / astronomical window) and all blocks (night, temperature, O₂, pauses, winter) stay unchanged and keep priority
+* (ssbingo) Documentation updated in all 11 languages and in the German PDF handbook
 
-### 1.9.4 (2026-07-15)
-* (ssbingo) The feeding announcement now also states the **approximate feeding duration** — e.g. "The next feeding starts in 5 minutes. The feeding will take about 8 seconds." The duration is the effective one (static/winter/dynamic), localized with correct singular/plural in every language
-* (ssbingo) The **Sayit volume** is now set shortly before the spoken text (small delay) so it reliably applies to that announcement instead of the previous one
+### 1.13.1 (2026-08-28)
+* (ssbingo) UI: the feeding-amount **fish-stock table is larger and easier to read** — the fish icons now **scale with the size class** (a 15 cm fish is shown smaller than a 60 cm one, on a common baseline), the table is about 50 % wider and the rows are roughly twice as tall. Purely visual, no functional change
 
-### 1.9.3 (2026-07-15)
-* (ssbingo) Fix: the **Sayit volume** is now written to the instance's own `tts.volume` state (only if it exists) instead of a `tts.text` prefix — the volume actually takes effect now, and the announcement **test no longer hangs** when a volume is set. An empty volume keeps the Sayit instance's own volume
+### 1.13.0 (2026-08-28)
+* (ssbingo) **Feeding-amount model – redesigned input.** The fish stock is now entered in a compact **table** modelled on the feeder manual: one row per size class with a **fish icon**, the size, the **fixed weight estimate** and a **count** field
+* (ssbingo) The per-size **weight is no longer an editable field** — it is a fixed estimate from the manual (60/125/350/1000/2000/4000 g). You now only enter **how many fish** there are per size class; the calculation and the states (`status.fishTotalWeight` / `status.feedPercentToday` / `status.feedTargetGramsToday`) are unchanged
+* (ssbingo) Documentation updated in all 11 languages and in the German PDF handbook
+* (ssbingo) Maintenance: bumped the `@alcalzone/release-script-plugin-license` devDependency to 5.2.2
 
 ---
 

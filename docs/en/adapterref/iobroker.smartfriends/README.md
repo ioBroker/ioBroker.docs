@@ -34,6 +34,12 @@ The adapter establishes a direct connection to the gateway to control and query 
 	### __WORK IN PROGRESS__
 -->
 
+### 2.1.0 (2026-08-26)
+
+- (Black-Thunder) Adapter requires js-controller >=7.2.2 and admin >=7.9.0 now
+- (Black-Thunder) Support for the central ioBroker credentials store was added, while legacy username/password configuration remains supported for backwards compatibility
+- (Black-Thunder) Automatic reconnection is now stopped when the gateway rejects the configured login parameters
+
 ### 2.0.0 (2026-06-01)
 
 - (copilot) Adapter requires node.js >= 22 now
@@ -55,12 +61,6 @@ The adapter establishes a direct connection to the gateway to control and query 
 
 - (Black-Thunder) Additional irrelevant gateway messages are now ignored
 - (Black-Thunder) Unknown gateway messages are now logged as warning instead of error
-
-### 1.3.3 (2026-01-18)
-
-- (Black-Thunder) Special characters in device definitions (e.g. "<>") are now correctly handled
-- (Black-Thunder) Boolean values in device definitions are now correctly handled
-- (Black-Thunder) Numeric sensor values are no longer rounded
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -104,6 +104,10 @@ export const useStyles = makeStyles()(theme => ({
     historyWrapper: {
         paddingTop: '30px',
         textAlign: 'left',
+        // below md the container is a centred column, and a centred flex item is not
+        // stretched - it kept the width of its widest line and stuck out on both sides
+        minWidth: 0,
+        maxWidth: '100%',
         [theme.breakpoints.down('md')]: {
             textAlign: 'left',
             paddingTop: '0',
@@ -151,13 +155,12 @@ export const useStyles = makeStyles()(theme => ({
         [theme.breakpoints.down('md')]: {
             fontSize: 36,
         },
+        // the line may not break ("BEGEISTERUNG" stays one word), so the size has to follow
+        // the screen instead of standing on one value - 32 px was 336 px wide on a 320 px phone
         [theme.breakpoints.down('sm')]: {
-            fontSize: '32px',
+            fontSize: 'clamp(23px, 8.2vw, 32px)',
             marginLeft: '4px',
             maxWidth: '352px',
-        },
-        [theme.breakpoints.down(400)]: {
-            fontSize: '32px',
         },
     },
     historyText: {

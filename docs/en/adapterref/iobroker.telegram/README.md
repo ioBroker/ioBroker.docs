@@ -282,7 +282,7 @@ if (command === '1_2') {
 }                      
 ```
 
-You can read more [here](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegrambotanswercallbackquerycallbackqueryid-text-showalert-options--promise).
+You can read more [here](https://core.telegram.org/bots/api#answercallbackquery).
 
 ### Question
 You can send to telegram the message, and the next answer will be returned in callback. 
@@ -360,6 +360,20 @@ on({ id: 'telegram.0.communicate.requestLocation', change: 'any' }, obj => {
 });
 ```
 
+Live locations (paperclip → location → "Share My Live Location") are supported as well: Telegram delivers every position update and `requestLocation` is updated each time. Three additional states describe the last received location:
+
+- `communicate.requestLocationLive` - `true` while the location is a live location that is still being shared. Telegram sends a final update without the live flag when the sharing is stopped or expires, so the state drops back to `false` at that point. For a normal (static) location or a venue it is `false`.
+- `communicate.requestLocationHeading` - direction of movement in degrees (1-360). Only available for active live locations and only if the device reports it, otherwise `null`.
+- `communicate.requestLocationAccuracy` - radius of uncertainty of the position in meters (0-1500), if reported, otherwise `null`.
+
+```javascript
+on({ id: 'telegram.0.communicate.requestLocationLive', change: 'ne' }, obj => {
+    if (!obj.state.val) {
+        console.log('Live location sharing has ended');
+    }
+});
+```
+
 ## Receiving channel posts
 If the bot is an administrator of a channel, posts published in that channel are received as well and written
 to `telegram.INSTANCE.communicate.request` in the form `[channel title]text` (together with
@@ -431,7 +445,7 @@ if (command === '1_2') {
 }
 ```
 
-You can read more [here](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise).     
+You can read more [here](https://core.telegram.org/bots/api#editmessagetext).     
 
 ### editMessageCaption
 Use this method to edit the caption of the message sent by the bot or via the bot (for inline bots). 
@@ -452,7 +466,7 @@ if (command === '1_2') {
 }
 ```
 
-You can read more [here](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise).     
+You can read more [here](https://core.telegram.org/bots/api#editmessagecaption).     
 
 ### editMessageMedia
 Use this method to edit picture of the message sent by the bot or via the bot (for inline bots). 
@@ -501,7 +515,7 @@ if (command === '1_2') {
 }
 ```
 
-You can read more [here](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagereplymarkupreplymarkup-options--promise).
+You can read more [here](https://core.telegram.org/bots/api#editmessagereplymarkup).
 
 ### deleteMessage
 Use this method to delete a message, including service messages, with the following limitations:
@@ -522,7 +536,7 @@ if (command === 'delete') {
 }
 ```
 
-You can read more [here](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md#TelegramBot+deleteMessage).
+You can read more [here](https://core.telegram.org/bots/api#deletemessage).
 
 ## Reacting to user replies / messages
 Suppose you are using only JavaScript without `text2command`.
@@ -571,8 +585,11 @@ You can set the value of state if you now the ID:
 > Done
 ```
 
+## Proxy
+If the ioBroker host cannot reach the telegram servers directly, enable **Use proxy** in the main settings and enter the proxy type (HTTP(S) or SOCKS5), host, port and - if the proxy requires authentication - login and password. All requests to telegram (API calls as well as media downloads) are routed through the proxy. An HTTPS proxy can be addressed by entering the host with its scheme, e.g. `https://proxy.example.com`. Note that SOCKS5 support of the underlying HTTP client (undici) is still marked as experimental; Node.js prints a corresponding warning at startup.
+
 ## Polling or Server mode
-If polling mode is used, the adapter polls by default every 300ms the telegram server for updates. It uses traffic and messages can be delayed for up to the polling interval. The polling interval can be defined in adapter configuration.
+If polling mode is used, the adapter keeps a long-poll request open to the telegram server (up to 30 seconds per request, then it is renewed). Updates are delivered immediately and almost no traffic is generated while nothing happens, so no polling interval has to be configured. Polling works behind NAT/firewalls without any port forwarding.
 
 To use server mode you ioBroker instance must be reachable from internet (e.g., with `noip.com` dynamic DNS service).
 
@@ -850,11 +867,20 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (@GermanBluefox) Blockly migrated to Typescript
+### 6.0.0 (2026-09-02)
+- (@GermanBluefox) Adapter requires Node.js >= 22.19 now (required by undici 8)
+- (@GermanBluefox) The connection to the telegram servers can be routed through an HTTP(S) or SOCKS5 proxy (new "Use proxy" settings; the old proxy fields had been without function for years)
+- (@GermanBluefox) Migrated to `node-telegram-bot-api` v2. Updates are now received via long polling, so the "Polling interval" setting became obsolete and was removed from the configuration dialog. Errors thrown while processing an update are logged by the adapter instead of ending up on the console
+- (@GermanBluefox) An empty "API URL" field no longer breaks every API call with "EFATAL: Failed to parse URL" - the default `https://api.telegram.org` is used again (#1371)
+- (@GermanBluefox) A `text2command`/`assistant` instance stored in the long form (`system.adapter.text2command.0`, written by the config UI before v1.12.6) is migrated to the short form on startup, so the config dialog shows the selected instance again (#1365)
+- (@GermanBluefox) Added the states `communicate.requestLocationLive` (live location is still being shared), `communicate.requestLocationHeading` and `communicate.requestLocationAccuracy` for received (live) locations
+
+### 5.0.4 (2026-09-01)
+- (@GermanBluefox) Blockly migrated to TypeScript
+- (@bjoernjaeschke87-beep) Live location updates (delivered by Telegram as `edited_message`) now update `communicate.requestLocation` while the location is being shared
 
 ### 5.0.3 (2026-08-10)
-- (@GermanBluefox) Fixed: the configured text2command/assistant instance may now also be stored in the long form (`system.adapter.text2command.0`) - the alive check no longer fails with "instance is not running"
+- (@GermanBluefox) Fixed: the configured `text2command`/`assistant` instance may now also be stored in the long form (`system.adapter.text2command.0`) - the alive check no longer fails with "instance is not running"
 
 ### 5.0.2 (2026-08-03)
 - (copilot) Adapter requires node.js >= 22 now
@@ -891,15 +917,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 - (@GermanBluefox) Fixed: a question timeout could drop other pending questions
 - (@GermanBluefox) Fixed: `communicate.responseSilentJson` acknowledged the wrong state
 - (@GermanBluefox) Fixed: removed a stray empty entry from the generated command keyboard
-
-### 4.1.0 (2025-03-19)
-* (bluefox) Admin component was migrated to TypeScript
-* (bluefox) Node.js >= 20.x and js-controller >= 6 and admin >= 7 are required now.
-
-### 4.0.0 (2025-01-13)
-* NodeJS >= 20.x and js-controller >= 6 are required
-* (simatec) Responsive Design added
-* (klein0r) Allow async function calls in ask callback function
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

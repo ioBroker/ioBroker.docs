@@ -2,7 +2,7 @@
 
 # ioBroker.leapmotor
 
-[![Version](https://img.shields.io/badge/version-0.6.0-blue.svg)](https://github.com/backfisch88/ioBroker.leapmotor)
+[![NPM version](https://img.shields.io/npm/v/iobroker.leapmotor.svg)](https://www.npmjs.com/package/iobroker.leapmotor)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Unofficial [Leapmotor](https://www.leapmotor.com/) electric vehicle integration for ioBroker. Tested on T03.
@@ -147,6 +147,24 @@ Which comfort commands actually appear depends on the detected vehicle model —
 ## Changelog
 
 ### **WORK IN PROGRESS**
+
+### 0.6.5 (2026-09-02)
+- New: on adapter start, the raw (pre-parsing) status response is logged once per vehicle at debug level, to help diagnose unsupported or under-tested vehicle models (e.g. B05)
+- New: status request errors now also include the requested URL and the server's response body (if any)
+
+### 0.6.4 (2026-09-02)
+- Chore: migrated Admin Tab to adapter-react-v5 8.x and MUI v6 (React stays on 18, no breaking change for users)
+- Fix: corrected Grid layout usage after the MUI v6 update, which had caused overlapping text on the Diagnostics tab
+- Fix: unified card spacing/padding across all Admin Tab pages for a consistent look
+- Fix: pinned react-dom to 18.3.1 to avoid a dependency resolution conflict
+- Chore: minor CI workflow fix
+
+### 0.6.3 (2026-09-01)
+- Fix: preserve the existing charge schedule (enabled state, recurrence, start/end time) when changing the charge limit, instead of resetting it every time
+- Fix: corrected door z-order and window-closed overlay logic on both vehicle sides
+- Fix: clarified that the "Language" setting only affects Leapmotor cloud API text, not the Admin Tab UI (renamed to "Cloud API Language")
+- Chore: bumped axios to 1.19.0
+- Adapter is now available in the ioBroker stable repository
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
 ### 0.6.2 (2026-07-08)

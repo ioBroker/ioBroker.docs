@@ -30,9 +30,6 @@ There a two acepted commands:
 -->
 ### 0.9.1 (2026-08-22)
 * (Bannsaenger) updated dependencies and issues from repository checker
-* (Bannsaenger) preserve names while database creation
-* (Bannsaenger) restructured main.js and completed JsDoc requirements
-* (Bannsaenger) fixed update the buttons from the desk when blanked/unblanked or new connected
 
 ### 0.9.0 (2026-05-15)
 * (Bannsaenger) added additional path checking on importing files

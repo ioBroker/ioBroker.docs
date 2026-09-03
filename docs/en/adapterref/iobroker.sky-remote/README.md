@@ -140,6 +140,10 @@ setState('sky-remote.0.sendSequence', 'power,1,0,1');
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
 ### 1.0.6 (2026-08-19)
 - (Alan Paris) Button states are now write-only (`read: false`) as required for the `button` role; existing installations are migrated on start
 - (Alan Paris) Fixed info.connection latching at a stale value after a failed or successful command; all writers now share one code path
@@ -166,6 +170,8 @@ setState('sky-remote.0.sendSequence', 'power,1,0,1');
 
 ### 1.0.0 (2025-05-05)
 - (Alan Paris) Initial release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

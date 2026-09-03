@@ -79,10 +79,12 @@ Bug reports, compatibility notes for specific firmware versions, or feature requ
 ## Changelog
 
 // ### **WORK IN PROGRESS**
-
-### **WORK IN PROGRESS**
+### 0.6.6 (2026-08-31)
 
 - review / fix findings reported by claude based checker.
+- Extended minimum limit for `temperature_outdoor_min` from -20°C to -25°C
+- Lowered minimum allowed value for `heating_curve_parallel_offset` (base point) from 20°C to 15°C
+- Disabled dynamic cycle optimization / regulation by default on initial start
 
 ### 0.6.5 (2026-08-07)
 
@@ -148,10 +150,6 @@ Bug reports, compatibility notes for specific firmware versions, or feature requ
 **Technical**
 
 - Fixed ESLint warnings (dot-notation) for object properties.
-
-### 0.6.1 (2026-07-17)
-
-- Implemented fallback mechanism: Index 80 lc is used if 117-120 are empty.
 
 ## License
 

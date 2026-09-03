@@ -197,6 +197,12 @@ export const useStyles = makeStyles()(theme => ({
             height: 64,
             borderRadius: '18px',
         },
+        // five columns of 64 px plus the gaps are 336 px - wider than a 320 px phone
+        '@media (max-width: 380px)': {
+            width: 54,
+            height: 54,
+            borderRadius: '14px',
+        },
     },
     iconImage: {
         maxWidth: '70%',

@@ -90,6 +90,22 @@ The repositories and security settings can also be set here.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 8.0.11 (2026-09-01)
+- (@GermanBluefox) CI: requests to a host that is not running (e.g. in adapter tests without js-controller) are answered immediately with a timeout error, so the GUI does not wait for its read timeout
+- (@GermanBluefox) Fixed: clearing the adapter name filter showed an empty adapter list instead of all adapters
+
+### 8.0.9 (2026-08-31)
+- (@GermanBluefox) The discovery dialog opens on the result page when the last scan left proposals that are not ignored
+- (@GermanBluefox) The discovery button carries a badge with the number of proposals that are neither created nor ignored
+- (@GermanBluefox) Added the option to create the first instance directly after the installation from npm/GitHub/URL/file, if the adapter has no instance yet
+- (@GermanBluefox) Updated web socket server
+- (@GermanBluefox) Improvements of the device manager
+
+### 8.0.8 (2026-08-27)
+- (@GermanBluefox) Added the option to answer ACME HTTP-01 challenges of the acme adapter
+- (@GermanBluefox) Fixed the CORS headers missing on the OAuth2 endpoints. They answer without passing the request on, so retrieving a token from a browser on another origin failed with `No Access-Control-Allow-Origin header is present`. The CORS middleware is now registered in front of all routes
+- (@GermanBluefox) `src-admin/src/version.json` is now generated from `package.json` at build time, so the version logged by the GUI is no longer stale
+
 ### 8.0.7 (2026-08-26)
 - (@GermanBluefox) The JSON tabs (`common.adminTab.link`) are now validated against the JsonConfig schema too
 - (SimonFischer04) Admin can now run behind a reverse-proxy sub-path (e.g. `/admin/`)
@@ -101,21 +117,6 @@ The repositories and security settings can also be set here.
 - (@GermanBluefox) Reworked the initial setup wizard: modern layout, navigation backwards and many corrections
 - (@GermanBluefox) Rounded the options toolbar in the adapter update dialog
 - (@GermanBluefox) Removed warning about not installed docker.
-
-### 8.0.4 (2026-08-09)
-- (@GermanBluefox) Better handling of autocompleteSendTo JsonConfig components
-
-### 8.0.3 (2026-08-08)
-- (@softwarecrash) Corrected the validation state in the custom settings if more than one instance is shown
-- (@softwarecrash) Corrected the disabled save button in the custom settings after an invalid instance was switched off
-
-### 8.0.2 (2026-08-07)
-- (@GermanBluefox) Corrected charts
-- (@GermanBluefox) Corrected the authentication for the OAuth2 callbacks
-- (@GermanBluefox) Disabled the save button in the custom settings as long as a value is invalid
-- (@GermanBluefox) Added the folder selection to the alias creation dialog
-- (@GermanBluefox) Hidden the chart in the value editor in the mobile view
-- (@GermanBluefox) Small GUI improvements
 
 ## License
 

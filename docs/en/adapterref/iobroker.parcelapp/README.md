@@ -35,18 +35,18 @@ For details and how to disable it, see the [Sentry plugin documentation](https:/
 
 - **Node.js >= 22**
 - **ioBroker js-controller >= 7.2.2**
-- **ioBroker Admin >= 7.8.23**
+- **ioBroker Admin >= 8.0.11**
 - **parcel.app Premium subscription** — required for API access
 
 ---
 
 ## Configuration
 
-| Option                    | Description                                                                                                | Default |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------- | ------- |
-| **API Key**               | Your parcel.app API key (get it at [web.parcelapp.net](https://web.parcelapp.net))                         | —       |
+| Option                    | Description                                                                                                                                                               | Default |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| **API Key**               | Your parcel.app API key (get it at [web.parcelapp.net](https://web.parcelapp.net))                                                                                        | —       |
 | **Poll Interval**         | How often to fetch updates (minutes). parcel.app serves the list from a ~45–90 min server cache, so shorter intervals mostly reduce the delay until a refresh is noticed. | 10      |
-| **Auto-remove delivered** | Remove delivered packages from states automatically. When disabled, they stay until deleted in parcel.app. | Yes     |
+| **Auto-remove delivered** | Remove delivered packages from states automatically. When disabled, they stay until deleted in parcel.app.                                                                | Yes     |
 
 Status labels (`Delivered`, `In Transit`, …) and delivery estimates (`today`, `tomorrow`, `in X days`) are rendered in the ioBroker system language.
 
@@ -78,13 +78,13 @@ parcelapp.0.
 
 **Status codes** (`statusCode` — the primary datapoint for automations):
 
-| Code | Meaning         | Code | Meaning                 |
-| ---- | --------------- | ---- | ----------------------- |
-| 0    | Delivered       | 5    | Not Found               |
-| 1    | Frozen          | 6    | Delivery Attempt Failed |
-| 2    | In Transit      | 7    | Exception               |
-| 3    | Awaiting Pickup | 8    | Info Received           |
-| 4    | Out for Delivery | -1  | Unknown (unexpected API value — package stays visible) |
+| Code | Meaning          | Code | Meaning                                                |
+| ---- | ---------------- | ---- | ------------------------------------------------------ |
+| 0    | Delivered        | 5    | Not Found                                              |
+| 1    | Frozen           | 6    | Delivery Attempt Failed                                |
+| 2    | In Transit       | 7    | Exception                                              |
+| 3    | Awaiting Pickup  | 8    | Info Received                                          |
+| 4    | Out for Delivery | -1   | Unknown (unexpected API value — package stays visible) |
 
 ---
 
@@ -140,6 +140,17 @@ sendTo("parcelapp.0", "addDelivery", {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.10.4 (2026-09-02)
+
+- Fixed: A malformed reply from parcel.app (empty body or a broken delivery entry) no longer aborts the poll with a cryptic internal message — it is reported as an API problem and retried next poll.
+- Fixed: A brief ioBroker database hiccup while marking the connection as online was mistaken for a parcel.app failure and switched the connection indicator to red.
+- Fixed: Scripts that call checkConnection with a non-text API key now receive the regular "API key is too short" reply instead of an internal failure.
+- Improved: Control characters in texts coming from parcel.app (carrier names, status notes) are now stripped completely before they reach the states.
+
+### 0.10.3 (2026-08-27) — stable
+
+- Fixed: Stopping or restarting the adapter was cut short — the stopped instance kept claiming a live connection to parcel.app instead of showing as disconnected.
+
 ### 0.10.2 (2026-08-22)
 
 - Changed: Internal cleanup. No user-facing changes.
@@ -158,16 +169,6 @@ sendTo("parcelapp.0", "addDelivery", {
 - Changed: short ioBroker database hiccups no longer flip the connection indicator — it now reflects only the parcel.app connection.
 - Changed: the fallback package name ("Package …") is localized like all other texts, and the adapter is listed under a fitting admin category (misc-data).
 - Changed: the automatic poll after adding a delivery now respects the one-minute pacing, so bulk-adds can no longer exhaust the hourly API budget.
-
-### 0.9.0 (2026-06-23) — stable
-
-- Fixed: tracked packages could disappear from the object tree after a temporary update error or an unexpected API response — a package is now kept until parcel.app actually stops returning it.
-- Changed: multi-day delivery windows now show the date on each side (e.g. `12-06 14:30 - 12-08 18:30`) instead of looking same-day; out-of-range or reversed dates no longer produce a misleading window.
-
-### 0.8.0 (2026-06-19)
-
-- The delivery window is now also shown for carriers that report it only as a date/time range, not just when the API provides a Unix timestamp.
-- When adding a delivery via script, you can now set an optional tracking language and request a push confirmation.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

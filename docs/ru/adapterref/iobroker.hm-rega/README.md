@@ -577,6 +577,8 @@ or non existent if no rpc instance existed
 ### 0.1.1
 * (hobbyquaker) Fixed common.name attribute
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 

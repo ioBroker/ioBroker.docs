@@ -28,11 +28,14 @@ In this case, by opening of http://IP it will be immediately redirected to a spe
 -->
 
 ## Changelog
+### 2.0.1 (2026-08-27)
+-   (@GermanBluefox) Added the option to answer ACME HTTP-01 challenges of the acme adapter
+
 ### 2.0.0 (2026-08-04)
--   (@GermanBluefox) Migrated admin component to React 19
+-   (@GermanBluefox) Migrated an admin component to React 19
 
 ### 1.1.1 (2025-11-15)
--   (@GermanBluefox) Migrated admin component to TypeScript and vite
+-   (@GermanBluefox) Migrated an admin component to TypeScript and vite
 
 ### 1.1.0 (2025-02-26)
 

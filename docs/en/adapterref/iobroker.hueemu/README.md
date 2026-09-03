@@ -27,7 +27,9 @@ Modern voice assistants all support Matter directly. Use the [ioBroker Matter ad
 - **Direct state mapping** — Point to any ioBroker state, no bridge scripts
 - **Device assistant** — scan ioBroker for mappable lights and add them automatically, or add and edit each light by hand
 - **Light types** — On/Off, Dimmable, Color Temperature, RGB
-- **Per-device value scale** — pick how brightness and saturation are stored in your source state
+- **Per-device value scale** — detected from the source state where it is declared, and always adjustable by hand
+- **Lights without a switch** — a dimmer that only offers a brightness state is driven by that state
+- **Relative commands** — "a bit darker", "a bit warmer" and dimmer rockers adjust the current value
 - **Persistent TLS certificate** — clients only trust the bridge once, restarts keep the same identity
 - **Localized state names** — admin labels follow the ioBroker system language
 - **Automatic migration** — legacy `createLight` setups are converted to the admin configuration on first start
@@ -46,7 +48,7 @@ For details and how to disable it, see the [Sentry plugin documentation](https:/
 
 - **Node.js >= 22**
 - **ioBroker js-controller >= 7.2.2**
-- **ioBroker Admin >= 7.8.23**
+- **ioBroker Admin >= 8.0.11**
 
 ---
 
@@ -64,12 +66,12 @@ For details and how to disable it, see the [Sentry plugin documentation](https:/
 
 ### Network Settings
 
-| Option          | Description                                                                                                                                             | Default |
+| Option          | Description                                                                                                                                            | Default |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
 | **Host / IP**   | The IP the bridge binds to and announces to clients (Alexa, Harmony). Choose `0.0.0.0` to listen on all interfaces — the announced IP is auto-detected | 0.0.0.0 |
-| **HTTP Port**   | Port for the Hue API                                                                                                                                    | 8080    |
-| **HTTPS Port**  | Only needed if a client insists on TLS; leave empty otherwise                                                                                           | —       |
-| **MAC Address** | Bridge MAC (auto-generated if empty)                                                                                                                    | —       |
+| **HTTP Port**   | Port for the Hue API                                                                                                                                   | 8080    |
+| **HTTPS Port**  | Only needed if a client insists on TLS; leave empty otherwise                                                                                          | —       |
+| **MAC Address** | Bridge MAC (auto-generated if empty)                                                                                                                   | —       |
 
 ### Adding Devices
 
@@ -77,9 +79,15 @@ Open the **Device Configuration** tab. There are two ways to add lights:
 
 **Manually** — click **Add light**, enter a name, choose a light type, and map the ioBroker states with the object browser.
 
-**Automatically** — click **Search lights**. The adapter scans your objects for things that look like lights (on/off, dimmers, colour-temperature and colour lights) and shows the mappable ones as a checklist — tick the ones you want and only those are added. Anything it detects but cannot map (for example RGB-channel devices) is reported so you can add it by hand.
+**Automatically** — click **Search lights**. The adapter scans your objects for things that look like lights (on/off, dimmers, colour-temperature and colour lights) and shows the mappable ones as a checklist — tick the ones you want and only those are added. Whatever it finds but cannot map is counted in the result message, so nothing disappears without a word.
+
+The assistant also fills in the value scale wherever the source state declares one: a hue that runs 0–360 is read as degrees, a brightness with `%` or a 0–100 range as percent. Where a source declares neither a unit nor a range, the scale field is left empty and the adapter's default applies — check it on the light's card if a colour or brightness looks off, and set it by hand.
 
 Each light shows as a card — use **Edit** to change its mapping or **Delete** to remove it.
+
+### Lights Without an On/Off State
+
+Some dimmers expose only a brightness state and no separate switch (a HomeMatic dimmer channel, for example). Those work: brightness carries on/off, so a source value of 0 reads as off and anything above as on. Switching off writes 0; switching on writes full brightness, because a source sitting at 0 no longer knows what it used to be.
 
 ### Supported Light Types
 
@@ -97,6 +105,8 @@ Before any client can connect, pairing must be activated:
 1. ioBroker Objects → `hueemu.0` → set **`startPairing`** to `true`
 2. Start the device search / pairing in your client app within **50 seconds**
 3. After successful pairing a new entry appears under `hueemu.0.clients.*`
+
+New clients are limited to 100 per hour across all pairing paths; a single warning tells you when that limit was hit. A client-supplied username longer than 64 characters is replaced by a generated one.
 
 ### Connecting with Alexa (older Echo without Matter)
 
@@ -162,29 +172,37 @@ If you used the old `createLight` JSON state to define lights, your devices are 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.15.1 (2026-09-03)
+
+- Fixed: Every datapoint of the adapter now carries a name and a short explanation in your admin language, paired clients included.
+
+### 1.15.0 (2026-09-03)
+
+- New: The light assistant now works out how brightness, colour and colour temperature are stored, so the lights it adds show and set the right values.
+- Fixed: A colour light found by the assistant showed red instead of its real colour and lost its colour temperature entirely — both are corrected.
+- New: Dimmers with no separate on/off state, such as a HomeMatic dimmer channel, can be used at last — their brightness switches them.
+- Improved: The assistant no longer picks a read-only status state as the switch, and it now counts every device it had to skip, not just RGB ones.
+- Fixed: Lights added by an earlier version showed wrong colours or brightness until you corrected their scale by hand; the right scale is now set for you.
+- New: Relative commands such as "a bit darker" or a dimmer rocker change the light now instead of being accepted and ignored.
+- Fixed: Rejected pairing attempts used up the hourly pairing budget and could block your own pairing for the rest of the hour.
+
+### 1.14.0 (2026-09-02)
+
+- New: the bridge answers GET /api/config without a username, like a real Hue bridge, so apps that read the configuration before pairing find what they expect.
+- Fixed: an app that only read the bridge configuration while pairing was open got paired under its probe name (e.g. "nouser") — reading the configuration no longer pairs anyone.
+- Fixed: with authentication disabled, one device could create client entries without limit — new clients are now capped at 100 per hour, with one warning per hour.
+- Changed: a client-supplied username longer than 64 characters is ignored in favour of a generated one; the device type stored as the client name is cut to 100 characters.
+- Fixed: an unreadable brightness, saturation, hue or colour temperature in a request is no longer written as a default (full brightness, red) — it is skipped but still acknowledged.
+- Fixed: if cleaning up objects from earlier versions failed at start, the pairing and authentication switches stopped working — the adapter now continues and reports the failure.
+
+### 1.13.1 (2026-08-27) — stable
+
+- Fixed: when the adapter is stopped it now really tells the connected apps that the bridge is gone — until now they kept it in their list until they ran into their own timeout.
+
 ### 1.13.0 (2026-08-25)
 
 - Changed: The discovery service was rebuilt — the long-standing security warning is gone and devices find the bridge exactly as before
 - Improved: When the adapter stops, the bridge now announces its shutdown on the network so controllers notice right away instead of waiting for a timeout
-
-### 1.12.2 (2026-08-22)
-
-- Changed: Internal cleanup. No user-facing changes.
-
-### 1.12.1 (2026-07-31) — stable
-
-- Leaving the HTTPS port empty in the settings no longer shows an error — an empty value simply means that no HTTPS server is started for the bridge
-- The bridge MAC address that is generated automatically is now always a valid device address; some of the values generated before were not valid MAC addresses
-
-### 1.12.0 (2026-07-12) — stable
-
-- The "Search lights" assistant now actually finds your lights (it scanned the wrong objects before) and lets you pick which ones to add instead of adding them all
-- The two IP fields in the settings are now one Host/IP selector — pick your IP, or "all interfaces" to auto-detect the announced address
-- A logged-in client reading the bridge configuration now receives the full config, matching a real Hue bridge
-
-### 1.11.0 (2026-07-09)
-
-- The devices tab can now scan ioBroker for dimmer, colour-temperature and colour lights and add the mappable ones. Manual add still works.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

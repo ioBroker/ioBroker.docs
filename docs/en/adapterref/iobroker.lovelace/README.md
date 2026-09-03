@@ -84,6 +84,9 @@ After that checkout modified version in `./build` folder. Then.
     ### for next frontend update, update of auto entities card will be necessary!
 -->
 ### **WORK IN PROGRESS**
+* (Garfonso/Claude) Fixed custom cards that fetch history directly (e.g. the windrose card) crashing with "TypeError: t.callback is not a function": a one-shot history request was answered like a subscription. (#722)
+
+### 6.1.3 (2026-09-01)
 * (Garfonso/Claude) Fixed auto-generated entity_ids growing longer and longer within a single start for devices sharing a generated display name and having no own readable state (e.g. several buttons named the same): they no longer collapse onto the same internal registry key and overwrite each other's name.
 * (Garfonso/Claude) Fixed the energy dashboard's power graph showing "no data" for the whole day on some history backends: the "5minute" statistics period used a 30-second bucket step instead of 5 minutes, requesting 10x more buckets than needed.
 * (Garfonso/Claude) Fixed the current power missing in the energy dashboard ("Stromquellen" on the summary tab and the "Jetzt" tab) while all other cards showed it: the power sensor picked for a grid/battery source was not passed on to those cards. Existing configurations are fixed automatically on start.
@@ -122,13 +125,6 @@ After that checkout modified version in `./build` folder. Then.
 * (Garfonso/Claude) Bound the number of history points fetched per request, so a large history graph can no longer overload the states database.
 * (Garfonso/Claude) Manual entities on `system.*`/`script.*` objects (e.g. a JavaScript adapter state) no longer disappear after a restart. (#709)
 * (Garfonso/Claude) Manual entities now honor the friendly name and icon set via the frontend's entity settings, and editing them no longer briefly reverts the change.
-
-### 6.0.3 (2026-06-18)
-* (Garfonso/Claude) Manually mapped objects outside `alias.0` no longer disappear after a restart when "only generate from alias" is active. (#704)
-* (Garfonso/Claude) Limit concurrent history requests to avoid overloading the states database connection.
-* (Garfonso/Claude) Fixed a crash in the map card caused by history updates without attributes.
-* (Garfonso/Claude) Removed the browser tab title setting; set the dashboard title instead.
-* (Garfonso/Claude) Calendar card no longer flickers/reloads in a loop when the calendar source updates frequently.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

@@ -424,15 +424,6 @@
           },
           "content": "cloud/editor.md"
         },
-        "Services": {
-          "title": {
-            "en": "Services",
-            "de": "Dienste (Cloud-Service-URL)",
-            "ru": "Сервисы",
-            "zh-cn": "服务"
-          },
-          "content": "cloud/services.md"
-        },
         "Alexa Custom-Skill": {
           "title": {
             "en": "Alexa Custom-Skill",

@@ -113,6 +113,11 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (René) update dependencies
+
+
 ### 2.0.0 (2026-06-30)
 * (René) rewritten in typescript
 * (René) support of new version of DasWetter adapter

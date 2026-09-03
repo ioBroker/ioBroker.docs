@@ -68,6 +68,12 @@ To install this adapter in your ioBroker environment:
 Once configured, the adapter handles the rest! It periodically syncs the last 30 days of data according to the configured update interval. Data manifests under the `octopus-energy-monitor.0.history.YYYY.MM.DD` path.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (tipp88) Fixed consumption data for previous days not updating automatically when initially retrieved with 0 kWh (Issue #31).
+
+### 1.0.0 (2026-08-27)
+* (tipp88) Fixed the three missing history database synchronization translations reported in issue #18.
+
 ### 0.7.0 (2026-07-13)
 * (tipp88) Implemented native historical database synchronization to automatically push 15-minute intervals directly to InfluxDB, SQL, or History instances.
 * (tipp88) Massively optimized Inexogy retroactive API polling by switching to the Discovergy `readings` endpoint, fetching 96 data points in a single request.
@@ -89,10 +95,6 @@ Once configured, the adapter handles the rest! It periodically syncs the last 30
 
 ### 0.6.6 (2026-06-29)
 * (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
-
-### 0.6.5 (2026-06-29)
-* (tipp88) Fixed ioBroker repository PR compliance issues (added API timeouts, refactored timer logic, removed dead config, implemented data retention, and updated translation keys).
-* (tipp88) Upgraded `@iobroker/types` devDependency to 7.2.2.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

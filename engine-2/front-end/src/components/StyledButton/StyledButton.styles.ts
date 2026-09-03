@@ -12,6 +12,8 @@ export const useStyles = makeStyles()(theme => ({
         justifyContent: 'space-between',
         cursor: 'pointer',
         minWidth: 250,
+        // the button never grows past the column it stands in
+        maxWidth: '100%',
         backgroundColor: 'transparent',
         transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
         '&:hover': {

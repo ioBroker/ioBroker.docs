@@ -46,6 +46,10 @@ Example of VIS view
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 2.1.2 (2022-03-11)
 * (Diginix/Apollon77) set object defaults with correct data type
 
@@ -164,7 +168,9 @@ Example of VIS view
 ### 0.0.1
 * (owagner) initial version
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
-Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>,
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>,
               2014-2015 Oliver Wagner <owagner@tellerulam.com>

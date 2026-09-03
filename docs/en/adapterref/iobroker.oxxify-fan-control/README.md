@@ -17,7 +17,7 @@
 
 ## oxxify-fan-control adapter for ioBroker
 
-Integrate your Oxxify fans into your Smart Home. All the provided ioBroker data points are based on the communication protocol described [here](./doc/BDA_Anschluss_SmartHome_RV_V2.pdf). As other manufacturers are using the same protocol (e.g. Blauberg vents), it is pretty likely, that they will work as well.
+Integrate your Oxxify fans into your Smart Home. All the provided ioBroker data points are based on the communication protocol described [here](./doc/BDA_Anschluss_SmartHome_RV_V2.pdf). As other m[...]
 
 ## Working devices
 
@@ -29,11 +29,11 @@ Integrate your Oxxify fans into your Smart Home. All the provided ioBroker data 
 
 ### Object tree desciption
 
-The object tree contains the folder named "devices", which creates an entry for each configured fan. The channels below are created with the unique fan id, which is provided by the manufacturer. In the column _name_ the entry from the configuration is used, to distinguish better between the fans. Below each fan four channels are created to group the data provided per fan. They are explained as follows:
+The object tree contains the folder named "devices", which creates an entry for each configured fan. The channels below are created with the unique fan id, which is provided by the manufacturer. I[...]
 
 #### Fan data
 
-This channel contains any fan related data like timers, fan speed, on/off state and information regarding the filter cleaning/exchange interval. The fan operating modes contains the numerical value from the communication protocol as well as a speaking string state. The values can be written by the number only (e.g. a 1 for the heating recovery). Same applys for the timer mode and the fan speed mode, which accepts 1, 2, 3 and 255 for manual speed setting. The fan speed for fan 2 is not available at my devices (Oxxify pro 50) and stays either at 0 rpm in off state or 1500 in any run state. The other value changes accoring to the speed.
+This channel contains any fan related data like timers, fan speed, on/off state and information regarding the filter cleaning/exchange interval. The fan operating modes contains the numerical valu[...]
 
 ![image](doc/screenshots/fan-data.png)
 
@@ -45,13 +45,13 @@ The network data is currently read-only, writing/changing of values here is not 
 
 #### Sensors data
 
-The data entrys for the sensors are implemented as defined in the protocol. The analog voltage vale is in % as defined in the protocol. I have nothing connected to the analog and relais sensor, so I can not really test what happens, if you activate them.
+The data entrys for the sensors are implemented as defined in the protocol. The analog voltage vale is in % as defined in the protocol. I have nothing connected to the analog and relais sensor, so[...]
 
 ![image](doc/screenshots/sensors-data.png)
 
 #### System data
 
-This channel contains system data about the hardware and firmware as well as runtime, RTC battery voltage and date/time. Here alarms can be reset and also the RTC time can be set based on the configured NTP server. From my experience it can sometimes happen, that after an RTC time sync the new (right) values are not visible immediately and it takes until the next data polling.
+This channel contains system data about the hardware and firmware as well as runtime, RTC battery voltage and date/time. Here alarms can be reset and also the RTC time can be set based on the conf[...]
 
 ![image](doc/screenshots/system-data.png)
 
@@ -91,6 +91,8 @@ This channel contains system data about the hardware and firmware as well as run
 
 - Auto PRs merged
 - Fixing other deployment issues...
+
+For older changelog entries see [CHANGELOG_OLD.md](./CHANGELOG_OLD.md)
 
 ## License
 

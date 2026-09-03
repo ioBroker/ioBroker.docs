@@ -2,7 +2,7 @@
 
 **Release:** [![npm version](https://img.shields.io/npm/v/iobroker.yamaha)](https://www.npmjs.com/package/iobroker.yamaha) ![stable](https://iobroker.live/badges/yamaha-stable.svg) ![Installations](https://iobroker.live/badges/yamaha-installed.svg) [![npm downloads](https://img.shields.io/npm/dt/iobroker.yamaha)](https://www.npmjs.com/package/iobroker.yamaha)
 
-**Build:** [![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.yamaha/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.yamaha/actions/workflows/test-and-release.yml) ![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+**Build:** [![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.yamaha/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.yamaha/actions/workflows/test-and-release.yml) ![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![Sentry](https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white)](https://github.com/ioBroker/plugin-sentry#plugin-sentry)
 
 **Support:** [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)](https://ko-fi.com/krobipd) [![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/krobipd)
 
@@ -19,18 +19,27 @@ legacy XML protocol of the oldest pre-2010 models — behind one object tree.
 - **Instant updates** — MusicCast pushes its changes, YNCA reports over its live connection
 - **Self-healing connections** — an offline receiver joins once it answers; a single protocol reconnects on its own while the others keep running
 - **Typed datapoints** — booleans, dropdowns and numbers with unit and range instead of raw text
+- **Now playing, per zone** — one player block per zone shows source, playback state, title, artist, cover art and the transport buttons for whatever that zone is playing; zones 2–4 carry their own block
 - **Presets and favourites** — recall tuner presets and stored network/USB favourites by number, step through presets, save the current station to a preset slot or bookmark it, and read the stored lists with their names (MusicCast); recently-played recall on MusicCast devices
 - **Menu browsing** — page through the Net Radio, media-server and USB menus like with the remote: the visible menu lines as datapoints, select-by-line, and a path datapoint that navigates to a favourite in one write
+- **Scenes with their names** — recall a scene by number or by its title from a dropdown that shows the names the receiver reports, per zone — plus a scene list for visualizations
+- **On-screen remote** — cursor pad and menu keys as datapoints on MusicCast devices, for driving the receiver's own on-screen menus
 - **Clock & alarm view** — MusicCast desk-audio devices show their clock and alarm settings
 - **Capability-driven** — states are generated from what each device reports, no hardcoded model list
 - **Automatic discovery** — an empty device list finds and sets up MusicCast devices at startup
 - **Device manager** — receivers as admin cards with model, address, live protocol indicators and a device-type icon (receiver, stereo, speaker, soundbar, CD)
 
+## Sentry / Error reporting
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** Reporting only happens if you have enabled error reporting in the ioBroker diagnostics (**System settings → Diagnostics and error reporting**). Only an anonymous installation ID is transmitted — no name, e-mail address or IP address.
+
+For details and how to disable it, see the [Sentry plugin documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Error reporting requires js-controller 3.0 or newer.
+
 ## Requirements
 
 - Node.js >= 22
 - js-controller >= 7.2.2
-- admin >= 7.8.23
+- admin >= 8.0.11
 
 ## Ports
 
@@ -52,17 +61,21 @@ The **Data points** section switches whole groups of datapoints on or off — **
 Each receiver becomes one device node with themed groups — the same groups the
 **Data points** switches control. Only what your device reports is created.
 
-- **Amplifier core** (always on) — power, volume, mute, input, sound program, sleep, plus the device info with model, firmware and connection.
-- **`player`** — one channel per playback source (Spotify, USB, server, net radio, CD, …) with playback state, artist, album, track, cover art and the transport buttons. The `player.browse` folder mirrors the device's media menu: the eight visible lines (folders and titles marked by symbol), `selectLine` acts like OK on the remote, page/back/root buttons, a `rows` JSON for widgets and a `path` datapoint that walks e.g. `Bookmarks>Radio Paradise` on one write.
-- **`tuner`** — AM/FM and DAB radio including RDS texts and frequency.
-- **`multiroom`** — zones 2–4, Zone B, the all-zones switches (master power, party mode) and the MusicCast device group in its own `multiroom.group` folder.
-- **`hdmi`** — the HDMI outputs and lip sync.
-- **`scene`** — the receiver's scene names and a scene recall.
-- **`sound`** — tone and sound processing: bass/treble, DSP modes, enhancer, equalizer, ….
-- **`advanced`** — setup-level datapoints: maximum/initial volume, speaker configuration, input names.
+- **Amplifier core** (always on) — power, volume, mute, input, sound program, sleep, plus the device info with model, firmware, IP address and connection; MusicCast devices add an on-screen `remote` (cursor pad, menu keys).
+- **`player`** — ONE "now playing" block per zone: `player.source` says what the zone is listening to, and playback state, artist, album, track, cover art, times and the transport buttons always describe exactly that — whatever source is playing. Zones 2–4 get their own block under `multiroom.zoneN.player`. The source folders keep only what is genuinely their own: preset recall & save for net radio/server/USB, the MusicCast favourite/recent/playlist/queue lists under `player.netPlayer`, the CD drive states, Bluetooth pairing and the AirPlay volume interlock. The `player.browse` folder mirrors the device's media menu: the eight visible lines (folders and titles marked by symbol), `selectLine` acts like OK on the remote, page/back/root buttons, a `rows` JSON for widgets and a `path` datapoint that walks e.g. `Bookmarks>Radio Paradise` on one write.
+- **`tuner`** — one band, one frequency (kHz on every generation) and one preset for AM, FM and DAB, plus RDS texts and reception flags; only genuinely DAB-specific detail (service, ensemble, DLS, …) sits under `tuner.dab`.
+- **`multiroom`** — zones 2–4 (each with its own player and scene block), Zone B, the all-zones switches (master power, party mode) and the MusicCast device group in its own `multiroom.group` folder.
+- **`hdmi`** — the HDMI outputs and the two lip-sync offsets.
+- **`scene`** — a recall dropdown carrying the titles the receiver reports (writable by number or title) and a `scene.list` JSON with every scene slot — titled where the device reports titles; zones with their own scenes carry theirs under `multiroom.zoneN.scene`.
+- **`sound`** — tone and sound processing: bass/treble, DSP modes, enhancer, the equalizer in its own `sound.equalizer` folder and the current audio signal under `sound.signal` on MusicCast devices.
+- **`advanced`** — setup-level datapoints: maximum/initial volume, the speaker configuration (A/B switches included) under `advanced.speakers`, input names.
 - **`clock`** — the clock and alarm settings of MusicCast desk-audio devices (read-only).
 
 ## Troubleshooting
+
+### Upgrading from 1.x
+
+Version 2.0.0 reworks the object tree. On the first start the adapter removes the old datapoints itself and creates the new ones: the per-source player copies become one `player` block per zone, the scene name datapoints become the recall dropdown plus `scene.list`, the two tuner frequencies become one `tuner.frequency` in kHz, the equalizer and signal info move under `sound.equalizer`/`sound.signal`, the lip-sync offsets under `hdmi`, and the speaker A/B switches under `advanced.speakers`. Point scripts and visualizations at the new paths.
 
 ### Upgrading from 0.5.x
 
@@ -82,7 +95,7 @@ If MusicCast changes only refresh every few minutes, another application is occu
 
 ### First start takes a while
 
-On the first connect the adapter asks the receiver which functions it supports — up to half a minute per YNCA device. The result is remembered, later starts are faster.
+On the very first contact the adapter asks the receiver which functions it supports — up to half a minute per YNCA device. The answers are remembered per device (and survive restarts), so every later start brings the device online in seconds and refreshes the current values in the background. A firmware update or a different device behind the same address is detected and re-asked automatically.
 
 ## Changelog
 
@@ -90,39 +103,48 @@ On the first connect the adapter asks the receiver which functions it supports �
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.4.0 (2026-08-26)
+### 2.2.0 (2026-09-03)
 
-- (krobipd) Fixed: commands sent in quick succession all arrive — a scene switching power, input and volume in one go used to lose everything after the first command
-- (krobipd) Fixed: a command the device rejects is now reported instead of counting as success, so a MusicCast device that stops answering is reconnected rather than silently freezing
-- (krobipd) Fixed: names and menu entries containing "&" or other special characters now read and write correctly on the older XML protocol
-- (krobipd) Fixed: writing one equalizer band no longer resets the other two when the device has not reported its bands yet
-- (krobipd) Fixed: switching the tuner band and setting a frequency right after each other now applies the frequency to the new band
-- (krobipd) Improved: startup with automatic discovery is much faster on networks with many devices, and a reconnect no longer re-asks what the device already told us
-- (krobipd) Fixed: recalling a favourite, a recently played item or a tuner preset now goes to the zone that is actually listening instead of always switching the main zone
-- (krobipd) Improved: stopping or restarting the adapter no longer leaves requests running that write to datapoints afterwards
+- (krobipd) Changed: the playback times are now a number in seconds, so the media player, Alexa and Google can show them on every receiver
+- (krobipd) New: the readable playback times ("1:23") moved to their own datapoints, next to the seconds — bind whichever form your visualization needs
+- (krobipd) Fixed: after a restart the adapter asks the receiver again instead of trusting what it remembered, so the menu, the tuner band and each zone's source are the current ones
+- (krobipd) Fixed: setting a tuner frequency on a MusicCast device never reached it — the command was incomplete
+- (krobipd) Fixed: commands to a receiver from before 2010 are now sent the way every comparable program sends them; older models can reject the previous form outright
+- (krobipd) Fixed: a scene you renamed at the receiver now appears while the adapter runs, and recalling a scene by an unknown name says so in the log instead of doing nothing
+- (krobipd) Fixed: after a restart the tuner of an older receiver no longer shows the station of the previous session until the next poll
+- (krobipd) Fixed: an incomplete answer from a MusicCast device is no longer kept as that device's capabilities, and a device that answers nothing is no longer shown as connected
+- (krobipd) Fixed: going one menu level back on an older receiver no longer jumps two levels when the reply gets lost
+- (krobipd) Fixed: a play or pause sent from a script or a visualization now reaches the receiver in every case
+- (krobipd) Improved: each of the 23 input-name datapoints now carries the input it names, instead of all reading the same
 
-### 1.3.0 (2026-08-26)
+### 2.1.1 (2026-09-02)
 
-- (krobipd) New: menu browsing — page through the Net Radio, server and USB menus like with the remote: visible lines as datapoints, select-by-line, and a path datapoint for one-write navigation (#613)
-- (krobipd) New: save presets from ioBroker — store the current tuner or network station to a preset slot and bookmark the playing Net Radio station on YNCA receivers.
-- (krobipd) New: Bluetooth pairing and connect controls, FM mono mode and tuning indicators on YNCA receivers.
+- (krobipd) Fixed: on an updated instance the info datapoints now get the translated names too, instead of keeping the ones an older version had written
 
-### 1.2.0 (2026-08-25)
+### 2.1.0 (2026-09-02)
 
-- (krobipd) Fixed: volume writes work again — a written -38 dB reached the receiver as -3.8 dB, so most values were ignored; all numeric controls now send the proper wire format (#612)
-- (krobipd) Fixed: the FM frequency datapoint now shows MHz (it was mislabelled kHz) and accepts direct frequency writes in the form the tuner expects.
-- (krobipd) New: preset selection — recall tuner presets by number with up/down stepping, and recall stored network or USB favourites per source on YNCA receivers (#613)
-- (krobipd) New: MusicCast selection lists — stored favourites and tuner presets with names, a recently-played list with recall by number, and the device's own allowed values as dropdowns.
-- (krobipd) New: more device detail — CD track and drive info, DAB and RDS station data, and a read-only clock and alarm view with its own datapoint group switch in the admin settings.
+- (krobipd) New: every datapoint name is now shown in your ioBroker language, in eleven languages; a name you changed yourself stays untouched
+- (krobipd) Fixed: the empty "Media server" folder left behind by the 2.0.0 object tree is removed, together with any other folder that no longer holds a datapoint
+- (krobipd) Fixed: the menu view starts empty after a restart instead of still showing the menu from the last time you browsed
+- (krobipd) Fixed: a receiver that gets a new address from your router is found again and reconnected there, instead of staying offline for good
+- (krobipd) Fixed: deleting an automatically found receiver now really removes it — the connection is closed, its datapoints are gone, and the next search does not bring it back
+- (krobipd) Fixed: the DAB date, the audio signal fields and the tuner preset list no longer show the receiver's own placeholder text — they stay empty, and only stored presets are listed
+- (krobipd) Fixed: on a receiver with both an analogue and a DAB tuner the AM band stays selectable and every band change reaches the right tuner
+- (krobipd) Fixed: a hiccup of the ioBroker database while the adapter starts no longer stops the instance — it says so in the log and keeps the receivers running
 
-### 1.1.1 (2026-08-22)
+### 2.0.4 (2026-09-02)
 
-- (krobipd) Changed: Internal cleanup. No user-facing changes.
+- (krobipd) Fixed: a short outage of the ioBroker database no longer restarts the adapter — a failed write is logged once and the next value is written normally
+- (krobipd) Fixed: the protocol badges on the device card are reset when a device starts and when the adapter stops, so a crash no longer leaves a green badge next to a red dot
+- (krobipd) Fixed: stopping or restarting the adapter while it is still searching the network now stops it completely — it no longer keeps working half-started until the next restart
+- (krobipd) Fixed: the scene list keeps its titles on MusicCast receivers that also answer over XML or YNCA — the title-less MusicCast list no longer replaces it at startup
+- (krobipd) Fixed: a timeout while probing an older receiver for scenes or menus is asked again on the next connect instead of being remembered as "none" until the next restart
+- (krobipd) Fixed: writing one equalizer band before the receiver reported all three no longer sends zeros for the other two — the zone status is fetched first
+- (krobipd) Improved: a receiver that is off for a while is retried no later than the configured maximum wait, and an oversized answer from a wrong host can no longer eat the adapter's memory
 
-### 1.1.0 (2026-08-22)
+### 2.0.3 (2026-09-01)
 
-- (krobipd) Fixed: a device carried over from the old adapter is no longer called by its IP — the object folder and the admin card now show the name the device reports, or its model.
-- (krobipd) Improved: a device that has not reported a model yet already carries its device-class symbol instead of none.
+- (krobipd) Fixed: the update cleanup now removes every never-filled leftover datapoint — a history recording setting no longer shields it, because nothing was ever recorded there and nothing is lost
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

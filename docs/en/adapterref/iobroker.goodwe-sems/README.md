@@ -157,6 +157,10 @@ Pull requests are welcome, especially to add further fields delivered by the por
     ### **WORK IN PROGRESS**
 -->
 
+### 1.0.9 (2026-08-26)
+
+- Fix: remove the leftover top-level "Battery" channel that v1.0.8 no longer populates (reported by a tester after updating). Stopped creating it, and added a startup migration that removes it from already-running installations after confirming via getObjectListAsync() that it has no child objects.
+
 ### 1.0.8 (2026-08-25)
 
 - New (opt-in, experimental): battery telemetry via GoodWe's separate, undocumented web-portal API (own login/session, device discovery via relatedDevices(), data via a BAT_SYS device's telemetry() endpoint). Reverse-engineered and verified field-by-field against real captured browser traffic (thanks to a tester's HAR capture!) from a GW8K-ET + LX battery system, including the gateway's SHA-256 signature scheme. Enable "Fetch battery data" to create Inverters.<sn>.Battery.SOC/Power/Voltage/Current/Temperature/MaxChargeCurrent/MaxDischargeCurrent - uses the same SEMS credentials already configured. Off by default, fully isolated from core monitoring. Also fixed the previous always-empty top-level Battery.SOC/Status states and the guessed-but-wrong per-inverter field names - no migration needed since these states were never actually created.
