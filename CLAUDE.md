@@ -8,6 +8,8 @@ ioBroker documentation website and CMS serving https://www.iobroker.net. Combine
 
 **Note:** The README references an older `engine/` directory with Gulp. Active development uses `engine-2/` with a custom task-based pipeline.
 
+**Requires node.js >= 22.19** - the build pipeline (`engine-2/tasks.ts`) is run directly as TypeScript.
+
 ## Commands
 
 All commands run from `engine-2/` unless noted otherwise.
@@ -72,9 +74,9 @@ React 19 + Vite + Material-UI v7 + TypeScript SPA:
 - Markdown rendering via react-markdown + rehype-raw + remark-gfm
 - Charts via echarts-for-react, API state via TanStack React Query
 
-### Build Pipeline (`engine-2/tasks.js`)
+### Build Pipeline (`engine-2/tasks.ts`)
 
-The core orchestrator (~21KB). 10-step pipeline driven by CLI flags (`--0.clean`, `--1.blog`, etc.):
+The core orchestrator. It is a CommonJS TypeScript file executed directly by node (`node tasks.ts --<flag>`), which needs node.js >= 22.19 for the native type stripping. It stays CommonJS on purpose: the helpers in `engine-2/build-lib/*.js` check `module.parent` to decide whether to export their API or run standalone. 10-step pipeline driven by CLI flags (`--0.clean`, `--1.blog`, etc.):
 1. Clean generated dirs
 2. Process blog posts from `/blog/`
 3. Download adapter READMEs from GitHub

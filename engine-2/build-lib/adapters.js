@@ -68,10 +68,9 @@ function downloadImagesForReadme(lang, repo, data) {
                         }
 
                         axios(relative + link, { responseType: 'arraybuffer' })
-                            .then(result => result && result.data && utils.writeSafe(absLocalPath, result.data))
+                            .then(result => result?.data && utils.writeSafe(absLocalPath, result.data))
                             .catch(err => {
-                                err &&
-                                    console.error(`Cannot _download "${relative}${link}" to "${absLocalPath}": ${err}`);
+                                console.error(`Cannot _download "${relative}${link}" to "${absLocalPath}": ${err}`);
                             })
                             .then(() => resolve1());
                     } else {
@@ -578,9 +577,9 @@ function downloadRepo() {
     repoPromise =
         repoPromise ||
         new Promise(resolve => {
-            return axios('http://iobroker.live/repo/sources-dist.json').then(result => {
+            return axios('https://iobroker.live/repo/sources-dist.json').then(result => {
                 const stable = result.data;
-                return axios('http://iobroker.live/repo/sources-dist-latest.json').then(result => {
+                return axios('https://iobroker.live/repo/sources-dist-latest.json').then(result => {
                     const latest = result.data;
                     if (latest._repoInfo) {
                         delete latest._repoInfo;
@@ -604,14 +603,12 @@ function downloadRepo() {
 
 let statisticsPromise;
 function downloadStatistics() {
-    statisticsPromise =
-        statisticsPromise ||
-        new Promise(resolve => {
-            axios('http://iobroker.live/statistics.json').then(result => {
-                const stat = result.data && typeof result.data !== 'object' ? JSON.parse(result.data) : result.data;
-                resolve(stat);
-            });
+    statisticsPromise ||= new Promise(resolve => {
+        axios('https://iobroker.live/statistics.json').then(result => {
+            const stat = result.data && typeof result.data !== 'object' ? JSON.parse(result.data) : result.data;
+            resolve(stat);
         });
+    });
 
     return statisticsPromise;
 }

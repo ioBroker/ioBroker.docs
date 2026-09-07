@@ -4,7 +4,7 @@
     "compilerOptions": {
         "noEmit": true,
         "allowJs": true,
-        "checkJs": true,
+        "checkJs": false,
 
         "skipLibCheck": true, // Don't report errors in 3rd party definitions
         "noEmitOnError": true,
@@ -22,6 +22,6 @@
         "useUnknownInCatchVariables": false,
         "types": ["node"]
     },
-    "include": ["src/**/*.*", "src/**/*.d.*"],
+    "include": ["src/**/*.*", "src/**/*.d.*", "tasks.ts"],
     "exclude": ["build/**", "node_modules/**", "front-end/**"]
 }

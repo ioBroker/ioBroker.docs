@@ -6,5 +6,6 @@
     "checkJs": false,
     "noEmit": false,
     "declaration": false
-  }
+  },
+  "include": ["src/**/*.*", "src/**/*.d.*"]
 }

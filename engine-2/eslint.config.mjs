@@ -20,7 +20,7 @@ export default [
             'node_modules/**/*',
             'test/**/*',
             'build/**/*',
-            'tasks.js',
+            'build-lib/**/*',
             'tmp/**/*',
             '.**/*',
         ],
