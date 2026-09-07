@@ -46,7 +46,7 @@ export const HistorySection: React.FC = () => {
                     >
                         /* {I18n.t('home.history.text')} */
                     </Typography>
-                    {/* ab 600 px steht der ganze Block links, siehe container in den Styles */}
+                    {/* From 600 px the full block is left-aligned; see container styles. */}
                     <Box sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
                         <StyledButton
                             sx={{

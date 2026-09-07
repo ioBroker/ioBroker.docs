@@ -12,12 +12,12 @@ import { rateLimit } from 'express-rate-limit';
 import Logger from './logger';
 import { AppConfig } from '../types';
 
-// HTTP(S) Modul je nach `secure`
+// HTTP(S) module depending on `secure`
 
 const logger = new Logger();
 
-// Bruteforce\-Schutz
-// \`skipSuccessfulRequests\` ersetzt das frühere \`req.brute.reset()\`: nur Antworten >= 400 zählen.
+// Brute-force protection
+// `skipSuccessfulRequests` replaces the former `req.brute.reset()`: only responses >= 400 count.
 const bruteforce = rateLimit({
     windowMs: 15 * 60 * 1000,
     limit: 5,
@@ -25,12 +25,12 @@ const bruteforce = rateLimit({
     standardHeaders: 'draft-8',
     legacyHeaders: false,
     message: { error: { text: 'Too many requests in this time frame.' } },
-    // Server laeuft ohne Reverse\-Proxy direkt auf 443, daher ist \`trust proxy\` bewusst aus.
-    // Ein \`X\-Forwarded\-For\` kann hier nur vom Client gefaelscht sein \- die Warnung waere ein Fehlalarm.
+    // The server runs directly on 443 without a reverse proxy, so `trust proxy` is intentionally disabled.
+    // An `X-Forwarded-For` here can only be spoofed by the client - the warning would be a false positive.
     validate: { xForwardedForHeader: false },
 });
 
-// App\-Container
+// App container
 type ServerLike = httpModule.Server | httpsModule.Server;
 
 const app: {
@@ -41,12 +41,12 @@ const app: {
     server: null,
 };
 
-// Zusätzliche Typen für Konfiguration und Redirects
+// Additional types for configuration and redirects
 type SiteConfig = AppConfig['sites'][number];
 
 type RedirectsMap = Record<string, string>;
 
-// Port normalisieren
+// Normalize port
 function normalizePort(val: string | number): number | string | false {
     const port = parseInt(String(val), 10);
 
@@ -118,11 +118,11 @@ export default function init(config: AppConfig): {
             });
         });
 
-    // CORS für adapterref
+    // CORS for adapterref
     app.app.options('/{*splat}/adapterref/{*rest}', cors());
     app.app.use('/{*splat}/adapterref/{*rest}', cors());
 
-    // Statisches Verzeichnis
+    // Static directory
     console.log(`Serving ${path.join(__dirname, '../..', config.public)}`);
     app.app.use(express.static(path.join(__dirname, '../..', config.public)));
 
@@ -133,7 +133,7 @@ export default function init(config: AppConfig): {
     app.app.get('/install.sh', (req: Request, res: Response) => res.redirect(301, 'https://iobroker.net/install.sh'));
     app.app.get('/diag.sh', (req: Request, res: Response) => res.redirect(301, 'https://iobroker.net/diag.sh'));
 
-    // Upload\-Endpoint
+    // Upload endpoint
     app.app.post('/', bruteforce, (req: Request, res: Response): void => {
         const file = (req.query as any).file as string | undefined;
         const secret = (req.query as any).secret as string | undefined;
@@ -175,14 +175,14 @@ export default function init(config: AppConfig): {
         });
     }
 
-    // HTTP(S)\-Server erstellen
+    // Create HTTP(S) server
     if (!config.secure) {
         app.server = httpModule.createServer(app.app);
     } else {
         app.server = httpsModule.createServer(httpsOptions, app.app);
     }
 
-    // Non\-null Assertion, da nach oben immer gesetzt
+    // Non-null assertion, as it is always assigned above
     app.server!.listen(port, config.bind as any);
 
     app.server!.on('error', error => {

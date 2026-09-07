@@ -13,8 +13,8 @@ const node_fs_1 = __importDefault(require("node:fs"));
 const utils_1 = require("./utils");
 let langs = {};
 let titles = {};
-// Einige Bundles exportieren MiniSearch als Default, andere als Named Export.
-// `as any` stellt sicher, dass der Konstruktor verwendbar ist.
+// Some bundles export MiniSearch as the default, others as a named export.
+// `as any` ensures the constructor can be used.
 const MiniSearch = minisearch_1.default.default || minisearch_1.default;
 function loadDocuments(lang, dir, root, docs) {
     if (dir.endsWith('/') || dir.endsWith('\\')) {
@@ -76,7 +76,7 @@ function search(lang, text) {
     const rawResults = mini.search(text) || [];
     const r = rawResults.map((s) => {
         const titleInfo = (titles[lang] && titles[lang][s.id]) || {};
-        // im Original: `s.title = Object.assign({}, s, titles[lang][s.id])`
+        // Originally: `s.title = Object.assign({}, s, titles[lang][s.id])`
         s.title = Object.assign({}, s, titleInfo);
         return s;
     });

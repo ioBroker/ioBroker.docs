@@ -326,52 +326,40 @@ export const useFooterStyles = makeStyles()(theme => ({
         marginLeft: 0,
         justifyContent: 'space-between',
         /**
-         * Ab 900 px laeuft die Reihe nicht ueber den ganzen Kasten, sondern ueber die
-         * Breite von zwei oberen Kaesten, rechts angeschlagen (Denis, 06.09.2026, mit
-         * einem Rechteck ins Bild gezeichnet). Ueber die volle Breite verteilt standen
-         * die fuenf Zeichen rund 75 px auseinander und zerfielen zu Einzelstuecken;
-         * ueber 344 px sind es rund 43 px, und die Reihe bleibt eine Gruppe.
+         * Above 900 px, the row spans two upper cards and is right-aligned. At full width
+         * its five icons were too far apart; within 344 px they remain a group.
          */
         [CQ_UP(MD)]: {
-            // `width` **und** `maxWidth`: `flex: 0 0 auto` macht die Reihe sonst nur so
-            // breit wie ihre Zeichen, und `space-between` haette nichts zu verteilen
+            // `width` **and** `maxWidth`: `flex: 0 0 auto` otherwise sizes the row to its
+            // icons, leaving `space-between` nothing to distribute.
             width: '100%',
             maxWidth: FOOTER_BRACE_WIDTH * 2 + FOOTER_BRACE_GAP,
             marginLeft: 'auto',
         },
-        // im schmalen Kasten ueber die Breite verteilt statt links gesammelt
+        // Distribute across a narrow card instead of collecting at the left.
         [CQ_DOWN(MD)]: {
             rowGap: 24,
             columnGap: 8,
             justifyContent: 'space-between',
         },
         /**
-         * Erst unter 600 px werden die Zeichen kleiner (Denis, 06.09.2026) - drei
-         * Viertel ihrer Grundgroesse. Der Faktor steht hier und nicht als feste Groesse
-         * an den Zeichen, weil sie unterschiedlich gross gezeichnet sind (32 bis 42 px):
-         * eine gemeinsame Zahl haette das Verhaeltnis zerstoert, das sie optisch gleich
-         * gross wirken laesst. Jedes Zeichen rechnet seine eigene Grundgroesse mal
-         * diesen Faktor.
+         * Icons become smaller only below 600 px, at three quarters of their base size.
+         * The factor preserves their differing drawn sizes and perceived proportions.
          */
         [CQ_DOWN(SM)]: {
-            // als Zeichenkette, sonst haengt Emotion an die Zahl ein 'px' und aus
-            // calc(32px * 0.75) wird calc(32px * 0.75px) - ungueltig, ohne Fehlermeldung
+            // A string prevents Emotion from appending `px`, which would make calc invalid.
             '--social-icon-scale': '0.75',
         },
     },
     /**
-     * Cookies / Impressum / Datenschutz stehen auf dem Desktop unten in der Zeile mit dem
-     * Copyright und wandern darunter in einen eigenen Klammerkasten. Die Grenze lag bei
-     * 736 px; seit die Kaesten zwischen 600 und 900 px zu zweit in der Reihe stehen, ist
-     * es 900 - sonst haette der Bereich mal vier Kaesten (2x2) und mal drei (2+1)
-     * (Denis, 06.09.2026).
+     * Cookies, imprint, and privacy appear beside copyright on desktop and below it in
+     * their own bracket card. The breakpoint is 900 px to match the paired-card layout.
      */
     legalLinksMobile: {
         display: 'none',
         /**
-         * `contents` statt `flex`: der Kasten darin wird dadurch selbst zum Kind der
-         * Reihe und damit zur vierten Rasterzelle - sonst haette die Umhuellung die
-         * Zelle belegt und der Kasten darin seine eigene Breite behalten.
+         * `contents`, rather than `flex`, makes the contained card a row child and fourth
+         * grid cell instead of letting its wrapper occupy that cell.
          */
         [CQ_DOWN(MD)]: {
             display: 'contents',
@@ -387,10 +375,8 @@ export const useFooterStyles = makeStyles()(theme => ({
         display: 'flex',
         flexDirection: 'row',
         /**
-         * Ohne das streckt die Zeile ihre Kinder auf gleiche Hoehe, und jedes setzt
-         * seinen Inhalt anders hinein: die Rechtstexte sind Flexkaesten und zentrieren,
-         * der Copyright-Text ist ein Block und beginnt oben. Die Schriftlinien lagen
-         * dadurch 10 px auseinander (Denis, 06.09.2026).
+         * Without this the row stretches its children equally, but legal text is flex
+         * centered while copyright is a top-aligned block, offsetting baselines.
          */
         alignItems: 'center',
         gap: 16,
@@ -407,9 +393,8 @@ export const useFooterStyles = makeStyles()(theme => ({
         flexGrow: 1,
     },
     /**
-     * Der Pfeil ist 16 px hoch, seine Zelle in der Copyright-Zeile 40 (die Zeile streckt
-     * ihre Kinder). Als Block sass er dadurch oben in seiner Zelle und stand 12 px ueber
-     * der Schriftlinie daneben (Denis, 06.09.2026). Als Flexkasten sitzt er mittig.
+     * The 16 px arrow sits in a 40 px copyright-row cell. Flex centers it rather than
+     * leaving it above the adjacent text baseline.
      */
     scrollTop: {
         color: theme.palette.primary.main,
@@ -418,10 +403,7 @@ export const useFooterStyles = makeStyles()(theme => ({
         alignItems: 'center',
     },
     /**
-     * Der langgezogene Kasten war beim Umstellen auf den Kit-Token uebersehen worden und
-     * behielt seine 10 px, waehrend die drei Kaesten darueber 20 hatten (Denis,
-     * 06.09.2026). Jetzt haengt auch er am Token - der inzwischen selbst auf 10 steht,
-     * weil Denis den kuerzeren Arm gewaehlt hat.
+     * The elongated card now also uses the kit token, matching the shorter 10 px arm.
      */
     socialBracesLeft: {
         borderTop: `1px solid ${theme.palette.primary.main}`,
@@ -440,23 +422,17 @@ export const useFooterStyles = makeStyles()(theme => ({
         width: theme.custom.brace.lg,
     },
     /**
-     * Unter 600 px stand der Block "Folgen Sie uns" frueher ohne Klammern da - als
-     * einziger im Footer (Denis, 06.09.2026). Die Klammern gelten jetzt auf jeder
-     * Breite; `minWidth: 0` haelt den Inhalt in seiner Spalte, damit die Flexbox die
-     * Arme nicht wieder zusammendrueckt.
+     * The “Follow us” block now has brackets at every width; `minWidth: 0` keeps content
+     * in its column so Flexbox cannot compress the arms.
      */
     /**
-     * Zwei Spalten breit. In einem zweispaltigen Raster passt daneben nichts mehr, er
-     * nimmt also die ganze Zeile; in einem dreispaltigen bleibt links eine Spalte frei,
-     * und der vierte Kasten rueckt neben ihn.
+     * Two columns wide: it occupies a complete two-column row, while a third column lets
+     * the fourth card sit beside it.
      */
     socialBrace: {
         /**
-         * Dieselbe Hoehe wie die Kaesten darueber. Ohne sie war der Kasten genau so hoch
-         * wie seine drei Zeilen, die Beschriftung klebte oben und die Zeichen unten am
-         * Rand; jetzt sitzt der Dreizeiler mittig darin, mit rund 17 px Luft oben und
-         * unten - wie im Bereich 600-900 px, wo das Raster den Kasten auf die Hoehe des
-         * Nachbarn zieht (Denis, 06.09.2026).
+         * The same height as the cards above centers the three rows, with space above and
+         * below, as in the 600–900 px grid range.
          */
         [CQ_UP(MD)]: {
             minHeight: FOOTER_BOX_HEIGHT,
@@ -471,10 +447,8 @@ export const useFooterStyles = makeStyles()(theme => ({
         minWidth: 0,
         flex: 1,
         /**
-         * Steht der Kasten neben dem vierten Klammerkasten, zieht ihn das Raster auf
-         * dessen Hoehe. Dann soll sein Inhalt in der Mitte sitzen und nicht oben kleben;
-         * hat er die Zeile fuer sich, ist der Kasten so hoch wie sein Inhalt und die
-         * Regel aendert nichts.
+         * Beside the fourth bracket card, the grid stretches this card; its content must
+         * then be centered. Alone in a row, it remains content-height and this has no effect.
          */
         display: 'flex',
         flexDirection: 'column',

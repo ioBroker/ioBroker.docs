@@ -13,10 +13,10 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const cors_1 = __importDefault(require("cors"));
 const express_rate_limit_1 = require("express-rate-limit");
 const logger_1 = __importDefault(require("./logger"));
-// HTTP(S) Modul je nach `secure`
+// HTTP(S) module depending on `secure`
 const logger = new logger_1.default();
-// Bruteforce\-Schutz
-// \`skipSuccessfulRequests\` ersetzt das frühere \`req.brute.reset()\`: nur Antworten >= 400 zählen.
+// Brute-force protection
+// `skipSuccessfulRequests` replaces the former `req.brute.reset()`: only responses >= 400 count.
 const bruteforce = (0, express_rate_limit_1.rateLimit)({
     windowMs: 15 * 60 * 1000,
     limit: 5,
@@ -24,15 +24,15 @@ const bruteforce = (0, express_rate_limit_1.rateLimit)({
     standardHeaders: 'draft-8',
     legacyHeaders: false,
     message: { error: { text: 'Too many requests in this time frame.' } },
-    // Server laeuft ohne Reverse\-Proxy direkt auf 443, daher ist \`trust proxy\` bewusst aus.
-    // Ein \`X\-Forwarded\-For\` kann hier nur vom Client gefaelscht sein \- die Warnung waere ein Fehlalarm.
+    // The server runs directly on 443 without a reverse proxy, so `trust proxy` is intentionally disabled.
+    // An `X-Forwarded-For` here can only be spoofed by the client - the warning would be a false positive.
     validate: { xForwardedForHeader: false },
 });
 const app = {
     app: (0, express_1.default)(),
     server: null,
 };
-// Port normalisieren
+// Normalize port
 function normalizePort(val) {
     const port = parseInt(String(val), 10);
     if (isNaN(port)) {
@@ -94,10 +94,10 @@ function init(config) {
             }
         });
     });
-    // CORS für adapterref
+    // CORS for adapterref
     app.app.options('/{*splat}/adapterref/{*rest}', (0, cors_1.default)());
     app.app.use('/{*splat}/adapterref/{*rest}', (0, cors_1.default)());
-    // Statisches Verzeichnis
+    // Static directory
     console.log(`Serving ${node_path_1.default.join(__dirname, '../..', config.public)}`);
     app.app.use(express_1.default.static(node_path_1.default.join(__dirname, '../..', config.public)));
     app.app.use(body_parser_1.default.json({ limit: 50000000, type: 'application/json' }));
@@ -105,7 +105,7 @@ function init(config) {
     app.app.get('/fix.sh', (req, res) => res.redirect(301, 'https://iobroker.net/fix.sh'));
     app.app.get('/install.sh', (req, res) => res.redirect(301, 'https://iobroker.net/install.sh'));
     app.app.get('/diag.sh', (req, res) => res.redirect(301, 'https://iobroker.net/diag.sh'));
-    // Upload\-Endpoint
+    // Upload endpoint
     app.app.post('/', bruteforce, (req, res) => {
         const file = req.query.file;
         const secret = req.query.secret;
@@ -141,14 +141,14 @@ function init(config) {
             next();
         });
     }
-    // HTTP(S)\-Server erstellen
+    // Create HTTP(S) server
     if (!config.secure) {
         app.server = node_http_1.default.createServer(app.app);
     }
     else {
         app.server = node_https_1.default.createServer(httpsOptions, app.app);
     }
-    // Non\-null Assertion, da nach oben immer gesetzt
+    // Non-null assertion, as it is always assigned above
     app.server.listen(port, config.bind);
     app.server.on('error', error => {
         if (error.syscall !== 'listen') {

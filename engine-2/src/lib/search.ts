@@ -15,15 +15,15 @@ type Doc = {
 type TitleEntry = { title: string };
 type TitlesMap = Record<string, Record<string, TitleEntry>>;
 
-// MiniSearch hat je nach Build keine klare Konstruktor-Signatur, daher `any`
+// MiniSearch has no clear constructor signature depending on the build, hence `any`.
 type MiniSearchInstance = any;
 type LangsMap = Record<string, MiniSearchInstance>;
 
 let langs: LangsMap = {};
 let titles: TitlesMap = {};
 
-// Einige Bundles exportieren MiniSearch als Default, andere als Named Export.
-// `as any` stellt sicher, dass der Konstruktor verwendbar ist.
+// Some bundles export MiniSearch as the default, others as a named export.
+// `as any` ensures the constructor can be used.
 const MiniSearch: any = (MiniSearchModule as any).default || (MiniSearchModule as any);
 
 function loadDocuments(lang: string, dir: string, root?: string, docs?: Doc[]): Doc[] {
@@ -103,7 +103,7 @@ export function init(app: ExpressLikeApp, config: AppConfig): void {
     });
 }
 
-// Ergebnistyp für `search`
+// Result type for `search`
 export type SearchResult = {
     id: string | number;
     title?: any;
@@ -120,7 +120,7 @@ export function search(lang: string, text: string): SearchResult[] {
 
     const r: SearchResult[] = rawResults.map((s: any) => {
         const titleInfo = (titles[lang] && titles[lang][s.id as string]) || ({} as TitleEntry);
-        // im Original: `s.title = Object.assign({}, s, titles[lang][s.id])`
+        // Originally: `s.title = Object.assign({}, s, titles[lang][s.id])`
         s.title = Object.assign({}, s, titleInfo);
         return s;
     });
