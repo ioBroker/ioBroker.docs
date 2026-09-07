@@ -19,7 +19,7 @@ hash: VLVL6oNNFIC0HhQ5EDt2a3POqhRCEm2hYDOLKr+gd9c=
 ## 适用于 OnlyCat® 猫门的适配器，带猎物检测功能
 带有猎物检测功能的 OnlyCat® 猫门适配器。
 
-<p align="center"> <img src="/admin/onlycat-flap.webp" /> </p> <p align="center"> <img style="max-width: 300px" src="/admin/screenshot.jpg" /> </p>
+<p align="center"> <img src="./admin/onlycat-flap.webp" /> </p> <p align="center"> <img style="max-width: 300px" src="./admin/screenshot.jpg" /> </p>
 
 ＃＃ 配置
 在适配器配置页面添加设备令牌。

@@ -10,7 +10,7 @@ hash: C5pIfK9l40j7Qo7Ce06MCaadNnJvCtRMklxgYIKbR0k=
 На этой вкладке отображаются текущие состояния всех точек данных.
 Значения также могут быть изменены.
 
-![iobroker_admin_states_columns](../../../../de/adapterref/iobroker.admin/admin/img/tab-states_columns.jpg)
+![iobroker_admin_states_columns](../img/tab-states_columns.jpg)
 
 ## Содержание страницы
 На странице существующие объекты представлены в виде таблицы.
@@ -48,7 +48,7 @@ hash: C5pIfK9l40j7Qo7Ce06MCaadNnJvCtRMklxgYIKbR0k=
 ## Нижний колонтитул страницы
 В нижнем колонтитуле есть еще немного информации
 
-![iobroker_admin_states_footer](../../../../de/adapterref/iobroker.admin/admin/img/tab-states_footer.jpg)
+![iobroker_admin_states_footer](../img/tab-states_footer.jpg)
 
 ### **1.) Перезагрузить**
 Этот значок можно нажать, чтобы обновить таблицу.

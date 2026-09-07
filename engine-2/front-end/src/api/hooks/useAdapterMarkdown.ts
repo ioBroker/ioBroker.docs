@@ -1,15 +1,10 @@
 import { useQuery, type UseQueryResult } from '@tanstack/react-query';
+import { fetchMarkdown } from '../fetchMarkdown';
 
 export const useAdapterMarkdown = (markdownUrl: string): UseQueryResult<string, Error> => {
     return useQuery<string>({
         queryKey: ['adapter-markdown', markdownUrl],
-        queryFn: async () => {
-            const response = await fetch(markdownUrl);
-            if (!response.ok) {
-                throw new Error('Failed to fetch adapter markdown');
-            }
-            return response.text();
-        },
+        queryFn: () => fetchMarkdown(markdownUrl, 'adapter markdown'),
         enabled: Boolean(markdownUrl),
         staleTime: Infinity,
     });

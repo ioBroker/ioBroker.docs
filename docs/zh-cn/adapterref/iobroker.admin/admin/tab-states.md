@@ -10,7 +10,7 @@ hash: C5pIfK9l40j7Qo7Ce06MCaadNnJvCtRMklxgYIKbR0k=
 在此选项卡中，将显示所有数据点的当前状态。
 值也可以更改。
 
-![iobroker_admin_states_columns](../../../../de/adapterref/iobroker.admin/admin/img/tab-states_columns.jpg)
+![iobroker_admin_states_columns](../img/tab-states_columns.jpg)
 
 ##页面内容
 在页面上，现有对象列表。
@@ -48,7 +48,7 @@ hash: C5pIfK9l40j7Qo7Ce06MCaadNnJvCtRMklxgYIKbR0k=
 ##页脚
 在页脚中，仍然有一些信息
 
-![iobroker_admin_states_footer](../../../../de/adapterref/iobroker.admin/admin/img/tab-states_footer.jpg)
+![iobroker_admin_states_footer](../img/tab-states_footer.jpg)
 
 ### ** 1.）重新载入**
 可以单击此图标以使表更新。

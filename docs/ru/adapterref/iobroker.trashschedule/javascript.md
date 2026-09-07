@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.trashschedule
 hash: cxuDJQ+FE/gJo8Qr10VP3+MokTAvixeultz+dNobj/k=
 ---
-![логотип](../../../de/admin/trashschedule.png)
+![логотип](./trashschedule.png)
 
 # IoBroker.trashschedule
 Общая функция отправки сообщений

@@ -5,7 +5,7 @@ chapters: {"pages":{"de/adapterref/iobroker.admin/README.md":{"title":{"de":"no 
 
 In diesem Reiter werden die aktuellen Zustände von allen Datenpunkten angezeigt. Die Werte können auch geändert werden.
 
-![iobroker_admin_states_columns](img/tab-events_States_columns.jpg)
+![iobroker_admin_states_columns](../img/tab-events_States_columns.jpg)
 
 ## Der Seiteninhalt
 
@@ -52,7 +52,7 @@ Dies ist der Zeitstempel zu dem sich der Wert des Datenpunktes zuletzt geänder
 
 Im Seitenfuß gibt es noch ein paar Informationen 
 
-![iobroker_admin_states_footer](img/tab-events_States_footer.jpg)
+![iobroker_admin_states_footer](../img/tab-events_States_footer.jpg)
 
 ### **1.) neu laden**
 

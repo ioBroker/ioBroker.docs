@@ -72,13 +72,10 @@ function Link(props: {
                     display: props.noDesktop ? 'none' : undefined,
                 },
             })}
-            // onClick={e => {
-            //     if (props.name && props.navigateTo) {
-            //         e.preventDefault();
-            //         void props.navigateTo(props.name as any);
-            //     }
-            //     props.onClose?.();
-            // }}
+            // Picking a page closes the menu - it has done its job. The theme and the
+            // language switch below leave it open on purpose: after those the user
+            // usually still wants to choose something.
+            onClick={() => props.onClose?.()}
             href={props.url || (props.location ? `/${props.location}/${props.name}` : `/${props.name}`)}
             style={{
                 textWrap: 'nowrap',
@@ -520,12 +517,9 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                 tooltip={I18n.t('tooltip.github')}
                                 icon={<GitHubIcon />}
                             />
-                            <OwnButton
-                                name={'community'}
-                                href={EXTERNAL_LINKS.GITHUB_COMMUNITY}
-                                tooltip={I18n.t('tooltip.github_community')}
-                                icon={<GitHubIcon />}
-                            />
+                            {/* "GitHub Community" stand hier als zweites GitHub-Zeichen und war
+                                fuer Besucher nicht von dem daneben zu unterscheiden - am
+                                06.09.2026 entfernt (Denis), wie zuvor in der Fusszeile */}
                             <OwnButton
                                 name={'group'}
                                 textOffset={-8}

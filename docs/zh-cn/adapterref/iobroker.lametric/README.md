@@ -19,7 +19,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.lametric
 hash: 5oXMHZuuRRlMbf0DrL7q3s1fXb9ynA7278RmsRWaMSc=
 ---
-![标识](../../../en/admin/lametric.png)
+![标识](./admin/lametric.png)
 
 # IoBroker.lametric
 ＃＃ 目录

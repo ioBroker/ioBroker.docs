@@ -10,13 +10,13 @@ hash: kzof4XfyddkyR8KdFjUtTOUg5IE6jzeGfhiqozkyyE0=
 这里连续输出系统的消息。
 最新消息位于顶部。
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-log_01.jpg)
+![](../img/tab-log_01.jpg)
 
 ##标题栏
 标题栏包含最重要流程的图标。
 每个图标都有一个上下文帮助。只需将鼠标停留在图标上一段时间即可。
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-log_icons.jpg)
+![](../img/tab-log_icons.jpg)
 
 ### **详细图标：**
 ### ** 1.）停止更新**
@@ -37,13 +37,13 @@ hash: kzof4XfyddkyR8KdFjUtTOUg5IE6jzeGfhiqozkyyE0=
 
 ###下拉菜单
 ### **实例过滤器**
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-log_instances.jpg)
+![](../img/tab-log_instances.jpg)
 
 使用此下拉菜单，可以根据日志记录实例过滤消息。
 在菜单中，仅显示实例，页面上也有条目。
 
 ### **显示日志级别**
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-log_loglevel.jpg)
+![](../img/tab-log_loglevel.jpg)
 
 此菜单用于设置消息的严重性。
 但是，这只是现有列表的过滤器。要为实例设置特定级别的日志记录，必须在_ **Instances** _选项卡中设置。

@@ -8,7 +8,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.history
 hash: W1jkUUDShCdYwG/MMdeVXjMKLLrsmvjvn5BE/fr6C3k=
 ---
-![标识](../../../en/admin/history.png)
+![标识](./admin/history.png)
 
 # IoBroker.history
 * [描述](#description)

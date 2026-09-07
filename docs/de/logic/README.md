@@ -1,25 +1,119 @@
 ---
-title:       "Logik"
-lastChanged: "13.09.2018"
-template:    true
+title:       "Logik & Automatisierung"
+lastChanged: "07.09.2026"
 ---
 
-# Logiken
+# Logik und Automatisierung
 
-?> ***Dies ist ein Platzhalter***.
-   <br><br>
-   Hilf mit bei ioBroker und erweitere diesen Artikel.  
-   Bitte beachte den [ioBroker Style Guide](community/styleguidedoc),
-   damit die Änderungen einfacher übernommen werden können.
+ioBroker sammelt Zustände: eine Temperatur, ein Schaltzustand, eine Uhrzeit.
+Erst die Logik macht daraus ein Smart Home. Sie beobachtet Zustände, entscheidet
+und setzt andere Zustände - "wenn die Balkontür länger als fünf Minuten offen
+ist und die Heizung läuft, dann Heizung aus und Nachricht aufs Telefon".
 
-   @@@   
-   Ziel hier ist "High Level" Beschreibung der wichtigsten Screens der 
-   Script-Adapter Oberflächen. Vielleicht je Screen ein Bild mit 
-   Erklärungen der wichtigen Bereiche und Möglichkeiten.
+Es gibt mehrere Wege, diese Logik zu schreiben. Sie schließen sich nicht aus:
+in einer gewachsenen Installation stehen grafische Regeln und JavaScript
+nebeneinander, jedes dort, wo es am wenigsten Aufwand macht.
 
-   Sub-Dialoge und Details sollten in die Adapter-Referenz zum 
-   entsprechenden Adapter verweisen.  
-   @@@   
+## Wo die Logik läuft
 
+Die meisten Wege gehören zu **einem** Adapter, dem
+[javascript-Adapter](https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/README.md).
+Er bringt nach der Installation den Reiter *Skripte* in die Admin-Oberfläche und
+führt dort Blockly, Regeln, JavaScript und TypeScript aus. Wer eines dieser vier
+nutzen möchte, installiert also nur diesen einen Adapter.
 
-Hier geht es zur [englischen Funktions-Doku](https://github.com/ioBroker/ioBroker.javascript/blob/master/docs/en/javascript.md)
+Zwei weitere Wege sind eigene Adapter:
+[node-red](https://www.iobroker.net/#de/adapters/adapterref/iobroker.node-red/README.md)
+bringt den Flow-Editor von Node-RED mit, und
+[scenes](https://www.iobroker.net/#de/adapters/adapterref/iobroker.scenes/README.md)
+speichert Szenen, ohne dass dafür programmiert werden muss.
+
+## Die Wege im Überblick
+
+| Weg | Was es ist | Adapter |
+|---|---|---|
+| [Blockly](https://www.iobroker.net/#de/documentation/logic/blockly.md) | Grafische Bausteine, die ineinandergesteckt werden | javascript |
+| Regeln | Ein Formular nach dem Muster *wenn - dann*, ohne Bausteine | javascript |
+| [JavaScript](https://www.iobroker.net/#de/documentation/logic/javascript.md) | Die volle Programmiersprache mit der ioBroker-Skript-API | javascript |
+| [TypeScript](https://www.iobroker.net/#de/documentation/logic/typescript.md) | JavaScript mit Typprüfung vor dem Start | javascript |
+| [Node-RED](https://www.iobroker.net/#de/documentation/logic/nodered.md) | Ein eigener Editor, in dem Knoten mit Linien verbunden werden | node-red |
+| Szenen | Eine Liste von Zuständen und ihren Sollwerten, kein Programm | scenes |
+
+## Welcher Weg wofür
+
+**Szenen** sind kein Programm, sondern eine gespeicherte Situation: "Fernsehen"
+setzt fünf Lampen auf bestimmte Werte. Wer nur solche Situationen braucht,
+braucht keine Logik, sondern den scenes-Adapter. Szenen lassen sich später aus
+jedem der anderen Wege heraus aufrufen.
+
+**Regeln** sind der kürzeste Einstieg, wenn eine Automatisierung wirklich dem
+Muster *wenn dieser Zustand, dann jene Aktion* folgt. Es wird nichts
+zusammengesteckt, sondern ausgewählt.
+
+**Blockly** ist der richtige Weg, sobald mehrere Bedingungen, Verzögerungen
+oder Schleifen ins Spiel kommen und trotzdem niemand Code schreiben möchte. Es
+ist keine Spielzeugversion: die Bausteine decken den größten Teil der
+Skript-API ab, und aus jedem Blockly-Skript lässt sich der erzeugte
+JavaScript-Code anzeigen.
+
+**JavaScript** lohnt sich, sobald ein Skript unübersichtlich wird - viele
+gleichartige Fälle, eigene Funktionen, Datenstrukturen, npm-Module. Ein
+Blockly-Skript mit dreißig Bausteinen ist meist zehn Zeilen JavaScript.
+
+**TypeScript** ist JavaScript mit einer Prüfung vor dem Start. Es lohnt sich bei
+längeren Skripten, die man selten anfasst und deshalb nicht mehr im Kopf hat.
+
+**Node-RED** spielt seine Stärke dort aus, wo Daten von vielen Quellen
+zusammenlaufen und weiterverarbeitet werden - Protokolle, HTTP-Aufrufe,
+Warteschlangen. Für "wenn Bewegung, dann Licht" ist es der aufwendigere Weg,
+denn es läuft als eigener Prozess neben ioBroker.
+
+?> Ein Weg schließt den anderen nicht aus. Es ist üblich, die einfachen
+   Automatisierungen als Regeln oder in Blockly zu halten und nur das zu
+   JavaScript zu machen, was dort mühsam würde.
+
+## Was für alle Wege gilt
+
+Egal welcher Weg gewählt wird, drei Dinge sind immer gleich.
+
+**Logik reagiert, sie fragt nicht.** Ein Skript, das jede Sekunde nachschaut, ob
+sich etwas geändert hat, ist fast immer falsch. ioBroker meldet jede Änderung
+von sich aus; die Logik hängt sich an diese Meldung. Das ist nicht nur
+sparsamer, es ist auch genauer.
+
+**Das ack-Flag trennt Befehl und Rückmeldung.** Jeder Zustand trägt neben dem
+Wert ein Flag `ack`. `ack: false` heißt "das ist ein Befehl an das Gerät",
+`ack: true` heißt "das Gerät meldet, dass es so ist". Wer beim Auslöser nicht
+unterscheidet, baut sich Schleifen: das Skript schaltet, das Gerät bestätigt,
+die Bestätigung löst das Skript erneut aus. Näheres unter
+[Zustände](https://www.iobroker.net/#de/documentation/basics/states.md).
+
+**Zustände sind das gemeinsame Gedächtnis.** Skripte teilen keine Variablen -
+auch nicht zwei Skripte derselben Instanz. Wenn ein Skript einem anderen etwas
+mitteilen soll, geschieht das über einen Zustand.
+
+## Anfangen
+
+1. Im Admin unter *Adapter* den javascript-Adapter installieren und eine
+   Instanz anlegen.
+2. In den Instanzeinstellungen die Geo-Koordinaten eintragen. Ohne sie sind
+   Sonnenauf- und -untergang nicht berechenbar, und genau die braucht man
+   schnell.
+3. Der neue Reiter *Skripte* erscheint. Dort links über das Blatt-Symbol ein
+   neues Skript anlegen und dabei den Typ wählen - Regeln, Blockly, JavaScript
+   oder TypeScript.
+4. Das Skript wird erst ausgeführt, wenn es über den Play-Knopf aktiviert wird.
+
+?> Für die ersten Versuche empfiehlt sich eine zweite javascript-Instanz. Ein
+   schwerer Fehler beendet dann nur diese Testinstanz und nicht die, in der die
+   Heizungssteuerung läuft. Mehr dazu unter
+   [Fehlersuche](https://www.iobroker.net/#de/documentation/logic/help.md).
+
+## Weiter
+
+* [Blockly](https://www.iobroker.net/#de/documentation/logic/blockly.md)
+* [JavaScript](https://www.iobroker.net/#de/documentation/logic/javascript.md)
+* [TypeScript](https://www.iobroker.net/#de/documentation/logic/typescript.md)
+* [Node-RED](https://www.iobroker.net/#de/documentation/logic/nodered.md)
+* [Fehlersuche](https://www.iobroker.net/#de/documentation/logic/help.md)
+* [Bewährte Vorgehensweisen](https://www.iobroker.net/#de/documentation/logic/examples.md)

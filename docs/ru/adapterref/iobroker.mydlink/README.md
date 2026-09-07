@@ -11,7 +11,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.mydlink
 hash: eCGuBeInjjV4cyy3m3rBlDYlL5onPbcwPiG46PBaZd0=
 ---
-![Логотип](../../../en/adapterref/iobroker.mydlink/../../admin/mydlink.png)
+![Логотип](./admin/mydlink.png)
 
 # IoBroker.mydlink
 Адаптер MyDlink для ioBroker.

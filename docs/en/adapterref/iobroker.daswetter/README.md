@@ -59,7 +59,7 @@ reduce the requests to a lowest minimum. Meteored provides us the basic plan for
 
 ### limitations of free plan
 
-![free plan limitations](/docs/free_plan.png "free plan limitations")
+![free plan limitations](./docs/free_plan.png "free plan limitations")
 
 ### alternatives
 

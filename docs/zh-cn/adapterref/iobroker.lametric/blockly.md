@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.lametric
 hash: ZWHAjFD9uLetdMfusImcQ5qbFjzjisp7oa3rPf4LSNE=
 ---
-![商标](../../../de/adapterref/iobroker.lametric/../../admin/lametric.png)
+![商标](./admin/lametric.png)
 
 # IoBroker.lametric
 ## 块状示例

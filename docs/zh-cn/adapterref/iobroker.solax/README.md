@@ -13,7 +13,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.solax
 hash: RZW6F+kMWyyDPRGfkXmz1YZ5xP43u5qCgjakymep7ZI=
 ---
-![标识](../../../en/admin/solax.png)
+![标识](./admin/solax.png)
 
 ![NPM版本](http://img.shields.io/npm/v/iobroker.solax.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.solax.svg)
@@ -43,10 +43,10 @@ Solax逆变器API云连接
 为此，您需要一个 Solax 帐户、您的令牌 ID 和 WiFi 模块的序列号。
 
 ## API 令牌
-<span><img src="../img/solax_api.png"></span>
+<span><img src="./docs/en/img/solax_api.png"></span>
 
 ＃＃ 序列号
-<span><img src="../img/wifi-stick.png"></span>
+<span><img src="./docs/en/img/wifi-stick.png"></span>
 
 ## 专家设置
 当前仅 Pocket Wifi 棒支持本地连接。 LAN 棒只能在云模式下操作。
@@ -60,7 +60,7 @@ Solax逆变器API云连接
 
 如果您已连接到热点，请使用以下 IP 地址在浏览器中转至 Wifi 棒的 Web 界面：`5.8.8.8`<br>如果您在初始设置期间没有更改密码，则默认登录数据为 admin:admin
 
-<span><img src="../img/webif.png"></span>
+<span><img src="./docs/en/img/webif.png"></span>
 
 在网络界面中，转到“系统”选项卡，您将在那里找到当前安装的固件版本。<br>如果版本大于 2.033.20 (Wifi-Pocket V1/V2) 且小于 3.001 (Wifi-Pocket V3)，您可以通过“更新固件 (.usb)”菜单项在同一选项卡中刷新正确的版本。
 

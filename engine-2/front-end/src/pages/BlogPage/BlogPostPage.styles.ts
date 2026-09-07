@@ -205,12 +205,19 @@ export const useStyles = makeStyles()(theme => ({
         gap: '16px',
         cursor: 'pointer',
         maxWidth: '100%',
+        // the title has to give way, otherwise the anchor icon next to it is pushed
+        // past the right edge of the page - and a long German compound is broken
+        // rather than cut off in the 192 px column of a 320 px phone
+        '& > div': {
+            minWidth: 0,
+            overflowWrap: 'anywhere',
+        },
         [theme.breakpoints.down(481)]: {
             fontSize: '18px',
         },
     },
     heading: {
-        color: theme.palette.primary.main,
+        color: theme.custom.textAccent,
         fontSize: '20px',
         fontFamily: 'Audiowide',
         fontWeight: 400,
@@ -224,6 +231,13 @@ export const useStyles = makeStyles()(theme => ({
         gap: '16px',
         cursor: 'pointer',
         maxWidth: '100%',
+        // the title has to give way, otherwise the anchor icon next to it is pushed
+        // past the right edge of the page - and a long German compound is broken
+        // rather than cut off in the 192 px column of a 320 px phone
+        '& > div': {
+            minWidth: 0,
+            overflowWrap: 'anywhere',
+        },
         [theme.breakpoints.down(769)]: {
             fontSize: '18px',
         },

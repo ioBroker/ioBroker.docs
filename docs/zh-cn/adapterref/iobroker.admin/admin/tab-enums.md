@@ -10,13 +10,13 @@ hash: rqPVvVeC50Hm4dxcQ7zBoNm0VTUa7zS5Txki6arYBmc=
 这里列出了Homematic CCU的最爱，行业和房间。
 您也可以创建自己的列表可以在脚本中使用。
 
-![iobroker_adapter_admin_enums_01](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_01.jpg)
+![iobroker_adapter_admin_enums_01](../img/tab-enums_Enums_01.jpg)
 
 ##标题栏
 标题栏包含最重要流程的图标。
 每个图标都有一个上下文帮助。只需将鼠标停留在图标上一段时间即可。
 
-![iobroker_adapter_admin_enums_headers_01](../../../../de/adapterref/iobroker.admin/admin/img/ioBroker_Adapter_admin_Enums_Headers_01.jpg)
+![iobroker_adapter_admin_enums_headers_01](../img/ioBroker_Adapter_admin_Enums_Headers_01.jpg)
 
 ### **详细图标：**
 ### ** 1.）更新视图**
@@ -37,12 +37,12 @@ hash: rqPVvVeC50Hm4dxcQ7zBoNm0VTUa7zS5Txki6arYBmc=
 文件夹结构中的元素通过右侧的（+）图标创建（＃10）。
 配置窗口打开：
 
-![iobroker_adapter_admin_enums_new](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_new.jpg)
+![iobroker_adapter_admin_enums_new](../img/tab-enums_Enums_new.jpg)
 
 现在您必须为新枚举选择名称，生成的ID将自动调整。
 
 ###页面内容
-![iobroker_adapter_admin_enums_headers_03](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_Headers_03.jpg)
+![iobroker_adapter_admin_enums_headers_03](../img/tab-enums_Enums_Headers_03.jpg)
 
 在页面上，现有列表及其成员列表。
 
@@ -67,7 +67,7 @@ hash: rqPVvVeC50Hm4dxcQ7zBoNm0VTUa7zS5Txki6arYBmc=
 ### ** 10.）添加结构元素**
 单击此图标后，将打开一个对话框，可在相应结构中创建新成员。
 
-![iobroker_adapter_admin_enums_new_member](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_new_Member.jpg)
+![iobroker_adapter_admin_enums_new_member](../img/tab-enums_Enums_new_Member.jpg)
 
 同样，名称可以单独选择。根据结构和所选名称自动生成关联的ID。
 
@@ -77,4 +77,4 @@ hash: rqPVvVeC50Hm4dxcQ7zBoNm0VTUa7zS5Txki6arYBmc=
 ### ** 12.）信息**
 单击此图标后，将显示另一个窗口，其中包含有关所选元素的扩展信息。
 
-![iobroker_adapter_admin_enums_info](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_Info.jpg)
+![iobroker_adapter_admin_enums_info](../img/tab-enums_Enums_Info.jpg)

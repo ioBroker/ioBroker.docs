@@ -18,7 +18,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterr
 title: ioBroker.openknx
 hash: dJvvvwhbpG0TyhuYMt/pUFNmK0oJwlZTL/nUTTgK3Do=
 ---
-![Logo](../../../en/admin/openknx.png)
+![Logo](./admin/openknx.png)
 
 # IoBroker.openknx
 ## Merkmale
@@ -40,7 +40,7 @@ hash: dJvvvwhbpG0TyhuYMt/pUFNmK0oJwlZTL/nUTTgK3Do=
 Suchen Sie in der Adapterliste nach „openknx“ und installieren Sie es durch Anklicken des +-Symbols.
 
 ## Adapterkonfiguration
-![Einstellungen](../../../en/adapterref/img/setting.png)
+![Einstellungen](./docs/pictures/setting.png)
 
 Drücken Sie „Speichern & Schließen“ oder „Speichern“, um den Adapter neu zu starten und die Änderungen anzuwenden.
 
@@ -81,7 +81,7 @@ Nach einem erfolgreichen Import der .knxproj-Datei verwenden Sie die unten stehe
 #### XML-Import (Fallback)
 Falls Sie .knxproj nicht verwenden können, können Sie Gruppenadressen aus ETS als XML exportieren:
 
-![Wie exportiert man Gruppenadressen als XML in ETS?](../../../en/adapterref/img/exportGA.png)
+![Wie exportiert man Gruppenadressen als XML in ETS?](./docs/pictures/exportGA.png)
 
 1. Gehen Sie in ETS zu Gruppenadressen, wählen Sie Gruppenadresse exportieren und anschließend XML-Export in der neuesten Formatversion.
 
@@ -288,7 +288,7 @@ return msg;
 ## Protokollierungsstufe
 Aktivieren Sie den Expertenmodus, um zwischen verschiedenen Protokollierungsstufen zu wechseln. Standardmäßig ist die Stufe „Info“ eingestellt.
 
-![Protokollierungsstufe](../../../en/adapterref/img/loglevel.png)
+![Protokollierungsstufe](./docs/pictures/loglevel.png)
 
 ## Überwachung
 Openknx verwendet sentry.io zur Fehlerverfolgung (die Daten werden pseudonymisiert an den ioBroker Sentry-Server in Deutschland gesendet). Die Buslast wird im Objekt `info.busload` geschätzt.

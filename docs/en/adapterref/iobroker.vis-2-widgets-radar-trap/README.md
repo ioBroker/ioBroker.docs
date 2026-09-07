@@ -1,4 +1,4 @@
-![Logo](/admin/vis-2-widgets-radar-trap.png)
+![Logo](./admin/vis-2-widgets-radar-trap.png)
 
 # Vis 2 radar-trap widgets
 
@@ -11,13 +11,13 @@
 
 ## Widgets
 ### Info
-<img src="/img/info-widget.png" height="600">
+<img src="./img/info-widget.png" height="600">
 
 ### Area
-<img src="/img/area-widget.png" width="500">
+<img src="./img/area-widget.png" width="500">
 
 ### Route
-<img src="/img/route-widget.png" width="500">
+<img src="./img/route-widget.png" width="500">
 
 
 

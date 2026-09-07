@@ -9,7 +9,7 @@ hash: HKsMwIvpGIO+9hqNOzBFUsRM8OOTNgILqQ6z75xDXDY=
 ＃标签用户
 这里可以创建用户。单击左下角的（+）。默认情况下已创建管理员。
 
-![iobroker_adapter_admin_user_01](../../../../de/adapterref/iobroker.admin/admin/img/tab-user_01-1.jpg)
+![iobroker_adapter_admin_user_01](../img/tab-user_01-1.jpg)
 
 ##页面内容
 在页面上，现有用户以表格形式显示。列标题中的字段用于根据您自己的条件筛选表。
@@ -28,7 +28,7 @@ hash: HKsMwIvpGIO+9hqNOzBFUsRM8OOTNgILqQ6z75xDXDY=
 ### ** 4.）团体**
 此处显示在选项卡** _组_ **中创建的组。在这里，可以通过复选框将用户分配到相应的组。
 
-![iobroker_adapter_admin_user_groups](../../../../de/adapterref/iobroker.admin/admin/img/tab-user_Groups.jpg)
+![iobroker_adapter_admin_user_groups](../img/tab-user_Groups.jpg)
 
 ### ** 5.）创建新用户**
 此图标可用于创建新用户，然后必须将其分配给现有组。

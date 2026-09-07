@@ -13,7 +13,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: без названия
 hash: 3wNYB1rOKEVLL/JLKuXKZX/7Mspz3y+Bw4HwU3WDlBE=
 ---
-![Логотип](../../../en/admin/motioneye.png)
+![Логотип](./admin/motioneye.png)
 
 ### Адаптер ioBroker для MotionEye
 ## Документация

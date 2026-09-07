@@ -18,10 +18,15 @@ export const CommunitySection: React.FC = () => {
     const { classes } = useStyles();
     const { data: forumStats } = useForumStats();
 
+    const format = (value: number | string | undefined): string =>
+        value === undefined || value === null || value === ''
+            ? ''
+            : new Intl.NumberFormat('de-DE').format(Number(value));
+
     const communityData = [
-        { title: I18n.t('home.community.forum'), count: forumStats?.users },
-        { title: I18n.t('home.community.facebook'), count: '20543' },
-        { title: I18n.t('home.community.discord'), count: '2000' },
+        { title: I18n.t('home.community.forum'), count: format(forumStats?.users) },
+        { title: I18n.t('home.community.facebook'), count: format('20543') },
+        { title: I18n.t('home.community.discord'), count: format('2000') },
     ];
 
     return (
@@ -31,19 +36,23 @@ export const CommunitySection: React.FC = () => {
         >
             <Box className={classes.container}>
                 <Box sx={{ width: '100%', maxWidth: '1311px', textAlign: { xs: 'left', md: 'left' } }}>
-                    <SectionTitle sx={{ marginBottom: { xs: '10px !important', md: '24px !important' } }}>
-                        {I18n.t('home.community.title')}
-                    </SectionTitle>
+                    <SectionTitle>{I18n.t('home.community.title')}</SectionTitle>
                 </Box>
                 <Box className={classes.communityTextWrapper}>
                     <Typography
                         component="pre"
                         className={classes.communityText}
                     >
-                        /* {I18n.t('home.community.mainText')}
+                        /* {I18n.t('home.community.mainText')} */
                     </Typography>
-                    <Typography className={classes.secondaryText}>{I18n.t('home.community.secondary')} */</Typography>
                 </Box>
+                {/*
+                 * Der Satz war der letzte Absatz im Kommentarblock, gehoert aber nicht zum
+                 * Text, sondern zu den drei Kaesten: er fordert zu genau dem auf, was sie
+                 * anbieten. Darum steht er jetzt als Ueberschrift ueber ihnen (Denis,
+                 * 06.09.2026). Das schliessende Kommentarzeichen steht jetzt am Ende des Textes.
+                 */}
+                <Typography className={classes.statsHeading}>{I18n.t('home.community.secondary')}</Typography>
                 <Box className={classes.statsContainer}>
                     {communityData.map(item => (
                         <Box
@@ -61,13 +70,17 @@ export const CommunitySection: React.FC = () => {
                                     </Typography>
                                     <Typography className={classes.statNumber}>
                                         {item.count}
-                                        <Box
-                                            component="span"
-                                            sx={{ fontSize: '32px', verticalAlign: 'middle' }}
-                                        >
-                                            {' '}
-                                            +
-                                        </Box>
+                                        {item.count ? (
+                                            <Box
+                                                component="span"
+                                                // relativ zur Zahl, damit das Plus jede
+                                                // Groesse mitmacht statt eigene Stufen zu haben
+                                                sx={{ fontSize: '0.55em', verticalAlign: 'middle' }}
+                                            >
+                                                {' '}
+                                                +
+                                            </Box>
+                                        ) : null}
                                     </Typography>
                                     <Typography className={classes.statLabel}>
                                         {I18n.t('home.community.users')}

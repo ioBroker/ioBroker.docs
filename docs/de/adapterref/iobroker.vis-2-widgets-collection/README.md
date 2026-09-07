@@ -19,40 +19,40 @@ hash: EGatommG+RMPyunAI3cMFcnaiTKh5oWdXMMYrnHsp3s=
 
 ## Widgets
 ### Zustand
-<img src="/img/collection-state.png" height="150">
+<img src="./img/collection-state.png" height="150">
 
 ### Schaltflächengruppe
-<img src="/img/collection-button-group.png" height="150">
+<img src="./img/collection-button-group.png" height="150">
 
 ### Schieberegler
-<img src="/img/collection-slider.png" height="150">
+<img src="./img/collection-slider.png" height="150">
 
 ### Eingabe
-<img src="/img/collection-input.png" height="150">
+<img src="./img/collection-input.png" height="150">
 
 ### Schalten
-<img src="/img/collection-switch.png" height="150">
+<img src="./img/collection-switch.png" height="150">
 
 ### Kontrollkästchen
-<img src="/img/collection-checkbox.png" height="150">
+<img src="./img/collection-checkbox.png" height="150">
 
 ### Dialog
-<img src="/img/collection-dialog.png" height="150">
+<img src="./img/collection-dialog.png" height="150">
 
 ### Wählen
-<img src="/img/collection-select.png" height="150">
+<img src="./img/collection-select.png" height="150">
 
 ### RadioGroup
-<img src="/img/collection-radio-group.png" height="150">
+<img src="./img/collection-radio-group.png" height="150">
 
 ### Messgerät
-<img src="/img/collection-gauge.png" height="150">
+<img src="./img/collection-gauge.png" height="150">
 
 ### Licht
-<img src="/img/collection-light.png" height="150">
+<img src="./img/collection-light.png" height="150">
 
 ### JsonTable
-<img src="/img/collection-json-table.png" height="150">
+<img src="./img/collection-json-table.png" height="150">
 
 ---
 

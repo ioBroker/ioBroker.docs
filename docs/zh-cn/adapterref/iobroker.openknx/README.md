@@ -18,7 +18,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.openknx
 hash: dJvvvwhbpG0TyhuYMt/pUFNmK0oJwlZTL/nUTTgK3Do=
 ---
-![标识](../../../en/admin/openknx.png)
+![标识](./admin/openknx.png)
 
 # IoBroker.openknx
 ＃＃ 特征
@@ -40,7 +40,7 @@ hash: dJvvvwhbpG0TyhuYMt/pUFNmK0oJwlZTL/nUTTgK3Do=
 在适配器列表中搜索“openknx”，然后点击“+”符号进行安装。
 
 ## 适配器配置
-![设置](../../../en/adapterref/img/setting.png)
+![设置](./docs/pictures/setting.png)
 
 按“保存并关闭”或“保存”以重启适配器并应用更改。
 
@@ -81,7 +81,7 @@ hash: dJvvvwhbpG0TyhuYMt/pUFNmK0oJwlZTL/nUTTgK3Do=
 #### XML 导入（备用方案）
 如果无法使用 .knxproj 文件，您可以将 ETS 中的组地址导出为 XML 文件：
 
-![如何在ETS中将组地址导出为XML](../../../en/adapterref/img/exportGA.png)
+![如何在ETS中将组地址导出为XML](./docs/pictures/exportGA.png)
 
 1. 在 ETS 中，转到“组地址”，选择“导出组地址”，然后选择最新格式版本的 XML 导出。
 
@@ -290,7 +290,7 @@ return msg;
 ## 日志级别
 启用专家模式可在日志级别之间切换。默认级别为信息 (info)。
 
-![日志级别](../../../en/adapterref/img/loglevel.png)
+![日志级别](./docs/pictures/loglevel.png)
 
 ## 监控
 Openknx 使用 sentry.io 进行错误跟踪（数据发送到位于德国的 ioBroker Sentry 服务器，已匿名化处理）。

@@ -9,7 +9,7 @@ hash: Dn5CtO5okGfvvxL112X2km8W/OB3HqarZ13QntOJiLU=
 ＃系统设置
 这为ioBroker设置了基本参数。
 
-![管理员系统设置](../../../../de/adapterref/iobroker.admin/admin/img/tab-system_Systemeinstellungen.jpg)
+![管理员系统设置](../img/tab-system_Systemeinstellungen.jpg)
 
 ##主要设置
 ###系统语言
@@ -31,7 +31,7 @@ hash: Dn5CtO5okGfvvxL112X2km8W/OB3HqarZ13QntOJiLU=
 默认情况下，此SQL / History / InfluxDB适配器实例用于flot和rickshaw（图表）。
 
 ##存储库或存储库
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-system_Verwahrungsorte2.jpg)
+![](../img/tab-system_Verwahrungsorte2.jpg)
 
 ioBroker可以从不同的来源获取适配器列表。安装期间列出了以下来源：
 
@@ -46,12 +46,12 @@ ioBroker可以从不同的来源获取适配器列表。安装期间列出了以
 * **sources - conf / sources-dist.json** - 也是自动生成的，需要很长时间，但链接可能已过期（某些适配器可能丢失）
 
 ##证书
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-system_2017-01-19-09_33_54-ioBroker.jpg)
+![](../img/tab-system_2017-01-19-09_33_54-ioBroker.jpg)
 
 以下是用于SSL / HTTPS通信的证书的中心位置。证书由admin，web，simple-api，socketio使用。默认情况下，安装标准证书。你不能用它验证任何东西。它们仅用于SSL通信。由于证书是开放的，您应该使用自己的（自签名）证书，购买正确的证书或切换到Let's Encrypt。与默认证书的通信不安全，如果有人有目标读取流量，可以这样做。一定要安装自己的证书。例如根据[Linux的](http://guides.intertech.de/ssl_certificate_self.html)。
 
 ##让我们加密
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-system_2017-01-19-09_40_07-ioBroker.jpg)
+![](../img/tab-system_2017-01-19-09_40_07-ioBroker.jpg)
 
 Let's Encrypt是独立互联网安全研究组（ISRG）的免费，自动和开源_certificate权限。
 
@@ -89,7 +89,7 @@ Let's Encrypt是独立互联网安全研究组（ISRG）的免费，自动和开
 **让我们的加密仅适用于node.js版本> = 4.5 **
 
 ##统计
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-system_2017-01-19-09_48_46-ioBroker.jpg)
+![](../img/tab-system_2017-01-19-09_48_46-ioBroker.jpg)
 
 ioBroker管理员将以下信息发送到download.iobroker.net：
 

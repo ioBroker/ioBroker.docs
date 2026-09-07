@@ -18,7 +18,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.node-red
 hash: m7OAyT9HiOPniI4y9Ns0yLlvYBonwYxwyHnxWfm5+ps=
 ---
-![标识](../../../en/admin/node-red.png)
+![标识](./admin/node-red.png)
 
 # IoBroker.node-red
 **注意：** 如果您在 ioBroker 节点的 ID 选择对话框中找不到您的州，请按实例设置中的更新按钮或重启 Node-RED 实例。重启后将创建新的对象列表。

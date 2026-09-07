@@ -9,16 +9,16 @@ hash: QL+KH1rDLyLUu//lZEw1peBxkvCTrTkqq2Z4ohf+BKg=
 #Tab适配器
 此处显示和管理可用和已安装的适配器。
 
-![iobroker_image_bpi_20160910](../../../../de/adapterref/iobroker.admin/admin/img/ioBroker_Image_BPi_20160910.jpg)
+![iobroker_image_bpi_20160910](../img/ioBroker_Image_BPi_20160910.jpg)
 
 ##标题栏
 标题栏包含最重要流程的图标。
 每个图标都有一个上下文帮助。只需将鼠标停留在图标上一段时间即可。
 
-![iobroker_adapter_admin_002aa](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_002aa.jpg)
+![iobroker_adapter_admin_002aa](../img/tab-adapters_002aa.jpg)
 
 ### **详细图标：**
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_icons01_20170108-e1483882554815.jpg)
+![](../img/tab-adapters_icons01_20170108-e1483882554815.jpg)
 
 ### ** 1.）仅显示已安装的适配器**
 选择此图标时，仅显示已安装的适配器（切换功能）
@@ -31,7 +31,7 @@ hash: QL+KH1rDLyLUu//lZEw1peBxkvCTrTkqq2Z4ohf+BKg=
 
 此外，标题栏中还会显示另一个图标：
 
-![iobroker_adapter_admin_002b](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_002b.jpg)
+![iobroker_adapter_admin_002b](../img/tab-adapters_002b.jpg)
 
 单击此图标可更新所有可用的适配器。
 
@@ -40,19 +40,19 @@ hash: QL+KH1rDLyLUu//lZEw1peBxkvCTrTkqq2Z4ohf+BKg=
 
 单击此图标后，将打开相应的选择窗口：
 
-![iobroker_adapter_admin_002c_github](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_002c_GitHub.jpg)
+![iobroker_adapter_admin_002c_github](../img/tab-adapters_002c_GitHub.jpg)
 
 在选项卡** _ From github _ **下，只需在下拉菜单中选择所需的适配器，即可安装最新的预发行版本。
 
 如果选择“任意位置”选项卡，则可以在该字段中输入剩余文件路径或任何URL（例如，外部适配器开发人员的URL），并安装相应的适配器。
 
-![iobroker_adapter_admin_002c_ownfile](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_002c_ownFile.jpg)
+![iobroker_adapter_admin_002c_ownfile](../img/tab-adapters_002c_ownFile.jpg)
 
 ### ** 4.）打开专家模式**
 专家模式还允许您安装旧版本的适配器。
 如果选择此按钮，则会在每个适配器的最右侧显示下拉菜单（4）以安装早期版本。
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_icons02_20170108.jpg)
+![](../img/tab-adapters_icons02_20170108.jpg)
 
 ### ** 5.）检查更新**
 每次重新启动时，它都会自动检查更新。但您可以使用此按钮手动启动搜索。
@@ -72,7 +72,7 @@ hash: QL+KH1rDLyLUu//lZEw1peBxkvCTrTkqq2Z4ohf+BKg=
 ### ** 7.）展开所有主题**
 在右侧还有两个按钮
 
-![iobroker_adapter_admin_003a](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_003a.jpg)
+![iobroker_adapter_admin_003a](../img/tab-adapters_003a.jpg)
 
 ### ** 8.）编辑标签**
 使用此按钮，您可以隐藏未使用的标签并隐藏不可见的标签。
@@ -81,7 +81,7 @@ hash: QL+KH1rDLyLUu//lZEw1peBxkvCTrTkqq2Z4ohf+BKg=
 这为ioBroker设置了基本参数。
 
 ##页面内容
-![iobroker_admin_adapter_inhalt01](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_Inhalt01.jpg)适配器在页面上列表。该表包含以下列：
+![iobroker_admin_adapter_inhalt01](../img/tab-adapters_Inhalt01.jpg)适配器在页面上列表。该表包含以下列：
 
 ### ** 1.）姓名**
 此列列出适配器和关联图标的名称。
@@ -109,7 +109,7 @@ hash: QL+KH1rDLyLUu//lZEw1peBxkvCTrTkqq2Z4ohf+BKg=
 ### ** 8.）安装**
 在此列中有几个用于安装和帮助的按钮。
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_icons02_20170108.jpg)
+![](../img/tab-adapters_icons02_20170108.jpg)
 
 1.（+）添加适配器的实例。必须仍在“实例”选项卡中配置和激活它。对于大多数适配器，可以安装任意数量的实例，例如解决不同的硬件问题。如果无法做到这一点，将打开一个窗口，其中包含相应的错误消息。
 2.（？）如果此按钮处于活动状态，则会链接到适配器的帮助页面。这通常位于GitHub上，同时也维护适配器。

@@ -82,7 +82,9 @@ export const useDocsMenuStyles = makeStyles()(theme => {
             },
         },
         headerActive: {
-            color: theme.palette.primary.main,
+            // the selected entry sits on the raised step, where `primary` drops to
+            // 2.8:1 - this is the tree's top entry and has to be readable
+            color: theme.custom.textAccent,
             background: theme.custom.surfaces.raised,
             '&:hover': {
                 background: theme.custom.surfaces.raised,

@@ -1,4 +1,4 @@
-<img src="/admin/teslamate.svg" alt="Logo" style="max-width: 100%;" width="100">
+<img src="./admin/teslamate.svg" alt="Logo" style="max-width: 100%;" width="100">
 
 # ioBroker.teslamateapi
 

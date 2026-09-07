@@ -9,9 +9,9 @@ const ArrowIcon: React.FC = () => (
     <Box
         component="img"
         sx={{
-            width: { xs: '20px', sm: '40px' },
-            height: { xs: '20px', sm: '40px' },
-            margin: { xs: '0px', sm: '0 10px' },
+            width: { xs: '20px', sm: '24px' },
+            height: { xs: '20px', sm: '24px' },
+            margin: { xs: '0px', sm: '0 8px' },
         }}
         src={ArrowIconSvg}
         alt="arrow"
@@ -42,11 +42,14 @@ export const NewsletterSection: React.FC = () => {
                             // the column above centres its items instead of stretching them, so
                             // the row has to keep itself inside the page on its own
                             maxWidth: '100%',
+                            // the distance between the field and the arrow beside it -
+                            // 55 px let the two read as two separate controls instead of
+                            // as one input with its button
                             gap: {
-                                lg: '55px',
-                                md: '30px',
-                                sm: '20px',
-                                xs: '20px',
+                                lg: '18px',
+                                md: '16px',
+                                sm: '14px',
+                                xs: '14px',
                                 '@media (max-width:400px)': {
                                     gap: '10px !important',
                                 },
@@ -67,7 +70,7 @@ export const NewsletterSection: React.FC = () => {
                             sx={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                width: { md: 'auto', sm: '77px', xs: '77px' },
+                                width: { md: 'auto', sm: '64px', xs: '64px' },
                                 justifyContent: 'space-between',
                             }}
                         >

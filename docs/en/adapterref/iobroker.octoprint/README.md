@@ -13,7 +13,7 @@ BADGE-Beta: https://img.shields.io/npm/v/iobroker.octoprint.svg?color=red&label=
 BADGE-Stable: http://iobroker.live/badges/octoprint-stable.svg
 BADGE-Installed: http://iobroker.live/badges/octoprint-installed.svg
 ---
-![Logo](../../admin/octoprint.png)
+![Logo](./admin/octoprint.png)
 
 # ioBroker.octoprint
 

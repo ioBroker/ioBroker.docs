@@ -10,13 +10,13 @@ hash: rqPVvVeC50Hm4dxcQ7zBoNm0VTUa7zS5Txki6arYBmc=
 Здесь перечислены фавориты, торги и комнаты от Homematic CCU.
 Вы также можете создавать свои собственные списки, которые затем можно использовать в скриптах.
 
-![iobroker_adapter_admin_enums_01](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_01.jpg)
+![iobroker_adapter_admin_enums_01](../img/tab-enums_Enums_01.jpg)
 
 ## Строка заголовка
 Строка заголовка содержит значки для наиболее важных процессов.
 Для каждой иконки есть контекстная помощь. Просто держите мышь на значке некоторое время.
 
-![iobroker_adapter_admin_enums_headers_01](../../../../de/adapterref/iobroker.admin/admin/img/ioBroker_Adapter_admin_Enums_Headers_01.jpg)
+![iobroker_adapter_admin_enums_headers_01](../img/ioBroker_Adapter_admin_Enums_Headers_01.jpg)
 
 ### **Значки в деталях:**
 ### **1.) Обновить вид**
@@ -37,12 +37,12 @@ hash: rqPVvVeC50Hm4dxcQ7zBoNm0VTUa7zS5Txki6arYBmc=
 Элементы в структуре папок создаются с помощью значка (+) справа (# 10).
 Откроется окно конфигурации:
 
-![iobroker_adapter_admin_enums_new](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_new.jpg)
+![iobroker_adapter_admin_enums_new](../img/tab-enums_Enums_new.jpg)
 
 Теперь вам нужно выбрать имя для нового перечисления, сгенерированный идентификатор будет скорректирован автоматически.
 
 ### Содержание страницы
-![iobroker_adapter_admin_enums_headers_03](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_Headers_03.jpg)
+![iobroker_adapter_admin_enums_headers_03](../img/tab-enums_Enums_Headers_03.jpg)
 
 На странице существующие списки и их участники сведены в таблицу.
 
@@ -67,7 +67,7 @@ hash: rqPVvVeC50Hm4dxcQ7zBoNm0VTUa7zS5Txki6arYBmc=
 ### **10.) Добавить элемент структуры**
 После нажатия на этот значок открывается диалоговое окно, в котором можно создать нового члена в соответствующей структуре.
 
-![iobroker_adapter_admin_enums_new_member](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_new_Member.jpg)
+![iobroker_adapter_admin_enums_new_member](../img/tab-enums_Enums_new_Member.jpg)
 
 Опять же, имя можно выбрать индивидуально. Связанный идентификатор генерируется автоматически в соответствии со структурой и выбранным именем.
 
@@ -77,4 +77,4 @@ hash: rqPVvVeC50Hm4dxcQ7zBoNm0VTUa7zS5Txki6arYBmc=
 ### **12.) Информация**
 После нажатия на этот значок открывается другое окно с расширенной информацией о выбранном элементе.
 
-![iobroker_adapter_admin_enums_info](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_Info.jpg)
+![iobroker_adapter_admin_enums_info](../img/tab-enums_Enums_Info.jpg)

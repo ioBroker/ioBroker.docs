@@ -55,6 +55,8 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         [theme.breakpoints.down(769)]: {
             maxHeight: '100%',
             overflowY: 'hidden',
+            // anchor for the toggle, which leaves the flow below this width
+            position: 'relative',
         },
         [theme.breakpoints.down(481)]: {
             margin: '0',
@@ -79,6 +81,19 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         gap: '16px',
         paddingBottom: '20px',
         background: theme.custom.surfaces.canvas,
+        // The toggle is out of the flow here, so only this row steps aside for it: its own
+        // width plus this row's gap. It sits in the row now, not in a column beside it, so
+        // it keeps the row's own rhythm - the wider column gap left it stranded, and the
+        // inset before the magnifier adds to whatever gap is set here.
+        [theme.breakpoints.down(769)]: {
+            paddingLeft: `${theme.custom.control.height + 16}px`,
+        },
+        // The column drops its right gutter at this width so the article can use the full
+        // page; the search field has no scrollbar to fill that space and ended flush against
+        // the edge of the screen. It gets the gutter back on its own.
+        [theme.breakpoints.down(481)]: {
+            paddingRight: `${theme.custom.layout.gutter.sm}px`,
+        },
     },
     // switch for the table of contents - it lives in the tool row, so the panel
     // itself only takes width while it is open
@@ -194,12 +209,19 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         gap: '16px',
         cursor: 'pointer',
         maxWidth: '100%',
+        // the title has to give way, otherwise the anchor icon next to it is pushed
+        // past the right edge of the page - and a long German compound is broken
+        // rather than cut off in the 192 px column of a 320 px phone
+        '& > div': {
+            minWidth: 0,
+            overflowWrap: 'anywhere',
+        },
         [theme.breakpoints.down(481)]: {
             fontSize: '18px',
         },
     },
     heading: {
-        color: theme.palette.primary.main,
+        color: theme.custom.textAccent,
         fontSize: '20px',
         fontFamily: 'Audiowide',
         fontWeight: 400,
@@ -213,6 +235,13 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         gap: '16px',
         cursor: 'pointer',
         maxWidth: '100%',
+        // the title has to give way, otherwise the anchor icon next to it is pushed
+        // past the right edge of the page - and a long German compound is broken
+        // rather than cut off in the 192 px column of a 320 px phone
+        '& > div': {
+            minWidth: 0,
+            overflowWrap: 'anywhere',
+        },
         [theme.breakpoints.down(769)]: {
             fontSize: '18px',
         },
@@ -400,6 +429,38 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
         flexDirection: 'column',
         minHeight: 0,
         overflow: 'hidden',
+        // Below this the tree itself moves into the overlay (`menuBlockMobile`), but the
+        // column stays - it carries the toggle. Hiding the whole block left the phone
+        // without any way to open the documentation tree.
+        //
+        // As a flex child the 44 px toggle plus the 24 px gap indented the whole article
+        // by 68 px - a sixth of a 407 px screen, for a button that only occupies the first
+        // row. It is taken out of the flow instead: the text runs the full width and only
+        // the top bar keeps room for the button (see `topBar` below).
+        [theme.breakpoints.down(769)]: {
+            width: 'auto',
+            // The search field beside it is a compact control, the toggle a full-height one -
+            // 36 against 44. Out of the flow nothing centres them for us, so the taller box
+            // is lifted by half the difference and the two share a middle line.
+            top: `${(theme.custom.control.compactHeight - theme.custom.control.height) / 2}px`,
+            position: 'absolute',
+            left: 0,
+            // above the article, below the opened tree (`menuBlockMobile`, z-index 1000)
+            zIndex: 2,
+        },
+        // an absolute box is placed against the padding box, so the gutter `root` carries
+        // as padding at this width has to be repeated here - otherwise the toggle sits
+        // flush against the edge of the screen while the text keeps its margin
+        [theme.breakpoints.down(481)]: {
+            left: `${theme.custom.layout.gutter.sm}px`,
+        },
+    },
+    /** the tree next to the content - on a phone it is shown as an overlay instead */
+    menuList: {
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: 0,
+        overflow: 'hidden',
         [theme.breakpoints.down(769)]: {
             display: 'none',
         },
@@ -435,4 +496,52 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
     mainTopBlock: {},
     adaptersSearch: {},
     adaptersButton: {},
+    // The trail takes the place of the page title on every document below the start page:
+    // the heading of the document itself follows right underneath, so a second large title
+    // would only say the same thing twice. Same face and same place as on the adapter page,
+    // only every step stays small.
+    breadcrumbs: {
+        fontFamily: 'Audiowide, sans-serif',
+        fontSize: '18px',
+        lineHeight: 1.3,
+        color: theme.custom.textSubtle,
+        display: 'flex',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        columnGap: '8px',
+        rowGap: '4px',
+        textTransform: 'uppercase',
+        flexShrink: 0,
+        marginLeft: '16px',
+        marginBottom: '20px',
+        // the same steps the page title had before
+        [theme.breakpoints.up('sm')]: {
+            marginLeft: '24px',
+        },
+        [theme.breakpoints.up('lg')]: {
+            marginLeft: '32px',
+        },
+        [theme.breakpoints.down('lg')]: {
+            fontSize: '16px',
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '14px',
+        },
+    },
+    breadcrumbSlash: {
+        color: theme.custom.textSubtle,
+    },
+    breadcrumbLink: {
+        cursor: 'pointer',
+        '&:hover': {
+            color: theme.palette.primary.main,
+        },
+    },
+    // a folder has no document of its own - it names the place, it does not lead anywhere
+    breadcrumbFolder: {
+        cursor: 'default',
+    },
+    breadcrumbCurrent: {
+        color: theme.palette.primary.main,
+    },
 }));

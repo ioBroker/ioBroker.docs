@@ -10,7 +10,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: 安装说明
 hash: pmuEeuURe1K+Xf1kOmHTZG6bguIYTS/a2guR2rrDVq0=
 ---
-![标识](../../../de/admin/fritzdect_logo.png)
+![标识](../../../en/adapterref/iobroker.fritzdect/admin/fritzdect_logo.png)
 
 # 安装说明
 ## FritzBox 设置

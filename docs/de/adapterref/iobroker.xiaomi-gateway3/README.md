@@ -237,7 +237,7 @@ _**Hinweis:** Im Moment hat diese Seite grundlegende Funktionen. Es wird in Zuku
 ### Gerätekonfig
 Sie können einige Optionen zum Konfigurieren des Geräts (und der Karte des Geräts) definieren, indem Sie die Konfiguration mit yaml schreiben. Verfügbare Optionen unten in der Tabelle beschrieben. Sie können das Gerätekonfigurationsfenster (Fenster mit Texteingabebereich) mit dem Punkt `Config` im Menü aufrufen.
 
-<img src="static/device-yaml-config.png">
+<img src="../../../en/adapterref/iobroker.xiaomi-gateway3/static/device-yaml-config.png">
 
 #### Gerätekonfigurationsoptionen
 |Feld|Typ|Beschreibung|

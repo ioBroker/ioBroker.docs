@@ -13,7 +13,7 @@ hash: qzkL/Ayuc+GgQ5ldGidH5NcFcrxAEh19g1xjLMzFCzg=
 ![НПМ](https://nodei.co/npm/iobroker.vis-players.png?downloads=true)
 
 # IoBroker.vis-игроков
-![винамп](/widgets/players/img/winamp.png) ![винамп](../../../en/adapterref/iobroker.vis-players/widgets/players/img/sonos.png)
+![винамп](./widgets/players/img/winamp.png) ![винамп](../../../en/adapterref/iobroker.vis-players/widgets/players/img/sonos.png)
 
 Виджеты для медиаплееров.
 

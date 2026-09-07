@@ -89,7 +89,10 @@ const getStyles = (theme: any): Record<string, SxProps> => ({
         lineHeight: 1.4,
         letterSpacing: '0.06em',
         textTransform: 'uppercase',
-        color: theme.palette.primary.main,
+        // 12 px on the raised step - `primary` sits at 2.8:1 there, far under what a
+        // label this small needs. `textAccent` is the readable tone on light and stays
+        // `primary` on dark, where the contrast was never the problem.
+        color: theme.custom.textAccent,
     },
     features: {
         fontFamily: theme.typography.fontFamily,

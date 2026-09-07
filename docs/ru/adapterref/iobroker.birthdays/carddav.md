@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.дни рождения
 hash: p60GaIGZ/bhDUvD1Okr7rLYPIYqsNJHg/sjmBgfY1uc=
 ---
-![логотип](../../../de/adapterref/iobroker.birthdays/../../admin/birthdays.png)
+![логотип](./admin/birthdays.png)
 
 # IoBroker.дни рождения
 ## CardDAV

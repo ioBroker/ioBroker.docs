@@ -1,14 +1,14 @@
 import { makeStyles } from '../../theme';
 
 export const useStyles = makeStyles()(theme => {
+    // table cells are the `small` step of the reading scale - they stay at that step on
+    // a narrow screen too. Dropping to 14 px there made the adapter list the smallest
+    // running text on the site, on exactly the devices where it is hardest to read.
     const cellText = {
-        fontSize: '15px',
+        fontSize: theme.custom.reading.small.fontSize,
         fontWeight: 400,
-        lineHeight: 1.5,
+        lineHeight: theme.custom.reading.small.lineHeight,
         color: theme.custom.textMuted,
-        [theme.breakpoints.down(1280)]: {
-            fontSize: '14px',
-        },
     } as const;
 
     return {

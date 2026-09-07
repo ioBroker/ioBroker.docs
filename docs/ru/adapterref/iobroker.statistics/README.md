@@ -20,7 +20,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.статистика
 hash: V92dfCJJef+vDHFwjWqxZbwltEJlUayZvL+0vSXTzSw=
 ---
-![Логотип](../../../en/admin/statistics.png)
+![Логотип](./admin/statistics.png)
 
 # IoBroker.статистика
 Этот адаптер упростит настройку статистики.

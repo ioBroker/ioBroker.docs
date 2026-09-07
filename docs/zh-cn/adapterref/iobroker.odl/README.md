@@ -11,7 +11,7 @@ title: ioBroker.odl
 hash: XICJIRZWFL65xVqSL7iwuADAvVWWButIZezWf1Qqpp0=
 ---
 #ioBroker.odl
-![标识](../../../en/admin/odl.png)
+![标识](./admin/odl.png)
 
 ## IoBroker 中的当前环境放射性
 该适配器将德国[联邦辐射防护办公室 (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/)指定测量点的 ODL（环境剂量率/环境剂量率）值集成到 ioBroker 中。
@@ -31,7 +31,7 @@ Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt üb
 默认情况下，适配器每小时更新一次当前测量数据。较短的更新间隔通常没有意义，因为 BfS 服务器上的底层测量数据（取决于测量点）通常每小时更新一次。
 适配器首次启动时，会自动调整数据检索时间，以便并非所有安装都同时检索数据，从而避免 BfS 数据接口不必要地加载。
 
-[![截图 1](../ioBroker-odl-01.png)](../../../en/adapterref/ioBroker-odl-01.png)
+[![截图 1](./docs/ioBroker-odl-01.png)](../../../en/adapterref/ioBroker-odl-01.png)
 
 [![截图2]（../ioBroker-odl-02.png）](../../../en/adapterref/ioBroker-odl-02.png)
 

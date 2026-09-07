@@ -11,13 +11,13 @@ hash: wBKP7K139TehQSv9mxy6iGcoIz/dj9X8D7lacF88tpw=
 
 <span style="line-height: 1.5;"></span>
 
-![iobroker_admin_instanzen_inhalt00](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Inhalt00.jpg)
+![iobroker_admin_instanzen_inhalt00](../img/tab-instances_Inhalt00.jpg)
 
 ##标题栏
 标题栏包含最重要流程的图标。每个图标都有一个上下文帮助。
 只需将鼠标停留在图标上一段时间即可。还有关于服务器负载的信息
 
-![iobroker_admin_instanzen_headline_icons](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Icons-e1476803621402.jpg)
+![iobroker_admin_instanzen_headline_icons](../img/tab-instances_Icons-e1476803621402.jpg)
 
 ### **详细图标：**
 ### ** 1.）打开管理员模式**
@@ -33,7 +33,7 @@ hash: wBKP7K139TehQSv9mxy6iGcoIz/dj9X8D7lacF88tpw=
 第一个数字表示到目前为止实例使用的内存和剩余的可用内存（MB）。在它后面是％的免费记忆。方括号包含ioBroker服务器的名称和正在运行的进程数。
 
 ##页面内容
-![iobroker_admin_instanzen_headline_columns](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Headline_Columns.jpg)
+![iobroker_admin_instanzen_headline_columns](../img/tab-instances_Headline_Columns.jpg)
 
 在页面上，已安装的适配器实例已制成表格。
 
@@ -42,7 +42,7 @@ hash: wBKP7K139TehQSv9mxy6iGcoIz/dj9X8D7lacF88tpw=
 ### ** 1.）条件**
 这里，实例的状态由交通信号灯显示。通过用鼠标站在信号上获得更多信息。
 
-![iobroker_admin_instanzen_status](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Instanzen_Status.jpg)
+![iobroker_admin_instanzen_status](../img/tab-instances_Instanzen_Status.jpg)
 
 并非所有实例都有此交通灯。这没有理由恐慌。这些是定时实例，仅在短时间内连接到控制器，然后立即关闭或关闭。继续在后台运行。
 
@@ -77,7 +77,7 @@ hash: wBKP7K139TehQSv9mxy6iGcoIz/dj9X8D7lacF88tpw=
 该时间表的格式为[cronjobs](https://de.wikipedia.org/wiki/Cron#Beispiele)。
 要更改单击带有三个点的按钮。它打开一个输入窗口，其中包含许多其他信息和帮助。
 
-![iobroker_admin_instanzen_cronjob](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Cronjob.jpg)
+![iobroker_admin_instanzen_cronjob](../img/tab-instances_Cronjob.jpg)
 
 ### ** 11.）重启**
 如果勾选此复选框，则还应在此处重新启动此实例时创建计划。

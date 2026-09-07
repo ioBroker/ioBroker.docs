@@ -12,10 +12,10 @@ BADGE-GitHub Sponsor: https://img.shields.io/badge/Sponsor-GitHub-181717?logo=gi
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.senec/README.md
-title: <img src="../../admin/senec.png" width="36" align="top" alt="">ioBroker.senec
+title: <img src="./admin/senec.png" width="36" align="top" alt="">ioBroker.senec
 hash: JVe38En/cj1cuV9Pok3slNcCbKu7BxLVI0GN0H1RqNY=
 ---
-#<img src="../../admin/senec.png" width="36" align="top" alt=""> ioBroker.senec
+#<img src="./admin/senec.png" width="36" align="top" alt=""> ioBroker.senec
 ## Адаптер SENEC для ioBroker
 Контролируйте и управляйте вашей домашней системой хранения данных SENEC. Адаптер поддерживает четыре независимых разъема, которые можно использовать по отдельности или в комбинации:
 

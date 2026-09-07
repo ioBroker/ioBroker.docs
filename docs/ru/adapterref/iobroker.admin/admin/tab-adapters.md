@@ -9,16 +9,16 @@ hash: QL+KH1rDLyLUu//lZEw1peBxkvCTrTkqq2Z4ohf+BKg=
 # Адаптер вкладок
 Здесь отображаются доступные и установленные адаптеры и управление ими.
 
-![iobroker_image_bpi_20160910](../../../../de/adapterref/iobroker.admin/admin/img/ioBroker_Image_BPi_20160910.jpg)
+![iobroker_image_bpi_20160910](../img/ioBroker_Image_BPi_20160910.jpg)
 
 ## Строка заголовка
 Строка заголовка содержит значки для наиболее важных процессов.
 Для каждой иконки есть контекстная помощь. Просто держите мышь на значке некоторое время.
 
-![iobroker_adapter_admin_002aa](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_002aa.jpg)
+![iobroker_adapter_admin_002aa](../img/tab-adapters_002aa.jpg)
 
 ### **Значки в деталях:**
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_icons01_20170108-e1483882554815.jpg)
+![](../img/tab-adapters_icons01_20170108-e1483882554815.jpg)
 
 ### **1.) Показывать только установленные адаптеры**
 При выборе этого значка будут отображаться только уже установленные адаптеры (функция переключения).
@@ -31,7 +31,7 @@ hash: QL+KH1rDLyLUu//lZEw1peBxkvCTrTkqq2Z4ohf+BKg=
 
 Кроме того, в строке заголовка появляется еще один значок:
 
-![iobroker_adapter_admin_002b](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_002b.jpg)
+![iobroker_adapter_admin_002b](../img/tab-adapters_002b.jpg)
 
 Нажмите этот значок, чтобы обновить все доступные адаптеры.
 
@@ -40,19 +40,19 @@ hash: QL+KH1rDLyLUu//lZEw1peBxkvCTrTkqq2Z4ohf+BKg=
 
 После нажатия на этот значок открывается соответствующее окно выбора:
 
-![iobroker_adapter_admin_002c_github](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_002c_GitHub.jpg)
+![iobroker_adapter_admin_002c_github](../img/tab-adapters_002c_GitHub.jpg)
 
 На вкладке **_ из github _** нужный адаптер просто выбирается в выпадающем меню и устанавливается последняя предварительная версия.
 
 Если выбрана вкладка Anywhere, в поле можно ввести оставшийся путь к файлу или любой URL (например, URL-адрес для разработчика внешнего адаптера) и установить соответствующий адаптер.
 
-![iobroker_adapter_admin_002c_ownfile](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_002c_ownFile.jpg)
+![iobroker_adapter_admin_002c_ownfile](../img/tab-adapters_002c_ownFile.jpg)
 
 ### **4.) Включить экспертный режим**
 Экспертный режим также позволяет устанавливать более старые версии адаптера.
 Если эта кнопка выбрана, в правой части каждого адаптера появится выпадающее меню (4) для установки более ранних версий.
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_icons02_20170108.jpg)
+![](../img/tab-adapters_icons02_20170108.jpg)
 
 ### **5.) Проверить наличие обновлений**
 Каждый раз, когда вы перезапускаете, он автоматически проверяет наличие обновлений. Но вы можете начать поиск вручную с помощью этой кнопки.
@@ -72,7 +72,7 @@ hash: QL+KH1rDLyLUu//lZEw1peBxkvCTrTkqq2Z4ohf+BKg=
 ### **7.) Развернуть все темы**
 На правой стороне также есть две кнопки
 
-![iobroker_adapter_admin_003a](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_003a.jpg)
+![iobroker_adapter_admin_003a](../img/tab-adapters_003a.jpg)
 
 ### **8.) Редактировать вкладку**
 С помощью этой кнопки вы можете скрыть неиспользуемые вкладки и скрыть невидимые.
@@ -81,7 +81,7 @@ hash: QL+KH1rDLyLUu//lZEw1peBxkvCTrTkqq2Z4ohf+BKg=
 Это устанавливает основные параметры для ioBroker.
 
 ## Содержание страницы
-![iobroker_admin_adapter_inhalt01](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_Inhalt01.jpg) Адаптеры приведены в таблице на странице. Таблица состоит из следующих столбцов:
+![iobroker_admin_adapter_inhalt01](../img/tab-adapters_Inhalt01.jpg) Адаптеры приведены в таблице на странице. Таблица состоит из следующих столбцов:
 
 ### **1.) Имя**
 В этом столбце перечислены имена адаптеров и соответствующие значки.
@@ -109,7 +109,7 @@ hash: QL+KH1rDLyLUu//lZEw1peBxkvCTrTkqq2Z4ohf+BKg=
 ### **8.) Установить**
 В этом столбце несколько кнопок для установки и для помощи.
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-adapters_icons02_20170108.jpg)
+![](../img/tab-adapters_icons02_20170108.jpg)
 
 1. (+) Добавить экземпляр адаптера. Это все еще необходимо настроить и активировать на вкладке Экземпляры Для большинства адаптеров может быть установлено любое количество экземпляров, например обращаться к разным аппаратным средствам. Если это невозможно, откроется окно с соответствующим сообщением об ошибке.
 2. (?) Если эта кнопка активна, она ссылается на страницу справки для адаптера. Обычно он находится на GitHub, где также поддерживается адаптер.

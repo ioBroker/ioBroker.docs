@@ -13,7 +13,7 @@ hash: qzkL/Ayuc+GgQ5ldGidH5NcFcrxAEh19g1xjLMzFCzg=
 ![新PM](https://nodei.co/npm/iobroker.vis-players.png?downloads=true)
 
 # IoBroker.vis-players
-![温安普](/widgets/players/img/winamp.png)![温安普](../../../en/adapterref/iobroker.vis-players/widgets/players/img/sonos.png)
+![温安普](./widgets/players/img/winamp.png)![温安普](../../../en/adapterref/iobroker.vis-players/widgets/players/img/sonos.png)
 
 媒体播放器的小部件。
 

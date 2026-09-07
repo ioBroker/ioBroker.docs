@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.生日
 hash: RIwb5Sf7GsGAIGq9+rhvFhbU2gtWyhVPzmxFfpd0a/Q=
 ---
-![标识](../../../en/admin/birthdays.png)
+![标识](./admin/birthdays.png)
 
 # IoBroker.生日
 发送消息/通知的常用功能

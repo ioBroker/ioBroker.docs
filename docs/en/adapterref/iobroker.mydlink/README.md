@@ -5,7 +5,7 @@ BADGE-Number of Installations: https://iobroker.live/badges/mydlink-installed.sv
 BADGE-Current version in stable repository: https://iobroker.live/badges/mydlink-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.mydlink.png?downloads=true
 ---
-![Logo](../../admin/mydlink.png)
+![Logo](./admin/mydlink.png)
 # ioBroker.mydlink
 
 MyDlink Adapter for ioBroker. 

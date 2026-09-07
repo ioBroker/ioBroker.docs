@@ -13,13 +13,11 @@ export const useStyles = makeStyles()(theme => ({
         margin: '0px 8px 0px 0px',
         // breathing room below the fixed header
         paddingTop: '40px',
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('lg')]: {
             paddingTop: '32px',
         },
-        '@media (max-width: 481px)': {
+        [theme.breakpoints.down('sm')]: {
             paddingTop: '24px',
-        },
-        '@media (max-width: 480px)': {
             margin: '0px',
             background: 'transparent',
         },
@@ -34,7 +32,8 @@ export const useStyles = makeStyles()(theme => ({
         flex: 1,
         minHeight: 0,
         gap: '0 40px',
-        margin: '0px 8px 0px 32px',
+        // the page's left edge comes from the layout token, like every other page
+        margin: `0px 8px 0px ${theme.custom.layout.gutter.lg}px`,
         color: theme.palette.text.primary,
         fontFamily: theme.typography.fontFamily,
         overflowY: 'scroll',
@@ -54,12 +53,12 @@ export const useStyles = makeStyles()(theme => ({
             background: theme.palette.primary.main,
         },
 
-        '@media (max-width: 1279px)': {
-            margin: '0px 2px 0px 24px',
+        [theme.breakpoints.down('lg')]: {
+            margin: `0px 2px 0px ${theme.custom.layout.gutter.lg}px`,
             paddingRight: '10px',
         },
 
-        '@media (min-width: 769px) and (max-width: 1279px)': {
+        [theme.breakpoints.between('md', 'lg')]: {
             gridTemplateColumns: '1fr',
             gridTemplateAreas: `
                 "intro"
@@ -69,7 +68,7 @@ export const useStyles = makeStyles()(theme => ({
             gap: '24px 0',
         },
 
-        '@media (max-width: 768px)': {
+        [theme.breakpoints.down('md')]: {
             gridTemplateColumns: '1fr',
             gridTemplateAreas: `
                 "intro"
@@ -79,9 +78,10 @@ export const useStyles = makeStyles()(theme => ({
             gap: '24px 0',
             paddingRight: '0px',
         },
-        '@media (max-width: 480px)': {
+        // below 600 px, not 480 - the same step as the rest of the site
+        [theme.breakpoints.down('sm')]: {
             margin: '0px',
-            padding: '0px 0px 0px 10px',
+            padding: `0px 0px 0px ${theme.custom.layout.gutter.sm}px`,
         },
     },
 
@@ -91,7 +91,7 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         flexDirection: 'column',
         gap: '0',
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('lg')]: {
             display: 'contents',
         },
     },
@@ -110,20 +110,20 @@ export const useStyles = makeStyles()(theme => ({
         flexDirection: 'column',
         gap: '12px',
 
-        '@media (min-width: 769px) and (max-width: 1279px)': {
+        // Below the wide layout the sidebar becomes a row of two cards rather than a
+        // stack: on a tablet a stacked sidebar was capped at 460 px and left half the
+        // screen empty beside it.
+        [theme.breakpoints.between('sm', 'lg')]: {
             flexDirection: 'row',
             maxHeight: '408px',
             alignItems: 'stretch',
             gap: '24px',
             marginBottom: '16px',
         },
-        '@media (min-width: 480px) and (max-width: 769px)': {
-            maxWidth: '460px',
-        },
     },
     sidebarLeft: {
         width: '100%',
-        '@media (min-width: 769px) and (max-width: 1279px)': {
+        [theme.breakpoints.between('sm', 'lg')]: {
             flex: 1,
             maxWidth: '348px',
         },
@@ -134,13 +134,13 @@ export const useStyles = makeStyles()(theme => ({
         maxWidth: '350px',
         gap: '12px',
         width: '100%',
-        '@media (min-width: 769px) and (max-width: 1279px)': {
+        [theme.breakpoints.between('sm', 'lg')]: {
             flex: 1,
             maxWidth: '342px',
             gap: '16px',
             height: '100%',
         },
-        '@media (max-width: 769px)': {
+        [theme.breakpoints.down('sm')]: {
             maxWidth: 'none',
         },
     },
@@ -150,21 +150,20 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '18px',
         color: theme.custom.textSubtle,
         marginBottom: '20px',
-        marginLeft: '32px',
+        marginLeft: `${theme.custom.layout.gutter.lg}px`,
         display: 'flex',
         alignItems: 'center',
         flexWrap: 'wrap',
         columnGap: '8px',
         rowGap: '4px',
         textTransform: 'uppercase',
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('lg')]: {
             fontSize: '16px',
-            marginLeft: '24px',
             marginBottom: '18px',
         },
-        '@media (max-width: 480px)': {
+        [theme.breakpoints.down('sm')]: {
             fontSize: '14px',
-            marginLeft: '16px',
+            marginLeft: `${theme.custom.layout.gutter.sm}px`,
         },
     },
     breadcrumbsEnd: {
@@ -175,13 +174,10 @@ export const useStyles = makeStyles()(theme => ({
         alignItems: 'center',
         gap: '8px',
         textTransform: 'uppercase',
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('lg')]: {
             fontSize: '26px',
         },
-        '@media (max-width: 530px)': {
-            fontSize: '24px',
-        },
-        '@media (max-width: 480px)': {
+        [theme.breakpoints.down('sm')]: {
             fontSize: '20px',
         },
     },
@@ -193,14 +189,14 @@ export const useStyles = makeStyles()(theme => ({
     },
     paragraph: {
         fontWeight: 400,
-        fontSize: '17px',
+        fontSize: theme.custom.reading.lead.fontSize,
         lineHeight: 1.6,
         marginBottom: '16px',
         color: theme.custom.textMuted,
         '& img': {
             marginLeft: '10px',
         },
-        '@media (max-width: 480px)': {
+        [theme.breakpoints.down('sm')]: {
             fontSize: '16px',
         },
     },
@@ -213,10 +209,10 @@ export const useStyles = makeStyles()(theme => ({
         marginBottom: '16px',
         borderBottom: `1px solid ${theme.custom.hairline}`,
         paddingBottom: '10px',
-        '@media (max-width: 769px)': {
+        [theme.breakpoints.down('md')]: {
             fontSize: '16px',
         },
-        '@media (max-width: 480px)': {
+        [theme.breakpoints.down('sm')]: {
             fontSize: '18px',
         },
     },
@@ -227,11 +223,11 @@ export const useStyles = makeStyles()(theme => ({
         color: theme.palette.text.primary,
         marginBottom: '10px',
         marginTop: '28px',
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('lg')]: {
             fontSize: '18px',
         },
-        '@media (max-width: 480px)': {
-            fontSize: '17px',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: theme.custom.reading.body.fontSize,
         },
     },
     list: {
@@ -269,17 +265,17 @@ export const useStyles = makeStyles()(theme => ({
         tableLayout: 'fixed',
         wordBreak: 'break-word',
         overflowWrap: 'anywhere',
-        '@media (max-width: 1345px)': {
-            fontSize: '14px',
+        [theme.breakpoints.down('lg')]: {
+            fontSize: theme.custom.reading.small.fontSize,
         },
-        '@media (max-width: 920px)': {
-            fontSize: '14px',
+        [theme.breakpoints.down('md')]: {
+            fontSize: theme.custom.reading.small.fontSize,
             display: 'block',
             overflow: 'auto',
             whiteSpace: 'nowrap',
         },
-        '@media (max-width: 481px)': {
-            fontSize: '12px',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: theme.custom.reading.caption.fontSize,
         },
     },
     tableHead: {
@@ -302,14 +298,14 @@ export const useStyles = makeStyles()(theme => ({
         '&:last-child': {
             borderRight: 'none',
         },
-        '@media (max-width: 1345px)': {
+        [theme.breakpoints.down('lg')]: {
             padding: '10px 12px',
         },
-        '@media (max-width: 768px)': {
+        [theme.breakpoints.down('md')]: {
             padding: '8px 12px',
             minWidth: '120px',
         },
-        '@media (max-width: 481px)': {
+        [theme.breakpoints.down('sm')]: {
             padding: '6px 8px',
             minWidth: '100px',
         },
@@ -322,14 +318,14 @@ export const useStyles = makeStyles()(theme => ({
         '&:last-child': {
             borderRight: 'none',
         },
-        '@media (max-width: 1345px)': {
+        [theme.breakpoints.down('lg')]: {
             padding: '10px 12px',
         },
-        '@media (max-width: 768px)': {
+        [theme.breakpoints.down('md')]: {
             padding: '8px 12px',
             minWidth: '120px',
         },
-        '@media (max-width: 481px)': {
+        [theme.breakpoints.down('sm')]: {
             padding: '6px 8px',
             minWidth: '100px',
         },
@@ -360,7 +356,7 @@ export const useStyles = makeStyles()(theme => ({
         paddingBottom: '16px',
         display: 'flex',
         flexDirection: 'column',
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('lg')]: {
             width: '100%',
             minHeight: 'unset',
         },
@@ -378,7 +374,7 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: 700,
         fontSize: '18px',
         flexShrink: 0,
-        '@media (max-width: 769px)': {
+        [theme.breakpoints.down('md')]: {
             fontSize: '18px',
         },
     },
@@ -410,8 +406,10 @@ export const useStyles = makeStyles()(theme => ({
         '&::-webkit-scrollbar-thumb:hover': {
             background: theme.palette.primary.main,
         },
-        '@media (max-width: 769px)': {
-            fontSize: '10px',
+        // 10 px is below anything the kit calls readable - the block scrolls sideways
+        // anyway, so the code keeps the caption size instead of shrinking further
+        [theme.breakpoints.down('md')]: {
+            fontSize: theme.custom.reading.caption.fontSize,
         },
     },
 
@@ -426,7 +424,7 @@ export const useStyles = makeStyles()(theme => ({
         boxShadow: theme.custom.elevation.overlay,
         padding: '5px 10px',
         whiteSpace: 'nowrap',
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('lg')]: {
             top: 45,
             right: 0,
         },
@@ -439,16 +437,16 @@ export const useStyles = makeStyles()(theme => ({
         backgroundColor: theme.custom.surfaces.surface,
         boxShadow: theme.custom.elevation.card,
         marginTop: '80px',
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('lg')]: {
             marginTop: '0px',
             height: '100%',
         },
-        '@media (max-width: 769px)': {
+        [theme.breakpoints.down('md')]: {
             borderRadius: '16px',
             padding: '20px 24px',
             minHeight: 'unset',
         },
-        '@media (max-width: 480px)': {
+        [theme.breakpoints.down('sm')]: {
             padding: '20px 10px 20px 10px',
             minHeight: 'unset',
         },
@@ -457,7 +455,7 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         justifyContent: 'center',
         marginBottom: '24px',
-        '@media (max-width: 769px)': {
+        [theme.breakpoints.down('md')]: {
             marginBottom: '0px',
         },
     },
@@ -472,7 +470,7 @@ export const useStyles = makeStyles()(theme => ({
             height: '100%',
             objectFit: 'contain',
         },
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('lg')]: {
             '& img': {
                 width: '104px',
                 height: '104px',
@@ -502,7 +500,7 @@ export const useStyles = makeStyles()(theme => ({
         fontFamily: 'Audiowide, sans-serif',
         fontSize: '16px',
         fontWeight: 400,
-        color: theme.palette.primary.main,
+        color: theme.custom.textAccent,
     },
     infoValue: {
         color: theme.palette.text.primary,
@@ -521,7 +519,7 @@ export const useStyles = makeStyles()(theme => ({
         marginTop: '24px',
         paddingTop: '20px',
         borderTop: `1px solid ${theme.custom.hairline}`,
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('lg')]: {
             marginTop: '0px',
         },
     },
@@ -557,7 +555,7 @@ export const useStyles = makeStyles()(theme => ({
         cursor: 'pointer',
         textTransform: 'uppercase',
         fontFamily: 'Audiowide, sans-serif',
-        fontSize: '14px',
+        fontSize: '15px',
         letterSpacing: '0.02em',
         color: theme.palette.primary.main,
         transition: 'background 0.2s ease, box-shadow 0.2s ease',
@@ -566,14 +564,14 @@ export const useStyles = makeStyles()(theme => ({
             backgroundColor: theme.custom.surfaces.raised,
             boxShadow: `inset 0 0 0 1px ${theme.custom.hairlineStrong}`,
         },
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('lg')]: {
             height: '40px',
         },
     },
     sidebarLinkIcon: {
         width: '16px',
         height: '16px',
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('lg')]: {
             width: '14px',
             height: '14px',
         },
@@ -587,11 +585,11 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         flexDirection: 'column',
         gap: '12px',
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('lg')]: {
             padding: '19px 24px',
             flex: 1,
         },
-        '@media (max-width: 769px)': {
+        [theme.breakpoints.down('md')]: {
             display: 'none',
         },
     },
@@ -604,11 +602,11 @@ export const useStyles = makeStyles()(theme => ({
         width: '24px',
         height: '24px',
         flexShrink: 0,
-        '@media (max-width: 768px)': {
+        [theme.breakpoints.down('lg')]: {
             width: '18px',
             height: '18px',
         },
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('md')]: {
             width: '12px',
             height: '12px',
         },
@@ -618,11 +616,11 @@ export const useStyles = makeStyles()(theme => ({
         width: '24px',
         height: '24px',
         flexShrink: 0,
-        '@media (max-width: 768px)': {
+        [theme.breakpoints.down('lg')]: {
             width: '18px',
             height: '18px',
         },
-        '@media (max-width: 1279px)': {
+        [theme.breakpoints.down('md')]: {
             width: '12px',
             height: '12px',
         },
@@ -646,7 +644,7 @@ export const useStyles = makeStyles()(theme => ({
         backgroundColor: theme.custom.surfaces.surface,
         color: theme.palette.primary.main,
         fontFamily: 'Audiowide, sans-serif',
-        fontSize: '14px',
+        fontSize: '15px',
         fontWeight: 400,
         letterSpacing: '0.02em',
         textTransform: 'uppercase',
@@ -665,7 +663,7 @@ export const useStyles = makeStyles()(theme => ({
         paddingRight: '12px',
         paddingTop: '64px',
 
-        '@media (max-width: 768px)': {
+        [theme.breakpoints.down('md')]: {
             justifyContent: 'center',
             alignItems: 'center',
             paddingRight: '0',
@@ -717,7 +715,7 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     licenseParagraph: {
-        fontSize: '17px',
+        fontSize: theme.custom.reading.body.fontSize,
         fontWeight: 400,
         lineHeight: 1.6,
         color: theme.custom.textMuted,

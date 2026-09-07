@@ -1892,7 +1892,7 @@ Einstellungen, die in der folgenden Tabelle nicht aufgeführt sind, sind selbste
 ###JSON-Diagramm
 Mit dem JSON-Diagramm haben Sie die maximale Freiheit, ein gemischtes Diagramm (Linie, Balken und gestapelte Balken) per Skript zu erstellen.
 
-![Logo](doc/de/media/jsonChart.png) ![Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/jsonChart2.png)
+![Logo](./doc/en/media/jsonChart.png) ![Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/jsonChart2.png)
 
 #### JSON-Eigenschaften
 <!-- im Inhaltsverzeichnis weglassen -->

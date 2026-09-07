@@ -103,28 +103,28 @@ hash: hUaI9HQKBfRnywBPumwOB2Wp3kW0gY117LQwZm3Hc1Y=
 1. 前往 [Discord 开发者门户]，如果您尚未登录，请使用您的 Discord 帐户登录。
 2. 在_应用程序_视图中，单击右上角的_新建应用程序_按钮。
 
-[![新应用](../en/media/bot-creation-1.png)](../../../de/adapterref/en/media/bot-creation-1.png)
+[![新应用](../../../en/adapterref/iobroker.discord/media/bot-creation-1.png)](../../../de/adapterref/en/media/bot-creation-1.png)
 
 3. 为应用程序选择一个名称（这将是机器人的名称），然后单击_创建_。
 
-[![应用程序名称](../en/media/bot-creation-2.png)](../../../de/adapterref/en/media/bot-creation-2.png)
+[![应用程序名称](../../../en/adapterref/iobroker.discord/media/bot-creation-2.png)](../../../de/adapterref/en/media/bot-creation-2.png)
 
 4.（可选）上传_应用程序图标_，更改名称 (_Name_)，更改说明 (_Description_)，添加一些_标签_并保存更改 (_保存更改_)。
 
-[![应用程序设置](../en/media/bot-creation-3.png)](../../../de/adapterref/en/media/bot-creation-3.png)
+[![应用程序设置](../../../en/adapterref/iobroker.discord/media/bot-creation-3.png)](../../../de/adapterref/en/media/bot-creation-3.png)
 
 5. 导航至左侧菜单中的_机器人_，然后单击_添加机器人_按钮。
 
-[![添加机器人](../en/media/bot-creation-4.png)](../../../de/adapterref/en/media/bot-creation-4.png) 在以下对话框中单击_是，执行！_ 确认机器人的创建。
+[![添加机器人](../../../en/adapterref/iobroker.discord/media/bot-creation-4.png)](../../../de/adapterref/en/media/bot-creation-4.png) 在以下对话框中单击_是，执行！_ 确认机器人的创建。
 
 6. 创建机器人后，您必须单击一次_重置令牌_按钮才能获取机器人令牌。
 
-[![重置令牌](../en/media/bot-creation-5.png)](../../../de/adapterref/en/media/bot-creation-5.png) 由于这会使之前的所有令牌失效，因此您必须使用弹出的对话框中的 _Yes, do it!_ 按钮确认这一点。
+[![重置令牌](../../../en/adapterref/iobroker.discord/media/bot-creation-5.png)](../../../de/adapterref/en/media/bot-creation-5.png) 由于这会使之前的所有令牌失效，因此您必须使用弹出的对话框中的 _Yes, do it!_ 按钮确认这一点。
 之后，机器人令牌将显示**一次**，您应该将其复制到安全位置（例如适配器实例的配置）。
 
 7. 在_Bot_页面上，向下滚动到_Privileged Gateway Intent_并激活_Presence Intent_、_Server Members Intent_和_Message Content Intent_。不要忘记保存更改（_保存更改_）。
 
-[![特权网关意图](../en/media/bot-creation-6.png)](../../../de/adapterref/en/media/bot-creation-6.png)注意：一旦机器人出现在超过 100 个服务器上，这些意图将需要来自 Discord 的验证和批准。
+[![特权网关意图](../../../en/adapterref/iobroker.discord/media/bot-creation-6.png)](../../../de/adapterref/en/media/bot-creation-6.png)注意：一旦机器人出现在超过 100 个服务器上，这些意图将需要来自 Discord 的验证和批准。
 
 8. 现在一切准备就绪，可以启动适配器实例，然后将机器人添加到 Discord 服务器。
 

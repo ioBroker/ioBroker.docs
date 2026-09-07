@@ -5,7 +5,7 @@ chapters: {"pages":{"de/adapterref/iobroker.admin/README.md":{"title":{"de":"no 
 
 Hier werden grundlegende Parameter für ioBroker eingestellt.
 
-![Admin Systemeinstellungen](img/tab-system_Systemeinstellungen.jpg)
+![Admin Systemeinstellungen](../img/tab-system_Systemeinstellungen.jpg)
 
 ## Haupteinstellungen
 
@@ -35,7 +35,7 @@ Diese SQL/History/InfluxDB Adapter Instanz wird benutzt defaultmäßig für flot
 
 ## Verwahrungsorte oder Repositories
 
-![](img/tab-system_Verwahrungsorte2.jpg)
+![](../img/tab-system_Verwahrungsorte2.jpg)
 
 ioBroker kann die Adapterliste von unterschiedlichen Quellen beziehen. Bei der Installation sind folgende Quellen eingetragen:
 
@@ -47,13 +47,13 @@ ioBroker kann die Adapterliste von unterschiedlichen Quellen beziehen. Bei der I
 
 ## Zertifikate
 
-![](img/tab-system_2017-01-19-09_33_54-ioBroker.jpg)
+![](../img/tab-system_2017-01-19-09_33_54-ioBroker.jpg)
 
 Hier ist die zentrale Stelle für die Zertifikate, die für die SSL/HTTPS Kommunikation benutzt werden. Die Zertifikate werden von admin, web, simple-api, socketio benutzt. Defaultmäßig sind Standardzertifikate installiert. Damit kann man nichts verifizieren. Sie dienen nur der SSL-Kommunikation. Weil die Zertifikate offen liegen sollte man eigene (self-signed) Zertifikate benutzen, richtige Zertifikate kaufen oder auf Let's Encrypt umsteigen. Die Kommunikation mit default Zertifikaten ist nicht sicher und falls jemand das Ziel hat den Traffic mitzulesen, könnte dies gemacht werden. Unbedingt eigene Zertifikate installieren. Z.b. unter [linux](http://guides.intertech.de/ssl_certificate_self.html).
 
 ## Let's Encrypt
 
-![](img/tab-system_2017-01-19-09_40_07-ioBroker.jpg)
+![](../img/tab-system_2017-01-19-09_40_07-ioBroker.jpg)
 
 Let’s Encrypt ist eine kostenlose, automatisierte und Open Source _certificate authority_ der unabhängigen Internet Security Research Group (ISRG).
 
@@ -92,7 +92,7 @@ Dieses Thema ist ziemlich komplex und tausende Dinge können schiefgehen. Wenn e
 
 ## Statistik
 
-![](img/tab-system_2017-01-19-09_48_46-ioBroker.jpg)
+![](../img/tab-system_2017-01-19-09_48_46-ioBroker.jpg)
 
 ioBroker admin sendet an download.iobroker.net folgende Information:
 

@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterr
 title: ioBroker.Geburtstage
 hash: RIwb5Sf7GsGAIGq9+rhvFhbU2gtWyhVPzmxFfpd0a/Q=
 ---
-![Logo](../../../en/admin/birthdays.png)
+![Logo](./admin/birthdays.png)
 
 # IoBroker.geburtstage
 Gemeinsame Funktion zum Senden von Nachrichten / Benachrichtigungen

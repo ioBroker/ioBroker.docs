@@ -5,13 +5,12 @@ import { useStyles } from './TopBarSearch.styles';
 interface TopBarSearchProps {
     value: string;
     onChange: (value: string) => void;
-    isMenuCollapsed?: boolean | undefined;
     isFluid?: boolean;
     sx?: BoxProps['sx'];
 }
 
-export const TopBarSearch = ({ value, onChange, isMenuCollapsed, isFluid, sx }: TopBarSearchProps): React.ReactNode => {
-    const { classes } = useStyles({ isMenuCollapsed, isFluid });
+export const TopBarSearch = ({ value, onChange, isFluid, sx }: TopBarSearchProps): React.ReactNode => {
+    const { classes } = useStyles({ isFluid });
     return (
         <Box className={classes.topBarSearch}>
             <TextField

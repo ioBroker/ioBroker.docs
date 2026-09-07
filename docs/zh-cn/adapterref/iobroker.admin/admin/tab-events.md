@@ -9,7 +9,7 @@ hash: Yi2E6W9RHhmNwuCEDkiJSk2tvvns8JKWVvLyrnyoMmo=
 #The Events选项卡
 在此选项卡中，将显示所有数据点的当前状态。值也可以更改。
 
-![iobroker_admin_states_columns](../../../../de/adapterref/iobroker.admin/admin/img/tab-events_States_columns.jpg)
+![iobroker_admin_states_columns](../img/tab-events_States_columns.jpg)
 
 ##页面内容
 在页面上，现有对象列表。通过根据相应列的内容（切换功能）单击列标题，可以按升序或降序按字母顺序对列进行排序。下面的字段用于根据自己的标准过滤数据点。
@@ -45,7 +45,7 @@ hash: Yi2E6W9RHhmNwuCEDkiJSk2tvvns8JKWVvLyrnyoMmo=
 ##页脚
 在页脚中，仍然有一些信息
 
-![iobroker_admin_states_footer](../../../../de/adapterref/iobroker.admin/admin/img/tab-events_States_footer.jpg)
+![iobroker_admin_states_footer](../img/tab-events_States_footer.jpg)
 
 ### ** 1.）重新载入**
 可以单击此图标以使表更新。

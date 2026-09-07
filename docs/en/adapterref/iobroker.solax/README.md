@@ -8,7 +8,7 @@ BADGE-License: https://img.shields.io/github/license/simatec/ioBroker.solax?styl
 BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
 ---
-![Logo](../../admin/solax.png)
+![Logo](./admin/solax.png)
 # ioBroker.solax
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.solax.svg)](https://www.npmjs.com/package/iobroker.solax)
@@ -43,11 +43,11 @@ What you need for this is an account with Solax, your token ID and the serial nu
 
 ## API-Token
 
-<span><img src="../img/solax_api.png"></span>
+<span><img src="./docs/en/img/solax_api.png"></span>
 
 ## serial number
 
-<span><img src="../img/wifi-stick.png"></span>
+<span><img src="./docs/en/img/wifi-stick.png"></span>
 
 
 ## Expert settings
@@ -65,7 +65,7 @@ Your hotspot name should look like this: `Solax_SWXXXXXXXX` or `Wifi_SWXXXXXXXX`
 If you are connected to the hotspot, go to the web interface of the Wifi stick in your browser with the following IP address: `5.8.8.8`<br>
 If you did not change your password during the initial setup, the default login data is admin:admin
 
-<span><img src="../img/webif.png"></span>
+<span><img src="./docs/en/img/webif.png"></span>
 
 In the web interface you go to the "System" tab and you will find the currently installed firmware version there.<br>
 If the version is greater than 2.033.20 (Wifi-Pocket V1/V2) and smaler than 3.001 (Wifi-Pocket V3), you can flash the correct version in the same tab via the "Update Firmware (.usb)" menu item.

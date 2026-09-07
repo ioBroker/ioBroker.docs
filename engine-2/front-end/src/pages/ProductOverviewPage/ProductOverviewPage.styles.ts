@@ -38,10 +38,7 @@ export const useStyles = makeStyles()(theme => ({
             transform: 'translate(-50%, -50%)',
             width: 'min(780px, 60%)',
             height: '62%',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse at center, rgba(35, 86, 174, 0.2) 0%, rgba(29, 144, 202, 0.1) 30%, rgba(29, 144, 202, 0.04) 58%, rgba(29, 144, 202, 0) 85%)'
-                    : 'none',
+            background: theme.custom.glow.soft,
             filter: 'blur(70px)',
             pointerEvents: 'none',
             zIndex: 0,
@@ -67,13 +64,17 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '22px',
         fontWeight: 700,
         lineHeight: 1.3,
-        color: theme.palette.text.primary,
+        color: theme.custom.textHeading,
         marginBottom: '8px',
     },
     introText: {
+        // `&&` doubles the class: MUI's own Typography style would otherwise win
+        // or lose depending on which stylesheet was injected first
+        '&&': {
+            fontSize: theme.custom.reading.lead.fontSize,
+            lineHeight: theme.custom.reading.lead.lineHeight,
+        },
         fontFamily: theme.typography.fontFamily,
-        fontSize: '18px',
-        lineHeight: 1.4,
         color: theme.custom.textMuted,
         // the sub-line steps back behind the welcome above it, like the section sub-lines do
         opacity: 0.5,
@@ -122,14 +123,14 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '0.01em',
         textTransform: 'uppercase',
         lineHeight: 1.3,
-        color: theme.palette.text.primary,
+        color: theme.custom.textHeading,
         // the line below belongs to this heading - the gap between the entries separates them
         marginBottom: '-1px',
     },
     categoryText: {
         fontFamily: theme.typography.fontFamily,
-        fontSize: '17px',
-        lineHeight: 1.4,
+        fontSize: theme.custom.reading.body.fontSize,
+        lineHeight: theme.custom.reading.body.lineHeight,
         color: theme.custom.textMuted,
     },
 
@@ -139,7 +140,6 @@ export const useStyles = makeStyles()(theme => ({
         maxWidth: '820px',
         margin: '0 auto 96px auto',
         padding: '48px 56px',
-        textAlign: 'center',
         // the corner brackets of the kit - a frame that does not close, so the band stays light
         '&::before, &::after': {
             content: '""',
@@ -169,16 +169,16 @@ export const useStyles = makeStyles()(theme => ({
     },
     supportText: {
         fontFamily: theme.typography.fontFamily,
-        fontSize: '18px',
-        lineHeight: 1.7,
+        fontSize: theme.custom.reading.body.fontSize,
+        lineHeight: theme.custom.reading.body.lineHeight,
         color: theme.custom.textMuted,
         marginTop: '16px',
     },
     supportAccent: {
         fontFamily: theme.typography.fontFamily,
-        fontSize: '18px',
-        lineHeight: 1.7,
-        color: theme.palette.primary.main,
+        fontSize: theme.custom.reading.body.fontSize,
+        lineHeight: theme.custom.reading.body.lineHeight,
+        color: theme.custom.textAccent,
         marginTop: '24px',
     },
     supportThanks: {
@@ -186,7 +186,7 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: '17px',
         fontWeight: 400,
         letterSpacing: '0.01em',
-        color: theme.palette.primary.main,
+        color: theme.custom.textAccent,
         marginTop: '12px',
     },
 
@@ -228,10 +228,14 @@ export const useStyles = makeStyles()(theme => ({
         color: theme.palette.text.primary,
     },
     featureText: {
+        // `&&` doubles the class: MUI's own Typography style would otherwise win
+        // or lose depending on which stylesheet was injected first
+        '&&': {
+            fontSize: theme.custom.reading.small.fontSize,
+            lineHeight: theme.custom.reading.small.lineHeight,
+        },
         fontFamily: theme.typography.fontFamily,
         // the sub-line of a chevron entry is a caption, not reading text - it stays small
-        fontSize: '15px',
-        lineHeight: 1.4,
         color: theme.custom.textMuted,
         // the sub-line steps back behind the heading above it
         opacity: 0.5,
@@ -307,8 +311,8 @@ export const useStyles = makeStyles()(theme => ({
     },
     proseText: {
         fontFamily: theme.typography.fontFamily,
-        fontSize: '17px',
-        lineHeight: 1.7,
+        fontSize: theme.custom.reading.body.fontSize,
+        lineHeight: theme.custom.reading.body.lineHeight,
         color: theme.custom.textMuted,
         whiteSpace: 'pre-line',
     },
@@ -334,8 +338,8 @@ export const useStyles = makeStyles()(theme => ({
             display: 'flex',
             gap: '16px',
             fontFamily: theme.typography.fontFamily,
-            fontSize: '17px',
-            lineHeight: 1.5,
+            fontSize: theme.custom.reading.body.fontSize,
+            lineHeight: theme.custom.reading.body.lineHeight,
             color: theme.custom.textMuted,
         },
     },
@@ -361,8 +365,8 @@ export const useStyles = makeStyles()(theme => ({
         margin: '4px 0 0 0',
         paddingLeft: '20px',
         fontFamily: theme.typography.fontFamily,
-        fontSize: '17px',
-        lineHeight: 1.5,
+        fontSize: theme.custom.reading.body.fontSize,
+        lineHeight: theme.custom.reading.body.lineHeight,
         color: theme.custom.textMuted,
         maxWidth: '420px',
         '& li': {
@@ -373,7 +377,7 @@ export const useStyles = makeStyles()(theme => ({
         fontFamily: theme.typography.h1.fontFamily,
         fontSize: '17px',
         lineHeight: 1.6,
-        color: theme.palette.primary.main,
+        color: theme.custom.textAccent,
         flexShrink: 0,
     },
 
@@ -381,8 +385,8 @@ export const useStyles = makeStyles()(theme => ({
         margin: '12px 0',
         paddingLeft: '20px',
         fontFamily: theme.typography.fontFamily,
-        fontSize: '17px',
-        lineHeight: 1.7,
+        fontSize: theme.custom.reading.body.fontSize,
+        lineHeight: theme.custom.reading.body.lineHeight,
         color: theme.custom.textMuted,
         '& li': {
             marginBottom: '8px',

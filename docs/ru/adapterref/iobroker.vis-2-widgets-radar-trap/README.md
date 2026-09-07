@@ -17,13 +17,13 @@ hash: kKEFjYJIBieqHWWRKEZo+nFMEuEZPor3HYFBtyE1hzk=
 
 ## Виджеты
 ### Информация
-<img src="/img/info-widget.png" height="600">
+<img src="./img/info-widget.png" height="600">
 
 ### Область
-<img src="/img/area-widget.png" width="500">
+<img src="./img/area-widget.png" width="500">
 
 ### Маршрут
-<img src="/img/route-widget.png" width="500">
+<img src="./img/route-widget.png" width="500">
 
 ---
 

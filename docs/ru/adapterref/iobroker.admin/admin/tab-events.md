@@ -9,7 +9,7 @@ hash: Yi2E6W9RHhmNwuCEDkiJSk2tvvns8JKWVvLyrnyoMmo=
 # Вкладка «События»
 На этой вкладке отображаются текущие состояния всех точек данных. Значения также могут быть изменены.
 
-![iobroker_admin_states_columns](../../../../de/adapterref/iobroker.admin/admin/img/tab-events_States_columns.jpg)
+![iobroker_admin_states_columns](../img/tab-events_States_columns.jpg)
 
 ## Содержание страницы
 На странице существующие объекты представлены в виде таблицы. Столбцы можно сортировать в алфавитном порядке в порядке возрастания или убывания, щелкая заголовки столбцов в соответствии с содержимым соответствующих столбцов (функция переключения). Поля внизу используются для фильтрации точек данных в соответствии с их собственными критериями.
@@ -45,7 +45,7 @@ hash: Yi2E6W9RHhmNwuCEDkiJSk2tvvns8JKWVvLyrnyoMmo=
 ## Нижний колонтитул страницы
 В нижнем колонтитуле есть еще немного информации
 
-![iobroker_admin_states_footer](../../../../de/adapterref/iobroker.admin/admin/img/tab-events_States_footer.jpg)
+![iobroker_admin_states_footer](../img/tab-events_States_footer.jpg)
 
 ### **1.) Перезагрузить**
 Этот значок можно нажать, чтобы обновить таблицу.

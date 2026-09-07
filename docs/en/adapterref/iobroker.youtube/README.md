@@ -13,7 +13,7 @@ BADGE-Beta: https://img.shields.io/npm/v/iobroker.youtube.svg?color=red&label=be
 BADGE-Stable: http://iobroker.live/badges/youtube-stable.svg
 BADGE-Installed: http://iobroker.live/badges/youtube-installed.svg
 ---
-![Logo](../../admin/youtube.png)
+![Logo](./admin/youtube.png)
 
 # ioBroker.youtube
 

@@ -8,22 +8,30 @@ export const useStyles = makeStyles()(theme => ({
         backgroundPosition: 'top',
         backgroundColor: theme.palette.background.default,
         backgroundSize: 'contain',
+        /**
+         * The code picture belongs to the dark theme: on the white ground it turns into
+         * a grey pattern that competes with the text instead of lying behind it. On the
+         * light theme the section keeps its plain ground - and the light above it goes
+         * with the picture, since a glow without something to light is just a stain.
+         */
+        ...(theme.palette.mode === 'light' ? { backgroundImage: 'none' } : {}),
         overflow: 'hidden',
         padding: '96px 0',
-        // a quiet light over the code background, so it stays readable behind the claim
+        // a quiet light over the code background, so it stays readable behind the claim -
+        // its centre sits on the left edge of the screen, so half of it lies outside and
+        // it reads as light falling in from beyond the page, the same as in the history
+        // section further down
         '&::before': {
             content: '""',
             position: 'absolute',
             top: '48%',
-            left: '16%',
+            left: 0,
             transform: 'translate(-50%, -50%)',
-            width: 'min(780px, 60%)',
-            height: '62%',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse at center, rgba(35, 86, 174, 0.2) 0%, rgba(29, 144, 202, 0.1) 30%, rgba(29, 144, 202, 0.04) 58%, rgba(29, 144, 202, 0) 85%)'
-                    : 'none',
+            width: 'min(1100px, 90%)',
+            height: '80%',
+            background: theme.custom.glow.soft,
             filter: 'blur(70px)',
+            display: theme.palette.mode === 'light' ? 'none' : 'block',
             pointerEvents: 'none',
             zIndex: 0,
         },
@@ -41,14 +49,11 @@ export const useStyles = makeStyles()(theme => ({
     container: {
         maxWidth: 1376,
         margin: '0 auto',
-        padding: '0 32px',
+        padding: `0 ${theme.custom.layout.gutter.lg}px`,
         position: 'relative',
         zIndex: 1,
-        [theme.breakpoints.down('md')]: {
-            padding: '0 30px',
-        },
         [theme.breakpoints.down('sm')]: {
-            padding: '0 20px',
+            padding: `0 ${theme.custom.layout.gutter.sm}px`,
         },
     },
     platformTitleWrapper: {
@@ -80,7 +85,7 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: '400',
         letterSpacing: '-0.03em',
         color: theme.palette.text.secondary,
-        marginBottom: theme.spacing(8),
+        marginBottom: '40px',
         [theme.breakpoints.down('md')]: {
             fontSize: '36px',
             textTransform: 'uppercase',
@@ -94,7 +99,10 @@ export const useStyles = makeStyles()(theme => ({
     },
     descriptionWrapper: {
         display: 'flex',
-        justifyContent: 'flex-end',
+        // The text stands in the right half because the picture holds the left one. On
+        // the light theme there is no picture, so it moves back to the left edge instead
+        // of leaving an empty half beside it.
+        justifyContent: theme.palette.mode === 'light' ? 'flex-start' : 'flex-end',
         [theme.breakpoints.down('sm')]: {
             justifyContent: 'center',
         },
@@ -115,19 +123,17 @@ export const useStyles = makeStyles()(theme => ({
     platformHeadSubtitle: {
         marginBottom: theme.spacing(3),
         textIndent: '2em',
-        fontSize: '18px',
-        lineHeight: 1.6,
+        fontSize: theme.custom.reading.body.fontSize,
+        lineHeight: theme.custom.reading.body.lineHeight,
         [theme.breakpoints.down('sm')]: {
-            fontSize: '18px',
             marginBottom: theme.spacing(2),
         },
     },
     platformSubtitle: {
         marginBottom: theme.spacing(3),
-        fontSize: '18px',
-        lineHeight: 1.6,
+        fontSize: theme.custom.reading.body.fontSize,
+        lineHeight: theme.custom.reading.body.lineHeight,
         [theme.breakpoints.down('sm')]: {
-            fontSize: '18px',
             marginBottom: theme.spacing(2),
         },
     },

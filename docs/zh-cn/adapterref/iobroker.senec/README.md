@@ -12,10 +12,10 @@ BADGE-GitHub Sponsor: https://img.shields.io/badge/Sponsor-GitHub-181717?logo=gi
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.senec/README.md
-title: <img src="../../admin/senec.png" width="36" align="top" alt="">ioBroker.senec
+title: <img src="./admin/senec.png" width="36" align="top" alt="">ioBroker.senec
 hash: JVe38En/cj1cuV9Pok3slNcCbKu7BxLVI0GN0H1RqNY=
 ---
-#<img src="../../admin/senec.png" width="36" align="top" alt=""> ioBroker.senec
+#<img src="./admin/senec.png" width="36" align="top" alt=""> ioBroker.senec
 ## IoBroker 的 SENEC 适配器
 监控和控制您的 SENEC 家庭储能系统。该适配器支持四个独立的连接器，可以单独使用，也可以组合使用：
 

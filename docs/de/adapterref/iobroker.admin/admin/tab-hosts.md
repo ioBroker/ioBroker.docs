@@ -11,7 +11,7 @@ Bei einem Standardsystem gibt es nur einen Host. Bei einem [Multihostsystem](htt
 
 in der Titelzeile befinden sich Icons für die wichtigsten Vorgänge. Zu jedem Icon gibt es eine Kontexthilfe. Dazu einfach mit der Maus eine Weile auf dem Icon bleiben.
 
-![](img/tab-hosts_Hosts_icons.jpg)
+![](../img/tab-hosts_Hosts_icons.jpg)
 
 ### **Die Icons im einzelnen:**
 
@@ -27,7 +27,7 @@ Mit diesem Fled kann man die Liste der Hosts nach eigenen Wünschen filtern
 
 Auf der Seite werden die vorhandenen Hosts tabellarisch dargestellt. 
 
-![](img/tab-hosts_Hosts_01.jpg)
+![](../img/tab-hosts_Hosts_01.jpg)
 
 Die Tabelle besteht aus folgenden Spalten:
 

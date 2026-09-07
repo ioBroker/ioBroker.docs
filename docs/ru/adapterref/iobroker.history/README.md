@@ -8,7 +8,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.история
 hash: W1jkUUDShCdYwG/MMdeVXjMKLLrsmvjvn5BE/fr6C3k=
 ---
-![Логотип](../../../en/admin/history.png)
+![Логотип](./admin/history.png)
 
 # IoBroker.история
 * [Описание](#description)

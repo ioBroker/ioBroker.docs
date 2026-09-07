@@ -21,7 +21,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.дни рождения
 hash: HVXYob6ZuBp+sfLPeyUfCVea4WsYpBQa8Uifp3Pj87w=
 ---
-![Логотип](../../../en/adapterref/iobroker.birthdays/../../admin/birthdays.png)
+![Логотип](./admin/birthdays.png)
 
 # IoBroker.дни рождения
 ## Оглавление

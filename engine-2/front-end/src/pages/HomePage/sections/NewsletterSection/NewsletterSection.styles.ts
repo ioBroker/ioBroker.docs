@@ -4,9 +4,9 @@ export const useStyles = makeStyles()(theme => ({
     container: {
         maxWidth: 1376,
         margin: '0 auto',
-        padding: '0 32px',
+        padding: `0 ${theme.custom.layout.gutter.lg}px`,
         [theme.breakpoints.down('sm')]: {
-            padding: '0 20px',
+            padding: `0 ${theme.custom.layout.gutter.sm}px`,
         },
     },
     newsletterSection: {
@@ -26,7 +26,9 @@ export const useStyles = makeStyles()(theme => ({
         alignItems: 'end',
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
-            alignItems: 'center',
+            // stacked, but still starting at the same edge as everything else - nothing
+            // on this site is centred, and this block was the exception
+            alignItems: 'flex-start',
             gap: '51px',
         },
     },
@@ -35,23 +37,18 @@ export const useStyles = makeStyles()(theme => ({
         marginRight: '153px',
         height: 'fit-content',
         [theme.breakpoints.down('lg')]: {
-            margin: 'auto',
-            alignItems: 'center',
-        },
-        [theme.breakpoints.down('md')]: {
-            textAlign: 'left',
+            marginRight: 0,
         },
         [theme.breakpoints.down('sm')]: {
             width: 'auto',
-            margin: 'auto',
         },
     },
     newsletterTitle: {
         fontWeight: '500',
-        fontSize: '30px',
+        fontSize: '20px',
         letterSpacing: '-0.03em',
         marginBottom: theme.spacing(1),
-        marginTop: '30px',
+        marginTop: 0,
         lineHeight: '130%',
         [theme.breakpoints.down('sm')]: {
             fontSize: '18px',
@@ -63,11 +60,18 @@ export const useStyles = makeStyles()(theme => ({
     },
     newsletterSubTitle: {
         fontWeight: '400',
-        fontSize: '18px',
+        /**
+         * Half strength on the dark ground: white at 0.5 measures 5.3:1 there, clear of
+         * the 4.5:1 running text needs. On the light theme the same trick would put the
+         * brand tone at about 2.6:1 on white - unreadable - so the text steps back
+         * through its own quieter tone instead.
+         */
+        ...(theme.palette.mode === 'dark' ? { opacity: 0.5 } : { color: theme.custom.textSubtle }),
+        fontSize: theme.custom.reading.body.fontSize,
         letterSpacing: '0',
         // marginBottom: theme.spacing(2),
         // paddingBottom: '10px',
-        lineHeight: '130%',
+        lineHeight: theme.custom.reading.body.lineHeight,
         [theme.breakpoints.down('sm')]: {
             fontSize: '16px',
             marginBottom: 0,
@@ -79,12 +83,12 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         alignItems: 'center',
         padding: `0 ${theme.spacing(1)}`,
-        width: '409px',
+        width: '300px',
         [theme.breakpoints.down('md')]: {
-            width: '300px',
+            width: '260px',
         },
         [theme.breakpoints.down('sm')]: {
-            width: '250px',
+            width: '220px',
         },
         // 230 px field plus the two braces and the arrow button were 337 px - wider than
         // a 320 px phone. Below this the field takes what the row has left instead.
@@ -98,52 +102,76 @@ export const useStyles = makeStyles()(theme => ({
         borderTop: `1px solid ${theme.palette.primary.main}`,
         borderBottom: `1px solid ${theme.palette.primary.main}`,
         borderLeft: `1px solid ${theme.palette.primary.main}`,
-        width: 30,
-        height: 86,
+        // ohne das quetscht die Flexbox den Arm zusammen - im Footer war einer
+        // davon auf 0 px geschrumpft und die Klammer fehlte auf einer Seite
+        flexShrink: 0,
+        // Armlaenge aus dem Kit - siehe `theme.custom.brace`
+        width: theme.custom.brace.lg,
+        height: 52,
         [theme.breakpoints.down('md')]: {
-            width: 20,
-            height: 70,
+            width: theme.custom.brace.md,
+            height: 48,
         },
         [theme.breakpoints.down('sm')]: {
-            width: 10,
-            height: 46,
+            width: theme.custom.brace.sm,
+            height: 44,
         },
     },
     bracesRight: {
         borderTop: `1px solid ${theme.palette.primary.main}`,
         borderBottom: `1px solid ${theme.palette.primary.main}`,
         borderRight: `1px solid ${theme.palette.primary.main}`,
-        width: 30,
-        height: 86,
+        // ohne das quetscht die Flexbox den Arm zusammen - im Footer war einer
+        // davon auf 0 px geschrumpft und die Klammer fehlte auf einer Seite
+        flexShrink: 0,
+        // Armlaenge aus dem Kit - siehe `theme.custom.brace`
+        width: theme.custom.brace.lg,
+        height: 52,
         [theme.breakpoints.down('md')]: {
-            width: 20,
-            height: 70,
+            width: theme.custom.brace.md,
+            height: 48,
         },
         [theme.breakpoints.down('sm')]: {
-            width: 10,
-            height: 46,
+            width: theme.custom.brace.sm,
+            height: 44,
         },
     },
     newsletterInput: {
         flex: 1,
         backgroundColor: 'transparent',
-        fontSize: '24px',
+        // the field is an input, not a headline - it reads on the same step as the
+        // running text beside it. At 24 px it was set larger than anything else on
+        // the page, which is what made the whole block look enormous.
+        fontSize: theme.custom.reading.body.fontSize,
+        lineHeight: theme.custom.reading.body.lineHeight,
         border: 'none',
         color: theme.palette.text.primary,
-        padding: theme.spacing(2),
+        padding: theme.spacing(1),
         outline: 'none',
+        // The one deliberate centring on the page: the field sits between two brackets
+        // and is much wider than the address in it - left aligned, the text clung to the
+        // left bracket and left the rest of the field empty. This applies to what is
+        // typed as well, since a placeholder cannot be aligned on its own.
         textAlign: 'center',
         '&::placeholder': {
             color: theme.palette.text.primary,
-            opacity: 0.6,
-        },
-        [theme.breakpoints.down('md')]: {
-            fontSize: '20px',
-            padding: theme.spacing(1.5),
-        },
-        [theme.breakpoints.down('sm')]: {
-            fontSize: '18px',
-            padding: theme.spacing(1),
+            // stiller als bisher (0,6): der Platzhalter ist ein Beispiel, keine Angabe,
+            // die gelesen werden muss - er soll das Feld nicht wie einen ausgefuellten
+            // Wert aussehen lassen (Denis, 06.09.2026)
+            opacity: 0.45,
+            // pulled apart so the line carries the width of the field
+            letterSpacing: '0.12em',
+            /**
+             * Ab hier traegt das Feld die Zeile nicht mehr: unter 400 px nimmt es nur
+             * noch den Platz, den die Reihe uebrig laesst (bei 360 px sind das 167 px
+             * innen), und "ihreemail@email.com" braucht gesperrt 191 px - der Text wurde
+             * rechts abgeschnitten (Denis, 06.09.2026). Ohne Sperrung sind es 157 px und
+             * er passt. Die Sperrung war ein Mittel gegen ein zu leeres Feld, kein Wert
+             * an sich.
+             */
+            [theme.breakpoints.down(400)]: {
+                letterSpacing: 'normal',
+            },
         },
     },
 }));

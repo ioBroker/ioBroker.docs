@@ -10,13 +10,13 @@ hash: kzof4XfyddkyR8KdFjUtTOUg5IE6jzeGfhiqozkyyE0=
 Here the messages of the system are continuously output.
 The latest message is at the top.
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-log_01.jpg)
+![](../img/tab-log_01.jpg)
 
 ## The title bar
 The title bar contains icons for the most important processes.
 There is a context help for each icon. Just keep the mouse on the icon for a while.
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-log_icons.jpg)
+![](../img/tab-log_icons.jpg)
 
 ### **The icons in detail:**
 ### **1.) Stop update**
@@ -37,13 +37,13 @@ Clicking on this icon permanently deletes the entire log on the host.
 
 ### The pull-down menus
 ### **instances filter**
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-log_instances.jpg)
+![](../img/tab-log_instances.jpg)
 
 With this pull-down menu the messages can be filtered according to the logging instance.
 In the menu, only the instances are displayed, to which there are also entries on the page.
 
 ### **displayed log level**
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-log_loglevel.jpg)
+![](../img/tab-log_loglevel.jpg)
 
 This menu is used to set the severity of the message.
 However, this is just a filter of the existing list. In order to set the logging in a certain level for an instance, this must be set in the _ **Instances** _ tab.

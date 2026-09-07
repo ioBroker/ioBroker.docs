@@ -1,4 +1,4 @@
-import type { Docs } from '../DocsItem/DocsItem';
+import type { Docs, DocsItem } from '../DocsItem/DocsItem';
 
 export const normalizeSearch = (value: string): string => {
     const lowered = value.trim().toLowerCase();
@@ -51,4 +51,42 @@ export const getChildrenPaddingLeft = (level: number): string => {
     const step = 6;
     const min = 12;
     return `${Math.max(base - level * step, min)}px !important`;
+};
+
+export interface DocsTrailItem {
+    key: string;
+    title: string;
+    /** the document behind the entry - folders have none and therefore lead nowhere */
+    content?: string;
+}
+
+/** the title of a node in the chosen language, with the same fallbacks the tree itself uses */
+export const docsItemTitle = (item: DocsItem, language: string, key: string): string => {
+    const title = item.title as Record<string, string | undefined> | undefined;
+    return title?.[language] ?? title?.en ?? key;
+};
+
+/**
+ * The chain from the root of the tree down to the document, e.g. `install/linux.md` becomes
+ * [System installieren, Manuelle Installation, Linux]. Empty when the document is not in the
+ * tree - a page reached by a direct link that nobody has filed anywhere.
+ */
+export const findDocsTrail = (pages: Docs['pages'], content: string, language: string): DocsTrailItem[] => {
+    const walk = (nodes: Docs['pages'], trail: DocsTrailItem[]): DocsTrailItem[] | null => {
+        for (const key of Object.keys(nodes)) {
+            const item = nodes[key];
+            const step = [...trail, { key, title: docsItemTitle(item, language, key), content: item.content }];
+            if (item.content === content) {
+                return step;
+            }
+            if (item.pages) {
+                const found = walk(item.pages, step);
+                if (found) {
+                    return found;
+                }
+            }
+        }
+        return null;
+    };
+    return walk(pages, []) ?? [];
 };

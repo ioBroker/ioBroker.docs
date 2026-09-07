@@ -17,7 +17,7 @@ hash: /MEf/Xl3Z87kMiEr9svRkmExZoAYA0WRXXMYMsOMpuQ=
 ![Testen und Freigeben](https://github.com/Sickboy78/ioBroker.sureflap/workflows/Test%20and%20Release/badge.svg)
 
 ## Adapter für Smart-Haustiergeräte von Sure Petcare®
-<p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p> <p align="center"> <img src="/admin/Sure_Petcare_Surefeed_Feeder_Connect.png" /> <img src="/admin/Sure_Petcare_Felaqua_Connect.png" /> </p>
+<p align="center"> <img src="./admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p> <p align="center"> <img src="./admin/Sure_Petcare_Surefeed_Feeder_Connect.png" /> <img src="./admin/Sure_Petcare_Felaqua_Connect.png" /> </p>
 
 ## Konfiguration
 Erforderlich: Fügen Sie auf der Adapterkonfigurationsseite Benutzernamen und Passwort von Ihrem Sure Petcare®-Konto hinzu.

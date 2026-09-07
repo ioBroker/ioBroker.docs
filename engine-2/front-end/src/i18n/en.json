@@ -31,6 +31,15 @@
         "developer": "Developer",
         "first_release": "First Release",
         "current_release": "Current Release",
+        "stats": {
+            "title": "%s statistics",
+            "total": "Installations in total",
+            "version": "Version",
+            "count": "Count",
+            "share": "Share",
+            "others": "Others",
+            "no_data": "No data"
+        },
         "tooltip": {
             "version": "Current version",
             "stars": "Stars on GitHub",
@@ -47,7 +56,7 @@
             "menu_collapse": "Hide menu"
         }
     },
-    "Support us": "Support us",
+    "Support us": "Support us:",
     "Support us (mobile)": "Support us:",
     "cookies": {
         "title": "Cookie time!",
@@ -162,7 +171,7 @@
         },
         "hero": {
             "free": "Our software is free.",
-            "install": "Install",
+            "install": "To the installation",
             "platform": "Open‑source platform",
             "platformSubtitle": "for smart home automation",
             "support": "Support us!"
@@ -181,12 +190,12 @@
         "newsletter": {
             "headline": "No ads, just news!",
             "placeholder": "your@email.com",
-            "sub": "Our newsletter only informs you about new blog posts and special promotions – guaranteed without spam!",
+            "sub": "Our newsletter only informs you about new blog posts and special promotions, guaranteed without spam!",
             "title": "NEWSLETTER"
         },
         "platform": {
             "head": "ioBroker is much more than just software – it’s a powerful and flexible open‑source platform for smart home and IoT integration.",
-            "more": "MORE",
+            "more": "To the documentation",
             "sub1": "With ioBroker you can connect devices from different manufacturers and protocols such as Zigbee, KNX, MQTT, Homematic, Modbus and many more and control them centrally. This creates a vendor‑independent smart home that can be adapted and expanded to your needs.",
             "sub2": "ioBroker is for everyone – from beginners who create simple automations with a few clicks to enthusiasts building complex scenarios with JavaScript, Blockly or Node‑RED. The entire control runs through an intuitive graphical interface, without having to edit complicated configuration files.",
             "title1": "One platform,",
@@ -196,7 +205,7 @@
     "installation": {
         "docker": {
             "details": "Details:",
-            "detailsValue": "Flexible Docker image",
+            "detailsValue": "A flexible Docker image that runs ioBroker as a container.",
             "download": "DOWNLOAD",
             "info": "INFO",
             "platform": "Platform:",
@@ -209,24 +218,26 @@
             "imageText": "A preconfigured image is only required if the installation script does not work or there is no internet connection. In most cases the command above is sufficient.",
             "imageTitle": "When do I need an image?",
             "info": "INFO",
-            "simplest": "The simplest way to install ioBroker on a Linux system is with the following command:"
+            "simplest": "The simplest way to install ioBroker on a Linux system is with the following command:",
+            "copy": "Copy command"
         },
         "raspberry": {
             "details": "Details:",
-            "detailsValue": "Prebuilt Raspberry OS image",
+            "detailsValue": "A prepared image for Raspberry Pi 5, 4, 3 and 2 (from rev. 1.2), ready to write to an SD card.",
             "download": "DOWNLOAD",
             "info": "INFO",
             "password": "Default password:",
             "passwordValue": "2024=smart!",
             "platform": "Platform:",
             "platformValue": "Raspberry OS",
-            "title": "RASPBERRY PI OS"
+            "title": "RASPBERRY PI OS",
+            "passwordHint": "Please change the password after your first login."
         },
         "subtitle": "ioBroker can be installed on any system that supports Node.js and has enough RAM.",
         "title": "IOBROKER INSTALLATION",
         "windows": {
             "details": "Details:",
-            "detailsValue": "Easy installation with the Windows installer",
+            "detailsValue": "An installer that sets ioBroker up on Windows without the command line.",
             "download": "DOWNLOAD",
             "info": "INFO",
             "platform": "Platform:",
@@ -269,12 +280,12 @@
         "licenses": "Licenses"
     },
     "support.amazon.button": "SHOP ON AMAZON",
-    "support.amazon.text": "Ordering from Amazon anyway? Use our link! A small percentage of your purchase goes to ioBroker – you don’t pay a cent more!",
+    "support.amazon.text": "Ordering from Amazon anyway? Use our link! A small percentage of your purchase goes to ioBroker, and you don’t pay a cent more!",
     "support.description": "But servers, development and maintenance need power (and sometimes coffee). If you like our project, we appreciate your support!",
-    "support.footer": "PS: Your donation won’t be wasted on luxury smart home gadgets – promised!",
+    "support.footer": "PS: Your donation won’t be wasted on luxury smart home gadgets, promised!",
     "support.paypal.button": "DONATE NOW",
-    "support.paypal.text": "Whether a small amount or a big boost – every donation goes directly into the further development of ioBroker.",
-    "support.subtitle": "ioBroker is free – and it should stay that way!",
+    "support.paypal.text": "Whether a small amount or a big boost, every donation goes directly into the further development of ioBroker.",
+    "support.subtitle": "ioBroker is free, and it should stay that way!",
     "support.title": "SUPPORT US!",
     "tooltip": {
         "search": "Search",
@@ -634,5 +645,73 @@
     "1 month": "1 month",
     "6 month": "6 months",
     "1 year": "1 year",
-    "Unlimited": "Unlimited"
+    "Unlimited": "Unlimited",
+    "statistics": {
+        "title": "STATISTICS",
+        "subtitle": "Every ioBroker installation can report anonymously what it runs on. This is what comes out of it — reported voluntarily, none of it personal.",
+        "loading": "Loading the numbers …",
+        "error": "The numbers are not reachable right now. Please try again later.",
+        "base": "Base: %c installations that report this — %p of %t in total.",
+        "rows": "%n of %t",
+        "column": {
+            "count": "Installations",
+            "share": "Share"
+        },
+        "kpi": {
+            "installations": "Installations",
+            "adapters": "Adapters in use",
+            "multihosts": "Multiple hosts",
+            "snapshot": "As of",
+            "ofAll": "of all installations"
+        },
+        "growth": {
+            "title": "Installations since 2015",
+            "note": "One point per survey. The curve counts installations, not people — a fresh setup counts again.",
+            "peak": "The peak was %v in %d — %p lower since then."
+        },
+        "map": {
+            "title": "Where ioBroker runs",
+            "consent": "The map comes from Google Maps. Loading it sends your IP address to Google — so we only load it when you ask.",
+            "load": "Load map",
+            "error": "The map cannot be loaded right now.",
+            "points": "%n reported locations"
+        },
+        "countries": {
+            "title": "Countries",
+            "tableTitle": "All countries",
+            "column": "Country",
+            "search": "Search country …"
+        },
+        "platforms": {
+            "title": "Operating systems"
+        },
+        "languages": {
+            "title": "Languages",
+            "none": "Not reported"
+        },
+        "nodes": {
+            "title": "Node.js versions",
+            "note": "Ordered by version number, not by size: that is how you see almost everything sits on the even LTS releases."
+        },
+        "docker": {
+            "title": "Docker",
+            "inDocker": "run in a container",
+            "docker": "Docker",
+            "normal": "Installed directly"
+        },
+        "databases": {
+            "title": "Databases",
+            "note": "Objects and states can be stored separately — both are shown side by side.",
+            "objects": "Objects",
+            "states": "States"
+        },
+        "adapters": {
+            "title": "Most popular adapters",
+            "note": "The %n most installed. Share of all installations.",
+            "tableTitle": "All adapters",
+            "tableNote": "Every adapter reported at least once.",
+            "column": "Adapter",
+            "search": "Search adapter …"
+        }
+    }
 }

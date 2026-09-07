@@ -1,22 +1,15 @@
 import { makeStyles } from '../../theme';
 
-export const useStyles = makeStyles<{ isMenuCollapsed: boolean | undefined; isFluid?: boolean }>()((
-    theme,
-    { isMenuCollapsed, isFluid },
-) => {
+export const useStyles = makeStyles<{ isFluid?: boolean }>()((theme, { isFluid }) => {
+    /**
+     * Above 900 px the field keeps its set width beside the menu column; below it the row
+     * is the only thing on the line, so the field simply takes what is left.
+     * This replaces a ladder of hand-measured widths at 902 / 768 / 595 / 451 px - four
+     * numbers that belonged to no breakpoint of the site and, on a 375 px phone, still
+     * left the field 33 px wider than its row.
+     */
     const widths = {
-        [theme.breakpoints.down(902)]: {
-            width: isMenuCollapsed ? '460px' : '312px',
-        },
-        [theme.breakpoints.down(595)]: {
-            width: isMenuCollapsed ? '311px' : '312px',
-        },
-        [theme.breakpoints.down(451)]: {
-            width: isMenuCollapsed ? '311px' : '281px',
-        },
-        // Below this the field takes what the row has left instead of a hand set width -
-        // the 281 px step was still 33 px wider than the row on a 375 px phone.
-        [theme.breakpoints.down(768)]: {
+        [theme.breakpoints.down('md')]: {
             width: '100%',
             minWidth: 0,
         },

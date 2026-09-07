@@ -11,7 +11,7 @@ hash: soSS6WongH1psOFoLEVVCZ66r0DQCoIomBjbzTHWKbA=
 ![Текущая версия в стабильном репозитории](https://iobroker.live/badges/teslamateapi-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.teslamateapi.png?downloads=true)
 
-<img src="/admin/teslamate.svg" alt="Логотип" style="max-width: 100%;" width="100">
+<img src="../../../en/adapterref/iobroker.teslamateapi/admin/teslamate.svg" alt="Логотип" style="max-width: 100%;" width="100">
 
 # IoBroker.teslamateapi
 **Тесты:** ![Тестируйте и выпускайте](https://github.com/virusbrain/ioBroker.teslamateapi/workflows/Test%20and%20Release/badge.svg)

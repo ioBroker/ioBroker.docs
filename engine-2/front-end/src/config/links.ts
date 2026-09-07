@@ -5,7 +5,7 @@
  */
 export const EXTERNAL_LINKS = {
     PAYPAL_DONATE:
-        'https://www.paypal.com/donate?token=StbKXfs33nrQEu7hpBfFwl6Tf2YI1oxO-D5DVABgfo89uOULEu_UIqKvGiUuXObuThS3GvFTeseNjg4m',
+        'https://www.paypal.com/donate?token=tsya9ABM_SZFGgI4p65nDcuOgcaZ8BETCzIJ-0knDi4UHglKX-SGE2v8Wazsxg5Wokum1JtcMQTH1cFb',
     /** search link with the ioBroker affiliate tag */
     AMAZON: 'https://www.amazon.de/s?k=homematic&tag=httpwwwiobron-21',
     FORUM: 'https://forum.iobroker.net/',

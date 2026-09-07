@@ -39,7 +39,7 @@ You can install the adapter via Admin interface or on your terminal.
 2. Click on Tab "Adapters"
 3. Type "Xbox" in the filter
 4. Click on the three points and then on the "+" symbol of the Xbox adapter <br/>
-![Add Adapter](/docs/en/img/plusAddAdapter.png)
+![Add Adapter](./docs/en/img/plusAddAdapter.png)
 
 ## Setup
 1. Fill in the Live ID of your Xbox in the settings of the adapter instance. You can find the Live ID in the settings of your console: System > Console info > *"Xbox Live device ID"* or *"Xbox network device ID"* (depending on which Xbox model and firmware is used)

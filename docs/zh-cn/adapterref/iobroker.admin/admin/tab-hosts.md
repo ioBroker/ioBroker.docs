@@ -14,7 +14,7 @@ hash: A0PX3gNVnrOQijF2MxOe4AXudr5VPDE9MVykcpPXSng=
 ##标题栏
 标题栏包含最重要流程的图标。每个图标都有一个上下文帮助。只需将鼠标停留在图标上一段时间即可。
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-hosts_Hosts_icons.jpg)
+![](../img/tab-hosts_Hosts_icons.jpg)
 
 ### **详细图标：**
 ### ** 1.）获取更新**
@@ -26,7 +26,7 @@ hash: A0PX3gNVnrOQijF2MxOe4AXudr5VPDE9MVykcpPXSng=
 ##页面内容
 在页面上，现有主机已列表。
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-hosts_Hosts_01.jpg)
+![](../img/tab-hosts_Hosts_01.jpg)
 
 该表包含以下列：
 

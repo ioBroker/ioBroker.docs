@@ -18,7 +18,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.octoprint
 hash: H4qRBSp+mVOtQTbgU7iPXEaZb0UlHE+fz4+92pDc2MM=
 ---
-![标识](../../../en/admin/octoprint.png)
+![标识](./admin/octoprint.png)
 
 # IoBroker.octoprint
 **已使用 [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.10.3 进行测试**

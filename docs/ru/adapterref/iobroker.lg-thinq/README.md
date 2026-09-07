@@ -10,7 +10,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.lg-thinq
 hash: zyF6zWq5raDf1nBFkCyFlDGlRDDgcbytOomAyF6c0VQ=
 ---
-![Логотип](../../../en/admin/lg-thinq.png)
+![Логотип](./admin/lg-thinq.png)
 
 # IoBroker.lg-thinq
 [Вернуться к README](/README.md)

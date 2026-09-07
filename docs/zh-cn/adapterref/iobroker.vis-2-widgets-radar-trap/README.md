@@ -17,13 +17,13 @@ hash: kKEFjYJIBieqHWWRKEZo+nFMEuEZPor3HYFBtyE1hzk=
 
 ## 小部件
 ### 信息
-<img src="/img/info-widget.png" height="600">
+<img src="./img/info-widget.png" height="600">
 
 ＃＃＃ 区域
-<img src="/img/area-widget.png" width="500">
+<img src="./img/area-widget.png" width="500">
 
 ＃＃＃ 路线
-<img src="/img/route-widget.png" width="500">
+<img src="./img/route-widget.png" width="500">
 
 ---
 

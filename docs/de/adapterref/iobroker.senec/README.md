@@ -10,7 +10,7 @@ BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&logo
 BADGE-Buy Me a Coffee: https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black
 BADGE-GitHub Sponsor: https://img.shields.io/badge/Sponsor-GitHub-181717?logo=github&logoColor=white
 ---
-# <img src="../../admin/senec.png" width="36" align="top" alt=""> ioBroker.senec
+# <img src="./admin/senec.png" width="36" align="top" alt=""> ioBroker.senec
 
 ## SENEC Adapter für ioBroker
 

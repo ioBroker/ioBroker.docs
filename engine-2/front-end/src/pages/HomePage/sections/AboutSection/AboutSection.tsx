@@ -134,12 +134,11 @@ export const AboutSection: React.FC = () => {
                         width: '100%',
                         maxWidth: '1311px',
                         textAlign: { xs: 'left', md: 'left' },
-                        mb: { xs: 0, md: 4 },
+                        mb: 0,
                     }}
                 >
                     <SectionTitle
                         sx={{
-                            marginBottom: { xs: '32px !important', md: '24px !important' },
                             fontSize: { '@media (max-width:400px)': { fontSize: '26px !important' } },
                         }}
                     >
@@ -163,14 +162,26 @@ export const AboutSection: React.FC = () => {
                                 alignItems: isExpanded ? 'stretch' : 'flex-end',
                                 transition: 'all 0.3s ease',
                                 borderRadius: '16px',
+                                // anchor for the arrow, which sits in the corner rather
+                                // than holding a column open beside the text
+                                position: 'relative',
                             }}
                             textSx={{
                                 width: '100%',
                                 maxWidth: '1010px',
+                                // the strip the arrow now lives in - the text runs the
+                                // full width above it and stops before it, not beside it
+                                paddingBottom: { xs: '28px', sm: '38px' },
                             }}
                             iconSx={{
-                                alignSelf: 'flex-end',
-                                mb: 0.1,
+                                // Out of the flow: as a flex sibling it reserved a 30 px
+                                // column for the whole height of the card, so every line
+                                // of text stopped short of the edge - not just the last
+                                // one it actually sits beside.
+                                position: 'absolute',
+                                right: '20px',
+                                bottom: '20px',
+                                marginLeft: 0,
                                 height: { xs: '20px', sm: '30px', md: '30px' },
                                 width: { xs: '20px', sm: '30px', md: '30px' },
                                 transform: isExpanded ? 'rotate(180deg) scaleX(-1)' : 'rotate(0deg) scaleX(1)',

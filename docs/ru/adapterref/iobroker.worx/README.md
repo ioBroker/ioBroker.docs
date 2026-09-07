@@ -10,7 +10,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.worx Adapter
 hash: lDBSl+NYZ/nbLTyPAREnVFoQHaJVfKbzr4dah8GSgck=
 ---
-![Логотип](../../../en/admin/worx.png)
+![Логотип](./admin/worx.png)
 
 # Адаптер ioBroker.worx
 # Краткое содержание

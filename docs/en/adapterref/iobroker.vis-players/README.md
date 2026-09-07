@@ -7,8 +7,8 @@
 
 [![NPM](https://nodei.co/npm/iobroker.vis-players.png?downloads=true)](https://nodei.co/npm/iobroker.vis-players/)
 
-![winamp](/widgets/players/img/winamp.png)
-![winamp](/widgets/players/img/sonos.png)
+![winamp](./widgets/players/img/winamp.png)
+![winamp](./widgets/players/img/sonos.png)
 
 Widgets for media players.
 

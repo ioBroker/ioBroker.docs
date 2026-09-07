@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 import { Box, Tooltip, Typography } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useStyles } from './AdapterPage.styles';
@@ -17,7 +17,7 @@ import Divider from '../../components/Divider/Divider';
 import HistoryModal from './HistoryModal';
 import { useAdapters } from '../../api/hooks/useAdapters';
 import { useAdapterMarkdown } from '../../api/hooks/useAdapterMarkdown';
-import { API_CONFIG } from '../../config/api';
+import { API_CONFIG, buildContentUrl } from '../../config/api';
 import { I18n } from '../../utils/i18n';
 import { AdapterMarkdownView } from '../../components/AdapterMarkdownView/AdapterMarkdownView';
 import { removeFrontmatter } from '../../utils/markdown';
@@ -44,18 +44,7 @@ const AdapterPage = (): React.ReactNode => {
     const { data: adaptersData } = useAdapters();
     const authorsRef = useRef<HTMLSpanElement>(null);
     const pageGridRef = useRef<HTMLDivElement>(null);
-    const [scrollProgress, setScrollProgress] = useState(0);
     const [isAuthorsOverflow, setIsAuthorsOverflow] = useState(false);
-
-    const handlePageGridScroll = useCallback(() => {
-        const el = pageGridRef.current;
-        if (!el) {
-            return;
-        }
-        const scrollHeight = el.scrollHeight - el.clientHeight;
-        const percent = scrollHeight > 0 ? Math.round((el.scrollTop / scrollHeight) * 100) : 0;
-        setScrollProgress(Math.min(100, Math.max(0, percent)));
-    }, []);
 
     useEffect(() => I18n.subscribe(setLanguage), []);
 
@@ -82,7 +71,7 @@ const AdapterPage = (): React.ReactNode => {
         : 'https://www.iobroker.net';
 
     const markdownUrl = adapterInfo?.adapter?.content
-        ? `${API_CONFIG.IOBROKER_BASE_URL}/${language}/${adapterInfo.adapter.content}`
+        ? buildContentUrl(`${language}/${adapterInfo.adapter.content}`)
         : '';
 
     const { data: markdown } = useAdapterMarkdown(markdownUrl);
@@ -203,7 +192,6 @@ const AdapterPage = (): React.ReactNode => {
             <Box
                 className={classes.pageGrid}
                 ref={pageGridRef}
-                onScroll={handlePageGridScroll}
             >
                 <Box className={classes.leftColumn}>
                     <Box className={classes.introArea}>
@@ -452,10 +440,8 @@ const AdapterPage = (): React.ReactNode => {
                 </Box>
 
                 <Box sx={{ gridColumn: '1 / -1', marginTop: '100px' }}>
-                    <Divider
-                        position={scrollProgress}
-                        parentWidth={pageGridRef.current?.clientWidth || window.innerWidth}
-                    />
+                    {/* ohne `position`: die Linie misst sich selbst, siehe Divider */}
+                    <Divider beforeFooter />
                     <Footer />
                 </Box>
                 <LicenseModal

@@ -15,7 +15,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterr
 title: ioBroker.telegram
 hash: LIH4I86GIbO4wPtQSMlDymm3ec/3Yr+mpvSGK9W66kw=
 ---
-![Logo](../../../en/admin/telegram.png)
+![Logo](./admin/telegram.png)
 
 # IoBroker.telegram
 ## Konfiguration

@@ -17,13 +17,13 @@ hash: kKEFjYJIBieqHWWRKEZo+nFMEuEZPor3HYFBtyE1hzk=
 
 ## Widgets
 ### Die Info
-<img src="/img/info-widget.png" height="600">
+<img src="./img/info-widget.png" height="600">
 
 ### Bereich
-<img src="/img/area-widget.png" width="500">
+<img src="./img/area-widget.png" width="500">
 
 ### Route
-<img src="/img/route-widget.png" width="500">
+<img src="./img/route-widget.png" width="500">
 
 ---
 

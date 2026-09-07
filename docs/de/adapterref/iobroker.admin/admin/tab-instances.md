@@ -7,14 +7,14 @@ Hier werden die bereits über den Reiter Adapter installierten Instanzen aufgel
 
 <span style="line-height: 1.5;"></span>
 
-![iobroker_admin_instanzen_inhalt00](img/tab-instances_Inhalt00.jpg)
+![iobroker_admin_instanzen_inhalt00](../img/tab-instances_Inhalt00.jpg)
 
 ## Die Titelzeile
 
 in der Titelzeile befinden sich Icons für die wichtigsten Vorgänge. Zu jedem Icon gibt es eine Kontexthilfe. 
 Dazu einfach mit der Maus eine Weile auf dem Icon bleiben. Außerdem gibt es noch Informationen zu der Auslastung des Servers
 
-![iobroker_admin_instanzen_headline_icons](img/tab-instances_Icons-e1476803621402.jpg)
+![iobroker_admin_instanzen_headline_icons](../img/tab-instances_Icons-e1476803621402.jpg)
 
 ### **Die Icons im einzelnen:**
 
@@ -37,7 +37,7 @@ freien Speicher in MB an. Dahinter den freien Speicher in %. In den eckigen Klam
 
 ## Der Seiteninhalt
 
-![iobroker_admin_instanzen_headline_columns](img/tab-instances_Headline_Columns.jpg)
+![iobroker_admin_instanzen_headline_columns](../img/tab-instances_Headline_Columns.jpg)
 
 Auf der Seite werden die installierten Instanzen der Adapter tabellarisch dargestellt.
 
@@ -47,7 +47,7 @@ Die Tabelle besteht aus folgenden Spalten:
 
 Hier wird durch eine Ampel der Zustand der Instanz dargestellt. Weitere Informationen erhält man indem man mit der Maus auf dem Signal stehen bleibt.
 
-![iobroker_admin_instanzen_status](img/tab-instances_Instanzen_Status.jpg)
+![iobroker_admin_instanzen_status](../img/tab-instances_Instanzen_Status.jpg)
 
 Nicht alle Instanzen besitzen diese Ampel. Dies ist aber kein Grund zur Panik. Dies sind entweder zeitgesteuerte Instanzen, 
 die sich nur kurz mit dem Controller verbinden und sich dann sofort wieder abschalten oder wie z.B. vis im Hintergrund weiterlaufen.
@@ -98,7 +98,7 @@ Bei Adaptern, die zeitgesteuert gestartet werden, wird hier eingetragen wann die
 Diese Zeitplanung ist im Format eines [cronjobs](https://de.wikipedia.org/wiki/Cron#Beispiele). 
 Zur Änderung klickt man auf den Button mit den drei Punkten. Es öffnet sich ein Eingabefenster mit sehr viel Zusatzinformationen und Hilfe.
 
-![iobroker_admin_instanzen_cronjob](img/tab-instances_Cronjob.jpg)
+![iobroker_admin_instanzen_cronjob](../img/tab-instances_Cronjob.jpg)
 
 ### **11.) Neu starten**
 

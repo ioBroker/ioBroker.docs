@@ -14,23 +14,21 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
             marginLeft: '0px',
             marginTop: '4px',
             transition: 'width 0.3s ease',
-            [theme.breakpoints.down(878)]: {
-                width: isCollapsed ? '56px' : '272px',
-            },
-            // as an overlay panel on small screens it becomes a real surface
-            [theme.breakpoints.down(661)]: {
+            // as an overlay panel on small screens it becomes a real surface. The column
+            // around it only positions it, so the panel starts at its left edge - and it
+            // needs a hairline of its own: on the light theme the surface alone stands
+            // barely apart from the white page ground.
+            [theme.breakpoints.down('md')]: {
                 width: isCollapsed ? '56px' : '328px',
+                maxWidth: '100%',
+                boxSizing: 'border-box',
                 backgroundColor: !isCollapsed ? theme.custom.surfaces.surface : 'transparent',
                 padding: !isCollapsed ? '16px' : '0',
-                marginLeft: !isCollapsed ? '24px' : '0px',
+                marginLeft: '0px',
+                marginTop: !isCollapsed ? '0px' : '4px',
                 borderRadius: !isCollapsed ? `${theme.custom.radius.card}px` : '0px',
+                border: !isCollapsed ? `1px solid ${theme.custom.hairlineStrong}` : 'none',
                 boxShadow: !isCollapsed ? theme.custom.elevation.overlay : 'none',
-            },
-            [theme.breakpoints.down(481)]: {
-                marginLeft: !isCollapsed ? '10px' : '0px',
-            },
-            [theme.breakpoints.up(1440)]: {
-                width: isCollapsed ? '56px' : '272px',
             },
         },
         menuInner: {
@@ -39,7 +37,7 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
             display: 'flex',
             flexDirection: 'column',
             gap: '2px',
-            [theme.breakpoints.down(661)]: {
+            [theme.breakpoints.down('md')]: {
                 maxHeight: !isCollapsed ? 'calc(100vh - 165px)' : 'calc(100vh - 125px)',
             },
             '&::-webkit-scrollbar': {
@@ -64,7 +62,7 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
             padding: isCollapsed ? '10px 8px' : '8px 12px',
             cursor: 'pointer',
             color: theme.palette.text.primary,
-            fontSize: '14px',
+            fontSize: theme.custom.reading.small.fontSize,
             fontFamily: "'Roboto', sans-serif",
             transition: 'background 0.2s ease, color 0.2s ease',
             borderRadius: `${theme.custom.radius.control}px`,
@@ -96,7 +94,7 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
                 opacity: isDark ? 0.8 : 1,
                 filter: isDark ? 'none' : LIGHT_ICON_FILTER,
             },
-            [theme.breakpoints.down(1280)]: {
+            [theme.breakpoints.down('md')]: {
                 width: isCollapsed ? '26px' : '22px',
                 height: isCollapsed ? '26px' : '22px',
                 '& img': {

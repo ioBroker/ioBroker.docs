@@ -1,9 +1,14 @@
-import React, { useMemo, useState } from 'react';
-import { Dialog, Box, Typography } from '@mui/material';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { Dialog, Box, Typography, useTheme } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
 import ReactECharts from 'echarts-for-react';
 import { useStyles } from './AdapterStatsModal.styles';
-import { API_CONFIG } from '../config/api';
+import { STATISTICS_DATA_URL } from '../config/api';
+import { I18n } from '../utils/i18n';
+// the statistics page already owns the ranked-bar builder of this design kit, palette
+// included - the version chart is the same picture with a different set of rows, so it
+// uses that builder rather than a second one that would drift from it
+import { rankedBarOption } from '../pages/StatisticsPage/charts';
 
 interface AdapterStatsModalProps {
     open: boolean;
@@ -19,13 +24,28 @@ const formatNumber = (value: number | undefined): string => {
     return new Intl.NumberFormat('de-DE').format(value);
 };
 
-const CHART_COLORS = ['#4CB6E7', '#6AE7C8', '#5A6B9E', '#93A2D8', '#BFE7A0', '#D0D0D0'];
+/** how many versions get their own bar before the rest are collected */
+const TOP_VERSIONS = 5;
 
 export const AdapterStatsModal: React.FC<AdapterStatsModalProps> = ({ open, onClose, adapterName, adapterId }) => {
     const { classes } = useStyles();
+    const theme = useTheme();
+    /**
+     * The chart is built while the dialog is still growing into place, so ECharts measures
+     * a container that is not its final size yet and lays the plot area out far too
+     * narrow - every bar came out as a stub. ECharts only re-measures when it is told to,
+     * and it listens to window resizes, not to its own box, so the dialog says when it has
+     * finished opening.
+     */
+    const chartRef = useRef<ReactECharts>(null);
+    const chartBoxRef = useRef<HTMLDivElement>(null);
+    const resizeChart = (): void => chartRef.current?.getEchartsInstance().resize();
     const [sortKey, setSortKey] = useState<'version' | 'count'>('count');
     const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
-    const statsUrl = `${API_CONFIG.IOBROKER_BASE_URL}/data/statistics.json`;
+    // the same source the statistics page reads - through the dev proxy in development,
+    // same-origin in production. It used to build its own `./` path here, which the dev
+    // server could not serve, so the dialog always said "no data" while developing.
+    const statsUrl = STATISTICS_DATA_URL;
 
     const { data } = useQuery({
         queryKey: ['statistics', statsUrl],
@@ -41,9 +61,9 @@ export const AdapterStatsModal: React.FC<AdapterStatsModalProps> = ({ open, onCl
         enabled: open,
     });
 
-    const { total, tableRows, chartData } = useMemo(() => {
+    const { total, tableRows, chartRows } = useMemo(() => {
         if (!data || !adapterId) {
-            return { total: 0, tableRows: [], chartData: [] };
+            return { total: 0, tableRows: [], chartRows: [] };
         }
 
         const totalCount = Number(data.adapters?.[adapterId] ?? 0);
@@ -68,19 +88,26 @@ export const AdapterStatsModal: React.FC<AdapterStatsModalProps> = ({ open, onCl
             return sortDir === 'asc' ? cmp : -cmp;
         });
 
-        const top = versionRows.slice(0, 5);
-        const rest = versionRows.slice(5);
+        const top = versionRows.slice(0, TOP_VERSIONS);
+        const rest = versionRows.slice(TOP_VERSIONS);
         const othersCount = rest.reduce((sum, item) => sum + item.count, 0);
+        const bars = othersCount > 0 ? [...top, { version: I18n.t('adapters.stats.others'), count: othersCount }] : top;
 
-        const chartRawData = othersCount > 0 ? [...top, { version: 'others', count: othersCount }] : top;
-
-        const formattedChartData = chartRawData.map(item => ({
-            name: item.version,
-            value: item.count,
-        }));
-
-        return { total: totalCount, tableRows: rows, chartData: formattedChartData };
+        return { total: totalCount, tableRows: rows, chartRows: bars };
     }, [data, adapterId, sortDir, sortKey]);
+
+    // ...and the same for every later change of the box: the phone dialog settles after
+    // it has opened, a font arrives, the browser turns. ECharts watches the window, not
+    // its own element, so the element is watched here.
+    useEffect(() => {
+        const box = chartBoxRef.current;
+        if (!open || !box || typeof ResizeObserver === 'undefined') {
+            return undefined;
+        }
+        const observer = new ResizeObserver(() => resizeChart());
+        observer.observe(box);
+        return () => observer.disconnect();
+    }, [open, chartRows.length]);
 
     const toggleSort = (key: 'version' | 'count'): void => {
         if (sortKey === key) {
@@ -91,71 +118,16 @@ export const AdapterStatsModal: React.FC<AdapterStatsModalProps> = ({ open, onCl
         setSortDir('asc');
     };
 
-    const getChartOption = (): object => {
-        return {
-            color: CHART_COLORS,
-            tooltip: {
-                trigger: 'item',
-                backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                borderColor: '#ccc',
-                borderWidth: 1,
-                textStyle: { color: '#333' },
-                formatter: function (params: any) {
-                    return `
-                        <div style="font-family: inherit;">
-                            <div style="color: #666; font-size: 13px; text-align: center; margin-bottom: 4px;">Count</div>
-                            <div style="color: #333; font-size: 14px;">
-                                ${params.name} : ${params.value} (${params.percent}%)
-                            </div>
-                        </div>
-                    `;
-                },
-            },
-            legend: {
-                orient: 'vertical',
-                right: '0%',
-                top: 'start',
-                icon: 'roundRect',
-                itemWidth: 14,
-                itemHeight: 14,
-                textStyle: {
-                    color: '#5A5A5A',
-                    fontSize: 12,
-                },
-            },
-            series: [
-                {
-                    name: 'Versions',
-                    type: 'pie',
-                    radius: '75%',
-                    center: ['40%', '50%'],
-                    data: chartData,
-                    label: {
-                        show: true,
-                        formatter: '{b}',
-                        color: '#5A5A5A',
-                    },
-                    labelLine: {
-                        show: true,
-                        length: 15,
-                        length2: 10,
-                        smooth: true,
-                    },
-                    emphasis: {
-                        itemStyle: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)',
-                        },
-                    },
-                },
-            ],
-        };
-    };
-
-    const handleCloseClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    const handleCloseClick = (event: React.MouseEvent<HTMLElement>): void => {
         event.stopPropagation();
         onClose();
+    };
+
+    const sortArrow = (key: 'version' | 'count'): string => {
+        if (sortKey !== key) {
+            return '';
+        }
+        return sortDir === 'asc' ? '↑' : '↓';
     };
 
     return (
@@ -163,7 +135,10 @@ export const AdapterStatsModal: React.FC<AdapterStatsModalProps> = ({ open, onCl
             open={open}
             onClose={onClose}
             maxWidth="md"
+            fullWidth
+            scroll="body"
             slotProps={{
+                transition: { onEntered: resizeChart },
                 paper: {
                     className: classes.dialogPaper,
                     onClick: (event: React.MouseEvent<HTMLDivElement>) => event.stopPropagation(),
@@ -171,77 +146,85 @@ export const AdapterStatsModal: React.FC<AdapterStatsModalProps> = ({ open, onCl
             }}
         >
             <Box
-                className={classes.container}
-                onClick={event => event.stopPropagation()}
+                component="button"
+                type="button"
+                aria-label={I18n.t('tooltip.close')}
+                className={classes.closeButton}
+                onClick={handleCloseClick}
             >
-                <Typography className={classes.title}>Adapter {adapterName} statistics</Typography>
-                <Typography className={classes.total}>Total count: {formatNumber(total)}</Typography>
+                <svg
+                    className={classes.closeIcon}
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    aria-hidden
+                >
+                    <path
+                        d="M20 24.2586L5.09506 39.1635C4.53739 39.7212 3.82763 40 2.96578 40C2.10393 40 1.39417 39.7212 0.836501 39.1635C0.278833 38.6058 0 37.8961 0 37.0342C0 36.1724 0.278833 35.4626 0.836501 34.9049L15.7414 20L0.836501 5.09506C0.278833 4.53739 0 3.82763 0 2.96578C0 2.10393 0.278833 1.39417 0.836501 0.836501C1.39417 0.278833 2.10393 0 2.96578 0C3.82763 0 4.53739 0.278833 5.09506 0.836501L20 15.7414L34.9049 0.836501C35.4626 0.278833 36.1724 0 37.0342 0C37.8961 0 38.6058 0.278833 39.1635 0.836501C39.7212 1.39417 40 2.10393 40 2.96578C40 3.82763 39.7212 4.53739 39.1635 5.09506L24.2586 20L39.1635 34.9049C39.7212 35.4626 40 36.1724 40 37.0342C40 37.8961 39.7212 38.6058 39.1635 39.1635C38.6058 39.7212 37.8961 40 37.0342 40C36.1724 40 35.4626 39.7212 34.9049 39.1635L20 24.2586Z"
+                        fill="currentColor"
+                    />
+                </svg>
+            </Box>
 
-                <Box className={classes.content}>
-                    <Box className={classes.chartCard}>
-                        {chartData.length > 0 ? (
-                            <ReactECharts
-                                option={getChartOption()}
-                                style={{ height: '300px', width: '100%' }}
-                                notMerge={true}
-                                lazyUpdate={true}
-                            />
-                        ) : (
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    height: '300px',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                }}
-                            >
-                                <Typography color="textSecondary">No data</Typography>
-                            </Box>
-                        )}
-                    </Box>
+            <Box className={classes.header}>
+                <Typography className={classes.title}>{I18n.t('adapters.stats.title', adapterName)}</Typography>
+                <Typography className={classes.total}>
+                    {I18n.t('adapters.stats.total')}: <span className={classes.totalValue}>{formatNumber(total)}</span>
+                </Typography>
+            </Box>
 
-                    <Box className={classes.tableCard}>
-                        <Box className={classes.tableHeader}>
-                            <span
-                                className={classes.sortHeader}
-                                onClick={() => toggleSort('version')}
-                            >
-                                Version{' '}
-                                <span className={classes.sortArrow}>
-                                    {sortKey === 'version' ? (sortDir === 'asc' ? '↑' : '↓') : ''}
-                                </span>
-                            </span>
-                            <span
-                                className={classes.sortHeader}
-                                onClick={() => toggleSort('count')}
-                            >
-                                Count{' '}
-                                <span className={classes.sortArrow}>
-                                    {sortKey === 'count' ? (sortDir === 'asc' ? '↑' : '↓') : ''}
-                                </span>
-                            </span>
-                            <span>%</span>
-                        </Box>
-                        {tableRows.map((row, index) => (
-                            <Box
-                                className={classes.tableRow}
-                                key={index}
-                            >
-                                <span>{row.version}</span>
-                                <span>{formatNumber(row.count)}</span>
-                                <span>{row.percent}</span>
-                            </Box>
-                        ))}
-                    </Box>
+            <Box className={classes.content}>
+                <Box
+                    className={classes.card}
+                    ref={chartBoxRef}
+                >
+                    {chartRows.length > 0 ? (
+                        <ReactECharts
+                            ref={chartRef}
+                            option={rankedBarOption(
+                                theme,
+                                chartRows.map(row => ({ name: row.version, value: row.count })),
+                                total,
+                            )}
+                            style={{ height: `${Math.max(180, chartRows.length * 40 + 16)}px`, width: '100%' }}
+                        />
+                    ) : (
+                        <Box className={classes.emptyChart}>{I18n.t('adapters.stats.no_data')}</Box>
+                    )}
                 </Box>
 
-                <Box className={classes.closeRow}>
-                    <button
-                        className={classes.closeButton}
-                        onClick={handleCloseClick}
-                    >
-                        CLOSE
-                    </button>
+                <Box className={`${classes.card} ${classes.tableCard}`}>
+                    <Box className={classes.tableHeader}>
+                        <Box
+                            component="button"
+                            type="button"
+                            className={classes.sortHeader}
+                            onClick={() => toggleSort('version')}
+                        >
+                            {I18n.t('adapters.stats.version')}
+                            <span className={classes.sortArrow}>{sortArrow('version')}</span>
+                        </Box>
+                        <Box
+                            component="button"
+                            type="button"
+                            className={classes.sortHeader}
+                            sx={{ justifyContent: 'flex-end' }}
+                            onClick={() => toggleSort('count')}
+                        >
+                            {I18n.t('adapters.stats.count')}
+                            <span className={classes.sortArrow}>{sortArrow('count')}</span>
+                        </Box>
+                        <Box className={classes.columnLabel}>{I18n.t('adapters.stats.share')}</Box>
+                    </Box>
+                    {tableRows.map(row => (
+                        <Box
+                            className={classes.tableRow}
+                            key={row.version}
+                        >
+                            <span>{row.version}</span>
+                            <span className={classes.cellNumber}>{formatNumber(row.count)}</span>
+                            <span className={classes.cellShare}>{row.percent}</span>
+                        </Box>
+                    ))}
                 </Box>
             </Box>
         </Dialog>

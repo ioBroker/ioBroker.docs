@@ -40,8 +40,16 @@ export const useStyles = makeStyles()(theme => ({
         flexDirection: 'column',
     },
     subtitle: {
+        // `&&` doubles the class: MUI's own Typography style would otherwise win
+        // or lose depending on which stylesheet was injected first
+        '&&': {
+            fontSize: theme.custom.reading.lead.fontSize,
+            lineHeight: theme.custom.reading.lead.lineHeight,
+        },
         maxWidth: '620px',
         color: theme.custom.textMuted,
+        // it carried no size of its own and simply inherited - which is why the blog
+        // intro read a step smaller than the same line on every other page
     },
     filterRow: {
         display: 'flex',
@@ -203,19 +211,19 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     cardDesc: {
-        fontSize: '16px',
+        // `&&` doubles the class: MUI's own Typography style would otherwise win
+        // or lose depending on which stylesheet was injected first
+        '&&': {
+            fontSize: theme.custom.reading.small.fontSize,
+            lineHeight: theme.custom.reading.small.lineHeight,
+        },
         fontWeight: 400,
-        lineHeight: '26px',
         letterSpacing: '0.01em',
         color: theme.custom.textMuted,
         display: '-webkit-box',
         WebkitLineClamp: 4,
         WebkitBoxOrient: 'vertical',
         overflow: 'hidden',
-        [theme.breakpoints.down('sm')]: {
-            fontSize: '15px',
-            lineHeight: '24px',
-        },
     },
     cardDivider: {
         height: '1px',

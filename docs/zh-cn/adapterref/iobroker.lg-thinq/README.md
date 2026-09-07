@@ -10,7 +10,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.lg-thinq
 hash: zyF6zWq5raDf1nBFkCyFlDGlRDDgcbytOomAyF6c0VQ=
 ---
-![标识](../../../en/admin/lg-thinq.png)
+![标识](./admin/lg-thinq.png)
 
 # IoBroker.lg-thinq
 [返回自述文件](/README.md)

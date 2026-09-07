@@ -10,13 +10,13 @@ hash: rqPVvVeC50Hm4dxcQ7zBoNm0VTUa7zS5Txki6arYBmc=
 Here the favorites, trades and rooms from the Homematic CCU are listed.
 You can also create your own lists, which then can be used in scripts.
 
-![iobroker_adapter_admin_enums_01](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_01.jpg)
+![iobroker_adapter_admin_enums_01](../img/tab-enums_Enums_01.jpg)
 
 ## The title bar
 The title bar contains icons for the most important processes.
 There is a context help for each icon. Just keep the mouse on the icon for a while.
 
-![iobroker_adapter_admin_enums_headers_01](../../../../de/adapterref/iobroker.admin/admin/img/ioBroker_Adapter_admin_Enums_Headers_01.jpg)
+![iobroker_adapter_admin_enums_headers_01](../img/ioBroker_Adapter_admin_Enums_Headers_01.jpg)
 
 ### **The icons in detail:**
 ### **1.) Update view**
@@ -37,12 +37,12 @@ After selecting this icon further enumerations in the basic structure can be add
 Elements within the folder structure are created via the (+) icon on the right (# 10).
 A configuration window opens:
 
-![iobroker_adapter_admin_enums_new](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_new.jpg)
+![iobroker_adapter_admin_enums_new](../img/tab-enums_Enums_new.jpg)
 
 Now you have to select the name for the new enumeration, the generated id will be adjusted automatically.
 
 ### The page content
-![iobroker_adapter_admin_enums_headers_03](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_Headers_03.jpg)
+![iobroker_adapter_admin_enums_headers_03](../img/tab-enums_Enums_Headers_03.jpg)
 
 On the page, the existing lists and their members are tabulated.
 
@@ -67,7 +67,7 @@ An ok button in the form of a check mark and a cancel icon in the form of a (x) 
 ### **10.) Add structure element**
 After clicking on this icon, a dialog box opens in which a new member can be created within the respective structure.
 
-![iobroker_adapter_admin_enums_new_member](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_new_Member.jpg)
+![iobroker_adapter_admin_enums_new_member](../img/tab-enums_Enums_new_Member.jpg)
 
 Again, the name can be chosen individually. The associated ID is generated automatically according to the structure and the selected name.
 
@@ -77,4 +77,4 @@ The trashcan icon deletes the element in this line
 ### **12.) Information**
 After clicking this icon, another window with extended information about the selected element is displayed.
 
-![iobroker_adapter_admin_enums_info](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_Info.jpg)
+![iobroker_adapter_admin_enums_info](../img/tab-enums_Enums_Info.jpg)

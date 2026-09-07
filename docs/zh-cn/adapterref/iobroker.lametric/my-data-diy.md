@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.lametric
 hash: hTFdXm8kF5J0YpvvpwIf3bDOvsHgUtNFf37hod0nSIY=
 ---
-![标识](../../../de/admin/lametric.png)
+![标识](./admin/lametric.png)
 
 # IoBroker.lametric
 *LaMetric* 提供了一个附加应用程序（通过集成应用程序商店）来显示您自己的信息。此应用程序名为[我的数据DIY](https://apps.lametric.com/apps/my_data__diy_/8942)。该适配器以所需格式创建数据点。

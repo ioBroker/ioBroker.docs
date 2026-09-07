@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.trashschedule
 hash: lSgogAfQ2zn2c2JW+6xbH6dkE8G0Tl2kJU/6j1MqcjI=
 ---
-![логотип](../../../de/adapterref/iobroker.trashschedule/../../admin/trashschedule.png)
+![логотип](./trashschedule.png)
 
 # IoBroker.trashschedule
 ##ВОПРОСЫ-ОТВЕТЫ

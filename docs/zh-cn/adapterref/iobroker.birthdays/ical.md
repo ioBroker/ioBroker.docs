@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.生日
 hash: 5D+ntgsEHCBXP3I+yFLcB4+QOlDXGbxViucNSp7ZBtI=
 ---
-![标识](../../../de/admin/birthdays.png)
+![标识](./admin/birthdays.png)
 
 # IoBroker.生日
 ## 日历

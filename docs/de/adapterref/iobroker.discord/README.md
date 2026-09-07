@@ -102,20 +102,20 @@ Um diesen Adapter zu benutzen, muss eine Discord Bot Anwendung erstellt werden.
 
 1. Gehe zum [Discord Developer Portal] und logge dich mit deinem Discord-Account ein, wenn nicht bereits eingeloggt.
 2. In der _Applications_ Ansicht, klicke auf den Button _New Application_ oben rechts.  
-[![New Application](../en/media/bot-creation-1.png)](../en/media/bot-creation-1.png)
+[![New Application](../../../en/adapterref/iobroker.discord/media/bot-creation-1.png)](../en/media/bot-creation-1.png)
 3. Wähle einen Namen für die Applikation (das wird der Name des Bots) und klicke _Create_.  
-[![Application Name](../en/media/bot-creation-2.png)](../en/media/bot-creation-2.png)
+[![Application Name](../../../en/adapterref/iobroker.discord/media/bot-creation-2.png)](../en/media/bot-creation-2.png)
 4. (Optional) Lade ein _App Icon_ hoch, ändere den Namen (_Name_), Ändere die Beschreibung (_Description_), füge ein paar _Tags_ hinzu und speichere die Änderungen (_Save Changes_).  
-[![Application Settings](../en/media/bot-creation-3.png)](../en/media/bot-creation-3.png)
+[![Application Settings](../../../en/adapterref/iobroker.discord/media/bot-creation-3.png)](../en/media/bot-creation-3.png)
 5. Navigiere im linken Menü zu _Bot_ klicke den _Add Bot_ Button.  
-[![Add Bot](../en/media/bot-creation-4.png)](../en/media/bot-creation-4.png)  
+[![Add Bot](../../../en/adapterref/iobroker.discord/media/bot-creation-4.png)](../en/media/bot-creation-4.png)  
 Im folgenden Dialog klicke _Yes, do it!_ um die Erstellung des Bots zu bestätigen.
 6. Wenn der Bot erstellt ist, musst du einmalig auf den Button _Reset Token_ klicken, um das Bot-Token zu erhalten.  
-[![Reset Token](../en/media/bot-creation-5.png)](../en/media/bot-creation-5.png)  
+[![Reset Token](../../../en/adapterref/iobroker.discord/media/bot-creation-5.png)](../en/media/bot-creation-5.png)  
 Da dies alle früheren Tokens für ungültig erklärt, musst du dies mit dem Button _Yes, do it!_ im aufpoppenden Dialog bestätigen.  
 Danach wird das Bot-Token **einmalig** angezeigt und du solltest es an einen sicheren Ort kopieren (z.B. die Konfiguration der Adapterinstanz).
 7. Scrolle auf der _Bot_-Seite ein Stück herunter zu _Privileged Gateway Intents_ und aktiviere _Presence Intent_, _Server Members Intent_ sowie _Message Content Intent_. Vergiss nicht die Änderungen zu speichern (_Save Changes_).  
-[![Privileged Gateway Intents](../en/media/bot-creation-6.png)](../en/media/bot-creation-6.png)  
+[![Privileged Gateway Intents](../../../en/adapterref/iobroker.discord/media/bot-creation-6.png)](../en/media/bot-creation-6.png)  
 Hinweis: Sobald der Bot auf mehr als 100 Servern vertreten ist, werden diese Intents eine Verifikation und Genehmigung seitens Discord benötigen.
 8. Jetzt ist alles bereit, um die Adapterinstanz zu starten und anschließend den Bot einem Discord-Server hinzuzufügen.
 

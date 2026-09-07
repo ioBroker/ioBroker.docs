@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.trashschedule
 hash: qs8hdoqF2s9PJxNNUeBUqQZjbblJAc1qnCjdsO7Knts=
 ---
-![标识](../../../de/admin/trashschedule.png)
+![标识](./trashschedule.png)
 
 # IoBroker.trashschedule
 ## Jumomind (MyMüll)

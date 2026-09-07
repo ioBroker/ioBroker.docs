@@ -156,7 +156,15 @@ export const DocsMenu = ({
                     key={fullKey}
                     className={`${classes.leaf} ${isCurrent ? classes.activeLink : ''}`}
                 >
-                    <Link to={target}>{page.title[language] ?? page.title.en ?? key}</Link>
+                    {/* Picking a page closes the tree - on a phone it is an overlay over the
+                        article the user just asked for. `setIsMenuClosed` is only handed to
+                        that overlay, so the tree beside the text on a wide screen stays open. */}
+                    <Link
+                        to={target}
+                        onClick={() => setIsMenuClosed?.(true)}
+                    >
+                        {page.title[language] ?? page.title.en ?? key}
+                    </Link>
                 </Box>
             );
         });
@@ -198,7 +206,16 @@ export const DocsMenu = ({
                             alt="Documentation"
                         />
                     </Box>
-                    {firstKeyOriginal ? <Link to={rootTarget}>{headerTitle}</Link> : headerTitle}
+                    {firstKeyOriginal ? (
+                        <Link
+                            to={rootTarget}
+                            onClick={() => setIsMenuClosed?.(true)}
+                        >
+                            {headerTitle}
+                        </Link>
+                    ) : (
+                        headerTitle
+                    )}
                 </Box>
 
                 {renderPages(filteredPages, 0, '')}

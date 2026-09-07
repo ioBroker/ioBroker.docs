@@ -42,7 +42,7 @@ If you own a wallbox that is not supported yet, please contact the developer.
 ## Configuration
 Only the type of box, its IP address and, if necessary, an API key need to be configured.
 
-![Configuration](/admin/docs/Amtron_Config.PNG)
+![Configuration](./admin/docs/Amtron_Config.PNG)
 
 
 Note: Since the boxes have different interfaces, it may be that not all interfaces work directly. In this case please contact the developer. 

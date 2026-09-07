@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.trashschedule
 hash: cxuDJQ+FE/gJo8Qr10VP3+MokTAvixeultz+dNobj/k=
 ---
-![标识](../../../de/admin/trashschedule.png)
+![标识](./trashschedule.png)
 
 # IoBroker.trashschedule
 发送消息的通用函数

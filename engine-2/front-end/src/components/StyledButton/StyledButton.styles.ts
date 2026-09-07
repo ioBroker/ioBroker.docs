@@ -33,9 +33,15 @@ export const useStyles = makeStyles()(theme => ({
         backgroundColor: theme.custom.surfaces.surface,
         borderRadius: `${theme.custom.radius.card}px`,
         alignItems: 'flex-start',
+        /**
+         * Two steps up, not one. A panel this large sitting on `surface` and lifting to
+         * `raised` changes by about 6 points of perceived lightness across a very big
+         * area - measurable, but not something the eye registers as an answer to the
+         * pointer. `overlay` plus the stronger edge light reads as one.
+         */
         '&:hover': {
-            backgroundColor: theme.custom.surfaces.raised,
-            boxShadow: theme.custom.elevation.raised,
+            backgroundColor: theme.custom.surfaces.overlay,
+            boxShadow: `${theme.custom.elevation.raised}, inset 0 0 0 1px ${theme.custom.hairlineStrong}`,
         },
     },
     buttonText: {

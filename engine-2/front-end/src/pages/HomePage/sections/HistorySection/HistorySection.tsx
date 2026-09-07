@@ -46,7 +46,8 @@ export const HistorySection: React.FC = () => {
                     >
                         /* {I18n.t('home.history.text')} */
                     </Typography>
-                    <Box sx={{ textAlign: { xs: 'center', sm: 'center', md: 'left' } }}>
+                    {/* ab 600 px steht der ganze Block links, siehe container in den Styles */}
+                    <Box sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
                         <StyledButton
                             sx={{
                                 height: { xs: '44px', sm: '44px', md: '60px' },

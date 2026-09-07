@@ -5,7 +5,7 @@ BADGE-Number of Installations: https://iobroker.live/badges/worx-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/worx-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 ---
-![Logo](../../admin/worx.png)
+![Logo](./admin/worx.png)
 
 # ioBroker.worx Adapter
 
@@ -116,7 +116,7 @@ Richtig</br>
 - `product`: Alle Eigenschaften vom Gerät (Draht & Vision / Nur lesen)
 - `rawMqtt`: Alle Daten von der Cloud (Draht & Vision / Nur lesen)
 
-![Folder img/all_folders.png](../en/img/all_folders.png)
+![Folder img/all_folders.png](../../../en/adapterref/iobroker.worx/img/all_folders.png)
 
 ### activityLog (Draht und Vision)
 
@@ -126,7 +126,7 @@ Richtig</br>
 - `manuell_update`: Lädt das aktuelle Aktivitätenprotokoll (automatisch nach Statusänderungen - Draht & Vision / Kontrolle möglich) 🟢
 - `payload`: Protokoll als JSON (für VIS oder Blockly) (nur lesen)
 
-![Activity img/activity.png](../en/img/activity.png)
+![Activity img/activity.png](../../../en/adapterref/iobroker.worx/img/activity.png)
 
 ### areas (Nur Draht)
 
@@ -141,7 +141,7 @@ Richtig</br>
 - `startSequence`: Zonenstart Array (0-9 Ereignisse) Bsp.: Nur Zone 3 anfahren [2,2,2,2,2,2,2,2,2,2] (änderbar) 🟢
 - `zoneKeeper`: Verhindert Zonendurchbrüche (Zonen müssen erstellt sein) (ab Firmware 3.30) (änderbar) 🟢
 
-![Area img/areas.png](../en/img/areas.png)
+![Area img/areas.png](../../../en/adapterref/iobroker.worx/img/areas.png)
 
 ### calendar (Draht)
 
@@ -156,7 +156,7 @@ Richtig</br>
     - `calendar.calJson`: Array für den Wochenmähplan 1 (wird automatisch gesetzt - nur Draht) (änderbar) 🔴
     - `calendar.calJson2`: Array für den Wochenmähplan 2 (wird automatisch gesetzt - nur Draht) (änderbar) 🔴
 
-![Folder img/calendar.png](../en/img/calendar.png)
+![Folder img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar.png)
 
 ### calendar (Vision)
 
@@ -227,10 +227,10 @@ Richtig</br>
     - `NL.connection_X.wifi_rssi`: Wifi RSSI (nur lesen)
     - `NL.connection_X.wifi_stat`: Wifi Status (nur lesen)
 
-![Module img/module.png](../en/img/module.png)
-![Module img/module_ea.png](../en/img/module_ea.png)
-![Module img/module_hl.png](../en/img/module_hl.png)
-![Module img/module_hl.png](../en/img/module_nl.png)
+![Module img/module.png](../../../en/adapterref/iobroker.worx/img/module.png)
+![Module img/module_ea.png](../../../en/adapterref/iobroker.worx/img/module_ea.png)
+![Module img/module_hl.png](../../../en/adapterref/iobroker.worx/img/module_hl.png)
+![Module img/module_hl.png](../../../en/adapterref/iobroker.worx/img/module_nl.png)
 
 ### mower (Draht und Vision)
 
@@ -542,12 +542,12 @@ Standard ohne Zonen:
     - `log_improvement`: Protokoll zur Verbesserung an Worx senden de-/aktivieren (änderbar) 🟢
     - `log_troubleshooting`: Fehlerbericht an Worx senden de-/aktivieren (änderbar) 🟢
 
-![Vision img/logs_vision.png](../en/img/logs_vision.png)
+![Vision img/logs_vision.png](../../../en/adapterref/iobroker.worx/img/logs_vision.png)
 
 - Mower
     - `paused`: Mähstartverzögerung (änderbar) 🟢
 
-![Vision img/paused_vision.png](../en/img/paused_vision.png)
+![Vision img/paused_vision.png](../../../en/adapterref/iobroker.worx/img/paused_vision.png)
 
 ### info_mqtt (Draht und Vision)
 
@@ -561,7 +561,7 @@ Standard ohne Zonen:
 - `next_update`: Nächste Aktualisierung vom Token
 - `online`: Status MQTT Verbindung (false=offline/true=online)
 
-![Vision img/mqtt_info.png](../en/img/mqtt_info.png)
+![Vision img/mqtt_info.png](../../../en/adapterref/iobroker.worx/img/mqtt_info.png)
 
 ### Rate Limiting
 
@@ -1019,8 +1019,8 @@ Standard ohne Zonen:
 
 ### nicht erlaubt
 
-![img/json_nok.png](../en/img/json_nok.png)
-![img/array_nok.png](../en/img/array_nok.png)
+![img/json_nok.png](../../../en/adapterref/iobroker.worx/img/json_nok.png)
+![img/array_nok.png](../../../en/adapterref/iobroker.worx/img/array_nok.png)
 
 ## Changelog
 

@@ -13,7 +13,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: 无标题
 hash: 3wNYB1rOKEVLL/JLKuXKZX/7Mspz3y+Bw4HwU3WDlBE=
 ---
-![标识](../../../en/admin/motioneye.png)
+![标识](./admin/motioneye.png)
 
 ### 适用于 MotionEye 的 ioBroker 适配器
 ## 文档

@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterr
 title: ioBroker.Geburtstage
 hash: pQ6N7asxEQlLMkySRmfIbo7mvBncHPuDr2AnvQqmpPU=
 ---
-![Logo](../../../en/adapterref/iobroker.birthdays/../../admin/birthdays.png)
+![Logo](./admin/birthdays.png)
 
 # IoBroker.geburtstage
 ## Beispiel (Blockweise)

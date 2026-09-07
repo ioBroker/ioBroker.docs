@@ -13,8 +13,10 @@ export const useHeaderStyles = makeStyles<{ dark: boolean }>()((theme, { dark })
             top: 0,
             left: 0,
             right: 0,
-            paddingLeft: theme.spacing(4),
-            paddingRight: theme.spacing(4),
+            // the same side margin as every content column below it, so the logo stands
+            // on the page's own left line rather than on one of its own
+            paddingLeft: `${theme.custom.layout.gutter.lg}px`,
+            paddingRight: `${theme.custom.layout.gutter.lg}px`,
             zIndex: 1000,
             height: 64,
             display: 'flex',
@@ -22,15 +24,12 @@ export const useHeaderStyles = makeStyles<{ dark: boolean }>()((theme, { dark })
             alignItems: 'center',
             backgroundColor: bar.palette.background.paper,
             color: bar.palette.text.primary,
-            boxShadow: `inset 0 -1px 0 ${bar.custom.hairline}`,
+            // no line under the header - it read as a seam across the banner, where the
+            // page has its own edge anyway
             boxSizing: 'border-box' as const,
-            [theme.breakpoints.down(1280)]: {
-                paddingLeft: '24px',
-                paddingRight: '24px',
-            },
-            [theme.breakpoints.down(481)]: {
-                paddingLeft: '10px',
-                paddingRight: '10px',
+            [theme.breakpoints.down('sm')]: {
+                paddingLeft: `${theme.custom.layout.gutter.sm}px`,
+                paddingRight: `${theme.custom.layout.gutter.sm}px`,
             },
         },
         logoLink: {
@@ -176,10 +175,13 @@ export const useHeaderStyles = makeStyles<{ dark: boolean }>()((theme, { dark })
             },
             width: theme.custom.control.compactHeight,
             height: theme.custom.control.compactHeight,
-            // a finger needs about 44 px, and the header strip is what gets tapped most
+            // a finger needs about 44 px, and the header strip is what gets tapped most.
+            // The glyphs are drawn at 100 % of the box, so the padding has to grow with it -
+            // otherwise the marks grow from 28 to 36 px and the header gets loud.
             [theme.breakpoints.down(768)]: {
                 width: 44,
                 height: 44,
+                padding: theme.spacing(1),
             },
         },
         profileMenu: {

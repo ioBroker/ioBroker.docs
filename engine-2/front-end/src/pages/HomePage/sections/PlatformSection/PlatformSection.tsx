@@ -1,11 +1,13 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { useStyles } from './PlatformSection.styles';
 import { StyledButton } from '../../../../components/StyledButton/StyledButton';
 import { I18n } from '../../../../utils/i18n';
 
 export const PlatformSection: React.FC = () => {
     const { classes } = useStyles();
+    const navigate = useNavigate();
     return (
         <Box
             component="section"
@@ -34,8 +36,12 @@ export const PlatformSection: React.FC = () => {
                         <Typography className={classes.platformSubtitle}>{I18n.t('home.platform.sub1')}</Typography>
                         <Typography className={classes.platformSubtitle}>{I18n.t('home.platform.sub2')} */</Typography>
                         <StyledButton
+                            onClick={() => void navigate('/docs')}
+                            // it leads to another page, so the arrow points at it rather
+                            // than down - see the note in `StyledButton`
+                            arrow="right"
                             sx={{
-                                marginTop: { xs: '20px', sm: '20px', md: '72px' },
+                                marginTop: { xs: '20px', sm: '20px', md: '8px' },
                                 height: { xs: '44px', sm: '44px', md: '60px' },
                                 width: { xs: 'calc(100% - 0px)', sm: '368px', md: '533px' },
                                 maxWidth: '867px',

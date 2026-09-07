@@ -13,7 +13,7 @@ BADGE-Beta: https://img.shields.io/npm/v/iobroker.statistics.svg?color=red&label
 BADGE-Stable: http://iobroker.live/badges/statistics-stable.svg
 BADGE-Installed: http://iobroker.live/badges/statistics-installed.svg
 ---
-![Logo](../../admin/statistics.png)
+![Logo](./admin/statistics.png)
 
 # ioBroker.statistics
 

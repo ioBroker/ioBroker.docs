@@ -9,7 +9,7 @@ hash: w81xH774XQVxqMAhQ70BdlBiKKarcO5bWiTNR7Zbfvc=
 ＃标签组
 在这里，您可以通过单击屏幕左下角的（+）来创建具有不同权限的用户组。
 
-![iobroker_adapter_admin_user_02](../../../../de/adapterref/iobroker.admin/admin/img/tab-groups_admin_User_02.jpg)
+![iobroker_adapter_admin_user_02](../img/tab-groups_admin_User_02.jpg)
 
 ##页面内容
 在页面上，现有组已列表。列标题中的字段用于根据您自己的条件筛选表。
@@ -31,7 +31,7 @@ hash: w81xH774XQVxqMAhQ70BdlBiKKarcO5bWiTNR7Zbfvc=
 ### ** 5.）调整权利**
 单击铅笔符号将打开另一个窗口，可在其中调整此组的权限。
 
-![iobroker_adapter_admin_user_rechte_01](../../../../de/adapterref/iobroker.admin/admin/img/tab-groups_User_Rechte_01.jpg)
+![iobroker_adapter_admin_user_rechte_01](../img/tab-groups_User_Rechte_01.jpg)
 
 ### ** 6.）创建一个新组**
 此图标可用于创建使用先前点配置的新组。

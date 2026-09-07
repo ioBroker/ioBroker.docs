@@ -377,13 +377,24 @@
             "zh-cn": "对应用程序"
           },
           "content": "viz/app.md"
-        },
+        }
+      }
+    },
+    "Logic & Automation": {
+      "title": {
+        "en": "Logic & Automation",
+        "de": "Logik & Automatisierung",
+        "ru": "Автоматизация",
+        "zh-cn": "自动化设计"
+      },
+      "content": "logic/README.md",
+      "pages": {
         "Blockly": {
           "title": {
             "en": "Blockly",
             "de": "Blockly",
-            "ru": "Блочный",
-            "zh-cn": "块状"
+            "ru": "Blockly",
+            "zh-cn": "Blockly"
           },
           "content": "logic/blockly.md"
         },
@@ -395,6 +406,42 @@
             "zh-cn": "JavaScript"
           },
           "content": "logic/javascript.md"
+        },
+        "TypeScript": {
+          "title": {
+            "en": "TypeScript",
+            "de": "TypeScript",
+            "ru": "TypeScript",
+            "zh-cn": "TypeScript"
+          },
+          "content": "logic/typescript.md"
+        },
+        "Node Red": {
+          "title": {
+            "en": "Node Red",
+            "de": "Node-RED",
+            "ru": "Node-RED",
+            "zh-cn": "Node-RED"
+          },
+          "content": "logic/nodered.md"
+        },
+        "Troubleshooting": {
+          "title": {
+            "en": "Troubleshooting",
+            "de": "Fehlersuche",
+            "ru": "Поиск проблем",
+            "zh-cn": "故障排除"
+          },
+          "content": "logic/help.md"
+        },
+        "Best Practices": {
+          "title": {
+            "en": "Best Practices",
+            "de": "Bewährte Vorgehensweisen",
+            "ru": "Лучшие практики",
+            "zh-cn": "最佳实践"
+          },
+          "content": "logic/examples.md"
         }
       }
     },

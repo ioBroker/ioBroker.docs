@@ -12,10 +12,10 @@ BADGE-GitHub Sponsor: https://img.shields.io/badge/Sponsor-GitHub-181717?logo=gi
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tesla-wallconnector3/README.md
-title: <img src="/admin/tesla-wallconnector3.png" width="36" align="top" alt="">ioBroker.tesla-wallconnector3
+title: <img src="./admin/tesla-wallconnector3.png" width="36" align="top" alt="">ioBroker.tesla-wallconnector3
 hash: vYcX+OXlSII1B7kz7vqyAwzQQS7f728sTOBFoBkZGMk=
 ---
-#<img src="/admin/tesla-wallconnector3.png" width="36" align="top" alt=""> ioBroker.tesla-wallconnector3
+#<img src="./admin/tesla-wallconnector3.png" width="36" align="top" alt=""> ioBroker.tesla-wallconnector3
 ## 适用于 ioBroker 的特斯拉第三代壁挂式充电器适配器
 从本地网络上的特斯拉第三代壁挂式充电器读取实时数据。所有数据点均为只读（壁挂式充电器 API 不支持写入访问）。
 

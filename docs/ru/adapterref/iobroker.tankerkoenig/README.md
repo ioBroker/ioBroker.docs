@@ -9,7 +9,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.tankerkoenig
 hash: pAi/iq8uvvin8+lOYL3p2mtIFMCrKTsmwyRmCSpJqqY=
 ---
-![Логотип](../../../en/admin/tankerkoenig.png)
+![Логотип](./admin/tankerkoenig.png)
 
 ![Количество установок](http://iobroker.live/badges/tankerkoenig-stable.svg)
 ![версия NPM](http://img.shields.io/npm/v/iobroker.tankerkoenig.svg)

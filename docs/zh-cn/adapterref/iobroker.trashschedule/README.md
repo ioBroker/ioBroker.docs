@@ -19,7 +19,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.trashschedule
 hash: lzuSu0sby5D6UegSa6JsEn012jiF5TzYHCMRQGOm79Y=
 ---
-![标识](../../../en/admin/trashschedule.png)
+![标识](./trashschedule.png)
 
 # IoBroker.trashschedule
 ＃＃ 目录

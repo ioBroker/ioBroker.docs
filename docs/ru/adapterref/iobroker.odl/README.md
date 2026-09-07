@@ -11,7 +11,7 @@ title: ioBroker.odl
 hash: XICJIRZWFL65xVqSL7iwuADAvVWWButIZezWf1Qqpp0=
 ---
 # IoBroker.odl
-![Логотип](../../../en/admin/odl.png)
+![Логотип](./admin/odl.png)
 
 ## Текущая радиоактивность окружающей среды в ioBroker
 Этот адаптер интегрирует значения ODL (Ortsdosisleistung / Ambient Dose Level) указанных точек измерения немецкого [Федеральное ведомство по радиационной защите (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/) в ioBroker.
@@ -31,9 +31,9 @@ hash: XICJIRZWFL65xVqSL7iwuADAvVWWButIZezWf1Qqpp0=
 По умолчанию адаптер обновляет текущие данные измерений каждый час. Более короткий интервал обновления обычно бесполезен, поскольку базовые данные измерений на сервере BfS (в зависимости от точки измерения) в основном обновляются ежечасно.
 При первом запуске адаптера время получения данных автоматически корректируется, чтобы не все установки получали данные одновременно, а интерфейс данных BfS не был излишне загружен.
 
-[![Скриншот 1](../ioBroker-odl-01.png)](../../../en/adapterref/ioBroker-odl-01.png)
+[![Скриншот 1](./docs/ioBroker-odl-01.png)](../../../en/adapterref/ioBroker-odl-01.png)
 
-[![Скриншот 2](../ioBroker-odl-02.png)](../../../en/adapterref/ioBroker-odl-02.png)
+[![Скриншот 2](./docs/ioBroker-odl-02.png)](../../../en/adapterref/ioBroker-odl-02.png)
 
 ## Найти идентификатор измерительных станций
 Чтобы найти идентификатор, требуемый адаптером, необходимо открыть [Список измерительных станций на ODL-Info](https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/list/list_node.html) и выполнить поиск измерительной станции.

@@ -13,7 +13,7 @@ BADGE-Beta: https://img.shields.io/npm/v/iobroker.luftdaten.svg?color=red&label=
 BADGE-Stable: http://iobroker.live/badges/luftdaten-stable.svg
 BADGE-Installed: http://iobroker.live/badges/luftdaten-installed.svg
 ---
-![Logo](../../admin/luftdaten.png)
+![Logo](./admin/luftdaten.png)
 
 # ioBroker.luftdaten
 

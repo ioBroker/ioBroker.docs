@@ -7,7 +7,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.odl.png?downloads=true
 ---
 # ioBroker.odl
 
-![Logo](../../admin/odl.png)
+![Logo](./admin/odl.png)
 
 ## The current environmental radioactivity in ioBroker
 
@@ -28,9 +28,9 @@ If an enabled history adapter (_history_, _influxdb_ or _sql_) is detected for s
 By default, the adapter updates the current measurement data every hour. A shorter update interval is usually not useful, since the underlying measurement data on the BfS server (depending on the measuring point) are mostly updated hourly.  
 When the adapter is started for the first time, the time for retrieving the data is automatically adjusted so that not all installations retrieve the data at the same time and the BfS data interface is not unnecessarily loaded.
 
-[![Screenshot 1](../ioBroker-odl-01.png)](../ioBroker-odl-01.png)
+[![Screenshot 1](./docs/ioBroker-odl-01.png)](../ioBroker-odl-01.png)
 
-[![Screenshot 2](../ioBroker-odl-02.png)](../ioBroker-odl-02.png)
+[![Screenshot 2](./docs/ioBroker-odl-02.png)](../ioBroker-odl-02.png)
 
 ## Find the ID of measuring stations
 

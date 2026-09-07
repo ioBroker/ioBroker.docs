@@ -49,7 +49,7 @@ ca. 3 Sekunden bis die LED grün blinkt. (siehe unten) ![Anmeldung](../../../en/
 
 6. Nachdem Sie die Gerätetaste losgelassen haben, wird nach einigen Sekunden der Token angezeigt und in das Feld eingefügt. (siehe unten)
 
-![Zeichen](admin/media/registration_successful.png) ![Zeichen](../../../en/adapterref/iobroker.hue-sync-box/admin/media/token.png)
+![Zeichen](../../../en/adapterref/iobroker.hue-sync-box/admin/media/registration_successful.png) ![Zeichen](../../../en/adapterref/iobroker.hue-sync-box/admin/media/token.png)
 
 7. Jetzt können Sie auf die Schaltfläche "Hinzufügen" klicken und die Box wird hinzugefügt. Anschließend müssen Sie nur noch auf die Schaltfläche "Speichern" klicken, um die Konfiguration zu speichern.
 

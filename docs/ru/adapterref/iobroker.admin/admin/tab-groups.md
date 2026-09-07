@@ -9,7 +9,7 @@ hash: w81xH774XQVxqMAhQ70BdlBiKKarcO5bWiTNR7Zbfvc=
 # Вкладка Группы
 Здесь вы можете создавать группы пользователей с разными правами, нажав на (+) в левом нижнем углу экрана.
 
-![iobroker_adapter_admin_user_02](../../../../de/adapterref/iobroker.admin/admin/img/tab-groups_admin_User_02.jpg)
+![iobroker_adapter_admin_user_02](../img/tab-groups_admin_User_02.jpg)
 
 ## Содержание страницы
 На странице существующие группы сведены в таблицу. Поля в заголовках столбцов используются для фильтрации таблицы по вашим собственным критериям.
@@ -31,7 +31,7 @@ hash: w81xH774XQVxqMAhQ70BdlBiKKarcO5bWiTNR7Zbfvc=
 ### **5.) Настройте права**
 Нажатие на символ карандаша открывает другое окно, в котором можно настроить права этой группы.
 
-![iobroker_adapter_admin_user_rechte_01](../../../../de/adapterref/iobroker.admin/admin/img/tab-groups_User_Rechte_01.jpg)
+![iobroker_adapter_admin_user_rechte_01](../img/tab-groups_User_Rechte_01.jpg)
 
 ### **6.) Создать новую группу**
 Этот значок можно использовать для создания новой группы, настроенной с использованием предыдущих точек.

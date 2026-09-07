@@ -19,40 +19,40 @@ hash: EGatommG+RMPyunAI3cMFcnaiTKh5oWdXMMYrnHsp3s=
 
 ## 小部件
 ＃＃＃ 状态
-<img src="/img/collection-state.png" height="150">
+<img src="./img/collection-state.png" height="150">
 
 ### 按钮组
-<img src="/img/collection-button-group.png" height="150">
+<img src="./img/collection-button-group.png" height="150">
 
 ＃＃＃ 滑块
-<img src="/img/collection-slider.png" height="150">
+<img src="./img/collection-slider.png" height="150">
 
 ＃＃＃ 输入
-<img src="/img/collection-input.png" height="150">
+<img src="./img/collection-input.png" height="150">
 
 ＃＃＃ 转变
-<img src="/img/collection-switch.png" height="150">
+<img src="./img/collection-switch.png" height="150">
 
 ### 复选框
-<img src="/img/collection-checkbox.png" height="150">
+<img src="./img/collection-checkbox.png" height="150">
 
 ### 对话框
-<img src="/img/collection-dialog.png" height="150">
+<img src="./img/collection-dialog.png" height="150">
 
 ＃＃＃ 选择
-<img src="/img/collection-select.png" height="150">
+<img src="./img/collection-select.png" height="150">
 
 ### 广播集团
-<img src="/img/collection-radio-group.png" height="150">
+<img src="./img/collection-radio-group.png" height="150">
 
 ＃＃＃ 测量
-<img src="/img/collection-gauge.png" height="150">
+<img src="./img/collection-gauge.png" height="150">
 
 ＃＃＃ 光
-<img src="/img/collection-light.png" height="150">
+<img src="./img/collection-light.png" height="150">
 
 ### JsonTable
-<img src="/img/collection-json-table.png" height="150">
+<img src="./img/collection-json-table.png" height="150">
 
 ---
 

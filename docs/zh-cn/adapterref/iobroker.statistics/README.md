@@ -20,7 +20,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.statistics
 hash: V92dfCJJef+vDHFwjWqxZbwltEJlUayZvL+0vSXTzSw=
 ---
-![标识](../../../en/admin/statistics.png)
+![标识](./admin/statistics.png)
 
 # IoBroker.统计数据
 该适配器将使统计信息的配置更加容易。

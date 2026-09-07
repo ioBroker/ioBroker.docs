@@ -24,11 +24,13 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
 
     if (href) {
         return (
+            // no inline `display` here: it would beat the class and drop the flex
+            // centring, which left every label sitting against the left padding
             <a
                 href={href}
                 target={target}
                 className={buttonClass}
-                style={{ textDecoration: 'none', display: 'inline-block' }}
+                style={{ textDecoration: 'none' }}
             >
                 {children}
             </a>

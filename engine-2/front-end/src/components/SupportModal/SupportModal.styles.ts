@@ -1,279 +1,206 @@
 import { makeStyles } from '../../theme';
 
 export const useStyles = makeStyles()(theme => ({
+    /**
+     * The dialog is a surface step above the page, not a framed box: the old paper drew
+     * a brand-blue 1 px border around a 1168 x 714 fixed rectangle, so on most screens
+     * it was mostly empty. It now takes the height of what is in it.
+     */
     dialogPaper: {
-        backgroundColor: theme.palette.background.default,
+        boxSizing: 'border-box',
+        width: '100%',
+        maxWidth: '880px',
+        backgroundColor: theme.custom.surfaces.surface,
         backgroundImage: 'none',
         color: theme.palette.text.primary,
-        fontSize: '16px',
-        borderRadius: '24px',
-        border: '1px solid #1D90CA',
-        maxWidth: '1000px',
-        padding: '40px 80px',
+        borderRadius: `${theme.custom.radius.card}px`,
+        border: `1px solid ${theme.custom.hairline}`,
+        boxShadow: theme.custom.elevation.overlay,
+        padding: '40px',
         position: 'relative',
         overflow: 'hidden',
-        [theme.breakpoints.up('lg')]: {
-            width: '1168px',
-            height: '714px',
-            maxWidth: '1168px',
-        },
-        [theme.breakpoints.down('md')]: {
-            padding: '40px 40px',
-        },
         [theme.breakpoints.down('sm')]: {
-            padding: '30px 20px',
+            padding: '24px 16px',
+            borderRadius: `${theme.custom.radius.group}px`,
         },
     },
-    container: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        color: 'inherit',
-    },
+
+    /* -------------------------------------------------------------- the close */
+    // a 44 px touch target around a small cross, rather than a 40 px icon that is
+    // itself the button
     closeButton: {
+        all: 'unset',
         position: 'absolute',
-        top: '55px',
-        right: '45px',
-        width: '40px',
-        height: '40px',
+        top: '12px',
+        right: '12px',
+        boxSizing: 'border-box',
+        width: `${theme.custom.control.height}px`,
+        height: `${theme.custom.control.height}px`,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         cursor: 'pointer',
-        color: theme.palette.text.primary,
-        transition: 'color 0.3s',
+        borderRadius: `${theme.custom.radius.chip}px`,
+        color: theme.custom.textSubtle,
+        transition: 'color 0.2s ease, background 0.2s ease',
         '&:hover': {
-            color: '#7ec3f3',
+            color: theme.palette.text.primary,
+            background: theme.custom.surfaces.raised,
         },
-        [theme.breakpoints.down('sm')]: {
-            width: '28px',
-            height: '28px',
-            top: '20px',
-            right: '20px',
+        '&:focus-visible': {
+            outline: 'none',
+            boxShadow: theme.custom.focusRing,
         },
     },
     closeIcon: {
-        width: '24px',
-        height: '24px',
+        width: '14px',
+        height: '14px',
+    },
+
+    /* -------------------------------------------------------------- the header */
+    header: {
+        marginBottom: '32px',
         [theme.breakpoints.down('sm')]: {
-            width: '18px',
-            height: '18px',
+            marginBottom: '24px',
         },
     },
     title: {
         fontFamily: 'Audiowide, sans-serif',
-        fontSize: '32px',
         fontWeight: 400,
-        letterSpacing: '-0.03em',
-        textAlign: 'center',
-        lineHeight: '1',
-        color: 'inherit',
-        // more air between the headline and the text below it
-        marginBottom: '24px',
-        position: 'relative',
-        zIndex: 2,
-        [theme.breakpoints.down('md')]: {
-            fontSize: '24px',
-            marginBottom: '20px',
-        },
+        fontSize: '28px',
+        lineHeight: 1.2,
+        letterSpacing: '-0.01em',
+        textTransform: 'uppercase',
+        color: theme.custom.textHeading,
+        // only the heading has to keep clear of the cross in the corner - when this sat
+        // on the whole header block it shortened every line of the text below it too,
+        // which is what made the paragraph break well before the edge
+        paddingRight: `${theme.custom.control.height}px`,
+        marginBottom: '12px',
         [theme.breakpoints.down('sm')]: {
             fontSize: '22px',
-            marginBottom: '20px',
-            paddingRight: '40px',
         },
     },
     subtitle: {
-        fontWeight: 400,
-        textAlign: 'center',
-        color: 'inherit',
-        lineHeight: '1.4',
-        position: 'relative',
-        zIndex: 2,
-        [theme.breakpoints.down('sm')]: {
-            fontSize: '16px',
+        '&&': {
+            fontFamily: theme.typography.fontFamily,
+            fontSize: theme.custom.reading.lead.fontSize,
+            lineHeight: theme.custom.reading.lead.lineHeight,
         },
+        color: theme.palette.text.primary,
+        marginBottom: '8px',
     },
     description: {
-        fontWeight: 400,
-        textAlign: 'center',
-        marginBottom: '60px',
-        maxWidth: '748px',
-        lineHeight: '1.4',
-        color: 'inherit',
-        position: 'relative',
-        zIndex: 1,
-        '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '40%',
-            left: '45%',
-            transform: 'translate(-50%, -50%)',
-            width: '900px',
-            height: '300px',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 70%)'
-                    : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
-            pointerEvents: 'none',
-            zIndex: -1,
+        '&&': {
+            fontFamily: theme.typography.fontFamily,
+            fontSize: theme.custom.reading.body.fontSize,
+            lineHeight: theme.custom.reading.body.lineHeight,
         },
-        [theme.breakpoints.down('md')]: {
-            marginBottom: '40px',
-        },
-        [theme.breakpoints.down('sm')]: {
-            fontSize: '14px',
-            marginBottom: '30px',
-        },
+        color: theme.custom.textMuted,
     },
-    optionsContainer: {
-        display: 'flex',
-        gap: '86px',
-        width: '100%',
-        marginBottom: '40px',
-        [theme.breakpoints.down('md')]: {
-            flexDirection: 'column',
-            gap: '40px',
+
+    /* ------------------------------------------------------------- the options */
+    // two ways to help, side by side and of equal weight: the same card shape the
+    // installation page uses, so the two pages read as one product
+    optionsGrid: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
+        // the second card keeps the height of the first even when its text is shorter,
+        // so both buttons end up on one line
+        gridAutoRows: '1fr',
+        gap: '24px',
+        [theme.breakpoints.down('sm')]: {
+            // stacked, the two cards are above each other rather than beside each other:
+            // equal rows would then only pad the shorter card with empty space, because
+            // there is no second button to line its own up with
+            gridAutoRows: 'auto',
+            gap: '16px',
         },
     },
     option: {
-        flex: 1,
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'end',
-        position: 'relative',
+        boxSizing: 'border-box',
+        minWidth: 0,
+        borderRadius: `${theme.custom.radius.card}px`,
+        padding: '24px',
+        background: theme.custom.surfaces.raised,
+        [theme.breakpoints.down('sm')]: {
+            padding: '20px 16px',
+        },
     },
-    paypalIconContainer: {
-        marginBottom: '32px',
+    /**
+     * The two logos have very different aspect ratios - the PayPal strip is roughly
+     * 6:1, the Amazon mark 2:1 - so they are aligned by a common height, not by a
+     * width. The old modal gave them 130 px and 163 px boxes, which is what made them
+     * look oversized next to everything else in the dialog.
+     */
+    // the row keeps one height in both cards, whatever the logo in it measures - the
+    // text below it starts on the same line on the left and on the right
+    logoBox: {
         display: 'flex',
-        justifyContent: 'center',
         alignItems: 'center',
-        height: '130px',
-        position: 'relative',
-        zIndex: 2,
+        justifyContent: 'flex-start',
+        height: '46px',
+        marginBottom: '20px',
         [theme.breakpoints.down('sm')]: {
-            height: '80px',
-            marginBottom: '20px',
+            height: '38px',
+            marginBottom: '16px',
         },
     },
-    amazonIconContainer: {
-        marginBottom: '35px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '163px',
-        position: 'relative',
-        zIndex: 2,
+    logo: {
+        height: '36px',
+        width: 'auto',
+        maxWidth: '100%',
+        objectFit: 'contain',
         [theme.breakpoints.down('sm')]: {
-            height: '80px',
-            marginBottom: '20px',
+            height: '30px',
         },
     },
-    paypalIcon: {
-        height: 'auto',
-        width: '258px',
+    /**
+     * The Amazon mark is drawn as a letter with a thin swoosh under it, so at the same
+     * box height it carries much less ink than the PayPal strip beside it and reads as
+     * the smaller of the two. It gets the full height of the row instead.
+     */
+    logoTall: {
+        // the file was cropped to its drawing, so this is the height of the mark itself
+        height: '32px',
         [theme.breakpoints.down('sm')]: {
-            height: '60px',
+            height: '27px',
         },
     },
-    amazonIcon: {
-        height: 'auto',
-        width: '163px',
-        [theme.breakpoints.down('sm')]: {
-            height: '70px',
+    optionText: {
+        '&&': {
+            fontFamily: theme.typography.fontFamily,
+            fontSize: theme.custom.reading.small.fontSize,
+            lineHeight: theme.custom.reading.small.lineHeight,
+        },
+        color: theme.palette.text.primary,
+        minWidth: 0,
+        // whatever height the card has left collects above the button, so the buttons
+        // of both cards sit on the same line
+        flex: 1,
+        marginBottom: '20px',
+    },
+    // the button is the point of the card and takes its full width
+    optionButton: {
+        '&&': {
+            width: '100%',
+            minWidth: 0,
         },
     },
-    amazonOptionText: {
-        fontSize: '16px',
-        fontWeight: 400,
-        width: 419,
-        textAlign: 'center',
-        lineHeight: '1.35',
-        minHeight: '90px',
-        color: 'inherit',
-        position: 'relative',
-        zIndex: 1,
-        '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '65%',
-            left: '45%',
-            transform: 'translate(-50%, -50%)',
-            width: '500px',
-            height: '300px',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 70%)'
-                    : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
-            pointerEvents: 'none',
-            zIndex: -1,
-        },
-        [theme.breakpoints.down('md')]: {
-            minHeight: 'auto',
-        },
-        [theme.breakpoints.down('sm')]: {
-            fontSize: '14px',
-            width: 335,
-            marginBottom: '20px',
-        },
-    },
-    paypalOptionText: {
-        fontSize: '16px',
-        fontWeight: 400,
-        width: 335,
-        textAlign: 'center',
-        lineHeight: '1.35',
-        minHeight: '90px',
-        color: 'inherit',
-        position: 'relative',
-        zIndex: 1,
-        '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '65%',
-            left: '45%',
-            transform: 'translate(-50%, -50%)',
-            width: '500px',
-            height: '300px',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(255, 255, 255, 0) 70%)'
-                    : 'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 55%)',
-            pointerEvents: 'none',
-            zIndex: -1,
-        },
-        [theme.breakpoints.down('md')]: {
-            minHeight: 'auto',
-        },
-        [theme.breakpoints.down('sm')]: {
-            fontSize: '14px',
-            marginBottom: '20px',
-        },
-    },
-    button: {
-        fontFamily: 'Audiowide, sans-serif !important',
-        fontSize: '16px !important',
-        fontWeight: '400 !important',
-        letterSpacing: '-0.03em !important',
-        padding: '14px 32px !important',
-        borderRadius: '8px !important',
-        textTransform: 'uppercase',
-        width: '320px !important',
-        height: '48px',
-        textAlign: 'center',
-        position: 'relative',
-        zIndex: 2,
-        [theme.breakpoints.down('sm')]: {
-            fontSize: '14px !important',
-            width: '300px !important',
-            padding: '12px 24px !important',
-        },
-    },
+
+    /* -------------------------------------------------------------- the footer */
     footer: {
-        fontSize: '16px',
-        fontWeight: 400,
-        textAlign: 'center',
-        marginTop: 55,
-        color: 'inherit',
-        [theme.breakpoints.down('sm')]: {
-            fontSize: '12px',
+        '&&': {
+            fontFamily: theme.typography.fontFamily,
+            fontSize: theme.custom.reading.caption.fontSize,
+            lineHeight: theme.custom.reading.caption.lineHeight,
         },
+        // a side note steps back through its own tone, not through opacity
+        color: theme.custom.textSubtle,
+        marginTop: '24px',
+        paddingTop: '16px',
+        borderTop: `1px solid ${theme.custom.hairline}`,
     },
 }));

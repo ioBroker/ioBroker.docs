@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.дни рождения
 hash: RIwb5Sf7GsGAIGq9+rhvFhbU2gtWyhVPzmxFfpd0a/Q=
 ---
-![Логотип](../../../en/admin/birthdays.png)
+![Логотип](./admin/birthdays.png)
 
 # IoBroker.дни рождения
 Общая функция для отправки сообщений/уведомлений

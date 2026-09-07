@@ -200,7 +200,7 @@ For more information visit the CLI-documentation:
 
 ### Player button bar
 
-![Player button bar](/widgets/squeezeboxrpc/img/players.png)
+![Player button bar](./widgets/squeezeboxrpc/img/players.png)
 
 All players that are integrated into your Logitech/Lyrion Media Server can be selected\
 using this widget. After selecting a `squeezerpc.?` instance, the available\
@@ -229,7 +229,7 @@ players are displayed in the widget.
 
 ### Favorites button bar
 
-![Favorites button bar](/widgets/squeezeboxrpc/img/favorites.png)
+![Favorites button bar](./widgets/squeezeboxrpc/img/favorites.png)
 
 You can use this widget to select all of the favorites that have been\
 created in your Logitech/Lyrion Media Server.
@@ -254,7 +254,7 @@ After selecting the Player widget, the available favorites are displayed in the 
 
 ### Play Button
 
-![Play Button](/widgets/squeezeboxrpc/img/play.png)
+![Play Button](./widgets/squeezeboxrpc/img/play.png)
 
 The play button starts or stops the music on the selected player.\
 To prepare, you must connect the button to the player widget.\
@@ -275,7 +275,7 @@ alternatively you can also select your own graphics.
 
 ### Forward
 
-![Forward](/widgets/squeezeboxrpc/img/fwd.png)
+![Forward](./widgets/squeezeboxrpc/img/fwd.png)
 
 The Forward widget allows you to skip forward in the current track.\
 The button can be configured to skip forward by a specific amount\
@@ -292,7 +292,7 @@ of time if the player supports this feature.
 
 ### Rewind
 
-![Rewind](/widgets/squeezeboxrpc/img/rew.png)
+![Rewind](./widgets/squeezeboxrpc/img/rew.png)
 
 The Rewind widget allows you to jump back in the current track.\
 Similar to the Forward widget, a time period can be set.
@@ -308,7 +308,7 @@ Similar to the Forward widget, a time period can be set.
 
 ### Repeat
 
-![Repeat](/widgets/squeezeboxrpc/img/repeat0.svg)
+![Repeat](./widgets/squeezeboxrpc/img/repeat0.svg)
 
 The Repeat widget allows you to activate or deactivate the repeat function\
 for the current track or playlist if this function is supported by the player.
@@ -324,7 +324,7 @@ for the current track or playlist if this function is supported by the player.
 
 ### Shuffle
 
-![Shuffle](/widgets/squeezeboxrpc/img/shuffle0.svg)
+![Shuffle](./widgets/squeezeboxrpc/img/shuffle0.svg)
 
 The Shuffle widget enables or disables shuffle for the current playlist,\
 if this feature is supported by the player.
@@ -340,7 +340,7 @@ if this feature is supported by the player.
 
 ### Volume
 
-![Volume](/widgets/squeezeboxrpc/img/volume.png)
+![Volume](./widgets/squeezeboxrpc/img/volume.png)
 
 The Volume widget displays the current volume level of the player and\
 allows you to adjust the volume.
@@ -358,7 +358,7 @@ allows you to adjust the volume.
 
 ### SyncGroup button bar
 
-![SyncGroup button bar](/widgets/squeezeboxrpc/img/syncgroups.png)
+![SyncGroup button bar](./widgets/squeezeboxrpc/img/syncgroups.png)
 
 This widget can be used in conjunction with the player widget to control\
 the synchronization of the players with each other.
@@ -387,7 +387,7 @@ another group, it is automatically removed from this group.
 
 ### Playtime bar
 
-![Playtime bar](/widgets/squeezeboxrpc/img/playtime.png)
+![Playtime bar](./widgets/squeezeboxrpc/img/playtime.png)
 
 The playtime bar visually shows the progress of the song currently being played,\
 provided that a total running time (duration) is provided by the server.\
@@ -410,7 +410,7 @@ To prepare, you must connect the button to the player widget.
 
 ### String/character string
 
-![String](/widgets/squeezeboxrpc/img/string.png)
+![String](./widgets/squeezeboxrpc/img/string.png)
 
 Display of player-specific character strings. To prepare, you must connect\
 the button to the player widget.
@@ -425,7 +425,7 @@ the button to the player widget.
 
 ### Number
 
-![Number](/widgets/squeezeboxrpc/img/number.png)
+![Number](./widgets/squeezeboxrpc/img/number.png)
 
 Display of numbers with additional formatting options. To prepare,\
 you must connect the button to the player widget.
@@ -445,7 +445,7 @@ you must connect the button to the player widget.
 
 ### Playlist
 
-![Playlist](/widgets/squeezeboxrpc/img/playlist.png)
+![Playlist](./widgets/squeezeboxrpc/img/playlist.png)
 
 Display the playlist from the server. If you click on an entry the playlist
 is loaded and the player starts.
@@ -519,7 +519,7 @@ Light-mode
 
 ### Browser
 
-![Browser](/widgets/squeezeboxrpc/img/browser.png)
+![Browser](./widgets/squeezeboxrpc/img/browser.png)
 
 Displays music, albums, artists, radio stations, apps, etc. from the server.
 Click on an item to navigate deeper into the hierarchy. The available commands

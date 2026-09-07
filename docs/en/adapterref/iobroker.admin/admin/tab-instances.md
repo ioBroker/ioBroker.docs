@@ -11,13 +11,13 @@ Here, the instances already installed via the Adapter tab are listed and can be 
 
 <span style="line-height: 1.5;"></span>
 
-![iobroker_admin_instanzen_inhalt00](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Inhalt00.jpg)
+![iobroker_admin_instanzen_inhalt00](../img/tab-instances_Inhalt00.jpg)
 
 ## The title bar
 The title bar contains icons for the most important processes. There is a context help for each icon.
 Just keep the mouse on the icon for a while. There is also information about the load of the server
 
-![iobroker_admin_instanzen_headline_icons](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Icons-e1476803621402.jpg)
+![iobroker_admin_instanzen_headline_icons](../img/tab-instances_Icons-e1476803621402.jpg)
 
 ### **The icons in detail:**
 ### **1.) Turn on administrator mode**
@@ -33,7 +33,7 @@ The right part of the title bar contains information about the activities of the
 The first numbers indicate the memory used by the instances so far and the remaining free memory in MB. Behind it the free memory in%. The square brackets contain the name of the ioBroker server and the number of running processes.
 
 ## The page content
-![iobroker_admin_instanzen_headline_columns](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Headline_Columns.jpg)
+![iobroker_admin_instanzen_headline_columns](../img/tab-instances_Headline_Columns.jpg)
 
 On the page, the installed instances of the adapters are tabulated.
 
@@ -42,7 +42,7 @@ The table consists of the following columns:
 ### **1.) Condition**
 Here, the status of the instance is displayed by a traffic light. Further information is obtained by standing with the mouse on the signal.
 
-![iobroker_admin_instanzen_status](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Instanzen_Status.jpg)
+![iobroker_admin_instanzen_status](../img/tab-instances_Instanzen_Status.jpg)
 
 Not all instances have this traffic light. This is no reason to panic. These are either timed instances that only connect to the controller for a short time and then shut off immediately or shut down, for example. continue running in the background.
 
@@ -77,7 +77,7 @@ For adapters, which are started on a scheduled basis, you will be entered here w
 This time schedule is in the format of [cronjobs](https://de.wikipedia.org/wiki/Cron#Beispiele).
 To change click on the button with the three dots. It opens an input window with a lot of additional information and help.
 
-![iobroker_admin_instanzen_cronjob](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Cronjob.jpg)
+![iobroker_admin_instanzen_cronjob](../img/tab-instances_Cronjob.jpg)
 
 ### **11.) Restart**
 If this checkbox is ticked, a schedule can also be created here when this instance should be restarted.

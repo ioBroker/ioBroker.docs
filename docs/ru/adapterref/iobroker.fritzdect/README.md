@@ -10,7 +10,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: Инструкция по установке
 hash: pmuEeuURe1K+Xf1kOmHTZG6bguIYTS/a2guR2rrDVq0=
 ---
-![логотип](../../../de/admin/fritzdect_logo.png)
+![логотип](../../../en/adapterref/iobroker.fritzdect/admin/fritzdect_logo.png)
 
 # Инструкция по установке
 ## Настройки FritzBox

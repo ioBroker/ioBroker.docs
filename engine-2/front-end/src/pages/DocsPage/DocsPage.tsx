@@ -4,14 +4,15 @@ import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { I18n } from '../../utils/i18n';
 import { DocsMenu } from '../../components/DocsMenu/DocsMenu';
 import { MenuToggle } from '../../components/MenuToggle/MenuToggle';
+import { MenuOpenButton } from '../../components/MenuOpenButton/MenuOpenButton';
 import { MenuArrowsToggle } from '../../components/MenuArrowsToggle/MenuArrowsToggle';
 import { TopBarSearch } from '../../components/TopBarSearch/TopBarSearch';
 import { useStyles } from './DocsPage.styles';
 import { DocsTableOfContents } from '../../components/DocsTableOfContents/DocsTableOfContents';
 import linkImage from '../../assets/img/docsIcons/blueLink.svg';
 import type React from 'react';
-import { useEffect, useMemo, useState, useRef, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
+import { Fragment, useEffect, useMemo, useState, useRef } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Footer } from '../../components/Footer/Footer';
 import Divider from '../../components/Divider/Divider';
 import { useDocsMarkdown } from '../../api/hooks/useDocsMarkdown';
@@ -20,6 +21,8 @@ import { MarkdownView } from '../../components/MarkdownView/MarkdownView';
 import { buildTocItems, makeSlug } from '../../utils/markdown';
 import { getAnchorFromHash } from '../../utils/anchor';
 import { normalizeImageTags } from '../../components/MarkdownView/markdownViewUtils';
+import { useDocsContent } from '../../api/hooks/useDocsContent';
+import { findDocsTrail } from '../../components/DocsMenu/DocsMenu.utils';
 
 const DocsPage = (): React.ReactNode => {
     const [menuMode, setMenuMode] = useState<'all' | 'installed'>('all');
@@ -32,20 +35,21 @@ const DocsPage = (): React.ReactNode => {
     const isMobile = useMediaQuery('(max-width:768px)');
     const [search, setSearch] = useState('');
     const mainBlockRef = useRef<HTMLDivElement>(null);
-    const [scrollProgress, setScrollProgress] = useState(0);
-    const handleMainBlockScroll = useCallback(() => {
-        const el = mainBlockRef.current;
-        if (!el) {
-            return;
-        }
-        const scrollHeight = el.scrollHeight - el.clientHeight;
-        const percent = scrollHeight > 0 ? Math.round((el.scrollTop / scrollHeight) * 100) : 0;
-        setScrollProgress(Math.min(100, Math.max(0, percent)));
-    }, []);
     const { classes } = useStyles({ isMenuCollapsed });
     const [language, setLanguage] = useState(I18n.getLanguage());
     const params = useParams();
+    const navigate = useNavigate();
     const docPath = (params['*'] ?? 'README.md').replace(/^\/+/, '');
+    // where the document sits in the tree - the same tree the menu on the left is built from,
+    // so the trail can never say something else than the menu
+    const { data: docsTree } = useDocsContent();
+    const trail = useMemo(() => findDocsTrail(docsTree?.pages ?? {}, docPath, language), [docsTree, docPath, language]);
+    const isStartDocument = docPath === 'README.md';
+    // On a narrow screen the whole chain does not fit in one line, and the line it would wrap
+    // into costs more than it says: only the first and the last step remain.
+    const isNarrowTrail = useMediaQuery('(max-width:900px)');
+    const shownTrail = isNarrowTrail && trail.length > 1 ? trail.slice(-1) : trail;
+    const isTrailShortened = shownTrail.length < trail.length;
     const markdownUrl = `${API_CONFIG.IOBROKER_BASE_URL}/${language}/${docPath}`;
     const { data: markdown } = useDocsMarkdown(markdownUrl);
     const baseOrigin = /^https?:\/\//i.test(API_CONFIG.IOBROKER_BASE_URL)
@@ -67,7 +71,6 @@ const DocsPage = (): React.ReactNode => {
             return;
         }
         mainBlockRef.current?.scrollTo({ top: 0 });
-        setScrollProgress(0);
     }, [docPath]);
 
     const tableOfContentsItems = useMemo(() => {
@@ -141,15 +144,53 @@ const DocsPage = (): React.ReactNode => {
 
     return (
         <Box className={classes.pageRoot}>
-            <SectionTitle
-                sx={{
-                    marginLeft: { xs: '16px', sm: '24px', lg: '32px' },
-                    marginBottom: '20px',
-                    flexShrink: 0,
-                }}
-            >
-                {I18n.t('home.docs.title')}
-            </SectionTitle>
+            {isStartDocument ? (
+                <SectionTitle
+                    sx={{
+                        marginLeft: { xs: '16px', sm: '24px', lg: '32px' },
+                        marginBottom: '20px',
+                        flexShrink: 0,
+                    }}
+                >
+                    {I18n.t('home.docs.title')}
+                </SectionTitle>
+            ) : (
+                <Box className={classes.breadcrumbs}>
+                    <span className={classes.breadcrumbSlash}>{'//'}</span>
+                    <span
+                        className={classes.breadcrumbLink}
+                        onClick={() => void navigate('/docs')}
+                    >
+                        {I18n.t('home.docs.title')}
+                    </span>
+                    {isTrailShortened ? (
+                        <>
+                            <span className={classes.breadcrumbSlash}>/</span>
+                            <span className={classes.breadcrumbFolder}>…</span>
+                        </>
+                    ) : null}
+                    {shownTrail.map((item, index) => {
+                        const isLast = index === shownTrail.length - 1;
+                        return (
+                            <Fragment key={item.key}>
+                                <span className={classes.breadcrumbSlash}>/</span>
+                                {isLast ? (
+                                    <span className={classes.breadcrumbCurrent}>{item.title}</span>
+                                ) : item.content ? (
+                                    <span
+                                        className={classes.breadcrumbLink}
+                                        onClick={() => void navigate(`/docs/${item.content}`)}
+                                    >
+                                        {item.title}
+                                    </span>
+                                ) : (
+                                    <span className={classes.breadcrumbFolder}>{item.title}</span>
+                                )}
+                            </Fragment>
+                        );
+                    })}
+                </Box>
+            )}
             <Box className={classes.pageWrapper}>
                 {!isMenuCollapsed && (
                     <Box className={classes.menuBlockMobile}>
@@ -167,11 +208,21 @@ const DocsPage = (): React.ReactNode => {
                 <Box className={classes.root}>
                     <Box className={classes.menuBlock}>
                         <Box className={classes.menuToggleContainer}>
-                            <MenuToggle
-                                value={menuMode}
-                                onChange={setMenuMode}
-                                onCollapse={setIsMenuCollapsed}
-                            />
+                            {/* On a phone the tree is an overlay that closes with its own
+                                cross, so the collapsing half of the toggle has nothing to do -
+                                one button opens it, like the account menu in the profile. */}
+                            {isMobile ? (
+                                <MenuOpenButton
+                                    title={I18n.t('adapters.tooltip.menu_expand')}
+                                    onClick={() => setIsMenuCollapsed(false)}
+                                />
+                            ) : (
+                                <MenuToggle
+                                    value={menuMode}
+                                    onChange={setMenuMode}
+                                    onCollapse={setIsMenuCollapsed}
+                                />
+                            )}
                             {!isMobile && !isMenuCollapsed && (
                                 <MenuArrowsToggle
                                     value={isAllExpanded ? 'expand' : 'collapse'}
@@ -181,14 +232,16 @@ const DocsPage = (): React.ReactNode => {
                             )}
                         </Box>
                         {!isMenuCollapsed && (
-                            <DocsMenu
-                                expandAllSignal={expandAllSignal}
-                                collapseAllSignal={collapseAllSignal}
-                                onAllExpandedChange={setIsAllExpanded}
-                                onExpandAll={expandAllSections}
-                                onCollapseAll={collapseAllSections}
-                                search={search}
-                            />
+                            <Box className={classes.menuList}>
+                                <DocsMenu
+                                    expandAllSignal={expandAllSignal}
+                                    collapseAllSignal={collapseAllSignal}
+                                    onAllExpandedChange={setIsAllExpanded}
+                                    onExpandAll={expandAllSections}
+                                    onCollapseAll={collapseAllSections}
+                                    search={search}
+                                />
+                            </Box>
                         )}
                     </Box>
                     <Box className={classes.rightColumn}>
@@ -242,7 +295,6 @@ const DocsPage = (): React.ReactNode => {
                         <Box
                             className={classes.mainBlock}
                             ref={mainBlockRef}
-                            onScroll={handleMainBlockScroll}
                             data-docs-scroll="true"
                         >
                             <Box className={classes.content}>
@@ -256,10 +308,8 @@ const DocsPage = (): React.ReactNode => {
                                     linkImage={linkImage}
                                 />
                             </Box>
-                            <Divider
-                                position={scrollProgress}
-                                parentWidth={mainBlockRef.current?.clientWidth || window.innerWidth}
-                            />
+                            {/* ohne `position`: die Linie misst sich selbst, siehe Divider */}
+                            <Divider beforeFooter />
                             <Footer />
                         </Box>
                     </Box>

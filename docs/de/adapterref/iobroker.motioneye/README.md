@@ -8,7 +8,7 @@ BADGE-MAINTAINER: https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo
 BADGE-AI: https://img.shields.io/badge/ai%20assisted-cursor-blue.svg
 BADGE-Paypal Donation: https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg
 ---
-![Logo](../../admin/motioneye.png)
+![Logo](./admin/motioneye.png)
 
 ### ioBroker-Adapter für MotionEye
 

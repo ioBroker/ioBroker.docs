@@ -43,12 +43,27 @@ export const AdapterBlock = memo((props: { adapter: AdapterItem }): ReactNode =>
         String(props.adapter.version ?? '').length > 5 ||
         String(props.adapter.stars ?? '').length > 5 ||
         String(props.adapter.installs ?? '').length > 5
-            ? '12px'
-            : '14px';
+            ? '13px'
+            : '15px';
     const handleNavigate = (): void => {
         if (slug) {
             void navigate(`/adapters/${slug}`);
         }
+    };
+    /**
+     * The whole card opens the adapter, not just its name. Two things are left alone:
+     * anything that acts on its own (the title link, the icon row - those stop the event
+     * themselves), and a click that ends a text selection, which is someone copying the
+     * description rather than asking for the page.
+     */
+    const handleCardClick = (event: React.MouseEvent<HTMLElement>): void => {
+        if ((event.target as HTMLElement).closest('a, button')) {
+            return;
+        }
+        if (window.getSelection()?.toString()) {
+            return;
+        }
+        handleNavigate();
     };
     const handleGitHubClick = (event: React.MouseEvent): void => {
         event.stopPropagation();
@@ -65,13 +80,13 @@ export const AdapterBlock = memo((props: { adapter: AdapterItem }): ReactNode =>
         handleNavigate();
     };
     return (
-        <Box className={classes.card}>
+        <Box
+            className={classes.card}
+            onClick={handleCardClick}
+        >
             <Box className={classes.header}>
                 <Tooltip title={I18n.t('adapters.tooltip.open_adapter')}>
-                    <Box
-                        className={classes.icon}
-                        onClick={handleNavigate}
-                    >
+                    <Box className={classes.icon}>
                         <img
                             src={`https://www.iobroker.net/en/${props.adapter.icon}`}
                             alt={title}
@@ -100,12 +115,7 @@ export const AdapterBlock = memo((props: { adapter: AdapterItem }): ReactNode =>
                     </Tooltip>
                 </Box>
             </Box>
-            <Box
-                className={classes.description}
-                onClick={handleNavigate}
-            >
-                {description}
-            </Box>
+            <Box className={classes.description}>{description}</Box>
             <Box className={classes.statsBlocks}>
                 <Tooltip title={I18n.t('adapters.tooltip.version')}>
                     <Box className={classes.statsBlock}>

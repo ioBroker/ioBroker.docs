@@ -5,7 +5,7 @@ chapters: {"pages":{"de/adapterref/iobroker.admin/README.md":{"title":{"de":"no 
 
 Hier können durch den Klick auf das (+) am unteren linken Bildrand Usergruppen mit unterschiedlichen Rechten angelegt werden.
 
-![iobroker_adapter_admin_user_02](img/tab-groups_admin_User_02.jpg)
+![iobroker_adapter_admin_user_02](../img/tab-groups_admin_User_02.jpg)
 
 ## Der Seiteninhalt
 
@@ -33,7 +33,7 @@ Hier werden die in dem Reiter **_Benutzer_** angelegten Benutzer angezeigt und 
 
 Beim Anklicken des Bleistiftsymbols öffnet sich ein weiteres Fenster, in dem die Rechte dieser Gruppe angepasst werden können.
 
-![iobroker_adapter_admin_user_rechte_01](img/tab-groups_User_Rechte_01.jpg)
+![iobroker_adapter_admin_user_rechte_01](../img/tab-groups_User_Rechte_01.jpg)
 
 ### **6.) Neue Gruppe erzeugen**
 

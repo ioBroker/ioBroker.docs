@@ -19,7 +19,7 @@ hash: VLVL6oNNFIC0HhQ5EDt2a3POqhRCEm2hYDOLKr+gd9c=
 ## Adapter für OnlyCat® Katzenklappen mit Beuteerkennung
 Adapter für OnlyCat® Katzenklappen mit Beuteerkennung.
 
-<p align="center"> <img src="/admin/onlycat-flap.webp" /> </p> <p align="center"> <img style="max-width: 300px" src="/admin/screenshot.jpg" /> </p>
+<p align="center"> <img src="./admin/onlycat-flap.webp" /> </p> <p align="center"> <img style="max-width: 300px" src="./admin/screenshot.jpg" /> </p>
 
 ## Konfiguration
 Fügen Sie das Gerätetoken auf der Adapterkonfigurationsseite hinzu.

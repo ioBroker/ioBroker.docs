@@ -18,7 +18,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.youtube
 hash: qvsWBduIyLeszcPvw+RmjSpdTc9K9uGEgXsU2+ZY8jY=
 ---
-![标识](../../../en/admin/youtube.png)
+![标识](./admin/youtube.png)
 
 # IoBroker.youtube
 ＃＃ 要求

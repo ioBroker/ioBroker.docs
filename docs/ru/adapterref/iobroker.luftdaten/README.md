@@ -12,7 +12,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.luftdaten
 hash: RgjyUcz+6h/w4vumvBaWQBnfA/ViD04Q1jOZLvyagTk=
 ---
-![Логотип](../../../en/adapterref/iobroker.luftdaten/../../admin/luftdaten.png)
+![Логотип](./admin/luftdaten.png)
 
 # IoBroker.luftdaten
 ## Конфигурация

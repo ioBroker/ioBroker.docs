@@ -49,7 +49,7 @@ hash: TwPvpTI0WugmeEEYQaO99mQZkBRXGcQtNFGvSp8OepI=
 
 6. 释放设备键后，几秒钟后将显示令牌并插入到字段中。 （见下文）
 
-![令牌](admin/media/registration_successful.png)![令牌](../../../en/adapterref/iobroker.hue-sync-box/admin/media/token.png)
+![令牌](../../../en/adapterref/iobroker.hue-sync-box/admin/media/registration_successful.png)![令牌](../../../en/adapterref/iobroker.hue-sync-box/admin/media/token.png)
 
 7. 现在您可以点击“添加”按钮，盒子将被添加，然后您只需点击“保存”按钮来保存配置。
 

@@ -39,8 +39,12 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     secondary: {
-        fontFamily: theme.typography.fontFamily,
+        // the same face as `primary`: the two sit next to each other as a pair, and a
+        // button that changes typeface with its rank reads as a different kind of thing
+        fontFamily: 'Audiowide, sans-serif',
         fontWeight: 400,
+        textTransform: 'uppercase',
+        letterSpacing: '0.02em',
         height: theme.custom.control.height,
         minWidth: 200,
         padding: '0 20px',

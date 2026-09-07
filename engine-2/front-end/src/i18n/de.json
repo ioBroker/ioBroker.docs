@@ -31,6 +31,15 @@
         "developer": "Entwickler",
         "first_release": "Erster Release",
         "current_release": "Aktueller Release",
+        "stats": {
+            "title": "Statistik: %s",
+            "total": "Installationen gesamt",
+            "version": "Version",
+            "count": "Anzahl",
+            "share": "Anteil",
+            "others": "Weitere",
+            "no_data": "Keine Daten"
+        },
         "tooltip": {
             "version": "Aktuelle Version",
             "stars": "Sterne auf GitHub",
@@ -47,7 +56,7 @@
             "menu_collapse": "Menü ausblenden"
         }
     },
-    "Support us": "Unterstützen Sie uns",
+    "Support us": "Unterstützen Sie uns:",
     "Support us (mobile)": "Unterstützen Sie uns:",
     "cookies": {
         "title": "Cookie-Zeit!",
@@ -162,7 +171,7 @@
         },
         "hero": {
             "free": "Unsere Software ist kostenlos.",
-            "install": "Installieren",
+            "install": "Zur Installation",
             "platform": "Open-Source-Plattform",
             "platformSubtitle": "für Smart-Home-Automatisierung",
             "support": "Unterstützen Sie uns!"
@@ -180,13 +189,13 @@
         },
         "newsletter": {
             "headline": "Keine Werbung, nur News!",
-            "placeholder": "ihreemail@email.com",
-            "sub": "Unser Newsletter informiert Sie ausschließlich über neue Blogbeiträge und besondere Aktionen – garantiert ohne Spam!",
+            "placeholder": "ihre@email.de",
+            "sub": "Unser Newsletter informiert Sie ausschließlich über neue Blogbeiträge und besondere Aktionen, garantiert ohne Spam!",
             "title": "NEWSLETTER"
         },
         "platform": {
             "head": "ioBroker ist viel mehr als nur eine Software - es ist eine leistungsstarke und flexible Open-Source-Plattform für Smart Home und IoT-Integration.",
-            "more": "MEHR",
+            "more": "Zur Dokumentation",
             "sub1": "Mit ioBroker können Sie Geräte unterschiedlichster Hersteller und Protokolle wie Zigbee, KNX, MQTT, Homematic, Modbus und viele mehr miteinander verbinden und zentral steuern. So entsteht ein herstellerunabhängiges Smart Home, das sich ganz nach Ihren Wünschen anpassen und erweitern lässt.",
             "sub2": "ioBroker ist für alle gedacht - von Einsteigern, die mit wenigen Klicks einfache Automatisierungen erstellen, bis hin zu Technikbegeisterten, die komplexe Szenarien mit JavaScript, Blockly oder Node-RED umsetzen möchten. Dabei läuft die gesamte Steuerung über eine intuitive grafische Oberfläche, ohne dass komplizierte Konfigurationsdateien bearbeitet werden müssen.",
             "title1": "Eine Plattform,",
@@ -196,7 +205,7 @@
     "installation": {
         "docker": {
             "details": "Details:",
-            "detailsValue": "Flexibles Docker-Image",
+            "detailsValue": "Ein flexibles Docker-Image, das ioBroker als Container betreibt.",
             "download": "DOWNLOAD",
             "info": "INFO",
             "platform": "Plattform:",
@@ -209,24 +218,26 @@
             "imageText": "Ein vorkonfiguriertes Image ist nur erforderlich, wenn das Installationsskript nicht funktioniert oder keine Internetverbindung verfügbar ist. In den meisten Fällen reicht der oben genannte Befehl aus.",
             "imageTitle": "Wann benötige ich ein Image?",
             "info": "INFO",
-            "simplest": "Die einfachste Möglichkeit, ioBroker auf einem Linux-System zu installieren, ist mit folgendem Befehl:"
+            "simplest": "Die einfachste Möglichkeit, ioBroker auf einem Linux-System zu installieren, ist mit folgendem Befehl:",
+            "copy": "Befehl kopieren"
         },
         "raspberry": {
             "details": "Details:",
-            "detailsValue": "Vorgefertigtes Raspberry OS Image",
+            "detailsValue": "Ein vorgefertigtes Image für Raspberry Pi 5, 4, 3 und 2 (ab Rev. 1.2), fertig zum Schreiben auf die SD-Karte.",
             "download": "DOWNLOAD",
             "info": "INFO",
             "password": "Standard-Passwort:",
             "passwordValue": "2024=smart!",
             "platform": "Plattform:",
             "platformValue": "Raspberry OS",
-            "title": "RASPBERRY PI OS"
+            "title": "RASPBERRY PI OS",
+            "passwordHint": "Bitte ändern Sie das Passwort nach der ersten Anmeldung."
         },
         "subtitle": "ioBroker lässt sich auf allen Systemen installieren, die Node.js unterstützen und genügend RAM haben.",
         "title": "IOBROKER INSTALLATION",
         "windows": {
             "details": "Details:",
-            "detailsValue": "Einfache Installation mit dem Windows-Installer",
+            "detailsValue": "Ein Installationsprogramm, das ioBroker unter Windows ohne Kommandozeile einrichtet.",
             "download": "DOWNLOAD",
             "info": "INFO",
             "platform": "Plattform:",
@@ -269,13 +280,13 @@
         "licenses": "Lizenzen"
     },
     "support.amazon.button": "BEI AMAZON EINKAUFEN",
-    "support.amazon.text": "Bestellen Sie sowieso bei Amazon? Dann nutzen Sie unseren Link! Ein kleiner Prozentsatz Ihres Einkaufs geht an ioBroker – Sie zahlen keinen Cent mehr!",
+    "support.amazon.text": "Bestellen Sie sowieso bei Amazon? Dann nutzen Sie unseren Link! Ein kleiner Prozentsatz Ihres Einkaufs geht an ioBroker, und Sie zahlen keinen Cent mehr!",
     "support.description": "Doch Serverkosten, Weiterentwicklung und Verwaltung brauchen Power (und manchmal auch Kaffee). Wenn Sie unser Projekt mögen, freuen wir uns über Ihre Unterstützung!",
-    "support.footer": "PS: Ihre Spende wird nicht für Luxus‑Smart‑Home‑Geräte verprasst – versprochen!",
+    "support.footer": "PS: Ihre Spende wird nicht für Luxus‑Smart‑Home‑Geräte verprasst, versprochen!",
     "support.paypal.button": "JETZT SPENDEN",
-    "support.paypal.text": "Ob ein kleiner Betrag oder ein großer Boost – jede Spende fließt direkt in die Weiterentwicklung von ioBroker.",
-    "support.subtitle": "ioBroker ist kostenlos – und soll es auch bleiben!",
-    "support.title": "UNTERSTÜTZE UNS!",
+    "support.paypal.text": "Ob ein kleiner Betrag oder ein großer Boost, jede Spende fließt direkt in die Weiterentwicklung von ioBroker.",
+    "support.subtitle": "ioBroker ist kostenlos und soll es auch bleiben!",
+    "support.title": "UNTERSTÜTZEN SIE UNS!",
     "tooltip": {
         "search": "Suche",
         "profile": "Profil",
@@ -313,7 +324,7 @@
             },
             "services": {
                 "title": "Dienste",
-                "text": "Verknüpfe ioBroker mit Plattformen wie Geofency, Tasker oder URL-Service"
+                "text": "Verknüpfen Sie ioBroker mit Plattformen wie Geofency, Tasker oder URL-Service"
             },
             "licenses": {
                 "title": "Lizenzen",
@@ -357,7 +368,7 @@
                 "alexa1": "Aktiviere in der Alexa-App den ioBroker.iot-Skill",
                 "alexa2": "Individuelle Steuerung und Statusabfragen: Aktiviere zusätzlich den ioBroker.custom-Skill",
                 "google": "Google Home:",
-                "google1": "Verbinde ioBroker über ioBroker Actions in der Google Home App",
+                "google1": "Verbinden Sie ioBroker über ioBroker Actions in der Google Home App",
                 "title": "So richten Sie es ein"
             },
             "card": {
@@ -634,5 +645,73 @@
     "1 month": "1 Monat",
     "6 month": "6 Monate",
     "1 year": "1 Jahr",
-    "Unlimited": "Unbegrenzt"
+    "Unlimited": "Unbegrenzt",
+    "statistics": {
+        "title": "STATISTIK",
+        "subtitle": "Jede ioBroker-Installation kann anonym melden, womit sie läuft. Was daraus entsteht, sehen Sie hier — freiwillig gemeldet, nichts davon ist personenbezogen.",
+        "loading": "Zahlen werden geladen …",
+        "error": "Die Zahlen sind gerade nicht erreichbar. Bitte versuchen Sie es später noch einmal.",
+        "base": "Grundlage: %c Installationen, die diese Angabe melden — %p von %t insgesamt.",
+        "rows": "%n von %t",
+        "column": {
+            "count": "Installationen",
+            "share": "Anteil"
+        },
+        "kpi": {
+            "installations": "Installationen",
+            "adapters": "Adapter im Umlauf",
+            "multihosts": "Mehrere Hosts",
+            "snapshot": "Stand",
+            "ofAll": "aller Installationen"
+        },
+        "growth": {
+            "title": "Installationen seit 2015",
+            "note": "Jede Erhebung ein Punkt. Die Kurve zählt Installationen, nicht Menschen — wer neu aufsetzt, zählt neu.",
+            "peak": "Der Höchststand lag bei %v im %d — seitdem %p weniger."
+        },
+        "map": {
+            "title": "Wo ioBroker läuft",
+            "consent": "Die Karte kommt von Google Maps. Beim Laden wird Ihre IP-Adresse an Google übertragen — deshalb laden wir sie erst, wenn Sie es möchten.",
+            "load": "Karte laden",
+            "error": "Die Karte lässt sich gerade nicht laden.",
+            "points": "%n gemeldete Standorte"
+        },
+        "countries": {
+            "title": "Länder",
+            "tableTitle": "Alle Länder",
+            "column": "Land",
+            "search": "Land suchen …"
+        },
+        "platforms": {
+            "title": "Betriebssysteme"
+        },
+        "languages": {
+            "title": "Sprachen",
+            "none": "Keine Angabe"
+        },
+        "nodes": {
+            "title": "Node.js-Versionen",
+            "note": "Nach Versionsnummer geordnet, nicht nach Größe: So sieht man, dass fast alles auf den geraden LTS-Versionen läuft."
+        },
+        "docker": {
+            "title": "Docker",
+            "inDocker": "laufen in einem Container",
+            "docker": "Docker",
+            "normal": "Direkt installiert"
+        },
+        "databases": {
+            "title": "Datenbanken",
+            "note": "Objekte und Zustände können getrennt abgelegt werden — hier stehen beide nebeneinander.",
+            "objects": "Objekte",
+            "states": "Zustände"
+        },
+        "adapters": {
+            "title": "Beliebteste Adapter",
+            "note": "Die %n meistinstallierten. Anteil an allen Installationen.",
+            "tableTitle": "Alle Adapter",
+            "tableNote": "Jeder Adapter, der mindestens einmal gemeldet wurde.",
+            "column": "Adapter",
+            "search": "Adapter suchen …"
+        }
+    }
 }

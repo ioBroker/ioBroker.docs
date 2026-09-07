@@ -1,4 +1,4 @@
-import { Box, ToggleButton, ToggleButtonGroup, Tooltip, useMediaQuery } from '@mui/material';
+import { Box, ToggleButton, ToggleButtonGroup, Tooltip, useMediaQuery, useTheme } from '@mui/material';
 import { AdapterBlock } from '../../components/AdapterBlock/AdapterBlock';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
 import { I18n } from '../../utils/i18n';
@@ -7,7 +7,7 @@ import { AdapterTable } from '../../components/AdapterTable/AdapterTable';
 import { AdapterMenu } from '../../components/AdapterMenu/AdapterMenu';
 import { MenuToggle } from '../../components/MenuToggle/MenuToggle';
 import { TopBarSearch } from '../../components/TopBarSearch/TopBarSearch';
-import { useState, useEffect, useMemo, useDeferredValue, useTransition, useRef, useCallback } from 'react';
+import { useState, useEffect, useMemo, useDeferredValue, useTransition, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import GridIcon from '../../assets/img/blueGrid.svg';
 import AdaptersListIcon from '../../assets/img/whiteAdaptersList.svg';
@@ -19,7 +19,7 @@ import type { AdapterItem } from '../../components/AdapterItem/AdapterItem';
 
 const STORAGE_KEY = 'adaptersPageState';
 
-const loadSavedState = () => {
+const loadSavedState = (): Record<string, unknown> | null => {
     try {
         const saved = sessionStorage.getItem(STORAGE_KEY);
         if (saved) {
@@ -32,6 +32,7 @@ const loadSavedState = () => {
 };
 
 const AdaptersPage = (): React.ReactNode => {
+    const theme = useTheme();
     const saved = useMemo(() => loadSavedState(), []);
     const [mode, setMode] = useState<'block' | 'table'>(saved?.mode || 'block');
     const [, startTransition] = useTransition();
@@ -40,7 +41,11 @@ const AdaptersPage = (): React.ReactNode => {
     const [isMenuCollapsed, setIsMenuCollapsed] = useState(saved?.isMenuCollapsed || false);
     const [selectedMenuItem, setSelectedMenuItem] = useState(saved?.selectedMenuItem || '');
     const [selectedCategoryKey, setSelectedCategoryKey] = useState<string>(saved?.selectedCategoryKey || '');
-    const isMobile = useMediaQuery('(max-width:661px)');
+    // One boundary for the whole page: below 900 px the layout stacks everywhere on this
+    // site, so that is where the menu stops being a column and becomes an overlay panel.
+    // It used to be 661 px here, 878 and 661 in the menu and 769 in the grid - four
+    // numbers for one decision.
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const { data: adaptersData } = useAdapters();
     const language = I18n.getLanguage();
     const location = useLocation();
@@ -63,17 +68,6 @@ const AdaptersPage = (): React.ReactNode => {
     }, [mode, search, menuMode, isMenuCollapsed, selectedMenuItem, selectedCategoryKey]);
 
     const mainBlockRef = useRef<HTMLDivElement>(null);
-    const [scrollProgress, setScrollProgress] = useState(0);
-
-    const handleMainBlockScroll = useCallback(() => {
-        const el = mainBlockRef.current;
-        if (!el) {
-            return;
-        }
-        const scrollHeight = el.scrollHeight - el.clientHeight;
-        const percent = scrollHeight > 0 ? Math.round((el.scrollTop / scrollHeight) * 100) : 0;
-        setScrollProgress(Math.min(100, Math.max(0, percent)));
-    }, []);
 
     const { classes } = useStyles({ isMenuCollapsed });
 
@@ -201,10 +195,16 @@ const AdaptersPage = (): React.ReactNode => {
                     </Box>
                 ) : (
                     <SectionTitle
-                        sx={{
-                            marginLeft: { xs: '16px', sm: '24px', lg: '32px' },
+                        sx={theme => ({
+                            // the page's side margin comes from the layout token, like
+                            // everywhere else - the three hand-written values here were a
+                            // scale of their own (16 / 24 / 32 on MUI's own sx steps)
+                            marginLeft: {
+                                xs: `${theme.custom.layout.gutter.sm}px`,
+                                sm: `${theme.custom.layout.gutter.lg}px`,
+                            },
                             marginBottom: '20px',
-                        }}
+                        })}
                     >
                         {I18n.t('home.adapters.title')}
                     </SectionTitle>
@@ -212,13 +212,17 @@ const AdaptersPage = (): React.ReactNode => {
             </Box>
             <Box className={classes.container}>
                 <Box className={classes.leftColumn}>
-                    <Box className={classes.menuToggleWrapper}>
-                        <MenuToggle
-                            value={menuMode}
-                            onChange={setMenuMode}
-                            onCollapse={setIsMenuCollapsed}
-                        />
-                    </Box>
+                    {/* On a phone the toggle stands next to the search field, so the two form
+                        one row and the opening menu no longer paints over the field. */}
+                    {!isMobile && (
+                        <Box className={classes.menuToggleWrapper}>
+                            <MenuToggle
+                                value={menuMode}
+                                onChange={setMenuMode}
+                                onCollapse={setIsMenuCollapsed}
+                            />
+                        </Box>
+                    )}
                     <Box className={classes.menuBlock}>
                         <AdapterMenu
                             isCollapsed={isMenuCollapsed}
@@ -231,10 +235,16 @@ const AdaptersPage = (): React.ReactNode => {
                 </Box>
                 <Box className={classes.rightColumn}>
                     <Box className={classes.topBar}>
+                        {isMobile && (
+                            <MenuToggle
+                                value={menuMode}
+                                onChange={setMenuMode}
+                                onCollapse={setIsMenuCollapsed}
+                            />
+                        )}
                         <TopBarSearch
                             value={search}
                             onChange={setSearch}
-                            isMenuCollapsed={isMenuCollapsed}
                         />
                         <Box className={classes.adaptersButton}>
                             <ToggleButtonGroup
@@ -271,17 +281,14 @@ const AdaptersPage = (): React.ReactNode => {
                     <Box
                         className={classes.mainBlock}
                         ref={mainBlockRef}
-                        onScroll={handleMainBlockScroll}
                     >
                         {mode === 'block' ? (
                             <Box className={classes.adaptersGrid}>{adaptersGridContent}</Box>
                         ) : (
                             adaptersTableContent
                         )}
-                        <Divider
-                            position={scrollProgress}
-                            parentWidth={mainBlockRef.current?.clientWidth || window.innerWidth}
-                        />
+                        {/* ohne `position`: die Linie misst sich selbst, siehe Divider */}
+                        <Divider beforeFooter />
                         <Footer />
                     </Box>
                 </Box>

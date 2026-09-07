@@ -24,6 +24,8 @@ export const useStyles = makeStyles()(theme => {
             background: theme.custom.surfaces.surface,
             color: theme.palette.text.primary,
             boxShadow: theme.custom.elevation.card,
+            // the whole card is the link to the adapter
+            cursor: 'pointer',
             display: 'flex',
             flexDirection: 'column',
             transition: 'background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease',
@@ -32,7 +34,7 @@ export const useStyles = makeStyles()(theme => {
                 boxShadow: theme.custom.elevation.raised,
                 transform: 'translateY(-2px)',
             },
-            '@media (max-width: 480px)': {
+            [theme.breakpoints.down('sm')]: {
                 padding: '14px',
             },
         },
@@ -43,6 +45,9 @@ export const useStyles = makeStyles()(theme => {
             minWidth: 0,
         },
         icon: {
+            // the one hard colour on this page, and on purpose: adapter logos are drawn
+            // by their own authors for a light ground, so they get a white plate in both
+            // themes instead of disappearing into the dark surface
             background: '#FFFFFF',
             borderRadius: `${theme.custom.radius.control}px`,
             padding: '6px',
@@ -52,14 +57,13 @@ export const useStyles = makeStyles()(theme => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            cursor: 'pointer',
             boxShadow: `inset 0 0 0 1px ${theme.custom.hairline}`,
             '& img': {
                 width: '100%',
                 height: '100%',
                 objectFit: 'contain',
             },
-            '@media (max-width: 480px)': {
+            [theme.breakpoints.down('sm')]: {
                 width: '48px',
                 height: '48px',
             },
@@ -74,15 +78,15 @@ export const useStyles = makeStyles()(theme => {
         title: {
             fontFamily: "'Roboto', sans-serif",
             fontWeight: 700,
-            fontSize: '18px',
+            fontSize: theme.custom.reading.lead.fontSize,
             lineHeight: 1.25,
             display: '-webkit-box',
             WebkitLineClamp: 2,
             WebkitBoxOrient: 'vertical',
             overflow: 'hidden',
             overflowWrap: 'anywhere',
-            '@media (max-width: 480px)': {
-                fontSize: '17px',
+            [theme.breakpoints.down('sm')]: {
+                fontSize: theme.custom.reading.body.fontSize,
             },
         },
         titleLink: {
@@ -112,7 +116,7 @@ export const useStyles = makeStyles()(theme => {
             },
         },
         authorName: {
-            fontSize: '13px',
+            fontSize: theme.custom.reading.caption.fontSize,
             lineHeight: 1.35,
             color: theme.custom.textSubtle,
             display: '-webkit-box',
@@ -124,10 +128,10 @@ export const useStyles = makeStyles()(theme => {
         description: {
             fontFamily: "'Roboto', sans-serif",
             fontWeight: 400,
-            fontSize: '14px',
-            lineHeight: 1.5,
+            // 14 px was off the scale - `small` is the step for secondary running text
+            fontSize: theme.custom.reading.small.fontSize,
+            lineHeight: theme.custom.reading.small.lineHeight,
             color: theme.custom.textMuted,
-            cursor: 'pointer',
             marginTop: '14px',
             display: '-webkit-box',
             WebkitLineClamp: 3,
@@ -172,7 +176,7 @@ export const useStyles = makeStyles()(theme => {
             height: '1px',
             background: theme.custom.hairline,
             margin: '12px -16px 0 -16px',
-            '@media (max-width: 480px)': {
+            [theme.breakpoints.down('sm')]: {
                 margin: '12px -14px 0 -14px',
             },
         },
@@ -185,6 +189,12 @@ export const useStyles = makeStyles()(theme => {
         bottomIcon: {
             width: '32px',
             height: '32px',
+            // a finger needs 44 px - on the phone the row grows to the kit's target size,
+            // on the desktop the mouse is precise enough for the compact one
+            [theme.breakpoints.down('sm')]: {
+                width: `${theme.custom.control.height}px`,
+                height: `${theme.custom.control.height}px`,
+            },
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',

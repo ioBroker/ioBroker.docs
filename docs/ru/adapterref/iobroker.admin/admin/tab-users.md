@@ -9,7 +9,7 @@ hash: HKsMwIvpGIO+9hqNOzBFUsRM8OOTNgILqQ6z75xDXDY=
 # Вкладка Пользователь
 Здесь пользователи могут быть созданы. Нажмите на (+) в левом нижнем углу. Администратор уже создан по умолчанию.
 
-![iobroker_adapter_admin_user_01](../../../../de/adapterref/iobroker.admin/admin/img/tab-user_01-1.jpg)
+![iobroker_adapter_admin_user_01](../img/tab-user_01-1.jpg)
 
 ## Содержание страницы
 На странице существующие пользователи отображаются в виде таблицы. Поля в заголовках столбцов используются для фильтрации таблицы по вашим собственным критериям.
@@ -28,7 +28,7 @@ hash: HKsMwIvpGIO+9hqNOzBFUsRM8OOTNgILqQ6z75xDXDY=
 ### **4.) Группы**
 Группы, созданные на вкладке **_ Группы _** отображаются здесь. Здесь пользователи могут быть назначены на соответствующие группы с помощью флажка.
 
-![iobroker_adapter_admin_user_groups](../../../../de/adapterref/iobroker.admin/admin/img/tab-user_Groups.jpg)
+![iobroker_adapter_admin_user_groups](../img/tab-user_Groups.jpg)
 
 ### **5.) Создать нового пользователя**
 Этот значок можно использовать для создания нового пользователя, который затем должен быть присвоен существующей группе.

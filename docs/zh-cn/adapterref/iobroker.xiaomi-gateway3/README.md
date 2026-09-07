@@ -237,7 +237,7 @@ _**注意：**目前此页面具有基本功能。将来会很好地扩展。_
 ### 设备配置
 您可以通过使用 yaml 编写配置来定义一些选项来配置设备（和设备的卡）。下表中描述的可用选项。您可以使用菜单中的`Config`点调用设备配置窗口（带有文本输入区域的窗口）。
 
-<img src="static/device-yaml-config.png">
+<img src="../../../en/adapterref/iobroker.xiaomi-gateway3/static/device-yaml-config.png">
 
 #### 设备配置选项
 |字段|类型|描述|

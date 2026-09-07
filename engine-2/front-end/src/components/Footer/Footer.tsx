@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, useMediaQuery, Tooltip } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
 import ForumIcon from '../icons/ForumIcon';
 import GitHubIcon from '../icons/GitHubIcon';
 import FacebookIcon from '../icons/FacebookIcon';
@@ -68,13 +68,14 @@ function Braces(props: {
     children: React.JSX.Element | React.JSX.Element[];
     style?: React.CSSProperties;
     classes: any;
+    outerClassName?: string;
     leftClassName?: string;
     rightClassName?: string;
     contentClassName?: string;
 }): React.JSX.Element {
     return (
         <Box
-            className={props.classes.braces}
+            className={props.outerClassName ? `${props.classes.braces} ${props.outerClassName}` : props.classes.braces}
             style={props.style}
         >
             <div className={props.leftClassName || props.classes.bracesLeft} />
@@ -118,8 +119,6 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
     const { classes } = useFooterStyles();
     const [lng, setLng] = useState(I18n.getLanguage());
     useEffect(() => I18n.subscribe(setLng), []);
-    const isSmallScreen = useMediaQuery('(max-width:500px)');
-    const bracesSize = isSmallScreen ? { height: 166, width: 157 } : { height: 171, width: 195 };
 
     return (
         <Box
@@ -140,15 +139,13 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                         <Box className={classes.sectionsRow}>
                             <Braces
                                 classes={classes}
-                                style={bracesSize}
+                                outerClassName={classes.sectionBrace}
                             >
                                 <div className={classes.supportColumn}>
-                                    <div className={classes.supportText}>
-                                        <div>{I18n.t('Support us')}</div>
-                                    </div>
-                                    <div className={classes.supportTextMobile}>
-                                        <div>{I18n.t('Support us')}</div>
-                                    </div>
+                                    {/* eine Beschriftung fuer jede Breite - es gab zwei
+                                        Fassungen mit demselben Text, die bei 736 px
+                                        wechselten (Denis, 06.09.2026) */}
+                                    <div className={classes.supportLabel}>{I18n.t('Support us')}</div>
                                     <div className={classes.donateButtons}>
                                         <OwnButton
                                             noText
@@ -170,7 +167,7 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
 
                             <Braces
                                 classes={classes}
-                                style={bracesSize}
+                                outerClassName={classes.sectionBrace}
                             >
                                 <div className={classes.linksColumn}>
                                     <Link
@@ -193,7 +190,7 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
 
                             <Braces
                                 classes={classes}
-                                style={bracesSize}
+                                outerClassName={classes.sectionBrace}
                             >
                                 <div className={classes.linksColumn}>
                                     <Link
@@ -218,7 +215,7 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                             <Box className={classes.legalLinksMobile}>
                                 <Braces
                                     classes={classes}
-                                    style={bracesSize}
+                                    outerClassName={classes.sectionBrace}
                                 >
                                     <div className={classes.linksColumn}>
                                         <Box
@@ -245,6 +242,7 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                         <Braces
                             classes={classes}
                             style={{ width: '100%' }}
+                            outerClassName={classes.socialBrace}
                             leftClassName={classes.socialBracesLeft}
                             rightClassName={classes.socialBracesRight}
                             contentClassName={classes.socialBracesContent}
@@ -252,50 +250,51 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                             <Box className={classes.socialRow}>
                                 <div className={classes.followUsText}>{I18n.t('Follow us:')}</div>
                                 <div className={classes.socialIconsWrapper}>
-                                    <Box className={classes.hideOnSmall}>
-                                        <OwnButton
-                                            classes={classes}
-                                            href={EXTERNAL_LINKS.FORUM}
-                                            tooltip={I18n.t('tooltip.forum')}
-                                            icon={<ForumIcon />}
-                                        />
-                                    </Box>
+                                    {/* stand bis 06.09.2026 unter 600 px auf `hideOnSmall` -
+                                        das Forum ist der wichtigste der sieben Verweise
+                                        und fehlte ausgerechnet auf dem Handy */}
                                     <OwnButton
                                         classes={classes}
+                                        noText
+                                        href={EXTERNAL_LINKS.FORUM}
+                                        tooltip={I18n.t('tooltip.forum')}
+                                        icon={<ForumIcon />}
+                                    />
+                                    <OwnButton
+                                        classes={classes}
+                                        noText
                                         href={EXTERNAL_LINKS.GITHUB}
                                         tooltip={I18n.t('tooltip.github')}
                                         icon={<GitHubIcon />}
                                     />
+                                    {/* "GitHub Community" stand hier als zweites GitHub-Zeichen
+                                        und war fuer Besucher nicht von dem daneben zu
+                                        unterscheiden - am 06.09.2026 entfernt (Denis) */}
+                                    {/* ohne Bildunterschrift: sie war nach dem Entfernen von
+                                        "GitHub Community" die einzige in der Reihe und hing
+                                        allein unter einem Zeichen (Denis, 06.09.2026).
+                                        Gruppe und Seite unterscheidet jetzt nur der Tooltip. */}
                                     <OwnButton
                                         classes={classes}
-                                        name="community"
-                                        href={EXTERNAL_LINKS.GITHUB_COMMUNITY}
-                                        tooltip={I18n.t('tooltip.github_community')}
-                                        icon={<GitHubIcon />}
-                                    />
-                                    <OwnButton
-                                        classes={classes}
-                                        name="group"
-                                        textOffset={-8}
+                                        noText
                                         href={EXTERNAL_LINKS.FACEBOOK_GROUP}
                                         tooltip={I18n.t('tooltip.facebook_group')}
                                         icon={<FacebookIcon />}
                                     />
+                                    {/* Die Facebook-Seite stand hier mit demselben Zeichen wie die
+                                        Gruppe daneben - fuer Besucher nicht zu unterscheiden. Am
+                                        06.09.2026 entfernt (Denis), die Gruppe bleibt. Im
+                                        Hauptmenue stehen weiter beide. */}
                                     <OwnButton
                                         classes={classes}
-                                        href={EXTERNAL_LINKS.FACEBOOK_PAGE}
-                                        tooltip={I18n.t('tooltip.facebook_page')}
-                                        textOffset={-8}
-                                        icon={<FacebookIcon />}
-                                    />
-                                    <OwnButton
-                                        classes={classes}
+                                        noText
                                         href={EXTERNAL_LINKS.DISCORD}
                                         tooltip={I18n.t('tooltip.discord')}
                                         icon={<DiscordIcon />}
                                     />
                                     <OwnButton
                                         classes={classes}
+                                        noText
                                         href={EXTERNAL_LINKS.INSTAGRAM}
                                         tooltip={I18n.t('tooltip.instagram')}
                                         icon={<InstagramIcon />}

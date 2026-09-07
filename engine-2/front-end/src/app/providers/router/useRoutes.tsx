@@ -8,6 +8,7 @@ import BlogPage from '../../../pages/BlogPage/BlogPage';
 import BlogPostPage from '../../../pages/BlogPage/BlogPostPage';
 import LegalPage from '../../../pages/LegalPage/LegalPage';
 import ProductOverviewPage from '../../../pages/ProductOverviewPage/ProductOverviewPage';
+import StatisticsPage from '../../../pages/StatisticsPage/StatisticsPage';
 
 export const useRoutes = (): React.ReactElement => {
     return (
@@ -47,6 +48,10 @@ export const useRoutes = (): React.ReactElement => {
             <Route
                 path="/productoverview"
                 element={<ProductOverviewPage />}
+            />
+            <Route
+                path="/statistics"
+                element={<StatisticsPage />}
             />
             <Route
                 path="/imprint"

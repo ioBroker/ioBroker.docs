@@ -11,7 +11,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.mydlink
 hash: eCGuBeInjjV4cyy3m3rBlDYlL5onPbcwPiG46PBaZd0=
 ---
-![标识](../../../en/adapterref/iobroker.mydlink/../../admin/mydlink.png)
+![标识](./admin/mydlink.png)
 
 ＃ioBroker.mydlink
 ioBroker的MyDlink适配器。

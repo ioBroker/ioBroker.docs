@@ -13,7 +13,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.solax
 hash: RZW6F+kMWyyDPRGfkXmz1YZ5xP43u5qCgjakymep7ZI=
 ---
-![Логотип](../../../en/admin/solax.png)
+![Логотип](./admin/solax.png)
 
 ![НПМ-версия](http://img.shields.io/npm/v/iobroker.solax.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.solax.svg)
@@ -43,10 +43,10 @@ hash: RZW6F+kMWyyDPRGfkXmz1YZ5xP43u5qCgjakymep7ZI=
 Для этого вам понадобится учетная запись в Solax, идентификатор вашего токена и серийный номер вашего модуля Wi-Fi.
 
 ## API-токен
-<span><img src="../img/solax_api.png"></span>
+<span><img src="./docs/en/img/solax_api.png"></span>
 
 ## Серийный номер
-<span><img src="../img/wifi-stick.png"></span>
+<span><img src="./docs/en/img/wifi-stick.png"></span>
 
 ## Экспертные настройки
 Локальное соединение в настоящее время поддерживается только Pocket Wifi Stick. Сетевые карты LAN могут работать только в облачном режиме.
@@ -60,7 +60,7 @@ hash: RZW6F+kMWyyDPRGfkXmz1YZ5xP43u5qCgjakymep7ZI=
 
 Если вы подключены к точке доступа, перейдите в веб-интерфейс Wi-Fi-модуля в браузере со следующим IP-адресом: `5.8.8.8`.<br> Если вы не меняли пароль во время первоначальной настройки, данные для входа по умолчанию — admin:admin.
 
-<span><img src="../img/webif.png"></span>
+<span><img src="./docs/en/img/webif.png"></span>
 
 В веб-интерфейсе вы переходите на вкладку «Система» и там найдете установленную на данный момент версию прошивки.<br> Если версия выше 2.033.20 (Wifi-Pocket V1/V2) и меньше 3.001 (Wifi-Pocket V3), прошить правильную версию можно на той же вкладке через пункт меню «Обновить прошивку (.usb)». .
 

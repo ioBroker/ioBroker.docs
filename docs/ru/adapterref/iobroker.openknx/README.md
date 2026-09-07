@@ -18,7 +18,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.openknx
 hash: dJvvvwhbpG0TyhuYMt/pUFNmK0oJwlZTL/nUTTgK3Do=
 ---
-![Логотип](../../../en/admin/openknx.png)
+![Логотип](./admin/openknx.png)
 
 # IoBroker.openknx
 ## Функции
@@ -40,7 +40,7 @@ hash: dJvvvwhbpG0TyhuYMt/pUFNmK0oJwlZTL/nUTTgK3Do=
 Найдите "openknx" в списке адаптеров и установите его, нажав на символ "+".
 
 ## Конфигурация адаптера
-![настройки](../../../en/adapterref/img/setting.png)
+![настройки](./docs/pictures/setting.png)
 
 Нажмите «Сохранить и закрыть» или «Сохранить», чтобы перезапустить адаптер и применить изменения.
 
@@ -81,7 +81,7 @@ hash: dJvvvwhbpG0TyhuYMt/pUFNmK0oJwlZTL/nUTTgK3Do=
 #### Импорт XML (резервный вариант)
 Если вы не можете использовать файл .knxproj, вы можете экспортировать адреса групп из ETS в формате XML:
 
-![Как экспортировать адреса групп в формате XML в ETS](../../../en/adapterref/img/exportGA.png)
+![Как экспортировать адреса групп в формате XML в ETS](./docs/pictures/exportGA.png)
 
 1. В ETS перейдите в раздел «Групповые адреса», выберите «Экспорт групповых адресов» и выберите «Экспорт XML в последней версии формата».
 
@@ -288,7 +288,7 @@ return msg;
 
 ## Уровень лога
 Включите экспертный режим для переключения между уровнями логирования. По умолчанию — информационный.
-![уровень логирования](../../../en/adapterref/img/loglevel.png)
+![уровень логирования](./docs/pictures/loglevel.png)
 
 ## Мониторинг
 Openknx использует sentry.io для отслеживания ошибок (данные отправляются на сервер ioBroker Sentry в Германии, в псевдонимизированном виде).

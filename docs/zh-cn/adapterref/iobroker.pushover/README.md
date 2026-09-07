@@ -8,7 +8,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.pushover
 hash: TPAyzEDw5p3Prh33C7Gu/sfALjyHt59qWdA0psxUAFY=
 ---
-![标识](../../../en/adapterref/iobroker.pushover/../../admin/pushover.png)
+![标识](./admin/pushover.png)
 
 # IoBroker.pushover
 ＃＃ 配置

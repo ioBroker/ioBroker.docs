@@ -29,6 +29,12 @@ import icon19 from '../../../../assets/img/image_427.svg';
 import icon20 from '../../../../assets/img/image_428.svg';
 import icon21 from '../../../../assets/img/image_429.svg';
 import icon22 from '../../../../assets/img/image_430.svg';
+// Das Handy-Raster braucht 25 Kacheln, es gab aber nur 22 Symbole - die letzten drei
+// Plaetze zeigten deshalb dreimal dasselbe Bild. Diese drei kommen aus dem Bestand der
+// Adapter-Logos (public/<lang>/adapterref/) und fuellen die Luecke mit echten Adaptern.
+import icon23 from '../../../../assets/img/adapter_spotify.png';
+import icon24 from '../../../../assets/img/adapter_unifi.png';
+import icon25 from '../../../../assets/img/adapter_discord.png';
 
 interface AdapterIcon {
     src: string;
@@ -53,30 +59,30 @@ export const AdaptersSection: React.FC = () => {
 
     const adapterIcons: AdapterIcon[] = [
         { src: icon1, width: 48, height: 48, alt: 'Alexa' },
-        { src: icon2, width: 48, height: 48, alt: 'Phillips Hue' },
+        { src: icon2, width: 48, height: 48, alt: 'Philips Hue' },
         { src: icon3, width: 48, height: 48, alt: 'JavaScript' },
         { src: icon4, width: 60, height: 60, alt: 'Telegram' },
-        { src: icon5, width: 48, height: 48, alt: 'Adapter 5' },
-        { src: icon6, width: 60, height: 60, alt: 'Adapter 6' },
-        { src: icon7, width: 48, height: 48, alt: 'Adapter 7' },
-        { src: icon8, width: 48, height: 48, alt: 'Adapter 8' },
-        { src: icon9, width: 60, height: 34, alt: 'Adapter 9' },
-        { src: icon10, width: 50, height: 50, alt: 'Adapter 10' },
-        { src: icon11, width: 60, height: 60, alt: 'Adapter 11' },
-        { src: icon12, width: 48, height: 48, alt: 'Adapter 12' },
-        { src: icon13, width: 48, height: 48, alt: 'Adapter 13' },
-        { src: icon14, width: 60, height: 60, alt: 'Adapter 14' },
-        { src: icon15, width: 60, height: 60, alt: 'Adapter 15' },
-        { src: icon16, width: 48, height: 48, alt: 'Adapter 16' },
-        { src: icon17, width: 48, height: 48, alt: 'Adapter 17' },
-        { src: icon18, width: 48, height: 48, alt: 'Adapter 18' },
-        { src: icon19, width: 60, height: 60, alt: 'Adapter 19' },
-        { src: icon20, width: 48, height: 48, alt: 'Adapter 20' },
-        { src: icon21, width: 48, height: 48, alt: 'Adapter 21' },
-        { src: icon22, width: 60, height: 60, alt: 'Adapter 22' },
-        { src: icon22, width: 60, height: 60, alt: 'Adapter 23' },
-        { src: icon22, width: 60, height: 60, alt: 'Adapter 24' },
-        { src: icon22, width: 60, height: 60, alt: 'Adapter 25' },
+        { src: icon5, width: 48, height: 48, alt: 'Zigbee' },
+        { src: icon6, width: 60, height: 60, alt: 'Speedtest' },
+        { src: icon7, width: 48, height: 48, alt: 'Sonoff' },
+        { src: icon8, width: 48, height: 48, alt: 'AVM FRITZ!Box' },
+        { src: icon9, width: 60, height: 34, alt: 'Tuya' },
+        { src: icon10, width: 50, height: 50, alt: 'HomeMatic' },
+        { src: icon11, width: 60, height: 60, alt: 'Shelly' },
+        { src: icon12, width: 48, height: 48, alt: 'ioBroker Adapter' },
+        { src: icon13, width: 48, height: 48, alt: 'MQTT' },
+        { src: icon14, width: 60, height: 60, alt: 'InfluxDB' },
+        { src: icon15, width: 60, height: 60, alt: 'Modbus' },
+        { src: icon16, width: 48, height: 48, alt: 'Node-RED' },
+        { src: icon17, width: 48, height: 48, alt: 'Photovoltaik' },
+        { src: icon18, width: 48, height: 48, alt: 'KNX' },
+        { src: icon19, width: 60, height: 60, alt: 'Tesla' },
+        { src: icon20, width: 48, height: 48, alt: 'Kamera' },
+        { src: icon21, width: 48, height: 48, alt: 'Daikin' },
+        { src: icon22, width: 60, height: 60, alt: 'Mihome Vacuum' },
+        { src: icon23, width: 48, height: 48, alt: 'Spotify' },
+        { src: icon24, width: 48, height: 48, alt: 'UniFi' },
+        { src: icon25, width: 48, height: 48, alt: 'Discord' },
     ];
 
     const columnsDesktop = [4, 5, 4, 5, 4];
@@ -160,7 +166,6 @@ export const AdaptersSection: React.FC = () => {
                         <Box className={classes.mobileGrid}>{renderGrid(columnsMobile, true)}</Box>
                     </Box>
                     <Box className={classes.buttonWrapperMobile}>
-                        <Box className={classes.buttonGlow} />
                         <StyledButton
                             arrow="right"
                             onClick={() => void navigate('/adapters')}

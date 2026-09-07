@@ -9,7 +9,7 @@ hash: HKsMwIvpGIO+9hqNOzBFUsRM8OOTNgILqQ6z75xDXDY=
 # The tab User
 Here users can be created. Click on the (+) on the bottom left. The administrator is already created by default.
 
-![iobroker_adapter_admin_user_01](../../../../de/adapterref/iobroker.admin/admin/img/tab-user_01-1.jpg)
+![iobroker_adapter_admin_user_01](../img/tab-user_01-1.jpg)
 
 ## The page content
 On the page, the existing users are displayed in tabular form. The fields in the column headers are used to filter the table according to your own criteria.
@@ -28,7 +28,7 @@ With this checkbox the availability of a user can be activated or deactivated.
 ### **4.) Groups**
 The groups created in the tab **_ Groups _** are displayed here. Here the users can be assigned to the corresponding groups via a checkbox.
 
-![iobroker_adapter_admin_user_groups](../../../../de/adapterref/iobroker.admin/admin/img/tab-user_Groups.jpg)
+![iobroker_adapter_admin_user_groups](../img/tab-user_Groups.jpg)
 
 ### **5.) Create new user**
 This icon can be used to create a new user who then has to be assigned to an existing group.

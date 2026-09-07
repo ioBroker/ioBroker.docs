@@ -10,7 +10,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.worx 适配器
 hash: lDBSl+NYZ/nbLTyPAREnVFoQHaJVfKbzr4dah8GSgck=
 ---
-![标识](../../../en/admin/worx.png)
+![标识](./admin/worx.png)
 
 # IoBroker.worx 适配器
 ＃ 概括

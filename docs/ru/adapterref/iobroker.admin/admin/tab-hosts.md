@@ -14,7 +14,7 @@ hash: A0PX3gNVnrOQijF2MxOe4AXudr5VPDE9MVykcpPXSng=
 ## Строка заголовка
 Строка заголовка содержит значки для наиболее важных процессов. Для каждой иконки есть контекстная помощь. Просто держите мышь на значке некоторое время.
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-hosts_Hosts_icons.jpg)
+![](../img/tab-hosts_Hosts_icons.jpg)
 
 ### **Значки в деталях:**
 ### **1.) Получать обновления**
@@ -26,7 +26,7 @@ hash: A0PX3gNVnrOQijF2MxOe4AXudr5VPDE9MVykcpPXSng=
 ## Содержание страницы
 На странице существующие хосты сведены в таблицу.
 
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-hosts_Hosts_01.jpg)
+![](../img/tab-hosts_Hosts_01.jpg)
 
 Таблица состоит из следующих столбцов:
 

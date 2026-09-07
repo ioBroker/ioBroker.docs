@@ -5,7 +5,7 @@ BADGE-Number of Installations (latest): https://iobroker.live/badges/lg-thinq-in
 BADGE-Number of Installations (stable): https://iobroker.live/badges/lg-thinq-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.lg-thinq.svg
 ---
-![Logo](../../admin/lg-thinq.png)
+![Logo](./admin/lg-thinq.png)
 
 # ioBroker.lg-thinq
 

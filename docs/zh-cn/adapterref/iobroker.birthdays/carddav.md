@@ -6,7 +6,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.birthdays
 hash: p60GaIGZ/bhDUvD1Okr7rLYPIYqsNJHg/sjmBgfY1uc=
 ---
-![标识](../../../de/adapterref/iobroker.birthdays/../../admin/birthdays.png)
+![标识](./admin/birthdays.png)
 
 # IoBroker.birthdays
 ## CardDAV

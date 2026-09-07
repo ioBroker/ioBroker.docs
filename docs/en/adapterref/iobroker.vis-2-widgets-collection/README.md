@@ -1,4 +1,4 @@
-![Logo](/admin/vis-2-widgets-collection.png)
+![Logo](./admin/vis-2-widgets-collection.png)
 
 # Collection of widgets for ioBroker.vis 2.0
 
@@ -15,51 +15,51 @@
 
 ### State
 
-<img src="/img/collection-state.png" height="150">
+<img src="./img/collection-state.png" height="150">
 
 ### ButtonGroup
 
-<img src="/img/collection-button-group.png" height="150">
+<img src="./img/collection-button-group.png" height="150">
 
 ### Slider
 
-<img src="/img/collection-slider.png" height="150">
+<img src="./img/collection-slider.png" height="150">
 
 ### Input
 
-<img src="/img/collection-input.png" height="150">
+<img src="./img/collection-input.png" height="150">
 
 ### Switch
 
-<img src="/img/collection-switch.png" height="150">
+<img src="./img/collection-switch.png" height="150">
 
 ### Checkbox
 
-<img src="/img/collection-checkbox.png" height="150">
+<img src="./img/collection-checkbox.png" height="150">
 
 ### Dialog
 
-<img src="/img/collection-dialog.png" height="150">
+<img src="./img/collection-dialog.png" height="150">
 
 ### Select
 
-<img src="/img/collection-select.png" height="150">
+<img src="./img/collection-select.png" height="150">
 
 ### RadioGroup
 
-<img src="/img/collection-radio-group.png" height="150">
+<img src="./img/collection-radio-group.png" height="150">
 
 ### Gauge
 
-<img src="/img/collection-gauge.png" height="150">
+<img src="./img/collection-gauge.png" height="150">
 
 ### Light
 
-<img src="/img/collection-light.png" height="150">
+<img src="./img/collection-light.png" height="150">
 
 ### JsonTable
 
-<img src="/img/collection-json-table.png" height="150">
+<img src="./img/collection-json-table.png" height="150">
 
 ---
 

@@ -5,7 +5,7 @@ BADGE-Number of Installations (latest): http://iobroker.live/badges/fritzdect-in
 BADGE-Number of Installations (stable): http://iobroker.live/badges/fritzdect-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/foxthefox/ioBroker.fritzdect/badge.svg
 ---
-![Logo](../../admin/fritzdect_logo.png)
+![Logo](../../../en/adapterref/iobroker.fritzdect/admin/fritzdect_logo.png)
 # Installationshinweise
 
 ## FritzBox Einstellungen

@@ -21,7 +21,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapt
 title: ioBroker.birthdays
 hash: HVXYob6ZuBp+sfLPeyUfCVea4WsYpBQa8Uifp3Pj87w=
 ---
-![标识](../../../en/adapterref/iobroker.birthdays/../../admin/birthdays.png)
+![标识](./admin/birthdays.png)
 
 # IoBroker.birthdays
 ＃＃ 目录

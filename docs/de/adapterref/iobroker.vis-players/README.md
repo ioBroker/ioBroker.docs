@@ -13,7 +13,7 @@ hash: qzkL/Ayuc+GgQ5ldGidH5NcFcrxAEh19g1xjLMzFCzg=
 ![NPM](https://nodei.co/npm/iobroker.vis-players.png?downloads=true)
 
 # IoBroker.vis-Spieler
-![winamp](/widgets/players/img/winamp.png) ![winamp](../../../en/adapterref/iobroker.vis-players/widgets/players/img/sonos.png)
+![winamp](./widgets/players/img/winamp.png) ![winamp](../../../en/adapterref/iobroker.vis-players/widgets/players/img/sonos.png)
 
 Widgets für Mediaplayer.
 

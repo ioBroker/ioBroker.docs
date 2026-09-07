@@ -7,9 +7,9 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '0 32px',
+        padding: `0 ${theme.custom.layout.gutter.lg}px`,
         [theme.breakpoints.down('sm')]: {
-            padding: '0 16px',
+            padding: `0 ${theme.custom.layout.gutter.sm}px`,
         },
     },
     aboutSection: {
@@ -39,16 +39,9 @@ export const useStyles = makeStyles()(theme => ({
     },
     itemDescription: {
         color: theme.custom.textMuted,
-        fontSize: '18px',
+        fontSize: theme.custom.reading.body.fontSize,
         fontWeight: 400,
-        lineHeight: '150%',
-        [theme.breakpoints.down('md')]: {
-            fontSize: '18px',
-        },
-        [theme.breakpoints.down('sm')]: {
-            fontSize: '16px',
-        },
-        paddingRight: '16px',
+        lineHeight: theme.custom.reading.body.lineHeight,
     },
     buttonWrapper: {
         position: 'relative',

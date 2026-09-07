@@ -10,8 +10,45 @@ export const API_CONFIG = {
 export const buildIoBrokerUrl = (path: string): string =>
     `${API_CONFIG.IOBROKER_BASE_URL.replace(/\/+$/, '')}/${path.replace(/^\/+/, '')}`;
 
+/**
+ * The installation statistics. In production the app is served from iobroker.net, so
+ * the file is same-origin; the dev server has no copy of it and the host sends no CORS
+ * headers, so development goes through the proxy that vite.config.ts already defines.
+ */
+export const STATISTICS_DATA_URL = isDev
+    ? '/api/iobroker/data/statistics.json'
+    : 'https://www.iobroker.net/data/statistics.json';
+
+/**
+ * The generated page the map reads its points and its Google loader out of. Same
+ * story as the statistics file: same-origin in production, through the dev proxy
+ * otherwise, because the host sends no CORS headers.
+ */
+export const STATISTICS_MAP_URL = isDev ? '/api/iobroker/data/map.html' : 'https://www.iobroker.net/data/map.html';
+
+/**
+ * The markdown of the docs and of the adapter readmes. `public/` carries a copy of the
+ * JSON indexes and of the adapter icons, but **not** of the adapter readmes - 793
+ * folders under `public/de/adapterref/` hold one PNG each and no `README.md`. A request
+ * for a missing file does not fail on the dev server: it answers the SPA shell with
+ * status 200, so the page rendered `index.html` as if it were the adapter's text.
+ * In development the markdown therefore comes through the proxy; in production the app
+ * is served from iobroker.net and the path is same-origin.
+ */
+export const buildContentUrl = (path: string): string => {
+    const clean = path.replace(/^\/+/, '');
+    return isDev ? `/api/iobroker/${clean}` : buildIoBrokerUrl(clean);
+};
+
+/**
+ * Die Kennzahlen des Forums. Dieselbe Geschichte wie bei der Statistik: `public/` hat
+ * keine Kopie von `data/forum.json`, im Dev lief die Anfrage deshalb ins Leere und die
+ * Community-Sektion zeigte eine Zahl ohne Zahl.
+ */
+export const FORUM_STATS_URL = isDev ? '/api/iobroker/data/forum.json' : 'https://www.iobroker.net/data/forum.json';
+
 export const API_ENDPOINTS = {
-    FORUM_STATS: `${API_CONFIG.IOBROKER_BASE_URL}/data/forum.json`,
+    FORUM_STATS: FORUM_STATS_URL,
     ADAPTERS: `${API_CONFIG.IOBROKER_BASE_URL}/adapters.json`,
     DOCS_README_EN: `${API_CONFIG.IOBROKER_BASE_URL}/en/README.md`,
     DOCS_CONTENT: `${API_CONFIG.IOBROKER_BASE_URL}/content.json`,
@@ -58,4 +95,5 @@ export const LICENSES_MARKETPLACE_LINK = isDev
     : 'https://www.iobroker.net/www/licenses-marketplace';
 export const PROFILE_LINK = '/#/profile';
 export const INSTALLATION_LINK = '/#/installation';
-export const STATISTICS_LINK = 'https://www.iobroker.net/#/statistics';
+/** the statistics now live in this app - the old absolute link left the site */
+export const STATISTICS_LINK = '#/statistics';

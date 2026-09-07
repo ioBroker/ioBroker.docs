@@ -4,7 +4,6 @@ import { useRoutes } from './providers/router';
 import { Header, Footer } from '../components';
 import CookiesHint from '../components/CookiesHint/CookiesHint';
 import Divider from '../components/Divider/Divider';
-import { usePageScrollProgress } from '../hooks/usePageScrollProgress';
 import { useReducer } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -37,7 +36,6 @@ const PAGES_WITH_INLINE_FOOTER = ['/adapters', '/docs'];
 const AppContent = (): React.ReactNode => {
     const { classes } = useStyles();
     const routes = useRoutes();
-    const { scrollPosition } = usePageScrollProgress();
     const [, forceUpdate] = useReducer((x: number) => x + 1, 0);
     const location = useLocation();
 
@@ -64,10 +62,8 @@ const AppContent = (): React.ReactNode => {
             </Box>
             {!hideGlobalFooter && (
                 <>
-                    <Divider
-                        position={scrollPosition}
-                        parentWidth={window.innerWidth}
-                    />
+                    {/* ohne `position`: die Linie misst sich selbst, siehe Divider */}
+                    <Divider beforeFooter />
                     <Footer />
                 </>
             )}

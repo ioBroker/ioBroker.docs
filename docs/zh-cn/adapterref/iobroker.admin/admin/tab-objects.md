@@ -11,12 +11,12 @@ hash: GIc3qNC2ZnoKb8Y2zbYYsyTbWS+DWObdVmPTllsNDVk=
 
 <span style="line-height: 1.5; text-align: justify;"></span>
 
-![iobroker_admin_objekte_inhalt00](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Inhalt00.jpg)
+![iobroker_admin_objekte_inhalt00](../img/tab-objects_Inhalt00.jpg)
 
 ##标题栏
 标题栏包含最重要流程的图标。每个图标都有一个上下文帮助。只需将鼠标停留在图标上一段时间即可。
 
-![iobroker_admin_objekte_headline_icons](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Headline_Icons.jpg)
+![iobroker_admin_objekte_headline_icons](../img/tab-objects_Headline_Icons.jpg)
 
 ### **详细图标：**
 ### ** 1.）更新视图**
@@ -39,14 +39,14 @@ hash: GIc3qNC2ZnoKb8Y2zbYYsyTbWS+DWObdVmPTllsNDVk=
 如果选择了某个文件夹，则会在对象结构中将其作为_Parent_接管。
 配置窗口打开：
 
-![iobroker_admin_objekte_addobject](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_AddObject.jpg)
+![iobroker_admin_objekte_addobject](../img/tab-objects_AddObject.jpg)
 
 这里，现在必须选择新对象的名称，从而根据分层结构将设备，通道或数据点作为类型提供。
 数据点类型包括逻辑值，开关，字符串，数字，值列表，字段，对象和混合。
 
 只要您确认输入窗口，就会打开另一个窗口：
 
-![iobroker_admin_objekte_addobjec02t](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_AddObjec02t.jpg)
+![iobroker_admin_objekte_addobjec02t](../img/tab-objects_AddObjec02t.jpg)
 
 在这里您可以输入更多数据。因此，您可以向对象添加角色和图标。
 
@@ -60,7 +60,7 @@ hash: GIc3qNC2ZnoKb8Y2zbYYsyTbWS+DWObdVmPTllsNDVk=
 使用此按钮，所选对象结构将从ioBroker服务器下载为json文件，并可以保存。
 
 ##页面内容
-![iobroker_admin_objekte_headline_columns](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Headline_Columns.jpg)
+![iobroker_admin_objekte_headline_columns](../img/tab-objects_Headline_Columns.jpg)
 
 在页面上，现有对象列表。
 
@@ -76,7 +76,7 @@ hash: GIc3qNC2ZnoKb8Y2zbYYsyTbWS+DWObdVmPTllsNDVk=
 
 此列的值是可编辑的。
 
-![iobroker_admin_objekte_structure01](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Structure01.jpg)
+![iobroker_admin_objekte_structure01](../img/tab-objects_Structure01.jpg)
 
 ### ** 3.）类型**
 层次结构级别中的类型（在前面的图标列_Name_中已经显示）在此处再次明确提及。通过列标题中的下拉菜单，您可以根据这些类型进行过滤。仅显示所有数据点。
@@ -92,7 +92,7 @@ hash: GIc3qNC2ZnoKb8Y2zbYYsyTbWS+DWObdVmPTllsNDVk=
 此列的值是可编辑的。这样，以后仍然可以将对象分配给房间。
 如果单击该字段，将打开一个弹出窗口，其中包含先前创建的房间。
 
-![iobroker_admin_objekte_rooms](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Rooms.jpg)
+![iobroker_admin_objekte_rooms](../img/tab-objects_Rooms.jpg)
 
 ### ** 6.）功能**
 此列包含分配相应对象的交易。
@@ -109,7 +109,7 @@ hash: GIc3qNC2ZnoKb8Y2zbYYsyTbWS+DWObdVmPTllsNDVk=
 
 单击垃圾桶图标也会删除此对象以及**层次结构中的所有**基础对象。为安全起见，会出现一个窗口，其中必须再次确认删除。
 
-![iobroker_admin_objekte_delete](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_delete.jpg)
+![iobroker_admin_objekte_delete](../img/tab-objects_delete.jpg)
 
 仅当至少安装了一个历史记录实例（History，InfluxDB或SQL）时，齿轮图标才会出现。
 您可以在此处配置用于记录历史数据的数据点。更多信息可以在[历史适配器](http://www.iobroker.net/?page_id=144&lang=de)的描述中找到。

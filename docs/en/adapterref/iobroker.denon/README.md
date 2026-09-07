@@ -4,7 +4,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.denon.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.denon.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.denon.png?downloads=true
 ---
-![Logo](/admin/denon.png)
+![Logo](./admin/denon.png)
 # ioBroker.denon
 ===========================
 
@@ -27,7 +27,7 @@ You can either install the adapter via the ioBroker web interface or on your loc
 2. Click on Tab "Adapters"
 3. Type "Denon" in the Filter
 4. Click on the three points and then on the "+" symbol of the DENON AVR adapter
-![Add Adapter](/docs/en/media/plusAddAdapter.png)
+![Add Adapter](./docs/en/media/plusAddAdapter.png)
 
 ### Local machine
 Navigate into your iobroker folder and execute the following command: 
@@ -42,15 +42,15 @@ Additional to the adapter installation you have to make sure that your AVR is co
 1. Open your ioBroker interface in a browser (eg: 192.168.1.33:8081)
 2. Navigate to Tab "Adapters"
 3. Click on the three points and then on the "+" symbol of the DENON AVR adapter
-![Add Adapter](/docs/en/media/plusAddAdapter.png)
+![Add Adapter](./docs/en/media/plusAddAdapter.png)
 4. Now you can see the adapter configuration page --> type in the ip-address of your DENON AVR or click on the search 
 icon to find AVRs in your network (via UPnP)
-![Adapter Configuration](/docs/en/media/fillInIp.png)
+![Adapter Configuration](./media/fillInIp.png)
 5. If you also want to adjust the request/poll interval, make sure to click on the "Advanced Settings" Tab. 
 By decreasing the Poll Interval the adapter will decrease the time between updating the display contents. 
 By decreasing the request interval the time between sending commands will be decreased. 
 The default settings should fit well for the most users.
-![Advanced Settings](/docs/en/media/advancedSettings.png) 
+![Advanced Settings](./media/advancedSettings.png) 
 6. Click on Save & Close
 
 ### Network Setup of AV Receiver

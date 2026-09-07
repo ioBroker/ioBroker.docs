@@ -49,7 +49,7 @@ Philips Hue Sync Box — это устройство, которое позво�
 
 6. После того, как вы отпустите клавишу устройства, через несколько секунд отобразится токен и вставлен в поле. (см. ниже)
 
-![жетон](admin/media/registration_successful.png) ![жетон](../../../en/adapterref/iobroker.hue-sync-box/admin/media/token.png)
+![жетон](../../../en/adapterref/iobroker.hue-sync-box/admin/media/registration_successful.png) ![жетон](../../../en/adapterref/iobroker.hue-sync-box/admin/media/token.png)
 
 7. Теперь вы можете нажать на кнопку «добавить», и поле будет добавлено, тогда вам просто нужно нажать на кнопку «сохранить», чтобы сохранить конфигурацию.
 

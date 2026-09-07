@@ -18,7 +18,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.node-red
 hash: m7OAyT9HiOPniI4y9Ns0yLlvYBonwYxwyHnxWfm5+ps=
 ---
-![Логотип](../../../en/admin/node-red.png)
+![Логотип](./admin/node-red.png)
 
 # IoBroker.node-red
 **Примечание:** Если вы не можете найти свой штат в диалоговом окне выбора ID узлов ioBroker, нажмите кнопку обновления в настройках экземпляра или перезапустите экземпляр Node-RED. После перезапуска будет создан новый список объектов.

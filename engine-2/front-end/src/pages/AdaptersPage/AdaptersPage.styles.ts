@@ -35,10 +35,10 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             // breathing room below the fixed header
             paddingTop: '40px',
             paddingBottom: '4px',
-            [theme.breakpoints.down(1280)]: {
+            [theme.breakpoints.down('md')]: {
                 paddingTop: '32px',
             },
-            [theme.breakpoints.down(481)]: {
+            [theme.breakpoints.down('sm')]: {
                 paddingTop: '24px',
             },
         },
@@ -49,17 +49,13 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             gap: '32px',
             margin: `0 0 0 ${theme.custom.layout.gutter.lg}px`,
             minHeight: 0, // crucial for flex children to shrink & scroll
-            [theme.breakpoints.down(661)]: {
+            [theme.breakpoints.down('md')]: {
+                // the open menu lies over the content, so the column it sits in needs a
+                // positioned parent to be measured against
                 position: !isMenuCollapsed ? 'relative' : 'static',
-            },
-            [theme.breakpoints.down(1280)]: {
-                margin: `0 0 0 ${theme.custom.layout.gutter.md}px`,
                 gap: '24px',
             },
-            [theme.breakpoints.down(770)]: {
-                gap: '20px',
-            },
-            [theme.breakpoints.down(481)]: {
+            [theme.breakpoints.down('sm')]: {
                 margin: '0',
                 paddingLeft: `${theme.custom.layout.gutter.sm}px`,
                 gap: '12px',
@@ -71,11 +67,25 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             display: 'flex',
             flexDirection: 'column',
             minHeight: 0,
-            [theme.breakpoints.down(661)]: {
+            // Open on a phone the menu lies over the content. This box only positions it -
+            // the panel itself (surface, radius, shadow) comes from `AdapterMenu`, and a
+            // second frame around it was one frame too many.
+            [theme.breakpoints.down('md')]: {
                 position: !isMenuCollapsed ? 'absolute' : 'static',
                 zIndex: !isMenuCollapsed ? 1200 : 'auto',
-                left: !isMenuCollapsed ? 0 : 'auto',
-                top: !isMenuCollapsed ? 0 : 'auto',
+                // `left: 0` would sit on the padding edge of the container, so the panel
+                // hung on the screen edge
+                left: !isMenuCollapsed ? `${theme.custom.layout.gutter.sm}px` : 'auto',
+                maxWidth: !isMenuCollapsed ? `calc(100% - ${2 * theme.custom.layout.gutter.sm}px)` : 'none',
+                // it starts below the row with the toggle and the search field
+                top: !isMenuCollapsed ? `${theme.custom.control.compactHeight + 20}px` : 'auto',
+                maxHeight: !isMenuCollapsed ? `calc(100% - ${theme.custom.control.compactHeight + 20}px)` : 'none',
+            },
+            // On a phone the closed icon strip ate 56 px of a 375 px screen - a sixth of
+            // the width for a column nobody reads. Closed, it is gone; the button in the
+            // row above opens it as the overlay panel.
+            [theme.breakpoints.down('sm')]: {
+                display: isMenuCollapsed ? 'none' : 'flex',
             },
         },
         // Fixed MenuToggle wrapper - covers scrolling menu items
@@ -94,7 +104,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             minHeight: 0,
             paddingRight: '10px',
             ...scrollbar,
-            [theme.breakpoints.down(769)]: {
+            [theme.breakpoints.down('md')]: {
                 paddingRight: '0px',
                 paddingLeft: '0px',
                 '&::-webkit-scrollbar': {
@@ -122,11 +132,11 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             paddingRight: '10px', // gap between cards and scrollbar
             marginRight: '14px', // 14px + 8px scrollbar = 22px to display edge
             ...scrollbar,
-            [theme.breakpoints.down(1280)]: {
+            [theme.breakpoints.down('md')]: {
                 paddingRight: '6px',
                 marginRight: '10px',
             },
-            [theme.breakpoints.down(481)]: {
+            [theme.breakpoints.down('sm')]: {
                 paddingRight: '0px',
                 marginRight: '0px',
             },
@@ -140,7 +150,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             marginBottom: '20px',
             flexShrink: 0,
             paddingRight: '32px', // align with cards: 10px + 14px marginRight + 8px scrollbar
-            [theme.breakpoints.down(1280)]: {
+            [theme.breakpoints.down('md')]: {
                 paddingRight: '24px', // align with cards: 6px + 10px marginRight + 8px scrollbar
             },
         },
@@ -155,11 +165,10 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             marginLeft: `${theme.custom.layout.gutter.lg}px`,
             marginBottom: '20px',
             textTransform: 'uppercase',
-            [theme.breakpoints.down(1280)]: {
-                marginLeft: `${theme.custom.layout.gutter.md}px`,
+            [theme.breakpoints.down('md')]: {
                 marginBottom: '18px',
             },
-            [theme.breakpoints.down(481)]: {
+            [theme.breakpoints.down('sm')]: {
                 marginLeft: `${theme.custom.layout.gutter.sm}px`,
                 marginBottom: '10px',
             },
@@ -169,20 +178,20 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             color: theme.custom.textSubtle,
             letterSpacing: '-0.02em',
             fontWeight: 400,
-            [theme.breakpoints.down(1280)]: {
+            [theme.breakpoints.down('md')]: {
                 fontSize: '16px',
             },
-            [theme.breakpoints.down(481)]: {
+            [theme.breakpoints.down('sm')]: {
                 fontSize: '14px',
             },
         },
         breadcrumbSlash: {
             fontSize: '18px',
             color: theme.custom.textSubtle,
-            [theme.breakpoints.down(1280)]: {
+            [theme.breakpoints.down('md')]: {
                 fontSize: '16px',
             },
-            [theme.breakpoints.down(481)]: {
+            [theme.breakpoints.down('sm')]: {
                 fontSize: '14px',
             },
         },
@@ -191,10 +200,10 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             color: theme.palette.primary.main,
             letterSpacing: '-0.02em',
             fontWeight: 400,
-            [theme.breakpoints.down(1280)]: {
+            [theme.breakpoints.down('md')]: {
                 fontSize: '26px',
             },
-            [theme.breakpoints.down(481)]: {
+            [theme.breakpoints.down('sm')]: {
                 fontSize: '20px',
             },
         },
@@ -229,7 +238,7 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
                     filter: 'brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(2476%) hue-rotate(169deg) brightness(101%) contrast(101%)',
                 },
             },
-            [theme.breakpoints.down(769)]: {
+            [theme.breakpoints.down('sm')]: {
                 display: 'none',
             },
             '& img': {
@@ -248,18 +257,16 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             gridTemplateColumns: 'repeat(auto-fill, minmax(244px, 1fr))',
             gap: `${theme.custom.layout.grid}px`,
             marginBottom: '100px',
-            [theme.breakpoints.down(661)]: {
-                marginLeft: !isMenuCollapsed ? '32px' : '0',
-            },
             // `1fr` keeps the min-content width of the cards as a lower bound, so one long
             // adapter name pushed the whole column past the screen. `minmax(0, 1fr)` lets
             // the track shrink and the card wraps its text instead.
-            [theme.breakpoints.down(769)]: {
+            [theme.breakpoints.down('md')]: {
+                marginLeft: !isMenuCollapsed ? '32px' : '0',
                 gridTemplateColumns: !isMenuCollapsed
                     ? 'minmax(0, 1fr)'
                     : 'repeat(auto-fit, minmax(min(251px, 100%), 1fr))',
             },
-            [theme.breakpoints.down(481)]: {
+            [theme.breakpoints.down('sm')]: {
                 gridTemplateColumns: 'minmax(0, 1fr)',
                 gap: '16px',
             },

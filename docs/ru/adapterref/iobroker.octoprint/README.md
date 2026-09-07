@@ -18,7 +18,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.octoprint
 hash: H4qRBSp+mVOtQTbgU7iPXEaZb0UlHE+fz4+92pDc2MM=
 ---
-![Логотип](../../../en/admin/octoprint.png)
+![Логотип](./admin/octoprint.png)
 
 # IoBroker.octoprint
 **Проверено с [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.10.3**

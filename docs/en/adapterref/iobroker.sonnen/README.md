@@ -20,7 +20,7 @@ or any associated subsidiaries, logos or trademarks.
 
 ## Widget
 From version 1.8.0 on, the adapter comes with a vis widget. The widget only works with the port 8080 API.
-![Widget](/docs/en/media/widgetPreview.png)
+![Widget](./docs/en/media/widgetPreview.png)
 
 ## Installation
 You can either install the adapter via the ioBroker web interface or on your local machine via npm.
@@ -30,7 +30,7 @@ You can either install the adapter via the ioBroker web interface or on your loc
 2. Click on Tab "Adapters"
 3. Type "sonnen" in the filter
 4. Click on the three points and then on the "+" symbol of the sonnen adapter<br/>
-![Add Adapter](/docs/en/media/addInstance.png)
+![Add Adapter](./docs/en/media/addInstance.png)
 
 ### Local machine
 Navigate into your iobroker folder and execute the following command: 
@@ -45,13 +45,13 @@ Additional to the adapter installation you have to add an instance of the adapte
 1. Open your ioBroker interface in a browser (eg: 192.168.1.33:8081)
 2. Navigate to Tab "Adapters"
 3. Click on the three points and then on the "+" symbol of the sonnen adapter
-![Add Adapter](/docs/en/media/addInstance.png)
+![Add Adapter](./docs/en/media/addInstance.png)
 4. Now you can see the main settings of the adapter configuration page --> type in the ip-address of your sonnen battery.
 __It is also strongly recommended, to provide an API key, which can be found in the webinterface of your sonnen battery (Tab: Software Integration). Otherwise, the adapter uses the unofficial API.__
-![Main Settings](/docs/en/media/mainSettings.png)
+![Main Settings](./media/mainSettings.png)
 5. If you want to change the interval in which the states are polled, click on the tab "Advanced Settings"
 6. You can set the poll interval between 2000 ms (2 seconds) and 60000 ms (1 minute), the default value is 7 seconds
-![Advanced Settings](/docs/en/media/advancedSettings.png)
+![Advanced Settings](./media/advancedSettings.png)
 7. If you want to avoid requests from your battery to the sonnen server, you can deactivate the online status polling (only relevant for 8080 API - e.g. eco8 and newer)
 8. Click on Save & Close
 

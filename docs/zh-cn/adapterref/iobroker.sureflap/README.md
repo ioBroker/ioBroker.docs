@@ -17,7 +17,7 @@ hash: /MEf/Xl3Z87kMiEr9svRkmExZoAYA0WRXXMYMsOMpuQ=
 ![测试和发布](https://github.com/Sickboy78/ioBroker.sureflap/workflows/Test%20and%20Release/badge.svg)
 
 ## Sure Petcare® 智能宠物设备适配器
-<p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p> <p align="center"> <img src="/admin/Sure_Petcare_Surefeed_Feeder_Connect.png" /> <img src="/admin/Sure_Petcare_Felaqua_Connect.png" /> </p>
+<p align="center"> <img src="./admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p> <p align="center"> <img src="./admin/Sure_Petcare_Surefeed_Feeder_Connect.png" /> <img src="./admin/Sure_Petcare_Felaqua_Connect.png" /> </p>
 
 ＃＃ 配置
 要求：在适配器配置页面上从您的 Sure Petcare® 帐户添加用户名和密码。

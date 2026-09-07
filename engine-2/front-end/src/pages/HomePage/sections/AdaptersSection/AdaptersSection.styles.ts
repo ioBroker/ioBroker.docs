@@ -8,10 +8,10 @@ export const useStyles = makeStyles()(theme => ({
         margin: '0 auto',
         paddingLeft: '64px',
         [theme.breakpoints.down('md')]: {
-            padding: '0 32px',
+            padding: `0 ${theme.custom.layout.gutter.lg}px`,
         },
         [theme.breakpoints.down('sm')]: {
-            padding: '0 20px',
+            padding: `0 ${theme.custom.layout.gutter.sm}px`,
         },
     },
     adaptersSection: {
@@ -34,12 +34,8 @@ export const useStyles = makeStyles()(theme => ({
         },
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
-            alignItems: 'center',
-            textAlign: 'center',
+            alignItems: 'flex-start',
             gap: theme.spacing(8),
-        },
-        [theme.breakpoints.down('sm')]: {
-            textAlign: 'left',
         },
     },
     adaptersTextSection: {
@@ -62,12 +58,12 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     adaptersText: {
-        fontSize: '18px',
+        fontSize: theme.custom.reading.body.fontSize,
+        lineHeight: theme.custom.reading.body.lineHeight,
         textIndent: '2em',
         flexGrow: 1,
-        [theme.breakpoints.down('sm')]: {
-            fontSize: '18divpx',
-        },
+        // the distance to the title above comes from the title alone
+        marginTop: 0,
     },
 
     buttonWrapperDesktop: {
@@ -78,7 +74,9 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     buttonWrapperMobile: {
-        position: 'relative',
+        // the hard-edged glow that used to sit behind this button is gone - it was the
+        // one light in the section without a blur, so it read as a painted ellipse
+        // rather than as light, and only ever showed in the dark theme
         display: 'none',
         width: '100%',
         [theme.breakpoints.down('md')]: {
@@ -88,20 +86,6 @@ export const useStyles = makeStyles()(theme => ({
             minHeight: '100px',
             alignItems: 'center',
         },
-    },
-    buttonGlow: {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '600px',
-        height: '200px',
-        background:
-            theme.palette.mode === 'dark'
-                ? 'radial-gradient(ellipse, rgba(0, 88, 148, 0.6) 0%, rgba(0, 88, 148, 0.3) 40%, rgba(0, 88, 148, 0) 70%)'
-                : 'none',
-        pointerEvents: 'none',
-        zIndex: 0,
     },
     adaptersGrid: {
         flex: '1 1 55%',
@@ -115,18 +99,22 @@ export const useStyles = makeStyles()(theme => ({
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: '125%',
-            height: '115%',
-            background:
-                theme.palette.mode === 'dark'
-                    ? 'radial-gradient(ellipse at center, rgba(29, 144, 202, 0.55) 0%, rgba(29, 144, 202, 0.26) 42%, rgba(29, 144, 202, 0) 70%)'
-                    : 'radial-gradient(ellipse at center, rgba(29, 144, 202, 0.22) 0%, rgba(29, 144, 202, 0.10) 42%, rgba(29, 144, 202, 0) 70%)',
-            filter: 'blur(32px)',
+            // wider than the group of tiles and blurred further, so the light lies over
+            // all of them instead of pooling in the middle
+            width: '128%',
+            height: '118%',
+            background: theme.custom.glow.strong,
+            filter: 'blur(44px)',
             pointerEvents: 'none',
             zIndex: 0,
         },
         [theme.breakpoints.down('md')]: {
             order: 2,
+            // gestapelt braucht der Block die volle Breite, sonst schrumpft er auf die
+            // Breite der Kacheln und `justifyContent: center` hat nichts zu zentrieren -
+            // die Gruppe klebte dadurch am linken Rand
+            width: '100%',
+            flex: '0 0 auto',
         },
     },
     desktopGrid: {

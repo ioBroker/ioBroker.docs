@@ -10,7 +10,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.telegram.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/telegram-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/telegram-installed.svg
 ---
-![Logo](../../admin/telegram.png)
+![Logo](./admin/telegram.png)
 
 # ioBroker.telegram
 
