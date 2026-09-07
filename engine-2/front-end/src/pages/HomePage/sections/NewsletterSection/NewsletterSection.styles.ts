@@ -102,10 +102,10 @@ export const useStyles = makeStyles()(theme => ({
         borderTop: `1px solid ${theme.palette.primary.main}`,
         borderBottom: `1px solid ${theme.palette.primary.main}`,
         borderLeft: `1px solid ${theme.palette.primary.main}`,
-        // ohne das quetscht die Flexbox den Arm zusammen - im Footer war einer
-        // davon auf 0 px geschrumpft und die Klammer fehlte auf einer Seite
+        // Without this, Flexbox compresses the arm; one shrank to 0 px in the footer
+        // and the bracket was missing on one side.
         flexShrink: 0,
-        // Armlaenge aus dem Kit - siehe `theme.custom.brace`
+        // Arm length from the kit; see `theme.custom.brace`.
         width: theme.custom.brace.lg,
         height: 52,
         [theme.breakpoints.down('md')]: {
@@ -121,10 +121,10 @@ export const useStyles = makeStyles()(theme => ({
         borderTop: `1px solid ${theme.palette.primary.main}`,
         borderBottom: `1px solid ${theme.palette.primary.main}`,
         borderRight: `1px solid ${theme.palette.primary.main}`,
-        // ohne das quetscht die Flexbox den Arm zusammen - im Footer war einer
-        // davon auf 0 px geschrumpft und die Klammer fehlte auf einer Seite
+        // Without this, Flexbox compresses the arm; one shrank to 0 px in the footer
+        // and the bracket was missing on one side.
         flexShrink: 0,
-        // Armlaenge aus dem Kit - siehe `theme.custom.brace`
+        // Arm length from the kit; see `theme.custom.brace`.
         width: theme.custom.brace.lg,
         height: 52,
         [theme.breakpoints.down('md')]: {
@@ -155,19 +155,17 @@ export const useStyles = makeStyles()(theme => ({
         textAlign: 'center',
         '&::placeholder': {
             color: theme.palette.text.primary,
-            // stiller als bisher (0,6): der Platzhalter ist ein Beispiel, keine Angabe,
-            // die gelesen werden muss - er soll das Feld nicht wie einen ausgefuellten
-            // Wert aussehen lassen (Denis, 06.09.2026)
+            // Quieter than before (0.6): the placeholder is an example, not information
+            // that must be read, and should not make the field look filled (Denis, 06.09.2026).
             opacity: 0.45,
             // pulled apart so the line carries the width of the field
             letterSpacing: '0.12em',
             /**
-             * Ab hier traegt das Feld die Zeile nicht mehr: unter 400 px nimmt es nur
-             * noch den Platz, den die Reihe uebrig laesst (bei 360 px sind das 167 px
-             * innen), und "ihreemail@email.com" braucht gesperrt 191 px - der Text wurde
-             * rechts abgeschnitten (Denis, 06.09.2026). Ohne Sperrung sind es 157 px und
-             * er passt. Die Sperrung war ein Mittel gegen ein zu leeres Feld, kein Wert
-             * an sich.
+             * Below this point the field no longer carries the row: below 400 px it takes
+             * only the space left by the row (167 px inside at 360 px), while the
+             * letter-spaced "ihreemail@email.com" needs 191 px and was clipped on the right
+             * (Denis, 06.09.2026). Without spacing it is 157 px and fits. The spacing was
+             * a remedy for an overly empty field, not a value in itself.
              */
             [theme.breakpoints.down(400)]: {
                 letterSpacing: 'normal',

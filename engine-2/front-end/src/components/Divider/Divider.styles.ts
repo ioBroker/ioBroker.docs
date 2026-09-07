@@ -9,12 +9,11 @@ export const useStyles = makeStyles()(theme => ({
         marginBottom: '8px',
     },
     /**
-     * Dieselbe Linie, aber als Trenner zur Fusszeile. Ueber ihr lag bisher nur der
-     * untere Innenabstand des letzten Abschnitts - auf dem Handy 48 px, zu wenig
-     * (Denis, 06.09.2026). Die Zugabe steht hier und nicht an `divider`, weil dieselbe
-     * Linie innerhalb der Seiten auch Abschnitte trennt; dort gilt weiter der Rhythmus
-     * des Abschnitts. Der Abstand darunter bleibt klein, damit die Linie zur Fusszeile
-     * gehoert und nicht zwischen den Bloecken schwebt.
+     * The same line, but as the footer divider. Previously it only had the last section's
+     * bottom padding above it—48 px on mobile, too little (Denis, 06.09.2026). The extra
+     * space belongs here, not on `divider`, because the same line also divides sections
+     * within pages, where the section rhythm must remain. The space below stays small so
+     * the line belongs to the footer rather than floating between blocks.
      */
     beforeFooter: {
         marginTop: '64px',
@@ -29,7 +28,7 @@ export const useStyles = makeStyles()(theme => ({
         position: 'absolute',
         width: 14,
         height: 14,
-        // die Linie ist 1 px hoch, der Punkt 14 - die Haelfte davon haelt ihn mittig
+        // The line is 1 px high and the dot is 14; half of that centers it.
         top: -7,
         borderRadius: '50%',
         backgroundColor: theme.palette.background.default,

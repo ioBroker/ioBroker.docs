@@ -5,6 +5,7 @@
     "allowJs": false,
     "checkJs": false,
     "noEmit": false,
+    "allowImportingTsExtensions": false,
     "declaration": false
   },
   "include": ["src/**/*.*", "src/**/*.d.*"]

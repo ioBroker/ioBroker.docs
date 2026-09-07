@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Tab, Tabs, useTheme, type SxProps } from '@mui/material';
+import { Box, Button, Tab, Tabs, useTheme, type SxProps, type Theme } from '@mui/material';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { I18n } from '../../utils/i18n';
 import { LICENSES_MARKETPLACE_LINK } from '../../config/api';
@@ -13,7 +13,7 @@ export interface CardOption {
 }
 
 /**
- * A line in the check list. A plain string is the usual case; the object form adds an "i" that
+ * A line in the checklist. A plain string is the usual case; the object form adds an "i" that
  * opens the long answer in the FAQ, for statements that need more than one line to explain.
  */
 export type CardFeature = string | { text: string; onInfo: () => void; infoLabel: string };
@@ -39,7 +39,7 @@ export interface ProductCardProps {
  * Same recipe as the marketplace cards in the profile app: one surface step,
  * hairline and shadow as the edge, Audiowide on title, price and button.
  */
-const getStyles = (theme: any): Record<string, SxProps> => ({
+const getStyles = (theme: Theme): Record<string, SxProps> => ({
     card: {
         width: '368px',
         maxWidth: '100%',

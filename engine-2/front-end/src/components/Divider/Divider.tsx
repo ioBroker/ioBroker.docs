@@ -1,25 +1,25 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Box } from '@mui/material';
-import { useStyles } from './Divider.styles';
 import { useTheme } from '@mui/material/styles';
+import { useStyles } from './Divider.styles';
 import logo from '../../assets/img/logo_net_small.svg';
 
 interface DividerProps {
     /**
-     * Stand des Punktes in Prozent. Ohne diese Angabe misst die Linie sich **selbst** -
-     * das ist der Normalfall, siehe unten.
+     * Dot position as a percentage. Without it, the line measures **itself**—the normal
+     * case; see below.
      */
     position?: number;
-    /** nur zusammen mit `position`: Bezugsbreite fuer die Umrechnung in Pixel */
+    /** Only used with `position`: reference width for conversion to pixels. */
     parentWidth?: number;
     thick?: number;
     style?: React.CSSProperties;
     sx?: Record<string, any>;
-    /** Trenner zur Fusszeile - bringt den groesseren Abstand nach oben mit */
+    /** Footer divider; includes the larger space above it. */
     beforeFooter?: boolean;
 }
 
-/** naechster scrollender Vorfahr - auf den Doku- und Adapterseiten scrollt nicht das Fenster */
+/** Nearest scrolling ancestor; documentation and adapter pages do not scroll the window. */
 function findScroller(el: HTMLElement): HTMLElement | null {
     let node = el.parentElement;
     while (node) {
@@ -40,19 +40,18 @@ export default function Divider(props: DividerProps): React.JSX.Element {
     const controlled = props.position !== undefined;
 
     /**
-     * Der Punkt setzt sich in Bewegung, **sobald die Linie zu sehen ist** (Denis,
-     * 06.09.2026). Dafuer misst die Linie ihre eigene Lage im sichtbaren Ausschnitt:
-     * taucht sie unten auf, steht der Punkt links; wandert sie nach oben aus dem Bild,
-     * ist er rechts. Er legt seine Strecke also genau in der Zeit zurueck, in der man
-     * ihn sehen kann.
+     * The dot starts moving **as soon as the line becomes visible** (Denis, 06.09.2026).
+     * The line measures its own position in the viewport: when it appears at the bottom,
+     * the dot is left; when it leaves at the top, it is right. Thus it travels precisely
+     * while visible.
      *
-     * Vorher kam der Stand von der Seite: erst als Lesefortschritt (auf einer 17.845 px
-     * langen Doku stand der Punkt bei jeder sichtbaren Gelegenheit schon fast rechts),
-     * dann als Anlauf ueber den letzten Bildschirm - da stand er dagegen still, solange
-     * die Linie im Bild war. Beides hat den Bezug zwischen Punkt und Linie verfehlt.
+     * Previously its position came from the page: first as reading progress (on a
+     * 17,845 px documentation page it was nearly right whenever visible), then as a run-up
+     * over the final viewport—where it stayed still while the line was visible. Neither
+     * connected the dot to the line correctly.
      *
-     * Der Ausschnitt ist nicht immer das Fenster: auf den Doku- und Adapterseiten
-     * scrollt ein innerer Block, deshalb `findScroller`.
+     * The viewport is not always the window: documentation and adapter pages scroll an
+     * inner block, hence `findScroller`.
      */
     const measure = useCallback((): void => {
         const el = ref.current;
@@ -76,8 +75,7 @@ export default function Divider(props: DividerProps): React.JSX.Element {
         if (controlled) {
             return undefined;
         }
-        // `capture`, damit auch das Scrollen innerer Bloecke ankommt - Scroll-Ereignisse
-        // steigen nicht auf
+        // `capture` also receives scroll events from inner blocks; scroll events do not bubble.
         window.addEventListener('scroll', measure, true);
         window.addEventListener('resize', measure);
         measure();
@@ -103,10 +101,10 @@ export default function Divider(props: DividerProps): React.JSX.Element {
             }}
             style={{
                 /**
-                 * Eine Haarlinie, kein Markenstrich (Denis, 06.09.2026: "die Linie ist
-                 * feiner"). Die Profil-App hatte diese Fassung schon; hier stand noch
-                 * 2 px in `palette.primary.main`, was den Trenner so schwer machte wie
-                 * eine Ueberschrift. Der Punkt darauf traegt das Motiv, die Linie trennt.
+                 * A hairline, not a brand stroke (Denis, 06.09.2026: “the line is
+                 * finer”). The profile app already used this version; this one still had
+                 * 2 px in `palette.primary.main`, making the divider as heavy as a heading.
+                 * The dot carries the motif; the line divides.
                  */
                 borderBottom: `${props.thick || 1}px solid ${theme.custom.hairlineStrong}`,
                 ...props.style,

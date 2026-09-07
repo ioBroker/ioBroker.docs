@@ -142,9 +142,8 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                 outerClassName={classes.sectionBrace}
                             >
                                 <div className={classes.supportColumn}>
-                                    {/* eine Beschriftung fuer jede Breite - es gab zwei
-                                        Fassungen mit demselben Text, die bei 736 px
-                                        wechselten (Denis, 06.09.2026) */}
+                                    {/* One caption for every width: two versions with the same
+                                        text used to switch at 736 px (Denis, 06.09.2026). */}
                                     <div className={classes.supportLabel}>{I18n.t('Support us')}</div>
                                     <div className={classes.donateButtons}>
                                         <OwnButton
@@ -250,9 +249,9 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                             <Box className={classes.socialRow}>
                                 <div className={classes.followUsText}>{I18n.t('Follow us:')}</div>
                                 <div className={classes.socialIconsWrapper}>
-                                    {/* stand bis 06.09.2026 unter 600 px auf `hideOnSmall` -
-                                        das Forum ist der wichtigste der sieben Verweise
-                                        und fehlte ausgerechnet auf dem Handy */}
+                                    {/* Until 06.09.2026, this used `hideOnSmall` below 600 px;
+                                        the forum, the most important of the seven links, was
+                                        therefore missing on mobile. */}
                                     <OwnButton
                                         classes={classes}
                                         noText
@@ -267,13 +266,13 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                         tooltip={I18n.t('tooltip.github')}
                                         icon={<GitHubIcon />}
                                     />
-                                    {/* "GitHub Community" stand hier als zweites GitHub-Zeichen
-                                        und war fuer Besucher nicht von dem daneben zu
-                                        unterscheiden - am 06.09.2026 entfernt (Denis) */}
-                                    {/* ohne Bildunterschrift: sie war nach dem Entfernen von
-                                        "GitHub Community" die einzige in der Reihe und hing
-                                        allein unter einem Zeichen (Denis, 06.09.2026).
-                                        Gruppe und Seite unterscheidet jetzt nur der Tooltip. */}
+                                    {/* "GitHub Community" was a second GitHub icon here and
+                                        visitors could not distinguish it from the adjacent one;
+                                        removed on 06.09.2026 (Denis). */}
+                                    {/* No caption: after removing "GitHub Community", it was the
+                                        only caption in the row and hung alone below an icon
+                                        (Denis, 06.09.2026). Only the tooltip now distinguishes
+                                        the group from the page. */}
                                     <OwnButton
                                         classes={classes}
                                         noText
@@ -281,10 +280,10 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                         tooltip={I18n.t('tooltip.facebook_group')}
                                         icon={<FacebookIcon />}
                                     />
-                                    {/* Die Facebook-Seite stand hier mit demselben Zeichen wie die
-                                        Gruppe daneben - fuer Besucher nicht zu unterscheiden. Am
-                                        06.09.2026 entfernt (Denis), die Gruppe bleibt. Im
-                                        Hauptmenue stehen weiter beide. */}
+                                    {/* The Facebook page was shown here with the same icon as
+                                        the adjacent group, indistinguishable to visitors.
+                                        Removed on 06.09.2026 (Denis); the group remains. Both
+                                        are still in the main menu. */}
                                     <OwnButton
                                         classes={classes}
                                         noText

@@ -69,7 +69,7 @@ export const useStyles = makeStyles()(theme => ({
         opacity: 0.3,
 
         [theme.breakpoints.down('md')]: {
-            // 210 % war rund das Doppelte des Nötigen
+            // 210% was roughly twice what was needed.
             backgroundSize: '150%',
             backgroundPosition: 'center',
             top: '62%',

@@ -34,11 +34,11 @@ export const useStyles = makeStyles()(theme => ({
             gap: '22px',
         },
         /**
-         * Zwischen 600 und 900 px steht der ganze Block auf der linken Achse der Seite
-         * (Denis, 06.09.2026). Vorher standen "11 + Jahre", der Zweizeiler und der Knopf
-         * mittig, waehrend der Fliesstext ueber die volle Breite lief - zwei Achsen in
-         * einem Block. Unter 600 px bleibt die Gruppe mittig: dort ist der Zweizeiler
-         * fast so breit wie die Spalte, die Zentrierung faellt nicht auf.
+         * Between 600 and 900 px, the complete block aligns with the page's left axis
+         * (Denis, 06.09.2026). Previously, “11 + years”, the two-line heading, and the
+         * button were centered while the body text spanned the full width—two axes in one
+         * block. Below 600 px the group remains centered, where the heading is nearly as
+         * wide as the column and centering is unnoticeable.
          */
         [theme.breakpoints.between('sm', 'md')]: {
             alignItems: 'flex-start',
@@ -204,31 +204,29 @@ export const useStyles = makeStyles()(theme => ({
         whiteSpace: 'nowrap',
         marginBottom: theme.spacing(3),
         /**
-         * Zwei Zeilen einer Versalzeile in Audiowide - die brauchen weniger Durchschuss
-         * als ein Fliesstext, sonst zerfaellt der Zweizeiler in zwei Ueberschriften
-         * (Denis, 06.09.2026). `&&` ist noetig, weil MUI an `Typography` eine eigene
-         * Zeilenhoehe mitbringt (1,5) und die hier sonst gewinnt - dieselbe Falle wie
-         * bei der Zahl in der CommunitySection.
+         * Two lines of uppercase Audiowide need less leading than body text; otherwise the
+         * two-line heading becomes two headings (Denis, 06.09.2026). `&&` is necessary
+         * because MUI gives `Typography` its own line height (1.5), which otherwise wins—
+         * the same trap as the number in CommunitySection.
          */
         '&&': {
             lineHeight: 1.15,
         },
         /**
-         * Zwischen 900 und 1200 px stand hier `width: auto`. Damit wuchs die rechte
-         * Spalte auf ihren Inhalt und schob die "11" an den linken Rand - der Block sah
-         * dort ganz anders aus als ab 1200 px (Denis, 06.09.2026: "kannst du genau das
-         * bei 900-1200 machen?"). Jetzt dieselbe Spaltenbreite wie oben, nur nach unten
-         * nachgiebig: `100%` mit Deckel, damit der Flexkasten sie bei 900 px
-         * zusammenschieben kann, statt aus der Seite zu laufen.
+         * Between 900 and 1200 px this used `width: auto`, letting the right column grow
+         * to its content and push “11” to the left edge. It looked unlike the version from
+         * 1200 px onwards (Denis, 06.09.2026). It now uses the same column width as above,
+         * but can shrink: `100%` with a cap lets the flex box compress it at 900 px rather
+         * than overflowing the page.
          */
         [theme.breakpoints.down('lg')]: {
             width: '100%',
             maxWidth: '510px',
         },
         /**
-         * Unterhalb 900 px stehen "11 +" und dieser Zweizeiler untereinander und bilden
-         * zusammen den Kopf des Abschnitts - darum stehen beide mittig (Denis,
-         * 06.09.2026). Der Fliesstext darunter bleibt linksbuendig, er ist Lesetext.
+         * Below 900 px, “11 +” and this two-line heading stack to form the section header,
+         * so both are centered (Denis, 06.09.2026). The body text below remains left
+         * aligned because it is reading text.
          */
         [theme.breakpoints.down('md')]: {
             width: 'auto',
@@ -241,10 +239,10 @@ export const useStyles = makeStyles()(theme => ({
         // the line may not break ("BEGEISTERUNG" stays one word), so the size has to follow
         // the screen instead of standing on one value - 32 px was 336 px wide on a 320 px phone
         /**
-         * Der Zweizeiler ist in sich linksbuendig - beide Zeilen beginnen an derselben
-         * Kante (Denis, 06.09.2026). Unter 600 px steht der Block als Ganzes mittig:
-         * `fit-content` laesst ihn nur so breit wie seine laengste Zeile werden, sonst
-         * wuerden die Zeilen am linken Rand eines 352 px breiten Kastens kleben.
+         * The two-line heading is left aligned internally, with both lines starting at the
+         * same edge (Denis, 06.09.2026). Below 600 px the whole block is centered:
+         * `fit-content` limits it to its longest line; otherwise the lines would stick to
+         * the left edge of a 352 px box.
          */
         [theme.breakpoints.down('sm')]: {
             fontSize: 'clamp(23px, 8.2vw, 32px)',
@@ -271,7 +269,7 @@ export const useStyles = makeStyles()(theme => ({
         marginTop: '40px',
         marginBottom: '24px',
         width: '550px',
-        // siehe historySubTitle: zwischen 900 und 1200 px dieselbe Spalte wie ab 1200
+        // See historySubTitle: use the same column from 900 to 1200 px as above 1200 px.
         [theme.breakpoints.down('lg')]: {
             width: '100%',
             maxWidth: '550px',

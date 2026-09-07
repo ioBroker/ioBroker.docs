@@ -41,9 +41,9 @@ export const buildContentUrl = (path: string): string => {
 };
 
 /**
- * Die Kennzahlen des Forums. Dieselbe Geschichte wie bei der Statistik: `public/` hat
- * keine Kopie von `data/forum.json`, im Dev lief die Anfrage deshalb ins Leere und die
- * Community-Sektion zeigte eine Zahl ohne Zahl.
+ * Forum statistics. The same applies as to statistics: `public/` has no copy of
+ * `data/forum.json`, so in development the request returned nothing and the Community
+ * section displayed a number without a value.
  */
 export const FORUM_STATS_URL = isDev ? '/api/iobroker/data/forum.json' : 'https://www.iobroker.net/data/forum.json';
 

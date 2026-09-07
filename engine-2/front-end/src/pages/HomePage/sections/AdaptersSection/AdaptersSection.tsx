@@ -29,9 +29,9 @@ import icon19 from '../../../../assets/img/image_427.svg';
 import icon20 from '../../../../assets/img/image_428.svg';
 import icon21 from '../../../../assets/img/image_429.svg';
 import icon22 from '../../../../assets/img/image_430.svg';
-// Das Handy-Raster braucht 25 Kacheln, es gab aber nur 22 Symbole - die letzten drei
-// Plaetze zeigten deshalb dreimal dasselbe Bild. Diese drei kommen aus dem Bestand der
-// Adapter-Logos (public/<lang>/adapterref/) und fuellen die Luecke mit echten Adaptern.
+// The mobile grid needs 25 tiles, but only 22 icons existed, so the final three showed
+// the same image three times. These come from the adapter-logo collection
+// (public/<lang>/adapterref/) and fill the gap with actual adapters.
 import icon23 from '../../../../assets/img/adapter_spotify.png';
 import icon24 from '../../../../assets/img/adapter_unifi.png';
 import icon25 from '../../../../assets/img/adapter_discord.png';

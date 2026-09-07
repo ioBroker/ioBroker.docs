@@ -308,7 +308,7 @@ const DocsPage = (): React.ReactNode => {
                                     linkImage={linkImage}
                                 />
                             </Box>
-                            {/* ohne `position`: die Linie misst sich selbst, siehe Divider */}
+                            {/* Without `position`, the line measures itself; see Divider. */}
                             <Divider beforeFooter />
                             <Footer />
                         </Box>

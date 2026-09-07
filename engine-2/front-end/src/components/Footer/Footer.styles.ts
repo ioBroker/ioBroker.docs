@@ -11,57 +11,42 @@ export const FOOTER_BRACE_WIDTH = 160;
 const FOOTER_BRACE_GAP = 24;
 export const FOOTER_GROUP_WIDTH = FOOTER_BRACE_WIDTH * 3 + FOOTER_BRACE_GAP * 2;
 /**
- * Zwischen 600 und 900 px stehen die Kaesten zu zweit in der Reihe (Denis, 06.09.2026),
- * also zwei Bloecke plus den engeren Abstand, den die Reihe dort nutzt. Die Gruppe
- * bekommt genau diese Breite - dadurch bricht die Reihe von selbst nach zwei Kaesten um,
- * beide Reihen enden auf derselben Linie, und der langgezogene Kasten darunter ist
- * automatisch so breit wie zwei obere.
+ * Between 600 and 900 px, cards occur in pairs per row (Denis, 06.09.2026). The group
+ * receives that exact width, so rows naturally wrap after two cards and end on one line.
  */
 /**
- * Mindestbreite eines Kastens auf dem Handy. Der Wert ist gemessen, nicht gesetzt: bei
- * 360 px Schirm bleiben nach den Seitenraendern 320 px, also 152 je Kasten bei 16 px
- * Abstand. Daraus ergibt sich von selbst, wann eine dritte Spalte dazukommt (ab rund
- * 530 px) - genau das war Denis' Wunsch am 06.09.2026.
+ * Mobile card minimum width. At a 360 px screen, 320 px remains after side margins,
+ * allowing 152 per card with a 16 px gap; a third column naturally joins at about 530 px.
  */
 const FOOTER_PHONE_MIN_CARD = 152;
 /**
- * Hoehe einer Zeile in allen Footer-Kaesten. Sie kommt vom Fingerziel der Links (rund
- * 44 px braucht ein Finger; die Textzeile allein war 25) und ist zugleich der Rhythmus,
- * an dem sich die beiden anderen Kaesten ausrichten: eine Zeile, eine leere Zeile, eine
- * Zeile. Damit steht die Beschriftung auf der Hoehe des ersten Links und die Zeichen auf
- * der des dritten - auf jeder Bildschirmbreite und ohne dass irgendwo ein Abstand
- * geraten wird (Denis, 06.09.2026).
+ * Row height for all footer cards. It follows link touch targets and establishes the
+ * rhythm for the other cards: one row, one empty row, one row (Denis, 06.09.2026).
  */
 const FOOTER_ROW = 40;
 /**
- * Ab hier ist links neben der Kastengruppe Platz fuer das Logo (Denis, 06.09.2026: "bei
- * 600 px ist es noch zu eng, ab 660 ist Platz"). Darunter bleibt der Platz leer - ein
- * Logo, das sich zwischen Rand und Kaesten quetscht, sieht schlechter aus als keines.
+ * From here there is room for the logo left of the card group. Below it the space remains
+ * empty; a logo squeezed between the edge and cards looks worse than none.
  */
 const FOOTER_LOGO_FROM = 660;
 /**
- * Die Fusszeile fragt **ihre eigene Breite** ab, nicht die des Fensters. Grund: in der
- * Profil-App steht sie im Inhaltsbereich neben der Seitenleiste - bei 916 px Fenster
- * hat sie dort nur rund 630 px. Mit Media-Queries hielt sie sich fuer "Desktop", legte
- * Logo und Dreiergruppe nebeneinander und lief aus der Seite (Denis, 06.09.2026).
- * Die Zahlen sind dieselben wie die Bildschirmstufen des Kits (600 / 900), sie messen
- * nur etwas anderes. Auf der Website ist die Fusszeile so breit wie die Seite, dort
- * aendert sich dadurch nichts.
+ * The footer queries **its own width**, not the window's: in the profile app it sits beside
+ * a sidebar. Container-query values equal the kit's breakpoints but measure something else.
  */
 const CQ_UP = (px: number): string => `@container (min-width: ${px}px)`;
 const CQ_DOWN = (px: number): string => `@container (max-width: ${px - 0.05}px)`;
 const CQ_BETWEEN = (from: number, to: number): string =>
     `@container (min-width: ${from}px) and (max-width: ${to - 0.05}px)`;
-/** dieselben Grenzen wie `theme.breakpoints`, nur auf die Breite der Fusszeile bezogen */
+/** Same limits as `theme.breakpoints`, but relative to the footer width. */
 const SM = 600;
 const MD = 900;
-/** Hoehe eines Klammerkastens: drei Zeilen FOOTER_ROW plus Innenabstand und Luft. */
+/** Bracket-card height: three FOOTER_ROW lines plus inner spacing. */
 const FOOTER_BOX_HEIGHT = 171;
 
 export const useFooterStyles = makeStyles()(theme => ({
     root: {
         width: '100%',
-        // Bezugsgroesse fuer die Container-Queries oben
+        // Reference size for the container queries above.
         containerType: 'inline-size',
         backgroundColor: theme.palette.background.default,
         display: 'flex',
@@ -98,7 +83,7 @@ export const useFooterStyles = makeStyles()(theme => ({
         justifyContent: 'center',
         zIndex: 9,
         gap: '48px',
-        // Logo links oben, die Kastengruppe rechts daneben - dazwischen der freie Platz
+        // Logo upper left, card group to its right, with free space between.
         [CQ_DOWN(MD)]: {
             justifyContent: 'space-between',
             alignItems: 'flex-start',
@@ -118,10 +103,8 @@ export const useFooterStyles = makeStyles()(theme => ({
             display: 'none',
         },
         /**
-         * Zwischen 660 und 900 px steht das Logo wieder links - klein und in fester
-         * Breite, damit es der Kastengruppe daneben nur nimmt, was es braucht. Unter
-         * 660 px bleibt es aus: dort quetscht es sich zwischen Rand und Kaesten
-         * (Denis, 06.09.2026).
+         * Between 660 and 900 px the logo returns on the left, small and fixed-width so it
+         * takes only needed space. Below 660 px it stays hidden to avoid squeezing.
          */
         [CQ_BETWEEN(FOOTER_LOGO_FROM, MD)]: {
             display: 'block',
@@ -144,19 +127,14 @@ export const useFooterStyles = makeStyles()(theme => ({
             flexShrink: 0,
         },
         /**
-         * Unter 900 px ist die Umhuellung selbst das Raster - nicht die Reihe darin.
-         * Nur so koennen der vierte Kasten und der langgezogene "Folgen Sie uns" in
-         * derselben Zeile stehen (Denis, 06.09.2026): sie muessen Geschwister im selben
-         * Raster sein. `auto-fit` legt so viele Spalten an, wie in 152 px Mindestbreite
-         * passen - je nach Schirm und nach dem, was das Logo daneben uebrig laesst, sind
-         * das zwei oder drei.
+         * Below 900 px the wrapper itself is the grid, so the fourth card and elongated
+         * “Follow us” card can share a row. `auto-fit` creates two or three columns.
          */
         [CQ_DOWN(MD)]: {
             display: 'grid',
             gridTemplateColumns: `repeat(auto-fit, minmax(${FOOTER_PHONE_MIN_CARD}px, 1fr))`,
             gap: '16px',
-            // nimmt den Platz neben dem Logo. Ohne `minWidth: 0` waere ein Flex-Kind
-            // mindestens so breit wie sein Inhalt und wuerde das Logo hinausdruecken
+            // Takes space beside the logo; `minWidth: 0` prevents content pushing it out.
             flex: '1 1 auto',
             minWidth: 0,
         },
@@ -178,9 +156,8 @@ export const useFooterStyles = makeStyles()(theme => ({
             justifyContent: 'center',
         },
         /**
-         * Unter 900 px hat die Reihe keine eigene Aufgabe mehr: `contents` macht ihre
-         * vier Kaesten zu Kindern des Rasters in `sectionsWrapper`, damit sie sich mit
-         * dem langgezogenen Kasten dieselben Spalten teilen.
+         * Below 900 px, `contents` makes the row's four cards grid children in
+         * `sectionsWrapper`, sharing columns with the elongated card.
          */
         [CQ_DOWN(MD)]: {
             display: 'contents',

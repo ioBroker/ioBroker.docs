@@ -5,8 +5,8 @@ export default function InstagramIcon(props: { style?: React.CSSProperties }): R
         <svg
             viewBox="0 0 40 54"
             style={{
-                // Grundgroesse mal Faktor: der Footer verkleinert die Reihe unter 600 px
-                // ueber `--social-icon-scale`; ohne Variable bleibt es bei 42 px.
+                // Base size times factor: below 600 px the footer scales the row through
+                // `--social-icon-scale`; without the variable it remains 42 px.
                 width: 'calc(42px * var(--social-icon-scale, 1))',
                 height: 'calc(42px * var(--social-icon-scale, 1))',
                 ...props.style,

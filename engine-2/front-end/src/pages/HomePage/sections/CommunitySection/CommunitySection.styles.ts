@@ -1,33 +1,30 @@
 import { makeStyles } from '../../../../theme';
 
-/** kleinstes sinnvolles Format eines Klammerkastens - Herleitung siehe `statCard` */
+/** Smallest useful bracket-card format; see `statCard` for its derivation. */
 const MIN_CARD = 160;
 /**
- * Ab dieser Kastenbreite legt sich der Inhalt quer. Sie liegt zwischen den beiden
- * Faellen, die auf einem schmalen Schirm gleichzeitig vorkommen: zwei Kaesten
- * nebeneinander sind dort rund 175 px breit, einer allein in seiner Zeile rund 360 px.
+ * At this card width the content switches to a horizontal layout. It lies between the
+ * two cases that coexist on a narrow screen: two side-by-side cards are about 175 px
+ * wide, while one alone in its row is about 360 px wide.
  */
 const WIDE_CARD = 300;
 /**
- * Bis hierher steht ein laenglicher Kasten je Zeile, darueber ordnen sie sich nach dem
- * Platz (Denis, 06.09.2026). Der Wert ist eine Gestaltungsentscheidung, keine Rechnung:
- * zwei Kaesten passten rechnerisch schon ab 376 px nebeneinander, sahen dort aber gedraengt aus.
+ * Up to this point, one elongated card occupies each row; above it they follow available
+ * space (Denis, 06.09.2026). This is a design decision, not a calculation: two cards
+ * would fit side by side from 376 px, but looked cramped there.
  */
 const SINGLE_COLUMN_UP_TO = 400;
 /**
- * Das groesste Format eines Kastens. Auch aus dem Inhalt hergeleitet: die Zahl braucht
- * in Audiowide bei 44 px rund 191 px, der Knopf mit seiner `min-width` 200 px, dazu die
- * beiden Klammerarme (2x20) - der Inhalt ist also bei rund 240 px vollstaendig da.
- * Alles darueber ist nur noch leere Flaeche, und genau die stoerte auf dem grossen
- * Schirm (Denis, 06.09.2026: "die Kaestchen sind riesig"). 320 px waren dann immer
- * noch zu breit ("sie sind mir zu breit"), 280 px lassen dem Inhalt rund 40 px Luft
- * ueber seine 240 px hinaus und stellen den Kasten fast ins Quadrat (280x260).
- * Achtung: der Wert wirkt nicht nur ganz aussen. Ueber `MAX_ROW` deckelt er die Reihe
- * und damit die Kastenbreite schon ab rund 1000 px Fenster - dort ergaebe "Platz
- * durch drei" sonst breitere Kaesten, ohne dass eine Hoechstbreite je Spalte greift.
+ * The largest card format, also derived from its content: the 44 px Audiowide number
+ * needs about 191 px, the button needs 200 px with `min-width`, plus both bracket arms
+ * (2x20), so content is complete at about 240 px. Everything beyond is empty space,
+ * which was distracting on large screens (Denis, 06.09.2026). At 280 px, the card has
+ * about 40 px of room beyond its 240 px content and is nearly square (280x260).
+ * Note: this value also caps the row through `MAX_ROW` from around a 1000 px window;
+ * otherwise dividing available space by three would produce wider cards.
  */
 const MAX_CARD = 280;
-/** drei Kaesten nebeneinander in ihrem groessten Format, dazu zwei Spalten Abstand */
+/** Three cards at their largest format, plus two column gaps. */
 const MAX_ROW = 3 * MAX_CARD + 2 * 48;
 
 export const useStyles = makeStyles()(theme => ({
@@ -68,25 +65,23 @@ export const useStyles = makeStyles()(theme => ({
     },
 
     /**
-     * Die Ueberschrift ueber den drei Kaesten. Sie nimmt dieselbe Breite wie die Reihe
-     * und steht mit ihr auf der linken Achse der Seite (Denis, 06.09.2026), damit
-     * Ueberschrift, Kaesten und der Text darueber dieselbe Kante haben. Der Abstand nach
-     * oben, der frueher an `statsContainer` hing, sitzt jetzt hier - darunter bleibt nur
-     * noch der kurze Abstand zur Reihe.
+     * The heading above the three cards has the row's width and aligns with the page's
+     * left axis (Denis, 06.09.2026), so the heading, cards, and text above share an edge.
+     * The upper spacing formerly on `statsContainer` now belongs here; only the short gap
+     * to the row remains below.
      */
     statsHeading: {
         maxWidth: MAX_ROW,
         /**
-         * 120 px liessen die Ueberschrift zwischen Text und Kaesten schweben; sie
-         * gehoert aber zu den Kaesten (Denis, 06.09.2026). Jetzt 72 px nach oben und
-         * 40 px nach unten zur Reihe - der Abstand ueber ihr bleibt deutlich groesser
-         * als der unter ihr, sonst haengt sie am falschen Block.
+         * 120 px left the heading floating between text and cards, although it belongs to
+         * the cards (Denis, 06.09.2026). It now has 72 px above and 40 px below; its upper
+         * gap remains visibly greater or it would appear attached to the wrong block.
          */
         margin: '72px 0 0',
         textAlign: 'left',
         letterSpacing: '0.02em',
         color: theme.custom.textHeading,
-        // MUI bringt an `Typography` eigene Werte fuer beides mit - siehe `statNumber`
+        // MUI provides its own values for both on `Typography`; see `statNumber`.
         '&&': {
             fontSize: '22px',
             fontWeight: 400,
@@ -100,34 +95,30 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     /**
-     * Drei Klammerkaesten nebeneinander - auf jeder Breite. Bis 900 px stapelten sie sich
-     * frueher untereinander, was drei 400 px hohe Kaesten und eine sehr lange, sehr leere
-     * Sektion ergab. Sie werden jetzt stattdessen kleiner, so wie auf dem Handy.
+     * Three bracket cards side by side at every width. Below 900 px they previously
+     * stacked, creating three 400 px high cards and a very long, empty section. They now
+     * become smaller instead, as on mobile.
      */
     /**
-     * Die drei Klammerkaesten ordnen sich nach dem Platz, nicht nach Bildschirmstufen:
-     * es passen so viele nebeneinander, wie in der kleinsten sinnvollen Kastenbreite
-     * Platz haben - drei, dann zwei und einer darunter, zuletzt einer je Zeile.
-     * Ein Kasten, der allein in seiner Zeile steht, legt sich innen quer (Zahl links,
-     * Knopf rechts) statt in die Hoehe zu wachsen. Das entscheidet eine Container-Query
-     * auf dem Kasten selbst, denn bei derselben Bildschirmbreite koennen schmale und
-     * breite Kaesten nebeneinander vorkommen - eine Media-Query kann die beiden Faelle
-     * nicht auseinanderhalten.
+     * The three bracket cards follow available space, not screen breakpoints: as many fit
+     * side by side as their smallest useful width permits—three, then two plus one below,
+     * and finally one per row. A card alone in a row lays out horizontally (number left,
+     * button right) rather than growing taller. A container query on the card decides this,
+     * since narrow and wide cards may coexist at the same screen width.
      */
     statsContainer: {
         /**
-         * Raster statt Flexbox: bleibt ein Kasten allein in der letzten Zeile, belegt er
-         * dort **eine Spalte** und behaelt damit genau das Format der beiden ueber ihm.
-         * In einer Flexbox waere er auf die volle Breite gewachsen.
+         * Grid rather than Flexbox: when a card is alone in the final row, it occupies
+         * **one column** and retains exactly the format of the two above. Flexbox would
+         * stretch it to the full width.
          */
         display: 'grid',
         gridTemplateColumns: `repeat(auto-fit, minmax(${MIN_CARD}px, 1fr))`,
         /**
-         * Der Deckel sitzt auf der Reihe, nicht auf dem einzelnen Kasten: eine feste
-         * Hoechstbreite je Spalte wuerde die Spaltenzahl aendern, die sich das Raster
-         * sonst selbst aus `MIN_CARD` ausrechnet. So bleibt das gemessene Verhalten
-         * unterhalb 1056 px unveraendert, und darueber waechst nur der freie Platz
-         * rechts - die Reihe bleibt linksbuendig an der Spalte der Seite.
+         * The cap belongs on the row, not individual cards: a fixed maximum column width
+         * would change the number of columns the grid derives from `MIN_CARD`. This
+         * preserves the measured behavior below 1056 px; above it, only the free space to
+         * the right grows and the row remains left-aligned with the page column.
          */
         maxWidth: MAX_ROW,
         marginLeft: 0,
@@ -138,11 +129,10 @@ export const useStyles = makeStyles()(theme => ({
             gridTemplateColumns: '1fr',
         },
         /**
-         * Der Abstand trennt hier zwei gleich gezeichnete Klammern voneinander - ist er
-         * zu klein, liest man die Reihe als ein Gitter statt als drei Kaesten (Denis,
-         * 06.09.2026: "ich kann sie optisch schwer auseinanderhalten"). Darum 32 statt
-         * 24 und 24 statt 16 px; er bleibt in der Naehe des Innenabstands der Kaesten,
-         * damit die Luft zwischen ihnen nicht groesser wird als die Luft in ihnen.
+         * The gap separates two identically drawn brackets; when too small, the row reads
+         * as one grid rather than three cards (Denis, 06.09.2026). Hence 32 instead of 24
+         * and 24 instead of 16 px; it stays near the cards' inner spacing so space between
+         * them does not exceed space inside them.
          */
         [theme.breakpoints.down('md')]: {
             marginTop: '24px',
@@ -154,35 +144,32 @@ export const useStyles = makeStyles()(theme => ({
     },
 
     /**
-     * MIN_CARD (oben) ist das kleinste Format, in dem der Kasten noch etwas taugt.
-     * Gemessen am Inhalt, nicht geschaetzt: die Zahl "20.543 +" braucht in Audiowide
-     * 4,34 em, bei 24 px also 104 px; der Knopf "BEITRETEN" mit 13 px Schrift und
-     * Innenabstand 111 px. Dazu die beiden Klammern (2x16) und der Innenabstand - macht
-     * rund 160 px. Unter dieser Breite bricht der naechste Kasten in die folgende Zeile um.
+     * MIN_CARD (above) is the smallest useful card format. Measured from its content,
+     * not guessed: “20,543 +” needs 4.34 em in Audiowide, or 104 px at 24 px; the button
+     * needs 111 px with 13 px text and inner spacing. With both brackets (2x16), this is
+     * about 160 px. Below that width, the next card wraps to the following row.
      */
     statCard: {
         minWidth: 0,
         /**
-         * Der Inhalt braucht rund 195 px (Innenabstand 40, Titel 29, Zahl mit Abstand 60,
-         * "Nutzer" 14, Knopf 50). Der Rest ist Luft, die `space-between` zwischen die
-         * Gruppen legt - 400 px waren davon zu viel.
+         * Content needs about 195 px (40 inner spacing, 29 title, 60 number with spacing,
+         * 14 label, 50 button). The rest is space distributed between groups by
+         * `space-between`; 400 px provided too much.
          */
         minHeight: 260,
         display: 'flex',
         justifyContent: 'space-between',
-        // Bezugsgroesse fuer die Container-Queries weiter unten
+        // Reference size for the container queries below.
         containerType: 'inline-size',
         /**
-         * Frueher stand hier unter 1200 px eine kleinere Hoehe (220). Das war der Rest
-         * aus der Zeit ohne Breitendeckel und drehte das Verhaeltnis genau dort ins
-         * Breite, wo die Kaesten ohnehin am breitesten sind: bei 1199 px waren sie
-         * 320x220 (1,45), waehrend die abgenommene Fassung bei 1440 px 320x260 (1,23)
-         * ist (Denis, 06.09.2026: "zu viel in die Breite gezogen"). Eine Hoehe fuer den
-         * ganzen Desktop-Bereich haelt das Verhaeltnis zwischen 900 und 1440 px stabil.
+         * Below 1200 px this previously used a smaller height (220), left over from before
+         * the width cap. That widened the ratio where cards are already widest: at 1199 px
+         * they were 320x220 (1.45), while the accepted 1440 px version is 320x260 (1.23).
+         * One height across desktop keeps the ratio stable from 900 to 1440 px.
          */
         [theme.breakpoints.down('md')]: {
-            // ab hier bestimmt der Inhalt die Hoehe: ein quer liegender Kasten wird
-            // niedrig, ein hochkant stehender so hoch, wie er sein muss
+            // From here, content determines height: a horizontal card is short and a
+            // vertical card is as tall as needed.
             minHeight: 96,
         },
     },
@@ -192,20 +179,18 @@ export const useStyles = makeStyles()(theme => ({
         flexDirection: 'column',
         alignItems: 'flex-start',
         minWidth: 0,
-        // schiebt den Knopf im hochkant stehenden Kasten an den Boden
+        // Pushes the button to the bottom of a vertical card.
         marginBottom: 'auto',
         padding: '0 2px',
         [theme.breakpoints.down('sm')]: {
             padding: '0 0 0 2px',
         },
         /**
-         * Im langgezogenen Kasten steht der Titel oben, Zahl und "Nutzer" ruecken nach
-         * unten und liegen dort auf einer Linie mit dem Knopf (Denis, 06.09.2026).
-         * Dafuer nimmt die Spalte die volle Hoehe (`stretch` statt der Zentrierung aus
-         * `bracesContent`); das `margin-bottom: auto` von oben wuerde das aushebeln.
-         * Den Abstand macht der Titel mit seinem eigenen `margin-bottom: auto` - ein
-         * `space-between` hier wuerde auch Zahl und "Nutzer" auseinanderziehen, die
-         * dicht beieinander bleiben sollen.
+         * In the elongated card, the title is at the top while the number and label move
+         * down to align with the button (Denis, 06.09.2026). The column must fill the
+         * height (`stretch` rather than `bracesContent` centering); the upper
+         * `margin-bottom: auto` would defeat this. The title supplies spacing with its own
+         * `margin-bottom: auto`; `space-between` would also separate number and label.
          */
         [`@container (min-width: ${WIDE_CARD}px)`]: {
             marginBottom: 0,
@@ -214,10 +199,9 @@ export const useStyles = makeStyles()(theme => ({
     },
 
     /**
-     * Die Breite dieser beiden Kaesten ist die Laenge der Klammerarme - und zugleich der
-     * Abstand des Inhalts zur senkrechten Linie, denn der Inhalt beginnt hinter ihnen.
-     * Die Laenge kommt aus `theme.custom.brace` - dieselbe Zeichnung wie im Footer und
-     * am Newsletter-Feld.
+     * The width of these two cards is the bracket-arm length and also the content's
+     * distance from the vertical line, because content begins after the arms. The length
+     * comes from `theme.custom.brace`, using the same drawing as the footer and newsletter.
      */
     bracesLeft: {
         borderTop: `1px solid ${theme.palette.primary.main}`,
@@ -256,21 +240,20 @@ export const useStyles = makeStyles()(theme => ({
         textAlign: 'center',
         [theme.breakpoints.down('md')]: {
             padding: '16px 0',
-            // `space-between` allein reicht nicht: in einem knappen Kasten bleibt kein
-            // freier Raum uebrig, den es verteilen koennte, und der Knopf klebt am Text
+            // `space-between` alone is insufficient: a tight card has no free room to
+            // distribute, leaving the button stuck to the text.
             gap: '14px',
             /**
-             * Der hochkant stehende Kasten bekommt eine Mindesthoehe, damit oben ein
-             * Block aus Titel, Zahl und "Nutzer" steht und der Knopf unten sitzt - vorher
-             * bestimmte der Inhalt die Hoehe, alles lag dicht beieinander in der Mitte.
-             * Die Regel haengt an der Kastenbreite, weil der langgezogene Kasten (unter
-             * 400 px) niedrig bleiben soll.
+             * The vertical card gets a minimum height so the title, number, and label form
+             * a block at the top and the button sits at the bottom. Previously content set
+             * the height, leaving everything tightly centered. The rule follows card width
+             * because the elongated card (below 400 px) should remain short.
              */
             [`@container (max-width: ${WIDE_CARD - 0.05}px)`]: {
                 minHeight: '186px',
                 justifyContent: 'flex-start',
             },
-            // der langgezogene Kasten - siehe Kommentar oben
+            // The elongated card; see the comment above.
             [`@container (min-width: ${WIDE_CARD}px)`]: {
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -279,11 +262,10 @@ export const useStyles = makeStyles()(theme => ({
                 gap: '12px',
                 padding: '12px 2px',
                 /**
-                 * Aus dem Inhalt ergaeben sich nur rund 87 px - bei 336 px Breite wirkte
-                 * der Kasten dann wie ein Streifen und die Klammern verloren ihre
-                 * Zeichnung. 130 px waren dann wieder etwas zu viel; bei 112 px bleibt
-                 * ueber dem Titel und unter der Zahl je eine knappe Zeile Luft, das
-                 * Verhaeltnis liegt bei rund 3:1 (Denis, 06.09.2026).
+                 * Content alone yields only about 87 px; at 336 px wide the card looked
+                 * like a stripe and the brackets lost their form. 130 px was too much;
+                 * at 112 px there is nearly a line of space above the title and below the
+                 * number, giving a roughly 3:1 ratio (Denis, 06.09.2026).
                  */
                 minHeight: '112px',
             },
@@ -291,9 +273,8 @@ export const useStyles = makeStyles()(theme => ({
     },
 
     /**
-     * FORUM / FACEBOOK / DISCORD sind Audiowide (Denis, 06.09.2026) - im Kit die Schrift
-     * fuer Ueberschriften und Beschriftungen. Sie stehen als Beschriftung ueber der Zahl
-     * und bleiben deshalb deutlich kleiner als diese.
+     * FORUM / FACEBOOK / DISCORD use Audiowide (Denis, 06.09.2026), the kit's typeface
+     * for headings and captions. They caption the number, so remain substantially smaller.
      */
     statTitle: {
         fontFamily: 'Audiowide, sans-serif',
@@ -302,15 +283,15 @@ export const useStyles = makeStyles()(theme => ({
         letterSpacing: '0.02em',
         textTransform: 'uppercase',
         [theme.breakpoints.down('lg')]: {
-            // Ruecklage fuer Browser ohne Container-Queries, danach die eigentliche Regel:
-            // Anteil der Kastenbreite. Emotion schreibt beide Deklarationen nacheinander.
+            // Fallback for browsers without container queries, then the actual rule:
+            // a share of the card width. Emotion emits both declarations in sequence.
             fontSize: ['clamp(11px, 2.4vw, 20px)', 'min(20px, 8cqw)'],
         },
         [theme.breakpoints.down('md')]: {
             [`@container (min-width: ${WIDE_CARD}px)`]: {
-                // 13 px waren zu leise fuer die Zeile, die den Kasten benennt (Denis, 06.09.2026)
+                // 13 px was too quiet for the line naming the card (Denis, 06.09.2026).
                 fontSize: '16px',
-                // schiebt Zahl und "Nutzer" an den unteren Rand, siehe statCardContentWrapper
+                // Pushes the number and label down; see statCardContentWrapper.
                 marginBottom: 'auto',
             },
         },
@@ -321,9 +302,9 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: '400',
         letterSpacing: '-0.03em',
         whiteSpace: 'nowrap',
-        // `&&` verdoppelt die Gewichtung: MUIs eigene Typography-Klasse setzt eine
-        // Zeilenhoehe und gewinnt sonst gegen diese hier (bekannte Stelle, siehe
-        // Design-System). Ohne das blieben 44,8 px Zeilenhoehe bei 28 px Schrift stehen.
+        // `&&` doubles specificity: MUI's Typography class sets a line height and would
+        // otherwise win here (a known issue; see the design system). Without it, 44.8 px
+        // line height remained on 28 px text.
         '&&': {
             lineHeight: 1,
         },
@@ -340,9 +321,9 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     /**
-     * "Nutzer" ist eine Bildunterschrift zur Zahl, keine Ueberschrift: Roboto statt
-     * Audiowide, klein und in der zurueckgenommenen Textfarbe - so liest sich die Zahl
-     * als das Eigentliche (Denis, 06.09.2026).
+     * “Users” is a caption for the number, not a heading: Roboto rather than Audiowide,
+     * small and in muted text color, so the number reads as the main content (Denis,
+     * 06.09.2026).
      */
     statLabel: {
         fontFamily: theme.typography.fontFamily,
@@ -350,13 +331,13 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: 400,
         letterSpacing: 0,
         color: theme.custom.textSubtle,
-        // Direkt unter der Zahl, ohne Luft dazwischen: "Nutzer" gehoert zur Zahl, nicht
-        // in eine eigene Zeile (Denis, 06.09.2026). Auch hier `&&` gegen die
-        // Typography-Klasse, sonst stehen 1,6 Zeilen statt 1,15.
+        // Directly below the number with no gap: “Users” belongs to it, not on its own
+        // line (Denis, 06.09.2026). `&&` is again needed against Typography, or 1.6
+        // lines are used instead of 1.15.
         '&&': {
             lineHeight: 1.15,
         },
-        // holt die Oberlaenge von Roboto heraus, die sonst als Luft stehen bliebe
+        // Removes Roboto's ascender space, which would otherwise remain as empty space.
         marginTop: '-3px',
         [theme.breakpoints.down('lg')]: {
             fontSize: ['clamp(10px, 1.6vw, 15px)', 'min(15px, 6cqw)'],
@@ -375,14 +356,12 @@ export const useStyles = makeStyles()(theme => ({
         zIndex: 0,
         height: 50,
         /**
-         * Gefuellt statt umrandet, auf jedem Schirm (Denis, 06.09.2026). Gefuellt wird
-         * mit der Flaechenstufe des Kits und nicht mit dem Markenblau: das volle Blau
-         * stach die Zahl aus, die im Kasten die Hauptsache ist. Beim Ueberfahren geht es
-         * eine Stufe tiefer, beim Druecken noch eine - die Flaeche wird dunkler, statt
-         * die Farbe zu wechseln. Die Haarlinie bleibt, damit die Flaeche auf dem weissen
-         * Grund eine Kante behaelt.
-         * `&&` verdoppelt die Gewichtung, sonst entscheidet gegen die Regeln von
-         * `CustomButton` die Reihenfolge im Stylesheet.
+         * Filled rather than outlined on every screen (Denis, 06.09.2026). It uses the
+         * kit's surface step rather than brand blue, because full blue overshadowed the
+         * number, the card's main content. Hover steps one level down and press another:
+         * the surface darkens rather than changing color. The hairline preserves an edge
+         * against the white ground. `&&` doubles specificity so stylesheet order does not
+         * decide against CustomButton's rules.
          */
         '&&': {
             backgroundColor: theme.custom.surfaces.surface,
@@ -397,17 +376,15 @@ export const useStyles = makeStyles()(theme => ({
             },
         },
         /**
-         * `CustomButton` bringt `min-width: 200` mit und macht sich unterhalb 600 px ueber
-         * die volle Breite. Beides passt hier nicht, wo der Knopf in einem 160 px schmalen
-         * Kasten oder neben der Zahl sitzt. `&&` verdoppelt die Gewichtung, sonst
-         * entscheidet die Reihenfolge im Stylesheet.
+         * `CustomButton` brings `min-width: 200` and becomes full-width below 600 px.
+         * Neither works here, where the button is in a 160 px card or beside the number.
+         * `&&` doubles specificity; otherwise stylesheet order decides.
          */
         [theme.breakpoints.down('md')]: {
             /**
-             * Ueber die ganze Breite zwischen den Klammern, in der kompakten Hoehe - 44 px
-             * war hier zu schwer. Nur das Format, die Farben stehen in der Grundregel.
-             * Als CSS und nicht ueber `useMediaQuery`, damit es ohne Umweg ueber den
-             * Zustand der Komponente umschaltet.
+             * Full width between the brackets at compact height—44 px was too heavy here.
+             * This changes only format; colors belong to the base rule. It is CSS rather
+             * than `useMediaQuery` so it switches without going through component state.
              */
             '&&': {
                 height: `${theme.custom.control.compactHeight}px`,
@@ -424,7 +401,7 @@ export const useStyles = makeStyles()(theme => ({
                     padding: '0 14px',
                     whiteSpace: 'nowrap',
                 },
-                // unten rechts in der Klammer, auf einer Linie mit "Nutzer" (Denis)
+                // Bottom right in the bracket, aligned with “Users” (Denis).
                 alignSelf: 'flex-end',
                 flexShrink: 0,
             },

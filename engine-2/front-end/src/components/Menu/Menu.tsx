@@ -517,9 +517,9 @@ export default function Menu(props: MenuProps): React.JSX.Element {
                                 tooltip={I18n.t('tooltip.github')}
                                 icon={<GitHubIcon />}
                             />
-                            {/* "GitHub Community" stand hier als zweites GitHub-Zeichen und war
-                                fuer Besucher nicht von dem daneben zu unterscheiden - am
-                                06.09.2026 entfernt (Denis), wie zuvor in der Fusszeile */}
+                            {/* "GitHub Community" was a second GitHub icon here and visitors
+                                could not distinguish it from the adjacent one; removed on
+                                06.09.2026 (Denis), as it had been in the footer. */}
                             <OwnButton
                                 name={'group'}
                                 textOffset={-8}

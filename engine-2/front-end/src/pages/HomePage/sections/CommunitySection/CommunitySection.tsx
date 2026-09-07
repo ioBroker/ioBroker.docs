@@ -6,13 +6,13 @@ import { CustomButton } from '../../../../components/Button/Button';
 import { useForumStats } from '../../../../api/hooks/useForumStats';
 import { I18n } from '../../../../utils/i18n';
 
-// const mainText = `/* Die Community war von Anfang an ein zentraler Bestandteil der Entwicklung von ioBroker. Obwohl das Projekt ursprünglich sprachneutral konzipiert war, hat es sich im Laufe der Zeit ergeben, dass die deutschsprachige Community am aktivsten geworden ist - vermutlich, weil ioBroker seinen Ursprung in Deutschland hat.
+// const mainText = `/* The community has been a central part of ioBroker's development from the beginning. Although the project was originally designed to be language-neutral, the German-speaking community has become the most active over time—presumably because ioBroker originated in Germany.
 //
-// Heute ist das ioBroker-Forum die erste Anlaufstelle für Fragen, Problemlösungen und den Austausch mit anderen Nutzern. Hier findest du eine Vielzahl an Tutorials, Skripten und Best Practices, die dir helfen, das Beste aus ioBroker herauszuholen.
+// Today, the ioBroker forum is the first place for questions, solutions, and exchange with other users. There you will find many tutorials, scripts, and best practices to help you get the most from ioBroker.
 //
-// Neben dem Forum gibt es auch eine sehr aktive Community auf Facebook und Discord, wo täglich diskutiert, geholfen und neue Ideen geteilt werden. Egal ob Einsteiger oder Profi - hier findest du immer Unterstützung und kannst selbst dein Wissen einbringen, um anderen zu helfen. */`;
+// Alongside the forum, there is a highly active community on Facebook and Discord, where people discuss, help each other, and share ideas every day. Whether you are a beginner or a professional, you can find support here and share your own knowledge to help others. */`;
 //
-// const secondaryText = 'Werde Teil der Community und gestalte die Zukunft von ioBroker mit!';
+// const secondaryText = 'Become part of the community and help shape ioBroker’s future!';
 
 export const CommunitySection: React.FC = () => {
     const { classes } = useStyles();
@@ -47,10 +47,10 @@ export const CommunitySection: React.FC = () => {
                     </Typography>
                 </Box>
                 {/*
-                 * Der Satz war der letzte Absatz im Kommentarblock, gehoert aber nicht zum
-                 * Text, sondern zu den drei Kaesten: er fordert zu genau dem auf, was sie
-                 * anbieten. Darum steht er jetzt als Ueberschrift ueber ihnen (Denis,
-                 * 06.09.2026). Das schliessende Kommentarzeichen steht jetzt am Ende des Textes.
+                 * The sentence was the last paragraph in the comment block, but belongs to
+                 * the three cards rather than the text: it invites exactly what they offer.
+                 * It is now their heading (Denis, 06.09.2026). The closing comment marker
+                 * is now at the end of the text.
                  */}
                 <Typography className={classes.statsHeading}>{I18n.t('home.community.secondary')}</Typography>
                 <Box className={classes.statsContainer}>
@@ -73,8 +73,8 @@ export const CommunitySection: React.FC = () => {
                                         {item.count ? (
                                             <Box
                                                 component="span"
-                                                // relativ zur Zahl, damit das Plus jede
-                                                // Groesse mitmacht statt eigene Stufen zu haben
+                                                // Relative to the number, so the plus follows every
+                                                // size instead of requiring its own breakpoints.
                                                 sx={{ fontSize: '0.55em', verticalAlign: 'middle' }}
                                             >
                                                 {' '}

@@ -8,7 +8,7 @@ ioBroker documentation website and CMS serving https://www.iobroker.net. Combine
 
 **Note:** The README references an older `engine/` directory with Gulp. Active development uses `engine-2/` with a custom task-based pipeline.
 
-**Requires node.js >= 22.19** - the build pipeline (`engine-2/tasks.ts`) is run directly as TypeScript.
+**Requires node.js >= 22.19** - the build pipeline (`engine-2/tasks.mts` and `engine-2/build-lib/*.mts`) is run directly as TypeScript, node strips the types on the fly.
 
 ## Commands
 
@@ -54,6 +54,20 @@ npm run downloadAdapterTest # Test adapter download
 
 ## Architecture
 
+### Build helpers (`engine-2/build-lib/`)
+
+ESM TypeScript modules, shared by the pipeline steps. `types.mts` holds the common types (`MarkdownHeader`, `MarkdownPart`, `RepoAdapter`, `AdapterContent`, ...):
+- `consts.mts` - paths, languages, adapter types and translated boilerplate texts
+- `utils.mts` - markdown header/body handling, image and badge replacement, file helpers
+- `translation.mts` - Google/Yandex translation and the markdown-aware splitting into translatable parts
+- `documentation.mts` - content.md processing, document translation and copying into the front-end
+- `adapters.mts` - repository download, README preparation and adapters.json
+- `blog.mts`, `faq.mts` - blog posts and FAQ
+- `words.mts` - legacy words.js <=> i18n conversion, currently unused
+- `tools.mts` - `isObject` / `isArray`
+
+Each module can also be started directly (`node build-lib/<name>.mts`) for debugging.
+
 ### Backend (`engine-2/src/`)
 
 Express server (TypeScript) with:
@@ -74,9 +88,9 @@ React 19 + Vite + Material-UI v7 + TypeScript SPA:
 - Markdown rendering via react-markdown + rehype-raw + remark-gfm
 - Charts via echarts-for-react, API state via TanStack React Query
 
-### Build Pipeline (`engine-2/tasks.ts`)
+### Build Pipeline (`engine-2/tasks.mts`)
 
-The core orchestrator. It is a CommonJS TypeScript file executed directly by node (`node tasks.ts --<flag>`), which needs node.js >= 22.19 for the native type stripping. It stays CommonJS on purpose: the helpers in `engine-2/build-lib/*.js` check `module.parent` to decide whether to export their API or run standalone. 10-step pipeline driven by CLI flags (`--0.clean`, `--1.blog`, etc.):
+The core orchestrator. It and its helpers in `engine-2/build-lib/` are ESM TypeScript files, executed directly by node (`node tasks.mts --<flag>`) - no compile step. The `.mts` extension is required so node runs them as ESM without a "type": "module" in package.json, which would break the compiled CommonJS backend in `build/`. Relative imports therefore carry the `.mts` extension (`allowImportingTsExtensions` in tsconfig.json). 10-step pipeline driven by CLI flags (`--0.clean`, `--1.blog`, etc.):
 1. Clean generated dirs
 2. Process blog posts from `/blog/`
 3. Download adapter READMEs from GitHub

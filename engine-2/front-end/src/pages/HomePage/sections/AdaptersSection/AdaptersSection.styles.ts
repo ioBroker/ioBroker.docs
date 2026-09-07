@@ -110,9 +110,9 @@ export const useStyles = makeStyles()(theme => ({
         },
         [theme.breakpoints.down('md')]: {
             order: 2,
-            // gestapelt braucht der Block die volle Breite, sonst schrumpft er auf die
-            // Breite der Kacheln und `justifyContent: center` hat nichts zu zentrieren -
-            // die Gruppe klebte dadurch am linken Rand
+            // When stacked, the block needs its full width; otherwise it shrinks to the
+            // tiles' width and `justifyContent: center` has nothing to center, leaving
+            // the group stuck to the left edge.
             width: '100%',
             flex: '0 0 auto',
         },

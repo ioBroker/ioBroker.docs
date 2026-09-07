@@ -23,7 +23,7 @@ const lightText = {
 const primary = '#1D90CA';
 
 /**
- * Design tokens of the "Ruhige Flächen" interface kit.
+ * Design tokens of the "Calm Surfaces" interface kit.
  * The brand colours are unchanged - what is new are the surface steps that are
  * derived from the page background, one hairline value instead of hard borders
  * and a single spacing/radius scale.
@@ -70,17 +70,15 @@ const control = {
 };
 
 /**
- * Die Laenge der waagerechten Arme an den eckigen Klammern - dem Markenmotiv, das
- * Statistik-Kacheln, Newsletter-Feld und Footer-Spalten einfasst. Eine Zahl je Stufe,
- * damit die Klammer ueberall dieselbe Zeichnung ist und nicht je Bauteil eine andere.
- * Kurz gehalten (Denis, 06.09.2026): die Klammer soll als Zeichen wirken, nicht als
- * Rahmen. Achtung - der Arm ist zugleich der Abstand des Inhalts zur senkrechten Linie,
- * weil der Inhalt hinter ihm beginnt.
+ * Length of the horizontal arms on square brackets—the brand motif framing statistic
+ * cards, the newsletter field, and footer columns. One value per breakpoint keeps the
+ * bracket drawing consistent rather than making it differ by component. Kept short
+ * (Denis, 06.09.2026): the bracket should read as a mark, not a frame. Note that the
+ * arm is also the content's distance from the vertical line because content starts after it.
  *
- * Zweiter Durchgang am selben Tag: im Footer war ein Kasten uebersehen worden und hatte
- * noch 10 px. Denis hat den kuerzeren Arm gewaehlt - jetzt 10 px auf allen Stufen. Die
- * drei Schluessel bleiben, damit die Aufrufstellen unveraendert bleiben und eine spaetere
- * Staffelung wieder nur hier steht.
+ * Second pass on the same day: a footer box had been missed and still used 10 px. Denis
+ * chose the shorter arm, so it is now 10 px at every breakpoint. The three keys remain
+ * to keep call sites unchanged and make a future progression local to this definition.
  */
 const brace = { lg: 10, md: 10, sm: 10 };
 

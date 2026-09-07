@@ -20,10 +20,18 @@ export default [
             'node_modules/**/*',
             'test/**/*',
             'build/**/*',
-            'build-lib/**/*',
             'tmp/**/*',
             '.**/*',
         ],
+    },
+    {
+        // The TypeScript rules of @iobroker/eslint-config are only applied to "**/*.ts" and "**/*.tsx",
+        // so the same JSDoc settings must be repeated for the build scripts in "*.mts".
+        files: ['**/*.mts'],
+        rules: {
+            'jsdoc/require-returns': 'off',
+            'jsdoc/tag-lines': ['error', 'never', { startLines: 1 }],
+        },
     },
     {
         // disable temporary the rule 'jsdoc/require-param' and enable 'jsdoc/require-jsdoc'

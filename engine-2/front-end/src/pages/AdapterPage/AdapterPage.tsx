@@ -440,7 +440,7 @@ const AdapterPage = (): React.ReactNode => {
                 </Box>
 
                 <Box sx={{ gridColumn: '1 / -1', marginTop: '100px' }}>
-                    {/* ohne `position`: die Linie misst sich selbst, siehe Divider */}
+                    {/* Without `position`, the line measures itself; see Divider. */}
                     <Divider beforeFooter />
                     <Footer />
                 </Box>

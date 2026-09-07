@@ -3,8 +3,11 @@
     "compileOnSave": true,
     "compilerOptions": {
         "noEmit": true,
-        "allowJs": true,
+        "allowJs": false,
         "checkJs": false,
+
+        // build-lib/*.mts and tasks.mts are executed directly by node (>= 22.19), they are never compiled
+        "allowImportingTsExtensions": true,
 
         "skipLibCheck": true, // Don't report errors in 3rd party definitions
         "noEmitOnError": true,
@@ -22,6 +25,6 @@
         "useUnknownInCatchVariables": false,
         "types": ["node"]
     },
-    "include": ["src/**/*.*", "src/**/*.d.*", "tasks.ts"],
+    "include": ["src/**/*.*", "src/**/*.d.*", "tasks.mts", "build-lib/**/*.mts"],
     "exclude": ["build/**", "node_modules/**", "front-end/**"]
 }

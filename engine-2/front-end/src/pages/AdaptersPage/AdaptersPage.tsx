@@ -1,3 +1,4 @@
+import { type JSX } from 'react';
 import { Box, ToggleButton, ToggleButtonGroup, Tooltip, useMediaQuery, useTheme } from '@mui/material';
 import { AdapterBlock } from '../../components/AdapterBlock/AdapterBlock';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
@@ -19,7 +20,14 @@ import type { AdapterItem } from '../../components/AdapterItem/AdapterItem';
 
 const STORAGE_KEY = 'adaptersPageState';
 
-const loadSavedState = (): Record<string, unknown> | null => {
+const loadSavedState = (): {
+    mode?: 'block' | 'table';
+    search?: string;
+    menuMode?: 'all' | 'installed';
+    isMenuCollapsed?: boolean;
+    selectedMenuItem?: string;
+    selectedCategoryKey?: string;
+} | null => {
     try {
         const saved = sessionStorage.getItem(STORAGE_KEY);
         if (saved) {
@@ -31,7 +39,7 @@ const loadSavedState = (): Record<string, unknown> | null => {
     return null;
 };
 
-const AdaptersPage = (): React.ReactNode => {
+const AdaptersPage = (): JSX.Element => {
     const theme = useTheme();
     const saved = useMemo(() => loadSavedState(), []);
     const [mode, setMode] = useState<'block' | 'table'>(saved?.mode || 'block');
@@ -287,7 +295,7 @@ const AdaptersPage = (): React.ReactNode => {
                         ) : (
                             adaptersTableContent
                         )}
-                        {/* ohne `position`: die Linie misst sich selbst, siehe Divider */}
+                        {/* Without `position`, the line measures itself; see Divider. */}
                         <Divider beforeFooter />
                         <Footer />
                     </Box>

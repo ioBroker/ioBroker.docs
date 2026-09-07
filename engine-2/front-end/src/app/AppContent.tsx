@@ -62,7 +62,7 @@ const AppContent = (): React.ReactNode => {
             </Box>
             {!hideGlobalFooter && (
                 <>
-                    {/* ohne `position`: die Linie misst sich selbst, siehe Divider */}
+                    {/* Without `position`, the line measures itself; see Divider. */}
                     <Divider beforeFooter />
                     <Footer />
                 </>
