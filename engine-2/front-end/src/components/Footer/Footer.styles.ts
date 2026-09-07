@@ -169,12 +169,8 @@ export const useFooterStyles = makeStyles()(theme => ({
         display: 'flex',
     },
     /**
-     * Die Groesse der vier Kaesten. Sie stand bis 06.09.2026 als `style` an der
-     * Komponente (160x171, unter 500 px 157x166) - und weil ein `style` jede Klasse
-     * schlaegt, konnte kein Raster sie schmaler machen. Auf dem Handy war das der Grund
-     * fuer die vier untereinander: zwei Kaesten zu 157 plus 16 Abstand sind 330 und
-     * passen nicht in die 320 px, die 360 px Schirm uebrig lassen. Jetzt steht die
-     * Groesse in der Klasse und unter 600 px bestimmt das Raster die Breite.
+     * Size of the four cards. It moved from component `style` to the class, allowing the
+     * grid to narrow cards below 600 px.
      */
     sectionBrace: {
         width: FOOTER_BRACE_WIDTH,
@@ -186,17 +182,14 @@ export const useFooterStyles = makeStyles()(theme => ({
         },
     },
     /**
-     * Armlaenge aus dem Kit (`theme.custom.brace`) - dieselbe Zeichnung wie an den
-     * Statistik-Kacheln und am Newsletter-Feld. Vorher liefen die Arme hier verkehrt
-     * herum: 10 px auf dem Desktop, aber 25 px auf dem Handy, wo der Kasten am
-     * schmalsten ist.
+     * Arm length from the kit (`theme.custom.brace`), matching statistic cards and the
+     * newsletter. Previously arms were longer on mobile, where cards are narrowest.
      */
     bracesLeft: {
         borderTop: `1px solid ${theme.palette.primary.main}`,
         borderBottom: `1px solid ${theme.palette.primary.main}`,
         borderLeft: `1px solid ${theme.palette.primary.main}`,
-        // ohne das quetscht die Flexbox den Arm zusammen - im Footer war einer
-        // davon auf 0 px geschrumpft und die Klammer fehlte auf einer Seite
+        // Prevents Flexbox from shrinking the arm to zero and losing one bracket side.
         flexShrink: 0,
         borderRadius: '2px 0 0 2px',
         width: theme.custom.brace.lg,
@@ -211,8 +204,7 @@ export const useFooterStyles = makeStyles()(theme => ({
         borderTop: `1px solid ${theme.palette.primary.main}`,
         borderBottom: `1px solid ${theme.palette.primary.main}`,
         borderRight: `1px solid ${theme.palette.primary.main}`,
-        // ohne das quetscht die Flexbox den Arm zusammen - im Footer war einer
-        // davon auf 0 px geschrumpft und die Klammer fehlte auf einer Seite
+        // Prevents Flexbox from shrinking the arm to zero and losing one bracket side.
         flexShrink: 0,
         borderRadius: '0 2px 2px 0',
         width: theme.custom.brace.lg,
@@ -230,37 +222,29 @@ export const useFooterStyles = makeStyles()(theme => ({
         display: 'flex',
         flexDirection: 'column',
         /**
-         * Derselbe Rhythmus wie im Link-Kasten daneben: Beschriftung in der ersten
-         * Zeile, eine Zeile Luft, Zeichen in der dritten. Drei Zeilen zu FOOTER_ROW,
-         * mittig im Kasten - genau das, was die drei Links nebenan ergeben.
+         * The same rhythm as the adjacent links: caption in row one, space in row two,
+         * icons in row three.
          */
         justifyContent: 'center',
         height: '100%',
         gap: FOOTER_ROW,
     },
     /**
-     * Eine Beschriftung fuer jede Breite. Es gab zwei Fassungen, die bei 736 px
-     * wechselten - dieselbe Zeichenkette, nur in 16 statt 12 px. Auf dem Desktop brach
-     * die grosse Fassung im 160 px schmalen Kasten auf zwei Zeilen und schob die Zeichen
-     * aus dem Rhythmus (Denis, 06.09.2026: "gestalte den Kasten wie in den Versionen
-     * davor"). Die Beschriftung ist eine Bildunterschrift zu den beiden Zeichen, keine
-     * Ueberschrift - 12 px ist ihre Rolle, nicht ihre Notloesung.
+     * One caption at every width. The former 16 px desktop version wrapped in a 160 px
+     * card and displaced the icons; as an icon caption, 12 px is its proper role.
      */
     supportLabel: {
         display: 'flex',
         alignItems: 'center',
-        // eine Zeile des Nachbarkastens - siehe FOOTER_ROW
+        // One row of the neighboring card; see FOOTER_ROW.
         minHeight: FOOTER_ROW,
         fontSize: '12px',
-        // zwei gleich lange Zeilen statt eines einzelnen Wortes darunter
+        // Two equally long lines rather than one isolated word below.
         textWrap: 'balance',
     },
     /**
-     * Die beiden Spendenzeichen sind unterschiedlich gross gezeichnet (PayPal 40, Amazon
-     * 32 - beide im selben `viewBox`), und die Verweise legten ihr Bild jeweils an den
-     * oberen Rand. Dadurch standen sie nicht auf einer Linie (Denis, 06.09.2026). Jetzt
-     * sitzt jedes Zeichen mittig in seinem Verweis und beide Verweise mittig in der
-     * Zeile, so dass die Mitten uebereinstimmen - unabhaengig von der Zeichengroesse.
+     * Donation icons have different drawn sizes, so each icon and link is centered to
+     * align their centers regardless of icon size.
      */
     donateButtons: {
         display: 'flex',
@@ -271,7 +255,7 @@ export const useFooterStyles = makeStyles()(theme => ({
             display: 'inline-flex',
             alignItems: 'center',
         },
-        // dritte Zeile des Nachbarkastens - siehe FOOTER_ROW
+        // Third row of the neighboring card; see FOOTER_ROW.
         minHeight: FOOTER_ROW,
     },
     linksColumn: {
@@ -279,8 +263,7 @@ export const useFooterStyles = makeStyles()(theme => ({
         flexDirection: 'column',
         justifyContent: 'center',
         height: '100%',
-        // kein Abstand zwischen den Zeilen - die Zeile selbst ist FOOTER_ROW hoch und
-        // traegt ihre Trefferflaeche
+        // No gap: each FOOTER_ROW-height row carries its own hit area.
         gap: 0,
         alignItems: 'start',
     },
@@ -294,7 +277,7 @@ export const useFooterStyles = makeStyles()(theme => ({
             color: theme.palette.primary.light,
             textDecoration: 'underline',
         },
-        // siehe FOOTER_ROW: Trefferflaeche und Rhythmus in einer Zahl, auf jeder Breite
+        // See FOOTER_ROW: hit area and rhythm in one value at every width.
         display: 'flex',
         alignItems: 'center',
         minHeight: FOOTER_ROW,
@@ -311,13 +294,8 @@ export const useFooterStyles = makeStyles()(theme => ({
         },
     },
     /**
-     * Dieselbe Fassung wie im Spendenkasten, auf jeder Breite: Beschriftung oben,
-     * Zeichen unten, dazwischen eine leere Zeile (Denis, 06.09.2026). Der Kasten wird
-     * dadurch hoeher - vorher standen Beschriftung und Zeichen auf dem Desktop
-     * nebeneinander in einem flachen Streifen.
-     * `flex: 1` ist noetig, damit die Spalte die Kastenhoehe fuellt: ohne das bleibt sie
-     * so hoch wie ihr Inhalt und der Rhythmus haette nichts zu verteilen, sobald das
-     * Raster den Kasten auf die Hoehe des Nachbarn zieht.
+     * Same layout as the donation card at every width: caption above, icons below, and an
+     * empty row between. `flex: 1` fills card height so the rhythm can be distributed.
      */
     socialRow: {
         display: 'flex',
@@ -327,7 +305,7 @@ export const useFooterStyles = makeStyles()(theme => ({
         flex: 1,
         gap: FOOTER_ROW,
     },
-    // erste Zeile, wie die Beschriftung im Spendenkasten - siehe FOOTER_ROW
+    // First row, as the donation-card caption; see FOOTER_ROW.
     followUsText: {
         display: 'flex',
         alignItems: 'center',
@@ -342,9 +320,7 @@ export const useFooterStyles = makeStyles()(theme => ({
         gap: 16,
         alignItems: 'center',
         flexWrap: 'wrap',
-        // dritte Zeile - siehe FOOTER_ROW. Nicht mitwachsen: sonst nimmt die Reihe die
-        // freie Hoehe fuer sich und zentriert die Zeichen darin, statt auf ihrer Zeile
-        // zu stehen
+        // Third row; see FOOTER_ROW. Do not grow, or icons center in available height.
         flex: '0 0 auto',
         minHeight: FOOTER_ROW,
         marginLeft: 0,
