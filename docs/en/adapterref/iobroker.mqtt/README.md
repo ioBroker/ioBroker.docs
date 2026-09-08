@@ -804,6 +804,9 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+### 8.1.0 (2026-09-06)
+* (@GermanBluefox) Added the option "Interpretation of the received payload": besides the previous behavior ("Full") a received message can now be stored without unpacking a JSON into an ioBroker state object ("Numbers and booleans only"), or completely unparsed as string ("None")
+
 ### 8.0.1 (2026-08-28)
 * (@GermanBluefox) The Blockly block is now built from TypeScript sources in `src-blockly/` into `admin/blockly.js`, with the translations in `src-blockly/i18n/`
 * (@GermanBluefox) Fixed: the Blockly block produced no code at all in newer Blockly editors. Since Blockly 10 a generator has to be registered in `Blockly.JavaScript.forBlock`, and the editor migrates its own generators there before it loads an adapter's block
@@ -822,9 +825,6 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 ### 7.1.2 (2026-07-26)
 * (@GermanBluefox) Added a "Replace dots in topic names with underscore" setting to keep MQTT topics that contain dots (e.g. Wolf heating via ism7mqtt) as a single object level (#413)
 * (@GermanBluefox) Client mode: added loop protection so a value just received from the broker is not published straight back, plus a new "Do not subscribe to own states" option (#414)
-
-### 7.1.1 (2026-07-08)
-* (@Marc-Berg) Fixed: Publish only on change issue
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

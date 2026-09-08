@@ -7,12 +7,12 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
     },
     pageContainer: {
-        // left aligned on the page gutter - same start as the adapter and docs pages.
-        // The column may grow well past the standard content width on wide screens,
-        // it just stops before the page sprawls across a 4K desktop.
+        // Centred like the single post, so the two blog pages stand in the same place. The column
+        // may grow well past the standard content width on wide screens, it just stops before the
+        // page sprawls across a 4K desktop - and beyond that width the rest is split evenly.
         width: '100%',
         maxWidth: 2560,
-        margin: 0,
+        margin: '0 auto',
         padding: `${theme.custom.layout.section.md}px ${theme.custom.layout.gutter.lg}px ${theme.custom.layout.section.lg}px`,
         boxSizing: 'border-box',
         [theme.breakpoints.down('md')]: {

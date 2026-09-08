@@ -39,13 +39,15 @@ Over CoAP the device pushes its status on its own, so there is no polling. Some 
 
 | Your device | Model to select |
 | --- | --- |
-| AC2889 and the other classic purifiers, for example AC1214, AC2729, AC2939, AC3059 or AC3829 | `AC2889` |
+| AC2889 and the other classic purifiers, for example AC1214, AC2729, AC2939, AC3059, AC3829 or AC4236 | `AC2889` |
 | AC3221 | `AC3221` |
 | CX3550/01 pedestal fan | `CX3550` |
 | CX7550/01 tower fan | `CX7550` |
 | Anything else, or if you are unsure | `Generic` |
 
-The classic purifiers all report the same plain keys (`pwr`, `om`, `mode` and so on), which is why one entry covers the whole family. Confirmed on real hardware so far: AC2729, AC2889, AC3221, AC3829, CX3550/01 and CX7550/01.
+The classic purifiers all report the same plain keys (`pwr`, `om`, `mode` and so on), which is why one entry covers the whole family. Confirmed on real hardware so far: AC2729, AC2889, AC3221, AC3829, AC4236/14, CX3550/01 and CX7550/01.
+
+The model number on its own tells you nothing about the register set: the AC4236/14 carries a higher number than the AC3221, yet it is a classic device and needs `AC2889`. Pick the entry that matches the keys your device reports, not the one that looks closest to its name.
 
 If you are unsure, connect with `Generic` first and look at the raw keys under `unknownStates`: plain names such as `pwr` or `pm25` mean a classic device, keys such as `D03102` mean a next-generation device. If your device turns out to be a next-generation model that is not in the list, please open an issue with a debug log - that is how the CX7550/01 and the AC3221 were added.
 
@@ -91,6 +93,13 @@ More details are documented in [docs/CX7550.md](docs/CX7550.md).
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2026-09-08)
+
+- (tt-tom17) Added the combined allergen/sleep preset ("Allergie-/Ruhemodus") reported by the AC4236/14 (VMI1)
+- (tt-tom17) Classic devices now show the total filter life next to the remaining hours, plus the device language and version (VMI1)
+- (tt-tom17) The "wrong device model" warning is no longer silenced by a single register that both models use (VMI1)
+- (tt-tom17) Fixed a device attribute spelled like one of the adapter's own state names being treated as a mapped value (VMI1)
+
 ### 2.1.0 (2026-08-29)
 
 - (tt-tom17) Fixed error messages ("DB closed", "setTimeout called, but adapter is shutting down") that appeared in the log every time the adapter was stopped or restarted (MatthiasBosch)
@@ -134,6 +143,7 @@ More details are documented in [docs/CX7550.md](docs/CX7550.md).
 - (mcm1957) Dependencies have been updated
 
   
+
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License

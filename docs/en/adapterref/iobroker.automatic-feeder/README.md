@@ -748,6 +748,15 @@ stratification visible (`status.waterStratification`). For most ponds it is opti
 	### **WORK IN PROGRESS**
 -->
 
+### 1.18.3 (2026-09-06)
+* (ssbingo) Maintenance: updated `@iobroker/adapter-core` to 3.4.3 (repository checker W0034). No functional changes
+
+### 1.18.2 (2026-09-06)
+* (ssbingo) Maintenance: dependency updates merged via Dependabot — `@iobroker/adapter-react-v5` 8.3.3, `@tsconfig/node22` 22.0.6 and `dayjs` 1.11.23 (MUI stays 6 as `adapter-react-v5` still requires it); the admin UI was rebuilt. No functional changes
+
+### 1.18.1 (2026-09-03)
+* (ssbingo) **Fix – Sayit announcement.** The pre-feeding announcement via **Sayit** now reliably speaks the **current** text: it uses Sayit's documented **`say` message command** (`sendTo`) instead of writing the `tts.text` / `tts.volume` states, which could re-play a **stale/old** announcement (e.g. a previous test message) and raced the separate volume write. Telegram announcements were never affected
+
 ### 1.18.0 (2026-09-01)
 * (ssbingo) **Central feed list** with its own **Feed list** tab (issue #26). Maintain your food types centrally — **name, vendor/dealer, pellet size (mm)** and the four standard **nutritional values** (crude protein / fat / fibre / ash %), plus an optional **offer/purchase link**. In each switch tab you pick, under **Currently loaded feed**, which feed is currently filled into that feeder
 * (ssbingo) This **replaces the per-switch feed profiles** from 1.17.0 (issue #25): existing profiles are automatically merged into the central list, each switch's calibrated **dispense rate stays per switch** (`dispenseGramsPerSec`), and its `activeFeed` now references a feed by **id**
@@ -778,21 +787,6 @@ stratification visible (`status.waterStratification`). For most ponds it is opti
 
 ### 1.14.1 (2026-08-29)
 * (ssbingo) UI: opening a switch's **Relay** tab now runs the **connection test and reads the board data automatically** (once, when a board address is configured) — the connection status, system overview and S1–S3 button times load without clicking *Test connection*. A plain read no longer marks the configuration as changed
-
-### 1.14.0 (2026-08-29)
-* (ssbingo) **The feeding-amount model can now control feeding (opt-in).** Enable **Control feeding with this amount** on a switch and the recommended daily grams are converted to motor run-time — via a calibrated **dispense rate** (g/s) — and split across the day's feedings. The amount model becomes the "how much" driver, **mutually exclusive with dynamic (Q10)**
-* (ssbingo) **Calibration helper** on the switch tab: run the motor for a few seconds, weigh the dispensed food, and the adapter computes the g/s rate. An optional **daily maximum (g)** guards against overfeeding, and the per-feeding duration is capped
-* (ssbingo) New states **`status.feedTargetSecondsToday`** (s per day) and **`status.feedEffectiveDurationSec`** (s per feeding). The **"when"** (fixed times / interval / astronomical window) and all blocks (night, temperature, O₂, pauses, winter) stay unchanged and keep priority
-* (ssbingo) Documentation updated in all 11 languages and in the German PDF handbook
-
-### 1.13.1 (2026-08-28)
-* (ssbingo) UI: the feeding-amount **fish-stock table is larger and easier to read** — the fish icons now **scale with the size class** (a 15 cm fish is shown smaller than a 60 cm one, on a common baseline), the table is about 50 % wider and the rows are roughly twice as tall. Purely visual, no functional change
-
-### 1.13.0 (2026-08-28)
-* (ssbingo) **Feeding-amount model – redesigned input.** The fish stock is now entered in a compact **table** modelled on the feeder manual: one row per size class with a **fish icon**, the size, the **fixed weight estimate** and a **count** field
-* (ssbingo) The per-size **weight is no longer an editable field** — it is a fixed estimate from the manual (60/125/350/1000/2000/4000 g). You now only enter **how many fish** there are per size class; the calculation and the states (`status.fishTotalWeight` / `status.feedPercentToday` / `status.feedTargetGramsToday`) are unchanged
-* (ssbingo) Documentation updated in all 11 languages and in the German PDF handbook
-* (ssbingo) Maintenance: bumped the `@alcalzone/release-script-plugin-license` devDependency to 5.2.2
 
 ---
 

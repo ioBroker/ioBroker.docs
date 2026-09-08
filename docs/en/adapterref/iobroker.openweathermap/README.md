@@ -20,6 +20,9 @@ You need an api key to access the data. The api key you can get for free after r
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.0.1 (2026-09-08)
+* (@GermanBluefox) The weather widget is now shown as a live preview in the admin configuration too
+
 ### 2.0.0 (2026-08-16)
 * (@JDCodes) Added feels_like temperature, visibility and the day name (long and short) as text
 * (@JDCodes) Daily rain and snow are now totals and not averages
@@ -36,9 +39,6 @@ You need an api key to access the data. The api key you can get for free after r
 
 ### 1.2.0 (2024-07-23)
 * (bluefox) Widget was partly ported to TypeScript
-
-### 1.1.2 (2024-07-07)
-* (bluefox) Removed withStyles package
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

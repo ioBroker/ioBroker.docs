@@ -13,7 +13,7 @@ BADGE-Beta: https://img.shields.io/npm/v/iobroker.node-red.svg?color=red&label=b
 BADGE-Stable: http://iobroker.live/badges/node-red-stable.svg
 BADGE-Installed: http://iobroker.live/badges/node-red-installed.svg
 ---
-![Logo](./admin/node-red.png)
+![Logo](../../admin/node-red.png)
 
 # ioBroker.node-red
 

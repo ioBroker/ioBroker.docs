@@ -35,6 +35,7 @@ The adapter reads the GoodWe EMS Modbus protocol v1.7 register blocks for ET/EH/
 * BMS information and BMS detailed information
 * CEI auto test information
 * Power limit information
+* Battery and EMS settings, including the grid export limit and the EMS mode
 
 Raw register values are kept as ioBroker states. Mode values are numeric states with ioBroker enum labels. Important bitfields are also exposed as decoded text states, for example active inverter errors, diagnostic status, BMS alarms and DRM status.
 
@@ -60,6 +61,9 @@ Raw register values are kept as ioBroker states. Mode values are numeric states 
 | `BMSDetail.*` | Detailed BMS values if enabled and supported by the inverter |
 | `CEIAutoTest.*` | CEI auto test values if supported by the inverter |
 | `PowerLimit.*` | Power limit and dispatch values if enabled and supported by the inverter |
+| `Settings.Battery.*` | Battery capacity, module count, charge and discharge limits and discharge depth |
+| `Settings.GridExportEnabled`, `Settings.GridExportLimit` | Grid export limit switch and value |
+| `Settings.EmsMode`, `Settings.EmsPowerLimit` | EMS mode and the power the EMS mode works with |
 
 ## Configuration
 
@@ -77,12 +81,33 @@ Raw register values are kept as ioBroker states. Mode values are numeric states 
 * `pollBmsDetail`: Enables BMS detail registers, if supported by the inverter.
 * `pollCeiAutoTest`: Enables CEI auto test registers.
 * `pollPowerLimit`: Enables power limit registers, if supported by the inverter.
+* `pollSettings`: Enables the battery and EMS setting registers.
+* `enableControl`: Makes the EMS and grid export states writable, see below. Off by default.
 
 The basic settings page also provides discovery helpers:
 
 * `Inverter IP`: Stores only the inverter IPv4 address.
 * `Validate inverter IP`: Checks the configured address and sends the GoodWe ID request to UDP port 8899.
 * `Discover inverters`: Scans the configured `/24` subnet for GoodWe devices on UDP port 8899 and displays found inverters with IP address, model name, serial number and version information when provided by the inverter.
+
+## Inverter control
+
+With `enableControl` switched on, four states become writable and are sent to the inverter as
+single register writes. Every other state stays read-only.
+
+| State | Register | Range | Description |
+| --- | --- | --- | --- |
+| `Settings.GridExportEnabled` | 47509 | 0-1 | Turns the grid export limit on or off |
+| `Settings.GridExportLimit` | 47510 | 0-30000 W | Maximum power fed into the grid |
+| `Settings.EmsMode` | 47511 | 1-12 | EMS mode, for example 1 auto, 11 charge battery, 12 discharge battery |
+| `Settings.EmsPowerLimit` | 47512 | 0-30000 W | Power the selected EMS mode works with |
+
+Values outside the range are clamped, values that are not numbers are refused, and the register
+group is read back after every write, so the states show what the inverter really stored.
+
+GoodWe does not document its writable registers. Control is off by default, and switching it on
+happens at your own risk: a wrong value changes inverter settings that the adapter cannot restore.
+Leave it off if you only want to read data.
 
 ## Troubleshooting
 
@@ -104,6 +129,10 @@ For unstable network connections, increase `timeoutMs` first. Increase `retries`
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added the battery settings (registers 45350-45358) and the EMS settings (registers 47509-47512) as new `Settings.*` states, enabled with the new `pollSettings` option.
+- Added optional inverter control: with the new `enableControl` option the states `Settings.EmsMode`, `Settings.EmsPowerLimit`, `Settings.GridExportEnabled` and `Settings.GridExportLimit` become writable and are sent to the inverter as single register writes. Written values are clamped to the documented range, only these four registers are ever written, and the register group is read back after every write. Control is off by default.
+
 ### 1.1.3 (2026-08-28)
 - Fixed the adapter crashing with `Cannot read properties of undefined (reading 'debug')`: the logger is now read when it is used instead of being captured before the adapter assigned it.
 - Fixed the adapter staying offline after a single lost UDP answer. The socket is rebound after a timeout, so a late answer can no longer be mistaken for the answer of the next register group.

@@ -1,97 +1,162 @@
-# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
-
-**Release:** [![npm version](https://img.shields.io/npm/v/iobroker.public-holidays)](https://www.npmjs.com/package/iobroker.public-holidays) ![stable](https://iobroker.live/badges/public-holidays-stable.svg) ![Installations](https://iobroker.live/badges/public-holidays-installed.svg) [![npm downloads](https://img.shields.io/npm/dt/iobroker.public-holidays)](https://www.npmjs.com/package/iobroker.public-holidays)
-
-**Build:** [![Test and Release](https://github.com/krobipd/ioBroker.public-holidays/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/krobipd/ioBroker.public-holidays/actions/workflows/test-and-release.yml) ![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![Sentry](https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white)](https://github.com/ioBroker/plugin-sentry#plugin-sentry)
-
-**Support:** [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)](https://ko-fi.com/krobipd) [![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/krobipd)
-
-Detects public holidays for 206 countries. Runs completely offline — no cloud, no API calls. Updates daily at midnight.
-
-Holiday data provided by [date-holidays](https://github.com/commenthol/date-holidays) (ISC + CC-BY-SA-3.0).
-
 ---
-
-## Features
-
-- **206 countries** with state/province and region support
-- **Fully offline** — all holiday data is bundled, no internet required
-- **5 holiday types** — public, bank, school, optional, observance (configurable)
-- **Bridge day detection** — detects working days between holidays and weekends
-- **Exclude individual holidays** — select holidays to exclude via dropdown
-- **Localized holiday names** — follows system language with English fallback
-- **Schedule mode** — computes once at startup and daily at midnight, no memory usage between runs
-
-## Sentry / Error reporting
-
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** Reporting only happens if you have enabled error reporting in the ioBroker diagnostics (**System settings → Diagnostics and error reporting**). Only an anonymous installation ID is transmitted — no name, e-mail address or IP address.
-
-For details and how to disable it, see the [Sentry plugin documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Error reporting requires js-controller 3.0 or newer.
-
+BADGE-npm version: https://img.shields.io/npm/v/iobroker.public-holidays
+BADGE-stable: https://iobroker.live/badges/public-holidays-stable.svg
+BADGE-Installations: https://iobroker.live/badges/public-holidays-installed.svg
+BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.public-holidays
+BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
+BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
+BADGE-License: https://img.shields.io/badge/license-MIT-green
+BADGE-Sentry: https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white
+BADGE-Ko-fi: https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge
 ---
+# Public Holidays
 
-## Requirements
+Public Holidays turns the calendar into data points: whether today is a holiday, what it is called,
+what is coming next and how many days away it is. Everything is calculated **offline** on your own
+system — there is no account, no API key and no internet connection involved.
 
-- ioBroker js-controller >= 7.2.2
-- ioBroker Admin >= 8.0.1
-- Node.js >= 22
+## How it works
 
-## Configuration
+The adapter runs in **schedule mode**. It calculates once when it is started or when you save the
+settings, and after that once a day at midnight, triggered by the ioBroker controller. Each run
+writes its results and the process ends again — it does not stay in memory between runs.
 
-All settings live on a single guided card. Work through it from top to bottom:
+The holiday data comes from the `date-holidays` library, which is shipped with the adapter and
+covers 206 countries including their states, provinces and regions.
 
-| Step              | Description                                                                                                                                              |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Location          | Country (206 available); state/province and region appear only for countries that have them. If country is left empty it is auto-detected from your ioBroker system settings. |
-| Holiday types     | Public (default on), bank, school, optional and observance days.                                                                                        |
-| Bridge days       | Adds bridge days between a holiday and the weekend.                                                                                                      |
-| Excluded holidays | Pick individual holidays to exclude from detection.                                                                                                      |
-| Detected holidays | A live preview of the holidays the adapter will detect for the current selection.                                                                        |
+## Setup
 
-> The settings card is an Admin-8 component, so this adapter requires Admin 8.
+1. Install the adapter from the ioBroker repository (stable or latest) and create an instance.
+   Installing from a GitHub URL is not supported.
+2. Open the instance settings. All settings live on one guided card, worked through from top to
+   bottom.
+3. Save. The adapter calculates immediately and writes its data points.
 
-## State Tree
+### Location
 
-```
-public-holidays.0.
-├── today.
-│   ├── name         string    "Karfreitag" / "Good Friday"
-│   └── isHoliday    boolean   true / false
-├── yesterday.
-│   ├── name         string
-│   └── isHoliday    boolean
-├── tomorrow.
-│   ├── name         string
-│   └── isHoliday    boolean
-├── dayAfterTomorrow.
-│   ├── name         string
-│   └── isHoliday    boolean
-└── next.
-    ├── name         string    next holiday name (localized)
-    ├── isHoliday    boolean   true when an upcoming holiday exists
-    ├── date         string    "2026-12-25" (ISO date)
-    └── daysUntil    number    days until holiday
-```
+Pick your country. States/provinces and regions only appear for countries that have them — for
+example Germany has states, Italy has numeric province codes.
 
-When no holiday applies (e.g. today is not a holiday), the channel states are empty strings / false / 0.
+If you leave the country empty, the adapter takes the country from your **ioBroker system settings**
+(System settings → Main settings → Country) and writes a line to the log saying which country it
+used. If that country cannot be matched, the adapter says "No country configured" and stops.
 
-## Bridge Day Algorithm
+### Holiday types
 
-A bridge day is a working day (Monday–Friday) between a holiday and a weekend:
+Five types can be enabled independently:
 
-- Holiday on **Thursday** → Friday is a bridge day
-- Holiday on **Tuesday** → Monday is a bridge day
-- Holiday on **Wednesday** → no bridge day (two days missing)
+| Type       | Meaning                                                                              |
+| ---------- | ------------------------------------------------------------------------------------ |
+| Public     | Statutory public holidays. Enabled by default.                                       |
+| Bank       | Days on which banks and public offices are closed but which are not public holidays. |
+| School     | School holidays.                                                                     |
+| Optional   | Days that are a holiday only for parts of the population.                            |
+| Observance | Commemorative days that are not days off — e.g. Mother's Day.                        |
 
-Bridge days appear in the state tree with the localized name matching the system language.
+If two holidays fall on the same day, three rules decide which name is reported, in this order:
+
+1. the higher-ranking type wins, in the order of the table above,
+2. a holiday that genuinely belongs on that day beats one that was only moved there off a weekend,
+3. and if that still ties, a fixed internal ordering decides.
+
+All three are unambiguous, so the name stays the same across data updates. Until version 0.15.1 a
+tie was settled by whichever holiday the data happened to list first, which could change silently
+with a data update — in 42 countries, among them Norway, Poland, Romania, Serbia and Taiwan.
+
+> If you switch **all** types off, the adapter reports no holidays at all — the settings card and
+> the log both say so.
+
+### Bridge days
+
+A bridge day is a working day squeezed between a holiday and the weekend. With the option enabled
+the adapter adds them as holidays in their own right, named "Bridge day" in your language:
+
+- a holiday on **Thursday** → the **Friday** becomes a bridge day,
+- a holiday on **Tuesday** → the **Monday** becomes a bridge day,
+- a **Wednesday** framed by a holiday on Tuesday _and_ Thursday becomes a bridge day.
+
+A Wednesday holiday alone creates none: reaching the weekend from there would need two days off.
+A bridge day never overwrites a real holiday, and it never creates further bridge days.
+
+### Excluded holidays
+
+Some holidays are irrelevant for a given household — you can exclude individual entries. The list
+offers exactly the holidays of your selected location and enabled types, so what you can exclude is
+what the adapter would otherwise report.
+
+An exclusion is stored by an internal id derived from the holiday's calculation rule. If a later
+data update renames or removes that rule, the exclusion no longer matches anything — the adapter
+then writes a warning naming the stale entry, and the settings card shows it as a removable chip
+under the selection list.
+
+Exclusions are applied **before** bridge days are worked out, so excluding a Thursday holiday also
+removes the Friday bridge day that came with it.
+
+### Detected holidays
+
+The bottom of the card previews the holidays the adapter will detect for the current year with your
+current settings — including bridge days and minus your exclusions. It is calculated the same way
+the adapter calculates, so what you see is what you get.
+
+## Data points
+
+| Data point                                             | Type             | Meaning                                                                        |
+| ------------------------------------------------------ | ---------------- | ------------------------------------------------------------------------------ |
+| `today.name`                                           | string           | Name of today's holiday, empty on a normal day                                 |
+| `today.isHoliday`                                      | boolean          | Whether today is a holiday                                                     |
+| `yesterday.name` / `yesterday.isHoliday`               | string / boolean | Same for yesterday                                                             |
+| `tomorrow.name` / `tomorrow.isHoliday`                 | string / boolean | Same for tomorrow                                                              |
+| `dayAfterTomorrow.name` / `dayAfterTomorrow.isHoliday` | string / boolean | Same for the day after tomorrow                                                |
+| `next.name`                                            | string           | Name of the next upcoming holiday                                              |
+| `next.isHoliday`                                       | boolean          | Whether an upcoming holiday was found at all                                   |
+| `next.date`                                            | string           | Its date as `YYYY-MM-DD` — machine-readable, unaffected by your display format |
+| `next.daysUntil`                                       | number           | Days until that holiday                                                        |
+
+All data points are read-only, and each one carries a short explanation in your language that you
+can read in the object tree. `next` looks strictly ahead: a holiday that is today appears in
+`today`, not in `next`.
+
+The names of the channels and data points follow your ioBroker system language and are refreshed on
+every run — including on installations that were updated rather than newly installed. If you rename
+one of these data points by hand, the adapter will overwrite it again.
+
+## Language
+
+Holiday names are shown in your ioBroker system language when the holiday data provides that
+language, otherwise in English. Eleven languages are supported: German, English, Spanish, French,
+Italian, Dutch, Polish, Portuguese, Russian, Ukrainian and Chinese.
 
 ## Troubleshooting
 
-**No states after first start** — Open adapter settings and select a country.
+**No holidays are reported at all.**
+Check the log. "No country configured" means neither the adapter nor the ioBroker system settings
+provide a usable country. "No holiday type is enabled" means every type checkbox is off.
 
-**Wrong holidays / missing regional holidays** — Check that the correct state/province is selected. Set log level to debug to see all detected holidays.
+**The state or region I configured seems to be ignored.**
+An unknown state or region silently falls back to the broader level. The adapter detects this and
+warns: "State 'XX' is unknown for YY — using country-level holidays". Pick the entry from the
+dropdown rather than typing it. If a data update removed the entry you had stored, the settings
+card points it out above the dropdown and leaves your configuration untouched until you pick a new
+one.
 
-**Holiday not detected** — Some holidays are classified as `observance` rather than `public`. Enable the observance type in the holiday settings if needed.
+**A holiday is missing or appears unexpectedly.**
+Enable the matching holiday type — some days count as observances rather than public holidays, and
+this can change with a data update. Also check your exclusion list.
+
+**An exclusion stopped working after an update.**
+The holiday's calculation rule was renamed in the data. The adapter warns about stale exclusions on
+every run; remove the chip in the settings and pick the holiday again.
+
+**The log shows `Connection is closed.` around midnight.**
+This comes from the ioBroker controller shutting the adapter down, not from the adapter itself. It
+is harmless; the run has already written its data points at that point.
+
+## Privacy
+
+The adapter works entirely offline: no data leaves your system. Optional error reporting via Sentry
+can be switched off in the ioBroker settings — see the Sentry plugin documentation linked in the
+main README.
 
 ## Changelog
 
@@ -99,6 +164,26 @@ Bridge days appear in the state tree with the localized name matching the system
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 0.16.0 (2026-09-06)
+
+- Fixed: Two holidays on one day could swap the reported name on their own with a data update. A fixed rule decides now — the name changes in 39 countries, among them Norway, Poland and Taiwan.
+- Fixed: A day moved off a weekend no longer pushes aside the holiday that genuinely belongs on that date.
+- New: Every data point now explains itself in the object tree, in your language.
+- Fixed: Opening the settings marked them as changed when a stored state or province had vanished from the holiday data. The card points that entry out now instead.
+- Fixed: A country written as a name instead of its code was rejected in the settings, although the same name worked when it came from the ioBroker system settings.
+- Fixed: Refreshed holiday data — Belgian holidays now carry English names, and the entries for Albania and Andorra were corrected.
+- Changed: Install the adapter from the ioBroker repository (stable or latest) — installing from GitHub is no longer supported.
+
+### 0.15.1 (2026-09-04)
+
+- Fixed: Installations kept whatever holiday data was already on the system, so corrections and new countries never arrived. An update now brings the current data along.
+
+### 0.15.0 (2026-09-04)
+
+- Fixed: With no holiday type enabled the adapter reported nothing without a word while the card still previewed a full year. Card and log now say it.
+- Changed: Channel and data point names are refreshed on every run, so renames reach updated installations too — a manual rename of them is overwritten.
+
 ### 0.14.0 (2026-09-01)
 
 - New: the next-holiday log line now shows the date in your system's date format — for example 26.10.2026 instead of 2026-10-26. The date data point itself stays machine-readable for scripts.
@@ -108,37 +193,7 @@ Bridge days appear in the state tree with the localized name matching the system
 - Fixed: Stopping or restarting the instance while the holidays were being worked out cut that run short, which could leave half-written values and errors in the log.
 - Changed: Heads-up for Austria — St. Martin's, Rupert's and Referendum Day count as observances now and disappear unless that type is enabled. Plus data fixes for Ireland, Russia and others.
 
-### 0.13.1 (2026-08-22)
-
-- Fixed: The support links were missing from the settings page since the new card was introduced; they are back below it.
-
-### 0.13.0 (2026-08-13)
-
-- The adapter settings are now a single guided card — country, region, holiday types and exclusions on one page, with a live preview of the holidays that will be detected.
-
-### 0.12.0 (2026-08-10)
-
-- The holiday exclusion selector in the settings now works on Admin 8 — it was blank there since Admin 8.0.1, so this version requires Admin 8.
-
 [Older changelogs can be found there](CHANGELOG_OLD.md)
-
-## Credits
-
-The idea goes back to the `feiertage` adapter by pix, which brought holiday data to ioBroker in the first place. Thanks to [Jey Cee](https://github.com/Jey-Cee) for handing over the `public-holidays` package name. This adapter is an independent implementation and shares no code with either.
-
-## Support
-
-- [GitHub Issues](https://github.com/krobipd/ioBroker.public-holidays/issues) — bug reports, feature requests
-- [ioBroker Forum](https://forum.iobroker.net/) — general questions
-
-### Support Development
-
-This adapter is free and open source. If you find it useful, consider buying me a coffee:
-
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/krobipd)
-[![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)](https://paypal.me/krobipd)
-
----
 
 ## License
 

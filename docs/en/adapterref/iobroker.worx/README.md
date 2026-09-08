@@ -5,7 +5,7 @@ BADGE-Number of Installations: https://iobroker.live/badges/worx-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/worx-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 ---
-![Logo](./admin/worx.png)
+![Logo](../../admin/worx.png)
 
 # ioBroker.worx Adapter
 

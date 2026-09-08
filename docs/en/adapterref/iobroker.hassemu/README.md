@@ -1,182 +1,256 @@
-# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.hassemu@main/admin/hassemu.svg" width="48" align="top" /> ioBroker.hassemu
-
-**Release:** [![npm version](https://img.shields.io/npm/v/iobroker.hassemu)](https://www.npmjs.com/package/iobroker.hassemu) ![stable](https://iobroker.live/badges/hassemu-stable.svg) ![Installations](https://iobroker.live/badges/hassemu-installed.svg) [![npm downloads](https://img.shields.io/npm/dt/iobroker.hassemu)](https://www.npmjs.com/package/iobroker.hassemu)
-
-**Build:** [![Test and Release](https://github.com/krobipd/ioBroker.hassemu/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/krobipd/ioBroker.hassemu/actions/workflows/test-and-release.yml) ![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![Sentry](https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white)](https://github.com/ioBroker/plugin-sentry#plugin-sentry)
-
-**Support:** [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)](https://ko-fi.com/krobipd) [![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/krobipd)
-
-Emulates a Home Assistant server so displays that only accept an HA dashboard show any web URL instead.
-
 ---
-
-## What it's for
-
-The display completes the HA onboarding, then shows whatever web URL you point it at — VIS, VIS-2, Aura, Grafana, Node-RED, anything HTTP.
-
-Typical clients: Shelly Wall Display family (built-in HA page; on-device HA app on firmware 2.6.0+), Home Assistant Companion App (Android wall panels, sideloaded apps). Anything that uses the same HA onboarding flow should work — if yours doesn't, open an issue with the failing endpoint trace.
-
+BADGE-npm version: https://img.shields.io/npm/v/iobroker.hassemu
+BADGE-stable: https://iobroker.live/badges/hassemu-stable.svg
+BADGE-Installations: https://iobroker.live/badges/hassemu-installed.svg
+BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.hassemu
+BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
+BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
+BADGE-License: https://img.shields.io/badge/license-MIT-green
+BADGE-Sentry: https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white
+BADGE-Ko-fi: https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge
 ---
+# hassemu — put any web page on a display that only accepts Home Assistant
 
-## Features
+Some wall displays will only talk to a Home Assistant server. They run through the HA
+onboarding, and after that they show an HA dashboard — and nothing else. hassemu answers
+the parts of the HA protocol those displays ask for, so the onboarding completes, and then
+sends the display to whatever web page you choose: a VIS view, an Aura dashboard, Grafana,
+Node-RED, a page you wrote yourself.
 
-- One URL per display, or one global URL for all
-- Auto-discovery via mDNS, plus auto-detect of every VIS / VIS-2 / Aura instance installed on the host (see [Supported dashboards](#supported-dashboards) below)
-- Two HA login flows in parallel — the classic JSON `login_flow` for older clients, plus the browser-OAuth2 flow used by the on-device HA app on Shelly Wall Display 2.6.0+
-- Mobile-App registration emulation so the HA Companion App finishes onboarding
-- Cookie-based: displays keep their URL across reboots, IP changes, renames
+It is not a Home Assistant bridge. Nothing is imported from HA, and no ioBroker states are
+exposed as HA entities. The adapter emulates just enough of an HA server for the display to
+accept it, and then gets out of the way.
 
----
-
-## Sentry / Error reporting
-
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** Reporting only happens if you have enabled error reporting in the ioBroker diagnostics (**System settings → Diagnostics and error reporting**). Only an anonymous installation ID is transmitted — no name, e-mail address or IP address.
-
-For details and how to disable it, see the [Sentry plugin documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Error reporting requires js-controller 3.0 or newer.
-
----
-
-## Supported dashboards
-
-The mode dropdown auto-discovers what's installed on your ioBroker host. You always have the option to paste any other HTTP URL as `manual`.
-
-| Source                          | What gets discovered                                                                                                    | Notes                                                                                                                                                                        |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ioBroker VIS** (`vis.0`+)     | One entry per project, plus one entry per view inside each project                                                      | Works with every `web.*` instance — multiple web instances get a `(web.X)` suffix on the label                                                                               |
-| **ioBroker VIS-2** (`vis-2.0`+) | Same — one entry per project, one per view                                                                              | Project + view encoded into the URL (`?<project>#<view>`); deep links work                                                                                                   |
-| **ioBroker Aura** (`aura.0`+)   | One entry per running aura instance, pointing at its frontend                                                           | Reads the actual `native.port` configured in aura (default 8095, ignores the hardcoded value in aura's `localLinks` template) — works with `https` and `customUrl` overrides |
-| **Admin tiles**                 | Anything an adapter advertises via `common.localLinks` / `common.welcomeScreen` (jarvis, material, grafana, custom UI…) | Resolves `%ip%`, `%port%`, `%protocol%`, `%bind%`, and cross-instance refs like `%web.0_port%`                                                                               |
-| **Manual URL**                  | A free-text URL of your choice — Grafana, Node-RED, custom HTML, anything HTTP/HTTPS                                    | Set the display's `mode` to `manual` and the URL in `manualUrl`. `javascript:`, `data:`, `file:` are rejected for safety                                                     |
-
-Want to add a URL the adapter doesn't auto-detect? Set `manual` and paste it.
-
----
+This page is the detailed guide. The [README](../../README.md) is the short version.
 
 ## Requirements
 
-- Node.js ≥ 22
-- ioBroker js-controller ≥ 7.2.2
-- ioBroker Admin ≥ 8.0.11
+- Node.js 22 or newer
+- ioBroker js-controller 7.2.2 or newer
+- ioBroker Admin 8.0.11 or newer
+- The display and ioBroker on the same network
 
----
+Only one hassemu instance per network. The adapter listens on port 8123 because that is the
+port HA clients expect, and it is not configurable — two instances would fight over it.
 
-## Ports
+## Setting it up
 
-| Port       | Use                                 |
-| ---------- | ----------------------------------- |
-| 8123 / TCP | HA emulation (fixed, HA standard)   |
-| 5353 / UDP | mDNS broadcast (only if mDNS is on) |
+### 1. Create the instance
 
-One instance per host. Port 8123 is HA-fixed. With multiple ioBroker hosts on the same LAN, only one of them runs hassemu.
+Install the adapter and start instance 0. In the instance settings you normally change
+nothing to begin with: mDNS is on, authentication is off, and the adapter binds to all
+interfaces.
 
-**All traffic is plain HTTP** — HA clients do not support HTTPS on this flow. Treat port 8123 as LAN-only and never forward it to the internet. With authentication on, the username, password and tokens travel unencrypted over your LAN, so Auth guards the HA API against other LAN devices — it is not internet-exposure protection.
+If your ioBroker host has several network cards, set **Bind to interface** to the one your
+displays are on. The adapter announces itself under that address, so announcing an address
+the display cannot reach is the most common reason discovery "works" but the display then
+fails to connect.
 
----
+### 2. Add the server on the display
 
-## First steps
+On the display, add a Home Assistant server.
 
-1. Start the hassemu instance in ioBroker.
-2. On the display, add a Home Assistant server. With mDNS on it appears automatically; otherwise enter `http://<ioBroker-IP>:8123` by hand.
-3. Complete the HA onboarding on the display. With Auth off you can click through the login; with Auth on, enter the username and password from the instance settings.
-4. The display now shows the **landing page** with its own device ID — that means it is connected and waiting for a URL.
-5. In ioBroker, open the Object Browser and set `hassemu.0.clients.<id>.mode` for that device: pick a discovered URL from the dropdown, or choose `manual` and put any URL in `clients.<id>.manualUrl`.
-6. The display reloads within ~30 seconds and shows your URL.
+- **With mDNS on** the display finds the server by itself. It appears under the name in
+  **Service Name** (default `ioBroker`).
+- **Without mDNS**, or when the display does not search, enter the address by hand:
+  `http://<ip-of-your-ioBroker>:8123`. It has to be `http` — see
+  [Authentication and your network](#authentication-and-your-network).
 
-Want the same URL on every display? Set `global.mode` (plus `global.manualUrl` for a free URL) and turn on the `global.enabled` master switch instead of configuring each client.
+### 3. Complete the onboarding
 
----
+The display now runs the HA login. With authentication off you click straight through. With
+authentication on, enter the user name and password from the instance settings.
 
-## Configuration
+Behind that click the display and the adapter exchange a token, and the adapter stores a
+cookie on the display. That cookie is the display's identity from then on: it survives
+reboots, address changes and renaming, which is why a display keeps its page without being
+set up again.
 
-| Option              | What                                                                              | Default   |
-| ------------------- | --------------------------------------------------------------------------------- | --------- |
-| Bind                | Network interface                                                                 | 0.0.0.0   |
-| Service Name        | Name the display sees                                                             | ioBroker  |
-| mDNS                | LAN auto-discovery. Off → set `http://<ioBroker-IP>:8123` on the display by hand. | on        |
-| Auth                | Login required (guards the HA API on the LAN; credentials travel in plain HTTP)   | off       |
-| Username / Password | When Auth is on                                                                   | admin / — |
-| Trust Proxy         | Only behind a trusted reverse proxy that terminates TLS and strips X-Forwarded-*  | off       |
+### 4. The display is now waiting
 
-Leave _Trust Proxy_ off unless that proxy really exists: without it any client can fake its address on every request. Since 1.40.0 a global per-hour ceiling on new display entries limits the damage, but it does not make the setting safe.
+When onboarding finishes, the display shows a small page with a device ID on it. That page
+means: connected, but no page picked yet. The ID is what identifies this display in the
+object tree.
 
----
+### 5. Tell the display what to show
 
-## State tree
+Open the ioBroker object browser and find the display under
+`hassemu.0.clients.<id>`. Set **mode**:
+
+- pick one of the discovered dashboards from the drop-down, or
+- pick `Manual URL` and put the address in **manualUrl** next to it.
+
+The display reloads within about 30 seconds.
+
+To give every display the same page, use `hassemu.0.global.mode` (and `global.manualUrl`)
+and switch on `global.enabled` instead of setting each display separately.
+
+## Choosing what a display shows
+
+Every display carries its own **mode**. The adapter resolves it on each request:
+
+| mode              | What the display gets                     |
+| ----------------- | ----------------------------------------- |
+| a URL             | that page                                 |
+| `Manual URL`      | whatever is in this display's `manualUrl` |
+| `Global URL`      | whatever `global.mode` resolves to        |
+| `---` (no choice) | the waiting page with the device ID       |
+
+`global.mode` is resolved the same way, except it cannot itself be `Global URL` — that
+would point at itself, and the adapter rejects the write.
+
+### The master switch
+
+`global.enabled` is not a mode a display can be in; it is a bulk action on all of them:
+
+- switching it **on** sets every display to `Global URL`
+- switching it **off** sets every display back to `---`
+
+So switching the master off does not restore what each display had before — it clears them
+all. Set the displays you want individually afterwards. New displays always start at `---`,
+never on a page you did not choose for them.
+
+## What lives in the object tree
 
 ```
 hassemu.0.
 ├── info.
-│   ├── connection      — server is running
-│   ├── serverUuid      — server identity (read-only)
-│   └── refreshUrls     — re-scan URL list (button, set to true)
+│   ├── connection      the adapter is running
+│   ├── serverUuid      the identity the displays remember the server by
+│   └── refreshUrls     button: search for dashboards again
 ├── global.
-│   ├── enabled         — master switch
-│   ├── mode            — URL choice used by every client whose mode is `global`
-│   └── manualUrl       — free-text URL, used when global.mode = `manual`
+│   ├── enabled         master switch (see above)
+│   ├── mode            the page for every display set to Global URL
+│   └── manualUrl       free address, used when global.mode is Manual URL
 └── clients.
-    └── <id>            — one channel per display (channel name = hostname or IP)
-        ├── mode        — per-client URL choice
-        ├── manualUrl   — free-text URL, used when mode = `manual`
-        ├── ip          — last seen client IP
-        └── remove      — forget this client (button, set to true)
+    └── <id>            one entry per display, named after its host name or address
+        ├── mode        what this display shows
+        ├── manualUrl   free address, used when mode is Manual URL
+        ├── resolvedUrl the address this display was actually sent to
+        ├── ip          the address this display was last seen at
+        └── remove      button: forget this display
 ```
 
-### Which URL does the display get?
+**serverUuid** is worth knowing about: the displays recognise the server by it. It is
+created once and kept, so restarting the adapter does not look like a different server to
+the display. If it changed, every display would want to be set up again.
 
-| `mode`        | URL               |
-| ------------- | ----------------- |
-| `global`      | use `global.mode` |
-| `manual`      | use `manualUrl`   |
-| a URL         | that URL          |
-| empty (`---`) | landing page      |
+**remove** deletes the entry, and with it the display's identity. The next time that display
+connects it is a new one and starts at `---`. Use it for displays you have got rid of; the
+adapter also clears entries by itself once they have not been seen for 30 days.
 
-Master switch:
+**resolvedUrl** is the answer to "where did this display actually end up". It is read-only and
+follows every change: pick a dashboard and it holds that address, switch the display to Global URL
+and it holds whatever the global setting resolves to, take the choice back and it is empty because
+the display is on its landing page. Handy when a display is set to Global URL and you would
+otherwise have to work through two settings to see the result.
 
-- **on** — all displays follow `global.mode`
-- **off** — all displays go back to `---`
-- new displays always start at `---`
+**ip** is informational. Displays are identified by their cookie, not their address, so a
+new address from your router does not create a second entry.
 
----
+## The three pages a display can show
 
-## Refresh
+Besides your dashboard, the display may show one of three pages of the adapter's own.
 
-The display reloads itself within ~30 seconds after a URL change.
+**The waiting page** — a device ID and a hint. Means: connected, no page chosen. It
+refreshes itself every 15 seconds, so it disappears on its own once you pick a mode.
 
-After adding or renaming a VIS-2 project or view, set `info.refreshUrls` to `true` so it shows up in the dropdown.
+**"hassemu offline"** — the adapter has stopped or is unreachable. The display notices
+after about 1.5 minutes and offers a reload button, then returns to your dashboard by itself
+once the adapter is back. One limitation: a display that starts up _while_ the adapter is
+down cannot load this page and shows its own connection error instead.
 
-If hassemu goes offline while a display is running, the display switches to a clear offline page with a reload button after ~1.5 minutes and returns to your dashboard automatically once hassemu is back. Limitation: a display that cold-boots _while_ hassemu is down can't load that page and shows a connection error until the adapter is running again.
+**"Redirect target not reachable"** — the adapter is running, but the page you sent the
+display to is not answering. Without this you would just get a black screen. The card names
+the target address and offers a reload; the display returns to the dashboard by itself as
+soon as the target answers again.
 
-If the redirect **target** (your VIS/Aura/manual URL) stops answering while hassemu keeps running, the display shows a "Redirect target not reachable" card with the target URL instead of a black screen — after about a minute, or immediately when the display opens while the target is already down. Any HTTP answer counts as reachable (a login page or an error page is still a running server); only connection failures and timeouts trigger the card. Once the target answers again, the display reloads its dashboard automatically.
+The adapter judges "not reachable" conservatively: _any_ HTTP answer counts as reachable,
+including a login page or an error page — those mean a server is running there. Only a
+refused connection or a timeout raises the card. It does not check certificates, because
+self-signed certificates are normal on a home dashboard.
 
----
+## Where the drop-down list comes from
 
-## Troubleshooting
+The adapter searches the ioBroker host for pages worth offering:
 
-Set the instance log level to `debug` first — since v1.31.1 the adapter traces every decision point (identify, OAuth2, URL discovery, resolver chain, mobile-app webhooks, master switch). Most symptoms are triage-able from that log alone.
+- **VIS and VIS-2** — one entry per project, and one per view inside it, for every `web`
+  instance you have
+- **Aura** — one entry per running instance, using the port that instance is actually
+  configured with
+- **Admin tiles** — anything an adapter advertises for the ioBroker start page (Grafana,
+  jarvis, material, your own web UI…)
 
-**Display can't find the server** — with mDNS on, the log should show `mDNS: Broadcasting`. If that line is missing, mDNS failed to bind (port 5353/UDP). Workaround: turn mDNS off in the instance config and point the display at `http://<ioBroker-IP>:8123` by hand.
+The search runs at start and whenever an adapter instance is added, removed or
+reconfigured. After creating or renaming a VIS-2 project or view, set **info.refreshUrls**
+to `true` to search again without restarting the adapter.
 
-**Display shows the wrong URL or the landing page** — open Object Browser, check `clients.<id>.mode` (and `manualUrl` if mode is `manual`). At `mode='global'`, also check `global.mode` / `global.manualUrl`. The device id is shown on the landing page and stored at `clients.<id>.ip`. The debug log shows the full resolver chain (`chain=global→manual→…`) per request.
+If something is not found, it is not lost: choose `Manual URL` and paste the address.
+Addresses using `javascript:`, `data:` or `file:` are refused — those are not pages, they
+are code.
 
-**Display lost its identity (new id on every visit)** — the display is not persisting the cookie. Common causes: aggressive privacy mode, factory reset, browser cache flush. The old `clients.<id>`-channels can be removed via their `remove` button, but the root cause is on the display side, not in hassemu.
+## Authentication and your network
 
-**Log warns "More than 100 new clients within an hour across all IPs"** — something is creating display entries far faster than any real setup does. Typical cause: _Trust Proxy_ is on without a sanitising reverse proxy in front, so a device can fake a different address on every request and slips past the per-address limit. Turn _Trust Proxy_ off (or put a real proxy in front). Displays keep working meanwhile; the adapter just stops persisting new entries until the burst is over.
+**Everything on port 8123 is unencrypted HTTP.** That is not a shortcut, it is what the HA
+clients require on this flow; they will not do HTTPS here. Two consequences worth being
+clear about:
 
-**HA Companion App says "Server is not Home Assistant"** — point the app at `http://<ioBroker-IP>:8123`, not at the ioBroker Admin port. If a reverse proxy is in front of hassemu, make sure `/manifest.json` is passed through unmodified — the App parses `name === "Home Assistant"` to verify the server.
+- Treat port 8123 as local to your network. Do not forward it in from the internet.
+- With authentication on, the user name, password and tokens travel your network
+  unencrypted. Authentication stops other devices on your network from using the HA
+  interface — it is not protection against exposure to the internet.
 
-**Aura entry in the dropdown points at the wrong port** — `native.port` of the Aura instance must match its actually-listening port. Trigger `info.refreshUrls = true` to re-run discovery after fixing the Aura config.
+**Trust Proxy** should stay off unless a reverse proxy really is in front of the adapter,
+terminating TLS and removing the `X-Forwarded-*` headers a client sent. Switched on without
+one, any device can claim a different address on every single request. The adapter then logs
+the wrong addresses, and its per-address limit on new display entries no longer limits
+anything. Since version 1.40.0 there is a second limit that does not depend on the address —
+at most 100 new display entries per hour in total — so a misconfiguration cannot fill the
+database any more. Displays keep working while that limit is in effect; they simply do not
+get a stored identity until the burst is over. The limit caps the damage, it does not make
+the setting safe.
 
----
+## Ports
 
-## Upgrade
+| Port       | Direction | What the adapter needs it for                  |
+| ---------- | --------- | ---------------------------------------------- |
+| 8123 / TCP | inbound   | the HA interface the display talks to          |
+| 5353 / UDP | inbound   | mDNS, so displays find the server on their own |
 
-Migration runs automatically when the adapter starts.
+## Questions that come up
 
-Got scripts that still write to `visUrl`? Update them — write to `manualUrl` instead and set `mode` to `manual`.
+**Can I run two instances?** No. Port 8123 is fixed by the HA clients, so one host on the
+network runs hassemu.
 
-**Coming from a Shelly Wall Display on firmware 2.6.0 or newer?** Make sure you're on hassemu **≥ 1.29.2**. The on-device HA app introduced in firmware 2.6.0 needs a server-identity probe, a mobile-app registration step and a WebView "connected" signal — all three came in with v1.29.0–v1.29.2. After upgrading, run the display through the on-device HA onboarding once more.
+**Does the display have to stay connected to the adapter?** Yes. It fetches its page through
+the adapter, and the offline page and the target check depend on it. If the adapter stops,
+the display keeps showing the last page it loaded until it tries again.
 
----
+**Can I rename a display?** Yes — rename the `clients.<id>` object in the object browser.
+The adapter keeps your name and will not overwrite it, even when the display's address or
+host name changes.
+
+**Why is there a second entry for the same display?** The display did not send back its
+cookie — usually a factory reset, a cleared browser cache, or a privacy mode that discards
+cookies. Remove the old entry with its `remove` button. The cause is on the display, not in
+the adapter.
+
+**Do I need Home Assistant installed?** No. The adapter answers the HA protocol itself.
+There is no Home Assistant anywhere in this setup.
+
+**Can the display control ioBroker?** No. The connection carries the onboarding and the page
+address, nothing else. No states are exposed and no commands are accepted.
+
+## Finding out what went wrong
+
+Set the instance log level to `debug`. The adapter then traces every decision: which display
+was recognised, how the login went, which dashboards were found, and how it resolved the
+mode into an address for each request. Most problems can be read straight out of that log.
+
+If mDNS is on but the log has no `mDNS: Broadcasting` line, the announcement did not get out
+— usually because something else holds port 5353. Turn mDNS off and enter the address on the
+display by hand; everything else works the same.
 
 ## Changelog
 
@@ -185,40 +259,35 @@ Got scripts that still write to `visUrl`? Update them — write to `manualUrl` i
     ### **WORK IN PROGRESS**
 -->
 
+### 1.43.1 (2026-09-07)
+
+- Changed: the button that removes a display now carries a description — it deletes the display's folder and all its states, and the display returns as a new entry on its next request
+
+### 1.43.0 (2026-09-06)
+
+- Fixed: taking a display's choice back (mode `---`, or turning the master switch off) now reaches the display — until now it kept the dashboard it had until someone reloaded it by hand
+- Fixed: a display that lost power no longer holds up the adapter's shutdown for 30 seconds
+- Fixed: VIS projects are found on every VIS instance, not only on `vis.0` / `vis-2.0`
+- Fixed: upgrading from a pre-1.1.1 version no longer overwrites the whole instance configuration while removing the old URL setting
+- New: every display now shows the address it was actually sent to, so you can see at a glance where a display landed without walking through the global and per-display settings yourself
+- Changed: `info.serverUuid` and `global.enabled` carry clearer labels, and the per-display manual URL now has a description
+
+### 1.42.0 (2026-09-04)
+
+- Fixed: a leftover setting from older versions is now removed from the instance completely instead of only being switched off — switched off, it stayed behind for good
+
+### 1.41.0 (2026-09-03)
+
+- Fixed: renamed datapoints now reach installations that already exist — until now a changed name or description only ever showed up on a fresh install
+- Fixed: the object tree kept outdated labels ("Known display clients", "Client IP", "Forget this client") and showed a developer note in the global manual URL name
+- Changed: datapoint names now appear in your ioBroker language throughout the object tree, including the names the displays report for themselves
+- New: full user documentation in English and German covering setup, the object tree and troubleshooting, shown by the ioBroker documentation portal
+
 ### 1.40.0 (2026-09-02)
 
 - Fixed: with trustProxy enabled but no sanitising reverse proxy in front, a single device could create unlimited display entries — a global ceiling now caps this
 
-### 1.39.0 (2026-09-01)
-
-- New: Displays show a "Redirect target not reachable" card with the target URL instead of a black screen when the configured dashboard is down — also right when the display starts
-- New: Once the target answers again, the display reloads its dashboard automatically — no manual reload or display restart needed
-
-### 1.38.2 (2026-08-27) — stable
-
-- Fixed: Stopping or restarting the adapter was cut short — the instance stayed marked as connected and displays kept looking for a server that was already gone.
-
-### 1.38.1 (2026-08-22)
-
-- Changed: Internal cleanup. No user-facing changes.
-
-### 1.38.0 (2026-07-12) — stable
-
-- Known displays were re-created as new clients after every adapter restart — losing their saved redirect and login, and leaving duplicates. The display list is now restored correctly.
-- The setup screen on the display now explains how to pick a dashboard from the dropdown, or choose Manual URL and enter your own address next to it.
-- The global and per-display redirect datapoints now have descriptions explaining each option, and everything you see consistently says display.
-- The sign-in and error pages shown while a display is onboarding now appear in your ioBroker language instead of English only.
-
 [Older changelogs can be found there](CHANGELOG_OLD.md)
-
-## Support Development
-
-This adapter is free and open source. If you find it useful, consider buying me a coffee:
-
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/krobipd)
-[![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)](https://paypal.me/krobipd)
-
----
 
 ## License
 

@@ -1,222 +1,98 @@
-# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.beszel@main/admin/beszel.svg" width="48" align="top" /> ioBroker.beszel
-
-**Release:** [![npm version](https://img.shields.io/npm/v/iobroker.beszel)](https://www.npmjs.com/package/iobroker.beszel) ![stable](https://iobroker.live/badges/beszel-stable.svg) ![Installations](https://iobroker.live/badges/beszel-installed.svg) [![npm downloads](https://img.shields.io/npm/dt/iobroker.beszel)](https://www.npmjs.com/package/iobroker.beszel)
-
-**Build:** [![Test and Release](https://github.com/krobipd/ioBroker.beszel/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/krobipd/ioBroker.beszel/actions/workflows/test-and-release.yml) ![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![Sentry](https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white)](https://github.com/ioBroker/plugin-sentry#plugin-sentry)
-
-**Support:** [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)](https://ko-fi.com/krobipd) [![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/krobipd)
-
-Connects to a [Beszel](https://github.com/henrygd/beszel) Hub and exposes server monitoring metrics for all registered systems as ioBroker states.
-
 ---
-
-## Features
-
-- Fetches metrics from all systems registered in your Beszel Hub
-- Per-system states: CPU, memory, disk, network, temperature, load average
-- Optional detail: per-core CPU, peak values, disk I/O load, per-interface traffic, fan speeds, GPU details, hardware/OS info, Docker/Podman containers, battery (incl. per-battery level), extra filesystems, CPU breakdown, systemd services
-- Each option has a help text explaining the states it creates; detail options stay greyed out until their category is enabled
-- Configurable poll interval (10–300 seconds)
-- Automatic re-authentication when the token expires (including mid-poll)
-- Connection test button in the admin UI
-- Automatic cleanup of states for removed systems, stale containers and disabled metrics
-
+BADGE-npm version: https://img.shields.io/npm/v/iobroker.beszel
+BADGE-stable: https://iobroker.live/badges/beszel-stable.svg
+BADGE-Installations: https://iobroker.live/badges/beszel-installed.svg
+BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.beszel
+BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
+BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
+BADGE-License: https://img.shields.io/badge/license-MIT-green
+BADGE-Sentry: https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white
+BADGE-Ko-fi: https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge
+chapters: {"pages":{"en/adapterref/iobroker.beszel/README.md":{"title":{"en":"ioBroker.beszel — User documentation"},"content":"en/adapterref/iobroker.beszel/README.md"},"en/adapterref/iobroker.beszel/datapoints.md":{"title":{"en":"Datapoints and metric switches"},"content":"en/adapterref/iobroker.beszel/datapoints.md"},"en/adapterref/iobroker.beszel/faq.md":{"title":{"en":"Questions and troubleshooting"},"content":"en/adapterref/iobroker.beszel/faq.md"}}}
 ---
+# ioBroker.beszel — User documentation
 
-## Sentry / Error reporting
+This adapter mirrors a [Beszel](https://beszel.dev) Hub into ioBroker. Beszel is a lightweight
+server monitor: small agents run on the machines you want to watch and report to a central Hub;
+the adapter reads that Hub over its REST API and writes one device per monitored system.
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** Reporting only happens if you have enabled error reporting in the ioBroker diagnostics (**System settings → Diagnostics and error reporting**). Only an anonymous installation ID is transmitted — no name, e-mail address or IP address.
+Everything is read-only. The adapter never writes to the Hub and creates no writable datapoints.
 
-For details and how to disable it, see the [Sentry plugin documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Error reporting requires js-controller 3.0 or newer.
+- [Datapoints and metric switches](datapoints.md)
+- [Questions and troubleshooting](faq.md)
 
----
+## Before you start
 
-## Requirements
+You need a running Beszel Hub with at least one agent connected, and a login for that Hub.
+The adapter authenticates as a normal Beszel user — the same email and password you use for the
+Beszel web interface. An admin account is not required.
 
-- **Node.js >= 22**
-- **ioBroker js-controller >= 7.2.2**
-- **ioBroker Admin >= 8.0.11**
-- A running [Beszel Hub](https://github.com/henrygd/beszel) with at least one registered system
+If you want container data, that user also needs read access to the Hub's `containers` collection.
+Without it every other metric still works; the adapter warns once and keeps the container
+datapoints it already created.
 
----
+## Setting it up
 
-## Configuration
+1. **Install and create an instance.** In ioBroker, install `beszel` and open the instance settings.
+2. **Enter the Hub URL** under _Beszel Hub URL_ — the same address you open the Beszel web
+   interface with, for example `http://192.168.1.100:8090`. An IPv6 address goes in brackets:
+   `http://[fd00::1]:8090`. Both `http` and `https` work; over `http` to a machine other than the
+   ioBroker host, login and token travel the network unencrypted and the adapter says so once in
+   the log.
+3. **Enter username and password.** The username is the email address of your Beszel login.
+4. **Press _Test Connection_.** It performs a real login against the Hub and reports the actual
+   error if something is wrong — a wrong password, an unreachable host, a typo in the URL.
+5. **Choose your metrics** on the _Metrics_ tab (see [Datapoints and metric switches](datapoints.md)).
+   The defaults cover uptime, CPU, load average, memory, disk, disk throughput, network and
+   temperature. Everything else is off until you switch it on.
+6. **Save.** The instance starts, reads the Hub once, and creates the object tree.
 
-### Connection
+## Poll interval and timeout
 
-| Option                  | Description                                                                             | Default |
-| ----------------------- | --------------------------------------------------------------------------------------- | ------- |
-| **Beszel Hub URL**      | Full URL of your Beszel Hub (e.g. `http://192.168.1.100:8090`)                          | —       |
-| **Username**            | Beszel Hub login email/username                                                         | —       |
-| **Password**            | Beszel Hub password                                                                     | —       |
-| **Poll Interval (s)**   | How often to fetch data from the Hub (10–300)                                           | `60`    |
-| **Request Timeout (s)** | Per-request HTTP timeout. Raise for slow Hubs or large container/stats payloads (5–120) | `15`    |
+_Poll Interval_ accepts 10 to 300 seconds and defaults to 60. Beszel's agents record one
+measurement per minute, so a value below 60 seconds produces extra requests without newer data.
+A value entered outside that range — for example by a script writing the config directly — is
+clamped rather than accepted.
 
-Use the **Test Connection** button to verify your credentials before saving.
+_Request timeout_ (5 to 120 seconds, default 15) is how long a single request may take. Raise it
+for a slow link or a Hub with many containers.
 
-### Metrics
-
-All metrics are global toggles that apply to **all** systems. Disabled metrics are automatically removed from the state tree on the next adapter start.
-
-Detail options stay greyed out until their category's main metric is enabled, and each option carries a help text describing exactly which states it creates.
-
-| Group           | Metric                                                | Default |
-| --------------- | ----------------------------------------------------- | ------- |
-| **System**      | Uptime                                                | on      |
-|                 | System info (hardware, OS, agent version)             | off     |
-|                 | Systemd Services (total / failed)                     | off     |
-| **CPU**         | CPU Usage (%)                                         | on      |
-|                 | Load Average (1m / 5m / 15m)                          | on      |
-|                 | CPU Breakdown (User / System / IOWait / Steal / Idle) | off     |
-|                 | Per-core usage                                        | off     |
-|                 | Peak values                                           | off     |
-| **Memory**      | Memory Usage (% and GB)                               | on      |
-|                 | Memory Details (Buffers, ZFS ARC)                     | off     |
-|                 | Swap                                                  | off     |
-|                 | Peak values                                           | off     |
-| **Disk**        | Disk Usage (% and GB)                                 | on      |
-|                 | Read/Write Speed                                      | on      |
-|                 | I/O load (utilization, read/write wait times)         | off     |
-|                 | Additional Filesystems                                | off     |
-|                 | Peak values                                           | off     |
-| **Network**     | Network Traffic (Upload / Download MB/s)              | on      |
-|                 | Per interface                                         | off     |
-|                 | Peak values                                           | off     |
-| **Temperature** | Temperature (hottest sensors avg + hottest single)    | on      |
-|                 | Individual Temperature Sensors                        | off     |
-| **Fans**        | Fan Speeds (rpm, Beszel 0.18.8+, Linux hosts)         | off     |
-| **GPU**         | GPU Metrics (Usage, Memory, Power)                    | off     |
-|                 | GPU details (engines, package power)                  | off     |
-| **Containers**  | Container Monitoring incl. network (Docker / Podman)  | off     |
-| **Battery**     | Battery Status (incl. level per battery)              | off     |
-
----
-
-## State Tree
-
-States are organized into channels per metric group. Optional channels (marked \*) are only created when the corresponding metric is enabled.
+## What the adapter creates
 
 ```
 beszel.0.
-├── info.connection                   — Connection status (bool)
-├── info.systemsTotal                 — Systems registered on the Hub (number)
-├── info.systemsOnline                — Systems currently reporting "up" (number)
-├── info.systemsAllUp                 — All systems up? (bool)
-└── systems.
-    └── {system_name}/                — Device (sanitized name)
-        ├── info/                     — System info
-        │   ├── online               — Is system up? (bool, used as device indicator)
-        │   ├── status               — Status string (up/down/paused/pending, or unknown while the adapter is not reading)
-        │   ├── uptime               — Uptime in seconds
-        │   ├── uptime_text          — Human-readable uptime (e.g. "14d 6h")
-        │   ├── agent_version *      — Beszel agent version
-        │   ├── hostname *           — Host name (System info)
-        │   ├── os *                 — Operating system (Linux/macOS/Windows/FreeBSD)
-        │   ├── os_name *            — OS version (e.g. "Ubuntu 22.04")
-        │   ├── kernel *             — Kernel version
-        │   ├── cpu_model *          — CPU model
-        │   ├── arch *               — CPU architecture
-        │   ├── cores *              — Physical CPU cores
-        │   ├── threads *            — Logical CPU threads
-        │   ├── podman *             — Container engine is Podman (bool)
-        │   ├── services_total *     — Systemd services total
-        │   └── services_failed *    — Systemd services failed
-        ├── cpu/                      — CPU metrics
-        │   ├── usage                — CPU usage (%)
-        │   ├── load_1m              — Load average 1 min
-        │   ├── load_5m              — Load average 5 min
-        │   ├── load_15m             — Load average 15 min
-        │   ├── user *               — CPU user (%)
-        │   ├── system *             — CPU system (%)
-        │   ├── iowait *             — CPU I/O wait (%)
-        │   ├── steal *              — CPU steal (%)
-        │   ├── idle *               — CPU idle (%)
-        │   ├── peak *               — Peak CPU usage in interval (%)
-        │   └── cores/ *             — Per-core usage (core0, core1, …) (%)
-        ├── memory/                   — Memory metrics
-        │   ├── percent              — RAM usage (%)
-        │   ├── used                 — RAM used (GB)
-        │   ├── total                — RAM total (GB)
-        │   ├── buffers *            — Buffers + cache (GB)
-        │   ├── zfs_arc *            — ZFS ARC (GB)
-        │   ├── swap_used *          — Swap used (GB)
-        │   ├── swap_total *         — Swap total (GB)
-        │   └── peak *               — Peak RAM used in interval (GB)
-        ├── disk/                     — Disk metrics
-        │   ├── percent              — Disk usage (%)
-        │   ├── used                 — Disk used (GB)
-        │   ├── total                — Disk total (GB)
-        │   ├── read                 — Disk read (MB/s)
-        │   ├── write                — Disk write (MB/s)
-        │   ├── read_peak *          — Peak read in interval (MB/s)
-        │   ├── write_peak *         — Peak write in interval (MB/s)
-        │   ├── io_util *            — I/O utilization (%)
-        │   ├── io_await_read *      — Read wait time (ms)
-        │   └── io_await_write *     — Write wait time (ms)
-        ├── network/                  — Network metrics
-        │   ├── sent                 — Upload (MB/s)
-        │   ├── recv                 — Download (MB/s)
-        │   ├── sent_peak *          — Peak upload in interval (MB/s)
-        │   ├── recv_peak *          — Peak download in interval (MB/s)
-        │   └── interfaces/ *        — Per interface: up, down (MB/s) + total_up, total_down (cumulative GB)
-        ├── temperature/              — Temperature metrics
-        │   ├── average              — Avg of top 3 sensors (°C)
-        │   ├── max                  — Hottest single sensor (°C)
-        │   └── sensors/ *           — Individual sensor readings
-        ├── fans/ *                   — Fan speeds (rpm), one state per fan
-        ├── battery/ *                — Battery metrics
-        │   ├── percent              — Battery level (%)
-        │   ├── charging             — Is charging? (bool)
-        │   └── batteries/ *         — Level per battery (%), on multi-battery systems
-        ├── gpu/ *                    — GPU metrics (per GPU)
-        │   └── {gpu_name}/
-        │       ├── usage            — GPU usage (%)
-        │       ├── memory_used      — VRAM used (MB)
-        │       ├── memory_total     — VRAM total (MB)
-        │       ├── power            — Power draw (W)
-        │       ├── power_package *  — Package power (W) (GPU details)
-        │       └── engines/ *       — Per-engine usage (render, video, …) (%)
-        ├── filesystems/ *            — Extra filesystems (per mount)
-        │   └── {fs_name}/
-        │       ├── disk_percent     — Usage (%)
-        │       ├── disk_used        — Used (GB)
-        │       ├── disk_total       — Total (GB)
-        │       ├── read_speed       — Read (MB/s)
-        │       └── write_speed      — Write (MB/s)
-        └── containers/ *             — Docker/Podman containers
-            └── {container_name}/
-                ├── status           — Container status
-                ├── health           — Health (none/starting/healthy/unhealthy)
-                ├── cpu              — CPU usage (%)
-                ├── memory           — Memory (MB)
-                ├── image            — Image name
-                └── network          — Combined network throughput (bytes/s)
+├── info.connection      is the Hub reachable
+├── info.systemsTotal    systems registered on the Hub
+├── info.systemsOnline   of those, how many report "up"
+├── info.systemsAllUp    true while all of them do
+└── systems.<name>.      one device per monitored system
 ```
 
-> **Breaking change in 0.3.0:** States moved from flat paths (e.g. `cpu_usage`) to channels (e.g. `cpu.usage`). Legacy states are automatically cleaned up on first start.
+The device name is the system name from the Hub, lower-cased with anything that is not a letter
+or digit replaced by `_`. Two systems whose names reduce to the same id get a short hash suffix so
+they cannot overwrite each other, and the adapter warns once when that happens.
 
----
+## How the adapter behaves when something is missing
 
-## Troubleshooting
+- **A system goes down or is paused.** Its `info.online` turns false and `info.status` shows what
+  the Hub says. The measured values stay at their last reading rather than jumping to zero —
+  the adapter reports what it knows, and it knows nothing new.
+- **The Hub becomes unreachable.** `info.connection` turns false, every system goes to
+  `info.online: false` and `info.status: unknown`, and the fleet counters drop to zero. The same
+  happens when you stop the instance, so nothing keeps claiming to be online while nobody reads.
+- **The Hub answers with an empty list.** Nothing is deleted. An outage must not wipe your object
+  tree, so devices only disappear when the Hub genuinely reports a shorter list.
+- **A sensor, fan, GPU, filesystem or container disappears.** Its datapoints are removed. If a
+  whole group empties at once, the adapter waits for a second consecutive poll before deleting —
+  a single hiccup does not clear the tree.
 
-### Connection failed
+## Updating
 
-- Verify the Hub URL is reachable from the ioBroker host
-- Check username and password (use the Test Connection button)
-- Check that no firewall blocks access to the Beszel Hub port
-
-### States not updating
-
-- Check the ioBroker log for errors from the `beszel` adapter
-- Ensure the poll interval is not too short (minimum 10 seconds)
-- Check `info.connection` state — if `false`, authentication failed
-
-### Missing states for a system
-
-- The system may be `down` or `paused` in Beszel — no stats records exist yet
-- Verify the metric is enabled in the adapter configuration
-
----
+An update reapplies names and descriptions to the datapoints you already have, so corrected
+wording and new translations reach existing installations, not just fresh ones. The consequence
+is that a datapoint you renamed yourself in the admin gets the adapter's name back on the next
+start.
 
 ## Changelog
 
@@ -224,49 +100,37 @@ beszel.0.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.13.0 (2026-09-02)
 
-- Fixed: a Beszel Hub configured by IPv6 address can now be reached — the connection used to fail with a name lookup error because the address kept its square brackets
-- Fixed: stopping the adapter while a poll was still running no longer writes a false "Poll failed" error line to the log, and no longer sends that false error to the error reporting
-- Fixed: when the adapter cannot start — credentials to re-enter after an upgrade, or an invalid Hub URL — every system is now marked offline instead of keeping the previous run's green dot
-- Changed: the three fleet summary states for systems total, online and all-up now exist from the installation on — a fresh install with an unreachable Hub shows 0 and false instead of nothing
-- Changed: ioBroker Admin 8.0.11 or newer is required, in line with the current ioBroker stable repository — older Admin installations must be updated before installing this version
+### 0.17.1 (2026-09-07)
 
-### 0.12.2 (2026-08-27) — stable
+- Improved: sixteen datapoints now carry an explanation in the object tree — online state, OS name, load average, container and service CPU, ZFS scrub errors and drive power cycles
+- Fixed: the datapoint carrying the distribution name was labelled "OS Version" — it now reads "OS Name" in all eleven languages, matching what it actually shows
 
-- Fixed: the first start after an update no longer puts warnings and an error into the log while the instance corrects itself and restarts.
+### 0.17.0 (2026-09-06)
 
-### 0.12.1 (2026-08-27)
+- New: SMART data per drive as an opt-in metric — the drive's own overall verdict plus temperature, capacity, power-on hours and power cycles
+- New: ZFS pool details as an opt-in metric — scrub status, per-vdev error counters and the datasets of each pool
+- New: systemd service details as an opt-in metric — state, sub-state, CPU and memory for every unit the agent reports
+- Improved: the two slow detail sources are read every 15 minutes instead of every poll, so switching them on costs your Hub almost nothing
 
-- Fixed: on an installation that was updated rather than freshly installed, the systems kept showing as online when the adapter was stopped — they now go offline there as well.
-- Fixed: the count of systems currently online no longer keeps its last value while the adapter is stopped — it drops to zero along with the individual systems.
+### 0.16.0 (2026-09-06)
 
-### 0.12.0 (2026-08-27)
+- Fixed: switching a metric group off now really empties it — a system that was offline at the time kept the empty channel and got it back after every restart
+- Fixed: a stumble while starting no longer leaves the adapter alive but silent — it keeps going and updates your values as usual
+- Changed: the status words of a system, of a ZFS pool and of a container are shown in your ioBroker language instead of English
+- Changed: a container's health is now a proper status datapoint with its list of possible values, like the system status next to it
+- Improved: starting up puts far less load on the ioBroker database, which shows most with many systems or many metrics switched off
+- Changed: user documentation now covers the ZFS pools, the root disk name and the read/write totals
 
-- Fixed: a system no longer shows as online while the adapter is stopped or cannot reach the Hub — its status then reads "Unknown" instead of keeping the last value it had.
-- Fixed: systems or containers could stay missing from the object tree when the Hub sent a record the adapter could not read — everything the Hub reports now shows up again.
+### 0.15.0 (2026-09-05)
 
-### 0.11.0 (2026-08-26)
+- New: ZFS pools with usage, throughput and health as an opt-in metric, the root disk's custom name and cumulative read/write totals for disks and filesystems on Beszel 0.19.0.
 
-- New: Fan speeds — a new "Fans" switch creates one datapoint per fan, in rpm (needs Beszel 0.18.8 or newer, Linux hosts).
-- New: Systems with several batteries now show the level of each battery separately (needs Beszel 0.18.8 or newer).
-- New: After switching metrics on or off you can see straight away how many datapoints appeared or disappeared, instead of searching the object tree.
+### 0.14.2 (2026-09-05)
+
+- Changed: Internal cleanup. No user-facing changes.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
-
-## Support
-
-- [ioBroker Forum](https://forum.iobroker.net/)
-- [GitHub Issues](https://github.com/krobipd/ioBroker.beszel/issues)
-
-### Support Development
-
-This adapter is free and open source. If you find it useful, consider buying me a coffee:
-
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/krobipd)
-[![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)](https://paypal.me/krobipd)
-
----
 
 ## License
 

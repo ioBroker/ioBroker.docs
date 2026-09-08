@@ -196,6 +196,10 @@ If you enjoyed this project – or are just feeling generous – consider buying
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.6.1 (2026-09-04)
+
+- (typhosj) fixed: a wallbox whose effective maximum charging current is below 10 A - e.g. an 8 A coded cable or a per-wallbox maximum of 8 A - was rejected as invalid ChargeManager input and never charged from PV surplus. Such a wallbox now starts charging at its own maximum
+
 ### 1.6.0 (2026-08-29)
 
 - (hombach) added optional per-wallbox minimum and maximum charging current, applied to both ChargeManager and ChargeNOW and always kept within the installation-wide maximum
@@ -224,13 +228,6 @@ If you enjoyed this project – or are just feeling generous – consider buying
 - (hombach) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
 - (hombach) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
 - (hombach) updated dependencies
-
-### 1.3.1 (2026-08-06)
-
-- (hombach) fixed "unlocked by RFID" always 0 on gen 3+ chargers: API V2 uses the "trx" key instead of "uby" (#634)
-- (hombach) live data is now refreshed every cycle in all modes, so read-only monitoring stays up to date
-- (hombach) API V2 not being reachable is now a single warning instead of an error (normal on hardware gen 1/2)
-- (typhosj) use generic go-e brand logo as adapter icon (#843)
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

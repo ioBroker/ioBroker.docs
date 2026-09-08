@@ -5,7 +5,7 @@ BADGE-Number of Installations (latest): https://iobroker.live/badges/lg-thinq-in
 BADGE-Number of Installations (stable): https://iobroker.live/badges/lg-thinq-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.lg-thinq.svg
 ---
-![Logo](./admin/lg-thinq.png)
+![Logo](../../admin/lg-thinq.png)
 
 # ioBroker.lg-thinq
 
@@ -101,7 +101,7 @@ Der Adapter erstellt alle Datenpunkte mit dem Template aus dem Datenpunkt `model
 
 ### 101 Alle Ordner thinq1 & thinq2
 
-![101_folder.png](../../../en/adapterref/iobroker.lg-thinq/img/101_folder.png)
+![101_folder.png](../en/img/101_folder.png)
 
 ### 101 Remote Ordner thinq1 & thinq2
 
@@ -127,7 +127,7 @@ Der Adapter erstellt alle Datenpunkte mit dem Template aus dem Datenpunkt `model
 
     ![101_remote.png](img/101_remote.png)
     ![101_remote_command.png](img/101_remote_command.png)
-    ![101_remote_period.png](../../../en/adapterref/iobroker.lg-thinq/img/101_remote_period.png)
+    ![101_remote_period.png](img/101_remote_period.png)
 
 Beispiel JSON Tür geöffnet
 
@@ -211,8 +211,8 @@ Beispiel JSON Tür geöffnet
 
 [Zusammenfassung](#zusammenfassung)
 
-![101_snapshot_1.png](../../../en/adapterref/iobroker.lg-thinq/img/101_snapshot_1.png)
-![101_snapshot_2.png](../../../en/adapterref/iobroker.lg-thinq/img/101_snapshot_2.png)
+![101_snapshot_1.png](../en/img/101_snapshot_1.png)
+![101_snapshot_2.png](../en/img/101_snapshot_2.png)
 
 ### Gerät 201 Waschmaschine Signature thinq2
 
@@ -230,7 +230,7 @@ Beispiel JSON Tür geöffnet
 
 ### 201 Alle Ordner thinq1 & thinq2
 
-![201_folder.png](../../../en/adapterref/iobroker.lg-thinq/img/201_folder.png)
+![201_folder.png](../en/img/201_folder.png)
 
 ### 201 Remote Ordner thinq1 & thinq2
 
@@ -359,9 +359,9 @@ Beispiel JSON Tür geöffnet
 
 [Zusammenfassung](#zusammenfassung)
 
-![201_snapshot_1.png](../../../en/adapterref/iobroker.lg-thinq/img/201_snapshot_1.png)
-![201_snapshot_2.png](../../../en/adapterref/iobroker.lg-thinq/img/201_snapshot_2.png)
-![201_snapshot_3.png](../../../en/adapterref/iobroker.lg-thinq/img/201_snapshot_3.png)
+![201_snapshot_1.png](../en/img/201_snapshot_1.png)
+![201_snapshot_2.png](../en/img/201_snapshot_2.png)
+![201_snapshot_3.png](../en/img/201_snapshot_3.png)
 
 ### Gerät 202 Trockner thinq1 & thinq2
 
@@ -369,7 +369,7 @@ Beispiel JSON Tür geöffnet
 
 ### 202 Alle Ordner thinq1 & thinq2
 
-![202_folder.png](../../../en/adapterref/iobroker.lg-thinq/img/202_folder.png)
+![202_folder.png](../en/img/202_folder.png)
 
 ### 202 Remote Ordner thinq1 & thinq2
 
@@ -438,9 +438,9 @@ Beispiel JSON Tür geöffnet
 
 [Zusammenfassung](#zusammenfassung)
 
-![201_snapshot_1.png](../../../en/adapterref/iobroker.lg-thinq/img/201_snapshot_1.png)
-![201_snapshot_2.png](../../../en/adapterref/iobroker.lg-thinq/img/201_snapshot_2.png)
-![201_snapshot_3.png](../../../en/adapterref/iobroker.lg-thinq/img/201_snapshot_3.png)
+![201_snapshot_1.png](../en/img/201_snapshot_1.png)
+![201_snapshot_2.png](../en/img/201_snapshot_2.png)
+![201_snapshot_3.png](../en/img/201_snapshot_3.png)
 
 ### Gerät 401 Klimanalage thinq2
 
@@ -448,7 +448,7 @@ Beispiel JSON Tür geöffnet
 
 ### 401 Alle Ordner thinq2
 
-![401_thinq2_folder.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_folder.png)
+![401_thinq2_folder.png](../en/img/401_thinq2_folder.png)
 
 ### 401 Remote Ordner thinq2
 
@@ -532,11 +532,11 @@ Beispiel JSON Tür geöffnet
 
 [Zusammenfassung](#zusammenfassung)
 
-![401_thinq2_snapshot_1.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_snapshot_1.png)
-![401_thinq2_snapshot_2.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_snapshot_2.png)
-![401_thinq2_snapshot_3.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_snapshot_3.png)
-![401_thinq2_snapshot_4.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_snapshot_4.png)
-![401_thinq2_snapshot_5.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_snapshot_5.png)
+![401_thinq2_snapshot_1.png](../en/img/401_thinq2_snapshot_1.png)
+![401_thinq2_snapshot_2.png](../en/img/401_thinq2_snapshot_2.png)
+![401_thinq2_snapshot_3.png](../en/img/401_thinq2_snapshot_3.png)
+![401_thinq2_snapshot_4.png](../en/img/401_thinq2_snapshot_4.png)
+![401_thinq2_snapshot_5.png](../en/img/401_thinq2_snapshot_5.png)
 
 ### Gerät 401 Klimanalage thinq1
 
@@ -645,7 +645,7 @@ Beispiel JSON Tür geöffnet
 
 ### 401 Remote Control thinq1
 
-![401_thinq1_folder.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq1_folder.png)
+![401_thinq1_folder.png](../en/img/401_thinq1_folder.png)
 
 [Zusammenfassung](#zusammenfassung)
 
@@ -669,19 +669,19 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 - `remote.settings.WDirLeftRight` 0 oder 1
 - `remote.SetWDirLeftRight` danach diesen Datenpunkt auf true setzen
 
-    ![401_thinq1_remote.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq1_remote.png)
+    ![401_thinq1_remote.png](../en/img/401_thinq1_remote.png)
 
 ### 401 Snapshot thinq1
 
 [Zusammenfassung](#zusammenfassung)
 
-![401_thinq1_snapshot_1.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq1_snapshot_1.png)
-![401_thinq1_snapshot_2.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq1_snapshot_2.png)
-![401_thinq1_snapshot_3.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq1_snapshot_3.png)
-![401_thinq1_snapshot_4.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq1_snapshot_4.png)
-![401_thinq1_snapshot_5.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq1_snapshot_5.png)
-![401_thinq1_snapshot_6.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq1_snapshot_6.png)
-![401_thinq1_snapshot_7.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq1_snapshot_7.png)
+![401_thinq1_snapshot_1.png](../en/img/401_thinq1_snapshot_1.png)
+![401_thinq1_snapshot_2.png](../en/img/401_thinq1_snapshot_2.png)
+![401_thinq1_snapshot_3.png](../en/img/401_thinq1_snapshot_3.png)
+![401_thinq1_snapshot_4.png](../en/img/401_thinq1_snapshot_4.png)
+![401_thinq1_snapshot_5.png](../en/img/401_thinq1_snapshot_5.png)
+![401_thinq1_snapshot_6.png](../en/img/401_thinq1_snapshot_6.png)
+![401_thinq1_snapshot_7.png](../en/img/401_thinq1_snapshot_7.png)
 
 ### Gerät 406 Wärmepumpe thinq2
 
@@ -689,11 +689,11 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 
 ### 406 Alle Ordner thinq2
 
-![406_folder.png](../../../en/adapterref/iobroker.lg-thinq/img/406_folder.png)
+![406_folder.png](../en/img/406_folder.png)
 
 ### 406 Remote Ordner thinq2
 
-![406_folder_remote.png](../../../en/adapterref/iobroker.lg-thinq/img/406_folder_remote.png)
+![406_folder_remote.png](../en/img/406_folder_remote.png)
 
 ### 406 Remote Statistik thinq2
 
@@ -713,7 +713,7 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 - `remote.Statistic.sendRequest` Auswahl senden
 - `remote.Statistic.jsonResult` Statistik als JSON. Sind die Attribute leer dann unterstützt euer Geräte diese nicht oder es wurde ein falsches Datum angegeben.
 
-    ![406_remote_statistic](../../../en/adapterref/iobroker.lg-thinq/img/406_remote_statistic.png)
+    ![406_remote_statistic](../en/img/406_remote_statistic.png)
 
 ### 406 Remote basicCtrl thinq2
 
@@ -722,7 +722,7 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 - `remote.basicCtrl.hotWaterTarget` Temperatur einstellen
 - `remote.basicCtrl.opMode` Modus einstellen
 
-    ![406_remote_basicctrl](../../../en/adapterref/iobroker.lg-thinq/img/406_remote_basicctrl.png)
+    ![406_remote_basicctrl](../en/img/406_remote_basicctrl.png)
 
 ### 406 Remote reservationCtrl thinq2
 
@@ -735,14 +735,14 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 - `remote.reservationCtrl.01_start Startdatum` z. Bsp 21:30.
 - `remote.reservationCtrl.01_state` Aktivieren/Deaktivieren
 
-    ![406_remote_reservationctrl](../../../en/adapterref/iobroker.lg-thinq/img/406_remote_reservationctrl.png)
+    ![406_remote_reservationctrl](../en/img/406_remote_reservationctrl.png)
 
 ### 406 Snapshot thinq2
 
 [Zusammenfassung](#zusammenfassung)
 
-![406_snapshot_1.png](../../../en/adapterref/iobroker.lg-thinq/img/406_snapshot_1.png)
-![406_snapshot_2.png](../../../en/adapterref/iobroker.lg-thinq/img/406_snapshot_2.png)
+![406_snapshot_1.png](../en/img/406_snapshot_1.png)
+![406_snapshot_2.png](../en/img/406_snapshot_2.png)
 
 ### Wetter
 

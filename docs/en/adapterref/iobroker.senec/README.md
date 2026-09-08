@@ -10,7 +10,7 @@ BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&logo
 BADGE-Buy Me a Coffee: https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black
 BADGE-GitHub Sponsor: https://img.shields.io/badge/Sponsor-GitHub-181717?logo=github&logoColor=white
 ---
-# <img src="./admin/senec.png" width="36" align="top" alt=""> ioBroker.senec
+# <img src="../../admin/senec.png" width="36" align="top" alt=""> ioBroker.senec
 
 ## SENEC Adapter for ioBroker
 
@@ -523,6 +523,9 @@ If something looks like a bug, open an issue on [GitHub](https://github.com/nobl
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Dependency updates
+
 ### 2.15.3 (2026-08-31)
 - Fix: The SENEC App API login posted only the fields it fills in itself and did not send back the hidden fields the login form contains. A browser sends those back, and the SSO uses them to carry the state of a login across its steps, so an account whose login takes a route that depends on them could not get past the first step. Every field of the form is now returned with the values the adapter supplies on top. This applies to the two-factor step as well, where the form names which of several configured codes is being answered.
 - Fix: The mein-senec.de login had the same gap and now sends the form's hidden fields back as well. Its login-page debug dump is redacted before it is written, which it previously was not.

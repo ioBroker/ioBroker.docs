@@ -46,30 +46,27 @@ The adapter accesses Apple's iCloud services using the same APIs that are used b
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.5 (2026-09-06)
+* (ticaki) new: when Apple refuses `/ca/startup`, the titles, colours and flags of the reconstructed calendars are now fetched separately via `/ca/collections` — such calendars only appeared under their guid before, and a list answer also brings back calendars that have no event in the queried range
+* (ticaki) changed: the warning about a reconstructed calendar list now states how many calendars could be completed with their real metadata, and a title delivered by Apple is no longer overwritten by the one stored from an earlier refresh
+
+### 2.0.4 (2026-09-06)
+* (ticaki) fixed: the calendar could fail permanently with `WEBSERVICE_REAUTH_REQUIRED:calendar` although the session was still valid — the service re-authentication no longer posts the account password to Apple's `accountLogin` (which answers HTTP 421 for every account with two-factor authentication) but refreshes the webservices with the session token, the way FindMy has been doing it all along
+* (ticaki) fixed: an empty HTTP 500 is no longer mistaken for an expired session — only a real HTTP 401 triggers a calendar re-authentication now
+* (ticaki) fixed: when Apple refuses `/ca/startup`, the calendar list is now taken from a single-day `/startup` request and, if that fails too, reconstructed from the `pGuid`s of `/ca/events` — the adapter delivers the events instead of aborting the whole refresh, and a reconstructed list never deletes existing calendar objects
+* (ticaki) changed: the calendar service now picks up the calendar partition URL returned by a re-authentication instead of reusing the cached one
+
+### 2.0.3 (2026-09-06)
+* (ticaki) fixed: requesting a 2FA code by SMS could fail with `SMS request failed (500)` — the session is now refreshed directly before the request and a rejected request is retried once with the complete phone number payload
+* (ticaki) fixed: calendar requests now carry the `clientBuildNumber` / `clientMasteringNumber` / `clientId` parameters that Apple's own web client sends — without them stricter calendar servers answered with an empty HTTP 500
+* (ticaki) changed: failed SMS and calendar requests now report Apple's actual error (service errors, edge headers) instead of a truncated JSON fragment, and all adapter messages are English now
+
+### 2.0.2 (2026-09-05)
+* (ticaki) fixed: a failed calendar request no longer deleted all calendar objects and left only `calendar.lastSync` behind — an empty calendar list is now treated as an error, the existing objects are kept and the failure is logged
+
 ### 2.0.1 (2026-09-03)
 * (ticaki) fixed: login failed with `SRP init failed (409)` when a leftover session from an aborted 2FA attempt was still on disk — the stale session is now discarded and the sign-in retried once
 * (ticaki) fixed: the fresh scnt / session id returned by Apple's SRP init response is now used for the following `signin/complete` request
-
-### 2.0.0 (2026-08-24)
-* (ticaki) **BREAKING**: admin >= 8.0.1 is now required — the custom config components were migrated to `@iobroker/gui-components` 10, `@iobroker/json-config` 9, MUI 9 and React 19
-
-### 1.0.2 (2026-08-23)
-* (ticaki) fixed: a valid 2FA code was rejected with Apple error -21669 — the code is now always tried on both verification endpoints (trusted device *and* SMS), because a code that belongs to the other channel is reported exactly like a wrong one
-* (ticaki) fixed: the refreshed session data (scnt / session id) returned by the auth-options, device-push and SMS requests is now applied to the following requests
-* (ticaki) changed: a rejected 2FA code now produces a readable message instead of Apple's raw JSON (the internal error code -21669 looked like a mangled version of the entered code)
-
-### 1.0.1 (2026-08-22)
-* (ticaki) fixed: a valid 2FA code could be rejected with error 409 — the code is now retried on the other channel (trusted device / SMS)
-* (ticaki) fixed: the session data returned by Apple's code verification is now used for the following requests
-* (ticaki) fixed: the build scripts pointed at a non-existent file, which broke `npm run build` and the CI
-
-### 1.0.0 (2026-06-28)
-* (ticaki) **New: FIDO2 / security-key MFA** — sign in with a hardware security key (passkey) straight from the admin panel; the full sign-in ceremony runs in the background with a live, localized status (MFA panel translated into 11 languages)
-* (ticaki) Admin: the security-key button now shows a live "running" state while the background ceremony is in progress
-* (ticaki) fixed: object writes in `syncMap` now use read-merge-write (`getObject` + `setObject`) so existing ACLs and custom settings are preserved instead of being overwritten
-* (ticaki) changed: internal waits (security-key polling, PCS consent, geocoder rate-throttle) now use the cancellable adapter timer, so pending timers are cleared cleanly when the adapter unloads
-* (ticaki) changed: geocoder HTTP requests now use `AbortSignal.timeout` with improved timeout detection
-* (ticaki) fixed: addressed ioBroker repochecker findings for the latest-repo listing
 
 Older changes are listed in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 

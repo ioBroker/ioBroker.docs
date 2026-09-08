@@ -7,13 +7,13 @@ Unter diesem Reiter befinden sich alle verwalteten Objekte. Zu jeder Instanz wir
 
 <span style="line-height: 1.5; text-align: justify;"></span>
 
-![iobroker_admin_objekte_inhalt00](../img/tab-objects_Inhalt00.jpg)
+![iobroker_admin_objekte_inhalt00](img/tab-objects_Inhalt00.jpg)
 
 ## Die Titelzeile
 
 in der Titelzeile befinden sich Icons für die wichtigsten Vorgänge. Zu jedem Icon gibt es eine Kontexthilfe. Dazu einfach mit der Maus eine Weile auf dem Icon bleiben.
 
-![iobroker_admin_objekte_headline_icons](../img/tab-objects_Headline_Icons.jpg)
+![iobroker_admin_objekte_headline_icons](img/tab-objects_Headline_Icons.jpg)
 
 ### **Die Icons im einzelnen:**
 
@@ -43,7 +43,7 @@ Nach Anwählen dieses Icons können weitere Objekte hinzugefügt werden.
 Ist ein Ordner angewählt wird dieser als _Parent_ in der Objektstruktur übernommen. 
 Ein Konfigurationsfenster öffnet sich:
 
-![iobroker_admin_objekte_addobject](../img/tab-objects_AddObject.jpg)
+![iobroker_admin_objekte_addobject](img/tab-objects_AddObject.jpg)
 
 Hier muss jetzt der Name für das neue Objekt ausgewählt werden, wobei als Typ 
 gemäß der hierarchischen Struktur ein Gerät, ein Kanal oder ein Datenpunkt zur Verfügung steht. 
@@ -51,7 +51,7 @@ Als Datenpunkttypen stehen Logikwert, Schalter, Zeichenkette, Zahl, Werteliste,�
 
 Sobald man das Eingabefenster mit ok bestätigt öffnet sich ein weiteres Fenster:
 
-![iobroker_admin_objekte_addobjec02t](../img/tab-objects_AddObjec02t.jpg)
+![iobroker_admin_objekte_addobjec02t](img/tab-objects_AddObjec02t.jpg)
 
 Hier können noch einige Daten eingegeben werden. So kann dem Objekt eine Rolle und ein icon hinzugefügt werden.
 
@@ -69,7 +69,7 @@ Server heruntergeladen und kann gespeichert werden.
 
 ## Der Seiteninhalt
 
-![iobroker_admin_objekte_headline_columns](../img/tab-objects_Headline_Columns.jpg)
+![iobroker_admin_objekte_headline_columns](img/tab-objects_Headline_Columns.jpg)
 
 Auf der Seite werden die vorhandenen Objekte tabellarisch dargestellt.
 
@@ -89,7 +89,7 @@ vorangestelltes Icon gezeigt um welche Hierarchieebene es sich hier handelt (Ger
 
 Die Werte dieser Spalte sind editierbar.
 
-![iobroker_admin_objekte_structure01](../img/tab-objects_Structure01.jpg)
+![iobroker_admin_objekte_structure01](img/tab-objects_Structure01.jpg)
 
 ### **3.) Typ**
 
@@ -110,7 +110,7 @@ Auch dies dient u.a. der Filterung bei der Suche nach Objekten.
 Die Werte dieser Spalte sind editierbar. So können die Objekte noch nachträglich Räumen zugeordnet werden. 
 Klickt man das Feld an, öffnet sich ein Popup mit den bisher angelegten Räumen. 
 
-![iobroker_admin_objekte_rooms](../img/tab-objects_Rooms.jpg)
+![iobroker_admin_objekte_rooms](img/tab-objects_Rooms.jpg)
 
 ### **6.) Funktion**
 
@@ -134,7 +134,7 @@ Der Klick auf das Mülleimer-Icon löscht dieses Objekt und **alle** in der
 Hierarchie darunterliegenden Objekte auch. Zur Sicherheit erscheint ein Fenster, 
 in dem die Löschung noch einmal bestätigt werden muss.
 
-![iobroker_admin_objekte_delete](../img/tab-objects_delete.jpg)
+![iobroker_admin_objekte_delete](img/tab-objects_delete.jpg)
 
 Das Zahnrad-Icon erscheint nur, wenn mindestens eine History-Instanz installiert ist (History, InfluxDB oder SQL). 
 Hier kann der Datenpunkt für das Loggen der historischen Daten konfiguriert werden. Nähere Informationen dazu 

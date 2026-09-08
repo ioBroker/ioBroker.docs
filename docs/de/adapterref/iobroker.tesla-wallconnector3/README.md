@@ -10,7 +10,7 @@ BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&logo
 BADGE-Buy Me a Coffee: https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black
 BADGE-GitHub Sponsor: https://img.shields.io/badge/Sponsor-GitHub-181717?logo=github&logoColor=white
 ---
-# <img src="./admin/tesla-wallconnector3.png" width="36" align="top" alt=""> ioBroker.tesla-wallconnector3
+# <img src="/admin/tesla-wallconnector3.png" width="36" align="top" alt=""> ioBroker.tesla-wallconnector3
 
 ## Tesla Wall Connector Gen 3 Adapter für ioBroker
 
@@ -159,6 +159,9 @@ Der Adapter repariert automatisch bekannte Tesla-Firmware-JSON-Fehler (bare `nan
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.3.2 (2026-09-04)
+- Dependency updates
+
 ### 1.3.1 (2026-08-14)
 - Dependency updates
 
@@ -201,9 +204,6 @@ Der Adapter repariert automatisch bekannte Tesla-Firmware-JSON-Fehler (bare `nan
 - Added state attributes (and moved notifications to debug from info)
 - Code optimization
 - Migration to i18n
-
-### 1.0.6 (NoBl)
-* Maintenance update (dependencies, ...)
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

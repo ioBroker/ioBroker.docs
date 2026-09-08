@@ -33,7 +33,7 @@ Actually there are 5 widgets available. Please enter openligadb in the widget fi
 
 ### Table 4
 
-![Widget table 4](./widgets/openligadb/img/table.png)
+![Widget table 4](/widgets/openligadb/img/table.png)
 
 This is the classic table view. The table contains several columns.
 
@@ -64,7 +64,7 @@ This is the classic table view. The table contains several columns.
 
 ### Games of Gameday v2
 
-![Widget Gameday](./widgets/openligadb/img/gameday.png)
+![Widget Gameday](/widgets/openligadb/img/gameday.png)
 
 This widget displays the matchday. Depending on the settings,
 it can always show the current matchday, the matchday relative to the
@@ -149,7 +149,7 @@ when using binding in edit mode, the current match day is always displayed.
 
 ### Games of favorite clubs 2
 
-![Favorite Games](./widgets/openligadb/img/favgames.png)  
+![Favorite Games](/widgets/openligadb/img/favgames.png)  
 This widget displays the upcoming matches of your favorite teams
 from one or more leagues. By selecting the number of leagues to display,
 a separate configuration group is shown for each league,
@@ -306,7 +306,7 @@ Expand
 
 ### Spieltag über +/- Buttons steuern, sowie direkte Auswahl per Listbox
 
-![Controlbuttons](./widgets/openligadb/img/controlbuttons.png)
+![Controlbuttons](/widgets/openligadb/img/controlbuttons.png)
 
 For this control, an additional data point of type number must be created.
 In this example, it was named javascript.0.bl1.spieltag.
@@ -340,7 +340,7 @@ Expand
 
 ### Selecting the Table Mode for the Table Widget
 
-![Table mode](./widgets/openligadb/img/tableselect.png)
+![Table mode](/widgets/openligadb/img/tableselect.png)
 This HTML widget controls the mode of the table widget.
 The data point used in the following widget is:
 

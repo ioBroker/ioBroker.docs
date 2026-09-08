@@ -49,7 +49,7 @@ Supports the Sigenergy Modbus Protocol V2.9 (released 2026-05-13).
 | Component | Minimum version |
 |-----------|-----------------|
 | **js-controller** | >= 6.0.11 |
-| **admin** | >= 8.0.0 |
+| **admin** | >= 7.8.23 |
 | **Node.js** | >= 22 |
 
 ---
@@ -254,6 +254,28 @@ Status and power readings for the DC charger.
 ---
 
 ## Changelog
+
+### 3.3.1 (2026-09-07)
+- (ssbingo) fix: registers the device marks as not valid are no longer turned into plausible looking measurements. The protocol signals this by setting all bits ("Range:[0, 0xFFFFFFFE]. With value 0xFFFFFFFF, register is not valid.") and a device answers that way for a register that does not currently apply or that its firmware does not implement. The raw sentinel was scaled by the register gain, so it arrived as a reading that looks real: observed on a SigenStor EC 10.0 TP **with** a DC charger installed, `dcCharger.runningState` = 65535 (Appendix 14 only defines 0x00-0x0A), `dcCharger.dischargingCurrent` = 6553.5 A, `dcCharger.currentDischargingCapacity` = 42949672.95 kWh and `dcCharger.currentDischargingDuration` = 4294967295 s, while the neighbouring DC charger registers (rated power, PV generation, totals) returned real values. The same pattern appears outside the DC charger, e.g. `plant.currentCtrlCmdValue` = 655.35 %, `plant.mergedAlarm7` = 65535, `inverter.essMaxBatteryCellVoltage` = 65.535 V and the ESS/PCS/grid limit registers as 4294967.295 kW. Such registers now report no value instead
+- (ssbingo) fix: a register that reports no value no longer feeds the statistics calculation, which keeps the last known good reading instead
+
+### 3.3.0 (2026-09-07)
+- (ssbingo) fix: when the device rejects a grouped register read with a Modbus exception, the registers of that group are now read one by one and only the register(s) the device does not implement are excluded from further polling. Previously a single unsupported register silently disabled its whole group for the rest of the adapter runtime, e.g. `dcCharger.runningState` (31513) never received a value when the discharging registers 31514–31518 of the same group were rejected
+- (ssbingo) feat: new state `info.protocolVersion` (number, e.g. `2.9`) next to the textual `info.protocolLevel`, so widgets and scripts can adapt to the detected protocol version without parsing strings
+- (ssbingo) feat: DC charger registers carry the protocol version that introduced them (`since`, from the V2.9 revision history: 31509–31511 V2.6, 31513 V2.8, 31514–31525 V2.9); registers newer than the detected protocol level are not requested, so a V2.8 device no longer gets its DC charger group rejected because of the V2.9 discharging registers
+- (ssbingo) chore: grouped register reading moved to `lib/readGroups.js` and covered by unit tests
+- (ssbingo) feat: all registers dated by the V2.9 revision history now carry `since` via a central `PROTOCOL_SINCE` table in `lib/registers.js` (plant 30088–30192 V2.6, 30194–30268 V2.7, 30276–30285 V2.8, 30272/30274/30286 V2.9, 40046–40048 V2.6, 40049–40068 V2.8, 40157–40159 V2.9, ESS preheating 50000–50183 V2.9; inverter 30613–30619 V2.6, 31066–31105 V2.8; DC charger 41002/41004 V2.9; all PSS and PID registers V2.9) and are skipped on devices with an older protocol level
+- (ssbingo) fix: the one-time control register read (FC03) and the SigenMicro reader use the same per-register fallback as the input register readers; the control registers are read after the protocol detection so the version gating applies to them as well; ESS preheating polling is skipped below protocol V2.9
+- (ssbingo) fix: corrected the protocol version marker in the names of the eleven cumulative energy states 30228-30268 from `(V2.8)` to `(V2.7)`; the revision history of the V2.9 protocol document lists the cumulative energy interface 30196-30268 under V2.7
+
+### 3.2.0 (2026-09-04)
+- (MMeinhardt1) feat: new state `statistics.emsWorkMode` exposing the EMS work mode as plain text, so consumers do not need the `common.states` lookup table
+- (MMeinhardt1) feat: added EMS work mode 6 (Virtual Power Plant) to the register description and the mode map
+- (MMeinhardt1) change: the `*HM` duration states now hold a bare `H:MM` value with unit `h`, instead of embedding an `h` suffix in the value itself
+- (MMeinhardt1) fix: statistics objects are created with `extendObjectAsync`, so corrected units and roles reach installations where the object already exists
+- (ssbingo) chore: admin minimum requirement lowered back to >= 7.8.23 to keep serving admin 7.x installations
+- (ssbingo) fix: restored the JSDoc parameter descriptions on `_formatMinutesAsHM` to keep `npm run lint` warning-free
+- (ssbingo) chore: repository checker findings — track `.vscode/settings.json` deliberately, bump `@alcalzone/release-script-plugin-license` to 5.2.2, pin `testing-action-deploy` to the major version again
 
 ### 3.1.2 (2026-08-06)
 - (ssbingo) chore: resolved all 28 npm audit findings (3 critical, 11 high) — development tooling only, the published adapter is unchanged

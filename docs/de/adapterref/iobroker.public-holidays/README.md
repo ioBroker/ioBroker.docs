@@ -1,114 +1,172 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.public-holidays/README.md
-title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
-hash: rCtPqJCmRXvi87lkuWpn0a8M3l16vLe25sy1raAErWY=
+BADGE-npm version: https://img.shields.io/npm/v/iobroker.public-holidays
+BADGE-stable: https://iobroker.live/badges/public-holidays-stable.svg
+BADGE-Installations: https://iobroker.live/badges/public-holidays-installed.svg
+BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.public-holidays
+BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
+BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
+BADGE-License: https://img.shields.io/badge/license-MIT-green
+BADGE-Sentry: https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white
+BADGE-Ko-fi: https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge
 ---
-# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.public-holidays@main/admin/public-holidays.svg" width="48" align="top" /> ioBroker.public-holidays
+# Feiertage
 
-![npm-Version](https://img.shields.io/npm/v/iobroker.public-holidays)
-![stabil](https://iobroker.live/badges/public-holidays-stable.svg)
-![Installationen](https://iobroker.live/badges/public-holidays-installed.svg)
-![npm-Downloads](https://img.shields.io/npm/dt/iobroker.public-holidays)
-![Knoten](https://img.shields.io/badge/node-%3E%3D22-brightgreen)
-![Typoskript](https://img.shields.io/badge/TypeScript-strict-blue)
-![Lizenz](https://img.shields.io/badge/license-MIT-green)
-![Posten](https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white)
-![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)
-![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)
+Public Holidays macht aus dem Kalender Datenpunkte: ob heute ein Feiertag ist, wie er heißt, welcher
+als Nächstes kommt und in wie vielen Tagen. Alles wird **offline** auf dem eigenen System berechnet —
+ohne Konto, ohne API-Schlüssel, ohne Internetverbindung.
 
-Erkennt Feiertage in 206 Ländern. Funktioniert komplett offline – keine Cloud, keine API-Aufrufe. Aktualisiert sich täglich um Mitternacht.
+## Wie der Adapter arbeitet
 
-Feiertagsdaten bereitgestellt von [Datum-Feiertage](https://github.com/commenthol/date-holidays) (ISC + CC-BY-SA-3.0).
+Der Adapter läuft im **Zeitplan-Betrieb**. Er rechnet einmal beim Start und beim Speichern der
+Einstellungen, danach täglich um Mitternacht, ausgelöst vom ioBroker-Controller. Jeder Durchgang
+schreibt sein Ergebnis, danach endet der Prozess wieder — zwischen zwei Durchgängen belegt der
+Adapter keinen Speicher.
 
----
+Die Feiertagsdaten stammen aus der mitgelieferten Bibliothek `date-holidays`, die 206 Länder samt
+Bundesländern, Kantonen, Provinzen und Regionen abdeckt.
 
-## Merkmale
-- **206 Länder** mit Unterstützung durch Bundesstaaten/Provinzen und Regionen
-- **Vollständig offline** – alle Urlaubsdaten sind im Paket enthalten, kein Internet erforderlich
-- **5 Feiertagsarten** — öffentlicher Feiertag, Bankfeiertag, Schulfeiertag, optionaler Feiertag, Gedenktag (konfigurierbar)
-- **Überbrückungstage-Erkennung** – erkennt Arbeitstage zwischen Feiertagen und Wochenenden
-- **Einzelne Feiertage ausschließen** — Feiertage, die ausgeschlossen werden sollen, über das Dropdown-Menü auswählen
-- **Lokalisierte Feiertagsnamen** — folgt der Systemsprache mit englischem Fallback
-- **Zeitplanmodus** – wird einmal beim Start und täglich um Mitternacht berechnet, zwischen den Ausführungen wird kein Speicher belegt.
+## Einrichtung
 
-## Wächter / Fehlerberichterstattung
-Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Die Meldung erfolgt nur, wenn Sie die Fehlerberichterstattung in den ioBroker-Diagnoseeinstellungen aktiviert haben (Systemeinstellungen → Diagnose und Fehlerberichterstattung). Es wird lediglich eine anonyme Installations-ID übermittelt – kein Name, keine E-Mail-Adresse und keine IP-Adresse.
+1. Adapter aus dem ioBroker-Repository (stable oder latest) installieren und eine Instanz anlegen.
+   Eine Installation über eine GitHub-Adresse wird nicht unterstützt.
+2. Die Instanz-Einstellungen öffnen. Alle Einstellungen liegen auf einer geführten Karte, die von
+   oben nach unten durchgearbeitet wird.
+3. Speichern. Der Adapter rechnet sofort und schreibt seine Datenpunkte.
 
-Einzelheiten und Hinweise zur Deaktivierung finden Sie in Abschnitt [Dokumentation des Sentry-Plugins](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Für die Fehlerberichterstattung ist js-controller 3.0 oder neuer erforderlich.
+### Standort
 
----
+Land auswählen. Bundesland und Region erscheinen nur bei Ländern, die sie haben — Deutschland hat
+zum Beispiel Bundesländer, Italien numerische Provinzcodes.
 
-## Anforderungen
-- ioBroker js-controller >= 7.2.2
-- Admin >= 7.8.23
-- Node.js >= 22
+Bleibt das Land leer, übernimmt der Adapter das Land aus den **ioBroker-Systemeinstellungen**
+(Systemeinstellungen → Basiseinstellungen → Land) und schreibt eine Logzeile, welches Land er
+verwendet hat. Lässt sich dieses Land nicht zuordnen, meldet der Adapter „No country configured" und
+hält an.
 
-## Konfiguration
-Alle Einstellungen befinden sich auf einer einzigen Übersichtskarte. Arbeiten Sie diese von oben nach unten durch:
+### Feiertagstypen
 
-| Schritt | Beschreibung |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Standort | Land (206 verfügbar); Bundesland/Provinz und Region werden nur für Länder angezeigt, die diese Angaben enthalten. Wenn das Landfeld leer bleibt, wird es automatisch aus Ihren ioBroker-Systemeinstellungen ermittelt. |
-| Feiertagsarten | Öffentliche Feiertage (standardmäßig aktiviert), Bankfeiertage, Schulfeiertage, optionale Feiertage und Gedenktage. |
-| Brückentage | Fügt Brückentage zwischen einem Feiertag und dem Wochenende ein. |
-| Ausgeschlossene Feiertage | Wählen Sie einzelne Feiertage aus, die von der Erkennung ausgeschlossen werden sollen. |
-| Erkannte Feiertage | Eine Live-Vorschau der Feiertage, die der Adapter für die aktuelle Auswahl erkennt. |
+Fünf Typen lassen sich unabhängig voneinander aktivieren:
 
-Die Einstellungskarte ist eine Admin-8-Komponente, daher benötigt dieser Adapter Admin 8.
+| Typ                   | Bedeutung                                                                              |
+| --------------------- | -------------------------------------------------------------------------------------- |
+| Gesetzliche Feiertage | Die staatlich festgelegten Feiertage. Standardmäßig aktiv.                             |
+| Bankfeiertage         | Tage, an denen Banken und Ämter schließen, die aber keine gesetzlichen Feiertage sind. |
+| Schulferien           | Ferientage der Schulen.                                                                |
+| Optionale Feiertage   | Tage, die nur für einen Teil der Bevölkerung frei sind.                                |
+| Gedenktage            | Gedenk- und Aktionstage ohne arbeitsfreie Wirkung — z. B. Muttertag.                   |
 
-## Staatsbaum
-```
-public-holidays.0.
-├── today.
-│   ├── name         string    "Karfreitag" / "Good Friday"
-│   └── isHoliday    boolean   true / false
-├── yesterday.
-│   ├── name         string
-│   └── isHoliday    boolean
-├── tomorrow.
-│   ├── name         string
-│   └── isHoliday    boolean
-├── dayAfterTomorrow.
-│   ├── name         string
-│   └── isHoliday    boolean
-└── next.
-    ├── name         string    next holiday name (localized)
-    ├── isHoliday    boolean   true when an upcoming holiday exists
-    ├── date         string    "2026-12-25" (ISO date)
-    └── daysUntil    number    days until holiday
-```
+Fallen zwei Feiertage auf denselben Tag, entscheiden drei Regeln in dieser Reihenfolge, welcher
+Name gemeldet wird:
 
-Wenn kein Feiertag vorliegt (z. B. ist heute kein Feiertag), sind die Kanalzustände leere Zeichenketten / false / 0.
+1. der höherrangige Typ gewinnt, in der Reihenfolge der Tabelle,
+2. ein Feiertag, der wirklich auf diesen Tag gehört, schlägt einen, der nur vom Wochenende hierher
+   verschoben wurde,
+3. und bleibt es dann noch gleich, entscheidet eine feste interne Reihenfolge.
 
-## Bridge-Day-Algorithmus
-Ein Brückentag ist ein Werktag (Montag bis Freitag) zwischen einem Feiertag und einem Wochenende:
+Alle drei sind eindeutig, der Name bleibt über Datenaktualisierungen hinweg also derselbe. Bis
+Version 0.15.1 gewann bei Gleichstand schlicht der zuerst gelieferte Eintrag, was sich mit einer
+Datenaktualisierung still ändern konnte — in 42 Ländern, darunter Norwegen, Polen, Rumänien,
+Serbien und Taiwan.
 
-- Feiertag am **Donnerstag** → Freitag ist ein Brückentag
-- Feiertag am **Dienstag** → Montag ist ein Brückentag
-- Feiertag am **Mittwoch** → kein Brückentag (zwei Tage fehlen)
+> Sind **alle** Typen abgeschaltet, meldet der Adapter überhaupt keine Feiertage — die Karte und das
+> Log sagen das ausdrücklich.
 
-Brückentage werden im Zustandsbaum mit dem lokalisierten Namen angezeigt, der der Systemsprache entspricht.
+### Brückentage
 
-## Fehlerbehebung
-**Keine Zustände nach dem ersten Start** — Öffnen Sie die Adaptereinstellungen und wählen Sie ein Land aus.
+Ein Brückentag ist ein Arbeitstag, der zwischen einem Feiertag und dem Wochenende eingeklemmt ist.
+Mit aktivierter Option nimmt der Adapter ihn als eigenen Feiertag auf, benannt als „Brückentag" in
+der eingestellten Sprache:
 
-**Falsche Feiertage / Fehlende regionale Feiertage** – Prüfen Sie, ob das richtige Bundesland/die richtige Provinz ausgewählt ist. Stellen Sie den Protokollierungsgrad auf „Debug“, um alle erkannten Feiertage anzuzeigen.
+- Feiertag am **Donnerstag** → der **Freitag** wird Brückentag,
+- Feiertag am **Dienstag** → der **Montag** wird Brückentag,
+- ein **Mittwoch**, der von einem Feiertag am Dienstag _und_ am Donnerstag eingerahmt ist, wird
+  Brückentag.
 
-**Feiertag nicht erkannt** – Einige Feiertage werden als `observance` anstatt als `public` klassifiziert. Aktivieren Sie gegebenenfalls den Feiertagstyp in den Feiertagseinstellungen.
+Ein einzelner Mittwochs-Feiertag erzeugt keinen: bis zum Wochenende wären zwei Fehltage nötig. Ein
+Brückentag überschreibt nie einen echten Feiertag und erzeugt nie weitere Brückentage.
 
-## Credits
-Die Idee geht auf den Adapter `feiertage` von pix zurück, der ursprünglich Feiertagsdaten in ioBroker integriert hat. Vielen Dank an [Jey Cee](https://github.com/Jey-Cee) für die Bereitstellung des Paketnamens `public-holidays`. Dieser Adapter ist eine unabhängige Implementierung und teilt keinen Code mit den anderen.
+### Ausgeschlossene Feiertage
 
-## Unterstützung
-- [GitHub Issues](https://github.com/krobipd/ioBroker.public-holidays/issues) — Fehlerberichte, Funktionsanfragen
-- [ioBroker Forum](https://forum.iobroker.net/) — Allgemeine Fragen
+Manche Feiertage sind für den eigenen Haushalt ohne Bedeutung — einzelne Einträge lassen sich
+ausschließen. Die Auswahlliste bietet genau die Feiertage des gewählten Standorts und der
+aktivierten Typen an, also das, was der Adapter sonst melden würde.
 
-### Unterstützung der Entwicklungsabteilung
-Dieser Adapter ist kostenlos und Open Source. Wenn er Ihnen nützlich ist, würde ich mich über eine kleine Spende freuen:
+Ein Ausschluss wird über eine interne Kennung gespeichert, die aus der Berechnungsregel des
+Feiertags stammt. Wird diese Regel durch ein späteres Datenupdate umbenannt oder entfernt, trifft
+der Ausschluss ins Leere — der Adapter schreibt dann eine Warnung mit dem betroffenen Eintrag, und
+die Karte zeigt ihn als entfernbaren Chip unter der Auswahlliste.
 
----
+Ausschlüsse greifen **vor** der Brückentagsberechnung: Wer einen Donnerstags-Feiertag ausschließt,
+verliert damit auch den zugehörigen Freitags-Brückentag.
+
+### Erkannte Feiertage
+
+Unten auf der Karte steht eine Vorschau der Feiertage, die der Adapter mit den aktuellen
+Einstellungen für dieses Jahr erkennt — inklusive Brückentage und abzüglich der Ausschlüsse. Sie
+rechnet genauso wie der Adapter selbst, die Vorschau zeigt also den echten späteren Stand.
+
+## Datenpunkte
+
+| Datenpunkt                                             | Typ              | Bedeutung                                                                     |
+| ------------------------------------------------------ | ---------------- | ----------------------------------------------------------------------------- |
+| `today.name`                                           | string           | Name des heutigen Feiertags, an normalen Tagen leer                           |
+| `today.isHoliday`                                      | boolean          | Ob heute ein Feiertag ist                                                     |
+| `yesterday.name` / `yesterday.isHoliday`               | string / boolean | Dasselbe für gestern                                                          |
+| `tomorrow.name` / `tomorrow.isHoliday`                 | string / boolean | Dasselbe für morgen                                                           |
+| `dayAfterTomorrow.name` / `dayAfterTomorrow.isHoliday` | string / boolean | Dasselbe für übermorgen                                                       |
+| `next.name`                                            | string           | Name des nächsten kommenden Feiertags                                         |
+| `next.isHoliday`                                       | boolean          | Ob überhaupt ein kommender Feiertag gefunden wurde                            |
+| `next.date`                                            | string           | Dessen Datum als `YYYY-MM-DD` — maschinenlesbar, unabhängig vom Anzeigeformat |
+| `next.daysUntil`                                       | number           | Tage bis zu diesem Feiertag                                                   |
+
+Alle Datenpunkte sind nur lesbar und tragen im Objektbaum eine kurze Erklärung in der eingestellten
+Sprache. `next` schaut strikt nach vorn: Ein Feiertag, der heute ist, steht in `today`, nicht in
+`next`.
+
+Die Namen der Kanäle und Datenpunkte folgen der ioBroker-Systemsprache und werden bei jedem
+Durchgang aufgefrischt — auch auf Anlagen, die aktualisiert statt neu installiert wurden. Ein von
+Hand vergebener eigener Name wird dabei wieder überschrieben.
+
+## Sprache
+
+Feiertagsnamen erscheinen in der ioBroker-Systemsprache, sofern die Feiertagsdaten diese Sprache
+führen, sonst auf Englisch. Unterstützt sind elf Sprachen: Deutsch, Englisch, Spanisch,
+Französisch, Italienisch, Niederländisch, Polnisch, Portugiesisch, Russisch, Ukrainisch und
+Chinesisch.
+
+## Fehlersuche
+
+**Es werden überhaupt keine Feiertage gemeldet.**
+Ins Log sehen. „No country configured" heißt, dass weder der Adapter noch die
+ioBroker-Systemeinstellungen ein verwertbares Land liefern. „No holiday type is enabled" heißt, dass
+alle Typ-Häkchen aus sind.
+
+**Das eingestellte Bundesland oder die Region wird scheinbar ignoriert.**
+Ein unbekanntes Bundesland oder eine unbekannte Region fällt still auf die gröbere Ebene zurück. Der
+Adapter erkennt das und warnt: „State 'XX' is unknown for YY — using country-level holidays". Den
+Eintrag aus der Auswahlliste wählen, statt ihn einzutippen. Ist der gespeicherte Eintrag durch eine
+Datenaktualisierung weggefallen, weist die Karte oberhalb der Auswahlliste darauf hin und lässt die
+Konfiguration unangetastet, bis ein neuer Eintrag gewählt wird.
+
+**Ein Feiertag fehlt oder taucht unerwartet auf.**
+Den passenden Feiertagstyp aktivieren — manche Tage zählen als Gedenktag statt als gesetzlicher
+Feiertag, und das kann sich mit einem Datenupdate ändern. Ebenso die Ausschlussliste prüfen.
+
+**Ein Ausschluss wirkt nach einem Update nicht mehr.**
+Die Berechnungsregel des Feiertags wurde in den Daten umbenannt. Der Adapter warnt bei jedem
+Durchgang vor veralteten Ausschlüssen; den Chip in den Einstellungen entfernen und den Feiertag neu
+auswählen.
+
+**Im Log steht um Mitternacht `Connection is closed.`**
+Das kommt vom ioBroker-Controller beim Herunterfahren des Adapters, nicht vom Adapter selbst. Es ist
+folgenlos — der Durchgang hat seine Datenpunkte zu diesem Zeitpunkt bereits geschrieben.
+
+## Datenschutz
+
+Der Adapter arbeitet vollständig offline, es verlassen keine Daten das System. Die optionale
+Fehlerberichterstattung über Sentry lässt sich in den ioBroker-Einstellungen abschalten — siehe die
+in der Haupt-README verlinkte Dokumentation des Sentry-Plugins.
 
 ## Changelog
 
@@ -116,28 +174,34 @@ Dieser Adapter ist kostenlos und Open Source. Wenn er Ihnen nützlich ist, würd
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.13.0 (2026-08-13)
 
-- The adapter settings are now a single guided card — country, region, holiday types and exclusions on one page, with a live preview of the holidays that will be detected.
+### 0.16.0 (2026-09-06)
 
-### 0.12.0 (2026-08-10)
+- Fixed: Two holidays on one day could swap the reported name on their own with a data update. A fixed rule decides now — the name changes in 39 countries, among them Norway, Poland and Taiwan.
+- Fixed: A day moved off a weekend no longer pushes aside the holiday that genuinely belongs on that date.
+- New: Every data point now explains itself in the object tree, in your language.
+- Fixed: Opening the settings marked them as changed when a stored state or province had vanished from the holiday data. The card points that entry out now instead.
+- Fixed: A country written as a name instead of its code was rejected in the settings, although the same name worked when it came from the ioBroker system settings.
+- Fixed: Refreshed holiday data — Belgian holidays now carry English names, and the entries for Albania and Andorra were corrected.
+- Changed: Install the adapter from the ioBroker repository (stable or latest) — installing from GitHub is no longer supported.
 
-- The holiday exclusion selector in the settings now works on Admin 8 — it was blank there since Admin 8.0.1, so this version requires Admin 8.
+### 0.15.1 (2026-09-04)
 
-### 0.11.0 (2026-07-12)
+- Fixed: Installations kept whatever holiday data was already on the system, so corrections and new countries never arrived. An update now brings the current data along.
 
-- Breaking change: the states that flag whether each day is a holiday were renamed for clarity — update any scripts or views that read them.
-- Refreshed the built-in holiday data, adding newly recognised regional holidays.
+### 0.15.0 (2026-09-04)
 
-### 0.10.0 (2026-07-02)
+- Fixed: With no holiday type enabled the adapter reported nothing without a word while the card still previewed a full year. Card and log now say it.
+- Changed: Channel and data point names are refreshed on every run, so renames reach updated installations too — a manual rename of them is overwritten.
 
-- The "next holiday" date and days-until states now show up correctly as a date and a day count in VIS widgets and scripts (they carry the proper ioBroker role and a "days" unit).
-- The exclude-holidays list in the settings now also offers holidays that only occur in the coming year, not just the current one.
+### 0.14.0 (2026-09-01)
 
-### 0.9.0 (2026-06-28)
+- New: the next-holiday log line now shows the date in your system's date format — for example 26.10.2026 instead of 2026-10-26. The date data point itself stays machine-readable for scripts.
 
-- The holiday exclude list now shows only your selected region's holidays, in your admin language and sorted by date — no longer every region of a country mixed alphabetically.
-- The false "excluded holidays no longer match" warning at startup is fixed; it now fires only for a holiday that genuinely no longer exists.
+### 0.13.2 (2026-08-27) — stable
+
+- Fixed: Stopping or restarting the instance while the holidays were being worked out cut that run short, which could leave half-written values and errors in the log.
+- Changed: Heads-up for Austria — St. Martin's, Rupert's and Referendum Day count as observances now and disappear unless that type is enabled. Plus data fixes for Ireland, Russia and others.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

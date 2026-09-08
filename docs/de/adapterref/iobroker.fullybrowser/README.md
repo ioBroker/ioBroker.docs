@@ -9,7 +9,7 @@ BADGE-Number of Installations: http://iobroker.live/badges/fullybrowser-installe
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.fullybrowser.svg?color=red&label=beta
 BADGE-Stable: https://iobroker.live/badges/fullybrowser-stable.svg
 ---
-![Logo](./admin/fully.png)
+![Logo](../../admin/fully.png)
 
 ## Über diesen Adapter
 

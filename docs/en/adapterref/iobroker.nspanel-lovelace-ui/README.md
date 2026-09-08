@@ -157,6 +157,25 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2026-09-06)
+- (ticaki) fix: a panel card marked with `Check!` was hard to read - white text on the beige card in the dark themes, almost invisible input frames in the new light one. The icons of the icon picker were invisible in the `blue` theme
+- (ticaki) fix: passwords no longer reach the log in plain text
+- (ticaki) fix: setting a panel up failed with `Invalid response from adapter` or `the message from the admin is incomplete`. It runs as three steps now and shows how far it got
+- (ticaki) fix: the timezone dropdown froze the browser, is a searchable field now, and the chosen zone reaches the panel at last
+- (ticaki) fix: a switched off panel was marked as such in english and german only, and hard to tell from an offline one
+- (ticaki) the start page can now be set in the admin: a checkbox marks any admin page as start page, it replaces the one from the configuration script and is marked with `(main)`
+- (ticaki) a panel no longer needs a page named `main` in the configuration script, so it can be set up in the admin alone (script version 0.21.1)
+- (ticaki) navigation flow: nodes are coloured by origin, pages linked with `next` and `prev` share one edge, a long press target and a navigation target read from a state get a connection of their own, and hovering or clicking highlights what belongs together
+- (ticaki) navigation flow: an option shows the states and channels each page works with as nodes of their own, with an info panel listing what a page item makes of them
+- (ticaki) navigation flow: the page info starts with the page name and its headline and links to the page configuration of an admin page
+- (ticaki) admin: the navigation assignment marks a navigation target that does not exist on an assigned panel
+- (ticaki) fixed: replacing a script page from the admin tore the navigation apart and could cut off the access to the service pages
+- (ticaki) fixed: a panel without its own start page could show the start page of another panel
+- (ticaki) fixed: after sending the configuration script the reloaded panel lost the pages of all other panels until the adapter was restarted
+- (ticaki) fixed: a `cardQR`, `cardAlarm` or `cardUnlock` page in the configuration script stopped all following pages from being created
+- (ticaki) fixed: the page configuration of a cardTrash page did not open when the entry carries no waste types yet
+- (ticaki) fixed: the state `mainNavigationPoint` was not translated
+
 ### 1.0.1 (2026-09-01)
 - (tt-tom17) cardChart (line): the x-axis no longer uses a fixed 24 h window, it now follows the configured hours range
 - (tt-tom17) admin: the trash page now shows a status line after an .ics upload, including the number of appointments found

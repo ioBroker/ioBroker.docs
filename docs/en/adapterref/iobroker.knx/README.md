@@ -206,7 +206,7 @@ These results, e.g., in a value like "0,5", where "0" means "decrease" and "5" m
 
 The GA-Tool makes it easy to change properties of GA's.
 
-![knxV2-3-6-GATools-mod](./docs/pictures/knxV2-3-6-GATools-mod.jpg)
+![knxV2-3-6-GATools-mod](/docs/pictures/knxV2-3-6-GATools-mod.jpg)
 
 1. shows the GA tree and selected GA
 2. in the property section, the name of selected GA
@@ -215,7 +215,7 @@ The GA-Tool makes it easy to change properties of GA's.
 5. recognized act GA
 6. recognized state GA
 
-![knxV2-3-2-GATools-mod](./docs/pictures/knxV2-3-2-GATools-mod.jpg)
+![knxV2-3-2-GATools-mod](/docs/pictures/knxV2-3-2-GATools-mod.jpg)
 
 1. show the state-act relation
 2. if relation exists, then it can be removed
@@ -223,11 +223,11 @@ The GA-Tool makes it easy to change properties of GA's.
 If no relation exists, then can be created a new one by clicking (2) for selected GA (1).
 In the dialog (3) can the peer be selected
 
-![knxV2-3-5-GATools-mod](./docs/pictures/knxV2-3-5-GATools-mod.jpg)
+![knxV2-3-5-GATools-mod](/docs/pictures/knxV2-3-5-GATools-mod.jpg)
 
 If there are more GA's to change properties, use multiselect. This feature works only for GA's with no relation.
 
-![knxV2-3-4-GATools-mod](./docs/pictures/knxV2-3-4-GATools-mod.jpg)
+![knxV2-3-4-GATools-mod](/docs/pictures/knxV2-3-4-GATools-mod.jpg)
 
 1. selected GA's
 2. properties to change
@@ -241,7 +241,7 @@ IOT components directly to a GA in KNX (f.e. link a homematic button to a KNX GA
 your sonos player)). The states can be read with a GroupValueRead, and if the state changes, it will be
 automatically updated on KNX. Also, if you change on KNX, it will update the linked non KNX iot device.
 
-![knxV2-3-7-GATools-Directlink-mod](./docs/pictures/knxV2-3-7-GATools-DirectLink-mod.jpg)
+![knxV2-3-7-GATools-Directlink-mod](/docs/pictures/knxV2-3-7-GATools-DirectLink-mod.jpg)
 
 1. select the GA to connect to
 2. show the selected GA
@@ -250,12 +250,12 @@ automatically updated on KNX. Also, if you change on KNX, it will update the lin
 5. it is not allowed to have an act-state relation
 6. button to select a non KNX object to link with
 
-![knxV2-3-8-GATools-Directlink-mod](./docs/pictures/knxV2-3-8-GATools-DirectLink-mod.jpg)
+![knxV2-3-8-GATools-Directlink-mod](/docs/pictures/knxV2-3-8-GATools-DirectLink-mod.jpg)
 
 1. select the non-KNX object you want to link
 2. hit OK if you're done
 
-![knxV2-3-9-GATools-Directlink-mod](./docs/pictures/knxV2-3-9-GATools-DirectLink-mod.jpg)
+![knxV2-3-9-GATools-Directlink-mod](/docs/pictures/knxV2-3-9-GATools-DirectLink-mod.jpg)
 
 Now is KNX-GA **(1)** directly linked with non-KNX iobroker **(2)**. With **(3)** you can delete this
 relation.

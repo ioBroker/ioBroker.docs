@@ -25,18 +25,37 @@ The `LMS`-Server can manage/provide very big music collections on harddrives
 or `NAS`, connect to different streaming providers like `Spotify`, `Deezer`,
 `Soundcloud`, `shoutcast`, `tunein`, `napster`, `pandora`, `tidal` and more
 
+## Table of contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Update](#update)
+- [Troubleshooting](#trouble-shooting)
+- [Provided states](#provided-states)
+    - [Server](#server)
+    - [Favorites](#favorites)
+    - [Players](#players)
+- [Widgets](#widgets)
+    - [VIS 1 widget documentation](docs/vis1-widgets.md)
+    - [VIS 2 widget documentation](docs/vis2-widgets.md)
+- [SendTo commands](#sendto-commands)
+- [Todo](#todo)
+- [Changelog](#changelog)
+- [License](#license)
+
 ## Features
 
 - most of [data](#server) that the `LMS`-Service provides is available in the adapter
 - detailed [information](#players) about the player status, song title, artist,
   album, artwork, playlist
 - [many control features](#provided-states) to play, pause, stop, forward,\
-   rewind, repeat, shuffle, play favorite, jump to time\
-   (absolute and relative) , jump to playlist index (absolute and relative),\
-   power on/off and preset buttons
+  rewind, repeat, shuffle, play favorite, jump to time\
+  (absolute and relative) , jump to playlist index (absolute and relative),\
+  power on/off and preset buttons
 - all [favorites](#favorites) and all sub levels from server
 - many [widgets](#widgets) for the iobroker-vis component are included to\
-   create own
+  create own
   control user interfaces (select player,select favorites, manage syncgroups,
   buttons for play/pause,fwd,rew, repeat mode and shuffle mode selection)
 
@@ -48,10 +67,82 @@ or `NAS`, connect to different streaming providers like `Spotify`, `Deezer`,
   and the port (normaly 9000)
 - start/restart the instance
 
+## Configuration
+
+### Main settings
+
+| Option          | Default    | Description                                                                                                     |
+| --------------- | ---------- | --------------------------------------------------------------------------------------------------------------- |
+| LMS server      | `0.0.0.0`  | Hostname or IP address of the Logitech/Lyrion Media Server. An automatically discovered server can be selected. |
+| LMS port        | `9000`     | HTTP port used by JSON-RPC or the experimental WebSocket plugin.                                                |
+| Connection type | `JSON-RPC` | Uses stable HTTP JSON-RPC or the experimental LMS WebSocket plugin.                                             |
+| WebSocket URL   | empty      | Optional independent plugin web-server URL, for example `http://192.168.1.87/`.                                 |
+| LMS Telnet port | `9090`     | CLI/Telnet port. Used only with JSON-RPC when Telnet signaling is enabled.                                      |
+| Username        | empty      | Optional LMS username.                                                                                          |
+| Password        | empty      | Optional LMS password.                                                                                          |
+
+WebSocket mode requires the experimental
+[LMS WebSocket plugin](https://github.com/LMS-Community/slimserver/tree/d1d0a683d8301c04e64be0425e0aec51fc4e8397/Slim/Plugin/WebSocket).
+It carries commands and notifications over the same connection, so the Telnet
+settings are ignored in this mode. The regular player polling remains enabled
+as a fallback for missing or incomplete notifications. HTTP(S) WebSocket URLs
+are converted to WS(S), and `/ws` is added automatically when only a root URL
+is configured.
+
+### Timer settings
+
+| Option                      | Default | Minimum | Description                                                        |
+| --------------------------- | ------- | ------- | ------------------------------------------------------------------ |
+| Server refresh (seconds)    | `30`    | `15`    | Interval for refreshing LMS server information.                    |
+| Player refresh (ms)         | `950`   | `200`   | Interval for refreshing player status information.                 |
+| Favorite refresh (minutes)  | `720`   | `1`     | Interval for refreshing the favorites tree.                        |
+| Discovery refresh (seconds) | `30`    | `10`    | Interval for searching for other LMS servers on the local network. |
+
+Short refresh intervals increase the number of requests sent to the LMS.
+
+### Performance settings
+
+| Option                       | Default  | Description                                                                                      |
+| ---------------------------- | -------- | ------------------------------------------------------------------------------------------------ |
+| Provide playlist information | enabled  | Creates and updates the `Playlist` JSON state for every player.                                  |
+| Search for other LMS servers | enabled  | Enables discovery of other LMS servers on the local network.                                     |
+| Use Telnet signaling         | disabled | With JSON-RPC, uses LMS CLI/Telnet for additional player connection and disconnection signaling. |
+| Request favorites            | enabled  | Periodically retrieves the favorites tree from the LMS.                                          |
+
+Disable information that is not required to reduce LMS requests and adapter processing.
+
+### Announcement settings
+
+| Option                | Default  | Description                                                                                                                     |
+| --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| ioBroker web base URL | empty    | Base URL of an ioBroker web instance, for example `http://192.168.1.10:8082`. Required only for announcements from local files. |
+| Announcement volume   | `50`     | Volume used while playing the announcement. Valid range: 0 to 100.                                                              |
+| Use FadeTools         | disabled | Uses the optional [LMS FadeTools plugin](https://github.com/oweitman/LMS-FadeTools) before and after announcements.             |
+| Fade-out duration     | `2` s    | Whole seconds passed to `fadeout stop`. Valid range: 1 to 60 seconds.                                                           |
+| Fade-in duration      | `2` s    | Whole seconds passed to `fadein play`. Valid range: 1 to 60 seconds.                                                            |
+
+For local announcement files, the LMS must be able to reach the configured
+ioBroker web URL. HTTP(S) announcement URLs are passed directly to the LMS and
+do not require this setting. FadeTools commands are sent only when the option is
+enabled. Without FadeTools, all volume values are set directly and verified
+with the LMS.
+
+### Debug settings
+
+| Option              | Default  | Description                                                  |
+| ------------------- | -------- | ------------------------------------------------------------ |
+| Player debug output | disabled | Enables additional debug messages for player processing.     |
+| Player silly output | disabled | Enables very detailed player messages.                       |
+| Server debug output | disabled | Enables additional debug messages for LMS server processing. |
+| Server silly output | disabled | Enables very detailed LMS server messages.                   |
+
+Debug and especially silly logging should normally remain disabled and be
+enabled only while diagnosing a problem.
+
 ## Update
 
 - After installation or update, it may sometimes be necessary\
-   to execute the following command if problems have arisen in vis-1
+  to execute the following command if problems have arisen in vis-1
 
 `iobroker upload squeezeboxrpc`
 
@@ -87,9 +178,10 @@ should allow the player to connect.
 
 additional a defined button to refresh the favorites
 
-| button         | Description                       |
-| -------------- | --------------------------------- |
-| `getFavorites` | request all favorites from server |
+| button         | Description                                                                                                                                                                                  |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `getFavorites` | request all favorites from server                                                                                                                                                            |
+| `cmdGeneral`   | a general command field to send commands to the server. every field must enclosed by quotation marks. parameters musst be seperated by comma. Example: "playerid or empty",["para1","para2"] |
 
 ### Favorites
 
@@ -114,36 +206,37 @@ for each player
 The mode shows if you can change the value. the taken action is
 described at the attribute
 
-| State                  | mode | Description                                                                                                          |
-| ---------------------- | ---- | -------------------------------------------------------------------------------------------------------------------- |
-| `Alarms`               | R/-  | All registered Alarms for this player as JSON                                                                        |
-| `Album`                | R/-  | Name of the current album                                                                                            |
-| `Artist`               | R/-  | Name of Artist                                                                                                       |
-| `ArtworkUrl`           | R/-  | url to the Artwork                                                                                                   |
-| `Bitrate`              | R/-  | Bitrate of the track                                                                                                 |
-| `Connected`            | R/-  | connectionstate of player (0/1)                                                                                      |
-| `Duration`             | R/-  | Duration of the track                                                                                                |
-| `Genre`                | R/-  | genre of the track                                                                                                   |
-| `IP`                   | R/-  | IP of the player                                                                                                     |
-| `Mode`                 | R/-  | play / pause / stop                                                                                                  |
-| `Playername`           | R/-  | Name of the Player                                                                                                   |
-| `PlayerID`             | R/-  | Player ID                                                                                                            |
-| `Playlist`             | R/-  | The actual Playlist as JSON                                                                                          |
-| `PlaylistCurrentIndex` | R/W  | go to a absolut position by specifying thetrackindex or go relative with a + or - at the beginning. Example 10,-3,+2 |
-| `PlaylistRepeat`       | R/W  | Repeat song(1)/playlist(2)/dont repeat(0)                                                                            |
-| `PlaylistShuffle`      | R/W  | shuffle playlist(1)/shuffle album(2)/dont shuffle(0)                                                                 |
-| `Power`                | R/W  | get/set Powerstate of player off(0)/on(1)                                                                            |
-| `RadioName`            | R/-  | Name of Radiostation                                                                                                 |
-| `Rate`                 | R/-  | Rating of the song                                                                                                   |
-| `Remote`               | R/-  | If remote stream (1)                                                                                                 |
-| `SyncMaster`           | R/-  | ID/MAC of Syncmaster                                                                                                 |
-| `SyncSlaves`           | R/-  | ID/Mac of Players in Syncgroup                                                                                       |
-| `Time`                 | R/-  | elapsed song time                                                                                                    |
-| `Title`                | R/-  | song title                                                                                                           |
-| `Type`                 | R/-  | type of media (eg MP3 Radio)                                                                                         |
-| `Url`                  | R/-  | Url of track / stream                                                                                                |
-| `Volume`               | R/W  | get/set Volume of the player (0-100)                                                                                 |
-| `state`                | R/W  | get/set play state: pause(0),play(1),stop(2)                                                                         |
+| State                  | mode | Description                                                                                                                                                                              |
+| ---------------------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Alarms`               | R/-  | All registered Alarms for this player as JSON                                                                                                                                            |
+| `Album`                | R/-  | Name of the current album                                                                                                                                                                |
+| `Announce`             | -/W  | Play an audio file from an absolute path or HTTP(S) URL, then restore playback and volume. Local files require the configured ioBroker web URL (for example `http://192.168.1.10:8082`). |
+| `Artist`               | R/-  | Name of Artist                                                                                                                                                                           |
+| `ArtworkUrl`           | R/-  | url to the Artwork                                                                                                                                                                       |
+| `Bitrate`              | R/-  | Bitrate of the track                                                                                                                                                                     |
+| `Connected`            | R/-  | connectionstate of player (0/1)                                                                                                                                                          |
+| `Duration`             | R/-  | Duration of the track                                                                                                                                                                    |
+| `Genre`                | R/-  | genre of the track                                                                                                                                                                       |
+| `IP`                   | R/-  | IP of the player                                                                                                                                                                         |
+| `Mode`                 | R/-  | play / pause / stop                                                                                                                                                                      |
+| `Playername`           | R/-  | Name of the Player                                                                                                                                                                       |
+| `PlayerID`             | R/-  | Player ID                                                                                                                                                                                |
+| `Playlist`             | R/-  | The actual Playlist as JSON                                                                                                                                                              |
+| `PlaylistCurrentIndex` | R/W  | go to a absolut position by specifying thetrackindex or go relative with a + or - at the beginning. Example 10,-3,+2                                                                     |
+| `PlaylistRepeat`       | R/W  | Repeat song(1)/playlist(2)/dont repeat(0)                                                                                                                                                |
+| `PlaylistShuffle`      | R/W  | shuffle playlist(1)/shuffle album(2)/dont shuffle(0)                                                                                                                                     |
+| `Power`                | R/W  | get/set Powerstate of player off(0)/on(1)                                                                                                                                                |
+| `RadioName`            | R/-  | Name of Radiostation                                                                                                                                                                     |
+| `Rate`                 | R/-  | Rating of the song                                                                                                                                                                       |
+| `Remote`               | R/-  | If remote stream (1)                                                                                                                                                                     |
+| `SyncMaster`           | R/-  | ID/MAC of Syncmaster                                                                                                                                                                     |
+| `SyncSlaves`           | R/-  | ID/Mac of Players in Syncgroup                                                                                                                                                           |
+| `Time`                 | R/-  | elapsed song time                                                                                                                                                                        |
+| `Title`                | R/-  | song title                                                                                                                                                                               |
+| `Type`                 | R/-  | type of media (eg MP3 Radio)                                                                                                                                                             |
+| `Url`                  | R/-  | Url of track / stream                                                                                                                                                                    |
+| `Volume`               | R/W  | get/set Volume of the player (0-100)                                                                                                                                                     |
+| `state`                | R/W  | get/set play state: pause(0),play(1),stop(2)                                                                                                                                             |
 
 The playlist provide actual the following attributes if available in `LMS`.
 Somme attributes depends of the type of songs (stream/file/...)
@@ -173,8 +266,18 @@ additional defined buttons:
 | `btnPreset\_\*`   | 1-6 buttons to define in player or server                                                                                                                         |
 | `cmdGeneral`      | a general command field to send commands to the player. every field must enclosed by quotation marks. parameters musst be seperated by comma. Example: "play","1" |
 | `cmdPlayFavorite` | to play a favorite set the id of the favorite                                                                                                                     |
-| `cmdPlayUrl`      | to play a url´example "<http://50.7.77.114:8101/>;"                                                                                                               |
+| `cmdPlayUrl`      | to play a url. example "<http://50.7.77.114:8101/>;"                                                                                                              |
 | `cmdGoTime`       | jump to a absolut position by specifying a number of seconds or jump relative with a + or - at the beginning of the seconds. Example 100,-50,+50                  |
+
+The announcement settings define its volume and optional integration with the
+[LMS FadeTools plugin](https://github.com/oweitman/LMS-FadeTools). When enabled,
+the adapter sends `fadeout stop`, waits for the configured fade-out duration,
+and later resumes playback using `fadein play`. When disabled, the previous and
+announcement volumes are set directly. For local files, you must configure the
+base URL of an ioBroker web instance
+(for example `http://192.168.1.10:8082`). The LMS host must be able to reach
+that URL. Remote streams are restored without seeking because they generally
+do not support a playback position.
 
 #### Remarks on Datapoints depending of the Setting TPE2 in LMS
 
@@ -198,9 +301,24 @@ For more information visit the CLI-documentation:
 
 ## Widgets
 
+The adapter includes matching widget sets for both visualization generations.
+Each widget reference contains its purpose, a preview image,
+all code-backed configuration options and relevant runtime notes:
+
+- [Complete VIS 1 widget documentation](docs/vis1-widgets.md)
+- [Complete VIS 2 widget documentation](docs/vis2-widgets.md)
+
+Both widget sets use a **Players** widget as their central selection source.
+Configure that widget first, then select it in controls, value displays,
+Favorites, Playlist, PlaylistDetail, Browser and SyncGroup.
+VIS 2 references can work across different views.
+
+<details>
+<summary>Legacy widget overview retained for existing links</summary>
+
 ### Player button bar
 
-![Player button bar](./widgets/squeezeboxrpc/img/players.png)
+![Player button bar](/widgets/squeezeboxrpc/img/players.png)
 
 All players that are integrated into your Logitech/Lyrion Media Server can be selected\
 using this widget. After selecting a `squeezerpc.?` instance, the available\
@@ -229,11 +347,12 @@ players are displayed in the widget.
 
 ### Favorites button bar
 
-![Favorites button bar](./widgets/squeezeboxrpc/img/favorites.png)
+![Favorites button bar](/widgets/squeezeboxrpc/img/favorites.png)
 
 You can use this widget to select all of the favorites that have been\
 created in your Logitech/Lyrion Media Server.
-After selecting the Player widget, the available favorites are displayed in the widget.
+After selecting the Player widget, the available favorites
+are displayed in the widget.
 
 | Group               | Attribute       | Description                                                                                           |
 | ------------------- | --------------- | ----------------------------------------------------------------------------------------------------- |
@@ -254,7 +373,7 @@ After selecting the Player widget, the available favorites are displayed in the 
 
 ### Play Button
 
-![Play Button](./widgets/squeezeboxrpc/img/play.png)
+![Play Button](/widgets/squeezeboxrpc/img/play.svg)
 
 The play button starts or stops the music on the selected player.\
 To prepare, you must connect the button to the player widget.\
@@ -275,7 +394,7 @@ alternatively you can also select your own graphics.
 
 ### Forward
 
-![Forward](./widgets/squeezeboxrpc/img/fwd.png)
+![Forward](/widgets/squeezeboxrpc/img/fwd.svg)
 
 The Forward widget allows you to skip forward in the current track.\
 The button can be configured to skip forward by a specific amount\
@@ -292,7 +411,7 @@ of time if the player supports this feature.
 
 ### Rewind
 
-![Rewind](./widgets/squeezeboxrpc/img/rew.png)
+![Rewind](/widgets/squeezeboxrpc/img/rew.svg)
 
 The Rewind widget allows you to jump back in the current track.\
 Similar to the Forward widget, a time period can be set.
@@ -308,7 +427,7 @@ Similar to the Forward widget, a time period can be set.
 
 ### Repeat
 
-![Repeat](./widgets/squeezeboxrpc/img/repeat0.svg)
+![Repeat](/widgets/squeezeboxrpc/img/repeat0.svg)
 
 The Repeat widget allows you to activate or deactivate the repeat function\
 for the current track or playlist if this function is supported by the player.
@@ -324,7 +443,7 @@ for the current track or playlist if this function is supported by the player.
 
 ### Shuffle
 
-![Shuffle](./widgets/squeezeboxrpc/img/shuffle0.svg)
+![Shuffle](/widgets/squeezeboxrpc/img/shuffle0.svg)
 
 The Shuffle widget enables or disables shuffle for the current playlist,\
 if this feature is supported by the player.
@@ -340,7 +459,7 @@ if this feature is supported by the player.
 
 ### Volume
 
-![Volume](./widgets/squeezeboxrpc/img/volume.png)
+![Volume](/widgets/squeezeboxrpc/img/volume.png)
 
 The Volume widget displays the current volume level of the player and\
 allows you to adjust the volume.
@@ -358,7 +477,7 @@ allows you to adjust the volume.
 
 ### SyncGroup button bar
 
-![SyncGroup button bar](./widgets/squeezeboxrpc/img/syncgroups.png)
+![SyncGroup button bar](/widgets/squeezeboxrpc/img/syncgroups.png)
 
 This widget can be used in conjunction with the player widget to control\
 the synchronization of the players with each other.
@@ -387,7 +506,7 @@ another group, it is automatically removed from this group.
 
 ### Playtime bar
 
-![Playtime bar](./widgets/squeezeboxrpc/img/playtime.png)
+![Playtime bar](/widgets/squeezeboxrpc/img/playtime.png)
 
 The playtime bar visually shows the progress of the song currently being played,\
 provided that a total running time (duration) is provided by the server.\
@@ -410,7 +529,7 @@ To prepare, you must connect the button to the player widget.
 
 ### String/character string
 
-![String](./widgets/squeezeboxrpc/img/string.png)
+![String](/widgets/squeezeboxrpc/img/string.png)
 
 Display of player-specific character strings. To prepare, you must connect\
 the button to the player widget.
@@ -425,7 +544,7 @@ the button to the player widget.
 
 ### Number
 
-![Number](./widgets/squeezeboxrpc/img/number.png)
+![Number](/widgets/squeezeboxrpc/img/number.png)
 
 Display of numbers with additional formatting options. To prepare,\
 you must connect the button to the player widget.
@@ -445,7 +564,7 @@ you must connect the button to the player widget.
 
 ### Playlist
 
-![Playlist](./widgets/squeezeboxrpc/img/playlist.png)
+![Playlist](/widgets/squeezeboxrpc/img/playlist.png)
 
 Display the playlist from the server. If you click on an entry the playlist
 is loaded and the player starts.
@@ -519,7 +638,7 @@ Light-mode
 
 ### Browser
 
-![Browser](./widgets/squeezeboxrpc/img/browser.png)
+![Browser](/widgets/squeezeboxrpc/img/browser.svg)
 
 Displays music, albums, artists, radio stations, apps, etc. from the server.
 Click on an item to navigate deeper into the hierarchy. The available commands
@@ -571,7 +690,29 @@ please provide as detailed a description as possible:
 - What steps/clicks were performed to create the problem
 - What are the function references and data references?
 
-## SendTo-Befehle
+</details>
+
+## SendTo commands
+
+### getPlayerNames
+
+Returns the names of all players currently registered in the adapter.
+The returned names are the sanitized names
+used below `squeezeboxrpc.<instance>.Players`.
+
+```js
+async function main() {
+    const playerNames = await sendToAsync('squeezeboxrpc.0', 'getPlayerNames', {});
+    console.log(JSON.stringify(playerNames));
+}
+main();
+```
+
+Example result:
+
+```json
+["Living_room", "Kitchen"]
+```
 
 ### cmdGeneral
 
@@ -612,22 +753,70 @@ are contained in the following CLI documentation:
 
 [CLI-Documentation](#further-api-documentation)
 
+## Development
+
+### vis-1
+
+- start dev-server with `dev-server watch --noStart`
+- start adapter with launch configuration "default Launch ioBroker Adapter"
+- start watch script in widgets directory with `npm run watch`
+- open vis-1 editor or runtime
+- if you change something in the vis-1 widget wait some seconds
+  to upload changes to dev-server
+- in vis-1 reload the vis-1 page
+- if something changed in squeeboxrpc.html you have to restart vis-1 adapter
+
+### vis-2
+
+- for debugging vis-2 widget you have to run vis-2 in a second vis-2 window.
+- to install and run follow instructions in <https://github.com/ioBroker/ioBroker.vis-2#development-and-debugging>
+- start adapter with launch configuration "default Launch ioBroker Adapter"
+- start vite dev server in directory src-widgets with `npm run start`
+- in iobroker admin/objects tab, in expert mode, edit the object of `system.adapter.squeezeboxrpc.0`
+- change common.visWidgets.vis2vis-squeezeboxrpc.url from
+  vis2squeezeboxrpc/customWidgets.js
+  to
+  <http://localhost:4173/customWidgets.js>
+  this is the address of the vite def server.
+- open vis in edit or runtime with the launch configuration
+  "vis2 edit 3000" or "vis2 runtime 3000"
+- if you change something in the vis-2 widget code an auto reload is triggered
+  or you press F5 in browser
+
+### final runtime test
+
+- stop `dev-server` and your adapter in vscode
+- create a production build and upload to dev-server with build
+  with `dev-server upload`
+- start iobroker with `npm run start`
+- revert the change in system.adapter.squeezeboxrpc.0 to the original value
+- open vis-1 or vis-2 in edit or runtime mode
+
+### additional test on a real iobroker server
+
+- in root directory create a npm package file with `npm pack`
+- in iobroker on the admin/adapter tab in expert mode press the cat button
+- in the dialog, select tab `from file`
+- select the created package file
+- press install
+- if something does not work, on shell start `iobroker upload all`
+
 ## Todo
 
-- more testing/fixing
-- reduce dependencys to other packages (squeezenode)
-- more configuration to optionaly turn features on/off to improve memory and performance
-- add playlist widget
-- add browse widget to browse in `LMS`-Menu
 - add player controlled circle knob widget
-- stop playing if favorite button is pressed again.
-- cmdGeneral für Server.
-- ~~add telnet communication to get push events from the server to\
-   optimize the polling~~
-- ~~implement a command state to place user individual commands (via json)\
-   for server and player~~
-- ~~implement more control features (select playlist pos to play,ffwd,frew,\
-   jump to a time position in song,repeat song,random song)~~
+- ~~stop playing if favorite button is pressed again. dont implemented~~
+- ~~more testing/fixing~~
+- ~~more configuration to optionaly turn features on/off to improve memory and performance~~
+- ~~add playlist widget~~
+- ~~add browse widget to browse in `LMS`-Menu~~
+- ~~reduce dependencys to other packages (squeezenode)~~
+- ~~cmdGeneral für Server.~~
+- ~~add telnet communication to get push events from the server to~~
+  ~~optimize the polling~~
+- ~~implement a command state to place user individual commands (via json)~~
+  ~~for server and player~~
+- ~~implement more control features (select playlist pos to play,ffwd,frew,~~
+  ~~jump to a time position in song,repeat song,random song)~~
 - ~~add the playlist to playerdata as json array~~
 - ~~add artwork (station-logo/playlist-cover) for favorites~~
 - ~~implement more levels (subdirectories) of favorites~~
@@ -640,340 +829,31 @@ are contained in the following CLI documentation:
    ### **WORK IN PROGRESS**
 
 -->
-### 1.6.4 (2026-03-25)
+### 3.0.0 (2026-09-07)
 
-- test remove node 18,extend to node 24
-- update packages
+- complete rework of the LMS API
+- add experimental websocket support, only usable with LMS 9.2 build after 5.9.2026
 
-### 1.6.2 (2025-05-05)
+### 2.0.2 (2026-09-07)
 
-- fix node version in github workflow
+- fix io-package.json
 
-### 1.6.1 (2025-05-05)
+### 2.0.1 (2026-09-05)
 
-- Fix eslint
+- fix package-lock
+- fix tests
 
-### 1.6.0 (2025-05-05)
+### 2.0.0 (2026-09-05)
 
-- upgrade dependency js-controller
-- new widget, but only alpha version for testing and improvement
-- fix issues of adapter checker
+- power/connected state fixed
+- players button font size fixed
+- bring back fade in/out for Announcement with additional LMS plugin
 
-### 1.5.2 (2024-12-16)
+### 2.0.0-alpha.5 (2026-08-31)
 
-- fix spelling of iobroker upload squeezeboxrpc in readme
-- fix playtime bar
+- fix tests
 
-### 1.5.1 (2024-11-29)
-
-- improve documentation
-- remove margin from plcontainer
-- improve textoverflow with ellipsis
-- adjust initial widgetsize of playlist widget
-- repair attributes for playlist widget
-- add light mode css for playlist widget
-
-### 1.5.0 (2024-11-28)
-
-- Switch to iobroker/eslint
-- New widget playlist
-
-### 1.4.0 (2024-11-27)
-
-- fix some missing objects errors
-- sanitize more playernames in syncgroups
-- add sendTo Command "cmdGeneral"
-- sanitize more the playername
-- improve translation
-- if trackartist is avail then write to artist if empty
-- improve handling for artwork_url
-- move widget documentation from html to markdown
-- adjust responsive tab style
-- improve attribute widgets
-- change TPE2 handling once more
-- jsonConfig add sizing options for differenz screen sizes
-- test implementation of TPE2 handling. switch in settings
-- add datapoints album_artist, track_artist, artistOriginal
-
-### 1.3.17 (2024-10-23)
-
-- add edit button to the vie index field of favorites widget
-
-### 1.3.16 (2024-10-23)
-
-- fixed icons of the favorites widget
-
-### 1.3.15 (2024-08-09)
-
-- due to a adapter checker issue i have to remove the release 1.3.13 from npm.
-  but changes from 1.3.13 are included in 1.3.14
-
-### 1.3.14 (2024-08-05)
-
-- fix formatting
-
-### 1.3.13 (2024-08-05)
-
-- revert the fix for artist handling due to negative effect of spotify
-
-### 1.3.12 (2024-08-05)
-
-- improve cmdGoto handling by kairauer, close PR #74
-- fix issues from adapter checker
-- integrate squeezenode lib
-
-### 1.3.11 (2024-08-05)
-
-- update adapter structure and switch to jsonconfig
-
-### 1.3.10
-
-- getalbumartist as artist if setting of TPE2/TPE3 in `LMS` are changed"
-
-### 1.3.9
-
-- fix error with deleting favorites
-- fix wrong type for datapoint
-
-### 1.3.8
-
-- fix forward button widget
-
-### 1.3.7
-
-- fix object creation of states in player modul
-
-### 1.3.6
-
-- fix object creation of states
-
-### 1.3.5
-
-- fix object creation for favorites
-
-### 1.3.4
-
-- fix object creation for favorites / \* center widgets in sidebar
-
-### 1.3.3
-
-- repair imageproxy for image datapoints of favorites
-
-### 1.3.2
-
-- fix for Alarm contains only enabled Alarms
-
-### 1.3.1
-
-- fix problem with git dependency url
-
-### 1.3.0
-
-- fix problem wit setting own icon in player widget / \* add infos about\
-   alarms to a player datapoint
-
-### 1.2.1
-
-- fix small issue in last version
-
-### 1.2.0
-
-- improve handling of imageproxy artwork
-
-### 1.1.0
-
-- make request of favorites configurable
-
-### 1.0.1
-
-- change setstate/createobject logic
-- fix role and type for Mode-state
-- update tests
-- update dependency versions
-- improve io-package.json
-
-### 1.0.0
-
-- prepare for stable repository
-
-### 0.8.32
-
-- the adapter function iobroker.deleteChannel didnt works as expected.\
-   It didnt delete the whole subtree of states. now i implement my own delete function
-
-### 0.8.31
-
-- change behaviour of deleting favorites
-
-### 0.8.30
-
-- change from the issue of the adapter checker
-
-### 0.8.29
-
-- optimize handling of player state power and connected
-
-### 0.8.28
-
-- add advanced signaling function with telnet and fix some more authorization\
-   issues with `LMS`
-
-### 0.8.27
-
-- initialization for the new calctype property if empty in volumebar
-
-### 0.8.26
-
-- more improvement and fixing at volumebar / remove playlist widget from\
-   master. not ready yet
-
-### 0.8.25
-
-- fixing css-settings on volumebar
-
-### 0.8.24
-
-- volumebar didnt get events between the segments, change clickevent and calculation
-
-### 0.8.23
-
-- adjust dependencies to remove vulnerabilities in dependend packages.\
-   also remove travis due of unresolvable build-failures for win+node10/12
-
-### 0.8.22
-
-- due to iobroker.controller 2.0 a command in the api changed (socket to vis.conn.\_socket)
-
-### 0.8.21
-
-- add command für playing urls
-
-### 0.8.20
-
-- remove node v6 test setting
-
-### 0.8.19
-
-- shorten news history
-
-### 0.8.18 (2019-06-27)
-
-- last minute changes.
-
-### 0.8.17 (2019-06-26)
-
-- add more widges: playtime bar, string, number, datetime, image.\
-   add button margin to player and favorite widget, improve editing of viewindex.\
-   do some refactoring.
-
-### 0.8.16 (2019-06-24)
-
-- resolve a cross browser issue for firefox. the style.\
-   font attribute is empty and you have to construct the font string by yourself
-
-### 0.8.15 (2019-06-19)
-
-- minor issue with not ready states
-
-### 0.8.14 (2019-06-19)
-
-- add syncgroups as new server-datapoint,add syncgroup widget,/
-  change some jquery event logic
-
-### 0.8.13 (2019-06-16)
-
-- rename widgetset from squeezeboxrpcwidgets to squeezeboxrpc
-
-### 0.8.12 (2019-06-16)
-
-- sync version with npm
-
-### 0.8.11 (2019-06-15)
-
-- try to integrate the widgets into the main adapter
-
-### 0.8.10 (2019-05-15)
-
-- another try to fix the EADDRINUSE error of the server discovery
-
-### 0.8.9 (2019-05-15)
-
-- try to fix the EADDRINUSE error of the server discovery
-
-### 0.8.8 (2019-05-14)
-
-- make discover configurable
-
-### 0.8.7 (2019-05-11)
-
-- more control features (select playlist pos to play,ffwd,frew,jump to/
-  a time position in song,repeat song,random song)
-
-### 0.8.6 (2019-05-10)
-
-- move some configuration options into seperate tabs
-
-### 0.8.5 (2019-05-08)
-
-- change serverdiscovery interval method, remove some double cmd lines,/
-  additional minor changes advised from eslint
-
-### 0.8.4
-
-- move some files to lib directory
-
-### 0.8.3
-
-- close port for discovery on unload
-
-### 0.8.2
-
-- sync version with npm
-
-### 0.8.1
-
-- set compact mode flag
-
-### 0.8.0
-
-- implementation of compact mode, change version to represent a realistic/
-  feature completness
-
-### 0.0.9
-
-- debug options are now configurable
-
-### 0.0.8
-
-- More playlist attributes + remove trailing and leading spaces from source
-
-### 0.0.7
-
-- Add the playlist to each player as json
-
-### 0.0.6
-
-- More config options
-
-### 0.0.5
-
-- All levels/subdirectories of favorites are now available in iobroker
-
-### 0.0.4
-
-- added the cmdPlayFavorite for each player
-
-### 0.0.3
-
-- repair the no-data symbols for buttons in vis
-
-### 0.0.2
-
-- added autodiscovery
-
-### 0.0.1
-
-- initial release
+Older entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 

@@ -1,192 +1,95 @@
-# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.homewizard@main/admin/homewizard.svg" width="48" align="top" /> ioBroker.homewizard
-
-**Release:** [![npm version](https://img.shields.io/npm/v/iobroker.homewizard)](https://www.npmjs.com/package/iobroker.homewizard) ![stable](https://iobroker.live/badges/homewizard-stable.svg) ![Installations](https://iobroker.live/badges/homewizard-installed.svg) [![npm downloads](https://img.shields.io/npm/dt/iobroker.homewizard)](https://www.npmjs.com/package/iobroker.homewizard)
-
-**Build:** [![Test and Release](https://github.com/krobipd/ioBroker.homewizard/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/krobipd/ioBroker.homewizard/actions/workflows/test-and-release.yml) ![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![Sentry](https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white)](https://github.com/ioBroker/plugin-sentry#plugin-sentry)
-
-**Support:** [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)](https://ko-fi.com/krobipd) [![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/krobipd)
-
-Real-time energy monitoring for [HomeWizard](https://www.homewizard.com) Energy devices with API v2.
-
 ---
-
-## Features
-
-- **HomeWizard API v2** — HTTPS + WebSocket, bearer-token authentication
-- **mDNS pairing** — `_homewizard._tcp` discovery, press the device button to pair
-- **WebSocket push** — measurements arrive ~1/s, with system and battery changes pushed in real time; REST polling takes over while the WebSocket reconnects
-- **Plug-In Battery control** — charge/discharge mode (including forecast-based `predictive` and a one-shot charge-to-full) and grid-feed permissions through the paired P1/kWh meter
-- **Adaptive reconnect** — devices with weak WiFi switch to a faster reconnect interval and keep REST polling running so data keeps flowing
-- **Encrypted device tokens** — stored per device object, no adapter restart on pairing or removal
-
+BADGE-npm version: https://img.shields.io/npm/v/iobroker.homewizard
+BADGE-stable: https://iobroker.live/badges/homewizard-stable.svg
+BADGE-Installations: https://iobroker.live/badges/homewizard-installed.svg
+BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.homewizard
+BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
+BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
+BADGE-License: https://img.shields.io/badge/license-MIT-green
+BADGE-Sentry: https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white
+BADGE-Ko-fi: https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge
 ---
+# ioBroker.homewizard — User guide
 
-## Sentry / Error reporting
-
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** Reporting only happens if you have enabled error reporting in the ioBroker diagnostics (**System settings → Diagnostics and error reporting**). Only an anonymous installation ID is transmitted — no name, e-mail address or IP address.
-
-For details and how to disable it, see the [Sentry plugin documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Error reporting requires js-controller 3.0 or newer.
-
----
+Real-time energy data from HomeWizard Energy devices over the local **API v2**.
 
 ## Requirements
 
-- **Node.js >= 22**
-- **ioBroker js-controller >= 7.2.2**
-- **ioBroker Admin >= 8.0.11**
-- **HomeWizard device with API v2 support** (firmware 4.x+ with local API enabled)
+- A HomeWizard device that speaks API v2: **P1 Meter** (HWE-P1), **kWh Meter** 1-phase (HWE-KWH1 / SDM230) or 3-phase (HWE-KWH3 / SDM630), **Plug-In Battery** (HWE-BAT).
+- Firmware new enough for the local API v2, and the local API switched on in the HomeWizard app.
+- Node.js >= 22, js-controller >= 7.2.2, Admin >= 8.0.11.
 
----
+Energy Socket, Watermeter and Energy Display speak only the deprecated v1 API. They are out of scope and will not be added.
 
-## Supported Devices
+## Adding a device
 
-| Device            | Product Type                   |
-| ----------------- | ------------------------------ |
-| P1 Meter          | HWE-P1                         |
-| kWh Meter 1-Phase | HWE-KWH1 (also sold as SDM230) |
-| kWh Meter 3-Phase | HWE-KWH3 (also sold as SDM630) |
-| Plug-In Battery   | HWE-BAT                        |
+The adapter has no device table in its settings — devices live in the object tree and are added by pressing the button on the device itself.
 
-The Plug-In Battery is paired separately and shows up as its own device. To control charge/discharge mode and grid-feed permissions, you write to the `battery.*` data points of the P1 or kWh meter — that's where HomeWizard exposes the battery commands. The `predictive` mode and the `charge_to_full` switch require recent device firmware (battery API 2.3.0+); older firmware rejects them and the value is simply not applied.
+**With automatic discovery (normal case)**
 
----
+1. Open the **Objects** tab and set `homewizard.0.startPairing` to `true`.
+2. Within 60 seconds, press the physical button on the HomeWizard device.
+3. The device appears under the instance with its own folder.
 
-## Configuration
+The window stays open for the full 60 seconds, so several devices can be added in one go.
 
-### Prerequisites
+**With a fixed IP address** — for networks where mDNS does not get through (a separate VLAN, Docker without host networking):
 
-The **local API** must be enabled on your HomeWizard device:
+1. Write the device's IP address into `homewizard.0.pairingIp`.
+2. Then set `homewizard.0.startPairing` to `true` and press the button on the device.
 
-1. Open the **HomeWizard app** on your phone
-2. Go to **Settings** > **Meters** > select your device > **Local API** > **Enable**
+## What you get
 
-### Adding a device (automatic via mDNS)
+Each device gets a folder named `<product type>_<serial>` containing:
 
-1. Go to the **Objects** tab in ioBroker Admin
-2. Set `homewizard.0.startPairing` to `true`
-3. **Press the physical button** on your HomeWizard device within 60 seconds
-4. The device is discovered automatically and appears under `homewizard.0`
+| Folder                 | Contents                                                                                      |
+| ---------------------- | --------------------------------------------------------------------------------------------- |
+| `info`                 | Product name and type, firmware, WiFi network and signal strength, uptime, connection state   |
+| `measurement`          | Power, voltage, current, frequency, energy totals per tariff, timestamps                      |
+| `measurement.quality`  | Voltage sags and swells, power failure counters (P1 only)                                     |
+| `measurement.external` | Gas, water and heat meters that report through the P1 meter                                   |
+| `system`               | Cloud connection, status LED brightness, legacy v1 API, reboot and identify buttons           |
+| `battery`              | Charge mode, permissions, target power and counters — on the meter the battery is paired with |
 
-### Adding a device (manual IP)
+`remove` deletes a device including all of its data points.
 
-If mDNS is not available (e.g. different VLAN, Docker, or firewall blocking multicast):
+## Connection states
 
-1. Set `homewizard.0.pairingIp` to the IP address of your device
-2. Set `homewizard.0.startPairing` to `true`
-3. **Press the physical button** on the device within 60 seconds
+- `<device>.info.connected` — true while the device answers the adapter. That includes the fallback polling, not just the real-time connection.
+- `info.connection` — true while at least one device answers.
+- `info.devicesTotal` / `info.devicesOnline` / `info.devicesAllOnline` — how many devices are set up and how many of them answer. `devicesTotal` keeps its value when the adapter is stopped.
 
-### Managing devices
+Measurements normally arrive as a push about once per second. If that connection drops, the adapter polls over HTTPS instead (every 10 seconds, every 30 for a device with a weak signal) while it reconnects in the background, so the data keeps flowing.
 
-All paired devices are listed in the **Objects** tab under `homewizard.0`. Each device has its own folder (e.g. `hwe-p1_5c2fafaabbcc`) with measurement data, system settings, and device info.
+## Controlling a Plug-In Battery
 
-- **Remove a device:** Set its `remove` data point to `true` — the device and all data points are deleted immediately
-- **IP changes:** Detected automatically — after 3 failed reconnects, mDNS searches for the new IP. If not found, the device is marked offline
+The battery is paired as its own device, but the controls sit on the **P1 or kWh meter** it works with — that is where HomeWizard exposes them:
 
----
+- `battery.mode` — `zero`, `to_full`, `standby` or `predictive`.
+- `battery.charge_to_full` — charge to 100 % once.
+- `battery.permissions` — a JSON array, written as text.
 
-## State Tree
+`predictive` and `charge_to_full` need a recent battery firmware (API 2.3.0). Older firmware rejects them and the value is not applied.
 
-```
-homewizard.0.
-├── info.connection              — Overall connection status (bool)
-├── info.devicesTotal            — How many devices are set up (number)
-├── info.devicesOnline           — How many of them are answering right now (number)
-├── info.devicesAllOnline        — True only while every device answers (bool)
-├── startPairing                 — Activate pairing mode (button)
-├── pairingIp                    — Device IP for manual pairing (string)
-└── {productType}_{serial}/      — e.g. hwe-p1_5c2fafaabbcc
-    ├── info/
-    │   ├── productName          — Device name (string)
-    │   ├── productType          — Product type (string)
-    │   ├── firmware             — Firmware version (string)
-    │   ├── connected            — Device reachable (bool) — drives the green/grey icon on the device
-    │   ├── wifi_ssid            — WiFi network name / SSID (string)
-    │   ├── wifi_rssi_db         — WiFi signal strength (number, dBm)
-    │   └── uptime_s             — Device uptime (number, s)
-    ├── measurement/             — Measurement data
-    │   ├── power_w              — Total power (number, W)
-    │   ├── power_l1_w .. l3_w   — Power per phase (number, W)
-    │   ├── voltage_v            — Voltage single-phase (number, V)
-    │   ├── voltage_l1_v .. l3_v — Voltage per phase (number, V)
-    │   ├── current_a            — Current single-phase (number, A)
-    │   ├── current_l1_a .. l3_a — Current per phase (number, A)
-    │   ├── frequency_hz         — Grid frequency (number, Hz)
-    │   ├── energy_import_kwh    — Total import (number, kWh)
-    │   ├── energy_import_t1..t4_kwh — Import per tariff (number, kWh)
-    │   ├── energy_export_kwh    — Total export (number, kWh)
-    │   ├── energy_export_t1..t4_kwh — Export per tariff (number, kWh)
-    │   ├── tariff               — Active tariff (number)
-    │   ├── state_of_charge_pct  — Battery charge level (number, %)
-    │   ├── cycles               — Battery charge cycles (number)
-    │   ├── average_power_15m_w  — 15-min average power (number, W, Belgium)
-    │   ├── monthly_power_peak_w — Monthly power peak (number, W, Belgium)
-    │   ├── monthly_power_peak_timestamp — Monthly peak timestamp (string)
-    │   ├── meter_model          — Meter model identifier (string)
-    │   ├── timestamp            — Measurement timestamp (string)
-    │   ├── quality/             — Power quality counters
-    │   │   ├── voltage_sag_l1..l3_count
-    │   │   ├── voltage_swell_l1..l3_count
-    │   │   ├── power_fail_count
-    │   │   └── long_power_fail_count
-    │   └── external/            — External meters (gas, water, heat)
-    │       └── {type}_{id}/
-    │           ├── value        — Meter reading (number)
-    │           ├── unit         — Unit (string)
-    │           └── timestamp    — Last update (string)
-    ├── battery/                 — Battery control (if batteries connected)
-    │   ├── mode                 — zero / to_full / standby / predictive (string, R/W)
-    │   ├── charge_to_full       — One-shot charge to 100% (bool, R/W)
-    │   ├── permissions          — JSON array (string, R/W)
-    │   ├── battery_count        — Connected batteries (number)
-    │   ├── power_w              — Battery power (number, W)
-    │   ├── target_power_w       — Target power (number, W)
-    │   ├── max_consumption_w    — Max consumption (number, W)
-    │   └── max_production_w     — Max production (number, W)
-    ├── remove                   — Remove device (button)
-    └── system/                  — System settings
-        ├── cloud_enabled        — Cloud communication (bool; R/W on meters, read-only on the Plug-In Battery)
-        ├── status_led_brightness_pct — LED brightness 0-100 (number, R/W)
-        ├── api_v1_enabled       — Toggle the device's deprecated v1 API (bool, R/W — leave off)
-        ├── reboot               — Reboot device (button)
-        └── identify             — Blink LED (button)
-```
+## When something does not work
 
-> States are created dynamically based on what the device reports. Not all devices have all states. kWh meters additionally provide apparent/reactive current, apparent/reactive power, and power factor states.
+**Pairing does not find the device.** mDNS often does not cross VLANs or Docker bridges. Use the fixed-IP path above.
 
----
+**Pairing fails right after the button press.** The adapter revokes the token it was issued and asks you to try again. Check that the local API is enabled in the HomeWizard app.
 
-### Knowing when something dropped out
+**A device shows as not connected.** The adapter never gives up: it retries the real-time connection with growing intervals (up to 5 minutes), searches for a changed IP address via mDNS about once an hour, and switches to a faster rhythm for devices it recognises as having a weak signal. A meter in a cellar hallway can be gone for hours; nothing needs to be done for it to come back.
 
-`info.devicesOnline` and `info.devicesAllOnline` save you from opening every device
-folder to see whether one has dropped out, and give an automation a single datapoint
-to watch. They are recalculated at the same moment a device connects or disconnects,
-so the summary can never disagree with the individual `connected` markers.
+**"token invalid — re-pair device to fix".** The device no longer accepts the adapter's token, usually after a factory reset. Pair it again — the existing data points are kept.
 
-`info.devicesTotal` deliberately keeps its value when the adapter is stopped — how
-many devices you have set up does not change because the adapter is off. Only
-`devicesOnline` drops to `0` and `devicesAllOnline` to false, together with every
-device's own `connected`, so a stopped adapter no longer leaves the tree looking green.
+**Log lines about the bundled certificate expiring.** The adapter carries the HomeWizard CA certificate to verify device certificates. Well before it expires, an adapter update will ship a fresh one.
 
-## Troubleshooting
+## Privacy and security
 
-### Device not found during pairing
-
-- Make sure the device is on the same network/VLAN as the ioBroker server
-- Verify that **local API** is enabled in the HomeWizard app (Settings > Meters > your device > Local API)
-- Check that multicast/mDNS traffic is not blocked by your router/firewall
-
-### WebSocket keeps disconnecting
-
-- Check `info.wifi_rssi_db` — above -75 dBm is comfortable, weaker than -85 dBm explains frequent drops
-- For devices with weak WiFi the adapter switches to a faster reconnect interval (60 s instead of 5 min) and keeps REST polling in the background so you don't lose data
-- A WebSocket-layer ping/pong heartbeat (~30 s ping, 10 s pong window) catches half-dead links where the TCP stream is buffered but the device has stopped responding. Such links are torn down and reconnected automatically — you no longer end up with a stale "connected" status while measurement values stop updating.
-- IP changes are picked up via mDNS — no manual reconfiguration needed
-
-### Token invalid after factory reset
-
-- Set the device's `remove` data point to `true`, then pair again
-
----
+- Device tokens are stored encrypted in the device object, never in the adapter configuration.
+- The adapter verifies each device's certificate against its known identity, so it will not talk to a different device that happens to hold a HomeWizard certificate.
+- Removing a device also revokes the adapter's token on the device itself.
+- Turning on `system.api_v1_enabled` re-enables the old v1 API on the device. That API has no encryption and no token — anyone on the network can then read and control the device. The adapter warns when you do it.
 
 ## Changelog
 
@@ -194,6 +97,32 @@ device's own `connected`, so a stopped adapter no longer leaves the tree looking
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 0.18.2 (2026-09-06)
+
+- Fixed: a device the adapter could not read the stored token for can be removed again — its `remove` data point did nothing at all, and the device stayed in the tree for good.
+- Fixed: renaming a device in the HomeWizard app now updates its `info.productName` data point; until now the new name showed up nowhere until the adapter was restarted.
+- Fixed: the firmware version keeps up with a device that updates itself, instead of showing the version from the last adapter start.
+- Fixed: a button falls back to "not pressed" even when the device cannot be reached, so it stays clickable instead of staying stuck.
+- Changed: a device entry that is damaged or unreadable is now reported in the log instead of disappearing without a word.
+
+### 0.18.1 (2026-09-04)
+
+- Fixed: corrected data point names now also reach devices that are currently offline — until now they waited for the device to answer again, which for a meter with a weak signal could mean never.
+- Changed: the object tree no longer holds the `info.legacyMigrated` data point, which never carried any information about your devices or their readings.
+
+### 0.18.0 (2026-09-04)
+
+- Fixed: a device that keeps answering while its push connection is down is no longer shown as not connected — the status describes the device now, not one connection type.
+- Fixed: WiFi signal strength and uptime keep updating for such a device instead of freezing at the values from before the drop.
+- Fixed: corrected names and descriptions now reach installations that already exist — until now they only ever arrived on fresh ones.
+- Fixed: sending a message to the adapter works again — a leftover setting from an earlier version blocked every message silently, with nothing about it in the log.
+- Fixed: a device with no usable IP address is reported at start-up and searched for, instead of staying quietly dead until the next restart.
+- Fixed: the reboot and identify buttons reset themselves even when the command fails, so they no longer stay pressed in Admin.
+- Fixed: the battery data points are removed once the meter reports that no battery is connected any more, instead of showing its last values forever.
+- New: the data points under `info` explain what they mean in all eleven languages, and a user guide is now part of the documentation portal.
+- Changed: for security, an address announced over the network is only accepted when it belongs to a private range, so pairing can no longer be directed at a host outside your own network.
+
 ### 0.17.0 (2026-09-02)
 
 - Fixed: the connection status is now reset on every stop, even when the adapter is stopped right after it started — before, such a stop could leave it showing as connected.
@@ -209,34 +138,7 @@ device's own `connected`, so a stopped adapter no longer leaves the tree looking
 - Fixed: after a crash, a power cut or a restart, a device that was reachable before no longer stays green until it reconnects — every device starts out as not connected.
 - New: three data points show at a glance how many devices are set up, how many are answering right now, and whether all of them are.
 
-### 0.15.1 (2026-08-22)
-
-- Improved: The adapter needs noticeably less processing power on installations whose devices send a new reading every second.
-
-### 0.15.0 (2026-07-13) — stable
-
-- A device that rejects the adapter's token now stops retrying and warns you to re-pair it, instead of quietly retrying in the background
-- When pairing a device that connects but cannot be added, the adapter now tells you once so you can try again, instead of silently retrying
-
-### 0.14.0 (2026-07-07)
-
-- A brief WiFi dropout no longer makes the adapter wrongly treat a device as having a permanently unstable connection after a single outage
-- Power-quality values (voltage sag/swell and power-fail counts) now sit in a named "quality" sub-folder under measurement instead of loose
-- The Plug-In Battery's cloud-connection state is now a read-only indicator instead of a switch that could never be toggled
-- Corrected state roles (grid frequency, reactive power) and 0–100 bounds (LED brightness, charge level); existing devices pick these up automatically on the next start and keep any names you changed
-- Security: after an update, an older device is verified by its serial from the very first connection — its access token no longer briefly crosses a not-fully-verified connection
-- Security: device and network-discovery names are cleaned before they reach the log, and pairing now cross-checks the device's serial against its certificate
-
 [Older changelogs can be found there](CHANGELOG_OLD.md)
-
-## Support Development
-
-This adapter is free and open source. If you find it useful, consider buying me a coffee:
-
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/krobipd)
-[![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)](https://paypal.me/krobipd)
-
----
 
 ## License
 

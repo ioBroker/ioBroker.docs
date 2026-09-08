@@ -205,13 +205,69 @@ function prepareAdapterReadme(
     };
 }
 
+/** The image formats a logo may come in, as far as their first bytes give them away */
+const IMAGE_FORMATS = ['png', 'jpg', 'gif', 'webp', 'svg'] as const;
+
+/** What a file really is, by its first bytes - `undefined` for anything not recognised */
+function sniffImageFormat(buffer: Buffer): (typeof IMAGE_FORMATS)[number] | undefined {
+    if (buffer.length >= 8 && buffer.readUInt32BE(0) === 0x89504e47) {
+        return 'png';
+    }
+    if (buffer.length >= 3 && buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff) {
+        return 'jpg';
+    }
+    if (buffer.subarray(0, 4).toString('latin1') === 'GIF8') {
+        return 'gif';
+    }
+    if (buffer.subarray(0, 4).toString('latin1') === 'RIFF' && buffer.subarray(8, 12).toString('latin1') === 'WEBP') {
+        return 'webp';
+    }
+    // an SVG may open with an XML declaration, a doctype or a comment, so the tag is looked for
+    if (buffer.subarray(0, 1024).toString('utf8').includes('<svg')) {
+        return 'svg';
+    }
+    return undefined;
+}
+
+/**
+ * Whether a logo that is already on disk still is what its name says it is.
+ *
+ * Some adapters once shipped a renamed PNG as their `.svg` logo. That file was downloaded back
+ * then and stayed, because the cache below only ever asked whether the file exists - long after
+ * the adapter had checked in a real SVG. The browser goes by the extension, serves the PNG as
+ * `image/svg+xml` and shows a broken image where the logo belongs.
+ *
+ * A format or an extension that is not recognised is nothing to complain about: only a file that
+ * demonstrably is something else than its name promises counts as stale.
+ *
+ * @param fileName the name the file is stored under
+ * @param buffer what is in it
+ */
+function matchesExtension(fileName: string, buffer: Buffer): boolean {
+    const extension = path.extname(fileName).slice(1).toLowerCase();
+    const promised = extension === 'jpeg' ? 'jpg' : extension;
+    const actual = sniffImageFormat(buffer);
+    if (!actual || !IMAGE_FORMATS.includes(promised as (typeof IMAGE_FORMATS)[number])) {
+        return true;
+    }
+    return actual === promised;
+}
+
 /** Read the logo from the local copy or download it */
 async function getIcon(url: string | undefined, checkFile?: string): Promise<Buffer | undefined> {
     if (!url) {
         return undefined;
     }
     if (checkFile && fs.existsSync(checkFile)) {
-        return fs.readFileSync(checkFile);
+        const cached = fs.readFileSync(checkFile);
+        if (matchesExtension(checkFile, cached)) {
+            return cached;
+        }
+        // The copy is of no use - fetch the file again. If the remote one is mislabelled as well,
+        // this says so on every build, which is the only way anybody notices.
+        console.error(
+            `!!!! ICON ${checkFile} is a ${sniffImageFormat(cached)}, not what its name says - fetching it again`,
+        );
     }
     return getUrl(url, true);
 }

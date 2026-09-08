@@ -1,34 +1,39 @@
-# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.ai-usage@main/admin/ai-usage.svg?v=4" width="48" align="top" /> ioBroker.ai-usage
+---
+BADGE-npm version: https://img.shields.io/npm/v/iobroker.ai-usage
+BADGE-stable: https://iobroker.live/badges/ai-usage-stable.svg
+BADGE-Installations: https://iobroker.live/badges/ai-usage-installed.svg
+BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.ai-usage
+BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
+BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
+BADGE-License: https://img.shields.io/badge/license-MIT-green
+BADGE-Sentry: https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white
+BADGE-Ko-fi: https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge
+---
+# ioBroker.ai-usage
 
-**Release:** [![npm version](https://img.shields.io/npm/v/iobroker.ai-usage)](https://www.npmjs.com/package/iobroker.ai-usage) ![stable](https://iobroker.live/badges/ai-usage-stable.svg) ![Installations](https://iobroker.live/badges/ai-usage-installed.svg) [![npm downloads](https://img.shields.io/npm/dt/iobroker.ai-usage)](https://www.npmjs.com/package/iobroker.ai-usage)
-
-**Build:** [![Test and Release](https://github.com/krobipd/ioBroker.ai-usage/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/krobipd/ioBroker.ai-usage/actions/workflows/test-and-release.yml) ![Node](https://img.shields.io/badge/node-%3E%3D22-brightgreen) ![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![Sentry](https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white)](https://github.com/ioBroker/plugin-sentry#plugin-sentry)
-
-**Support:** [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)](https://ko-fi.com/krobipd) [![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/krobipd)
-
-Monitors usage, limits and costs of your AI accounts — the Claude, ChatGPT and Google
-subscriptions plus OpenRouter, DeepSeek, OpenAI and Anthropic API accounts. Needs ioBroker Admin 8.
+Monitors usage, limits and costs of your AI accounts and writes them into read-only
+ioBroker states. The adapter only **reads** — it never calls a model, never changes
+anything at the provider, and never sends your data anywhere.
 
 ---
 
-## Features
+## What it can watch
 
-- **One node per account** — limit windows with percent and reset time, credits, costs and tokens, named the same way for every provider
-- **Totals** — summed costs, the highest utilisation of any account, and one trigger for automations
-- **Warn threshold per account** — one notification when an account crosses it
-- **Three subscriptions** — Claude, ChatGPT and Google, signed in with your own account; the settings page walks you through each step
-- **Central credentials** — API keys come from the admin's credential storage, shared with the admin AI assistant
-- **Online status** — the connection icon you know from every device, plus the reason in plain text
-- **Read-only** — the adapter only reads; it never calls or configures an AI service
-- **Throttle-safe** — a minimum interval and automatic backoff keep the provider from locking your account
+| Account                                      | What you get                                                                                                                                           | How it is connected                                                                                                                                                                  |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Claude subscription** (Pro / Max)          | 5-hour and weekly limit windows with percent and reset time, per-model windows, extra-usage credits and the money spent on them                        | Sign in with your own Anthropic account: open the link, log in, paste the code back                                                                                                  |
+| **ChatGPT subscription** (Plus / Pro, Codex) | 5-hour and weekly windows, additional per-surface windows, credit balance, purchasable limit-reset vouchers                                            | The adapter shows a short code; you type it on the OpenAI page. Your own Codex CLI session is never touched                                                                          |
+| **Google Gemini subscription** (Pro / Ultra) | The per-model quota buckets Google reports                                                                                                             | Open the link and log in. Google redirects to `localhost`, so **your browser shows an error page — that is expected**. Copy the whole address from the address bar and paste it back |
+| **OpenRouter**                               | Credits used, limit, remaining, percent                                                                                                                | Pick the stored key from the admin's credential storage                                                                                                                              |
+| **DeepSeek**                                 | Balance (granted and topped-up separately), and whether it still covers calls                                                                          | Pick the stored key                                                                                                                                                                  |
+| **OpenAI organisation**                      | Costs today and this month, month-end projection, today's tokens per model                                                                             | Needs an **admin key** of your organisation                                                                                                                                          |
+| **Anthropic organisation**                   | Costs today and this month, month-end projection, today's tokens — Anthropic reports uncached input tokens, so prompt-cache hits are not in the figure | Needs an **admin key** of your organisation                                                                                                                                          |
 
----
-
-## Sentry / Error reporting
-
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** Reporting only happens if you have enabled error reporting in the ioBroker diagnostics (**System settings → Diagnostics and error reporting**). Only an anonymous installation ID is transmitted — no name, e-mail address or IP address.
-
-For details and how to disable it, see the [Sentry plugin documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Error reporting requires js-controller 3.0 or newer.
+The three subscription endpoints are the ones those providers' own tools use. They are
+**not officially documented** and can change without notice. Claude was tested against a
+live subscription; ChatGPT and Google are built from verified sources but were never run
+against a real account — please open an issue if something looks wrong.
 
 ---
 
@@ -36,94 +41,147 @@ For details and how to disable it, see the [Sentry plugin documentation](https:/
 
 - Node.js >= 22
 - ioBroker js-controller >= 7.2.2
-- **ioBroker Admin >= 8.0.1** — the adapter uses the admin's central credential storage
+- **ioBroker Admin >= 8.0.11** — the adapter reads API keys from the admin's central
+  credential storage instead of asking for them again
 
 ---
 
-## Configuration
+## Setting it up
 
-The instance settings show one list of AI accounts. Switch on what you want to monitor.
+1. Install the adapter and open the instance settings.
+2. The settings page shows **one list**: the three subscriptions first, then one row per
+   AI key you stored under **Admin → Settings → Credentials**.
+3. Switch on what you want to watch. Each row has its own **warn threshold** (10–100 %,
+   default 80 %).
+4. For a subscription, the sign-in area opens below its row and walks you through the
+   flow that provider requires. **Save first** — the sign-in talks to the running
+   instance.
+5. After a successful sign-in the account is queried immediately; you do not have to wait
+   for the next cycle.
 
-| Account | How it is connected |
-|---------|---------------------|
-| **[Claude](https://claude.ai) subscription** | Open the sign-in page, log in, copy the code shown there and paste it back |
-| **[ChatGPT](https://chatgpt.com) subscription** | The adapter shows a short code; type it on the OpenAI page it links to. The settings page notices by itself. Your Codex CLI session is not touched |
-| **[Google Gemini](https://gemini.google.com) subscription** | Open the sign-in page and log in. Google sends the result to `localhost`, so **your browser shows an error page — that is expected**. Copy the **whole address** from the address bar and paste it back |
-| **[OpenRouter](https://openrouter.ai), [DeepSeek](https://www.deepseek.com)** | Pick the stored key from the admin's credential storage |
-| **[OpenAI](https://openai.com), [Anthropic](https://www.anthropic.com)** | Needs an **admin key** of your organisation, not the key the admin assistant uses. A personal account without an organisation cannot deliver these reports at all — use the Claude subscription instead |
+### Options
 
-The three subscription endpoints are **not officially documented**; they are the ones those
-providers' own tools use and can change without notice. Claude was tested against a live
-subscription, ChatGPT and Google could not be — please open an issue if something looks wrong.
+| Option            | What it does                                                                                         | Default |
+| ----------------- | ---------------------------------------------------------------------------------------------------- | ------- |
+| **Poll interval** | How often each account is queried, in seconds. Minimum 60 s                                          | 300 s   |
+| **Notifications** | One ioBroker notification when an account crosses its warn threshold or its credentials stop working | on      |
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| **Warn at %** | Per account: one notification when a plan-wide limit window crosses this utilisation | 80 |
-| **Poll interval** | How often each account is queried, 60–3600 seconds. The floor keeps the provider from throttling you | 300 |
-| **Notifications** | One notification on threshold crossing or broken credentials | on |
+Accounts are queried in a staggered order, and a provider that answers "too many
+requests" puts that account into a growing backoff (10 minutes, doubling up to an hour)
+while the last values stay in place.
 
 ---
 
-## State Tree
+## The object tree
+
+One device node per account, named the same way for every provider:
 
 ```
-ai-usage.0.
-├── info.connection            — at least one account is delivering data (bool)
-├── total.                     — totals across all accounts
-│   ├── costs.today/month/…    — summed real money (same currency only)
-│   ├── maxLimitPercent        — highest plan-wide utilisation of any account
-│   ├── warningsActive         — accounts above their threshold
-│   ├── limitReached           — a plan-wide window is full (automation trigger)
-│   ├── accountsReachable      — accounts currently delivering data
-│   └── accounts               — configured accounts
-├── claude / chatgpt / gemini  — one node per subscription
-│   ├── warning                — this account is above its warn threshold (bool)
-│   ├── limitReached           — a plan-wide window of this account is full (bool)
-│   ├── info.unreach           — account is not delivering (bool) — drives the connection icon
-│   ├── info.error             — why there is no data; empty while all is well, "Unknown" while the adapter itself has nothing to report
-│   ├── info.lastUpdate        — time of the last successful read
-│   ├── limits.<window>.*      — percent + reset time (session, week, per model, …)
-│   └── credits.*              — where the provider reports a balance
-└── <name>-api                 — one node per key-based account
-    ├── warning / limitReached — same triggers as above
-    ├── info.*                 — same three status states as above
-    ├── credits.* / costs.*    — granted budget and real money
-    └── tokens.*               — token counters
+ai-usage.0
+├─ info.connection            at least one account is delivering data
+├─ <account>                  e.g. claude, chatgpt, gemini, <name>-api
+│  ├─ info.unreach            the offline marker; drives the icon in the object tree
+│  ├─ info.error              why, in plain text; empty while everything works
+│  ├─ info.lastUpdate         last successful query
+│  ├─ warning                 above the account's warn threshold
+│  ├─ limitReached            at 100 %
+│  ├─ limits.<window>.percent      utilisation of a limit window
+│  ├─ limits.<window>.resetAt      when it resets (empty while no window runs)
+│  ├─ limits.<window>.active       whether this window is the limit in force
+│  ├─ credits.*               used / limit / remaining / percent, granted / topped up,
+│  │                          and whether the balance still covers calls
+│  ├─ costs.*                 today / month / total / projected month-end
+│  ├─ tokens.*                input and output tokens today
+│  └─ models.<model>.*        per-model tokens
+└─ total
+   ├─ costs.today / month / projectedMonth      summed over all USD accounts
+   ├─ maxLimitPercent         the fullest account (limit window or budget)
+   ├─ warningsActive          accounts above their threshold
+   ├─ limitReached            any account at 100 %
+   ├─ accountsReachable       accounts currently delivering
+   └─ accounts                accounts you switched on
 ```
 
-Only what an account's source actually delivers is created — and once created, a datapoint stays:
-the reset time simply empties while no window is running, and a window or model disappears from the
-tree only when the provider stops reporting it entirely.
+**Datapoints stay once they exist.** A provider that leaves a field out for a while does
+not make its datapoint disappear; time stamps are written empty instead. Only a whole
+limit window or model that the provider stopped reporting is removed, and switching an
+account off removes its node completely.
 
-**The connection icon** sits next to each account, green while it delivers. A throttle keeps it
-green — the last values stay valid while the adapter waits. A rejected sign-in or a broken service
-switch it off at once, an unreachable service after three attempts, so a hiccup does not make it
-flap. `info.error` names the cause whenever the provider gave one.
+**`total.costs` only sums real money in the same currency** — piece counters (request
+credits, reset vouchers) and other currencies stay out on purpose.
 
-**Only plan-wide windows raise the warning** — your session and your week — and the message names
-the window it came from. A window belonging to a single model keeps its own datapoints but stays
-out of it: a model you never use can sit at 100 % forever, and an alarm that never clears is worse
-than none. Google reports no plan-wide window at all, so there the fullest model window speaks for
-the account and the warning names that model. To watch one model anyway, build the automation on
-its own `limits.<window>.percent`.
+---
+
+## Warnings, and what speaks for an account
+
+Only a **plan-wide** window can raise an account's warning. A per-model bucket gets its
+own datapoints but never triggers the alarm: a model you never use can sit at 100 %
+forever, and an alarm that never clears is worse than no alarm. Google is the exception —
+it reports no plan-wide window at all, so there the fullest model bucket speaks for the
+account, and the warning names the model.
+
+The granted budget competes with the windows: an account whose money is nearly spent is
+just as blocked as one whose time window is full. Whichever side is higher gives the
+warning its label.
+
+---
+
+## Online status
+
+`info.unreach` means **"this account is not delivering"** and drives the connection icon
+next to the account in the object tree:
+
+| Situation                                      | Icon                               | `info.error`                         |
+| ---------------------------------------------- | ---------------------------------- | ------------------------------------ |
+| Everything works                               | green                              | empty                                |
+| Throttled by the provider                      | green — the last values still hold | says so, with the retry delay        |
+| Sign-in rejected                               | red                                | "Sign-in rejected — …"               |
+| The service reports a fault                    | red                                | "The AI service reports a fault — …" |
+| Not reachable at all                           | red, after three attempts          | "Not reachable after N attempts — …" |
+| Instance stopped, or started and not asked yet | red                                | `Unknown`                            |
+
+---
+
+## Privacy and credentials
+
+- Subscription tokens belong to the adapter alone: they live encrypted in the instance
+  data directory, owner-readable only. The adapter **never** reads or writes the files of
+  your own tools (`~/.codex/auth.json`, `oauth_creds.json`) — those refresh tokens rotate,
+  and two programs refreshing them would sign each other out.
+- API keys are read from the admin's central credential storage and never copied.
+- The Claude sign-in asks for the profile scope only — the token cannot create API keys
+  or call models.
+- The adapter talks to the AI providers and to nobody else.
 
 ---
 
 ## Troubleshooting
 
-### An account delivers no data
-Read `info.error` — it names the cause. A rejected sign-in means signing in again in the settings,
-or that the key is not an organisation admin key. A service fault or a missing connection is
-outside your instance and clears up by itself. The log states the same reason once.
+**The sign-in button does nothing / the row keeps spinning.**
+Save the settings first, and make sure the instance is running — the sign-in is a
+conversation with the running adapter.
 
-`Unknown` there means the adapter itself has nothing to report — it is switched off, or it has just
-started and has not asked yet.
+**Google shows an error page after signing in.**
+That is expected and the reason the flow works at all. Copy the **whole address** out of
+the address bar and paste it into the field.
 
-### A subscription says "not signed in" although you just signed in
-Save the settings first, then sign in — the row needs a saved account to attach the sign-in to.
-After a successful sign-in the account is queried immediately, so values appear within seconds.
+**"Not signed in" although you signed in.**
+The stored sign-in was rejected by the provider (a revoked or expired refresh token). Sign
+in again — the row tells you so instead of pretending to be connected.
+
+**An OpenAI or Anthropic account delivers nothing.**
+Those reports need an **organisation admin key**. A personal account without an
+organisation cannot produce them at all; use the Claude subscription instead.
+
+**Claude answers "too many requests".**
+Raise the poll interval. The adapter identifies itself the way Claude's own tooling does
+and backs off on its own, but a very short interval across several tools can still add up.
 
 ---
+
+## Support
+
+Questions, bugs and ideas: <https://github.com/krobipd/ioBroker.ai-usage/issues>
 
 ## Changelog
 
@@ -131,6 +189,43 @@ After a successful sign-in the account is queried immediately, so values appear 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 0.12.1 (2026-09-07)
+
+- Fixed: The last-update stamp of an account no longer moves forward while the provider is only throttling — it dates the values standing next to it, so you can see how old they really are
+- Improved: Twenty-five more datapoints explain themselves in the object tree — what "today" means (the provider counts it in UTC), and why the cost totals can be lower than the accounts show
+
+### 0.12.0 (2026-09-06)
+
+- Fixed: An account that has not been signed in yet no longer reports a rejected sign-in — no warning, no notification, and the settings page keeps offering the sign-in button
+- Fixed: An account whose API key is missing or unreadable is now shown as not delivering, instead of leaving its old values standing as though they were current
+- Fixed: An answer arriving while the adapter shuts down can no longer mark an account as online again after the shutdown wrote it offline
+- Fixed: A throttled account counts as delivering everywhere now — the connection icon and the "reachable accounts" total no longer contradict each other
+- Fixed: A limit the provider reports as empty is no longer shown as 0 % used, and a Google quota without a value no longer reads as completely used up
+- Fixed: A rejected ChatGPT sign-in now says so at once instead of leaving you waiting for a quarter of an hour, and a Google account keeps delivering when one route is unavailable
+- Fixed: A Google account without an AI subscription says so, instead of asking for a sign-in that cannot change the answer
+- New: Every limit window shows whether it is the limit currently in force — with Claude the provider states it, elsewhere it is the window that speaks for the account
+- Improved: An account is reported as at its limit when the provider says the window is closed, not only when the percentage happens to reach 100
+- Improved: A window's reset time is written to the minute, so a recording of it no longer gains an entry on every single query, only on real changes
+- Improved: An account that is delivering again says so in the log, instead of leaving the warning about its outage standing as the last word on it
+- Improved: The settings page no longer asks the adapter for every status every four seconds — the values now arrive on their own as they change
+- Changed: "Balance sufficient for calls" now sits under credits, where it belongs; the datapoint at the old place is removed automatically
+- Changed: Each account node shows the readable provider name instead of the internal one — "Claude Max (Claude)" instead of "Claude Max (claude-sub)"
+- Fixed: A per-model folder is now named in your ioBroker language as well, instead of carrying the provider's bare model identifier as its only name
+- New: The datapoints whose meaning is not obvious from their name now carry a short explanation in eleven languages, shown in the object tree
+
+### 0.11.0 (2026-09-05)
+
+- Fixed: Signing in from the instance settings works again — a leftover setting from an earlier version had silently closed the adapter's message channel, so none of the three flows reached it
+- Fixed: A subscription whose stored sign-in was rejected no longer claims to be signed in — the row now offers the sign-in again instead of showing a green check next to an error
+- Fixed: The status badge of an account no longer blanks out for a moment when a single status read is missed — a hiccup in the settings page is not an account without a status
+- Fixed: A stored credential whose name sorts high in the alphabet is no longer missing from the account list in the instance settings
+- Fixed: The settings page falls back to English for a browser language the adapter does not ship, instead of passing that language on unchecked
+- Improved: All object names are now available in eleven languages instead of English only, and a renamed object reaches installations that already exist
+- Improved: ChatGPT usage is read with the identity that endpoint expects, the way the Claude query already did — fewer rejected requests on that account
+- Improved: Monthly cost reports can no longer be cut short in silence — a report that does not fit is reported in the log instead of producing a figure that is too low
+- Changed: "Highest account utilisation" says what it always measured — the fullest limit window **or** the account's remaining budget
+
 ### 0.10.0 (2026-09-01)
 
 - Fixed: The reset-time datapoint of a limit window no longer disappears and reappears — it stays and simply empties while no window is running
@@ -144,34 +239,7 @@ After a successful sign-in the account is queried immediately, so values appear 
 
 - Fixed: The first start after updating no longer leaves a warning in the log
 
-### 0.9.2 (2026-08-27)
-
-- Fixed: Stopping the instance now marks the accounts as offline on installations that were updated too, not only on fresh ones — the previous version left them showing as online
-
-### 0.9.1 (2026-08-27)
-
-- Changed: While an account has nothing to report — the adapter switched off, or started and not asked yet — the reason now reads "Unknown" instead of a sentence about the adapter
-
-### 0.9.0 (2026-08-27)
-
-- Fixed: Switching the instance off now shows every account as offline in the object tree and the settings, instead of leaving them green for as long as the adapter is not running
-- Fixed: After a crash or a hard kill an account no longer keeps claiming to deliver data; every account starts as "not delivering" until its first answer arrives
-
 [Older changelogs can be found there](CHANGELOG_OLD.md)
-
-## Support
-
-- [ioBroker Forum](https://forum.iobroker.net/)
-- [GitHub Issues](https://github.com/krobipd/ioBroker.ai-usage/issues)
-
-### Support Development
-
-This adapter is free and open source. If you find it useful, consider buying me a coffee:
-
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/krobipd)
-[![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)](https://paypal.me/krobipd)
-
----
 
 ## License
 
@@ -199,4 +267,4 @@ SOFTWARE.
 
 ---
 
-*Developed with assistance from Claude.ai*
+_Developed with assistance from Claude.ai_

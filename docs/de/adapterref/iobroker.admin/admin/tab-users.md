@@ -7,7 +7,7 @@ Hier können Benutzer angelegt werden. Dazu links unten auf das (+) klicken. Der
 
 
 
-![iobroker_adapter_admin_user_01](../img/tab-user_01-1.jpg)
+![iobroker_adapter_admin_user_01](img/tab-user_01-1.jpg)
 
 ## Der Seiteninhalt
 
@@ -31,7 +31,7 @@ mit dieser Checkbox kann die Vefügbarkeit eines Benutzers aktiviert oder deakti
 
 Hier werden die in dem Reiter **_Gruppen_** angelegten Gruppen angezeigt. Hier können über eine Checkbox die User den entsprechenden Gruppen zugeordnet werden.
 
-![iobroker_adapter_admin_user_groups](../img/tab-user_Groups.jpg)
+![iobroker_adapter_admin_user_groups](img/tab-user_Groups.jpg)
 
 ### **5.) Neuen Benutzer erzeugen**
 

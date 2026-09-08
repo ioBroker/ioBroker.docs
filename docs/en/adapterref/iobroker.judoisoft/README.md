@@ -23,12 +23,18 @@ For devices with the new JUDO connectivity module, enable `REST API (connectivit
 This uses the local interface `http://<ip>/api/rest/...` (Basic Auth).
 (default username/password is 'admin' / 'Connectivity')
 
-## Changelog
+Cloud login takes precedence: when it is enabled, the REST API option is hidden and ignored.
 
-### **WORK IN PROGRESS**
+## Changelog
+### 1.1.5 (2026-09-04)
+- fix release
+
+### 1.1.4 (2026-09-04)
 
 - Add device selection for cloud connection - #194
 - Fix issues detected by repository checker
+- Derive `info.connection` from the active mode (local REST vs cloud) - #212
+- Cloud login takes precedence over REST API when both are enabled
 
 ### 1.1.3 (2026-07-18)
 
@@ -46,16 +52,6 @@ This uses the local interface `http://<ip>/api/rest/...` (Basic Auth).
 ### 1.1.1 (2024-09-26)
 
 - (arteck) corr cloud connection
-
-### 1.1.0 (2023-10-27)
-
-- (arteck) switch to intervall
-
-### 1.0.15 (2022-05-30)
-
-- (arteck) new error handling
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

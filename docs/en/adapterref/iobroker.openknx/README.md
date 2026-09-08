@@ -13,7 +13,7 @@ BADGE-Beta: https://img.shields.io/npm/v/iobroker.openknx.svg?color=red&label=be
 BADGE-Stable: http://iobroker.live/badges/openknx-stable.svg
 BADGE-Installed: http://iobroker.live/badges/openknx-installed.svg
 ---
-![Logo](./admin/openknx.png)
+![Logo](../../admin/openknx.png)
 
 # ioBroker.openknx
 
@@ -39,7 +39,7 @@ Search for "openknx" in the adapter list and install by clicking the + symbol.
 
 ## Adapter configuration
 
-![settings](./docs/pictures/setting.png)
+![settings](../img/setting.png)
 
 Press "save & close" or "save" to restart the adapter and apply the changes.
 
@@ -83,7 +83,7 @@ After a successful .knxproj import, use the "Create Aliases" function below to l
 
 If you cannot use .knxproj, you can export Group Addresses from ETS as XML:
 
-![How to export Group Addresses as XML in ETS](./docs/pictures/exportGA.png)
+![How to export Group Addresses as XML in ETS](../img/exportGA.png)
 
 1. In ETS go to Group Addresses, select export group address and select XML export in latest format version.
    ETS4 Format is not supported, it does not contain DPT information.
@@ -308,7 +308,7 @@ return msg;
 ## Log level
 
 Enable expert mode to switch between log levels. Default is info.
-![loglevel](./docs/pictures/loglevel.png)
+![loglevel](../img/loglevel.png)
 
 ## Monitoring
 

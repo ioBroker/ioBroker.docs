@@ -536,6 +536,17 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
+### 1.4.6-alpha.0 (2026-09-07)
+
+(smuenzel)
+* Add MYPV tags and fix datatypes of existing tags - [Issue #354](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/354)
+
+(git-kick)
+* Reduce redundancy in RscpTags.json - [Issue #356](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/356)
+* Bump @tsconfig/node22 from 22.0.5 to 22.0.6 in the development-updates group  - [Issue #355](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/355)
+* Harden: fix rijndael-js security issue in package.json - [Issue #358](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/358) 
+* Bump serialize-javascript and @iobroker/testing - [Issue #360](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/360)
+
 ### 1.4.5 (2026-08-17)
 
 (git-kick)
@@ -625,6 +636,7 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
   * \[254\] removed v1.3.2 which was never released.
 * removed duplicate queueWbRequestData() definition from main.js - the relevant one is in wallbox.js
 * removed obsolete initialisation of maxIndex for BAT and PVI from constructor(). Both values are now initialized from config during initChannel().
+
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

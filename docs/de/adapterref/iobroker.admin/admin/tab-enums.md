@@ -8,14 +8,14 @@ Es können auch eigene Aufzählungen angelegt werden, die dann z.B. in Scripts v
 
 
 
-![iobroker_adapter_admin_enums_01](../img/tab-enums_Enums_01.jpg)
+![iobroker_adapter_admin_enums_01](img/tab-enums_Enums_01.jpg)
 
 ## Die Titelzeile
 
 in der Titelzeile befinden sich Icons für die wichtigsten Vorgänge. 
 Zu jedem Icon gibt es eine Kontexthilfe. Dazu einfach mit der Maus eine Weile auf dem Icon bleiben.
 
-![iobroker_adapter_admin_enums_headers_01](../img/ioBroker_Adapter_admin_Enums_Headers_01.jpg)
+![iobroker_adapter_admin_enums_headers_01](img/ioBroker_Adapter_admin_Enums_Headers_01.jpg)
 
 ### **Die Icons im einzelnen:**
 
@@ -43,14 +43,14 @@ Nach Anwählen dieses Icons können weitere Aufzählungen in der Grundstruktur 
 Elemente innerhalb der Ordnerstruktur werden über das (+) Icon rechts (#10) angelegt. 
 Ein Konfigurationsfenster öffnet sich:
 
-![iobroker_adapter_admin_enums_new](../img/tab-enums_Enums_new.jpg)
+![iobroker_adapter_admin_enums_new](img/tab-enums_Enums_new.jpg)
 
 Hier muss jetzt der Name für die neue Aufzählung ausgewählt werden, 
 die erzeugte ID wird automatisch angepasst.
 
 ### Der Seiteninhalt
 
-![iobroker_adapter_admin_enums_headers_03](../img/tab-enums_Enums_Headers_03.jpg)
+![iobroker_adapter_admin_enums_headers_03](img/tab-enums_Enums_Headers_03.jpg)
 
 Auf der Seite werden die vorhandenen Aufzählungen sowie ihre Mitglieder tabellarisch dargestellt.
 
@@ -85,7 +85,7 @@ Dabei erscheinen an dieser Stelle ein ok-Button in Form eines Häkchens und ein 
 Nach Anklicken dieses Icons öffnet sich ein Dialogfenster in dem ein neues Mitglied innerhalb 
 der jeweiligen Struktur angelegt werden kann. 
 
-![iobroker_adapter_admin_enums_new_member](../img/tab-enums_Enums_new_Member.jpg) 
+![iobroker_adapter_admin_enums_new_member](img/tab-enums_Enums_new_Member.jpg) 
 
 Auch hier kann der Name individuell gewählt werden. Die zugehörige ID wird entsprechend der Struktur und des gewählten Namens automatisch erzeugt.
 
@@ -97,4 +97,4 @@ Mit dem Mülleimer-Icon wird das Element in dieser Zeile gelöscht
 
 Nach Anklicken dieses Icons wird ein weiteres Fenster mit erweiterten Informationen zu dem angewählten Element angezeigt.
 
-![iobroker_adapter_admin_enums_info](../img/tab-enums_Enums_Info.jpg)
+![iobroker_adapter_admin_enums_info](img/tab-enums_Enums_Info.jpg)

@@ -50,11 +50,13 @@ Adapter 2.0.3 and newer support node.js 22. Prior node.js versions require a spe
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 3.0.3 (2026-09-02)
+### 3.1.0 (2026-09-03)
+- (typhosj) The adapter requires node.js >= 24 now as`eufy-security-client` 4.x requires `node >=24` itself
+- (typhosj) The `livestream`, `livestream_rtsp` and `rtsp_stream_url` states are emptied instead of deleted when a stream ends. 
 - (typhosj) Removed the "HTTPS streaming url" setting. The adapter never configures TLS for go2rtc and go2rtc ignores `api.tls_listen` without a certificate, so the option only ever produced a livestream URL that could not be opened. The URL is built with `http` now
-- (typhosj) The livestream page (`http://<host>:1984/stream.html?src=<serial>`) is now served by the adapter, with the defaults that make a stream unstable on weak clients such as a Fire tablet replaced: MSE instead of WebRTC (go2rtc cannot request a keyframe for a pushed stream, so WebRTC starts in the middle of a GOP and shows green artifacts - `?mode=webrtc,mse,hls,mjpeg` restores the old order), the picture is pulled back to the live edge instead of falling further behind with every stall, and a reconnect starts after a second instead of 15. The URL, the parameters `src`, `mode`, `background` and `width`, several streams side by side and the status overlay all stay as they were; new are `?audio=false` (play video only), `?controls=false` (hide the native controls, so a tap cannot pause the stream) and `?drift=<seconds>`
+- (typhosj) The livestream page (`http://<host>:1984/stream.html?src=<serial>`) is now served by the adapter, with the defaults that make a stream unstable on weak clients such as a Fire tablet
 - (typhosj) The `livestream` state now carries `&background=false`, so the player disconnects while its page is not visible. Without it the browser keeps decoding behind a switched off display and leaves a consumer attached that never recovers once the producer is gone
-- (typhosj) go2rtc serves its web pages from the adapter directory now (`api.static_dir`). That replaces the files embedded in go2rtc, so the stream list, the log page, the link list and the WebRTC viewer are shipped along and keep answering. Three pages were left out: `editor.html` and `add.html`, because the adapter passes the go2rtc configuration as JSON on the command line (`/api/config` answers `410 Gone`, and a stream added by hand is gone with the next restart), and `network.html`, because it loads a library from `unpkg.com` and stays blank on a host without internet access. The pages taken from go2rtc keep their MIT license, see `www/LICENSE.go2rtc` and `www/VENDOR.md`
+- (typhosj) go2rtc serves its web pages from the adapter directory now (`api.static_dir`). That replaces the files embedded in go2rtc, so the stream list, the log page, the link list and the WebRTC viewer are shipped along and keep answering.
 
 ### 3.0.2 (2026-09-02)
 - (copilot) Adapter requires node.js >= 22 now
@@ -80,6 +82,7 @@ Adapter 2.0.3 and newer support node.js 22. Prior node.js versions require a spe
 
 * (bropat) Updated version of the package eufy-security-client (3.1.1)
 * (bropat) Further details can be found in the changelog of eufy-security-client (3.1.1)
+
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

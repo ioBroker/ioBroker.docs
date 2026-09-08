@@ -5,7 +5,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.bring.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.bring.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.bring.png?downloads=true
 ---
-![Logo](./admin/bring.png)
+![Logo](/admin/bring.png)
 # ioBroker.bring
 ===========================
 

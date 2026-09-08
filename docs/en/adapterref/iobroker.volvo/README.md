@@ -87,6 +87,15 @@ Use the buttons under `volvo.0.<VIN>.remote` to control your vehicle:
 
 ## Changelog
 
+### 3.0.2
+- Chore: dependency updates
+  - `axios` 1.16.1 → 1.19.0
+  - `qs` 6.15.2 → 6.16.0
+  - `@iobroker/adapter-core` 3.3.2 → 3.4.3
+  - `json2iob` 2.6.22 → 2.6.25
+  - dev: `@iobroker/testing` 5.3.0, `@tsconfig/node22` 22.0.6, `@types/node` 22.20.1, `@alcalzone/release-script` 5.2.1, `@alcalzone/release-script-plugin-license` 5.2.2
+  - transitive: `brace-expansion`, `adm-zip`, `deepl-node`, `browserslist`, `js-yaml`, `form-data`
+
 ### 3.0.1
 - Fix: address ioBroker repo checker findings:
   - `eslint.config.mjs` now imports `@iobroker/eslint-config`

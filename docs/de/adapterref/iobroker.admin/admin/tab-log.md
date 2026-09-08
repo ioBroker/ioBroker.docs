@@ -6,14 +6,14 @@ chapters: {"pages":{"de/adapterref/iobroker.admin/README.md":{"title":{"de":"no 
 Hier werden die Meldungen des Systems kontinuierlich ausgegeben. 
 Die neueste Meldung befindet sich oben.
 
-![](../img/tab-log_01.jpg)
+![](img/tab-log_01.jpg)
 
 ## Die Titelzeile
 
 in der Titelzeile befinden sich Icons für die wichtigsten Vorgänge. 
 Zu jedem Icon gibt es eine Kontexthilfe. Dazu einfach mit der Maus eine Weile auf dem Icon bleiben.
 
-![](../img/tab-log_icons.jpg)
+![](img/tab-log_icons.jpg)
 
 ### **Die Icons im einzelnen:**
 
@@ -43,14 +43,14 @@ Mit dem Klick auf dieses Icon wird das gesamte Log auf dem Host endgültig gelö
 
 ### **Instanzen Filter**
 
-![](../img/tab-log_instances.jpg)
+![](img/tab-log_instances.jpg)
 
 Mit diesem Pulldownmenü können die Meldungen nach der loggenden Instanz gefiltert werden. 
 In dem Menü werden nur die Instanzen angezeigt, zu denen es auch Einträge auf der Seite gibt.
 
 ### **angezeigter Loglevel**
 
-![](../img/tab-log_loglevel.jpg)
+![](img/tab-log_loglevel.jpg)
 
 Mit diesem Menü kann eingestellt werden welcher Schweregrad der Meldung angezeigt werden soll. 
 Hierbei handelt es sich jedoch nur um einen Filter der vorhandenen Liste. Um für eine Instanz das Logging in einem bestimmten Level festzulegen muss dieses im Reiter _**Instanzen**_ eingestellt werden.

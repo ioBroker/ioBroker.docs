@@ -261,6 +261,11 @@ The values of the state provide multiple manipulation modes:
 	### __WORK IN PROGRESS__
 -->
 <!-- prettier-ignore -->
+### 1.4.1 (2026-09-07)
+
+- (Michael Schroeder) [#512](https://github.com/MiSchroe/ioBroker.klf200/issues/512) Changed unit tests to [node:test](https://nodejs.org/docs/latest-v22.x/api/test.html)
+- (Michael Schroeder) [#515](https://github.com/MiSchroe/ioBroker.klf200/issues/515) Fixed an error during the startup of the adapter when reading unsupported limitations.
+
 ### 1.4.0 (2026-09-02)
 
 - (Michael Schroeder) [#498](https://github.com/MiSchroe/ioBroker.klf200/issues/498) Handle the outdated certificate in the connection test button.
@@ -290,11 +295,6 @@ The values of the state provide multiple manipulation modes:
 ### 1.3.5 (2024-11-20)
 
 - (Michael Schroeder) [#264](https://github.com/MiSchroe/ioBroker.klf200/issues/264) Fixed an issue during startup of the adapter if more than 20 nodes are present.
-
-### 1.3.4 (2024-11-19)
-
-- (Michael Schroeder) [#259](https://github.com/MiSchroe/ioBroker.klf200/issues/259) Fixed issues found by the adapter checker.
-- (Michael Schroeder) [#262](https://github.com/MiSchroe/ioBroker.klf200/issues/262) Fixed an issue during startup of the adapter if more than 20 nodes are present.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

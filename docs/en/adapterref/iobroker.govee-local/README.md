@@ -27,6 +27,7 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 
 ### **WORK IN PROGRESS**
 
+- add HomeKit-compatible hue and saturation states, and a mired color temperature state
 - update dependencies
 
 ### 0.4.7 (2026-06-02)

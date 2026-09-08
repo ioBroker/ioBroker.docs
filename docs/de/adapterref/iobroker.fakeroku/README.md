@@ -1,118 +1,240 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fakeroku/README.md
-title: <img src="https://cdn.jsdelivr.net/gh/iobroker-community-adapters/ioBroker.fakeroku@master/admin/fakeroku.svg" width="48" align="top" /> ioBroker.fakeroku
-hash: PNfvfuq6BoUvvHXVSfMMQoSibS9YWdZxtbTOVyu0lIs=
+BADGE-npm version: https://img.shields.io/npm/v/iobroker.fakeroku
+BADGE-stable: https://iobroker.live/badges/fakeroku-stable.svg
+BADGE-Installations: https://iobroker.live/badges/fakeroku-installed.svg
+BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.fakeroku
+BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
+BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
+BADGE-License: https://img.shields.io/badge/license-MIT-green
+BADGE-Sentry: https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white
+BADGE-Ko-fi: https://img.shields.io/badge/Ko--fi-Support%20me-ff5e5b?logo=ko-fi
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg
 ---
-# <img src="https://cdn.jsdelivr.net/gh/iobroker-community-adapters/ioBroker.fakeroku@master/admin/fakeroku.svg" width="48" align="top" /> ioBroker.fakeroku
+# fakeroku — emulierte Roku-Geräte für deine Fernbedienung
 
-![npm-Version](https://img.shields.io/npm/v/iobroker.fakeroku)
-![stabil](https://iobroker.live/badges/fakeroku-stable.svg)
-![Installationen](https://iobroker.live/badges/fakeroku-installed.svg)
-![npm-Downloads](https://img.shields.io/npm/dt/iobroker.fakeroku)
-![Knoten](https://img.shields.io/badge/node-%3E%3D22-brightgreen)
-![Typoskript](https://img.shields.io/badge/TypeScript-strict-blue)
-![Lizenz](https://img.shields.io/badge/license-MIT-green)
-![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)
-![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)
+Dieser Adapter lässt ioBroker im Heimnetz wie ein oder mehrere **Roku-Streaming-Geräte**
+aussehen. Eine Fernbedienung, die das Roku-Protokoll spricht — ein Logitech-Harmony-Hub
+oder eine Sofabaton X1/X2 — findet das emulierte Gerät, und jeder Tastendruck darauf
+wird zu einem Datenpunkt in ioBroker, auf den Skripte und Visualisierungen reagieren
+können.
 
-Emuliert ein oder mehrere **Roku-Geräte** in Ihrem LAN, sodass ECP/SSDP-Fernbedienungen – ein Logitech Harmony Hub oder ein Sofabaton X1/X2 – Ereignisse in ioBroker auslösen können. Es ist das **Eingabe-Pendant** zum Logitech Harmony-Adapter: Eine Taste auf der Fernbedienung wird zu einem Datenpunkt in ioBroker.
+Er ist das **Eingabe**-Gegenstück zum Logitech-Harmony-Adapter: Statt dass ioBroker
+ein Gerät steuert, steuert ein Gerät den ioBroker.
 
-Anders als beim klassischen Fake-Roku beantwortet diese Version die gesamte Roku-Bedienoberfläche einschließlich `/query/device-info` mit einer **aktuellen** Roku-Version und funktioniert somit über einen klassischen Harmony-Hub hinaus.
+> **Die offizielle Roku-App funktioniert mit diesem Adapter nicht.** Sie spricht mit
+> echten Rokus über einen herstellereigenen, verschlüsselten Kanal, der sich nicht
+> nachbauen lässt. Nutze einen Harmony-Hub oder eine Sofabaton — die sprechen das
+> offene Protokoll, das dieser Adapter bedient.
 
-Die offizielle Roku-Mobil-App wird nicht unterstützt. Sie steuert Roku-Geräte über den proprietären, undokumentierten ECP-2-WebSocket-Kanal von Roku, den dieser Emulator nicht implementiert. Verwenden Sie stattdessen einen Harmony Hub oder einen Sofabaton – diese unterstützen den klassischen ECP-Kanal, den dieser Adapter bereitstellt.
+## Voraussetzungen
 
-## Merkmale
-- Emuliert ein oder mehrere Roku-Geräte im LAN – das Roku-Steuerungsprotokoll (ECP) über HTTP plus SSDP-Erkennung auf Port 1900.
-- Vollständige Roku-Bedienoberfläche inklusive `/query/device-info` bei einer aktuellen Roku-Version, die über die Anforderungen eines klassischen Harmony-Hubs hinausgeht.
-- Sauberes Datenmodell pro Gerät: ein `command`-Datenpunkt plus feste `keys.<Key>`-Zustände, die alle im Voraus erstellt werden.
-- Mehrere emulierte Rokus von einer einzigen Instanz; Erkennung an die gewählte Netzwerkschnittstelle gebunden; Befehlsverarbeitung auf das LAN beschränkt.
+- Node.js 22 oder neuer
+- js-controller 7.2.2 oder neuer
+- admin 8.0.11 oder neuer
+- Eine Fernbedienung bzw. ein Hub im **selben Heimnetz** wie der ioBroker-Rechner
 
-## Anforderungen
-- Node.js >= 22
-- js-controller >= 7.2.2
-- admin >= 7.8.23
+## Einrichtung
 
-## Installation
-Installieren Sie den Adapter über die ioBroker-Administration.
+### 1. Instanz anlegen
 
-## Konfiguration
-- **Netzwerkschnittstelle** – die Netzwerkkarte, an die sich die emulierten Roku-Geräte binden und die sie bewerben.
+Adapter installieren und eine Instanz anlegen. Er läuft sofort: Die Instanz bringt
+bereits einen emulierten Roku mit, Name „Roku", Anschluss 8060.
 
-Aktivieren Sie die Option „Alle Schnittstellen“, dann ist der Adapter sofort einsatzbereit – er erkennt die routbare IP-Adresse automatisch. Wählen Sie eine spezifische Adresse nur auf einem Host mit mehreren Netzwerkkarten.
+### 2. Netzwerkkarte wählen (meistens: nicht)
 
-- **Emulierte Roku-Geräte** – als Karten verwaltet: **+ Hinzufügen** öffnet einen Dialog mit einem
+Lass **Netzwerkkarte** auf „alle Schnittstellen". Der Adapter ermittelt dann selbst
+die erreichbare Adresse deines ioBroker-Rechners und kündigt diese an.
 
-**Name**, ein **ECP-Port** (`8060` der echte Roku-Port; ein freier Port ist vorausgewählt, und der Dialog lehnt bereits verwendete Namen oder Ports ab) und ein **Typ**. Sie können mehrere Roku-Geräte mit einer Instanz emulieren – jedes benötigt einen eigenen Port.
+Eine bestimmte Adresse wählst du nur, wenn dein ioBroker-Rechner in **mehreren
+Netzen** hängt und die Fernbedienung nur eines davon erreicht.
 
-- **Typ** — *Player* (Standard) stellt die 16 Standard-Navigations- und Wiedergabetasten bereit;
+### 3. Emulierte Rokus anlegen oder ändern
 
-*TV* stellt zusätzlich Lautstärke-, Ein-/Ausschalter-, Kanal- und Eingangstasten bereit. Wählen Sie *TV* nur dann, wenn Sie diese zusätzlichen Tasten als ioBroker-Trigger benötigen.
+Jede Karte unter **Emulierte Roku-Geräte** ist ein Roku, den deine Fernbedienung
+finden kann.
 
-Um den emulierten Roku zu einem Harmony-Hub hinzuzufügen, fügen Sie ein "Roku"-Gerät in der Harmony-App hinzu und verweisen Sie es auf den ioBroker-Host.
+- **Name** — erscheint als Gerätename auf der Fernbedienung und als Ordner im
+  Objektbaum. Nimm etwas Wiedererkennbares, zum Beispiel den Raum.
+- **ECP-Anschluss** — der Netzwerk-Anschluss, auf dem dieser Roku antwortet. `8060`
+  ist der Anschluss eines echten Roku. Jeder emulierte Roku braucht **seinen eigenen**;
+  der Dialog schlägt einen freien vor und weist einen bereits belegten ab.
+- **Typ**
+  - **Player** (eine Streaming-Box) bietet die 16 üblichen Navigations- und
+    Wiedergabetasten.
+  - **TV** bietet zusätzlich Lautstärke, Ein/Aus, Programm und Eingangswahl. Wähle
+    das nur, wenn du diese zusätzlichen Tasten wirklich als Auslöser in ioBroker
+    haben willst.
 
-## Objekte
-Für jedes emulierte Roku (`fakeroku.0.<name>`):
+### 4. Fernbedienung anlernen
 
-| Datenpunkt | Typ | Bedeutung |
-|---|---|---|
-| `.command` | Zeichenkette, schreibgeschützt | Der letzte Befehl als Klartext (`Home`, `Lit_a`, `launch:12`, `search:news`). Ein Datenpunkt für alles – keine Objekt-pro-Zeichen-Aufblähung. |
-| `.keys.<Key>` | Boolescher Wert, schreibgeschützt | Ein Zustand pro Fernbedienungstaste, die vom Gerätetyp bereitgestellt wird – ein *Player* verfügt über die 16 Navigations-/Wiedergabetasten, ein *TV* zusätzlich über Lautstärke*, Ein/Aus, Kanal*, HDMI/AV-Eingänge – alles vordefiniert. Ein Tastendruck pulsiert kurz auf `true`; Tastendruck/-loslassen hält den Zustand aufrecht. |
-| `.keys.<Key>` | Boolescher Wert, schreibgeschützt | Ein Zustand pro Fernbedienungstaste, die vom Gerätetyp bereitgestellt wird – ein *Player* verfügt über die 16 Navigations-/Wiedergabetasten, ein *TV* zusätzlich über Lautstärke*, Ein/Aus, Kanal*, HDMI/AV-Eingänge – alles im Voraus definiert. Ein Tastendruck setzt den Zustand kurzzeitig auf „true“; Tastendruck/Tastenloslassen halten ihn aufrecht. |
+**Logitech Harmony:** In der Harmony-App ein Gerät hinzufügen, als Hersteller
+**Roku** wählen und auf deinen ioBroker-Rechner zeigen. Der Hub findet den emulierten
+Roku von selbst und liest den Anschluss aus der Ankündigung — du musst ihn nicht
+eintippen.
 
-Freie Tastatureingaben (`Lit_x`) und App-Starts werden nur in `.command` angezeigt – sie erhalten keine eigenen Objekte.
+**Sofabaton X1/X2:** In der Sofabaton-App ein Roku-Gerät hinzufügen, während die App
+im selben Netz ist. Der Adapter meldet eine aktuelle Roku-Version — genau das prüfen
+diese Fernbedienungen, bevor sie ein Gerät annehmen.
 
-Hinweis: Die Roku-Fernbedienung sendet für Wiedergabe und Pause den **gleichen** `Play`-Befehl, daher können Wiedergabe und Pause hier nicht unterschieden werden – das ist eine Protokollbeschränkung, keine Adapterbeschränkung.
+## Was im Objektbaum entsteht
 
-## Verwendung
-In einem Skript oder einer Blockly-Regel kann auf einen Tastendruck reagiert werden – z. B. wenn `fakeroku.0.<name>.keys.Play` zu `true` wird, oder `.command` wird auf die letzte Schaltfläche als Text überwacht.
+Auf Instanz-Ebene:
 
-## Geschichte
-Fakeroku blickt auf eine lange Tradition auf ioBroker zurück, und diese Version setzt sie fort – für bestehende Nutzer handelt es sich lediglich um eine neue Version desselben Adapters:
+| Datenpunkt        | Typ                 | Bedeutung                                                                                                                                                                                                                   |
+| ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `info.connection` | boolean, nur lesbar | Nur wahr, solange **jeder** konfigurierte Roku tatsächlich lauscht. Kann einer nicht starten — fast immer, weil sein Anschluss schon belegt ist — bleibt die Instanz getrennt, und das Protokoll nennt Gerät und Anschluss. |
 
-**[Pmant](https://github.com/Pmant)** hat Fakeroku im Jahr 2017 entwickelt und das Original erstellt.
+Je emuliertem Roku, unterhalb von `fakeroku.0.<Name>`:
 
-Roku-Emulation: SSDP-Erkennung, ECP-Oberfläche und Unterstützung mehrerer Geräte.
+| Datenpunkt     | Typ                 | Bedeutung                                                                                                                                                |
+| -------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `command`      | string, nur lesbar  | Der letzte Befehl als lesbarer Text: `Home`, `Lit_a`, `launch:12`, `search:news`.                                                                        |
+| `commandType`  | string, nur lesbar  | Um welche Art Befehl es sich handelte: `keypress`, `keydown`, `keyup`, `launch`, `install`, `input` oder `search`.                                       |
+| `keys.<Taste>` | boolean, nur lesbar | Ein Datenpunkt je Taste. Ein Tastendruck setzt ihn kurz auf `true` und wieder auf `false`; eine gehaltene Taste bleibt `true`, bis sie losgelassen wird. |
 
-- **[Apollon77](https://github.com/Apollon77)** hat die Test- und Build-Tools auf dem neuesten Stand gehalten.
+Tastatureingaben der Fernbedienung (`Lit_a`) und App-Starts erscheinen nur in
+`command` — sie bekommen keine eigenen Datenpunkte.
 
-in den folgenden Jahren.
+## Verwendung im Skript
 
-- Die **[ioBroker Community Adapters](https://github.com/iobroker-community-adapters)**
+Der übliche Weg ist, auf eine Taste zu reagieren, die `true` wird:
 
-Das Team – insbesondere [mcm1957](https://github.com/mcm1957) und [foxriver76](https://github.com/foxriver76) – pflegte und modernisierte den Adapter von 2023 bis 2026 und veröffentlichte Versionen bis zur Version 0.5.1.
+```javascript
+on({ id: "fakeroku.0.Wohnzimmer.keys.Play", val: true }, () => {
+  // deine Aktion
+});
+```
 
-- Ab **0.6.0** wurde der Adapter von [krobi](https://github.com/krobipd) neu geschrieben.
+Oder `command` beobachten, wenn du mehrere Tasten an einer Stelle behandeln willst:
 
-Von Grund auf in TypeScript entwickelt und die vollständige ECP-Oberfläche einschließlich `device-info` hinzugefügt.
+```javascript
+on({ id: "fakeroku.0.Wohnzimmer.command" }, obj => {
+  log("Fernbedienung sendete: " + obj.state.val);
+});
+```
+
+Die Tasten-Datenpunkte werden bei jedem Adapterstart auf `false` zurückgesetzt. Eine
+Taste, die beim Stoppen von ioBroker gedrückt stehen geblieben ist, kann deine Regel
+danach also nicht blockieren. Das Loslassen einer Taste wird nie verworfen — auch dann
+nicht, wenn der Adapter gerade eine Befehlsflut abweist.
+
+## Genutzte Anschlüsse
+
+- **TCP 8060** (einer je emuliertem Roku, einstellbar) — das Steuerprotokoll. Hierhin
+  sendet deine Fernbedienung ihre Tastendrücke.
+- **UDP 1900** (Multicast) — die Geräteerkennung, damit die Fernbedienung die
+  emulierten Rokus findet. Dieser Anschluss ist vom Standard vorgegeben und wird von
+  allen gemeinsam genutzt.
+
+Beantwortet werden nur Geräte aus deinem eigenen Heimnetz. Eine Anfrage aus dem
+Internet wird abgewiesen, eine Suche von außen ignoriert.
+
+Beim Stoppen der Instanz melden sich die emulierten Rokus im Netz ab. Die Fernbedienung
+nimmt sie damit sofort aus ihrer Liste, statt noch eine Stunde lang Tastendrücke ins
+Leere zu schicken.
+
+Du kannst mehrere Instanzen auf demselben Rechner betreiben — gib jeder eigene
+ECP-Anschlüsse. Die Geräteerkennung teilen sie sich: Wer zuerst startet, bekommt
+UDP 1900, die anderen laufen ohne sie weiter, und bereits gekoppelte Fernbedienungen
+kommen weiterhin durch.
+
+Der Adapter läuft außerdem im Compact-Modus von ioBroker, in dem sich mehrere Adapter
+einen Prozess teilen, statt dass jeder einen eigenen startet. Auf kleinen Rechnern
+spart das Speicher und Startzeit. Eingeschaltet wird er in den Instanz-Einstellungen;
+hier ist dafür nichts umzustellen.
+
+## Fehlersuche
+
+**Die Fernbedienung findet kein Gerät.**
+Prüfe, ob Hub und ioBroker-Rechner im selben Netz sind und keine Firewall den
+UDP-Anschluss 1900 blockiert. Bei einem Rechner mit mehreren Netzwerkkarten die
+richtige unter **Netzwerkkarte** auswählen. Ist die Erkennung nicht verfügbar,
+schreibt der Adapter das ins Protokoll und arbeitet für bereits gekoppelte
+Fernbedienungen weiter.
+
+**Die Fernbedienung findet nichts, und im Protokoll steht „advertising on 172.17.x.x".**
+Diese Adresse gehört zu einer Docker-Brücke auf dem Rechner, nicht zu deinem
+Heimnetz — keine Fernbedienung erreicht sie. Der Adapter bevorzugt von sich aus eine
+echte Netzwerkadresse; das taucht also nur auf, wenn der Rechner in dem Moment keine
+andere zu bieten hat. Wähle unter **Netzwerkkarte** die richtige aus und starte die
+Instanz neu.
+
+**Die Instanz bleibt „nicht verbunden".**
+Mindestens ein konfigurierter Roku konnte nicht starten. Das Protokoll nennt Gerät
+und Anschluss — fast immer ist der Anschluss schon von etwas anderem belegt (auch von
+einem zweiten emulierten Roku mit demselben Anschluss). Gib ihm einen freien.
+Der Adapter versucht es bei so einem Gerät jede Minute erneut und meldet im Protokoll,
+wenn es hochkommt — ein Anschluss, den der vorherige Prozess nach einem Neustart noch
+hielt, löst sich damit von allein.
+
+**Ich drücke eine Taste und in ioBroker passiert nichts.**
+Stelle die Protokollstufe der Instanz kurz auf `debug`. Jeder empfangene Befehl wird
+mit Tastenname und Absenderadresse protokolliert. Erscheint nichts, erreicht die
+Fernbedienung den Adapter nicht; erscheint etwas, ist der Befehl angekommen und das
+Problem liegt im Skript, das den Datenpunkt liest.
+
+**Wiedergabe und Pause tun dasselbe.**
+Das ist das Roku-Protokoll, nicht der Adapter: Die Fernbedienung sendet für
+Wiedergabe und Pause **denselben** Befehl, die beiden sind hier also nicht
+unterscheidbar.
+
+**Die App-Tasten meiner Harmony bewirken nichts.**
+Die App-Tasten der Harmony (Netflix, YouTube …) hängen an Harmony-Aktivitäten und
+werden nie an das Gerät gesendet — der Adapter sieht sie also nie.
+
+## Datenschutz
+
+Der Adapter spricht ausschließlich mit Geräten im Heimnetz. Er kontaktiert keinen
+Cloud-Dienst und sendet nirgendwohin Daten. Die optionale Fehlerberichterstattung
+über Sentry ist aus, solange du in den ioBroker-Systemeinstellungen die Diagnose
+nicht eingeschaltet hast; sie überträgt eine anonyme Installations-Kennung und den
+Fehler selbst, keine personenbezogenen Daten.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.0.0 (2026-08-05)
-- (krobipd) First stable release — version 1.0.0 marks the complete rewrite as the mature, supported version of the adapter.
-- (krobipd) Upgrading from an older version now shows a one-time notice that the button data points changed from text to real boolean values, so scripts and visualizations can be checked.
 
-### 0.6.0 (2026-08-05)
-- (krobipd) Complete rewrite. The adapter now answers the full Roku control surface — including device-info with a current Roku version — so Logitech Harmony and Sofabaton remotes pair and work reliably.
-- (krobipd) Works out of the box: it detects the network address to advertise on its own, no manual interface picking.
-- (krobipd) Manage multiple emulated Rokus from the admin UI, each as a Player or a TV.
-- (krobipd) Cleaner object tree — one datapoint per remote button with the correct types, plus a last-command datapoint; leftover objects from older versions are removed on start.
+### 1.6.1 (2026-09-07)
 
-### 0.5.1 (2026-08-05)
-- (mcm1957) Adapter requires Node.js >= 22 now
-- (mcm1957) Dependencies have been updated
+- (krobipd) Changed: installing straight from GitHub is no longer offered — the adapter is built before publishing, so it is installed from the ioBroker repository instead.
 
-### 0.5.0 (2026-07-30)
-- Complete rewrite with the full Roku control surface, including `device-info` with a current Roku version — the part modern remotes check at pairing, beyond what a classic Harmony hub needs
-- New clean data model: a `command` datapoint plus fixed `keys.<Key>` states, all created up front instead of appearing only after the first keypress
-- Discovery binds to the chosen network interface, command handling is restricted to the local network
+### 1.6.0 (2026-09-07)
 
-### 0.4.0 (2026-03-07)
-- Adapter requires node.js >= 20, admin >= 7.7.22, js-controller >= 6.0.11
+- (krobipd) Fixed: saving a device in the admin could change its identity on the network, so a paired Harmony or Sofabaton lost it.
+- (krobipd) Fixed: with the device list open twice, editing or deleting a card could hit a different emulated Roku than the one clicked.
+- (krobipd) Fixed: releasing a key was dropped while the adapter shed a flood of commands, so the key could stay pressed for half a minute.
+- (krobipd) Fixed: an ECP port still held after a restart left that device dead until you restarted the instance; it is retried every minute now.
+- (krobipd) Fixed: stopping the instance now takes the emulated Rokus out of the remote's list instead of leaving them there for up to an hour.
+- (krobipd) Fixed: an emulated Roku whose server died is no longer offered for discovery.
+- (krobipd) Fixed: a configured port no server can bind falls back to 8060 instead of leaving the device unstarted.
+- (krobipd) Changed: the device dialog refuses a reserved or colliding name right away instead of reporting it after saving.
+- (krobipd) Changed: the adapter can now run in compact mode, sharing one process with other adapters instead of claiming its own.
+- (krobipd) Changed: more than one instance may run on the same machine again; only the ports have to differ.
+
+### 1.5.0 (2026-09-03)
+
+- (krobipd) Fixed: deleting the last emulated Roku left all of its datapoints behind for good. They are now removed whenever the configuration says a device is gone.
+- (krobipd) Fixed: on a host running Docker the adapter could announce itself under a container address no remote can reach. A real network address is preferred now.
+- (krobipd) Fixed: an emulated Roku whose server died while running left the instance showing "connected". It now reports the failure and names the device.
+
+### 1.4.0 (2026-09-03)
+- (krobipd) Fixed: renaming an emulated Roku could change its identity on the network, so a paired Harmony or Sofabaton lost the device and had to be set up again.
+- (krobipd) Fixed: a remote key that was pressed when the adapter stopped stayed on for good. All key datapoints are now released at start-up, so the next press works again.
+- (krobipd) Fixed: a device named "info" entered by hand into the configuration replaced the instance's own status channel. The name is refused now and leftovers are removed.
+- (krobipd) Changed: every datapoint now carries a translated name and, where useful, a short description — in all eleven languages, in existing installations as well.
+- (krobipd) Improved: a remote with a globally routable IPv6 address is accepted when it sits in the same network as the ioBroker host, not just on the reserved IPv6 ranges.
+- (krobipd) New: user documentation in English and German, shown in the ioBroker documentation portal.
+
+### 1.3.0 (2026-09-01)
+- (krobipd) Fixed: a malformed keyboard keypress from a remote (a bad %-escape in the URL) could crash the adapter.
+- (krobipd) Fixed: remotes on an IPv6-only local network were refused; link-local and unique-local IPv6 addresses now count as LAN.
+- (krobipd) Fixed: the adapter icon in the admin is now the same one shown on GitHub.
+- (krobipd) Changed: requires admin >= 8.0.11.
+- (krobipd) Improved: discovery answers only searches from your own network, and the device dialog in the admin keeps working after the device list was edited by hand.
+- (krobipd) Improved: the emulated Roku reports Roku OS 15.0 (was 14.1), and the command-type datapoint lists its possible values so the admin shows them as labels.
+- (krobipd) New: a misbehaving device on your network can no longer flood ioBroker — more than 25 commands per second per emulated Roku are dropped and reported in the log.
 
 [Older changelogs can be found there](CHANGELOG_OLD.md)
 

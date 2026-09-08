@@ -697,6 +697,9 @@ translations should be submitted as PRs against the respective
 
 ## Changelog
 
+### 0.4.7 (2026-09-06)
+- New tap-to-sequence widget for custom cleaning order directly on the map with room badges, plus a fresh-water/detergent widget for L20 Ultra. Fix Issue #126: clean-water-tank-status bit-mask handling and derived Boolean states for r2253* (L20 Ultra) models. Fix Issue #119: correct mop-pad status on Dreame X60 Pro Ultra Complete (r6001a) via a new model-override layer — removes the dead mop-in-station property, renames the mop-handling pulse, and remaps SIID 4 PIID 6 to actual mop-pad presence on r6001*. Adds status codes 116/117/121/122 (Installing mop, Removing mop, Entering dock, Exiting dock) globally for all vacuum models. Thanks to @SilentM1978 for the detailed live traces that made the r6001a fix possible.
+
 ### 0.4.6 (2026-08-29)
 - Attempted fix for issue #124 layer 4 (missing pixel raster on r2253c/r2253w): map background, walls, and room fills were not rendered even though overlays and metadata came through correctly. Adds a fallback to combined_pixel_type when the base pixel raster is empty (matching Home Assistant's renderer), and introduces permanent [MERGE-DEBUG] info-level logging (dimensions, pixel counts, wall/segment counts) so this failure mode is instantly diagnosable if it returns. Models whose base raster is already populated (e.g. r9419h) are unchanged. Thanks to luckyheiko for the pinpoint analysis.
 

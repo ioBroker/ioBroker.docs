@@ -23,11 +23,11 @@ All icons can be found in the vis-icontwo folder via the file manager (at the to
 
 #### VIS1:
 
-![Pfad](./img/Pfad_001.png)
+![Pfad](/img/Pfad_001.png)
 
 #### VIS2:
 
-![Pfad](./img/Screen_VIS2.PNG)
+![Pfad](/img/Screen_VIS2.PNG)
 
 
 
@@ -37,19 +37,19 @@ A small preview of the icon style:
 
 E.g. 3D-Icons (partial selection) (Available >v2.0.0):
 
-![Screenshot](./img/Screen_005.png)
+![Screenshot](/img/Screen_005.png)
 
 E.g. Lights (partial selection):
 
-![Screenshot](./img/Screen_002.png)
+![Screenshot](/img/Screen_002.png)
 
 E.g. Rooms (partial selection):
 
-![Screenshot](./img/Screen_003.png)
+![Screenshot](/img/Screen_003.png)
 
 E.g. Devices (partial selection):
 
-![Screenshot](./img/Screen_004.png)
+![Screenshot](/img/Screen_004.png)
 
 
 A complete overview of all icons can be found here (the folder structure is the same as in the file manager):

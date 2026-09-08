@@ -149,6 +149,7 @@ The Connection tab contains Xiaomi Cloud authentication, device discovery, and t
 - **Enable map from Xiaomi Cloud:** enables Xiaomi Cloud map downloads. Requires an authenticated cloud session.
 - **Enable Valetudo:** uses a compatible local Valetudo map source.
 - **Send own commands:** creates the expert states `control.X_send_command` and `control.X_get_response`.
+- **Add Alexa/IoT states:** additionally creates `control.pauseResume` for voice assistants and IoT integrations. `control.clean_home` always exists.
 - **Send pause before home:** sends a pause before the return-to-dock command for models that require it.
 - **Resume paused zone cleaning with start button:** resumes an interrupted zone cleaning instead of starting a complete cleaning.
 - **Advanced diagnostic logging:** adds detailed, redacted debug information. Enable it only temporarily while troubleshooting.
@@ -268,8 +269,14 @@ suction-level selection, quick controls, up to six rooms, maintenance actions, a
 
 ### VIS 1
 
-Select the widget set **mihome-vacuum** and add **Vacuum dashboard with map, maintenance and history**. Assign the required object IDs in the widget
-properties. Defaults point to `mihome-vacuum.0`; change them when using another instance.
+Select the widget set **mihome-vacuum** and add **Vacuum dashboard with map, maintenance and history**. Select the **status state**
+(`info.state`) of your instance first: the widget fills every other empty state attribute from that instance, including the Viomi and
+Dreame variants of the water level, mop mode and dock states.
+
+The VIS 1 widget offers the same sections as the VIS 2 widget: water level, mop mode and carpet mode, the dock station with its
+actions, a map selector with reload for multi-map robots, the do-not-disturb state with the next timer, and a configurable number of
+history entries. Each section appears only when its state is assigned, so leave the states of features your robot does not have
+empty. Timers can only be switched in VIS 2; VIS 1 shows the next scheduled run.
 
 ![VIS 1 vacuum widget](admin/media/Vis%201%20VacuumControlWidget.png)
 
@@ -278,15 +285,37 @@ properties. Defaults point to `mihome-vacuum.0`; change them when using another 
 Select the widget set **Mi Home Vacuum** and add **Vacuum control with map**. Its settings are grouped into general options, states and controls,
 maintenance, rooms, and history.
 
+- **Instance selection:** choose the **status state** (`info.state`) of the adapter instance you want to display. All empty state attributes are
+  filled from that instance automatically, so switching from `mihome-vacuum.0` to another instance takes one click.
+- **Theme:** the widget follows the light or dark theme and the primary color of your VIS 2 project. An optional **accent color** overrides the
+  primary color.
+- **Suction levels:** the selectable levels come from the `control.fan_power` state of your robot, so every model shows its own levels. The three
+  numeric fallback values are only used when the state has no level catalogue.
+- **Status and error texts:** taken from the adapter's state definitions and translated where a translation exists.
+- **History:** the number of shown cleaning runs is configurable.
+- **Cleaning settings:** water level, mop mode and carpet mode appear as controls when your robot provides the matching states. The
+  instance selection also finds the Viomi and Dreame variants of these states.
+- **Dock station:** shows the dock status and offers emptying the dust bin as well as washing and drying the mop for robots with such
+  a station.
+- **Maps:** robots with several maps get a map selector on the map image, and **Reload map** fetches the current map from the robot.
+- **Schedule:** shows the do-not-disturb state, the next timer and every timer created in the adapter configuration. A timer can be
+  switched on or off, skipped once or started immediately from the widget. The section can be hidden with **Show schedule**.
+
+Every control appears only when the adapter created the matching state for your robot, so the widget adapts to the feature set of
+the model. Widgets created with an earlier adapter version pick up the new states of their instance automatically; the attributes in
+the widget settings only need to be changed when a state should point somewhere else.
+
 ![VIS 2 vacuum widget](admin/media/Vis%202%20VacuumControlWidget.png)
 
 ### Rooms, suction levels, and layout
 
-Each room entry can have its own displayed name, start state, fan-power state, and suction level. The numerical fan values are configurable because
-Roborock, Viomi, and Dreame models may use different ranges.
+With **Detect rooms automatically** (default) the VIS 2 widget shows every room the adapter created below `rooms.*`, including its own suction
+level where the robot supports it. Disable the option to configure up to six rooms manually with a displayed name, start state, and fan-power
+state. The VIS 1 widget always uses the manual room configuration.
 
-The widgets preserve the complete map aspect ratio and adapt their layout to the available width. If a widget is too small, its content scrolls
-instead of allowing the map to overlap controls or maintenance cards.
+The widgets preserve the complete map aspect ratio and adapt their layout to their own width, not to the browser window. If a widget is too
+small, its content scrolls instead of allowing the map to overlap controls or maintenance cards. Resetting a consumable counter asks for
+confirmation first.
 
 ### Widget history
 
@@ -348,13 +377,34 @@ requests.
     ### **WORK IN PROGRESS**
     * ()
 -->
-
 ### **WORK IN PROGRESS**
+
+### 6.1.0 (2026-09-08)
+
+* (xXBJXx) VIS 1 widget: added the cleaning settings, dock station, map selection, do-not-disturb and next-timer sections of the VIS 2 widget, a configurable history length, manager-specific auto-fill of the state attributes, translated state and error texts in all languages, SVG icons instead of Unicode symbols, and a layout that follows the widget width
+* (xXBJXx) Removed 115 unused duplicate translation keys of the widget texts
+* (xXBJXx) Completed the Spanish, French, Italian, Dutch, Polish, Portuguese, Russian, Ukrainian and Chinese translations of the Admin configuration and both widgets; they previously showed English texts
+* (xXBJXx) VIS 2 widget: added water level, mop mode and carpet mode controls, dock station status and actions, map selection and reload, and a schedule section with do-not-disturb, next timer and timer switches; every control appears only when the robot provides the matching state, and the instance selection also finds the Viomi and Dreame state names
+* (xXBJXx) Reworked the VIS 2 widget: it follows the VIS 2 theme with an optional accent color, lays itself out by its own width, fills all state attributes from the selected instance, detects rooms automatically, takes suction levels and status texts from the adapter states, confirms resets in a dialog, and has a configurable history length
+* (xXBJXx) VIS 1 widget: respect the configured widget size instead of forcing 1280x800 and label the map image correctly
+* (xXBJXx) Upgraded the Admin configuration and the VIS 2 widget to React 19, MUI 9, and `@iobroker/gui-components` 10 so the widget keeps working with upcoming VIS 2 releases while staying compatible with the current VIS 2
+* (xXBJXx) Updated `qs` to 6.16 and the VIS 2 type definitions and Module Federation tooling to their current versions
+
+### 6.0.1 (2026-09-07)
 
 * (xXBJXx) Remove install-time and prepublish build hooks, build explicitly in CI, and disable unsupported GitHub installations (#1223)
 * (xXBJXx) Start directly from `build/main.js` and generate Admin/VIS bundles for npm packages instead of tracking build output in Git
 * (xXBJXx) Verify script-free package installation, generated UI assets, direct startup, and Compact Mode
 * (xXBJXx) Remove unused Chai test plugins, add VS Code metadata schema support, and annotate the optional Canvas dependency for the repository checker (#1222)
+* (xXBJXx) Allow Dependabot updates of GitHub Actions and dependency versions without failing the package policy tests (#1235)
+* (xXBJXx) Restore the "Add Alexa/IoT states" option in the Admin configuration so `control.pauseResume` is no longer deleted on every start
+* (xXBJXx) Fix the `getCleaningSummary` message, which sent a consumable reset instead of requesting the cleaning summary
+* (xXBJXx) Answer the legacy `send` message only once and no longer forward it to the device manager
+* (xXBJXx) Reject map updates with a clear error when neither the Xiaomi Cloud map nor Valetudo is enabled instead of leaving the request pending
+* (xXBJXx) Track every pending internal delay separately so all of them are cancelled on unload, and remove a duplicated `control.goTo` definition
+* (kosmix1980) Apply the room fan, water and mop settings through miIO before queued and repeated room cleanings start instead of racing them against the start command (#1231)
+* (kosmix1980) Keep the native multi-pass segment cleaning lockout only for the current run instead of persisting it after a single error (#1231)
+* (xXBJXx) Continue starting the cleaning with a warning when a fan, water or mop parameter command fails
 
 ### 6.0.0 (2026-08-26)
 

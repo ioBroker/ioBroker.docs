@@ -100,7 +100,7 @@ UNSEEN - Messages that do not have the Seen flag set.
 
 - `Choose icon`: Folder icon (upload under TAB `CREATE ICON`)
 
-![imap_create_icon.png](./img/imap_create_icon.png)
+![imap_create_icon.png](img/../../de/img/imap_create_icon.png)
 
 - `tls Option`: Default {"rejectUnauthorized": false}
 - `auto tls`: Set to `always` to always attempt connection upgrades via STARTTLS, `required` only if upgrading is required, or `never` to never attempt upgrading. Default: `never`
@@ -148,9 +148,9 @@ UNSEEN - Messages that do not have the Seen flag set.
 - `Tenant ID` Mandaten-ID
 
 ![imap_create_oauth2.png](img/imap_create_oauth2.png)</br>
-![token_id.png](./img/token_id.png)</br>
-![client_id.png](./img/client_id.png)</br>
-![mandant_id.png](./img/mandant_id.png)
+![token_id.png](./../de/img/token_id.png)</br>
+![client_id.png](./../de/img/client_id.png)</br>
+![mandant_id.png](./../de/img/mandant_id.png)
 
 ### Instance settings TAB - MAILPARSER OPTIONS
 

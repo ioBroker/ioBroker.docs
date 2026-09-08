@@ -4,7 +4,7 @@ BADGE-ioBroker stable release: http://iobroker.live/badges/tankerkoenig-stable.s
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.tankerkoenig.svg?logo=npm
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.tankerkoenig.svg?logo=npm
 ---
-![Logo](./admin/tankerkoenig.png)
+![Logo](../../admin/tankerkoenig.png)
 # ioBroker.tankerkoenig
 
 ![Number of Installations](http://iobroker.live/badges/tankerkoenig-installed.svg) 
