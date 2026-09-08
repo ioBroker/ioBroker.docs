@@ -17,15 +17,6 @@
         "zh-cn": "基础概念"
       },
       "pages": {
-        "Introduction": {
-          "title": {
-            "en": "Introduction",
-            "de": "ioBroker Grundlagen",
-            "ru": "Основы ioBroker",
-            "zh-cn": "ioBroker 基础知识"
-          },
-          "content": "basics/README.md"
-        },
         "Architecture": {
           "title": {
             "en": "Architecture",
@@ -44,25 +35,7 @@
           },
           "content": "basics/adapter.md"
         },
-        "Repositories": {
-          "title": {
-            "en": "Repositories",
-            "de": "Was ist ein Repository?",
-            "ru": "Что такое репозиторий?",
-            "zh-cn": "什么是存储库？"
-          },
-          "content": "basics/repositories.md"
-        },
-        "Objects": {
-          "title": {
-            "en": "Objects",
-            "de": "Objekte",
-            "ru": "Объекты",
-            "zh-cn": "对象"
-          },
-          "content": "basics/objects.md"
-        },
-        "States or Datapoints": {
+        "States": {
           "title": {
             "en": "States",
             "de": "Zustände",
@@ -117,15 +90,6 @@
         "zh-cn": "安装系统"
       },
       "pages": {
-        "Introduction": {
-          "title": {
-            "en": "Introduction",
-            "de": "Einstieg",
-            "ru": "Введение",
-            "zh-cn": "介绍"
-          },
-          "content": "install/README.md"
-        },
         "Requirements": {
           "title": {
             "en": "Requirements",
@@ -134,15 +98,6 @@
             "zh-cn": "要求"
           },
           "content": "install/requirements.md"
-        },
-        "Hardware": {
-          "title": {
-            "en": "Hardware",
-            "de": "Hardware",
-            "ru": "Оборудование",
-            "zh-cn": "硬件"
-          },
-          "content": "install/hardware.md"
         },
         "Virtualization platforms": {
           "title": {
@@ -207,35 +162,6 @@
               },
               "content": "install/windows.md"
             },
-            "macOS": {
-              "title": {
-                "en": "macOS",
-                "de": "macOS",
-                "ru": "macOS",
-                "zh-cn": "macOS"
-              },
-              "content": "install/macos.md"
-            }
-          }
-        },
-        "Updating": {
-          "title": {
-            "en": "Updating",
-            "de": "Updaten",
-            "ru": "обновить",
-            "zh-cn": "更新"
-          },
-          "content": "install/update.md",
-          "pages": {
-            "ioBroker": {
-              "title": {
-                "en": "ioBroker",
-                "de": "ioBroker",
-                "ru": "ioBroker",
-                "zh-cn": "ioBroker"
-              },
-              "content": "install/updateself.md"
-            },
             "Adapter": {
               "title": {
                 "en": "Adapter",
@@ -255,98 +181,6 @@
               "content": "install/updatenode.md"
             }
           }
-        }
-      }
-    },
-    "Admin interface": {
-      "title": {
-        "en": "Admin interface",
-        "de": "Admin-Oberfläche",
-        "ru": "Интерфейс админки",
-        "zh-cn": "管理员界面"
-      },
-      "content": "admin/README.md",
-      "pages": {
-        "System settings": {
-          "title": {
-            "en": "System settings",
-            "de": "Systemeinstellungen",
-            "ru": "Системные настройки",
-            "zh-cn": "系统设置"
-          },
-          "content": "admin/settings.md"
-        },
-        "Admin-Overview": {
-          "title": {
-            "en": "Admin-Overview",
-            "de": "Übersicht",
-            "ru": "Обзор",
-            "zh-cn": "概述"
-          },
-          "content": "admin/overview.md"
-        },
-        "Adapter": {
-          "title": {
-            "en": "Adapter",
-            "de": "Adapter",
-            "ru": "Адаптер",
-            "zh-cn": "适配器"
-          },
-          "content": "admin/adapter.md"
-        },
-        "Instances": {
-          "title": {
-            "en": "Instances",
-            "de": "Instanzen",
-            "ru": "Экземпляры",
-            "zh-cn": "实例"
-          },
-          "content": "admin/instances.md"
-        },
-        "Objects": {
-          "title": {
-            "en": "Objects",
-            "de": "Objekte",
-            "ru": "Объекты",
-            "zh-cn": "对象"
-          },
-          "content": "admin/objects.md"
-        },
-        "Enumerations": {
-          "title": {
-            "en": "Enumerations",
-            "de": "Aufzählungen",
-            "ru": "Перечисления",
-            "zh-cn": "枚举"
-          },
-          "content": "admin/enums.md"
-        },
-        "Log": {
-          "title": {
-            "en": "Log",
-            "de": "Log",
-            "ru": "Бревно",
-            "zh-cn": "日志"
-          },
-          "content": "admin/log.md"
-        },
-        "User": {
-          "title": {
-            "en": "User",
-            "de": "Benutzer",
-            "ru": "Пользователь",
-            "zh-cn": "用户"
-          },
-          "content": "admin/users.md"
-        },
-        "Hosts": {
-          "title": {
-            "en": "Hosts",
-            "de": "Hosts",
-            "ru": "Хозяева",
-            "zh-cn": "主机"
-          },
-          "content": "admin/hosts.md"
         },
         "Manage adapters": {
           "title": {
@@ -645,12 +479,12 @@
           },
           "content": "faq/_040_contibution.md"
         },
-        "Answers for advanced users": {
+        "_050_advanced": {
           "title": {
-            "en": "Answers for advanced users",
-            "de": "Fortgeschrittener",
+            "en": "_050_advanced",
+            "de": "Fortgeschritten",
             "ru": "Передовой",
-            "zh-cn": "如何在调试中切换驱动程序？"
+            "zh-cn": "no title"
           },
           "content": "faq/_050_advanced.md"
         },
