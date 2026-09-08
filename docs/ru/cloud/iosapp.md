@@ -8,4 +8,4 @@ translatedWarning: Если вы хотите отредактировать э�
 hash: VvwiMjONAKca4S5fadvSGV+55zMrhDqN94PSXZjNaG8=
 ---
 # Приложение для iOS
-?> ***Это заполнитель***.<br><br> Помогите ioBroker и дополните эту статью. Обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы облегчить применение изменений.
+?> ***Это заполнитель***.<br><br> Помогите ioBroker и дополните эту статью. Обратите внимание на [Руководство по стилю ioBroker](/docs/community/styleguidedoc.md), чтобы облегчить применение изменений.

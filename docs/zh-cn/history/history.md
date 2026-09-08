@@ -18,4 +18,4 @@ hash: ef6eMWMuY5hWeMvtpZEtxnxmJacCYJaffVmAObfjnuE=
  ![JSON 配置](../../de/history/media/2023_09_10_pushbullet.png)
 
 ## JSON 配置文档
-* (bluefox) JSON-Config 文档[添加]到ioBroker 网页(https://www.iobroker.net/#en/documentation/dev/adapterjsonconfig.md)。
+* (bluefox) JSON-Config 文档[添加]到ioBroker 网页(/docs/dev/adapterjsonconfig.md)。

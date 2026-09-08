@@ -30,7 +30,7 @@ daneben nennt die Anzahl.
 | 11 | Die **Größe** der aktuellen Protokolldatei. |
 
 Rechts daneben steht der Host. In einem
-[Multihost-System](https://www.iobroker.net/#de/documentation/config/multihost.md)
+[Multihost-System](/docs/config/multihost.md)
 wird dort umgeschaltet. Angezeigt werden immer nur die Meldungen des
 ausgewählten Hosts.
 
@@ -54,9 +54,9 @@ Die Log-Stufen von der ausführlichsten zur knappsten:
 | `error` | Etwas hat nicht funktioniert. |
 
 Die Stufe wird je Instanz im Reiter
-[Instanzen](https://www.iobroker.net/#de/documentation/admin/instances.md)
+[Instanzen](/docs/admin/instances.md)
 eingestellt, die Vorgabe für neue Instanzen in den
-[Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md).
+[Systemeinstellungen](/docs/admin/settings.md).
 
 !> In der Liste werden lange Zeilen abgeschnitten. Wer einer Meldung wirklich
 auf den Grund gehen will, lädt die Protokolldatei herunter und sieht dort nach.

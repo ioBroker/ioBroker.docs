@@ -9,7 +9,7 @@ hash: fBfqIkwe2R088CwuRMCh53RGxixMmytK+tGKMdHsiV0=
 # 系统搭建
 ＃＃ 建筑学
 ioBroker 是模块化的，即由许多单独的组件组成。每个模块都有特定的任务。为了保持概览，ioBroker 因此为其所有模块都有一个中央协调器。该协调员是在后台工作的`js-controller`。他负责中央数据存储以及所有模块之间的管理和通信。这些模块本身称为`Adapter`。
-适配器仅在必要时由用户安装。基于 Web 的管理界面`admin` 本身也是一个适配器。管理适配器或简称“Admin”是ioBroker系统的管理界面。 [Admin](https://www.iobroker.net/#de/documentation/admin/README.md)通常使用地址[http://localhost:8081](http://localhost:8081) 被调用。
+适配器仅在必要时由用户安装。基于 Web 的管理界面`admin` 本身也是一个适配器。管理适配器或简称“Admin”是ioBroker系统的管理界面。 [Admin](/docs/admin/README.md)通常使用地址[http://localhost:8081](http://localhost:8081) 被调用。
 
 当使用 Admin 安装新适配器时，首先从 Internet 下载适配器文件并将其写入服务器硬盘驱动器。如果要启动适配器，则首先创建该适配器的`Instanz`。每个适配器实例都可以由管理员单独配置、停止和启动。这就是为什么每个实例都在自己的进程中运行，该进程在后台与 ioBroker js 控制器进行通信。
 

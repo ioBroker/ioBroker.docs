@@ -92,7 +92,7 @@ Adapter for HDMI CEC - You can monitor / control devices using HDMI CEC. Most mo
   ![JSON config](media/2023_09_10_pushbullet.png)
 
 ## JSON config Dokumentation
-* (bluefox) JSON-Config documentation has been added to the ioBroker website [hinzugefügt](https://www.iobroker.net/#en/documentation/dev/adapterjsonconfig.md).
+* (bluefox) JSON-Config documentation has been added to the ioBroker website [hinzugefügt](/docs/dev/adapterjsonconfig.md).
 
 ## telegram-menu (2023-09-11)
 https://github.com/MiRo1310/ioBroker.telegram-menu

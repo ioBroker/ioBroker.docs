@@ -11,8 +11,8 @@ können hier auch von Hand angelegt, bearbeitet und gelöscht werden, und ganze 
 lassen sich als JSON-Datei sichern und wieder einspielen.
 
 Was Objekte und Zustände überhaupt sind, steht unter
-[Objekte](https://www.iobroker.net/#de/documentation/basics/objects.md) und
-[Zustände](https://www.iobroker.net/#de/documentation/basics/states.md).
+[Objekte](/docs/basics/objects.md) und
+[Zustände](/docs/basics/states.md).
 
 ## Die Werkzeugleiste
 
@@ -63,7 +63,7 @@ Spaltenköpfen filtern die Anzeige.
 | 9 | | Die Schaltflächen der Zeile (siehe unten). |
 
 Räume und Gewerke werden im Reiter
-[Kategorien](https://www.iobroker.net/#de/documentation/admin/enums.md) angelegt.
+[Kategorien](/docs/admin/enums.md) angelegt.
 
 ## Die Statusansicht
 

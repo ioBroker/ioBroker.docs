@@ -7,8 +7,6 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/
 hash: zoJH4HPQb5fjZZk7ln+yhEsqRR9r5z/9T/Z6NfOncwk=
 ---
 # Настройка и установка ioBroker в VirtualBox
-@@@ http://www.iobroker.net/docu/?page_id=5358&lang=de @@@
-
 Сначала мы получаем текущую стабильную версию Debian https://www.debian.org/CD/http-ftp/#stable.
 
 Чуть ниже нажимаем AMD64 под CD.

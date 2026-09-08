@@ -7,7 +7,7 @@ translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”�
 hash: nR0Fx1n6P6yyMwEFukdhYI8p3tNTA4otkPCARx5CbkM=
 ---
 # 开发你自己的适配器
-?> **ioBroker 文档当前正在扩展**，但仍不完整。<br>因此，除了有关适配器开发的现有主题之外，此处还列出了有用的链接。<br><br> *帮助ioBroker并扩展文章。* *请注意[ioBroker 风格指南](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md)，以便更容易地采用更改。*
+?> **ioBroker 文档当前正在扩展**，但仍不完整。<br>因此，除了有关适配器开发的现有主题之外，此处还列出了有用的链接。<br><br> *帮助ioBroker并扩展文章。* *请注意[ioBroker 风格指南](/docs/community/styleguidedoc.md)，以便更容易地采用更改。*
 
 ## 有用的链接
 ### 文档

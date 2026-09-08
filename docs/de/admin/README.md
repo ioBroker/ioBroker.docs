@@ -29,22 +29,22 @@ sind das:
 
 | Menüpunkt | Inhalt |
 | --------- | ------ |
-| [Übersicht](https://www.iobroker.net/#de/documentation/admin/overview.md) | Systemstatus, Hardware-Daten des Hosts, aktive Adapter und die letzten Protokollzeilen. |
-| [Schnellzugriff](https://www.iobroker.net/#de/documentation/admin/overview.md) | Kacheln zu allen Adaptern mit eigener Weboberfläche sowie zu den Hosts. |
-| [Adapter](https://www.iobroker.net/#de/documentation/admin/adapter.md) | Verfügbare und installierte Adapter, Installation und Update. |
-| [Instanzen](https://www.iobroker.net/#de/documentation/admin/instances.md) | Die angelegten Instanzen mit ihrer Konfiguration, starten und stoppen. |
-| [Objekte](https://www.iobroker.net/#de/documentation/admin/objects.md) | Der Objektbaum mit allen Geräten, Kanälen und Datenpunkten. |
-| [Kategorien](https://www.iobroker.net/#de/documentation/admin/enums.md) | Räume, Gewerke und Favoriten. Früher hieß dieser Punkt "Aufzählungen". |
-| [Protokolle](https://www.iobroker.net/#de/documentation/admin/log.md) | Das Logfile. Bei einem Fehler wird der Menüpunkt rot markiert. |
-| [Benutzer](https://www.iobroker.net/#de/documentation/admin/users.md) | Benutzer und Gruppen samt ihrer Rechte. |
-| [Hosts](https://www.iobroker.net/#de/documentation/admin/hosts.md) | Die Rechner, auf denen ioBroker läuft. Liegt eine neue js-controller-Version vor, erscheint hier ein Hinweis. |
-| [Dateien](https://www.iobroker.net/#de/documentation/admin/files.md) | Der Dateimanager für die von ioBroker verwalteten Dateien. |
-| [Backup](https://www.iobroker.net/#de/documentation/config/backup.md) | Sicherungen anlegen, ansehen und zurückspielen. |
+| [Übersicht](/docs/admin/overview.md) | Systemstatus, Hardware-Daten des Hosts, aktive Adapter und die letzten Protokollzeilen. |
+| [Schnellzugriff](/docs/admin/overview.md) | Kacheln zu allen Adaptern mit eigener Weboberfläche sowie zu den Hosts. |
+| [Adapter](/docs/admin/adapter.md) | Verfügbare und installierte Adapter, Installation und Update. |
+| [Instanzen](/docs/admin/instances.md) | Die angelegten Instanzen mit ihrer Konfiguration, starten und stoppen. |
+| [Objekte](/docs/admin/objects.md) | Der Objektbaum mit allen Geräten, Kanälen und Datenpunkten. |
+| [Kategorien](/docs/admin/enums.md) | Räume, Gewerke und Favoriten. Früher hieß dieser Punkt "Aufzählungen". |
+| [Protokolle](/docs/admin/log.md) | Das Logfile. Bei einem Fehler wird der Menüpunkt rot markiert. |
+| [Benutzer](/docs/admin/users.md) | Benutzer und Gruppen samt ihrer Rechte. |
+| [Hosts](/docs/admin/hosts.md) | Die Rechner, auf denen ioBroker läuft. Liegt eine neue js-controller-Version vor, erscheint hier ein Hinweis. |
+| [Dateien](/docs/admin/files.md) | Der Dateimanager für die von ioBroker verwalteten Dateien. |
+| [Backup](/docs/config/backup.md) | Sicherungen anlegen, ansehen und zurückspielen. |
 
 Weitere Menüpunkte kommen mit den installierten Adaptern dazu, zum Beispiel *Skripte*
 (javascript), *Kalender* (fullcalendar), *Geräte* (devices) oder *Ereignisse* (eventlist).
 Ganz unten steht **System**: dort werden die
-[Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md)
+[Systemeinstellungen](/docs/admin/settings.md)
 vorgenommen.
 
 ### Menü verkleinern
@@ -82,7 +82,7 @@ eine beschriebene Schaltfläche fehlt, lohnt sich zuerst ein Blick auf diesen Sc
 
 Der Expertenmodus gilt nur für die laufende Browsersitzung. Dauerhaft eingeschaltet
 wird er in den
-[Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md).
+[Systemeinstellungen](/docs/admin/settings.md).
 
 ### Farbthemen
 

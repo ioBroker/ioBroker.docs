@@ -17,13 +17,13 @@ Zeitzone, Rechten und den Feinheiten der einzelnen Adapter.
 
 ?> Docker lohnt sich, wenn schon ein Docker-Host oder ein NAS vorhanden ist.
    Für den ersten eigenen ioBroker auf einem eigenen Gerät ist die
-   [Installation unter Linux](https://www.iobroker.net/#de/documentation/install/linux.md)
+   [Installation unter Linux](/docs/install/linux.md)
    der kürzere Weg - eine Ebene weniger, die im Fehlerfall dazwischensteht.
 
 ## Voraussetzungen
 
 Vor der Installation prüfen, ob das System die
-[Anforderungen](https://www.iobroker.net/#de/documentation/install/requirements.md)
+[Anforderungen](/docs/install/requirements.md)
 erfüllt. Für den Container gelten dieselben Werte wie für eine normale
 Installation, zuzüglich dessen, was das Wirtssystem selbst braucht.
 
@@ -99,5 +99,5 @@ schaffen kann.
 ## Weiterlesen
 
 * [Offizielle Dokumentation des Abbilds](https://docs.buanet.de/de/iobroker-docker-image/)
-* [Anforderungen](https://www.iobroker.net/#de/documentation/install/requirements.md)
-* [Updaten](https://www.iobroker.net/#de/documentation/install/update.md)
+* [Anforderungen](/docs/install/requirements.md)
+* [Updaten](/docs/install/update.md)

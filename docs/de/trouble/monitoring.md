@@ -6,7 +6,7 @@ lastChanged: "07.09.2026"
 # Performancemonitoring
 
 Ansatzpunkt für eine Leistungsanalyse ist der Reiter
-[Objekte](https://www.iobroker.net/#de/documentation/admin/objects.md) im Admin.
+[Objekte](/docs/admin/objects.md) im Admin.
 Dort liegen Systeminformationen zu den Hosts (ioBroker ist multihostfähig) und zu
 den einzelnen Adaptern.
 

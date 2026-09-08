@@ -195,7 +195,7 @@ iob --version
 
 正确的更新步骤：
 
-有关 Node.js 更新的详细信息可在 [Node.js 更新指南](https://www.iobroker.net/#de/documentation/install/updatenode.md) 中找到。
+有关 Node.js 更新的详细信息可在 [Node.js 更新指南](/docs/install/updatenode.md) 中找到。
 
 ```bash
 # 1. Backup erstellen:
@@ -223,7 +223,7 @@ iob start
 
 **重要提示：**Node.js 会自动正确安装 NPM。如果您遇到 NPM 问题，请勿手动尝试安装！
 
-有关 Node.js 和 NPM 安装的更多信息，请参阅 [Node.js 安装指南](https://www.iobroker.net/#de/documentation/install/nodejs.md)。
+有关 Node.js 和 NPM 安装的更多信息，请参阅 [Node.js 安装指南](/docs/install/nodejs.md)。
 
 **推荐解决方案：**
 

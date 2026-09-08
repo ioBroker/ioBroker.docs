@@ -18,4 +18,4 @@ hash: ef6eMWMuY5hWeMvtpZEtxnxmJacCYJaffVmAObfjnuE=
  ![Конфигурация JSON](../../de/history/media/2023_09_10_pushbullet.png)
 
 ## Документация по конфигурации JSON
-* (bluefox) Документация по JSON-Config [добавлена] на веб-страницу ioBroker (https://www.iobroker.net/#en/documentation/dev/adapterjsonconfig.md).
+* (bluefox) Документация по JSON-Config [добавлена] на веб-страницу ioBroker (/docs/dev/adapterjsonconfig.md).

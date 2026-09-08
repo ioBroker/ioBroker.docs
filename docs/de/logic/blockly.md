@@ -11,7 +11,7 @@ Auslöser mit einer Aktion verbunden hat, hat ein lauffähiges Programm
 geschrieben, ohne eine Zeile Code getippt zu haben.
 
 Blockly gehört zum
-[javascript-Adapter](https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/README.md).
+[javascript-Adapter](/adapters/javascript).
 Ein neues Skript vom Typ *Blockly* wird im Admin unter *Skripte* angelegt.
 
 ## Wie ein Blockly-Skript aufgebaut ist
@@ -41,7 +41,7 @@ Die Palette links ist nach Aufgaben sortiert. Die wichtigsten Gruppen:
 | Variablen und Funktionen | Zwischenwerte und eigene, mehrfach verwendbare Blöcke |
 
 Die vollständige Beschreibung jedes einzelnen Bausteins steht in der
-[Blockly-Referenz des javascript-Adapters](https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/blockly.md).
+[Blockly-Referenz des javascript-Adapters](/adapters/javascript).
 
 ## Der wichtigste Baustein: der Auslöser
 
@@ -81,7 +81,7 @@ Blockly wird unhandlich, sobald
 * der Arbeitsbereich nur noch mit starkem Zoom zu überblicken ist.
 
 Dann ist der Wechsel zu
-[JavaScript](https://www.iobroker.net/#de/documentation/logic/javascript.md)
+[JavaScript](/docs/logic/javascript.md)
 fällig. Ein Skript muss nicht komplett umziehen: Blockly-Skripte und
 JavaScript-Skripte laufen nebeneinander und tauschen sich über Zustände aus.
 
@@ -91,7 +91,7 @@ Der javascript-Adapter enthält einen KI-Codegenerator, der auch Blockly-Skripte
 erzeugen kann. Er benötigt einen Zugang zu einem Sprachmodell, der in den
 Instanzeinstellungen eingetragen wird; neben OpenAI lassen sich auch andere
 Anbieter und lokal betriebene Modelle verwenden. Die Einrichtung ist in der
-[Adapterdokumentation](https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/README.md)
+[Adapterdokumentation](/adapters/javascript)
 beschrieben.
 
 ?> Erzeugter Code ist ein Vorschlag, kein Ergebnis. Er gehört gelesen und in

@@ -11,7 +11,7 @@ oder als Hardware (USB-Stick o.ä.) an den ioBroker Server angesteckt werden.
 
 ## Modularität
 ioBroker ist modular aufgebaut. Diese Module heißen bei ioBroker ***Adapter***.  
-Es gibt über 800 [Adapter](https://www.iobroker.net/#de/adapters/adapters.md) zur Anbindung von diverser Hardware oder Einbindung verschiedenster Informationen wie Wetter, Kalender usw.
+Es gibt über 800 [Adapter](/adapters) zur Anbindung von diverser Hardware oder Einbindung verschiedenster Informationen wie Wetter, Kalender usw.
 
 Daher müssen in einer Installation nur die Adapter installiert werden, die für die individuellen Bedürfnisse benötigt werden.
 Dies spart Speicherplatz und Rechenpower.
@@ -33,12 +33,12 @@ Gründe für die Aufteilung können räumlicher Art oder eine Leistungsverteilun
 Ein ioBroker Server kann nahezu auf jeder Hardware installiert werden.
 Einzige Bedingung ist, dass es für das entsprechende Betriebssystem eine aktuelle Version von [nodejs](https://nodejs.org/en/download/) gibt.
 
-!> ioBroker empfiehlt die LTS-Version **Node.js 22**. Ungerade Node.js-Versionen dürfen nicht verwendet werden. Einzelheiten dazu stehen unter [Node.js installieren](https://www.iobroker.net/#de/documentation/install/nodejs.md).
+!> ioBroker empfiehlt die LTS-Version **Node.js 22**. Ungerade Node.js-Versionen dürfen nicht verwendet werden. Einzelheiten dazu stehen unter [Node.js installieren](/docs/install/nodejs.md).
 
 Als Mindestausstattung gelten 2 GB RAM und 32 GB Speicherplatz, empfohlen werden 4 GB
 (besser 6 bis 8 GB) RAM und 64 GB Speicherplatz. Zum Ausprobieren genügt ein Raspberry Pi 4;
 als zusätzlicher Host für wenige Adapter in einem Multihost-System reicht auch weniger.
-Die vollständige Tabelle steht unter [Anforderungen](https://www.iobroker.net/#de/documentation/install/requirements.md).
+Die vollständige Tabelle steht unter [Anforderungen](/docs/install/requirements.md).
 
 ### Software
 ioBroker verwaltet die Daten in einer Datenbank. Dementsprechend ist auch die Struktur der Daten organisiert.
@@ -53,6 +53,6 @@ Innerhalb dieses Bereiches legt ioBroker die Geräte, deren Kanäle und wiederum
 Im Beispiel gehört der Namespace `hm-rpc.0` zur ersten Instanz des HomeMatic-Adapters. Darunter
 liegt das Gerät `LEQ0903185` (ein Türschloss), darunter dessen Kanäle und darin die einzelnen
 Datenpunkte mit ihren aktuellen Werten. Mehr dazu unter
-[Objekte](https://www.iobroker.net/#de/documentation/basics/objects.md) und [Zustände](https://www.iobroker.net/#de/documentation/basics/states.md).
+[Objekte](/docs/basics/objects.md) und [Zustände](/docs/basics/states.md).
 
 [nodejs]: https://nodejs.org

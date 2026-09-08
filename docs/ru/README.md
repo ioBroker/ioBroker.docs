@@ -43,7 +43,7 @@ hash: PVoXm2uVavU2iIxBGqoYpQ5mbX+b28AzpmcIRKc8nZg=
 
 Активное сообщество разработчиков **ioBroker** всегда радо поддержать новых разработчиков.
 
-**Совет:** [Обзор доступных адаптеров](https://www.iobroker.net/#de/adapters/adapters.md)
+**Совет:** [Обзор доступных адаптеров](/adapters)
 
 ### IoBroker подключает самые разнообразные системы умного дома
 ![](../de/media/iobroker-simple-overview.png)
@@ -95,7 +95,7 @@ ioBroker можно установить практически на все ап
 Ниже представлено краткое описание некоторых адаптеров визуализации и их основных функций.
 
 ### ВИС
-[Сторона адаптера вид](https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md)
+[Сторона адаптера вид](/adapters/vis)
 
 Благодаря адаптеру VIS (Visualization) ioBroker предоставляет мощный инструмент для создания пользовательских визуализаций. Можно графически отображать текущие показания датчиков, а также исторические тенденции. Изображения в реальном времени с камер видеонаблюдения, системы сигнализации, системы отопления и кондиционирования — можно реализовать практически всё, что угодно.
 
@@ -108,12 +108,12 @@ ioBroker можно установить практически на все ап
 ### Material UI
 Интерфейс на основе React и Material UI.
 
-[Материал боковой стороны адаптера](https://www.iobroker.net/#de/adapters/adapterref/iobroker.material/README.md)
+[Материал боковой стороны адаптера](/adapters/material)
 
 ![](../de/media/iobroker-visualisation-material.png)
 
 ### Джарвис
-[Сторона адаптера Джарвиса](https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md)
+[Сторона адаптера Джарвиса](/adapters/jarvis)
 
 Jarvis — это визуализация в стиле Material Design, основанная на Material UI. Jarvis предоставляет структуру и модули, которые можно использовать для визуализации, но их можно настраивать очень гибко.
 
@@ -137,7 +137,7 @@ Jarvis — это адаптивный веб-интерфейс, который
 <img src="media/iobroker-visualisation-iqontrol.png" width="200"> <img src="media/iobroker-visualisation-iqontrol2.png" width="200"> <img src="media/iobroker-visualisation-iqontrol3.png" width="200"> <img src="media/iobroker-visualisation-iqontrol4.png" width="200"> <img src="media/iobroker-visualisation-iqontrol5.png" width="200">
 
 ### Лавлейс
-[Сторона адаптера Лавлейс](https://www.iobroker.net/#de/adapters/adapterref/iobroker.lovelace/README.md)
+[Сторона адаптера Лавлейс](/adapters/lovelace)
 
 Адаптер Lovelace позволяет использовать пользовательский интерфейс Lovelace Home Assistant для ioBroker. Lovelace имеет адаптивный дизайн и поэтому автоматически подстраивается под расположение элементов на экране ПК, планшета или смартфона.
 
@@ -313,13 +313,13 @@ ioBroker GmbH также предлагает, помимо прочего, ко
 - Группа в Facebook "ioBroker and smart home international": [FacebookioBrokerSmartHomeIoTInternational](https://www.facebook.com/groups/iobrokerinternational)
 
 ## Статистика ioBroker
-На странице [ioBrokerStatistics](https://www.iobroker.net/#de/statistics) вы найдете обзорную страницу с интересной статистикой ioBroker.
+На странице [ioBrokerStatistics](/statistics) вы найдете обзорную страницу с интересной статистикой ioBroker.
 
-[Grundlagen]: https://www.iobroker.net/#de/documentation/basics/README.md
+[Grundlagen]: /docs/basics/README.md
 
-[Adaptern]: https://www.iobroker.net/#de/adapters/adapters.md
+[Adaptern]: /adapters
 
-[hier zu finden]: https://www.iobroker.net/docu/
+[hier zu finden]: /docs
 
 [im Forum]: https://forum.iobroker.net/category/186/dokumentations-support
 
@@ -345,15 +345,15 @@ ioBroker GmbH также предлагает, помимо прочего, ко
 
 [AlCalzone]: https://github.com/AlCalzone
 
-[ioBrokerStatistics]: https://www.iobroker.net/#de/statistics
+[ioBrokerStatistics]: /statistics
 
-[Adapterseite Material]: https://www.iobroker.net/#de/adapters/adapterref/iobroker.material/README.md
+[Adapterseite Material]: /adapters/material
 
-[Adapterseite Jarvis]: https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md
+[Adapterseite Jarvis]: /adapters/jarvis
 
-[Adapterseite vis]: https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md
+[Adapterseite vis]: /adapters/vis
 
-[Adapterseite lovelace]:https://www.iobroker.net/#de/adapters/adapterref/iobroker.lovelace/README.md
+[Adapterseite lovelace]:/adapters/lovelace
 
 [iQontrol Demo Video]: https://www.youtube.com/watch?v=QHgmrzMmcX4&list=PL8epyNz8pGEv6-R8dnfXm-m5aBlZFKOBG&index=1
 

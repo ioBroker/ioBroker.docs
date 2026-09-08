@@ -951,7 +951,7 @@ Das Backend muss eine einfache Zeichenkette (die zu kodierenden Daten) zurückge
 | `command` | sendTo-Befehl (Standard: `"send"`) |
 | `jsonData` | Zeichenkette - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
-| `sendFirstByClick` | QR-Code erst nach einem Klick laden. `true` — Standardtext („Zum Anzeigen klicken“) oder ein benutzerdefiniertes Zeichenketten-/Übersetzungsobjekt, das als Schaltflächenbeschriftung verwendet wird |
+| `sendFirstByClick` | QR-Code erst nach einem Klick laden. `true`: Standardtext („Zum Anzeigen klicken“) oder ein benutzerdefiniertes Zeichenketten-/Übersetzungsobjekt, das als Schaltflächenbeschriftung verwendet wird |
 | `size` | Größe des QR-Codes in Pixeln |
 | `fgColor` | Vordergrundfarbe (Standard: `"#000000"`) |
 | `bgColor` | Hintergrundfarbe (Standard: `"#ffffff"`) |

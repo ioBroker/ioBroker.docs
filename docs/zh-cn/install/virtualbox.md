@@ -7,8 +7,6 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/insta
 hash: zoJH4HPQb5fjZZk7ln+yhEsqRR9r5z/9T/Z6NfOncwk=
 ---
 # 在 VirtualBox 中设置和安装 ioBroker
-@@@ http://www.iobroker.net/docu/?page_id=5358&lang=de @@@
-
 首先我们获得当前稳定版本的 Debian https://www.debian.org/CD/http-ftp/#stable
 
 再往下一点我们点击CD下的AMD64

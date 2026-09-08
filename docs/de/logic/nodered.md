@@ -11,7 +11,7 @@ ioBroker gehört, sich aber gut mit ihm verbindet. Programmiert wird darin mit
 denen Nachrichten entlanglaufen.
 
 Der Zugang führt über den
-[node-red-Adapter](https://www.iobroker.net/#de/adapters/adapterref/iobroker.node-red/README.md).
+[node-red-Adapter](/adapters/node-red).
 Er bringt Node-RED mit, startet es und stellt die Verbindung zu den ioBroker-
 Zuständen her. Seit Adapterversion 7 ist Node-RED 5 enthalten; es wird zusammen
 mit dem Adapter aktualisiert und nicht getrennt davon.
@@ -19,7 +19,7 @@ mit dem Adapter aktualisiert und nicht getrennt davon.
 !> Node-RED läuft als **eigener Prozess** neben ioBroker, mit eigenem
    Speicherverbrauch und eigenem Editor. Für einfache Automatisierungen ist das
    ein spürbarer Aufwand - dafür ist
-   [Blockly](https://www.iobroker.net/#de/documentation/logic/blockly.md)
+   [Blockly](/docs/logic/blockly.md)
    der leichtere Weg.
 
 ## Einrichten

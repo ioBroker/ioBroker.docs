@@ -6,7 +6,7 @@ lastChanged: "07.09.2026"
 # JavaScript
 
 Der
-[javascript-Adapter](https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/README.md)
+[javascript-Adapter](/adapters/javascript)
 führt gewöhnliches JavaScript aus und stellt darin eine Reihe zusätzlicher
 Funktionen bereit, mit denen sich Zustände lesen, schreiben und beobachten
 lassen. Diese Funktionen sind die ioBroker-Skript-API; sie sind der einzige
@@ -29,7 +29,7 @@ also *not equal*) und es sich um eine Rückmeldung des Geräts handelt
 ## Die wichtigsten Funktionen
 
 Die vollständige Referenz mit allen Parametern steht in der
-[Skript-Dokumentation des Adapters](https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/javascript.md).
+[Skript-Dokumentation des Adapters](/adapters/javascript).
 Für den Anfang reicht eine Handvoll.
 
 **Auf Änderungen reagieren**
@@ -106,7 +106,7 @@ nur die Meldungen des gerade geöffneten Skripts.
 
 ## Weiter
 
-* [TypeScript](https://www.iobroker.net/#de/documentation/logic/typescript.md) -
+* [TypeScript](/docs/logic/typescript.md) -
   dieselbe API mit Typprüfung
-* [Bewährte Vorgehensweisen](https://www.iobroker.net/#de/documentation/logic/examples.md)
-* [Fehlersuche](https://www.iobroker.net/#de/documentation/logic/help.md)
+* [Bewährte Vorgehensweisen](/docs/logic/examples.md)
+* [Fehlersuche](/docs/logic/help.md)

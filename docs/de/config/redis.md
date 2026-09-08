@@ -94,7 +94,7 @@ Dazu muss /etc/redis/redis.conf editiert werden und die Zeile **bind 127.0.0.1**
 
 Danach startet `sudo systemctl restart redis-server` den Server mit der aktualisierten Konfiguration neu.
 
-Nähere Details siehe [Multihost](https://www.iobroker.net/#de/documentation/config/multihost.md)
+Nähere Details siehe [Multihost](/docs/config/multihost.md)
 
 
 

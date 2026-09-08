@@ -11,7 +11,7 @@ wieder entfernt.
 
 ?> Ein Adapter ist zunächst nur das Programm. Damit er etwas tut, braucht er eine
 **Instanz**. Die wird ebenfalls hier angelegt und dann im Reiter
-[Instanzen](https://www.iobroker.net/#de/documentation/admin/instances.md)
+[Instanzen](/docs/admin/instances.md)
 konfiguriert.
 
 ## Die Werkzeugleiste
@@ -34,7 +34,7 @@ konfiguriert.
 ?> Steht über der Liste eine gelbe Warnung, dass das aktuelle Repository das
 *Latest (Beta) Repository* ist, liefert ioBroker Vorabversionen aus. Für ein
 System, das zuverlässig laufen soll, gehört dort *Stable*. Umgestellt wird das
-in den [Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md).
+in den [Systemeinstellungen](/docs/admin/settings.md).
 
 ## Die Kachelansicht
 

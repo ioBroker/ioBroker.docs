@@ -39,7 +39,7 @@ Sollte ein Adapter fehlen, kann daher meistens schnell ein passender entwickelt 
 Die aktive **ioBroker-Entwickler-Community** unterstützt neue Entwickler dabei jederzeit gerne.
 
 **Tipp:**
- [Übersicht verfügbarer Adapter](https://www.iobroker.net/#de/adapters/adapters.md) 
+ [Übersicht verfügbarer Adapter](/adapters) 
 
 ### ioBroker verbindet unterschiedlichste Smarthome-Systeme
 
@@ -101,7 +101,7 @@ Nachfolgend werden einige Visualisierungsadapter und deren Haupteigenschaften ku
 
 ### VIS
 
-[Adapterseite vis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md)
+[Adapterseite vis](/adapters/vis)
 
 ioBroker stellt mit dem Adapter VIS (Visualisierung) ein mächtiges Tool zur Erstellung von individuellen 
 Visualisierungen zur Verfügung. Aktuelle Werte von Sensoren können genauso wie 
@@ -127,13 +127,13 @@ durch einfaches Drag-and-Drop realisiert werden.
 
 React und Material UI interface.
 
-[Adapterseite Material](https://www.iobroker.net/#de/adapters/adapterref/iobroker.material/README.md)
+[Adapterseite Material](/adapters/material)
 
 ![](media/iobroker-visualisation-material.png)  
 
 ### Jarvis
 
-[Adapterseite Jarvis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md)
+[Adapterseite Jarvis](/adapters/jarvis)
 
 Jarvis ist eine Material Design Visualisierung, die auf Material UI basiert. Jarvis gibt eine Struktur und Module vor, die zur Visualisierung genutzt werden, aber sehr flexibel konfiguriert werden können.
 
@@ -163,7 +163,7 @@ Video [iQontrol Demo Video][]
 
 ### Lovelace
 
-[Adapterseite lovelace](https://www.iobroker.net/#de/adapters/adapterref/iobroker.lovelace/README.md)
+[Adapterseite lovelace](/adapters/lovelace)
 
 Mit dem Lovelace Adapter kann die HomeAssistant UI Lovelace für ioBroker genutzt werden. Lovelace hat ein responsivefähiges Design und passt sich somit automatisch an das Layout vom PC, Tablet oder Smartphone Bildschirm an. 
 
@@ -232,97 +232,32 @@ Die ioBroker GmbH stellt für das Community-Projekt die Infrastruktur (z.B. den 
 
 Die ioBroker Free Cloud ist ebenfalls ein kostenfreier Dienst, der der Community durch die ioBroker GmbH zur Verfügung gestellt wird. Die Pro-Cloud und der iot-Service sind kommerzielle Angebote der ioBroker GmbH, wobei die Kosten gerade einmal die Betriebskosten decken.
 
-### Lizenzen und Kosten
+## Lizenzen
 
-Sehr viele ioBroker Projekte stehen mitsamt dem Quellcode auf [GitHub](https://github.com/ioBroker) zur Verfügung.
-In den allermeisten Fällen steht der Quellcode unter der MIT-Lizenz.
-Manchmal werden allerdings auch Lizenzen wie GPL, CC BY-NC oder andere genutzt, welche zu berücksichtigen sind, jedoch für End-Nutzer an sich keinen großen Unterschied darstellen!
-Der Entwickler eines Adapters legt für den jeweiligen Adapter die Lizenz selbst fest.
+Fast alles an ioBroker ist kostenfrei. Der Quellcode steht offen auf
+[GitHub](https://github.com/ioBroker), in den allermeisten Fällen unter der
+MIT-Lizenz. Geld kostet nur, was laufende Kosten verursacht: drei Adapter, die
+eine **Adapterlizenz** brauchen (vis-2, KNX, JägerDesign-Widgets), und die
+Dienste in der Cloud, für die es **Zugangslizenzen** gibt.
 
-In sehr seltenen Fällen (3 Adapter aktuell) wird eine Lizenz benötigt, um einen Adapter zu nutzen.
-Für den "VIS" Adapter stellt beispielsweise die ioBroker GmbH eine kostenfreie Lizenz für die private Nutzung zur Verfügung - für eine kommerzielle Nutzung ist allerdings eine kostenpflichtige Lizenz nötig.
-Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über diese Seite [iobrokerPreise](https://iobroker.net/www/pricing).
-Die Kosten für eine kommerzielle Nutzung dieser Adapter ist dort ebenfalls aufgeführt.
+Wie das im Einzelnen funktioniert, woran eine Lizenz gebunden ist und warum es
+dafür zwei Server gibt, steht im Kapitel
+[Lizenzen](/docs/licenses/README.md). Preise und Pakete stehen in der
+[Lizenzübersicht](/productoverview).
 
-### Unterstütze unser Projekt!
+## Unterstütze unser Projekt!
 
-Die Weiterentwicklung und Pflege von ioBroker wird zum Großteil durch freiwillige Arbeit getragen. Wenn dir ioBroker gefällt und du unsere Arbeit unterstützen möchtest, freuen wir uns über jede Hilfe:
-- Mit dem Kauf einer Lizenz unterstützt du direkt die Entwicklung und Infrastruktur.
-- Falls du keine Lizenz benötigst, freuen wir uns auch über eine freiwillige Spende: 
-[Jetzt spenden via PayPal](https://www.paypal.com/donate?campaign_id=MJBDJ9TGBQ7GN)
+Die Weiterentwicklung und Pflege von ioBroker wird zum Großteil durch
+freiwillige Arbeit getragen. Wenn dir ioBroker gefällt und du unsere Arbeit
+unterstützen möchtest, freuen wir uns über jede Hilfe:
+
+- Mit dem Kauf einer Lizenz unterstützt du direkt die Entwicklung und
+  Infrastruktur.
+- Falls du keine Lizenz benötigst, freuen wir uns auch über eine freiwillige
+  Spende: [Jetzt spenden via PayPal](https://www.paypal.com/donate?campaign_id=MJBDJ9TGBQ7GN)
 
 Vielen Dank für deinen Beitrag!
 
-## Lizenzarten im ioBroker-System
-
-### Adapterlizenzen
-
-Adapterlizenzen sind erforderlich, um bestimmte Adapter im ioBroker-System zu nutzen.  
-Diese werden über [ioBroker.net](https://iobroker.net) verwaltet und gelten für lokal installierte Adapter, z.B.:
-- ***vis-2***
-- ***KNX***
-- ***JägerDesign Widgets***
-
-Die Lizenz ist dabei an die Hardware-ID (UUID) des jeweiligen Systems gebunden.
-
-# ioBroker Cloud Services: Kurzüberblick
-
-### Zugangslizenzen
-Zugangslizenzen ermöglichen die Nutzung von Cloud-Diensten und sind in folgenden Varianten erhältlich:
-- ***Assistenten-Lizenz*** 
-- ***Fernzugriff-Lizenz***
-
-Die Zugangslizenzen können [hier](https://iobroker.pro/www/pricing#remote) erworben werden.
-
-## Cloud-Dienste und Zugangslizenzen
-
-Hier findest du einen Überblick über unsere beiden Zugangslizenzen, mit denen verschiedene ioBroker-Clouddienste genutzt werden können. Beide Lizenzen sind in einer kostenlosen Basisversion sowie einer erweiterten Pro-Version verfügbar.
-### Assistenten-Lizenz
-
-Diese Lizenz aktiviert die Nutzung von:
-- **Sprachsteuerung** *(Amazon Alexa, Google Home, Yandex Alisa)*
-    - Für Alexa stehen zwei Skills zur Verfügung: [**ioBroker.assistant Skill**](https://www.amazon.de/ioBroker-ioBroker-assistant/dp/B0FJHBXDZ4) für Standardanfragen und [**Custom Skill**](https://www.amazon.de/ioBroker-Custom/dp/B01MQL6Z1N) für individuelle Abfragen und Sprachbefehle
-- **Dienste** *(Geoposition (z.B. standortabhängige Automationen), Tasker-Integration, URL-Services (HTTP GET/POST))*
-- **Matter** *(Anbindung von matter-fähigen Geräten über die ioBroker-Matter-Bridge)*
-
-Die Assistenten-Lizenz ist in zwei Varianten verfügbar:
-
-#### Kostenlose Version:
-- Bis zu 50 Sprachbefehle oder Dienstaufrufe pro Tag
-- Matter: Integration von bis zu 5 ioBroker-Geräten über Bridge
-- Registrierung auf [ioBroker.pro](https://iobroker.pro) erforderlich
-- 7 Tage Testzeitraum mit vollem Funktionsumfang bei erstmaliger Registrierung
-
-#### Pro-Version:
-- 3000 Befehle oder Dienstaufrufe pro Tag
-- 35.000 Befehle oder Dienstaufrufe pro Monat
-- Matter: Unbegrenzte Anzahl ioBroker-Geräte integrierbar
-- Registrierung auf [ioBroker.pro](https://iobroker.pro) erforderlich
-
-**Hinweis:**
-Ein „Befehl“ ist nicht nur ein Sprachkommando, auch Statusabfragen zählen dazu.  
-Öffnest du z.B. die Alexa-App mit 100 Geräten, sendet Amazon sofort 100+ sogenannte „StatusReport“-Befehle.
-Auch im geöffneten Zustand fragt die App alle paar Sekunden den Status erneut ab.
-Dieses Verhalten kommt von Amazon (ab Alexa Smart Home API V3) und lässt sich nicht durch ioBroker beeinflussen.
-Dadurch kann das tägliche Limit selbst ohne Sprachkommandos schnell erreicht werden.
-
-### Fernzugriff-Lizenz
-
-Die Fernzugriff-Lizenz ermöglicht den Zugriff auf Visualisierungen und Konfigurationen der ioBroker-Installation aus der Ferne. Auch diese Lizenz ist in einer kostenlosen Basisversion und als Pro-Version verfügbar.
-
-#### Kostenlose Version:
-- Zugriff auf vis-2 (nur Anzeige, keine Bearbeitung)
-- Nur über Browser erreichbar (keine App-Unterstützung)
-- Registrierung auf [ioBroker.net](https://iobroker.net) erforderlich
-
-#### Pro-Version inkl. Assistenten-Lizenz:
-- Vollständiger Fernzugriff auf ioBroker:
-    - Zugriff auf Admin, JavaScript, Lovelace, e-chart u.v.m.
-    - Bearbeitung von vis-2 im Editor möglich
-    - Zugriff über Browser und App
-- Inklusive Assistenten-Lizenz
-    - Enthält alle Funktionen der Sprachsteuerung und Dienste
-- Registrierung auf [ioBroker.pro](https://iobroker.pro) erforderlich
 
 ## Community
 Seit 2014 hat sich ioBroker aufgrund seiner vielen Vorzüge eine breite 
@@ -337,11 +272,11 @@ Linksammlung der offiziellen ioBroker Communities:
 - Facebook-Gruppe "ioBroker and smart home international": [FacebookIoBrokerSmartHomeIoTInternational](https://www.facebook.com/groups/iobrokerinternational)
 
 ## ioBroker Statistiken
-Auf [ioBrokerStatistics](https://www.iobroker.net/#de/statistics) findet ihr eine Übersichtsseite mit ein paar interessanten ioBroker Statistiken. 
+Auf [ioBrokerStatistics](/statistics) findet ihr eine Übersichtsseite mit ein paar interessanten ioBroker Statistiken. 
 
-[Grundlagen]: https://www.iobroker.net/#de/documentation/basics/README.md
-[Adaptern]: https://www.iobroker.net/#de/adapters/adapters.md
-[hier zu finden]: https://www.iobroker.net/docu/
+[Grundlagen]: /docs/basics/README.md
+[Adaptern]: /adapters
+[hier zu finden]: /docs
 [im Forum]: https://forum.iobroker.net/category/186/dokumentations-support
 [GitHub]: https://github.com/ioBroker
 [Forum]: https://forum.iobroker.net
@@ -354,10 +289,10 @@ Auf [ioBrokerStatistics](https://www.iobroker.net/#de/statistics) findet ihr ein
 [Apollon77]: https://github.com/Apollon77
 [foxriver76]: https://github.com/foxriver76
 [AlCalzone]: https://github.com/AlCalzone
-[ioBrokerStatistics]: https://www.iobroker.net/#de/statistics
-[Adapterseite Material]: https://www.iobroker.net/#de/adapters/adapterref/iobroker.material/README.md
-[Adapterseite Jarvis]: https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md
-[Adapterseite vis]: https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md
-[Adapterseite lovelace]:https://www.iobroker.net/#de/adapters/adapterref/iobroker.lovelace/README.md
+[ioBrokerStatistics]: /statistics
+[Adapterseite Material]: /adapters/material
+[Adapterseite Jarvis]: /adapters/jarvis
+[Adapterseite vis]: /adapters/vis
+[Adapterseite lovelace]:/adapters/lovelace
 [iQontrol Demo Video]: https://www.youtube.com/watch?v=QHgmrzMmcX4&list=PL8epyNz8pGEv6-R8dnfXm-m5aBlZFKOBG&index=1
 [ioBroker Developer]: https://forum.iobroker.net/groups/developer

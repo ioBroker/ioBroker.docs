@@ -8,7 +8,7 @@ Danach öffnet sich meist gleich die Konfiguration. Was dort einzutragen ist,
 steht in der Dokumentation des jeweiligen Adapters; der Knopf mit dem Fragezeichen
 führt direkt dorthin.
 
-Ausführlich: [Reiter Adapter](https://www.iobroker.net/#de/documentation/admin/adapter.md)
+Ausführlich: [Reiter Adapter](/docs/admin/adapter.md)
 
 ?> Wenn ein Adapter nach der Installation nicht startet, lohnt zuerst ein Blick
-in die [Protokolle](https://www.iobroker.net/#de/documentation/admin/log.md).
+in die [Protokolle](/docs/admin/log.md).

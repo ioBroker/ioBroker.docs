@@ -75,17 +75,17 @@ verbessert.
 ## Wo anfangen?
 
 * Wer ioBroker noch nicht kennt, beginnt bei den
-  [Grundlagen](https://www.iobroker.net/#de/documentation/basics/README.md).
-* Die [Installation](https://www.iobroker.net/#de/documentation/install/README.md)
+  [Grundlagen](/docs/basics/README.md).
+* Die [Installation](/docs/install/README.md)
   beschreibt die Wege auf Linux, Docker, Proxmox, Windows und macOS.
-* Die [Admin-Oberfläche](https://www.iobroker.net/#de/documentation/admin/README.md)
+* Die [Admin-Oberfläche](/docs/admin/README.md)
   erklärt die Bedienung.
 * Wie aus Datenpunkten Abläufe werden, steht unter
-  [Logik & Automatisierung](https://www.iobroker.net/#de/documentation/logic/README.md).
+  [Logik & Automatisierung](/docs/logic/README.md).
 * Alle Adapter im Einzelnen führt die
-  [Adapter-Referenz](https://www.iobroker.net/#de/adapters/adapters.md) auf.
+  [Adapter-Referenz](/adapters) auf.
 * Wer selbst einen Adapter schreiben möchte, findet den Einstieg im
-  [Entwicklerbereich](https://www.iobroker.net/#de/documentation/dev/adapterdev.md).
+  [Entwicklerbereich](/docs/dev/adapterdev.md).
 
 Diese Dokumentation wächst ständig. Wenn etwas fehlt oder besser erklärt werden
 sollte: [Wir freuen uns über jede helfende Hand](https://forum.iobroker.net/).

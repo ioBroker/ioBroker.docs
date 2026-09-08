@@ -7,7 +7,7 @@ lastChanged: "07.09.2026"
 
 Hier stehen die Rechner, auf denen ioBroker läuft. Bei einer normalen
 Installation ist das genau einer; in einem
-[Multihost-System](https://www.iobroker.net/#de/documentation/config/multihost.md)
+[Multihost-System](/docs/config/multihost.md)
 sind es der Master und alle weiteren Hosts.
 
 <img src="media/admin_hosts.png" alt="Der Reiter Hosts mit aufgeklappter Detailzeile" width="900" />
@@ -43,7 +43,7 @@ starten zur falschen Zeit.
 Der js-controller ist der Kern von ioBroker. Sein Update wird hier angeboten,
 sobald eine neuere Version im Repository steht. Wie es abläuft und was vorher zu
 tun ist, steht unter
-[ioBroker updaten](https://www.iobroker.net/#de/documentation/install/updateself.md).
+[ioBroker updaten](/docs/install/updateself.md).
 
 !> Vor einem Update des js-controllers gehört ein
-[Backup](https://www.iobroker.net/#de/documentation/config/backup.md) angelegt.
+[Backup](/docs/config/backup.md) angelegt.

@@ -190,7 +190,7 @@ iob --version
 
 **Korrektes Update-Verfahren:**
 
-Detaillierte Informationen zum Node.js-Update findet man in der [Node.js Update-Anleitung](https://www.iobroker.net/#de/documentation/install/updatenode.md).
+Detaillierte Informationen zum Node.js-Update findet man in der [Node.js Update-Anleitung](/docs/install/updatenode.md).
 
 ```bash
 # 1. Backup erstellen:
@@ -218,7 +218,7 @@ iob start
 
 **Wichtig:** NPM wird automatisch mit Node.js korrekt installiert. Bei NPM-Problemen NICHT manuell an der Installation experimentieren!
 
-Weitere Informationen zur Node.js und NPM Installation findet man in der [Node.js Installationsanleitung](https://www.iobroker.net/#de/documentation/install/nodejs.md).
+Weitere Informationen zur Node.js und NPM Installation findet man in der [Node.js Installationsanleitung](/docs/install/nodejs.md).
 
 **Empfohlene Lösungsansätze:**
 

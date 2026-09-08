@@ -11,4 +11,4 @@
 Genaueres verrät der Mauszeiger auf dem Symbol. Ob die Instanz auch wirklich mit
 ihrem Gerät spricht, steht nicht hier, sondern in ihrem Objekt `info.connection`.
 
-Ausführlich: [Reiter Instanzen](https://www.iobroker.net/#de/documentation/admin/instances.md)
+Ausführlich: [Reiter Instanzen](/docs/admin/instances.md)

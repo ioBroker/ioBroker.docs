@@ -7,7 +7,7 @@ lastChanged: "07.09.2026"
 ## Architektur
 
 ioBroker ist modular, d.h. aus vielen einzelnen Komponenten aufgebaut. Jedes Modul hat eine spezifische Aufgabe. Um den Überblick zu behalten, besitzt ioBroker deshalb einen zentralen Koordinator für alle seine Module. Dieser Koordinator ist der im Hintergrund arbeitende `js-controller`. Er ist zuständig für die zentrale Datenhaltung sowie Management und Kommunikation zwischen allen Modulen. Die Module selbst werden `Adapter` genannt.
-Adapter werden vom Anwender nur bei Bedarf installiert. Die webbasierte Administrationsoberfläche `admin` ist selbst auch ein Adapter. Der Admin-Adapter oder kurz "Admin" ist die Managementoberfläche eines ioBroker-Systems. Der [Admin](https://www.iobroker.net/#de/documentation/admin/README.md) wird in der Regel mit der Adresse [http://localhost:8081](http://localhost:8081) aufgerufen.
+Adapter werden vom Anwender nur bei Bedarf installiert. Die webbasierte Administrationsoberfläche `admin` ist selbst auch ein Adapter. Der Admin-Adapter oder kurz "Admin" ist die Managementoberfläche eines ioBroker-Systems. Der [Admin](/docs/admin/README.md) wird in der Regel mit der Adresse [http://localhost:8081](http://localhost:8081) aufgerufen.
 
 Wenn ein neuer Adapter mit dem Admin installiert wird, werden zuerst die Adapterdateien aus dem Internet geladen und auf die Server-Festplatte geschrieben. Soll ein Adapter gestartet werden, wird zuerst eine `Instanz` des Adapters erzeugt. Jede Adapterinstanz kann individuell konfiguriert und unabhängig mit dem Admin gestoppt und gestartet werden. Deshalb läuft jede Instanz in einem eigenen Prozess, der im Hintergrund mit dem ioBroker js-controller kommuniziert.
 
@@ -24,7 +24,7 @@ Wie bei vielen Open-Source-Technologien üblich, entwickelt sich Node.js schnell
 
 Node.js-Versionen mit **gerader** Hauptversionsnummer werden nach einigen Monaten zu LTS-Versionen (Long Term Support) und danach mehrere Jahre gepflegt. Jedes Jahr kommt eine neue hinzu, und im selben Zug erreicht eine ältere ihr Lebensende (EOL, End of Life) - ab dann gibt es für sie keine Sicherheits-Updates mehr. Ungerade Hauptversionen sind Vorabversionen und für ioBroker nicht geeignet.
 
-Für ioBroker heißt das: Es gilt immer eine bestimmte empfohlene LTS-Version, und eine Version nach ihrem Lebensende wird von den Adaptern und später auch vom js-controller nicht mehr unterstützt. Welche Version derzeit empfohlen wird und wie der Wechsel abläuft, steht unter [Node.js & npm aktualisieren](https://www.iobroker.net/#de/documentation/install/updatenode.md).
+Für ioBroker heißt das: Es gilt immer eine bestimmte empfohlene LTS-Version, und eine Version nach ihrem Lebensende wird von den Adaptern und später auch vom js-controller nicht mehr unterstützt. Welche Version derzeit empfohlen wird und wie der Wechsel abläuft, steht unter [Node.js & npm aktualisieren](/docs/install/updatenode.md).
 
 ## Adapter und Instanzen
 

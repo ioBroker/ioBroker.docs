@@ -7,7 +7,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/trouble/
 hash: nZ9iwqzpPCgUmOMh5sGuI61nhF/AbN4qjs0NScofA38=
 ---
 # Ошибки адаптера – проблемы с установкой, запуском и производительностью
-В этой главе рассматриваются исключительно **проблемы, специфичные для адаптера**. Общие системные проблемы (сбой запуска ioBroker, блокировки базы данных, обновления Node.js) см. в разделе: [ioBroker больше не работает.](https://www.iobroker.net/#de/documentation/trouble/RunsNoMore.md)
+В этой главе рассматриваются исключительно **проблемы, специфичные для адаптера**. Общие системные проблемы (сбой запуска ioBroker, блокировки базы данных, обновления Node.js) см. в разделе: [ioBroker больше не работает.](/docs/trouble/RunsNoMore.md)
 
 ---
 
@@ -69,9 +69,9 @@ iob update
 iobroker upgrade <adaptername>@<stable-version>
 ```
 
-**Различия между репозиториями:** → См. [Что такое репозиторий?](https://www.iobroker.net/#de/documentation/basics/repositories.md)
+**Различия между репозиториями:** → См. [Что такое репозиторий?](/docs/basics/repositories.md)
 
-**Что касается проблем с версиями Node.js:** → См. [Инструкции по обновлению Node.js](https://www.iobroker.net/#de/documentation/install/updatenode.md)
+**Что касается проблем с версиями Node.js:** → См. [Инструкции по обновлению Node.js](/docs/install/updatenode.md)
 
 **Что касается проблем с кэшированием npm:**
 
@@ -186,7 +186,7 @@ iobroker rebuild <adaptername>
 ```
 
 ### Проблемы при запуске, связанные с оборудованием
-**При использовании функции "Неожиданный токен" в сочетании с Raspberry Pi:** → Возможно, неисправна SD-карта! См. [Диагностика оборудования](https://www.iobroker.net/#de/documentation/trouble/RunsNoMore.md)
+**При использовании функции "Неожиданный токен" в сочетании с Raspberry Pi:** → Возможно, неисправна SD-карта! См. [Диагностика оборудования](/docs/trouble/RunsNoMore.md)
 
 ---
 

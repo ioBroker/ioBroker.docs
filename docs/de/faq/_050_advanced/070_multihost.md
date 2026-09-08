@@ -10,13 +10,13 @@ Sinnvoll ist das vor allem aus zwei Gründen:
 * **Lastverteilung**: rechenintensive Adapter laufen auf eigener Hardware.
 
 Verwaltet wird alles über den Admin des Masters; im Reiter
-[Instanzen](https://www.iobroker.net/#de/documentation/admin/instances.md) lässt
+[Instanzen](/docs/admin/instances.md) lässt
 sich nach Host filtern, im Reiter
-[Hosts](https://www.iobroker.net/#de/documentation/admin/hosts.md) steht jeder
+[Hosts](/docs/admin/hosts.md) steht jeder
 Rechner mit seinen Werten.
 
 !> Der Master ist der einzelne Punkt, an dem alles hängt. Fällt er aus, steht das
 ganze System. Ein Multihost-Aufbau macht die Installation **nicht**
 ausfallsicherer, sondern zunächst nur größer.
 
-Ausführlich: [Multihost](https://www.iobroker.net/#de/documentation/config/multihost.md)
+Ausführlich: [Multihost](/docs/config/multihost.md)

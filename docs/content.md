@@ -42,14 +42,14 @@
   * [en:System settings;de:Systemeinstellungen;ru:Системные настройки;zh-cn:系统设置](admin/settings)
 
 * [en:Tutorials;de:Tutorials;ru:Уроки;zh-cn:教程文档](tutorial/README.md)
-  * [First setup](tutorial/setup)
-  * [User interface](tutorial/admin)
-  * [Manage adapters](tutorial/adapter)
-  * [Simple logic](tutorial/logic)
-  * [Visualisation](tutorial/viz)
-  * [Data logging](tutorial/history)
-  * [Charts](tutorial/flot)
-  * [Updates](tutorial/updates)
+  * [en:First steps;de:Die ersten Schritte;ru:Первые шаги;zh-cn:第一步](tutorial/setup)
+  * [en:A tour of the interface;de:Rundgang durch die Oberfläche;ru:Обзор интерфейса;zh-cn:界面导览](tutorial/admin)
+  * [en:Manage adapters;de:Adapter verwalten;ru:Управление адаптерами;zh-cn:管理适配器](tutorial/adapter)
+  * [en:First automation;de:Die erste Automatisierung;ru:Первая автоматизация;zh-cn:第一个自动化](tutorial/logic)
+  * [en:First visualisation;de:Die erste Visualisierung;ru:Первая визуализация;zh-cn:第一个可视化](tutorial/viz)
+  * [en:Recording values;de:Werte aufzeichnen;ru:Запись значений;zh-cn:记录数值](tutorial/history)
+  * [en:Charts;de:Diagramme;ru:Диаграммы;zh-cn:图表](tutorial/flot)
+  * [en:Installing updates;de:Updates einspielen;ru:Установка обновлений;zh-cn:安装更新](tutorial/updates)
   * [Restore](tutorial/restore)
 
 * en:Visualisations;de:Visualisierungen;ru:Визуализация;zh-cn:可视化页面
@@ -61,11 +61,7 @@
       * en:Widget sets;de:Widgetsätze;ru:Наборы виджетов;zh-cn:小工具集
         * [Basic](viz/basic)
         * [Fancyswitch](viz/fancyswitch)
-        * [Hqwidgets](viz/hqwidgets)
-        * [Jqui](viz/jqui)
-        * [Jquimfd](viz/jquimfd)
-        * [Metro](viz/metro)
-        * [Rgraph](viz/rgraph)
+        * [Time&Weather](viz/timeandweather)
   * [App](viz/app)
 
 * [en:Logic & Automation;de:Logik & Automatisierung;ru:Автоматизация;zh-cn:自动化设计](logic/README.md)
@@ -85,6 +81,11 @@
   * [Alexa Smarthome-Skill](cloud/alexasmart)
   * [Alexa Custom-Skill](cloud/alexacustom)
   * [App](cloud/app)
+
+* en:Licenses;de:Lizenzen;ru:Лицензии;zh-cn:许可证
+  * [en:Overview;de:Überblick;ru:Обзор;zh-cn:概览](licenses/README)
+  * [en:Adapter licenses;de:Adapterlizenzen;ru:Лицензии адаптеров;zh-cn:适配器许可证](licenses/adapter)
+  * [en:Access licenses;de:Zugangslizenzen;ru:Лицензии доступа;zh-cn:访问许可证](licenses/cloud)
 
 * en:Advanced configuration;de:Erweiterte Konfiguration;ru:Экспертные настройки;zh-cn:高级配置
   * [Introduction](config/README)

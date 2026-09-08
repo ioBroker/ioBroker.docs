@@ -2,7 +2,7 @@
 
 ## Introduction
 
-ioBroker is used internationally in [many different languages](https://www.iobroker.net/#en/statistics), therefore translations are very important.
+ioBroker is used internationally in [many different languages](/statistics), therefore translations are very important.
 
 Adapters have multiple parts that need to be translated:
 

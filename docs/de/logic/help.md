@@ -97,5 +97,5 @@ Ein Vergleich mit `>` arbeitet dann anders als erwartet.
   js-controller-Version.
 
 Für Probleme, die nicht am Skript liegen, sondern am System, siehe
-[Adapterfehler](https://www.iobroker.net/#de/documentation/trouble/adapter.md)
-und [ioBroker läuft nicht mehr](https://www.iobroker.net/#de/documentation/trouble/RunsNoMore.md).
+[Adapterfehler](/docs/trouble/adapter.md)
+und [ioBroker läuft nicht mehr](/docs/trouble/RunsNoMore.md).

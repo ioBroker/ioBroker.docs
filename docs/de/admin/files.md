@@ -38,4 +38,4 @@ aktualisiert, überschreibt er seine Dateien. Eigene Dateien deshalb unter
 
 ?> Dateien lassen sich auch aus einem Skript heraus lesen und schreiben. Wie das
 geht, steht unter
-[Dateispeicher](https://www.iobroker.net/#de/documentation/dev/filestorage.md).
+[Dateispeicher](/docs/dev/filestorage.md).

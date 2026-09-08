@@ -1,7 +1,7 @@
 ## Wie richte ich ein eigenes SSL-Zertifikat ein?
 
 Die Zertifikate liegen zentral in den
-[Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md)
+[Systemeinstellungen](/docs/admin/settings.md)
 im Reiter **Zertifikate** und werden von admin, web, simple-api und socketio
 benutzt.
 
@@ -20,5 +20,5 @@ Drei Wege zu einem eigenen Zertifikat:
 Admin. Sonst sperrt man sich unter Umständen selbst aus.
 
 ?> Wer nur von unterwegs auf ioBroker zugreifen möchte, braucht das alles nicht:
-Der [iot-Adapter](https://www.iobroker.net/#de/adapters/adapterref/iobroker.iot/README.md)
+Der [iot-Adapter](/adapters/iot)
 kommt ohne offene Ports und ohne eigenes Zertifikat aus.

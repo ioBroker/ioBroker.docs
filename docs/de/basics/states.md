@@ -11,7 +11,7 @@ Raums, der Schaltzustand einer Lampe, der Name des laufenden Titels.
 Er besteht aus zwei Teilen:
 
 * dem **Objekt** vom Typ `state` - der Beschreibung, die sich selten ändert
-  (siehe [Objekte](https://www.iobroker.net/#de/documentation/basics/objects.md)),
+  (siehe [Objekte](/docs/basics/objects.md)),
 * dem **Zustand** - dem Wert selbst, der sich ständig ändert.
 
 Umgangssprachlich meint „Datenpunkt" meistens beides zusammen.
@@ -65,7 +65,7 @@ schreibt er denselben Datenpunkt noch einmal - diesmal mit `ack: true`.
    baut sich eine Rückkopplung: Das Skript schaltet, das Gerät bestätigt, die
    Bestätigung löst das Skript erneut aus. Faustregel: **auf Rückmeldungen
    hören, Befehle senden.** Näheres unter
-   [Logik und Automatisierung](https://www.iobroker.net/#de/documentation/logic/README.md).
+   [Logik und Automatisierung](/docs/logic/README.md).
 
 ?> Im Admin lässt sich das sehen: In der Objektliste steht der Wert eines
    unbestätigten Zustands hervorgehoben. Ein Datenpunkt, der dauerhaft
@@ -84,7 +84,7 @@ im Alltag zählen, stehen in `common`:
 | `unit` | die Einheit, etwa `°C` oder `%` |
 | `min`, `max`, `step` | der zulässige Bereich und die Schrittweite, z. B. für einen Regler |
 | `read`, `write` | ob gelesen und ob geschrieben werden darf - beide Pflicht |
-| `role` | wofür der Datenpunkt steht; die Oberflächen wählen danach ihre Bedienelemente aus, siehe [Rollen](https://www.iobroker.net/#de/documentation/basics/roles.md) |
+| `role` | wofür der Datenpunkt steht; die Oberflächen wählen danach ihre Bedienelemente aus, siehe [Rollen](/docs/basics/roles.md) |
 | `states` | eine Liste möglicher Werte mit Klartext, etwa `{0: "AUS", 1: "EIN"}` |
 | `def` | der Vorgabewert |
 | `custom` | Einstellungen anderer Adapter zu diesem Datenpunkt - hier trägt sich zum Beispiel die Aufzeichnung ein |
@@ -107,7 +107,7 @@ Gerätezustand vor, den es nicht gibt.
 
 ## Weiterlesen
 
-* [Objekte](https://www.iobroker.net/#de/documentation/basics/objects.md) - Aufbau, IDs und Namensräume
-* [Rollen](https://www.iobroker.net/#de/documentation/basics/roles.md) - die vollständige Liste von `common.role`
-* [Aliase](https://www.iobroker.net/#de/documentation/basics/alias.md) - eigene, stabile Namen für fremde Datenpunkte
-* [Objektstruktur](https://www.iobroker.net/#de/documentation/dev/objectsschema.md) - alle Felder, für Entwickler
+* [Objekte](/docs/basics/objects.md) - Aufbau, IDs und Namensräume
+* [Rollen](/docs/basics/roles.md) - die vollständige Liste von `common.role`
+* [Aliase](/docs/basics/alias.md) - eigene, stabile Namen für fremde Datenpunkte
+* [Objektstruktur](/docs/dev/objectsschema.md) - alle Felder, für Entwickler

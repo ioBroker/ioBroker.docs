@@ -17,4 +17,4 @@ Sinnvoll ist:
 Ein Backup gehört außerdem **vor** jedes größere Update, besonders vor einem
 Update des js-controllers oder einem Wechsel der Node.js-Hauptversion.
 
-Ausführlich: [Backup](https://www.iobroker.net/#de/documentation/config/backup.md)
+Ausführlich: [Backup](/docs/config/backup.md)

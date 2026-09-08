@@ -639,4 +639,4 @@ id `system.host.<host>`
 * `common.members` - (obligatorisches) Array von Benutzerobjekt-IDs
 * `common.desc` - (optionale) Beschreibung des Gruppenzwecks
 
-[mögliche Werte]: https://www.iobroker.net/#de/documentation/dev/stateroles.md
+[mögliche Werte]: /docs/dev/stateroles.md

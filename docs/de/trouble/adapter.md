@@ -5,7 +5,7 @@ lastChanged: "23.10.2025"
 
 # Adapterfehler: Installations-, Start- und Performanceprobleme
 
-Dieses Kapitel konzentriert sich ausschließlich auf **adapterspezifische Probleme**. Für allgemeine Systemprobleme (ioBroker startet nicht, Datenbanksperren, Node.js-Updates) siehe: [ioBroker läuft nicht mehr](https://www.iobroker.net/#de/documentation/trouble/RunsNoMore.md)
+Dieses Kapitel konzentriert sich ausschließlich auf **adapterspezifische Probleme**. Für allgemeine Systemprobleme (ioBroker startet nicht, Datenbanksperren, Node.js-Updates) siehe: [ioBroker läuft nicht mehr](/docs/trouble/RunsNoMore.md)
 
 ---
 
@@ -65,10 +65,10 @@ iobroker upgrade <adaptername>@<stable-version>
 ```
 
 **Repository-Unterschiede verstehen:**
-→ Siehe [Was ist ein Repository](https://www.iobroker.net/#de/documentation/basics/repositories.md)
+→ Siehe [Was ist ein Repository](/docs/basics/repositories.md)
 
 **Bei Node.js-Versionsproblemen:**  
-→ Siehe [Node.js Update Anleitung](https://www.iobroker.net/#de/documentation/install/updatenode.md)
+→ Siehe [Node.js Update Anleitung](/docs/install/updatenode.md)
 
 **Bei npm-Cache-Problemen:**
 ```
@@ -173,7 +173,7 @@ iobroker rebuild <adaptername>
 ### Hardware-bezogene Startprobleme
 
 **Bei "Unexpected token" in Kombination mit Raspberry Pi:**  
-→ Möglicherweise defekte SD-Karte! Siehe [Hardware-Diagnose](https://www.iobroker.net/#de/documentation/trouble/RunsNoMore.md)
+→ Möglicherweise defekte SD-Karte! Siehe [Hardware-Diagnose](/docs/trouble/RunsNoMore.md)
 
 ---
 

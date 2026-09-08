@@ -17,26 +17,26 @@ nebeneinander, jedes dort, wo es am wenigsten Aufwand macht.
 ## Wo die Logik läuft
 
 Die meisten Wege gehören zu **einem** Adapter, dem
-[javascript-Adapter](https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/README.md).
+[javascript-Adapter](/adapters/javascript).
 Er bringt nach der Installation den Reiter *Skripte* in die Admin-Oberfläche und
 führt dort Blockly, Regeln, JavaScript und TypeScript aus. Wer eines dieser vier
 nutzen möchte, installiert also nur diesen einen Adapter.
 
 Zwei weitere Wege sind eigene Adapter:
-[node-red](https://www.iobroker.net/#de/adapters/adapterref/iobroker.node-red/README.md)
+[node-red](/adapters/node-red)
 bringt den Flow-Editor von Node-RED mit, und
-[scenes](https://www.iobroker.net/#de/adapters/adapterref/iobroker.scenes/README.md)
+[scenes](/adapters/scenes)
 speichert Szenen, ohne dass dafür programmiert werden muss.
 
 ## Die Wege im Überblick
 
 | Weg | Was es ist | Adapter |
 |---|---|---|
-| [Blockly](https://www.iobroker.net/#de/documentation/logic/blockly.md) | Grafische Bausteine, die ineinandergesteckt werden | javascript |
+| [Blockly](/docs/logic/blockly.md) | Grafische Bausteine, die ineinandergesteckt werden | javascript |
 | Regeln | Ein Formular nach dem Muster *wenn - dann*, ohne Bausteine | javascript |
-| [JavaScript](https://www.iobroker.net/#de/documentation/logic/javascript.md) | Die volle Programmiersprache mit der ioBroker-Skript-API | javascript |
-| [TypeScript](https://www.iobroker.net/#de/documentation/logic/typescript.md) | JavaScript mit Typprüfung vor dem Start | javascript |
-| [Node-RED](https://www.iobroker.net/#de/documentation/logic/nodered.md) | Ein eigener Editor, in dem Knoten mit Linien verbunden werden | node-red |
+| [JavaScript](/docs/logic/javascript.md) | Die volle Programmiersprache mit der ioBroker-Skript-API | javascript |
+| [TypeScript](/docs/logic/typescript.md) | JavaScript mit Typprüfung vor dem Start | javascript |
+| [Node-RED](/docs/logic/nodered.md) | Ein eigener Editor, in dem Knoten mit Linien verbunden werden | node-red |
 | Szenen | Eine Liste von Zuständen und ihren Sollwerten, kein Programm | scenes |
 
 ## Welcher Weg wofür
@@ -86,7 +86,7 @@ Wert ein Flag `ack`. `ack: false` heißt "das ist ein Befehl an das Gerät",
 `ack: true` heißt "das Gerät meldet, dass es so ist". Wer beim Auslöser nicht
 unterscheidet, baut sich Schleifen: das Skript schaltet, das Gerät bestätigt,
 die Bestätigung löst das Skript erneut aus. Näheres unter
-[Zustände](https://www.iobroker.net/#de/documentation/basics/states.md).
+[Zustände](/docs/basics/states.md).
 
 **Zustände sind das gemeinsame Gedächtnis.** Skripte teilen keine Variablen -
 auch nicht zwei Skripte derselben Instanz. Wenn ein Skript einem anderen etwas
@@ -107,13 +107,13 @@ mitteilen soll, geschieht das über einen Zustand.
 ?> Für die ersten Versuche empfiehlt sich eine zweite javascript-Instanz. Ein
    schwerer Fehler beendet dann nur diese Testinstanz und nicht die, in der die
    Heizungssteuerung läuft. Mehr dazu unter
-   [Fehlersuche](https://www.iobroker.net/#de/documentation/logic/help.md).
+   [Fehlersuche](/docs/logic/help.md).
 
 ## Weiter
 
-* [Blockly](https://www.iobroker.net/#de/documentation/logic/blockly.md)
-* [JavaScript](https://www.iobroker.net/#de/documentation/logic/javascript.md)
-* [TypeScript](https://www.iobroker.net/#de/documentation/logic/typescript.md)
-* [Node-RED](https://www.iobroker.net/#de/documentation/logic/nodered.md)
-* [Fehlersuche](https://www.iobroker.net/#de/documentation/logic/help.md)
-* [Bewährte Vorgehensweisen](https://www.iobroker.net/#de/documentation/logic/examples.md)
+* [Blockly](/docs/logic/blockly.md)
+* [JavaScript](/docs/logic/javascript.md)
+* [TypeScript](/docs/logic/typescript.md)
+* [Node-RED](/docs/logic/nodered.md)
+* [Fehlersuche](/docs/logic/help.md)
+* [Bewährte Vorgehensweisen](/docs/logic/examples.md)

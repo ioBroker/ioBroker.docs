@@ -19,4 +19,4 @@ Für eine normale Hausinstallation ist die Voreinstellung völlig ausreichend. W
 umstellt, ohne ein Problem zu haben, holt sich meist nur eine zusätzliche
 Fehlerquelle.
 
-Ausführlich: [Redis](https://www.iobroker.net/#de/documentation/config/redis.md)
+Ausführlich: [Redis](/docs/config/redis.md)

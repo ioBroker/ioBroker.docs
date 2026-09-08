@@ -7,4 +7,4 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/
 hash: C4hu2to8H7qNKkmmmZxzvxdb8WSaizguvoQ61/pkCcM=
 ---
 # Адаптеры обновления/понижения
-Процедура обновления/понижения версии адаптера описана в руководстве по управлению адаптером [описал](https://www.iobroker.net/#de/documentation/tutorial/adapter.md).
+Процедура обновления/понижения версии адаптера описана в руководстве по управлению адаптером [описал](/docs/tutorial/adapter.md).

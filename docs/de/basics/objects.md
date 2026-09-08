@@ -12,7 +12,7 @@ ihnen erklärt fast alles Weitere:
   eine Einheit, die Angabe, ob etwas gelesen oder geschrieben werden darf.
 * **Zustände** sind die Werte selbst - 23,5 °C, `true`, "Wohnzimmer". Sie ändern
   sich ständig. Sie stehen auf einer eigenen Seite:
-  [Zustände](https://www.iobroker.net/#de/documentation/basics/states.md).
+  [Zustände](/docs/basics/states.md).
 
 Ein Thermometer ist also nicht "21,3". Es ist ein Objekt, das sagt: *Hier
 kommt eine Zahl, sie hat die Einheit °C, sie ist lesbar und nicht beschreibbar,
@@ -45,7 +45,7 @@ Alles, was ein Adapter anlegt, liegt unterhalb seines eigenen Namensraums
 | `system.host.` | die Rechner, auf denen ioBroker läuft |
 | `system.user.`, `system.group.` | Benutzer und Gruppen |
 | `enum.` | Räume, Gewerke und andere Gruppierungen |
-| `alias.` | [Aliase](https://www.iobroker.net/#de/documentation/basics/alias.md) - eigene, stabile Namen für fremde Datenpunkte |
+| `alias.` | [Aliase](/docs/basics/alias.md) - eigene, stabile Namen für fremde Datenpunkte |
 | `0_userdata.0.` | der Platz für eigene Objekte - siehe unten |
 | `scripts.js.` | die Skripte des javascript-Adapters |
 
@@ -124,7 +124,7 @@ rechts steht der aktuelle Wert.
    Hand ändert, muss damit rechnen, dass die Änderung beim nächsten Start der
    Instanz wieder überschrieben wird. Soll ein Datenpunkt dauerhaft einen
    eigenen Namen oder eine eigene Einheit haben, ist ein
-   [Alias](https://www.iobroker.net/#de/documentation/basics/alias.md) der
+   [Alias](/docs/basics/alias.md) der
    richtige Weg.
 
 ## Eigene Objekte: `0_userdata.0`
@@ -163,11 +163,11 @@ verwaltet der js-controller, und beide gibt es in mehreren Ausführungen:
 Für die allermeisten Installationen ist die Vorgabe richtig. Erst wenn der
 js-controller dauerhaft viel Rechenzeit braucht und das System träge wirkt,
 lohnt der Blick auf
-[Redis](https://www.iobroker.net/#de/documentation/config/redis.md).
+[Redis](/docs/config/redis.md).
 
 ## Weiterlesen
 
-* [Zustände](https://www.iobroker.net/#de/documentation/basics/states.md) - die Werte selbst und das ack-Flag
-* [Rollen](https://www.iobroker.net/#de/documentation/basics/roles.md) - was `common.role` bedeutet
-* [Aufzählungen](https://www.iobroker.net/#de/documentation/basics/enums.md) - Räume und Gewerke
-* [Objektstruktur](https://www.iobroker.net/#de/documentation/dev/objectsschema.md) - die vollständige Referenz für Entwickler
+* [Zustände](/docs/basics/states.md) - die Werte selbst und das ack-Flag
+* [Rollen](/docs/basics/roles.md) - was `common.role` bedeutet
+* [Aufzählungen](/docs/basics/enums.md) - Räume und Gewerke
+* [Objektstruktur](/docs/dev/objectsschema.md) - die vollständige Referenz für Entwickler

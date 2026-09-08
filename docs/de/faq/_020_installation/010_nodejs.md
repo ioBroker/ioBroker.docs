@@ -23,4 +23,4 @@ npm -v
 Beide müssen zusammenpassen. Wenn `nodeCurrent`, `nodeNewest` und
 `nodeNewestNext` im Reiter Hosts auseinanderlaufen, steht ein Update an.
 
-Einzelheiten: [Node.js installieren](https://www.iobroker.net/#de/documentation/install/nodejs.md)
+Einzelheiten: [Node.js installieren](/docs/install/nodejs.md)

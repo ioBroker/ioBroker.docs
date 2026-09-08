@@ -695,6 +695,22 @@ export function translateText(fromLang: string, text: string, toLang: string): P
         result = result.replace(/HTTPS:\s\/\//i, 'https://');
         result = result.replace(/IoBroker/g, 'ioBroker');
 
+        /*
+         * The translation turns the plain hyphen of the English source into a typographic
+         * dash: "a - b" comes back as "a \u2013 b". Nothing in the sources asks for that.
+         * The style guide requires the short form written with the minus sign
+         * (docs/de/community/styleguidedoc.md), Denis asked for the same on 08.09.2026,
+         * and at the start of a line the dash is worse than cosmetic: "\u2013 (foxriver76)
+         * ..." is no longer a list item and the bullet disappears from the rendered page.
+         * So this restores what the source had. The character class covers the figure
+         * dash, en dash, em dash and horizontal bar; the ASCII hyphen and the minus sign
+         * are deliberately left alone.
+         * What this does NOT do is turn a parenthetical dash into the comma that German
+         * usually wants there - that is a judgment call per sentence, and hand-written
+         * pages make it themselves.
+         */
+        result = result.replace(/[\u2012\u2013\u2014\u2015]/g, '-');
+
         const urls = result.match(/https?:\/\/[-.\w\d]+:\s\d+/g);
         if (urls) {
             urls.forEach(url => {

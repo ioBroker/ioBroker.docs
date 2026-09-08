@@ -6,7 +6,7 @@ translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”�
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/viz/vis.md
 hash: IOurisSrCf2GXRIDs/bHt7/nnV+lzS1EcU3sfyw6FtY=
 ---
-?> ***此页面目前正在修订中。***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md)，以便更轻松地应用更改。
+?> ***此页面目前正在修订中。***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](/docs/community/styleguidedoc.md)，以便更轻松地应用更改。
 
 **使用 VIS 进行可视化**
 
@@ -105,7 +105,7 @@ VIS 需要 WEB 适配器，该适配器在安装 VIS 时自动安装。除了输
 可以指定编辑器的操作语言
 
 #### 项目
-项目是 [意见](http://www.iobroker.net/?page_id=1193&lang=de) 的集合。
+项目是 [意见](/docs/viz/vis.md#views) 的集合。
 默认情况下，项目_main_已创建并通过`<IPdesServers>:8082/vis/index.html#ViewName`调用。
 项目文件位于 ioBroker 安装中的`_ioBroker-Ordner_/iobroker-data/files/vis.0/main` 文件夹中。
 
@@ -120,7 +120,7 @@ VIS 需要 WEB 适配器，该适配器在安装 VIS 时自动安装。除了输
 **提示**：您可以复制项目文件夹并在 VIS 编辑器`<IPdesServers>:8082/vis/_projektname_duplikat_/index.html`中编辑副本。
 
 ＃＃＃＃ 应用
-加载项目时，该[项目] :construction: (http://www.iobroker.net/?page_id=1193&lang=de) 的所有[视图] :construction: (http://www.iobroker.net/?page_id=1193&lang=de) page_id =188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#项目）。
+加载项目时，该[项目] :construction: (/docs/viz/vis.md#views) 的所有[视图] :construction: (/docs/viz/vis.md#views) 
 有时这没有意义并且会减慢系统速度。
 因此，属于同一组的视图可以在不同的项目中组合在一起。
 例如，将具有不同屏幕分辨率的设备分开是有意义的。
@@ -129,7 +129,7 @@ VIS 需要 WEB 适配器，该适配器在安装 VIS 时自动安装。除了输
 另一个项目_Wall Tablet_，仅显示在墙上的平板电脑上，不需要从_Smartphone _项目加载任何视图。
 用于显示所有数据的主项目 _main_ 通常仅在桌面 PC 上显示和编辑。
 数据量和计算速度通常在这里不起作用。
-如果要在多个项目中使用视图，可以使用命令 [出口](http://www.iobroker.net/?page_id=188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#exportieren) :construction:/ [进口](http://www.iobroker.net/?page_id=188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#importieren) :construction: 复制它们。
+如果要在多个项目中使用视图，可以使用命令 [出口](/docs/viz/vis.md#tools) :construction:/ [进口](/docs/viz/vis.md#tools) :construction: 复制它们。
 通过导航小部件从一个项目链接到另一个项目是不可能的。
 **提示**：在尝试 CSS 命令时创建一个测试项目也很有意义。
 

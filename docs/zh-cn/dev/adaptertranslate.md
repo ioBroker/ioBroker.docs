@@ -7,7 +7,7 @@ hash: 8XvB1Gq0qo9gVlIP2+QfpMZ3OQTE+OfKgPD94WrJdcQ=
 ---
 # 适配器的翻译
 ＃＃ 介绍
-ioBroker 在[许多不同的语言](https://www.iobroker.net/#en/statistics) 中国际上使用，因此翻译非常重要。
+ioBroker 在[许多不同的语言](/statistics) 中国际上使用，因此翻译非常重要。
 
 适配器有多个部分需要翻译：
 

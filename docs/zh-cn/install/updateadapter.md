@@ -7,4 +7,4 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/insta
 hash: C4hu2to8H7qNKkmmmZxzvxdb8WSaizguvoQ61/pkCcM=
 ---
 # 升级/降级适配器
-升级/降级适配器的过程位于适配器管理教程[描述的](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)中。
+升级/降级适配器的过程位于适配器管理教程[描述的](/docs/tutorial/adapter.md)中。

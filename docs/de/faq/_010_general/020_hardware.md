@@ -5,9 +5,9 @@ NAS, Server, virtuelle Maschine.
 
 Als Mindestausstattung gelten **2 GB RAM und 32 GB Speicherplatz**, empfohlen
 werden 4 GB (besser 6 bis 8 GB) und 64 GB. Die vollständige Tabelle steht unter
-[Anforderungen](https://www.iobroker.net/#de/documentation/install/requirements.md),
+[Anforderungen](/docs/install/requirements.md),
 Empfehlungen zu einzelnen Geräteklassen unter
-[Hardware](https://www.iobroker.net/#de/documentation/install/hardware.md).
+[Hardware](/docs/install/hardware.md).
 
 Drei Dinge, an denen erfahrungsgemäß am meisten hängt:
 

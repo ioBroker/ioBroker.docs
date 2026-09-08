@@ -22,7 +22,7 @@ enthalten, die das ganze System beeinträchtigen.
 ## Das Repository auswählen
 
 Die Einstellung steht in den
-[Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md)
+[Systemeinstellungen](/docs/admin/settings.md)
 im Reiter **Repositories**. Geöffnet werden sie über den Punkt **System** ganz
 unten in der Menüleiste des Admin.
 
@@ -46,7 +46,7 @@ Die Standardpfade lauten:
 * beta: `http://download.iobroker.net/sources-dist-latest.json`
 
 Ist das Beta-Repository aktiv, weist der Reiter
-[Adapter](https://www.iobroker.net/#de/documentation/admin/adapter.md) mit einer
+[Adapter](/docs/admin/adapter.md) mit einer
 Warnung darauf hin:
 
 <img src="media/repository_warnung.png" alt="Die Warnung im Adapter-Reiter, wenn das Beta-Repository aktiv ist" width="900" />

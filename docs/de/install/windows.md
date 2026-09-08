@@ -29,7 +29,7 @@ Besonders gut eignet sich Windows dafür, ioBroker einfach mal schnell auf einem
 
 ## ioBroker installieren
 
-Zunächst muss der Installer heruntergeladen werden. Die aktuelle Version liegt immer auf der offiziellen Download Seite: https://www.iobroker.net/#de/download
+Zunächst muss der Installer heruntergeladen werden. Die aktuelle Version liegt immer auf der offiziellen Download Seite: /installation
 
 Anschließend wird der Installer per Doppelklick gestartet. Zunächst wählen wir die zu verwendende Sprache aus:
 

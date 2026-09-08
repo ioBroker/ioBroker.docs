@@ -20,7 +20,7 @@ hash: 6M6JLNd7LLD21j0ulNOqyghHCguiQLMi21AkSJnTYyY=
 可执行的 ioBroker 安装对于准备工作是绝对必要的。
 
 有两种方法可以实现这一目标。
-从[下载区](https://www.iobroker.net/#de/download)获取完成的映像，设置您自己的Linux操作系统并在此[指示](https://www.iobroker.net/#de/documentation/install/linux.md)之后安装ioBroker。
+从[下载区](/installation)获取完成的映像，设置您自己的Linux操作系统并在此[指示](/docs/install/linux.md)之后安装ioBroker。
 
 ### 下一步
 如果旧系统将状态和/或对象存储在Redis中，则新系统必须首先配备Redis服务器。

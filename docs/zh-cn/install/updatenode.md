@@ -16,7 +16,7 @@ hash: 6RUWTdFc8Gx0Oh983zD6Bll/WAeCUCD7b80X91zFBNo=
 | **7.x** | **18.x, 20.x, 22.x, (24.x)** | **8.x, 9.x, 10.x, 11.x** |
 
 ## 为什么需要进行此次更新？
-没有 Node.js，ioBroker 将无法运行；详情请参阅 [建筑学](https://www.iobroker.net/#de/documentation/basics/architecture.md)。
+没有 Node.js，ioBroker 将无法运行；详情请参阅 [建筑学](/docs/basics/architecture.md)。
 
 有关 Node.js 的更多信息，请参阅 [维基百科 Node.js](https://de.wikipedia.org/wiki/Node.js)。
 
@@ -69,7 +69,7 @@ iob nodejs-update
 </details>
 
 #### 2 - 创建备份
-在对系统进行任何更改之前，必须先创建备份。根据系统的不同，有多种备份选项。建议使用 BackitUp 适配器或 [命令行命令](https://www.iobroker.net/#de/documentation/config/cli.md)。备份应为近期备份，以最大程度地减少数据丢失。
+在对系统进行任何更改之前，必须先创建备份。根据系统的不同，有多种备份选项。建议使用 BackitUp 适配器或 [命令行命令](/docs/config/cli.md)。备份应为近期备份，以最大程度地减少数据丢失。
 
 #### 3 - 更新适配器
 系统中使用的适配器应与新的 Node.js 版本兼容；它们可能需要更新。
@@ -89,7 +89,7 @@ Node 包管理器（简称 `npm`）也会自动更新。
 更新完成后，系统会再次检查路径和已安装版本。
 
 #### 8 - 运行 ioBroker 修复程序
-如前所述，安装 Node.js 会对系统进行一些更改，因此之后需要运行 [ioBroker修复程序](https://www.iobroker.net/#de/documentation/trouble/install_fixer.md)。此操作会恢复 ioBroker 正常运行所需的安全设置，并检查和更正所有权限。
+如前所述，安装 Node.js 会对系统进行一些更改，因此之后需要运行 [ioBroker修复程序](/docs/trouble/install_fixer.md)。此操作会恢复 ioBroker 正常运行所需的安全设置，并检查和更正所有权限。
 
 #### 9 - 启动 ioBroker
 某些 JavaScript 模块包含需要编译的组件。此过程发生在安装过程中。编译这些模块会将它们与 Node.js 版本绑定。因此，更新后，这些组件必须重新编译。自 js-controller 3.0 版本起，系统会尝试检测包含此类组件的适配器，并自动执行重建。此过程可能需要一些时间，受影响的适配器可能会多次重启。您可以在日志文件中查看此情况。最简单的方法是在终端中使用命令 ``iob logs --watch | uniq`` 来完成此操作。
@@ -173,10 +173,10 @@ v22.x.x
 iobroker backup
 ```
 
-- 其他[选项](https://www.iobroker.net/#de/documentation/config/backup.md)
+- 其他[选项](/docs/config/backup.md)
 
 #### 3 - 更新适配器
-相关说明请参见[管理适配器](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)
+相关说明请参见[管理适配器](/docs/tutorial/adapter.md)
 
 ```bash
 iob update
@@ -348,6 +348,6 @@ iob status
 iob list instances
 ```
 
-只要 JS 控制器版本低于 4，即使在 Node.js 主版本更新期间，也必须执行 `[ioBroker修复程序](https://www.iobroker.net/#de/documentation/install/linux.md)` 命令。
+只要 JS 控制器版本低于 4，即使在 Node.js 主版本更新期间，也必须执行 `[ioBroker修复程序](/docs/install/linux.md)` 命令。
 
 从未来的 JS 控制器版本 4 开始，重新构建将完全自动完成。

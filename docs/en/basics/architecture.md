@@ -9,7 +9,7 @@ hash: fBfqIkwe2R088CwuRMCh53RGxixMmytK+tGKMdHsiV0=
 # System structure
 ## Architecture
 ioBroker is modular, i.e. it is made up of many individual components. Each module has a specific task. In order to keep track of everything, ioBroker has a central coordinator for all its modules. This coordinator is the `js-controller` that works in the background. It is responsible for central data storage as well as management and communication between all modules. The modules themselves are called `Adapter`.
-Adapters are only installed by the user when required. The web-based administration interface `admin` is itself also an adapter. The admin adapter or "admin" for short is the management interface of an ioBroker system. The [Admin](https://www.iobroker.net/#de/documentation/admin/README.md) is usually started with the address [http://localhost:8081](http://localhost:8081) is called.
+Adapters are only installed by the user when required. The web-based administration interface `admin` is itself also an adapter. The admin adapter or "admin" for short is the management interface of an ioBroker system. The [Admin](/docs/admin/README.md) is usually started with the address [http://localhost:8081](http://localhost:8081) is called.
 
 When a new adapter is installed with the admin, the adapter files are first downloaded from the Internet and written to the server hard drive. If an adapter is to be started, a `Instanz` of the adapter is first created. Each adapter instance can be individually configured and stopped and started independently with the admin. Therefore, each instance runs in its own process that communicates with the ioBroker js-controller in the background.
 

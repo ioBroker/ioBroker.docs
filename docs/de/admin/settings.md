@@ -117,7 +117,7 @@ Dienst, schlägt die Prüfung fehl.
 
 ?> Wenn das nicht klappt oder kein Port freigegeben werden soll: Für den Zugriff
 von unterwegs ist der
-[iot-Adapter](https://www.iobroker.net/#de/adapters/adapterref/iobroker.iot/README.md)
+[iot-Adapter](/adapters/iot)
 der einfachere Weg, weil er ohne offene Ports auskommt.
 
 ## Standard ACL
@@ -129,7 +129,7 @@ bekommen, getrennt nach Besitzer, Gruppe und allen anderen.
 
 Die Rechte bestehender Objekte ändert diese Seite nicht. Benutzer und Gruppen
 selbst werden im Reiter
-[Benutzer](https://www.iobroker.net/#de/documentation/admin/users.md) verwaltet.
+[Benutzer](/docs/admin/users.md) verwaltet.
 
 ## Statistik
 
@@ -146,6 +146,7 @@ Plattformen wirklich benutzt werden.
 ## Weitere Reiter
 
 * **Lizenzen**: hier werden Lizenzschlüssel für kostenpflichtige Adapter
-  hinterlegt.
+  hinterlegt. Welche Adapter eine brauchen und woran die Lizenz gebunden ist,
+  steht unter [Adapterlizenzen](/docs/licenses/adapter.md).
 * **Zugangsdaten**: zentrale Anmeldedaten, auf die mehrere Adapter zugreifen
   können, statt sie jeweils einzeln zu speichern.

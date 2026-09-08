@@ -4,7 +4,6 @@ lastChanged: "13.09.2018"
 ---
 
 # Einrichtung und Installation von ioBroker in VirtualBox
-@@@ http://www.iobroker.net/docu/?page_id=5358&lang=de @@@
 
 Zuerst besorgen wir uns eine aktuelle Stable Version von Debian
 https://www.debian.org/CD/http-ftp/#stable
@@ -229,7 +228,7 @@ npm install --unsafe-perm iobroker
 Am ende der Installation sollte folgendes erscheinen:
 Aufnahme137.jpg
 
-—
+---
 
 Wer möchte kann sich noch htop installieren
 Ich nutze es im im Terminal mir die Speicherauslastung / CPU Last etc. anzusehen.

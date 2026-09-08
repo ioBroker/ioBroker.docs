@@ -10,9 +10,9 @@ aktualisiert werden. Diese Reihenfolge hat sich bewährt:
 
 | | Was | Wie oft |
 |---|---|---|
-| 1 | [Adapter](https://www.iobroker.net/#de/documentation/install/updateadapter.md) | häufig - jede Woche kommt etwas |
-| 2 | [js-controller](https://www.iobroker.net/#de/documentation/install/updateself.md) | selten - wenige Male im Jahr |
-| 3 | [Node.js](https://www.iobroker.net/#de/documentation/install/updatenode.md) | selten - wenn eine Version ihr Lebensende erreicht |
+| 1 | [Adapter](/docs/install/updateadapter.md) | häufig - jede Woche kommt etwas |
+| 2 | [js-controller](/docs/install/updateself.md) | selten - wenige Male im Jahr |
+| 3 | [Node.js](/docs/install/updatenode.md) | selten - wenn eine Version ihr Lebensende erreicht |
 
 Dazu kommt das Betriebssystem selbst, das nach seinen eigenen Regeln versorgt
 wird (`sudo apt update && sudo apt full-upgrade`).
@@ -44,7 +44,7 @@ mitunter neuere Adapter; die umgekehrte Richtung ist verträglicher.
 **Node.js zuletzt und nur bewusst.** Ein Wechsel der Node.js-Hauptversion ist
 der Eingriff mit der größten Wirkung. Er hat eigene Voraussetzungen und eine
 eigene Seite:
-[Node.js & npm aktualisieren](https://www.iobroker.net/#de/documentation/install/updatenode.md).
+[Node.js & npm aktualisieren](/docs/install/updatenode.md).
 
 **Nicht alles am selben Abend.** Wenn nach drei gleichzeitigen Updates etwas
 klemmt, ist die Ursache schwer zu finden. Ein Schritt, kurz beobachten, dann
@@ -67,11 +67,11 @@ Es gibt zwei Repositories. **Stable** enthält Versionen, die sich in der Breite
 bewährt haben; **Latest** enthält alles, sobald es veröffentlicht ist. Für eine
 Anlage, die verlässlich laufen soll, ist Stable die richtige Einstellung -
 Latest ist für Leute gedacht, die Fehler finden und melden wollen. Näheres unter
-[Repositories](https://www.iobroker.net/#de/documentation/basics/repositories.md).
+[Repositories](/docs/basics/repositories.md).
 
 ## Wenn nach einem Update etwas klemmt
 
-* [ioBroker läuft nicht mehr](https://www.iobroker.net/#de/documentation/trouble/RunsNoMore.md)
-* [Adapterfehler](https://www.iobroker.net/#de/documentation/trouble/adapter.md)
+* [ioBroker läuft nicht mehr](/docs/trouble/RunsNoMore.md)
+* [Adapterfehler](/docs/trouble/adapter.md)
 * `iob diag` fasst den Zustand zusammen - Repository, Node-Version,
   Systemstand, die letzten Protokolleinträge.

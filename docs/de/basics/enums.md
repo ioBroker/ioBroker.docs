@@ -16,7 +16,7 @@ getauscht oder kommt eines dazu, ändert sich nur die Zuordnung. Das Skript und
 die Visualisierung bleiben, wie sie sind.
 
 Angelegt und gepflegt werden Kategorien im Reiter
-[Kategorien](https://www.iobroker.net/#de/documentation/admin/enums.md) des
+[Kategorien](/docs/admin/enums.md) des
 Admin.
 
 ## Die drei Arten
@@ -84,7 +84,7 @@ Der Name in der runden Klammer ist die erste Ebene unterhalb von `enum`, der
 Wert dahinter die Kategorie selbst. `enum.custom.batterie` wird also zu
 `(custom=batterie)`. Die vollständige Beschreibung des Selektors steht in der
 Dokumentation des
-[JavaScript-Adapters](https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/README.md).
+[JavaScript-Adapters](/adapters/javascript).
 
 ?> Kommt ein Gerät hinzu, genügt die Zuordnung zur Kategorie. Am Skript ist
 nichts zu ändern.

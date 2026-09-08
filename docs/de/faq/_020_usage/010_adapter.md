@@ -12,5 +12,5 @@ Der Name der Instanz ist zugleich der Namensraum, unter dem ihre Objekte liegen:
 alles von `javascript.0` beginnt mit `javascript.0.`.
 
 Angelegt werden Instanzen im Reiter
-[Adapter](https://www.iobroker.net/#de/documentation/admin/adapter.md), verwaltet
-im Reiter [Instanzen](https://www.iobroker.net/#de/documentation/admin/instances.md).
+[Adapter](/docs/admin/adapter.md), verwaltet
+im Reiter [Instanzen](/docs/admin/instances.md).

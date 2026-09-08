@@ -14,7 +14,7 @@ lastChanged: 04.10.2025
 | **7.x** | **18.x, 20.x, 22.x, (24.x)** | **8.x, 9.x, 10.x, 11.x** |
 
 ## Warum muss man das updaten?
-Ohne Node.js funktioniert ioBroker nicht, Details dazu unter [Architektur](https://www.iobroker.net/#de/documentation/basics/architecture.md).  
+Ohne Node.js funktioniert ioBroker nicht, Details dazu unter [Architektur](/docs/basics/architecture.md).  
 Wer mehr über Node.js erfahren möchte, [Wikipedia Node.js](https://de.wikipedia.org/wiki/Node.js).
 
 Wie bei vielen Open-Source-Technologien üblich, entwickelt sich Node.js schnell weiter.  
@@ -61,7 +61,7 @@ Am besten die Adapter-Readme's per Admin, im Changelog, oder im GitHub des jewei
 </details>
 
 #### 2 - Backup erstellen
-Bevor nun Änderungen am System gemacht werden, muss ein Backup erstellt werden. Je nach System gibt es verschiedene Möglichkeiten. Empfohlen wird der BackitUp Adapter oder per [Kommandozeilenbefehl](https://www.iobroker.net/#de/documentation/config/cli.md). Das Backup sollte aktuell sein, damit möglichst keine Daten verloren gehen.
+Bevor nun Änderungen am System gemacht werden, muss ein Backup erstellt werden. Je nach System gibt es verschiedene Möglichkeiten. Empfohlen wird der BackitUp Adapter oder per [Kommandozeilenbefehl](/docs/config/cli.md). Das Backup sollte aktuell sein, damit möglichst keine Daten verloren gehen.
 
 #### 3 - Adapter aktualisieren
 Die im System verwendeten Adapter sollten mit der neuen Node.js Version kompatibel sein, gegebenenfalls müssen diese aktualisiert werden.
@@ -81,7 +81,7 @@ Im nächsten Schritt aktualisiert man Node.js auf die gewünschte neue Version. 
 Nach abgeschlossenem Update werden die Pfade und installierten Versionen noch einmal gegengeprüft.
 
 #### 8 - ioBroker fixer ausführen
-Da die Installation von Node.js, wie eingangs erwähnt, einige Änderungen am System vornimmt, ist es notwendig im Anschluss den [ioBroker fixer](https://www.iobroker.net/#de/documentation/trouble/install_fixer.md) auszuführen. Dieser stellt unter anderem die für den Betrieb von ioBroker notwendigen Sicherheitseinstellungen wieder her und prüft und korrigiert alle Berechtigungen.
+Da die Installation von Node.js, wie eingangs erwähnt, einige Änderungen am System vornimmt, ist es notwendig im Anschluss den [ioBroker fixer](/docs/trouble/install_fixer.md) auszuführen. Dieser stellt unter anderem die für den Betrieb von ioBroker notwendigen Sicherheitseinstellungen wieder her und prüft und korrigiert alle Berechtigungen.
 
 #### 9 - ioBroker starten
 Einige verwendete JavaScript Module beinhalten Teile die kompiliert werden müssen. Dieser Prozess findet bei der Installation statt. Durch das kompilieren sind diese Module an die Node.js Version gebunden. Nach einem Update müssen diese Teile daher neu kompiliert werden. Seit js-controller Version 3.0 wird versucht, Adapter die solche Teile beinhalten, zu erkennen und automatisch einen Rebuild durchzuführen. Dieser Prozess kann einige Zeit in Anspruch nehmen und die betroffenen Adapter können mehrfach neu starten. Dies kann im LogFile beobachtet werden. Dies geht am einfachsten in einem Terminal mittels `iob logs --watch | uniq`.
@@ -171,10 +171,10 @@ und die Versionsnummern von nodejs und node sowie von npm und npx stimmen jeweil
 ```
 iobroker backup
 ```
-- alternative [Möglichkeiten](https://www.iobroker.net/#de/documentation/config/backup.md)
+- alternative [Möglichkeiten](/docs/config/backup.md)
 
 #### 3 - Adapter aktualisieren
-- Anleitung dazu findet man unter [Adapter verwalten](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)
+- Anleitung dazu findet man unter [Adapter verwalten](/docs/tutorial/adapter.md)
 
 ```bash
 iob update
@@ -350,5 +350,5 @@ iob status
 iob list instances
 ```
 
-?> Solange js-Controller kleiner Version 4, muss auch bei einem Node.js Update innerhalb einer Major Version, der [ioBroker fixer](https://www.iobroker.net/#de/documentation/install/linux.md) ausgeführt werden.  
+?> Solange js-Controller kleiner Version 4, muss auch bei einem Node.js Update innerhalb einer Major Version, der [ioBroker fixer](/docs/install/linux.md) ausgeführt werden.  
 Mit dem zukünftigen js-Controller in Version 4 werden Rebuild's vollautomatisch gehändelt.  

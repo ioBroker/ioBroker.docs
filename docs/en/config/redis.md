@@ -84,7 +84,7 @@ To do this, /etc/redis/redis.conf must be edited and the line **bind 127.0.0.1**
 
 Afterwards, `sudo systemctl restart redis-server` restarts the server with the updated configuration.
 
-For further details see [Multihost](https://www.iobroker.net/#de/documentation/config/multihost.md)
+For further details see [Multihost](/docs/config/multihost.md)
 
 ## Switch ioBroker database to Redis
 Most changes and data queries take place with the States database. All data changes arrive here and are then distributed to adapters again if they have registered for certain data.

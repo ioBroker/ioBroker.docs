@@ -41,7 +41,7 @@ Räume dürfen verschachtelt werden: *Erdgeschoss* kann *Wohnzimmer* und *Küche
 enthalten.
 
 ?> Zuordnen lässt sich ein Datenpunkt auch direkt im Reiter
-[Objekte](https://www.iobroker.net/#de/documentation/admin/objects.md) über die
+[Objekte](/docs/admin/objects.md) über die
 Spalten *Raum* und *Funktion*. Beide Wege ändern dieselben Objekte.
 
 !> Zuordnungen gehören an den **Datenpunkt**, nicht an den Kanal oder das Gerät,

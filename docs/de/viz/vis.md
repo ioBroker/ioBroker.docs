@@ -6,7 +6,7 @@ lastChanged: "04.11.2022"
 ?> ***Diese Seite wird gerade überarbeitet.***.
    <br><br>
    Hilf mit bei ioBroker und erweitere diesen Artikel.  
-   Bitte beachte den [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md),
+   Bitte beachte den [ioBroker Style Guide](/docs/community/styleguidedoc.md),
    damit die Änderungen einfacher übernommen werden können.
 
 
@@ -20,7 +20,8 @@ umfangreiche Möglichkeiten ein Smarthome zu visualisieren.
 VIS benötigt den WEB Adapter, dieser wird bei der Installation von VIS
 automatisch mit installiert. Bis auf die Eingabe der Lizenz, die unter 
 https://iobroker.net/ zu beziehen ist, ist keine weitere Konfiguration
-notwendig. Bei privater Nutzung ist diese Lizenz kostenlos.
+notwendig. Bei privater Nutzung ist diese Lizenz kostenlos. Einzelheiten unter
+[Adapterlizenzen](/docs/licenses/adapter.md).
 <br>
 Es kann nur eine VIS Instanz geben.
 
@@ -157,7 +158,7 @@ Hier steht ein Farbschema für den Editor zu Auswahl.
 Die Bediensprache für den Editor kann festgelegt werden
 
 #### Projekte
-Projekte sind Sammlungen von [Views](http://www.iobroker.net/?page_id=1193&lang=de). 
+Projekte sind Sammlungen von [Views](/docs/viz/vis.md#views). 
 Standardmäßig ist das Projekt _main_ angelegt und wird über `<IPdesServers>:8082/vis/index.html#ViewName` 
 aufgerufen. 
 Die Dateien des Projektes befinden sich in der ioBroker-Installation 
@@ -183,8 +184,8 @@ Einen Projektordner kann man duplizieren und das Duplikat im VIS Editor bearbeit
 
 
 #### Anwendung
-Beim Laden eines Projektes werden alle [Views] :construction: (http://www.iobroker.net/?page_id=1193&lang=de) 
-dieses [Projektes] :construction: (http://www.iobroker.net/?page_id=188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#Projekt) mitgeladen. 
+Beim Laden eines Projektes werden alle [Views](/docs/viz/vis.md#views) dieses
+Projektes mitgeladen. 
 Mitunter ist das nicht sinnvoll und bremst das System. 
 Daher kann man Views, die zusammengehören, in verschiedenen Projekten zusammenfassen. 
 Sinnvoll ist beispielsweise ein Trennung nach Endgeräten mit verschiedenen Bildschirmauflösungen. 
@@ -198,8 +199,8 @@ Das Hauptprojekt _main_ zur Anzeige aller Daten wird gängigerweise nur vom Desk
 und editiert. 
 Hier spielen Datenvolumen und Rechengeschwindigkeit meist keine Rolle. 
 Sollen Views in mehreren Projekten verwendet werden, 
-können sie mit dem Befehl [exportieren](http://www.iobroker.net/?page_id=188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#exportieren) :construction:/
-[importieren](http://www.iobroker.net/?page_id=188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#importieren) :construction: kopiert werden. 
+können sie mit den Befehlen **exportieren** und **importieren** im Reiter
+[Tools](/docs/viz/vis.md#tools) kopiert werden. 
 Das Verlinken über Navigationswidgets von einem Projekt zum anderen ist nicht möglich.  
 **Tipp**: Es kann auch sinnvoll sein, ein Test-Projekt anzulegen, wenn mit CSS-Befehlen experimentiert wird.
 

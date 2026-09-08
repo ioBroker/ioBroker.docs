@@ -6,7 +6,7 @@ translatedWarning: If you want to edit this document please delete "translatedFr
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/viz/vis.md
 hash: IOurisSrCf2GXRIDs/bHt7/nnV+lzS1EcU3sfyw6FtY=
 ---
-?> ***This page is currently being revised.***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
+?> ***This page is currently being revised.***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](/docs/community/styleguidedoc.md) so that the changes can be adopted more easily.
 
 **Visualizations with VIS**
 
@@ -105,7 +105,7 @@ Here you can select a color scheme for the editor.
 The operating language for the editor can be set
 
 #### Projects
-Projects are collections of [Views](http://www.iobroker.net/?page_id=1193&lang=de).
+Projects are collections of [Views](/docs/viz/vis.md#views).
 The project _main_ is created by default and is called via `<IPdesServers>:8082/vis/index.html#ViewName`.
 The project files are located in the ioBroker installation in the folder `_ioBroker-Ordner_/iobroker-data/files/vis.0/main`.
 
@@ -120,7 +120,7 @@ After confirming, the editor loads the new project at this address: `<IPdesServe
 **Tip**: You can duplicate a project folder and edit the duplicate in the VIS Editor `<IPdesServers>:8082/vis/_projektname_duplikat_/index.html`.
 
 #### Application
-When loading a project, all [views] :construction: (http://www.iobroker.net/?page_id=1193&lang=de) of this [project] :construction: (http://www.iobroker.net/?page_id=188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#Projekt) are loaded.
+When loading a project, all [views] :construction: (/docs/viz/vis.md#views) of this [project] :construction: (/docs/viz/vis.md) are loaded.
 Sometimes this is not useful and slows down the system.
 You can therefore group together views that belong together in different projects.
 It makes sense, for example, to separate them according to end devices with different screen resolutions.
@@ -129,7 +129,7 @@ By deliberately reducing the number of widgets, the project remains small in ter
 Another project, _Wall tablet_, which is only displayed on the tablet on the wall, does not need to load views from the _Smartphone_ project.
 The main project _main_ for displaying all data is usually only displayed and edited from the desktop PC.
 Data volume and computing speed usually do not play a role here.
-If views are to be used in several projects, they can be copied using the command [export](http://www.iobroker.net/?page_id=188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#exportieren) :construction:/ [import](http://www.iobroker.net/?page_id=188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#importieren) :construction:.
+If views are to be used in several projects, they can be copied using the command [export](/docs/viz/vis.md#tools) :construction:/ [import](/docs/viz/vis.md#tools) :construction:.
 Linking from one project to another via navigation widgets is not possible.
 **Tip**: It can also be useful to create a test project when experimenting with CSS commands.
 

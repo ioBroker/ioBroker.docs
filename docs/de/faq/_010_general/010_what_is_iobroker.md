@@ -14,7 +14,7 @@ Der Aufbau ist modular. Jede Anbindung ist ein eigenes Programm, ein
 **Adapter**: über 800 gibt es davon. Installiert wird nur, was gebraucht wird.
 
 Ausführlich steht das unter
-[ioBroker Grundlagen](https://www.iobroker.net/#de/documentation/basics/README.md).
+[ioBroker Grundlagen](/docs/basics/README.md).
 
 ?> ioBroker ist quelloffen und kostenlos. Es läuft auf der eigenen Hardware im
 eigenen Netz, ohne Cloud, wenn man das nicht möchte.

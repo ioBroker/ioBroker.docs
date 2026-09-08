@@ -28,7 +28,7 @@ ioBroker generally runs just as well on Windows systems as it does on Linux syst
 Windows is particularly well-suited for quickly trying out ioBroker on an existing Windows PC.
 
 ## Install ioBroker
-First, you need to download the installer. The latest version is always available on the official download page: https://www.iobroker.net/#de/download
+First, you need to download the installer. The latest version is always available on the official download page: /installation
 
 Then, double-click to launch the installer. First, select the language you want to use:
 

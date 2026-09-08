@@ -16,7 +16,7 @@ hash: 6RUWTdFc8Gx0Oh983zD6Bll/WAeCUCD7b80X91zFBNo=
 | **7.x** | **18.x, 20.x, 22.x, (24.x)** | **8.x, 9.x, 10.x, 11.x** |
 
 ## Why is this update necessary?
-ioBroker won't work without Node.js; see [architecture](https://www.iobroker.net/#de/documentation/basics/architecture.md) for details.
+ioBroker won't work without Node.js; see [architecture](/docs/basics/architecture.md) for details.
 
 For more information about Node.js, see [Wikipedia Node.js](https://de.wikipedia.org/wiki/Node.js).
 
@@ -69,7 +69,7 @@ It is best to check the adapter readme files via admin, in the changelog, or in 
 </details>
 
 #### 2 - Create backup
-Before making any changes to the system, a backup must be created. Depending on the system, there are various options. The BackitUp adapter or using [Command line command](https://www.iobroker.net/#de/documentation/config/cli.md) is recommended. The backup should be recent to minimize data loss.
+Before making any changes to the system, a backup must be created. Depending on the system, there are various options. The BackitUp adapter or using [Command line command](/docs/config/cli.md) is recommended. The backup should be recent to minimize data loss.
 
 #### 3 - Update adapter
 The adapters used in the system should be compatible with the new Node.js version; they may need to be updated.
@@ -89,7 +89,7 @@ The Node Package Manager, abbreviated `npm`, is also automatically updated.
 After the update is complete, the paths and installed versions are checked again.
 
 #### 8 - Run ioBroker fixer
-Since installing Node.js, as mentioned earlier, makes some changes to the system, it is necessary to run [ioBroker fixer](https://www.iobroker.net/#de/documentation/trouble/install_fixer.md) afterwards. This restores, among other things, the security settings required for ioBroker to function and checks and corrects all permissions.
+Since installing Node.js, as mentioned earlier, makes some changes to the system, it is necessary to run [ioBroker fixer](/docs/trouble/install_fixer.md) afterwards. This restores, among other things, the security settings required for ioBroker to function and checks and corrects all permissions.
 
 #### 9 - Starting ioBroker
 Some JavaScript modules contain components that need to be compiled. This process occurs during installation. Compiling these modules binds them to the Node.js version. After an update, these components must therefore be recompiled. Since js-controller version 3.0, an attempt is made to detect adapters containing such components and automatically perform a rebuild. This process can take some time, and the affected adapters may restart multiple times. This can be observed in the log file. The easiest way to do this is in a terminal using the command ``iob logs --watch | uniq``.
@@ -173,10 +173,10 @@ Important: nodejs is located in /usr/bin, node is located in /usr/bin, npm is lo
 iobroker backup
 ```
 
-- alternative [options](https://www.iobroker.net/#de/documentation/config/backup.md)
+- alternative [options](/docs/config/backup.md)
 
 #### 3 - Update adapter
-Instructions can be found under [Manage adapters](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)
+Instructions can be found under [Manage adapters](/docs/tutorial/adapter.md)
 
 ```bash
 iob update
@@ -348,6 +348,6 @@ iob status
 iob list instances
 ```
 
-As long as the JS controller is lower than version 4, even during a Node.js update within a major version, the `[ioBroker fixer](https://www.iobroker.net/#de/documentation/install/linux.md)` command must be executed.
+As long as the JS controller is lower than version 4, even during a Node.js update within a major version, the `[ioBroker fixer](/docs/install/linux.md)` command must be executed.
 
 With the future JS controller version 4, rebuilds will be handled fully automatically.

@@ -1,7 +1,7 @@
 ## Wie erreiche ich ioBroker von unterwegs?
 
 Der einfache Weg ist der
-[iot-Adapter](https://www.iobroker.net/#de/adapters/adapterref/iobroker.iot/README.md).
+[iot-Adapter](/adapters/iot).
 Er baut die Verbindung von innen nach außen auf. Es muss also **kein Port im
 Router geöffnet werden**, und ein eigenes Zertifikat braucht es auch nicht.
 
@@ -17,7 +17,7 @@ Beides läuft über denselben iot-Adapter. In groben Zügen:
 2. Den Adapter **iot** installieren und die Zugangsdaten eintragen.
 3. Die Geräte auswählen, die freigegeben werden sollen, am saubersten über den
    Adapter *devices* oder über Räume und Funktionen im Reiter
-   [Kategorien](https://www.iobroker.net/#de/documentation/admin/enums.md).
+   [Kategorien](/docs/admin/enums.md).
 4. In der Alexa- bzw. Google-App den ioBroker-Dienst verknüpfen und nach Geräten
    suchen lassen.
 

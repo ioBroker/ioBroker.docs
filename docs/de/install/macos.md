@@ -12,7 +12,7 @@ trotzdem nicht der vorgesehene Weg.
    Wahl.** Das Installationsskript, die Anleitungen im Forum und die Werkzeuge
    zur Fehlersuche sind auf Debian und seine Abkömmlinge abgestimmt. Wer auf
    einem Mac festhängt, fährt mit
-   [Docker](https://www.iobroker.net/#de/documentation/install/docker.md) oder
+   [Docker](/docs/install/docker.md) oder
    einer virtuellen Maschine mit Linux besser als mit einer Installation direkt
    im System.
 
@@ -24,7 +24,7 @@ Adaptern.
 Voraussetzung ist eine aktuelle LTS-Version von Node.js, am einfachsten über
 [Homebrew](https://brew.sh) oder einen Versionsverwalter wie `nvm`. Welche
 Version derzeit empfohlen wird, steht unter
-[Node.js & npm](https://www.iobroker.net/#de/documentation/install/updatenode.md).
+[Node.js & npm](/docs/install/updatenode.md).
 
 Danach in einem eigenen Verzeichnis:
 
@@ -59,4 +59,4 @@ Für die Entwicklung eines eigenen Adapters ist ohnehin nicht eine volle
 Installation gefragt, sondern der `dev-server`, der eine gekapselte
 ioBroker-Umgebung für genau einen Adapter aufsetzt. Für den Betrieb zu Hause
 gilt: ein eigenes, sparsames Gerät mit Linux - siehe
-[Hardware](https://www.iobroker.net/#de/documentation/install/hardware.md).
+[Hardware](/docs/install/hardware.md).

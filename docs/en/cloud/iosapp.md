@@ -8,4 +8,4 @@ translatedWarning: If you want to edit this document please delete "translatedFr
 hash: VvwiMjONAKca4S5fadvSGV+55zMrhDqN94PSXZjNaG8=
 ---
 # The iOS app
-?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
+?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](/docs/community/styleguidedoc.md) so that the changes can be adopted more easily.

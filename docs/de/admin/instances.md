@@ -6,7 +6,7 @@ lastChanged: "07.09.2026"
 # Reiter Instanzen
 
 Hier stehen alle Instanzen, die über den Reiter
-[Adapter](https://www.iobroker.net/#de/documentation/admin/adapter.md) angelegt
+[Adapter](/docs/admin/adapter.md) angelegt
 wurden. Sie werden hier gestartet, gestoppt, konfiguriert und wieder gelöscht.
 
 ?> Der Name einer Instanz setzt sich aus dem Adapternamen und einer laufenden

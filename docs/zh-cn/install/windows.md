@@ -28,7 +28,7 @@ ioBroker 在 Windows 系统和 Linux 系统上的运行效果通常一样好。�
 Windows 尤其适合在现有的 Windows PC 上快速试用 ioBroker。
 
 ## 安装 ioBroker
-首先，您需要下载安装程序。最新版本可在官方下载页面获取：https://www.iobroker.net/#de/download
+首先，您需要下载安装程序。最新版本可在官方下载页面获取：/installation
 
 然后双击启动安装程序。首先，选择要使用的语言：
 

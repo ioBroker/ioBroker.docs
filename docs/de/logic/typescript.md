@@ -6,11 +6,11 @@ lastChanged: "07.09.2026"
 # TypeScript
 
 TypeScript ist JavaScript mit Typen. Der
-[javascript-Adapter](https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/README.md)
+[javascript-Adapter](/adapters/javascript)
 übersetzt ein TypeScript-Skript beim Speichern nach JavaScript und führt das
 Ergebnis aus. Für die Skript-API ändert sich nichts: `on`, `setState`,
 `schedule` und alles andere heißen und arbeiten genauso wie in
-[JavaScript](https://www.iobroker.net/#de/documentation/logic/javascript.md).
+[JavaScript](/docs/logic/javascript.md).
 
 Der Unterschied liegt vor dem Start. Wo JavaScript einen Fehler erst dann meldet,
 wenn die betroffene Zeile ausgeführt wird - unter Umständen erst Wochen später,
@@ -64,7 +64,7 @@ TypeScript zahlt sich nicht bei jedem Dreizeiler aus. Es lohnt sich, wenn
   kennt.
 
 Für "wenn Bewegung, dann Licht" ist der Aufwand höher als der Nutzen. Dafür ist
-[Blockly](https://www.iobroker.net/#de/documentation/logic/blockly.md) oder eine
+[Blockly](/docs/logic/blockly.md) oder eine
 Regel der bessere Weg.
 
 ## Zu beachten

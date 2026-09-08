@@ -18,7 +18,7 @@ diese Liste ist es wert, gelesen zu werden, denn dort steht, wenn eine Version
 etwas verlangt oder abschafft.
 
 Die ausführliche Beschreibung der Adapterverwaltung steht im
-[Tutorial zur Adapterverwaltung](https://www.iobroker.net/#de/documentation/tutorial/adapter.md).
+[Tutorial zur Adapterverwaltung](/docs/tutorial/adapter.md).
 
 ## Auf der Konsole
 
@@ -50,7 +50,7 @@ Beim Wechsel von *Latest* zurück auf *Stable* geschieht dasselbe von selbst.
 !> Ein Zurückstufen ist kein sauberer Rückwärtsgang. Datenpunkte und
    Einstellungen, die die neuere Version angelegt hat, bleiben stehen, und die
    ältere Version kennt sie nicht. Vor dem Zurückstufen also
-   [sichern](https://www.iobroker.net/#de/documentation/install/update.md), und
+   [sichern](/docs/install/update.md), und
    danach die Instanz aufmerksam beobachten.
 
 ## Aus GitHub installieren
@@ -73,6 +73,6 @@ installieren* im Expertenmodus.
 
 ## Weiterlesen
 
-* [Updates durchführen](https://www.iobroker.net/#de/documentation/install/update.md) - die Reihenfolge der drei Schichten
-* [Repositories](https://www.iobroker.net/#de/documentation/basics/repositories.md) - Stable und Latest
-* [Adapterfehler](https://www.iobroker.net/#de/documentation/trouble/adapter.md) - wenn ein Adapter nach dem Update nicht startet
+* [Updates durchführen](/docs/install/update.md) - die Reihenfolge der drei Schichten
+* [Repositories](/docs/basics/repositories.md) - Stable und Latest
+* [Adapterfehler](/docs/trouble/adapter.md) - wenn ein Adapter nach dem Update nicht startet

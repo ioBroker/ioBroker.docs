@@ -10,7 +10,7 @@ startet die Instanz neu. Das ist meistens gewollt, denn erst danach protokollier
 sie den vollständigen Ablauf von Anfang an.
 
 Anschließend die Aktion auslösen, die den Fehler erzeugt, und in den
-[Protokollen](https://www.iobroker.net/#de/documentation/admin/log.md) nachsehen.
+[Protokollen](/docs/admin/log.md) nachsehen.
 
 !> Nach der Fehlersuche wieder auf *Info* zurückstellen.
 

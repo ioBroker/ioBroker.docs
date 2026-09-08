@@ -220,16 +220,29 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             fontSize: '18px',
         },
     },
+    /*
+     * H3 runs in Roboto and in sentence case (Denis, 08.09.2026). With H1 and H2 already
+     * set in the display face, a third level of it was too much of a good thing, and the
+     * caps carried a good part of that weight. This is the same shape the adapter pages
+     * give their third level: Roboto 700, no caps. Three values follow from dropping
+     * Audiowide. The -0.03em tracking of the headings above belongs to a wide display
+     * face and would pull sentence-case Roboto together, so it goes back to normal.
+     * Audiowide only ships a 400, and at 400 this line would read as running text, hence
+     * 700. And the line height has to be stated, because 1.1 from the display face is too
+     * tight once a German compound wraps.
+     * What stays is the accent colour: it is now the only thing marking the line as a
+     * heading rather than a bold paragraph.
+     */
     heading: {
         color: theme.custom.textAccent,
         fontSize: '20px',
-        fontFamily: 'Audiowide',
-        fontWeight: 400,
-        textTransform: 'uppercase',
+        fontFamily: 'Roboto, Arial, sans-serif',
+        fontWeight: 700,
         marginTop: '40px',
         marginBottom: '16px',
         scrollMarginTop: '100px',
-        letterSpacing: '-0.03em',
+        letterSpacing: 'normal',
+        lineHeight: 1.35,
         display: 'inline-flex',
         alignItems: 'flex-start',
         gap: '16px',

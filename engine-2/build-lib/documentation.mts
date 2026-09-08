@@ -96,14 +96,26 @@ export function processContent(filePath: string): Content {
 
         const link = words.link;
         if (link) {
-            // ignore links if en/"link" does not exist
-            if (!fs.existsSync(path.join(consts.SRC_DOC_DIR, 'en', link))) {
+            /*
+             * The menu is decided by one file per entry, and English used to be that file
+             * because every page existed in it. That no longer holds: a page written in
+             * German is not translated until the translation step runs, so between
+             * writing it and translating it there is no English file at all - and the
+             * entry silently disappeared from the menu, together with the German page
+             * that was perfectly fine.
+             * German is now the fallback. English still decides where it exists, so
+             * nothing changes for translated pages; where it does not, the German source
+             * stands in. The English page is then missing until the translation runs,
+             * which is a smaller problem than a menu without the entry.
+             */
+            const enPath = path.join(consts.SRC_DOC_DIR, 'en', link);
+            const dePath = path.join(consts.SRC_DOC_DIR, 'de', link);
+            const sourcePath = fs.existsSync(enPath) ? enPath : fs.existsSync(dePath) ? dePath : null;
+            if (!sourcePath) {
                 console.error(`DOCUMENT ${link} does not exist, but listed in content.md!`);
                 return;
             }
-            const header = utils.extractHeader(
-                fs.readFileSync(path.join(consts.SRC_DOC_DIR, 'en', link)).toString('utf8'),
-            );
+            const header = utils.extractHeader(fs.readFileSync(sourcePath).toString('utf8'));
             if (header.header.template) {
                 console.error(`DOCUMENT ${link} is just template, do not include it into content.`);
                 return;

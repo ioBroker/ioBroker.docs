@@ -25,13 +25,13 @@ Node.js- und NPM-Version, die Laufzeit seit dem letzten Neustart sowie die aktue
 Auslastung von RAM und CPU.
 
 ?> Wenn die RAM-Anzeige dauerhaft am Anschlag steht oder die Node.js-Version nicht der
-[empfohlenen LTS-Version](https://www.iobroker.net/#de/documentation/install/nodejs.md)
+[empfohlenen LTS-Version](/docs/install/nodejs.md)
 entspricht, ist das der erste Punkt, an dem man ansetzt.
 
 Unten stehen die **Aktiven Adapter** mit ihrer Version und ihrem Zustand sowie die
 letzten Zeilen aus dem **Systemprotokoll**. Über *Alle anzeigen* geht es in die
-vollständige [Instanzenliste](https://www.iobroker.net/#de/documentation/admin/instances.md)
-bzw. in die [Protokolle](https://www.iobroker.net/#de/documentation/admin/log.md).
+vollständige [Instanzenliste](/docs/admin/instances.md)
+bzw. in die [Protokolle](/docs/admin/log.md).
 
 # Reiter Schnellzugriff
 
@@ -43,7 +43,7 @@ in der Kachel steht.
 
 Am Ende steht je eine Kachel pro Host des Systems. Bei einer Standardinstallation ist das
 der eine ioBroker-Server, bei einem
-[Multihost-System](https://www.iobroker.net/#de/documentation/config/multihost.md)
+[Multihost-System](/docs/config/multihost.md)
 der Master und alle weiteren Hosts. Der Knopf **Info** in dieser Kachel klappt die
 Hardware- und Systemdaten des Hosts auf:
 

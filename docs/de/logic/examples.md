@@ -51,7 +51,7 @@ gebunden. Wird der Aktor getauscht, müssen alle Skripte nachgezogen werden, in
 denen die ID vorkommt.
 
 Ein
-[Alias](https://www.iobroker.net/#de/documentation/basics/alias.md)
+[Alias](/docs/basics/alias.md)
 löst das: `alias.0.Wohnzimmer.Deckenlicht` bleibt gleich, auch wenn dahinter ein
 anderes Gerät steckt. Ein Gerätetausch ist dann eine Änderung an einer Stelle
 statt an zwanzig.
@@ -102,7 +102,7 @@ laufend als `.js`-Dateien dorthin geschrieben und lassen sich versionieren.
 
 Fertige Lösungen und Beispiele sammeln sich im
 [ioBroker-Forum](https://forum.iobroker.net) und in der
-[Lösungsbibliothek](https://www.iobroker.net/#de/documentation/lib/README.md).
+[Lösungsbibliothek](/docs/lib/README.md).
 Die Blockly-Referenz des javascript-Adapters enthält außerdem drei
 durchgerechnete Beispiele vom ersten Baustein bis zum fertigen Skript:
-[Blockly-Referenz](https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/blockly.md).
+[Blockly-Referenz](/adapters/javascript).

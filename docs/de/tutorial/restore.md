@@ -19,8 +19,8 @@ Am Ende sind alle Daten wieder vorhanden und ein neues System wurde aufgesetzt.
 Für die Vorbereitung ist eine lauffähige ioBroker Installation zwingend notwendig.
 
 Um dies hinzubekommen, gibt es 2 Wege.
-Entweder ein fertiges Image aus dem [Downloadbereich](https://www.iobroker.net/#de/download) nehmen,  ein eigenes Linux OS aufsetzen und ioBroker nach dieser 
-[Anleitung](https://www.iobroker.net/#de/documentation/install/linux.md) installieren.
+Entweder ein fertiges Image aus dem [Downloadbereich](/installation) nehmen,  ein eigenes Linux OS aufsetzen und ioBroker nach dieser 
+[Anleitung](/docs/install/linux.md) installieren.
 
 ### nächster Schritt
 

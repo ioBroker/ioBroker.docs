@@ -7,7 +7,7 @@ hash: 8XvB1Gq0qo9gVlIP2+QfpMZ3OQTE+OfKgPD94WrJdcQ=
 ---
 # Übersetzung von Adaptern
 ## Einführung
-ioBroker wird international in [viele verschiedene Sprachen](https://www.iobroker.net/#en/statistics) verwendet, daher sind Übersetzungen sehr wichtig.
+ioBroker wird international in [viele verschiedene Sprachen](/statistics) verwendet, daher sind Übersetzungen sehr wichtig.
 
 Adapter bestehen aus mehreren Teilen, die übersetzt werden müssen:
 

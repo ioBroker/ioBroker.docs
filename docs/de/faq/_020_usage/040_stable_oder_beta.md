@@ -9,4 +9,4 @@ Wird trotzdem einmal eine neuere Version eines einzelnen Adapters gebraucht, mus
 man dafür **nicht** das Repository umstellen: Der Dialog *Installieren aus eigener
 Quelle* im Reiter Adapter kann einen einzelnen Adapter direkt von npm holen.
 
-Ausführlich: [Was ist ein Repository?](https://www.iobroker.net/#de/documentation/basics/repositories.md)
+Ausführlich: [Was ist ein Repository?](/docs/basics/repositories.md)

@@ -1,7 +1,7 @@
 ## Wo finde ich die Protokolle?
 
 Im Admin im Reiter
-[Protokolle](https://www.iobroker.net/#de/documentation/admin/log.md). Dort lässt
+[Protokolle](/docs/admin/log.md). Dort lässt
 sich nach Instanz, Stufe und Text filtern.
 
 Auf der Platte liegen sie unter `/opt/iobroker/log/`, eine Datei je Tag. Über den

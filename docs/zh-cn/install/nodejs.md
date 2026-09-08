@@ -6,7 +6,7 @@ translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”�
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/nodejs.md
 hash: 38xyrXo/C1YwLwdNL8ZM8DCwvUJijKb+SFiC8oRyvO4=
 ---
-使用 iobroker 安装脚本后，在推荐的 Linux 系统上不再需要单独安装 Node.js 和 npm！参见 [Linux 系统下的安装](https://www.iobroker.net/#de/documentation/install/linux.md)
+使用 iobroker 安装脚本后，在推荐的 Linux 系统上不再需要单独安装 Node.js 和 npm！参见 [Linux 系统下的安装](/docs/install/linux.md)
 
 ioBroker及其适配器主要使用JavaScript编程语言编写。由于计算机无法直接执行JavaScript，因此需要一个运行时环境——Node.js提供了这种环境。
 

@@ -15,7 +15,7 @@ Jahr -, und weil alles darauf aufsetzt, gehört dieser Schritt vorbereitet.
    zusätzlich ein Schnappschuss.
 2. **Adapter zuerst aktualisieren.** Ein neuer js-controller setzt mitunter
    neuere Adapter voraus. Siehe
-   [Adapter updaten](https://www.iobroker.net/#de/documentation/install/updateadapter.md).
+   [Adapter updaten](/docs/install/updateadapter.md).
 3. **Die Änderungen lesen.** Bei einem Sprung der Hauptversion stehen dort die
    Punkte, die Arbeit machen können - eine geforderte Node.js-Version, eine
    abgeschaffte Einstellung.
@@ -50,7 +50,7 @@ wieder.
 ## Wenn es schiefgeht
 
 Zuerst
-[ioBroker läuft nicht mehr](https://www.iobroker.net/#de/documentation/trouble/RunsNoMore.md) -
+[ioBroker läuft nicht mehr](/docs/trouble/RunsNoMore.md) -
 dort stehen die häufigen Ursachen der Reihe nach. Hilft das nicht, ist die
 Sicherung von vorhin der schnellste Weg:
 
@@ -60,6 +60,6 @@ iob restore <datei>
 
 ## Weiterlesen
 
-* [Updates durchführen](https://www.iobroker.net/#de/documentation/install/update.md)
-* [Node.js & npm aktualisieren](https://www.iobroker.net/#de/documentation/install/updatenode.md)
-* [Konsolenbefehle](https://www.iobroker.net/#de/documentation/config/cli.md)
+* [Updates durchführen](/docs/install/update.md)
+* [Node.js & npm aktualisieren](/docs/install/updatenode.md)
+* [Konsolenbefehle](/docs/config/cli.md)

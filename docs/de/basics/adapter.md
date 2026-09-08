@@ -22,9 +22,9 @@ einer. Er ist in TypeScript geschrieben und übernimmt vier Aufgaben:
 | Überwachung | Er meldet, wenn eine Instanz nicht mehr läuft, der Speicher knapp wird oder ein Update bereitliegt. |
 
 ?> Der js-controller wird nicht im Reiter **Adapter** aktualisiert, sondern über
-den Reiter [Hosts](https://www.iobroker.net/#de/documentation/admin/hosts.md)
+den Reiter [Hosts](/docs/admin/hosts.md)
 oder über die Kommandozeile. Einzelheiten stehen unter
-[ioBroker updaten](https://www.iobroker.net/#de/documentation/install/updateself.md).
+[ioBroker updaten](/docs/install/updateself.md).
 
 ## Adapter
 
@@ -67,7 +67,7 @@ Jeder Adapter trägt eine Kategorie, nach der sich die Liste im Reiter
 **Adapter** filtern lässt: `alarm`, `climate-control`, `energy`, `hardware`,
 `lighting`, `logic`, `multimedia`, `weather` und weitere. Die vollständige Liste
 mit Erläuterungen steht unter
-[Adapter veröffentlichen](https://www.iobroker.net/#de/documentation/dev/adapterpublish.md).
+[Adapter veröffentlichen](/docs/dev/adapterpublish.md).
 
 ## Instanzen
 
@@ -85,7 +85,7 @@ Adapternamen und einer laufenden Nummer besteht, zum Beispiel `hm-rpc.0`.
 Darunter legt die Instanz ihre Geräte, Kanäle und Datenpunkte an.
 
 Angelegt und konfiguriert werden Instanzen im Reiter
-[Instanzen](https://www.iobroker.net/#de/documentation/admin/instances.md).
+[Instanzen](/docs/admin/instances.md).
 Mehr zur Datenstruktur steht unter
-[Objekte](https://www.iobroker.net/#de/documentation/basics/objects.md) und
-[Zustände](https://www.iobroker.net/#de/documentation/basics/states.md).
+[Objekte](/docs/basics/objects.md) und
+[Zustände](/docs/basics/states.md).

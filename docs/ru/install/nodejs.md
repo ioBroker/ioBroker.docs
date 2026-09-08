@@ -6,7 +6,7 @@ translatedWarning: Если вы хотите отредактировать э�
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/nodejs.md
 hash: 38xyrXo/C1YwLwdNL8ZM8DCwvUJijKb+SFiC8oRyvO4=
 ---
-Благодаря скрипту установки iobroker, на рекомендуемых системах Linux больше не требуется отдельная установка Node.js и npm! См. [Установка под Linux](https://www.iobroker.net/#de/documentation/install/linux.md)
+Благодаря скрипту установки iobroker, на рекомендуемых системах Linux больше не требуется отдельная установка Node.js и npm! См. [Установка под Linux](/docs/install/linux.md)
 
 ioBroker и его адаптеры написаны преимущественно на языке программирования JavaScript. Поскольку компьютер не может напрямую выполнять JavaScript, необходима среда выполнения, которую предоставляет Node.js.
 

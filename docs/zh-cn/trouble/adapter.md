@@ -7,7 +7,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/troub
 hash: nZ9iwqzpPCgUmOMh5sGuI61nhF/AbN4qjs0NScofA38=
 ---
 # 适配器错误 – 安装、启动和性能问题
-本章仅关注**适配器特定问题**。对于一般系统问题（ioBroker 启动失败、数据库锁定、Node.js 更新），请参阅：[ioBroker 已停止运行](https://www.iobroker.net/#de/documentation/trouble/RunsNoMore.md)
+本章仅关注**适配器特定问题**。对于一般系统问题（ioBroker 启动失败、数据库锁定、Node.js 更新），请参阅：[ioBroker 已停止运行](/docs/trouble/RunsNoMore.md)
 
 ---
 
@@ -69,9 +69,9 @@ iob update
 iobroker upgrade <adaptername>@<stable-version>
 ```
 
-**了解存储库差异：** → 请参阅 [什么是代码仓库？](https://www.iobroker.net/#de/documentation/basics/repositories.md)
+**了解存储库差异：** → 请参阅 [什么是代码仓库？](/docs/basics/repositories.md)
 
-**关于 Node.js 版本问题：** → 请参阅 [Node.js 更新说明](https://www.iobroker.net/#de/documentation/install/updatenode.md)
+**关于 Node.js 版本问题：** → 请参阅 [Node.js 更新说明](/docs/install/updatenode.md)
 
 关于 npm 缓存问题：
 
@@ -186,7 +186,7 @@ iobroker rebuild <adaptername>
 ```
 
 ### 硬件相关的启动问题
-**当“意外令牌”与树莓派结合使用时：** → 可能是 SD 卡损坏！请参阅 [硬件诊断](https://www.iobroker.net/#de/documentation/trouble/RunsNoMore.md)
+**当“意外令牌”与树莓派结合使用时：** → 可能是 SD 卡损坏！请参阅 [硬件诊断](/docs/trouble/RunsNoMore.md)
 
 ---
 

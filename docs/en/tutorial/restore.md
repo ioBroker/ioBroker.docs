@@ -20,7 +20,7 @@ At the end, all data is available again and a new system has been set up.
 For preparation, a working ioBroker installation is mandatory.
 
 There are two ways to achieve this.
-Either take a finished image from [download area](https://www.iobroker.net/#de/download), set up your own Linux OS and install ioBroker according to this [Instructions](https://www.iobroker.net/#de/documentation/install/linux.md).
+Either take a finished image from [download area](/installation), set up your own Linux OS and install ioBroker according to this [Instructions](/docs/install/linux.md).
 
 ### Next step
 If the old system had stored the states and/or objects in Redis, the new system must first be equipped with the Redis server.

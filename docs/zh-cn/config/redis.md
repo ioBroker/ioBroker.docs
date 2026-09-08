@@ -84,7 +84,7 @@ Redis 默认使用端口 6379，还包含用于访问数据库的命令行工具
 
 然后，`sudo systemctl restart redis-server` 使用更新后的配置重新启动服务器。
 
-有关更多详细信息，请参阅[多主机](https://www.iobroker.net/#de/documentation/config/multihost.md)
+有关更多详细信息，请参阅[多主机](/docs/config/multihost.md)
 
 ## 将ioBroker数据库切换到Redis
 大多数更改和数据查询都发生在 States 数据库中。所有数据更改都会到达此处，然后在适配器注册特定数据后分发回适配器。

@@ -15,4 +15,4 @@ die Protokolle noch einmal an.
 kostet Schreibzugriffe. Auf einer SD-Karte ist das keine gute Idee.
 
 Die Vorgabe für **neue** Instanzen steht in den
-[Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md).
+[Systemeinstellungen](/docs/admin/settings.md).

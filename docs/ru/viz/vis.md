@@ -6,7 +6,7 @@ translatedWarning: Если вы хотите отредактировать э�
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/viz/vis.md
 hash: IOurisSrCf2GXRIDs/bHt7/nnV+lzS1EcU3sfyw6FtY=
 ---
-?> ***Эта страница в настоящее время редактируется.***.<br><br> Помогите ioBroker и дополните эту статью. Обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы облегчить применение изменений.
+?> ***Эта страница в настоящее время редактируется.***.<br><br> Помогите ioBroker и дополните эту статью. Обратите внимание на [Руководство по стилю ioBroker](/docs/community/styleguidedoc.md), чтобы облегчить применение изменений.
 
 **Визуализации с помощью VIS**
 
@@ -105,7 +105,7 @@ VIS — это основной инструмент визуализации io
 Можно указать рабочий язык редактора.
 
 #### Проекты
-Проекты представляют собой коллекции [Просмотры](http://www.iobroker.net/?page_id=1193&lang=de).
+Проекты представляют собой коллекции [Просмотры](/docs/viz/vis.md#views).
 По умолчанию проект _main_ создается и вызывается через `<IPdesServers>:8082/vis/index.html#ViewName`.
 Файлы проекта расположены в установке ioBroker в папке `_ioBroker-Ordner_/iobroker-data/files/vis.0/main`.
 
@@ -120,7 +120,7 @@ VIS — это основной инструмент визуализации io
 **Совет**. Вы можете дублировать папку проекта и редактировать дубликат в редакторе VIS `<IPdesServers>:8082/vis/_projektname_duplikat_/index.html`.
 
 #### Приложение
-При загрузке проекта все [Просмотры] :construction: (http://www.iobroker.net/?page_id=1193&lang=de) этого [проекта] :construction: (http://www.iobroker.net/? page_id =188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#Project).
+При загрузке проекта все [Просмотры] :construction: (/docs/viz/vis.md#views) этого [проекта] :construction: .
 Иногда это не имеет смысла и замедляет работу системы.
 Таким образом, представления, которые принадлежат друг другу, могут быть сгруппированы в разных проектах.
 Например, имеет смысл разделить устройства с разным разрешением экрана.
@@ -129,7 +129,7 @@ VIS — это основной инструмент визуализации io
 Другой проект _Wall Tablet_, который отображается только на планшете на стене, не требует загрузки каких-либо представлений из _Smartphone _project.
 Основной проект _main_ для отображения всех данных обычно отображается и редактируется только с настольного ПК.
 Объем данных и скорость вычислений здесь обычно не играют роли.
-Если представления будут использоваться в нескольких проектах, их можно скопировать с помощью команды [экспорт](http://www.iobroker.net/?page_id=188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#exportieren) :construction:/ [импортировать](http://www.iobroker.net/?page_id=188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#importieren) :construction:.
+Если представления будут использоваться в нескольких проектах, их можно скопировать с помощью команды [экспорт](/docs/viz/vis.md#tools) :construction:/ [импортировать](/docs/viz/vis.md#tools) :construction:.
 Связывание одного проекта с другим через навигационные виджеты невозможно.
 **Совет**. При экспериментировании с командами CSS также имеет смысл создать тестовый проект.
 

@@ -10,7 +10,7 @@ eine Hardware es *kann*, sondern ob sie es **rund um die Uhr, über Jahre und
 ohne Aufsicht** kann. Danach richten sich die Empfehlungen auf dieser Seite.
 
 Die Mindest- und Richtwerte für Arbeitsspeicher und Plattenplatz stehen unter
-[Anforderungen](https://www.iobroker.net/#de/documentation/install/requirements.md).
+[Anforderungen](/docs/install/requirements.md).
 Hier geht es um die Geräteklassen selbst.
 
 ## Die vier Klassen
@@ -48,7 +48,7 @@ datenbank, Grafana, Kameras, Sprachverarbeitung - ist das die untere Grenze.
 ### NAS
 
 Wer ohnehin ein NAS betreibt, kann ioBroker dort im
-[Docker-Container](https://www.iobroker.net/#de/documentation/install/docker.md)
+[Docker-Container](/docs/install/docker.md)
 laufen lassen. Das spart ein Gerät, hat aber zwei Haken: Das NAS muss die
 Ressourcen zusätzlich zu seinen eigenen Aufgaben aufbringen, und Adapter, die
 Geräte im Netz suchen oder auf angesteckte Hardware zugreifen, brauchen
@@ -58,7 +58,7 @@ besondere Einstellungen am Container.
 
 Auf einem Rechner laufen mehrere Systeme nebeneinander, ioBroker ist eines
 davon - siehe
-[Proxmox](https://www.iobroker.net/#de/documentation/install/proxmox.md). Der
+[Proxmox](/docs/install/proxmox.md). Der
 Vorteil ist die Trennung: Ein Schnappschuss vor einem Update, und im Zweifel ist
 der Stand von vorhin in einer Minute zurück. Der Preis ist eine weitere Ebene,
 die man verstehen und pflegen muss.

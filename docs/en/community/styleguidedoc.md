@@ -95,6 +95,6 @@ to note:
 
 [Plugin]: http://editorconfig.org/#download
 
-[Style Guide]: https://www.iobroker.net/#de/documentation/dev/adapterdocstyleguide.md
+[Style Guide]: /docs/dev/adapterdocstyleguide.md
 
-[Markdown]: https://www.iobroker.net/#de/documentation/community/docmarkdown.md
+[Markdown]: /docs/community/docmarkdown.md
