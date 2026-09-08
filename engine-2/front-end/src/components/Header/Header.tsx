@@ -243,6 +243,7 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Forum"
+                        className={classes.link}
                     >
                         {tt('menu-forum', 'Forum')}
                     </Box>
