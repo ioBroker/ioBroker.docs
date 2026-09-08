@@ -7,6 +7,7 @@ import httpsModule from 'node:https';
 import type { Express, Request, Response, NextFunction } from 'express';
 import express from 'express';
 import bodyParser from 'body-parser';
+import compression from 'compression';
 import cors from 'cors';
 import { rateLimit } from 'express-rate-limit';
 
@@ -95,6 +96,10 @@ export default function init(config: AppConfig): {
     }
 
     app.app.disable('x-powered-by');
+
+    // Compress every response. Must be registered before the static handlers below,
+    // otherwise the site is delivered uncompressed - nothing else in front of it does gzip.
+    app.app.use(compression());
 
     // X\-Frame\-Options
     app.app.use((req: Request, res: Response, next: NextFunction) => {

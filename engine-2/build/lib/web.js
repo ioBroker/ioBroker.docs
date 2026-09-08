@@ -10,6 +10,7 @@ const node_http_1 = __importDefault(require("node:http"));
 const node_https_1 = __importDefault(require("node:https"));
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
+const compression_1 = __importDefault(require("compression"));
 const cors_1 = __importDefault(require("cors"));
 const express_rate_limit_1 = require("express-rate-limit");
 const logger_1 = __importDefault(require("./logger"));
@@ -71,6 +72,9 @@ function init(config) {
         };
     }
     app.app.disable('x-powered-by');
+    // Compress every response. Must be registered before the static handlers below,
+    // otherwise the site is delivered uncompressed - nothing else in front of it does gzip.
+    app.app.use((0, compression_1.default)());
     // X\-Frame\-Options
     app.app.use((req, res, next) => {
         res.set('X-Frame-Options', 'SAMEORIGIN');

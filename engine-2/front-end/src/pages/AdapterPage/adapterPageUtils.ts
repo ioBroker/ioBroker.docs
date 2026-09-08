@@ -1,5 +1,24 @@
 export const normalizeKey = (key: string): string => key.trim().toLowerCase();
 
+/**
+ * The name of an adapter as the route carries it. "midea" is the form the menu links to,
+ * but the addresses of the former site named the repository - "iobroker.midea" - and they
+ * are still in the wild, with and without a closing slash. All of them mean one adapter.
+ */
+export const normalizeAdapterId = (adapterId: string): string => {
+    let id = adapterId;
+    try {
+        id = decodeURIComponent(adapterId);
+    } catch {
+        // a broken escape in the address stays as it is
+    }
+    return id
+        .replace(/\/+$/, '')
+        .replace(/^iobroker\./i, '')
+        .trim()
+        .toLowerCase();
+};
+
 export const cleanFrontmatterValue = (key: string, value: string): string => {
     let result = value.trim();
     if (key.toLowerCase() === 'logo') {

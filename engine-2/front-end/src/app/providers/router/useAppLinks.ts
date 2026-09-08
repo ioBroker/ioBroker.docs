@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { pathToRoute } from '../../../utils/routes';
+import { parseLegacyHash, pathToRoute } from '../../../utils/routes';
+import { setLang } from '../../../utils/i18n';
 
 /**
  * The app addresses its own pages as "/#/adapters", but the same pages are linked from
@@ -12,6 +13,19 @@ export function useAppLinks(): void {
     const navigate = useNavigate();
 
     useEffect(() => {
+        /** an address of the former site - "#de/adapters/adapterref/iobroker.midea/README.md" */
+        const goLegacy = (hash: string, replace = false): boolean => {
+            const legacy = parseLegacyHash(hash);
+            if (!legacy) {
+                return false;
+            }
+            if (legacy.language) {
+                setLang(legacy.language);
+            }
+            void navigate(legacy.route, { replace });
+            return true;
+        };
+
         const onClick = (event: MouseEvent): void => {
             // a modifier opens a new tab or window - that is the browser's job
             if (
@@ -33,9 +47,16 @@ export function useAppLinks(): void {
                 return;
             }
             const href = anchor.getAttribute('href');
-            // "#/adapters" and "#section" are the app's own spellings - the browser
-            // changes the hash and the router follows, no page load involved
-            if (!href || href.startsWith('#')) {
+            if (!href) {
+                return;
+            }
+            // "#/adapters" and "#section" are the app's own spellings - the browser changes
+            // the hash and the router follows, no page load involved. "#de/adapters/..." is
+            // an address of the former site and has to be translated first.
+            if (href.startsWith('#')) {
+                if (goLegacy(href)) {
+                    event.preventDefault();
+                }
                 return;
             }
             let url: URL;
@@ -46,6 +67,10 @@ export function useAppLinks(): void {
             }
             // another host, and mailto:/tel: with their opaque origin, leave the app
             if (url.origin !== window.location.origin) {
+                return;
+            }
+            if (goLegacy(url.hash)) {
+                event.preventDefault();
                 return;
             }
             // "https://www.iobroker.net/#/adapters" - same page, only the hash moves,
@@ -65,7 +90,17 @@ export function useAppLinks(): void {
             void navigate(route);
         };
 
+        // the safety net: an old address typed into the address bar, or one this handler
+        // did not see, still changes the hash - and lands here
+        const onHashChange = (): void => {
+            goLegacy(window.location.hash, true);
+        };
+
         document.addEventListener('click', onClick);
-        return () => document.removeEventListener('click', onClick);
+        window.addEventListener('hashchange', onHashChange);
+        return () => {
+            document.removeEventListener('click', onClick);
+            window.removeEventListener('hashchange', onHashChange);
+        };
     }, [navigate]);
 }

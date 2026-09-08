@@ -27,6 +27,7 @@ import {
     formatNumber,
     getBadge,
     getLocalizedText,
+    normalizeAdapterId,
     parseChangelog,
     parseFrontmatter,
     parseLicenseParagraphs,
@@ -49,12 +50,13 @@ const AdapterPage = (): React.ReactNode => {
     useEffect(() => I18n.subscribe(setLanguage), []);
 
     const adapterInfo = useMemo(() => {
-        if (!adaptersData?.pages || !adapterId) {
+        const name = normalizeAdapterId(adapterId);
+        if (!adaptersData?.pages || !name) {
             return null;
         }
         for (const [categoryKey, category] of Object.entries(adaptersData.pages)) {
             for (const adapter of Object.values(category.pages || {})) {
-                if (adapter?.title?.en === adapterId) {
+                if (adapter?.title?.en?.toLowerCase() === name) {
                     return {
                         adapter,
                         categoryKey,
