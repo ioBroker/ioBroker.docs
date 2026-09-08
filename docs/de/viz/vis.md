@@ -209,9 +209,10 @@ Das Verlinken über Navigationswidgets von einem Projekt zum anderen ist nicht m
 Nach Auswahl dieses Menüpunkts können auf bequeme Weise Dateien in das ioBroker Dateisystem hinein 
 oder herauskopiert werden, ohne dass weitere Zusatzprogramme benötigt werden. 
 Der Dateimanager öffnet sich:
-![align="aligncenter" width="799"](media/iobroker_vis_Editor_Setup_Dateimanager.JPG)
-[caption id="attachment_6007" align="aligncenter" width="799"][![](img/ioBroker_Adapter_Vis_Editor_Setup_filemanager.jpg)](img/ioBroker_Adapter_Vis_Editor_Setup_filemanager.jpg) 
-*Die Bilder sind nur die Beispielbilder und sind von entsprechenden Firmen urheberrechtlich geschützt.[/caption]
+![Der Dateimanager des vis-Editors](media/iobroker_vis_Editor_Setup_Dateimanager.JPG)
+
+?> Die abgebildeten Bilder sind Beispiele und von den jeweiligen Firmen
+urheberrechtlich geschützt.
 
 Das Verhalten ähnelt jedem Dateimanager. 
 Über den blauen Button "Pfeil links" manövriert man eine Hierarchie-ebene höher, 

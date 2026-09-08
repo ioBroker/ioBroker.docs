@@ -109,7 +109,7 @@ Diese Dokumentation ist wie ein "Kochbuch", aber ohne Erklärungen zu Javascript
 
 2.  Füllen Sie die Felder wie folgt aus, beachten Sie aber die systembedingten Unterschiede in den Pfaden `Node interpreter` und `Working directory`. In der folgenden Abbildung wird dies an dem Beispiel des ioBroker.beckhoff Adapters mit der die Instanznummer 0 dargestellt. Dies kann auf jeden Adapter übertragen werden. Zu beachten ist, dass im Feld `Application parameters` die richtige Instanz angegeben wird. 
 
-    ![Configuration](../../de/dev/media/Run-Debug Configurations.png)
+    ![Configuration](<../../de/dev/media/Run-Debug Configurations.png>)
     
 ## Debuggen eines Adapters
  1. Falls ioBroker noch nicht läuft, starten Sie den ioBroker.
