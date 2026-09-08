@@ -11,7 +11,8 @@ export const useStyles = makeStyles()(theme => ({
         position: 'relative',
     },
     pageContainer: {
-        // left aligned on the page gutter; the article keeps its own max width
+        // the full width up to the page gutter - the article inside it is centred and keeps its own
+        // max width, so the post stands in the middle of the screen and not against its left edge
         width: '100%',
         maxWidth: '100%',
         margin: 0,
@@ -31,7 +32,7 @@ export const useStyles = makeStyles()(theme => ({
         gap: '8px',
         width: '100%',
         maxWidth: `${ARTICLE_MAX_WIDTH}px`,
-        margin: '0 0 24px 0',
+        margin: '0 auto 24px',
         height: theme.custom.control.compactHeight,
         padding: '0 14px 0 10px',
         border: 'none',
@@ -55,7 +56,7 @@ export const useStyles = makeStyles()(theme => ({
     article: {
         width: '100%',
         maxWidth: `${ARTICLE_MAX_WIDTH}px`,
-        margin: 0,
+        margin: '0 auto',
         borderRadius: `${theme.custom.radius.card}px`,
         border: 'none',
         backgroundColor: theme.custom.surfaces.surface,
@@ -146,7 +147,7 @@ export const useStyles = makeStyles()(theme => ({
     pagination: {
         width: '100%',
         maxWidth: `${ARTICLE_MAX_WIDTH}px`,
-        margin: '24px 0 0 0',
+        margin: '24px auto 0',
         display: 'flex',
         justifyContent: 'space-between',
         gap: '16px',

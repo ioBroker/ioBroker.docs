@@ -20,7 +20,7 @@
     "Statistics": "Статистика",
     "adapters": {
         "label": "Адаптер",
-        "total": "Общее количество",
+        "popular": "Популярные",
         "edit_on_github": "Редактировать на GitHub",
         "badges": "Бейджи",
         "history": "История",

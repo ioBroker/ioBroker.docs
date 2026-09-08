@@ -15,7 +15,7 @@ import AdaptersListIcon from '../../assets/img/whiteAdaptersList.svg';
 import { useAdapters } from '../../api/hooks/useAdapters';
 import { Footer } from '../../components/Footer/Footer';
 import Divider from '../../components/Divider/Divider';
-import { getLocalizedTitle, normalizeText } from './adaptersPageUtils';
+import { getLocalizedTitle, normalizeText, pickPopularAdapters } from './adaptersPageUtils';
 import type { AdapterItem } from '../../components/AdapterItem/AdapterItem';
 
 const STORAGE_KEY = 'adaptersPageState';
@@ -174,7 +174,9 @@ const AdaptersPage = (): JSX.Element => {
             return searchTerm ? items.filter(adapter => matchesSearchFast(adapter)) : items;
         }
         const all = Object.values(adaptersData.pages).flatMap(category => Object.values(category.pages || {}));
-        return searchTerm ? all.filter(adapter => matchesSearchFast(adapter)) : all;
+        // A search asks for one particular adapter and has to be able to reach every one of them.
+        // Without one, the overview shows the most installed instead of all of them at once.
+        return searchTerm ? all.filter(adapter => matchesSearchFast(adapter)) : pickPopularAdapters(all);
     }, [adaptersData, selectedCategoryKey, searchTerm, adapterSearchIndex]);
 
     const adaptersGridContent = useMemo(() => {

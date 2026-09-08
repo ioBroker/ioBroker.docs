@@ -20,7 +20,7 @@
     "Statistics": "Statistics",
     "adapters": {
         "label": "Adapter",
-        "total": "Total",
+        "popular": "Popular",
         "edit_on_github": "Edit on GitHub",
         "badges": "Badges",
         "history": "History",

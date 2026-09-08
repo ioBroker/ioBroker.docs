@@ -110,6 +110,9 @@ export const useStyles = makeStyles()(theme => ({
     tableCard: {
         maxHeight: '340px',
         overflowY: 'auto',
+        // The head stays in view while the rows scroll past it, and for that it has to reach the
+        // edges of the card - so the side padding sits on the head and on the rows, not here.
+        padding: '0 0 16px',
         '&::-webkit-scrollbar': { width: '8px' },
         '&::-webkit-scrollbar-track': { background: 'transparent' },
         '&::-webkit-scrollbar-thumb': {
@@ -128,10 +131,16 @@ export const useStyles = makeStyles()(theme => ({
 
     /* ------------------------------------------------------------- the table */
     tableHeader: {
+        // in view whatever the list does below it - the card is the scroll container
+        position: 'sticky',
+        top: 0,
+        zIndex: 1,
+        // opaque, or the rows would show through while they pass underneath
+        background: theme.custom.surfaces.raised,
         display: 'grid',
         gridTemplateColumns: '1fr 88px 64px',
         gap: '8px',
-        paddingBottom: '8px',
+        padding: '16px 16px 8px',
         borderBottom: `1px solid ${theme.custom.hairline}`,
     },
     // a sortable column head is a button, so it can be reached with the keyboard
@@ -169,7 +178,7 @@ export const useStyles = makeStyles()(theme => ({
         display: 'grid',
         gridTemplateColumns: '1fr 88px 64px',
         gap: '8px',
-        padding: '8px 0',
+        padding: '8px 16px',
         fontSize: theme.custom.reading.small.fontSize,
         lineHeight: theme.custom.reading.small.lineHeight,
         color: theme.palette.text.primary,

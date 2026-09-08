@@ -33,6 +33,7 @@ import VisualisierungWidgetsIcon from '../../assets/img/adaptersMenuIcons/Visual
 import WetterIcon from '../../assets/img/adaptersMenuIcons/Wetter.svg';
 import { useAdapters } from '../../api/hooks/useAdapters';
 import { I18n } from '../../utils/i18n';
+import { POPULAR_ADAPTERS_COUNT } from '../../pages/AdaptersPage/adaptersPageUtils';
 
 // Fallback translations for category keys when API data has no localized title
 const categoryFallback: Record<string, Record<string, string>> = {
@@ -174,16 +175,18 @@ export const AdapterMenu = ({
                 return acc;
             }
             const label = item.isTotal
-                ? I18n.t('adapters.total')
+                ? I18n.t('adapters.popular')
                 : getLocalizedTitle(category.title as Record<string, string>, language) ||
                   (categoryFallback[item.key] && getLocalizedTitle(categoryFallback[item.key], language)) ||
                   item.key;
             const adapters = Object.values(category.pages || {});
             const matched = searchTerm ? adapters.filter(adapter => matchesSearchFast(adapter)) : adapters;
-            const totalMatched = searchTerm
+            // The badge says how many the entry shows, not how many exist: a search reaches all of
+            // them, without one the overview stops at the most installed.
+            const overviewCount = searchTerm
                 ? Array.from(adapterSearchIndex.values()).filter(text => text.includes(searchTerm)).length
-                : totalAdapters;
-            const count = item.isTotal ? totalMatched : matched.length;
+                : Math.min(totalAdapters, POPULAR_ADAPTERS_COUNT);
+            const count = item.isTotal ? overviewCount : matched.length;
             if (searchTerm && !item.isTotal && count === 0) {
                 return acc;
             }
