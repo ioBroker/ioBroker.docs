@@ -4,6 +4,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { I18n } from '../../utils/i18n';
 import { LICENSES_NET_MARKETPLACE_LINK, LICENSES_PRO_MARKETPLACE_LINK } from '../../config/api';
 import { isMonochromeProductImage } from './products';
+import { withConsent } from '../../utils/consent';
 
 export interface CardOption {
     /** value of the segmented control */
@@ -341,7 +342,9 @@ const ProductCard = (props: ProductCardProps): React.JSX.Element => {
             <Button
                 variant="contained"
                 component="a"
-                href={props.pro ? LICENSES_PRO_MARKETPLACE_LINK : LICENSES_NET_MARKETPLACE_LINK}
+                // the marketplace of pro lies on the other registrable domain - the cookie decision
+                // cannot follow it by itself and rides along on the address
+                href={withConsent(props.pro ? LICENSES_PRO_MARKETPLACE_LINK : LICENSES_NET_MARKETPLACE_LINK)}
                 sx={styles.button}
             >
                 {I18n.t('productOverview.order')}

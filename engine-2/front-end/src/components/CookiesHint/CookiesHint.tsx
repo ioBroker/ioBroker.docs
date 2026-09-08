@@ -6,11 +6,7 @@ import { I18n } from '../../utils/i18n';
 import CookieIcon from '../icons/CookieIcon';
 import { IMPRINT_LINK, PRIVACY_LINK } from '../../config/api';
 import { useStyles } from './CookiesHint.styles';
-
-/** m - minimal, c - commercial, s - statistics, "-" - all declined */
-type PossibleSettings = '' | '-' | 'cms' | 'ms' | 'cm' | 'm' | 'acknowledged';
-
-const STORAGE_KEY = 'cookieUsage';
+import { readConsent, writeConsent, type PossibleSettings } from '../../utils/consent';
 
 /** the footer link opens the settings again, from wherever the banner is mounted */
 export const COOKIE_SETTINGS_EVENT = 'iobroker-cookie-settings';
@@ -27,11 +23,7 @@ const isLegalPage = (): boolean => {
 
 /** the three pieces of state the banner keeps, as they are stored in the browser */
 const readStoredSettings = (): { acknowledged: PossibleSettings; commercial: boolean; statistics: boolean } => {
-    const settings: PossibleSettings = (window.localStorage.getItem(STORAGE_KEY) as PossibleSettings) || '';
-    // legacy value of the old website
-    if ((settings as string) === 'acknowledged') {
-        return { acknowledged: '', commercial: false, statistics: false };
-    }
+    const settings = readConsent();
     return { acknowledged: settings, commercial: settings.includes('c'), statistics: settings.includes('s') };
 };
 
@@ -61,7 +53,7 @@ export default function CookiesHint(props: { force?: boolean; onClose?: () => vo
     }, [readSettings]);
 
     const close = (value: PossibleSettings): void => {
-        window.localStorage.setItem(STORAGE_KEY, value);
+        writeConsent(value);
         setAcknowledged(value);
         setReopened(false);
         setFull(false);
