@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import React, { memo, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { useLocation } from 'react-router-dom';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { createSlugger, makeSlug } from '../../utils/markdown';
@@ -52,6 +53,9 @@ export const MarkdownView = memo(function MarkdownView({
     linkImage,
 }: MarkdownViewProps): React.ReactNode {
     const markdownForRender = markdown ? normalizeImageTags(markdown) : '';
+    // a jump inside the same document goes through the router - that writes the address
+    // with pushState and fires no `hashchange`, so the location itself is the trigger
+    const { hash: locationHash } = useLocation();
     const scrollToHeading = (id: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault();
         scrollToAnchor(id);
@@ -78,7 +82,7 @@ export const MarkdownView = memo(function MarkdownView({
             timers.forEach(timer => window.clearTimeout(timer));
             window.removeEventListener('hashchange', handleHash);
         };
-    }, [markdownForRender]);
+    }, [markdownForRender, locationHash]);
 
     const getUniqueId = createSlugger();
     let headingIndex = 0;

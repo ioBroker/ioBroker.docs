@@ -14,7 +14,7 @@ import { I18n } from '../../utils/i18n';
 import {
     ADAPTERS_LINK,
     BLOG_LINK,
-    DOCS_LINK,
+    DOCS_LINK, getLink,
     IMPRINT_LINK,
     INSTALLATION_LINK,
     LICENSES_LINK,
@@ -172,17 +172,17 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                     <Link
                                         classes={classes}
                                         name="adapters"
-                                        url={ADAPTERS_LINK}
+                                        url={getLink(ADAPTERS_LINK)}
                                     />
                                     <Link
                                         classes={classes}
                                         name="licenses"
-                                        url={LICENSES_LINK}
+                                        url={getLink(LICENSES_LINK)}
                                     />
                                     <Link
                                         classes={classes}
                                         name="installation"
-                                        url={INSTALLATION_LINK}
+                                        url={getLink(INSTALLATION_LINK)}
                                     />
                                 </div>
                             </Braces>
@@ -195,17 +195,17 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                     <Link
                                         classes={classes}
                                         name="blog"
-                                        url={BLOG_LINK}
+                                        url={getLink(BLOG_LINK)}
                                     />
                                     <Link
                                         classes={classes}
                                         name="docs"
-                                        url={DOCS_LINK}
+                                        url={getLink(DOCS_LINK)}
                                     />
                                     <Link
                                         classes={classes}
                                         name="statistics"
-                                        url={STATISTICS_LINK}
+                                        url={getLink(STATISTICS_LINK)}
                                     />
                                 </div>
                             </Braces>
@@ -226,12 +226,12 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                                         <Link
                                             classes={classes}
                                             name="imprint"
-                                            url={IMPRINT_LINK}
+                                            url={getLink(IMPRINT_LINK)}
                                         />
                                         <Link
                                             classes={classes}
                                             name="policy"
-                                            url={PRIVACY_LINK}
+                                            url={getLink(PRIVACY_LINK)}
                                         />
                                     </div>
                                 </Braces>
@@ -318,14 +318,14 @@ export const Footer = ({ scrollTop }: FooterProps): React.ReactNode => {
                     <Box
                         component="a"
                         className={`${classes.link} ${classes.legalLinksDesktop}`}
-                        href={IMPRINT_LINK}
+                        href={getLink(IMPRINT_LINK)}
                     >
                         {I18n.t('Imprint')}
                     </Box>
                     <Box
                         component="a"
                         className={`${classes.link} ${classes.legalLinksDesktop}`}
-                        href={PRIVACY_LINK}
+                        href={getLink(PRIVACY_LINK)}
                     >
                         {I18n.t('Privacy')}
                     </Box>

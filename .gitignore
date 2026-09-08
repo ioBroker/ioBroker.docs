@@ -5,6 +5,7 @@
 /api-key.json
 
 /engine/node_modules
+/engine/config.dist.json
 /engine/front-end/public/de
 /engine/front-end/public/en
 /engine/front-end/public/ru
@@ -20,6 +21,7 @@
 /.claude/settings.local.json
 
 /engine-2/node_modules
+/engine-2/config.json
 /engine-2/front-end/public/de
 /engine-2/front-end/public/en
 /engine-2/front-end/public/ru

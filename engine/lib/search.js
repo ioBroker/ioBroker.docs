@@ -1,6 +1,6 @@
 'use strict';
 
-const config = require('../config');
+const config = require('../config.dist.json');
 const MiniSearch = require('minisearch');
 const path = require('node:path');
 const fs = require('node:fs');

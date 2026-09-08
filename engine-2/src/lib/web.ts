@@ -123,8 +123,35 @@ export default function init(config: AppConfig): {
     app.app.use('/{*splat}/adapterref/{*rest}', cors());
 
     // Static directory
-    console.log(`Serving ${path.join(__dirname, '../..', config.public)}`);
-    app.app.use(express.static(path.join(__dirname, '../..', config.public)));
+    const publicDir = path.join(__dirname, '../..', config.public);
+    console.log(`Serving ${publicDir}`);
+    app.app.use(express.static(publicDir));
+
+    /**
+     * The paths the single page application renders itself. No file lies behind them, so a
+     * request that reaches this point - an entry from outside, a reload, a shared link -
+     * is answered with the shell and the router in the browser takes it from there.
+     * Everything else (the language folders with the markdown, the JSON indexes, the icons)
+     * has already been served by `express.static` above and falls through to the 404.
+     */
+    const APP_ROUTES = [
+        '/installation',
+        '/adapters',
+        '/blog',
+        '/docs',
+        '/productoverview',
+        '/statistics',
+        '/imprint',
+        '/policy',
+    ];
+    app.app.get('/{*splat}', (req: Request, res: Response, next: NextFunction): void => {
+        const isAppRoute = APP_ROUTES.some(route => req.path === route || req.path.startsWith(`${route}/`));
+        if (isAppRoute) {
+            res.sendFile(path.join(publicDir, 'index.html'));
+        } else {
+            next();
+        }
+    });
 
     app.app.use(bodyParser.json({ limit: 50000000, type: 'application/json' }));
 

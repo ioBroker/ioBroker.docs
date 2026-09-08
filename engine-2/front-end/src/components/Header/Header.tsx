@@ -23,7 +23,7 @@ import { useHeaderStyles } from './Header.styles';
 import SearchDialog from '../SearchDialog/SearchDialog';
 import MenuModal, { type MenuItems, type MenuItemsSmall } from '../Menu/Menu';
 import { I18n } from '../../utils/i18n';
-import { ADAPTERS_LINK, BLOG_LINK, DOCS_LINK, HOME_LINK, LICENSES_LINK, PROFILE_LINK } from '../../config/api';
+import { ADAPTERS_LINK, BLOG_LINK, DOCS_LINK, getLink, HOME_LINK, LICENSES_LINK, PROFILE_LINK } from '../../config/api';
 import { logout } from '../../config/auth';
 import { EXTERNAL_LINKS } from '../../config/links';
 
@@ -79,7 +79,7 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
             >
                 <MenuItem
                     component="a"
-                    href={PROFILE_LINK}
+                    href={getLink(PROFILE_LINK)}
                     onClick={() => setShowProfileMenu(null)}
                 >
                     <ListItemIcon className={classes.profileMenuIcon}>
@@ -117,7 +117,7 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
 
             <Box
                 component="a"
-                href={HOME_LINK}
+                href={getLink(HOME_LINK)}
                 className={classes.logoLink}
             >
                 <img
@@ -209,32 +209,45 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
             <Box className={classes.navBox}>
                 <Box
                     component="a"
-                    href={ADAPTERS_LINK}
+                    href={getLink(ADAPTERS_LINK)}
                     className={`${classes.link} ${selected === 'adapters' ? classes.linkSelected : ''}`}
                 >
                     {tt('menu-adapters', 'Adapters')}
                 </Box>
                 <Box
                     component="a"
-                    href={DOCS_LINK}
+                    href={getLink(DOCS_LINK)}
                     className={`${classes.link} ${selected === 'docs' ? classes.linkSelected : ''}`}
                 >
                     {tt('menu-docs', 'Docs')}
                 </Box>
                 <Box
                     component="a"
-                    href={BLOG_LINK}
+                    href={getLink(BLOG_LINK)}
                     className={`${classes.link} ${selected === 'blog' ? classes.linkSelected : ''}`}
                 >
                     {tt('menu-blog', 'Blog')}
                 </Box>
                 <Box
                     component="a"
-                    href={LICENSES_LINK}
+                    href={getLink(LICENSES_LINK)}
                     className={`${classes.link} ${selected === 'licenses' ? classes.linkSelected : ''}`}
                 >
                     {tt('menu-licenses', 'Licenses')}
                 </Box>
+
+                <Tooltip title={I18n.t('tooltip.forum')}>
+                    <IconButton
+                        className={classes.iconButton}
+                        component="a"
+                        href={EXTERNAL_LINKS.FORUM}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Forum"
+                    >
+                        {tt('menu-forum', 'Forum')}
+                    </IconButton>
+                </Tooltip>
 
                 <Tooltip title={I18n.t('tooltip.github')}>
                     <IconButton
@@ -263,7 +276,7 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
                         <IconButton
                             className={classes.iconButton}
                             component="a"
-                            href={PROFILE_LINK}
+                            href={getLink(PROFILE_LINK)}
                         >
                             <PersonIcon />
                         </IconButton>

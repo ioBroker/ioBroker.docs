@@ -57,18 +57,18 @@ export const API_ENDPOINTS = {
 
 /**
  * Link to the blog.
- * On the dev server the blog is served by this SPA (short hash URL),
+ * On the dev server the blog is served by this SPA,
  * in production it still points to the existing page on iobroker.net.
  */
-export const BLOG_LINK = isDev ? '/#/blog' : 'https://www.iobroker.net/blog';
+export const BLOG_LINK = isDev ? '/blog' : 'https://www.iobroker.net/blog';
 
 /**
  * Imprint and privacy policy.
- * The dev server renders them inside this SPA (short hash URL), in production
- * they still point to the pages that are served today.
+ * Both are rendered by this SPA - the path is the same one the old site used,
+ * so existing links keep working.
  */
-export const IMPRINT_LINK = isDev ? '/#/imprint' : '/imprint';
-export const PRIVACY_LINK = isDev ? '/#/policy' : '/policy';
+export const IMPRINT_LINK = '/imprint';
+export const PRIVACY_LINK = '/policy';
 
 /**
  * Destinations of the top navigation.
@@ -76,10 +76,10 @@ export const PRIVACY_LINK = isDev ? '/#/policy' : '/policy';
  * sync by copy&paste until the shared library exists) - only this block differs,
  * because every app links to the pages it does not host itself.
  */
-export const HOME_LINK = '/#/';
-export const ADAPTERS_LINK = '/#/adapters';
-export const DOCS_LINK = '/#/docs';
-export const LICENSES_LINK = isDev ? '/#/productoverview' : 'https://www.iobroker.net/#/productoverview';
+export const HOME_LINK = '/';
+export const ADAPTERS_LINK = '/adapters';
+export const DOCS_LINK = '/docs';
+export const LICENSES_LINK = isDev ? '/productoverview' : 'https://www.iobroker.net/productoverview';
 
 /**
  * The two product catalogues. iobroker.net carries the adapter licenses,
@@ -93,7 +93,33 @@ export const PRODUCTS_PRO_URL = isDev ? '/api/products/pro' : 'https://iobroker.
 export const LICENSES_MARKETPLACE_LINK = isDev
     ? 'http://localhost:3002/www/licenses-marketplace'
     : 'https://www.iobroker.net/www/licenses-marketplace';
-export const PROFILE_LINK = '/#/profile';
-export const INSTALLATION_LINK = '/#/installation';
+export const PROFILE_LINK = '/profile';
+export const INSTALLATION_LINK = '/installation';
 /** the statistics now live in this app - the old absolute link left the site */
-export const STATISTICS_LINK = '#/statistics';
+export const STATISTICS_LINK = '/statistics';
+
+const DOCS_LINKS = [
+    HOME_LINK,
+    ADAPTERS_LINK,
+    DOCS_LINK,
+    BLOG_LINK,
+    LICENSES_LINK,
+    INSTALLATION_LINK,
+    STATISTICS_LINK,
+    IMPRINT_LINK,
+    PRIVACY_LINK,
+];
+const PROFILE_LINKS = [PROFILE_LINK];
+
+export function getLink(link: string): string {
+    if (window.location.hostname === 'localhost') {
+        return `http://localhost:${window.location.port}${link}`;
+    }
+    if (PROFILE_LINKS.includes(link)) {
+        return `https://${window.location.hostname.replace('www.', '')}:${window.location.port}${link}/`;
+    }
+    if (DOCS_LINKS.includes(link)) {
+        return `https://www.iobroker.net:${window.location.port}${link}/`;
+    }
+    return link;
+}

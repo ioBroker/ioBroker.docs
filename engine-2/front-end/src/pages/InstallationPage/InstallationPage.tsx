@@ -56,7 +56,7 @@ const PLATFORMS = [
  * The app routes on the hash, so an internal target is written as one - `CustomButton`
  * renders a plain anchor and the router picks the change up like any other link.
  */
-const LINUX_INFO_HREF = '#/docs/install/linux.md';
+const LINUX_INFO_HREF = '/docs/install/linux.md';
 
 const InstallationPage = (): React.ReactNode => {
     const { classes } = useStyles();
