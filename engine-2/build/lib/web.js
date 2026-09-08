@@ -43,6 +43,20 @@ function normalizePort(val) {
     }
     return false;
 }
+function httpGet(url) {
+    return new Promise((resolve, reject) => {
+        const lib = url.startsWith('https') ? node_https_1.default : node_http_1.default;
+        const request = lib.get(url, (response) => {
+            if (response.statusCode < 200 || response.statusCode > 299) {
+                reject(new Error(`Failed to load page, status code: ${response.statusCode}`));
+            }
+            const body = [];
+            response.on('data', (chunk) => body.push(chunk));
+            response.on('end', () => resolve(Buffer.concat(body).toString()));
+        });
+        request.on('error', (err) => reject(err));
+    });
+}
 function init(config) {
     const port = normalizePort(process.env.PORT || config.port || 443);
     let httpsOptions;
@@ -127,6 +141,39 @@ function init(config) {
         else {
             next();
         }
+    });
+    app.app.get('/api/products/net', (_req, res) => {
+        httpGet('https://iobroker.net:3001/api/v1/public/products')
+            .then(data => {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(data);
+        })
+            .catch(err => {
+            console.error(`Error fetching products: ${err}`);
+            res.status(500).send('Error fetching products');
+        });
+    });
+    app.app.get('/api/products/pro', (_req, res) => {
+        httpGet('https://iobroker.pro:3001/api/v1/public/products')
+            .then(data => {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(data);
+        })
+            .catch(err => {
+            console.error(`Error fetching products: ${err}`);
+            res.status(500).send('Error fetching products');
+        });
+    });
+    app.app.get('/api/iobroker/forum.json', (_req, res) => {
+        httpGet('https://www.iobroker.net/data/forum.json')
+            .then(data => {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(data);
+        })
+            .catch(err => {
+            console.error(`Error fetching products: ${err}`);
+            res.status(500).send('Error fetching products');
+        });
     });
     app.app.use(body_parser_1.default.json({ limit: 50000000, type: 'application/json' }));
     // Redirect install scripts

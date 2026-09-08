@@ -8,19 +8,19 @@ export default defineConfig({
         host: '0.0.0.0',
         proxy: {
             '/api/iobroker': {
-                target: 'https://www.iobroker.net',
+                target: 'https://www.iobroker.net:3001',
                 changeOrigin: true,
                 rewrite: (path: string): string => path.replace(/^\/api\/iobroker/, ''),
             },
             // the two product catalogues; neither host sends CORS headers,
             // so in development they are proxied through the dev server
             '/api/products/net': {
-                target: 'https://iobroker.net',
+                target: 'https://iobroker.net:3001',
                 changeOrigin: true,
                 rewrite: (): string => '/api/v1/public/products',
             },
             '/api/products/pro': {
-                target: 'https://iobroker.pro',
+                target: 'https://iobroker.pro:3001',
                 changeOrigin: true,
                 rewrite: (): string => '/api/v1/public/products',
             },

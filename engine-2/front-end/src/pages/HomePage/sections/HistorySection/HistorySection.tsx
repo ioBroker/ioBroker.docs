@@ -4,6 +4,8 @@ import { useStyles } from './HistorySection.styles';
 import { StyledButton } from '../../../../components/StyledButton/StyledButton';
 import { I18n } from '../../../../utils/i18n';
 
+const IOBROKER_START_DATE = new Date(2014, 6, 20); // July 20, 2014
+
 export const HistorySection: React.FC = () => {
     const { classes, cx } = useStyles();
     return (
@@ -17,7 +19,9 @@ export const HistorySection: React.FC = () => {
                         component="span"
                         className={classes.historyNumber}
                     >
-                        11
+                        {Math.floor(
+                            (new Date().getTime() - IOBROKER_START_DATE.getTime()) / (1000 * 60 * 60 * 24 * 365),
+                        )}
                     </Box>
                     <Box className={classes.plusJahreWrapper}>
                         <Box

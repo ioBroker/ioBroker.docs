@@ -25,8 +25,8 @@ export const CommunitySection: React.FC = () => {
 
     const communityData = [
         { title: I18n.t('home.community.forum'), count: format(forumStats?.users) },
-        { title: I18n.t('home.community.facebook'), count: format('20543') },
-        { title: I18n.t('home.community.discord'), count: format('2000') },
+        { title: I18n.t('home.community.facebook'), count: format('19700') },
+        { title: I18n.t('home.community.discord'), count: format('1500') },
     ];
 
     return (

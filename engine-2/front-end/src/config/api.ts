@@ -46,7 +46,7 @@ export const buildContentUrl = (path: string): string => {
  * section displayed a number without a value.
  */
 export const FORUM_STATS_URL = isDev
-    ? '/api/iobroker/data/forum.json'
+    ? '/api/iobroker/forum.json'
     : `https://www.iobroker.net:${window.location.port}/data/forum.json`;
 
 export const API_ENDPOINTS = {
@@ -85,8 +85,8 @@ export const LICENSES_LINK = '/#/productoverview';
  * iobroker.pro the access licenses. Neither host sends CORS headers, so in
  * development both go through the dev-server proxy (see vite.config.ts).
  */
-export const PRODUCTS_NET_URL = `https://iobroker.net:${window.location.port}/api/v1/public/products`;
-export const PRODUCTS_PRO_URL = `https://iobroker.pro:${window.location.port}/api/v1/public/products`;
+export const PRODUCTS_NET_URL = isDev ? `/api/products/net` : `https://iobroker.net:3001/api/v1/public/products`;
+export const PRODUCTS_PRO_URL = isDev ? `/api/products/pro` : `https://iobroker.pro:3001/api/v1/public/products`;
 
 /** "Order" on the product overview hands over to the marketplace in the profile app */
 export const LICENSES_PRO_MARKETPLACE_LINK = isDev

@@ -62,6 +62,21 @@ function normalizePort(val: string | number): number | string | false {
     return false;
 }
 
+function httpGet(url: string): Promise<string> {
+    return new Promise((resolve, reject) => {
+        const lib = url.startsWith('https') ? httpsModule : httpModule;
+        const request = lib.get(url, (response: any) => {
+            if (response.statusCode < 200 || response.statusCode > 299) {
+                reject(new Error(`Failed to load page, status code: ${response.statusCode}`));
+            }
+            const body: Uint8Array[] = [];
+            response.on('data', (chunk: Uint8Array) => body.push(chunk));
+            response.on('end', () => resolve(Buffer.concat(body).toString()));
+        });
+        request.on('error', (err: Error) => reject(err));
+    });
+}
+
 export default function init(config: AppConfig): {
     app: Express;
     server: ServerLike | null;
@@ -154,7 +169,39 @@ export default function init(config: AppConfig): {
             next();
         }
     });
-
+    app.app.get('/api/products/net', (_req: Request, res: Response): void => {
+        httpGet('https://iobroker.net:3001/api/v1/public/products')
+            .then(data => {
+                res.setHeader('Content-Type', 'application/json');
+                res.send(data);
+            })
+            .catch(err => {
+                console.error(`Error fetching products: ${err}`);
+                res.status(500).send('Error fetching products');
+            });
+    });
+    app.app.get('/api/products/pro', (_req: Request, res: Response): void => {
+        httpGet('https://iobroker.pro:3001/api/v1/public/products')
+            .then(data => {
+                res.setHeader('Content-Type', 'application/json');
+                res.send(data);
+            })
+            .catch(err => {
+                console.error(`Error fetching products: ${err}`);
+                res.status(500).send('Error fetching products');
+            });
+    });
+    app.app.get('/api/iobroker/forum.json', (_req: Request, res: Response): void => {
+        httpGet('https://www.iobroker.net/data/forum.json')
+            .then(data => {
+                res.setHeader('Content-Type', 'application/json');
+                res.send(data);
+            })
+            .catch(err => {
+                console.error(`Error fetching products: ${err}`);
+                res.status(500).send('Error fetching products');
+            });
+    });
     app.app.use(bodyParser.json({ limit: 50000000, type: 'application/json' }));
 
     // Redirect install scripts
