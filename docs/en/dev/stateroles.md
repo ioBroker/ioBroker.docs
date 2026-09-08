@@ -139,7 +139,7 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.rssi`            - received signal strength of a radio device (unit: dBm)
 * `value.time`            - getTime() of Date() object
 * `value.timer`           - duration in s (r/o equivalent to `level.timer`)
-* `value.interval`    (common.unit='sec') - Interval in seconds (can be 0.1 or less)
+* `value.interval`    (common.unit='sec', 'min', 'hours', 's', 'm', 'h', ...) - Interval in seconds (or other ocmmon timeunit) (can be 0.1 or less)
 * ~~value.date        (common.type=string) - Date in form 2015.01.01 (without time)~~
 * ~~value.datetime    (common.type=string) - Date and time in system format~~
 * `value.gps.longitude`   - gps longitude coordinates
@@ -254,7 +254,7 @@ With **levels**, you can control or set some number value.
 * `level.effect`          - effect, usually for lights. Should have list of possible effects in `common.states`. (`common.type=string`).
 * `level.timer`
 * `level.timer.sleep`    - sleep timer. 0 - off, or in minutes
-* `level.timer.off`      - time in seconds after which the device switches itself off again, e.g. the on-time of a lamp or a socket
+* `level.timer.off`      - time in seconds (or other common time unit) after which the device switches itself off again, e.g. the on-time of a lamp or a socket
 * ...
 * `level.volume`         - (`min=0, max=100`) - sound volume, but min, max can differ. min < max
 * `level.volume.group`   - (`min=0, max=100`) - sound volume, for the group of devices
@@ -358,9 +358,9 @@ Special roles for media players
 * `media.cover.big`       - big cover url
 * `media.cover.small`     - tiny cover url
 * `media.duration.text`   - e.g "2:35"
-* `media.duration`        - (`common.type=number`) seconds
+* `media.duration`        - (`common.type=number`) seconds (or other common time unit)
 * `media.elapsed.text`    - e.g "1:30"
-* `media.elapsed`         - (`common.type=number`) seconds
+* `media.elapsed`         - (`common.type=number`) seconds (or other common time unit)
 * `media.broadcastDate`   - (`common.type=string`) Broadcast date
 * `media.mute`            - (`common.type=boolean`) true is muted
 * `media.player.name`     - name of the player (`common.type=string`)
@@ -561,8 +561,8 @@ Role of an image (device type `image`):
 * `url.same`               - open URL in this window
 * `url.audio`              - URL for an audio file
 * `text.phone`             - phone number
-* `time.span`              - time difference in ms (common.type=number), i.e., time since last update, duration of operation, time until next try, ...
-* `time.interval`          - intervall value in ms (common.type=number), i.e. some polling interval
+* `time.span`              - time difference in ms (or other common time unit) (common.type=number), i.e., time since last update, duration of operation, time until next try, ...
+* `time.interval`          - intervall value in ms (or other common time unit) (common.type=number), i.e. some polling interval
 * `time.timeout`           - timeout value in ms (common.type=number), i.e. timeouts for communication requests
 * `chart`                  - JSON array with chart data, like `[{ts: 1678575600000, val: 1}, {ts: 1678579200000, val: 2}]`
 
