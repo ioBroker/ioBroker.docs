@@ -1,33 +1,65 @@
 ---
-title:       "Übersicht"
-lastChanged: "08.11.2022"
+title:       "Übersicht und Schnellzugriff"
+lastChanged: "07.09.2026"
 ---
-
 
 # Reiter Übersicht
 
-Hier werden Informationen zu allen Adaptern mit eigenem Webinterface sowie zu den Hosts 
-angezeigt.
+Die Übersicht ist die Startseite des Admin. Sie beantwortet auf einen Blick die Frage,
+ob das System gesund ist, und verlinkt von dort in die passenden Reiter.
 
-![Der Reiter Übersicht](media/ADMIN_Uebersicht.png)
+<img src="media/admin_uebersicht.png" alt="Der Reiter Uebersicht in Admin 8" width="900" />
 
+Oben rechts steht der Host, auf den sich die Anzeige bezieht, daneben, ob er **online**
+ist. Darunter folgen vier Kacheln:
 
-Klickt man eine Kachel an wird man auf die entsprechende Website geleitet, deren 
-Adresse sich unten in der Kachel befindet.
+| Kachel | Bedeutung |
+| ------ | --------- |
+| Systemstatus | Sammelmeldung aus laufenden Instanzen, Speicher und Protokoll. `OK` heißt: keine Fehler offen. |
+| Adapter | Wie viele Adapter installiert sind, und wie viele davon aktiv genutzt werden. |
+| Instanzen | Wie viele Instanzen angelegt und wie viele davon gestartet sind. |
+| Objekte | Anzahl der Objekte und der davon beschreibbaren Zustände. |
 
+Der Block **Systeminformationen** zeigt die Daten des Hosts: Plattform, Architektur,
+Node.js- und NPM-Version, die Laufzeit seit dem letzten Neustart sowie die aktuelle
+Auslastung von RAM und CPU.
 
-Ganz am Schluss befindet sich noch je eine Kachel zu jedem Host, der sich in dem System befindet. Bei Standalone Installationen ist das **der** ioBroker Server, bei 
-Multihost-Installationen sind das der Master und die Slaves.
+?> Wenn die RAM-Anzeige dauerhaft am Anschlag steht oder die Node.js-Version nicht der
+[empfohlenen LTS-Version](https://www.iobroker.net/#de/documentation/install/nodejs.md)
+entspricht, ist das der erste Punkt, an dem man ansetzt.
 
-Klickt man auf solch einer Kachel den Info-Button an erscheinen weiter Informationen 
-zu dem jeweiligen Host:
+Unten stehen die **Aktiven Adapter** mit ihrer Version und ihrem Zustand sowie die
+letzten Zeilen aus dem **Systemprotokoll**. Über *Alle anzeigen* geht es in die
+vollständige [Instanzenliste](https://www.iobroker.net/#de/documentation/admin/instances.md)
+bzw. in die [Protokolle](https://www.iobroker.net/#de/documentation/admin/log.md).
 
-![Der Reiter Übersicht](media/ADMIN_Uebersicht_host.png)
+# Reiter Schnellzugriff
 
-Den Inhalt dieses Reiters kann man nach eigenen Wünschen anpassen. Dazu muss rechts 
-unten auf das Bleistift-Icon geklickt werden:
+Der Schnellzugriff sammelt alle Adapter, die eine eigene Weboberfläche mitbringen, als
+Kacheln. Ein Klick auf eine Kachel öffnet diese Oberfläche unter der Adresse, die unten
+in der Kachel steht.
 
-![Der Reiter Übersicht](media/ADMIN_Uebersicht_edit.png)
+<img src="media/admin_schnellzugriff.png" alt="Der Reiter Schnellzugriff mit den Kacheln der Weboberflaechen" width="900" />
 
-nicht gewünschte Kacheln kann man dann abhaken. Anschließend die Auswahl noch mit 
-dem  Haken-Icon bestätigen oder mit dem X abbrechen.
+Am Ende steht je eine Kachel pro Host des Systems. Bei einer Standardinstallation ist das
+der eine ioBroker-Server, bei einem
+[Multihost-System](https://www.iobroker.net/#de/documentation/config/multihost.md)
+der Master und alle weiteren Hosts. Der Knopf **Info** in dieser Kachel klappt die
+Hardware- und Systemdaten des Hosts auf:
+
+<img src="media/admin_schnellzugriff_hostinfo.png" alt="Die Info-Ansicht einer Host-Kachel" width="340" />
+
+## Kacheln anpassen
+
+Welche Kacheln angezeigt werden, lässt sich frei festlegen. Dazu rechts unten auf das
+Bleistift-Symbol klicken. Jede Kachel bekommt dann ein Häkchen, das an- und abgewählt
+werden kann:
+
+<img src="media/admin_schnellzugriff_edit.png" alt="Der Schnellzugriff im Bearbeitungsmodus" width="900" />
+
+Unten rechts stehen im Bearbeitungsmodus drei Knöpfe:
+
+* **+** legt eine eigene Kachel an, zum Beispiel für ein Gerät im Netzwerk, das nicht
+  über ioBroker läuft.
+* **Haken** speichert die Auswahl.
+* **X** verwirft sie.

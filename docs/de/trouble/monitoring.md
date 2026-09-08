@@ -1,9 +1,20 @@
-# Performancemonitoring
-Ansatzpunkt für eine Performanceanalyse innerhalb von ioBroker ist die Objektauflistung im Admin. 
-Dort werden Systeminformationen über den oder die Hosts (ioBroker ist Multihost-fähig) und zu 
-den einzelnen Adaptern bereitgestellt. An diese Informationen gelangt man, indem man die Objektauflistung in den Expertenmodus umschaltet:
+---
+title:       "Performancemonitoring"
+lastChanged: "07.09.2026"
+---
 
-![Objects](media/monitoring1.png)
+# Performancemonitoring
+
+Ansatzpunkt für eine Leistungsanalyse ist der Reiter
+[Objekte](https://www.iobroker.net/#de/documentation/admin/objects.md) im Admin.
+Dort liegen Systeminformationen zu den Hosts (ioBroker ist multihostfähig) und zu
+den einzelnen Adaptern.
+
+Sichtbar werden sie erst im **Expertenmodus** – umgeschaltet wird er über das
+Zeichen unten links in der Menüleiste. Danach im ID-Filter
+`system.host.<Name des Hosts>.` eingeben:
+
+<img src="media/monitoring_host_objekte.png" alt="Die Leistungswerte eines Hosts im Objektbaum" width="900" />
 
 ## Performancewerte von Hosts
 Ein Host ist im ioBroker-Sprachgebrauch ein Rechner, der einen ioBroker js-Controller-Prozess ausführt. 
@@ -128,7 +139,7 @@ Als Zusammenfassung die Bedeutung der Datenpunkte:
 | **cputime**       | Zahl  | s     | js-controller | Die Prozessorzeit (englisch CPU Time) bezeichnet die gemessene Zeit in Sekunden, in der der js-controller seit dem letzten Programmstart tatsächlich Kommandos an den Prozessor gesendet hat. Diese Summe ist praktisch immer niedriger als die gesamte Laufzeit (uptime) des Programms, da dieses selbst bei intensiver Nutzung kaum pausenlos Befehle an den Prozessor sendet. |
 | **diskFree**      | Zahl  | MiB   |               | Freier Speicherplatz auf dem logischen Laufwerks, auf dem ioBroker installiert ist *bi = binäres Vielfaches (1 MB = 1.000.000 Byte) < (1 MiB = 1.048.576 Byte = 1 × 1024 × 1024 Byte)* |
 | **diskSize**      | Zahl  | MiB   |               | Gesamtgröße des logischen Datenträgers, auf dem ioBroker installiert ist |
-| **diskWarning**   | Zahl  | %     |               | Hier kann man einen Prozentwert eintragen. Im Admin wird eine Warnung angezeigt, wenn der freie Platz auf dem Datenträger diesen Wert unterschreitet (z.B. 20). Das ist vor allem sinnvoll, wenn der History-Adapter aktiv ist. ![Screen](media|monitoring9.png) |
+| **diskWarning**   | Zahl  | %     |               | Hier kann man einen Prozentwert eintragen. Im Admin wird eine Warnung angezeigt, wenn der freie Platz auf dem Datenträger diesen Wert unterschreitet (z.B. 20). Das ist vor allem sinnvoll, wenn der History-Adapter aktiv ist. ![Screen](media/monitoring9.png) |
 | **freemem**       | Zahl  | MB    |               | Gesamter verfügbarer RAM-Systemspeicher des Hosts |
 | **inputCount**    | Zahl  | /15s  | js-controller | Anzahl an Veränderungen bei den State-Werten. Ein Eingangsevent kann z.B. vom Anlegen oder Setzen eines Wertes ausgelöst werden |
 | **load**          | Zahl  |       |               | Gesamtsystemlast über alle CPU-Cores, gemittelt über jeweils eine Sekunde. Z.B. Rechner mit 8 CPU-Cores -> Wert 7.9 = System fast überlastet, 0.1 = nichts los; 4 Cores -> Wert 3.9 = Überlastung - wenn dauerhaft, 0.1 = nichts los |

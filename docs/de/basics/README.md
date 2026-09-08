@@ -1,6 +1,6 @@
 ---
 title:       "ioBroker Grundlagen"
-lastChanged: "24.08.2024"
+lastChanged: "07.09.2026"
 ---
 
 ioBroker ist eine reine Softwarelösung um verschiedene IoT-Systeme zu einem Gesamtsystem zu verbinden.
@@ -11,7 +11,7 @@ oder als Hardware (USB-Stick o.ä.) an den ioBroker Server angesteckt werden.
 
 ## Modularität
 ioBroker ist modular aufgebaut. Diese Module heißen bei ioBroker ***Adapter***.  
-Es gibt über 600 [Adapter](http://download.iobroker.net/list.html) zur Anbindung von diverser Hardware oder Einbindung verschiedenster Informationen wie Wetter, Kalender usw.
+Es gibt über 800 [Adapter](https://www.iobroker.net/#de/adapters/adapters.md) zur Anbindung von diverser Hardware oder Einbindung verschiedenster Informationen wie Wetter, Kalender usw.
 
 Daher müssen in einer Installation nur die Adapter installiert werden, die für die individuellen Bedürfnisse benötigt werden.
 Dies spart Speicherplatz und Rechenpower.
@@ -33,12 +33,12 @@ Gründe für die Aufteilung können räumlicher Art oder eine Leistungsverteilun
 Ein ioBroker Server kann nahezu auf jeder Hardware installiert werden.
 Einzige Bedingung ist, dass es für das entsprechende Betriebssystem eine aktuelle Version von [nodejs](https://nodejs.org/en/download/) gibt.
 
-!> Stand August 2024 wird für ioBroker Node.js 20.x empfohlen.
+!> ioBroker empfiehlt die LTS-Version **Node.js 22**. Ungerade Node.js-Versionen dürfen nicht verwendet werden. Einzelheiten dazu stehen unter [Node.js installieren](https://www.iobroker.net/#de/documentation/install/nodejs.md).
 
-Für eine größere Installation wird außerdem ein Arbeitsspeicher (RAM) von  
-mindestens 2 GB besser 4 GB empfohlen. Zum Testen reicht ein Raspberry Pi 2/3 
-mit 1 GB RAM, als Slave für wenige Adapter in einer Multihost-Umgebung 
-reichen sogar noch kleinere Kleinrechner.
+Als Mindestausstattung gelten 2 GB RAM und 32 GB Speicherplatz, empfohlen werden 4 GB
+(besser 6 bis 8 GB) RAM und 64 GB Speicherplatz. Zum Ausprobieren genügt ein Raspberry Pi 4;
+als zusätzlicher Host für wenige Adapter in einem Multihost-System reicht auch weniger.
+Die vollständige Tabelle steht unter [Anforderungen](https://www.iobroker.net/#de/documentation/install/requirements.md).
 
 ### Software
 ioBroker verwaltet die Daten in einer Datenbank. Dementsprechend ist auch die Struktur der Daten organisiert.
@@ -48,9 +48,11 @@ Dementsprechend lautet der Name des Namespaces z.B.: ***AdapterName.0***
 
 Innerhalb dieses Bereiches legt ioBroker die Geräte, deren Kanäle und wiederum deren Datenpunkte mit ihren Werten (Zuständen) an.
 
-![Objektstruktur](../admin/media/ADMIN_Objekte_status_tree.png)
+<img src="media/objekte_baum.png" alt="Der Objektbaum: Adapter, Instanz, Geraet, Kanal, Datenpunkte" width="900" />
 
-in diesem Beispiel handelt es sich um einen selbst angelegten Namespace für eigene Messwerte.
+Im Beispiel gehört der Namespace `hm-rpc.0` zur ersten Instanz des HomeMatic-Adapters. Darunter
+liegt das Gerät `LEQ0903185` (ein Türschloss), darunter dessen Kanäle und darin die einzelnen
+Datenpunkte mit ihren aktuellen Werten. Mehr dazu unter
+[Objekte](https://www.iobroker.net/#de/documentation/basics/objects.md) und [Zustände](https://www.iobroker.net/#de/documentation/basics/states.md).
 
-[Adapter]: http://download.iobroker.net/list.html
 [nodejs]: https://nodejs.org

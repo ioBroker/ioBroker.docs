@@ -1,6 +1,6 @@
 ---
 title:       "Architektur"
-lastChanged: "24.08.2024"
+lastChanged: "07.09.2026"
 ---
 
 # Systemaufbau
@@ -22,11 +22,9 @@ Ohne Node.js funktioniert ioBroker nicht. Eine manuelle Installation von Node.js
 
 Wie bei vielen Open-Source-Technologien üblich, entwickelt sich Node.js schnell weiter. Kleinere Updates, die die Stabilität und Sicherheit steigern oder gar neue Funktionen hinzufügen, erscheinen regelmäßig.
 
-Node.js-Versionen mit **gerader** Hauptversionsnummer werden als LTS-Versionen (Long Term Support) bezeichnet und einige Jahre gepflegt (z.B. 12.x). Jedes Jahr kommt eine neue Version ins LTS - im Jahr 2021 war das Node.js 16, welche im April veröffentlicht wurde und ab Oktober 2021 eine LTS Version wird.
+Node.js-Versionen mit **gerader** Hauptversionsnummer werden nach einigen Monaten zu LTS-Versionen (Long Term Support) und danach mehrere Jahre gepflegt. Jedes Jahr kommt eine neue hinzu, und im selben Zug erreicht eine ältere ihr Lebensende (EOL, End of Life) - ab dann gibt es für sie keine Sicherheits-Updates mehr. Ungerade Hauptversionen sind Vorabversionen und für ioBroker nicht geeignet.
 
-Im gleichen Zug erreichen frühere LTS-Versionen ihr Lebensende (EOL, End of Life). So hat Node.js 10 im April 2021 den EOL-Status erhalten und bekommt damit keine Updates mehr, Nodejs 12.x wird Ende April 2022 Ihr Lebensende erreichen. Es wird also keine Sicherheits-Updates mehr geben!
-
-ioBroker nutzt viele Module und Erweiterungen aus der JavaScript Open-Source Scene, dort kommt es regelmäßig vor, dass Versionen die EOL gehen, zeitnah danach auch nicht weiter unterstützt werden. Das hat im ersten Schritt keine echte Auswirkung, aber mittelfristig wird es, Adapter und später auch den js-controller geben, der EOL Versionen von Node.js nicht mehr unterstützt.
+Für ioBroker heißt das: Es gilt immer eine bestimmte empfohlene LTS-Version, und eine Version nach ihrem Lebensende wird von den Adaptern und später auch vom js-controller nicht mehr unterstützt. Welche Version derzeit empfohlen wird und wie der Wechsel abläuft, steht unter [Node.js & npm aktualisieren](https://www.iobroker.net/#de/documentation/install/updatenode.md).
 
 ## Adapter und Instanzen
 

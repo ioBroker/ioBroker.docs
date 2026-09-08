@@ -1,95 +1,48 @@
 ---
-title:       "Aufzählungen"
-lastChanged: "10.05.2021"
+title:       "Kategorien"
+lastChanged: "07.09.2026"
 ---
 
+# Reiter Kategorien
 
-Hier werden die Favoriten, Gewerke und Räume aufgelistet. Gibt es eine 
-HomeMatic Installation werden die dort enthaltenen Aufzählungen übernommen. 
-Es können auch eigene Aufzählungen angelegt werden, die dann z.B. in 
-Scripts verwendet werden können.
+Kategorien ordnen Datenpunkte nach **Räumen** und **Funktionen**. Ein Datenpunkt
+kann in beiden stehen: das Deckenlicht im Wohnzimmer gehört zum Raum
+*Wohnzimmer* und zur Funktion *Licht*.
 
-![Die Aufzählungen in der Kachelansicht](media/ADMIN_Aufzaehlungen_kachel.png)
+?> Dieser Reiter hieß früher **Aufzählungen**. Intern heißen die Objekte
+weiterhin `enum.rooms.*` und `enum.functions.*`.
 
-Über das erste Icon in der Titelzeile kann in die Listenansicht umgeschaltet 
-werden. Diese Ansicht wird im folgenden verwendet:
+Der Nutzen liegt bei allem, was darauf aufbaut: Visualisierungen, Sprachsteuerung
+über Alexa oder Google Home und Skripte greifen darüber auf Gruppen von Geräten
+zu. „Schalte das Licht im Wohnzimmer aus" funktioniert nur, wenn Raum und
+Funktion gepflegt sind.
 
-![Die Aufzählungen in der Listenansicht](media/ADMIN_Aufzaehlungen_liste_numbers.png)
- 
+## Funktionen
 
+<img src="media/admin_kategorien_funktionen.png" alt="Der Reiter Kategorien mit den Funktionen" width="900" />
 
-## Die Titelzeile
+Links stehen die Kategorien mit den zugeordneten Datenpunkten, rechts der
+Objektbaum. Ein Datenpunkt wird zugeordnet, indem er aus dem Baum auf die
+gewünschte Kategorie gezogen wird.
 
-in der Titelzeile befinden sich Icons für die wichtigsten Vorgänge. Zu jedem 
-Icon gibt es eine Kontexthilfe. Dazu einfach mit der Maus eine Weile auf dem 
-Icon bleiben.
+Über der Liste stehen ein **Filter**, Schaltflächen zum Auf- und Zuklappen aller
+Kategorien und ein **+**, mit dem eine neue Kategorie angelegt wird. Das **+**
+ganz links oben legt eine Kategorie auf oberster Ebene an.
 
+## Räume
 
+<img src="media/admin_kategorien_raeume.png" alt="Der Reiter Kategorien mit den Raeumen" width="900" />
 
-### 1 - Umschalten der Ansicht
+Die Räume funktionieren genauso. Über das Stiftsymbol neben dem Reiternamen
+lassen sich Name, Symbol und Farbe einer Kategorie ändern – die Farbe färbt die
+ganze Gruppe ein und macht die Liste übersichtlich.
 
-Mit diesem Button kann zwischen Kachelansicht und Listenansicht umgeschaltet 
-werden (Toggle-Funktion)
- 
+Räume dürfen verschachtelt werden: *Erdgeschoss* kann *Wohnzimmer* und *Küche*
+enthalten.
 
-### 2 - Neue Aufzählung erstellen
+?> Zuordnen lässt sich ein Datenpunkt auch direkt im Reiter
+[Objekte](https://www.iobroker.net/#de/documentation/admin/objects.md) über die
+Spalten *Raum* und *Funktion*. Beide Wege ändern dieselben Objekte.
 
-Mit diesem Button wird eine neue Aufzählung angelegt. Dazu öffnet sich ein 
-neues Fenster
-
-![Neue Aufzählung erstellen](media/ADMIN_Aufzaehlungen_liste_erstellen.png) 
-
-**Name**
-
-Hier wird der gewünschte Name für die Aufzählung eingegeben. Optional kann 
-zusätzlich hier auch ein Icon für diese Aufzählung per Drag and Drop in dieses 
-Feld gezogen werden.
-
-**ID beibehalten**
-
-Diese Checkbox ist bei der Erstellung einer neuen Aufzählung standardmäßig 
-abgewählt, da hier eine neue ID angelegt wird. 
-
-Im Editiermodus (s.u.) einer bestehenden Aufzählung kann so der Name verändert
-werden ohne die ID zu verändern.
-
-**Vorschau**
-
-Hier wird die komplette ID der Aufzählung angezeigt.
-
-**Farbe**
-
-An dieser Stelle kann eine Farbe ausgewählt werden mit der die Aufzählung 
-markiert werden soll.
-
-In der Kachelansicht wird die Kachel in dieser Farbe eingefärbt, in der 
-Listenansicht wird die Zeile mit der Bezeichnung der Aufzählung in dieser 
-Farbe unterstrichen.
- 
-
-
-### 3 - Neue Kategorie erstellen
-
-Mit diesem Button wird analog zu einer Aufzählung eine neue Kategorie (wie 
-functions/rooms usw.) angelegt.
-
-
-
-### 4 - Editieren
-
-Über diesen Button können die Datenpunkte einer Aufzählung verwaltet werden. 
-Zuerst wird per Mausklick die gewünschte Aufzählung markiert und anschließend
-der Editiermodus aktiviert.
-
-Der Bildschirm wird jetzt zweigeteilt:
-
-![Aufzählung bearbeiten](media/ADMIN_Aufzaehlungen_liste_hinzufuegen.png)
-
-Der Aufbau der rechten Hälfte entspricht dem der [Objekte-Seite][].
-
-Datenpunkte können von der rechten Seite durch einfaches Ziehen in die gewünschte 
-Aufzählung auf der linken Seite gezogen werden.
-
-Das Löschen eines Datenpunktes in der Aufzählung erfolgt über das Mülleimer-Icon.
-
-[Objekte-Seite]: https://www.iobroker.net/#de/documentation/admin/objects.md
+!> Zuordnungen gehören an den **Datenpunkt**, nicht an den Kanal oder das Gerät –
+sonst wissen die auswertenden Adapter nicht, welchen Wert sie schalten sollen.

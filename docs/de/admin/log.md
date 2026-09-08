@@ -1,95 +1,75 @@
 ---
-title:       "Log"
-lastChanged: "10.05.2021"
+title:       "Protokolle"
+lastChanged: "07.09.2026"
 ---
 
-Hier werden die Meldungen des Systems kontinuierlich ausgegeben. Die neueste 
-Meldung befindet sich oben.
+# Reiter Protokolle
 
-![Die Log-Seite](media/ADMIN_Log_numbers.png)
+Hier laufen die Meldungen des Systems auf. Die neueste steht oben. Wenn etwas
+nicht funktioniert, ist das die erste Stelle, an der man nachsieht.
 
+?> Erscheint der Menüpunkt **Protokolle** rot, gibt es einen Fehler. Die Zahl
+daneben nennt die Anzahl.
 
+## Die Werkzeugleiste
 
-## Die Titelzeile
+<img src="media/admin_protokolle_leiste.png" alt="Die Werkzeugleiste des Reiters Protokolle" width="900" />
 
-in der Titelzeile befinden sich Icons für die wichtigsten Vorgänge. Zu jedem Icon gibt 
-es eine Kontexthilfe. Dazu einfach mit der Maus eine Weile auf dem Icon bleiben.
+| Nr. | Funktion |
+| --- | -------- |
+| 1 | **Log aktualisieren.** |
+| 2 | **Ausgabe pausieren.** Statt des Symbols erscheint dann die Zahl der neuen, noch nicht angezeigten Meldungen. Praktisch, wenn man eine bestimmte Zeile in Ruhe lesen will. |
+| 3 | **Log löschen** – leert nur die Anzeige im Browser. |
+| 4 | **Von der Disk dauerhaft löschen** – löscht die Protokolldatei auf dem Host. |
+| 5 | **Prozess-ID ein-/ausblenden.** |
+| 6 | **Farben ein-/ausblenden** – hebt Fehler rot und Warnungen gelb hervor. |
+| 7 | **Ausgaberichtung umkehren** – neueste Meldung oben oder unten. |
+| 8 | **Nur Fehler anzeigen.** Die Zahl daneben nennt die vorhandenen Fehler. |
+| 9 | **Fehler und Warnungen anzeigen.** |
+| 10 | **Log herunterladen** – lädt die vollständige Tagesdatei aus `/opt/iobroker/log`. |
+| 11 | Die **Größe** der aktuellen Protokolldatei. |
 
+Rechts daneben steht der Host. In einem
+[Multihost-System](https://www.iobroker.net/#de/documentation/config/multihost.md)
+wird dort umgeschaltet – angezeigt werden immer nur die Meldungen des
+ausgewählten Hosts.
 
-### 1 - Log aktualisieren
+## Die Liste
 
-Mit diesem Button wird die die Liste aktualisiert.
+<img src="media/admin_protokolle_liste.png" alt="Die Protokollliste mit Quelle, Zeit, Stufe und Nachricht" width="900" />
 
+Die Spalten sind **Quelle** (die Instanz oder der Host), **Zeit**, die
+**Log-Stufe** und die **Nachricht**. Über die Felder in der Kopfzeile lässt sich
+filtern: nach Quelle, nach Mindest-Log-Stufe und nach einem Text in der
+Nachricht.
 
-### 2 - Aktualisierung anhalten
+Die Log-Stufen von der ausführlichsten zur knappsten:
 
-Bei einem Klick auf diesen Button wird die ständige Aktualisierung der Liste angehalten. 
-Statt des Pause-Icons erscheint jetzt die Anzahl der neuen, nicht angezeigten Meldungen.
+| Stufe | Wofür |
+| ----- | ----- |
+| `debug` | Alles, auch interne Abläufe. Nur zur Fehlersuche, danach wieder zurückstellen. |
+| `info` | Der Normalfall: Start, Stopp, Verbindungen. |
+| `warn` | Etwas ist ungewöhnlich, läuft aber weiter. |
+| `error` | Etwas hat nicht funktioniert. |
 
+Die Stufe wird je Instanz im Reiter
+[Instanzen](https://www.iobroker.net/#de/documentation/admin/instances.md)
+eingestellt, die Vorgabe für neue Instanzen in den
+[Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md).
 
-### 3 - Liste löschen
+!> In der Liste werden lange Zeilen abgeschnitten. Wer einer Meldung wirklich
+auf den Grund gehen will, lädt die Protokolldatei herunter und sieht dort nach –
+oft steht die eigentliche Ursache in den Zeilen davor.
 
-Mit dem Klick auf dieses Icon wird nur die auf dem Bildschirm befindliche Liste gelöscht
+## Wenn im Protokoll ein Fehler steht
 
-### 4 - Log auf dem Host löschen
+Zwei Dinge helfen fast immer weiter:
 
-Mit dem Klick auf dieses Icon wird das gesamte Log auf dem Host endgültig gelöscht.
+1. **Die erste Fehlermeldung suchen, nicht die letzte.** Ein Fehler zieht oft
+   Folgefehler nach sich; interessant ist der Anfang der Kette.
+2. **Die Log-Stufe der betroffenen Instanz auf `debug` stellen**, die Instanz neu
+   starten und die Meldungen noch einmal ansehen.
 
- 
-### 5 - Log herunterladen
-mit diesem Button kann man ein komplettes Tageslog der letzten Tage aus dem 
-Verzeichnis /opt/iobroker/logs herunterladen:
-
-![Log-Download](media/ADMIN_Log_download.png)
-
-Dabei erhält man den folgenden Screen:
-![komplettes Log](media/ADMIN_Log_download02.png)
-
-Da in der Auflistung im Log-Fenster oft Zeilen abgeschnitten werden, ist es wichtig hier einmal nachzusehen ob es mehr Informationen gibt.
-
-### 6 - Host-Liste
-
-In dem Log werden nur Meldungen angezeigt, die von dem hier eingestellten Host kommen. In Multihost-Umgebungen kann man hier den zu loggenden Host einstellen.
- 
-![Die Hosts](media/ADMIN_Log_hosts.png) 
-
-## Der Seiteninhalt
-
-![Die Hosts](media/ADMIN_Log_numbers02.png) 
-
-Auf der Seite werden die vorhandenen Objekte tabellarisch dargestellt.
-
-Die Spaltenköpfe 1 und 3 enthalten Pulldownmenüs die als Filterkriterien dienen, 
-in Spalte 4 kann ein Filterkriterium frei eingegeben werden
-
-### 1 - Quelle
-
-Mit diesem Pulldownmenü können die Meldungen nach der loggenden Instanz gefiltert 
-werden. In dem Menü werden nur die Instanzen angezeigt, zu denen es auch Einträge 
-auf der Seite gibt.
-
-### 2 - Zeit
-
-Hier wird der Timestamp der Meldung aufgelistet. Diese Spalte ist nicht filterbar. 
-
-### 3 - angezeigter Loglevel
-
-Mit diesem Menü kann eingestellt werden welcher Schweregrad der Meldung angezeigt 
-werden soll. Hierbei handelt es sich jedoch nur um einen Filter der vorhandenen Liste. 
-Um für eine Instanz das Logging in einem bestimmten Level festzulegen muss dieses 
-auf der Instanzen-Seite eingestellt werden.
-
-Fehler werden in roter Schrift dargestellt:
-
-![Error](media/ADMIN_Log02_error.png)
-
-Liegt ein Fehler auf irgendeinem Host vor, erscheint auch die Beschriftung ***Log*** 
-in der Menüleiste in roter Schrift.
-
-
-### 4 - Meldung
-
-In dieser Spalte wird die jeweilige Meldung angezeigt, soweit sie in die Spalte passt. 
-Der Rest wird abgeschnitten. Mit Mouse-Over kann man noch die ganze Meldung sehen. 
-Zum posten im Forum bitte das Log herunterladen und die Meldung dort heraus kopieren.
-
+Führt das nicht weiter, hilft das
+[Forum](https://forum.iobroker.net/). Dorthin gehört der Auszug aus der
+heruntergeladenen Protokolldatei, nicht ein Bildschirmfoto der Liste.

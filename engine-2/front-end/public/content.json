@@ -53,12 +53,21 @@
           },
           "content": "basics/repositories.md"
         },
+        "Objects": {
+          "title": {
+            "en": "Objects",
+            "de": "Objekte",
+            "ru": "Объекты",
+            "zh-cn": "对象"
+          },
+          "content": "basics/objects.md"
+        },
         "States or Datapoints": {
           "title": {
-            "en": "States or Datapoints",
-            "de": "States und Datenpunkte",
-            "ru": "Состояния и точки данных",
-            "zh-cn": "状态和数据点"
+            "en": "States",
+            "de": "Zustände",
+            "ru": "Состояния",
+            "zh-cn": "状态"
           },
           "content": "basics/states.md"
         },
@@ -108,6 +117,15 @@
         "zh-cn": "安装系统"
       },
       "pages": {
+        "Introduction": {
+          "title": {
+            "en": "Introduction",
+            "de": "Einstieg",
+            "ru": "Введение",
+            "zh-cn": "介绍"
+          },
+          "content": "install/README.md"
+        },
         "Requirements": {
           "title": {
             "en": "Requirements",
@@ -116,6 +134,15 @@
             "zh-cn": "要求"
           },
           "content": "install/requirements.md"
+        },
+        "Hardware": {
+          "title": {
+            "en": "Hardware",
+            "de": "Hardware",
+            "ru": "Оборудование",
+            "zh-cn": "硬件"
+          },
+          "content": "install/hardware.md"
         },
         "Virtualization platforms": {
           "title": {
@@ -179,6 +206,35 @@
                 "zh-cn": "视窗"
               },
               "content": "install/windows.md"
+            },
+            "macOS": {
+              "title": {
+                "en": "macOS",
+                "de": "macOS",
+                "ru": "macOS",
+                "zh-cn": "macOS"
+              },
+              "content": "install/macos.md"
+            }
+          }
+        },
+        "Updating": {
+          "title": {
+            "en": "Updating",
+            "de": "Updaten",
+            "ru": "обновить",
+            "zh-cn": "更新"
+          },
+          "content": "install/update.md",
+          "pages": {
+            "ioBroker": {
+              "title": {
+                "en": "ioBroker",
+                "de": "ioBroker",
+                "ru": "ioBroker",
+                "zh-cn": "ioBroker"
+              },
+              "content": "install/updateself.md"
             },
             "Adapter": {
               "title": {

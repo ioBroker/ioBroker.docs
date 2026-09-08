@@ -1,120 +1,95 @@
 ---
 title:       "Admin"
-lastChanged: "11.11.2022"
+lastChanged: "07.09.2026"
 ---
 
 # Die Benutzer-Oberfläche
 
-!> **Wegen des Umfangs der Dokumentation ist dies nur eine Übersicht, ausführliche 
-Informationen sind in den Seiten hinterlegt, die über die Überschriften der 
-Abschnitte zu den Reitern verlinkt sind. Bitte die Überschriften anklicken.**
+Der Adapter **admin** ist der grundlegende Adapter und dient zur Bedienung der gesamten
+ioBroker-Installation. Er stellt ein Webinterface zur Verfügung, das unter
+`http://<IP-Adresse des Servers>:8081` aufgerufen wird.
 
+Dieser Adapter wird bereits bei der Installation von ioBroker angelegt, eine manuelle
+Installation ist nicht notwendig.
 
-Der Adapter Admin ist der Grundlegende Adapter und dient zur Bedienung der gesamten 
-ioBroker-Installation. Er stellt ein Webinterface zur Verfügung. Dieses wird unter der 
-``<IP-Adresse des Servers>:8081`` aufgerufen.
+?> Diese Seite ist eine Übersicht. Die ausführlichen Beschreibungen stehen auf den
+Seiten, die in den einzelnen Abschnitten verlinkt sind.
 
-Dieser Adapter wird direkt bei der Installation von ioBroker angelegt eine manuelle 
-Installation ist nicht notwendig
+## Aufbau
 
-![Der Admin in der Kachelansicht](media/ADMIN_Adapter_Kachel.png)
+Die Oberfläche teilt sich in drei Bereiche: **1** die Menüleiste, **2** das Hauptfenster
+und **3** die Symbolleiste am unteren Rand der Menüleiste.
 
-Über das vom Adapter zur Verfügung gestellte GUI können u.a. folgende 
-Funktionen abgerufen werden:
+<img src="media/admin_aufbau.png" alt="Der Aufbau des Admin: Menueleiste, Hauptfenster, Symbolleiste" width="900" />
 
-* Eingabe von systemweiten Einstellungen
-* Installation weiterer Adapter und deren Instanzen
-* Zugriff auf die Konfiguration der Instanzen
-* Zugriff auf Objekt und deren Zustandsübersicht
-* Zugriff auf die Administration von Benutzern und Gruppen
-* Zugriff auf Logfiles (Protokolle)
-* Verwaltung der Hosts
-* Dateiverwaltung
+## 1 Menüleiste
 
-Die Adapteransicht teilt sich auf in die Bereiche 1 - Menüleiste, 2 - Hauptfenster 
-und 3 - Systemeinstellungen
+Die Menüleiste führt zu den einzelnen Seiten des Admin. In einer frischen Installation
+sind das:
 
-![Die Struktur des Admin](media/ADMIN_Screen_numbers.png)
+| Menüpunkt | Inhalt |
+| --------- | ------ |
+| [Übersicht](https://www.iobroker.net/#de/documentation/admin/overview.md) | Systemstatus, Hardware-Daten des Hosts, aktive Adapter und die letzten Protokollzeilen. |
+| [Schnellzugriff](https://www.iobroker.net/#de/documentation/admin/overview.md) | Kacheln zu allen Adaptern mit eigener Weboberfläche sowie zu den Hosts. |
+| [Adapter](https://www.iobroker.net/#de/documentation/admin/adapter.md) | Verfügbare und installierte Adapter, Installation und Update. |
+| [Instanzen](https://www.iobroker.net/#de/documentation/admin/instances.md) | Die angelegten Instanzen mit ihrer Konfiguration, starten und stoppen. |
+| [Objekte](https://www.iobroker.net/#de/documentation/admin/objects.md) | Der Objektbaum mit allen Geräten, Kanälen und Datenpunkten. |
+| [Kategorien](https://www.iobroker.net/#de/documentation/admin/enums.md) | Räume, Gewerke und Favoriten. Früher hieß dieser Punkt "Aufzählungen". |
+| [Protokolle](https://www.iobroker.net/#de/documentation/admin/log.md) | Das Logfile. Bei einem Fehler wird der Menüpunkt rot markiert. |
+| [Benutzer](https://www.iobroker.net/#de/documentation/admin/users.md) | Benutzer und Gruppen samt ihrer Rechte. |
+| [Hosts](https://www.iobroker.net/#de/documentation/admin/hosts.md) | Die Rechner, auf denen ioBroker läuft. Liegt eine neue js-controller-Version vor, erscheint hier ein Hinweis. |
+| [Dateien](https://www.iobroker.net/#de/documentation/admin/files.md) | Der Dateimanager für die von ioBroker verwalteten Dateien. |
+| [Backup](https://www.iobroker.net/#de/documentation/config/backup.md) | Sicherungen anlegen, ansehen und zurückspielen. |
 
-## Menüleiste
-Die Menüleiste enthält mehrere Menüpunkte. In der Grundinstallation werden diese 
-Punkte wie in der Abbildung angezeigt. Über das Dreieck-Icon links oben (1) können 
-nach der Installation zusätzlicher Adapter weitere Punkte aktiviert bzw. für eine 
-bessere Übersicht auch deaktiviert werden.
+Weitere Menüpunkte kommen mit den installierten Adaptern dazu, zum Beispiel *Skripte*
+(javascript), *Kalender* (fullcalendar), *Geräte* (devices) oder *Ereignisse* (scenes).
+Ganz unten steht **System** – dort werden die
+[Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md)
+vorgenommen.
 
-![Menüpunkte](media/ADMIN_Screen01_menuitems_numbers.png)
+### Menü verkleinern
 
-Um z.B. auf mobilen Geräten mehr Platz zu haben kann die Menüleiste verkleinert und
-aus- bzw. eingeblendet werden:
+Über den Pfeil links oben lässt sich die Menüleiste umschalten. Sie hat drei Zustände:
+mit Beschriftung, nur mit Symbolen und ganz ausgeblendet. Im ausgeblendeten Zustand
+holt man sie über das Symbol mit den drei Strichen wieder hervor. Auf kleinen Bildschirmen
+bleibt so mehr Platz für das Hauptfenster.
 
-![Menü eingeklappt](media/ADMIN_Screen01_menucollapsed.gif)
+<img src="media/admin_menue_zustaende.png" alt="Die drei Zustaende der Menueleiste: beschriftet, nur Symbole, ausgeblendet" width="292" />
 
+## 2 Hauptfenster
 
+Das Hauptfenster zeigt den Inhalt des jeweils ausgewählten Menüpunkts. Was dort im
+Einzelnen zu sehen ist, steht auf den in der Tabelle oben verlinkten Seiten.
 
-## Das Hauptfenster
-Das Hauptfenster zeigt den jeweils zum ausgewählten Menüpunkt gehörenden Inhalt an.
+?> Werte werden im Objektbaum in **roter Schrift** angezeigt, solange sie vom Empfänger
+noch nicht bestätigt wurden (`ack = false`).
 
-Ausführliche Informationen zu diesem Inhalt sind in den Seiten hinterlegt, die über die 
-Überschriften verlinkt sind.
+## 3 Symbolleiste
 
-[Übersicht](https://www.iobroker.net/#de/documentation/admin/overview.md)
-Hier werden alle Seiten mit eigenem Webinterface sowie Informationen zu den 
-Hosts angezeigt.
+Am unteren Rand der Menüleiste stehen vier Schalter:
 
-[Adapter](https://www.iobroker.net/#de/documentation/admin/adapter.md)
-Hier werden die verfügbaren und installierten Adapter angezeigt und verwaltet.
+| Symbol | Funktion |
+| ------ | -------- |
+| Glocke | **Benachrichtigungen** des Systems. Die Zahl daneben nennt die ungelesenen Meldungen. |
+| Kontrast | **Farbthema ändern** – schaltet zwischen den Farbthemen um (siehe unten). |
+| Zauberhut | **Expertenmodus umschalten**. Er blendet zusätzliche Objekte, Einstellungen und Spalten ein und gilt nur in dieser Browsersitzung. |
+| Verbundene Fenster | **Einstellungen zwischen allen geöffneten Browserfenstern synchronisieren**. |
 
-[Instanzen](https://www.iobroker.net/#de/documentation/admin/instances.md)
-Hier werden die bereits über den Reiter Adapter installierten Instanzen aufgelistet 
-und können entsprechend konfiguriert werden.
+?> Viele Beschreibungen in dieser Dokumentation setzen den Expertenmodus voraus. Wenn
+eine beschriebene Schaltfläche fehlt, lohnt sich zuerst ein Blick auf diesen Schalter.
 
-[Objekte](https://www.iobroker.net/#de/documentation/admin/objects.md)
-Die verwalteten Objekte Strukturen und Datenpunkte der Geräte, die über Adapter 
-eingebunden sind. Hier können Objekte angelegt und gelöscht werden. Über die 
-"Pfeil hoch"" und ""Pfeil runter"" Buttons können ganze Objektstrukturen 
-hoch- oder runtergeladen werden.
+<img src="media/admin_expertenmodus.png" alt="Der Hinweis beim Einschalten des Expertenmodus" width="700" />
 
-Werden Werte in roter Schrift angezeigt, sind sie noch nicht vom Empfänger 
-bestätigt (ack = false).
+Der Expertenmodus gilt nur für die laufende Browsersitzung. Dauerhaft eingeschaltet
+wird er in den
+[Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md).
 
-[Aufzählungen](https://www.iobroker.net/#de/documentation/admin/enums.md)
-Hier werden die Favoriten, Gewerke und Räume aus der Homematic-CCU aufgelistet.
+### Farbthemen
 
-[Protokolle](https://www.iobroker.net/#de/documentation/admin/log.md)
-Hier wird das log angezeigt
+Der Kontrast-Schalter wechselt das Farbthema. Zur Wahl stehen **modernLight** und
+**modernBlue**. Beide zeigen dieselben Inhalte, sie unterscheiden sich nur in den Farben.
 
-Im Reiter Instanzen kann bei den einzelnen Instanzen der zu loggende Loglevel 
-eingestellt werden. In dem Auswahlmenü wird der anzuzeigende Mindest-Loglevel 
-ausgewählt. Sollte ein Error auftreten, erscheint die Beschriftung des Reiters in roter Farbe.
+<img src="media/admin_farbthemen.png" alt="Die Farbthemen modernLight und modernBlue im Vergleich" width="900" />
 
-[Benutzer](https://www.iobroker.net/#de/documentation/admin/users.md)
-Hier können Benutzer angelegt und zu den bestehenden Gruppen hinzugefügt werden.
-
-[Hosts](https://www.iobroker.net/#de/documentation/admin/hosts.md)
-Informationen über den Rechner, auf dem ioBroker installiert ist.  Liegt eine neue Version vor, 
-erscheint ein Hinweis in diesem Eintrag der Menüleiste.
-
-[Skripte](scripts.md)
-Bei installierten Java-Skript Adapter kann auf dieser Seite eigene Skripte mit 
-javascript, Blockly oder Typescript erstellt werden.
-
-[Dateien](https://www.iobroker.net/#de/documentation/admin/files.md)
-Dateimanager zur Verwaltung von Dateien.
-
-## Systemeinstellungen
-In dem sich hier öffnenden Menü werden [Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md) wie Sprache, Zeit- 
-und Datumsformat sowie weitere systemweite Einstellungen getätigt.
-
-Auch die Repositories und Sicherheitseinstellungen können hier eingestellt werden.
-
-
-[Übersicht]: https://www.iobroker.net/#de/documentation/admin/overview.md
-[Adapter]: https://www.iobroker.net/#de/documentation/admin/adapter.md
-[Instanzen]: https://www.iobroker.net/#de/documentation/admin/instances.md
-[Objekte]: https://www.iobroker.net/#de/documentation/admin/objects.md
-[Aufzählungen]: https://www.iobroker.net/#de/documentation/admin/enums.md
-[Log]: https://www.iobroker.net/#de/documentation/admin/log.md
-[Dateien](https://www.iobroker.net/#de/documentation/admin/files.md)
-[Benutzer]: https://www.iobroker.net/#de/documentation/admin/users.md
-[Hosts]: https://www.iobroker.net/#de/documentation/admin/hosts.md
-[Systemeinstellungen]: https://www.iobroker.net/#de/documentation/admin/settings.md
+?> Das Farbthema gilt pro Browser, nicht pro Benutzer. Wer den Admin von mehreren
+Geräten aus benutzt, stellt es auf jedem einzeln ein.

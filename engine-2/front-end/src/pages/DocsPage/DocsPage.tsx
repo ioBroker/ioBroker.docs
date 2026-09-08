@@ -52,9 +52,12 @@ const DocsPage = (): React.ReactNode => {
     const isTrailShortened = shownTrail.length < trail.length;
     const markdownUrl = `${API_CONFIG.IOBROKER_BASE_URL}/${language}/${docPath}`;
     const { data: markdown } = useDocsMarkdown(markdownUrl);
+    // Bilder und Verweise eines Dokuments werden gegen diese Herkunft aufgeloest. Im Dev-Server
+    // ist die Basis-URL relativ - dann ist die eigene Herkunft gemeint und nicht die Live-Seite,
+    // sonst zeigen neu angelegte Bilder ins Leere, obwohl sie danebenliegen (wie in LegalPage).
     const baseOrigin = /^https?:\/\//i.test(API_CONFIG.IOBROKER_BASE_URL)
         ? API_CONFIG.IOBROKER_BASE_URL
-        : 'https://www.iobroker.net';
+        : window.location.origin;
     const markdownBaseUrl = `${baseOrigin}/${language}/${docPath}`;
 
     useEffect(() => I18n.subscribe(setLanguage), []);
@@ -118,6 +121,7 @@ const DocsPage = (): React.ReactNode => {
             listItem: classes.listItem,
             image: classes.image,
             linkIcon: classes.linkIcon,
+            link: classes.link,
             table: classes.table,
             tableHead: classes.tableHead,
             tableRow: classes.tableRow,

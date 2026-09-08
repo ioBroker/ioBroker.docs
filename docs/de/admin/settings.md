@@ -1,213 +1,151 @@
 ---
 title:       "Systemeinstellungen"
-lastChanged: "04.11.2022"
+lastChanged: "07.09.2026"
 ---
 
+# Systemeinstellungen
 
-Die Systemeinstellungen erreicht man aus jedem Menüpunkt des Admins über das 
-Schraubenschlüssel-Icon in der Titelzeile des Bildschirms.
+Die Systemeinstellungen gelten für die ganze Installation. Sie werden über den
+Punkt **System** ganz unten in der Menüleiste geöffnet und sind in mehrere
+Reiter unterteilt.
 
-![Die Systemeinstellungen](media/ADMIN_Settings_main.png)
+## System
 
-## Systemeinstellungen
+Hier stehen die Grundeinstellungen, auf die sich auch die Adapter beziehen.
 
-In den Haupteinstellungen werden grundlegende Parameter für ioBroker eingestellt, die in 
-ioBroker auch von den Adaptern verwendet werden.
+<img src="media/admin_einstellungen_system.png" alt="Der Reiter System der Basiseinstellungen" width="900" />
 
-Einige Parameter werden bereits aus den Einstellungen des Hosts übernommen.
+| Einstellung | Bedeutung |
+| ----------- | --------- |
+| **Anlagenname** | Erscheint in der Kopfzeile des Admin. Sinnvoll, wenn mehrere ioBroker-Installationen betreut werden. |
+| **Systemsprache** | Die Sprache der Oberfläche. Nicht jeder Adapter ist vollständig übersetzt. |
+| **Temperatureinheit** | °C oder °F. Manche Adapter richten sich danach. |
+| **Währungszeichen** | Zum Beispiel `€`. |
+| **Datumsformat** | Gilt für Admin und vis. |
+| **Float Teiler Zeichen** | Komma oder Punkt bei Kommazahlen. |
+| **Standard-Historie** | Welche Instanz Werte aufzeichnet, wenn mehrere von history, SQL oder InfluxDB installiert sind. |
+| **Expertenmodus** | Ob der Expertenmodus beim Öffnen des Admin bereits an ist. Der Schalter unten links in der Menüleiste gilt nur für die laufende Browsersitzung, diese Einstellung dauerhaft. |
+| **Standardprotokollstufe** | Die Log-Stufe, die **neue** Instanzen bekommen. Bestehende bleiben unverändert. |
+| **Erster Tag der Woche** | Für Kalender- und Zeitplandarstellungen. |
+| **Land, Stadt, Breiten- und Längengrad** | Der Standort der Anlage. Adapter für Sonnenauf- und -untergang, Wetter oder Astro-Zeitpläne rechnen damit. Die Karte daneben dient nur der Kontrolle. |
 
-**Systemsprache**
-
-damit kann zwischen verschiedenen Systemsprachen gewählt werden. Es ist möglich, dass 
-noch nicht alle Sprachen vollständig unterstützt werden.
-
-**Temperatureinheit**
-
-dieses Wert wird von manchen Adaptern verwendet. Möglich ist °C oder °F.
-
-**Währung**
-
-Hier kann das gewünschte Währungsformat z.B. € eingetragen werden. Momentan benutzt das noch kein Adapter.
-
-**Datumsformat**
-
-Die festgelegte Auswahl wird im admin und vis angezeigt.
-
-**Float Teiler Zeichen**
-
-Komma oder Punkt für Float-Werte
-
-**Standard-Historie**
-
-Bei installierten Adapter zum loggen von Datenpunkten wird hier entsprechende Adapter ausgewählt
-
-Ist nur ein History Adapter (SQL/History/InfluxDB) installiert wird dieser verwendet, 
-sind mehrere vorhanden, kann man einen auswählen.
-
-**Expertenmodus**
-
-tbd
-
-**Standardprotokollstufe**
-
-tbd
-
-**Erster Tag der Woche**
-
-tbd
-
-**Lokale Einstellungen**
-
-tbd
+?> Wer Zeitpläne wie „eine halbe Stunde nach Sonnenuntergang" benutzt, sollte
+den Standort zuerst richtig setzen – sonst rechnet ioBroker mit dem
+voreingestellten Ort.
 
 ## Repositories
-![](media/ADMIN_Settings_repos.png)
 
-ioBroker kann die Adapterliste von unterschiedlichen Quellen beziehen. Bei der Installation sind folgende Quellen eingetragen:
+ioBroker bezieht die Adapterliste aus einem Repository. Zwei sind ab Werk
+eingetragen:
 
-* stable: http://download.iobroker.net/sources-dist.json
-* beta: http://download.iobroker.net/sources-dist-latest.json
+<img src="media/admin_einstellungen_repos.png" alt="Der Reiter Repositories" width="900" />
 
-Sollten aus einer älteren Installation hier noch andere Repositories eingetragen sein, 
-sollten diese gelöscht werden, da sie nicht mehr gepflegt werden.
+* **stable** – die geprüften Versionen. Das ist die richtige Wahl für ein System,
+  das laufen soll.
+* **beta** (auch *Latest*) – die jeweils neuesten Versionen, noch nicht
+  vollständig getestet.
 
-## Lizenzen
-![](media/ADMIN_Settings_licences.png)
+Das Häkchen in der Spalte **Aktiv** bestimmt, welches Repository benutzt wird.
+Ist *beta* aktiv, erscheint im Reiter Adapter eine entsprechende Warnung.
+
+!> Stammen aus einer alten Installation weitere Einträge, sollten sie entfernt
+werden – sie werden nicht mehr gepflegt.
+
+Über **Nur die automatische Durchführung der folgenden Upgrades erlauben** wird
+festgelegt, ob ioBroker Adapter selbständig aktualisieren darf und bis zu
+welcher Versionsstufe.
 
 ## Zertifikate
-![Zertifikate](media/ADMIN_Settings_certificates.png)
 
-Hier ist die zentrale Stelle für die Zertifikate, die für die SSL/HTTPS Kommunikation benutzt 
-werden. Die Zertifikate werden von admin, web, simple-api, socketio benutzt. Defaultmäßig 
-sind Standardzertifikate installiert. Damit kann man nichts verifizieren. Sie dienen nur der 
-SSL-Kommunikation. Weil die Zertifikate offen liegen sollte man eigene (self-signed) 
-Zertifikate benutzen, richtige Zertifikate kaufen oder auf Let’s Encrypt umsteigen. Die 
-Kommunikation mit default Zertifikaten ist nicht sicher und falls jemand das Ziel hat den 
-Traffic mitzulesen, könnte dies gemacht werden. Unbedingt eigene Zertifikate installieren. 
-Z.b. unter linux.
+Hier liegen die Zertifikate für HTTPS. Sie werden von admin, web, simple-api und
+socketio benutzt.
 
+<img src="media/admin_einstellungen_zertifikate.png" alt="Der Reiter Zertifikate" width="900" />
 
-Zertifikate können wahlweise als Pfad angegeben werden oder komplett per drag and 
-drop hochgeladen werden
+Ab Werk sind `defaultPrivate` und `defaultPublic` eingetragen. Diese
+Standardzertifikate sind in jeder Installation gleich und deshalb **nicht
+sicher** – sie ermöglichen nur eine verschlüsselte Verbindung, ohne dass sich
+irgendetwas prüfen ließe. Für einen Zugriff von außen gehören eigene
+Zertifikate hierher, entweder selbst erzeugt, gekauft oder über Let's Encrypt.
 
+Ein Zertifikat kann als Datei abgelegt oder als absoluter Pfad angegeben werden,
+etwa `/opt/certs/cert.pem`.
 
-<span style="color:red">Es ist grundsätzlich eine gute Idee neue Zertifikate mit dem Web-Adapter zu testen und nicht direkt mit dem Admin-Adapter,
-damit man sich nicht aus dem System aussperrt.</span>
+!> Neue Zertifikate zuerst mit dem **web**-Adapter ausprobieren, nicht mit dem
+Admin. Sonst sperrt man sich unter Umständen selbst aus.
 
-Bei der Angabe eines Pfades müssen die korrekten Berechtigungen für den iobroker Benutzer vorhanden sein.
+### Rechte auf die Zertifikatsdateien
 
-Für die Datei selbst 644, für die übergeordneten Verzeichnisse 755.
+Wird ein Pfad angegeben, muss der Benutzer `iobroker` die Datei lesen dürfen:
+`644` für die Datei, `755` für die übergeordneten Verzeichnisse. Fehlen die
+Rechte, meldet das Protokoll etwa:
 
-Sind die Rechte falsch kommt eine Fehlermeldung wie:
+```
+web.0 (24704) Cannot create webserver: Error: error:0909006C:PEM routines:get_name:no start line
+```
 
-``web.0 (24704) Cannot create webserver: Error: error:0909006C:PEM routines:get_name:no start line``
+Prüfen lässt sich das als Benutzer `iobroker`:
 
-Man kann den Zugriff prüfen, wenn man sich als Benutzer root am Server einloggt, dann zum iobroker Benutzer wechselt und die Zertifikatsdatei auflistet:
+```bash
+su iobroker
+ls -l /pfad/zum/zertifikat
+```
 
-``su iobroker``
+Am Zeilenanfang muss `-rw-r--r--` stehen. Andernfalls als `root`:
 
-``ls -l /Pfad/zum/Zertifikat``
+```bash
+chmod 644 /pfad/zum/zertifikat
+chmod 755 /pfad/zum
+```
 
-Es sollte **-rw-r--r--** am Beginn der Zeile angezeigt werden.
+Zeigt der Eintrag auf einen symbolischen Link, gelten die Rechte des Ziels.
 
-Wenn das eigentliche Zertifikat verlinkt ist, müssen die Rechte des Linkziels geprüft werden.
+## Let's Encrypt SSL
 
-Kommt hier eine Meldung wie 
+[Let's Encrypt](https://letsencrypt.org/) stellt kostenlose Zertifikate aus.
+ioBroker kann sie automatisch anfordern und erneuern; die Option findet sich in
+fast jedem Adapter, der einen Webserver mit HTTPS startet.
 
-``ls: Zugriff auf '/Pfad/zum/Zertifikat' nicht möglich: Keine Berechtigung``
+Der Ablauf: ioBroker legt mit der hier eingetragenen E-Mail-Adresse ein Konto an
+und startet beim ersten Aufruf der Adresse einen kleinen Webserver auf **Port
+80**. Let's Encrypt hinterlegt dort eine Prüfzeichenfolge, liest sie unter
+`http://<adresse>/.well-known/acme-challenge/` wieder aus und schickt danach das
+Zertifikat. Es gilt rund 90 Tage und wird anschließend selbständig verlängert.
 
-Müssen die Rechte angepasst werden.
+!> Port 80 muss dafür frei und von außen erreichbar sein. Belegt ihn ein anderer
+Dienst, schlägt die Prüfung fehl.
 
-Als root Benutzer für die Datei:
-
-``chmod 644 /Pfad/zum/Zertifikat``
-
-Für die übergeordneten Verzeichnisse:
-
-``chmod 755 /Pfad/zum``
-
-## Let’s Encrypt SSL
-![Let’s Encrypt](media/ADMIN_Settings_letsencrypt.png)
-
-
-Let’s Encrypt ist eine kostenlose, automatisierte und Open Source certificate authority der
-unabhängigen Internet Security Research Group (ISRG).
-
-Nähere Informationen zu Let’s Encrypt gibt es [hier](https://letsencrypt.org/).
-
-Einige Installationen benutzen Dynamic DNS o.ä. um über eine von dort vergebene Adresse, 
-die eigene domain zu erreichen. IoBroker unterstützt die automatische Anforderung und 
-Erneuerung von Zertifikaten bei der Let’s Encrypt Organisation.
-
-Die Option die kostenlosen Zertifikate von Let’s Encrypt zu benutzen existiert in nahezu 
-jedem Adapter, der einen Webserver starten kann und HTTPS unterstützt.
-
-Wenn man die Option Zertifikate zu nutzen aktiviert, jedoch nicht das automatische Update, 
-versucht die entsprechende Instanz mit gespeicherten Zertifikaten zu arbeiten.
-
-Wenn die automatischen Updates aktiviert sind, versucht die Instanz Zertifikate bei Let’s 
-Encrypt anzufordern und aktualisiert diese automatisch.
-
-Die Zertifikate werden beim ersten Aufruf der entsprechenden Adresse zum ersten mal 
-angefordert. D.h. wenn man z.B. “sub.domain.com” als Adresse konfiguriert und ruft 
-anschließend https://sub.domain.com auf werden die Zertifikate erstmalig angefordert 
-was ein wenig dauern kann bevor die Antwort kommt.
-
-Die Ausgabe der Zertifikate ist eine komplexe Prozedur, aber wenn man die folgende 
-Erklärung befolgt sollte es leicht sein, die kostenlosen Zertifikate zu erhalten.
-
-**Vorgehensweise:**
-
-Ein neues Konto mit der eingegebenen eMail-Adresse muss erstellt werden (Setup dazu in 
-den Systemeinstellungen)
-
-Ein zufälliger Schlüssel als Passwort für das Konto wird erzeugt.
-
-Wenn das Konto angelegt wurde öffnet das System eine kleine Website auf Port 80 um 
-die Adresse zu bestätigen.
-
-Let’s encrypt benutzt immer den Port 80 um die Adresse zu prüfen.
-
-Falls der Port 80 bereits von einem anderen Dienst benutzt wird, kommt Punkt 4 zum 
-tragen – also dem anderen Dienst einen anderen Port zuweisen!
-
-Wenn der kleine Webserver gestartet ist wird die Anfrage nach den Zertifikaten für 
-die angegebenen Adressen in den Systemeinstellungen an den Let’s encrypt Server 
-gesendet.
-
-Der Let’s Encrypt Server sendet eine challenge phrase als Antwort auf die Anfrage zurück 
-und versucht nach einer Weile diese challenge phrase unter der Adresse “http://yourdomain:80/.well-known/acme-challenge/” zu lesen.
-
-Wenn der Server diese challenge phrase von unsrere Seite zurückbekommt sendet der 
-Let’s Encrypt Server die Zertifikate. Diese werden in dem Verzeichnis, das in den Systemeinstellungen eingetragen ist gespeichert.
-
-Dieses klingt komplex, aber alles was man machen muss ist ein paar Checkboxen zu 
-aktivieren und die eMail-Adresse und die Web-Adresse in den Systemeinstellungen einzutragen.
-
-Die erhaltenen Zertifikate sind für etwa 90 Tage gültig. Nachdem diese Zertifikate das erste mal 
-ausgestellt wurden wird eine weiterer Task gestartet, der die Gültigkeit automatisch verlängert.
-
-Dieses Thema ist ziemlich komplex und tausende Dinge können schiefgehen. Wenn es 
-damit nicht klappen sollte wird empfohlen den IoT-Adapter für den Zugang von unterwegs 
-zu benutzen.
-
-Let’s Encrypt funktioniert nur mit einer node.js version>=4.5
-
-
+?> Wenn das nicht klappt oder kein Port freigegeben werden soll: Für den Zugriff
+von unterwegs ist der
+[iot-Adapter](https://www.iobroker.net/#de/adapters/adapterref/iobroker.iot/README.md)
+der einfachere Weg, weil er ohne offene Ports auskommt.
 
 ## Standard ACL
-![Zugriffsrechte](media/ADMIN_Settings_zugriffsrechte.png)
 
-In dieser Unterseite können für alle User/Gruppen die Zugriffsrechte für verschieden 
-Bereiche festgelegt werden
+Legt fest, welche Rechte **neu angelegte** Objekte, Zustände und Dateien
+bekommen – getrennt nach Besitzer, Gruppe und allen anderen.
 
+<img src="media/admin_einstellungen_acl.png" alt="Der Reiter Standard ACL" width="900" />
+
+Die Rechte bestehender Objekte ändert diese Seite nicht. Benutzer und Gruppen
+selbst werden im Reiter
+[Benutzer](https://www.iobroker.net/#de/documentation/admin/users.md) verwaltet.
 
 ## Statistik
-![Statistik](media/ADMIN_Settings_statistics.png)
 
-Damit wir ein wenig den Überblick über die Installationen (verwendete Adapter) und die geografische Verteilung haben würden wir uns sehr freuen, wenn wir diese Informationen bekommen.
+ioBroker kann anonyme Nutzungsstatistiken an das Projekt senden.
 
-Man kann unterschiedlich umfangreiche Informationen verschicken. Dieser Umfang kann links ausgewählt werden.
+<img src="media/admin_einstellungen_statistik.png" alt="Der Reiter Statistik mit der Vorschau der gesendeten Daten" width="900" />
 
-Auf der rechten Seite wird dann angezeigt welche Daten versandt werden.
-Diese Daten werden absolut anonym ausgewertet.
+Links wird der Umfang gewählt, rechts steht im Klartext, was tatsächlich
+übertragen würde – von der Installations-Kennung über Node-Version und Plattform
+bis zur Liste der installierten Adapter. Personenbezogene Daten sind nicht
+dabei. Die Auswertung hilft dem Projekt zu erkennen, welche Adapter und welche
+Plattformen wirklich benutzt werden.
+
+## Weitere Reiter
+
+* **Lizenzen** – hier werden Lizenzschlüssel für kostenpflichtige Adapter
+  hinterlegt.
+* **Zugangsdaten** – zentrale Anmeldedaten, auf die mehrere Adapter zugreifen
+  können, statt sie jeweils einzeln zu speichern.

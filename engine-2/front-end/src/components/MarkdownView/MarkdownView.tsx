@@ -23,6 +23,11 @@ interface MarkdownViewProps {
         listItem: string;
         image: string;
         linkIcon: string;
+        /**
+         * A link inside the text. Without it a link is indistinguishable from the running
+         * text around it - it inherits the paragraph colour and carries no underline.
+         */
+        link?: string;
         table: string;
         tableHead: string;
         tableRow: string;
@@ -168,6 +173,16 @@ export const MarkdownView = memo(function MarkdownView({
                     </Box>
                 ),
                 p: ({ children }) => <Box className={classNames.paragraph}>{children}</Box>,
+                a: ({ children, href, ...props }) => (
+                    <Box
+                        component="a"
+                        href={href}
+                        className={classNames.link}
+                        {...props}
+                    >
+                        {children}
+                    </Box>
+                ),
                 ul: ({ children }) => (
                     <Box
                         component="ul"

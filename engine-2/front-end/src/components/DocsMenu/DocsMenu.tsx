@@ -6,7 +6,7 @@ import { useDocsMenuStyles } from './DocsMenu.styles';
 import { Link, useLocation } from 'react-router-dom';
 import openedFolder from '../../assets/img/docsIcons/opened_folder.svg';
 import closedFolder from '../../assets/img/docsIcons/closed_folder.svg';
-import blueFolder from '../../assets/img/docsIcons/blueFolder.svg';
+import DocsFileIcon from '../icons/DocsFileIcon';
 import whiteArrowUp from '../../assets/img/docsIcons/whiteArrowUp.svg';
 import whiteArrowDown from '../../assets/img/docsIcons/whiteArrowDown.svg';
 import whiteCross from '../../assets/img/docsIcons/whiteCross.svg';
@@ -201,10 +201,7 @@ export const DocsMenu = ({
             <Box className={classes.menuInner}>
                 <Box className={`${classes.header} ${isRootCurrent ? classes.headerActive : ''}`}>
                     <Box className={classes.headerIcon}>
-                        <img
-                            src={blueFolder}
-                            alt="Documentation"
-                        />
+                        <DocsFileIcon />
                     </Box>
                     {firstKeyOriginal ? (
                         <Link

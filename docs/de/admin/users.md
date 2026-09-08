@@ -1,64 +1,39 @@
 ---
 title:       "Benutzer"
-lastChanged: "09.11.2022"
+lastChanged: "07.09.2026"
 ---
 
-# Die Seite Benutzer
-Auf dieser Seite könne Benutzer und Gruppen angelegt, sowie Rechte für die Gruppen 
-vergeben werden.
+# Reiter Benutzer
 
-![Die Seite Benutzer](media/ADMIN_Benutzer_numbers.png)
+Hier werden Benutzer und Gruppen verwaltet. Links stehen die Gruppen, rechts die
+Benutzer; ein Benutzer wird einer Gruppe zugeordnet, indem er mit der Maus auf
+die Gruppe gezogen wird.
 
-Auf der linken Seite befinden sich die vorhandenen Gruppen, auf der rechten Seite die 
-Benutzer.
+<img src="media/admin_benutzer.png" alt="Der Reiter Benutzer mit Gruppen und Benutzern" width="900" />
 
-Benutzer können durch einfaches Drag and Drop in die Gruppen gezogen werden.
+Ab Werk gibt es zwei Gruppen:
 
-## 1.) neue Gruppe
-Nach Anklicken dieses Icons öffnet sich ein weiteres Fenster:
+| Gruppe | Rechte |
+| ------ | ------ |
+| **Administrator** (`system.group.administrator`) | Darf alles. Hier liegt der Benutzer `admin`. |
+| **Benutzer** (`system.group.user`) | Eingeschränkte Rechte. |
 
-![Neue Gruppe anlegen](media/ADMIN_Benutzer_newgroup_allgemein.png)
+Über die Schaltfläche oben rechts wird ein neuer Benutzer angelegt, über die
+links eine neue Gruppe. Der Bleistift öffnet die Bearbeitung: Name, Beschreibung,
+Symbol, Farbe und – beim Benutzer – das Passwort. Die Rechte einer Gruppe werden
+ebenfalls dort gesetzt, getrennt nach Objekten, Zuständen, Dateien, Benutzern
+und den einzelnen Reitern des Admin.
 
-Dieses Fenster besteht aus zwei Untereinheiten. 
+?> Diese Benutzer sind **nicht** die Benutzer des Betriebssystems. Sie gelten nur
+innerhalb von ioBroker – für die Anmeldung am Admin, an vis und an den
+Web-Adaptern.
 
-### Allgemein
-Hier werden die grundlegenden Dinge eingetragen:
+Welche Rechte **neu angelegte** Objekte bekommen, steht in den
+[Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md)
+unter *Standard ACL*.
 
-**Name** - Die Bezeichnung der Gruppe. Dieser Name ist frei wählbar, muss aber eindeutig sein.
-
-**ID** - Die ID wird automatisch ausgefüllt
-
-**Beschreibung** - In dieses Feld kann eine Erklärung zu den Aufgaben dieser Gruppe eingetragen werden.
-
-**Vorschau** - Wird automatisch angezeigt und enthält die vollständige ID `system.group.groupname`.
-
-Über den [+]-Button kann ein Icon hinzugefügt werden, dieses kann aber auch durch 
-Drag and Drop auf das Fenster gezogen werden.
-
-**Farbe** - Mit der dort eingestellten Farbe wird die Kachel der Gruppe unterlegt.
-
-### Zugriffsrechte
-Die Rechte werden für Gruppen vergeben. Damit User bestimmte Rechte haben müssen 
-sie der entsprechenden Gruppe zugeordnet werden.
-
-![Zugriffsrechte der Gruppe](media/ADMIN_Benutzer_newgroup_rechte.png)
-
-Hier werden die Zugriffsrechte für die verschiedenen Aufgaben vergeben.
-
-## 2.) neuer Benutzer
-Nach Anklicken dieses Icons öffnet sich ein weiteres Fenster:
-
-![Neuen Benutzer anlegen](media/ADMIN_Benutzer_newuser.png)
-
-**Name** - Der Name des Users. Dieser Name ist frei wählbar, muss aber eindeutig sein.
-
-**ID** - Die ID wird automatisch ausgefüllt
-
-**Beschreibung** - In dieses Feld kann eine Erklärung zu dem User eingetragen werden.
-
-**Vorschau** - Wird automatisch angezeigt und enthält die vollständige ID sytem.group.Username.
-
-
-**Passwort** - Das Passwort des Users
-
-**Passwort wiederholen** - Zur Sicherheit vor Tippfehlern muss das Passwort hier ein zweites Mal eingegeben werden
+!> In einer frischen Installation ist die Anmeldung am Admin nicht aktiv – jeder
+im Netz kann die Oberfläche öffnen. Wer ioBroker über das Heimnetz hinaus
+erreichbar macht, schaltet die Authentifizierung in der Konfiguration der
+admin-Instanz ein und vergibt ein Passwort für `admin`. Mehr dazu unter
+[Benutzerrechte](https://www.iobroker.net/#de/documentation/config/userrights.md).

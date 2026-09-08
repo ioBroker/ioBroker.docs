@@ -1,228 +1,105 @@
 ---
 title:       "Objekte"
-lastChanged: "10.05.2021"
+lastChanged: "07.09.2026"
 ---
 
+# Reiter Objekte
 
-Unter diesem Reiter befinden sich alle verwalteten Objekte. Zu jeder 
-Instanz wird hier ein Ordner angelegt in dem sich die von ihr angelegten 
-Datenpunkte in einer hierarchischen Struktur befinden. Hier können 
-Objekte auch manuell angelegt und gelöscht werden. Es können ganze 
-Objektstrukturen hoch- oder runtergeladen werden. Ein weiterer Knopf 
-ermöglicht die Anzeige der Expertenansicht.
+Unter diesem Reiter liegen alle Objekte, die ioBroker verwaltet. Jede Instanz legt hier
+einen eigenen Namespace an und darunter ihre Geräte, Kanäle und Datenpunkte. Objekte
+können hier auch von Hand angelegt, bearbeitet und gelöscht werden, und ganze Teilbäume
+lassen sich als JSON-Datei sichern und wieder einspielen.
 
+Was Objekte und Zustände überhaupt sind, steht unter
+[Objekte](https://www.iobroker.net/#de/documentation/basics/objects.md) und
+[Zustände](https://www.iobroker.net/#de/documentation/basics/states.md).
 
+## Die Werkzeugleiste
 
-## Die Titelzeile
+Am oberen Rand stehen die wichtigsten Befehle. Zu jedem Symbol gibt es einen
+Hinweistext – dazu einfach mit dem Mauszeiger eine Weile darauf stehen bleiben.
 
-In der Titelzeile befinden sich Icons für die wichtigsten Vorgänge. Zu 
-jedem Icon gibt es eine Kontexthilfe. Dazu einfach mit der Maus eine 
-Weile auf dem Icon bleiben.
+<img src="media/admin_objekte_leiste.png" alt="Die Werkzeugleiste des Reiters Objekte" width="900" />
 
-![Die Icons des Objekte-Reiters](media/ADMIN_Objekte_numbers.png)
+| Nr. | Funktion |
+| --- | -------- |
+| 1 | **Baum aktualisieren.** Sind gerade angelegte Objekte noch nicht zu sehen, hilft ein Klick hierauf. |
+| 2 | **Konfigurieren.** Legt fest, welche Spalten die Tabelle zeigt und wie breit sie sind. |
+| 3 | **Alle Knoten auf- bzw. zuklappen.** |
+| 4 | **Eine Ebene aufklappen.** |
+| 5 | **Eine Ebene zuklappen.** |
+| 6 | **Statusansicht umschalten** (siehe unten). |
+| 7 | **Objektbeschreibungen ein-/ausblenden.** Zeigt zusätzlich zum Namen den Beschreibungstext des Objekts. |
+| 8 | **Neues Objekt hinzufügen** (siehe unten). |
+| 9 | **Objektbaum aus einer JSON-Datei hinzufügen.** |
+| 10 | **Objektbaum als JSON-Datei speichern.** Gesichert wird der gerade ausgewählte Teilbaum. |
 
+Ganz rechts in der Werkzeugleiste stehen die Zahl der Objekte und Zustände sowie das
+Schraubenschlüssel-Symbol **Bearbeite benutzerdefinierte Konfiguration**. Damit werden
+die Aufzeichnungseinstellungen für **alle** Datenpunkte gesetzt, die gerade den
+Filterkriterien entsprechen.
 
-### 1 - Ansicht aktualisieren
-
-Sollten gerade erst angelegte Objekte nicht sichtbar sein, hilft ein 
-Anklicken dieses Icons den Zustand der Seite auf den neuesten Stand zu 
-bringen.
-
-### 2 - Darstellung ändern
-
-Mit diesem Button wird die Anzeige der Objekte auf dieser Seite geändert.
-
-Bei aktivem Button sind alle Objekte alphabetisch nach ID sortiert 
-untereinander aufgelistet. Ist dieser Button nicht aktiv, werden die 
-Objekte hierarchisch alphabetisch nach Instanzen als Baumstruktur 
-dargestellt.
-
-In beiden Fällen werden selbst angelegte Namespaces ganz oben dargestellt.
-
->Achtung! Der Wechsel der Ansichten kann sehr lange dauern
-
-In der Baumstruktur sind dann auch die nächsten beiden Icons sichtbar.
-
-### 3 - Alle Themengebiete zuklappen
-
-### 4 - Alle Themengebiete aufklappen
-
-Mit diesen beiden Buttons kann die gesamte Baumstruktur auf- bzw. 
-zugeklappt werden.
-
-### 5 - Statusansicht
-
-Mit diesem Button werden weitere Informationen zu den jeweiligen Zuständen 
-der Datenpunkte angezeigt. (Toggle-Modus)
-
-![Statusansicht](media/ADMIN_Objekte_status_tree.png)
-
-Hier mit zusammengeklappter Menüleiste
-
-> Achtung: Wegen der immensen Datenflut kann es bei Nutzung dieser Ansicht 
-> in der Listenansicht zum Aufhängen der Darstellung kommen.
-
-
-### 6 -  Administratormodus
-
-Bei Anwahl dieses Icons werden weitere Objekte angezeigt (Toggle-Funktion). 
-
-Diese Objekte (und deren Verzeichnisse) sind System-Objekte und sollten 
-nicht für die normale Nutzung verwendet werden, da es hier bei einer 
-Änderung / einem Update des Admin zu einer Strukturänderung und damit zu 
-einem Datenverlust persönlicher Daten kommen kann.
-
-
-### 7 - Alphabetisch sortieren
-
-Hiermit wird innerhalb der Ordner entweder nach ID oder Namen sortiert.
-
-![Sortieren](media/ADMIN_Objekte_Sortieren.gif)
-
-
-### 8 - Hinzufügen
-
-Nach Anwählen dieses Icons können weitere Objekte hinzugefügt werden. 
-Ist ein Ordner angewählt wird dieser als Parent in der Objektstruktur 
-übernommen. Ein Konfigurationsfenster öffnet sich:
-
-![Neues Objekt](media/ADMIN_Objekte_new_01.png)
-
-
-Hier muss jetzt der Name für das neue Objekt ausgewählt werden, wobei 
-als Typ gemäß der hierarchischen Struktur ein Gerät, ein Kanal oder ein 
-Datenpunkt zur Verfügung steht. Als Datenpunkttypen stehen Logikwert, 
-Schalter, Zeichenkette, Zahl, Werteliste, Feld, Objekt und gemischt zur 
-Verfügung.
-
-Sobald man das Eingabefenster mit ok bestätigt öffnet sich ein weiteres 
-Fenster:
-
-![Neues Objekt](media/ADMIN_Objekte_new_02.png)
-
-Hier können noch einige Daten eingegeben werden. So kann dem Objekt eine 
-Rolle und ein icon hinzugefügt werden.
-
-Unter den anderen Reitern befinden sich noch weitere Eigenschaften des 
-Objekts. So eine Information gibt es zu jedem Objekt.
-
-Um einen kompletten neuen Namespace anzulegen sind zwei Dinge zu beachten:
-
-* Es darf kein Objekt angewählt sein. Dies erreicht man indem man den 
-Reiter Objekte neu öffnet. 
-* Das oberste Objekt muss mit einem Punkt und einer Ziffer enden (z.B. MyNamespace.0).
-
-Darin können dann die nächsten Ebenen angelegt werden.
-
-### 9 - Upload
-
-Mit diesem Button wird eine komplette Objektstruktur als json-Datei auf den 
-ioBroker Server hochgeladen
-
-### 10 - Download
-
-Mit diesem Button wird die ausgewählte Objektstruktur als json-Datei vom 
-ioBroker Server heruntergeladen 
-und kann gespeichert werden.
+!> Vor dem Klick auf den Schraubenschlüssel unbedingt prüfen, welche Filter gesetzt
+sind. Sonst werden Einstellungen auf sehr viel mehr Datenpunkte angewendet als
+beabsichtigt.
 
 ## Der Seiteninhalt
 
-![Spalten der Tabelle](media/ADMIN_Objekte_numbers02.png)
+Die Objekte stehen in einer Tabelle. Die Eingabefelder und Auswahlmenüs unter den
+Spaltenköpfen filtern die Anzeige.
 
-Auf der Seite werden die vorhandenen Objekte tabellarisch dargestellt.
+<img src="media/admin_objekte_spalten.png" alt="Die Spalten der Objekttabelle" width="900" />
 
-Die Tabelle besteht aus folgenden Spalten (Die Felder unter den Spaltenköpfen 
-1 und 2 sowie die Pulldownmenüs der weiteren Spalten dienen als
-Filterkriterien). Die Tabelle im Bild ist nach Hierarchie geordnet und einige 
-Unterpunkte (nodes) wurden aufgeklappt:
+| Nr. | Spalte | Bedeutung |
+| --- | ------ | --------- |
+| 1 | **ID** | Die Objekthierarchie. Ganz oben stehen die Namespaces, darunter Geräte, Kanäle und Datenpunkte. Im Filterfeld darf `*` als Platzhalter stehen. |
+| 2 | **Name** | Die Bezeichnung des Objekts, davor ein Symbol für die Hierarchieebene. Der Name lässt sich direkt bearbeiten. |
+| 3 | **Typ** | Gerät, Kanal, Zustand oder Verzeichnis. Über das Auswahlmenü lässt sich zum Beispiel auf Zustände einschränken. |
+| 4 | **Rolle** | Sagt Oberflächen wie vis, was der Datenpunkt darstellt (`switch.lock`, `indicator.alarm`, `button` …). Bearbeitbar, mit Vorschlagsliste, freie Eingaben sind erlaubt. |
+| 5 | **Raum** | Der zugeordnete Raum. Ein Klick auf das Feld öffnet die Liste der angelegten Räume. |
+| 6 | **Funktion** | Das zugeordnete Gewerk, zum Beispiel Licht oder Heizung. |
+| 7 | **Wert** | Bei Datenpunkten der aktuelle Wert. **Rot** bedeutet: noch nicht vom Gerät bestätigt (`ack = false`). |
+| 8 | **Rechte** | Die Zugriffsrechte des Objekts als Oktalzahl, wie bei Linux-Dateirechten. |
+| 9 | | Die Schaltflächen der Zeile (siehe unten). |
 
-### 1 - ID
+Räume und Gewerke werden im Reiter
+[Kategorien](https://www.iobroker.net/#de/documentation/admin/enums.md) angelegt.
 
-Dieses sind die obersten Ebenen der Objekthierarchie. Hier werden als 
-oberste Ebene z.B. der Name der Instanz, darunter die jeweilige Struktur 
-der Daten angelegt.
+## Die Statusansicht
 
-### 2 - Name
+Symbol **6** blendet weitere Spalten zu jedem Zustand ein: von wem er zuletzt gesetzt
+wurde, seine Qualität, der Zeitstempel und der Zeitpunkt der letzten Änderung.
 
-In dieser Spalte wird die Bezeichnung des Objekts angegeben. Zusätzlich 
-wird durch ein vorangestelltes Icon gezeigt um welche Hierarchieebene es 
-sich hier handelt (Gerät, Kanal oder Datenpunkt)
+<img src="media/admin_objekte_status.png" alt="Die Statusansicht mit Qualitaet und Zeitstempeln" width="900" />
 
-Die Werte dieser Spalte sind editierbar.
+?> `0x00 - good` heißt: der Wert ist gültig. Andere Werte weisen auf ein Problem hin,
+zum Beispiel `0x20 - substitute` für einen Ersatzwert.
 
-### 3 - Typ
+## Ein neues Objekt anlegen
 
-Der Typ in der Hierarchieebene, der in der Spalte Name bereits durch das 
-vorangestellte Icon ersichtlich war, wird hier noch einmal explizit 
-genannt. Über das Pulldownmenü im Spaltenkopf kann nach diesen Typen 
-gefiltert werden und sich so z.B. nur alle Datenpunkte anzeigen lassen.
+Symbol **8** legt ein Objekt unterhalb des gerade ausgewählten Eintrags an.
 
-### 4 - Rolle
+<img src="media/admin_objekte_neu.png" alt="Der Dialog Neues Objekt hinzufuegen" width="820" />
 
-Die Rolle gibt an, wie User Interfaces wie .vis und material mit diesem 
-Datenpunkt umgehen sollen. Dies ist im Prinzip die Funktion dieses Objekts 
-kurz über einen Begriff beschrieben. Hiernach kann wiederum gefiltert werden.
+Als Typ stehen **Zustand**, **Kanal**, **Gerät** und **Verzeichnis** zur Verfügung, für
+Zustände zusätzlich der Zustandstyp: Logikwert, Zahl, Zeichenkette, Werteliste, Feld,
+Objekt oder gemischt. Erlaubt sind die Strukturen Verzeichnis → Zustand,
+Verzeichnis → Kanal → Zustand, Verzeichnis → Gerät → Kanal → Zustand,
+Gerät → Kanal → Zustand und Kanal → Zustand.
 
-![Pulldownmenü Rolle](media/ADMIN_Objekte_role.png)
+!> Ohne Expertenmodus dürfen eigene Objekte nur unter `0_userdata.0` und `alias.0`
+angelegt werden. Das ist keine Einschränkung, sondern der richtige Ort: Objekte in den
+Namespaces der Adapter werden bei deren nächstem Start überschrieben.
 
-Die Werte dieser Spalte sind editierbar. Anklicken des Feldes bringt ein 
-Pulldownmenü mit sehr vielen Einträgen, aber auch freie Eingaben sind möglich.
+## Die Schaltflächen einer Zeile
 
-### 5 - Raum
+<img src="media/admin_objekte_zeile.png" alt="Rechte und Schaltflaechen einer Tabellenzeile" width="700" />
 
-Wurde dieses Objekt bereits einem Raum zugeordnet, wird dies hier angezeigt. 
-Auch dies dient u.a. der Filterung bei der Suche nach Objekten.
-
-![Raumzuordnungen](media/ADMIN_Objekte_rooms.png)
-
-Die Werte dieser Spalte sind editierbar. So können die Objekte noch 
-nachträglich Räumen zugeordnet werden. Klickt man das Feld an, öffnet 
-sich ein Popup mit den bisher angelegten Räumen.
-
-
-
-### 6 - Funktion
-
-Diese Spalte enthält das Gewerk, dem das entsprechende Objekt zugeordnet 
-ist.
-
-![Gewerke](media/ADMIN_Objekte_functions.png)
-
-Die Werte dieser Spalte sind editierbar. So können die Objekte noch 
-nachträglich Gewerken zugeordnet werden. Klickt man das Feld an, öffnet 
-sich ein Popup mit den bisher angelegten Gewerken.
-
-### 7 - Wert
-
-Handelt es sich bei dem Objekt um einen Datenpunkt, wird hier der aktuelle 
-Wert dieses Datenpunktes angezeigt.
-
-### 8 - Einstellungen
-
-![Einstellungen](media/ADMIN_Objekte_numbers03.png)
-
-1.) Mit Klick auf das Bleistift-Icon öffnet sich ein Fenster mit den 
-Eigenschaften dieses Objekts. Es ist das gleiche Fenster das oben 
-bereits beim Anlegen eines neuen Objekts erschienen ist. Hier können 
-Eigenschaften des Objekts geändert werden. Diese Funktion ist mit 
-äußerster Vorsicht zu benutzen und nur, wenn man genau weiß was man 
-damit bewirkt.
-
-2.) Der Klick auf das Mülleimer-Icon löscht dieses Objekt und alle in 
-der Hierarchie darunterliegenden Objekte auch. Zur Sicherheit erscheint 
-ein Fenster, in dem die Löschung noch einmal bestätigt werden muss.
-
-
-3.) Das Schraubenschlüssel-Icon erscheint nur, wenn mindestens eine 
-History-Instanz installiert ist (History, InfluxDB oder SQL). Hier kann 
-der Datenpunkt für das Loggen der historischen Daten konfiguriert werden. 
-Nähere Informationen dazu finden sich in der Beschreibung des History-Adapters.
-
-Über den Schraubenschlüssel in der Titelzeile kann diese Aktion zeitgleich 
-für alle Datenpunkte durchgeführt werden, die den aktuellen Filterkriterien 
-entsprechen. Es ist daher sorgsam zu prüfen, ob die Filterkriterien dieser 
-Seite so ausgewählt sind, dass auch nur die gewünschten Datenpunkte dabei sind.
-
-Das Pulldownmenü zum Filtern dieser Spalte bezieht sich auf Datenpunkte mit 
-geloggten Daten. Hier stehen mit, ohne und alle sowie die installierten 
-History-Instanzen zur Verfügung.
+1. Die **Rechte** des Objekts.
+2. Der **Bleistift** öffnet den Objekteditor mit allen Eigenschaften. Änderungen hier
+   wirken sofort – nur benutzen, wenn klar ist, was sie bewirken.
+3. Der **Mülleimer** löscht das Objekt und alles, was in der Hierarchie darunter liegt.
+   Vorher erscheint eine Sicherheitsabfrage.
+4. Das **Zahnrad** öffnet die *Benutzerdefinierten Einstellungen*. Dort wird festgelegt,
+   ob und wie der Datenpunkt aufgezeichnet wird. Es erscheint nur, wenn mindestens eine
+   Instanz von history, InfluxDB oder SQL installiert ist.

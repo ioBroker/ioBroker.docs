@@ -249,6 +249,22 @@ export const useStyles = makeStyles<{ isMenuCollapsed: boolean }>()((theme, { is
             fontSize: '16px',
         },
     },
+    // A link in the running text of a document. Until now it inherited the colour of the
+    // paragraph and carried no underline, so it was not recognisable as a link at all.
+    link: {
+        color: theme.palette.primary.main,
+        textDecoration: 'none',
+        borderBottom: `1px solid ${theme.custom.hairlineStrong}`,
+        transition: 'border-color 0.15s ease, color 0.15s ease',
+        '&:hover': {
+            borderBottomColor: theme.palette.primary.main,
+        },
+        '&:focus-visible': {
+            outline: `2px solid ${theme.palette.primary.main}`,
+            outlineOffset: '2px',
+            borderRadius: '2px',
+        },
+    },
     linkIcon: {
         width: '20px',
         height: '20px',

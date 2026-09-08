@@ -1,68 +1,86 @@
 ---
 title:       "Was ist ein Repository?"
-lastChanged: "23.11.2022"
+lastChanged: "07.09.2026"
 ---
 
-Ein Repository ist ein zentraler Aufbewahrungsort für Softwareprogramme.
+# Was ist ein Repository?
 
-Die Adapter, welche über die ioBroker Admin Oberfläche angezeigt und installiert/aktualisiert 
-werden können, werden über einen zentralen Aufbewahrungsort (einem Repository) verwaltet. 
-Defaultmäßig ist ioBroker nach einer Installation so konfiguriert, dass auf das "stable" 
-Repository zugegriffen wird und die dort hinterlegten Adapter zur Installation angeboten werden. 
+Ein Repository ist ein zentraler Aufbewahrungsort für Software. Die Adapter, die
+der Admin zur Installation anbietet, stammen aus einem solchen Repository.
 
-In ioBroker stehen zwei Repositories zur Verfügung:
-- **stable**: In diesem Repository stehen die Adapter in der Version zur Verfügung, welche bereits getestet sind und somit auf einem Produktivsystem verwendet werden können 
-- **beta**: In diesem Repository stehen die Adapterversionen zur Verfügung, welche sich aktuell in der Testphase (!) befinden und noch mehrere Fehler beinhalten können. Das beta Repository hieß früher latest, da der Zweck aus dem Namen nicht wirklich hervorging, wurde es von latest nach beta umbenannt. 
+ioBroker bringt zwei mit:
 
-?> Grundsätzlich gilt, dass für eine produktive Installation von ioBroker ***IMMER*** das Stable Repository genutzt werden sollte. Im Beta Repository sind Versionen enthalten die noch Fehler enthalten und eventuell das ganze System beeinträchtigen können.
+| Repository | Inhalt |
+| ---------- | ------ |
+| **stable** | Adapterversionen, die getestet sind und auf einem produktiven System benutzt werden können. Voreingestellt. |
+| **beta** | Versionen, die sich noch in der Testphase befinden und Fehler enthalten können. Dieses Repository hieß früher *latest*. |
 
-## Auswahl des Repository
-In den Systemeinstellungen über den Schraubenschlüssel die Basiseinstellungen öffnen:
+!> Für eine Installation, die zuverlässig laufen soll, gehört **immer** das
+Stable-Repository eingestellt. Die Versionen im Beta-Repository können Fehler
+enthalten, die das ganze System beeinträchtigen.
 
-![](media/Repository_IconBasicSettings.png)
+## Das Repository auswählen
 
-![](media/Repository_BasicsSettingsDefaultPath.png)
+Die Einstellung steht in den
+[Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md)
+im Reiter **Repositories**. Geöffnet werden sie über den Punkt **System** ganz
+unten in der Menüleiste des Admin.
 
-(1) Im Reiter Repositories kann das gewünschte Repository ausgewählt werden, indem in der Spalte "Aktiv" die entsprechende Checkbox aktiviert wird.
+<img src="media/repository_einstellungen.png" alt="Der Reiter Repositories in den Basiseinstellungen" width="900" />
 
-(2) Über den Button werden die Pfade zu den Standard Repositorys stable und beta wieder auf die Standardpfade zurückgesetzt. Achtung: Diese Button löscht auch die manuell hinzugefügten Repositories
+| Nr. | Spalte |
+| --- | ------ |
+| 1 | **Aktiv** – hier wird ausgewählt, welches Repository benutzt wird. |
+| 2 | **Stable** – wird beim ersten Einlesen automatisch gesetzt, wenn ioBroker das Repository als stabil erkennt. |
+| 3 | **Automatisches Upgrade** – ob Adapter aus diesem Repository selbständig aktualisiert werden dürfen. |
+| 4 | **Name** – frei wählbar. |
+| 5 | **Link** – die Adresse der Adapterliste. |
 
-(3) In der Spalte "Stable" wird die Checkbox automatisch aktiviert, wenn das Repository nach dem ersten einlesen als ein "stable" Repository erkannt wurde
+Oben links legt das **+** ein weiteres Repository an. Der Knopf mit dem Pfeil
+daneben setzt die Pfade von *stable* und *beta* auf die Voreinstellung zurück –
+und löscht dabei auch selbst hinzugefügte Repositories.
 
-Die Standardpfade der Repositories stable und beta lauten:
-- stable - Link zum Repository http://download.iobroker.net/sources-dist.json
-- beta - Link zum Repository http://download.iobroker.net/sources-dist-latest.json
+Die Standardpfade lauten:
 
-Wurde das Beta Repository ausgewählt, so erfolgt in der Adapterübersicht eine entsprechende Warnung:
+* stable: `http://download.iobroker.net/sources-dist.json`
+* beta: `http://download.iobroker.net/sources-dist-latest.json`
 
-![](media/Repository_AdapterRepInfo.png)
+Ist das Beta-Repository aktiv, weist der Reiter
+[Adapter](https://www.iobroker.net/#de/documentation/admin/adapter.md) mit einer
+Warnung darauf hin:
 
-## Was sollte ich tun, wenn ich mal einen Adapter aus dem Beta Repository brauche? 
-Früher bedeutete dies im ioBroker das Repository von Stable auf Beta umzustellen, den einen 
-Adapter zu installieren und dann wieder zurückzuwechseln. Letzteres ist dann meistens auf der Strecke geblieben. 
+<img src="media/repository_warnung.png" alt="Die Warnung im Adapter-Reiter, wenn das Beta-Repository aktiv ist" width="900" />
 
-Seit Admin 5 geht dies aber viel komfortabler, OHNE das Repository umzustellen, zu müssen! 
+## Einen einzelnen Adapter aus dem Beta-Repository
 
-- Aktiviere den Expertenmodus 
-- Im Menü "Adapter" auf den Button "Installieren aus eigener URL" (GitHub) gehen und auf den ersten Tab "Von NPM" wechseln
-- Im Feld "Adapter auswählen" kann jetzt der gewünschte Adapter eingetragen / ausgewählt werden, welcher installiert werden soll 
+Früher hieß das: von stable auf beta umstellen, den Adapter installieren und
+zurückstellen – wobei das Zurückstellen meistens vergessen wurde. Das ist nicht
+mehr nötig.
 
-Auf diese Weise kann man die neueste Beta-Version installieren, ohne sein Repository wechseln zu müssen.
+* Den **Expertenmodus** einschalten (das Zeichen unten links in der Menüleiste).
+* Im Reiter **Adapter** auf **Installieren aus eigener Quelle** gehen – das
+  Symbol mit dem Octocat.
+* Im Reiter **Von npm** den gewünschten Adapter auswählen.
 
-![](media/Repository_AdapterInstallNpm.png)
+<img src="media/repository_npm.png" alt="Der Dialog Installieren aus eigener Quelle, Reiter Von npm" width="820" />
 
-Wichtiger Hinweis: Installiere einen Adapter aus Github nur dann, wenn du vom Entwickler hierzu explizit aufgefordert wirst (z.B. im Rahmen von Alpha Tests, Bugfixing etc.). Adapterversionen welche direkt von Github installiert werden befinden sich in der Entwicklung und können somit auch zwischenzeitlich nicht funktionsfähig sein.
+So lässt sich die neueste Version eines einzelnen Adapters installieren, ohne
+dass das Repository gewechselt werden muss. Alle übrigen Adapter kommen weiterhin
+aus stable.
 
-## Wie kommt ein Adapter in das Beta oder Stable Repository? 
-Lange bevor ein Adapter zur Installation in ioBroker über die Adminoberfläche bereitsteht, stellt 
-ein Entwickler einen Antrag auf Aufnahme ins Repository. Wenn das passiert ist, schauen sich 
-erfahrene Entwickler den neuen Adapterquellcode an und geben dem anfragenden Entwickler ein Feedback 
-mit den Punkten welche abgearbeitet werden müssen, bevor der neue Adapter ins Repository aufgenommen werden kann. 
+!> **Abhängigkeiten werden bei diesem Weg nicht geprüft.** Und einen Adapter
+direkt von GitHub installiert man nur, wenn der Entwickler ausdrücklich darum
+bittet – etwa für einen Test oder eine Fehlersuche. Solche Versionen befinden
+sich mitten in der Entwicklung und funktionieren zwischenzeitlich womöglich gar
+nicht.
 
-Ein neuer Adapter steht zuerst im Beta Repository zur Verfügung und kann dann von den (Beta) Testern 
-ausgiebig getestet werden. Wenn die Testphase abgeschlossen ist und die gemeldeten Fehler gefixt worden 
-sind, wird die Version des Adapters im stable Repository zur Verfügung gestellt.
+## Wie ein Adapter ins Repository kommt
 
-Nach einer Funktionsänderung des Adapters wird dieser im Normalfall auch erst wieder im Beta Repository 
-zum Test zur Verfügung gestellt bis die Version nach Abschluss der Testphase für das stable Repository 
-freigegeben wird.
+Lange bevor ein Adapter im Admin auftaucht, stellt der Entwickler einen Antrag auf
+Aufnahme. Erfahrene Entwickler sehen sich den Quellcode an und melden zurück, was
+noch zu tun ist.
+
+Ein neuer Adapter steht zuerst im **Beta**-Repository und wird dort von Testern
+ausprobiert. Sind die gemeldeten Fehler behoben, wandert die Version ins
+**Stable**-Repository. Nach einer größeren Funktionsänderung geht ein Adapter in
+der Regel denselben Weg noch einmal.

@@ -1,77 +1,49 @@
 ---
 title:       "Hosts"
-lastChanged: "09.11.2022"
+lastChanged: "07.09.2026"
 ---
 
+# Reiter Hosts
 
-Hier werden die verfügbaren Hosts angezeigt.
+Hier stehen die Rechner, auf denen ioBroker läuft. Bei einer normalen
+Installation ist das genau einer; in einem
+[Multihost-System](https://www.iobroker.net/#de/documentation/config/multihost.md)
+sind es der Master und alle weiteren Hosts.
 
-![Die Seite Hosts](media/ADMIN_Hosts_numbers.png)
+<img src="media/admin_hosts.png" alt="Der Reiter Hosts mit aufgeklappter Detailzeile" width="900" />
 
-Bei einem Standardsystem gibt es nur einen Host. Bei einem Multihostsystem 
-entsprechend mehrere.
+| Nr. | Bedeutung |
+| --- | --------- |
+| 1 | **Benachrichtigungen** des Hosts. Die Zahl nennt die ungelesenen Meldungen – dort stehen etwa Hinweise auf zu wenig Speicher. |
+| 2 | Der **Name** des Hosts. |
+| 3 | Die aktuelle **CPU**-Last. |
+| 4 | Die **RAM**-Auslastung. |
+| 5 | Die **Betriebszeit** des js-controllers. |
+| 6 | Die **installierte** Version des js-controllers. |
+| 7 | Die **verfügbare** Version. Ist sie höher als die installierte, steht hier ein Update an. |
+| 8 | **Ereignisse** – ein- und ausgehende Nachrichten pro Sekunde. |
+| 9 | Den **Namen ändern**. |
+| 10 | **Host-Basiseinstellungen.** |
+| 11 | **Host neu starten.** |
+| 12 | Die **Log-Stufe** des Hosts. |
+| 13 | Klappt die **Detailzeile** auf. |
 
-## Die Titelzeile
+Die Detailzeile nennt Plattform, Betriebssystem, Architektur, Anzahl und
+Geschwindigkeit der Prozessoren, Modell, RAM, System-Betriebszeit, Node.js- und
+NPM-Version, Uhrzeit und Zeitversatz des Hosts sowie die Zahl der bekannten
+Adapter, die Größe des Datenträgers, den freien Speicherplatz, die Zahl der
+aktiven Instanzen und das Installationsverzeichnis.
 
-in der Titelzeile befinden sich Icons für die wichtigsten Vorgänge. Zu jedem Icon
-gibt es eine Kontexthilfe. Dazu einfach mit der Maus eine Weile auf dem Icon bleiben.
+?> **Zeit und Zeitversatz** lohnen einen Blick: Läuft die Uhr des Hosts falsch,
+stimmen alle Zeitstempel der Datenpunkte nicht, und zeitgesteuerte Abläufe
+starten zur falschen Zeit.
 
+## js-controller aktualisieren
 
-Die Icons im einzelnen:
+Der js-controller ist der Kern von ioBroker. Sein Update wird hier angeboten,
+sobald eine neuere Version im Repository steht. Wie es abläuft und was vorher zu
+tun ist, steht unter
+[ioBroker updaten](https://www.iobroker.net/#de/documentation/install/updateself.md).
 
-### 1 - Ansicht umschalten
-
-Mit diesem Button kann man zwischen der Kachel- und der Listenansicht umschalten 
-(Toggle-Funktion)
-
-
-### 2 - Updates abrufen
-
-Um zu überprüfen, ob ein Update für den js-controller vorliegt kann man auf diesen 
-Button klicken. Wenn ein Update vorliegt erscheint in dem Punkt ***Hosts*** der 
-Menüleiste eine der upzudatenden Hosts entsprechende Zahl und in der Kachel unter 
-verfügbar wird die neue Version angezeigt.
-
-### 3 - Filter
-
-In diesem Feld kann man die Liste der Hosts nach eigenen Wünschen filtern
-
-## Der Seiteninhalt
-
-Auf der Seite werden die vorhandenen Hosts aufgezählt.
-
-Zu jedem Host gibt es eine Kachel (eine Zeile in der Listenansicht) in der die 
-Daten des jeweiligen Hosts angezeigt werden.
-
-
-Die folgenden Icons dienen der Verwaltung der Hosts:
-
-### 4 - Editieren
-
-Hier kann der Name des Hosts geändert werden.  Dieser Name muss eindeutig sein.
-
- 
-### 5 - Restart Host
-
-Mit diesem Button kann der entsprechende Host neu gestartet werden. Der Klick 
-darauf entspricht dem Befehl reboot.
- 
-
-### 6 - Host entfernen
-
-Dieser Button ist nur bei slaves vorhenden. Wurde ein Slave aus der Multihost-
-Umgebung entfernt, können damit auch alle zu diesem Host gehörenden Objekte 
-entfernt werden.
-
-### 7 - Controller update
-
-liegt ein Update des js-controllers für das eingestellte Repository vor, erscheint 
-ein weiteres Icon:
-
-![Controller-Update](media/ADMIN_Hosts_update.png)
-
-Beim Klick auf dieses Icon, wird jedoch im Gegensatz zu dem Icon bei den Adaptern, 
-das Update nicht gestartet, da dazu ioBroker beendet werden muss. Statt dessen 
-erscheint eine Anleitung zum weiteren Vorgehen.
-
-
+!> Vor einem Update des js-controllers gehört ein
+[Backup](https://www.iobroker.net/#de/documentation/config/backup.md) angelegt.
